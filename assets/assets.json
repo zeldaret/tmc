@@ -25942,11 +25942,6 @@
     "size": 8
   },
   {
-    "path": "data_080CEBDC/unusedLabel_0CEBDC.bin",
-    "start": 846812,
-    "size": 16
-  },
-  {
     "path": "animations/gSpriteAnimations_SpinyBeetle_0.bin",
     "start": 846884,
     "size": 5,
@@ -27270,26 +27265,6 @@
     "type": "animation"
   },
   {
-    "path": "data_080D015C/gUnk_080D01EF.bin",
-    "start": 852463,
-    "size": 29
-  },
-  {
-    "path": "data_080D015C/gUnk_080D020C.bin",
-    "start": 852492,
-    "size": 4
-  },
-  {
-    "path": "data_080D015C/gUnk_080D0210.bin",
-    "start": 852496,
-    "size": 1
-  },
-  {
-    "path": "data_080D015C/gUnk_080D0211.bin",
-    "start": 852497,
-    "size": 20
-  },
-  {
     "path": "animations/gSpriteAnimations_Lakitu_9.bin",
     "start": 852517,
     "size": 65,
@@ -27314,91 +27289,16 @@
     "type": "animation"
   },
   {
-    "path": "data_080D015C/gUnk_080D02F3.bin",
-    "start": 852723,
-    "size": 3
-  },
-  {
-    "path": "data_080D015C/gUnk_080D02F6.bin",
-    "start": 852726,
-    "size": 1
-  },
-  {
-    "path": "data_080D015C/gUnk_080D02F7.bin",
-    "start": 852727,
-    "size": 2
-  },
-  {
     "path": "animations/gSpriteAnimations_Lakitu_13.bin",
     "start": 852729,
     "size": 3,
     "type": "animation"
   },
   {
-    "path": "data_080D015C/gUnk_080D02FC.bin",
-    "start": 852732,
-    "size": 4
-  },
-  {
-    "path": "data_080D015C/gUnk_080D0300.bin",
-    "start": 852736,
-    "size": 10
-  },
-  {
     "path": "animations/gSpriteAnimations_Lakitu_14.bin",
     "start": 852746,
     "size": 17,
     "type": "animation"
-  },
-  {
-    "path": "data_080D015C/gUnk_080D031B.bin",
-    "start": 852763,
-    "size": 17
-  },
-  {
-    "path": "data_080D015C/gUnk_080D032C.bin",
-    "start": 852780,
-    "size": 17
-  },
-  {
-    "path": "data_080D015C/gUnk_080D033D.bin",
-    "start": 852797,
-    "size": 17
-  },
-  {
-    "path": "data_080D015C/gUnk_080D034E.bin",
-    "start": 852814,
-    "size": 17
-  },
-  {
-    "path": "data_080D015C/gUnk_080D035F.bin",
-    "start": 852831,
-    "size": 17
-  },
-  {
-    "path": "data_080D015C/gUnk_080D0370.bin",
-    "start": 852848,
-    "size": 17
-  },
-  {
-    "path": "data_080D015C/gUnk_080D0381.bin",
-    "start": 852865,
-    "size": 17
-  },
-  {
-    "path": "data_080D015C/gUnk_080D0392.bin",
-    "start": 852882,
-    "size": 17
-  },
-  {
-    "path": "data_080D015C/gUnk_080D03A3.bin",
-    "start": 852899,
-    "size": 17
-  },
-  {
-    "path": "data_080D015C/gUnk_080D0404.bin",
-    "start": 853012,
-    "size": 4
   },
   {
     "path": "animations/gSpriteAnimations_Lakitu_0.bin",
@@ -35231,4489 +35131,16 @@
     "size": 16
   },
   {
-    "path": "palettes/gPaletteGroup_1.bin",
-    "start": 1045544,
-    "size": 8,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_2.bin",
-    "start": 1045552,
-    "size": 8,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_3.bin",
-    "start": 1045560,
-    "size": 12,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_4.bin",
-    "start": 1045572,
-    "size": 12,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_5.bin",
-    "start": 1045584,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_6.bin",
-    "start": 1045588,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_7.bin",
-    "start": 1045592,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_8.bin",
-    "start": 1045596,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_9.bin",
-    "start": 1045600,
-    "size": 20,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_10.bin",
-    "start": 1045620,
-    "size": 16,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_21.bin",
-    "start": 1045636,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_20.bin",
-    "start": 1045640,
-    "size": 8,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_37.bin",
-    "start": 1045648,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_48.bin",
-    "start": 1045652,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_30.bin",
-    "start": 1045656,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_29.bin",
-    "start": 1045660,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_23.bin",
-    "start": 1045664,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_31.bin",
-    "start": 1045668,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_32.bin",
-    "start": 1045672,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_33.bin",
-    "start": 1045676,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_34.bin",
-    "start": 1045680,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_70.bin",
-    "start": 1045684,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_36.bin",
-    "start": 1045688,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_269.bin",
-    "start": 1045692,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_63.bin",
-    "start": 1045696,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_27.bin",
-    "start": 1045700,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_72.bin",
-    "start": 1045704,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_73.bin",
-    "start": 1045708,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_74.bin",
-    "start": 1045712,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_75.bin",
-    "start": 1045716,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_102.bin",
-    "start": 1045720,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_24.bin",
-    "start": 1045724,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_208.bin",
-    "start": 1045728,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_26.bin",
-    "start": 1045732,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_35.bin",
-    "start": 1045736,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_99.bin",
-    "start": 1045740,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_45.bin",
-    "start": 1045744,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_46.bin",
-    "start": 1045748,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_227.bin",
-    "start": 1045752,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_103.bin",
-    "start": 1045756,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_64.bin",
-    "start": 1045760,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_203.bin",
-    "start": 1045764,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_229.bin",
-    "start": 1045768,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_69.bin",
-    "start": 1045772,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_65.bin",
-    "start": 1045776,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_261.bin",
-    "start": 1045780,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_66.bin",
-    "start": 1045784,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_67.bin",
-    "start": 1045788,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_244.bin",
-    "start": 1045792,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_68.bin",
-    "start": 1045796,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_243.bin",
-    "start": 1045800,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_279.bin",
-    "start": 1045804,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_254.bin",
-    "start": 1045808,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_255.bin",
-    "start": 1045812,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_268.bin",
-    "start": 1045816,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_204.bin",
-    "start": 1045820,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_205.bin",
-    "start": 1045824,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_206.bin",
-    "start": 1045828,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_207.bin",
-    "start": 1045832,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_219.bin",
-    "start": 1045836,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_262.bin",
-    "start": 1045840,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_263.bin",
-    "start": 1045844,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_264.bin",
-    "start": 1045848,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_265.bin",
-    "start": 1045852,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_25.bin",
-    "start": 1045856,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_55.bin",
-    "start": 1045860,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_76.bin",
-    "start": 1045864,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_94.bin",
-    "start": 1045868,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_28.bin",
-    "start": 1045872,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_38.bin",
-    "start": 1045876,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_39.bin",
-    "start": 1045880,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_42.bin",
-    "start": 1045884,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_108.bin",
-    "start": 1045888,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_109.bin",
-    "start": 1045892,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_266.bin",
-    "start": 1045896,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_53.bin",
-    "start": 1045900,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_40.bin",
-    "start": 1045904,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_41.bin",
-    "start": 1045908,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_47.bin",
-    "start": 1045912,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_50.bin",
-    "start": 1045916,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_71.bin",
-    "start": 1045920,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_101.bin",
-    "start": 1045924,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_201.bin",
-    "start": 1045928,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_202.bin",
-    "start": 1045932,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_60.bin",
-    "start": 1045936,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_61.bin",
-    "start": 1045940,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_98.bin",
-    "start": 1045944,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_256.bin",
-    "start": 1045948,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_267.bin",
-    "start": 1045952,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_62.bin",
-    "start": 1045956,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_22.bin",
-    "start": 1045960,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_54.bin",
-    "start": 1045964,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_245.bin",
-    "start": 1045968,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_246.bin",
-    "start": 1045972,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_247.bin",
-    "start": 1045976,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_248.bin",
-    "start": 1045980,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_249.bin",
-    "start": 1045984,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_43.bin",
-    "start": 1045988,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_250.bin",
-    "start": 1045992,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_251.bin",
-    "start": 1045996,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_252.bin",
-    "start": 1046000,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_253.bin",
-    "start": 1046004,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_44.bin",
-    "start": 1046008,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_200.bin",
-    "start": 1046012,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_209.bin",
-    "start": 1046016,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_220.bin",
-    "start": 1046020,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_224.bin",
-    "start": 1046024,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_225.bin",
-    "start": 1046028,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_226.bin",
-    "start": 1046032,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_230.bin",
-    "start": 1046036,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_231.bin",
-    "start": 1046040,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_232.bin",
-    "start": 1046044,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_257.bin",
-    "start": 1046048,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_258.bin",
-    "start": 1046052,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_259.bin",
-    "start": 1046056,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_260.bin",
-    "start": 1046060,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_210.bin",
-    "start": 1046064,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_211.bin",
-    "start": 1046068,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_212.bin",
-    "start": 1046072,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_213.bin",
-    "start": 1046076,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_104.bin",
-    "start": 1046080,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_105.bin",
-    "start": 1046084,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_106.bin",
-    "start": 1046088,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_107.bin",
-    "start": 1046092,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_77.bin",
-    "start": 1046096,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_78.bin",
-    "start": 1046100,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_79.bin",
-    "start": 1046104,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_80.bin",
-    "start": 1046108,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_81.bin",
-    "start": 1046112,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_82.bin",
-    "start": 1046116,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_83.bin",
-    "start": 1046120,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_84.bin",
-    "start": 1046124,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_85.bin",
-    "start": 1046128,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_95.bin",
-    "start": 1046132,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_96.bin",
-    "start": 1046136,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_97.bin",
-    "start": 1046140,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_86.bin",
-    "start": 1046144,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_87.bin",
-    "start": 1046148,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_88.bin",
-    "start": 1046152,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_89.bin",
-    "start": 1046156,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_90.bin",
-    "start": 1046160,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_91.bin",
-    "start": 1046164,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_92.bin",
-    "start": 1046168,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_93.bin",
-    "start": 1046172,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_214.bin",
-    "start": 1046176,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_215.bin",
-    "start": 1046180,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_216.bin",
-    "start": 1046184,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_217.bin",
-    "start": 1046188,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_218.bin",
-    "start": 1046192,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_228.bin",
-    "start": 1046196,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_223.bin",
-    "start": 1046200,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_222.bin",
-    "start": 1046204,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_221.bin",
-    "start": 1046208,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_49.bin",
-    "start": 1046212,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_51.bin",
-    "start": 1046216,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_52.bin",
-    "start": 1046220,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_56.bin",
-    "start": 1046224,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_57.bin",
-    "start": 1046228,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_58.bin",
-    "start": 1046232,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_59.bin",
-    "start": 1046236,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_100.bin",
-    "start": 1046240,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_233.bin",
-    "start": 1046244,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_234.bin",
-    "start": 1046248,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_235.bin",
-    "start": 1046252,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_236.bin",
-    "start": 1046256,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_237.bin",
-    "start": 1046260,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_238.bin",
-    "start": 1046264,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_239.bin",
-    "start": 1046268,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_240.bin",
-    "start": 1046272,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_241.bin",
-    "start": 1046276,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_242.bin",
-    "start": 1046280,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_270.bin",
-    "start": 1046284,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_271.bin",
-    "start": 1046288,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_272.bin",
-    "start": 1046292,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_273.bin",
-    "start": 1046296,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_274.bin",
-    "start": 1046300,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_275.bin",
-    "start": 1046304,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_276.bin",
-    "start": 1046308,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_277.bin",
-    "start": 1046312,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_278.bin",
-    "start": 1046316,
-    "size": 4,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_280.bin",
-    "start": 1046320,
-    "size": 12,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_281.bin",
-    "start": 1046332,
-    "size": 8,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_282.bin",
-    "start": 1046340,
-    "size": 12,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_283.bin",
-    "start": 1046352,
-    "size": 12,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_284.bin",
-    "start": 1046364,
-    "size": 20,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_285.bin",
-    "start": 1046384,
-    "size": 8,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_286.bin",
-    "start": 1046392,
-    "size": 8,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_287.bin",
-    "start": 1046400,
-    "size": 8,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_288.bin",
-    "start": 1046408,
-    "size": 8,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_289.bin",
-    "start": 1046416,
-    "size": 8,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_290.bin",
-    "start": 1046424,
-    "size": 8,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_291.bin",
-    "start": 1046432,
-    "size": 8,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_292.bin",
-    "start": 1046440,
-    "size": 8,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_293.bin",
-    "start": 1046448,
-    "size": 8,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_294.bin",
-    "start": 1046456,
-    "size": 8,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_295.bin",
-    "start": 1046464,
-    "size": 8,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_296.bin",
-    "start": 1046472,
-    "size": 8,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_297.bin",
-    "start": 1046480,
-    "size": 8,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_298.bin",
-    "start": 1046488,
-    "size": 8,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_299.bin",
-    "start": 1046496,
-    "size": 8,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_300.bin",
-    "start": 1046504,
-    "size": 8,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_301.bin",
-    "start": 1046512,
-    "size": 8,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_302.bin",
-    "start": 1046520,
-    "size": 16,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_303.bin",
-    "start": 1046536,
-    "size": 12,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_304.bin",
-    "start": 1046548,
-    "size": 40,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_305.bin",
-    "start": 1046588,
-    "size": 8,
-    "type": "palette_group"
-  },
-  {
-    "path": "palettes/gPaletteGroup_306.bin",
-    "start": 1046596,
-    "size": 12,
-    "type": "palette_group"
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF0C4_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1044676
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF0DC_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1044700
-    },
-    "size": 72
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF124_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1044772
-    },
-    "size": 84
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF178_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1044856
-    },
-    "size": 36
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF19C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1044892
-    },
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF1CC_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1044940
-    },
-    "size": 72
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF214_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045012
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF220_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045024
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF22C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045036
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF244_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045060
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF25C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045084
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF268_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045096
-    },
-    "size": 72
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF2B0_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045168
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF2C8_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045192
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF2E0_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045216
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF2EC_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045228
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF304_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045252
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF310_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045264
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF31C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045276
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF328_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045288
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF334_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045300
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF340_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045312
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF34C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045324
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF358_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045336
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF370_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045360
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF388_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045384
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF394_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045396
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF3AC_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045420
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF3C4_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045444
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF3DC_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045468
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF3F4_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045492
-    },
-    "size": 60
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF430_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045552
-    },
-    "size": 60
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF46C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045612
-    },
-    "size": 60
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF4A8_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045672
-    },
-    "size": 60
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF4E4_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045732
-    },
-    "size": 60
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF520_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045792
-    },
-    "size": 60
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF55C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045852
-    },
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF58C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045900
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF5A4_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045924
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF5B0_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045936
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF5BC_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045948
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF5C8_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045960
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF5D4_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045972
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF5E0_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045984
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF5EC_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1045996
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF5F8_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046008
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF604_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046020
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF610_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046032
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF61C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046044
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF628_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046056
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF634_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046068
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF640_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046080
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF64C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046092
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF658_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046104
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF664_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046116
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF670_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046128
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF67C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046140
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF688_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046152
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF694_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046164
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF6A0_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046176
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF6AC_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046188
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF6B8_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046200
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF6C4_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046212
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF6D0_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046224
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF6DC_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046236
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF6F4_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046260
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF70C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046284
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF724_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046308
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF73C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046332
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF754_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046356
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF76C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046380
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF784_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046404
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF79C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046428
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF7B4_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046452
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF7CC_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046476
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF7E4_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046500
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF7FC_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046524
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF814_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046548
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF82C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046572
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF844_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046596
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF85C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046620
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF874_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046644
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF88C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046668
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF8A4_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046692
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF8B0_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046704
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF8BC_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046716
-    },
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF8EC_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046764
-    },
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF91C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046812
-    },
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF94C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046860
-    },
-    "size": 84
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FF9A0_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1046944
-    },
-    "size": 168
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FFA48_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1047112
-    },
-    "size": 168
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FFAF0_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1047280
-    },
-    "size": 120
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FFB68_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1047400
-    },
-    "size": 72
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FFBB0_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1047472
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FFBC8_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1047496
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FFBE0_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1047520
-    },
-    "size": 60
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FFC1C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1047580
-    },
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FFC4C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1047628
-    },
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FFC7C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1047676
-    },
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FFCAC_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1047724
-    },
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FFCDC_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1047772
-    },
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FFD0C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1047820
-    },
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FFD3C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1047868
-    },
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FFD6C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1047916
-    },
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FFD9C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1047964
-    },
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FFDCC_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1048012
-    },
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FFDFC_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1048060
-    },
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FFE2C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1048108
-    },
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FFE5C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1048156
-    },
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FFE8C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1048204
-    },
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FFEBC_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1048252
-    },
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FFEEC_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1048300
-    },
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FFF1C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1048348
-    },
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FFF4C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1048396
-    },
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FFF7C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1048444
-    },
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FFFAC_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1048492
-    },
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_080FFFDC_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1048540
-    },
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_0810000C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1048588
-    },
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_0810003C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1048636
-    },
-    "size": 108
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_081000A8_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1048744
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_081000B4_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1048756
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_081000C0_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1048768
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_081000CC_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1048780
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_081000D8_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1048792
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_081000E4_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1048804
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_081000F0_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1048816
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_081000FC_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1048828
-    },
-    "size": 96
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_0810015C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1048924
-    },
-    "size": 132
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_081001E0_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1049056
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_081001EC_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1049068
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_EU_081001F8_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1049080
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1047440,
-    "size": 24,
-    "type": "gfx_group"
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_2_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 1046616
-    },
-    "size": 53
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_2_1_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 1045388
-    },
-    "size": 53
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_2_2_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 1047464,
-    "size": 53
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_2_3_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 1046669
-    },
-    "size": 31
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_2_4_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 1045441
-    },
-    "size": 31
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_2_5_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 1047517,
-    "size": 19
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_3_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 1046700
-    },
-    "size": 36
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_3_1_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 1045472
-    },
-    "size": 36
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_3_2_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 1047536,
-    "size": 36
-  },
-  {
     "offsets": {
       "JP": -836,
       "DEMO_JP": -2064
     }
   },
   {
-    "path": "data_080FEEB8/gGfxGroup_4_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1047572,
-    "size": 36
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_5_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1047608,
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_6_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 1046820
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_6_1_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 1045592
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_6_2_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 1047656,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_7_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1047680,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_8_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1047692,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_12_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1047704,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_13_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1047728,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_14_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1047752,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_15_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 1046928
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_15_1_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 1045700
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_15_2_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 1047764,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_9_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1047788,
-    "size": 1
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_9_1_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 1046953
-    },
-    "size": 23
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_9_2_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 1045725
-    },
-    "size": 23
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_9_3_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 1047789,
-    "size": 23
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_10_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 1046976
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_10_1_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 1045748
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_10_2_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 1047812,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF9D8_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 1047000
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF9D8_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 1045772
-    },
-    "size": 12
-  },
-  {
     "offsets": {
       "JP": -824,
       "DEMO_JP": -2052
     }
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_11_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1047836,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_16_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1047848,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_23_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1047872,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_24_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1047884,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_25_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1047896,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_26_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1047908,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_27_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1047920,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_28_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1047932,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_29_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1047944,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_36_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1047956,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_37_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1047980,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_38_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048004,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_39_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048016,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_40_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048040,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_41_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048064,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_42_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048088,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_30_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048112,
-    "size": 60
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_33_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048172,
-    "size": 60
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_32_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048232,
-    "size": 60
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_31_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048292,
-    "size": 60
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_35_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048352,
-    "size": 60
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_34_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048412,
-    "size": 60
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_22_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048472,
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_17_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048520,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_18_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048544,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_19_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048556,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_43_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048568,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_44_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048580,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_45_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048592,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_46_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048604,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_20_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048616,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_21_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048628,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_47_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048640,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_48_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048652,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_49_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048664,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_50_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048676,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_51_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048688,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_52_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048700,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_53_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048712,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_75_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048724,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_76_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048736,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_77_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048748,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_78_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048760,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_79_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048772,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_80_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048784,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_81_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048796,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_82_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048808,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_83_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048820,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_84_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048832,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_85_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048844,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_54_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048856,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_55_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048880,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_56_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048904,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_57_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048928,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_58_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048952,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_59_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1048976,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_60_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1049000,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_61_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1049024,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_62_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1049048,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_63_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1049072,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_64_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1049096,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_65_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1049120,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_66_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1049144,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_67_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1049168,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_68_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1049192,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_69_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1049216,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_70_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1049240,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_71_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1049264,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_72_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1049288,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_73_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1049312,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_74_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1049324,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_86_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1049336,
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_87_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1049384,
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_88_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1049432,
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_89_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 1048656
-    },
-    "size": 84
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_89_1_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 1047428
-    },
-    "size": 84
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_89_2_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 1049480,
-    "size": 84
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_90_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1049564,
-    "size": 37
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_90_1_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 1048777
-    },
-    "size": 6
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_90_2_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 1047549
-    },
-    "size": 6
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_90_3_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 1049601,
-    "size": 6
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_90_4_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 1048783
-    },
-    "size": 29
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_90_5_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 1047555
-    },
-    "size": 29
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_90_6_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 1049607,
-    "size": 29
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_91_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 1048812
-    },
-    "size": 72
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_91_1_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 1047584
-    },
-    "size": 72
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_91_2_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 1049636,
-    "size": 72
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_92_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 1048884
-    },
-    "size": 72
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_92_1_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 1047656
-    },
-    "size": 72
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_92_2_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 1049708,
-    "size": 72
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_129_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 1048956
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_129_1_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 1047728
-    },
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_129_2_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 1049780,
-    "size": 24
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_127_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 1048980
-    },
-    "size": 36
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_127_1_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 1047752
-    },
-    "size": 36
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_127_2_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 1049804,
-    "size": 36
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_128_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 1049016
-    },
-    "size": 8
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_128_1_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 1047788
-    },
-    "size": 8
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_128_2_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 1049840,
-    "size": 8
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_128_3_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1049848,
-    "size": 2
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_128_4_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 1049026
-    },
-    "size": 4
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_128_5_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 1047798
-    },
-    "size": 4
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_128_6_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 1049850,
-    "size": 4
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_128_7_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 1049030
-    },
-    "size": 18
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_128_8_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 1047802
-    },
-    "size": 18
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_128_9_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 1049854,
-    "size": 18
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_128_10_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1049872,
-    "size": 4
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_93_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1049876,
-    "size": 60
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_94_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1049936,
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_95_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1049984,
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_96_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1050032,
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_97_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1050080,
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_98_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1050128,
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_99_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1050176,
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_100_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1050224,
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_101_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1050272,
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_102_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1050320,
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_103_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1050368,
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_104_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1050416,
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_112_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1050464,
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_105_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1050512,
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_106_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1050560,
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_113_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1050608,
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_107_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1050656,
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_108_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1050704,
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_116_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1050752,
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_115_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1050800,
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_109_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1050848,
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_110_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1050896,
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_111_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1050944,
-    "size": 48
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_117_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 1050168
-    },
-    "size": 60
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_117_1_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 1048940
-    },
-    "size": 60
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_117_2_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 1050992,
-    "size": 60
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_118_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1051052,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_119_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1051064,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_120_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1051076,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_121_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1051088,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_122_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1051100,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_123_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1051112,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_124_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1051124,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_125_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1051136,
-    "size": 17
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_125_1_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 1050329
-    },
-    "size": 31
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_125_2_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 1049101
-    },
-    "size": 31
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_125_3_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 1051153,
-    "size": 31
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_126_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 1050360
-    },
-    "size": 84
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_126_1_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 1049132
-    },
-    "size": 84
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_126_2_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 1051184,
-    "size": 84
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_130_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1051268,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_131_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1051280,
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gGfxGroup_132_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1051292,
-    "size": 12
   },
   {
     "offsets": {
@@ -48393,694 +43820,832 @@
     "size": 16
   },
   {
-    "path": "data_081146D0/gSpriteFrames_1.bin",
+    "path": "sprites/gSpriteFrames_1.bin",
     "start": 1134488,
-    "size": 1012
+    "size": 1012,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_2.bin",
+    "path": "sprites/gSpriteFrames_2.bin",
     "start": 1135500,
-    "size": 920
+    "size": 920,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_3.bin",
+    "path": "sprites/gSpriteFrames_3.bin",
     "start": 1136420,
-    "size": 980
+    "size": 980,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_4.bin",
+    "path": "sprites/gSpriteFrames_4.bin",
     "start": 1137400,
-    "size": 932
+    "size": 932,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_5.bin",
+    "path": "sprites/gSpriteFrames_5.bin",
     "start": 1138332,
-    "size": 996
+    "size": 996,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_6.bin",
+    "path": "sprites/gSpriteFrames_6.bin",
     "start": 1139328,
-    "size": 688
+    "size": 688,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_7.bin",
+    "path": "sprites/gSpriteFrames_7.bin",
     "start": 1140016,
-    "size": 856
+    "size": 856,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_8.bin",
+    "path": "sprites/gSpriteFrames_8.bin",
     "start": 1140872,
-    "size": 532
+    "size": 532,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_9.bin",
+    "path": "sprites/gSpriteFrames_9.bin",
     "start": 1141404,
-    "size": 624
+    "size": 624,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Object4.bin",
+    "path": "sprites/gSpriteFrames_Object4.bin",
     "start": 1142028,
-    "size": 200
+    "size": 200,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Object6.bin",
+    "path": "sprites/gSpriteFrames_Object6.bin",
     "start": 1142228,
-    "size": 400
+    "size": 400,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_12.bin",
+    "path": "sprites/gSpriteFrames_12.bin",
     "start": 1142628,
-    "size": 676
+    "size": 676,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_13.bin",
+    "path": "sprites/gSpriteFrames_13.bin",
     "start": 1143304,
-    "size": 56
+    "size": 56,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_14.bin",
+    "path": "sprites/gSpriteFrames_14.bin",
     "start": 1143360,
-    "size": 924
+    "size": 924,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_15.bin",
+    "path": "sprites/gSpriteFrames_15.bin",
     "start": 1144284,
-    "size": 724
+    "size": 724,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_16.bin",
+    "path": "sprites/gSpriteFrames_16.bin",
     "start": 1145008,
-    "size": 724
+    "size": 724,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_17.bin",
+    "path": "sprites/gSpriteFrames_17.bin",
     "start": 1145732,
-    "size": 480
+    "size": 480,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_18.bin",
+    "path": "sprites/gSpriteFrames_18.bin",
     "start": 1146212,
-    "size": 220
+    "size": 220,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_19.bin",
+    "path": "sprites/gSpriteFrames_19.bin",
     "start": 1146432,
-    "size": 296
+    "size": 296,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_20.bin",
+    "path": "sprites/gSpriteFrames_20.bin",
     "start": 1146728,
-    "size": 108
+    "size": 108,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_21.bin",
+    "path": "sprites/gSpriteFrames_21.bin",
     "start": 1146836,
-    "size": 480
+    "size": 480,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_22.bin",
+    "path": "sprites/gSpriteFrames_22.bin",
     "start": 1147316,
-    "size": 48
+    "size": 48,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_24.bin",
+    "path": "sprites/gSpriteFrames_24.bin",
     "start": 1147364,
-    "size": 84
+    "size": 84,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_25.bin",
+    "path": "sprites/gSpriteFrames_25.bin",
     "start": 1147448,
-    "size": 44
+    "size": 44,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_26.bin",
+    "path": "sprites/gSpriteFrames_26.bin",
     "start": 1147492,
-    "size": 52
+    "size": 52,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_27.bin",
+    "path": "sprites/gSpriteFrames_27.bin",
     "start": 1147544,
-    "size": 256
+    "size": 256,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_28.bin",
+    "path": "sprites/gSpriteFrames_28.bin",
     "start": 1147800,
-    "size": 36
+    "size": 36,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_29.bin",
+    "path": "sprites/gSpriteFrames_29.bin",
     "start": 1147836,
-    "size": 176
+    "size": 176,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_30.bin",
+    "path": "sprites/gSpriteFrames_30.bin",
     "start": 1148012,
-    "size": 60
+    "size": 60,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_31.bin",
+    "path": "sprites/gSpriteFrames_31.bin",
     "start": 1148072,
-    "size": 176
+    "size": 176,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_32.bin",
+    "path": "sprites/gSpriteFrames_32.bin",
     "start": 1148248,
-    "size": 456
+    "size": 456,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_33.bin",
+    "path": "sprites/gSpriteFrames_33.bin",
     "start": 1148704,
-    "size": 72
+    "size": 72,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Object6A_0.bin",
+    "path": "sprites/gSpriteFrames_Object6A_0.bin",
     "start": 1148776,
-    "size": 24
+    "size": 24,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Object6A_1.bin",
+    "path": "sprites/gSpriteFrames_Object6A_1.bin",
     "start": 1148800,
-    "size": 8
+    "size": 8,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Object6A_2.bin",
+    "path": "sprites/gSpriteFrames_Object6A_2.bin",
     "start": 1148808,
-    "size": 12
+    "size": 12,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_MinishEzlo.bin",
+    "path": "sprites/gSpriteFrames_MinishEzlo.bin",
     "start": 1148820,
-    "size": 300
+    "size": 300,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Object6A_3.bin",
+    "path": "sprites/gSpriteFrames_Object6A_3.bin",
     "start": 1149120,
-    "size": 136
+    "size": 136,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Din.bin",
+    "path": "sprites/gSpriteFrames_Din.bin",
     "start": 1149256,
-    "size": 24
+    "size": 24,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Nayru.bin",
+    "path": "sprites/gSpriteFrames_Nayru.bin",
     "start": 1149280,
-    "size": 20
+    "size": 20,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Farore.bin",
+    "path": "sprites/gSpriteFrames_Farore.bin",
     "start": 1149300,
-    "size": 20
+    "size": 20,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Npc5.bin",
+    "path": "sprites/gSpriteFrames_Npc5.bin",
     "start": 1149320,
-    "size": 632
+    "size": 632,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_GuardWithSpear.bin",
+    "path": "sprites/gSpriteFrames_GuardWithSpear.bin",
     "start": 1149952,
-    "size": 312
+    "size": 312,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_KingDaltus.bin",
+    "path": "sprites/gSpriteFrames_KingDaltus.bin",
     "start": 1150264,
-    "size": 108
+    "size": 108,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_MinisterPotho.bin",
+    "path": "sprites/gSpriteFrames_MinisterPotho.bin",
     "start": 1150372,
-    "size": 44
+    "size": 44,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Npc26.bin",
+    "path": "sprites/gSpriteFrames_Npc26.bin",
     "start": 1150416,
-    "size": 12
+    "size": 12,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Maid.bin",
+    "path": "sprites/gSpriteFrames_Maid.bin",
     "start": 1150428,
-    "size": 128
+    "size": 128,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_TingleSiblings.bin",
+    "path": "sprites/gSpriteFrames_TingleSiblings.bin",
     "start": 1150556,
-    "size": 168
+    "size": 168,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Beedle.bin",
+    "path": "sprites/gSpriteFrames_Beedle.bin",
     "start": 1150724,
-    "size": 56
+    "size": 56,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Brocco.bin",
+    "path": "sprites/gSpriteFrames_Brocco.bin",
     "start": 1150780,
-    "size": 40
+    "size": 40,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Pina.bin",
+    "path": "sprites/gSpriteFrames_Pina.bin",
     "start": 1150820,
-    "size": 52
+    "size": 52,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Postman.bin",
+    "path": "sprites/gSpriteFrames_Postman.bin",
     "start": 1150872,
-    "size": 264
+    "size": 264,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Malon.bin",
+    "path": "sprites/gSpriteFrames_Malon.bin",
     "start": 1151136,
-    "size": 68
+    "size": 68,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Epona.bin",
+    "path": "sprites/gSpriteFrames_Epona.bin",
     "start": 1151204,
-    "size": 56
+    "size": 56,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_MilkCart.bin",
+    "path": "sprites/gSpriteFrames_MilkCart.bin",
     "start": 1151260,
-    "size": 16
+    "size": 16,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Smith.bin",
+    "path": "sprites/gSpriteFrames_Smith.bin",
     "start": 1151276,
-    "size": 92
+    "size": 92,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Townsperson.bin",
+    "path": "sprites/gSpriteFrames_Townsperson.bin",
     "start": 1151368,
-    "size": 288
+    "size": 288,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_58.bin",
+    "path": "sprites/gSpriteFrames_58.bin",
     "start": 1151656,
-    "size": 672
+    "size": 672,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Kid.bin",
+    "path": "sprites/gSpriteFrames_Kid.bin",
     "start": 1152328,
-    "size": 636
+    "size": 636,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Mailbox.bin",
+    "path": "sprites/gSpriteFrames_Mailbox.bin",
     "start": 1152964,
-    "size": 48
+    "size": 48,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_SittingPerson.bin",
+    "path": "sprites/gSpriteFrames_SittingPerson.bin",
     "start": 1153012,
-    "size": 208
+    "size": 208,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Mutoh.bin",
+    "path": "sprites/gSpriteFrames_Mutoh.bin",
     "start": 1153220,
-    "size": 40
+    "size": 40,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Carpenter.bin",
+    "path": "sprites/gSpriteFrames_Carpenter.bin",
     "start": 1153260,
-    "size": 184
+    "size": 184,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Gorman.bin",
+    "path": "sprites/gSpriteFrames_Gorman.bin",
     "start": 1153444,
-    "size": 84
+    "size": 84,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Cat.bin",
+    "path": "sprites/gSpriteFrames_Cat.bin",
     "start": 1153528,
-    "size": 124
+    "size": 124,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_66.bin",
+    "path": "sprites/gSpriteFrames_66.bin",
     "start": 1153652,
-    "size": 124
+    "size": 124,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Dog.bin",
+    "path": "sprites/gSpriteFrames_Dog.bin",
     "start": 1153776,
-    "size": 140
+    "size": 140,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_68.bin",
+    "path": "sprites/gSpriteFrames_68.bin",
     "start": 1153916,
-    "size": 116
+    "size": 116,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_69.bin",
+    "path": "sprites/gSpriteFrames_69.bin",
     "start": 1154032,
-    "size": 116
+    "size": 116,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Syrup.bin",
+    "path": "sprites/gSpriteFrames_Syrup.bin",
     "start": 1154148,
-    "size": 144
+    "size": 144,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Percy.bin",
+    "path": "sprites/gSpriteFrames_Percy.bin",
     "start": 1154292,
-    "size": 96
+    "size": 96,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Farmers_0.bin",
+    "path": "sprites/gSpriteFrames_Farmers_0.bin",
     "start": 1154388,
-    "size": 84
+    "size": 84,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Farmers_1.bin",
+    "path": "sprites/gSpriteFrames_Farmers_1.bin",
     "start": 1154472,
-    "size": 84
+    "size": 84,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Dampe.bin",
+    "path": "sprites/gSpriteFrames_Dampe.bin",
     "start": 1154556,
-    "size": 28
+    "size": 28,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_KingGustaf.bin",
+    "path": "sprites/gSpriteFrames_KingGustaf.bin",
     "start": 1154584,
-    "size": 44
+    "size": 44,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Gina.bin",
+    "path": "sprites/gSpriteFrames_Gina.bin",
     "start": 1154628,
-    "size": 108
+    "size": 108,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Simon.bin",
+    "path": "sprites/gSpriteFrames_Simon.bin",
     "start": 1154736,
-    "size": 40
+    "size": 40,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Mama.bin",
+    "path": "sprites/gSpriteFrames_Mama.bin",
     "start": 1154776,
-    "size": 168
+    "size": 168,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Teachers.bin",
+    "path": "sprites/gSpriteFrames_Teachers.bin",
     "start": 1154944,
-    "size": 36
+    "size": 36,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_80.bin",
+    "path": "sprites/gSpriteFrames_80.bin",
     "start": 1154980,
-    "size": 48
+    "size": 48,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_WindTribespeople_0.bin",
+    "path": "sprites/gSpriteFrames_WindTribespeople_0.bin",
     "start": 1155028,
-    "size": 72
+    "size": 72,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_WindTribespeople_1.bin",
+    "path": "sprites/gSpriteFrames_WindTribespeople_1.bin",
     "start": 1155100,
-    "size": 48
+    "size": 48,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_WindTribespeople_2.bin",
+    "path": "sprites/gSpriteFrames_WindTribespeople_2.bin",
     "start": 1155148,
-    "size": 28
+    "size": 28,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_WindTribespeople_3.bin",
+    "path": "sprites/gSpriteFrames_WindTribespeople_3.bin",
     "start": 1155176,
-    "size": 60
+    "size": 60,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_WindTribespeople_4.bin",
+    "path": "sprites/gSpriteFrames_WindTribespeople_4.bin",
     "start": 1155236,
-    "size": 40
+    "size": 40,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_WindTribespeople_5.bin",
+    "path": "sprites/gSpriteFrames_WindTribespeople_5.bin",
     "start": 1155276,
-    "size": 24
+    "size": 24,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_MayorHagen.bin",
+    "path": "sprites/gSpriteFrames_MayorHagen.bin",
     "start": 1155300,
-    "size": 64
+    "size": 64,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_GhostBrothers.bin",
+    "path": "sprites/gSpriteFrames_GhostBrothers.bin",
     "start": 1155364,
-    "size": 32
+    "size": 32,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_HurdyGurdyMan.bin",
+    "path": "sprites/gSpriteFrames_HurdyGurdyMan.bin",
     "start": 1155396,
-    "size": 56
+    "size": 56,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Cow.bin",
+    "path": "sprites/gSpriteFrames_Cow.bin",
     "start": 1155452,
-    "size": 76
+    "size": 76,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_GoronMerchant.bin",
+    "path": "sprites/gSpriteFrames_GoronMerchant.bin",
     "start": 1155528,
-    "size": 48
+    "size": 48,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_92.bin",
+    "path": "sprites/gSpriteFrames_92.bin",
     "start": 1155576,
-    "size": 48
+    "size": 48,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Goron.bin",
+    "path": "sprites/gSpriteFrames_Goron.bin",
     "start": 1155624,
-    "size": 88
+    "size": 88,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_CastorWildsStatue.bin",
+    "path": "sprites/gSpriteFrames_CastorWildsStatue.bin",
     "start": 1155712,
-    "size": 12
+    "size": 12,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Npc4F.bin",
+    "path": "sprites/gSpriteFrames_Npc4F.bin",
     "start": 1155724,
-    "size": 28
+    "size": 28,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Object6A_4.bin",
+    "path": "sprites/gSpriteFrames_Object6A_4.bin",
     "start": 1155752,
-    "size": 40
+    "size": 40,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_97.bin",
+    "path": "sprites/gSpriteFrames_97.bin",
     "start": 1155792,
-    "size": 44
+    "size": 44,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_DarkNut_0.bin",
+    "path": "sprites/gSpriteFrames_DarkNut_0.bin",
     "start": 1155836,
-    "size": 532
+    "size": 532,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_DarkNut_1.bin",
+    "path": "sprites/gSpriteFrames_DarkNut_1.bin",
     "start": 1156368,
-    "size": 588
+    "size": 588,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_ChuchuBoss_0.bin",
+    "path": "sprites/gSpriteFrames_ChuchuBoss_0.bin",
     "start": 1156956,
-    "size": 76
+    "size": 76,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_DeathFx_0.bin",
+    "path": "sprites/gSpriteFrames_DeathFx_0.bin",
     "start": 1157032,
-    "size": 196
+    "size": 196,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Madderpillar_0.bin",
+    "path": "sprites/gSpriteFrames_Madderpillar_0.bin",
     "start": 1157228,
-    "size": 96
+    "size": 96,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Gleerok_0.bin",
+    "path": "sprites/gSpriteFrames_Gleerok_0.bin",
     "start": 1157324,
-    "size": 232
+    "size": 232,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Keaton.bin",
+    "path": "sprites/gSpriteFrames_Keaton.bin",
     "start": 1157556,
-    "size": 120
+    "size": 120,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_MazaalHand.bin",
+    "path": "sprites/gSpriteFrames_MazaalHand.bin",
     "start": 1157676,
-    "size": 80
+    "size": 80,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_ScissorsBeetle.bin",
+    "path": "sprites/gSpriteFrames_ScissorsBeetle.bin",
     "start": 1157756,
-    "size": 156
+    "size": 156,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_MandiblesProjectile.bin",
+    "path": "sprites/gSpriteFrames_MandiblesProjectile.bin",
     "start": 1157912,
-    "size": 224
+    "size": 224,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Stalfos.bin",
+    "path": "sprites/gSpriteFrames_Stalfos.bin",
     "start": 1158136,
-    "size": 300
+    "size": 300,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Gibdo.bin",
+    "path": "sprites/gSpriteFrames_Gibdo.bin",
     "start": 1158436,
-    "size": 168
+    "size": 168,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Lakitu.bin",
+    "path": "sprites/gSpriteFrames_Lakitu.bin",
     "start": 1158604,
-    "size": 228
+    "size": 228,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_LakituCloudProjectile.bin",
+    "path": "sprites/gSpriteFrames_LakituCloudProjectile.bin",
     "start": 1158832,
-    "size": 40
+    "size": 40,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_VaatiRebornEnemy_0.bin",
+    "path": "sprites/gSpriteFrames_VaatiRebornEnemy_0.bin",
     "start": 1158872,
-    "size": 76
+    "size": 76,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_VaatiRebornEnemy_1.bin",
+    "path": "sprites/gSpriteFrames_VaatiRebornEnemy_1.bin",
     "start": 1158948,
-    "size": 16
+    "size": 16,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_VaatiRebornEnemy_2.bin",
+    "path": "sprites/gSpriteFrames_VaatiRebornEnemy_2.bin",
     "start": 1158964,
-    "size": 48
+    "size": 48,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_VaatiRebornEnemy_3.bin",
+    "path": "sprites/gSpriteFrames_VaatiRebornEnemy_3.bin",
     "start": 1159012,
-    "size": 40
+    "size": 40,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_VaatiBall.bin",
+    "path": "sprites/gSpriteFrames_VaatiBall.bin",
     "start": 1159052,
-    "size": 48
+    "size": 48,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_VaatiTransfigured_0.bin",
+    "path": "sprites/gSpriteFrames_VaatiTransfigured_0.bin",
     "start": 1159100,
-    "size": 20
+    "size": 20,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_VaatiTransfigured_1.bin",
+    "path": "sprites/gSpriteFrames_VaatiTransfigured_1.bin",
     "start": 1159120,
-    "size": 48
+    "size": 48,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_VaatiTransfigured_2.bin",
+    "path": "sprites/gSpriteFrames_VaatiTransfigured_2.bin",
     "start": 1159168,
-    "size": 28
+    "size": 28,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_VaatiTransfigured_3.bin",
+    "path": "sprites/gSpriteFrames_VaatiTransfigured_3.bin",
     "start": 1159196,
-    "size": 16
+    "size": 16,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_VaatiArm.bin",
+    "path": "sprites/gSpriteFrames_VaatiArm.bin",
     "start": 1159212,
-    "size": 132
+    "size": 132,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_VaatiWrath.bin",
+    "path": "sprites/gSpriteFrames_VaatiWrath.bin",
     "start": 1159344,
-    "size": 128
+    "size": 128,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_VaatiReborn.bin",
+    "path": "sprites/gSpriteFrames_VaatiReborn.bin",
     "start": 1159472,
-    "size": 72
+    "size": 72,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_MoblinLady_1.bin",
+    "path": "sprites/gSpriteFrames_MoblinLady_1.bin",
     "start": 1159544,
-    "size": 24
+    "size": 24,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_BallChainSoldier.bin",
+    "path": "sprites/gSpriteFrames_BallChainSoldier.bin",
     "start": 1159568,
-    "size": 132
+    "size": 132,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_GyorgMale.bin",
+    "path": "sprites/gSpriteFrames_GyorgMale.bin",
     "start": 1159700,
-    "size": 68
+    "size": 68,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_JarPortal.bin",
+    "path": "sprites/gSpriteFrames_JarPortal.bin",
     "start": 1159768,
-    "size": 60
+    "size": 60,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Beanstalk_0.bin",
+    "path": "sprites/gSpriteFrames_Beanstalk_0.bin",
     "start": 1159828,
-    "size": 104
+    "size": 104,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Minecart.bin",
+    "path": "sprites/gSpriteFrames_Minecart.bin",
     "start": 1159932,
-    "size": 80
+    "size": 80,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_LavaPlatform_1.bin",
+    "path": "sprites/gSpriteFrames_LavaPlatform_1.bin",
     "start": 1160012,
-    "size": 72
+    "size": 72,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_BigVortex.bin",
+    "path": "sprites/gSpriteFrames_BigVortex.bin",
     "start": 1160084,
-    "size": 16
+    "size": 16,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_MacroBook.bin",
+    "path": "sprites/gSpriteFrames_MacroBook.bin",
     "start": 1160100,
-    "size": 16
+    "size": 16,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_GentariCurtains.bin",
+    "path": "sprites/gSpriteFrames_GentariCurtains.bin",
     "start": 1160116,
-    "size": 20
+    "size": 20,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_SpiderWeb.bin",
+    "path": "sprites/gSpriteFrames_SpiderWeb.bin",
     "start": 1160136,
-    "size": 64
+    "size": 64,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Object79.bin",
+    "path": "sprites/gSpriteFrames_Object79.bin",
     "start": 1160200,
-    "size": 312
+    "size": 312,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_OctorokBoss_0.bin",
+    "path": "sprites/gSpriteFrames_OctorokBoss_0.bin",
     "start": 1160512,
-    "size": 36
+    "size": 36,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Bell.bin",
+    "path": "sprites/gSpriteFrames_Bell.bin",
     "start": 1160548,
-    "size": 20
+    "size": 20,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_322.bin",
+    "path": "sprites/gSpriteFrames_322.bin",
     "start": 1160568,
-    "size": 968
+    "size": 968,
+    "type": "sprite_frames"
   },
   {
-    "path": "data_081146D0/gSpriteFrames_Vaati_1.bin",
+    "path": "sprites/gSpriteFrames_Vaati_1.bin",
     "start": 1161536,
-    "size": 76
+    "size": 76,
+    "type": "sprite_frames"
   },
   {
     "path": "playerItem12/gUnk_0811B9A0.bin",
@@ -51346,11 +46911,6 @@
     "start": 1184660,
     "size": 36,
     "type": "animation"
-  },
-  {
-    "path": "warpPoint/gUnk_08121380.bin",
-    "start": 1184640,
-    "size": 3
   },
   {
     "path": "animations/gSpriteAnimations_Object35_0.bin",
@@ -61538,42 +57098,6 @@
     }
   },
   {
-    "path": "data_08132B30/gGlobalGfxAndPalettes.bin",
-    "start": 5910144,
-    "size": 17568
-  },
-  {
-    "path": "data_08132B30/gPalette_549.bin",
-    "start": 5927712,
-    "size": 9344
-  },
-  {
-    "path": "data_08132B30/gUnk_085A97A0.bin",
-    "start": 5937056,
-    "size": 43488
-  },
-  {
-    "path": "data_08132B30/gUnk_085B4180_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 5977808
-    },
-    "size": 7424
-  },
-  {
-    "path": "data_08132B30/gUnk_085B4180_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 5980544,
-    "size": 7488
-  },
-  {
     "offsets": {
       "EU": -2800
     }
@@ -62395,74 +57919,6 @@
     "type": "palette"
   },
   {
-    "path": "graphics/intro/capcom.gbapal",
-    "start": 6018592,
-    "size": 32,
-    "type": "palette"
-  },
-  {
-    "path": "graphics/intro/nintendo.gbapal",
-    "start": 6018624,
-    "size": 32,
-    "type": "palette"
-  },
-  {
-    "path": "data_08132B30/morePalettes.bin",
-    "start": 6018656,
-    "size": 28608
-  },
-  {
-    "path": "data_08132B30/gUnk_085C4620.bin",
-    "start": 6047264,
-    "size": 1280
-  },
-  {
-    "path": "data_08132B30/gUnk_085C4B20.bin",
-    "start": 6048544,
-    "size": 640
-  },
-  {
-    "path": "data_08132B30/gUnk_data0_085C4DA0.bin",
-    "start": 6049184,
-    "size": 192
-  },
-  {
-    "path": "data_08132B30/gUnk_data1_085C4E60.bin",
-    "start": 6049376,
-    "size": 192
-  },
-  {
-    "path": "data_08132B30/gUnk_data2_085C4F20.bin",
-    "start": 6049568,
-    "size": 192
-  },
-  {
-    "path": "data_08132B30/gUnk_data3_085C4FE0.bin",
-    "start": 6049760,
-    "size": 526149
-  },
-  {
-    "path": "data_08132B30/gUnk_data3_085C4FE0_1_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 6573109
-    },
-    "size": 315963
-  },
-  {
-    "path": "data_08132B30/gUnk_data3_085C4FE0_2_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 6575909,
-    "size": 315259
-  },
-  {
     "offsets": {
       "EU": -2096
     }
@@ -62576,1262 +58032,6 @@
     "path": "data_08132B30/gUnk_086E8460.bin",
     "start": 7242848,
     "size": 161088
-  },
-  {
-    "path": "figurines/gFigurineGfx1.4bpp",
-    "start": 8649472,
-    "size": 1408,
-    "type": "graphic",
-    "options": {
-      "width": 4
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx2.4bpp",
-    "start": 8650880,
-    "size": 1504,
-    "type": "graphic",
-    "options": {
-      "width": 4
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx3.4bpp",
-    "start": 8652384,
-    "size": 1152,
-    "type": "graphic",
-    "options": {
-      "width": 4
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx4.4bpp",
-    "start": 8653536,
-    "size": 1216,
-    "type": "graphic",
-    "options": {
-      "width": 4
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx5.4bpp",
-    "start": 8654752,
-    "size": 1280,
-    "type": "graphic",
-    "options": {
-      "width": 4
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx6.4bpp",
-    "start": 8656032,
-    "size": 896,
-    "type": "graphic",
-    "options": {
-      "width": 4
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx7.4bpp",
-    "start": 8656928,
-    "size": 704,
-    "type": "graphic",
-    "options": {
-      "width": 4
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx8.4bpp",
-    "start": 8657632,
-    "size": 1248,
-    "type": "graphic",
-    "options": {
-      "width": 4
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx9.4bpp",
-    "start": 8658880,
-    "size": 800,
-    "type": "graphic",
-    "options": {
-      "width": 4
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx10.4bpp",
-    "start": 8659680,
-    "size": 3488,
-    "type": "graphic",
-    "options": {
-      "width": 4
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx11.4bpp",
-    "start": 8663168,
-    "size": 3680,
-    "type": "graphic",
-    "options": {
-      "width": 4
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx12.4bpp",
-    "start": 8666848,
-    "size": 3808,
-    "type": "graphic",
-    "options": {
-      "width": 4
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx13.4bpp",
-    "start": 8670656,
-    "size": 3552,
-    "type": "graphic",
-    "options": {
-      "width": 4
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx14.4bpp",
-    "start": 8674208,
-    "size": 6656,
-    "type": "graphic",
-    "options": {
-      "width": 4
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx15.4bpp",
-    "start": 8680864,
-    "size": 6592,
-    "type": "graphic",
-    "options": {
-      "width": 4
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx16.4bpp",
-    "start": 8687456,
-    "size": 4288,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx17.4bpp",
-    "start": 8691744,
-    "size": 992,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx18.4bpp",
-    "start": 8692736,
-    "size": 928,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx19.4bpp",
-    "start": 8693664,
-    "size": 864,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx20.4bpp",
-    "start": 8694528,
-    "size": 2944,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx21.4bpp",
-    "start": 8697472,
-    "size": 2816,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx22.4bpp",
-    "start": 8700288,
-    "size": 2784,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx23.4bpp",
-    "start": 8703072,
-    "size": 1152,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx24.4bpp",
-    "start": 8704224,
-    "size": 800,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx25.4bpp",
-    "start": 8705024,
-    "size": 864,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx26.4bpp",
-    "start": 8705888,
-    "size": 928,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx27.4bpp",
-    "start": 8706816,
-    "size": 1024,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx28.4bpp",
-    "start": 8707840,
-    "size": 2016,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx29.4bpp",
-    "start": 8709856,
-    "size": 10752,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx30.4bpp",
-    "start": 8720608,
-    "size": 10752,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx31.4bpp",
-    "start": 8731360,
-    "size": 10752,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx32.4bpp",
-    "start": 8742112,
-    "size": 960,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx33.4bpp",
-    "start": 8743072,
-    "size": 896,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx34.4bpp",
-    "start": 8743968,
-    "size": 896,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx35.4bpp",
-    "start": 8744864,
-    "size": 896,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx36.4bpp",
-    "start": 8745760,
-    "size": 1376,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx37.4bpp",
-    "start": 8747136,
-    "size": 1152,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx38.4bpp",
-    "start": 8748288,
-    "size": 1152,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx39.4bpp",
-    "start": 8749440,
-    "size": 1280,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx40.4bpp",
-    "start": 8750720,
-    "size": 5312,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx41.4bpp",
-    "start": 8756032,
-    "size": 1632,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx42.4bpp",
-    "start": 8757664,
-    "size": 4224,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx43.4bpp",
-    "start": 8761888,
-    "size": 2048,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx44.4bpp",
-    "start": 8763936,
-    "size": 2048,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx45.4bpp",
-    "start": 8765984,
-    "size": 1280,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx46.4bpp",
-    "start": 8767264,
-    "size": 1280,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx47.4bpp",
-    "start": 8768544,
-    "size": 12416,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx48.4bpp",
-    "start": 8780960,
-    "size": 10720,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx49.4bpp",
-    "start": 8791680,
-    "size": 14848,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx50.4bpp",
-    "start": 8806528,
-    "size": 10688,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx51.4bpp",
-    "start": 8817216,
-    "size": 13536,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx52.4bpp",
-    "start": 8830752,
-    "size": 14592,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx53.4bpp",
-    "start": 8845344,
-    "size": 12512,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx54.4bpp",
-    "start": 8857856,
-    "size": 11392,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx55.4bpp",
-    "start": 8869248,
-    "size": 13568,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx56.4bpp",
-    "start": 8882816,
-    "size": 10112,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx57.4bpp",
-    "start": 8892928,
-    "size": 11936,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx58.4bpp",
-    "start": 8904864,
-    "size": 13088,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx59.4bpp",
-    "start": 8917952,
-    "size": 10976,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx60.4bpp",
-    "start": 8928928,
-    "size": 7936,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx61.4bpp",
-    "start": 8936864,
-    "size": 16384,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx62.4bpp",
-    "start": 8953248,
-    "size": 16256,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx63.4bpp",
-    "start": 8969504,
-    "size": 7232,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx64.4bpp",
-    "start": 8976736,
-    "size": 5728,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx65.4bpp",
-    "start": 8982464,
-    "size": 7296,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx66.4bpp",
-    "start": 8989760,
-    "size": 8960,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx67.4bpp",
-    "start": 8998720,
-    "size": 9344,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx68.4bpp",
-    "start": 9008064,
-    "size": 1088,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx69.4bpp",
-    "start": 9009152,
-    "size": 2240,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx70.4bpp",
-    "start": 9011392,
-    "size": 3584,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx71.4bpp",
-    "start": 9014976,
-    "size": 896,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx72.4bpp",
-    "start": 9015872,
-    "size": 2336,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx73.4bpp",
-    "start": 9018208,
-    "size": 736,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx74.4bpp",
-    "start": 9018944,
-    "size": 1952,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx75.4bpp",
-    "start": 9020896,
-    "size": 768,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx76.4bpp",
-    "start": 9021664,
-    "size": 3840,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx77.4bpp",
-    "start": 9025504,
-    "size": 864,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx78.4bpp",
-    "start": 9026368,
-    "size": 1920,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx79.4bpp",
-    "start": 9028288,
-    "size": 1024,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx80.4bpp",
-    "start": 9029312,
-    "size": 896,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx81.4bpp",
-    "start": 9030208,
-    "size": 2560,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx82.4bpp",
-    "start": 9032768,
-    "size": 2560,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx83.4bpp",
-    "start": 9035328,
-    "size": 768,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx84.4bpp",
-    "start": 9036096,
-    "size": 1216,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx85.4bpp",
-    "start": 9037312,
-    "size": 1984,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx86.4bpp",
-    "start": 9039296,
-    "size": 2848,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx87.4bpp",
-    "start": 9042144,
-    "size": 2016,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx88.4bpp",
-    "start": 9044160,
-    "size": 864,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx89.4bpp",
-    "start": 9045024,
-    "size": 2240,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx90.4bpp",
-    "start": 9047264,
-    "size": 1984,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx91.4bpp",
-    "start": 9049248,
-    "size": 3520,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx92.4bpp",
-    "start": 9052768,
-    "size": 768,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx93.4bpp",
-    "start": 9053536,
-    "size": 736,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx94.4bpp",
-    "start": 9054272,
-    "size": 1280,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx95.4bpp",
-    "start": 9055552,
-    "size": 1984,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx96.4bpp",
-    "start": 9057536,
-    "size": 768,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx97.4bpp",
-    "start": 9058304,
-    "size": 1952,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx98.4bpp",
-    "start": 9060256,
-    "size": 1280,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx99.4bpp",
-    "start": 9061536,
-    "size": 960,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx100.4bpp",
-    "start": 9062496,
-    "size": 2464,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx101.4bpp",
-    "start": 9064960,
-    "size": 3520,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx102.4bpp",
-    "start": 9068480,
-    "size": 928,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx103.4bpp",
-    "start": 9069408,
-    "size": 2432,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx104.4bpp",
-    "start": 9071840,
-    "size": 1984,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx105.4bpp",
-    "start": 9073824,
-    "size": 2080,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx106.4bpp",
-    "start": 9075904,
-    "size": 832,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx107.4bpp",
-    "start": 9076736,
-    "size": 1280,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx108.4bpp",
-    "start": 9078016,
-    "size": 1280,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx109.4bpp",
-    "start": 9079296,
-    "size": 1984,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx110.4bpp",
-    "start": 9081280,
-    "size": 1632,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx111.4bpp",
-    "start": 9082912,
-    "size": 960,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx112.4bpp",
-    "start": 9083872,
-    "size": 1120,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx113.4bpp",
-    "start": 9084992,
-    "size": 896,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx114.4bpp",
-    "start": 9085888,
-    "size": 2080,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx115.4bpp",
-    "start": 9087968,
-    "size": 1696,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx116.4bpp",
-    "start": 9089664,
-    "size": 2432,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx117.4bpp",
-    "start": 9092096,
-    "size": 1504,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx118.4bpp",
-    "start": 9093600,
-    "size": 2208,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx119.4bpp",
-    "start": 9095808,
-    "size": 2240,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx120.4bpp",
-    "start": 9098048,
-    "size": 1440,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx121.4bpp",
-    "start": 9099488,
-    "size": 1568,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx122.4bpp",
-    "start": 9101056,
-    "size": 3840,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx123.4bpp",
-    "start": 9104896,
-    "size": 1600,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx124.4bpp",
-    "start": 9106496,
-    "size": 9600,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx125.4bpp",
-    "start": 9116096,
-    "size": 6048,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx126.4bpp",
-    "start": 9122144,
-    "size": 6560,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx127.4bpp",
-    "start": 9128704,
-    "size": 4864,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx128.4bpp",
-    "start": 9133568,
-    "size": 7840,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx129.4bpp",
-    "start": 9141408,
-    "size": 5696,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx130.4bpp",
-    "start": 9147104,
-    "size": 6080,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx131.4bpp",
-    "start": 9153184,
-    "size": 3584,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx132.4bpp",
-    "start": 9156768,
-    "size": 1408,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx133.4bpp",
-    "start": 9158176,
-    "size": 3136,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx134.4bpp",
-    "start": 9161312,
-    "size": 4352,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx135.4bpp",
-    "start": 9165664,
-    "size": 9600,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "figurines/gFigurineGfx136.4bpp",
-    "start": 9175264,
-    "size": 8608,
-    "type": "graphic",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "graphics/intro/nintendo_capcom.4bpp",
-    "start": 9183872,
-    "size": 3936,
-    "type": "graphic"
-  },
-  {
-    "path": "figurines/gFigurineGfx136_1.bin",
-    "start": 9187808,
-    "size": 250944
-  },
-  {
-    "path": "figurines/gFigurineGfx136_2_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 9436656
-    },
-    "size": 716144
-  },
-  {
-    "path": "figurines/gFigurineGfx136_3_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 9438752,
-    "size": 726896
   },
   {
     "path": "strings/translation_DEMO_JP.bin",

@@ -1386,6 +1386,7 @@ SECTIONS {
         data/const/npc/phonograph.o(.rodata);
         data/const/npc/npc58.o(.rodata);
         data/data_081146D0.o(.rodata);
+        data/gfx/sprite_frames.o(.rodata);
         data/const/playerItem/playerItem12.o(.rodata);
         data/const/playerItem/playerItemPacciCane.o(.rodata);
         src/player.o(.rodata);
@@ -1655,6 +1656,8 @@ SECTIONS {
     data/const/demoScreen.o(.rodata);
 #endif
         data/data_08127280.o(.rodata);
+        data/gfx/figurines.o(.rodata);
+        data/data_08128A38.o(.rodata);
         data/const/playerItem/playerItemSword.o(.rodata);
         data/projectile_functions.o(.rodata);
         src/projectile/darkNutSwordSlash.o(.rodata);

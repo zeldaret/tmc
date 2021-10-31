@@ -13,6 +13,7 @@ from assets.extra_frame_offsets import ExtraFrameOffsets
 from assets.animation import Animation
 from assets.exit_list import ExitList
 from assets.entity_list import EntityList
+from assets.sprite_frame import SpriteFrame
 
 verbose = False
 
@@ -143,6 +144,9 @@ def extract_assets(variant, assets_folder):
                         elif mode == 'entity_list':
                             entity_list = EntityList(path, start, size, options)
                             entity_list.extract_binary(baserom)
+                        elif mode == 'sprite_frames':
+                            sprite_frames = SpriteFrame(path, start, size, options)
+                            sprite_frames.extract_binary(baserom)
                         elif mode == 'unknown':
                             pass
                         elif mode != '':

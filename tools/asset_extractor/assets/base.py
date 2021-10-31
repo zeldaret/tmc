@@ -49,3 +49,8 @@ class Reader:
         val = self.data[self.cursor:self.cursor+4]
         self.cursor += 4
         return int.from_bytes(val, 'little')
+
+def opt_param(name: str, default: str, value: str) -> str:
+    if value != default:
+        return f', {name}={value}'
+    return ''

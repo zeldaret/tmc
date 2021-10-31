@@ -28,4 +28,9 @@
         .byte \offset, \count & 0xf + (!\terminator*0x80)
     .endm
 
+    .macro sprite_frame first_tile_index:req, num_tiles=0, unknown=0
+        .byte \num_tiles, \unknown
+        .2byte \first_tile_index
+    .endm
+
 	.endif @ GUARD_ASM_MACROS_GFX_INC
