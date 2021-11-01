@@ -22,7 +22,7 @@ extern u8 gUnk_03003DF0[];
 extern u8 gUnk_03003BE0;
 extern Entity* gUnk_03004040[3];
 extern u8 gUnk_020342F8;
-extern u8 gHitboxCount;
+extern u8 gCollidableCount;
 extern void gDoCollision(void);
 
 extern void sub_080ADD70();
@@ -371,7 +371,7 @@ NONMATCH("asm/non_matching/arm_proxy/NPCUpdate.inc", void NPCUpdate(Entity* this
 END_NONMATCH
 
 void ClearHitboxList(void) {
-    gHitboxCount = 0;
+    gCollidableCount = 0;
 }
 
 void CollisionMain(void) {

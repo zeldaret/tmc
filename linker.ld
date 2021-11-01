@@ -181,7 +181,7 @@ SECTIONS {
         . = 0x00000BF8; gUnk_03000BF8 = .;
         . = 0x00000C24; gUnk_03000C24 = .;
         . = 0x00000C30; gUnk_03000C30 = .;
-        . = 0x00000E10; gUnk_03000E10 = .;
+        . = 0x00000E10; gCollidableList = .;
         . = 0x00000F50; gScreen = .;
         . = 0x00000F58; gBG0Settings = .;
         . = 0x00000F64; gBG1Settings = .;
@@ -212,7 +212,7 @@ SECTIONS {
         . = 0x00003DA0; gUnk_03003DA0 = .;
         . = 0x00003DA8; gUnk_03003DA8 = .;
         . = 0x00003DB0; gUnk_03003DB0 = .;
-        . = 0x00003DB8; gHitboxCount = .;
+        . = 0x00003DB8; gCollidableCount = .;
         . = 0x00003DBC; gEntCount = .;
         . = 0x00003DC0; gUnk_03003DC0 = .;
         . = 0x00003DD0; gUnk_03003DD0 = .;
@@ -274,7 +274,7 @@ SECTIONS {
         . = 0x00005D24; gUnk_03005D24 = .;
         . = 0x00005D58; gUnk_03005D58 = .;
         . = 0x00005D5C; gUnk_03005D5C = .;
-        . = 0x00005D90; IntrMain = .;
+        . = 0x00005D90; gIntrMain = .;
         . = 0x00005E60; gUnk_03005E60 = .;
         . = 0x00005E98; gUnk_03005E98 = .;
         . = 0x00005F24; _ClearAndUpdateEntities = .;

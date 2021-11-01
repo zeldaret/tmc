@@ -346,7 +346,7 @@ typedef enum {
     SFX_14F,
     SFX_150,
     SFX_151,
-    SFX_152,
+    SFX_NEAR_PORTAL,
     SFX_153,
     SFX_154,
     SFX_155,

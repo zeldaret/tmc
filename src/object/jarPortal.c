@@ -8,7 +8,7 @@
 extern void (*gUnk_08121488[])(Entity*);
 
 extern u32 sub_08057810(void);
-extern void sub_080577AC(u32, u32, u32);
+extern void CreateMagicSparkles(u32, u32, u32);
 
 u32 sub_0808C128(Entity*);
 void sub_0808C13C(Entity*);
@@ -118,10 +118,10 @@ void sub_0808C01C(Entity* this, u32 r1) {
                     gArea.field_0x18 = 3;
                 }
             }
-            sub_080577AC(this->x.HALF.HI, this->y.HALF.HI, this->collisionLayer);
+            CreateMagicSparkles(this->x.HALF.HI, this->y.HALF.HI, this->collisionLayer);
             if (this->field_0xf == 0) {
                 this->field_0xf = 1;
-                SoundReq(0x152);
+                SoundReq(SFX_NEAR_PORTAL);
             }
         }
     }
