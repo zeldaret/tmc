@@ -80,4 +80,15 @@
 	map_data \src_offset, gUnk_02019EE0, \size, \compressed, \terminator
 	.endm
 
+
+	.macro exit_list_end
+	.4byte 0xffff, 0,0,0,0
+	.endm
+
+	.macro exit transition:req, x=0, y=0, destX=0, destY=0, screenEdge=0, destArea=0, destRoom=0, unknown=0, unknown2=0, unknown3=0, unknown4=0, padding=0
+	.2byte \transition, \x, \y, \destX, \destY
+	.byte \screenEdge, \destArea, \destRoom, \unknown, \unknown2, \unknown3
+	.2byte \unknown4, \padding
+	.endm
+
 	.endif @ GUARD_ASM_MACROS_MAP_INC

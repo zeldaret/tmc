@@ -33,4 +33,21 @@
         .2byte \first_tile_index
     .endm
 
+    .macro keyframe frame_index:req, duration=0, bitfield=0, bitfield2=0
+        .byte \frame_index, \duration, \bitfield, \bitfield2
+    .endm
+
+    .macro fixed_gfx src:req, size=0, compressed=0
+        .4byte (\src - ptr_gGlobalGfxAndPalettes) + \compressed + (\size/0x200 << 24)
+    .endm
+
+    .macro extra_offset x:req, y:req
+        .byte \x, \y
+    .endm
+
+    .macro obj x:req, y:req, bitfield=0, bitfield2=0
+        .byte \x, \y, \bitfield
+        .2byte \bitfield2
+    .endm
+
 	.endif @ GUARD_ASM_MACROS_GFX_INC

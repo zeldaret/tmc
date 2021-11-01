@@ -1616,37 +1616,37 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 
 gMoreSpritePtrs:: @ 08003DD4
-	.4byte gSpriteAnimation_322
+	.4byte gSpriteAnimations_322
 	.4byte gSpriteFrames_322
 	.4byte gSprite_082E68F4
 	.4byte 00000000
 
-	.4byte gSpriteAnimation_322
+	.4byte gSpriteAnimations_322
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimation_322
+	.4byte gSpriteAnimations_322
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimation_FileScreenObjects
+	.4byte gSpriteAnimations_FileScreenObjects
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimation_ObjectA2
+	.4byte gSpriteAnimations_ObjectA2
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimation_Object6A_9
+	.4byte gSpriteAnimations_Object6A_9
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimation_Vaati_1
+	.4byte gSpriteAnimations_Vaati_1
 	.4byte gSpriteFrames_Vaati_1
 	.4byte gSprite_082F27F4
 	.4byte 00000000

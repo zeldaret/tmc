@@ -3424,7 +3424,7 @@ _080A4C42:
 	orrs r2, r0
 	ldr r0, _080A4D44 @ =gOamCmd
 	strh r2, [r0, #8]
-	ldr r1, _080A4D48 @ =gSpriteAnimation_322
+	ldr r1, _080A4D48 @ =gSpriteAnimations_322
 	lsls r0, r3, #2
 	adds r0, r0, r1
 	ldr r0, [r0]
@@ -3542,7 +3542,7 @@ _080A4D36:
 	.align 2, 0
 _080A4D40: .4byte gQuiverSizes
 _080A4D44: .4byte gOamCmd
-_080A4D48: .4byte gSpriteAnimation_322
+_080A4D48: .4byte gSpriteAnimations_322
 _080A4D4C: .4byte 0x00000141
 _080A4D50EU: .4byte gChooseFileState
 _080A4D54EU: .4byte gUnk_08128B64
@@ -3646,7 +3646,7 @@ _080A542E:
 	orrs r2, r0
 	ldr r0, _080A5530 @ =gOamCmd
 	strh r2, [r0, #8]
-	ldr r1, _080A5534 @ =gSpriteAnimation_322
+	ldr r1, _080A5534 @ =gSpriteAnimations_322
 	lsls r0, r3, #2
 	adds r0, r0, r1
 	ldr r0, [r0]
@@ -3764,7 +3764,7 @@ _080A5522:
 	.align 2, 0
 _080A552C: .4byte gQuiverSizes
 _080A5530: .4byte gOamCmd
-_080A5534: .4byte gSpriteAnimation_322
+_080A5534: .4byte gSpriteAnimations_322
 _080A5538: .4byte gMenu
 _080A553C: .4byte gUnk_08128B64
 _080A5540: .4byte gMain

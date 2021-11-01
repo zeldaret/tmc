@@ -319,9 +319,11 @@ SECTIONS {
         asm/code_08000F10.o(.text);
         data/data_08000F54.o(.rodata);
         asm/code_080011C4.o(.text);
-        data/data_080029B4.o(.rodata);
+        data/gfx/sprite_ptrs.o(.rodata);
         asm/code_08003FC4.o(.text);
         asm/code_080043E8.o(.text);
+        data/gfx/link_animations.o(.rodata);
+        asm/code_08007CAC.o(.text);
         data/data_08007DF4.o(.rodata);
         asm/code_0800857C.o(.text);
         /* scripts */
@@ -1723,6 +1725,7 @@ SECTIONS {
         src/intro.o(.rodata);
         data/data_081320FC.o(.rodata);
         data/const/playerItem/playerItemGustJar.o(.rodata);
+        data/gfx/fixed_type_gfx.o(.rodata);
         data/data_08132B30.o(.rodata);
         data/map/exit_lists.o(.rodata);
         data/gfx_0813AA54.o(.rodata);
@@ -1731,6 +1734,7 @@ SECTIONS {
         data/map/map_data.o(.rodata);
         data/gfx/gfx_and_palettes.o(.rodata);
         data/strings.o(.rodata);
+        data/gfx/extra_frame_offsets.o(.rodata);
         data/gfx/sprite_table.o(.rodata);
         src/gba/m4a.o(.rodata);
         data/sound/voicegroups.o(.rodata);

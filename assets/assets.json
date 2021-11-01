@@ -34097,449 +34097,538 @@
     "size": 944
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDD14.bin",
+    "path": "animations/gSpriteAnimations_322_0.bin",
     "start": 1039636,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDD19.bin",
+    "path": "animations/gSpriteAnimations_322_1.bin",
     "start": 1039641,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDD1E.bin",
+    "path": "animations/gSpriteAnimations_322_2.bin",
     "start": 1039646,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDD23.bin",
+    "path": "animations/gSpriteAnimations_322_3.bin",
     "start": 1039651,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDD28.bin",
+    "path": "animations/gSpriteAnimations_322_4.bin",
     "start": 1039656,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDD2D.bin",
+    "path": "animations/gSpriteAnimations_322_6.bin",
     "start": 1039661,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDD32.bin",
+    "path": "animations/gSpriteAnimations_322_7.bin",
     "start": 1039666,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDD37.bin",
+    "path": "animations/gSpriteAnimations_322_8.bin",
     "start": 1039671,
-    "size": 17
+    "size": 17,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDD48.bin",
+    "path": "animations/gSpriteAnimations_322_9.bin",
     "start": 1039688,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDD4D.bin",
+    "path": "animations/gSpriteAnimations_322_10.bin",
     "start": 1039693,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDD52.bin",
+    "path": "animations/gSpriteAnimations_322_11.bin",
     "start": 1039698,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDD57.bin",
+    "path": "animations/gSpriteAnimations_322_12.bin",
     "start": 1039703,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDD5C.bin",
+    "path": "animations/gSpriteAnimations_322_13.bin",
     "start": 1039708,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDD61.bin",
+    "path": "animations/gSpriteAnimations_322_14.bin",
     "start": 1039713,
-    "size": 49
+    "size": 49,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDD92.bin",
+    "path": "animations/gSpriteAnimations_322_15.bin",
     "start": 1039762,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDD97.bin",
+    "path": "animations/gSpriteAnimations_322_5.bin",
     "start": 1039767,
-    "size": 17
+    "size": 17,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDDA8.bin",
+    "path": "animations/gSpriteAnimations_322_17.bin",
     "start": 1039784,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDDAD.bin",
+    "path": "animations/gSpriteAnimations_322_18.bin",
     "start": 1039789,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDDB2.bin",
+    "path": "animations/gSpriteAnimations_322_19.bin",
     "start": 1039794,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDDB7.bin",
+    "path": "animations/gSpriteAnimations_322_20.bin",
     "start": 1039799,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDDBC.bin",
+    "path": "animations/gSpriteAnimations_322_21.bin",
     "start": 1039804,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDDC1.bin",
+    "path": "animations/gSpriteAnimations_322_22.bin",
     "start": 1039809,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDDC6.bin",
+    "path": "animations/gSpriteAnimations_322_23.bin",
     "start": 1039814,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDDCB.bin",
+    "path": "animations/gSpriteAnimations_322_28.bin",
     "start": 1039819,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDDD0.bin",
+    "path": "animations/gSpriteAnimations_322_38.bin",
     "start": 1039824,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDDD5.bin",
+    "path": "animations/gSpriteAnimations_322_39.bin",
     "start": 1039829,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDDDA.bin",
+    "path": "animations/gSpriteAnimations_322_34.bin",
     "start": 1039834,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDDDF.bin",
+    "path": "animations/gSpriteAnimations_322_35.bin",
     "start": 1039839,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDDE4.bin",
+    "path": "animations/gSpriteAnimations_322_40.bin",
     "start": 1039844,
-    "size": 17
+    "size": 17,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDDF5.bin",
+    "path": "animations/gSpriteAnimations_322_41.bin",
     "start": 1039861,
-    "size": 25
+    "size": 25,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDE0E.bin",
+    "path": "animations/gSpriteAnimations_322_42.bin",
     "start": 1039886,
-    "size": 25
+    "size": 25,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDE27.bin",
+    "path": "animations/gSpriteAnimations_322_43.bin",
     "start": 1039911,
-    "size": 25
+    "size": 25,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDE40.bin",
+    "path": "animations/gSpriteAnimations_322_44.bin",
     "start": 1039936,
-    "size": 25
+    "size": 25,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDE59.bin",
+    "path": "animations/gSpriteAnimations_322_45.bin",
     "start": 1039961,
-    "size": 25
+    "size": 25,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDE72.bin",
+    "path": "animations/gSpriteAnimations_322_46.bin",
     "start": 1039986,
-    "size": 25
+    "size": 25,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDE8B.bin",
+    "path": "animations/gSpriteAnimations_322_36.bin",
     "start": 1040011,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDE90.bin",
+    "path": "animations/gSpriteAnimations_322_37.bin",
     "start": 1040016,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDE95.bin",
+    "path": "animations/gSpriteAnimations_322_54.bin",
     "start": 1040021,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDE9A.bin",
+    "path": "animations/gSpriteAnimations_322_33.bin",
     "start": 1040026,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDE9F.bin",
+    "path": "animations/gSpriteAnimations_322_47.bin",
     "start": 1040031,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDEA4.bin",
+    "path": "animations/gSpriteAnimations_322_48.bin",
     "start": 1040036,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDEA9.bin",
+    "path": "animations/gSpriteAnimations_322_49.bin",
     "start": 1040041,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDEAE.bin",
+    "path": "animations/gSpriteAnimations_322_52.bin",
     "start": 1040046,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDEB3.bin",
+    "path": "animations/gSpriteAnimations_322_53.bin",
     "start": 1040051,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDEB8.bin",
+    "path": "animations/gSpriteAnimations_322_24.bin",
     "start": 1040056,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDEBD.bin",
+    "path": "animations/gSpriteAnimations_322_58.bin",
     "start": 1040061,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDEC2.bin",
+    "path": "animations/gSpriteAnimations_322_59.bin",
     "start": 1040066,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDEC7.bin",
+    "path": "animations/gSpriteAnimations_322_25.bin",
     "start": 1040071,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDECC.bin",
+    "path": "animations/gSpriteAnimations_322_60.bin",
     "start": 1040076,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDED1.bin",
+    "path": "animations/gSpriteAnimations_322_55.bin",
     "start": 1040081,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDED6.bin",
+    "path": "animations/gSpriteAnimations_322_68.bin",
     "start": 1040086,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDEDB.bin",
+    "path": "animations/gSpriteAnimations_322_69.bin",
     "start": 1040091,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDEE0.bin",
+    "path": "animations/gSpriteAnimations_322_26.bin",
     "start": 1040096,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDEE5.bin",
+    "path": "animations/gSpriteAnimations_322_64.bin",
     "start": 1040101,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDEEA.bin",
+    "path": "animations/gSpriteAnimations_322_65.bin",
     "start": 1040106,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDEEF.bin",
+    "path": "animations/gSpriteAnimations_322_66.bin",
     "start": 1040111,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDEF4.bin",
+    "path": "animations/gSpriteAnimations_322_67.bin",
     "start": 1040116,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDEF9.bin",
+    "path": "animations/gSpriteAnimations_322_71.bin",
     "start": 1040121,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDEFE.bin",
+    "path": "animations/gSpriteAnimations_322_81.bin",
     "start": 1040126,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDF03.bin",
+    "path": "animations/gSpriteAnimations_322_82.bin",
     "start": 1040131,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDF08.bin",
+    "path": "animations/gSpriteAnimations_322_83.bin",
     "start": 1040136,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDF0D.bin",
+    "path": "animations/gSpriteAnimations_322_84.bin",
     "start": 1040141,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDF12.bin",
+    "path": "animations/gSpriteAnimations_322_95.bin",
     "start": 1040146,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDF17.bin",
+    "path": "animations/gSpriteAnimations_322_96.bin",
     "start": 1040151,
-    "size": 17
+    "size": 17,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDF28.bin",
+    "path": "animations/gSpriteAnimations_322_98.bin",
     "start": 1040168,
-    "size": 29
+    "size": 29,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDF45.bin",
+    "path": "animations/gSpriteAnimations_322_99.bin",
     "start": 1040197,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDF4A.bin",
+    "path": "animations/gSpriteAnimations_322_87.bin",
     "start": 1040202,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDF4F.bin",
+    "path": "animations/gSpriteAnimations_322_104.bin",
     "start": 1040207,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDF54.bin",
+    "path": "animations/gSpriteAnimations_322_105.bin",
     "start": 1040212,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDF59.bin",
+    "path": "animations/gSpriteAnimations_322_106.bin",
     "start": 1040217,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDF5E.bin",
+    "path": "animations/gSpriteAnimations_322_107.bin",
     "start": 1040222,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDF63.bin",
+    "path": "animations/gSpriteAnimations_322_93.bin",
     "start": 1040227,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDF68.bin",
+    "path": "animations/gSpriteAnimations_322_94.bin",
     "start": 1040232,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDF6D.bin",
+    "path": "animations/gSpriteAnimations_322_63.bin",
     "start": 1040237,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDF72.bin",
+    "path": "animations/gSpriteAnimations_322_100.bin",
     "start": 1040242,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDF77.bin",
+    "path": "animations/gSpriteAnimations_322_101.bin",
     "start": 1040247,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDF7C.bin",
+    "path": "animations/gSpriteAnimations_322_102.bin",
     "start": 1040252,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDF81.bin",
+    "path": "animations/gSpriteAnimations_322_103.bin",
     "start": 1040257,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDF86.bin",
+    "path": "animations/gSpriteAnimations_322_91.bin",
     "start": 1040262,
-    "size": 9
+    "size": 9,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDF8F.bin",
+    "path": "animations/gSpriteAnimations_322_92.bin",
     "start": 1040271,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDF94.bin",
+    "path": "animations/gSpriteAnimations_322_108.bin",
     "start": 1040276,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDF99.bin",
+    "path": "animations/gSpriteAnimations_322_109.bin",
     "start": 1040281,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDF9E.bin",
+    "path": "animations/gSpriteAnimations_322_110.bin",
     "start": 1040286,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDFA3.bin",
+    "path": "animations/gSpriteAnimations_322_111.bin",
     "start": 1040291,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDFA8.bin",
+    "path": "animations/gSpriteAnimations_322_112.bin",
     "start": 1040296,
-    "size": 25
+    "size": 25,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDFC1.bin",
+    "path": "animations/gSpriteAnimations_322_72.bin",
     "start": 1040321,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDFC6.bin",
+    "path": "animations/gSpriteAnimations_322_97.bin",
     "start": 1040326,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDFCB.bin",
+    "path": "animations/gSpriteAnimations_322_61.bin",
     "start": 1040331,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "data_080FC8A4/gUnk_080FDFD0.bin",
+    "path": "animations/gSpriteAnimations_322_62.bin",
     "start": 1040336,
-    "size": 8
+    "size": 8,
+    "type": "animation"
   },
   {
     "path": "data_080FC8A4/gUnk_080FE1B4.bin",
@@ -35132,19 +35221,9 @@
   },
   {
     "offsets": {
-      "JP": -836,
-      "DEMO_JP": -2064
-    }
-  },
-  {
-    "offsets": {
+      "EU": -2212,
       "JP": -824,
       "DEMO_JP": -2052
-    }
-  },
-  {
-    "offsets": {
-      "EU": -2212
     }
   },
   {
@@ -40235,69 +40314,82 @@
     "type": "animation"
   },
   {
-    "path": "vaati/gUnk_0811073C.bin",
+    "path": "animations/gSpriteAnimations_Vaati_1_0.bin",
     "start": 1115964,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "vaati/gUnk_08110741.bin",
+    "path": "animations/gSpriteAnimations_Vaati_1_1.bin",
     "start": 1115969,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "vaati/gUnk_08110746.bin",
+    "path": "animations/gSpriteAnimations_Vaati_1_2.bin",
     "start": 1115974,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "vaati/gUnk_0811074B.bin",
+    "path": "animations/gSpriteAnimations_Vaati_1_3.bin",
     "start": 1115979,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "vaati/gUnk_08110750.bin",
+    "path": "animations/gSpriteAnimations_Vaati_1_4.bin",
     "start": 1115984,
-    "size": 17
+    "size": 17,
+    "type": "animation"
   },
   {
-    "path": "vaati/gUnk_08110761.bin",
+    "path": "animations/gSpriteAnimations_Vaati_1_5.bin",
     "start": 1116001,
-    "size": 17
+    "size": 17,
+    "type": "animation"
   },
   {
-    "path": "vaati/gUnk_08110772.bin",
+    "path": "animations/gSpriteAnimations_Vaati_1_6.bin",
     "start": 1116018,
-    "size": 17
+    "size": 17,
+    "type": "animation"
   },
   {
-    "path": "vaati/gUnk_08110783.bin",
+    "path": "animations/gSpriteAnimations_Vaati_1_7.bin",
     "start": 1116035,
-    "size": 17
+    "size": 17,
+    "type": "animation"
   },
   {
-    "path": "vaati/gUnk_08110794.bin",
+    "path": "animations/gSpriteAnimations_Vaati_1_8.bin",
     "start": 1116052,
-    "size": 5
+    "size": 5,
+    "type": "animation"
   },
   {
-    "path": "vaati/gUnk_08110799.bin",
+    "path": "animations/gSpriteAnimations_Vaati_1_12.bin",
     "start": 1116057,
-    "size": 17
+    "size": 17,
+    "type": "animation"
   },
   {
-    "path": "vaati/gUnk_081107AA.bin",
+    "path": "animations/gSpriteAnimations_Vaati_1_16.bin",
     "start": 1116074,
-    "size": 9
+    "size": 9,
+    "type": "animation"
   },
   {
-    "path": "vaati/gUnk_081107B3.bin",
+    "path": "animations/gSpriteAnimations_Vaati_1_20.bin",
     "start": 1116083,
-    "size": 9
+    "size": 9,
+    "type": "animation"
   },
   {
-    "path": "vaati/gUnk_081107BC.bin",
+    "path": "animations/gSpriteAnimations_Vaati_1_24.bin",
     "start": 1116092,
-    "size": 16
+    "size": 16,
+    "type": "animation"
   },
   {
     "path": "animations/gSpriteAnimations_Vaati_0.bin",
@@ -47215,14 +47307,16 @@
     "size": 12
   },
   {
-    "path": "fileScreenObjects/gUnk_08121E24.bin",
+    "path": "animations/gSpriteAnimations_FileScreenObjects_0.bin",
     "start": 1187364,
-    "size": 13
+    "size": 13,
+    "type": "animation"
   },
   {
-    "path": "fileScreenObjects/gUnk_08121E31.bin",
+    "path": "animations/gSpriteAnimations_FileScreenObjects_1.bin",
     "start": 1187377,
-    "size": 31
+    "size": 31,
+    "type": "animation"
   },
   {
     "path": "fileScreenObjects/gUnk_08121CD4.bin",
@@ -47875,14 +47969,16 @@
     "size": 12
   },
   {
-    "path": "object6A/gUnk_08122B4C.bin",
+    "path": "animations/gSpriteAnimations_Object6A_9_0.bin",
     "start": 1190732,
-    "size": 9
+    "size": 9,
+    "type": "animation"
   },
   {
-    "path": "object6A/gUnk_08122B55.bin",
+    "path": "animations/gSpriteAnimations_Object6A_9_1.bin",
     "start": 1190741,
-    "size": 15
+    "size": 15,
+    "type": "animation"
   },
   {
     "path": "animations/gSpriteAnimations_Object6A_5_2.bin",
@@ -49032,19 +49128,22 @@
     "size": 8
   },
   {
-    "path": "objectA2/gUnk_08124712.bin",
+    "path": "animation/gSpriteAnimations_ObjectA2_0.bin",
     "start": 1197842,
-    "size": 49
+    "size": 49,
+    "type": "animation"
   },
   {
-    "path": "objectA2/gUnk_08124743.bin",
+    "path": "animation/gSpriteAnimations_ObjectA2_1.bin",
     "start": 1197891,
-    "size": 33
+    "size": 33,
+    "type": "animation"
   },
   {
-    "path": "objectA2/gUnk_08124764.bin",
+    "path": "animation/gSpriteAnimations_ObjectA2_2.bin",
     "start": 1197924,
-    "size": 36
+    "size": 36,
+    "type": "animation"
   },
   {
     "path": "cloud/gUnk_081247C0.bin",
@@ -53950,29 +54049,6 @@
     "size": 8
   },
   {
-    "path": "sprites/gFixedTypeGfxData.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1253760
-    },
-    "size": 2100,
-    "type": "fixed_type_gfx"
-  },
-  {
-    "path": "sprites/gFixedTypeGfxData.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1256240,
-    "size": 2104,
-    "type": "fixed_type_gfx"
-  },
-  {
     "path": "data_08132B30/gUnk_08133368_EU.bin",
     "variants": [
       "EU"
@@ -57092,831 +57168,10 @@
   },
   {
     "offsets": {
+      "EU": -2800,
       "DEMO_JP": -872,
-      "JP": -864,
-      "EU": -2736
+      "JP": -864
     }
-  },
-  {
-    "offsets": {
-      "EU": -2800
-    }
-  },
-  {
-    "path": "palettes/gFigurinePal1.gbapal",
-    "start": 5988032,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal2.gbapal",
-    "start": 5988256,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal3.gbapal",
-    "start": 5988480,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal4.gbapal",
-    "start": 5988704,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal5.gbapal",
-    "start": 5988928,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal6.gbapal",
-    "start": 5989152,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal7.gbapal",
-    "start": 5989376,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal8.gbapal",
-    "start": 5989600,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal9.gbapal",
-    "start": 5989824,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal10.gbapal",
-    "start": 5990048,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal11.gbapal",
-    "start": 5990272,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal12.gbapal",
-    "start": 5990496,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal13.gbapal",
-    "start": 5990720,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal14.gbapal",
-    "start": 5990944,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal15.gbapal",
-    "start": 5991168,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal16.gbapal",
-    "start": 5991392,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal17.gbapal",
-    "start": 5991616,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal18.gbapal",
-    "start": 5991840,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal19.gbapal",
-    "start": 5992064,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal20.gbapal",
-    "start": 5992288,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal21.gbapal",
-    "start": 5992512,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal22.gbapal",
-    "start": 5992736,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal23.gbapal",
-    "start": 5992960,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal24.gbapal",
-    "start": 5993184,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal25.gbapal",
-    "start": 5993408,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal26.gbapal",
-    "start": 5993632,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal27.gbapal",
-    "start": 5993856,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal28.gbapal",
-    "start": 5994080,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal29.gbapal",
-    "start": 5994304,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal30.gbapal",
-    "start": 5994528,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal31.gbapal",
-    "start": 5994752,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal32.gbapal",
-    "start": 5994976,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal33.gbapal",
-    "start": 5995200,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal34.gbapal",
-    "start": 5995424,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal35.gbapal",
-    "start": 5995648,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal36.gbapal",
-    "start": 5995872,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal37.gbapal",
-    "start": 5996096,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal38.gbapal",
-    "start": 5996320,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal39.gbapal",
-    "start": 5996544,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal40.gbapal",
-    "start": 5996768,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal41.gbapal",
-    "start": 5996992,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal42.gbapal",
-    "start": 5997216,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal43.gbapal",
-    "start": 5997440,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal44.gbapal",
-    "start": 5997664,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal45.gbapal",
-    "start": 5997888,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal46.gbapal",
-    "start": 5998112,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal47.gbapal",
-    "start": 5998336,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal48.gbapal",
-    "start": 5998560,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal49.gbapal",
-    "start": 5998784,
-    "size": 288,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal50.gbapal",
-    "start": 5999072,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal51.gbapal",
-    "start": 5999296,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal52.gbapal",
-    "start": 5999520,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal53.gbapal",
-    "start": 5999744,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal54.gbapal",
-    "start": 5999968,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal55.gbapal",
-    "start": 6000192,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal56.gbapal",
-    "start": 6000416,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal57.gbapal",
-    "start": 6000640,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal58.gbapal",
-    "start": 6000864,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal59.gbapal",
-    "start": 6001088,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal60.gbapal",
-    "start": 6001312,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal61.gbapal",
-    "start": 6001536,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal62.gbapal",
-    "start": 6001760,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal63.gbapal",
-    "start": 6001984,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal64.gbapal",
-    "start": 6002208,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal65.gbapal",
-    "start": 6002432,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal66.gbapal",
-    "start": 6002656,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal67.gbapal",
-    "start": 6002880,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal68.gbapal",
-    "start": 6003104,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal69.gbapal",
-    "start": 6003328,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal70.gbapal",
-    "start": 6003552,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal71.gbapal",
-    "start": 6003776,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal72.gbapal",
-    "start": 6004000,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal73.gbapal",
-    "start": 6004224,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal74.gbapal",
-    "start": 6004448,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal75.gbapal",
-    "start": 6004672,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal76.gbapal",
-    "start": 6004896,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal77.gbapal",
-    "start": 6005120,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal78.gbapal",
-    "start": 6005344,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal79.gbapal",
-    "start": 6005568,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal80.gbapal",
-    "start": 6005792,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal81.gbapal",
-    "start": 6006016,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal82.gbapal",
-    "start": 6006240,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal83.gbapal",
-    "start": 6006464,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal84.gbapal",
-    "start": 6006688,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal85.gbapal",
-    "start": 6006912,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal86.gbapal",
-    "start": 6007136,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal87.gbapal",
-    "start": 6007360,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal88.gbapal",
-    "start": 6007584,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal89.gbapal",
-    "start": 6007808,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal90.gbapal",
-    "start": 6008032,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal91.gbapal",
-    "start": 6008256,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal92.gbapal",
-    "start": 6008480,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal93.gbapal",
-    "start": 6008704,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal94.gbapal",
-    "start": 6008928,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal95.gbapal",
-    "start": 6009152,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal96.gbapal",
-    "start": 6009376,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal97.gbapal",
-    "start": 6009600,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal98.gbapal",
-    "start": 6009824,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal99.gbapal",
-    "start": 6010048,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal100.gbapal",
-    "start": 6010272,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal101.gbapal",
-    "start": 6010496,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal102.gbapal",
-    "start": 6010720,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal103.gbapal",
-    "start": 6010944,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal104.gbapal",
-    "start": 6011168,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal105.gbapal",
-    "start": 6011392,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal106.gbapal",
-    "start": 6011616,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal107.gbapal",
-    "start": 6011840,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal108.gbapal",
-    "start": 6012064,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal109.gbapal",
-    "start": 6012288,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal110.gbapal",
-    "start": 6012512,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal111.gbapal",
-    "start": 6012736,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal112.gbapal",
-    "start": 6012960,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal113.gbapal",
-    "start": 6013184,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal114.gbapal",
-    "start": 6013408,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal115.gbapal",
-    "start": 6013632,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal116.gbapal",
-    "start": 6013856,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal117.gbapal",
-    "start": 6014080,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal118.gbapal",
-    "start": 6014304,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal119.gbapal",
-    "start": 6014528,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal120.gbapal",
-    "start": 6014752,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal121.gbapal",
-    "start": 6014976,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal122.gbapal",
-    "start": 6015200,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal123.gbapal",
-    "start": 6015424,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal124.gbapal",
-    "start": 6015648,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal125.gbapal",
-    "start": 6015872,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal126.gbapal",
-    "start": 6016096,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal127.gbapal",
-    "start": 6016320,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal128.gbapal",
-    "start": 6016544,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal129.gbapal",
-    "start": 6016768,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal130.gbapal",
-    "start": 6016992,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal131.gbapal",
-    "start": 6017216,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal132.gbapal",
-    "start": 6017440,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal133.gbapal",
-    "start": 6017664,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal134.gbapal",
-    "start": 6017888,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal135.gbapal",
-    "start": 6018112,
-    "size": 224,
-    "type": "palette"
-  },
-  {
-    "path": "palettes/gFigurinePal136.gbapal",
-    "start": 6018336,
-    "size": 256,
-    "type": "palette"
   },
   {
     "offsets": {
@@ -58054,33 +57309,10 @@
     "size": 179392
   },
   {
-    "path": "sprites/extraFrameOffsets.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 11563136
-    },
-    "size": 3924,
-    "type": "extra_frame_offsets"
-  },
-  {
     "offsets": {
       "JP": -123008,
       "DEMO_JP": -122808
     }
-  },
-  {
-    "path": "sprites/extraFrameOffsets.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 10467184,
-    "size": 3924,
-    "type": "extra_frame_offsets"
   },
   {
     "path": "sprite_table/gUnk_089FB780.bin",

@@ -4,74 +4,74 @@
 	.section .rodata
     .align 2
 
-gUnk_0811073C:: @ 0811073C
-	.incbin "vaati/gUnk_0811073C.bin"
+gSpriteAnimations_Vaati_1_0:: @ 0811073C
+	.include "animations/gSpriteAnimations_Vaati_1_0.s"
 
-gUnk_08110741:: @ 08110741
-	.incbin "vaati/gUnk_08110741.bin"
+gSpriteAnimations_Vaati_1_1:: @ 08110741
+	.include "animations/gSpriteAnimations_Vaati_1_1.s"
 
-gUnk_08110746:: @ 08110746
-	.incbin "vaati/gUnk_08110746.bin"
+gSpriteAnimations_Vaati_1_2:: @ 08110746
+	.include "animations/gSpriteAnimations_Vaati_1_2.s"
 
-gUnk_0811074B:: @ 0811074B
-	.incbin "vaati/gUnk_0811074B.bin"
+gSpriteAnimations_Vaati_1_3:: @ 0811074B
+	.include "animations/gSpriteAnimations_Vaati_1_3.s"
 
-gUnk_08110750:: @ 08110750
-	.incbin "vaati/gUnk_08110750.bin"
+gSpriteAnimations_Vaati_1_4:: @ 08110750
+	.include "animations/gSpriteAnimations_Vaati_1_4.s"
 
-gUnk_08110761:: @ 08110761
-	.incbin "vaati/gUnk_08110761.bin"
+gSpriteAnimations_Vaati_1_5:: @ 08110761
+	.include "animations/gSpriteAnimations_Vaati_1_5.s"
 
-gUnk_08110772:: @ 08110772
-	.incbin "vaati/gUnk_08110772.bin"
+gSpriteAnimations_Vaati_1_6:: @ 08110772
+	.include "animations/gSpriteAnimations_Vaati_1_6.s"
 
-gUnk_08110783:: @ 08110783
-	.incbin "vaati/gUnk_08110783.bin"
+gSpriteAnimations_Vaati_1_7:: @ 08110783
+	.include "animations/gSpriteAnimations_Vaati_1_7.s"
 
-gUnk_08110794:: @ 08110794
-	.incbin "vaati/gUnk_08110794.bin"
+gSpriteAnimations_Vaati_1_8:: @ 08110794
+	.include "animations/gSpriteAnimations_Vaati_1_8.s"
 
-gUnk_08110799:: @ 08110799
-	.incbin "vaati/gUnk_08110799.bin"
+gSpriteAnimations_Vaati_1_12:: @ 08110799
+	.include "animations/gSpriteAnimations_Vaati_1_12.s"
 
-gUnk_081107AA:: @ 081107AA
-	.incbin "vaati/gUnk_081107AA.bin"
+gSpriteAnimations_Vaati_1_16:: @ 081107AA
+	.include "animations/gSpriteAnimations_Vaati_1_16.s"
 
-gUnk_081107B3:: @ 081107B3
-	.incbin "vaati/gUnk_081107B3.bin"
+gSpriteAnimations_Vaati_1_20:: @ 081107B3
+	.include "animations/gSpriteAnimations_Vaati_1_20.s"
 
-gUnk_081107BC:: @ 081107BC
-	.incbin "vaati/gUnk_081107BC.bin"
+gSpriteAnimations_Vaati_1_24:: @ 081107BC
+	.include "animations/gSpriteAnimations_Vaati_1_24.s"
 
-gSpriteAnimation_Vaati_1:: @ 081107CC
-	.4byte gUnk_0811073C
-	.4byte gUnk_08110741
-	.4byte gUnk_08110746
-	.4byte gUnk_0811074B
-	.4byte gUnk_08110750
-	.4byte gUnk_08110761
-	.4byte gUnk_08110772
-	.4byte gUnk_08110783
-	.4byte gUnk_08110794
-	.4byte gUnk_08110794
-	.4byte gUnk_08110794
-	.4byte gUnk_08110794
-	.4byte gUnk_08110799
-	.4byte gUnk_08110799
-	.4byte gUnk_08110799
-	.4byte gUnk_08110799
-	.4byte gUnk_081107AA
-	.4byte gUnk_081107AA
-	.4byte gUnk_081107AA
-	.4byte gUnk_081107AA
-	.4byte gUnk_081107B3
-	.4byte gUnk_081107B3
-	.4byte gUnk_081107B3
-	.4byte gUnk_081107B3
-	.4byte gUnk_081107BC
-	.4byte gUnk_081107BC
-	.4byte gUnk_081107BC
-	.4byte gUnk_081107BC
+gSpriteAnimations_Vaati_1:: @ 081107CC
+	.4byte gSpriteAnimations_Vaati_1_0
+	.4byte gSpriteAnimations_Vaati_1_1
+	.4byte gSpriteAnimations_Vaati_1_2
+	.4byte gSpriteAnimations_Vaati_1_3
+	.4byte gSpriteAnimations_Vaati_1_4
+	.4byte gSpriteAnimations_Vaati_1_5
+	.4byte gSpriteAnimations_Vaati_1_6
+	.4byte gSpriteAnimations_Vaati_1_7
+	.4byte gSpriteAnimations_Vaati_1_8
+	.4byte gSpriteAnimations_Vaati_1_8
+	.4byte gSpriteAnimations_Vaati_1_8
+	.4byte gSpriteAnimations_Vaati_1_8
+	.4byte gSpriteAnimations_Vaati_1_12
+	.4byte gSpriteAnimations_Vaati_1_12
+	.4byte gSpriteAnimations_Vaati_1_12
+	.4byte gSpriteAnimations_Vaati_1_12
+	.4byte gSpriteAnimations_Vaati_1_16
+	.4byte gSpriteAnimations_Vaati_1_16
+	.4byte gSpriteAnimations_Vaati_1_16
+	.4byte gSpriteAnimations_Vaati_1_16
+	.4byte gSpriteAnimations_Vaati_1_20
+	.4byte gSpriteAnimations_Vaati_1_20
+	.4byte gSpriteAnimations_Vaati_1_20
+	.4byte gSpriteAnimations_Vaati_1_20
+	.4byte gSpriteAnimations_Vaati_1_24
+	.4byte gSpriteAnimations_Vaati_1_24
+	.4byte gSpriteAnimations_Vaati_1_24
+	.4byte gSpriteAnimations_Vaati_1_24
 	.4byte 00000000
 
 gSpriteAnimations_Vaati_0:: @ 08110840

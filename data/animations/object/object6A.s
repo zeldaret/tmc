@@ -5,15 +5,15 @@
     .align 2
 
 
-gUnk_08122B4C:: @ 08122B4C
-	.incbin "object6A/gUnk_08122B4C.bin"
+gSpriteAnimations_Object6A_9_0:: @ 08122B4C
+	.include "animations/gSpriteAnimations_Object6A_9_0.s"
 
-gUnk_08122B55:: @ 08122B55
-	.incbin "object6A/gUnk_08122B55.bin"
+gSpriteAnimations_Object6A_9_1:: @ 08122B55
+	.include "animations/gSpriteAnimations_Object6A_9_1.s"
 
-gSpriteAnimation_Object6A_9:: @ 08122B64
-	.4byte gUnk_08122B4C
-	.4byte gUnk_08122B55
+gSpriteAnimations_Object6A_9:: @ 08122B64
+	.4byte gSpriteAnimations_Object6A_9_0
+	.4byte gSpriteAnimations_Object6A_9_1
 	.4byte 00000000
 
 gSpriteAnimations_Object6A_5_2:: @ 08122B70

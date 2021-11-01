@@ -4,9 +4,6 @@
 	.section .rodata
     .align 2
 
- gFixedTypeGfxData:: @ 08132B30
- 	.include "sprites/gFixedTypeGfxData.s"
-
 
 gUnk_08133368:: @ 08133368
 .ifdef EU

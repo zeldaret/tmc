@@ -5,14 +5,9 @@ import subprocess
 from distutils.util import strtobool
 import json
 
-from assets.palette_group import PaletteGroup
-from assets.gfx_group import GfxGroup
-from assets.fixed_type_gfx import FixedTypeGfx
 from assets.frame_obj_lists import FrameObjLists
-from assets.extra_frame_offsets import ExtraFrameOffsets
 from assets.animation import Animation
 from assets.exit_list import ExitList
-from assets.entity_list import EntityList
 from assets.sprite_frame import SpriteFrame
 
 verbose = False
@@ -120,30 +115,15 @@ def extract_assets(variant, assets_folder):
                             extract_midi(path, baserom_path, start, options)
                         elif mode == 'aif':
                             extract_aif(path, options)
-                        elif mode == 'palette_group':
-                            palette_group = PaletteGroup(path, start, size, options)
-                            palette_group.extract_binary(baserom)
-                        elif mode == 'gfx_group':
-                            gfx_group = GfxGroup(path, start, size, options)
-                            gfx_group.extract_binary(baserom)
-                        elif mode == 'fixed_type_gfx':
-                            fixed_type_gfx = FixedTypeGfx(path, start, size, options)
-                            fixed_type_gfx.extract_binary(baserom)
                         elif mode == 'frame_obj_lists':
                             frame_obj_lists = FrameObjLists(path, start, size, options)
                             frame_obj_lists.extract_binary(baserom)
-                        elif mode == 'extra_frame_offsets':
-                            extra_frame_offsets = ExtraFrameOffsets(path, start, size, options)
-                            extra_frame_offsets.extract_binary(baserom)
                         elif mode == 'animation':
                             animation = Animation(path, start, size, options)
                             animation.extract_binary(baserom)
                         elif mode == 'exit_list':
                             exit_list = ExitList(path, start, size, options)
                             exit_list.extract_binary(baserom)
-                        elif mode == 'entity_list':
-                            entity_list = EntityList(path, start, size, options)
-                            entity_list.extract_binary(baserom)
                         elif mode == 'sprite_frames':
                             sprite_frames = SpriteFrame(path, start, size, options)
                             sprite_frames.extract_binary(baserom)

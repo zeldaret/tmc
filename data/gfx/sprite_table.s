@@ -3,8 +3,6 @@
 
 	.section .rodata
 	.align 2
-gExtraFrameOffsets:: @ 089FB770
-	.include "sprites/extraFrameOffsets.s"
 
 @ 	.byte 00, 0x0d, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00, 00
 

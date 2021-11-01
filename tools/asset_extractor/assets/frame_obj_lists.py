@@ -1,4 +1,4 @@
-from assets.base import BaseAsset, Reader
+from assets.base import BaseAsset, Reader, opt_param
 
 class FrameObjLists(BaseAsset):
     def __init__(self, path: str, addr: int, size: int, options: any) -> None:
@@ -59,7 +59,7 @@ class FrameObjLists(BaseAsset):
                     bytes.append(reader.read_u8())
                 lines.append('\t.byte ' + ', '.join(str(x) for x in bytes) + '\n')
             num_objects = reader.read_u8()
-            lines.append(f'\t.byte {num_objects}\n')
+            lines.append(f'\t.byte {num_objects} @ num_objs\n')
             if num_objects > 200:
                 #print(f'num_objects: {num_objects} @{reader.cursor}/{last_second_level}')
                 break
@@ -71,8 +71,8 @@ class FrameObjLists(BaseAsset):
                 bitfield = reader.read_u8()
                 bitfield2 = reader.read_u16()
 
-                lines.append(f'\t.byte {x_offset}, {y_offset}, {hex(bitfield)}\n')
-                lines.append(f'\t.2byte {hex(bitfield2)}\n')
+                # lines.append(f'\t.byte {x_offset}, {y_offset}, {hex(bitfield)}\n')
+                # lines.append(f'\t.2byte {hex(bitfield2)}\n')
 
                 # bitfield
                 override_entity_palette_index = (bitfield & 0x01) != 0
@@ -91,6 +91,10 @@ class FrameObjLists(BaseAsset):
                 # print(x_offset, y_offset, bitfield, bitfield2)
                 # print(override_entity_palette_index, h_flip, v_flip, size, shape)
                 # print(first_gfx_tile_offset, priority, palette_index)
+                line = f'\tobj x={hex(x_offset)}, y={hex(y_offset)}'
+                line += opt_param('bitfield', '0x0', hex(bitfield))
+                line += opt_param('bitfield2', '0x0', hex(bitfield2))
+                lines.append(line + '\n')
                 list.append({})
                 # print()
             obj_lists.append(list)

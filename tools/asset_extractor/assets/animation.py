@@ -1,4 +1,4 @@
-from assets.base import BaseAsset, Reader
+from assets.base import BaseAsset, Reader, opt_param
 
 class Animation(BaseAsset):
     def __init__(self, path: str, addr: int, size: int, options: any) -> None:
@@ -15,7 +15,11 @@ class Animation(BaseAsset):
             bitfield2 = reader.read_u8()
 
             end_of_animation = bitfield2 & 0x80 != 0
-            lines.append(f'\t.byte {frame_index}, {keyframe_duration}, {hex(bitfield)}, {hex(bitfield2)}\n')
+            line = f'\tkeyframe frame_index={frame_index}'
+            line += opt_param('duration', '0', str(keyframe_duration))
+            line += opt_param('bitfield', '0x0', hex(bitfield))
+            line += opt_param('bitfield2', '0x0', hex(bitfield2))
+            lines.append(line + '\n')
         if not end_of_animation:
             lines.append('@ TODO why no terminator?\n')
         while reader.cursor < self.size:
