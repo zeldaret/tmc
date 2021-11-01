@@ -5,6 +5,7 @@
 #include "flags.h"
 #include "audio.h"
 #include "functions.h"
+#include "effects.h"
 
 void sub_080409B0(Entity*);
 void sub_080408EC(Entity*);
@@ -567,7 +568,7 @@ void VaatiTransfiguredType0Action7(Entity* this) {
     }
     this->field_0xf = (this->field_0xf + 1) & 7;
     if (this->field_0xf == 0) {
-        pEVar3 = CreateFx(this, 0x55, 0);
+        pEVar3 = CreateFx(this, FX_AURA_BASE, 0);
         if (pEVar3 != NULL) {
             uVar4 = Random() & 0x3f3f;
             pEVar3->x.HALF.HI += (uVar4 & 0xff) - 0x20;

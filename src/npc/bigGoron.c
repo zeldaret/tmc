@@ -34,7 +34,6 @@ extern Hitbox gUnk_080FD180;
 Entity* sub_0806D00C(Entity* this);
 
 void sub_0806D4C0(Entity*, u32);
-extern u32 CheckPlayerProximity(u32, u32, u32, u32);
 
 void BigGoron(Entity* this) {
     gUnk_081140D4[this->type](this);

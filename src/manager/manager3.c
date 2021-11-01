@@ -7,6 +7,7 @@
 #include "random.h"
 #include "audio.h"
 #include "object.h"
+#include "functions.h"
 
 // Facilitates the usage of minish portals.
 
@@ -25,10 +26,9 @@ typedef struct {
 } Manager3;
 
 extern s8 gUnk_08107C6C[];
-extern u32 CheckPlayerProximity(u32, u32, u32, u32);
 extern u32 sub_08057810(void);
 extern u32 sub_080002C0(u16, u16, u8);
-extern void sub_080577AC(u32, u32, u32);
+extern void CreateMagicSparkles(u32, u32, u32);
 
 void Manager3_Main(Manager3* this) {
     s8 tmp;
@@ -55,11 +55,11 @@ void Manager3_Main(Manager3* this) {
                 }
             }
             if (sub_080002C0(this->unk_38, this->unk_3a, this->manager.unk_0e) == 0x3d) {
-                sub_080577AC(this->unk_38 + gRoomControls.roomOriginX, this->unk_3a + gRoomControls.roomOriginY,
-                             this->manager.unk_0e);
+                CreateMagicSparkles(this->unk_38 + gRoomControls.roomOriginX, this->unk_3a + gRoomControls.roomOriginY,
+                                    this->manager.unk_0e);
                 if (!this->manager.unk_0f) {
                     this->manager.unk_0f = 1;
-                    SoundReq(SFX_152);
+                    SoundReq(SFX_NEAR_PORTAL);
                 }
             }
         }
@@ -69,15 +69,15 @@ void Manager3_Main(Manager3* this) {
     }
 }
 
-void sub_080577AC(u32 baseX, u32 baseY, u32 layer) {
+void CreateMagicSparkles(u32 baseX, u32 baseY, u32 layer) {
     u32 r;
     int offsetX, offsetY;
     Entity* spark;
     r = Random();
-    if ((r & 0x7) != 0)
+    if (r & 0x7)
         return;
     spark = CreateObject(SPECIAL_FX, 0x26, 0);
-    if (!spark)
+    if (spark == NULL)
         return;
     offsetX = (r >> 0x8) & 0xF;
     offsetY = ((r >> 0x10) & 0xF);

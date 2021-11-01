@@ -660,8 +660,8 @@ _0801DD7C: .4byte gAreaRoomHeaders
 _0801DD80: .4byte gArea
 _0801DD84: .4byte 0x0000085C
 
-	thumb_func_start sub_0801DD88
-sub_0801DD88: @ 0x0801DD88
+	thumb_func_start LoadDungeonMap
+LoadDungeonMap: @ 0x0801DD88
 	push {lr}
 	ldr r0, _0801DD98 @ =gUnk_0201AEE0
 	ldr r1, _0801DD9C @ =0x06006000

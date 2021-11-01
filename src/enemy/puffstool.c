@@ -3,6 +3,7 @@
 #include "random.h"
 #include "object.h"
 #include "functions.h"
+#include "effects.h"
 
 extern u32 sub_080002E0(u32, u32);
 extern u32 sub_080002C8(u16, u8);
@@ -520,12 +521,12 @@ bool32 sub_08025AB8(u32 tile, u32 layer) {
 void sub_08025AE8(Entity* this) {
     Entity* ent;
 
-    ent = CreateFx(this, 0x22, 0);
+    ent = CreateFx(this, FX_BROWN_SMOKE, 0);
     if (ent) {
         ent->y.WORD--;
     }
 
-    ent = CreateFx(this, 0x23, 0);
+    ent = CreateFx(this, FX_BROWN_SMOKE_LARGE, 0);
     if (ent) {
         ent->y.WORD++;
     }

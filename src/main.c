@@ -81,7 +81,7 @@ void AgbMain(void) {
                 gMain.ticks++;
                 sScreenHandlers[gMain.screen]();
                 MessageUpdate();
-                sub_08050154();
+                UpdateFade();
                 SoundLoop();
                 break;
         }

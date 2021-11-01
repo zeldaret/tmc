@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "random.h"
 #include "functions.h"
+#include "effects.h"
 
 extern bool32 sub_0806FC80(Entity*, Entity*, u32);
 extern Entity* sub_08049DF4(u32);
@@ -224,7 +225,7 @@ void sub_08028528(Entity* this) {
 
             if ((this->actionDelay & 7) == 0) {
                 EnqueueSFX(0xf0);
-                CreateFx(this, 2, 0x40);
+                CreateFx(this, FX_DEATH, 0x40);
             }
 
             if (++this->field_0x7a.HALF.HI == 0x80) {

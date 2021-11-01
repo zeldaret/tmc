@@ -4,6 +4,7 @@
 #include "room.h"
 #include "random.h"
 #include "functions.h"
+#include "effects.h"
 
 typedef struct {
     s8 h, v;
@@ -115,7 +116,7 @@ void sub_080450A8(Entity* this) {
         off++;
     }
 
-    ent = CreateFx(this, 2, 0);
+    ent = CreateFx(this, FX_DEATH, 0);
     if (ent)
         CopyPosition(this, ent);
 

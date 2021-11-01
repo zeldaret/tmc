@@ -2,6 +2,7 @@
 #include "audio.h"
 #include "random.h"
 #include "functions.h"
+#include "effects.h"
 
 extern void (*const gUnk_0811BDCC[])(ItemBehavior* beh, u32);
 
@@ -26,10 +27,10 @@ void ItemPegasusBoots(ItemBehavior* this, u32 arg1) {
         if (((gPlayerState.flags.all & 0x80) == 0) && ((this->field_0x5[2] & 7) == 0)) {
             if (gPlayerState.field_0x10[2] == 0x11) {
                 if (gPlayerEntity.spriteOffsetY == 0) {
-                    CreateFx(&gPlayerEntity, 0x52, 0);
+                    CreateFx(&gPlayerEntity, FX_GREEN_SPLASH, 0);
                 }
             } else {
-                fx = CreateFx(&gPlayerEntity, 0x11, 0x40);
+                fx = CreateFx(&gPlayerEntity, FX_DASH, 0x40);
                 if ((fx != NULL) && (fx->y.HALF.HI = fx->y.HALF.HI + 2, this->stateID != 2)) {
                     uVar4 = Random() & 3;
                     if ((Random() & 1) != 0) {

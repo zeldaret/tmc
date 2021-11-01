@@ -4,6 +4,7 @@
 #include "game.h"
 #include "audio.h"
 #include "functions.h"
+#include "effects.h"
 
 void sub_08083338(Entity*);
 void sub_080834B4(Entity*);
@@ -315,12 +316,12 @@ u32 sub_080837B0(Entity* this) {
 void sub_08083814(Entity* this, u32 unk0) {
     Entity* fx;
     const struct_0811F730* tmp = &gUnk_0811F730[unk0];
-    fx = CreateFx(this, 0x11, 0x40);
+    fx = CreateFx(this, FX_DASH, 0x40);
     if (fx) {
         fx->x.HALF.HI += tmp->unk_00.x;
         fx->y.HALF.HI += tmp->unk_00.y;
     }
-    fx = CreateFx(this, 0x11, 0x40);
+    fx = CreateFx(this, FX_DASH, 0x40);
     if (fx) {
         fx->x.HALF.HI += tmp->unk_02.x;
         fx->y.HALF.HI += tmp->unk_02.y;

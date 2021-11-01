@@ -1259,7 +1259,7 @@ sub_080A5CFC: @ 0x080A5CFC
 	push {r4, lr}
 	adds r4, r0, #0
 	bl sub_0801DDA0
-	bl sub_0801DD88
+	bl LoadDungeonMap
 	ldr r1, _080A5D18 @ =gUnk_02019EE0
 	movs r2, #0x80
 	lsls r2, r2, #3

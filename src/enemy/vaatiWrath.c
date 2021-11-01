@@ -10,6 +10,7 @@
 #include "structures.h"
 #include "functions.h"
 #include "save.h"
+#include "effects.h"
 
 extern u8 gEntCount;
 
@@ -708,7 +709,7 @@ void sub_08041E78(Entity* this) {
     const s8* temp;
 
     if ((this->field_0xf & 0xf) == 0) {
-        fx = CreateFx(this, 0x51, 0);
+        fx = CreateFx(this, FX_GIANT_EXPLOSION4, 0);
         if (fx != NULL) {
             temp = &gUnk_080D0E90[this->field_0xf >> 3 & 0xe];
             fx->x.HALF.HI += *temp++;

@@ -9,6 +9,7 @@
 #include "random.h"
 #include "structures.h"
 #include "functions.h"
+#include "effects.h"
 
 typedef struct {
     u8 frame1;
@@ -228,7 +229,7 @@ void sub_08061E90(Entity* this, Entity* arg1) {
 void sub_08061F94(Entity* this) {
     Entity* ent;
 
-    ent = CreateFx(this, 0x35, 0);
+    ent = CreateFx(this, FX_BIG_EXPLOSION, 0);
     if (ent != NULL) {
         ResolveEntityOnTop(this, ent);
     }

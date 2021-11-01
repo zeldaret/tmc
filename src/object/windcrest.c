@@ -4,6 +4,7 @@
 #include "save.h"
 #include "script.h"
 #include "functions.h"
+#include "effects.h"
 
 extern void sub_08078850(Entity*, u32, u32, u8*);
 
@@ -26,5 +27,5 @@ void sub_080A2124(Entity* this) {
 void Windcrest_Unlock(Entity* this) {
     SoundReq(SFX_SECRET);
     gSave.windcrests = gSave.windcrests | 1 << (this->type2 + 0x18);
-    CreateFx(this, 0x46, 0);
+    CreateFx(this, FX_GIANT_EXPLOSION, 0);
 }

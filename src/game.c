@@ -67,7 +67,7 @@ void sub_0805212C(void) {
 #else
                 sub_08052418(0, 0);
                 gScreen.lcd.displayControl |= 0x600;
-                gFadeControl.field_0x4 = 0xffff;
+                gFadeControl.mask = 0x0000ffff;
                 DoFade(4, 0x10);
 #endif
             }
@@ -97,7 +97,7 @@ void sub_080521A0(void) {
             gMenu.field_0x3 = 0;
             sub_080A7114(1);
             sub_08052418(0, 0);
-            gFadeControl.field_0x4 = 0xffffffff;
+            gFadeControl.mask = 0xffffffff;
             break;
         case 1:
             if (gMenu.transitionTimer == 0) {

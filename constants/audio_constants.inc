@@ -336,7 +336,7 @@
     .equiv SFX_14F, 0x14f
     .equiv SFX_150, 0x150
     .equiv SFX_151, 0x151
-    .equiv SFX_152, 0x152
+    .equiv SFX_NEAR_PORTAL, 0x152
     .equiv SFX_153, 0x153
     .equiv SFX_154, 0x154
     .equiv SFX_155, 0x155

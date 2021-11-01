@@ -6,6 +6,7 @@
 #include "audio.h"
 #include "area.h"
 #include "functions.h"
+#include "effects.h"
 
 extern void sub_080AEFB4(Entity*);
 extern u8 gEntCount;
@@ -477,7 +478,7 @@ void VaatiRebornEnemyType0Action7(Entity* this) {
             SetRoomFlag(1);
         } else {
             if ((this->actionDelay & 7) == 0) {
-                fx = CreateFx(this, 2, 0);
+                fx = CreateFx(this, FX_DEATH, 0);
                 if (fx != NULL) {
                     tmp = Random() & 0x3f3f;
                     fx->x.HALF.HI = ((tmp & 0xff) - 0x20) + fx->x.HALF.HI;

@@ -13,6 +13,7 @@
 #include "script.h"
 #include "random.h"
 #include "functions.h"
+#include "effects.h"
 
 void sub_0804B3C4(void* arg0) {
     sub_0804B29C(arg0);
@@ -5831,7 +5832,7 @@ void sub_0804F5E8(void) {
 void sub_0804F680(Entity* parent, s32 x, s32 y) {
     Entity* fx;
 
-    fx = CreateFx(parent, 2, 0);
+    fx = CreateFx(parent, FX_DEATH, 0);
     if (fx != NULL) {
         fx->x.HALF.HI = gRoomControls.roomOriginX + x;
         fx->y.HALF.HI = gRoomControls.roomOriginY + y;
@@ -5872,13 +5873,13 @@ void sub_0804F760(Entity* this) {
 void sub_0804F79C(Entity* parent) {
     Entity* fx;
 
-    fx = CreateFx(parent, 0x35, 0);
+    fx = CreateFx(parent, FX_BIG_EXPLOSION, 0);
     if (fx != NULL) {
         fx->spriteRendering.b3 = 0;
         fx->x.HALF.HI = gRoomControls.roomOriginX + 0x1b8;
         fx->y.HALF.HI = gRoomControls.roomOriginY + 0x148;
     }
-    fx = CreateFx(parent, 0x35, 0);
+    fx = CreateFx(parent, FX_BIG_EXPLOSION, 0);
     if (fx != NULL) {
         fx->spriteRendering.b3 = 0;
         fx->x.HALF.HI = gRoomControls.roomOriginX + 0x238;

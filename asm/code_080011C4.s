@@ -1264,14 +1264,17 @@ _0800268C:
 	.byte 0x00, 0xFF, 0xFF, 0x00, 0xFF, 0x00, 0xFF, 0x00, 0x00, 0x00, 0xFF, 0x00
 _0800269C: .4byte gUnk_0800232E
 _080026A0: .4byte gUnk_08002342
+
 gUnk_080026A4::
-	.4byte gUnk_020000B0
-	.4byte gUnk_03003D68
-	.4byte gUnk_03003DB0
-	.4byte gUnk_03005FBC
+@ normal entities
+	.4byte gUnk_020000B0 @ enemy target? (player)
+	.4byte gUnk_03003D68 @ first linked list
+	.4byte gUnk_03003DB0 @ last linked list
+	.4byte gUnk_03005FBC @ entity table
+@ managers
 	.4byte gUnk_020000B0
 	.4byte gUnk_03003DA8
-	.4byte gHitboxCount
+	.4byte gCollidableCount
 	.4byte gUnk_03005FBC
 
 	thumb_func_start sub_080026C4

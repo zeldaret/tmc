@@ -1,6 +1,7 @@
 #include "enemy.h"
 #include "random.h"
 #include "functions.h"
+#include "effects.h"
 
 void sub_0802C4B0(Entity*);
 void sub_0802C62C(Entity*);
@@ -92,7 +93,7 @@ NONMATCH("asm/non_matching/fallingBoulder/sub_0802C334.inc", void sub_0802C334(E
                         u32 diff = 0;
                         s32 i;
                         for (i = 1; i > -1; i--) {
-                            Entity* ent = CreateFx(this, 0x15, 0);
+                            Entity* ent = CreateFx(this, FX_ROCK2, 0);
                             if (ent) {
                                 ent->x.HALF.HI += 12;
                                 ent->x.HALF.HI -= diff;

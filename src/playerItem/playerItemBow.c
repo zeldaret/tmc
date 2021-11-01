@@ -1,6 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "functions.h"
+#include "effects.h"
 
 extern void (*const gUnk_080B3E30[])(Entity*);
 
@@ -33,6 +34,6 @@ void sub_08019444(Entity* this) {
 
 void sub_08019468(Entity* this) {
     if (this->field_0x40 == 0x0e) {
-        CreateFx(this, 0x50, 0);
+        CreateFx(this, FX_REFLECT5, 0);
     }
 }

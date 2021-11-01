@@ -3,6 +3,7 @@
 #include "textbox.h"
 #include "functions.h"
 #include "script.h"
+#include "effects.h"
 
 extern void sub_08062CA4();
 
@@ -57,7 +58,7 @@ void sub_08062C7C(Entity* ent) {
     ent->action = 1;
     sub_0807DD64(ent);
     InitializeAnimation(ent, 0);
-    CreateFx(ent, 37, 0);
+    CreateFx(ent, FX_SWEAT, 0);
     sub_08062CA4(ent);
 }
 

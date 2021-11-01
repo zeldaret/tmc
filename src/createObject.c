@@ -4,6 +4,7 @@
 #include "room.h"
 #include "createObject.h"
 #include "object.h"
+#include "effects.h"
 
 Entity* CreateObject(u32 subtype, u32 form, u32 parameter) {
     Entity* entity;
@@ -36,13 +37,13 @@ Entity* CreateFx(Entity* parentEnt, u32 form, u32 parameter) {
 }
 
 void CreateDust(Entity* parent) {
-    CreateFx(parent, 2, 0);
+    CreateFx(parent, FX_DEATH, 0);
 }
 
 void CreateDustAt(s32 xOff, s32 yOff, u32 layer) {
     Entity* ent;
 
-    ent = CreateObject(SPECIAL_FX, 2, 0);
+    ent = CreateObject(SPECIAL_FX, FX_DEATH, 0);
     if (ent != NULL) {
         ent->x.HALF.HI = gRoomControls.roomOriginX + xOff;
         ent->y.HALF.HI = gRoomControls.roomOriginY + yOff;
@@ -51,15 +52,15 @@ void CreateDustAt(s32 xOff, s32 yOff, u32 layer) {
 }
 
 void CreateDustSmall(Entity* parent) {
-    CreateFx(parent, 0x11, 0);
+    CreateFx(parent, FX_DASH, 0);
 }
 
 void CreateExplosionBroken(Entity* parent) {
-    CreateFx(parent, 0x6, 0);
+    CreateFx(parent, FX_6, 0);
 }
 
 void CreateWaterSplash(Entity* parent) {
-    CreateFx(parent, 0xb, 0);
+    CreateFx(parent, FX_WATER_SPLASH, 0);
 }
 
 Entity* sub_080A2A20(Entity* parent, u32 form, u32 parameter) {
@@ -86,7 +87,7 @@ Entity* sub_080A2A3C(Entity* parent, u32 form, u32 subtype, u32 param_4) {
 Entity* CreateWaterTrace(Entity* parent) {
     Entity* ent;
 
-    ent = CreateFx(parent, 0x20, 0);
+    ent = CreateFx(parent, FX_RIPPLE, 0);
     if (ent != NULL) {
         ent->spritePriority.b0 = 7;
     }

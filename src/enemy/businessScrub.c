@@ -6,6 +6,7 @@
 #include "random.h"
 #include "npc.h"
 #include "functions.h"
+#include "effects.h"
 
 extern void sub_0801D040(Entity*, u32);
 extern Entity* sub_08049DF4(u32);
@@ -60,7 +61,7 @@ void sub_08028934(Entity* this) {
         this->actionDelay = 0x28;
         this->flags &= ~0x80;
         sub_080290E0(this, 4);
-        pEVar1 = CreateFx(this, 3, 0);
+        pEVar1 = CreateFx(this, FX_BUSH, 0);
         if (pEVar1 != NULL) {
             pEVar1->height.HALF.HI -= 8;
         }

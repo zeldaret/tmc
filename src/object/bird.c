@@ -6,6 +6,7 @@
 #include "random.h"
 #include "object.h"
 #include "functions.h"
+#include "effects.h"
 
 extern void (*const gUnk_08123EC0[])(Entity*);
 extern void (*const gUnk_08123EEC[])(Entity*);
@@ -99,7 +100,7 @@ void sub_0809D0AC(Entity* this) {
         this->collisionLayer = 1;
         SetLocalFlag(0x45);
         SoundReq(SFX_SECRET);
-        fx = CreateFx(this, 0x11, 0);
+        fx = CreateFx(this, FX_DASH, 0);
         if (fx != NULL) {
             sub_0806FAD8(this, fx);
         }
