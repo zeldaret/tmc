@@ -4,6 +4,7 @@
 #include "random.h"
 #include "object.h"
 #include "functions.h"
+#include "effects.h"
 
 void sub_0803B538(Entity*);
 u32 sub_0803B4E4(Entity*);
@@ -962,7 +963,7 @@ void sub_0803B1B8(Entity* this) {
         this->field_0x7c.HALF.HI = 0x5dc;
         this->spriteSettings.b.draw = 0;
         this->damageType = 0x14;
-        temp = CreateFx(this, 0x51, 0);
+        temp = CreateFx(this, FX_GIANT_EXPLOSION4, 0);
         if (temp != (Entity*)0x0) {
             temp->x.HALF.HI += this->hitbox->offset_x;
             temp->y.HALF.HI += this->hitbox->offset_y;

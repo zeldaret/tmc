@@ -118,7 +118,7 @@ sub_08097C20: @ 0x08097C20
 	adds r2, r4, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl sub_080577AC
+	bl CreateMagicSparkles
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]

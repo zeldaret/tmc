@@ -9,6 +9,7 @@
 #include "save.h"
 #include "script.h"
 #include "flags.h"
+#include "effects.h"
 
 extern void sub_08060528(Entity*);
 extern void sub_0806EE04(Entity*, void*, u32);
@@ -99,7 +100,7 @@ void sub_080604DC(Entity* this) {
     if (((u32)(this->spriteSettings.raw << 0x1e) >> 0x1e == 1) && sub_080040A8(this)) {
         if ((this->frames.all & 1) != 0) {
             this->frames.all &= 0xfe;
-            ent = CreateFx(this, 0x11, 0x40);
+            ent = CreateFx(this, FX_DASH, 0x40);
             if (ent != NULL) {
                 ent->y.HALF.HI++;
                 sub_0805E3A0(ent, 3);

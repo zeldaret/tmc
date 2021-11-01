@@ -49,7 +49,7 @@ SCRIPT_START script_080131AC
 	_0807EA94 
 	_0807E5F8 0x00000020
 	WaitForSomething2 0x00000040
-	_0807E788 0xffff7fff
+	SetFadeMask 0xffff7fff
 	_0807E778 0x0004
 	DoFade5 
 	WaitFor_2 
@@ -60,7 +60,7 @@ SCRIPT_START script_080131AC
 	Call sub_0807F5C0
 	TextboxNoOverlapFollowPos 0x1604, 0x0007
 	_0807EA94 
-	_0807E788 0xffffffff
+	SetFadeMask 0xffffffff
 	_0807E778 0x0004
 	DoFade4 
 	WaitFor_2 

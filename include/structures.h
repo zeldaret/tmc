@@ -93,7 +93,7 @@ typedef struct {
     u8 field_0x1;
     u8 field_0x2;
     u8 field_0x3;
-    u32 field_0x4;
+    u32 mask;
     u16 fadeType;  // fade in or out, are there others?
     u16 fadeSpeed; // subtracted from duration
     u16 fadeDuration;
@@ -103,9 +103,9 @@ typedef struct {
     s16 field_0x14;
     u16 field_0x16;
     u16 field_0x18;
-} struct_03000FD0;
+} FadeControl;
 
-extern struct_03000FD0 gFadeControl;
+extern FadeControl gFadeControl;
 
 typedef struct {
     u8 filler0[0x1A];

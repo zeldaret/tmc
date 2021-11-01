@@ -10,6 +10,7 @@
 #include "object.h"
 #include "functions.h"
 #include "object.h"
+#include "effects.h"
 
 static void (*const sPlayerActions[])(Entity*);
 extern void (*const gUnk_0811BA60[])(Entity*);
@@ -501,7 +502,7 @@ void sub_0807127C(Entity* this) {
         if ((gPlayerState.flags.all & 0x10000) == 0)
             sub_08004168(this);
 
-        CreateFx(this, 11, 0);
+        CreateFx(this, FX_WATER_SPLASH, 0);
 
         if ((gPlayerState.flags.all & 8) == 0)
             gPlayerState.field_0x8 = 0x72c;
@@ -1143,7 +1144,7 @@ void sub_08072008(Entity* this) {
     this->flags |= 0x80;
     this->spriteOffsetX = 0;
     gPlayerState.flags.all &= ~(0x800 | 0x1);
-    CreateFx(this, 0xd, 0);
+    CreateFx(this, FX_ICE, 0);
     sub_080791BC();
 }
 
@@ -1305,7 +1306,7 @@ void sub_08072354(Entity* this) {
     gPlayerState.field_0x8 = 0x2c1;
     gPlayerState.flags.all &= ~0x400;
     UpdateSpriteForCollisionLayer(this);
-    CreateFx(this, 0xc, 0);
+    CreateFx(this, FX_LAVA_SPLASH, 0);
     SoundReq(SFX_1A6);
 }
 
@@ -1459,7 +1460,7 @@ void sub_080726F4(Entity* this) {
 
     this->direction = (this->animationState & 6) << 2;
     if (((gPlayerState.flags.all & 0x80) == 0) && (--this->actionDelay == 0xff)) {
-        CreateFx(&gPlayerEntity, 0x11, 0x40);
+        CreateFx(&gPlayerEntity, FX_DASH, 0x40);
         this->actionDelay = 4;
     }
     if ((gPlayerState.flags.all & 2) == 0) {

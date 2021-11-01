@@ -253,8 +253,6 @@ void sub_0805A664(Manager15* this) {
     sub_0805A68C(this);
 }
 
-extern u32 CheckPlayerProximity(u32, u32, u32, u32);
-
 void sub_0805A68C(Manager15* this) {
     if (CheckPlayerProximity(this->unk_38 - 0x18, this->unk_3a - 0x18, 0x30, 0x30)) {
         if (this->unk_2c <= 0x1007) {

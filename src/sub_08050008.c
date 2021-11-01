@@ -6,5 +6,5 @@ extern u32 gUnk_020354C0;
 
 void sub_08050008() {
     MemClear(&gUnk_020354C0, 128);
-    gFadeControl.field_0x4 = -1;
+    gFadeControl.mask = 0xFFFFFFFF;
 }

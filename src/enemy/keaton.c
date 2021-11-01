@@ -3,6 +3,7 @@
 #include "enemy.h"
 #include "random.h"
 #include "functions.h"
+#include "effects.h"
 
 extern Entity* gUnk_020000B0;
 
@@ -222,7 +223,7 @@ void sub_08032794(Entity* this) {
     Entity* target;
     s8* temp;
 
-    target = CreateFx(this, 0x11, 0x40);
+    target = CreateFx(this, FX_DASH, 0x40);
     if (target != NULL) {
         temp = &gUnk_080CE810[this->animationState * 2];
         PositionRelative(this, target, temp[0] << 0x10, temp[1] << 0x10);

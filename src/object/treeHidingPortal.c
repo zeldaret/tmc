@@ -6,6 +6,7 @@
 #include "room.h"
 #include "structures.h"
 #include "functions.h"
+#include "effects.h"
 
 extern void sub_0809E96C(Entity*);
 extern void CreateSparkle(Entity*);
@@ -70,7 +71,7 @@ void sub_0809E918(Entity* this) {
     Entity* fx;
     s16* i = gUnk_08124364;
     while (*i != -1000) {
-        fx = CreateFx(this, 3, 0);
+        fx = CreateFx(this, FX_BUSH, 0);
         if (fx != NULL) {
             fx->x.HALF.HI += i[0];
             fx->y.HALF.HI += i[1];

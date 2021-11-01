@@ -5,6 +5,7 @@
 #include "coord.h"
 #include "random.h"
 #include "player.h"
+#include "effects.h"
 
 extern void (*const LakituActionFuncs[])(Entity*);
 
@@ -61,7 +62,7 @@ void sub_0803C784(Entity* this) {
         sub_0803CBAC(this);
     } else {
         if (this->damageType == 0x43) {
-            Entity* fx = CreateFx(this, 2, 0);
+            Entity* fx = CreateFx(this, FX_DEATH, 0);
 
             if (fx != NULL) {
                 u32 angle = (this->knockbackDirection ^ 0x10) << 3;
@@ -360,25 +361,25 @@ void sub_0803CC08(Entity* this) {
         return;
     }
 
-    fx = CreateFx(this, 2, 0);
+    fx = CreateFx(this, FX_DEATH, 0);
     if (fx != NULL) {
         fx->x.HALF.HI += 6;
         fx->y.HALF.HI += 6;
     }
 
-    fx = CreateFx(this, 2, 0);
+    fx = CreateFx(this, FX_DEATH, 0);
     if (fx != NULL) {
         fx->x.HALF.HI -= 6;
         fx->y.HALF.HI += 6;
     }
 
-    fx = CreateFx(this, 2, 0);
+    fx = CreateFx(this, FX_DEATH, 0);
     if (fx != NULL) {
         fx->x.HALF.HI += 6;
         fx->y.HALF.HI -= 6;
     }
 
-    fx = CreateFx(this, 2, 0);
+    fx = CreateFx(this, FX_DEATH, 0);
     if (fx != NULL) {
         fx->x.HALF.HI -= 6;
         fx->y.HALF.HI -= 6;

@@ -13,7 +13,7 @@ sub_08016B30: @ 0x08016B30
 	thumb_func_start sub_08016B34
 sub_08016B34: @ 0x08016B34
 	ldr r1, _08016B54 @ =0x03007FFC
-	ldr r0, _08016B58 @ =IntrMain
+	ldr r0, _08016B58 @ =gIntrMain
 	str r0, [r1]
 	ldr r1, _08016B5C @ =0x04000004
 	ldr r2, _08016B60 @ =0x00005028
@@ -29,7 +29,7 @@ sub_08016B34: @ 0x08016B34
 	bx lr
 	.align 2, 0
 _08016B54: .4byte 0x03007FFC
-_08016B58: .4byte IntrMain
+_08016B58: .4byte gIntrMain
 _08016B5C: .4byte 0x04000004
 _08016B60: .4byte 0x00005028
 _08016B64: .4byte 0x04000200

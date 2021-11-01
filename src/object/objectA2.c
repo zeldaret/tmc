@@ -5,6 +5,7 @@
 #include "audio.h"
 #include "structures.h"
 #include "functions.h"
+#include "effects.h"
 
 void sub_0809F318(Entity*);
 void sub_0809F374(Entity*);
@@ -85,7 +86,7 @@ void sub_0809F408(Entity* this) {
     switch (this->frames.all) {
         case 9:
             this->frames.all = 0;
-            CreateFx(this, 0x43, 0);
+            CreateFx(this, FX_BIG_EXPLOSION2, 0);
             gMenu.field_0x0 = 1;
             break;
         case 0x80:

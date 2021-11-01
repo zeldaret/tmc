@@ -3,6 +3,7 @@
 #include "random.h"
 #include "functions.h"
 #include "audio.h"
+#include "effects.h"
 
 void OctorokBossProjectile_Action2(Entity*);
 extern void sub_080AE58C(Entity*, u32, u32);
@@ -183,14 +184,14 @@ void OctorokBossProjectile_Action1(Entity* this) {
             if (sub_08003FC4(this, 0x1800) != 0) {
                 return;
             }
-            CreateFx(this, 4, 0);
+            CreateFx(this, FX_ROCK, 0);
             DeleteThisEntity();
             break;
     }
 }
 
 void OctorokBossProjectile_Action2(Entity* this) {
-    CreateFx(this, 4, 0);
+    CreateFx(this, FX_ROCK, 0);
     DeleteThisEntity();
 }
 

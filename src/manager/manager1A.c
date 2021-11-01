@@ -32,7 +32,6 @@ void Manager1A_Main(Manager1A* this) {
 }
 
 extern void sub_08052D74(void*, void*, void*);
-extern u32 CheckPlayerProximity(u32, u32, u32, u32);
 
 typedef struct struct_08108764 {
     u8 unk_00;

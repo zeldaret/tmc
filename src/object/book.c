@@ -5,6 +5,7 @@
 #include "flags.h"
 #include "room.h"
 #include "textbox.h"
+#include "effects.h"
 
 extern void (*const BookActionFuncs[])(Entity*);
 extern s8 const gUnk_08123D94[];
@@ -135,7 +136,7 @@ void sub_0809B56C(Entity* this) {
 
     SetFlag(this->field_0x86.HWORD);
 
-    fx = CreateFx(this, 2, 0);
+    fx = CreateFx(this, FX_DEATH, 0);
     if (fx) {
         ResolveEntityOnTop(this, fx);
     }

@@ -10,6 +10,7 @@
 #include "manager.h"
 #include "utils.h"
 #include "npc.h"
+#include "effects.h"
 
 extern u8 gUnk_03003DE0;
 extern u8 gUnk_03000C30;
@@ -21,7 +22,7 @@ extern u8 gUnk_03003DF0[];
 extern u8 gUnk_03003BE0;
 extern Entity* gUnk_03004040[3];
 extern u8 gUnk_020342F8;
-extern u8 gHitboxCount;
+extern u8 gCollidableCount;
 extern void gDoCollision(void);
 
 extern void sub_080ADD70();
@@ -227,7 +228,7 @@ void HandlePlayerLife(Entity* this) {
     } else if ((gSave.stats.effectTimer == 0) || --gSave.stats.effectTimer == 0) {
         gSave.stats.effect = 0;
     } else if ((gSave.stats.effectTimer & 0x3f) == 0) {
-        CreateFx(this, 0x55 + gSave.stats.effect, 0);
+        CreateFx(this, FX_AURA_BASE + gSave.stats.effect, 0);
     }
 }
 #endif
@@ -370,7 +371,7 @@ NONMATCH("asm/non_matching/arm_proxy/NPCUpdate.inc", void NPCUpdate(Entity* this
 END_NONMATCH
 
 void ClearHitboxList(void) {
-    gHitboxCount = 0;
+    gCollidableCount = 0;
 }
 
 void CollisionMain(void) {

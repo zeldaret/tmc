@@ -10,7 +10,8 @@ typedef struct {
 } VStruct;
 
 typedef struct {
-    u8 filler[0x420];
+    u8 _0[0x20];
+    struct OamData oam[0x80];
     VStruct unk[0x100];
 } UStruct;
 

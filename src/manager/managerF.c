@@ -9,6 +9,7 @@
 #include "textbox.h"
 #include "script.h"
 #include "utils.h"
+#include "tiles.h"
 
 void sub_08058ECC(ManagerF*);
 
@@ -335,7 +336,7 @@ void sub_0805930C(ManagerF* this) {
 }
 
 void SetDirtTile(u32 tile) {
-    SetTileType(0x1d, tile, 1);
+    SetTileType(CUT_GRASS, tile, 1);
     SetTileType(0, tile, 2);
     SetTileType(0, tile - 0x40, 2);
 }

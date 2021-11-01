@@ -12,6 +12,7 @@
 #include "audio.h"
 #include "functions.h"
 #include "main.h"
+#include "effects.h"
 
 void InitScriptForEntity(Entity*, ScriptExecutionContext*, u16*);
 void InitScriptExecutionContext(ScriptExecutionContext* context, u16* script);
@@ -74,7 +75,7 @@ void ScriptCommand_WaitForPlayerAction0x17(Entity* entity, ScriptExecutionContex
 void ScriptCommand_WaitFor_1(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_WaitFor_2(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807E778(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E788(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_SetFadeMask(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807E79C(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommandNop2(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_DoFade4(Entity* entity, ScriptExecutionContext* context);
@@ -219,7 +220,7 @@ const ScriptCommand gScriptCommands[] = { ScriptCommandNop,
                                           ScriptCommand_WaitFor_1,
                                           ScriptCommand_WaitFor_2,
                                           ScriptCommand_0807E778,
-                                          ScriptCommand_0807E788,
+                                          ScriptCommand_SetFadeMask,
                                           ScriptCommand_0807E79C,
                                           ScriptCommandNop2,
                                           ScriptCommand_DoFade4,
@@ -1004,8 +1005,8 @@ void ScriptCommand_0807E778(Entity* entity, ScriptExecutionContext* context) {
     gActiveScriptInfo.unk_08 = context->scriptInstructionPointer[1];
 }
 
-void ScriptCommand_0807E788(Entity* entity, ScriptExecutionContext* context) {
-    gFadeControl.field_0x4 = GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer);
+void ScriptCommand_SetFadeMask(Entity* entity, ScriptExecutionContext* context) {
+    gFadeControl.mask = GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer);
 }
 
 void ScriptCommand_0807E79C(Entity* entity, ScriptExecutionContext* context) {
@@ -1684,7 +1685,7 @@ void sub_0807F360(Entity* entity, ScriptExecutionContext* context) {
 
 void sub_0807F36C(Entity* entity, ScriptExecutionContext* context) {
     Entity* fx;
-    fx = CreateFx(entity, 0x41, 0);
+    fx = CreateFx(entity, FX_REFLECT4, 0);
     if (fx != NULL) {
         fx->spritePriority.b0 = 1;
         PositionRelative(entity, fx, 0, -524288);

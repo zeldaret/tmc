@@ -8591,12 +8591,12 @@ sfx151_track0:: @ 08DE3684
 sfx151:: @ 08DE36B0
 	sound_header 1 0 0x60 0 gUnk_08A10DC0 sfx151_track0
 
-sfx152_track0:: @ 08DE36BC
+sfxNearPortal_track0:: @ 08DE36BC
 	.incbin "baserom.gba", 0xDE36BC, 0x0000086
-sfx152_track1:: @ 08DE3742
+sfxNearPortal_track1:: @ 08DE3742
 	.incbin "baserom.gba", 0xDE3742, 0x000008A
-sfx152:: @ 08DE37CC
-	sound_header 2 0 0x40 0 gUnk_08A10DD8 sfx152_track0 sfx152_track1
+sfxNearPortal:: @ 08DE37CC
+	sound_header 2 0 0x40 0 gUnk_08A10DD8 sfxNearPortal_track0 sfxNearPortal_track1
 
 sfx153_track0:: @ 08DE37DC
 	.incbin "baserom.gba", 0xDE37DC, 0x0000030

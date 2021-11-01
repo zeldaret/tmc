@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "room.h"
 #include "object.h"
+#include "effects.h"
 
 void sub_080A29C8(s32 xOff, s32 yOff, u32 layer) {
     Entity* pEVar1;
@@ -15,15 +16,15 @@ void sub_080A29C8(s32 xOff, s32 yOff, u32 layer) {
 }
 
 void sub_080A29FC(Entity* parent) {
-    CreateFx(parent, 0x11, 0);
+    CreateFx(parent, FX_DASH, 0);
 }
 
 void sub_080A2A08(Entity* parent) {
-    CreateFx(parent, 0x6, 0);
+    CreateFx(parent, FX_6, 0);
 }
 
 void sub_080A2A14(Entity* parent) {
-    CreateFx(parent, 0xb, 0);
+    CreateFx(parent, FX_WATER_SPLASH, 0);
 }
 
 Entity* sub_080A2A20(Entity* parent, u32 form, u32 parameter) {
@@ -50,7 +51,7 @@ Entity* sub_080A2A3C(Entity* parent, u32 form, u32 subtype, u32 param_4) {
 Entity* sub_080A2A64(Entity* parent) {
     Entity* pEVar1;
 
-    pEVar1 = CreateFx(parent, 0x20, 0);
+    pEVar1 = CreateFx(parent, FX_SPARKLE2, 0);
     if (pEVar1 != NULL) {
         pEVar1->spritePriority.b0 = 7;
     }

@@ -1,6 +1,7 @@
 #include "entity.h"
 #include "enemy.h"
 #include "functions.h"
+#include "effects.h"
 
 extern void (*const StalfosProjectile_Functions[])(Entity*);
 extern void (*const StalfosProjectile_Actions[])(Entity*);
@@ -126,9 +127,9 @@ void StalfosProjectile_Action3(Entity* this) {
 
 void sub_080A9BA8(Entity* this) {
     if (this->type == 0) {
-        CreateFx(this, 5, 0);
+        CreateFx(this, FX_POT_SHATTER, 0);
     } else {
-        CreateFx(this, 0x3c, 0);
+        CreateFx(this, FX_BONE, 0);
     }
     DeleteThisEntity();
 }

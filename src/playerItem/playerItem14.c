@@ -3,6 +3,7 @@
 #include "functions.h"
 #include "player.h"
 #include "room.h"
+#include "effects.h"
 
 extern void (*const gUnk_08109AC8[])(Entity*);
 extern Hitbox gUnk_08109AD0;
@@ -46,11 +47,11 @@ void sub_0805FC74(Entity* this) {
         }
         if (!sub_080002F0(COORD_TO_TILE(this), gPlayerEntity.collisionLayer, 0x80) &&
             sub_080040D8(this, &gUnk_08003E44, this->x.HALF.HI, this->y.HALF.HI)) {
-            CreateFx(this, 0x19, 0);
+            CreateFx(this, FX_SWORD_MAGIC, 0);
             DeleteThisEntity();
         }
         if (this->bitfield != 0) {
-            CreateFx(this, 0x19, 0);
+            CreateFx(this, FX_SWORD_MAGIC, 0);
             DeleteThisEntity();
         }
     } else {

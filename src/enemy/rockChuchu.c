@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "random.h"
 #include "functions.h"
+#include "effects.h"
 
 extern void sub_0804A4E4(Entity*, Entity*);
 
@@ -40,7 +41,7 @@ void sub_08022254(Entity* this) {
                     break;
             case 0x16:
             case 0x1c:
-                CreateFx(this, 4, 0);
+                CreateFx(this, FX_ROCK, 0);
                 ent = CreateEnemy(CHUCHU, 1);
                 if (ent) {
                     ent->type2 = 1;

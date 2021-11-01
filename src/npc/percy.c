@@ -6,6 +6,7 @@
 #include "flags.h"
 #include "script.h"
 #include "save.h"
+#include "effects.h"
 
 extern void sub_0806B41C(Entity*);
 extern void sub_0806B3CC(Entity*);
@@ -63,7 +64,7 @@ void sub_0806B41C(Entity* this) {
                 this->action = 1;
                 this->spriteSettings.b.draw = 1;
                 if (this->type2 == 2) {
-                    CreateFx(this, 0x25, 0);
+                    CreateFx(this, FX_SWEAT, 0);
                 }
                 sub_0807DD50(this);
             }

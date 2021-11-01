@@ -5,6 +5,7 @@
 #include "room.h"
 #include "object.h"
 #include "functions.h"
+#include "effects.h"
 
 void sub_08082824(Entity*);
 static void sub_08082850(Entity*, Entity*);
@@ -97,7 +98,7 @@ void sub_08082310(Entity* this) {
                         break;
                     default:
                         if (sub_080002B8(this) == 13) {
-                            CreateFx(this, 0, 0);
+                            CreateFx(this, FX_FALL_DOWN, 0);
                         } else if (tileType == 0x4005) {
                             gPlayerState.field_0xab = 4;
                             SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
@@ -137,13 +138,13 @@ void sub_08082588(Entity* this) {
 void sub_0808259C(Entity* this) {
     switch (sub_080043E8(this)) {
         case 2:
-            CreateFx(this, 11, 0);
+            CreateFx(this, FX_WATER_SPLASH, 0);
             break;
         case 1:
-            CreateFx(this, 0, 0);
+            CreateFx(this, FX_FALL_DOWN, 0);
             break;
         case 3:
-            CreateFx(this, 12, 0);
+            CreateFx(this, FX_LAVA_SPLASH, 0);
             break;
         default:
             sub_08082850(this, &gPlayerEntity);
@@ -261,7 +262,7 @@ void sub_08082824(Entity* this) {
 
 static void sub_08082850(Entity* this, Entity* parent) {
     u32 parameter = sub_0808288C(this, this->type, this->field_0x7c.BYTES.byte1, this->type2);
-    Entity* fxEntity = CreateFx(this, 5, parameter);
+    Entity* fxEntity = CreateFx(this, FX_POT_SHATTER, parameter);
     if (fxEntity) {
         fxEntity->parent = parent;
     }

@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "object.h"
 #include "functions.h"
+#include "effects.h"
 
 extern void (*const gUnk_080CD234[])(Entity*);
 extern void (*const gUnk_080CD24C[])(Entity*);
@@ -23,7 +24,7 @@ void sub_0802B2E0(Entity* this) {
             this->iframes = 0;
             this->spriteSettings.b.draw = 0;
             this->action = 2;
-            ent = CreateFx(this, 2, 0);
+            ent = CreateFx(this, FX_DEATH, 0);
             if (ent) {
                 this->attachedEntity = ent;
                 this->actionDelay = 14;
