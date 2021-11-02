@@ -1717,7 +1717,7 @@ data/const/object/object1D.o(.rodata);
         src/projectile/v3TennisBallProjectile.o(.rodata);
         data/const/playerItem/playerItem10.o(.rodata);
         src/playerItem/playerItem10.o(.rodata);
-        src/flag_debug.o(.rodata);
+        src/flagDebug.o(.rodata);
         data/data_0812AA88.o(.rodata);
         data/const/playerItem/playerItem13.o(.rodata);
         src/intro.o(.rodata);
