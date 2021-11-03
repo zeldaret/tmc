@@ -3327,13 +3327,13 @@ sub_0807A158: @ 0x0807A158
 	adds r0, r4, #0
 	adds r0, #0xb4
 	ldrb r0, [r0]
-	bl sub_0805449C
+	bl ItemIsSword
 	cmp r0, #0
 	bne _0807A17C
 	adds r0, r4, #0
 	adds r0, #0xb5
 	ldrb r0, [r0]
-	bl sub_0805449C
+	bl ItemIsSword
 	b _0807A17E
 	.align 2, 0
 _0807A178: .4byte gSave

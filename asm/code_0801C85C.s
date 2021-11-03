@@ -575,7 +575,7 @@ sub_0801CC80: @ 0x0801CC80
 	adds r0, r0, r1
 	ldrb r4, [r0]
 	adds r0, r4, #0
-	bl sub_080544C8
+	bl ItemIsBottle
 	cmp r0, #0
 	beq _0801CCA8
 	adds r0, r5, r4

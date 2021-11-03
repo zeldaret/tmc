@@ -6,7 +6,7 @@
 #include "createObject.h"
 #include "functions.h"
 
-extern bool32 sub_080544B4(u32);
+extern bool32 ItemIsShield(u32);
 
 void sub_0802810C(Entity*);
 void sub_080281A0(Entity*);
@@ -241,11 +241,11 @@ void sub_080281A0(Entity* this) {
 bool32 sub_080281E0(u32 param_1) {
     bool32 ret = FALSE;
     if (GetInventoryValue(param_1) == 1) {
-        if (sub_080544B4(gSave.stats.itemOnA)) {
+        if (ItemIsShield(gSave.stats.itemOnA)) {
             gSave.stats.itemOnA = 0;
         }
 
-        if (sub_080544B4(gSave.stats.itemOnB)) {
+        if (ItemIsShield(gSave.stats.itemOnB)) {
             gSave.stats.itemOnB = 0;
         }
 

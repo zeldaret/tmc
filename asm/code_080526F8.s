@@ -3279,7 +3279,7 @@ _08054014:
 	mov r8, r2
 _08054018:
 	adds r0, r6, #0
-	bl sub_080544C8
+	bl ItemIsBottle
 	cmp r0, #0
 	bne _08054034
 	adds r0, r6, #0

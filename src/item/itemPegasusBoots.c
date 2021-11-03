@@ -17,7 +17,6 @@ void ItemPegasusBoots(ItemBehavior* this, u32 arg1) {
         gPlayerState.field_0x1d[1] = 0;
         gPlayerState.field_0xe = 0;
         sub_08077E78(this, arg1);
-
     } else {
         bVar1 = this->field_0x5[2] - 1;
         this->field_0x5[2] = bVar1;

@@ -29,13 +29,13 @@ sub_08078008: @ 0x08078008
 	adds r5, r6, #0
 	adds r5, #0xb4
 	ldrb r0, [r5]
-	bl sub_0805449C
+	bl ItemIsSword
 	cmp r0, #0
 	bne _0807802C
 	adds r5, r6, #0
 	adds r5, #0xb5
 	ldrb r0, [r5]
-	bl sub_0805449C
+	bl ItemIsSword
 	movs r2, #0
 	cmp r0, #0
 	beq _0807802E
