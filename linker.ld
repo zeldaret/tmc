@@ -766,7 +766,7 @@ SECTIONS {
         asm/bossDoor.o(.text);
         asm/object3A.o(.text);
         asm/macroMushroomStalks.o(.text);
-        asm/object75.o(.text); /* 75 and 76 are mislocated for unknown reasons */
+        asm/object75.o(.text); /* 75 and 76 are mislocated in base game */
         asm/object76.o(.text);
         asm/code_0808C964.o(.text);
         asm/macroPlayer.o(.text);
@@ -1614,8 +1614,7 @@ data/const/object/object1D.o(.rodata);
         data/animations/object/fan.o(.rodata);
         data/const/object/objectA0.o(.rodata);
         data/animations/object/objectA0.o(.rodata);
-        data/const/object/palaceArchway.o(.rodata);
-        src/object/objectA2.o(.rodata);
+        data/const/object/palaceArchway.o(.rodata);        src/object/objectA2.o(.rodata);
         data/animations/object/objectA2.o(.rodata);
         data/const/object/cloud.o(.rodata);
         data/const/object/minishLight.o(.rodata);
@@ -1716,8 +1715,6 @@ data/const/object/object1D.o(.rodata);
         data/animations/projectile/gyorgMaleEnergyProjectile.o(.rodata);
         src/projectile/v3TennisBallProjectile.o(.rodata);
         data/const/playerItem/playerItem10.o(.rodata);
-        src/playerItem/playerItem10.o(.rodata);
-        src/flagDebug.o(.rodata);
         data/data_0812AA88.o(.rodata);
         data/const/playerItem/playerItem13.o(.rodata);
         src/intro.o(.rodata);
