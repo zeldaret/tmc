@@ -213,8 +213,7 @@ u32 sub_08056134(void) {
 #ifdef EU
     if ((gSaveHeader->signature != SIGNATURE) || (gSaveHeader->saveFileId >= NUM_SAVE_SLOTS) ||
         (gSaveHeader->messageSpeed >= MAX_MSG_SPEED) || (gSaveHeader->brightnessPref >= MAX_BRIGHTNESS) ||
-        (gSaveHeader->gameLanguage <= GAME_LANGUAGE) || (gSaveHeader->gameLanguage >= 7) ||
-        (gSaveHeader->_e != 0))
+        (gSaveHeader->gameLanguage <= GAME_LANGUAGE) || (gSaveHeader->gameLanguage >= 7) || (gSaveHeader->_e != 0))
 #else
     if ((gSaveHeader->signature != SIGNATURE) || (gSaveHeader->saveFileId >= NUM_SAVE_SLOTS) ||
         (gSaveHeader->messageSpeed >= MAX_MSG_SPEED) || (gSaveHeader->brightnessPref >= MAX_BRIGHTNESS) ||
