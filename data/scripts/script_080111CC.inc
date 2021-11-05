@@ -1,14 +1,14 @@
 SCRIPT_START script_080111CC
-	BeginBlock 
+	BeginBlock
 	DoPostScriptAction 0x0008
 	SetEntitySpeed 0x0100
 	Call sub_08066D04
-	EndBlock 
+	EndBlock
 	Call sub_0807F338
 	WaitForSomething2 0x00000010
 	Call sub_08066D14
 	JumpIf script_080111F6
-	MoveEntityToPlayer 
+	MoveEntityToPlayer
 script_080111F6:
 	Call sub_0807F8BC
 	JumpIf script_08011206
@@ -17,7 +17,7 @@ script_08011206:
 	DoPostScriptAction 0x0007
 	DoPostScriptAction 0x0001
 	_0807EDD4 0x01f8, 0x0050
-	_0807EB74 
+	_0807EB74
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000020
 	WaitForSomething2 0x00000010

@@ -45,7 +45,7 @@ void sub_08069B44(Entity* this) {
     u32 sVar3;
     u32 uVar4;
     u32 uVar5;
-    if (sub_08069EF0() != 0) {
+    if (sub_08069EF0(this) != 0) {
         uVar5 = sub_0805ACC0(this);
         if (uVar5 == 0) {
             sVar3 = this->x.HALF.HI;
@@ -74,7 +74,7 @@ void sub_08069B44(Entity* this) {
         if (((this->type == 0) && ((gPlayerState.flags.all & 0x80) == 0)) && (GetInventoryValue(0x36) != 2)) {
             this->action = 4;
         }
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
         if ((this->type == 2) && (CheckLocalFlag(0xcc) == 0)) {
 #else
         if ((this->type == 2) && (CheckLocalFlag(0xcf) == 0)) {
@@ -270,7 +270,7 @@ void sub_08069F6C(Entity* this) {
 }
 
 u32 sub_08069F90(Entity* this) {
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
     if ((this->type == 2) && (CheckLocalFlag(0xcc) == 0)) {
 #else
     if ((this->type == 2) && (CheckLocalFlag(0xcf) == 0)) {
@@ -328,13 +328,13 @@ void sub_0806A0A4(Entity* this) {
 
     if ((gPlayerState.flags.all & 0x80) != 0) {
         dialog = 4;
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
         if (CheckLocalFlag(0xcc) == 0) {
 #else
         if (CheckLocalFlag(0xcf) == 0) {
 #endif
             dialog = 3;
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
             SetLocalFlag(0xcc);
 #else
             SetLocalFlag(0xcf);
@@ -344,19 +344,19 @@ void sub_0806A0A4(Entity* this) {
     } else {
 
         dialog = 2;
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
         if (CheckLocalFlag(0xcc) == 0) {
 #else
         if (CheckLocalFlag(0xcf) == 0) {
 #endif
             dialog = 1;
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
             if (CheckLocalFlag(0xd8) == 0) {
 #else
             if (CheckLocalFlag(0xdb) == 0) {
 #endif
                 dialog = 0;
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
                 SetLocalFlag(0xd8);
 #else
                 SetLocalFlag(0xdb);

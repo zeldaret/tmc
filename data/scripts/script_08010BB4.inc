@@ -1,43 +1,43 @@
 SCRIPT_START script_08010BB4
-	BeginBlock 
+	BeginBlock
 	DoPostScriptAction 0x000a
 	_0807EB44 0x0004
 	_0807E930 0x0008
 	Call sub_0806E440
-	EndBlock 
+	EndBlock
 script_08010BCA:
-	CheckEntityInteractType 
+	CheckEntityInteractType
 	JumpIfNot script_08010BCA
-	_0807E864 
-	_0807EB74 
+	_0807E864
+	_0807EB74
 	DoPostScriptAction 0x0000
 	Call sub_0806E418
-	_0807EA94 
-	_0807E878 
+	_0807EA94
+	_0807E878
 	_0807E930 0x0008
 	Jump script_08010BCA
 	.2byte 0x0000
 SCRIPT_START script_08010BEC
-	_0807E864 
+	_0807E864
 	Call sub_0807F9A4
 	Call sub_0807DF28
 	StartPlayerScript script_08011074
 	WaitForSomething2 0x00000400
 	_0807F078 0x0034, 0x0002
 	TextboxNoOverlapFollowPos 0x1036, 0x000c
-	_0807EA94 
+	_0807EA94
 	_0807E5F8 0x00000010
 	WaitForSomething2 0x00000020
 	TextboxNoOverlapFollowPos 0x1037, 0x0002
-	_0807EA94 
+	_0807EA94
 	_0807E5F8 0x00000010
 	WaitForSomething2 0x00000020
 	TextboxNoOverlapFollowPos 0x1038, 0x000c
-	_0807EA94 
+	_0807EA94
 	StopBgm
 	_0807E778 0x0004
-	DoFade5 
-	WaitFor_2 
+	DoFade5
+	WaitFor_2
 	Call sub_08064180
 	Call sub_08064180
 	Call sub_08064180
@@ -53,11 +53,11 @@ SCRIPT_START script_08010BEC
 	WaitForSomething2 0x00000400
 	SetEntityPositionRelative 0x01f8, 0x0050
 	_0807F0B4 0x0007
-	CameraTargetEntity 
+	CameraTargetEntity
 	Wait 0x000a
 	_0807F0B4 0x0001
 	_0807E778 0x0001
-	DoFade4 
+	DoFade4
 	_0807E5F8 0x0002a800
 	WaitForSomething2 0x00055000
 	SetEntityPositionRelative 0x01f8, 0x0078
@@ -66,13 +66,13 @@ SCRIPT_START script_08010BEC
 	WaitForSomething2 0x01000000
 	_0807E5F8 0x0002a800
 	WaitForSomething2 0x00055000
-	_0807E8E4_1 
+	_0807E8E4_1
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000008
 	TextboxNoOverlapFollowPos 0x1039, 0x000c
-	_0807EA94 
+	_0807EA94
 	PlayBgm BGM_CASTLE_TOURNAMENT
-	_0807E8E4_2 
+	_0807E8E4_2
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000008
 	_0807E5F8 0x00000010
@@ -83,7 +83,7 @@ SCRIPT_START script_08010BEC
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000008
 	TextboxNoOverlapFollowPos 0x103a, 0x000c
-	_0807EA94 
+	_0807EA94
 	SetEntityPositionRelative 0x01f8, 0x01c0
 	_0807F0B4 0x0004
 	Wait 0x0078
@@ -101,7 +101,7 @@ SCRIPT_START script_08010BEC
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000200
 	TextboxNoOverlapFollowPos 0x1043, 0x0000
-	_0807EA94 
+	_0807EA94
 	PlayBgm BGM_VAATI_THEME
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000200
@@ -117,7 +117,7 @@ SCRIPT_START script_08010BEC
 	_0807E5F8 0x00028000
 	WaitForSomething2 0x00050000
 	TextboxNoOverlapFollowPos 0x1044, 0x0000
-	_0807EA94 
+	_0807EA94
 	SetEntityPositionRelative 0x01f8, 0x0098
 	StopBgm
 	Wait 0x003c

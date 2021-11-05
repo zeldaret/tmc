@@ -24,6 +24,12 @@ start_vector:
 	ldr r1, unk_function
 	mov lr, pc
 	bx r1
+.else
+.ifdef DEMO_JP
+	ldr r1, unk_function
+	mov lr, pc
+	bx r1
+.endif
 .endif
 	ldr r1, =AgbMain
 	mov lr, pc
@@ -36,4 +42,8 @@ INTR_VECTOR_BUF: .4byte 0x03007FFC
 intr_main: .4byte gIntrMain
 .ifdef EU
 unk_function: .4byte sub_08000118
+.else
+.ifdef DEMO_JP
+unk_function: .4byte sub_08000118
+.endif
 .endif

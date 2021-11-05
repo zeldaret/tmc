@@ -696,7 +696,7 @@ _08052C30:
 _08052C34: .4byte gScreenTransition
 _08052C38: .4byte gArea
 .else
-.ifdef DEMO @TODO deduplicate
+.ifdef DEMO_USA @TODO deduplicate
 	thumb_func_start sub_08052BF8
 sub_08052BF8: @ 0x08052BF8
 	push {lr}
@@ -731,6 +731,37 @@ _08052C30:
 _08052C34: .4byte gScreenTransition
 _08052C38: .4byte gArea
 .endif
+.endif
+
+
+.ifdef DEMO_JP
+	thumb_func_start sub_08052BF8
+sub_08052BF8: @ 0x08052BF8
+	push {lr}
+	ldr r0, _08052B38 @ =gScreenTransition
+	adds r1, r0, #0
+	adds r1, #0x31
+	ldrb r0, [r1]
+	cmp r0, #0
+	bne _08052B36
+	movs r0, #1
+	strb r0, [r1]
+	bl GetEmptyManager
+	adds r1, r0, #0
+	cmp r1, #0
+	beq _08052B36
+	movs r0, #9
+	strb r0, [r1, #8]
+	movs r0, #0xf
+	strb r0, [r1, #9]
+	strb r0, [r1, #0xa]
+	adds r0, r1, #0
+	movs r1, #0
+	bl AppendEntityToList
+_08052B36:
+	pop {pc}
+	.align 2, 0
+_08052B38: .4byte gScreenTransition
 .endif
 
 	thumb_func_start sub_08052C3C
@@ -1359,13 +1390,17 @@ _0805310C:
 _0805311A:
 	movs r0, #0x80
 	lsls r0, r0, #1
-.ifdef JP
+.ifdef JP @ TODO deduplicate
 	movs r1, #0x9b
 .else
 .ifdef EU
 	movs r1, #0x9b
 .else
+.ifdef DEMO_JP
+	movs r1, #0x9b
+.else
 	movs r1, #0x9c
+.endif
 .endif
 .endif
 	bl CheckLocalFlagByOffset

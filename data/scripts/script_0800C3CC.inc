@@ -1,8 +1,8 @@
 SCRIPT_START script_0800C3CC
-	BeginBlock 
+	BeginBlock
 	Call sub_0806D660
 	SetEntitySpeed 0x0080
-	EndBlock 
+	EndBlock
 	WaitForSomething2 0x00000002
 	CallWithArg sub_0807F4F8, 0x00000048
 	Call sub_0806D66C

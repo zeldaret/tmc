@@ -202,10 +202,14 @@ _080A570C:
 	cmp r0, #1
 	bne _080A575E
 	ldrb r3, [r2, #3]
-	.ifdef DEMO
+	.ifdef DEMO_USA
+	movs r4, #0
+	.else
+	.ifdef DEMO_JP
 	movs r4, #0
 	.else
 	movs r1, #0
+	.endif
 	.endif
 	cmp r3, #2
 	beq _080A572E
@@ -227,23 +231,39 @@ _080A572E:
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _080A574E
-	.ifdef DEMO
+	.ifdef DEMO_USA
+	movs r4, #8
+	.else
+	.ifdef DEMO_JP
 	movs r4, #8
 	.else
 	movs r1, #8
 	.endif
+	.endif
 	cmp r3, #0
 	bne _080A574E
-	.ifdef DEMO
+	.ifdef DEMO_USA
+	movs r4, #7
+	.else
+	.ifdef DEMO_JP
 	movs r4, #7
 	.else
 	movs r1, #7
+	.endif
 	.endif
 	b _080A5752
 	.align 2, 0
 _080A5744: .4byte gMenu
 _080A5748:
-.ifdef DEMO
+.ifdef DEMO_USA
+	movs r0, #0x6d
+	bl SoundReq
+	b _080A574E
+_080A574C:
+	movs r0, #0x6d
+	bl SoundReq
+.else
+.ifdef DEMO_JP
 	movs r0, #0x6d
 	bl SoundReq
 	b _080A574E
@@ -256,18 +276,27 @@ _080A574C:
 _080A574C:
 	movs r1, #0xa
 .endif
+.endif
 _080A574E:
-	.ifdef DEMO
+	.ifdef DEMO_USA
+	cmp r4, #0
+	.else
+	.ifdef DEMO_JP
 	cmp r4, #0
 	.else
 	cmp r1, #0
 	.endif
+	.endif
 	beq _080A575E
 _080A5752:
-	.ifdef DEMO
+	.ifdef DEMO_USA
+	adds r0, r4, #0
+	.else
+	.ifdef DEMO_JP
 	adds r0, r4, #0
 	.else
 	adds r0, r1, #0
+	.endif
 	.endif
 	bl sub_080A4E84
 	movs r0, #0x6a

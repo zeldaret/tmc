@@ -153,7 +153,7 @@ SECTIONS {
         . = 0x000369F0; gUnk_020369F0 = .;
         . = 0x00036A38; gCurrentWindow = .;
         . = 0x00036A40; gNewWindow = .;
-#ifdef DEMO
+#if defined(DEMO_USA) || defined(DEMO_JP)
         . = 0x00036A50; gUnk_02036A58 = .;
         . = 0x00036AD0; gUnk_02036AD8 = .;
         . = 0x00036BB0; gUnk_02036BB8 = .;
@@ -283,7 +283,7 @@ SECTIONS {
         . = 0x00005FF0; gUnk_03005FF0 = .;
         . = 0x000060F0; gUnk_030060F0 = .;
         . = 0x00006164; gUnk_03006164 = .;
-#ifdef EU
+#if defined(EU) || defined(DEMO_JP)
         . = 0x000065AC; gUnk_03006580 = .;
         . = 0x000065C8; gUnk_0300659C = .;
         . = 0x0000689C; gUnk_0300689C = .;
@@ -914,7 +914,7 @@ SECTIONS {
         asm/code_080A29BC.o(.text);
         src/playerItem/playerItemShield.o(.text);
         src/playerItem/playerItem15.o(.text);
-#ifdef DEMO
+#ifdef DEMO_USA
         src/demoScreen.o(.text);
 #endif
         src/audio.o(.text);
@@ -1650,7 +1650,7 @@ data/const/object/object1D.o(.rodata);
         data/data_08125104.o(.rodata);
         data/const/playerItem/playerItemShield.o(.rodata);
         data/const/playerItem/playerItem15.o(.rodata);
-#ifdef DEMO
+#ifdef DEMO_USA
     data/const/demoScreen.o(.rodata);
 #endif
         data/data_08127280.o(.rodata);

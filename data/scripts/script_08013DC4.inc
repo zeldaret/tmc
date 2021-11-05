@@ -1,11 +1,11 @@
 SCRIPT_START script_08013DC4
-	BeginBlock 
+	BeginBlock
 	Call sub_0807F92C
 	DoPostScriptAction 0x0008
 	CallWithArg sub_0806DA04, 0x00000004
-	EndBlock 
+	EndBlock
 script_08013DDC:
-	CheckEntityInteractType 
+	CheckEntityInteractType
 	JumpIfNot script_08013DDC
 	CallWithArg sub_08095D54, 0x00000003
 	PlaySound SFX_ELEMENT_PLACE

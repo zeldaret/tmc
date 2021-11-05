@@ -1,18 +1,18 @@
 SCRIPT_START script_08015390
-	BeginBlock 
+	BeginBlock
 	SetEntitySpeed 0x0080
 	DoPostScriptAction 0x0007
-	EndBlock 
+	EndBlock
 	_0807E930 0x001f
 	Call sub_0806D944
 	WaitForSomething2 0x00000008
 	_0807E930 0x0010
 	TextboxNoOverlapFollowPos 0x1314, 0x000c
-	_0807EA94 
+	_0807EA94
 	_0807E930 0x0018
 	Call sub_0806D8A0
 script_080153C2:
-	_0807EE30 
+	_0807EE30
 	JumpIfNot script_080153C2
 	_0807E930 0x001f
 	StartPlayerScript script_08015384

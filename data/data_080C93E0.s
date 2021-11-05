@@ -149,7 +149,11 @@ gUnk_080C9870:: @ 080C9870
 .ifdef JP
 	.incbin "baserom_jp.gba", 0x0C9610, 0x0000078
 .else
+.ifdef DEMO_JP
+	.incbin "baserom_jp.gba", 0x0C9610, 0x0000078 @ TODO deduplicate
+.else
 	.incbin "baserom.gba", 0x0C9870, 0x0000078
+.endif
 .endif
 .endif
 
@@ -161,7 +165,11 @@ gUnk_080C98E8:: @ 080C98E8
 .ifdef JP
 	.incbin "baserom_jp.gba", 0x0C9688, 0x0000040
 .else
+.ifdef DEMO_JP
+	.incbin "baserom_jp.gba", 0x0C9688, 0x0000040 @ TODO deduplicate
+.else
 	.incbin "baserom.gba", 0x0C98E8, 0x0000040
+.endif
 .endif
 .endif
 
@@ -173,7 +181,11 @@ gUnk_080C9928:: @ 080C9928
 .ifdef JP
 	.incbin "baserom_jp.gba", 0x0C96C8, 0x0000060
 .else
+.ifdef DEMO_JP
+	.incbin "baserom_jp.gba", 0x0C96C8, 0x0000060 @ TODO deduplicate
+.else
 	.incbin "baserom.gba", 0x0C9928, 0x0000060
+.endif
 .endif
 .endif
 
@@ -185,7 +197,11 @@ gUnk_080C9988:: @ 080C9988
 .ifdef JP
 	.incbin "baserom_jp.gba", 0x0C9728, 0x0000060
 .else
+.ifdef DEMO_JP
+	.incbin "baserom_jp.gba", 0x0C9728, 0x0000060 @ TODO deduplicate
+.else
 	.incbin "baserom.gba", 0x0C9988, 0x0000060
+.endif
 .endif
 .endif
 
@@ -197,7 +213,11 @@ gUnk_080C99E8:: @ 080C99E8
 .ifdef JP
 	.incbin "baserom_jp.gba", 0x0C9788, 0x0000048
 .else
+.ifdef DEMO_JP
+	.incbin "baserom_jp.gba", 0x0C9788, 0x0000048 @ TODO deduplicate
+.else
 	.incbin "baserom.gba", 0x0C99E8, 0x0000048
+.endif
 .endif
 .endif
 
@@ -216,7 +236,11 @@ gUnk_080C9A44:: @ 080C9A44
 .ifdef JP
 	.incbin "baserom_jp.gba", 0x0C97E4, 0x0000038
 .else
+.ifdef DEMO_JP
+	.incbin "baserom_jp.gba", 0x0C97E4, 0x0000038 @ TODO deduplicate
+.else
 	.incbin "baserom.gba", 0x0C9A44, 0x0000038
+.endif
 .endif
 .endif
 
@@ -228,7 +252,11 @@ gUnk_080C9A7C:: @ 080C9A7C
 .ifdef JP
 	.incbin "baserom_jp.gba", 0x0C981C, 0x00000B0
 .else
+.ifdef DEMO_JP
+	.incbin "baserom_jp.gba", 0x0C981C, 0x00000B0 @ TODO deduplicate
+.else
 	.incbin "baserom.gba", 0x0C9A7C, 0x00000B0
+.endif
 .endif
 .endif
 
@@ -240,7 +268,11 @@ gUnk_080C9B2C:: @ 080C9B2C
 .ifdef JP
 	.incbin "baserom_jp.gba", 0x0C98CC, 0x0000088
 .else
+.ifdef DEMO_JP
+	.incbin "baserom_jp.gba", 0x0C98CC, 0x0000088 @ TODO deduplicate
+.else
 	.incbin "baserom.gba", 0x0C9B2C, 0x0000088
+.endif
 .endif
 .endif
 
@@ -252,7 +284,11 @@ gUnk_080C9BB4:: @ 080C9BB4
 .ifdef JP
 	.incbin "baserom_jp.gba", 0x0C9954, 0x0000068
 .else
+.ifdef DEMO_JP
+	.incbin "baserom_jp.gba", 0x0C9954, 0x0000068 @ TODO deduplicate
+.else
 	.incbin "baserom.gba", 0x0C9BB4, 0x0000068
+.endif
 .endif
 .endif
 
@@ -264,7 +300,11 @@ gUnk_080C9C1C:: @ 080C9C1C
 .ifdef JP
 	.incbin "baserom_jp.gba", 0x0C99BC, 0x0000020
 .else
+.ifdef DEMO_JP
+	.incbin "baserom_jp.gba", 0x0C99BC, 0x0000020 @ TODO deduplicate
+.else
 	.incbin "baserom.gba", 0x0C9C1C, 0x0000020
+.endif
 .endif
 .endif
 

@@ -23,10 +23,14 @@ gUnk_08123FB0:: @ 08123FB0
 .ifdef JP
 	.4byte 0x000000CD
 .else
-.ifdef EU
+.ifdef DEMO_JP
 	.4byte 0x000000CD
 .else
+.ifdef EU
+	.4byte 0x000000CD  @ TODO deduplicate
+.else
 	.4byte 0x000000d0
+.endif
 .endif
 .endif
 	.4byte sub_0809D91C

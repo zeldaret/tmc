@@ -43,16 +43,22 @@ const u16 gUnk_0811E454[] = { 0x0,   0x0,   0x100, 0x200, 0x300, 0x400, 0x500,
 
 const char gUnk_0811E470[4] = "LINK";
 
-#ifdef DEMO
+#if defined(DEMO_USA) || defined(DEMO_JP)
 const u8 demoUnknown0 = 0x0;
+#ifdef DEMO_USA
 const u8 demoUnknown1[] = { 0x0f, 0x0a, 0x0a, 0x0f, 0x0f, 0x0f, 0x08, 0x05, 0x05, 0x00, 0x00 };
+#else
+const u8 demoUnknown1[] = { 0 };
+#endif
 #else
 const u8 padding[2] = { 0, 0 };
 #endif
 
 static SaveResult (*const sSaveHandlers[])(u32) = { HandleSaveInit, HandleSaveInProgress, HandleSaveDone };
 
-#ifdef DEMO
+#if defined(DEMO_USA) || defined(DEMO_JP)
+
+#ifdef DEMO_USA
 asm("demoPointer1: .incbin \"baserom_demo.gba\", 0x11e010, 0x500");
 asm("demoPointer2: .incbin \"baserom_demo.gba\", 0x11e510, 0x500");
 asm("demoPointer3: .incbin \"baserom_demo.gba\", 0x11ea10, 0x500");
@@ -62,7 +68,7 @@ extern const u8 demoPointer2[];
 extern const u8 demoPointer3[];
 
 const u8* const demoPointers[] = { demoPointer1, demoPointer2, demoPointer3 };
-
+#endif
 #else
 
 #if defined(JP) || defined(EU)
@@ -147,7 +153,7 @@ SaveResult HandleSaveDone(u32 arg0) {
 }
 
 u32 InitSaveData(void) {
-#ifdef DEMO
+#if defined(DEMO_USA) || defined(DEMO_JP)
     CpuSet(NULL, &gSave, 0x4b4);
     return 1;
 #else
@@ -179,7 +185,7 @@ u32 InitSaveData(void) {
 }
 
 u32 WriteSaveFile(u32 index, SaveFile* saveFile) {
-#ifdef DEMO
+#if defined(DEMO_USA) || defined(DEMO_JP)
     return 1;
 #else
     return DataDoubleWriteWithStatus(index, saveFile);
@@ -187,7 +193,7 @@ u32 WriteSaveFile(u32 index, SaveFile* saveFile) {
 }
 
 u32 Write_02000000(struct_02000000* arg0) {
-#ifdef DEMO
+#if defined(DEMO_USA) || defined(DEMO_JP)
     return 1;
 #else
     return DataDoubleWriteWithStatus(3, arg0);
@@ -195,7 +201,7 @@ u32 Write_02000000(struct_02000000* arg0) {
 }
 
 u32 sub_0807CF1C(u8* arg0) {
-#ifdef DEMO
+#if defined(DEMO_USA) || defined(DEMO_JP)
     return 1;
 #else
     return DataDoubleWriteWithStatus(5, arg0);
@@ -203,7 +209,7 @@ u32 sub_0807CF1C(u8* arg0) {
 }
 
 s32 ReadSaveFile(u32 index, SaveFile* saveFile) {
-#ifdef DEMO
+#if defined(DEMO_USA) || defined(DEMO_JP)
     return 1;
 #else
     return DataDoubleReadWithStatus(index, saveFile);
@@ -211,7 +217,7 @@ s32 ReadSaveFile(u32 index, SaveFile* saveFile) {
 }
 
 u32 Read_02000000(struct_02000000* arg0) {
-#ifdef DEMO
+#if defined(DEMO_USA) || defined(DEMO_JP)
     return 0;
 #else
     return DataDoubleReadWithStatus(3, arg0);
@@ -219,7 +225,7 @@ u32 Read_02000000(struct_02000000* arg0) {
 }
 
 u32 sub_0807CF3C(u8* arg0) {
-#ifdef DEMO
+#if defined(DEMO_USA) || defined(DEMO_JP)
     return 0;
 #else
     return DataDoubleReadWithStatus(5, arg0);
@@ -227,7 +233,7 @@ u32 sub_0807CF3C(u8* arg0) {
 }
 
 void SetFileStatusDeleted(u32 index) {
-#ifndef DEMO
+#if !(defined(DEMO_USA) || defined(DEMO_JP))
     const SaveFileEEPROMAddresses* eepromAddresses;
 
     eepromAddresses = GetSaveFileEEPROMAddresses(index);
@@ -236,7 +242,7 @@ void SetFileStatusDeleted(u32 index) {
 #endif
 }
 
-#ifndef DEMO
+#if !(defined(DEMO_USA) || defined(DEMO_JP))
 void SetFileStatusInit(u32 index) {
     const SaveFileEEPROMAddresses* eepromAddresses;
     const SaveFileStatus* fileStatus;

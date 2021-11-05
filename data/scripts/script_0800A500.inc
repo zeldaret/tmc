@@ -1,11 +1,11 @@
 SCRIPT_START script_0800A500
-	BeginBlock 
+	BeginBlock
 	SetEntitySpeed 0x0080
 	DoPostScriptAction 0x0007
 	DoPostScriptAction 0x000b
 	_0807E930 0x0005
 	Call sub_0807F348
-	EndBlock 
+	EndBlock
 	WaitForSomething2 0x00000008
 	PlaySound SFX_SPARKLES
 	_0807E610 0x00000800

@@ -991,11 +991,18 @@ _08019DEE:
 	beq _08019DF6
 	b _0801A2A4
 .else
-.ifdef DEMO
+.ifdef DEMO_USA
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0
 	beq _08019DF6
 	b _0801A2A4
+.else
+.ifdef DEMO_JP @ TODO deduplicate
+	ldrb r0, [r4, #0xa]
+	cmp r0, #0
+	beq _08019DF6
+	b _0801A2A4
+.endif
 .endif
 .endif
 _08019DF6:

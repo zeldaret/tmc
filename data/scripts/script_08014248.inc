@@ -11,23 +11,23 @@ script_08014264:
 
 .ifndef EU
 SCRIPT_START script_08014274
-	BeginBlock 
+	BeginBlock
 	DoPostScriptAction 0x0008
-	EndBlock 
+	EndBlock
 script_0801427C:
 	CheckLocalFlag 0x0078
 	JumpIfNot script_0801427C
-	BeginBlock 
+	BeginBlock
 	Call sub_0807F934
 	CallWithArg sub_0806DA04, 0x00000008
-	EndBlock 
+	EndBlock
 script_08014298:
-	CheckEntityInteractType 
+	CheckEntityInteractType
 	JumpIfNot script_08014298
-	_0807E864 
+	_0807E864
 	TextboxNoOverlapFollowPos 0x0647, 0x000c
-	_0807EA94 
-	_0807E878 
+	_0807EA94
+	_0807E878
 	Jump script_08014298
 	.2byte 0x0000
 .endif

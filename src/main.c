@@ -20,7 +20,7 @@ extern void HandleDebugTextScreen(void);
 
 static void (*const sScreenHandlers[])(void) = {
     [SCREEN_INTRO] = HandleIntroScreen,
-#ifdef DEMO
+#ifdef DEMO_USA
     [SCREEN_CHOOSE_FILE] = HandleChooseDemoScreen,
 #else
     [SCREEN_CHOOSE_FILE] = HandleChooseFileScreen,

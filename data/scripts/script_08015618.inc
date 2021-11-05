@@ -1,9 +1,9 @@
 SCRIPT_START script_08015618
-	BeginBlock 
+	BeginBlock
 	DoPostScriptAction 0x0007
 	SetEntitySpeed 0x0040
 	Call sub_08094B80
-	EndBlock 
+	EndBlock
 	WaitForSomething2 0x00000080
 	CallWithArg CreateManager36, 0x00000003
 	Call sub_08094B0C

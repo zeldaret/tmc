@@ -1,13 +1,13 @@
 SCRIPT_START script_0800A590
-	BeginBlock 
+	BeginBlock
 	SetEntitySpeed 0x0080
 	SetEntity0x20 0x00000000
 	DoPostScriptAction 0x0008
 	_0807EB44 0x0000
 	Call sub_0807F714
-	MoveEntityToPlayer 
+	MoveEntityToPlayer
 	CallWithArg sub_0807F98C, 0xfff00000
-	EndBlock 
+	EndBlock
 	_0807E930 0x0023
 	WaitForSomething2 0x00000010
 	CallWithArg sub_0807F6E8, 0x00000008

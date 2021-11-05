@@ -14,7 +14,7 @@ gUnk_089FB780:: @ 089FB780
 	.incbin "baserom.gba", 0x9FB780, 0x0000F44
 .endif
 @ More sprites in demo
-.ifdef DEMO
+.ifdef DEMO_USA
 	.incbin "baserom_demo.gba", 0x9FD0F4, 0xC0
 gUnk_089FD1B4::
 	.incbin "baserom_demo.gba", 0x9FD1B4, 0x140

@@ -21,7 +21,7 @@ u8 sub_0807CA18() {
     if (gSave.playerName[0] == 0) {
         MemCopy(gUnk_0811E470, &gSave.playerName, 5);
     }
-#ifdef DEMO
+#ifdef DEMO_USA
     {
         const u8* tmp;
         MemCopy(demoPointers[gUnk_02000000->saveFileId], &gSave, 0x4B4);

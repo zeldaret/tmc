@@ -1,8 +1,8 @@
 SCRIPT_START script_0801606C
-	BeginBlock 
+	BeginBlock
 	CheckKinstoneFused 0x0009
 	JumpIf script_0801609E
-	EndBlock 
+	EndBlock
 	WaitForSomething2 0x00000002
 	DoPostScriptAction 0x0010
 	Wait 0x003c

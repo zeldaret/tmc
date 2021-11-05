@@ -1,10 +1,10 @@
 SCRIPT_START script_080133F8
-	BeginBlock 
+	BeginBlock
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0008
 	DoPostScriptAction 0x000b
 	Call sub_0807F338
-	EndBlock 
+	EndBlock
 	WaitForSomething2 0x00000020
 	SetEntityPositionRelative 0x0098, 0x0048
 	Call sub_08066C94

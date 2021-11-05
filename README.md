@@ -19,7 +19,8 @@ It can target the following ROMs:
 * [**tmc.gba**](https://datomatic.no-intro.org/index.php?page=show_record&s=23&n=1841) `sha1: b4bd50e4131b027c334547b4524e2dbbd4227130`
 * [**tmc_jp.gba**](https://datomatic.no-intro.org/index.php?page=show_record&s=23&n=1719) `sha1: 6c5404a1effb17f481f352181d0f1c61a2765c5d`
 * [**tmc_eu.gba**](https://datomatic.no-intro.org/index.php?page=show_record&s=23&n=1734) `sha1: cff199b36ff173fb6faf152653d1bccf87c26fb7`
-* [**tmc_demo.gba**](https://datomatic.no-intro.org/index.php?page=show_record&s=23&n=x051) `sha1: 63fcad218f9047b6a9edbb68c98bd0dec322d7a1`
+* [**tmc_demo_usa.gba**](https://datomatic.no-intro.org/index.php?page=show_record&s=23&n=x051) `sha1: 63fcad218f9047b6a9edbb68c98bd0dec322d7a1`
+* [**tmc_demo_jp.gba**](https://datomatic.no-intro.org/index.php?page=show_record&s=23&n=x430) `sha1: 9cdb56fa79bba13158b81925c1f3641251326412`
 
 **Note:** This repository does not include any of the assets necessary to build the ROM.
 A prior copy of the game is required to extract the needed assets.

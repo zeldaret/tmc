@@ -1,9 +1,9 @@
 SCRIPT_START script_08012BA8
-	BeginBlock 
+	BeginBlock
 	_0807EB44 0x0002
 	DoPostScriptAction 0x0007
 	_0807E930 0x0001
-	EndBlock 
+	EndBlock
 	WaitForSomething2 0x00000040
 	_0807E930 0x0005
 	Wait 0x001e

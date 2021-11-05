@@ -1,38 +1,38 @@
 SCRIPT_START script_080134DC
-	BeginBlock 
+	BeginBlock
 	DoPostScriptAction 0x0008
-	EndBlock 
-	BeginBlock 
+	EndBlock
+	BeginBlock
 	Call sub_0807F92C
 	CallWithArg sub_0806DA04, 0x00000003
-	EndBlock 
+	EndBlock
 script_080134F8:
-	CheckEntityInteractType 
+	CheckEntityInteractType
 	JumpIfNot script_080134F8
-	_0807E864 
+	_0807E864
 	Call sub_0807DF28
 	StartPlayerScript script_080136D8
 	WaitForSomething2 0x00000001
 	CallWithArg sub_08095A1C, script_08013F04
 	PlaySound SFX_ELEMENT_PLACE
 	Wait 0x005a
-	BeginBlock 
+	BeginBlock
 	PlaySound SFX_ELEMENT_FLOAT
 	CallWithArg sub_08095D54, script_08013E04
 	CallWithArg sub_08095D54, script_08013E28
-	EndBlock 
+	EndBlock
 	WaitForSomething2 0x18000000
-	BeginBlock 
+	BeginBlock
 	PlaySound SFX_ELEMENT_CHARGE
 	CallWithArg sub_08095D8C, script_08014054
 	CallWithArg sub_08095D8C, script_08014074
-	EndBlock 
+	EndBlock
 	Wait 0x001e
-	BeginBlock 
+	BeginBlock
 	PlaySound SFX_1D0
 	CallWithArg sub_08095D8C, script_080140DC
 	CallWithArg sub_08095D8C, script_08014118
-	EndBlock 
+	EndBlock
 	Wait 0x003c
 	CallWithArg CreateManager36, 0x00000000
 	_0807E5F8 0x00000200
@@ -57,17 +57,17 @@ script_080134F8:
 	Call sub_0807F304
 	Wait 0x003c
 	_0807E778 0x0004
-	DoFade7 
+	DoFade7
 	PlaySound SFX_EVAPORATE
-	WaitFor_2 
+	WaitFor_2
 	Wait 0x003c
 	_0807E5F8 0x00000010
 	_0807E778 0x0002
-	DoFade6 
-	WaitFor_2 
+	DoFade6
+	WaitFor_2
 	PlaySound SFX_109
 	TextboxNoOverlapFollowPos 0x0503, 0x000c
-	_0807EA94 
+	_0807EA94
 	_0807E5F8 0x00040000
 	CallWithArg CreateManager36, 0x00000001
 	_0807F0C8 0xffff, 0x0000

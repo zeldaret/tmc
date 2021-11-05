@@ -1,9 +1,9 @@
 SCRIPT_START script_08015F3C
-	BeginBlock 
+	BeginBlock
 	SetEntitySpeed 0x0080
 	_0807EB44 0x0000
 	_0807E930 0x0000
-	EndBlock 
+	EndBlock
 	WaitForSomething 0x00000040
 	_0807E930 0x0004
 	_0807EC64 0x00c0

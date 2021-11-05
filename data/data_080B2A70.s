@@ -25,7 +25,11 @@ gUnk_080B2A70:: @ 080B2A70
 .ifdef EU
 	.incbin "baserom_eu.gba", 0x0B21D0, 0x0000230
 .else
+.ifdef DEMO_JP
+	.incbin "baserom_eu.gba", 0x0B21D0, 0x0000230
+.else
 	.incbin "baserom.gba", 0x0B2AA8, 0x0000230
+.endif
 .endif
 
 
