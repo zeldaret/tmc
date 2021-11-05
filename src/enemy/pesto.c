@@ -395,7 +395,7 @@ void sub_080244E8(Entity* this) {
                             sub_080249DC(this);
                             this->cutsceneBeh.HALF.HI = gPlayerEntity.spritePriority.b1;
                             gPlayerEntity.flags &= 0x7f;
-                            gPlayerState.flags.all |= 0x100;
+                            gPlayerState.flags |= 0x100;
                             gPlayerState.field_0xa |= 0x80;
                             if (gPlayerState.swimState != 0) {
                                 gPlayerState.swimState = 0;
@@ -809,7 +809,7 @@ NONMATCH("asm/non_matching/pesto/sub_08024E4C.inc", void sub_08024E4C(Entity* th
             Entity* player = &gPlayerEntity;
 
             ResetPlayer();
-            gPlayerState.flags.all |= 0x100;
+            gPlayerState.flags |= 0x100;
             gPlayerState.field_0xa |= 0x80;
             gPlayerState.playerAction = 0xe;
             gPlayerState.field_0x38 = 0x14;
@@ -832,7 +832,7 @@ END_NONMATCH
 
 void sub_08024F50(Entity* this) {
     gPlayerState.field_0xa = 0;
-    gPlayerState.flags.all &= 0xfffffeff;
+    gPlayerState.flags &= 0xfffffeff;
     CopyPosition(this, &gPlayerEntity);
     gPlayerEntity.action = 1;
     gPlayerEntity.flags |= 0x80;

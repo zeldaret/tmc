@@ -92,7 +92,7 @@ void sub_08066904(Entity* this) {
     } else {
         index = 3;
     }
-    TextboxNoOverlap(gUnk_08110650[index], this);
+    MessageNoOverlap(gUnk_08110650[index], this);
 }
 
 void MinisterPotho_Fusion(Entity* this) {

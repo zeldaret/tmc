@@ -66,3 +66,5 @@ _Deparsed_XSubs.pm
 *.sna
 __pycache__
 .vscode/settings.json
+.vscode/c_cpp_properties.json
+.vscode/tasks.json

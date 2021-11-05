@@ -580,7 +580,7 @@ _0809C82A:
 	cmp r0, #0xff
 	bne _0809C84A
 	ldr r0, _0809C850 @ =0x00000B43
-	bl TextboxNoOverlapFollow
+	bl MessageFromTarget
 	movs r0, #1
 	strb r0, [r5, #0xd]
 	movs r0, #8
@@ -595,7 +595,7 @@ _0809C850: .4byte 0x00000B43
 sub_0809C854: @ 0x0809C854
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	ldr r0, _0809C8A8 @ =gTextBox
+	ldr r0, _0809C8A8 @ =gMessage
 	ldrb r1, [r0]
 	movs r0, #0x7f
 	ands r0, r1
@@ -635,7 +635,7 @@ _0809C892:
 	bl SoundReq
 	b _0809C8B8
 	.align 2, 0
-_0809C8A8: .4byte gTextBox
+_0809C8A8: .4byte gMessage
 _0809C8AC: .4byte gRoomControls
 _0809C8B0:
 	movs r0, #3

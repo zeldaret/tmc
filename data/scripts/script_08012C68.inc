@@ -8,10 +8,10 @@ SCRIPT_START script_08012C68
 script_08012C7E:
 	CheckEntityInteractType
 	JumpIfNot script_08012C7E
-	_0807E864
-	_0807E8E4_0
-	TextboxNoOverlapFollow 0x111d
-	_0807EA94
+	_0807E864 
+	_0807E8E4_0 
+	MessageFromTarget 0x111d
+	_0807EA94 
 	SetGlobalFlag 0x0022
 	_0807E878
 	Jump script_08012C7E

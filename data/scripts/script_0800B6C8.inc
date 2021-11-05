@@ -16,8 +16,8 @@ script_0800B6D4:
 	WaitForSomething2 0x00000004
 	CheckLocalFlag 0x009f
 	JumpIf script_0800B7A2
-	TextboxNoOverlap 0x057b
-	_0807EA94
+	MessageNoOverlap 0x057b
+	_0807EA94 
 	CallWithArg sub_0807F970, 0x0000057d
 	JumpIf script_0800B6A6
 	_0807EA94
@@ -41,8 +41,8 @@ script_0800B734:
 	WaitForSomething2 0x00000004
 	CheckLocalFlag 0x00a0
 	JumpIf script_0800B7A2
-	TextboxNoOverlap 0x0580
-	_0807EA94
+	MessageNoOverlap 0x0580
+	_0807EA94 
 	CallWithArg sub_0807F970, 0x00000582
 	JumpIf script_0800B794
 	CallWithArg sub_08087424, 0x00000001
@@ -54,15 +54,15 @@ script_0800B794:
 	_0807F034 0x0065
 	Jump script_0800B698
 script_0800B7A2:
-	TextboxNoOverlap 0x0590
-	_0807EA94
+	MessageNoOverlap 0x0590
+	_0807EA94 
 	_0807E778 0x0010
 	DoFade7
 	WaitFor_2
 	ModHealth 0x00a0
-	DoFade6
-	WaitFor_2
-	TextboxNoOverlap 0x057f
-	_0807EA94
+	DoFade6 
+	WaitFor_2 
+	MessageNoOverlap 0x057f
+	_0807EA94 
 	Jump script_0800B6A6
 	.2byte 0x0000

@@ -7,10 +7,10 @@ SCRIPT_START script_0801232C
 script_08012338:
 	CheckEntityInteractType
 	JumpIfNot script_08012338
-	_0807EB74
-	_0807E864
-	TextboxNoOverlapFollow 0x2304
-	_0807EA94
+	_0807EB74 
+	_0807E864 
+	MessageFromTarget 0x2304
+	_0807EA94 
 	CheckLocalFlag 0x0042
 	JumpIf script_0801235A
 	SetLocalFlag 0x0042
@@ -48,8 +48,8 @@ script_08012368:
 	_0807E8E4_0
 	StartPlayerScript script_08012410
 	WaitForSomething2 0x00000001
-	TextboxNoOverlap 0x1402
-	_0807EA94
+	MessageNoOverlap 0x1402
+	_0807EA94 
 	StopBgm
 	SetEntity0x20 0x00010000
 	Wait 0x003c

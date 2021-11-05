@@ -916,7 +916,7 @@ void sub_0803B100(Entity* this) {
     Entity* temp;
 
     this->action = 0x29;
-    this->field_0x20 = 0x14000;
+    this->hVelocity = 0x14000;
     if (this->type == 0) {
         this->hitbox = &gUnk_080FD364;
     } else {
@@ -982,7 +982,7 @@ void sub_0803B1B8(Entity* this) {
         if ((temp->field_0x80.HALF.LO & 0xc) == 0xc) {
             temp->action = 0xb;
             temp->actionDelay = 0x78;
-            temp->field_0x20 = 0;
+            temp->hVelocity = 0;
             (*(Entity**)&temp->field_0x74)->field_0x7c.HALF_U.HI = 0x708;
             (*(Entity**)&temp->field_0x78)->field_0x7c.HALF_U.HI = 0x708;
         }
@@ -1227,9 +1227,9 @@ void sub_0803B724(Entity* param_1) {
 void sub_0803B798(void) {
     gPlayerState.jumpStatus = 0x41;
     gPlayerState.field_0xa = 0;
-    gPlayerState.flags.all &= 0xffef;
+    gPlayerState.flags &= 0xffef;
     gPlayerEntity.flags |= 0x80;
-    gPlayerEntity.field_0x20 = 0x18000;
+    gPlayerEntity.hVelocity = 0x18000;
     gPlayerEntity.height.HALF.HI = -10;
     gPlayerEntity.direction = 0x10;
     gPlayerEntity.animationState = 4;
@@ -1257,7 +1257,7 @@ u32 sub_0803B870(Entity* this) {
     Entity* entity;
 
     entity = this->attachedEntity;
-    if ((entity->bitfield & 0x80) != 0 && (gPlayerState.flags.all & 0x10) != 0) {
+    if ((entity->bitfield & 0x80) != 0 && (gPlayerState.flags & 0x10) != 0) {
         this->action = 0x18;
         this->actionDelay = 0x44;
         this->spriteSettings.b.draw = 0;

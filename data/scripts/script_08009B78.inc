@@ -18,16 +18,16 @@ SCRIPT_START script_08009B78
 	DoPostScriptAction 0x0000
 	Wait 0x000f
 	DoPostScriptAction 0x0001
-	TextboxNoOverlapFollowPos 0x1009, 0x0000
-	_0807E8E4_1
-	_0807EA94
+	MessageFromTargetPos 0x1009, 0x0000
+	_0807E8E4_1 
+	_0807EA94 
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000008
 	_0807EB8C
 	DoPostScriptAction 0x0001
-	TextboxNoOverlapFollowPos 0x100b, 0x0000
-	_0807EA94
+	MessageFromTargetPos 0x100b, 0x0000
+	_0807EA94 
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000008
@@ -45,8 +45,8 @@ SCRIPT_START script_08009B78
 	WaitPlayerAction8
 	_0807E8E4_1
 	DoPostScriptAction 0x0001
-	TextboxNoOverlapFollowPos 0x100c, 0x0000
-	_0807EA94
+	MessageFromTargetPos 0x100c, 0x0000
+	_0807EA94 
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000004
 script_08009C4C:
@@ -54,10 +54,10 @@ script_08009C4C:
 script_08009C50:
 	CheckEntityInteractType
 	JumpIfNot script_08009C50
-	_0807E864
-	_0807EB74
-	TextboxNoOverlap 0x100e
-	_0807E878
+	_0807E864 
+	_0807EB74 
+	MessageNoOverlap 0x100e
+	_0807E878 
 	Jump script_08009C50
 SCRIPT_END
 	.2byte 0x0000

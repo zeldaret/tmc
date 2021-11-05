@@ -40,7 +40,7 @@ void OctorokBossProjectile_Init(Entity* this) {
             this->spriteRendering.b3 = 3;
             this->spritePriority.b0 = 6;
             this->speed = (Random() & 0x1ff) + 0x200;
-            this->field_0x20 = (Random() & 0x1fff) + 0x18000;
+            this->hVelocity = (Random() & 0x1fff) + 0x18000;
             uVar1 = (((u8)Random() & 7) - 4);
             this->direction -= uVar1;
             *(u32*)&this->field_0x78 = 600;

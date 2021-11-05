@@ -61,7 +61,7 @@ bool32 sub_08062EDC(Entity* this, ScriptExecutionContext* context) {
         tmp = sub_080028F4(gUnk_0810C435);
         tmp2 = gUnk_0810C43D[tmp];
         sub_080A7C18(0x5c, tmp2, 1);
-        TextboxNoOverlap(0x3c05, this);
+        MessageNoOverlap(0x3c05, this);
         context->condition = TRUE;
         return TRUE;
     }

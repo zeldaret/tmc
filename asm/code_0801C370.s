@@ -130,8 +130,8 @@ _0801C488: .4byte 0x00000427
 _0801C48C: .4byte 0x00000426
 _0801C490: .4byte 0x0000042E
 
-	thumb_func_start sub_0801C494
-sub_0801C494: @ 0x0801C494
+	thumb_func_start RefreshUI
+RefreshUI: @ 0x0801C494
 	ldr r1, _0801C49C @ =gScreen
 	movs r0, #1
 	strh r0, [r1, #0xe]
@@ -139,8 +139,8 @@ sub_0801C494: @ 0x0801C494
 	.align 2, 0
 _0801C49C: .4byte gScreen
 
-	thumb_func_start sub_0801C4A0
-sub_0801C4A0: @ 0x0801C4A0
+	thumb_func_start RecoverUI
+RecoverUI: @ 0x0801C4A0
 	ldr r1, _0801C4AC @ =gUnk_0200AF00
 	movs r0, #0
 	strb r0, [r1, #2]

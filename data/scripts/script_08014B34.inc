@@ -12,11 +12,11 @@ script_08014B48:
 	JumpIf script_08014B70
 	CheckEntityInteractType
 	JumpIfNot script_08014B48
-	EndBlock
-	_0807E864
-	_0807EB74
-	TextboxNoOverlap 0x2f01
-	_0807EA94
+	EndBlock 
+	_0807E864 
+	_0807EB74 
+	MessageNoOverlap 0x2f01
+	_0807EA94 
 	Wait 0x000f
 	_0807E878
 	Jump script_08014B48
@@ -56,15 +56,15 @@ script_08014BF2:
 	CheckLocalFlag 0x0065
 	JumpIf script_08014C1C
 	SetLocalFlag 0x0065
-	TextboxNoOverlap 0x2f07
-	_0807EA94
+	MessageNoOverlap 0x2f07
+	_0807EA94 
 	SetIntVariable 0x00000064
 	_0807F034 0x003f
 	WaitPlayerAction8
 	Jump script_08014C22
 script_08014C1C:
-	TextboxNoOverlap 0x2f08
-	_0807EA94
+	MessageNoOverlap 0x2f08
+	_0807EA94 
 script_08014C22:
 	Wait 0x000f
 	_0807E878
@@ -90,14 +90,14 @@ script_08014C56:
 	CheckLocalFlag 0x0066
 	JumpIf script_08014C7C
 	SetLocalFlag 0x0066
-	TextboxNoOverlap 0x2f0d
-	_0807EA94
+	MessageNoOverlap 0x2f0d
+	_0807EA94 
 	_0807F034 0x000a
 	WaitPlayerAction8
 	Jump script_08014C82
 script_08014C7C:
-	TextboxNoOverlap 0x2f09
-	_0807EA94
+	MessageNoOverlap 0x2f09
+	_0807EA94 
 script_08014C82:
 	Wait 0x000f
 	_0807E878

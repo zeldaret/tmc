@@ -350,7 +350,7 @@ void sub_08037A58(Entity* this) {
 }
 
 void sub_08037ACC(Entity* this) {
-    gPlayerState.flags.all &= 0xFFFFFEFF;
+    gPlayerState.flags &= 0xFFFFFEFF;
     gPlayerEntity.flags |= 0x80;
     gPlayerEntity.iframes = 0x1e;
     gPlayerEntity.knockbackDirection = DirectionFromAnimationState(this->animationState);

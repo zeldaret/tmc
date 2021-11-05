@@ -246,11 +246,11 @@ void sub_08028CE8(Entity* this) {
     struct SalesOffering* offer = (struct SalesOffering*)this->field_0x7c.WORD;
     u32 subtype;
 
-    if ((gTextBox.doTextBox & 0x7f) == 0 && sub_0802915C(this) && !sub_08056338()) {
+    if ((gMessage.doTextBox & 0x7f) == 0 && sub_0802915C(this) && !sub_08056338()) {
         if (offer->price <= gSave.stats.rupees) {
             if (sub_080291DC(this)) {
                 /* Bag full. */
-                TextboxNoOverlapFollow(0x2904);
+                MessageFromTarget(0x2904);
                 sub_08078A90(0);
             } else {
                 ModRupees(-offer->price);
@@ -285,7 +285,7 @@ void sub_08028CE8(Entity* this) {
             }
         } else {
             /* Not enough money. */
-            TextboxNoOverlapFollow(0x2903);
+            MessageFromTarget(0x2903);
             sub_08078A90(0);
         }
     }
@@ -303,7 +303,7 @@ void sub_08028DE8(Entity* this) {
             this->field_0x80.HALF.HI = 1;
         }
     } else {
-        TextboxNoOverlapFollow(0x2902);
+        MessageFromTarget(0x2902);
         this->action = 4;
         this->field_0x80.HALF.HI = 0;
         this->actionDelay = 1;
@@ -315,11 +315,11 @@ void sub_08028DE8(Entity* this) {
 }
 
 void sub_08028E40(Entity* this) {
-    if ((gTextBox.doTextBox & 0x7f) == 0) {
+    if ((gMessage.doTextBox & 0x7f) == 0) {
         struct SalesOffering* offer = (struct SalesOffering*)this->field_0x7c.WORD;
 
         this->action = 4;
-        this->subAction = gTextBox.doTextBox & 0x7f;
+        this->subAction = gMessage.doTextBox & 0x7f;
         this->actionDelay = 1;
         if (CheckLocalFlag(offer->field_0xa) == 0) {
             SetLocalFlag(offer->field_0xa);
@@ -383,8 +383,8 @@ void sub_08028F0C(Entity* this) {
             dialog = offer->field_0x4;
             sub_08078A90(1);
         }
-        TextboxNoOverlapFollow(dialog);
-        gTextBox.field_0x10 = offer->price;
+        MessageFromTarget(dialog);
+        gMessage.field_0x10 = offer->price;
     }
 }
 

@@ -313,7 +313,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
             if (this->actionDelay != 0) {
                 if (--this->actionDelay == 0) {
                     this->flags &= 0x7f;
-                    this->field_0x20 = 0x38000;
+                    this->hVelocity = 0x38000;
                     this->field_0xf = 0x10;
                 }
                 break;
@@ -379,7 +379,7 @@ void VaatiTransfiguredType0Action4(Entity* this) {
                 this->field_0x74.HALF.LO = 0;
                 this->actionDelay = 0x80;
                 this->field_0xf = 0;
-                this->field_0x20 = 0x24000;
+                this->hVelocity = 0x24000;
                 SoundReq(SFX_12B);
             }
             break;
@@ -1061,7 +1061,7 @@ void sub_080409B0(Entity* this) {
                     this->field_0x80.HALF.HI = 3;
                     this->flags &= 0x7f;
                     this->damageType = 0x36;
-                    this->field_0x20 = 0x18000;
+                    this->hVelocity = 0x18000;
                     SoundReq(SFX_164);
                 }
             }

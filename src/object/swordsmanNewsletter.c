@@ -24,6 +24,6 @@ void sub_080933D8(Entity* this) {
 void sub_080933FC(Entity* this) {
     if (this->interactType != 0) {
         this->interactType = 0;
-        TextboxNoOverlap(gUnk_081228B8[this->type], this);
+        MessageNoOverlap(gUnk_081228B8[this->type], this);
     }
 }

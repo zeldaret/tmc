@@ -16,12 +16,12 @@ void KingGustaf(Entity* this) {
         gScreen.controls.layerFXControl = 0x3f40;
         gScreen.controls.alphaBlend = 0x1000;
         this->speed = 0x1000;
-        this->field_0x20 = 0;
+        this->hVelocity = 0;
     } else {
         sub_0807DD94(this, 0);
         speed = 0x100;
         speed *= this->speed;
-        speed += this->field_0x20;
+        speed += this->hVelocity;
         speed >>= 0x10;
         if (speed > 0x10) {
             speed = 0x10;

@@ -28,8 +28,8 @@ script_08008BA2:
 	_0807E864
 	_0807E930 0x0004
 	Call sub_0807F2D4
-	TextboxNoOverlapFollow 0x4912
-	_0807EA94
+	MessageFromTarget 0x4912
+	_0807EA94 
 	_0807E930 0x0008
 	_0807E878
 	Jump script_08008BA2
@@ -60,8 +60,8 @@ script_08008BD2:
 	CallWithArg sub_0806BB1C, 0x00000001
 	Call sub_0806BB7C
 	JumpIfNot script_08008C5C
-	TextboxNoOverlap 0x490c
-	_0807EA94
+	MessageNoOverlap 0x490c
+	_0807EA94 
 	LoadRoomEntityList gUnk_080D6784
 	WaitForSomething 0x00000001
 	WaitForSomething 0x00000004
@@ -69,8 +69,8 @@ script_08008BD2:
 	PlaySound SFX_SECRET
 	_0807E930 0x0004
 	Call sub_0807F2D4
-	TextboxNoOverlap 0x4913
-	_0807EA94
+	MessageNoOverlap 0x4913
+	_0807EA94 
 	_0807E930 0x0008
 	Call sub_0807F2D4
 	Jump script_08008C5C
@@ -91,8 +91,8 @@ SCRIPT_START script_08008C64
 	PlaySound SFX_STAIRS
 	EndBlock
 	WaitForSomething 0x00000002
-	TextboxNoOverlap 0x490d
-	_0807EA94
+	MessageNoOverlap 0x490d
+	_0807EA94 
 	DoPostScriptAction 0x0007
 	Call sub_08064D08
 	_0807EDD4 0x0068, 0x0078

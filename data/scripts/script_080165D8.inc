@@ -13,17 +13,17 @@ SCRIPT_START script_080165F8
 script_080165FE:
 	_0807E30C
 	JumpIfNot script_080165FE
-	TextboxNoOverlapFollow 0x0601
+	MessageFromTarget 0x0601
 	Jump script_080165FE
 SCRIPT_START script_0801660C
 	BeginBlock
 	_0807E9D4
 	EndBlock
 script_08016612:
-	_0807E944
-	_0807E864
-	TextboxNoOverlapFollow 0x0602
-	_0807EA94
+	_0807E944 
+	_0807E864 
+	MessageFromTarget 0x0602
+	_0807EA94 
 	Wait 0x000f
 	_0807E878
 	Jump script_08016612
@@ -239,8 +239,8 @@ script_0801693E:
 	_0807E944
 	_0807E864
 	Wait 0x0018
-	TextboxNoOverlapFollow 0x0a01
-	_0807EA94
+	MessageFromTarget 0x0a01
+	_0807EA94 
 	Wait 0x000f
 	_0807E878
 	Jump script_0801693E
@@ -255,8 +255,8 @@ script_0801696A:
 	_0807E944
 	_0807E864
 	Wait 0x0018
-	TextboxNoOverlapFollow 0x0a01
-	_0807EA94
+	MessageFromTarget 0x0a01
+	_0807EA94 
 	Wait 0x000f
 	_0807E878
 	Jump script_0801696A

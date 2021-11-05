@@ -181,7 +181,7 @@ void sub_0808EA28(Entity* this) {
     u32 var1;
 
     if (this->type == 3) {
-        if (gUnk_02000000->gameLanguage > LANGUAGE_EN) {
+        if (gSaveHeader->gameLanguage > LANGUAGE_EN) {
             this->spriteSettings.b.draw = 2;
         } else {
             this->spriteSettings.b.draw = 0;

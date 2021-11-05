@@ -36,11 +36,11 @@ SCRIPT_START script_08010120
 script_08010132:
 	CheckEntityInteractType
 	JumpIfNot script_08010132
-	_0807E864
-	_0807EB74
-	TextboxNoOverlapFollow 0x4f22
-	_0807EA94
-	_0807E878
+	_0807E864 
+	_0807EB74 
+	MessageFromTarget 0x4f22
+	_0807EA94 
+	_0807E878 
 	Jump script_08010132
 SCRIPT_START script_08010148
 	BeginBlock
@@ -55,9 +55,9 @@ script_0801015A:
 	_0807EB74
 	CheckRoomFlag 0x0001
 	JumpIf script_0801019E
-	TextboxNoOverlapFollowPos 0x3001, 0x0000
-	_0807EA94
-	_0807E3E8
+	MessageFromTargetPos 0x3001, 0x0000
+	_0807EA94 
+	_0807E3E8 
 	JumpIfNot script_080101A6
 	Call sub_080A1608
 	_0807EA94
@@ -81,8 +81,8 @@ script_080101AC:
 	Call sub_080A1270
 	_0807E864
 	Call sub_0807DF28
-	TextboxNoOverlapFollowPos 0x3004, 0x0007
-	_0807EA94
+	MessageFromTargetPos 0x3004, 0x0007
+	_0807EA94 
 	StopBgm
 	_0807E778 0x0004
 	DoFade5

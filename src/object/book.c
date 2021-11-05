@@ -97,7 +97,7 @@ void sub_0809B4A8(Entity* this) {
 
         gPlayerState.pushedObject = 0x9e;
         gPlayerState.playerAction = 5;
-        gPlayerState.flags.all |= 1;
+        gPlayerState.flags |= 1;
 
         gPlayerEntity.x.HALF.LO = 0;
         gPlayerEntity.y.HALF.LO = 0;
@@ -143,7 +143,7 @@ void sub_0809B56C(Entity* this) {
 }
 
 void sub_0809B5B4(Entity* this) {
-    if (gPlayerState.flags.all & 0x80) {
+    if (gPlayerState.flags & 0x80) {
         sub_0800445C(this);
     } else if (sub_08017850(this)) {
         CreateItemEntity(this->type + 0x39, 0, 0);
@@ -197,7 +197,7 @@ void sub_0809B5EC(Entity* this) {
                 break;
             }
             case 1: {
-                u8 doTextBox = gTextBox.doTextBox & 0x7f;
+                u8 doTextBox = gMessage.doTextBox & 0x7f;
                 if (!doTextBox) {
                     this->spriteSettings.b.draw = 1;
                     this->subAction = doTextBox;

@@ -10,8 +10,8 @@ script_0800BBBA:
 	JumpIfNot script_0800BBBA
 	DoPostScriptAction 0x0004
 	Wait 0x003c
-	TextboxNoOverlap 0x0e04
-	_0807EA94
+	MessageNoOverlap 0x0e04
+	_0807EA94 
 	Wait 0x0078
 	Call sub_08054968
 SCRIPT_END

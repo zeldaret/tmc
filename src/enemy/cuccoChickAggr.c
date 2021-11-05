@@ -49,7 +49,7 @@ void sub_08022988(Entity* this) {
                 return;
 
             this->frameIndex = 1;
-            this->field_0x20 = 0x10000;
+            this->hVelocity = 0x10000;
             EnqueueSFX(0xd6);
         }
 
@@ -75,7 +75,7 @@ void sub_080229F8(Entity* this) {
             this->speed = 0xc0;
             sub_08022B44(this);
         } else {
-            this->field_0x20 = 0x10000;
+            this->hVelocity = 0x10000;
             EnqueueSFX(0xd6);
         }
     }
@@ -138,7 +138,7 @@ u32 sub_08022B20(Entity* this) {
 }
 
 void sub_08022B44(Entity* this) {
-    this->field_0x20 = 0xc000;
+    this->hVelocity = 0xc000;
     this->direction = GetFacingDirection(this, &gPlayerEntity);
 
     if (this->direction & 0xf)

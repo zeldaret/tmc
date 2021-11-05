@@ -17,14 +17,13 @@ void ItemPegasusBoots(ItemBehavior* this, u32 arg1) {
         gPlayerState.field_0x1d[1] = 0;
         gPlayerState.field_0xe = 0;
         sub_08077E78(this, arg1);
-
     } else {
         bVar1 = this->field_0x5[2] - 1;
         this->field_0x5[2] = bVar1;
         if ((bVar1 & 7) == 0) {
             SoundReq(SFX_PLY_LAND);
         }
-        if (((gPlayerState.flags.all & 0x80) == 0) && ((this->field_0x5[2] & 7) == 0)) {
+        if (((gPlayerState.flags & 0x80) == 0) && ((this->field_0x5[2] & 7) == 0)) {
             if (gPlayerState.field_0x10[2] == 0x11) {
                 if (gPlayerEntity.spriteOffsetY == 0) {
                     CreateFx(&gPlayerEntity, FX_GREEN_SPLASH, 0);
@@ -54,12 +53,12 @@ void sub_080768F8(ItemBehavior* this, u32 arg1) {
     u32 bVar2;
 
     bVar1 = gPlayerState.field_0x1c | gPlayerState.field_0x3[1] | gPlayerState.heldObject | gPlayerState.jumpStatus;
-    bVar2 = (gPlayerState.flags.all & 0x1000);
+    bVar2 = (gPlayerState.flags & 0x1000);
     bVar1 |= bVar2;
     if (bVar1 == 0) {
         gPlayerState.field_0x1d[1] = 1;
         gPlayerState.field_0x1d[4] = bVar1;
-        if ((gPlayerState.flags.all & 0x80) == 0) {
+        if ((gPlayerState.flags & 0x80) == 0) {
             this->field_0x5[2] = 0x10;
         } else {
             gPlayerState.field_0x8 = 0xc14;

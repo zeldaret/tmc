@@ -71,7 +71,7 @@ void sub_08069B44(Entity* this) {
         if ((this->flags & 2) != 0) {
             sub_0807DD50(this);
         }
-        if (((this->type == 0) && ((gPlayerState.flags.all & 0x80) == 0)) && (GetInventoryValue(0x36) != 2)) {
+        if (((this->type == 0) && ((gPlayerState.flags & 0x80) == 0)) && (GetInventoryValue(0x36) != 2)) {
             this->action = 4;
         }
 #if defined(JP) || defined(EU) || defined(DEMO_JP)
@@ -87,7 +87,7 @@ void sub_08069B44(Entity* this) {
 void sub_08069C40(Entity* this) {
     UpdateAnimationSingleFrame(this);
     if (sub_08069F90(this) != 0) {
-        if ((gPlayerState.flags.all & 0x80) != 0) {
+        if ((gPlayerState.flags & 0x80) != 0) {
             sub_08069CB8(this);
         } else {
             this->animationState = GetAnimationState(this);
@@ -282,14 +282,14 @@ u32 sub_08069F90(Entity* this) {
 }
 
 void sub_08069FBC(Entity* this) {
-    u32 tmp = (gPlayerState.flags.all & 0x80) != 0 ? 0x24 : 0x20;
+    u32 tmp = (gPlayerState.flags & 0x80) != 0 ? 0x24 : 0x20;
     if ((this->animationState == 1) || (this->animationState == 3)) {
         this->field_0x6a.HALF.HI = tmp;
     }
 }
 
 void sub_08069FE8(Entity* this) {
-    u32 tmp = -((s32) - (gPlayerState.flags.all & 0x80) >> 0x1f);
+    u32 tmp = -((s32) - (gPlayerState.flags & 0x80) >> 0x1f);
     if (tmp != this->field_0x6a.HALF.LO) {
         if (tmp == 0) {
             sub_08078778(this);
@@ -302,7 +302,7 @@ void sub_08069FE8(Entity* this) {
 
 void sub_0806A028(Entity* this) {
     if (this->interactType != 0) {
-        if ((gPlayerState.flags.all & 0x80) != 0) {
+        if ((gPlayerState.flags & 0x80) != 0) {
             if (this->interactType == 2) {
                 this->action = 6;
                 sub_0806F118(this);
@@ -326,7 +326,7 @@ void sub_0806A080(Entity* this) {
 void sub_0806A0A4(Entity* this) {
     s32 dialog;
 
-    if ((gPlayerState.flags.all & 0x80) != 0) {
+    if ((gPlayerState.flags & 0x80) != 0) {
         dialog = 4;
 #if defined(JP) || defined(EU) || defined(DEMO_JP)
         if (CheckLocalFlag(0xcc) == 0) {
@@ -364,12 +364,12 @@ void sub_0806A0A4(Entity* this) {
             }
         }
     }
-    TextboxNoOverlap(gUnk_08111F74[(u32)gSave.unk8 * 5 + dialog], this);
+    MessageNoOverlap(gUnk_08111F74[(u32)gSave.unk8 * 5 + dialog], this);
 }
 
 void sub_0806A144(Entity* this) {
     s32 dialog = 4;
-    if ((gPlayerState.flags.all & 0x80) != 0) {
+    if ((gPlayerState.flags & 0x80) != 0) {
         dialog = 3;
         if ((GetInventoryValue(0x46) == 0) && (CheckGlobalFlag(0x29) != 0)) {
             if (CheckLocalFlag(0x85) == 0) {
@@ -379,7 +379,7 @@ void sub_0806A144(Entity* this) {
             }
         }
     }
-    TextboxNoOverlap(gUnk_08111FD8[dialog], this);
+    MessageNoOverlap(gUnk_08111FD8[dialog], this);
 }
 
 void Dog_Fusion(Entity* this) {

@@ -21,9 +21,9 @@ void sub_08075A0C(ItemBehavior* this, u32 arg1) {
     s8* tmp;
     itemSlot = IsItemEquipped(this->behaviorID);
     if (gPlayerState.heldObject != 0 || gPlayerState.playerAction == 0x18 || gPlayerState.jumpStatus != 0 ||
-        gPlayerState.field_0x2c != NULL || (gPlayerState.flags.all & 0x80) != 0) {
+        gPlayerState.field_0x2c != NULL || (gPlayerState.flags & 0x80) != 0) {
         ForceEquipItem(0xf, itemSlot);
-        gPlayerState.flags.all &= 0xff7fffff;
+        gPlayerState.flags &= 0xff7fffff;
         ForceEquipItem(0xf, itemSlot);
         sub_08077E78(this, arg1);
     } else {
@@ -50,11 +50,11 @@ ASM_FUNC("asm/non_matching/eu/sub_08075ADC.inc", void sub_08075ADC(ItemBehavior*
 void sub_08075ADC(ItemBehavior* this, u32 arg1) {
     u32 bVar1;
 
-    if (gPlayerState.field_0x2c != NULL || (this->field_0x5[9] & 1) == 0 || (gPlayerState.flags.all & 0x110) != 0 ||
+    if (gPlayerState.field_0x2c != NULL || (this->field_0x5[9] & 1) == 0 || (gPlayerState.flags & 0x110) != 0 ||
         sub_08079D48() == 0) {
         this->field_0xf = 0;
         this->stateID += 1;
-        gPlayerState.flags.all |= 0x800000;
+        gPlayerState.flags |= 0x800000;
         bVar1 = 8 >> arg1;
         gPlayerState.field_0x3[1] = gPlayerState.field_0x3[1] & ~((bVar1 << 4) | bVar1);
         bVar1 = ~bVar1;
@@ -73,11 +73,11 @@ void sub_08075B54(ItemBehavior* this, u32 arg1) {
     Entity* object;
     s8* tmp;
 
-    if ((gPlayerState.flags.all & 0x110) == 0) {
+    if ((gPlayerState.flags & 0x110) == 0) {
         itemSlot = IsItemEquipped(this->behaviorID);
         if (!(((sub_08077F10(this) == 0) && (itemSlot < 2)) || (gPlayerState.jumpStatus != 0))) {
             ForceEquipItem(0xf, itemSlot);
-            gPlayerState.flags.all &= 0xff7fffff;
+            gPlayerState.flags &= 0xff7fffff;
             sub_08077E78(this, arg1);
             SoundReq(SFX_ITEM_LANTERN_OFF);
         } else {

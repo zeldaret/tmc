@@ -24,16 +24,16 @@ SCRIPT_START script_08010BEC
 	StartPlayerScript script_08011074
 	WaitForSomething2 0x00000400
 	_0807F078 0x0034, 0x0002
-	TextboxNoOverlapFollowPos 0x1036, 0x000c
-	_0807EA94
+	MessageFromTargetPos 0x1036, 0x000c
+	_0807EA94 
 	_0807E5F8 0x00000010
 	WaitForSomething2 0x00000020
-	TextboxNoOverlapFollowPos 0x1037, 0x0002
-	_0807EA94
+	MessageFromTargetPos 0x1037, 0x0002
+	_0807EA94 
 	_0807E5F8 0x00000010
 	WaitForSomething2 0x00000020
-	TextboxNoOverlapFollowPos 0x1038, 0x000c
-	_0807EA94
+	MessageFromTargetPos 0x1038, 0x000c
+	_0807EA94 
 	StopBgm
 	_0807E778 0x0004
 	DoFade5
@@ -69,8 +69,8 @@ SCRIPT_START script_08010BEC
 	_0807E8E4_1
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000008
-	TextboxNoOverlapFollowPos 0x1039, 0x000c
-	_0807EA94
+	MessageFromTargetPos 0x1039, 0x000c
+	_0807EA94 
 	PlayBgm BGM_CASTLE_TOURNAMENT
 	_0807E8E4_2
 	_0807E5F8 0x00000004
@@ -82,8 +82,8 @@ SCRIPT_START script_08010BEC
 	Wait 0x012c
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000008
-	TextboxNoOverlapFollowPos 0x103a, 0x000c
-	_0807EA94
+	MessageFromTargetPos 0x103a, 0x000c
+	_0807EA94 
 	SetEntityPositionRelative 0x01f8, 0x01c0
 	_0807F0B4 0x0004
 	Wait 0x0078
@@ -100,8 +100,8 @@ SCRIPT_START script_08010BEC
 	PlaySound SFX_9B
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000200
-	TextboxNoOverlapFollowPos 0x1043, 0x0000
-	_0807EA94
+	MessageFromTargetPos 0x1043, 0x0000
+	_0807EA94 
 	PlayBgm BGM_VAATI_THEME
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000200
@@ -116,8 +116,8 @@ SCRIPT_START script_08010BEC
 	WaitForSomething2 0x00005000
 	_0807E5F8 0x00028000
 	WaitForSomething2 0x00050000
-	TextboxNoOverlapFollowPos 0x1044, 0x0000
-	_0807EA94
+	MessageFromTargetPos 0x1044, 0x0000
+	_0807EA94 
 	SetEntityPositionRelative 0x01f8, 0x0098
 	StopBgm
 	Wait 0x003c

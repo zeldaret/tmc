@@ -1034,7 +1034,7 @@ _0801E040: .4byte gUnk_02022740
 	thumb_func_start sub_0801E044
 sub_0801E044: @ 0x0801E044
 	push {lr}
-	ldr r0, _0801E06C @ =gTextBox
+	ldr r0, _0801E06C @ =gMessage
 	ldrb r1, [r0]
 	movs r0, #0x7f
 	ands r0, r1
@@ -1053,7 +1053,7 @@ sub_0801E044: @ 0x0801E044
 _0801E06A:
 	pop {pc}
 	.align 2, 0
-_0801E06C: .4byte gTextBox
+_0801E06C: .4byte gMessage
 _0801E070: .4byte gUnk_02022740
 
 	thumb_func_start sub_0801E074
@@ -1086,7 +1086,7 @@ _0801E09C: .4byte gUnk_02022740
 	thumb_func_start sub_0801E0A0
 sub_0801E0A0: @ 0x0801E0A0
 	push {r4, lr}
-	ldr r0, _0801E0D8 @ =gTextBox
+	ldr r0, _0801E0D8 @ =gMessage
 	ldrb r1, [r0]
 	movs r0, #0x7f
 	ands r0, r1
@@ -1116,7 +1116,7 @@ _0801E0D2:
 _0801E0D4:
 	pop {r4, pc}
 	.align 2, 0
-_0801E0D8: .4byte gTextBox
+_0801E0D8: .4byte gMessage
 _0801E0DC: .4byte gUnk_02022740
 
 	thumb_func_start sub_0801E0E0
@@ -1130,13 +1130,13 @@ sub_0801E0E0: @ 0x0801E0E0
 	cmp r1, #0
 	beq _0801E0FC
 	adds r0, r2, #0
-	bl TextboxNoOverlap
+	bl MessageNoOverlap
 	b _0801E102
 	.align 2, 0
 _0801E0F8: .4byte gUnk_02022740
 _0801E0FC:
 	adds r0, r2, #0
-	bl TextboxNoOverlapFollow
+	bl MessageFromTarget
 _0801E102:
 	pop {pc}
 

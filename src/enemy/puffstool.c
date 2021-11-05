@@ -72,8 +72,8 @@ void sub_08025020(Entity* this) {
             }
             this->action = 7;
             this->actionDelay = 0x3c;
-            if (0 < this->field_0x20) {
-                this->field_0x20 = 0;
+            if (0 < this->hVelocity) {
+                this->hVelocity = 0;
             }
             this->iframes = -0xc;
             this->knockbackDuration = 0;
@@ -200,7 +200,7 @@ void sub_080252E0(Entity* this) {
         this->action = 3;
         this->actionDelay = 0x1e;
         this->field_0xf = 0;
-        this->field_0x20 = 0x18000;
+        this->hVelocity = 0x18000;
         InitializeAnimation(this, 1);
     }
 }
@@ -213,7 +213,7 @@ void sub_0802538C(Entity* this) {
             GetNextFrame(this);
         } else {
             sub_08003FC4(this, 0x2000);
-            if (this->field_0x20 < 0x2000) {
+            if (this->hVelocity < 0x2000) {
                 this->action = 4;
                 InitializeAnimation(this, 2);
             }
@@ -242,7 +242,7 @@ void sub_0802541C(Entity* this) {
     if (this->frames.all & 0x80) {
         this->action = 3;
         this->field_0xf = 1;
-        this->field_0x20 = 0x20000;
+        this->hVelocity = 0x20000;
         InitializeAnimation(this, 1);
     }
 }

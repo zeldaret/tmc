@@ -129,16 +129,16 @@ void PrepNextFrame(void) {
 
 void PlayerUpdate(Entity* this) {
     if (gSave.stats.effect != 0)
-        gPlayerState.flags.all |= 0x4000;
+        gPlayerState.flags |= 0x4000;
     else
-        gPlayerState.flags.all &= ~0x4000;
+        gPlayerState.flags &= ~0x4000;
 
     if (sub_0805E3B0(this) == 0) {
-        if ((gPlayerState.flags.all & 0x80000) != 0) {
+        if ((gPlayerState.flags & 0x80000) != 0) {
             sub_08077B20();
-            if ((gPlayerState.flags.all & 0x200000) != 0) {
+            if ((gPlayerState.flags & 0x200000) != 0) {
                 gPlayerState.playerAction = 0x18;
-                gPlayerState.flags.all &= ~0x80000;
+                gPlayerState.flags &= ~0x80000;
                 gPlayerState.hurtBlinkSpeed = 0xf0;
                 this->flags |= 0x80;
             } else {
@@ -171,10 +171,10 @@ void HandlePlayerLife(Entity* this) {
     if ((gPlayerEntity.bitfield & 0x80) && (gPlayerEntity.iframes > 0))
         SoundReq(SFX_86);
 
-    gPlayerState.flags.all &= ~(0x2000000 | 0x200);
-    if (gPlayerState.flags.all & 0x400)
+    gPlayerState.flags &= ~(0x2000000 | 0x200);
+    if (gPlayerState.flags & 0x400)
         ResetPlayer();
-    if ((gPlayerState.flags.all & 0x400000) && !gPlayerState.field_0xa0[0])
+    if ((gPlayerState.flags & 0x400000) && !gPlayerState.field_0xa0[0])
         sub_0807A108();
     if (sub_08079B24() == 0)
         sub_08079708(this);
@@ -190,10 +190,10 @@ void HandlePlayerLife(Entity* this) {
         return;
     }
 
-    if ((gPlayerState.field_0x8b != 0) || (gTextBox.doTextBox & 0x7f))
+    if ((gPlayerState.field_0x8b != 0) || (gMessage.doTextBox & 0x7f))
         return;
 
-    gRoomVars.unk2 = gTextBox.doTextBox & 0x7f;
+    gRoomVars.unk2 = gMessage.doTextBox & 0x7f;
     temp = gSave.stats.maxHealth / 4;
     if (temp > 24)
         temp = 24;
@@ -243,12 +243,12 @@ void sub_080171F0(void) {
 
     gPlayerEntity.bitfield &= ~0x80;
     if (gPlayerEntity.action != 0x14)
-        gPlayerState.flags.all = (gPlayerState.flags.all & ~0x10000) | (0x10000 * (gPlayerState.flags.all & 2) / 2);
+        gPlayerState.flags = (gPlayerState.flags & ~0x10000) | (0x10000 * (gPlayerState.flags & 2) / 2);
 
-    gPlayerState.flags.all &= ~2;
+    gPlayerState.flags &= ~2;
     sub_080028E0(&gPlayerEntity);
 
-    if (gPlayerState.flags.all & 0x400000)
+    if (gPlayerState.flags & 0x400000)
         gUnk_0200AF00.filler25[10] = 1;
 
     sub_08078180();
@@ -263,13 +263,13 @@ void sub_080171F0(void) {
     gPlayerState.field_0x3f = 0;
     sub_0807B0C8();
 
-    if (gPlayerState.flags.all & 0x400000)
+    if (gPlayerState.flags & 0x400000)
         gUnk_03004040[0]->spriteOffsetY = gUnk_03004040[1]->spriteOffsetY = gUnk_03004040[2]->spriteOffsetY = 0;
 
     if (gPlayerEntity.action == 0x1d)
-        gPlayerState.flags.all |= 0x20000000;
+        gPlayerState.flags |= 0x20000000;
     else
-        gPlayerState.flags.all &= ~0x20000000;
+        gPlayerState.flags &= ~0x20000000;
 
     sub_0807A8D8(&gPlayerEntity);
     if (gPlayerState.jumpStatus & 0xc0)

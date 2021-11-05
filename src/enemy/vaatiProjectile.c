@@ -74,7 +74,7 @@ void VaatiProjectileFunction1(Entity* this) {
                 entity->flags = entity->flags & 0x7f;
             }
         } else {
-            gPlayerState.flags.all &= 0xfffffeff; // using b.unk8 does not match
+            gPlayerState.flags &= 0xfffffeff; // using b.unk8 does not match
             entity = &gPlayerEntity;
             entity->flags = gPlayerEntity.flags | 0x80;
         }

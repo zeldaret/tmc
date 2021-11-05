@@ -42,8 +42,8 @@ ASM_FUNC("asm/non_matching/stockwell/sub_080650CC.inc", void sub_080650CC(Entity
 
 void sub_080651AC(Entity* this) {
     GetNextFrame(this);
-    if ((gTextBox.doTextBox & 0x7f) == 0) {
-        this->interactType = gTextBox.doTextBox & 0x7f;
+    if ((gMessage.doTextBox & 0x7f) == 0) {
+        this->interactType = gMessage.doTextBox & 0x7f;
         this->action = 1;
         InitializeAnimation(this, 4);
     }
@@ -67,7 +67,7 @@ void sub_080651F8(Entity* this) {
 void sub_0806522C(Entity* this) {
     if (--this->actionDelay == 0) {
         ++this->subAction;
-        TextboxNoOverlap(0x2c16, this);
+        MessageNoOverlap(0x2c16, this);
     }
 }
 
@@ -90,12 +90,12 @@ void sub_08065250(Entity* this) {
 void sub_0806528C(Entity* this) {
     if (--this->actionDelay == 0) {
         ++this->subAction;
-        TextboxNoOverlap(0x2c18, this);
+        MessageNoOverlap(0x2c18, this);
     }
 }
 
 void sub_080652B0(Entity* this) {
-    if ((gTextBox.doTextBox & 0x7f) == 0) {
+    if ((gMessage.doTextBox & 0x7f) == 0) {
         this->subAction += 1;
         this->actionDelay = 10;
         gRoomVars.greatFairyState = this->field_0xf;
@@ -109,22 +109,22 @@ void sub_080652E4(Entity* this) {
     } else {
         if (gPlayerEntity.action != 8) {
             this->subAction += 1;
-            TextboxNoOverlap(0x2c19, this);
+            MessageNoOverlap(0x2c19, this);
         }
     }
 }
 
 void sub_08065314(Entity* this) {
-    if ((gTextBox.doTextBox & 0x7f) == 0) {
+    if ((gMessage.doTextBox & 0x7f) == 0) {
         this->subAction += 1;
         MenuFadeIn(3, 3);
     }
 }
 
 void sub_08065338(Entity* this) {
-    if ((gTextBox.doTextBox & 0x7f) == 0) {
+    if ((gMessage.doTextBox & 0x7f) == 0) {
         this->action = 1;
-        this->subAction = gTextBox.doTextBox & 0x7f;
+        this->subAction = gMessage.doTextBox & 0x7f;
         gRoomVars.greatFairyState = this->field_0xf;
         InitializeAnimation(this, 4);
     }

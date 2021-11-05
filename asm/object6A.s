@@ -972,7 +972,7 @@ _080950C8:
 	.align 2, 0
 _080950EC: .4byte 0x00001F1F
 _080950F0:
-	ldr r0, _0809511C @ =gTextBox
+	ldr r0, _0809511C @ =gMessage
 	ldrb r1, [r0]
 	movs r0, #0x7f
 	ands r0, r1
@@ -992,7 +992,7 @@ _0809510A:
 	strb r4, [r5, #0xa]
 	pop {r4, r5, pc}
 	.align 2, 0
-_0809511C: .4byte gTextBox
+_0809511C: .4byte gMessage
 
 	thumb_func_start sub_08095120
 sub_08095120: @ 0x08095120

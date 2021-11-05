@@ -32,8 +32,8 @@ script_080157DA:
 	WaitForSomething2 0x00000010
 	_0807E5F8 0x00000001
 	WaitForSomething2 0x00000002
-	TextboxNoOverlapFollowPos 0x1066, 0x0002
-	_0807EA94
+	MessageFromTargetPos 0x1066, 0x0002
+	_0807EA94 
 	_0807E5F8 0x00000001
 	WaitForSomething2 0x00000002
 	Call sub_0807DF50
@@ -54,13 +54,13 @@ script_08015888:
 	CameraTargetEntity
 	StartPlayerScript script_08015938
 	WaitForSomething2 0x00000010
-	TextboxNoOverlapFollowPos 0x106a, 0x000c
-	_0807EA94
+	MessageFromTargetPos 0x106a, 0x000c
+	_0807EA94 
 	_0807E5F8 0x00000008
 	Wait 0x0078
-	_0807E8E4_2
-	TextboxNoOverlapFollowPos 0x1068, 0x0002
-	_0807EA94
+	_0807E8E4_2 
+	MessageFromTargetPos 0x1068, 0x0002
+	_0807EA94 
 	_0807E5F8 0x00000001
 	WaitForSomething2 0x00000002
 .ifdef JP

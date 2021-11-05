@@ -54,7 +54,7 @@ extern struct_02019EE0 gUnk_02019EE0;
 
 extern void sub_08056FEC(u32, struct_020227E8*);
 extern void sub_0805F46C(u32, void*);
-extern void sub_0801C4A0(u32, u32);
+extern void RecoverUI(u32 bottomPt, u32 topPt);
 extern void sub_08080668(void);
 extern void sub_0805194C(u32);
 extern void LoadPalettes(const u8*, int, int);
@@ -70,7 +70,7 @@ extern void (*const gUnk_080FC908[])(void);
 extern const u8 gGlobalGfxAndPalettes[];
 extern void (*const gUnk_080FC93C[])();
 extern u32 gUsedPalettes;
-extern u8 gUnk_02000D00[];
+extern u8 gTextGfxBuffer[];
 extern u8 gUnk_02001B40;
 extern u8 gUnk_02022030;
 

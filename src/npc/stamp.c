@@ -41,13 +41,13 @@ void sub_08062C24(Entity* ent) {
     GetNextFrame(ent);
     if ((ent->frames.all & 128) != 0) {
         InitializeAnimation(ent, 4);
-        TextboxNoOverlapFollow(2561);
+        MessageFromTarget(2561);
         ent->action++;
     }
 }
 
 void sub_08062C54(Entity* ent) {
-    if ((gTextBox.doTextBox & 127) == 0) {
+    if ((gMessage.doTextBox & 127) == 0) {
         ent->action = 1;
         InitializeAnimation(ent, 0);
         sub_0805E584(ent);

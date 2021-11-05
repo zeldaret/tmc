@@ -136,8 +136,8 @@ script_0800E832:
 	JumpIfNot script_0800E832
 	_0807E864
 	_0807EB44 0x0004
-	BeginBlock
-	TextboxNoOverlapFollow 0x4501
+	BeginBlock 
+	MessageFromTarget 0x4501
 	CallWithArg sub_0807F854, 0x00010032
 	CallWithArg sub_0807F854, 0x000200c8
 	CallWithArg sub_0807F854, 0x00030190
@@ -146,8 +146,8 @@ script_0800E832:
 	_0807EB38
 	JumpTable script_0800E910, script_0800E8D6, script_0800E8A4, script_0800E872
 script_0800E872:
-	BeginBlock
-	TextboxNoOverlapFollow 0x4505
+	BeginBlock 
+	MessageFromTarget 0x4505
 	CallWithArg sub_0807F854, 0x00010190
 	EndBlock
 	_0807EA94
@@ -155,7 +155,7 @@ script_0800E872:
 	JumpIfNot script_0800E908
 	ModRupees 0xfe70
 	SetLocalFlag 0x0091
-	TextboxNoOverlapFollow 0x4508
-	_0807EA94
+	MessageFromTarget 0x4508
+	_0807EA94 
 	Call sub_0806C578
 SCRIPT_END

@@ -148,7 +148,7 @@ _080818F0:
 	adds r0, #0x2f
 	movs r1, #2
 	strb r1, [r0]
-	bl sub_08056360
+	bl MessageClose
 _08081920:
 	pop {r4, pc}
 	.align 2, 0

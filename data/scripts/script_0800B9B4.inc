@@ -48,9 +48,9 @@ script_0800BA46:
 	JumpIfNot script_0800BA46
 	_0807E864
 	Call sub_0807DF28
-	TextboxNoOverlapFollow 0x3301
-	_0807EA94
-	_0807E3E8
+	MessageFromTarget 0x3301
+	_0807EA94 
+	_0807E3E8 
 	JumpIfNot script_0800BA6C
 	StopBgm
 	Call sub_0806E964
@@ -77,8 +77,8 @@ script_0800BA8E:
 	Wait 0x001e
 	_0807EDD4 0x02f0, 0x0350
 	Wait 0x001e
-	TextboxNoOverlap 0x0e00
-	_0807EA94
+	MessageNoOverlap 0x0e00
+	_0807EA94 
 	Wait 0x0078
 	Call sub_08054968
 SCRIPT_END

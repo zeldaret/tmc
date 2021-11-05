@@ -343,7 +343,7 @@ void SetDirtTile(u32 tile) {
 
 void sub_08059368(ManagerF* this) {
     this->manager.action = 1;
-    if (this->unk_3c == gCurrentTextBox._28) {
+    if (this->unk_3c == gTextRender.curToken.textIndex) {
         SetFlag(this->unk_3e);
         DeleteThisEntity();
     }
@@ -360,7 +360,7 @@ void sub_0805938C(ManagerF* this) {
 }
 
 u32 sub_080593CC(ManagerF* this) {
-    if (!(gPlayerState.flags.all & 0x80) && gPlayerState.swimState != 0 && gPlayerEntity.animationState == 0 &&
+    if (!(gPlayerState.flags & 0x80) && gPlayerState.swimState != 0 && gPlayerEntity.animationState == 0 &&
         (gPlayerState.field_0x90.HALF.LO & 0xF00) == 0x400) {
         return sub_0806FCB8(&gPlayerEntity, this->unk_38, this->unk_3a + 0xC, 6);
     }

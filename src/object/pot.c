@@ -67,7 +67,7 @@ void sub_08082310(Entity* this) {
         case 0x1D:
             SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
             this->action = 5;
-            this->field_0x20 = 0x2A000;
+            this->hVelocity = 0x2A000;
             this->spriteOffsetY = 0;
             this->spriteSettings.b.shadow = 1;
             this->spritePriority.b1 = 3;
@@ -85,7 +85,7 @@ void sub_08082310(Entity* this) {
                         this->direction = (tileType - 0x4001) * 8;
                         this->actionDelay = 32;
                         this->action = 4;
-                        if (gPlayerState.flags.all & 0x80) {
+                        if (gPlayerState.flags & 0x80) {
                             this->speed >>= 1;
                             this->actionDelay = 64;
                         }
@@ -184,7 +184,7 @@ void sub_08082614(Entity* this) {
     }
 
     this->action = 1;
-    if (gPlayerState.flags.all & 0x80) {
+    if (gPlayerState.flags & 0x80) {
         this->speed <<= 1;
     }
 
@@ -251,7 +251,7 @@ void sub_08082818(Entity* this) {
 }
 
 void sub_08082824(Entity* this) {
-    if (this->field_0x20 < 0) {
+    if (this->hVelocity < 0) {
         this->spriteSettings.b.flipY = 1;
     }
 

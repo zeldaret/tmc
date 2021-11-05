@@ -53,7 +53,7 @@ void sub_0806E824(Entity* this) {
 
 void sub_0806E838(Entity* this) {
     if (this->interactType != 0) {
-        if ((gPlayerState.flags.all & 0x80) != 0) {
+        if ((gPlayerState.flags & 0x80) != 0) {
             if (this->interactType == 2) {
                 this->action = 3;
                 sub_0806F118(this);
@@ -69,7 +69,7 @@ void sub_0806E838(Entity* this) {
 }
 
 void sub_0806E884(Entity* this) {
-    TextboxNoOverlap(0xdb6, this);
+    MessageNoOverlap(0xdb6, this);
 }
 
 void CuccoChick_Fusion(Entity* this) {
@@ -79,7 +79,7 @@ void CuccoChick_Fusion(Entity* this) {
         this->frameIndex = 1;
     } else {
         if (sub_08003FC4(this, 0x3000) == 0) {
-            this->field_0x20 = 0x10000;
+            this->hVelocity = 0x10000;
         }
     }
 }

@@ -12,8 +12,8 @@ SCRIPT_START script_0800A1D8
 	WaitForSomething2 0x00000001
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000080
-	TextboxNoOverlapFollowPos 0x1659, 0x0000
-	_0807EA94
+	MessageFromTargetPos 0x1659, 0x0000
+	_0807EA94 
 	Wait 0x003c
 	_0807E5F8 0x00000010
 	WaitForSomething2 0x00000200
@@ -27,11 +27,11 @@ SCRIPT_START script_0800A1D8
 	_0807E5F8 0x00000004
 	Call sub_0807F3F8
 	WaitForSomething2 0x00000080
-	TextboxNoOverlapFollowPos 0x165a, 0x000e
-	_0807EA94
+	MessageFromTargetPos 0x165a, 0x000e
+	_0807EA94 
 	Wait 0x003c
-	TextboxNoOverlapFollowPos 0x165b, 0x000e
-	_0807EA94
+	MessageFromTargetPos 0x165b, 0x000e
+	_0807EA94 
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000040
 	_0807E5F8 0x00000008
@@ -45,11 +45,11 @@ SCRIPT_START script_0800A1D8
 	WaitForSomething2 0x00000100
 	_0807E5F8 0x00000006
 	WaitForSomething2 0x000000c0
-	TextboxNoOverlapFollowPos 0x165c, 0x000e
-	_0807EA94
+	MessageFromTargetPos 0x165c, 0x000e
+	_0807EA94 
 	StopBgm
-	TextboxNoOverlapFollowPos 0x165d, 0x000e
-	_0807EA94
+	MessageFromTargetPos 0x165d, 0x000e
+	_0807EA94 
 	_0807E5F8 0x00000006
 	WaitForSomething2 0x000000c0
 	_0807E5F8 0x00000006

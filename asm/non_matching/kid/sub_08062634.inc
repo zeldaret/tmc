@@ -14,7 +14,7 @@
 	adds r1, r1, r0
 	ldrh r0, [r1]
 	adds r1, r5, #0
-	bl TextboxNoOverlap
+	bl MessageNoOverlap
 	pop {r4, r5, pc}
 	.align 2, 0
 _08062658: .4byte gUnk_0810BDE8

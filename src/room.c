@@ -2241,7 +2241,7 @@ u32 sub_0804CD0C() {
 #if defined(DEMO_USA) || defined(DEMO_JP)
 void nullsub_251() {
 #ifdef DEMO_USA
-    if (gUnk_02000000->saveFileId != 0 && GetInventoryValue(0x40) == 0) {
+    if (gSaveHeader->saveFileId != 0 && GetInventoryValue(0x40) == 0) {
 #else
 #ifdef DEMO_JP
     if (GetInventoryValue(0x40) == 0) {
@@ -4872,7 +4872,7 @@ extern EntityData gUnk_080F30CC;
 
 void sub_0804E7A4(void) {
     // dog food
-    if ((GetInventoryValue(0x36) == 1) && !CheckGlobalFlag(BIN_DOGFOOD) && (gPlayerState.flags.all & 0x80) == 0) {
+    if ((GetInventoryValue(0x36) == 1) && !CheckGlobalFlag(BIN_DOGFOOD) && (gPlayerState.flags & 0x80) == 0) {
         LoadRoomEntityList(&gUnk_080F30CC);
     }
 }
@@ -4896,7 +4896,7 @@ void sub_0804E7DC(void) {
         gArea.musicIndex = gArea.pMusicIndex;
         SoundReq(SONG_PLAY_VOL_RESET | BGM_MINISH_CAP);
     }
-    if ((gPlayerState.flags.all & 8) == 0) {
+    if ((gPlayerState.flags & 8) == 0) {
         LoadRoomEntityList(&gUnk_080F31D8);
     }
 }

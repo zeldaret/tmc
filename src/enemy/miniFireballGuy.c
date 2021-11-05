@@ -53,7 +53,7 @@ void sub_08045654(Entity* this) {
 
 void sub_08045678(Entity* this) {
 
-    this->field_0x20 = 0x1c000;
+    this->hVelocity = 0x1c000;
     if (this->actionDelay != 0) {
         this->actionDelay--;
     } else {

@@ -156,7 +156,7 @@ sub_080829E4: @ 0x080829E4
 	ands r0, r2
 	orrs r0, r1
 	strb r0, [r5, #0x1a]
-	ldr r3, _08082A14 @ =gTextBox
+	ldr r3, _08082A14 @ =gMessage
 	ldrb r0, [r3]
 	movs r1, #0x7f
 	ands r1, r0
@@ -167,7 +167,7 @@ sub_080829E4: @ 0x080829E4
 	b _08082AB4
 	.align 2, 0
 _08082A10: .4byte gPlayerEntity
-_08082A14: .4byte gTextBox
+_08082A14: .4byte gMessage
 _08082A18:
 	cmp r1, #5
 	beq _08082A9C

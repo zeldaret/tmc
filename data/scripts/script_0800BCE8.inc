@@ -8,8 +8,8 @@ SCRIPT_START script_0800BCE8
 	Wait 0x00f0
 	_0807E930 0x0000
 	Wait 0x003c
-	TextboxNoOverlap 0x0e0a
-	_0807EA94
+	MessageNoOverlap 0x0e0a
+	_0807EA94 
 	_0807E930 0x0008
 	Wait 0x003c
 	_0807E5F8 0x00000001
@@ -21,8 +21,8 @@ script_0800BD1C:
 	_0807E930 0x0000
 	DoPostScriptAction 0x0004
 	Wait 0x003c
-	TextboxNoOverlap 0x0e0c
-	_0807EA94
+	MessageNoOverlap 0x0e0c
+	_0807EA94 
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000004
 	DoPostScriptAction 0x000f

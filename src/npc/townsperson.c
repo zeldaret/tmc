@@ -70,7 +70,7 @@ void sub_08061C00(Entity* this) {
     sub_0806ED78(this);
     if (this->interactType != 0) {
         this->interactType = 0;
-        TextboxNoOverlapFollow(this->type2 + 0xa01);
+        MessageFromTarget(this->type2 + 0xa01);
     }
 }
 
@@ -141,7 +141,7 @@ void sub_08061D64(Entity* this) {
 
 void sub_08061E24(Entity* this) {
     GetNextFrame(this);
-    if ((gTextBox.doTextBox & 0x7f) == 0) {
+    if ((gMessage.doTextBox & 0x7f) == 0) {
         this->action = 1;
         InitializeAnimation(this, this->field_0x68.HALF.HI);
     }
@@ -254,7 +254,7 @@ void sub_08061FE4(Entity* this) {
 }
 
 void sub_08061FF4(Entity* this) {
-    TextboxNoOverlap(gUnk_0810B790[this->type], this);
+    MessageNoOverlap(gUnk_0810B790[this->type], this);
 }
 
 void sub_0806200C(Entity* this) {
@@ -270,7 +270,7 @@ void sub_0806200C(Entity* this) {
             index = 1;
         }
     }
-    TextboxNoOverlap(gUnk_0810B7BA[index], this);
+    MessageNoOverlap(gUnk_0810B7BA[index], this);
 }
 
 void sub_08062048(Entity* this) {
@@ -283,7 +283,7 @@ void sub_08062048(Entity* this) {
         }
         ShowNPCDialogue(this, gUnk_0810B7C0 + this->type * 0x8 + iVar1);
     } else {
-        TextboxNoOverlap(0, this);
+        MessageNoOverlap(0, this);
     }
 }
 

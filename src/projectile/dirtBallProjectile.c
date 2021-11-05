@@ -48,7 +48,7 @@ void DirtBallProjectile_Init(Entity* this) {
     this->action = 1;
     this->subAction = 0;
     this->spriteSettings.b.shadow = 1;
-    this->field_0x20 = 0x8000;
+    this->hVelocity = 0x8000;
     this->hitbox = (Hitbox*)&gUnk_08129764;
     this->field_0x3c |= 0x10;
     switch (this->type) {

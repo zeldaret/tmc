@@ -72,9 +72,9 @@ void sub_0807564C(ItemBehavior* this, u32 arg1) {
 
 void sub_08075694(ItemBehavior* this, u32 arg1) {
     this->field_0x5[2] = 1;
-    if ((gPlayerState.flags.all & 0x8000000) != 0) {
-        gPlayerState.flags.all &= 0xf7ffffff;
-        gPlayerState.flags.all &= 0xfffbffff;
+    if ((gPlayerState.flags & 0x8000000) != 0) {
+        gPlayerState.flags &= 0xf7ffffff;
+        gPlayerState.flags &= 0xfffbffff;
         sub_08077DF4(this, 300);
     } else {
         gPlayerState.field_0xab = 1;
@@ -86,7 +86,7 @@ void sub_08075694(ItemBehavior* this, u32 arg1) {
     gPlayerEntity.field_0x40 = 0x1e;
     gPlayerState.field_0x1a[1] |= 0x40;
     gPlayerState.field_0x1a[1] &= 0xdf;
-    if ((gPlayerState.field_0xa0[0] == 0x04) && ((gPlayerState.flags.all & 0x400000) == 0)) {
+    if ((gPlayerState.field_0xa0[0] == 0x04) && ((gPlayerState.flags & 0x400000) == 0)) {
         gPlayerState.field_0xa0[0] = 0x01;
         sub_0807A108();
     }
@@ -121,10 +121,10 @@ void sub_080758B0(ItemBehavior* this, u32 arg1) {
 ASM_FUNC("asm/non_matching/itemSword/sub_08075900.inc", void sub_08075900(ItemBehavior* this, u32 arg1))
 
 void sub_080759B8(ItemBehavior* this, u32 arg1) {
-    if ((gPlayerState.flags.all & 0x80) == 0) {
+    if ((gPlayerState.flags & 0x80) == 0) {
         gPlayerEntity.field_0x40 = 0;
     }
-    gPlayerState.flags.all &= 0xf7ffffff;
+    gPlayerState.flags &= 0xf7ffffff;
     gPlayerState.field_0x1a[1] = 0;
     gPlayerState.field_0x2c = NULL;
     sub_08077E78(this, arg1);

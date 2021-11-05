@@ -29,7 +29,7 @@ void sub_0809CF54(Entity* this) {
     this->spriteSettings.b.draw = TRUE;
     this->actionDelay = 0x31;
     this->field_0xf = 1;
-    this->field_0x20 = -0x18000;
+    this->hVelocity = -0x18000;
     this->height.WORD = -0x38C000;
     this->field_0x68.HWORD = -0x800;
     this->speed = 0x280;
@@ -85,7 +85,7 @@ void sub_0809D084(Entity* this) {
             PositionRelative(this->parent, this, 0, 0x80000);
         } else {
             this->subAction++;
-            this->field_0x20 = temp;
+            this->hVelocity = temp;
         }
     }
 }
@@ -119,7 +119,7 @@ void sub_0809D10C(Entity* this) {
 }
 
 void sub_0809D130(Entity* this) {
-    if ((gPlayerState.flags.all & 0x80) != 0) {
+    if ((gPlayerState.flags & 0x80) != 0) {
         sub_0800445C(this);
     } else if (sub_08017850(this) != 0) {
         CreateItemEntity(0x17, 0, 0);

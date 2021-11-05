@@ -231,9 +231,9 @@ void sub_080296C8(Entity* this) {
 
 void sub_080296D8(Entity* this) {
     gPlayerState.jumpStatus = 0x41;
-    gPlayerState.flags.all &= 0xffffffef;
+    gPlayerState.flags &= 0xffffffef;
     gPlayerEntity.flags |= 0x80;
-    gPlayerEntity.field_0x20 = 0x18000;
+    gPlayerEntity.hVelocity = 0x18000;
     gPlayerEntity.iframes = 0xa6;
     gPlayerEntity.height.HALF.HI = -2;
     gPlayerEntity.direction = gPlayerEntity.animationState << 2;

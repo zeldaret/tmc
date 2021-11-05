@@ -15,8 +15,8 @@ typedef struct {
     u8 _e;
     u8 _f;
 } struct_02000000;
-#define gUnk_02000000 ((struct_02000000*)(0x2000000))
-// extern struct_02000000 gUnk_02000000;
+#define gSaveHeader ((struct_02000000*)(0x2000000))
+// extern struct_02000000 gSaveHeader;
 
 typedef struct {
     u8 unk_00;

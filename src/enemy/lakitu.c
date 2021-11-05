@@ -57,7 +57,7 @@ void Lakitu_DoAction(Entity* this) {
 
 void sub_0803C784(Entity* this) {
     if ((this->bitfield & 0x7f) == 0x1d) {
-        this->field_0x20 = 0x20000;
+        this->hVelocity = 0x20000;
 
         sub_0803CBAC(this);
     } else {
@@ -353,7 +353,7 @@ void sub_0803CC08(Entity* this) {
         return;
     }
 
-    if (this->field_0x20 >= 0) {
+    if (this->hVelocity >= 0) {
         return;
     }
 

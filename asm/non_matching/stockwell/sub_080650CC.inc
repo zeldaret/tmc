@@ -70,8 +70,8 @@ _0806513C:
 _0806515E:
 	adds r0, r7, #0
 	adds r1, r5, #0
-	bl TextboxNoOverlap
-	ldr r1, _08065178 @ =gTextBox
+	bl MessageNoOverlap
+	ldr r1, _08065178 @ =gMessage
 	mov r2, r8
 	lsls r0, r2, #0x10
 	lsrs r0, r0, #0x10
@@ -79,7 +79,7 @@ _0806515E:
 	b _080651A6
 	.align 2, 0
 _08065174: .4byte script_08014384
-_08065178: .4byte gTextBox
+_08065178: .4byte gMessage
 _0806517C:
 	ldrb r1, [r2]
 	movs r0, #0x40

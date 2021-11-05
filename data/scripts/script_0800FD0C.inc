@@ -33,8 +33,8 @@ script_0800FD1A:
 	JumpIf script_0800FD5C
 	_0807E864
 	Call sub_0807F9A4
-	TextboxNoOverlapFollowPos 0x2506, 0x0000
-	_0807EA94
+	MessageFromTargetPos 0x2506, 0x0000
+	_0807EA94 
 	StartPlayerScript script_0800FD80
 	WaitForSomething2 0x00000008
 	_0807E878
@@ -45,8 +45,8 @@ script_0800FD50:
 script_0800FD5C:
 	_0807E864
 	Call sub_0807F9A4
-	TextboxNoOverlapFollowPos 0x106c, 0x0000
-	_0807EA94
+	MessageFromTargetPos 0x106c, 0x0000
+	_0807EA94 
 	StartPlayerScript script_0800FD80
 	WaitForSomething2 0x00000008
 	_0807E878

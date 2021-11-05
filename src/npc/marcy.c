@@ -50,7 +50,7 @@ void sub_08062D18(Entity* this, ScriptExecutionContext* context) {
         tmp = 3;
     }
 
-    TextboxNoOverlap(gUnk_0810C34C[tmp], this);
+    MessageNoOverlap(gUnk_0810C34C[tmp], this);
     if (tmp == 0) {
         context->condition = TRUE;
     } else {

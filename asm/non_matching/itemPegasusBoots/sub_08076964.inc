@@ -92,7 +92,7 @@ _080769CC:
 	adds r4, r6, #0
 	adds r4, #0xb4
 	ldrb r0, [r4]
-	bl sub_0805449C
+	bl ItemIsSword
 	cmp r0, #0
 	beq _08076A38
 	ldrb r1, [r4]

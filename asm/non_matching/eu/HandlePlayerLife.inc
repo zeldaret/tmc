@@ -99,7 +99,7 @@ _080170F8:
 	beq _08017104
 	b _08017222
 _08017104:
-	ldr r0, _08017160 @ =gTextBox
+	ldr r0, _08017160 @ =gMessage
 	ldrb r1, [r0]
 	movs r0, #0x7f
 	ands r0, r1
@@ -148,7 +148,7 @@ _0801714E:
 	strh r1, [r0]
 	b _08017192
 	.align 2, 0
-_08017160: .4byte gTextBox
+_08017160: .4byte gMessage
 _08017164: .4byte gUnk_0200AF00
 _08017168: .4byte gScreenTransition
 _0801716C: .4byte gSave

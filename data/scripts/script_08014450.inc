@@ -12,23 +12,23 @@ script_08014462:
 	_0807E930 0x0008
 	Wait 0x0020
 	_0807E930 0x0002
-	TextboxNoOverlapFollow 0x4202
-	TextboxNoOverlapFollow 0x4203
-	_0807EA94
-	_0807E3E8
+	MessageFromTarget 0x4202
+	MessageFromTarget 0x4203
+	_0807EA94 
+	_0807E3E8 
 	JumpIfNot script_080144F0
 	DoPostScriptAction 0x0001
 	Wait 0x008c
 	DoPostScriptAction 0x0000
 	HasRupees 0x000a
 	JumpIf script_080144A2
-	TextboxNoOverlapFollow 0x4204
+	MessageFromTarget 0x4204
 	Jump script_080144FC
 script_080144A2:
 	Call sub_0806E250
 	JumpIfNot script_080144B8
-	TextboxNoOverlapFollow 0x420b
-	_0807EB38
+	MessageFromTarget 0x420b
+	_0807EB38 
 	JumpTable script_080144B8, script_080144C0
 script_080144B8:
 	ClearLocalFlag 0x0093
@@ -44,7 +44,7 @@ script_080144C0:
 .endif
 script_080144C8:
 	ModRupees 0xfff6
-	TextboxNoOverlapFollow 0x420c
+	MessageFromTarget 0x420c
 	PlaySound SFX_10C
 	Wait 0x0018
 	SetRoomFlag 0x0000

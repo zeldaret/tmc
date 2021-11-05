@@ -42,7 +42,7 @@ void sub_08063254(Entity* this, u32 unused) {
     sub_08063280(this, unused);
     if ((this->frames.all & 0x80) != 0) {
         this->action = 3;
-        TextboxNoOverlapFollow(0);
+        MessageFromTarget(0);
     }
 }
 

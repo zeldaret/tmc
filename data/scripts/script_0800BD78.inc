@@ -10,8 +10,8 @@ SCRIPT_START script_0800BD78
 	DoPostScriptAction 0x0007
 	CallWithArg sub_0807F4F8, 0x00000270
 	Wait 0x001e
-	TextboxNoOverlap 0x0e0b
-	_0807EA94
+	MessageNoOverlap 0x0e0b
+	_0807EA94 
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000002
 	SetEntitySpeed 0x0100

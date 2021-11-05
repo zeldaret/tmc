@@ -17,8 +17,8 @@ script_080145C2:
 	Wait 0x000c
 	_0807EB8C
 .endif
-	TextboxNoOverlapFollowPos 0x432e, 0x000c
-	_0807EA94
+	MessageFromTargetPos 0x432e, 0x000c
+	_0807EA94 
 .ifdef EU
 	Wait 0x0018
 .endif

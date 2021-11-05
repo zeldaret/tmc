@@ -952,7 +952,7 @@ NONMATCH("asm/non_matching/vaati/sub_08043490.inc", void sub_08043490(Entity* th
 
     entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[4];
     if (entity->height.HALF.HI < -4) {
-        entity->field_0x20 = 0x18000;
+        entity->hVelocity = 0x18000;
         this->subAction = 2;
         this->field_0x7c.BYTES.byte2 = 0;
         ((VaatiArm_HeapStruct*)this->myHeap)->parent->subAction = 2;
@@ -979,7 +979,7 @@ void sub_08043520(Entity* this) {
 
     entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[4];
     sub_08003FC4(entity, 0x1a00);
-    if ((entity->field_0x20 < 0) && (-6 < entity->height.HALF.HI)) {
+    if ((entity->hVelocity < 0) && (-6 < entity->height.HALF.HI)) {
         entity->height.HALF.HI = -6;
         this->subAction = 3;
         this->field_0x7a.HWORD = 900;
@@ -1352,7 +1352,7 @@ void sub_08043DB0(Entity* this) {
     Entity* pEVar3;
     Entity* pEVar4;
 
-    if (((gPlayerState.flags.all & 0x80) != 0)) {
+    if (((gPlayerState.flags & 0x80) != 0)) {
         pEVar3 = ((VaatiArm_HeapStruct*)this->myHeap)->entities[3];
         if (CheckPlayerInRegion(pEVar3->x.HALF.HI - gRoomControls.roomOriginX,
                                 pEVar3->y.HALF.HI - gRoomControls.roomOriginY + 2, 3, 3)) {

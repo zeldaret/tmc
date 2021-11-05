@@ -118,7 +118,7 @@ void sub_0802CE68(Entity* this) {
 
     gPlayerState.field_0xa |= 0x80;
     gPlayerState.field_0x1a[0] |= 0x80;
-    gPlayerState.flags.all |= 0x100;
+    gPlayerState.flags |= 0x100;
     if (!sub_0806FCB8(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 4)) {
         this->direction = GetFacingDirection(this, &gPlayerEntity);
         sub_0806F69C(this);

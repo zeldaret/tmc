@@ -41,13 +41,13 @@ void sub_08069328(Entity* this) {
         this->action = 2;
         sub_0805E47C(this);
         InitAnimationForceUpdate(this, 8);
-        TextboxNoOverlapFollow(this->actionDelay + (0x90 << 5));
+        MessageFromTarget(this->actionDelay + (0x90 << 5));
     }
 }
 
 void sub_08069390(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if ((gTextBox.doTextBox & 0x7F) == 0) {
+    if ((gMessage.doTextBox & 0x7F) == 0) {
         this->action = 1;
         this->interactType = 0;
         sub_0805E584(this);

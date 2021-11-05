@@ -90,7 +90,7 @@ _080645EA:
 	.align 2, 0
 _08064628: .4byte gPlayerEntity
 _0806462C:
-	ldr r0, _08064640 @ =gTextBox
+	ldr r0, _08064640 @ =gMessage
 	ldrb r1, [r0]
 	movs r0, #0x7f
 	ands r0, r1
@@ -101,5 +101,5 @@ _0806462C:
 _0806463C:
 	pop {r4, r5, pc}
 	.align 2, 0
-_08064640: .4byte gTextBox
+_08064640: .4byte gMessage
 	.syntax divided

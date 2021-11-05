@@ -60,7 +60,7 @@ void sub_080670B4(Entity* this) {
         uVar1 = CheckGlobalFlag(TABIDACHI);
         uVar2 = BOOLCAST(uVar1);
     }
-    TextboxNoOverlap(gUnk_08110C0C[uVar2], this);
+    MessageNoOverlap(gUnk_08110C0C[uVar2], this);
 }
 
 void sub_080670E4(Entity* this) {

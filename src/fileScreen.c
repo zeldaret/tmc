@@ -113,7 +113,7 @@ void CreateDialogBox(u32 arg0, u32 arg1) {
 }
 
 void sub_08050384(void) {
-    sub_0801C4A0(0, 0);
+    RecoverUI(0, 0);
     MemClear(&gBG0Buffer, sizeof(gBG0Buffer));
     gScreen.bg.bg0Updated = 1;
 }
@@ -144,14 +144,14 @@ void LoadOptionsFromSave(u32 idx) {
         brightnessPref = saveFile->brightnessPref;
     }
 
-    gUnk_02000000->messageSpeed = messageSpeed;
-    gUnk_02000000->brightnessPref = brightnessPref;
+    gSaveHeader->messageSpeed = messageSpeed;
+    gSaveHeader->brightnessPref = brightnessPref;
     gUsedPalettes = 0xFFFFFFFF;
 }
 
 void SetActiveSave(u32 idx) {
     if (idx < NUM_SAVE_SLOTS) {
-        gUnk_02000000->saveFileId = idx;
+        gSaveHeader->saveFileId = idx;
         MemCopy(&gUnk_02019EE0.saves[idx], &gSave, sizeof(gUnk_02019EE0.saves[idx]));
     }
     LoadOptionsFromSave(idx);
@@ -181,8 +181,8 @@ void HandleChooseFileScreen(void) {
     sub_0801C208();
     sub_080AD9B0();
     sub_080AD918();
-    if (gUnk_02019EE0.unk3 != gUnk_02000000->gameLanguage) {
-        gUnk_02019EE0.unk3 = gUnk_02000000->gameLanguage;
+    if (gUnk_02019EE0.unk3 != gSaveHeader->gameLanguage) {
+        gUnk_02019EE0.unk3 = gSaveHeader->gameLanguage;
         sub_080503A8(0x6);
         sub_080503A8(0xF);
     }
@@ -202,7 +202,7 @@ static void HandleFileScreenEnter(void) {
     MemClear(&gUnk_0200AF00, sizeof(gUnk_0200AF00));
     MemClear(&gUnk_02019EE0, sizeof(gUnk_02019EE0));
     gUnk_02019EE0.unk3 = 7;
-    gUnk_02019EE0.unk6 = gUnk_02000000->gameLanguage > LANGUAGE_EN ? 3 : 0;
+    gUnk_02019EE0.unk6 = gSaveHeader->gameLanguage > LANGUAGE_EN ? 3 : 0;
     MemClear(&gUnk_02032EC0, sizeof(gUnk_02032EC0));
     gUnk_02032EC0.lastState = 8;
     SetFileSelectState(STATE_NONE);
@@ -297,7 +297,7 @@ void sub_0805070C(void) {
         var0->bgColor = 5;
         var0->unk1 = 1;
         var0->unk4 = 0x30;
-        var0->unk8 = gUnk_02000D00;
+        var0->unk8 = gTextGfxBuffer;
         for (i = 0; i < NUM_SAVE_SLOTS; i++) {
             var0->unk6 = 0;
             MemClear(var0->unk8, 0x200);
@@ -323,7 +323,7 @@ void sub_08050790(void) {
         var0->bgColor = 5;
         var0->unk1 = 1;
         var0->unk4 = 0x80;
-        var0->unk8 = gUnk_02000D00;
+        var0->unk8 = gTextGfxBuffer;
         for (i = 0; i < 16; i++) {
             var0->unk6 = 0;
             var1 = i * 16;
@@ -331,7 +331,7 @@ void sub_08050790(void) {
                 sub_0805F7DC(var1, var0);
                 var1++;
             }
-            MemCopy(gUnk_02000D00, (void*)(BG_VRAM + i * 0x400), 0x400);
+            MemCopy(gTextGfxBuffer, (void*)(BG_VRAM + i * 0x400), 0x400);
         }
         sub_0805F300(var0);
     }
@@ -420,7 +420,7 @@ void sub_08050940(void) {
         keys &= ~(DPAD_UP | DPAD_DOWN);
     }
 
-    num_rows = gUnk_02000000->gameLanguage > 1 ? NUM_SAVE_SLOTS + 1 : NUM_SAVE_SLOTS;
+    num_rows = gSaveHeader->gameLanguage > 1 ? NUM_SAVE_SLOTS + 1 : NUM_SAVE_SLOTS;
     mode = gUnk_02032EC0.lastState;
     switch (keys) {
         case DPAD_UP:
@@ -679,7 +679,7 @@ void HandleFileLanguageSelect(void) {
 void sub_08050DB8(void) {
     MemClear(&gBG2Buffer, sizeof(gBG2Buffer));
     sub_080503A8(0xc);
-    gMenu.field_0x4 = gUnk_02000000->gameLanguage;
+    gMenu.field_0x4 = gSaveHeader->gameLanguage;
     sub_080A7114(1);
 }
 
@@ -689,7 +689,7 @@ void sub_08050DE4(void) {
     if (gUnk_02019EE0.isTransitioning)
         return;
 
-    row_idx = gUnk_02000000->gameLanguage;
+    row_idx = gSaveHeader->gameLanguage;
     switch (gInput.newKeys) {
         case DPAD_UP:
             row_idx--;
@@ -709,7 +709,7 @@ void sub_08050DE4(void) {
             break;
         case B_BUTTON:
             row_idx = gMenu.field_0x4;
-            gUnk_02000000->gameLanguage = gMenu.field_0x4;
+            gSaveHeader->gameLanguage = gMenu.field_0x4;
             SoundReq(SFX_MENU_CANCEL);
             SetFileSelectState(STATE_NONE);
             break;
@@ -722,8 +722,8 @@ void sub_08050DE4(void) {
     if (row_idx > 6) {
         row_idx = 6;
     }
-    if (gUnk_02000000->gameLanguage != row_idx) {
-        gUnk_02000000->gameLanguage = row_idx;
+    if (gSaveHeader->gameLanguage != row_idx) {
+        gSaveHeader->gameLanguage = row_idx;
         SoundReq(SFX_TEXTBOX_CHOICE);
     }
 }
@@ -869,7 +869,7 @@ NONMATCH("asm/non_matching/fileScreen/sub_080610B8.inc", void sub_080610B8(void)
 END_NONMATCH
 
 void sub_08051358(void) {
-    gMenu.field_0x12 = gUnk_02000000->gameLanguage == 0 ? 4 : 3;
+    gMenu.field_0x12 = gSaveHeader->gameLanguage == 0 ? 4 : 3;
 
     if (gMenu.focusCoords[0] != 0x0b || gMenu.focusCoords[1] != 0x5) {
         gMenu.focusCoords[1] = 0x5;
@@ -958,7 +958,7 @@ u32 sub_080514BC(u32 a1) {
     u32 c;
     u32 idx;
 
-    if (gUnk_02000000->gameLanguage != 0)
+    if (gSaveHeader->gameLanguage != 0)
         return 1;
 
     switch (a1) {
@@ -1169,7 +1169,7 @@ void sub_080517EC(void) {
 
 void sub_08051874(void) {
     s32 temp;
-    gUnk_02000000->saveFileId = gUnk_02019EE0.unk7;
+    gSaveHeader->saveFileId = gUnk_02019EE0.unk7;
     temp = HandleSave(0);
     gUnk_02019EE0.saveStatus[gUnk_02019EE0.unk7] = temp;
     switch (temp) {
@@ -1202,8 +1202,8 @@ void sub_080518E4(void) {
 void HandleFileStart(void) {
     if (gMenu.menuType == 0) {
         gMenu.menuType = 1;
-        gUnk_02000000->messageSpeed = gSave.messageSpeed;
-        gUnk_02000000->brightnessPref = gSave.brightnessPref;
+        gSaveHeader->messageSpeed = gSave.messageSpeed;
+        gSaveHeader->brightnessPref = gSave.brightnessPref;
         gMain.funcIndex = 2;
         DoFade(5, 8);
     }

@@ -6,8 +6,8 @@ SCRIPT_START script_08009B30
 	EndBlock
 	WaitFor_2
 	Wait 0x001e
-	TextboxNoOverlapFollow 0x1005
-	_0807EA94
+	MessageFromTarget 0x1005
+	_0807EA94 
 	Wait 0x003c
 	Call sub_0807529C
 	Wait 0x003c

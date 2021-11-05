@@ -128,7 +128,7 @@ _0809D2D6:
 	mov r8, r3
 	cmp r0, #0
 	beq _0809D3A8
-	ldr r0, _0809D434 @ =gTextBox
+	ldr r0, _0809D434 @ =gMessage
 	ldrb r1, [r0]
 	movs r0, #0x7f
 	ands r0, r1
@@ -285,7 +285,7 @@ _0809D3DA:
 	b _0809D454
 	.align 2, 0
 _0809D430: .4byte gPlayerEntity
-_0809D434: .4byte gTextBox
+_0809D434: .4byte gMessage
 _0809D438: .4byte gPlayerState
 _0809D43C: .4byte gUnk_03003DC0
 _0809D440: .4byte gUnk_02034490

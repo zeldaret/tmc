@@ -17,10 +17,10 @@ SCRIPT_START script_0800B41C
 	Wait 0x003c
 	PlaySound SFX_TASK_COMPLETE
 	_0807F088 0x0037
-	WaitPlayerAction8
-	_0807EB8C
-	TextboxNoOverlapFollow 0x200c
-	_0807EA94
+	WaitPlayerAction8 
+	_0807EB8C 
+	MessageFromTarget 0x200c
+	_0807EA94 
 	Wait 0x0014
 	_0807EDD4 0x0158, 0x0290
 	Wait 0x000a

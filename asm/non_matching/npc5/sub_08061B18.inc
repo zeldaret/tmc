@@ -29,7 +29,7 @@
 _08061B4C:
 	ldrh r0, [r2]
 	adds r1, r4, #0
-	bl TextboxNoOverlap
+	bl MessageNoOverlap
 _08061B54:
 	pop {r4, pc}
 	.align 2, 0

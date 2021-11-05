@@ -36,21 +36,21 @@ _0806E172:
 	movs r0, #0
 	str r0, [r5, #0x14]
 	ldr r0, _0806E190 @ =0x0000421B
-	bl TextboxNoOverlapFollow
+	bl MessageFromTarget
 	b _0806E1C0
 	.align 2, 0
 _0806E18C: .4byte 0x000003E7
 _0806E190: .4byte 0x0000421B
 _0806E194:
 	ldr r0, _0806E1A4 @ =0x00004218
-	bl TextboxNoOverlapFollow
-	ldr r1, _0806E1A8 @ =gTextBox
+	bl MessageFromTarget
+	ldr r1, _0806E1A8 @ =gMessage
 	ldrh r0, [r4]
 	str r0, [r1, #0x10]
 	b _0806E1C0
 	.align 2, 0
 _0806E1A4: .4byte 0x00004218
-_0806E1A8: .4byte gTextBox
+_0806E1A8: .4byte gMessage
 _0806E1AC:
 	str r1, [r5, #0x14]
 	adds r0, r3, #0
@@ -60,7 +60,7 @@ _0806E1AC:
 	adds r4, #0x76
 	strh r1, [r4]
 	ldr r0, _0806E1D4 @ =0x0000421C
-	bl TextboxNoOverlapFollow
+	bl MessageFromTarget
 _0806E1C0:
 	ldr r1, _0806E1D8 @ =gScreenTransition
 	ldrh r0, [r4]

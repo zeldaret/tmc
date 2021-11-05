@@ -46,7 +46,7 @@ void sub_0809F318(Entity* this) {
 void sub_0809F374(Entity* this) {
     sub_0806F69C(this);
 #ifndef EU
-    if (gUnk_02000000->gameLanguage < 2) {
+    if (gSaveHeader->gameLanguage < 2) {
         if (sub_080044EC(this, 0x2000) < 2) {
             this->height.WORD = 0;
             this->action = 2;

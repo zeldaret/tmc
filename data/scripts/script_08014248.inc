@@ -24,10 +24,10 @@ script_0801427C:
 script_08014298:
 	CheckEntityInteractType
 	JumpIfNot script_08014298
-	_0807E864
-	TextboxNoOverlapFollowPos 0x0647, 0x000c
-	_0807EA94
-	_0807E878
+	_0807E864 
+	MessageFromTargetPos 0x0647, 0x000c
+	_0807EA94 
+	_0807E878 
 	Jump script_08014298
 	.2byte 0x0000
 .endif

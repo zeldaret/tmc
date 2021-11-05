@@ -192,7 +192,7 @@ sub_080A7D44: @ 0x080A7D44
 	bl sub_08078AA8
 	b _080A7D56
 _080A7D52:
-	bl TextboxNoOverlapFollow
+	bl MessageFromTarget
 _080A7D56:
 	pop {pc}
 

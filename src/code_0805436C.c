@@ -4,21 +4,13 @@
 #include "menu.h"
 #include "area.h"
 #include "utils.h"
-
-typedef struct {
-    u8 filler[0xa8];
-    Stats stats;
-} SaveFile;
+#include "structures.h"
+#include "save.h"
 
 typedef struct {
     u8 unk;
     u8 filler[7];
 } struct_080FD5B4;
-
-typedef struct {
-    u8 filler[0x2e];
-    u8 unk;
-} ScreenTransition;
 
 extern SaveFile gSave;
 extern struct_080FD5B4 gUnk_080FD5B4[];
@@ -105,7 +97,7 @@ u32 SetBottleContents(u32 itemID, u32 bottleIndex) {
     return bottleIndex;
 }
 
-u32 sub_0805449C(u32 arg0) {
+u32 ItemIsSword(u32 arg0) {
     switch (arg0) {
         case 1:
         case 2:
@@ -118,8 +110,8 @@ u32 sub_0805449C(u32 arg0) {
     }
 }
 
-u32 sub_080544B4(u32 arg0) {
-    switch (arg0) {
+u32 ItemIsShield(u32 id) {
+    switch (id) {
         case 13:
         case 14:
             return 1;
@@ -128,8 +120,8 @@ u32 sub_080544B4(u32 arg0) {
     }
 }
 
-u32 sub_080544C8(u32 arg0) {
-    switch (arg0) {
+u32 ItemIsBottle(u32 id) {
+    switch (id) {
         case 28:
         case 29:
         case 30:
@@ -140,14 +132,14 @@ u32 sub_080544C8(u32 arg0) {
     }
 }
 
-u32 GetBottleContaining(u32 arg0) {
-    if (arg0 == gSave.stats.bottles[0]) {
+u32 GetBottleContaining(u32 id) {
+    if (id == gSave.stats.bottles[0]) {
         return 1;
-    } else if (arg0 == gSave.stats.bottles[1]) {
+    } else if (id == gSave.stats.bottles[1]) {
         return 2;
-    } else if (arg0 == gSave.stats.bottles[2]) {
+    } else if (id == gSave.stats.bottles[2]) {
         return 3;
-    } else if (arg0 == gSave.stats.bottles[3]) {
+    } else if (id == gSave.stats.bottles[3]) {
         return 4;
     } else {
         return 0;
@@ -160,7 +152,7 @@ NONMATCH("asm/non_matching/sub_08054524.inc", void sub_08054524(void)) {
 
     bVar1 = gArea.locationIndex;
     if (gArea.locationIndex == 0) {
-        bVar1 = gScreenTransition.unk;
+        bVar1 = gScreenTransition.field_0x24[0xa];
     }
     if (bVar1 > 0x16) {
         bVar1 = 0;
@@ -263,7 +255,7 @@ u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
                     } else if (arg0->id == 0x1e) {
                         itemEntity->direction = arg0->animationState << 3 | 0x80;
                         itemEntity->speed = 0xc0;
-                        itemEntity->field_0x20 = 0x18000;
+                        itementity->hVelocity = 0x18000;
                     }
                 }
                 CopyPosition(arg0, itemEntity);

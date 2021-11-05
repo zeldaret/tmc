@@ -6,8 +6,8 @@ SCRIPT_START script_0800C370
 	_0807EEF4 0xfff8, 0x0000
 	_0807F0C8 0x0000, 0x0000
 	Wait 0x001e
-	TextboxNoOverlap 0x1d00
-	_0807EA94
+	MessageNoOverlap 0x1d00
+	_0807EA94 
 	_0807E5F8 0x00000006
 	WaitForSomething2 0x00000001
 	_0807F0C8 0xffff, 0x0000

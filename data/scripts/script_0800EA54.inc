@@ -265,14 +265,14 @@ script_0800EDB6:
 	JumpIf script_0800EE3E
 	Wait 0x000a
 	_0807E5F8 0x00000001
-	TextboxNoOverlapFollow 0x4c07
-	_0807EA94
+	MessageFromTarget 0x4c07
+	_0807EA94 
 	_0807E5F8 0x00000010
-	TextboxNoOverlapFollow 0x4c08
-	_0807EA94
+	MessageFromTarget 0x4c08
+	_0807EA94 
 	_0807E5F8 0x00000020
-	TextboxNoOverlapFollow 0x4c09
-	_0807EA94
+	MessageFromTarget 0x4c09
+	_0807EA94 
 	SetIntVariable 0x00000503
 	Call sub_0807F420
 	_0807E5F8 0x00000040
@@ -290,8 +290,8 @@ script_0800EE12:
 	WaitForSomething2 0x00000008
 	Jump script_0800ED98
 script_0800EE3E:
-	TextboxNoOverlapFollow 0x4c16
-	_0807EA94
+	MessageFromTarget 0x4c16
+	_0807EA94 
 	Call sub_0807DF50
 	_0807E878
 	Jump script_0800ED98
@@ -316,14 +316,14 @@ script_0800EE76:
 	JumpIf script_0800EEFE
 	Wait 0x000a
 	_0807E5F8 0x00000001
-	TextboxNoOverlapFollow 0x4c07
-	_0807EA94
+	MessageFromTarget 0x4c07
+	_0807EA94 
 	_0807E5F8 0x00000002
-	TextboxNoOverlapFollow 0x4c08
-	_0807EA94
+	MessageFromTarget 0x4c08
+	_0807EA94 
 	_0807E5F8 0x00000004
-	TextboxNoOverlapFollow 0x4c09
-	_0807EA94
+	MessageFromTarget 0x4c09
+	_0807EA94 
 	SetIntVariable 0x00000503
 	Call sub_0807F420
 	_0807E5F8 0x00000008
@@ -341,20 +341,20 @@ script_0800EED2:
 	WaitForSomething2 0x00000040
 	Jump script_0800EE58
 script_0800EEFE:
-	TextboxNoOverlapFollow 0x4c15
-	_0807EA94
+	MessageFromTarget 0x4c15
+	_0807EA94 
 	Call sub_0807DF50
 	_0807E878
 	Jump script_0800EE58
-	TextboxNoOverlapFollow 0x4c07
-	_0807EA94
+	MessageFromTarget 0x4c07
+	_0807EA94 
 	_0807E5F8 0x00000012
 	Wait 0x000a
-	TextboxNoOverlapFollow 0x4c08
-	_0807EA94
+	MessageFromTarget 0x4c08
+	_0807EA94 
 	_0807E5F8 0x00000024
-	TextboxNoOverlapFollow 0x4c09
-	_0807EA94
+	MessageFromTarget 0x4c09
+	_0807EA94 
 	_0807E5F8 0x00000048
 	Call sub_080791BC
 SCRIPT_END

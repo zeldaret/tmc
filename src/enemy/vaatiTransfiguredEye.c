@@ -93,8 +93,8 @@ void VaatiTransfiguredEyeFunction0Action0(Entity* this) {
     Entity* child;
     u8 bVar2;
 
-    bVar2 = gTextBox.doTextBox & 0x7f;
-    if ((gTextBox.doTextBox & 0x7f) == 0) {
+    bVar2 = gMessage.doTextBox & 0x7f;
+    if ((gMessage.doTextBox & 0x7f) == 0) {
         this->action = 1;
         this->spriteSettings.b.draw = 0;
         this->field_0x80.HALF.LO = bVar2;

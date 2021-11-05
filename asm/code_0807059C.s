@@ -33,7 +33,7 @@ sub_080705AC: @ 0x080705AC
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _08070674
-	ldr r0, _08070620 @ =gTextBox
+	ldr r0, _08070620 @ =gMessage
 	ldrb r1, [r0]
 	movs r0, #0x7f
 	ands r0, r1
@@ -73,7 +73,7 @@ sub_080705AC: @ 0x080705AC
 _08070614: .4byte gInput
 _08070618: .4byte gFadeControl
 _0807061C: .4byte gUnk_02034490
-_08070620: .4byte gTextBox
+_08070620: .4byte gMessage
 _08070624: .4byte gSave
 _08070628: .4byte gPlayerState
 _0807062C: .4byte gUnk_03003DC0
