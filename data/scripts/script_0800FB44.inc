@@ -1,14 +1,14 @@
 SCRIPT_START script_0800FB44
-	BeginBlock 
+	BeginBlock
 	DoPostScriptAction 0x0008
 	DoPostScriptAction 0x000b
 	SetEntitySpeed 0x0080
 	Call sub_08066D04
-	EndBlock 
+	EndBlock
 	WaitForSomething2 0x00000002
 	Call sub_08066D14
 	JumpIf script_0800FB6C
-	MoveEntityToPlayer 
+	MoveEntityToPlayer
 script_0800FB6C:
 	DoPostScriptAction 0x0007
 	SetEntityPositionRelative 0x00b8, 0x0398
@@ -23,9 +23,9 @@ script_0800FB6C:
 	DoPostScriptAction 0x0001
 	_0807E5F8 0x00000004
 	DoPostScriptAction 0x000a
-	_0807E9D4 
+	_0807E9D4
 script_0800FBAE:
-	_0807E30C 
+	_0807E30C
 	JumpIfNot script_0800FBAE
 	DoPostScriptAction 0x000b
 	_0807E5F8 0x00000004
@@ -44,7 +44,7 @@ script_0800FBAE:
 	_0807E5F8 0x00000004
 	DoPostScriptAction 0x000a
 script_0800FC06:
-	_0807E30C 
+	_0807E30C
 	JumpIfNot script_0800FC06
 	DoPostScriptAction 0x000b
 	_0807E5F8 0x00000004
@@ -61,7 +61,7 @@ script_0800FC06:
 	_0807E5F8 0x00000004
 	DoPostScriptAction 0x000a
 script_0800FC52:
-	_0807E30C 
+	_0807E30C
 	JumpIfNot script_0800FC52
 	DoPostScriptAction 0x000b
 	_0807E5F8 0x00000004
@@ -78,7 +78,7 @@ script_0800FC52:
 	_0807E5F8 0x00000004
 	DoPostScriptAction 0x000a
 script_0800FC9E:
-	CheckEntityInteractType 
+	CheckEntityInteractType
 	JumpIfNot script_0800FC9E
 	DoPostScriptAction 0x000b
 	_0807EB44 0x0000

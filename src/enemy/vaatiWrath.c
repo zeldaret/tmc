@@ -997,7 +997,7 @@ void sub_0804235C(Entity* this) {
     InitializeAnimation(((VaatiWrathHeapStruct*)this->myHeap)->type3, 0x1b);
 }
 
-#if defined USA || defined DEMO
+#if defined USA || defined DEMO_USA || defined DEMO_JP
 void VaatiWrathType0PreAction(Entity* this) {
     int temp;
     if ((gScreenTransition.field_0x38 & 2) == 0) {

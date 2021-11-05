@@ -1,10 +1,10 @@
 SCRIPT_START script_080118D4
-	BeginBlock 
+	BeginBlock
 	_0807E930 0x0000
 	SetEntitySpeed 0x0200
 	Call nullsub_527
 	Call sub_08094B80
-	EndBlock 
+	EndBlock
 	WaitForSomething2 0x08000000
 	Call sub_08094B6C
 	_0807EDD4 0x01d8, 0x0078

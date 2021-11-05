@@ -2190,6 +2190,103 @@ _0801E8D2:
 
 	thumb_func_start sub_0801E8D4
 sub_0801E8D4: @ 0x0801E8D4
+.ifdef DEMO_JP
+	push {r4, r5, lr}
+	movs r5, #0xa
+_0801E914:
+	adds r0, r5, #0
+	bl CheckKinstoneFused
+	cmp r0, #0
+	beq _0801E9C4
+	adds r0, r5, #0
+	bl sub_0801E810
+	cmp r0, #0
+	bne _0801E9C4
+	ldr r1, _0801E94C @ =0x080C9500
+	lsls r0, r5, #3
+	adds r0, r0, r1
+	ldrb r1, [r0, #4]
+	lsls r0, r1, #2
+	adds r0, r0, r1
+	lsls r0, r0, #2
+	ldr r1, _0801E950 @ =0x080FDB04
+	adds r2, r0, r1
+	ldrh r3, [r2, #0x12]
+	ldrb r0, [r2, #0x10]
+	cmp r0, #9
+	bhi _0801E9B0
+	lsls r0, r0, #2
+	ldr r1, _0801E954 @ =_0801E958
+	adds r0, r0, r1
+	ldr r0, [r0]
+	mov pc, r0
+	.align 2, 0
+_0801E94C: .4byte 0x080C9500
+_0801E950: .4byte 0x080FDB04
+_0801E954: .4byte _0801E958
+_0801E958: @ jump table
+	.4byte _0801E980 @ case 0
+	.4byte _0801E984 @ case 1
+	.4byte _0801E988 @ case 2
+	.4byte _0801E98C @ case 3
+	.4byte _0801E990 @ case 4
+	.4byte _0801E994 @ case 5
+	.4byte _0801E99A @ case 6
+	.4byte _0801E9A0 @ case 7
+	.4byte _0801E9A6 @ case 8
+	.4byte _0801E9AC @ case 9
+_0801E980:
+	movs r4, #0
+	b _0801E9B0
+_0801E984:
+	ldrb r4, [r2, #0x11]
+	b _0801E9B0
+_0801E988:
+	movs r4, #0xf
+	b _0801E9B0
+_0801E98C:
+	movs r4, #0x10
+	b _0801E9B0
+_0801E990:
+	movs r4, #0x11
+	b _0801E9B0
+_0801E994:
+	movs r4, #4
+	movs r3, #0x83
+	b _0801E9B0
+_0801E99A:
+	movs r4, #4
+	movs r3, #0x84
+	b _0801E9B0
+_0801E9A0:
+	movs r4, #4
+	movs r3, #0x87
+	b _0801E9B0
+_0801E9A6:
+	movs r4, #4
+	movs r3, #0x88
+	b _0801E9B0
+_0801E9AC:
+	movs r4, #4
+	movs r3, #0x8b
+_0801E9B0:
+	adds r0, r4, #0
+	adds r1, r3, #0
+	bl sub_0807CB24
+	cmp r0, #0
+	beq _0801E9C4
+	ldr r0, _0801E9CC @ =gUnk_02002C8E
+	adds r1, r5, #0
+	bl WriteBit
+_0801E9C4:
+	adds r5, #1
+	cmp r5, #0x64
+	bls _0801E914
+	pop {r4, r5, pc}
+	.align 2, 0
+_0801E9CC: .4byte gUnk_02002C8E
+
+.else
 .ifdef JP
 	push {r4, r5, lr}
 	movs r4, #0xa
@@ -2430,6 +2527,7 @@ _0801E990:
 	pop {r4, r5, pc}
 	.align 2, 0
 _0801E998: .4byte gUnk_02002C8E
+.endif
 .endif
 .endif
 

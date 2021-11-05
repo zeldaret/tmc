@@ -389,7 +389,11 @@ sub_08054EB8: @ 0x08054EB8
 .ifdef EU
 	movs r0, #0x77
 .else
+.ifdef DEMO_JP
+	movs r0, #0x77 @ TODO deduplicate
+.else
 	movs r0, #0x79
+.endif
 .endif
 .endif
 	strh r0, [r3, #0x3e]

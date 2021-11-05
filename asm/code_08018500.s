@@ -641,7 +641,11 @@ _080189D0:
 .ifdef EU
 	movs r1, #0x77
 .else
+.ifdef DEMO_JP
+	movs r1, #0x77 @ TODO deduplicate
+.else
 	movs r1, #0x79
+.endif
 .endif
 .endif
 	bl SetLocalFlagByOffset

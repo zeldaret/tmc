@@ -1,9 +1,9 @@
 SCRIPT_START script_080115D0
-	BeginBlock 
+	BeginBlock
 	SetEntitySpeed 0x0100
 	_0807EB44 0x0002
 	_0807E930 0x0001
-	EndBlock 
+	EndBlock
 	WaitForSomething2 0x00080000
 	_0807E930 0x0005
 	PlaySound SFX_11C

@@ -1,17 +1,21 @@
 SCRIPT_START script_0800D6D0
-	BeginBlock 
+	BeginBlock
 .ifdef JP
 	CheckLocalFlag 0x00f0
 .else
 .ifdef EU
 	CheckLocalFlag 0x00f0
 .else
+.ifdef DEMO_JP
+	CheckLocalFlag 0x00f0 @ TODO deduplicate
+.else
 	CheckLocalFlag 0x00f3
+.endif
 .endif
 .endif
 	JumpIf script_0800D6E8
 	DoPostScriptAction 0x0008
-	EndBlock 
+	EndBlock
 script_0800D6E0:
 .ifdef JP
 	CheckLocalFlag 0x00f0
@@ -19,7 +23,11 @@ script_0800D6E0:
 .ifdef EU
 	CheckLocalFlag 0x00f0
 .else
+.ifdef DEMO_JP
+	CheckLocalFlag 0x00f0 @ TODO deduplicate
+.else
 	CheckLocalFlag 0x00f3
+.endif
 .endif
 .endif
 	JumpIfNot script_0800D6E0

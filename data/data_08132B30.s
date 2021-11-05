@@ -2540,7 +2540,7 @@ gUnk_0813A7F0:: @ 0813A7F0
 	.4byte gUnk_08133FDC
 	.4byte gUnk_08133FDC
 	.4byte gUnk_08133FDC
-	.ifndef DEMO
+	.ifndef DEMO_USA
 	.4byte gUnk_08139108
 	.4byte gUnk_081391D0
 	.4byte gUnk_081391FC
@@ -11041,7 +11041,10 @@ gUnk_08545666:: @ 08545666
 .ifdef JP
 	.incbin "baserom_jp.gba", 0x546192, 0x5C98E
 .else
-
+@ TODO JP differs from here
+.ifdef DEMO_JP
+	.incbin "baserom_jp.gba", 0x546192, 0x5C98E
+.else
 gUnk_08546566:: @ 08546566
 	.incbin "baserom.gba", 0x546566, 0x00019E4
 
@@ -11342,6 +11345,7 @@ gUnk_085A0464:: @ 085A0464
 gUnk_085A0806:: @ 085A0806
 	.incbin "baserom.gba", 0x5A0806, 0x000267A
 
+.endif
 .endif
 .endif
 

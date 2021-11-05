@@ -1,34 +1,34 @@
 SCRIPT_START script_0801319A
-	EndBlock 
-	BeginBlock 
-	CameraTargetEntity 
-	MoveEntityToPlayer 
+	EndBlock
+	BeginBlock
+	CameraTargetEntity
+	MoveEntityToPlayer
 	Call sub_0806AB74
 	Jump script_0801319A
 SCRIPT_START script_080131AC
 	CheckPlayerInRegion 0x0098, 0x0038, 0x2060
 	JumpIfNot script_080131AC
-	_0807E864 
+	_0807E864
 	Call sub_0807F9A4
 	Call sub_0807DF28
 	StartPlayerScript script_080132E4
 	WaitForSomething2 0x00000002
 	_0807EB28 0x1601
-	_0807EA94 
+	_0807EA94
 	StartPlayerScript script_0801330C
 	WaitForSomething2 0x00000002
 	_0807E778 0x0004
-	DoFade5 
-	WaitFor_2 
+	DoFade5
+	WaitFor_2
 	LoadRoomEntityList gUnk_080F5680
 	StartPlayerScript script_08013330
 	WaitForSomething2 0x00000002
-	MoveEntityToPlayer 
+	MoveEntityToPlayer
 	SetEntityPosition 0x0000, 0xfff0
 	Call sub_0807F844
-	CameraTargetEntity 
+	CameraTargetEntity
 	Call sub_080536B8
-	_0807E864 
+	_0807E864
 	Call sub_0807DF28
 	WaitFor_2 
 	MessageFromTargetPos 0x1602, 0x000c
@@ -51,28 +51,28 @@ SCRIPT_START script_080131AC
 	WaitForSomething2 0x00000040
 	SetFadeMask 0xffff7fff
 	_0807E778 0x0004
-	DoFade5 
-	WaitFor_2 
+	DoFade5
+	WaitFor_2
 	StopBgm
 	_0807E858 0x0000
 	Wait 0x003c
-	CameraTargetPlayer 
+	CameraTargetPlayer
 	Call sub_0807F5C0
 	MessageFromTargetPos 0x1604, 0x0007
 	_0807EA94 
 	SetFadeMask 0xffffffff
 	_0807E778 0x0004
-	DoFade4 
-	WaitFor_2 
+	DoFade4
+	WaitFor_2
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000002
 	_0807EB28 0x1605
-	_0807EA94 
+	_0807EA94
 	SetLocalFlag 0x0078
 	PlayBgm BGM_CASTLE_COLLAPSE
 	SetGlobalFlag 0x005d
 	Call sub_0807DF50
-	_0807E878 
+	_0807E878
 	DoPostScriptAction 0x0006
 SCRIPT_END
 	.2byte 0x0000

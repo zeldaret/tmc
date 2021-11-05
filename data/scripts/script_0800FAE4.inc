@@ -1,7 +1,7 @@
 SCRIPT_START script_0800FAE4
-	BeginBlock 
+	BeginBlock
 	SetEntitySpeed 0x0100
-	EndBlock 
+	EndBlock
 	Call sub_0807F584
 	JumpTable script_0800FB06, script_0800FB10, script_0800FB06, script_0800FAFC
 script_0800FAFC:

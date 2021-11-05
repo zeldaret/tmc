@@ -1,7 +1,7 @@
 SCRIPT_START script_080152DC
-	BeginBlock 
+	BeginBlock
 	SetEntitySpeed 0x0200
-	EndBlock 
+	EndBlock
 	DoPostScriptAction 0x0001
 	_0807EDD4 0x01f8, 0x0148
 	_0807EB44 0x0004

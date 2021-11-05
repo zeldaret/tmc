@@ -1,14 +1,14 @@
 SCRIPT_START script_08014450
-	BeginBlock 
-	_0807E9D4 
+	BeginBlock
+	_0807E9D4
 	_0807EB44 0x0000
 	SetEntitySpeed 0x01c0
 	DoPostScriptAction 0x000a
-	EndBlock 
+	EndBlock
 script_08014462:
-	_0807E30C 
+	_0807E30C
 	JumpIfNot script_08014462
-	_0807E864 
+	_0807E864
 	_0807E930 0x0008
 	Wait 0x0020
 	_0807E930 0x0002
@@ -38,7 +38,7 @@ script_080144C0:
 .ifdef USA
 	SetLocalFlag 0x00d3
 .else
-.ifdef DEMO
+.ifdef DEMO_USA
 	SetLocalFlag 0x00d3
 .endif
 .endif
@@ -57,14 +57,18 @@ script_080144F0:
 	Wait 0x003c
 	_0807E930 0x0002
 script_080144FC:
-	_0807E878 
+	_0807E878
 	CheckRoomFlag 0x0000
 	JumpIfNot script_08014462
 .ifdef USA
-	_0807E9DC 
+	_0807E9DC
 .else
-.ifdef DEMO
-	_0807E9DC 
+.ifdef DEMO_USA
+	_0807E9DC
+.else
+.ifdef DEMO_JP
+	_0807E9DC
+.endif
 .endif
 .endif
 SCRIPT_END

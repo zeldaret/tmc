@@ -1,19 +1,19 @@
 SCRIPT_START script_0800B41C
-	BeginBlock 
+	BeginBlock
 	SetEntitySpeed 0x00c0
 	_0807E908 0x0001
 	DoPostScriptAction 0x000b
-	_0807E864 
+	_0807E864
 	Call sub_0807FBC4
-	EndBlock 
+	EndBlock
 	Wait 0x000a
 	DoPostScriptAction 0x0004
 	_0807E5F8 0x00000008
 	StartPlayerScript script_0800B54C
 	_0807EDD4 0x0140, 0x0298
-	_0807EB74 
+	_0807EB74
 	WaitForSomething2 0x00000004
-	_0807EB74 
+	_0807EB74
 	Wait 0x003c
 	PlaySound SFX_TASK_COMPLETE
 	_0807F088 0x0037

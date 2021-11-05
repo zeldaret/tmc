@@ -5,7 +5,11 @@ SCRIPT_START script_0800939A
 .ifdef EU
 	CheckLocalFlag 0x00ac
 .else
+.ifdef DEMO_JP @ TODO deduplicate
+	CheckLocalFlag 0x00ac
+.else
 	CheckLocalFlag 0x00ae
+.endif
 .endif
 .endif
 	JumpIf script_0800943E
@@ -32,7 +36,11 @@ script_080093DA:
 .ifdef EU
 	CheckLocalFlag 0x00ab
 .else
+.ifdef DEMO_JP
+	CheckLocalFlag 0x00ab @ TODO deduplicate
+.else
 	CheckLocalFlag 0x00ad
+.endif
 .endif
 .endif
 	JumpIf script_080093EE
@@ -59,8 +67,13 @@ script_080093EE:
 	SetLocalFlag 0x00ac
 	SetLocalFlag 0x00ab
 .else
+.ifdef DEMO_JP
+	SetLocalFlag 0x00ac @ TODO deduplicate
+	SetLocalFlag 0x00ab
+.else
 	SetLocalFlag 0x00ae
 	SetLocalFlag 0x00ad
+.endif
 .endif
 .endif
 	Call sub_0806D5D4

@@ -1,13 +1,13 @@
 SCRIPT_START script_080153EC
-	BeginBlock 
+	BeginBlock
 	_0807F0B4 0x0007
 	SetEntityPositionRelative 0x0078, 0x0068
-	CameraTargetEntity 
-	EndBlock 
+	CameraTargetEntity
+	EndBlock
 	PlayBgm BGM_EZLO_STORY
 	_0807E778 0x0004
-	DoFade4 
-	WaitFor_2 
+	DoFade4
+	WaitFor_2
 	Wait 0x003c
 	_0807E5F8 0x00000080
 	WaitForSomething2 0x00000100

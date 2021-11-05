@@ -16,13 +16,18 @@ ifeq ($(GAME_VERSION), USA)
 GAME_CODE   := BZME
 BUILD_NAME  := tmc
 else
-ifeq ($(GAME_VERSION), DEMO)
+ifeq ($(GAME_VERSION), DEMO_USA)
 GAME_CODE   := BZHE
-BUILD_NAME  := tmc_demo
+BUILD_NAME  := tmc_demo_usa
 else
 ifeq ($(GAME_VERSION), JP)
 GAME_CODE   := BZMJ
 BUILD_NAME  := tmc_jp
+GAME_LANGUAGE := JAPANESE
+else
+ifeq ($(GAME_VERSION), DEMO_JP)
+GAME_CODE   := BZMJ
+BUILD_NAME  := tmc_demo_jp
 GAME_LANGUAGE := JAPANESE
 else
 ifeq ($(GAME_VERSION), EU)
@@ -30,6 +35,7 @@ GAME_CODE   := BZMP
 BUILD_NAME  := tmc_eu
 else
 $(error unknown version $(GAME_VERSION))
+endif
 endif
 endif
 endif
@@ -166,8 +172,9 @@ clean: mostlyclean clean-tools
 
 tidy:
 	rm -f tmc.gba tmc.elf tmc.map
-	rm -f tmc_demo.gba tmc_demo.elf tmc_demo.map
+	rm -f tmc_demo_usa.gba tmc_demo_usa.elf tmc_demo_usa.map
 	rm -f tmc_jp.gba tmc_jp.elf tmc_jp.map
+	rm -f tmc_demo_jp.gba tmc_demo_jp.elf tmc_demo_jp.map
 	rm -f tmc_eu.gba tmc_eu.elf tmc_eu.map
 	rm -r build/*
 
@@ -240,32 +247,47 @@ $(ROM): $(ELF)
 	$(OBJCOPY) -O binary --gap-fill 0xFF --pad-to 0x9000000 $< $@
 
 usa: ; @$(MAKE) GAME_VERSION=USA
-demo: ; @$(MAKE) GAME_VERSION=DEMO
+demo_usa: ; @$(MAKE) GAME_VERSION=DEMO_USA
 jp: ; @$(MAKE) GAME_VERSION=JP
+demo_jp: ; @$(MAKE) GAME_VERSION=DEMO_JP
 eu: ; @$(MAKE) GAME_VERSION=EU
 
 ifeq ($(GAME_VERSION), USA)
 baserom.gba:
 	$(error "You need to provide a USA ROM as baserom.gba")
-.PHONY: baserom_demo.gba baserom_jp.gba baserom_eu.gba
+.PHONY: baserom_demo.gba baserom_jp.gba baserom_eu.gba baserom_demo_jp.gba
 baserom_demo.gba:
 baserom_jp.gba:
 baserom_eu.gba:
+baserom_demo_jp.gba:
 endif
-ifeq ($(GAME_VERSION), DEMO)
+ifeq ($(GAME_VERSION), DEMO_USA)
 baserom.gba:
 	$(error "You need to provide a USA ROM as baserom.gba")
 baserom_demo.gba:
 	$(error "You need to provide a DEMO ROM as baserom_demo.gba")
-.PHONY: baserom_jp.gba baserom_eu.gba
+.PHONY: baserom_jp.gba baserom_eu.gba baserom_demo_jp.gba
 baserom_jp.gba:
 baserom_eu.gba:
+baserom_demo_jp.gba:
 endif
 ifeq ($(GAME_VERSION), JP)
 baserom.gba:
 	$(error "You need to provide a USA ROM as baserom.gba")
 baserom_jp.gba:
 	$(error "You need to provide a JP ROM as baserom_jp.gba")
+.PHONY: baserom_demo.gba baserom_eu.gba baserom_demo_jp.gba
+baserom_demo.gba:
+baserom_eu.gba:
+baserom_demo_jp.gba:
+endif
+ifeq ($(GAME_VERSION), DEMO_JP)
+baserom.gba:
+	$(error "You need to provide a USA ROM as baserom.gba")
+baserom_jp.gba:
+	$(error "You need to provide a JP ROM as baserom_jp.gba")
+baserom_demo_jp.gba:
+	$(error "You need to provide a DEMO JP ROM as baserom_demo_jp.gba")
 .PHONY: baserom_demo.gba baserom_eu.gba
 baserom_demo.gba:
 baserom_eu.gba:
@@ -277,6 +299,7 @@ baserom_jp.gba:
 	$(error "You need to provide a JP ROM as baserom_jp.gba")
 baserom_eu.gba:
 	$(error "You need to provide a EU ROM as baserom_eu.gba")
-.PHONY: baserom_demo.gba
+.PHONY: baserom_demo.gba baserom_demo_jp.gba
 baserom_demo.gba:
+baserom_demo_jp.gba:
 endif

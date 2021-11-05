@@ -4,6 +4,12 @@
 	.section .rodata
 	.align 2
 
+.ifdef DEMO_JP
+	@ TODO check whether this is the same save as one of the DEMO_USA ones
+	.incbin "baserom_demo_jp.gba", 0x131830, 0x500
+.endif
+
+
 gUnk_0813210C:: @ 0813210C
 	.incbin "baserom.gba", 0x13210C, 0x0000004
 	.4byte gUnk_0813235C

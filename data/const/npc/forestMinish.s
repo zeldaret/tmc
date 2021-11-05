@@ -70,10 +70,15 @@ gUnk_08109F6C:: @ 08109F6C
     @ TODO only small differences
 	.incbin "baserom_jp.gba", 0x109C30, 0x000002B
 .else
+.ifdef DEMO_JP
+    @ TODO only small differences
+	.incbin "baserom_jp.gba", 0x109C30, 0x000002B
+.else
 .ifdef EU
 	.incbin "baserom_jp.gba", 0x109C30, 0x000002B
 .else
 	.incbin "baserom.gba", 0x109F6C, 0x000002B
+.endif
 .endif
 .endif
 
@@ -83,10 +88,15 @@ gUnk_08109F97:: @ 08109F97
     @ TODO only small differences
 	.incbin "baserom_jp.gba", 0x109C5B, 0x00000B1
 .else
+.ifdef DEMO_JP
+    @ TODO only small differences
+	.incbin "baserom_jp.gba", 0x109C5B, 0x00000B1
+.else
 .ifdef EU
 	.incbin "baserom_jp.gba", 0x109C5B, 0x00000B1
 .else
 	.incbin "baserom.gba", 0x109F97, 0x00000B1
+.endif
 .endif
 .endif
 

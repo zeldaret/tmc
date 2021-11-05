@@ -1,17 +1,17 @@
 SCRIPT_START script_08015958
-	BeginBlock 
+	BeginBlock
 	SetEntitySpeed 0x0180
 	DoPostScriptAction 0x0008
 	DoPostScriptAction 0x000b
 	Call sub_08066D04
-	EndBlock 
+	EndBlock
 	WaitForSomething2 0x00000001
-	BeginBlock 
+	BeginBlock
 	Call sub_08066D14
-	MoveEntityToPlayer 
-	EndBlock 
+	MoveEntityToPlayer
+	EndBlock
 	DoPostScriptAction 0x0007
-	_0807EB74 
+	_0807EB74
 	_0807EDD4 0x01f8, 0x02f8
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000
@@ -46,22 +46,22 @@ SCRIPT_START script_08015958
 	_0807EB44 0x0000
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x000a
-	_0807E9D4 
+	_0807E9D4
 	_0807E5F8 0x00000002
 script_08015A32:
-	EndBlock 
-	BeginBlock 
-	_0807EB74 
+	EndBlock
+	BeginBlock
+	_0807EB74
 	CheckRoomFlag 0x0000
 	JumpIf script_08015A54
-	CheckEntityInteractType 
+	CheckEntityInteractType
 	JumpIfNot script_08015A32
 	EndBlock 
 	MessageFromTargetPos 0x1067, 0x0002
 	_0807EA94 
 	Jump script_08015A32
 script_08015A54:
-	EndBlock 
+	EndBlock
 	DoPostScriptAction 0x000b
 	_0807EB44 0x0000
 	DoPostScriptAction 0x0000

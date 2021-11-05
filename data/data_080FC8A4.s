@@ -130,10 +130,15 @@ gUnk_080FCB62:: @ 080FCB62
     @ TODO only small differences
 	.incbin "baserom_jp.gba", 0x0FC812, 0x0000032
 .else
+.ifdef DEMO_JP
+    @ TODO only small differences
+	.incbin "baserom_jp.gba", 0x0FC812, 0x0000032
+.else
 .ifdef EU
 	.incbin "baserom_jp.gba", 0x0FC812, 0x0000032
 .else
 	.incbin "baserom.gba", 0x0FCB62, 0x0000032
+.endif
 .endif
 .endif
 
@@ -1228,10 +1233,15 @@ gUnk_080FE320:: @ 080FE320
     @ TODO only small differences
 	.incbin "baserom_jp.gba", 0x0FDFD0, 0x00002F0
 .else
+.ifdef DEMO_JP
+    @ TODO only small differences
+	.incbin "baserom_jp.gba", 0x0FDFD0, 0x00002F0
+.else
 .ifdef EU
 	.incbin "baserom_jp.gba", 0x0FDFD0, 0x00002F0
 .else
 	.incbin "baserom.gba", 0x0FE320, 0x00002F0
+.endif
 .endif
 .endif
 
@@ -1240,10 +1250,15 @@ gUnk_080FE610:: @ 080FE610
     @ TODO only small differences
 	.incbin "baserom_jp.gba", 0x0FE2C0, 0x00004B8
 .else
+.ifdef DEMO_JP
+    @ TODO only small differences
+	.incbin "baserom_demo_jp.gba", 0x0FDDF4, 0x00004B8
+.else
 .ifdef EU
 	.incbin "baserom_jp.gba", 0x0FE2C0, 0x00004B8
 .else
 	.incbin "baserom.gba", 0x0FE610, 0x00004B8
+.endif
 .endif
 .endif
 
@@ -1258,10 +1273,15 @@ gUnk_080FEAEE:: @ 080FEAEE
     @ TODO only small differences
 	.incbin "baserom_jp.gba", 0x0FE79E, 0x000002C
 .else
+.ifdef DEMO_JP
+    @ TODO only small differences
+	.incbin "baserom_jp.gba", 0x0FE79E, 0x000002C
+.else
 .ifdef EU
 	.incbin "baserom_jp.gba", 0x0FE79E, 0x000002C
 .else
 	.incbin "baserom.gba", 0x0FEAEE, 0x000002C
+.endif
 .endif
 .endif
 
@@ -1270,10 +1290,15 @@ gUnk_080FEB1A:: @ 080FEB1A
     @ TODO only small differences
 	.incbin "baserom_jp.gba", 0x0FE7CA, 0x00000C2
 .else
+.ifdef DEMO_JP
+    @ TODO only small differences
+	.incbin "baserom_demo_jp.gba", 0x0FE2FE, 0x00000C2
+.else
 .ifdef EU
 	.incbin "baserom_jp.gba", 0x0FE7CA, 0x00000C2
 .else
 	.incbin "baserom.gba", 0x0FEB1A, 0x00000C2
+.endif
 .endif
 .endif
 
@@ -1329,10 +1354,15 @@ gUnk_080FEE58:: @ 080FEE58
     @ TODO only small differences
 	.incbin "baserom_jp.gba", 0x0FEB08, 0x0000020
 .else
+.ifdef DEMO_JP
+    @ TODO only small differences
+	.incbin "baserom_jp.gba", 0x0FEB08, 0x0000020
+.else
 .ifdef EU
 	.incbin "baserom_jp.gba", 0x0FEB08, 0x0000020
 .else
 	.incbin "baserom.gba", 0x0FEE58, 0x0000020
+.endif
 .endif
 .endif
 

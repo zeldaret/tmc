@@ -1,10 +1,10 @@
 SCRIPT_START script_0800BB64
-	BeginBlock 
+	BeginBlock
 	_0807EB44 0x0006
 	DoPostScriptAction 0x0000
 	SetEntitySpeed 0x0040
 	Call sub_0807F348
-	EndBlock 
+	EndBlock
 script_0800BB7A:
 	CheckRoomFlag 0x00ff
 	JumpIfNot script_0800BB7A

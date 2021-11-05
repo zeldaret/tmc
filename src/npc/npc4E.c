@@ -105,35 +105,35 @@ void sub_0806DAD0(Entity* this) {
 void sub_0806DAE8(Entity* this) {
     switch (this->type - 1) {
         case 0:
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
             SetLocalFlag(0xeb);
 #else
             SetLocalFlag(0xee);
 #endif
             break;
         case 1:
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
             SetLocalFlag(0xec);
 #else
             SetLocalFlag(0xef);
 #endif
             break;
         case 2:
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
             SetLocalFlag(0xed);
 #else
             SetLocalFlag(0xf0);
 #endif
             break;
         case 3:
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
             SetLocalFlag(0xee);
 #else
             SetLocalFlag(0xf1);
 #endif
             break;
         case 4:
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
             SetLocalFlag(0xef);
 #else
             SetLocalFlag(0xf2);
@@ -147,7 +147,7 @@ void sub_0806DAE8(Entity* this) {
 void sub_0806DB44(Entity* this, ScriptExecutionContext* context) {
     context->condition = 0;
 
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
     if (CheckLocalFlag(0xeb) != 0 && CheckLocalFlag(0xec) != 0 && CheckLocalFlag(0xed) != 0 &&
         CheckLocalFlag(0xee) != 0 && CheckLocalFlag(0xef) != 0) {
 #else

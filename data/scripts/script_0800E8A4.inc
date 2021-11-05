@@ -2,8 +2,8 @@ SCRIPT_START script_0800E8A4
 	BeginBlock 
 	MessageFromTarget 0x4504
 	CallWithArg sub_0807F854, 0x000100c8
-	EndBlock 
-	_0807EA94 
+	EndBlock
+	_0807EA94
 	HasRupees 0x00c8
 	JumpIfNot script_0800E908
 	ModRupees 0xff38

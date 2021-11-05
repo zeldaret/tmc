@@ -8,13 +8,13 @@ script_08009A38:
 	Jump script_08009A38
 SCRIPT_START script_08009A50
 	SetEntityPositionRelative 0x0240, 0x0178
-	CameraTargetEntity 
+	CameraTargetEntity
 	SetEntitySpeed 0x0080
 	Wait 0x0078
 	PlayBgm BGM_MINISH_CAP
 	_0807E778 0x0002
-	DoFade4 
-	WaitFor_2 
+	DoFade4
+	WaitFor_2
 	Wait 0x0078
 	_0807E5F8 0x00000004
 	Call sub_08053648

@@ -2254,7 +2254,11 @@ gUnk_08007CAC:: @ 08007CAC
 	.incbin "baserom.gba", 0x007CAC, 0x000005B
 
 gUnk_08007D07:: @ 08007D07
-.ifdef DEMO
+.ifdef DEMO_JP
+@ TODO only one byte differs
+	.incbin "baserom_demo_jp.gba", 0x007D4F, 0x00000CF
+.else
+.ifdef DEMO_USA
 @ TODO only one byte differs
 	.incbin "baserom_demo.gba", 0x007D07, 0x00000CF
 .else
@@ -2267,6 +2271,7 @@ gUnk_08007D07:: @ 08007D07
 	.incbin "baserom_eu.gba", 0x007D9F, 0x00000CF
 .else
 	.incbin "baserom.gba", 0x007D07, 0x00000CF
+.endif
 .endif
 .endif
 .endif

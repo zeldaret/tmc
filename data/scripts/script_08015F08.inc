@@ -1,8 +1,8 @@
 SCRIPT_START script_08015F08
-	BeginBlock 
+	BeginBlock
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000
-	EndBlock 
+	EndBlock
 	WaitForSomething2 0x00000001
 	MessageNoOverlap 0x131c
 	_0807EA94 

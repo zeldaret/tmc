@@ -1,9 +1,9 @@
 SCRIPT_START script_0800BB30
-	BeginBlock 
+	BeginBlock
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000
 	Call sub_0807F348
-	EndBlock 
+	EndBlock
 script_0800BB42:
 	CheckRoomFlag 0x00ff
 	JumpIfNot script_0800BB42

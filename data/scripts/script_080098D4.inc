@@ -1,6 +1,6 @@
 SCRIPT_START script_080098D4
-	BeginBlock 
-	EndBlock 
+	BeginBlock
+	EndBlock
 script_080098D8:
 	CheckGlobalFlag 0x0020
 	JumpIfNot script_080098D8
@@ -13,7 +13,11 @@ script_080098E0:
 .ifdef EU
 	CheckLocalFlag 0x5b
 .else
+.ifdef DEMO_JP
+	CheckLocalFlag 0x5b @ TODO deduplicate
+.else
 	CheckLocalFlag 0x5d
+.endif
 .endif
 .endif
 	JumpIf script_08009910
@@ -23,16 +27,20 @@ script_080098E0:
 .ifdef EU
 	SetLocalFlag 0x005b
 .else
+.ifdef DEMO_JP
+	SetLocalFlag 0x005b @ TODO deduplicate
+.else
 	SetLocalFlag 0x005d
 .endif
 .endif
-	_0807E864 
+.endif
+	_0807E864
 	Call sub_0807F9A4
 	Call sub_0807DF28
 	_0807EB28 0x280a
-	_0807EA94 
+	_0807EA94
 	Call sub_0807DF50
-	_0807E878 
+	_0807E878
 script_08009910:
 	DoPostScriptAction 0x0006
 SCRIPT_END

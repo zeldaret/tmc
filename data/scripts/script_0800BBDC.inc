@@ -1,7 +1,7 @@
 SCRIPT_START script_0800BBDC
-	BeginBlock 
+	BeginBlock
 	_0807E930 0x0000
-	EndBlock 
+	EndBlock
 script_0800BBE4:
 	CheckRoomFlag 0x00ff
 	JumpIfNot script_0800BBE4

@@ -567,7 +567,7 @@ void sub_0804BAC0(void) {
     if (!CheckGlobalFlag(LV2_CLEAR)) {
         LoadRoomEntityList(&gUnk_080D7328);
     }
-#ifdef JP
+#if defined(JP) || defined(DEMO_JP)
     if (CheckGlobalFlag(CASTLE_BGM) || CheckGlobalFlag(ENDING)) {
 #else
 #ifdef EU
@@ -661,7 +661,7 @@ u32 sub_0804BC34() {
 extern EntityData gUnk_080D7690;
 
 void sub_0804bc38(void) {
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
     if (CheckLocalFlag(0x9b)) {
 #else
     if (CheckLocalFlag(0x9c)) {
@@ -671,7 +671,7 @@ void sub_0804bc38(void) {
 }
 
 u32 sub_0804BC50(void) {
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
     if (!CheckLocalFlag(0x9e)) {
 #else
     if (!CheckLocalFlag(0x9f)) {
@@ -685,7 +685,7 @@ u32 sub_0804BC50(void) {
 extern u32 script_08009E88;
 
 void sub_0804BC70(void) {
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(DEMO_JP) || defined(EU)
     if (!CheckLocalFlag(0x9e)) {
 #else
     if (!CheckLocalFlag(0x9f)) {
@@ -703,19 +703,19 @@ void sub_0804BC70(void) {
 
     if (!CheckGlobalFlag(TABIDACHI)) {
         sub_08052878();
-#ifndef JP
+#if !(defined(JP) || defined(DEMO_JP))
     } else {
 #else
     }
 #endif
         if (CheckGlobalFlag(CASTLE_BGM)) {
-#ifdef JP
+#if defined(JP) || defined(DEMO_JP)
             gArea.pMusicIndex = gArea.musicIndex;
 #else
         gArea.pMusicIndex = 0x1b;
 #endif
         }
-#ifndef JP
+#if !(defined(JP) || defined(DEMO_JP))
     }
 #endif
 #endif
@@ -2006,7 +2006,7 @@ void sub_0804CAA0(void) {
     if (CheckGlobalFlag(KUMOTATSUMAKI)) {
         sub_0809F814(0x6de);
     }
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
     if (CheckLocalFlag(0xf0)) {
 #else
     if (CheckLocalFlag(0xf3)) {
@@ -2015,7 +2015,7 @@ void sub_0804CAA0(void) {
     } else {
         LoadRoomEntityList(&gUnk_080DD7E0);
     }
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
     if (CheckLocalFlag(0xf2)) {
 #else
     if (CheckLocalFlag(0xf5)) {
@@ -2032,7 +2032,7 @@ u32 sub_0804CAF4() {
 
 void sub_0804CAF8() {
     sub_080300E8();
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
     SetLocalFlag(0x25);
 #else
     SetLocalFlag(0x24);
@@ -2060,7 +2060,7 @@ void sub_0804CB14(void) {
 }
 
 void sub_0804CB2C(void) {
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
     if (CheckLocalFlagByOffset(0x100, 0x28)) {
 #else
     if (CheckLocalFlagByOffset(0x100, 0x27)) {
@@ -2100,14 +2100,14 @@ extern EntityData gUnk_080DE200;
 void sub_0804CB7C(void) {
 
     sub_080300E8();
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
     if (!CheckLocalFlag(0x31)) {
 #else
     if (!CheckLocalFlag(0x30)) {
 #endif
         LoadRoomEntityList(&gUnk_080DE1E0);
     }
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
     if (!CheckLocalFlag(0x32)) {
 #else
     if (!CheckLocalFlag(0x31)) {
@@ -2238,9 +2238,19 @@ u32 sub_0804CD0C() {
     return 1;
 }
 
-#ifdef DEMO
+#if defined(DEMO_USA) || defined(DEMO_JP)
 void nullsub_251() {
+<<<<<<< HEAD
     if (gSaveHeader->saveFileId != 0 && GetInventoryValue(0x40) == 0) {
+=======
+#ifdef DEMO_USA
+    if (gUnk_02000000->saveFileId != 0 && GetInventoryValue(0x40) == 0) {
+#else
+#ifdef DEMO_JP
+    if (GetInventoryValue(0x40) == 0) {
+#endif
+#endif
+>>>>>>> upstream/master
         SetTileType(0x365, 0x349, 1);
         SetTileType(0x365, 0x34a, 1);
         SetTileType(0x365, 0x34b, 1);
@@ -2375,7 +2385,7 @@ u32 sub_0804CE38() {
     return 1;
 }
 
-#ifdef DEMO
+#ifdef DEMO_USA
 void nullsub_262() {
     if (GetInventoryValue(0x41) == 0) {
         SetTileType(0x365, 0x287, 2);
@@ -4315,7 +4325,7 @@ void LoadHyruleTown(void) {
 
     sub_08054570();
     TryLoadPrologueHyruleTown();
-#if defined(USA) || defined(DEMO)
+#if defined(USA) || defined(DEMO_USA) || defined(DEMO_JP)
     SetTileType(0x176, 0x66b, 1);
 #endif
     if (gSave.unk8 == 1) {
@@ -4375,7 +4385,7 @@ void LoadHyruleTown(void) {
             LoadRoomEntityList(&gUnk_080EEA5C);
         }
         // rocs cape
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
         if (!CheckLocalFlag(0xcd) && GetInventoryValue(0x14)) {
 #else
         if (!CheckLocalFlag(0xd0) && GetInventoryValue(0x14)) {
@@ -4524,7 +4534,7 @@ void sub_0804E27C(void) {
         SetGlobalFlag(CASTLE_BGM);
     } else {
         if (CheckGlobalFlag(CASTLE_BGM)) {
-#ifdef JP
+#if defined(JP) || defined(DEMO_JP)
             gArea.pMusicIndex = gArea.musicIndex;
 #else
             gArea.pMusicIndex = 0x1b;
@@ -4532,7 +4542,7 @@ void sub_0804E27C(void) {
         }
 #endif
     }
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(DEMO_JP) || defined(EU)
     if (!CheckLocalFlag(0x9b)) {
 #else
     if (!CheckLocalFlag(0x9c)) {
@@ -4559,13 +4569,13 @@ void sub_0804E27C(void) {
         }
         SetTileType(0x4072, 600, 1);
         SetTileType(0x4072, 0x298, 1);
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(DEMO_JP) || defined(EU)
         if (CheckLocalFlag(0x11)) {
 #else
         if (CheckLocalFlag(0x10)) {
 #endif
             LoadRoomEntityList(&gUnk_080F0920);
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(DEMO_JP) || defined(EU)
             ClearLocalFlag(0x11);
 #else
             ClearLocalFlag(0x10);
@@ -5158,7 +5168,7 @@ void sub_0804EC00(void) {
     if (!CheckGlobalFlag(EZERO_1ST)) {
         LoadRoomEntityList(&gUnk_080F4D50);
     }
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
     if (!CheckLocalFlag(0x3d)) {
         if (!CheckLocalFlag(0x3a)) {
 #else
@@ -5177,7 +5187,7 @@ void sub_0804EC00(void) {
     if ((s32)gSave.windcrests > -1) {
         LoadRoomEntityList(&gUnk_080F4E10);
     }
-#ifdef DEMO
+#ifdef DEMO_USA
     SetTileType(0x177, 0x5b4, 1);
     SetTileType(0x177, 0x5f4, 1);
 #endif
@@ -5214,7 +5224,7 @@ void sub_0804ECEC(void) {
     // white sword
     if (GetInventoryValue(0x2)) {
         LoadRoomEntityList(&gUnk_080F5328);
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
         if (!CheckLocalFlag(0x15)) {
 #else
         if (!CheckLocalFlag(0x14)) {
@@ -5407,7 +5417,7 @@ u32 sub_0804F02C() {
 extern EntityData gUnk_080F5E68;
 
 void sub_0804F030(void) {
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
     if (!CheckLocalFlagByOffset(0x100, 0xce)) {
 #else
     if (!CheckLocalFlagByOffset(0x100, 0xd1)) {
@@ -5451,7 +5461,7 @@ void nullsub_400() {
 }
 
 u32 sub_0804F09C(void) {
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
     if (CheckGlobalFlag(KUMOTATSUMAKI) && CheckLocalFlagByOffset(0x100, 0xd9)) {
 #else
     if (CheckGlobalFlag(KUMOTATSUMAKI) && CheckLocalFlagByOffset(0x100, 0xdc)) {
@@ -5464,7 +5474,7 @@ u32 sub_0804F09C(void) {
 extern EntityData gUnk_080F61BC;
 
 void sub_0804F0C0(void) {
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
     if (CheckLocalFlagByOffset(0x100, 0xd9)) {
 #else
     if (CheckLocalFlagByOffset(0x100, 0xdc)) {
@@ -5617,7 +5627,7 @@ void sub_0804F230() {
 }
 
 u32 sub_0804F23C(void) {
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
     if (!CheckLocalFlag(0x6b)) {
 #else
     if (!CheckLocalFlag(0x6d)) {
@@ -5634,7 +5644,7 @@ extern EntityData gUnk_080F7088;
 
 void sub_0804F25C(void) {
     Manager18_Main(0);
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
     if (!CheckLocalFlag(0x6b)) {
 #else
     if (!CheckLocalFlag(0x6d)) {
@@ -5744,7 +5754,7 @@ u32 Vars_HyruleField_OutsideCastle(void) {
         gRoomVars.field_0x6c = &gUnk_080F7CD0;
         gRoomVars.field_0x88 = sub_0804F5E8;
     }
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
     if (CheckGlobalFlag(LV2_CLEAR) && GetInventoryValue(0x3) && !CheckLocalFlag(0x8a)) {
 #else
     if (CheckGlobalFlag(LV2_CLEAR) && GetInventoryValue(0x3) && !CheckLocalFlag(0x8c)) {
@@ -5770,7 +5780,7 @@ extern EntityData gUnk_080F7D70;
 
 void Load_HyruleField_OutsideCastle(void) {
     sub_0804F4E4();
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
     if (!CheckLocalFlag(0x89)) {
 #else
     if (!CheckLocalFlag(0x8b)) {
@@ -5794,7 +5804,7 @@ void Load_HyruleField_OutsideCastle(void) {
 extern EntityData gUnk_080F7DC0;
 
 void sub_0804F578(void) {
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
     if (!CheckLocalFlag(0x8c)) {
 #else
     if (!CheckLocalFlag(0x8e)) {
@@ -5965,7 +5975,7 @@ extern EntityData gUnk_080F82E0;
 
 void Load_HyruleField_TrilbyHighlands(void) {
     Manager18_Main(0);
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
     if (CheckGlobalFlag(LV2_CLEAR) && GetInventoryValue(0x3) && !CheckLocalFlag(0x9b)) {
 #else
     if (CheckGlobalFlag(LV2_CLEAR) && GetInventoryValue(0x3) && !CheckLocalFlag(0x9c)) {
@@ -6621,7 +6631,7 @@ u32 sub_0804FED4() {
 }
 
 void sub_0804FED8(void) {
-#if defined(USA) || defined(DEMO)
+#if defined(USA) || defined(DEMO_USA) || defined(DEMO_JP)
     SetTileType(0x176, 0x66f, 1);
 #endif
 }

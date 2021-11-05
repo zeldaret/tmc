@@ -1,5 +1,5 @@
 SCRIPT_START script_08012F0C
-	BeginBlock 
+	BeginBlock
 	CallWithArg sub_0806A93C, 0x12345678
 	_0807EB44 0x0004
 	_0807E930 0x0002
@@ -9,7 +9,7 @@ SCRIPT_START script_08012F0C
 	JumpIf script_08012FD2
 	CheckGlobalFlag 0x001e
 	JumpIf script_08012F86
-	EndBlock 
+	EndBlock
 	CheckLocalFlag 0x0062
 	JumpIfNot script_08012F48
 	Call sub_0806A9B0
@@ -23,7 +23,7 @@ script_08012F50:
 	MessageNoOverlap 0x4401
 	_0807EA94 
 	SetLocalFlag 0x0061
-	_0807E878 
+	_0807E878
 	_0807E908 0x0001
 script_08012F6C:
 	Call sub_0806A96C

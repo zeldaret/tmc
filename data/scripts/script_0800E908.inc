@@ -4,48 +4,48 @@ SCRIPT_START script_0800E908
 script_0800E910:
 	MessageFromTarget 0x4509
 script_0800E914:
-	_0807EA94 
-	_0807E878 
+	_0807EA94
+	_0807E878
 	_0807EB44 0x0000
 	Jump script_0800E832
 SCRIPT_START script_0800E920
-	BeginBlock 
+	BeginBlock
 	Call sub_0806C4F8
 	DoPostScriptAction 0x000a
 	_0807EB44 0x0000
-	EndBlock 
+	EndBlock
 script_0800E932:
-	CheckEntityInteractType 
+	CheckEntityInteractType
 	JumpIfNot script_0800E932
-	_0807E864 
+	_0807E864
 	_0807EB44 0x0004
 	_0807E930 0x0004
 script_0800E942:
 	Call sub_0806C4A8
 	JumpIfNot script_0800E942
 	Call sub_0806C4DC
-	_0807EA94 
-	_0807E878 
+	_0807EA94
+	_0807E878
 	_0807EB44 0x0000
 	_0807E930 0x0000
 	Jump script_0800E932
 	.2byte 0x0000
 SCRIPT_START script_0800E964
-	BeginBlock 
+	BeginBlock
 	DoPostScriptAction 0x000a
 	_0807EB44 0x0004
 	_0807E930 0x0000
-	EndBlock 
+	EndBlock
 script_0800E974:
-	CheckEntityInteractType 
+	CheckEntityInteractType
 	JumpIfNot script_0800E974
-	_0807E864 
+	_0807E864
 	_0807E930 0x0008
 	Call sub_0807F2D4
 	_0807E930 0x0009
 	Call sub_0806B260
 	JumpIfNot script_0800E9E4
-	_0807EA94 
+	_0807EA94
 	DoPostScriptAction 0x000b
 	StartPlayerScript script_0800E9F4
 	WaitForSomething2 0x00000001
@@ -66,8 +66,8 @@ script_0800E974:
 	_0807EA94 
 	SetLocalFlag 0x0075
 script_0800E9E4:
-	_0807EA94 
+	_0807EA94
 	Wait 0x000f
-	_0807E878 
+	_0807E878
 	_0807E930 0x0000
 	Jump script_0800E974

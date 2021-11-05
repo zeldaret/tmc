@@ -1,20 +1,20 @@
 SCRIPT_START script_0800A764
-	BeginBlock 
-	_0807E864 
+	BeginBlock
+	_0807E864
 	Call sub_0807DF28
 	SetEntityPositionRelative 0x00f8, 0x01b8
 	Call sub_0807F844
-	EndBlock 
+	EndBlock
 	Wait 0x003c
 	PlaySound SFX_EVAPORATE
 	_0807E778 0x0004
-	DoFade7 
-	WaitFor_2 
+	DoFade7
+	WaitFor_2
 	_0807E5F8 0x00000001
 	PlaySound SFX_APPARATE
 	_0807E778 0x0002
-	DoFade6 
-	WaitFor_2 
+	DoFade6
+	WaitFor_2
 	Wait 0x001e
 	_0807E5F8 0x00000002
 	Wait 0x0014

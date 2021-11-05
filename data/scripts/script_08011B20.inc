@@ -1,5 +1,5 @@
 SCRIPT_START script_08011B20
-	_0807E864 
+	_0807E864
 	Call sub_0807DF28
 	MessageFromTargetPos 0x1320, 0x000c
 	_0807EA94 

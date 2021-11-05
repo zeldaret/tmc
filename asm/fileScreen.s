@@ -5,7 +5,7 @@
 
 	.text
 
-.ifdef DEMO
+.ifdef DEMO_USA
     thumb_func_start HandleGameplayScreen
 HandleGameplayScreen: @ 08051A28
     push {r4, lr}
@@ -340,9 +340,30 @@ _08051B5A:
 	bl sub_08078A90
 	ldr r0, _08051BC8 @ =gUnk_02034490
 	strb r4, [r0]
+.ifdef DEMO_JP
+	ldr r0, _08051C30 @ =gUnk_030010A0
+	adds r0,#0x31
+	ldrb r0,[r0,#0x0]
+	cmp r0,#0x0
+	beq _08051bee
+
+	bl   sub_08053178
+_08051bee:
+	adds r0,r5,#0x0
+	adds r0,#0x28
+	ldrb r0,[r0,#0x0]
+	cmp r0,#0xff
+	beq _08051bfc
+	bl sub_0801855C
+_08051bfc:
+	bl sub_08052BF8
+
+.else
+
 .ifdef JP
 	bl sub_08053178
 .endif
+
 .ifndef EU
 	adds r0, r5, #0
 	adds r0, #0x28
@@ -356,9 +377,15 @@ _08051B96:
 	bl sub_08053178 @ TODO fix addresses
 	bl sub_08053178
 .else
+.ifdef DEMO_JP
+	bl sub_08053178 @ TODO fix addresses
+	bl sub_08053178
+.else
 .ifndef JP
 	bl sub_08052BF8
 	bl sub_08053178
+.endif
+.endif
 .endif
 .endif
 	ldr r0, _08051BCC @ =gRoomVars
@@ -380,6 +407,9 @@ _08051BBC: .4byte 0x00000864
 _08051BC0: .4byte 0x800B0000
 _08051BC4: .4byte gMain
 _08051BC8: .4byte gUnk_02034490
+.ifdef DEMO_JP
+_08051C30: .4byte gUnk_030010A0
+.endif
 _08051BCC: .4byte gRoomVars
 .endif
 
@@ -523,7 +553,7 @@ _08051D28: .4byte gScreenTransition
 
 	thumb_func_start sub_08051D2C
 sub_08051D2C: @ 0x08051D2C
-.ifdef DEMO
+.ifdef DEMO_USA
 	push {lr}
 	ldr r0, _08051E04 @ =0x03000FD0
 	ldrb r0, [r0]

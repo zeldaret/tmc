@@ -1,10 +1,10 @@
 SCRIPT_START script_08009B30
-	BeginBlock 
+	BeginBlock
 	Call sub_0807DF28
-	_0807E864 
+	_0807E864
 	SetLocalFlag 0x0046
-	EndBlock 
-	WaitFor_2 
+	EndBlock
+	WaitFor_2
 	Wait 0x001e
 	MessageFromTarget 0x1005
 	_0807EA94 
@@ -14,7 +14,7 @@ SCRIPT_START script_08009B30
 	DoPostScriptAction 0x0014
 	Wait 0x001e
 	Call sub_08053250
-	_0807E878 
+	_0807E878
 	Call sub_0807DF50
 	Call sub_080791D0
 SCRIPT_END

@@ -30,7 +30,11 @@ _0804E17C:
 .ifdef EU
 	movs r0, #0xce
 .else
+.ifdef DEMO_JP
+	movs r0, #0xce @ TODO deduplicate
+.else
 	movs r0, #0xd1
+.endif
 .endif
 .endif
 	bl CheckLocalFlag

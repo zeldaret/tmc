@@ -1,7 +1,7 @@
 SCRIPT_START script_0800F724
-	BeginBlock 
+	BeginBlock
 	DoPostScriptAction 0x0008
-	EndBlock 
+	EndBlock
 script_0800F72C:
 .ifdef JP
 	CheckLocalFlag 0x00ca
@@ -9,7 +9,11 @@ script_0800F72C:
 .ifdef EU
 	CheckLocalFlag 0x00ca
 .else
+.ifdef DEMO_JP
+	CheckLocalFlag 0x00ca @ TODO deduplicate
+.else
 	CheckLocalFlag 0x00cd
+.endif
 .endif
 .endif
 	JumpIfNot script_0800F72C
@@ -24,17 +28,21 @@ SCRIPT_START script_0800F73C
 .ifdef EU
 	CheckLocalFlag 0x00ca
 .else
+.ifdef DEMO_JP
+	CheckLocalFlag 0x00ca @ TODO deduplicate
+.else
 	CheckLocalFlag 0x00cd
 .endif
 .endif
+.endif
 	JumpIf script_0800FA4C
-	_0807E864 
+	_0807E864
 	Call sub_0807DF28
 	SetEntityPositionRelative 0x00c8, 0x0148
 	Call sub_0807F844
 	_0807E778 0x0002
-	DoFade6 
-	WaitFor_2 
+	DoFade6
+	WaitFor_2
 	StartPlayerScript script_0800FA54
 	_0807E5F8 0x00000002
 	_0807F0B4 0x0001
@@ -51,12 +59,12 @@ SCRIPT_START script_0800F73C
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000004
 	_0807F0B4 0x0004
-	CameraTargetPlayer 
+	CameraTargetPlayer
 	Call sub_0807DF50
-	_0807E878 
+	_0807E878
 	_0807E5F8 0x00000010
 	WaitForSomething2 0x00000004
-	_0807E864 
+	_0807E864
 	Call sub_0807DF28
 	StartPlayerScript script_0800FA78
 	WaitForSomething2 0x00000001
@@ -67,9 +75,9 @@ SCRIPT_START script_0800F73C
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000004
 	Call sub_0807DF50
-	_0807E878 
+	_0807E878
 	WaitForSomething2 0x00000004
-	_0807E864 
+	_0807E864
 	Call sub_0807DF28
 	StartPlayerScript script_0800FA9C
 	WaitForSomething2 0x00000001
@@ -80,9 +88,9 @@ SCRIPT_START script_0800F73C
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000004
 	Call sub_0807DF50
-	_0807E878 
+	_0807E878
 	WaitForSomething2 0x00000004
-	_0807E864 
+	_0807E864
 	Call sub_0807DF28
 	StartPlayerScript script_0800FAC0
 	WaitForSomething2 0x00000001
@@ -93,14 +101,14 @@ SCRIPT_START script_0800F73C
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000004
 	Call sub_0807DF50
-	_0807E878 
+	_0807E878
 	WaitForSomething2 0x00000004
-	_0807E864 
+	_0807E864
 	Call sub_0807DF28
 	Call sub_08063C5C
 	PlaySound SFX_CUCCO_MINIGAME_BELL
 	Wait 0x001e
-	_0807E8E4_0 
+	_0807E8E4_0
 	Call sub_0807F3F8
 	Wait 0x003c
 	MessageFromTargetPos 0x1021, 0x000e
@@ -108,7 +116,7 @@ SCRIPT_START script_0800F73C
 	StartPlayerScript script_0800FAE4
 	SetEntityPositionRelative 0x00f0, 0x0258
 	_0807F0B4 0x0001
-	CameraTargetEntity 
+	CameraTargetEntity
 	Wait 0x001e
 	Call sub_08063C2C
 	WaitForSomething2 0x00000001
@@ -135,7 +143,7 @@ SCRIPT_START script_0800F73C
 	_0807EA94 
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000004
-	_0807E8E4_1 
+	_0807E8E4_1
 	Call sub_08063C2C
 	MessageFromTargetPos 0x1027, 0x0000
 	_0807EA94 
@@ -161,13 +169,13 @@ SCRIPT_START script_0800F73C
 	Wait 0x001e
 	Call sub_08094E0C
 	Wait 0x001e
-	_0807E8E4_1 
+	_0807E8E4_1
 	Call sub_0807F3F8
 	Wait 0x003c
 	MessageFromTargetPos 0x102b, 0x0000
 	_0807EA94 
 	_0807F034 0x000d
-	WaitPlayerAction8 
+	WaitPlayerAction8
 	Call sub_0806DC3C
 	Call sub_080791BC
 	CallWithArg sub_0807F244, 0x0000000d
@@ -182,7 +190,7 @@ SCRIPT_START script_0800F73C
 	CallWithArg sub_0807F29C, 0x00000000
 	Call sub_0806DC58
 	_0807F0B4 0x0004
-	CameraTargetPlayer 
+	CameraTargetPlayer
 	Wait 0x000a
 	_0807E5F8 0x00000002
 	Call sub_08063C44
@@ -192,11 +200,15 @@ SCRIPT_START script_0800F73C
 .ifdef EU
 	SetLocalFlag 0x00ca
 .else
+.ifdef DEMO_JP
+	SetLocalFlag 0x00ca @ TODO deduplicate
+.else
 	SetLocalFlag 0x00cd
 .endif
 .endif
+.endif
 	Call sub_0807DF50
-	_0807E878 
+	_0807E878
 script_0800FA4C:
 	DoPostScriptAction 0x0006
 SCRIPT_END

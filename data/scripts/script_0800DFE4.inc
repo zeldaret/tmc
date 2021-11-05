@@ -1,8 +1,8 @@
 SCRIPT_START script_0800DFE4
-	BeginBlock 
+	BeginBlock
 	Call sub_0807DF28
-	_0807E864 
-	EndBlock 
+	_0807E864
+	EndBlock
 	StopBgm
 	MessageFromTargetPos 0x1632, 0x0002
 	_0807EA94 
@@ -12,11 +12,11 @@ script_0800DFFE:
 	JumpIfNot script_0800DFFE
 	PlayBgm BGM_VAATI_TRANSFIGURED
 	Call sub_0807DF50
-	_0807E878 
+	_0807E878
 script_0800E012:
 	CheckRoomFlag 0x0002
 	JumpIfNot script_0800E012
-	_0807E864 
+	_0807E864
 	Call sub_0807DF28
 	SetLocalFlag 0x007b
 	MessageFromTargetPos 0x1639, 0x000c
@@ -25,7 +25,7 @@ script_0800E012:
 	PlaySound SFX_EVAPORATE
 	CallWithArg sub_0806DA1C, 0x00000005
 	Call sub_0807DF50
-	_0807E878 
+	_0807E878
 	DoPostScriptAction 0x0006
 SCRIPT_END
 	.2byte 0x0000

@@ -4,12 +4,14 @@ First, you must put a The Legend of Zelda: The Minish Cap (U) ROM (with SHA1: `b
 
 ## Building other variants
 To build other variants, you currently need a combination of different baseroms, depending on the variant.
-| | USA | DEMO | JP | EU |
-| - | :-: | :-: | :-: | :-: |
-| baserom.gba | X | X | X | X |
-| baserom_demo.gba | | X | | |
-| baserom_jp.gba | | | X | X |
-| baserom_eu.gba | | | | X |
+| | USA | JP | EU | DEMO_USA | DEMO_JP |
+| - | :-: | :-: | :-: | :-: | :-: |
+| baserom.gba | X | X | X | X | X |
+| baserom_jp.gba | | X | X | | X |
+| baserom_eu.gba | | | X | | |
+| baserom_demo.gba | | | | X |  |
+| baserom_demo_jp.gba | | | | | X |
+
 
 
 ## Prerequisites

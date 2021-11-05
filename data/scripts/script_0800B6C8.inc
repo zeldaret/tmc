@@ -1,6 +1,6 @@
 SCRIPT_START script_0800B6C8
-	BeginBlock 
-	EndBlock 
+	BeginBlock
+	EndBlock
 script_0800B6CC:
 	HasRupees 0x0001
 	JumpIfNot script_0800B6CC
@@ -8,7 +8,7 @@ script_0800B6D4:
 	CheckPlayerInRegion 0x0078, 0x00b8, 0x1060
 	JumpIfNot script_0800B6D4
 	Call sub_08079184
-	_0807E864 
+	_0807E864
 	Call sub_0807F9A4
 	StartPlayerScript script_0800B7C4
 	WaitForSomething2 0x00000004
@@ -20,19 +20,19 @@ script_0800B6D4:
 	_0807EA94 
 	CallWithArg sub_0807F970, 0x0000057d
 	JumpIf script_0800B6A6
-	_0807EA94 
+	_0807EA94
 	SetLocalFlag 0x009f
 	_0807F034 0x0064
 	Jump script_0800B698
 	.2byte 0x0000
 SCRIPT_START script_0800B730
-	BeginBlock 
-	EndBlock 
+	BeginBlock
+	EndBlock
 script_0800B734:
 	Call sub_0808747C
 	JumpIfNot script_0800B734
 	Call sub_08079184
-	_0807E864 
+	_0807E864
 	Wait 0x000a
 	Call sub_0807F9A4
 	StartPlayerScript script_0800B7C4
@@ -49,7 +49,7 @@ script_0800B734:
 	Wait 0x00b4
 	Jump script_0800B6A6
 script_0800B794:
-	_0807EA94 
+	_0807EA94
 	SetLocalFlag 0x00a0
 	_0807F034 0x0065
 	Jump script_0800B698
@@ -57,8 +57,8 @@ script_0800B7A2:
 	MessageNoOverlap 0x0590
 	_0807EA94 
 	_0807E778 0x0010
-	DoFade7 
-	WaitFor_2 
+	DoFade7
+	WaitFor_2
 	ModHealth 0x00a0
 	DoFade6 
 	WaitFor_2 

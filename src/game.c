@@ -61,7 +61,7 @@ void sub_0805212C(void) {
             gMenu.transitionTimer--;
             if (gMenu.transitionTimer == 0) {
                 sub_080520C4(2);
-#ifdef DEMO
+#if defined(DEMO_USA) || defined(DEMO_JP)
                 SoundReq(0x80080000);
                 DoFade(7, 4);
 #else
@@ -77,7 +77,7 @@ void sub_0805212C(void) {
     }
 }
 
-#ifdef DEMO
+#if defined(DEMO_USA) || defined(DEMO_JP)
 void sub_080521A0(void) {
     if (gFadeControl.active == 0) {
         DoSoftReset();

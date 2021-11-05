@@ -13,8 +13,8 @@ SCRIPT_START script_08010E5A
 	_0807E5F8 0x00800000
 	WaitForSomething2 0x01000000
 	_0807E778 0x0004
-	DoFade7 
-	WaitFor_2 
+	DoFade7
+	WaitFor_2
 	Wait 0x003c
 	PlaySound SFX_SPIRITS_RELEASE
 	PlaySound SFX_1C2
@@ -22,8 +22,8 @@ SCRIPT_START script_08010E5A
 	_0807E5F8 0x00000010
 	WaitForSomething2 0x00000020
 	_0807E778 0x0002
-	DoFade6 
-	WaitFor_2 
+	DoFade6
+	WaitFor_2
 	CallWithArg DeleteManager36, 0x00000002
 	_0807F0C8 0x0000, 0x0000
 	Call sub_0806DC3C

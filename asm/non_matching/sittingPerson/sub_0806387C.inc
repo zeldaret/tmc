@@ -8,7 +8,11 @@
 .ifdef EU
 	movs r0, #0xd7
 .else
+.ifdef DEMO_JP
+	movs r0, #0xd7 @ TODO deduplicate
+.else
 	movs r0, #0xda
+.endif
 .endif
 .endif
 	bl CheckLocalFlag
@@ -21,7 +25,11 @@
 .ifdef EU
 	movs r0, #0xd7
 .else
+.ifdef DEMO_JP
+	movs r0, #0xd7 @ TODO deduplicate
+.else
 	movs r0, #0xda
+.endif
 .endif
 .endif
 	bl SetLocalFlag
@@ -33,7 +41,11 @@ _08063896:
 .ifdef EU
 	movs r0, #0xce
 .else
+.ifdef DEMO_JP
+	movs r0, #0xce @ TODO deduplicate
+.else
 	movs r0, #0xd1
+.endif
 .endif
 .endif
 	bl CheckLocalFlag
@@ -62,7 +74,11 @@ _080638B2:
 .ifdef EU
 	movs r0, #0xce
 .else
+.ifdef DEMO_JP
+	movs r0, #0xce @ TODO deduplicate
+.else
 	movs r0, #0xd1
+.endif
 .endif
 .endif
 	bl SetLocalFlag

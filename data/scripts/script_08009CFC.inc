@@ -1,8 +1,8 @@
 SCRIPT_START script_08009CFC
-	BeginBlock 
-	_0807E8E4_1 
+	BeginBlock
+	_0807E8E4_1
 	SetEntitySpeed 0x00c0
-	EndBlock 
+	EndBlock
 	_0807E5F8 0x00000004
 	DoPostScriptAction 0x0004
 	Wait 0x003c
@@ -10,7 +10,7 @@ SCRIPT_START script_08009CFC
 	_0807EDD4 0x0060, 0x0068
 	_0807E5F8 0x00000004
 	DoPostScriptAction 0x0000
-	_0807E8E4_0 
+	_0807E8E4_0
 	Wait 0x000f
 	PlaySound SFX_VO_ZELDA1
 	DoPostScriptAction 0x0000
@@ -18,7 +18,7 @@ SCRIPT_START script_08009CFC
 	_0807E5F8 0x00000008
 	WaitForSomething2 0x00000002
 	_0807EDD4 0x0070, 0x005c
-	_0807E8E4_1 
+	_0807E8E4_1
 	DoPostScriptAction 0x0000
 	Wait 0x000f
 	_0807E5F8 0x00000008

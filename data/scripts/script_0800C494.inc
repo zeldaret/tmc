@@ -1,8 +1,8 @@
 SCRIPT_START script_0800C494
-	BeginBlock 
+	BeginBlock
 	SetEntitySpeed 0x0120
 	_0807E930 0x0004
-	EndBlock 
+	EndBlock
 	Wait 0x000a
 	DoPostScriptAction 0x0007
 	PlaySound SFX_136

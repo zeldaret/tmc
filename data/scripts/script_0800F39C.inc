@@ -1,12 +1,12 @@
 SCRIPT_START script_0800F39C
-	BeginBlock 
-	_0807E9D4 
+	BeginBlock
+	_0807E9D4
 	_0807EB44 0x0002
 	DoPostScriptAction 0x0001
 	DoPostScriptAction 0x0008
 	SetEntitySpeed 0x0080
 	DoPostScriptAction 0x000b
-	EndBlock 
+	EndBlock
 	Call sub_0807F348
 	WaitForSomething2 0x00000004
 	DoPostScriptAction 0x0007
@@ -18,9 +18,9 @@ SCRIPT_START script_0800F39C
 	DoPostScriptAction 0x000a
 	_0807E5F8 0x00000080
 script_0800F3EA:
-	EndBlock 
-	BeginBlock 
-	CheckEntityInteractType 
+	EndBlock
+	BeginBlock
+	CheckEntityInteractType
 	JumpIfNot script_0800F402
 	EndBlock 
 	_0807E864 
@@ -31,7 +31,7 @@ script_0800F3EA:
 script_0800F402:
 	TestBit 0x00000004
 	JumpIfNot script_0800F3EA
-	EndBlock 
+	EndBlock
 	DoPostScriptAction 0x000b
 	Wait 0x0010
 	SetEntitySpeed 0x0100

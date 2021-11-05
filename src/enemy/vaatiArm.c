@@ -546,7 +546,7 @@ void sub_08042C34(Entity* this) {
         if ((gRoomControls.roomOriginY + 0x20) > y) {
             y = gRoomControls.roomOriginY + 0x20;
         }
-#if defined EU || defined JP
+#if defined EU || defined JP || defined DEMO_JP
         if (gRoomControls.roomOriginY + gRoomControls.height + -0x20 < y) {
             y = gRoomControls.roomOriginY + gRoomControls.height + -0x20;
         }

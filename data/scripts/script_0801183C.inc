@@ -1,7 +1,7 @@
 SCRIPT_START script_0801183C
-	BeginBlock 
+	BeginBlock
 	Call sub_08095330
-	EndBlock 
+	EndBlock
 	WaitForSomething2 0x00800000
 	_0807EF3C 0x0000, 0x0020
 	_0807E5F8 0x01000000

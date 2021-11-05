@@ -1,6 +1,6 @@
 SCRIPT_START script_08016384
-	BeginBlock 
-	EndBlock 
+	BeginBlock
+	EndBlock
 	Jump script_08016384
 	JumpIf script_08016384
 	JumpIfNot script_08016384
@@ -15,7 +15,7 @@ SCRIPT_START script_08016384
 	TestBit 0x00000001
 	CheckInventory1 0x0001
 	CheckInventory2 0x0001
-	HasRoomItemForSale 
+	HasRoomItemForSale
 	CheckLocalFlag 0x0067
 .ifdef JP
 	CheckLocalFlagByOffset 0x0100, 0x0069
@@ -23,17 +23,21 @@ SCRIPT_START script_08016384
 .ifdef EU
 	CheckLocalFlagByOffset 0x0100, 0x0069
 .else
+.ifdef DEMO_JP
+	CheckLocalFlagByOffset 0x0100, 0x0069 @ TODO deduplicate
+.else
 	CheckLocalFlagByOffset 0x0100, 0x006b
+.endif
 .endif
 .endif
 	CheckGlobalFlag 0x0013
 	CheckRoomFlag 0x0000
 	CheckPlayerInRegion 0x0000, 0x0000, 0x0000
 	CheckPlayerInRegion2 0x0000
-	CheckEntityInteractType 
-	_0807E30C 
+	CheckEntityInteractType
+	_0807E30C
 	HasRupees 0x00c8
-	_0807E3E8 
+	_0807E3E8
 	CheckKinstoneFused 0x0001
 	BuyItem 0x006c, 0x0000
 	_0807E48C 0x0020
@@ -41,8 +45,8 @@ SCRIPT_START script_08016384
 	_0807E4EC 0x00000000
 	_0807E514 0x00000000
 	CheckPlayerFlags 0x00000080
-	_0807E564 
-	EntityHasHeight 
+	_0807E564
+	EntityHasHeight
 	ComparePlayerAction 0x0001
 	ComparePlayerAnimationState 0x0004
 	_0807E5F8 0x00000001
@@ -57,9 +61,9 @@ SCRIPT_START script_08016384
 	Wait 0x001e
 	WaitForSomething 0x00000001
 	WaitForSomething2 0x00000002
-	WaitPlayerAction8 
-	WaitForPlayerAction0x17 
-	WaitFor_1 
-	WaitFor_2 
+	WaitPlayerAction8
+	WaitForPlayerAction0x17
+	WaitFor_1
+	WaitFor_2
 	_0807E778 0x0004
 	SetFadeMask 0x0000ffff

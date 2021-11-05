@@ -38,7 +38,7 @@ void sub_0805DE68(Manager* this) {
     gScreenTransition.field_0x39 = 0x0f;
     *(u8*)&gScreenTransition.field_0x3a = 0x20;
     *((u8*)&gScreenTransition.field_0x3a + 1) = 0x20;
-#if !defined(EU) && !defined(JP) && !defined(DEMO_JP)
+#if !defined(EU) && !defined(JP)
     gSave.unk498 = 0x1194;
 #endif
 }

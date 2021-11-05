@@ -1,11 +1,11 @@
 SCRIPT_START script_0800B5EC
-	BeginBlock 
+	BeginBlock
 	DoPostScriptAction 0x000a
 	DoPostScriptAction 0x0001
-	_0807E9D4 
-	EndBlock 
+	_0807E9D4
+	EndBlock
 script_0800B5FA:
-	CheckEntityInteractType 
+	CheckEntityInteractType
 	JumpIfNot script_0800B5FA
 	_0807E864 
 	_0807EB74 
@@ -15,13 +15,13 @@ script_0800B5FA:
 	_0807EB44 0x0004
 	Jump script_0800B5FA
 SCRIPT_START script_0800B614
-	BeginBlock 
-	EndBlock 
+	BeginBlock
+	EndBlock
 script_0800B618:
 	CheckPlayerInRegion 0x0078, 0x00b8, 0x1060
 	JumpIfNot script_0800B618
 	Call sub_08079184
-	_0807E864 
+	_0807E864
 	Call sub_0807F9A4
 	StartPlayerScript script_0800B7C4
 	WaitForSomething2 0x00000004
@@ -45,24 +45,24 @@ script_0800B684:
 	_0807EA94 
 	Jump script_0800B6A6
 script_0800B68E:
-	_0807EA94 
+	_0807EA94
 	SetLocalFlag 0x009e
 	_0807F034 0x0066
 script_0800B698:
-	WaitPlayerAction8 
-	_0807EB8C 
+	WaitPlayerAction8
+	_0807EB8C
 	Wait 0x001e
 	MessageNoOverlap 0x057f
 	_0807EA94 
 script_0800B6A6:
 	_0807E778 0x0004
-	DoFade7 
-	WaitFor_2 
+	DoFade7
+	WaitFor_2
 	Call sub_080873FC
-	DoFade6 
-	WaitFor_2 
-	CameraTargetPlayer 
+	DoFade6
+	WaitFor_2
+	CameraTargetPlayer
 	Wait 0x001e
 	Call sub_0807DF50
-	_0807E878 
+	_0807E878
 SCRIPT_END

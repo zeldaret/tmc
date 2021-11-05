@@ -27,7 +27,11 @@
 .ifdef EU
 	bl CreateItemEntity
 .else
+.ifdef DEMO_JP
+	bl CreateItemEntity @ TODO deduplicate
+.else
 	bl sub_080A7C18
+.endif
 .endif
 .endif
 	ldr r0, _0801BB8C @ =0x00000109

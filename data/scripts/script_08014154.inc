@@ -1,9 +1,9 @@
 SCRIPT_START script_08014154
-	BeginBlock 
+	BeginBlock
 	DoPostScriptAction 0x0007
 	_0807E930 0x0006
 	SetEntityPosition 0x0000, 0xfff0
-	EndBlock 
+	EndBlock
 	WaitForSomething2 0x00000800
 	_0807E930 0x000a
 	Call sub_0807F2D4
