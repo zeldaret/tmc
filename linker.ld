@@ -1715,7 +1715,9 @@ data/const/object/object1D.o(.rodata);
         data/animations/projectile/gyorgMaleEnergyProjectile.o(.rodata);
         src/projectile/v3TennisBallProjectile.o(.rodata);
         data/const/playerItem/playerItem10.o(.rodata);
-        data/data_0812AA88.o(.rodata);
+        src/playerItem/playerItem10.o(.rodata);
+        /*data/data_0812AA88.o(.rodata);*/
+        src/flagDebug.o(.rodata);
         data/const/playerItem/playerItem13.o(.rodata);
         src/intro.o(.rodata);
         data/data_081320FC.o(.rodata);

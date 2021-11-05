@@ -4,41 +4,7 @@
 	.section .rodata
     .align 2
 
-gUnk_0812AA88:: @ 0812AA88
-	.incbin "baserom.gba", 0x12AA88, 0x0000009
-
-gUnk_0812AA91:: @ 0812AA91
-	.incbin "baserom.gba", 0x12AA91, 0x0000009
-
-gUnk_0812AA9A:: @ 0812AA9A
-	.incbin "baserom.gba", 0x12AA9A, 0x0000012
-
-gUnk_0812AAAC:: @ 0812AAAC
-	.4byte gUnk_0812AA88
-	.4byte gUnk_0812AA91
-	.4byte gUnk_0812AA91
-	.4byte gUnk_0812AA9A
-
-gUnk_0812AABC:: @ 0812AABC
-	.incbin "baserom.gba", 0x12AABC, 0x0000004
-
-gUnk_0812AAC0:: @ 0812AAC0
-	.incbin "baserom.gba", 0x12AAC0, 0x0000008
-
-gUnk_0812AAC8:: @ 0812AAC8
-	.incbin "baserom.gba", 0x12AAC8, 0x0000008
-
-gUnk_0812AAD0:: @ 0812AAD0
-	.incbin "baserom.gba", 0x12AAD0, 0x0000008
-
-gUnk_0812AAD8:: @ 0812AAD8
-	.4byte gUnk_0812AAC0
-	.4byte gUnk_0812AAC8
-	.4byte gUnk_0812AAC8
-	.4byte gUnk_0812AAD0
-
-gUnk_0812AAE8:: @ 0812AAE8
-	.4byte 0x10100c00
+xxx::
 	.4byte gUnk_0812B204
 	.4byte gUnk_0812B1F8
 	.4byte gUnk_0812B1EC
