@@ -26,8 +26,8 @@ extern Message gMessage;
 
 typedef struct {
     u8 flags;
-    u8 code; // first byte read
-    u16 param; // second byte read
+    u8 code;      // first byte read
+    u16 param;    // second byte read
     u16 extended; // ascii adjusted for jp chars
     u16 _6;
     u16 textIndex;
@@ -83,7 +83,7 @@ void MessageInitialize(void);
 
 /**
  * @brief Update the message system.
- * 
+ *
  */
 void MessageMain(void);
 
