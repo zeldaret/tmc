@@ -131,7 +131,7 @@ const char* const localFlags1Names[] = {
     "MIZUUMI_00_H00",
     "MIZUUMI_00_H01",
     "MIZUUMI_00_H02",
-#ifdef USA
+#if !defined(EU) && !defined(JP) && !defined(DEMO_JP)
     "MIZUUMI_00_CAP_0",
 #else
     "HIKYOU_00_T0",
@@ -157,13 +157,13 @@ const char* const localFlags1Names[] = {
     "HIKYOU_00_SEKIZOU",
     "HIKYOU_00_14",
     "HIKYOU_00_BOSEKI",
-#ifndef USA
+#if defined(EU) || defined(JP) || defined(DEMO_JP)
     "HIKYOU_00_H00",
 #endif
     "HIKYOU_00_M0",
     "HIKYOU_00_M1",
     "HIKYOU_00_M2",
-#ifdef USA
+#if !defined(EU) && !defined(JP) && !defined(DEMO_JP)
     "HIKYOU_00_T1",
 #endif
     "LOST_00_ENTER",
@@ -180,7 +180,7 @@ const char* const localFlags1Names[] = {
     "LOST_04_SIBA4",
     "LOST_05_00",
     "LOST_05_01",
-#ifdef USA
+#if !defined(JP) && !defined(EU) && !defined(DEMO_JP)
     "LOST_05_02",
     "LOST_05_03",
 #endif
@@ -206,7 +206,7 @@ const char* const localFlags1Names[] = {
     "YAMA_03_DOKU_1",
     "YAMA_03_DOKU_2",
     "YAMA_04_CAP_0",
-#ifdef USA
+#if !defined(JP) && !defined(EU) && !defined(DEMO_JP)
     "YAMA_04_CAP_1",
 #endif
     "YAMA_04_R00",
@@ -281,7 +281,7 @@ const char* const localFlags1Names[] = {
     "SOUGEN_07_00",
     "SOUGEN_07_01",
     "SOUGEN_07_02",
-#ifndef USA
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
     "SOUGEN_07_H00",
 #endif
     "SOUGEN_08_00",
@@ -307,7 +307,7 @@ const char* const localFlags1Names[] = {
     "SUIGEN_00_CAP_1",
     "SUIGEN_00_R0",
     "SUIGEN_00_R1",
-#ifdef USA
+#if !defined(JP) && !defined(EU) && !defined(DEMO_JP)
     "SUIGEN_00_R2",
 #endif
     "SUIGEN_00_h1",
@@ -321,7 +321,7 @@ const char* const localFlags1Names[] = {
     "BEANDEMO_04",
     "KAKERA_TAKARA_A",
     "KAKERA_TAKARA_E",
-#ifdef USA
+#if !defined(JP) && !defined(EU) && !defined(DEMO_JP)
     "KAKERA_TAKARA_J",
 #endif
     "KAKERA_TAKARA_K",
@@ -390,7 +390,7 @@ const char* const localFlags1Names[] = {
     "KUMOUE_02_03",
     "KUMOUE_UNCLE_TALK",
     "KUMOUE_GIRL_TALK",
-#ifdef USA
+#if !defined(JP) && !defined(EU) && !defined(DEMO_JP)
     "KS_A06",
     "KS_B18",
     "KS_C21",
@@ -404,7 +404,7 @@ const char* const localFlags1Names[] = {
     "KAKERA_TAKARA_J",
 #endif
 #ifdef DEMO_JP
-    "ENUM_12AED0_KS_WARPUSE",
+    "KS_WARPUSE",
 #endif
     "END",
 };
@@ -618,13 +618,17 @@ const char* const localFlags2Names[] = {
 #ifndef EU
     "SHOP00_BOMBBAG",
     "CAFE_01_CAP_1",
-#ifdef USA
+#endif
+#if !defined(EU) && !defined(JP) && !defined(DEMO_JP)
     "KS_A02",
     "KS_A09",
     "KS_A18",
     "KS_B07",
     "KS_B16",
 #endif
+#ifdef DEMO_JP
+    "MH01_KS_KUSURI",
+    "MH09_KS_KUSURI",
 #endif
     "END",
 };
@@ -832,7 +836,7 @@ const char* const localFlags3Names[] = {
 #ifndef EU
     "MACHI_CHIKA2_10_CAP_0",
 #endif
-#ifdef USA
+#if !defined(EU) && !defined(JP) && !defined(DEMO_JP)
     "KS_C02",
 #endif
     "END",
@@ -974,7 +978,7 @@ const char* const localFlags4Names[] = {
     "KOBITO_DOUKUTU_02_H00",
     "KOBITO_DOUKUTU_01_T0",
     "YAMADOUKUTU_04_CAP_0",
-#ifdef USA
+#if !defined(EU) && !defined(JP) && !defined(DEMO_JP)
     "KS_B06",
     "KS_B15",
     "KS_B01",
@@ -999,7 +1003,7 @@ const char* const localFlags5Names[] = {
     "LV1_14_CAP_0",  "LV1_16_UTSUWA", "LV1_16_1STEND", "LV1_17_00",    "LV1_17_T0",    "LV1_02_00",   "LV1_02_01",
     "LV1_10_04",     "LV1_20_CAP_0 ", "LV1_01_HK ",    "LV1_04_CAP_0", "LV1_03_00",    "LV1_05_HK ",  "LV1_08_01",
     "LV1_01_05",     "LV1_10_CAP_0 ",
-#ifdef USA
+#if !defined(EU) && !defined(JP)
     "LV1_12_CAP_0 ",
 #endif
     "END",
