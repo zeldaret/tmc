@@ -33,9 +33,9 @@ void sub_08037F00(Entity* this) {
         this->field_0xf = 0;
         this->field_0x80.HALF.LO = 0;
         if (this->height.HALF.HI != 0) {
-            this->field_0x20 >>= 2;
+            this->hVelocity >>= 2;
         } else {
-            this->field_0x20 = 0;
+            this->hVelocity = 0;
         }
 
         InitializeAnimation(this, 0);
@@ -86,7 +86,7 @@ void sub_08037Fe0(Entity* this) {
             this->action = 2;
             this->actionDelay = 6;
             this->field_0xf = 0;
-            this->field_0x20 = 0x38000;
+            this->hVelocity = 0x38000;
             sub_08038168(this);
             InitializeAnimation(this, 2);
         }
@@ -142,7 +142,7 @@ void sub_08038110(Entity* this) {
         if (this->field_0x80.HALF.LO < 5) {
             this->action = 2;
             this->actionDelay = 8;
-            this->field_0x20 = 0x38000;
+            this->hVelocity = 0x38000;
             sub_08038168(this);
             InitializeAnimation(this, 2);
         } else {

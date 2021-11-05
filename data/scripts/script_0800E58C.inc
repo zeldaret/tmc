@@ -9,7 +9,7 @@ SCRIPT_START script_0800E58C
 	Wait 0x003c
 	PlaySound SFX_9B
 	Wait 0x001e
-	TextboxNoOverlap 0x1625
+	MessageNoOverlap 0x1625
 	_0807EA94 
 	Wait 0x003c
 	Call sub_08053C84

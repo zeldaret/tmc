@@ -62,7 +62,7 @@ script_0800D31E:
 	_0807EB74 
 	SetIntVariable 0x00000000
 	Call sub_0806C028
-	TextboxNoOverlapFollow 0x1219
+	MessageFromTarget 0x1219
 	_0807EA94 
 	Wait 0x000f
 	_0807E878 

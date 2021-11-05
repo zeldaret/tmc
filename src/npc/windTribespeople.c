@@ -69,7 +69,7 @@ void sub_0806C7D4(Entity* this) {
 }
 
 void sub_0806C834(Entity* this) {
-    if ((gTextBox.doTextBox & 0x7f) == 0) {
+    if ((gMessage.doTextBox & 0x7f) == 0) {
         --this->action;
         InitializeAnimation(this, (this->animationState / 2) + 4);
     }
@@ -140,7 +140,7 @@ void sub_0806C944(Entity* this) {
             iVar2 = 1;
         }
     }
-    TextboxNoOverlap(gUnk_08113B0C[iVar2], this);
+    MessageNoOverlap(gUnk_08113B0C[iVar2], this);
 }
 
 void sub_0806C978(Entity* this) {
@@ -148,7 +148,7 @@ void sub_0806C978(Entity* this) {
     u32 flagAsBool;
     flag = CheckGlobalFlag(0x58);
     flagAsBool = BOOLCAST(flag);
-    TextboxNoOverlap(gUnk_08113B12[flagAsBool], this);
+    MessageNoOverlap(gUnk_08113B12[flagAsBool], this);
 }
 
 void sub_0806C99C(Entity* this) {
@@ -160,7 +160,7 @@ void sub_0806C99C(Entity* this) {
     if (CheckLocalFlag(99) != 0) {
         flagAsBool += 1;
     }
-    TextboxNoOverlap(gUnk_08113B16[flagAsBool], this);
+    MessageNoOverlap(gUnk_08113B16[flagAsBool], this);
 }
 
 void sub_0806C9D0(Entity* this) {
@@ -168,7 +168,7 @@ void sub_0806C9D0(Entity* this) {
     if (CheckLocalFlag(100) == 0) {
         tmp = 1;
     }
-    TextboxNoOverlap(gUnk_08113B1E[tmp], this);
+    MessageNoOverlap(gUnk_08113B1E[tmp], this);
 }
 
 void sub_0806C9F8(Entity* this) {
@@ -176,15 +176,15 @@ void sub_0806C9F8(Entity* this) {
     u32 flagAsBool;
     flag = CheckGlobalFlag(0x58);
     flagAsBool = BOOLCAST(flag);
-    TextboxNoOverlap(gUnk_08113B22[flagAsBool], this);
+    MessageNoOverlap(gUnk_08113B22[flagAsBool], this);
 }
 
 void sub_0806CA1C(Entity* this) {
-    TextboxNoOverlap(0x251b, this);
+    MessageNoOverlap(0x251b, this);
 }
 
 void sub_0806CA2C(Entity* this) {
-    TextboxNoOverlap(0x2527, this);
+    MessageNoOverlap(0x2527, this);
 }
 
 void sub_0806CA3C(Entity* this) {

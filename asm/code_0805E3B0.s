@@ -35,7 +35,7 @@ _0805E3DC: .4byte gUnk_03003DC0
 _0805E3E0:
 	ldrb r2, [r1, #1]
 _0805E3E2:
-	ldr r0, _0805E408 @ =gTextBox
+	ldr r0, _0805E408 @ =gMessage
 	ldrb r1, [r0]
 	movs r0, #0x7f
 	ands r0, r1
@@ -57,7 +57,7 @@ _0805E402:
 _0805E404:
 	pop {pc}
 	.align 2, 0
-_0805E408: .4byte gTextBox
+_0805E408: .4byte gMessage
 
 	thumb_func_start sub_0805E40C
 sub_0805E40C: @ 0x0805E40C

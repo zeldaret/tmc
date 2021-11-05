@@ -91,7 +91,7 @@ void sub_08066118(Entity* this) {
     }
     if (this->interactType != 0) {
         this->action = 2;
-        TextboxNoOverlapFollow(0);
+        MessageFromTarget(0);
     }
 }
 

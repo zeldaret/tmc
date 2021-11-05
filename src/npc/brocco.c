@@ -34,7 +34,7 @@ void sub_0806355C(Entity* this) {
 ASM_FUNC("asm/non_matching/brocco/sub_08063584.inc", void sub_08063584(Entity* this))
 
 void sub_08063608(Entity* this) {
-    u8 tmp = gTextBox.doTextBox & 0x7f;
+    u8 tmp = gMessage.doTextBox & 0x7f;
     if (tmp == 0) {
         this->action = 1;
         this->field_0xf = tmp;

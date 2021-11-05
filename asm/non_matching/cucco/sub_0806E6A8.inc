@@ -17,7 +17,7 @@ _0806E6C2:
 	adds r1, r1, r0
 	ldrh r0, [r1]
 	adds r1, r4, #0
-	bl TextboxNoOverlap
+	bl MessageNoOverlap
 	pop {r4, r5, pc}
 	.align 2, 0
 _0806E6D4: .4byte gSave

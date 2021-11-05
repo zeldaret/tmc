@@ -70,7 +70,7 @@ void sub_08062130(Entity* this) {
 }
 
 void sub_08062194(Entity* this) {
-    TextboxNoOverlapFollow(0);
+    MessageFromTarget(0);
     this->action = 1;
     this->interactType = 0;
 }
@@ -132,7 +132,7 @@ NONMATCH("asm/non_matching/kid/sub_080621AC.inc", void sub_080621AC(Entity* this
             break;
         case 2:
             GetNextFrame(this);
-            if ((gTextBox.doTextBox & 0x7f) == 0) {
+            if ((gMessage.doTextBox & 0x7f) == 0) {
                 this->action = 1;
             }
             break;
@@ -203,13 +203,13 @@ END_NONMATCH
 NONMATCH("asm/non_matching/kid/sub_08062634.inc", void sub_08062634(Entity* this)) {
     u32 a = this->type2;
     u32 b = (Random() & 1);
-    TextboxNoOverlap(*((u16*)gUnk_0810BDE8 + b + a * 2), this);
+    MessageNoOverlap(*((u16*)gUnk_0810BDE8 + b + a * 2), this);
 }
 END_NONMATCH
 
 NONMATCH("asm/non_matching/kid/sub_0806265C.inc", void sub_0806265C(Entity* this, ScriptExecutionContext* context)) {
     if (gSave.unk8 == 0) {
-        TextboxNoOverlap(0, this);
+        MessageNoOverlap(0, this);
     } else {
         ShowNPCDialogue(this, &gUnk_0810BE10[this->type * 9 + gSave.unk8]);
     }

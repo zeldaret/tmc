@@ -28,7 +28,7 @@ _08065DA8:
 	adds r0, #1
 	strb r0, [r1, #0xc]
 	movs r0, #0
-	bl TextboxNoOverlapFollow
+	bl MessageFromTarget
 _08065DB4:
 	pop {pc}
 	.align 2, 0

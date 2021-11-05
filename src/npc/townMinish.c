@@ -122,7 +122,7 @@ void sub_0806ACC4(Entity* this) {
             }
             break;
         case 2:
-            if (gTextBox.doTextBox & 0x7f)
+            if (gMessage.doTextBox & 0x7f)
                 break;
 
             this->action = 1;
@@ -223,12 +223,12 @@ void sub_0806AF60(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_0806AF70(Entity* this, ScriptExecutionContext* context) {
-    this->field_0x20 = 0x24000;
+    this->hVelocity = 0x24000;
 }
 
 void sub_0806AF78(Entity* this, ScriptExecutionContext* context) {
     sub_08003FC4(this, 0x1800);
-    if (0 <= this->height.WORD && this->field_0x20 < 1) {
+    if (0 <= this->height.WORD && this->hVelocity < 1) {
         this->height.WORD = 0;
         sub_0806AF70(this, context);
     }
@@ -273,7 +273,7 @@ void sub_0806B004(Entity* this, ScriptExecutionContext* context) {
             SetLocalFlag(0x6a);
         }
     }
-    TextboxNoOverlap(gUnk_08112C40[idx], this);
+    MessageNoOverlap(gUnk_08112C40[idx], this);
 }
 
 void sub_0806B064(Entity* this) {
@@ -285,7 +285,7 @@ void sub_0806B064(Entity* this) {
             idx = 2;
         }
     }
-    TextboxNoOverlap(gUnk_08112C4A[idx], this);
+    MessageNoOverlap(gUnk_08112C4A[idx], this);
 }
 
 void sub_0806B098(Entity* this) {
@@ -299,7 +299,7 @@ void sub_0806B098(Entity* this) {
             idx = BOOLCAST(f);
         }
     }
-    TextboxNoOverlap(gUnk_08112C50[(this->type2 - 7) * 3 + idx], this);
+    MessageNoOverlap(gUnk_08112C50[(this->type2 - 7) * 3 + idx], this);
 }
 
 void sub_0806B0E0(Entity* this) {
@@ -310,7 +310,7 @@ void sub_0806B0E0(Entity* this) {
         idx = 1;
     }
 
-    TextboxNoOverlap(gUnk_08112C5C[idx], this);
+    MessageNoOverlap(gUnk_08112C5C[idx], this);
 }
 
 void sub_0806B134(Entity* this) {
@@ -329,7 +329,7 @@ void sub_0806B134(Entity* this) {
     if (5 < gSave.unk8) {
         idx = 3;
     }
-    TextboxNoOverlap(gUnk_08112C60[idx], this);
+    MessageNoOverlap(gUnk_08112C60[idx], this);
 }
 
 void TownMinish_Fusion(Entity* this) {

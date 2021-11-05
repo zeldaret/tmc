@@ -255,7 +255,7 @@ u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
                     } else if (arg0->id == 0x1e) {
                         itemEntity->direction = arg0->animationState << 3 | 0x80;
                         itemEntity->speed = 0xc0;
-                        itemEntity->field_0x20 = 0x18000;
+                        itementity->hVelocity = 0x18000;
                     }
                 }
                 CopyPosition(arg0, itemEntity);

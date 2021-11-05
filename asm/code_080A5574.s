@@ -4056,7 +4056,7 @@ _080A6D38:
 	strb r0, [r2]
 	bl sub_080A7114
 	ldr r0, _080A6D48 @ =0x00000704
-	bl TextboxNoOverlapFollow
+	bl MessageFromTarget
 	b _080A6D54
 	.align 2, 0
 _080A6D48: .4byte 0x00000704

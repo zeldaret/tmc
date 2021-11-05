@@ -32,7 +32,7 @@ void Rollobite_OnTick(Entity* this) {
 void sub_08020668(Entity* this) {
     if (this->damageType == 34 && this->currentHealth != 0xff) {
         this->action = 4;
-        this->field_0x20 = 0x20000;
+        this->hVelocity = 0x20000;
         this->direction = 0xff;
         this->currentHealth = 0xff;
         this->damageType = 35;
@@ -102,7 +102,7 @@ void sub_080207A8(Entity* this) {
     this->spritePriority.b0 = 4;
     this->field_0x3a &= 0xfb;
     this->direction ^= 0x10;
-    this->field_0x20 = 0x18000;
+    this->hVelocity = 0x18000;
     this->speed = 0x80;
     InitializeAnimation(this, this->animationState + 0x10);
 }
@@ -262,7 +262,7 @@ bool32 Rollobite_TryToHoleUp(Entity* this) {
             this->x.HALF.HI += 8;
             this->y.HALF.HI &= 0xfff0;
             this->y.HALF.HI += 13;
-            this->field_0x20 = 0x20000;
+            this->hVelocity = 0x20000;
             InitializeAnimation(this, this->animationState + 0x14);
             SetTile(0x4034, tile, this->collisionLayer);
             return TRUE;

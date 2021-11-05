@@ -94,7 +94,7 @@ static void HandleNintendoCapcomLogos(void) {
         gIntroState.timer = 120;
         LoadGfxGroup(16);
         LoadGfxGroup(1);
-        if (gUnk_02000000->gameLanguage == 0) {
+        if (gSaveHeader->gameLanguage == 0) {
             paletteGroup = 1;
         } else {
             paletteGroup = 2;
@@ -148,13 +148,13 @@ static void HandleTitlescreen(void) {
             sub_080ADD30();
             gUnk_02024490.unk0 = 1;
             LoadGfxGroup(2);
-            if (gUnk_02000000->gameLanguage == 0) {
+            if (gSaveHeader->gameLanguage == 0) {
                 paletteGroup = 3;
             } else {
                 paletteGroup = 4;
             }
             LoadPaletteGroup(paletteGroup);
-            if (gUnk_02000000->gameLanguage == 0) {
+            if (gSaveHeader->gameLanguage == 0) {
                 // Blend first and second layer
                 gScreen.controls.layerFXControl = BLDCNT_TGT1_BG2 | BLDCNT_TGT2_BG3 | BLDCNT_EFFECT_BLEND;
                 gScreen.controls.alphaBlend = BLDALPHA_BLEND(9, 9);
@@ -183,7 +183,7 @@ static void HandleTitlescreen(void) {
             if (gFadeControl.active) {
                 return;
             }
-            if (gUnk_02000000->gameLanguage == 0) {
+            if (gSaveHeader->gameLanguage == 0) {
                 HandleJapaneseTitlescreenAnimationIntro();
             } else {
                 HandleTitlescreenAnimationIntro();
@@ -240,8 +240,8 @@ static void HandleTitlescreen(void) {
 #endif
             }
     }
-    if (gIntroState.gameLanguage != gUnk_02000000->gameLanguage) {
-        gIntroState.gameLanguage = gUnk_02000000->gameLanguage;
+    if (gIntroState.gameLanguage != gSaveHeader->gameLanguage) {
+        gIntroState.gameLanguage = gSaveHeader->gameLanguage;
         LoadGfxGroup(3);
     }
     UpdateLightRays();

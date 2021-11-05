@@ -77,7 +77,7 @@ void sub_080672C8(Entity* this) {
         tmp = CheckGlobalFlag(TABIDACHI);
         dialog = BOOLCAST(tmp);
     }
-    TextboxNoOverlap(gUnk_08110CE8[(dialog * 2 + this->type * 6) / 2], this);
+    MessageNoOverlap(gUnk_08110CE8[(dialog * 2 + this->type * 6) / 2], this);
 }
 
 void sub_08067304(Entity* this) {

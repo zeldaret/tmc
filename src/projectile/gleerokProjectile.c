@@ -36,7 +36,7 @@ void GleerokProjectile_Init(Entity* this) {
     s32 iVar2;
 
     this->action = 1;
-    this->field_0x20 = -0x10000;
+    this->hVelocity = -0x10000;
     if (this->type != 3) {
         CopyPosition(this->parent, this);
         sub_0806F5BC(this, 0x1000, this->direction);
@@ -63,11 +63,11 @@ void GleerokProjectile_Init(Entity* this) {
             } else if (0x400 < iVar2) {
                 iVar2 = 0x400;
             }
-            this->field_0x20 = this->height.WORD / (iVar2 << 8) << 0xd;
+            this->hVelocity = this->height.WORD / (iVar2 << 8) << 0xd;
             this->field_0xf = 0x1e;
             break;
         case 2:
-            this->field_0x20 = (this->height.WORD / 0x18000) << 0xc;
+            this->hVelocity = (this->height.WORD / 0x18000) << 0xc;
             break;
         case 3:
             this->height.WORD = 0xff600000;

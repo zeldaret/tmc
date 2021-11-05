@@ -104,7 +104,7 @@ _0806BAF8:
 _0806BB06:
 	mov r0, r8
 	mov r1, sb
-	bl TextboxNoOverlap
+	bl MessageNoOverlap
 	pop {r3, r4}
 	mov r8, r3
 	mov sb, r4

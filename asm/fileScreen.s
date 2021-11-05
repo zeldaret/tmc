@@ -397,7 +397,7 @@ sub_08051BD0: @ 0x08051BD0
 	ldrb r0, [r0, #4]
 	cmp r0, #2
 	bne _08051C9C
-	ldr r0, _08051C60 @ =gTextBox
+	ldr r0, _08051C60 @ =gMessage
 	ldrb r1, [r0]
 	movs r0, #0x7f
 	ands r0, r1
@@ -437,7 +437,7 @@ _08051C06:
 	b _08051C9C
 	.align 2, 0
 _08051C5C: .4byte gMain
-_08051C60: .4byte gTextBox
+_08051C60: .4byte gMessage
 _08051C64: .4byte gUnk_03003DC0
 _08051C68: .4byte gRoomControls
 _08051C6C:

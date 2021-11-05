@@ -9,7 +9,7 @@
 	bne _08062678
 	movs r0, #0
 	adds r1, r2, #0
-	bl TextboxNoOverlap
+	bl MessageNoOverlap
 	b _08062690
 	.align 2, 0
 _08062674: .4byte gSave

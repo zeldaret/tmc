@@ -23,7 +23,7 @@ Object9: @ 0x0808386C
 	bgt _08083894
 	cmp r0, #0
 	blt _08083894
-	ldr r0, _080838D0 @ =gTextBox
+	ldr r0, _080838D0 @ =gMessage
 	ldrb r1, [r0]
 	movs r0, #0x7f
 	ands r0, r1
@@ -59,7 +59,7 @@ _080838B6:
 	.align 2, 0
 _080838C8: .4byte gPlayerState
 _080838CC: .4byte gUnk_02022740
-_080838D0: .4byte gTextBox
+_080838D0: .4byte gMessage
 _080838D4: .4byte gUnk_03003DF0
 _080838D8: .4byte gUnk_0811F754
 

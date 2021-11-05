@@ -29,7 +29,7 @@ script_080142C4:
 	Wait 0x000a
 	_0807E930 0x0002
 	Wait 0x001e
-	TextboxNoOverlap 0x2c12
+	MessageNoOverlap 0x2c12
 	_0807EA94 
 	Wait 0x0014
 	_0807E930 0x0004
@@ -53,7 +53,7 @@ script_08014330:
 	Wait 0x001e
 	_0807E930 0x0001
 	Wait 0x001e
-	TextboxNoOverlap 0x2c13
+	MessageNoOverlap 0x2c13
 	_0807EA94 
 	Wait 0x0014
 	_0807E930 0x0004

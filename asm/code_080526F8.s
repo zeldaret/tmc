@@ -658,7 +658,7 @@ _08052BEC:
 _08052BEE:
 	ldrh r0, [r3, #0x36]
 	adds r1, r2, #0
-	bl TextBoxAtYPosition
+	bl MessageAtHeight
 	pop {pc}
 
 .ifdef USA
@@ -2525,8 +2525,8 @@ sub_08053A1C: @ 0x08053A1C
 	movs r0, #8
 	strh r0, [r1, #8]
 	ldr r0, _08053A54 @ =0x00000F07
-	bl TextboxNoOverlapFollow
-	ldr r1, _08053A58 @ =gTextBox
+	bl MessageFromTarget
+	ldr r1, _08053A58 @ =gMessage
 	movs r0, #1
 	strb r0, [r1, #6]
 	strb r4, [r1, #7]
@@ -2538,12 +2538,12 @@ _08053A4E:
 	.align 2, 0
 _08053A50: .4byte gMenu
 _08053A54: .4byte 0x00000F07
-_08053A58: .4byte gTextBox
+_08053A58: .4byte gMessage
 
 	thumb_func_start sub_08053A5C
 sub_08053A5C: @ 0x08053A5C
 	push {lr}
-	ldr r0, _08053A88 @ =gTextBox
+	ldr r0, _08053A88 @ =gMessage
 	ldrb r1, [r0]
 	movs r0, #0x7f
 	ands r0, r1
@@ -2565,7 +2565,7 @@ sub_08053A5C: @ 0x08053A5C
 _08053A86:
 	pop {pc}
 	.align 2, 0
-_08053A88: .4byte gTextBox
+_08053A88: .4byte gMessage
 _08053A8C: .4byte gMenu
 
 	thumb_func_start sub_08053A90
@@ -3577,7 +3577,7 @@ sub_08054288: @ 0x08054288
 	lsls r0, r0, #3
 	adds r0, r0, r1
 	ldrh r0, [r0, #6]
-	bl TextboxNoOverlapFollow
+	bl MessageFromTarget
 	pop {pc}
 	.align 2, 0
 _08054298: .4byte gUnk_080FD5B4

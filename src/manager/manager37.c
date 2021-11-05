@@ -79,13 +79,13 @@ void sub_0805DF4C(Manager* this) {
         if (--this->unk_0e == 0) {
             this->action = 3;
             this->unk_0e = 0x1e;
-            TextboxNoOverlapFollow(0x164f);
+            MessageFromTarget(0x164f);
         }
     }
 }
 
 void sub_0805DF98(Manager* this) {
-    if ((gTextBox.doTextBox & 0x7f) == 0) {
+    if ((gMessage.doTextBox & 0x7f) == 0) {
         if (this->unk_0e != 0) {
             this->unk_0e -= 1;
         } else {

@@ -465,8 +465,8 @@ _080878EA:
 	movs r0, #3
 	bl SetRoomFlag
 	ldr r0, _08087910 @ =0x0000431A
-	bl TextboxNoOverlapFollow
-	ldr r1, _08087914 @ =gTextBox
+	bl MessageFromTarget
+	ldr r1, _08087914 @ =gMessage
 	adds r0, r4, #0
 	adds r0, #0x81
 	ldrb r0, [r0]
@@ -475,7 +475,7 @@ _0808790C:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _08087910: .4byte 0x0000431A
-_08087914: .4byte gTextBox
+_08087914: .4byte gMessage
 
 .else
 	push {r4, r5, r6, r7, lr}
@@ -599,8 +599,8 @@ _08087F24:
 	movs r0, #3
 	bl SetRoomFlag
 	ldr r0, _08087F50 @ =0x0000431A
-	bl TextboxNoOverlapFollow
-	ldr r1, _08087F54 @ =gTextBox
+	bl MessageFromTarget
+	ldr r1, _08087F54 @ =gMessage
 	movs r0, #1
 	strb r0, [r1, #6]
 	movs r0, #0xc
@@ -613,7 +613,7 @@ _08087F4E:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _08087F50: .4byte 0x0000431A
-_08087F54: .4byte gTextBox
+_08087F54: .4byte gMessage
 .endif
 
 	thumb_func_start sub_08087F58
@@ -1936,8 +1936,8 @@ _080884D0:
 	ldr r1, _080884F8 @ =0x00004327
 _080884D2:
 	adds r0, r1, #0
-	bl TextboxNoOverlapFollow
-	ldr r1, _080884FC @ =gTextBox
+	bl MessageFromTarget
+	ldr r1, _080884FC @ =gMessage
 	movs r0, #1
 	strb r0, [r1, #6]
 	movs r0, #0xc
@@ -1956,7 +1956,7 @@ _080884EA:
 	.align 2, 0
 _080884F4: .4byte 0x00004328
 _080884F8: .4byte 0x00004327
-_080884FC: .4byte gTextBox
+_080884FC: .4byte gMessage
 .ifndef EU
 _08088500: .4byte gPlayerEntity
 .endif
@@ -1984,8 +1984,8 @@ _08088524: .4byte 0x00004314
 _08088528:
 	ldr r0, _0808853C @ =0x00004311
 _0808852A:
-	bl TextboxNoOverlapFollow
-	ldr r0, _08088540 @ =gTextBox
+	bl MessageFromTarget
+	ldr r0, _08088540 @ =gMessage
 	movs r1, #1
 	strb r1, [r0, #6]
 	movs r1, #0xc
@@ -1993,7 +1993,7 @@ _0808852A:
 	pop {pc}
 	.align 2, 0
 _0808853C: .4byte 0x00004311
-_08088540: .4byte gTextBox
+_08088540: .4byte gMessage
 
 	thumb_func_start sub_08088544
 sub_08088544: @ 0x08088544
@@ -2007,8 +2007,8 @@ sub_08088544: @ 0x08088544
 	subs r1, #7
 _08088554:
 	adds r0, r1, #0
-	bl TextboxNoOverlapFollow
-	ldr r0, _08088570 @ =gTextBox
+	bl MessageFromTarget
+	ldr r0, _08088570 @ =gMessage
 	movs r1, #1
 	strb r1, [r0, #6]
 	movs r1, #0xc
@@ -2017,7 +2017,7 @@ _08088554:
 	.align 2, 0
 _08088568: .4byte gSave
 _0808856C: .4byte 0x00004315
-_08088570: .4byte gTextBox
+_08088570: .4byte gMessage
 
 	thumb_func_start sub_08088574
 sub_08088574: @ 0x08088574
@@ -2043,8 +2043,8 @@ _08088594:
 	ldr r1, _080885A8 @ =0x0000430B
 _08088596:
 	adds r0, r1, #0
-	bl TextboxNoOverlapFollow
-	ldr r0, _080885AC @ =gTextBox
+	bl MessageFromTarget
+	ldr r0, _080885AC @ =gMessage
 	movs r1, #1
 	strb r1, [r0, #6]
 	movs r1, #0xc
@@ -2052,7 +2052,7 @@ _08088596:
 	pop {pc}
 	.align 2, 0
 _080885A8: .4byte 0x0000430B
-_080885AC: .4byte gTextBox
+_080885AC: .4byte gMessage
 
 	thumb_func_start sub_080885B0
 sub_080885B0: @ 0x080885B0
@@ -2068,8 +2068,8 @@ sub_080885B0: @ 0x080885B0
 	movs r0, #5
 	bl ModRupees
 	ldr r0, _080885E0 @ =0x00004326
-	bl TextboxNoOverlapFollow
-	ldr r1, _080885E4 @ =gTextBox
+	bl MessageFromTarget
+	ldr r1, _080885E4 @ =gMessage
 	movs r0, #1
 	strb r0, [r1, #6]
 	movs r0, #0xc
@@ -2077,7 +2077,7 @@ sub_080885B0: @ 0x080885B0
 	b _0808860A
 	.align 2, 0
 _080885E0: .4byte 0x00004326
-_080885E4: .4byte gTextBox
+_080885E4: .4byte gMessage
 _080885E8:
 	ldr r1, _08088618 @ =gSave
 	adds r0, r1, #0

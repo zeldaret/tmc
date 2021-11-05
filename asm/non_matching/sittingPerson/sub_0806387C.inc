@@ -87,7 +87,7 @@ _080638E2:
 	adds r0, r0, r2
 	ldrh r0, [r0]
 	adds r1, r6, #0
-	bl TextboxNoOverlap
+	bl MessageNoOverlap
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _080638F8: .4byte gUnk_02002B0E

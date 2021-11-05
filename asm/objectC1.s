@@ -182,7 +182,7 @@ _080A269C:
 _080A26B4:
 	adds r0, r4, #0
 	bl UpdateAnimationSingleFrame
-	ldr r0, _080A2764 @ =gTextBox
+	ldr r0, _080A2764 @ =gMessage
 	ldrb r1, [r0]
 	adds r0, r7, #0
 	ands r0, r1
@@ -268,5 +268,5 @@ _080A273C:
 _080A2762:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080A2764: .4byte gTextBox
+_080A2764: .4byte gMessage
 _080A2768: .4byte gPlayerState

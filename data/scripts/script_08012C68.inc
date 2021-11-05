@@ -10,7 +10,7 @@ script_08012C7E:
 	JumpIfNot script_08012C7E
 	_0807E864 
 	_0807E8E4_0 
-	TextboxNoOverlapFollow 0x111d
+	MessageFromTarget 0x111d
 	_0807EA94 
 	SetGlobalFlag 0x0022
 	_0807E878 

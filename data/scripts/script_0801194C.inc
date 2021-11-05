@@ -24,10 +24,10 @@ script_0801197C:
 	CallWithArg sub_0807F3D8, 0x00000000
 	CheckGlobalFlag 0x0015
 	JumpIf script_080119A0
-	TextboxNoOverlapFollow 0x103d
+	MessageFromTarget 0x103d
 	Jump script_080119A4
 script_080119A0:
-	TextboxNoOverlapFollow 0x103f
+	MessageFromTarget 0x103f
 script_080119A4:
 	_0807EA94 
 	Wait 0x000f
@@ -87,7 +87,7 @@ script_08011A44:
 	_0807E864 
 	_0807EB74 
 	CallWithArg sub_0807F3D8, 0x00000000
-	TextboxNoOverlapFollow 0x1320
+	MessageFromTarget 0x1320
 	_0807EA94 
 	_0807E878 
 	Jump script_08011A44
@@ -106,7 +106,7 @@ script_08011A7C:
 	CallWithArg sub_0807F3D8, 0x00000000
 	CallWithArg sub_080644B4, 0x00000006
 	JumpIf script_08011AFA
-	TextboxNoOverlapFollow 0x1320
+	MessageFromTarget 0x1320
 	_0807EA94 
 	_0807E878 
 	Jump script_08011A7C
@@ -123,7 +123,7 @@ script_08011AC4:
 	_0807E864 
 	_0807EB74 
 	CallWithArg sub_0807F3D8, 0x00000000
-	TextboxNoOverlapFollow 0x1322
+	MessageFromTarget 0x1322
 	_0807EA94 
 	_0807E878 
 	Jump script_08011AC4
@@ -135,7 +135,7 @@ SCRIPT_START script_08011AE4
 	Call sub_0807F9A4
 	Call sub_0807DF28
 script_08011AFA:
-	TextboxNoOverlapFollowPos 0x1321, 0x0007
+	MessageFromTargetPos 0x1321, 0x0007
 	_0807EA94 
 .ifdef JP
 	SetLocalFlag 0x0011

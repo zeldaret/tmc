@@ -106,11 +106,11 @@ void ScriptCommand_0807E9F0(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807EA4C(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807EA88(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807EA94(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_TextboxNoOverlapFollow(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_TextboxNoOverlap(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_TextboxNoOverlapFollowPos(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_TextboxNoOverlapFollowTable(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_TextboxNoOverlapVar(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_MessageFromTarget(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_MessageNoOverlap(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_MessageFromTargetPos(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_MessageFromTargetTable(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_MessageNoOverlapVar(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807EB28(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807EB38(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807EB44(Entity* entity, ScriptExecutionContext* context);
@@ -159,7 +159,7 @@ void ScriptCommand_0807F0C8(Entity* entity, ScriptExecutionContext* context);
 
 extern void CreateSpeechBubbleExclamationMark(Entity*, u32, u32);
 extern void CreateSpeechBubbleQuestionMark(Entity*, u32, u32);
-extern void sub_0801C4A0(u32);
+extern void RecoverUI(u32);
 
 typedef void (*ScriptCommand)(Entity*, ScriptExecutionContext*);
 
@@ -253,11 +253,11 @@ const ScriptCommand gScriptCommands[] = { ScriptCommandNop,
                                           ScriptCommand_0807EA4C,
                                           ScriptCommand_0807EA88,
                                           ScriptCommand_0807EA94,
-                                          ScriptCommand_TextboxNoOverlapFollow,
-                                          ScriptCommand_TextboxNoOverlap,
-                                          ScriptCommand_TextboxNoOverlapFollowPos,
-                                          ScriptCommand_TextboxNoOverlapFollowTable,
-                                          ScriptCommand_TextboxNoOverlapVar,
+                                          ScriptCommand_MessageFromTarget,
+                                          ScriptCommand_MessageNoOverlap,
+                                          ScriptCommand_MessageFromTargetPos,
+                                          ScriptCommand_MessageFromTargetTable,
+                                          ScriptCommand_MessageNoOverlapVar,
                                           ScriptCommand_0807EB28,
                                           ScriptCommand_0807EB38,
                                           ScriptCommand_0807EB44,
@@ -406,7 +406,7 @@ void HandlePostScriptActions(Entity* entity, ScriptExecutionContext* context) {
             case 1 << 0x02:
                 break;
             case 1 << 0x03:
-                entity->field_0x20 = 0x18000;
+                entity->hVelocity = 0x18000;
                 break;
             case 1 << 0x04:
                 CreateSpeechBubbleExclamationMark(entity, 8, -0x18);
@@ -602,7 +602,7 @@ void sub_0807DF38(void) {
 void sub_0807DF50(void) {
     gUnk_02034490[0] = 0;
     gUnk_0200AF00.filler0[1] = 0;
-    sub_0801C4A0(0);
+    RecoverUI(0);
     sub_080791D0();
     sub_08079184();
 }
@@ -806,7 +806,7 @@ void ScriptCommand_CheckEntityInteractType(Entity* entity, ScriptExecutionContex
 }
 
 void ScriptCommand_0807E30C(Entity* entity, ScriptExecutionContext* context) {
-    if ((context->unk_1A & 0xF) == 0 && (gPlayerState.flags.all & 0x80) == 0 &&
+    if ((context->unk_1A & 0xF) == 0 && (gPlayerState.flags & 0x80) == 0 &&
         sub_080041A0(entity, &gPlayerEntity, 0x28, 0x28)) {
         entity->animationState = sub_0806F5B0(GetFacingDirection(entity, &gPlayerEntity));
     }
@@ -890,12 +890,12 @@ void ScriptCommand_0807E514(Entity* entity, ScriptExecutionContext* context) {
 
 void ScriptCommand_CheckPlayerFlags(Entity* entity, ScriptExecutionContext* context) {
     context->condition =
-        !!(GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer) & gPlayerState.flags.all);
+        !!(GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer) & gPlayerState.flags);
     gActiveScriptInfo.flags |= 1;
 }
 
 void ScriptCommand_0807E564(Entity* entity, ScriptExecutionContext* context) {
-    context->condition = (gPlayerState.flags.all >> 7) & 1;
+    context->condition = (gPlayerState.flags >> 7) & 1;
     gActiveScriptInfo.flags |= 1;
 }
 
@@ -1131,10 +1131,10 @@ void ScriptCommand_0807E974(Entity* entity, ScriptExecutionContext* context) {
                 break;
             entity->interactType = 0;
             context->unk_18++;
-            TextboxNoOverlapFollow(context->scriptInstructionPointer[1]);
+            MessageFromTarget(context->scriptInstructionPointer[1]);
             break;
         case 1:
-            if (gTextBox.doTextBox & 0x7F)
+            if (gMessage.doTextBox & 0x7F)
                 break;
             context->unk_18 = 2;
             context->unk_19 = 0xF;
@@ -1195,36 +1195,36 @@ void ScriptCommand_0807EA88(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void ScriptCommand_0807EA94(Entity* entity, ScriptExecutionContext* context) {
-    if (gTextBox.doTextBox & 0x7F) {
+    if (gMessage.doTextBox & 0x7F) {
         gActiveScriptInfo.commandSize = 0;
     }
 }
 
-void ScriptCommand_TextboxNoOverlapFollow(Entity* entity, ScriptExecutionContext* context) {
-    TextboxNoOverlapFollow(context->scriptInstructionPointer[1]);
+void ScriptCommand_MessageFromTarget(Entity* entity, ScriptExecutionContext* context) {
+    MessageFromTarget(context->scriptInstructionPointer[1]);
 }
 
-void ScriptCommand_TextboxNoOverlap(Entity* entity, ScriptExecutionContext* context) {
-    TextboxNoOverlap(context->scriptInstructionPointer[1], entity);
+void ScriptCommand_MessageNoOverlap(Entity* entity, ScriptExecutionContext* context) {
+    MessageNoOverlap(context->scriptInstructionPointer[1], entity);
 }
 
-void ScriptCommand_TextboxNoOverlapFollowPos(Entity* entity, ScriptExecutionContext* context) {
-    TextboxNoOverlapFollow(context->scriptInstructionPointer[1]);
-    gTextBox.textWindowPosX = 1;
-    gTextBox.textWindowPosY = context->scriptInstructionPointer[2];
+void ScriptCommand_MessageFromTargetPos(Entity* entity, ScriptExecutionContext* context) {
+    MessageFromTarget(context->scriptInstructionPointer[1]);
+    gMessage.textWindowPosX = 1;
+    gMessage.textWindowPosY = context->scriptInstructionPointer[2];
 }
 
-void ScriptCommand_TextboxNoOverlapFollowTable(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_MessageFromTargetTable(Entity* entity, ScriptExecutionContext* context) {
     if (gActiveScriptInfo.commandSize > context->intVariable) {
         u16* tmp = context->scriptInstructionPointer + context->intVariable;
-        TextboxNoOverlapFollow(tmp[1]);
+        MessageFromTarget(tmp[1]);
     } else {
-        TextboxNoOverlapFollow(0);
+        MessageFromTarget(0);
     }
 }
 
-void ScriptCommand_TextboxNoOverlapVar(Entity* entity, ScriptExecutionContext* context) {
-    TextboxNoOverlap(context->intVariable, entity);
+void ScriptCommand_MessageNoOverlapVar(Entity* entity, ScriptExecutionContext* context) {
+    MessageNoOverlap(context->intVariable, entity);
 }
 
 void ScriptCommand_0807EB28(Entity* entity, ScriptExecutionContext* context) {
@@ -1267,7 +1267,7 @@ void ScriptCommand_SetEntitySpeed(Entity* entity, ScriptExecutionContext* contex
 }
 
 void ScriptCommand_SetEntity0x20(Entity* entity, ScriptExecutionContext* context) {
-    entity->field_0x20 = GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer);
+    entity->hVelocity = GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer);
 }
 
 void ScriptCommand_SetEntityPositionRelative(Entity* entity, ScriptExecutionContext* context) {
@@ -1438,7 +1438,7 @@ void ScriptCommand_0807EEF4(Entity* entity, ScriptExecutionContext* context) {
 void ScriptCommand_0807EF3C(Entity* entity, ScriptExecutionContext* context) {
     if (!context->unk_18) {
         context->unk_18 = 1;
-        entity->field_0x20 = ((s16)context->scriptInstructionPointer[1]) << 8;
+        entity->hVelocity = ((s16)context->scriptInstructionPointer[1]) << 8;
         context->x.HALF.LO = context->scriptInstructionPointer[2] << 8;
         sub_08003FC4(entity, (u16)context->x.HALF.LO);
     } else {
@@ -1583,7 +1583,7 @@ void sub_0807F1A0(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807F1C4(Entity* entity, ScriptExecutionContext* context) {
-    if ((gPlayerState.flags.all & 8) != 0) {
+    if ((gPlayerState.flags & 8) != 0) {
         gPlayerState.field_0x8 = 0x459;
     } else {
         gPlayerState.field_0x8 = 0x1bc;
@@ -1591,7 +1591,7 @@ void sub_0807F1C4(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807F1E8(Entity* entity, ScriptExecutionContext* context) {
-    if ((gPlayerState.flags.all & 8) != 0) {
+    if ((gPlayerState.flags & 8) != 0) {
         gPlayerState.field_0x8 = 0x45a;
     } else {
         gPlayerState.field_0x8 = 0x2bd;
@@ -1599,7 +1599,7 @@ void sub_0807F1E8(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807F210(Entity* entity, ScriptExecutionContext* context) {
-    if ((gPlayerState.flags.all & 8) != 0) {
+    if ((gPlayerState.flags & 8) != 0) {
         gPlayerState.field_0x8 = 0x41c;
     } else {
         gPlayerState.field_0x8 = 0x80c;
@@ -1843,11 +1843,11 @@ void sub_0807F6B4(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807F6E8(Entity* entity, ScriptExecutionContext* context) {
-    gPlayerState.flags.all |= context->intVariable;
+    gPlayerState.flags |= context->intVariable;
 }
 
 void sub_0807F6F8(Entity* entity, ScriptExecutionContext* context) {
-    gPlayerState.flags.all &= ~context->intVariable;
+    gPlayerState.flags &= ~context->intVariable;
 }
 
 void sub_0807F708(Entity* entity, ScriptExecutionContext* context) {
@@ -1887,8 +1887,8 @@ void sub_0807F78C(Entity* entity, ScriptExecutionContext* context) {
 
     msg = GetSaleItemConfirmMessageID(item);
     price = GetItemPrice(item);
-    TextboxNoOverlap(msg, entity);
-    gTextBox.field_0x10 = (u16)price;
+    MessageNoOverlap(msg, entity);
+    gMessage.field_0x10 = (u16)price;
 }
 
 void sub_0807F7C4(Entity* entity, ScriptExecutionContext* context) {
@@ -1936,16 +1936,16 @@ void sub_0807F854(Entity* entity, ScriptExecutionContext* context) {
     switch (idx) {
         case 0:
         case 1:
-            gTextBox.field_0x10 = value;
+            gMessage.field_0x10 = value;
             break;
         case 2:
-            gTextBox.field_0x14 = value;
+            gMessage.field_0x14 = value;
             break;
         case 3:
-            gTextBox.field_0x18 = value;
+            gMessage.field_0x18 = value;
             break;
         case 4:
-            gTextBox.field_0x1c = value;
+            gMessage.field_0x1c = value;
             break;
     }
 }
@@ -1997,7 +1997,7 @@ void sub_0807F950(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807F970(Entity* entity, ScriptExecutionContext* context) {
-    context->condition = context->intVariable == gCurrentTextBox._28;
+    context->condition = context->intVariable == gTextRender.curToken.textIndex;
 }
 
 void sub_0807F98C(Entity* entity, ScriptExecutionContext* context) {

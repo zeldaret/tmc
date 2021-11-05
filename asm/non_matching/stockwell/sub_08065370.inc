@@ -97,7 +97,7 @@ _08064E94:
 	bls _08064EAA
 	ldr r0, _08064F0C @ =0x00002C0E
 	adds r1, r4, #0
-	bl TextboxNoOverlap
+	bl MessageNoOverlap
 	movs r6, #0
 _08064EAA:
 	cmp r6, #0
@@ -167,7 +167,7 @@ _08064F30:
 	ldr r0, _08064F48 @ =0x00002C0D
 _08064F32:
 	adds r1, r4, #0
-	bl TextboxNoOverlap
+	bl MessageNoOverlap
 _08064F38:
 	movs r0, #0
 	mov r1, r8
@@ -282,7 +282,7 @@ _08065426:
 	bls _0806543C
 	ldr r0, _0806549C @ =0x00002C0E
 	adds r1, r4, #0
-	bl TextboxNoOverlap
+	bl MessageNoOverlap
 	movs r6, #0
 _0806543C:
 	cmp r6, #0
@@ -352,7 +352,7 @@ _080654C0:
 	ldr r0, _080654D8 @ =0x00002C0D
 _080654C2:
 	adds r1, r4, #0
-	bl TextboxNoOverlap
+	bl MessageNoOverlap
 _080654C8:
 	movs r0, #0
 	mov r1, r8

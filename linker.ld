@@ -16,7 +16,7 @@ SECTIONS {
         . = 0x00000020; gUnk_02000020 = .;
         . = 0x00000030; gUnk_02000030 = .;
         . = 0x00000040; gUnk_02000040 = .;
-        . = 0x00000050; gTextBox = .;
+        . = 0x00000050; gMessage = .;
         . = 0x0000005C; gUnk_0200005C = .;
         . = 0x00000070; gUnk_02000070 = .;
         . = 0x00000080; gMenu = .;
@@ -26,7 +26,7 @@ SECTIONS {
         . = 0x000000B0; gUnk_020000B0 = .;
         . = 0x000000C0; gUnk_020000C0 = .;
         . = 0x00000CC0; gUnk_02000CC0 = .;
-        . = 0x00000D00; gUnk_02000D00 = .;
+        . = 0x00000D00; gTextGfxBuffer = .;
         . = 0x00001A00; gUnk_02001A00 = .;
         . = 0x00001A3C; gUnk_02001A3C = .;
         . = 0x00001A40; gBG3Buffer = .;
@@ -90,7 +90,7 @@ SECTIONS {
         . = 0x00022730; gUnk_02022730 = .;
         . = 0x00022740; gUnk_02022740 = .;
         . = 0x00022750; gPlayerScriptExecutionContext = .;
-        . = 0x00022780; gCurrentTextBox = .;
+        . = 0x00022780; gTextRender = .;
         . = 0x000227DC; gUnk_020227DC = .;
         . = 0x000227E8; gUnk_020227E8 = .;
         . = 0x000227F0; gUnk_020227F0 = .;
@@ -98,7 +98,7 @@ SECTIONS {
         . = 0x00022800; gUnk_02022800 = .;
         . = 0x0002281E; gUnk_0202281E = .;
         . = 0x00022830; gUnk_02022830 = .;
-        . = 0x00024030; gUnk_02024030 = .;
+        . = 0x00024030; gMessageChoices = .;
         . = 0x00024048; gUnk_02024048 = .;
         . = 0x00024050; gUnk_02024050 = .;
         . = 0x00024090; gUnk_02024090 = .;
@@ -1192,7 +1192,6 @@ SECTIONS {
         data/metatile_headers.o(.rodata);
         data/map_headers.o(.rodata);
         src/textbox.o(.rodata);
-        data/data_08107BC8.o(.rodata);
         data/const/manager/manager1.o(.rodata);
         data/const/manager/manager3.o(.rodata);
         data/const/manager/manager4.o(.rodata);

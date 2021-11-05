@@ -48,7 +48,7 @@ void ArrowProjectile_Init(Entity* this) {
     this->flags &= 0x7f;
     this->actionDelay = 0x6a;
     this->field_0xf = 0;
-    this->field_0x20 = 0xa00;
+    this->hVelocity = 0xa00;
     sub_080A94C0(this, this->type);
 }
 
@@ -106,7 +106,7 @@ void sub_080A9488(Entity* this) {
     this->action = 4;
     this->flags &= 0x7f;
     this->actionDelay = 2;
-    this->field_0x20 = 0x18000;
+    this->hVelocity = 0x18000;
     this->animationState = (this->knockbackDirection & 0x18) >> 3;
     EnqueueSFX(SFX_METAL_CLINK);
     sub_080A94C0(this, this->animationState);

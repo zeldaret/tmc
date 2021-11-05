@@ -323,7 +323,7 @@ void sub_08031E90(Entity* this) {
 void sub_08031EA8(Entity* this) {
     this->action = 1;
     this->spritePriority.b1 = 1;
-    this->field_0x20 = 0x40000;
+    this->hVelocity = 0x40000;
     this->height.HALF.HI = (4 - this->type2) * 0xe;
     this->field_0x78.HALF.HI = Random();
     InitializeAnimation(this, 4);
@@ -332,8 +332,8 @@ void sub_08031EA8(Entity* this) {
 void sub_08031EE8(Entity* this) {
     int draw;
 
-    this->height.WORD -= this->field_0x20;
-    this->field_0x20 -= 0x1800;
+    this->height.WORD -= this->hVelocity;
+    this->hVelocity -= 0x1800;
 
     if (this->height.HALF.HI < 1) {
         draw = this->spriteSettings.b.draw;
@@ -347,7 +347,7 @@ void sub_08031EE8(Entity* this) {
     if (draw == 1)
         GetNextFrame(this);
 
-    if (this->field_0x20 < 1) {
+    if (this->hVelocity < 1) {
         this->action = 2;
         this->flags |= 0x80;
         InitializeAnimation(this, 5);
@@ -450,7 +450,7 @@ void sub_08032160(Entity* this) {
             this->spriteSettings.b.flipX = 0;
         }
         this->speed = 0xf0;
-        this->field_0x20 = 0x12000;
+        this->hVelocity = 0x12000;
         this->spritePriority.b1 = 1;
         InitializeAnimation(this, 12);
     }

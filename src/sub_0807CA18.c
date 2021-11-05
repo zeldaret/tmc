@@ -24,8 +24,8 @@ u8 sub_0807CA18() {
 #ifdef DEMO
     {
         const u8* tmp;
-        MemCopy(demoPointers[gUnk_02000000->saveFileId], &gSave, 0x4B4);
-        if (gUnk_02000000->gameLanguage == 0) {
+        MemCopy(demoPointers[gSaveHeader->saveFileId], &gSave, 0x4B4);
+        if (gSaveHeader->gameLanguage == 0) {
             gSave.playerName[0] = 0x97;
             gSave.playerName[1] = 0x7F;
             gSave.playerName[2] = 0xDD;
@@ -34,7 +34,7 @@ u8 sub_0807CA18() {
         ModHealth(0xA0);
         ModRupees(-9999);
         tmp = demoUnknown1 + gUnk_02000010.field_0x7 * 3;
-        gSave.unk_4a8 = tmp[gUnk_02000000->saveFileId] * 3600;
+        gSave.unk_4a8 = tmp[gSaveHeader->saveFileId] * 3600;
     }
 #endif
     return 1;

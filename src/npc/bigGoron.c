@@ -184,7 +184,7 @@ void sub_0806D274(Entity* this) {
         case 0:
         case 1:
         default:
-            if ((gTextBox.doTextBox & 0x7f) == 0) {
+            if ((gMessage.doTextBox & 0x7f) == 0) {
                 this->frameIndex = 2;
                 break;
             }

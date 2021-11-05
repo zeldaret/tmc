@@ -157,17 +157,17 @@ void LoadGfxGroup(u32 group) {
             case 0xD:
                 return;
             case 0xE:
-                if (gUnk_02000000->gameLanguage != 0 && gUnk_02000000->gameLanguage != 1) {
+                if (gSaveHeader->gameLanguage != 0 && gSaveHeader->gameLanguage != 1) {
                     loadGfx = TRUE;
                 }
                 break;
             case 0xF:
-                if (gUnk_02000000->gameLanguage != 0) {
+                if (gSaveHeader->gameLanguage != 0) {
                     loadGfx = TRUE;
                 }
                 break;
             default:
-                if (ctrl == gUnk_02000000->gameLanguage) {
+                if (ctrl == gSaveHeader->gameLanguage) {
                     loadGfx = TRUE;
                 }
                 break;

@@ -39,13 +39,13 @@ script_08014E64:
 	JumpIfNot script_08014EB8
 	CallWithArg sub_0807F800, 0x00000022
 	WaitPlayerAction8 
-	TextboxNoOverlap 0x0a04
+	MessageNoOverlap 0x0a04
 	Jump script_08014EBC
 script_08014EB0:
-	TextboxNoOverlap 0x0a03
+	MessageNoOverlap 0x0a03
 	Jump script_08014EBC
 script_08014EB8:
-	TextboxNoOverlap 0x0a02
+	MessageNoOverlap 0x0a02
 script_08014EBC:
 	_0807EA94 
 	Call sub_0807DF50
@@ -64,7 +64,7 @@ script_08014EE0:
 	JumpIfNot script_08014EE0
 	_0807E864 
 	_0807EB74 
-	TextboxNoOverlap 0x200d
+	MessageNoOverlap 0x200d
 	_0807EA94 
 	_0807E878 
 	Jump script_08014EE0
@@ -82,7 +82,7 @@ script_08014F0C:
 	_0807E864 
 	_0807EB74 
 	DoPostScriptAction 0x0000
-	TextboxNoOverlap 0x200e
+	MessageNoOverlap 0x200e
 	_0807EA94 
 	_0807E878 
 	_0807EB44 0x0004
@@ -105,7 +105,7 @@ script_08014F4A:
 	_0807EB74 
 	DoPostScriptAction 0x0000
 	BeginBlock 
-	TextboxNoOverlap 0x3b0b
+	MessageNoOverlap 0x3b0b
 	CallWithArg sub_0807F854, 0x00010064
 	EndBlock 
 	_0807EA94 
@@ -118,13 +118,13 @@ script_08014F4A:
 	ModRupees 0xff9c
 	_0807F034 0x0022
 	WaitPlayerAction8 
-	TextboxNoOverlap 0x3b11
+	MessageNoOverlap 0x3b11
 	Jump script_08014FA6
 script_08014F9A:
-	TextboxNoOverlap 0x3b0e
+	MessageNoOverlap 0x3b0e
 	Jump script_08014FA6
 script_08014FA2:
-	TextboxNoOverlap 0x3b0f
+	MessageNoOverlap 0x3b0f
 script_08014FA6:
 	_0807EA94 
 	Call sub_0807DF50
@@ -148,7 +148,7 @@ script_08014FCC:
 	CameraTargetEntity 
 	StartPlayerScript script_080152B4
 	WaitForSomething2 0x00000001
-	TextboxNoOverlapFollowPos 0x1301, 0x0002
+	MessageFromTargetPos 0x1301, 0x0002
 	_0807EA94 
 	Call sub_0807F3F8
 	Wait 0x003c
@@ -159,11 +159,11 @@ script_08014FCC:
 	PlayBgm BGM_VAATI_THEME
 	_0807EB28 0x1302
 	_0807EA94 
-	TextboxNoOverlapFollowPos 0x1303, 0x0002
+	MessageFromTargetPos 0x1303, 0x0002
 	_0807EA94 
 	_0807EB28 0x1304
 	_0807EA94 
-	TextboxNoOverlapFollowPos 0x1305, 0x0002
+	MessageFromTargetPos 0x1305, 0x0002
 	_0807EA94 
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000004

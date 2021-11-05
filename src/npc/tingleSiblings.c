@@ -33,7 +33,7 @@ void sub_08064DA0(Entity* this) {
     if (this->interactType != 0) {
         this->action = 2;
         InitAnimationForceUpdate(this, 6);
-        TextboxNoOverlapFollow(0);
+        MessageFromTarget(0);
     }
 }
 

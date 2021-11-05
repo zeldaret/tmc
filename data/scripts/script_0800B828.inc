@@ -7,7 +7,7 @@ SCRIPT_START script_0800B828
 script_0800B836:
 	_0807E944 
 	_0807E864 
-	TextboxNoOverlapFollow 0x0a01
+	MessageFromTarget 0x0a01
 	_0807EA94 
 	Wait 0x000f
 	_0807E878 
@@ -44,7 +44,7 @@ script_0800B89E:
 	JumpIfNot script_0800B89E
 	_0807E864 
 	_0807EB74 
-	TextboxNoOverlapFollow 0x0a01
+	MessageFromTarget 0x0a01
 	_0807EA94 
 	Wait 0x000f
 	_0807E878 
@@ -93,7 +93,7 @@ script_0800B934:
 	JumpIfNot script_0800B934
 	_0807E864 
 	_0807EB74 
-	TextboxNoOverlapFollow 0x3f19
+	MessageFromTarget 0x3f19
 	_0807EA94 
 	SetLocalFlag 0x005f
 	_0807E878 
@@ -103,7 +103,7 @@ script_0800B94E:
 	JumpIfNot script_0800B94E
 	_0807E864 
 	_0807EB74 
-	TextboxNoOverlapFollow 0x3f1a
+	MessageFromTarget 0x3f1a
 	_0807EA94 
 	_0807E878 
 	Jump script_0800B94E

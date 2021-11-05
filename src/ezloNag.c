@@ -66,7 +66,7 @@ void sub_0801CF18(Element* arg0) {
 
 void sub_0801CF60(Element* arg0) {
 
-    if ((gUnk_0200AF00.ezloNagFuncIndex >= 5) || (gTextBox.doTextBox & 0x7f)) {
+    if ((gUnk_0200AF00.ezloNagFuncIndex >= 5) || (gMessage.doTextBox & 0x7f)) {
         arg0->unk4 = 0;
         arg0->unk0 &= -3;
         return;

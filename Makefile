@@ -60,12 +60,12 @@ MID_BUILDDIR = $(OBJ_DIR)/$(MID_SUBDIR)
 ASFLAGS := -mcpu=arm7tdmi --defsym $(GAME_VERSION)=1 --defsym REVISION=$(REVISION) --defsym $(GAME_LANGUAGE)=1
 
 CC1             := tools/agbcc/bin/agbcc
-override CFLAGS += -O2 -Wimplicit -Wparentheses -Werror -Wno-multichar
+override CFLAGS += -O2 -Wimplicit -Wparentheses -Werror -Wno-multichar -g3
 # -fhex-asm
 
-ifeq ($(DINFO),1)
-override CFLAGS += -g
-endif
+# ifeq ($(DINFO),1)
+# override CFLAGS += -g
+# endif
 
 CPPFLAGS := -I tools/agbcc -I tools/agbcc/include -iquote include -nostdinc -undef -D$(GAME_VERSION) -DREVISION=$(REVISION) -D$(GAME_LANGUAGE)
 

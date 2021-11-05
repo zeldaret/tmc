@@ -77,7 +77,7 @@ void sub_0806C038(Entity* this) {
             }
         }
     }
-    TextboxNoOverlap(gUnk_081133A4[index], this);
+    MessageNoOverlap(gUnk_081133A4[index], this);
 }
 
 void sub_0806C09C(Entity* this) {

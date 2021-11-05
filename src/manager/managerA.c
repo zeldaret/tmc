@@ -49,7 +49,7 @@ void sub_080585DC(ManagerA*);
 
 void sub_08058408(ManagerA* this) {
     u32 tmp2;
-    tmp2 = (gPlayerState.flags.all & 0x08);
+    tmp2 = (gPlayerState.flags & 0x08);
     if (tmp2 != 0)
         return;
     if (!CheckPlayerInRegion(this->unk_20, this->unk_22, this->unk_24, this->unk_26))
@@ -59,7 +59,7 @@ void sub_08058408(ManagerA* this) {
             return;
         case 2:
             sub_080585DC(this);
-            if ((gPlayerState.flags.all & 0x80) == 0)
+            if ((gPlayerState.flags & 0x80) == 0)
                 return;
         case 0:
         default:
@@ -118,7 +118,7 @@ extern void UnfreezeTime(void);
 void sub_08058514(ManagerA* this) {
     switch (this->manager.unk_0d) {
         case 1:
-            if ((gPlayerState.flags.all & 0x1235) != 0)
+            if ((gPlayerState.flags & 0x1235) != 0)
                 return;
             if (gPlayerEntity.height.HALF.HI != 0)
                 return;

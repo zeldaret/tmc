@@ -16,7 +16,7 @@ script_0800D88E:
 	WaitForSomething2 0x00000001
 script_0800D8B0:
 	_0807E8E4_0 
-	TextboxNoOverlap 0x1324
+	MessageNoOverlap 0x1324
 	_0807EA94 
 	CheckInventory1 0x0017
 	JumpIf script_0800D8D6

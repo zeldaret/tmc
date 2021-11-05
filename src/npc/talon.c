@@ -92,7 +92,7 @@ void sub_08065680(Entity* this) {
 }
 
 void sub_080656A4(Entity* this) {
-    if ((gTextBox.doTextBox & 0x7F) == 0) {
+    if ((gMessage.doTextBox & 0x7F) == 0) {
         this->action = this->field_0x68.HALF.HI;
         InitAnimationForceUpdate(this, this->field_0x6a.HALF.LO);
     }
@@ -115,7 +115,7 @@ void sub_080656D4(Entity* this) {
                 this->field_0x68.HALF.HI = this->action;
                 this->action = 3;
                 this->interactType = 0;
-                TextboxNoOverlap(*(u32*)(*(u32*)&this->cutsceneBeh.HWORD + 4), this);
+                MessageNoOverlap(*(u32*)(*(u32*)&this->cutsceneBeh.HWORD + 4), this);
             label:
                 sub_0806574C(this);
             }

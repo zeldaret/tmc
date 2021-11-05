@@ -129,7 +129,7 @@ void sub_08066E80(Entity* this, ScriptExecutionContext* context) {
             UpdateAnimationSingleFrame(this);
             if (this->frames.all & 1) {
                 context->unk_18++;
-                this->field_0x20 = 0x20000;
+                this->hVelocity = 0x20000;
                 this->frames.all &= 0xFE;
                 SoundReq(SFX_PLY_JUMP);
             }
@@ -140,7 +140,7 @@ void sub_08066E80(Entity* this, ScriptExecutionContext* context) {
             if (!(this->frames.all & 1)) {
                 UpdateAnimationSingleFrame(this);
             }
-            if (this->field_0x20 < 0) {
+            if (this->hVelocity < 0) {
                 context->unk_18++;
             }
             break;

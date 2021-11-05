@@ -36,7 +36,7 @@ void sub_08063A98(Entity* this) {
 ASM_FUNC("asm/non_matching/pina/sub_08063AC0.inc", void sub_08063AC0(Entity* this))
 
 void sub_08063B44(Entity* this) {
-    u8 tmp = gTextBox.doTextBox & 0x7f;
+    u8 tmp = gMessage.doTextBox & 0x7f;
     if (tmp == 0) {
         this->action = 1;
         this->field_0xf = tmp;

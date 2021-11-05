@@ -9,7 +9,7 @@ script_0800B5FA:
 	JumpIfNot script_0800B5FA
 	_0807E864 
 	_0807EB74 
-	TextboxNoOverlap 0x2009
+	MessageNoOverlap 0x2009
 	_0807EA94 
 	_0807E878 
 	_0807EB44 0x0004
@@ -29,19 +29,19 @@ script_0800B618:
 	WaitForSomething2 0x00000004
 	CheckLocalFlag 0x009e
 	JumpIf script_0800B7A2
-	TextboxNoOverlap 0x0583
+	MessageNoOverlap 0x0583
 	_0807EA94 
 	_0807E3E8 
 	JumpIfNot script_0800B684
 	Wait 0x000f
-	TextboxNoOverlap 0x0584
+	MessageNoOverlap 0x0584
 	CallWithArg sub_0807F970, 0x0000058b
 	JumpIf script_0800B68E
 	CallWithArg sub_08087424, 0x00000000
 	Wait 0x00b4
 	Jump script_0800B6A6
 script_0800B684:
-	TextboxNoOverlap 0x057d
+	MessageNoOverlap 0x057d
 	_0807EA94 
 	Jump script_0800B6A6
 script_0800B68E:
@@ -52,7 +52,7 @@ script_0800B698:
 	WaitPlayerAction8 
 	_0807EB8C 
 	Wait 0x001e
-	TextboxNoOverlap 0x057f
+	MessageNoOverlap 0x057f
 	_0807EA94 
 script_0800B6A6:
 	_0807E778 0x0004

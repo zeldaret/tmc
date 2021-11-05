@@ -65,7 +65,7 @@ void sub_0806045C(Entity* this) {
         case 1:
         case 2:
             this->action = 2;
-            TextboxNoOverlapFollow(0);
+            MessageFromTarget(0);
             break;
         default:
             bVar1 = this->knockbackDirection;
@@ -140,7 +140,7 @@ void sub_08060528(Entity* this) {
             break;
         case 2:
             UpdateAnimationSingleFrame(this);
-            if ((gTextBox.doTextBox & 0x7f) != 0) {
+            if ((gMessage.doTextBox & 0x7f) != 0) {
                 break;
             }
             this->action = 1;
@@ -156,7 +156,7 @@ void sub_08060528(Entity* this) {
     if (0 < (s16)this->field_0x6a.HWORD) {
         if ((s16)this->field_0x6a.HWORD > 0x12b) {
             this->field_0x6a.HWORD = 0;
-            this->field_0x20 = 0x20000;
+            this->hVelocity = 0x20000;
             this->field_0x6c.HALF.HI = 1;
             sub_080788E0(this);
             EnqueueSFX(0x7c);
@@ -165,7 +165,7 @@ void sub_08060528(Entity* this) {
         }
     }
     sub_08003FC4(this, 0x1800);
-    if (((this->field_0x6c.HALF.HI != 0) && (this->field_0x20 == 0)) && this->height.WORD == 0) {
+    if (((this->field_0x6c.HALF.HI != 0) && (this->hVelocity == 0)) && this->height.WORD == 0) {
         this->field_0x6c.HALF.HI = 0;
         sub_080606C0(this);
     }

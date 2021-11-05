@@ -19,7 +19,7 @@ SCRIPT_START script_0800B41C
 	_0807F088 0x0037
 	WaitPlayerAction8 
 	_0807EB8C 
-	TextboxNoOverlapFollow 0x200c
+	MessageFromTarget 0x200c
 	_0807EA94 
 	Wait 0x0014
 	_0807EDD4 0x0158, 0x0290

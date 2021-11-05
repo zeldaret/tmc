@@ -87,7 +87,7 @@ void sub_08068A4C(Entity* this) {
     if (this->interactType != 0) {
         this->interactType = 0;
         this->action = 2;
-        TextboxNoOverlapFollow(0);
+        MessageFromTarget(0);
     }
 }
 
@@ -307,42 +307,42 @@ switchD_08068d12_caseD_0:
 
 // Introduction dialoague
 void sub_08068DB8(Entity* this) {
-    TextboxNoOverlap(gUnk_08111664[this->actionDelay], this);
+    MessageNoOverlap(gUnk_08111664[this->actionDelay], this);
 }
 
 // Ask to teach dialoague
 void sub_08068DD0(Entity* this) {
-    TextboxNoOverlap(gUnk_0811167A[this->actionDelay], this);
+    MessageNoOverlap(gUnk_0811167A[this->actionDelay], this);
 }
 
 // Technique Dialogue
 void sub_08068DE8(Entity* this) {
-    TextboxNoOverlap(gUnk_08111690[this->actionDelay], this);
+    MessageNoOverlap(gUnk_08111690[this->actionDelay], this);
 }
 
 // Posession dialogue
 void sub_08068E00(Entity* this) {
-    TextboxNoOverlap(gUnk_081116A6[this->actionDelay], this);
+    MessageNoOverlap(gUnk_081116A6[this->actionDelay], this);
 }
 
 void sub_08068E18(Entity* this) {
-    TextboxNoOverlap(gUnk_081116BC[this->actionDelay], this);
+    MessageNoOverlap(gUnk_081116BC[this->actionDelay], this);
 }
 
 void sub_08068E30(Entity* this) {
-    TextboxNoOverlap(gUnk_081116D2[this->actionDelay], this);
+    MessageNoOverlap(gUnk_081116D2[this->actionDelay], this);
 }
 
 void sub_08068E48(Entity* this) {
-    TextboxNoOverlap(gUnk_081116E8[this->actionDelay], this);
+    MessageNoOverlap(gUnk_081116E8[this->actionDelay], this);
 }
 
 void sub_08068E60(Entity* this) {
-    TextboxNoOverlap(gUnk_081116FE[this->actionDelay], this);
+    MessageNoOverlap(gUnk_081116FE[this->actionDelay], this);
 }
 
 void sub_08068E78(Entity* this) {
-    TextboxNoOverlap(gUnk_08111714[this->actionDelay], this);
+    MessageNoOverlap(gUnk_08111714[this->actionDelay], this);
 }
 
 void sub_08068E90(Entity* this) {

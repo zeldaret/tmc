@@ -91,7 +91,7 @@ typedef struct Entity {
     /*0x1d*/ u8 field_0x1d;
     /*0x1e*/ u8 frameIndex;
     /*0x1f*/ u8 lastFrameIndex;
-    /*0x20*/ s32 field_0x20;
+    /*0x20*/ s32 hVelocity;
     /*0x24*/ s16 speed;
     /*0x26*/ u8 spriteAnimation[3];
     /*0x29*/ struct {

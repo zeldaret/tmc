@@ -36,7 +36,7 @@ void sub_080916EC(Entity* this) {
     struct_030010EC* unk = &gUnk_030010EC[this->actionDelay];
 
     *(struct_030010EC**)&this->cutsceneBeh.HWORD = unk;
-    if ((gRoomControls.roomID != unk->field_0x4) || (gPlayerState.flags.all & 0x1000) != 0) {
+    if ((gRoomControls.roomID != unk->field_0x4) || (gPlayerState.flags & 0x1000) != 0) {
         DeleteThisEntity();
     }
     this->x.HALF.HI = gRoomControls.roomOriginX + ((unk->field_0x0 & 0x3f) << 4) + 8;
@@ -60,13 +60,13 @@ void sub_080916EC(Entity* this) {
 void sub_080917DC(Entity* this) {
 
     if ((this->bitfield & 0x7f) == 0x1d) {
-        this->field_0x20 = 0x2a000;
+        this->hVelocity = 0x2a000;
         this->action = 7;
         InitAnimationForceUpdate(this, this->type2 + 4 + this->animationState);
         SoundReq(SFX_13B);
     } else {
         if (sub_0800445C(this) != 0) {
-            if (((gPlayerState.flags.all & 0x40080) == 0) && (gPlayerState.field_0x1c == 0) &&
+            if (((gPlayerState.flags & 0x40080) == 0) && (gPlayerState.field_0x1c == 0) &&
                 (gPlayerState.heldObject == 0) && (gPlayerState.jumpStatus == 0)) {
                 this->actionDelay++;
             } else {
@@ -79,8 +79,8 @@ void sub_080917DC(Entity* this) {
             if (8 < this->actionDelay) {
                 this->action = this->action + 1;
                 gPlayerState.jumpStatus = 0x81;
-                gPlayerState.flags.all |= 0x4000000;
-                gPlayerEntity.field_0x20 = 0x20000;
+                gPlayerState.flags |= 0x4000000;
+                gPlayerEntity.hVelocity = 0x20000;
                 gPlayerEntity.speed = 0x100;
                 gPlayerEntity.flags &= 0x7f;
                 ResetPlayer();
@@ -98,11 +98,11 @@ void sub_080918A4(Entity* this) {
         gPlayerEntity.x.HALF.HI = this->x.HALF.HI;
         gPlayerEntity.y.HALF.HI = this->y.HALF.HI;
         if (gPlayerEntity.height.HALF.HI > -0x10) {
-            if ((s32)gPlayerEntity.field_0x20 > -1) {
+            if ((s32)gPlayerEntity.hVelocity > -1) {
                 return;
             }
             gPlayerEntity.animationState = this->animationState << 1;
-            gPlayerState.flags.all = (gPlayerState.flags.all ^ 0x4000000) | 0x1000;
+            gPlayerState.flags = (gPlayerState.flags ^ 0x4000000) | 0x1000;
             this->action++;
             this->field_0xf = 1;
             this->flags |= 0x20;
@@ -118,7 +118,7 @@ void sub_080918A4(Entity* this) {
     } else {
         gPlayerEntity.direction = GetFacingDirection(&gPlayerEntity, this);
     }
-    if (gPlayerEntity.field_0x20 < 0) {
+    if (gPlayerEntity.hVelocity < 0) {
         gPlayerEntity.spritePriority.b0 = this->spritePriority.b0 - 1;
     }
 }
@@ -128,7 +128,7 @@ void sub_080919AC(Entity* this) {
     u32 uVar3;
 
     gRoomControls.unk5 = 7;
-    if ((gPlayerState.flags.all & 0x1000) == 0) {
+    if ((gPlayerState.flags & 0x1000) == 0) {
         this->action = 1;
         return;
     }
@@ -174,8 +174,8 @@ void sub_080919AC(Entity* this) {
                         this->action = 6;
                         sub_08017744(this);
                         gPlayerState.jumpStatus = 0x41;
-                        gPlayerState.flags.all = (gPlayerState.flags.all ^ 0x1000) | 0x4000000;
-                        gPlayerEntity.field_0x20 = 0x20000;
+                        gPlayerState.flags = (gPlayerState.flags ^ 0x1000) | 0x4000000;
+                        gPlayerEntity.hVelocity = 0x20000;
                         gPlayerEntity.speed = 0x200;
                         gPlayerEntity.animationState = this->animationState << 1;
                         gPlayerEntity.direction = this->direction;

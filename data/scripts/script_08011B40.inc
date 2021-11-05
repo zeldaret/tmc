@@ -12,7 +12,7 @@ SCRIPT_START script_08011B40
 	DoPostScriptAction 0x0004
 	Wait 0x003c
 	_0807EB8C 
-	TextboxNoOverlap 0x3d07
+	MessageNoOverlap 0x3d07
 	_0807EA94 
 	_0807EB44 0x0004
 	ClearGlobalFlag 0x0050
@@ -23,7 +23,7 @@ script_08011B84:
 	JumpIfNot script_08011B84
 	_0807E864 
 	_0807EB74 
-	TextboxNoOverlap 0x3d01
+	MessageNoOverlap 0x3d01
 	_0807EA94 
 	_0807E3E8 
 	JumpIf script_08011BA4
@@ -36,12 +36,12 @@ script_08011BA4:
 	JumpIf script_08011BBC
 	DoPostScriptAction 0x0004
 	Wait 0x003c
-	TextboxNoOverlap 0x3d05
+	MessageNoOverlap 0x3d05
 	Jump script_08011B9A
 script_08011BBC:
 	ModRupees 0xfff6
 	Wait 0x001e
-	TextboxNoOverlap 0x3d06
+	MessageNoOverlap 0x3d06
 	_0807EA94 
 	CallWithArg sub_0806C2A0, 0x00000000
 	WaitFor_2 

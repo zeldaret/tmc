@@ -24,7 +24,7 @@ script_0800F478:
 	EndBlock 
 	_0807E864 
 	_0807EB74 
-	TextboxNoOverlap 0x1238
+	MessageNoOverlap 0x1238
 	_0807EA94 
 	_0807E878 
 script_0800F490:

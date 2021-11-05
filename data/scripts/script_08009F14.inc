@@ -21,7 +21,7 @@ script_08009F36:
 	StartPlayerScript script_0800A088
 	WaitForSomething2 0x00000002
 	Call sub_0806014C
-	TextboxNoOverlapFollowPos 0x1f01, 0x0000
+	MessageFromTargetPos 0x1f01, 0x0000
 	_0807EA94 
 	Wait 0x001e
 	_0807F034 0x0065
@@ -64,7 +64,7 @@ script_08009FDC:
 	JumpIfNot script_08009FDC
 	EndBlock 
 	_0807E864 
-	TextboxNoOverlap 0x1f0e
+	MessageNoOverlap 0x1f0e
 	_0807EA94 
 	_0807E3E8 
 	JumpIf script_0800A002
@@ -77,7 +77,7 @@ script_0800A002:
 	WaitPlayerAction8 
 	Wait 0x0008
 	_0807EB8C 
-	TextboxNoOverlapFollow 0x1f13
+	MessageFromTarget 0x1f13
 	_0807EA94 
 	SetLocalFlag 0x00b0
 	_0807E878 
@@ -91,14 +91,14 @@ script_0800A024:
 	_0807E864 
 	CheckInventory1 0x0008
 	JumpIf script_0800A052
-	TextboxNoOverlap 0x1f14
+	MessageNoOverlap 0x1f14
 	_0807EA94 
 	_0807E3E8 
 	JumpIf script_0800A002
 	_0807E878 
 	Jump script_0800A024
 script_0800A052:
-	TextboxNoOverlap 0x1f11
+	MessageNoOverlap 0x1f11
 	_0807EA94 
 	_0807E3E8 
 	JumpIf script_0800A064
@@ -111,7 +111,7 @@ script_0800A064:
 	WaitPlayerAction8 
 	Wait 0x0008
 	_0807EB8C 
-	TextboxNoOverlapFollow 0x1f10
+	MessageFromTarget 0x1f10
 	_0807EA94 
 	_0807E878 
 	Jump script_0800A024

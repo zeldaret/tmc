@@ -16,7 +16,7 @@ script_08011C9A:
 	_0807E864 
 	_0807EB74 
 	DoPostScriptAction 0x0000
-	TextboxNoOverlap 0x4515
+	MessageNoOverlap 0x4515
 	_0807EA94 
 	_0807E878 
 	_0807EB44 0x0004
@@ -35,7 +35,7 @@ script_08011CC2:
 	_0807E864 
 	_0807EB74 
 	DoPostScriptAction 0x0000
-	TextboxNoOverlap 0x3105
+	MessageNoOverlap 0x3105
 	_0807EA94 
 	_0807E3E8 
 	JumpIf script_08011D0E
@@ -50,7 +50,7 @@ script_08011D00:
 	_0807EB74 
 	DoPostScriptAction 0x0000
 script_08011D0E:
-	TextboxNoOverlap 0x3108
+	MessageNoOverlap 0x3108
 	_0807EA94 
 	SetGlobalFlag 0x002b
 	_0807E878 
@@ -76,7 +76,7 @@ script_08011D46:
 	_0807E864 
 	_0807EB74 
 	DoPostScriptAction 0x0000
-	TextboxNoOverlap 0x4513
+	MessageNoOverlap 0x4513
 	_0807EA94 
 	_0807E878 
 	_0807EB44 0x0004
@@ -95,7 +95,7 @@ script_08011D6E:
 	_0807E864 
 	_0807EB74 
 	DoPostScriptAction 0x0000
-	TextboxNoOverlap 0x3103
+	MessageNoOverlap 0x3103
 	_0807EA94 
 	_0807E3E8 
 	JumpIf script_08011DBA
@@ -110,7 +110,7 @@ script_08011DAC:
 	_0807EB74 
 	DoPostScriptAction 0x0000
 script_08011DBA:
-	TextboxNoOverlap 0x3106
+	MessageNoOverlap 0x3106
 	_0807EA94 
 	SetGlobalFlag 0x002c
 	_0807E878 
@@ -136,7 +136,7 @@ script_08011DF2:
 	_0807E864 
 	_0807EB74 
 	DoPostScriptAction 0x0000
-	TextboxNoOverlap 0x4514
+	MessageNoOverlap 0x4514
 	_0807EA94 
 	_0807E878 
 	_0807EB44 0x0004
@@ -155,7 +155,7 @@ script_08011E1A:
 	_0807E864 
 	_0807EB74 
 	DoPostScriptAction 0x0000
-	TextboxNoOverlap 0x3104
+	MessageNoOverlap 0x3104
 	_0807EA94 
 	_0807E3E8 
 	JumpIf script_08011E66
@@ -170,7 +170,7 @@ script_08011E58:
 	_0807EB74 
 	DoPostScriptAction 0x0000
 script_08011E66:
-	TextboxNoOverlap 0x3107
+	MessageNoOverlap 0x3107
 	_0807EA94 
 	SetGlobalFlag 0x002d
 	_0807E878 
@@ -200,11 +200,11 @@ script_08011E96:
 	DoPostScriptAction 0x0000
 	CheckGlobalFlag 0x0048
 	JumpIf script_08011ECC
-	TextboxNoOverlap 0x4524
+	MessageNoOverlap 0x4524
 	_0807EA94 
 	Jump script_08011ED8
 script_08011ECC:
-	TextboxNoOverlap 0x3111
+	MessageNoOverlap 0x3111
 	_0807EA94 
 	_0807E3E8 
 	JumpIf script_08011EF4
@@ -220,7 +220,7 @@ script_08011EE6:
 	_0807EB74 
 	DoPostScriptAction 0x0000
 script_08011EF4:
-	TextboxNoOverlap 0x3114
+	MessageNoOverlap 0x3114
 	_0807EA94 
 	SetGlobalFlag 0x002e
 	_0807E878 
@@ -249,11 +249,11 @@ script_08011F22:
 	DoPostScriptAction 0x0000
 	CheckGlobalFlag 0x0048
 	JumpIf script_08011F58
-	TextboxNoOverlap 0x4522
+	MessageNoOverlap 0x4522
 	_0807EA94 
 	Jump script_08011F64
 script_08011F58:
-	TextboxNoOverlap 0x310f
+	MessageNoOverlap 0x310f
 	_0807EA94 
 	_0807E3E8 
 	JumpIf script_08011F80
@@ -269,7 +269,7 @@ script_08011F72:
 	_0807EB74 
 	DoPostScriptAction 0x0000
 script_08011F80:
-	TextboxNoOverlap 0x3112
+	MessageNoOverlap 0x3112
 	_0807EA94 
 	SetGlobalFlag 0x002f
 	_0807E878 
@@ -298,11 +298,11 @@ script_08011FAE:
 	DoPostScriptAction 0x0000
 	CheckGlobalFlag 0x0048
 	JumpIf script_08011FE4
-	TextboxNoOverlap 0x4523
+	MessageNoOverlap 0x4523
 	_0807EA94 
 	Jump script_08011FF0
 script_08011FE4:
-	TextboxNoOverlap 0x3110
+	MessageNoOverlap 0x3110
 	_0807EA94 
 	_0807E3E8 
 	JumpIf script_0801200C
@@ -318,7 +318,7 @@ script_08011FFE:
 	_0807EB74 
 	DoPostScriptAction 0x0000
 script_0801200C:
-	TextboxNoOverlap 0x3113
+	MessageNoOverlap 0x3113
 	_0807EA94 
 	SetGlobalFlag 0x0030
 	_0807E878 
@@ -342,24 +342,24 @@ script_0801203A:
 	DoPostScriptAction 0x0000
 	CheckLocalFlag 0x0094
 	JumpIf script_0801205E
-	TextboxNoOverlap 0x3122
+	MessageNoOverlap 0x3122
 	_0807EA94 
 	SetLocalFlag 0x0094
 	Jump script_0801209E
 script_0801205E:
 	_0807E48C 0x0031
 	JumpIfNot script_08012070
-	TextboxNoOverlap 0x3123
+	MessageNoOverlap 0x3123
 	_0807EA94 
 	Jump script_0801209E
 script_08012070:
-	TextboxNoOverlap 0x3124
+	MessageNoOverlap 0x3124
 	_0807EA94 
 	_0807E3E8 
 	JumpIfNot script_0801209E
 	_0807E48C 0x0020
 	JumpIfNot script_0801209A
-	TextboxNoOverlap 0x3125
+	MessageNoOverlap 0x3125
 	_0807EA94 
 	_0807F034 0x0031
 	WaitPlayerAction8
@@ -372,7 +372,7 @@ script_08012070:
 .endif
 	Jump script_0801209E
 script_0801209A:
-	TextboxNoOverlap 0x3127
+	MessageNoOverlap 0x3127
 script_0801209E:
 	_0807EA94 
 	_0807E878 
@@ -396,24 +396,24 @@ script_080120C6:
 	DoPostScriptAction 0x0000
 	CheckLocalFlag 0x0095
 	JumpIf script_080120EA
-	TextboxNoOverlap 0x3116
+	MessageNoOverlap 0x3116
 	_0807EA94 
 	SetLocalFlag 0x0095
 	Jump script_0801212A
 script_080120EA:
 	_0807E48C 0x002f
 	JumpIfNot script_080120FC
-	TextboxNoOverlap 0x3117
+	MessageNoOverlap 0x3117
 	_0807EA94 
 	Jump script_0801212A
 script_080120FC:
-	TextboxNoOverlap 0x3118
+	MessageNoOverlap 0x3118
 	_0807EA94 
 	_0807E3E8 
 	JumpIfNot script_0801212A
 	_0807E48C 0x0020
 	JumpIfNot script_08012126
-	TextboxNoOverlap 0x3119
+	MessageNoOverlap 0x3119
 	_0807EA94 
 	_0807F034 0x002f
 	WaitPlayerAction8
@@ -426,7 +426,7 @@ script_080120FC:
 .endif
 	Jump script_0801212A
 script_08012126:
-	TextboxNoOverlap 0x311b
+	MessageNoOverlap 0x311b
 script_0801212A:
 	_0807EA94 
 	_0807E878 
@@ -450,24 +450,24 @@ script_08012152:
 	DoPostScriptAction 0x0000
 	CheckLocalFlag 0x0096
 	JumpIf script_08012176
-	TextboxNoOverlap 0x311c
+	MessageNoOverlap 0x311c
 	_0807EA94 
 	SetLocalFlag 0x0096
 	Jump script_080121B6
 script_08012176:
 	_0807E48C 0x0030
 	JumpIfNot script_08012188
-	TextboxNoOverlap 0x311d
+	MessageNoOverlap 0x311d
 	_0807EA94 
 	Jump script_080121B6
 script_08012188:
-	TextboxNoOverlap 0x311e
+	MessageNoOverlap 0x311e
 	_0807EA94 
 	_0807E3E8 
 	JumpIfNot script_080121B6
 	_0807E48C 0x0020
 	JumpIfNot script_080121B2
-	TextboxNoOverlap 0x311f
+	MessageNoOverlap 0x311f
 	_0807EA94 
 	_0807F034 0x0030
 	WaitPlayerAction8 
@@ -480,7 +480,7 @@ script_08012188:
 .endif
 	Jump script_080121B6
 script_080121B2:
-	TextboxNoOverlap 0x3121
+	MessageNoOverlap 0x3121
 script_080121B6:
 	_0807EA94 
 	_0807E878 
@@ -502,7 +502,7 @@ script_080121DE:
 	_0807E864 
 	_0807EB74 
 	DoPostScriptAction 0x0000
-	TextboxNoOverlap 0x4527
+	MessageNoOverlap 0x4527
 	_0807EA94 
 	_0807E878 
 	_0807EB44 0x0004
@@ -521,7 +521,7 @@ script_08012216:
 	_0807E864 
 	_0807EB74 
 	DoPostScriptAction 0x0000
-	TextboxNoOverlap 0x4525
+	MessageNoOverlap 0x4525
 	_0807EA94 
 	_0807E878 
 	_0807EB44 0x0004
@@ -540,7 +540,7 @@ script_0801224E:
 	_0807E864 
 	_0807EB74 
 	DoPostScriptAction 0x0000
-	TextboxNoOverlap 0x4526
+	MessageNoOverlap 0x4526
 	_0807EA94 
 	_0807E878 
 	_0807EB44 0x0004
@@ -567,7 +567,7 @@ script_08012298:
 	_0807EB74 
 	_0807E864 
 	Call sub_08061FD8
-	TextboxNoOverlapFollow 0x2302
+	MessageFromTarget 0x2302
 	_0807EA94 
 	_0807E878 
 	SetGlobalFlag 0x001e
@@ -586,7 +586,7 @@ script_080122CE:
 	_0807EB74 
 	_0807E864 
 	Call sub_08061FD8
-	TextboxNoOverlapFollow 0x2303
+	MessageFromTarget 0x2303
 	_0807EA94 
 	_0807E878 
 	Jump script_080122BA

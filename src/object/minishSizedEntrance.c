@@ -27,11 +27,11 @@ void sub_08090F00(Entity* this) {
     if (this->type == 1) {
         Entity* parent = this->parent;
         u32 mask = 1 << this->field_0xf;
-        if (!(parent->field_0x20 & mask)) {
+        if (!(parent->hVelocity & mask)) {
             DeleteThisEntity();
         }
     }
-    if ((gPlayerState.flags.all & 0x80) && sub_080041A0(this, &gPlayerEntity, 4, 4) &&
+    if ((gPlayerState.flags & 0x80) && sub_080041A0(this, &gPlayerEntity, 4, 4) &&
         (gPlayerEntity.height.HALF.HI == 0) && (((u16)gPlayerState.field_0x90.HALF.LO) & gUnk_0812225C[this->type2])) {
         DoExitTransition(GetCurrentRoomProperty(this->actionDelay));
     }

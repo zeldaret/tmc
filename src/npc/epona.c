@@ -38,7 +38,7 @@ void sub_08065A00(Entity* this) {
 }
 
 void sub_08065A10(Entity* this) {
-    if ((gTextBox.doTextBox & 0x7F) == 0) {
+    if ((gMessage.doTextBox & 0x7F) == 0) {
         this->action = 1;
         InitAnimationForceUpdate(this, this->animationState / 2);
     }
@@ -58,7 +58,7 @@ void sub_08065A50(Entity* this) {
 void sub_08065A64(Entity* this) {
     u32 uVar2;
 
-    uVar2 = -(gPlayerState.flags.all & 0x80) >> 0x1f;
+    uVar2 = -(gPlayerState.flags & 0x80) >> 0x1f;
     if (uVar2 != this->field_0x68.HALF.HI) {
         if (uVar2 == 0) {
             sub_08078778(this);
@@ -71,7 +71,7 @@ void sub_08065A64(Entity* this) {
 
 void sub_08065AA4(Entity* this) {
     if (this->interactType != 0) {
-        if (gPlayerState.flags.all & 0x80) {
+        if (gPlayerState.flags & 0x80) {
             if (this->interactType == 2) {
                 this->action = 4;
                 sub_0806F118(this);

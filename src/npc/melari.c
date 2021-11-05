@@ -50,7 +50,7 @@ void sub_08068730(Entity* this) {
     }
     if (this->interactType != 0) {
         this->interactType = 0;
-        TextboxNoOverlapFollow(this->actionDelay + 0x1200);
+        MessageFromTarget(this->actionDelay + 0x1200);
     }
 }
 

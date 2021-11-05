@@ -18,7 +18,7 @@ SCRIPT_START script_08009464
 	Wait 0x003c
 	WaitPlayerAction8 
 	_0807EB8C 
-	TextboxNoOverlap 0x1d0c
+	MessageNoOverlap 0x1d0c
 	_0807EA94 
 	Wait 0x000a
 	Jump script_08009376

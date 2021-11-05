@@ -90,7 +90,7 @@ void sub_0806673C(Entity* this) {
     } else {
         index = 3;
     }
-    TextboxNoOverlap(gUnk_081104F8[index], this);
+    MessageNoOverlap(gUnk_081104F8[index], this);
 }
 
 void KingDaltus_Fusion(Entity* this) {

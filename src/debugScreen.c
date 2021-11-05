@@ -27,7 +27,7 @@ void sub_0805FA04(void) {
     MessageInitialize();
     MemClear((void*)&gUnk_02032EC0, sizeof(UI));
     MemClear((void*)&gMenu, sizeof(Menu));
-    gMenu.unk16 = gUnk_02000000->gameLanguage;
+    gMenu.unk16 = gSaveHeader->gameLanguage;
     sub_08053320();
     sub_0801D79C(0, 0x1144);
     gMain.funcIndex = 1;
@@ -56,8 +56,8 @@ void sub_0805FA98(void) {
             }
             break;
         case 0x100:
-            gUnk_02000000->gameLanguage = gMenu.unk16;
-            TextboxNoOverlapFollow(gMenu.unk14 * 0x100 + gMenu.unk15);
+            gSaveHeader->gameLanguage = gMenu.unk16;
+            MessageFromTarget(gMenu.unk14 * 0x100 + gMenu.unk15);
             break;
         case 0x2:
             MessageInitialize();

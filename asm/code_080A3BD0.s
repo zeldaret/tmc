@@ -430,7 +430,7 @@ _080A3F96:
 	bl SoundReq
 	ldr r0, _080A3FC8 @ =0x00000702
 	movs r1, #0xe
-	bl TextBoxAtYPosition
+	bl MessageAtHeight
 	movs r0, #1
 	strb r0, [r5, #6]
 	movs r0, #0x78
@@ -447,7 +447,7 @@ _080A3FC8: .4byte 0x00000702
 	thumb_func_start sub_080A3FCC
 sub_080A3FCC: @ 0x080A3FCC
 	push {lr}
-	ldr r0, _080A3FE8 @ =gTextBox
+	ldr r0, _080A3FE8 @ =gMessage
 	ldrb r1, [r0]
 	movs r0, #0x7f
 	ands r0, r1
@@ -461,7 +461,7 @@ sub_080A3FCC: @ 0x080A3FCC
 _080A3FE6:
 	pop {pc}
 	.align 2, 0
-_080A3FE8: .4byte gTextBox
+_080A3FE8: .4byte gMessage
 _080A3FEC: .4byte gMenu
 _080A3FF0: .4byte 0x00000147
 
@@ -1170,7 +1170,7 @@ sub_080A4494: @ 0x080A4494
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _080A44D0
-	ldr r0, _080A44D4 @ =gUnk_02000D00
+	ldr r0, _080A44D4 @ =gTextGfxBuffer
 	str r0, [r4, #8]
 	movs r1, #0
 	strb r1, [r4, #2]
@@ -1194,7 +1194,7 @@ _080A44D0:
 	adds r0, r5, #0
 	pop {r4, r5, pc}
 	.align 2, 0
-_080A44D4: .4byte gUnk_02000D00
+_080A44D4: .4byte gTextGfxBuffer
 _080A44D8: .4byte gUnk_02002AC0
 _080A44DC: .4byte gUnk_02022740
 

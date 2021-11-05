@@ -54,7 +54,7 @@ void sub_0802C688(Entity* this) {
                 this->action = 3;
                 this->damageType = 0x6e;
                 this->field_0xf = 1;
-                this->field_0x20 = 0x18000;
+                this->hVelocity = 0x18000;
                 this->speed = 0;
                 this->field_0x80.HALF.HI = 1;
                 InitializeAnimation(this, this->direction >> 4 | 6);
@@ -72,7 +72,7 @@ void sub_0802C7AC(Entity* this) {
         if (this->field_0x82.HALF.LO != 2) {
             this->speed = this->field_0x82.HALF.LO ? 0x200 : 0x80;
         }
-        this->field_0x20 = 0x18000;
+        this->hVelocity = 0x18000;
         this->field_0x82.HALF.HI = 0;
         this->field_0x80.HALF.HI = 0;
     } else {
@@ -225,7 +225,7 @@ void sub_0802CA94(Entity* this) {
     this->flags &= ~0x80;
     this->field_0xf = 1;
     this->spritePriority.b1 = 1;
-    this->field_0x20 = 0x18000;
+    this->hVelocity = 0x18000;
     this->speed = 0;
     this->field_0x82.HALF.HI = 0;
     this->field_0x80.HALF.HI = 0;

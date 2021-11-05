@@ -11,7 +11,7 @@ SCRIPT_START script_08014384
 	_0807EA94 
 	_0807EB8C 
 	Wait 0x001e
-	TextboxNoOverlapVar 
+	MessageNoOverlapVar 
 script_080143AC:
 	_0807EA94 
 	Wait 0x001e

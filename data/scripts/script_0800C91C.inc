@@ -39,7 +39,7 @@ script_0800C928:
 	_0807E5F8 0x00000200
 	WaitForSomething2 0x00000400
 	_0807E8E4_0 
-	TextboxNoOverlapFollow 0x1126
+	MessageFromTarget 0x1126
 	Call sub_0807F40C
 	_0807EA94 
 	_0807E5F8 0x00000200
@@ -55,12 +55,12 @@ script_0800C928:
 	_0807E5F8 0x00008000
 	WaitForSomething2 0x00010000
 	_0807E8E4_3 
-	TextboxNoOverlapFollow 0x1127
+	MessageFromTarget 0x1127
 	_0807EA94 
 	_0807E5F8 0x00002000
 	WaitForSomething2 0x00004000
 	_0807E8E4_1 
-	TextboxNoOverlapFollow 0x1128
+	MessageFromTarget 0x1128
 	_0807EA94 
 	_0807E5F8 0x00000200
 	_0807E5F8 0x00000800

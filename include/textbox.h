@@ -16,34 +16,36 @@ typedef struct {
     u8 textWindowPosY;
     u16 textIndex;
     u16 unk2; // HI?
-    u16 field_0xc;
-    u16 field_0xe;
+    u32 field_0xc;
     u32 field_0x10;
     u32 field_0x14;
     u32 field_0x18;
     u32 field_0x1c;
-} TextBox;
-extern TextBox gTextBox;
+} Message;
+extern Message gMessage;
 
 typedef struct {
-    TextBox textBox;
-    u8 _20;
-    u8 _21;
-    u16 _22;
-    u16 _24;
-    u16 _26;
-    u16 _28;
-    u8 _2a[0x2];
-    void* _2c;
-    u8 _30[0x20];
+    u8 flags;
+    u8 code; // first byte read
+    u16 param; // second byte read
+    u16 extended; // ascii adjusted for jp chars
+    u16 _6;
+    u16 textIndex;
+    void* _c;
+    u8 buf[32];
+} Token;
+
+typedef struct {
+    Message message;
+    Token curToken;
     WStruct _50;
-    char playerName[0xa];
+    char playerName[10];
     u8 _66[0x10];
     u8 _76;
     u8 _77[0x11];
-    u8 _88;
-    u8 state;
-    u8 _8a;
+    u8 msgStatus;
+    u8 renderStatus;
+    u8 newlineDelay;
     u8 _8b;
     u8 _8c;
     u8 _8d;
@@ -51,31 +53,28 @@ typedef struct {
     u8 _8f;
     u8 _90;
     u8 _91;
-    s8 _92;
+    s8 typeSpeed;
     u8 _93;
     u8 _94;
-    u8 _95;
+    u8 delay;
     u8 _96;
     u8 _97;
     union {
         u32 word;
         struct {
-            u8 b0;
+            u8 lineNo;
             u8 b1;
             u8 b2;
             s8 sizeScale;
         } bytes;
     } _98;
     u8 _9c;
-    u8 _9d;
-    u16 _9e;
-    u16 _a0;
-    u16 _a2;
-    u16 _a4;
+    u8 updateDraw;
+    u16 beginTiles[4];
     u16 _a6;
-} CurrentTextBox;
-extern CurrentTextBox gCurrentTextBox;
-static_assert(sizeof(CurrentTextBox) == 0xa8);
+} TextRender;
+extern TextRender gTextRender;
+static_assert(sizeof(TextRender) == 0xa8);
 
 /**
  * @brief Initialize the message system.
@@ -83,11 +82,17 @@ static_assert(sizeof(CurrentTextBox) == 0xa8);
 void MessageInitialize(void);
 
 /**
+ * @brief Update the message system.
+ * 
+ */
+void MessageMain(void);
+
+/**
  * @brief Show a message on screen.
  *
  * @param index u32 Message index
  */
-void ShowTextbox(u32 index);
+void MessageRequest(u32 index);
 
 /**
  * @brief Show a message at screen posiiton.
@@ -96,7 +101,7 @@ void ShowTextbox(u32 index);
  * @param x u32 Screen x
  * @param y u32 Screen y
  */
-void TextboxAtPosition(u32 index, u32 x, u32 y);
+void MessageAtPos(u32 index, u32 x, u32 y);
 
 /**
  * @brief Show a message that attempts not to obscure the entity.
@@ -104,13 +109,15 @@ void TextboxAtPosition(u32 index, u32 x, u32 y);
  * @param index u32 Message index
  * @param entity Entity* Your important entity
  */
-void TextboxNoOverlap(u32 index, Entity* entity);
+void MessageNoOverlap(u32 index, Entity* entity);
 
 /**
  * @brief Show a message that attempts not to obscure the camera target.
  *
  * @param index u32 Message index
  */
-void TextboxNoOverlapFollow(u32 index);
+void MessageFromTarget(u32 index);
+
+void DispMessageFrame(u16*, u32, u32, u32);
 
 #endif

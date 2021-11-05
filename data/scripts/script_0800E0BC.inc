@@ -27,7 +27,7 @@ script_0800E0DE:
 	_0807EB8C 
 	_0807EB74 
 	Wait 0x000a
-	TextboxNoOverlap 0x2402
+	MessageNoOverlap 0x2402
 	_0807EA94 
 	SetLocalFlag 0x0093
 script_0800E12E:
@@ -39,7 +39,7 @@ script_0800E138:
 	JumpIfNot script_0800E138
 	_0807E864 
 	_0807EB74 
-	TextboxNoOverlap 0x2402
+	MessageNoOverlap 0x2402
 	_0807EA94 
 	Wait 0x000f
 	_0807E878 
@@ -75,7 +75,7 @@ script_0800E176:
 	_0807EB74 
 	CallWithArg sub_0807F3D8, 0x00000000
 	Wait 0x000a
-	TextboxNoOverlap 0x2401
+	MessageNoOverlap 0x2401
 	_0807EA94 
 	SetLocalFlag 0x0094
 script_0800E1D0:
@@ -89,7 +89,7 @@ script_0800E1E0:
 	_0807E864 
 	_0807EB74 
 	CallWithArg sub_0807F3D8, 0x00000000
-	TextboxNoOverlap 0x2401
+	MessageNoOverlap 0x2401
 	_0807EA94 
 	_0807E878 
 	Jump script_0800E1E0
@@ -168,7 +168,7 @@ script_0800E312:
 	_0807EB74 
 	CallWithArg sub_0807F3D8, 0x00000000
 	EndBlock 
-	TextboxNoOverlap 0x2404
+	MessageNoOverlap 0x2404
 	_0807EA94 
 	_0807E878 
 	Jump script_0800E2AE
@@ -178,7 +178,7 @@ script_0800E32E:
 	_0807E864 
 	_0807EB74 
 	CallWithArg sub_0807F3D8, 0x00000000
-	TextboxNoOverlap 0x2403
+	MessageNoOverlap 0x2403
 	_0807EA94 
 	_0807E878 
 	Jump script_0800E32E
@@ -223,7 +223,7 @@ script_0800E3C8:
 	JumpIfNot script_0800E3C8
 	_0807E864 
 	_0807EB74 
-	TextboxNoOverlap 0x240c
+	MessageNoOverlap 0x240c
 	_0807EA94 
 	Wait 0x000f
 	_0807F034 0x0053
@@ -239,7 +239,7 @@ script_0800E3EE:
 	JumpIfNot script_0800E3EE
 	_0807E864 
 	_0807EB74 
-	TextboxNoOverlap 0x240d
+	MessageNoOverlap 0x240d
 	_0807EA94 
 	Wait 0x000f
 	_0807E878 
@@ -255,7 +255,7 @@ script_0800E41A:
 	JumpIfNot script_0800E41A
 	_0807E864 
 	_0807EB74 
-	TextboxNoOverlap 0x2406
+	MessageNoOverlap 0x2406
 	_0807EA94 
 	Wait 0x000f
 	_0807E878 
@@ -273,7 +273,7 @@ script_0800E44C:
 	_0807E864 
 	_0807EB74 
 	CallWithArg sub_0807F3D8, 0x00000000
-	TextboxNoOverlap 0x2405
+	MessageNoOverlap 0x2405
 	_0807EA94 
 	_0807E878 
 	Jump script_0800E44C
@@ -290,7 +290,7 @@ script_0800E484:
 	_0807E864 
 	_0807EB74 
 	CallWithArg sub_0807F3D8, 0x00000000
-	TextboxNoOverlap 0x2407
+	MessageNoOverlap 0x2407
 	_0807EA94 
 	_0807E878 
 	Jump script_0800E484
@@ -325,10 +325,10 @@ script_0800E4B6:
 	EndBlock 
 	Call sub_0807F3F8
 	Wait 0x003c
-	TextboxNoOverlapFollow 0x160c
+	MessageFromTarget 0x160c
 	_0807EA94 
 	Wait 0x001e
-	TextboxNoOverlapFollow 0x160d
+	MessageFromTarget 0x160d
 	_0807EA94 
 	Wait 0x001e
 	_0807EB28 0x160e

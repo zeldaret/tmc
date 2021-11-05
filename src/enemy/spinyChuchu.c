@@ -159,7 +159,7 @@ void sub_080226EC(Entity* this) {
 
         if (sub_080228F0(this)) {
             this->action = 6;
-            this->field_0x20 = 0x12000;
+            this->hVelocity = 0x12000;
             this->speed = 0x140;
             this->direction = GetFacingDirection(this, gUnk_020000B0);
             this->damageType = 0x5a;

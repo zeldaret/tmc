@@ -42,7 +42,7 @@ void V1FireProjectile_Init(Entity* this) {
     s8* data;
 
     this->action = 1;
-    this->field_0x20 = -0x10000;
+    this->hVelocity = -0x10000;
     this->field_0x76.HWORD = TILE(this->x.HALF.HI, this->y.HALF.HI);
     CopyPosition(this->parent, this);
     sub_0806F5BC(this, 0x1000, this->direction);
@@ -68,7 +68,7 @@ void V1FireProjectile_Init(Entity* this) {
             iVar2 = 0x20;
         }
     }
-    this->field_0x20 = (this->height.WORD / (iVar2 << 8)) << 0xd;
+    this->hVelocity = (this->height.WORD / (iVar2 << 8)) << 0xd;
 
     this->direction = sub_080045B4(this, x, y);
 }

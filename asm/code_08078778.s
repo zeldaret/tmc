@@ -3185,7 +3185,7 @@ sub_0807A050: @ 0x0807A050
 	ldrb r2, [r3, #0xf]
 	cmp r2, #0
 	beq _0807A06A
-	ldr r0, _0807A08C @ =gTextBox
+	ldr r0, _0807A08C @ =gMessage
 	ldrb r1, [r0]
 	movs r0, #0x7f
 	ands r0, r1
@@ -3209,7 +3209,7 @@ _0807A084:
 	pop {pc}
 	.align 2, 0
 _0807A088: .4byte gPlayerState
-_0807A08C: .4byte gTextBox
+_0807A08C: .4byte gMessage
 _0807A090: .4byte gPlayerEntity
 
 	thumb_func_start sub_0807A094

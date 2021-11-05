@@ -109,14 +109,14 @@ SaveResult HandleSaveInProgress(u32 arg0) {
         InitDMA();
         switch (arg0) {
             case 0:
-                temp = WriteSaveFile(gUnk_02000000->saveFileId, &gSave);
+                temp = WriteSaveFile(gSaveHeader->saveFileId, &gSave);
                 break;
             case 1:
-                SetFileStatusDeleted(gUnk_02000000->saveFileId);
+                SetFileStatusDeleted(gSaveHeader->saveFileId);
                 temp = 1;
                 break;
             case 2:
-                temp = Write_02000000(gUnk_02000000);
+                temp = Write_02000000(gSaveHeader);
                 break;
         }
         gMenu.field_0xa = temp;

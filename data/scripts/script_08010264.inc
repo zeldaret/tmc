@@ -211,13 +211,13 @@ script_08010502:
 	CheckRoomFlag 0x000e
 	JumpIf script_0801052E
 	SetRoomFlag 0x000e
-	TextboxNoOverlap 0x2b10
+	MessageNoOverlap 0x2b10
 	_0807EA94 
 script_0801052E:
 	Call sub_080634E4
 	JumpTable script_08010544, script_08010558, script_08010570, script_08010570, script_0801054C, script_08010564, script_08010570
 script_08010544:
-	TextboxNoOverlap 0x2b0d
+	MessageNoOverlap 0x2b0d
 	Jump script_080105E0
 script_0801054C:
 	CheckGlobalFlag 0x003d
@@ -243,24 +243,24 @@ script_08010570:
 	JumpIfNot script_080105CC
 	Call sub_08063504
 	JumpIf script_080105D4
-	TextboxNoOverlap 0x2b07
+	MessageNoOverlap 0x2b07
 	_0807EA94 
 	CallWithArg sub_0807F800, 0x00000000
 	WaitPlayerAction8 
 	_0807EA94 
-	TextboxNoOverlap 0x2b0c
+	MessageNoOverlap 0x2b0c
 	Jump script_080105E0
 script_080105C4:
-	TextboxNoOverlap 0x2b09
+	MessageNoOverlap 0x2b09
 	Jump script_080105E0
 script_080105CC:
-	TextboxNoOverlap 0x2b0a
+	MessageNoOverlap 0x2b0a
 	Jump script_080105E0
 script_080105D4:
-	TextboxNoOverlap 0x2b0b
+	MessageNoOverlap 0x2b0b
 	Jump script_080105E0
 script_080105DC:
-	TextboxNoOverlap 0x2b0e
+	MessageNoOverlap 0x2b0e
 script_080105E0:
 	_0807EA94 
 	Call sub_0807DF50
@@ -278,7 +278,7 @@ script_08010602:
 	JumpIfNot script_08010602
 	_0807E864 
 	_0807EB74 
-	TextboxNoOverlapFollow 0x0a01
+	MessageFromTarget 0x0a01
 	_0807EA94 
 	_0807E878 
 	_0807EB44 0x0004
@@ -330,7 +330,7 @@ script_08010686:
 	_0807EB74 
 	HasRoomItemForSale 
 	Call sub_0807F77C
-	TextboxNoOverlapFollowTable 0x3c08, 0x3c09
+	MessageFromTargetTable 0x3c08, 0x3c09
 	_0807EA94 
 	_0807E878 
 	_0807EB44 0x0004
@@ -352,7 +352,7 @@ script_080106BE:
 	DoPostScriptAction 0x0000
 	HasRoomItemForSale 
 	JumpIf script_080106E0
-	TextboxNoOverlap 0x3c07
+	MessageNoOverlap 0x3c07
 	Jump script_08010726
 script_080106E0:
 	Call sub_08062EB8
@@ -363,14 +363,14 @@ script_080106E0:
 	_0807EA94 
 	BuyItem 0x0000, 0x0000
 	JumpIf script_0801070C
-	TextboxNoOverlap 0x3c04
+	MessageNoOverlap 0x3c04
 	Jump script_08010726
 script_0801070C:
 	WaitPlayerAction8 
 	ModHealth 0x0008
 	Call sub_08062EDC
 	JumpIf script_08010724
-	TextboxNoOverlap 0x3c06
+	MessageNoOverlap 0x3c06
 	Jump script_08010726
 script_08010724:
 	WaitPlayerAction8 
@@ -401,12 +401,12 @@ script_08010746:
 	JumpIfNot script_08010786
 	HasRupees 0x00c8
 	JumpIf script_08010778
-	TextboxNoOverlap 0x4008
+	MessageNoOverlap 0x4008
 	Jump script_08010786
 script_08010778:
 	ModRupees 0xff38
 	Call sub_08062E14
-	TextboxNoOverlap 0x4007
+	MessageNoOverlap 0x4007
 script_08010786:
 	EndBlock 
 	_0807EA94 
@@ -470,13 +470,13 @@ script_08010804:
 	JumpIfNot script_08010858
 	CheckGlobalFlag 0x0041
 	JumpIfNot script_08010850
-	TextboxNoOverlap 0x3f39
+	MessageNoOverlap 0x3f39
 	Jump script_080108BA
 script_08010850:
-	TextboxNoOverlap 0x2c1b
+	MessageNoOverlap 0x2c1b
 	Jump script_080108BA
 script_08010858:
-	TextboxNoOverlap 0x2c1a
+	MessageNoOverlap 0x2c1a
 	Jump script_080108BA
 script_08010860:
 	EndBlock 
@@ -498,7 +498,7 @@ script_08010860:
 	JumpIfNot script_080108AA
 	CheckGlobalFlag 0x0044
 	JumpIfNot script_080108AA
-	TextboxNoOverlap 0x2c21
+	MessageNoOverlap 0x2c21
 	Jump script_080108B2
 script_080108AA:
 .ifdef USA
@@ -508,7 +508,7 @@ script_080108AA:
 	SetLocalFlag 0x00fa
 .endif
 .endif
-	TextboxNoOverlap 0x2c20
+	MessageNoOverlap 0x2c20
 script_080108B2:
 	_0807EA94 
 	Call sub_0807F83C

@@ -64,7 +64,7 @@ script_0800F604:
 	_0807E864 
 	_0807EB74 
 	CallWithArg sub_0807F3D8, 0x00000008
-	TextboxNoOverlap 0x2511
+	MessageNoOverlap 0x2511
 	_0807EA94 
 	Wait 0x000f
 	_0807E878 
@@ -131,10 +131,10 @@ script_0800F6A0:
 .endif
 .endif
 	JumpIf script_0800F6C4
-	TextboxNoOverlap 0x2512
+	MessageNoOverlap 0x2512
 	Jump script_0800F6C8
 script_0800F6C4:
-	TextboxNoOverlap 0x251f
+	MessageNoOverlap 0x251f
 script_0800F6C8:
 	_0807EA94 
 	Wait 0x000f

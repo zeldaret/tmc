@@ -149,7 +149,7 @@ void sub_080601D4(Entity* this) {
         temp = CheckKinstoneFused(0x17);
         uVar2 = BOOLCAST(temp);
     }
-    TextboxNoOverlap(gUnk_0810A354[uVar2], this);
+    MessageNoOverlap(gUnk_0810A354[uVar2], this);
 }
 
 void sub_08060208(Entity* this) {
@@ -197,7 +197,7 @@ void sub_08060270(Entity* this) {
             SetLocalFlag(0x76);
         }
     }
-    TextboxNoOverlap(gUnk_0810A35A[index], this);
+    MessageNoOverlap(gUnk_0810A35A[index], this);
 }
 
 void sub_080602BC(Entity* this) {
@@ -213,7 +213,7 @@ void sub_080602BC(Entity* this) {
             index = 0;
         }
     }
-    TextboxNoOverlap(gUnk_0810A362[index], this);
+    MessageNoOverlap(gUnk_0810A362[index], this);
 }
 
 void sub_0806030C(Entity* this, ScriptExecutionContext* context) {

@@ -479,7 +479,7 @@ sub_0801CBC8: @ 0x0801CBC8
 	ands r0, r1
 	cmp r0, #0
 	bne _0801CBF6
-	ldr r0, _0801CC0C @ =gTextBox
+	ldr r0, _0801CC0C @ =gMessage
 	ldrb r1, [r0]
 	movs r0, #0x7f
 	ands r0, r1
@@ -497,7 +497,7 @@ _0801CBF6:
 	b _0801CC1E
 	.align 2, 0
 _0801CC08: .4byte gUnk_0200AF00
-_0801CC0C: .4byte gTextBox
+_0801CC0C: .4byte gMessage
 _0801CC10:
 	ldr r1, _0801CC7C @ =gUnk_0200AF00
 	ldrb r0, [r5, #1]
@@ -828,7 +828,7 @@ sub_0801CE58: @ 0x0801CE58
 	ands r0, r1
 	cmp r0, #0
 	bne _0801CEB4
-	ldr r0, _0801CEBC @ =gTextBox
+	ldr r0, _0801CEBC @ =gMessage
 	ldrb r1, [r0]
 	movs r0, #0x7f
 	ands r0, r1
@@ -866,4 +866,4 @@ _0801CEB4:
 	pop {r4, pc}
 	.align 2, 0
 _0801CEB8: .4byte gUnk_0200AF00
-_0801CEBC: .4byte gTextBox
+_0801CEBC: .4byte gMessage

@@ -8,74 +8,96 @@
 #include "structures.h"
 #include "save.h"
 
-#define TEXTBOX_ADVANCE_KEYS (A_BUTTON | B_BUTTON | DPAD_ANY | R_BUTTON)
-#define TEXTBOX_PRESS_ANY_ADVANCE_KEYS ((gInput.newKeys & TEXTBOX_ADVANCE_KEYS) != 0)
+#define MESSAGE_ADVANCE_KEYS (A_BUTTON | B_BUTTON | DPAD_ANY | R_BUTTON)
+#define MESSAGE_PRESS_ANY_ADVANCE_KEYS ((gInput.newKeys & MESSAGE_ADVANCE_KEYS) != 0)
 
-#define TEXTBOX_WIDTH 0x20
-#define TEXTBOX_POSITION_INDEX(window) ((window).yPos * TEXTBOX_WIDTH + (window).xPos)
+#define MESSAGE_WIDTH 0x20
+#define MESSAGE_POSITION_INDEX(window) ((window).yPos * MESSAGE_WIDTH + (window).xPos)
+
+#define MESSAGE_PALETTE 0xF
+
+// todo: move this to a shared header for ui tiles
+enum {
+    MSG_BORDER_CORNER = 0x7B,
+    MSG_BORDER_H_CORNER = 0x7C,
+    MSG_BORDER_H_STRAIGHT = 0x7D,
+    MSG_BORDER_V_CORNER = 0x7E,
+    MSG_BORDER_V_STRAIGHT = 0x7F,
+    MSG_CURSOR = 0x80,
+    MSG_BACKGROUND = 0x81,
+    MSG_TEXT_LINE1TOP = 0x82,
+    MSG_TEXT_LINE1BOTTOM = 0x83,
+    MSG_TEXT_LINE2TOP = 0xb6,
+    MSG_TEXT_LINE2BOTTOM = 0xb7,
+};
 
 extern void WriteBit(u32*, u32);
-extern void sub_0805EF40(u8*, u8*);
-extern void sub_0801C4A0(u32, u32);
-extern void sub_0801C494(void);
+extern void sub_0805EF40(Token* tok, const u8*);
+extern void RecoverUI(u32 bottomPt, u32 topPt);
+extern void RefreshUI(void);
 extern void sub_0805F918(u32, u32, u32);
 extern u32 sub_0801D51C(u32, u8*, u32);
 
 u32 sub_08056FEC(u32, u8*);
-
-u16 sub_08056750(CurrentTextBox*);
-u32 sub_0805EFE8(u8*);
-void sub_08056ABC(u32, u32);
-void sub_080569C4(CurrentTextBox*, u32);
+u32 GetCharacter(Token* tok);
+extern void sub_0805EEB4(Token* tok, u32 textIdx);
 u16 sub_0805F7DC(u32, u8*);
-u32 sub_GetFontStrWidth(u8*, u32);
-void sub_08056FBC(CurrentTextBox*);
-void SetDoTextBox(u32 doTextbox);
-void Load_02000D00_Asyc(void);
+u32 GetFontStrWith(u8*, u32);
 
-void DeleteWindow(void);
-void CreateWindow(void);
-u32 CalcWindowSize(u32 fade);
+static void StatusUpdate(u32 status);
 
-void DispMessageFrame(u16*, u32, u32, u32);
-void DispString(void);
-void DispCursor(void);
+static u16 RunTextCommand(TextRender* this);
+static void PaletteChange(TextRender* this, u32 id);
+static void SwitchChoice(u32 to, u32 from);
 
-typedef u32 (*TextBoxFunction)(void);
+static void MsgChangeLine(u32 lineNo);
+static void SetDoTextBox(u32 doTextbox);
 
-u32 TextBoxFunction0(void);
-u32 TextBoxFunction1(void);
-u32 HandleTextBox(void);
-u32 TextBoxFunctionOpen(void);
-u32 TextBoxFunctionClose(void);
-u32 TextBoxFunction5(void);
+static void DeleteWindow(void);
+static u32 ChangeWindowSize(u32 delta);
+static void CreateWindow(void);
 
-const TextBoxFunction gTextBoxFunctions[] = {
-    TextBoxFunction0, TextBoxFunction1, HandleTextBox, TextBoxFunctionOpen, TextBoxFunctionClose, TextBoxFunction5,
-};
+static void DispString(void);
+static void DispCursor(void);
+static void DrawCanvasLine(void);
+static void sub_08056F88(u32, u32);
+static void sub_08056FBC(TextRender*);
 
-extern u8 gUnk_020227DC, gUnk_020227E8, gUnk_020227F0, gUnk_020227F8, gUnk_02022800;
-u8* const gUnk_08107BE0[] = {
-    &gUnk_020227DC, &gUnk_020227E8, &gUnk_020227F0, &gUnk_020227F8, &gUnk_02022800,
-};
+typedef u32 (*MessageFunction)(void);
+static u32 MsgIdle(void);
+static u32 MsgInit(void);
+static u32 MsgUpdate(void);
+static u32 MsgOpen(void);
+static u32 MsgClose(void);
+static u32 MsgDie(void);
+typedef enum {
+    MSG_IDLE,
+    MSG_INIT,
+    MSG_UPDATE,
+    MSG_OPEN,
+    MSG_CLOSE,
+    MSG_DIE,
+} MessageStatus;
 
-typedef void (*TextBoxHandler)(CurrentTextBox*);
-
-void TextBoxHandler0(CurrentTextBox* this);
-void TextBoxHandler1(CurrentTextBox* param_1);
-void TextBoxHandlerAdvance(CurrentTextBox* ctb);
-void TextBoxHandlerNextBox(CurrentTextBox* ctb);
-void TextBoxHandler4(CurrentTextBox* ctb);
-void TextBoxHandlerQuestion(CurrentTextBox* ctb);
-
-const TextBoxHandler gTextBoxHandlers[] = {
-    TextBoxHandler0,       TextBoxHandler1, TextBoxHandlerAdvance,
-    TextBoxHandlerNextBox, TextBoxHandler4, TextBoxHandlerQuestion,
-};
+typedef void (*TextRenderFunction)(TextRender*);
+static void TextDispInit(TextRender* this);
+static void TextDispUpdate(TextRender* this);
+static void TextDispDie(TextRender* this);
+static void TextDispWait(TextRender* this);
+static void TextDispRoll(TextRender* this);
+static void TextDispEnquiry(TextRender* this);
+typedef enum {
+    RENDER_INIT,
+    RENDER_UPDATE,
+    RENDER_DIE,
+    RENDER_WAIT,
+    RENDER_ROLL,
+    RENDER_ENQUIRY,
+} TextRenderStatus;
 
 typedef struct Window {
     u8 unk0;
-    u8 unk1;
+    u8 active;
     u8 unk2;
     u8 unk3;
     u8 xPos;
@@ -89,658 +111,660 @@ extern Window gNewWindow;
 extern struct {
     u8 unk_00;
     u8 unk_01[1];
-    s8 unk_02;
-    s8 unk_03;
+    s8 choiceCount;
+    s8 currentChoice;
     u8 unk_04[4];
     u16 unk_08[4];
     u16 unk_10[4];
-} gUnk_02024030;
+} gMessageChoices;
 
-extern u32 gUnk_0200005C;
-
-extern u8 gUnk_020227A0;
-extern u8 gUnk_02000D00[0xD00];
-
-extern const u8 gUnk_08107C0C[];
+extern u8 gTextGfxBuffer[0xD00];
 
 s32 sub_08056338(void) {
     s32 result;
 
     result = -1;
-    if (((gTextBox.doTextBox & 0x7f) == 0) && (gUnk_02000040.unk_00 == 3))
+    if (((gMessage.doTextBox & 0x7f) == 0) && (gUnk_02000040.unk_00 == 3))
         result = gUnk_02000040.unk_01;
     return result;
 }
 
-void sub_08056360(void) {
-    if ((gTextBox.doTextBox & 0x7f) != 0) {
-        gTextBox.doTextBox = 0x88;
+void MessageClose(void) {
+    if ((gMessage.doTextBox & 0x7f) != 0) {
+        gMessage.doTextBox = 0x88;
     }
 }
 
-void TextboxNoOverlapFollow(u32 index) {
+void MessageFromTarget(u32 index) {
     if (gRoomControls.cameraTarget != NULL) {
-        TextboxNoOverlap(index, gRoomControls.cameraTarget);
+        MessageNoOverlap(index, gRoomControls.cameraTarget);
     } else {
-        ShowTextbox(index);
+        MessageRequest(index);
     }
 }
 
-void TextboxNoOverlap(u32 index, Entity* entity) {
+void MessageNoOverlap(u32 index, Entity* entity) {
     s16 y;
     s16 height;
 
-    ShowTextbox(index);
+    MessageRequest(index);
 
     y = entity->y.HALF.HI;
     height = entity->height.HALF.HI;
 
     if (((y + height) - gRoomControls.roomScrollY) > 0x58) {
-        gTextBox.textWindowPosY = 1;
+        gMessage.textWindowPosY = 1;
     }
 }
 
-void TextBoxAtYPosition(u32 index, u32 y) {
-    TextboxAtPosition(index, 1, y);
+void MessageAtHeight(u32 index, u32 y) {
+    MessageAtPos(index, 1, y);
 }
 
-void TextboxAtPosition(u32 index, u32 x, u32 y) {
-    ShowTextbox(index);
-    gTextBox.textWindowPosX = x;
-    gTextBox.textWindowPosY = y;
+void MessageAtPos(u32 index, u32 x, u32 y) {
+    MessageRequest(index);
+    gMessage.textWindowPosX = x;
+    gMessage.textWindowPosY = y;
 }
 
-void ShowTextbox(u32 index) {
-    MemClear(&gTextBox, sizeof(gTextBox));
-    gTextBox.textIndex = index;
-    gTextBox.textSpeed = 99;
-    gTextBox.textWindowWidth = 26;
-    gTextBox.textWindowHeight = 4;
-    gTextBox.textWindowPosX = 1;
-    gTextBox.textWindowPosY = 12;
-    gTextBox.doTextBox = 1;
+void MessageRequest(u32 index) {
+    MemClear(&gMessage, sizeof(gMessage));
+    gMessage.textIndex = index;
+    gMessage.textSpeed = 99;
+    gMessage.textWindowWidth = 26;
+    gMessage.textWindowHeight = 4;
+    gMessage.textWindowPosX = 1;
+    gMessage.textWindowPosY = 12;
+    gMessage.doTextBox = 1;
 }
 
 void MessageInitialize(void) {
-    MemClear(&gTextBox, sizeof(gTextBox));
-    MemClear(&gCurrentTextBox, sizeof(gCurrentTextBox));
+    MemClear(&gMessage, sizeof(gMessage));
+    MemClear(&gTextRender, sizeof(gTextRender));
     MemClear(&gNewWindow, sizeof(gNewWindow));
     MemClear(&gCurrentWindow, sizeof(gCurrentWindow));
     MemClear(&gUnk_02000040, 4);
 }
 
-void MessageUpdate(void) {
-    int iVar1;
+void MessageMain(void) {
+    static const MessageFunction gMessageFunctions[] = {
+        [MSG_IDLE] = MsgIdle, [MSG_INIT] = MsgInit,   [MSG_UPDATE] = MsgUpdate,
+        [MSG_OPEN] = MsgOpen, [MSG_CLOSE] = MsgClose, [MSG_DIE] = MsgDie,
+    };
 
-    if (gTextBox.doTextBox == 1) {
-        MemClear((u32*)&gCurrentTextBox, sizeof(gCurrentTextBox));
-        sub_080564C8(1);
+    if (gMessage.doTextBox == 1) {
+        MemClear((u32*)&gTextRender, sizeof(gTextRender));
+        StatusUpdate(MSG_INIT);
     }
 
-    if (gCurrentTextBox._8a != 0) {
-        gCurrentTextBox._8a--;
+    if (gTextRender.newlineDelay != 0) {
+        gTextRender.newlineDelay--;
     } else {
+        int result;
         do {
-            iVar1 = gTextBoxFunctions[gCurrentTextBox._88]();
-        } while (iVar1 != 0);
+            result = gMessageFunctions[gTextRender.msgStatus]();
+        } while (result != 0);
     }
-    if (gCurrentTextBox._9d != 0) {
-        gCurrentTextBox._9d = 0;
-        Load_02000D00_Asyc();
+    if (gTextRender.updateDraw) {
+        gTextRender.updateDraw = 0;
+        DrawCanvasLine();
     }
     DeleteWindow();
     CreateWindow();
 }
 
-void sub_080564C8(u32 unk) {
-    gCurrentTextBox._88 = unk;
-    gCurrentTextBox.state = 0;
+static void StatusUpdate(MessageStatus status) {
+    gTextRender.msgStatus = status;
+    gTextRender.renderStatus = RENDER_INIT;
 }
 
-u32 TextBoxFunction0(void) {
-    gCurrentTextBox._98.bytes.b1 = 0;
+static u32 MsgIdle(void) {
+    gTextRender._98.bytes.b1 = 0;
     return 0;
 }
 
+extern u8 gUnk_020227DC, gUnk_020227E8, gUnk_020227F0, gUnk_020227F8, gUnk_02022800;
+u8* const gUnk_08107BE0[] = {
+    &gUnk_020227DC, &gUnk_020227E8, &gUnk_020227F0, &gUnk_020227F8, &gUnk_02022800,
+};
+
 // regalloc in loop
-NONMATCH("asm/non_matching/textbox/TextBoxFunction1.inc", u32 TextBoxFunction1(void)) {
-    u32 uVar1;
+NONMATCH("asm/non_matching/textbox/TextBoxFunction1.inc", static u32 MsgInit(void)) {
     char* dest;
     u32 i;
-    char c;
 
-    MemClear((void*)&gNewWindow, 8);
-    MemClear((void*)&gUnk_02024030, 0x18);
-    MemClear((void*)&gCurrentTextBox, sizeof(gCurrentTextBox));
-    MemCopy(&gTextBox, &gCurrentTextBox, sizeof(gTextBox));
-    if (gCurrentTextBox.textBox.textSpeed == 0x63) {
-        gCurrentTextBox.textBox.textSpeed = gUnk_02000000->messageSpeed;
+    MemClear((void*)&gNewWindow, sizeof(gNewWindow));
+    MemClear((void*)&gMessageChoices, sizeof(gMessageChoices));
+    MemClear((void*)&gTextRender, sizeof(gTextRender));
+    MemCopy(&gMessage, &gTextRender, sizeof(gMessage));
+    if (gTextRender.message.textSpeed == 99) {
+        gTextRender.message.textSpeed = gSaveHeader->messageSpeed;
     }
-    gCurrentTextBox._9c = 0xff;
-    sub_0805EEB4(&gCurrentTextBox._20, gCurrentTextBox.textBox.textIndex);
-    gCurrentTextBox.playerName[0] = 2;
-    gCurrentTextBox.playerName[1] = 0xe;
-    dest = &gCurrentTextBox.playerName[2];
+    gTextRender._9c = 0xff;
+    sub_0805EEB4(&gTextRender.curToken, gTextRender.message.textIndex);
+    gTextRender.playerName[0] = 2;
+    gTextRender.playerName[1] = 0xe; // Green text color
+    dest = &gTextRender.playerName[2];
 
     for (i = 0; i < FILENAME_LENGTH; ++i) {
-        c = gSave.playerName[i];
+        char c = gSave.playerName[i];
         if (c == '\0')
             break;
-        *dest = c;
-        dest++;
+        *dest++ = c;
     }
 
     dest[0] = 2;
-    dest[1] = 15;
-    dest[2] = 0;
-    sub_08056FBC(&gCurrentTextBox);
-    gCurrentTextBox._2c = &gUnk_08107BE0;
-    gCurrentTextBox._50.unk8 = gUnk_02000D00;
-    gCurrentTextBox._50.unk4 = 0xd0;
+    dest[1] = 0xf; // White text color
+    dest[2] = '\0';
+    sub_08056FBC(&gTextRender);
+    gTextRender.curToken._c = &gUnk_08107BE0;
+    gTextRender._50.unk8 = gTextGfxBuffer;
+    gTextRender._50.unk4 = 0xd0;
     SetDoTextBox(2);
-    sub_08056BDC(0);
-    sub_080564C8(2);
+    MsgChangeLine(0);
+    StatusUpdate(MSG_UPDATE);
     return 1;
 }
 END_NONMATCH
 
-u32 TextBoxFunctionOpen(void) {
-    if (gCurrentTextBox.state == 0) {
-        gCurrentTextBox.state = 1;
-        gCurrentTextBox._98.bytes.b1 = 1;
-        sub_08056F88(gCurrentTextBox.textBox.unk3, gCurrentTextBox._50.unk3);
+static u32 MsgOpen(void) {
+    if (gTextRender.renderStatus == RENDER_INIT) {
+        gTextRender.renderStatus = RENDER_UPDATE;
+        gTextRender._98.bytes.b1 = 1;
+        sub_08056F88(gTextRender.message.unk3, gTextRender._50.unk3);
         SoundReq(SFX_TEXTBOX_OPEN);
     }
 
-    if (CalcWindowSize(1)) {
-        gCurrentTextBox._98.bytes.b1 = 2;
-        sub_080564C8(2);
+    if (ChangeWindowSize(1)) {
+        gTextRender._98.bytes.b1 = 2;
+        StatusUpdate(MSG_UPDATE);
     }
     return 0;
 }
 
-u32 TextBoxFunctionClose(void) {
-    if (gCurrentTextBox.state == 0) {
-        gCurrentTextBox.state = 1;
-        gCurrentTextBox._98.bytes.b1 = 3;
-        sub_08056BDC(0);
+static u32 MsgClose(void) {
+    if (gTextRender.renderStatus == RENDER_INIT) {
+        gTextRender.renderStatus = RENDER_UPDATE;
+        gTextRender._98.bytes.b1 = 3;
+        MsgChangeLine(0);
         SoundReq(SFX_TEXTBOX_CLOSE);
     }
 
-    if (CalcWindowSize(-1)) {
-        gCurrentTextBox._98.bytes.b1 = 0;
-        sub_080564C8(2);
+    if (ChangeWindowSize(-1)) {
+        gTextRender._98.bytes.b1 = 0;
+        StatusUpdate(MSG_UPDATE);
     }
     return 0;
 }
 
-u32 TextBoxFunction5(void) {
+static u32 MsgDie(void) {
     SetDoTextBox(0);
-    sub_080564C8(0);
+    StatusUpdate(MSG_IDLE);
     return 0;
 }
 
-u32 HandleTextBox(void) {
+static u32 MsgUpdate(void) {
+    static const TextRenderFunction gTextDispFunctions[] = {
+        [RENDER_INIT] = TextDispInit, [RENDER_UPDATE] = TextDispUpdate, [RENDER_DIE] = TextDispDie,
+        [RENDER_WAIT] = TextDispWait, [RENDER_ROLL] = TextDispRoll,     [RENDER_ENQUIRY] = TextDispEnquiry,
+    };
+
     SetDoTextBox(4);
-    gTextBoxHandlers[gCurrentTextBox.state](&gCurrentTextBox);
-    CalcWindowSize(0);
+    gTextDispFunctions[gTextRender.renderStatus](&gTextRender);
+    ChangeWindowSize(0);
     return 0;
 }
 
-void TextBoxHandler0(CurrentTextBox* this) {
-    if ((gCurrentTextBox._20 & 1) == 0) {
-        if (gCurrentTextBox._98.bytes.b1 == 0) {
-            sub_080564C8(5);
+static void TextDispInit(TextRender* this) {
+    if ((gTextRender.curToken.flags & 1) == 0) {
+        if (gTextRender._98.bytes.b1 == 0) {
+            StatusUpdate(MSG_DIE);
         }
     } else {
-        this->state = 1;
+        this->renderStatus = RENDER_UPDATE;
     }
 }
 
-void TextBoxHandler1(CurrentTextBox* param_1) {
-    u32 uVar3;
-    s32 iVar4;
-    int iVar5;
-    int iVar6;
+static void TextDispUpdate(TextRender* this) {
+    static const u8 speeds[] = { 5, 3, 1 };
+    u32 speedModifier;
+    s32 numCharsToRead, pxDrawn;
 
-    if (param_1->_95 != 0) {
-        param_1->_95--;
+    if (this->delay != 0) {
+        this->delay--;
+        return;
+    }
+
+    if ((gInput.heldKeys & B_BUTTON) != 0) {
+        speedModifier = 8;
     } else {
-        if ((gInput.heldKeys & B_BUTTON) != 0) {
-            iVar4 = 8;
-        } else {
-            iVar4 = 1;
-        }
-        param_1->_92 -= iVar4;
-        if (param_1->_92 < 1) {
-            iVar5 = 0;
-            do {
-                iVar5++;
-                param_1->_92 += gUnk_08107C0C[param_1->textBox.textSpeed];
-            } while (param_1->_92 < 1);
-            iVar6 = 0;
-            do {
-                uVar3 = sub_08056750(param_1);
-                if (((uVar3 == 0) || (param_1->_95 != 0)) || (param_1->_8a != 0))
-                    break;
-                iVar6 += uVar3;
-                iVar5--;
-            } while (0 < iVar5);
-            if (iVar6 != 0) {
-                gCurrentTextBox._9d = 1;
-            } else {
-                param_1->_92 = 0;
-            }
-        }
+        speedModifier = 1;
+    }
+    this->typeSpeed -= speedModifier;
+
+    if (this->typeSpeed > 0) {
+        return;
+    }
+
+    numCharsToRead = 0;
+    do {
+        numCharsToRead++;
+        this->typeSpeed += speeds[this->message.textSpeed];
+    } while (this->typeSpeed <= 0);
+
+    pxDrawn = 0;
+    do {
+        u32 pxCnt = RunTextCommand(this);
+        if (pxCnt == 0 || this->delay != 0 || this->newlineDelay != 0)
+            break;
+        pxDrawn += pxCnt;
+        numCharsToRead--;
+    } while (0 < numCharsToRead);
+
+    if (pxDrawn != 0) {
+        gTextRender.updateDraw = 1;
+    } else {
+        this->typeSpeed = 0;
     }
 }
 
-NONMATCH("asm/non_matching/textbox/sub_08056750.inc", u16 sub_08056750(CurrentTextBox* param_1)) {
-    s32 r0, r1, r2, r3;
-    u32 r7;
-    s32 tmp;
-    u32 t;
-    u32* t2;
+NONMATCH("asm/non_matching/textbox/sub_08056750.inc", static u16 RunTextCommand(TextRender* this)) {
+    s32 palette;
+    u32 chr = this->curToken.extended;
 
-    r7 = param_1->_24;
-
-    if (r7 == 0) {
-        r7 = sub_0805EFE8(&param_1->_20);
-        switch (r7) {
+    if (chr == 0) {
+        s32 r1;
+        chr = GetCharacter(&this->curToken);
+        switch (chr) {
             case 0:
                 if (gUnk_02000040.unk_00 == 1) {
-                    param_1->state = 5;
-                    sub_08056ABC(0, 0);
+                    this->renderStatus = RENDER_ENQUIRY;
+                    SwitchChoice(0, 0);
                 } else {
-                    param_1->state = 2;
+                    this->renderStatus = RENDER_DIE;
                 }
                 break;
             case 1:
-                param_1->_8a = 2;
-                if (param_1->_98.bytes.b0 == 0) {
-                    sub_08056BDC(1);
+                this->newlineDelay = 2;
+                if (this->_98.bytes.lineNo == 0) {
+                    MsgChangeLine(1);
                 } else {
-                    param_1->state = 3;
+                    this->renderStatus = RENDER_WAIT;
                 }
                 break;
             case 2:
-                sub_080564C8(3);
+                StatusUpdate(MSG_OPEN);
                 break;
             case 3:
-                sub_080564C8(4);
+                StatusUpdate(MSG_CLOSE);
                 break;
             case 4:
-                param_1->_50.unk6 +=
-                    (param_1->_50.unk4 - param_1->_50.unk6 - sub_GetFontStrWidth(&param_1->_20, 0)) / 2;
+                this->_50.unk6 += (this->_50.unk4 - this->_50.unk6 - GetFontStrWith(&this->curToken.flags, 0)) / 2;
                 break;
             case 5:
-                gTextBox.unk = param_1->_22;
+                gMessage.unk = this->curToken.param;
                 break;
             case 6:
-                t2 = &gUnk_0200005C;
-                t = param_1->_22;
-                WriteBit(t2, 0x1f & t);
+                WriteBit(&gMessage.field_0xc, this->curToken.param & 0x1f);
                 break;
             case 7:
-                switch (param_1->_22) {
+                switch (this->curToken.param) {
                     case 0xe:
-                        param_1->_91 = param_1->_8f;
-                        r3 = 2;
+                        this->_91 = this->_8f;
+                        palette = 2;
                         break;
                     case 0xf:
-                        r3 = param_1->_91;
+                        palette = this->_91;
                         break;
                     default:
-                        r3 = param_1->_22;
+                        palette = this->curToken.param;
                         break;
                 }
-                param_1->_90 = 0;
-                sub_080569C4(param_1, r3);
+                this->_90 = 0;
+                PaletteChange(this, palette);
                 break;
             case 8:
-                SoundReq(param_1->_22);
+                SoundReq(this->curToken.param);
                 break;
             case 9:
-                gCurrentTextBox.textBox.unk3 = param_1->_22;
-                sub_08056F88(param_1->_22, param_1->_50.unk3);
+                gTextRender.message.unk3 = this->curToken.param;
+                sub_08056F88(this->curToken.param, this->_50.unk3);
                 break;
             case 10:
-                param_1->textBox.textWindowPosY = param_1->_22;
+                this->message.textWindowPosY = this->curToken.param;
                 break;
             case 12:
                 if (gUnk_02000040.unk_00 != 1) {
                     MemClear(&gUnk_02000040, 4);
-                    MemClear(&gUnk_02024030, sizeof(gUnk_02024030));
-                    gUnk_02024030.unk_00 = 1;
+                    MemClear(&gMessageChoices, sizeof(gMessageChoices));
+                    gMessageChoices.unk_00 = 1;
                     gUnk_02000040.unk_00 = 1;
                 }
-                if (gUnk_02024030.unk_02 > 3)
+                if (gMessageChoices.choiceCount > 3)
                     break;
 
-                gUnk_02024030.unk_10[gUnk_02024030.unk_02] = param_1->_26;
-                gUnk_02024030.unk_08[gUnk_02024030.unk_02] = param_1->_50.unk6;
-                gUnk_02024030.unk_02++;
-                param_1->_50.unk6 += 8;
+                gMessageChoices.unk_10[gMessageChoices.choiceCount] = this->curToken._6;
+                gMessageChoices.unk_08[gMessageChoices.choiceCount] = this->_50.unk6;
+                gMessageChoices.choiceCount++;
+                this->_50.unk6 += 8;
                 break;
             case 13:
-                switch (param_1->_22) {
+                switch (this->curToken.param) {
                     case 0xff:
-                        param_1->_8e = 1;
+                        this->_8e = 1;
                         break;
                     case 0xfe:
-                        param_1->_8e = 2;
+                        this->_8e = 2;
                         break;
                     default:
-                        param_1->_95 = param_1->_22;
+                        this->delay = this->curToken.param;
                         break;
                 }
                 break;
             case 14:
-                r1 = param_1->_22;
-                param_1->_94 = r1;
+                r1 = this->curToken.param;
+                this->_94 = r1;
                 break;
             default:
                 break;
         }
-        if (r7 >> 8 == 0)
+        if (chr >> 8 == 0)
             return 0;
     }
-    if (gCurrentTextBox._98.bytes.b1 != 2) {
-        sub_080564C8(3);
+    if (gTextRender._98.bytes.b1 != 2) {
+        StatusUpdate(MSG_OPEN);
         return 0;
     }
-    if (gTextBox.unk == 0) {
-        gTextBox.unk = 0x80;
+    if (gMessage.unk == 0) {
+        gMessage.unk = 0x80;
     }
-    param_1->_24 = 0;
-    if (r7 >> 8 == 7) {
-        param_1->_90 = param_1->_8f | 0x80;
-        sub_080569C4(param_1, 0);
+    this->curToken.extended = '\0';
+    if (chr >> 8 == 7) {
+        this->_90 = this->_8f | 0x80;
+        PaletteChange(this, 0);
     } else {
-        if ((param_1->_90 & 0x80) != 0) {
-            r3 = param_1->_90;
-            param_1->_90 = 0;
-            sub_080569C4(param_1, r3);
+        if ((this->_90 & 0x80) != 0) {
+            palette = this->_90;
+            this->_90 = 0;
+            PaletteChange(this, palette);
         }
     }
-    return sub_0805F7DC(r7, &param_1->_30[0x20]);
+    return sub_0805F7DC(chr, &this->_50.unk0);
 }
 END_NONMATCH
 
-void sub_080569C4(CurrentTextBox* ctb, u32 unk) {
-    u32 temp = unk & 0x7;
-    ctb->_8f = temp;
-    ctb->_50.unk2 = temp;
+static void PaletteChange(TextRender* this, u32 id) {
+    u32 temp = id % 8;
+    this->_8f = temp;
+    this->_50.unk2 = temp;
 }
 
-extern u8 gUnk_08107C14;
-extern u8 gUnk_08107C0F;
-
 #ifdef EU
-ASM_FUNC("asm/non_matching/eu/TextBoxHandlerQuestion.inc", void TextBoxHandlerQuestion(CurrentTextBox* ctb))
+ASM_FUNC("asm/non_matching/eu/TextBoxHandlerQuestion.inc", static void TextDispEnquiry(TextRender* ctb))
 #else
 
-void TextBoxHandlerQuestion(CurrentTextBox* ctb) {
-    s32 r1, r5, r6;
-    u32 error;
-    u8* ptr1;
-    u8* ptr2;
+static void TextDispEnquiry(TextRender* this) {
+    s32 nextTextIdx, choiceIdx, lastChoice;
+    u32 doSwitch;
+    const u8* src;
 
-    r5 = gUnk_02024030.unk_03;
+    static const u8 arr1[] = { 0x8, 0x1e, 0x4, 0x12, 0x0 };
+    static const u8 arr2[] = { 0x8, 0x1e, 0x8, 0xFE, 0x0 };
+
+    choiceIdx = gMessageChoices.currentChoice;
     switch (gInput.newKeys) {
         case START_BUTTON:
         case A_BUTTON:
-            r1 = gUnk_02024030.unk_10[r5];
-            if (r1 == 0) {
-                ptr2 = &gUnk_08107C14;
-                ptr1 = &ctb->_20;
+            nextTextIdx = gMessageChoices.unk_10[choiceIdx];
+            if (nextTextIdx == 0) {
+                src = arr2;
             } else {
-                ctb->textBox.textIndex = r1;
-                sub_0805EEB4(&ctb->_20, r1);
-                ptr2 = &gUnk_08107C0F;
-                ptr1 = &ctb->_20;
+                this->message.textIndex = nextTextIdx;
+                sub_0805EEB4(&this->curToken, nextTextIdx);
+                src = arr1;
             }
-            sub_0805EF40(ptr1, ptr2);
-            gUnk_02000040.unk_01 = gUnk_02024030.unk_03;
+            sub_0805EF40(&this->curToken, src);
+            gUnk_02000040.unk_01 = gMessageChoices.currentChoice;
             gUnk_02000040.unk_00 = 3;
-            MemClear(&gUnk_02024030, sizeof(gUnk_02024030));
-            SoundReq(0x6a); // SFX_TEXTBOX_SELECT
-            ctb->state = 1;
+            MemClear(&gMessageChoices, sizeof(gMessageChoices));
+            SoundReq(SFX_TEXTBOX_SELECT);
+            this->renderStatus = RENDER_UPDATE;
             break;
         case DPAD_LEFT:
-            r5--;
+            choiceIdx--;
             break;
         case DPAD_RIGHT:
-            r5++;
+            choiceIdx++;
             break;
         default:
             break;
     }
-    r5 = (r5 + gUnk_02024030.unk_02) % gUnk_02024030.unk_02;
-    r6 = gUnk_02024030.unk_03;
-    if (r5 != r6) {
-        gUnk_02024030.unk_03 = r5;
-        SoundReq(0x69); // SFX_TEXTBOX_CHOICE
-        error = 1;
+    choiceIdx = (choiceIdx + gMessageChoices.choiceCount) % gMessageChoices.choiceCount;
+    lastChoice = gMessageChoices.currentChoice;
+    if (choiceIdx != lastChoice) {
+        gMessageChoices.currentChoice = choiceIdx;
+        SoundReq(SFX_TEXTBOX_CHOICE);
+        doSwitch = 1;
     } else {
-        error = 0;
+        doSwitch = 0;
     }
     if (gUnk_02000040.unk_00 == 1) {
-        gUnk_02024030.unk_00 = gUnk_02000040.unk_00 = 2;
-        error = 1;
+        gMessageChoices.unk_00 = gUnk_02000040.unk_00 = 2;
+        doSwitch = 1;
     }
-    if (error != 0) {
-        sub_08056ABC(r5, r6);
+    if (doSwitch) {
+        SwitchChoice(choiceIdx, lastChoice);
     }
 }
 
-void sub_08056ABC(u32 unk_0, u32 unk_1) {
+static void SwitchChoice(u32 to, u32 from) {
     u16 t;
-    t = gCurrentTextBox._50.unk6;
-    gCurrentTextBox._50.unk6 = gUnk_02024030.unk_08[unk_1];
-    sub_0805F8E4(0, &gCurrentTextBox._50);
-    gCurrentTextBox._50.unk6 = gUnk_02024030.unk_08[unk_0];
-    sub_0805F8E4(1, &gCurrentTextBox._50);
-    gCurrentTextBox._50.unk6 = t;
-    gCurrentTextBox._9d = 1;
+    t = gTextRender._50.unk6;
+    gTextRender._50.unk6 = gMessageChoices.unk_08[from];
+    sub_0805F8E4(0, &gTextRender._50);
+    gTextRender._50.unk6 = gMessageChoices.unk_08[to];
+    sub_0805F8E4(1, &gTextRender._50);
+    gTextRender._50.unk6 = t;
+    gTextRender.updateDraw = 1;
 }
 
 #endif
 
-void TextBoxHandlerNextBox(CurrentTextBox* ctb) {
-    u32 t;
-    u8* ptr;
-    gTextBox.unk = 0;
-    if (ctb->_94 != 0) {
-        ctb->_94--;
-        if (ctb->_94 != 0)
-            return;
-        ptr = &ctb->state;
-        t = 4;
-    } else {
-        if (TEXTBOX_PRESS_ANY_ADVANCE_KEYS) {
-            SoundReq(0x68); // SFX_TEXTBOX_SWAP
-            ctb->_98.bytes.b2 = 0;
-            ptr = &ctb->state;
-            t = 4;
-        } else {
-            ptr = &ctb->_98.bytes.b2;
-            t = *ptr + 1;
+static void TextDispWait(TextRender* this) {
+    gMessage.unk = 0;
+    if (this->_94 != 0) {
+        if (--this->_94 == 0) {
+            this->renderStatus = RENDER_ROLL;
         }
-    }
-    *ptr = t;
-}
-
-void TextBoxHandler4(CurrentTextBox* ctb) {
-    sub_08056BDC(0);
-    sub_080569C4(ctb, ctb->_8f | 0x40);
-    ctb->state = 1;
-}
-
-void TextBoxHandlerAdvance(CurrentTextBox* ctb) {
-    gTextBox.unk = 0;
-    SetDoTextBox(7);
-    if ((ctb->_8e != 1) && (ctb->_8e == 2 || TEXTBOX_PRESS_ANY_ADVANCE_KEYS)) {
-        sub_080564C8(4);
-    }
-}
-
-void sub_08056BDC(u32 unk) {
-    gCurrentTextBox._98.bytes.b0 = unk;
-    if (unk == 0) {
-        MemFill32(0xFFFFFFFF, gUnk_02000D00, sizeof(gUnk_02000D00));
-        Load_02000D00_Asyc();
-        gCurrentTextBox._9e = 0xf082;
-        gCurrentTextBox._a0 = 0xf083;
-        gCurrentTextBox._a2 = 0xf0b6;
-        gCurrentTextBox._a4 = 0xf0b7;
-        gCurrentTextBox._50.unk6 = 0;
-        gCurrentTextBox._50.unk4 = 0xd0;
+    } else if (MESSAGE_PRESS_ANY_ADVANCE_KEYS) {
+        SoundReq(SFX_TEXTBOX_SWAP);
+        this->_98.bytes.b2 = 0;
+        this->renderStatus = RENDER_ROLL;
     } else {
-        gCurrentTextBox._50.unk6 = 0xd0;
-        gCurrentTextBox._50.unk4 = 0x1a0;
+        this->_98.bytes.b2++;
     }
-    sub_080569C4(&gCurrentTextBox, gCurrentTextBox._8f | 0x40);
 }
 
-void SetDoTextBox(u32 doTextbox) {
-    gTextBox.doTextBox = gCurrentTextBox.textBox.doTextBox = doTextbox;
+static void TextDispRoll(TextRender* this) {
+    MsgChangeLine(0);
+    PaletteChange(this, this->_8f | 0x40);
+    this->renderStatus = RENDER_UPDATE;
 }
 
-void DeleteWindow(void) {
-    u16* ptr;
-    int i, j;
+static void TextDispDie(TextRender* this) {
+    gMessage.unk = 0;
+    SetDoTextBox(7);
+    if ((this->_8e != 1) && (this->_8e == 2 || MESSAGE_PRESS_ANY_ADVANCE_KEYS)) {
+        StatusUpdate(MSG_CLOSE);
+    }
+}
 
+static void MsgChangeLine(u32 lineNo) {
+    gTextRender._98.bytes.lineNo = lineNo;
+    if (lineNo == 0) {
+        MemFill32(0xFFFFFFFF, gTextGfxBuffer, sizeof(gTextGfxBuffer));
+        DrawCanvasLine();
+        gTextRender.beginTiles[0] = (MESSAGE_PALETTE << 12) | MSG_TEXT_LINE1TOP;
+        gTextRender.beginTiles[1] = (MESSAGE_PALETTE << 12) | MSG_TEXT_LINE1BOTTOM;
+        gTextRender.beginTiles[2] = (MESSAGE_PALETTE << 12) | MSG_TEXT_LINE2TOP;
+        gTextRender.beginTiles[3] = (MESSAGE_PALETTE << 12) | MSG_TEXT_LINE2BOTTOM;
+        gTextRender._50.unk6 = 0;
+        gTextRender._50.unk4 = 0xd0;
+    } else {
+        gTextRender._50.unk6 = 0xd0;
+        gTextRender._50.unk4 = 0x1a0;
+    }
+    PaletteChange(&gTextRender, gTextRender._8f | 0x40);
+}
+
+static void SetDoTextBox(u32 doTextbox) {
+    gMessage.doTextBox = gTextRender.message.doTextBox = doTextbox;
+}
+
+static void DeleteWindow(void) {
     Window* window = &gCurrentWindow;
-
-    if (window->unk1 != 0) {
-        window->unk1 = 0;
-        ptr = &gBG0Buffer[TEXTBOX_POSITION_INDEX(*window)];
+    if (window->active) {
+        u16* ptr;
+        int i;
+        window->active = 0;
+        ptr = &gBG0Buffer[MESSAGE_POSITION_INDEX(*window)];
         i = window->height + 2;
         do {
-            j = 0;
+            int j = 0;
             do {
                 ptr[j] = 0;
             } while (j++, j < window->width + 2);
-            ptr += TEXTBOX_WIDTH;
+            ptr += MESSAGE_WIDTH;
             i--;
         } while (i > 0);
-        sub_0801C4A0(window->yPos, window->height);
-        sub_0801C494();
+        RecoverUI(window->yPos, window->height);
+        RefreshUI();
     }
 }
 
-u32 CalcWindowSize(u32 fade) {
-    u32 scale;
-    u32 ret;
+static u32 ChangeWindowSize(u32 delta) {
     Window* window;
+    u32 result = 0;
 
-    ret = 0;
+    gTextRender._98.bytes.sizeScale += delta;
 
-    gCurrentTextBox._98.bytes.sizeScale += fade;
-    if (gCurrentTextBox._98.bytes.sizeScale < 1) {
-        gCurrentTextBox._98.bytes.sizeScale = 0;
-    } else {
-        if (gCurrentTextBox._98.bytes.sizeScale < 8)
-            goto LAB_08056cee;
-        gCurrentTextBox._98.bytes.sizeScale = 8;
+    if (gTextRender._98.bytes.sizeScale < 1) {
+        gTextRender._98.bytes.sizeScale = 0;
+        result = 1;
+    } else if (gTextRender._98.bytes.sizeScale >= 8) {
+        gTextRender._98.bytes.sizeScale = 8;
+        result = 1;
     }
-    ret = 1;
-LAB_08056cee:
+
     window = &gNewWindow;
-    if (gCurrentTextBox._98.bytes.sizeScale != 0) {
-        scale = gCurrentTextBox._98.bytes.sizeScale;
-        window->width = (scale * (gCurrentTextBox.textBox.textWindowWidth << 1)) / 16;
+    if (gTextRender._98.bytes.sizeScale != 0) {
+        u32 scale = gTextRender._98.bytes.sizeScale;
+        window->width = (scale * (gTextRender.message.textWindowWidth << 1)) / 16;
         if ((window->width & 1) != 0) {
             window->width++;
         }
-        window->xPos = ((gCurrentTextBox.textBox.textWindowWidth / 2) + gCurrentTextBox.textBox.textWindowPosX) -
-                       (window->width / 2);
+        window->xPos =
+            ((gTextRender.message.textWindowWidth / 2) + gTextRender.message.textWindowPosX) - (window->width / 2);
 
-        window->height = (scale * (gCurrentTextBox.textBox.textWindowHeight << 1)) / 16;
+        window->height = (scale * (gTextRender.message.textWindowHeight << 1)) / 16;
         if ((window->height & 1) != 0) {
             window->height++;
         }
-        window->yPos = ((gCurrentTextBox.textBox.textWindowHeight / 2) + gCurrentTextBox.textBox.textWindowPosY) -
-                       (window->height / 2);
+        window->yPos =
+            ((gTextRender.message.textWindowHeight / 2) + gTextRender.message.textWindowPosY) - (window->height / 2);
     } else {
         window->yPos = -1;
         window->xPos = -1;
         window->height = -1;
         window->width = -1;
     }
-    window->unk1 = 1;
-    return ret;
+    window->active = 1;
+    return result;
 }
 
-void CreateWindow(void) {
-    s32 r0, r3;
+static void CreateWindow(void) {
+    s32 borderBeginTile;
     u16* ptr;
 
-    r0 = gCurrentTextBox._98.bytes.sizeScale;
-    if (r0 <= 0)
+    if (gTextRender._98.bytes.sizeScale <= 0)
         return;
-    ptr = &gBG0Buffer[TEXTBOX_POSITION_INDEX(gNewWindow)];
-    r3 = 0xf07b;
-    DispMessageFrame(ptr, gNewWindow.width, gNewWindow.height, r3);
+    ptr = &gBG0Buffer[MESSAGE_POSITION_INDEX(gNewWindow)];
+    borderBeginTile = (MESSAGE_PALETTE << 12) | MSG_BORDER_CORNER;
+    DispMessageFrame(ptr, gNewWindow.width, gNewWindow.height, borderBeginTile);
     DispString();
     DispCursor();
     gCurrentWindow = gNewWindow;
-    sub_0801C494();
+    RefreshUI();
 }
 
+// Also used by figurine menu
 ASM_FUNC("asm/non_matching/textbox/DispMessageFrame.inc",
          void DispMessageFrame(u16* buffer, u32 width_, u32 height_, u32 flags_))
 
 extern u16 gUnk_02034CB2[];
 extern u16 gUnk_0202281E[];
 
-void DispString(void) {
-    u32 r0, r2, r4;
-    u16 *ptr, *ptr2;
-    s32 i, j;
+/*
+    Each character is two tiles tall.
+    They are stored in VRAM in the following order:
+
+    82 84 86 --> |  | |\| |/
+    83 85 87 --> |_ | | \ |\
+
+    b6 b8 ba -->   | | |
+    b7 b9 bb -->   . . .
+
+    There are 2 lines of text available, and each line is 20 chars long,
+    So the canvas is 20x4 tiles.
+*/
+
+static void DispString(void) {
+    u32 r0, tileAttr;
+    u16 *buf, *line;
+    s32 i, w, h;
 
     Window* window = &gNewWindow;
 
     if (window->width != 0) {
         if (window->height != 0) {
-            r4 = window->height;
-            ptr = &gUnk_02034CB2[TEXTBOX_POSITION_INDEX(*window)];
-            i = (s32)(4 - r4) / 2;
+            h = window->height;
+            buf = &gBG0Buffer[MESSAGE_POSITION_INDEX(*window) + 1];
+            i = (4 - h) / 2;
             do {
-                j = window->width;
-                r2 = gUnk_0202281E[i];
-                ptr += TEXTBOX_WIDTH;
+                //! @bug abnormally big width causes tile idx to overwrite other tile attributes
+                w = window->width;
+                tileAttr = gTextRender.beginTiles[i];
+                buf += MESSAGE_WIDTH;
                 r0 = i + 1;
-                r4--;
-                ptr2 = ptr;
+                h--;
+                line = buf;
                 do {
-                    *ptr2 = r2;
-                    ptr2++;
-                    r2 += 2;
-                    j--;
-                } while (j > 0);
+                    *line = tileAttr;
+                    line++;
+                    tileAttr += 2;
+                    w--;
+                } while (w > 0);
                 i = r0;
-            } while (r4 != 0);
+            } while (h != 0);
         }
     }
 }
 
-void DispCursor(void) {
+static void DispCursor(void) {
     u32 offset;
     u16* ptr;
 
-    if ((gCurrentTextBox._98.word & 0x10ff00) == 0x100200) {
-        ptr = &gBG0Buffer[TEXTBOX_POSITION_INDEX(gNewWindow)];
-        offset = (((gNewWindow.height + 1) * TEXTBOX_WIDTH) - 2);
+    if ((gTextRender._98.word & 0x10ff00) == 0x100200) {
+        ptr = &gBG0Buffer[MESSAGE_POSITION_INDEX(gNewWindow)];
+        offset = (((gNewWindow.height + 1) * MESSAGE_WIDTH) - 2);
         offset += gNewWindow.width;
         ptr += offset;
         *ptr = 0xf080;
     }
 }
 
-void Load_02000D00_Asyc(void) {
-    LoadResourceAsync(gUnk_02000D00, 0x0600D040, sizeof(gUnk_02000D00));
+static void DrawCanvasLine(void) {
+    LoadResourceAsync(gTextGfxBuffer, 0x0600D040, sizeof(gTextGfxBuffer));
 }
 
 void sub_08056F88(u32 unk_1, u32 unk_2) {
@@ -750,27 +774,27 @@ void sub_08056F88(u32 unk_1, u32 unk_2) {
         unk_1 = 0;
     }
     uVar1 = unk_1 << 4 | unk_2;
-    if (gCurrentTextBox._9c != uVar1) {
-        gCurrentTextBox._9c = uVar1;
+    if (gTextRender._9c != uVar1) {
+        gTextRender._9c = uVar1;
         sub_0805F918(unk_1, unk_2, 0x0600CF60);
     }
 }
 
-void sub_08056FBC(CurrentTextBox* ctb) {
-    sub_08056FEC(ctb->textBox.field_0x10, &ctb->_66[0x2]);
-    sub_08056FEC(ctb->textBox.field_0x14, &ctb->_66[0xa]);
-    sub_08056FEC(ctb->textBox.field_0x18, &ctb->_77[0x1]);
-    sub_08056FEC(ctb->textBox.field_0x1c, &ctb->_77[0x9]);
+static void sub_08056FBC(TextRender* ctb) {
+    sub_08056FEC(ctb->message.field_0x10, &ctb->_66[0x2]);
+    sub_08056FEC(ctb->message.field_0x14, &ctb->_66[0xa]);
+    sub_08056FEC(ctb->message.field_0x18, &ctb->_77[0x1]);
+    sub_08056FEC(ctb->message.field_0x1c, &ctb->_77[0x9]);
 }
 
-NONMATCH("asm/non_matching/textbox/sub_08056FEC.inc", u32 sub_08056FEC(u32 param_1, u8* param_2)) {
+NONMATCH("asm/non_matching/textbox/sub_08056FEC.inc", u32 sub_08056FEC(u32 this, u8* param_2)) {
     u32 uVar1;
     int iVar2;
     int iVar3;
     int iVar4;
     u8 local_1c[8];
 
-    uVar1 = sub_0801D51C(param_1, param_2, param_1);
+    uVar1 = sub_0801D51C(this, param_2, this);
     uVar1 = uVar1 & 0xfffffff;
     iVar4 = 0;
     do {

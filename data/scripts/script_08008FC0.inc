@@ -4,7 +4,7 @@ SCRIPT_START script_08008FC0
 	PlaySound SFX_109
 	CallWithArg sub_0807F238, 0x0000045f
 	Call sub_0807F304
-	TextboxNoOverlapFollowPos 0x0501, 0x000e
+	MessageFromTargetPos 0x0501, 0x000e
 	_0807EA94 
 	_0807E5F8 0x00000020
 	Call sub_080791BC

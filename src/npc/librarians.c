@@ -57,5 +57,5 @@ void sub_0806BBB0(Entity* this) {
     } else {
         tmp = 2;
     }
-    TextboxNoOverlap(gUnk_08113078[tmp], this);
+    MessageNoOverlap(gUnk_08113078[tmp], this);
 }

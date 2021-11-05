@@ -49,7 +49,7 @@ void sub_0806B3CC(Entity* this) {
     GetNextFrame(this);
     if (this->interactType != 0) {
         this->interactType = 0;
-        TextboxNoOverlapFollow(0);
+        MessageFromTarget(0);
     }
     sub_0806ED78(this);
 }
@@ -107,7 +107,7 @@ void sub_0806B504(Entity* this) {
         SetLocalFlag(0x86);
     }
 
-    TextboxNoOverlap(gUnk_08112E54[idx], this);
+    MessageNoOverlap(gUnk_08112E54[idx], this);
 }
 
 void sub_0806B540(Entity* this) {
@@ -116,7 +116,7 @@ void sub_0806B540(Entity* this) {
     context = *(ScriptExecutionContext**)&this->cutsceneBeh;
     switch (context->unk_18) {
         case 0:
-            TextboxNoOverlap(0x2312, this);
+            MessageNoOverlap(0x2312, this);
             if (CheckLocalFlag(0x3f) != 0) {
                 return;
             }
@@ -124,13 +124,13 @@ void sub_0806B540(Entity* this) {
             SetLocalFlag(0x3f);
             break;
         case 1:
-            if ((gTextBox.doTextBox & 0x7f) == 0) {
+            if ((gMessage.doTextBox & 0x7f) == 0) {
                 context->unk_18 = 2;
-                TextboxNoOverlap(0x2315, this);
+                MessageNoOverlap(0x2315, this);
             }
             break;
         case 2:
-            if ((gTextBox.doTextBox & 0x7f) == 0) {
+            if ((gMessage.doTextBox & 0x7f) == 0) {
                 context->unk_18 = 3;
                 if (gSave.stats.filler3[0] != 0) {
                     sub_080A7C18(0x58, 0, 0);

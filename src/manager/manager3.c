@@ -47,7 +47,7 @@ void Manager3_Main(Manager3* this) {
             gArea.field_0x18 = 1;
             gArea.curPortalType = 5;
         } else {
-            if ((gPlayerState.flags.all & 0x20) && gPlayerState.jumpStatus == 0) {
+            if ((gPlayerState.flags & 0x20) && gPlayerState.jumpStatus == 0) {
                 gArea.field_0x18 = 2;
             } else {
                 if (sub_08057810()) {
@@ -94,7 +94,7 @@ void CreateMagicSparkles(u32 baseX, u32 baseY, u32 layer) {
 }
 
 u32 sub_08057810(void) {
-    if ((gPlayerState.flags.all & 0x80) && !gPlayerState.field_0xaa && (gArea.curPortalType != 0x6) &&
+    if ((gPlayerState.flags & 0x80) && !gPlayerState.field_0xaa && (gArea.curPortalType != 0x6) &&
         (gPlayerState.heldObject == 0)) {
         switch (gPlayerState.field_0xa8) {
             case 0:

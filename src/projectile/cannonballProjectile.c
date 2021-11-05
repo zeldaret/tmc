@@ -78,7 +78,7 @@ bool32 sub_080AB5F4(Entity* this) {
 }
 
 bool32 sub_080AB634(Entity* this) {
-    Entity** entities = ((Entity**)&this->parent->field_0x20);
+    Entity** entities = ((Entity**)&this->parent->hVelocity);
     u32 i;
     for (i = 0; i <= 3; ++i) {
         if (entities[i] != NULL && (sub_080177A0(this, entities[i]) != 0)) {

@@ -101,7 +101,7 @@ u32 sub_0804A024(Entity*, u32, u32);
 void sub_08045524(Entity* this) {
     u32 tmp, tmp1, tmp2;
 
-    this->field_0x20 = 0x1c000;
+    this->hVelocity = 0x1c000;
     tmp = sub_0804A024(this, 1, 8);
     if (tmp != 0xff && (Random() & 3) == 0) {
         this->actionDelay = Random() & 3;

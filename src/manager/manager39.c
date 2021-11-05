@@ -37,7 +37,7 @@ void sub_0805E1F8(u32, u32);
 
 void Manager39_Main(Manager39* this) {
     gUnk_08108E28[this->manager.action](this);
-    if ((gRoomControls.roomID != this->unk_20) || (gTextBox.doTextBox & 0x7F)) {
+    if ((gRoomControls.roomID != this->unk_20) || (gMessage.doTextBox & 0x7F)) {
         sub_0805E1D8(this);
     }
 }

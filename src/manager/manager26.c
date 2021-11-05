@@ -76,7 +76,7 @@ void sub_0805C7C4(Manager26* this) {
 }
 
 void sub_0805C7CC(Manager26* this) {
-    if (gPlayerState.flags.all & 0x80) {
+    if (gPlayerState.flags & 0x80) {
         if (gPlayerEntity.y.HALF.HI < this->unk_2a + 0x10) {
             this->manager.unk_0d = 1;
         } else {

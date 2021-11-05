@@ -10,7 +10,7 @@ script_0800EF50:
 	_0807E864 
 	CheckLocalFlagByOffset 0x0200, 0x006d
 	JumpIf script_0800EF82
-	TextboxNoOverlapFollow 0x4d01
+	MessageFromTarget 0x4d01
 	_0807EA94 
 	StartPlayerScript script_0800EF9C
 	WaitForSomething2 0x00000001
@@ -19,7 +19,7 @@ script_0800EF50:
 	Jump script_0800EF50
 script_0800EF82:
 	SetGlobalFlag 0x001f
-	TextboxNoOverlapFollow 0x4d02
+	MessageFromTarget 0x4d02
 	_0807EA94 
 	Wait 0x000f
 	_0807E878 

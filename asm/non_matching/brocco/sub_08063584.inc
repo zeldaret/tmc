@@ -54,7 +54,7 @@ _080635D0:
 	ldrb r0, [r4, #0xe]
 	ldr r1, _08063604 @ =0x00000A01
 	adds r0, r0, r1
-	bl TextboxNoOverlapFollow
+	bl MessageFromTarget
 _080635FC:
 	adds r0, r4, #0
 	bl sub_0806ED78

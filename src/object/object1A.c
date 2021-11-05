@@ -54,7 +54,7 @@ void sub_08086A6C(Entity* ent) {
     u32 uVar1;
 
     uVar1 = Random();
-    ent->field_0x20 = 163840;
+    ent->hVelocity = 163840;
     ent->direction = (uVar1 >> 16) & 31;
     ent->speed = uVar1 & 480;
 }

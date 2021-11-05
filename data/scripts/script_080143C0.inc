@@ -6,7 +6,7 @@ SCRIPT_START script_080143C0
 	_0807E930 0x0001
 	Call sub_080654EC
 	Wait 0x003c
-	TextboxNoOverlap 0x2c16
+	MessageNoOverlap 0x2c16
 	_0807EA94 
 	_0807E3E8 
 	JumpIf script_080143FA
@@ -16,21 +16,21 @@ SCRIPT_START script_080143C0
 script_080143FA:
 	Call sub_080654EC
 	Wait 0x001e
-	TextboxNoOverlap 0x2c18
+	MessageNoOverlap 0x2c18
 	_0807EA94 
 	Wait 0x000a
 	SetIntVariable 0x00000000
 	Call sub_08065528
 	_0807F034 0x0036
 	WaitPlayerAction8 
-	TextboxNoOverlap 0x2c19
+	MessageNoOverlap 0x2c19
 	_0807EA94 
 	SetIntVariable 0x00000303
 	Call sub_0807F420
 .ifndef EU
 	Wait 0x001e
 	_0807EB8C 
-	TextboxNoOverlap 0x2c22
+	MessageNoOverlap 0x2c22
 	_0807EA94 
 .endif
 script_0801443E:

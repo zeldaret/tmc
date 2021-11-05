@@ -16,7 +16,7 @@ script_080145F8:
 	Wait 0x0018
 	_0807E8E4_3 
 	_0807EB44 0x0002
-	TextboxNoOverlapFollowPos 0x432b, 0x000c
+	MessageFromTargetPos 0x432b, 0x000c
 	_0807EA94 
 	Wait 0x0018
 	_0807E878 
@@ -102,7 +102,7 @@ script_080146E2:
 	SetRoomFlag 0x000a
 	Jump script_0801473C
 script_0801472E_2:
-	TextboxNoOverlapFollowPos 0x432f, 0x000c
+	MessageFromTargetPos 0x432f, 0x000c
 	Jump script_080147CE @ TODO script_08014816
 .else
 	CheckRoomFlag 0x0004
@@ -113,7 +113,7 @@ script_0801472E_2:
 	JumpIf script_080146A0
 	_0807E864 
 	_0807EB8C 
-	TextboxNoOverlapFollowPos 0x432b, 0x000c
+	MessageFromTargetPos 0x432b, 0x000c
 	Jump script_080147CE
 script_08014672:
 .ifdef JP
@@ -140,7 +140,7 @@ script_080146A0:
 	_0807E930 0x0002
 	CheckGlobalFlag 0x0059
 	JumpIfNot script_080146C6
-	TextboxNoOverlapFollowPos 0x432f, 0x000c
+	MessageFromTargetPos 0x432f, 0x000c
 	Jump script_080147CE
 script_080146C6:
 	CheckRoomFlag 0x0004
@@ -157,7 +157,7 @@ script_080146C6:
 .endif
 
 script_080146F4:
-	TextboxNoOverlapFollowPos 0x431e, 0x000c
+	MessageFromTargetPos 0x431e, 0x000c
 	Jump script_080147CE
 script_080146FE:
 .ifdef EU
@@ -170,11 +170,11 @@ script_080146FE:
 script_0801474A:
 	SetRoomFlag 0x000a
 .endif
-	TextboxNoOverlapFollowPos 0x4305, 0x000c
+	MessageFromTargetPos 0x4305, 0x000c
 	_0807EA94 
 	_0807E3BC 0x0001
 	JumpIfNot script_080147C4
-	TextboxNoOverlapFollowPos 0x4306, 0x000c
+	MessageFromTargetPos 0x4306, 0x000c
 	Jump script_0801473C
 script_08014720:
 .ifdef EU
@@ -210,7 +210,7 @@ script_08014754:
 .else
 	SetRoomFlag 0x0004
 .endif
-	TextboxNoOverlapFollowPos 0x431e, 0x000c
+	MessageFromTargetPos 0x431e, 0x000c
 	Jump script_080147CE
 script_08014770:
 .ifdef EU
@@ -248,7 +248,7 @@ script_080147C4:
 .else
 	SetRoomFlag 0x0009
 .endif
-	TextboxNoOverlapFollowPos 0x4307, 0x000c
+	MessageFromTargetPos 0x4307, 0x000c
 script_080147CE:
 	_0807EA94 
 .ifdef EU

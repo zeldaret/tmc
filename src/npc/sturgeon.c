@@ -66,7 +66,7 @@ void sub_08064B44(Entity* this) {
 ASM_FUNC("asm/non_matching/sturgeon/sub_08064B88.inc", void sub_08064B88(Entity* this))
 
 void sub_08064C2C(Entity* this) {
-    if ((gTextBox.doTextBox & 0x7f) == 0) {
+    if ((gMessage.doTextBox & 0x7f) == 0) {
         this->action = 1;
         InitializeAnimation(this, (u32)this->field_0xf);
     }
@@ -104,7 +104,7 @@ void sub_08064CD8(Entity* this) {
         flag = CheckLocalFlag(0x73);
         tmp = BOOLCAST(flag);
     }
-    TextboxNoOverlap(gUnk_0810FA54[tmp], this);
+    MessageNoOverlap(gUnk_0810FA54[tmp], this);
 }
 
 void sub_08064D08(Entity* this) {

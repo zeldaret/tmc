@@ -89,7 +89,7 @@ void sub_0802BCA8(Entity* this) {
 
         this->action = 7;
         this->actionDelay = 0x5a;
-        this->field_0x20 = 0x18000;
+        this->hVelocity = 0x18000;
         this->damageType = 0x19;
         this->field_0x3a = this->field_0x3a & 0xfb;
         this->field_0x1c = 0x12;
@@ -369,7 +369,7 @@ void sub_0802C1CC(Entity* this) {
 void sub_0802C218(Entity* this) {
     this->action = 6;
     this->speed = 0xe0;
-    this->field_0x20 = 0x18000;
+    this->hVelocity = 0x18000;
 }
 
 // clang-format off

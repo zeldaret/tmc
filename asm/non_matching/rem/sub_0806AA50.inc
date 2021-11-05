@@ -55,7 +55,7 @@ _0806AA9A:
 _0806AAB6:
 	adds r0, r7, #0
 	adds r1, r6, #0
-	bl TextboxNoOverlap
+	bl MessageNoOverlap
 	ldr r0, [r5, #4]
 	cmp r0, #1
 	beq _0806AAEE

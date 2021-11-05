@@ -107,7 +107,7 @@ void sub_08063E54(Entity* this) {
 }
 
 void sub_08063E6C(Entity* this) {
-    if ((gTextBox.doTextBox & 0x7f) == 0) {
+    if ((gMessage.doTextBox & 0x7f) == 0) {
         this->action = 1;
         InitializeAnimation(this, this->animationState + 4);
     }
@@ -160,7 +160,7 @@ void sub_08063F20(Entity* this) {
 }
 
 void sub_08063F78(Entity* this) {
-    if ((gTextBox.doTextBox & 0x7f) == 0) {
+    if ((gMessage.doTextBox & 0x7f) == 0) {
         this->action = this->action - 1;
         InitializeAnimation(this, (this->animationState >> 1) + 4 + *(s8*)&this->field_0x70);
     }

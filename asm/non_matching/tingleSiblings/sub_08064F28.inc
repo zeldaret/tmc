@@ -93,10 +93,10 @@ _08064FD2:
 	adds r0, r0, r2
 	ldrh r0, [r0]
 	adds r1, r6, #0
-	bl TextboxNoOverlap
+	bl MessageNoOverlap
 	cmp r4, #0
 	ble _08064FF4
-	ldr r1, _0806500C @ =gTextBox
+	ldr r1, _0806500C @ =gMessage
 	lsls r0, r4, #0x10
 	lsrs r0, r0, #0x10
 	str r0, [r1, #0x10]
@@ -110,7 +110,7 @@ _08064FF4:
 	b _08065016
 	.align 2, 0
 _08065008: .4byte gUnk_0810FC08
-_0806500C: .4byte gTextBox
+_0806500C: .4byte gMessage
 _08065010:
 	adds r0, r7, #0
 	bl ClearRoomFlag

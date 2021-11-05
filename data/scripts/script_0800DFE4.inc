@@ -4,7 +4,7 @@ SCRIPT_START script_0800DFE4
 	_0807E864 
 	EndBlock 
 	StopBgm
-	TextboxNoOverlapFollowPos 0x1632, 0x0002
+	MessageFromTargetPos 0x1632, 0x0002
 	_0807EA94 
 	SetRoomFlag 0x0003
 script_0800DFFE:
@@ -19,7 +19,7 @@ script_0800E012:
 	_0807E864 
 	Call sub_0807DF28
 	SetLocalFlag 0x007b
-	TextboxNoOverlapFollowPos 0x1639, 0x000c
+	MessageFromTargetPos 0x1639, 0x000c
 	_0807EA94 
 	Wait 0x0096
 	PlaySound SFX_EVAPORATE

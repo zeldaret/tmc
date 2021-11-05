@@ -276,7 +276,7 @@ sub_080A03B8: @ 0x080A03B8
 	ldrb r0, [r4, #0xa]
 	bl sub_0805429C
 	adds r1, r4, #0
-	bl TextboxNoOverlap
+	bl MessageNoOverlap
 _080A03E4:
 	pop {r4, pc}
 	.align 2, 0
@@ -287,7 +287,7 @@ sub_080A03E8: @ 0x080A03E8
 	movs r0, #0
 	movs r1, #0xa
 	bl sub_0805E4E0
-	ldr r0, _080A041C @ =gTextBox
+	ldr r0, _080A041C @ =gMessage
 	ldrb r1, [r0]
 	movs r0, #0x7f
 	ands r0, r1
@@ -306,7 +306,7 @@ sub_080A03E8: @ 0x080A03E8
 _080A041A:
 	pop {pc}
 	.align 2, 0
-_080A041C: .4byte gTextBox
+_080A041C: .4byte gMessage
 _080A0420: .4byte gPlayerState
 
 	thumb_func_start sub_080A0424

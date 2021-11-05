@@ -61,7 +61,7 @@ script_0800FFCC:
 	CallWithArg sub_0807F3D8, 0x00000008
 	CheckInventory1 0x0048
 	JumpIf script_0800FFF8
-	TextboxNoOverlap 0x3401
+	MessageNoOverlap 0x3401
 	_0807EA94 
 	Jump script_08010060
 script_0800FFF8:
@@ -75,11 +75,11 @@ script_0800FFF8:
 .endif
 .endif
 	JumpIfNot script_0801000A
-	TextboxNoOverlap 0x340b
+	MessageNoOverlap 0x340b
 	_0807EA94 
 	Jump script_08010060
 script_0801000A:
-	TextboxNoOverlap 0x3402
+	MessageNoOverlap 0x3402
 	_0807EA94 
 	Jump script_08010060
 script_08010014:
@@ -90,7 +90,7 @@ script_08010014:
 	_0807EB74 
 	CallWithArg sub_0807F3D8, 0x00000008
 	PlaySound SFX_TASK_COMPLETE
-	TextboxNoOverlap 0x340a
+	MessageNoOverlap 0x340a
 	_0807EA94 
 	_0807EB44 0x0004
 	CallWithArg sub_0807F3D8, 0x0000000c
@@ -125,7 +125,7 @@ script_08010090:
 	_0807E864 
 	_0807EB74 
 	CallWithArg sub_080672B0, 0x00000004
-	TextboxNoOverlapFollow 0x0a01
+	MessageFromTarget 0x0a01
 	_0807EA94 
 	Wait 0x000f
 	_0807E878 
