@@ -66,7 +66,10 @@ const Hitbox* const gUnk_0812AAD8[] = {
 };
 
 const u8 gUnk_0812AAE8[] = {
-    0, 12, 16, 16,
+    0,
+    12,
+    16,
+    16,
 };
 
 void PlayerItem10(Entity* this) {

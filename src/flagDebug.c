@@ -100,7 +100,11 @@ const char* const globalFlagNames[] = {
     "WARP_EVENT_END",
     "FIGURE_ALLCOMP",
     "AKINDO_BOTTLE_SELL",
+#ifdef EU
+    "BIN_DOOGFOOD",
+#else
     "BIN_DOGFOOD",
+#endif
     "TINGLE_TALK1ST",
     "SEIIKI_BGM",
     "ENTRANCE_0",
