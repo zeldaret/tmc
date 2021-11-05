@@ -23,33 +23,33 @@ script_080160E0:
 	EndBlock
 	HasRoomItemForSale
 	JumpIfNot script_0801611A
-	TextboxNoOverlapFollow 0x2d07
+	MessageFromTarget 0x2d07
 	WaitUntilTextboxCloses
-	_0807E3E8
+	_0807E3E8 
 	JumpIfNot script_08016132
 	BuyItem 0x0000, 0x0000
 	JumpIf script_0801610C
-	TextboxNoOverlapFollow 0x2d0b
+	MessageFromTarget 0x2d0b
 	WaitUntilTextboxCloses
 	Jump script_08016132
 script_0801610C:
 	WaitPlayerAction8
 .ifndef EU
-	_0807EB8C
-	TextboxNoOverlapFollow 0x2d0d
+	_0807EB8C 
+	MessageFromTarget 0x2d0d
 .else
-	TextboxNoOverlapFollow 0x2d08
+	MessageFromTarget 0x2d08
 .endif
 	WaitUntilTextboxCloses
 	Jump script_08016132
 script_0801611A:
 	CheckKinstoneFused 0x0014
 	JumpIfNot script_0801612C
-	TextboxNoOverlapFollow 0x2d09
+	MessageFromTarget 0x2d09
 	WaitUntilTextboxCloses
 	Jump script_08016132
 script_0801612C:
-	TextboxNoOverlapFollow 0x2d01
+	MessageFromTarget 0x2d01
 	WaitUntilTextboxCloses
 script_08016132:
 	_0807E878
@@ -66,21 +66,21 @@ script_08016146:
 	JumpIfNot script_08016146
 	_0807E864
 	GetInventoryValue 0x0025
-	TextboxNoOverlapFollowTable 0x2d03, 0x2d02, 0x2d02, 0x2d02
-	_0807E3E8
+	MessageFromTargetTable 0x2d03, 0x2d02, 0x2d02, 0x2d02
+	_0807E3E8 
 	JumpIfNot script_0801618A
 	_0807E48C 0x0020
 	JumpIf script_08016172
-	TextboxNoOverlapFollow 0x2d0c
+	MessageFromTarget 0x2d0c
 	Jump script_0801618A
 script_08016172:
 	BuyItem 0x0025, 0x0000
 	JumpIf script_08016184
-	TextboxNoOverlapFollow 0x2d0b
+	MessageFromTarget 0x2d0b
 	Jump script_0801618A
 script_08016184:
-	WaitPlayerAction8
-	TextboxNoOverlapFollow 0x2d06
+	WaitPlayerAction8 
+	MessageFromTarget 0x2d06
 script_0801618A:
 	_0807E878
 	Jump script_08016146
@@ -95,26 +95,26 @@ script_0801619A:
 	JumpIfNot script_0801619A
 	_0807E864
 	GetInventoryValue 0x0024
-	TextboxNoOverlapFollowTable 0x2d05, 0x2d04, 0x2d04, 0x2d04
-	_0807E3E8
+	MessageFromTargetTable 0x2d05, 0x2d04, 0x2d04, 0x2d04
+	_0807E3E8 
 	JumpIfNot script_080161E2
 	_0807E48C 0x0020
 	JumpIf script_080161C6
-	TextboxNoOverlapFollow 0x2d0c
+	MessageFromTarget 0x2d0c
 	Jump script_080161E2
 script_080161C6:
 	BuyItem 0x0024, 0x0000
 	JumpIf script_080161D8
-	TextboxNoOverlapFollow 0x2d0b
+	MessageFromTarget 0x2d0b
 	Jump script_080161E2
 script_080161D8:
 .ifndef EU
-	WaitPlayerAction8
+	WaitPlayerAction8 
 	WaitUntilTextboxCloses
-	_0807EB8C
-	TextboxNoOverlap 0x2d06
+	_0807EB8C 
+	MessageNoOverlap 0x2d06
 .else
-	TextboxNoOverlapFollow 0x2d06
+	MessageFromTarget 0x2d06
 .endif
 script_080161E2:
 	_0807E878

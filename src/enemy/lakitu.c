@@ -5,6 +5,7 @@
 #include "coord.h"
 #include "random.h"
 #include "player.h"
+#include "effects.h"
 
 extern void (*const LakituActionFuncs[])(Entity*);
 
@@ -56,15 +57,15 @@ void Lakitu_DoAction(Entity* this) {
 
 void sub_0803C784(Entity* this) {
     if ((this->bitfield & 0x7f) == 0x1d) {
-        this->field_0x20 = 0x20000;
+        this->hVelocity = 0x20000;
 
         sub_0803CBAC(this);
     } else {
         if (this->damageType == 0x43) {
-            Entity* fx = CreateFx(this, 2, 0);
+            Entity* fx = CreateFx(this, FX_DEATH, 0);
 
             if (fx != NULL) {
-                u32 angle = (this->field_0x3e ^ 0x10) << 3;
+                u32 angle = (this->knockbackDirection ^ 0x10) << 3;
                 s32 sine;
 
                 sine = gSineTable[angle];
@@ -352,7 +353,7 @@ void sub_0803CC08(Entity* this) {
         return;
     }
 
-    if (this->field_0x20 >= 0) {
+    if (this->hVelocity >= 0) {
         return;
     }
 
@@ -360,25 +361,25 @@ void sub_0803CC08(Entity* this) {
         return;
     }
 
-    fx = CreateFx(this, 2, 0);
+    fx = CreateFx(this, FX_DEATH, 0);
     if (fx != NULL) {
         fx->x.HALF.HI += 6;
         fx->y.HALF.HI += 6;
     }
 
-    fx = CreateFx(this, 2, 0);
+    fx = CreateFx(this, FX_DEATH, 0);
     if (fx != NULL) {
         fx->x.HALF.HI -= 6;
         fx->y.HALF.HI += 6;
     }
 
-    fx = CreateFx(this, 2, 0);
+    fx = CreateFx(this, FX_DEATH, 0);
     if (fx != NULL) {
         fx->x.HALF.HI += 6;
         fx->y.HALF.HI -= 6;
     }
 
-    fx = CreateFx(this, 2, 0);
+    fx = CreateFx(this, FX_DEATH, 0);
     if (fx != NULL) {
         fx->x.HALF.HI -= 6;
         fx->y.HALF.HI -= 6;

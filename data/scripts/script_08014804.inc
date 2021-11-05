@@ -9,8 +9,8 @@ SCRIPT_START script_08014804
 	Wait 0x0010
 	CheckLocalFlag 0x0093
 	JumpIf script_080148B6
-	TextboxNoOverlapFollowPos 0x4215, 0x000c
-	_0807E878
+	MessageFromTargetPos 0x4215, 0x000c
+	_0807E878 
 script_0801482E:
 	TestBit 0x00000001
 	JumpIf script_08014862
@@ -22,8 +22,8 @@ script_0801482E:
 	_0807E930 0x0008
 	Wait 0x0020
 	_0807E930 0x0002
-	TextboxNoOverlapFollowPos 0x4215, 0x000c
-	_0807E878
+	MessageFromTargetPos 0x4215, 0x000c
+	_0807E878 
 	Jump script_0801482E
 script_08014862:
 	_0807E930 0x0008
@@ -49,8 +49,8 @@ script_0801488E:
 	Wait 0x0020
 	_0807E930 0x0002
 script_080148B6:
-	TextboxNoOverlapFollowPos 0x4216, 0x000c
-	_0807E878
+	MessageFromTargetPos 0x4216, 0x000c
+	_0807E878 
 	Jump script_0801488E
 script_080148C2:
 	_0807E930 0x0008

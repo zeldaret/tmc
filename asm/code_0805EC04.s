@@ -396,8 +396,8 @@ _0805EFE4:
 	adds r0, r4, #0
 	pop {r4, pc}
 
-	thumb_func_start sub_0805EFE8
-sub_0805EFE8: @ 0x0805EFE8
+	thumb_func_start GetCharacter
+GetCharacter: @ 0x0805EFE8
 	push {r4, r5, r6, r7, lr}
 	adds r6, r0, #0
 _0805EFEC:
@@ -794,8 +794,8 @@ _0805F320:
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_GetFontStrWidth
-sub_GetFontStrWidth: @ 0xGetFontStrWidth
+	thumb_func_start GetFontStrWith
+GetFontStrWith: @ 0xGetFontStrWidth
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -822,7 +822,7 @@ _0805F34C:
 	mov sb, r2
 _0805F352:
 	mov r0, sp
-	bl sub_0805EFE8
+	bl GetCharacter
 	adds r6, r0, #0
 	cmp r6, #0xe
 	bhi _0805F3B4
@@ -1028,7 +1028,7 @@ _0805F486:
 	str r0, [r4, #4]
 	mov r0, sp
 	movs r1, #1
-	bl sub_GetFontStrWidth
+	bl GetFontStrWith
 	lsrs r2, r0, #0x18
 	ldrb r1, [r4, #0x16]
 	muls r2, r1, r2
@@ -1161,7 +1161,7 @@ sub_0805F5CC: @ 0x0805F5CC
 	bl MemFill32
 	adds r0, r6, #0
 	movs r1, #0
-	bl sub_GetFontStrWidth
+	bl GetFontStrWith
 	adds r2, r0, #0
 	ldrb r1, [r4, #0x13]
 	movs r0, #1
@@ -1266,7 +1266,7 @@ sub_0805F6A4: @ 0x0805F6A4
 	movs r6, #0
 _0805F6AC:
 	adds r0, r5, #0
-	bl sub_0805EFE8
+	bl GetCharacter
 	movs r7, #1
 	cmp r0, #0xe
 	bhi _0805F746

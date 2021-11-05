@@ -44,9 +44,9 @@ script_0801248A:
 	Call sub_0807F9A4
 	Call sub_0807DF28
 	StartPlayerScript script_08012AB0
-	TextboxNoOverlapFollowPos 0x1101, 0x0007
+	MessageFromTargetPos 0x1101, 0x0007
 	WaitUntilTextboxCloses
-	CameraTargetPlayer
+	CameraTargetPlayer 
 	_0807E778 0x0004
 	_0807E80C 0x00000000
 	WaitFor_2
@@ -77,7 +77,7 @@ script_0801248A:
 	MoveEntityToPlayer
 	Call sub_0807F844
 	CameraTargetPlayer
-	_0807E788 0xffffffff
+	SetFadeMask 0xffffffff
 	_0807E778 0x0004
 	_0807E800 0x00000000
 	WaitFor_2

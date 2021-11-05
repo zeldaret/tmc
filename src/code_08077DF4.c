@@ -44,7 +44,6 @@ void sub_08077E54(ItemBehavior* beh) {
 }
 
 void sub_08077E78(ItemBehavior* arg0, u32 bits) {
-    u8* pbVar1;
     u32 not ;
 
     if (bits == 0) {

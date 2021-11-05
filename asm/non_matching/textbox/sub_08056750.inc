@@ -13,7 +13,7 @@ _0805675C:
 	adds r4, r5, #0
 	adds r4, #0x20
 	adds r0, r4, #0
-	bl sub_0805EFE8
+	bl GetCharacter
 	adds r7, r0, #0
 	cmp r7, #0xe
 	bls _0805676E
@@ -54,7 +54,7 @@ _080567B8:
 .ifndef EU
 	movs r0, #0
 	movs r1, #0
-	bl sub_08056ABC
+	bl SwitchChoice
 .endif
 	b _08056942
 	.align 2, 0
@@ -74,7 +74,7 @@ _080567DE:
 	cmp r0, #0
 	bne _080567F8
 	movs r0, #1
-	bl sub_08056BDC
+	bl MsgChangeLine
 	b _08056942
 _080567F8:
 	adds r1, r5, #0
@@ -84,16 +84,16 @@ _080567F8:
 	b _08056942
 _08056802:
 	movs r0, #3
-	bl sub_080564C8
+	bl StatusUpdate
 	b _08056942
 _0805680A:
 	movs r0, #4
-	bl sub_080564C8
+	bl StatusUpdate
 	b _08056942
 _08056812:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_GetFontStrWidth
+	bl GetFontStrWith
 	adds r3, r0, #0
 	adds r4, r5, #0
 	adds r4, #0x56
@@ -110,12 +110,12 @@ _08056812:
 	strh r2, [r4]
 	b _08056942
 _08056838:
-	ldr r1, _08056840 @ =gTextBox
+	ldr r1, _08056840 @ =gMessage
 	ldrh r0, [r5, #0x22]
 	strb r0, [r1, #1]
 	b _08056942
 	.align 2, 0
-_08056840: .4byte gTextBox
+_08056840: .4byte gMessage
 _08056844:
 	ldr r0, _08056854 @ =gUnk_0200005C
 	ldrh r1, [r5, #0x22]
@@ -152,14 +152,14 @@ _0805687A:
 	strb r0, [r1]
 	adds r0, r5, #0
 	adds r1, r3, #0
-	bl sub_080569C4
+	bl PaletteChange
 	b _08056942
 _0805688C:
 	ldrh r0, [r5, #0x22]
 	bl SoundReq
 	b _08056942
 _08056894:
-	ldr r1, _080568A8 @ =gCurrentTextBox
+	ldr r1, _080568A8 @ =gTextRender
 	ldrh r0, [r5, #0x22]
 	strb r0, [r1, #3]
 	ldrh r0, [r5, #0x22]
@@ -169,7 +169,7 @@ _08056894:
 	bl sub_08056F88
 	b _08056942
 	.align 2, 0
-_080568A8: .4byte gCurrentTextBox
+_080568A8: .4byte gTextRender
 _080568AC:
 	ldrh r0, [r5, #0x22]
 	strb r0, [r5, #7]
@@ -182,7 +182,7 @@ _080568B2:
 	adds r0, r6, #0
 	movs r1, #4
 	bl MemClear
-	ldr r4, _08056910 @ =gUnk_02024030
+	ldr r4, _08056910 @ =gMessageChoices
 	adds r0, r4, #0
 	movs r1, #0x18
 	bl MemClear
@@ -190,7 +190,7 @@ _080568B2:
 	strb r0, [r4]
 	strb r0, [r6]
 _080568D2:
-	ldr r2, _08056910 @ =gUnk_02024030
+	ldr r2, _08056910 @ =gMessageChoices
 	movs r0, #2
 	ldrsb r0, [r2, r0]
 	cmp r0, #3
@@ -220,7 +220,7 @@ _080568D2:
 	b _08056942
 	.align 2, 0
 _0805690C: .4byte gUnk_02000040
-_08056910: .4byte gUnk_02024030
+_08056910: .4byte gMessageChoices
 _08056914:
 	ldrh r3, [r5, #0x22]
 	cmp r3, #0xfe
@@ -256,19 +256,19 @@ _08056942:
 	movs r0, #0
 	b _080569C2
 _0805694C:
-	ldr r0, _08056960 @ =gCurrentTextBox
+	ldr r0, _08056960 @ =gTextRender
 	adds r0, #0x99
 	ldrb r0, [r0]
 	cmp r0, #2
 	beq _08056964
 	movs r0, #3
-	bl sub_080564C8
+	bl StatusUpdate
 	movs r0, #0
 	b _080569C2
 	.align 2, 0
-_08056960: .4byte gCurrentTextBox
+_08056960: .4byte gTextRender
 _08056964:
-	ldr r1, _08056994 @ =gTextBox
+	ldr r1, _08056994 @ =gMessage
 	ldrb r0, [r1, #1]
 	cmp r0, #0
 	bne _08056970
@@ -290,10 +290,10 @@ _08056970:
 	strb r1, [r2]
 	adds r0, r5, #0
 	movs r1, #0
-	bl sub_080569C4
+	bl PaletteChange
 	b _080569B4
 	.align 2, 0
-_08056994: .4byte gTextBox
+_08056994: .4byte gMessage
 _08056998:
 	adds r2, r5, #0
 	adds r2, #0x90
@@ -307,7 +307,7 @@ _08056998:
 	strb r0, [r2]
 	adds r0, r5, #0
 	adds r1, r3, #0
-	bl sub_080569C4
+	bl PaletteChange
 _080569B4:
 	adds r1, r5, #0
 	adds r1, #0x50

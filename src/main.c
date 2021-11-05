@@ -80,8 +80,8 @@ void AgbMain(void) {
 
                 gMain.ticks++;
                 sScreenHandlers[gMain.screen]();
-                MessageUpdate();
-                sub_08050154();
+                MessageMain();
+                UpdateFade();
                 SoundLoop();
                 break;
         }
@@ -191,7 +191,7 @@ NONMATCH("asm/non_matching/sub_080560B8.inc", static void sub_080560B8(void)) {
             case -1:
             default:
                 MemCopy(&sDefaultSettings, (void*)0x2000000, 16);
-                Write_02000000(gUnk_02000000);
+                Write_02000000(gSaveHeader);
                 break;
         }
     }
@@ -211,14 +211,13 @@ END_NONMATCH
 
 u32 sub_08056134(void) {
 #ifdef EU
-    if ((gUnk_02000000->signature != SIGNATURE) || (gUnk_02000000->saveFileId >= NUM_SAVE_SLOTS) ||
-        (gUnk_02000000->messageSpeed >= MAX_MSG_SPEED) || (gUnk_02000000->brightnessPref >= MAX_BRIGHTNESS) ||
-        (gUnk_02000000->gameLanguage <= GAME_LANGUAGE) || (gUnk_02000000->gameLanguage >= 7) ||
-        (gUnk_02000000->_e != 0))
+    if ((gSaveHeader->signature != SIGNATURE) || (gSaveHeader->saveFileId >= NUM_SAVE_SLOTS) ||
+        (gSaveHeader->messageSpeed >= MAX_MSG_SPEED) || (gSaveHeader->brightnessPref >= MAX_BRIGHTNESS) ||
+        (gSaveHeader->gameLanguage <= GAME_LANGUAGE) || (gSaveHeader->gameLanguage >= 7) || (gSaveHeader->_e != 0))
 #else
-    if ((gUnk_02000000->signature != SIGNATURE) || (gUnk_02000000->saveFileId >= NUM_SAVE_SLOTS) ||
-        (gUnk_02000000->messageSpeed >= MAX_MSG_SPEED) || (gUnk_02000000->brightnessPref >= MAX_BRIGHTNESS) ||
-        (gUnk_02000000->gameLanguage != GAME_LANGUAGE) || (gUnk_02000000->_e != 0))
+    if ((gSaveHeader->signature != SIGNATURE) || (gSaveHeader->saveFileId >= NUM_SAVE_SLOTS) ||
+        (gSaveHeader->messageSpeed >= MAX_MSG_SPEED) || (gSaveHeader->brightnessPref >= MAX_BRIGHTNESS) ||
+        (gSaveHeader->gameLanguage != GAME_LANGUAGE) || (gSaveHeader->_e != 0))
 #endif
         return FALSE;
 

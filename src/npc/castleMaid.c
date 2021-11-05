@@ -80,7 +80,7 @@ NONMATCH("asm/non_matching/castleMaid/sub_08064570.inc", void sub_08064570(Entit
             }
             break;
         case 2:
-            if ((gTextBox.doTextBox & 0x7f) != 0) {
+            if ((gMessage.doTextBox & 0x7f) != 0) {
                 return;
             }
             this->action = 1;
@@ -111,7 +111,7 @@ void sub_0806464C(Entity* this) {
     } else {
         tmp = 1;
     }
-    TextboxNoOverlap(gUnk_0810F88C[tmp], this);
+    MessageNoOverlap(gUnk_0810F88C[tmp], this);
 }
 
 void sub_08064688(Entity* this) {

@@ -15,7 +15,7 @@ SCRIPT_START script_08015958
 	_0807EDD4 0x01f8, 0x02f8
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000
-	TextboxNoOverlapFollowPos 0x1011, 0x0002
+	MessageFromTargetPos 0x1011, 0x0002
 	WaitUntilTextboxCloses
 	_0807EDD4 0x01f8, 0x0268
 	SetEntityPositionRelative 0x0248, 0x0218
@@ -56,8 +56,8 @@ script_08015A32:
 	JumpIf script_08015A54
 	CheckEntityInteractType
 	JumpIfNot script_08015A32
-	EndBlock
-	TextboxNoOverlapFollowPos 0x1067, 0x0002
+	EndBlock 
+	MessageFromTargetPos 0x1067, 0x0002
 	WaitUntilTextboxCloses
 	Jump script_08015A32
 script_08015A54:

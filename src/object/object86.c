@@ -75,5 +75,5 @@ void sub_08099ECC(Entity* this) {
     CopyPosition(this, &gPlayerEntity);
     gPlayerState.playerAction = 3;
     gPlayerState.field_0x34[4] = 0;
-    gPlayerState.flags.all |= 0x8000;
+    gPlayerState.flags |= 0x8000;
 }

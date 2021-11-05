@@ -150,8 +150,8 @@ void sub_080810A8(Entity* this) {
         this->direction |= 0xFF;
     }
 
-    if (this->field_0x20 == 0) {
-        this->field_0x20 = 0x1E000;
+    if (this->hVelocity == 0) {
+        this->hVelocity = 0x1E000;
     }
 
     if (this->collisionLayer == 2) {
@@ -218,7 +218,7 @@ void sub_080811EC(Entity* this) {
     }
 
     sub_08003FC4(this, 0x2800);
-    if (this->field_0x20 <= 0) {
+    if (this->hVelocity <= 0) {
         this->action = 2;
         this->flags |= 0x80;
         sub_080814A4(this);
@@ -273,7 +273,7 @@ void sub_080812E8(Entity* this) {
 #ifdef EU
     if ((playerState->swimState & 0x80) && sub_080177A0(this, &gPlayerEntity)) {
 #else
-    if ((playerState->swimState & 0x80) && !(playerState->flags.all & 0x80) && sub_080177A0(this, &gPlayerEntity)) {
+    if ((playerState->swimState & 0x80) && !(playerState->flags & 0x80) && sub_080177A0(this, &gPlayerEntity)) {
 #endif
         sub_080810FC(this);
     }
@@ -413,7 +413,7 @@ void sub_0808153C(Entity* this) {
     if (this->field_0x68.HALF.LO == 0) {
         if (!sub_08003FC4(this, 0x1000) && !sub_0800442E(this)) {
             this->field_0x68.HALF.LO = 1;
-            this->field_0x20 = 0x1E000;
+            this->hVelocity = 0x1E000;
             sub_0808148C(this->type);
             UpdateSpriteForCollisionLayer(this);
         }
@@ -433,7 +433,7 @@ void sub_08081598(Entity* this) {
     this->flags &= 0x7F;
     this->action = 4;
     this->actionDelay = 14;
-    this->field_0x20 = 0x20000;
+    this->hVelocity = 0x20000;
     this->spriteSettings.b.draw = 1;
     this->spritePriority.b1 = 2;
     this->spritePriority.b0 = 3;

@@ -7,7 +7,7 @@ script_0800BBE4:
 	JumpIfNot script_0800BBE4
 	DoPostScriptAction 0x0004
 	Wait 0x003c
-	TextboxNoOverlap 0x0e03
+	MessageNoOverlap 0x0e03
 	WaitUntilTextboxCloses
 	Wait 0x0078
 	Call sub_08054968

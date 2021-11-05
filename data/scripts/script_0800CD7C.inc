@@ -19,7 +19,7 @@ script_0800CDA6:
 	CheckLocalFlag 0x009d
 	JumpIf script_0800CDC4
 	SetLocalFlag 0x009d
-	TextboxNoOverlap 0x213d
+	MessageNoOverlap 0x213d
 	Jump script_0800CF40
 script_0800CDC4:
 	CheckGlobalFlag 0x003b
@@ -30,16 +30,16 @@ script_0800CDC4:
 	JumpIfNot script_0800CF2A
 	SetGlobalFlag 0x003b
 	ClearGlobalFlag 0x0054
-	TextboxNoOverlap 0x2141
+	MessageNoOverlap 0x2141
 	Jump script_0800CF40
 script_0800CDEC:
-	TextboxNoOverlap 0x213e
+	MessageNoOverlap 0x213e
 	WaitUntilTextboxCloses
 	_0807E48C 0x0023
 	JumpIfNot script_0800CE14
-	TextboxNoOverlap 0x214b
+	MessageNoOverlap 0x214b
 	WaitUntilTextboxCloses
-	_0807E3E8
+	_0807E3E8 
 	JumpIfNot script_0800CF40
 	PlaySound SFX_TASK_COMPLETE
 	_0807F088 0x0023
@@ -48,9 +48,9 @@ script_0800CDEC:
 script_0800CE14:
 	_0807E48C 0x0022
 	JumpIfNot script_0800CF40
-	TextboxNoOverlap 0x214b
+	MessageNoOverlap 0x214b
 	WaitUntilTextboxCloses
-	_0807E3E8
+	_0807E3E8 
 	JumpIfNot script_0800CF40
 	PlaySound SFX_TASK_COMPLETE
 	_0807F088 0x0022
@@ -59,7 +59,7 @@ script_0800CE32:
 	_0807EB8C
 	SetGlobalFlag 0x0054
 	Call sub_08060340
-	TextboxNoOverlap 0x213f
+	MessageNoOverlap 0x213f
 	Jump script_0800CF02
 script_0800CE46:
 	CheckGlobalFlag 0x003c
@@ -70,16 +70,16 @@ script_0800CE46:
 	JumpIfNot script_0800CF2A
 	SetGlobalFlag 0x003c
 	ClearGlobalFlag 0x0054
-	TextboxNoOverlap 0x2145
+	MessageNoOverlap 0x2145
 	Jump script_0800CF40
 script_0800CE6E:
-	TextboxNoOverlap 0x2142
+	MessageNoOverlap 0x2142
 	WaitUntilTextboxCloses
 	_0807E48C 0x0027
 	JumpIfNot script_0800CF40
-	TextboxNoOverlap 0x214c
+	MessageNoOverlap 0x214c
 	WaitUntilTextboxCloses
-	_0807E3E8
+	_0807E3E8 
 	JumpIfNot script_0800CF40
 	PlaySound SFX_TASK_COMPLETE
 	_0807F088 0x0027
@@ -87,7 +87,7 @@ script_0800CE6E:
 	_0807EB8C
 	SetGlobalFlag 0x0054
 	Call sub_08060340
-	TextboxNoOverlap 0x2143
+	MessageNoOverlap 0x2143
 	Jump script_0800CF02
 script_0800CEA6:
 	CheckGlobalFlag 0x003d
@@ -98,16 +98,16 @@ script_0800CEA6:
 	JumpIfNot script_0800CF2A
 	SetGlobalFlag 0x003d
 	ClearGlobalFlag 0x0054
-	TextboxNoOverlap 0x2149
+	MessageNoOverlap 0x2149
 	Jump script_0800CF40
 script_0800CECE:
-	TextboxNoOverlap 0x2146
+	MessageNoOverlap 0x2146
 	WaitUntilTextboxCloses
 	_0807E48C 0x0024
 	JumpIfNot script_0800CF40
-	TextboxNoOverlap 0x214d
+	MessageNoOverlap 0x214d
 	WaitUntilTextboxCloses
-	_0807E3E8
+	_0807E3E8 
 	JumpIfNot script_0800CF40
 	PlaySound SFX_TASK_COMPLETE
 	_0807F088 0x0024
@@ -115,7 +115,7 @@ script_0800CECE:
 	_0807EB8C
 	SetGlobalFlag 0x0054
 	Call sub_08060340
-	TextboxNoOverlap 0x2147
+	MessageNoOverlap 0x2147
 script_0800CF02:
 	WaitUntilTextboxCloses
 	Call sub_0807DF50
@@ -132,13 +132,13 @@ script_0800CF20:
 	_0807E864
 	Call sub_0807DF28
 script_0800CF2A:
-	TextboxNoOverlap 0x2140
+	MessageNoOverlap 0x2140
 	WaitUntilTextboxCloses
 	Call sub_0807DF50
 	_0807E878
 	Jump script_0800CF0C
 script_0800CF3C:
-	TextboxNoOverlap 0x214a
+	MessageNoOverlap 0x214a
 script_0800CF40:
 	WaitUntilTextboxCloses
 	Call sub_0807DF50
@@ -215,7 +215,7 @@ script_0800CFFA:
 	_0807EB74
 	SetIntVariable 0x00000000
 	Call sub_0806C028
-	TextboxNoOverlap 0x1219
+	MessageNoOverlap 0x1219
 	Jump script_0800D17C
 script_0800D032:
 	CheckInventory1 0x0041
@@ -225,7 +225,7 @@ script_0800D032:
 	_0807EB74
 	SetIntVariable 0x00000000
 	Call sub_0806C028
-	TextboxNoOverlapFollowPos 0x125c, 0x0002
+	MessageFromTargetPos 0x125c, 0x0002
 	WaitUntilTextboxCloses
 	StartPlayerScript script_0800D1B4
 	WaitForSomething2 0x00000008
@@ -236,12 +236,12 @@ script_0800D032:
 	_0807E5F8 0x00000020
 	StartPlayerScript script_0800D1E0
 	WaitForSomething2 0x00000008
-	TextboxNoOverlapFollowPos 0x125d, 0x0002
+	MessageFromTargetPos 0x125d, 0x0002
 	Jump script_0800D17C
 script_0800D098:
 	CheckLocalFlag 0x007e
 	JumpIfNot script_0800D0A8
-	TextboxNoOverlapFollow 0x123e
+	MessageFromTarget 0x123e
 	Jump script_0800D17C
 script_0800D0A8:
 	StartPlayerScript script_0800D190
@@ -253,7 +253,7 @@ script_0800D0A8:
 	_0807EB74
 	SetIntVariable 0x00000000
 	Call sub_0806C028
-	TextboxNoOverlapFollowPos 0x123d, 0x0002
+	MessageFromTargetPos 0x123d, 0x0002
 	WaitUntilTextboxCloses
 	StartPlayerScript script_0800D1B4
 	WaitForSomething2 0x00000008
@@ -268,7 +268,7 @@ script_0800D108:
 	PlaySound SFX_F8
 	_0807E5F8 0x00000010
 	SetLocalFlag 0x007e
-	TextboxNoOverlapFollowPos 0x123e, 0x0002
+	MessageFromTargetPos 0x123e, 0x0002
 	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E930 0x0009
@@ -277,7 +277,7 @@ script_0800D108:
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000004
 	Wait 0x001e
-	TextboxNoOverlapFollowPos 0x123f, 0x0002
+	MessageFromTargetPos 0x123f, 0x0002
 	WaitUntilTextboxCloses
 	_0807E5F8 0x00000001
 	WaitForSomething2 0x00000004

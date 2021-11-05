@@ -50,7 +50,7 @@ void sub_08067E88(Entity* this) {
     if (this->interactType != 0) {
         this->interactType = 0;
         this->action = 2;
-        TextboxNoOverlapFollow(this->actionDelay + 0x1200);
+        MessageFromTarget(this->actionDelay + 0x1200);
     }
 }
 
@@ -86,7 +86,7 @@ NONMATCH("asm/non_matching/mountainMinish/sub_08068190.inc", void sub_08068190(E
     }
 
     // TODO unable to devide the array access variables by two without breaking everything
-    TextboxNoOverlap(gUnk_0811130E[uVar2 * 2 + uVar3 * 8], this);
+    MessageNoOverlap(gUnk_0811130E[uVar2 * 2 + uVar3 * 8], this);
 }
 END_NONMATCH
 

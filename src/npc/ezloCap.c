@@ -3,6 +3,7 @@
 #include "script.h"
 #include "audio.h"
 #include "functions.h"
+#include "effects.h"
 
 const u8 gUnk_08114134[];
 const u8 gUnk_08114144[];
@@ -55,7 +56,7 @@ void sub_0806D944(Entity* this) {
 
 // Ezlo Angry FX
 void sub_0806D96C(Entity* this) {
-    Entity* fx = CreateFx(this, 0x42, 0);
+    Entity* fx = CreateFx(this, FX_STEAM_EFC, 0);
     if (fx != NULL) {
         fx->spritePriority.b0 = 1;
         PositionRelative(this, fx, 0, 0xFFE80000);

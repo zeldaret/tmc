@@ -1,6 +1,7 @@
 #include "enemy.h"
 #include "random.h"
 #include "functions.h"
+#include "effects.h"
 
 void sub_0802C4B0(Entity*);
 void sub_0802C62C(Entity*);
@@ -31,7 +32,7 @@ void sub_0802C254(Entity* this) {
 
 void sub_0802C258(Entity* this) {
     sub_0804A720(this);
-    this->field_0x20 = 0x20000;
+    this->hVelocity = 0x20000;
     this->actionDelay = 2;
     this->field_0x7a.HWORD = Random() & 0x70;
     switch (this->type) {
@@ -92,7 +93,7 @@ NONMATCH("asm/non_matching/fallingBoulder/sub_0802C334.inc", void sub_0802C334(E
                         u32 diff = 0;
                         s32 i;
                         for (i = 1; i > -1; i--) {
-                            Entity* ent = CreateFx(this, 0x15, 0);
+                            Entity* ent = CreateFx(this, FX_ROCK2, 0);
                             if (ent) {
                                 ent->x.HALF.HI += 12;
                                 ent->x.HALF.HI -= diff;
@@ -189,7 +190,7 @@ void sub_0802C4B0(Entity* this) {
     }
 
     rand = Random() & 7;
-    this->field_0x20 = 0x20000;
+    this->hVelocity = 0x20000;
     if (rand & 4) {
         if (rand & 3) {
             *(u32*)&this->cutsceneBeh = gUnk_080CD58C[offset | 1];

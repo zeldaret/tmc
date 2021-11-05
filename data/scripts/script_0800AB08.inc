@@ -13,9 +13,9 @@ SCRIPT_START script_0800AB08
 	_0807F0B4 0x0001
 	SetEntityPositionRelative 0x0088, 0x0078
 	Call sub_0807F5C0
-	TextboxNoOverlapFollowPos 0x1664, 0x0000
+	MessageFromTargetPos 0x1664, 0x0000
 	WaitUntilTextboxCloses
-	TextboxNoOverlapFollowPos 0x165e, 0x000e
+	MessageFromTargetPos 0x165e, 0x000e
 	WaitUntilTextboxCloses
 	CallWithArg CreateManager36, 0x00000001
 	_0807F0C8 0xffff, 0x0000

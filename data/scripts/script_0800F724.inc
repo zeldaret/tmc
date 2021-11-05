@@ -54,7 +54,7 @@ SCRIPT_START script_0800F73C
 	Call sub_0807F5C0
 	WaitForSomething2 0x00000001
 	WaitForSomething2 0x00000004
-	TextboxNoOverlapFollowPos 0x2501, 0x0000
+	MessageFromTargetPos 0x2501, 0x0000
 	WaitUntilTextboxCloses
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000004
@@ -70,7 +70,7 @@ SCRIPT_START script_0800F73C
 	WaitForSomething2 0x00000001
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000004
-	TextboxNoOverlapFollowPos 0x2503, 0x000e
+	MessageFromTargetPos 0x2503, 0x000e
 	WaitUntilTextboxCloses
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000004
@@ -83,7 +83,7 @@ SCRIPT_START script_0800F73C
 	WaitForSomething2 0x00000001
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000004
-	TextboxNoOverlapFollowPos 0x2504, 0x000e
+	MessageFromTargetPos 0x2504, 0x000e
 	WaitUntilTextboxCloses
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000004
@@ -96,7 +96,7 @@ SCRIPT_START script_0800F73C
 	WaitForSomething2 0x00000001
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000004
-	TextboxNoOverlapFollowPos 0x2505, 0x000e
+	MessageFromTargetPos 0x2505, 0x000e
 	WaitUntilTextboxCloses
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000004
@@ -111,7 +111,7 @@ SCRIPT_START script_0800F73C
 	_0807E8E4_0
 	Call sub_0807F3F8
 	Wait 0x003c
-	TextboxNoOverlapFollowPos 0x1021, 0x000e
+	MessageFromTargetPos 0x1021, 0x000e
 	WaitUntilTextboxCloses
 	StartPlayerScript script_0800FAE4
 	SetEntityPositionRelative 0x00f0, 0x0258
@@ -120,44 +120,44 @@ SCRIPT_START script_0800F73C
 	Wait 0x001e
 	Call sub_08063C2C
 	WaitForSomething2 0x00000001
-	TextboxNoOverlapFollowPos 0x1022, 0x000e
+	MessageFromTargetPos 0x1022, 0x000e
 	WaitUntilTextboxCloses
-	_0807E8E4_0
+	_0807E8E4_0 
 	Call sub_08063C14
 	Call sub_08094CDC
 	Wait 0x001e
-	TextboxNoOverlapFollowPos 0x1023, 0x000e
+	MessageFromTargetPos 0x1023, 0x000e
 	WaitUntilTextboxCloses
 	Call sub_08063C14
 	Call sub_08094DD8
 	Wait 0x001e
-	TextboxNoOverlapFollowPos 0x1024, 0x000e
+	MessageFromTargetPos 0x1024, 0x000e
 	WaitUntilTextboxCloses
 	Call sub_08063C14
 	Call sub_08094D34
 	Wait 0x001e
-	TextboxNoOverlapFollowPos 0x1025, 0x000e
+	MessageFromTargetPos 0x1025, 0x000e
 	WaitUntilTextboxCloses
 	Call sub_08063C5C
-	TextboxNoOverlapFollowPos 0x1026, 0x000e
+	MessageFromTargetPos 0x1026, 0x000e
 	WaitUntilTextboxCloses
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000004
 	_0807E8E4_1
 	Call sub_08063C2C
-	TextboxNoOverlapFollowPos 0x1027, 0x0000
+	MessageFromTargetPos 0x1027, 0x0000
 	WaitUntilTextboxCloses
 	Call sub_08063C74
 	Wait 0x003c
 	Call sub_08063C14
-	_0807E8E4_0
-	TextboxNoOverlapFollowPos 0x1028, 0x000e
+	_0807E8E4_0 
+	MessageFromTargetPos 0x1028, 0x000e
 	WaitUntilTextboxCloses
-	_0807E8E4_1
-	TextboxNoOverlapFollowPos 0x1029, 0x0000
+	_0807E8E4_1 
+	MessageFromTargetPos 0x1029, 0x0000
 	WaitUntilTextboxCloses
-	_0807E8E4_0
-	TextboxNoOverlapFollowPos 0x102a, 0x000e
+	_0807E8E4_0 
+	MessageFromTargetPos 0x102a, 0x000e
 	WaitUntilTextboxCloses
 	Call sub_08063C14
 	Call sub_08094D70
@@ -172,7 +172,7 @@ SCRIPT_START script_0800F73C
 	_0807E8E4_1
 	Call sub_0807F3F8
 	Wait 0x003c
-	TextboxNoOverlapFollowPos 0x102b, 0x0000
+	MessageFromTargetPos 0x102b, 0x0000
 	WaitUntilTextboxCloses
 	_0807F034 0x000d
 	WaitPlayerAction8
@@ -185,7 +185,7 @@ SCRIPT_START script_0800F73C
 	Wait 0x00b7
 	SetIntVariable 0x00000000
 	Call sub_0807F5B0
-	TextboxNoOverlapFollowPos 0x102c, 0x0000
+	MessageFromTargetPos 0x102c, 0x0000
 	WaitUntilTextboxCloses
 	CallWithArg sub_0807F29C, 0x00000000
 	Call sub_0806DC58

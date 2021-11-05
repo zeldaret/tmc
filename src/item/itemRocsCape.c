@@ -22,7 +22,7 @@ extern bool32 sub_08077EFC(ItemBehavior*);
                 if ((gPlayerState.jumpStatus != 0) && ((gPlayerState.jumpStatus & 7) != 3))
                     goto _08076710;
                 if (-1 < gPlayerEntity.height.WORD) {
-                    gPlayerEntity.field_0x20 = 0x20000;
+                    gPlayerEntity.hVelocity = 0x20000;
                     gPlayerState.jumpStatus = 1;
                     gPlayerState.field_0x2c = NULL;
                     this->stateID += 1;
@@ -45,7 +45,7 @@ extern bool32 sub_08077EFC(ItemBehavior*);
                     gPlayerState.jumpStatus = 1;
                     gPlayerState.field_0xe = -1;
                     gPlayerState.field_0x2c = NULL;
-                    gPlayerEntity.field_0x20 = 0x20000;
+                    gPlayerEntity.hVelocity = 0x20000;
                 _0807673C:
                     sub_08077F84();
                     SoundReq(SFX_PLY_VO4);
@@ -67,10 +67,10 @@ void sub_08076758(ItemBehavior* this, u32 arg1) {
         ((gPlayerState.jumpStatus & 7) != 3)) {
         if (sub_08077EFC(this)) {
             if (this->stateID < 2) {
-                if ((gPlayerEntity.field_0x20 < 1) && ((gPlayerState.jumpStatus & 0x10) == 0)) {
+                if ((gPlayerEntity.hVelocity < 1) && ((gPlayerState.jumpStatus & 0x10) == 0)) {
                     this->stateID = 2;
                     gPlayerEntity.field_0x7a.HWORD = 2;
-                    gPlayerEntity.field_0x20 = 0x20000;
+                    gPlayerEntity.hVelocity = 0x20000;
                     gPlayerState.jumpStatus |= 0x10;
                     gPlayerState.field_0x8 = 0x288;
                     SoundReq(SFX_172);

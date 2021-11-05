@@ -32,7 +32,6 @@ void Manager1A_Main(Manager1A* this) {
 }
 
 extern void sub_08052D74(void*, void*, void*);
-extern u32 CheckPlayerProximity(u32, u32, u32, u32);
 
 typedef struct struct_08108764 {
     u8 unk_00;
@@ -140,9 +139,9 @@ void sub_0805B168(Manager1A* this) {
 u32 sub_0805B1CC(Manager1A* this) {
     u32 re = 0;
     if (CheckPlayerProximity(this->unk_20, this->unk_22, this->unk_24, this->unk_26)) {
-        if ((gPlayerState.flags.all & 0x4) && (gPlayerState.flags.all & 0x1)) {
-            gPlayerState.flags.all |= 0x8000;
-        } else if (gPlayerState.flags.all & 0x8000) {
+        if ((gPlayerState.flags & 0x4) && (gPlayerState.flags & 0x1)) {
+            gPlayerState.flags |= 0x8000;
+        } else if (gPlayerState.flags & 0x8000) {
             re = 1;
         }
     }
@@ -158,7 +157,7 @@ void sub_0805B210(Manager1A* this) {
     gScreenTransition.areaID = tmp->unk_01;
     gScreenTransition.roomID = tmp->unk_02;
     gScreenTransition.playerLayer = tmp->unk_03;
-    if (gPlayerState.flags.all & 0x80) {
+    if (gPlayerState.flags & 0x80) {
         gScreenTransition.field_0xf = 6;
     } else {
         gScreenTransition.field_0xf = 2;

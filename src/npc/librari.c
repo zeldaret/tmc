@@ -55,7 +55,7 @@ void sub_0806B260(Entity* this, ScriptExecutionContext* context) {
     } else {
         index = 3;
     }
-    TextboxNoOverlap(gUnk_08112D48[index], this);
+    MessageNoOverlap(gUnk_08112D48[index], this);
 }
 
 extern u16 gUnk_08112D50[];
@@ -82,7 +82,7 @@ void sub_0806B2B4(Entity* this) {
     } else {
         index = 0;
     }
-    TextboxNoOverlap(gUnk_08112D50[index], this);
+    MessageNoOverlap(gUnk_08112D50[index], this);
 }
 
 void Librari_Fusion(Entity* this) {

@@ -4,6 +4,7 @@
 #include "flags.h"
 #include "audio.h"
 #include "functions.h"
+#include "effects.h"
 
 extern u32 sub_08083734(Entity*, u32);
 extern void sub_080A080C(Entity*);
@@ -56,12 +57,12 @@ void sub_080A074C(Entity* this) {
         this->height.HALF.HI = 0;
         this->x.HALF.HI = this->field_0x70.HALF.LO;
         this->y.HALF.HI = this->field_0x70.HALF.HI;
-        ent = CreateFx(this, 0x11, 0x40);
+        ent = CreateFx(this, FX_DASH, 0x40);
         if (ent != NULL) {
             ent->x.HALF.HI += 0xc;
             ent->y.HALF.HI -= 0xc;
         }
-        ent = CreateFx(this, 0x11, 0x40);
+        ent = CreateFx(this, FX_DASH, 0x40);
         if (ent != NULL) {
             ent->x.HALF.HI -= 0xc;
             ent->y.HALF.HI -= 0xc;

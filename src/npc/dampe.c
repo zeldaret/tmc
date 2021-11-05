@@ -66,7 +66,7 @@ void sub_0806BE84(Entity* this, ScriptExecutionContext* context) {
     if (GetInventoryValue(0x3C) >= 2) {
         msgIndex = 2;
     }
-    TextboxNoOverlap(gUnk_08113344[msgIndex], this);
+    MessageNoOverlap(gUnk_08113344[msgIndex], this);
 }
 
 void sub_0806BEC8(Entity* this, ScriptExecutionContext* context) {
@@ -83,7 +83,7 @@ void sub_0806BEC8(Entity* this, ScriptExecutionContext* context) {
         msgIndex = 2;
     }
 
-    TextboxNoOverlap(gUnk_0811334A[msgIndex], this);
+    MessageNoOverlap(gUnk_0811334A[msgIndex], this);
 }
 
 void sub_0806BEFC() {

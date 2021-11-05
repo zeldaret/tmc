@@ -63,13 +63,12 @@ asm("demoPointer1: .incbin \"baserom_demo.gba\", 0x11e010, 0x500");
 asm("demoPointer2: .incbin \"baserom_demo.gba\", 0x11e510, 0x500");
 asm("demoPointer3: .incbin \"baserom_demo.gba\", 0x11ea10, 0x500");
 
-extern const u32 demoPointer1;
-extern const u32 demoPointer2;
-extern const u32 demoPointer3;
+extern const u8 demoPointer1[];
+extern const u8 demoPointer2[];
+extern const u8 demoPointer3[];
 
-const u32 demoPointers[] = { (u32)&demoPointer1, (u32)&demoPointer2, (u32)&demoPointer3 };
+const u8* const demoPointers[] = { demoPointer1, demoPointer2, demoPointer3 };
 #endif
-
 #else
 
 #if defined(JP) || defined(EU)
@@ -116,14 +115,14 @@ SaveResult HandleSaveInProgress(u32 arg0) {
         InitDMA();
         switch (arg0) {
             case 0:
-                temp = WriteSaveFile(gUnk_02000000->saveFileId, &gSave);
+                temp = WriteSaveFile(gSaveHeader->saveFileId, &gSave);
                 break;
             case 1:
-                SetFileStatusDeleted(gUnk_02000000->saveFileId);
+                SetFileStatusDeleted(gSaveHeader->saveFileId);
                 temp = 1;
                 break;
             case 2:
-                temp = Write_02000000(gUnk_02000000);
+                temp = Write_02000000(gSaveHeader);
                 break;
         }
         gMenu.field_0xa = temp;

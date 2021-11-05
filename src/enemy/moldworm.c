@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "random.h"
 #include "functions.h"
+#include "effects.h"
 
 extern void sub_0800449C(Entity*, u32);
 extern bool32 sub_08023A38(u32);
@@ -83,11 +84,11 @@ void sub_080230E4(Entity* this) {
         CopyPosition(this, &gPlayerEntity);
         gPlayerEntity.flags = gPlayerEntity.flags | 0x80;
         gPlayerEntity.spriteSettings.b.draw = 1;
-        gPlayerEntity.field_0x20 = 0x18000;
+        gPlayerEntity.hVelocity = 0x18000;
         gPlayerEntity.direction = 0xff;
         gPlayerEntity.iframes = -0x14;
         gPlayerState.jumpStatus = 0x41;
-        gPlayerState.flags.all &= 0xfff7ffff;
+        gPlayerState.flags &= 0xfff7ffff;
     }
 
     sub_0804AA30(this, gUnk_080CBC38);
@@ -177,7 +178,7 @@ void sub_08023330(Entity* this) {
         this->field_0x7c.BYTES.byte3 = 0;
         sub_08023A88(this, this->animationState);
         CopyPosition(this, this->attachedEntity);
-        CreateFx(this, 4, 0);
+        CreateFx(this, FX_ROCK, 0);
     }
 }
 
@@ -199,7 +200,7 @@ void sub_08023398(Entity* this) {
             this->damageType = 0x85;
             this->attachedEntity->actionDelay = 1;
             sub_08023A68(this);
-            CreateFx(this, 4, 0);
+            CreateFx(this, FX_ROCK, 0);
             return;
         }
         this->field_0x78.HWORD = 0x28;
@@ -265,7 +266,7 @@ void sub_0802351C(Entity* this) {
     if (this->field_0x7c.BYTES.byte3 == 0) {
         if (this->type2 == 0) {
             gPlayerEntity.animationState = this->animationState & 7;
-            gPlayerState.flags.all |= 0x80000;
+            gPlayerState.flags |= 0x80000;
             PositionRelative(this, &gPlayerEntity, 0, gUnk_080CBC90[this->animationState & 7] << 0x10);
             gPlayerEntity.spriteOffsetY = -gUnk_080CBC90[this->animationState & 7];
         }
@@ -400,7 +401,7 @@ void sub_08023894(Entity* this) {
         this->parent->field_0x7c.BYTES.byte3 = 1;
         InitializeAnimation(this, this->animationState);
         if (this->parent->type2 == 0) {
-            gPlayerState.flags.all |= 0x200000;
+            gPlayerState.flags |= 0x200000;
             gPlayerEntity.x.HALF.HI = this->x.HALF.HI;
             gPlayerEntity.y.HALF.HI = this->y.HALF.HI;
             gPlayerEntity.direction = DirectionRoundUp(GetFacingDirection(*(Entity**)&this->field_0x74, this));

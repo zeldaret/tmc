@@ -206,14 +206,14 @@ _08083D14:
 	adds r1, #1
 _08083D16:
 	adds r0, r1, #0
-	bl TextboxNoOverlapFollow
-	ldr r1, _08083D24 @ =gTextBox
+	bl MessageFromTarget
+	ldr r1, _08083D24 @ =gMessage
 	ldrb r0, [r4, #0xb]
 	str r0, [r1, #0x10]
 _08083D22:
 	pop {r4, pc}
 	.align 2, 0
-_08083D24: .4byte gTextBox
+_08083D24: .4byte gMessage
 
 	thumb_func_start sub_08083D28
 sub_08083D28: @ 0x08083D28

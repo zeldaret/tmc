@@ -4,6 +4,7 @@
 #include "functions.h"
 #include "random.h"
 #include "audio.h"
+#include "effects.h"
 
 extern void (*const V2Projectile_Functions[])(Entity*);
 extern void (*const gUnk_0812A7EC[])(Entity*);
@@ -26,7 +27,7 @@ ASM_FUNC("asm/non_matching/v2Projectile/sub_080ABBF4.inc", void sub_080ABBF4(Ent
 
 void sub_080ABC54(Entity* this) {
     if (sub_0806F520() == 0) {
-        CreateFx(this, 2, 0);
+        CreateFx(this, FX_DEATH, 0);
         DeleteThisEntity();
     }
     gUnk_0812A808[this->subAction](this);
@@ -44,7 +45,7 @@ void sub_080ABC90(Entity* this) {
         ModHealth(-2);
         sub_0800449C(&gPlayerEntity, 0x7a);
         sub_08079D84();
-        CreateFx(this, 2, 0);
+        CreateFx(this, FX_DEATH, 0);
         DeleteThisEntity();
     }
 }
@@ -96,7 +97,7 @@ ASM_FUNC("asm/non_matching/v2Projectile/sub_080ABE04.inc", void sub_080ABE04(Ent
 
 void sub_080ABE88(Entity* this) {
     if (sub_08003FC4(this, 0x1800) == 0) {
-        CreateFx(this, 4, 0);
+        CreateFx(this, FX_ROCK, 0);
         DeleteThisEntity();
     }
 }

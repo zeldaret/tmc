@@ -117,7 +117,7 @@ void sub_0801EF40(Entity* this) {
         }
     } else {
         sub_0804AA1C(this);
-        this->field_0x20 = 0;
+        this->hVelocity = 0;
         InitializeAnimation(this, 9);
     }
     this->field_0x80.HALF.LO = this->currentHealth;
@@ -698,7 +698,7 @@ void sub_0801FB68(Entity* this) {
             break;
     }
 
-    this->field_0x20 = 0;
+    this->hVelocity = 0;
 }
 
 u32 sub_0801FBD0(Entity* this) {
@@ -711,7 +711,7 @@ u32 sub_0801FBD0(Entity* this) {
 
 void Chuchu_JumpAtPlayer(Entity* this) {
     this->speed = 0x180;
-    this->field_0x20 = 0x20000;
+    this->hVelocity = 0x20000;
     this->direction = sub_08049F84(this, 1);
     InitializeAnimation(this, 3);
 }

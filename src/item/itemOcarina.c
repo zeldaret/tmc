@@ -24,7 +24,7 @@ void OcarinaUse(ItemBehavior* this, u32 arg1) {
         gPlayerEntity.spriteSettings.b.flipX = 0;
         gPlayerEntity.flags &= 0x7f;
         gPlayerEntity.field_0x7a.HWORD = 2;
-        gPlayerState.flags.all |= 0x10000000;
+        gPlayerState.flags |= 0x10000000;
         gPlayerState.field_0x27[0] = -1;
         gUnk_02034490[0] = 1;
         gPlayerState.field_0xa = (8 >> arg1) | gPlayerState.field_0xa;
@@ -41,7 +41,7 @@ NONMATCH("asm/non_matching/ocarina/OcarinaUpdate.inc", void OcarinaUpdate(ItemBe
     UpdateItemAnim(this);
     if ((this->field_0x5[9] & 0x80) != 0) {
         gPlayerEntity.flags |= 0x80;
-        gPlayerState.flags.all &= 0xefffffff;
+        gPlayerState.flags &= 0xefffffff;
         gPlayerState.field_0x27[0] = 0;
         gUnk_02034490[0] = 0;
         CreateBird();

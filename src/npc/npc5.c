@@ -392,7 +392,7 @@ NONMATCH("asm/non_matching/npc5/sub_08061170.inc", bool32 sub_08061170(Entity* t
             this->action = 6;
             tmp = (sub_08079FD4(this, 1) * 0x10 - 4);
             // tmp <<= 0xc;
-            this->field_0x20 = tmp;
+            this->hVelocity = tmp;
             this->speed = 0x100;
             this->direction = direction;
             this->animationState = direction >> 2;
@@ -867,7 +867,7 @@ NONMATCH("asm/non_matching/npc5/sub_08061B18.inc", void sub_08061B18(Entity* thi
             if ((((Tmp**)&this->field_0x68))[++this->actionDelay]->unk_2 == 0) {
                 this->actionDelay = 0;
             }
-            TextboxNoOverlap((u32)*puVar2, this);
+            MessageNoOverlap((u32)*puVar2, this);
             break;
     }
 }

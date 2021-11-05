@@ -302,7 +302,7 @@ void sub_0806AA18(Entity* this) {
     } else {
         index = 0x440d;
     }
-    TextboxNoOverlap(index, this);
+    MessageNoOverlap(index, this);
 }
 
 ASM_FUNC("asm/non_matching/rem/sub_0806AA50.inc", void sub_0806AA50(Entity* this, ScriptExecutionContext* context))

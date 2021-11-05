@@ -109,10 +109,10 @@ void sub_0806E1FC(Entity* this) {
 
 void sub_0806E20C(void) {
     if (gScreenTransition.field_0x6 != 0) {
-        TextboxNoOverlapFollow(0x421f);
-        gTextBox.field_0x10 = gScreenTransition.field_0x6;
+        MessageFromTarget(0x421f);
+        gMessage.field_0x10 = gScreenTransition.field_0x6;
     } else {
-        TextboxNoOverlapFollow(0x4220);
+        MessageFromTarget(0x4220);
     }
 }
 

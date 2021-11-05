@@ -10,6 +10,7 @@
 #include "object.h"
 #include "functions.h"
 #include "object.h"
+#include "effects.h"
 
 static void (*const sPlayerActions[])(Entity*);
 extern void (*const gUnk_0811BA60[])(Entity*);
@@ -154,14 +155,14 @@ void PlayerFall(Entity* this) {
 void sub_08070C3C(Entity* this) {
     sub_08004168(this);
 
-    gPlayerState.flags.all |= 0x1 | 0x4;
-    gPlayerState.flags.all &= ~0x400;
+    gPlayerState.flags |= 0x1 | 0x4;
+    gPlayerState.flags &= ~0x400;
 
     gPlayerState.jumpStatus = 0;
 
-    if ((gPlayerState.flags.all & 0x80) != 0)
+    if ((gPlayerState.flags & 0x80) != 0)
         gPlayerState.field_0x8 = 0x1ba;
-    else if ((gPlayerState.flags.all & 8) != 0)
+    else if ((gPlayerState.flags & 8) != 0)
         gPlayerState.field_0x8 = 0x458;
     else
         gPlayerState.field_0x8 = 0x1b8;
@@ -178,11 +179,11 @@ void sub_08070C3C(Entity* this) {
 void sub_08070CB4(Entity* this) {
     UpdateAnimationSingleFrame(this);
     if ((this->frames.all & 0x80) != 0) {
-        if ((gSave.stats.health != 0) && ((gPlayerState.flags.all & 0x8000) != 0)) {
-            gPlayerState.flags.all &= ~(0x1 | 0x4);
+        if ((gSave.stats.health != 0) && ((gPlayerState.flags & 0x8000) != 0)) {
+            gPlayerState.flags &= ~(0x1 | 0x4);
             this->spriteSettings.b.draw = 0;
         } else {
-            gPlayerState.flags.all &= ~(0x4 | 0x8000);
+            gPlayerState.flags &= ~(0x4 | 0x8000);
             RespawnPlayer();
             gPlayerState.field_0xa = 0;
             this->iframes = 32;
@@ -199,18 +200,18 @@ void sub_08070D38(Entity* this) {
     this->flags &= ~0x80;
     this->direction = ((this->animationState & 0xe) << 2) ^ 0x10;
     this->speed = 0x100;
-    this->field_0x42 = 0;
+    this->knockbackDuration = 0;
     this->subAction++;
     this->actionDelay = gPlayerState.field_0x38;
     this->spriteIndex = 1;
 
-    if ((gPlayerState.flags.all & 0x80) == 0) {
-        this->field_0x20 = 0x20000;
+    if ((gPlayerState.flags & 0x80) == 0) {
+        this->hVelocity = 0x20000;
         gPlayerState.field_0x8 = 0x114;
         sub_08080964(16, 0);
     } else {
         gPlayerState.field_0x8 = 0xc18;
-        this->field_0x20 = 0x18000;
+        this->hVelocity = 0x18000;
     }
 
     gPlayerState.jumpStatus = 0x80;
@@ -241,7 +242,7 @@ NONMATCH("asm/non_matching/player/sub_08070DC4.inc", void sub_08070DC4(Entity* t
     }
 
     if (--this->actionDelay != 0xFF) {
-        this->field_0x20 = 0x10000;
+        this->hVelocity = 0x10000;
         return;
     }
 
@@ -258,7 +259,7 @@ NONMATCH("asm/non_matching/player/sub_08070DC4.inc", void sub_08070DC4(Entity* t
     this->actionDelay = 8;
     this->subAction++;
 
-    if ((gPlayerState.flags.all & 0x80) == 0)
+    if ((gPlayerState.flags & 0x80) == 0)
         gPlayerState.field_0x8 = 0x100;
 }
 END_NONMATCH
@@ -274,7 +275,7 @@ void sub_08070E7C(Entity* this) {
 
 void sub_08070E9C(Entity* this) {
     if (sub_08078EFC() != 0) {
-        sub_08056360();
+        MessageClose();
     } else {
         gPlayerState.field_0x27[0] = 4;
         gPlayerState.field_0xa8 = 0x13;
@@ -286,10 +287,10 @@ void sub_08070E9C(Entity* this) {
 void sub_08070EDC(Entity* this) {
     this->scriptedScene = 2;
 
-    if ((gTextBox.doTextBox & 0x7f) != 0)
+    if ((gMessage.doTextBox & 0x7f) != 0)
         this->subAction = 1;
 
-    if ((gPlayerState.flags.all & 0x80) == 0)
+    if ((gPlayerState.flags & 0x80) == 0)
         sub_08079938();
     else
         gPlayerState.field_0x8 = 0xc18;
@@ -297,7 +298,7 @@ void sub_08070EDC(Entity* this) {
 
 void sub_08070f24(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if ((gTextBox.doTextBox & 0x7f) == 0) {
+    if ((gMessage.doTextBox & 0x7f) == 0) {
         this->scriptedScene = this->scriptedScene2;
         sub_080791D0();
     }
@@ -326,11 +327,11 @@ void sub_08070FA4(Entity* this) {
     this->spriteSettings.b.flipX = FALSE;
     this->animationState = 4;
 
-    gPlayerState.flags.all |= 1;
+    gPlayerState.flags |= 1;
     gPlayerState.jumpStatus = 0;
 
-    if ((gPlayerState.flags.all & 0x80) == 0) {
-        if (gPlayerState.flags.all & 0x8) {
+    if ((gPlayerState.flags & 0x80) == 0) {
+        if (gPlayerState.flags & 0x8) {
             if (sub_080542AC(gPlayerState.field_0x38)) {
                 temp = 0x45e;
             } else {
@@ -361,12 +362,12 @@ void sub_08071038(Entity* this) {
 
     UpdateAnimationSingleFrame(this);
 
-    if (sub_08078EFC() || (gTextBox.doTextBox & 0x7f))
+    if (sub_08078EFC() || (gMessage.doTextBox & 0x7f))
         return;
 
     if (this->frames.all & 0x80) {
         this->attachedEntity = 0;
-        this->field_0x42 = 0;
+        this->knockbackDuration = 0;
         this->iframes = 248;
         gPlayerState.jumpStatus = 0;
         sub_080791D0();
@@ -383,16 +384,16 @@ void sub_080710A8(Entity* this) {
 
     this->subAction++;
 
-    gPlayerState.flags.all |= 1;
-    gPlayerState.flags.all &= ~(0x400 | 0x800);
+    gPlayerState.flags |= 1;
+    gPlayerState.flags &= ~(0x400 | 0x800);
 
     gPlayerState.playerAction = 0;
 
     if ((gPlayerState.heldObject | gPlayerState.field_0x1a[1]) == 0) {
-        if ((gPlayerState.flags.all & 0x80) == 0) {
+        if ((gPlayerState.flags & 0x80) == 0) {
             ResetPlayer();
 
-            if ((gPlayerState.flags.all & 0x8) != 0) {
+            if ((gPlayerState.flags & 0x8) != 0) {
                 gPlayerState.field_0x8 = 0x420;
             } else {
                 gPlayerState.field_0x8 = 0x810;
@@ -405,7 +406,7 @@ void sub_080710A8(Entity* this) {
 
     temp = sub_08079FC4(1);
     asm("lsl r0, r0, #0x4");
-    this->field_0x20 = (temp - 4) * 64 * 64;
+    this->hVelocity = (temp - 4) * 64 * 64;
 
     this->speed = 256;
     sub_0807A108();
@@ -454,8 +455,8 @@ void sub_08071130(Entity* this) {
 
     this->actionDelay = 6;
 
-    if (((gPlayerState.heldObject | gPlayerState.keepFacing) == 0) && ((gPlayerState.flags.all & 0x80) == 0)) {
-        if (gPlayerState.flags.all & 0x8) {
+    if (((gPlayerState.heldObject | gPlayerState.keepFacing) == 0) && ((gPlayerState.flags & 0x80) == 0)) {
+        if (gPlayerState.flags & 0x8) {
             gPlayerState.field_0x8 = 0x424;
         } else {
             gPlayerState.field_0x8 = 0x820;
@@ -465,13 +466,13 @@ void sub_08071130(Entity* this) {
 
     this->subAction++;
     sub_08078F60();
-    this->field_0x42 = 0;
+    this->knockbackDuration = 0;
     SoundReq(SFX_PLY_LAND);
 }
 
 void sub_08071208(Entity* this) {
     if ((gPlayerState.heldObject | gPlayerState.keepFacing) == 0) {
-        if ((gPlayerState.flags.all & 0x80) == 0) {
+        if ((gPlayerState.flags & 0x80) == 0) {
             UpdateAnimationSingleFrame(this);
         }
     }
@@ -484,7 +485,7 @@ void sub_08071208(Entity* this) {
 
 void PlayerDrown(Entity* this) {
     gPlayerState.field_0xa8 = 0x16;
-    gPlayerState.flags.all |= 4;
+    gPlayerState.flags |= 4;
     this->flags &= ~0x80;
     gUnk_0811BA94[this->subAction](this);
 }
@@ -493,17 +494,17 @@ void sub_0807127C(Entity* this) {
     this->subAction = 1;
     this->spritePriority.b1 = 0;
 
-    if (gPlayerState.flags.all & 0x80) {
+    if (gPlayerState.flags & 0x80) {
         this->actionDelay = 0x3c;
         gPlayerState.field_0x8 = 0xc19;
         SoundReq(SFX_WATER_SPLASH);
     } else {
-        if ((gPlayerState.flags.all & 0x10000) == 0)
+        if ((gPlayerState.flags & 0x10000) == 0)
             sub_08004168(this);
 
-        CreateFx(this, 11, 0);
+        CreateFx(this, FX_WATER_SPLASH, 0);
 
-        if ((gPlayerState.flags.all & 8) == 0)
+        if ((gPlayerState.flags & 8) == 0)
             gPlayerState.field_0x8 = 0x72c;
         else
             gPlayerState.field_0x8 = 0x44c;
@@ -518,7 +519,7 @@ void sub_080712F0(Entity* this) {
 
     temp = FALSE;
 
-    if ((gPlayerState.flags.all & 0x80) != 0) {
+    if ((gPlayerState.flags & 0x80) != 0) {
         if (--this->actionDelay == 0)
             temp = TRUE;
     } else if ((this->frames.all & 0x80) != 0) {
@@ -531,11 +532,11 @@ void sub_080712F0(Entity* this) {
     if (temp == FALSE)
         return;
 
-    this->field_0x42 = 0;
+    this->knockbackDuration = 0;
     this->iframes = 32;
     this->spritePriority.b1 = 1;
     this->spriteSettings.b.draw = FALSE;
-    gPlayerState.flags.all &= ~0x4;
+    gPlayerState.flags &= ~0x4;
     RespawnPlayer();
 }
 
@@ -547,7 +548,7 @@ static void PlayerUsePortal(Entity* this) {
     if ((this->subAction == 7) || (this->subAction < 3))
         return;
 
-    if ((gPlayerState.flags.all & 0x20) == 0)
+    if ((gPlayerState.flags & 0x20) == 0)
         return;
 
     if ((gInput.newKeys & (0x100 | 0x2)) == 0)
@@ -568,7 +569,7 @@ void PortalJumpOnUpdate(Entity* this) {
     u16 y;
 
     this->flags &= ~0x80;
-    this->field_0x42 = 0;
+    this->knockbackDuration = 0;
 
     x = gArea.curPortalX;
     y = gArea.curPortalY;
@@ -583,7 +584,7 @@ void PortalJumpOnUpdate(Entity* this) {
     UpdateAnimationSingleFrame(this);
 
     if (gPlayerState.jumpStatus == 0) {
-        gPlayerState.flags.all |= 0x20;
+        gPlayerState.flags |= 0x20;
         this->subAction = 1;
         this->animationState = 4;
         this->spriteSettings.b.flipX = FALSE;
@@ -614,13 +615,13 @@ void PortalStandUpdate(Entity* this) {
         if (--this->actionDelay == 0xff) {
             this->direction = gPlayerState.field_0xd;
             this->animationState = this->direction >> 2;
-            this->field_0x20 = 0x20000;
+            this->hVelocity = 0x20000;
             this->speed = 256;
             this->action = 9;
             this->subAction = 7;
             this->field_0xf = 0;
-            gPlayerState.field_0x8 = (gPlayerState.flags.all & 8) ? 0x41C : 0x80C;
-            gPlayerState.flags.all &= ~0x20;
+            gPlayerState.field_0x8 = (gPlayerState.flags & 8) ? 0x41C : 0x80C;
+            gPlayerState.flags &= ~0x20;
             return;
         }
         this->direction = gPlayerState.field_0xd;
@@ -656,7 +657,7 @@ void PortalActivateUpdate(Entity* this) {
 
     UpdateAnimationSingleFrame(this);
 
-    if (gPlayerState.flags.all & 0x80)
+    if (gPlayerState.flags & 0x80)
         this->subAction = 4;
 }
 
@@ -669,7 +670,7 @@ void PortalShrinkInit(Entity* this) {
     *(u32*)&this->cutsceneBeh = 0x100;
     sub_0805EC9C(this, 0x100, 0x100, 0);
     gPlayerState.field_0x8 = 0x2c3;
-    gPlayerState.flags.all |= 0x80;
+    gPlayerState.flags |= 0x80;
     SoundReq(SFX_PLY_SHRINKING);
 }
 
@@ -723,14 +724,14 @@ void sub_080717F8(Entity* this) {
     gUnk_02034490[0] = 0;
     this->action = 9;
     this->subAction = 0;
-    gPlayerState.flags.all = (gPlayerState.flags.all & ~0x20) | 0x80;
+    gPlayerState.flags = (gPlayerState.flags & ~0x20) | 0x80;
     sub_0805EC60(this);
     UnfreezeTime();
 }
 
 void PlayerTalkEzlo(Entity* this) {
     if (sub_08078EFC()) {
-        sub_08056360();
+        MessageClose();
         sub_08071A6C();
     } else {
         gPlayerState.field_0xa8 = 0x13;
@@ -746,7 +747,7 @@ void sub_080718A0(Entity* this) {
     gUnk_03003DC0.unk0 = 6;
     this->scriptedScene = 6;
 
-    if (gPlayerState.flags.all & 0x80) {
+    if (gPlayerState.flags & 0x80) {
         this->subAction = 2;
         this->spritePriority.b1 = 0;
         sub_08052BB8();
@@ -790,10 +791,10 @@ void sub_0807193C(Entity* this) {
 void sub_08071990(Entity* this) {
     u32 temp;
 
-    if ((gTextBox.doTextBox & 0x7f) == 0) {
+    if ((gMessage.doTextBox & 0x7f) == 0) {
         this->subAction++;
 
-        if ((gPlayerState.flags.all & 0x80) == 0) {
+        if ((gPlayerState.flags & 0x80) == 0) {
             if (this->animationState == 2)
                 gPlayerState.field_0x8 = 0x3cd;
             else
@@ -805,7 +806,7 @@ void sub_08071990(Entity* this) {
         return;
     }
 
-    if (gPlayerState.flags.all & 0x80)
+    if (gPlayerState.flags & 0x80)
         return;
 
     if (this->animationState == 2)
@@ -849,13 +850,13 @@ void sub_08071AB0(Entity* this) {
     u32 speed;
 
     this->subAction++;
-    gPlayerState.flags.all |= 1;
+    gPlayerState.flags |= 1;
     if (this->type == 1) {
         this->speed = 0;
         this->actionDelay = 0;
         this->field_0xf = 1;
     } else {
-        this->speed = (gPlayerState.flags.all & 0x80) ? 64 : 128;
+        this->speed = (gPlayerState.flags & 0x80) ? 64 : 128;
     }
     sub_08071AF0(this);
 }
@@ -885,12 +886,12 @@ void sub_08071AF0(Entity* this) {
 
 void sub_08071B60(Entity* this) {
     gPlayerState.pushedObject = 2;
-    gPlayerState.flags.all &= ~0x1;
+    gPlayerState.flags &= ~0x1;
     this->type = 0;
-    this->field_0x42 = 0;
+    this->knockbackDuration = 0;
     sub_080728AC(this);
     this->field_0xf = 6;
-    if ((gPlayerState.flags.all & 0x80) == 0) {
+    if ((gPlayerState.flags & 0x80) == 0) {
         gPlayerState.field_0x8 = 0x104;
         this->spriteIndex = 3;
         InitAnimationForceUpdate(this, (this->animationState >> 1) + 0x3c);
@@ -908,11 +909,11 @@ void PlayerMinishDie(Entity* this) {
 void sub_08071BDC(Entity* this) {
     u32 temp;
 
-    if (gPlayerState.flags.all & (0x10 | 0x100))
+    if (gPlayerState.flags & (0x10 | 0x100))
         return;
 
     if (sub_08003FC4(this, 0x2000)) {
-        if ((gPlayerState.flags.all & 8) != 0)
+        if ((gPlayerState.flags & 8) != 0)
             gPlayerState.field_0x8 = 0x420;
         else
             gPlayerState.field_0x8 = 0x810;
@@ -920,7 +921,7 @@ void sub_08071BDC(Entity* this) {
     }
 
     gPlayerState.playerAction = 0;
-    if (gPlayerState.flags.all & 0x80) {
+    if (gPlayerState.flags & 0x80) {
         if ((u8)(gPlayerState.field_0x10[2] - 8) < 3) {
             sub_0807A298(this);
             RespawnPlayer();
@@ -928,11 +929,11 @@ void sub_08071BDC(Entity* this) {
         }
         temp = 0xc1a;
     } else {
-        temp = (gPlayerState.flags.all & 8) ? 0x459 : 0x1bc;
+        temp = (gPlayerState.flags & 8) ? 0x459 : 0x1bc;
     }
     gPlayerState.field_0x8 = temp;
 
-    gPlayerState.flags.all &= ~(0x1000000 | 0x200000 | 0x40000 | 0x800 | 0x400 | 0x100 | 0x1);
+    gPlayerState.flags &= ~(0x1000000 | 0x200000 | 0x40000 | 0x800 | 0x400 | 0x100 | 0x1);
     this->subAction = 1;
     this->animationState = 4;
     this->spritePriority.b1 = 1;
@@ -948,8 +949,8 @@ void sub_08071CAC(Entity* this) {
     UpdateAnimationSingleFrame(this);
     if (this->frames.all & 0x80) {
         u32 temp;
-        if ((gPlayerState.flags.all & 0x80) == 0)
-            temp = (gPlayerState.flags.all & 8) ? 0x45a : 0x2bd;
+        if ((gPlayerState.flags & 0x80) == 0)
+            temp = (gPlayerState.flags & 8) ? 0x45a : 0x2bd;
         else
             temp = 0xc1b;
         gPlayerState.field_0x8 = temp;
@@ -982,7 +983,7 @@ void sub_08071D04(Entity* this) {
         gPlayerState.field_0x3c[0] = 0;
         this->direction = 0xff;
         this->speed = 0;
-        this->field_0x20 = 0x18000;
+        this->hVelocity = 0x18000;
         gPlayerState.jumpStatus = 1;
         gPlayerState.swimState = 0;
         return;
@@ -1024,7 +1025,7 @@ void sub_08071E04(Entity* this) {
         sub_0807A1B8();
         if (gPlayerState.field_0x10[2] == 1) {
             gPlayerState.field_0x10[1] = 7;
-            gPlayerState.flags.all |= 0x200;
+            gPlayerState.flags |= 0x200;
             sub_080791BC();
             return;
         }
@@ -1122,7 +1123,7 @@ void sub_08071F80(Entity* this) {
     if (sub_08079B24() == 0) {
         sub_08079708(this);
     } else {
-        if (gPlayerState.flags.all & 0x800) {
+        if (gPlayerState.flags & 0x800) {
             if (sub_0807953C() != 0) {
                 this->actionDelay -= 3;
                 this->spriteOffsetX = 2;
@@ -1139,11 +1140,11 @@ void sub_08071F80(Entity* this) {
 
 void sub_08072008(Entity* this) {
     this->iframes = 160;
-    this->field_0x42 = 0;
+    this->knockbackDuration = 0;
     this->flags |= 0x80;
     this->spriteOffsetX = 0;
-    gPlayerState.flags.all &= ~(0x800 | 0x1);
-    CreateFx(this, 0xd, 0);
+    gPlayerState.flags &= ~(0x800 | 0x1);
+    CreateFx(this, FX_ICE, 0);
     sub_080791BC();
 }
 
@@ -1193,7 +1194,7 @@ void sub_08072100(Entity* this) {
     if (gPlayerState.field_0x39)
         this->direction = 0xff;
 
-    if ((gPlayerState.flags.all & 8)) {
+    if ((gPlayerState.flags & 8)) {
         gPlayerState.field_0x8 = 0x404;
     } else {
         gPlayerState.field_0x8 = 0x104;
@@ -1216,7 +1217,7 @@ void sub_08072168(Entity* this) {
     gPlayerState.field_0xd = this->direction;
     sub_08019840();
     if (--this->actionDelay == 0xff) {
-        this->field_0x42 = 0;
+        this->knockbackDuration = 0;
         this->flags |= 0x80;
         UpdateSpriteForCollisionLayer(this);
         sub_080791BC();
@@ -1236,12 +1237,12 @@ void sub_08072214(Entity* this) {
     this->speed = 128;
     this->actionDelay = gPlayerState.field_0x38;
     this->direction = (this->animationState ^ 4) << 2;
-    if (!(gPlayerState.flags.all & 8)) {
+    if (!(gPlayerState.flags & 8)) {
         gPlayerState.field_0x8 = 0x34c;
     } else {
         gPlayerState.field_0x8 = 0x944;
     }
-    gPlayerState.flags.all |= 1;
+    gPlayerState.flags |= 1;
     sub_08072260(this);
 }
 
@@ -1250,13 +1251,13 @@ void sub_08072260(Entity* this) {
     sub_08079E08();
     UpdateAnimationSingleFrame(this);
     if (--this->actionDelay == 0) {
-        gPlayerState.flags.all &= ~0x1;
-        if (!(gPlayerState.flags.all & 8)) {
+        gPlayerState.flags &= ~0x1;
+        if (!(gPlayerState.flags & 8)) {
             gPlayerState.field_0x8 = 0x34c;
         } else {
             gPlayerState.field_0x8 = 0x944;
         }
-        this->field_0x42 = 0;
+        this->knockbackDuration = 0;
         sub_080791BC();
     }
 }
@@ -1272,9 +1273,9 @@ void sub_080722DC(Entity* this) {
     Entity* ent;
 
     this->flags &= ~0x80;
-    if (!(gPlayerState.flags.all & 0x80)) {
+    if (!(gPlayerState.flags & 0x80)) {
         this->subAction = 1;
-        this->field_0x20 = 0x28000;
+        this->hVelocity = 0x28000;
         ent = CreateObject(OBJECT_42, 0x80, 0);
         if (ent != NULL) {
             ent->attachedEntity = this;
@@ -1283,9 +1284,9 @@ void sub_080722DC(Entity* this) {
     } else {
         this->spriteSettings.b.draw = 0;
         this->subAction = 3;
-        this->field_0x42 = 10;
+        this->knockbackDuration = 10;
     }
-    gPlayerState.flags.all |= (0x400 | 0x1);
+    gPlayerState.flags |= (0x400 | 0x1);
     ResetPlayer();
     SoundReq(SFX_124);
     SoundReq(SFX_PLY_VO6);
@@ -1299,13 +1300,13 @@ void sub_08072354(Entity* this) {
         return;
 
     this->spritePriority.b1 = 0;
-    this->field_0x42 = 0;
+    this->knockbackDuration = 0;
     this->subAction = 2;
     this->actionDelay = 0x3c;
     gPlayerState.field_0x8 = 0x2c1;
-    gPlayerState.flags.all &= ~0x400;
+    gPlayerState.flags &= ~0x400;
     UpdateSpriteForCollisionLayer(this);
-    CreateFx(this, 0xc, 0);
+    CreateFx(this, FX_LAVA_SPLASH, 0);
     SoundReq(SFX_1A6);
 }
 
@@ -1320,10 +1321,10 @@ void sub_080723D0(Entity* this) {
 }
 
 void sub_0807240C(Entity* this) {
-    if (--this->field_0x42 == 0xff) {
+    if (--this->knockbackDuration == 0xff) {
         this->spriteSettings.b.draw = 3;
         this->iframes = 0x14;
-        gPlayerState.flags.all &= ~0x400;
+        gPlayerState.flags &= ~0x400;
         ModHealth(-2);
         RespawnPlayer();
     }
@@ -1360,7 +1361,7 @@ void PlayerRoomTransition(Entity* this) {
 }
 
 void sub_080724DC(Entity* this) {
-    this->field_0x42 = 0;
+    this->knockbackDuration = 0;
     sub_0807A108();
     if (sub_080002B8(this) != 0x29) {
         if ((gPlayerState.field_0x82[7] == 0) && (gPlayerState.swimState != 0)) {
@@ -1376,7 +1377,7 @@ void sub_080724DC(Entity* this) {
         this->spriteSettings.b.draw = 3;
         this->subAction = 1;
         if (gRoomVars.field_0x0 == 0) {
-            if (gPlayerState.flags.all & 0x80) {
+            if (gPlayerState.flags & 0x80) {
                 gPlayerState.field_0x8 = 0xc18;
             } else {
                 gPlayerState.field_0x8 = 0x104;
@@ -1420,15 +1421,15 @@ void PlayerRoll(Entity* this) {
 void sub_08072650(Entity* this) {
     u32 temp;
 
-    if ((gPlayerState.flags.all & 0x200000) == 0) {
+    if ((gPlayerState.flags & 0x200000) == 0) {
         sub_0806F948(&gPlayerEntity);
         this->direction = this->animationState << 2;
     }
     this->subAction = 1;
     this->actionDelay = 0;
     ResetPlayer();
-    temp = gPlayerState.flags.all;
-    if (gPlayerState.flags.all & 0x80) {
+    temp = gPlayerState.flags;
+    if (gPlayerState.flags & 0x80) {
         this->spritePriority.b1 = 0;
         gPlayerState.field_0x8 = 0xc08;
     } else {
@@ -1439,7 +1440,7 @@ void sub_08072650(Entity* this) {
             gPlayerState.field_0x8 = 0x2ac;
         }
     }
-    gPlayerState.flags.all |= 0x40000;
+    gPlayerState.flags |= 0x40000;
     if (Random() & 1) {
         SoundReq(SFX_PLY_VO5);
     } else {
@@ -1449,29 +1450,29 @@ void sub_08072650(Entity* this) {
 }
 
 void sub_080726F4(Entity* this) {
-    if (((gPlayerState.flags.all & (0x40000 | 0x80000)) != 0x40000) ||
-        (!(gPlayerState.flags.all & 0x200000) && (this->iframes != 0) && (this->bitfield & 0x80))) {
-        gPlayerState.flags.all &= ~0x40000;
+    if (((gPlayerState.flags & (0x40000 | 0x80000)) != 0x40000) ||
+        (!(gPlayerState.flags & 0x200000) && (this->iframes != 0) && (this->bitfield & 0x80))) {
+        gPlayerState.flags &= ~0x40000;
         if (!sub_08078EFC())
             sub_080728AC(this);
         return;
     }
 
     this->direction = (this->animationState & 6) << 2;
-    if (((gPlayerState.flags.all & 0x80) == 0) && (--this->actionDelay == 0xff)) {
-        CreateFx(&gPlayerEntity, 0x11, 0x40);
+    if (((gPlayerState.flags & 0x80) == 0) && (--this->actionDelay == 0xff)) {
+        CreateFx(&gPlayerEntity, FX_DASH, 0x40);
         this->actionDelay = 4;
     }
-    if ((gPlayerState.flags.all & 2) == 0) {
+    if ((gPlayerState.flags & 2) == 0) {
         sub_0807A1B8();
     }
     if (sub_08078EFC()) {
-        gPlayerState.flags.all &= ~0x40000;
+        gPlayerState.flags &= ~0x40000;
         return;
     }
 
-    if ((gPlayerState.flags.all & 0x80000) != 0) {
-        gPlayerState.flags.all &= ~0x40000;
+    if ((gPlayerState.flags & 0x80000) != 0) {
+        gPlayerState.flags &= ~0x40000;
         return;
     }
 
@@ -1479,8 +1480,8 @@ void sub_080726F4(Entity* this) {
         return;
     }
 
-    if (gPlayerState.flags.all & 0x250) {
-        gPlayerState.flags.all &= ~0x40000;
+    if (gPlayerState.flags & 0x250) {
+        gPlayerState.flags &= ~0x40000;
         sub_080728AC(this);
         return;
     }
@@ -1507,7 +1508,7 @@ void sub_080726F4(Entity* this) {
         sub_08078F24();
         sub_08079E08();
     }
-    if (((this->frames.all & 0x10) == 0) && ((gPlayerState.flags.all & 0x80) == 0)) {
+    if (((this->frames.all & 0x10) == 0) && ((gPlayerState.flags & 0x80) == 0)) {
         *(u8*)&this->field_0x40 = 0;
     }
     if ((this->frames.all & 0x40) != 0) {
@@ -1517,31 +1518,31 @@ void sub_080726F4(Entity* this) {
         sub_080791D0();
     }
     if ((this->frames.all & 0x80) != 0) {
-        gPlayerState.flags.all &= ~(0x200000 | 0x40000);
+        gPlayerState.flags &= ~(0x200000 | 0x40000);
     }
     UpdateAnimationSingleFrame(this);
 }
 
 void sub_080728AC(Entity* this) {
     sub_08079938();
-    if (gPlayerState.flags.all & 0x80)
+    if (gPlayerState.flags & 0x80)
         sub_0807B068(this);
     else
         sub_08078F60();
 
     if (gPlayerState.swimState != 0)
         this->speed = 0;
-    if (!(gPlayerState.flags.all & 0x40))
+    if (!(gPlayerState.flags & 0x40))
         gPlayerEntity.spriteSettings.b.draw = 3;
-    if (!(gPlayerState.flags.all & 0x80))
+    if (!(gPlayerState.flags & 0x80))
         gPlayerEntity.spritePriority.b1 = 1;
 
     if (!(gRoomControls.unk6 & 4)) {
-        if ((gPlayerState.flags.all & 0x40))
+        if ((gPlayerState.flags & 0x40))
             this->flags |= 0x80;
         sub_080791D0();
     }
-    if (!(gPlayerState.flags.all & 2)) {
+    if (!(gPlayerState.flags & 2)) {
         sub_0807A1B8();
     }
 }
@@ -1562,8 +1563,8 @@ void sub_08072970(Entity* this) {
         this->spritePriority.b0 = 7;
         this->spritePriority.b1 = 0;
         this->actionDelay = 0;
-        gPlayerState.flags.all |= 0x100000;
-        if (gPlayerState.flags.all & 8) {
+        gPlayerState.flags |= 0x100000;
+        if (gPlayerState.flags & 8) {
             gPlayerState.field_0x8 = 0x950;
         } else {
             gPlayerState.field_0x8 = 0x61c;
@@ -1589,7 +1590,7 @@ void sub_08072A60(Entity* this) {
         }
 
         this->subAction = 2;
-        if (gPlayerState.flags.all & 8) {
+        if (gPlayerState.flags & 8) {
             gPlayerState.field_0x8 = 0x954;
         } else {
             gPlayerState.field_0x8 = 0x620;
@@ -1605,7 +1606,7 @@ void sub_08072ACC(Entity* this) {
     } else if (this->field_0xf > 7) {
         this->flags |= 0x80;
         this->direction = gPlayerState.field_0xd;
-        this->field_0x20 = 0x1a000;
+        this->hVelocity = 0x1a000;
         this->speed = 0x78;
         this->spritePriority.b0 = 4;
         this->spritePriority.b1 = 1;
@@ -1635,7 +1636,7 @@ void sub_08072B5C(Entity* this) {
         this->flags |= 0x80;
         this->spritePriority.b0 = 4;
         this->speed = 0x40;
-        this->field_0x20 = 0x39000;
+        this->hVelocity = 0x39000;
         this->height.WORD--;
         gPlayerState.jumpStatus = 0x41;
         sub_0806F854(this, 0, -12);
@@ -1650,7 +1651,7 @@ void sub_08072B5C(Entity* this) {
     temp <<= 4;
     temp -= 4;
     temp <<= 12;
-    this->field_0x20 = temp;
+    this->hVelocity = temp;
     this->speed = 0x100;
     gPlayerState.field_0x8 = 0x810;
     SoundReq(0x7c);
@@ -1666,7 +1667,7 @@ void sub_08072C48(Entity* this) {
     if (gPlayerState.field_0x14) {
         if (sub_08008B22()) {
             gPlayerState.field_0x10[1] = 7;
-            if (!(gPlayerState.flags.all & 0x80)) {
+            if (!(gPlayerState.flags & 0x80)) {
                 sub_080791BC();
             }
         }
@@ -1703,7 +1704,7 @@ void sub_08072CFC(Entity* this) {
     if (gPlayerState.field_0x38 < 8) {
         gPlayerState.field_0x38 = 8;
     }
-    this->field_0x20 = gPlayerState.field_0x38 << 0xc;
+    this->hVelocity = gPlayerState.field_0x38 << 0xc;
     this->speed = 0x200;
     gPlayerState.field_0x8 = 0x810;
     this->actionDelay = 5;
@@ -1782,19 +1783,19 @@ NONMATCH("asm/non_matching/player/sub_08072D54.inc", void sub_08072D54(Entity* t
         if (gPlayerState.field_0x14 != 0) {
             if (sub_08008B22() == 0) {
                 gPlayerState.field_0x10[1] = 7;
-                if (!(gPlayerState.flags.all & 0x80)) {
+                if (!(gPlayerState.flags & 0x80)) {
                     sub_080791BC();
                 }
             }
         } else {
-            if ((gPlayerState.flags.all & 8)) {
+            if ((gPlayerState.flags & 8)) {
                 gPlayerState.field_0x8 = 0x424;
             } else {
                 gPlayerState.field_0x8 = 0x820;
             }
             this->actionDelay = 6;
             this->subAction = 3;
-            this->field_0x42 = 0;
+            this->knockbackDuration = 0;
             SoundReq(0x7d);
         }
     }
@@ -1816,9 +1817,9 @@ void sub_08072F34(Entity* this) {
         gPlayerState.field_0xa8 = 0x18;
         gPlayerState.field_0x10[2] = sub_0807A1E8(this, 0, 0);
         gUnk_0811BBE4[this->subAction](this);
-        if (this->field_0x42 != 0) {
+        if (this->knockbackDuration != 0) {
             sub_080792D8();
-            if (this->field_0x42 == 0) {
+            if (this->knockbackDuration == 0) {
                 this->action = 0x1d;
                 this->subAction = 0;
                 this->y.HALF.LO = 0;
@@ -1897,8 +1898,8 @@ void sub_08073094(Entity* this) {
             switch (gPlayerState.field_0x10[2]) {
                 case 0x2a:
                 case 0x2c:
-                    this->field_0x42 = 0;
-                    gPlayerState.flags.all |= 0x20000000;
+                    this->knockbackDuration = 0;
+                    gPlayerState.flags |= 0x20000000;
                     UpdateAnimationSingleFrame(this);
                     if ((this->frames.all & 0x40) != 0) {
                         sub_0807A1B8();

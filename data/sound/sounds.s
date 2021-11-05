@@ -302,7 +302,7 @@
     .include "sounds/sfx14F.s"
     .include "sounds/sfx150.s"
     .include "sounds/sfx151.s"
-    .include "sounds/sfx152.s"
+    .include "sounds/sfxNearPortal.s"
     .include "sounds/sfx153.s"
     .include "sounds/sfx154.s"
     .include "sounds/sfx155.s"

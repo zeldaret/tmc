@@ -16,7 +16,7 @@ SCRIPT_START script_08009950
 	Wait 0x001e
 	_0807E930 0x000b
 	Wait 0x001e
-	TextboxNoOverlapFollow 0x1002
+	MessageFromTarget 0x1002
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000004
@@ -26,7 +26,7 @@ SCRIPT_START script_08009950
 	_0807EDD4 0x00b8, 0x005c
 	_0807EB44 0x0006
 	DoPostScriptAction 0x0001
-	TextboxNoOverlapFollow 0x1004
+	MessageFromTarget 0x1004
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	Wait 0x001e

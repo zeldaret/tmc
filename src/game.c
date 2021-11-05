@@ -67,7 +67,7 @@ void sub_0805212C(void) {
 #else
                 sub_08052418(0, 0);
                 gScreen.lcd.displayControl |= 0x600;
-                gFadeControl.field_0x4 = 0xffff;
+                gFadeControl.mask = 0x0000ffff;
                 DoFade(4, 0x10);
 #endif
             }
@@ -97,7 +97,7 @@ void sub_080521A0(void) {
             gMenu.field_0x3 = 0;
             sub_080A7114(1);
             sub_08052418(0, 0);
-            gFadeControl.field_0x4 = 0xffffffff;
+            gFadeControl.mask = 0xffffffff;
             break;
         case 1:
             if (gMenu.transitionTimer == 0) {
@@ -245,7 +245,7 @@ NONMATCH("asm/non_matching/game/sub_08052418.inc", void sub_08052418(int param_1
     gUnk_020227E8._0[param_2 * 2].BYTES.byte1 = 1;
     MemCopy(&gUnk_080FCA8C, &temp, sizeof(temp));
     i = param_1 * 0xc;
-    // temp._0 = gBG1Buffer[gUnk_080FCAA4._8[param_1]][gUnk_080FCAA4._0[gUnk_02000000->gameLanguage + i]] * 2;
+    // temp._0 = gBG1Buffer[gUnk_080FCAA4._8[param_1]][gUnk_080FCAA4._0[gSaveHeader->gameLanguage + i]] * 2;
     temp._13 = ((temp._13 & 0xfe) | gUnk_080FCAA4._8[i + 1]) & 1;
     sub_0805F46C(gUnk_080FCAA4._a[param_1], &temp);
     gScreen.bg.bg1xOffset = 1;
@@ -265,7 +265,7 @@ void InitializePlayer(void) {
     gRoomControls.cameraTarget = pl;
     gPlayerState.playerAction = gUnk_080FCAC8[gScreenTransition.field_0xf];
     if (!CheckGlobalFlag(EZERO_1ST)) {
-        gPlayerState.flags.all |= 8;
+        gPlayerState.flags |= 8;
     }
     switch (gScreenTransition.field_0xf) {
         case 0x2:

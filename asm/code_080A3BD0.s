@@ -430,7 +430,7 @@ _080A3F96:
 	bl SoundReq
 	ldr r0, _080A3FC8 @ =0x00000702
 	movs r1, #0xe
-	bl TextBoxAtYPosition
+	bl MessageAtHeight
 	movs r0, #1
 	strb r0, [r5, #6]
 	movs r0, #0x78
@@ -447,7 +447,7 @@ _080A3FC8: .4byte 0x00000702
 	thumb_func_start sub_080A3FCC
 sub_080A3FCC: @ 0x080A3FCC
 	push {lr}
-	ldr r0, _080A3FE8 @ =gTextBox
+	ldr r0, _080A3FE8 @ =gMessage
 	ldrb r1, [r0]
 	movs r0, #0x7f
 	ands r0, r1
@@ -461,7 +461,7 @@ sub_080A3FCC: @ 0x080A3FCC
 _080A3FE6:
 	pop {pc}
 	.align 2, 0
-_080A3FE8: .4byte gTextBox
+_080A3FE8: .4byte gMessage
 _080A3FEC: .4byte gMenu
 _080A3FF0: .4byte 0x00000147
 
@@ -1170,7 +1170,7 @@ sub_080A4494: @ 0x080A4494
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _080A44D0
-	ldr r0, _080A44D4 @ =gUnk_02000D00
+	ldr r0, _080A44D4 @ =gTextGfxBuffer
 	str r0, [r4, #8]
 	movs r1, #0
 	strb r1, [r4, #2]
@@ -1194,7 +1194,7 @@ _080A44D0:
 	adds r0, r5, #0
 	pop {r4, r5, pc}
 	.align 2, 0
-_080A44D4: .4byte gUnk_02000D00
+_080A44D4: .4byte gTextGfxBuffer
 _080A44D8: .4byte gUnk_02002AC0
 _080A44DC: .4byte gUnk_02022740
 
@@ -3201,7 +3201,7 @@ sub_080A529C: @ 0x080A529C
 	str r0, [r1, #0xc]
 	ldrb r4, [r1, #3]
 	lsls r1, r4, #3
-	ldr r0, _080A52D8 @ =gUnk_08128B64
+	ldr r0, _080A52D8 @ =gItemMenuTable
 	adds r1, r1, r0
 	ldr r0, _080A52DC @ =gInput
 	ldrh r2, [r0, #2]
@@ -3219,7 +3219,7 @@ sub_080A529C: @ 0x080A529C
 	.align 2, 0
 _080A52D0: .4byte gMenu
 _080A52D4: .4byte gUnk_08128BF4
-_080A52D8: .4byte gUnk_08128B64
+_080A52D8: .4byte gItemMenuTable
 _080A52DC: .4byte gInput
 _080A52E0:
 	cmp r4, #0x10
@@ -3358,7 +3358,7 @@ _080A4BC8:
 	ldrb r0, [r2]
 	cmp r0, #0
 	beq _080A4C68
-	ldr r0, _080A4C20 @ =gUnk_08128B64
+	ldr r0, _080A4C20 @ =gItemMenuTable
 	adds r1, r6, r0
 	ldrb r0, [r1, #6]
 	ldr r3, _080A4C14EU @ =gOamCmd
@@ -3395,7 +3395,7 @@ _080A4BF4:
 _080A4C14EU: .4byte gOamCmd
 _080A4C18: .4byte gSave
 _080A4C1C: .4byte gChooseFileState
-_080A4C20: .4byte gUnk_08128B64
+_080A4C20: .4byte gItemMenuTable
 _080A4C24: .4byte gBombBagSizes
 _080A4C28:
 	cmp r3, #0xa
@@ -3453,7 +3453,7 @@ _080A4C68:
 	movs r1, #0x11
 _080A4C8E:
 	lsls r0, r1, #3
-	ldr r1, _080A4D54EU @ =gUnk_08128B64
+	ldr r1, _080A4D54EU @ =gItemMenuTable
 	mov r8, r1
 	adds r1, r0, r1
 	mov r4, sb
@@ -3545,7 +3545,7 @@ _080A4D44: .4byte gOamCmd
 _080A4D48: .4byte gSpriteAnimations_322
 _080A4D4C: .4byte 0x00000141
 _080A4D50EU: .4byte gChooseFileState
-_080A4D54EU: .4byte gUnk_08128B64
+_080A4D54EU: .4byte gItemMenuTable
 _080A4D58: .4byte gMain
 _080A4D5C: .4byte gSave
 .else
@@ -3580,7 +3580,7 @@ _080A53B4:
 	ldrb r0, [r2]
 	cmp r0, #0
 	beq _080A5456
-	ldr r0, _080A540C @ =gUnk_08128B64
+	ldr r0, _080A540C @ =gItemMenuTable
 	adds r1, r6, r0
 	ldrb r0, [r1, #6]
 	ldr r3, _080A5400 @ =gOamCmd
@@ -3617,7 +3617,7 @@ _080A53E0:
 _080A5400: .4byte gOamCmd
 _080A5404: .4byte gSave
 _080A5408: .4byte gMenu
-_080A540C: .4byte gUnk_08128B64
+_080A540C: .4byte gItemMenuTable
 _080A5410: .4byte gBombBagSizes
 _080A5414:
 	cmp r3, #0xa
@@ -3676,7 +3676,7 @@ _080A5456:
 	movs r1, #0x11
 _080A547C:
 	lsls r0, r1, #3
-	ldr r1, _080A553C @ =gUnk_08128B64
+	ldr r1, _080A553C @ =gItemMenuTable
 	mov r8, r1
 	adds r1, r0, r1
 	mov r4, sb
@@ -3766,7 +3766,7 @@ _080A552C: .4byte gQuiverSizes
 _080A5530: .4byte gOamCmd
 _080A5534: .4byte gSpriteAnimations_322
 _080A5538: .4byte gMenu
-_080A553C: .4byte gUnk_08128B64
+_080A553C: .4byte gItemMenuTable
 _080A5540: .4byte gMain
 _080A5544: .4byte 0x000001FB
 _080A5548: .4byte gSave

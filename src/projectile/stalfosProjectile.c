@@ -1,6 +1,7 @@
 #include "entity.h"
 #include "enemy.h"
 #include "functions.h"
+#include "effects.h"
 
 extern void (*const StalfosProjectile_Functions[])(Entity*);
 extern void (*const StalfosProjectile_Actions[])(Entity*);
@@ -32,7 +33,7 @@ void sub_080A9A34(Entity* this) {
     if (this->bitfield == 0x9d) {
         this->action = 3;
         this->flags &= 0x7f;
-        this->field_0x20 = 0x2a000;
+        this->hVelocity = 0x2a000;
         this->spritePriority.b1 = 1;
     }
 }
@@ -76,7 +77,7 @@ void StalfosProjectile_Init(Entity* this) {
             break;
         case 2:
             this->action = 3;
-            this->field_0x20 = 0x2a000;
+            this->hVelocity = 0x2a000;
             this->spritePriority.b1 = 1;
             break;
         default:
@@ -116,7 +117,7 @@ void StalfosProjectile_Action2(Entity* this) {
 }
 
 void StalfosProjectile_Action3(Entity* this) {
-    if (this->field_0x20 < 0) {
+    if (this->hVelocity < 0) {
         this->spriteSettings.b.flipY = 1;
     }
     if (sub_08003FC4(this, 0x2000) == 0) {
@@ -126,9 +127,9 @@ void StalfosProjectile_Action3(Entity* this) {
 
 void sub_080A9BA8(Entity* this) {
     if (this->type == 0) {
-        CreateFx(this, 5, 0);
+        CreateFx(this, FX_POT_SHATTER, 0);
     } else {
-        CreateFx(this, 0x3c, 0);
+        CreateFx(this, FX_BONE, 0);
     }
     DeleteThisEntity();
 }

@@ -27,7 +27,7 @@ script_0800E0DE:
 	_0807EB8C
 	_0807EB74
 	Wait 0x000a
-	TextboxNoOverlap 0x2402
+	MessageNoOverlap 0x2402
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x0093
 script_0800E12E:
@@ -37,9 +37,9 @@ script_0800E12E:
 script_0800E138:
 	CheckEntityInteractType
 	JumpIfNot script_0800E138
-	_0807E864
-	_0807EB74
-	TextboxNoOverlap 0x2402
+	_0807E864 
+	_0807EB74 
+	MessageNoOverlap 0x2402
 	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
@@ -75,7 +75,7 @@ script_0800E176:
 	_0807EB74
 	CallWithArg sub_0807F3D8, 0x00000000
 	Wait 0x000a
-	TextboxNoOverlap 0x2401
+	MessageNoOverlap 0x2401
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x0094
 script_0800E1D0:
@@ -89,9 +89,9 @@ script_0800E1E0:
 	_0807E864
 	_0807EB74
 	CallWithArg sub_0807F3D8, 0x00000000
-	TextboxNoOverlap 0x2401
+	MessageNoOverlap 0x2401
 	WaitUntilTextboxCloses
-	_0807E878
+	_0807E878 
 	Jump script_0800E1E0
 SCRIPT_START script_0800E200
 	BeginBlock
@@ -167,10 +167,10 @@ script_0800E312:
 	_0807E864
 	_0807EB74
 	CallWithArg sub_0807F3D8, 0x00000000
-	EndBlock
-	TextboxNoOverlap 0x2404
+	EndBlock 
+	MessageNoOverlap 0x2404
 	WaitUntilTextboxCloses
-	_0807E878
+	_0807E878 
 	Jump script_0800E2AE
 script_0800E32E:
 	CheckEntityInteractType
@@ -178,9 +178,9 @@ script_0800E32E:
 	_0807E864
 	_0807EB74
 	CallWithArg sub_0807F3D8, 0x00000000
-	TextboxNoOverlap 0x2403
+	MessageNoOverlap 0x2403
 	WaitUntilTextboxCloses
-	_0807E878
+	_0807E878 
 	Jump script_0800E32E
 	.2byte 0x0000
 SCRIPT_START script_0800E350
@@ -221,9 +221,9 @@ script_0800E3BE:
 script_0800E3C8:
 	CheckEntityInteractType
 	JumpIfNot script_0800E3C8
-	_0807E864
-	_0807EB74
-	TextboxNoOverlap 0x240c
+	_0807E864 
+	_0807EB74 
+	MessageNoOverlap 0x240c
 	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807F034 0x0053
@@ -237,9 +237,9 @@ script_0800E3E8:
 script_0800E3EE:
 	CheckEntityInteractType
 	JumpIfNot script_0800E3EE
-	_0807E864
-	_0807EB74
-	TextboxNoOverlap 0x240d
+	_0807E864 
+	_0807EB74 
+	MessageNoOverlap 0x240d
 	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
@@ -253,9 +253,9 @@ SCRIPT_START script_0800E408
 script_0800E41A:
 	CheckEntityInteractType
 	JumpIfNot script_0800E41A
-	_0807E864
-	_0807EB74
-	TextboxNoOverlap 0x2406
+	_0807E864 
+	_0807EB74 
+	MessageNoOverlap 0x2406
 	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
@@ -273,9 +273,9 @@ script_0800E44C:
 	_0807E864
 	_0807EB74
 	CallWithArg sub_0807F3D8, 0x00000000
-	TextboxNoOverlap 0x2405
+	MessageNoOverlap 0x2405
 	WaitUntilTextboxCloses
-	_0807E878
+	_0807E878 
 	Jump script_0800E44C
 SCRIPT_START script_0800E46C
 	BeginBlock
@@ -290,9 +290,9 @@ script_0800E484:
 	_0807E864
 	_0807EB74
 	CallWithArg sub_0807F3D8, 0x00000000
-	TextboxNoOverlap 0x2407
+	MessageNoOverlap 0x2407
 	WaitUntilTextboxCloses
-	_0807E878
+	_0807E878 
 	Jump script_0800E484
 
 
@@ -327,10 +327,10 @@ script_0800E4B6:
 	EndBlock
 	Call sub_0807F3F8
 	Wait 0x003c
-	TextboxNoOverlapFollow 0x160c
+	MessageFromTarget 0x160c
 	WaitUntilTextboxCloses
 	Wait 0x001e
-	TextboxNoOverlapFollow 0x160d
+	MessageFromTarget 0x160d
 	WaitUntilTextboxCloses
 	Wait 0x001e
 	_0807EB28 0x160e

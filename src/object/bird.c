@@ -6,6 +6,7 @@
 #include "random.h"
 #include "object.h"
 #include "functions.h"
+#include "effects.h"
 
 extern void (*const gUnk_08123EC0[])(Entity*);
 extern void (*const gUnk_08123EEC[])(Entity*);
@@ -28,7 +29,7 @@ void sub_0809CF54(Entity* this) {
     this->spriteSettings.b.draw = TRUE;
     this->actionDelay = 0x31;
     this->field_0xf = 1;
-    this->field_0x20 = -0x18000;
+    this->hVelocity = -0x18000;
     this->height.WORD = -0x38C000;
     this->field_0x68.HWORD = -0x800;
     this->speed = 0x280;
@@ -84,7 +85,7 @@ void sub_0809D084(Entity* this) {
             PositionRelative(this->parent, this, 0, 0x80000);
         } else {
             this->subAction++;
-            this->field_0x20 = temp;
+            this->hVelocity = temp;
         }
     }
 }
@@ -99,7 +100,7 @@ void sub_0809D0AC(Entity* this) {
         this->collisionLayer = 1;
         SetLocalFlag(0x45);
         SoundReq(SFX_SECRET);
-        fx = CreateFx(this, 0x11, 0);
+        fx = CreateFx(this, FX_DASH, 0);
         if (fx != NULL) {
             sub_0806FAD8(this, fx);
         }
@@ -118,7 +119,7 @@ void sub_0809D10C(Entity* this) {
 }
 
 void sub_0809D130(Entity* this) {
-    if ((gPlayerState.flags.all & 0x80) != 0) {
+    if ((gPlayerState.flags & 0x80) != 0) {
         sub_0800445C(this);
     } else if (sub_08017850(this) != 0) {
         CreateItemEntity(0x17, 0, 0);

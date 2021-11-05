@@ -9,7 +9,7 @@ SCRIPT_START script_0800BE1C
 	_0807E930 0x0000
 	_0807EB44 0x0002
 	Wait 0x003c
-	TextboxNoOverlap 0x0e0d
+	MessageNoOverlap 0x0e0d
 	WaitUntilTextboxCloses
 	_0807E930 0x0008
 	Wait 0x003c
@@ -40,7 +40,7 @@ script_0800BE8C:
 	_0807E930 0x0000
 	DoPostScriptAction 0x0004
 	Wait 0x003c
-	TextboxNoOverlap 0x0e0f
+	MessageNoOverlap 0x0e0f
 	WaitUntilTextboxCloses
 	_0807E5F8 0x00000002
 	Call sub_08054F64

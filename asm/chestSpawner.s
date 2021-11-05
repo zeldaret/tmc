@@ -126,7 +126,7 @@ sub_08083F14: @ 0x08083F14
 	movs r2, #0x32
 	ldrsh r1, [r4, r2]
 	movs r2, #2
-	bl sub_080577AC
+	bl CreateMagicSparkles
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]

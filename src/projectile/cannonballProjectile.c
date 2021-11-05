@@ -1,6 +1,7 @@
 #include "entity.h"
 #include "enemy.h"
 #include "functions.h"
+#include "effects.h"
 
 extern void CreateItemOnGround(Entity*);
 extern s32 sub_080AF090(Entity*);
@@ -27,7 +28,7 @@ void sub_080AB544(Entity* this) {
 
     if (this->iframes < -4) {
         this->action = 2;
-        this->direction = this->field_0x3e;
+        this->direction = this->knockbackDirection;
         tmp = (this->type ^ 2) << 3;
         if (this->direction - tmp + 1 < 3) {
             this->direction = tmp;
@@ -46,7 +47,7 @@ void CannonballProjectile_Init(Entity* this) {
 void CannonballProjectile_Action1(Entity* this) {
     GetNextFrame(this);
     if (sub_080AF090(this) == 0) {
-        CreateFx(this, 2, 0);
+        CreateFx(this, FX_DEATH, 0);
         DeleteThisEntity();
     }
     sub_080AB5F4(this);
@@ -56,7 +57,7 @@ void CannonballProjectile_Action2(Entity* this) {
     GetNextFrame(this);
     sub_080AF090(this);
     if ((sub_080AB634(this) == 0) && (this->collisions != 0)) {
-        CreateFx(this, 2, 0);
+        CreateFx(this, FX_DEATH, 0);
         DeleteThisEntity();
     }
 }
@@ -77,7 +78,7 @@ bool32 sub_080AB5F4(Entity* this) {
 }
 
 bool32 sub_080AB634(Entity* this) {
-    Entity** entities = ((Entity**)&this->parent->field_0x20);
+    Entity** entities = ((Entity**)&this->parent->hVelocity);
     u32 i;
     for (i = 0; i <= 3; ++i) {
         if (entities[i] != NULL && (sub_080177A0(this, entities[i]) != 0)) {
@@ -85,7 +86,7 @@ bool32 sub_080AB634(Entity* this) {
                 entities[i]->action = 3;
                 entities[i]->actionDelay = 0x1e;
                 entities[i]->spriteSettings.b.draw = 0;
-                CreateFx(entities[i], 0x45, 0);
+                CreateFx(entities[i], FX_WHITE_ROCK, 0);
             }
             DeleteEntity(this);
             return TRUE;

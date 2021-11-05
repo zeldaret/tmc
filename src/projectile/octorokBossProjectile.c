@@ -3,6 +3,7 @@
 #include "random.h"
 #include "functions.h"
 #include "audio.h"
+#include "effects.h"
 
 void OctorokBossProjectile_Action2(Entity*);
 extern void sub_080AE58C(Entity*, u32, u32);
@@ -39,7 +40,7 @@ void OctorokBossProjectile_Init(Entity* this) {
             this->spriteRendering.b3 = 3;
             this->spritePriority.b0 = 6;
             this->speed = (Random() & 0x1ff) + 0x200;
-            this->field_0x20 = (Random() & 0x1fff) + 0x18000;
+            this->hVelocity = (Random() & 0x1fff) + 0x18000;
             uVar1 = (((u8)Random() & 7) - 4);
             this->direction -= uVar1;
             *(u32*)&this->field_0x78 = 600;
@@ -84,7 +85,7 @@ void OctorokBossProjectile_Action1(Entity* this) {
                 if ((this->bitfield & 0x7f) == 0) {
                     OctorokBossProjectile_Action2(this);
                 }
-                this->direction = this->field_0x3e << 3;
+                this->direction = this->knockbackDirection << 3;
                 this->speed = 0x400;
                 this->type2 = 1;
                 this->actionDelay = 0;
@@ -98,9 +99,9 @@ void OctorokBossProjectile_Action1(Entity* this) {
                     this->parent->currentHealth -= 1;
                     this->parent->iframes = 0x1e;
                     if (this->parent->field_0x7c.BYTES.byte0 != 0) {
-                        this->parent->field_0x42 = 0x18;
+                        this->parent->knockbackDuration = 0x18;
                         this->parent->field_0x46 = 0x200;
-                        this->parent->field_0x3e = this->direction >> 3;
+                        this->parent->knockbackDirection = this->direction >> 3;
                     }
                     SoundReq(SFX_BOSS_HIT);
                     OctorokBossProjectile_Action2(this);
@@ -183,14 +184,14 @@ void OctorokBossProjectile_Action1(Entity* this) {
             if (sub_08003FC4(this, 0x1800) != 0) {
                 return;
             }
-            CreateFx(this, 4, 0);
+            CreateFx(this, FX_ROCK, 0);
             DeleteThisEntity();
             break;
     }
 }
 
 void OctorokBossProjectile_Action2(Entity* this) {
-    CreateFx(this, 4, 0);
+    CreateFx(this, FX_ROCK, 0);
     DeleteThisEntity();
 }
 

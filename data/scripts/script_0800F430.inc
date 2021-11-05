@@ -21,12 +21,12 @@ script_0800F478:
 	BeginBlock
 	CheckEntityInteractType
 	JumpIfNot script_0800F490
-	EndBlock
-	_0807E864
-	_0807EB74
-	TextboxNoOverlap 0x1238
+	EndBlock 
+	_0807E864 
+	_0807EB74 
+	MessageNoOverlap 0x1238
 	WaitUntilTextboxCloses
-	_0807E878
+	_0807E878 
 script_0800F490:
 	TestBit 0x00000008
 	JumpIfNot script_0800F478

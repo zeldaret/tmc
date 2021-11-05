@@ -40,6 +40,8 @@ void ReadKeyInput(void);
 
 void LoadPalettes(const u8*, int, int);
 void LoadPaletteGroup(u32 group);
+void sub_0801D79C(u32 colorIndex, u32 color);
+void sub_0801D7BC(u32 color, u32 arg1);
 
 /**
  * Allocate memory on heap.

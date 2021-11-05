@@ -9,8 +9,8 @@ SCRIPT_START script_080095F2
 	JumpIfNot script_08009622
 	PlaySound SFX_109
 	_0807F088 0x003c
-	TextboxNoOverlapFollow 0x053c
-	WaitPlayerAction8
+	MessageFromTarget 0x053c
+	WaitPlayerAction8 
 	WaitUntilTextboxCloses
 	_0807F078 0x003c, 0x0001
 script_08009622:

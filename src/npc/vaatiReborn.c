@@ -103,7 +103,7 @@ void VaatiRebornAction1(Entity* this) {
                     break;
                 }
                 CopyPosition(this, entity);
-                TextboxNoOverlapFollow(0x1634);
+                MessageFromTarget(0x1634);
                 this->subAction = this->subAction + 1;
                 DeleteThisEntity();
                 return;

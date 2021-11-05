@@ -1641,7 +1641,7 @@ gMoreSpritePtrs:: @ 08003DD4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object6A_9
+	.4byte gSpriteAnimations_Object6A_10
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000

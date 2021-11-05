@@ -20,9 +20,9 @@ SCRIPT_START script_08009464
 .endif
 	Call sub_0806D620
 	Wait 0x003c
-	WaitPlayerAction8
-	_0807EB8C
-	TextboxNoOverlap 0x1d0c
+	WaitPlayerAction8 
+	_0807EB8C 
+	MessageNoOverlap 0x1d0c
 	WaitUntilTextboxCloses
 	Wait 0x000a
 	Jump script_08009376

@@ -6,6 +6,7 @@
 #include "random.h"
 #include "createObject.h"
 #include "functions.h"
+#include "effects.h"
 
 extern void (*const gUnk_080CEB74[])(Entity*);
 extern void (*const gUnk_080CEB8C[])(Entity*);
@@ -36,7 +37,7 @@ void sub_08033564(Entity* this) {
             this->spriteSettings.b.draw = FALSE;
             this->flags &= 0x7f;
             this->field_0x7c.HALF.LO = 0x27c;
-            gPlayerState.flags.all |= 0x4000;
+            gPlayerState.flags |= 0x4000;
             gSave.stats.effect = this->type + 1;
             gSave.stats.effectTimer = 600;
             if (this->type == 0) {
@@ -52,7 +53,7 @@ void sub_08033564(Entity* this) {
             this->flags &= 0x7f;
             this->iframes = 0;
             this->spriteSettings.b.draw = FALSE;
-            ent = CreateFx(this, 2, 0);
+            ent = CreateFx(this, FX_DEATH, 0);
             if (ent != NULL) {
                 this->attachedEntity = ent;
                 this->actionDelay = 0xe;

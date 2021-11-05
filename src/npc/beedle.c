@@ -53,14 +53,14 @@ void sub_08063314(Entity* this) {
         InitializeAnimation(this, offset);
     }
     if (this->interactType != '\0') {
-        TextboxNoOverlapFollow(this->actionDelay + 0xA01);
+        MessageFromTarget(this->actionDelay + 0xA01);
         this->action++;
     }
     sub_0806ED78(this);
 }
 
 void sub_0806336C(Entity* this) {
-    if ((gTextBox.doTextBox & 0x7F) == 0) {
+    if ((gMessage.doTextBox & 0x7F) == 0) {
         this->action++;
         InitializeAnimation(this, 8);
     }

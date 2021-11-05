@@ -91,7 +91,7 @@ typedef struct Entity {
     /*0x1d*/ u8 field_0x1d;
     /*0x1e*/ u8 frameIndex;
     /*0x1f*/ u8 lastFrameIndex;
-    /*0x20*/ s32 field_0x20;
+    /*0x20*/ s32 hVelocity;
     /*0x24*/ s16 speed;
     /*0x26*/ u8 spriteAnimation[3];
     /*0x29*/ struct {
@@ -109,11 +109,11 @@ typedef struct Entity {
     /*0x3b*/ u8 flags2;
     /*0x3c*/ u8 field_0x3c;
     /*0x3d*/ s8 iframes;
-    /*0x3e*/ u8 field_0x3e;
+    /*0x3e*/ u8 knockbackDirection;
     /*0x3f*/ u8 damageType;
     /*0x40*/ u8 field_0x40;
     /*0x41*/ u8 bitfield;
-    /*0x42*/ u8 field_0x42;
+    /*0x42*/ u8 knockbackDuration;
     /*0x43*/ u8 field_0x43;
     /*0x44*/ u8 field_0x44;
     /*0x45*/ u8 currentHealth;

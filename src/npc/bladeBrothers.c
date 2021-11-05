@@ -9,6 +9,7 @@
 #include "npc.h"
 #include "audio.h"
 #include "functions.h"
+#include "effects.h"
 
 extern void (*gUnk_081115C0[])(Entity*);
 extern void (*gUnk_081115D0[])(Entity*);
@@ -86,7 +87,7 @@ void sub_08068A4C(Entity* this) {
     if (this->interactType != 0) {
         this->interactType = 0;
         this->action = 2;
-        TextboxNoOverlapFollow(0);
+        MessageFromTarget(0);
     }
 }
 
@@ -165,7 +166,7 @@ void sub_08068BD0(Entity* this) {
 void sub_08068BEC(Entity* this, u32 unused) {
     Entity* target;
 
-    target = CreateFx(this, 0x44, 0);
+    target = CreateFx(this, FX_WHITE_SPLASH, 0);
     if (target) {
         target->spritePriority.b0 = 1;
         PositionRelative(this, target, 0, -0x100000);
@@ -306,42 +307,42 @@ switchD_08068d12_caseD_0:
 
 // Introduction dialoague
 void sub_08068DB8(Entity* this) {
-    TextboxNoOverlap(gUnk_08111664[this->actionDelay], this);
+    MessageNoOverlap(gUnk_08111664[this->actionDelay], this);
 }
 
 // Ask to teach dialoague
 void sub_08068DD0(Entity* this) {
-    TextboxNoOverlap(gUnk_0811167A[this->actionDelay], this);
+    MessageNoOverlap(gUnk_0811167A[this->actionDelay], this);
 }
 
 // Technique Dialogue
 void sub_08068DE8(Entity* this) {
-    TextboxNoOverlap(gUnk_08111690[this->actionDelay], this);
+    MessageNoOverlap(gUnk_08111690[this->actionDelay], this);
 }
 
 // Posession dialogue
 void sub_08068E00(Entity* this) {
-    TextboxNoOverlap(gUnk_081116A6[this->actionDelay], this);
+    MessageNoOverlap(gUnk_081116A6[this->actionDelay], this);
 }
 
 void sub_08068E18(Entity* this) {
-    TextboxNoOverlap(gUnk_081116BC[this->actionDelay], this);
+    MessageNoOverlap(gUnk_081116BC[this->actionDelay], this);
 }
 
 void sub_08068E30(Entity* this) {
-    TextboxNoOverlap(gUnk_081116D2[this->actionDelay], this);
+    MessageNoOverlap(gUnk_081116D2[this->actionDelay], this);
 }
 
 void sub_08068E48(Entity* this) {
-    TextboxNoOverlap(gUnk_081116E8[this->actionDelay], this);
+    MessageNoOverlap(gUnk_081116E8[this->actionDelay], this);
 }
 
 void sub_08068E60(Entity* this) {
-    TextboxNoOverlap(gUnk_081116FE[this->actionDelay], this);
+    MessageNoOverlap(gUnk_081116FE[this->actionDelay], this);
 }
 
 void sub_08068E78(Entity* this) {
-    TextboxNoOverlap(gUnk_08111714[this->actionDelay], this);
+    MessageNoOverlap(gUnk_08111714[this->actionDelay], this);
 }
 
 void sub_08068E90(Entity* this) {

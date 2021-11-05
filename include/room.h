@@ -24,7 +24,9 @@ typedef struct {
     /*0x0E*/ u8 unk5;
     /*0x0F*/ u8 unk6;
     /*0x10*/ u8 unk_10;
-    /*0x11*/ u8 filler[3];
+    /*0x11*/ s8 oam_offset_x;
+    /*0x12*/ s8 oam_offset_y;
+    /*0x13*/ u8 unk13;
     /*0x14*/ u8 screenShakeMagnitude;
     /*0x15*/ u8 unk7;
     /*0x16*/ u16 screenShakeTime;

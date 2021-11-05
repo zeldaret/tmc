@@ -3,6 +3,7 @@
 #include "player.h"
 #include "coord.h"
 #include "functions.h"
+#include "effects.h"
 
 extern void sub_08078954(Entity*);
 
@@ -47,7 +48,7 @@ void DirtBallProjectile_Init(Entity* this) {
     this->action = 1;
     this->subAction = 0;
     this->spriteSettings.b.shadow = 1;
-    this->field_0x20 = 0x8000;
+    this->hVelocity = 0x8000;
     this->hitbox = (Hitbox*)&gUnk_08129764;
     this->field_0x3c |= 0x10;
     switch (this->type) {
@@ -129,13 +130,13 @@ void DirtBallProjectile_Action2(Entity* this) {
     if (tmp != 0) {
         switch (tmp) {
             case 2:
-                CreateFx(this, 0xb, 0);
+                CreateFx(this, FX_WATER_SPLASH, 0);
                 break;
             case 1:
-                CreateFx(this, 0, 0);
+                CreateFx(this, FX_FALL_DOWN, 0);
                 break;
             case 3:
-                CreateFx(this, 0xc, 0);
+                CreateFx(this, FX_LAVA_SPLASH, 0);
                 break;
         }
         DeleteThisEntity();
@@ -148,7 +149,7 @@ void DirtBallProjectile_Action2(Entity* this) {
             this->action = 3;
             return;
         case 2:
-            entity = CreateFx(this, 5, 0x80);
+            entity = CreateFx(this, FX_POT_SHATTER, 0x80);
             if (entity != NULL) {
                 entity->parent = NULL;
             }

@@ -115,7 +115,7 @@ void sub_08065F20(Entity* this) {
     UpdateAnimationSingleFrame(this);
     if (this->interactType != 0) {
         this->interactType = 0;
-        TextboxNoOverlapFollow(0);
+        MessageFromTarget(0);
         this->animIndex += 1;
         if (gSpriteAnimations_GhostBrothers[this->animIndex] == 0) {
             this->animIndex = 0;

@@ -15,12 +15,10 @@ void CreateMinishEntrance(u32 tilePos) {
 }
 
 void sub_08018C58(u32 tilePos) {
-    u32 i = 0;
+    u32 i;
 
-    for (; i < 6;) {
+    for (i = 0; i < 6; i += 2, tilePos += 0x40) {
         SetTileType(0x260 + i, tilePos, 1);
         SetTileType(0x261 + i, tilePos + 1, 1);
-        i += 2;
-        tilePos += 0x40;
     }
 }

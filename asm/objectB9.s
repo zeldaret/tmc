@@ -246,14 +246,14 @@ sub_080A13B4: @ 0x080A13B4
 	cmp r1, r0
 	blt _080A13D8
 	ldr r0, _080A13D4 @ =0x0000300C
-	bl TextboxNoOverlapFollow
+	bl MessageFromTarget
 	movs r0, #1
 	b _080A13E0
 	.align 2, 0
 _080A13D4: .4byte 0x0000300C
 _080A13D8:
 	ldr r0, _080A13E4 @ =0x00003005
-	bl TextboxNoOverlapFollow
+	bl MessageFromTarget
 	movs r0, #0
 _080A13E0:
 	str r0, [r4, #0x14]
@@ -353,8 +353,8 @@ _080A1472:
 	bl ModRupees
 	ldr r0, _080A14A0 @ =0x00003007
 	adds r1, r5, #0
-	bl TextboxNoOverlap
-	ldr r1, _080A14A4 @ =gTextBox
+	bl MessageNoOverlap
+	ldr r1, _080A14A4 @ =gMessage
 	lsls r0, r4, #0x10
 	lsrs r0, r0, #0x10
 	str r0, [r1, #0x10]
@@ -362,7 +362,7 @@ _080A1472:
 	.align 2, 0
 _080A149C: .4byte gUnk_08124ECC
 _080A14A0: .4byte 0x00003007
-_080A14A4: .4byte gTextBox
+_080A14A4: .4byte gMessage
 
 	thumb_func_start sub_080A14A8
 sub_080A14A8: @ 0x080A14A8
@@ -557,8 +557,8 @@ sub_080A1608: @ 0x080A1608
 	adds r4, #4
 _080A1618:
 	adds r0, r4, #0
-	bl TextboxNoOverlapFollow
-	ldr r4, _080A1640 @ =gTextBox
+	bl MessageFromTarget
+	ldr r4, _080A1640 @ =gMessage
 	movs r1, #0
 	movs r0, #1
 	strb r0, [r4, #6]
@@ -574,7 +574,7 @@ _080A1618:
 	pop {r4, pc}
 	.align 2, 0
 _080A163C: .4byte 0x00003002
-_080A1640: .4byte gTextBox
+_080A1640: .4byte gMessage
 _080A1644: .4byte gUnk_08124C20
 
 	thumb_func_start sub_080A1648

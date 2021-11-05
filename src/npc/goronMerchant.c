@@ -52,9 +52,9 @@ void sub_080695AC(Entity* this) {
 
 void sub_080695E8(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if ((gTextBox.doTextBox & 0x7f) == 0) {
+    if ((gMessage.doTextBox & 0x7f) == 0) {
         this->action = 1;
-        this->interactType = gTextBox.doTextBox & 0x7f;
+        this->interactType = gMessage.doTextBox & 0x7f;
         sub_0805E584(this);
         InitAnimationForceUpdate(this, this->animationState);
     }
@@ -80,8 +80,8 @@ void sub_08069654(Entity* this) {
 void sub_08069660(Entity* this) {
     u32 uVar1;
 
-    TextboxNoOverlap(0x2c1c, this);
-    gTextBox.field_0x10 = (u16)GoronMerchant_GetSalePrice(this);
+    MessageNoOverlap(0x2c1c, this);
+    gMessage.field_0x10 = (u16)GoronMerchant_GetSalePrice(this);
 }
 
 void sub_08069684(void) {
@@ -142,11 +142,11 @@ void GoronMerchant_TryToBuyKinstone(Entity* this, ScriptExecutionContext* contex
             gRoomVars.field_0x7 = 0;
             context->condition = 1;
         } else {
-            TextboxNoOverlap(0x2c1f, this);
+            MessageNoOverlap(0x2c1f, this);
             context->condition = 0;
         }
     } else {
-        TextboxNoOverlap(0x2c1e, this);
+        MessageNoOverlap(0x2c1e, this);
         context->condition = 0;
     }
     gActiveScriptInfo.flags = gActiveScriptInfo.flags | 1;

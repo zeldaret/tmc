@@ -198,7 +198,6 @@ s32 fade(s32 target, s32 current) {
 
 void doPlaySound(u32 sound) {
     u32 volume;
-    u32 iVar2;
     MusicPlayerInfo* musicPlayerInfo;
 
     if (sound == 0)
@@ -209,8 +208,7 @@ void doPlaySound(u32 sound) {
     } else {
         volume = gSoundPlayingInfo.volumeSfx;
     }
-    iVar2 = gSoundPlayingInfo.volumeMaster;
-    volume = iVar2 * volume / 0x100;
+    volume = gSoundPlayingInfo.volumeMaster * volume / 0x100;
     musicPlayerInfo = gMusicPlayers[gSongTable[sound].musicPlayerIndex].info;
     m4aMPlayImmInit(musicPlayerInfo);
     m4aMPlayVolumeControl(musicPlayerInfo, 0xffff, volume);
@@ -535,7 +533,7 @@ extern const SongHeader sfx14E;
 extern const SongHeader sfx14F;
 extern const SongHeader sfx150;
 extern const SongHeader sfx151;
-extern const SongHeader sfx152;
+extern const SongHeader sfxNearPortal;
 extern const SongHeader sfx153;
 extern const SongHeader sfx154;
 extern const SongHeader sfx155;
@@ -1167,7 +1165,7 @@ const Song gSongTable[] = {
     [SFX_14F] = { &sfx14F, MUSIC_PLAYER_15, MUSIC_PLAYER_15 },
     [SFX_150] = { &sfx150, MUSIC_PLAYER_14, MUSIC_PLAYER_14 },
     [SFX_151] = { &sfx151, MUSIC_PLAYER_13, MUSIC_PLAYER_13 },
-    [SFX_152] = { &sfx152, MUSIC_PLAYER_18, MUSIC_PLAYER_18 },
+    [SFX_NEAR_PORTAL] = { &sfxNearPortal, MUSIC_PLAYER_18, MUSIC_PLAYER_18 },
     [SFX_153] = { &sfx153, MUSIC_PLAYER_11, MUSIC_PLAYER_11 },
     [SFX_154] = { &sfx154, MUSIC_PLAYER_10, MUSIC_PLAYER_10 },
     [SFX_155] = { &sfx155, MUSIC_PLAYER_0F, MUSIC_PLAYER_0F },

@@ -36,7 +36,7 @@ void sub_08022BEC(Entity* this) {
 
     this->field_0x7a.HALF.LO = this->currentHealth;
     this->actionDelay = 1;
-    this->direction = this->field_0x3e;
+    this->direction = this->knockbackDirection;
 
     this->animationState = ((this->direction + 2) & 0x1c) >> 2;
     this->frameIndex = this->animationState;

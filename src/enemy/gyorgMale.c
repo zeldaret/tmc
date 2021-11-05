@@ -6,6 +6,7 @@
 #include "fileScreen.h"
 #include "random.h"
 #include "functions.h"
+#include "effects.h"
 
 void (*const gUnk_080D1AFC[8])(Entity*);
 void (*const gUnk_080D1B1C[7])(Entity*);
@@ -935,7 +936,7 @@ void sub_08047BF0(Entity* this) {
     sub_08047E48(this);
     if (this->actionDelay == 0) {
         if ((this->field_0xf++ & 0xF) == 0) {
-            tmp = CreateFx(this, 0x51, 0);
+            tmp = CreateFx(this, FX_GIANT_EXPLOSION4, 0);
             if (tmp) {
                 u32 rand = Random();
                 tmp->x.HALF.HI += (rand & 0x1E) + 0xFFF1;
@@ -960,17 +961,17 @@ void sub_08047BF0(Entity* this) {
         if (this->actionDelay == 0x5A) {
             tmp = this->attachedEntity;
             tmp->spriteSettings.b.draw = 0;
-            CreateFx(tmp, 0x51, 0);
+            CreateFx(tmp, FX_GIANT_EXPLOSION4, 0);
         } else {
             if (this->actionDelay == 0x3C) {
                 tmp = this->attachedEntity->attachedEntity;
                 tmp->spriteSettings.b.draw = 0;
-                CreateFx(tmp, 0x51, 0);
+                CreateFx(tmp, FX_GIANT_EXPLOSION4, 0);
             } else {
                 if (this->actionDelay == 0x1E) {
                     tmp = this->attachedEntity->attachedEntity->attachedEntity;
                     tmp->spriteSettings.b.draw = 0;
-                    CreateFx(tmp, 0x51, 0);
+                    CreateFx(tmp, FX_GIANT_EXPLOSION4, 0);
                 }
             }
         }

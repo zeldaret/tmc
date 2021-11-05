@@ -6,6 +6,7 @@
 #include "random.h"
 #include "audio.h"
 #include "functions.h"
+#include "effects.h"
 
 extern void sub_08068780(Entity*);
 extern s32 sub_0806EDD8(Entity*, u32, u32);
@@ -49,7 +50,7 @@ void sub_08068730(Entity* this) {
     }
     if (this->interactType != 0) {
         this->interactType = 0;
-        TextboxNoOverlapFollow(this->actionDelay + 0x1200);
+        MessageFromTarget(this->actionDelay + 0x1200);
     }
 }
 
@@ -91,7 +92,7 @@ void sub_08068780(Entity* this) {
         } else {
             EnqueueSFX(gUnk_08111538[(s32)Random() % 3]);
         }
-        ent = CreateFx(this, 0x3d, 0x20);
+        ent = CreateFx(this, FX_STARS2, 0x20);
         if (ent != NULL) {
             PositionRelative(this, ent, 0x180000, -0xa0000);
         }

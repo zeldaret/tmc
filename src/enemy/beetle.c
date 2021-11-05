@@ -48,7 +48,7 @@ void sub_08021780(Entity* this) {
     }
 
     if (this->currentHealth == 0)
-        this->field_0x42 = 0;
+        this->knockbackDuration = 0;
 
     sub_0804AA30(this, gUnk_080CB590);
 }
@@ -105,7 +105,7 @@ void sub_080218CC(Entity* this) {
         this->spriteSettings.b.draw = 1;
         this->direction = ((sub_08049F84(this, 1) ^ 0x10) + gUnk_080CB5DC[Random() & 7]) & 0x1f;
         this->speed = 0x100;
-        this->field_0x20 = 0x12000;
+        this->hVelocity = 0x12000;
     }
 
     GetNextFrame(this);
@@ -216,7 +216,7 @@ void sub_08021AD8(Entity* this) {
 }
 
 void sub_08021B64(Entity* this) {
-    if (gPlayerState.flags.all & 4) {
+    if (gPlayerState.flags & 4) {
         this->action = 3;
         this->height.WORD = 0;
         InitializeAnimation(this, 2);
@@ -233,12 +233,12 @@ void sub_08021B64(Entity* this) {
             this->actionDelay = (u8)iVar4;
         }
 
-        if (gPlayerState.flags.all & 0x110)
+        if (gPlayerState.flags & 0x110)
             iVar4 = 0;
 
         if (iVar4 == 0) {
             this->action = 6;
-            this->field_0x20 = 0x10000;
+            this->hVelocity = 0x10000;
             ((u8*)&this->field_0x86)[1] = 0;
             if (gPlayerEntity.direction != 0xff) {
                 this->direction = 0x10 ^ gPlayerEntity.direction;
@@ -299,7 +299,7 @@ u32 sub_08021D00(Entity* this) {
     } else {
         this->action = 4;
         this->actionDelay = 1;
-        this->field_0x20 = 0x18000;
+        this->hVelocity = 0x18000;
         InitializeAnimation(this, 4);
         ret = 1;
     }

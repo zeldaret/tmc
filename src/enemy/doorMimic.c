@@ -1,10 +1,10 @@
 #include "enemy.h"
 #include "entity.h"
 #include "functions.h"
+#include "effects.h"
 
 extern s16 sub_080001DA(u32, u32); // ?
 extern void sub_08049CF4();
-extern u32 CheckPlayerProximity(u32, u32, u32, u32);
 void sub_080221C0();
 
 typedef struct {
@@ -37,7 +37,7 @@ void sub_08021FF4(Entity* this) {
 
 void sub_08022004(Entity* this) {
     SetTile((u16)this->field_0x7c.HALF.LO, (u16)this->field_0x7c.HALF.HI, this->collisionLayer);
-    CreateFx(this, 5, 0);
+    CreateFx(this, FX_POT_SHATTER, 0);
     sub_08049CF4(this);
     DeleteThisEntity();
 }
@@ -80,7 +80,7 @@ void sub_080220F0(Entity* this) {
         this->field_0x44 = 0;
         off = gUnk_080CB76C[this->type2];
         for (i = 0; i < 6; i++, off++) {
-            Entity* fx = CreateFx(this, 0x11, 0);
+            Entity* fx = CreateFx(this, FX_DASH, 0);
             if (fx) {
                 fx->x.HALF.HI += off->h;
                 fx->y.HALF.HI += off->v;

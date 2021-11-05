@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "player.h"
 #include "functions.h"
+#include "effects.h"
 
 extern u32 GetNextFunction(Entity*);
 
@@ -24,7 +25,7 @@ void sub_0803CCD4(Entity* this) {
 }
 
 void sub_0803CCEC(Entity* this) {
-    this->field_0x42 = 0;
+    this->knockbackDuration = 0;
     sub_0803CCD4(this);
 }
 
@@ -126,7 +127,7 @@ void sub_0803CE14(Entity* this) {
 }
 
 void sub_0803CE3C(Entity* this) {
-    CreateFx(this, 2, 0);
+    CreateFx(this, FX_DEATH, 0);
 
     this->action = 2;
     this->actionDelay = 60;

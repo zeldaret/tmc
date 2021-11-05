@@ -16,9 +16,9 @@ script_0800B4D4:
 	_0807E864
 	_0807EB74
 	DoPostScriptAction 0x0000
-	TextboxNoOverlapFollow 0x200b
-	EndBlock
-	_0807E878
+	MessageFromTarget 0x200b
+	EndBlock 
+	_0807E878 
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0001
 	Jump script_0800B4BC
@@ -28,7 +28,7 @@ script_0800B4F0:
 	_0807EDD4 0x0134, 0x0288
 	_0807EB44 0x0004
 	WaitForSomething2 0x00000008
-	TextboxNoOverlapFollow 0x2016
+	MessageFromTarget 0x2016
 	WaitUntilTextboxCloses
 	_0807EDD4 0x0158, 0x0288
 	DoPostScriptAction 0x0000

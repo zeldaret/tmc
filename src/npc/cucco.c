@@ -59,7 +59,7 @@ void sub_0806E648(Entity* this) {
 
 void sub_0806E65C(Entity* this) {
     if (this->interactType != 0) {
-        if ((gPlayerState.flags.all & 0x80) != 0) {
+        if ((gPlayerState.flags & 0x80) != 0) {
             if (this->interactType == 2) {
                 this->action = 4;
                 sub_0806F118(this);

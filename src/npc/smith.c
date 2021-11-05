@@ -7,6 +7,7 @@
 #include "npc.h"
 #include "audio.h"
 #include "functions.h"
+#include "effects.h"
 
 extern void sub_08078850(Entity*, u32, u32, u32*);
 
@@ -43,7 +44,7 @@ void Smith(Entity* this) {
     }
     if ((this->frames.all & 1) != 0) {
         this->frames.all &= 0xfe;
-        CreateFx(this, 0x3d, 0x20);
+        CreateFx(this, FX_STARS2, 0x20);
         SoundReq(gUnk_08110380[(Random() & 7)]);
     }
 }
@@ -90,7 +91,7 @@ void sub_08066118(Entity* this) {
     }
     if (this->interactType != 0) {
         this->action = 2;
-        TextboxNoOverlapFollow(0);
+        MessageFromTarget(0);
     }
 }
 

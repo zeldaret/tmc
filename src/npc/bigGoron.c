@@ -34,7 +34,6 @@ extern Hitbox gUnk_080FD180;
 Entity* sub_0806D00C(Entity* this);
 
 void sub_0806D4C0(Entity*, u32);
-extern u32 CheckPlayerProximity(u32, u32, u32, u32);
 
 void BigGoron(Entity* this) {
     gUnk_081140D4[this->type](this);
@@ -185,7 +184,7 @@ void sub_0806D274(Entity* this) {
         case 0:
         case 1:
         default:
-            if ((gTextBox.doTextBox & 0x7f) == 0) {
+            if ((gMessage.doTextBox & 0x7f) == 0) {
                 this->frameIndex = 2;
                 break;
             }

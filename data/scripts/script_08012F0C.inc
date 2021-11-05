@@ -19,8 +19,8 @@ script_08012F48:
 script_08012F50:
 	Call sub_0806A96C
 	JumpIfNot script_08012F50
-	_0807E864
-	TextboxNoOverlap 0x4401
+	_0807E864 
+	MessageNoOverlap 0x4401
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x0061
 	_0807E878
@@ -28,7 +28,7 @@ script_08012F50:
 script_08012F6C:
 	Call sub_0806A96C
 	JumpIfNot script_08012F6C
-	TextboxNoOverlap 0x4402
+	MessageNoOverlap 0x4402
 	WaitUntilTextboxCloses
 	_0807E908 0x0001
 	Jump script_08012F6C

@@ -29,20 +29,20 @@ SCRIPT_START script_08009080
 	_0807EB44 0x0004
 	_0807ECC4 0x0008
 	_0807E930 0x0004
-	TextboxNoOverlapFollowPos 0x1050, 0x000e
+	MessageFromTargetPos 0x1050, 0x000e
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000080
 	_0807E930 0x0004
-	TextboxNoOverlapFollowPos 0x1052, 0x000e
+	MessageFromTargetPos 0x1052, 0x000e
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000080
 	_0807EB44 0x0006
 	_0807E930 0x0005
-	TextboxNoOverlapFollowPos 0x1054, 0x000e
+	MessageFromTargetPos 0x1054, 0x000e
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000100
@@ -51,25 +51,25 @@ SCRIPT_START script_08009080
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000080
 	_0807E930 0x0004
-	TextboxNoOverlapFollowPos 0x1056, 0x000e
+	MessageFromTargetPos 0x1056, 0x000e
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000080
 	_0807E930 0x0004
-	TextboxNoOverlapFollowPos 0x1057, 0x000e
+	MessageFromTargetPos 0x1057, 0x000e
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000080
 	_0807E930 0x0004
-	TextboxNoOverlapFollowPos 0x1058, 0x000e
+	MessageFromTargetPos 0x1058, 0x000e
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000080
 	_0807E930 0x0004
-	TextboxNoOverlapFollowPos 0x105c, 0x000e
+	MessageFromTargetPos 0x105c, 0x000e
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000100
@@ -92,7 +92,7 @@ SCRIPT_START script_08009198
 	WaitForSomething2 0x00000001
 	_0807EB74
 	DoPostScriptAction 0x0001
-	TextboxNoOverlapFollowPos 0x105b, 0x0000
+	MessageFromTargetPos 0x105b, 0x0000
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000002
@@ -104,7 +104,7 @@ SCRIPT_START script_08009198
 	DoPostScriptAction 0x0005
 	Wait 0x003c
 	DoPostScriptAction 0x0001
-	TextboxNoOverlapFollowPos 0x1051, 0x0000
+	MessageFromTargetPos 0x1051, 0x0000
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000002
@@ -114,7 +114,7 @@ SCRIPT_START script_08009198
 	_0807EB74
 	_0807EB8C
 	DoPostScriptAction 0x0001
-	TextboxNoOverlapFollowPos 0x1055, 0x0000
+	MessageFromTargetPos 0x1055, 0x0000
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000002
@@ -128,7 +128,7 @@ SCRIPT_START script_08009198
 	_0807EB74
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x0001
-	TextboxNoOverlapFollowPos 0x1059, 0x0000
+	MessageFromTargetPos 0x1059, 0x0000
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000002
@@ -167,9 +167,9 @@ script_080092B2:
 script_080092BA:
 	CheckEntityInteractType
 	JumpIfNot script_080092BA
-	_0807E864
-	_0807EB74
-	TextboxNoOverlap 0x105e
+	_0807E864 
+	_0807EB74 
+	MessageNoOverlap 0x105e
 	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
@@ -192,11 +192,11 @@ SCRIPT_START script_080092F0
 script_08009300:
 	CheckEntityInteractType
 	JumpIfNot script_08009300
-	_0807E864
-	_0807EB74
-	TextboxNoOverlap 0x1071
+	_0807E864 
+	_0807EB74 
+	MessageNoOverlap 0x1071
 	WaitUntilTextboxCloses
-	_0807E878
+	_0807E878 
 	Jump script_08009300
 	.2byte 0x0000
 SCRIPT_START script_08009318

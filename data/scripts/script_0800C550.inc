@@ -37,7 +37,7 @@ script_0800C5A6:
 	Call sub_08060208
 	Jump script_0800C5C0
 script_0800C5BC:
-	TextboxNoOverlap 0x4710
+	MessageNoOverlap 0x4710
 script_0800C5C0:
 	WaitUntilTextboxCloses
 	_0807E878
@@ -111,7 +111,7 @@ script_0800C684:
 	CheckInventory1 0x005b
 	JumpIf script_0800C6B6
 	DoPostScriptAction 0x0002
-	TextboxNoOverlapFollow 0x1f16
+	MessageFromTarget 0x1f16
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0015
 	Wait 0x000a
@@ -123,7 +123,7 @@ script_0800C6B6:
 	CheckLocalFlag 0x0081
 	JumpIf script_0800C6DC
 	DoPostScriptAction 0x0002
-	TextboxNoOverlapFollow 0x1f1b
+	MessageFromTarget 0x1f1b
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0015
 	Wait 0x000a
@@ -134,7 +134,7 @@ script_0800C6DC:
 	CheckLocalFlag 0x0082
 	JumpIf script_0800C712
 	DoPostScriptAction 0x0002
-	TextboxNoOverlapFollow 0x1f17
+	MessageFromTarget 0x1f17
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0015
 	Wait 0x000a
@@ -147,7 +147,7 @@ script_0800C6DC:
 	SetLocalFlag 0x0082
 script_0800C712:
 	DoPostScriptAction 0x0002
-	TextboxNoOverlapFollow 0x1f18
+	MessageFromTarget 0x1f18
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0015
 	Wait 0x000a
@@ -158,7 +158,7 @@ script_0800C730:
 	CheckLocalFlag 0x0083
 	JumpIf script_0800C756
 	DoPostScriptAction 0x0002
-	TextboxNoOverlapFollow 0x1f19
+	MessageFromTarget 0x1f19
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0015
 	Wait 0x000a
@@ -167,7 +167,7 @@ script_0800C730:
 	Jump script_0800C652
 script_0800C756:
 	DoPostScriptAction 0x0002
-	TextboxNoOverlapFollow 0x1f1a
+	MessageFromTarget 0x1f1a
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0015
 	Wait 0x000a
@@ -190,7 +190,7 @@ script_0800C780:
 	CheckInventory1 0x005b
 	JumpIf script_0800C7C0
 	_0807E930 0x0008
-	TextboxNoOverlapFollow 0x2122
+	MessageFromTarget 0x2122
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	Call sub_0807DF50
@@ -200,16 +200,16 @@ script_0800C7C0:
 	_0807E930 0x0008
 	CheckLocalFlag 0x0081
 	JumpIf script_0800C80A
-	TextboxNoOverlapFollow 0x1130
+	MessageFromTarget 0x1130
 	WaitUntilTextboxCloses
 	_0807EB28 0x1131
 	WaitUntilTextboxCloses
-	_0807EB8C
-	TextboxNoOverlapFollow 0x1132
+	_0807EB8C 
+	MessageFromTarget 0x1132
 	WaitUntilTextboxCloses
 	SetIntVariable 0x00000103
 	Call sub_0807F420
-	TextboxNoOverlapFollow 0x1133
+	MessageFromTarget 0x1133
 	WaitUntilTextboxCloses
 	Wait 0x000a
 	DoPostScriptAction 0x0000
@@ -218,7 +218,7 @@ script_0800C7C0:
 	_0807E878
 	Jump script_0800C780
 script_0800C80A:
-	TextboxNoOverlapFollow 0x1133
+	MessageFromTarget 0x1133
 	WaitUntilTextboxCloses
 	Wait 0x000a
 	_0807E930 0x0000
@@ -229,7 +229,7 @@ script_0800C824:
 	_0807E930 0x0008
 	CheckLocalFlag 0x0083
 	JumpIf script_0800C8AE
-	TextboxNoOverlapFollow 0x1135
+	MessageFromTarget 0x1135
 	WaitUntilTextboxCloses
 	SetEntitySpeed 0x0040
 	_0807EDD4 0x0038, 0x0044
@@ -239,9 +239,9 @@ script_0800C824:
 	Wait 0x003c
 	PlaySound SFX_SECRET
 	Wait 0x003c
-	_0807EB74
-	_0807EB8C
-	TextboxNoOverlapFollow 0x1136
+	_0807EB74 
+	_0807EB8C 
+	MessageFromTarget 0x1136
 	WaitUntilTextboxCloses
 	_0807EB28 0x1137
 	WaitUntilTextboxCloses
@@ -257,7 +257,7 @@ script_0800C87C:
 	_0807EB74
 	SetIntVariable 0x00000008
 	Call sub_0807F3D8
-	TextboxNoOverlapFollow 0x1136
+	MessageFromTarget 0x1136
 	WaitUntilTextboxCloses
 	Wait 0x000a
 	DoPostScriptAction 0x0000
@@ -265,7 +265,7 @@ script_0800C87C:
 	_0807E878
 	Jump script_0800C87C
 script_0800C8AE:
-	TextboxNoOverlapFollow 0x1136
+	MessageFromTarget 0x1136
 	WaitUntilTextboxCloses
 	Wait 0x000a
 	DoPostScriptAction 0x0000

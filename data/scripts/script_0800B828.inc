@@ -5,9 +5,9 @@ SCRIPT_START script_0800B828
 	DoPostScriptAction 0x000a
 	EndBlock
 script_0800B836:
-	_0807E944
-	_0807E864
-	TextboxNoOverlapFollow 0x0a01
+	_0807E944 
+	_0807E864 
+	MessageFromTarget 0x0a01
 	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
@@ -42,9 +42,9 @@ script_0800B87E:
 script_0800B89E:
 	CheckEntityInteractType
 	JumpIfNot script_0800B89E
-	_0807E864
-	_0807EB74
-	TextboxNoOverlapFollow 0x0a01
+	_0807E864 
+	_0807EB74 
+	MessageFromTarget 0x0a01
 	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
@@ -91,9 +91,9 @@ SCRIPT_START script_0800B91C
 script_0800B934:
 	CheckEntityInteractType
 	JumpIfNot script_0800B934
-	_0807E864
-	_0807EB74
-	TextboxNoOverlapFollow 0x3f19
+	_0807E864 
+	_0807EB74 
+	MessageFromTarget 0x3f19
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x005f
 	_0807E878
@@ -101,11 +101,11 @@ script_0800B934:
 script_0800B94E:
 	CheckEntityInteractType
 	JumpIfNot script_0800B94E
-	_0807E864
-	_0807EB74
-	TextboxNoOverlapFollow 0x3f1a
+	_0807E864 
+	_0807EB74 
+	MessageFromTarget 0x3f1a
 	WaitUntilTextboxCloses
-	_0807E878
+	_0807E878 
 	Jump script_0800B94E
 SCRIPT_START script_0800B964
 	BeginBlock

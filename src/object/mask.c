@@ -6,6 +6,7 @@
 #include "player.h"
 #include "flags.h"
 #include "functions.h"
+#include "effects.h"
 
 extern void (*MaskActionFuncs[])(Entity*);
 
@@ -46,7 +47,7 @@ void sub_080929A4(Entity* this) {
     }
 
     this->action = 1;
-    this->field_0x20 = 0x18000;
+    this->hVelocity = 0x18000;
 
     this->field_0x78.HWORD = ((Random() & 7) << 10) | 0x2000;
 
@@ -111,7 +112,7 @@ void sub_08092B0C(Entity* this) {
                 break;
         }
 
-        CreateFx(this, 5, 0);
+        CreateFx(this, FX_POT_SHATTER, 0);
 
         sub_0805457C(this, 3);
     } else {

@@ -13,6 +13,7 @@
 #include "script.h"
 #include "random.h"
 #include "functions.h"
+#include "effects.h"
 
 void sub_0804B3C4(void* arg0) {
     sub_0804B29C(arg0);
@@ -2240,7 +2241,7 @@ u32 sub_unk3_DeepwoodShrine_Entrance() {
 #if defined(DEMO_USA) || defined(DEMO_JP)
 void sub_StateChange_DeepwoodShrine_Entrance() {
 #ifdef DEMO_USA
-    if (gUnk_02000000->saveFileId != 0 && GetInventoryValue(0x40) == 0) {
+    if (gSaveHeader->saveFileId != 0 && GetInventoryValue(0x40) == 0) {
 #else
 #ifdef DEMO_JP
     if (GetInventoryValue(0x40) == 0) {
@@ -4871,7 +4872,7 @@ extern EntityData gUnk_080F30CC;
 
 void sub_StateChange_HouseInteriors2_Stockwell(void) {
     // dog food
-    if ((GetInventoryValue(0x36) == 1) && !CheckGlobalFlag(BIN_DOGFOOD) && (gPlayerState.flags.all & 0x80) == 0) {
+    if ((GetInventoryValue(0x36) == 1) && !CheckGlobalFlag(BIN_DOGFOOD) && (gPlayerState.flags & 0x80) == 0) {
         LoadRoomEntityList(&gUnk_080F30CC);
     }
 }
@@ -4895,7 +4896,7 @@ void sub_StateChange_HouseInteriors2_LinksHouseBedroom(void) {
         gArea.musicIndex = gArea.pMusicIndex;
         SoundReq(SONG_PLAY_VOL_RESET | BGM_MINISH_CAP);
     }
-    if ((gPlayerState.flags.all & 8) == 0) {
+    if ((gPlayerState.flags & 8) == 0) {
         LoadRoomEntityList(&gUnk_080F31D8);
     }
 }
@@ -5831,7 +5832,7 @@ void sub_0804F5E8(void) {
 void sub_0804F680(Entity* parent, s32 x, s32 y) {
     Entity* fx;
 
-    fx = CreateFx(parent, 2, 0);
+    fx = CreateFx(parent, FX_DEATH, 0);
     if (fx != NULL) {
         fx->x.HALF.HI = gRoomControls.roomOriginX + x;
         fx->y.HALF.HI = gRoomControls.roomOriginY + y;
@@ -5872,13 +5873,13 @@ void sub_0804F760(Entity* this) {
 void sub_0804F79C(Entity* parent) {
     Entity* fx;
 
-    fx = CreateFx(parent, 0x35, 0);
+    fx = CreateFx(parent, FX_BIG_EXPLOSION, 0);
     if (fx != NULL) {
         fx->spriteRendering.b3 = 0;
         fx->x.HALF.HI = gRoomControls.roomOriginX + 0x1b8;
         fx->y.HALF.HI = gRoomControls.roomOriginY + 0x148;
     }
-    fx = CreateFx(parent, 0x35, 0);
+    fx = CreateFx(parent, FX_BIG_EXPLOSION, 0);
     if (fx != NULL) {
         fx->spriteRendering.b3 = 0;
         fx->x.HALF.HI = gRoomControls.roomOriginX + 0x238;

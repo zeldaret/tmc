@@ -39,7 +39,7 @@ void sub_080662F8(Entity* this) {
 void sub_08066358(Entity* this) {
     if (this->interactType != 0) {
         this->interactType = 0;
-        TextboxNoOverlapFollow(0);
+        MessageFromTarget(0);
         if ((this->type2 & 0x10) != 0) {
             this->action = 3;
             this->subAction = 0;

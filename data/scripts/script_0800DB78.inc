@@ -34,7 +34,7 @@ script_0800DBCA:
 	_0807E5F8 0x00000001
 	StartPlayerScript script_0800DE00
 	WaitForSomething2 0x00000006
-	TextboxNoOverlapFollowPos 0x1643, 0x0002
+	MessageFromTargetPos 0x1643, 0x0002
 	WaitUntilTextboxCloses
 	_0807EB28 0x1645
 	WaitUntilTextboxCloses

@@ -67,24 +67,20 @@ typedef struct {
     /*0x26*/ u8 swimState;
     /*0x27*/ u8 field_0x27[5];
     /*0x2c*/ u8* field_0x2c;
-    /*0x30*/ union {
-    /*    */     u32 all;
-    /*    */     struct {
-    /*    */         u32 unk1 : 1;
-    /*    */         u32 unk2 : 1;
-    /*    */         u32 unk4 : 1;
-    /*    */         u32 noMinishCap : 1;
-    /*    */         u32 pullingState : 1;
-    /*    */         u32 windyState : 1;
-    /*    */         u32 filler6 : 1;
-    /*    */         u32 unk7 : 1;
-    /*    */         u32 unk8 : 1;
-    /*    */         u32 unk9 : 1;
-    /*    */         u32 slipperyState : 1;
-    /*    */         u32 filler11 : 5;
-    /*    */         u32 filler11b : 16;
-    /*    */     } PACKED b;
-    /*    */ } flags;
+    /*0x30*/ u32 flags;
+    /* unk1 : 1; */
+    /* unk2 : 1; */
+    /* unk4 : 1; */
+    /* noMinishCap : 1; */
+    /* pullingState : 1; */
+    /* windyState : 1; */
+    /* filler6 : 1; */
+    /* unk7 : 1; */
+    /* unk8 : 1; */
+    /* unk9 : 1; */
+    /* slipperyState : 1; */
+    /* filler11 : 5; */
+    /* filler11b : 16; */
     /*0x34*/ u8 field_0x34[2];
     /*0x36*/ s16 field_0x36;
     /*0x38*/ u8 field_0x38;

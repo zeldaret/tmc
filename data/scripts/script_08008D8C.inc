@@ -64,7 +64,7 @@ script_08008E12:
 	WaitForSomething2 0x00000100
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000008
-	TextboxNoOverlapFollowPos 0x1053, 0x000e
+	MessageFromTargetPos 0x1053, 0x000e
 	WaitUntilTextboxCloses
 	_0807E5F8 0x00000080
 	WaitForSomething2 0x00000100

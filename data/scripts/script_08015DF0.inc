@@ -6,19 +6,19 @@ SCRIPT_START script_08015DF0
 	WaitForSomething2 0x00000004
 	DoPostScriptAction 0x0004
 	Wait 0x003c
-	TextboxNoOverlap 0x1319
+	MessageNoOverlap 0x1319
 	WaitUntilTextboxCloses
 	_0807E5F8 0x00000008
 	WaitForSomething2 0x00000004
-	TextboxNoOverlap 0x131a
+	MessageNoOverlap 0x131a
 	WaitUntilTextboxCloses
 	_0807E5F8 0x00000008
 	WaitForSomething2 0x00000004
-	TextboxNoOverlap 0x131d
+	MessageNoOverlap 0x131d
 	WaitUntilTextboxCloses
 	_0807E5F8 0x00000008
 	WaitForSomething2 0x00000004
-	TextboxNoOverlap 0x131e
+	MessageNoOverlap 0x131e
 	WaitUntilTextboxCloses
 	_0807E5F8 0x00000008
 	WaitForSomething 0x00000400

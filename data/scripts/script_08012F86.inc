@@ -27,8 +27,8 @@ script_08012FD2:
 	CheckInventory1 0x0038
 	JumpIf script_08013006
 script_08012FFA:
-	_0807E944
-	TextboxNoOverlap 0x4403
+	_0807E944 
+	MessageNoOverlap 0x4403
 	WaitUntilTextboxCloses
 	Jump script_08012FFA
 script_08013006:
@@ -47,24 +47,24 @@ script_08013006:
 	Wait 0x003c
 	DoPostScriptAction 0x0004
 	Wait 0x003c
-	TextboxNoOverlap 0x4404
+	MessageNoOverlap 0x4404
 	WaitUntilTextboxCloses
 	Wait 0x001e
 	DoPostScriptAction 0x0004
 	Wait 0x003c
-	TextboxNoOverlap 0x440e
+	MessageNoOverlap 0x440e
 	WaitUntilTextboxCloses
 	Wait 0x001e
 	Call sub_0806A9E8
 	_0807E930 0x000f
 	Wait 0x00f0
-	TextboxNoOverlap 0x4405
+	MessageNoOverlap 0x4405
 	WaitUntilTextboxCloses
 	_0807E5F8 0x00000200
 	_0807F034 0x0015
-	WaitPlayerAction8
-	_0807EB8C
-	TextboxNoOverlap 0x4406
+	WaitPlayerAction8 
+	_0807EB8C 
+	MessageNoOverlap 0x4406
 	WaitUntilTextboxCloses
 	_0807E908 0x0001
 	Call sub_0807DF50
@@ -72,13 +72,13 @@ script_08013006:
 script_0801308A:
 	Call sub_0806A96C
 	JumpIfNot script_0801308A
-	TextboxNoOverlap 0x4407
+	MessageNoOverlap 0x4407
 	WaitUntilTextboxCloses
 	_0807E908 0x0001
 script_0801309E:
 	Call sub_0806A96C
 	JumpIfNot script_0801309E
-	TextboxNoOverlap 0x440d
+	MessageNoOverlap 0x440d
 	WaitUntilTextboxCloses
 	_0807E908 0x0001
 	Jump script_0801308A

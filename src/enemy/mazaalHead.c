@@ -6,6 +6,7 @@
 #include "random.h"
 #include "object.h"
 #include "functions.h"
+#include "effects.h"
 
 extern void UnloadOBJPalette(Entity*);
 
@@ -78,7 +79,7 @@ void (*const gUnk_080CECB4[])(Entity*) = {
 };
 const u8 gUnk_080CECEC[] = { 0xff, 0xfe, 0xff, 0x00, 0x01, 0x02, 0x01, 0x00 };
 const s8 gUnk_080CECF4[] = { -2, 0x01, -8, -4, -0x14, 0x08, 0x0e, -0x10, -6, 0x0c, 0x12, -2, 0x00, 0x00 };
-const u8 gUnk_080CED02[] = { 0x46, 0x46, 0x47, 0x48 };
+const u8 gUnk_080CED02[] = { FX_GIANT_EXPLOSION, FX_GIANT_EXPLOSION, FX_GIANT_EXPLOSION2, FX_GIANT_EXPLOSION3 };
 const u8 gUnk_080CED06[] = { 0xff, 0x00, 0x01, 0x00, 0x00, 0x00 };
 void (*const gUnk_080CED0C[])(Entity*) = {
     sub_08034578, sub_080344E0, sub_0803451C, sub_080344E0, sub_08034558, sub_080344E0, sub_0803451C, sub_080346A0,
@@ -815,7 +816,7 @@ void sub_08034BC8(Entity* this) {
 }
 
 void sub_08034C00(Entity* this) {
-    if (((gPlayerState.flags.all & 0x80) != 0) &&
+    if (((gPlayerState.flags & 0x80) != 0) &&
         CheckPlayerInRegion(this->x.HALF.HI - gRoomControls.roomOriginX,
                             this->y.HALF.HI - gRoomControls.roomOriginY + 0xd, 3, 3) != 0) {
         if (gScreenTransition.field_0x39 >= 0x3d) {

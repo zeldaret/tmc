@@ -329,7 +329,7 @@
 	.2byte \s
 .endm
 
-.macro _0807E788 w:req
+.macro SetFadeMask w:req
 	.2byte 0x0c39
 	.4byte \w
 .endm
@@ -479,33 +479,33 @@
 	.2byte 0x0459
 .endm
 
-.macro TextboxNoOverlapFollow s:req
+.macro MessageFromTarget s:req
 	.2byte 0x085a
 	.2byte \s
 .endm
 
-.macro TextboxNoOverlap s:req
+.macro MessageNoOverlap s:req
 	.2byte 0x085b
 	.2byte \s
 .endm
 
-.macro TextboxNoOverlapFollowPos a:req, b:req
+.macro MessageFromTargetPos a:req, b:req
 	.2byte 0x0c5c
 	.2byte \a
 	.2byte \b
 .endm
 
-.macro TextboxNoOverlapFollowPos_1 s:req
+.macro MessageFromTargetPos_1 s:req
 	.2byte 0x085c
 	.2byte \s
 .endm
 
-.macro TextboxNoOverlapFollowTable labels:vararg
+.macro MessageFromTargetTable labels:vararg
     RecursiveOpcode 0x5d 1 \labels
     RecursiveArgs .2byte \labels
 .endm
 
-.macro TextboxNoOverlapVar 
+.macro MessageNoOverlapVar 
 	.2byte 0x045e
 .endm
 

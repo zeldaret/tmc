@@ -181,7 +181,7 @@ void Cow_ShowDialogue(Entity* ent) {
 
 void sub_0806920C(Entity* ent) {
     // TODO: figure out what bitfield flag this is
-    u32 var0 = gPlayerState.flags.all & 0x80;
+    u32 var0 = gPlayerState.flags & 0x80;
     u32 var1 = -var0 >> 0x1F;
 
     if (var1 != ent->field_0x6c.HALF.HI) {
@@ -200,7 +200,7 @@ void sub_0806924C(Entity* ent) {
     s8 itype = ent->interactType;
     if (itype != 0) {
         // TODO: figure out what bitfield flag this is
-        if ((gPlayerState.flags.all & 0x80) != 0) {
+        if ((gPlayerState.flags & 0x80) != 0) {
             if (itype == 2) {
                 ent->action = 4;
                 sub_0806F118(ent);

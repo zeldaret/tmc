@@ -6,6 +6,10 @@
 	.text
 
 	.code 16
+
+.global RAMFUNCS_BASE
+RAMFUNCS_BASE::
+
 sub_080B197C:: @ 0x080B197C
 	push {r4, r5, r6}
 	ldr r2, _080B19C0 @ =gRoomControls
@@ -250,13 +254,14 @@ _080B1C48: .4byte gUnk_080B7A3E
 _080B1C4C: .4byte gRoomControls
 _080B1C50: .4byte gUnk_08000278
 
-	arm_func_start sub_080B1C54
-sub_080B1C54: @ 0x080B1C54
+	arm_func_start UpdateCollision
+UpdateCollision: @ 0x080B1C54
+	@ r0 : Entity* this
 	ldrb r1, [r0, #0x10]
-	ands r1, r1, #0x80
+	ands r1, r1, #0x80 @ disable collision flag
 	bxeq lr
-	ldr r2, _080B200C @ =gUnk_03000E10
-	ldr r3, _080B2010 @ =gHitboxCount
+	ldr r2, _080B200C @ =gCollidableList
+	ldr r3, _080B2010 @ =gCollidableCount
 	ldrb r1, [r3]
 	str r0, [r2, r1, lsl #2]
 	add r1, r1, #1
@@ -340,8 +345,8 @@ _080B1D84:
 	pop {r4, r5, r6, r7, r8, sb, sl, lr}
 	bx lr
 _080B1D8C: .4byte gUnk_02018EA0
-_080B1D90: .4byte gUnk_03000E10
-_080B1D94: .4byte gHitboxCount
+_080B1D90: .4byte gCollidableList
+_080B1D94: .4byte gCollidableCount
 
 	arm_func_start sub_080B1D98
 sub_080B1D98: @ 0x080B1D98
@@ -525,33 +530,33 @@ _080B1FFC: .4byte gUnk_03005D5C
 _080B2000: .4byte gUnk_03005D24
 _080B2004: .4byte gUnk_03005D18
 _080B2008: .4byte gUnk_03005D58
-_080B200C: .4byte gUnk_03000E10
-_080B2010: .4byte gHitboxCount
+_080B200C: .4byte gCollidableList
+_080B2010: .4byte gCollidableCount
 _080B2014: .4byte gUnk_080B7B74
 _080B2018: .4byte gUnk_080B3744
 
-	arm_func_start sub_080B201C
-sub_080B201C: @ 0x080B201C
+	arm_func_start IntrMain
+IntrMain:
 	mov r3, #0x4000000
 	add r3, r3, #0x200
-	ldr r2, [r3]
-	ldrh r1, [r3, #8]
+	ldr r2, [r3] @ lo 16: interrupt_enable, hi 16: interrupt_request
+	ldrh r1, [r3, #8] @ interrupt master enable
 	mrs r0, spsr
 	push {r0, r1, r2, r3, lr}
 	and r1, r2, r2, lsr #16
-	ands r0, r1, #0x2000
+	ands r0, r1, #0x2000 @ external irq
 	bne _080B20D4
 	mov ip, #4
-	ands r0, r1, #0x80
+	ands r0, r1, #0x80 @ serial comm
 	bne _080B2074
 	mov ip, #0xc
-	ands r0, r1, #4
+	ands r0, r1, #4 @ vcount
 	bne _080B2074
 	mov ip, #0x10
-	ands r0, r1, #1
+	ands r0, r1, #1 @ vblank
 	bne _080B2074
 	mov ip, #0x14
-	ands r0, r1, #0x40
+	ands r0, r1, #0x40 @ timer 3 overflow
 	bne _080B2074
 	mov ip, #0
 _080B2074:
@@ -610,8 +615,8 @@ _080B20FC:
 	mov r0, #1
 	bx lr
 
-	arm_func_start sub_080B2124
-sub_080B2124: @ 0x080B2124
+	arm_func_start MakeFadeBuff256
+MakeFadeBuff256: @ 0x080B2124
 	push {r4, r5, r6, r7, r8, sb, sl, fp}
 	mul r3, r2, r3
 	mov r4, #0x400
@@ -652,50 +657,60 @@ _080B21AC: .4byte gUnk_08000F54
 
 	arm_func_start UpdateEntities
 UpdateEntities: @ 0x080B21B0
-	ldr fp, _080B2270 @ =gUnk_03003DD0
-	ldr r1, [fp]
-	ldm r1, {r7, r8, sb, sl}
-	ldr sp, [fp, #0xc]
-	ldr r8, [fp, #4]
-	ldr r0, [fp, #8]
+	ldr r11, _080B2270 @ =gUnk_03003DD0
+	ldr r1, [r11]
+	ldm r1, {r7, r8, r9, r10}
+	ldr sp, [r11, #0xc]
+	ldr r8, [r11, #4]
+	ldr r0, [r11, #8]
 	add pc, pc, #0x60 @ =_080B2230
+
+@ gUnk_03003DD0 { 
+@	void* chosen_table;
+@	void* linked_list_top;
+@	void* curr_entity;
+@	void* restore_sp;
+@ }
+
 @ UpdateEntities starts here
+    @ arg0 (r0) : 0 = entities, 1 = managers
 	ldr r1, _080B2274 @ =gUnk_080026A4
 	add r1, r1, r0, lsl #4
-	push {r4, r5, r6, r7, r8, sb, sl, fp, lr}
-	ldr fp, _080B2278 @ =gUnk_03003DD0
-	str r1, [fp]
-	str sp, [fp, #0xc]
-	ldm r1, {r7, r8, sb, sl}
-_080B21E8:
+	push {r4 - r11, lr}
+	ldr r11, _080B2278 @ =gUnk_03003DD0
+	str r1, [r11, #0x0]
+	str sp, [r11, #0xc]
+	ldm r1, {r7, r8, r9, r10}
+next_list: @ traverse entity linked list
 	add r8, r8, #8
-	str r8, [fp, #4]
-	cmp r8, sb
-	bhs _080B2238
-	ldr r4, [r8, #4]
-_080B21FC:
+	str r8, [r11, #4]
+	cmp r8, r9
+	bhs lists_complete
+	ldr r4, [r8, #4] @ entity -> next
+next_entity:
 	cmp r4, r8
-	beq _080B21E8
+	beq next_list
 	mov r0, #0
 	str r0, [r7]
-	str r4, [fp, #8]
-	ldrb r1, [r4, #8]
-	ldr r1, [sl, r1, lsl #2]
+	str r4, [r11, #8]
+	ldrb r1, [r4, #8] @ entity -> kind
+	ldr r1, [r10, r1, lsl #2]
 	mov r0, r4
 	mov lr, pc
-	bx r1					@ Jump to address stored in r1
-_080B2224:
-	ldr r0, [fp, #8]
-	cmp r0, r4
-	bleq sub_080B1C54
+	bx r1 @ call entity kind update function
+	ldr r0, [r11, #8]
+	cmp r0, r4 @ update collision if entity is still alive
+	bleq UpdateCollision
 _080B2230: @ jumped here if ClearAndUpdateEntities
 	ldr r4, [r0, #4]
-	b _080B21FC
-_080B2238:
+	b next_entity
+lists_complete:
 	mov r0, #0
-	str r0, [fp, #8]
-	pop {r4, r5, r6, r7, r8, sb, sl, fp, lr}
+	str r0, [r11, #8]
+	pop {r4 - r11, lr}
 	bx lr
+
+_080B2248::
 _080B2248: .4byte DeleteThisEntity @ 0x3005fbc
 _080B224C: .4byte PlayerUpdate
 _080B2250: .4byte DeleteThisEntity
@@ -706,6 +721,7 @@ _080B2260: .4byte ObjectUpdate
 _080B2264: .4byte NPCUpdate
 _080B2268: .4byte ItemUpdate
 _080B226C: .4byte ManagerUpdate
+
 _080B2270: .4byte gUnk_03003DD0
 _080B2274: .4byte gUnk_080026A4
 _080B2278: .4byte gUnk_03003DD0
@@ -860,7 +876,7 @@ sub_080B19C8: @ 0x080B19C8
 	mov r2, #0
 	strb r2, [r1]
 	stmdb sp!, {lr}
-	bl sub_080B2478
+	bl ResolveOamDrawPriority
 	bl sub_080B2534
 	ldm sp!, {lr}
 	b _080B1C40EU
@@ -910,7 +926,7 @@ sub_080B19C8: @ 0x080B19C8
 	mov r2, #0
 	strb r2, [r1]
 	stmdb sp!, {lr}
-	bl sub_080B2478
+	bl ResolveOamDrawPriority
 	bl sub_080B2534
 	ldm sp!, {lr}
 	b _080B1C40EU
@@ -949,15 +965,18 @@ sub_080B2448: @ 0x080B2448
 	mov r2, #0
 	strb r2, [r1]
 	stmdb sp!, {lr}
-	bl sub_080B2478
+	bl ResolveOamDrawPriority
 	bl sub_080B2534
 	ldm sp!, {lr}
 	b _080B26B4
 .endif
 .endif
 
-	arm_func_start sub_080B2478
-sub_080B2478: @ 0x080B2478
+	arm_func_start ResolveOamDrawPriority
+ResolveOamDrawPriority: @ 0x080B2478
+	prio_a  .req r8
+	prio_b  .req r5
+
 	mov sb, r0
 	mov r1, r0
 	ldrb r2, [r1], #4
@@ -965,7 +984,7 @@ sub_080B2478: @ 0x080B2478
 	sub sl, r2, #1
 	add r2, r1, sl, lsl #2
 	cmp sl, #0
-	beq _080B252C
+	beq no_objs
 _080B2498:
 	lsl r3, sl, #2
 	mov r6, #0
@@ -977,40 +996,44 @@ _080B24A0:
 _080B24B0:
 	cmp r1, ip
 	blo _080B251C
+# sprite A
 	ldr r4, [r1]
+# pos 
 	ldr r8, [r4, #0x30]
-	add r8, r8, #-0x80000000
-	lsr r8, r8, #3
+	add r8, #0x80000000
+	lsr r8, #3
+# load priority bits, NOT so 0 = highest priority
 	ldrb r0, [r4, #0x29]
 	mvn r0, r0
-	orr r8, r8, r0, lsl #29
+	orr prio_a, r8, r0, lsl #29
 	add r7, r1, r3
-_080B24D8:
+next_sprite:
 	cmp r2, r7
-	blo _080B2510
+	blo a_priority
+# sprite B
 	ldr r5, [r7]
 	ldr r0, [r5, #0x30]
-	add r0, r0, #-0x80000000
-	lsr r0, r0, #3
+	add r0, #0x80000000
+	lsr r0, #3
 	ldrb r5, [r5, #0x29]
 	mvn r5, r5
-	orr r5, r0, r5, lsl #29
-	cmp r8, r5
-	bhs _080B2510
+	orr prio_b, r0, r5, lsl #29
+	cmp prio_a, prio_b
+	bhs a_priority
 	ldr r5, [r7], -r3
 	str r5, [r7], r3, lsl #1
-	b _080B24D8
-_080B2510:
+	b next_sprite
+a_priority:
 	str r4, [r7, -r3]!
 	sub r1, r1, r3
 	b _080B24B0
 _080B251C:
-	add r6, r6, #1
+	add r6, #1
 	b _080B24A0
 _080B2524:
-	lsrs sl, sl, #1
+	lsrs sl, #1
 	bne _080B2498
-_080B252C:
+no_objs:
 	mov r0, sb
 	bx lr
 

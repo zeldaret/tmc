@@ -40392,121 +40392,121 @@
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Vaati_0.bin",
+    "path": "animations/gSpriteAnimations_Vaati_2_0.bin",
     "start": 1116224,
     "size": 25,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Vaati_1.bin",
+    "path": "animations/gSpriteAnimations_Vaati_2_1.bin",
     "start": 1116249,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Vaati_2.bin",
+    "path": "animations/gSpriteAnimations_Vaati_2_2.bin",
     "start": 1116254,
     "size": 25,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Vaati_3.bin",
+    "path": "animations/gSpriteAnimations_Vaati_2_3.bin",
     "start": 1116279,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Vaati_4.bin",
+    "path": "animations/gSpriteAnimations_Vaati_2_4.bin",
     "start": 1116284,
     "size": 30,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Vaati_6.bin",
+    "path": "animations/gSpriteAnimations_Vaati_2_6.bin",
     "start": 1116314,
     "size": 25,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Vaati_16.bin",
+    "path": "animations/gSpriteAnimations_Vaati_2_16.bin",
     "start": 1116339,
     "size": 25,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Vaati_18.bin",
+    "path": "animations/gSpriteAnimations_Vaati_2_18.bin",
     "start": 1116364,
     "size": 25,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Vaati_24.bin",
+    "path": "animations/gSpriteAnimations_Vaati_2_24.bin",
     "start": 1116389,
     "size": 13,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Vaati_26.bin",
+    "path": "animations/gSpriteAnimations_Vaati_2_26.bin",
     "start": 1116402,
     "size": 13,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Vaati_40.bin",
+    "path": "animations/gSpriteAnimations_Vaati_2_40.bin",
     "start": 1116415,
     "size": 25,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Vaati_28.bin",
+    "path": "animations/gSpriteAnimations_Vaati_2_28.bin",
     "start": 1116440,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Vaati_30.bin",
+    "path": "animations/gSpriteAnimations_Vaati_2_30.bin",
     "start": 1116445,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Vaati_31.bin",
+    "path": "animations/gSpriteAnimations_Vaati_2_31.bin",
     "start": 1116450,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Vaati_29.bin",
+    "path": "animations/gSpriteAnimations_Vaati_2_29.bin",
     "start": 1116455,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Vaati_44.bin",
+    "path": "animations/gSpriteAnimations_Vaati_2_44.bin",
     "start": 1116460,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Vaati_32.bin",
+    "path": "animations/gSpriteAnimations_Vaati_2_32.bin",
     "start": 1116465,
     "size": 193,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Vaati_36.bin",
+    "path": "animations/gSpriteAnimations_Vaati_2_36.bin",
     "start": 1116658,
     "size": 229,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Vaati_48.bin",
+    "path": "animations/gSpriteAnimations_Vaati_2_48.bin",
     "start": 1116887,
     "size": 21,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Vaati_50.bin",
+    "path": "animations/gSpriteAnimations_Vaati_2_50.bin",
     "start": 1116908,
     "size": 24,
     "type": "animation"
@@ -47969,13 +47969,13 @@
     "size": 12
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_9_0.bin",
+    "path": "animations/gSpriteAnimations_Object6A_10_0.bin",
     "start": 1190732,
     "size": 9,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6A_9_1.bin",
+    "path": "animations/gSpriteAnimations_Object6A_10_1.bin",
     "start": 1190741,
     "size": 15,
     "type": "animation"

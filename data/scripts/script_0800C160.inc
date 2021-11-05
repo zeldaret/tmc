@@ -10,7 +10,7 @@ SCRIPT_START script_0800C160
 	DoPostScriptAction 0x0007
 	CallWithArg sub_0807F4F8, 0x00000128
 	Wait 0x001e
-	TextboxNoOverlap 0x0e14
+	MessageNoOverlap 0x0e14
 	WaitUntilTextboxCloses
 	_0807E5F8 0x0000003c
 	WaitForSomething2 0x00000002

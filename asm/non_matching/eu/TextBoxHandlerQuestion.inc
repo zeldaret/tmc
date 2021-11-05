@@ -5,7 +5,7 @@
 	mov r5, r8
 	push {r5, r6, r7}
 	adds r6, r0, #0
-	ldr r0, _08056570 @ =gUnk_02024030
+	ldr r0, _08056570 @ =gMessageChoices
 	movs r7, #3
 	ldrsb r7, [r0, r7]
 	ldr r0, _08056574 @ =gInput
@@ -18,7 +18,7 @@
 	beq _08056582
 	b _080565EA
 	.align 2, 0
-_08056570: .4byte gUnk_02024030
+_08056570: .4byte gMessageChoices
 _08056574: .4byte gInput
 _08056578:
 	cmp r0, #0x10
@@ -27,7 +27,7 @@ _08056578:
 	beq _080565E4
 	b _080565EA
 _08056582:
-	ldr r0, _08056598EU @ =gUnk_02024030
+	ldr r0, _08056598EU @ =gMessageChoices
 	lsls r1, r7, #1
 	adds r0, #0x10
 	adds r1, r1, r0
@@ -39,7 +39,7 @@ _08056582:
 	adds r0, #0x20
 	b _080565B0EU
 	.align 2, 0
-_08056598EU: .4byte gUnk_02024030
+_08056598EU: .4byte gMessageChoices
 _0805659CEU: .4byte gUnk_08107C14
 _080565A0EU:
 	strh r1, [r6, #8]
@@ -52,7 +52,7 @@ _080565A0EU:
 _080565B0EU:
 	bl sub_0805EF40
 	ldr r2, _080565DC @ =gUnk_02000040
-	ldr r0, _080565E0 @ =gUnk_02024030
+	ldr r0, _080565E0 @ =gMessageChoices
 	ldrb r1, [r0, #3]
 	strb r1, [r2, #1]
 	movs r1, #3
@@ -69,14 +69,14 @@ _080565B0EU:
 	.align 2, 0
 _080565D8: .4byte gUnk_08107C0F
 _080565DC: .4byte gUnk_02000040
-_080565E0: .4byte gUnk_02024030
+_080565E0: .4byte gMessageChoices
 _080565E4:
 	subs r7, #1
 	b _080565EA
 _080565E8:
 	adds r7, #1
 _080565EA:
-	ldr r4, _0805660C @ =gUnk_02024030
+	ldr r4, _0805660C @ =gMessageChoices
 	movs r1, #2
 	ldrsb r1, [r4, r1]
 	adds r0, r7, r1
@@ -92,7 +92,7 @@ _080565EA:
 	movs r1, #1
 	b _08056612
 	.align 2, 0
-_0805660C: .4byte gUnk_02024030
+_0805660C: .4byte gMessageChoices
 _08056610:
 	movs r1, #0
 _08056612:
@@ -100,7 +100,7 @@ _08056612:
 	ldrb r0, [r2]
 	cmp r0, #1
 	bne _08056624
-	ldr r1, _08056678 @ =gUnk_02024030
+	ldr r1, _08056678 @ =gMessageChoices
 	movs r0, #2
 	strb r0, [r2]
 	strb r0, [r1]
@@ -108,14 +108,14 @@ _08056612:
 _08056624:
 	cmp r1, #0
 	beq _0805666A
-	ldr r0, _0805667C @ =gCurrentTextBox
+	ldr r0, _0805667C @ =gTextRender
 	mov sl, r0
 	movs r1, #0x56
 	add r1, sl
 	mov sb, r1
 	ldrh r0, [r1]
 	mov r8, r0
-	ldr r4, _08056678 @ =gUnk_02024030
+	ldr r4, _08056678 @ =gMessageChoices
 	lsls r0, r5, #1
 	adds r4, #8
 	adds r0, r0, r4
@@ -147,7 +147,7 @@ _0805666A:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _08056674: .4byte gUnk_02000040
-_08056678: .4byte gUnk_02024030
-_0805667C: .4byte gCurrentTextBox
+_08056678: .4byte gMessageChoices
+_0805667C: .4byte gTextRender
 _08056680: .4byte 0x0202281D
 .syntax divided

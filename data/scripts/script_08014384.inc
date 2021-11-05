@@ -11,7 +11,7 @@ SCRIPT_START script_08014384
 	WaitUntilTextboxCloses
 	_0807EB8C
 	Wait 0x001e
-	TextboxNoOverlapVar
+	MessageNoOverlapVar 
 script_080143AC:
 	WaitUntilTextboxCloses
 	Wait 0x001e

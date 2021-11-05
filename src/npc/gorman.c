@@ -99,7 +99,7 @@ void sub_08069888(Entity* this) {
     } else {
         index = 5;
     }
-    TextboxNoOverlap(gUnk_08111C50[index], this);
+    MessageNoOverlap(gUnk_08111C50[index], this);
 }
 
 ASM_FUNC("asm/non_matching/gorman/sub_0806991C.inc", void sub_0806991C(Entity* this, ScriptExecutionContext* context))

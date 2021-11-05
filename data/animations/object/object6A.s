@@ -5,15 +5,15 @@
     .align 2
 
 
-gSpriteAnimations_Object6A_9_0:: @ 08122B4C
-	.include "animations/gSpriteAnimations_Object6A_9_0.s"
+gSpriteAnimations_Object6A_10_0:: @ 08122B4C
+	.include "animations/gSpriteAnimations_Object6A_10_0.s"
 
-gSpriteAnimations_Object6A_9_1:: @ 08122B55
-	.include "animations/gSpriteAnimations_Object6A_9_1.s"
+gSpriteAnimations_Object6A_10_1:: @ 08122B55
+	.include "animations/gSpriteAnimations_Object6A_10_1.s"
 
-gSpriteAnimations_Object6A_9:: @ 08122B64
-	.4byte gSpriteAnimations_Object6A_9_0
-	.4byte gSpriteAnimations_Object6A_9_1
+gSpriteAnimations_Object6A_10:: @ 08122B64
+	.4byte gSpriteAnimations_Object6A_10_0
+	.4byte gSpriteAnimations_Object6A_10_1
 	.4byte 00000000
 
 gSpriteAnimations_Object6A_5_2:: @ 08122B70

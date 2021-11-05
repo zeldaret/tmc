@@ -13,13 +13,13 @@ u32 CheckLocalFlag(u32 flag) {
 }
 
 u32 CheckFlags(u32 flags) {
-    s32 uVar1;
+    s32 type;
     s32 index;
     s32 length;
     index = flags & 0x3ff;
     length = (((flags & (0xf0) << 0x6) >> 0xa) + 1);
-    uVar1 = (flags & 0xc000) >> 0xe;
-    switch ((u32)uVar1) {
+    type = (flags & 0xc000) >> 0xe;
+    switch ((u32)type) {
         case 2:
             return CheckRoomFlags(index, length);
         case 0:

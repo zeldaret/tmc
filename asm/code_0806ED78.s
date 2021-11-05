@@ -818,10 +818,10 @@ _0806F34E:
 	cmp r7, #0
 	beq _0806F35A
 	mov r1, r8
-	bl TextboxNoOverlap
+	bl MessageNoOverlap
 	b _0806F35E
 _0806F35A:
-	bl TextboxNoOverlapFollow
+	bl MessageFromTarget
 _0806F35E:
 	pop {r3}
 	mov r8, r3

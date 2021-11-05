@@ -3,6 +3,7 @@
 #include "flags.h"
 #include "object.h"
 #include "functions.h"
+#include "effects.h"
 
 extern void sub_08098E3C(Entity*);
 extern void sub_08098E88(Entity*);
@@ -43,7 +44,7 @@ void sub_08098D6C(Entity* this) {
     if (CheckFlags(this->field_0x86.HWORD)) {
         this->action = 2;
         this->actionDelay = 0x2d;
-        ent = CreateFx(this, 0x43, 0);
+        ent = CreateFx(this, FX_BIG_EXPLOSION2, 0);
         if (ent != NULL) {
             ent->y.HALF.HI += 8;
         }

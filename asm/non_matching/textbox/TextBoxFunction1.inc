@@ -3,14 +3,14 @@
 	ldr r0, _08056598 @ =gNewWindow
 	movs r1, #8
 	bl MemClear
-	ldr r0, _0805659C @ =gUnk_02024030
+	ldr r0, _0805659C @ =gMessageChoices
 	movs r1, #0x18
 	bl MemClear
-	ldr r4, _080565A0 @ =gCurrentTextBox
+	ldr r4, _080565A0 @ =gTextRender
 	adds r0, r4, #0
 	movs r1, #0xa8
 	bl MemClear
-	ldr r0, _080565A4 @ =gTextBox
+	ldr r0, _080565A4 @ =gMessage
 	adds r1, r4, #0
 	movs r2, #0x20
 	bl MemCopy
@@ -61,12 +61,12 @@ _08056560:
 	strb r0, [r3, #1]
 	movs r0, #0
 	strb r0, [r3, #2]
-	ldr r4, _080565A0 @ =gCurrentTextBox
+	ldr r4, _080565A0 @ =gTextRender
 	adds r0, r4, #0
 	bl sub_08056FBC
 	ldr r0, _080565AC @ =gUnk_08107BE0
 	str r0, [r4, #0x2c]
-	ldr r0, _080565B0 @ =gUnk_02000D00
+	ldr r0, _080565B0 @ =gTextGfxBuffer
 	str r0, [r4, #0x58]
 	adds r4, #0x54
 	movs r0, #0xd0
@@ -74,17 +74,17 @@ _08056560:
 	movs r0, #2
 	bl SetDoTextBox
 	movs r0, #0
-	bl sub_08056BDC
+	bl MsgChangeLine
 	movs r0, #2
-	bl sub_080564C8
+	bl StatusUpdate
 	movs r0, #1
 	pop {r4, pc}
 	.align 2, 0
 _08056598: .4byte gNewWindow
-_0805659C: .4byte gUnk_02024030
-_080565A0: .4byte gCurrentTextBox
-_080565A4: .4byte gTextBox
+_0805659C: .4byte gMessageChoices
+_080565A0: .4byte gTextRender
+_080565A4: .4byte gMessage
 _080565A8: .4byte gSave
 _080565AC: .4byte gUnk_08107BE0
-_080565B0: .4byte gUnk_02000D00
+_080565B0: .4byte gTextGfxBuffer
     .syntax divided

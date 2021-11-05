@@ -3,6 +3,7 @@
 #include "enemy.h"
 #include "random.h"
 #include "functions.h"
+#include "effects.h"
 
 extern Entity* gUnk_020000B0;
 
@@ -39,7 +40,7 @@ void sub_080323F4(Entity* this) {
     if (this->action != 3 && this->action != 4) {
         this->action = 3;
         this->actionDelay = 0xC;
-        this->direction = DirectionTurnAround(this->field_0x3e);
+        this->direction = DirectionTurnAround(this->knockbackDirection);
         InitAnimationForceUpdate(this, this->direction >> 3);
     } else if (this->bitfield == 0xCC) {
         if (this->field_0x43 == 0) {
@@ -222,7 +223,7 @@ void sub_08032794(Entity* this) {
     Entity* target;
     s8* temp;
 
-    target = CreateFx(this, 0x11, 0x40);
+    target = CreateFx(this, FX_DASH, 0x40);
     if (target != NULL) {
         temp = &gUnk_080CE810[this->animationState * 2];
         PositionRelative(this, target, temp[0] << 0x10, temp[1] << 0x10);

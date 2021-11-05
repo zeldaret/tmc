@@ -39,9 +39,9 @@ void sub_0802F150(Entity* this) {
                 this->field_0xf = 0;
                 *(u8*)&this->field_0x7c = 0;
                 if (this->height.HALF.HI != 0) {
-                    this->field_0x20 >>= 2;
+                    this->hVelocity >>= 2;
                 } else {
-                    this->field_0x20 = 0;
+                    this->hVelocity = 0;
                 }
                 InitializeAnimation(this, 0);
                 break;
@@ -95,7 +95,7 @@ void sub_0802F284(Entity* this) {
             this->action = 2;
             this->actionDelay = 0x10;
             this->field_0xf = this->type;
-            this->field_0x20 = this->field_0x82.HWORD << 4;
+            this->hVelocity = this->field_0x82.HWORD << 4;
             sub_0802F45C(this);
             InitializeAnimation(this, 2);
         }
@@ -166,7 +166,7 @@ void sub_0802F3F4(Entity* this) {
             this->action = 2;
             this->actionDelay = 0x10;
             this->field_0xf = this->type;
-            this->field_0x20 = this->field_0x82.HWORD << 4;
+            this->hVelocity = this->field_0x82.HWORD << 4;
             (*(u8*)&this->field_0x7c.HALF.LO)++;
             sub_0802F45C(this);
             InitializeAnimation(this, 2);

@@ -660,8 +660,8 @@ _0801DD7C: .4byte gAreaRoomHeaders
 _0801DD80: .4byte gArea
 _0801DD84: .4byte 0x0000085C
 
-	thumb_func_start sub_0801DD88
-sub_0801DD88: @ 0x0801DD88
+	thumb_func_start LoadDungeonMap
+LoadDungeonMap: @ 0x0801DD88
 	push {lr}
 	ldr r0, _0801DD98 @ =gUnk_0201AEE0
 	ldr r1, _0801DD9C @ =0x06006000
@@ -1034,7 +1034,7 @@ _0801E040: .4byte gUnk_02022740
 	thumb_func_start sub_0801E044
 sub_0801E044: @ 0x0801E044
 	push {lr}
-	ldr r0, _0801E06C @ =gTextBox
+	ldr r0, _0801E06C @ =gMessage
 	ldrb r1, [r0]
 	movs r0, #0x7f
 	ands r0, r1
@@ -1053,7 +1053,7 @@ sub_0801E044: @ 0x0801E044
 _0801E06A:
 	pop {pc}
 	.align 2, 0
-_0801E06C: .4byte gTextBox
+_0801E06C: .4byte gMessage
 _0801E070: .4byte gUnk_02022740
 
 	thumb_func_start sub_0801E074
@@ -1086,7 +1086,7 @@ _0801E09C: .4byte gUnk_02022740
 	thumb_func_start sub_0801E0A0
 sub_0801E0A0: @ 0x0801E0A0
 	push {r4, lr}
-	ldr r0, _0801E0D8 @ =gTextBox
+	ldr r0, _0801E0D8 @ =gMessage
 	ldrb r1, [r0]
 	movs r0, #0x7f
 	ands r0, r1
@@ -1116,7 +1116,7 @@ _0801E0D2:
 _0801E0D4:
 	pop {r4, pc}
 	.align 2, 0
-_0801E0D8: .4byte gTextBox
+_0801E0D8: .4byte gMessage
 _0801E0DC: .4byte gUnk_02022740
 
 	thumb_func_start sub_0801E0E0
@@ -1130,13 +1130,13 @@ sub_0801E0E0: @ 0x0801E0E0
 	cmp r1, #0
 	beq _0801E0FC
 	adds r0, r2, #0
-	bl TextboxNoOverlap
+	bl MessageNoOverlap
 	b _0801E102
 	.align 2, 0
 _0801E0F8: .4byte gUnk_02022740
 _0801E0FC:
 	adds r0, r2, #0
-	bl TextboxNoOverlapFollow
+	bl MessageFromTarget
 _0801E102:
 	pop {pc}
 
@@ -2299,14 +2299,14 @@ _0801E8BC:
 	bl sub_0801E810
 	cmp r0, #0
 	bne _0801E93A
-	ldr r1, _0801E8F4 @ =0x080C9A5C
+	ldr r1, _0801E8F4 @ =gUnk_080FC3E4
 	lsls r0, r4, #3
 	adds r0, r0, r1
 	ldrb r1, [r0, #4]
 	lsls r0, r1, #2
 	adds r0, r0, r1
 	lsls r0, r0, #2
-	ldr r1, _0801E8F8 @ =0x080FDFD0
+	ldr r1, _0801E8F8 @ =gUnk_080FE320
 	adds r2, r0, r1
 	ldrb r0, [r2, #0x10]
 	cmp r0, #4
@@ -2317,8 +2317,8 @@ _0801E8BC:
 	ldr r0, [r0]
 	mov pc, r0
 	.align 2, 0
-_0801E8F4: .4byte 0x080C9A5C
-_0801E8F8: .4byte 0x080FDFD0
+_0801E8F4: .4byte gUnk_080C9CBC
+_0801E8F8: .4byte gUnk_080FE320
 _0801E8FC: .4byte _0801E900
 _0801E900: @ jump table
 	.4byte _0801E914 @ case 0

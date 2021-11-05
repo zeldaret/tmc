@@ -5,6 +5,7 @@
 #include "flags.h"
 #include "audio.h"
 #include "functions.h"
+#include "effects.h"
 
 void sub_080409B0(Entity*);
 void sub_080408EC(Entity*);
@@ -312,7 +313,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
             if (this->actionDelay != 0) {
                 if (--this->actionDelay == 0) {
                     this->flags &= 0x7f;
-                    this->field_0x20 = 0x38000;
+                    this->hVelocity = 0x38000;
                     this->field_0xf = 0x10;
                 }
                 break;
@@ -378,7 +379,7 @@ void VaatiTransfiguredType0Action4(Entity* this) {
                 this->field_0x74.HALF.LO = 0;
                 this->actionDelay = 0x80;
                 this->field_0xf = 0;
-                this->field_0x20 = 0x24000;
+                this->hVelocity = 0x24000;
                 SoundReq(SFX_12B);
             }
             break;
@@ -567,7 +568,7 @@ void VaatiTransfiguredType0Action7(Entity* this) {
     }
     this->field_0xf = (this->field_0xf + 1) & 7;
     if (this->field_0xf == 0) {
-        pEVar3 = CreateFx(this, 0x55, 0);
+        pEVar3 = CreateFx(this, FX_AURA_BASE, 0);
         if (pEVar3 != NULL) {
             uVar4 = Random() & 0x3f3f;
             pEVar3->x.HALF.HI += (uVar4 & 0xff) - 0x20;
@@ -1060,7 +1061,7 @@ void sub_080409B0(Entity* this) {
                     this->field_0x80.HALF.HI = 3;
                     this->flags &= 0x7f;
                     this->damageType = 0x36;
-                    this->field_0x20 = 0x18000;
+                    this->hVelocity = 0x18000;
                     SoundReq(SFX_164);
                 }
             }
@@ -1068,7 +1069,7 @@ void sub_080409B0(Entity* this) {
     }
 
     if (this->field_0x80.HALF.HI < 3) {
-        if (this->field_0x42 != 0) {
+        if (this->knockbackDuration != 0) {
             sub_080AF18C(this);
         }
     } else {

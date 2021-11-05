@@ -66,14 +66,14 @@ void sub_080A9EBC(Entity* this) {
             default:
                 parent = this->parent;
                 parent->iframes = this->iframes;
-                parent->field_0x3e = this->field_0x3e;
-                parent->field_0x42 = this->field_0x42;
+                parent->knockbackDirection = this->knockbackDirection;
+                parent->knockbackDuration = this->knockbackDuration;
                 if (this->action == 1) {
                     sub_080AA320(this);
                 }
                 break;
         }
-        this->field_0x42 = 0;
+        this->knockbackDuration = 0;
     }
 }
 

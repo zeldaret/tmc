@@ -150,7 +150,7 @@ _080622C8: .4byte gPlayerEntity
 _080622CC:
 	adds r0, r4, #0
 	bl GetNextFrame
-	ldr r0, _080622E0 @ =gTextBox
+	ldr r0, _080622E0 @ =gMessage
 	ldrb r1, [r0]
 	movs r0, #0x7f
 	ands r0, r1
@@ -158,7 +158,7 @@ _080622CC:
 	bne _080622F2
 	b _080622EE
 	.align 2, 0
-_080622E0: .4byte gTextBox
+_080622E0: .4byte gMessage
 _080622E4:
 	adds r0, r4, #0
 	bl UpdateFuseInteraction

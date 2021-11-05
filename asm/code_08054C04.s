@@ -2335,7 +2335,7 @@ sub_08055DC0: @ 0x08055DC0
 	cmp r0, #0
 	bne _08055DDC
 	ldr r0, _08055DE4 @ =0x00000A01
-	bl TextboxNoOverlapFollow
+	bl MessageFromTarget
 	ldr r1, _08055DE8 @ =gMenu
 	ldrb r0, [r1, #6]
 	adds r0, #1

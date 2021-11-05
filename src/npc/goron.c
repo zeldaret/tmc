@@ -3,6 +3,7 @@
 #include "functions.h"
 #include "textbox.h"
 #include "script.h"
+#include "effects.h"
 
 extern void (*gUnk_08111A80[])(Entity*);
 extern void (*gUnk_08111A8C[])(Entity*);
@@ -40,13 +41,13 @@ void sub_08069328(Entity* this) {
         this->action = 2;
         sub_0805E47C(this);
         InitAnimationForceUpdate(this, 8);
-        TextboxNoOverlapFollow(this->actionDelay + (0x90 << 5));
+        MessageFromTarget(this->actionDelay + (0x90 << 5));
     }
 }
 
 void sub_08069390(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if ((gTextBox.doTextBox & 0x7F) == 0) {
+    if ((gMessage.doTextBox & 0x7F) == 0) {
         this->action = 1;
         this->interactType = 0;
         sub_0805E584(this);
@@ -79,13 +80,13 @@ void sub_080693D0(Entity* this) {
 }
 
 void sub_08069428(Entity* this, s32 offsetX, bool32 createFx65) {
-    Entity* fx = CreateFx(this, 4, 0);
+    Entity* fx = CreateFx(this, FX_ROCK, 0);
     if (fx) {
         PositionRelative(this, fx, offsetX, 0xFFF00000);
         ResolveEntityOnTop(this, fx);
     }
     if (createFx65 != 0) {
-        fx = CreateFx(this, 65, 0);
+        fx = CreateFx(this, FX_REFLECT4, 0);
         if (fx) {
             PositionRelative(this, fx, offsetX, 0xFFF00000);
             ResolveEntityOnTop(this, fx);

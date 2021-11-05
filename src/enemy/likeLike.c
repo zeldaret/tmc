@@ -6,7 +6,7 @@
 #include "createObject.h"
 #include "functions.h"
 
-extern bool32 sub_080544B4(u32);
+extern bool32 ItemIsShield(u32);
 
 void sub_0802810C(Entity*);
 void sub_080281A0(Entity*);
@@ -207,9 +207,9 @@ void sub_0802805C(Entity* this) {
 NONMATCH("asm/non_matching/likeLike/sub_0802810C.inc", void sub_0802810C(Entity* this)) {
     gPlayerState.jumpStatus = 0x41;
     gPlayerState.field_0xa = 0;
-    gPlayerState.flags.all &= 0xffffffef;
+    gPlayerState.flags &= 0xffffffef;
     gPlayerEntity.flags |= 0x80;
-    gPlayerEntity.field_0x20 = 0x18000;
+    gPlayerEntity.hVelocity = 0x18000;
     gPlayerEntity.iframes = -60;
     gPlayerEntity.direction = gPlayerEntity.animationState << 2;
     gPlayerEntity.spritePriority.b1 = this->field_0x82.HALF.HI;
@@ -229,10 +229,10 @@ void sub_080281A0(Entity* this) {
     this->field_0xf = 0x19;
     if (sub_080281E0(0xe)) {
         this->field_0x80.HALF.LO = 0xe;
-        TextboxNoOverlapFollow(0x578);
+        MessageFromTarget(0x578);
     } else if (sub_080281E0(0xd)) {
         this->field_0x80.HALF.LO = 0xd;
-        TextboxNoOverlapFollow(0x578);
+        MessageFromTarget(0x578);
     } else {
         ModHealth(-1);
     }
@@ -241,11 +241,11 @@ void sub_080281A0(Entity* this) {
 bool32 sub_080281E0(u32 param_1) {
     bool32 ret = FALSE;
     if (GetInventoryValue(param_1) == 1) {
-        if (sub_080544B4(gSave.stats.itemOnA)) {
+        if (ItemIsShield(gSave.stats.itemOnA)) {
             gSave.stats.itemOnA = 0;
         }
 
-        if (sub_080544B4(gSave.stats.itemOnB)) {
+        if (ItemIsShield(gSave.stats.itemOnB)) {
             gSave.stats.itemOnB = 0;
         }
 
@@ -262,7 +262,7 @@ void sub_08028224(u32 param_1) {
 #else
     sub_080A7C18(param_1, 0, 1);
 #endif
-    TextboxNoOverlapFollow(0x579);
+    MessageFromTarget(0x579);
 }
 
 void (*const gUnk_080CC6FC[])(Entity*) = {

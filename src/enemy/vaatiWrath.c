@@ -10,6 +10,7 @@
 #include "structures.h"
 #include "functions.h"
 #include "save.h"
+#include "effects.h"
 
 extern u8 gEntCount;
 
@@ -455,7 +456,7 @@ void VaatiWrathType0ActionA(Entity* this) {
             this->subAction = 0;
             this->direction = 0;
             this->speed = 0x100;
-            this->field_0x20 = 0x12000;
+            this->hVelocity = 0x12000;
             sub_0801D2B4(this, 0x16b);
             InitAnimationForceUpdate(this, 5);
             type1 = ((VaatiWrathHeapStruct*)this->myHeap)->type1;
@@ -625,7 +626,7 @@ void sub_08041CD0(Entity* this) {
         } else {
             this->subAction = 2;
             this->actionDelay = 0x3c;
-            TextboxNoOverlapFollow(0x1651);
+            MessageFromTarget(0x1651);
         }
     } else {
         UpdateAnimationSingleFrame(this);
@@ -636,7 +637,7 @@ void sub_08041D14(Entity* this) {
     Entity* pEVar1;
 
     GetNextFrame(((VaatiWrathHeapStruct*)this->myHeap)->type2);
-    if ((gTextBox.doTextBox & 0x7f) == 0) {
+    if ((gMessage.doTextBox & 0x7f) == 0) {
         if (this->actionDelay != 0) {
             this->actionDelay--;
         } else {
@@ -708,7 +709,7 @@ void sub_08041E78(Entity* this) {
     const s8* temp;
 
     if ((this->field_0xf & 0xf) == 0) {
-        fx = CreateFx(this, 0x51, 0);
+        fx = CreateFx(this, FX_GIANT_EXPLOSION4, 0);
         if (fx != NULL) {
             temp = &gUnk_080D0E90[this->field_0xf >> 3 & 0xe];
             fx->x.HALF.HI += *temp++;

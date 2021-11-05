@@ -110,7 +110,7 @@ _08067F98:
 	.align 2, 0
 _08067FD8: .4byte gPlayerEntity
 _08067FDC:
-	ldr r0, _08067FFC @ =gTextBox
+	ldr r0, _08067FFC @ =gMessage
 	ldrb r1, [r0]
 	movs r0, #0x7f
 	ands r0, r1
@@ -126,7 +126,7 @@ _08067FF2:
 	bl InitializeAnimation
 	b _0806801A
 	.align 2, 0
-_08067FFC: .4byte gTextBox
+_08067FFC: .4byte gMessage
 _08068000:
 	adds r0, r5, #0
 	bl UpdateFuseInteraction

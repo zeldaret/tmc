@@ -18,7 +18,7 @@ _08065DD0: @ jump table
 	.4byte _08065E34 @ case 3
 	.4byte _08065E4E @ case 4
 _08065DE4:
-	ldr r0, _08065E04 @ =gTextBox
+	ldr r0, _08065E04 @ =gMessage
 	ldrb r1, [r0]
 	movs r0, #0x7f
 	ands r0, r1
@@ -34,7 +34,7 @@ _08065DE4:
 	bl InitAnimationForceUpdate
 	b _08065EB0
 	.align 2, 0
-_08065E04: .4byte gTextBox
+_08065E04: .4byte gMessage
 _08065E08:
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
@@ -65,13 +65,13 @@ _08065E34:
 	cmp r0, #0
 	bne _08065EB0
 	movs r0, #0
-	bl TextboxNoOverlapFollow
+	bl MessageFromTarget
 	ldrb r0, [r4, #0xd]
 	adds r0, #1
 	strb r0, [r4, #0xd]
 	b _08065EB0
 _08065E4E:
-	ldr r0, _08065E6C @ =gTextBox
+	ldr r0, _08065E6C @ =gMessage
 	ldrb r1, [r0]
 	movs r0, #0x7f
 	ands r0, r1
@@ -86,7 +86,7 @@ _08065E4E:
 	str r0, [r4, #0x6c]
 	b _08065EB0
 	.align 2, 0
-_08065E6C: .4byte gTextBox
+_08065E6C: .4byte gMessage
 _08065E70: .4byte gUnk_0811022E
 _08065E74:
 	ldrb r0, [r4, #0xe]

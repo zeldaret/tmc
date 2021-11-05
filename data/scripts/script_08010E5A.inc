@@ -47,9 +47,9 @@ SCRIPT_START script_08010E5A
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000020
 	WaitForSomething2 0x00000200
-	TextboxNoOverlapFollowPos 0x1045, 0x000c
+	MessageFromTargetPos 0x1045, 0x000c
 	WaitUntilTextboxCloses
-	TextboxNoOverlapFollowPos 0x1046, 0x0000
+	MessageFromTargetPos 0x1046, 0x0000
 	WaitUntilTextboxCloses
 	CallWithArg CreateManager36, 0x00000002
 	_0807F0C8 0xffff, 0x0000

@@ -2978,7 +2978,7 @@
     }
   },
   {
-    "path": "sounds/sfx152.s",
+    "path": "sounds/sfxNearPortal.s",
     "start": 14563276,
     "type": "midi",
     "options": {

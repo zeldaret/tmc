@@ -3,6 +3,7 @@
 #include "textbox.h"
 #include "functions.h"
 #include "script.h"
+#include "effects.h"
 
 extern void sub_08062CA4();
 
@@ -40,13 +41,13 @@ void sub_08062C24(Entity* ent) {
     GetNextFrame(ent);
     if ((ent->frames.all & 128) != 0) {
         InitializeAnimation(ent, 4);
-        TextboxNoOverlapFollow(2561);
+        MessageFromTarget(2561);
         ent->action++;
     }
 }
 
 void sub_08062C54(Entity* ent) {
-    if ((gTextBox.doTextBox & 127) == 0) {
+    if ((gMessage.doTextBox & 127) == 0) {
         ent->action = 1;
         InitializeAnimation(ent, 0);
         sub_0805E584(ent);
@@ -57,7 +58,7 @@ void sub_08062C7C(Entity* ent) {
     ent->action = 1;
     sub_0807DD64(ent);
     InitializeAnimation(ent, 0);
-    CreateFx(ent, 37, 0);
+    CreateFx(ent, FX_SWEAT, 0);
     sub_08062CA4(ent);
 }
 

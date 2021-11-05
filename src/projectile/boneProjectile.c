@@ -59,7 +59,7 @@ void BoneProjectile_Action2(Entity* this) {
         this->action = 3;
         this->flags = this->flags & 0x7f;
         this->speed = 0xe0;
-        this->field_0x20 = 0xe000;
+        this->hVelocity = 0xe000;
     }
 }
 
@@ -83,7 +83,7 @@ void BoneProjectile_Action4(Entity* this) {
 void sub_080A82D8(Entity* this) {
     this->action = 4;
     this->flags &= 0x7f;
-    this->field_0x20 = 0x10000;
+    this->hVelocity = 0x10000;
     this->direction ^= 0x10;
     this->speed = 0x80;
 }

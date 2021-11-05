@@ -9,6 +9,7 @@
 #include "save.h"
 #include "script.h"
 #include "flags.h"
+#include "effects.h"
 
 extern void sub_08060528(Entity*);
 extern void sub_0806EE04(Entity*, void*, u32);
@@ -64,10 +65,10 @@ void sub_0806045C(Entity* this) {
         case 1:
         case 2:
             this->action = 2;
-            TextboxNoOverlapFollow(0);
+            MessageFromTarget(0);
             break;
         default:
-            bVar1 = this->field_0x3e;
+            bVar1 = this->knockbackDirection;
             if (bVar1 != this->animationState) {
                 this->animationState = bVar1;
                 InitAnimationForceUpdate(this, 4 + bVar1);
@@ -99,7 +100,7 @@ void sub_080604DC(Entity* this) {
     if (((u32)(this->spriteSettings.raw << 0x1e) >> 0x1e == 1) && sub_080040A8(this)) {
         if ((this->frames.all & 1) != 0) {
             this->frames.all &= 0xfe;
-            ent = CreateFx(this, 0x11, 0x40);
+            ent = CreateFx(this, FX_DASH, 0x40);
             if (ent != NULL) {
                 ent->y.HALF.HI++;
                 sub_0805E3A0(ent, 3);
@@ -139,7 +140,7 @@ void sub_08060528(Entity* this) {
             break;
         case 2:
             UpdateAnimationSingleFrame(this);
-            if ((gTextBox.doTextBox & 0x7f) != 0) {
+            if ((gMessage.doTextBox & 0x7f) != 0) {
                 break;
             }
             this->action = 1;
@@ -155,7 +156,7 @@ void sub_08060528(Entity* this) {
     if (0 < (s16)this->field_0x6a.HWORD) {
         if ((s16)this->field_0x6a.HWORD > 0x12b) {
             this->field_0x6a.HWORD = 0;
-            this->field_0x20 = 0x20000;
+            this->hVelocity = 0x20000;
             this->field_0x6c.HALF.HI = 1;
             sub_080788E0(this);
             EnqueueSFX(0x7c);
@@ -164,7 +165,7 @@ void sub_08060528(Entity* this) {
         }
     }
     sub_08003FC4(this, 0x1800);
-    if (((this->field_0x6c.HALF.HI != 0) && (this->field_0x20 == 0)) && this->height.WORD == 0) {
+    if (((this->field_0x6c.HALF.HI != 0) && (this->hVelocity == 0)) && this->height.WORD == 0) {
         this->field_0x6c.HALF.HI = 0;
         sub_080606C0(this);
     }

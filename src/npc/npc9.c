@@ -30,13 +30,13 @@ void sub_08062B14(Entity* this) {
 void sub_08062B48(Entity* this) {
     GetNextFrame(this);
     if ((this->frames.b.f3) != 0) {
-        TextboxNoOverlapFollow(0xa01);
+        MessageFromTarget(0xa01);
         this->action++;
     }
 }
 
 void sub_08062B70(Entity* this) {
-    if ((gTextBox.doTextBox & 0x7f) == 0) {
+    if ((gMessage.doTextBox & 0x7f) == 0) {
         InitializeAnimation(this, 2);
         this->action = 1;
         sub_0805E584(this);

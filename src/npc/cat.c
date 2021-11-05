@@ -151,7 +151,7 @@ void sub_0806797C(Entity* this) {
 
 void sub_0806799C(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if ((gTextBox.doTextBox & 0x7f) == 0) {
+    if ((gMessage.doTextBox & 0x7f) == 0) {
         sub_08067B08(this);
         sub_0805E3A0(this, 1);
     }
@@ -272,7 +272,7 @@ void sub_08067C44(Entity* this) {
     s32 iVar4;
     u32 uVar5;
 
-    uVar5 = -((s32) - (gPlayerState.flags.all & 0x80) >> 0x1f);
+    uVar5 = -((s32) - (gPlayerState.flags & 0x80) >> 0x1f);
     if (uVar5 != this->field_0x68.HALF.HI) {
         if (uVar5 == 0) {
             sub_08078778(this);
