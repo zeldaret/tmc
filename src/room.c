@@ -2240,17 +2240,13 @@ u32 sub_0804CD0C() {
 
 #if defined(DEMO_USA) || defined(DEMO_JP)
 void nullsub_251() {
-<<<<<<< HEAD
-    if (gSaveHeader->saveFileId != 0 && GetInventoryValue(0x40) == 0) {
-=======
 #ifdef DEMO_USA
-    if (gUnk_02000000->saveFileId != 0 && GetInventoryValue(0x40) == 0) {
+    if (gSaveHeader->saveFileId != 0 && GetInventoryValue(0x40) == 0) {
 #else
 #ifdef DEMO_JP
     if (GetInventoryValue(0x40) == 0) {
 #endif
 #endif
->>>>>>> upstream/master
         SetTileType(0x365, 0x349, 1);
         SetTileType(0x365, 0x34a, 1);
         SetTileType(0x365, 0x34b, 1);

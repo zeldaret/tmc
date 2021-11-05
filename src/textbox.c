@@ -499,6 +499,9 @@ static void PaletteChange(TextRender* this, u32 id) {
     this->_50.unk2 = temp;
 }
 
+const u8 gUnk_08107C0F[] = { 0x8, 0x1e, 0x4, 0x12, 0x0 };
+const u8 gUnk_08107C14[] = { 0x8, 0x1e, 0x8, 0xFE, 0x0 };
+
 #ifdef EU
 ASM_FUNC("asm/non_matching/eu/TextBoxHandlerQuestion.inc", static void TextDispEnquiry(TextRender* ctb))
 #else
@@ -508,20 +511,17 @@ static void TextDispEnquiry(TextRender* this) {
     u32 doSwitch;
     const u8* src;
 
-    static const u8 arr1[] = { 0x8, 0x1e, 0x4, 0x12, 0x0 };
-    static const u8 arr2[] = { 0x8, 0x1e, 0x8, 0xFE, 0x0 };
-
     choiceIdx = gMessageChoices.currentChoice;
     switch (gInput.newKeys) {
         case START_BUTTON:
         case A_BUTTON:
             nextTextIdx = gMessageChoices.unk_10[choiceIdx];
             if (nextTextIdx == 0) {
-                src = arr2;
+                src = gUnk_08107C14;
             } else {
                 this->message.textIndex = nextTextIdx;
                 sub_0805EEB4(&this->curToken, nextTextIdx);
-                src = arr1;
+                src = gUnk_08107C0F;
             }
             sub_0805EF40(&this->curToken, src);
             gUnk_02000040.unk_01 = gMessageChoices.currentChoice;
