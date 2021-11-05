@@ -56995,7 +56995,7 @@
     "path": "data_08132B30/gSprite_Link.4bpp",
     "start": 1289748,
     "size": 581216,
-    "type": "graphic",
+    "type": "gfx",
     "options": {
       "width": 4
     }
@@ -57004,7 +57004,7 @@
     "path": "data_08132B30/gSprite_081C8C74.4bpp",
     "start": 1870964,
     "size": 59904,
-    "type": "graphic",
+    "type": "gfx",
     "options": {
       "width": 4
     }
@@ -57013,7 +57013,7 @@
     "path": "data_08132B30/gSprite_081D7674.4bpp",
     "start": 1930868,
     "size": 33216,
-    "type": "graphic",
+    "type": "gfx",
     "options": {
       "width": 4
     }
@@ -57022,7 +57022,7 @@
     "path": "data_08132B30/gSprite_081DF834.4bpp",
     "start": 1964084,
     "size": 129408,
-    "type": "graphic",
+    "type": "gfx",
     "options": {
       "width": 4
     }
@@ -57031,7 +57031,7 @@
     "path": "data_08132B30/gSprite_081FF1B4.4bpp",
     "start": 2093492,
     "size": 103168,
-    "type": "graphic",
+    "type": "gfx",
     "options": {
       "width": 4
     }
@@ -57040,7 +57040,7 @@
     "path": "graphics/npc/postman.4bpp",
     "start": 2196660,
     "size": 22528,
-    "type": "graphic",
+    "type": "gfx",
     "options": {
       "width": 2
     }
@@ -57049,7 +57049,7 @@
     "path": "graphics/npc/malon.4bpp",
     "start": 2219188,
     "size": 3136,
-    "type": "graphic",
+    "type": "gfx",
     "options": {
       "width": 2
     }
@@ -57058,7 +57058,7 @@
     "path": "data_08132B30/gSprite_081FF1B4_1.4bpp",
     "start": 2222324,
     "size": 11527,
-    "type": "graphic",
+    "type": "gfx",
     "options": {
       "width": 4
     }
@@ -57072,7 +57072,7 @@
       "EU": 2231527
     },
     "size": 1014,
-    "type": "graphic",
+    "type": "gfx",
     "options": {
       "width": 4
     }
@@ -57087,7 +57087,7 @@
     ],
     "start": 2233851,
     "size": 1014,
-    "type": "graphic",
+    "type": "gfx",
     "options": {
       "width": 4
     }
@@ -57096,7 +57096,7 @@
     "path": "data_08132B30/gSprite_081FF1B4_4.4bpp",
     "start": 2234865,
     "size": 154339,
-    "type": "graphic",
+    "type": "gfx",
     "options": {
       "width": 4
     }
@@ -57105,7 +57105,7 @@
     "path": "data_08132B30/gSprite_082474D4.4bpp",
     "start": 2389204,
     "size": 578496,
-    "type": "graphic",
+    "type": "gfx",
     "options": {
       "width": 4
     }
@@ -57114,13 +57114,13 @@
     "path": "graphics/pot_portal.4bpp",
     "start": 2967700,
     "size": 4608,
-    "type": "graphic"
+    "type": "gfx"
   },
   {
     "path": "data_08132B30/gSprite_082D4894.4bpp",
     "start": 2972308,
     "size": 69216,
-    "type": "graphic",
+    "type": "gfx",
     "options": {
       "width": 4
     }
@@ -57129,7 +57129,7 @@
     "path": "data_08132B30/gSprite_082E68F4.4bpp",
     "start": 3041524,
     "size": 48896,
-    "type": "graphic",
+    "type": "gfx",
     "options": {
       "width": 4
     }
@@ -57138,7 +57138,7 @@
     "path": "data_08132B30/gSprite_082F27F4.4bpp",
     "start": 3090420,
     "size": 5504,
-    "type": "graphic",
+    "type": "gfx",
     "options": {
       "width": 4
     }

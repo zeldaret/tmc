@@ -164,7 +164,8 @@ setup: $(TOOLDIRS)
 
 # TODO temporary workaround to have translation bins as dependencies manually here as scaninc somehow does not work?
 extractassets: translations/USA.bin translations/English.bin translations/French.bin translations/German.bin translations/Spanish.bin translations/Italian.bin
-	python3 tools/asset_extractor/asset_extractor.py $(GAME_VERSION) $(ASSET_BUILDDIR)
+	tools/asset_processor/asset_processor extract $(GAME_VERSION) $(ASSET_BUILDDIR)
+#	python3 tools/asset_extractor/asset_extractor.py $(GAME_VERSION) $(ASSET_BUILDDIR)
 
 $(TOOLDIRS):
 	@$(MAKE) -C $@
@@ -188,8 +189,6 @@ tidy:
 	rm -f tmc_eu.gba tmc_eu.elf tmc_eu.map
 	rm -r build/*
 
-include graphics_file_rules.mk
-include songs.mk
 
 %.s: ;
 %.png: ;
@@ -203,8 +202,6 @@ include songs.mk
 %.gbapal: %.png ; $(GFX) $< $@
 %.lz: % ; $(GFX) $< $@
 %.rl: % ; $(GFX) $< $@
-sound/%.bin: sound/%.aif ; $(AIF) $< $@
-sound/songs/%.s: sound/songs/%.mid
 	cd $(@D) && ../../$(MID) $(<F)
 translations/USA.bin: translations/USA.json ; tools/tmc_strings/tmc_strings -p --source $< --dest $@ --size 0x499E0
 translations/English.bin: translations/English.json ; tools/tmc_strings/tmc_strings -p --source $< --dest $@ --size 0x488C0
