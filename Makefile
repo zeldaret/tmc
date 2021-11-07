@@ -149,8 +149,8 @@ MAKEFLAGS += --no-print-directory
 
 AUTO_GEN_TARGETS :=
 
-# TODO do we really need this extra step just so that extractassets always runs at first?
-all: extractassets
+# TODO do we really need this extra step just so that the assets are always extracted at first?
+all: build/extracted_assets_$(GAME_VERSION)
 	 @$(MAKE) target GAME_VERSION=$(GAME_VERSION)
 
 target: $(ROM)
@@ -162,10 +162,13 @@ compare: $(ROM)
 
 setup: $(TOOLDIRS)
 
-# TODO temporary workaround to have translation bins as dependencies manually here as scaninc somehow does not work?
-extractassets: translations/USA.bin translations/English.bin translations/French.bin translations/German.bin translations/Spanish.bin translations/Italian.bin
+build/extracted_assets_%: assets/assets.json assets/gfx.json assets/map.json assets/samples.json assets/sounds.json
 	tools/asset_processor/asset_processor extract $(GAME_VERSION) $(ASSET_BUILDDIR)
-#	python3 tools/asset_extractor/asset_extractor.py $(GAME_VERSION) $(ASSET_BUILDDIR)
+	touch $@
+
+# Extract assets to human readable form
+extractassets:
+	tools/asset_processor/asset_processor convert $(GAME_VERSION) $(ASSET_BUILDDIR)
 
 $(TOOLDIRS):
 	@$(MAKE) -C $@

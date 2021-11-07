@@ -43915,829 +43915,829 @@
     "path": "sprites/gSpriteFrames_1.bin",
     "start": 1134488,
     "size": 1012,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_2.bin",
     "start": 1135500,
     "size": 920,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_3.bin",
     "start": 1136420,
     "size": 980,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_4.bin",
     "start": 1137400,
     "size": 932,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_5.bin",
     "start": 1138332,
     "size": 996,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_6.bin",
     "start": 1139328,
     "size": 688,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_7.bin",
     "start": 1140016,
     "size": 856,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_8.bin",
     "start": 1140872,
     "size": 532,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_9.bin",
     "start": 1141404,
     "size": 624,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Object4.bin",
     "start": 1142028,
     "size": 200,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Object6.bin",
     "start": 1142228,
     "size": 400,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_12.bin",
     "start": 1142628,
     "size": 676,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_13.bin",
     "start": 1143304,
     "size": 56,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_14.bin",
     "start": 1143360,
     "size": 924,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_15.bin",
     "start": 1144284,
     "size": 724,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_16.bin",
     "start": 1145008,
     "size": 724,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_17.bin",
     "start": 1145732,
     "size": 480,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_18.bin",
     "start": 1146212,
     "size": 220,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_19.bin",
     "start": 1146432,
     "size": 296,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_20.bin",
     "start": 1146728,
     "size": 108,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_21.bin",
     "start": 1146836,
     "size": 480,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_22.bin",
     "start": 1147316,
     "size": 48,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_24.bin",
     "start": 1147364,
     "size": 84,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_25.bin",
     "start": 1147448,
     "size": 44,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_26.bin",
     "start": 1147492,
     "size": 52,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_27.bin",
     "start": 1147544,
     "size": 256,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_28.bin",
     "start": 1147800,
     "size": 36,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_29.bin",
     "start": 1147836,
     "size": 176,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_30.bin",
     "start": 1148012,
     "size": 60,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_31.bin",
     "start": 1148072,
     "size": 176,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_32.bin",
     "start": 1148248,
     "size": 456,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_33.bin",
     "start": 1148704,
     "size": 72,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Object6A_0.bin",
     "start": 1148776,
     "size": 24,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Object6A_1.bin",
     "start": 1148800,
     "size": 8,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Object6A_2.bin",
     "start": 1148808,
     "size": 12,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_MinishEzlo.bin",
     "start": 1148820,
     "size": 300,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Object6A_3.bin",
     "start": 1149120,
     "size": 136,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Din.bin",
     "start": 1149256,
     "size": 24,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Nayru.bin",
     "start": 1149280,
     "size": 20,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Farore.bin",
     "start": 1149300,
     "size": 20,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Npc5.bin",
     "start": 1149320,
     "size": 632,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_GuardWithSpear.bin",
     "start": 1149952,
     "size": 312,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_KingDaltus.bin",
     "start": 1150264,
     "size": 108,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_MinisterPotho.bin",
     "start": 1150372,
     "size": 44,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Npc26.bin",
     "start": 1150416,
     "size": 12,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Maid.bin",
     "start": 1150428,
     "size": 128,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_TingleSiblings.bin",
     "start": 1150556,
     "size": 168,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Beedle.bin",
     "start": 1150724,
     "size": 56,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Brocco.bin",
     "start": 1150780,
     "size": 40,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Pina.bin",
     "start": 1150820,
     "size": 52,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Postman.bin",
     "start": 1150872,
     "size": 264,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Malon.bin",
     "start": 1151136,
     "size": 68,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Epona.bin",
     "start": 1151204,
     "size": 56,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_MilkCart.bin",
     "start": 1151260,
     "size": 16,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Smith.bin",
     "start": 1151276,
     "size": 92,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Townsperson.bin",
     "start": 1151368,
     "size": 288,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_58.bin",
     "start": 1151656,
     "size": 672,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Kid.bin",
     "start": 1152328,
     "size": 636,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Mailbox.bin",
     "start": 1152964,
     "size": 48,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_SittingPerson.bin",
     "start": 1153012,
     "size": 208,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Mutoh.bin",
     "start": 1153220,
     "size": 40,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Carpenter.bin",
     "start": 1153260,
     "size": 184,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Gorman.bin",
     "start": 1153444,
     "size": 84,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Cat.bin",
     "start": 1153528,
     "size": 124,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_66.bin",
     "start": 1153652,
     "size": 124,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Dog.bin",
     "start": 1153776,
     "size": 140,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_68.bin",
     "start": 1153916,
     "size": 116,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_69.bin",
     "start": 1154032,
     "size": 116,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Syrup.bin",
     "start": 1154148,
     "size": 144,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Percy.bin",
     "start": 1154292,
     "size": 96,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Farmers_0.bin",
     "start": 1154388,
     "size": 84,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Farmers_1.bin",
     "start": 1154472,
     "size": 84,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Dampe.bin",
     "start": 1154556,
     "size": 28,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_KingGustaf.bin",
     "start": 1154584,
     "size": 44,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Gina.bin",
     "start": 1154628,
     "size": 108,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Simon.bin",
     "start": 1154736,
     "size": 40,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Mama.bin",
     "start": 1154776,
     "size": 168,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Teachers.bin",
     "start": 1154944,
     "size": 36,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_80.bin",
     "start": 1154980,
     "size": 48,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_WindTribespeople_0.bin",
     "start": 1155028,
     "size": 72,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_WindTribespeople_1.bin",
     "start": 1155100,
     "size": 48,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_WindTribespeople_2.bin",
     "start": 1155148,
     "size": 28,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_WindTribespeople_3.bin",
     "start": 1155176,
     "size": 60,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_WindTribespeople_4.bin",
     "start": 1155236,
     "size": 40,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_WindTribespeople_5.bin",
     "start": 1155276,
     "size": 24,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_MayorHagen.bin",
     "start": 1155300,
     "size": 64,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_GhostBrothers.bin",
     "start": 1155364,
     "size": 32,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_HurdyGurdyMan.bin",
     "start": 1155396,
     "size": 56,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Cow.bin",
     "start": 1155452,
     "size": 76,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_GoronMerchant.bin",
     "start": 1155528,
     "size": 48,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_92.bin",
     "start": 1155576,
     "size": 48,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Goron.bin",
     "start": 1155624,
     "size": 88,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_CastorWildsStatue.bin",
     "start": 1155712,
     "size": 12,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Npc4F.bin",
     "start": 1155724,
     "size": 28,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Object6A_4.bin",
     "start": 1155752,
     "size": 40,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_97.bin",
     "start": 1155792,
     "size": 44,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_DarkNut_0.bin",
     "start": 1155836,
     "size": 532,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_DarkNut_1.bin",
     "start": 1156368,
     "size": 588,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_ChuchuBoss_0.bin",
     "start": 1156956,
     "size": 76,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_DeathFx_0.bin",
     "start": 1157032,
     "size": 196,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Madderpillar_0.bin",
     "start": 1157228,
     "size": 96,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Gleerok_0.bin",
     "start": 1157324,
     "size": 232,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Keaton.bin",
     "start": 1157556,
     "size": 120,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_MazaalHand.bin",
     "start": 1157676,
     "size": 80,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_ScissorsBeetle.bin",
     "start": 1157756,
     "size": 156,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_MandiblesProjectile.bin",
     "start": 1157912,
     "size": 224,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Stalfos.bin",
     "start": 1158136,
     "size": 300,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Gibdo.bin",
     "start": 1158436,
     "size": 168,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Lakitu.bin",
     "start": 1158604,
     "size": 228,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_LakituCloudProjectile.bin",
     "start": 1158832,
     "size": 40,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_VaatiRebornEnemy_0.bin",
     "start": 1158872,
     "size": 76,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_VaatiRebornEnemy_1.bin",
     "start": 1158948,
     "size": 16,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_VaatiRebornEnemy_2.bin",
     "start": 1158964,
     "size": 48,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_VaatiRebornEnemy_3.bin",
     "start": 1159012,
     "size": 40,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_VaatiBall.bin",
     "start": 1159052,
     "size": 48,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_VaatiTransfigured_0.bin",
     "start": 1159100,
     "size": 20,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_VaatiTransfigured_1.bin",
     "start": 1159120,
     "size": 48,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_VaatiTransfigured_2.bin",
     "start": 1159168,
     "size": 28,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_VaatiTransfigured_3.bin",
     "start": 1159196,
     "size": 16,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_VaatiArm.bin",
     "start": 1159212,
     "size": 132,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_VaatiWrath.bin",
     "start": 1159344,
     "size": 128,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_VaatiReborn.bin",
     "start": 1159472,
     "size": 72,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_MoblinLady_1.bin",
     "start": 1159544,
     "size": 24,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_BallChainSoldier.bin",
     "start": 1159568,
     "size": 132,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_GyorgMale.bin",
     "start": 1159700,
     "size": 68,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_JarPortal.bin",
     "start": 1159768,
     "size": 60,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Beanstalk_0.bin",
     "start": 1159828,
     "size": 104,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Minecart.bin",
     "start": 1159932,
     "size": 80,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_LavaPlatform_1.bin",
     "start": 1160012,
     "size": 72,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_BigVortex.bin",
     "start": 1160084,
     "size": 16,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_MacroBook.bin",
     "start": 1160100,
     "size": 16,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_GentariCurtains.bin",
     "start": 1160116,
     "size": 20,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_SpiderWeb.bin",
     "start": 1160136,
     "size": 64,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Object79.bin",
     "start": 1160200,
     "size": 312,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_OctorokBoss_0.bin",
     "start": 1160512,
     "size": 36,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Bell.bin",
     "start": 1160548,
     "size": 20,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_322.bin",
     "start": 1160568,
     "size": 968,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "sprites/gSpriteFrames_Vaati_1.bin",
     "start": 1161536,
     "size": 76,
-    "type": "sprite_frames"
+    "type": "sprite_frame"
   },
   {
     "path": "playerItem12/gUnk_0811B9A0.bin",
@@ -57151,7 +57151,7 @@
     "starts": {
       "EU": 3093600
     },
-    "size": 199564,
+    "size": 199561,
     "type": "frame_obj_lists"
   },
   {
@@ -57163,7 +57163,7 @@
       "DEMO_JP"
     ],
     "start": 3095924,
-    "size": 200048,
+    "size": 200045,
     "type": "frame_obj_lists"
   },
   {

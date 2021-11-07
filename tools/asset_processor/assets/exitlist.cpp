@@ -1,7 +1,7 @@
 #include "exitlist.h"
 #include "reader.h"
-#include <iostream>
 #include <fstream>
+#include <iostream>
 
 void ExitListAsset::convertToHumanReadable(const std::vector<char>& baserom) {
     Reader reader(baserom, this->start, this->size);
@@ -40,7 +40,7 @@ void ExitListAsset::convertToHumanReadable(const std::vector<char>& baserom) {
         lines.push_back("\n");
     }
 
-    std::ofstream out(this->path.replace_extension("s"));
+    std::ofstream out(this->assetPath);
     for (const auto& line : lines) {
         out << line;
     }

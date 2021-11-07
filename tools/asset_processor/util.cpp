@@ -1,5 +1,4 @@
 #include "util.h"
-#include <cassert>
 #include <iostream>
 
 void check_call(const std::vector<std::string>& cmd) {
@@ -13,8 +12,6 @@ void check_call(const std::vector<std::string>& cmd) {
         }
         cmdstr += segment;
     }
-    // std::cout << cmdstr << std::endl;
-    // assert(false);
     int code = system(cmdstr.c_str());
     if (code != 0) {
         std::cerr << cmdstr << " failed with return code " << code << std::endl;

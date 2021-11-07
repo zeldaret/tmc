@@ -2,13 +2,20 @@
 CXX = g++
 CXXFLAGS = -O3 -Wall -Wextra -std=c++17
 #CXXFLAGS += -g # debug
-INCLUDES = -I include/
-SRCS = src/main.cpp src/asset.cpp src/animation.cpp src/spriteframe.cpp src/reader.cpp src/exitlist.cpp src/frameobjlists.cpp src/midi.cpp src/aif.cpp src/gfx.cpp src/util.cpp src/tileset.cpp src/palette.cpp
+
+SRCS = $(wildcard *.cpp)
+HEADERS = $(wildcard *.h)
+SRCS += $(wildcard assets/*.cpp)
+HEADERS += $(wildcard assets/*.h)
+
+INCLUDES = -I./
+
+.PHONY: all clean
 
 all: asset_processor
 
-asset_processor: $(SRCS)
+asset_processor: $(SRCS) $(HEADERS)
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -o asset_processor $(SRCS) -lstdc++fs
 
 clean:
-	rm asset_processor
+	$(RM) asset_processor asset_processor.exe

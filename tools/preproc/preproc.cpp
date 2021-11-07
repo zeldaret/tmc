@@ -24,7 +24,6 @@
 #include "asm_file.h"
 #include "c_file.h"
 #include "charmap.h"
-#include <algorithm>
 
 Charmap* g_charmap;
 std::string g_buildName;

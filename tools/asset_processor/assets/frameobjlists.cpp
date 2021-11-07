@@ -1,8 +1,8 @@
 #include "frameobjlists.h"
 #include "reader.h"
-#include <iostream>
-#include <fstream>
 #include <algorithm>
+#include <fstream>
+#include <iostream>
 
 void FrameObjListsAsset::convertToHumanReadable(const std::vector<char>& baserom) {
     Reader reader(baserom, this->start, this->size);
@@ -19,21 +19,7 @@ void FrameObjListsAsset::convertToHumanReadable(const std::vector<char>& baserom
             break;
         }
 
-        // std::cout << string_format("0x%x", reader.read_u8()) << std::endl;
-        // std::cout << string_format("0x%x", reader.read_u8()) << std::endl;
-        // std::cout << string_format("0x%x", reader.read_u8()) << std::endl;
-        // std::cout << string_format("0x%x", reader.read_u8()) << std::endl;
-        // reader.cursor -= 4;
-
         u32 pointer = reader.read_u32();
-
-        // std::cout << pointer << std::endl;
-        // std::cout << string_format("0x%x", pointer) << std::endl;
-
-        // if (pointer > 0x10000 || pointer == 0xec0) {
-        //     assert(false);
-        // }
-
         first_level.push_back(pointer);
         lines.push_back(string_format("\t.4byte 0x%x\n", pointer));
     }
@@ -86,10 +72,9 @@ void FrameObjListsAsset::convertToHumanReadable(const std::vector<char>& baserom
         }
     }
 
-    std::ofstream out(this->path.replace_extension("s"));
+    std::ofstream out(this->assetPath);
     for (const auto& line : lines) {
         out << line;
     }
     out.close();
-    // assert(false);
 }
