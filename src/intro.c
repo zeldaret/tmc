@@ -245,7 +245,7 @@ static void HandleTitlescreen(void) {
         LoadGfxGroup(3);
     }
     UpdateLightRays();
-    sub_0805E5C0();
+    UpdateEntities();
     sub_080AD9B0();
 }
 

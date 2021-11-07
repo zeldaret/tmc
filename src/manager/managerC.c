@@ -51,7 +51,7 @@ extern u8 gUnk_03003DE4[0xC];
 extern struct BgAffineDstData gUnk_02017AA0[];
 extern struct BgAffineDstData gUnk_02017BA0[];
 extern u8 gUnk_02017700[];
-extern u8 gUnk_02000070;
+extern u8 gUpdateVisibleTiles;
 extern u32 gUsedPalettes;
 
 void sub_08058894(ManagerC*);
@@ -294,7 +294,7 @@ void sub_08058D34() {
     gScreen.controls.layerFXControl = 0x3456;
     gScreen.controls.alphaBlend = 0x909;
     gArea.musicIndex = gArea.pMusicIndex;
-    gUnk_02000070 = 0;
+    gUpdateVisibleTiles = 0;
     if (CheckGlobalFlag(LV1TARU_OPEN)) {
         LoadGfxGroup(0x4A);
     }

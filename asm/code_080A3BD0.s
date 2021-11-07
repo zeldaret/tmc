@@ -1337,7 +1337,7 @@ _080A45D0:
 	ldr r0, [r0]
 	bl _call_via_r0
 _080A45E0:
-	bl sub_0805E5C0
+	bl UpdateEntities
 	bl sub_0801C1D4
 	bl sub_0801C208
 	bl sub_080AD9B0

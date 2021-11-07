@@ -15,7 +15,7 @@ void DrawKinstoneMenu(void) {
     sub_080A4054();
     sub_0801C1D4();
     sub_0801C208();
-    sub_0805E5C0();
+    UpdateEntities();
     sub_080AD9B0();
     sub_080AD918();
     gScreenTransition.field_0x24[8] = 0;

@@ -655,8 +655,6 @@ _080B21A4: .4byte 0x01010101
 _080B21A8: .4byte gUnk_02000006
 _080B21AC: .4byte gUnk_08000F54
 
-	arm_func_start UpdateEntities
-UpdateEntities: @ 0x080B21B0
 	ldr r11, _080B2270 @ =gUnk_03003DD0
 	ldr r1, [r11]
 	ldm r1, {r7, r8, r9, r10}
@@ -672,6 +670,8 @@ UpdateEntities: @ 0x080B21B0
 @	void* restore_sp;
 @ }
 
+	arm_func_start UpdateEntities_arm
+UpdateEntities_arm: @ 0x080B21B0
 @ UpdateEntities starts here
     @ arg0 (r0) : 0 = entities, 1 = managers
 	ldr r1, _080B2274 @ =gUnk_080026A4

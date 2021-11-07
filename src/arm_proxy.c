@@ -17,7 +17,7 @@ extern u8 gUnk_03000C30;
 
 extern u16* gUnk_02025EB0;
 extern u16* gUnk_0200B650;
-extern u8 gUnk_02000070;
+extern u8 gUpdateVisibleTiles;
 extern u8 gUnk_03003DF0[];
 extern u8 gUnk_03003BE0;
 extern Entity* gUnk_03004040[3];
@@ -116,8 +116,8 @@ void PrepNextFrame(void) {
     UpdateDisplayControls();
     LoadResources();
 
-    if (gUnk_02000070) {
-        gUnk_02000070 = 0;
+    if (gUpdateVisibleTiles) {
+        gUpdateVisibleTiles = 0;
         if (gUnk_02025EB0 != NULL)
             // sizeof(BGBuffer) = 0x800, what are we omitting?
             DmaCopy32(3, &gBG1Buffer, VRAM + (*gUnk_02025EB0 & 0x1f00) * 8, 0x5C0);

@@ -524,7 +524,7 @@ _080464DE:
 	movs r1, #0x80
 	lsls r1, r1, #4
 	bl MemClear
-	ldr r1, _08046514 @ =gUnk_02000070
+	ldr r1, _08046514 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	pop {r4, r5, r6, pc}
@@ -532,7 +532,7 @@ _080464DE:
 _08046508: .4byte gUnk_080D1A74
 _0804650C: .4byte gUnk_02019EE0
 _08046510: .4byte 0x00003260
-_08046514: .4byte gUnk_02000070
+_08046514: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_08046518
 sub_08046518: @ 0x08046518

@@ -2305,7 +2305,7 @@ u32 sub_0804CD44() {
 
 extern EntityData gUnk_080DF94C;
 
-extern u8 gUnk_02000070;
+extern u8 gUpdateVisibleTiles;
 extern u32 gUsedPalettes;
 
 void sub_0804CD48(void) {
@@ -2313,7 +2313,7 @@ void sub_0804CD48(void) {
     if (!CheckLocalFlag(0x48)) {
         SetLocalFlag(0x48);
         MenuFadeIn(5, 0);
-        gUnk_02000070 = 0;
+        gUpdateVisibleTiles = 0;
         gFadeControl.active = 0;
         gUsedPalettes = 0;
         *(u16*)0x5000000 = 0x7fff;
@@ -4888,7 +4888,7 @@ void sub_0804E7DC(void) {
 
     if (!CheckGlobalFlag(START) && !CheckLocalFlag(0x46)) {
         sub_080A71C4(5, 1, 4, 4);
-        gUnk_02000070 = 0;
+        gUpdateVisibleTiles = 0;
         DoFade(5, 0x100);
         sub_080751E8(0, 6, &script_08009B30);
     }

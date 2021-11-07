@@ -18,7 +18,7 @@ SECTIONS {
         . = 0x00000040; gUnk_02000040 = .;
         . = 0x00000050; gMessage = .;
         . = 0x0000005C; gUnk_0200005C = .;
-        . = 0x00000070; gUnk_02000070 = .;
+        . = 0x00000070; gUpdateVisibleTiles = .;
         . = 0x00000080; gMenu = .;
         . = 0x00000080; gIntroState = .;
         . = 0x00000080; gChooseFileState = .;
@@ -278,7 +278,7 @@ SECTIONS {
         . = 0x00005E60; gUnk_03005E60 = .;
         . = 0x00005E98; gUnk_03005E98 = .;
         . = 0x00005F24; _ClearAndUpdateEntities = .;
-        . = 0x00005F40; _UpdateEntities = .;
+        . = 0x00005F40; UpdateEntities_arm = .;
         . = 0x00005FBC; gUnk_03005FBC = .;
         . = 0x00005FF0; gUnk_03005FF0 = .;
         . = 0x000060F0; gUnk_030060F0 = .;
@@ -556,11 +556,6 @@ SECTIONS {
         src/manager/manager37.o(.text);
         src/manager/manager38.o(.text);
         src/manager/manager39.o(.text);
-        asm/sub_0805E248.o(.text);
-        src/sub_0805E374.o(.text);
-        src/sub_0805E3A0.o(.text);
-        asm/code_0805E3B0.o(.text);
-        asm/getEmptyEntity.o(.text);
         src/entity.o(.text);
         src/code_0805EC04.o(.text);
         asm/code_0805EC04.o(.text);

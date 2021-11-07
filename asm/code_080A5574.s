@@ -5120,8 +5120,8 @@ sub_080A74F4: @ 0x080A74F4
 	movs r0, #0
 	strb r0, [r1, #0xb]
 	bl FlushSprites
-	bl sub_0805E5C0
-	bl sub_0805E5F8
+	bl UpdateEntities
+	bl UpdateManagers
 	bl sub_0801C344
 	bl sub_0801C208
 	bl sub_08078CB4

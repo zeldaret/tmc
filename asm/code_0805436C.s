@@ -58,7 +58,7 @@ sub_080548E8: @ 0x080548E8
 	ldr r0, [r0]
 	bl _call_via_r0
 	bl FlushSprites
-	bl sub_0805E5C0
+	bl UpdateEntities
 	bl sub_080AD9B0
 	bl sub_080AD918
 	bl UpdateScroll
@@ -149,7 +149,7 @@ _080549BC:
 	ldrb r1, [r6, #3]
 	bl sub_08052FF4
 	bl sub_0807C740
-	ldr r1, _08054A00 @ =gUnk_02000070
+	ldr r1, _08054A00 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 _080549CE:
@@ -177,7 +177,7 @@ _080549F4:
 	bl sub_08018710
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_08054A00: .4byte gUnk_02000070
+_08054A00: .4byte gUpdateVisibleTiles
 _08054A04: .4byte gScreen
 _08054A08: .4byte 0x00001FFF
 _08054A0C: .4byte gRoomControls

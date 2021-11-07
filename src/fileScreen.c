@@ -175,7 +175,7 @@ void HandleChooseFileScreen(void) {
     sFileScreenSubHandlers[gUnk_02032EC0.lastState]();
 
     gUnk_02019EE0.isTransitioning = FALSE;
-    sub_0805E5C0();
+    UpdateEntities();
     sub_0805066C();
     sub_0801C1D4();
     sub_0801C208();
