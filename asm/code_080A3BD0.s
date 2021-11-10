@@ -1263,7 +1263,7 @@ _080A4550:
 	cmp r0, #7
 	bne _080A456A
 	adds r0, r4, #0
-	bl sub_0806EC78
+	bl InitNPC
 	ldrb r0, [r4, #9]
 	strb r0, [r4, #0xf]
 	movs r0, #0x56

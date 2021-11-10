@@ -33,13 +33,13 @@ void sub_08022434(Entity* this) {
 
 void sub_0802244C(Entity* this) {
     if (this->currentHealth) {
-        if (this->damageType == 0x65) {
+        if (this->hitType == 0x65) {
             switch (this->bitfield & 0x7f) {
                 case 2:
                 case 3:
                     this->action = 2;
                     this->field_0xf = 0x3c;
-                    this->damageType = 0x5c;
+                    this->hitType = 0x5c;
                     this->hitbox = &gUnk_080FD468;
                     InitializeAnimation(this, 0);
                     break;
@@ -54,7 +54,7 @@ void sub_0802244C(Entity* this) {
                 case 0x1a:
                     sub_0804A9FC(this, 0x1c);
                     this->action = 5;
-                    this->damageType = 0x5c;
+                    this->hitType = 0x5c;
                     InitializeAnimation(this, 1);
             }
         } else if (this->bitfield == 0x94) {
@@ -65,7 +65,7 @@ void sub_0802244C(Entity* this) {
 
         if (this->field_0x80.HALF.LO != this->currentHealth) {
             this->action = 5;
-            this->damageType = 0x5c;
+            this->hitType = 0x5c;
             InitializeAnimation(this, 1);
         } else {
             if (this->action == 3) {
@@ -141,7 +141,7 @@ void sub_08022654(Entity* this) {
             GetNextFrame(this);
             if (--this->actionDelay == 0) {
                 this->action = 3;
-                this->damageType = 0x65;
+                this->hitType = 0x65;
                 InitializeAnimation(this, 2);
             }
             break;
@@ -152,7 +152,7 @@ void sub_080226EC(Entity* this) {
     if (sub_08049FDC(this, 1)) {
         if (sub_080228CC(this)) {
             this->action = 3;
-            this->damageType = 0x65;
+            this->hitType = 0x65;
             InitializeAnimation(this, 2);
             return;
         }
@@ -162,7 +162,7 @@ void sub_080226EC(Entity* this) {
             this->hVelocity = 0x12000;
             this->speed = 0x140;
             this->direction = GetFacingDirection(this, gUnk_020000B0);
-            this->damageType = 0x5a;
+            this->hitType = 0x5a;
             InitializeAnimation(this, 4);
             return;
         }
@@ -196,7 +196,7 @@ void sub_080227AC(Entity* this) {
 
     if (this->frames.all & 2) {
         this->frames.all &= ~2;
-        this->damageType = 0x5c;
+        this->hitType = 0x5c;
     }
 
     if (this->frames.all & 0x80) {
@@ -223,7 +223,7 @@ void sub_08022854(Entity* this) {
         sub_080AEFE0(this);
         if (sub_08003FC4(this, 0x1800) == 0) {
             this->action = 7;
-            this->damageType = 0x5c;
+            this->hitType = 0x5c;
             InitializeAnimation(this, 5);
             EnqueueSFX(0x7d);
         }

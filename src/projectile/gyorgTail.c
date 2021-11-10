@@ -40,9 +40,9 @@ void GyorgTail(Entity* this) {
         this->spritePriority.b0 = parent->spritePriority.b0 - 2;
 
         if ((parent->spriteRendering.b3 == 3) && (parent->field_0x7c.BYTES.byte0 == 0)) {
-            this->flags &= 0x7f;
+            COLLISION_OFF(this);
         } else {
-            this->flags |= 0x80;
+            COLLISION_ON(this);
         }
     }
 }
@@ -68,17 +68,17 @@ void sub_080AC480(Entity* this) {
     if (this->actionDelay != 0) {
         if (this->parent->currentHealth == 0) {
             this->action = 1;
-            this->damageType = 0x1d;
+            this->hitType = 0x1d;
         } else {
             if (--this->actionDelay == 0) {
-                this->damageType = 0x1c;
+                this->hitType = 0x1c;
                 SoundReq(SFX_116);
             }
         }
     } else {
         if (--this->field_0xf == 0) {
             this->action = 1;
-            this->damageType = 0x1d;
+            this->hitType = 0x1d;
         }
         this->field_0x7c.HALF_U.LO += ((s16)this->field_0x7a.HWORD >= 1) ? 0x300 : -0x300;
         this->direction = this->field_0x7c.HALF.LO >> 8;

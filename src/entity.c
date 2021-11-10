@@ -66,14 +66,14 @@ void sub_0805E374(Entity* param_1) {
 
 void sub_0805E3A0(void* ent, u32 param) {
     Entity* e = (Entity*)ent;
-    e->scriptedScene2 = param;
-    e->scriptedScene = param;
+    e->updateConditions2 = param;
+    e->updateConditions = param;
 }
 
-bool32 sub_0805E3B0(Entity* this) {
+bool32 CheckDontUpdate(Entity* this) {
     u32 value;
 
-    if (this->flags & 0x10)
+    if (this->flags & ENT_ASLEEP)
         return TRUE;
     if (this->action == 0)
         return FALSE;
@@ -85,7 +85,7 @@ bool32 sub_0805E3B0(Entity* this) {
 
     if (gMessage.doTextBox & 0x7F)
         value = value < 2 ? 2 : value;
-    return value > this->scriptedScene;
+    return value > this->updateConditions;
 }
 
 bool32 sub_0805E40C(void) {
@@ -124,16 +124,16 @@ void sub_0805E470(void) {
 }
 
 void sub_0805E47C(Entity* this) {
-    this->scriptedScene2 = this->scriptedScene;
-    this->scriptedScene = 2;
+    this->updateConditions2 = this->updateConditions;
+    this->updateConditions = 2;
     if (sub_0805E450(2))
         gUnk_03003DC0.unk4 = this;
 }
 
 void sub_0805E4A0(Entity* this) {
     sub_08078A90(1);
-    this->scriptedScene2 = this->scriptedScene;
-    this->scriptedScene = 3;
+    this->updateConditions2 = this->updateConditions;
+    this->updateConditions = 3;
     if (sub_0805E450(1))
         gUnk_03003DC0.unk4 = this;
 }
@@ -145,8 +145,8 @@ void sub_0805E4CC(Entity* this) {
 
 void sub_0805E4E0(Entity* a1, u32 a2) {
     if (a1 != NULL) {
-        a1->scriptedScene2 = a1->scriptedScene;
-        a1->scriptedScene = 3;
+        a1->updateConditions2 = a1->updateConditions;
+        a1->updateConditions = 3;
     }
     if (sub_0805E450(1u))
         gUnk_03003DC0.unk4 = a1;
@@ -167,16 +167,16 @@ void sub_0805E524(void) {
 
 void sub_0805E544(void) {
     gUnk_03003DC0.unk0 = 6;
-    gPlayerEntity.scriptedScene = 6;
+    gPlayerEntity.updateConditions = 6;
 }
 
 void UnfreezeTime() {
     gUnk_03003DC0.unk0 = 0;
-    gPlayerEntity.scriptedScene = 1;
+    gPlayerEntity.updateConditions = 1;
 }
 
 void sub_0805E584(Entity* e) {
-    e->scriptedScene = e->scriptedScene2;
+    e->updateConditions = e->updateConditions2;
     sub_0805E470();
 }
 
@@ -317,7 +317,7 @@ void DeleteEntity(Entity* ent) {
         if (ent->kind == ENEMY) {
             sub_0804AA1C(ent);
         }
-        ent->flags = ent->flags & 0x7f;
+        COLLISION_OFF(ent);
         ent->spriteSettings.b.draw = 0;
         ent->field_0x3c = 0;
         ent->bitfield = 0;
@@ -440,7 +440,7 @@ void sub_0805E9A8(void) {
     } while (++list < &gEntityLists[9]);
 }
 
-void sub_0805E9F4(void) {
+void DeleteSleepingEntities(void) {
     Entity* ent;
     Entity* next;
     LinkedList* list;
@@ -449,7 +449,7 @@ void sub_0805E9F4(void) {
     do {
         for (ent = list->first; (u32)ent != (u32)list; ent = next) {
             next = ent->next;
-            if (ent->flags & 0x10)
+            if (ent->flags & ENT_ASLEEP)
                 DeleteEntityAny(ent);
         }
     } while (++list < &gEntityLists[9]);

@@ -40,7 +40,7 @@ void sub_0803EB44(Entity* this) {
     if (pEVar1 != NULL) {
         pEVar1->parent = this;
         this->attachedEntity = pEVar1;
-        this->flags |= 0x80;
+        COLLISION_ON(this);
         this->spriteSettings.b.draw = TRUE;
         this->animationState = 2;
         *((u8*)&this->field_0x7a + 1) = 0;

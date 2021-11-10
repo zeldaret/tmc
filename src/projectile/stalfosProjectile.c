@@ -32,7 +32,7 @@ void StalfosProjectile_OnTick(Entity* this) {
 void sub_080A9A34(Entity* this) {
     if (this->bitfield == 0x9d) {
         this->action = 3;
-        this->flags &= 0x7f;
+        COLLISION_OFF(this);
         this->hVelocity = 0x2a000;
         this->spritePriority.b1 = 1;
     }
@@ -59,7 +59,7 @@ void StalfosProjectile_SubAction2(Entity* this) {
 }
 
 void StalfosProjectile_SubAction3(Entity* this) {
-    this->flags &= 0x7f;
+    COLLISION_OFF(this);
 }
 
 void StalfosProjectile_SubAction4(Entity* this) {
@@ -73,7 +73,7 @@ void StalfosProjectile_Init(Entity* this) {
     switch (this->type2) {
         case 1:
             this->action = 2;
-            this->flags |= 0x80;
+            COLLISION_ON(this);
             break;
         case 2:
             this->action = 3;

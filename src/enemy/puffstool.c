@@ -66,7 +66,7 @@ void sub_08025020(Entity* this) {
                 this->field_0x82.HALF.LO -= gUnk_080CBFE8[(*(Entity**)&this->field_0x4c)->type];
             } else {
                 this->cutsceneBeh.HWORD = 0x294;
-                this->damageType = 0x83;
+                this->hitType = 0x83;
                 this->field_0x82.HALF.LO = 0;
                 sub_0801D2B4(this, 0x7c);
             }
@@ -85,7 +85,7 @@ void sub_08025020(Entity* this) {
             }
             break;
         default:
-            if (this->damageType == 0x82 && this->iframes < 0) {
+            if (this->hitType == 0x82 && this->iframes < 0) {
                 Entity* ent = CreateObject(OBJECT_21, 2, 0);
                 if (ent != NULL) {
                     ent->spritePriority.b0 = 3;
@@ -131,7 +131,7 @@ void sub_080251AC(Entity* this) {
         }
     } else {
         this->cutsceneBeh.HWORD = 0x294;
-        this->damageType = 0x83;
+        this->hitType = 0x83;
         this->field_0x82.HALF.LO = 0;
         sub_0801D2B4(this, 0x7c);
     }
@@ -275,7 +275,7 @@ void sub_080254B4(Entity* this) {
     if (this->frames.all & 0x80) {
         if (this->height.HALF.HI == 0) {
             if (this->cutsceneBeh.HWORD == 0) {
-                this->damageType = 0x82;
+                this->hitType = 0x82;
                 this->field_0x82.HALF.LO = -0x10;
                 sub_080256B4(this);
             } else {
@@ -361,7 +361,7 @@ void sub_0802563C(Entity* this) {
 
     if (--this->cutsceneBeh.HWORD == 0) {
         sub_0801D2B4(this, 0x28);
-        this->damageType = 0x82;
+        this->hitType = 0x82;
         this->field_0x82.HALF.LO = 240;
         sub_080256B4(this);
         sub_0804AA1C(this);

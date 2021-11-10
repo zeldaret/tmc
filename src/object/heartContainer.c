@@ -31,7 +31,7 @@ static void sub_0808E6A0(Entity* this) {
     this->spriteSettings.b.draw = 0;
     this->hitbox = &gUnk_08121C58;
     this->collisionLayer = 3;
-    this->scriptedScene = 3;
+    this->updateConditions = 3;
 }
 
 static void sub_0808E6E4(Entity* this) {

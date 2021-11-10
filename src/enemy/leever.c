@@ -92,7 +92,7 @@ void Leever_DigUp(Entity* this) {
         InitializeAnimation(this, LeeverAnimation_Attack);
     } else if (this->frames.b.f0 != 0) {
         this->frames.all &= 0xfe;
-        this->flags |= 0x80;
+        COLLISION_ON(this);
     }
 }
 
@@ -102,7 +102,7 @@ void Leever_Attack(Entity* this) {
 
     if (--this->field_0x74.HWORD == 0) {
         this->action = 4;
-        this->flags &= 0x7f;
+        COLLISION_OFF(this);
         InitializeAnimation(this, LeeverAnimation_DigDown);
     }
 }

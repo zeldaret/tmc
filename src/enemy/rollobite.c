@@ -30,12 +30,12 @@ void Rollobite_OnTick(Entity* this) {
 }
 
 void sub_08020668(Entity* this) {
-    if (this->damageType == 34 && this->currentHealth != 0xff) {
+    if (this->hitType == 34 && this->currentHealth != 0xff) {
         this->action = 4;
         this->hVelocity = 0x20000;
         this->direction = 0xff;
         this->currentHealth = 0xff;
-        this->damageType = 35;
+        this->hitType = 35;
         InitializeAnimation(this, this->animationState + 8);
     }
 
@@ -67,7 +67,7 @@ void sub_080206E0(Entity* this) {
 void sub_08020734(Entity* this) {
     if (this->subAction < 3 && !sub_0806F520(this)) {
         this->action = 4;
-        this->flags |= 0x80;
+        COLLISION_ON(this);
         this->direction = 0xff;
         InitializeAnimation(this, this->animationState + 0x10);
     } else {
@@ -89,7 +89,7 @@ void sub_08020790(Entity* this) {
 }
 
 void sub_08020798(Entity* this) {
-    this->flags &= ~0x80;
+    COLLISION_OFF(this);
 }
 
 void nullsub_6(Entity* this) {
@@ -98,7 +98,7 @@ void nullsub_6(Entity* this) {
 
 void sub_080207A8(Entity* this) {
     this->action = 4;
-    this->flags |= 0x80;
+    COLLISION_ON(this);
     this->spritePriority.b0 = 4;
     this->field_0x3a &= 0xfb;
     this->direction ^= 0x10;
@@ -139,7 +139,7 @@ void sub_08020874(Entity* this) {
 
 void sub_0802088C(Entity* this) {
     this->subAction = 1;
-    this->flags &= ~0x80;
+    COLLISION_OFF(this);
     this->cutsceneBeh.HALF.HI = gPlayerEntity.animationState;
     this->spritePriority.b1 = 0;
 }
@@ -159,7 +159,7 @@ void sub_080208F0(Entity* this) {
 
 void sub_08020904(Entity* this) {
     this->action = 4;
-    this->flags |= 0x80;
+    COLLISION_ON(this);
     this->direction = -1;
     InitializeAnimation(this, this->animationState + 0x10);
 }
@@ -195,9 +195,9 @@ void Rollobite_RolledUp(Entity* this) {
 void Rollobite_Unroll(Entity* this) {
     GetNextFrame(this);
     if (this->frames.all & 0x80) {
-        this->flags |= 0x80;
+        COLLISION_ON(this);
         this->speed = 0x100;
-        this->damageType = 34;
+        this->hitType = 34;
         sub_08020A30(this);
         this->direction = DirectionFromAnimationState(this->animationState);
         InitializeAnimation(this, this->animationState);
@@ -257,7 +257,7 @@ bool32 Rollobite_TryToHoleUp(Entity* this) {
         int iVar1 = GetTileType(tile, this->collisionLayer);
         if ((iVar1 * 0x10000 - 0x710000U) >> 0x10 < 2) {
             this->action = 6;
-            this->flags &= ~0x80;
+            COLLISION_OFF(this);
             this->x.HALF.HI &= 0xfff0;
             this->x.HALF.HI += 8;
             this->y.HALF.HI &= 0xfff0;

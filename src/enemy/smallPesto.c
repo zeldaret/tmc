@@ -36,7 +36,7 @@ void sub_0803169C(Entity* this) {
     if (iVar1 == 0) {
         this->action = 1;
         this->subAction = 0;
-        this->flags = this->flags | 0x80;
+        COLLISION_ON(this);
         this->speed = 0x40;
         this->field_0xf = 1;
     } else {

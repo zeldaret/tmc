@@ -1113,7 +1113,7 @@ void sub_08048004(Entity* this) {
     if (this->action == 0)
         return;
     if (this->animIndex == 0) {
-        this->flags &= ~0x80;
+        COLLISION_OFF(this);
         if (gPlayerEntity.height.HALF.HI != 0)
             return;
         if (!sub_08079F8C())
@@ -1151,7 +1151,7 @@ void sub_08048004(Entity* this) {
             this->field_0x7c.BYTES.byte0 = 0;
         }
     } else {
-        this->flags |= 0x80;
+        COLLISION_ON(this);
     }
 }
 

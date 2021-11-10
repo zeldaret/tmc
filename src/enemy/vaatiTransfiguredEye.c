@@ -125,7 +125,7 @@ void VaatiTransfiguredEyeFunction0Action1(Entity* this) {
     if (this->field_0x82.HALF.LO == 0) {
         if ((this->frames.all & 0x80) != 0) {
             if (this->type != 0) {
-                this->flags |= 0x80;
+                COLLISION_ON(this);
             }
             this->action = 2;
             InitializeAnimation(this, this->type << 3);
@@ -149,7 +149,7 @@ void VaatiTransfiguredEyeFunction0Action2(Entity* this) {
         this->action = 4;
         this->field_0xf = 0;
         if (this->type != 0) {
-            this->flags &= 0x7f;
+            COLLISION_OFF(this);
             if (this->actionDelay != 0) {
                 InitializeAnimation(this, this->type << 3 | 5);
                 InitializeAnimation(this->parent, this->parent->type << 3 | 5);
@@ -167,10 +167,10 @@ void VaatiTransfiguredEyeFunction0Action3(Entity* this) {
         this->action = 2;
         if (this->type != 0) {
             if (this->actionDelay == 0) {
-                this->damageType = 0x32;
+                this->hitType = 0x32;
             } else {
                 this->parent->parent->field_0x76.HALF.LO |= (1 << this->type2);
-                this->damageType = 0x31;
+                this->hitType = 0x31;
             }
         }
     }
@@ -195,7 +195,7 @@ void VaatiTransfiguredEyeFunction0Action4(Entity* this) {
             this->field_0x80.HALF.HI = 0;
             this->cutsceneBeh.HALF.HI = 0;
             if (this->type != 0) {
-                this->damageType = 0x33;
+                this->hitType = 0x33;
             }
             if ((parent->field_0x74.HALF.HI >> this->type2 & 1U) != 0) {
                 this->actionDelay = 1;

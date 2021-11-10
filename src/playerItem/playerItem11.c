@@ -33,16 +33,16 @@ void sub_08018CBC(Entity* this) {
     uVar2 = this->animationState = gPlayerEntity.animationState & 0xe;
     this->direction = (u8)(uVar2 << 2);
     this->speed = 0x400;
-    this->damageType = 0x96;
+    this->hitType = 0x96;
     this->field_0x3c = (gPlayerEntity.field_0x3c + 1) | 0x80;
     this->flags2 = gPlayerEntity.flags2;
     pEVar3 = this->attachedEntity;
     if (pEVar3 != NULL) {
         this->action = 1;
-        this->flags = this->flags & 0x7f;
+        COLLISION_OFF(this);
         this->actionDelay = 0x56;
-        this->field_0x40 = 0x1c;
-        this->field_0x44 = 6;
+        this->hurtType = 0x1c;
+        this->damage = 6;
         this->hitbox = &gUnk_080B3E18;
         this->attachedEntity->spriteOffsetX = 0;
         this->attachedEntity->spriteSettings.b.draw = 0;
@@ -57,8 +57,8 @@ void sub_08018CBC(Entity* this) {
         this->spriteVramOffset = 0;
         this->type = gPlayerState.field_0x1d[0] - 1;
         this->actionDelay = gUnk_080B3DE0[this->type * 2];
-        this->field_0x44 = gUnk_080B3DE0[this->type * 2 + 1];
-        this->field_0x40 = 0x1b;
+        this->damage = gUnk_080B3DE0[this->type * 2 + 1];
+        this->hurtType = 0x1b;
         this->hitbox = gUnk_080B3DE8[this->type];
         (u32*)gPlayerEntity.field_0x70.WORD = this;
         sub_08078CD0(&gPlayerEntity);
@@ -83,7 +83,7 @@ void sub_08018DE8(Entity* this) {
             break;
         case 5:
             this->attachedEntity->subAction = 4;
-            this->flags = this->flags | 0x80;
+            COLLISION_ON(this);
             this->action = 2;
             this->spritePriority.b0 = 2;
             this->attachedEntity->spriteSettings.b.draw = 1;

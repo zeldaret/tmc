@@ -47,7 +47,7 @@ void sub_08029300(Entity* this) {
 }
 
 void sub_08029318(Entity* this) {
-    if (this->damageType == 0x8e) {
+    if (this->hitType == 0x8e) {
         sub_08029770(this);
     } else {
         if (this->action == 4) {
@@ -126,7 +126,7 @@ void sub_08029474(Entity* this) {
     } else {
         if (this->frames.all == 1) {
             this->frames.all = 0;
-            this->flags |= 0x80;
+            COLLISION_ON(this);
         }
     }
 }
@@ -142,7 +142,7 @@ void sub_080294D4(Entity* this) {
         sub_080296C8(this);
     } else {
         this->action = 6;
-        this->flags &= 0x7f;
+        COLLISION_OFF(this);
         InitializeAnimation(this, 3);
         InitializeAnimation(this->attachedEntity, 7);
     }
@@ -252,12 +252,12 @@ void sub_08029770(Entity* this) {
     u32 temp;
     if (LoadFixedGFX(this, 0x73) != 0) {
         this->action = 2;
-        this->flags = this->flags & 0x7f;
+        COLLISION_OFF(this);
         this->spriteIndex = 0xd1;
         this->spritePriority.b1 = 3;
         temp = this->field_0x82.HALF.LO;
         this->palette.b.b0 = temp;
-        this->damageType = 0x8d;
+        this->hitType = 0x8d;
         this->hitbox = &gUnk_080FD260;
         InitializeAnimation(this, 2);
         this->attachedEntity->spriteSettings.b.draw = TRUE;
@@ -270,9 +270,9 @@ void sub_080297F0(Entity* this) {
     u32 temp;
     this->action = 1;
     this->actionDelay = 0x78;
-    this->flags = this->flags | 0x80;
+    COLLISION_ON(this);
     this->spriteSettings.b.draw = TRUE;
-    this->damageType = 0x8e;
+    this->hitType = 0x8e;
     sub_080AE068(this);
 #ifdef EU
     this->spriteIndex = 0x142;

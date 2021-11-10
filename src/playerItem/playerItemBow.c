@@ -33,7 +33,7 @@ void sub_08019444(Entity* this) {
 }
 
 void sub_08019468(Entity* this) {
-    if (this->field_0x40 == 0x0e) {
+    if (this->hurtType == 0x0e) {
         CreateFx(this, FX_REFLECT5, 0);
     }
 }

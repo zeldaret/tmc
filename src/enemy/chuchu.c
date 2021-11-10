@@ -52,11 +52,11 @@ void Chuchu(Entity* this) {
             if (index != this->field_0x80.HALF.HI) {
                 switch (this->type) {
                     case 0:
-                        if (this->flags & 0x80) {
+                        if (this->flags & ENT_COLLIDE) {
                             this->action = 6;
-                            this->flags &= ~0x80;
+                            COLLISION_OFF(this);
                             this->speed = 0x20;
-                            this->damageType = 0x5c;
+                            this->hitType = 0x5c;
                             InitializeAnimation(this, 5);
                         }
                         break;
@@ -100,7 +100,7 @@ void sub_0801EF40(Entity* this) {
 
     if (this->type == 2) {
         if (this->bitfield == 0x8e || this->bitfield == 0x95) {
-            this->flags &= ~0x80;
+            COLLISION_OFF(this);
             this->currentHealth = 0;
         }
     }
@@ -180,7 +180,7 @@ void sub_0801F0C8(Entity* this) {
         this->actionDelay = (Random() & 3) + 0xc;
         this->field_0xf = Random();
         this->direction = sub_08049F84(this, 1);
-        this->flags |= 0x80;
+        COLLISION_ON(this);
         this->spritePriority.b0 = 4;
         this->spritePriority.b1 = 3;
         InitializeAnimation(this, 2);
@@ -213,7 +213,7 @@ void sub_0801F1B0(Entity* this) {
     if (this->frames.all & 0x10) {
         if (this->frames.all & 1) {
             this->frames.all ^= 1;
-            this->damageType = 90;
+            this->hitType = 90;
             EnqueueSFX(299);
         }
         sub_080AEFE0(this);
@@ -287,7 +287,7 @@ void sub_0801F2F8(Entity* this) {
 
 void sub_0801F328(Entity* this) {
     this->action = 6;
-    this->flags &= ~0x80;
+    COLLISION_OFF(this);
     InitializeAnimation(this, 5);
 }
 
@@ -295,7 +295,7 @@ void sub_0801F340(Entity* this) {
     this->action = 5;
     this->actionDelay = 60;
     this->speed = 0x20;
-    this->damageType = 92;
+    this->hitType = 92;
     InitializeAnimation(this, 2);
 }
 
@@ -346,7 +346,7 @@ void sub_0801F428(Entity* this) {
 
     this->action = 3;
     this->field_0xf = 30;
-    this->flags |= 0x80;
+    COLLISION_ON(this);
     this->spritePriority.b1 = 3;
     this->spriteSettings.b.draw = 1;
     InitializeAnimation(this, 2);
@@ -363,7 +363,7 @@ void sub_0801F494(Entity* this) {
         this->action = 3;
         this->field_0xf = 30;
         this->direction = sub_08049F84(this, 1);
-        this->flags |= 0x80;
+        COLLISION_ON(this);
         this->spritePriority.b0 = 4;
         this->spritePriority.b1 = 3;
         InitializeAnimation(this, 2);
@@ -404,7 +404,7 @@ void sub_0801F584(Entity* this) {
     if (this->frames.all & 0x10) {
         if (this->frames.all & 0x1) {
             this->frames.all ^= 1;
-            this->damageType = 91;
+            this->hitType = 91;
             EnqueueSFX(299);
         }
         sub_080AEFE0(this);
@@ -423,7 +423,7 @@ void sub_0801F584(Entity* this) {
             this->action = 6;
             this->field_0xf = 60;
             this->speed = 0x20;
-            this->damageType = 92;
+            this->hitType = 92;
             InitializeAnimation(this, 2);
         }
     }
@@ -482,7 +482,7 @@ void sub_0801F6F8(Entity* this) {
 
 void sub_0801F730(Entity* this) {
     this->action = 7;
-    this->flags &= ~0x80;
+    COLLISION_OFF(this);
     InitializeAnimation(this, 5);
 }
 
@@ -537,7 +537,7 @@ void sub_0801F840(Entity* this) {
     GetNextFrame(this);
     if (this->frames.all & 0x80) {
         sub_0801FB14(this);
-        this->flags |= 0x80;
+        COLLISION_ON(this);
         this->spritePriority.b0 = 4;
         this->spritePriority.b1 = 3;
     }
@@ -552,7 +552,7 @@ void sub_0801F884(Entity* this) {
         if (ent) {
             ent->type2 = 64;
             this->action = 4;
-            this->damageType = 165;
+            this->hitType = 165;
             EnqueueSFX(0x193);
         }
     }
@@ -656,7 +656,7 @@ void sub_0801FAAC(Entity* this) {
 
 void sub_0801FAE0(Entity* this) {
     this->action = 7;
-    this->flags &= ~0x80;
+    COLLISION_OFF(this);
     InitializeAnimation(this, 5);
 }
 
@@ -687,13 +687,13 @@ void sub_0801FB68(Entity* this) {
             break;
         case 1:
             this->action = 10;
-            this->flags |= 0x80;
+            COLLISION_ON(this);
             this->spriteSettings.b.draw = 1;
             this->spritePriority.b1 = 3;
             break;
         case 2:
             this->action = 10;
-            this->damageType = 92;
+            this->hitType = 92;
             sub_0804AA1C(this);
             break;
     }

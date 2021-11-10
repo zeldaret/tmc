@@ -42,7 +42,7 @@ void sub_0802BBAC(Entity* this) {
 }
 
 void sub_0802BBC4(Entity* this) {
-    if (this->damageType != 0x19) {
+    if (this->hitType != 0x19) {
         switch (this->bitfield & 0x7f) {
             case 0:
             case 2:
@@ -62,7 +62,7 @@ void sub_0802BBC4(Entity* this) {
 }
 
 void sub_0802BC20(Entity* this) {
-    if (this->damageType != 0x19) {
+    if (this->hitType != 0x19) {
         if (sub_0806F520(this)) {
             gUnk_080CD42C[this->subAction](this);
         }
@@ -84,13 +84,13 @@ void sub_0802BCA0(Entity* this) {
 }
 
 void sub_0802BCA8(Entity* this) {
-    if (this->damageType != 0x19) {
+    if (this->hitType != 0x19) {
         Entity* ent;
 
         this->action = 7;
         this->actionDelay = 0x5a;
         this->hVelocity = 0x18000;
-        this->damageType = 0x19;
+        this->hitType = 0x19;
         this->field_0x3a = this->field_0x3a & 0xfb;
         this->field_0x1c = 0x12;
         ent = CreateEnemy(HELMASAUR, 1);
@@ -112,7 +112,7 @@ void sub_0802BD08(Entity* this) {
 }
 
 void sub_0802BD10(Entity* this) {
-    this->flags &= ~0x80;
+    COLLISION_OFF(this);
     UpdateAnimationVariableFrames(this, 2);
 }
 
@@ -121,8 +121,8 @@ void nullsub_145(Entity* this) {
 }
 
 void sub_0802BD28(Entity* this) {
-    if (this->flags & 0x80) {
-        this->flags |= 0x80;
+    if (this->flags & ENT_COLLIDE) {
+        COLLISION_ON(this);
         this->field_0x3a &= ~0x4;
     } else {
         this->currentHealth = 0;
@@ -265,7 +265,7 @@ void sub_0802BF98(Entity* this) {
     } else {
         this->action = 2;
         this->actionDelay = 30;
-        this->flags &= ~0x80;
+        COLLISION_OFF(this);
     }
 }
 

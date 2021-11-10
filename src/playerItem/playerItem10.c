@@ -86,7 +86,7 @@ void sub_080ACC04(Entity* this) {
     this->flags2 = gPlayerEntity.flags2;
     this->direction = this->animationState << 2;
     this->speed = 0x200;
-    this->flags |= 0xa0;
+    this->flags |= ENT_COLLIDE | ENT_20;
     this->field_0x3c = 2;
     this->hitbox = (Hitbox*)gUnk_0812AAD8[this->type];
     this->field_0x70.WORD = 0x10;

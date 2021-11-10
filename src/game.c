@@ -259,7 +259,7 @@ void InitializePlayer(void) {
     MemClear((void*)&gUnk_03000B80, sizeof(gUnk_03000B80));
     MemClear((void*)&gPlayerState, 0xb0);
 
-    MemFill32(0xffffffff, &gPlayerState.field_0x40, 0x40);
+    MemFill32(0xffffffff, &gPlayerState.hurtType, 0x40);
     pl = &gPlayerEntity;
     MemClear((void*)pl, 0x88);
     gRoomControls.cameraTarget = pl;

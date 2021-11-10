@@ -50,14 +50,14 @@ void sub_08022254(Entity* this) {
 #endif
                     sub_0804A4E4(this, ent);
                     this->action = 2;
-                    this->flags &= ~0x80;
+                    COLLISION_OFF(this);
                     this->spriteSettings.b.draw = 0;
                     this->direction = this->knockbackDirection;
                     this->attachedEntity = ent;
                 }
         }
     } else {
-        if (this->damageType != 0x94)
+        if (this->hitType != 0x94)
             InitializeAnimation(this, 2);
     }
 

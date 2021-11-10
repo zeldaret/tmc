@@ -55,11 +55,11 @@ void sub_0802891C(Entity* this) {
 void sub_08028934(Entity* this) {
     Entity* pEVar1;
 
-    if (this->damageType == 1 && (this->bitfield & 0x7f) == 0x42) {
+    if (this->hitType == 1 && (this->bitfield & 0x7f) == 0x42) {
         this->action = 3;
         this->subAction = 0;
         this->actionDelay = 0x28;
-        this->flags &= ~0x80;
+        COLLISION_OFF(this);
         sub_080290E0(this, 4);
         pEVar1 = CreateFx(this, FX_BUSH, 0);
         if (pEVar1 != NULL) {
@@ -90,7 +90,7 @@ void sub_08028994(Entity* this) {
         this->actionDelay = 0;
         this->field_0x76.HWORD = COORD_TO_TILE(this);
         this->field_0x74.HWORD = sub_080001DA(this->field_0x76.HWORD, this->collisionLayer);
-        this->field_0x40 = 0x41;
+        this->hurtType = 0x41;
         sub_08028FFC(this);
     }
 }
@@ -417,7 +417,7 @@ bool32 sub_08028FDC(Entity* this) {
 
 void sub_08028FFC(Entity* this) {
     this->action = 1;
-    this->flags &= ~0x80;
+    COLLISION_OFF(this);
     this->spritePriority.b1 = 0;
     sub_080AE068(this);
     UnloadOBJPalette(this);
@@ -433,7 +433,7 @@ void sub_08028FFC(Entity* this) {
 
 void sub_08029078(Entity* this) {
     this->action = 2;
-    this->flags = this->flags | 0x80;
+    COLLISION_ON(this);
     this->spritePriority.b1 = 1;
     if (LoadFixedGFX(this, 0x72) == 0) {
         DeleteEntity(this);

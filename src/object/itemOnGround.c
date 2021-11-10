@@ -50,7 +50,7 @@ void ItemOnGround(Entity* this) {
         switch (this->bitfield & 0x7F) {
             case 20:
                 this->action = 3;
-                this->flags &= 0x7F;
+                COLLISION_OFF(this);
                 this->spriteSettings.b.draw = 1;
                 this->field_0x3c |= 0x10;
                 this->attachedEntity = this->field_0x4c;
@@ -93,22 +93,22 @@ void sub_08080F20(Entity* this) {
         this->spriteSettings.b.draw = 1;
         this->spritePriority.b1 = 3;
         this->spriteSettings.b.shadow = 0;
-        this->damageType = 7;
+        this->hitType = 7;
         this->field_0x3c = 0x47;
-        this->field_0x40 = 0x44;
+        this->hurtType = 0x44;
         this->currentHealth = 0xFF;
         this->hitbox = &gUnk_080FD1A8;
-        switch (this->type - 0x3F) {
-            case 0:
-            case 21:
-            case 22:
-            case 23:
-            case 24:
-            case 25:
-            case 29:
-            case 30:
-            case 31:
-            case 32:
+        switch (this->type) {
+            case 0x3f:
+            case 0x54:
+            case 0x55:
+            case 0x56:
+            case 0x57:
+            case 0x58:
+            case 0x5c:
+            case 0x5d:
+            case 0x5e:
+            case 0x5f:
                 this->flags2 = 0x17;
                 break;
             default:
@@ -165,7 +165,7 @@ void sub_080810FC(Entity* this) {
     } else {
         this->action = 2;
         this->subAction = 0;
-        this->flags |= 0x80;
+        COLLISION_ON(this);
         this->flags2 = 0x11;
         CopyPosition(&gPlayerEntity, this);
     }
@@ -179,7 +179,7 @@ void sub_08081134(Entity* this) {
 
 void sub_08081150(Entity* this) {
     this->action = 2;
-    this->flags |= 0x80;
+    COLLISION_ON(this);
     this->height.HALF.HI = -0x80;
     this->spriteOrientation.flipY = 1;
     this->spriteRendering.b3 = 1;
@@ -188,7 +188,7 @@ void sub_08081150(Entity* this) {
 
 void sub_08081188(Entity* this) {
     this->action = 2;
-    this->flags |= 0x80;
+    COLLISION_ON(this);
     if (this->collisionLayer == 2) {
         sub_08016A30(this);
     }
@@ -220,7 +220,7 @@ void sub_080811EC(Entity* this) {
     sub_08003FC4(this, 0x2800);
     if (this->hVelocity <= 0) {
         this->action = 2;
-        this->flags |= 0x80;
+        COLLISION_ON(this);
         sub_080814A4(this);
     }
 }
@@ -430,7 +430,7 @@ void sub_08081598(Entity* this) {
         sub_08081404(this, 1);
     }
 
-    this->flags &= 0x7F;
+    COLLISION_OFF(this);
     this->action = 4;
     this->actionDelay = 14;
     this->hVelocity = 0x20000;

@@ -89,7 +89,7 @@ void OctorokBossProjectile_Action1(Entity* this) {
                 this->speed = 0x400;
                 this->type2 = 1;
                 this->actionDelay = 0;
-                this->flags &= 0x7f;
+                COLLISION_OFF(this);
             }
             if (sub_0806FC80(this, this->parent, 0x40) != 0) {
                 if (this->type2 == 0) {

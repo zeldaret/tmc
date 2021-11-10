@@ -188,14 +188,14 @@ void sub_0808F3DC(Entity* this) {
                 return;
             }
         } else {
-            this->damageType = this->attachedEntity->damageType;
-            this->attachedEntity->damageType = 0x7E;
+            this->hitType = this->attachedEntity->hitType;
+            this->attachedEntity->hitType = 0x7E;
         }
         ResolveEntityOnTop(this->attachedEntity, this);
     } else {
         if (*(u32*)&this->parent->field_0x74 == 0) {
             if (this->type == 8) {
-                this->attachedEntity->damageType = this->damageType;
+                this->attachedEntity->hitType = this->hitType;
             }
             DeleteThisEntity();
         }

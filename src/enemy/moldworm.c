@@ -67,7 +67,7 @@ void sub_080230E4(Entity* this) {
         this->action = 7;
         this->actionDelay = 1;
         this->subAction = 0;
-        this->damageType = 0x85;
+        this->hitType = 0x85;
         this->iframes = -8;
         this->field_0x7c.BYTES.byte3 = 0;
         this->field_0x7a.HALF.HI = 0;
@@ -170,7 +170,7 @@ void sub_08023330(Entity* this) {
     if (this->frames.all & 0x80) {
         this->action = 4;
         this->actionDelay = 0x19;
-        this->flags |= 0x80;
+        COLLISION_ON(this);
         this->field_0x78.HWORD = 600;
         this->direction = Random() & 0x1c;
         this->animationState = this->direction >> 2;
@@ -196,8 +196,8 @@ void sub_08023398(Entity* this) {
         if (sub_08023A38(GetTileTypeByEntity(this))) {
             this->action = 5;
             this->field_0x7c.BYTES.byte3 = 0;
-            this->flags = this->flags & 0x7f;
-            this->damageType = 0x85;
+            COLLISION_OFF(this);
+            this->hitType = 0x85;
             this->attachedEntity->actionDelay = 1;
             sub_08023A68(this);
             CreateFx(this, FX_ROCK, 0);
@@ -299,7 +299,7 @@ void sub_08023604(Entity* this) {
     if (((u8*)&this->field_0x78)[this->parent->field_0x7c.BYTES.byte0 & 0xf] != 0x88) {
         this->action = 2;
         this->actionDelay = 0;
-        this->flags |= 0x80;
+        COLLISION_ON(this);
         this->spriteSettings.b.draw = 1;
         sub_08023644(this);
     }
@@ -311,7 +311,7 @@ void sub_08023644(Entity* this) {
     if (parent->animIndex == 0x17 && this->actionDelay != 0 && this->x.HALF.HI == parent->x.HALF.HI &&
         this->y.HALF.HI == parent->y.HALF.HI) {
         this->action = 1;
-        this->flags &= ~0x80;
+        COLLISION_OFF(this);
         this->spriteSettings.b.draw = 0;
         this->attachedEntity->actionDelay = 1;
         sub_080239F0(this);
@@ -364,7 +364,7 @@ void sub_0802376C(Entity* this) {
     if (((u8*)&this->field_0x78)[parent->field_0x7c.BYTES.byte0 & 0xf] != 0x88) {
         this->action = 2;
         this->actionDelay = 0;
-        this->flags |= 0x80;
+        COLLISION_ON(this);
         this->parent->field_0x7c.BYTES.byte3 = 1;
         sub_08023A88(this, 20);
         sub_080237D8(this);
@@ -377,7 +377,7 @@ void sub_080237D8(Entity* this) {
     if (parent->animIndex == 0x17 && this->actionDelay != 0 && this->x.HALF.HI == parent->x.HALF.HI &&
         this->y.HALF.HI == parent->y.HALF.HI) {
         this->action = 1;
-        this->flags &= ~0x80;
+        COLLISION_OFF(this);
         this->spriteSettings.b.draw = 0;
         parent->field_0x7c.BYTES.byte3 = 1;
         sub_080239F0(this);
@@ -499,7 +499,7 @@ void sub_08023AB0(Entity* this) {
         if (this->field_0x7c.BYTES.byte2) {
             this->field_0x7c.BYTES.byte2--;
         } else if (!sub_08023B38(this) || 0x1d >= this->field_0x78.HWORD) {
-            this->damageType = 0x85;
+            this->hitType = 0x85;
             this->field_0x7a.HALF.HI = 0;
             this->field_0x7c.BYTES.byte2 = 30;
             InitializeAnimation(this, this->animationState);
@@ -507,7 +507,7 @@ void sub_08023AB0(Entity* this) {
     } else if (this->field_0x7c.BYTES.byte2) {
         this->field_0x7c.BYTES.byte2--;
     } else if (this->field_0x78.HWORD >= 90 && sub_08023B38(this)) {
-        this->damageType = 0x87;
+        this->hitType = 0x87;
         this->field_0x7a.HALF.HI = 8;
         this->field_0x7c.BYTES.byte2 = 10;
         InitializeAnimation(this, this->animationState + 8);

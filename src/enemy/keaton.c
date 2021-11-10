@@ -40,7 +40,7 @@ void sub_080323F4(Entity* this) {
     if (this->action != 3 && this->action != 4) {
         this->action = 3;
         this->actionDelay = 0xC;
-        this->direction = DirectionTurnAround(this->knockbackDirection);
+        this->direction = DirectionTurnAround(DirectionRoundUp(this->knockbackDirection));
         InitAnimationForceUpdate(this, this->direction >> 3);
     } else if (this->bitfield == 0xCC) {
         if (this->field_0x43 == 0) {

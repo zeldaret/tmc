@@ -134,11 +134,11 @@ void sub_08060AE0(Entity* this) {
         this->myHeap = (u32*)heapObj;
         heapObj->unk_0b = 0x20;
         this->action = 1;
-        this->flags |= 0x80;
+        COLLISION_ON(this);
         this->animationState &= 3;
         this->field_0x3c = 7;
-        this->field_0x40 = 0x48;
-        this->damageType = 0x49;
+        this->hurtType = 0x48;
+        this->hitType = 0x49;
         this->flags2 = 3;
         this->hitbox = &gUnk_080FD150;
         this->field_0x17 &= 0xfe;

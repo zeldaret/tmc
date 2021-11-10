@@ -26,11 +26,11 @@ void sub_0809EA1C(Entity* this) {
 
 void sub_0809EA34(Entity* this) {
     this->action = 1;
-    this->flags = this->flags | 0x80;
+    COLLISION_ON(this);
     this->frameIndex = 0;
     this->field_0x3c = 7;
-    this->field_0x40 = 0x48;
-    this->damageType = 0x28;
+    this->hurtType = 0x48;
+    this->hitType = 0x28;
     this->flags2 = 10;
     this->hitbox = &gUnk_080FD150;
     sub_0809EAD8(this);
@@ -98,11 +98,11 @@ void sub_0809EB68(Entity* this) {
 void sub_0809EB80(Entity* this) {
 
     this->action = 1;
-    this->flags = this->flags | 0x80;
+    COLLISION_ON(this);
     this->frameIndex = 3;
     this->field_0x3c = 7;
-    this->field_0x40 = 0x48;
-    this->damageType = 0x28;
+    this->hurtType = 0x48;
+    this->hitType = 0x28;
     this->flags2 = 10;
     this->hitbox = &gUnk_080FD150;
     sub_0809EAD8(this);

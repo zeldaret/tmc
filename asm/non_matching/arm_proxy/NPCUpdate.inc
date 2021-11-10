@@ -23,10 +23,10 @@ _08017550:
 	cmp r0, #0
 	bne _08017566
 	adds r0, r4, #0
-	bl sub_0806EC78
+	bl InitNPC
 _08017566:
 	adds r0, r4, #0
-	bl sub_0805E3B0
+	bl CheckDontUpdate
 	cmp r0, #0
 	bne _08017584
 	ldr r2, _080175DC @ =gNPCFunctions

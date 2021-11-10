@@ -22,7 +22,7 @@ void MazaalEnergyBeam_Action1(Entity* this) {
 
     if (--this->actionDelay == 0) {
         this->action = 2;
-        this->flags &= 0x7f;
+        COLLISION_OFF(this);
         this->spritePriority.b0 = 7;
         this->y.HALF.HI += 6;
         InitializeAnimation(this, 1);

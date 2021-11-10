@@ -71,7 +71,7 @@ void sub_0801EB7C(Entity* this) {
 }
 
 void sub_0801EB84(Entity* this) {
-    this->flags &= 0x7f;
+    COLLISION_OFF(this);
     UpdateAnimationVariableFrames(this, 2);
 }
 
@@ -80,8 +80,8 @@ void nullsub_3(Entity* this) {
 }
 
 void sub_0801EB9C(Entity* this) {
-    if (this->flags & 0x80) {
-        this->flags |= 0x80;
+    if (this->flags & ENT_COLLIDE) {
+        COLLISION_ON(this);
         this->field_0x3a &= 0xfb;
     } else {
         this->currentHealth = 0;

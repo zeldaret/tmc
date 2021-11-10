@@ -77,7 +77,7 @@ void sub_080220F0(Entity* this) {
 
         this->action = 4;
         this->actionDelay = 0x78;
-        this->field_0x44 = 0;
+        this->damage = 0;
         off = gUnk_080CB76C[this->type2];
         for (i = 0; i < 6; i++, off++) {
             Entity* fx = CreateFx(this, FX_DASH, 0);
@@ -88,7 +88,7 @@ void sub_080220F0(Entity* this) {
         }
         EnqueueSFX(260);
     } else if (this->frames.all & 1) {
-        this->field_0x44 = 4;
+        this->damage = 4;
     }
 }
 

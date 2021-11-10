@@ -20,10 +20,10 @@ void JarPortal(Entity* this) {
 }
 
 void sub_0808BE9C(Entity* this) {
-    this->flags |= 0x80;
-    this->damageType = 1;
+    COLLISION_ON(this);
+    this->hitType = 1;
     this->field_0x3c = 0x47;
-    this->field_0x40 = 0x44;
+    this->hurtType = 0x44;
     this->flags2 = 0x80;
     this->field_0x68.HALF.LO = 0;
     if (CheckLocalFlag(this->type)) {

@@ -331,10 +331,8 @@ SECTIONS {
 
 
         /* C source compiled with interworking */
-        asm/code_08016B30.o(.text);
-        asm/updateBackgroundRegisters.o(.text);
-        src/arm_proxy.o(.text);
-        asm/code_08016DF8.o(.text);
+        src/interrupts.o(.text);
+        src/collision.o(.text);
         /* C source compiled without interworking */
         asm/code_08018500.o(.text);
         src/code_08018C58.o(.text);
@@ -757,7 +755,6 @@ SECTIONS {
         asm/object36.o(.text);
         asm/object37.o(.text);
         src/object/jarPortal.o(.text);
-        asm/jarPortal.o(.text);
         asm/bossDoor.o(.text);
         asm/object3A.o(.text);
         asm/macroMushroomStalks.o(.text);

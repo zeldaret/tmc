@@ -47,18 +47,18 @@ NONMATCH("asm/non_matching/gibdo/sub_080374A4.inc", void sub_080374A4(Entity* th
         }
         this->action = 0x8;
         this->actionDelay = 0x3c;
-        this->flags &= 0x7F;
+        COLLISION_OFF(this);
         sub_08037B48(this);
     } else {
         if (this->action != 0x6) {
-            if (this->damageType == 0x27) {
+            if (this->hitType == 0x27) {
                 if (this->bitfield == 0x80) {
                     sub_08037A14(this);
                 }
             } else {
                 if ((u8)(this->action - 1) < 2) {
                     this->action = 1;
-                    x = DirectionTurnAround(this->knockbackDirection);
+                    x = DirectionTurnAround(DirectionRoundUp(this->knockbackDirection));
                     this->direction = x;
                     this->animationState = x >> 3;
                     InitAnimationForceUpdate(this, this->animationState);
@@ -153,7 +153,7 @@ void sub_08037690(Entity* this) {
         sub_08037794(this);
     } else {
         if ((this->frames.all & 1) != 0) {
-            this->damageType = 0x27;
+            this->hitType = 0x27;
             ProcessMovement(this);
         }
     }
@@ -202,7 +202,7 @@ void sub_0803775C(Entity* this) {
 void sub_08037794(Entity* this) {
     this->action = 1;
     this->field_0x74.HWORD = 0x1e;
-    this->damageType = 0x26;
+    this->hitType = 0x26;
     InitAnimationForceUpdate(this, this->animationState);
 }
 
@@ -339,7 +339,7 @@ void sub_08037A58(Entity* this) {
     if (this->iframes == 0) {
         this->iframes = 0xec;
     }
-    this->damageType = 0x26;
+    this->hitType = 0x26;
     this->flags2 |= 1;
     this->iframes = 0xf4;
     this->knockbackDirection = DirectionFromAnimationState(this->animationState) ^ 0x10;

@@ -63,7 +63,7 @@ void sub_08020BB8(Entity* this) {
         case 0x1c:
             this->action = 11;
             this->actionDelay = gUnk_080CAB0C[this->type];
-            this->damageType = 81;
+            this->hitType = 81;
             sub_08021218(this, 8, DirectionToAnimationState(this->knockbackDirection ^ 0x10));
             sub_08021588(this);
             sub_0804A9FC(this, 0x1c);
@@ -71,7 +71,7 @@ void sub_08020BB8(Entity* this) {
         case 0x16:
             this->action = 11;
             this->actionDelay = gUnk_080CAB10[this->type];
-            this->damageType = 81;
+            this->hitType = 81;
             sub_08021218(this, 8, DirectionToAnimationState(this->knockbackDirection ^ 0x10));
             sub_08021588(this);
             sub_0804A9FC(this, 0x1c);
@@ -263,7 +263,7 @@ void sub_08020FE4(Entity* this) {
 void sub_08021010(Entity* this) {
     UpdateAnimationSingleFrame(this);
     if (this->frames.all & 0x80) {
-        this->damageType = 0x56;
+        this->hitType = 0x56;
         sub_080213F0(this);
     }
 }
@@ -288,7 +288,7 @@ void sub_08021038(Entity* this) {
     } else {
         UpdateAnimationSingleFrame(this);
         if (this->frames.all == 4)
-            this->damageType = 81;
+            this->hitType = 81;
     }
 }
 
@@ -445,7 +445,7 @@ void sub_08021380(Entity* this) {
 void sub_08021390(Entity* this) {
     this->action = 7;
     this->speed = 0x200;
-    this->damageType = 0x56;
+    this->hitType = 0x56;
     sub_08021218(this, 6, this->animationState);
 }
 
@@ -568,7 +568,7 @@ void sub_0802159C(Entity* this) {
         Entity* ent;
 
         this->frames.all = 0;
-        this->damageType = 0x51;
+        this->hitType = 0x51;
         ent = CreateProjectileWithParent(this, 0, 3);
         if (ent) {
             ent->parent = this;
@@ -589,7 +589,7 @@ void sub_08021600(Entity* this) {
         Entity* ent;
 
         this->frames.all = 0;
-        this->damageType = 0x51;
+        this->hitType = 0x51;
         ent = CreateProjectileWithParent(this, 0, 4);
         if (ent) {
             ent->parent = this;

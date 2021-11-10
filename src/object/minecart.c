@@ -45,10 +45,10 @@ void sub_080916EC(Entity* this) {
     this->type2 = unk->field_0x6;
     this->action = 1;
     this->hitbox = &gUnk_080FD310;
-    this->flags |= 0x80;
-    this->damageType = 1;
+    COLLISION_ON(this);
+    this->hitType = 1;
     this->field_0x3c = 0x47;
-    this->field_0x40 = 0x44;
+    this->hurtType = 0x44;
     this->flags2 = 0x80;
     this->direction = DirectionFromAnimationState(this->animationState);
     this->speed = 0x700;
@@ -105,12 +105,12 @@ void sub_080918A4(Entity* this) {
             gPlayerState.flags = (gPlayerState.flags ^ 0x4000000) | 0x1000;
             this->action++;
             this->field_0xf = 1;
-            this->flags |= 0x20;
-            this->damageType = 0x97;
+            this->flags |= ENT_20;
+            this->hitType = 0x97;
             this->field_0x3c = (gPlayerEntity.field_0x3c + 1) | 0x20;
             this->flags2 = gPlayerEntity.flags2;
-            this->field_0x40 = 0x18;
-            this->field_0x44 = 8;
+            this->hurtType = 0x18;
+            this->damage = 8;
             sub_0801766C(this);
             sub_0807BA8C(COORD_TO_TILE(this), this->collisionLayer);
             SoundReq(SFX_137);
@@ -134,7 +134,7 @@ void sub_080919AC(Entity* this) {
     }
 
     if ((gPlayerEntity.frames.all & 0xf) == 0) {
-        this->flags = this->flags & 0x7f;
+        COLLISION_OFF(this);
         CopyPosition(this, &gPlayerEntity);
         if ((gPlayerEntity.frames.all & 0xf0) == 0x10) {
             this->spriteOffsetY = 1;
@@ -142,7 +142,7 @@ void sub_080919AC(Entity* this) {
             this->spriteOffsetY = 0;
         }
     } else {
-        this->flags = this->flags | 0x80;
+        COLLISION_ON(this);
         gPlayerEntity.speed = 0;
         sub_0806F69C(this);
         CopyPosition(this, &gPlayerEntity);
@@ -166,10 +166,10 @@ void sub_080919AC(Entity* this) {
             } else {
                 switch (uVar3) {
                     case 0x64:
-                        this->flags = this->flags & 0xdf;
-                        this->damageType = 1;
+                        this->flags &= ~ENT_20;
+                        this->hitType = 1;
                         this->field_0x3c = 0x47;
-                        this->field_0x40 = 0x44;
+                        this->hurtType = 0x44;
                         this->flags2 = 0x80;
                         this->action = 6;
                         sub_08017744(this);

@@ -55,7 +55,7 @@ void sub_080298A4(Entity* this) {
             default:
                 this->action = 2;
                 this->actionDelay = 0;
-                this->damageType = 0x6b;
+                this->hitType = 0x6b;
                 this->field_0x76.HALF.HI = 0;
                 sub_0801D2B4(this, 0x7f);
                 EnqueueSFX(0xfe);
@@ -115,7 +115,7 @@ void sub_0802999C(Entity* this) {
         ent5->attachedEntity = ent6;
 
         this->action = 1;
-        this->flags |= 0x80;
+        COLLISION_ON(this);
         this->direction = DirectionRound(Random());
         this->speed = 0xa0;
         this->animationState = 0xff;
@@ -138,7 +138,7 @@ void sub_08029AA4(Entity* this) {
     if (this->field_0x76.HALF.HI != 0) {
         this->action = 3;
         this->speed = 0x108;
-        this->damageType = 0x6a;
+        this->hitType = 0x6a;
         this->field_0x7a.HWORD = 0x168;
         this->field_0x74.HALF.HI = 4;
         sub_08029EEC(this);
@@ -168,7 +168,7 @@ void sub_08029B2C(Entity* this) {
                 DeleteEntity(this);
             }
         } else {
-            this->flags &= ~0x80;
+            COLLISION_OFF(this);
             this->actionDelay = -(this->type * 15 - 90);
             this->field_0x86.HALF.LO = 1;
         }
@@ -210,7 +210,7 @@ void sub_08029BC4(Entity* this) {
 void sub_08029C08(Entity* this) {
     this->action = 3;
     this->actionDelay = gUnk_080CCDA0[this->type];
-    this->damageType = 0x6b;
+    this->hitType = 0x6b;
     this->attachedEntity->action = 2;
 }
 
@@ -225,7 +225,7 @@ void sub_08029C2C(Entity* this) {
 void sub_08029C50(Entity* this) {
     if (this->parent->field_0x76.HALF.HI != 0) {
         this->action = 5;
-        this->damageType = 0x6a;
+        this->hitType = 0x6a;
     }
 }
 
@@ -279,7 +279,7 @@ void sub_08029D14(Entity* this) {
         if (this->frames.all & 0x80) {
             this->action = 4;
             this->actionDelay = 0x78;
-            this->damageType = 0x6c;
+            this->hitType = 0x6c;
             this->hitbox = &gUnk_080FD298;
             EnqueueSFX(0x6b);
         }
@@ -290,7 +290,7 @@ void sub_08029D78(Entity* this) {
     sub_0802A0F8(this);
     if (--this->actionDelay == 0) {
         this->action = 5;
-        this->damageType = 0x6a;
+        this->hitType = 0x6a;
         this->hitbox = (Hitbox*)&gUnk_080FD2A0;
         InitializeAnimation(this, this->animationState + 0x10);
     }

@@ -69,7 +69,7 @@ void RockProjectile_Action3(Entity* this) {
             DeleteEntity(this);
             return;
         case 1:
-            this->flags &= 0x7f;
+            COLLISION_OFF(this);
             this->speed = 0x120;
             if (sub_0800442E(this) != 0) {
                 return;
@@ -77,14 +77,14 @@ void RockProjectile_Action3(Entity* this) {
 
             break;
     }
-    if ((this->flags & 0x80) == 0) {
+    if ((this->flags & ENT_COLLIDE) == 0) {
         this->spriteSettings.b.draw ^= 1;
     }
 }
 
 void sub_080A8178(Entity* this) {
     this->action = 2;
-    this->flags &= 0x7f;
+    COLLISION_OFF(this);
     this->speed = 0x40;
     this->hVelocity = 0x14000;
 }

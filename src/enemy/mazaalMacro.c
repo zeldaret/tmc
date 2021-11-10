@@ -229,7 +229,7 @@ void sub_08034FA0(Entity* this) {
 void sub_08035050(Entity* this) {
     Entity* entity;
 
-    this->flags = this->flags & 0x7f;
+    COLLISION_OFF(this);
     this->currentHealth = 0;
     entity = CreateEnemy(VAATI_PROJECTILE, 0);
     if (entity != NULL) {

@@ -66,8 +66,8 @@ void sub_080677EC(Entity* this) {
     this->direction = 8;
     this->speed = 0x80;
     this->field_0x3c = 7;
-    this->field_0x40 = 0x48;
-    this->damageType = -0x58;
+    this->hurtType = 0x48;
+    this->hitType = -0x58;
     this->flags2 = 1;
     this->field_0x68.HALF.HI = 0xff;
     if (this->x.HALF.HI < gPlayerEntity.x.HALF.HI) {
@@ -183,7 +183,7 @@ void sub_08067A0C(Entity* this) {
     } else {
         tmp = (this->frames.all & 7);
         if (tmp != 0) {
-            this->flags = this->flags | 0x80;
+            COLLISION_ON(this);
             this->hitbox = gUnk_08111154[tmp - 1 + ((this->spriteSettings.b.flipX << 2))];
         } else {
             sub_08067DDC(this);
@@ -381,7 +381,7 @@ void sub_08067DCC(Entity* this, u32 param) {
 }
 
 void sub_08067DDC(Entity* this) {
-    this->flags = this->flags & 0x7f;
+    COLLISION_OFF(this);
     this->bitfield = 0;
     this->iframes = 0;
     this->hitbox = &gUnk_08110EF0;

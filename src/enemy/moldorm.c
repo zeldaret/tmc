@@ -50,7 +50,7 @@ void sub_08022BEC(Entity* this) {
 void sub_08022C58(Entity* this) {
     Entity *tail0, *tail1, *tail2;
 
-    this->flags &= ~0x80;
+    COLLISION_OFF(this);
 
     if (gEntCount >= 0x45)
         return;
@@ -77,7 +77,7 @@ void sub_08022C58(Entity* this) {
     this->action = 1;
     this->actionDelay = 1;
     this->field_0xf = 1;
-    this->flags = this->flags | 0x80;
+    COLLISION_ON(this);
     this->parent = this;
     this->attachedEntity = tail0;
     *(Entity**)&this->field_0x7c = tail1;

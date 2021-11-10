@@ -25,7 +25,7 @@ void GleerokProjectile(Entity* this) {
 void GleerokProjectile_OnTick(Entity* this) {
     if (((this->type != 3) && ((this->bitfield & 0x80) != 0)) && ((this->bitfield & 0x7f) != 0x1e)) {
         this->action = 3;
-        this->flags &= 0x7f;
+        COLLISION_OFF(this);
         InitializeAnimation(this, 0x53);
     }
     GleerokProjectile_Actions[this->action](this);
@@ -118,7 +118,7 @@ void GleerokProjectile_Action2(Entity* this) {
     GetNextFrame(this);
     if (this->type == 2) {
         if (--this->actionDelay == 0xff) {
-            this->flags &= 0x7f;
+            COLLISION_OFF(this);
             this->action = 3;
             InitializeAnimation(this, 0x55);
         } else {
@@ -128,7 +128,7 @@ void GleerokProjectile_Action2(Entity* this) {
     } else {
         if ((this->frames.all & 0x80) != 0) {
             this->action = 3;
-            this->flags &= 0x7f;
+            COLLISION_OFF(this);
             InitializeAnimation(this, 0x53);
         }
     }

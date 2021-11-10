@@ -146,7 +146,7 @@ void VaatiEyesMacroFunction0Type1Action0(Entity* this) {
 
 void VaatiEyesMacroFunction0Type1Action1(Entity* this) {
     if (this->parent->next == NULL) {
-        this->flags &= 0x7f;
+        COLLISION_OFF(this);
         this->currentHealth = 0;
     } else {
         sub_0802F04C(this);

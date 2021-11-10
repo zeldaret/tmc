@@ -514,13 +514,13 @@ void VaatiRebornEnemyType1Action1(Entity* this) {
     if (this->field_0x74.HALF.LO == 0) {
         if (parent->field_0x80.HALF.LO == 0) {
             this->field_0x74.HALF.LO = 1;
-            this->damageType = 0x30;
+            this->hitType = 0x30;
             InitAnimationForceUpdate(this, this->field_0x74.HALF.LO);
         }
     } else {
         if (parent->field_0x80.HALF.LO != 0) {
             this->field_0x74.HALF.LO = 0;
-            this->damageType = 0x2f;
+            this->hitType = 0x2f;
             InitAnimationForceUpdate(this, this->field_0x74.HALF.LO);
         } else {
             if (((this->bitfield & 0x80) != 0) && (0 < this->iframes)) {
@@ -536,12 +536,12 @@ void VaatiRebornEnemyType1Action1(Entity* this) {
     if (this->field_0x74.HALF.HI == 0) {
         if (parent->action != 2) {
             this->field_0x74.HALF.HI = 1;
-            this->flags |= 0x80;
+            COLLISION_ON(this);
         }
     } else {
         if (parent->action == 2) {
             this->field_0x74.HALF.HI = 0;
-            this->flags &= 0x7f;
+            COLLISION_OFF(this);
         }
     }
     this->spriteSettings.b.draw = parent->spriteSettings.b.draw;
@@ -644,7 +644,7 @@ void sub_0803DC0C(Entity* this) {
 void VaatiRebornEnemyType1PreAction(Entity* this) {
     Entity* parent;
 
-    if (this->damageType != 0x30) {
+    if (this->hitType != 0x30) {
         return;
     }
     parent = this->parent;
@@ -652,7 +652,7 @@ void VaatiRebornEnemyType1PreAction(Entity* this) {
     if ((this->bitfield & 0x80) != 0) {
         if (gUnk_080D04D0[parent->field_0x86.HALF.LO] > this->currentHealth) {
             if (2 < ++parent->field_0x86.HALF.LO) {
-                this->flags &= 0x7f;
+                COLLISION_OFF(this);
                 parent->action = 7;
                 parent->flags &= 0x7f;
                 parent->actionDelay = 0x80;
@@ -675,7 +675,7 @@ void VaatiRebornEnemyType1PreAction(Entity* this) {
     }
     if (this->actionDelay != 0) {
         if (--this->actionDelay == 0) {
-            this->damageType = 0x2f;
+            this->hitType = 0x2f;
             this->field_0x74.HALF.LO = 1;
             if (this->field_0x76.HALF.HI == 0) {
                 parent->field_0x74.HALF.LO = 0xf0;

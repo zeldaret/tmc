@@ -242,7 +242,7 @@ _0805173E:
 	adds r0, r2, #0
 	bl SoundReq
 _08051796:
-	bl sub_0805E9F4
+	bl DeleteSleepingEntities
 	bl sub_0805BC04
 	adds r4, r0, #0
 	cmp r4, #0
@@ -324,7 +324,7 @@ _08051B02:
 	adds r0, r2, #0
 	bl SoundReq
 _08051B5A:
-	bl sub_0805E9F4
+	bl DeleteSleepingEntities
 	bl sub_0805BC04
 	adds r4, r0, #0
 	cmp r4, #0

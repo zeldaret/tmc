@@ -20,7 +20,7 @@ void sub_0802B2E0(Entity* this) {
 
     if (this->bitfield & 0x80) {
         if ((this->bitfield & 0x7f) == 0x14) {
-            this->flags &= ~0x80;
+            COLLISION_OFF(this);
             this->iframes = 0;
             this->spriteSettings.b.draw = 0;
             this->action = 2;

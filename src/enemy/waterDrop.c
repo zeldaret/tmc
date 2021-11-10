@@ -55,7 +55,7 @@ void sub_0802A2FC(Entity* this) {
     if (this->frames.all & 0x80) {
         DeleteEntity(this);
     } else if (this->frames.all & 1) {
-        this->flags &= ~0x80;
+        COLLISION_OFF(this);
     } else {
         sub_0802A39C(this);
     }
@@ -76,9 +76,9 @@ void sub_0802A39C(Entity* this) {
     u32 x = (gPlayerEntity.x.HALF.HI - gRoomControls.roomScrollX + gScreen.bg.bg1xOffset) >> 3;
     u32 y = (gPlayerEntity.y.HALF.HI - gRoomControls.roomScrollY + gScreen.bg.bg1yOffset - 10) >> 3;
     if (gBG3Buffer[(x & 0x1fU) + (y & 0x1fU) * 0x20 + 0x400]) {
-        this->flags &= ~0x80;
+        COLLISION_OFF(this);
     } else {
-        this->flags |= 0x80;
+        COLLISION_ON(this);
     }
 }
 

@@ -57,7 +57,7 @@ void BoneProjectile_Action2(Entity* this) {
     sub_080AF090(this);
     if (sub_08003FC4(this, 0x1800) == 0) {
         this->action = 3;
-        this->flags = this->flags & 0x7f;
+        COLLISION_OFF(this);
         this->speed = 0xe0;
         this->hVelocity = 0xe000;
     }
@@ -82,7 +82,7 @@ void BoneProjectile_Action4(Entity* this) {
 
 void sub_080A82D8(Entity* this) {
     this->action = 4;
-    this->flags &= 0x7f;
+    COLLISION_OFF(this);
     this->hVelocity = 0x10000;
     this->direction ^= 0x10;
     this->speed = 0x80;

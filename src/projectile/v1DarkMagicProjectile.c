@@ -31,7 +31,7 @@ void sub_080AAC44(Entity* this) {
         if (this->type2 == 0) {
             if ((this->bitfield & 0x3f) == 0) {
                 this->action = 2;
-                this->flags &= 0x7f;
+                COLLISION_OFF(this);
                 if (this->type == 0) {
                     ResolveEntityOnTop(&gPlayerEntity, this);
                 } else {
@@ -83,7 +83,7 @@ void V1DarkMagicProjectile_Init(Entity* this) {
         this->action = 1;
     } else {
         this->action = 3;
-        this->damageType = 0x2c;
+        this->hitType = 0x2c;
         ResolveEntityOnTop(this->parent, this);
     }
     if (this->type == 0) {
@@ -107,7 +107,7 @@ void V1DarkMagicProjectile_Init(Entity* this) {
         }
     } else {
         ResolveEntityOnTop(this->parent, this);
-        this->flags &= 0x7f;
+        COLLISION_OFF(this);
         CopyPosition(this->parent, this);
     }
     InitializeAnimation(this, this->type);
@@ -154,12 +154,12 @@ void V1DarkMagicProjectile_Action3(Entity* this) {
     }
 #ifndef EU
     if (this->parent->action == 2) {
-        if ((this->flags & 0x80) != 0) {
-            this->flags &= 0x7f;
+        if ((this->flags & ENT_COLLIDE) != 0) {
+            COLLISION_OFF(this);
         }
     } else {
-        if ((this->flags & 0x80) == 0) {
-            this->flags |= 0x80;
+        if ((this->flags & ENT_COLLIDE) == 0) {
+            COLLISION_ON(this);
         }
     }
 #endif

@@ -143,7 +143,7 @@ NONMATCH("asm/non_matching/mazaal/sub_0803A188.inc", void sub_0803A188(Entity* t
         if (this->action != 0x2b) {
             if ((0 < this->iframes) && ((this->bitfield == 0x95 || (this->bitfield == 0x8e)))) {
                 this->action = 0x28;
-                this->flags = this->flags & 0x7f;
+                COLLISION_OFF(this);
                 pEVar3 = this->parent;
                 pEVar3->field_0x7c.BYTES.byte1 = pEVar3->field_0x7c.BYTES.byte1 | (this->type == 0 ? 1 : 2);
                 pEVar3->field_0x80.HALF.LO = (this->type == 0 ? 1 : 2) | pEVar3->field_0x80.HALF.LO;
@@ -203,7 +203,7 @@ void sub_0803A274(Entity* this) {
         }
         if (gScreenTransition.field_0x38 != 0) {
             this->action = 3;
-            this->flags |= 0x80;
+            COLLISION_ON(this);
             this->spriteSettings.b.draw = 1;
             this->attachedEntity->spriteSettings.b.draw = 1;
             InitializeAnimation(this, 0x10);
@@ -312,7 +312,7 @@ void sub_0803A364(Entity* this) {
         default:
             this->actionDelay--;
             if (this->actionDelay == 0) {
-                this->flags = this->flags | 0x80;
+                COLLISION_ON(this);
                 sub_0803B4D4(this);
             }
             break;
@@ -352,7 +352,7 @@ void sub_0803A5D0(Entity* this) {
     s8* ptr;
 
     this->action = 5;
-    this->flags = this->flags & 0x7f;
+    COLLISION_OFF(this);
     ptr = gUnk_080CED6C;
     index = ((this->parent->field_0xf >> 4) + 3);
     this->height.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
@@ -500,7 +500,7 @@ void sub_0803A86C(Entity* this) {
     this->height.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     GetNextFrame(this);
     if ((this->frames.all & 0x80) != 0) {
-        this->flags = this->flags | 0x80;
+        COLLISION_ON(this);
         sub_0803B59C(this);
     }
 }
@@ -558,7 +558,7 @@ void sub_0803A978(Entity* this) {
     if (this->direction == 0x10) {
         this->action = 0x12;
         this->actionDelay = 3;
-        this->flags = this->flags & 0x7f;
+        COLLISION_OFF(this);
         *(u8*)(*(int*)&this->field_0x74 + 0x10) &= 0x7f;
         InitializeAnimation(this, 8);
         InitAnimationForceUpdate(this->attachedEntity, 3);
@@ -605,7 +605,7 @@ NONMATCH("asm/non_matching/mazaal/sub_0803AA98.inc", void sub_0803AA98(Entity* t
             InitializeAnimation(this, 10);
             (*(Entity**)&this->field_0x74)->flags |= 0x80;
             temp = this->attachedEntity;
-            temp->damageType = 0x13;
+            temp->hitType = 0x13;
             InitAnimationForceUpdate(temp, 5);
             SoundReq(SFX_16E);
         }
@@ -654,7 +654,7 @@ void sub_0803ABB4(Entity* this) {
     sub_0803B55C(this);
     if ((this->attachedEntity->frames.all & 0x80) != 0) {
         this->action = 0x17;
-        this->flags = this->flags | 0x80;
+        COLLISION_ON(this);
         this->speed = 0x180;
         InitializeAnimation(this, 0x10);
         InitAnimationForceUpdate(this->attachedEntity, 0);
@@ -807,14 +807,14 @@ void sub_0803AEC4(Entity* this) {
     UpdateAnimationSingleFrame(this);
     GetNextFrame(this);
     if ((this->frames.all & 0x80) != 0) {
-        this->flags |= 0x80;
+        COLLISION_ON(this);
         sub_0803B59C(this);
     }
 }
 
 void sub_0803AF18(Entity* this) {
     this->action = 0x1f;
-    this->flags = this->flags & 0x7f;
+    COLLISION_OFF(this);
     InitializeAnimation(this, 5);
     this->height.HALF.HI = gUnk_080CED6C[(this->parent->field_0xf >> 4) & 7] + 4;
 }
@@ -907,7 +907,7 @@ void sub_0803B0D4(Entity* this) {
     UpdateAnimationSingleFrame(this);
     GetNextFrame(this);
     if ((this->frames.all & 0x80) != 0) {
-        this->flags |= 0x80;
+        COLLISION_ON(this);
         sub_0803B59C(this);
     }
 }
@@ -943,8 +943,8 @@ void sub_0803B17C(Entity* this) {
     GetNextFrame(this);
     if ((this->frames.all & 0x80) != 0) {
         this->action = 0x2b;
-        this->flags |= 0x80;
-        this->damageType = 0x18;
+        COLLISION_ON(this);
+        this->hitType = 0x18;
         this->currentHealth = 0xff;
         this->field_0x7c.HALF.HI = 600;
     }
@@ -962,7 +962,7 @@ void sub_0803B1B8(Entity* this) {
         this->action = 0x32;
         this->field_0x7c.HALF.HI = 0x5dc;
         this->spriteSettings.b.draw = 0;
-        this->damageType = 0x14;
+        this->hitType = 0x14;
         temp = CreateFx(this, FX_GIANT_EXPLOSION4, 0);
         if (temp != (Entity*)0x0) {
             temp->x.HALF.HI += this->hitbox->offset_x;
@@ -1068,7 +1068,7 @@ void sub_0803B3F4(Entity* this) {
     this->height.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     GetNextFrame(this);
     if ((this->frames.all & 0x80) != 0) {
-        this->damageType = 0x17;
+        this->hitType = 0x17;
         if (this->type == 0) {
             this->hitbox = (Hitbox*)&gUnk_080FD35C;
         } else {
@@ -1185,7 +1185,7 @@ void sub_0803B6A4(Entity* this) {
     Entity* temp;
 
     this->action = 0x2c;
-    this->damageType = 0x14;
+    this->hitType = 0x14;
     temp = this->parent;
     temp->field_0x80.HALF.LO |= (this->type == 0) ? 0x10 : 0x20;
     temp->field_0x80.HALF.LO &= (this->type == 0) ? -5 : -9;
@@ -1264,12 +1264,12 @@ u32 sub_0803B870(Entity* this) {
         gPlayerEntity.flags = gPlayerEntity.flags & 0x7f;
         gPlayerEntity.iframes = -0x10;
         sub_0803B824(this);
-        entity->damageType = 0x13;
+        entity->hitType = 0x13;
         InitAnimationForceUpdate(entity, 7);
         SoundReq(SFX_16E);
         return 1;
     } else {
-        entity->damageType = 0x15;
+        entity->hitType = 0x15;
         return 0;
     }
 }
@@ -1277,9 +1277,9 @@ u32 sub_0803B870(Entity* this) {
 void sub_0803B8E8(Entity* this, u32 unk) {
     Entity* entity;
     entity = this->attachedEntity;
-    entity->damageType = unk;
+    entity->hitType = unk;
     entity = (*(Entity**)&this->field_0x74);
-    entity->damageType = unk;
+    entity->hitType = unk;
 }
 
 void sub_0803B8F8(Entity* this) {

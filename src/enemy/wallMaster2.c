@@ -33,7 +33,7 @@ void sub_0802CC80(Entity* this) {
         case 0 ... 1:
         case 0x1e:
             this->action = 3;
-            this->flags &= ~0x80;
+            COLLISION_OFF(this);
             InitializeAnimation(this, 1);
             gPlayerEntity.flags &= ~0x80;
             break;

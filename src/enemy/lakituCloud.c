@@ -105,7 +105,7 @@ void sub_0803CDD8(Entity* this) {
     if (this->actionDelay == 0) {
         this->action = 1;
 
-        this->flags |= 0x80;
+        COLLISION_ON(this);
 
         this->spriteSettings.b.draw = one;
     }
@@ -132,7 +132,7 @@ void sub_0803CE3C(Entity* this) {
     this->action = 2;
     this->actionDelay = 60;
 
-    this->flags &= 0x7f;
+    COLLISION_OFF(this);
 
     this->field_0x3a &= 0xfb;
 

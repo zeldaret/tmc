@@ -35,7 +35,7 @@ void sub_08033564(Entity* this) {
         case 0:
             this->action = 2;
             this->spriteSettings.b.draw = FALSE;
-            this->flags &= 0x7f;
+            COLLISION_OFF(this);
             this->field_0x7c.HALF.LO = 0x27c;
             gPlayerState.flags |= 0x4000;
             gSave.stats.effect = this->type + 1;
@@ -50,7 +50,7 @@ void sub_08033564(Entity* this) {
             this->currentHealth = 0;
             break;
         case 0x14:
-            this->flags &= 0x7f;
+            COLLISION_OFF(this);
             this->iframes = 0;
             this->spriteSettings.b.draw = FALSE;
             ent = CreateFx(this, FX_DEATH, 0);
@@ -119,7 +119,7 @@ void sub_080336DC(Entity* this) {
             break;
         case 0x0:
             this->action = 1;
-            this->flags |= 0x80;
+            COLLISION_ON(this);
             sub_08033744(this);
             break;
     }

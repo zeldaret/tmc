@@ -73,12 +73,12 @@ NONMATCH("asm/non_matching/moblinSpear/MoblinSpear_Action1.inc", void MoblinSpea
     this->hitbox->width = a->width;
     this->hitbox->height = a->height;
     if (parent->field_0x43 != 0) {
-        if ((this->flags & 0x80) != 0) {
-            this->flags &= 0x7f;
+        if ((this->flags & ENT_COLLIDE) != 0) {
+            COLLISION_OFF(this);
         }
     } else {
-        if ((this->flags & 0x80) == 0) {
-            this->flags |= 0x80;
+        if ((this->flags & ENT_COLLIDE) == 0) {
+            COLLISION_ON(this);
         }
     }
 }

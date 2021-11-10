@@ -104,7 +104,7 @@ const s8 gUnk_080D0EB0[] = { 0x03, 0x03, 0x03, 0x03, 0x03, 0x03, 0x03, 0x03, 0x0
 
 void VaatiWrath(Entity* this) {
     if (((this->type == 0) && ((this->bitfield & 0x80) != 0)) && (this->currentHealth == 0)) {
-        this->flags |= 0x80;
+        COLLISION_ON(this);
         this->currentHealth = 0xff;
         if (--this->cutsceneBeh.HALF.LO == 0) {
             this->action = 0xd;
@@ -138,7 +138,7 @@ void VaatiWrathType0Action0(Entity* this) {
             this->action = 2;
             this->actionDelay = 0x3c;
         }
-        this->x.HALF.HI = gScreenTransition.field_0x40;
+        this->x.HALF.HI = gScreenTransition.hurtType;
         this->y.HALF.HI = gScreenTransition.field_0x42;
         sub_08042004(this);
     } else {
@@ -480,7 +480,7 @@ void VaatiWrathType0ActionB(Entity* this) {
                 this->subAction = 1;
                 this->actionDelay = 0xf0;
                 this->currentHealth = 8;
-                this->damageType = 0x38;
+                this->hitType = 0x38;
                 sub_08080964(0x14, 0);
                 InitAnimationForceUpdate(this, 6);
                 InitializeAnimation(((VaatiWrathHeapStruct*)this->myHeap)->type2, 0x16);
@@ -492,7 +492,7 @@ void VaatiWrathType0ActionB(Entity* this) {
             if (--this->actionDelay == 0) {
                 this->subAction = 2;
                 this->actionDelay = 0x3c;
-                this->damageType = 0x39;
+                this->hitType = 0x39;
                 this->currentHealth = 0xff;
             }
             break;
@@ -567,7 +567,7 @@ void sub_08041BE8(Entity* this) {
     if (sub_08079F8C() != 0) {
         this->subAction = 1;
         this->actionDelay = 120;
-        this->scriptedScene = 3;
+        this->updateConditions = 3;
         InitAnimationForceUpdate(this, 10);
 
         entity = ((VaatiWrathHeapStruct*)this->myHeap)->type1;
@@ -576,7 +576,7 @@ void sub_08041BE8(Entity* this) {
         ((VaatiWrathHeapStruct*)this->myHeap)->type1 = NULL;
 
         entity = ((VaatiWrathHeapStruct*)this->myHeap)->type2;
-        entity->scriptedScene = 3;
+        entity->updateConditions = 3;
         sub_080AE068(entity);
         LoadFixedGFX(entity, 0x1f5);
         sub_0801D2B4(entity, 0x16b);

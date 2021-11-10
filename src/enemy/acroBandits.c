@@ -160,7 +160,7 @@ void sub_08031B48(Entity* this) {
     GetNextFrame(this);
     if (this->frames.b.f0) {
         this->frames.all = 0;
-        this->flags |= 0x80;
+        COLLISION_ON(this);
     } else {
         if (this->frames.b.f3) {
             this->action = 0x3;
@@ -188,7 +188,7 @@ void sub_08031B98(Entity* this) {
         GetNextFrame(this);
         if (this->actionDelay == 0) {
             this->action = 4;
-            this->flags &= 0x7f;
+            COLLISION_OFF(this);
             InitializeAnimation(this, 2);
         }
     }
@@ -255,7 +255,7 @@ void sub_08031C58(Entity* this) {
     } else {
         if (this->frames.b.f0) {
             this->frames.all = 0;
-            this->flags &= 0x7f;
+            COLLISION_OFF(this);
         }
     }
 }
@@ -264,7 +264,7 @@ void sub_08031D70(Entity* this) {
     GetNextFrame(this);
     if (--this->actionDelay == '\0') {
         this->action = 7;
-        this->flags &= 0x7f;
+        COLLISION_OFF(this);
         this->actionDelay = 5;
         this->spriteSettings.b.draw = 0;
     }
@@ -289,7 +289,7 @@ void sub_08031DC4(Entity* this) {
     } else {
         GetNextFrame(this);
         if ((this->frames.all & 0xf) == 2) {
-            this->flags &= 0x7f;
+            COLLISION_OFF(this);
         }
     }
 }
@@ -349,7 +349,7 @@ void sub_08031EE8(Entity* this) {
 
     if (this->hVelocity < 1) {
         this->action = 2;
-        this->flags |= 0x80;
+        COLLISION_ON(this);
         InitializeAnimation(this, 5);
     }
 }
@@ -494,7 +494,7 @@ void sub_08032248(Entity* this) {
             GetNextFrame(this);
 
             if ((this->frames.all & 0xf) == 2)
-                this->flags &= 0x7f;
+                COLLISION_OFF(this);
         }
     }
 }

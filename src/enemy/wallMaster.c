@@ -26,9 +26,9 @@ void sub_0802A434(Entity* this) {
 }
 
 void sub_0802A454(Entity* this) {
-    if (this->damageType != 0x75 && ((this->bitfield & 0x7f) == 0 || (this->bitfield & 0x7f) == 0x1e)) {
+    if (this->hitType != 0x75 && ((this->bitfield & 0x7f) == 0 || (this->bitfield & 0x7f) == 0x1e)) {
         this->action = 5;
-        this->flags &= ~0x80;
+        COLLISION_OFF(this);
         this->field_0x7c.HALF.HI = gPlayerEntity.x.HALF.HI;
         this->field_0x80.HWORD = gPlayerEntity.y.HALF.HI;
         this->field_0x82.HWORD = gPlayerEntity.height.HALF.HI;
@@ -72,7 +72,7 @@ void sub_0802A534(Entity* this) {
         if (ent != NULL) {
             this->action = 2;
             this->actionDelay = 0x5a;
-            this->flags |= 0x80;
+            COLLISION_ON(this);
             this->spriteSettings.b.draw = 3;
             this->x.HALF.HI = ent->x.HALF.HI;
             this->y.HALF.HI = ent->y.HALF.HI;
@@ -115,7 +115,7 @@ void sub_0802A610(Entity* this) {
         this->actionDelay = 0x1e;
     } else if (this->frames.all & 1) {
         this->frames.all = flags;
-        this->damageType = 0x75;
+        this->hitType = 0x75;
     }
 }
 
@@ -124,9 +124,9 @@ void sub_0802A650(Entity* this) {
     this->height.HALF.HI -= 2;
     if (-0xa0 > this->height.HALF.HI) {
         this->action = 1;
-        this->flags &= ~0x80;
+        COLLISION_OFF(this);
         this->spriteSettings.b.draw = 0;
-        this->damageType = 0x74;
+        this->hitType = 0x74;
         this->field_0x78.HWORD = this->field_0x7c.BYTES.byte0 * 0x3c;
     }
 }

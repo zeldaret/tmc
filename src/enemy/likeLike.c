@@ -26,10 +26,10 @@ void sub_08027D8C(Entity* this) {
 }
 
 void sub_08027DA4(Entity* this) {
-    if (this->damageType == 1) {
+    if (this->hitType == 1) {
         this->action = 3;
-        this->flags &= ~0x80;
-        this->damageType = 0x8c;
+        COLLISION_OFF(this);
+        this->hitType = 0x8c;
     } else {
         if (this->action == 7) {
             sub_0802810C(this);
@@ -75,7 +75,7 @@ void sub_08027E70(Entity* this) {
         case 0:
             this->action = 3;
             this->spriteSettings.b.draw = 0;
-            this->flags = this->flags & 0x7f;
+            COLLISION_OFF(this);
             this->actionDelay = 0;
             break;
         case 1:
@@ -88,7 +88,7 @@ void sub_08027E70(Entity* this) {
             this->action = 1;
             this->spriteSettings.b.draw = 0;
             this->actionDelay = 0;
-            this->damageType = 1;
+            this->hitType = 1;
             InitializeAnimation(this, 0);
             break;
     }
@@ -101,7 +101,7 @@ void sub_08027E70(Entity* this) {
 }
 
 void sub_08027EFC(Entity* this) {
-    if (this->damageType == 1)
+    if (this->hitType == 1)
         return;
 
     if (sub_08049FDC(this, 1)) {
@@ -120,7 +120,7 @@ void sub_08027EFC(Entity* this) {
         GetNextFrame(this);
     } else {
         this->action = 6;
-        this->flags &= ~0x80;
+        COLLISION_OFF(this);
         InitializeAnimation(this, 2);
     }
 }
@@ -151,7 +151,7 @@ void sub_08027FE0(Entity* this) {
     GetNextFrame(this);
     if (this->frames.all & 1) {
         this->action = 1;
-        this->flags |= 0x80;
+        COLLISION_ON(this);
         this->direction = sub_08049F84(this, 1);
         this->actionDelay = 8;
         this->spritePriority.b1 = 1;

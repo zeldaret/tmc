@@ -76,7 +76,7 @@ NONMATCH("asm/non_matching/fallingBoulder/sub_0802C334.inc", void sub_0802C334(E
     this->field_0x7c.HALF.HI = COORD_TO_TILE(this);
     if (sub_080044EC(this, *(u32*)&this->cutsceneBeh) == 1) {
         EnqueueSFX(0x14c);
-        this->flags = this->flags | 0x80;
+        COLLISION_ON(this);
         this->field_0x7a.HWORD = 0xc;
         sub_0802C4B0(this);
     } else {
@@ -86,7 +86,7 @@ NONMATCH("asm/non_matching/fallingBoulder/sub_0802C334.inc", void sub_0802C334(E
             u16 tmp = --this->field_0x7a.HWORD;
             switch (tmp) {
                 case 0:
-                    this->flags &= ~0x80;
+                    COLLISION_OFF(this);
                     break;
                 case 8:
                     if (this->type2 != 0 && !sub_08049FA0(this)) {
@@ -211,7 +211,7 @@ void sub_0802C62C(Entity* this) {
     this->y.HALF.HI = this->field_0x82.HWORD;
     this->x.HALF.HI = this->field_0x80.HWORD;
     this->spriteSettings.b.draw = 0;
-    this->flags &= ~0x80;
+    COLLISION_OFF(this);
     this->field_0x7c.HALF.LO = 0;
 }
 

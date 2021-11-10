@@ -355,7 +355,7 @@ void sub_080428FC(Entity* this) {
         SoundReq(SFX_153);
         uVar2 = 0;
         do {
-            ((VaatiArm_HeapStruct*)this->myHeap)->entities[uVar2]->damageType = 0x3b;
+            ((VaatiArm_HeapStruct*)this->myHeap)->entities[uVar2]->hitType = 0x3b;
             uVar2 = uVar2 + 1;
         } while (uVar2 < 5);
     }
@@ -387,7 +387,7 @@ void sub_08042970(Entity* this) {
         this->actionDelay = 0x3c;
         uVar2 = 0;
         do {
-            ((VaatiArm_HeapStruct*)this->myHeap)->entities[uVar2]->damageType = 0x39;
+            ((VaatiArm_HeapStruct*)this->myHeap)->entities[uVar2]->hitType = 0x39;
             uVar2 = uVar2 + 1;
         } while (uVar2 < 5);
     }
@@ -460,9 +460,9 @@ void sub_08042AEC(Entity* this) {
     if (--this->actionDelay == 0) {
         this->subAction = 3;
         this->actionDelay = 4;
-        this->damageType = 0x3d;
+        this->hitType = 0x3d;
         InitAnimationForceUpdate(this, 0xe);
-        ((VaatiArm_HeapStruct*)this->myHeap)->entities[1]->damageType = 0x3d;
+        ((VaatiArm_HeapStruct*)this->myHeap)->entities[1]->hitType = 0x3d;
     }
 }
 
@@ -508,8 +508,8 @@ void sub_08042B20(Entity* this) {
             this->action = 5;
             this->subAction = 0;
             this->actionDelay = 0x1e;
-            this->damageType = 0x39;
-            ((VaatiArm_HeapStruct*)this->myHeap)->entities[1]->damageType = 0x39;
+            this->hitType = 0x39;
+            ((VaatiArm_HeapStruct*)this->myHeap)->entities[1]->hitType = 0x39;
         }
     }
 }
@@ -565,7 +565,7 @@ void sub_08042C34(Entity* this) {
             entity->x.HALF.HI = x;
             entity->y.HALF.HI = y;
             entity->height.HALF.HI = 0x32;
-            entity->damageType = 0x39;
+            entity->hitType = 0x39;
             ptr = &((VaatiArm_HeapStruct*)this->myHeap)->s1[i];
             ptr->unk00.HWORD = 0x80;
             ptr->unk04.HWORD = 0;
@@ -582,8 +582,8 @@ void sub_08042D24(Entity* this) {
 
     if (--this->actionDelay == 0) {
         this->subAction = 2;
-        this->damageType = 0x3d;
-        ((VaatiArm_HeapStruct*)this->myHeap)->entities[1]->damageType = 0x3d;
+        this->hitType = 0x3d;
+        ((VaatiArm_HeapStruct*)this->myHeap)->entities[1]->hitType = 0x3d;
         entity = CreateObject(OBJECT_AF, 1, 0);
         if (entity != NULL) {
             entity->parent = ((VaatiArm_HeapStruct*)this->myHeap)->entities[3];
@@ -618,10 +618,10 @@ void sub_08042D6C(Entity* this) {
         ((VaatiArm_HeapStruct*)this->myHeap)->s1[0].unk0a = 0xc0;
         this->subAction = 3;
         this->actionDelay = 0x1e;
-        this->damageType = 0x39;
+        this->hitType = 0x39;
         this->field_0x7c.BYTES.byte3 = 0x2d;
         InitAnimationForceUpdate(this, 0);
-        ((VaatiArm_HeapStruct*)this->myHeap)->entities[1]->damageType = 0x39;
+        ((VaatiArm_HeapStruct*)this->myHeap)->entities[1]->hitType = 0x39;
     } else {
         entity->height.HALF.HI -= 2;
     }
@@ -742,7 +742,7 @@ void sub_08043048(Entity* this) {
             ptr[0].unk04.HWORD += 0x200;
             if (0x4f < ptr[0].unk04.HALF.HI) {
                 for (i = 0; i < 5; i++) {
-                    ((VaatiArm_HeapStruct*)this->myHeap)->entities[i]->damageType = 0x3b;
+                    ((VaatiArm_HeapStruct*)this->myHeap)->entities[i]->hitType = 0x3b;
                 }
                 SoundReq(SFX_153);
             }
@@ -751,7 +751,7 @@ void sub_08043048(Entity* this) {
             if (--this->actionDelay == 0) {
                 this->subAction = 7;
                 for (i = 0; i < 5; i++) {
-                    ((VaatiArm_HeapStruct*)this->myHeap)->entities[i]->damageType = 0x39;
+                    ((VaatiArm_HeapStruct*)this->myHeap)->entities[i]->hitType = 0x39;
                 }
             }
         }
@@ -962,7 +962,7 @@ NONMATCH("asm/non_matching/vaati/sub_08043490.inc", void sub_08043490(Entity* th
             entity->flags = entity->flags | 0x80;
             entity->spriteSettings.b.draw = 1;
             entity->field_0x3c = entity->field_0x3c & 0xef;
-            entity->damageType = 0x3a;
+            entity->hitType = 0x3a;
             entity->hitbox = (Hitbox*)&gUnk_080FD450;
             entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[2];
             entity->flags = entity->flags | 0x80;
@@ -1011,7 +1011,7 @@ void sub_08043580(Entity* this) {
         this->actionDelay = 0x3c;
         entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[4];
         entity->field_0x3c = entity->field_0x3c | 0x10;
-        entity->damageType = 0x39;
+        entity->hitType = 0x39;
         entity->hitbox = (Hitbox*)&gUnk_080FD538;
         sub_0804AA1C(this);
     }
@@ -1341,7 +1341,7 @@ void sub_08043D08(Entity* this) {
     CopyPosition(((VaatiArm_HeapStruct*)this->myHeap)->entities[3], entity);
     entity->height.HALF.HI += ((VaatiArm_HeapStruct*)this->myHeap)->s1[3].unk0c;
     for (i = 0; i < 5; i++) {
-        ((VaatiArm_HeapStruct*)this->myHeap)->entities[i]->damageType = 0x39;
+        ((VaatiArm_HeapStruct*)this->myHeap)->entities[i]->hitType = 0x39;
     }
     EnqueueSFX(SFX_HIT);
 }
@@ -1364,7 +1364,7 @@ void sub_08043DB0(Entity* this) {
             gScreenTransition.field_0x3d = 0x1e - (cVar1 / 0x3c);
             gScreenTransition.field_0x3c = this->type2;
             pEVar2 = ((VaatiArm_HeapStruct*)this->myHeap)->parent;
-            gScreenTransition.field_0x40 = pEVar2->x.HALF.HI;
+            gScreenTransition.hurtType = pEVar2->x.HALF.HI;
             gScreenTransition.field_0x42 = pEVar2->y.HALF.HI;
             pEVar4 = ((VaatiArm_HeapStruct*)pEVar2->myHeap)->parent;
             if (pEVar4 != NULL) {
@@ -1391,7 +1391,7 @@ void sub_08043EB8(Entity* this) {
     Entity* pEVar4;
     VaatiArm_HeapStruct1* ptr;
 
-    this->flags = this->flags | 0x80;
+    COLLISION_ON(this);
     this->spritePriority.b0 = 4;
     InitAnimationForceUpdate(this, 0xd);
     pEVar4 = ((VaatiArm_HeapStruct*)this->myHeap)->entities[1];
@@ -1412,7 +1412,7 @@ void sub_08043EB8(Entity* this) {
     pEVar4->y.HALF.HI = (this->type2 == 0) ? gScreenTransition.field_0x46 : gScreenTransition.field_0x4a;
     pEVar4->height.HALF.HI = 0;
     pEVar4->field_0x3c = pEVar4->field_0x3c & 0xef;
-    pEVar4->damageType = 0x3a;
+    pEVar4->hitType = 0x3a;
     pEVar4->hitbox = (Hitbox*)&gUnk_080FD450;
     pEVar4 = CreateObject(OBJECT_AF, 0, 0);
     if (pEVar4 != NULL) {

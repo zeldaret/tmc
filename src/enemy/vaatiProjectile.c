@@ -42,7 +42,7 @@ void (*const vaatiProjectileFunction0Actions[])(Entity*) = {
 
 void VaatiProjectile(Entity* this) {
     if (sub_0803E4A0(this)) {
-        this->flags &= 0x7f;
+        COLLISION_OFF(this);
         this->currentHealth = 0;
         this->parent = NULL;
     }
@@ -61,7 +61,7 @@ void VaatiProjectileFunction1(Entity* this) {
         if (this->currentHealth != 0) {
 #endif
             this->action = 5;
-            this->flags = this->flags & 0x7f;
+            COLLISION_OFF(this);
             this->spritePriority.b1 = 0;
             gPlayerEntity.flags &= 0x7f;
             gPlayerEntity.spriteOrientation.flipY = this->spriteOrientation.flipY;
@@ -114,7 +114,7 @@ void VaatiProjectileFunction0Action0(Entity* this) {
         }
     } else {
         this->action = 8;
-        this->flags = this->flags & 0x7f;
+        COLLISION_OFF(this);
         this->spriteOffsetY = 1;
         this->spriteOrientation.flipY = this->parent->spriteOrientation.flipY;
         this->spriteRendering.b3 = this->parent->spriteRendering.b3;

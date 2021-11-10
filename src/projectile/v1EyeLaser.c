@@ -20,7 +20,7 @@ void V1EyeLaser_Init(Entity* this) {
     *(u32*)&this->field_0x74 = this->parent->x.WORD;
     if (this->type == 0) {
         this->action = 1;
-        this->flags &= 0x7f;
+        COLLISION_OFF(this);
         this->hitbox = (Hitbox*)&gUnk_0812A614;
         InitializeAnimation(this, 0);
     } else {

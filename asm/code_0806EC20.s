@@ -58,8 +58,8 @@ _0806EC6E:
 	.align 2, 0
 _0806EC74: .4byte gUnk_08114AE4
 
-	thumb_func_start sub_0806EC78
-sub_0806EC78: @ 0x0806EC78
+	thumb_func_start InitNPC
+InitNPC: @ 0x0806EC78
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0x10]

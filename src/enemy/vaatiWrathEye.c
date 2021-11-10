@@ -62,7 +62,7 @@ void VaatiWrathEyeAction2(Entity* this) {
     sub_080485D8(this);
     if ((gScreenTransition.field_0x39 & 3) == 0) {
         this->action = 3;
-        this->flags |= 0x80;
+        COLLISION_ON(this);
         this->speed = 0x80;
     }
 }
@@ -157,7 +157,7 @@ void VaatiWrathEyeAction7(Entity* this) {
     if (this->field_0xf != 0) {
         this->action = 8;
         this->actionDelay = 0x3c;
-        this->flags &= 0x7f;
+        COLLISION_OFF(this);
         this->spriteSettings.b.draw = 0;
         CreateFx(this, FX_REFLECT2, 0x40);
         this->parent->field_0x7a.HALF.HI |= 0x10 << this->type;
@@ -177,7 +177,7 @@ void VaatiWrathEyeAction8(Entity* this) {
     } else {
         if (--this->actionDelay == 0) {
             this->action = 9;
-            this->flags |= 0x80;
+            COLLISION_ON(this);
             this->spriteSettings.b.draw = 1;
             InitializeAnimation(this, 0);
             sub_080485FC(this);

@@ -40,7 +40,7 @@ void VaatiBall(Entity* this) {
         if (this->currentHealth < 0xfd) {
 #endif
             this->spriteSettings.b.draw = 0;
-            this->flags &= 0x7f;
+            COLLISION_OFF(this);
             this->currentHealth = -1;
             parent->field_0x80.HALF.LO--;
             CreateDust(this);
@@ -99,7 +99,7 @@ void sub_0804474C(Entity* this) {
         case 2:
             this->action = 2;
             this->field_0x74.HALF.LO = 0;
-            this->damageType = 0;
+            this->hitType = 0;
             break;
     }
 
@@ -121,14 +121,14 @@ void sub_080447E0(Entity* this) {
 
     if (vaati->action == 1) {
         this->action = 1;
-        this->damageType = 43;
+        this->hitType = 43;
         sub_08044E74(this, 0);
-        if (this->flags & 0x80)
+        if (this->flags & ENT_COLLIDE)
             this->spriteSettings.b.draw = 1;
     } else {
         this->field_0x76.HALF.HI++;
         this->field_0x76.HALF.HI &= 7;
-        if (this->flags & 0x80) {
+        if (this->flags & ENT_COLLIDE) {
             if (this->field_0x76.HALF.HI & 1) {
                 this->spriteSettings.b.draw = 1;
             } else {
@@ -190,7 +190,7 @@ void sub_08044868(Entity* this) {
                         vaati->type2 = 1;
                         vaati->parent = this;
                         this->cutsceneBeh.HALF.LO = 1;
-                        this->damageType = 0;
+                        this->hitType = 0;
                     }
                 }
             }
@@ -207,9 +207,9 @@ void sub_08044868(Entity* this) {
             sub_08044E74(this, 1);
             draw = this->spriteSettings.b.draw;
             if (draw == 1) {
-                this->flags |= 0x80;
+                COLLISION_ON(this);
             } else {
-                this->flags &= 0x7f;
+                COLLISION_OFF(this);
             }
             break;
         }
@@ -390,7 +390,7 @@ void sub_08044B04(Entity* this) {
                 case 3:
                     this->field_0x74.HALF.LO = 1;
                     this->actionDelay = 80;
-                    this->flags &= 0x7f;
+                    COLLISION_OFF(this);
                     PositionRelative(vaati, this, 0, -0x100000);
                     if (this->field_0xf)
                         this->spriteSettings.b.draw = 0;
@@ -429,9 +429,9 @@ void sub_08044B04(Entity* this) {
                     sub_08044E74(this, 1);
                     draw = this->spriteSettings.b.draw;
                     if (draw == 1) {
-                        this->flags |= 0x80;
+                        COLLISION_ON(this);
                     } else {
-                        this->flags &= 0x7f;
+                        COLLISION_OFF(this);
                     }
                     vaati->actionDelay++;
                     break;
@@ -452,7 +452,7 @@ void sub_08044DEC(Entity* this) {
     } else {
         this->spriteSettings.b.draw = 0;
     }
-    this->flags &= 0x7f;
+    COLLISION_OFF(this);
     this->field_0x78.HALF.LO = 0;
     this->speed = 0x300;
     off = this->parent->field_0x80.HALF.LO - 1;

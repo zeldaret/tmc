@@ -37,7 +37,7 @@ void sub_080AA6C0(Entity* this) {
     if (this->bitfield == 0x87) {
         this->action = 3;
         this->actionDelay = 0x5a;
-        this->flags &= 0x7f;
+        COLLISION_OFF(this);
         InitAnimationForceUpdate(this, this->type + 0x10);
         object = CreateObject(OBJECT_2A, 3, 0);
         if (object != NULL) {

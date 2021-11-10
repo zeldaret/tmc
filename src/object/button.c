@@ -15,8 +15,8 @@ void Button(Entity* this) {
 extern u32 sub_08081E3C(Entity*);
 
 void sub_08081AE0(Entity* this) {
-    this->flags &= 0x7F;
-    this->scriptedScene = 3;
+    COLLISION_OFF(this);
+    this->updateConditions = 3;
     this->y.HALF.HI++;
     if (this->cutsceneBeh.HWORD != 0) {
         this->collisionLayer = this->cutsceneBeh.HWORD;
@@ -234,13 +234,13 @@ u32 sub_08081F00(u32* unk1, u32* unk2) {
 void sub_08081F24(Entity* this) {
     Entity* fx = CreateFx(this, FX_DASH, 0x40);
     if (fx) {
-        fx->scriptedScene = 3;
+        fx->updateConditions = 3;
         fx->x.HALF.HI += 7;
         fx->y.HALF.HI += 5;
     }
     fx = CreateFx(this, FX_DASH, 0x40);
     if (fx) {
-        fx->scriptedScene = 3;
+        fx->updateConditions = 3;
         fx->x.HALF.HI -= 7;
         fx->y.HALF.HI += 5;
     }

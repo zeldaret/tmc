@@ -49,7 +49,7 @@ void sub_08023F44(Entity* this) {
 }
 
 void sub_08023F5C(Entity* this) {
-    if (this->damageType != 0x6e) {
+    if (this->hitType != 0x6e) {
         if (this->bitfield == 0x80) {
             this->field_0x86.HALF.LO = 0x30;
 
@@ -83,8 +83,8 @@ void sub_08023FF0(Entity* this) {
     if (this->subAction < 3 && !sub_0806F520(this)) {
         this->action = 1;
         this->subAction = 0;
-        this->flags |= 0x80;
-        this->damageType = 0x77;
+        COLLISION_ON(this);
+        this->hitType = 0x77;
         this->actionDelay = 1;
         this->speed = 0x40;
     } else {
@@ -108,9 +108,9 @@ void sub_08024058(Entity* this) {
 }
 
 void sub_08024060(Entity* this) {
-    if (this->damageType != 0x6e) {
-        this->flags = this->flags & 0x7f;
-        this->damageType = 0x6e;
+    if (this->hitType != 0x6e) {
+        COLLISION_OFF(this);
+        this->hitType = 0x6e;
         this->spriteRendering.b3 = gPlayerEntity.spriteRendering.b3;
     }
 

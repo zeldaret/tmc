@@ -144,7 +144,7 @@ void sub_08033F3C(Entity* this) {
             this->action = 0xd;
             this->subAction = 0;
             this->actionDelay = 0xfc;
-            this->flags = this->flags & 0x7f;
+            COLLISION_OFF(this);
         } else {
             pEVar2 = CreateEnemy(MAZAAL_BRACELET, 0);
             pEVar2->parent = this;

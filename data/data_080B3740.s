@@ -9,9 +9,9 @@ gUnk_080B3740:: @ 080B3740
 
 gUnk_080B3744:: @ 080B3744
 	.4byte sub_08018308
-	.4byte sub_08017AD8
-	.4byte sub_08017AD8
-	.4byte sub_08017ADC
+	.4byte CollisionNoOp
+	.4byte CollisionNoOp
+	.4byte CollisionGroundItem
 	.4byte sub_08017B58
 	.4byte sub_08017EB0
 	.4byte sub_08017F3C

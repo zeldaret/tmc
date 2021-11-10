@@ -26,7 +26,7 @@ void V1FireProjectile_OnTick(Entity* this) {
 void sub_080AB2DC(Entity* this) {
     if ((this->bitfield & 0x80) != 0) {
         this->action = 3;
-        this->flags &= 0x7f;
+        COLLISION_OFF(this);
         InitializeAnimation(this, 0x53);
         if ((this->bitfield & 0x7f) == 0) {
             ModHealth(-4);
@@ -92,7 +92,7 @@ void V1FireProjectile_Action2(Entity* this) {
     GetNextFrame(this);
     if ((this->frames.all & 0x80) != 0) {
         this->action = 3;
-        this->flags &= 0x7f;
+        COLLISION_OFF(this);
         InitializeAnimation(this, 0x53);
     }
 }

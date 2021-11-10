@@ -34,7 +34,7 @@ void sub_08021780(Entity* this) {
                 this->action = 5;
                 this->actionDelay = 0xb4;
                 this->field_0xf = 0;
-                this->flags &= ~0x80;
+                COLLISION_OFF(this);
                 this->spritePriority.b0 = 3;
                 CopyPositionAndSpriteOffset(&gPlayerEntity, this);
                 this->height.HALF.HI = -1;
@@ -119,7 +119,7 @@ void sub_080218CC(Entity* this) {
         this->action = 2;
         this->actionDelay = (Random() & 0x38) + 8;
         this->field_0xf = 1;
-        this->flags |= 0x80;
+        COLLISION_ON(this);
         this->speed = 0x180;
         InitializeAnimation(this, 0);
     }
@@ -128,7 +128,7 @@ void sub_080218CC(Entity* this) {
 void sub_08021984(Entity* this) {
     if (this->subAction == 0) {
         this->subAction = 1;
-        this->flags |= 0x80;
+        COLLISION_ON(this);
         this->spriteSettings.b.draw = 3;
         this->height.HALF.HI = -0x80;
         this->spriteRendering.b3 = 1;
@@ -270,7 +270,7 @@ void sub_08021C58(Entity* this) {
         this->action = 2;
         this->actionDelay = 60;
         this->field_0xf = 1;
-        this->flags |= 0x80;
+        COLLISION_ON(this);
         this->spritePriority.b0 = 4;
         ((u8*)&this->field_0x86)[0] = 60;
         InitializeAnimation(this, 0);

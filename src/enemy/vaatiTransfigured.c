@@ -269,14 +269,14 @@ void VaatiTransfiguredType0Action3(Entity* this) {
                 break;
             this->field_0x80.HALF.LO = 1;
             this->actionDelay = 0xc0;
-            this->flags |= 0x80;
+            COLLISION_ON(this);
             SoundReq(SFX_14C);
             sub_08080964(0x14, 4);
             break;
         case 1:
             if (--this->actionDelay == 0) {
                 this->field_0x80.HALF.LO = 2;
-                this->damageType = 0x35;
+                this->hitType = 0x35;
                 this->spriteOffsetX = 0;
             }
             if (this->currentHealth < gUnk_080D0ABC[this->animationState]) {
@@ -287,7 +287,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
             }
             if (tmp) {
                 this->field_0x80.HALF.LO = 2;
-                this->damageType = 0x35;
+                this->hitType = 0x35;
                 this->spriteOffsetX = 0;
                 this->animationState++;
                 if (this->animationState > 2) {
@@ -312,7 +312,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
         case 3:
             if (this->actionDelay != 0) {
                 if (--this->actionDelay == 0) {
-                    this->flags &= 0x7f;
+                    COLLISION_OFF(this);
                     this->hVelocity = 0x38000;
                     this->field_0xf = 0x10;
                 }
@@ -321,7 +321,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
             if (sub_08003FC4(this, 0x2800) == 0) {
                 this->field_0x80.HALF.LO = 5;
                 this->actionDelay = 0x10;
-                this->flags |= 0x80;
+                COLLISION_ON(this);
                 this->currentHealth = 0xff;
                 this->field_0x86.HALF.LO = 0;
                 sub_080408EC(this);
@@ -1059,8 +1059,8 @@ void sub_080409B0(Entity* this) {
                     this->action = 3;
                     this->field_0x80.HALF.LO = 0;
                     this->field_0x80.HALF.HI = 3;
-                    this->flags &= 0x7f;
-                    this->damageType = 0x36;
+                    COLLISION_OFF(this);
+                    this->hitType = 0x36;
                     this->hVelocity = 0x18000;
                     SoundReq(SFX_164);
                 }

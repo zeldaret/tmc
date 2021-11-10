@@ -54,7 +54,7 @@ void sub_0802B628(Entity* this) {
                 this->direction = this->knockbackDirection;
                 this->knockbackDuration = 0;
                 this->iframes = -8;
-                this->damageType = 100;
+                this->hitType = 100;
                 InitializeAnimation(this, 9);
             }
     }
@@ -168,7 +168,7 @@ void sub_0802B8E0(Entity* this) {
         this->action = 8;
         this->hVelocity = 0x10000;
         this->speed = 0x60;
-        this->damageType = 99;
+        this->hitType = 99;
         InitializeAnimation(this, this->animationState);
         EnqueueSFX(299);
     }

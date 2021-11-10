@@ -42,17 +42,17 @@ typedef struct {
 typedef struct Entity {
     /*0x00*/ struct Entity* prev;
     /*0x04*/ struct Entity* next;
-    /*0x08*/ u8 kind; // was: type
-    /*0x09*/ u8 id; // was: subtype
-    /*0x0a*/ u8 type; // was: form
-    /*0x0b*/ u8 type2; // was: parameter
+    /*0x08*/ u8 kind;
+    /*0x09*/ u8 id;
+    /*0x0a*/ u8 type;
+    /*0x0b*/ u8 type2;
     /*0x0c*/ u8 action;
     /*0x0d*/ u8 subAction;
     /*0x0e*/ u8 actionDelay;
     /*0x0f*/ u8 field_0xf;
     /*0x10*/ u8 flags;
-    /*0x11*/ u8 scriptedScene : 4;
-    /*    */ u8 scriptedScene2 : 4;
+    /*0x11*/ u8 updateConditions : 4; // should we update this sprite during pause
+    /*    */ u8 updateConditions2 : 4;
     /*0x12*/ s16 spriteIndex;
     /*0x14*/ u8 animationState;
     /*0x15*/ u8 direction;
@@ -110,12 +110,12 @@ typedef struct Entity {
     /*0x3c*/ u8 field_0x3c;
     /*0x3d*/ s8 iframes;
     /*0x3e*/ u8 knockbackDirection;
-    /*0x3f*/ u8 damageType;
-    /*0x40*/ u8 field_0x40;
+    /*0x3f*/ u8 hitType; // behavior as a collision sender
+    /*0x40*/ u8 hurtType; // behavior as a collision reciever
     /*0x41*/ u8 bitfield;
     /*0x42*/ u8 knockbackDuration;
     /*0x43*/ u8 field_0x43;
-    /*0x44*/ u8 field_0x44;
+    /*0x44*/ u8 damage;
     /*0x45*/ u8 currentHealth;
     /*0x46*/ u16 field_0x46;
     /*0x48*/ Hitbox* hitbox;
@@ -165,9 +165,20 @@ extern LinkedList gUnk_03003D90;
 
 extern LinkedList gUnk_03003DA0;
 
+enum {
+    ENT_DID_INIT = 0x1,
+    ENT_SCRIPTED = 0x2,
+    ENT_ASLEEP = 0x10,
+    ENT_20 = 0x20,
+    ENT_COLLIDE = 0x80,
+};
+
+#define COLLISION_OFF(entity) ((entity)->flags &= ~ENT_COLLIDE) 
+#define COLLISION_ON(entity) ((entity)->flags |= ENT_COLLIDE)
+
 #define TILE(x, y)                                      \
-    (((((x) - gRoomControls.roomOriginX) >> 4) & 0x3fU) | \
-     ((((y) - gRoomControls.roomOriginY) >> 4) & 0x3fU) << 6)
+    (((((x) - gRoomControls.roomOriginX) >> 4) & 0x3F) | \
+     ((((y) - gRoomControls.roomOriginY) >> 4) & 0x3F) << 6)
 
 #define COORD_TO_TILE(entity) \
     TILE((entity)->x.HALF.HI, (entity)->y.HALF.HI)
@@ -186,9 +197,10 @@ enum {
 #define DirectionRoundUp(expr) DirectionRound((expr) + 4)
 #define DirectionIsHorizontal(expr) ((expr) & 0x08)
 #define DirectionIsVertical(expr) ((expr) & 0x10)
-#define DirectionTurnAround(expr) (DirectionRoundUp(expr) ^ 0x10)
+#define DirectionTurnAround(expr) ((expr) ^ 0x10)
 #define DirectionToAnimationState(expr) (DirectionRoundUp(expr) >> 3)
 #define DirectionFromAnimationState(expr) ((expr) << 3)
+#define DirectionNormalize(expr) ((expr) & 0x1f)
 
 #define Direction8Round(expr) ((expr) & 0x1c)
 #define Direction8RoundUp(expr) Direction8Round((expr) + 2)

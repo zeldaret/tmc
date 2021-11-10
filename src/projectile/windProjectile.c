@@ -67,7 +67,7 @@ void WindProjectile_Action2(Entity* this) {
         }
     } else {
         this->action = 3;
-        this->flags &= 0x7f;
+        COLLISION_OFF(this);
         this->speed = 0;
     }
 }

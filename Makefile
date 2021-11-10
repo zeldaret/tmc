@@ -111,7 +111,8 @@ NODEP := 1
 endif
 
 #$(C_BUILDDIR)/need_interworking_file_name.o: CFLAGS += -mthumb-interwork
-$(C_BUILDDIR)/arm_proxy.o: CFLAGS += -mthumb-interwork
+$(C_BUILDDIR)/interrupts.o: CFLAGS += -mthumb-interwork
+$(C_BUILDDIR)/collision.o: CFLAGS += -mthumb-interwork
 $(C_BUILDDIR)/gba/m4a.o: CFLAGS = -O2 -mthumb-interwork -Wimplicit -Wparentheses -Werror -Wno-multichar
 $(C_BUILDDIR)/eeprom.o: CFLAGS = -O1 -mthumb-interwork -Wimplicit -Wparentheses -Werror -Wno-multichar
 

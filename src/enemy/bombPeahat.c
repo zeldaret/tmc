@@ -507,9 +507,9 @@ void sub_0802B048(Entity* this) {
     if (this->field_0x7a.HALF.HI) {
         if (gRoomControls.roomOriginY > this->y.HALF.HI ||
             (gRoomControls.roomOriginY + gRoomControls.height + 0x20) < this->y.HALF.HI) {
-            this->flags &= ~0x80;
+            COLLISION_OFF(this);
         } else {
-            this->flags |= 0x80;
+            COLLISION_ON(this);
         }
     }
 
@@ -540,7 +540,7 @@ void sub_0802B048(Entity* this) {
                     this->hitbox = (Hitbox*)&gUnk_080CD17C;
                     this->actionDelay = 0xf;
                     this->spriteSettings.b.draw = 0;
-                    this->flags |= 0x80;
+                    COLLISION_ON(this);
                     this->field_0x7a.HALF.HI = 0;
                     sub_08078954(this);
                     if (this->parent->next) {

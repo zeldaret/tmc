@@ -31,8 +31,8 @@ void MandiblesProjectile(Entity* this) {
     if (entity == NULL) {
         entity = this->parent;
     }
-    if ((entity->field_0x43 == 0) && ((this->flags & 0x80) == 0)) {
-        this->flags |= 0x80;
+    if ((entity->field_0x43 == 0) && ((this->flags & ENT_COLLIDE) == 0)) {
+        COLLISION_ON(this);
     }
     MandiblesProjectile_Functions[GetNextFunction(this)](this);
 }
@@ -223,12 +223,12 @@ void sub_080AA1D8(Entity* this) {
                 PositionRelative(parent, this, tmp[0] << 0x10, tmp[1] << 0x10);
             }
             if (parent->field_0x43 != 0) {
-                if ((this->flags & 0x80) != 0) {
-                    this->flags &= 0x7f;
+                if ((this->flags & ENT_COLLIDE) != 0) {
+                    COLLISION_OFF(this);
                 }
             } else {
-                if ((this->flags & 0x80) == 0) {
-                    this->flags |= 0x80;
+                if ((this->flags & ENT_COLLIDE) == 0) {
+                    COLLISION_ON(this);
                 }
             }
         }

@@ -61,7 +61,7 @@ void sub_0803C784(Entity* this) {
 
         sub_0803CBAC(this);
     } else {
-        if (this->damageType == 0x43) {
+        if (this->hitType == 0x43) {
             Entity* fx = CreateFx(this, FX_DEATH, 0);
 
             if (fx != NULL) {
@@ -154,7 +154,7 @@ void Lakitu_EndHide(Entity* this) {
         this->action = IDLE;
         this->actionDelay = 0x3c;
 
-        this->damageType = 0x42;
+        this->hitType = 0x42;
 
         InitAnimationForceUpdate(this, this->animationState + 4);
     }
@@ -168,7 +168,7 @@ void Lakitu_Idle(Entity* this) {
     if (!sub_0803CA4C(this)) {
         this->action = BEGIN_HIDE;
 
-        this->damageType = 0x43;
+        this->hitType = 0x43;
         InitAnimationForceUpdate(this, this->animationState + 0xc);
     } else {
         sub_0803CA84(this, 4);
@@ -196,7 +196,7 @@ void Lakitu_Lightning(Entity* this) {
     Lakitu_SpawnLightning(this);
 
     this->action = LIGHTNING_DELAY;
-    this->damageType = 0x42;
+    this->hitType = 0x42;
 
     if ((Random() & 1) && !this->field_0x78.HALF.HI) {
         this->actionDelay = 0xf;
@@ -293,7 +293,7 @@ bool32 sub_0803CB04(Entity* this) {
 
 void sub_0803CB34(Entity* this) {
     this->action = LIGHTNING_THROW;
-    this->damageType = 0xa6;
+    this->hitType = 0xa6;
 
     this->field_0x78.HALF.LO = GetFacingDirection(this, &gPlayerEntity);
 
@@ -325,7 +325,7 @@ void sub_0803CBAC(Entity* this) {
     cloud = this->attachedEntity;
     if (cloud != NULL) {
         cloud->flags |= 0x80;
-        cloud->damageType = 0x43;
+        cloud->hitType = 0x43;
     }
 
     this->action = CLOUDLESS;
@@ -335,7 +335,7 @@ void sub_0803CBAC(Entity* this) {
 
     this->flags2 &= 0x7b;
 
-    this->damageType = 0x42;
+    this->hitType = 0x42;
 
     InitAnimationForceUpdate(this, this->animationState + 16);
 }

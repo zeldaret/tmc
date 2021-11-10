@@ -4,7 +4,7 @@
 	.section .rodata
     .align 2
 
-gUnk_080B7B74:: @ 080B7B74
+gCollisionMtx:: @ 080B7B74
 	.incbin "baserom.gba", 0x0B7B74, 0x00004BA
 
 gUnk_080B802E:: @ 080B802E

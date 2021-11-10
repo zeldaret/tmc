@@ -41,7 +41,7 @@ void sub_0808B474(Entity* this) {
     this->palette.b.b0 = tmp;
     this->spritePriority.b0 = 6;
     this->hitbox = &gUnk_080FD168;
-    this->scriptedScene = 3;
+    this->updateConditions = 3;
     InitializeAnimation(this, 0);
     if (CheckFlags(this->field_0x86.HWORD)) {
         sub_0808B830(this);

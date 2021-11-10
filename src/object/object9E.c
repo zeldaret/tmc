@@ -16,13 +16,13 @@ void Object9E(Entity* this) {
         this->action = 1;
         this->spritePriority.b0 = 6;
         if (this->type == 0) {
-            this->flags = this->flags | 0x80;
+            COLLISION_ON(this);
             this->frameIndex = 1;
             layer = &this->collisionLayer;
             *layer = 1;
             this->field_0x3c = 7;
-            this->field_0x40 = 0x48;
-            this->damageType = 0x7a;
+            this->hurtType = 0x48;
+            this->hitType = 0x7a;
             this->flags2 = 1;
             this->hitbox = &gUnk_080FD168;
             tilePos = COORD_TO_TILE(this);

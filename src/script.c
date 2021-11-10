@@ -347,14 +347,14 @@ ScriptExecutionContext* StartCutscene(Entity* entity, u16* script) {
 }
 
 void InitScriptForEntity(Entity* entity, ScriptExecutionContext* context, u16* script) {
-    entity->flags = entity->flags | 2;
+    entity->flags |= ENT_SCRIPTED;
     *(ScriptExecutionContext**)&entity->cutsceneBeh = context;
     InitScriptExecutionContext(context, script);
 }
 
 void UnloadCutsceneData(Entity* entity) {
-    if ((entity->flags & 2)) {
-        entity->flags = entity->flags & 0xfd;
+    if (entity->flags & ENT_SCRIPTED) {
+        entity->flags &= ~ENT_SCRIPTED;
         DestroyScriptExecutionContext(*(ScriptExecutionContext**)&entity->cutsceneBeh);
         *(ScriptExecutionContext**)&entity->cutsceneBeh = NULL;
     }

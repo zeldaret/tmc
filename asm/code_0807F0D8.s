@@ -625,7 +625,7 @@ _080800C6:
 	bne _080800FC
 	movs r0, #3
 	strb r0, [r5, #3]
-	bl sub_0805E9F4
+	bl DeleteSleepingEntities
 	bl sub_0807C810
 	ldr r1, _080800F4 @ =gUnk_08109194
 	ldr r0, _080800F8 @ =gUnk_03004030

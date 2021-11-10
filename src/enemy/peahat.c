@@ -101,7 +101,7 @@ void sub_080200B4(Entity* this) {
     if (this->animationState == PeahatAnimation_Flying) {
         this->animationState = PeahatAnimation_BrokenPropeller;
         this->action = 5;
-        this->damageType = 0x71;
+        this->hitType = 0x71;
         this->field_0x80.HALF.HI = 0;
         InitializeAnimation(this, this->animationState);
     }
@@ -116,15 +116,15 @@ void sub_080200EC(Entity* this) {
 }
 
 void sub_080200F4(Entity* this) {
-    this->flags &= ~0x80;
+    COLLISION_OFF(this);
 }
 
 void nullsub_5(Entity* this) {
 }
 
 void sub_08020104(Entity* this) {
-    if (this->flags & 0x80) {
-        this->flags |= 0x80;
+    if (this->flags & ENT_COLLIDE) {
+        COLLISION_ON(this);
         this->field_0x3a &= 0xfb;
     } else {
         this->currentHealth = 0;
@@ -230,7 +230,7 @@ void Peahat_Stunned(Entity* this) {
                 this->action = 6;
                 this->actionDelay = 240;
                 this->field_0xf = 10;
-                this->damageType = 0x71;
+                this->hitType = 0x71;
             }
 
             if (this->direction == 0xff)
@@ -245,7 +245,7 @@ void Peahat_Stunned(Entity* this) {
                 this->action = 7;
                 this->actionDelay = 150;
                 this->field_0xf = 10;
-                this->damageType = 0x71;
+                this->hitType = 0x71;
             }
             break;
     };
@@ -310,7 +310,7 @@ void Peahat_Takeoff(Entity* this) {
     GetNextFrame(this);
     if (this->frames.all & 0x80) {
         this->action = 1;
-        this->damageType = 0x70;
+        this->hitType = 0x70;
         this->field_0x82.HALF.LO = 1;
         this->field_0x80.HALF.HI = 1;
         this->animationState = PeahatAnimation_Flying;
