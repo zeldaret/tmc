@@ -5,7 +5,7 @@
 #include "flags.h"
 
 extern s32 sub_080AF090(Entity*);
-extern s32 sub_080A7EB0(Entity*);
+extern s32 IsProjectileOffScreen(Entity*);
 extern void sub_08016AD2(Entity*);
 extern u32 sub_080177A0(Entity*, Entity*);
 
@@ -57,7 +57,7 @@ void DekuSeedProjectile_Action1(Entity* this) {
 
     GetNextFrame(this);
     if (sub_080AF090(this) != 0) {
-        if (sub_080A7EB0(this) != 0) {
+        if (IsProjectileOffScreen(this) != 0) {
             DeleteThisEntity();
         }
         sub_08016AD2(this);
@@ -90,7 +90,7 @@ void DekuSeedProjectile_Action1(Entity* this) {
 void DekuSeedProjectile_Action2(Entity* this) {
     GetNextFrame(this);
     if (sub_080AF090(this) != 0) {
-        if (sub_080A7EB0(this) != 0) {
+        if (IsProjectileOffScreen(this) != 0) {
             DeleteThisEntity();
         }
         if (--this->actionDelay == 0) {

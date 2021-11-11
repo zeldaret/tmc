@@ -21,13 +21,13 @@ Object69: @ 0x08094A0C
 	bne _08094A34
 	movs r0, #1
 	strb r0, [r2, #0xc]
-	ldr r0, _08094A30 @ =gUnk_080FD170
+	ldr r0, _08094A30 @ =gHitbox_2
 	str r0, [r2, #0x48]
 	adds r0, r2, #0
 	bl sub_0807DD50
 	b _08094A42
 	.align 2, 0
-_08094A30: .4byte gUnk_080FD170
+_08094A30: .4byte gHitbox_2
 _08094A34:
 	adds r0, r2, #0
 	movs r1, #0

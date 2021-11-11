@@ -6,7 +6,7 @@
 #include "functions.h"
 
 extern s32 sub_080AF090(Entity*);
-extern s32 sub_080A7EB0(Entity*);
+extern s32 IsProjectileOffScreen(Entity*);
 
 extern void (*const V3ElectricProjectile_Functions[])(Entity*);
 extern void (*const V3ElectricProjectile_Actions[])(Entity*);
@@ -67,7 +67,7 @@ void V3ElectricProjectile_Action2(Entity* this) {
         DeleteThisEntity();
     }
     GetNextFrame(this);
-    if (sub_080A7EB0(this) != 0) {
+    if (IsProjectileOffScreen(this) != 0) {
         DeleteThisEntity();
     }
     if (this->actionDelay < 0x1e) {

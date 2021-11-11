@@ -5,9 +5,9 @@
 #include "functions.h"
 
 extern u8 gEntCount;
-extern Hitbox gUnk_080FD458;
-extern Hitbox gUnk_080FD168;
-extern Hitbox gUnk_080FD448;
+extern Hitbox gHitbox_21;
+extern Hitbox gHitbox_1;
+extern Hitbox gHitbox_20;
 
 extern void (*const gUnk_0812A994[])(Entity*);
 extern void (*const GyorgTail_Actions[])(Entity*);
@@ -95,7 +95,7 @@ void sub_080AC510(Entity* this) {
         this->spriteSettings.b.draw = 1;
         this->collisionLayer = 2;
         if (*(u16*)&this->type == 0x300) {
-            this->hitbox = &gUnk_080FD458;
+            this->hitbox = &gHitbox_21;
         }
     }
 }
@@ -112,9 +112,9 @@ void sub_080AC560(Entity* this) {
         this->action = 1;
         this->collisionLayer = 2;
         if (this->type == 0) {
-            this->hitbox = &gUnk_080FD168;
+            this->hitbox = &gHitbox_1;
         } else {
-            this->hitbox = &gUnk_080FD448;
+            this->hitbox = &gHitbox_20;
         }
         this->frameIndex = 0xff;
         this->spriteSettings.b.draw = 1;

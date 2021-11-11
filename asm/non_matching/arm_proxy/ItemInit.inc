@@ -3,7 +3,7 @@
 	mov ip, r0
 	ldrb r0, [r0, #9]
 	lsls r0, r0, #3
-	ldr r1, _08017410 @ =gUnk_08126DA8
+	ldr r1, _08017410 @ =gPlayerItemDefinitions
 	adds r3, r0, r1
 	ldrb r0, [r3]
 	cmp r0, #0xff
@@ -55,7 +55,7 @@ _080173CE:
 	adds r5, r2, #0
 	b _08017428
 	.align 2, 0
-_08017410: .4byte gUnk_08126DA8
+_08017410: .4byte gPlayerItemDefinitions
 _08017414: .4byte gUnk_08126ED8
 _08017418: .4byte gPlayerEntity
 _0801741C:

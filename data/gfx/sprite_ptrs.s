@@ -779,6 +779,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
+
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
@@ -798,6 +799,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
+
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
@@ -1418,7 +1420,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Enemy5F
+	.4byte gSpriteAnimations_WrathEye
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000

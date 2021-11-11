@@ -6,8 +6,8 @@
 
 	.text
 	
-	thumb_func_start sub_080A285C
-sub_080A285C: @ 0x080A285C
+	thumb_func_start LoadObjectSprite
+LoadObjectSprite: @ 0x080A285C
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r5, r2, #0

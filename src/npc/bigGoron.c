@@ -30,7 +30,7 @@ extern u32 gUnk_0200B650;
 void sub_0806D110(void);
 void sub_0806D164(Entity* this);
 
-extern Hitbox gUnk_080FD180;
+extern Hitbox gHitbox_3;
 Entity* sub_0806D00C(Entity* this);
 
 void sub_0806D4C0(Entity*, u32);
@@ -238,7 +238,7 @@ void sub_0806D3C0(Entity* this) {
             DeleteThisEntity();
         }
         this->action = 1;
-        this->hitbox = &gUnk_080FD180;
+        this->hitbox = &gHitbox_3;
         sub_0805E3A0(this, 2);
         sub_0807DD64(this);
     } else {

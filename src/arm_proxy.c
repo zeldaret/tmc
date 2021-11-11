@@ -46,9 +46,9 @@ extern void sub_0807B0C8(void);
 extern void sub_0807A8D8(Entity*);
 extern void sub_08077FEC(u32);
 extern void ItemInit(Entity*);
-extern void sub_080A2838(Entity*);
+extern void ObjectInit(Entity*);
 extern u32 ReadBit(void*, u32);
-extern void sub_0806EC78(Entity*);
+extern void NPCInit(Entity*);
 
 typedef struct {
     u8 unk0;
@@ -59,7 +59,7 @@ typedef struct {
     u8 unk5;
     u16 unk6;
 } ItemFrame;
-extern ItemFrame gUnk_08126DA8[];
+extern ItemFrame gPlayerItemDefinitions[];
 extern ItemFrame* gUnk_08126ED8[3];
 
 typedef struct {
@@ -301,7 +301,7 @@ void ItemUpdate(Entity* this) {
 NONMATCH("asm/non_matching/arm_proxy/ItemInit.inc", void ItemInit(Entity* this)) {
     ItemFrame* entry;
 
-    entry = &gUnk_08126DA8[this->id];
+    entry = &gPlayerItemDefinitions[this->id];
     if (entry->unk0 == 0xff) {
         u32 temp = entry->unk2;
         ItemFrame* temp2 = gUnk_08126ED8[entry->unk1];
@@ -334,7 +334,7 @@ void ObjectUpdate(Entity* this) {
     int iVar1;
 
     if (((this->flags & 1) == 0) && (this->action == 0))
-        sub_080A2838(this);
+        ObjectInit(this);
     if (this->iframes != 0)
         this->iframes++;
     if (!sub_0805E3B0(this)) {
@@ -354,7 +354,7 @@ NONMATCH("asm/non_matching/arm_proxy/NPCUpdate.inc", void NPCUpdate(Entity* this
     if ((this->currentHealth & 0x7f) && !ReadBit(&gUnk_020342F8, this->currentHealth - 1))
         DeleteThisEntity();
     if ((this->action == 0) && ((this->flags & 1) == 0))
-        sub_0806EC78(this);
+        NPCInit(this);
     if (!sub_0805E3B0(this))
         gNPCFunctions[this->id][0](this);
     if (this->next != NULL) {

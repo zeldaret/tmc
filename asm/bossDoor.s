@@ -60,7 +60,7 @@ _0808C230:
 	adds r1, r4, #0
 	adds r1, #0x72
 	strh r0, [r1]
-	ldr r0, _0808C2B4 @ =gUnk_080FD180
+	ldr r0, _0808C2B4 @ =gHitbox_3
 	str r0, [r4, #0x48]
 	adds r2, r4, #0
 	adds r2, #0x29
@@ -111,7 +111,7 @@ _0808C230:
 	b _0808C31C
 	.align 2, 0
 _0808C2B0: .4byte 0x0000FFFF
-_0808C2B4: .4byte gUnk_080FD180
+_0808C2B4: .4byte gHitbox_3
 _0808C2B8: .4byte gRoomControls
 _0808C2BC:
 	cmp r0, #2

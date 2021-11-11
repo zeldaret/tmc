@@ -13,7 +13,7 @@ extern u32 sub_080001DA(u32, u32);
 
 extern void (*const gUnk_0812493C[])(Entity*);
 
-extern Hitbox gUnk_080FD180;
+extern Hitbox gHitbox_3;
 
 void MetalDoor(Entity* this) {
     gUnk_0812493C[this->action](this);
@@ -28,7 +28,7 @@ void sub_080A0684(Entity* this) {
     this->spriteSettings.b.draw = 0;
     this->frameIndex = 0;
     this->spriteSettings.b.flipY = 1;
-    this->hitbox = &gUnk_080FD180;
+    this->hitbox = &gHitbox_3;
     this->spritePriority.b0 = 5;
     this->field_0x70.HALF.LO = this->x.HALF.HI;
     this->field_0x70.HALF.HI = this->y.HALF.HI;

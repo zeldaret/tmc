@@ -35,13 +35,13 @@ _0806EC4C:
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_0806EC50
-sub_0806EC50: @ 0x0806EC50
+	thumb_func_start GetNPCDefinition
+GetNPCDefinition: @ 0x0806EC50
 	push {lr}
 	adds r3, r0, #0
 	ldrb r0, [r3, #9]
 	lsls r0, r0, #3
-	ldr r1, _0806EC74 @ =gUnk_08114AE4
+	ldr r1, _0806EC74 @ =gNPCDefinitions
 	adds r2, r0, r1
 	ldrb r1, [r2]
 	movs r0, #3
@@ -56,10 +56,10 @@ _0806EC6E:
 	adds r0, r2, #0
 	pop {pc}
 	.align 2, 0
-_0806EC74: .4byte gUnk_08114AE4
+_0806EC74: .4byte gNPCDefinitions
 
-	thumb_func_start sub_0806EC78
-sub_0806EC78: @ 0x0806EC78
+	thumb_func_start NPCInit
+NPCInit: @ 0x0806EC78
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0x10]
@@ -68,7 +68,7 @@ sub_0806EC78: @ 0x0806EC78
 	cmp r0, #0
 	bne _0806ED4A
 	adds r0, r4, #0
-	bl sub_0806EC50
+	bl GetNPCDefinition
 	adds r5, r0, #0
 	ldrb r1, [r5]
 	movs r0, #3

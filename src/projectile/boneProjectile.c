@@ -3,7 +3,7 @@
 #include "functions.h"
 
 extern s32 sub_080AF090(Entity*);
-extern s32 sub_080A7EB0(Entity*);
+extern s32 IsProjectileOffScreen(Entity*);
 extern void sub_08016AD2(Entity*);
 
 extern void (*const BoneProjectile_Functions[])(Entity*);
@@ -38,7 +38,7 @@ void BoneProjectile_Action1(Entity* this) {
     GetNextFrame(this);
     sub_080AF090(this);
     if (this->collisions == 0) {
-        if (sub_080A7EB0(this) != 0) {
+        if (IsProjectileOffScreen(this) != 0) {
             DeleteEntity(this);
         } else {
             sub_08016AD2(this);

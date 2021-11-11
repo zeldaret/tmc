@@ -391,38 +391,38 @@ gUnk_080FD138:: @ 080FD138
 	.4byte sub_080536F0
 	.4byte sub_08053C04
 
-gUnk_080FD150:: @ 080FD150
-	.incbin "data_080FC8A4/gUnk_080FD150.bin"
+gHitbox_0:: @ 080FD150
+	.incbin "data_080FC8A4/gHitbox_0.bin"
 
-gUnk_080FD158:: @ 080FD158
-	.incbin "data_080FC8A4/gUnk_080FD158.bin"
+gHitbox_30:: @ 080FD158
+	.incbin "data_080FC8A4/gHitbox_30.bin"
 
-gUnk_080FD160:: @ 080FD160
-	.incbin "data_080FC8A4/gUnk_080FD160.bin"
+gHitbox_31:: @ 080FD160
+	.incbin "data_080FC8A4/gHitbox_31.bin"
 
-gUnk_080FD168:: @ 080FD168
-	.incbin "data_080FC8A4/gUnk_080FD168.bin"
+gHitbox_1:: @ 080FD168
+	.incbin "data_080FC8A4/gHitbox_1.bin"
 
-gUnk_080FD170:: @ 080FD170
-	.incbin "data_080FC8A4/gUnk_080FD170.bin"
+gHitbox_2:: @ 080FD170
+	.incbin "data_080FC8A4/gHitbox_2.bin"
 
 gUnk_080FD178:: @ 080FD178
 	.incbin "data_080FC8A4/gUnk_080FD178.bin"
 
-gUnk_080FD180:: @ 080FD180
-	.incbin "data_080FC8A4/gUnk_080FD180.bin"
+gHitbox_3:: @ 080FD180
+	.incbin "data_080FC8A4/gHitbox_3.bin"
 
-gUnk_080FD188:: @ 080FD188
-	.incbin "data_080FC8A4/gUnk_080FD188.bin"
+gHitbox_4:: @ 080FD188
+	.incbin "data_080FC8A4/gHitbox_4.bin"
 
 gUnk_080FD190:: @ 080FD190
 	.incbin "data_080FC8A4/gUnk_080FD190.bin"
 
-gUnk_080FD198:: @ 080FD198
-	.incbin "data_080FC8A4/gUnk_080FD198.bin"
+gHitbox_5:: @ 080FD198
+	.incbin "data_080FC8A4/gHitbox_5.bin"
 
-gUnk_080FD1A0:: @ 080FD1A0
-	.incbin "data_080FC8A4/gUnk_080FD1A0.bin"
+gHitbox_6:: @ 080FD1A0
+	.incbin "data_080FC8A4/gHitbox_6.bin"
 
 gUnk_080FD1A8:: @ 080FD1A8
 	.incbin "data_080FC8A4/gUnk_080FD1A8.bin"
@@ -430,11 +430,11 @@ gUnk_080FD1A8:: @ 080FD1A8
 gUnk_080FD1B4:: @ 080FD1B4
 	.incbin "data_080FC8A4/gUnk_080FD1B4.bin"
 
-gUnk_080FD1C4:: @ 080FD1C4
-	.incbin "data_080FC8A4/gUnk_080FD1C4.bin"
+gHitbox_7:: @ 080FD1C4
+	.incbin "data_080FC8A4/gHitbox_7.bin"
 
-gUnk_080FD1CC:: @ 080FD1CC
-	.incbin "data_080FC8A4/gUnk_080FD1CC.bin"
+gHitbox_8:: @ 080FD1CC
+	.incbin "data_080FC8A4/gHitbox_8.bin"
 
 gUnk_080FD1D4:: @ 080FD1D4
 	.incbin "data_080FC8A4/gUnk_080FD1D4.bin"
@@ -481,8 +481,8 @@ gUnk_080FD240:: @ 080FD240
 gUnk_080FD248:: @ 080FD248
 	.incbin "data_080FC8A4/gUnk_080FD248.bin"
 
-gUnk_080FD250:: @ 080FD250
-	.incbin "data_080FC8A4/gUnk_080FD250.bin"
+gHitbox_9:: @ 080FD250
+	.incbin "data_080FC8A4/gHitbox_9.bin"
 
 gUnk_080FD258:: @ 080FD258
 	.incbin "data_080FC8A4/gUnk_080FD258.bin"
@@ -490,8 +490,8 @@ gUnk_080FD258:: @ 080FD258
 gUnk_080FD260:: @ 080FD260
 	.incbin "data_080FC8A4/gUnk_080FD260.bin"
 
-gUnk_080FD268:: @ 080FD268
-	.incbin "data_080FC8A4/gUnk_080FD268.bin"
+gHitbox_10:: @ 080FD268
+	.incbin "data_080FC8A4/gHitbox_10.bin"
 
 gUnk_080FD270:: @ 080FD270
 	.incbin "data_080FC8A4/gUnk_080FD270.bin"
@@ -517,17 +517,17 @@ gUnk_080FD2A0:: @ 080FD2A0
 gUnk_080FD2A8:: @ 080FD2A8
 	.incbin "data_080FC8A4/gUnk_080FD2A8.bin"
 
-gUnk_080FD2B0:: @ 080FD2B0
-	.incbin "data_080FC8A4/gUnk_080FD2B0.bin"
+gHitbox_11:: @ 080FD2B0
+	.incbin "data_080FC8A4/gHitbox_11.bin"
 
-gUnk_080FD2B8:: @ 080FD2B8
-	.incbin "data_080FC8A4/gUnk_080FD2B8.bin"
+gHitbox_12:: @ 080FD2B8
+	.incbin "data_080FC8A4/gHitbox_12.bin"
 
-gUnk_080FD2C0:: @ 080FD2C0
-	.incbin "data_080FC8A4/gUnk_080FD2C0.bin"
+gHitbox_13:: @ 080FD2C0
+	.incbin "data_080FC8A4/gHitbox_13.bin"
 
-gUnk_080FD2C8:: @ 080FD2C8
-	.incbin "data_080FC8A4/gUnk_080FD2C8.bin"
+gHitbox_14:: @ 080FD2C8
+	.incbin "data_080FC8A4/gHitbox_14.bin"
 
 gUnk_080FD2D0:: @ 080FD2D0
 	.incbin "data_080FC8A4/gUnk_080FD2D0.bin"
@@ -544,11 +544,11 @@ gUnk_080FD2E8:: @ 080FD2E8
 gUnk_080FD2F0:: @ 080FD2F0
 	.incbin "data_080FC8A4/gUnk_080FD2F0.bin"
 
-gUnk_080FD2F8:: @ 080FD2F8
-	.incbin "data_080FC8A4/gUnk_080FD2F8.bin"
+gHitbox_15:: @ 080FD2F8
+	.incbin "data_080FC8A4/gHitbox_15.bin"
 
-gUnk_080FD300:: @ 080FD300
-	.incbin "data_080FC8A4/gUnk_080FD300.bin"
+gHitbox_16:: @ 080FD300
+	.incbin "data_080FC8A4/gHitbox_16.bin"
 
 gUnk_080FD308:: @ 080FD308
 	.incbin "data_080FC8A4/gUnk_080FD308.bin"
@@ -556,8 +556,8 @@ gUnk_080FD308:: @ 080FD308
 gUnk_080FD310:: @ 080FD310
 	.incbin "data_080FC8A4/gUnk_080FD310.bin"
 
-gUnk_080FD318:: @ 080FD318
-	.incbin "data_080FC8A4/gUnk_080FD318.bin"
+gHitbox_17:: @ 080FD318
+	.incbin "data_080FC8A4/gHitbox_17.bin"
 
 gUnk_080FD320:: @ 080FD320
 	.incbin "data_080FC8A4/gUnk_080FD320.bin"
@@ -568,8 +568,8 @@ gUnk_080FD328:: @ 080FD328
 gUnk_080FD330:: @ 080FD330
 	.incbin "data_080FC8A4/gUnk_080FD330.bin"
 
-gUnk_080FD338:: @ 080FD338
-	.incbin "data_080FC8A4/gUnk_080FD338.bin"
+gHitbox_18:: @ 080FD338
+	.incbin "data_080FC8A4/gHitbox_18.bin"
 
 gUnk_080FD340:: @ 080FD340
 	.incbin "data_080FC8A4/gUnk_080FD340.bin"
@@ -643,8 +643,8 @@ gUnk_080FD3FC:: @ 080FD3FC
 gUnk_080FD408:: @ 080FD408
 	.incbin "data_080FC8A4/gUnk_080FD408.bin"
 
-gUnk_080FD410:: @ 080FD410
-	.incbin "data_080FC8A4/gUnk_080FD410.bin"
+gHitbox_19:: @ 080FD410
+	.incbin "data_080FC8A4/gHitbox_19.bin"
 
 gUnk_080FD41C:: @ 080FD41C
 	.incbin "data_080FC8A4/gUnk_080FD41C.bin"
@@ -661,26 +661,26 @@ gUnk_080FD434:: @ 080FD434
 gUnk_080FD43C:: @ 080FD43C
 	.incbin "data_080FC8A4/gUnk_080FD43C.bin"
 
-gUnk_080FD448:: @ 080FD448
-	.incbin "data_080FC8A4/gUnk_080FD448.bin"
+gHitbox_20:: @ 080FD448
+	.incbin "data_080FC8A4/gHitbox_20.bin"
 
 gUnk_080FD450:: @ 080FD450
 	.incbin "data_080FC8A4/gUnk_080FD450.bin"
 
-gUnk_080FD458:: @ 080FD458
-	.incbin "data_080FC8A4/gUnk_080FD458.bin"
+gHitbox_21:: @ 080FD458
+	.incbin "data_080FC8A4/gHitbox_21.bin"
 
-gUnk_080FD460:: @ 080FD460
-	.incbin "data_080FC8A4/gUnk_080FD460.bin"
+gHitbox_22:: @ 080FD460
+	.incbin "data_080FC8A4/gHitbox_22.bin"
 
-gUnk_080FD468:: @ 080FD468
-	.incbin "data_080FC8A4/gUnk_080FD468.bin"
+gHitbox_23:: @ 080FD468
+	.incbin "data_080FC8A4/gHitbox_23.bin"
 
-gUnk_080FD470:: @ 080FD470
-	.incbin "data_080FC8A4/gUnk_080FD470.bin"
+gHitbox_32:: @ 080FD470
+	.incbin "data_080FC8A4/gHitbox_32.bin"
 
-gUnk_080FD480:: @ 080FD480
-	.incbin "data_080FC8A4/gUnk_080FD480.bin"
+gHitbox_24:: @ 080FD480
+	.incbin "data_080FC8A4/gHitbox_24.bin"
 
 gUnk_080FD488:: @ 080FD488
 	.incbin "data_080FC8A4/gUnk_080FD488.bin"
@@ -688,11 +688,11 @@ gUnk_080FD488:: @ 080FD488
 gUnk_080FD490:: @ 080FD490
 	.incbin "data_080FC8A4/gUnk_080FD490.bin"
 
-gUnk_080FD498:: @ 080FD498
-	.incbin "data_080FC8A4/gUnk_080FD498.bin"
+gHitbox_25:: @ 080FD498
+	.incbin "data_080FC8A4/gHitbox_25.bin"
 
-gUnk_080FD4A4:: @ 080FD4A4
-	.incbin "data_080FC8A4/gUnk_080FD4A4.bin"
+gHitbox_26:: @ 080FD4A4
+	.incbin "data_080FC8A4/gHitbox_26.bin"
 
 gUnk_080FD4B8:: @ 080FD4B8
 	.incbin "data_080FC8A4/gUnk_080FD4B8.bin"
@@ -736,8 +736,8 @@ gUnk_080FD518:: @ 080FD518
 gUnk_080FD520:: @ 080FD520
 	.incbin "data_080FC8A4/gUnk_080FD520.bin"
 
-gUnk_080FD528:: @ 080FD528
-	.incbin "data_080FC8A4/gUnk_080FD528.bin"
+gHitbox_27:: @ 080FD528
+	.incbin "data_080FC8A4/gHitbox_27.bin"
 
 gUnk_080FD530:: @ 080FD530
 	.incbin "data_080FC8A4/gUnk_080FD530.bin"
@@ -748,8 +748,8 @@ gUnk_080FD538:: @ 080FD538
 gUnk_080FD544:: @ 080FD544
 	.incbin "data_080FC8A4/gUnk_080FD544.bin"
 
-gUnk_080FD54C:: @ 080FD54C
-	.incbin "data_080FC8A4/gUnk_080FD54C.bin"
+gHitbox_28:: @ 080FD54C
+	.incbin "data_080FC8A4/gHitbox_28.bin"
 
 gUnk_080FD558:: @ 080FD558
 	.incbin "data_080FC8A4/gUnk_080FD558.bin"
@@ -757,8 +757,8 @@ gUnk_080FD558:: @ 080FD558
 gUnk_080FD560:: @ 080FD560
 	.incbin "data_080FC8A4/gUnk_080FD560.bin"
 
-gUnk_080FD568:: @ 080FD568
-	.incbin "data_080FC8A4/gUnk_080FD568.bin"
+gHitbox_29:: @ 080FD568
+	.incbin "data_080FC8A4/gHitbox_29.bin"
 
 gUnk_080FD570:: @ 080FD570
 	.incbin "data_080FC8A4/gUnk_080FD570.bin"

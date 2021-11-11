@@ -5,7 +5,7 @@
 #include "createObject.h"
 #include "functions.h"
 
-extern Hitbox gUnk_080FD170;
+extern Hitbox gHitbox_2;
 
 extern u8 gUnk_02000070;
 
@@ -14,7 +14,7 @@ void ObjectA(Entity* this) {
 
     if (this->action == 0) {
         this->action = 1;
-        this->hitbox = &gUnk_080FD170;
+        this->hitbox = &gHitbox_2;
         if (this->collisionLayer == 1) {
             uVar2 = 0x26;
         } else {

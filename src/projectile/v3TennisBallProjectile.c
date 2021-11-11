@@ -5,7 +5,7 @@
 #include "effects.h"
 
 extern s32 sub_080AF090(Entity*);
-extern s32 sub_080A7EB0(Entity*);
+extern s32 IsProjectileOffScreen(Entity*);
 
 extern void (*const V3TennisBallProjectile_Functions[])(Entity*);
 extern void (*const V3TennisBallProjectile_Actions[])(Entity*);
@@ -34,7 +34,7 @@ void V3TennisBallProjectile_Init(Entity* this) {
 void V3TennisBallProjectile_Action1(Entity* this) {
     sub_080AF090(this);
     GetNextFrame(this);
-    if (sub_080A7EB0(this) != 0) {
+    if (IsProjectileOffScreen(this) != 0) {
         DeleteThisEntity();
     }
 }
@@ -46,7 +46,7 @@ void V3TennisBallProjectile_Action2(Entity* this) {
     }
     GetNextFrame(this);
     sub_080ACB90(this);
-    if (sub_080A7EB0(this) != 0) {
+    if (IsProjectileOffScreen(this) != 0) {
         DeleteThisEntity();
     }
 }

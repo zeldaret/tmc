@@ -13,7 +13,7 @@ extern void (*const gUnk_081142BC[])(Entity*);
 
 extern void sub_08078828(Entity*);
 
-extern Hitbox gUnk_080FD150;
+extern Hitbox gHitbox_0;
 
 void PicolyteBottle(Entity* this) {
     gUnk_081142BC[this->action](this);
@@ -42,7 +42,7 @@ void sub_0806DF00(Entity* this) {
         sub_0806E014(this);
         sub_0807DD50(this);
     } else {
-        this->hitbox = &gUnk_080FD150;
+        this->hitbox = &gHitbox_0;
         this->collisionLayer = 1;
         sub_0806E0DC(this);
     }

@@ -17,8 +17,8 @@ extern void (*const gUnk_080CBA40[])(Entity*);
 
 extern const u8 gUnk_080CBA60[];
 
-extern Hitbox gUnk_080FD468;
-extern Hitbox gUnk_080FD470;
+extern Hitbox gHitbox_23;
+extern Hitbox gHitbox_32;
 
 extern Entity* gUnk_020000B0;
 
@@ -40,7 +40,7 @@ void sub_0802244C(Entity* this) {
                     this->action = 2;
                     this->field_0xf = 0x3c;
                     this->damageType = 0x5c;
-                    this->hitbox = &gUnk_080FD468;
+                    this->hitbox = &gHitbox_23;
                     InitializeAnimation(this, 0);
                     break;
                 case 8:
@@ -189,9 +189,9 @@ void sub_08022780(Entity* this) {
 void sub_080227AC(Entity* this) {
     GetNextFrame(this);
     if (this->frames.all & 1) {
-        this->hitbox = &gUnk_080FD470;
+        this->hitbox = &gHitbox_32;
     } else {
-        this->hitbox = &gUnk_080FD468;
+        this->hitbox = &gHitbox_23;
     }
 
     if (this->frames.all & 2) {

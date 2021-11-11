@@ -329,7 +329,7 @@ SECTIONS {
         /* scripts */
         data/scripts.o(.text);
         asm/code_08016984.o(.text);
-        asm/sub_08016AE4.o(.text);
+        asm/projectileUpdate.o(.text);
 
 
         /* C source compiled with interworking */
@@ -473,6 +473,8 @@ SECTIONS {
         /* END enemies */
         src/code_08049CD4.o(.text);
         asm/code_08049D30.o(.text);
+        src/enemyInit.o(.text);
+        asm/code_0804A720.o(.text);
         asm/sub_0804AA30.o(.text);
         src/createEnemy.o(.text);
         src/code_0804AA84.o(.text);
@@ -927,6 +929,7 @@ SECTIONS {
         asm/code_080A5574.o(.text);
         src/playerItem/playerItemSword.o(.text);
         asm/code_080A7C00.o(.text);
+        src/projectileInit.o(.text);
         src/projectile/darkNutSwordSlash.o(.text);
         src/projectile/rockProjectile.o(.text);
         src/projectile/boneProjectile.o(.text);
@@ -1180,7 +1183,6 @@ SECTIONS {
         data/const/enemy/enemy64.o(.rodata);
         data/const/enemy/treeItem.o(.rodata);
         data/const/enemy/enemy66.o(.rodata);
-        data/const/code_08049D30.o(.rodata);
         src/enemy.o(.rodata);
         data/data_080D3D94.o(.rodata);
         data/map/entity_headers.o(.rodata);
@@ -1387,6 +1389,7 @@ SECTIONS {
         data/const/npc/cuccoChick.o(.rodata);
         data/const/npc/phonograph.o(.rodata);
         data/const/npc/npc58.o(.rodata);
+        src/spriteDataNpc.o(.rodata);
         data/data_081146D0.o(.rodata);
         data/gfx/sprite_frames.o(.rodata);
         data/const/playerItem/playerItem12.o(.rodata);
@@ -1651,11 +1654,13 @@ SECTIONS {
         data/const/object/pinwheel.o(.rodata);
         data/animations/object/pinwheel.o(.rodata);
         data/const/object/objectC1.o(.rodata);
+        src/spriteDataObject.o(.rodata);
+        src/spriteDataPlayerItem.o(.rodata);
         data/data_08125104.o(.rodata);
         data/const/playerItem/playerItemShield.o(.rodata);
         data/const/playerItem/playerItem15.o(.rodata);
 #ifdef DEMO_USA
-    data/const/demoScreen.o(.rodata);
+        data/const/demoScreen.o(.rodata);
 #endif
         data/data_08127280.o(.rodata);
         data/gfx/figurines.o(.rodata);
@@ -1725,7 +1730,10 @@ SECTIONS {
         src/flagDebug.o(.rodata);
         data/const/playerItem/playerItem13.o(.rodata);
         src/intro.o(.rodata);
+#ifdef DEMO_JP
         data/data_081320FC.o(.rodata);
+#endif
+        src/projectile.o(.rodata);
         data/const/playerItem/playerItemGustJar.o(.rodata);
         data/gfx/fixed_type_gfx.o(.rodata);
         data/data_08132B30.o(.rodata);

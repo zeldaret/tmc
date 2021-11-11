@@ -13,7 +13,7 @@ ProjectileUpdate: @ 0x08016AE4
 	ldrb r2, [r0, #0xc]
 	cmp r2, #0
 	bne _08016AFC
-	bl sub_080A7D80
+	bl ProjectileInit
 	cmp r0, #0
 	bne _08016B0A
 	bl DeleteThisEntity

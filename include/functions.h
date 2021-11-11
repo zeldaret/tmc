@@ -29,7 +29,7 @@ extern void LoadRoomTileEntities(); // tba
 extern Entity* CreateDeathFx(Entity*, u32, u32);
 extern void UpdateAnimationVariableFrames(Entity*, u32);
 extern u8* GetSpriteSubEntryOffsetDataPointer(u32, u32);
-extern u32 LoadFixedGFX(Entity*, u32);
+extern bool32 LoadFixedGFX(Entity*, u32);
 extern Entity* CreateItemEntity(u32, u32, u32);
 extern u32 ProcessMovement(Entity*);
 extern void MenuFadeIn(u32, u32);
@@ -193,7 +193,7 @@ extern void sub_0800417E(Entity*, u32);
 extern void sub_080784C8();
 extern u32 sub_0808288C(Entity*, u32, u32, u32);
 extern void sub_0806FDA0(Entity*);
-extern void sub_080AE008(Entity*, u32, u32);
+extern bool32 sub_080AE008(Entity*, u8, u32);
 extern u32 sub_08016A30(Entity*);
 extern void sub_08077728();
 extern void sub_0807AEE4();
@@ -302,5 +302,5 @@ extern void sub_0801855C(void);
 extern u32 sub_0807CAEC(u32);
 extern void sub_0807CAC8(u32);
 extern void sub_0805E4E0(Entity*, u32);
-
+extern void sub_0801D040(Entity*, u32);
 #endif
