@@ -112,8 +112,14 @@ else
 NODEP := 1
 endif
 
-#$(C_BUILDDIR)/need_interworking_file_name.o: CFLAGS += -mthumb-interwork
-$(C_BUILDDIR)/arm_proxy.o: CFLAGS += -mthumb-interwork
+interwork := $(C_BUILDDIR)/interrupts.o \
+$(C_BUILDDIR)/collision.o \
+$(C_BUILDDIR)/playerItem.o \
+$(C_BUILDDIR)/object.o \
+$(C_BUILDDIR)/manager.o \
+$(C_BUILDDIR)/npc.o
+
+$(interwork): CFLAGS += -mthumb-interwork
 $(C_BUILDDIR)/gba/m4a.o: CFLAGS = -O2 -mthumb-interwork -Wimplicit -Wparentheses -Werror -Wno-multichar
 $(C_BUILDDIR)/eeprom.o: CFLAGS = -O1 -mthumb-interwork -Wimplicit -Wparentheses -Werror -Wno-multichar
 

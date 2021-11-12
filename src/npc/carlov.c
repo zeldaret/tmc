@@ -12,13 +12,13 @@ void Carlov(Entity* this) {
     } else {
         sub_0807DD94(this, 0);
     }
-    if ((this->frames.all & 0x10) != 0) {
-        this->frames.all = this->frames.all & 0xef;
+    if ((this->frame & 0x10) != 0) {
+        this->frame = this->frame & 0xef;
         EnqueueSFX(0x104);
         sub_08080964(0x10, 0);
     }
-    if ((this->frames.all & 0x20) != 0) {
-        this->frames.all = this->frames.all & 0xdf;
+    if ((this->frame & 0x20) != 0) {
+        this->frame = this->frame & 0xdf;
         EnqueueSFX(0x7c);
     }
 }

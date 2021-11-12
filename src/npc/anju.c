@@ -9,7 +9,7 @@ void Anju(Entity* this) {
     switch (this->action) {
         case 0:
             this->action = 1;
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
             this->animationState = this->actionDelay;
             sub_0807DD50(this);
             return;
@@ -39,7 +39,7 @@ void sub_0806C354(Entity* this) {
 void Anju_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action++;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         InitAnimationForceUpdate(this, 6);
     } else {
         UpdateAnimationSingleFrame(this);

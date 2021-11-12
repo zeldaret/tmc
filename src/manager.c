@@ -12,3 +12,8 @@ void (*const gManagerFunctions[])() = {
     Manager31_Main, Manager32_Main, Manager33_Main, Manager34_Main, Manager35_Main, Manager36_Main, Manager37_Main,
     Manager38_Main, Manager39_Main
 };
+
+void ManagerUpdate(Entity* this) {
+    if (!CheckDontUpdate(this))
+        gManagerFunctions[this->id](this);
+}

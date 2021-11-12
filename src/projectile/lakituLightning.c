@@ -19,7 +19,7 @@ void LakituLightning_OnTick(Entity* this) {
 }
 
 void sub_080A9DD8(Entity* this) {
-    if ((this->currentHealth == 0) || (this->bitfield == 0x80)) {
+    if ((this->health == 0) || (this->bitfield == 0x80)) {
         DeleteThisEntity();
     }
     LakituLightning_OnTick(this);
@@ -28,7 +28,7 @@ void sub_080A9DD8(Entity* this) {
 void LakituLightning_Init(Entity* this) {
     this->action = 1;
     this->actionDelay = 0xb4;
-    this->currentHealth = 1;
+    this->health = 1;
     InitializeAnimation(this, 0);
 }
 

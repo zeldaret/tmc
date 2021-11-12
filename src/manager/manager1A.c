@@ -199,9 +199,9 @@ void sub_0805B2B0(Manager1A* this) {
     }
     gScreen.lcd.displayControl |= 0x800;
     gRoomControls.bg3OffsetX.HALF.HI = gRoomControls.roomScrollX + this->unk_34 + tmp;
-    gScreen.affine.bg3xOffset = gRoomControls.roomScrollX + this->unk_34 + tmp;
+    gScreen.bg3.xOffset = gRoomControls.roomScrollX + this->unk_34 + tmp;
     gRoomControls.bg3OffsetY.HALF.HI = gRoomControls.roomScrollY + this->unk_36 + tmp2;
-    gScreen.affine.bg3yOffset = gRoomControls.roomScrollY + this->unk_36 + tmp2;
+    gScreen.bg3.yOffset = gRoomControls.roomScrollY + this->unk_36 + tmp2;
 }
 
 void sub_0805B328(Manager1A* this) {
@@ -210,10 +210,10 @@ void sub_0805B328(Manager1A* this) {
         return;
     tmp = &gUnk_08108764[this->manager.unk_0a];
     LoadResourceAsync(&gGlobalGfxAndPalettes[tmp->unk_0c->unk_00], 0x0600F000, 0x800);
-    gScreen.affine.bg3Control = 0x1E07;
+    gScreen.bg3.control = 0x1E07;
     gScreen.lcd.displayControl |= 0x800;
-    gScreen.affine.bg3xOffset = gRoomControls.bg3OffsetX.HALF.HI;
-    gScreen.affine.bg3yOffset = gRoomControls.bg3OffsetY.HALF.HI;
+    gScreen.bg3.xOffset = gRoomControls.bg3OffsetX.HALF.HI;
+    gScreen.bg3.yOffset = gRoomControls.bg3OffsetY.HALF.HI;
     gScreen.controls.layerFXControl &= ~0x8;
 }
 

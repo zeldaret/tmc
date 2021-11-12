@@ -355,7 +355,7 @@ void sub_080428FC(Entity* this) {
         SoundReq(SFX_153);
         uVar2 = 0;
         do {
-            ((VaatiArm_HeapStruct*)this->myHeap)->entities[uVar2]->damageType = 0x3b;
+            ((VaatiArm_HeapStruct*)this->myHeap)->entities[uVar2]->hitType = 0x3b;
             uVar2 = uVar2 + 1;
         } while (uVar2 < 5);
     }
@@ -387,7 +387,7 @@ void sub_08042970(Entity* this) {
         this->actionDelay = 0x3c;
         uVar2 = 0;
         do {
-            ((VaatiArm_HeapStruct*)this->myHeap)->entities[uVar2]->damageType = 0x39;
+            ((VaatiArm_HeapStruct*)this->myHeap)->entities[uVar2]->hitType = 0x39;
             uVar2 = uVar2 + 1;
         } while (uVar2 < 5);
     }
@@ -425,7 +425,7 @@ void sub_08042A3C(Entity* this) {
     gUnk_080D12B8[this->subAction](this);
     sub_08043A10(this);
     entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[4];
-    entity->height.HALF.HI += this->field_0x78.HALF.LO;
+    entity->z.HALF.HI += this->field_0x78.HALF.LO;
 }
 
 void sub_08042A6C(Entity* this) {
@@ -460,9 +460,9 @@ void sub_08042AEC(Entity* this) {
     if (--this->actionDelay == 0) {
         this->subAction = 3;
         this->actionDelay = 4;
-        this->damageType = 0x3d;
+        this->hitType = 0x3d;
         InitAnimationForceUpdate(this, 0xe);
-        ((VaatiArm_HeapStruct*)this->myHeap)->entities[1]->damageType = 0x3d;
+        ((VaatiArm_HeapStruct*)this->myHeap)->entities[1]->hitType = 0x3d;
     }
 }
 
@@ -481,11 +481,11 @@ void sub_08042B20(Entity* this) {
     if (0x30 < ptr->unk04.HALF.HI) {
         ptr->unk00.HWORD += ptr->unk08;
     }
-    if (((VaatiArm_HeapStruct*)this->myHeap)->entities[3]->spriteSettings.b.draw) {
+    if (((VaatiArm_HeapStruct*)this->myHeap)->entities[3]->spriteSettings.draw) {
         sub_08043C40(this, ptr);
         for (i = 0; i < 4; i++) {
             entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[i];
-            if ((-0xa <= entity->height.HALF.HI) && ((entity->spriteSettings.b.draw) == 1)) {
+            if ((-0xa <= entity->z.HALF.HI) && ((entity->spriteSettings.draw) == 1)) {
                 if (i == 0) {
                     object = CreateObject(OBJECT_AF, 0, 0);
                     if (object != NULL) {
@@ -498,7 +498,7 @@ void sub_08042B20(Entity* this) {
                     }
                 }
                 entity->flags &= 0x7f;
-                entity->spriteSettings.b.draw = 0;
+                entity->spriteSettings.draw = 0;
                 SoundReq(SFX_161);
             }
         }
@@ -508,8 +508,8 @@ void sub_08042B20(Entity* this) {
             this->action = 5;
             this->subAction = 0;
             this->actionDelay = 0x1e;
-            this->damageType = 0x39;
-            ((VaatiArm_HeapStruct*)this->myHeap)->entities[1]->damageType = 0x39;
+            this->hitType = 0x39;
+            ((VaatiArm_HeapStruct*)this->myHeap)->entities[1]->hitType = 0x39;
         }
     }
 }
@@ -564,8 +564,8 @@ void sub_08042C34(Entity* this) {
             entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[i];
             entity->x.HALF.HI = x;
             entity->y.HALF.HI = y;
-            entity->height.HALF.HI = 0x32;
-            entity->damageType = 0x39;
+            entity->z.HALF.HI = 0x32;
+            entity->hitType = 0x39;
             ptr = &((VaatiArm_HeapStruct*)this->myHeap)->s1[i];
             ptr->unk00.HWORD = 0x80;
             ptr->unk04.HWORD = 0;
@@ -582,8 +582,8 @@ void sub_08042D24(Entity* this) {
 
     if (--this->actionDelay == 0) {
         this->subAction = 2;
-        this->damageType = 0x3d;
-        ((VaatiArm_HeapStruct*)this->myHeap)->entities[1]->damageType = 0x3d;
+        this->hitType = 0x3d;
+        ((VaatiArm_HeapStruct*)this->myHeap)->entities[1]->hitType = 0x3d;
         entity = CreateObject(OBJECT_AF, 1, 0);
         if (entity != NULL) {
             entity->parent = ((VaatiArm_HeapStruct*)this->myHeap)->entities[3];
@@ -600,30 +600,30 @@ void sub_08042D6C(Entity* this) {
 
     for (i = 0; i < 4; i++) {
         entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[i];
-        if (entity->height.HALF.HI < 4) {
+        if (entity->z.HALF.HI < 4) {
             if (i != 2) {
                 entity->flags = entity->flags | 0x80;
             }
-            if ((entity->spriteSettings.b.draw == 0u) && (object = CreateObject(OBJECT_AF, 2, 0), object != NULL)) {
+            if ((entity->spriteSettings.draw == 0u) && (object = CreateObject(OBJECT_AF, 2, 0), object != NULL)) {
                 CopyPosition(entity, object);
                 SoundReq(SFX_166);
             }
-            entity->spriteSettings.b.draw = 1;
+            entity->spriteSettings.draw = 1;
         }
     }
     entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[3];
-    if (entity->height.HALF.HI <= -3) {
-        entity->height.HALF.HI = -5;
+    if (entity->z.HALF.HI <= -3) {
+        entity->z.HALF.HI = -5;
         ((VaatiArm_HeapStruct*)this->myHeap)->s1[0].unk08 = gUnk_080D1300[this->type2];
         ((VaatiArm_HeapStruct*)this->myHeap)->s1[0].unk0a = 0xc0;
         this->subAction = 3;
         this->actionDelay = 0x1e;
-        this->damageType = 0x39;
+        this->hitType = 0x39;
         this->field_0x7c.BYTES.byte3 = 0x2d;
         InitAnimationForceUpdate(this, 0);
-        ((VaatiArm_HeapStruct*)this->myHeap)->entities[1]->damageType = 0x39;
+        ((VaatiArm_HeapStruct*)this->myHeap)->entities[1]->hitType = 0x39;
     } else {
-        entity->height.HALF.HI -= 2;
+        entity->z.HALF.HI -= 2;
     }
 }
 
@@ -710,15 +710,15 @@ void sub_08042FD8(Entity* this) {
 
     UpdateAnimationSingleFrame(this);
     if (!sub_08043C98(this)) {
-        if ((this->frames.all & 1) != 0) {
+        if ((this->frame & 1) != 0) {
             entity = CreateProjectile(0x20);
             if (entity != NULL) {
                 CopyPosition(this, entity);
-                entity->height.HALF.HI -= 0x18;
-                this->frames.all = 0;
+                entity->z.HALF.HI -= 0x18;
+                this->frame = 0;
             }
         } else {
-            if (this->frames.all & 0x80) {
+            if (this->frame & 0x80) {
                 if (--this->field_0xf == 0) {
                     this->subAction = 8;
                     this->actionDelay = 0x3c;
@@ -742,7 +742,7 @@ void sub_08043048(Entity* this) {
             ptr[0].unk04.HWORD += 0x200;
             if (0x4f < ptr[0].unk04.HALF.HI) {
                 for (i = 0; i < 5; i++) {
-                    ((VaatiArm_HeapStruct*)this->myHeap)->entities[i]->damageType = 0x3b;
+                    ((VaatiArm_HeapStruct*)this->myHeap)->entities[i]->hitType = 0x3b;
                 }
                 SoundReq(SFX_153);
             }
@@ -751,7 +751,7 @@ void sub_08043048(Entity* this) {
             if (--this->actionDelay == 0) {
                 this->subAction = 7;
                 for (i = 0; i < 5; i++) {
-                    ((VaatiArm_HeapStruct*)this->myHeap)->entities[i]->damageType = 0x39;
+                    ((VaatiArm_HeapStruct*)this->myHeap)->entities[i]->hitType = 0x39;
                 }
             }
         }
@@ -802,18 +802,18 @@ void sub_08043130(Entity* this) {
                 }
             }
         } else {
-            ((VaatiArm_HeapStruct*)this->myHeap)->entities[3]->height.HALF.HI += 3;
+            ((VaatiArm_HeapStruct*)this->myHeap)->entities[3]->z.HALF.HI += 3;
             for (i = 0; i < 4; i++) {
                 entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[i];
-                if (entity->height.HALF.HI > -4) {
+                if (entity->z.HALF.HI > -4) {
                     entity->flags = entity->flags & 0x7f;
-                    if (entity->spriteSettings.b.draw == 1) {
+                    if (entity->spriteSettings.draw == 1) {
                         SoundReq(SFX_161);
                     }
-                    entity->spriteSettings.b.draw = 0;
+                    entity->spriteSettings.draw = 0;
                 }
             }
-            if (this->spriteSettings.b.draw == 0) {
+            if (this->spriteSettings.draw == 0) {
                 this->subAction = 9;
                 this->actionDelay = 0x3c;
                 sub_0804AA1C(this);
@@ -853,7 +853,7 @@ void sub_0804325C(Entity* this) {
         if (this->field_0x78.HALF.LO >= 3) {
             this->field_0x78.HALF.LO -= 2;
             entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[4];
-            entity->height.HALF.HI += this->field_0x78.HALF.LO;
+            entity->z.HALF.HI += this->field_0x78.HALF.LO;
         } else {
             this->field_0x78.HALF.LO = 0;
         }
@@ -876,7 +876,7 @@ NONMATCH("asm/non_matching/vaati/sub_0804334C.inc", void sub_0804334C(Entity* th
         for (i = 0; i < 5; i++) {
             entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[i];
             entity->flags = entity->flags | 0x80;
-            entity->spriteSettings.b.draw = 1;
+            entity->spriteSettings.draw = 1;
         }
     }
     s = &((VaatiArm_HeapStruct*)this->myHeap)->s1[0];
@@ -951,18 +951,18 @@ NONMATCH("asm/non_matching/vaati/sub_08043490.inc", void sub_08043490(Entity* th
     Entity* entity;
 
     entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[4];
-    if (entity->height.HALF.HI < -4) {
-        entity->hVelocity = 0x18000;
+    if (entity->z.HALF.HI < -4) {
+        entity->zVelocity = 0x18000;
         this->subAction = 2;
         this->field_0x7c.BYTES.byte2 = 0;
         ((VaatiArm_HeapStruct*)this->myHeap)->parent->subAction = 2;
     } else {
-        entity->height.HALF.HI -= 2;
-        if (entity->height.HALF.HI < 0) {
+        entity->z.HALF.HI -= 2;
+        if (entity->z.HALF.HI < 0) {
             entity->flags = entity->flags | 0x80;
-            entity->spriteSettings.b.draw = 1;
+            entity->spriteSettings.draw = 1;
             entity->field_0x3c = entity->field_0x3c & 0xef;
-            entity->damageType = 0x3a;
+            entity->hitType = 0x3a;
             entity->hitbox = (Hitbox*)&gUnk_080FD450;
             entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[2];
             entity->flags = entity->flags | 0x80;
@@ -979,8 +979,8 @@ void sub_08043520(Entity* this) {
 
     entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[4];
     sub_08003FC4(entity, 0x1a00);
-    if ((entity->hVelocity < 0) && (-6 < entity->height.HALF.HI)) {
-        entity->height.HALF.HI = -6;
+    if ((entity->zVelocity < 0) && (-6 < entity->z.HALF.HI)) {
+        entity->z.HALF.HI = -6;
         this->subAction = 3;
         this->field_0x7a.HWORD = 900;
     }
@@ -998,20 +998,20 @@ void sub_08043580(Entity* this) {
     Entity* entity;
     u32 i;
 
-    ((VaatiArm_HeapStruct*)this->myHeap)->entities[4]->height.HALF.HI += 3;
+    ((VaatiArm_HeapStruct*)this->myHeap)->entities[4]->z.HALF.HI += 3;
     for (i = 0; i < 5; i++) {
         entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[i];
-        if (-4 < entity->height.HALF.HI) {
+        if (-4 < entity->z.HALF.HI) {
             entity->flags = entity->flags & 0x7f;
-            entity->spriteSettings.b.draw = 0;
+            entity->spriteSettings.draw = 0;
         }
     }
-    if ((this->spriteSettings.b.draw & 3) == 0) {
+    if ((this->spriteSettings.draw & 3) == 0) {
         this->subAction = 5;
         this->actionDelay = 0x3c;
         entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[4];
         entity->field_0x3c = entity->field_0x3c | 0x10;
-        entity->damageType = 0x39;
+        entity->hitType = 0x39;
         entity->hitbox = (Hitbox*)&gUnk_080FD538;
         sub_0804AA1C(this);
     }
@@ -1063,7 +1063,7 @@ static inline void deleteThing(Entity* this, const u32 index) {
         this->actionDelay = 0x14;
         this->subAction = index + 1;
         if (index == 1) {
-            this->spriteSettings.b.draw = 0;
+            this->spriteSettings.draw = 0;
         }
         CreateFx(((VaatiArm_HeapStruct*)this->myHeap)->entities[index], FX_GIANT_EXPLOSION4, 0);
         ((VaatiArm_HeapStruct*)this->myHeap)->entities[index]->myHeap = NULL;
@@ -1099,7 +1099,7 @@ NONMATCH("asm/non_matching/vaati/sub_08043770.inc", void sub_08043770(Entity* th
             gScreenTransition.field_0x39 &= 0xfd;
         }
         ((VaatiArm_HeapStruct*)this->myHeap)->entities[4]->myHeap = NULL;
-        ((VaatiArm_HeapStruct*)this->myHeap)->entities[4]->currentHealth = 0;
+        ((VaatiArm_HeapStruct*)this->myHeap)->entities[4]->health = 0;
         (*(Entity**)&this->field_0x68)->parent = ((VaatiArm_HeapStruct*)this->myHeap)->entities[4];
         DeleteThisEntity();
     }
@@ -1170,7 +1170,7 @@ void sub_08043A10(Entity* this) {
     sub_08043B7C(this);
     sub_0804393C(((VaatiArm_HeapStruct*)this->myHeap)->entities[4]);
     ((VaatiArm_HeapStruct*)this->myHeap)->entities[4]->y.HALF.HI -= 8;
-    ((VaatiArm_HeapStruct*)this->myHeap)->entities[4]->height.HALF.HI -= 8;
+    ((VaatiArm_HeapStruct*)this->myHeap)->entities[4]->z.HALF.HI -= 8;
     sub_0804393C(((VaatiArm_HeapStruct*)this->myHeap)->entities[3]);
     sub_0804393C(((VaatiArm_HeapStruct*)this->myHeap)->entities[2]);
     sub_0804393C(((VaatiArm_HeapStruct*)this->myHeap)->entities[1]);
@@ -1329,7 +1329,7 @@ void sub_08043D08(Entity* this) {
     InitAnimationForceUpdate(this, 0xd);
     entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[4];
     entity->flags &= 0x7f;
-    entity->spriteSettings.b.draw = 0;
+    entity->spriteSettings.draw = 0;
     InitializeAnimation(entity, 0x13);
     sub_0804AA1C(entity);
     fx = CreateFx(entity, FX_GIANT_EXPLOSION4, 0);
@@ -1339,9 +1339,9 @@ void sub_08043D08(Entity* this) {
         fx->spritePriority.b0 = 3;
     }
     CopyPosition(((VaatiArm_HeapStruct*)this->myHeap)->entities[3], entity);
-    entity->height.HALF.HI += ((VaatiArm_HeapStruct*)this->myHeap)->s1[3].unk0c;
+    entity->z.HALF.HI += ((VaatiArm_HeapStruct*)this->myHeap)->s1[3].unk0c;
     for (i = 0; i < 5; i++) {
-        ((VaatiArm_HeapStruct*)this->myHeap)->entities[i]->damageType = 0x39;
+        ((VaatiArm_HeapStruct*)this->myHeap)->entities[i]->hitType = 0x39;
     }
     EnqueueSFX(SFX_HIT);
 }
@@ -1364,7 +1364,7 @@ void sub_08043DB0(Entity* this) {
             gScreenTransition.field_0x3d = 0x1e - (cVar1 / 0x3c);
             gScreenTransition.field_0x3c = this->type2;
             pEVar2 = ((VaatiArm_HeapStruct*)this->myHeap)->parent;
-            gScreenTransition.field_0x40 = pEVar2->x.HALF.HI;
+            gScreenTransition.hurtType = pEVar2->x.HALF.HI;
             gScreenTransition.field_0x42 = pEVar2->y.HALF.HI;
             pEVar4 = ((VaatiArm_HeapStruct*)pEVar2->myHeap)->parent;
             if (pEVar4 != NULL) {
@@ -1391,7 +1391,7 @@ void sub_08043EB8(Entity* this) {
     Entity* pEVar4;
     VaatiArm_HeapStruct1* ptr;
 
-    this->flags = this->flags | 0x80;
+    COLLISION_ON(this);
     this->spritePriority.b0 = 4;
     InitAnimationForceUpdate(this, 0xd);
     pEVar4 = ((VaatiArm_HeapStruct*)this->myHeap)->entities[1];
@@ -1402,17 +1402,17 @@ void sub_08043EB8(Entity* this) {
     pEVar4->spritePriority.b0 = 4;
     pEVar4 = ((VaatiArm_HeapStruct*)this->myHeap)->entities[3];
     pEVar4->flags = pEVar4->flags & 0x7f;
-    pEVar4->spriteSettings.b.draw = 1;
+    pEVar4->spriteSettings.draw = 1;
     pEVar4->spritePriority.b0 = 4;
     pEVar4 = ((VaatiArm_HeapStruct*)this->myHeap)->entities[4];
     pEVar4->flags = pEVar4->flags | 0x80;
-    pEVar4->spriteSettings.b.draw = 1;
+    pEVar4->spriteSettings.draw = 1;
     pEVar4->spritePriority.b0 = 4;
     pEVar4->x.HALF.HI = (this->type2 == 0) ? gScreenTransition.field_0x44 : gScreenTransition.field_0x48;
     pEVar4->y.HALF.HI = (this->type2 == 0) ? gScreenTransition.field_0x46 : gScreenTransition.field_0x4a;
-    pEVar4->height.HALF.HI = 0;
+    pEVar4->z.HALF.HI = 0;
     pEVar4->field_0x3c = pEVar4->field_0x3c & 0xef;
-    pEVar4->damageType = 0x3a;
+    pEVar4->hitType = 0x3a;
     pEVar4->hitbox = (Hitbox*)&gUnk_080FD450;
     pEVar4 = CreateObject(OBJECT_AF, 0, 0);
     if (pEVar4 != NULL) {

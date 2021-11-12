@@ -26,7 +26,7 @@ void sub_0803C198(Entity* this) {
     sub_0804AA30(this, gUnk_080CFF78);
     if ((this->bitfield & 0x80) != 0) {
         sub_0803C5F0(this);
-        pEVar1 = this->attachedEntity;
+        pEVar1 = this->child;
         if (pEVar1 != NULL) {
             pEVar1->field_0xf++;
         }

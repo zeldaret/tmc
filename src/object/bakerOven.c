@@ -33,7 +33,7 @@ void sub_0809CC74(Entity* this) {
         sub_0809CDF0(this);
     } else {
         if (this->type2 & 1) {
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
             this->actionDelay = 20;
         } else {
             this->action = 2;
@@ -48,7 +48,7 @@ void sub_0809CD0C(Entity* this) {
 
     if (this->type) {
         GetNextFrame(this);
-        frames = &this->frames.all;
+        frames = &this->frame;
         if (*frames & 1) {
             *frames &= 0xfe;
             this->y.HALF.HI++;
@@ -56,7 +56,7 @@ void sub_0809CD0C(Entity* this) {
 
         if ((*frames & 0x80) && this->frameDuration == 1) {
             this->action = 2;
-            this->spriteSettings.b.draw = 0;
+            this->spriteSettings.draw = 0;
         }
 
         /* Damage minish link if he touches a steam cloud */
@@ -79,7 +79,7 @@ void sub_0809CDB4(Entity* this) {
         this->action = 1;
         this->actionDelay = 30;
         this->field_0xf = 0;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         this->y.HALF.HI = this->parent->y.HALF.HI - 0xe;
         InitializeAnimation(this, 0);
     }

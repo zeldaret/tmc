@@ -97,10 +97,10 @@ void sub_080604DC(Entity* this) {
     int iVar2;
     Entity* ent;
 
-    if (((u32)(this->spriteSettings.raw << 0x1e) >> 0x1e == 1) && sub_080040A8(this)) {
-        if ((this->frames.all & 1) != 0) {
-            this->frames.all &= 0xfe;
-            ent = CreateFx(this, FX_DASH, 0x40);
+    if (this->spriteSettings.draw == 1 && sub_080040A8(this)) {
+        if ((this->frame & 1) != 0) {
+            this->frame &= 0xfe;
+            ent = CreateFx(this, 17, 0x40);
             if (ent != NULL) {
                 ent->y.HALF.HI++;
                 sub_0805E3A0(ent, 3);
@@ -113,7 +113,7 @@ void sub_08060528(Entity* this) {
     switch (this->action) {
         case 0:
             this->action = 1;
-            this->spriteSettings.b.draw = TRUE;
+            this->spriteSettings.draw = TRUE;
             this->field_0x68.HALF.LO = 0;
             this->field_0x68.HALF.HI = 0;
             this->field_0x6a.HWORD = 0;
@@ -156,7 +156,7 @@ void sub_08060528(Entity* this) {
     if (0 < (s16)this->field_0x6a.HWORD) {
         if ((s16)this->field_0x6a.HWORD > 0x12b) {
             this->field_0x6a.HWORD = 0;
-            this->hVelocity = 0x20000;
+            this->zVelocity = 0x20000;
             this->field_0x6c.HALF.HI = 1;
             sub_080788E0(this);
             EnqueueSFX(0x7c);
@@ -165,11 +165,11 @@ void sub_08060528(Entity* this) {
         }
     }
     sub_08003FC4(this, 0x1800);
-    if (((this->field_0x6c.HALF.HI != 0) && (this->hVelocity == 0)) && this->height.WORD == 0) {
+    if (((this->field_0x6c.HALF.HI != 0) && (this->zVelocity == 0)) && this->z.WORD == 0) {
         this->field_0x6c.HALF.HI = 0;
         sub_080606C0(this);
     }
-    if ((-1 < this->height.WORD) &&
+    if ((-1 < this->z.WORD) &&
         ((gPlayerEntity.collisionLayer == 0 || (this->collisionLayer == gPlayerEntity.collisionLayer)))) {
         sub_0806ED78(this);
     }
@@ -212,7 +212,7 @@ ASM_FUNC("asm/non_matching/postman/sub_080608E4.inc", void sub_080608E4(Entity* 
 void Postman_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action += 1;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         InitAnimationForceUpdate(this, 2);
     } else {
         UpdateAnimationSingleFrame(this);

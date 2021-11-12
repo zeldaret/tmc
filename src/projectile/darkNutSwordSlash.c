@@ -2,7 +2,7 @@
 #include "player.h"
 #include "coord.h"
 
-extern const u8 DarkNutSwordSlash_DamageTypes[];
+extern const u8 DarkNutSwordSlash_hitTypes[];
 extern void (*const DarkNutSwordSlash_UpdatesForType[])(Entity*);
 extern Hitbox const* const* const gUnk_081293E0[];
 extern const Hitbox* const gUnk_081293F0[];
@@ -21,7 +21,7 @@ void DarkNutSwordSlash(Entity* this) {
             InitAnimationForceUpdate(this, this->parent->animationState + 0x18);
         }
     }
-    if ((this->parent == NULL) || (this->parent->currentHealth == 0)) {
+    if ((this->parent == NULL) || (this->parent->health == 0)) {
         DeleteThisEntity();
     }
     if (((this->bitfield & 0x80) != 0) && (this->field_0x4c == &gPlayerEntity)) {
@@ -37,7 +37,7 @@ void DarkNutSwordSlash(Entity* this) {
 }
 
 void DarkNutSwordSlash_Init(Entity* this) {
-    this->damageType = DarkNutSwordSlash_DamageTypes[this->parent->type + this->type * 4];
+    this->hitType = DarkNutSwordSlash_hitTypes[this->parent->type + this->type * 4];
 }
 
 void DarkNutSwordSlash_OnTick(Entity* this) {
@@ -46,7 +46,7 @@ void DarkNutSwordSlash_OnTick(Entity* this) {
 
 void DarkNutSwordSlash_UpdateType0(Entity* this) {
     Entity* parent = this->parent;
-    this->hitbox = (Hitbox*)gUnk_081293E0[parent->animationState][(parent->frames.all & 0xf) - 1];
+    this->hitbox = (Hitbox*)gUnk_081293E0[parent->animationState][(parent->frame & 0xf) - 1];
 }
 
 void DarkNutSwordSlash_UpdateType2(Entity* this) {
@@ -55,7 +55,7 @@ void DarkNutSwordSlash_UpdateType2(Entity* this) {
 }
 
 void DarkNutSwordSlash_UpdateType34(Entity* this) {
-    if ((this->parent->frames.all & 0x10) != 0) {
+    if ((this->parent->frame & 0x10) != 0) {
         this->hitbox = (Hitbox*)gUnk_08129410[this->parent->animationState];
     } else {
         this->hitbox = (Hitbox*)gUnk_08129400[this->parent->animationState];
@@ -67,7 +67,7 @@ void DarkNutSwordSlash_UpdateType1(Entity* this) {
     this->hitbox = (Hitbox*)gUnk_08129420[parent->animationState];
 }
 
-const u8 DarkNutSwordSlash_DamageTypes[] = {
+const u8 DarkNutSwordSlash_hitTypes[] = {
     76, 76, 78, 77, 83, 83, 83, 83, 79, 79, 76, 80, 84, 84, 84, 85, 79, 79, 76, 80,
 };
 void (*const DarkNutSwordSlash_UpdatesForType[])(Entity*) = {

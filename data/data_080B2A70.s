@@ -3,20 +3,22 @@
 
 	.section .rodata
 	.align 2
-	.4byte sub_08016B30
-	.4byte sub_08016B30
-	.4byte sub_08016B30
+
+gUnk_080B2A70:: @ 080B2A70
+	.4byte DummyIntr
+	.4byte DummyIntr
+	.4byte DummyIntr
 	.4byte HBlankIntr
-	.4byte sub_08016B6C
-	.4byte sub_08016B30
-	.4byte sub_08016B30
-	.4byte sub_08016B30
-	.4byte sub_08016B30
-	.4byte sub_08016B30
-	.4byte sub_08016B30
-	.4byte sub_08016B30
-	.4byte sub_08016B30
-	.4byte sub_08016B30
+	.4byte VBlankIntr
+	.4byte DummyIntr
+	.4byte DummyIntr
+	.4byte DummyIntr
+	.4byte DummyIntr
+	.4byte DummyIntr
+	.4byte DummyIntr
+	.4byte DummyIntr
+	.4byte DummyIntr
+	.4byte DummyIntr
 
 unusedLabel_0B21D0::
 @ TODO contains some pointers to iwram

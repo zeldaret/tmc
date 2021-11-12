@@ -49,7 +49,7 @@ void sub_0806CB80(Entity* this) {
         sub_0805E3A0(this, 2);
     }
     if (this->parent != NULL) {
-        this->frameIndex = (this->parent->frames.all & 3) + 0x21;
+        this->frameIndex = (this->parent->frame & 3) + 0x21;
     }
 }
 
@@ -62,9 +62,9 @@ void sub_0806CBB4(Entity* this) {
     }
     GetNextFrame(this);
     if (this->parent != NULL) {
-        this->spriteSettings.b.draw = 0;
-        if ((this->parent->frames.all & 4) != 0) {
-            this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 0;
+        if ((this->parent->frame & 4) != 0) {
+            this->spriteSettings.draw = 1;
         }
     }
 }
@@ -73,7 +73,7 @@ void sub_0806CC08(Entity* this) {
     switch (this->action) {
         case 0:
             this->action = 1;
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
             sub_0805E3A0(this, 2);
             sub_0807DD64(this);
         case 1:
@@ -100,7 +100,7 @@ void sub_0806CC08(Entity* this) {
 }
 
 void sub_0806CCB4(Entity* this, ScriptExecutionContext* context) {
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         context->condition = 1;
     } else {
         context->condition = 0;
@@ -153,7 +153,7 @@ void sub_0806CD58(Entity* this) {
 void Gregal_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action += 1;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         sub_0805E3A0(this, 2);
         InitAnimationForceUpdate(this, 6);
     } else {

@@ -99,7 +99,7 @@ void sub_08083338(Entity* this) {
     this->field_0x7c.BYTES.byte2 = this->type & 3;
     this->hitbox = &gHitbox_2;
     this->spritePriority.b0 = 5;
-    this->frames.all = this->type & 0xF;
+    this->frame = this->type & 0xF;
     this->field_0x76.HWORD = TILE(this->x.HALF.HI, this->y.HALF.HI);
     this->field_0x74.HWORD = sub_080001DA(this->field_0x76.HWORD, this->collisionLayer);
     switch (this->type2) {
@@ -225,7 +225,7 @@ void sub_080835F8(Entity* this) {
 
 void sub_08083638(Entity* this) {
     this->action = 7;
-    this->spriteSettings.b.draw = 0;
+    this->spriteSettings.draw = 0;
     this->x.HALF.HI = this->field_0x70.HALF.LO;
     this->y.HALF.HI = this->field_0x70.HALF.HI;
 }
@@ -244,7 +244,7 @@ void sub_08083658(Entity* this) {
 
 void sub_080836A0(Entity* this) {
     this->action = 6;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->x.HALF.HI = this->field_0x70.HALF.LO;
     this->y.HALF.HI = this->field_0x70.HALF.HI;
     SetTile(0x4022, this->field_0x76.HWORD, this->collisionLayer);
@@ -254,7 +254,7 @@ void sub_080836DC(Entity* this, u32 unk_0, u32 unk_1) {
     const struct_0811F680* tmp;
     SetTile(0x4022, unk_1, this->collisionLayer);
     this->actionDelay = 7;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->direction = (unk_0 << 3) ^ 0x10;
     tmp = &gUnk_0811F688[unk_0];
     if (this->type2 != 2) {

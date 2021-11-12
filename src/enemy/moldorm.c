@@ -31,17 +31,17 @@ void sub_08022BD4(Entity* this) {
 }
 
 void sub_08022BEC(Entity* this) {
-    if (this->field_0x7a.HALF.LO != this->currentHealth)
+    if (this->field_0x7a.HALF.LO != this->health)
         this->field_0x7a.HALF.HI = 30;
 
-    this->field_0x7a.HALF.LO = this->currentHealth;
+    this->field_0x7a.HALF.LO = this->health;
     this->actionDelay = 1;
     this->direction = this->knockbackDirection;
 
     this->animationState = ((this->direction + 2) & 0x1c) >> 2;
     this->frameIndex = this->animationState;
 
-    this->attachedEntity->iframes = this->iframes;
+    this->child->iframes = this->iframes;
     (*(Entity**)&this->field_0x7c)->iframes = this->iframes;
     (*(Entity**)&this->field_0x80)->iframes = this->iframes;
     sub_0804AA30(this, gUnk_080CBBA0);
@@ -50,25 +50,25 @@ void sub_08022BEC(Entity* this) {
 void sub_08022C58(Entity* this) {
     Entity *tail0, *tail1, *tail2;
 
-    this->flags &= ~0x80;
+    COLLISION_OFF(this);
 
     if (gEntCount >= 0x45)
         return;
 
     tail0 = CreateEnemy(MOLDORM, 1);
-    this->attachedEntity = tail0;
+    this->child = tail0;
     tail0->spritePriority.b0 = 5;
     tail0->parent = this;
     CopyPosition(this, tail0);
 
     tail1 = CreateEnemy(MOLDORM, 2);
-    tail0->attachedEntity = tail1;
+    tail0->child = tail1;
     tail1->spritePriority.b0 = 5;
     tail1->parent = this;
     CopyPosition(this, tail1);
 
     tail2 = CreateEnemy(MOLDORM, 3);
-    tail1->attachedEntity = tail2;
+    tail1->child = tail2;
     tail2->spritePriority.b0 = 5;
     tail2->parent = this;
     CopyPosition(this, tail2);
@@ -77,16 +77,16 @@ void sub_08022C58(Entity* this) {
     this->action = 1;
     this->actionDelay = 1;
     this->field_0xf = 1;
-    this->flags = this->flags | 0x80;
+    COLLISION_ON(this);
     this->parent = this;
-    this->attachedEntity = tail0;
+    this->child = tail0;
     *(Entity**)&this->field_0x7c = tail1;
     *(Entity**)&this->field_0x80 = tail2;
 
     this->direction = Random() & 0x1f;
     this->animationState = ((this->direction + 2) & 0x1c) >> 2;
     this->frameIndex = this->animationState;
-    this->field_0x7a.HALF.LO = this->currentHealth;
+    this->field_0x7a.HALF.LO = this->health;
 }
 
 void sub_08022D40(Entity* this) {

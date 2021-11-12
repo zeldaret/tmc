@@ -32,8 +32,8 @@ void StalfosProjectile_OnTick(Entity* this) {
 void sub_080A9A34(Entity* this) {
     if (this->bitfield == 0x9d) {
         this->action = 3;
-        this->flags &= 0x7f;
-        this->hVelocity = 0x2a000;
+        COLLISION_OFF(this);
+        this->zVelocity = 0x2a000;
         this->spritePriority.b1 = 1;
     }
 }
@@ -47,7 +47,7 @@ void sub_080A9A64(Entity* this) {
 
 void StalfosProjectile_SubAction0(Entity* this) {
     this->subAction = 2;
-    this->height.HALF.HI = 0xfffe;
+    this->z.HALF.HI = 0xfffe;
 }
 
 void StalfosProjectile_SubAction1(Entity* this) {
@@ -59,7 +59,7 @@ void StalfosProjectile_SubAction2(Entity* this) {
 }
 
 void StalfosProjectile_SubAction3(Entity* this) {
-    this->flags &= 0x7f;
+    COLLISION_OFF(this);
 }
 
 void StalfosProjectile_SubAction4(Entity* this) {
@@ -73,11 +73,11 @@ void StalfosProjectile_Init(Entity* this) {
     switch (this->type2) {
         case 1:
             this->action = 2;
-            this->flags |= 0x80;
+            COLLISION_ON(this);
             break;
         case 2:
             this->action = 3;
-            this->hVelocity = 0x2a000;
+            this->zVelocity = 0x2a000;
             this->spritePriority.b1 = 1;
             break;
         default:
@@ -117,8 +117,8 @@ void StalfosProjectile_Action2(Entity* this) {
 }
 
 void StalfosProjectile_Action3(Entity* this) {
-    if (this->hVelocity < 0) {
-        this->spriteSettings.b.flipY = 1;
+    if (this->zVelocity < 0) {
+        this->spriteSettings.flipY = 1;
     }
     if (sub_08003FC4(this, 0x2000) == 0) {
         sub_080A9BA8(this);
@@ -155,7 +155,7 @@ void sub_080A9BD0(Entity* this) {
     }
     entry = &gUnk_08129B20[tmp + parent->animationState * 4];
     sub_0806FA90(parent, this, entry->unk_0, entry->unk_1);
-    this->height.HALF.HI = entry->unk_2 + this->height.HALF.HI;
+    this->z.HALF.HI = entry->unk_2 + this->z.HALF.HI;
 }
 
 void sub_080A9C34(Entity* this) {

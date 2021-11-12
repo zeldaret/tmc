@@ -1,12 +1,4 @@
-	.include "asm/macros.inc"
-	.include "constants/constants.inc"
-
 	.syntax unified
-
-	.text
-	
-	thumb_func_start DispCtrlSet
-DispCtrlSet: @ 0x08016CF4
 	ldr r3, _08016DF0 @ =gScreen
 	ldrh r1, [r3]
 	ldrh r0, [r3, #6]
@@ -136,3 +128,4 @@ DispCtrlSet: @ 0x08016CF4
 	.align 2, 0
 _08016DF0: .4byte gScreen
 _08016DF4: .4byte 0x04000020
+	.syntax divided

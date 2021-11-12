@@ -27,7 +27,7 @@ void KingDaltus(Entity* this) {
 
 void sub_08066654(Entity* this) {
     this->action = 1;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->field_0x68.HALF.LO = sub_0801E99C(this);
     sub_08078784(this, this->field_0x68.HALF.LO);
     InitAnimationForceUpdate(this, 2);
@@ -60,7 +60,7 @@ void sub_080666DC(Entity* this) {
 
 void sub_080666E4(Entity* this) {
     this->action = 1;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->field_0x68.HALF.LO = sub_0801E99C(this);
     sub_0807DD50(this);
 }
@@ -96,7 +96,7 @@ void sub_0806673C(Entity* this) {
 void KingDaltus_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action += 1;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         InitAnimationForceUpdate(this, 6);
     } else {
         UpdateAnimationSingleFrame(this);

@@ -20,10 +20,10 @@ void JarPortal(Entity* this) {
 }
 
 void sub_0808BE9C(Entity* this) {
-    this->flags |= 0x80;
-    this->damageType = 1;
+    COLLISION_ON(this);
+    this->hitType = 1;
     this->field_0x3c = 0x47;
-    this->field_0x40 = 0x44;
+    this->hurtType = 0x44;
     this->flags2 = 0x80;
     this->field_0x68.HALF.LO = 0;
     if (CheckLocalFlag(this->type)) {
@@ -63,21 +63,21 @@ void sub_0808BF58(Entity* this) {
     sub_08003FC4(this, 0x2000);
     switch (this->subAction) {
         case 0:
-            if (this->hVelocity <= 98303) {
+            if (this->zVelocity <= 98303) {
                 ++this->subAction;
                 InitAnimationForceUpdate(this, 2);
             }
             break;
         case 1:
             UpdateAnimationSingleFrame(this);
-            if (!this->height.HALF.HI) {
+            if (!this->z.HALF.HI) {
                 ++this->subAction;
-                this->hVelocity = 0x8000;
+                this->zVelocity = 0x8000;
             }
             break;
         case 2:
             UpdateAnimationSingleFrame(this);
-            if (!this->height.HALF.HI) {
+            if (!this->z.HALF.HI) {
                 ++this->action;
                 this->field_0xf = 0;
                 InitAnimationForceUpdate(this, 1);
@@ -131,21 +131,21 @@ void sub_0808C0AC(Entity* this) {
     sub_08003FC4(this, 0x2000);
     switch (this->subAction) {
         case 0:
-            if (this->hVelocity <= 98303) {
+            if (this->zVelocity <= 98303) {
                 this->subAction = 1;
                 InitAnimationForceUpdate(this, 3);
             }
             break;
         case 1:
             UpdateAnimationSingleFrame(this);
-            if (!this->height.HALF.HI) {
+            if (!this->z.HALF.HI) {
                 ++this->subAction;
-                this->hVelocity = 0x8000;
+                this->zVelocity = 0x8000;
             }
             break;
         case 2:
             UpdateAnimationSingleFrame(this);
-            if (!this->height.HALF.HI) {
+            if (!this->z.HALF.HI) {
                 this->action = 1;
                 InitAnimationForceUpdate(this, 0);
                 sub_0808C148(this, 1);
@@ -160,7 +160,7 @@ u32 sub_0808C128(Entity* this) {
 
 void sub_0808C13C(Entity* this) {
     this->subAction = 0;
-    this->hVelocity = 163840;
+    this->zVelocity = 163840;
 }
 
 void sub_0808C148(Entity* this, u32 a2) {

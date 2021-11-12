@@ -123,7 +123,7 @@ ASM_FUNC("asm/non_matching/castorWildsStatue/sub_080676E0.inc",
 void CastorWildsStatue_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action += 1;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         this->y.HALF.HI -= 0x18;
         InitializeAnimation(this, 1);
         sub_0801D2B4(this, 0x17b);

@@ -43,7 +43,7 @@ void GyorgMaleEnergyProjectile_Action1(Entity* this) {
     GetNextFrame(this);
     if (--this->actionDelay == 0) {
         this->action = 2;
-        this->flags |= 0x80;
+        COLLISION_ON(this);
         this->direction = GetFacingDirection(this, &gPlayerEntity);
         SoundReq(SFX_12E);
     }
@@ -57,7 +57,7 @@ void GyorgMaleEnergyProjectile_Action2(Entity* this) {
     }
     if (--this->actionDelay == 0) {
         this->action = 3;
-        this->flags &= 0x7f;
+        COLLISION_OFF(this);
         this->speed = this->speed >> 1;
         InitializeAnimation(this, 1);
     }
@@ -66,7 +66,7 @@ void GyorgMaleEnergyProjectile_Action2(Entity* this) {
 void GyorgMaleEnergyProjectile_Action3(Entity* this) {
     sub_080AF090(this);
     GetNextFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         DeleteThisEntity();
     }
 }

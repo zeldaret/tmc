@@ -36,7 +36,7 @@ void sub_08077534(ItemBehavior* this, u32 arg1) {
         case 0x2e:
             this->stateID = 3;
             gPlayerEntity.animationState = 4;
-            gPlayerEntity.spriteSettings.b.flipX = 0;
+            gPlayerEntity.spriteSettings.flipX = 0;
             sub_08077DF4(this, 0x2df);
             break;
         case 0x2f:

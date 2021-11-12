@@ -40,7 +40,7 @@ NONMATCH("asm/non_matching/playerItemBomb/PlayerItemBomb.inc", void PlayerItemBo
                     this->action = 0x03;
                     this->spritePriority.b1 = 2;
                     this->actionDelay = 0x0f;
-                    this->spriteSettings.b.draw = 0;
+                    this->spriteSettings.draw = 0;
                     sub_0805EC60(this);
                     sub_08078954(this);
                     CreateObjectWithParent(this, 0x20, 0, 0);

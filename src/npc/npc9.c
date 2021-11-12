@@ -11,7 +11,7 @@ void NPC9(Entity* this) {
 
 void sub_08062AF0(Entity* this) {
     this->action = 1;
-    this->spriteSettings.b.draw = TRUE;
+    this->spriteSettings.draw = TRUE;
     InitializeAnimation(this, 0);
     sub_08078778(this);
 }
@@ -29,7 +29,7 @@ void sub_08062B14(Entity* this) {
 
 void sub_08062B48(Entity* this) {
     GetNextFrame(this);
-    if ((this->frames.b.f3) != 0) {
+    if (this->frame & 0x80) {
         MessageFromTarget(0xa01);
         this->action++;
     }

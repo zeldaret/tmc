@@ -83,7 +83,7 @@ void sub_0806CE80(Entity* this) {
 void MayorHagen_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action++;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         InitAnimationForceUpdate(this, 8);
     } else {
         UpdateAnimationSingleFrame(this);

@@ -17,10 +17,10 @@ void DirtBallProjectile(Entity* this) {
 
 void DirtBallProjectile_OnTick(Entity* this) {
     if (this->type == 1) {
-        if (this->attachedEntity == NULL) {
+        if (this->child == NULL) {
             DeleteThisEntity();
         }
-        if (this->attachedEntity->next == NULL) {
+        if (this->child->next == NULL) {
             DeleteThisEntity();
         }
     }
@@ -30,7 +30,7 @@ void DirtBallProjectile_OnTick(Entity* this) {
 void sub_080A881C(Entity* this) {
     this->field_0x46 = 0;
     if (this->type == 0) {
-        this->parent->attachedEntity = NULL;
+        this->parent->child = NULL;
         if (this->bitfield == 0x80) {
             gPlayerState.hurtBlinkSpeed = 0xf0;
             ModHealth(-2);
@@ -47,8 +47,8 @@ void sub_080A881C(Entity* this) {
 void DirtBallProjectile_Init(Entity* this) {
     this->action = 1;
     this->subAction = 0;
-    this->spriteSettings.b.shadow = 1;
-    this->hVelocity = 0x8000;
+    this->spriteSettings.shadow = 1;
+    this->zVelocity = 0x8000;
     this->hitbox = (Hitbox*)&gUnk_08129764;
     this->field_0x3c |= 0x10;
     switch (this->type) {
@@ -79,24 +79,24 @@ void DirtBallProjectile_Action1(Entity* this) {
     PositionRelative(parent, this, 0, -0x10000);
     switch (this->type) {
         case 0:
-            this->height.HALF.HI += 0x10;
+            this->z.HALF.HI += 0x10;
             break;
         case 1:
-            this->height.HALF.HI += 0xe;
-            sub_08078954(this->attachedEntity);
-            CopyPosition(this, this->attachedEntity);
-            if ((0xf < (u8)(this->actionDelay++ + 1)) && (entity = this->attachedEntity, entity->actionDelay == 0)) {
+            this->z.HALF.HI += 0xe;
+            sub_08078954(this->child);
+            CopyPosition(this, this->child);
+            if ((0xf < (u8)(this->actionDelay++ + 1)) && (entity = this->child, entity->actionDelay == 0)) {
                 if ((this->actionDelay & 2) != 0) {
                     entity->field_0xf += 1;
                 }
-                if ((this->attachedEntity->field_0xf < 0x20) && ((this->attachedEntity->field_0xf & 3) == 3)) {
+                if ((this->child->field_0xf < 0x20) && ((this->child->field_0xf & 3) == 3)) {
                     parent->field_0x82.HALF.HI = 0xc0;
                     this->action = 2;
                 }
             }
             break;
         case 2:
-            this->height.HALF.HI += 0xe;
+            this->z.HALF.HI += 0xe;
             if (sub_080041A0(this, &gPlayerEntity, 0xe, 0xe) != 0) {
                 this->action = 2;
                 parent->field_0x82.HALF.HI = 0xc0;
@@ -112,7 +112,7 @@ void DirtBallProjectile_Action2(Entity* this) {
     Entity* entity;
 
     if (this->type == 1) {
-        entity = this->attachedEntity;
+        entity = this->child;
         if (entity == NULL) {
             DeleteThisEntity();
         }
@@ -161,7 +161,7 @@ void DirtBallProjectile_Action2(Entity* this) {
 
 void DirtBallProjectile_Action3(Entity* this) {
     GetNextFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         DeleteEntity(this);
     }
 }

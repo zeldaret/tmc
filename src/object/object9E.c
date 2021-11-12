@@ -16,13 +16,13 @@ void Object9E(Entity* this) {
         this->action = 1;
         this->spritePriority.b0 = 6;
         if (this->type == 0) {
-            this->flags = this->flags | 0x80;
+            COLLISION_ON(this);
             this->frameIndex = 1;
             layer = &this->collisionLayer;
             *layer = 1;
             this->field_0x3c = 7;
-            this->field_0x40 = 0x48;
-            this->damageType = 0x7a;
+            this->hurtType = 0x48;
+            this->hitType = 0x7a;
             this->flags2 = 1;
             this->hitbox = &gHitbox_1;
             tilePos = COORD_TO_TILE(this);
@@ -31,7 +31,7 @@ void Object9E(Entity* this) {
             UpdateSpriteForCollisionLayer(this);
             ent = CreateObject(OBJECT_9E, 1, 0);
             if (ent != NULL) {
-                this->attachedEntity = ent;
+                this->child = ent;
                 CopyPosition(this, ent);
             }
         } else {

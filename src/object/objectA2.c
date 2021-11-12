@@ -32,11 +32,11 @@ void ObjectA2(Entity* this) {
 void sub_0809F318(Entity* this) {
     InitializeAnimation(this, 0);
     if (Random() & 0x10) {
-        this->spriteSettings.b.flipX = 1;
+        this->spriteSettings.flipX = 1;
     }
     this->x.HALF.HI = 0x28;
     this->y.HALF.HI = 0x48;
-    this->height.HALF.HI = 0xFFB0;
+    this->z.HALF.HI = 0xFFB0;
     this->spriteOrientation.flipY = 2;
     this->action = 1;
     sub_0801D2B4(this, gUnk_08124704[this->type]);
@@ -48,7 +48,7 @@ void sub_0809F374(Entity* this) {
 #ifndef EU
     if (gSaveHeader->gameLanguage < 2) {
         if (sub_080044EC(this, 0x2000) < 2) {
-            this->height.WORD = 0;
+            this->z.WORD = 0;
             this->action = 2;
             InitializeAnimation(this, 1);
             SoundReq(SFX_186);
@@ -76,16 +76,16 @@ void sub_0809F374(Entity* this) {
 }
 
 void sub_0809F3E8(Entity* this) {
-    if (this->frames.b.f3) {
+    if (this->frame & 0x80) {
         this->action = 3;
         InitializeAnimation(this, 2);
     }
 }
 
 void sub_0809F408(Entity* this) {
-    switch (this->frames.all) {
+    switch (this->frame) {
         case 9:
-            this->frames.all = 0;
+            this->frame = 0;
             CreateFx(this, FX_BIG_EXPLOSION2, 0);
             gMenu.field_0x0 = 1;
             break;

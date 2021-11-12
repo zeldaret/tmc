@@ -42,32 +42,29 @@ typedef struct {
 typedef struct Entity {
     /*0x00*/ struct Entity* prev;
     /*0x04*/ struct Entity* next;
-    /*0x08*/ u8 kind; // was: type
-    /*0x09*/ u8 id; // was: subtype
-    /*0x0a*/ u8 type; // was: form
-    /*0x0b*/ u8 type2; // was: parameter
+    /*0x08*/ u8 kind;
+    /*0x09*/ u8 id;
+    /*0x0a*/ u8 type;
+    /*0x0b*/ u8 type2;
     /*0x0c*/ u8 action;
     /*0x0d*/ u8 subAction;
     /*0x0e*/ u8 actionDelay;
     /*0x0f*/ u8 field_0xf;
     /*0x10*/ u8 flags;
-    /*0x11*/ u8 scriptedScene : 4;
-    /*    */ u8 scriptedScene2 : 4;
+    /*0x11*/ u8 updateConditions : 4; // should we update this sprite during pause
+    /*    */ u8 updateConditions2 : 4;
     /*0x12*/ s16 spriteIndex;
     /*0x14*/ u8 animationState;
     /*0x15*/ u8 direction;
     /*0x16*/ u8 field_0x16;
     /*0x17*/ u8 field_0x17;
-    /*0x18*/ union {
-    /*    */     u8 raw;
-    /*    */     struct {
-    /*    */         u32 draw        : 2; // 1-2
-    /*    */         u32 ss2         : 1; //   4
-    /*    */         u32 ss3         : 1; //   8
-    /*    */         u32 shadow      : 2; //0x10-0x20
-    /*    */         u32 flipX       : 1; //0x40
-    /*    */         u32 flipY       : 1; //0x80
-    /*    */     } PACKED b;
+    /*0x18*/ struct {
+    /*    */     u32 draw        : 2; // 1-2
+    /*    */     u32 ss2         : 1; //   4
+    /*    */     u32 ss3         : 1; //   8
+    /*    */     u32 shadow      : 2; //0x10-0x20
+    /*    */     u32 flipX       : 1; //0x40
+    /*    */     u32 flipY       : 1; //0x80
     /*    */ } PACKED spriteSettings;
     /*0x19*/ struct {
     /*    */     u32 b0         : 2; // 1-2
@@ -91,7 +88,7 @@ typedef struct Entity {
     /*0x1d*/ u8 field_0x1d;
     /*0x1e*/ u8 frameIndex;
     /*0x1f*/ u8 lastFrameIndex;
-    /*0x20*/ s32 hVelocity;
+    /*0x20*/ s32 zVelocity;
     /*0x24*/ s16 speed;
     /*0x26*/ u8 spriteAnimation[3];
     /*0x29*/ struct {
@@ -102,7 +99,7 @@ typedef struct Entity {
     /*0x2a*/ u16 collisions;
     /*0x2c*/ union SplitWord x;
     /*0x30*/ union SplitWord y;
-    /*0x34*/ union SplitWord height; // todo
+    /*0x34*/ union SplitWord z;
     /*0x38*/ u8 collisionLayer;
     /*0x39*/ s8 interactType;
     /*0x3a*/ u8 field_0x3a;
@@ -110,29 +107,21 @@ typedef struct Entity {
     /*0x3c*/ u8 field_0x3c;
     /*0x3d*/ s8 iframes;
     /*0x3e*/ u8 knockbackDirection;
-    /*0x3f*/ u8 damageType;
-    /*0x40*/ u8 field_0x40;
+    /*0x3f*/ u8 hitType; // behavior as a collision sender
+    /*0x40*/ u8 hurtType; // behavior as a collision reciever
     /*0x41*/ u8 bitfield;
     /*0x42*/ u8 knockbackDuration;
     /*0x43*/ u8 field_0x43;
-    /*0x44*/ u8 field_0x44;
-    /*0x45*/ u8 currentHealth;
+    /*0x44*/ u8 damage;
+    /*0x45*/ u8 health;
     /*0x46*/ u16 field_0x46;
     /*0x48*/ Hitbox* hitbox;
     /*0x4c*/ struct Entity* field_0x4c;
     /*0x50*/ struct Entity* parent;
-    /*0x54*/ struct Entity* attachedEntity;
+    /*0x54*/ struct Entity* child;
     /*0x58*/ u8 animIndex;
     /*0x59*/ u8 frameDuration;
-    /*0x5a*/ union {
-    /*    */     u8 all;
-    /*    */     struct {
-    /*    */         u8 f0 : 1;
-    /*    */         u8 f1 : 5;
-    /*    */         u8 f2 : 1; //0x40
-    /*    */         u8 f3 : 1; //0x80
-    /*    */    } PACKED b;
-    /*    */ } PACKED frames;
+    /*0x5a*/ u8 frame;
     /*0x5b*/ u8 frameSpriteSettings;
     /*0x5c*/ Frame* animPtr;
     /*0x60*/ u16 spriteVramOffset;
@@ -165,9 +154,20 @@ extern LinkedList gUnk_03003D90;
 
 extern LinkedList gUnk_03003DA0;
 
+enum {
+    ENT_DID_INIT = 0x1,
+    ENT_SCRIPTED = 0x2,
+    ENT_ASLEEP = 0x10,
+    ENT_20 = 0x20,
+    ENT_COLLIDE = 0x80,
+};
+
+#define COLLISION_OFF(entity) ((entity)->flags &= ~ENT_COLLIDE) 
+#define COLLISION_ON(entity) ((entity)->flags |= ENT_COLLIDE)
+
 #define TILE(x, y)                                      \
-    (((((x) - gRoomControls.roomOriginX) >> 4) & 0x3fU) | \
-     ((((y) - gRoomControls.roomOriginY) >> 4) & 0x3fU) << 6)
+    (((((x) - gRoomControls.roomOriginX) >> 4) & 0x3F) | \
+     ((((y) - gRoomControls.roomOriginY) >> 4) & 0x3F) << 6)
 
 #define COORD_TO_TILE(entity) \
     TILE((entity)->x.HALF.HI, (entity)->y.HALF.HI)
@@ -186,9 +186,10 @@ enum {
 #define DirectionRoundUp(expr) DirectionRound((expr) + 4)
 #define DirectionIsHorizontal(expr) ((expr) & 0x08)
 #define DirectionIsVertical(expr) ((expr) & 0x10)
-#define DirectionTurnAround(expr) (DirectionRoundUp(expr) ^ 0x10)
+#define DirectionTurnAround(expr) ((expr) ^ 0x10)
 #define DirectionToAnimationState(expr) (DirectionRoundUp(expr) >> 3)
 #define DirectionFromAnimationState(expr) ((expr) << 3)
+#define DirectionNormalize(expr) ((expr) & 0x1f)
 
 #define Direction8Round(expr) ((expr) & 0x1c)
 #define Direction8RoundUp(expr) Direction8Round((expr) + 2)
@@ -197,23 +198,29 @@ enum {
 #define Direction8FromAnimationState(expr) (((expr) << 2)
 
 Entity* GetEmptyEntity(void);
-extern Entity* CreateEnemy(u32 id, u32 type);
-extern Entity* CreateNPC(u32 id, u32 type, u32 type2);
-extern Entity* CreateObject(u32 id, u32 type, u32 type2);
-extern Entity* CreateObjectWithParent(Entity* parent, u32 id, u32 type, u32 type2);
-extern Entity* CreateFx(Entity* parent, u32 type, u32 type2);
+void DrawEntity(Entity*);
+Entity* CreateEnemy(u32 id, u32 type);
+Entity* CreateNPC(u32 id, u32 type, u32 type2);
+Entity* CreateObject(u32 id, u32 type, u32 type2);
+Entity* CreateObjectWithParent(Entity* parent, u32 id, u32 type, u32 type2);
+Entity* CreateFx(Entity* parent, u32 type, u32 type2);
 
-extern void InitializeAnimation(Entity*, u32);
-extern void InitAnimationForceUpdate(Entity*, u32);
-extern void UpdateAnimationSingleFrame(Entity*);
-extern void UpdateSpriteForCollisionLayer(Entity*);
-extern void GetNextFrame(Entity*);
-extern u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
-extern void SetExtraSpriteFrame(Entity*, u32, u32);
-extern void SetSpriteSubEntryOffsetData1(Entity*, u32, u32);
-extern void SetSpriteSubEntryOffsetData2(Entity*, u32, u32);
+void InitializeAnimation(Entity*, u32);
+void InitAnimationForceUpdate(Entity*, u32);
+void UpdateAnimationSingleFrame(Entity*);
+void UpdateSpriteForCollisionLayer(Entity*);
+void GetNextFrame(Entity*);
+u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
+void SetExtraSpriteFrame(Entity*, u32, u32);
+void SetSpriteSubEntryOffsetData1(Entity*, u32, u32);
+void SetSpriteSubEntryOffsetData2(Entity*, u32, u32);
 
-extern u32 GetFacingDirection(Entity*, Entity*);
+u32 GetFacingDirection(Entity*, Entity*);
+
+/**
+ * @brief Check if entity should sleep this frame.
+ */
+bool32 CheckDontUpdate(Entity* this);
 
 /**
  * @brief Delete the entity currently in execution.

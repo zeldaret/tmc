@@ -53,7 +53,7 @@ void sub_080318DC(Entity* this) {
     if (this->bitfield != 0x80 && this->bitfield != 0x81) {
         if (this->type == 1) {
             if (this->action < 7 && this->knockbackDuration != 0) {
-                brother = this->attachedEntity;
+                brother = this->child;
                 if (brother) {
                     brother->parent = this->parent;
                     do {
@@ -61,42 +61,42 @@ void sub_080318DC(Entity* this) {
                         brother->spritePriority.b1 = 1;
                         if (brother->iframes == 0)
                             brother->iframes = -12;
-                    } while (brother = brother->attachedEntity, brother != NULL);
+                    } while (brother = brother->child, brother != NULL);
                 }
                 if (this->parent) {
-                    this->parent->attachedEntity = this->attachedEntity;
+                    this->parent->child = this->child;
                 } else {
-                    if (this->attachedEntity)
+                    if (this->child)
                         this->parent = this;
                 }
 
                 this->action = 9;
                 this->spritePriority.b1 = 1;
                 if (this->knockbackDirection < 0x10) {
-                    this->spriteSettings.b.flipX = 0;
+                    this->spriteSettings.flipX = 0;
                 } else {
-                    this->spriteSettings.b.flipX = 1;
+                    this->spriteSettings.flipX = 1;
                 }
                 InitializeAnimation(this, 14);
             }
 
-            if (this->currentHealth == 0) {
+            if (this->health == 0) {
                 this->knockbackDirection = ((this->knockbackDirection + (7 & Random())) - 4) & 0x1f;
                 this->knockbackDuration += this->type2 * 3;
                 sub_08032338(this);
             }
         }
 
-        if (this->knockbackDuration != 0 && this->frames.all & 0x10) {
+        if (this->knockbackDuration != 0 && this->frame & 0x10) {
             if (this->type == 0) {
                 this->action = 8;
             } else {
                 this->action = 9;
             }
             if (this->knockbackDirection < 0x10) {
-                this->spriteSettings.b.flipX = 0;
+                this->spriteSettings.flipX = 0;
             } else {
-                this->spriteSettings.b.flipX = 1;
+                this->spriteSettings.flipX = 1;
             }
             this->spritePriority.b1 = 1;
             InitializeAnimation(this, 14);
@@ -147,7 +147,7 @@ void sub_08031AC8(Entity* this)
             y = this->field_0x76.HWORD + ((s32)(rand >> 4) % 5) * 0x10 - 0x20;
             if (sub_080002D4(x, y, this->collisionLayer) == 0) {
                 this->action = 2;
-                this->spriteSettings.b.draw = 1;
+                this->spriteSettings.draw = 1;
                 this->x.HALF.HI = x;
                 this->y.HALF.HI = y;
                 InitializeAnimation(this, 0);
@@ -158,11 +158,11 @@ void sub_08031AC8(Entity* this)
 
 void sub_08031B48(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.b.f0) {
-        this->frames.all = 0;
-        this->flags |= 0x80;
+    if (this->frame & 1) {
+        this->frame = 0;
+        COLLISION_ON(this);
     } else {
-        if (this->frames.b.f3) {
+        if (this->frame & 0x80) {
             this->action = 0x3;
             this->actionDelay = gUnk_080CE5B0[Random() & 7];
             InitializeAnimation(this, 1);
@@ -174,21 +174,20 @@ void sub_08031B98(Entity* this) {
     if (sub_08031E04(this)) {
         this->action = 5;
         if (this->x.HALF.HI > gUnk_020000B0->x.HALF.HI) {
-            this->spriteSettings.b.flipX = 0;
+            this->spriteSettings.flipX = 0;
         } else {
-            this->spriteSettings.b.flipX = 1;
+            this->spriteSettings.flipX = 1;
         }
         InitializeAnimation(this, 3);
     } else {
-        if (this->frames.b.f0 && this->actionDelay) {
-            // this->frames.b.f0 = 0;
-            this->frames.all &= 0xfe;
+        if ((this->frame & 1) && this->actionDelay) {
+            this->frame &= 0xfe;
             this->actionDelay--;
         }
         GetNextFrame(this);
         if (this->actionDelay == 0) {
             this->action = 4;
-            this->flags &= 0x7f;
+            COLLISION_OFF(this);
             InitializeAnimation(this, 2);
         }
     }
@@ -196,10 +195,10 @@ void sub_08031B98(Entity* this) {
 
 void sub_08031C1C(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.b.f3) {
+    if (this->frame & 0x80) {
         this->action = '\x01';
         this->actionDelay = gUnk_080CE5B8[Random() & 7];
-        this->spriteSettings.b.draw = 0;
+        this->spriteSettings.draw = 0;
     }
 }
 
@@ -207,7 +206,7 @@ void sub_08031C58(Entity* this) {
     Entity *a, *b;
 
     GetNextFrame(this);
-    if (this->frames.b.f3) {
+    if (this->frame & 0x80) {
         if (gEntCount < 0x43) {
             u32 tmp = Random();
             tmp &= 3;
@@ -217,33 +216,33 @@ void sub_08031C58(Entity* this) {
             a->parent = NULL;
             a->field_0x74.HALF.LO = tmp;
             sub_08031E48(this, a);
-            a->attachedEntity = CreateEnemy(ACRO_BANDIT, 1);
+            a->child = CreateEnemy(ACRO_BANDIT, 1);
 
-            b = a->attachedEntity;
+            b = a->child;
             b->type2 = 1;
             b->parent = a;
             b->field_0x74.HALF.LO = tmp;
             sub_08031E48(this, b);
-            b->attachedEntity = CreateEnemy(ACRO_BANDIT, 1);
+            b->child = CreateEnemy(ACRO_BANDIT, 1);
 
-            a = b->attachedEntity;
+            a = b->child;
             a->type2 = 2;
             a->parent = b;
             a->field_0x74.HALF.LO = tmp;
             sub_08031E48(this, a);
-            a->attachedEntity = CreateEnemy(ACRO_BANDIT, 1);
+            a->child = CreateEnemy(ACRO_BANDIT, 1);
 
-            b = a->attachedEntity;
+            b = a->child;
             b->type2 = 3;
             b->parent = a;
             b->field_0x74.HALF.LO = tmp;
             sub_08031E48(this, b);
-            b->attachedEntity = CreateEnemy(ACRO_BANDIT, 1);
+            b->child = CreateEnemy(ACRO_BANDIT, 1);
 
-            a = b->attachedEntity;
+            a = b->child;
             a->type2 = 4;
             a->parent = b;
-            a->attachedEntity = NULL;
+            a->child = NULL;
             a->field_0x74.HALF.LO = tmp;
             sub_08031E48(this, a);
 
@@ -253,9 +252,9 @@ void sub_08031C58(Entity* this) {
             InitializeAnimation(this, 7);
         }
     } else {
-        if (this->frames.b.f0) {
-            this->frames.all = 0;
-            this->flags &= 0x7f;
+        if (this->frame & 1) {
+            this->frame = 0;
+            COLLISION_OFF(this);
         }
     }
 }
@@ -264,9 +263,9 @@ void sub_08031D70(Entity* this) {
     GetNextFrame(this);
     if (--this->actionDelay == '\0') {
         this->action = 7;
-        this->flags &= 0x7f;
+        COLLISION_OFF(this);
         this->actionDelay = 5;
-        this->spriteSettings.b.draw = 0;
+        this->spriteSettings.draw = 0;
     }
 }
 
@@ -282,14 +281,14 @@ void sub_08031DA0(Entity* this) {
 }
 
 void sub_08031DC4(Entity* this) {
-    if (this->frames.b.f3) {
+    if (this->frame & 0x80) {
         this->action = 1;
         this->actionDelay = 0xb4;
-        this->spriteSettings.b.draw = 0;
+        this->spriteSettings.draw = 0;
     } else {
         GetNextFrame(this);
-        if ((this->frames.all & 0xf) == 2) {
-            this->flags &= 0x7f;
+        if ((this->frame & 0xf) == 2) {
+            COLLISION_OFF(this);
         }
     }
 }
@@ -302,7 +301,7 @@ u32 sub_08031E04(Entity* this) {
     if (ent == NULL)
         return 0;
 
-    tmp = &gUnk_080CE5C0[this->frames.all & 6];
+    tmp = &gUnk_080CE5C0[this->frame & 6];
     return sub_0806FCB8(this, ent->x.HALF.HI + tmp[0], ent->y.HALF.HI + tmp[1], 0x50);
 }
 
@@ -323,8 +322,8 @@ void sub_08031E90(Entity* this) {
 void sub_08031EA8(Entity* this) {
     this->action = 1;
     this->spritePriority.b1 = 1;
-    this->hVelocity = 0x40000;
-    this->height.HALF.HI = (4 - this->type2) * 0xe;
+    this->zVelocity = 0x40000;
+    this->z.HALF.HI = (4 - this->type2) * 0xe;
     this->field_0x78.HALF.HI = Random();
     InitializeAnimation(this, 4);
 }
@@ -332,34 +331,34 @@ void sub_08031EA8(Entity* this) {
 void sub_08031EE8(Entity* this) {
     int draw;
 
-    this->height.WORD -= this->hVelocity;
-    this->hVelocity -= 0x1800;
+    this->z.WORD -= this->zVelocity;
+    this->zVelocity -= 0x1800;
 
-    if (this->height.HALF.HI < 1) {
-        draw = this->spriteSettings.b.draw;
+    if (this->z.HALF.HI < 1) {
+        draw = this->spriteSettings.draw;
         if (!draw)
             EnqueueSFX(299);
 
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
     }
 
-    draw = this->spriteSettings.b.draw;
+    draw = this->spriteSettings.draw;
     if (draw == 1)
         GetNextFrame(this);
 
-    if (this->hVelocity < 1) {
+    if (this->zVelocity < 1) {
         this->action = 2;
-        this->flags |= 0x80;
+        COLLISION_ON(this);
         InitializeAnimation(this, 5);
     }
 }
 
 void sub_08031F54(Entity* this) {
     sub_08003FC4(this, gUnk_080CE5F0[this->type2]);
-    if (this->type2 * -0xe <= this->height.HALF.HI) {
+    if (this->type2 * -0xe <= this->z.HALF.HI) {
         this->action = 3;
         this->actionDelay = 20;
-        this->height.HALF.HI = this->type2 * -0xe;
+        this->z.HALF.HI = this->type2 * -0xe;
         if (this->parent != NULL)
             this->spritePriority.b1 = 0;
         InitializeAnimation(this, 6);
@@ -368,11 +367,11 @@ void sub_08031F54(Entity* this) {
 
 void sub_08031FB0(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.b.f3 && (this->parent || --this->actionDelay == 0)) {
+    if ((this->frame & 0x80) && (this->parent || --this->actionDelay == 0)) {
         this->action = 4;
         this->direction = sub_08049F84(this, 1);
         *(u8*)&this->field_0x76 = 0;
-        if (this->attachedEntity) {
+        if (this->child) {
             InitializeAnimation(this, 9);
         } else {
             InitializeAnimation(this, 8);
@@ -406,7 +405,7 @@ void sub_08032008(Entity* this) {
             }
 
             if (this->direction & 0xf)
-                this->spriteSettings.b.flipX = (this->direction >> 4 ^ 1);
+                this->spriteSettings.flipX = (this->direction >> 4 ^ 1);
 
             ProcessMovement(this);
         } else {
@@ -445,19 +444,19 @@ void sub_08032160(Entity* this) {
         dir = gUnk_080CE5FA[this->field_0x74.HALF.LO * 5 + this->type2];
         this->direction = dir;
         if (dir >= 0x10) {
-            this->spriteSettings.b.flipX = 1;
+            this->spriteSettings.flipX = 1;
         } else {
-            this->spriteSettings.b.flipX = 0;
+            this->spriteSettings.flipX = 0;
         }
         this->speed = 0xf0;
-        this->hVelocity = 0x12000;
+        this->zVelocity = 0x12000;
         this->spritePriority.b1 = 1;
         InitializeAnimation(this, 12);
     }
 
-    if (this->attachedEntity == NULL) {
+    if (this->child == NULL) {
         for (tmp = this->parent; tmp != NULL; tmp = tmp->parent) {
-            if (tmp->currentHealth != 0)
+            if (tmp->health != 0)
                 tmp->actionDelay = 0;
         }
         this->actionDelay = 0;
@@ -473,11 +472,11 @@ void sub_080321E8(Entity* this) {
 
 void sub_08032204(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.all & 1) {
-        this->frames.all = 0;
+    if (this->frame & 1) {
+        this->frame = 0;
         this->frameDuration = (Random() & 0x30) + 30;
     } else {
-        if (this->frames.all & 0x80) {
+        if (this->frame & 0x80) {
             this->action = 9;
             InitializeAnimation(this, 13);
         }
@@ -486,15 +485,15 @@ void sub_08032204(Entity* this) {
 
 void sub_08032248(Entity* this) {
     if (sub_08003FC4(this, 0x1800) == 0) {
-        if (this->frames.all & 0x80) {
+        if (this->frame & 0x80) {
             ((Entity*)this->field_0x7c.WORD)->actionDelay--;
 
             DeleteEntity(this);
         } else {
             GetNextFrame(this);
 
-            if ((this->frames.all & 0xf) == 2)
-                this->flags &= 0x7f;
+            if ((this->frame & 0xf) == 2)
+                COLLISION_OFF(this);
         }
     }
 }
@@ -506,10 +505,10 @@ void sub_08032290(Entity* this) {
 }
 
 u32 sub_080322A4(Entity* this) {
-    if (this->attachedEntity != NULL && (this->attachedEntity->height.HALF.HI + 8) >= this->height.HALF.HI) {
-        if (this->height.HALF.HI) {
+    if (this->child != NULL && (this->child->z.HALF.HI + 8) >= this->z.HALF.HI) {
+        if (this->z.HALF.HI) {
             this->action = 5;
-            this->height.HALF.HI = this->attachedEntity->height.HALF.HI + 8;
+            this->z.HALF.HI = this->child->z.HALF.HI + 8;
             InitializeAnimation(this, 11);
             return 1;
         } else {
@@ -524,15 +523,15 @@ void sub_080322E8(Entity* this) {
     u8 tmp;
     if (this->field_0x78.HALF.LO) {
         if (--this->field_0x78.HALF.LO == 0) {
-            u32 flipX = this->spriteSettings.b.flipX;
-            this->spriteSettings.b.flipX = flipX ^ 1;
+            u32 flipX = this->spriteSettings.flipX;
+            this->spriteSettings.flipX = flipX ^ 1;
         }
     } else {
         tmp = this->direction;
         if (tmp & 0xF) {
             tmp >>= 4;
             tmp ^= 1;
-            if (tmp != this->spriteSettings.b.flipX) {
+            if (tmp != this->spriteSettings.flipX) {
                 this->field_0x78.HALF.LO = 6;
             }
         }

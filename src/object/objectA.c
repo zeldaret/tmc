@@ -7,7 +7,7 @@
 
 extern Hitbox gHitbox_2;
 
-extern u8 gUnk_02000070;
+extern u8 gUpdateVisibleTiles;
 
 void ObjectA(Entity* this) {
     u32 uVar2;
@@ -24,7 +24,7 @@ void ObjectA(Entity* this) {
         if (CheckFlags(this->field_0x86.HWORD) != 0) {
             SetTileType(*(u16*)&this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
             if ((gRoomControls.unk2 & 1) != 0) {
-                gUnk_02000070 = 0;
+                gUpdateVisibleTiles = 0;
             }
             DeleteThisEntity();
         } else {

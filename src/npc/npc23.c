@@ -23,7 +23,7 @@ void NPC23(Entity* this) {
 void sub_080662F8(Entity* this) {
     this->action = 1;
     this->subAction = 0;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->animationState = this->type << 1;
     InitializeAnimation(this, this->type);
     this->field_0x7c.HALF.HI = this->x.HALF.HI;

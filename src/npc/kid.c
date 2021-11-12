@@ -174,7 +174,7 @@ NONMATCH("asm/non_matching/kid/sub_0806252C.inc", void sub_0806252C(Entity* this
     s32 iVar11;
 
     uVar4 = gPlayerState.field_0xa8;
-    uVar3 = gPlayerEntity.height.HALF.HI;
+    uVar3 = gPlayerEntity.z.HALF.HI;
     sVar2 = gPlayerEntity.y.HALF.HI;
     sVar1 = gPlayerEntity.x.HALF.HI;
     r0 = gPlayerEntity.y.HALF.HI - this->y.HALF.HI;
@@ -291,7 +291,7 @@ NONMATCH("asm/non_matching/kid/Kid_Head.inc", void Kid_Head(Entity* this)) {
     u32 uVar4;
 
     iVar1 = (u32)this->type * 4;
-    uVar3 = ((u8)this->frames.all & 0x1f) + (u32)gUnk_0810C0A0[iVar1];
+    uVar3 = ((u8)this->frame & 0x1f) + (u32)gUnk_0810C0A0[iVar1];
     uVar4 = (this->frameIndex & 0x1f) + (u32)gUnk_0810C0A0[iVar1 + 1];
     switch (this->type) {
         case 0:
@@ -416,7 +416,7 @@ void Kid_Fusion(Entity* this) {
     if (this->action == 0) {
         if (LoadExtraSpriteData(this, gUnk_0810BDC4[this->type]) != 0) {
             this->action = this->action + 1;
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
             this->y.HALF.HI = this->y.HALF.HI + -8;
             tmp = 6;
             if (this->type == 6) {

@@ -20,7 +20,7 @@ void nullsub_133(Entity* this) {
 
 void sub_08022FD0(Entity* this) {
     this->action = 1;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     sub_08023000(this, 0);
 }
 

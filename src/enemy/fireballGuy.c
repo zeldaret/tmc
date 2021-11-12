@@ -28,7 +28,7 @@ void sub_080453A4(Entity* this) {
 }
 
 void sub_080453BC(Entity* this) {
-    if (this->currentHealth && this->cutsceneBeh.HALF.LO != this->currentHealth) {
+    if (this->health && this->cutsceneBeh.HALF.LO != this->health) {
         this->action = 2;
     } else {
         sub_0804AA30(this, gUnk_080D17E8);
@@ -41,9 +41,9 @@ void nullsub_172(void) {
 void sub_080453E8(Entity* this) {
     this->action = 1;
     this->actionDelay = 0;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->speed = 0x80;
-    this->cutsceneBeh.HALF.LO = this->currentHealth;
+    this->cutsceneBeh.HALF.LO = this->health;
     this->field_0x3c |= 0x10;
     sub_0804A720(this);
     InitializeAnimation(this, 0);
@@ -77,11 +77,11 @@ void sub_08045454(Entity* this) {
     off = gUnk_080D1810;
     for (i = 0; i < count; i++) {
         ent = entities[i];
-        ent->attachedEntity = entities[(i + 1) % count];
+        ent->child = entities[(i + 1) % count];
         ent->parent = entities[(i + count - 1) % count];
         tmp = 0;
         ent->type2 = 1;
-        ent->height.HALF.HI = tmp;
+        ent->z.HALF.HI = tmp;
         ent->iframes = -0x10;
 
         /* Set MiniFireballGuy offset relative to killed slime. */
@@ -101,7 +101,7 @@ u32 sub_0804A024(Entity*, u32, u32);
 void sub_08045524(Entity* this) {
     u32 tmp, tmp1, tmp2;
 
-    this->hVelocity = 0x1c000;
+    this->zVelocity = 0x1c000;
     tmp = sub_0804A024(this, 1, 8);
     if (tmp != 0xff && (Random() & 3) == 0) {
         this->actionDelay = Random() & 3;

@@ -17,7 +17,7 @@ void Festari(Entity* this) {
 
 void sub_0805FE10(Entity* this) {
     this->action = 1;
-    this->spriteSettings.b.draw = TRUE;
+    this->spriteSettings.draw = TRUE;
     sub_0805E3A0(this, 2);
     this->field_0x68.HALF.LO = sub_0801E99C(this);
     sub_08078784(this, this->field_0x68.HALF.LO);
@@ -52,7 +52,7 @@ void sub_0805FE48(Entity* this) {
         }
         UpdateAnimationSingleFrame(this);
 
-        if (this->frames.b.f3) {
+        if (this->frame & 0x80) {
             switch (this->animIndex) {
                 case 8:
                 case 10:
@@ -112,7 +112,7 @@ void sub_0805FF2C(Entity* this, ScriptExecutionContext* context) {
 void Festari_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action += 1;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         sub_0805E3A0(this, 2);
         InitAnimationForceUpdate(this, 8);
     } else {

@@ -26,14 +26,14 @@ void Maid_Head(Entity* this) {
     u32 uVar2;
     u32 uVar3;
 
-    uVar2 = this->frames.all & 0x7f;
+    uVar2 = this->frame & 0x7f;
     uVar3 = this->frameIndex;
     if (this->id == 0x16) {
-        if ((this->frames.all & 0x7f) != 0) {
+        if ((this->frame & 0x7f) != 0) {
             uVar2 += 10;
         }
     } else {
-        if ((this->frames.all & 0x7f) != 0) {
+        if ((this->frame & 0x7f) != 0) {
             uVar2 += 0x1a;
         }
         uVar3 += 0x10;

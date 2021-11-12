@@ -25,7 +25,7 @@ void DekuSeedProjectile_OnTick(Entity* this) {
 
 void sub_080A8470(Entity* this) {
     if (this->bitfield == 0x80) {
-        if (this->damageType == 0x68) {
+        if (this->hitType == 0x68) {
             EnqueueSFX(SFX_86);
         }
         DeleteEntity(this);
@@ -44,9 +44,9 @@ void DekuSeedProjectile_Init(Entity* this) {
     this->action = 1;
     this->actionDelay = 0x30;
     this->field_0xf = 0;
-    this->height.HALF.HI -= 4;
+    this->z.HALF.HI -= 4;
     if (CheckGlobalFlag(TABIDACHI) == 0) {
-        this->damageType = 0x68;
+        this->hitType = 0x68;
     }
     EnqueueSFX(SFX_18D);
     InitializeAnimation(this, 0x18);
@@ -75,12 +75,12 @@ void DekuSeedProjectile_Action1(Entity* this) {
         if ((parent->next != NULL) && (sub_080177A0(this, parent) != 0)) {
             this->iframes = 0x10;
             this->knockbackDirection = -this->direction;
-            this->bitfield = -0x80;
+            this->bitfield = 0x80;
             this->knockbackDuration = 0xc;
             this->field_0x46 = 0;
             parent->iframes = 0x10;
             parent->knockbackDirection = this->direction;
-            parent->bitfield = -0x3e;
+            parent->bitfield = 0xc2;
             parent->knockbackDuration = 0xc;
             parent->field_0x46 = 0;
         }
@@ -95,7 +95,7 @@ void DekuSeedProjectile_Action2(Entity* this) {
         }
         if (--this->actionDelay == 0) {
             this->action = 1;
-            this->flags |= 0x80;
+            COLLISION_ON(this);
         }
     } else {
         sub_0800417E(this, (u32)this->collisions);
@@ -107,7 +107,7 @@ void DekuSeedProjectile_Action2(Entity* this) {
 
 void DekuSeedProjectile_Action3(Entity* this) {
     GetNextFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         DeleteThisEntity();
     }
 }
@@ -120,19 +120,19 @@ void DekuSeedProjectile_Action4(Entity* this) {
             DeleteThisEntity();
             return;
         case 1:
-            this->flags &= 0x7f;
+            COLLISION_OFF(this);
             this->speed = 0x120;
 
             break;
     }
-    if ((this->flags & 0x80) == 0) {
-        this->spriteSettings.b.draw ^= 1;
+    if ((this->flags & ENT_COLLIDE) == 0) {
+        this->spriteSettings.draw ^= 1;
     }
 }
 
 void sub_080A8680(Entity* this) {
     this->action = 2;
-    this->flags &= 0x7f;
+    COLLISION_OFF(this);
     this->actionDelay = 3;
     this->field_0xf = 1;
     EnqueueSFX(SFX_ITEM_SHIELD_BOUNCE);
@@ -140,7 +140,7 @@ void sub_080A8680(Entity* this) {
 
 void sub_080A86A0(Entity* this) {
     this->action = 3;
-    this->flags &= 0x7f;
+    COLLISION_OFF(this);
     this->speed = 0;
     EnqueueSFX(SFX_18E);
 }

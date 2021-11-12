@@ -27,20 +27,20 @@ bool32 EnemyInit(Entity* this) {
             this->flags |= 0x80;
         }
         this->spriteIndex = definition->spriteIndex;
-        if (this->spriteSettings.b.draw == 0) {
-            this->spriteSettings.b.draw = definition->spriteFlags.draw;
+        if (this->spriteSettings.draw == 0) {
+            this->spriteSettings.draw = definition->spriteFlags.draw;
         }
         this->spritePriority.b1 = definition->spriteFlags.spritePriority;
-        this->spriteSettings.b.shadow = definition->spriteFlags.shadow;
+        this->spriteSettings.shadow = definition->spriteFlags.shadow;
         if (this->speed == 0) {
             this->speed = definition->speed;
         }
         this->flags2 = definition->flags2;
-        this->damageType = definition->damageType;
+        this->hitType = definition->damageType;
         this->hitbox = (Hitbox*)definition->ptr.hitbox;
-        this->currentHealth = definition->health;
-        if (this->field_0x40 == 0) {
-            this->field_0x40 = 0x41;
+        this->health = definition->health;
+        if (this->hurtType == 0) {
+            this->hurtType = 0x41;
         }
         UpdateSpriteForCollisionLayer(this);
         if ((this->field_0x6c.HALF.HI & 0x20) != 0) {
@@ -49,12 +49,12 @@ bool32 EnemyInit(Entity* this) {
                 Entity* object = CreateObject(0xa9, uVar4 - 1, 0);
                 if (object != NULL) {
                     object->actionDelay = this->flags;
-                    object->field_0xf = this->spriteSettings.b.draw;
+                    object->field_0xf = this->spriteSettings.draw;
                     object->spritePriority.b0 = 3;
                     object->parent = this;
                     CopyPosition(this, object);
                     this->flags &= 0x7f;
-                    this->spriteSettings.b.draw = 0;
+                    this->spriteSettings.draw = 0;
                     this->field_0x6c.HALF.HI |= 0x10;
                 }
             }

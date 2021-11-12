@@ -92,7 +92,7 @@ typedef struct {
     /*    */ u8 swordBlueParticle : 1;
     /*    */ u8 filler14 : 6;
     /*0x3f*/ u8 field_0x3f;
-    /*0x40*/ u8 field_0x40[64];
+    /*0x40*/ u8 hurtType[64];
     /*0x80*/ u16 field_0x80;
     /*0x82*/ u8 field_0x82[9];
     /*0x8b*/ u8 field_0x8b;
@@ -161,6 +161,10 @@ extern Entity gPlayerEntity;
 extern u32 GetInventoryValue(u32);
 extern s32 ModHealth(s32);
 extern void ModRupees(s32);
+
+#define COPY_FLAG_FROM_TO(base, src, dest) (base) = ((base) & ~(dest)) | (((dest) * ((base) & (src))) / src)
+
+
 #endif
 
 // clang-format on

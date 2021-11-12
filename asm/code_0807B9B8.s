@@ -95,7 +95,7 @@ _0807BA44:
 	ldrh r0, [r0]
 	cmp r0, #1
 	beq _0807BA78
-	ldr r1, _0807BA88 @ =gUnk_02000070
+	ldr r1, _0807BA88 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 _0807BA78:
@@ -104,7 +104,7 @@ _0807BA78:
 _0807BA7C: .4byte gMapDataTopSpecial
 _0807BA80: .4byte 0x00007004
 _0807BA84: .4byte gRoomControls
-_0807BA88: .4byte gUnk_02000070
+_0807BA88: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_0807BA8C
 sub_0807BA8C: @ 0x0807BA8C
@@ -197,7 +197,7 @@ _0807BB20:
 	ldrh r0, [r0]
 	cmp r0, #1
 	beq _0807BB54
-	ldr r1, _0807BB64 @ =gUnk_02000070
+	ldr r1, _0807BB64 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 _0807BB54:
@@ -206,7 +206,7 @@ _0807BB54:
 _0807BB58: .4byte gMapDataTopSpecial
 _0807BB5C: .4byte 0x00007004
 _0807BB60: .4byte gRoomControls
-_0807BB64: .4byte gUnk_02000070
+_0807BB64: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_0807BB68
 sub_0807BB68: @ 0x0807BB68
@@ -1847,14 +1847,14 @@ sub_0807C810: @ 0x0807C810
 	adds r1, r1, r0
 	strh r1, [r6, #0x32]
 	bl sub_080809D4
-	ldr r0, _0807C85C @ =gUnk_02000070
+	ldr r0, _0807C85C @ =gUpdateVisibleTiles
 	strb r5, [r0]
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _0807C850: .4byte gUnk_03004030
 _0807C854: .4byte gPlayerEntity
 _0807C858: .4byte gRoomControls
-_0807C85C: .4byte gUnk_02000070
+_0807C85C: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_0807C860
 sub_0807C860: @ 0x0807C860

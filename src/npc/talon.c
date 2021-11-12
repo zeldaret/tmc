@@ -66,7 +66,7 @@ void sub_0806559C(Entity* this) {
 void sub_08065608(Entity* this) {
     if (LoadExtraSpriteData(this, &gUnk_0810FEB0) != 0) {
         this->action = 1;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         this->field_0x68.HALF.LO = sub_0801E99C(this);
         sub_08078784(this, this->field_0x68.HALF.LO);
         sub_0807DD50(this);
@@ -145,7 +145,7 @@ void sub_08065780(Entity* this, ScriptExecutionContext* context) {
 }
 
 void Talon_Head(Entity* this) {
-    SetExtraSpriteFrame(this, 0, ((this->frames.all & 7) + 0xB));
+    SetExtraSpriteFrame(this, 0, ((this->frame & 7) + 0xB));
     SetExtraSpriteFrame(this, 1, this->frameIndex);
     SetSpriteSubEntryOffsetData1(this, 1, 0);
     sub_0807000C(this);
@@ -155,7 +155,7 @@ void Talon_Fusion(Entity* this) {
     if (this->action == 0) {
         if (LoadExtraSpriteData(this, &gUnk_0810FEB0) != 0) {
             this->action++;
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
             InitializeAnimation(this, 6);
         }
     } else {

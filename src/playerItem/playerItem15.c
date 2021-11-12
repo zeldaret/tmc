@@ -13,7 +13,7 @@ void PlayerItem15(Entity* this) {
 }
 
 void sub_080A3084(Entity* this) {
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->action = 0x01;
     CopyPosition(this->parent, this);
     if (this->type == 0) {

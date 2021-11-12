@@ -59,7 +59,7 @@ void sub_08064B44(Entity* this) {
         sub_08064CC0(this);
         this->action = 1;
         this->subAction = 0;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
     }
 }
 
@@ -80,7 +80,7 @@ void sub_08064C50(Entity* this) {
 }
 
 void Sturgeon_Head(Entity* this) {
-    SetExtraSpriteFrame(this, 0, (u8)this->frames.all & 0x3f);
+    SetExtraSpriteFrame(this, 0, (u8)this->frame & 0x3f);
     SetExtraSpriteFrame(this, 1, (u32)this->frameIndex);
     SetSpriteSubEntryOffsetData1(this, 1, 0);
     sub_0807000C(this);
@@ -119,7 +119,7 @@ void Sturgeon_Fusion(Entity* this) {
     if (this->action == 0) {
         if (LoadExtraSpriteData(this, &gUnk_0810FA38) != 0) {
             this->action += 1;
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
             InitializeAnimation(this, 6);
         }
     } else {

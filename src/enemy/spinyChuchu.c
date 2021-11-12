@@ -32,14 +32,14 @@ void sub_08022434(Entity* this) {
 }
 
 void sub_0802244C(Entity* this) {
-    if (this->currentHealth) {
-        if (this->damageType == 0x65) {
+    if (this->health) {
+        if (this->hitType == 0x65) {
             switch (this->bitfield & 0x7f) {
                 case 2:
                 case 3:
                     this->action = 2;
                     this->field_0xf = 0x3c;
-                    this->damageType = 0x5c;
+                    this->hitType = 0x5c;
                     this->hitbox = &gHitbox_23;
                     InitializeAnimation(this, 0);
                     break;
@@ -54,7 +54,7 @@ void sub_0802244C(Entity* this) {
                 case 0x1a:
                     sub_0804A9FC(this, 0x1c);
                     this->action = 5;
-                    this->damageType = 0x5c;
+                    this->hitType = 0x5c;
                     InitializeAnimation(this, 1);
             }
         } else if (this->bitfield == 0x94) {
@@ -63,9 +63,9 @@ void sub_0802244C(Entity* this) {
             InitializeAnimation(this, 1);
         }
 
-        if (this->field_0x80.HALF.LO != this->currentHealth) {
+        if (this->field_0x80.HALF.LO != this->health) {
             this->action = 5;
-            this->damageType = 0x5c;
+            this->hitType = 0x5c;
             InitializeAnimation(this, 1);
         } else {
             if (this->action == 3) {
@@ -78,7 +78,7 @@ void sub_0802244C(Entity* this) {
         InitializeAnimation(this, 1);
     }
 
-    this->field_0x80.HALF.LO = this->currentHealth;
+    this->field_0x80.HALF.LO = this->health;
     sub_0804AA30(this, gUnk_080CBA28);
 }
 
@@ -90,7 +90,7 @@ void sub_080225A0(Entity* this) {
 
 void sub_080225BC(Entity* this) {
     sub_08003FC4(this, 0x1800);
-    if (this->frames.all & 1) {
+    if (this->frame & 1) {
         sub_0804A7D4(this);
     } else {
         GetNextFrame(this);
@@ -102,7 +102,7 @@ void nullsub_9(Entity* this) {
 
 void sub_080225EC(Entity* this) {
     sub_0804A720(this);
-    this->field_0x80.HALF.LO = this->currentHealth;
+    this->field_0x80.HALF.LO = this->health;
     this->field_0x80.HALF.HI = 0x5a;
     if (this->actionDelay == 0) {
         this->action = 2;
@@ -110,10 +110,10 @@ void sub_080225EC(Entity* this) {
     } else {
         this->action = 1;
         this->field_0xf = 0x3c;
-        this->spriteSettings.b.draw = 3;
+        this->spriteSettings.draw = 3;
         this->spriteRendering.b3 = 1;
         this->spriteOrientation.flipY = 1;
-        this->height.HALF.HI = -0x80;
+        this->z.HALF.HI = -0x80;
         InitializeAnimation(this, 6);
     }
 }
@@ -132,7 +132,7 @@ void sub_08022654(Entity* this) {
                 return;
 
             this->subAction = 2;
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
             InitializeAnimation(this, 5);
             EnqueueSFX(0x7d);
             UpdateSpriteForCollisionLayer(this);
@@ -141,7 +141,7 @@ void sub_08022654(Entity* this) {
             GetNextFrame(this);
             if (--this->actionDelay == 0) {
                 this->action = 3;
-                this->damageType = 0x65;
+                this->hitType = 0x65;
                 InitializeAnimation(this, 2);
             }
             break;
@@ -152,17 +152,17 @@ void sub_080226EC(Entity* this) {
     if (sub_08049FDC(this, 1)) {
         if (sub_080228CC(this)) {
             this->action = 3;
-            this->damageType = 0x65;
+            this->hitType = 0x65;
             InitializeAnimation(this, 2);
             return;
         }
 
         if (sub_080228F0(this)) {
             this->action = 6;
-            this->hVelocity = 0x12000;
+            this->zVelocity = 0x12000;
             this->speed = 0x140;
             this->direction = GetFacingDirection(this, gUnk_020000B0);
-            this->damageType = 0x5a;
+            this->hitType = 0x5a;
             InitializeAnimation(this, 4);
             return;
         }
@@ -179,7 +179,7 @@ void sub_080226EC(Entity* this) {
 
 void sub_08022780(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         this->action = 4;
         InitializeAnimation(this, 3);
         EnqueueSFX(0x194);
@@ -188,18 +188,18 @@ void sub_08022780(Entity* this) {
 
 void sub_080227AC(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.all & 1) {
+    if (this->frame & 1) {
         this->hitbox = &gHitbox_32;
     } else {
         this->hitbox = &gHitbox_23;
     }
 
-    if (this->frames.all & 2) {
-        this->frames.all &= ~2;
-        this->damageType = 0x5c;
+    if (this->frame & 2) {
+        this->frame &= ~2;
+        this->hitType = 0x5c;
     }
 
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         this->action = 2;
         this->field_0xf = gUnk_080CBA60[Random() & 3];
         InitializeAnimation(this, 0);
@@ -209,7 +209,7 @@ void sub_080227AC(Entity* this) {
 void sub_0802281C(Entity* this) {
     sub_08003FC4(this, 0x1800);
     GetNextFrame(this);
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         this->action = 2;
         this->speed = 0x20;
         InitializeAnimation(this, 0);
@@ -219,11 +219,11 @@ void sub_0802281C(Entity* this) {
 
 void sub_08022854(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.all & 1) {
+    if (this->frame & 1) {
         sub_080AEFE0(this);
         if (sub_08003FC4(this, 0x1800) == 0) {
             this->action = 7;
-            this->damageType = 0x5c;
+            this->hitType = 0x5c;
             InitializeAnimation(this, 5);
             EnqueueSFX(0x7d);
         }
@@ -232,7 +232,7 @@ void sub_08022854(Entity* this) {
 
 void sub_0802289C(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         this->action = 2;
         this->speed = 0x20;
         this->field_0x80.HALF.HI = 0x78;

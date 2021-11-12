@@ -40,7 +40,7 @@ void OctorokBossProjectile_Init(Entity* this) {
             this->spriteRendering.b3 = 3;
             this->spritePriority.b0 = 6;
             this->speed = (Random() & 0x1ff) + 0x200;
-            this->hVelocity = (Random() & 0x1fff) + 0x18000;
+            this->zVelocity = (Random() & 0x1fff) + 0x18000;
             uVar1 = (((u8)Random() & 7) - 4);
             this->direction -= uVar1;
             *(u32*)&this->field_0x78 = 600;
@@ -60,7 +60,7 @@ void OctorokBossProjectile_Init(Entity* this) {
             break;
         case 3:
             CopyPosition(&gPlayerEntity, this);
-            this->height.WORD = 0xff600000;
+            this->z.WORD = 0xff600000;
             this->x.HALF.HI += 0x60;
             this->y.HALF.HI += 0x40;
             this->x.HALF.HI -= (s32)Random() % 0xc0;
@@ -89,14 +89,14 @@ void OctorokBossProjectile_Action1(Entity* this) {
                 this->speed = 0x400;
                 this->type2 = 1;
                 this->actionDelay = 0;
-                this->flags &= 0x7f;
+                COLLISION_OFF(this);
             }
             if (sub_0806FC80(this, this->parent, 0x40) != 0) {
                 if (this->type2 == 0) {
                     this->direction ^= 0x80;
                     this->speed = 0x400;
                 } else {
-                    this->parent->currentHealth -= 1;
+                    this->parent->health -= 1;
                     this->parent->iframes = 0x1e;
                     if (this->parent->field_0x7c.BYTES.byte0 != 0) {
                         this->parent->knockbackDuration = 0x18;
@@ -132,11 +132,11 @@ void OctorokBossProjectile_Action1(Entity* this) {
                 return;
             }
             for (index = 0; index < 3; ++index) {
-                this->attachedEntity = CreateProjectileWithParent(this, 0xf, 1);
-                if (this->attachedEntity != NULL) {
-                    this->attachedEntity->parent = this->parent;
-                    this->attachedEntity->direction = this->direction + gUnk_08129ADC[index];
-                    CopyPosition(this, this->attachedEntity);
+                this->child = CreateProjectileWithParent(this, 0xf, 1);
+                if (this->child != NULL) {
+                    this->child->parent = this->parent;
+                    this->child->direction = this->direction + gUnk_08129ADC[index];
+                    CopyPosition(this, this->child);
                 }
             }
             OctorokBossProjectile_Action2(this);
@@ -156,9 +156,9 @@ void OctorokBossProjectile_Action1(Entity* this) {
             }
             if (*(u32*)&this->field_0x78 < 0x1e) {
                 if ((*(u32*)&this->field_0x78 & 7) != 0) {
-                    this->spriteSettings.b.draw = 1;
+                    this->spriteSettings.draw = 1;
                 } else {
-                    this->spriteSettings.b.draw = 0;
+                    this->spriteSettings.draw = 0;
                 }
             }
             if (--*(u32*)&this->field_0x78 == -1) {
@@ -175,8 +175,8 @@ void OctorokBossProjectile_Action1(Entity* this) {
                 sub_0806F62C(this, this->speed, this->direction);
                 return;
             }
-            if (this->attachedEntity != NULL) {
-                this->attachedEntity->actionDelay = 1;
+            if (this->child != NULL) {
+                this->child->actionDelay = 1;
             }
             DeleteThisEntity();
             break;

@@ -19,16 +19,16 @@ void ObjectB2(Entity* this) {
         } else {
             pEVar3 = &gUnk_02027EB4;
         }
-        this->attachedEntity = pEVar3;
+        this->child = pEVar3;
         InitializeAnimation(this, this->type);
     }
     this->speed = this->parent->speed;
     sub_0806F69C(this);
-    if (sub_080AE4CC(this->attachedEntity, this->x.HALF.HI, this->y.HALF.HI, 9) != 0) {
+    if (sub_080AE4CC(this->child, this->x.HALF.HI, this->y.HALF.HI, 9) != 0) {
         DeleteThisEntity();
     }
     if (this->speed < 0x41) {
-        this->spriteSettings.b.draw ^= 1;
+        this->spriteSettings.draw ^= 1;
 
         if (--this->actionDelay == 0) {
             DeleteThisEntity();

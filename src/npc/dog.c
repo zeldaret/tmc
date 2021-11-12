@@ -123,7 +123,7 @@ void sub_08069D00(Entity* this) {
     this->field_0x6a.HALF.HI = 8;
     sub_0806A028(this);
     if (0x1f < this->animIndex) {
-        if ((this->frames.all & 0x80) == 0) {
+        if ((this->frame & 0x80) == 0) {
             return;
         }
         this->field_0x6a.HALF.HI = 8;
@@ -201,7 +201,7 @@ void sub_08069E50(Entity* this) {
     sub_0806A028(this);
     UpdateAnimationSingleFrame(this);
     if (this->animIndex > 0x1f) {
-        if ((this->frames.all & 0x80) == 0) {
+        if ((this->frame & 0x80) == 0) {
             return;
         }
         this->field_0x6a.HALF.HI = 8;
@@ -252,7 +252,7 @@ u32 sub_08069EF0(Entity* this) {
 
 void Dog_Head(Entity* this) {
     u32 frame;
-    frame = this->frames.all & 0xffffff7f;
+    frame = this->frame & 0xffffff7f;
     if (frame != 0) {
         frame = frame + this->field_0x68.HWORD;
     }
@@ -386,7 +386,7 @@ void Dog_Fusion(Entity* this) {
     if (this->action == 0) {
         if (sub_08069EF0(this) != 0) {
             this->action += 1;
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
             sub_0805E3A0(this, 2);
             InitializeAnimation(this, 0x23);
         }

@@ -97,8 +97,8 @@ void sub_08059690(Manager10* this) {
 
 void sub_080596E0(Manager10* this) {
     if ((gScreenTransition.frameCount & 7) == 0) {
-        gScreen.bg.bg1xOffset += 8;
-        gScreen.bg.bg1xOffset &= 0x1F;
+        gScreen.bg1.xOffset += 8;
+        gScreen.bg1.xOffset &= 0x1F;
     }
     if (sub_0805986C()) {
         if (this->unk_21 == 0 && this->unk_22 != 2) {
@@ -142,7 +142,7 @@ void sub_080596E0(Manager10* this) {
                 LoadResourceAsync(gBG3Buffer, 0x600e800, 0x800);
                 break;
             case 5:
-                gUnk_0200B650 = &gScreen.bg.bg1Control;
+                gUnk_0200B650 = &gScreen.bg1.control;
                 gScreen.lcd.displayControl |= 0x200;
                 break;
         }

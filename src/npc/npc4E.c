@@ -34,7 +34,7 @@ extern void sub_08096260(Entity*);
 void NPC4E(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
-        this->spriteSettings.b.draw = 4;
+        this->spriteSettings.draw = 4;
         this->hitbox = &gHitbox_2;
         sub_0807DD50(this);
     } else {

@@ -24,7 +24,7 @@ void Vaati(Entity* this) {
 void VaatiAction0(Entity* this) {
     this->action = 1;
     this->subAction = 0;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->field_0x68.HALF.LO = 0;
     this->field_0x68.HALF.HI = 0;
     sub_0805E3A0(this, 2);
@@ -39,8 +39,8 @@ void VaatiAction1(Entity* this) {
         sub_08095CB0(this);
     }
 
-    if ((this->frames.all & ~0x80) != 0) {
-        switch (this->frames.all & ~0x80u) {
+    if ((this->frame & ~0x80) != 0) {
+        switch (this->frame & ~0x80u) {
             case 1:
                 EnqueueSFX(SFX_21C);
                 break;
@@ -59,7 +59,7 @@ void VaatiAction1(Entity* this) {
                 EnqueueSFX(SFX_21D);
                 break;
         }
-        this->frames.b.f3 = 0;
+        this->frame &= ~0x80;
     }
 }
 

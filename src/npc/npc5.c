@@ -103,7 +103,7 @@ void sub_08060A00(Entity* this) {
         }
     }
 
-    if ((this->action == 0) || (this->spriteSettings.b.draw != 0)) {
+    if ((this->action == 0) || (this->spriteSettings.draw != 0)) {
         gUnk_0810AC2C[this->action](this);
     }
 
@@ -115,7 +115,7 @@ void sub_08060A00(Entity* this) {
         this->field_0x74.HWORD = gRoomControls.roomID;
         CopyPosition(&gPlayerEntity, this);
         this->action = 1;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         this->speed = 0x120;
         tmp = gRoomControls.unk_10;
         this->animationState = tmp * 2;
@@ -134,11 +134,11 @@ void sub_08060AE0(Entity* this) {
         this->myHeap = (u32*)heapObj;
         heapObj->unk_0b = 0x20;
         this->action = 1;
-        this->flags |= 0x80;
+        COLLISION_ON(this);
         this->animationState &= 3;
         this->field_0x3c = 7;
-        this->field_0x40 = 0x48;
-        this->damageType = 0x49;
+        this->hurtType = 0x48;
+        this->hitType = 0x49;
         this->flags2 = 3;
         this->hitbox = &gHitbox_0;
         this->field_0x17 &= 0xfe;
@@ -241,11 +241,11 @@ void sub_08060D78(Entity* this) {
     sub_08061358(this);
     if (sub_08060F80(this) != 0) {
         if ((u32)this->animIndex - 0x20 < 0x10) {
-            if ((this->frames.all & 7) != 0) {
+            if ((this->frame & 7) != 0) {
                 this->frameDuration = 1;
                 UpdateAnimationSingleFrame(this);
             }
-            this->animationState = this->frames.all & 0x18;
+            this->animationState = this->frame & 0x18;
             this->field_0x6c.HALF.LO = 0xff;
         }
         this->action = 1;
@@ -255,7 +255,7 @@ void sub_08060D78(Entity* this) {
 
 void sub_08060DD0(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         this->action = 1;
         sub_08060E70(this, 0);
     }
@@ -281,7 +281,7 @@ void sub_08060DFC(Entity* this) {
 
 void sub_08060E34(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         this->action = 2;
         this->animationState = DirectionToAnimationState(GetFacingDirection(this, &gPlayerEntity)) * 2;
         sub_08060E70(this, 8);
@@ -308,7 +308,7 @@ void sub_08060E94(Entity* this) {
 void sub_08060EDC(Entity* this) {
     s32 tmp;
 
-    if (((u32)this->animIndex - 0x20 < 0x10) && ((this->frames.all & 0x80) == 0)) {
+    if (((u32)this->animIndex - 0x20 < 0x10) && ((this->frame & 0x80) == 0)) {
         UpdateAnimationSingleFrame(this);
     } else {
         tmp = GetFacingDirection(this, &gPlayerEntity) + this->animationState * -4;
@@ -322,7 +322,7 @@ void sub_08060EDC(Entity* this) {
             }
         } else {
             if ((this->animationState & 1) == 0) {
-                if (((this->frames.all & 0x80) != 0) && (0xf >= (u32)this->animIndex - 0x20)) {
+                if (((this->frame & 0x80) != 0) && (0xf >= (u32)this->animIndex - 0x20)) {
                     sub_08060E70(this, 0);
                 } else {
                     sub_08060E94(this);
@@ -392,7 +392,7 @@ NONMATCH("asm/non_matching/npc5/sub_08061170.inc", bool32 sub_08061170(Entity* t
             this->action = 6;
             tmp = (sub_08079FD4(this, 1) * 0x10 - 4);
             // tmp <<= 0xc;
-            this->hVelocity = tmp;
+            this->zVelocity = tmp;
             this->speed = 0x100;
             this->direction = direction;
             this->animationState = direction >> 2;
@@ -464,7 +464,7 @@ u32 sub_08061230(Entity* this) {
         }
     } else {
         UpdateAnimationSingleFrame(this);
-        if ((this->frames.all & 0x80) == 0) {
+        if ((this->frame & 0x80) == 0) {
             return 1;
         }
         ((UnkHeap*)this->myHeap)->unk_0 &= 0xfe;
@@ -489,7 +489,7 @@ NONMATCH("asm/non_matching/npc5/sub_08061358.inc", void sub_08061358(Entity* thi
     switch (this->subAction) {
         case 0:
             UpdateAnimationSingleFrame(this);
-            if ((this->frames.all & 0x80) == 0) {
+            if ((this->frame & 0x80) == 0) {
                 return;
             }
             this->subAction = 1;
@@ -512,10 +512,10 @@ NONMATCH("asm/non_matching/npc5/sub_08061358.inc", void sub_08061358(Entity* thi
             break;
         case 2:
             UpdateAnimationSingleFrame(this);
-            if ((this->frames.all & 0x80) == 0) {
+            if ((this->frame & 0x80) == 0) {
                 return;
             }
-            this->animationState = (u8)(((u8)this->frames.all & 0x18) >> 2);
+            this->animationState = (u8)(((u8)this->frame & 0x18) >> 2);
             uVar2 = Random();
             if ((uVar2 & 1) == 0) {
                 this->subAction = 0;

@@ -40,7 +40,7 @@ void sub_080323F4(Entity* this) {
     if (this->action != 3 && this->action != 4) {
         this->action = 3;
         this->actionDelay = 0xC;
-        this->direction = DirectionTurnAround(this->knockbackDirection);
+        this->direction = DirectionTurnAround(DirectionRoundUp(this->knockbackDirection));
         InitAnimationForceUpdate(this, this->direction >> 3);
     } else if (this->bitfield == 0xCC) {
         if (this->field_0x43 == 0) {
@@ -82,7 +82,7 @@ void sub_0803248C(Entity* this) {
 void sub_080324CC(Entity* this) {
     if (sub_080325E8(this) == 0) {
         UpdateAnimationSingleFrame(this);
-        if (this->frames.all & 0x80) {
+        if (this->frame & 0x80) {
             sub_080326FC(this);
             sub_08032740(this);
         }
@@ -118,7 +118,7 @@ void sub_080324FC(Entity* this) {
 }
 
 void sub_08032574(Entity* this) {
-    if (this->attachedEntity && (this->attachedEntity->bitfield & 0x80)) {
+    if (this->child && (this->child->bitfield & 0x80)) {
         sub_0803275C(this);
         return;
     }
@@ -144,10 +144,10 @@ void sub_080325C4(Entity* this) {
 u32 sub_080325E8(Entity* this) {
     if (((sub_08049FA0(this) != 0) && (sub_08049FDC(this, 1) != 0)) &&
         (sub_080041A0(this, gUnk_020000B0, 0x68, 0x40) != 0)) {
-        if (((GetFacingDirection(this, gUnk_020000B0) - (DirectionRound(this->frames.all)) + 2) & 0x1F) < 5) {
+        if (((GetFacingDirection(this, gUnk_020000B0) - (DirectionRound(this->frame)) + 2) & 0x1F) < 5) {
             this->action = 3;
             this->actionDelay = 0xC;
-            this->direction = DirectionRound(this->frames.all);
+            this->direction = DirectionRound(this->frame);
             return 1;
         }
     }
@@ -236,13 +236,13 @@ void sub_080327C8(Entity* this) {
     child = CreateProjectileWithParent(this, 11, 0);
     if (child != NULL) {
         child->parent = this;
-        this->attachedEntity = child;
+        this->child = child;
     }
 }
 
 void sub_080327E0(Entity* this) {
-    if (this->attachedEntity != NULL) {
-        this->attachedEntity->parent = NULL;
-        this->attachedEntity = NULL;
+    if (this->child != NULL) {
+        this->child->parent = NULL;
+        this->child = NULL;
     }
 }

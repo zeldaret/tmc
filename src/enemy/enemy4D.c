@@ -39,9 +39,9 @@ void sub_0803EB44(Entity* this) {
     pEVar1 = CreateProjectileWithParent(this, 0x19, 0);
     if (pEVar1 != NULL) {
         pEVar1->parent = this;
-        this->attachedEntity = pEVar1;
-        this->flags |= 0x80;
-        this->spriteSettings.b.draw = TRUE;
+        this->child = pEVar1;
+        COLLISION_ON(this);
+        this->spriteSettings.draw = TRUE;
         this->animationState = 2;
         *((u8*)&this->field_0x7a + 1) = 0;
         *(u8*)&this->field_0x7c = 0;

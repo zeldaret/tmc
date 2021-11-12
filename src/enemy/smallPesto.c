@@ -36,7 +36,7 @@ void sub_0803169C(Entity* this) {
     if (iVar1 == 0) {
         this->action = 1;
         this->subAction = 0;
-        this->flags = this->flags | 0x80;
+        COLLISION_ON(this);
         this->speed = 0x40;
         this->field_0xf = 1;
     } else {
@@ -87,17 +87,17 @@ void sub_08031770(Entity* this) {
         if (--this->field_0x80.HWORD == 0) {
             sub_08031840(this);
         }
-    } else if (this->attachedEntity == NULL) {
+    } else if (this->child == NULL) {
         this->field_0x80.HWORD = (Random() & 0x7f) | (0x80 << 2);
     } else {
-        if (this->attachedEntity->next == NULL) {
-            this->attachedEntity = NULL;
+        if (this->child->next == NULL) {
+            this->child = NULL;
         }
     }
 }
 
 void sub_080317B4(Entity* this) {
-    this->height.HALF.HI = ((Random() & 0x30) != 0) ? -0xc : -0xd;
+    this->z.HALF.HI = ((Random() & 0x30) != 0) ? -0xc : -0xd;
     sub_0806F69C(this);
     GetNextFrame(this);
 }
@@ -110,7 +110,7 @@ void sub_080317E0(Entity* this) {
 void sub_080317F8(Entity* this) {
     u8 newDirection = Random() & 0x18;
     this->action = 1;
-    this->height.HALF.HI = 0x0000FFF4;
+    this->z.HALF.HI = 0x0000FFF4;
     this->collisionLayer = 1;
     this->field_0x3c |= 0x10;
     this->field_0x1c = 1;
@@ -126,7 +126,7 @@ void sub_08031840(Entity* this) {
     if (enemy != NULL) {
         CopyPosition(this, enemy);
         enemy->parent = this;
-        this->attachedEntity = enemy;
+        this->child = enemy;
         enemy->type2 = 1;
     }
 }

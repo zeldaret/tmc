@@ -25,7 +25,7 @@ void GleerokProjectile(Entity* this) {
 void GleerokProjectile_OnTick(Entity* this) {
     if (((this->type != 3) && ((this->bitfield & 0x80) != 0)) && ((this->bitfield & 0x7f) != 0x1e)) {
         this->action = 3;
-        this->flags &= 0x7f;
+        COLLISION_OFF(this);
         InitializeAnimation(this, 0x53);
     }
     GleerokProjectile_Actions[this->action](this);
@@ -36,12 +36,12 @@ void GleerokProjectile_Init(Entity* this) {
     s32 iVar2;
 
     this->action = 1;
-    this->hVelocity = -0x10000;
+    this->zVelocity = -0x10000;
     if (this->type != 3) {
         CopyPosition(this->parent, this);
         sub_0806F5BC(this, 0x1000, this->direction);
-        this->height.WORD = this->parent->y.WORD - this->attachedEntity->y.WORD;
-        this->y.WORD -= this->height.WORD;
+        this->z.WORD = this->parent->y.WORD - this->child->y.WORD;
+        this->y.WORD -= this->z.WORD;
         InitializeAnimation(this, 0x51);
         SoundReq(SFX_1B5);
     }
@@ -63,14 +63,14 @@ void GleerokProjectile_Init(Entity* this) {
             } else if (0x400 < iVar2) {
                 iVar2 = 0x400;
             }
-            this->hVelocity = this->height.WORD / (iVar2 << 8) << 0xd;
+            this->zVelocity = this->z.WORD / (iVar2 << 8) << 0xd;
             this->field_0xf = 0x1e;
             break;
         case 2:
-            this->hVelocity = (this->height.WORD / 0x18000) << 0xc;
+            this->zVelocity = (this->z.WORD / 0x18000) << 0xc;
             break;
         case 3:
-            this->height.WORD = 0xff600000;
+            this->z.WORD = 0xff600000;
             uVar1 = (Random() & 3) * 2;
             this->x.HALF.HI = gUnk_08129978[uVar1] + this->x.HALF.HI;
             this->y.HALF.HI = gUnk_08129978[uVar1 + 1] + this->y.HALF.HI;
@@ -118,7 +118,7 @@ void GleerokProjectile_Action2(Entity* this) {
     GetNextFrame(this);
     if (this->type == 2) {
         if (--this->actionDelay == 0xff) {
-            this->flags &= 0x7f;
+            COLLISION_OFF(this);
             this->action = 3;
             InitializeAnimation(this, 0x55);
         } else {
@@ -126,9 +126,9 @@ void GleerokProjectile_Action2(Entity* this) {
             sub_080A90D8(this);
         }
     } else {
-        if ((this->frames.all & 0x80) != 0) {
+        if ((this->frame & 0x80) != 0) {
             this->action = 3;
-            this->flags &= 0x7f;
+            COLLISION_OFF(this);
             InitializeAnimation(this, 0x53);
         }
     }
@@ -136,7 +136,7 @@ void GleerokProjectile_Action2(Entity* this) {
 
 void GleerokProjectile_Action3(Entity* this) {
     GetNextFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         DeleteThisEntity();
     }
 }

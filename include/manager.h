@@ -12,7 +12,7 @@ union SplitSHWord {
 } PACKED;
 
 typedef struct Manager {
-    /*0x00*/ struct Manager* previous;
+    /*0x00*/ struct Manager* prev;
     /*0x00*/ struct Manager* next;
     /*0x08*/ u8 type;
     /*0x09*/ u8 subtype;

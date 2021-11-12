@@ -21,7 +21,7 @@ void OcarinaUse(ItemBehavior* this, u32 arg1) {
     } else {
         this->field_0x5[4] |= 0xf;
         gPlayerEntity.animationState = 0x04;
-        gPlayerEntity.spriteSettings.b.flipX = 0;
+        gPlayerEntity.spriteSettings.flipX = 0;
         gPlayerEntity.flags &= 0x7f;
         gPlayerEntity.field_0x7a.HWORD = 2;
         gPlayerState.flags |= 0x10000000;

@@ -26,19 +26,19 @@ bool32 ProjectileInit(Entity* this) {
             this->flags |= 0x80;
         }
         this->spriteIndex = definition->spriteIndex;
-        if (this->spriteSettings.b.draw == 0) {
-            this->spriteSettings.b.draw = definition->spriteFlags.draw;
+        if (this->spriteSettings.draw == 0) {
+            this->spriteSettings.draw = definition->spriteFlags.draw;
         }
         this->spritePriority.b1 = definition->spriteFlags.spritePriority;
-        this->spriteSettings.b.shadow = definition->spriteFlags.shadow;
+        this->spriteSettings.shadow = definition->spriteFlags.shadow;
         if (this->speed == 0) {
             this->speed = definition->speed;
         }
         this->field_0x3c = (definition->field0x3c << 4) | 7;
         this->flags2 = definition->flags2;
-        this->damageType = definition->damageType;
-        this->field_0x40 = definition->field0x40;
-        this->currentHealth = 0xff;
+        this->hitType = definition->damageType;
+        this->hurtType = definition->field0x40;
+        this->health = 0xff;
         this->hitbox = (Hitbox*)definition->ptr.hitbox;
         UpdateSpriteForCollisionLayer(this);
     }

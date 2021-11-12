@@ -36,7 +36,7 @@ sub_08054C20: @ 0x08054C20
 	ldrb r0, [r4, #6]
 	adds r0, #1
 	strb r0, [r4, #6]
-	ldr r1, _08054C54 @ =gUnk_02000070
+	ldr r1, _08054C54 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	movs r0, #4
@@ -45,7 +45,7 @@ sub_08054C20: @ 0x08054C20
 	pop {r4, pc}
 	.align 2, 0
 _08054C50: .4byte gMenu
-_08054C54: .4byte gUnk_02000070
+_08054C54: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_08054C58
 sub_08054C58: @ 0x08054C58
@@ -152,7 +152,7 @@ sub_08054D04: @ 0x08054D04
 	ldrb r0, [r4, #6]
 	adds r0, #1
 	strb r0, [r4, #6]
-	ldr r1, _08054D38 @ =gUnk_02000070
+	ldr r1, _08054D38 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	movs r0, #4
@@ -161,7 +161,7 @@ sub_08054D04: @ 0x08054D04
 	pop {r4, pc}
 	.align 2, 0
 _08054D34: .4byte gMenu
-_08054D38: .4byte gUnk_02000070
+_08054D38: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_08054D3C
 sub_08054D3C: @ 0x08054D3C
@@ -246,7 +246,7 @@ sub_08054DAC: @ 0x08054DAC
 	ldrb r0, [r4, #6]
 	adds r0, #1
 	strb r0, [r4, #6]
-	ldr r1, _08054DF8 @ =gUnk_02000070
+	ldr r1, _08054DF8 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	movs r0, #4
@@ -256,7 +256,7 @@ sub_08054DAC: @ 0x08054DAC
 	.align 2, 0
 _08054DF0: .4byte gMenu
 _08054DF4: .4byte gUnk_080FEED4
-_08054DF8: .4byte gUnk_02000070
+_08054DF8: .4byte gUpdateVisibleTiles
 
 	thumb_func_start nullsub_484
 nullsub_484: @ 0x08054DFC
@@ -297,7 +297,7 @@ sub_08054E1C: @ 0x08054E1C
 	ldrb r0, [r5, #6]
 	adds r0, #1
 	strb r0, [r5, #6]
-	ldr r1, _08054E58 @ =gUnk_02000070
+	ldr r1, _08054E58 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	movs r0, #4
@@ -306,7 +306,7 @@ sub_08054E1C: @ 0x08054E1C
 	pop {r4, r5, pc}
 	.align 2, 0
 _08054E54: .4byte gMenu
-_08054E58: .4byte gUnk_02000070
+_08054E58: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_08054E5C
 sub_08054E5C: @ 0x08054E5C
@@ -521,7 +521,7 @@ _08054FCA:
 	adds r0, #1
 	movs r4, #0
 	strb r0, [r6, #6]
-	ldr r1, _08055010 @ =gUnk_02000070
+	ldr r1, _08055010 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	movs r0, #4
@@ -544,7 +544,7 @@ _08055004:
 	.align 2, 0
 _08055008: .4byte gMenu
 _0805500C: .4byte gUnk_080FF108
-_08055010: .4byte gUnk_02000070
+_08055010: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_08055014
 sub_08055014: @ 0x08055014
@@ -594,7 +594,7 @@ sub_08055054: @ 0x08055054
 	ldrb r0, [r4, #6]
 	adds r0, #1
 	strb r0, [r4, #6]
-	ldr r1, _08055088 @ =gUnk_02000070
+	ldr r1, _08055088 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	movs r0, #4
@@ -604,7 +604,7 @@ sub_08055054: @ 0x08055054
 	.align 2, 0
 _08055080: .4byte gUnk_080FF128
 _08055084: .4byte gMenu
-_08055088: .4byte gUnk_02000070
+_08055088: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_0805508C
 sub_0805508C: @ 0x0805508C
@@ -649,7 +649,7 @@ sub_080550B0: @ 0x080550B0
 	ldrb r0, [r4, #6]
 	adds r0, #1
 	strb r0, [r4, #6]
-	ldr r1, _080550F0 @ =gUnk_02000070
+	ldr r1, _080550F0 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	movs r0, #4
@@ -659,7 +659,7 @@ sub_080550B0: @ 0x080550B0
 	.align 2, 0
 _080550E8: .4byte gMenu
 _080550EC: .4byte gUnk_080FF154
-_080550F0: .4byte gUnk_02000070
+_080550F0: .4byte gUpdateVisibleTiles
 
 	thumb_func_start nullsub_487
 nullsub_487: @ 0x080550F4
@@ -702,7 +702,7 @@ _0805512A:
 	ldrb r0, [r4, #6]
 	adds r0, #1
 	strb r0, [r4, #6]
-	ldr r1, _08055160 @ =gUnk_02000070
+	ldr r1, _08055160 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	movs r0, #4
@@ -714,7 +714,7 @@ _08055150: .4byte gUnk_080FF17C
 _08055154: .4byte gSave
 _08055158: .4byte 0x00000DB4
 _0805515C: .4byte gMenu
-_08055160: .4byte gUnk_02000070
+_08055160: .4byte gUpdateVisibleTiles
 
 	thumb_func_start nullsub_488
 nullsub_488: @ 0x08055164
@@ -793,7 +793,7 @@ sub_08055184: @ 0x08055184
 	strh r0, [r5, #8]
 	mov r0, r8
 	strh r0, [r5, #0xa]
-	ldr r1, _08055220 @ =gUnk_02000070
+	ldr r1, _08055220 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	movs r0, #4
@@ -808,7 +808,7 @@ _08055210: .4byte gUnk_080FF1D4
 _08055214: .4byte gScreen
 _08055218: .4byte 0x00001E05
 _0805521C: .4byte 0x00003648
-_08055220: .4byte gUnk_02000070
+_08055220: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_08055224
 sub_08055224: @ 0x08055224
@@ -954,7 +954,7 @@ sub_08055318: @ 0x08055318
 	ldrb r0, [r4, #6]
 	adds r0, #1
 	strb r0, [r4, #6]
-	ldr r1, _0805534C @ =gUnk_02000070
+	ldr r1, _0805534C @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	movs r0, #4
@@ -963,7 +963,7 @@ sub_08055318: @ 0x08055318
 	pop {r4, pc}
 	.align 2, 0
 _08055348: .4byte gMenu
-_0805534C: .4byte gUnk_02000070
+_0805534C: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_08055350
 sub_08055350: @ 0x08055350
@@ -1097,7 +1097,7 @@ sub_08055430: @ 0x08055430
 	ldrb r0, [r4, #6]
 	adds r0, #1
 	strb r0, [r4, #6]
-	ldr r1, _08055464 @ =gUnk_02000070
+	ldr r1, _08055464 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	movs r0, #4
@@ -1106,7 +1106,7 @@ sub_08055430: @ 0x08055430
 	pop {r4, pc}
 	.align 2, 0
 _08055460: .4byte gMenu
-_08055464: .4byte gUnk_02000070
+_08055464: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_08055468
 sub_08055468: @ 0x08055468
@@ -1211,7 +1211,7 @@ sub_08055518: @ 0x08055518
 	ldrb r0, [r4, #6]
 	adds r0, #1
 	strb r0, [r4, #6]
-	ldr r1, _08055544 @ =gUnk_02000070
+	ldr r1, _08055544 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	movs r0, #4
@@ -1220,7 +1220,7 @@ sub_08055518: @ 0x08055518
 	pop {r4, pc}
 	.align 2, 0
 _08055540: .4byte gMenu
-_08055544: .4byte gUnk_02000070
+_08055544: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_08055548
 sub_08055548: @ 0x08055548
@@ -1308,7 +1308,7 @@ sub_080555B8: @ 0x080555B8
 	ldrb r0, [r5, #6]
 	adds r0, #1
 	strb r0, [r5, #6]
-	ldr r1, _08055608 @ =gUnk_02000070
+	ldr r1, _08055608 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	movs r0, #4
@@ -1318,7 +1318,7 @@ sub_080555B8: @ 0x080555B8
 	.align 2, 0
 _08055600: .4byte gMenu
 _08055604: .4byte gUnk_0811E454
-_08055608: .4byte gUnk_02000070
+_08055608: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_0805560C
 sub_0805560C: @ 0x0805560C
@@ -1414,7 +1414,7 @@ sub_080556AC: @ 0x080556AC
 	ldrb r0, [r4, #6]
 	adds r0, #1
 	strb r0, [r4, #6]
-	ldr r1, _080556E8 @ =gUnk_02000070
+	ldr r1, _080556E8 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	ldr r1, [r4, #0xc]
@@ -1434,7 +1434,7 @@ sub_080556AC: @ 0x080556AC
 	pop {r4, pc}
 	.align 2, 0
 _080556E4: .4byte gMenu
-_080556E8: .4byte gUnk_02000070
+_080556E8: .4byte gUpdateVisibleTiles
 _080556EC: .4byte gUnk_080FF264
 
 	thumb_func_start nullsub_489
@@ -1486,7 +1486,7 @@ _08055734:
 	ldrb r0, [r4, #6]
 	adds r0, #1
 	strb r0, [r4, #6]
-	ldr r1, _08055768 @ =gUnk_02000070
+	ldr r1, _08055768 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	movs r0, #4
@@ -1497,7 +1497,7 @@ _08055734:
 _0805575C: .4byte gMenu
 _08055760: .4byte gUnk_080FEE48
 _08055764: .4byte 0x000080FF
-_08055768: .4byte gUnk_02000070
+_08055768: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_0805576C
 sub_0805576C: @ 0x0805576C
@@ -1562,7 +1562,7 @@ sub_080557D0: @ 0x080557D0
 	ldrb r0, [r4, #6]
 	adds r0, #1
 	strb r0, [r4, #6]
-	ldr r1, _0805580C @ =gUnk_02000070
+	ldr r1, _0805580C @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	ldr r1, [r4, #0xc]
@@ -1582,7 +1582,7 @@ sub_080557D0: @ 0x080557D0
 	pop {r4, pc}
 	.align 2, 0
 _08055808: .4byte gMenu
-_0805580C: .4byte gUnk_02000070
+_0805580C: .4byte gUpdateVisibleTiles
 _08055810: .4byte gUnk_080FF298
 
 	thumb_func_start nullsub_490
@@ -1626,7 +1626,7 @@ _0805584A:
 	ldrb r0, [r4, #6]
 	adds r0, #1
 	strb r0, [r4, #6]
-	ldr r1, _08055880 @ =gUnk_02000070
+	ldr r1, _08055880 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	movs r0, #4
@@ -1638,7 +1638,7 @@ _08055870: .4byte gUnk_080FF2C0
 _08055874: .4byte gSave
 _08055878: .4byte 0x00000DB4
 _0805587C: .4byte gMenu
-_08055880: .4byte gUnk_02000070
+_08055880: .4byte gUpdateVisibleTiles
 
 	thumb_func_start nullsub_491
 nullsub_491: @ 0x08055884
@@ -1678,7 +1678,7 @@ sub_080558A4: @ 0x080558A4
 	ldrb r0, [r4, #6]
 	adds r0, #1
 	strb r0, [r4, #6]
-	ldr r1, _080558E4 @ =gUnk_02000070
+	ldr r1, _080558E4 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	movs r0, #4
@@ -1688,7 +1688,7 @@ sub_080558A4: @ 0x080558A4
 	.align 2, 0
 _080558DC: .4byte gMenu
 _080558E0: .4byte gUnk_080FF308
-_080558E4: .4byte gUnk_02000070
+_080558E4: .4byte gUpdateVisibleTiles
 
 	thumb_func_start nullsub_492
 nullsub_492: @ 0x080558E8
@@ -1729,7 +1729,7 @@ sub_08055908: @ 0x08055908
 	ldrb r0, [r5, #6]
 	adds r0, #1
 	strb r0, [r5, #6]
-	ldr r1, _08055944 @ =gUnk_02000070
+	ldr r1, _08055944 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	movs r0, #4
@@ -1738,7 +1738,7 @@ sub_08055908: @ 0x08055908
 	pop {r4, r5, pc}
 	.align 2, 0
 _08055940: .4byte gMenu
-_08055944: .4byte gUnk_02000070
+_08055944: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_08055948
 sub_08055948: @ 0x08055948
@@ -1854,7 +1854,7 @@ _08055A0E:
 	ldrb r0, [r4, #6]
 	adds r0, #1
 	strb r0, [r4, #6]
-	ldr r1, _08055A38 @ =gUnk_02000070
+	ldr r1, _08055A38 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	movs r0, #4
@@ -1864,7 +1864,7 @@ _08055A0E:
 	.align 2, 0
 _08055A30: .4byte gMenu
 _08055A34: .4byte gUnk_080FF33C
-_08055A38: .4byte gUnk_02000070
+_08055A38: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_08055A3C
 sub_08055A3C: @ 0x08055A3C
@@ -1981,7 +1981,7 @@ _08055B14:
 	ldrb r0, [r4, #6]
 	adds r0, #1
 	strb r0, [r4, #6]
-	ldr r1, _08055B34 @ =gUnk_02000070
+	ldr r1, _08055B34 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	movs r0, #4
@@ -1991,7 +1991,7 @@ _08055B14:
 	.align 2, 0
 _08055B2C: .4byte gMenu
 _08055B30: .4byte gUnk_080FED18
-_08055B34: .4byte gUnk_02000070
+_08055B34: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_08055B38
 sub_08055B38: @ 0x08055B38
@@ -2090,7 +2090,7 @@ sub_08055BCC: @ 0x08055BCC
 	ldrb r0, [r4, #6]
 	adds r0, #1
 	strb r0, [r4, #6]
-	ldr r1, _08055C00 @ =gUnk_02000070
+	ldr r1, _08055C00 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	movs r0, #4
@@ -2099,7 +2099,7 @@ sub_08055BCC: @ 0x08055BCC
 	pop {r4, pc}
 	.align 2, 0
 _08055BFC: .4byte gMenu
-_08055C00: .4byte gUnk_02000070
+_08055C00: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_08055C04
 sub_08055C04: @ 0x08055C04
@@ -2237,7 +2237,7 @@ sub_08055CF4: @ 0x08055CF4
 	ldrb r0, [r4, #6]
 	adds r0, #1
 	strb r0, [r4, #6]
-	ldr r1, _08055D28 @ =gUnk_02000070
+	ldr r1, _08055D28 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	movs r0, #4
@@ -2246,7 +2246,7 @@ sub_08055CF4: @ 0x08055CF4
 	pop {r4, pc}
 	.align 2, 0
 _08055D24: .4byte gMenu
-_08055D28: .4byte gUnk_02000070
+_08055D28: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_08055D2C
 sub_08055D2C: @ 0x08055D2C
@@ -2316,7 +2316,7 @@ sub_08055D9C: @ 0x08055D9C
 	ldrb r0, [r1, #6]
 	adds r0, #1
 	strb r0, [r1, #6]
-	ldr r1, _08055DBC @ =gUnk_02000070
+	ldr r1, _08055DBC @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	movs r0, #4
@@ -2325,7 +2325,7 @@ sub_08055D9C: @ 0x08055D9C
 	pop {pc}
 	.align 2, 0
 _08055DB8: .4byte gMenu
-_08055DBC: .4byte gUnk_02000070
+_08055DBC: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_08055DC0
 sub_08055DC0: @ 0x08055DC0

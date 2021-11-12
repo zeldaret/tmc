@@ -20,7 +20,7 @@ void Epona(Entity* this) {
 
 void sub_080659B8(Entity* this) {
     this->action = 1;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->animationState = 6;
     this->field_0x68.HALF.HI = -1;
     this->field_0x68.HALF.LO = sub_0801E99C(this);
@@ -93,7 +93,7 @@ void sub_08065AA4(Entity* this) {
 void Epona_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action += 1;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         InitAnimationForceUpdate(this, 7);
     } else {
         UpdateAnimationSingleFrame(this);

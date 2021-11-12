@@ -21,7 +21,7 @@ void Winder_Init(Entity* this) {
 
     this->action += 1;
     this->speed = 0x140;
-    this->height.WORD = 0;
+    this->z.WORD = 0;
     if (this->type == 0) {
         this->direction = Random() & 0x18;
         this->parent = this;
@@ -31,7 +31,7 @@ void Winder_Init(Entity* this) {
         entity = CreateProjectile(0x1d);
         entity->type = this->type + 1;
         entity->parent = this->parent;
-        entity->attachedEntity = this;
+        entity->child = this;
         CopyPosition(this, entity);
     }
 

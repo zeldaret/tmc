@@ -1,12 +1,5 @@
-	.include "asm/macros.inc"
-	.include "constants/constants.inc"
 
 	.syntax unified
-
-	.text
-	
-	thumb_func_start GetEmptyEntity
-GetEmptyEntity: @ 0x0805E678
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -111,3 +104,4 @@ _0805E730:
 _0805E738: .4byte gUnk_03003BE0
 _0805E73C: .4byte gEntityLists
 _0805E740: .4byte gUnk_03003DD0
+	.syntax divided

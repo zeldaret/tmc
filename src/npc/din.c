@@ -9,7 +9,7 @@ void Din(Entity* this) {
     switch (this->action) {
         case 0:
             this->action = 1;
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
             sub_0807DD50(this);
             break;
         case 1:
@@ -43,7 +43,7 @@ void sub_08064828(Entity* this) {
 void Din_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action += 1;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         InitAnimationForceUpdate(this, 6);
     } else {
         UpdateAnimationSingleFrame(this);

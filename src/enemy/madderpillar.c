@@ -55,11 +55,11 @@ void sub_080298A4(Entity* this) {
             default:
                 this->action = 2;
                 this->actionDelay = 0;
-                this->damageType = 0x6b;
+                this->hitType = 0x6b;
                 this->field_0x76.HALF.HI = 0;
                 sub_0801D2B4(this, 0x7f);
                 EnqueueSFX(0xfe);
-                this->attachedEntity->action = 2;
+                this->child->action = 2;
                 break;
         }
     }
@@ -86,36 +86,36 @@ void sub_0802999C(Entity* this) {
         ent1 = CreateEnemy(MADDERPILLAR, 1);
         ent1->parent = this;
         PositionRelative(this, ent1, 0, 5);
-        this->attachedEntity = ent1;
+        this->child = ent1;
 
         ent2 = CreateEnemy(MADDERPILLAR, 2);
         ent2->parent = this;
         PositionRelative(this, ent2, 0, 4);
-        ent1->attachedEntity = ent2;
+        ent1->child = ent2;
 
         ent3 = CreateEnemy(MADDERPILLAR, 3);
         ent3->parent = this;
         PositionRelative(this, ent3, 0, 3);
-        ent2->attachedEntity = ent3;
+        ent2->child = ent3;
 
         ent4 = CreateEnemy(MADDERPILLAR, 4);
         ent4->parent = this;
         PositionRelative(this, ent4, 0, 2);
-        ent3->attachedEntity = ent4;
+        ent3->child = ent4;
 
         ent5 = CreateEnemy(MADDERPILLAR, 5);
         ent5->parent = this;
         PositionRelative(this, ent5, 0, 1);
-        ent4->attachedEntity = ent5;
+        ent4->child = ent5;
 
         ent6 = CreateEnemy(MADDERPILLAR, 6);
-        ent6->attachedEntity = this;
+        ent6->child = this;
         ent6->parent = this;
         PositionRelative(this, ent6, 0, 0);
-        ent5->attachedEntity = ent6;
+        ent5->child = ent6;
 
         this->action = 1;
-        this->flags |= 0x80;
+        COLLISION_ON(this);
         this->direction = DirectionRound(Random());
         this->speed = 0xa0;
         this->animationState = 0xff;
@@ -138,7 +138,7 @@ void sub_08029AA4(Entity* this) {
     if (this->field_0x76.HALF.HI != 0) {
         this->action = 3;
         this->speed = 0x108;
-        this->damageType = 0x6a;
+        this->hitType = 0x6a;
         this->field_0x7a.HWORD = 0x168;
         this->field_0x74.HALF.HI = 4;
         sub_08029EEC(this);
@@ -168,7 +168,7 @@ void sub_08029B2C(Entity* this) {
                 DeleteEntity(this);
             }
         } else {
-            this->flags &= ~0x80;
+            COLLISION_OFF(this);
             this->actionDelay = -(this->type * 15 - 90);
             this->field_0x86.HALF.LO = 1;
         }
@@ -179,7 +179,7 @@ void sub_08029B2C(Entity* this) {
 
 void sub_08029B90(Entity* this) {
     this->action = 1;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     sub_0802A058(this);
     if (this->type < 2) {
         InitializeAnimation(this, 0);
@@ -210,8 +210,8 @@ void sub_08029BC4(Entity* this) {
 void sub_08029C08(Entity* this) {
     this->action = 3;
     this->actionDelay = gUnk_080CCDA0[this->type];
-    this->damageType = 0x6b;
-    this->attachedEntity->action = 2;
+    this->hitType = 0x6b;
+    this->child->action = 2;
 }
 
 void sub_08029C2C(Entity* this) {
@@ -225,7 +225,7 @@ void sub_08029C2C(Entity* this) {
 void sub_08029C50(Entity* this) {
     if (this->parent->field_0x76.HALF.HI != 0) {
         this->action = 5;
-        this->damageType = 0x6a;
+        this->hitType = 0x6a;
     }
 }
 
@@ -251,7 +251,7 @@ void sub_08029C98(Entity* this) {
 
 void sub_08029CCC(Entity* this) {
     this->action = 1;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     sub_0802A058(this);
     InitializeAnimation(this, 8);
 }
@@ -276,10 +276,10 @@ void sub_08029D14(Entity* this) {
         }
     } else {
         GetNextFrame(this);
-        if (this->frames.all & 0x80) {
+        if (this->frame & 0x80) {
             this->action = 4;
             this->actionDelay = 0x78;
-            this->damageType = 0x6c;
+            this->hitType = 0x6c;
             this->hitbox = &gUnk_080FD298;
             EnqueueSFX(0x6b);
         }
@@ -290,7 +290,7 @@ void sub_08029D78(Entity* this) {
     sub_0802A0F8(this);
     if (--this->actionDelay == 0) {
         this->action = 5;
-        this->damageType = 0x6a;
+        this->hitType = 0x6a;
         this->hitbox = (Hitbox*)&gUnk_080FD2A0;
         InitializeAnimation(this, this->animationState + 0x10);
     }
@@ -298,7 +298,7 @@ void sub_08029D78(Entity* this) {
 
 void sub_08029DAC(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         this->action = 6;
         this->parent->field_0x76.HALF.HI = 1;
         InitializeAnimation(this, this->animationState + 8);
@@ -378,7 +378,7 @@ bool32 sub_08029F48(Entity* this) {
 }
 
 void sub_08029FB4(Entity* this, u32 x, u32 y) {
-    u8* dst = (u8*)&this->attachedEntity->field_0x78;
+    u8* dst = (u8*)&this->child->field_0x78;
     s32 unk = this->parent->field_0x7c.BYTES.byte2;
     u8 idx = unk % 0xe;
     dst[idx] = ((x + 8) & 0xf) | (((y + 8) & 0xf) << 4);
@@ -458,18 +458,18 @@ void sub_0802A098(Entity* this) {
 }
 
 void sub_0802A0F8(Entity* this) {
-    if (this->currentHealth != 0) {
+    if (this->health != 0) {
         if ((this->bitfield & 0x80) && this->iframes != 0) {
             Entity* ent = this;
             u32 i;
             for (i = 0; i < 6; i++) {
-                ent = ent->attachedEntity;
+                ent = ent->child;
                 ent->iframes = this->iframes;
             }
         }
     } else {
         this->parent->flags &= ~0x80;
-        this->parent->currentHealth = 0;
+        this->parent->health = 0;
         this->parent->field_0xf = 0x69;
     }
 }
@@ -477,7 +477,7 @@ void sub_0802A0F8(Entity* this) {
 bool32 sub_0802A14C(Entity* this) {
     u32 ret = FALSE;
 
-    if (this->parent->currentHealth == 0 || this->field_0x86.HALF.LO) {
+    if (this->parent->health == 0 || this->field_0x86.HALF.LO) {
         ret = TRUE;
     } else {
         ret = FALSE;

@@ -22,7 +22,7 @@ void sub_0802A250(Entity* this) {
 
     this->action = 1;
     this->actionDelay = 0;
-    this->hVelocity = -0x30000;
+    this->zVelocity = -0x30000;
     this->speed = gUnk_080CD03C[Random() & 3];
     this->direction = gUnk_080CD040[Random() & 3] + 0x18;
     this->collisionLayer = 2;
@@ -45,25 +45,25 @@ void sub_0802A2B4(Entity* this) {
     }
 
     sub_0802A39C(this);
-    if (-8 < this->height.HALF.HI) {
+    if (-8 < this->z.HALF.HI) {
         sub_0802A334(this);
     }
 }
 
 void sub_0802A2FC(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         DeleteEntity(this);
-    } else if (this->frames.all & 1) {
-        this->flags &= ~0x80;
+    } else if (this->frame & 1) {
+        COLLISION_OFF(this);
     } else {
         sub_0802A39C(this);
     }
 }
 
 void sub_0802A334(Entity* this) {
-    u32 x = (this->x.HALF.HI - gRoomControls.roomScrollX + gScreen.bg.bg1xOffset) >> 3;
-    u32 y = (this->y.HALF.HI - gRoomControls.roomScrollY + gScreen.bg.bg1yOffset) >> 3;
+    u32 x = (this->x.HALF.HI - gRoomControls.roomScrollX + gScreen.bg1.xOffset) >> 3;
+    u32 y = (this->y.HALF.HI - gRoomControls.roomScrollY + gScreen.bg1.yOffset) >> 3;
     if (gBG3Buffer[(x & 0x1fU) + (y & 0x1fU) * 0x20 + 0x400]) {
         this->collisionLayer = 2;
     } else {
@@ -73,12 +73,12 @@ void sub_0802A334(Entity* this) {
 }
 
 void sub_0802A39C(Entity* this) {
-    u32 x = (gPlayerEntity.x.HALF.HI - gRoomControls.roomScrollX + gScreen.bg.bg1xOffset) >> 3;
-    u32 y = (gPlayerEntity.y.HALF.HI - gRoomControls.roomScrollY + gScreen.bg.bg1yOffset - 10) >> 3;
+    u32 x = (gPlayerEntity.x.HALF.HI - gRoomControls.roomScrollX + gScreen.bg1.xOffset) >> 3;
+    u32 y = (gPlayerEntity.y.HALF.HI - gRoomControls.roomScrollY + gScreen.bg1.yOffset - 10) >> 3;
     if (gBG3Buffer[(x & 0x1fU) + (y & 0x1fU) * 0x20 + 0x400]) {
-        this->flags &= ~0x80;
+        COLLISION_OFF(this);
     } else {
-        this->flags |= 0x80;
+        COLLISION_ON(this);
     }
 }
 

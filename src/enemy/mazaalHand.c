@@ -23,7 +23,7 @@ const Hitbox* const gUnk_080CEF58[] = {
 void MazaalHand(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
-        this->spriteSettings.b.flipX = this->type;
+        this->spriteSettings.flipX = this->type;
         InitAnimationForceUpdate(this, 0);
     }
     sub_08035194(this);

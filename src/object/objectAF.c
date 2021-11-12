@@ -19,7 +19,7 @@ void sub_080A05A4(Entity* this) {
     } else {
         this->action = 2;
         this->y.HALF.HI++;
-        this->height.HALF.HI = 0;
+        this->z.HALF.HI = 0;
         this->spriteOffsetY--;
         InitializeAnimation(this, 3);
     }
@@ -40,7 +40,7 @@ void sub_080A05F4(Entity* this) {
 
 void sub_080A0624(Entity* this) {
     GetNextFrame(this);
-    if ((this->frames.b.f3) != 0) {
+    if (this->frame & 0x80) {
         DeleteThisEntity();
     }
 }
@@ -51,5 +51,5 @@ void sub_080A0640(Entity* this) {
     } else {
         CopyPosition(this->parent, this);
     }
-    this->height.HALF.HI = 0;
+    this->z.HALF.HI = 0;
 }

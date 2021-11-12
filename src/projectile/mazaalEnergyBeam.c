@@ -11,7 +11,7 @@ void MazaalEnergyBeam(Entity* this) {
 void MazaalEnergyBeam_Init(Entity* this) {
     this->action = 1;
     this->actionDelay = 10;
-    this->height.HALF.HI -= 2;
+    this->z.HALF.HI -= 2;
     this->y.HALF.HI += 2;
     InitializeAnimation(this, 0);
     SoundReq(SFX_149);
@@ -22,13 +22,13 @@ void MazaalEnergyBeam_Action1(Entity* this) {
 
     if (--this->actionDelay == 0) {
         this->action = 2;
-        this->flags &= 0x7f;
+        COLLISION_OFF(this);
         this->spritePriority.b0 = 7;
         this->y.HALF.HI += 6;
         InitializeAnimation(this, 1);
     } else {
-        if (this->height.HALF.HI != 0) {
-            this->height.HALF.HI += 1;
+        if (this->z.HALF.HI != 0) {
+            this->z.HALF.HI += 1;
         }
 
         tmp = &gSineTable[this->direction];
@@ -40,7 +40,7 @@ void MazaalEnergyBeam_Action1(Entity* this) {
 
 void MazaalEnergyBeam_Action2(Entity* this) {
     GetNextFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         DeleteEntity(this);
     }
 }

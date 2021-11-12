@@ -83,7 +83,7 @@ void sub_08075694(ItemBehavior* this, u32 arg1) {
     gPlayerState.field_0xa = (8 >> arg1) | gPlayerState.field_0xa;
     this->stateID = 4;
     this->field_0xf = 6;
-    gPlayerEntity.field_0x40 = 0x1e;
+    gPlayerEntity.hurtType = 0x1e;
     gPlayerState.field_0x1a[1] |= 0x40;
     gPlayerState.field_0x1a[1] &= 0xdf;
     if ((gPlayerState.field_0xa0[0] == 0x04) && ((gPlayerState.flags & 0x400000) == 0)) {
@@ -122,7 +122,7 @@ ASM_FUNC("asm/non_matching/itemSword/sub_08075900.inc", void sub_08075900(ItemBe
 
 void sub_080759B8(ItemBehavior* this, u32 arg1) {
     if ((gPlayerState.flags & 0x80) == 0) {
-        gPlayerEntity.field_0x40 = 0;
+        gPlayerEntity.hurtType = 0;
     }
     gPlayerState.flags &= 0xf7ffffff;
     gPlayerState.field_0x1a[1] = 0;

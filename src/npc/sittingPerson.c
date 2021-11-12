@@ -26,9 +26,7 @@ void sub_080637B8(Entity* this) {
         this->interactType = 0;
         this->field_0x68.HALF.HI = this->animIndex;
         tmp = sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity));
-        if ((this->spriteSettings.raw * 0x2000000) < 0) {
-            tmp += 4;
-        }
+        tmp += this->spriteSettings.flipX ? 4 : 0;
         InitializeAnimation(this, tmp);
         sub_0806F118(this);
     } else {
@@ -49,7 +47,7 @@ void sub_08063830(Entity* this) {
 }
 
 void sub_08063850(Entity* this, ScriptExecutionContext* context) {
-    InitializeAnimation(this, context->intVariable + (BOOLCAST(this->spriteSettings.b.flipX) & 4U) +
+    InitializeAnimation(this, context->intVariable + (BOOLCAST(this->spriteSettings.flipX) & 4U) +
                                   (this->animationState >> 1));
 }
 
@@ -83,8 +81,8 @@ void SittingPerson_Fusion(Entity* this) {
     if (this->action == 0) {
         if (LoadExtraSpriteData(this, &gUnk_0810CB78[this->type * 3]) != 0) {
             this->action += 1;
-            this->spriteSettings.b.draw = 1;
-            this->spriteSettings.b.flipX = 0;
+            this->spriteSettings.draw = 1;
+            this->spriteSettings.flipX = 0;
             this->y.HALF.HI -= 4;
             InitializeAnimation(this, 2);
             sub_08096208(this, this->type);

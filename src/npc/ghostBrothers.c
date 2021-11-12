@@ -32,7 +32,7 @@ NONMATCH("asm/non_matching/ghostBrothers/sub_08065C0C.inc", void sub_08065C0C(En
     switch (this->action) {
         case 0:
             this->action = 1;
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
             sub_0807DD50(this);
             break;
         case 1:
@@ -65,7 +65,7 @@ NONMATCH("asm/non_matching/ghostBrothers/sub_08065C0C.inc", void sub_08065C0C(En
                 return;
             }
 
-            this->spriteSettings.b.draw = 0;
+            this->spriteSettings.draw = 0;
 
             this->action = 1;
             break;
@@ -91,7 +91,7 @@ void sub_08065D18(Entity* this) {
     this->action = 1;
     this->actionDelay = 0x1e;
     this->field_0xf = 0;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->spriteRendering.alphaBlend = 1;
     *(u32**)&this->field_0x6c = &gUnk_08110188;
     sub_0805E3A0(this, 2);
@@ -135,7 +135,7 @@ void sub_08065F64(Entity* this) {
 void GhostBrothers_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action += 1;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         InitAnimationForceUpdate(this, 2);
     } else {
         UpdateAnimationSingleFrame(this);

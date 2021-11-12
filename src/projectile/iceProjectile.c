@@ -39,7 +39,7 @@ void IceProjectile_Action1(Entity* this) {
         if (parent->next == NULL) {
             DeleteEntity(this);
         } else {
-            if (this->spriteSettings.b.draw == 1) {
+            if (this->spriteSettings.draw == 1) {
                 CopyPosition(parent, this);
                 if (this->actionDelay != 0) {
                     direction = parent->direction & 0x18;
@@ -63,14 +63,14 @@ void IceProjectile_Action2(Entity* this) {
         }
     } else {
         this->action = 3;
-        this->flags &= 0x7f;
+        COLLISION_OFF(this);
         this->speed = 0;
     }
 }
 
 void IceProjectile_Action3(Entity* this) {
     GetNextFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         DeleteEntity(this);
     }
 }

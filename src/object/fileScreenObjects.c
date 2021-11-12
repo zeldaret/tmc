@@ -46,7 +46,7 @@ extern const u8 gUnk_08121D48[];
 extern const struct_08121D54 gUnk_08121D54[];
 
 void FileScreenObjects(Entity* this) {
-    if (this->currentHealth == 0) {
+    if (this->health == 0) {
         sub_0808EFF0(this);
     }
     gUnk_08121C64[this->type](this);
@@ -62,7 +62,7 @@ void sub_0808E7D8(Entity* this) {
 void sub_0808E7F0(Entity* this) {
     sub_080AE008(this, 1, 2);
     this->palette.b.b0 = 0xF;
-    this->spriteSettings.b.draw = 0;
+    this->spriteSettings.draw = 0;
     this->type2 = 0xFF;
     this->action = 1;
 }
@@ -76,7 +76,7 @@ void sub_0808E818(Entity* this) {
         this->type2 = var2;
         this->field_0x68.HWORD = var2;
         this->field_0x6a.HWORD = var2;
-        this->spriteSettings.b.draw = 0;
+        this->spriteSettings.draw = 0;
         return;
     }
 
@@ -111,7 +111,7 @@ void sub_0808E818(Entity* this) {
         }
     }
 
-    this->spriteSettings.b.flipX = this->animationState == 3;
+    this->spriteSettings.flipX = this->animationState == 3;
     var0 = this->field_0x68.HWORD + this->field_0x70.BYTES.byte0 + this->animationState;
     if (this->field_0x6a.HWORD != var0) {
         this->field_0x6a.HWORD = var0;
@@ -119,7 +119,7 @@ void sub_0808E818(Entity* this) {
         InitAnimationForceUpdate(this, (u8)var0);
     }
 
-    this->spriteSettings.b.draw = 2;
+    this->spriteSettings.draw = 2;
 }
 
 static bool32 sub_0808E950(void) {
@@ -160,19 +160,19 @@ void sub_0808E988(Entity* this) {
             if (this->type2 != i) {
                 InitAnimationForceUpdate(this, i);
             }
-            this->spriteSettings.b.draw = 2;
+            this->spriteSettings.draw = 2;
             return;
         }
     }
 
-    this->spriteSettings.b.draw = 0;
+    this->spriteSettings.draw = 0;
 }
 
 void sub_0808E9F4(Entity* this) {
     if (sub_0808E950() && gSave.unk6) {
-        this->spriteSettings.b.draw = 2;
+        this->spriteSettings.draw = 2;
     } else {
-        this->spriteSettings.b.draw = 0;
+        this->spriteSettings.draw = 0;
     }
 }
 
@@ -182,9 +182,9 @@ void sub_0808EA28(Entity* this) {
 
     if (this->type == 3) {
         if (gSaveHeader->gameLanguage > LANGUAGE_EN) {
-            this->spriteSettings.b.draw = 2;
+            this->spriteSettings.draw = 2;
         } else {
-            this->spriteSettings.b.draw = 0;
+            this->spriteSettings.draw = 0;
         }
     }
 
@@ -443,9 +443,9 @@ void sub_0808EE98(Entity* this) {
 void sub_0808EED8(Entity* this) {
     int var0;
     if (gUnk_02032EC0.lastState != 3) {
-        this->spriteSettings.b.draw = 0;
+        this->spriteSettings.draw = 0;
     } else {
-        this->spriteSettings.b.draw = 2;
+        this->spriteSettings.draw = 2;
         var0 = this->type - 19;
         this->palette.b.b0 = gMenu.column_idx == var0 ? 4 : 3;
     }
@@ -454,9 +454,9 @@ void sub_0808EED8(Entity* this) {
 void sub_0808EF24(Entity* this) {
     int var0;
     if (gUnk_02032EC0.lastState != 3) {
-        this->spriteSettings.b.draw = 0;
+        this->spriteSettings.draw = 0;
     } else {
-        this->spriteSettings.b.draw = 2;
+        this->spriteSettings.draw = 2;
         if (this->type == 21) {
             var0 = ((struct_02000000*)0x2000000)->messageSpeed;
         } else {
@@ -518,9 +518,9 @@ static void sub_0808EFF0(Entity* this) {
     const struct_08121D54* var0;
     u8 var1;
 
-    this->spriteSettings.b.draw = 2;
+    this->spriteSettings.draw = 2;
     this->speed = 0x400;
-    this->currentHealth = 1;
+    this->health = 1;
     this->frameIndex = 0xFF;
     this->animIndex = 0xFF;
     var0 = &gUnk_08121D54[this->type];

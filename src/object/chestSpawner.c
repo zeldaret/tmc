@@ -24,7 +24,7 @@ void sub_08083E08(Entity* this) {
 
 void sub_08083E20(Entity* this) {
     this->action = 3;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->spriteRendering.alphaBlend = 0;
     sub_080842D8(this);
     sub_08078828(this);

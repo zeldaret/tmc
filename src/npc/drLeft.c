@@ -45,7 +45,7 @@ void sub_0806BFD8(Entity* this) {
 }
 
 void sub_0806C00C(Entity* this, ScriptExecutionContext* context) {
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         context->condition = 1;
     } else {
         context->condition = 0;

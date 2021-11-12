@@ -11,7 +11,7 @@ void Object2A(Entity* this) {
 
 void sub_08089B18(Entity* this) {
     this->action = 1;
-    this->spriteSettings.b.draw = TRUE;
+    this->spriteSettings.draw = TRUE;
     if (this->type2 != 0) {
         this->actionDelay = this->type2;
     }
@@ -30,7 +30,7 @@ void sub_08089B18(Entity* this) {
             break;
         case 4:
             if (!CheckFlags(this->field_0x86.HWORD)) {
-                this->spriteSettings.b.draw = FALSE;
+                this->spriteSettings.draw = FALSE;
                 this->subAction = 1;
                 return;
             }

@@ -22,7 +22,7 @@ void sub_080851AC(Entity* this) {
     u32 uVar1;
 
     this->action = 1;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->spritePriority.b0 = 7;
     if ((this->type2 & 1) != 0) {
         this->field_0x7c.HALF.LO = -1;

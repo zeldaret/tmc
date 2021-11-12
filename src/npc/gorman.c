@@ -131,7 +131,7 @@ void sub_08069ACC(Entity* this, ScriptExecutionContext* context) {
 }
 
 void Gorman_Head(Entity* this) {
-    SetExtraSpriteFrame(this, 0, (this->frames.all & 7) + 0xf);
+    SetExtraSpriteFrame(this, 0, (this->frame & 7) + 0xf);
     SetExtraSpriteFrame(this, 1, this->frameIndex);
     SetSpriteSubEntryOffsetData1(this, 1, 0);
     sub_0807000C(this);

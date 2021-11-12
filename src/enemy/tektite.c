@@ -38,16 +38,16 @@ void sub_0802F150(Entity* this) {
                 }
                 this->field_0xf = 0;
                 *(u8*)&this->field_0x7c = 0;
-                if (this->height.HALF.HI != 0) {
-                    this->hVelocity >>= 2;
+                if (this->z.HALF.HI != 0) {
+                    this->zVelocity >>= 2;
                 } else {
-                    this->hVelocity = 0;
+                    this->zVelocity = 0;
                 }
                 InitializeAnimation(this, 0);
                 break;
             case 0xe:
             case 0x15:
-                this->currentHealth = 0;
+                this->health = 0;
                 break;
         }
     }
@@ -58,7 +58,7 @@ void nullsub_16(Entity* this) {
 
 void sub_0802F1F0(Entity* this) {
     sub_08001242(this);
-    if (this->height.HALF.HI != 0) {
+    if (this->z.HALF.HI != 0) {
         sub_08003FC4(this, this->field_0x80.HWORD);
     }
 }
@@ -91,15 +91,15 @@ void sub_0802F284(Entity* this) {
     if (this->actionDelay != 0) {
         this->actionDelay--;
     } else if (this->field_0xf != 0) {
-        if ((this->frames.b.f3) != 0) {
+        if (this->frame & 0x80) {
             this->action = 2;
             this->actionDelay = 0x10;
             this->field_0xf = this->type;
-            this->hVelocity = this->field_0x82.HWORD << 4;
+            this->zVelocity = this->field_0x82.HWORD << 4;
             sub_0802F45C(this);
             InitializeAnimation(this, 2);
         }
-    } else if ((this->frames.b.f3) != 0) {
+    } else if (this->frame & 0x80) {
         this->field_0xf = 0x40;
         InitializeAnimation(this, 1);
     }
@@ -111,7 +111,7 @@ void sub_0802F300(Entity* this) {
 
     GetNextFrame(this);
     ProcessMovement(this);
-    temp = this->height.HALF.HI;
+    temp = this->z.HALF.HI;
     rand = Random() & 0xf;
 
     if (sub_080044EC(this, this->field_0x80.HWORD) == 1) {
@@ -143,7 +143,7 @@ void sub_0802F300(Entity* this) {
         }
     }
 
-    if ((this->subAction == 0) && (temp < this->height.HALF.HI)) {
+    if ((this->subAction == 0) && (temp < this->z.HALF.HI)) {
         InitializeAnimation(this, 4);
         this->subAction = 1;
     }
@@ -161,12 +161,12 @@ void sub_0802F3F4(Entity* this) {
 
     GetNextFrame(this);
 
-    if ((this->frames.b.f3) != 0) {
+    if (this->frame & 0x80) {
         if ((*(u8*)&this->field_0x7c.HALF.LO < 2) && ((this->type % 2) != 0)) {
             this->action = 2;
             this->actionDelay = 0x10;
             this->field_0xf = this->type;
-            this->hVelocity = this->field_0x82.HWORD << 4;
+            this->zVelocity = this->field_0x82.HWORD << 4;
             (*(u8*)&this->field_0x7c.HALF.LO)++;
             sub_0802F45C(this);
             InitializeAnimation(this, 2);

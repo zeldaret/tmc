@@ -18,7 +18,7 @@ SECTIONS {
         . = 0x00000040; gUnk_02000040 = .;
         . = 0x00000050; gMessage = .;
         . = 0x0000005C; gUnk_0200005C = .;
-        . = 0x00000070; gUnk_02000070 = .;
+        . = 0x00000070; gUpdateVisibleTiles = .;
         . = 0x00000080; gMenu = .;
         . = 0x00000080; gIntroState = .;
         . = 0x00000080; gChooseFileState = .;
@@ -64,7 +64,7 @@ SECTIONS {
         . = 0x00011654; gUnk_02011654 = .;
         . = 0x00012654; gMetatilesTop = .;
         . = 0x00016654; gUnk_02016654 = .;
-        . = 0x00017654; gUnk_02017654 = .;
+        . = 0x00017654; gCurrentRoomProperties = .;
         . = 0x00017660; gUnk_02017660 = .;
         . = 0x000176A0; gPaletteBuffer = .;
         . = 0x000176E0; gUnk_020176E0 = .;
@@ -278,7 +278,7 @@ SECTIONS {
         . = 0x00005E60; gUnk_03005E60 = .;
         . = 0x00005E98; gUnk_03005E98 = .;
         . = 0x00005F24; _ClearAndUpdateEntities = .;
-        . = 0x00005F40; _UpdateEntities = .;
+        . = 0x00005F40; UpdateEntities_arm = .;
         . = 0x00005FBC; gUnk_03005FBC = .;
         . = 0x00005FF0; gUnk_03005FF0 = .;
         . = 0x000060F0; gUnk_030060F0 = .;
@@ -333,10 +333,12 @@ SECTIONS {
 
 
         /* C source compiled with interworking */
-        asm/code_08016B30.o(.text);
-        asm/updateBackgroundRegisters.o(.text);
-        src/arm_proxy.o(.text);
-        asm/code_08016DF8.o(.text);
+        src/interrupts.o(.text);
+        src/playerItem.o(.text);
+        src/object.o(.text);
+        src/manager.o(.text);
+        src/npc.o(.text);
+        src/collision.o(.text);
         /* C source compiled without interworking */
         asm/code_08018500.o(.text);
         src/code_08018C58.o(.text);
@@ -479,9 +481,6 @@ SECTIONS {
         src/createEnemy.o(.text);
         src/code_0804AA84.o(.text);
         asm/code_0804AA84.o(.text);
-        src/loadRoomEntityList.o(.text);
-        asm/loadRoomEntity.o(.text);
-        asm/code_0804AEB0.o(.text);
         src/loadRoom.o(.text);
         asm/code_0804B058.o(.text);
         src/room.o(.text);
@@ -560,11 +559,6 @@ SECTIONS {
         src/manager/manager37.o(.text);
         src/manager/manager38.o(.text);
         src/manager/manager39.o(.text);
-        asm/sub_0805E248.o(.text);
-        src/sub_0805E374.o(.text);
-        src/sub_0805E3A0.o(.text);
-        asm/code_0805E3B0.o(.text);
-        asm/getEmptyEntity.o(.text);
         src/entity.o(.text);
         src/code_0805EC04.o(.text);
         asm/code_0805EC04.o(.text);
@@ -766,7 +760,6 @@ SECTIONS {
         asm/object36.o(.text);
         asm/object37.o(.text);
         src/object/jarPortal.o(.text);
-        asm/jarPortal.o(.text);
         asm/bossDoor.o(.text);
         asm/object3A.o(.text);
         asm/macroMushroomStalks.o(.text);
@@ -985,10 +978,12 @@ SECTIONS {
         asm/intr.o(.text);
         /* data */
         data/data_080B2A70.o(.rodata);
+        src/interrupts.o(.rodata);
         src/playerItem.o(.rodata);
         src/object.o(.rodata);
         src/manager.o(.rodata);
         src/npc.o(.rodata);
+        src/collision.o(.rodata);
         data/data_080B3740.o(.rodata);
         data/const/playerItem/playerItem11.o(.rodata);
         data/const/playerItem/playerItemBow.o(.rodata);

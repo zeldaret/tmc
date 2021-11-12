@@ -23,15 +23,15 @@ void Manager19_Main(Manager* this) {
             }
         } else {
             gRoomControls.bg3OffsetX.WORD = gRoomControls.bg3OffsetX.WORD - 0x2000;
-            gScreen.affine.bg3xOffset = gRoomControls.roomScrollX + gRoomControls.bg3OffsetX.HALF.HI;
-            gScreen.affine.bg3yOffset = gRoomControls.roomScrollY + gRoomControls.bg3OffsetY.HALF.HI;
+            gScreen.bg3.xOffset = gRoomControls.roomScrollX + gRoomControls.bg3OffsetX.HALF.HI;
+            gScreen.bg3.yOffset = gRoomControls.roomScrollY + gRoomControls.bg3OffsetY.HALF.HI;
         }
     }
 }
 
 void sub_0805AFFC(Manager* this) {
-    gScreen.affine.bg3Control = 0x1e03;
+    gScreen.bg3.control = 0x1e03;
     gScreen.lcd.displayControl |= 0x800;
-    gScreen.affine.bg3xOffset = gRoomControls.roomScrollX + gRoomControls.bg3OffsetX.HALF.HI;
-    gScreen.affine.bg3yOffset = gRoomControls.roomScrollY + gRoomControls.bg3OffsetY.HALF.HI;
+    gScreen.bg3.xOffset = gRoomControls.roomScrollX + gRoomControls.bg3OffsetX.HALF.HI;
+    gScreen.bg3.yOffset = gRoomControls.roomScrollY + gRoomControls.bg3OffsetY.HALF.HI;
 }

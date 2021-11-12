@@ -82,7 +82,7 @@ _08000144EU:
 	thumb_func_start sub_08000108
 sub_08000108: @ 0x08000108
 	push {r4, lr}
-	ldr r0, _080001E8 @ =gUnk_02000070
+	ldr r0, _080001E8 @ =gUpdateVisibleTiles
 	ldrb r1, [r0]
 	lsls r1, r1, #2
 	beq _08000136
@@ -195,7 +195,7 @@ sub_080001DA: @ 0x080001DA
 	ldrh r0, [r1, r0]
 	bx lr
 	.align 2, 0
-_080001E8: .4byte gUnk_02000070
+_080001E8: .4byte gUpdateVisibleTiles
 _080001EC: .4byte gUnk_02025EB0
 _080001F0: .4byte gUnk_02019EE0
 _080001F4: .4byte gUnk_02021F70

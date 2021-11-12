@@ -248,7 +248,7 @@ NONMATCH("asm/non_matching/game/sub_08052418.inc", void sub_08052418(int param_1
     // temp._0 = gBG1Buffer[gUnk_080FCAA4._8[param_1]][gUnk_080FCAA4._0[gSaveHeader->gameLanguage + i]] * 2;
     temp._13 = ((temp._13 & 0xfe) | gUnk_080FCAA4._8[i + 1]) & 1;
     sub_0805F46C(gUnk_080FCAA4._a[param_1], &temp);
-    gScreen.bg.bg1xOffset = 1;
+    gScreen.bg1.xOffset = 1;
 }
 END_NONMATCH
 
@@ -259,7 +259,7 @@ void InitializePlayer(void) {
     MemClear((void*)&gUnk_03000B80, sizeof(gUnk_03000B80));
     MemClear((void*)&gPlayerState, 0xb0);
 
-    MemFill32(0xffffffff, &gPlayerState.field_0x40, 0x40);
+    MemFill32(0xffffffff, &gPlayerState.hurtType, 0x40);
     pl = &gPlayerEntity;
     MemClear((void*)pl, 0x88);
     gRoomControls.cameraTarget = pl;
@@ -270,7 +270,7 @@ void InitializePlayer(void) {
     switch (gScreenTransition.field_0xf) {
         case 0x2:
         case 0x6:
-            pl->height.HALF.HI = -0xc0;
+            pl->z.HALF.HI = -0xc0;
             break;
         case 0x4:
             gPlayerState.field_0x34[4] = 0x10;
@@ -295,7 +295,7 @@ void InitializePlayer(void) {
     pl->kind = 1;
     pl->flags |= 0xa0;
     pl->spritePriority.b0 = 4;
-    pl->currentHealth = gSave.stats.health;
+    pl->health = gSave.stats.health;
     pl->x.HALF.HI = gScreenTransition.playerStartPos.HALF.x;
     pl->y.HALF.HI = gScreenTransition.playerStartPos.HALF.y;
     pl->animationState = gScreenTransition.playerState;
@@ -354,7 +354,7 @@ s32 ModHealth(s32 deltaHealth) {
         newHealth = (u32)gStats.maxHealth;
     }
     gStats.health = newHealth;
-    gPlayerEntity.currentHealth = newHealth;
+    gPlayerEntity.health = newHealth;
     return newHealth;
 }
 

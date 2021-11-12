@@ -100,7 +100,7 @@ void MountainMinish_Fusion(Entity* this) {
     if (this->action == 0) {
         if (LoadExtraSpriteData(this, &gUnk_08111358) != 0) {
             this->action += 1;
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
             InitializeAnimation(this, 6);
         }
     } else {

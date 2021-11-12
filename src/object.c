@@ -1,5 +1,6 @@
 #include "global.h"
 #include "entity.h"
+#include "manager.h"
 #include "object.h"
 
 void (*const gObjectFunctions[])(Entity*) = {
@@ -198,3 +199,17 @@ void (*const gObjectFunctions[])(Entity*) = {
     [ENEMY_ITEM] = EnemyItem,
     [OBJECT_C1] = ObjectC1,
 };
+
+void ObjectInit(Entity*);
+
+void ObjectUpdate(Entity* this) {
+    if ((this->flags & ENT_DID_INIT) == 0 && this->action == 0)
+        ObjectInit(this);
+    if (this->iframes != 0)
+        this->iframes++;
+    if (!CheckDontUpdate(this)) {
+        gObjectFunctions[this->id](this);
+        this->bitfield &= ~0x80;
+    }
+    DrawEntity(this);
+}

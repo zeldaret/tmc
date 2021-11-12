@@ -31,7 +31,7 @@ void sub_0809B3C4(Entity* this) {
         }
 
         if (obtained != 2) {
-            this->spriteSettings.b.draw = 0;
+            this->spriteSettings.draw = 0;
         }
     }
 
@@ -61,7 +61,7 @@ void sub_0809B3C4(Entity* this) {
             this->action = 3;
             scroll = (u16)gRoomControls.roomScrollY - 0x10;
             height = (u16)this->y.HALF.HI - scroll;
-            this->height.HALF.HI -= height;
+            this->z.HALF.HI -= height;
             return;
         }
         case 2:
@@ -113,7 +113,7 @@ void sub_0809B524(Entity* this) {
         if (--this->field_0xf == 0) {
             this->action = 3;
             this->y.HALF.HI += 32;
-            this->height.HALF.HI -= 32;
+            this->z.HALF.HI -= 32;
         } else {
             this->action = 1;
             this->actionDelay = 22;
@@ -152,7 +152,7 @@ void sub_0809B5B4(Entity* this) {
 }
 
 void sub_0809B5EC(Entity* this) {
-    if (this->spriteSettings.b.draw == 1) {
+    if (this->spriteSettings.draw == 1) {
         switch (this->subAction) {
             case 0: {
                 Entity* parent;
@@ -199,7 +199,7 @@ void sub_0809B5EC(Entity* this) {
             case 1: {
                 u8 doTextBox = gMessage.doTextBox & 0x7f;
                 if (!doTextBox) {
-                    this->spriteSettings.b.draw = 1;
+                    this->spriteSettings.draw = 1;
                     this->subAction = doTextBox;
                 }
                 break;
@@ -225,7 +225,7 @@ void sub_0809B6B0(Entity* parent, Entity* this) {
 
     PositionRelative(parent, this, 0, offset);
 
-    this->height.HALF.HI = -(this->type << 2);
+    this->z.HALF.HI = -(this->type << 2);
     this->spritePriority.b0 = 3 - this->type;
 }
 

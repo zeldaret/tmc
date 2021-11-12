@@ -97,7 +97,7 @@ void sub_0808681C(Entity* this) {
         case 0:
             this->action = 1;
             this->actionDelay = 8;
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
             this->frameIndex = 0;
             this->hitbox = &gUnk_081206AC;
             if (this->subAction == 1) {
@@ -127,7 +127,7 @@ void sub_0808681C(Entity* this) {
 void sub_080868B0(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         this->hitbox = &gUnk_081206AC;
         this->actionDelay = 8;
     }

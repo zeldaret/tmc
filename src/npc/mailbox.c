@@ -40,7 +40,7 @@ void sub_08063220(Entity* this) {
 
 void sub_08063254(Entity* this, u32 unused) {
     sub_08063280(this, unused);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         this->action = 3;
         MessageFromTarget(0);
     }
@@ -56,8 +56,8 @@ void sub_08063280(Entity* this, u32 unused) {
 
     e = this;
     UpdateAnimationSingleFrame(e);
-    var = e->frames.all & 0x7F;
-    e->frames.all ^= var;
+    var = e->frame & 0x7F;
+    e->frame ^= var;
     if (var == 2)
         CreateFx(e, FX_MAILBOX_UNUSED, 0);
 }

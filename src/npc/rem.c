@@ -38,7 +38,7 @@ void sub_0806a370(Entity* this) {
     UpdateAnimationSingleFrame(this);
     sub_0806ED78(this);
     if (this->animIndex == 0xf) {
-        pbVar1 = &this->frames.all;
+        pbVar1 = &this->frame;
         if (*pbVar1 == 1) {
             *pbVar1 = 0;
             SoundReq(SFX_218);
@@ -71,7 +71,7 @@ void sub_0806A410(Entity* this) {
             }
             break;
         case 1:
-            if (((this->frames.all & 0x80) != 0)) {
+            if (((this->frame & 0x80) != 0)) {
                 sub_0806A9B0(this, *(ScriptExecutionContext**)&this->cutsceneBeh);
             }
             break;
@@ -86,14 +86,14 @@ void sub_0806A458(Entity* this) {
             }
             break;
         case 1:
-            if ((this->frames.all & 0x80) != 0) {
+            if ((this->frame & 0x80) != 0) {
                 this->subAction = 2;
                 InitializeAnimation(this, 10);
                 ClearLocalFlag(0x62);
             }
             break;
         case 2:
-            if (((this->frames.all & 0x80) != 0)) {
+            if (((this->frame & 0x80) != 0)) {
                 this->action = 1;
                 this->subAction = 0;
                 this->actionDelay = 0x3c;
@@ -106,7 +106,7 @@ void sub_0806A458(Entity* this) {
 void sub_0806A4CC(Entity* this) {
     switch (this->subAction) {
         case 0:
-            if ((this->frames.all & 0x80) != 0) {
+            if ((this->frame & 0x80) != 0) {
                 if ((u8)(this->animIndex - 8) < 2) {
                     this->subAction = 1;
                     this->field_0x6a.HWORD = 1;
@@ -118,7 +118,7 @@ void sub_0806A4CC(Entity* this) {
                 }
                 break;
                 case 1:
-                    if ((this->frames.all & 0x80) != 0) {
+                    if ((this->frame & 0x80) != 0) {
                         this->subAction = 2;
                         InitializeAnimation(this, GetAnimationState(this));
                     }
@@ -135,13 +135,13 @@ void sub_0806A550(Entity* this) {
         this->subAction = 1;
         InitializeAnimation(this, 0xc);
     } else {
-        if (this->frames.all == 1) {
-            this->frames.all = 0;
+        if (this->frame == 1) {
+            this->frame = 0;
             sub_08080964(8, 2);
             gActiveScriptInfo.unk_00 |= 0x100;
             SoundReq(SFX_11B);
         }
-        if ((this->frames.all & 0x80) != 0) {
+        if ((this->frame & 0x80) != 0) {
             this->action = 5;
             this->subAction = 0;
             InitializeAnimation(this, 0xd);
@@ -155,7 +155,7 @@ void nullsub_503(void) {
 
 void sub_0806A5C0(Entity* this) {
     GetNextFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         InitializeAnimation(this, (Random() & 3) + 4);
     }
 }
@@ -182,8 +182,8 @@ void sub_0806A630(Entity* this) {
     if ((gActiveScriptInfo.unk_00 & 0x100) != 0) {
         GetNextFrame(this);
     }
-    if (this->frames.all == 1) {
-        this->frames.all = 0;
+    if (this->frame == 1) {
+        this->frame = 0;
         SoundReq(SFX_SECRET);
     }
 }
@@ -202,8 +202,8 @@ void sub_0806A830(Entity* this) {
         DeleteThisEntity();
     }
     GetNextFrame(this);
-    if (this->frames.all == 1) {
-        this->frames.all = 0;
+    if (this->frame == 1) {
+        this->frame = 0;
         npc = CreateNPC(0x37, 5, 0);
         if (npc != NULL) {
             PositionEntityOnTop(this, npc);
@@ -218,7 +218,7 @@ void sub_0806A890(Entity* this) {
         sub_0805E3A0(this, 2);
     }
     GetNextFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         DeleteThisEntity();
     }
 }

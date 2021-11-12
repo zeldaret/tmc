@@ -374,7 +374,7 @@ void sub_StateChange_HouseInteriors1_Inn1F(void) {
     }
 }
 
-extern u32 gUnk_080D6A74[];
+extern u32* gUnk_080D6A74[];
 
 u32 sub_unk3_HouseInteriors1_InnWestRoom(void) {
     u32 index;
@@ -386,7 +386,7 @@ u32 sub_unk3_HouseInteriors1_InnWestRoom(void) {
         index = 0;
         SetLocalFlag(1);
     }
-    gRoomVars.field_0x78 = gUnk_080D6A74[index];
+    gRoomVars.field_0x6c[3] = gUnk_080D6A74[index];
     return 1;
 }
 
@@ -402,7 +402,7 @@ void sub_StateChange_HouseInteriors1_InnWestRoom(void) {
     }
 }
 
-extern u32 gUnk_080D6B18[];
+extern u32* gUnk_080D6B18[];
 
 u32 sub_unk3_HouseInteriors1_InnMiddleRoom(void) {
     u32 index;
@@ -414,7 +414,7 @@ u32 sub_unk3_HouseInteriors1_InnMiddleRoom(void) {
         index = 0;
         SetLocalFlag(2);
     }
-    gRoomVars.field_0x78 = gUnk_080D6B18[index];
+    gRoomVars.field_0x6c[3] = gUnk_080D6B18[index];
     return 1;
 }
 
@@ -428,7 +428,7 @@ void sub_StateChange_HouseInteriors1_InnMiddleRoom(void) {
     }
 }
 
-extern u32 gUnk_080D6BB8[];
+extern u32* gUnk_080D6BB8[];
 
 u32 sub_unk3_HouseInteriors1_InnEastRoom(void) {
     s32 index;
@@ -440,7 +440,7 @@ u32 sub_unk3_HouseInteriors1_InnEastRoom(void) {
         index = 0;
         SetLocalFlag(3);
     }
-    gRoomVars.field_0x78 = gUnk_080D6BB8[index];
+    gRoomVars.field_0x6c[3] = gUnk_080D6BB8[index];
     return 1;
 }
 
@@ -555,8 +555,8 @@ extern u32 gUnk_080D7348;
 
 u32 sub_unk3_HyruleCastle_0(void) {
     if (CheckGlobalFlag(ENDING)) {
-        gRoomVars.field_0x6c = &gUnk_080D7348;
-        gRoomVars.field_0x74 = 0;
+        gRoomVars.field_0x6c[0] = &gUnk_080D7348;
+        gRoomVars.field_0x6c[2] = 0;
     }
     return 1;
 }
@@ -587,8 +587,8 @@ extern u32 gUnk_080D7410;
 
 u32 sub_unk3_HyruleCastle_1(void) {
     if (CheckGlobalFlag(ENDING)) {
-        gRoomVars.field_0x6c = &gUnk_080D7410;
-        gRoomVars.field_0x74 = 0;
+        gRoomVars.field_0x6c[0] = &gUnk_080D7410;
+        gRoomVars.field_0x6c[2] = 0;
     }
     return 1;
 }
@@ -1221,7 +1221,7 @@ extern u32 gUnk_080DA230;
 
 u32 sub_unk3_CastorDarknut_Main(void) {
     if (!CheckLocalFlag(0x39))
-        gRoomVars.field_0x6c = &gUnk_080DA230;
+        gRoomVars.field_0x6c[0] = &gUnk_080DA230;
 
     return 1;
 }
@@ -1594,7 +1594,7 @@ extern u32 gUnk_080DB910;
 
 u32 sub_unk3_TownMinishHoles_LibraryBookshelf(void) {
     if (CheckGlobalFlag(MIZUKAKI_START) && !CheckLocalFlag(0x73)) {
-        gRoomVars.field_0x70 = &gUnk_080DB910;
+        gRoomVars.field_0x6c[1] = &gUnk_080DB910;
     }
     return 1;
 }
@@ -2305,7 +2305,7 @@ u32 sub_unk3_DeepwoodShrineBoss_Main() {
 
 extern EntityData gUnk_additional_a_DeepwoodShrineBoss_Main;
 
-extern u8 gUnk_02000070;
+extern u8 gUpdateVisibleTiles;
 extern u32 gUsedPalettes;
 
 void sub_StateChange_DeepwoodShrineBoss_Main(void) {
@@ -2313,7 +2313,7 @@ void sub_StateChange_DeepwoodShrineBoss_Main(void) {
     if (!CheckLocalFlag(0x48)) {
         SetLocalFlag(0x48);
         MenuFadeIn(5, 0);
-        gUnk_02000070 = 0;
+        gUpdateVisibleTiles = 0;
         gFadeControl.active = 0;
         gUsedPalettes = 0;
         *(u16*)0x5000000 = 0x7fff;
@@ -2454,7 +2454,7 @@ extern u32 gUnk_080E103C;
 
 u32 sub_unk3_CaveOfFlames_BeforeGleerok(void) {
     if (CheckGlobalFlag(LV2_CLEAR)) {
-        gRoomVars.field_0x70 = &gUnk_080E103C;
+        gRoomVars.field_0x6c[1] = &gUnk_080E103C;
     }
     return 1;
 }
@@ -2516,7 +2516,7 @@ void sub_StateChange_CaveOfFlamesBoss_Main(void) {
 
     if (CheckGlobalFlag(LV2_CLEAR)) {
         gUnk_0200B650 = 0;
-        gScreen.lcd.displayControl &= 0xfdff;
+        gScreen.lcd.displayControl &= ~DISPCNT_BG1_ON;
         sub_0807AABC(&gPlayerEntity);
         LoadRoomEntityList(&gUnk_additional_a_CaveOfFlamesBoss_Main);
     } else {
@@ -3769,16 +3769,16 @@ extern u32 gUnk_080EB5D4;
 u32 sub_unk3_DarkHyruleCastle_0(void) {
 
     if (CheckGlobalFlag(ENDING)) {
-        gRoomVars.field_0x6c = &gUnk_080EB604;
-        gRoomVars.field_0x74 = 0;
+        gRoomVars.field_0x6c[0] = &gUnk_080EB604;
+        gRoomVars.field_0x6c[2] = 0;
         gArea.musicIndex = gArea.pMusicIndex = 0x11;
     } else if (CheckLocalFlag(0x79)) {
-        gRoomVars.field_0x6c = NULL;
+        gRoomVars.field_0x6c[0] = NULL;
         if (!CheckLocalFlag(0x7a)) {
             SetGlobalFlag(ZELDA_CHASE);
-            gRoomVars.field_0x6c = &gUnk_080EB5D4;
-            gRoomVars.field_0x88 = sub_0804D9B0;
-            gRoomVars.field_0x74 = 0;
+            gRoomVars.field_0x6c[0] = &gUnk_080EB5D4;
+            gRoomVars.field_0x6c[7] = sub_0804D9B0;
+            gRoomVars.field_0x6c[2] = 0;
         }
     }
     return 1;
@@ -3841,8 +3841,8 @@ void sub_StateChange_Dojos_ToSplitblade1() {
 
 u32 sub_unk3_DarkHyruleCastle_6(void) {
     if (!CheckLocalFlag(0x77)) {
-        gRoomVars.field_0x6c = 0;
-        gRoomVars.field_0x74 = 0;
+        gRoomVars.field_0x6c[0] = 0;
+        gRoomVars.field_0x6c[2] = 0;
     }
     return 1;
 }
@@ -4034,7 +4034,7 @@ void sub_StateChange_Dojos_ToGreatblade8() {
 
 u32 sub_unk3_DarkHyruleCastle_28(void) {
     if (CheckLocalFlag(0x79)) {
-        gRoomVars.field_0x74 = 0;
+        gRoomVars.field_0x6c[2] = 0;
     }
     return 1;
 }
@@ -4067,8 +4067,8 @@ extern u32 gUnk_080ED1E4;
 
 u32 sub_unk3_DarkHyruleCastle_31(void) {
     if (CheckGlobalFlag(ENDING)) {
-        gRoomVars.field_0x6c = &gUnk_080ED1E4;
-        gRoomVars.field_0x74 = 0;
+        gRoomVars.field_0x6c[0] = &gUnk_080ED1E4;
+        gRoomVars.field_0x6c[2] = 0;
     }
     return 1;
 }
@@ -4228,8 +4228,8 @@ void sub_StateChange_Ruins_Beanstalk1() {
 
 u32 sub_unk3_DarkHyruleCastle_53(void) {
     if (CheckLocalFlag(0x79)) {
-        gRoomVars.field_0x74 = 0;
-        gRoomVars.field_0x6c = 0;
+        gRoomVars.field_0x6c[2] = 0;
+        gRoomVars.field_0x6c[0] = 0;
     }
     return 1;
 }
@@ -4253,7 +4253,7 @@ void sub_StateChange_Ruins_Beanstalk2() {
 
 u32 sub_unk3_DarkHyruleCastle_55(void) {
     if (CheckLocalFlag(0x79)) {
-        gRoomVars.field_0x74 = 0;
+        gRoomVars.field_0x6c[2] = 0;
     }
     return 1;
 }
@@ -4506,7 +4506,7 @@ u32 sub_unk3_CastleGarden_Main(void) {
 
     // four sword
     if (GetInventoryValue(0x6)) {
-        gRoomVars.field_0x70 = &gUnk_080F09A0;
+        gRoomVars.field_0x6c[1] = &gUnk_080F09A0;
     }
     return 1;
 }
@@ -4888,7 +4888,7 @@ void sub_StateChange_HouseInteriors2_LinksHouseBedroom(void) {
 
     if (!CheckGlobalFlag(START) && !CheckLocalFlag(0x46)) {
         sub_080A71C4(5, 1, 4, 4);
-        gUnk_02000070 = 0;
+        gUpdateVisibleTiles = 0;
         DoFade(5, 0x100);
         sub_080751E8(0, 6, &script_08009B30);
     }
@@ -4989,9 +4989,9 @@ extern u32 gUnk_080F3EA4;
 
 u32 sub_unk3_LakeHylia_Main(void) {
     if (CheckGlobalFlag(LV4_CLEAR) && !CheckLocalFlag(4)) {
-        gRoomVars.field_0x74 = &gUnk_080F3EA4;
+        gRoomVars.field_0x6c[2] = &gUnk_080F3EA4;
     } else {
-        gRoomVars.field_0x74 = &Enemies_LakeHylia_Main;
+        gRoomVars.field_0x6c[2] = &Enemies_LakeHylia_Main;
     }
     return 1;
 }
@@ -5144,8 +5144,8 @@ extern u32 gUnk_080F4EB0;
 
 u32 sub_unk3_MinishWoods_Main(void) {
     if (CheckGlobalFlag(ENDING)) {
-        gRoomVars.field_0x6c = &gUnk_080F4EB0;
-        gRoomVars.field_0x74 = NULL;
+        gRoomVars.field_0x6c[0] = &gUnk_080F4EB0;
+        gRoomVars.field_0x6c[2] = NULL;
     }
     return 1;
 }
@@ -5206,9 +5206,9 @@ extern u32 gUnk_080F5348;
 
 u32 sub_unk3_SanctuaryEntrance_Main(void) {
     if (CheckGlobalFlag(ENDING)) {
-        gRoomVars.field_0x6c = &gUnk_080F5348;
-        gRoomVars.field_0x88 = sub_0804ED18;
-        gRoomVars.field_0x74 = NULL;
+        gRoomVars.field_0x6c[0] = &gUnk_080F5348;
+        gRoomVars.field_0x6c[7] = sub_0804ED18;
+        gRoomVars.field_0x6c[2] = NULL;
     }
     return 1;
 }
@@ -5685,7 +5685,7 @@ extern u32 gUnk_080F7680;
 
 u32 sub_unk3_HyruleField_Farmers(void) {
     if (GetInventoryValue(0x11) && !GetInventoryValue(0x12)) {
-        gRoomVars.field_0x74 = &gUnk_080F7680;
+        gRoomVars.field_0x6c[2] = &gUnk_080F7680;
     }
     return 1;
 }
@@ -5747,17 +5747,17 @@ extern void sub_0804F4E4();
 
 u32 sub_unk3_HyruleField_OutsideCastle(void) {
     if (CheckGlobalFlag(TABIDACHI) && !GetInventoryValue(0x11)) {
-        gRoomVars.field_0x6c = &gUnk_080F7CD0;
-        gRoomVars.field_0x88 = sub_0804F5E8;
+        gRoomVars.field_0x6c[0] = &gUnk_080F7CD0;
+        gRoomVars.field_0x6c[7] = sub_0804F5E8;
     }
 #if defined(JP) || defined(EU) || defined(DEMO_JP)
     if (CheckGlobalFlag(LV2_CLEAR) && GetInventoryValue(0x3) && !CheckLocalFlag(0x8a)) {
 #else
     if (CheckGlobalFlag(LV2_CLEAR) && GetInventoryValue(0x3) && !CheckLocalFlag(0x8c)) {
 #endif
-        gRoomVars.field_0x6c = &gUnk_080F7C80;
-        gRoomVars.field_0x88 = sub_0804F4E4;
-        gRoomVars.field_0x74 = NULL;
+        gRoomVars.field_0x6c[0] = &gUnk_080F7C80;
+        gRoomVars.field_0x6c[7] = sub_0804F4E4;
+        gRoomVars.field_0x6c[2] = NULL;
     }
 #ifndef EU
     if (CheckGlobalFlag(TABIDACHI)) {
@@ -6273,7 +6273,7 @@ extern u32 gUnk_080F9BF8;
 
 u32 sub_unk3_VeilFallsTop_Main(void) {
     if (!CheckKinstoneFused(0xe)) {
-        gRoomVars.field_0x6c = &gUnk_080F9BF8;
+        gRoomVars.field_0x6c[0] = &gUnk_080F9BF8;
     }
     return 1;
 }
@@ -6559,8 +6559,8 @@ extern u32 gUnk_080FAD48;
 
 u32 sub_unk3_MtCrenel_MountainTop(void) {
     if (CheckGlobalFlag(ENDING)) {
-        gRoomVars.field_0x6c = &gUnk_080FAD48;
-        gRoomVars.field_0x74 = NULL;
+        gRoomVars.field_0x6c[0] = &gUnk_080FAD48;
+        gRoomVars.field_0x6c[2] = NULL;
     }
     return 1;
 }

@@ -71,7 +71,7 @@ void sub_0801EB7C(Entity* this) {
 }
 
 void sub_0801EB84(Entity* this) {
-    this->flags &= 0x7f;
+    COLLISION_OFF(this);
     UpdateAnimationVariableFrames(this, 2);
 }
 
@@ -80,11 +80,11 @@ void nullsub_3(Entity* this) {
 }
 
 void sub_0801EB9C(Entity* this) {
-    if (this->flags & 0x80) {
-        this->flags |= 0x80;
+    if (this->flags & ENT_COLLIDE) {
+        COLLISION_ON(this);
         this->field_0x3a &= 0xfb;
     } else {
-        this->currentHealth = 0;
+        this->health = 0;
     }
 }
 
@@ -125,7 +125,7 @@ void Octorok_Move(Entity* this) {
 
 void Octorok_ShootNut(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.all & 1) {
+    if (this->frame & 1) {
         Entity* ent = CreateProjectileWithParent(this, 1, 0);
         if (ent) {
             const s8* off;
@@ -133,13 +133,13 @@ void Octorok_ShootNut(Entity* this) {
             off = &gOctorokNutOffset[this->direction / 4];
             ent->x.HALF.HI += off[0];
             ent->y.HALF.HI += off[1];
-            ent->height.HALF.HI = -3;
-            this->frames.all &= 0xfe;
+            ent->z.HALF.HI = -3;
+            this->frame &= 0xfe;
             EnqueueSFX(0x18d);
         }
     }
 
-    if (this->frames.all & 0x80)
+    if (this->frame & 0x80)
         Octorok_Pause(this);
 }
 

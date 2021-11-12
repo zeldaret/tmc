@@ -47,7 +47,7 @@ sub_08019698: @ 0x08019698
 	ldrh r2, [r5, #0xc]
 	adds r0, r0, r2
 	strh r0, [r5, #0xc]
-	ldr r1, _08019730 @ =gUnk_02000070
+	ldr r1, _08019730 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	bl sub_08000108
@@ -89,7 +89,7 @@ _08019700:
 _08019724: .4byte gUnk_02032EC0
 _08019728: .4byte gUnk_080B4410
 _0801972C: .4byte gRoomControls
-_08019730: .4byte gUnk_02000070
+_08019730: .4byte gUpdateVisibleTiles
 _08019734: .4byte gScreen
 _08019738: .4byte 0x0000FEFF
 _0801973C: .4byte gUnk_02018EB0
@@ -118,7 +118,7 @@ _08019760: .4byte gUnk_02018EB0
 sub_08019764: @ 0x08019764
 	push {lr}
 	bl FlushSprites
-	bl sub_0805E5C0
+	bl UpdateEntities
 	bl sub_080AD9B0
 	bl sub_080AD918
 	ldr r2, _08019798 @ =gUnk_02018EB0

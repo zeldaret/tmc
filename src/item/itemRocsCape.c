@@ -17,12 +17,12 @@ extern bool32 sub_08077EFC(ItemBehavior*);
             if (((u8)(gPlayerState.field_0x1a[1] | gPlayerState.field_0xa | gPlayerState.field_0x3[1] |
                         gPlayerState.heldObject | gPlayerState.field_0x1c | gPlayerState.field_0x3c[1]) == 0) &&
                 ((((1 < (u8)(gPlayerState.field_0x10[2] - 0x12) && (gPlayerState.field_0x10[2] != 1)) ||
-                   (gPlayerEntity.height.WORD != 0)) ||
+                   (gPlayerEntity.z.WORD != 0)) ||
                   (gPlayerState.field_0x14 != 0)))) {
                 if ((gPlayerState.jumpStatus != 0) && ((gPlayerState.jumpStatus & 7) != 3))
                     goto _08076710;
-                if (-1 < gPlayerEntity.height.WORD) {
-                    gPlayerEntity.hVelocity = 0x20000;
+                if (-1 < gPlayerEntity.z.WORD) {
+                    gPlayerEntity.zVelocity = 0x20000;
                     gPlayerState.jumpStatus = 1;
                     gPlayerState.field_0x2c = NULL;
                     this->stateID += 1;
@@ -32,20 +32,20 @@ extern bool32 sub_08077EFC(ItemBehavior*);
         } else {
             if (((gPlayerState.heldObject | gPlayerState.field_0x3[1]) == 0) &&
                 (((gPlayerState.field_0x10[2] != 0x12 && (gPlayerState.field_0x10[2] != 1)) ||
-                  ((gPlayerEntity.height.WORD != 0 || (gPlayerState.field_0x14 != 0)))))) {
+                  ((gPlayerEntity.z.WORD != 0 || (gPlayerState.field_0x14 != 0)))))) {
                 if ((gPlayerState.jumpStatus != 0) && ((gPlayerState.jumpStatus & 7) != 3)) {
                 _08076710:
                     sub_08076758(this, arg1);
                     return;
                 }
-                if (-1 < gPlayerEntity.height.WORD) {
+                if (-1 < gPlayerEntity.z.WORD) {
                     gPlayerState.field_0x0[1] = 0;
                     this->stateID += 1;
                     gPlayerState.keepFacing = 0;
                     gPlayerState.jumpStatus = 1;
                     gPlayerState.field_0xe = -1;
                     gPlayerState.field_0x2c = NULL;
-                    gPlayerEntity.hVelocity = 0x20000;
+                    gPlayerEntity.zVelocity = 0x20000;
                 _0807673C:
                     sub_08077F84();
                     SoundReq(SFX_PLY_VO4);
@@ -67,10 +67,10 @@ void sub_08076758(ItemBehavior* this, u32 arg1) {
         ((gPlayerState.jumpStatus & 7) != 3)) {
         if (sub_08077EFC(this)) {
             if (this->stateID < 2) {
-                if ((gPlayerEntity.hVelocity < 1) && ((gPlayerState.jumpStatus & 0x10) == 0)) {
+                if ((gPlayerEntity.zVelocity < 1) && ((gPlayerState.jumpStatus & 0x10) == 0)) {
                     this->stateID = 2;
                     gPlayerEntity.field_0x7a.HWORD = 2;
-                    gPlayerEntity.hVelocity = 0x20000;
+                    gPlayerEntity.zVelocity = 0x20000;
                     gPlayerState.jumpStatus |= 0x10;
                     gPlayerState.field_0x8 = 0x288;
                     SoundReq(SFX_172);

@@ -25,9 +25,9 @@ void sub_080A0684(Entity* this) {
     }
     this->action = 1;
     this->speed = 0x300;
-    this->spriteSettings.b.draw = 0;
+    this->spriteSettings.draw = 0;
     this->frameIndex = 0;
-    this->spriteSettings.b.flipY = 1;
+    this->spriteSettings.flipY = 1;
     this->hitbox = &gHitbox_3;
     this->spritePriority.b0 = 5;
     this->field_0x70.HALF.LO = this->x.HALF.HI;
@@ -39,7 +39,7 @@ void sub_080A0718(Entity* this) {
     if (sub_08083734(this, 2) != 0) {
         this->action = 2;
         this->actionDelay = 0xc;
-        this->spriteSettings.b.draw = TRUE;
+        this->spriteSettings.draw = TRUE;
         this->direction = 0;
         this->y.HALF.HI += 0x24;
         sub_080A080C(this);
@@ -54,7 +54,7 @@ void sub_080A074C(Entity* this) {
 
     if (--this->actionDelay == 0) {
         this->action = 3;
-        this->height.HALF.HI = 0;
+        this->z.HALF.HI = 0;
         this->x.HALF.HI = this->field_0x70.HALF.LO;
         this->y.HALF.HI = this->field_0x70.HALF.HI;
         ent = CreateFx(this, FX_DASH, 0x40);

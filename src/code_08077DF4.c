@@ -40,7 +40,7 @@ void sub_08077E54(ItemBehavior* beh) {
     ent->action = gPlayerEntity.animIndex;
     *(u8*)&ent->spriteIndex = gPlayerEntity.frameIndex;
     ent->subAction = gPlayerEntity.frameDuration;
-    ent->actionDelay = gPlayerEntity.frames.all;
+    ent->actionDelay = gPlayerEntity.frame;
 }
 
 void sub_08077E78(ItemBehavior* arg0, u32 bits) {
