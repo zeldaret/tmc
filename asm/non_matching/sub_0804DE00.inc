@@ -30,14 +30,14 @@ _0804DE32:
 	ldrb r0, [r4, #8]
 	cmp r0, #1
 	beq _0804DE5C
-	ldr r1, _0804DE58 @ =gUnk_02017654
+	ldr r1, _0804DE58 @ =gCurrentRoomProperties
 	ldr r0, [r5]
 	str r0, [r1]
 	b _0804DECC
 	.align 2, 0
 _0804DE50: .4byte Area_HyruleTown
 _0804DE54: .4byte gSave
-_0804DE58: .4byte gUnk_02017654
+_0804DE58: .4byte gCurrentRoomProperties
 _0804DE5C:
 	movs r0, #0x1c
 	bl SetGlobalFlag

@@ -23,7 +23,8 @@ typedef struct {
     u8 unk1A;
     u8 filler2[13];
     u8 field_0x28;
-    u8 filler4[0x834];
+    u8 filler4[0x833];
+    void*** field_0x85c;
     u32 musicIndex;
     u32 pMusicIndex;
     u8 filler5[0x20];
@@ -31,6 +32,7 @@ typedef struct {
     u32 unk3;
     u32 unk4;
 } Area;
+static_assert(sizeof(Area) == 0x894);
 
 extern Area gArea;
 

@@ -64,7 +64,7 @@ SECTIONS {
         . = 0x00011654; gUnk_02011654 = .;
         . = 0x00012654; gMetatilesTop = .;
         . = 0x00016654; gUnk_02016654 = .;
-        . = 0x00017654; gUnk_02017654 = .;
+        . = 0x00017654; gCurrentRoomProperties = .;
         . = 0x00017660; gUnk_02017660 = .;
         . = 0x000176A0; gPaletteBuffer = .;
         . = 0x000176E0; gUnk_020176E0 = .;
@@ -477,9 +477,6 @@ SECTIONS {
         src/createEnemy.o(.text);
         src/code_0804AA84.o(.text);
         asm/code_0804AA84.o(.text);
-        src/loadRoomEntityList.o(.text);
-        asm/loadRoomEntity.o(.text);
-        asm/code_0804AEB0.o(.text);
         src/loadRoom.o(.text);
         asm/code_0804B058.o(.text);
         src/room.o(.text);
