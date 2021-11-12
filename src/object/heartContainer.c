@@ -28,16 +28,16 @@ static void sub_0808E6A0(Entity* this) {
     }
     this->action = 1;
     this->type = 0x62;
-    this->spriteSettings.b.draw = 0;
+    this->spriteSettings.draw = 0;
     this->hitbox = &gUnk_08121C58;
     this->collisionLayer = 3;
-    this->scriptedScene = 3;
+    this->updateConditions = 3;
 }
 
 static void sub_0808E6E4(Entity* this) {
     if (CheckFlags(this->field_0x86.HWORD)) {
         this->action = 2;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         this->spriteRendering.b0 = 3;
         sub_0808E714(this);
     }

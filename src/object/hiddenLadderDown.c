@@ -22,7 +22,7 @@ void sub_08091F14(Entity* this) {
     puVar3 = &this->field_0x70.HALF.LO;
     if (CheckFlags(this->field_0x86.HWORD) != 0) {
         this->action = 2;
-        this->spriteSettings.b.draw = TRUE;
+        this->spriteSettings.draw = TRUE;
         SetTileType(0x1a2, *puVar3 - 0x41, this->collisionLayer);
         SetTileType(0x1a3, *puVar3 - 0x40, this->collisionLayer);
         SetTileType(0x1a4, *puVar3 - 0x3f, this->collisionLayer);
@@ -38,7 +38,7 @@ void sub_08091F14(Entity* this) {
 void sub_08092000(Entity* this) {
     if (GetTileType(*(u16*)&this->field_0x70.HALF.LO, this->collisionLayer) == 0x1a6) {
         this->action = 2;
-        this->spriteSettings.b.draw = TRUE;
+        this->spriteSettings.draw = TRUE;
         SetFlag(this->field_0x86.HWORD);
     }
 }

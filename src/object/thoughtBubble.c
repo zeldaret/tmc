@@ -13,7 +13,7 @@ void ThoughtBubble(Entity* this) {
 
 void ThoughtBubble_Init(Entity* this) {
     this->action = 1;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     if (this->actionDelay == 0) {
         this->actionDelay = 0x2d;
     }
@@ -26,7 +26,7 @@ void ThoughtBubble_Update(Entity* this) {
     if (this->parent != NULL) {
         this->x.HALF.HI = this->parent->x.HALF.HI;
         this->y.HALF.HI = this->parent->y.HALF.HI;
-        this->height.HALF.HI = this->parent->height.HALF.HI;
+        this->z.HALF.HI = this->parent->z.HALF.HI;
     }
     if (this->type2 != 2) {
         if (--this->actionDelay == 0) {

@@ -79,7 +79,7 @@ _0807FCBC:
 	subs r0, r7, r3
 	cmp r0, #0
 	bgt _0807FCCE
-	ldr r1, _0807FCD8 @ =gUnk_02000070
+	ldr r1, _0807FCD8 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 _0807FCCE:
@@ -89,7 +89,7 @@ _0807FCCE:
 	blt _0807FD16
 	b _0807FD14
 	.align 2, 0
-_0807FCD8: .4byte gUnk_02000070
+_0807FCD8: .4byte gUpdateVisibleTiles
 _0807FCDC:
 	ldrh r0, [r2, #6]
 	ldrh r1, [r2, #0x1e]
@@ -113,7 +113,7 @@ _0807FCFC:
 	subs r0, r7, r3
 	cmp r0, #7
 	ble _0807FD0C
-	ldr r1, _0807FD68 @ =gUnk_02000070
+	ldr r1, _0807FD68 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 _0807FD0C:
@@ -158,7 +158,7 @@ _0807FD4C:
 	subs r0, r7, r3
 	cmp r0, #0
 	bgt _0807FD5E
-	ldr r1, _0807FD68 @ =gUnk_02000070
+	ldr r1, _0807FD68 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 _0807FD5E:
@@ -168,7 +168,7 @@ _0807FD5E:
 	blt _0807FDA6
 	b _0807FDA4
 	.align 2, 0
-_0807FD68: .4byte gUnk_02000070
+_0807FD68: .4byte gUpdateVisibleTiles
 _0807FD6C:
 	ldrh r0, [r2, #8]
 	ldrh r1, [r2, #0x20]
@@ -192,7 +192,7 @@ _0807FD8C:
 	subs r0, r7, r3
 	cmp r0, #7
 	ble _0807FD9C
-	ldr r1, _0807FDAC @ =gUnk_02000070
+	ldr r1, _0807FDAC @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 _0807FD9C:
@@ -206,7 +206,7 @@ _0807FDA6:
 	bl sub_08080BC4
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_0807FDAC: .4byte gUnk_02000070
+_0807FDAC: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_0807FDB0
 sub_0807FDB0: @ 0x0807FDB0
@@ -225,7 +225,7 @@ _0807FDC4: .4byte gUnk_0811E780
 sub_0807FDC8: @ 0x0807FDC8
 	push {r4, r5, lr}
 	adds r5, r0, #0
-	ldr r4, _0807FDE0 @ =gUnk_02000070
+	ldr r4, _0807FDE0 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r4]
 	bl sub_08000108
@@ -235,7 +235,7 @@ sub_0807FDC8: @ 0x0807FDC8
 	strb r1, [r4]
 	pop {r4, r5, pc}
 	.align 2, 0
-_0807FDE0: .4byte gUnk_02000070
+_0807FDE0: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_0807FDE4
 sub_0807FDE4: @ 0x0807FDE4
@@ -243,17 +243,17 @@ sub_0807FDE4: @ 0x0807FDE4
 	movs r1, #2
 	strb r1, [r0, #3]
 	strh r2, [r0, #0x18]
-	ldr r0, _0807FDF4 @ =gUnk_02000070
+	ldr r0, _0807FDF4 @ =gUpdateVisibleTiles
 	strb r1, [r0]
 	bx lr
 	.align 2, 0
-_0807FDF4: .4byte gUnk_02000070
+_0807FDF4: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_0807FDF8
 sub_0807FDF8: @ 0x0807FDF8
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r1, _0807FE18 @ =gUnk_02000070
+	ldr r1, _0807FE18 @ =gUpdateVisibleTiles
 	movs r0, #2
 	strb r0, [r1]
 	ldrh r0, [r4, #0x18]
@@ -268,7 +268,7 @@ sub_0807FDF8: @ 0x0807FDF8
 	beq _0807FE26
 	b _0807FEB6
 	.align 2, 0
-_0807FE18: .4byte gUnk_02000070
+_0807FE18: .4byte gUpdateVisibleTiles
 _0807FE1C:
 	cmp r0, #2
 	beq _0807FE68
@@ -400,12 +400,12 @@ sub_0807FF08: @ 0x0807FF08
 	movs r1, #1
 	strb r1, [r0, #3]
 	strh r2, [r0, #0x18]
-	ldr r1, _0807FF18 @ =gUnk_02000070
+	ldr r1, _0807FF18 @ =gUpdateVisibleTiles
 	movs r0, #3
 	strb r0, [r1]
 	bx lr
 	.align 2, 0
-_0807FF18: .4byte gUnk_02000070
+_0807FF18: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_0807FF1C
 sub_0807FF1C: @ 0x0807FF1C
@@ -417,7 +417,7 @@ sub_0807FF1C: @ 0x0807FF1C
 	ands r0, r1
 	cmp r0, #0
 	bne _0807FF48
-	ldr r1, _0807FF50 @ =gUnk_02000070
+	ldr r1, _0807FF50 @ =gUpdateVisibleTiles
 	movs r0, #3
 	strb r0, [r1]
 	ldrh r0, [r2, #0x18]
@@ -434,7 +434,7 @@ _0807FF48:
 	pop {pc}
 	.align 2, 0
 _0807FF4C: .4byte gScreenTransition
-_0807FF50: .4byte gUnk_02000070
+_0807FF50: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_0807FF54
 sub_0807FF54: @ 0x0807FF54
@@ -625,7 +625,7 @@ _080800C6:
 	bne _080800FC
 	movs r0, #3
 	strb r0, [r5, #3]
-	bl sub_0805E9F4
+	bl DeleteSleepingEntities
 	bl sub_0807C810
 	ldr r1, _080800F4 @ =gUnk_08109194
 	ldr r0, _080800F8 @ =gUnk_03004030
@@ -642,13 +642,13 @@ _080800F0: .4byte gScreen
 _080800F4: .4byte gUnk_08109194
 _080800F8: .4byte gUnk_03004030
 _080800FC:
-	ldr r1, _08080104 @ =gUnk_02000070
+	ldr r1, _08080104 @ =gUpdateVisibleTiles
 	movs r0, #4
 	strb r0, [r1]
 _08080102:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_08080104: .4byte gUnk_02000070
+_08080104: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_08080108
 sub_08080108: @ 0x08080108
@@ -717,12 +717,12 @@ sub_08080198: @ 0x08080198
 	strh r1, [r0, #0x1c]
 	bl LoadRoom
 	bl sub_0804AFF4
-	ldr r0, _080801B8 @ =gUnk_02000070
+	ldr r0, _080801B8 @ =gUpdateVisibleTiles
 	strb r4, [r0]
 	bl sub_080805F8
 	pop {r4, pc}
 	.align 2, 0
-_080801B8: .4byte gUnk_02000070
+_080801B8: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_080801BC
 sub_080801BC: @ 0x080801BC
@@ -815,7 +815,7 @@ _08080232:
 _08080260: .4byte gScreen
 _08080264: .4byte 0x0000BFFF
 _08080268:
-	ldr r0, _08080274 @ =gUnk_02000070
+	ldr r0, _08080274 @ =gUpdateVisibleTiles
 	movs r1, #4
 	strb r1, [r0]
 	movs r0, #0
@@ -823,7 +823,7 @@ _08080268:
 _08080272:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_08080274: .4byte gUnk_02000070
+_08080274: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_08080278
 sub_08080278: @ 0x08080278
@@ -987,7 +987,7 @@ _080803A2:
 	cmp r4, r6
 	blo _080803A2
 _080803B8:
-	ldr r1, _080803CC @ =gUnk_02000070
+	ldr r1, _080803CC @ =gUpdateVisibleTiles
 	movs r0, #0
 	strb r0, [r1]
 _080803BE:
@@ -996,7 +996,7 @@ _080803BE:
 _080803C0: .4byte gUnk_020246B0
 _080803C4: .4byte gUnk_02034480
 _080803C8: .4byte 0x00000FFF
-_080803CC: .4byte gUnk_02000070
+_080803CC: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_080803D0
 sub_080803D0: @ 0x080803D0

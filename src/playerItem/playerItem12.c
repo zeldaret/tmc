@@ -16,7 +16,7 @@ ASM_FUNC("asm/non_matching/playerItem12/sub_080701F8.inc", void sub_080701F8(Ent
 
 void sub_0807037C(Entity* this) {
     GetNextFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         DeleteThisEntity();
     }
 }
@@ -33,7 +33,7 @@ ASM_FUNC("asm/non_matching/playerItem12/sub_080703BC.inc", void sub_080703BC(Ent
 
 void sub_08070458(Entity* this) {
     this->action = 2;
-    this->flags &= 0x7f;
+    COLLISION_OFF(this);
     this->speed = 0;
     if (this->field_0x7c.WORD != 0) {
         SetTile(this->field_0x7c.WORD, TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);

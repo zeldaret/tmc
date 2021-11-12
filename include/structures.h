@@ -61,7 +61,7 @@ typedef struct {
     u8 field_0x3c;
     u8 field_0x3d;
     u16 field_0x3e;
-    u16 field_0x40;
+    u16 hurtType;
     u16 field_0x42;
     u16 field_0x44;
     u16 field_0x46;
@@ -171,10 +171,7 @@ typedef struct {
     u8 unk1;
     u8 unk2;
     u8 unk3;
-    u8 freezeTime;
-    u8 unk9;
-    u8 unk_0xa;
-    u8 unk_0xb;
+    Entity* unk4;
     u16 unk_0xc;
 } EntityHandler;
 

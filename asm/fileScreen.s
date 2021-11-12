@@ -202,7 +202,7 @@ _08051AEC: .4byte gScreenTransition
 sub_08051AF0: @ 0x08051AF0
 .ifdef EU
 	push {r4, lr}
-	bl sub_0805E5C0
+	bl UpdateEntities
 	bl sub_0805BBBC
 	cmp r0, #0
 	bne _0805173E
@@ -211,7 +211,7 @@ _0805173E:
 	bl UpdateBgAnim
 	bl sub_08000108
 	bl sub_0801C344
-	bl sub_0805E5F8
+	bl UpdateManagers
 	bl FlushSprites
 	bl sub_0801C208
 	bl sub_08078CB4
@@ -242,7 +242,7 @@ _0805173E:
 	adds r0, r2, #0
 	bl SoundReq
 _08051796:
-	bl sub_0805E9F4
+	bl DeleteSleepingEntities
 	bl sub_0805BC04
 	adds r4, r0, #0
 	cmp r4, #0
@@ -280,7 +280,7 @@ _080517F8: .4byte gRoomVars
 
 .else
 	push {r4, r5, lr}
-	bl sub_0805E5C0
+	bl UpdateEntities
 	bl sub_0805BBBC
 	cmp r0, #0
 	bne _08051B02
@@ -289,7 +289,7 @@ _08051B02:
 	bl UpdateBgAnim
 	bl sub_08000108
 	bl sub_0801C344
-	bl sub_0805E5F8
+	bl UpdateManagers
 	bl FlushSprites
 	bl sub_0801C208
 	bl sub_08078CB4
@@ -324,7 +324,7 @@ _08051B02:
 	adds r0, r2, #0
 	bl SoundReq
 _08051B5A:
-	bl sub_0805E9F4
+	bl DeleteSleepingEntities
 	bl sub_0805BC04
 	adds r4, r0, #0
 	cmp r4, #0
@@ -441,7 +441,7 @@ _08051C02:
 	bl sub_08078B48
 _08051C06:
 	bl FlushSprites
-	bl sub_0805E5C0
+	bl UpdateEntities
 	bl sub_08080A40
 	bl CollisionMain
 	bl UpdateScroll
@@ -449,7 +449,7 @@ _08051C06:
 	bl sub_08000108
 	bl sub_08052C3C
 	bl sub_0801C344
-	bl sub_0805E5F8
+	bl UpdateManagers
 	bl sub_0801C208
 	bl sub_08078CB4
 	bl sub_080AD9B0
@@ -503,10 +503,10 @@ sub_08051CA8: @ 0x08051CA8
 	bl sub_080705AC
 	cmp r0, #0
 	bne _08051CEA
-	bl sub_0805E5C0
+	bl UpdateEntities
 	bl CollisionMain
 	bl sub_0801C344
-	bl sub_0805E5F8
+	bl UpdateManagers
 	bl FlushSprites
 	bl sub_0801C208
 	bl sub_08078CB4
@@ -586,7 +586,7 @@ InitializeEntities: @ 0x08051D40
 	movs r0, #0
 	str r0, [r1]
 	bl sub_0807C740
-	ldr r1, _08051D94 @ =gUnk_02000070
+	ldr r1, _08051D94 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	bl sub_0805283C
@@ -605,7 +605,7 @@ InitializeEntities: @ 0x08051D40
 	pop {pc}
 	.align 2, 0
 _08051D90: .4byte gUnk_03004030
-_08051D94: .4byte gUnk_02000070
+_08051D94: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_08051D98
 sub_08051D98: @ 0x08051D98
@@ -788,12 +788,12 @@ sub_08051F04: @ 0x08051F04
 	ldr r0, [r0]
 	bl _call_via_r0
 	bl FlushSprites
-	bl sub_0805E5C0
+	bl UpdateEntities
 	bl sub_080AD9B0
 	bl sub_080AD918
 	bl UpdateScroll
 	bl UpdateBgAnim
-	bl sub_0805E5F8
+	bl UpdateManagers
 	bl sub_08000108
 	pop {pc}
 	.align 2, 0
@@ -869,7 +869,7 @@ sub_08051F9C: @ 0x08051F9C
 	add r0, r8
 	strh r0, [r1, #0xc]
 	bl sub_0807C740
-	ldr r1, _08051FE8 @ =gUnk_02000070
+	ldr r1, _08051FE8 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	ldr r0, _08051FEC @ =gUsedPalettes
@@ -883,7 +883,7 @@ sub_08051F9C: @ 0x08051F9C
 	.align 2, 0
 _08051FE0: .4byte gScreen
 _08051FE4: .4byte gRoomControls
-_08051FE8: .4byte gUnk_02000070
+_08051FE8: .4byte gUpdateVisibleTiles
 _08051FEC: .4byte gUsedPalettes
 
 	thumb_func_start sub_08051FF0

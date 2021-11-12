@@ -45,10 +45,10 @@ void sub_080916EC(Entity* this) {
     this->type2 = unk->field_0x6;
     this->action = 1;
     this->hitbox = &gUnk_080FD310;
-    this->flags |= 0x80;
-    this->damageType = 1;
+    COLLISION_ON(this);
+    this->hitType = 1;
     this->field_0x3c = 0x47;
-    this->field_0x40 = 0x44;
+    this->hurtType = 0x44;
     this->flags2 = 0x80;
     this->direction = DirectionFromAnimationState(this->animationState);
     this->speed = 0x700;
@@ -60,7 +60,7 @@ void sub_080916EC(Entity* this) {
 void sub_080917DC(Entity* this) {
 
     if ((this->bitfield & 0x7f) == 0x1d) {
-        this->hVelocity = 0x2a000;
+        this->zVelocity = 0x2a000;
         this->action = 7;
         InitAnimationForceUpdate(this, this->type2 + 4 + this->animationState);
         SoundReq(SFX_13B);
@@ -80,7 +80,7 @@ void sub_080917DC(Entity* this) {
                 this->action = this->action + 1;
                 gPlayerState.jumpStatus = 0x81;
                 gPlayerState.flags |= 0x4000000;
-                gPlayerEntity.hVelocity = 0x20000;
+                gPlayerEntity.zVelocity = 0x20000;
                 gPlayerEntity.speed = 0x100;
                 gPlayerEntity.flags &= 0x7f;
                 ResetPlayer();
@@ -97,20 +97,20 @@ void sub_080918A4(Entity* this) {
     if (sub_080041A0(this, &gPlayerEntity, 2, 2) != 0) {
         gPlayerEntity.x.HALF.HI = this->x.HALF.HI;
         gPlayerEntity.y.HALF.HI = this->y.HALF.HI;
-        if (gPlayerEntity.height.HALF.HI > -0x10) {
-            if ((s32)gPlayerEntity.hVelocity > -1) {
+        if (gPlayerEntity.z.HALF.HI > -0x10) {
+            if ((s32)gPlayerEntity.zVelocity > -1) {
                 return;
             }
             gPlayerEntity.animationState = this->animationState << 1;
             gPlayerState.flags = (gPlayerState.flags ^ 0x4000000) | 0x1000;
             this->action++;
             this->field_0xf = 1;
-            this->flags |= 0x20;
-            this->damageType = 0x97;
+            this->flags |= ENT_20;
+            this->hitType = 0x97;
             this->field_0x3c = (gPlayerEntity.field_0x3c + 1) | 0x20;
             this->flags2 = gPlayerEntity.flags2;
-            this->field_0x40 = 0x18;
-            this->field_0x44 = 8;
+            this->hurtType = 0x18;
+            this->damage = 8;
             sub_0801766C(this);
             sub_0807BA8C(COORD_TO_TILE(this), this->collisionLayer);
             SoundReq(SFX_137);
@@ -118,7 +118,7 @@ void sub_080918A4(Entity* this) {
     } else {
         gPlayerEntity.direction = GetFacingDirection(&gPlayerEntity, this);
     }
-    if (gPlayerEntity.hVelocity < 0) {
+    if (gPlayerEntity.zVelocity < 0) {
         gPlayerEntity.spritePriority.b0 = this->spritePriority.b0 - 1;
     }
 }
@@ -133,16 +133,16 @@ void sub_080919AC(Entity* this) {
         return;
     }
 
-    if ((gPlayerEntity.frames.all & 0xf) == 0) {
-        this->flags = this->flags & 0x7f;
+    if ((gPlayerEntity.frame & 0xf) == 0) {
+        COLLISION_OFF(this);
         CopyPosition(this, &gPlayerEntity);
-        if ((gPlayerEntity.frames.all & 0xf0) == 0x10) {
+        if ((gPlayerEntity.frame & 0xf0) == 0x10) {
             this->spriteOffsetY = 1;
         } else {
             this->spriteOffsetY = 0;
         }
     } else {
-        this->flags = this->flags | 0x80;
+        COLLISION_ON(this);
         gPlayerEntity.speed = 0;
         sub_0806F69C(this);
         CopyPosition(this, &gPlayerEntity);
@@ -166,16 +166,16 @@ void sub_080919AC(Entity* this) {
             } else {
                 switch (uVar3) {
                     case 0x64:
-                        this->flags = this->flags & 0xdf;
-                        this->damageType = 1;
+                        this->flags &= ~ENT_20;
+                        this->hitType = 1;
                         this->field_0x3c = 0x47;
-                        this->field_0x40 = 0x44;
+                        this->hurtType = 0x44;
                         this->flags2 = 0x80;
                         this->action = 6;
                         sub_08017744(this);
                         gPlayerState.jumpStatus = 0x41;
                         gPlayerState.flags = (gPlayerState.flags ^ 0x1000) | 0x4000000;
-                        gPlayerEntity.hVelocity = 0x20000;
+                        gPlayerEntity.zVelocity = 0x20000;
                         gPlayerEntity.speed = 0x200;
                         gPlayerEntity.animationState = this->animationState << 1;
                         gPlayerEntity.direction = this->direction;

@@ -12,7 +12,7 @@ void sub_08068578(Entity* this);
 void ZeldaFollower(Entity* this) {
     if (this->action == 0) {
         this->action++;
-        this->spriteSettings.b.draw = TRUE;
+        this->spriteSettings.draw = TRUE;
         this->animationState = 4;
         this->field_0x68.HALF.LO = 0;
         this->field_0x68.HALF.HI = 0;
@@ -23,7 +23,7 @@ void ZeldaFollower(Entity* this) {
     if ((s8)this->field_0x68.HALF.LO != 0) {
         sub_08068318(this);
     } else {
-        this->spriteSettings.b.draw = FALSE;
+        this->spriteSettings.draw = FALSE;
     }
 }
 
@@ -43,12 +43,12 @@ ASM_FUNC("asm/non_matching/zeldaFollower/sub_08068578.inc", void sub_08068578(En
 
 void sub_08068680(Entity* this, Entity* entity) {
     entity->field_0x68.HALF.LO = 0;
-    entity->spriteSettings.b.draw = 0;
+    entity->spriteSettings.draw = 0;
 }
 
 void sub_08068694(Entity* this, Entity* entity) {
     entity->field_0x68.HALF.LO = 1;
-    entity->spriteSettings.b.draw = 1;
+    entity->spriteSettings.draw = 1;
     entity->animationState = this->animationState;
     sub_08068578(entity);
     InitAnimationForceUpdate(entity, entity->animationState / 2);

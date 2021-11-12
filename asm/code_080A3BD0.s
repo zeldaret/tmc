@@ -1263,7 +1263,7 @@ _080A4550:
 	cmp r0, #7
 	bne _080A456A
 	adds r0, r4, #0
-	bl sub_0806EC78
+	bl InitNPC
 	ldrb r0, [r4, #9]
 	strb r0, [r4, #0xf]
 	movs r0, #0x56
@@ -1337,7 +1337,7 @@ _080A45D0:
 	ldr r0, [r0]
 	bl _call_via_r0
 _080A45E0:
-	bl sub_0805E5C0
+	bl UpdateEntities
 	bl sub_0801C1D4
 	bl sub_0801C208
 	bl sub_080AD9B0

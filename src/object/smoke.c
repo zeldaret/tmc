@@ -36,7 +36,7 @@ void sub_0808A46C(Entity* this) {
 
 void sub_0808A484(Entity* this) {
     this->action = 1;
-    this->spriteSettings.b.draw = TRUE;
+    this->spriteSettings.draw = TRUE;
     this->speed = 0x40;
     this->direction = 6;
     this->spriteRendering.b3 = 1;
@@ -48,7 +48,7 @@ void sub_0808A484(Entity* this) {
 void sub_0808A4D0(Entity* this) {
     GetNextFrame(this);
     sub_0806F69C(this);
-    if (this->frames.b.f3) {
+    if (this->frame & 0x80) {
         DeleteEntity(this);
     }
 }

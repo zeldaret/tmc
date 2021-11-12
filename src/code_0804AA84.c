@@ -45,7 +45,7 @@ void sub_0804AAD4(void) {
 }
 
 void sub_0804AB04(void) {
-    sub_0805E5C0();
+    UpdateEntities();
     if (gArea.field_0x10 != 0) {
         FlushSprites();
         sub_080AD9B0();

@@ -85,7 +85,7 @@ void sub_08034CC4(Entity* this) {
         SetTile(0x4022, COORD_TO_TILE(this), this->collisionLayer);
         entity = CreateEnemy(MAZAAL_MACRO, 2);
         if (entity != NULL) {
-            this->attachedEntity = entity;
+            this->child = entity;
             entity->parent = this;
             CopyPosition(this, entity);
         }
@@ -137,8 +137,8 @@ void sub_08034E68(Entity* this) {
     ScriptExecutionContext* scriptExecutionContext;
 
     if (this->parent->next == NULL) {
-        if (this->spriteSettings.b.draw != 0) {
-            this->spriteSettings.b.draw = 0;
+        if (this->spriteSettings.draw != 0) {
+            this->spriteSettings.draw = 0;
             sub_08035120(this);
         }
         if (gScreenTransition.field_0x39 == 0) {
@@ -187,7 +187,7 @@ void sub_08034F58(Entity* this) {
 }
 
 void sub_08034F70(Entity* this) {
-    this->currentHealth = gScreenTransition.field_0x39;
+    this->health = gScreenTransition.field_0x39;
     if (gScreenTransition.field_0x39 >= 0x3d) {
         this->type2 = 0;
     } else if (gScreenTransition.field_0x39 >= 0x1f) {
@@ -199,38 +199,38 @@ void sub_08034F70(Entity* this) {
 
 void sub_08034FA0(Entity* this) {
     if (0 < this->iframes) {
-        this->attachedEntity->iframes = this->iframes;
+        this->child->iframes = this->iframes;
         sub_08080964(0xc, 1);
     }
     switch (this->type2) {
         case 0:
-            if (this->currentHealth < 0x3c) {
+            if (this->health < 0x3c) {
                 gScreenTransition.field_0x39 = 0x3c;
                 sub_08035050(this);
                 return;
             }
             break;
         case 1:
-            if (this->currentHealth < 0x1e) {
+            if (this->health < 0x1e) {
                 gScreenTransition.field_0x39 = 0x1e;
                 sub_08035050(this);
                 return;
             }
             break;
         default:
-            if (this->currentHealth == 0) {
+            if (this->health == 0) {
                 sub_0807BA8C(COORD_TO_TILE(this), this->collisionLayer);
             }
             break;
     }
-    gScreenTransition.field_0x39 = this->currentHealth;
+    gScreenTransition.field_0x39 = this->health;
 }
 
 void sub_08035050(Entity* this) {
     Entity* entity;
 
-    this->flags = this->flags & 0x7f;
-    this->currentHealth = 0;
+    COLLISION_OFF(this);
+    this->health = 0;
     entity = CreateEnemy(VAATI_PROJECTILE, 0);
     if (entity != NULL) {
         entity->type2 = 1;

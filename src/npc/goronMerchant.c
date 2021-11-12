@@ -69,7 +69,7 @@ void sub_0806961C(Entity* this) {
 
 void sub_0806963C(Entity* this) {
     this->action = 1;
-    this->spriteSettings.b.draw = TRUE;
+    this->spriteSettings.draw = TRUE;
     sub_0807DD50(this);
 }
 

@@ -118,7 +118,7 @@ static void sub_08055F70(void) {
     }
 
     DispReset(0);
-    sub_08016B34();
+    EnableVBlankIntr();
 }
 
 #define SOFT_RESET_KEYS (A_BUTTON | B_BUTTON | SELECT_BUTTON | START_BUTTON)

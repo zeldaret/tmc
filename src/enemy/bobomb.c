@@ -52,9 +52,9 @@ void sub_0802C688(Entity* this) {
                 break;
             case 2:
                 this->action = 3;
-                this->damageType = 0x6e;
+                this->hitType = 0x6e;
                 this->field_0xf = 1;
-                this->hVelocity = 0x18000;
+                this->zVelocity = 0x18000;
                 this->speed = 0;
                 this->field_0x80.HALF.HI = 1;
                 InitializeAnimation(this, this->direction >> 4 | 6);
@@ -68,15 +68,15 @@ void sub_0802C7AC(Entity* this) {
     if (this->subAction < 3 && !sub_0806F520(this)) {
         this->subAction = 0;
         this->field_0xf = 1;
-        this->height.HALF.HI = 0;
+        this->z.HALF.HI = 0;
         if (this->field_0x82.HALF.LO != 2) {
             this->speed = this->field_0x82.HALF.LO ? 0x200 : 0x80;
         }
-        this->hVelocity = 0x18000;
+        this->zVelocity = 0x18000;
         this->field_0x82.HALF.HI = 0;
         this->field_0x80.HALF.HI = 0;
     } else {
-        this->height.HALF.HI = -1;
+        this->z.HALF.HI = -1;
         gUnk_080CD600[this->subAction](this);
         if (this->actionDelay != 0) {
             GetNextFrame(this);
@@ -112,15 +112,15 @@ void sub_0802C83C(Entity* this) {
             sub_0802CBC4(this);
         } else {
             sub_0802CC18(this);
-            this->flags &= ~0x80;
-            this->damageType = 0x6e;
+            COLLISION_OFF(this);
+            this->hitType = 0x6e;
         }
     } else {
         this->field_0x82.HALF.LO = 2;
         this->actionDelay = 120;
         InitializeAnimation(this, (this->direction >> 4) | 6);
-        this->flags &= ~0x80;
-        this->damageType = 0x6e;
+        COLLISION_OFF(this);
+        this->hitType = 0x6e;
     }
 }
 
@@ -135,7 +135,7 @@ void sub_0802C8B8(Entity* this) {
 
 void sub_0802C8C4(Entity* this) {
     sub_0804A7D4(this);
-    this->spriteSettings.b.draw = 0;
+    this->spriteSettings.draw = 0;
 }
 
 void sub_0802C8D8(Entity* this) {
@@ -187,7 +187,7 @@ void sub_0802C9B8(Entity* this) {
 
 void sub_0802C9D0(Entity* this) {
     this->subAction = 1;
-    this->flags &= ~0x80;
+    COLLISION_OFF(this);
     this->spritePriority.b1 = 0;
     this->field_0x82.HALF.HI = 1;
     sub_0802CC18(this);
@@ -222,10 +222,10 @@ void sub_0802CA6C(Entity* this) {
 
 void sub_0802CA94(Entity* this) {
     this->action = 3;
-    this->flags &= ~0x80;
+    COLLISION_OFF(this);
     this->field_0xf = 1;
     this->spritePriority.b1 = 1;
-    this->hVelocity = 0x18000;
+    this->zVelocity = 0x18000;
     this->speed = 0;
     this->field_0x82.HALF.HI = 0;
     this->field_0x80.HALF.HI = 0;
@@ -242,10 +242,10 @@ void sub_0802CAF8(Entity* this) {
         }
         sub_0802CC18(this);
         sub_08078930(this);
-        if (this->field_0xf && this->height.HALF.HI == 0) {
+        if (this->field_0xf && this->z.HALF.HI == 0) {
             this->field_0xf = 0;
-            this->flags = this->flags | 0x80;
-            this->damageType = 0x6e;
+            COLLISION_ON(this);
+            this->hitType = 0x6e;
         }
         GetNextFrame(this);
     }
@@ -260,7 +260,7 @@ void sub_0802CB68(Entity* this) {
     this->subAction = 0;
     this->direction = Random() & 0x18;
     this->direction |= 4;
-    this->flags |= 0x80;
+    COLLISION_ON(this);
     if (this->field_0x82.HALF.LO) {
         this->actionDelay = 200;
         this->speed = 0x200;
@@ -276,9 +276,9 @@ void sub_0802CBC4(Entity* this) {
     Entity* ent;
 
     this->action = 4;
-    this->spriteSettings.b.draw = 0;
-    this->flags &= ~0x80;
-    this->currentHealth = 0;
+    this->spriteSettings.draw = 0;
+    COLLISION_OFF(this);
+    this->health = 0;
     if (this->field_0x82.HALF.HI) {
         sub_08079184();
     }

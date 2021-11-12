@@ -8,7 +8,7 @@ extern void sub_08080BC4(void);
 
 extern u32 gUnk_0200B650;
 extern u32 gUnk_02025EB0;
-extern u8 gUnk_02000070;
+extern u8 gUpdateVisibleTiles;
 
 void sub_080808D8(void) {
     gScreenTransition.transitionType = 0;
@@ -89,7 +89,7 @@ void sub_08080974(u32 arg0, u32 arg1) {
     }
 
     sub_080809D4();
-    gUnk_02000070 = 1;
+    gUpdateVisibleTiles = 1;
 }
 
 void sub_080809D4(void) {
@@ -128,5 +128,5 @@ void sub_080809D4(void) {
     }
 
     sub_08080BC4();
-    gUnk_02000070 = 1;
+    gUpdateVisibleTiles = 1;
 }

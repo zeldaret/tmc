@@ -16,7 +16,7 @@ void NPC58(Entity* this) {
             return;
         }
         this->action += 1;
-        this->spriteSettings.b.draw = 2;
+        this->spriteSettings.draw = 2;
         this->spriteRendering.b3 = 0;
         this->spritePriority.b0 = 0;
         this->spriteOrientation.flipY = 1;

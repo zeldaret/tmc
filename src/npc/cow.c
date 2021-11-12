@@ -142,16 +142,16 @@ void sub_08069148(Entity* ent) {
 }
 
 void sub_08069168(Entity* ent) {
-    if ((s8)ent->frames.all < 0) {
+    if ((s8)ent->frame < 0) {
         ent->subAction = 2;
         InitAnimationForceUpdate(ent, ent->animationState + 12);
     }
 }
 
 void sub_08069188(Entity* ent) {
-    if (ent->frames.b.f0 == 0)
+    if ((ent->frame & 1) == 0)
         return;
-    ent->frames.all = 0;
+    ent->frame = 0;
 
     if (((s8)--ent->field_0xf) != 0)
         return;
@@ -160,7 +160,7 @@ void sub_08069188(Entity* ent) {
 }
 
 void sub_080691BC(Entity* ent) {
-    if ((s8)ent->frames.all < 0) {
+    if ((s8)ent->frame < 0) {
         ent->action = 1;
         ent->subAction = 0;
         InitAnimationForceUpdate(ent, ent->animationState + 4);
@@ -219,7 +219,7 @@ void sub_0806924C(Entity* ent) {
 void Cow_Fusion(Entity* ent) {
     if (ent->action == 0) {
         ent->action++;
-        ent->spriteSettings.b.draw = 1;
+        ent->spriteSettings.draw = 1;
         InitAnimationForceUpdate(ent, 15);
     } else {
         UpdateAnimationSingleFrame(ent);

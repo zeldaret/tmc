@@ -85,10 +85,10 @@ u32 Manager28_FindMatchingEntities(Manager28* this) {
     EntityData* tmp = GetCurrentRoomProperty(this->manager.unk_0b);
     if (!tmp)
         return 0;
-    for (; *((u8*)tmp) != 0xFF && !(tmp->kind == 9 && tmp->id == 0x28); tmp++) {
+    for (; *((u8*)tmp) != 0xFF && !((tmp->kind & 0xf) == 9 && tmp->id == 0x28); tmp++) {
         Entity* tmp2;
         u32 i;
-        if (tmp->kind != 3)
+        if ((tmp->kind & 0xf) != 3)
             continue;
         tmp2 = Manager28_FindMatchingEntity(tmp);
         if (!tmp2)

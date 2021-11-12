@@ -1,12 +1,4 @@
-	.include "asm/macros.inc"
-	.include "constants/constants.inc"
-
 	.syntax unified
-
-	.text
-	
-	thumb_func_start LoadRoomEntity
-LoadRoomEntity: @ 0x0804ADF8
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4]
@@ -99,3 +91,4 @@ _0804AEAA:
 _0804AEAC:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
+	.syntax divided

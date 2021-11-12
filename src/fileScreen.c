@@ -109,19 +109,19 @@ void CreateDialogBox(u32 arg0, u32 arg1) {
     if (sfx) {
         SoundReq(sfx);
     }
-    gScreen.bg.bg0Updated = 1;
+    gScreen.bg0.updated = 1;
 }
 
 void sub_08050384(void) {
     RecoverUI(0, 0);
     MemClear(&gBG0Buffer, sizeof(gBG0Buffer));
-    gScreen.bg.bg0Updated = 1;
+    gScreen.bg0.updated = 1;
 }
 
 void sub_080503A8(u32 gfxGroup) {
     LoadGfxGroup(gfxGroup);
-    gScreen.bg.bg1Updated = 1;
-    gScreen.affine.bg2Updated = 1;
+    gScreen.bg1.updated = 1;
+    gScreen.bg2.updated = 1;
 }
 
 void SetFileSelectState(FileSelectState mode) {
@@ -162,12 +162,12 @@ void HandleChooseFileScreen(void) {
     sScreenHandlers[gMain.funcIndex]();
     if (gUnk_02032EC0.lastState != gUnk_02032EC0.state) {
         gUnk_02032EC0.lastState = gUnk_02032EC0.state;
-        gScreen.bg.bg0xOffset = 0;
-        gScreen.bg.bg0yOffset = 0;
-        gScreen.bg.bg1xOffset = 0;
-        gScreen.bg.bg1yOffset = 0;
-        gScreen.affine.bg2xOffset = 0;
-        gScreen.affine.bg2yOffset = 0;
+        gScreen.bg0.xOffset = 0;
+        gScreen.bg0.yOffset = 0;
+        gScreen.bg1.xOffset = 0;
+        gScreen.bg1.yOffset = 0;
+        gScreen.bg2.xOffset = 0;
+        gScreen.bg2.yOffset = 0;
         MemClear(&gChooseFileState, sizeof(gChooseFileState));
     }
 
@@ -175,7 +175,7 @@ void HandleChooseFileScreen(void) {
     sFileScreenSubHandlers[gUnk_02032EC0.lastState]();
 
     gUnk_02019EE0.isTransitioning = FALSE;
-    sub_0805E5C0();
+    UpdateEntities();
     sub_0805066C();
     sub_0801C1D4();
     sub_0801C208();
@@ -220,7 +220,7 @@ static void HandleFileScreenEnter(void) {
     sub_080A70AC(&gUnk_080FC8D0);
     HideButtonR();
     gScreen.lcd.displayControl |= DISPCNT_BG_ALL_ON | DISPCNT_OBJ_ON;
-    gScreen.affine.bg3Control = BGCNT_PRIORITY(3) | BGCNT_CHARBASE(2) | BGCNT_SCREENBASE(30);
+    gScreen.bg3.control = BGCNT_PRIORITY(3) | BGCNT_CHARBASE(2) | BGCNT_SCREENBASE(30);
     gScreen.controls.layerFXControl = BLDCNT_TGT1_BG2 | BLDCNT_TGT2_BG3 | BLDCNT_EFFECT_BLEND;
     gScreen.controls.alphaBlend = BLDALPHA_BLEND(15, 10);
     gUnk_02024490.unk0 = 1;
@@ -525,7 +525,7 @@ void sub_08050AFC(u32 idx) {
     if (gUnk_02019EE0.saveStatus[idx] == SAVE_VALID) {
         sub_08050B3C(&gBG1Buffer[0x14E]);
     }
-    gScreen.bg.bg1Updated = 1;
+    gScreen.bg1.updated = 1;
 }
 
 typedef struct {
@@ -859,8 +859,8 @@ void sub_08051090(void) {
     sub_08050790();
     sub_0805070C();
     sub_08051458();
-    gScreen.bg.bg1yOffset = 0xff;
-    gScreen.affine.bg2yOffset = 0xff;
+    gScreen.bg1.yOffset = 0xff;
+    gScreen.bg2.yOffset = 0xff;
     sub_080A7114(1);
 }
 

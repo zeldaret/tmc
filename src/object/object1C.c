@@ -13,7 +13,7 @@ void Object1C(Entity* this) {
         this->action = 1;
     }
     if (CheckRectOnScreen(this->field_0x80.HWORD, this->field_0x82.HWORD, 0x10, 0x10) == 0) {
-        this->parent->hVelocity &= ~(1 << this->type2);
+        this->parent->zVelocity &= ~(1 << this->type2);
         DeleteThisEntity();
     }
 }

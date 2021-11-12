@@ -27,7 +27,7 @@ void sub_0805B55C(Manager* manager) {
         if (waterDrop != NULL) {
             waterDrop->x.HALF.HI = gRoomControls.roomScrollX + 0x78 + gUnk_08108C6C[Random() & 7];
             waterDrop->y.HALF.HI = gRoomControls.roomScrollY + 0x50 + gUnk_08108C7C[Random() & 3];
-            waterDrop->height.HALF.HI = 0xff38;
+            waterDrop->z.HALF.HI = 0xff38;
         }
     }
 }

@@ -51,7 +51,7 @@ extern u8 gUnk_03003DE4[0xC];
 extern struct BgAffineDstData gUnk_02017AA0[];
 extern struct BgAffineDstData gUnk_02017BA0[];
 extern u8 gUnk_02017700[];
-extern u8 gUnk_02000070;
+extern u8 gUpdateVisibleTiles;
 extern u32 gUsedPalettes;
 
 void sub_08058894(ManagerC*);
@@ -155,7 +155,7 @@ void sub_08058A04(ManagerC* this) {
     s32 tmp = gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX;
     s32 tmp2 = gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY;
     if ((this->unk_20 - 0x118 < 0xDu) && CheckGlobalFlag(LV1TARU_OPEN) && (tmp - 0x6d < 0x17u) &&
-        (tmp2 - 0x45 < 0x17u) && (gPlayerEntity.height.HALF.HI == 0)) {
+        (tmp2 - 0x45 < 0x17u) && (gPlayerEntity.z.HALF.HI == 0)) {
         gPlayerState.playerAction = 3;
         gPlayerState.field_0x38 = 0;
         gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x78;
@@ -287,14 +287,14 @@ void sub_08058D34() {
     tmp = gScreen.lcd.displayControl;
     tmp2 = 0;
     gScreen.lcd.displayControl |= 1;
-    gScreen.affine.bg2Control = 0xBC82;
-    gScreen.bg.bg1Control = 0x5E86;
-    gScreen.bg.bg1xOffset = 0;
-    gScreen.bg.bg1yOffset = tmp2;
+    gScreen.bg2.control = 0xBC82;
+    gScreen.bg1.control = 0x5E86;
+    gScreen.bg1.xOffset = 0;
+    gScreen.bg1.yOffset = tmp2;
     gScreen.controls.layerFXControl = 0x3456;
     gScreen.controls.alphaBlend = 0x909;
     gArea.musicIndex = gArea.pMusicIndex;
-    gUnk_02000070 = 0;
+    gUpdateVisibleTiles = 0;
     if (CheckGlobalFlag(LV1TARU_OPEN)) {
         LoadGfxGroup(0x4A);
     }

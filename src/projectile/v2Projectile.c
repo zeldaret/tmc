@@ -74,8 +74,8 @@ void sub_080ABD44(Entity* this) {
 void sub_080ABD70(Entity* this) {
     u32 tmp;
     GetNextFrame(this);
-    if ((this->frames.all & 0x10) != 0) {
-        this->frames.all &= 0xef;
+    if ((this->frame & 0x10) != 0) {
+        this->frame &= 0xef;
         this->speed = 0;
         this->field_0x74.HWORD = TILE(this->x.HALF.HI, this->y.HALF.HI);
         this->field_0x76.HWORD = GetTileType(this->field_0x74.HWORD, 2);
@@ -88,7 +88,7 @@ void sub_080ABD70(Entity* this) {
             SetTileType(0x6d, this->field_0x74.HWORD, 2);
         }
     }
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         DeleteThisEntity();
     }
 }

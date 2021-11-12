@@ -26,10 +26,10 @@ void sub_08027D8C(Entity* this) {
 }
 
 void sub_08027DA4(Entity* this) {
-    if (this->damageType == 1) {
+    if (this->hitType == 1) {
         this->action = 3;
-        this->flags &= ~0x80;
-        this->damageType = 0x8c;
+        COLLISION_OFF(this);
+        this->hitType = 0x8c;
     } else {
         if (this->action == 7) {
             sub_0802810C(this);
@@ -45,7 +45,7 @@ void sub_08027DA4(Entity* this) {
         }
     }
 
-    if (this->currentHealth == 0) {
+    if (this->health == 0) {
         this->actionDelay = 0x20;
     }
 
@@ -74,21 +74,21 @@ void sub_08027E70(Entity* this) {
     switch (this->type) {
         case 0:
             this->action = 3;
-            this->spriteSettings.b.draw = 0;
-            this->flags = this->flags & 0x7f;
+            this->spriteSettings.draw = 0;
+            COLLISION_OFF(this);
             this->actionDelay = 0;
             break;
         case 1:
             this->action = 1;
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
             this->actionDelay = 8;
             InitializeAnimation(this, 1);
             break;
         case 2:
             this->action = 1;
-            this->spriteSettings.b.draw = 0;
+            this->spriteSettings.draw = 0;
             this->actionDelay = 0;
-            this->damageType = 1;
+            this->hitType = 1;
             InitializeAnimation(this, 0);
             break;
     }
@@ -101,7 +101,7 @@ void sub_08027E70(Entity* this) {
 }
 
 void sub_08027EFC(Entity* this) {
-    if (this->damageType == 1)
+    if (this->hitType == 1)
         return;
 
     if (sub_08049FDC(this, 1)) {
@@ -120,7 +120,7 @@ void sub_08027EFC(Entity* this) {
         GetNextFrame(this);
     } else {
         this->action = 6;
-        this->flags &= ~0x80;
+        COLLISION_OFF(this);
         InitializeAnimation(this, 2);
     }
 }
@@ -132,7 +132,7 @@ void nullsub_12(Entity* this) {
 void sub_08027F84(Entity* this) {
     if (sub_08049FDC(this, 1)) {
         this->action = 5;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         InitializeAnimation(this, 0);
         CreateDust(this);
     }
@@ -149,9 +149,9 @@ void sub_08027FB4(Entity* this) {
 
 void sub_08027FE0(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.all & 1) {
+    if (this->frame & 1) {
         this->action = 1;
-        this->flags |= 0x80;
+        COLLISION_ON(this);
         this->direction = sub_08049F84(this, 1);
         this->actionDelay = 8;
         this->spritePriority.b1 = 1;
@@ -161,9 +161,9 @@ void sub_08027FE0(Entity* this) {
 
 void sub_0802802C(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.all & 1) {
+    if (this->frame & 1) {
         this->action = 3;
-        this->spriteSettings.b.draw = 0;
+        this->spriteSettings.draw = 0;
         this->direction = 0;
         this->actionDelay = 0;
         CreateDust(this);
@@ -209,11 +209,11 @@ NONMATCH("asm/non_matching/likeLike/sub_0802810C.inc", void sub_0802810C(Entity*
     gPlayerState.field_0xa = 0;
     gPlayerState.flags &= 0xffffffef;
     gPlayerEntity.flags |= 0x80;
-    gPlayerEntity.hVelocity = 0x18000;
+    gPlayerEntity.zVelocity = 0x18000;
     gPlayerEntity.iframes = -60;
     gPlayerEntity.direction = gPlayerEntity.animationState << 2;
     gPlayerEntity.spritePriority.b1 = this->field_0x82.HALF.HI;
-    gPlayerEntity.height.HALF.HI = gPlayerEntity.spriteOffsetY;
+    gPlayerEntity.z.HALF.HI = gPlayerEntity.spriteOffsetY;
     gPlayerEntity.spriteOffsetY = 0;
     this->action = 4;
     this->actionDelay = 0x50;

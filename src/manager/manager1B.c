@@ -46,14 +46,14 @@ void Manager1B_Main(Manager1B* this) {
 }
 
 void sub_0805B448(Manager1B* this) {
-    gScreen.affine.bg3xOffset = (gRoomControls.roomScrollX - gRoomControls.roomOriginX) >> 2;
-    gScreen.affine.bg3yOffset = ((gRoomControls.roomScrollY - gRoomControls.roomOriginY) >> 1) + this->field_0x20;
+    gScreen.bg3.xOffset = (gRoomControls.roomScrollX - gRoomControls.roomOriginX) >> 2;
+    gScreen.bg3.yOffset = ((gRoomControls.roomScrollY - gRoomControls.roomOriginY) >> 1) + this->field_0x20;
 }
 
 void sub_0805B474(Manager1B* this) {
     s32 tmp = ((gRoomControls.roomScrollY - gRoomControls.roomOriginY) * 0x60) / (gRoomControls.height - 0xa0);
-    gScreen.affine.bg3yOffset = gRoomControls.roomOriginY + tmp;
-    gScreen.affine.bg3xOffset = gRoomControls.roomScrollX - ((gRoomControls.width - 0x100) / 2);
+    gScreen.bg3.yOffset = gRoomControls.roomOriginY + tmp;
+    gScreen.bg3.xOffset = gRoomControls.roomScrollX - ((gRoomControls.width - 0x100) / 2);
 }
 
 void sub_0805B4B4(Manager1B* this) {
@@ -69,14 +69,14 @@ void sub_0805B4D0(u32 param_1) {
     u32 uVar2;
 
     LoadGfxGroup(gUnk_08108C5C[param_1]);
-    gScreen.affine.bg3Control = 0x1e07;
+    gScreen.bg3.control = 0x1e07;
     gScreen.lcd.displayControl |= 0x800;
-    gScreen.affine.bg3xOffset = (gRoomControls.roomScrollX - gRoomControls.roomOriginX) >> 2;
+    gScreen.bg3.xOffset = (gRoomControls.roomScrollX - gRoomControls.roomOriginX) >> 2;
 
     uVar2 = (gRoomControls.roomScrollY - gRoomControls.roomOriginY) >> 1;
     iVar1 = 0x100 - gRoomControls.height;
     if (iVar1 < 0) {
         iVar1 = 0;
     }
-    gScreen.affine.bg3yOffset = uVar2 + iVar1 + gUnk_08108C44[param_1];
+    gScreen.bg3.yOffset = uVar2 + iVar1 + gUnk_08108C44[param_1];
 }

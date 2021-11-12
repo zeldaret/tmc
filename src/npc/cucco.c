@@ -79,7 +79,7 @@ ASM_FUNC("asm/non_matching/cucco/sub_0806E6A8.inc", void sub_0806E6A8(Entity* th
 void Cucco_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action += 1;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         InitAnimationForceUpdate(this, 1);
     } else {
         UpdateAnimationSingleFrame(this);

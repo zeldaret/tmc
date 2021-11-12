@@ -98,7 +98,7 @@ void sub_08061CEC(Entity* this) {
 
     if (LoadExtraSpriteData(this, gUnk_0810B6EC[this->type])) {
         this->action = 1;
-        this->spriteSettings.b.draw = TRUE;
+        this->spriteSettings.draw = TRUE;
         this->animationState = this->actionDelay;
         this->field_0x68.HALF.HI = 0xff;
         uVar2 = sub_0805ACC0(this);
@@ -164,13 +164,13 @@ void sub_08061E70(Entity* this) {
 }
 
 // FIXME this is actually (Entity* this, ScriptExecutionContext* context)
-void sub_08061E90(Entity* this, Entity* arg1) {
+void sub_08061E90(Entity* this, ScriptExecutionContext* arg1) {
     u32 animIndex;
     s32 iVar4;
 
-    if (arg1->spriteSettings.raw == 0) {
-        arg1->spriteSettings.raw++;
-        arg1->spriteIndex = (Random() & 0x3f) + 0x20;
+    if (arg1->unk_18 == 0) {
+        arg1->unk_18++;
+        arg1->unk_12 = (Random() & 0x3f) + 0x20;
         animIndex = DirectionRound(Random());
         switch (this->direction) {
             case 0x0:
@@ -205,23 +205,23 @@ void sub_08061E90(Entity* this, Entity* arg1) {
     iVar4 = this->x.HALF.HI - *(s16*)&this->field_0x6a.HWORD;
     if (0x10 < iVar4) {
         this->x.HALF.HI = this->field_0x6a.HWORD + 0x10;
-        arg1->spriteIndex = 1;
+        arg1->unk_12 = 1;
     }
     if (iVar4 < -0x10) {
         this->x.HALF.HI = *(s16*)&this->field_0x6a.HWORD - 0x10;
-        arg1->spriteIndex = 1;
+        arg1->unk_12 = 1;
     }
 
     iVar4 = this->y.HALF.HI - *(s16*)&this->field_0x6c;
     if (0x10 < iVar4) {
         this->y.HALF.HI = *(s16*)&this->field_0x6c + 0x10;
-        arg1->spriteIndex = 1;
+        arg1->unk_12 = 1;
     }
     if (iVar4 < -0x10) {
         this->y.HALF.HI = *(s16*)&this->field_0x6c - 0x10;
-        arg1->spriteIndex = 1;
+        arg1->unk_12 = 1;
     }
-    if (--arg1->spriteIndex != 0) {
+    if (--arg1->unk_12 != 0) {
         gActiveScriptInfo.commandSize = 0;
     }
 }
@@ -293,7 +293,7 @@ void Townsperson_Fusion(Entity* this) {
             return;
         }
         this->action++;
-        this->spriteSettings.b.draw = TRUE;
+        this->spriteSettings.draw = TRUE;
     }
     sub_08061CB4(this, 6);
 }

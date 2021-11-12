@@ -42,7 +42,7 @@ void LakituCloudProjectile_SubAction1(Entity* this) {
 
 void LakituCloudProjectile_SubAction2(Entity* this) {
     if (sub_0806F3E4(this) != 0) {
-        if (this->damageType == 0xa6) {
+        if (this->hitType == 0xa6) {
             ModHealth(-2);
             sub_0800449C(&gPlayerEntity, 0x7a);
             sub_08079D84();
@@ -60,7 +60,7 @@ void LakituCloudProjectile_Init(Entity* this) {
 
 void LakituCloudProjectile_Action1(Entity* this) {
     PositionRelative(this->parent, this, 0, -0x10000);
-    this->height.HALF.HI = 0xfffe;
+    this->z.HALF.HI = 0xfffe;
     UpdateAnimationSingleFrame(this);
 }
 

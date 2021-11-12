@@ -37,7 +37,7 @@ void sub_080AA6C0(Entity* this) {
     if (this->bitfield == 0x87) {
         this->action = 3;
         this->actionDelay = 0x5a;
-        this->flags &= 0x7f;
+        COLLISION_OFF(this);
         InitAnimationForceUpdate(this, this->type + 0x10);
         object = CreateObject(OBJECT_2A, 3, 0);
         if (object != NULL) {
@@ -80,15 +80,15 @@ void sub_080AA78C(Entity* this) {
     }
     if (sub_0806F520(this) != 0) {
         UpdateAnimationSingleFrame(this);
-        if ((this->frames.all & 0x10) != 0) {
-            this->frames.all &= 0xef;
+        if ((this->frame & 0x10) != 0) {
+            this->frame &= 0xef;
             EnqueueSFX(SFX_100);
         }
-        if ((this->frames.all & 0x80) != 0) {
+        if ((this->frame & 0x80) != 0) {
             sub_080AAAA8(this);
         }
     } else {
-        if ((this->frames.all & 1) != 0) {
+        if ((this->frame & 1) != 0) {
             sub_080AAAA8(this);
         } else {
             InitAnimationForceUpdate(this, this->type + 0x10);
@@ -110,7 +110,7 @@ void SpiderWeb_Init(Entity* this) {
 }
 
 void SpiderWeb_Action1(Entity* this) {
-    if ((this->frames.all & 0x80) == 0) {
+    if ((this->frame & 0x80) == 0) {
         UpdateAnimationSingleFrame(this);
     }
     sub_080AA9E0(this);
@@ -144,10 +144,9 @@ void SpiderWeb_SubAction0(Entity* this) {
         InitAnimationForceUpdate(this, this->type + 4);
     }
     if ((entity->animationState >> 1 == this->type) && (gPlayerState.field_0xa8 == 0x1a) &&
-        ((gPlayerState.heldObject & 2) != 0) && ((gPlayerEntity.frames.all & 2) != 0) &&
-        ((this->frames.all & 0x80) == 0)) {
+        ((gPlayerState.heldObject & 2) != 0) && ((gPlayerEntity.frame & 2) != 0) && ((this->frame & 0x80) == 0)) {
         UpdateAnimationSingleFrame(this);
-        if ((this->frames.all & 1) != 0) {
+        if ((this->frame & 1) != 0) {
             entity->x.HALF.HI = gUnk_0812A06C[entity->animationState] + entity->x.HALF.HI;
             entity->y.HALF.HI = gUnk_0812A06C[entity->animationState + 1] + entity->y.HALF.HI;
             EnqueueSFX(0x100);

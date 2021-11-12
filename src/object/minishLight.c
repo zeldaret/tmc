@@ -14,7 +14,7 @@ void sub_0809F840(Entity* this) {
     this->field_0xf = 0;
 
     if (this->type2 != 0) {
-        this->spriteSettings.b.flipX = 1;
+        this->spriteSettings.flipX = 1;
     }
 
     UpdateSpriteForCollisionLayer(this);

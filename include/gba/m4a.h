@@ -173,6 +173,8 @@ typedef struct MusicPlayer {
 extern const MusicPlayer gMusicPlayers[];
 extern const Song gSongTable[];
 
+void m4aSoundMain(void);
+void m4aSoundVSync(void);
 void m4aSoundInit(void);
 void m4aSongNumStart(u16 n);
 void m4aSongNumStartOrContinue(u16 n);

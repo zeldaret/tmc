@@ -21,7 +21,7 @@ void Zelda(Entity* this) {
 
 void sub_08066CCC(Entity* this) {
     this->action = 1;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     PrependEntityToList(this, 7);
     sub_0805E3A0(this, 2);
     sub_0807DD50(this);
@@ -41,7 +41,7 @@ void sub_08066D14(Entity* this, ScriptExecutionContext* context) {
     parent = this->parent;
     if (parent != NULL) {
         this->animationState = parent->animationState;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         CopyPosition(parent, this);
         sub_08068680(this, this->parent);
         context->condition = 1;
@@ -56,9 +56,9 @@ void sub_08066D4C(Entity* this, ScriptExecutionContext* context) {
     parent = this->parent;
     if (this->parent != NULL) {
         CopyPosition(this, parent);
-        this->parent->spriteSettings.b.draw = 1;
+        this->parent->spriteSettings.draw = 1;
         this->parent->animationState = this->animationState;
-        this->spriteSettings.b.draw = 0;
+        this->spriteSettings.draw = 0;
         this->field_0x17 &= 0xFE;
         sub_08068694(this, this->parent);
         context->condition = 1;
@@ -127,20 +127,20 @@ void sub_08066E80(Entity* this, ScriptExecutionContext* context) {
             break;
         case 1:
             UpdateAnimationSingleFrame(this);
-            if (this->frames.all & 1) {
+            if (this->frame & 1) {
                 context->unk_18++;
-                this->hVelocity = 0x20000;
-                this->frames.all &= 0xFE;
+                this->zVelocity = 0x20000;
+                this->frame &= 0xFE;
                 SoundReq(SFX_PLY_JUMP);
             }
             break;
         case 2:
             sub_0806F62C(this, 0x100, 0x80);
             sub_08003FC4(this, 0x2000);
-            if (!(this->frames.all & 1)) {
+            if (!(this->frame & 1)) {
                 UpdateAnimationSingleFrame(this);
             }
-            if (this->hVelocity < 0) {
+            if (this->zVelocity < 0) {
                 context->unk_18++;
             }
             break;
@@ -154,7 +154,7 @@ void sub_08066E80(Entity* this, ScriptExecutionContext* context) {
             break;
         case 4:
             UpdateAnimationSingleFrame(this);
-            if (this->frames.b.f3) {
+            if (this->frame & 0x80) {
                 gActiveScriptInfo.flags |= 1;
                 return;
             }

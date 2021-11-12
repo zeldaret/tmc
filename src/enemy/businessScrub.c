@@ -55,15 +55,15 @@ void sub_0802891C(Entity* this) {
 void sub_08028934(Entity* this) {
     Entity* pEVar1;
 
-    if (this->damageType == 1 && (this->bitfield & 0x7f) == 0x42) {
+    if (this->hitType == 1 && (this->bitfield & 0x7f) == 0x42) {
         this->action = 3;
         this->subAction = 0;
         this->actionDelay = 0x28;
-        this->flags &= ~0x80;
+        COLLISION_OFF(this);
         sub_080290E0(this, 4);
         pEVar1 = CreateFx(this, FX_BUSH, 0);
         if (pEVar1 != NULL) {
-            pEVar1->height.HALF.HI -= 8;
+            pEVar1->z.HALF.HI -= 8;
         }
         EnqueueSFX(0x1bb);
     }
@@ -90,7 +90,7 @@ void sub_08028994(Entity* this) {
         this->actionDelay = 0;
         this->field_0x76.HWORD = COORD_TO_TILE(this);
         this->field_0x74.HWORD = sub_080001DA(this->field_0x76.HWORD, this->collisionLayer);
-        this->field_0x40 = 0x41;
+        this->hurtType = 0x41;
         sub_08028FFC(this);
     }
 }
@@ -112,7 +112,7 @@ void sub_08028A74(Entity* this) {
     switch (this->subAction) {
         case 0:
             unk = 1;
-            if (this->frames.all & 0x80) {
+            if (this->frame & 0x80) {
                 this->subAction = 1;
                 this->actionDelay = 0x3c;
                 this->field_0xf = 0x10;
@@ -138,19 +138,19 @@ void sub_08028A74(Entity* this) {
         case 2:
             unk = 1;
             sub_080290FC(this);
-            if (this->frames.all & 1) {
+            if (this->frame & 1) {
                 Entity* ent = CreateProjectileWithParent(this, 4, 0);
                 if (ent != NULL) {
                     ent->parent = this;
                     ent->direction = this->direction;
-                    this->frames.all &= ~1;
+                    this->frame &= ~1;
                     this->subAction = 3;
                 }
             }
             break;
         case 3:
             unk = 2;
-            if (this->frames.all & 0x80) {
+            if (this->frame & 0x80) {
                 this->subAction = 4;
                 this->actionDelay = 0x50;
                 sub_080290E0(this, 1);
@@ -189,7 +189,7 @@ void sub_08028BC4(Entity* this) {
     switch (this->subAction) {
         case 0:
             if (this->actionDelay == 0) {
-                if (this->frames.all & 0x80) {
+                if (this->frame & 0x80) {
                     this->subAction = 1;
                     sub_08028FDC(this);
                     sub_080290E0(this, 5);
@@ -200,7 +200,7 @@ void sub_08028BC4(Entity* this) {
             }
             break;
         case 1:
-            if (this->frames.all & 0x80) {
+            if (this->frame & 0x80) {
                 this->action = 4;
                 this->subAction = 0;
                 this->actionDelay = 0x1e;
@@ -209,7 +209,7 @@ void sub_08028BC4(Entity* this) {
                 iVar1 = sub_0804A9FC(this, 0x1c);
                 if (iVar1 != NULL) {
                     iVar1->spritePriority.b0 = 3;
-                    iVar1->height.HALF.HI -= 12;
+                    iVar1->z.HALF.HI -= 12;
                     sub_0805E3A0(iVar1, 2);
                 }
                 SetFlag(this->field_0x86.HWORD);
@@ -417,7 +417,7 @@ bool32 sub_08028FDC(Entity* this) {
 
 void sub_08028FFC(Entity* this) {
     this->action = 1;
-    this->flags &= ~0x80;
+    COLLISION_OFF(this);
     this->spritePriority.b1 = 0;
     sub_080AE068(this);
     UnloadOBJPalette(this);
@@ -433,7 +433,7 @@ void sub_08028FFC(Entity* this) {
 
 void sub_08029078(Entity* this) {
     this->action = 2;
-    this->flags = this->flags | 0x80;
+    COLLISION_ON(this);
     this->spritePriority.b1 = 1;
     if (LoadFixedGFX(this, 0x72) == 0) {
         DeleteEntity(this);
@@ -549,7 +549,7 @@ void sub_0802925C(Entity* this) {
 void sub_08029270(Entity* this) {
     if (this->action == 0) {
         this->action++;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         InitializeAnimation(this, 0xe);
     } else {
         GetNextFrame(this);

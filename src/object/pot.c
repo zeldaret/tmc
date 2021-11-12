@@ -37,10 +37,10 @@ void sub_0808222C(Entity* this) {
     this->speed = 0x80;
     this->y.HALF.HI += 3;
     this->field_0x16 = 0;
-    this->flags |= 0x80;
-    this->currentHealth = 1;
+    COLLISION_ON(this);
+    this->health = 1;
     this->field_0x3c = 7;
-    this->damageType = 0x6E;
+    this->hitType = 0x6E;
     this->flags2 = 0x84;
     this->field_0x1c = 0x12;
     if (this->collisionLayer == 0) {
@@ -67,11 +67,11 @@ void sub_08082310(Entity* this) {
         case 0x1D:
             SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
             this->action = 5;
-            this->hVelocity = 0x2A000;
+            this->zVelocity = 0x2A000;
             this->spriteOffsetY = 0;
-            this->spriteSettings.b.shadow = 1;
+            this->spriteSettings.shadow = 1;
             this->spritePriority.b1 = 3;
-            this->flags &= 0x7F;
+            COLLISION_OFF(this);
             sub_08082824(this);
             break;
         default:
@@ -118,10 +118,10 @@ void sub_080824F8(Entity* this) {
 }
 
 void sub_08082510(Entity* this) {
-    this->flags |= 0x80;
+    COLLISION_ON(this);
     this->hitbox = &gUnk_080FD340;
     this->field_0x3c = 7;
-    this->damageType = 1;
+    this->hitType = 1;
     this->flags2 = gPlayerEntity.flags2;
     this->spriteOffsetY = 0;
     SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
@@ -251,8 +251,8 @@ void sub_08082818(Entity* this) {
 }
 
 void sub_08082824(Entity* this) {
-    if (this->hVelocity < 0) {
-        this->spriteSettings.b.flipY = 1;
+    if (this->zVelocity < 0) {
+        this->spriteSettings.flipY = 1;
     }
 
     if (sub_08003FC4(this, 0x2000) == 0) {

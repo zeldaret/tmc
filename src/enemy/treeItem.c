@@ -47,7 +47,7 @@ void TreeItem(Entity* this) {
             if (itemEntity) {
                 CopyPosition(this, itemEntity);
                 itemEntity->y.HALF.HI += 16;
-                itemEntity->height.HALF.HI = -32;
+                itemEntity->z.HALF.HI = -32;
             }
         }
     }

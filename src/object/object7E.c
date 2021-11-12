@@ -12,15 +12,15 @@ void Object7E(Entity* this) {
         this->spritePriority.b0 = 7;
         this->frameIndex = 0x28;
         if (this->type == 0) {
-            this->spriteSettings.b.draw = TRUE;
+            this->spriteSettings.draw = TRUE;
         } else if (this->type == 2) {
-            this->spriteSettings.b.flipX = TRUE;
+            this->spriteSettings.flipX = TRUE;
         }
     }
     PositionRelative(this->parent, this, 0, 0x80000);
-    this->height.HALF.HI = 0;
+    this->z.HALF.HI = 0;
     if (this->type != 0) {
-        this->spriteSettings.b.draw = this->attachedEntity->spriteSettings.b.draw;
-        this->frameIndex = this->attachedEntity->frameIndex + 0x1f;
+        this->spriteSettings.draw = this->child->spriteSettings.draw;
+        this->frameIndex = this->child->frameIndex + 0x1f;
     }
 }

@@ -26,12 +26,12 @@ void sub_0802A434(Entity* this) {
 }
 
 void sub_0802A454(Entity* this) {
-    if (this->damageType != 0x75 && ((this->bitfield & 0x7f) == 0 || (this->bitfield & 0x7f) == 0x1e)) {
+    if (this->hitType != 0x75 && ((this->bitfield & 0x7f) == 0 || (this->bitfield & 0x7f) == 0x1e)) {
         this->action = 5;
-        this->flags &= ~0x80;
+        COLLISION_OFF(this);
         this->field_0x7c.HALF.HI = gPlayerEntity.x.HALF.HI;
         this->field_0x80.HWORD = gPlayerEntity.y.HALF.HI;
-        this->field_0x82.HWORD = gPlayerEntity.height.HALF.HI;
+        this->field_0x82.HWORD = gPlayerEntity.z.HALF.HI;
         if (this->action != 3) {
             InitializeAnimation(this, 1);
         }
@@ -72,13 +72,13 @@ void sub_0802A534(Entity* this) {
         if (ent != NULL) {
             this->action = 2;
             this->actionDelay = 0x5a;
-            this->flags |= 0x80;
-            this->spriteSettings.b.draw = 3;
+            COLLISION_ON(this);
+            this->spriteSettings.draw = 3;
             this->x.HALF.HI = ent->x.HALF.HI;
             this->y.HALF.HI = ent->y.HALF.HI;
-            this->height.HALF.HI = -0x80;
+            this->z.HALF.HI = -0x80;
             this->spritePriority.b1 = 1;
-            this->spriteSettings.b.shadow = 2;
+            this->spriteSettings.shadow = 2;
             InitializeAnimation(this, 2);
             sub_0802A7D0(this);
         }
@@ -93,11 +93,11 @@ void sub_0802A5B8(Entity* this) {
             InitializeAnimation(this, 0);
         }
     } else {
-        this->height.HALF.HI += 3;
-        if (-1 < this->height.HALF.HI) {
+        this->z.HALF.HI += 3;
+        if (-1 < this->z.HALF.HI) {
             this->action = 3;
-            this->spriteSettings.b.draw = 1;
-            this->height.HALF.HI = 0;
+            this->spriteSettings.draw = 1;
+            this->z.HALF.HI = 0;
             InitializeAnimation(this, 1);
         }
     }
@@ -109,24 +109,24 @@ void sub_0802A610(Entity* this) {
 
     GetNextFrame(this);
     sub_0802A7D0(this);
-    flags = this->frames.all & 0x80;
+    flags = this->frame & 0x80;
     if (flags) {
         this->action = 4;
         this->actionDelay = 0x1e;
-    } else if (this->frames.all & 1) {
-        this->frames.all = flags;
-        this->damageType = 0x75;
+    } else if (this->frame & 1) {
+        this->frame = flags;
+        this->hitType = 0x75;
     }
 }
 
 void sub_0802A650(Entity* this) {
     sub_0802A7D0(this);
-    this->height.HALF.HI -= 2;
-    if (-0xa0 > this->height.HALF.HI) {
+    this->z.HALF.HI -= 2;
+    if (-0xa0 > this->z.HALF.HI) {
         this->action = 1;
-        this->flags &= ~0x80;
-        this->spriteSettings.b.draw = 0;
-        this->damageType = 0x74;
+        COLLISION_OFF(this);
+        this->spriteSettings.draw = 0;
+        this->hitType = 0x74;
         this->field_0x78.HWORD = this->field_0x7c.BYTES.byte0 * 0x3c;
     }
 }
@@ -139,26 +139,26 @@ void sub_0802A69C(Entity* this) {
     gPlayerState.field_0x1a[0] |= 0x80;
     gPlayerEntity.x.HALF.HI = this->field_0x7c.HALF.HI;
     gPlayerEntity.y.HALF.HI = this->field_0x80.HWORD;
-    gPlayerEntity.height.HALF.HI = this->field_0x82.HWORD;
+    gPlayerEntity.z.HALF.HI = this->field_0x82.HWORD;
 
-    if (gPlayerEntity.height.HALF.HI != this->height.HALF.HI) {
-        if (gPlayerEntity.height.HALF.HI < this->height.HALF.HI) {
-            this->height.HALF.HI--;
+    if (gPlayerEntity.z.HALF.HI != this->z.HALF.HI) {
+        if (gPlayerEntity.z.HALF.HI < this->z.HALF.HI) {
+            this->z.HALF.HI--;
         } else {
-            this->height.HALF.HI++;
+            this->z.HALF.HI++;
         }
     }
 
     /* sigh... */
     GetNextFrame(this);
-    flags = this->frames.all & 0x80;
+    flags = this->frame & 0x80;
     if (flags) {
         this->action = 6;
         this->actionDelay = 0x1e;
-    } else if (this->frames.all & 0x1) {
-        this->frames.all = flags;
+    } else if (this->frame & 0x1) {
+        this->frame = flags;
         this->spriteOffsetY = 3;
-        gPlayerEntity.spriteSettings.b.draw = 0;
+        gPlayerEntity.spriteSettings.draw = 0;
     }
 }
 
@@ -168,7 +168,7 @@ void sub_0802A734(Entity* this) {
         sub_0805E5A8();
         DoExitTransition(gUnk_0813AB1C[gArea.regret]);
     } else {
-        this->height.WORD -= 0x20000;
+        this->z.WORD -= 0x20000;
         gPlayerState.field_0xa |= 0x80;
         gPlayerState.field_0x1a[0] |= 0x80;
     }

@@ -27,12 +27,12 @@ void sub_080AA3E0(Entity*, u32);
 bool32 sub_080AA374(Entity*);
 
 void MandiblesProjectile(Entity* this) {
-    Entity* entity = this->attachedEntity;
+    Entity* entity = this->child;
     if (entity == NULL) {
         entity = this->parent;
     }
-    if ((entity->field_0x43 == 0) && ((this->flags & 0x80) == 0)) {
-        this->flags |= 0x80;
+    if ((entity->field_0x43 == 0) && ((this->flags & ENT_COLLIDE) == 0)) {
+        COLLISION_ON(this);
     }
     MandiblesProjectile_Functions[GetNextFunction(this)](this);
 }
@@ -104,8 +104,8 @@ void MandiblesProjectile_Action1(Entity* this) {
 
 void MandiblesProjectile_Action2(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if ((this->frames.all & 0x40) != 0) {
-        this->frames.all &= 0xbf;
+    if ((this->frame & 0x40) != 0) {
+        this->frame &= 0xbf;
         EnqueueSFX(SFX_15D);
     }
     this->field_0x78.HWORD = TILE(this->x.HALF.HI, this->y.HALF.HI);
@@ -122,7 +122,7 @@ void MandiblesProjectile_Action3(Entity* this) {
     s8* tmp;
     Entity* entity;
 
-    entity = this->attachedEntity;
+    entity = this->child;
     if (entity == NULL) {
         DeleteThisEntity();
     }
@@ -141,7 +141,7 @@ void MandiblesProjectile_Action3(Entity* this) {
             this->field_0xf -= 1;
         } else {
             UpdateAnimationSingleFrame(this);
-            if ((this->frames.all & 0x80) != 0) {
+            if ((this->frame & 0x80) != 0) {
                 this->action = 4;
                 this->field_0x82.HALF.LO = 3;
                 this->field_0xf = 0x40;
@@ -164,16 +164,16 @@ void MandiblesProjectile_Action4(Entity* this) {
     u32 uVar2;
     Entity* entity;
 
-    entity = this->attachedEntity;
+    entity = this->child;
     if (entity != NULL) {
         if (entity->next == NULL) {
-            this->attachedEntity = NULL;
+            this->child = NULL;
         }
         if (this->field_0xf != 0) {
             this->field_0xf -= 1;
         } else {
             if (sub_080AA374(this) != 0) {
-                if (entity->currentHealth == 0) {
+                if (entity->health == 0) {
                     DeleteThisEntity();
                 }
                 EnqueueSFX(0xf2);
@@ -183,8 +183,8 @@ void MandiblesProjectile_Action4(Entity* this) {
                 this->actionDelay = 0;
                 this->field_0x80.HWORD = 0x20;
                 this->spriteOrientation.flipY = 2;
-                this->parent = this->attachedEntity;
-                this->attachedEntity = NULL;
+                this->parent = this->child;
+                this->child = NULL;
                 sub_080AA270(this);
                 entity = this->parent;
                 entity->action = 1;
@@ -223,12 +223,12 @@ void sub_080AA1D8(Entity* this) {
                 PositionRelative(parent, this, tmp[0] << 0x10, tmp[1] << 0x10);
             }
             if (parent->field_0x43 != 0) {
-                if ((this->flags & 0x80) != 0) {
-                    this->flags &= 0x7f;
+                if ((this->flags & ENT_COLLIDE) != 0) {
+                    COLLISION_OFF(this);
                 }
             } else {
-                if ((this->flags & 0x80) == 0) {
-                    this->flags |= 0x80;
+                if ((this->flags & ENT_COLLIDE) == 0) {
+                    COLLISION_ON(this);
                 }
             }
         }
@@ -306,13 +306,12 @@ NONMATCH("asm/non_matching/mandiblesProjectile/sub_080AA374.inc", bool32 sub_080
     bool32 result;
 
     result = FALSE;
-    if ((this->attachedEntity != NULL) && (this->attachedEntity->next != NULL)) {
+    if ((this->child != NULL) && (this->child->next != NULL)) {
         // TODO regalloc
-        animationState = this->attachedEntity->animationState;
-        uVar1 =
-            sub_0806F824(this, this->attachedEntity, gUnk_08129D14[animationState], gUnk_08129D14[animationState + 1]);
-        if (sub_0806FCB8(this, this->attachedEntity->x.HALF.HI + gUnk_08129D14[animationState],
-                         this->attachedEntity->y.HALF.HI + gUnk_08129D14[animationState + 1], 8) != 0) {
+        animationState = this->child->animationState;
+        uVar1 = sub_0806F824(this, this->child, gUnk_08129D14[animationState], gUnk_08129D14[animationState + 1]);
+        if (sub_0806FCB8(this, this->child->x.HALF.HI + gUnk_08129D14[animationState],
+                         this->child->y.HALF.HI + gUnk_08129D14[animationState + 1], 8) != 0) {
             result = TRUE;
         } else {
             sub_08004596(this, uVar1);

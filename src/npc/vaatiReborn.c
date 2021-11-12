@@ -57,7 +57,7 @@ void VaatiRebornAction0(Entity* this) {
             break;
         case 2:
             if ((this->type2 & 2) != 0) {
-                this->spriteSettings.b.flipX = 1;
+                this->spriteSettings.flipX = 1;
             }
             sub_0806B96C(this);
             InitAnimationForceUpdate(this, 0);
@@ -134,15 +134,15 @@ void VaatiRebornAction1(Entity* this) {
                     }
                     break;
                 case 1:
-                    if (this->frames.b.f3 != 0) {
+                    if (this->frame & 0x80) {
                         this->subAction = 2;
                         sub_0801D2B4(this, 0x13f);
                         InitAnimationForceUpdate(this, this->subAction - 1);
                     }
                     break;
                 case 2:
-                    if ((this->frames.all & 0x10) != 0) {
-                        this->frames.all &= 0xef;
+                    if ((this->frame & 0x10) != 0) {
+                        this->frame &= 0xef;
 
                         switch (++this->actionDelay) {
                             case 1:
@@ -157,7 +157,7 @@ void VaatiRebornAction1(Entity* this) {
                     }
                     break;
                 case 3:
-                    if (this->frames.b.f3 != 0) {
+                    if (this->frame & 0x80) {
                         SetRoomFlag(0);
                         DeleteThisEntity();
                     }
@@ -197,7 +197,7 @@ void sub_0806B96C(Entity* this) {
         DeleteThisEntity();
     }
     ptr = &gUnk_08112F80[this->type2];
-    this->spriteSettings.b.draw = entity->spriteSettings.b.draw;
+    this->spriteSettings.draw = entity->spriteSettings.draw;
     PositionRelative(entity, this, ptr->x << 0x10, (ptr->y + 0x21) << 0x10);
     UpdateAnimationSingleFrame(this);
 }

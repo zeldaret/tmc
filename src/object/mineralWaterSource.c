@@ -28,15 +28,15 @@ void MineralWaterSource_Init(Entity* this) {
     unknownParameters = &MineralWaterSourceParameters[this->type];
 
     this->type2 = unknownParameters->field_0x00;
-    this->field_0x40 = unknownParameters->field_0x03;
+    this->hurtType = unknownParameters->field_0x03;
 
     this->hitbox->width = unknownParameters->field_0x01;
     this->hitbox->height = unknownParameters->field_0x02;
 
-    this->flags |= 0x80;
+    COLLISION_ON(this);
 
     this->field_0x3c = 7;
-    this->damageType = 145;
+    this->hitType = 145;
     this->flags2 = 2;
 
     this->action = 1;

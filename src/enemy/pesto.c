@@ -49,14 +49,14 @@ void sub_08023F44(Entity* this) {
 }
 
 void sub_08023F5C(Entity* this) {
-    if (this->damageType != 0x6e) {
+    if (this->hitType != 0x6e) {
         if (this->bitfield == 0x80) {
             this->field_0x86.HALF.LO = 0x30;
 
             if ((this->field_0x82.HALF.HI & 0xf) == 3 && this->action == 6) {
                 switch (this->field_0x80.HALF.LO) {
                     case 1:
-                        this->height.HALF.HI = -0x10;
+                        this->z.HALF.HI = -0x10;
                         this->field_0x82.HALF.LO = 0;
                         this->field_0x78.HWORD = -0x10;
                         this->field_0x80.HALF.LO += 1;
@@ -68,7 +68,7 @@ void sub_08023F5C(Entity* this) {
             }
         }
     } else {
-        this->currentHealth = 0;
+        this->health = 0;
     }
 
     sub_0804AA30(this, gUnk_080CBEC4);
@@ -83,8 +83,8 @@ void sub_08023FF0(Entity* this) {
     if (this->subAction < 3 && !sub_0806F520(this)) {
         this->action = 1;
         this->subAction = 0;
-        this->flags |= 0x80;
-        this->damageType = 0x77;
+        COLLISION_ON(this);
+        this->hitType = 0x77;
         this->actionDelay = 1;
         this->speed = 0x40;
     } else {
@@ -108,9 +108,9 @@ void sub_08024058(Entity* this) {
 }
 
 void sub_08024060(Entity* this) {
-    if (this->damageType != 0x6e) {
-        this->flags = this->flags & 0x7f;
-        this->damageType = 0x6e;
+    if (this->hitType != 0x6e) {
+        COLLISION_OFF(this);
+        this->hitType = 0x6e;
         this->spriteRendering.b3 = gPlayerEntity.spriteRendering.b3;
     }
 
@@ -122,7 +122,7 @@ void nullsub_138(Entity* this) {
 }
 
 void sub_0802409C(Entity* this) {
-    this->currentHealth = 0;
+    this->health = 0;
     InitializeAnimation(this, this->animationState);
     CreateDust(this);
 }
@@ -142,11 +142,11 @@ void sub_080240B8(Entity* this) {
     switch (this->type) {
         case 0:
             this->field_0x78.HWORD = -0x10;
-            this->height.HALF.HI = -0x10;
+            this->z.HALF.HI = -0x10;
             break;
         case 1:
             this->field_0x78.HWORD = -0x30;
-            this->height.HALF.HI = -0x30;
+            this->z.HALF.HI = -0x30;
             break;
     }
 
@@ -172,7 +172,7 @@ void sub_080240B8(Entity* this) {
         this->field_0x82.HALF.HI = 0;
         ent = CreateProjectileWithParent(this, 6, this->field_0x82.HALF.HI);
         if (ent) {
-            this->attachedEntity = ent;
+            this->child = ent;
             ent->parent = this;
             ent->y.HALF.HI += 0x10;
         }
@@ -274,7 +274,7 @@ void sub_080243B8(Entity* this) {
     switch (this->field_0x80.HALF.LO) {
         case 0:
             if (sub_08024C48(this, TRUE)) {
-                if (this->attachedEntity == NULL || this->attachedEntity->next == NULL) {
+                if (this->child == NULL || this->child->next == NULL) {
                     this->field_0x80.HALF.LO = 2;
                     this->actionDelay = 0x20;
                     this->speed = 0x80;
@@ -284,7 +284,7 @@ void sub_080243B8(Entity* this) {
                     this->actionDelay = 0x1e;
                     this->speed = 0x100;
                     this->field_0x82.HALF.HI = 0x80;
-                    this->attachedEntity->action = 2;
+                    this->child->action = 2;
                 } else if (--this->actionDelay) {
                     if (--this->field_0xf == 0) {
                         sub_08024A14(this, 2, (this->actionDelay >> 6) + 1);
@@ -354,7 +354,7 @@ void sub_080244E8(Entity* this) {
             }
             break;
         case 1:
-            if (++this->height.HALF.HI >= -0x10) {
+            if (++this->z.HALF.HI >= -0x10) {
                 this->field_0x82.HALF.LO = 0;
                 this->field_0x78.HWORD = 0xfff0;
                 if (sub_08024AD8(this)) {
@@ -375,7 +375,7 @@ void sub_080244E8(Entity* this) {
                     } else {
                         sub_08024E1C(this);
                     }
-                    this->direction = GetFacingDirection(this, this->attachedEntity);
+                    this->direction = GetFacingDirection(this, this->child);
                     sub_08024E00(this, 0);
                     sub_080249DC(this);
                 } else if (--this->field_0xf == 0) {
@@ -403,44 +403,44 @@ void sub_080244E8(Entity* this) {
                         }
                         break;
                     case 1:
-                        if (sub_080041A0(this, this->attachedEntity, 6, 6)) {
+                        if (sub_080041A0(this, this->child, 6, 6)) {
                             Entity* ent;
 
                             this->field_0x80.HALF.LO += 1;
                             this->actionDelay = 0xc;
                             this->field_0x82.HALF.HI &= ~0x80;
-                            CopyPosition(this->attachedEntity, this);
-                            this->height.HALF.HI -= 0xe;
+                            CopyPosition(this->child, this);
+                            this->z.HALF.HI -= 0xe;
                             this->field_0x78.HWORD -= 0xe;
 
                             ent = CreateProjectileWithParent(this, 6, this->field_0x82.HALF.HI);
                             if (ent) {
                                 ent->parent = this;
-                                ent->height.HALF.HI += 0xe;
-                                ent->attachedEntity = this->attachedEntity;
-                                CopyPosition(ent, ent->attachedEntity);
-                                this->attachedEntity = ent;
+                                ent->z.HALF.HI += 0xe;
+                                ent->child = this->child;
+                                CopyPosition(ent, ent->child);
+                                this->child = ent;
                             }
                         }
                         break;
                     case 2:
-                        if (sub_080041A0(this, this->attachedEntity, 6, 6)) {
+                        if (sub_080041A0(this, this->child, 6, 6)) {
                             Entity* ent;
 
                             this->field_0x80.HALF.LO += 1;
                             this->actionDelay = 0xc;
                             this->field_0x82.HALF.HI &= ~0x80;
-                            ent = this->attachedEntity;
+                            ent = this->child;
                             SetTile((u16)ent->field_0x70.HALF.LO, COORD_TO_TILE(ent), ent->collisionLayer);
                             DeleteEntity(ent);
-                            this->height.HALF.HI -= 0xe;
+                            this->z.HALF.HI -= 0xe;
                             this->field_0x78.HWORD -= 0xe;
 
                             ent = CreateProjectileWithParent(this, 6, this->field_0x82.HALF.HI);
                             if (ent) {
                                 ent->parent = this;
-                                ent->height.HALF.HI += 0xe;
-                                this->attachedEntity = ent;
+                                ent->z.HALF.HI += 0xe;
+                                this->child = ent;
                             }
                         }
                         break;
@@ -460,14 +460,14 @@ void sub_080244E8(Entity* this) {
             }
             break;
         case 4:
-            this->height.HALF.HI -= 2;
-            if (-60 > this->height.HALF.HI) {
+            this->z.HALF.HI -= 2;
+            if (-60 > this->z.HALF.HI) {
                 this->field_0x80.HALF.LO++;
             }
             break;
         case 5:
-            if (this->height.HALF.HI < -0x30) {
-                this->height.HALF.HI++;
+            if (this->z.HALF.HI < -0x30) {
+                this->z.HALF.HI++;
             } else {
                 if (this->field_0x82.HALF.LO != 0) {
                     this->field_0x82.HALF.LO = 0;
@@ -511,7 +511,7 @@ void sub_080244E8(Entity* this) {
             }
             break;
         case 7:
-            if (gPlayerEntity.height.HALF.HI == 0) {
+            if (gPlayerEntity.z.HALF.HI == 0) {
                 this->field_0x80.HALF.LO = 0;
                 this->speed = 0x80;
                 sub_08024B38(this);
@@ -532,9 +532,9 @@ void sub_08024940(Entity* this) {
     }
 
     if (this->field_0x82.HALF.LO == 0) {
-        this->height.HALF.HI = this->field_0x78.HWORD;
+        this->z.HALF.HI = this->field_0x78.HWORD;
         if (random)
-            this->height.HALF.HI += 2;
+            this->z.HALF.HI += 2;
     }
 
     if (this->type2 != 0 || CheckIsDungeon()) {
@@ -543,7 +543,7 @@ void sub_08024940(Entity* this) {
             sub_080249F4(this);
         }
 
-        if (this->height.HALF.HI < -0x20) {
+        if (this->z.HALF.HI < -0x20) {
             this->spritePriority.b0 = 0;
         } else {
             this->spritePriority.b0 = 1;
@@ -579,7 +579,7 @@ void sub_08024A14(Entity* this, u32 param_2, u32 param_3) {
             break;
         case 1:
             if (sub_08024C48(this, FALSE)) {
-                sub_08004596(this, GetFacingDirection(this, this->attachedEntity));
+                sub_08004596(this, GetFacingDirection(this, this->child));
                 unk = TRUE;
             }
             break;
@@ -614,8 +614,8 @@ bool32 sub_08024AD8(Entity* this) {
         u8 unk = FALSE;
         if ((this->field_0x82.HALF.HI & 0x3f) == 3) {
             if (gPlayerState.hurtBlinkSpeed == 0) {
-                this->attachedEntity->parent = NULL;
-                this->attachedEntity = NULL;
+                this->child->parent = NULL;
+                this->child = NULL;
                 this->field_0x82.HALF.HI = 0xc0;
                 return FALSE;
             }
@@ -623,7 +623,7 @@ bool32 sub_08024AD8(Entity* this) {
         }
 
         if (sub_08024C48(this, unk) == 0) {
-            this->attachedEntity = NULL;
+            this->child = NULL;
             this->field_0x82.HALF.HI = 0xc0;
             return FALSE;
         }
@@ -649,13 +649,13 @@ bool32 sub_08024B38(Entity* this) {
         if (gPlayerState.hurtBlinkSpeed != 0) {
             if (sub_08024C48(this, 1) && sub_08049F1C(this, gUnk_020000B0, 0xa0)) {
                 iVar4 = 1;
-                this->attachedEntity = gUnk_020000B0;
+                this->child = gUnk_020000B0;
                 this->field_0x82.HALF.HI |= 3;
                 this->field_0x82.HALF.HI &= ~0x40;
             }
 
             if (iVar4 == 0) {
-                this->attachedEntity = NULL;
+                this->child = NULL;
             }
             return iVar4;
         }
@@ -664,9 +664,9 @@ bool32 sub_08024B38(Entity* this) {
     ent = FindEntityByID(8, 2, 2);
     if (ent) {
         do {
-            if (ent->action != 2 && ent->height.HALF.HI == 0 && sub_08049F1C(this, ent, 0xa0)) {
+            if (ent->action != 2 && ent->z.HALF.HI == 0 && sub_08049F1C(this, ent, 0xa0)) {
                 iVar4 = 1;
-                this->attachedEntity = ent;
+                this->child = ent;
                 this->field_0x82.HALF.HI |= 1;
                 this->field_0x82.HALF.HI &= ~0x40;
                 break;
@@ -683,7 +683,7 @@ bool32 sub_08024B38(Entity* this) {
         do {
             if (ent->action == 1 && sub_08049F1C(this, ent, 0xa0)) {
                 iVar4 = 1;
-                this->attachedEntity = ent;
+                this->child = ent;
                 this->field_0x82.HALF.HI |= 2;
                 this->field_0x82.HALF.HI &= ~0x40;
                 break;
@@ -692,7 +692,7 @@ bool32 sub_08024B38(Entity* this) {
     }
 
     if (iVar4 == 0) {
-        this->attachedEntity = NULL;
+        this->child = NULL;
     }
 
     return iVar4;
@@ -840,7 +840,7 @@ void sub_08024F50(Entity* this) {
     gPlayerEntity.direction = gPlayerEntity.animationState << 2;
     gPlayerEntity.speed = 0;
     gPlayerEntity.spritePriority.b1 = this->cutsceneBeh.HALF.HI;
-    gPlayerEntity.height.HALF.HI = gPlayerEntity.spriteOffsetY;
+    gPlayerEntity.z.HALF.HI = gPlayerEntity.spriteOffsetY;
     gPlayerEntity.spriteOffsetY = 0;
     this->flags2 |= 3;
     this->field_0x82.HALF.HI = 0xc0;

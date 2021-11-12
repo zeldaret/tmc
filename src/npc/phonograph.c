@@ -12,7 +12,7 @@ extern u16 gBG0Settings[];
 void Phonograph(Entity* this) {
     if (this->action == 0) {
         this->action += 1;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         this->field_0x68.HWORD = 1;
         this->field_0x6a.HWORD = 0xffff;
         sub_0807DD64(this);
@@ -32,6 +32,6 @@ void sub_0806EABC(Entity* this, u32 param) {
     sub_08050384();
     sub_08057044(param, &gUnk_020227E8, 0x202020);
     sub_0805F46C(0x3302, &gUnk_081146B8);
-    gScreen.bg.bg0Updated = 1;
+    gScreen.bg0.updated = 1;
 }
 #endif

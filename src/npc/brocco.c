@@ -26,7 +26,7 @@ void sub_08063544(Entity* this) {
 
 void sub_0806355C(Entity* this) {
     this->action = this->action + 1;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     InitAnimationForceUpdate(this, 4);
     sub_08078778(this);
 }
@@ -46,7 +46,7 @@ void sub_0806362C(Entity* this) {
     switch (this->action) {
         case 0:
             this->action = 1;
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
             this->field_0x68.HALF.HI = 0;
             sub_0807DD64(this);
         case 1:
@@ -84,7 +84,7 @@ void sub_080636F4(Entity* this) {
 void Brocco_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action += 1;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         this->y.HALF.HI -= 4;
         InitAnimationForceUpdate(this, 2);
     } else {

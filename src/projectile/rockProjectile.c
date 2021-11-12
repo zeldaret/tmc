@@ -31,7 +31,7 @@ void sub_080A8064(Entity* this) {
 void RockProjectile_Init(Entity* this) {
     this->action = 1;
     this->actionDelay = 0x30;
-    this->hVelocity = 0xa000;
+    this->zVelocity = 0xa000;
     InitializeAnimation(this, 0);
 }
 
@@ -69,7 +69,7 @@ void RockProjectile_Action3(Entity* this) {
             DeleteEntity(this);
             return;
         case 1:
-            this->flags &= 0x7f;
+            COLLISION_OFF(this);
             this->speed = 0x120;
             if (sub_0800442E(this) != 0) {
                 return;
@@ -77,16 +77,16 @@ void RockProjectile_Action3(Entity* this) {
 
             break;
     }
-    if ((this->flags & 0x80) == 0) {
-        this->spriteSettings.b.draw ^= 1;
+    if ((this->flags & ENT_COLLIDE) == 0) {
+        this->spriteSettings.draw ^= 1;
     }
 }
 
 void sub_080A8178(Entity* this) {
     this->action = 2;
-    this->flags &= 0x7f;
+    COLLISION_OFF(this);
     this->speed = 0x40;
-    this->hVelocity = 0x14000;
+    this->zVelocity = 0x14000;
 }
 
 void (*const RockProjectile_Functions[])(Entity*) = {

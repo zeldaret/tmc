@@ -86,7 +86,7 @@ void sub_080ACC04(Entity* this) {
     this->flags2 = gPlayerEntity.flags2;
     this->direction = this->animationState << 2;
     this->speed = 0x200;
-    this->flags |= 0xa0;
+    this->flags |= ENT_COLLIDE | ENT_20;
     this->field_0x3c = 2;
     this->hitbox = (Hitbox*)gUnk_0812AAD8[this->type];
     this->field_0x70.WORD = 0x10;
@@ -124,14 +124,14 @@ void sub_080ACC78(Entity* this) {
         }
         *(u32*)&this->field_0x74 += 2;
     }
-    if (this->attachedEntity == NULL && (u32)this->field_0x70.WORD > 2) {
+    if (this->child == NULL && (u32)this->field_0x70.WORD > 2) {
         this->field_0x70.WORD = 1;
     }
 
     if (--this->field_0x70.WORD != -1) {
         return;
     }
-    if (this->attachedEntity == NULL) {
+    if (this->child == NULL) {
         this->field_0x70.WORD = 2;
     } else {
         this->field_0x70.WORD = gUnk_0812AABC[this->type];
@@ -173,12 +173,12 @@ ASM_FUNC("asm/non_matching/playerItem10/sub_080ACDB0.inc", bool32 sub_080ACDB0(E
 void sub_080ACECC(Entity* this) {
     Entity* entity;
 
-    if (this->type < 3 && this->attachedEntity == NULL && (s32) * (u32*)&this->field_0x78 >= 0 &&
+    if (this->type < 3 && this->child == NULL && (s32) * (u32*)&this->field_0x78 >= 0 &&
         gUnk_0812AAE8[this->type] <= *(u32*)&this->field_0x78) {
         entity = CreatePlayerItem(0x10, this->type + 1, 0, 0);
         if (entity != NULL) {
             entity->parent = this;
-            this->attachedEntity = entity;
+            this->child = entity;
             entity->x.HALF.HI = this->x.HALF.HI;
             entity->y.HALF.HI = this->y.HALF.HI;
         }

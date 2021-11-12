@@ -16,14 +16,14 @@ void sub_0806BC58(Entity* this) {
 }
 
 void Farmers_Head(Entity* this) {
-    SetExtraSpriteFrame(this, 0, this->frames.all & 0x7f);
+    SetExtraSpriteFrame(this, 0, this->frame & 0x7f);
     SetExtraSpriteFrame(this, 1, this->frameIndex);
     SetSpriteSubEntryOffsetData1(this, 1, 0);
     sub_0807000C(this);
 }
 
 void sub_0806BC94(Entity* this, ScriptExecutionContext* context) {
-    InitializeAnimation(this, context->intVariable + (BOOLCAST(this->spriteSettings.b.flipX) & 8U) +
+    InitializeAnimation(this, context->intVariable + (BOOLCAST(this->spriteSettings.flipX) & 8U) +
                                   (this->animationState >> 1));
 }
 
@@ -50,8 +50,8 @@ void Farmers_Fusion(Entity* this) {
     if (this->action == 0) {
         if (LoadExtraSpriteData(this, &gUnk_08113140[this->type * 3]) != 0) {
             this->action = this->action + 1;
-            this->spriteSettings.b.draw = 1;
-            this->spriteSettings.b.flipX = 0;
+            this->spriteSettings.draw = 1;
+            this->spriteSettings.flipX = 0;
             sub_0806BC58(this);
             InitAnimationForceUpdate(this, 3);
         }

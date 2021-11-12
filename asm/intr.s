@@ -268,8 +268,8 @@ UpdateCollision: @ 0x080B1C54
 	strb r1, [r3]
 	bx lr
 
-	arm_func_start sub_080B1C7C
-sub_080B1C7C: @ 0x080B1C7C
+	arm_func_start CollideAll
+CollideAll: @ 0x080B1C7C
 	push {r4, r5, r6, r7, r8, sb, sl, lr}
 	add r0, pc, #0x104 @ =_080B1D8C
 	ldm r0, {r8, sb, sl}
@@ -314,7 +314,7 @@ _080B1CC8:
 	orrs r0, r0, r2
 	bne _080B1CC8
 _080B1D20:
-	bl sub_080B1D98
+	bl CalcCollision
 	cmp r0, #0
 	beq _080B1CC8
 	ldrb r3, [r4, #0x3c]
@@ -348,8 +348,10 @@ _080B1D8C: .4byte gUnk_02018EA0
 _080B1D90: .4byte gCollidableList
 _080B1D94: .4byte gCollidableCount
 
-	arm_func_start sub_080B1D98
-sub_080B1D98: @ 0x080B1D98
+	arm_func_start CalcCollision
+CalcCollision: @ 0x080B1D98
+	@ r6 = this, r7 = other
+
 	push {r2, r3, r6, r7, r8, sb, ip, lr}
 	ldr r6, [r4, #0x48]
 	ldr r7, [r5, #0x48]
@@ -408,7 +410,7 @@ sub_080B1D98: @ 0x080B1D98
 _080B1E74:
 	mov r2, #0
 	mov ip, #0
-	bl sub_080B237C
+	bl CalcCollisionDirection
 	mov r6, r0
 	ldrb r1, [r5, #0x3f]
 	mov r0, #0x22
@@ -417,7 +419,7 @@ _080B1E74:
 	add r0, r0, r1
 	mov r1, #0xc
 	mul r2, r0, r1
-	ldr r1, _080B2014 @ =gUnk_080B7B74
+	ldr r1, _080B2014 @ =gCollisionMtx
 	add r3, r2, r1
 	mov r1, #0
 	ldrb r0, [r3]
@@ -532,7 +534,7 @@ _080B2004: .4byte gUnk_03005D18
 _080B2008: .4byte gUnk_03005D58
 _080B200C: .4byte gCollidableList
 _080B2010: .4byte gCollidableCount
-_080B2014: .4byte gUnk_080B7B74
+_080B2014: .4byte gCollisionMtx
 _080B2018: .4byte gUnk_080B3744
 
 	arm_func_start IntrMain
@@ -655,8 +657,6 @@ _080B21A4: .4byte 0x01010101
 _080B21A8: .4byte gUnk_02000006
 _080B21AC: .4byte gUnk_08000F54
 
-	arm_func_start UpdateEntities
-UpdateEntities: @ 0x080B21B0
 	ldr r11, _080B2270 @ =gUnk_03003DD0
 	ldr r1, [r11]
 	ldm r1, {r7, r8, r9, r10}
@@ -672,6 +672,8 @@ UpdateEntities: @ 0x080B21B0
 @	void* restore_sp;
 @ }
 
+	arm_func_start UpdateEntities_arm
+UpdateEntities_arm: @ 0x080B21B0
 @ UpdateEntities starts here
     @ arg0 (r0) : 0 = entities, 1 = managers
 	ldr r1, _080B2274 @ =gUnk_080026A4
@@ -796,8 +798,8 @@ _080B236C:
 	.align 2, 0
 _080B2378: .4byte sub_080044AE
 
-	arm_func_start sub_080B237C
-sub_080B237C: @ 0x080B237C
+	arm_func_start CalcCollisionDirection
+CalcCollisionDirection: @ 0x080B237C
 	subs r2, r2, r0
 	movpl r0, #0
 	movmi r0, #0x20

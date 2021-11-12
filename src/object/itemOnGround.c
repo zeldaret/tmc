@@ -50,10 +50,10 @@ void ItemOnGround(Entity* this) {
         switch (this->bitfield & 0x7F) {
             case 20:
                 this->action = 3;
-                this->flags &= 0x7F;
-                this->spriteSettings.b.draw = 1;
+                COLLISION_OFF(this);
+                this->spriteSettings.draw = 1;
                 this->field_0x3c |= 0x10;
-                this->attachedEntity = this->field_0x4c;
+                this->child = this->field_0x4c;
                 break;
             case 0:
             case 1:
@@ -90,25 +90,25 @@ void sub_08080F20(Entity* this) {
     }
 
     if (this->type != 0x60) {
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         this->spritePriority.b1 = 3;
-        this->spriteSettings.b.shadow = 0;
-        this->damageType = 7;
+        this->spriteSettings.shadow = 0;
+        this->hitType = 7;
         this->field_0x3c = 0x47;
-        this->field_0x40 = 0x44;
-        this->currentHealth = 0xFF;
+        this->hurtType = 0x44;
+        this->health = 0xFF;
         this->hitbox = &gUnk_080FD1A8;
-        switch (this->type - 0x3F) {
-            case 0:
-            case 21:
-            case 22:
-            case 23:
-            case 24:
-            case 25:
-            case 29:
-            case 30:
-            case 31:
-            case 32:
+        switch (this->type) {
+            case 0x3f:
+            case 0x54:
+            case 0x55:
+            case 0x56:
+            case 0x57:
+            case 0x58:
+            case 0x5c:
+            case 0x5d:
+            case 0x5e:
+            case 0x5f:
                 this->flags2 = 0x17;
                 break;
             default:
@@ -150,8 +150,8 @@ void sub_080810A8(Entity* this) {
         this->direction |= 0xFF;
     }
 
-    if (this->hVelocity == 0) {
-        this->hVelocity = 0x1E000;
+    if (this->zVelocity == 0) {
+        this->zVelocity = 0x1E000;
     }
 
     if (this->collisionLayer == 2) {
@@ -165,7 +165,7 @@ void sub_080810FC(Entity* this) {
     } else {
         this->action = 2;
         this->subAction = 0;
-        this->flags |= 0x80;
+        COLLISION_ON(this);
         this->flags2 = 0x11;
         CopyPosition(&gPlayerEntity, this);
     }
@@ -179,8 +179,8 @@ void sub_08081134(Entity* this) {
 
 void sub_08081150(Entity* this) {
     this->action = 2;
-    this->flags |= 0x80;
-    this->height.HALF.HI = -0x80;
+    COLLISION_ON(this);
+    this->z.HALF.HI = -0x80;
     this->spriteOrientation.flipY = 1;
     this->spriteRendering.b3 = 1;
     SoundReq(SFX_12D);
@@ -188,7 +188,7 @@ void sub_08081150(Entity* this) {
 
 void sub_08081188(Entity* this) {
     this->action = 2;
-    this->flags |= 0x80;
+    COLLISION_ON(this);
     if (this->collisionLayer == 2) {
         sub_08016A30(this);
     }
@@ -196,13 +196,13 @@ void sub_08081188(Entity* this) {
 
 void sub_080811AC(Entity* this) {
     this->action = 2;
-    this->spriteSettings.b.draw = 0;
+    this->spriteSettings.draw = 0;
     this->field_0x6e.HWORD = GetTileTypeByEntity(this);
 }
 
 void sub_080811C8(Entity* this) {
     this->action = 2;
-    this->spriteSettings.b.draw = 0;
+    this->spriteSettings.draw = 0;
 }
 
 void sub_080811D8(Entity* this) {
@@ -218,9 +218,9 @@ void sub_080811EC(Entity* this) {
     }
 
     sub_08003FC4(this, 0x2800);
-    if (this->hVelocity <= 0) {
+    if (this->zVelocity <= 0) {
         this->action = 2;
-        this->flags |= 0x80;
+        COLLISION_ON(this);
         sub_080814A4(this);
     }
 }
@@ -262,7 +262,7 @@ void sub_080812A8(Entity* this) {
     if (sub_080002D0(this) != 0xF && this->field_0x6e.HWORD != GetTileTypeByEntity(this)) {
         this->direction = 0;
         this->speed = 0;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         this->field_0x68.HALF.HI = 0;
         sub_080810A8(this);
     }
@@ -283,12 +283,12 @@ void nullsub_510(Entity* this) {
 }
 
 void sub_08081328(Entity* this) {
-    Entity* other = this->attachedEntity;
+    Entity* other = this->child;
     if (!(other->kind == 8 && other->id == 3)) {
         sub_08081404(this, 0);
     } else {
         CopyPosition(other, this);
-        this->height.HALF.HI--;
+        this->z.HALF.HI--;
         other = &gPlayerEntity;
         if (sub_080177A0(this, other)) {
             sub_080810FC(this);
@@ -298,7 +298,7 @@ void sub_08081328(Entity* this) {
 
 void sub_0808136C(Entity* this) {
     if (--this->actionDelay) {
-        Entity* other = this->attachedEntity;
+        Entity* other = this->child;
         this->x.WORD = other->x.WORD;
         this->y.WORD = other->y.WORD;
         this->spriteOrientation.flipY = other->spriteOrientation.flipY;
@@ -316,7 +316,7 @@ void sub_080813BC(Entity* this) {
 void sub_080813D4(Entity* this) {
     this->subAction = 1;
     this->field_0x1d = 1;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
 }
 
 void sub_080813E8(Entity* this) {
@@ -383,7 +383,7 @@ u32 sub_080814C0(Entity* this) {
         }
 
         if (this->field_0x6c.HWORD < 90) {
-            this->spriteSettings.b.draw ^= 1;
+            this->spriteSettings.draw ^= 1;
         }
     }
 
@@ -413,7 +413,7 @@ void sub_0808153C(Entity* this) {
     if (this->field_0x68.HALF.LO == 0) {
         if (!sub_08003FC4(this, 0x1000) && !sub_0800442E(this)) {
             this->field_0x68.HALF.LO = 1;
-            this->hVelocity = 0x1E000;
+            this->zVelocity = 0x1E000;
             sub_0808148C(this->type);
             UpdateSpriteForCollisionLayer(this);
         }
@@ -426,20 +426,20 @@ void sub_0808153C(Entity* this) {
 }
 
 void sub_08081598(Entity* this) {
-    if (this->currentHealth == 0) {
+    if (this->health == 0) {
         sub_08081404(this, 1);
     }
 
-    this->flags &= 0x7F;
+    COLLISION_OFF(this);
     this->action = 4;
     this->actionDelay = 14;
-    this->hVelocity = 0x20000;
-    this->spriteSettings.b.draw = 1;
+    this->zVelocity = 0x20000;
+    this->spriteSettings.draw = 1;
     this->spritePriority.b1 = 2;
     this->spritePriority.b0 = 3;
-    this->attachedEntity = &gPlayerEntity;
-    CopyPosition(this->attachedEntity, this);
-    this->height.HALF.HI -= 4;
+    this->child = &gPlayerEntity;
+    CopyPosition(this->child, this);
+    this->z.HALF.HI -= 4;
     if (this->type != 0x5F && sub_08081420(this)) {
         sub_08081404(this, 1);
     }

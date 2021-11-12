@@ -18,7 +18,7 @@ void GuardLineOfSight(Entity* this) {
         if (this->action == 0) {
             this->action = 1;
             this->actionDelay = Random();
-            this->spriteSettings.b.draw = 0;
+            this->spriteSettings.draw = 0;
         }
         if (this->bitfield == 0x80) {
             if (this->parent != NULL) {
@@ -47,7 +47,7 @@ void GuardLineOfSight(Entity* this) {
         if (this->action == 0) {
             this->action = 1;
             this->actionDelay = 0x12;
-            this->spriteSettings.b.draw = 0;
+            this->spriteSettings.draw = 0;
             this->speed = 0x800;
             this->hitbox = (Hitbox*)&gUnk_080FD1E4;
             InitializeAnimation(this, 0);

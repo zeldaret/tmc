@@ -15,7 +15,7 @@ void Mama(Entity* this) {
         case 0:
             if (sub_0806C454(this) != 0) {
                 this->action = 1;
-                this->spriteSettings.b.draw = 1;
+                this->spriteSettings.draw = 1;
                 this->animationState = this->actionDelay;
                 this->field_0x68.HALF.HI = 0;
                 sub_0807DD50(this);
@@ -54,7 +54,7 @@ bool32 sub_0806C454(Entity* this) {
 }
 
 void Mama_Head(Entity* this) {
-    SetExtraSpriteFrame(this, 0, this->frames.all & 0x7f);
+    SetExtraSpriteFrame(this, 0, this->frame & 0x7f);
     SetExtraSpriteFrame(this, 1, this->frameIndex);
     SetSpriteSubEntryOffsetData1(this, 1, 0);
     sub_0807000C(this);
@@ -62,7 +62,7 @@ void Mama_Head(Entity* this) {
 
 void sub_0806C4A8(Entity* this, ScriptExecutionContext* context) {
     s32 tmp;
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         tmp = GetAnimationState(this);
         if (tmp < 0) {
             tmp = 3;
@@ -88,7 +88,7 @@ void Mama_Fusion(Entity* this) {
     if (this->action == 0) {
         if (sub_0806C454(this) != 0) {
             this->action += 1;
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
             this->y.HALF.HI -= 4;
             InitializeAnimation(this, 2);
         }

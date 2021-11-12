@@ -55,6 +55,6 @@ END_NONMATCH
 ASM_FUNC("asm/non_matching/playerItemC/sub_0801B938.inc", void sub_0801B938(Entity* this))
 
 void sub_0801B9F0(Entity* this) {
-    this->flags &= 0x7f;
+    COLLISION_OFF(this);
     sub_08017744(this);
 }

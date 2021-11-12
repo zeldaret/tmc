@@ -21,7 +21,7 @@ void Pita(Entity* this) {
         sub_0807DD64(this);
     }
     sub_0807DD94(this, NULL);
-    if ((this->frames.all & 1) != 0) {
+    if ((this->frame & 1) != 0) {
         InitAnimationForceUpdate(this, (u32)(this->animationState >> 1));
         this->field_0x80.HWORD = this->animIndex;
     }

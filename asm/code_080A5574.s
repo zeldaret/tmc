@@ -4890,7 +4890,7 @@ sub_080A7250: @ 0x080A7250
 	adds r0, #0x8b
 	ldrb r0, [r0]
 	strb r0, [r1, #0xc]
-	ldr r0, _080A731C @ =gUnk_02017654
+	ldr r0, _080A731C @ =gCurrentRoomProperties
 	ldr r0, [r0]
 	str r0, [r1, #0x10]
 	ldr r0, _080A7320 @ =gUnk_02025EB0
@@ -4917,7 +4917,7 @@ _080A730C: .4byte gUnk_03000420
 _080A7310: .4byte gActiveScriptInfo
 _080A7314: .4byte gScreenTransition
 _080A7318: .4byte gPlayerState
-_080A731C: .4byte gUnk_02017654
+_080A731C: .4byte gCurrentRoomProperties
 _080A7320: .4byte gUnk_02025EB0
 _080A7324: .4byte gUnk_0200B650
 
@@ -4983,7 +4983,7 @@ sub_080A73A8: @ 0x080A73A8
 _080A73B4:
 	bl DeleteAllEntities
 	bl sub_0805E974
-	ldr r1, _080A746C @ =gUnk_02017654
+	ldr r1, _080A746C @ =gCurrentRoomProperties
 	ldr r5, _080A7470 @ =gUnk_02032EC0
 	ldr r0, [r5, #0x10]
 	str r0, [r1]
@@ -5058,7 +5058,7 @@ _080A73B4:
 	b _080A74AE
 	.align 2, 0
 _080A7468: .4byte gFadeControl
-_080A746C: .4byte gUnk_02017654
+_080A746C: .4byte gCurrentRoomProperties
 _080A7470: .4byte gUnk_02032EC0
 _080A7474: .4byte gPlayerState
 _080A7478: .4byte gUnk_02025EB0
@@ -5120,8 +5120,8 @@ sub_080A74F4: @ 0x080A74F4
 	movs r0, #0
 	strb r0, [r1, #0xb]
 	bl FlushSprites
-	bl sub_0805E5C0
-	bl sub_0805E5F8
+	bl UpdateEntities
+	bl UpdateManagers
 	bl sub_0801C344
 	bl sub_0801C208
 	bl sub_08078CB4

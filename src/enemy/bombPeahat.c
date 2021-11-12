@@ -87,7 +87,7 @@ void sub_0802A8F4(Entity* this) {
 
 void sub_0802A8FC(Entity* this) {
     if ((gPlayerState.field_0x1c & 0xf) == 0) {
-        this->currentHealth = gPlayerState.field_0x1c & 0xf;
+        this->health = gPlayerState.field_0x1c & 0xf;
     }
 }
 
@@ -96,7 +96,7 @@ void nullsub_143(Entity* this) {
 }
 
 void sub_0802A91C(Entity* this) {
-    this->currentHealth = 0;
+    this->health = 0;
 }
 
 void sub_0802A924(Entity* this) {
@@ -108,7 +108,7 @@ void sub_0802A924(Entity* this) {
 #ifdef EU
     this->field_0x3c |= 0x10;
 #endif
-    this->height.HALF.HI = -0x30;
+    this->z.HALF.HI = -0x30;
     this->field_0x80.HALF.LO = Random() & 1;
     this->field_0x82.HWORD = 0;
     this->field_0x7a.HALF.HI = 0;
@@ -140,7 +140,7 @@ void sub_0802A9A8(Entity* this) {
             if (gRoomControls.unk2 != 0) {
                 return;
             }
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
             this->field_0x82.HWORD = 1;
             if (this->field_0x80.HALF.LO) {
                 this->x.HALF.HI = gRoomControls.roomScrollX - 0x10;
@@ -166,10 +166,10 @@ void sub_0802AA40(Entity* this) {
     if (this->actionDelay) {
         this->actionDelay--;
     } else {
-        Entity* ent = this->attachedEntity;
+        Entity* ent = this->child;
         if (ent) {
             if (ent->next == NULL) {
-                this->attachedEntity = NULL;
+                this->child = NULL;
             } else {
                 u32 direction = DirectionRound(this->field_0x80.HALF.LO * 0x10 + 0x18);
 
@@ -198,12 +198,12 @@ void sub_0802AAC0(Entity* this) {
     }
 
     if (this->field_0x80.HALF.HI) {
-        Entity* ent = this->attachedEntity;
+        Entity* ent = this->child;
         if (ent == NULL) {
             this->field_0x80.HALF.HI = 0;
         } else if (ent->next == NULL) {
             this->field_0x80.HALF.HI = 0;
-            this->attachedEntity = NULL;
+            this->child = NULL;
         } else if (ent->actionDelay == 0 && ent->field_0xf < 0x51) {
             this->field_0x80.HALF.HI = 0;
         }
@@ -227,10 +227,10 @@ void sub_0802AB40(Entity* this) {
     sub_0802AC40(this);
     switch (this->field_0x78.HALF.LO) {
         case 0:
-            if (this->height.HALF.HI) {
+            if (this->z.HALF.HI) {
                 if (--this->field_0x78.HALF.HI == 0) {
                     this->field_0x78.HALF.HI = 4;
-                    this->height.HALF.HI++;
+                    this->z.HALF.HI++;
                 }
             } else {
                 this->field_0x78.HALF.LO = 1;
@@ -247,10 +247,10 @@ void sub_0802AB40(Entity* this) {
             }
             break;
         case 2:
-            if (-0x30 < this->height.HALF.HI) {
+            if (-0x30 < this->z.HALF.HI) {
                 if (--this->field_0x78.HALF.HI == 0) {
                     this->field_0x78.HALF.HI = 4;
-                    this->height.HALF.HI--;
+                    this->z.HALF.HI--;
                     sub_0802ACDC(this, 4);
                 }
             } else {
@@ -264,7 +264,7 @@ void sub_0802AB40(Entity* this) {
 #endif
 
 void sub_0802AC08(Entity* this) {
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         this->action = 2;
         this->subAction = 0;
         this->actionDelay = 0x40;
@@ -286,7 +286,7 @@ void sub_0802AC40(Entity* this) {
             this->field_0x7a.HALF.LO = 0;
             this->spritePriority.b1 = 0;
         } else {
-            if (this->height.HALF.HI == 0) {
+            if (this->z.HALF.HI == 0) {
                 if (this->spritePriority.b1 != 1) {
                     this->spritePriority.b1 = 1;
                 }
@@ -299,7 +299,7 @@ void sub_0802AC40(Entity* this) {
     } else {
         if (sub_0802B234(this)) {
             this->field_0x7a.HALF.LO = 1;
-            if (this->height.HALF.HI == 0) {
+            if (this->z.HALF.HI == 0) {
                 this->spritePriority.b1 = 1;
             } else {
                 this->spritePriority.b1 = 3;
@@ -335,19 +335,19 @@ void sub_0802AD1C(Entity* this, u32 param_2) {
 void sub_0802AD54(Entity* this) {
     if (this->field_0x82.HWORD != 0) {
         if (gRoomControls.unk2 != 0) {
-            this->spriteSettings.b.draw = 0;
+            this->spriteSettings.draw = 0;
             DeleteEntity(this);
             return;
         }
         if (gRoomControls.roomOriginY > this->y.HALF.HI ||
             (gRoomControls.roomOriginY + gRoomControls.height + 0x20) < this->y.HALF.HI) {
-            this->spriteSettings.b.draw = 0;
+            this->spriteSettings.draw = 0;
         } else {
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
         }
     }
     if (this->field_0x80.HALF.HI) {
-        if (this->attachedEntity == NULL || this->attachedEntity->next == NULL) {
+        if (this->child == NULL || this->child->next == NULL) {
             this->action = 4;
             this->actionDelay = 0xc0;
             this->field_0xf = 4;
@@ -365,10 +365,10 @@ void sub_0802ADDC(Entity* this) {
     if (ent != NULL) {
         ent->type2 = !!sub_0802B234(this);
         ent->parent = this;
-        this->attachedEntity = ent;
+        this->child = ent;
         CopyPosition(this, ent);
         /*#ifdef EU
-                this->height.HALF.HI += 8;
+                this->z.HALF.HI += 8;
         #endif*/
         this->field_0x80.HALF.HI = 1;
         if (this->type == 0) {
@@ -381,7 +381,7 @@ void sub_0802ADDC(Entity* this) {
 void sub_0802AE24(Entity* this) {
     this->action = 1;
     this->actionDelay = 0xf0;
-    this->hVelocity = 0x8000;
+    this->zVelocity = 0x8000;
     this->hitbox = (Hitbox*)&gUnk_080CD174;
     this->field_0x3c = 3;
     this->field_0x16 = 0;
@@ -403,7 +403,7 @@ void sub_0802AE68(Entity* this) {
     } else {
         if (ent->field_0x80.HALF.HI) {
             CopyPosition(ent, this);
-            this->spriteSettings.b.draw = 0;
+            this->spriteSettings.draw = 0;
         } else {
             this->action = 3;
             this->field_0x80.HALF.LO = 1;
@@ -507,9 +507,9 @@ void sub_0802B048(Entity* this) {
     if (this->field_0x7a.HALF.HI) {
         if (gRoomControls.roomOriginY > this->y.HALF.HI ||
             (gRoomControls.roomOriginY + gRoomControls.height + 0x20) < this->y.HALF.HI) {
-            this->flags &= ~0x80;
+            COLLISION_OFF(this);
         } else {
-            this->flags |= 0x80;
+            COLLISION_ON(this);
         }
     }
 
@@ -539,8 +539,8 @@ void sub_0802B048(Entity* this) {
                     this->action = 4;
                     this->hitbox = (Hitbox*)&gUnk_080CD17C;
                     this->actionDelay = 0xf;
-                    this->spriteSettings.b.draw = 0;
-                    this->flags |= 0x80;
+                    this->spriteSettings.draw = 0;
+                    COLLISION_ON(this);
                     this->field_0x7a.HALF.HI = 0;
                     sub_08078954(this);
                     if (this->parent->next) {
@@ -621,7 +621,7 @@ Entity* sub_0802B250(Entity* this) {
 }
 
 void sub_0802B264(Entity* this) {
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     if (sub_0802B234(this)) {
         this->spritePriority.b1 = 3;
     } else {

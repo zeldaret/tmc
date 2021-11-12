@@ -1992,7 +1992,7 @@ sub_080535AC: @ 0x080535AC
 	strh r0, [r2, #8]
 	ldr r0, _080535E0 @ =gUnk_02032EC0
 	strb r1, [r0, #6]
-	ldr r0, _080535E4 @ =gUnk_02000070
+	ldr r0, _080535E4 @ =gUpdateVisibleTiles
 	strb r1, [r0]
 	ldr r2, _080535E8 @ =gScreen
 	ldrh r1, [r2]
@@ -2008,7 +2008,7 @@ sub_080535AC: @ 0x080535AC
 	.align 2, 0
 _080535DC: .4byte gMenu
 _080535E0: .4byte gUnk_02032EC0
-_080535E4: .4byte gUnk_02000070
+_080535E4: .4byte gUpdateVisibleTiles
 _080535E8: .4byte gScreen
 _080535EC: .4byte 0x0000FEFF
 _080535F0: .4byte gUnk_080FCB94
@@ -2177,7 +2177,7 @@ sub_0805370C: @ 0x0805370C
 	ldrb r0, [r1, #6]
 	adds r0, #1
 	strb r0, [r1, #6]
-	ldr r1, _08053734 @ =gUnk_02000070
+	ldr r1, _08053734 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	bl sub_08051FF0
@@ -2189,7 +2189,7 @@ sub_0805370C: @ 0x0805370C
 	pop {pc}
 	.align 2, 0
 _08053730: .4byte gMenu
-_08053734: .4byte gUnk_02000070
+_08053734: .4byte gUpdateVisibleTiles
 _08053738: .4byte gUnk_080FCC54
 
 	thumb_func_start sub_0805373C
@@ -2642,7 +2642,7 @@ sub_08053ACC: @ 0x08053ACC
 	ldrb r0, [r1, #6]
 	adds r0, #1
 	strb r0, [r1, #6]
-	ldr r1, _08053AF8 @ =gUnk_02000070
+	ldr r1, _08053AF8 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	bl sub_08051FF0
@@ -2655,7 +2655,7 @@ sub_08053ACC: @ 0x08053ACC
 	pop {pc}
 	.align 2, 0
 _08053AF4: .4byte gMenu
-_08053AF8: .4byte gUnk_02000070
+_08053AF8: .4byte gUpdateVisibleTiles
 _08053AFC: .4byte gUnk_080FCD84
 
 	thumb_func_start sub_08053B00
@@ -2727,7 +2727,7 @@ sub_08053B74: @ 0x08053B74
 	ldrb r0, [r1, #6]
 	adds r0, #1
 	strb r0, [r1, #6]
-	ldr r1, _08053BA4 @ =gUnk_02000070
+	ldr r1, _08053BA4 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	ldr r0, _08053BA8 @ =gUnk_080FCDE0
@@ -2741,7 +2741,7 @@ sub_08053B74: @ 0x08053B74
 	pop {pc}
 	.align 2, 0
 _08053BA0: .4byte gMenu
-_08053BA4: .4byte gUnk_02000070
+_08053BA4: .4byte gUpdateVisibleTiles
 _08053BA8: .4byte gUnk_080FCDE0
 
 	thumb_func_start sub_08053BAC
@@ -2814,7 +2814,7 @@ sub_08053C20: @ 0x08053C20
 	strb r2, [r1, #6]
 	movs r0, #0x78
 	strh r0, [r1, #8]
-	ldr r0, _08053C54 @ =gUnk_02000070
+	ldr r0, _08053C54 @ =gUpdateVisibleTiles
 	strb r2, [r0]
 	bl sub_08051FF0
 	movs r0, #4
@@ -2829,7 +2829,7 @@ sub_08053C20: @ 0x08053C20
 	pop {pc}
 	.align 2, 0
 _08053C50: .4byte gMenu
-_08053C54: .4byte gUnk_02000070
+_08053C54: .4byte gUpdateVisibleTiles
 _08053C58: .4byte gUnk_080FCEBC
 
 	thumb_func_start nullsub_483
@@ -2922,7 +2922,7 @@ sub_08053CC8: @ 0x08053CC8
 	ldr r0, _08053D2C @ =0x0000FEFF
 	ands r0, r1
 	strh r0, [r2]
-	ldr r0, _08053D30 @ =gUnk_02000070
+	ldr r0, _08053D30 @ =gUpdateVisibleTiles
 	strb r5, [r0]
 	movs r0, #4
 	movs r1, #0x10
@@ -2938,7 +2938,7 @@ _08053D20: .4byte gMenu
 _08053D24: .4byte gUnk_080FCF04
 _08053D28: .4byte gScreen
 _08053D2C: .4byte 0x0000FEFF
-_08053D30: .4byte gUnk_02000070
+_08053D30: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_08053D34
 sub_08053D34: @ 0x08053D34
@@ -3020,7 +3020,7 @@ sub_08053DB4: @ 0x08053DB4
 	ldrb r1, [r4, #5]
 	bl sub_08052FF4
 	bl sub_0807C740
-	ldr r1, _08053E28 @ =gUnk_02000070
+	ldr r1, _08053E28 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	ldr r1, _08053E2C @ =gRoomControls
@@ -3058,7 +3058,7 @@ _08053E1C:
 	.align 2, 0
 _08053E20: .4byte gFadeControl
 _08053E24: .4byte gMenu
-_08053E28: .4byte gUnk_02000070
+_08053E28: .4byte gUpdateVisibleTiles
 _08053E2C: .4byte gRoomControls
 
 	thumb_func_start sub_08053E30
@@ -3119,7 +3119,7 @@ sub_08053E74: @ 0x08053E74
 	ldr r0, _08053EBC @ =0x0000FEFF
 	ands r0, r1
 	strh r0, [r2]
-	ldr r1, _08053EC0 @ =gUnk_02000070
+	ldr r1, _08053EC0 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	movs r0, #1
@@ -3133,7 +3133,7 @@ _08053EB0: .4byte gUnk_080FCFB8
 _08053EB4: .4byte gMenu
 _08053EB8: .4byte gScreen
 _08053EBC: .4byte 0x0000FEFF
-_08053EC0: .4byte gUnk_02000070
+_08053EC0: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_08053EC4
 sub_08053EC4: @ 0x08053EC4
@@ -3198,7 +3198,7 @@ sub_08053F20: @ 0x08053F20
 	ldrb r1, [r4, #9]
 	bl sub_08052FF4
 	bl sub_0807C740
-	ldr r1, _08053F80 @ =gUnk_02000070
+	ldr r1, _08053F80 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
 	ldr r1, _08053F84 @ =gRoomControls
@@ -3228,7 +3228,7 @@ _08053F74:
 	.align 2, 0
 _08053F78: .4byte gFadeControl
 _08053F7C: .4byte gMenu
-_08053F80: .4byte gUnk_02000070
+_08053F80: .4byte gUpdateVisibleTiles
 _08053F84: .4byte gRoomControls
 
 	thumb_func_start sub_08053F88

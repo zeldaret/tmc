@@ -6,14 +6,14 @@
 GetCurrentRoomProperty: @ 0x0804B128
 	push {lr}
 	adds r2, r0, #0
-	ldr r0, _0804B138 @ =gUnk_02017654
+	ldr r0, _0804B138 @ =gCurrentRoomProperties
 	ldr r1, [r0]
 	cmp r1, #0
 	bne _0804B13C
 	movs r0, #0
 	b _0804B166
 	.align 2, 0
-_0804B138: .4byte gUnk_02017654
+_0804B138: .4byte gCurrentRoomProperties
 _0804B13C:
 	cmp r2, #0x7f
 	bls _0804B150

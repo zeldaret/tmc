@@ -18,12 +18,12 @@ void sub_0805FA04(void) {
     MemClear(&gBG0Buffer, sizeof(gBG0Buffer));
     MemClear(&gBG3Buffer, sizeof(gBG3Buffer));
     gScreen.lcd.displayControl = 0x940;
-    gScreen.bg.bg0xOffset = 0;
-    gScreen.bg.bg0yOffset = 0;
-    gScreen.affine.bg3xOffset = 0;
-    gScreen.affine.bg3yOffset = 0;
-    gScreen.affine.bg3Control = 0x1e0f;
-    gScreen.affine.bg3Updated = 1;
+    gScreen.bg0.xOffset = 0;
+    gScreen.bg0.yOffset = 0;
+    gScreen.bg3.xOffset = 0;
+    gScreen.bg3.yOffset = 0;
+    gScreen.bg3.control = 0x1e0f;
+    gScreen.bg3.updated = 1;
     MessageInitialize();
     MemClear((void*)&gUnk_02032EC0, sizeof(UI));
     MemClear((void*)&gMenu, sizeof(Menu));
@@ -48,11 +48,11 @@ void sub_0805FA98(void) {
         case 0x200:
             gMenu.focusCoords[0] ^= 1;
             if (gMenu.focusCoords[0] == 0) {
-                gScreen.bg.bg0Control = 0x1f0c;
-                gScreen.affine.bg3Control = 0x1e0f;
+                gScreen.bg0.control = 0x1f0c;
+                gScreen.bg3.control = 0x1e0f;
             } else {
-                gScreen.bg.bg0Control = 0x1f0f;
-                gScreen.affine.bg3Control = 0x1e0c;
+                gScreen.bg0.control = 0x1f0f;
+                gScreen.bg3.control = 0x1e0c;
             }
             break;
         case 0x100:
@@ -87,7 +87,7 @@ void sub_0805FA98(void) {
             }
     }
     gMenu.focusCoords[1] = (gMenu.focusCoords[1] + 3) % 3;
-    gScreen.affine.bg3Updated = 1;
+    gScreen.bg3.updated = 1;
 }
 
 void sub_0805FBC4() {

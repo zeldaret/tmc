@@ -11,7 +11,7 @@ extern s16 gUnk_0812176A[];
 void GiantLeaf(Entity* ent) {
     if (ent->action == 0) {
         ent->action = 1;
-        ent->spriteSettings.b.draw = 1;
+        ent->spriteSettings.draw = 1;
         ent->spriteRendering.b3 = 3;
         ent->spritePriority.b0 = 7;
         ent->frameIndex = ent->type;

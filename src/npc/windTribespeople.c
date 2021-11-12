@@ -44,7 +44,7 @@ void sub_0806C798(Entity* this) {
     iVar1 = LoadExtraSpriteData(this, gUnk_08113A1C + (this->type * 4));
     if (iVar1 != 0) {
         this->action = 1;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         this->animationState = this->actionDelay;
         sub_0807DD50(this);
         sub_0806C7D4(this);
@@ -94,7 +94,7 @@ void WindTribespeople_Head(Entity* this) {
     u32 uVar2;
     u8 pbVar3;
 
-    pbVar3 = (this->frames.all & 0x3F);
+    pbVar3 = (this->frame & 0x3F);
     if (this->type == 4) {
         SetExtraSpriteFrame(this, 0, 9);
         SetExtraSpriteFrame(this, 1, pbVar3);
@@ -103,7 +103,7 @@ void WindTribespeople_Head(Entity* this) {
         SetSpriteSubEntryOffsetData1(this, 2, 1);
         sub_0807000C(this);
     } else {
-        if (this->frames.b.f2 != 0) {
+        if (this->frame & 0x40) {
             uVar2 = 1;
             uVar1 = 0;
         } else {
@@ -209,7 +209,7 @@ void WindTribespeople_Fusion(Entity* this) {
     if (this->action == 0) {
         if (LoadExtraSpriteData(this, &gUnk_08113A1C[this->type * 4]) != 0) {
             this->action += 1;
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
             InitializeAnimation(this, 6);
         }
     } else {

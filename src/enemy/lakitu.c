@@ -57,11 +57,11 @@ void Lakitu_DoAction(Entity* this) {
 
 void sub_0803C784(Entity* this) {
     if ((this->bitfield & 0x7f) == 0x1d) {
-        this->hVelocity = 0x20000;
+        this->zVelocity = 0x20000;
 
         sub_0803CBAC(this);
     } else {
-        if (this->damageType == 0x43) {
+        if (this->hitType == 0x43) {
             Entity* fx = CreateFx(this, FX_DEATH, 0);
 
             if (fx != NULL) {
@@ -104,7 +104,7 @@ void sub_0803C844(Entity* this) {
 }
 
 void sub_0803C850(Entity* this) {
-    Entity* cloud = this->attachedEntity;
+    Entity* cloud = this->child;
     if (cloud != NULL) {
         cloud->spriteOffsetX = this->spriteOffsetX;
     }
@@ -114,7 +114,7 @@ void sub_0803C850(Entity* this) {
 
 void sub_0803C86C(Entity* this) {
     sub_0803CBAC(this);
-    this->attachedEntity = NULL;
+    this->child = NULL;
 }
 
 void Lakitu_Initialize(Entity* this) {
@@ -124,13 +124,13 @@ void Lakitu_Initialize(Entity* this) {
     }
 
     cloud->parent = this;
-    this->attachedEntity = cloud;
+    this->child = cloud;
 
     sub_0804A720(this);
 
     this->action = HIDDEN;
 
-    this->height.HALF.HI = -2;
+    this->z.HALF.HI = -2;
 
     this->spriteOffsetY = 0xff;
 
@@ -143,18 +143,18 @@ void Lakitu_Hide(Entity* this) {
 
     if (sub_0803CA4C(this)) {
         this->action = 2;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
     }
 }
 
 void Lakitu_EndHide(Entity* this) {
     UpdateAnimationSingleFrame(this);
 
-    if (this->frames.b.f3) {
+    if (this->frame & 0x80) {
         this->action = IDLE;
         this->actionDelay = 0x3c;
 
-        this->damageType = 0x42;
+        this->hitType = 0x42;
 
         InitAnimationForceUpdate(this, this->animationState + 4);
     }
@@ -168,7 +168,7 @@ void Lakitu_Idle(Entity* this) {
     if (!sub_0803CA4C(this)) {
         this->action = BEGIN_HIDE;
 
-        this->damageType = 0x43;
+        this->hitType = 0x43;
         InitAnimationForceUpdate(this, this->animationState + 0xc);
     } else {
         sub_0803CA84(this, 4);
@@ -178,9 +178,9 @@ void Lakitu_Idle(Entity* this) {
 void Lakitu_BeginHide(Entity* this) {
     UpdateAnimationSingleFrame(this);
 
-    if (this->frames.b.f3 != 0) {
+    if (this->frame & 0x80) {
         this->action = 1;
-        this->spriteSettings.b.draw = 0;
+        this->spriteSettings.draw = 0;
 
         InitAnimationForceUpdate(this, this->animationState);
     }
@@ -189,14 +189,14 @@ void Lakitu_BeginHide(Entity* this) {
 void Lakitu_Lightning(Entity* this) {
     UpdateAnimationSingleFrame(this);
 
-    if (this->frames.b.f3 == 0) {
+    if (!(this->frame & 0x80)) {
         return;
     }
 
     Lakitu_SpawnLightning(this);
 
     this->action = LIGHTNING_DELAY;
-    this->damageType = 0x42;
+    this->hitType = 0x42;
 
     if ((Random() & 1) && !this->field_0x78.HALF.HI) {
         this->actionDelay = 0xf;
@@ -207,7 +207,7 @@ void Lakitu_Lightning(Entity* this) {
 
         this->field_0x78.HALF.HI = FALSE;
 
-        InitAnimationForceUpdate(this->attachedEntity, this->animationState);
+        InitAnimationForceUpdate(this->child, this->animationState);
     }
 }
 
@@ -259,7 +259,7 @@ void sub_0803CA84(Entity* this, u32 unkParameter) {
             this->animationState = altAnimState;
 
             InitAnimationForceUpdate(this, altAnimState + unkParameter);
-            InitAnimationForceUpdate(this->attachedEntity, altAnimState);
+            InitAnimationForceUpdate(this->child, altAnimState);
         }
     }
 }
@@ -284,7 +284,7 @@ bool32 sub_0803CB04(Entity* this) {
         sub_0803CB34(this);
         this->field_0x78.HALF.HI = delay;
 
-        InitAnimationForceUpdate(this->attachedEntity, this->animationState + 4);
+        InitAnimationForceUpdate(this->child, this->animationState + 4);
         returnValue = 1;
     }
 
@@ -293,7 +293,7 @@ bool32 sub_0803CB04(Entity* this) {
 
 void sub_0803CB34(Entity* this) {
     this->action = LIGHTNING_THROW;
-    this->damageType = 0xa6;
+    this->hitType = 0xa6;
 
     this->field_0x78.HALF.LO = GetFacingDirection(this, &gPlayerEntity);
 
@@ -322,20 +322,20 @@ void Lakitu_SpawnLightning(Entity* this) {
 void sub_0803CBAC(Entity* this) {
     Entity* cloud;
 
-    cloud = this->attachedEntity;
+    cloud = this->child;
     if (cloud != NULL) {
         cloud->flags |= 0x80;
-        cloud->damageType = 0x43;
+        cloud->hitType = 0x43;
     }
 
     this->action = CLOUDLESS;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
 
     this->spritePriority.b1 = 1;
 
     this->flags2 &= 0x7b;
 
-    this->damageType = 0x42;
+    this->hitType = 0x42;
 
     InitAnimationForceUpdate(this, this->animationState + 16);
 }
@@ -344,16 +344,16 @@ void sub_0803CC08(Entity* this) {
     Entity* cloud;
     Entity* fx;
 
-    cloud = this->attachedEntity;
+    cloud = this->child;
     if (cloud == NULL) {
         return;
     }
 
-    if ((u32)(cloud->height.HALF.HI - this->height.HALF.HI) > 2) {
+    if ((u32)(cloud->z.HALF.HI - this->z.HALF.HI) > 2) {
         return;
     }
 
-    if (this->hVelocity >= 0) {
+    if (this->zVelocity >= 0) {
         return;
     }
 
@@ -385,7 +385,7 @@ void sub_0803CC08(Entity* this) {
         fx->y.HALF.HI -= 6;
     }
 
-    this->attachedEntity = NULL;
+    this->child = NULL;
     DeleteEntity(cloud);
 }
 

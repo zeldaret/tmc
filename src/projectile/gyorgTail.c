@@ -40,9 +40,9 @@ void GyorgTail(Entity* this) {
         this->spritePriority.b0 = parent->spritePriority.b0 - 2;
 
         if ((parent->spriteRendering.b3 == 3) && (parent->field_0x7c.BYTES.byte0 == 0)) {
-            this->flags &= 0x7f;
+            COLLISION_OFF(this);
         } else {
-            this->flags |= 0x80;
+            COLLISION_ON(this);
         }
     }
 }
@@ -55,7 +55,7 @@ void GyorgTail_Init(Entity* this) {
     if (sub_080AC5E4(this) != 0) {
         this->action = 1;
         this->frameIndex = 0xc;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         this->field_0x7a.HWORD = gUnk_0812A9B4[Random() & 1];
         this->collisionLayer = 2;
         sub_080AC388(this);
@@ -66,19 +66,19 @@ ASM_FUNC("asm/non_matching/gyorgTail/sub_080AC388.inc", void sub_080AC388(Entity
 
 void sub_080AC480(Entity* this) {
     if (this->actionDelay != 0) {
-        if (this->parent->currentHealth == 0) {
+        if (this->parent->health == 0) {
             this->action = 1;
-            this->damageType = 0x1d;
+            this->hitType = 0x1d;
         } else {
             if (--this->actionDelay == 0) {
-                this->damageType = 0x1c;
+                this->hitType = 0x1c;
                 SoundReq(SFX_116);
             }
         }
     } else {
         if (--this->field_0xf == 0) {
             this->action = 1;
-            this->damageType = 0x1d;
+            this->hitType = 0x1d;
         }
         this->field_0x7c.HALF_U.LO += ((s16)this->field_0x7a.HWORD >= 1) ? 0x300 : -0x300;
         this->direction = this->field_0x7c.HALF.LO >> 8;
@@ -92,7 +92,7 @@ void sub_080AC510(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
         this->frameIndex = gUnk_0812A9BA[this->type * 3 + this->type2 - 1];
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         this->collisionLayer = 2;
         if (*(u16*)&this->type == 0x300) {
             this->hitbox = &gUnk_080FD458;
@@ -104,7 +104,7 @@ void sub_080AC560(Entity* this) {
     s32 factor;
     Entity* entity;
 
-    entity = this->attachedEntity;
+    entity = this->child;
     if (entity->next == NULL) {
         DeleteThisEntity();
     }
@@ -117,7 +117,7 @@ void sub_080AC560(Entity* this) {
             this->hitbox = &gUnk_080FD448;
         }
         this->frameIndex = 0xff;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
     }
     factor = this->field_0x78.HALF.HI << 8;
     this->x.WORD = entity->x.WORD + gSineTable[entity->direction] * factor;
@@ -142,21 +142,21 @@ NONMATCH("asm/non_matching/gyorgTail/sub_080AC5E4.inc", bool32 sub_080AC5E4(Enti
         entity->type2 = 1;
         entity->parent = this->parent;
         entity->field_0x78.HALF.HI = 0x12;
-        this->attachedEntity = entity;
+        this->child = entity;
         entity2 = CreateProjectile(0x22);
         entity2->type = this->type;
         entity2->type2 = 2;
         entity2->parent = this->parent;
         entity2->field_0x78.HALF.HI = 0x14;
         uVar3 = entity2->field_0x78.HALF.HI;
-        entity->attachedEntity = entity2;
+        entity->child = entity2;
         entity3 = CreateProjectile(0x22);
         entity3->type = this->type;
         entity3->type2 = 3;
         entity3->parent = this->parent;
-        entity3->attachedEntity = NULL;
+        entity3->child = NULL;
         entity3->field_0x78.HALF.HI = 0;
-        entity2->attachedEntity = entity3;
+        entity2->child = entity3;
     } else {
         if (0x44 < gEntCount) {
             return 0;
@@ -168,20 +168,20 @@ NONMATCH("asm/non_matching/gyorgTail/sub_080AC5E4.inc", bool32 sub_080AC5E4(Enti
         entity->parent = this->parent;
         entity->field_0x78.HALF.HI = 0x10;
         uVar3 = entity->field_0x78.HALF.HI;
-        this->attachedEntity = entity;
+        this->child = entity;
         entity2 = CreateProjectile(0x22);
         entity2->type = this->type;
         entity2->type2 = 2;
         entity2->parent = this->parent;
-        entity2->attachedEntity = NULL;
+        entity2->child = NULL;
         entity2->field_0x78.HALF.HI = 0x20;
-        entity->attachedEntity = entity2;
+        entity->child = entity2;
     }
     entity4 = CreateProjectile(0x22);
     entity4->type = this->type;
     entity4->type2 = 4;
     entity4->parent = this->parent;
-    entity4->attachedEntity = this;
+    entity4->child = this;
     entity4->field_0x78.HALF.HI = uVar3;
     return 1;
 }
@@ -200,9 +200,9 @@ NONMATCH("asm/non_matching/gyorgTail/sub_080AC7C4.inc", void sub_080AC7C4(Entity
     s32 iVar2;
     s32 iVar3;
 
-    entity1 = this->attachedEntity;
-    entity2 = entity1->attachedEntity;
-    entity3 = entity2->attachedEntity;
+    entity1 = this->child;
+    entity2 = entity1->child;
+    entity3 = entity2->child;
     if (entity3 != NULL) {
         CopyPosition(this->parent, entity3);
     } else {

@@ -71,13 +71,13 @@ void sub_080220D8(Entity* this) {
 
 void sub_080220F0(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         const PosOffset* off;
         u32 i;
 
         this->action = 4;
         this->actionDelay = 0x78;
-        this->field_0x44 = 0;
+        this->damage = 0;
         off = gUnk_080CB76C[this->type2];
         for (i = 0; i < 6; i++, off++) {
             Entity* fx = CreateFx(this, FX_DASH, 0);
@@ -87,8 +87,8 @@ void sub_080220F0(Entity* this) {
             }
         }
         EnqueueSFX(260);
-    } else if (this->frames.all & 1) {
-        this->field_0x44 = 4;
+    } else if (this->frame & 1) {
+        this->damage = 4;
     }
 }
 
@@ -103,7 +103,7 @@ void sub_08022174(Entity* this) {
 void sub_08022198(Entity* this) {
     sub_0800445C(this);
     GetNextFrame(this);
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         this->action = 1;
         this->actionDelay = 0x5a;
     }

@@ -14,7 +14,7 @@ struct {
     /*0x1d*/ u8 unk1D;
     /*0x1e*/ u8 unk1E;
     /*0x1f*/ u8 unk1F;
-} gUnk_02000070 = {};
+} gUpdateVisibleTiles = {};
 
 extern EntityData gUnk_080FF400;
 
@@ -24,7 +24,7 @@ void sub_08055E08(void) {
 
 void sub_08055E24(void) {
     gMenu.overlayType++;
-    gUnk_02000070.unk0 = 1;
+    gUpdateVisibleTiles.unk0 = 1;
     sub_0804B0B0(gMenu.field_0xc[2], gMenu.field_0xc[3]);
     LoadRoomEntityList(&gUnk_080FF400);
     sub_08055B70(gMenu.field_0x4, 0, 0, 0);

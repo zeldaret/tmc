@@ -62,18 +62,18 @@ void sub_080677EC(Entity* this) {
     u8 bVar1;
     u32 uVar2;
 
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->direction = 8;
     this->speed = 0x80;
     this->field_0x3c = 7;
-    this->field_0x40 = 0x48;
-    this->damageType = -0x58;
+    this->hurtType = 0x48;
+    this->hitType = -0x58;
     this->flags2 = 1;
     this->field_0x68.HALF.HI = 0xff;
     if (this->x.HALF.HI < gPlayerEntity.x.HALF.HI) {
-        this->spriteSettings.b.flipX = 1;
+        this->spriteSettings.flipX = 1;
     } else {
-        this->spriteSettings.b.flipX = 0;
+        this->spriteSettings.flipX = 0;
     }
 
     this->field_0x68.HALF.LO = sub_0801E99C(this);
@@ -105,11 +105,11 @@ void sub_080678AC(Entity* this) {
         if (*psVar2 != 0) {
             *psVar2 = *psVar2 - 1;
         }
-        if ((this->frames.all == 1) && (*psVar2 == 0)) {
+        if ((this->frame == 1) && (*psVar2 == 0)) {
             sub_08067AAC(this);
         } else {
             UpdateAnimationSingleFrame(this);
-            if ((this->frames.all & 0x80) != 0) {
+            if ((this->frame & 0x80) != 0) {
                 sub_08067B34(this);
             }
         }
@@ -130,12 +130,12 @@ void sub_08067904(Entity* this) {
     if (this->direction == 8) {
         if (this->x.HALF.HI > this->field_0x6e.HWORD) {
             this->direction = 0x18;
-            this->spriteSettings.b.flipX = 0;
+            this->spriteSettings.flipX = 0;
         }
     } else {
         if (this->x.HALF.HI < this->field_0x6c.HWORD) {
             this->direction = 8;
-            this->spriteSettings.b.flipX = 1;
+            this->spriteSettings.flipX = 1;
         }
     }
     sub_0806F69C(this);
@@ -144,7 +144,7 @@ void sub_08067904(Entity* this) {
 
 void sub_0806797C(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (this->frames.b.f3 != 0) {
+    if (this->frame & 0x80) {
         sub_08067B08(this);
     }
 }
@@ -173,7 +173,7 @@ void sub_08067A0C(Entity* this) {
     u8 tmp;
 
     UpdateAnimationSingleFrame(this);
-    if (this->frames.b.f3 != 0) {
+    if (this->frame & 0x80) {
         if (sub_08067D20(this) != 0) {
             sub_08067B80(this, 5);
             this->actionDelay = this->actionDelay + 0x14;
@@ -181,10 +181,10 @@ void sub_08067A0C(Entity* this) {
             sub_08067C24(this);
         }
     } else {
-        tmp = (this->frames.all & 7);
+        tmp = (this->frame & 7);
         if (tmp != 0) {
-            this->flags = this->flags | 0x80;
-            this->hitbox = gUnk_08111154[tmp - 1 + ((this->spriteSettings.b.flipX << 2))];
+            COLLISION_ON(this);
+            this->hitbox = gUnk_08111154[tmp - 1 + ((this->spriteSettings.flipX << 2))];
         } else {
             sub_08067DDC(this);
         }
@@ -193,7 +193,7 @@ void sub_08067A0C(Entity* this) {
 
 void sub_08067A78(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (this->frames.b.f3 != 0) {
+    if (this->frame & 0x80) {
         sub_08067AAC(this);
     }
 }
@@ -208,7 +208,7 @@ void sub_08067AAC(Entity* this) {
     this->action = 2;
     this->field_0x70.HALF.HI = gUnk_081110FC[(Random() & 3)];
 
-    this->spriteSettings.b.flipX = this->direction >> 4 ^ 1;
+    this->spriteSettings.flipX = this->direction >> 4 ^ 1;
 
     sub_08067DCC(this, 3);
     sub_08078850(this, 0, gUnk_0811110C[2], &gUnk_0811110F);
@@ -223,7 +223,7 @@ void sub_08067B08(Entity* this) {
 void sub_08067B34(Entity* this) {
     sub_08067DCC(this, 0);
     this->frameDuration = (Random() & 0x30) + 0xb4;
-    sub_08078850(this, 0, gUnk_0811110C[this->spriteSettings.b.flipX], &gUnk_0811110F);
+    sub_08078850(this, 0, gUnk_0811110C[this->spriteSettings.flipX], &gUnk_0811110F);
 }
 
 void sub_08067B70(Entity* this) {
@@ -238,20 +238,20 @@ void sub_08067B80(Entity* this, u32 param) {
     InitAnimationForceUpdate(this, param);
     sub_08067DDC(this);
     if (this->x.HALF.HI < gPlayerEntity.x.HALF.HI) {
-        this->spriteSettings.b.flipX = 1;
+        this->spriteSettings.flipX = 1;
     } else {
-        this->spriteSettings.b.flipX = 0;
+        this->spriteSettings.flipX = 0;
     }
 }
 
 void sub_08067BD4(Entity* this) {
-    if (this->spriteSettings.b.flipX > 0) {
+    if (this->spriteSettings.flipX > 0) {
         if (this->x.HALF.HI - 4 > gPlayerEntity.x.HALF.HI) {
-            this->spriteSettings.b.flipX = 0;
+            this->spriteSettings.flipX = 0;
         }
     } else {
         if (this->x.HALF.HI + 4 < gPlayerEntity.x.HALF.HI) {
-            this->spriteSettings.b.flipX = 1;
+            this->spriteSettings.flipX = 1;
         }
     }
 }
@@ -299,10 +299,10 @@ void sub_08067C44(Entity* this) {
             break;
         case 3:
             if (iVar4 == 1) {
-                this->spriteSettings.b.flipX = 1;
+                this->spriteSettings.flipX = 1;
             } else {
-                if (this->spriteSettings.b.flipX == 3) { // TODO 3 ???
-                    this->spriteSettings.b.flipX = 0;
+                if (this->spriteSettings.flipX == 3) { // TODO 3 ???
+                    this->spriteSettings.flipX = 0;
                 }
             }
             if (iVar4 != 2) {
@@ -334,12 +334,7 @@ u32 sub_08067D20(Entity* this) {
     } else {
         entity = sub_08049DF4(2);
         if (entity != NULL) {
-            tmp = this->spriteSettings.raw * 0x2000000; // TODO maybe convert to ternary?
-            iVar4 = 0x28;
-            if (tmp < 0) {
-                iVar4 = 0x10;
-            }
-
+            iVar4 = this->spriteSettings.flipX ? 0x10 : 0x28;
             if (((u32)(entity->x.HALF.HI - (this->x.HALF.HI - iVar4)) < 0x31) &&
                 ((((u32)entity->y.HALF.HI) - (this->y.HALF.HI - 4)) < 0x39)) {
                 return 1;
@@ -360,11 +355,7 @@ u32 sub_08067D74(Entity* this) {
         }
         entity = sub_08049DF4(2);
         if (entity != NULL) {
-            tmp = (this->spriteSettings.raw * 0x2000000); // TODO convert to ternary?
-            iVar2 = 0x18;
-            if (tmp < 0) {
-                iVar2 = 8;
-            }
+            iVar2 = this->spriteSettings.flipX ? 0x8 : 0x18;
             if ((((u32)(entity->x.HALF.HI - (this->x.HALF.HI - iVar2)) < 0x1f) &&
                  ((u32)(entity->y.HALF.HI - this->y.HALF.HI) < 0x17)) &&
                 (this->actionDelay == 0)) {
@@ -381,7 +372,7 @@ void sub_08067DCC(Entity* this, u32 param) {
 }
 
 void sub_08067DDC(Entity* this) {
-    this->flags = this->flags & 0x7f;
+    COLLISION_OFF(this);
     this->bitfield = 0;
     this->iframes = 0;
     this->hitbox = &gUnk_08110EF0;
@@ -390,7 +381,7 @@ void sub_08067DDC(Entity* this) {
 void Cat_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action += 1;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         InitAnimationForceUpdate(this, 5);
     } else {
         UpdateAnimationSingleFrame(this);

@@ -15,7 +15,7 @@ void Teachers(Entity* this) {
         case 0:
             if (LoadExtraSpriteData(this, &gUnk_08113910[this->type * 4])) {
                 this->action = 1;
-                this->spriteSettings.b.draw = TRUE;
+                this->spriteSettings.draw = TRUE;
                 this->animationState = this->actionDelay;
                 this->field_0x68.HALF.HI = 0;
                 sub_0805E3A0(this, 2);
@@ -52,7 +52,7 @@ void Teachers_Head(Entity* this) {
     u8 bVar2;
     u32 uVar3;
 
-    uVar3 = this->frames.all & -0x81;
+    uVar3 = this->frame & -0x81;
     bVar1 = this->frameIndex;
     bVar2 = this->frameSpriteSettings & 0x3f;
     if (this->type == 0) {
@@ -84,7 +84,7 @@ void Teachers_Fusion(Entity* this) {
     if (this->action == 0) {
         if (LoadExtraSpriteData(this, &gUnk_08113910[this->type * 4])) {
             this->action++;
-            this->spriteSettings.b.draw = TRUE;
+            this->spriteSettings.draw = TRUE;
             InitializeAnimation(this, 2);
         }
     } else {

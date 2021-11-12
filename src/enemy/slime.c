@@ -33,7 +33,7 @@ void sub_08044F70(Entity* this) {
 }
 
 void sub_08044F88(Entity* this) {
-    if ((this->currentHealth != 0) && (this->cutsceneBeh.HALF.LO != this->currentHealth)) {
+    if ((this->health != 0) && (this->cutsceneBeh.HALF.LO != this->health)) {
         this->action = 4;
     } else {
         sub_0804AA30(this, gUnk_080D16A4);
@@ -49,7 +49,7 @@ void nullsub_171() {
 
 void sub_08044FC8(Entity* this) {
     this->action = 1;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->speed = 128;
     sub_0804A720(this);
     InitializeAnimation(this, 0);
@@ -59,7 +59,7 @@ void sub_08044FC8(Entity* this) {
 void sub_08044FF8(Entity* this) {
     this->action = 2;
     this->actionDelay = (Random() & 31) + 30;
-    this->cutsceneBeh.HALF.LO = this->currentHealth;
+    this->cutsceneBeh.HALF.LO = this->health;
 }
 
 void sub_08045018(Entity* this) {
@@ -105,10 +105,10 @@ void sub_080450A8(Entity* this) {
     off = gUnk_080D16D4;
     for (i = 0; i < count; i++) {
         ent = entities[i];
-        ent->attachedEntity = entities[(i + 1) % count];
+        ent->child = entities[(i + 1) % count];
         ent->parent = entities[(i + count - 1) % count];
         ent->type2 = 1;
-        ent->height.HALF.HI = 0;
+        ent->z.HALF.HI = 0;
         ent->iframes = -0x10;
 
         /* Set MiniSlime offset relative to killed slime. */

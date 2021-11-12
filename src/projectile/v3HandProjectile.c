@@ -19,8 +19,8 @@ void V3HandProjectile_OnTick(Entity* this) {
         InitializeAnimation(this, 0);
         SoundReq(SFX_199);
     }
-    if (this->height.HALF.HI < -6) {
-        this->height.HALF.HI += 2;
+    if (this->z.HALF.HI < -6) {
+        this->z.HALF.HI += 2;
     }
     sub_080AF090(this);
     if (this->collisions != 0) {

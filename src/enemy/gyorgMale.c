@@ -93,7 +93,7 @@ void (*const gUnk_080D1AFC[8])(Entity*) = { sub_08046898, sub_08046910, sub_0804
 
 void GyorgMale(Entity* this) {
     if (this->action) {
-        this->spriteSettings.b.draw = this->field_0x7c.BYTES.byte1;
+        this->spriteSettings.draw = this->field_0x7c.BYTES.byte1;
     }
     gUnk_080D1AFC[this->action](this);
     if (this->action != 7) {
@@ -101,9 +101,9 @@ void GyorgMale(Entity* this) {
     }
     this->animationState = -(this->field_0x78.HWORD >> 8);
     sub_08048004(this);
-    this->field_0x7c.BYTES.byte1 = this->spriteSettings.b.draw;
-    if (this->spriteSettings.b.draw == 1 && (this->y.HALF.HI - gRoomControls.roomScrollY + 0x30) > 0x100u) {
-        this->spriteSettings.b.draw = 0;
+    this->field_0x7c.BYTES.byte1 = this->spriteSettings.draw;
+    if (this->spriteSettings.draw == 1 && (this->y.HALF.HI - gRoomControls.roomScrollY + 0x30) > 0x100u) {
+        this->spriteSettings.draw = 0;
     }
     this->cutsceneBeh.HWORD = gPlayerEntity.x.HALF.HI;
     this->field_0x86.HWORD = gPlayerEntity.y.HALF.HI;
@@ -116,11 +116,11 @@ void sub_08046898(Entity* this) {
         return;
     tmp->type = 1;
     tmp->parent = this;
-    this->attachedEntity = tmp;
+    this->child = tmp;
     this->action = 1;
     this->subAction = 0;
     this->spriteRendering.b0 = 3;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->spriteOrientation.flipY = 2;
     this->spriteRendering.b3 = 2;
     this->field_0x3c |= 0x10;
@@ -232,7 +232,7 @@ void (*const gUnk_080D1B38[5])(Entity*) = { sub_08046AE8, sub_08046B18, sub_0804
 
 void sub_08046A9C(Entity* this) {
     if (this->animIndex == 1) {
-        if (this->frames.all == 1) {
+        if (this->frame == 1) {
             InitAnimationForceUpdate(this, 0);
         }
     }
@@ -315,7 +315,7 @@ void (*const gUnk_080D1B4C[5])(Entity*) = { sub_08046D44, sub_08046D98, sub_0804
 
 void sub_08046CEC(Entity* this) {
     if (this->animIndex == 0) {
-        if (this->frames.all == 1) {
+        if (this->frame == 1) {
             InitAnimationForceUpdate(this, 1);
         }
     }
@@ -418,7 +418,7 @@ void (*const gUnk_080D1B94[0xA])(Entity*) = { sub_08046FE8, sub_0804702C, sub_08
 
 void sub_08046F64(Entity* this) {
     if (this->animIndex == 0) {
-        if (this->frames.all == 1) {
+        if (this->frame == 1) {
             InitAnimationForceUpdate(this, 1);
         }
     }
@@ -580,13 +580,13 @@ void (*const gUnk_080D1BC0[7])(Entity*) = { sub_080473B8, sub_080473F0, sub_0804
 
 void sub_0804736C(Entity* this) {
     if (this->animIndex == 1) {
-        if (this->frames.all == 1) {
+        if (this->frame == 1) {
             InitAnimationForceUpdate(this, 0);
         }
     }
     gUnk_080D1BC0[this->subAction](this);
     UpdateAnimationSingleFrame(this);
-    if (this->currentHealth == 0) {
+    if (this->health == 0) {
         this->action = 7;
         this->subAction = 0;
     }
@@ -827,7 +827,7 @@ void sub_08047914(Entity* this) {
 
 void sub_08047978(Entity* this) {
     sub_08047D88(this);
-    if (this->currentHealth != 0) {
+    if (this->health != 0) {
         if (--this->field_0x70.HALF_U.LO == 0) {
             this->field_0x70.HALF.HI = 1;
             if (this->type == 0) {
@@ -858,9 +858,9 @@ void sub_08047978(Entity* this) {
         this->spriteRendering.b3 = 2;
         this->direction = this->animationState;
     }
-    if (this->currentHealth != 0)
+    if (this->health != 0)
         return;
-    if (this->attachedEntity->action != 1)
+    if (this->child->action != 1)
         return;
     this->subAction = 4;
     if (this->type == 0) {
@@ -959,18 +959,18 @@ void sub_08047BF0(Entity* this) {
     } else {
         this->actionDelay--;
         if (this->actionDelay == 0x5A) {
-            tmp = this->attachedEntity;
-            tmp->spriteSettings.b.draw = 0;
+            tmp = this->child;
+            tmp->spriteSettings.draw = 0;
             CreateFx(tmp, FX_GIANT_EXPLOSION4, 0);
         } else {
             if (this->actionDelay == 0x3C) {
-                tmp = this->attachedEntity->attachedEntity;
-                tmp->spriteSettings.b.draw = 0;
+                tmp = this->child->child;
+                tmp->spriteSettings.draw = 0;
                 CreateFx(tmp, FX_GIANT_EXPLOSION4, 0);
             } else {
                 if (this->actionDelay == 0x1E) {
-                    tmp = this->attachedEntity->attachedEntity->attachedEntity;
-                    tmp->spriteSettings.b.draw = 0;
+                    tmp = this->child->child->child;
+                    tmp->spriteSettings.draw = 0;
                     CreateFx(tmp, FX_GIANT_EXPLOSION4, 0);
                 }
             }
@@ -1012,7 +1012,7 @@ void sub_08047D88(Entity* this) {
     if (!sub_0806FCB8(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x20))
         return;
     gPlayerState.field_0x14 = 1;
-    if (gPlayerEntity.height.HALF.HI != 0)
+    if (gPlayerEntity.z.HALF.HI != 0)
         return;
     this->field_0x7c.BYTES.byte0 |= 1;
 }
@@ -1113,8 +1113,8 @@ void sub_08048004(Entity* this) {
     if (this->action == 0)
         return;
     if (this->animIndex == 0) {
-        this->flags &= ~0x80;
-        if (gPlayerEntity.height.HALF.HI != 0)
+        COLLISION_OFF(this);
+        if (gPlayerEntity.z.HALF.HI != 0)
             return;
         if (!sub_08079F8C())
             return;
@@ -1151,7 +1151,7 @@ void sub_08048004(Entity* this) {
             this->field_0x7c.BYTES.byte0 = 0;
         }
     } else {
-        this->flags |= 0x80;
+        COLLISION_ON(this);
     }
 }
 

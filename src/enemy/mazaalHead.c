@@ -132,7 +132,7 @@ void sub_08033F3C(Entity* this) {
         } else {
             this->action = 1;
         }
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         this->field_0x6c.HALF.HI |= 1;
         this->field_0x80.HALF.LO = 0;
         InitializeAnimation(this, 0);
@@ -144,7 +144,7 @@ void sub_08033F3C(Entity* this) {
             this->action = 0xd;
             this->subAction = 0;
             this->actionDelay = 0xfc;
-            this->flags = this->flags & 0x7f;
+            COLLISION_OFF(this);
         } else {
             pEVar2 = CreateEnemy(MAZAAL_BRACELET, 0);
             pEVar2->parent = this;
@@ -183,8 +183,8 @@ void sub_08033FFC(Entity* this) {
             }
             break;
         case 4:
-            this->height.WORD += -0x8000;
-            if (this->height.HALF.HI == -10) {
+            this->z.WORD += -0x8000;
+            if (this->z.HALF.HI == -10) {
                 this->subAction = 5;
                 this->field_0x80.HALF.HI = 1;
             }
@@ -335,8 +335,8 @@ void sub_08034348(Entity* this) {
     if (this->field_0x7c.HALF_U.HI != 0) {
         this->field_0x7c.HALF.HI--;
     } else {
-        if (this->height.HALF.HI > -10) {
-            this->height.HALF.HI--;
+        if (this->z.HALF.HI > -10) {
+            this->z.HALF.HI--;
         } else {
             if (sub_080349D8(this) != 0) {
                 this->field_0x80.HALF.HI = 1;
@@ -351,7 +351,7 @@ void sub_0803438C(Entity* this) {
     const s8* pVar;
 
     if (this->actionDelay == 0) {
-        this->currentHealth = 0;
+        this->health = 0;
     } else {
         this->actionDelay--;
         if (this->actionDelay > 0xc0) {
@@ -686,7 +686,7 @@ END_NONMATCH
 
 void sub_0803499C(Entity* this) {
     if (((this->field_0x80.HALF.LO & 0xc) != 0xc) && (this->field_0x80.HALF.HI != 0)) {
-        this->height.HALF.HI = gUnk_080CED6C[(++this->field_0xf >> 4) & 7];
+        this->z.HALF.HI = gUnk_080CED6C[(++this->field_0xf >> 4) & 7];
     }
 }
 
@@ -739,8 +739,8 @@ void sub_08034A84(Entity* this) {
     } else {
         if (this->action == 0) {
             this->action = 1;
-            this->spriteSettings.b.draw = 1;
-            this->spriteSettings.b.flipX = 1;
+            this->spriteSettings.draw = 1;
+            this->spriteSettings.flipX = 1;
             InitializeAnimation(this, 0);
         }
         CopyPositionAndSpriteOffset(this->parent, this);
@@ -764,7 +764,7 @@ void sub_08034B0C(Entity* this) {
         this->actionDelay--;
     } else {
         GetNextFrame(this);
-        if ((this->frames.all & 0x80) == 0) {
+        if ((this->frame & 0x80) == 0) {
             return;
         }
         this->action = 2;
@@ -797,7 +797,7 @@ END_NONMATCH
 
 void sub_08034BA0(Entity* this) {
     GetNextFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         this->parent->field_0x7c.HALF.HI = 0xff;
         DeleteEntity(this);
     }
@@ -810,7 +810,7 @@ void sub_08034BC8(Entity* this) {
     }
     sub_0806FA90(this->parent, this, 0, 1);
     sub_0800445C(this);
-    if (this->height.HALF.HI == 0) {
+    if (this->z.HALF.HI == 0) {
         sub_08034C00(this);
     }
 }

@@ -11,7 +11,7 @@ void Manager33_Main(Manager* this) {
     u32 b = roomControls->roomOriginY + 0x140;
     u32 y = (b - gPlayerEntity.y.HALF.HI) + 0x10;
     if (this->action == 0) {
-        if (x < 0x20 && y < 0x20 && gPlayerEntity.height.HALF.HI < -0x18 && gPlayerState.field_0xa8 == 0x14) {
+        if (x < 0x20 && y < 0x20 && gPlayerEntity.z.HALF.HI < -0x18 && gPlayerState.field_0xa8 == 0x14) {
             this->action += 1;
             this->unk_0e = 0x5a;
             SoundReq(SFX_10A);
@@ -22,7 +22,7 @@ void Manager33_Main(Manager* this) {
             if (object != NULL) {
                 object->x.HALF.HI = roomControls->roomOriginX + 0x1f8;
                 object->y.HALF.HI = roomControls->roomOriginY + 0x140;
-                object->height.HALF.HI = 0xffe8;
+                object->z.HALF.HI = 0xffe8;
             }
             DeleteThisEntity();
         }

@@ -71,7 +71,7 @@ void sub_0805DEB8(Manager* this) {
 
 void sub_0805DF4C(Manager* this) {
     gPlayerEntity.animationState = 0;
-    if (gPlayerEntity.height.HALF.HI != 0) {
+    if (gPlayerEntity.z.HALF.HI != 0) {
         if (gPlayerEntity.y.HALF.HI < (gRoomControls.roomOriginY + 0x48)) {
             gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x48;
         }

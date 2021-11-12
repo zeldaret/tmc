@@ -34,8 +34,8 @@ void sub_08033564(Entity* this) {
     switch ((s32)bits & 0x3f) {
         case 0:
             this->action = 2;
-            this->spriteSettings.b.draw = FALSE;
-            this->flags &= 0x7f;
+            this->spriteSettings.draw = FALSE;
+            COLLISION_OFF(this);
             this->field_0x7c.HALF.LO = 0x27c;
             gPlayerState.flags |= 0x4000;
             gSave.stats.effect = this->type + 1;
@@ -47,15 +47,15 @@ void sub_08033564(Entity* this) {
             break;
         case 0xe:
         case 0x15:
-            this->currentHealth = 0;
+            this->health = 0;
             break;
         case 0x14:
-            this->flags &= 0x7f;
+            COLLISION_OFF(this);
             this->iframes = 0;
-            this->spriteSettings.b.draw = FALSE;
+            this->spriteSettings.draw = FALSE;
             ent = CreateFx(this, FX_DEATH, 0);
             if (ent != NULL) {
-                this->attachedEntity = ent;
+                this->child = ent;
                 this->actionDelay = 0xe;
                 CopyPosition(this, ent);
             }
@@ -115,11 +115,11 @@ void sub_080336DC(Entity* this) {
             CreateDust(this);
             break;
         case 0xc:
-            this->spriteSettings.b.draw = TRUE;
+            this->spriteSettings.draw = TRUE;
             break;
         case 0x0:
             this->action = 1;
-            this->flags |= 0x80;
+            COLLISION_ON(this);
             sub_08033744(this);
             break;
     }

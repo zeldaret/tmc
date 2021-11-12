@@ -28,7 +28,7 @@ void sub_08063A80(Entity* this) {
 
 void sub_08063A98(Entity* this) {
     this->action += 1;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     InitAnimationForceUpdate(this, 4);
     sub_08078778(this);
 }
@@ -48,7 +48,7 @@ void sub_08063B68(Entity* this) {
     switch (this->action) {
         case 0:
             this->action = 1;
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
             this->field_0x68.HALF.HI = 0;
             sub_0807DD64(this);
         case 1:
@@ -121,7 +121,7 @@ void sub_08063CAC(Entity* this) {
 void Pina_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action += 1;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         this->y.HALF.HI -= 4;
         InitAnimationForceUpdate(this, 2);
     } else {

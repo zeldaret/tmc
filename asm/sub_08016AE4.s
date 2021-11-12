@@ -18,7 +18,7 @@ ProjectileUpdate: @ 0x08016AE4
 	bne _08016B0A
 	bl DeleteThisEntity
 _08016AFC:
-	bl sub_0805E3B0
+	bl CheckDontUpdate
 	cmp r0, #0
 	bne _08016B22
 	adds r0, r4, #0

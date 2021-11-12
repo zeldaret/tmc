@@ -65,11 +65,11 @@ void sub_0803CD6C(Entity* this) {
     Entity* lakitu;
 
     this->action = 1;
-    this->height.HALF.HI = -2;
+    this->z.HALF.HI = -2;
 
     // Set parent to lakitu
     lakitu = GetCurrentRoomProperty(this->type);
-    this->attachedEntity = lakitu;
+    this->child = lakitu;
     this->parent = lakitu;
 
     this->field_0x78.HWORD = this->x.HALF.HI;
@@ -96,25 +96,25 @@ void sub_0803CDD8(Entity* this) {
     u8 one;
     u8 draw;
 
-    draw = this->spriteSettings.b.draw;
+    draw = this->spriteSettings.draw;
     one = 1;
-    this->spriteSettings.b.draw = draw ^ one;
+    this->spriteSettings.draw = draw ^ one;
 
     this->actionDelay--;
 
     if (this->actionDelay == 0) {
         this->action = 1;
 
-        this->flags |= 0x80;
+        COLLISION_ON(this);
 
-        this->spriteSettings.b.draw = one;
+        this->spriteSettings.draw = one;
     }
 }
 
 void sub_0803CE14(Entity* this) {
     u8 direction;
 
-    sub_080A2CC0(this, &this->attachedEntity, &this->field_0x74.HWORD);
+    sub_080A2CC0(this, &this->child, &this->field_0x74.HWORD);
 
     direction = this->direction;
     if (direction & 0x80) {
@@ -132,14 +132,14 @@ void sub_0803CE3C(Entity* this) {
     this->action = 2;
     this->actionDelay = 60;
 
-    this->flags &= 0x7f;
+    COLLISION_OFF(this);
 
     this->field_0x3a &= 0xfb;
 
     this->x.HALF.HI = this->field_0x78.HWORD;
     this->y.HALF.HI = this->field_0x7a.HWORD;
 
-    this->attachedEntity = this->parent;
+    this->child = this->parent;
 
     sub_0803CE14(this);
 }

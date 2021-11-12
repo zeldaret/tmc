@@ -81,7 +81,7 @@ _0804AC18: .4byte gUnk_080D4110
 	thumb_func_start sub_0804AC1C
 sub_0804AC1C: @ 0x0804AC1C
 	push {r4, lr}
-	bl sub_0805E5C0
+	bl UpdateEntities
 	ldr r0, _0804AC98 @ =gUnk_02018EB0
 	ldr r2, [r0, #0x14]
 	cmp r2, #0

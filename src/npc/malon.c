@@ -20,7 +20,7 @@ void Malon(Entity* this) {
 
 void sub_08065864(Entity* this) {
     this->action = 1;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     InitAnimationForceUpdate(this, 0xC);
 }
 
@@ -30,7 +30,7 @@ void sub_08065880(Entity* this) {
 
 void sub_08065888(Entity* this) {
     this->action = 1;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->animationState = 4;
     this->field_0x68.HALF.LO = sub_0801E99C(this);
     sub_08078784(this, this->field_0x68.HALF.LO);
@@ -72,7 +72,7 @@ void sub_08065914(Entity* this) {
 void Malon_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action++;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         InitAnimationForceUpdate(this, 0xC);
     } else {
         UpdateAnimationSingleFrame(this);

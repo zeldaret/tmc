@@ -13,7 +13,7 @@ void BackgroundCloud(Entity* this) {
 
 void sub_0808F658(Entity* this) {
     this->action = 1;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->spriteOrientation.flipY = 3;
     this->spriteRendering.b3 = 3;
     this->spritePriority.b0 = this->type;

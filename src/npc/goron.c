@@ -68,12 +68,12 @@ void sub_080693D0(Entity* this) {
         u32 var0 = this->field_0x82.HWORD & 0xF;
         bool32 createFx65 = BOOLCAST(var0); // = !var0
 
-        if (this->frames.all == 1) {
-            this->frames.all = 0;
+        if (this->frame == 1) {
+            this->frame = 0;
             sub_08069428(this, 0xFFF80000, createFx65);
         }
-        if (this->frames.all == 2) {
-            this->frames.all = 0;
+        if (this->frame == 2) {
+            this->frame = 0;
             sub_08069428(this, 0x80 << 12, createFx65);
         }
     }
@@ -129,7 +129,7 @@ void sub_080694EC(Entity* this) {
 void Goron_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action++;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         InitAnimationForceUpdate(this, 2);
     } else {
         UpdateAnimationSingleFrame(this);

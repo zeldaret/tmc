@@ -24,8 +24,8 @@ void sub_080455D4(Entity* this) {
 void sub_080455E4(Entity* this) {
     if ((this != this->parent) && (this->parent != NULL)) {
         this->field_0x6c.HALF.LO &= 0x7f;
-        this->parent->attachedEntity = this->attachedEntity;
-        this->attachedEntity->parent = this->parent;
+        this->parent->child = this->child;
+        this->child->parent = this->parent;
     }
     sub_0804A7D4(this);
 }
@@ -35,7 +35,7 @@ void nullsub_23(Entity* this) {
 
 void sub_08045618(Entity* this) {
     this->action = 1;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->speed = 0x80;
     this->field_0x3c = this->field_0x3c | 0x10;
     sub_0804A720(this);
@@ -53,7 +53,7 @@ void sub_08045654(Entity* this) {
 
 void sub_08045678(Entity* this) {
 
-    this->hVelocity = 0x1c000;
+    this->zVelocity = 0x1c000;
     if (this->actionDelay != 0) {
         this->actionDelay--;
     } else {
