@@ -33,14 +33,14 @@ void V3ElectricProjectile_Action1(Entity* this) {
         DeleteThisEntity();
     }
     CopyPositionAndSpriteOffset(this->parent, this);
-    this->height.HALF.HI -= 0x14;
+    this->z.HALF.HI -= 0x14;
     if (this->cutsceneBeh.HALF.HI != 0) {
         if (((--this->cutsceneBeh.HALF.HI) & 7) == 0) {
             SoundReq(SFX_149);
         }
     }
     GetNextFrame(this);
-    if ((this->frames.all & 1) != 0) {
+    if ((this->frame & 1) != 0) {
         if (this->type == 0) {
             this->action = 2;
             this->direction = GetFacingDirection(this, &gPlayerEntity);
@@ -50,7 +50,7 @@ void V3ElectricProjectile_Action1(Entity* this) {
             this->action = 3;
             this->actionDelay = 0x10;
         }
-        this->height.HALF.HI -= 0x28;
+        this->z.HALF.HI -= 0x28;
     }
 }
 
@@ -59,8 +59,8 @@ void V3ElectricProjectile_Action2(Entity* this) {
     s32 iVar2;
     u32 uVar3;
 
-    if (this->height.HALF.HI < -6) {
-        this->height.HALF.HI += 3;
+    if (this->z.HALF.HI < -6) {
+        this->z.HALF.HI += 3;
     }
     sub_080AF090(this);
     if (this->collisions != 0) {

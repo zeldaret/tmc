@@ -39,7 +39,7 @@ void PositionRelative(Entity* source, Entity* target, s32 offsetX, s32 offsetY) 
     y = source->y.WORD;
     target->y.WORD = y + offsetY;
 
-    target->height = source->height; // ldr
+    target->z = source->z; // ldr
     target->collisionLayer = source->collisionLayer;
     UpdateSpriteForCollisionLayer(target);
 }

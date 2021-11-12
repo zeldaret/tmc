@@ -34,12 +34,12 @@ void sub_0808F0D0(Entity* this) {
     u32 uVar3;
 
     ent = CreateObjectWithParent(this, OBJECT_49, 2, 0);
-    this->attachedEntity = ent;
+    this->child = ent;
     if (ent == NULL) {
         DeleteThisEntity();
     }
     this->action = 1;
-    this->height.HALF.HI = -0xc0;
+    this->z.HALF.HI = -0xc0;
     offsetX = Random() % 64;
     if ((Random() & 1) != 0) {
         offsetX = -offsetX;
@@ -79,7 +79,7 @@ void sub_0808F1A4(Entity* this) {
     *(u32*)&this->field_0x74 += 0x10;
     sub_0806FCF4(this, *(u32*)&this->field_0x78, 8, 2);
     if (*(u32*)&this->field_0x78 > 0x3ff) {
-        this->attachedEntity->action = 0xff;
+        this->child->action = 0xff;
         DeleteThisEntity();
     } else {
         sub_0808F2B0(this);
@@ -104,12 +104,12 @@ void sub_0808F1F8(Entity* this) {
 
 void sub_0808F244(Entity* this) {
 
-    this->spriteSettings.b.draw = this->parent->spriteSettings.b.draw;
+    this->spriteSettings.draw = this->parent->spriteSettings.draw;
     this->y.HALF.HI = this->parent->y.HALF.HI + 3;
-    this->x.HALF.HI = (*(s8*)&this->attachedEntity->spriteOffsetX + this->attachedEntity->x.HALF.HI);
-    this->height.WORD = 0;
-    *(u32*)&this->field_0x74 = 0x80 - this->parent->height.HALF.HI;
-    *(u32*)&this->field_0x78 = 0x100 - this->parent->height.HALF.HI;
+    this->x.HALF.HI = (*(s8*)&this->child->spriteOffsetX + this->child->x.HALF.HI);
+    this->z.WORD = 0;
+    *(u32*)&this->field_0x74 = 0x80 - this->parent->z.HALF.HI;
+    *(u32*)&this->field_0x78 = 0x100 - this->parent->z.HALF.HI;
     *(u32*)&this->field_0x70.WORD = *((u8*)&this->parent->field_0x7c + 3);
     sub_0808F2B0(this);
     if ((this->parent->field_0x6c.HALF.HI & 2) != 0) {
@@ -126,20 +126,20 @@ void sub_0808F2C0(Entity* this) {
         this->action++;
         this->spriteRendering.b3 = this->parent->spriteRendering.b3;
         this->spriteOrientation.flipY = this->parent->spriteOrientation.flipY;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         this->spritePriority.b0 = 7;
-        this->height.WORD = 0;
+        this->z.WORD = 0;
 
         this->y.HALF.HI = this->parent->y.HALF.HI + 3;
         this->x.HALF.HI = this->parent->x.HALF.HI;
         InitializeAnimation(this, 3);
     }
-    if (this->parent->height.HALF.HI == 0) {
+    if (this->parent->z.HALF.HI == 0) {
         *(u32*)&this->field_0x74 = *(u32*)&this->parent->field_0x74;
         *(u32*)&this->field_0x78 = *(u32*)&this->parent->field_0x78;
     } else {
-        *(u32*)&this->field_0x74 = 0x200 - this->parent->height.HALF.HI;
-        *(u32*)&this->field_0x78 = this->parent->height.HALF.HI * -2 + 0x300;
+        *(u32*)&this->field_0x74 = 0x200 - this->parent->z.HALF.HI;
+        *(u32*)&this->field_0x78 = this->parent->z.HALF.HI * -2 + 0x300;
     }
     *(u32*)&this->field_0x70 = 0;
     sub_0808F2B0(this);
@@ -177,39 +177,39 @@ void sub_0808F370(Entity* this) {
 
 void sub_0808F3DC(Entity* this) {
     if (this->action == 0) {
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         this->action = 1;
         this->actionDelay = 120;
         InitializeAnimation(this, this->type + 1);
         // TODO: This block of code might supposed to be a switch statement.
         if (this->type != 8) {
             if (this->type == 7) {
-                sub_0806FAD8(this->attachedEntity, this);
+                sub_0806FAD8(this->child, this);
                 return;
             }
         } else {
-            this->hitType = this->attachedEntity->hitType;
-            this->attachedEntity->hitType = 0x7E;
+            this->hitType = this->child->hitType;
+            this->child->hitType = 0x7E;
         }
-        ResolveEntityOnTop(this->attachedEntity, this);
+        ResolveEntityOnTop(this->child, this);
     } else {
         if (*(u32*)&this->parent->field_0x74 == 0) {
             if (this->type == 8) {
-                this->attachedEntity->hitType = this->hitType;
+                this->child->hitType = this->hitType;
             }
             DeleteThisEntity();
         }
 
-        if (this->type == 5 && this->frames.b.f0) {
-            Entity* entity = CreateObjectWithParent(this->attachedEntity, 0x49, 8, 0);
+        if (this->type == 5 && (this->frame & 1)) {
+            Entity* entity = CreateObjectWithParent(this->child, 0x49, 8, 0);
             if (entity) {
                 entity->parent = this->parent;
-                entity->attachedEntity = this->parent->parent;
+                entity->child = this->parent->parent;
             }
         }
 
         GetNextFrame(this);
-        CopyPositionAndSpriteOffset(this->attachedEntity, this);
+        CopyPositionAndSpriteOffset(this->child, this);
     }
 }
 
@@ -268,22 +268,22 @@ void sub_0808F554(Entity* this) {
 }
 
 void sub_0808F5EC(Entity* this) {
-    Entity* entity = CreateObjectWithParent(this->attachedEntity, 0x49, 5, 0);
+    Entity* entity = CreateObjectWithParent(this->child, 0x49, 5, 0);
     if (entity) {
         entity->parent = this;
-        entity->attachedEntity = this->attachedEntity;
+        entity->child = this->child;
     }
 
-    entity = CreateObjectWithParent(this->attachedEntity, 0x49, 6, 0);
+    entity = CreateObjectWithParent(this->child, 0x49, 6, 0);
     if (entity) {
         entity->parent = this;
-        entity->attachedEntity = this->attachedEntity;
+        entity->child = this->child;
     }
 
-    entity = CreateObjectWithParent(this->attachedEntity, 0x49, 7, 0);
+    entity = CreateObjectWithParent(this->child, 0x49, 7, 0);
     if (entity) {
         entity->parent = this;
-        entity->attachedEntity = this->attachedEntity;
+        entity->child = this->child;
     }
 
     *(u32*)&this->field_0x74 = 600;

@@ -63,7 +63,7 @@ void sub_08068780(Entity* this) {
                 return;
             }
             this->action = 1;
-            this->spriteSettings.b.draw = TRUE;
+            this->spriteSettings.draw = TRUE;
             this->animationState = this->type;
             sub_0805E3A0(this, 2);
             sub_0807DD50(this);
@@ -85,8 +85,8 @@ void sub_08068780(Entity* this) {
             }
     }
 
-    if ((this->frames.b.f2) != 0) {
-        this->frames.all &= 0xbf;
+    if (this->frame & 0x40) {
+        this->frame &= 0xbf;
         if (sub_080040A8(this) == 0) {
             SoundReq(gUnk_0811153E[(s32)Random() % 3]);
         } else {
@@ -107,7 +107,7 @@ void sub_08068884(Entity* this) {
 void Melari_Head(Entity* this) {
     u32 bVar1;
 
-    bVar1 = this->frames.all;
+    bVar1 = this->frame;
     bVar1 &= -0xc1;
     SetExtraSpriteFrame(this, 1, this->frameIndex);
     if ((bVar1 & 0x20) != 0) {
@@ -129,7 +129,7 @@ void sub_08068910(Entity* this) {
         this->actionDelay--;
     } else {
         this->actionDelay = 0x10;
-        if ((this->frames.all & 0x20) != 0) {
+        if ((this->frame & 0x20) != 0) {
             iVar1 = sub_0806EDD8(this, 0x30, 0x30);
             if (iVar1 < 0) {
                 iVar1 = 0x10;
@@ -150,7 +150,7 @@ void Melari_Fusion(Entity* this) {
     if (this->action == 0) {
         if (LoadExtraSpriteData(this, &gUnk_08111520)) {
             this->action++;
-            this->spriteSettings.b.draw = TRUE;
+            this->spriteSettings.draw = TRUE;
             InitializeAnimation(this, 6);
         }
     } else {

@@ -23,7 +23,7 @@ void BigVortex(Entity* this) {
 void sub_08098D1C(Entity* this) {
     u32 temp;
     this->action = 1;
-    this->height.HALF.HI = -0x10;
+    this->z.HALF.HI = -0x10;
 
     temp = this->field_0x86.HWORD;
 
@@ -31,7 +31,7 @@ void sub_08098D1C(Entity* this) {
         this->action = 1;
     } else {
         this->action = 3;
-        this->spriteSettings.b.draw = TRUE;
+        this->spriteSettings.draw = TRUE;
         sub_08098E88(this);
     }
     sub_0805E3A0(this, 6);
@@ -54,7 +54,7 @@ void sub_08098D6C(Entity* this) {
 void sub_08098D9C(Entity* this) {
     if (--this->actionDelay == 0) {
         this->action = 3;
-        this->spriteSettings.b.draw = TRUE;
+        this->spriteSettings.draw = TRUE;
         sub_08098E88(this);
     }
 }
@@ -88,7 +88,7 @@ void sub_08098E3C(Entity* this) {
 
     if (this->action == 0) {
         this->action = 1;
-        this->spriteSettings.b.draw = TRUE;
+        this->spriteSettings.draw = TRUE;
         InitAnimationForceUpdate(this, this->type);
     }
     temp = &gUnk_08123690[this->type & 2];

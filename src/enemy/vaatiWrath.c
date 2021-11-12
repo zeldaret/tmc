@@ -103,9 +103,9 @@ const s8 gUnk_080D0EB0[] = { 0x03, 0x03, 0x03, 0x03, 0x03, 0x03, 0x03, 0x03, 0x0
                              0xfd, 0xfd, 0xfd, 0xfd, 0xfd, 0xfd, 0xfd, 0xfd, 0xfd, 0xfd };
 
 void VaatiWrath(Entity* this) {
-    if (((this->type == 0) && ((this->bitfield & 0x80) != 0)) && (this->currentHealth == 0)) {
+    if (((this->type == 0) && ((this->bitfield & 0x80) != 0)) && (this->health == 0)) {
         COLLISION_ON(this);
-        this->currentHealth = 0xff;
+        this->health = 0xff;
         if (--this->cutsceneBeh.HALF.LO == 0) {
             this->action = 0xd;
             this->subAction = 0;
@@ -149,11 +149,11 @@ void VaatiWrathType0Action0(Entity* this) {
         this->subAction = bVar1;
         this->actionDelay = 120;
         this->spritePriority.b1 = 0;
-        this->height.HALF.HI = 0xffb0;
+        this->z.HALF.HI = 0xffb0;
         gRoomControls.cameraTarget = this;
         sub_080809D4();
     }
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->field_0x6c.HALF.HI |= 1;
     this->field_0x78.HALF.HI = 0;
     this->field_0x7c.HALF.LO = 0x3c;
@@ -169,11 +169,11 @@ void VaatiWrathType0Action1(Entity* this) {
             break;
         case 1:
             this->spritePriority.b1 = 1;
-            this->height.WORD += 0x8000;
-            if ((this->height.HALF.HI & 0x3f) == 0) {
+            this->z.WORD += 0x8000;
+            if ((this->z.HALF.HI & 0x3f) == 0) {
                 SoundReq(SFX_1A9);
             }
-            if (-6 < this->height.HALF.HI) {
+            if (-6 < this->z.HALF.HI) {
                 this->subAction = 2;
                 SoundReq(SFX_1A9);
             }
@@ -354,20 +354,20 @@ void VaatiWrathType0Action6(Entity* this) {
     if (this->actionDelay == 0) {
         type1 = ((VaatiWrathHeapStruct*)this->myHeap)->type1;
         GetNextFrame(type1);
-        if (type1->frames.all == 1) {
-            type1->frames.all &= 0xfe;
+        if (type1->frame == 1) {
+            type1->frame &= 0xfe;
             InitAnimationForceUpdate(this, 4);
         } else {
-            if (type1->frames.all == 2) {
+            if (type1->frame == 2) {
                 Entity* type3 = CreateEnemy(VAATI_WRATH, 3);
                 if (type3 != NULL) {
                     type3->myHeap = this->myHeap;
                     ((VaatiWrathHeapStruct*)this->myHeap)->type3 = type3;
                     InitializeAnimation(((VaatiWrathHeapStruct*)this->myHeap)->type2, 0x14);
-                    type1->frames.all &= 0xfd;
+                    type1->frame &= 0xfd;
                 }
             } else {
-                if ((type1->frames.all & 0x80) != 0) {
+                if ((type1->frame & 0x80) != 0) {
                     sub_0804235C(this);
                 }
             }
@@ -456,7 +456,7 @@ void VaatiWrathType0ActionA(Entity* this) {
             this->subAction = 0;
             this->direction = 0;
             this->speed = 0x100;
-            this->hVelocity = 0x12000;
+            this->zVelocity = 0x12000;
             sub_0801D2B4(this, 0x16b);
             InitAnimationForceUpdate(this, 5);
             type1 = ((VaatiWrathHeapStruct*)this->myHeap)->type1;
@@ -479,7 +479,7 @@ void VaatiWrathType0ActionB(Entity* this) {
             if (sub_08003FC4(this, 0x2000) == 0) {
                 this->subAction = 1;
                 this->actionDelay = 0xf0;
-                this->currentHealth = 8;
+                this->health = 8;
                 this->hitType = 0x38;
                 sub_08080964(0x14, 0);
                 InitAnimationForceUpdate(this, 6);
@@ -493,7 +493,7 @@ void VaatiWrathType0ActionB(Entity* this) {
                 this->subAction = 2;
                 this->actionDelay = 0x3c;
                 this->hitType = 0x39;
-                this->currentHealth = 0xff;
+                this->health = 0xff;
             }
             break;
         default:
@@ -520,8 +520,8 @@ void VaatiWrathType0ActionC(Entity* this) {
     }
     switch (this->subAction) {
         case 0:
-            this->height.WORD -= 0x8000;
-            if (this->height.HALF.HI < -4) {
+            this->z.WORD -= 0x8000;
+            if (this->z.HALF.HI < -4) {
                 this->subAction = 1;
                 this->actionDelay = 120;
                 this->direction = 0x10;
@@ -545,11 +545,11 @@ void VaatiWrathType0ActionC(Entity* this) {
         default:
             sub_08042004(this);
             entity = ((VaatiWrathHeapStruct*)this->myHeap)->type1;
-            if (entity->frames.b.f0) {
-                entity->frames.all &= 0xfe;
+            if (entity->frame & 1) {
+                entity->frame &= 0xfe;
                 InitAnimationForceUpdate(this, 9);
             } else {
-                if (entity->frames.b.f3 != 0) {
+                if (entity->frame & 0x80) {
                     sub_0804235C(this);
                 }
             }
@@ -620,7 +620,7 @@ void sub_08041BE8(Entity* this) {
 
 void sub_08041CD0(Entity* this) {
     GetNextFrame(((VaatiWrathHeapStruct*)this->myHeap)->type2);
-    if (this->frames.b.f3) {
+    if (this->frame & 0x80) {
         if (this->actionDelay != 0) {
             this->actionDelay--;
         } else {
@@ -644,13 +644,13 @@ void sub_08041D14(Entity* this) {
             if (gEntCount < 0x46) {
                 pEVar1 = CreateObject(OBJECT_B6, 0, 0);
                 pEVar1->parent = this;
-                this->attachedEntity = pEVar1;
+                this->child = pEVar1;
                 pEVar1 = CreateObject(OBJECT_B6, 1, 0);
                 pEVar1->parent = this;
                 this->subAction = 3;
                 this->actionDelay = 0x96;
                 this->field_0xf = 0;
-                this->spriteSettings.b.draw = 0;
+                this->spriteSettings.draw = 0;
                 SoundReq(SFX_1C4);
             }
         }
@@ -666,14 +666,14 @@ void sub_08041D84(Entity* this) {
             if ((0xb7 < this->field_0xf) && ((this->field_0xf & 7) == 0)) {
                 sub_0801D2B4(((VaatiWrathHeapStruct*)this->myHeap)->type2,
                              gUnk_080D0E80[(this->field_0xf - 0xb8) >> 3]);
-                sub_0801D2B4(this->attachedEntity, gUnk_080D0E80[(this->field_0xf - 0xb8) >> 3]);
+                sub_0801D2B4(this->child, gUnk_080D0E80[(this->field_0xf - 0xb8) >> 3]);
             }
             if (this->field_0xf == 0xe6) {
                 DoFade(7, 4);
             }
         } else {
             this->subAction = 4;
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
             sub_0801D2B4(this, 0x173);
             InitAnimationForceUpdate(this, 0xb);
         }
@@ -802,7 +802,7 @@ u32 sub_08041FCC(Entity* this) {
 }
 
 void sub_08042004(Entity* this) {
-    this->height.HALF.HI = gUnk_080D0EA0[(++this->field_0x78.HALF.LO >> 4) & 7];
+    this->z.HALF.HI = gUnk_080D0EA0[(++this->field_0x78.HALF.LO >> 4) & 7];
 }
 
 void sub_08042028(Entity* this) {
@@ -955,19 +955,19 @@ u32 sub_080422C0(Entity* this, u32 unk1) {
     GetNextFrame(((VaatiWrathHeapStruct*)this->myHeap)->type2);
     type1 = ((VaatiWrathHeapStruct*)this->myHeap)->type1;
     GetNextFrame(type1);
-    if (unk1 + 1 == (tmp = type1->frames.all)) {
+    if (unk1 + 1 == (tmp = type1->frame)) {
         child = CreateProjectile(0x21);
         if (child != NULL) {
             child->type = unk1;
             child->parent = this;
-            type1->frames.all &= ~tmp;
+            type1->frame &= ~tmp;
         }
     } else {
-        if (type1->frames.all == 4) {
-            type1->frames.all &= 0xfb;
+        if (type1->frame == 4) {
+            type1->frame &= 0xfb;
             InitAnimationForceUpdate(this, 3);
         } else {
-            if ((type1->frames.b.f3) != 0) {
+            if (type1->frame & 0x80) {
                 InitAnimationForceUpdate(this, 0);
                 type1->subAction = 0;
                 InitializeAnimation(type1, 0xc);
@@ -1009,7 +1009,7 @@ void VaatiWrathType0PreAction(Entity* this) {
                 if (temp >= 0) {
                     if (gPlayerState.field_0x2c == NULL) {
                         if (gPlayerEntity.field_0x7a.HWORD == 0) {
-                            if ((gPlayerEntity.height.HALF.HI & 0x8000U) == 0 || (gPlayerState.field_0xa != 0)) {
+                            if ((gPlayerEntity.z.HALF.HI & 0x8000U) == 0 || (gPlayerState.field_0xa != 0)) {
                                 sub_08078AA8(0xb70, 0);
                                 gScreenTransition.field_0x38 |= 2;
                             }

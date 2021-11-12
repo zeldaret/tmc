@@ -22,11 +22,11 @@ void sub_0802B2E0(Entity* this) {
         if ((this->bitfield & 0x7f) == 0x14) {
             COLLISION_OFF(this);
             this->iframes = 0;
-            this->spriteSettings.b.draw = 0;
+            this->spriteSettings.draw = 0;
             this->action = 2;
             ent = CreateFx(this, FX_DEATH, 0);
             if (ent) {
-                this->attachedEntity = ent;
+                this->child = ent;
                 this->actionDelay = 14;
                 CopyPosition(this, ent);
             }

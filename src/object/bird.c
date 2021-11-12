@@ -26,11 +26,11 @@ void sub_0809CF54(Entity* this) {
     Entity* target;
 
     this->action++;
-    this->spriteSettings.b.draw = TRUE;
+    this->spriteSettings.draw = TRUE;
     this->actionDelay = 0x31;
     this->field_0xf = 1;
-    this->hVelocity = -0x18000;
-    this->height.WORD = -0x38C000;
+    this->zVelocity = -0x18000;
+    this->z.WORD = -0x38C000;
     this->field_0x68.HWORD = -0x800;
     this->speed = 0x280;
     this->direction = 8;
@@ -85,7 +85,7 @@ void sub_0809D084(Entity* this) {
             PositionRelative(this->parent, this, 0, 0x80000);
         } else {
             this->subAction++;
-            this->hVelocity = temp;
+            this->zVelocity = temp;
         }
     }
 }
@@ -96,7 +96,7 @@ void sub_0809D0AC(Entity* this) {
     if (sub_080044EC(this, 0x1800) < 2) {
         this->type = 2;
         this->action = 1;
-        this->height.WORD = 0;
+        this->z.WORD = 0;
         this->collisionLayer = 1;
         SetLocalFlag(0x45);
         SoundReq(SFX_SECRET);
@@ -134,14 +134,14 @@ void sub_0809D178(Entity* this) {
         this->action++;
         this->collisionLayer = 2;
         UpdateSpriteForCollisionLayer(this);
-        this->frames.all = 0x80;
+        this->frame = 0x80;
     }
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         InitializeAnimation(this, Random() & 3);
         this->frameDuration = (Random() & 0xf) + 0x10;
-        this->spriteSettings.b.flipX = FALSE;
+        this->spriteSettings.flipX = FALSE;
         if ((Random() & 1) != 0) {
-            this->spriteSettings.b.flipX = TRUE;
+            this->spriteSettings.flipX = TRUE;
         }
     } else {
         GetNextFrame(this);

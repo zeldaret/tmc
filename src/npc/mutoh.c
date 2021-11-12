@@ -22,7 +22,7 @@ void Mutoh(Entity* this) {
         case 0:
             if (LoadExtraSpriteData(this, &gUnk_08110C00)) {
                 this->action = 1;
-                this->spriteSettings.b.draw = TRUE;
+                this->spriteSettings.draw = TRUE;
                 sub_0805E3A0(this, 2);
                 sub_0807DD50(this);
             }
@@ -45,7 +45,7 @@ void Mutoh(Entity* this) {
 }
 
 void Mutoh_Head(Entity* this) {
-    SetExtraSpriteFrame(this, 0, (this->frames.all & -0x81));
+    SetExtraSpriteFrame(this, 0, (this->frame & -0x81));
     SetExtraSpriteFrame(this, 1, this->frameIndex);
     SetSpriteSubEntryOffsetData1(this, 1, 0);
     sub_0807000C(this);
@@ -76,7 +76,7 @@ void Mutoh_Fusion(Entity* this) {
     if (this->action == 0) {
         if (LoadExtraSpriteData(this, &gUnk_08110C00) != 0) {
             this->action++;
-            this->spriteSettings.b.draw = TRUE;
+            this->spriteSettings.draw = TRUE;
             InitializeAnimation(this, 2);
         }
     } else {

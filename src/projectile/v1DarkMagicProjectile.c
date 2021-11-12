@@ -22,7 +22,7 @@ void V1DarkMagicProjectile(Entity* this) {
 void V1DarkMagicProjectile_OnTick(Entity* this) {
     V1DarkMagicProjectile_Actions[this->action](this);
     if ((this->type2 == 0) && (--this->cutsceneBeh.HWORD == 0)) {
-        this->currentHealth = 0;
+        this->health = 0;
     }
 }
 
@@ -41,8 +41,8 @@ void sub_080AAC44(Entity* this) {
                 gPlayerState.field_0x1a[0] |= 0x80;
                 gPlayerState.field_0xa |= 0x80;
             }
-            if (gPlayerEntity.currentHealth == 0) {
-                this->currentHealth = 0;
+            if (gPlayerEntity.health == 0) {
+                this->health = 0;
             }
         } else {
             SoundReq(SFX_ITEM_GLOVES_KNOCKBACK);
@@ -58,7 +58,7 @@ ASM_FUNC("asm/non_matching/v1DarkMagicProjectile/sub_080AACE0.inc", void sub_080
 
 void sub_080AAD70(Entity* this) {
     if (sub_0806F520() == 0) {
-        this->currentHealth = 0;
+        this->health = 0;
     }
     V1DarkMagicProjectile_SubActions[this->subAction](this);
 }
@@ -72,7 +72,7 @@ void V1DarkMagicProjectile_SubAction1(Entity* this) {
 
 void V1DarkMagicProjectile_SubAction2(Entity* this) {
     if (sub_0806F3E4(this) != 0) {
-        this->currentHealth = 0;
+        this->health = 0;
     }
 }
 
@@ -91,8 +91,8 @@ void V1DarkMagicProjectile_Init(Entity* this) {
         this->field_0xf = 4;
         this->field_0x80.HALF.LO = 0;
         this->field_0x80.HALF.HI = 0;
-        this->currentHealth = 0x10;
-        this->height.HALF.HI += 4;
+        this->health = 0x10;
+        this->z.HALF.HI += 4;
         this->spriteOrientation.flipY = 1;
         this->spriteRendering.b3 = 1;
         this->spritePriority.b0 = 4;
@@ -131,7 +131,7 @@ void V1DarkMagicProjectile_Action1(Entity* this) {
                 DeleteThisEntity();
             }
         case 2:
-            if (this->parent->spriteSettings.b.draw == 0) {
+            if (this->parent->spriteSettings.draw == 0) {
                 DeleteThisEntity();
             }
             CopyPosition(this->parent, this);
@@ -148,9 +148,9 @@ void V1DarkMagicProjectile_Action2(Entity* this) {
 void V1DarkMagicProjectile_Action3(Entity* this) {
     CopyPosition(this->parent, this);
     sub_080AB034(this);
-    this->spriteSettings.b.draw = this->parent->spriteSettings.b.draw;
+    this->spriteSettings.draw = this->parent->spriteSettings.draw;
     if (this->type != 0) {
-        this->currentHealth = this->parent->currentHealth;
+        this->health = this->parent->health;
     }
 #ifndef EU
     if (this->parent->action == 2) {
@@ -174,8 +174,8 @@ void sub_080AAF74(Entity* this) {
         gPlayerEntity.iframes = 8;
         ModHealth(-4);
         sub_0800449C(&gPlayerEntity, 0x7a);
-        if (gPlayerEntity.currentHealth == 0) {
-            this->currentHealth = 0;
+        if (gPlayerEntity.health == 0) {
+            this->health = 0;
         }
     }
     if (!((this->field_0x80.HALF.LO < 0x31) && (this->field_0x80.HALF.HI != 0x10))) {
@@ -183,13 +183,13 @@ void sub_080AAF74(Entity* this) {
         this->field_0x80.HALF.LO = 0;
         gPlayerEntity.iframes = 0xf0;
         gPlayerState.field_0x1a[0] = 0;
-        this->currentHealth = 0;
+        this->health = 0;
     } else {
         ResetPlayer();
         gPlayerState.field_0x1a[0] |= 0x80;
         gPlayerState.field_0xa |= 0x80;
         CopyPosition(&gPlayerEntity, this);
-        this->height.HALF.HI = gPlayerEntity.height.HALF.HI - 4;
+        this->z.HALF.HI = gPlayerEntity.z.HALF.HI - 4;
     }
 }
 

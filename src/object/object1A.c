@@ -19,21 +19,21 @@ void sub_080869DC(Entity* ent) {
     Entity* itemEntity;
 
     ent->action = 1;
-    ent->spriteSettings.b.draw = 0;
+    ent->spriteSettings.draw = 0;
     ent->hitbox = &gUnk_080FD1A8;
     ent->field_0x3c |= 16;
     itemEntity = CreateObject(GROUND_ITEM, ent->type, 0);
     if (itemEntity != NULL) {
         itemEntity->actionDelay = 10;
         itemEntity->parent = ent;
-        ent->attachedEntity = itemEntity;
+        ent->child = itemEntity;
         CopyPosition(ent, itemEntity);
         sub_08086A6C(ent);
     }
 }
 
 void sub_08086A28(Entity* ent) {
-    if (ent->attachedEntity->next == NULL) {
+    if (ent->child->next == NULL) {
         ent->action = 2;
     } else {
         u32 iVar1 = sub_080044EC(ent, 10240);
@@ -41,12 +41,12 @@ void sub_08086A28(Entity* ent) {
             ent->action = 2;
         }
         ProcessMovement(ent);
-        CopyPosition(ent, ent->attachedEntity);
+        CopyPosition(ent, ent->child);
     }
 }
 
 void sub_08086A5C(Entity* ent) {
-    ent->attachedEntity->parent = NULL;
+    ent->child->parent = NULL;
     DeleteThisEntity();
 }
 
@@ -54,7 +54,7 @@ void sub_08086A6C(Entity* ent) {
     u32 uVar1;
 
     uVar1 = Random();
-    ent->hVelocity = 163840;
+    ent->zVelocity = 163840;
     ent->direction = (uVar1 >> 16) & 31;
     ent->speed = uVar1 & 480;
 }

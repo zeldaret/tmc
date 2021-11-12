@@ -12,7 +12,7 @@ void Librari(Entity* this) {
     switch (this->action) {
         case 0:
             this->action = 1;
-            this->spriteSettings.b.draw = TRUE;
+            this->spriteSettings.draw = TRUE;
             this->animationState = this->actionDelay;
             this->field_0x68.HALF.LO = sub_0801E99C(this);
             sub_08078784(this, this->field_0x68.HALF.LO);
@@ -88,7 +88,7 @@ void sub_0806B2B4(Entity* this) {
 void Librari_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action++;
-        this->spriteSettings.b.draw = TRUE;
+        this->spriteSettings.draw = TRUE;
         InitAnimationForceUpdate(this, 9);
     } else {
         UpdateAnimationSingleFrame(this);

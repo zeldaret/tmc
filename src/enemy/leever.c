@@ -69,7 +69,7 @@ void Leever_Idle(Entity* this) {
     if (--this->actionDelay == 0) {
         if (Leever_PlayerInRange(this, Random() & 0x1f)) {
             this->action = 2;
-            this->spriteSettings.b.draw = TRUE;
+            this->spriteSettings.draw = TRUE;
             this->direction = (GetFacingDirection(this, gUnk_020000B0) + gLeeverDrift[Random() & 1]) & 0x1f;
             InitializeAnimation(this, LeeverAnimation_DigUp);
             UpdateSpriteForCollisionLayer(this);
@@ -82,7 +82,7 @@ void Leever_Idle(Entity* this) {
 void Leever_DigUp(Entity* this) {
     GetNextFrame(this);
 
-    if (this->frames.b.f3 != 0) {
+    if (this->frame & 0x80) {
         this->action = 3;
         if (this->type == LeeverForm_Red) {
             this->field_0x74.HWORD = 180;
@@ -90,8 +90,8 @@ void Leever_DigUp(Entity* this) {
             this->field_0x74.HWORD = 110;
         }
         InitializeAnimation(this, LeeverAnimation_Attack);
-    } else if (this->frames.b.f0 != 0) {
-        this->frames.all &= 0xfe;
+    } else if ((this->frame & 1) != 0) {
+        this->frame &= 0xfe;
         COLLISION_ON(this);
     }
 }
@@ -110,10 +110,10 @@ void Leever_Attack(Entity* this) {
 void Leever_DigDown(Entity* this) {
     Leever_Move(this);
     GetNextFrame(this);
-    if ((this->frames.b.f3) != 0) {
+    if (this->frame & 0x80) {
         this->action = 1;
         this->actionDelay = 0xf0;
-        this->spriteSettings.b.draw = FALSE;
+        this->spriteSettings.draw = FALSE;
     }
 }
 
@@ -167,7 +167,7 @@ void Leever_Move(Entity* this) {
         this->field_0x74.HWORD = 1;
     }
 
-    this->speed = (this->frames.all & 0xf) * 0x20;
+    this->speed = (this->frame & 0xf) * 0x20;
     if (this->type == LeeverForm_Red) {
         if ((this->field_0xf++ & 0xf) == 0) {
             sub_08004596(this, sub_0800132C(this, gUnk_020000B0));

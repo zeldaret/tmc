@@ -44,11 +44,11 @@ void sub_080A9334(Entity* this) {
 
 void ArrowProjectile_Init(Entity* this) {
     this->action = 1;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     COLLISION_OFF(this);
     this->actionDelay = 0x6a;
     this->field_0xf = 0;
-    this->hVelocity = 0xa00;
+    this->zVelocity = 0xa00;
     sub_080A94C0(this, this->type);
 }
 
@@ -63,7 +63,7 @@ void ArrowProjectile_Action1(Entity* this) {
     if (parent->field_0xf != 0) {
         this->action = 2;
         COLLISION_ON(this);
-        parent->attachedEntity = NULL;
+        parent->child = NULL;
         SoundReq(SFX_FC);
     }
 }
@@ -106,7 +106,7 @@ void sub_080A9488(Entity* this) {
     this->action = 4;
     COLLISION_OFF(this);
     this->actionDelay = 2;
-    this->hVelocity = 0x18000;
+    this->zVelocity = 0x18000;
     this->animationState = (this->knockbackDirection & 0x18) >> 3;
     EnqueueSFX(SFX_METAL_CLINK);
     sub_080A94C0(this, this->animationState);
@@ -114,8 +114,8 @@ void sub_080A9488(Entity* this) {
 
 void sub_080A94C0(Entity* this, u32 animationState) {
     const struct_081299F8* entry = &gUnk_081299F8[animationState];
-    this->spriteSettings.b.flipX = entry->flipX;
-    this->spriteSettings.b.flipY = entry->flipY;
+    this->spriteSettings.flipX = entry->flipX;
+    this->spriteSettings.flipY = entry->flipY;
     this->animIndex = entry->animIndex;
     this->hitbox = (Hitbox*)entry->hitbox;
     InitializeAnimation(this, this->animIndex);

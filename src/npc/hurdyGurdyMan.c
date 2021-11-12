@@ -52,7 +52,7 @@ void HurdyGurdyMan(Entity* this) {
 }
 
 void HurdyGurdyMan_Head(Entity* this) {
-    SetExtraSpriteFrame(this, 0, (this->frames.all & 0xffffff7f) + 8);
+    SetExtraSpriteFrame(this, 0, (this->frame & 0xffffff7f) + 8);
     SetExtraSpriteFrame(this, 1, this->frameIndex);
     SetSpriteSubEntryOffsetData1(this, 1, 0);
     sub_0807000C(this);
@@ -78,7 +78,7 @@ void HurdyGurdyMan_Fusion(Entity* this) {
         uVar1 = LoadExtraSpriteData(this, &gUnk_081144F0);
         if (uVar1 != 0) {
             this->action += 1;
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
             sub_0805E3A0(this, 2);
             InitializeAnimation(this, 10);
         }

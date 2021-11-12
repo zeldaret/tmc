@@ -173,7 +173,7 @@ void Guard_Head(Entity* this) {
     u32 uVar4;
     u32 pbVar5;
 
-    uVar2 = this->frames.all & 0x3f;
+    uVar2 = this->frame & 0x3f;
     pbVar5 = (this->frameIndex & 0x3f);
     uVar4 = this->frameSpriteSettings & 0x3f;
     if (this->id == 0x15) {

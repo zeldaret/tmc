@@ -63,7 +63,7 @@ void sub_08028934(Entity* this) {
         sub_080290E0(this, 4);
         pEVar1 = CreateFx(this, FX_BUSH, 0);
         if (pEVar1 != NULL) {
-            pEVar1->height.HALF.HI -= 8;
+            pEVar1->z.HALF.HI -= 8;
         }
         EnqueueSFX(0x1bb);
     }
@@ -112,7 +112,7 @@ void sub_08028A74(Entity* this) {
     switch (this->subAction) {
         case 0:
             unk = 1;
-            if (this->frames.all & 0x80) {
+            if (this->frame & 0x80) {
                 this->subAction = 1;
                 this->actionDelay = 0x3c;
                 this->field_0xf = 0x10;
@@ -138,19 +138,19 @@ void sub_08028A74(Entity* this) {
         case 2:
             unk = 1;
             sub_080290FC(this);
-            if (this->frames.all & 1) {
+            if (this->frame & 1) {
                 Entity* ent = CreateProjectileWithParent(this, 4, 0);
                 if (ent != NULL) {
                     ent->parent = this;
                     ent->direction = this->direction;
-                    this->frames.all &= ~1;
+                    this->frame &= ~1;
                     this->subAction = 3;
                 }
             }
             break;
         case 3:
             unk = 2;
-            if (this->frames.all & 0x80) {
+            if (this->frame & 0x80) {
                 this->subAction = 4;
                 this->actionDelay = 0x50;
                 sub_080290E0(this, 1);
@@ -189,7 +189,7 @@ void sub_08028BC4(Entity* this) {
     switch (this->subAction) {
         case 0:
             if (this->actionDelay == 0) {
-                if (this->frames.all & 0x80) {
+                if (this->frame & 0x80) {
                     this->subAction = 1;
                     sub_08028FDC(this);
                     sub_080290E0(this, 5);
@@ -200,7 +200,7 @@ void sub_08028BC4(Entity* this) {
             }
             break;
         case 1:
-            if (this->frames.all & 0x80) {
+            if (this->frame & 0x80) {
                 this->action = 4;
                 this->subAction = 0;
                 this->actionDelay = 0x1e;
@@ -209,7 +209,7 @@ void sub_08028BC4(Entity* this) {
                 iVar1 = sub_0804A9FC(this, 0x1c);
                 if (iVar1 != NULL) {
                     iVar1->spritePriority.b0 = 3;
-                    iVar1->height.HALF.HI -= 12;
+                    iVar1->z.HALF.HI -= 12;
                     sub_0805E3A0(iVar1, 2);
                 }
                 SetFlag(this->field_0x86.HWORD);
@@ -549,7 +549,7 @@ void sub_0802925C(Entity* this) {
 void sub_08029270(Entity* this) {
     if (this->action == 0) {
         this->action++;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         InitializeAnimation(this, 0xe);
     } else {
         GetNextFrame(this);

@@ -89,7 +89,7 @@ void sub_0802BCA8(Entity* this) {
 
         this->action = 7;
         this->actionDelay = 0x5a;
-        this->hVelocity = 0x18000;
+        this->zVelocity = 0x18000;
         this->hitType = 0x19;
         this->field_0x3a = this->field_0x3a & 0xfb;
         this->field_0x1c = 0x12;
@@ -125,7 +125,7 @@ void sub_0802BD28(Entity* this) {
         COLLISION_ON(this);
         this->field_0x3a &= ~0x4;
     } else {
-        this->currentHealth = 0;
+        this->health = 0;
     }
 }
 
@@ -284,7 +284,7 @@ void sub_0802BFE0(Entity* this) {
 }
 
 void sub_0802BFF4(Entity* this) {
-    this->spriteSettings.b.draw ^= 1;
+    this->spriteSettings.draw ^= 1;
     if (--this->actionDelay == 0) {
         DeleteEntity(this);
     }
@@ -369,7 +369,7 @@ void sub_0802C1CC(Entity* this) {
 void sub_0802C218(Entity* this) {
     this->action = 6;
     this->speed = 0xe0;
-    this->hVelocity = 0x18000;
+    this->zVelocity = 0x18000;
 }
 
 // clang-format off

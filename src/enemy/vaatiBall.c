@@ -26,7 +26,7 @@ void VaatiBall(Entity* this) {
     gUnk_080D1604[this->action](this);
 
     if (this->cutsceneBeh.HALF.LO) {
-        this->currentHealth = -1;
+        this->health = -1;
     }
 
     if (this->bitfield & 0x80) {
@@ -35,13 +35,13 @@ void VaatiBall(Entity* this) {
         }
 
 #ifdef EU
-        if (this->currentHealth < 0xfa) {
+        if (this->health < 0xfa) {
 #else
-        if (this->currentHealth < 0xfd) {
+        if (this->health < 0xfd) {
 #endif
-            this->spriteSettings.b.draw = 0;
+            this->spriteSettings.draw = 0;
             COLLISION_OFF(this);
-            this->currentHealth = -1;
+            this->health = -1;
             parent->field_0x80.HALF.LO--;
             CreateDust(this);
             SoundReq(SFX_1C3);
@@ -63,17 +63,17 @@ void sub_0804468C(Entity* this) {
             this->direction = (this->field_0x78.HALF.HI * 8) & 0x1f;
             this->field_0x78.HALF.LO = 0;
             this->field_0x82.HALF.HI = 0;
-            this->spriteSettings.b.draw = 0;
+            this->spriteSettings.draw = 0;
             off = &gUnk_080D1620[this->field_0x78.HALF.HI & 3];
             PositionRelative(this->parent, this, off->h << 0x10, (off->v - 0x10) * 0x10000);
-            this->height.HALF.HI = this->parent->height.HALF.HI;
+            this->z.HALF.HI = this->parent->z.HALF.HI;
             InitAnimationForceUpdate(this, 0);
             break;
         case 1:
             this->action = 3;
             this->field_0x74.HALF.LO = 0;
             this->field_0x82.HALF.HI = 1;
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
             InitAnimationForceUpdate(this, 1);
             break;
     }
@@ -124,15 +124,15 @@ void sub_080447E0(Entity* this) {
         this->hitType = 43;
         sub_08044E74(this, 0);
         if (this->flags & ENT_COLLIDE)
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
     } else {
         this->field_0x76.HALF.HI++;
         this->field_0x76.HALF.HI &= 7;
         if (this->flags & ENT_COLLIDE) {
             if (this->field_0x76.HALF.HI & 1) {
-                this->spriteSettings.b.draw = 1;
+                this->spriteSettings.draw = 1;
             } else {
-                this->spriteSettings.b.draw = 0;
+                this->spriteSettings.draw = 0;
             }
         }
 
@@ -156,7 +156,7 @@ void sub_08044868(Entity* this) {
             if (this->field_0x82.HALF.HI) {
                 switch (this->field_0x74.HALF.LO) {
                     case 0:
-                        if (this->frames.all & 0x80) {
+                        if (this->frame & 0x80) {
                             this->field_0x74.HALF.LO = 1;
                             this->direction = sub_080045B4(this, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10);
                             this->speed = 0x180;
@@ -179,11 +179,11 @@ void sub_08044868(Entity* this) {
         case 1:
             if (this->field_0x82.HALF.HI == 0) {
                 this->field_0x82.HALF.HI++;
-                this->spriteSettings.b.draw = 1;
+                this->spriteSettings.draw = 1;
             }
             sub_08044DEC(this);
             if (*(u8*)&vaati->field_0x86 > 1) {
-                u8 draw = this->spriteSettings.b.draw;
+                u8 draw = this->spriteSettings.draw;
                 if (draw == 1 && this->cutsceneBeh.HALF.LO == 0) {
                     vaati = CreateProjectileWithParent(this, 0x18, 0);
                     if (vaati) {
@@ -205,7 +205,7 @@ void sub_08044868(Entity* this) {
             u8 draw;
 
             sub_08044E74(this, 1);
-            draw = this->spriteSettings.b.draw;
+            draw = this->spriteSettings.draw;
             if (draw == 1) {
                 COLLISION_ON(this);
             } else {
@@ -273,13 +273,13 @@ void sub_080449F8(Entity* this) {
                 u8 draw;
 
                 this->field_0x74.HALF.LO++;
-                draw = this->spriteSettings.b.draw;
+                draw = this->spriteSettings.draw;
                 if (draw) {
                     vaati = CreateProjectileWithParent(this, 0x1c, 0);
                     if (vaati) {
                         vaati->y.HALF.HI += 4;
                         vaati->parent = this;
-                        this->attachedEntity = vaati;
+                        this->child = vaati;
                     }
                 }
             }
@@ -393,7 +393,7 @@ void sub_08044B04(Entity* this) {
                     COLLISION_OFF(this);
                     PositionRelative(vaati, this, 0, -0x100000);
                     if (this->field_0xf)
-                        this->spriteSettings.b.draw = 0;
+                        this->spriteSettings.draw = 0;
                     break;
                 case 1:
                     if (--this->actionDelay == 0) {
@@ -427,7 +427,7 @@ void sub_08044B04(Entity* this) {
                     u8 draw;
 
                     sub_08044E74(this, 1);
-                    draw = this->spriteSettings.b.draw;
+                    draw = this->spriteSettings.draw;
                     if (draw == 1) {
                         COLLISION_ON(this);
                     } else {
@@ -447,10 +447,10 @@ void sub_08044DEC(Entity* this) {
     u32 off;
 
     if (this->parent->field_0x80.HALF.LO > this->field_0x78.HALF.HI) {
-        this->spriteSettings.b.draw = 1;
-        this->currentHealth = -1;
+        this->spriteSettings.draw = 1;
+        this->health = -1;
     } else {
-        this->spriteSettings.b.draw = 0;
+        this->spriteSettings.draw = 0;
     }
     COLLISION_OFF(this);
     this->field_0x78.HALF.LO = 0;

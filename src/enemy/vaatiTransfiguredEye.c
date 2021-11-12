@@ -69,8 +69,8 @@ void VaatiTransfiguredEyeFunction1(Entity* this) {
                     SoundReq(SFX_ITEM_GLOVES_KNOCKBACK);
                 }
             } else {
-                if (this->currentHealth != 0xff) {
-                    this->currentHealth = 0xff;
+                if (this->health != 0xff) {
+                    this->health = 0xff;
                     if (this->actionDelay != 0 && (pEVar4->field_0x80.HALF.HI != 0)) {
                         pEVar4->field_0x76.HALF.LO |= (1 << this->type2);
                         if (this->cutsceneBeh.HALF.HI == 0) {
@@ -96,7 +96,7 @@ void VaatiTransfiguredEyeFunction0Action0(Entity* this) {
     bVar2 = gMessage.doTextBox & 0x7f;
     if ((gMessage.doTextBox & 0x7f) == 0) {
         this->action = 1;
-        this->spriteSettings.b.draw = 0;
+        this->spriteSettings.draw = 0;
         this->field_0x80.HALF.LO = bVar2;
         this->field_0x80.HALF.HI = bVar2;
         this->cutsceneBeh.HALF.HI = bVar2;
@@ -108,7 +108,7 @@ void VaatiTransfiguredEyeFunction0Action0(Entity* this) {
             child = CreateEnemy(VAATI_TRANSFIGURED_EYE, 1);
             if (child != NULL) {
                 child->parent = this;
-                this->attachedEntity = child;
+                this->child = child;
                 child->actionDelay = this->actionDelay;
                 child->type2 = this->type2;
                 CopyPosition(this, child);
@@ -123,7 +123,7 @@ void VaatiTransfiguredEyeFunction0Action0(Entity* this) {
 void VaatiTransfiguredEyeFunction0Action1(Entity* this) {
     sub_08045A28(this);
     if (this->field_0x82.HALF.LO == 0) {
-        if ((this->frames.all & 0x80) != 0) {
+        if ((this->frame & 0x80) != 0) {
             if (this->type != 0) {
                 COLLISION_ON(this);
             }
@@ -132,7 +132,7 @@ void VaatiTransfiguredEyeFunction0Action1(Entity* this) {
         }
     } else {
         if (--this->field_0x82.HALF.LO == 0) {
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
         }
     }
 }
@@ -163,7 +163,7 @@ void VaatiTransfiguredEyeFunction0Action2(Entity* this) {
 
 void VaatiTransfiguredEyeFunction0Action3(Entity* this) {
     sub_08045A28(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         this->action = 2;
         if (this->type != 0) {
             if (this->actionDelay == 0) {
@@ -181,7 +181,7 @@ void VaatiTransfiguredEyeFunction0Action4(Entity* this) {
 
     sub_08045A28(this);
     if (this->field_0xf == 0) {
-        if ((this->frames.all & 0x80) != 0) {
+        if ((this->frame & 0x80) != 0) {
             this->field_0xf = 0x20;
         }
     } else {
@@ -219,7 +219,7 @@ void sub_08045A28(Entity* this) {
     if (this->field_0x82.HALF.LO == 0) {
         GetNextFrame(this);
     }
-    frames = this->frames.all & 0x70;
+    frames = this->frame & 0x70;
     type = this->type;
     if (type == 0) {
         sub_08045A00(this);
@@ -288,7 +288,7 @@ void sub_08045A28(Entity* this) {
         PositionRelative(this->parent, this, 0, -0x10000);
         switch (this->field_0x82.HALF.HI) {
             case 0:
-                switch (this->frames.all & 0x70) {
+                switch (this->frame & 0x70) {
                     case 0x10:
                         this->field_0x82.HALF.HI = 2;
                         sub_0801D2B4(this, 0x13b);
@@ -302,7 +302,7 @@ void sub_08045A28(Entity* this) {
                 }
                 break;
             case 1: {
-                u32 temp = this->frames.all & 0x70;
+                u32 temp = this->frame & 0x70;
                 switch (temp) {
                     case 0:
                         this->field_0x82.HALF.HI = temp;
@@ -317,9 +317,9 @@ void sub_08045A28(Entity* this) {
                 }
             } break;
             case 2:
-                switch (this->frames.all & 0x70) {
+                switch (this->frame & 0x70) {
                     case 0:
-                        this->field_0x82.HALF.HI = this->frames.all & 0x70;
+                        this->field_0x82.HALF.HI = this->frame & 0x70;
                         sub_0801D2B4(this, 0x13f);
                         break;
                     default:

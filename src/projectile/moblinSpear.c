@@ -62,7 +62,7 @@ NONMATCH("asm/non_matching/moblinSpear/MoblinSpear_Action1.inc", void MoblinSpea
     if (parent->next == NULL) {
         DeleteThisEntity();
     }
-    frames = parent->frames.all * 4;
+    frames = parent->frame * 4;
     a = &gUnk_0812966C[frames / 4];
     this->hitbox->offset_x = a->offsetX;
     // TODO offset used to increase a pointer is already increated here?

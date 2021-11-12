@@ -10,7 +10,7 @@ extern u16 gUnk_08125050[];
 extern void (*gUnk_0812505C[])(Entity*);
 
 void Pinwheel(Entity* this) {
-    u16 x = this->currentHealth;
+    u16 x = this->health;
     if ((x & 0x7f) != 0) {
         if (ReadBit(&gUnk_020342F8, x - 1) == 0) {
             DeleteThisEntity();

@@ -59,7 +59,7 @@ void Keese_Initialize(Entity* this) {
     sub_0804A720(this);
     if (this->type != 0) {
         this->spritePriority.b1 = 1;
-        this->height.HALF.HI = -0x10;
+        this->z.HALF.HI = -0x10;
     }
     this->direction = Random() & 0x1f;
     this->field_0x1c = 1;
@@ -77,12 +77,12 @@ void Keese_Fly(Entity* this) {
         this->field_0x7a.HWORD--;
     }
     GetNextFrame(this);
-    if ((this->frames.b.f3) != 0) {
+    if (this->frame & 0x80) {
         sub_08021F24(this);
     } else {
         sub_080AEFB4(this);
     }
-    this->spriteOffsetY = gKeeseSpriteOffsets[this->frames.all];
+    this->spriteOffsetY = gKeeseSpriteOffsets[this->frame];
 }
 
 void Keese_Rest(Entity* this) {

@@ -406,7 +406,7 @@ void HandlePostScriptActions(Entity* entity, ScriptExecutionContext* context) {
             case 1 << 0x02:
                 break;
             case 1 << 0x03:
-                entity->hVelocity = 0x18000;
+                entity->zVelocity = 0x18000;
                 break;
             case 1 << 0x04:
                 CreateSpeechBubbleExclamationMark(entity, 8, -0x18);
@@ -418,10 +418,10 @@ void HandlePostScriptActions(Entity* entity, ScriptExecutionContext* context) {
                 DestroyScriptExecutionContext(context);
                 DeleteThisEntity();
             case 1 << 0x07:
-                entity->spriteSettings.b.draw = 1;
+                entity->spriteSettings.draw = 1;
                 break;
             case 1 << 0x08:
-                entity->spriteSettings.b.draw = 0;
+                entity->spriteSettings.draw = 0;
                 break;
             case 1 << 0x09:
                 entity->spriteOffsetY = 0;
@@ -450,7 +450,7 @@ void HandlePostScriptActions(Entity* entity, ScriptExecutionContext* context) {
                 entity->field_0x82.HWORD ^= 0x10;
                 break;
             case 1 << 0x11:
-                entity->spriteSettings.b.flipX ^= 1;
+                entity->spriteSettings.flipX ^= 1;
                 break;
             case 1 << 0x12:
                 entity->field_0x82.HWORD |= 0x20;
@@ -900,7 +900,7 @@ void ScriptCommand_0807E564(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void ScriptCommand_EntityHasHeight(Entity* entity, ScriptExecutionContext* context) {
-    context->condition = entity->height.WORD != 0;
+    context->condition = entity->z.WORD != 0;
     gActiveScriptInfo.flags |= 1;
 }
 
@@ -1102,8 +1102,8 @@ void ScriptCommand_SetIntVariable(Entity* entity, ScriptExecutionContext* contex
 }
 
 void ScriptCommand_0807E924(Entity* entity, ScriptExecutionContext* context) {
-    context->intVariable = entity->frames.all;
-    entity->frames.all = 0;
+    context->intVariable = entity->frame;
+    entity->frame = 0;
 }
 
 void ScriptCommand_0807E930(Entity* entity, ScriptExecutionContext* context) {
@@ -1267,7 +1267,7 @@ void ScriptCommand_SetEntitySpeed(Entity* entity, ScriptExecutionContext* contex
 }
 
 void ScriptCommand_SetEntity0x20(Entity* entity, ScriptExecutionContext* context) {
-    entity->hVelocity = GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer);
+    entity->zVelocity = GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer);
 }
 
 void ScriptCommand_SetEntityPositionRelative(Entity* entity, ScriptExecutionContext* context) {
@@ -1438,7 +1438,7 @@ void ScriptCommand_0807EEF4(Entity* entity, ScriptExecutionContext* context) {
 void ScriptCommand_0807EF3C(Entity* entity, ScriptExecutionContext* context) {
     if (!context->unk_18) {
         context->unk_18 = 1;
-        entity->hVelocity = ((s16)context->scriptInstructionPointer[1]) << 8;
+        entity->zVelocity = ((s16)context->scriptInstructionPointer[1]) << 8;
         context->x.HALF.LO = context->scriptInstructionPointer[2] << 8;
         sub_08003FC4(entity, (u16)context->x.HALF.LO);
     } else {
@@ -1651,7 +1651,7 @@ void sub_0807F2A8(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807F2D4(Entity* entity, ScriptExecutionContext* context) {
-    if ((entity->frames.all & 0x80) != 0) {
+    if ((entity->frame & 0x80) != 0) {
         gActiveScriptInfo.flags |= 1;
     } else {
         gActiveScriptInfo.commandSize = 0;
@@ -1659,7 +1659,7 @@ void sub_0807F2D4(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807F304(Entity* entity, ScriptExecutionContext* context) {
-    if ((gPlayerEntity.frames.all & 0x80) != 0) {
+    if ((gPlayerEntity.frame & 0x80) != 0) {
         gActiveScriptInfo.flags |= 1;
     } else {
         gActiveScriptInfo.commandSize = 0;
@@ -1690,9 +1690,9 @@ void sub_0807F36C(Entity* entity, ScriptExecutionContext* context) {
         fx->spritePriority.b0 = 1;
         PositionRelative(entity, fx, 0, -524288);
         if (Random() & 1)
-            fx->spriteSettings.b.flipX = 1;
+            fx->spriteSettings.flipX = 1;
         if (Random() & 1)
-            fx->spriteSettings.b.flipY = 1;
+            fx->spriteSettings.flipY = 1;
     }
 }
 
@@ -2001,7 +2001,7 @@ void sub_0807F970(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807F98C(Entity* entity, ScriptExecutionContext* context) {
-    entity->height.WORD = context->intVariable;
+    entity->z.WORD = context->intVariable;
 }
 
 void sub_0807F994(Entity* entity, ScriptExecutionContext* context) {

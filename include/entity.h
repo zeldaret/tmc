@@ -58,16 +58,13 @@ typedef struct Entity {
     /*0x15*/ u8 direction;
     /*0x16*/ u8 field_0x16;
     /*0x17*/ u8 field_0x17;
-    /*0x18*/ union {
-    /*    */     u8 raw;
-    /*    */     struct {
-    /*    */         u32 draw        : 2; // 1-2
-    /*    */         u32 ss2         : 1; //   4
-    /*    */         u32 ss3         : 1; //   8
-    /*    */         u32 shadow      : 2; //0x10-0x20
-    /*    */         u32 flipX       : 1; //0x40
-    /*    */         u32 flipY       : 1; //0x80
-    /*    */     } PACKED b;
+    /*0x18*/ struct {
+    /*    */     u32 draw        : 2; // 1-2
+    /*    */     u32 ss2         : 1; //   4
+    /*    */     u32 ss3         : 1; //   8
+    /*    */     u32 shadow      : 2; //0x10-0x20
+    /*    */     u32 flipX       : 1; //0x40
+    /*    */     u32 flipY       : 1; //0x80
     /*    */ } PACKED spriteSettings;
     /*0x19*/ struct {
     /*    */     u32 b0         : 2; // 1-2
@@ -91,7 +88,7 @@ typedef struct Entity {
     /*0x1d*/ u8 field_0x1d;
     /*0x1e*/ u8 frameIndex;
     /*0x1f*/ u8 lastFrameIndex;
-    /*0x20*/ s32 hVelocity;
+    /*0x20*/ s32 zVelocity;
     /*0x24*/ s16 speed;
     /*0x26*/ u8 spriteAnimation[3];
     /*0x29*/ struct {
@@ -102,7 +99,7 @@ typedef struct Entity {
     /*0x2a*/ u16 collisions;
     /*0x2c*/ union SplitWord x;
     /*0x30*/ union SplitWord y;
-    /*0x34*/ union SplitWord height; // todo
+    /*0x34*/ union SplitWord z;
     /*0x38*/ u8 collisionLayer;
     /*0x39*/ s8 interactType;
     /*0x3a*/ u8 field_0x3a;
@@ -116,23 +113,15 @@ typedef struct Entity {
     /*0x42*/ u8 knockbackDuration;
     /*0x43*/ u8 field_0x43;
     /*0x44*/ u8 damage;
-    /*0x45*/ u8 currentHealth;
+    /*0x45*/ u8 health;
     /*0x46*/ u16 field_0x46;
     /*0x48*/ Hitbox* hitbox;
     /*0x4c*/ struct Entity* field_0x4c;
     /*0x50*/ struct Entity* parent;
-    /*0x54*/ struct Entity* attachedEntity;
+    /*0x54*/ struct Entity* child;
     /*0x58*/ u8 animIndex;
     /*0x59*/ u8 frameDuration;
-    /*0x5a*/ union {
-    /*    */     u8 all;
-    /*    */     struct {
-    /*    */         u8 f0 : 1;
-    /*    */         u8 f1 : 5;
-    /*    */         u8 f2 : 1; //0x40
-    /*    */         u8 f3 : 1; //0x80
-    /*    */    } PACKED b;
-    /*    */ } PACKED frames;
+    /*0x5a*/ u8 frame;
     /*0x5b*/ u8 frameSpriteSettings;
     /*0x5c*/ Frame* animPtr;
     /*0x60*/ u16 spriteVramOffset;

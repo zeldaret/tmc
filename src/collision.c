@@ -195,7 +195,7 @@ NONMATCH("asm/non_matching/arm_proxy/sub_080177A0.inc", bool32 sub_080177A0(Enti
                     depth = this_d + ((Hitbox3D*)bb_that)->depth;
                 else
                     depth = this_d + 5;
-                if ((this->height.HALF.HI - that->height.HALF.HI) + depth <= depth * 2)
+                if ((this->z.HALF.HI - that->z.HALF.HI) + depth <= depth * 2)
                     return TRUE;
             }
         }
@@ -242,7 +242,7 @@ s32 sub_08017874(Entity* a, Entity* b) {
                     break;
             }
         }
-        v5 = a->currentHealth - v6;
+        v5 = a->health - v6;
         if (a->kind == 3) {
             if ((a->field_0x6c.HALF.HI & 1) != 0)
                 sub_0800449C(a, 295);
@@ -266,7 +266,7 @@ void sub_08017940(Entity* org, Entity* tgt) {
         e->spritePriority.b0 = 2;
         e->x.HALF.HI = (org->x.HALF.HI + org->hitbox->offset_x + tgt->x.HALF.HI + tgt->hitbox->offset_x) >> 1;
         e->y.HALF.HI = (org->y.HALF.HI + org->hitbox->offset_y + tgt->y.HALF.HI + tgt->hitbox->offset_y) >> 1;
-        e->height.HALF.HI = (org->height.HALF.HI + tgt->height.HALF.HI) >> 1;
+        e->z.HALF.HI = (org->z.HALF.HI + tgt->z.HALF.HI) >> 1;
         e->collisionLayer = org->collisionLayer;
         UpdateSpriteForCollisionLayer(e);
     }
@@ -292,7 +292,7 @@ void sub_080179EC(Entity* a1, Entity* a2) {
         e->spritePriority.b0 = 2;
         e->spriteOffsetX = (a1->x.HALF.HI + a1->hitbox->offset_x - (a2->x.HALF.HI + a2->hitbox->offset_x)) >> 1;
         e->spriteOffsetY = (a1->y.HALF.HI + a1->hitbox->offset_y - (a2->y.HALF.HI + a2->hitbox->offset_y)) >> 1;
-        e->attachedEntity = a2;
+        e->child = a2;
     }
 }
 
@@ -351,7 +351,7 @@ s32 CollisionGroundItem(Entity* org, Entity* tgt, u32 direction, ColSettings* se
     COLLISION_OFF(tgt);
     tgt->bitfield = org->hurtType | 0x80;
     if ((tgt->type == 0x5F || tgt->type == 0x60) && sub_08081420(tgt))
-        tgt->currentHealth = 0;
+        tgt->health = 0;
     return 2;
 }
 
@@ -389,13 +389,13 @@ s32 sub_08017BBC(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
     if ((gPlayerState.flags & (0x1 | 0x80 | 0x400 | 0x1000)) == 0) {
         Entity* e = CreateObject(66, 1, 0);
         if (e != NULL) {
-            e->attachedEntity = org;
+            e->child = org;
             gPlayerState.flags |= 0x400;
             org->animationState = (direction ^ 0x10) >> 2;
         }
     }
     tgt->damage = 4;
-    org->currentHealth = sub_08017874(org, tgt);
+    org->health = sub_08017874(org, tgt);
     org->knockbackDuration = 12;
     org->iframes = 30;
     org->field_0x46 = 384;
@@ -408,7 +408,7 @@ s32 sub_08017C40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
     if ((gPlayerState.flags & (0x1 | 0x80 | 0x800 | 0x1000)) == 0 && gPlayerState.playerAction == 0) {
         if (org->action == 1 || org->action == 24) {
             tgt->damage = 4;
-            org->currentHealth = sub_08017874(org, tgt);
+            org->health = sub_08017874(org, tgt);
             gPlayerState.flags = 0x800;
             gPlayerState.playerAction = 13;
         }
@@ -474,7 +474,7 @@ int sub_08017DD4(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
         tgt->damage &= ~0x80;
     else
         tgt->damage = 4;
-    gPlayerEntity.currentHealth = sub_08017874(&gPlayerEntity, tgt);
+    gPlayerEntity.health = sub_08017874(&gPlayerEntity, tgt);
     tgt->iframes = -12;
     if ((gPlayerState.flags & 0x80) == 0) {
         sub_08079D84();
@@ -505,7 +505,7 @@ s32 sub_08017EB0(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
     if (org == &gPlayerEntity) {
         u32 temp = tgt->damage;
         tgt->damage = 8;
-        gPlayerEntity.currentHealth = sub_08017874(&gPlayerEntity, tgt);
+        gPlayerEntity.health = sub_08017874(&gPlayerEntity, tgt);
         tgt->damage = temp;
         gPlayerEntity.knockbackDuration = 12;
         gPlayerEntity.iframes = 16;
@@ -540,7 +540,7 @@ s32 sub_08017F40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
                 gPlayerState.flags |= 0x10u;
                 gPlayerState.jumpStatus = 0;
                 if (tgt->kind == ENEMY && (tgt->id == GHINI || tgt->id == ENEMY_50)) {
-                    org->height.HALF.HI = 0;
+                    org->z.HALF.HI = 0;
                     PositionRelative(org, tgt, 0, 0x10000);
                 } else {
                     PositionRelative(tgt, org, 0, 0x10000);
@@ -554,7 +554,7 @@ s32 sub_08017F40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
                 return 1;
             }
         } else {
-            org->currentHealth = 0;
+            org->health = 0;
         }
     } else if (tgt->kind == 3 && org == &gPlayerEntity) {
         sub_08004484(tgt, org);
@@ -575,13 +575,13 @@ NONMATCH("asm/non_matching/collision/sub_0801802C.inc",
             goto _0801807A;
     } else if (kind == 8) {
         if ((((org->direction ^ 0x10) - 4 * tgt->animationState + 5) & 0x1Fu) <= 0xA) {
-            org->currentHealth = 0;
+            org->health = 0;
         _0801807A:
             sub_080180BC(org, tgt);
             return 1;
         }
     } else {
-        org->currentHealth = 0;
+        org->health = 0;
         return 0;
     }
     x = 0x11aa;
@@ -639,7 +639,7 @@ s32 sub_08018168(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
                 return 1;
             }
         } else {
-            org->currentHealth = 0;
+            org->health = 0;
         }
     } else if ((tgt->kind == 3) && (org == &gPlayerEntity)) {
         sub_08004484(tgt, &gPlayerEntity);
@@ -668,7 +668,7 @@ s32 sub_08018288(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
     if (org == &gPlayerEntity)
         sub_0807AFE8();
     else
-        org->currentHealth = 0;
+        org->health = 0;
     return 1;
 }
 
@@ -704,7 +704,7 @@ s32 sub_08018308(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
         tgt->damage = settings->_3;
         tmp2 = 0xFF;
         if (settings->_3 != 0)
-            org->currentHealth = sub_08017874(org, tgt);
+            org->health = sub_08017874(org, tgt);
         if (settings->_4 > org->field_0x43)
             org->field_0x43 = settings->_4;
         tgt->field_0x46 = 16 * settings->_5;
@@ -714,7 +714,7 @@ s32 sub_08018308(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
         tgt->knockbackDuration = settings->_7;
         tmp2 &= org->damage = settings->_8;
         if (tmp2 != 0)
-            tgt->currentHealth = sub_08017874(tgt, org);
+            tgt->health = sub_08017874(tgt, org);
         if (settings->_9 > tgt->field_0x43)
             tgt->field_0x43 = settings->_9;
     }

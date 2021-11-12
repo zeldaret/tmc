@@ -40,7 +40,7 @@ void sub_080AB544(Entity* this) {
 void CannonballProjectile_Init(Entity* this) {
     this->action = 1;
     this->direction = this->type << 3;
-    this->height.HALF.HI = 0xfffc;
+    this->z.HALF.HI = 0xfffc;
     InitializeAnimation(this, this->type);
 }
 
@@ -78,14 +78,14 @@ bool32 sub_080AB5F4(Entity* this) {
 }
 
 bool32 sub_080AB634(Entity* this) {
-    Entity** entities = ((Entity**)&this->parent->hVelocity);
+    Entity** entities = ((Entity**)&this->parent->zVelocity);
     u32 i;
     for (i = 0; i <= 3; ++i) {
         if (entities[i] != NULL && (sub_080177A0(this, entities[i]) != 0)) {
             if (entities[i]->action < 3) {
                 entities[i]->action = 3;
                 entities[i]->actionDelay = 0x1e;
-                entities[i]->spriteSettings.b.draw = 0;
+                entities[i]->spriteSettings.draw = 0;
                 CreateFx(entities[i], FX_WHITE_ROCK, 0);
             }
             DeleteEntity(this);

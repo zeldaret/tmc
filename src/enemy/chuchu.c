@@ -101,11 +101,11 @@ void sub_0801EF40(Entity* this) {
     if (this->type == 2) {
         if (this->bitfield == 0x8e || this->bitfield == 0x95) {
             COLLISION_OFF(this);
-            this->currentHealth = 0;
+            this->health = 0;
         }
     }
 
-    health = this->currentHealth;
+    health = this->health;
     if (health) {
         if (this->bitfield == 0x94) {
             sub_0801FB68(this);
@@ -117,10 +117,10 @@ void sub_0801EF40(Entity* this) {
         }
     } else {
         sub_0804AA1C(this);
-        this->hVelocity = 0;
+        this->zVelocity = 0;
         InitializeAnimation(this, 9);
     }
-    this->field_0x80.HALF.LO = this->currentHealth;
+    this->field_0x80.HALF.LO = this->health;
     sub_0804AA30(this, gUnk_080CA21C);
 }
 
@@ -157,7 +157,7 @@ void sub_0801F048(Entity* this) {
 }
 
 void sub_0801F084(Entity* this) {
-    if ((this->frames.all & 0x80) == 0)
+    if ((this->frame & 0x80) == 0)
         GetNextFrame(this);
     sub_08001242(this);
 }
@@ -165,7 +165,7 @@ void sub_0801F084(Entity* this) {
 void sub_0801F0A4(Entity* this) {
     sub_0804A720(this);
     this->action = 1;
-    this->field_0x80.HALF.LO = this->currentHealth;
+    this->field_0x80.HALF.LO = this->health;
     this->field_0x82.HALF.LO = 0;
 }
 
@@ -175,7 +175,7 @@ void nullsub_4(Entity* this) {
 
 void sub_0801F0C8(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         this->action = 3;
         this->actionDelay = (Random() & 3) + 0xc;
         this->field_0xf = Random();
@@ -210,9 +210,9 @@ void sub_0801F12C(Entity* this) {
 }
 
 void sub_0801F1B0(Entity* this) {
-    if (this->frames.all & 0x10) {
-        if (this->frames.all & 1) {
-            this->frames.all ^= 1;
+    if (this->frame & 0x10) {
+        if (this->frame & 1) {
+            this->frame ^= 1;
             this->hitType = 90;
             EnqueueSFX(299);
         }
@@ -223,7 +223,7 @@ void sub_0801F1B0(Entity* this) {
         GetNextFrame(this);
     }
 
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         if (sub_0801FBD0(this)) {
             sub_0801F328(this);
         } else {
@@ -242,7 +242,7 @@ void sub_0801F228(Entity* this) {
 
 void sub_0801F250(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.all & 0x80)
+    if (this->frame & 0x80)
         sub_0801F360(this);
 }
 
@@ -269,9 +269,9 @@ void sub_0801F270(Entity* this) {
 
 void sub_0801F2CC(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         this->action = 1;
-        this->spriteSettings.b.draw = 0;
+        this->spriteSettings.draw = 0;
         InitializeAnimation(this, 4);
     }
 }
@@ -279,7 +279,7 @@ void sub_0801F2CC(Entity* this) {
 void sub_0801F2F8(Entity* this) {
     sub_08003FC4(this, 0x1800);
     GetNextFrame(this);
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         sub_0801F340(this);
         sub_0804AA1C(this);
     }
@@ -317,7 +317,7 @@ void sub_0801F3AC(Entity* this) {
         if (this->field_0x82.HALF.LO || PlayerInRange(this, 1, 0x48)) {
             if (this->action == 1) {
                 this->action = 2;
-                this->spriteSettings.b.draw = 1;
+                this->spriteSettings.draw = 1;
                 this->field_0x82.HALF.LO = 1;
                 InitializeAnimation(this, 0);
             }
@@ -339,7 +339,7 @@ void sub_0801F428(Entity* this) {
     sub_0804A720(this);
     this->action = 1;
     this->actionDelay = Random();
-    this->field_0x80.HALF.LO = this->currentHealth;
+    this->field_0x80.HALF.LO = this->health;
     this->field_0x82.HALF.LO = 0;
     if (this->type2 == 0)
         return;
@@ -348,7 +348,7 @@ void sub_0801F428(Entity* this) {
     this->field_0xf = 30;
     COLLISION_ON(this);
     this->spritePriority.b1 = 3;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     InitializeAnimation(this, 2);
 }
 #endif
@@ -359,7 +359,7 @@ void sub_0801F48C(Entity* this) {
 
 void sub_0801F494(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         this->action = 3;
         this->field_0xf = 30;
         this->direction = sub_08049F84(this, 1);
@@ -401,9 +401,9 @@ void sub_0801F508(Entity* this) {
 }
 
 void sub_0801F584(Entity* this) {
-    if (this->frames.all & 0x10) {
-        if (this->frames.all & 0x1) {
-            this->frames.all ^= 1;
+    if (this->frame & 0x10) {
+        if (this->frame & 0x1) {
+            this->frame ^= 1;
             this->hitType = 91;
             EnqueueSFX(299);
         }
@@ -415,7 +415,7 @@ void sub_0801F584(Entity* this) {
         GetNextFrame(this);
     }
 
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         if (sub_0801FBD0(this)) {
             this->field_0x82.HALF.HI = 0;
             sub_0801F730(this);
@@ -437,7 +437,7 @@ void sub_0801F61C(Entity* this) {
 
 void sub_0801F638(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         this->action = 8;
         this->field_0xf = 30;
         this->direction = sub_08049F84(this, 1);
@@ -462,9 +462,9 @@ void sub_0801F688(Entity* this) {
 
 void sub_0801F6CC(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         this->action = 1;
-        this->spriteSettings.b.draw = 0;
+        this->spriteSettings.draw = 0;
         InitializeAnimation(this, 4);
     }
 }
@@ -472,7 +472,7 @@ void sub_0801F6CC(Entity* this) {
 void sub_0801F6F8(Entity* this) {
     sub_08003FC4(this, 0x1800);
     GetNextFrame(this);
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         this->action = 4;
         this->speed = 0x20;
         sub_0804AA1C(this);
@@ -488,7 +488,7 @@ void sub_0801F730(Entity* this) {
 
 void sub_0801F748(Entity* this) {
     this->action = 2;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     InitializeAnimation(this, 4);
 }
 
@@ -500,7 +500,7 @@ void sub_0801F764(Entity* this) {
         if (this->action == 1) {
             if (this->field_0x82.HALF.LO || PlayerInRange(this, 1, 0x48)) {
                 this->action = 2;
-                this->spriteSettings.b.draw = 1;
+                this->spriteSettings.draw = 1;
                 this->field_0x82.HALF.LO = 1;
                 InitializeAnimation(this, 0);
             }
@@ -517,7 +517,7 @@ void sub_0801F7D8(Entity* this) {
     sub_0804A720(this);
     this->action = 1;
     this->actionDelay = Random();
-    this->field_0x80.HALF.LO = this->currentHealth;
+    this->field_0x80.HALF.LO = this->health;
     this->field_0x82.HALF.LO = 0;
 }
 
@@ -527,7 +527,7 @@ void sub_0801F7FC(Entity* this) {
 
     if (this->field_0x82.HALF.LO || PlayerInRange(this, 1, 0x48)) {
         this->action = 2;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         this->field_0x82.HALF.LO = 1;
         InitializeAnimation(this, 0);
     }
@@ -535,7 +535,7 @@ void sub_0801F7FC(Entity* this) {
 
 void sub_0801F840(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         sub_0801FB14(this);
         COLLISION_ON(this);
         this->spritePriority.b0 = 4;
@@ -579,9 +579,9 @@ void sub_0801F8C0(Entity* this) {
 }
 
 void sub_0801F940(Entity* this) {
-    if (this->frames.all & 0x10) {
-        if (this->frames.all & 1) {
-            this->frames.all ^= 1;
+    if (this->frame & 0x10) {
+        if (this->frame & 1) {
+            this->frame ^= 1;
             EnqueueSFX(299);
         }
         sub_080AEFE0(this);
@@ -591,7 +591,7 @@ void sub_0801F940(Entity* this) {
         GetNextFrame(this);
     }
 
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         if (sub_0801FBD0(this)) {
             sub_0801FAE0(this);
         } else {
@@ -611,7 +611,7 @@ void sub_0801F9C4(Entity* this) {
 
 void sub_0801F9E0(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         this->action = 8;
         this->field_0xf = 30;
         this->direction = sub_08049F84(this, 1);
@@ -636,9 +636,9 @@ void sub_0801FA30(Entity* this) {
 
 void sub_0801FA78(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         this->action = 1;
-        this->spriteSettings.b.draw = 0;
+        this->spriteSettings.draw = 0;
         InitializeAnimation(this, 4);
         sub_0804AA1C(this);
     }
@@ -647,7 +647,7 @@ void sub_0801FA78(Entity* this) {
 void sub_0801FAAC(Entity* this) {
     sub_08003FC4(this, 0x1800);
     GetNextFrame(this);
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         sub_0801FB14(this);
         this->speed = 0x20;
         sub_0804AA1C(this);
@@ -662,7 +662,7 @@ void sub_0801FAE0(Entity* this) {
 
 void sub_0801FAF8(Entity* this) {
     this->action = 2;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     InitializeAnimation(this, 4);
 }
 
@@ -675,7 +675,7 @@ void sub_0801FB14(Entity* this) {
 
 void sub_0801FB34(Entity* this) {
     if (*(Entity**)&this->field_0x68) {
-        sub_0806FA90(this, *(Entity**)&this->field_0x68, gUnk_080CA2B4[this->frames.all & 0xf], 1);
+        sub_0806FA90(this, *(Entity**)&this->field_0x68, gUnk_080CA2B4[this->frame & 0xf], 1);
         (*(Entity**)&this->field_0x68)->spriteOffsetY--;
     }
 }
@@ -688,7 +688,7 @@ void sub_0801FB68(Entity* this) {
         case 1:
             this->action = 10;
             COLLISION_ON(this);
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
             this->spritePriority.b1 = 3;
             break;
         case 2:
@@ -698,7 +698,7 @@ void sub_0801FB68(Entity* this) {
             break;
     }
 
-    this->hVelocity = 0;
+    this->zVelocity = 0;
 }
 
 u32 sub_0801FBD0(Entity* this) {
@@ -711,7 +711,7 @@ u32 sub_0801FBD0(Entity* this) {
 
 void Chuchu_JumpAtPlayer(Entity* this) {
     this->speed = 0x180;
-    this->hVelocity = 0x20000;
+    this->zVelocity = 0x20000;
     this->direction = sub_08049F84(this, 1);
     InitializeAnimation(this, 3);
 }

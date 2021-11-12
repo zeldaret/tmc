@@ -32,8 +32,8 @@ void sub_0804525C(Entity* this) {
     Entity* parent = this->parent;
     if (this != parent && parent) {
         this->field_0x6c.HALF.LO &= 0x7f;
-        this->parent->attachedEntity = this->attachedEntity;
-        this->attachedEntity->parent = this->parent;
+        this->parent->child = this->child;
+        this->child->parent = this->parent;
         if (this->field_0x6c.HALF.HI & 0x40)
             ReplaceMonitoredEntity(this, parent);
     }
@@ -45,7 +45,7 @@ void nullsub_22(void) {
 
 void sub_080452A4(Entity* this) {
     this->action = 1;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->speed = 0x100;
     sub_0804A720(this);
     InitializeAnimation(this, 6);

@@ -22,7 +22,7 @@ void Stamp(Entity* ent) {
 
 void sub_08062BD4(Entity* ent) {
     ent->action = 1;
-    ent->spriteSettings.b.draw = 1;
+    ent->spriteSettings.draw = 1;
     InitializeAnimation(ent, 0);
     sub_08078778(ent);
 }
@@ -39,7 +39,7 @@ void sub_08062BF8(Entity* ent) {
 
 void sub_08062C24(Entity* ent) {
     GetNextFrame(ent);
-    if ((ent->frames.all & 128) != 0) {
+    if ((ent->frame & 128) != 0) {
         InitializeAnimation(ent, 4);
         MessageFromTarget(2561);
         ent->action++;

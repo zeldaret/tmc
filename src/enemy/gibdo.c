@@ -148,11 +148,11 @@ void sub_08037624(Entity* this) {
 
 void sub_08037690(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         this->field_0x76.HALF.HI = 0x14;
         sub_08037794(this);
     } else {
-        if ((this->frames.all & 1) != 0) {
+        if ((this->frame & 1) != 0) {
             this->hitType = 0x27;
             ProcessMovement(this);
         }
@@ -167,7 +167,7 @@ NONMATCH("asm/non_matching/gibdo/sub_080376D0.inc", void sub_080376D0(Entity* th
         gPlayerState.field_0xa = gPlayerState.field_0xa | 0x80;
         CopyPositionAndSpriteOffset(&gPlayerEntity, this);
         UpdateAnimationSingleFrame(this);
-        x = &this->frames.all;
+        x = &this->frame;
         if ((*x & 0x1) != 0) {
             if (!(--this->field_0x7c.BYTES.byte0)) {
                 sub_08037A58(this);
@@ -182,7 +182,7 @@ END_NONMATCH
 
 void sub_0803773C(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         sub_08037794(this);
     }
 }
@@ -396,7 +396,7 @@ NONMATCH("asm/non_matching/gibdo/sub_08037B48.inc", void sub_08037B48(Entity* th
         E->spriteOffsetY = 0xf5;
         E->parent = this;
     }
-    this->attachedEntity = E;
+    this->child = E;
 }
 END_NONMATCH
 
@@ -409,7 +409,7 @@ NONMATCH("asm/non_matching/gibdo/sub_08037C0C.inc", void sub_08037C0C(Entity* th
         this->actionDelay = 0xf;
         this->parent = that;
     }
-    if (this->attachedEntity != 0) {
+    if (this->child != 0) {
         this->actionDelay = 0xf;
         this->parent = that;
     }

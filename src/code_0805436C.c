@@ -251,11 +251,11 @@ u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
                 }
                 if (arg0->kind == 6) {
                     if (arg0->id == 99) {
-                        arg0->attachedEntity = itemEntity;
+                        arg0->child = itemEntity;
                     } else if (arg0->id == 0x1e) {
                         itemEntity->direction = arg0->animationState << 3 | 0x80;
                         itemEntity->speed = 0xc0;
-                        itementity->hVelocity = 0x18000;
+                        itementity->zVelocity = 0x18000;
                     }
                 }
                 CopyPosition(arg0, itemEntity);

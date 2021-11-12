@@ -22,33 +22,31 @@ extern void PlayerItem14();
 extern void PlayerItem15();
 extern void PlayerItemNulled2();
 
-void (*const gPlayerItemFunctions[])() = {
-    DeleteEntity,
-    PlayerItemSword,
-    PlayerItemBomb,
-    PlayerItem3,
-    PlayerItemBow,
-    PlayerItemShield,
-    PlayerItemLantern,
-    PlayerItemNulled,
-    PlayerItemGustJar,
-    PlayerItemPacciCane,
-    DeleteEntity,
-    DeleteEntity,
-    PlayerItemC,
-    PlayerItemCellOverwriteSet,
-    PlayerItemSwordSpin,
-    PlayerItemSwordBeam,
-    PlayerItem10,
-    PlayerItem11,
-    PlayerItem12,
-    PlayerItem13,
-    PlayerItem14,
-    PlayerItem15,
-    PlayerItemSwordBeam,
-    PlayerItemNulled2,
-    PlayerItemCellOverwriteSet
-};
+void (*const gPlayerItemFunctions[])() = { DeleteEntity,
+                                           PlayerItemSword,
+                                           PlayerItemBomb,
+                                           PlayerItem3,
+                                           PlayerItemBow,
+                                           PlayerItemShield,
+                                           PlayerItemLantern,
+                                           PlayerItemNulled,
+                                           PlayerItemGustJar,
+                                           PlayerItemPacciCane,
+                                           DeleteEntity,
+                                           DeleteEntity,
+                                           PlayerItemC,
+                                           PlayerItemCellOverwriteSet,
+                                           PlayerItemSwordSpin,
+                                           PlayerItemSwordBeam,
+                                           PlayerItem10,
+                                           PlayerItem11,
+                                           PlayerItem12,
+                                           PlayerItem13,
+                                           PlayerItem14,
+                                           PlayerItem15,
+                                           PlayerItemSwordBeam,
+                                           PlayerItemNulled2,
+                                           PlayerItemCellOverwriteSet };
 
 typedef struct {
     u8 unk0;
@@ -109,7 +107,7 @@ NONMATCH("asm/non_matching/arm_proxy/ItemInit.inc", void ItemInit(Entity* this))
     this->spriteRendering.b3 = gPlayerEntity.spriteRendering.b3;
     this->spritePriority.b0 = gPlayerEntity.spritePriority.b0;
     this->spriteOrientation.flipY = gPlayerEntity.spriteOrientation.flipY;
-    this->currentHealth = 1;
+    this->health = 1;
     this->flags |= ENT_DID_INIT;
 }
 END_NONMATCH

@@ -31,8 +31,8 @@ extern const Hitbox* const gUnk_080CC944[];
 void SpearMoblin(Entity* this) {
     EnemyFunctionHandler(this, gUnk_080CC790);
     SetChildOffset(this, 0, 1, -0x20);
-    if (this->attachedEntity && this->attachedEntity->next) {
-        CopyPosition(this, this->attachedEntity);
+    if (this->child && this->child->next) {
+        CopyPosition(this, this->child);
     }
 }
 
@@ -57,13 +57,13 @@ void sub_08028284(Entity* this) {
         }
     }
 
-    this->attachedEntity->iframes = this->iframes;
-    if (this->currentHealth == 0) {
+    this->child->iframes = this->iframes;
+    if (this->health == 0) {
         this->speed = 0;
         this->field_0x82.HALF.LO = 0;
         sub_080287E0(this);
-        DeleteEntity(this->attachedEntity);
-        this->attachedEntity = NULL;
+        DeleteEntity(this->child);
+        this->child = NULL;
     }
 }
 
@@ -98,7 +98,7 @@ void sub_08028314(Entity* this) {
     pEVar2 = CreateProjectile(3);
     if (pEVar2 != NULL) {
         pEVar2->parent = this;
-        this->attachedEntity = pEVar2;
+        this->child = pEVar2;
     }
 }
 
@@ -378,7 +378,7 @@ bool32 sub_080288A4(Entity* this) {
 }
 
 void sub_080288C0(Entity* this) {
-    Entity* ent = this->attachedEntity;
+    Entity* ent = this->child;
     if (ent && (ent->bitfield & 0x80)) {
         this->knockbackDirection = ent->knockbackDirection;
         this->iframes = -ent->iframes;

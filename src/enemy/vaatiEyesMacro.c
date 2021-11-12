@@ -62,27 +62,27 @@ void VaatiEyesMacroFunction0(Entity* this) {
 
 void VaatiEyesMacroFunction1(Entity* this) {
     if (this->type == 0) {
-        if (this->currentHealth == 0) {
+        if (this->health == 0) {
             gScreenTransition.field_0x39 &= ~(1 << (gScreenTransition.field_0x3c + 2));
         }
         if (gRoomControls.roomID == 0) {
-            gScreenTransition.field_0x3a = this->currentHealth;
+            gScreenTransition.field_0x3a = this->health;
         } else {
-            gScreenTransition.field_0x3b = this->currentHealth;
+            gScreenTransition.field_0x3b = this->health;
         }
-        if (this->field_0x78.HALF.HI != this->currentHealth) {
+        if (this->field_0x78.HALF.HI != this->health) {
             EnqueueSFX(SFX_17A);
         }
-        this->field_0x78.HALF.HI = this->currentHealth;
+        this->field_0x78.HALF.HI = this->health;
     } else {
         if (this->type == 1) {
             if (0 < this->iframes) {
                 this->iframes *= -1;
             }
-            if (this->currentHealth != 0xff) {
+            if (this->health != 0xff) {
                 EnqueueSFX(SFX_BUTTON_DEPRESS);
             }
-            this->currentHealth = 0xff;
+            this->health = 0xff;
         }
     }
     if (this->field_0x43 != 0) {
@@ -108,9 +108,9 @@ void VaatiEyesMacroFunction0Type0Action0(Entity* this) {
         enemy->parent = this;
         this->action = 1;
         if (gRoomControls.roomID == 0) {
-            this->field_0x78.HALF.HI = this->currentHealth = gScreenTransition.field_0x3a;
+            this->field_0x78.HALF.HI = this->health = gScreenTransition.field_0x3a;
         } else {
-            this->field_0x78.HALF.HI = this->currentHealth = gScreenTransition.field_0x3b;
+            this->field_0x78.HALF.HI = this->health = gScreenTransition.field_0x3b;
         }
         this->field_0x78.HALF.LO = Random();
         sub_0802EFB8(this);
@@ -147,7 +147,7 @@ void VaatiEyesMacroFunction0Type1Action0(Entity* this) {
 void VaatiEyesMacroFunction0Type1Action1(Entity* this) {
     if (this->parent->next == NULL) {
         COLLISION_OFF(this);
-        this->currentHealth = 0;
+        this->health = 0;
     } else {
         sub_0802F04C(this);
         GetNextFrame(this);
@@ -192,7 +192,7 @@ void VaatiEyesMacroFunction0Type3(Entity* this) {
         this->spritePriority.b0 = 6;
     }
     CopyPositionAndSpriteOffset(this->parent, this);
-    this->height.HALF.HI = 0;
+    this->z.HALF.HI = 0;
 }
 
 void sub_0802EF58(Entity* this) {
@@ -212,7 +212,7 @@ void sub_0802EF58(Entity* this) {
 }
 
 void sub_0802EF90(Entity* this) {
-    this->height.HALF.HI = gUnk_080CDE90[this->field_0x78.HALF.LO++ >> 3 & 7];
+    this->z.HALF.HI = gUnk_080CDE90[this->field_0x78.HALF.LO++ >> 3 & 7];
 }
 
 void sub_0802EFB8(Entity* this) {

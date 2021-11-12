@@ -32,7 +32,7 @@ void sub_0802C254(Entity* this) {
 
 void sub_0802C258(Entity* this) {
     sub_0804A720(this);
-    this->hVelocity = 0x20000;
+    this->zVelocity = 0x20000;
     this->actionDelay = 2;
     this->field_0x7a.HWORD = Random() & 0x70;
     switch (this->type) {
@@ -45,7 +45,7 @@ void sub_0802C258(Entity* this) {
     }
     this->field_0x80.HWORD = this->x.HALF.HI;
     this->field_0x82.HWORD = this->y.HALF.HI;
-    this->height.HALF.HI = -0x10;
+    this->z.HALF.HI = -0x10;
     this->collisionLayer = 3;
     this->spriteRendering.b3 = 1;
     this->spritePriority.b0 = 2;
@@ -70,7 +70,7 @@ NONMATCH("asm/non_matching/fallingBoulder/sub_0802C334.inc", void sub_0802C334(E
             return;
         }
         this->field_0x7c.HALF.LO = 1;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
     }
     GetNextFrame(this);
     this->field_0x7c.HALF.HI = COORD_TO_TILE(this);
@@ -113,7 +113,7 @@ NONMATCH("asm/non_matching/fallingBoulder/sub_0802C334.inc", void sub_0802C334(E
             sub_080AEFB4(this);
         } else {
             sub_0806F69C(this);
-            if (this->height.HALF.HI - y > 0x38) {
+            if (this->z.HALF.HI - y > 0x38) {
                 sub_0802C62C(this);
                 this->field_0x7a.HWORD = (Random() & 0x7f) | 0x80;
                 if (this->type == 3) {
@@ -190,7 +190,7 @@ void sub_0802C4B0(Entity* this) {
     }
 
     rand = Random() & 7;
-    this->hVelocity = 0x20000;
+    this->zVelocity = 0x20000;
     if (rand & 4) {
         if (rand & 3) {
             *(u32*)&this->cutsceneBeh = gUnk_080CD58C[offset | 1];
@@ -210,7 +210,7 @@ void sub_0802C62C(Entity* this) {
     this->action = 1;
     this->y.HALF.HI = this->field_0x82.HWORD;
     this->x.HALF.HI = this->field_0x80.HWORD;
-    this->spriteSettings.b.draw = 0;
+    this->spriteSettings.draw = 0;
     COLLISION_OFF(this);
     this->field_0x7c.HALF.LO = 0;
 }

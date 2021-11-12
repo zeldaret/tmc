@@ -7,9 +7,9 @@ void WindTribeFlag(Entity* this) {
         this->action++;
         this->collisionLayer = 2;
         if (this->type == 0) {
-            this->spriteSettings.b.flipX = 0;
+            this->spriteSettings.flipX = 0;
         } else {
-            this->spriteSettings.b.flipX = 1;
+            this->spriteSettings.flipX = 1;
         }
         UpdateSpriteForCollisionLayer(this);
         InitializeAnimation(this, 0);

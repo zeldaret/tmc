@@ -41,8 +41,8 @@ void BladeBrothers(Entity* this) {
         gUnk_081115C0[this->action](this);
         sub_0806ED78(this);
     }
-    if ((this->frames.all & 1) != 0) {
-        this->frames.all &= 0xfe;
+    if ((this->frame & 1) != 0) {
+        this->frame &= 0xfe;
         sub_08068BEC(this, 0);
     }
 }
@@ -114,7 +114,7 @@ void sub_08068ADC(Entity* this) {
 
 void sub_08068AFC(Entity* this) {
     this->action = 1;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->field_0x68.HALF.LO = sub_0801E99C(this);
     sub_08078784(this, this->field_0x68.HALF.LO);
     sub_0807DD50(this);
@@ -388,14 +388,14 @@ void sub_08068F3C(Entity* this) {
 void BladeBrothers_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action += 1;
-        this->spriteSettings.b.draw = 0;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 0;
+        this->spriteSettings.draw = 1;
         InitAnimationForceUpdate(this, 4);
     } else {
         UpdateAnimationSingleFrame(this);
     }
-    if ((this->frames.all & 1) != 0) {
-        this->frames.all &= 0xfe;
+    if ((this->frame & 1) != 0) {
+        this->frame &= 0xfe;
         sub_08068BEC(this, 0);
     }
 }

@@ -10,7 +10,7 @@ void Gina(Entity* this) {
     switch (this->action) {
         case 0:
             this->action = 1;
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
 
             this->field_0x68.HALF.LO = sub_0801E99C(this);
             sub_08078784(this, this->field_0x68.HALF.LO);
@@ -40,7 +40,7 @@ void Gina(Entity* this) {
 void Gina_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action += 1;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         InitAnimationForceUpdate(this, 2);
     } else {
         UpdateAnimationSingleFrame(this);

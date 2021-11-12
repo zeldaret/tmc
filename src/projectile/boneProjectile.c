@@ -30,7 +30,7 @@ void sub_080A81C4(Entity* this) {
 void BoneProjectile_Init(Entity* this) {
     this->action = 1;
     this->actionDelay = 0x3c;
-    this->height.HALF.HI = 0xfffe;
+    this->z.HALF.HI = 0xfffe;
     InitializeAnimation(this, 0);
 }
 
@@ -59,12 +59,12 @@ void BoneProjectile_Action2(Entity* this) {
         this->action = 3;
         COLLISION_OFF(this);
         this->speed = 0xe0;
-        this->hVelocity = 0xe000;
+        this->zVelocity = 0xe000;
     }
 }
 
 void BoneProjectile_Action3(Entity* this) {
-    this->spriteSettings.b.draw ^= 1;
+    this->spriteSettings.draw ^= 1;
     sub_0806F69C(this);
     GetNextFrame(this);
     if (sub_080044EC(this, 0x1800) == 0) {
@@ -83,7 +83,7 @@ void BoneProjectile_Action4(Entity* this) {
 void sub_080A82D8(Entity* this) {
     this->action = 4;
     COLLISION_OFF(this);
-    this->hVelocity = 0x10000;
+    this->zVelocity = 0x10000;
     this->direction ^= 0x10;
     this->speed = 0x80;
 }

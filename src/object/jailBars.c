@@ -24,7 +24,7 @@ void sub_080A08C4(Entity* this) {
         InitializeAnimation(this, 1);
         sub_080A0960(this, 1);
     }
-    this->spriteSettings.b.draw = 3; // ???
+    this->spriteSettings.draw = 3; // ???
     this->collisionLayer = 1;
     UpdateSpriteForCollisionLayer(this);
 }
@@ -39,7 +39,7 @@ void sub_080A0910(Entity* this) {
 
 void sub_080A0938(Entity* this) {
     GetNextFrame(this);
-    if ((this->frames.b.f3) != 0) {
+    if (this->frame & 0x80) {
         this->action = 3;
         InitializeAnimation(this, 1);
     }

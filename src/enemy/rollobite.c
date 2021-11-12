@@ -30,11 +30,11 @@ void Rollobite_OnTick(Entity* this) {
 }
 
 void sub_08020668(Entity* this) {
-    if (this->hitType == 34 && this->currentHealth != 0xff) {
+    if (this->hitType == 34 && this->health != 0xff) {
         this->action = 4;
-        this->hVelocity = 0x20000;
+        this->zVelocity = 0x20000;
         this->direction = 0xff;
-        this->currentHealth = 0xff;
+        this->health = 0xff;
         this->hitType = 35;
         InitializeAnimation(this, this->animationState + 8);
     }
@@ -102,7 +102,7 @@ void sub_080207A8(Entity* this) {
     this->spritePriority.b0 = 4;
     this->field_0x3a &= 0xfb;
     this->direction ^= 0x10;
-    this->hVelocity = 0x18000;
+    this->zVelocity = 0x18000;
     this->speed = 0x80;
     InitializeAnimation(this, this->animationState + 0x10);
 }
@@ -118,14 +118,14 @@ void Rollobite_Initialize(Entity* this) {
 
 void Rollobite_Walk(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.all & 0x1) {
-        this->frames.all &= ~0x1;
+    if (this->frame & 0x1) {
+        this->frame &= ~0x1;
         if (!ProcessMovement(this))
             this->actionDelay = 1;
     }
 
-    if (this->frames.all & 0x10) {
-        this->frames.all &= ~0x10;
+    if (this->frame & 0x10) {
+        this->frame &= ~0x10;
         if (--this->actionDelay == 0) {
             this->action = 3;
             this->actionDelay = 60;
@@ -172,7 +172,7 @@ void Rollobite_Turn(Entity* this) {
 void Rollobite_RolledUp(Entity* this) {
     u32 unk;
 
-    if ((this->frames.all & 0x80) == 0)
+    if ((this->frame & 0x80) == 0)
         GetNextFrame(this);
 
     unk = sub_080044EC(this, 0x2800);
@@ -194,7 +194,7 @@ void Rollobite_RolledUp(Entity* this) {
 
 void Rollobite_Unroll(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         COLLISION_ON(this);
         this->speed = 0x100;
         this->hitType = 34;
@@ -202,7 +202,7 @@ void Rollobite_Unroll(Entity* this) {
         this->direction = DirectionFromAnimationState(this->animationState);
         InitializeAnimation(this, this->animationState);
     } else {
-        if ((this->frames.all & 1) == 0)
+        if ((this->frame & 1) == 0)
             sub_08078930(this);
     }
 }
@@ -213,7 +213,7 @@ void Rollobite_LinedUp(Entity* this) {
         this->spritePriority.b0 = 7;
     }
 
-    if (this->frames.all == 0)
+    if (this->frame == 0)
         GetNextFrame(this);
 }
 
@@ -252,7 +252,7 @@ void sub_08020A7C(Entity* this) {
 }
 
 bool32 Rollobite_TryToHoleUp(Entity* this) {
-    if (Rollobite_IsRolledUp(this) && this->height.HALF.HI == 0) {
+    if (Rollobite_IsRolledUp(this) && this->z.HALF.HI == 0) {
         int tile = COORD_TO_TILE(this);
         int iVar1 = GetTileType(tile, this->collisionLayer);
         if ((iVar1 * 0x10000 - 0x710000U) >> 0x10 < 2) {
@@ -262,7 +262,7 @@ bool32 Rollobite_TryToHoleUp(Entity* this) {
             this->x.HALF.HI += 8;
             this->y.HALF.HI &= 0xfff0;
             this->y.HALF.HI += 13;
-            this->hVelocity = 0x20000;
+            this->zVelocity = 0x20000;
             InitializeAnimation(this, this->animationState + 0x14);
             SetTile(0x4034, tile, this->collisionLayer);
             return TRUE;

@@ -75,11 +75,11 @@ void sub_0806E884(Entity* this) {
 void CuccoChick_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action += 1;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         this->frameIndex = 1;
     } else {
         if (sub_08003FC4(this, 0x3000) == 0) {
-            this->hVelocity = 0x10000;
+            this->zVelocity = 0x10000;
         }
     }
 }

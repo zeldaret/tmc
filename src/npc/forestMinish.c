@@ -29,7 +29,7 @@ void ForestMinish(Entity* this) {
         case 0:
             if (LoadExtraSpriteData(this, &gUnk_0810A348)) {
                 this->action = 1;
-                this->spriteSettings.b.draw = TRUE;
+                this->spriteSettings.draw = TRUE;
                 this->field_0x68.HALF.HI = this->animationState = this->actionDelay << 1;
                 this->actionDelay = 0;
                 sub_0805E3A0(this, 2);
@@ -65,8 +65,8 @@ void sub_08060090(Entity* this) {
 void ForestMinish_Head(Entity* this) {
     u32 pbVar1;
 
-    pbVar1 = this->frames.all;
-    if (this->frames.all != 0xff) {
+    pbVar1 = this->frame;
+    if (this->frame != 0xff) {
         pbVar1 &= -0x81;
     }
     if ((this->frameSpriteSettings & 1) == 0) {
@@ -131,7 +131,7 @@ void sub_08060158(Entity* this) {
             this->animationState = sub_0806F5B0(index);
         }
         tmp2 &= 0x7f;
-        this->frames.all = tmp1;
+        this->frame = tmp1;
         this->frameIndex = tmp2;
         this->frameSpriteSettings = 1;
         this->animIndex = 0;
@@ -266,7 +266,7 @@ void ForestMinish_Fusion(Entity* this) {
     if (this->action == 0) {
         if (LoadExtraSpriteData(this, &gUnk_0810A348)) {
             this->action++;
-            this->spriteSettings.b.draw = TRUE;
+            this->spriteSettings.draw = TRUE;
             sub_0805E3A0(this, 2);
             InitializeAnimation(this, 6);
         }

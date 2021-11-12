@@ -47,7 +47,7 @@ void sub_080929A4(Entity* this) {
     }
 
     this->action = 1;
-    this->hVelocity = 0x18000;
+    this->zVelocity = 0x18000;
 
     this->field_0x78.HWORD = ((Random() & 7) << 10) | 0x2000;
 
@@ -92,7 +92,7 @@ void sub_08092A94(Entity* this) {
 
     this->action = 2;
 
-    this->height.HALF.HI -= 0x20;
+    this->z.HALF.HI -= 0x20;
     this->y.HALF.HI += 0x20;
 
     this->spriteRendering.b3 = 2;
@@ -118,7 +118,7 @@ void sub_08092B0C(Entity* this) {
     } else {
         sub_080044EC(this, this->field_0x78.HWORD);
 
-        if (this->height.HALF.HI == 0) {
+        if (this->z.HALF.HI == 0) {
             this->actionDelay++;
         }
     }

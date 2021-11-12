@@ -70,13 +70,13 @@ void sub_08064DE4(Entity* this) {
             break;
     }
     {
-        u8 bVar1 = this->frames.all;
+        u8 bVar1 = this->frame;
         u8 bVar5 = bVar1 & 0xf;
-        this->frames.all = bVar5 ^ bVar1;
+        this->frame = bVar5 ^ bVar1;
         if (bVar1 & 0xf) {
             Entity* fx = CreateFx(this, bVar5 == 3 ? 0x2a : 0x29, 0);
             if (fx && bVar5 == 2) {
-                fx->spriteSettings.b.flipX = 1;
+                fx->spriteSettings.flipX = 1;
             }
         }
     }
@@ -111,7 +111,7 @@ void TingleSiblings_Fusion(Entity* this) {
     u32 tmp;
     if (this->action == 0) {
         this->action += 1;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         tmp = 6;
         if (this->type == 0) {
             tmp = 10;

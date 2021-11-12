@@ -72,8 +72,8 @@ void sub_08025020(Entity* this) {
             }
             this->action = 7;
             this->actionDelay = 0x3c;
-            if (0 < this->hVelocity) {
-                this->hVelocity = 0;
+            if (0 < this->zVelocity) {
+                this->zVelocity = 0;
             }
             this->iframes = -0xc;
             this->knockbackDuration = 0;
@@ -200,7 +200,7 @@ void sub_080252E0(Entity* this) {
         this->action = 3;
         this->actionDelay = 0x1e;
         this->field_0xf = 0;
-        this->hVelocity = 0x18000;
+        this->zVelocity = 0x18000;
         InitializeAnimation(this, 1);
     }
 }
@@ -209,11 +209,11 @@ void sub_0802538C(Entity* this) {
     if (this->actionDelay) {
         this->actionDelay--;
     } else {
-        if (this->frames.all == 0) {
+        if (this->frame == 0) {
             GetNextFrame(this);
         } else {
             sub_08003FC4(this, 0x2000);
-            if (this->hVelocity < 0x2000) {
+            if (this->zVelocity < 0x2000) {
                 this->action = 4;
                 InitializeAnimation(this, 2);
             }
@@ -239,16 +239,16 @@ void sub_080253D4(Entity* this) {
 
 void sub_0802541C(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         this->action = 3;
         this->field_0xf = 1;
-        this->hVelocity = 0x20000;
+        this->zVelocity = 0x20000;
         InitializeAnimation(this, 1);
     }
 }
 
 void sub_0802544C(Entity* this) {
-    if (this->frames.all == 0) {
+    if (this->frame == 0) {
         GetNextFrame(this);
     } else {
         if (--this->actionDelay == 0) {
@@ -272,8 +272,8 @@ void sub_0802547C(Entity* this) {
 
 void sub_080254B4(Entity* this) {
     sub_08003FC4(this, 0x2000);
-    if (this->frames.all & 0x80) {
-        if (this->height.HALF.HI == 0) {
+    if (this->frame & 0x80) {
+        if (this->z.HALF.HI == 0) {
             if (this->cutsceneBeh.HWORD == 0) {
                 this->hitType = 0x82;
                 this->field_0x82.HALF.LO = -0x10;
@@ -552,18 +552,18 @@ void sub_08025B18(Entity* this) {
             ent->x.HALF.HI += 8;
             ent->y.HALF.HI &= -0x10;
             ent->y.HALF.HI += 8;
-            ent->height.HALF.HI = -1;
+            ent->z.HALF.HI = -1;
         }
     }
 }
 
 void sub_08025BD4(Entity* this) {
-    if (this->field_0x82.HALF.LO && (this->frames.all & 1) == 0) {
+    if (this->field_0x82.HALF.LO && (this->frame & 1) == 0) {
         Entity* ent = CreateObject(OBJECT_21, 0, 0);
         if (ent) {
             PositionRelative(this, ent, gUnk_080CC0BA[this->animationState * 2 + 0] * 0x10000,
                              gUnk_080CC0BA[this->animationState * 2 + 1] * 0x10000);
-            ent->height.HALF.HI = -10;
+            ent->z.HALF.HI = -10;
         }
     }
 }
@@ -575,7 +575,7 @@ void sub_08025C2C(Entity* this) {
 }
 
 bool32 sub_08025C44(Entity* this) {
-    if ((this->frames.all & 1) == 0) {
+    if ((this->frame & 1) == 0) {
         return ProcessMovement(this);
     } else {
         return FALSE;

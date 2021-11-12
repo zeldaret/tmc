@@ -167,13 +167,13 @@ Entity* sub_08081D74(Entity* this) {
             }
         }
     }
-    this->attachedEntity = ent;
+    this->child = ent;
     return ent;
 }
 
 u32 sub_08081E0C(Entity* this) {
     Entity* tmp = &gPlayerEntity;
-    if (tmp->height.HALF.HI != 0 || !sub_08079F8C()) {
+    if (tmp->z.HALF.HI != 0 || !sub_08079F8C()) {
         return 0;
     } else {
         return sub_080041A0(this, tmp, 5, 6);
@@ -251,8 +251,8 @@ u32 sub_08081F7C(Entity* this, u32 r7) {
     if (this->actionDelay == 0)
         return 1;
     if (--this->actionDelay > 6) {
-        if (this->attachedEntity)
-            this->attachedEntity->spriteOffsetY = 0xfc;
+        if (this->child)
+            this->child->spriteOffsetY = 0xfc;
     } else {
         if (this->actionDelay == 6) {
             SetFlag(this->field_0x86.HWORD);
@@ -272,10 +272,10 @@ extern void sub_080044AE(Entity*, u32, u32);
 void sub_08081FF8(Entity* this) {
     u32 direction;
     u32 i;
-    if (this->attachedEntity != &gPlayerEntity)
+    if (this->child != &gPlayerEntity)
         return;
-    direction = GetFacingDirection(this->attachedEntity, this);
-    sub_080044AE(this->attachedEntity, 0x200, direction);
+    direction = GetFacingDirection(this->child, this);
+    sub_080044AE(this->child, 0x200, direction);
     for (i = 0; i < 3; i++) {
         if (gUnk_03004040[i]) {
             sub_080044AE(gUnk_03004040[i], 0x200, direction);

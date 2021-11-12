@@ -44,7 +44,7 @@ void DekuSeedProjectile_Init(Entity* this) {
     this->action = 1;
     this->actionDelay = 0x30;
     this->field_0xf = 0;
-    this->height.HALF.HI -= 4;
+    this->z.HALF.HI -= 4;
     if (CheckGlobalFlag(TABIDACHI) == 0) {
         this->hitType = 0x68;
     }
@@ -107,7 +107,7 @@ void DekuSeedProjectile_Action2(Entity* this) {
 
 void DekuSeedProjectile_Action3(Entity* this) {
     GetNextFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         DeleteThisEntity();
     }
 }
@@ -126,7 +126,7 @@ void DekuSeedProjectile_Action4(Entity* this) {
             break;
     }
     if ((this->flags & ENT_COLLIDE) == 0) {
-        this->spriteSettings.b.draw ^= 1;
+        this->spriteSettings.draw ^= 1;
     }
 }
 

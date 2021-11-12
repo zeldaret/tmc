@@ -33,7 +33,7 @@ void sub_080AB074(Entity* this) {
     this->x.WORD += gSineTable[parent->field_0x7c.BYTES.byte0] * (parent->field_0x7c.BYTES.byte2 << 8);
     this->y.WORD -= gSineTable[parent->field_0x7c.BYTES.byte0 + 0x40] * (parent->field_0x7c.BYTES.byte2 << 8);
 
-    this->height.HALF.HI += (s8)parent->field_0x7c.BYTES.byte3;
+    this->z.HALF.HI += (s8)parent->field_0x7c.BYTES.byte3;
     if (parent->field_0x7a.HALF.HI != 0) {
         parent = CreateProjectile(0x19);
         if (parent != NULL) {

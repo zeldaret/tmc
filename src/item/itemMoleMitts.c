@@ -69,7 +69,7 @@ void sub_080771C8(ItemBehavior* this, u32 arg1) {
                         object->actionDelay = this->field_0x5[2];
                         object->field_0xf = this->field_0x5[3];
                         object->animationState = gPlayerEntity.animationState & 6;
-                        gPlayerEntity.frames.all = 0;
+                        gPlayerEntity.frame = 0;
                         gPlayerEntity.frameDuration = gUnk_0811BE14[this->field_0x5[3]];
                     }
                 } else {

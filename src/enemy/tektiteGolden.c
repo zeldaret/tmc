@@ -32,10 +32,10 @@ void sub_08037F00(Entity* this) {
         this->actionDelay = 0x14;
         this->field_0xf = 0;
         this->field_0x80.HALF.LO = 0;
-        if (this->height.HALF.HI != 0) {
-            this->hVelocity >>= 2;
+        if (this->z.HALF.HI != 0) {
+            this->zVelocity >>= 2;
         } else {
-            this->hVelocity = 0;
+            this->zVelocity = 0;
         }
 
         InitializeAnimation(this, 0);
@@ -58,7 +58,7 @@ void sub_08037F58(Entity* this) {
 
 void sub_08037F84(Entity* this) {
     sub_08001242(this);
-    if (this->height.HALF.HI != 0) {
+    if (this->z.HALF.HI != 0) {
         sub_08003FC4(this, 0x3000);
     }
 }
@@ -82,15 +82,15 @@ void sub_08037Fe0(Entity* this) {
     if (this->actionDelay != 0) {
         this->actionDelay--;
     } else if (this->field_0xf != 0) {
-        if ((this->frames.b.f3) != 0) {
+        if (this->frame & 0x80) {
             this->action = 2;
             this->actionDelay = 6;
             this->field_0xf = 0;
-            this->hVelocity = 0x38000;
+            this->zVelocity = 0x38000;
             sub_08038168(this);
             InitializeAnimation(this, 2);
         }
-    } else if ((this->frames.b.f3) != 0) {
+    } else if (this->frame & 0x80) {
         this->field_0xf = 0x40;
         InitializeAnimation(this, 1);
     }
@@ -102,7 +102,7 @@ void sub_08038048(Entity* this) {
 
     UpdateAnimationVariableFrames(this, 2);
     ProcessMovement(this);
-    temp = this->height.HALF.HI;
+    temp = this->z.HALF.HI;
     rand = Random() & 0xf;
 
     if (sub_080044EC(this, 0x3000) == 1) {
@@ -122,7 +122,7 @@ void sub_08038048(Entity* this) {
         sub_08038168(this);
     }
 
-    if ((this->subAction == 0) && (temp < this->height.HALF.HI)) {
+    if ((this->subAction == 0) && (temp < this->z.HALF.HI)) {
         InitializeAnimation(this, 4);
         this->subAction = 1;
     }
@@ -138,11 +138,11 @@ void sub_08038048(Entity* this) {
 
 void sub_08038110(Entity* this) {
     UpdateAnimationVariableFrames(this, 2);
-    if ((this->frames.b.f3) != 0) {
+    if (this->frame & 0x80) {
         if (this->field_0x80.HALF.LO < 5) {
             this->action = 2;
             this->actionDelay = 8;
-            this->hVelocity = 0x38000;
+            this->zVelocity = 0x38000;
             sub_08038168(this);
             InitializeAnimation(this, 2);
         } else {

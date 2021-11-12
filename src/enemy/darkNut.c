@@ -98,8 +98,8 @@ void sub_08020BB8(Entity* this) {
         case 0x4c:
             if (this->action == 15) {
                 u8 bVar3 = 0xff;
-                if (this->attachedEntity != NULL) {
-                    bVar3 = this->attachedEntity->bitfield & 0x7f;
+                if (this->child != NULL) {
+                    bVar3 = this->child->bitfield & 0x7f;
                 }
                 if (bVar3 == 2) {
                     sub_080213D0(this, gUnk_080CAB08[this->type]);
@@ -109,14 +109,14 @@ void sub_08020BB8(Entity* this) {
             }
             break;
         default:
-            if (this->currentHealth != this->field_0x78.HALF.LO) {
+            if (this->health != this->field_0x78.HALF.LO) {
                 sub_08021588(this);
                 sub_08021390(this);
                 sub_0804AA1C(this);
             }
             break;
     }
-    this->field_0x78.HALF.LO = this->currentHealth;
+    this->field_0x78.HALF.LO = this->health;
     sub_0804AA30(this, gUnk_080CAA98);
 }
 
@@ -127,7 +127,7 @@ void sub_08020D70(Entity* this) {
     sub_0804A720(this);
     this->action = 1;
     this->field_0x74.HALF.HI = 0;
-    this->field_0x78.HALF.LO = this->currentHealth;
+    this->field_0x78.HALF.LO = this->health;
     this->animationState = -1;
     sub_08021218(this, 0, 2);
 }
@@ -139,7 +139,7 @@ void sub_08020D9C(Entity* this) {
 
 void sub_08020DB4(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (this->frames.all & 0x80)
+    if (this->frame & 0x80)
         sub_08021390(this);
 }
 
@@ -159,7 +159,7 @@ void sub_08020DD4(Entity* this) {
 
 void sub_08020E28(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (this->frames.all & 0x80)
+    if (this->frame & 0x80)
         sub_080213B0(this);
 }
 
@@ -168,14 +168,14 @@ void sub_08020E48(Entity* this) {
         sub_080213F0(this);
     } else {
         UpdateAnimationSingleFrame(this);
-        if (this->frames.all & 0x80)
+        if (this->frame & 0x80)
             sub_080213B0(this);
     }
 }
 
 void sub_08020E78(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (this->frames.all & 0x80)
+    if (this->frame & 0x80)
         sub_08021390(this);
 }
 
@@ -209,7 +209,7 @@ void sub_08020E98(Entity* this) {
 
 void sub_08020F28(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (this->frames.all & 0x80)
+    if (this->frame & 0x80)
         sub_08021400(this);
 }
 
@@ -227,7 +227,7 @@ void sub_08020F48(Entity* this) {
                 pEVar3 = CreateProjectileWithParent(this, 0, 1);
                 if (pEVar3) {
                     pEVar3->parent = this;
-                    this->attachedEntity = pEVar3;
+                    this->child = pEVar3;
                 }
             }
         } else {
@@ -239,7 +239,7 @@ void sub_08020F48(Entity* this) {
 }
 
 void sub_08020FAC(Entity* this) {
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         if (this->field_0x7a.HALF.LO) {
             this->field_0x7a.HALF.LO--;
         } else {
@@ -262,23 +262,23 @@ void sub_08020FE4(Entity* this) {
 
 void sub_08021010(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         this->hitType = 0x56;
         sub_080213F0(this);
     }
 }
 
 void sub_08021038(Entity* this) {
-    if (this->attachedEntity == NULL && this->frames.all) {
+    if (this->child == NULL && this->frame) {
         Entity* pEVar2 = (Entity*)CreateProjectileWithParent(this, 0, 0);
         if (pEVar2) {
             pEVar2->parent = this;
-            this->attachedEntity = pEVar2;
+            this->child = pEVar2;
         }
         EnqueueSFX(270);
     }
 
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         sub_08021588(this);
         if (this->field_0x7c.BYTES.byte0) {
             this->field_0x7c.BYTES.byte0--;
@@ -287,40 +287,39 @@ void sub_08021038(Entity* this) {
         }
     } else {
         UpdateAnimationSingleFrame(this);
-        if (this->frames.all == 4)
+        if (this->frame == 4)
             this->hitType = 81;
     }
 }
 
 void sub_080210A8(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (this->frames.all & 1) {
-        this->frames.all = 0;
+    if (this->frame & 1) {
+        this->frame = 0;
         sub_08021588(this);
         EnqueueSFX(349);
-    } else if (this->frames.all & 0x80) {
+    } else if (this->frame & 0x80) {
         sub_08021390(this);
     }
 }
 
 void sub_080210E4(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (this->frames.all & 1) {
+    if (this->frame & 1) {
         Entity* ent;
 
-        this->frames.all &= ~1;
+        this->frame &= ~1;
         ent = CreateProjectileWithParent(this, 0, 2);
         if (ent) {
             ent->parent = this;
-            this->attachedEntity = ent;
+            this->child = ent;
         }
 
         EnqueueSFX(270);
     }
 
     sub_08021644(this);
-    if ((this->frames.all & 0x10) &&
-        (!ProcessMovement(this) || (this->attachedEntity && (this->attachedEntity->bitfield & 0x80)))) {
+    if ((this->frame & 0x10) && (!ProcessMovement(this) || (this->child && (this->child->bitfield & 0x80)))) {
         sub_080213D0(this, 0);
     } else {
         if (--this->field_0x76.HWORD == 0)
@@ -329,7 +328,7 @@ void sub_080210E4(Entity* this) {
 }
 
 void sub_08021170(Entity* this) {
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         if (this->field_0x7a.HALF.HI) {
             this->field_0x7a.HALF.HI--;
         } else {
@@ -345,7 +344,7 @@ void sub_080211A0(Entity* this) {
         sub_08021390(this);
     } else {
         UpdateAnimationSingleFrame(this);
-        if (this->frames.all & 0x80)
+        if (this->frame & 0x80)
             sub_080213B0(this);
     }
 }
@@ -356,7 +355,7 @@ void sub_080211D0(Entity* this)
     UpdateAnimationSingleFrame(this);
     sub_0802159C(this);
 
-    if (this->frames.all & 0x80)
+    if (this->frame & 0x80)
         sub_08021390(this);
 }
 
@@ -364,7 +363,7 @@ void sub_080211F4(Entity* this) {
     UpdateAnimationSingleFrame(this);
     sub_08021600(this);
 
-    if (this->frames.all & 0x80)
+    if (this->frame & 0x80)
         sub_08021390(this);
 }
 
@@ -414,7 +413,7 @@ void sub_080212B0(Entity* this) {
     if (this->type < 2 && tmp == 2)
         tmp = gUnk_080CAB52[Random() & 3];
 
-    this->attachedEntity = NULL;
+    this->child = NULL;
     gUnk_080CAB58[tmp](this);
 }
 
@@ -530,7 +529,7 @@ u32 sub_080214FC(Entity* this) {
         return 0;
 
     direction = GetFacingDirection(this, gUnk_020000B0);
-    if (4 < (direction - (this->frames.all & 0x1f)) - 2)
+    if (4 < (direction - (this->frame & 0x1f)) - 2)
         return 0;
 
     this->animationState = DirectionToAnimationState(direction);
@@ -557,54 +556,54 @@ void sub_08021540(Entity* this) {
 }
 
 void sub_08021588(Entity* this) {
-    if (this->attachedEntity) {
-        this->attachedEntity->parent = NULL;
-        this->attachedEntity = NULL;
+    if (this->child) {
+        this->child->parent = NULL;
+        this->child = NULL;
     }
 }
 
 void sub_0802159C(Entity* this) {
-    if (this->frames.all == 1) {
+    if (this->frame == 1) {
         Entity* ent;
 
-        this->frames.all = 0;
+        this->frame = 0;
         this->hitType = 0x51;
         ent = CreateProjectileWithParent(this, 0, 3);
         if (ent) {
             ent->parent = this;
-            this->attachedEntity = ent;
+            this->child = ent;
         }
         EnqueueSFX(0x116);
-    } else if (this->frames.all == 2) {
-        this->frames.all = 0;
+    } else if (this->frame == 2) {
+        this->frame = 0;
         sub_08021588(this);
-    } else if (this->frames.all & 0x20) {
-        this->frames.all &= ~0x20;
+    } else if (this->frame & 0x20) {
+        this->frame &= ~0x20;
         EnqueueSFX(0x115);
     }
 }
 
 void sub_08021600(Entity* this) {
-    if (this->frames.all == 1) {
+    if (this->frame == 1) {
         Entity* ent;
 
-        this->frames.all = 0;
+        this->frame = 0;
         this->hitType = 0x51;
         ent = CreateProjectileWithParent(this, 0, 4);
         if (ent) {
             ent->parent = this;
-            this->attachedEntity = ent;
+            this->child = ent;
         }
         EnqueueSFX(0x10e);
-    } else if (this->frames.all == 2) {
-        this->frames.all = 0;
+    } else if (this->frame == 2) {
+        this->frame = 0;
         sub_08021588(this);
     }
 }
 
 void sub_08021644(Entity* this) {
-    if (this->frames.all & 0x20) {
-        this->frames.all &= ~0x20;
+    if (this->frame & 0x20) {
+        this->frame &= ~0x20;
         EnqueueSFX(0x7d);
     }
 }

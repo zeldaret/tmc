@@ -42,8 +42,8 @@ void Smith(Entity* this) {
     } else {
         this->spritePriority.b1 = 1;
     }
-    if ((this->frames.all & 1) != 0) {
-        this->frames.all &= 0xfe;
+    if ((this->frame & 1) != 0) {
+        this->frame &= 0xfe;
         CreateFx(this, FX_STARS2, 0x20);
         SoundReq(gUnk_08110380[(Random() & 7)]);
     }
@@ -52,7 +52,7 @@ void Smith(Entity* this) {
 void Smith_Head(Entity* this) {
     u8 bVar1;
 
-    bVar1 = this->frames.all;
+    bVar1 = this->frame;
     SetExtraSpriteFrame(this, 0, this->frameIndex);
     if ((bVar1 & 0x40) != 0) {
         SetExtraSpriteFrame(this, 1, 0x16);
@@ -102,7 +102,7 @@ void sub_08066170(Entity* this) {
 void sub_08066178(Entity* this) {
     if (LoadExtraSpriteData(this, &gUnk_08110354) != 0) {
         this->action = 1;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         this->field_0x68.HALF.LO = sub_0801E99C(this);
         sub_0807DD50(this);
     }
@@ -117,7 +117,7 @@ void sub_080661BC(Entity* this) {
 
     if (this->animIndex == 0xc) {
         UpdateAnimationSingleFrame(this);
-        if ((this->frames.b.f3) != 0) {
+        if (this->frame & 0x80) {
             this->field_0x80.HWORD = GetAnimationState(this) + 8;
             InitAnimationForceUpdate(this, this->field_0x80.HWORD);
         }
@@ -168,7 +168,7 @@ void Smith_Fusion(Entity* this) {
     if (this->action == 0) {
         if (LoadExtraSpriteData(this, &gUnk_08110354) != 0) {
             this->action++;
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
             InitAnimationForceUpdate(this, 6);
         }
     } else {

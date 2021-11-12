@@ -51,8 +51,8 @@ NONMATCH("asm/non_matching/moldworm/Moldworm.inc", void Moldworm(Entity* this)) 
         }
     }
 
-    if (this->parent->field_0x7c.BYTES.byte0 != this->parent->field_0x7c.BYTES.byte1 && this->attachedEntity) {
-        ((u8*)&this->attachedEntity->field_0x78)[(this->parent->field_0x7c.BYTES.byte0 - 1) & 0xf] =
+    if (this->parent->field_0x7c.BYTES.byte0 != this->parent->field_0x7c.BYTES.byte1 && this->child) {
+        ((u8*)&this->child->field_0x78)[(this->parent->field_0x7c.BYTES.byte0 - 1) & 0xf] =
             (((this->x.HALF.HI - prevX + 8) & 0xf) << 4) | ((this->y.HALF.HI - prevY + 8U) & 0xf);
     }
 }
@@ -80,11 +80,11 @@ void sub_080230E4(Entity* this) {
         }
     }
 
-    if (this->currentHealth == 0 && this->field_0x7c.BYTES.byte3 == 0 && this->action == 7) {
+    if (this->health == 0 && this->field_0x7c.BYTES.byte3 == 0 && this->action == 7) {
         CopyPosition(this, &gPlayerEntity);
         gPlayerEntity.flags = gPlayerEntity.flags | 0x80;
-        gPlayerEntity.spriteSettings.b.draw = 1;
-        gPlayerEntity.hVelocity = 0x18000;
+        gPlayerEntity.spriteSettings.draw = 1;
+        gPlayerEntity.zVelocity = 0x18000;
         gPlayerEntity.direction = 0xff;
         gPlayerEntity.iframes = -0x14;
         gPlayerState.jumpStatus = 0x41;
@@ -106,32 +106,32 @@ void sub_080231BC(Entity* this) {
     if (gEntCount < 0x40) {
         Entity* ent;
 
-        ent = this->attachedEntity = CreateEnemy(MOLDWORM, 1);
+        ent = this->child = CreateEnemy(MOLDWORM, 1);
         ent->parent = this;
 
-        ent = ent->attachedEntity = CreateEnemy(MOLDWORM, 2);
+        ent = ent->child = CreateEnemy(MOLDWORM, 2);
         ent->parent = this;
 
-        ent = ent->attachedEntity = CreateEnemy(MOLDWORM, 3);
+        ent = ent->child = CreateEnemy(MOLDWORM, 3);
         ent->parent = this;
 
-        ent = ent->attachedEntity = CreateEnemy(MOLDWORM, 4);
+        ent = ent->child = CreateEnemy(MOLDWORM, 4);
         ent->parent = this;
 
-        ent = ent->attachedEntity = CreateEnemy(MOLDWORM, 5);
+        ent = ent->child = CreateEnemy(MOLDWORM, 5);
         ent->parent = this;
 
-        ent = ent->attachedEntity = CreateEnemy(MOLDWORM, 6);
+        ent = ent->child = CreateEnemy(MOLDWORM, 6);
         ent->parent = this;
 
-        ent = ent->attachedEntity = CreateEnemy(MOLDWORM, 7);
+        ent = ent->child = CreateEnemy(MOLDWORM, 7);
         ent->parent = this;
 
-        ent->attachedEntity = CreateEnemy(MOLDWORM, 8);
-        *(Entity**)&ent->attachedEntity->field_0x74 = ent;
-        ent = ent->attachedEntity;
+        ent->child = CreateEnemy(MOLDWORM, 8);
+        *(Entity**)&ent->child->field_0x74 = ent;
+        ent = ent->child;
         ent->parent = this;
-        ent->attachedEntity = NULL;
+        ent->child = NULL;
         sub_0804A720(this);
         this->action = 6;
         this->actionDelay = 0x1e;
@@ -167,7 +167,7 @@ void sub_08023288(Entity* this) {
 
 void sub_08023330(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         this->action = 4;
         this->actionDelay = 0x19;
         COLLISION_ON(this);
@@ -177,7 +177,7 @@ void sub_08023330(Entity* this) {
         this->field_0x7a.HALF.HI = 0;
         this->field_0x7c.BYTES.byte3 = 0;
         sub_08023A88(this, this->animationState);
-        CopyPosition(this, this->attachedEntity);
+        CopyPosition(this, this->child);
         CreateFx(this, FX_ROCK, 0);
     }
 }
@@ -198,7 +198,7 @@ void sub_08023398(Entity* this) {
             this->field_0x7c.BYTES.byte3 = 0;
             COLLISION_OFF(this);
             this->hitType = 0x85;
-            this->attachedEntity->actionDelay = 1;
+            this->child->actionDelay = 1;
             sub_08023A68(this);
             CreateFx(this, FX_ROCK, 0);
             return;
@@ -239,7 +239,7 @@ void sub_080234A4(Entity* this) {
     GetNextFrame(this);
     if (this->field_0x7c.BYTES.byte3) {
         this->action = 6;
-        this->spriteSettings.b.draw = 0;
+        this->spriteSettings.draw = 0;
         this->field_0x78.HWORD = 300;
     }
 }
@@ -257,9 +257,9 @@ void sub_080234D8(Entity* this) {
 void sub_0802351C(Entity* this) {
     if (this->actionDelay != 0 && (this->type2 == 1 || gPlayerEntity.frameIndex == 0xff)) {
         this->actionDelay = 0;
-        this->attachedEntity->action = 3;
-        this->attachedEntity->field_0xf = this->field_0x80.HALF.LO;
-        InitializeAnimation(this->attachedEntity, this->attachedEntity->animationState + 1);
+        this->child->action = 3;
+        this->child->field_0xf = this->field_0x80.HALF.LO;
+        InitializeAnimation(this->child, this->child->animationState + 1);
         InitializeAnimation(this, this->animationState);
     }
 
@@ -300,7 +300,7 @@ void sub_08023604(Entity* this) {
         this->action = 2;
         this->actionDelay = 0;
         COLLISION_ON(this);
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         sub_08023644(this);
     }
 }
@@ -312,8 +312,8 @@ void sub_08023644(Entity* this) {
         this->y.HALF.HI == parent->y.HALF.HI) {
         this->action = 1;
         COLLISION_OFF(this);
-        this->spriteSettings.b.draw = 0;
-        this->attachedEntity->actionDelay = 1;
+        this->spriteSettings.draw = 0;
+        this->child->actionDelay = 1;
         sub_080239F0(this);
     }
 
@@ -330,9 +330,9 @@ void sub_08023644(Entity* this) {
 void sub_080236F8(Entity* parent) {
     if (--parent->field_0xf == 0) {
         parent->action = 2;
-        parent->attachedEntity->action = 3;
-        parent->attachedEntity->field_0xf = parent->parent->field_0x80.HALF.LO;
-        InitializeAnimation(parent->attachedEntity, parent->attachedEntity->animationState + 1);
+        parent->child->action = 3;
+        parent->child->field_0xf = parent->parent->field_0x80.HALF.LO;
+        InitializeAnimation(parent->child, parent->child->animationState + 1);
         InitializeAnimation(parent, parent->animationState);
     }
 }
@@ -356,8 +356,8 @@ void sub_08023748(Entity* this) {
 void sub_0802376C(Entity* this) {
     Entity* parent = this->parent;
 
-    if (parent->spriteSettings.b.draw == 1 && parent->animIndex < 0x10) {
-        this->spriteSettings.b.draw = 1;
+    if (parent->spriteSettings.draw == 1 && parent->animIndex < 0x10) {
+        this->spriteSettings.draw = 1;
         GetNextFrame(this);
     }
 
@@ -378,7 +378,7 @@ void sub_080237D8(Entity* this) {
         this->y.HALF.HI == parent->y.HALF.HI) {
         this->action = 1;
         COLLISION_OFF(this);
-        this->spriteSettings.b.draw = 0;
+        this->spriteSettings.draw = 0;
         parent->field_0x7c.BYTES.byte3 = 1;
         sub_080239F0(this);
         sub_08023A68(this);
@@ -415,33 +415,33 @@ void sub_08023894(Entity* this) {
 
 void sub_0802390C(Entity* this) {
     if (this->bitfield & 0x80) {
-        Entity* ent = this->attachedEntity;
+        Entity* ent = this->child;
         do {
             ent->iframes = this->iframes;
-        } while (ent = ent->attachedEntity, ent != NULL);
+        } while (ent = ent->child, ent != NULL);
     } else {
-        Entity* ent = this->attachedEntity;
+        Entity* ent = this->child;
         do {
             if (ent->bitfield & 0x80) {
-                u8 bVar2 = 0xff - ent->currentHealth;
+                u8 bVar2 = 0xff - ent->health;
                 if (bVar2 != 0) {
                     u32 tmp;
-                    ent->currentHealth = 0xff;
+                    ent->health = 0xff;
                     tmp = (u8)ent->iframes;
-                    if (this->currentHealth >= bVar2) {
-                        this->currentHealth -= bVar2;
+                    if (this->health >= bVar2) {
+                        this->health -= bVar2;
                     } else {
-                        this->currentHealth = 0;
+                        this->health = 0;
                     }
 
                     ent = this;
                     do {
                         ent->iframes = tmp;
-                    } while (ent = ent->attachedEntity, ent != NULL);
+                    } while (ent = ent->child, ent != NULL);
                     break;
                 }
             }
-        } while (ent = ent->attachedEntity, ent != NULL);
+        } while (ent = ent->child, ent != NULL);
     }
 }
 
@@ -449,7 +449,7 @@ void sub_08023990(Entity* this, u32 param_2, u32 param_3) {
     Entity* ent;
 
     this->action = 3;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->palette.b.b0 = 0x5;
     this->palette.b.b4 = 0x5;
     this->spritePriority.b0 = 7;
@@ -459,11 +459,11 @@ void sub_08023990(Entity* this, u32 param_2, u32 param_3) {
     UpdateSpriteForCollisionLayer(this);
     InitializeAnimation(this, 0x16);
 
-    ent = this->attachedEntity;
+    ent = this->child;
     do {
         sub_080239F0(ent);
         CopyPosition(this, ent);
-    } while (ent = ent->attachedEntity, ent != NULL);
+    } while (ent = ent->child, ent != NULL);
 }
 
 /* TODO: fix struct */

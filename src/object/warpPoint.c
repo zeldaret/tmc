@@ -77,7 +77,7 @@ void sub_0808B564(Entity* this) {
     if (!--this->field_0xf) {
         this->action = 3;
     } else {
-        this->spriteSettings.b.draw = this->field_0xf & 2 ? 0 : 1;
+        this->spriteSettings.draw = this->field_0xf & 2 ? 0 : 1;
     }
 }
 
@@ -177,7 +177,7 @@ void sub_0808B684(Entity* this) {
                     tmp = 1;
                 }
             } else {
-                gPlayerEntity.spriteSettings.b.draw = 0;
+                gPlayerEntity.spriteSettings.draw = 0;
             }
             break;
     }
@@ -194,20 +194,20 @@ void sub_0808B73C(Entity* this) {
         InitializeAnimation(this, 1);
     }
     if (sub_0806FCB8(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x28)) {
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
     } else {
         if (sub_0806FCB8(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x2e)) {
-            this->spriteSettings.b.draw ^= 1;
+            this->spriteSettings.draw ^= 1;
         } else {
-            this->spriteSettings.b.draw = 0;
+            this->spriteSettings.draw = 0;
         }
     }
     GetNextFrame(this);
 }
 
 u32 sub_0808B7C8(Entity* this) {
-    if (!(gPlayerState.flags & 0x80) && gPlayerState.field_0xa8 != 0x12 && gPlayerEntity.currentHealth != 0 &&
-        sub_08079F8C() && sub_080041A0(this, &gPlayerEntity, 5, 5) && gPlayerEntity.height.HALF.HI == 0) {
+    if (!(gPlayerState.flags & 0x80) && gPlayerState.field_0xa8 != 0x12 && gPlayerEntity.health != 0 &&
+        sub_08079F8C() && sub_080041A0(this, &gPlayerEntity, 5, 5) && gPlayerEntity.z.HALF.HI == 0) {
         if (this->actionDelay == 0 && gPlayerEntity.action == 0x1b) {
             sub_080791D0();
         }
@@ -220,7 +220,7 @@ void sub_0808B830(Entity* this) {
     Entity* tmp;
     this->action = 3;
     this->actionDelay = 0;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     tmp = CreateObject(0x34, 0, 0);
     if (tmp) {
         tmp->field_0x70.BYTES.byte0 = 1;

@@ -150,7 +150,7 @@ void MessageNoOverlap(u32 index, Entity* entity) {
     MessageRequest(index);
 
     y = entity->y.HALF.HI;
-    height = entity->height.HALF.HI;
+    height = entity->z.HALF.HI;
 
     if (((y + height) - gRoomControls.roomScrollY) > 0x58) {
         gMessage.textWindowPosY = 1;

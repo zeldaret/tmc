@@ -151,7 +151,7 @@ u32 ReadBit(void*, u32);
 
 // regalloc
 NONMATCH("asm/non_matching/arm_proxy/NPCUpdate.inc", void NPCUpdate(Entity* this)) {
-    if ((this->currentHealth & 0x7f) && !ReadBit(&gUnk_020342F8, this->currentHealth - 1))
+    if ((this->health & 0x7f) && !ReadBit(&gUnk_020342F8, this->health - 1))
         DeleteThisEntity();
     if (this->action == 0 && (this->flags & ENT_DID_INIT) == 0)
         InitNPC(this);
@@ -160,8 +160,8 @@ NONMATCH("asm/non_matching/arm_proxy/NPCUpdate.inc", void NPCUpdate(Entity* this
     if (this->next != NULL) {
         if (gNPCFunctions[this->id][1] != NULL)
             gNPCFunctions[this->id][1](this);
-        if ((this->currentHealth & 0x7f) != 0) {
-            u32 temp = this->currentHealth & 0x7f;
+        if ((this->health & 0x7f) != 0) {
+            u32 temp = this->health & 0x7f;
             gUnk_02031EC0[temp * 2 - 2].x = this->x.HALF.HI - gRoomControls.roomOriginX;
             gUnk_02031EC0[temp * 2 - 2].y = this->y.HALF.HI - gRoomControls.roomOriginY;
         }

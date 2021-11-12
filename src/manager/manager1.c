@@ -17,10 +17,10 @@ void Manager1_Main(Entity* this) {
     u8* pbVar2;
 
     gUnk_08107C5C[this->action](this);
-    gUnk_08107C48[((u8*)&this->hVelocity)[1]](this);
-    bVar1 = gUnk_08107C40[((u8*)&this->hVelocity)[1]];
-    if ((bVar1 != 0) && (*(u8*)&this->hVelocity != bVar1)) {
-        ((u8*)&this->hVelocity)[0] = bVar1;
+    gUnk_08107C48[((u8*)&this->zVelocity)[1]](this);
+    bVar1 = gUnk_08107C40[((u8*)&this->zVelocity)[1]];
+    if ((bVar1 != 0) && (*(u8*)&this->zVelocity != bVar1)) {
+        ((u8*)&this->zVelocity)[0] = bVar1;
         LoadGfxGroup(bVar1);
     }
 }
@@ -28,9 +28,9 @@ void Manager1_Main(Entity* this) {
 void sub_080570B8(Entity* this) {
     u8* pbVar1;
 
-    LoadGfxGroup(((u8*)&this->hVelocity)[0]);
-    this->height.WORD = 0;
-    pbVar1 = ((u8*)&this->hVelocity + 1);
+    LoadGfxGroup(((u8*)&this->zVelocity)[0]);
+    this->z.WORD = 0;
+    pbVar1 = ((u8*)&this->zVelocity + 1);
     if (*pbVar1 == 3) {
         gScreen.bg3.updated = 1;
     } else {
@@ -46,9 +46,9 @@ void sub_080570F8(void) {
 
 void sub_08057118(Entity* this) {
     this->actionDelay = 0;
-    *(u8*)&this->hVelocity = 0;
-    ((u8*)&this->hVelocity)[1] = 0;
-    ((u8*)&this->hVelocity)[2] = 0;
+    *(u8*)&this->zVelocity = 0;
+    ((u8*)&this->zVelocity)[1] = 0;
+    ((u8*)&this->zVelocity)[2] = 0;
     this->action = 1;
     gScreen.bg3.control = 0x1e04;
     gScreen.lcd.displayControl |= 0x800;

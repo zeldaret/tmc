@@ -16,7 +16,7 @@ ASM_FUNC("asm/non_matching/playerItem12/sub_080701F8.inc", void sub_080701F8(Ent
 
 void sub_0807037C(Entity* this) {
     GetNextFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         DeleteThisEntity();
     }
 }

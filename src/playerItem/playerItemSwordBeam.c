@@ -23,7 +23,7 @@ void PlayerItemSwordBeam(Entity* this) {
 void sub_08019498(Entity* this) {
     CopyPosition(&gPlayerEntity, this);
     this->action += 0x01;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->field_0x3c = gPlayerEntity.field_0x3c + 1;
     this->hitbox = &gUnk_080B4408;
     this->speed = 0x380;
@@ -38,13 +38,13 @@ void sub_08019498(Entity* this) {
         case 0:
             this->x.HALF.HI += -3;
             this->y.HALF.HI += -8;
-            this->spriteSettings.raw |= 0x80;
+            this->spriteSettings.flipY = 1;
             break;
         case 4:
             this->x.HALF.HI += 2;
             break;
         case 2:
-            this->spriteSettings.b.flipX = 1;
+            this->spriteSettings.flipX = 1;
             this->x.HALF.HI += 1;
             this->y.HALF.HI += -4;
             break;

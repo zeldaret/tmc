@@ -120,7 +120,7 @@ void sub_08058514(ManagerA* this) {
         case 1:
             if ((gPlayerState.flags & 0x1235) != 0)
                 return;
-            if (gPlayerEntity.height.HALF.HI != 0)
+            if (gPlayerEntity.z.HALF.HI != 0)
                 return;
             gPlayerState.jumpStatus = 0;
             sub_08078AA8(this->unk_36, this->unk_35);

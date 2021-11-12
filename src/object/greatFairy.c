@@ -109,7 +109,7 @@ void GreatFairy_SpawningUpdate(Entity* this) {
             SoundReq(SFX_145);
             this->action = 4;
             this->actionDelay = 60;
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
         }
     }
 }
@@ -154,7 +154,7 @@ void GreatFairy_WingsCallBehavior(Entity* this) {
 void GreatFairy_WingsInit(Entity* this) {
     GreatFairy_InitializeAnimation(this);
     this->spritePriority.b0 = 5;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->spriteRendering.alphaBlend = 1;
     gScreen.controls.layerFXControl = 0xF40;
     gScreen.controls.alphaBlend = BLDALPHA_BLEND(9, 8);
@@ -184,7 +184,7 @@ void GreatFairy_WakeCallBehavior(Entity* this) {
 
 void GreatFairy_WakeInit(Entity* this) {
     GreatFairy_InitializeAnimation(this);
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->spritePriority.b0 = 6;
 }
 
@@ -205,7 +205,7 @@ void GreatFairy_MiniInit(Entity* this) {
         CopyPosition(this, aff);
         aff->parent = this;
         GreatFairy_InitializeAnimation(this);
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         this->field_0xf = 0;
     }
 }
@@ -215,12 +215,12 @@ void GreatFairy_MiniRisingUpdate(Entity* this) {
     Entity* target;
 
     GetNextFrame(this);
-    this->height.WORD -= 0x8000;
-    if (this->height.HALF.HI == -20) {
+    this->z.WORD -= 0x8000;
+    if (this->z.HALF.HI == -20) {
         this->action = 2;
         SoundReq(SFX_HEART_CONTAINER_SPAWN);
     } else {
-        if (((this->height.HALF.HI == -10) && (this->field_0xf == 0)) &&
+        if (((this->z.HALF.HI == -10) && (this->field_0xf == 0)) &&
             (target = GreatFairy_CreateForm(this, DROPLET, 0), target != NULL)) {
             PositionRelative(this, target, 0, 0x40000);
             this->field_0xf = 1;
@@ -245,7 +245,7 @@ void GreatFairy_MiniAffineCallBehavior(Entity* this) {
 void GreatFairy_MiniAffineInit(Entity* this) {
     GreatFairy_InitializeAnimation(this);
     this->spritePriority.b0 = 6;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
 }
 
 // Getting ready for affine transformation
@@ -254,7 +254,7 @@ void GreatFairy_MiniAffineInit2(Entity* this) {
 
     CopyPosition(parent, this);
 
-    if (this->height.HALF.HI == -20) {
+    if (this->z.HALF.HI == -20) {
         this->action = 2;
         this->actionDelay = 90;
         this->speed = 4096;
@@ -282,15 +282,15 @@ void GreatFairy_DropletCallBehavior(Entity* this) {
 
 void GreatFairy_DropletInit(Entity* this) {
     GreatFairy_InitializeAnimation(this);
-    this->spriteSettings.b.draw = 1;
-    this->height.HALF.HI = 0;
+    this->spriteSettings.draw = 1;
+    this->z.HALF.HI = 0;
     this->spritePriority.b0 = 5;
     SoundReq(SFX_140);
 }
 
 void GreatFairy_DropletUpdate(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         DeleteEntity(this);
     }
 }
@@ -302,7 +302,7 @@ void GreatFairy_RippleCallBehavior(Entity* this) {
 
 void GreatFairy_RippleInit(Entity* this) {
     GreatFairy_InitializeAnimation(this);
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->spritePriority.b0 = 6;
 }
 
@@ -322,7 +322,7 @@ void GreatFairy_BigRippleCallBehavior(Entity* this) {
 void GreatFairy_BigRippleInit(Entity* this) {
     GreatFairy_InitializeAnimation(this);
     this->actionDelay = 120;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->spritePriority.b0 = 5;
     SoundReq(SFX_TELEPORTER);
 }
@@ -350,13 +350,13 @@ void GreatFairy_EnergyCallBehavior(Entity* this) {
 
 void GreatFairy_EnergyInit(Entity* this) {
     GreatFairy_InitializeAnimation(this);
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->spritePriority.b0 = 5;
 }
 
 void GreatFairy_EnergyUpdate(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         DeleteEntity(this);
     }
 }
@@ -372,7 +372,7 @@ void sub_08087114(Entity* this) {
 
 void sub_08087150(Entity* this) {
     GreatFairy_InitializeAnimation(this);
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->spriteOrientation.flipY = 0;
     this->spriteRendering.b3 = 0;
     this->spritePriority.b0 = 3;
@@ -401,7 +401,7 @@ void sub_080871D0(Entity* this) {
 }
 
 void sub_080871F8(Entity* this) {
-    Entity* temp = this->attachedEntity;
+    Entity* temp = this->child;
 
     if ((temp->x.HALF.HI == this->x.HALF.HI) && (temp->y.HALF.HI - 32 == this->y.HALF.HI)) {
         this->action = 2;
@@ -437,7 +437,7 @@ void sub_08087294(Entity* this) {
 }
 
 void sub_080872AC(Entity* this) {
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->spriteOrientation.flipY = 1;
     this->spriteRendering.b3 = 0;
     this->field_0x68.HWORD = this->x.HALF.HI;
@@ -458,7 +458,7 @@ void sub_080872F8(Entity* this) {
         this->direction = (this->direction + gUnk_081207AC[Random() & 3]) & 0x1f;
     }
     temp = gSineTable[this->actionDelay + 64];
-    this->height.HALF.HI = (temp >> 6) - 8;
+    this->z.HALF.HI = (temp >> 6) - 8;
     this->actionDelay++;
 }
 

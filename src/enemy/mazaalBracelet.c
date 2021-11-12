@@ -147,17 +147,17 @@ NONMATCH("asm/non_matching/mazaal/sub_0803A188.inc", void sub_0803A188(Entity* t
                 pEVar3 = this->parent;
                 pEVar3->field_0x7c.BYTES.byte1 = pEVar3->field_0x7c.BYTES.byte1 | (this->type == 0 ? 1 : 2);
                 pEVar3->field_0x80.HALF.LO = (this->type == 0 ? 1 : 2) | pEVar3->field_0x80.HALF.LO;
-                this->attachedEntity->iframes = this->iframes;
+                this->child->iframes = this->iframes;
                 entity74 = *(Entity**)&this->field_0x74;
                 entity74->iframes = this->iframes;
                 SoundReq(SFX_BOSS_HIT);
             }
         } else {
-            this->attachedEntity->iframes = this->iframes;
+            this->child->iframes = this->iframes;
             entity74 = *(Entity**)&this->field_0x74;
             entity74->iframes = this->iframes;
             InitializeAnimation(this, 0x18);
-            InitAnimationForceUpdate(this->attachedEntity, 9);
+            InitAnimationForceUpdate(this->child, 9);
             SoundReq(SFX_BOSS_HIT);
         }
     }
@@ -180,32 +180,32 @@ void sub_0803A274(Entity* this) {
         if (this->type == 0) {
             pEVar1 = CreateEnemy(MAZAAL_HAND, 0);
             pEVar1->parent = this;
-            this->attachedEntity = pEVar1;
+            this->child = pEVar1;
             pEVar1 = CreateEnemy(MAZAAL_BRACELET, 2);
             pEVar1->parent = this;
             *(Entity**)&this->field_0x74 = pEVar1;
             pEVar1 = CreateObject(OBJECT_7E, 1, 0);
             pEVar1->parent = this;
-            pEVar1->attachedEntity = this->attachedEntity;
+            pEVar1->child = this->child;
             PositionRelative(this->parent, this, 0x100000, 0x200000);
         } else {
             pEVar1 = CreateEnemy(MAZAAL_HAND, 1);
             pEVar1->parent = this;
-            this->attachedEntity = pEVar1;
+            this->child = pEVar1;
             pEVar1 = CreateEnemy(MAZAAL_BRACELET, 3);
             pEVar1->parent = this;
             *(Entity**)&this->field_0x74 = pEVar1;
             pEVar1 = CreateObject(OBJECT_7E, 2, 0);
             pEVar1->parent = this;
-            pEVar1->attachedEntity = this->attachedEntity;
-            this->spriteSettings.b.flipX = 1;
+            pEVar1->child = this->child;
+            this->spriteSettings.flipX = 1;
             PositionRelative(this->parent, this, -0x100000, 0x200000);
         }
         if (gScreenTransition.field_0x38 != 0) {
             this->action = 3;
             COLLISION_ON(this);
-            this->spriteSettings.b.draw = 1;
-            this->attachedEntity->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
+            this->child->spriteSettings.draw = 1;
             InitializeAnimation(this, 0x10);
         } else {
             this->action = 1;
@@ -222,25 +222,25 @@ void sub_0803A364(Entity* this) {
 
     ptr = gUnk_080CED6C;
     index = ((this->parent->field_0xf >> 4) + 3);
-    this->height.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     switch (this->subAction & 0x7f) {
         case 0:
         case 2:
             break;
         case 1:
             this->subAction = 2;
-            pEVar3 = this->attachedEntity;
-            pEVar3->spriteSettings.b.draw = 1;
+            pEVar3 = this->child;
+            pEVar3->spriteSettings.draw = 1;
             pEVar3->spriteRendering.alphaBlend = 1;
             break;
         case 3:
             this->subAction = 4;
-            this->spriteSettings.b.draw = 1;
-            this->attachedEntity->spriteRendering.alphaBlend = 0;
+            this->spriteSettings.draw = 1;
+            this->child->spriteRendering.alphaBlend = 0;
             break;
         case 4:
             GetNextFrame(this);
-            if ((this->frames.all & 0x80) != 0) {
+            if ((this->frame & 0x80) != 0) {
                 this->subAction = 5;
             }
             break;
@@ -263,16 +263,16 @@ void sub_0803A364(Entity* this) {
             break;
         case 7:
             GetNextFrame(this);
-            if ((this->frames.all & 0x80) != 0) {
+            if ((this->frame & 0x80) != 0) {
                 this->subAction = 8;
-                this->spriteSettings.b.draw = 0;
-                InitAnimationForceUpdate(this->attachedEntity, 8);
+                this->spriteSettings.draw = 0;
+                InitAnimationForceUpdate(this->child, 8);
                 SoundReq(SFX_16E);
             }
             break;
         case 8:
             sub_0803B55C(this);
-            if ((this->attachedEntity->frames.all & 0x80) == 0) {
+            if ((this->child->frame & 0x80) == 0) {
                 return;
             }
             uVar1 = 9;
@@ -283,20 +283,20 @@ void sub_0803A364(Entity* this) {
             this->actionDelay--;
             if (this->actionDelay == 0) {
                 this->subAction = 10;
-                InitAnimationForceUpdate(this->attachedEntity, 6);
+                InitAnimationForceUpdate(this->child, 6);
             }
             break;
         case 10:
             sub_0803B55C(this);
-            if ((this->attachedEntity->frames.all & 0x80) != 0) {
+            if ((this->child->frame & 0x80) != 0) {
                 this->subAction = 0xb;
-                this->spriteSettings.b.draw = 1;
+                this->spriteSettings.draw = 1;
                 InitializeAnimation(this, 4);
             }
             break;
         case 0xb:
             GetNextFrame(this);
-            if ((this->frames.all & 0x80) == 0) {
+            if ((this->frame & 0x80) == 0) {
                 return;
             }
             if (this->type2 != 0) {
@@ -327,7 +327,7 @@ void sub_0803A548(Entity* this) {
     UpdateAnimationSingleFrame(this);
     ptr = gUnk_080CED6C;
     index = ((this->parent->field_0xf >> 4) + 3);
-    this->height.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     if (sub_0803B4E4(this) == 0) {
         sub_0806F69C(this);
     }
@@ -339,7 +339,7 @@ void sub_0803A58C(Entity* this) {
 
     ptr = gUnk_080CED6C;
     index = ((this->parent->field_0xf >> 4) + 3);
-    this->height.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     if (sub_0803B4E4(this) != 0) {
         sub_0803B59C(this);
     } else {
@@ -355,7 +355,7 @@ void sub_0803A5D0(Entity* this) {
     COLLISION_OFF(this);
     ptr = gUnk_080CED6C;
     index = ((this->parent->field_0xf >> 4) + 3);
-    this->height.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     InitializeAnimation(this, 5);
 }
 
@@ -365,12 +365,12 @@ void sub_0803A60C(Entity* this) {
 
     ptr = gUnk_080CED6C;
     index = ((this->parent->field_0xf >> 4) + 3);
-    this->height.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     GetNextFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         this->action = 6;
-        this->spriteSettings.b.draw = 0;
-        InitAnimationForceUpdate(this->attachedEntity, 8);
+        this->spriteSettings.draw = 0;
+        InitAnimationForceUpdate(this->child, 8);
     }
 }
 
@@ -381,10 +381,10 @@ void sub_0803A660(Entity* this) {
     s8* ptr;
     u32 index;
 
-    pbVar3 = &this->attachedEntity->frames.all;
+    pbVar3 = &this->child->frame;
     if ((*pbVar3 & 0x80) != 0) {
-        if (this->height.HALF.HI > -0x50) {
-            this->height.HALF.HI = this->height.HALF.HI - 2;
+        if (this->z.HALF.HI > -0x50) {
+            this->z.HALF.HI = this->z.HALF.HI - 2;
         } else {
             this->action = 7;
             this->actionDelay = 0;
@@ -400,7 +400,7 @@ void sub_0803A660(Entity* this) {
         }
         ptr = gUnk_080CED6C;
         index = ((this->parent->field_0xf >> 4) + 3);
-        this->height.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+        this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     }
 }
 
@@ -430,10 +430,10 @@ void sub_0803A720(Entity* this) {
 void sub_0803A740(Entity* this) {
     u16 height;
 
-    height = this->height.HALF.HI + 4;
-    this->height.HALF.HI += 4;
+    height = this->z.HALF.HI + 4;
+    this->z.HALF.HI += 4;
     if (-1 < height * 0x10000) {
-        this->height.HALF.HI = 0;
+        this->z.HALF.HI = 0;
         this->action = 10;
         this->actionDelay = 10;
         this->parent->field_0x7c.BYTES.byte1 |= 0x40;
@@ -454,8 +454,8 @@ void sub_0803A780(Entity* this) {
 }
 
 void sub_0803A7AC(Entity* this) {
-    if (this->height.HALF.HI > -6) {
-        this->height.HALF.HI--;
+    if (this->z.HALF.HI > -6) {
+        this->z.HALF.HI--;
     } else {
         this->action = 0xc;
     }
@@ -467,10 +467,10 @@ void sub_0803A7CC(Entity* this) {
 
     ptr = gUnk_080CED6C;
     index = ((this->parent->field_0xf >> 4) + 3);
-    this->height.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     if (sub_0803B4E4(this)) {
         this->action = 0xd;
-        InitAnimationForceUpdate(this->attachedEntity, 6);
+        InitAnimationForceUpdate(this->child, 6);
     } else {
         sub_0806F69C(this);
     }
@@ -482,11 +482,11 @@ void sub_0803A814(Entity* this) {
 
     ptr = gUnk_080CED6C;
     index = ((this->parent->field_0xf >> 4) + 3);
-    this->height.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     sub_0803B55C(this);
-    if ((this->attachedEntity->frames.all & 0x80) != 0) {
+    if ((this->child->frame & 0x80) != 0) {
         this->action = 0xe;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         InitializeAnimation(this, 4);
     }
 }
@@ -497,9 +497,9 @@ void sub_0803A86C(Entity* this) {
 
     ptr = gUnk_080CED6C;
     index = ((this->parent->field_0xf >> 4) + 3);
-    this->height.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     GetNextFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         COLLISION_ON(this);
         sub_0803B59C(this);
     }
@@ -516,9 +516,9 @@ void sub_0803A8B8(Entity* this) {
 
     ptr = gUnk_080CED6C;
     index = ((this->parent->field_0xf >> 4) + 3);
-    this->height.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     InitializeAnimation(this, 6);
-    InitAnimationForceUpdate(this->attachedEntity, 1);
+    InitAnimationForceUpdate(this->child, 1);
     SoundReq(SFX_153);
 }
 
@@ -528,7 +528,7 @@ void sub_0803A90C(Entity* this) {
 
     ptr = gUnk_080CED6C;
     index = ((this->parent->field_0xf >> 4) + 3);
-    this->height.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     GetNextFrame(this);
     sub_0803B55C(this);
     sub_0806F69C(this);
@@ -538,7 +538,7 @@ void sub_0803A90C(Entity* this) {
         this->direction = this->type * 0x10 + 8;
         this->speed = 0x200;
         InitializeAnimation(this, 7);
-        InitAnimationForceUpdate(this->attachedEntity, 2);
+        InitAnimationForceUpdate(this->child, 2);
     }
 }
 
@@ -548,7 +548,7 @@ void sub_0803A978(Entity* this) {
 
     ptr = gUnk_080CED6C;
     index = ((this->parent->field_0xf >> 4) + 3);
-    this->height.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     GetNextFrame(this);
     sub_0803B55C(this);
     if ((++this->actionDelay & 3) == 0) {
@@ -561,7 +561,7 @@ void sub_0803A978(Entity* this) {
         COLLISION_OFF(this);
         *(u8*)(*(int*)&this->field_0x74 + 0x10) &= 0x7f;
         InitializeAnimation(this, 8);
-        InitAnimationForceUpdate(this->attachedEntity, 3);
+        InitAnimationForceUpdate(this->child, 3);
     }
 }
 
@@ -572,7 +572,7 @@ void sub_0803AA00(Entity* this) {
 
     ptr = gUnk_080CED6C;
     index = ((this->parent->field_0xf >> 4) + 3);
-    this->height.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     if (sub_0803B870(this) == 0) {
         direction = (this->type ^ 1) * 0x10 + 8;
         if ((++this->actionDelay & 3) == 0) {
@@ -581,10 +581,10 @@ void sub_0803AA00(Entity* this) {
         sub_0806F69C(this);
         if ((this->direction == direction) || (this->y.HALF.HI >= gPlayerEntity.y.HALF.HI)) {
             this->action = 0x13;
-            this->spriteSettings.b.draw = 0;
+            this->spriteSettings.draw = 0;
             this->direction = direction;
             this->field_0x80.HWORD = gPlayerEntity.x.HALF.HI;
-            InitAnimationForceUpdate(this->attachedEntity, 4);
+            InitAnimationForceUpdate(this->child, 4);
         }
     }
 }
@@ -596,7 +596,7 @@ NONMATCH("asm/non_matching/mazaal/sub_0803AA98.inc", void sub_0803AA98(Entity* t
 
     ptr = gUnk_080CED6C;
     index = ((this->parent->field_0xf >> 4) + 3);
-    this->height.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     if (sub_0803B870(this) == 0) {
         sub_0806F69C(this);
         if (sub_0803B6F4(this) != 0) {
@@ -604,7 +604,7 @@ NONMATCH("asm/non_matching/mazaal/sub_0803AA98.inc", void sub_0803AA98(Entity* t
             this->speed = 0x40;
             InitializeAnimation(this, 10);
             (*(Entity**)&this->field_0x74)->flags |= 0x80;
-            temp = this->attachedEntity;
+            temp = this->child;
             temp->hitType = 0x13;
             InitAnimationForceUpdate(temp, 5);
             SoundReq(SFX_16E);
@@ -619,10 +619,10 @@ void sub_0803AB10(Entity* this) {
 
     ptr = gUnk_080CED6C;
     index = ((this->parent->field_0xf >> 4) + 3);
-    this->height.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     sub_0806F69C(this);
     sub_0803B55C(this);
-    if ((this->attachedEntity->frames.all & 0x80) != 0) {
+    if ((this->child->frame & 0x80) != 0) {
         this->action = 0x15;
         this->actionDelay = 0xf;
     }
@@ -634,12 +634,12 @@ void sub_0803AB5C(Entity* this) {
 
     ptr = gUnk_080CED6C;
     index = ((this->parent->field_0xf >> 4) + 3);
-    this->height.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     if (--this->actionDelay == 0) {
         this->action = 0x16;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         InitializeAnimation(this, 0xb);
-        InitAnimationForceUpdate(this->attachedEntity, 6);
+        InitAnimationForceUpdate(this->child, 6);
     }
 }
 
@@ -649,15 +649,15 @@ void sub_0803ABB4(Entity* this) {
 
     ptr = gUnk_080CED6C;
     index = ((this->parent->field_0xf >> 4) + 3);
-    this->height.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     GetNextFrame(this);
     sub_0803B55C(this);
-    if ((this->attachedEntity->frames.all & 0x80) != 0) {
+    if ((this->child->frame & 0x80) != 0) {
         this->action = 0x17;
         COLLISION_ON(this);
         this->speed = 0x180;
         InitializeAnimation(this, 0x10);
-        InitAnimationForceUpdate(this->attachedEntity, 0);
+        InitAnimationForceUpdate(this->child, 0);
     }
 }
 
@@ -667,7 +667,7 @@ void sub_0803AC1C(Entity* this) {
 
     ptr = gUnk_080CED6C;
     index = ((this->parent->field_0xf >> 4) + 3);
-    this->height.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     if (sub_0803B4E4(this)) {
         sub_0803B59C(this);
     } else {
@@ -681,7 +681,7 @@ void sub_0803AC60(Entity* this) {
 
     ptr = gUnk_080CED6C;
     index = ((this->parent->field_0xf >> 4) + 3);
-    this->height.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     GetNextFrame(this);
     if (!this->actionDelay) {
         if (sub_0803B4E4(this) != 0) {
@@ -707,14 +707,14 @@ void sub_0803ACC0(Entity* this) {
             }
             break;
         case 1:
-            if (--this->height.HALF.HI * 0x10000 >> 0x10 < -0x20) {
+            if (--this->z.HALF.HI * 0x10000 >> 0x10 < -0x20) {
                 this->subAction = 2;
             }
             break;
         case 2:
-            uVar2 = this->height.HALF.HI += 4;
+            uVar2 = this->z.HALF.HI += 4;
             if (-1 < (uVar2 * 0x10000)) {
-                this->height.HALF.HI = 0;
+                this->z.HALF.HI = 0;
                 this->actionDelay = 0xc;
                 this->subAction = 3;
                 sub_08080964(8, 0);
@@ -728,15 +728,15 @@ void sub_0803ACC0(Entity* this) {
             }
             break;
         case 4:
-            uVar2 = this->height.HALF.HI -= 2;
+            uVar2 = this->z.HALF.HI -= 2;
             if (uVar2 * 0x10000 >> 0x10 < -0x28) {
                 this->subAction = 5;
             }
             break;
         case 5:
-            uVar2 = this->height.HALF.HI += 4;
+            uVar2 = this->z.HALF.HI += 4;
             if (-1 < (uVar2 * 0x10000)) {
-                this->height.HALF.HI = 0;
+                this->z.HALF.HI = 0;
                 this->action = 0x1a;
                 this->actionDelay = 0x3c;
                 sub_08080964(0x1e, 0);
@@ -752,10 +752,10 @@ void sub_0803ACC0(Entity* this) {
 void sub_0803ADAC(Entity* this) {
     if (--this->actionDelay == 0) {
         this->action = 0x16;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         (*(Entity**)&this->field_0x74)->flags |= 0x80;
         InitializeAnimation(this, 0xb);
-        InitAnimationForceUpdate(this->attachedEntity, 6);
+        InitAnimationForceUpdate(this->child, 6);
         sub_0803B798();
     } else {
         sub_0803B824(this);
@@ -768,13 +768,13 @@ void sub_0803ADF4(Entity* this) {
 
     ptr = gUnk_080CED6C;
     index = ((this->parent->field_0xf >> 4) + 3);
-    this->height.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     UpdateAnimationSingleFrame(this);
     GetNextFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         this->action = 0x1c;
         this->actionDelay = 0x1e;
-        this->spriteSettings.b.draw = 0;
+        this->spriteSettings.draw = 0;
     }
 }
 
@@ -784,11 +784,11 @@ void sub_0803AE48(Entity* this) {
 
     ptr = gUnk_080CED6C;
     index = ((this->parent->field_0xf >> 4) + 3);
-    this->height.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     UpdateAnimationSingleFrame(this);
     if (((this->actionDelay == 0) || (--this->actionDelay == 0)) && ((this->parent->field_0x7c.BYTES.byte1 & 3) != 0)) {
         this->action = 0x1d;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         InitializeAnimation(this, 4);
     } else {
         if (sub_0803B4E4(this) == 0) {
@@ -803,10 +803,10 @@ void sub_0803AEC4(Entity* this) {
 
     ptr = gUnk_080CED6C;
     index = ((this->parent->field_0xf >> 4) + 3);
-    this->height.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     UpdateAnimationSingleFrame(this);
     GetNextFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         COLLISION_ON(this);
         sub_0803B59C(this);
     }
@@ -816,21 +816,21 @@ void sub_0803AF18(Entity* this) {
     this->action = 0x1f;
     COLLISION_OFF(this);
     InitializeAnimation(this, 5);
-    this->height.HALF.HI = gUnk_080CED6C[(this->parent->field_0xf >> 4) & 7] + 4;
+    this->z.HALF.HI = gUnk_080CED6C[(this->parent->field_0xf >> 4) & 7] + 4;
 }
 
 void sub_0803AF50(Entity* this) {
     GetNextFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         this->action = 0x20;
-        this->spriteSettings.b.draw = 0;
-        InitAnimationForceUpdate(this->attachedEntity, 8);
+        this->spriteSettings.draw = 0;
+        InitAnimationForceUpdate(this->child, 8);
     }
 }
 
 void sub_0803AF7C(Entity* this) {
     sub_0803B55C(this);
-    if ((this->attachedEntity->frames.all & 0x80) != 0) {
+    if ((this->child->frame & 0x80) != 0) {
         this->action = 0x21;
         this->actionDelay = 0xf;
     }
@@ -840,8 +840,8 @@ void sub_0803AF9C(Entity* this) {
     if (this->actionDelay != 0) {
         this->actionDelay--;
     } else {
-        if (-0x20 < this->height.HALF.HI) {
-            this->height.HALF.HI -= 2;
+        if (-0x20 < this->z.HALF.HI) {
+            this->z.HALF.HI -= 2;
         } else {
             this->action = 0x22;
             this->actionDelay = 10;
@@ -856,13 +856,13 @@ void sub_0803AFC8(Entity* this) {
 }
 
 void sub_0803AFE0(Entity* this) {
-    if (this->height.HALF.HI < 0) {
-        this->height.HALF.HI += 4;
+    if (this->z.HALF.HI < 0) {
+        this->z.HALF.HI += 4;
     } else {
         this->action = 0x24;
         this->actionDelay = 0xf0;
         *(u8*)&this->cutsceneBeh = 3;
-        this->height.HALF.HI = 0;
+        this->z.HALF.HI = 0;
         sub_08080964(0xa0, 0);
         SoundReq(SFX_158);
     }
@@ -879,11 +879,11 @@ void sub_0803B01C(Entity* this) {
 }
 
 void sub_0803B04C(Entity* this) {
-    if (this->height.HALF.HI > -6) {
-        this->height.HALF.HI--;
+    if (this->z.HALF.HI > -6) {
+        this->z.HALF.HI--;
     } else {
         this->action = 0x26;
-        InitAnimationForceUpdate(this->attachedEntity, 6);
+        InitAnimationForceUpdate(this->child, 6);
     }
 }
 
@@ -893,20 +893,20 @@ void sub_0803B074(Entity* this) {
 
     ptr = gUnk_080CED6C;
     index = ((this->parent->field_0xf >> 4) + 3);
-    this->height.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     sub_0803B55C(this);
-    if ((this->attachedEntity->frames.all & 0x80) != 0) {
+    if ((this->child->frame & 0x80) != 0) {
         this->action = 0x27;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         InitializeAnimation(this, 4);
-        InitAnimationForceUpdate(this->attachedEntity, 0);
+        InitAnimationForceUpdate(this->child, 0);
     }
 }
 
 void sub_0803B0D4(Entity* this) {
     UpdateAnimationSingleFrame(this);
     GetNextFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         COLLISION_ON(this);
         sub_0803B59C(this);
     }
@@ -916,7 +916,7 @@ void sub_0803B100(Entity* this) {
     Entity* temp;
 
     this->action = 0x29;
-    this->hVelocity = 0x14000;
+    this->zVelocity = 0x14000;
     if (this->type == 0) {
         this->hitbox = &gUnk_080FD364;
     } else {
@@ -925,12 +925,12 @@ void sub_0803B100(Entity* this) {
     temp = *(Entity**)&this->field_0x74;
     temp->action = 3;
     temp->field_0x74.HALF.LO = 0x20;
-    InitAnimationForceUpdate(this->attachedEntity, 9);
+    InitAnimationForceUpdate(this->child, 9);
     SoundReq(SFX_14F);
 }
 
 void sub_0803B144(Entity* this) {
-    UpdateAnimationSingleFrame(this->attachedEntity);
+    UpdateAnimationSingleFrame(this->child);
     if (sub_08003FC4(this, 0x2000) == 0) {
         this->action = 0x2a;
         InitializeAnimation(this, 0x16);
@@ -941,11 +941,11 @@ void sub_0803B144(Entity* this) {
 
 void sub_0803B17C(Entity* this) {
     GetNextFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         this->action = 0x2b;
         COLLISION_ON(this);
         this->hitType = 0x18;
-        this->currentHealth = 0xff;
+        this->health = 0xff;
         this->field_0x7c.HALF.HI = 600;
     }
 }
@@ -954,14 +954,14 @@ void sub_0803B1B8(Entity* this) {
     Entity* temp;
     u16 val;
 
-    if ((this->frames.all & 0x80) == 0) {
+    if ((this->frame & 0x80) == 0) {
         GetNextFrame(this);
-        UpdateAnimationSingleFrame(this->attachedEntity);
+        UpdateAnimationSingleFrame(this->child);
     }
-    if (this->currentHealth < 0xf5) {
+    if (this->health < 0xf5) {
         this->action = 0x32;
         this->field_0x7c.HALF.HI = 0x5dc;
-        this->spriteSettings.b.draw = 0;
+        this->spriteSettings.draw = 0;
         this->hitType = 0x14;
         temp = CreateFx(this, FX_GIANT_EXPLOSION4, 0);
         if (temp != (Entity*)0x0) {
@@ -982,7 +982,7 @@ void sub_0803B1B8(Entity* this) {
         if ((temp->field_0x80.HALF.LO & 0xc) == 0xc) {
             temp->action = 0xb;
             temp->actionDelay = 0x78;
-            temp->hVelocity = 0;
+            temp->zVelocity = 0;
             (*(Entity**)&temp->field_0x74)->field_0x7c.HALF_U.HI = 0x708;
             (*(Entity**)&temp->field_0x78)->field_0x7c.HALF_U.HI = 0x708;
         }
@@ -997,9 +997,9 @@ void sub_0803B2D0(Entity* this) {
     Entity* entity;
 
     GetNextFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         this->action = 0x2d;
-        this->spriteSettings.b.draw = 0;
+        this->spriteSettings.draw = 0;
         entity = *(Entity**)&this->field_0x74;
         entity->action = 2;
         entity->field_0x74.HALF.LO = 0;
@@ -1012,7 +1012,7 @@ void sub_0803B30C(Entity* this) {
     Entity* entity;
 
     entity = *(Entity**)&this->field_0x74;
-    if ((entity->frames.all & 0x80) != 0) {
+    if ((entity->frame & 0x80) != 0) {
         this->action = 0x2e;
         sub_0803B8E8(this, 0x13);
         InitializeAnimation(entity, 0);
@@ -1020,8 +1020,8 @@ void sub_0803B30C(Entity* this) {
 }
 
 void sub_0803B338(Entity* this) {
-    if (this->height.HALF.HI > -10) {
-        this->height.HALF.HI--;
+    if (this->z.HALF.HI > -10) {
+        this->z.HALF.HI--;
     } else {
         this->action = 0x2f;
         this->actionDelay = 0xf;
@@ -1034,7 +1034,7 @@ void sub_0803B35C(Entity* this) {
 
     ptr = gUnk_080CED6C;
     index = ((this->parent->field_0xf >> 4) + 3);
-    this->height.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     if (--this->actionDelay == 0) {
         this->action = 0x30;
     }
@@ -1046,12 +1046,12 @@ void sub_0803B398(Entity* this) {
 
     ptr = gUnk_080CED6C;
     index = ((this->parent->field_0xf >> 4) + 3);
-    this->height.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     if (sub_0803B4E4(this) != 0) {
         this->action = 0x31;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         InitializeAnimation(this, 4);
-        InitAnimationForceUpdate(this->attachedEntity, 0);
+        InitAnimationForceUpdate(this->child, 0);
     } else {
         sub_0806F69C(this);
     }
@@ -1065,9 +1065,9 @@ void sub_0803B3F4(Entity* this) {
 
     ptr = gUnk_080CED6C;
     index = ((this->parent->field_0xf >> 4) + 3);
-    this->height.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
+    this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     GetNextFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         this->hitType = 0x17;
         if (this->type == 0) {
             this->hitbox = (Hitbox*)&gUnk_080FD35C;
@@ -1114,7 +1114,7 @@ u32 sub_0803B4E4(Entity* this) {
 }
 
 void sub_0803B538(Entity* this) {
-    PositionRelative(this, this->attachedEntity, 0, -0x10000);
+    PositionRelative(this, this->child, 0, -0x10000);
     PositionRelative(this, *(Entity**)&this->field_0x74, 0, -0x20000);
 }
 
@@ -1123,9 +1123,9 @@ void sub_0803B55C(Entity* this) {
     Entity* pEVar1;
 
     pEVar1 = *(Entity**)&this->field_0x74;
-    entity = this->attachedEntity;
+    entity = this->child;
     UpdateAnimationSingleFrame(entity);
-    if ((entity->frames.all & 0x10) != 0) {
+    if ((entity->frame & 0x10) != 0) {
         if (pEVar1->animIndex != 1) {
             InitializeAnimation(pEVar1, 1);
         }
@@ -1157,7 +1157,7 @@ void sub_0803B5C0(Entity* this) {
     } else {
         temp = gUnk_080CFD0C[0x16 - direction];
     }
-    if (this->frames.all != temp) {
+    if (this->frame != temp) {
         InitializeAnimation(this, temp);
     }
 }
@@ -1229,8 +1229,8 @@ void sub_0803B798(void) {
     gPlayerState.field_0xa = 0;
     gPlayerState.flags &= 0xffef;
     gPlayerEntity.flags |= 0x80;
-    gPlayerEntity.hVelocity = 0x18000;
-    gPlayerEntity.height.HALF.HI = -10;
+    gPlayerEntity.zVelocity = 0x18000;
+    gPlayerEntity.z.HALF.HI = -10;
     gPlayerEntity.direction = 0x10;
     gPlayerEntity.animationState = 4;
     gPlayerEntity.spritePriority.b1 = 1;
@@ -1256,11 +1256,11 @@ void sub_0803B824(Entity* this) {
 u32 sub_0803B870(Entity* this) {
     Entity* entity;
 
-    entity = this->attachedEntity;
+    entity = this->child;
     if ((entity->bitfield & 0x80) != 0 && (gPlayerState.flags & 0x10) != 0) {
         this->action = 0x18;
         this->actionDelay = 0x44;
-        this->spriteSettings.b.draw = 0;
+        this->spriteSettings.draw = 0;
         gPlayerEntity.flags = gPlayerEntity.flags & 0x7f;
         gPlayerEntity.iframes = -0x10;
         sub_0803B824(this);
@@ -1276,7 +1276,7 @@ u32 sub_0803B870(Entity* this) {
 
 void sub_0803B8E8(Entity* this, u32 unk) {
     Entity* entity;
-    entity = this->attachedEntity;
+    entity = this->child;
     entity->hitType = unk;
     entity = (*(Entity**)&this->field_0x74);
     entity->hitType = unk;
@@ -1289,14 +1289,14 @@ void sub_0803B8F8(Entity* this) {
 void sub_0803B910(Entity* this) {
     if (gScreenTransition.field_0x38 != 0) {
         this->action = 2;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         *(u8*)&this->field_0x74 = 0;
         sub_0803BA8C(this, 10);
     } else {
         this->action = 1;
         *(u8*)&this->field_0x74 = 0x80;
     }
-    this->spriteSettings.b.flipX = (this->type - 2);
+    this->spriteSettings.flipX = (this->type - 2);
     InitializeAnimation(this, 0);
     CopyPositionAndSpriteOffset(this->parent, this);
 }
@@ -1334,7 +1334,7 @@ void sub_0803B978(Entity* this) {
             break;
         case 4:
             this->subAction = 5;
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
             this->spriteRendering.alphaBlend = 1;
             break;
         default:
@@ -1393,7 +1393,7 @@ void sub_0803BA8C(Entity* this, u32 unk) {
         sub_0801D2B4(this, sVar2);
         (*(Entity**)&this->parent->field_0x78)->palette.b.b0 = this->palette.raw << 0x1c >> 0x1c;
         (*(Entity**)&this->parent->field_0x78)->palette.b.b4 = this->palette.b.b0;
-        this->parent->attachedEntity->palette.b.b0 = this->palette.raw << 0x1c >> 0x1c;
-        this->parent->attachedEntity->palette.b.b4 = this->palette.b.b0;
+        this->parent->child->palette.b.b0 = this->palette.raw << 0x1c >> 0x1c;
+        this->parent->child->palette.b.b4 = this->palette.b.b0;
     }
 }

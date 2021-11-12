@@ -136,7 +136,7 @@ void VaatiTransfiguredType0Action0(Entity* this) {
     sub_0804A720(this);
     if ((CheckRoomFlag(0) != 0) && (gEntCount < 0x51)) {
         this->action = 1;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         this->spritePriority.b0 = 5;
         this->field_0x6c.HALF.HI |= 1;
         this->direction = (Random() & 0x17) + 4;
@@ -210,7 +210,7 @@ void VaatiTransfiguredType0Action1(Entity* this) {
             break;
         case 3:
             if (--this->actionDelay == 0) {
-                this->height.HALF.HI = 0;
+                this->z.HALF.HI = 0;
                 this->field_0x80.HALF.LO = 0;
                 this->actionDelay = gUnk_080D0ABF[(u32)this->animationState * 2];
                 switch (sub_08040934(this)) {
@@ -279,7 +279,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
                 this->hitType = 0x35;
                 this->spriteOffsetX = 0;
             }
-            if (this->currentHealth < gUnk_080D0ABC[this->animationState]) {
+            if (this->health < gUnk_080D0ABC[this->animationState]) {
                 tmp = 1;
                 this->actionDelay = 1;
             } else {
@@ -300,7 +300,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
             }
             break;
         case 2:
-            this->attachedEntity->field_0x74.HALF.LO = 0x10;
+            this->child->field_0x74.HALF.LO = 0x10;
             if (this->actionDelay) {
                 this->field_0x80.HALF.LO = 3;
                 this->actionDelay = 0x40;
@@ -313,7 +313,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
             if (this->actionDelay != 0) {
                 if (--this->actionDelay == 0) {
                     COLLISION_OFF(this);
-                    this->hVelocity = 0x38000;
+                    this->zVelocity = 0x38000;
                     this->field_0xf = 0x10;
                 }
                 break;
@@ -322,7 +322,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
                 this->field_0x80.HALF.LO = 5;
                 this->actionDelay = 0x10;
                 COLLISION_ON(this);
-                this->currentHealth = 0xff;
+                this->health = 0xff;
                 this->field_0x86.HALF.LO = 0;
                 sub_080408EC(this);
                 SoundReq(SFX_14C);
@@ -379,7 +379,7 @@ void VaatiTransfiguredType0Action4(Entity* this) {
                 this->field_0x74.HALF.LO = 0;
                 this->actionDelay = 0x80;
                 this->field_0xf = 0;
-                this->hVelocity = 0x24000;
+                this->zVelocity = 0x24000;
                 SoundReq(SFX_12B);
             }
             break;
@@ -424,7 +424,7 @@ void VaatiTransfiguredType0Action4(Entity* this) {
             if (--this->actionDelay == 0) {
                 this->action = 1;
                 this->field_0x80.HALF.LO = 0;
-                this->height.HALF.HI = 0;
+                this->z.HALF.HI = 0;
                 sub_08040670(this);
             } else {
                 sub_08040AD4(this);
@@ -557,8 +557,8 @@ void VaatiTransfiguredType0Action7(Entity* this) {
     } else {
         if (this->field_0xf != 0) {
             if (--this->field_0xf == 0) {
-                this->currentHealth = 0;
-                this->spriteSettings.b.draw = 0;
+                this->health = 0;
+                this->spriteSettings.draw = 0;
             }
         } else {
             sub_0804A7D4(this);
@@ -594,7 +594,7 @@ void VaatiTransfiguredType1Action1(Entity* this) {
     Entity* parent;
 
     parent = this->parent;
-    if (parent->currentHealth == 0) {
+    if (parent->health == 0) {
         this->field_0x6c.HALF.HI |= 2;
         DeleteThisEntity();
     }
@@ -617,7 +617,7 @@ void VaatiTransfiguredType1Action1(Entity* this) {
         }
     }
     if (parent->action != 3) {
-        this->height.HALF.HI = parent->height.HALF.HI;
+        this->z.HALF.HI = parent->z.HALF.HI;
     }
 }
 
@@ -645,7 +645,7 @@ void VaatiTransfiguredType2Action1(Entity* this) {
 
     const xy* t;
 
-    if (this->parent->currentHealth == 0) {
+    if (this->parent->health == 0) {
         this->field_0x6c.HALF.HI |= 2;
         DeleteThisEntity();
     }
@@ -659,7 +659,7 @@ void VaatiTransfiguredType2Action1(Entity* this) {
         case 1:
             if (this->parent->frameIndex != 2) {
                 this->action = 2;
-                this->spriteSettings.b.draw = 0;
+                this->spriteSettings.draw = 0;
             }
             break;
         case 0:
@@ -674,7 +674,7 @@ void VaatiTransfiguredType2Action1(Entity* this) {
                     }
                     break;
                 case 1:
-                    if ((this->frames.all & 0x80) != 0) {
+                    if ((this->frame & 0x80) != 0) {
                         this->field_0x74.HALF.LO = 0;
                         this->field_0xf = (Random() & 0x7f) + 0x17;
                         InitAnimationForceUpdate(this, 0);
@@ -698,14 +698,14 @@ void VaatiTransfiguredType2Action1(Entity* this) {
 }
 
 void VaatiTransfiguredType2Action2(Entity* this) {
-    if (this->parent->currentHealth == 0) {
+    if (this->parent->health == 0) {
         this->field_0x6c.HALF.HI |= 2;
         DeleteThisEntity();
     }
     CopyPosition(this->parent, this);
     if (this->parent->frameIndex == 2) {
         this->action = 1;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
     }
 }
 
@@ -716,7 +716,7 @@ void VaatiTransfiguredType3Action0(Entity* this) {
 }
 
 void VaatiTransfiguredType3Action1(Entity* this) {
-    if (this->parent->currentHealth == 0) {
+    if (this->parent->health == 0) {
         this->field_0x6c.HALF.HI |= 2;
         DeleteThisEntity();
     }
@@ -728,25 +728,25 @@ void VaatiTransfiguredType4Action0(Entity* this) {
     this->action = 1;
     this->field_0x80.HALF.LO = 0;
     this->actionDelay = 10;
-    this->spriteSettings.b.draw = 0;
+    this->spriteSettings.draw = 0;
     this->spritePriority.b0 = 7;
     InitializeAnimation(this, 0);
 }
 
 void VaatiTransfiguredType4Action1(Entity* this) {
-    if (this->parent->currentHealth == 0) {
+    if (this->parent->health == 0) {
         this->field_0x6c.HALF.HI |= 2;
         DeleteThisEntity();
     }
     if (this->parent->action != 5) {
         if (this->field_0x80.HALF.LO != 0) {
             this->field_0x80.HALF.LO = 0;
-            this->spriteSettings.b.draw = 0;
+            this->spriteSettings.draw = 0;
         }
     } else {
         if (this->field_0x80.HALF.LO == 0) {
             this->field_0x80.HALF.LO += 1;
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
         }
         if (--this->actionDelay == 0) {
             this->actionDelay = 10;
@@ -765,13 +765,13 @@ void VaatiTransfiguredType5Action0(Entity* this) {
         InitializeAnimation(this, 2);
     } else {
         this->action = 1;
-        this->spriteSettings.b.draw = 0;
+        this->spriteSettings.draw = 0;
         this->spritePriority.b0 = 4;
     }
 }
 
 void VaatiTransfiguredType5Action1(Entity* this) {
-    if (this->parent->currentHealth == 0) {
+    if (this->parent->health == 0) {
         this->field_0x6c.HALF.HI |= 2;
         DeleteThisEntity();
     }
@@ -781,16 +781,16 @@ void VaatiTransfiguredType5Action1(Entity* this) {
                 return;
             }
             this->field_0x80.HALF.LO += 1;
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
             InitializeAnimation(this, 1);
             break;
         case 1:
             if (this->parent->action != 6) {
                 this->field_0x80.HALF.LO = 0;
-                this->spriteSettings.b.draw = 0;
+                this->spriteSettings.draw = 0;
             } else {
-                if (this->frames.b.f3 != 0) {
-                    this->frames.b.f3 = 0;
+                if (this->frame & 0x80) {
+                    this->frame &= ~0x80;
                     if (gEntCount < 0x47) {
                         sub_08040648(this, this->type, 1);
                     }
@@ -807,19 +807,19 @@ void VaatiTransfiguredType5Action1(Entity* this) {
 }
 
 void VaatiTransfiguredType5Action2(Entity* this) {
-    if (this->parent->currentHealth == 0) {
+    if (this->parent->health == 0) {
         this->field_0x6c.HALF.HI |= 2;
         DeleteThisEntity();
     }
     if (this->field_0x80.HALF.LO == 0) {
         if (this->parent->parent->action != 6) {
-            if ((this->frames.all & 0x80) != 0) {
+            if ((this->frame & 0x80) != 0) {
                 this->field_0x80.HALF.LO += 1;
                 InitializeAnimation(this, 3);
             }
         }
     } else {
-        if ((this->frames.all & 0x80) != 0) {
+        if ((this->frame & 0x80) != 0) {
             DeleteThisEntity();
         }
     }
@@ -835,7 +835,7 @@ void sub_08040648(Entity* this, u32 type, u32 type2) {
     enemy->parent = this;
     CopyPosition(this, enemy);
     if ((type == 2) && (type2 == 0)) {
-        this->attachedEntity = enemy;
+        this->child = enemy;
     }
 }
 
@@ -1061,7 +1061,7 @@ void sub_080409B0(Entity* this) {
                     this->field_0x80.HALF.HI = 3;
                     COLLISION_OFF(this);
                     this->hitType = 0x36;
-                    this->hVelocity = 0x18000;
+                    this->zVelocity = 0x18000;
                     SoundReq(SFX_164);
                 }
             }
@@ -1078,7 +1078,7 @@ void sub_080409B0(Entity* this) {
             SoundReq(SFX_BOSS_HIT);
         }
         if ((this->bitfield == 0x8a) && (gPlayerState.field_0xa0[0] == 5)) {
-            this->currentHealth = 0xc0;
+            this->health = 0xc0;
         }
     }
 }

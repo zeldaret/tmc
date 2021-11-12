@@ -168,8 +168,8 @@ static void HandleTitlescreen(void) {
                 gScreen.controls.alphaBlend = BLDALPHA_BLEND(9, 9);
                 gScreen.bg0.control = BGCNT_SCREENBASE(29) | BGCNT_PRIORITY(2);
                 gScreen.bg1.control = 0x1E03;
-                gScreen.bg2.control = BGCNT_PRIORITY(1) | BGCNT_CHARBASE(2) | BGCNT_256COLOR |
-                                            BGCNT_SCREENBASE(28) | BGCNT_WRAP | BGCNT_TXT512x256;
+                gScreen.bg2.control = BGCNT_PRIORITY(1) | BGCNT_CHARBASE(2) | BGCNT_256COLOR | BGCNT_SCREENBASE(28) |
+                                      BGCNT_WRAP | BGCNT_TXT512x256;
                 gScreen.lcd.displayControl |= DISPCNT_MODE_1;
                 gScreen.lcd.displayControl |= DISPCNT_BG0_ON | DISPCNT_BG1_ON | DISPCNT_OBJ_ON;
                 gIntroState.swordBgScaleRatio = 0x10;

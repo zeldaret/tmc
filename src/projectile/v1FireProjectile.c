@@ -42,12 +42,12 @@ void V1FireProjectile_Init(Entity* this) {
     s8* data;
 
     this->action = 1;
-    this->hVelocity = -0x10000;
+    this->zVelocity = -0x10000;
     this->field_0x76.HWORD = TILE(this->x.HALF.HI, this->y.HALF.HI);
     CopyPosition(this->parent, this);
     sub_0806F5BC(this, 0x1000, this->direction);
     this->spritePriority.b0 = 1;
-    this->height = this->parent->height;
+    this->z = this->parent->z;
     InitializeAnimation(this, 0x51);
     SoundReq(SFX_1B5);
     data = sub_080AB4F8(this);
@@ -68,7 +68,7 @@ void V1FireProjectile_Init(Entity* this) {
             iVar2 = 0x20;
         }
     }
-    this->hVelocity = (this->height.WORD / (iVar2 << 8)) << 0xd;
+    this->zVelocity = (this->z.WORD / (iVar2 << 8)) << 0xd;
 
     this->direction = sub_080045B4(this, x, y);
 }
@@ -90,7 +90,7 @@ void V1FireProjectile_Action1(Entity* this) {
 
 void V1FireProjectile_Action2(Entity* this) {
     GetNextFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         this->action = 3;
         COLLISION_OFF(this);
         InitializeAnimation(this, 0x53);
@@ -99,7 +99,7 @@ void V1FireProjectile_Action2(Entity* this) {
 
 void V1FireProjectile_Action3(Entity* this) {
     GetNextFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         DeleteThisEntity();
     }
 }

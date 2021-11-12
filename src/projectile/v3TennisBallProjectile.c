@@ -25,8 +25,8 @@ ASM_FUNC("asm/non_matching/v3TennisBallProjectile/sub_080ACA68.inc", void sub_08
 void V3TennisBallProjectile_Init(Entity* this) {
     this->action = 1;
     this->direction = 0x10;
-    this->height.HALF.HI = 0xfffc;
-    this->attachedEntity = NULL;
+    this->z.HALF.HI = 0xfffc;
+    this->child = NULL;
     InitializeAnimation(this, 7);
     SoundReq(SFX_199);
 }

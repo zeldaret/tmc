@@ -32,7 +32,7 @@ void sub_080ADA6C(Entity* this) {
 
 void sub_080ADAA8(Entity* this) {
     sub_080ADC84(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         this->action = 2;
         sub_080ADCA0(this, 0);
     } else {
@@ -59,15 +59,15 @@ void sub_080ADC14(Entity* this) {
 }
 
 void sub_080ADC60(Entity* this) {
-    if ((this->frames.all & 0x80) != 0) {
-        this->spriteSettings.b.draw = 0;
+    if ((this->frame & 0x80) != 0) {
+        this->spriteSettings.draw = 0;
     } else {
         UpdateAnimationSingleFrame(this);
     }
 }
 
 void sub_080ADC84(Entity* this) {
-    this->spriteSettings.b.flipX = gPlayerEntity.spriteSettings.b.flipX;
+    this->spriteSettings.flipX = gPlayerEntity.spriteSettings.flipX;
 }
 
 ASM_FUNC("asm/non_matching/playerItemGustJar/sub_080ADCA0.inc", void sub_080ADCA0(Entity* this, u32 param_1))

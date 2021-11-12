@@ -63,7 +63,7 @@ void sub_0806DFB4(Entity* this) {
             obj = CreateObject(0x35, 2, this->field_0xf);
             if (obj != NULL) {
                 obj->parent = this;
-                this->attachedEntity = obj;
+                this->child = obj;
                 CopyPosition(this, obj);
             }
             sub_080788E0(this);
@@ -82,9 +82,9 @@ void sub_0806E0DC(Entity* this) {
     if (this->field_0xf != 0xff) {
         this->action = 2;
         this->field_0x76.HWORD = TILE(this->x.HALF.HI, this->y.HALF.HI);
-        if (this->attachedEntity != NULL) {
-            DeleteEntity(this->attachedEntity);
-            this->attachedEntity = NULL;
+        if (this->child != NULL) {
+            DeleteEntity(this->child);
+            this->child = NULL;
         }
         sub_08078828(this);
         sub_0807B7D8(0x73, this->field_0x76.HWORD, 2);

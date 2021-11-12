@@ -130,7 +130,7 @@ void sub_0806D1D0(Entity* this) {
         this->spriteOrientation.flipY = 3;
         this->spriteRendering.b3 = 3;
         this->spritePriority.b0 = 7;
-        this->spriteSettings.b.draw = 3;
+        this->spriteSettings.draw = 3;
         this->frameIndex = 0;
         this->actionDelay = 0x1e;
         sub_0805E3A0(this, 2);
@@ -154,7 +154,7 @@ void sub_0806D1D0(Entity* this) {
             this->frameIndex = this->subAction;
             break;
         case 2:
-            this->spriteSettings.b.draw = 0;
+            this->spriteSettings.draw = 0;
             break;
     }
     this->x.HALF.HI = this->parent->x.HALF.HI;
@@ -177,7 +177,7 @@ void sub_0806D274(Entity* this) {
         sub_0805E3A0(this, 2);
         npc = CreateNPC(0x4c, 3, 0);
         if (npc != NULL) {
-            npc->attachedEntity = this;
+            npc->child = this;
         }
     }
     switch (this->subAction) {
@@ -219,14 +219,14 @@ void sub_0806D348(Entity* this) {
         this->spriteOrientation.flipY = 3;
         this->spriteRendering.b3 = 3;
         this->spritePriority.b0 = 6;
-        this->spriteSettings.b.draw = 0;
+        this->spriteSettings.draw = 0;
         this->frameIndex = 5;
         sub_0805E3A0(this, 2);
     }
-    if (this->attachedEntity->frameIndex == 4) {
-        this->spriteSettings.b.draw = 3;
+    if (this->child->frameIndex == 4) {
+        this->spriteSettings.draw = 3;
     } else {
-        this->spriteSettings.b.draw = 0;
+        this->spriteSettings.draw = 0;
     }
     this->x.HALF.HI = this->parent->x.HALF.HI;
     this->y.HALF.HI = this->parent->y.HALF.HI;
@@ -249,7 +249,7 @@ void sub_0806D3C0(Entity* this) {
 }
 
 void sub_0806D40C(Entity* this) {
-    this->spriteSettings.b.flipX = 1;
+    this->spriteSettings.flipX = 1;
     sub_0806D41C(this);
 }
 
@@ -376,7 +376,7 @@ void sub_0806D70C(void) {
     entity = FindEntity(7, 0x4c, 7, 1, 0);
     if (entity != NULL) {
         entity->subAction = 0;
-        entity->spriteSettings.b.draw = 3;
+        entity->spriteSettings.draw = 3;
     }
 }
 

@@ -27,7 +27,7 @@ void Sluggula(Entity* this) {
 
         SetChildOffset(this, 0, 1, -0x10);
     } else if (this->type == 0) {
-        if (this->height.HALF.HI == 0) {
+        if (this->z.HALF.HI == 0) {
             u32 idx = sub_080012DC(this);
             if (idx != 0) {
                 gUnk_080012C8[idx](this);
@@ -75,7 +75,7 @@ void sub_08023C8C(Entity* this) {
     GetNextFrame(this);
     sub_08023E54(this);
     if (--this->actionDelay == 0) {
-        if (this->frames.all != 1) {
+        if (this->frame != 1) {
             this->actionDelay = 8;
         } else {
             this->actionDelay = (Random() & 0x30) + 0xb4;
@@ -95,11 +95,11 @@ void sub_08023CE0(Entity* this) {
                 if (this->actionDelay == 0) {
                     this->actionDelay = 1;
                 }
-                this->spriteSettings.b.draw = 3;
+                this->spriteSettings.draw = 3;
             } else {
                 this->action = 1;
             }
-            this->height.HALF.HI = -0x80;
+            this->z.HALF.HI = -0x80;
             this->spriteRendering.b3 = 1;
             this->spriteOrientation.flipY = 1;
             InitializeAnimation(this, 6);
@@ -110,7 +110,7 @@ void sub_08023CE0(Entity* this) {
                 if (this->actionDelay == 0) {
                     this->actionDelay = 8;
                 }
-                this->spriteSettings.b.draw = 3;
+                this->spriteSettings.draw = 3;
             }
             break;
         case 2:
@@ -121,23 +121,23 @@ void sub_08023CE0(Entity* this) {
                 }
             } else if (!sub_08003FC4(this, 0x1800)) {
                 this->action = 3;
-                this->spriteSettings.b.draw = 1;
+                this->spriteSettings.draw = 1;
                 EnqueueSFX(0x84);
                 UpdateSpriteForCollisionLayer(this);
             }
             break;
         default:
             GetNextFrame(this);
-            if (this->frames.all) {
-                if (this->frames.all & 0x80) {
+            if (this->frame) {
+                if (this->frame & 0x80) {
                     Entity* ent = CreateEnemy(SLUGGULA, 1);
                     if (ent) {
                         sub_0804A4E4(this, ent);
                         DeleteThisEntity();
                     }
                 } else {
-                    this->y.HALF.HI += gUnk_080CBDF4[this->frames.all - 1];
-                    this->frames.all = 0;
+                    this->y.HALF.HI += gUnk_080CBDF4[this->frame - 1];
+                    this->frame = 0;
                 }
             }
             break;
@@ -152,7 +152,7 @@ void sub_08023E10(Entity* this) {
     }
 
     GetNextFrame(this);
-    if (this->frames.all & 0x80)
+    if (this->frame & 0x80)
         DeleteEntity(this);
 }
 

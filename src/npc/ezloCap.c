@@ -28,7 +28,7 @@ void sub_0806D8A0(Entity* this, ScriptExecutionContext* context) {
     context->postScriptActions |= 2;
     context->condition = 0;
     xOffset = 16;
-    if (this->spriteSettings.b.flipX) {
+    if (this->spriteSettings.flipX) {
         xOffset = -xOffset;
     }
     xOffset += gPlayerEntity.x.HALF.HI;
@@ -48,9 +48,9 @@ void sub_0806D908(Entity* this) {
 
 // called when talk to ezlo, also when ezlo moves after you
 void sub_0806D944(Entity* this) {
-    this->spriteSettings.b.flipX = 0;
+    this->spriteSettings.flipX = 0;
     if (this->x.WORD <= gPlayerEntity.x.WORD) {
-        this->spriteSettings.b.flipX = 1;
+        this->spriteSettings.flipX = 1;
     }
 }
 
@@ -65,9 +65,9 @@ void sub_0806D96C(Entity* this) {
 
 void sub_0806D9A4(Entity* this) {
     if (this->x.WORD <= gPlayerEntity.x.WORD) {
-        gPlayerEntity.spriteSettings.b.flipX = 0;
+        gPlayerEntity.spriteSettings.flipX = 0;
     } else {
-        gPlayerEntity.spriteSettings.b.flipX = 1;
+        gPlayerEntity.spriteSettings.flipX = 1;
     }
     gPlayerEntity.animationState = 4;
 }

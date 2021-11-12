@@ -52,7 +52,7 @@ void VaatiWrathEyeAction0(Entity* this) {
 void VaatiWrathEyeAction1(Entity* this) {
     sub_080485D8(this);
     GetNextFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         this->action = 2;
         InitializeAnimation(this, 1);
     }
@@ -85,7 +85,7 @@ void VaatiWrathEyeAction3(Entity* this) {
         direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, x, y);
         this->direction = direction;
         sub_0806F69C(this);
-        this->height.HALF.HI = this->parent->height.HALF.HI;
+        this->z.HALF.HI = this->parent->z.HALF.HI;
         if ((this->x.HALF.HI == x) && (this->y.HALF.HI == y)) {
             this->action = 4;
             this->actionDelay = 0x3c;
@@ -101,7 +101,7 @@ void VaatiWrathEyeAction4(Entity* this) {
         }
     } else {
         GetNextFrame(this);
-        if ((this->frames.all & 0x80) != 0) {
+        if ((this->frame & 0x80) != 0) {
             this->action = 5;
             this->actionDelay = 0;
         }
@@ -111,12 +111,12 @@ void VaatiWrathEyeAction4(Entity* this) {
 void VaatiWrathEyeAction5(Entity* this) {
     if (this->actionDelay != 0) {
         this->action = 6;
-        if (this->parent->currentHealth >= 0x15) {
+        if (this->parent->health >= 0x15) {
             this->actionDelay = 120;
         } else {
             this->actionDelay = 0x3c;
         }
-        this->attachedEntity = NULL;
+        this->child = NULL;
         InitializeAnimation(this, 5);
         SoundReq(SFX_19B);
     }
@@ -133,17 +133,17 @@ void VaatiWrathEyeAction6(Entity* this) {
             InitializeAnimation(this, 6);
         }
     } else {
-        if (this->frames.b.f3) {
+        if (this->frame & 0x80) {
             this->action = 7;
             this->actionDelay = 120;
             this->field_0xf = 0;
         } else {
-            if (this->frames.b.f0 != 0) {
-                this->frames.all &= 0xfe;
+            if (this->frame & 1) {
+                this->frame &= 0xfe;
                 pEVar3 = CreateProjectile(0x24);
                 if (pEVar3 != NULL) {
                     pEVar3->parent = this;
-                    this->attachedEntity = pEVar3;
+                    this->child = pEVar3;
                     PositionRelative(this, pEVar3, 0, 0xc0000);
                 }
             }
@@ -158,7 +158,7 @@ void VaatiWrathEyeAction7(Entity* this) {
         this->action = 8;
         this->actionDelay = 0x3c;
         COLLISION_OFF(this);
-        this->spriteSettings.b.draw = 0;
+        this->spriteSettings.draw = 0;
         CreateFx(this, FX_REFLECT2, 0x40);
         this->parent->field_0x7a.HALF.HI |= 0x10 << this->type;
     } else {
@@ -178,7 +178,7 @@ void VaatiWrathEyeAction8(Entity* this) {
         if (--this->actionDelay == 0) {
             this->action = 9;
             COLLISION_ON(this);
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
             InitializeAnimation(this, 0);
             sub_080485FC(this);
             SoundReq(SFX_166);
@@ -189,7 +189,7 @@ void VaatiWrathEyeAction8(Entity* this) {
 void VaatiWrathEyeAction9(Entity* this) {
     sub_080485FC(this);
     GetNextFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         this->action = 4;
         this->actionDelay = 1;
         this->parent->field_0x7a.HALF.HI = (this->parent->field_0x7a.HALF.HI & 0xf) | (1 << this->type);
@@ -208,5 +208,5 @@ void sub_080485FC(Entity* this) {
 
     ptr = &gUnk_080D1D98[this->type * 2];
     sub_0806FA90(this->parent, this, ptr[0], ptr[1]);
-    this->height.HALF.HI = gUnk_080D1D78[this->type * 8 + (this->parent->field_0x78.HALF.LO >> 4 & 7)];
+    this->z.HALF.HI = gUnk_080D1D78[this->type * 8 + (this->parent->field_0x78.HALF.LO >> 4 & 7)];
 }

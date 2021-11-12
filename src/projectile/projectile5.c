@@ -59,7 +59,7 @@ void Projectile5_Action1(Entity* this) {
         DeleteThisEntity();
     }
     CopyPosition(parent, this);
-    this->height.HALF.HI += 2;
+    this->z.HALF.HI += 2;
 }
 
 void (*const Projectile5_Functions[])(Entity*) = {

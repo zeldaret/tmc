@@ -66,7 +66,7 @@ void GyorgMaleEnergyProjectile_Action2(Entity* this) {
 void GyorgMaleEnergyProjectile_Action3(Entity* this) {
     sub_080AF090(this);
     GetNextFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         DeleteThisEntity();
     }
 }

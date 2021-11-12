@@ -55,9 +55,9 @@ void sub_0802CCE0(Entity* this) {
     this->action = 1;
     this->actionDelay = 60;
     this->field_0xf = Random();
-    this->spriteSettings.b.shadow = 2;
+    this->spriteSettings.shadow = 2;
     this->animationState = 0xff;
-    this->height.HALF.HI = -2;
+    this->z.HALF.HI = -2;
     this->collisionLayer = 3;
     tmp = Random();
     this->field_0x7a.HALF.LO = tmp;
@@ -125,13 +125,13 @@ void sub_0802CE68(Entity* this) {
     }
     sub_0802CFD8(this);
     GetNextFrame(this);
-    frames = this->frames.all & 0x80;
+    frames = this->frame & 0x80;
     if (frames) {
         this->action = 4;
         this->actionDelay = 30;
-    } else if (this->frames.all & 1) {
-        this->frames.all = frames;
-        gPlayerEntity.spriteSettings.b.draw = 0;
+    } else if (this->frame & 1) {
+        this->frame = frames;
+        gPlayerEntity.spriteSettings.draw = 0;
     }
 }
 
@@ -141,9 +141,9 @@ void sub_0802CEF4(Entity* this) {
         sub_0805E5A8();
         DoExitTransition(gUnk_0813AB1C[gArea.regret]);
     } else {
-        this->height.WORD -= 0x20000;
-        if (this->height.HALF.HI < -0x30) {
-            this->spriteSettings.b.shadow = 1;
+        this->z.WORD -= 0x20000;
+        if (this->z.HALF.HI < -0x30) {
+            this->spriteSettings.shadow = 1;
         }
         gPlayerState.field_0xa |= 0x80;
         gPlayerState.field_0x1a[0] |= 0x80;

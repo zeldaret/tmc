@@ -37,7 +37,7 @@ void sub_08021780(Entity* this) {
                 COLLISION_OFF(this);
                 this->spritePriority.b0 = 3;
                 CopyPositionAndSpriteOffset(&gPlayerEntity, this);
-                this->height.HALF.HI = -1;
+                this->z.HALF.HI = -1;
                 ((u8*)&this->field_0x86)[1] = 1;
                 InitializeAnimation(this, 6);
             }
@@ -47,7 +47,7 @@ void sub_08021780(Entity* this) {
             break;
     }
 
-    if (this->currentHealth == 0)
+    if (this->health == 0)
         this->knockbackDuration = 0;
 
     sub_0804AA30(this, gUnk_080CB590);
@@ -71,7 +71,7 @@ void sub_08021848(Entity* this) {
         gUnk_080CB5C8[this->subAction](this);
     } else {
         this->action = 3;
-        this->height.HALF.HI = 0;
+        this->z.HALF.HI = 0;
         InitializeAnimation(this, 2);
     }
 }
@@ -102,20 +102,20 @@ void sub_080218B4(Entity* this) {
 void sub_080218CC(Entity* this) {
     if (this->subAction == 0) {
         this->subAction = 1;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         this->direction = ((sub_08049F84(this, 1) ^ 0x10) + gUnk_080CB5DC[Random() & 7]) & 0x1f;
         this->speed = 0x100;
-        this->hVelocity = 0x12000;
+        this->zVelocity = 0x12000;
     }
 
     GetNextFrame(this);
-    if (this->frames.all & 1) {
+    if (this->frame & 1) {
         sub_080AEFE0(this);
         if (sub_080044EC(this, 0x1c00) == 0)
             this->frameDuration = 1;
     }
 
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         this->action = 2;
         this->actionDelay = (Random() & 0x38) + 8;
         this->field_0xf = 1;
@@ -129,8 +129,8 @@ void sub_08021984(Entity* this) {
     if (this->subAction == 0) {
         this->subAction = 1;
         COLLISION_ON(this);
-        this->spriteSettings.b.draw = 3;
-        this->height.HALF.HI = -0x80;
+        this->spriteSettings.draw = 3;
+        this->z.HALF.HI = -0x80;
         this->spriteRendering.b3 = 1;
         this->spriteOrientation.flipY = 1;
         EnqueueSFX(0x12d);
@@ -140,7 +140,7 @@ void sub_08021984(Entity* this) {
         this->action = 2;
         this->actionDelay = 16;
         this->field_0xf = 1;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         this->speed = 0x180;
         ((u8*)&this->field_0x86)[0] = 60;
         InitializeAnimation(this, 0);
@@ -187,7 +187,7 @@ void sub_08021A64(Entity* this) {
 
 void sub_08021AD8(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.all & 1) {
+    if (this->frame & 1) {
         if (this->actionDelay) {
             u32 tmp;
 
@@ -207,7 +207,7 @@ void sub_08021AD8(Entity* this) {
             this->frameDuration = 1;
     }
 
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         this->action = 2;
         this->actionDelay = 20;
         ((u8*)&this->field_0x86)[0] = 60;
@@ -218,7 +218,7 @@ void sub_08021AD8(Entity* this) {
 void sub_08021B64(Entity* this) {
     if (gPlayerState.flags & 4) {
         this->action = 3;
-        this->height.WORD = 0;
+        this->z.WORD = 0;
         InitializeAnimation(this, 2);
     } else {
         int iVar4 = 1;
@@ -238,7 +238,7 @@ void sub_08021B64(Entity* this) {
 
         if (iVar4 == 0) {
             this->action = 6;
-            this->hVelocity = 0x10000;
+            this->zVelocity = 0x10000;
             ((u8*)&this->field_0x86)[1] = 0;
             if (gPlayerEntity.direction != 0xff) {
                 this->direction = 0x10 ^ gPlayerEntity.direction;
@@ -252,7 +252,7 @@ void sub_08021B64(Entity* this) {
             gPlayerState.field_0xaa++;
             CopyPositionAndSpriteOffset(&gPlayerEntity, this);
             this->x.HALF.HI += gUnk_080CB5E4[(this->field_0xf++ & 0xe) >> 1];
-            this->height.HALF.HI--;
+            this->z.HALF.HI--;
             GetNextFrame(this);
         }
     }
@@ -260,13 +260,13 @@ void sub_08021B64(Entity* this) {
 
 void sub_08021C58(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.all & 1) {
+    if (this->frame & 1) {
         sub_080AEFE0(this);
         if (sub_08003FC4(this, 0x1800) == 0)
             this->frameDuration = 1;
     }
 
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         this->action = 2;
         this->actionDelay = 60;
         this->field_0xf = 1;
@@ -278,7 +278,7 @@ void sub_08021C58(Entity* this) {
 }
 
 void sub_08021CD0(Entity* this) {
-    if ((this->frames.all & 0x80) == 0)
+    if ((this->frame & 0x80) == 0)
         GetNextFrame(this);
 
     if (sub_08049F84(this, 1) == 0xff)
@@ -299,7 +299,7 @@ u32 sub_08021D00(Entity* this) {
     } else {
         this->action = 4;
         this->actionDelay = 1;
-        this->hVelocity = 0x18000;
+        this->zVelocity = 0x18000;
         InitializeAnimation(this, 4);
         ret = 1;
     }

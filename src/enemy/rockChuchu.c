@@ -20,7 +20,7 @@ void sub_0802223C(Entity* this) {
 void sub_08022254(Entity* this) {
     Entity* ent;
 
-    if (this->currentHealth) {
+    if (this->health) {
         switch (this->bitfield & 0x7f) {
             case 4:
             case 5:
@@ -51,9 +51,9 @@ void sub_08022254(Entity* this) {
                     sub_0804A4E4(this, ent);
                     this->action = 2;
                     COLLISION_OFF(this);
-                    this->spriteSettings.b.draw = 0;
+                    this->spriteSettings.draw = 0;
                     this->direction = this->knockbackDirection;
-                    this->attachedEntity = ent;
+                    this->child = ent;
                 }
         }
     } else {
@@ -97,7 +97,7 @@ void sub_08022390(Entity* this) {
 void sub_080223E4(Entity* this) {
     Entity* ent;
 
-    ent = this->attachedEntity;
+    ent = this->child;
     if (ent) {
         ent->bitfield = 0x94;
         ent->iframes = 0x10;

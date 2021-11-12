@@ -41,7 +41,7 @@ void sub_080632E0(Entity* this) {
     if (LoadExtraSpriteData(this, &gUnk_0810C8D4) != 0) {
         InitializeAnimation(this, 0);
         sub_08078778(this);
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         this->action = 1;
     }
 }
@@ -68,7 +68,7 @@ void sub_0806336C(Entity* this) {
 
 void sub_08063390(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.b.f3 != 0) {
+    if (this->frame & 0x80) {
         this->action = 1;
         InitializeAnimation(this, GetAnimationState(this));
         sub_08078778(this);
@@ -87,7 +87,7 @@ s32 sub_080633C8(Entity* this) {
 }
 
 void Beedle_Head(Entity* this) {
-    SetExtraSpriteFrame(this, 0, this->frames.all & 0x3F);
+    SetExtraSpriteFrame(this, 0, this->frame & 0x3F);
     SetExtraSpriteFrame(this, 1, this->frameIndex);
     SetSpriteSubEntryOffsetData1(this, 1, 0);
     sub_0807000C(this);

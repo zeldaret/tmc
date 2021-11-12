@@ -27,7 +27,7 @@ void nullsub_7(Entity* this) {
 
 void HangingSeed_Initialize(Entity* this) {
     this->action = 1;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->frameIndex = this->type;
     this->spriteRendering.b3 = 1;
     this->spritePriority.b0 = 3;

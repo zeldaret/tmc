@@ -18,16 +18,16 @@ void LilypadSmall(Entity* this) {
         rand = Random();
         this->field_0xf = rand;
         this->frameIndex = (rand >> 0x10) & 3;
-        this->spriteSettings.b.draw = TRUE;
+        this->spriteSettings.draw = TRUE;
         this->spritePriority.b0 = 7;
-        this->attachedEntity = GetCurrentRoomProperty(this->type2);
-        sub_080A2CC0(this, &this->attachedEntity, &this->field_0x70.HALF.LO);
+        this->child = GetCurrentRoomProperty(this->type2);
+        sub_080A2CC0(this, &this->child, &this->field_0x70.HALF.LO);
     }
     sub_080A2BE4(this, sub_08097ADC(this));
     sub_08097B24(this);
     psVar4 = (u16*)&this->field_0x70;
     if (--*psVar4 == 0) {
-        sub_080A2CC0(this, &this->attachedEntity, psVar4);
+        sub_080A2CC0(this, &this->child, psVar4);
     }
 }
 
@@ -40,7 +40,7 @@ u32 sub_08097ADC(Entity* this) {
         return 0;
     } else {
         gPlayerState.field_0x14 = 1;
-        if (gPlayerEntity.height.HALF.HI != 0) {
+        if (gPlayerEntity.z.HALF.HI != 0) {
             return 0;
         } else {
             return 1;

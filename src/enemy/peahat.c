@@ -45,7 +45,7 @@ void Peahat(Entity* this) {
 void Peahat_OnTick(Entity* this) {
     gPeahatActions[this->action](this);
     if (this->field_0x80.HALF.HI)
-        this->height.HALF.HI = gPeahatFlightHeights[(this->field_0xf++ & 0x30) >> 4];
+        this->z.HALF.HI = gPeahatFlightHeights[(this->field_0xf++ & 0x30) >> 4];
 }
 
 void sub_0801FFDC(Entity* this) {
@@ -54,7 +54,7 @@ void sub_0801FFDC(Entity* this) {
             Entity* ent = CreateEnemy(PEAHAT, PeahatForm_Propeller);
             if (ent) {
                 CopyPosition(this, ent);
-                ent->height.HALF.HI -= 8;
+                ent->z.HALF.HI -= 8;
             }
             this->field_0x82.HALF.LO = 0;
             this->animationState = PeahatAnimation_SlicedPropeller;
@@ -127,7 +127,7 @@ void sub_08020104(Entity* this) {
         COLLISION_ON(this);
         this->field_0x3a &= 0xfb;
     } else {
-        this->currentHealth = 0;
+        this->health = 0;
     }
 }
 
@@ -241,7 +241,7 @@ void Peahat_Stunned(Entity* this) {
             break;
         case PeahatAnimation_SlicedPropeller:
             sub_08003FC4(this, 0x1c00);
-            if (this->height.HALF.HI == 0) {
+            if (this->z.HALF.HI == 0) {
                 this->action = 7;
                 this->actionDelay = 150;
                 this->field_0xf = 10;
@@ -260,7 +260,7 @@ void Peahat_RepairPropeller(Entity* this) {
         return;
 
     this->action = 9;
-    this->hVelocity = 0x18000;
+    this->zVelocity = 0x18000;
     this->direction = Random() & 0x1f;
     sub_0804AA1C(this);
     this->animationState = PeahatAnimation_RepairPropeller;
@@ -284,9 +284,9 @@ void Peahat_Recover(Entity* this) {
 void Peahat_Hop(Entity* this) {
     GetNextFrame(this);
     if (--this->actionDelay == 0) {
-        if (this->frames.all & 0x80) {
+        if (this->frame & 0x80) {
             this->action = 9;
-            this->hVelocity = 0x18000;
+            this->zVelocity = 0x18000;
             this->animationState = PeahatAnimation_NewPropeller;
             InitializeAnimation(this, this->animationState);
         } else {
@@ -294,12 +294,12 @@ void Peahat_Hop(Entity* this) {
         }
     }
 
-    if (this->frames.all & 2) {
-        this->frames.all &= ~2;
+    if (this->frame & 2) {
+        this->frame &= ~2;
         this->direction = Random() & 0x1f;
     }
 
-    if (this->frames.all & 1) {
+    if (this->frame & 1) {
         sub_0800442E(this);
     } else {
         ProcessMovement(this);
@@ -308,14 +308,14 @@ void Peahat_Hop(Entity* this) {
 
 void Peahat_Takeoff(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.all & 0x80) {
+    if (this->frame & 0x80) {
         this->action = 1;
         this->hitType = 0x70;
         this->field_0x82.HALF.LO = 1;
         this->field_0x80.HALF.HI = 1;
         this->animationState = PeahatAnimation_Flying;
         InitializeAnimation(this, this->animationState);
-    } else if (this->frames.all & 1) {
+    } else if (this->frame & 1) {
         sub_0800442E(this);
     } else {
         sub_08003FC4(this, 0x1c00);
@@ -327,10 +327,10 @@ void PeahatPropeller_Initialize(Entity* this) {
     this->action = 1;
     this->actionDelay = 240;
     this->field_0xf = 40;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     this->spriteRendering.b3 = 1;
     this->spriteOrientation.flipY = 1;
-    this->spriteSettings.b.shadow = 0;
+    this->spriteSettings.shadow = 0;
     this->speed = 0x20;
     this->direction = (Random() & 0x10) + 8;
     InitializeAnimation(this, PeahatAnimation_Propeller);
@@ -342,9 +342,9 @@ void PeahatPropeller_Fly(Entity* this) {
         DeleteEntity(this);
     } else {
         if (this->actionDelay < 60)
-            this->spriteSettings.b.draw ^= 1;
+            this->spriteSettings.draw ^= 1;
 
-        this->height.WORD -= 0xc000;
+        this->z.WORD -= 0xc000;
         sub_0806F69C(this);
         if (--this->field_0xf == 0) {
             this->field_0xf = 40;

@@ -31,7 +31,7 @@ void Object9E(Entity* this) {
             UpdateSpriteForCollisionLayer(this);
             ent = CreateObject(OBJECT_9E, 1, 0);
             if (ent != NULL) {
-                this->attachedEntity = ent;
+                this->child = ent;
                 CopyPosition(this, ent);
             }
         } else {

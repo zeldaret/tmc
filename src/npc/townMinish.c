@@ -157,7 +157,7 @@ void TownMinish_Head(Entity* this) {
         SetSpriteSubEntryOffsetData1(this, 1, 0);
         sub_0807000C(this);
     } else {
-        frames = this->frames.all;
+        frames = this->frame;
         if (frames != 0xff) {
             frames &= ~0x80;
         }
@@ -210,7 +210,7 @@ void sub_0806AEE4(Entity* this) {
             this->animationState = sub_0806F5B0(index);
         }
         tmp2 &= 0x7f;
-        this->frames.all = tmp1;
+        this->frame = tmp1;
         this->frameIndex = tmp2;
         this->frameSpriteSettings = 1;
         this->animIndex = 0;
@@ -223,13 +223,13 @@ void sub_0806AF60(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_0806AF70(Entity* this, ScriptExecutionContext* context) {
-    this->hVelocity = 0x24000;
+    this->zVelocity = 0x24000;
 }
 
 void sub_0806AF78(Entity* this, ScriptExecutionContext* context) {
     sub_08003FC4(this, 0x1800);
-    if (0 <= this->height.WORD && this->hVelocity < 1) {
-        this->height.WORD = 0;
+    if (0 <= this->z.WORD && this->zVelocity < 1) {
+        this->z.WORD = 0;
         sub_0806AF70(this, context);
     }
 }
@@ -336,7 +336,7 @@ void TownMinish_Fusion(Entity* this) {
     if (this->action == 0) {
         if (LoadExtraSpriteData(this, &gUnk_08112674[this->type * 4])) {
             this->action++;
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
             InitializeAnimation(this, 6);
         }
     } else {

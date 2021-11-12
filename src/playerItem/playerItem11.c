@@ -15,7 +15,7 @@ extern u8 gUnk_080B3DE0[];
 extern Hitbox* gUnk_080B3DE8[];
 
 void PlayerItem11(Entity* this) {
-    if (this->currentHealth) {
+    if (this->health) {
         this->iframes = 0;
         gUnk_080B3DD0[this->action](this);
     } else {
@@ -36,7 +36,7 @@ void sub_08018CBC(Entity* this) {
     this->hitType = 0x96;
     this->field_0x3c = (gPlayerEntity.field_0x3c + 1) | 0x80;
     this->flags2 = gPlayerEntity.flags2;
-    pEVar3 = this->attachedEntity;
+    pEVar3 = this->child;
     if (pEVar3 != NULL) {
         this->action = 1;
         COLLISION_OFF(this);
@@ -44,14 +44,14 @@ void sub_08018CBC(Entity* this) {
         this->hurtType = 0x1c;
         this->damage = 6;
         this->hitbox = &gUnk_080B3E18;
-        this->attachedEntity->spriteOffsetX = 0;
-        this->attachedEntity->spriteSettings.b.draw = 0;
+        this->child->spriteOffsetX = 0;
+        this->child->spriteSettings.draw = 0;
     } else {
         if (gPlayerState.field_0x1c == 0) {
             DeleteThisEntity();
         }
         this->action = 2;
-        this->spriteSettings.b.draw = 1;
+        this->spriteSettings.draw = 1;
         this->spriteIndex = 0xa6;
         this->palette.raw = 0x33;
         this->spriteVramOffset = 0;
@@ -72,7 +72,7 @@ void sub_08018CBC(Entity* this) {
 void sub_08018DE8(Entity* this) {
     u8 bVar1;
 
-    bVar1 = this->attachedEntity->field_0x3a & 4;
+    bVar1 = this->child->field_0x3a & 4;
     if (bVar1 == 0) {
         gPlayerState.field_0x1c = bVar1;
         DeleteThisEntity();
@@ -82,11 +82,11 @@ void sub_08018DE8(Entity* this) {
             sub_08018F6C(this);
             break;
         case 5:
-            this->attachedEntity->subAction = 4;
+            this->child->subAction = 4;
             COLLISION_ON(this);
             this->action = 2;
             this->spritePriority.b0 = 2;
-            this->attachedEntity->spriteSettings.b.draw = 1;
+            this->child->spriteSettings.draw = 1;
             sub_08018FA0(this);
             break;
     }
@@ -96,12 +96,12 @@ void sub_08018DE8(Entity* this) {
 ASM_FUNC("asm/non_matching/playerItem11/sub_08018E68.inc", void sub_08018E68(Entity* this))
 
 void sub_08018F6C(Entity* this) {
-    if (this->attachedEntity != NULL) {
-        this->attachedEntity->subAction = 5;
-        this->attachedEntity->spriteSettings.b.draw = 1;
+    if (this->child != NULL) {
+        this->child->subAction = 5;
+        this->child->spriteSettings.draw = 1;
     } else {
         GetNextFrame(this);
-        if (this->frames.all == 0) {
+        if (this->frame == 0) {
             return;
         }
     }

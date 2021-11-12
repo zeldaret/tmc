@@ -56,7 +56,7 @@ void sub_08029318(Entity* this) {
         if (*(u8*)(*(u32*)&this->field_0x4c + 8) == 1) {
             if (this->action == 2) {
                 InitializeAnimation(this, 0);
-                InitializeAnimation(this->attachedEntity, 4);
+                InitializeAnimation(this->child, 4);
             }
             this->action = 4;
             this->actionDelay = 0x3c;
@@ -84,7 +84,7 @@ void nullsub_141() {
 void sub_080293DC(Entity* this) {
     CopyPositionAndSpriteOffset(this->parent, this);
     this->y.HALF.HI++;
-    this->height.HALF.HI--;
+    this->z.HALF.HI--;
     gUnk_080CCC3C[this->action](this);
 }
 
@@ -96,7 +96,7 @@ void sub_0802940C(Entity* this) {
         sub_0804A720(this);
         ent->parent = this;
         ent->type2 = 1;
-        this->attachedEntity = ent;
+        this->child = ent;
         this->field_0x80.HALF.HI = 0;
         this->cutsceneBeh.HALF.LO = 0;
         this->field_0x82.HALF.LO = this->palette.b.b0;
@@ -115,17 +115,17 @@ void sub_08029474(Entity* this) {
     u32 bVar1;
 
     sub_080296C8(this);
-    if (this->frames.b.f3) {
+    if (this->frame & 0x80) {
         this->action = 3;
         this->actionDelay = 8;
         bVar1 = GetFacingDirection(this, &gPlayerEntity);
         this->direction = bVar1;
         this->animationState = (bVar1 << 0x18) >> 0x1c;
         InitializeAnimation(this, this->animationState);
-        InitializeAnimation(this->attachedEntity, this->animationState + 4);
+        InitializeAnimation(this->child, this->animationState + 4);
     } else {
-        if (this->frames.all == 1) {
-            this->frames.all = 0;
+        if (this->frame == 1) {
+            this->frame = 0;
             COLLISION_ON(this);
         }
     }
@@ -144,7 +144,7 @@ void sub_080294D4(Entity* this) {
         this->action = 6;
         COLLISION_OFF(this);
         InitializeAnimation(this, 3);
-        InitializeAnimation(this->attachedEntity, 7);
+        InitializeAnimation(this->child, 7);
     }
 }
 
@@ -189,9 +189,9 @@ void sub_08029610(Entity* this) {
 
 void sub_08029630(Entity* this) {
     sub_080296C8(this);
-    if ((this->frames.b.f3) != 0) {
+    if (this->frame & 0x80) {
         this->field_0x80.HALF.HI = 1;
-        this->attachedEntity->spriteSettings.b.draw = FALSE;
+        this->child->spriteSettings.draw = FALSE;
         sub_080297F0(this);
     }
 }
@@ -219,23 +219,23 @@ void sub_0802969C(Entity* this) {
         if (bVar1 != this->animationState) {
             this->animationState = bVar1;
             InitializeAnimation(this, bVar1);
-            InitializeAnimation(this->attachedEntity, bVar1 + 4);
+            InitializeAnimation(this->child, bVar1 + 4);
         }
     }
 }
 
 void sub_080296C8(Entity* this) {
     GetNextFrame(this);
-    GetNextFrame(this->attachedEntity);
+    GetNextFrame(this->child);
 }
 
 void sub_080296D8(Entity* this) {
     gPlayerState.jumpStatus = 0x41;
     gPlayerState.flags &= 0xffffffef;
     gPlayerEntity.flags |= 0x80;
-    gPlayerEntity.hVelocity = 0x18000;
+    gPlayerEntity.zVelocity = 0x18000;
     gPlayerEntity.iframes = 0xa6;
-    gPlayerEntity.height.HALF.HI = -2;
+    gPlayerEntity.z.HALF.HI = -2;
     gPlayerEntity.direction = gPlayerEntity.animationState << 2;
     gPlayerEntity.spritePriority.b1 = this->field_0x80.HALF.LO;
     gPlayerEntity.spriteOffsetY = 0;
@@ -260,8 +260,8 @@ void sub_08029770(Entity* this) {
         this->hitType = 0x8d;
         this->hitbox = &gUnk_080FD260;
         InitializeAnimation(this, 2);
-        this->attachedEntity->spriteSettings.b.draw = TRUE;
-        InitializeAnimation(this->attachedEntity, 6);
+        this->child->spriteSettings.draw = TRUE;
+        InitializeAnimation(this->child, 6);
         CreateDust(this);
     }
 }
@@ -271,7 +271,7 @@ void sub_080297F0(Entity* this) {
     this->action = 1;
     this->actionDelay = 0x78;
     COLLISION_ON(this);
-    this->spriteSettings.b.draw = TRUE;
+    this->spriteSettings.draw = TRUE;
     this->hitType = 0x8e;
     sub_080AE068(this);
 #ifdef EU

@@ -22,7 +22,7 @@ extern SpriteLoadData gUnk_08112E1C;
 
 void Percy_Head(Entity* this) {
     SetExtraSpriteFrame(this, 0, (this->frameSpriteSettings & 0x3f) + 0x13);
-    SetExtraSpriteFrame(this, 1, (this->frames.all & 0x7f) + 0xb);
+    SetExtraSpriteFrame(this, 1, (this->frame & 0x7f) + 0xb);
     SetExtraSpriteFrame(this, 2, this->frameIndex);
     SetSpriteSubEntryOffsetData1(this, 2, 1);
     SetSpriteSubEntryOffsetData2(this, 2, 0);
@@ -62,7 +62,7 @@ void sub_0806B41C(Entity* this) {
         case 0:
             if (LoadExtraSpriteData(this, &gUnk_08112E1C)) {
                 this->action = 1;
-                this->spriteSettings.b.draw = 1;
+                this->spriteSettings.draw = 1;
                 if (this->type2 == 2) {
                     CreateFx(this, FX_SWEAT, 0);
                 }
@@ -160,7 +160,7 @@ void Percy_Fusion(Entity* this) {
     if (this->action == 0) {
         if (LoadExtraSpriteData(this, &gUnk_08112E1C) != 0) {
             this->action += 1;
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
             InitializeAnimation(this, 2);
         }
     } else {

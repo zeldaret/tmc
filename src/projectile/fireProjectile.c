@@ -37,7 +37,7 @@ void FireProjectile_Action1(Entity* this) {
         if (parent->next == NULL) {
             DeleteEntity(this);
         } else {
-            if (this->spriteSettings.b.draw == 1) {
+            if (this->spriteSettings.draw == 1) {
                 CopyPosition(parent, this);
                 if (this->actionDelay != 0) {
                     direction = parent->direction & 0x18;
@@ -68,7 +68,7 @@ void FireProjectile_Action2(Entity* this) {
 
 void FireProjectile_Action3(Entity* this) {
     GetNextFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         DeleteEntity(this);
     }
 }

@@ -67,8 +67,8 @@ void sub_08031434(Entity* this) {
     } else {
         this->action = 1;
         this->subAction = 0;
-        this->spriteSettings.b.draw = (this->spriteSettings.b.draw & 0xfc);
-        this->height.HALF.HI = -0x80;
+        this->spriteSettings.draw = (this->spriteSettings.draw & 0xfc);
+        this->z.HALF.HI = -0x80;
         this->frameIndex = 0xff;
     }
 }
@@ -81,7 +81,7 @@ void sub_08031480(Entity* this) {
             sub_08031600(this);
             this->action = 1;
             this->subAction = 1;
-            this->spriteSettings.b.draw = 3;
+            this->spriteSettings.draw = 3;
             this->spriteRendering.b3 = 1;
             this->spriteOrientation.flipY = 1;
             SoundReq(SFX_12D);
@@ -90,7 +90,7 @@ void sub_08031480(Entity* this) {
         if (sub_08003FC4(this, 0x1800) == 0) {
             this->action = 2;
             this->field_0xf = 0xf;
-            this->spriteSettings.b.draw = 1;
+            this->spriteSettings.draw = 1;
             UpdateSpriteForCollisionLayer(this);
             EnqueueSFX(0x84);
         }

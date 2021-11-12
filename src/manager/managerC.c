@@ -155,7 +155,7 @@ void sub_08058A04(ManagerC* this) {
     s32 tmp = gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX;
     s32 tmp2 = gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY;
     if ((this->unk_20 - 0x118 < 0xDu) && CheckGlobalFlag(LV1TARU_OPEN) && (tmp - 0x6d < 0x17u) &&
-        (tmp2 - 0x45 < 0x17u) && (gPlayerEntity.height.HALF.HI == 0)) {
+        (tmp2 - 0x45 < 0x17u) && (gPlayerEntity.z.HALF.HI == 0)) {
         gPlayerState.playerAction = 3;
         gPlayerState.field_0x38 = 0;
         gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x78;

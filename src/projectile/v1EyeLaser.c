@@ -10,7 +10,7 @@ void sub_080AB758(Entity*);
 void sub_080AB888(Entity*);
 
 void V1EyeLaser(Entity* this) {
-    if (this->parent->spriteSettings.b.draw == 0) {
+    if (this->parent->spriteSettings.draw == 0) {
         DeleteThisEntity();
     }
     V1EyeLaser_Actions[this->action](this);
@@ -32,7 +32,7 @@ void V1EyeLaser_Init(Entity* this) {
 
 void V1EyeLaser_Action1(Entity* this) {
     GetNextFrame(this);
-    if ((this->frames.all & 0x80) != 0) {
+    if ((this->frame & 0x80) != 0) {
         this->action = 2;
         InitializeAnimation(this, 1);
         sub_080AB758(this);

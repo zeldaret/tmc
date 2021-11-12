@@ -52,7 +52,7 @@ void sub_0809ED88(Entity* this) {
 void sub_0809EDE4(Entity* this) {
     sub_0809F08C();
     sub_0809EE44(this);
-    if (this->frames.b.f3) {
+    if (this->frame & 0x80) {
         sub_0809EE34(this);
     }
 }

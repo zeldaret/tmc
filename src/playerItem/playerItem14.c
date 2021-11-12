@@ -18,7 +18,7 @@ void PlayerItem14(Entity* this) {
 void sub_0805FBE8(Entity* this) {
     CopyPosition(&gPlayerEntity, this);
     this->action++;
-    this->spriteSettings.b.draw = TRUE;
+    this->spriteSettings.draw = TRUE;
     this->field_0x3c = gPlayerEntity.field_0x3c + 1;
     this->hitbox = &gUnk_08109AD0;
     this->speed = 0x380;

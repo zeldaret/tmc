@@ -270,7 +270,7 @@ void InitializePlayer(void) {
     switch (gScreenTransition.field_0xf) {
         case 0x2:
         case 0x6:
-            pl->height.HALF.HI = -0xc0;
+            pl->z.HALF.HI = -0xc0;
             break;
         case 0x4:
             gPlayerState.field_0x34[4] = 0x10;
@@ -295,7 +295,7 @@ void InitializePlayer(void) {
     pl->kind = 1;
     pl->flags |= 0xa0;
     pl->spritePriority.b0 = 4;
-    pl->currentHealth = gSave.stats.health;
+    pl->health = gSave.stats.health;
     pl->x.HALF.HI = gScreenTransition.playerStartPos.HALF.x;
     pl->y.HALF.HI = gScreenTransition.playerStartPos.HALF.y;
     pl->animationState = gScreenTransition.playerState;
@@ -354,7 +354,7 @@ s32 ModHealth(s32 deltaHealth) {
         newHealth = (u32)gStats.maxHealth;
     }
     gStats.health = newHealth;
-    gPlayerEntity.currentHealth = newHealth;
+    gPlayerEntity.health = newHealth;
     return newHealth;
 }
 

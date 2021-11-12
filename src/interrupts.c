@@ -200,7 +200,7 @@ void PlayerUpdate(Entity* this) {
         }
         HandlePlayerLife(this);
         DoPlayerAction(this);
-        if ((this->height.WORD == 0) && (this->action == 1 || this->action == 9))
+        if ((this->z.WORD == 0) && (this->action == 1 || this->action == 9))
             sub_08008790(this, 8);
         sub_080171F0();
     }

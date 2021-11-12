@@ -27,7 +27,7 @@ void sub_08065080(Entity* this) {
     ScriptExecutionContext* context;
 
     this->action = 1;
-    this->spriteSettings.b.draw = 1;
+    this->spriteSettings.draw = 1;
     sub_0805E3A0(this, 2);
     InitializeAnimation(this, 4);
     sub_08078778(this);
@@ -55,7 +55,7 @@ void sub_080651D8(Entity* this) {
 }
 
 void sub_080651F8(Entity* this) {
-    if ((this->frames.all & 0x20) == 0) {
+    if ((this->frame & 0x20) == 0) {
         this->subAction = 1;
         this->actionDelay = 0x3c;
         InitializeAnimation(this, 1);
@@ -146,7 +146,7 @@ void sub_080654EC(Entity* this) {
 }
 
 void sub_080654FC(Entity* this) {
-    if ((this->frames.all & 0x20) != 0) {
+    if ((this->frame & 0x20) != 0) {
         gActiveScriptInfo.commandSize = 0;
     } else {
         gActiveScriptInfo.flags |= 1;

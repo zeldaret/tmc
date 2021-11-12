@@ -318,11 +318,11 @@ void DeleteEntity(Entity* ent) {
             sub_0804AA1C(ent);
         }
         COLLISION_OFF(ent);
-        ent->spriteSettings.b.draw = 0;
+        ent->spriteSettings.draw = 0;
         ent->field_0x3c = 0;
         ent->bitfield = 0;
         ent->knockbackDuration = 0;
-        ent->currentHealth = 0;
+        ent->health = 0;
         UnlinkEntity(ent);
         ent->next = NULL;
         ent->prev = (Entity*)0xffffffff;

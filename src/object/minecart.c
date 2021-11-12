@@ -60,7 +60,7 @@ void sub_080916EC(Entity* this) {
 void sub_080917DC(Entity* this) {
 
     if ((this->bitfield & 0x7f) == 0x1d) {
-        this->hVelocity = 0x2a000;
+        this->zVelocity = 0x2a000;
         this->action = 7;
         InitAnimationForceUpdate(this, this->type2 + 4 + this->animationState);
         SoundReq(SFX_13B);
@@ -80,7 +80,7 @@ void sub_080917DC(Entity* this) {
                 this->action = this->action + 1;
                 gPlayerState.jumpStatus = 0x81;
                 gPlayerState.flags |= 0x4000000;
-                gPlayerEntity.hVelocity = 0x20000;
+                gPlayerEntity.zVelocity = 0x20000;
                 gPlayerEntity.speed = 0x100;
                 gPlayerEntity.flags &= 0x7f;
                 ResetPlayer();
@@ -97,8 +97,8 @@ void sub_080918A4(Entity* this) {
     if (sub_080041A0(this, &gPlayerEntity, 2, 2) != 0) {
         gPlayerEntity.x.HALF.HI = this->x.HALF.HI;
         gPlayerEntity.y.HALF.HI = this->y.HALF.HI;
-        if (gPlayerEntity.height.HALF.HI > -0x10) {
-            if ((s32)gPlayerEntity.hVelocity > -1) {
+        if (gPlayerEntity.z.HALF.HI > -0x10) {
+            if ((s32)gPlayerEntity.zVelocity > -1) {
                 return;
             }
             gPlayerEntity.animationState = this->animationState << 1;
@@ -118,7 +118,7 @@ void sub_080918A4(Entity* this) {
     } else {
         gPlayerEntity.direction = GetFacingDirection(&gPlayerEntity, this);
     }
-    if (gPlayerEntity.hVelocity < 0) {
+    if (gPlayerEntity.zVelocity < 0) {
         gPlayerEntity.spritePriority.b0 = this->spritePriority.b0 - 1;
     }
 }
@@ -133,10 +133,10 @@ void sub_080919AC(Entity* this) {
         return;
     }
 
-    if ((gPlayerEntity.frames.all & 0xf) == 0) {
+    if ((gPlayerEntity.frame & 0xf) == 0) {
         COLLISION_OFF(this);
         CopyPosition(this, &gPlayerEntity);
-        if ((gPlayerEntity.frames.all & 0xf0) == 0x10) {
+        if ((gPlayerEntity.frame & 0xf0) == 0x10) {
             this->spriteOffsetY = 1;
         } else {
             this->spriteOffsetY = 0;
@@ -175,7 +175,7 @@ void sub_080919AC(Entity* this) {
                         sub_08017744(this);
                         gPlayerState.jumpStatus = 0x41;
                         gPlayerState.flags = (gPlayerState.flags ^ 0x1000) | 0x4000000;
-                        gPlayerEntity.hVelocity = 0x20000;
+                        gPlayerEntity.zVelocity = 0x20000;
                         gPlayerEntity.speed = 0x200;
                         gPlayerEntity.animationState = this->animationState << 1;
                         gPlayerEntity.direction = this->direction;

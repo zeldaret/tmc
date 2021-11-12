@@ -32,11 +32,11 @@ void sub_08099DD0(Entity* this) {
 void sub_08099E10(Entity* this) {
     if (CheckLocalFlag(0x74)) {
         GetNextFrame(this);
-        if ((this->frames.all == 1) && (this->subAction == 0)) {
-            this->frames.all = 0;
+        if ((this->frame == 1) && (this->subAction == 0)) {
+            this->frame = 0;
             sub_08099ECC(this);
         }
-        if (this->frames.b.f3) {
+        if (this->frame & 0x80) {
             this->action = 2;
             InitializeAnimation(this, 1);
         }
@@ -45,8 +45,8 @@ void sub_08099E10(Entity* this) {
 
 void sub_08099E58(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.b.f3) {
-        this->frames.b.f3 = 0;
+    if (this->frame & 0x80) {
+        this->frame &= ~0x80;
         this->actionDelay++;
         if (this->actionDelay == 3) {
             this->action = 3;
