@@ -32,6 +32,6 @@ void sub_0806EABC(Entity* this, u32 param) {
     sub_08050384();
     sub_08057044(param, &gUnk_020227E8, 0x202020);
     sub_0805F46C(0x3302, &gUnk_081146B8);
-    gScreen.bg.bg0Updated = 1;
+    gScreen.bg0.updated = 1;
 }
 #endif

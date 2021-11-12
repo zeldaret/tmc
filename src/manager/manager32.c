@@ -65,7 +65,7 @@ void sub_0805D7DC(Manager32* this) {
     }
 
     LoadGfxGroup(gUnk_08108D74[index]);
-    gScreen.affine.bg3Control = 0x1e04;
+    gScreen.bg3.control = 0x1e04;
 }
 
 void sub_0805D860(Manager32* this) {
@@ -152,8 +152,8 @@ void sub_0805D9D8(Manager32* this) {
     // TODO find out the actual type of the parent of this manager.
     Manager* pMVar1 = this->manager.parent;
     if (pMVar1 != NULL) {
-        gScreen.affine.bg3xOffset = 0x80 - (*(s16*)&pMVar1[1].unk_0e - gRoomControls.roomScrollX);
-        gScreen.affine.bg3yOffset = 0x8c - (*(s16*)(pMVar1[1].unk_11 + 1) - gRoomControls.roomScrollY);
+        gScreen.bg3.xOffset = 0x80 - (*(s16*)&pMVar1[1].unk_0e - gRoomControls.roomScrollX);
+        gScreen.bg3.yOffset = 0x8c - (*(s16*)(pMVar1[1].unk_11 + 1) - gRoomControls.roomScrollY);
     }
 }
 
@@ -161,7 +161,7 @@ void sub_0805DA08(u32 x, u32 y, u32 param_3) {
     u32 i;
     struct BgAffineDstData* affineDstData = &gUnk_02017AA0[gUnk_03003DE4[0] * 0xa0];
     for (i = 0; i < 0xa0; ++i, y += 0x17) {
-        affineDstData->pa = ((gSineTable[(param_3 + i + y) & 0xff] * x) >> 8) + gScreen.affine.bg3xOffset;
+        affineDstData->pa = ((gSineTable[(param_3 + i + y) & 0xff] * x) >> 8) + gScreen.bg3.xOffset;
         affineDstData = (struct BgAffineDstData*)&affineDstData->pb;
     }
     sub_0805622C(&gUnk_02017AA0[gUnk_03003DE4[0] * 0xa0], 0x400001c, 0xa2600001);

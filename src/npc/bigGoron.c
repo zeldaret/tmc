@@ -96,9 +96,9 @@ void sub_0806D0B0(Entity* this) {
     if (this != NULL) {
         sub_0806D164(this);
     }
-    gScreen.bg.bg1Control = 0x1d47;
-    gScreen.bg.bg1Tilemap = &gMapDataTopSpecial;
-    gScreen.bg.bg1Updated = 1;
+    gScreen.bg1.control = 0x1d47;
+    gScreen.bg1.tilemap = &gMapDataTopSpecial;
+    gScreen.bg1.updated = 1;
 }
 
 void sub_0806D0F8(void) {

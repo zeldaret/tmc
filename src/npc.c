@@ -1,5 +1,6 @@
 #include "global.h"
 #include "entity.h"
+#include "room.h"
 #include "npc.h"
 
 //clang-format off
@@ -135,3 +136,36 @@ void (*const gNPCFunctions[][3])(Entity* ent) = {
 };
 //clang-format on
 const u8 npc_unk[] = { 0x04, 0x05, 0x06, 0x06 };
+
+extern u8 gUnk_020342F8;
+typedef struct {
+    u16 unk0;
+    u16 unk1;
+    u16 x;
+    u16 y;
+} NPCStruct;
+extern NPCStruct gUnk_02031EC0[100];
+
+void InitNPC(Entity*);
+u32 ReadBit(void*, u32);
+
+// regalloc
+NONMATCH("asm/non_matching/arm_proxy/NPCUpdate.inc", void NPCUpdate(Entity* this)) {
+    if ((this->currentHealth & 0x7f) && !ReadBit(&gUnk_020342F8, this->currentHealth - 1))
+        DeleteThisEntity();
+    if (this->action == 0 && (this->flags & ENT_DID_INIT) == 0)
+        InitNPC(this);
+    if (!CheckDontUpdate(this))
+        gNPCFunctions[this->id][0](this);
+    if (this->next != NULL) {
+        if (gNPCFunctions[this->id][1] != NULL)
+            gNPCFunctions[this->id][1](this);
+        if ((this->currentHealth & 0x7f) != 0) {
+            u32 temp = this->currentHealth & 0x7f;
+            gUnk_02031EC0[temp * 2 - 2].x = this->x.HALF.HI - gRoomControls.roomOriginX;
+            gUnk_02031EC0[temp * 2 - 2].y = this->y.HALF.HI - gRoomControls.roomOriginY;
+        }
+        DrawEntity(this);
+    }
+}
+END_NONMATCH

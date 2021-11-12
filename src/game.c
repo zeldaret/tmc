@@ -248,7 +248,7 @@ NONMATCH("asm/non_matching/game/sub_08052418.inc", void sub_08052418(int param_1
     // temp._0 = gBG1Buffer[gUnk_080FCAA4._8[param_1]][gUnk_080FCAA4._0[gSaveHeader->gameLanguage + i]] * 2;
     temp._13 = ((temp._13 & 0xfe) | gUnk_080FCAA4._8[i + 1]) & 1;
     sub_0805F46C(gUnk_080FCAA4._a[param_1], &temp);
-    gScreen.bg.bg1xOffset = 1;
+    gScreen.bg1.xOffset = 1;
 }
 END_NONMATCH
 

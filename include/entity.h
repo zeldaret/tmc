@@ -209,23 +209,29 @@ enum {
 #define Direction8FromAnimationState(expr) (((expr) << 2)
 
 Entity* GetEmptyEntity(void);
-extern Entity* CreateEnemy(u32 id, u32 type);
-extern Entity* CreateNPC(u32 id, u32 type, u32 type2);
-extern Entity* CreateObject(u32 id, u32 type, u32 type2);
-extern Entity* CreateObjectWithParent(Entity* parent, u32 id, u32 type, u32 type2);
-extern Entity* CreateFx(Entity* parent, u32 type, u32 type2);
+void DrawEntity(Entity*);
+Entity* CreateEnemy(u32 id, u32 type);
+Entity* CreateNPC(u32 id, u32 type, u32 type2);
+Entity* CreateObject(u32 id, u32 type, u32 type2);
+Entity* CreateObjectWithParent(Entity* parent, u32 id, u32 type, u32 type2);
+Entity* CreateFx(Entity* parent, u32 type, u32 type2);
 
-extern void InitializeAnimation(Entity*, u32);
-extern void InitAnimationForceUpdate(Entity*, u32);
-extern void UpdateAnimationSingleFrame(Entity*);
-extern void UpdateSpriteForCollisionLayer(Entity*);
-extern void GetNextFrame(Entity*);
-extern u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
-extern void SetExtraSpriteFrame(Entity*, u32, u32);
-extern void SetSpriteSubEntryOffsetData1(Entity*, u32, u32);
-extern void SetSpriteSubEntryOffsetData2(Entity*, u32, u32);
+void InitializeAnimation(Entity*, u32);
+void InitAnimationForceUpdate(Entity*, u32);
+void UpdateAnimationSingleFrame(Entity*);
+void UpdateSpriteForCollisionLayer(Entity*);
+void GetNextFrame(Entity*);
+u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
+void SetExtraSpriteFrame(Entity*, u32, u32);
+void SetSpriteSubEntryOffsetData1(Entity*, u32, u32);
+void SetSpriteSubEntryOffsetData2(Entity*, u32, u32);
 
-extern u32 GetFacingDirection(Entity*, Entity*);
+u32 GetFacingDirection(Entity*, Entity*);
+
+/**
+ * @brief Check if entity should sleep this frame.
+ */
+bool32 CheckDontUpdate(Entity* this);
 
 /**
  * @brief Delete the entity currently in execution.

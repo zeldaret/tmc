@@ -332,6 +332,10 @@ SECTIONS {
 
         /* C source compiled with interworking */
         src/interrupts.o(.text);
+        src/playerItem.o(.text);
+        src/object.o(.text);
+        src/manager.o(.text);
+        src/npc.o(.text);
         src/collision.o(.text);
         /* C source compiled without interworking */
         asm/code_08018500.o(.text);
@@ -972,10 +976,12 @@ SECTIONS {
         asm/intr.o(.text);
         /* data */
         data/data_080B2A70.o(.rodata);
+        src/interrupts.o(.rodata);
         src/playerItem.o(.rodata);
         src/object.o(.rodata);
         src/manager.o(.rodata);
         src/npc.o(.rodata);
+        src/collision.o(.rodata);
         data/data_080B3740.o(.rodata);
         data/const/playerItem/playerItem11.o(.rodata);
         data/const/playerItem/playerItemBow.o(.rodata);

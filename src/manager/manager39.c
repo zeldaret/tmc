@@ -69,7 +69,7 @@ void sub_0805E18C(Manager39* this) {
 
 void sub_0805E1D8(Manager39* this) {
     MemClear(&gUnk_02034DF0, 0x80);
-    gScreen.bg.bg0Updated = 1;
+    gScreen.bg0.updated = 1;
     DeleteThisEntity();
 }
 
@@ -89,5 +89,5 @@ void sub_0805E1F8(u32 unk0, u32 unk1) {
     if (!unk1)
         tmp2 = gUnk_08108E30;
     sub_0805F46C(&tmp, tmp2);
-    gScreen.bg.bg0Updated = 1;
+    gScreen.bg0.updated = 1;
 }

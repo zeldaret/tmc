@@ -101,7 +101,7 @@ static void HandleNintendoCapcomLogos(void) {
         }
         LoadPaletteGroup(paletteGroup);
         gScreen.lcd.displayControl |= DISPCNT_BG2_ON;
-        gScreen.bg.bg1Updated = 1;
+        gScreen.bg1.updated = 1;
         DoFade(6, 8);
         advance = ADVANCE_NONE;
 #if defined(DEMO_USA)
@@ -158,17 +158,17 @@ static void HandleTitlescreen(void) {
                 // Blend first and second layer
                 gScreen.controls.layerFXControl = BLDCNT_TGT1_BG2 | BLDCNT_TGT2_BG3 | BLDCNT_EFFECT_BLEND;
                 gScreen.controls.alphaBlend = BLDALPHA_BLEND(9, 9);
-                gScreen.bg.bg1Control = 0x1c09;
-                gScreen.affine.bg2Control = BGCNT_SCREENBASE(29) | BGCNT_PRIORITY(2);
-                gScreen.affine.bg3Control = BGCNT_SCREENBASE(30) | BGCNT_PRIORITY(3);
+                gScreen.bg1.control = 0x1c09;
+                gScreen.bg2.control = BGCNT_SCREENBASE(29) | BGCNT_PRIORITY(2);
+                gScreen.bg3.control = BGCNT_SCREENBASE(30) | BGCNT_PRIORITY(3);
                 gScreen.lcd.displayControl |= DISPCNT_BG1_ON | DISPCNT_BG2_ON | DISPCNT_BG3_ON | DISPCNT_OBJ_ON;
-                gScreen.bg.bg1yOffset = 0xff60;
+                gScreen.bg1.yOffset = 0xff60;
             } else {
                 gScreen.controls.layerFXControl = BLDCNT_TGT1_BG0 | BLDCNT_TGT2_BG1 | BLDCNT_EFFECT_BLEND;
                 gScreen.controls.alphaBlend = BLDALPHA_BLEND(9, 9);
-                gScreen.bg.bg0Control = BGCNT_SCREENBASE(29) | BGCNT_PRIORITY(2);
-                gScreen.bg.bg1Control = 0x1E03;
-                gScreen.affine.bg2Control = BGCNT_PRIORITY(1) | BGCNT_CHARBASE(2) | BGCNT_256COLOR |
+                gScreen.bg0.control = BGCNT_SCREENBASE(29) | BGCNT_PRIORITY(2);
+                gScreen.bg1.control = 0x1E03;
+                gScreen.bg2.control = BGCNT_PRIORITY(1) | BGCNT_CHARBASE(2) | BGCNT_256COLOR |
                                             BGCNT_SCREENBASE(28) | BGCNT_WRAP | BGCNT_TXT512x256;
                 gScreen.lcd.displayControl |= DISPCNT_MODE_1;
                 gScreen.lcd.displayControl |= DISPCNT_BG0_ON | DISPCNT_BG1_ON | DISPCNT_OBJ_ON;
@@ -278,13 +278,13 @@ static void HandleJapaneseTitlescreenAnimationIntro(void) {
         case 0:
             if (!gFadeControl.active) {
                 if ((gIntroState.counter & 1) == 0) {
-                    gScreen.bg.bg1yOffset++;
+                    gScreen.bg1.yOffset++;
                 }
 
-                if (GetAdvanceState() == ADVANCE_KEY_PRESSED || gScreen.bg.bg1yOffset == 0) {
+                if (GetAdvanceState() == ADVANCE_KEY_PRESSED || gScreen.bg1.yOffset == 0) {
                     gIntroState.subState++;
-                    gScreen.bg.bg1yOffset = 0;
-                    gScreen.bg.bg1Control = 0xc09;
+                    gScreen.bg1.yOffset = 0;
+                    gScreen.bg1.control = 0xc09;
                     gFadeControl.mask = 0x00000040;
                     DoFade(6, 0x10);
                     SoundReq(SFX_F8);

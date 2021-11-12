@@ -397,9 +397,9 @@ void sub_0805A8EC(Manager15* this) {
 
 void sub_0805A94C(Manager15* this) {
     int tmp1, tmp2;
-    gScreen.affine.bg3xOffset = gRoomControls.roomScrollX - this->unk_24 + this->unk_34;
-    gScreen.affine.bg3yOffset = gRoomControls.roomScrollY - this->unk_26 + this->unk_36;
-    tmp1 = -gScreen.affine.bg3xOffset;
+    gScreen.bg3.xOffset = gRoomControls.roomScrollX - this->unk_24 + this->unk_34;
+    gScreen.bg3.yOffset = gRoomControls.roomScrollY - this->unk_26 + this->unk_36;
+    tmp1 = -gScreen.bg3.xOffset;
     tmp2 = tmp1 + 0x100;
     if (tmp1 < 0)
         tmp1 = 0;
@@ -410,7 +410,7 @@ void sub_0805A94C(Manager15* this) {
     if (tmp2 > 0xF0)
         tmp2 = 0xF0;
     gScreen.controls.window1HorizontalDimensions = (tmp1 << 8 | tmp2);
-    tmp1 = -gScreen.affine.bg3yOffset;
+    tmp1 = -gScreen.bg3.yOffset;
     tmp2 = tmp1 + 0x100;
     if (tmp1 < 0)
         tmp1 = 0;
@@ -426,8 +426,8 @@ void sub_0805A94C(Manager15* this) {
 void sub_0805A9CC(Manager15* this) {
     int tmp1, tmp2;
     void* tmp3;
-    gScreen.affine.bg3xOffset = gRoomControls.roomScrollX - this->unk_24 + this->unk_34;
-    tmp1 = -gScreen.affine.bg3xOffset;
+    gScreen.bg3.xOffset = gRoomControls.roomScrollX - this->unk_24 + this->unk_34;
+    tmp1 = -gScreen.bg3.xOffset;
     tmp2 = tmp1 + 0x100;
     if (tmp1 < 0)
         tmp1 = 0;
@@ -439,14 +439,14 @@ void sub_0805A9CC(Manager15* this) {
         tmp2 = 0xF0;
     gScreen.controls.window1HorizontalDimensions = tmp1 << 8 | tmp2;
     tmp1 = gRoomControls.roomScrollY - this->unk_26 + this->unk_36;
-    gScreen.affine.bg3yOffset = tmp1 & 0x3F;
+    gScreen.bg3.yOffset = tmp1 & 0x3F;
     tmp3 = (&gBG3Buffer[((tmp1 / 0x40) << 8)]);
-    gScreen.affine.bg3Tilemap = (u32*)tmp3;
+    gScreen.bg3.tilemap = (u32*)tmp3;
     gScreen.controls.window1VerticalDimensions = 0xa0;
     if (this->unk_28 == tmp3)
         return;
     this->unk_28 = tmp3;
-    gScreen.affine.bg3Updated = 1;
+    gScreen.bg3.updated = 1;
 }
 
 extern struct { u8 unk_00[0x20]; } gUnk_085A97A0[];
@@ -483,11 +483,11 @@ void sub_0805AAF0(u32 unk0) {
     sub_0805AADC(unk0);
     gScreen.controls.layerFXControl = 0x3E48;
     gScreen.controls.alphaBlend = 0x1008;
-    gScreen.affine.bg3Control = 0x1E04;
-    gScreen.affine.bg3Tilemap = &gBG3Buffer;
-    gScreen.affine.bg3xOffset = 0;
-    gScreen.affine.bg3yOffset = 0;
-    gScreen.affine.bg3Updated = 1;
+    gScreen.bg3.control = 0x1E04;
+    gScreen.bg3.tilemap = &gBG3Buffer;
+    gScreen.bg3.xOffset = 0;
+    gScreen.bg3.yOffset = 0;
+    gScreen.bg3.updated = 1;
     gScreen.controls.windowInsideControl = 0x3F3F;
     gScreen.controls.windowOutsideControl = 0x37;
     gScreen.controls.window1HorizontalDimensions = 0xF0;

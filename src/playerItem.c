@@ -23,7 +23,6 @@ extern void PlayerItem15();
 extern void PlayerItemNulled2();
 
 void (*const gPlayerItemFunctions[])() = {
-
     DeleteEntity,
     PlayerItemSword,
     PlayerItemBomb,
@@ -50,3 +49,67 @@ void (*const gPlayerItemFunctions[])() = {
     PlayerItemNulled2,
     PlayerItemCellOverwriteSet
 };
+
+typedef struct {
+    u8 unk0;
+    u8 unk1;
+    u8 unk2;
+    u8 unk3;
+    u8 unk4;
+    u8 unk5;
+    u16 unk6;
+} ItemFrame;
+extern ItemFrame gUnk_08126DA8[];
+extern ItemFrame* gUnk_08126ED8[3];
+
+void ItemInit(Entity*);
+
+void ItemUpdate(Entity* this) {
+    if ((this->flags & ENT_DID_INIT) == 0 && this->action == 0 && this->subAction == 0)
+        ItemInit(this);
+
+    if (!CheckDontUpdate(this)) {
+        gPlayerItemFunctions[this->id](this);
+        this->bitfield &= ~0x80;
+        if (this->iframes != 0) {
+            if (this->iframes > 0)
+                this->iframes--;
+            else
+                this->iframes++;
+        }
+    }
+    DrawEntity(this);
+}
+
+// tiny regalloc
+NONMATCH("asm/non_matching/arm_proxy/ItemInit.inc", void ItemInit(Entity* this)) {
+    ItemFrame* entry;
+
+    entry = &gUnk_08126DA8[this->id];
+    if (entry->unk0 == 0xff) {
+        u32 temp = entry->unk2;
+        ItemFrame* temp2 = gUnk_08126ED8[entry->unk1];
+        entry = &temp2[this->field_0x68.HALF.LO - temp];
+    }
+
+    this->palette.raw = ((entry->unk0 & 0xf) << 4) | entry->unk0;
+    this->damage = entry->unk1;
+    this->hurtType = entry->unk3;
+    this->hitType = entry->unk4;
+    this->spriteIndex = entry->unk5;
+    if (entry->unk6 == 0)
+        this->spriteVramOffset = gPlayerEntity.spriteVramOffset;
+    else
+        this->spriteVramOffset = entry->unk6 & 0x3ff;
+
+    if (this->animationState == 0)
+        this->animationState = gPlayerEntity.animationState & 6;
+
+    this->collisionLayer = gPlayerEntity.collisionLayer;
+    this->spriteRendering.b3 = gPlayerEntity.spriteRendering.b3;
+    this->spritePriority.b0 = gPlayerEntity.spritePriority.b0;
+    this->spriteOrientation.flipY = gPlayerEntity.spriteOrientation.flipY;
+    this->currentHealth = 1;
+    this->flags |= ENT_DID_INIT;
+}
+END_NONMATCH

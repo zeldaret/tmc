@@ -7,11 +7,11 @@
 #include "textbox.h"
 #include "functions.h"
 #include "object.h"
-#include "manager.h"
 #include "utils.h"
 #include "npc.h"
 #include "effects.h"
 #include "screen.h"
+#include "gba/m4a.h"
 
 extern u8 gUnk_03003DE0;
 extern u8 gUnk_03000C30;
@@ -22,18 +22,19 @@ extern u8 gUpdateVisibleTiles;
 extern u8 gUnk_03003DF0[];
 extern u8 gUnk_03003BE0;
 extern Entity* gUnk_03004040[3];
-extern u8 gUnk_020342F8;
+extern u16 gUnk_080B2CD8[];
+extern u32 gUnk_03000FBC;
 
 extern void sub_080ADD70();
 extern void sub_0801C25C();
 extern void UpdateDisplayControls();
 extern void LoadResources();
 extern void FadeMain();
-extern u32 CheckDontUpdate();
 extern void HandlePlayerLife();
 extern void DoPlayerAction();
 extern void sub_080171F0();
 extern void sub_08078FB0();
+extern u32 CheckDontUpdate();
 extern void DrawEntity();
 extern void sub_0807A050();
 extern u32 sub_08079B24();
@@ -44,43 +45,8 @@ extern void sub_08078180(void);
 extern void sub_0807B0C8(void);
 extern void sub_0807A8D8(Entity*);
 extern void sub_08077FEC(u32);
-extern void ItemInit(Entity*);
-extern void InitObject(Entity*);
-extern u32 ReadBit(void*, u32);
-extern void InitNPC(Entity*);
-extern void m4aSoundMain();
-extern void m4aSoundVSync();
 
-typedef struct {
-    u8 unk0;
-    u8 unk1;
-    u8 unk2;
-    u8 unk3;
-    u8 unk4;
-    u8 unk5;
-    u16 unk6;
-} ItemFrame;
-extern ItemFrame gUnk_08126DA8[];
-extern ItemFrame* gUnk_08126ED8[3];
-
-typedef struct {
-    u16 unk0;
-    u16 unk1;
-    u16 x;
-    u16 y;
-} NPCStruct;
-extern NPCStruct gUnk_02031EC0[100];
-
-// todo: merge with screen.h
-typedef struct {
-    u16 dest;
-    u16 _2;
-    u16 _4;
-    u16 _6;
-    u8* src;
-} DmaSettings;
-
-extern u16 gDmaPresets[];
+void gIntrMain(void);
 
 struct {
     u8 update;
@@ -95,17 +61,9 @@ struct {
     u32 size;
 } extern gUnk_02022730;
 
-void sub_08016CA8(DmaSettings* s);
+void sub_08016CA8(BgSettings* bg);
 void sub_08016BF8(void);
 void DispCtrlSet(void);
-
-extern u16 gUnk_080B2CD8[];
-
-extern u32 gUnk_03000FBC;
-
-void gIntrMain(void);
-
-typedef void (*fp)(void);
 
 void DummyIntr(void) {
     /* .. */
@@ -157,18 +115,18 @@ void UpdateDisplayControls(void) {
         gUnk_03000000.update = 0;
         DmaCopy32(3, &gUnk_03000000.oam, 0x07000000, 0x400);
     }
-    sub_08016CA8((DmaSettings*)&gScreen.bg.bg0Control);
-    sub_08016CA8((DmaSettings*)&gScreen.bg.bg1Control);
-    sub_08016CA8((DmaSettings*)&gScreen.affine.bg2Control);
-    sub_08016CA8((DmaSettings*)&gScreen.affine.bg3Control);
+    sub_08016CA8(&gScreen.bg0);
+    sub_08016CA8(&gScreen.bg1);
+    sub_08016CA8((BgSettings*)&gScreen.bg2);
+    sub_08016CA8((BgSettings*)&gScreen.bg3);
 }
 
-void sub_08016CA8(DmaSettings* s) {
-    if (s->_6 && s->src != 0) {
+void sub_08016CA8(BgSettings* bg) {
+    if (bg->updated && bg->tilemap != NULL) {
         u32 dest;
-        s->_6 = 0;
-        dest = s->dest;
-        DmaCopy32(3, s->src, ((dest << 3) & 0xF800) + 0x06000000, gUnk_080B2CD8[dest >> 14]);
+        bg->updated = 0;
+        dest = bg->control;
+        DmaCopy32(3, bg->tilemap, ((dest << 3) & 0xF800) + 0x06000000, gUnk_080B2CD8[dest >> 14]);
     }
 }
 
@@ -322,7 +280,7 @@ void HandlePlayerLife(Entity* this) {
     } else if ((gSave.stats.effectTimer == 0) || --gSave.stats.effectTimer == 0) {
         gSave.stats.effect = 0;
     } else if ((gSave.stats.effectTimer & 0x3f) == 0) {
-        CreateFx(this, FX_AURA_BASE + gSave.stats.effect, 0);
+        CreateFx(this, (FX_RED_AURA - 1) + gSave.stats.effect, 0);
     }
 }
 #endif
@@ -373,91 +331,3 @@ void sub_080171F0(void) {
         sub_08077FEC(gPlayerEntity.action);
     }
 }
-
-void ItemUpdate(Entity* this) {
-    if ((this->flags & ENT_DID_INIT) == 0 && this->action == 0 && this->subAction == 0)
-        ItemInit(this);
-
-    if (!CheckDontUpdate(this)) {
-        gPlayerItemFunctions[this->id](this);
-        this->bitfield &= ~0x80;
-        if (this->iframes != 0) {
-            if (this->iframes > 0)
-                this->iframes--;
-            else
-                this->iframes++;
-        }
-    }
-    DrawEntity(this);
-}
-
-// tiny regalloc
-NONMATCH("asm/non_matching/arm_proxy/ItemInit.inc", void ItemInit(Entity* this)) {
-    ItemFrame* entry;
-
-    entry = &gUnk_08126DA8[this->id];
-    if (entry->unk0 == 0xff) {
-        u32 temp = entry->unk2;
-        ItemFrame* temp2 = gUnk_08126ED8[entry->unk1];
-        entry = &temp2[this->field_0x68.HALF.LO - temp];
-    }
-
-    this->palette.raw = ((entry->unk0 & 0xf) << 4) | entry->unk0;
-    this->damage = entry->unk1;
-    this->hurtType = entry->unk3;
-    this->hitType = entry->unk4;
-    this->spriteIndex = entry->unk5;
-    if (entry->unk6 == 0)
-        this->spriteVramOffset = gPlayerEntity.spriteVramOffset;
-    else
-        this->spriteVramOffset = entry->unk6 & 0x3ff;
-
-    if (this->animationState == 0)
-        this->animationState = gPlayerEntity.animationState & 6;
-
-    this->collisionLayer = gPlayerEntity.collisionLayer;
-    this->spriteRendering.b3 = gPlayerEntity.spriteRendering.b3;
-    this->spritePriority.b0 = gPlayerEntity.spritePriority.b0;
-    this->spriteOrientation.flipY = gPlayerEntity.spriteOrientation.flipY;
-    this->currentHealth = 1;
-    this->flags |= ENT_DID_INIT;
-}
-END_NONMATCH
-
-void ObjectUpdate(Entity* this) {
-    if ((this->flags & ENT_DID_INIT) == 0 && this->action == 0)
-        InitObject(this);
-    if (this->iframes != 0)
-        this->iframes++;
-    if (!CheckDontUpdate(this)) {
-        gObjectFunctions[this->id](this);
-        this->bitfield &= ~0x80;
-    }
-    DrawEntity(this);
-}
-
-void ManagerUpdate(Entity* this) {
-    if (!CheckDontUpdate(this))
-        gManagerFunctions[this->id](this);
-}
-
-// regalloc
-NONMATCH("asm/non_matching/arm_proxy/NPCUpdate.inc", void NPCUpdate(Entity* this)) {
-    if ((this->currentHealth & 0x7f) && !ReadBit(&gUnk_020342F8, this->currentHealth - 1))
-        DeleteThisEntity();
-    if (this->action == 0 && (this->flags & ENT_DID_INIT) == 0)
-        InitNPC(this);
-    if (!CheckDontUpdate(this))
-        gNPCFunctions[this->id][0](this);
-    if (this->next != NULL) {
-        if (gNPCFunctions[this->id][1] != NULL)
-            gNPCFunctions[this->id][1](this);
-        if ((this->currentHealth & 0x7f) != 0) {
-            u32 temp = this->currentHealth & 0x7f;
-            gUnk_02031EC0[temp * 2 - 2].x = this->x.HALF.HI - gRoomControls.roomOriginX;
-            gUnk_02031EC0[temp * 2 - 2].y = this->y.HALF.HI - gRoomControls.roomOriginY;
-        }
-        DrawEntity(this);
-    }
-}
-END_NONMATCH

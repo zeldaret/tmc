@@ -287,10 +287,10 @@ void sub_08058D34() {
     tmp = gScreen.lcd.displayControl;
     tmp2 = 0;
     gScreen.lcd.displayControl |= 1;
-    gScreen.affine.bg2Control = 0xBC82;
-    gScreen.bg.bg1Control = 0x5E86;
-    gScreen.bg.bg1xOffset = 0;
-    gScreen.bg.bg1yOffset = tmp2;
+    gScreen.bg2.control = 0xBC82;
+    gScreen.bg1.control = 0x5E86;
+    gScreen.bg1.xOffset = 0;
+    gScreen.bg1.yOffset = tmp2;
     gScreen.controls.layerFXControl = 0x3456;
     gScreen.controls.alphaBlend = 0x909;
     gArea.musicIndex = gArea.pMusicIndex;

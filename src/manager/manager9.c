@@ -24,7 +24,7 @@ void Manager9_Main(Manager9* this) {
     sub_08058210(this);
     if (!this->manager.action) {
         this->manager.action = 1;
-        gScreen.bg.bg1Updated = 0;
+        gScreen.bg1.updated = 0;
         sub_08052D74(this, sub_08058204, NULL);
     }
 }
@@ -39,7 +39,7 @@ void sub_08058210(Manager9* this) {
         return;
     this->unk_3c = tmp;
     sub_080582A0(tmp, gUnk_02006F00, gBG3Buffer);
-    gScreen.bg.bg1Updated = 1;
+    gScreen.bg1.updated = 1;
 }
 
 u32 sub_08058244(int i) {
@@ -48,9 +48,9 @@ u32 sub_08058244(int i) {
     u32 tmp3;
     s32 tmp4;
     tmp = ((gRoomControls.roomScrollY - gRoomControls.roomOriginY) * 0x20) / (gRoomControls.height - 0xa0);
-    gScreen.bg.bg1yOffset = gRoomControls.roomOriginY + tmp;
+    gScreen.bg1.yOffset = gRoomControls.roomOriginY + tmp;
     tmp = (((gRoomControls.roomScrollX - gRoomControls.roomOriginX) * gUnk_081081EC[i]) / (gRoomControls.width - 0xf0));
-    gScreen.bg.bg1xOffset = tmp & 0xf;
+    gScreen.bg1.xOffset = tmp & 0xf;
     return tmp;
 }
 
@@ -90,8 +90,8 @@ void sub_08058324(u32 unk) {
     LoadGfxGroup(unk + 0x36);
     sub_080582D0();
     sub_080582A0(sub_08058244(unk), gUnk_02006F00, gBG3Buffer);
-    gScreen.bg.bg1Control = 0x1D47;
-    gScreen.bg.bg1Tilemap = gBG3Buffer;
-    gScreen.bg.bg1Updated = 1;
+    gScreen.bg1.control = 0x1D47;
+    gScreen.bg1.tilemap = gBG3Buffer;
+    gScreen.bg1.updated = 1;
     gScreen.lcd.displayControl |= 0x200;
 }

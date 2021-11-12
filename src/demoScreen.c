@@ -49,12 +49,12 @@ void sub_080A2E40(void) {
     MemCopy(&gUnk_08A05751, &gBG1Buffer, 0x800);
     MemCopy(&gUnk_08A05751[0x800], &gBG2Buffer, 0x800);
     gScreen.lcd.displayControl = 0x1f00;
-    gScreen.bg.bg1Control = 0x1c81;
-    gScreen.affine.bg2Control = 0x1d82;
-    gScreen.affine.bg3Control = 0x1e0b;
-    gScreen.bg.bg1Updated = 1;
-    gScreen.affine.bg2Updated = 1;
-    gScreen.affine.bg3Updated = 1;
+    gScreen.bg1.control = 0x1c81;
+    gScreen.bg2.control = 0x1d82;
+    gScreen.bg3.control = 0x1e0b;
+    gScreen.bg1.updated = 1;
+    gScreen.bg2.updated = 1;
+    gScreen.bg3.updated = 1;
     gScreen.controls.layerFXControl = 0x1044;
     gScreen.controls.alphaBlend = 0xb04;
     {

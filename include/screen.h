@@ -11,29 +11,19 @@ typedef struct {
 } LcdControls;
 
 typedef struct {
-    u16 bg0Control;
-    u16 bg0xOffset;
-    u16 bg0yOffset;
-    u16 bg0Updated;
-    void* bg0Tilemap;
-    u16 bg1Control;
-    u16 bg1xOffset;
-    u16 bg1yOffset;
-    u16 bg1Updated;
-    void* bg1Tilemap;
+    u16 control;
+    u16 xOffset;
+    u16 yOffset;
+    u16 updated;
+    void* tilemap;
 } BgSettings;
 
 typedef struct {
-    u16 bg2Control;
-    u16 bg2xOffset;
-    u16 bg2yOffset;
-    u16 bg2Updated;
-    void* bg2Tilemap;
-    u16 bg3Control;
-    s16 bg3xOffset;
-    s16 bg3yOffset;
-    u16 bg3Updated;
-    void* bg3Tilemap;
+    u16 control;
+    s16 xOffset;
+    s16 yOffset;
+    u16 updated;
+    void* tilemap;
 } BgAffSettings;
 
 typedef struct {
@@ -67,8 +57,10 @@ typedef struct {
 
 typedef struct {
     /*0x00*/ LcdControls lcd;
-    /*0x08*/ BgSettings bg;
-    /*0x20*/ BgAffSettings affine;
+    /*0x08*/ BgSettings bg0;
+    /*0x14*/ BgSettings bg1;
+    /*0x20*/ BgAffSettings bg2;
+    /*0x2c*/ BgAffSettings bg3;
     /*0x38*/ BgControls controls;
     /*0x6c*/ u8 _6c;
     /*0x6d*/ u8 _6d;
