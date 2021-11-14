@@ -98,7 +98,7 @@ void sub_0809D0AC(Entity* this) {
         this->action = 1;
         this->z.WORD = 0;
         this->collisionLayer = 1;
-        SetLocalFlag(0x45);
+        SetLocalFlag(LV3_OCARINA_FALL);
         SoundReq(SFX_SECRET);
         fx = CreateFx(this, FX_DASH, 0);
         if (fx != NULL) {
@@ -119,7 +119,7 @@ void sub_0809D10C(Entity* this) {
 }
 
 void sub_0809D130(Entity* this) {
-    if ((gPlayerState.flags & 0x80) != 0) {
+    if ((gPlayerState.flags & PL_IS_MINISH) != 0) {
         sub_0800445C(this);
     } else if (sub_08017850(this) != 0) {
         CreateItemEntity(0x17, 0, 0);

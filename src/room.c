@@ -4872,7 +4872,7 @@ extern EntityData gUnk_080F30CC;
 
 void sub_0804E7A4(void) {
     // dog food
-    if ((GetInventoryValue(0x36) == 1) && !CheckGlobalFlag(BIN_DOGFOOD) && (gPlayerState.flags & 0x80) == 0) {
+    if ((GetInventoryValue(0x36) == 1) && !CheckGlobalFlag(BIN_DOGFOOD) && (gPlayerState.flags & PL_IS_MINISH) == 0) {
         LoadRoomEntityList(&gUnk_080F30CC);
     }
 }

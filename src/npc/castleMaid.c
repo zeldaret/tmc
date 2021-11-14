@@ -95,19 +95,11 @@ void sub_08064644(Entity* this, ScriptExecutionContext* context) {
 
 void sub_0806464C(Entity* this) {
     s32 tmp;
-    if (CheckGlobalFlag(0x15) != 0) {
+    if (CheckGlobalFlag(TABIDACHI) != 0) {
         tmp = 2;
-#if defined(JP) || defined(EU) || defined(DEMO_JP)
-    } else if (CheckLocalFlag(0x9f) == 0) {
-#else
-    } else if (CheckLocalFlag(0xa0) == 0) {
-#endif
+    } else if (CheckLocalFlag(CASTLE_04_MAID_TALK) == 0) {
         tmp = 0;
-#if defined(JP) || defined(EU) || defined(DEMO_JP)
-        SetLocalFlag(0x9f);
-#else
-        SetLocalFlag(0xa0);
-#endif
+        SetLocalFlag(CASTLE_04_MAID_TALK);
     } else {
         tmp = 1;
     }

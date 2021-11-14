@@ -476,7 +476,7 @@ int sub_08017DD4(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
         tgt->damage = 4;
     gPlayerEntity.health = sub_08017874(&gPlayerEntity, tgt);
     tgt->iframes = -12;
-    if ((gPlayerState.flags & 0x80) == 0) {
+    if ((gPlayerState.flags & PL_IS_MINISH) == 0) {
         sub_08079D84();
         org->iframes = 90;
     } else {
@@ -532,7 +532,7 @@ s32 sub_08017F40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 #ifdef EU
                 (gPlayerState.flags & 0x81) == 0 &&
 #else
-                (gPlayerState.flags & 0x80) == 0 &&
+                (gPlayerState.flags & PL_IS_MINISH) == 0 &&
 #endif
                 !gPlayerState.swimState) {
                 gPlayerState.field_0x1a[0] |= 0x80u;

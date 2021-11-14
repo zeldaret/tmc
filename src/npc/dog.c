@@ -71,7 +71,7 @@ void sub_08069B44(Entity* this) {
         if ((this->flags & 2) != 0) {
             sub_0807DD50(this);
         }
-        if (((this->type == 0) && ((gPlayerState.flags & 0x80) == 0)) && (GetInventoryValue(0x36) != 2)) {
+        if (((this->type == 0) && ((gPlayerState.flags & PL_IS_MINISH) == 0)) && (GetInventoryValue(0x36) != 2)) {
             this->action = 4;
         }
 #if defined(JP) || defined(EU) || defined(DEMO_JP)
@@ -87,7 +87,7 @@ void sub_08069B44(Entity* this) {
 void sub_08069C40(Entity* this) {
     UpdateAnimationSingleFrame(this);
     if (sub_08069F90(this) != 0) {
-        if ((gPlayerState.flags & 0x80) != 0) {
+        if ((gPlayerState.flags & PL_IS_MINISH) != 0) {
             sub_08069CB8(this);
         } else {
             this->animationState = GetAnimationState(this);
@@ -270,11 +270,7 @@ void sub_08069F6C(Entity* this) {
 }
 
 u32 sub_08069F90(Entity* this) {
-#if defined(JP) || defined(EU) || defined(DEMO_JP)
-    if ((this->type == 2) && (CheckLocalFlag(0xcc) == 0)) {
-#else
-    if ((this->type == 2) && (CheckLocalFlag(0xcf) == 0)) {
-#endif
+    if ((this->type == 2) && (CheckLocalFlag(MACHI_02_DOG) == 0)) {
         return 1;
     } else {
         return sub_080041A0(this, &gPlayerEntity, 0x14, 0x14);
@@ -282,14 +278,14 @@ u32 sub_08069F90(Entity* this) {
 }
 
 void sub_08069FBC(Entity* this) {
-    u32 tmp = (gPlayerState.flags & 0x80) != 0 ? 0x24 : 0x20;
+    u32 tmp = (gPlayerState.flags & PL_IS_MINISH) != 0 ? 0x24 : 0x20;
     if ((this->animationState == 1) || (this->animationState == 3)) {
         this->field_0x6a.HALF.HI = tmp;
     }
 }
 
 void sub_08069FE8(Entity* this) {
-    u32 tmp = -((s32) - (gPlayerState.flags & 0x80) >> 0x1f);
+    u32 tmp = -((s32) - (gPlayerState.flags & PL_IS_MINISH) >> 0x1f);
     if (tmp != this->field_0x6a.HALF.LO) {
         if (tmp == 0) {
             sub_08078778(this);
@@ -302,7 +298,7 @@ void sub_08069FE8(Entity* this) {
 
 void sub_0806A028(Entity* this) {
     if (this->interactType != 0) {
-        if ((gPlayerState.flags & 0x80) != 0) {
+        if ((gPlayerState.flags & PL_IS_MINISH) != 0) {
             if (this->interactType == 2) {
                 this->action = 6;
                 sub_0806F118(this);
@@ -326,41 +322,20 @@ void sub_0806A080(Entity* this) {
 void sub_0806A0A4(Entity* this) {
     s32 dialog;
 
-    if ((gPlayerState.flags & 0x80) != 0) {
+    if (gPlayerState.flags & PL_IS_MINISH) {
         dialog = 4;
-#if defined(JP) || defined(EU) || defined(DEMO_JP)
-        if (CheckLocalFlag(0xcc) == 0) {
-#else
-        if (CheckLocalFlag(0xcf) == 0) {
-#endif
+        if (CheckLocalFlag(MACHI_02_DOG) == 0) {
             dialog = 3;
-#if defined(JP) || defined(EU) || defined(DEMO_JP)
-            SetLocalFlag(0xcc);
-#else
-            SetLocalFlag(0xcf);
-#endif
+            SetLocalFlag(MACHI_02_DOG);
             sub_0807BA8C(TILE(this->x.HALF.HI, this->y.HALF.HI - 8), (u32)this->collisionLayer);
         }
     } else {
-
         dialog = 2;
-#if defined(JP) || defined(EU) || defined(DEMO_JP)
-        if (CheckLocalFlag(0xcc) == 0) {
-#else
-        if (CheckLocalFlag(0xcf) == 0) {
-#endif
+        if (CheckLocalFlag(MACHI_02_DOG) == 0) {
             dialog = 1;
-#if defined(JP) || defined(EU) || defined(DEMO_JP)
-            if (CheckLocalFlag(0xd8) == 0) {
-#else
-            if (CheckLocalFlag(0xdb) == 0) {
-#endif
+            if (CheckLocalFlag(MACHI_DOG_C) == 0) {
                 dialog = 0;
-#if defined(JP) || defined(EU) || defined(DEMO_JP)
-                SetLocalFlag(0xd8);
-#else
-                SetLocalFlag(0xdb);
-#endif
+                SetLocalFlag(MACHI_DOG_C);
             }
         }
     }
@@ -369,9 +344,9 @@ void sub_0806A0A4(Entity* this) {
 
 void sub_0806A144(Entity* this) {
     s32 dialog = 4;
-    if ((gPlayerState.flags & 0x80) != 0) {
+    if (gPlayerState.flags & PL_IS_MINISH) {
         dialog = 3;
-        if ((GetInventoryValue(0x46) == 0) && (CheckGlobalFlag(0x29) != 0)) {
+        if (GetInventoryValue(0x46) == 0 && CheckGlobalFlag(MIZUKAKI_START)) {
             if (CheckLocalFlag(0x85) == 0) {
                 dialog = 1;
             } else {

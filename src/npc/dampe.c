@@ -57,9 +57,9 @@ void sub_0806BE84(Entity* this, ScriptExecutionContext* context) {
 
     context->condition = 0;
     msgIndex = 1;
-    if (!CheckLocalFlag(0x69)) {
+    if (!CheckLocalFlag(DANPEI_TALK1ST)) {
         msgIndex = 0;
-        SetLocalFlag(0x69);
+        SetLocalFlag(DANPEI_TALK1ST);
         context->condition = 1;
     }
     // Graveyard key

@@ -32,7 +32,7 @@ void LilypadSmall(Entity* this) {
 }
 
 u32 sub_08097ADC(Entity* this) {
-    if ((gPlayerState.flags & 0x80) == 0) {
+    if ((gPlayerState.flags & PL_IS_MINISH) == 0) {
         return 0;
     } else if (sub_080041A0(this, &gPlayerEntity, 8, 8) == 0) {
         return 0;

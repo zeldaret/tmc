@@ -66,9 +66,9 @@ void sub_0806C038(Entity* this) {
     if (GetInventoryValue(0x46) == 0) {
         if (GetInventoryValue(0x3a) == 0) {
             index = 6;
-            if (CheckLocalFlag(0xaf) == 0) {
+            if (CheckLocalFlag(LEFT_TALK) == 0) {
                 index = 5;
-                SetLocalFlag(0xaf);
+                SetLocalFlag(LEFT_TALK);
             }
         } else {
             index = 7;

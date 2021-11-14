@@ -102,9 +102,9 @@ void sub_0806B504(Entity* this) {
     idx = 1;
     if (CheckKinstoneFused(0x21)) {
         idx = 3;
-    } else if (!CheckLocalFlag(0x86)) {
+    } else if (!CheckLocalFlag(URO_POEMN_TALK)) {
         idx = 0;
-        SetLocalFlag(0x86);
+        SetLocalFlag(URO_POEMN_TALK);
     }
 
     MessageNoOverlap(gUnk_08112E54[idx], this);

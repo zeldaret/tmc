@@ -153,7 +153,7 @@ Entity* sub_08081D74(Entity* this) {
     }
     ent = 0;
     if (sub_08081E0C(this)) {
-        if (!(gPlayerState.flags & 0x10) && !(gPlayerState.flags & 0x80)) {
+        if (!(gPlayerState.flags & 0x10) && !(gPlayerState.flags & PL_IS_MINISH)) {
             ent = &gPlayerEntity;
         }
     } else {

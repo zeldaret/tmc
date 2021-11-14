@@ -1352,7 +1352,7 @@ void sub_08043DB0(Entity* this) {
     Entity* pEVar3;
     Entity* pEVar4;
 
-    if (((gPlayerState.flags & 0x80) != 0)) {
+    if (((gPlayerState.flags & PL_IS_MINISH) != 0)) {
         pEVar3 = ((VaatiArm_HeapStruct*)this->myHeap)->entities[3];
         if (CheckPlayerInRegion(pEVar3->x.HALF.HI - gRoomControls.roomOriginX,
                                 pEVar3->y.HALF.HI - gRoomControls.roomOriginY + 2, 3, 3)) {

@@ -206,7 +206,7 @@ void sub_0808B73C(Entity* this) {
 }
 
 u32 sub_0808B7C8(Entity* this) {
-    if (!(gPlayerState.flags & 0x80) && gPlayerState.field_0xa8 != 0x12 && gPlayerEntity.health != 0 &&
+    if (!(gPlayerState.flags & PL_IS_MINISH) && gPlayerState.field_0xa8 != 0x12 && gPlayerEntity.health != 0 &&
         sub_08079F8C() && sub_080041A0(this, &gPlayerEntity, 5, 5) && gPlayerEntity.z.HALF.HI == 0) {
         if (this->actionDelay == 0 && gPlayerEntity.action == 0x1b) {
             sub_080791D0();

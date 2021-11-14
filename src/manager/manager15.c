@@ -6,6 +6,7 @@
 #include "object.h"
 #include "structures.h"
 #include "functions.h"
+#include "enemy.h"
 
 typedef struct {
     Manager manager;
@@ -88,12 +89,12 @@ void sub_0805A370(Manager15* this) {
 
 void sub_0805A394(Manager15* this) {
     Entity* ent;
-    if ((ent = FindEntityByID(0x3, 0x13, 0x4))) {
+    if ((ent = FindEntityByID(ENEMY, CHUCHU_BOSS, 0x4))) {
         if (ent->type != 4) {
             return;
         }
     }
-    SetLocalFlag(0x48);
+    SetLocalFlag(LV1_16_1STEND);
     ClearRoomFlag(0);
     gScreen.lcd.displayControl &= 0xB7FF;
     DeleteThisEntity();

@@ -59,7 +59,7 @@ void sub_08058408(ManagerA* this) {
             return;
         case 2:
             sub_080585DC(this);
-            if ((gPlayerState.flags & 0x80) == 0)
+            if ((gPlayerState.flags & PL_IS_MINISH) == 0)
                 return;
         case 0:
         default:

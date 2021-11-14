@@ -260,17 +260,17 @@ void sub_0806B004(Entity* this, ScriptExecutionContext* context) {
         if (CheckLocalFlag(0x73)) {
             if (GetInventoryValue(0x46) == 0) {
                 idx = 3;
-                if (CheckLocalFlag(0x78) == 0) {
+                if (CheckLocalFlag(KHOUSE51_00) == 0) {
                     idx = 2;
                     context->condition = 1;
-                    SetLocalFlag(0x78);
+                    SetLocalFlag(KHOUSE51_00);
                 }
             } else {
                 idx = 4;
             }
         } else {
             idx = 1;
-            SetLocalFlag(0x6a);
+            SetLocalFlag(MIZUKAKI_KOBITO);
         }
     }
     MessageNoOverlap(gUnk_08112C40[idx], this);
@@ -318,13 +318,13 @@ void sub_0806B134(Entity* this) {
 
     if (GetInventoryValue(0x45)) {
         idx = 2;
-        if (CheckLocalFlag(0x7b) == 0) {
+        if (CheckLocalFlag(KHOUSE42_00) == 0) {
             idx = 1;
-            SetLocalFlag(0x7b);
+            SetLocalFlag(KHOUSE42_00);
         }
     } else {
         idx = 0;
-        SetGlobalFlag(0x4a);
+        SetGlobalFlag(POWERGLOVE_HINT);
     }
     if (5 < gSave.unk8) {
         idx = 3;

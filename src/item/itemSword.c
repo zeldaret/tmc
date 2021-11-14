@@ -121,7 +121,7 @@ void sub_080758B0(ItemBehavior* this, u32 arg1) {
 ASM_FUNC("asm/non_matching/itemSword/sub_08075900.inc", void sub_08075900(ItemBehavior* this, u32 arg1))
 
 void sub_080759B8(ItemBehavior* this, u32 arg1) {
-    if ((gPlayerState.flags & 0x80) == 0) {
+    if ((gPlayerState.flags & PL_IS_MINISH) == 0) {
         gPlayerEntity.hurtType = 0;
     }
     gPlayerState.flags &= 0xf7ffffff;
