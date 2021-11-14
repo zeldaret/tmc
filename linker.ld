@@ -27,7 +27,7 @@ SECTIONS {
         . = 0x000000C0; gUnk_020000C0 = .;
         . = 0x00000CC0; gUnk_02000CC0 = .;
         . = 0x00000D00; gTextGfxBuffer = .;
-        . = 0x00001A00; gUnk_02001A00 = .;
+        . = 0x00001A00; gPaletteList = .;
         . = 0x00001A3C; gUnk_02001A3C = .;
         . = 0x00001A40; gBG3Buffer = .;
         . = 0x00001B40; gUnk_02001B40 = .;
@@ -102,7 +102,7 @@ SECTIONS {
         . = 0x00024048; gUnk_02024048 = .;
         . = 0x00024050; gUnk_02024050 = .;
         . = 0x00024090; gUnk_02024090 = .;
-        . = 0x00024490; gUnk_02024490 = .;
+        . = 0x00024490; gGFXSlots = .;
         . = 0x00024494; gUnk_02024494 = .;
         . = 0x000246B0; gUnk_020246B0 = .;
         . = 0x00025EB0; gUnk_02025EB0 = .;
@@ -905,8 +905,6 @@ SECTIONS {
         asm/objectC1.o(.text);
         /* END objects */
         asm/sub_080A276C.o(.text);
-        asm/sub_080A2838.o(.text);
-        asm/sub_080A285C.o(.text);
         src/createObject.o(.text);
         asm/code_080A29BC.o(.text);
         src/playerItem/playerItemShield.o(.text);
@@ -1384,7 +1382,7 @@ SECTIONS {
         data/const/npc/cuccoChick.o(.rodata);
         data/const/npc/phonograph.o(.rodata);
         data/const/npc/npc58.o(.rodata);
-        src/spriteDataNpc.o(.rodata);
+        src/npcDefinitions.o(.rodata);
         data/data_081146D0.o(.rodata);
         data/gfx/sprite_frames.o(.rodata);
         data/const/playerItem/playerItem12.o(.rodata);
@@ -1649,8 +1647,8 @@ SECTIONS {
         data/const/object/pinwheel.o(.rodata);
         data/animations/object/pinwheel.o(.rodata);
         data/const/object/objectC1.o(.rodata);
-        src/spriteDataObject.o(.rodata);
-        src/spriteDataPlayerItem.o(.rodata);
+        src/objectDefinitions.o(.rodata);
+        src/playerItemDefinitions.o(.rodata);
         data/data_08125104.o(.rodata);
         data/const/playerItem/playerItemShield.o(.rodata);
         data/const/playerItem/playerItem15.o(.rodata);

@@ -103,7 +103,7 @@ void PlayerInit(Entity* this) {
     gPlayerState.field_0x8 = 0x100;
 #endif
     sub_0806FDA0(this);
-    sub_080AE008(this, 1, 2);
+    LoadSwapGFX(this, 1, 2);
     InitAnimationForceUpdate(this, 2);
     if (this->collisionLayer == 0) {
         sub_08016A30(this);

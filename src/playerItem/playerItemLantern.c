@@ -26,7 +26,7 @@ NONMATCH("asm/non_matching/playerItemLantern/sub_08054A60.inc", void sub_08054A6
         DeleteThisEntity();
     }
     sub_0801766C(this);
-    sub_080AE008(this, 1, 3);
+    LoadSwapGFX(this, 1, 3);
     sub_08054AC8(this);
 }
 END_NONMATCH

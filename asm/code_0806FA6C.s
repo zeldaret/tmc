@@ -468,7 +468,7 @@ _0806FE26:
 	lsls r1, r1, #0x16
 	lsrs r1, r1, #0x16
 	adds r0, r6, #0
-	bl sub_0801D040
+	bl LoadObjPalette
 	adds r2, r0, #0
 	ldr r3, [r4]
 	lsls r1, r3, #6
@@ -603,7 +603,7 @@ sub_0806FF10: @ 0x0806FF10
 	adds r1, r1, r0
 	adds r4, r2, r1
 	adds r0, r5, #0
-	bl sub_0801D108
+	bl FindPalette
 	ldrb r1, [r4, #5]
 	cmp r1, r0
 	beq _0806FF40
@@ -611,7 +611,7 @@ sub_0806FF10: @ 0x0806FF10
 	bl sub_0801D244
 	adds r0, r6, #0
 	adds r1, r5, #0
-	bl sub_0801D040
+	bl LoadObjPalette
 	strb r0, [r4, #5]
 _0806FF40:
 	pop {r4, r5, r6, pc}
@@ -756,7 +756,7 @@ sub_0807000C: @ 0x0807000C
 	orrs r5, r0
 	cmp r5, #0
 	beq _08070072
-	ldr r3, _08070078 @ =gUnk_02024490
+	ldr r3, _08070078 @ =gGFXSlots
 	adds r2, r6, #0
 	adds r2, #0x26
 	ldrb r1, [r2]
@@ -781,7 +781,7 @@ _08070072:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _08070074: .4byte gUnk_020000C0
-_08070078: .4byte gUnk_02024490
+_08070078: .4byte gGFXSlots
 
 	thumb_func_start sub_0807007C
 sub_0807007C: @ 0x0807007C

@@ -146,7 +146,7 @@ static void HandleTitlescreen(void) {
             EraseAllEntities();
             sub_0801CFA8(0);
             sub_080ADD30();
-            gUnk_02024490.unk0 = 1;
+            gGFXSlots.unk0 = 1;
             LoadGfxGroup(2);
             if (gSaveHeader->gameLanguage == 0) {
                 paletteGroup = 3;

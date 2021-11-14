@@ -16016,7 +16016,11 @@
     "path": "gfx/fixedTypeGfx_1.4bpp",
     "start": 6716160,
     "size": 1408,
-    "type": "gfx"
+    "type": "gfx",
+    "options": {
+      "width": 2,
+      "palette": 0
+    }
   },
   {
     "path": "gfx/fixedTypeGfx_3.4bpp",

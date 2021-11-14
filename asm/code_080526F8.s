@@ -152,7 +152,7 @@ sub_080527FC: @ 0x080527FC
 	adds r4, r0, #0
 	bl sub_08053320
 .ifndef EU
-	bl sub_080AE1D8
+	bl CleanUpGFXSlots
 .endif
 	bl sub_080ADE24
 	movs r0, #1

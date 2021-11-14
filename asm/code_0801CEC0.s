@@ -10,7 +10,7 @@
 sub_0801CFA8: @ 0x0801CFA8
 	push {r4, r5, lr}
 	adds r5, r0, #0
-	ldr r0, _0801CFCC @ =gUnk_02001A00
+	ldr r0, _0801CFCC @ =gPaletteList
 	movs r1, #0x40
 	bl MemClear
 	movs r4, #0
@@ -24,12 +24,12 @@ _0801CFB6:
 	bl sub_0801D000
 	pop {r4, r5, pc}
 	.align 2, 0
-_0801CFCC: .4byte gUnk_02001A00
+_0801CFCC: .4byte gPaletteList
 
 	thumb_func_start sub_0801CFD0
 sub_0801CFD0: @ 0x0801CFD0
 	lsls r0, r0, #2
-	ldr r1, _0801CFF8 @ =gUnk_02001A00
+	ldr r1, _0801CFF8 @ =gPaletteList
 	adds r0, r0, r1
 	ldrb r2, [r0]
 	movs r1, #0x10
@@ -48,7 +48,7 @@ sub_0801CFD0: @ 0x0801CFD0
 	strh r1, [r0, #2]
 	bx lr
 	.align 2, 0
-_0801CFF8: .4byte gUnk_02001A00
+_0801CFF8: .4byte gPaletteList
 _0801CFFC: .4byte 0x0000FFFF
 
 	thumb_func_start sub_0801D000
@@ -65,7 +65,7 @@ _0801D00E:
 	strb r1, [r0]
 	cmp r2, #0
 	beq _0801D028
-	bl sub_0801D34C
+	bl CleanUpObjPalettes
 	movs r0, #0xf
 	bl sub_0801CFD0
 	b _0801D03A
@@ -86,8 +86,8 @@ _0801D03A:
 	.align 2, 0
 _0801D03C: .4byte gUnk_02001A3C
 
-	thumb_func_start sub_0801D040
-sub_0801D040: @ 0x0801D040
+	thumb_func_start LoadObjPalette
+LoadObjPalette: @ 0x0801D040
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -97,7 +97,7 @@ sub_0801D040: @ 0x0801D040
 	str r0, [sp]
 	adds r6, r1, #0
 	adds r0, r6, #0
-	bl sub_0801D108
+	bl FindPalette
 	adds r5, r0, #0
 	cmp r5, #0
 	bge _0801D0E8
@@ -116,19 +116,19 @@ _0801D064:
 	ands r4, r0
 _0801D074:
 	adds r0, r4, #0
-	bl sub_0801D134
+	bl FindFreeObjPalette
 	adds r5, r0, #0
 	cmp r5, #0
 	bge _0801D090
-	bl sub_0801D34C
+	bl CleanUpObjPalettes
 	adds r0, r4, #0
-	bl sub_0801D134
+	bl FindFreeObjPalette
 	adds r5, r0, #0
 	cmp r5, #0
 	blt _0801D0E8
 _0801D090:
 	lsls r1, r5, #2
-	ldr r0, _0801D104 @ =gUnk_02001A00
+	ldr r0, _0801D104 @ =gPaletteList
 	adds r3, r1, r0
 	movs r0, #0
 	strh r6, [r3, #2]
@@ -171,11 +171,11 @@ _0801D0BE:
 _0801D0E0:
 	adds r0, r6, #0
 	adds r1, r5, #0
-	bl sub_0801D2C8
+	bl LoadObjPaletteAtIndex
 _0801D0E8:
 	ldr r0, [sp]
 	adds r1, r5, #0
-	bl sub_0801D19C
+	bl SetEntityObjPalette
 	adds r0, r5, #0
 	add sp, #4
 	pop {r3, r4, r5}
@@ -185,10 +185,10 @@ _0801D0E8:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _0801D100: .4byte gUnk_08133368
-_0801D104: .4byte gUnk_02001A00
+_0801D104: .4byte gPaletteList
 
-	thumb_func_start sub_0801D108
-sub_0801D108: @ 0x0801D108
+	thumb_func_start FindPalette
+FindPalette: @ 0x0801D108
 	push {lr}
 	adds r2, r0, #0
 	cmp r2, #5
@@ -199,7 +199,7 @@ _0801D112:
 	b _0801D12E
 _0801D116:
 	movs r1, #6
-	ldr r0, _0801D130 @ =gUnk_02001A00
+	ldr r0, _0801D130 @ =gPaletteList
 	adds r0, #0x18
 _0801D11C:
 	ldrh r3, [r0, #2]
@@ -214,15 +214,15 @@ _0801D11C:
 _0801D12E:
 	pop {pc}
 	.align 2, 0
-_0801D130: .4byte gUnk_02001A00
+_0801D130: .4byte gPaletteList
 
-	thumb_func_start sub_0801D134
-sub_0801D134: @ 0x0801D134
+	thumb_func_start FindFreeObjPalette
+FindFreeObjPalette: @ 0x0801D134
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r1, #0
 	movs r2, #6
-	ldr r0, _0801D154 @ =gUnk_02001A00
+	ldr r0, _0801D154 @ =gPaletteList
 	adds r3, r0, #0
 	adds r3, #0x18
 _0801D142:
@@ -235,7 +235,7 @@ _0801D142:
 	bhi _0801D15A
 	b _0801D180
 	.align 2, 0
-_0801D154: .4byte gUnk_02001A00
+_0801D154: .4byte gPaletteList
 _0801D158:
 	movs r1, #0
 _0801D15A:
@@ -245,7 +245,7 @@ _0801D15A:
 	bls _0801D142
 	movs r1, #0
 	movs r2, #6
-	ldr r0, _0801D188 @ =gUnk_02001A00
+	ldr r0, _0801D188 @ =gPaletteList
 	adds r3, r0, #0
 	adds r3, #0x18
 _0801D16C:
@@ -264,7 +264,7 @@ _0801D180:
 	subs r0, r2, r0
 	b _0801D19A
 	.align 2, 0
-_0801D188: .4byte gUnk_02001A00
+_0801D188: .4byte gPaletteList
 _0801D18C:
 	movs r1, #0
 _0801D18E:
@@ -277,8 +277,8 @@ _0801D18E:
 _0801D19A:
 	pop {r4, pc}
 
-	thumb_func_start sub_0801D19C
-sub_0801D19C: @ 0x0801D19C
+	thumb_func_start SetEntityObjPalette
+SetEntityObjPalette: @ 0x0801D19C
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
 	adds r3, r1, #0
@@ -315,7 +315,7 @@ _0801D1BE:
 	orrs r0, r1
 	strb r0, [r4, #0x1a]
 	lsls r1, r3, #2
-	ldr r0, _0801D22C @ =gUnk_02001A00
+	ldr r0, _0801D22C @ =gPaletteList
 	adds r4, r1, r0
 	ldr r0, [r4]
 	lsls r0, r0, #0x1c
@@ -356,7 +356,7 @@ _0801D212:
 _0801D22A:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_0801D22C: .4byte gUnk_02001A00
+_0801D22C: .4byte gPaletteList
 
 	thumb_func_start UnloadOBJPalette
 UnloadOBJPalette: @ 0x0801D230
@@ -374,7 +374,7 @@ UnloadOBJPalette: @ 0x0801D230
 sub_0801D244: @ 0x0801D244
 	push {r4, r5, r6, lr}
 	lsls r0, r0, #2
-	ldr r1, _0801D288 @ =gUnk_02001A00
+	ldr r1, _0801D288 @ =gPaletteList
 	adds r2, r0, r1
 	ldr r0, [r2]
 	lsls r0, r0, #0x1c
@@ -408,7 +408,7 @@ _0801D270:
 _0801D284:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_0801D288: .4byte gUnk_02001A00
+_0801D288: .4byte gPaletteList
 
 	thumb_func_start sub_0801D28C
 sub_0801D28C: @ 0x0801D28C
@@ -416,7 +416,7 @@ sub_0801D28C: @ 0x0801D28C
 	adds r3, r1, #0
 	adds r0, #0x27
 	ldrb r2, [r0]
-	ldr r1, _0801D2B0 @ =gUnk_02001A00
+	ldr r1, _0801D2B0 @ =gPaletteList
 	lsls r0, r2, #2
 	adds r1, r0, r1
 	ldrb r0, [r1]
@@ -427,11 +427,11 @@ sub_0801D28C: @ 0x0801D28C
 	strh r3, [r1, #2]
 	adds r0, r3, #0
 	adds r1, r2, #0
-	bl sub_0801D2C8
+	bl LoadObjPaletteAtIndex
 _0801D2AE:
 	pop {pc}
 	.align 2, 0
-_0801D2B0: .4byte gUnk_02001A00
+_0801D2B0: .4byte gPaletteList
 
 	thumb_func_start sub_0801D2B4
 sub_0801D2B4: @ 0x0801D2B4
@@ -441,11 +441,11 @@ sub_0801D2B4: @ 0x0801D2B4
 	bl UnloadOBJPalette
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_0801D040
+	bl LoadObjPalette
 	pop {r4, r5, pc}
 
-	thumb_func_start sub_0801D2C8
-sub_0801D2C8: @ 0x0801D2C8
+	thumb_func_start LoadObjPaletteAtIndex
+LoadObjPaletteAtIndex: @ 0x0801D2C8
 	push {r4, lr}
 	adds r3, r0, #0
 	ldr r2, _0801D2F8 @ =gUsedPalettes
@@ -508,13 +508,13 @@ _0801D340: .4byte gUnk_08133368
 _0801D344: .4byte 0x00FFFFFF
 _0801D348: .4byte gGlobalGfxAndPalettes
 
-	thumb_func_start sub_0801D34C
-sub_0801D34C: @ 0x0801D34C
+	thumb_func_start CleanUpObjPalettes
+CleanUpObjPalettes: @ 0x0801D34C
 	push {r4, r5, r6, r7, lr}
 	sub sp, #0x10
 	movs r2, #0
 	movs r3, #0
-	ldr r1, _0801D37C @ =gUnk_02001A00
+	ldr r1, _0801D37C @ =gPaletteList
 _0801D356:
 	mov r4, sp
 	adds r0, r4, r2
@@ -537,7 +537,7 @@ _0801D370:
 	movs r4, #6
 	b _0801D390
 	.align 2, 0
-_0801D37C: .4byte gUnk_02001A00
+_0801D37C: .4byte gPaletteList
 _0801D380:
 	cmp r4, r1
 	ble _0801D390
@@ -553,7 +553,7 @@ _0801D390:
 	cmp r4, #0
 	beq _0801D3AC
 	movs r0, #1
-	bl sub_0801D134
+	bl FindFreeObjPalette
 	adds r1, r0, #0
 	movs r0, #1
 	rsbs r0, r0, #0
@@ -656,7 +656,7 @@ sub_0801D458: @ 0x0801D458
 	adds r2, r0, #0
 	cmp r2, #0xf
 	bhi _0801D488
-	ldr r1, _0801D47C @ =gUnk_02001A00
+	ldr r1, _0801D47C @ =gPaletteList
 	lsls r0, r2, #2
 	adds r1, r0, r1
 _0801D466:
@@ -673,7 +673,7 @@ _0801D478:
 	adds r0, r2, #0
 	b _0801D48A
 	.align 2, 0
-_0801D47C: .4byte gUnk_02001A00
+_0801D47C: .4byte gPaletteList
 _0801D480:
 	adds r1, #4
 	adds r2, #1
@@ -692,7 +692,7 @@ sub_0801D48C: @ 0x0801D48C
 	sub sp, #4
 	adds r6, r0, #0
 	adds r3, r1, #0
-	ldr r0, _0801D50C @ =gUnk_02001A00
+	ldr r0, _0801D50C @ =gPaletteList
 	mov r8, r0
 	lsls r0, r6, #2
 	mov r1, r8
@@ -751,7 +751,7 @@ _0801D4F8:
 	mov r8, r3
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_0801D50C: .4byte gUnk_02001A00
+_0801D50C: .4byte gPaletteList
 _0801D510: .4byte gPaletteBuffer
 _0801D514: .4byte gUsedPalettes
 _0801D518: .4byte 0xFFFF0000

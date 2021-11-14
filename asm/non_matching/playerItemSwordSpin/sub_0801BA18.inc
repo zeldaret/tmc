@@ -112,7 +112,7 @@ _0801BB0A:
 	adds r0, r4, #0
 	movs r1, #1
 	movs r2, #3
-	bl sub_080AE008
+	bl LoadSwapGFX
 	adds r0, r4, #0
 	bl sub_0801BB2C
 _0801BB26:

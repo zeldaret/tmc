@@ -5,7 +5,7 @@
     .align 2
 
 
-gUnk_08114EE4:: @ 08114EE4
+gNPCHitboxes:: @ 08114EE4
 	.4byte 00000000
 	.4byte gHitbox_2
 	.4byte gHitbox_30

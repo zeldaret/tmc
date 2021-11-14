@@ -41,7 +41,7 @@ _08054AAC:
 	adds r0, r4, #0
 	movs r1, #1
 	movs r2, #3
-	bl sub_080AE008
+	bl LoadSwapGFX
 	adds r0, r4, #0
 	bl sub_08054AC8
 	pop {r4, pc}

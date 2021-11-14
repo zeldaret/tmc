@@ -22,7 +22,7 @@ void sub_0801B8B0(Entity* this) {
         this->flags |= 0x20;
         this->action = 0x01;
         this->flags2 = 8;
-        sub_080AE008(this, 1, 3);
+        LoadSwapGFX(this, 1, 3);
         sub_08079BD8(this);
         sub_0801766C(this);
         sub_0801B8FC(this);

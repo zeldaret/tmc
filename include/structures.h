@@ -123,7 +123,7 @@ typedef struct {
     u8 unk0;
 } struct_02024490;
 
-extern struct_02024490 gUnk_02024490;
+extern struct_02024490 gGFXSlots;
 
 typedef struct {
     u32 unk_00;

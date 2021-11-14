@@ -2192,12 +2192,12 @@ _08026B2C:
 	bne _08026B46
 	adds r0, r4, #0
 	movs r1, #0x2b
-	bl sub_0801D040
+	bl LoadObjPalette
 	b _08026B4E
 _08026B46:
 	adds r0, r4, #0
 	movs r1, #0x2c
-	bl sub_0801D040
+	bl LoadObjPalette
 _08026B4E:
 	ldr r3, [r6, #0x50]
 	ldr r2, [r6, #0x54]
@@ -4624,12 +4624,12 @@ _08027D44:
 	bne _08027D5E
 	adds r0, r4, #0
 	movs r1, #0x2b
-	bl sub_0801D040
+	bl LoadObjPalette
 	b _08027D66
 _08027D5E:
 	adds r0, r4, #0
 	movs r1, #0x2c
-	bl sub_0801D040
+	bl LoadObjPalette
 _08027D66:
 	adds r0, r4, #0
 	pop {r4, r5, pc}

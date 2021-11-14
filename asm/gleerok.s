@@ -1244,7 +1244,7 @@ _0802D8DE:
 	bl UnloadOBJPalette
 	adds r0, r4, #0
 	movs r1, #0xc9
-	bl sub_0801D040
+	bl LoadObjPalette
 	b _0802D918
 _0802D906:
 	subs r0, #1
@@ -1253,7 +1253,7 @@ _0802D906:
 	bl UnloadOBJPalette
 	adds r0, r4, #0
 	movs r1, #0xca
-	bl sub_0801D040
+	bl LoadObjPalette
 _0802D918:
 	ldr r0, [r4, #0x50]
 	adds r0, #0x80
@@ -1446,7 +1446,7 @@ _0802DA54:
 	adds r0, r0, r7
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl sub_0801D040
+	bl LoadObjPalette
 _0802DA96:
 	adds r0, r4, #0
 	adds r0, #0x41

@@ -136,7 +136,7 @@ sub_08051A14: @ 0x08051A14
 	ldrb r0, [r1, #0xd]
 	strb r0, [r2, #5]
 	bl sub_08053320
-	ldr r1, _08051A88 @ =gUnk_02024490
+	ldr r1, _08051A88 @ =gGFXSlots
 	movs r0, #1
 	strb r0, [r1]
 	ldr r1, _08051A8C @ =gMain
@@ -150,7 +150,7 @@ _08051A78: .4byte 0x00000B74
 _08051A7C: .4byte gUnk_02032EC0
 _08051A80: .4byte gRoomControls
 _08051A84: .4byte gScreenTransition
-_08051A88: .4byte gUnk_02024490
+_08051A88: .4byte gGFXSlots
 _08051A8C: .4byte gMain
 
 	thumb_func_start sub_08051A90

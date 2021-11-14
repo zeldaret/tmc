@@ -5,11 +5,72 @@
 #include "createObject.h"
 #include "object.h"
 #include "effects.h"
+#include "functions.h"
+#include "definitions.h"
+
+extern const Hitbox* const gObjectHitboxes[];
+
+u32 LoadObjectSprite(Entity* this, s32 type, const ObjectDefinition* definition);
+extern const ObjectDefinition gObjectDefinitions[];
+
+void ObjectInit(Entity* this) {
+    const ObjectDefinition* definition = &gObjectDefinitions[this->id];
+    if (LoadObjectSprite(this, this->type, definition) == 2) {
+        UpdateSpriteForCollisionLayer(this);
+    }
+}
+
+u32 LoadObjectSprite(Entity* this, s32 type, const ObjectDefinition* definition) {
+    u16 tmp1;
+    u8 tmp2;
+
+    if ((this->flags & 1) != 0) {
+        // Sprite already loaded
+        return 1;
+    }
+    if ((definition->bitfield.type) == 0) {
+        // Object has no sprite
+        this->flags |= ENT_DID_INIT | definition->bitfield.flags << 2;
+        return 1;
+    }
+
+    if ((u8)(((*((u8*)definition) & 0xff & 3) - 2)) < 2) {
+        // Multiple forms
+        definition = &definition->data.definition[type];
+    }
+    tmp1 = definition->bitfield.gfx;
+    switch (definition->bitfield.gfx_type) {
+        case 2:
+            this->spriteVramOffset = definition->bitfield.gfx;
+            break;
+        case 1:
+            if (!LoadSwapGFX(this, tmp1, 0)) {
+                return 0;
+            }
+            break;
+        default:
+            if (!LoadFixedGFX(this, tmp1)) {
+                return 0;
+            }
+            break;
+    }
+    tmp1 = definition->data.sprite.paletteIndex;
+    LoadObjPalette(this, tmp1);
+    tmp2 = 0xff;
+    this->animIndex = tmp2;
+    this->hurtType = 0x48;
+    this->spriteIndex = definition->data.sprite.spriteIndex;
+    this->spriteSettings.shadow = definition->data.sprite.shadow;
+    this->spritePriority.b1 = definition->data.sprite.spritePriority;
+    this->spriteSettings.draw = definition->data.sprite.draw;
+    this->hitbox = (Hitbox*)gObjectHitboxes[definition->bitfield.hitbox];
+    this->flags |= ENT_DID_INIT | definition->bitfield.flags << 2;
+
+    return 2;
+}
 
 Entity* CreateObject(u32 subtype, u32 form, u32 parameter) {
-    Entity* entity;
-
-    entity = GetEmptyEntity();
+    Entity* entity = GetEmptyEntity();
     if (entity != NULL) {
         entity->kind = 6;
         entity->id = subtype;
@@ -20,16 +81,14 @@ Entity* CreateObject(u32 subtype, u32 form, u32 parameter) {
     return entity;
 }
 
-Entity* CreateObjectWithParent(Entity* parentEnt, u32 subtype, u32 form, u32 parameter) {
-    Entity* ent;
-
-    ent = CreateObject(subtype, form, parameter);
-    if (ent != NULL) {
-        ent->parent = parentEnt;
-        CopyPosition(parentEnt, ent);
+Entity* CreateObjectWithParent(Entity* parent, u32 subtype, u32 form, u32 parameter) {
+    Entity* entity = CreateObject(subtype, form, parameter);
+    if (entity != NULL) {
+        entity->parent = parent;
+        CopyPosition(parent, entity);
     }
 
-    return ent;
+    return entity;
 }
 
 Entity* CreateFx(Entity* parentEnt, u32 form, u32 parameter) {

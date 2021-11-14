@@ -13,7 +13,7 @@ void PlayerItemPacciCane(Entity* this) {
 void sub_080704D4(Entity* this) {
     this->action = 1;
     this->frameIndex = -1;
-    sub_080AE008(this, 1, 3);
+    LoadSwapGFX(this, 1, 3);
     SoundReq(SFX_10E);
     sub_080704FC(this);
 }

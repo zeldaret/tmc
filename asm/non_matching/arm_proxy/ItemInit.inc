@@ -9,7 +9,7 @@
 	cmp r0, #0xff
 	bne _080173CE
 	ldrb r2, [r3, #2]
-	ldr r1, _08017414 @ =gUnk_08126ED8
+	ldr r1, _08017414 @ =gAdditionalPlayerItemDefinitions
 	ldrb r0, [r3, #1]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -56,7 +56,7 @@ _080173CE:
 	b _08017428
 	.align 2, 0
 _08017410: .4byte gPlayerItemDefinitions
-_08017414: .4byte gUnk_08126ED8
+_08017414: .4byte gAdditionalPlayerItemDefinitions
 _08017418: .4byte gPlayerEntity
 _0801741C:
 	ldr r0, _0801749C @ =0x000003FF

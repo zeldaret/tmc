@@ -22,43 +22,45 @@ extern void PlayerItem14();
 extern void PlayerItem15();
 extern void PlayerItemNulled2();
 
-void (*const gPlayerItemFunctions[])() = { DeleteEntity,
-                                           PlayerItemSword,
-                                           PlayerItemBomb,
-                                           PlayerItem3,
-                                           PlayerItemBow,
-                                           PlayerItemShield,
-                                           PlayerItemLantern,
-                                           PlayerItemNulled,
-                                           PlayerItemGustJar,
-                                           PlayerItemPacciCane,
-                                           DeleteEntity,
-                                           DeleteEntity,
-                                           PlayerItemC,
-                                           PlayerItemCellOverwriteSet,
-                                           PlayerItemSwordSpin,
-                                           PlayerItemSwordBeam,
-                                           PlayerItem10,
-                                           PlayerItem11,
-                                           PlayerItem12,
-                                           PlayerItem13,
-                                           PlayerItem14,
-                                           PlayerItem15,
-                                           PlayerItemSwordBeam,
-                                           PlayerItemNulled2,
-                                           PlayerItemCellOverwriteSet };
-
 typedef struct {
-    u8 unk0;
-    u8 unk1;
-    u8 unk2;
-    u8 unk3;
-    u8 unk4;
-    u8 unk5;
-    u16 unk6;
-} ItemFrame;
-extern ItemFrame gUnk_08126DA8[];
-extern ItemFrame* gUnk_08126ED8[3];
+    u8 bitfield;
+    u8 index;
+    u8 firstItemIndex;
+    u8 hurtType;
+    u8 hitType;
+    u8 spriteIndex;
+    u16 gfx;
+} PlayerItemDefinition;
+extern const PlayerItemDefinition gPlayerItemDefinitions[];
+extern const PlayerItemDefinition* gAdditionalPlayerItemDefinitions[3];
+
+void (*const gPlayerItemFunctions[])() = {
+    DeleteEntity,
+    PlayerItemSword,
+    PlayerItemBomb,
+    PlayerItem3,
+    PlayerItemBow,
+    PlayerItemShield,
+    PlayerItemLantern,
+    PlayerItemNulled,
+    PlayerItemGustJar,
+    PlayerItemPacciCane,
+    DeleteEntity,
+    DeleteEntity,
+    PlayerItemC,
+    PlayerItemCellOverwriteSet,
+    PlayerItemSwordSpin,
+    PlayerItemSwordBeam,
+    PlayerItem10,
+    PlayerItem11,
+    PlayerItem12,
+    PlayerItem13,
+    PlayerItem14,
+    PlayerItem15,
+    PlayerItemSwordBeam,
+    PlayerItemNulled2,
+    PlayerItemCellOverwriteSet,
+};
 
 void ItemInit(Entity*);
 
@@ -81,27 +83,25 @@ void ItemUpdate(Entity* this) {
 
 // tiny regalloc
 NONMATCH("asm/non_matching/arm_proxy/ItemInit.inc", void ItemInit(Entity* this)) {
-    ItemFrame* entry;
-
-    entry = &gUnk_08126DA8[this->id];
-    if (entry->unk0 == 0xff) {
-        u32 temp = entry->unk2;
-        ItemFrame* temp2 = gUnk_08126ED8[entry->unk1];
-        entry = &temp2[this->field_0x68.HALF.LO - temp];
+    const PlayerItemDefinition* definition = &gPlayerItemDefinitions[this->id];
+    if (definition->bitfield == 0xff) {
+        u32 tmp = definition->firstItemIndex;
+        definition = gAdditionalPlayerItemDefinitions[definition->index];
+        definition = &definition[this->field_0x68.HALF.LO - tmp];
     }
-
-    this->palette.raw = ((entry->unk0 & 0xf) << 4) | entry->unk0;
-    this->damage = entry->unk1;
-    this->hurtType = entry->unk3;
-    this->hitType = entry->unk4;
-    this->spriteIndex = entry->unk5;
-    if (entry->unk6 == 0)
+    this->palette.raw = (definition->bitfield & 0xf) | (definition->bitfield << 4);
+    this->damage = definition->index;
+    this->hurtType = definition->hurtType;
+    this->hitType = definition->hitType;
+    this->spriteIndex = definition->spriteIndex;
+    if (definition->gfx == 0) {
         this->spriteVramOffset = gPlayerEntity.spriteVramOffset;
-    else
-        this->spriteVramOffset = entry->unk6 & 0x3ff;
-
-    if (this->animationState == 0)
+    } else {
+        this->spriteVramOffset = definition->gfx & 0x3ff;
+    }
+    if (this->animationState == 0) {
         this->animationState = gPlayerEntity.animationState & 6;
+    }
 
     this->collisionLayer = gPlayerEntity.collisionLayer;
     this->spriteRendering.b3 = gPlayerEntity.spriteRendering.b3;

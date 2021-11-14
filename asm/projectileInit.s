@@ -170,7 +170,7 @@ _080A7E78:
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
 	movs r2, #0
-	bl sub_080AE008
+	bl LoadSwapGFX
 	b _080A7E9A
 _080A7E92:
 	ldrh r1, [r5]
@@ -184,7 +184,7 @@ _080A7E9A:
 _080A7EA2:
 	ldrh r1, [r5, #2]
 	adds r0, r4, #0
-	bl sub_0801D040
+	bl LoadObjPalette
 	movs r0, #1
 _080A7EAC:
 	pop {r4, r5, pc}

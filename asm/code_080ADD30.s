@@ -11,7 +11,7 @@
 	thumb_func_start sub_080ADD30
 sub_080ADD30: @ 0x080ADD30
 	push {r4, r5, r6, lr}
-	ldr r4, _080ADD6C @ =gUnk_02024490
+	ldr r4, _080ADD6C @ =gGFXSlots
 	movs r1, #0x85
 	lsls r1, r1, #2
 	adds r0, r4, #0
@@ -25,7 +25,7 @@ _080ADD48:
 	adds r0, r5, #0
 	movs r1, #0
 	movs r2, #1
-	bl sub_080AE104
+	bl ReserveGFXSlots
 	ldrb r0, [r4]
 	ands r0, r6
 	movs r1, #6
@@ -39,13 +39,13 @@ _080ADD48:
 	bls _080ADD48
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_080ADD6C: .4byte gUnk_02024490
+_080ADD6C: .4byte gGFXSlots
 
 	thumb_func_start sub_080ADD70
 sub_080ADD70: @ 0x080ADD70
 .ifdef EU
 	push {r4, r5, lr}
-	ldr r0, _080AD540 @ =gUnk_02024490
+	ldr r0, _080AD540 @ =gGFXSlots
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _080AD56A
@@ -68,7 +68,7 @@ _080AD522:
 	strb r0, [r2]
 	b _080AD562
 	.align 2, 0
-_080AD540: .4byte gUnk_02024490
+_080AD540: .4byte gGFXSlots
 _080AD544: .4byte gUnk_02024494
 _080AD548:
 	cmp r0, #2
@@ -93,7 +93,7 @@ _080AD56A:
 
 .else
 	push {r4, r5, lr}
-	ldr r1, _080ADD88 @ =gUnk_02024490
+	ldr r1, _080ADD88 @ =gGFXSlots
 	ldrb r0, [r1]
 	cmp r0, #0
 	beq _080ADDD6
@@ -103,7 +103,7 @@ _080AD56A:
 	bl sub_080ADE24
 	b _080ADDD6
 	.align 2, 0
-_080ADD88: .4byte gUnk_02024490
+_080ADD88: .4byte gGFXSlots
 _080ADD8C:
 	movs r4, #0
 	movs r5, #0
@@ -190,7 +190,7 @@ _080ADE14:
 	thumb_func_start sub_080ADE24
 sub_080ADE24: @ 0x080ADE24
 	push {r4, r5, lr}
-	ldr r1, _080ADE50 @ =gUnk_02024490
+	ldr r1, _080ADE50 @ =gGFXSlots
 	movs r0, #1
 	strb r0, [r1, #3]
 	movs r4, #0
@@ -211,7 +211,7 @@ _080ADE30:
 	bl sub_080ADE74
 	b _080ADE60
 	.align 2, 0
-_080ADE50: .4byte gUnk_02024490
+_080ADE50: .4byte gGFXSlots
 _080ADE54: .4byte gUnk_02024494
 _080ADE58:
 	adds r0, r1, #0
@@ -223,11 +223,11 @@ _080ADE60:
 	cmp r4, #0x2b
 	bls _080ADE30
 	movs r1, #0
-	ldr r0, _080ADE70 @ =gUnk_02024490
+	ldr r0, _080ADE70 @ =gGFXSlots
 	strb r1, [r0, #3]
 	pop {r4, r5, pc}
 	.align 2, 0
-_080ADE70: .4byte gUnk_02024490
+_080ADE70: .4byte gGFXSlots
 
 	thumb_func_start sub_080ADE74
 sub_080ADE74: @ 0x080ADE74
@@ -267,7 +267,7 @@ _080ADEB0:
 	ands r0, r1
 	cmp r0, #0
 	beq _080ADEF6
-	ldr r0, _080ADF0C @ =gUnk_02024490
+	ldr r0, _080ADF0C @ =gGFXSlots
 	ldrb r0, [r0, #3]
 	cmp r0, #0
 	bne _080ADECA
@@ -308,7 +308,7 @@ _080ADEF6:
 _080ADF00: .4byte gUnk_02024494
 _080ADF04: .4byte 0x0000FFFF
 _080ADF08: .4byte gUnk_020000C0
-_080ADF0C: .4byte gUnk_02024490
+_080ADF0C: .4byte gGFXSlots
 _080ADF10: .4byte 0x06010000
 _080ADF14: .4byte 0x040000D4
 _080ADF18:
@@ -379,7 +379,7 @@ LoadFixedGFX: @ 0x080ADF80
 	b _080AD77E
 _080AD726:
 	movs r4, #4
-	ldr r0, _080AD774 @ =gUnk_02024490
+	ldr r0, _080AD774 @ =gGFXSlots
 	adds r0, #0x30
 _080AD72C:
 	ldrh r1, [r0, #8]
@@ -398,13 +398,13 @@ _080AD72C:
 	ands r0, r7
 	lsrs r6, r0, #0x18
 	adds r0, r6, #0
-	bl sub_080AE174
+	bl FindFreeGFXSlot
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _080AD77C
 	adds r1, r5, #0
 	adds r2, r6, #0
-	bl sub_080AE104
+	bl ReserveGFXSlots
 	adds r0, r4, #0
 	adds r1, r7, #0
 	bl sub_080ADDD8
@@ -416,7 +416,7 @@ _080AD766:
 	movs r0, #1
 	b _080AD77E
 	.align 2, 0
-_080AD774: .4byte gUnk_02024490
+_080AD774: .4byte gGFXSlots
 _080AD778: .4byte gFixedTypeGfxData
 _080AD77C:
 	movs r0, #0
@@ -434,7 +434,7 @@ _080AD77E:
 	cmp r7, #0
 	beq _080ADFFC
 	movs r5, #4
-	ldr r0, _080ADFD4 @ =gUnk_02024490
+	ldr r0, _080ADFD4 @ =gGFXSlots
 	adds r0, #0x30
 _080ADF94:
 	ldrh r1, [r0, #8]
@@ -453,26 +453,26 @@ _080ADF94:
 	ands r0, r1
 	lsrs r6, r0, #0x18
 	adds r0, r6, #0
-	bl sub_080AE174
+	bl FindFreeGFXSlot
 	adds r5, r0, #0
 	cmp r5, #0
 	bne _080ADFDC
-	bl sub_080AE1D8
+	bl CleanUpGFXSlots
 	adds r0, r6, #0
-	bl sub_080AE174
+	bl FindFreeGFXSlot
 	adds r5, r0, #0
 	cmp r5, #0
 	bne _080ADFDC
 	movs r0, #0
 	b _080ADFFE
 	.align 2, 0
-_080ADFD4: .4byte gUnk_02024490
+_080ADFD4: .4byte gGFXSlots
 _080ADFD8: .4byte gFixedTypeGfxData
 _080ADFDC:
 	adds r0, r5, #0
 	adds r1, r7, #0
 	adds r2, r6, #0
-	bl sub_080AE104
+	bl ReserveGFXSlots
 	ldr r0, _080AE004 @ =gFixedTypeGfxData
 	adds r0, r4, r0
 	ldr r1, [r0]
@@ -493,8 +493,8 @@ _080ADFFE:
 _080AE004: .4byte gFixedTypeGfxData
 .endif
 
-	thumb_func_start sub_080AE008
-sub_080AE008: @ 0x080AE008
+	thumb_func_start LoadSwapGFX
+LoadSwapGFX: @ 0x080AE008
 .ifdef EU
 	push {r4, r5, r6, lr}
 	adds r6, r0, #0
@@ -503,12 +503,12 @@ sub_080AE008: @ 0x080AE008
 	cmp r4, #0
 	bne _080AD79C
 	adds r0, r5, #0
-	bl sub_080AE174
+	bl FindFreeGFXSlot
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _080AD7C4
 _080AD79C:
-	ldr r0, _080AD7D0 @ =gUnk_02024490
+	ldr r0, _080AD7D0 @ =gGFXSlots
 	lsls r1, r4, #1
 	adds r1, r1, r4
 	lsls r1, r1, #2
@@ -521,7 +521,7 @@ _080AD79C:
 	adds r0, r4, #0
 	movs r1, #0
 	adds r2, r5, #0
-	bl sub_080AE104
+	bl ReserveGFXSlots
 	movs r2, #5
 _080AD7BC:
 	adds r0, r4, #0
@@ -535,7 +535,7 @@ _080AD7C4:
 _080AD7CC:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_080AD7D0: .4byte gUnk_02024490
+_080AD7D0: .4byte gGFXSlots
 
 .else
 	push {r4, r5, r6, lr}
@@ -545,18 +545,18 @@ _080AD7D0: .4byte gUnk_02024490
 	cmp r4, #0
 	bne _080AE030
 	adds r0, r5, #0
-	bl sub_080AE174
+	bl FindFreeGFXSlot
 	adds r4, r0, #0
 	cmp r4, #0
 	bne _080AE030
-	bl sub_080AE1D8
+	bl CleanUpGFXSlots
 	adds r0, r5, #0
-	bl sub_080AE174
+	bl FindFreeGFXSlot
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _080AE058
 _080AE030:
-	ldr r0, _080AE064 @ =gUnk_02024490
+	ldr r0, _080AE064 @ =gGFXSlots
 	lsls r1, r4, #1
 	adds r1, r1, r4
 	lsls r1, r1, #2
@@ -569,7 +569,7 @@ _080AE030:
 	adds r0, r4, #0
 	movs r1, #0
 	adds r2, r5, #0
-	bl sub_080AE104
+	bl ReserveGFXSlots
 	movs r2, #5
 _080AE050:
 	adds r0, r4, #0
@@ -583,7 +583,7 @@ _080AE058:
 _080AE060:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_080AE064: .4byte gUnk_02024490
+_080AE064: .4byte gGFXSlots
 .endif
 
 	thumb_func_start sub_080AE068
@@ -672,8 +672,8 @@ _080AE0F6:
 	.align 2, 0
 _080AE100: .4byte gUnk_02024494
 
-	thumb_func_start sub_080AE104
-sub_080AE104: @ 0x080AE104
+	thumb_func_start ReserveGFXSlots
+ReserveGFXSlots: @ 0x080AE104
 	push {r4, r5, r6, lr}
 	adds r6, r1, #0
 	adds r5, r2, #0
@@ -734,13 +734,13 @@ _080AE170:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 
-	thumb_func_start sub_080AE174
-sub_080AE174: @ 0x080AE174
+	thumb_func_start FindFreeGFXSlot
+FindFreeGFXSlot: @ 0x080AE174
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r1, #0
 	movs r2, #4
-	ldr r0, _080AE194 @ =gUnk_02024490
+	ldr r0, _080AE194 @ =gGFXSlots
 	adds r3, r0, #0
 	adds r3, #0x30
 _080AE182:
@@ -753,7 +753,7 @@ _080AE182:
 	bhi _080AE19A
 	b _080AE1BC
 	.align 2, 0
-_080AE194: .4byte gUnk_02024490
+_080AE194: .4byte gGFXSlots
 _080AE198:
 	movs r1, #0
 _080AE19A:
@@ -763,7 +763,7 @@ _080AE19A:
 	bls _080AE182
 	movs r1, #0
 	movs r2, #4
-	ldr r0, _080AE1C4 @ =gUnk_02024490
+	ldr r0, _080AE1C4 @ =gGFXSlots
 	adds r3, r0, #0
 	adds r3, #0x30
 _080AE1AC:
@@ -784,7 +784,7 @@ _080AE1BC:
 	adds r0, #1
 	b _080AE1D4
 	.align 2, 0
-_080AE1C4: .4byte gUnk_02024490
+_080AE1C4: .4byte gGFXSlots
 _080AE1C8:
 	movs r1, #0
 _080AE1CA:
@@ -798,17 +798,17 @@ _080AE1D4:
 	.align 2, 0
 
 .ifndef EU
-	thumb_func_start sub_080AE1D8
-sub_080AE1D8: @ 0x080AE1D8
+	thumb_func_start CleanUpGFXSlots
+CleanUpGFXSlots: @ 0x080AE1D8
 	push {r4, r5, lr}
-	ldr r0, _080AE1E8 @ =gUnk_02024490
+	ldr r0, _080AE1E8 @ =gGFXSlots
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _080AE216
 	movs r5, #4
 	b _080AE20A
 	.align 2, 0
-_080AE1E8: .4byte gUnk_02024490
+_080AE1E8: .4byte gGFXSlots
 _080AE1EC:
 	bl sub_080AE3B8
 	adds r4, r0, #0
@@ -849,7 +849,7 @@ sub_080AE218: @ 0x080AE218
 	mov r2, sl
 	lsls r0, r2, #4
 	adds r3, r0, r1
-	ldr r1, _080AE30C @ =gUnk_02024490
+	ldr r1, _080AE30C @ =gGFXSlots
 	lsls r0, r2, #1
 	add r0, sl
 	lsls r0, r0, #2
@@ -964,7 +964,7 @@ _080AE2F8:
 	mov sl, r5
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080AE30C: .4byte gUnk_02024490
+_080AE30C: .4byte gGFXSlots
 _080AE310: .4byte gUnk_020000C0
 _080AE314: .4byte gPlayerEntity
 _080AE318: .4byte 0xFFFFFC00
@@ -977,7 +977,7 @@ sub_080AE324: @ 0x080AE324
 	mov r7, r8
 	push {r7}
 	adds r3, r1, #0
-	ldr r2, _080AE380 @ =gUnk_02024490
+	ldr r2, _080AE380 @ =gGFXSlots
 	lsls r1, r0, #1
 	adds r1, r1, r0
 	lsls r1, r1, #2
@@ -1013,14 +1013,14 @@ _080AE350:
 	cmp r4, r0
 	bne _080AE350
 _080AE372:
-	ldr r1, _080AE380 @ =gUnk_02024490
+	ldr r1, _080AE380 @ =gGFXSlots
 	movs r0, #1
 	strb r0, [r1, #3]
 	pop {r3}
 	mov r8, r3
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080AE380: .4byte gUnk_02024490
+_080AE380: .4byte gGFXSlots
 
 	thumb_func_start sub_080AE384
 sub_080AE384: @ 0x080AE384
@@ -1028,7 +1028,7 @@ sub_080AE384: @ 0x080AE384
 	adds r2, r0, #0
 	cmp r2, #0x2a
 	bhi _080AE3B4
-	ldr r1, _080AE3A8 @ =gUnk_02024490
+	ldr r1, _080AE3A8 @ =gGFXSlots
 	lsls r0, r2, #1
 	adds r0, r0, r2
 	lsls r0, r0, #2
@@ -1044,7 +1044,7 @@ _080AE396:
 	adds r0, r2, #0
 	b _080AE3B6
 	.align 2, 0
-_080AE3A8: .4byte gUnk_02024490
+_080AE3A8: .4byte gGFXSlots
 _080AE3AC:
 	adds r1, #0xc
 	adds r2, #1
@@ -1059,7 +1059,7 @@ _080AE3B6:
 sub_080AE3B8: @ 0x080AE3B8
 	push {lr}
 	movs r1, #4
-	ldr r0, _080AE3D4 @ =gUnk_02024490
+	ldr r0, _080AE3D4 @ =gGFXSlots
 	adds r2, r0, #0
 	adds r2, #0x30
 _080AE3C2:
@@ -1073,7 +1073,7 @@ _080AE3C2:
 	adds r0, r1, #0
 	b _080AE3E2
 	.align 2, 0
-_080AE3D4: .4byte gUnk_02024490
+_080AE3D4: .4byte gGFXSlots
 _080AE3D8:
 	adds r2, #0xc
 	adds r1, #1

@@ -21,9 +21,9 @@ bool32 ProjectileInit(Entity* this) {
         if (LoadProjectileSprite(this, definition) == FALSE) {
             return FALSE;
         }
-        this->flags |= 1;
-        if (definition->spriteFlags.unknown != 0) {
-            this->flags |= 0x80;
+        this->flags |= ENT_DID_INIT;
+        if (definition->spriteFlags.collision != 0) {
+            COLLISION_ON(this);
         }
         this->spriteIndex = definition->spriteIndex;
         if (this->spriteSettings.draw == 0) {
@@ -52,7 +52,7 @@ bool32 LoadProjectileSprite(Entity* this, const ProjectileDefinition* definition
             this->spriteVramOffset = definition->gfx & 0x3ff;
         } else {
             if ((definition->gfx & 0x4000) != 0) {
-                result = sub_080AE008(this, definition->gfx >> 4, 0);
+                result = LoadSwapGFX(this, (u8)(definition->gfx >> 4), 0);
             } else {
                 result = LoadFixedGFX(this, definition->gfx);
             }
@@ -61,7 +61,7 @@ bool32 LoadProjectileSprite(Entity* this, const ProjectileDefinition* definition
             }
         }
     }
-    sub_0801D040(this, definition->paletteIndex);
+    LoadObjPalette(this, definition->paletteIndex);
     return TRUE;
 }
 

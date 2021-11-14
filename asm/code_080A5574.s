@@ -4849,13 +4849,13 @@ sub_080A7250: @ 0x080A7250
 	movs r2, #0x80
 	lsls r2, r2, #3
 	bl MemCopy
-	ldr r0, _080A72FC @ =gUnk_02024490
+	ldr r0, _080A72FC @ =gGFXSlots
 	ldr r4, _080A7300 @ =gUnk_02032F14
 	movs r2, #0x85
 	lsls r2, r2, #2
 	adds r1, r4, #0
 	bl MemCopy
-	ldr r0, _080A7304 @ =gUnk_02001A00
+	ldr r0, _080A7304 @ =gPaletteList
 	movs r2, #0x85
 	lsls r2, r2, #2
 	adds r1, r4, r2
@@ -4909,9 +4909,9 @@ _080A72EC: .4byte gScreen
 _080A72F0: .4byte gUnk_03001020
 _080A72F4: .4byte gPaletteBuffer
 _080A72F8: .4byte gUnk_02024090
-_080A72FC: .4byte gUnk_02024490
+_080A72FC: .4byte gGFXSlots
 _080A7300: .4byte gUnk_02032F14
-_080A7304: .4byte gUnk_02001A00
+_080A7304: .4byte gPaletteList
 _080A7308: .4byte gRoomControls
 _080A730C: .4byte gUnk_03000420
 _080A7310: .4byte gActiveScriptInfo
@@ -4951,7 +4951,7 @@ sub_080A7328: @ 0x080A7328
 	bl sub_080ADD30
 	movs r0, #0
 	bl sub_0801CFA8
-	ldr r0, _080A739C @ =gUnk_02024490
+	ldr r0, _080A739C @ =gGFXSlots
 	movs r2, #1
 	strb r2, [r0]
 	ldr r1, _080A73A0 @ =gUnk_02032EC0
@@ -4968,7 +4968,7 @@ _080A738C: .4byte gMenu
 _080A7390: .4byte gRoomControls
 _080A7394: .4byte gUnk_03000420
 _080A7398: .4byte gActiveScriptInfo
-_080A739C: .4byte gUnk_02024490
+_080A739C: .4byte gGFXSlots
 _080A73A0: .4byte gUnk_02032EC0
 _080A73A4: .4byte gScreenTransition
 
@@ -5013,12 +5013,12 @@ _080A73B4:
 	movs r1, #0x9a
 	lsls r1, r1, #2
 	adds r0, r5, r1
-	ldr r1, _080A7488 @ =gUnk_02001A00
+	ldr r1, _080A7488 @ =gPaletteList
 	movs r2, #0x40
 	bl MemCopy
 	adds r0, r5, #0
 	adds r0, #0x54
-	ldr r1, _080A748C @ =gUnk_02024490
+	ldr r1, _080A748C @ =gGFXSlots
 	movs r2, #0x85
 	lsls r2, r2, #2
 	bl MemCopy
@@ -5065,8 +5065,8 @@ _080A7478: .4byte gUnk_02025EB0
 _080A747C: .4byte gUnk_0200B650
 _080A7480: .4byte gActiveScriptInfo
 _080A7484: .4byte gUnk_03000420
-_080A7488: .4byte gUnk_02001A00
-_080A748C: .4byte gUnk_02024490
+_080A7488: .4byte gPaletteList
+_080A748C: .4byte gGFXSlots
 _080A7490: .4byte gRoomControls
 _080A7494: .4byte gUnk_03001020
 _080A7498: .4byte gScreen

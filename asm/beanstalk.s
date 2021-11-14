@@ -91,7 +91,7 @@ _080896A4:
 	adds r0, r5, #0
 	movs r1, #1
 	movs r2, #2
-	bl sub_080AE008
+	bl LoadSwapGFX
 	ldr r0, _08089700 @ =gUnk_08120E14
 	ldrb r1, [r5, #0xa]
 	lsls r1, r1, #2
@@ -346,7 +346,7 @@ _08089DAC:
 	adds r0, r5, #0
 	movs r1, #1
 	movs r2, #2
-	bl sub_080AE008
+	bl LoadSwapGFX
 	ldr r0, _08089E08 @ =gUnk_08120E14
 	ldrb r1, [r5, #0xa]
 	lsls r1, r1, #2

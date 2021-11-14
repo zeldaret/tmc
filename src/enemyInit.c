@@ -22,9 +22,9 @@ bool32 EnemyInit(Entity* this) {
         if (LoadEnemySprite(this, definition) == FALSE) {
             return FALSE;
         }
-        this->flags |= 1;
-        if (definition->spriteFlags.unknown != 0) {
-            this->flags |= 0x80;
+        this->flags |= ENT_DID_INIT;
+        if (definition->spriteFlags.collision != 0) {
+            COLLISION_ON(this);
         }
         this->spriteIndex = definition->spriteIndex;
         if (this->spriteSettings.draw == 0) {
@@ -72,7 +72,7 @@ bool32 LoadEnemySprite(Entity* entity, const EnemyDefinition* definition) {
         } else {
             if ((definition->gfx & 0x4000) != 0) {
                 // Swap gfx (bitfield 0x4000)
-                result = sub_080AE008(entity, definition->gfx >> 4, 0);
+                result = LoadSwapGFX(entity, (u8)(definition->gfx >> 4), 0);
             } else {
                 // Fixed gfx
                 result = LoadFixedGFX(entity, definition->gfx);
@@ -82,6 +82,6 @@ bool32 LoadEnemySprite(Entity* entity, const EnemyDefinition* definition) {
             }
         }
     }
-    sub_0801D040(entity, definition->paletteIndex);
+    LoadObjPalette(entity, definition->paletteIndex);
     return TRUE;
 }

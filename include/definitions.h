@@ -12,7 +12,7 @@ typedef struct EnemyDefinition {
     u16 spriteIndex;
     struct {
         u8 spritePriority : 3;
-        u8 unknown : 1;
+        u8 collision : 1;
         u8 draw : 2;
         u8 shadow : 2;
     } PACKED spriteFlags;
@@ -33,7 +33,7 @@ typedef struct ProjectileDefinition {
     u16 field0x3c : 4;
     struct {
         u8 spritePriority : 3;
-        u8 unknown : 1;
+        u8 collision : 1;
         u8 draw : 2;
         u8 shadow : 2;
     } PACKED spriteFlags;
@@ -44,18 +44,53 @@ typedef struct ProjectileDefinition {
 } ProjectileDefinition;
 
 // Sprite data definition for objects and npcs
-typedef struct SpriteDataB {
-    u8 type;
-    u8 unk;
-    u16 bitfield;
+typedef struct ObjectDefinition {
+    struct {
+        u8 type : 2;
+        u8 flags : 2;
+        u8 unk : 4;
+        u8 hitbox;
+        u16 gfx : 10;
+        u16 gfx_type : 2;
+        u16 unk2 : 4;
+    } PACKED bitfield;
     union {
         struct {
-            u16 paletteIndex;
-            u16 spriteIndex;
-        } sprite;
-        const struct SpriteDataB* spriteData;
+            u16 paletteIndex : 10;
+            u16 unk : 2;
+            u16 shadow : 2;
+            u16 unk2 : 2;
+            u16 spriteIndex : 10;
+            u16 spritePriority : 3;
+            u16 draw : 3;
+        } PACKED sprite;
+        const struct ObjectDefinition* definition;
     } data;
-} SpriteDataB;
+} ObjectDefinition;
+
+typedef struct NPCDefinition {
+    struct {
+        u8 type : 2;
+        u8 flags : 2;
+        u8 unk : 4;
+        u8 hitbox;
+        u16 gfx : 10;
+        u16 gfx_type : 2;
+        u16 unk2 : 4;
+    } PACKED bitfield;
+    union {
+        struct {
+            u16 paletteIndex : 10;
+            u16 unk : 2;
+            u16 shadow : 2;
+            u16 unk2 : 2;
+            u16 spriteIndex : 10;
+            u16 spritePriority : 3;
+            u16 draw : 3;
+        } PACKED sprite;
+        const struct NPCDefinition* definition;
+    } data;
+} NPCDefinition;
 
 // Sprite data definition for player items
 typedef struct SpriteDataC {

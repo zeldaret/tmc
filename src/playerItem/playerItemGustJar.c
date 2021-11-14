@@ -26,7 +26,7 @@ void sub_080ADA6C(Entity* this) {
     this->hitbox->unk2[3] = 6;
     this->hitbox->unk2[0] = 6;
     sub_080ADC84(this);
-    sub_080AE008(this, 1, 3);
+    LoadSwapGFX(this, 1, 3);
     InitAnimationForceUpdate(this, this->animationState >> 1);
 }
 

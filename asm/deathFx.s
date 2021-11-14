@@ -61,7 +61,7 @@ _08081674:
 	adds r0, r4, #0
 	movs r1, #4
 	movs r2, #0
-	bl sub_080AE008
+	bl LoadSwapGFX
 	adds r0, r4, #0
 	movs r1, #0
 	bl InitAnimationForceUpdate
