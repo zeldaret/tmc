@@ -26,7 +26,7 @@ void sub_0809B3C4(Entity* this) {
             DeleteThisEntity();
         }
     } else {
-        if (CheckLocalFlag(0x73)) {
+        if (CheckLocalFlag(MIZUKAKI_BOOK_ALLBACK)) {
             DeleteThisEntity();
         }
 
@@ -143,7 +143,7 @@ void sub_0809B56C(Entity* this) {
 }
 
 void sub_0809B5B4(Entity* this) {
-    if (gPlayerState.flags & 0x80) {
+    if (gPlayerState.flags & PL_IS_MINISH) {
         sub_0800445C(this);
     } else if (sub_08017850(this)) {
         CreateItemEntity(this->type + 0x39, 0, 0);

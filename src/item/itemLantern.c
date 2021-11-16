@@ -21,7 +21,7 @@ void sub_08075A0C(ItemBehavior* this, u32 arg1) {
     s8* tmp;
     itemSlot = IsItemEquipped(this->behaviorID);
     if (gPlayerState.heldObject != 0 || gPlayerState.playerAction == 0x18 || gPlayerState.jumpStatus != 0 ||
-        gPlayerState.field_0x2c != NULL || (gPlayerState.flags & 0x80) != 0) {
+        gPlayerState.field_0x2c != NULL || (gPlayerState.flags & PL_IS_MINISH) != 0) {
         ForceEquipItem(0xf, itemSlot);
         gPlayerState.flags &= 0xff7fffff;
         ForceEquipItem(0xf, itemSlot);

@@ -225,7 +225,7 @@ void sub_0806A890(Entity* this) {
 
 void sub_0806A8C8(Entity* this) {
     Entity* entity;
-    if ((CheckLocalFlag(0x60) == 0) && (entity = CreateNPC(0x37, 2, 0), entity != NULL)) {
+    if ((CheckLocalFlag(SHOP02_KUTSU_00) == 0) && (entity = CreateNPC(0x37, 2, 0), entity != NULL)) {
         CopyPosition(this, entity);
         entity->parent = this;
     }
@@ -278,7 +278,7 @@ void sub_0806A9B0(Entity* this, ScriptExecutionContext* context) {
     this->actionDelay = gUnk_081122A0[Random() & 7];
     this->field_0x80.HWORD = 9;
     InitializeAnimation(this, 9);
-    SetLocalFlag(0x62);
+    SetLocalFlag(NPC37_REM_SLEEP);
 }
 
 void sub_0806A9E8(Entity* this) {

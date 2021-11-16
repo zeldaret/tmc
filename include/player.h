@@ -41,6 +41,10 @@ enum {
     PLAYER_PARACHUTE,
 };
 
+enum {
+    PL_IS_MINISH = (1 << 7),
+};
+
 typedef struct {
     /*0x00*/ u8 field_0x0[2];
     /*0x02*/ u8 jumpStatus;

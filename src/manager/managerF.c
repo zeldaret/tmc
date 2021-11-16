@@ -360,7 +360,7 @@ void sub_0805938C(ManagerF* this) {
 }
 
 u32 sub_080593CC(ManagerF* this) {
-    if (!(gPlayerState.flags & 0x80) && gPlayerState.swimState != 0 && gPlayerEntity.animationState == 0 &&
+    if (!(gPlayerState.flags & PL_IS_MINISH) && gPlayerState.swimState != 0 && gPlayerEntity.animationState == 0 &&
         (gPlayerState.field_0x90.HALF.LO & 0xF00) == 0x400) {
         return sub_0806FCB8(&gPlayerEntity, this->unk_38, this->unk_3a + 0xC, 6);
     }

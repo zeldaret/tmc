@@ -72,7 +72,7 @@ void sub_08098DC4(Entity* this) {
         gPlayerState.field_0x34[5] = this->type2;
         this->action = 4;
         if (this->type2 == 1) {
-            SetGlobalFlag(0x23);
+            SetGlobalFlag(TATSUMAKI);
         }
         sub_08077B20();
     }
