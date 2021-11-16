@@ -108,6 +108,14 @@ typedef struct {
 extern FadeControl gFadeControl;
 
 typedef struct {
+    u8 unk0;
+    u8 unk1;
+    u16 unk2;
+} struct_020354C0;
+
+extern struct_020354C0 gUnk_020354C0[0x20];
+
+typedef struct {
     u8 filler0[0x1A];
     u16 rButtonX;
     u8 filler1C[0x4];
