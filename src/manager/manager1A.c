@@ -157,7 +157,7 @@ void sub_0805B210(Manager1A* this) {
     gScreenTransition.areaID = tmp->unk_01;
     gScreenTransition.roomID = tmp->unk_02;
     gScreenTransition.playerLayer = tmp->unk_03;
-    if (gPlayerState.flags & 0x80) {
+    if (gPlayerState.flags & PL_IS_MINISH) {
         gScreenTransition.field_0xf = 6;
     } else {
         gScreenTransition.field_0xf = 2;

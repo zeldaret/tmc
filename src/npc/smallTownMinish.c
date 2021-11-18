@@ -20,7 +20,7 @@ void SmallTownMinish(Entity* this) {
     } else {
         sub_0807DD94(this, NULL);
     }
-    if ((gPlayerState.flags & 0x80) != 0) {
+    if ((gPlayerState.flags & PL_IS_MINISH) != 0) {
         this->spriteSettings.draw = 1;
     } else {
         this->spriteSettings.draw = 0;

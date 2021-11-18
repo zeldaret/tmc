@@ -94,7 +94,7 @@ void CreateMagicSparkles(u32 baseX, u32 baseY, u32 layer) {
 }
 
 u32 sub_08057810(void) {
-    if ((gPlayerState.flags & 0x80) && !gPlayerState.field_0xaa && (gArea.curPortalType != 0x6) &&
+    if ((gPlayerState.flags & PL_IS_MINISH) && !gPlayerState.field_0xaa && (gArea.curPortalType != 0x6) &&
         (gPlayerState.heldObject == 0)) {
         switch (gPlayerState.field_0xa8) {
             case 0:

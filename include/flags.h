@@ -145,7 +145,12 @@ typedef enum {
     MIZUUMI_00_H00,
     MIZUUMI_00_H01,
     MIZUUMI_00_H02,
+#if !defined(EU) && !defined(JP) && !defined(DEMO_JP)
     MIZUUMI_00_CAP_0,
+#else
+    HIKYOU_00_T0,
+    HIKYOU_00_T1,
+#endif
     MAENIWA_00_00,
     MAENIWA_00_01,
     MAENIWA_00_02,
@@ -166,10 +171,15 @@ typedef enum {
     HIKYOU_00_SEKIZOU,
     HIKYOU_00_14,
     HIKYOU_00_BOSEKI,
+#if defined(EU) || defined(JP) || defined(DEMO_JP)
+    HIKYOU_00_H00,
+#endif
     HIKYOU_00_M0,
     HIKYOU_00_M1,
     HIKYOU_00_M2,
+#if !defined(EU) && !defined(JP) && !defined(DEMO_JP)
     HIKYOU_00_T1,
+#endif
     LOST_00_ENTER,
     LOST_00_00,
     LOST_00_01,
@@ -184,8 +194,10 @@ typedef enum {
     LOST_04_SIBA4,
     LOST_05_00,
     LOST_05_01,
+#if !defined(JP) && !defined(EU) && !defined(DEMO_JP)
     LOST_05_02,
     LOST_05_03,
+#endif
     LOST_05_T0,
     LOST_05_T1,
     MORI_00_HIBI_0,
@@ -208,7 +220,9 @@ typedef enum {
     YAMA_03_DOKU_1,
     YAMA_03_DOKU_2,
     YAMA_04_CAP_0,
+#if !defined(JP) && !defined(EU) && !defined(DEMO_JP)
     YAMA_04_CAP_1,
+#endif
     YAMA_04_R00,
     YAMA_04_HIBI_0,
     YAMA_04_HIBI_1,
@@ -281,6 +295,9 @@ typedef enum {
     SOUGEN_07_00,
     SOUGEN_07_01,
     SOUGEN_07_02,
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
+    SOUGEN_07_H00,
+#endif
     SOUGEN_08_00,
     SOUGEN_08_01,
     SOUGEN_08_02,
@@ -304,7 +321,9 @@ typedef enum {
     SUIGEN_00_CAP_1,
     SUIGEN_00_R0,
     SUIGEN_00_R1,
+#if !defined(JP) && !defined(EU) && !defined(DEMO_JP)
     SUIGEN_00_R2,
+#endif
     SUIGEN_00_h1,
     SUIGENGORON_00_CAP_0,
     DAIGORON_SHIELD,
@@ -316,7 +335,9 @@ typedef enum {
     BEANDEMO_04,
     KAKERA_TAKARA_A,
     KAKERA_TAKARA_E,
+#if !defined(JP) && !defined(EU) && !defined(DEMO_JP)
     KAKERA_TAKARA_J,
+#endif
     KAKERA_TAKARA_K,
     KAKERA_TAKARA_L,
     KAKERA_TAKARA_M,
@@ -341,7 +362,7 @@ typedef enum {
     MACHI_00_T01,
     MACHI_01_DEMO,
     MACHI_02_HEISHI,
-    MACHI_02_DOG,
+    MACHI_02_DOG, /* Talk to dog as minish       */
     MACHI_07_BELL,
     SHOP05_OPEN,
     MACHI_MES_20,
@@ -353,7 +374,7 @@ typedef enum {
     MACHI_MES_40,
     MACHI_MES_60,
     MACHI_MES_50,
-    MACHI_DOG_C,
+    MACHI_DOG_C, /* Seen all dog dialogue        */
     KUMOUE_00_CAP_0,
     KUMOUE_01_CAP_0,
     KUMOUE_01_T0,
@@ -383,10 +404,22 @@ typedef enum {
     KUMOUE_02_03,
     KUMOUE_UNCLE_TALK,
     KUMOUE_GIRL_TALK,
+#if !defined(JP) && !defined(EU) && !defined(DEMO_JP)
     KS_A06,
     KS_B18,
     KS_C21,
     KS_C25,
+#else
+    MIZUUMI_00_CAP_0,
+    SUIGEN_00_R2,
+    YAMA_04_CAP_1,
+    LOST_05_02,
+    LOST_05_03,
+    KAKERA_TAKARA_J,
+#endif
+#ifdef DEMO_JP
+    KS_WARPUSE,
+#endif
     END_1,
 } LocalFlags1;
 
@@ -596,13 +629,21 @@ typedef enum {
     MHOUSE_15_CAP_1,
     SHOP_03_CAP_0,
     MHOUSE_07_CAP_2,
+#ifndef EU
     SHOP00_BOMBBAG,
     CAFE_01_CAP_1,
+#endif
+#if !defined(EU) && !defined(JP) && !defined(DEMO_JP)
     KS_A02,
     KS_A09,
     KS_A18,
     KS_B07,
     KS_B16,
+#endif
+#ifdef DEMO_JP
+    MH01_KS_KUSURI,
+    MH09_KS_KUSURI,
+#endif
     END_2,
 } LocalFlags2;
 
@@ -806,8 +847,12 @@ typedef enum {
     LV4_HAKA_08_B0,
     LV4_HAKA_08_K0,
     MAROYA_1ST,
+#ifndef EU
     MACHI_CHIKA2_10_CAP_0,
+#endif
+#if !defined(EU) && !defined(JP) && !defined(DEMO_JP)
     KS_C02,
+#endif
     END_3,
 } LocalFlags3;
 
@@ -947,12 +992,14 @@ typedef enum {
     KOBITO_DOUKUTU_02_H00,
     KOBITO_DOUKUTU_01_T0,
     YAMADOUKUTU_04_CAP_0,
+#if !defined(EU) && !defined(JP) && !defined(DEMO_JP)
     KS_B06,
     KS_B15,
     KS_B01,
     KS_B12,
     KS_C12,
     KS_C37,
+#endif
     END_4,
 } LocalFlags4;
 
@@ -1043,7 +1090,9 @@ typedef enum {
     LV1_08_01,
     LV1_01_05,
     LV1_10_CAP_0,
+#if !defined(EU) && !defined(JP)
     LV1_12_CAP_0,
+#endif
     END_5,
 } LocalFlags5;
 

@@ -53,7 +53,7 @@ void sub_0806E824(Entity* this) {
 
 void sub_0806E838(Entity* this) {
     if (this->interactType != 0) {
-        if ((gPlayerState.flags & 0x80) != 0) {
+        if ((gPlayerState.flags & PL_IS_MINISH) != 0) {
             if (this->interactType == 2) {
                 this->action = 3;
                 sub_0806F118(this);

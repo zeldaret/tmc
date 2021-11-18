@@ -268,7 +268,7 @@ void sub_08028CE8(Entity* this) {
                         this->field_0x80.HALF.HI = 0;
                         sub_080290E0(this, 3);
 #if defined(USA) || defined(DEMO_USA)
-                        SetLocalFlag(0x87);
+                        SetLocalFlag(KS_B06);
 #endif
                         return;
                     case 1:
@@ -534,7 +534,7 @@ NONMATCH("asm/non_matching/businessScrub/sub_0802925C.inc", void sub_0802922C(En
 
     switch (offer->field_0x8) {
         case 0x1c:
-            SetGlobalFlag(0x5a);
+            SetGlobalFlag(AKINDO_BOTTLE_SELL);
             break;
     }
 

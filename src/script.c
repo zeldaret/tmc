@@ -806,7 +806,7 @@ void ScriptCommand_CheckEntityInteractType(Entity* entity, ScriptExecutionContex
 }
 
 void ScriptCommand_0807E30C(Entity* entity, ScriptExecutionContext* context) {
-    if ((context->unk_1A & 0xF) == 0 && (gPlayerState.flags & 0x80) == 0 &&
+    if ((context->unk_1A & 0xF) == 0 && (gPlayerState.flags & PL_IS_MINISH) == 0 &&
         sub_080041A0(entity, &gPlayerEntity, 0x28, 0x28)) {
         entity->animationState = sub_0806F5B0(GetFacingDirection(entity, &gPlayerEntity));
     }

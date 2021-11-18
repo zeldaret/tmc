@@ -4,10 +4,6 @@
 	.section .rodata
     .align 2
 
-@ FIXME add to asset configurations
-@gUnk_080B7B74:: @ 080B7B74
-@	.incbin "data_080B7B74/gUnk_080B7B74.bin"
-
 gCollisionMtx:: @ 080B7B74
 	.incbin "baserom.gba", 0x0B7B74, 0x00004BA
 

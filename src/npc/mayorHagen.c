@@ -57,10 +57,10 @@ void sub_0806CE80(Entity* this) {
         // flippers
         if (GetInventoryValue(0x46) == 0) {
             if (CheckLocalFlag(0x70) != 0) {
-                v2 = CheckLocalFlag(0x71);
+                v2 = CheckLocalFlag(MIZUKAKI_HINT3_MAYOR);
                 if (v2 == 0) {
                     v = 0xb;
-                    SetLocalFlag(0x71);
+                    SetLocalFlag(MIZUKAKI_HINT3_MAYOR);
                 } else {
                     v = 0xc;
                 }
@@ -68,10 +68,10 @@ void sub_0806CE80(Entity* this) {
                 v = 0xa;
             }
         } else {
-            v2 = CheckLocalFlag(0x89);
+            v2 = CheckLocalFlag(MAYOR_2_TALK1ST);
             if (v2 == 0) {
                 v = 0xd;
-                SetLocalFlag(0x89);
+                SetLocalFlag(MAYOR_2_TALK1ST);
             } else {
                 v = 0xe;
             }
