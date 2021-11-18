@@ -51706,7 +51706,7 @@
     "size": 40
   },
   {
-    "path": "data_08132B30/gSprite_Link.4bpp",
+    "path": "sprites/gSprite_Link.4bpp",
     "start": 1289748,
     "size": 581216,
     "type": "gfx",
@@ -51715,7 +51715,7 @@
     }
   },
   {
-    "path": "data_08132B30/gSprite_081C8C74.4bpp",
+    "path": "sprites/gSprite_081C8C74.4bpp",
     "start": 1870964,
     "size": 59904,
     "type": "gfx",
@@ -51724,7 +51724,7 @@
     }
   },
   {
-    "path": "data_08132B30/gSprite_081D7674.4bpp",
+    "path": "sprites/gSprite_081D7674.4bpp",
     "start": 1930868,
     "size": 33216,
     "type": "gfx",
@@ -51733,114 +51733,679 @@
     }
   },
   {
-    "path": "data_08132B30/gSprite_081DF834.4bpp",
+    "path": "sprites/gSprite_081DF834/unk_0.4bpp",
     "start": 1964084,
-    "size": 129408,
-    "type": "gfx",
-    "options": {
-      "width": 4
-    }
-  },
-  {
-    "path": "data_08132B30/gSprite_081FF1B4.4bpp",
-    "start": 2093492,
-    "size": 103168,
-    "type": "gfx",
-    "options": {
-      "width": 4
-    }
-  },
-  {
-    "path": "graphics/npc/postman.4bpp",
-    "start": 2196660,
-    "size": 22528,
-    "type": "gfx",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "graphics/npc/malon.4bpp",
-    "start": 2219188,
-    "size": 3136,
-    "type": "gfx",
-    "options": {
-      "width": 2
-    }
-  },
-  {
-    "path": "data_08132B30/gSprite_081FF1B4_1.4bpp",
-    "start": 2222324,
-    "size": 11527,
-    "type": "gfx",
-    "options": {
-      "width": 4
-    }
-  },
-  {
-    "path": "data_08132B30/gSprite_081FF1B4_2_EU.4bpp",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 2231527
-    },
-    "size": 1014,
-    "type": "gfx",
-    "options": {
-      "width": 4
-    }
-  },
-  {
-    "path": "data_08132B30/gSprite_081FF1B4_3_USA-JP-DEMO_USA-DEMO_JP.4bpp",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 2233851,
-    "size": 1014,
-    "type": "gfx",
-    "options": {
-      "width": 4
-    }
-  },
-  {
-    "path": "data_08132B30/gSprite_081FF1B4_4.4bpp",
-    "start": 2234865,
-    "size": 154339,
-    "type": "gfx",
-    "options": {
-      "width": 4
-    }
-  },
-  {
-    "path": "data_08132B30/gSprite_082474D4.4bpp",
-    "start": 2389204,
-    "size": 578496,
-    "type": "gfx",
-    "options": {
-      "width": 4
-    }
-  },
-  {
-    "path": "graphics/pot_portal.4bpp",
-    "start": 2967700,
-    "size": 4608,
+    "size": 64,
     "type": "gfx"
   },
   {
-    "path": "data_08132B30/gSprite_082D4894.4bpp",
-    "start": 2972308,
-    "size": 69216,
-    "type": "gfx",
-    "options": {
-      "width": 4
-    }
+    "path": "sprites/gSprite_081DF834/npc_GENTARI.4bpp",
+    "start": 1964148,
+    "size": 8768,
+    "type": "gfx"
   },
   {
-    "path": "data_08132B30/gSprite_082E68F4.4bpp",
+    "path": "sprites/gSprite_081DF834/npc_FESTARI.4bpp",
+    "start": 1972916,
+    "size": 3008,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081DF834/npc_MELARI.4bpp",
+    "start": 1975924,
+    "size": 3616,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081DF834/unk_1.4bpp",
+    "start": 1979540,
+    "size": 416,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081DF834/npc_MOUNTAIN_MINISH.4bpp",
+    "start": 1979956,
+    "size": 11520,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081DF834/unk_2.4bpp",
+    "start": 1991476,
+    "size": 2144,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081DF834/npc_TOWN_MINISH.4bpp",
+    "start": 1993620,
+    "size": 4096,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081DF834/unk_3.4bpp",
+    "start": 1997716,
+    "size": 1600,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081DF834/npc_LIBRARI.4bpp",
+    "start": 1999316,
+    "size": 10880,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081DF834/unk_4.4bpp",
+    "start": 2010196,
+    "size": 864,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081DF834/npc_FOREST_MINISH.4bpp",
+    "start": 2011060,
+    "size": 4448,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081DF834/npc_VAATI.4bpp",
+    "start": 2015508,
+    "size": 49600,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081DF834/unk_5.4bpp",
+    "start": 2065108,
+    "size": 4480,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081DF834/npc_MINISH_EZLO.4bpp",
+    "start": 2069588,
+    "size": 17632,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081DF834/unk_6.4bpp",
+    "start": 2087220,
+    "size": 6272,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_DIN.4bpp",
+    "start": 2093492,
+    "size": 1600,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_NAYRU.4bpp",
+    "start": 2095092,
+    "size": 1408,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_FARORE.4bpp",
+    "start": 2096500,
+    "size": 576,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_ZELDA.4bpp",
+    "start": 2097076,
+    "size": 55392,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_GUARD.4bpp",
+    "start": 2152468,
+    "size": 15424,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/unk_0.4bpp",
+    "start": 2167892,
+    "size": 192,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_KING_DALTUS.4bpp",
+    "start": 2168084,
+    "size": 7584,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_MINISTER_POTHO.4bpp",
+    "start": 2175668,
+    "size": 2144,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_NPC_UNK_26.4bpp",
+    "start": 2177812,
+    "size": 416,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_MAID.4bpp",
+    "start": 2178228,
+    "size": 1152,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/unk_1.4bpp",
+    "start": 2179380,
+    "size": 4096,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_TINGLE_SIBLINGS.4bpp",
+    "start": 2183476,
+    "size": 5856,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_BEEDLE.4bpp",
+    "start": 2189332,
+    "size": 736,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/unk_2.4bpp",
+    "start": 2190068,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_BROCCO.4bpp",
+    "start": 2190452,
+    "size": 2496,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_PINA.4bpp",
+    "start": 2192948,
+    "size": 3712,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_POSTMAN.4bpp",
+    "start": 2196660,
+    "size": 22528,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_MALON.4bpp",
+    "start": 2219188,
+    "size": 3168,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_EPONA.4bpp",
+    "start": 2222356,
+    "size": 4576,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_MILK_CART.4bpp",
+    "start": 2226932,
+    "size": 2048,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_SMITH.4bpp",
+    "start": 2228980,
+    "size": 6016,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_TPWNSPERSON.4bpp",
+    "start": 2234996,
+    "size": 832,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/unk_3.4bpp",
+    "start": 2235828,
+    "size": 17888,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_KID.4bpp",
+    "start": 2253716,
+    "size": 1344,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/unk_4.4bpp",
+    "start": 2255060,
+    "size": 6272,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_MAILBOX.4bpp",
+    "start": 2261332,
+    "size": 3456,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_SITTING_PERSON.4bpp",
+    "start": 2264788,
+    "size": 544,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/unk_5.4bpp",
+    "start": 2265332,
+    "size": 1824,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_MUTOH.4bpp",
+    "start": 2267156,
+    "size": 1760,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/unk_6.4bpp",
+    "start": 2268916,
+    "size": 448,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_CARPENTER.4bpp",
+    "start": 2269364,
+    "size": 5728,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/unk_7.4bpp",
+    "start": 2275092,
+    "size": 1728,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_GORMAN.4bpp",
+    "start": 2276820,
+    "size": 2752,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/unk_8.4bpp",
+    "start": 2279572,
+    "size": 832,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_CAT.4bpp",
+    "start": 2280404,
+    "size": 11712,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/unk_9.4bpp",
+    "start": 2292116,
+    "size": 256,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_DOG.4bpp",
+    "start": 2292372,
+    "size": 8704,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/unk_10.4bpp",
+    "start": 2301076,
+    "size": 384,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_SYRUP.4bpp",
+    "start": 2301460,
+    "size": 1024,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/unk_11.4bpp",
+    "start": 2302484,
+    "size": 1184,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_PERCY.4bpp",
+    "start": 2303668,
+    "size": 960,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/unk_12.4bpp",
+    "start": 2304628,
+    "size": 1312,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_FARMERS.4bpp",
+    "start": 2305940,
+    "size": 2496,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/unk_13.4bpp",
+    "start": 2308436,
+    "size": 2912,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_DAMPE.4bpp",
+    "start": 2311348,
+    "size": 2048,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_KING_GUSTAF.4bpp",
+    "start": 2313396,
+    "size": 3712,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_GINA.4bpp",
+    "start": 2317108,
+    "size": 7392,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_SIMON.4bpp",
+    "start": 2324500,
+    "size": 2080,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_MAMA.4bpp",
+    "start": 2326580,
+    "size": 640,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/unk_14.4bpp",
+    "start": 2327220,
+    "size": 6464,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_TEACHERS.4bpp",
+    "start": 2333684,
+    "size": 1248,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/unk_15.4bpp",
+    "start": 2334932,
+    "size": 1408,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_WIND_TRIBESPEOPLE.4bpp",
+    "start": 2336340,
+    "size": 6880,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/unk_16.4bpp",
+    "start": 2343220,
+    "size": 288,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_MAYOR_HAGEN.4bpp",
+    "start": 2343508,
+    "size": 2912,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/unk_17.4bpp",
+    "start": 2346420,
+    "size": 4064,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_HURDY_GURDY_MAN.4bpp",
+    "start": 2350484,
+    "size": 1536,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/unk_18.4bpp",
+    "start": 2352020,
+    "size": 1600,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_COW.4bpp",
+    "start": 2353620,
+    "size": 5024,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_GORON.4bpp",
+    "start": 2358644,
+    "size": 17120,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_CASTOR_WILDS_STATUE.4bpp",
+    "start": 2375764,
+    "size": 2048,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/npc_NPC_UNK_4F.4bpp",
+    "start": 2377812,
+    "size": 3552,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/object_OBJECT_6A.4bpp",
+    "start": 2381364,
+    "size": 7008,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_081FF1B4/unk_19.4bpp",
+    "start": 2388372,
+    "size": 832,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082474D4/enemy_DARK_NUT.4bpp",
+    "start": 2389204,
+    "size": 87392,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082474D4/unk_0.4bpp",
+    "start": 2476596,
+    "size": 94656,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082474D4/enemy_CHUCHU_BOSS.4bpp",
+    "start": 2571252,
+    "size": 33152,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082474D4/unk_1.4bpp",
+    "start": 2604404,
+    "size": 38432,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082474D4/enemy_MADDERPILLAR.4bpp",
+    "start": 2642836,
+    "size": 10112,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082474D4/enemy_GLEEROCK.4bpp",
+    "start": 2652948,
+    "size": 20576,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082474D4/unk_2.4bpp",
+    "start": 2673524,
+    "size": 3872,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082474D4/enemy_KEATON.4bpp",
+    "start": 2677396,
+    "size": 8384,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082474D4/enemy_MAZAAL_HAND.4bpp",
+    "start": 2685780,
+    "size": 10880,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082474D4/unk_3.4bpp",
+    "start": 2696660,
+    "size": 15648,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082474D4/enemy_SCISSORS_BEETLE.4bpp",
+    "start": 2712308,
+    "size": 14208,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082474D4/unk_4.4bpp",
+    "start": 2726516,
+    "size": 9632,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082474D4/enemy_STALFOS.4bpp",
+    "start": 2736148,
+    "size": 34016,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082474D4/enemy_GOBDO.4bpp",
+    "start": 2770164,
+    "size": 19008,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082474D4/enemy_LAKITU.4bpp",
+    "start": 2789172,
+    "size": 7712,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082474D4/unk_5.4bpp",
+    "start": 2796884,
+    "size": 1760,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082474D4/enemy_LAKITU_CLOUD.4bpp",
+    "start": 2798644,
+    "size": 5120,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082474D4/npc_VAATI_REBORN.4bpp",
+    "start": 2803764,
+    "size": 119456,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082474D4/enemy_BALL_CHAIN_SOLIDER.4bpp",
+    "start": 2923220,
+    "size": 11232,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082474D4/enemy_GYORG_MALE.4bpp",
+    "start": 2934452,
+    "size": 33248,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082D4894/object_JAR_PORTAL.4bpp",
+    "start": 2967700,
+    "size": 3072,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082D4894/unk_0.4bpp",
+    "start": 2970772,
+    "size": 21920,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082D4894/object_MINECART.4bpp",
+    "start": 2992692,
+    "size": 9152,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082D4894/object_LAVA_PLATFORM.4bpp",
+    "start": 3001844,
+    "size": 1920,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082D4894/unk_1.4bpp",
+    "start": 3003764,
+    "size": 1536,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082D4894/object_BIG_VORTEX.4bpp",
+    "start": 3005300,
+    "size": 7840,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082D4894/object_HUGE_BOOK.4bpp",
+    "start": 3013140,
+    "size": 7296,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082D4894/object_GENTARI_CURTAIN.4bpp",
+    "start": 3020436,
+    "size": 3040,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082D4894/projectile_SpiderWeb.4bpp",
+    "start": 3023476,
+    "size": 7872,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082D4894/unk_2.4bpp",
+    "start": 3031348,
+    "size": 3072,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082D4894/enemy_OCTOROK_BOSS.4bpp",
+    "start": 3034420,
+    "size": 4544,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082D4894/object_BELL.4bpp",
+    "start": 3038964,
+    "size": 2560,
+    "type": "gfx"
+  },
+  {
+    "path": "sprites/gSprite_082E68F4.4bpp",
     "start": 3041524,
     "size": 48896,
     "type": "gfx",
@@ -51849,7 +52414,7 @@
     }
   },
   {
-    "path": "data_08132B30/gSprite_082F27F4.4bpp",
+    "path": "sprites/gSprite_082F27F4.4bpp",
     "start": 3090420,
     "size": 5504,
     "type": "gfx",
