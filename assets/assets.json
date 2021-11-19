@@ -3589,11 +3589,6 @@
     "size": 16
   },
   {
-    "path": "data_080B3740/gUnk_080B3740.bin",
-    "start": 735040,
-    "size": 4
-  },
-  {
     "path": "data_080B3740/gUnk_080B37A0_EU.bin",
     "variants": [
       "EU"
@@ -21027,11 +21022,6 @@
     "path": "playerItemCellOverwriteSet/gUnk_080B7B6C.bin",
     "start": 752492,
     "size": 8
-  },
-  {
-    "path": "data_080B7B74/gUnk_080B7B74.bin",
-    "start": 752500,
-    "size": 14124
   },
   {
     "path": "data_080B7B74/gUnk_080B7B74_1_EU.bin",

@@ -86,10 +86,13 @@ GFX := tools/gbagfx/gbagfx
 AIF := tools/aif2pcm/aif2pcm
 MID := tools/mid2agb/mid2agb
 SCANINC := tools/scaninc/scaninc
-# TODO: use charmap? 
+# TODO: use charmap?
 PREPROC := tools/preproc/preproc
 FIX := tools/gbafix/gbafix
 ASSET_PROCESSOR := tools/asset_processor/asset_processor
+
+ASSET_CONFIGS = assets/assets.json assets/gfx.json assets/map.json assets/samples.json assets/sounds.json
+TRANSLATIONS = translations/USA.bin translations/English.bin translations/French.bin translations/German.bin translations/Spanish.bin translations/Italian.bin
 
 # Clear the default suffixes
 .SUFFIXES:
@@ -170,7 +173,7 @@ compare: $(ROM)
 setup: $(TOOLDIRS)
 
 # Automatically extract binary data
-build/extracted_assets_%: assets/assets.json assets/gfx.json assets/map.json assets/samples.json assets/sounds.json
+build/extracted_assets_%: $(ASSET_CONFIGS) $(TRANSLATIONS)
 	$(ASSET_PROCESSOR) extract $(GAME_VERSION) $(ASSET_BUILDDIR)
 	touch $@
 
