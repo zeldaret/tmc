@@ -8,6 +8,10 @@
     }
   },
   {
+    "calculateOffsets": "gfx_offsets.inc",
+    "start": 5910144
+  },
+  {
     "path": "palettes/gPalette_0.gbapal",
     "start": 5910144,
     "size": 32,

@@ -44,6 +44,18 @@ class BaseAsset {
         return buildPath;
     }
 
+    // Returns the base of the filename of the asset.
+    std::string getSymbol() const {
+        // Need to get the stem twice to remove both of the .4bpp.lz extensions.
+        return (this->path.stem()).stem();
+    }
+
+    // Returns the start address of this asset.
+    int getStart() const {
+        return start;
+    }
+
+
   protected:
     std::filesystem::path path;
     std::filesystem::path assetPath;

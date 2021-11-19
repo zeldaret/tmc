@@ -8,6 +8,7 @@
 #include "assets/palette.h"
 #include "assets/spriteframe.h"
 #include "assets/tileset.h"
+#include "offsets.h"
 #include <filesystem>
 #include <fstream>
 #include <iostream>
@@ -133,12 +134,19 @@ int main(int argc, char** argv) {
 
         std::filesystem::file_time_type configModified = std::filesystem::last_write_time(config);
 
+        std::unique_ptr<OffsetCalculator> offsetCalculator;
+
         uint currentOffset = 0;
         for (const auto& asset : assets) {
             if (asset.contains("offsets")) { // Offset definition
                 if (asset["offsets"].contains(gVariant)) {
                     currentOffset = asset["offsets"][gVariant];
                 }
+            } else if (asset.contains("calculateOffsets")) { // Start offset calculation
+                std::filesystem::path path = gAssetsFolder;
+                path = path / asset["calculateOffsets"];
+                int baseOffset = asset["start"].get<int>() + currentOffset;
+                offsetCalculator = std::make_unique<OffsetCalculator>(path, baseOffset);
             } else if (asset.contains("path")) { // Asset definition
 
                 if (asset.contains("variants")) {
@@ -153,13 +161,16 @@ int main(int argc, char** argv) {
 
                 switch (gMode) {
                     case EXTRACT: {
+                        std::unique_ptr<BaseAsset> assetHandler = getAssetHandlerByType(path, asset, currentOffset);
                         if (shouldExtractAsset(path, configModified)) {
                             if (gVerbose) {
                                 std::cout << "Extracting " << path << "..." << std::endl;
                             }
 
-                            std::unique_ptr<BaseAsset> assetHandler = getAssetHandlerByType(path, asset, currentOffset);
                             extractAsset(assetHandler, baserom);
+                        }
+                        if (offsetCalculator != nullptr) {
+                            offsetCalculator->addAsset(assetHandler->getStart(), assetHandler->getSymbol());
                         }
                         break;
                     }

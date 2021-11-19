@@ -8,6 +8,10 @@
     }
   },
   {
+    "calculateOffsets": "map_offsets.inc",
+    "start": 3295972
+  },
+  {
     "path": "assets/gAreaRoomMap_TownMinishHoles_8_0.bin",
     "start": 3295972,
     "size": 974,

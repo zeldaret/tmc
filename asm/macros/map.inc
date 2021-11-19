@@ -10,26 +10,8 @@
 	.endm
 
 
-@ TODO workaround because we cannot substract two extern pointers
-@ Will need to find a different solution when wanting to modify assets.
-.ifdef USA
-	.equiv ptr_gMapData, 0x8324AE4
-.endif
-.ifdef EU
-	.equiv ptr_gMapData, 0x8323FEC
-.endif
-.ifdef JP
-	.equiv ptr_gMapData, 0x8324710
-.endif
-.ifdef DEMO_USA
-	.equiv ptr_gMapData, 0x8325514
-.endif
-.ifdef DEMO_JP
-	.equiv ptr_gMapData, 0x8324708
-.endif
-
 	.macro map_data src_offset, dest, size, compressed, terminator=0
-	.4byte (!(\terminator) << 0x1F) + (\src_offset - ptr_gMapData)
+	.4byte (!(\terminator) << 0x1F) + \src_offset
 	.4byte \dest
 	.4byte (\compressed << 0x1F) | (\size)
 	.endm
