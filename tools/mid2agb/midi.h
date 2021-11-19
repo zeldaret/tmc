@@ -33,15 +33,9 @@ enum class EventType
 {
     EndOfTie = 0x01,
     Label = 0x11,
-    LoopEnd = 0x38,// To place it last if at the same time as other meta events, but before notes on the same frame
+    LoopEnd = 0x38, // To place it last if at the same time as other meta events, but before notes on the same frame
     LoopEndBegin = 0x13,
-    LoopBegin = 0x24, 
-    // Original: 0x14
-    // TODO sfx1AA wants a LoopBegin before a Volume Change -> < 0x22
-    // bgmFestivalApproach wants a LoopBegin after a Tempo -> >0x19  -> 0x20
-    // sfxSparkles wants a LoopBegin after a VOL --> NOT POSSIBLE
-    // bgmCuccoMinigame as well
-    // To place it last if at the same time as other meta events, but before notes on the same frame
+    LoopBegin = 0x24, // To place it last if at the same time as other meta events, but before notes on the same frame
     OriginalTimeSignature = 0x15,
     WholeNoteMark = 0x16,
     Pattern = 0x17,

@@ -1,7 +1,7 @@
 #ifndef UTIL_H
 #define UTIL_H
 
-#include <json.hpp>
+#include <json_fwd.hpp>
 #include <memory>
 #include <stdexcept>
 #include <stdint.h>
@@ -19,8 +19,6 @@ typedef int32_t s32;
 typedef int64_t s64;
 
 void check_call(const std::vector<std::string>& cmd);
-
-std::string to_string(const nlohmann::json& j);
 
 template <typename... Args> std::string string_format(const std::string& format, Args... args) {
     int size_s = std::snprintf(nullptr, 0, format.c_str(), args...) + 1; // Extra space for '\0'

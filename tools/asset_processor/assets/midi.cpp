@@ -1,10 +1,12 @@
 #include "midi.h"
-#include "main.h"
 #include "reader.h"
 #include "util.h"
 #include <filesystem>
 #include <iostream>
 #include <fstream>
+#include <json.hpp>
+
+extern std::string gBaseromPath;
 
 std::filesystem::path MidiAsset::generateAssetPath() {
     std::filesystem::path path = this->path;

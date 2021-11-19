@@ -89,6 +89,7 @@ SCANINC := tools/scaninc/scaninc
 # TODO: use charmap? 
 PREPROC := tools/preproc/preproc
 FIX := tools/gbafix/gbafix
+ASSET_PROCESSOR := tools/asset_processor/asset_processor
 
 # Clear the default suffixes
 .SUFFIXES:
@@ -168,13 +169,14 @@ compare: $(ROM)
 
 setup: $(TOOLDIRS)
 
+# Automatically extract binary data
 build/extracted_assets_%: assets/assets.json assets/gfx.json assets/map.json assets/samples.json assets/sounds.json
-	tools/asset_processor/asset_processor extract $(GAME_VERSION) $(ASSET_BUILDDIR)
+	$(ASSET_PROCESSOR) extract $(GAME_VERSION) $(ASSET_BUILDDIR)
 	touch $@
 
 # Extract assets to human readable form
 extractassets:
-	tools/asset_processor/asset_processor convert $(GAME_VERSION) $(ASSET_BUILDDIR)
+	$(ASSET_PROCESSOR) convert $(GAME_VERSION) $(ASSET_BUILDDIR)
 
 $(TOOLDIRS):
 	@$(MAKE) -C $@

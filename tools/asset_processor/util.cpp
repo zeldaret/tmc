@@ -18,12 +18,3 @@ void check_call(const std::vector<std::string>& cmd) {
         std::exit(1);
     }
 }
-
-// https://github.com/nlohmann/json/issues/642#issuecomment-311937344
-std::string to_string(const nlohmann::json& j) {
-    if (j.type() == nlohmann::json::value_t::string) {
-        return j.get<std::string>();
-    }
-
-    return j.dump();
-}

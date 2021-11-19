@@ -1,5 +1,6 @@
 #include "gfx.h"
 #include "util.h"
+#include <json.hpp>
 
 std::filesystem::path GfxAsset::generateAssetPath() {
     std::filesystem::path pngPath = this->path;
@@ -18,9 +19,11 @@ void GfxAsset::convertToHumanReadable(const std::vector<char>& baserom) {
     cmd.push_back(toolsPath / "gbagfx" / "gbagfx");
     cmd.push_back(this->path);
     cmd.push_back(this->assetPath);
-    for (const auto& it : this->asset["options"].items()) {
-        cmd.push_back("-" + it.key());
-        cmd.push_back(to_string(it.value()));
+    if (this->asset.contains("options")) {
+        for (const auto& it : this->asset["options"].items()) {
+            cmd.push_back("-" + it.key());
+            cmd.push_back(to_string(it.value()));
+        }
     }
     check_call(cmd);
 }

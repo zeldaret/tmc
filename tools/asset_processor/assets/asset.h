@@ -3,13 +3,13 @@
 
 #include "util.h"
 #include <filesystem>
-#include <json.hpp>
+#include <json_fwd.hpp>
 #include <string>
 #include <iostream>
 
 class BaseAsset {
   public:
-    BaseAsset(std::filesystem::path path, int start, int size, nlohmann::json asset)
+    BaseAsset(std::filesystem::path path, int start, int size, const nlohmann::json& asset)
         : path(path), start(start), size(size), asset(asset) {
     }
 
@@ -62,7 +62,7 @@ class BaseAsset {
     std::filesystem::path buildPath;
     int start;
     int size;
-    nlohmann::json asset;
+    const nlohmann::json& asset;
 
   private:
     virtual std::filesystem::path generateAssetPath() {
