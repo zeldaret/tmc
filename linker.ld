@@ -276,7 +276,7 @@ SECTIONS {
         . = 0x00005D5C; gUnk_03005D5C = .;
         . = 0x00005D90; gIntrMain = .;
         . = 0x00005E60; gUnk_03005E60 = .;
-        . = 0x00005E98; gUnk_03005E98 = .;
+        . = 0x00005E98; gMakeFadeBuff256 = .;
         . = 0x00005F24; _ClearAndUpdateEntities = .;
         . = 0x00005F40; UpdateEntities_arm = .;
         . = 0x00005FBC; gUnk_03005FBC = .;
@@ -480,7 +480,7 @@ SECTIONS {
         src/loadRoom.o(.text);
         asm/code_0804B058.o(.text);
         src/room.o(.text);
-        asm/code_0804B9F8.o(.text);
+        src/code_0804B9F8.o(.text);
         src/sub_08050008.o(.text);
         src/fade.o(.text);
         asm/code_08050038.o(.text);
