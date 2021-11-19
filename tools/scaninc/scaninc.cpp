@@ -93,9 +93,15 @@ int main(int argc, char **argv)
         includeDirs.push_back(file.GetSrcDir());
         for (auto incbin : file.GetIncbins())
         {
-            // TODO add incbin dependencies in correct folder?
-            if (incbin.rfind("translations", 0) == 0) {
-                dependencies.insert(incbin);
+            // Search for the incbin in the include directories as well.
+            for (auto includeDir : includeDirs)
+            {
+                std::string path(includeDir + incbin);
+                if (CanOpenFile(path))
+                {
+                    dependencies.insert(path).second;
+                    break;
+                }
             }
         }
         for (auto include : file.GetIncludes())
