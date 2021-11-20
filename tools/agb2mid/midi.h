@@ -23,14 +23,9 @@
 
 #include <cstdint>
 
-enum class MidiFormat
-{
-    SingleTrack,
-    MultiTrack
-};
+enum class MidiFormat { SingleTrack, MultiTrack };
 
-enum class EventType
-{
+enum class EventType {
     EndOfTie = 0x01,
     Label = 0x11,
     LoopEnd = 0x12,
@@ -53,25 +48,19 @@ enum class EventType
     NoteOff,
 };
 
-struct Event
-{
+struct Event {
     std::int32_t time = 0;
     EventType type;
     std::uint8_t note = 0;
     std::uint8_t param1 = 0;
     std::int32_t param2 = 0;
 
-    bool operator==(const Event& other)
-    {
-        return (time == other.time
-            && type == other.type
-            && note == other.note
-            && param1 == other.param1
-            && param2 == other.param2);
+    bool operator==(const Event& other) {
+        return (time == other.time && type == other.type && note == other.note && param1 == other.param1 &&
+                param2 == other.param2);
     }
 
-    bool operator!=(const Event& other)
-    {
+    bool operator!=(const Event& other) {
         return !(*this == other);
     }
 };
@@ -81,8 +70,7 @@ void WriteMidiFile();
 extern int g_midiChan;
 extern std::int32_t g_initialWait;
 
-inline bool IsPatternBoundary(EventType type)
-{
+inline bool IsPatternBoundary(EventType type) {
     return type == EventType::EndOfTrack || (int)type <= 0x17;
 }
 extern std::int16_t g_midiTimeDiv;

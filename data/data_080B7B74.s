@@ -5,13 +5,13 @@
     .align 2
 
 gCollisionMtx:: @ 080B7B74
-	.incbin "baserom.gba", 0x0B7B74, 0x00004BA
+	.incbin "data_080B7B74/gCollisionMtx.bin"
 
 gUnk_080B802E:: @ 080B802E
-	.incbin "baserom.gba", 0x0B802E, 0x0002292
+	.incbin "data_080B7B74/gUnk_080B802E.bin"
 
 gUnk_080BA2C0:: @ 080BA2C0
-	.incbin "baserom.gba", 0x0BA2C0, 0x0000FE0
+	.incbin "data_080B7B74/gUnk_080BA2C0.bin"
 
 gUnk_080BB2A0:: @ 080BB2A0
 .ifdef EU

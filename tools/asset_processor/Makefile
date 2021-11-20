@@ -1,9 +1,9 @@
 
 CXX = g++
-CXXFLAGS = -O3 -Wall -Wextra -std=c++17
+CXXFLAGS = -O3 -Wall -Wextra -Werror -std=c++17
 #CXXFLAGS += -g # debug
 
-BUILD_FOLDER=build
+BUILD_FOLDER = build
 
 SRCS = $(wildcard *.cpp)
 SRCS += $(wildcard assets/*.cpp)

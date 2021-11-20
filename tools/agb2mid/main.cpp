@@ -49,60 +49,49 @@ int g_denominatorExp = 2;
 bool g_verbose = false;
 std::vector<TimeSignatureChange> timeSignatureChanges;
 
-
-
-[[noreturn]] static void PrintUsage()
-{
-    std::printf(
-        "Usage: AGB2MID baserom start_offset input_file output_file [options]\n"
-        "\n"
-        "       baserom  path to the baserom\n"
-        "  start_offset  offset to the sound header\n"
-        "    input_file  filename(.s) for AGB file\n"
-        "   output_file  filename(.mid) of MIDI file (default:input_file)\n"
-        "\n"
-        "options  -L???  label for assembler (default:output_file)\n"
-        "         -V???  master volume (default:127)\n"
-        "         -G???  voice group number (default:0)\n"
-        "         -P???  priority (default:0)\n"
-        "         -R???  reverb (default:off)\n"
-        "            -X  48 clocks/beat (default:24 clocks/beat)\n"
-        "            -E  exact gate-time\n"
-        "            -N  no compression\n"
-        "         -n???  midi time nominator\n"
-        "         -d???  midi time denominator\n"
-        "      -t ? ? ?  time signature change\n"
-        "            -v  verbose\n"
-    );
+[[noreturn]] static void PrintUsage() {
+    std::printf("Usage: AGB2MID baserom start_offset input_file output_file [options]\n"
+                "\n"
+                "       baserom  path to the baserom\n"
+                "  start_offset  offset to the sound header\n"
+                "    input_file  filename(.s) for AGB file\n"
+                "   output_file  filename(.mid) of MIDI file (default:input_file)\n"
+                "\n"
+                "options  -L???  label for assembler (default:output_file)\n"
+                "         -V???  master volume (default:127)\n"
+                "         -G???  voice group number (default:0)\n"
+                "         -P???  priority (default:0)\n"
+                "         -R???  reverb (default:off)\n"
+                "            -X  48 clocks/beat (default:24 clocks/beat)\n"
+                "            -E  exact gate-time\n"
+                "            -N  no compression\n"
+                "         -n???  midi time nominator\n"
+                "         -d???  midi time denominator\n"
+                "      -t ? ? ?  time signature change\n"
+                "            -v  verbose\n");
     std::exit(1);
 }
 
-static std::string StripExtension(std::string s)
-{
+static std::string StripExtension(std::string s) {
     std::size_t pos = s.find_last_of('.');
 
-    if (pos > 0 && pos != std::string::npos)
-    {
+    if (pos > 0 && pos != std::string::npos) {
         s = s.substr(0, pos);
     }
 
     return s;
 }
 
-static std::string GetExtension(std::string s)
-{
+static std::string GetExtension(std::string s) {
     std::size_t pos = s.find_last_of('.');
 
-    if (pos > 0 && pos != std::string::npos)
-    {
+    if (pos > 0 && pos != std::string::npos) {
         return s.substr(pos + 1);
     }
-
     return "";
 }
 
-static std::string BaseName(std::string s)
-{
+static std::string BaseName(std::string s) {
     std::size_t posAfterSlash = s.find_last_of("/\\");
 
     if (posAfterSlash == std::string::npos)
@@ -117,11 +106,10 @@ static std::string BaseName(std::string s)
     return s;
 }
 
-static const char *GetArgument(int argc, char **argv, int& index)
-{
+static const char* GetArgument(int argc, char** argv, int& index) {
     assert(index >= 0 && index < argc);
 
-    const char *option = argv[index];
+    const char* option = argv[index];
 
     assert(option != nullptr);
     assert(option[0] == '-');
@@ -131,144 +119,133 @@ static const char *GetArgument(int argc, char **argv, int& index)
         return option + 2;
 
     // Otherwise, try to get the next arg.
-    if (index + 1 < argc)
-    {
+    if (index + 1 < argc) {
         index++;
         return argv[index];
-    }
-    else
-    {
+    } else {
         return nullptr;
     }
 }
 
-int main(int argc, char** argv)
-{
+int main(int argc, char** argv) {
     std::string baseromPath;
     std::string startOffset;
     std::string inputFilename;
     std::string outputFilename;
 
-    for (int i = 1; i < argc; i++)
-    {
-        const char *option = argv[i];
+    for (int i = 1; i < argc; i++) {
+        const char* option = argv[i];
 
-        if (option[0] == '-' && option[1] != '\0')
-        {
-            const char *arg;
+        if (option[0] == '-' && option[1] != '\0') {
+            const char* arg;
 
-            switch (option[1])
-            {
-            case 'E':
-                g_exactGateTime = true;
-                break;
-            case 'G':
-                arg = GetArgument(argc, argv, i);
-                if (arg == nullptr)
-                    PrintUsage();
-                g_voiceGroup = std::stoi(arg);
-                break;
-            case 'L':
-                arg = GetArgument(argc, argv, i);
-                if (arg == nullptr)
-                    PrintUsage();
-                g_asmLabel = arg;
-                break;
-            case 'N':
-                g_compressionEnabled = false;
-                break;
-            case 'P':
-                arg = GetArgument(argc, argv, i);
-                if (arg == nullptr)
-                    PrintUsage();
-                g_priority = std::stoi(arg);
-                break;
-            case 'R':
-                arg = GetArgument(argc, argv, i);
-                if (arg == nullptr)
-                    PrintUsage();
-                g_reverb = std::stoi(arg);
-                break;
-            case 'V':
-                arg = GetArgument(argc, argv, i);
-                if (arg == nullptr)
-                    PrintUsage();
-                g_masterVolume = std::stoi(arg);
-                break;
-            case 'X':
-                g_clocksPerBeat = 2;
-                break;
-            case 'n':
-                arg = GetArgument(argc, argv, i);
-                if (arg == nullptr)
-                    PrintUsage();
-                g_nominator = std::stoi(arg);
-                break;
-            case 'd':
-            {
-                arg = GetArgument(argc, argv, i);
-                if (arg == nullptr)
-                    PrintUsage();
-                int denominator = std::stoi(arg);
-                if (denominator == 1) {
-                    g_denominatorExp = 0;
-                } else if (denominator == 2) {
-                    g_denominatorExp = 1;
-                } else if (denominator == 4) {
-                    g_denominatorExp = 2;
-                } else if (denominator == 8) {
-                    g_denominatorExp = 3;
-                } else if (denominator == 16) {
-                    g_denominatorExp = 4;
-                } else if (denominator == 32) {
-                    g_denominatorExp = 5;
-                } else {
-                    std::printf("ERROR: denominator %d\n", denominator);
-                    exit(1);
+            switch (option[1]) {
+                case 'E':
+                    g_exactGateTime = true;
+                    break;
+                case 'G':
+                    arg = GetArgument(argc, argv, i);
+                    if (arg == nullptr)
+                        PrintUsage();
+                    g_voiceGroup = std::stoi(arg);
+                    break;
+                case 'L':
+                    arg = GetArgument(argc, argv, i);
+                    if (arg == nullptr)
+                        PrintUsage();
+                    g_asmLabel = arg;
+                    break;
+                case 'N':
+                    g_compressionEnabled = false;
+                    break;
+                case 'P':
+                    arg = GetArgument(argc, argv, i);
+                    if (arg == nullptr)
+                        PrintUsage();
+                    g_priority = std::stoi(arg);
+                    break;
+                case 'R':
+                    arg = GetArgument(argc, argv, i);
+                    if (arg == nullptr)
+                        PrintUsage();
+                    g_reverb = std::stoi(arg);
+                    break;
+                case 'V':
+                    arg = GetArgument(argc, argv, i);
+                    if (arg == nullptr)
+                        PrintUsage();
+                    g_masterVolume = std::stoi(arg);
+                    break;
+                case 'X':
+                    g_clocksPerBeat = 2;
+                    break;
+                case 'n':
+                    arg = GetArgument(argc, argv, i);
+                    if (arg == nullptr)
+                        PrintUsage();
+                    g_nominator = std::stoi(arg);
+                    break;
+                case 'd': {
+                    arg = GetArgument(argc, argv, i);
+                    if (arg == nullptr)
+                        PrintUsage();
+                    int denominator = std::stoi(arg);
+                    if (denominator == 1) {
+                        g_denominatorExp = 0;
+                    } else if (denominator == 2) {
+                        g_denominatorExp = 1;
+                    } else if (denominator == 4) {
+                        g_denominatorExp = 2;
+                    } else if (denominator == 8) {
+                        g_denominatorExp = 3;
+                    } else if (denominator == 16) {
+                        g_denominatorExp = 4;
+                    } else if (denominator == 32) {
+                        g_denominatorExp = 5;
+                    } else {
+                        std::printf("ERROR: denominator %d\n", denominator);
+                        exit(1);
+                    }
+                    break;
                 }
-                break;
-            }
-            case 't':
-            {
-                int nominator = std::stoi(argv[i+1]);
-                int denominator = std::stoi(argv[i+2]);
-                if (denominator == 1) {
-                    denominator = 0;
-                } else if (denominator == 2) {
-                    denominator = 1;
-                } else if (denominator == 4) {
-                    denominator = 2;
-                } else if (denominator == 8) {
-                    denominator = 3;
-                } else if (denominator == 16) {
-                    denominator = 4;
-                } else if (denominator == 32) {
-                    denominator = 5;
-                } else {
-                    std::printf("ERROR: denominator %d\n", denominator);
-                    exit(1);
-                }
-                int time = std::stoi(argv[i+3]);
-                i += 3;
-                TimeSignatureChange change;
-                change.nominator = nominator;
-                change.denominator = denominator;
-                change.time = time;
+                case 't': {
+                    int nominator = std::stoi(argv[i + 1]);
+                    int denominator = std::stoi(argv[i + 2]);
+                    if (denominator == 1) {
+                        denominator = 0;
+                    } else if (denominator == 2) {
+                        denominator = 1;
+                    } else if (denominator == 4) {
+                        denominator = 2;
+                    } else if (denominator == 8) {
+                        denominator = 3;
+                    } else if (denominator == 16) {
+                        denominator = 4;
+                    } else if (denominator == 32) {
+                        denominator = 5;
+                    } else {
+                        std::printf("ERROR: denominator %d\n", denominator);
+                        exit(1);
+                    }
+                    int time = std::stoi(argv[i + 3]);
+                    i += 3;
+                    TimeSignatureChange change;
+                    change.nominator = nominator;
+                    change.denominator = denominator;
+                    change.time = time;
 
-                // TODO sort by time?
-                timeSignatureChanges.push_back(change);
-                break;
+                    // TODO sort by time?
+                    timeSignatureChanges.push_back(change);
+                    break;
+                }
+                case 'v': {
+                    g_verbose = true;
+                    break;
+                }
+                default:
+                    PrintUsage();
             }
-            case 'v': {
-                g_verbose = true;
-                break;
-            }
-            default:
-                PrintUsage();
-            }
-        }
-        else
-        {
+        } else {
             if (baseromPath.empty())
                 baseromPath = argv[i];
             else if (startOffset.empty())
@@ -285,15 +262,11 @@ int main(int argc, char** argv)
     if (inputFilename.empty())
         PrintUsage();
 
-    /*if (GetExtension(inputFilename) != "out") // TODO unify with baserom parameter?
-        RaiseError("input filename extension is not \"out\"");
-*/
     if (outputFilename.empty())
         outputFilename = StripExtension(inputFilename) + ".mid";
 
     if (GetExtension(outputFilename) != "mid")
         RaiseError("output filename extension is not \"mid\"");
-
 
     if (g_asmLabel.empty())
         g_asmLabel = BaseName(outputFilename);
@@ -310,15 +283,9 @@ int main(int argc, char** argv)
 
     g_fileStartOffset = std::stoul(startOffset, nullptr, 16);
 
-
     ReadAgbSong();
     ReadAgbTracks();
     WriteMidiFile();
-
-    /*ReadMidiFileHeader();
-    PrintAgbHeader();
-    ReadMidiTracks();
-    PrintAgbFooter();*/
 
     std::fclose(g_inputFile);
     std::fclose(g_outputFile);

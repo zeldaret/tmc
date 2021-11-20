@@ -21024,6 +21024,21 @@
     "size": 8
   },
   {
+    "path": "data_080B7B74/gCollisionMtx.bin",
+    "start": 752500,
+    "size": 1210
+  },
+  {
+    "path": "data_080B7B74/gUnk_080B802E.bin",
+    "start": 753710,
+    "size": 8850
+  },
+  {
+    "path": "data_080B7B74/gUnk_080BA2C0.bin",
+    "start": 762560,
+    "size": 4064
+  },
+  {
     "path": "data_080B7B74/gUnk_080B7B74_1_EU.bin",
     "variants": [
       "EU"
@@ -42725,6 +42740,36 @@
     "size": 34
   },
   {
+    "path": "demo/save1.bin",
+    "starts": {
+      "DEMO_USA": 1171472
+    },
+    "size": 1280,
+    "variants": [
+      "DEMO_USA"
+    ]
+  },
+  {
+    "path": "demo/save2.bin",
+    "starts": {
+      "DEMO_USA": 1172752
+    },
+    "size": 1280,
+    "variants": [
+      "DEMO_USA"
+    ]
+  },
+  {
+    "path": "demo/save3.bin",
+    "starts": {
+      "DEMO_USA": 1174032
+    },
+    "size": 1280,
+    "variants": [
+      "DEMO_USA"
+    ]
+  },
+  {
     "offsets": {
       "DEMO_USA": 2572,
       "DEMO_JP": -2192
@@ -48399,6 +48444,12 @@
     "path": "animations/gSpriteAnimations_SpiderWeb_19.bin",
     "start": 1221424,
     "size": 60,
+    "type": "animation"
+  },
+  {
+    "path": "animations/gSpriteAnimations_TorchTrapProjectile_0_0.bin",
+    "start": 1221600,
+    "size": 20,
     "type": "animation"
   },
   {

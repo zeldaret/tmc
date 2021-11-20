@@ -13,6 +13,8 @@ class BaseAsset {
         : path(path), start(start), size(size), asset(asset) {
     }
 
+    virtual ~BaseAsset() = default;
+
     void setup() {
         // Cannot call virtual functions in constructor, so another function call is necessary
         assetPath = this->generateAssetPath();

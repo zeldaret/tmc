@@ -71,13 +71,13 @@ int main(int argc, char** argv) {
             argCount--;
             args++;
         } else {
-            std::cerr << "Unrecognized argument `" << args[0] << "`" << std::endl;
+            std::cerr << "Error: Unrecognized argument `" << args[0] << "`" << std::endl;
             std::exit(1);
         }
     }
 
     if (argCount != 3) {
-        std::cerr << "Not enough arguments. expected: 3, actual: " << argCount << std::endl;
+        std::cerr << "Error: Not enough arguments. expected: 3, actual: " << argCount << std::endl;
         usage();
     }
 
@@ -88,17 +88,22 @@ int main(int argc, char** argv) {
     } else if (strcmp(args[0], "build") == 0) {
         gMode = BUILD;
     } else {
-        std::cerr << "Unsupported mode `" << args[0] << "`" << std::endl;
+        std::cerr << "Error: Unsupported mode `" << args[0] << "`" << std::endl;
         std::exit(1);
     }
     gVariant = args[1];
     if (gVariant != "USA" && gVariant != "EU" && gVariant != "JP" && gVariant != "DEMO_USA" && gVariant != "DEMO_JP") {
-        std::cerr << "Unsupported variant `" << gVariant << "`" << std::endl;
+        std::cerr << "Error: Unsupported variant `" << gVariant << "`" << std::endl;
         std::exit(1);
     }
 
     gAssetsFolder = args[2];
     gBaseromPath = baseroms[gVariant];
+
+    if (!std::filesystem::exists(gBaseromPath)) {
+        std::cerr << "Error: You need to provide a " << gVariant << " ROM as " << gBaseromPath << std::endl;
+        std::exit(1);
+    }
 
     // Read baserom.
     std::ifstream file(gBaseromPath, std::ios::binary | std::ios::ate);
@@ -255,7 +260,7 @@ std::unique_ptr<BaseAsset> getAssetHandlerByType(const std::filesystem::path& pa
         // Unknown binary asset
         assetHandler = std::make_unique<BaseAsset>(path, start, size, asset);
     } else {
-        std::cerr << "Unimplemented asset type `" << type << "`" << std::endl;
+        std::cerr << "Error: Unimplemented asset type `" << type << "`" << std::endl;
         std::exit(1);
     }
     assetHandler->setup();

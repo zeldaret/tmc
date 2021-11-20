@@ -99,7 +99,7 @@ int main(int argc, char **argv)
                 std::string path(includeDir + incbin);
                 if (CanOpenFile(path))
                 {
-                    dependencies.insert(path).second;
+                    dependencies.insert(path);
                     break;
                 }
             }

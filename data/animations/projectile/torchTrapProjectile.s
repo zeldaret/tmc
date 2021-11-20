@@ -5,7 +5,7 @@
     .align 2
 
 gSpriteAnimations_TorchTrapProjectile_0_0:: @ 0812A3E0
-	.incbin "baserom.gba", 0x12A3E0, 0x0000014
+	.include "animations/gSpriteAnimations_TorchTrapProjectile_0_0.s"
 
 gSpriteAnimations_TorchTrapProjectile_0:: @ 0812A3F4
 	.4byte gSpriteAnimations_TorchTrapProjectile_0_0

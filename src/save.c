@@ -59,9 +59,9 @@ static SaveResult (*const sSaveHandlers[])(u32) = { HandleSaveInit, HandleSaveIn
 #if defined(DEMO_USA) || defined(DEMO_JP)
 
 #ifdef DEMO_USA
-asm("demoPointer1: .incbin \"baserom_demo.gba\", 0x11e010, 0x500");
-asm("demoPointer2: .incbin \"baserom_demo.gba\", 0x11e510, 0x500");
-asm("demoPointer3: .incbin \"baserom_demo.gba\", 0x11ea10, 0x500");
+asm("demoPointer1: .incbin \"demo/save1.bin\"");
+asm("demoPointer2: .incbin \"demo/save2.bin\"");
+asm("demoPointer3: .incbin \"demo/save3.bin\"");
 
 extern const u8 demoPointer1[];
 extern const u8 demoPointer2[];

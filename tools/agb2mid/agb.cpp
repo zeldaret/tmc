@@ -44,20 +44,12 @@ void Seek(long offset);
 
 std::vector<std::uint32_t> trackPointers;
 
-/*const int FILE_OFFSET = 0x10000;
-// const int START_OFFSET = 0x1c;
-const int START_OFFSET = 0x2DE4;
-const int REDUCE_POINTERS = 0;*/
-
-const int FILE_OFFSET = 0;
-const int START_OFFSET = 0xDE38F0;
 const unsigned int REDUCE_POINTERS = 0x8000000;
 
 extern int g_fileStartOffset; // TODO move to header
 
 void ReadAgbSong() {
-
-    Seek(FILE_OFFSET + g_fileStartOffset);
+    Seek(g_fileStartOffset);
 
     int numTracks = ReadInt8();
     int numBlocks = ReadInt8();
@@ -101,7 +93,6 @@ std::vector<std::vector<Event>> trackEvents;
 std::vector<Event> metaEvents;
 
 int convertTime(int time) {
-    // event.time = (24 * g_clocksPerBeat * event.time) / g_midiTimeDiv;
     return ((float)time * g_midiTimeDiv) / (24 * g_clocksPerBeat);
 }
 
@@ -112,19 +103,13 @@ std::uint32_t GetCurrentPtr() {
 }
 
 std::uint32_t PtrToFileAddr(std::uint32_t ptr) {
-    return ptr + FILE_OFFSET - REDUCE_POINTERS;
+    return ptr - REDUCE_POINTERS;
 }
 
 void insertAtCorrectTimeFromEnd(std::vector<Event>& events, const Event& event) {
-    // std::printf("time: %d\n", event.time);
     for (auto it = events.rbegin(); it != events.rend(); it++) {
         if ((*it).time <= event.time) {
             events.insert(it.base(), event);
-
-            /*            for (const auto& event : events) {
-                            std::printf("e: %X t: %d\n", (int)event.type, event.time);
-                        }
-                        std::cin.ignore();*/
             return;
         }
     }
@@ -132,15 +117,9 @@ void insertAtCorrectTimeFromEnd(std::vector<Event>& events, const Event& event) 
 }
 
 void insertAtCorrectTimeFromStart(std::vector<Event>& events, const Event& event) {
-    // std::printf("time: %d\n", event.time);
     for (auto it = events.begin(); it != events.end(); it++) {
         if ((*it).time >= event.time) {
             events.insert(it, event);
-
-            /*            for (const auto& event : events) {
-                            std::printf("e: %X t: %d\n", (int)event.type, event.time);
-                        }
-                        std::cin.ignore();*/
             return;
         }
     }
@@ -149,9 +128,6 @@ void insertAtCorrectTimeFromStart(std::vector<Event>& events, const Event& event
 
 void ReadAgbTracks() {
     size_t count = 0;
-
-
-
     int addedPadding = 8;
 
     // TODO configurable???
@@ -168,10 +144,9 @@ void ReadAgbTracks() {
     for (uint32_t trackPointer : trackPointers) {
 
         std::vector<Event> events;
-        count ++;
+        count++;
         if (g_verbose)
             std::printf("\n\ntrackPointer: %X -> %X %ld\n", trackPointer, trackPointer - REDUCE_POINTERS, count);
-        
 
         // Search for loop in this trac
         bool hasLoop = false;
@@ -180,10 +155,12 @@ void ReadAgbTracks() {
         int loopStartTime = 0;
 
         unsigned int trackEnd =
-            (trackPointers.size() > count ? trackPointers[count] : (g_fileStartOffset + REDUCE_POINTERS)) ; // Use offset to header as end for last track
+            (trackPointers.size() > count
+                 ? trackPointers[count]
+                 : (g_fileStartOffset + REDUCE_POINTERS)); // Use offset to header as end for last track
         if (g_verbose)
             std::printf("End of track: %X\n", trackEnd);
-        Seek(FILE_OFFSET + trackEnd - REDUCE_POINTERS);
+        Seek(trackEnd - REDUCE_POINTERS);
 
         // search for a few bytes whether there is a loop end
         for (int i = 5; i < 10 + addedPadding; i++) {
@@ -191,11 +168,11 @@ void ReadAgbTracks() {
                 // Ignore GOTOs from the previous track.
                 continue;
             }
-            Seek(FILE_OFFSET + trackEnd - REDUCE_POINTERS -i);
+            Seek(trackEnd - REDUCE_POINTERS - i);
             if (ReadInt8() == GOTO) {
                 if (g_verbose)
                     std::printf("Has loop: %d\n", i);
-                loopAddress = lReadInt32() + FILE_OFFSET - REDUCE_POINTERS;
+                loopAddress = lReadInt32() - REDUCE_POINTERS;
                 if (loopAddress > 0x1000000) {
                     // The 0xB1 was probably part of the pointer or something.
                     continue;
@@ -211,32 +188,17 @@ void ReadAgbTracks() {
         if (g_verbose)
             std::printf("Has loop: %d, %X\n", hasLoop, loopAddress);
 
-
-
-
         // Read all track events
-
-        Seek(FILE_OFFSET + trackPointer - REDUCE_POINTERS);
+        Seek(trackPointer - REDUCE_POINTERS);
 
         int type = ReadInt8();
-        // std::printf("type: %X\n", type);
 
         // VOL?
         if (type == VOL) {
-            // TODO extract to function and reuse below
-
             int val = ReadInt8();
-            
+
             if (g_verbose)
                 std::printf("ignore vol: %X\n", val);
-
-            // TODO if this is a change to 127*mvl/mxv, there was no event in midi
-            /*std::printf("VOL: %X\n", val);
-            Event event;
-            event.type = EventType::Controller;
-            event.param1 = 0x7;
-            event.param2 = std::round((float)val * MXV / MVL); // TODO inverse "%u*%s_mvl/mxv", event.param2,
-            g_asmLabel.c_str()); events.push_back(event);*/
             type = ReadInt8();
         }
 
@@ -249,7 +211,6 @@ void ReadAgbTracks() {
             if (g_verbose)
                 std::printf("KEYSH: %d\n", keyShift);
             // TODO initial shift is always 0? Or is this set as the whole key shift?
-
         } else {
             std::printf("Error: initial type %X not implemented\n", type);
             return;
@@ -273,11 +234,10 @@ void ReadAgbTracks() {
         int returnPtr = 0;
 
         while (!endOfTrack) {
-            // std::printf("type: %X\n", type);
-            if (hasLoop && !foundLoop && GetCurrentPtr()-1 == loopAddress) {
-                if (g_verbose) 
+            if (hasLoop && !foundLoop && GetCurrentPtr() - 1 == loopAddress) {
+                if (g_verbose)
                     std::printf("<<<< inserted loop start\n");
-                //foundLoop = true;
+                // foundLoop = true;
                 loopStartTime = currentTime;
                 Event event;
                 event.time = loopStartTime;
@@ -291,8 +251,6 @@ void ReadAgbTracks() {
                 // Repeat last command
                 Skip(-1);
                 type = lastCommand;
-                // std::printf("%X ", type);
-                // std::printf("Repeat last command: %X\n", lastCommand);
                 if (g_verbose)
                     std::printf("(repeat cmd) ");
             } else {
@@ -310,7 +268,6 @@ void ReadAgbTracks() {
                     Event event;
                     event.time = currentTime;
                     event.type = EventType::Tempo;
-                    // 60000000 / event.param2
                     event.param2 = 60000000 / (val * 2);
                     metaEvents.push_back(event);
 
@@ -328,9 +285,7 @@ void ReadAgbTracks() {
                     break;
                 }
                 case VOL: {
-                    // const int MVL = 90; // TODO configurable per song?
                     const int MVL = 128;
-
                     const int MXV = 0x7F;
 
                     int val = ReadInt8();
@@ -340,8 +295,7 @@ void ReadAgbTracks() {
                     event.time = currentTime;
                     event.type = EventType::Controller;
                     event.param1 = 0x7;
-                    event.param2 = std::ceil((float)val * MXV /
-                                             MVL); // TODO inverse "%u*%s_mvl/mxv", event.param2, g_asmLabel.c_str());
+                    event.param2 = std::ceil((float)val * MXV / MVL);
                     events.push_back(event);
                     break;
                 }
@@ -414,7 +368,6 @@ void ReadAgbTracks() {
 
                     // Already handled
                     loopEndTime = currentTime;
-
                     break;
                 }
                 case EOT: {
@@ -601,7 +554,6 @@ void ReadAgbTracks() {
                 }
                 default:
                     if (type >= 0x80 && type <= 0x80 + 48) {
-
                         const int lenTbl[] = { 0,  1,  2,  3,  4,  5,  6,  7,  8,  9,  10, 11, 12, 13, 14, 15, 16,
                                                17, 18, 19, 20, 21, 22, 23, 24, 28, 30, 32, 36, 40, 42, 44, 48, 52,
                                                54, 56, 60, 64, 66, 68, 72, 76, 78, 80, 84, 88, 90, 92, 96 };
@@ -613,65 +565,31 @@ void ReadAgbTracks() {
                         patternDuration += wait;
 
                         if (!currentlyPlayingNotes.empty()) {
-
-                            // std::printf("Testing... %d\n", (int)currentlyPlayingNotes.size());
                             for (auto it = currentlyPlayingNotes.begin(); it != currentlyPlayingNotes.end();) {
                                 Event& note = *it; // Modify the note in the list if we don't remove it now.
                                 note.time -= wait;
                                 if (note.time <= 0) {
-
-                                    /*if (note.time < 0) {
-                                        std::printf("<0: %d\n", note.time);
-                                        std::cin.ignore();
-                                    }*/
-                                    // note.time += currentTime; // Set to the global time the note was finished.
-                                    // TODO negative=
                                     note.time += currentTime + wait;
-
-                                    // std::printf("Note off at %d\n", note.time);
                                     insertAtCorrectTimeFromEnd(events, note);
-
                                     it = currentlyPlayingNotes.erase(it);
                                 } else {
                                     ++it;
                                 }
-                                // // TODO handle multiple notes playing at the same time on the same track?
-                                // if (wait >= currentlyPlayingNotes[0].time) {
-                                //     Event event = currentlyPlayingNotes[0];
-                                //     std::printf("Finished playing note\n");
-                                //     event.time = currentTime;
-                                //     events.push_back(event);
-                                //     currentlyPlayingNotes.pop_back();
-                                // } else {
-                                //     currentlyPlayingNotes[0].time -= wait;
-                                // }
                             }
-                            // std::printf("Done... %d\n", (int)currentlyPlayingNotes.size());
                         }
                         currentTime += wait;
-
-                        /*                        if (wait > 0) {
-                                                    Event event;
-                                                    event.type = EventType::Wait;
-                                                    event.time = currentTime+convertTime(wait);
-                                                    events.push_back(event);
-                                                }*/
-
                     } else if (type >= 0xD0 && type <= 0xD0 + 47) {
-
                         // Handle note with a fixed length
                         int noteType = type;
                         int note = ReadInt8();
                         int velocity = 0;
                         int length = 0;
-
                         bool usedLastNote = false;
                         bool usedLastVelocity = false;
                         if (note < 0x80) { // a valid note
                             lastNote = note;
                             velocity = ReadInt8();
                             if (velocity < 0x80) { // a valid velocity
-                                // std::printf("Explicit velocity%d\n", velocity);
                                 lastVelocity = velocity;
                                 length = ReadInt8();
                                 if (length < 0x80) { // a valid length
@@ -681,7 +599,6 @@ void ReadAgbTracks() {
                                     length = 0;
                                 }
                             } else {
-                                // std::printf("Reusing last vel %d\n", lastVelocity);
                                 type = velocity;
                                 velocity = lastVelocity;
                                 usedLastVelocity = true;
@@ -732,64 +649,18 @@ void ReadAgbTracks() {
                             }
                             std::printf("\n");
                         }
-
-                        // std::printf("Wait before convert: %d\n", wait);
-                        // std::printf("Wait after convert: %d\n", event.param2);
                         events.push_back(event);
 
                         event.type = EventType::NoteOff;
                         event.time = wait;
-                        // std::printf("Should be off at %d...\n", currentTime+wait);
-                        // std::printf("Note length: %d\n", wait);
-                        // std::cin.ignore();
                         currentlyPlayingNotes.push_back(event);
-                        // event.param2 = wait;
-
-                        /*  int duration = wait; // event.param2;
-
-                          if (!g_exactGateTime) { // && duration < 96)
-                              // TODO inverse lut
-                              std::printf("asdf\n");
-                              for (size_t i = 0; i < 97; i++) {
-                                  if (g_noteDurationLUT[i] == duration) {
-                                      duration = i;
-                                      std::printf("test%d\n", (int)i);
-                                      break;
-                                  }
-                              }
-                          }
-
-                          if (duration == 1)
-                              duration = 0;
-
-                          //            event.param2 = (duration * g_midiTimeDiv) /(24 * g_clocksPerBeat);
-                          event.param2 = g_noteDurationInverseLUT[duration];
-                          std::printf("Wait after convert: %d\n", event.param2);*/
-
-                        /*
-                                    event.param1 = g_noteVelocityLUT[event.param1];
-
-                                    std::uint32_t duration = (24 * g_clocksPerBeat * event.param2) / g_midiTimeDiv;
-
-                                    if (duration == 0)
-                                        duration = 1;
-
-                                    if (!g_exactGateTime && duration < 96)
-                                        duration = g_noteDurationLUT[duration];
-
-                                    event.param2 = duration;
-                        */
-
                         continue; // Next type was already read
-
                     } else {
                         std::printf("ERROR: Unhandled type %X\n", type);
                         return;
                     }
                     break;
             }
-
-
 
             // TODO notes, waits,
             type = ReadInt8();
@@ -809,37 +680,17 @@ void ReadAgbTracks() {
                 }
                 insertAtCorrectTimeFromEnd(events, note);
             }
-            if (g_verbose) 
+            if (g_verbose)
                 std::printf("Found notes from %d up to %d.\n", currentTime, latestTime);
             currentTime = latestTime;
-            if (g_verbose) 
+            if (g_verbose)
                 std::cin.ignore();
         }
-
-        /*if (foundLoop) {
-            // Place the loop begin event as the last event for that time on the meta events track.
-            // TODO this does not help as TEMPO events are not placed on the meta track?
-
-            Event event;
-            event.time = loopStartTime;
-            event.type = EventType::LoopBegin;
-            insertAtCorrectTimeFromEnd(events, event);
-            std::printf("--- Inserting loop at %d\n", loopStartTime);
-        }*/
 
         if (hasLoop) {
             Event event;
             event.type = EventType::LoopEnd;
             event.time = loopEndTime;
-            // Place loop end at the end of the track that has the latest end.
-            /*for (const auto& events : trackEvents) {
-                int trackEnd = events.back().time;
-                if (trackEnd > event.time) {
-                    event.time = trackEnd;
-                }
-            }*/
-            // std::printf("####### loop End %d\n", event.time);
-            //events.push_back(event);
             insertAtCorrectTimeFromEnd(events, event);
         }
 
@@ -847,13 +698,11 @@ void ReadAgbTracks() {
         event.type = EventType::EndOfTrack;
         event.time = currentTime;
         events.push_back(event);
-        if (g_verbose) 
+        if (g_verbose)
             std::printf("END OF TRACK: %d\n", currentTime);
 
         trackEvents.push_back(events);
     }
-
-
 
     // Insert manual time signature change event
     for (const auto& change : timeSignatureChanges) {
@@ -866,17 +715,14 @@ void ReadAgbTracks() {
         for (size_t i = 0; i < metaEvents.size() - 1; i++) {
             int prevTime = metaEvents[i].time;
             int nextTime = metaEvents[i + 1].time;
-            //std::printf("%d < %d <= %d?\n", prevTime, event.time, nextTime);
             if (event.time > prevTime && event.time <= nextTime) {
-                //std::printf("axd%d\n", (int)metaEvents.size());
                 metaEvents.insert(metaEvents.begin() + i + 1, event);
                 inserted = true;
                 break;
             }
         }
-        //std::printf("asd %d\n", (int)metaEvents.size());
         if (!inserted) {
-        metaEvents.push_back(event);
+            metaEvents.push_back(event);
         }
     }
 }

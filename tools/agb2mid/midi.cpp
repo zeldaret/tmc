@@ -222,76 +222,71 @@ void WriteTrack(int channelId, const std::vector<Event>& events) {
     bool DEBUG = g_verbose && false;
 
     for (const auto& event : events) {
-
-        if (DEBUG) { std::printf("TIME: %d\n", event.time); }
-
-
-/*        if (event.type == EventType::Wait) { // Handle special wait event
-            waiting += event.time;
-            continue;
-        }*/
-
-
-        // TODO can remove type parameter if it is the same type as before?
-
-        // Delta time to previous event
-        // std::printf("delta Time: %d\n", event.time);
-        // TODO make sure currentTime <= event.time!!
-        writeDeltaTime(data, event.time - currentTime); //  - previousTime);
+        if (DEBUG) {
+            std::printf("TIME: %d\n", event.time);
+        }
+        writeDeltaTime(data, event.time - currentTime);
         currentTime = event.time;
-        // previousTime = event.time;
-
         switch (event.type) {
             case EventType::InstrumentChange:
-                if (DEBUG) { std::printf("InstrumentChange\n");}
-                data.push_back(0xC0 + channelId);         // type
-                data.push_back(event.param1); // instrument
+                if (DEBUG) {
+                    std::printf("InstrumentChange\n");
+                }
+                data.push_back(0xC0 + channelId); // type
+                data.push_back(event.param1);     // instrument
                 break;
             case EventType::Controller:
-                if (DEBUG) { std::printf("Controller\n");}
-                /*if (event.param1 == 7 && !firstVol) {
-                    firstVol = true; // hack TODO
-                } else {*/
-                    data.push_back(0xB0 + channelId);         // type
-                //}
-                data.push_back(event.param1); // controller index
-                data.push_back(event.param2); // value
+                if (DEBUG) {
+                    std::printf("Controller\n");
+                }
+                data.push_back(0xB0 + channelId); // type
+                data.push_back(event.param1);     // controller index
+                data.push_back(event.param2);     // value
                 break;
             case EventType::Note:
-                if (DEBUG) { std::printf("Note\n");}
-                data.push_back(0x90 + channelId);         // type
-                data.push_back(event.note);   // note
-                data.push_back(event.param1); // velocity
+                if (DEBUG) {
+                    std::printf("Note\n");
+                }
+                data.push_back(0x90 + channelId); // type
+                data.push_back(event.note);       // note
+                data.push_back(event.param1);     // velocity
                 break;
             case EventType::NoteOff:
-                if (DEBUG) { std::printf("NoteOff\n");}
+                if (DEBUG) {
+                    std::printf("NoteOff\n");
+                }
                 // Wait and note_end
-                data.push_back(0x80 + channelId);       // type
-                data.push_back(event.note); // note
-                data.push_back(0);          // Ignored velocity
+                data.push_back(0x80 + channelId); // type
+                data.push_back(event.note);       // note
+                data.push_back(0);                // Ignored velocity
                 break;
-            case EventType::TimeSignature:
-            {
-                if (DEBUG) { std::printf("TimeSignature\n");}
+            case EventType::TimeSignature: {
+                if (DEBUG) {
+                    std::printf("TimeSignature\n");
+                }
                 // One time meta event at the beginning of the meta track.
                 data.push_back(0xff);                 // meta
                 data.push_back(88);                   // TIME_SIGNATURE
                 writeDeltaTime(data, 4);              // m_length
-                data.push_back(event.param1);                    // numerator
-                data.push_back(event.param2);                    // denominator
+                data.push_back(event.param1);         // numerator
+                data.push_back(event.param2);         // denominator
                 data.push_back(24 * g_clocksPerBeat); // clocksPerClick
                 data.push_back(8);                    // 32ndPer4th
                 break;
             }
             case EventType::Tempo:
-                if (DEBUG) { std::printf("Tempo\n");}
-                data.push_back(0xff);     // meta
-                data.push_back(81);       // META_TEMPO
-                writeDeltaTime(data, 3);  // only valid tempo size is 3
+                if (DEBUG) {
+                    std::printf("Tempo\n");
+                }
+                data.push_back(0xff);           // meta
+                data.push_back(81);             // META_TEMPO
+                writeDeltaTime(data, 3);        // only valid tempo size is 3
                 writeInt24(data, event.param2); // usecPerQuarterNote
                 break;
             case EventType::Extended:
-                if (DEBUG) { std::printf("Extended\n");}
+                if (DEBUG) {
+                    std::printf("Extended\n");
+                }
                 if (event.note == 0x1d) {
                     // for some reason the first one is in a meta change?
                     data.push_back(0xb0);
@@ -300,40 +295,46 @@ void WriteTrack(int channelId, const std::vector<Event>& events) {
                 data.push_back(event.param1);
 
                 writeDeltaTime(data, 0); // Next midi event
-                data.push_back(0x1d); // TODO why twice 0x1d? event.note);
+                data.push_back(0x1d);    // TODO why twice 0x1d? event.note);
                 data.push_back(event.param2);
                 break;
             case EventType::PitchBend:
-                if (DEBUG) { std::printf("PitchBend\n");}
+                if (DEBUG) {
+                    std::printf("PitchBend\n");
+                }
                 data.push_back(0xe0 + channelId); // petch bend
-                data.push_back(0); // lsb
+                data.push_back(0);                // lsb
                 data.push_back(event.param2);
                 break;
             case EventType::EndOfTrack:
-                if (DEBUG) { std::printf("EndOfTrack\n");}
+                if (DEBUG) {
+                    std::printf("EndOfTrack\n");
+                }
                 // End of track
                 data.push_back(0xff);    // meta
                 data.push_back(47);      // META_END_OF_TRACK
                 writeDeltaTime(data, 0); // length
                 break;
             case EventType::LoopBegin:
-                if (DEBUG) { std::printf("LoopBegin\n");}
-                data.push_back(0xff);    // meta
-                data.push_back(0x6); // META_MARKER
-                data.push_back(0x1); // length
+                if (DEBUG) {
+                    std::printf("LoopBegin\n");
+                }
+                data.push_back(0xff); // meta
+                data.push_back(0x6);  // META_MARKER
+                data.push_back(0x1);  // length
                 data.push_back(0x5B); // [
                 break;
             case EventType::LoopEnd:
-                if (DEBUG) { std::printf("LoopEnd\n");}
-                data.push_back(0xff);    // meta
-                data.push_back(0x6); // META_MARKER
-                data.push_back(0x1); // length
+                if (DEBUG) {
+                    std::printf("LoopEnd\n");
+                }
+                data.push_back(0xff); // meta
+                data.push_back(0x6);  // META_MARKER
+                data.push_back(0x1);  // length
                 data.push_back(0x5D); // ]
                 break;
-
         }
     }
-
 
     // MidiTrack header
     std::fprintf(g_outputFile, "MTrk");
@@ -355,19 +356,11 @@ void WriteMidiFile() {
     // u16 midiTimeDiv (24 in example)
     WriteInt16(g_midiTimeDiv);
 
-
     // Add end of track to meta events
     Event event;
     event.type = EventType::EndOfTrack;
-    /*event.time = 0;
-    // Place loop end at the end of the track that has the latest end.
-    for (const auto& events:trackEvents) {
-        int trackEnd = events.back().time;
-        if (trackEnd > event.time) {
-            event.time = trackEnd;
-        }
-    }*/
-    // EndOfTrack event needs to be at the last meta event (can be earlier than the end of other tracks) for bgmVaatiMotif to work
+    // EndOfTrack event needs to be at the last meta event (can be earlier than the end of other tracks) for
+    // bgmVaatiMotif to work
     event.time = metaEvents.back().time;
     metaEvents.push_back(event);
 
