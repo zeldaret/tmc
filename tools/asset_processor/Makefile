@@ -12,6 +12,11 @@ OBJS := $(patsubst %.cpp,$(BUILD_FOLDER)/%.o,$(SRCS))
 
 INCLUDES = -I./
 
+LIB :=
+ifneq ($(shell uname -s),Darwin)
+	LIB += +lc++fs
+endif
+
 # Create build dirs
 $(shell mkdir -p $(dir $(OBJS)) >/dev/null)
 
@@ -20,7 +25,7 @@ $(shell mkdir -p $(dir $(OBJS)) >/dev/null)
 all: asset_processor
 
 asset_processor: $(OBJS)
-	$(CXX) -o asset_processor $(OBJS) -lstdc++fs
+	$(CXX) -o asset_processor $(OBJS) $(LIB)
 
 $(BUILD_FOLDER)/%.o: %.cpp
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -c -o $@ $<
