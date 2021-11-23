@@ -23,8 +23,7 @@
 #include <cstdarg>
 
 // Reports an error diagnostic and terminates the program.
-[[noreturn]] void RaiseError(const char* format, ...)
-{
+[[noreturn]] void RaiseError(const char* format, ...) {
     const int bufferSize = 1024;
     char buffer[bufferSize];
     std::va_list args;

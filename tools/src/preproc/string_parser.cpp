@@ -27,27 +27,22 @@
 #include "utf8.h"
 
 // Reads a charmap char or escape sequence.
-std::string StringParser::ReadCharOrEscape()
-{
+std::string StringParser::ReadCharOrEscape() {
     std::string sequence;
 
     bool isEscape = (m_buffer[m_pos] == '\\');
 
-    if (isEscape)
-    {
+    if (isEscape) {
         m_pos++;
 
-        if (m_buffer[m_pos] == '"')
-        {
+        if (m_buffer[m_pos] == '"') {
             sequence = g_charmap->Char('"');
 
             if (sequence.length() == 0)
                 RaiseError("no mapping exists for double quote");
 
             return sequence;
-        }
-        else if (m_buffer[m_pos] == '\\')
-        {
+        } else if (m_buffer[m_pos] == '\\') {
             sequence = g_charmap->Char('\\');
 
             if (sequence.length() == 0)
@@ -59,8 +54,7 @@ std::string StringParser::ReadCharOrEscape()
 
     unsigned char c = m_buffer[m_pos];
 
-    if (c == 0)
-    {
+    if (c == 0) {
         if (m_pos >= m_size)
             RaiseError("unexpected EOF in UTF-8 string");
         else
@@ -82,8 +76,7 @@ std::string StringParser::ReadCharOrEscape()
 
     sequence = isEscape ? g_charmap->Escape(code) : g_charmap->Char(code);
 
-    if (sequence.length() == 0)
-    {
+    if (sequence.length() == 0) {
         if (isEscape)
             RaiseError("unknown escape '\\%c'", code);
         else
@@ -94,18 +87,15 @@ std::string StringParser::ReadCharOrEscape()
 }
 
 // Reads a charmap constant, i.e. "{FOO}".
-std::string StringParser::ReadBracketedConstants()
-{
+std::string StringParser::ReadBracketedConstants() {
     std::string totalSequence;
 
     m_pos++; // Assume we're on the left curly bracket.
 
-    while (m_buffer[m_pos] != '}')
-    {
+    while (m_buffer[m_pos] != '}') {
         SkipWhitespace();
 
-        if (IsIdentifierStartingChar(m_buffer[m_pos]))
-        {
+        if (IsIdentifierStartingChar(m_buffer[m_pos])) {
             long startPos = m_pos;
 
             m_pos++;
@@ -115,44 +105,36 @@ std::string StringParser::ReadBracketedConstants()
 
             std::string sequence = g_charmap->Constant(std::string(&m_buffer[startPos], m_pos - startPos));
 
-            if (sequence.length() == 0)
-            {
+            if (sequence.length() == 0) {
                 m_buffer[m_pos] = 0;
                 RaiseError("unknown constant '%s'", &m_buffer[startPos]);
             }
 
             totalSequence += sequence;
-        }
-        else if (IsAsciiDigit(m_buffer[m_pos]))
-        {
+        } else if (IsAsciiDigit(m_buffer[m_pos])) {
             Integer integer = ReadInteger();
 
-            switch (integer.size)
-            {
-            case 1:
-                totalSequence += (unsigned char)integer.value;
-                break;
-            case 2:
-                totalSequence += (unsigned char)integer.value;
-                totalSequence += (unsigned char)(integer.value >> 8);
-                break;
-            case 4:
-                totalSequence += (unsigned char)integer.value;
-                totalSequence += (unsigned char)(integer.value >> 8);
-                totalSequence += (unsigned char)(integer.value >> 16);
-                totalSequence += (unsigned char)(integer.value >> 24);
-                break;
+            switch (integer.size) {
+                case 1:
+                    totalSequence += (unsigned char)integer.value;
+                    break;
+                case 2:
+                    totalSequence += (unsigned char)integer.value;
+                    totalSequence += (unsigned char)(integer.value >> 8);
+                    break;
+                case 4:
+                    totalSequence += (unsigned char)integer.value;
+                    totalSequence += (unsigned char)(integer.value >> 8);
+                    totalSequence += (unsigned char)(integer.value >> 16);
+                    totalSequence += (unsigned char)(integer.value >> 24);
+                    break;
             }
-        }
-        else if (m_buffer[m_pos] == 0)
-        {
+        } else if (m_buffer[m_pos] == 0) {
             if (m_pos >= m_size)
                 RaiseError("unexpected EOF after left curly bracket");
             else
                 RaiseError("unexpected null character within curly brackets");
-        }
-        else
-        {
+        } else {
             if (IsAsciiPrintable(m_buffer[m_pos]))
                 RaiseError("unexpected character '%c' within curly brackets", m_buffer[m_pos]);
             else
@@ -166,8 +148,7 @@ std::string StringParser::ReadBracketedConstants()
 }
 
 // Reads a charmap string.
-int StringParser::ParseString(long srcPos, unsigned char* dest, int& destLength)
-{
+int StringParser::ParseString(long srcPos, unsigned char* dest, int& destLength) {
     m_pos = srcPos;
 
     if (m_buffer[m_pos] != '"')
@@ -179,12 +160,10 @@ int StringParser::ParseString(long srcPos, unsigned char* dest, int& destLength)
 
     destLength = 0;
 
-    while (m_buffer[m_pos] != '"')
-    {
+    while (m_buffer[m_pos] != '"') {
         std::string sequence = (m_buffer[m_pos] == '{') ? ReadBracketedConstants() : ReadCharOrEscape();
 
-        for (const char& c : sequence)
-        {
+        for (const char& c : sequence) {
             if (destLength == kMaxStringLength)
                 RaiseError("mapped string longer than %d bytes", kMaxStringLength);
 
@@ -197,8 +176,7 @@ int StringParser::ParseString(long srcPos, unsigned char* dest, int& destLength)
     return m_pos - start;
 }
 
-void StringParser::RaiseError(const char* format, ...)
-{
+void StringParser::RaiseError(const char* format, ...) {
     const int bufferSize = 1024;
     char buffer[bufferSize];
 
@@ -211,8 +189,7 @@ void StringParser::RaiseError(const char* format, ...)
 }
 
 // Converts digit character to numerical value.
-static int ConvertDigit(char c, int radix)
-{
+static int ConvertDigit(char c, int radix) {
     int digit;
 
     if (c >= '0' && c <= '9')
@@ -227,26 +204,22 @@ static int ConvertDigit(char c, int radix)
     return (digit < radix) ? digit : -1;
 }
 
-void StringParser::SkipRestOfInteger(int radix)
-{
+void StringParser::SkipRestOfInteger(int radix) {
     while (ConvertDigit(m_buffer[m_pos], radix) != -1)
         m_pos++;
 }
 
-StringParser::Integer StringParser::ReadDecimal()
-{
+StringParser::Integer StringParser::ReadDecimal() {
     const int radix = 10;
     std::uint64_t n = 0;
     int digit;
     std::uint64_t max = UINT32_MAX;
     long startPos = m_pos;
 
-    while ((digit = ConvertDigit(m_buffer[m_pos], radix)) != -1)
-    {
+    while ((digit = ConvertDigit(m_buffer[m_pos], radix)) != -1) {
         n = n * radix + digit;
 
-        if (n >= max)
-        {
+        if (n >= max) {
             SkipRestOfInteger(radix);
 
             std::string intLiteral(m_buffer + startPos, m_pos - startPos);
@@ -258,23 +231,17 @@ StringParser::Integer StringParser::ReadDecimal()
 
     int size;
 
-    if (m_buffer[m_pos] == 'H')
-    {
-        if (n >= 0x10000)
-        {
+    if (m_buffer[m_pos] == 'H') {
+        if (n >= 0x10000) {
             RaiseError("%lu is too large to be a halfword", (unsigned long)n);
         }
 
         size = 2;
         m_pos++;
-    }
-    else if (m_buffer[m_pos] == 'W')
-    {
+    } else if (m_buffer[m_pos] == 'W') {
         size = 4;
         m_pos++;
-    }
-    else
-    {
+    } else {
         if (n >= 0x10000)
             size = 4;
         else if (n >= 0x100)
@@ -283,23 +250,20 @@ StringParser::Integer StringParser::ReadDecimal()
             size = 1;
     }
 
-    return{ static_cast<std::uint32_t>(n), size };
+    return { static_cast<std::uint32_t>(n), size };
 }
 
-StringParser::Integer StringParser::ReadHex()
-{
+StringParser::Integer StringParser::ReadHex() {
     const int radix = 16;
     std::uint64_t n = 0;
     int digit;
     std::uint64_t max = UINT32_MAX;
     long startPos = m_pos;
 
-    while ((digit = ConvertDigit(m_buffer[m_pos], radix)) != -1)
-    {
+    while ((digit = ConvertDigit(m_buffer[m_pos], radix)) != -1) {
         n = n * radix + digit;
 
-        if (n >= max)
-        {
+        if (n >= max) {
             SkipRestOfInteger(radix);
 
             std::string intLiteral(m_buffer + startPos, m_pos - startPos);
@@ -312,34 +276,30 @@ StringParser::Integer StringParser::ReadHex()
     int length = m_pos - startPos;
     int size = 0;
 
-    switch (length)
-    {
-    case 2:
-        size = 1;
-        break;
-    case 4:
-        size = 2;
-        break;
-    case 8:
-        size = 4;
-        break;
-    default:
-    {
-        std::string intLiteral(m_buffer + startPos, m_pos - startPos);
-        RaiseError("hex integer literal \"0x%s\" doesn't have length of 2, 4, or 8 digits", intLiteral.c_str());
-    }
+    switch (length) {
+        case 2:
+            size = 1;
+            break;
+        case 4:
+            size = 2;
+            break;
+        case 8:
+            size = 4;
+            break;
+        default: {
+            std::string intLiteral(m_buffer + startPos, m_pos - startPos);
+            RaiseError("hex integer literal \"0x%s\" doesn't have length of 2, 4, or 8 digits", intLiteral.c_str());
+        }
     }
 
-    return{ static_cast<std::uint32_t>(n), size };
+    return { static_cast<std::uint32_t>(n), size };
 }
 
-StringParser::Integer StringParser::ReadInteger()
-{
+StringParser::Integer StringParser::ReadInteger() {
     if (!IsAsciiDigit(m_buffer[m_pos]))
         RaiseError("expected integer");
 
-    if (m_buffer[m_pos] == '0' && m_buffer[m_pos + 1] == 'x')
-    {
+    if (m_buffer[m_pos] == '0' && m_buffer[m_pos + 1] == 'x') {
         m_pos += 2;
         return ReadHex();
     }
@@ -348,8 +308,7 @@ StringParser::Integer StringParser::ReadInteger()
 }
 
 // Skips tabs and spaces.
-void StringParser::SkipWhitespace()
-{
+void StringParser::SkipWhitespace() {
     while (m_buffer[m_pos] == '\t' || m_buffer[m_pos] == ' ')
         m_pos++;
 }

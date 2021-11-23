@@ -21,9 +21,7 @@
 #include <new>
 #include "source_file.h"
 
-
-SourceFileType GetFileType(std::string& path)
-{
+SourceFileType GetFileType(std::string& path) {
     std::size_t pos = path.find_last_of('.');
 
     if (pos == std::string::npos)
@@ -41,13 +39,12 @@ SourceFileType GetFileType(std::string& path)
         return SourceFileType::Inc;
     else
         FATAL_ERROR("Unrecognized extension \"%s\"\n", extension.c_str());
-    
+
     // Unreachable
     return SourceFileType::Cpp;
 }
 
-std::string GetDir(std::string& path)
-{
+std::string GetDir(std::string& path) {
     std::size_t slash = path.rfind('/');
 
     if (slash != std::string::npos)
@@ -56,20 +53,15 @@ std::string GetDir(std::string& path)
         return std::string("");
 }
 
-SourceFile::SourceFile(std::string path)
-{
+SourceFile::SourceFile(std::string path) {
     m_file_type = GetFileType(path);
 
     m_src_dir = GetDir(path);
 
-    if (m_file_type == SourceFileType::Cpp
-            || m_file_type == SourceFileType::Header)
-    {
+    if (m_file_type == SourceFileType::Cpp || m_file_type == SourceFileType::Header) {
         new (&m_source_file.c_file) CFile(path);
         m_source_file.c_file.FindIncbins();
-    }
-    else
-    {
+    } else {
         AsmFile file(path);
         std::set<std::string> incbins;
         std::set<std::string> includes;
@@ -77,49 +69,40 @@ SourceFile::SourceFile(std::string path)
         IncDirectiveType incDirectiveType;
         std::string outputPath;
 
-        while ((incDirectiveType = file.ReadUntilIncDirective(outputPath)) != IncDirectiveType::None)
-        {
+        while ((incDirectiveType = file.ReadUntilIncDirective(outputPath)) != IncDirectiveType::None) {
             if (incDirectiveType == IncDirectiveType::Include)
                 includes.insert(outputPath);
             else
                 incbins.insert(outputPath);
         }
-        
-        new (&m_source_file.asm_wrapper) SourceFile::InnerUnion::AsmWrapper{incbins, includes};
+
+        new (&m_source_file.asm_wrapper) SourceFile::InnerUnion::AsmWrapper{ incbins, includes };
     }
 }
 
-SourceFile::~SourceFile()
-{
-    if (m_file_type == SourceFileType::Cpp || m_file_type == SourceFileType::Header)
-    {
+SourceFile::~SourceFile() {
+    if (m_file_type == SourceFileType::Cpp || m_file_type == SourceFileType::Header) {
         m_source_file.c_file.~CFile();
-    }
-    else
-    {
+    } else {
         m_source_file.asm_wrapper.asm_incbins.~set();
         m_source_file.asm_wrapper.asm_includes.~set();
     }
 }
 
-const std::set<std::string>& SourceFile::GetIncbins()
-{
+const std::set<std::string>& SourceFile::GetIncbins() {
     if (m_file_type == SourceFileType::Cpp || m_file_type == SourceFileType::Header)
         return m_source_file.c_file.GetIncbins();
     else
         return m_source_file.asm_wrapper.asm_incbins;
 }
 
-const std::set<std::string>& SourceFile::GetIncludes()
-{
+const std::set<std::string>& SourceFile::GetIncludes() {
     if (m_file_type == SourceFileType::Cpp || m_file_type == SourceFileType::Header)
         return m_source_file.c_file.GetIncludes();
     else
         return m_source_file.asm_wrapper.asm_includes;
 }
 
-std::string& SourceFile::GetSrcDir()
-{
+std::string& SourceFile::GetSrcDir() {
     return m_src_dir;
 }
-

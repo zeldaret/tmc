@@ -24,47 +24,37 @@
 #include <cstdint>
 #include <cassert>
 
-inline bool IsAscii(unsigned char c)
-{
+inline bool IsAscii(unsigned char c) {
     return (c < 128);
 }
 
-inline bool IsAsciiAlpha(unsigned char c)
-{
+inline bool IsAsciiAlpha(unsigned char c) {
     return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
 }
 
-inline bool IsAsciiDigit(unsigned char c)
-{
+inline bool IsAsciiDigit(unsigned char c) {
     return (c >= '0' && c <= '9');
 }
 
-inline bool IsAsciiHexDigit(unsigned char c)
-{
-    return ((c >= '0' && c <= '9')
-        || (c >= 'a' && c <= 'f')
-        || (c >= 'A' && c <= 'F'));
+inline bool IsAsciiHexDigit(unsigned char c) {
+    return ((c >= '0' && c <= '9') || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F'));
 }
 
-inline bool IsAsciiAlphanum(unsigned char c)
-{
+inline bool IsAsciiAlphanum(unsigned char c) {
     return (IsAsciiAlpha(c) || IsAsciiDigit(c));
 }
 
-inline bool IsAsciiPrintable(unsigned char c)
-{
+inline bool IsAsciiPrintable(unsigned char c) {
     return (c >= ' ' && c <= '~');
 }
 
 // Returns whether the character can start a C identifier or the identifier of a "{FOO}" constant in strings.
-inline bool IsIdentifierStartingChar(unsigned char c)
-{
+inline bool IsIdentifierStartingChar(unsigned char c) {
     return IsAsciiAlpha(c) || c == '_';
 }
 
 // Returns whether the character can be used in a C identifier or the identifier of a "{FOO}" constant in strings.
-inline bool IsIdentifierChar(unsigned char c)
-{
+inline bool IsIdentifierChar(unsigned char c) {
     return IsAsciiAlphanum(c) || c == '_';
 }
 

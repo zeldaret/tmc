@@ -5,14 +5,13 @@
 #include "global.h"
 #include "rl.h"
 
-unsigned char *RLDecompress(unsigned char *src, int srcSize, int *uncompressedSize)
-{
+unsigned char* RLDecompress(unsigned char* src, int srcSize, int* uncompressedSize) {
     if (srcSize < 4)
         goto fail;
 
     int destSize = (src[3] << 16) | (src[2] << 8) | src[1];
 
-    unsigned char *dest = malloc(destSize);
+    unsigned char* dest = malloc(destSize);
 
     if (dest == NULL)
         goto fail;
@@ -20,16 +19,14 @@ unsigned char *RLDecompress(unsigned char *src, int srcSize, int *uncompressedSi
     int srcPos = 4;
     int destPos = 0;
 
-    for (;;)
-    {
+    for (;;) {
         if (srcPos >= srcSize)
             goto fail;
 
         unsigned char flags = src[srcPos++];
         bool compressed = ((flags & 0x80) != 0);
 
-        if (compressed)
-        {
+        if (compressed) {
             int length = (flags & 0x7F) + 3;
             unsigned char data = src[srcPos++];
 
@@ -38,9 +35,7 @@ unsigned char *RLDecompress(unsigned char *src, int srcSize, int *uncompressedSi
 
             for (int i = 0; i < length; i++)
                 dest[destPos++] = data;
-        }
-        else
-        {
+        } else {
             int length = (flags & 0x7F) + 1;
 
             if (destPos + length > destSize)
@@ -50,8 +45,7 @@ unsigned char *RLDecompress(unsigned char *src, int srcSize, int *uncompressedSi
                 dest[destPos++] = src[srcPos++];
         }
 
-        if (destPos == destSize)
-        {
+        if (destPos == destSize) {
             *uncompressedSize = destSize;
             return dest;
         }
@@ -61,8 +55,7 @@ fail:
     FATAL_ERROR("Fatal error while decompressing RL file.\n");
 }
 
-unsigned char *RLCompress(unsigned char *src, int srcSize, int *compressedSize)
-{
+unsigned char* RLCompress(unsigned char* src, int srcSize, int* compressedSize) {
     if (srcSize <= 0)
         goto fail;
 
@@ -71,7 +64,7 @@ unsigned char *RLCompress(unsigned char *src, int srcSize, int *compressedSize)
     // Round up to the next multiple of four.
     worstCaseDestSize = (worstCaseDestSize + 3) & ~3;
 
-    unsigned char *dest = malloc(worstCaseDestSize);
+    unsigned char* dest = malloc(worstCaseDestSize);
 
     if (dest == NULL)
         goto fail;
@@ -85,14 +78,12 @@ unsigned char *RLCompress(unsigned char *src, int srcSize, int *compressedSize)
     int srcPos = 0;
     int destPos = 4;
 
-    for (;;)
-    {
+    for (;;) {
         bool compress = false;
         int uncompressedStart = srcPos;
         int uncompressedLength = 0;
 
-        while (srcPos < srcSize && uncompressedLength < (0x7F + 1))
-        {
+        while (srcPos < srcSize && uncompressedLength < (0x7F + 1)) {
             compress = (srcPos + 2 < srcSize && src[srcPos] == src[srcPos + 1] && src[srcPos] == src[srcPos + 2]);
 
             if (compress)
@@ -101,24 +92,20 @@ unsigned char *RLCompress(unsigned char *src, int srcSize, int *compressedSize)
             srcPos++;
             uncompressedLength++;
         }
-        
-        if (uncompressedLength > 0)
-        {
+
+        if (uncompressedLength > 0) {
             dest[destPos++] = uncompressedLength - 1;
 
             for (int i = 0; i < uncompressedLength; i++)
                 dest[destPos++] = src[uncompressedStart + i];
         }
 
-        if (compress)
-        {
+        if (compress) {
             unsigned char data = src[srcPos];
             int compressedLength = 0;
 
-            while (compressedLength < (0x7F + 3)
-                && srcPos + compressedLength < srcSize
-                && src[srcPos + compressedLength] == data)
-            {
+            while (compressedLength < (0x7F + 3) && srcPos + compressedLength < srcSize &&
+                   src[srcPos + compressedLength] == data) {
                 compressedLength++;
             }
 
@@ -128,13 +115,11 @@ unsigned char *RLCompress(unsigned char *src, int srcSize, int *compressedSize)
             srcPos += compressedLength;
         }
 
-        if (srcPos == srcSize)
-        {
+        if (srcPos == srcSize) {
             // Pad to multiple of 4 bytes.
             int remainder = destPos % 4;
 
-            if (remainder != 0)
-            {
+            if (remainder != 0) {
                 for (int i = 0; i < 4 - remainder; i++)
                     dest[destPos++] = 0;
             }

@@ -6,7 +6,7 @@
 #include <stdbool.h>
 
 struct GbaToPngOptions {
-    char *paletteFilePath;
+    char* paletteFilePath;
     int bitDepth;
     bool hasTransparency;
     int width;

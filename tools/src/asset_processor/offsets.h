@@ -6,11 +6,11 @@
 
 class OffsetCalculator {
 
-public:
+  public:
     OffsetCalculator(std::filesystem::path offsetsFile, int baseOffset);
     void addAsset(int start, std::string symbol);
 
-private:
+  private:
     std::ofstream output;
     int baseOffset;
 };

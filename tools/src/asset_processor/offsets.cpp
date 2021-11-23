@@ -1,6 +1,6 @@
 #include "offsets.h"
 
-OffsetCalculator::OffsetCalculator(std::filesystem::path outputFile, int baseOffset): baseOffset(baseOffset) {
+OffsetCalculator::OffsetCalculator(std::filesystem::path outputFile, int baseOffset) : baseOffset(baseOffset) {
     output = std::ofstream(outputFile);
 }
 

@@ -28,13 +28,10 @@
 Charmap* g_charmap;
 std::string g_buildName;
 
-void PrintAsmBytes(unsigned char *s, int length)
-{
-    if (length > 0)
-    {
+void PrintAsmBytes(unsigned char* s, int length) {
+    if (length > 0) {
         std::printf("\t.byte ");
-        for (int i = 0; i < length; i++)
-        {
+        for (int i = 0; i < length; i++) {
             std::printf("0x%02X", s[i]);
 
             if (i < length - 1)
@@ -44,16 +41,13 @@ void PrintAsmBytes(unsigned char *s, int length)
     }
 }
 
-void PreprocAsmFile(std::string filename)
-{
+void PreprocAsmFile(std::string filename) {
     std::stack<AsmFile> stack;
 
     stack.push(AsmFile(filename));
 
-    for (;;)
-    {
-        while (stack.top().IsAtEnd())
-        {
+    for (;;) {
+        while (stack.top().IsAtEnd()) {
             stack.pop();
 
             if (stack.empty())
@@ -64,54 +58,45 @@ void PreprocAsmFile(std::string filename)
 
         Directive directive = stack.top().GetDirective();
 
-        switch (directive)
-        {
-        case Directive::Include:
-            stack.push(AsmFile(stack.top().ReadPath()));
-            stack.top().OutputLocation();
-            break;
-        case Directive::String:
-        {
-            unsigned char s[kMaxStringLength];
-            int length = stack.top().ReadString(s);
-            PrintAsmBytes(s, length);
-            break;
-        }
-        case Directive::Braille:
-        {
-            unsigned char s[kMaxStringLength];
-            int length = stack.top().ReadBraille(s);
-            PrintAsmBytes(s, length);
-            break;
-        }
-        case Directive::Unknown:
-        {
-            std::string globalLabel = stack.top().GetGlobalLabel();
-
-            if (globalLabel.length() != 0)
-            {
-                const char *s = globalLabel.c_str();
-                std::printf("%s: ; .global %s\n", s, s);
+        switch (directive) {
+            case Directive::Include:
+                stack.push(AsmFile(stack.top().ReadPath()));
+                stack.top().OutputLocation();
+                break;
+            case Directive::String: {
+                unsigned char s[kMaxStringLength];
+                int length = stack.top().ReadString(s);
+                PrintAsmBytes(s, length);
+                break;
             }
-            else
-            {
-                stack.top().OutputLine();
+            case Directive::Braille: {
+                unsigned char s[kMaxStringLength];
+                int length = stack.top().ReadBraille(s);
+                PrintAsmBytes(s, length);
+                break;
             }
+            case Directive::Unknown: {
+                std::string globalLabel = stack.top().GetGlobalLabel();
 
-            break;
-        }
+                if (globalLabel.length() != 0) {
+                    const char* s = globalLabel.c_str();
+                    std::printf("%s: ; .global %s\n", s, s);
+                } else {
+                    stack.top().OutputLine();
+                }
+
+                break;
+            }
         }
     }
 }
 
-void PreprocCFile(std::string filename)
-{
+void PreprocCFile(std::string filename) {
     CFile cFile(filename);
     cFile.Preproc();
 }
 
-char* GetFileExtension(char* filename)
-{
+char* GetFileExtension(char* filename) {
     char* extension = filename;
 
     while (*extension != 0)
@@ -131,10 +116,8 @@ char* GetFileExtension(char* filename)
     return extension;
 }
 
-int main(int argc, char **argv)
-{
-    if (argc != 4 && argc != 3)
-    {
+int main(int argc, char** argv) {
+    if (argc != 4 && argc != 3) {
         std::fprintf(stderr, "Usage: %s BUILD_NAME SRC_FILE CHARMAP_FILE", argv[0]);
         return 1;
     }

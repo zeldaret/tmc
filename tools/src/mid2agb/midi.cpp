@@ -30,8 +30,7 @@
 #include "agb.h"
 #include "tables.h"
 
-enum class MidiEventCategory
-{
+enum class MidiEventCategory {
     Control,
     SysEx,
     Meta,
@@ -54,20 +53,17 @@ static int s_minNote;
 static int s_maxNote;
 static int s_runningStatus;
 
-void Seek(long offset)
-{
+void Seek(long offset) {
     if (std::fseek(g_inputFile, offset, SEEK_SET) != 0)
         RaiseError("failed to seek to %l", offset);
 }
 
-void Skip(long offset)
-{
+void Skip(long offset) {
     if (std::fseek(g_inputFile, offset, SEEK_CUR) != 0)
         RaiseError("failed to skip %l bytes", offset);
 }
 
-std::string ReadSignature()
-{
+std::string ReadSignature() {
     char signature[4];
 
     if (std::fread(signature, 4, 1, g_inputFile) != 1)
@@ -76,8 +72,7 @@ std::string ReadSignature()
     return std::string(signature, 4);
 }
 
-std::uint32_t ReadInt8()
-{
+std::uint32_t ReadInt8() {
     int c = std::fgetc(g_inputFile);
 
     if (c < 0)
@@ -86,16 +81,14 @@ std::uint32_t ReadInt8()
     return c;
 }
 
-std::uint32_t ReadInt16()
-{
+std::uint32_t ReadInt16() {
     std::uint32_t val = 0;
     val |= ReadInt8() << 8;
     val |= ReadInt8();
     return val;
 }
 
-std::uint32_t ReadInt24()
-{
+std::uint32_t ReadInt24() {
     std::uint32_t val = 0;
     val |= ReadInt8() << 16;
     val |= ReadInt8() << 8;
@@ -103,8 +96,7 @@ std::uint32_t ReadInt24()
     return val;
 }
 
-std::uint32_t ReadInt32()
-{
+std::uint32_t ReadInt32() {
     std::uint32_t val = 0;
     val |= ReadInt8() << 24;
     val |= ReadInt8() << 16;
@@ -113,13 +105,11 @@ std::uint32_t ReadInt32()
     return val;
 }
 
-std::uint32_t ReadVLQ()
-{
+std::uint32_t ReadVLQ() {
     std::uint32_t val = 0;
     std::uint32_t c;
 
-    do
-    {
+    do {
         c = ReadInt8();
         val <<= 7;
         val |= (c & 0x7F);
@@ -128,8 +118,7 @@ std::uint32_t ReadVLQ()
     return val;
 }
 
-void ReadMidiFileHeader()
-{
+void ReadMidiFileHeader() {
     Seek(0);
 
     if (ReadSignature() != "MThd")
@@ -153,8 +142,7 @@ void ReadMidiFileHeader()
         RaiseError("unsupported MIDI time division (%d)", g_midiTimeDiv);
 }
 
-long ReadMidiTrackHeader(long offset)
-{
+long ReadMidiTrackHeader(long offset) {
     Seek(offset);
 
     if (ReadSignature() != "MTrk")
@@ -167,82 +155,65 @@ long ReadMidiTrackHeader(long offset)
     return size + 8;
 }
 
-void StartTrack()
-{
+void StartTrack() {
     Seek(s_trackDataStart);
     s_absoluteTime = 0;
     s_runningStatus = 0;
 }
 
-void SkipEventData()
-{
+void SkipEventData() {
     Skip(ReadVLQ());
 }
 
-void DetermineEventCategory(MidiEventCategory& category, int& typeChan, int& size)
-{
+void DetermineEventCategory(MidiEventCategory& category, int& typeChan, int& size) {
     typeChan = ReadInt8();
 
-    if (typeChan < 0x80)
-    {
+    if (typeChan < 0x80) {
         // If data byte was found, use the running status.
         ungetc(typeChan, g_inputFile);
         typeChan = s_runningStatus;
     }
 
-    if (typeChan == 0xFF)
-    {
+    if (typeChan == 0xFF) {
         category = MidiEventCategory::Meta;
         size = 0;
         s_runningStatus = 0;
-    }
-    else if (typeChan >= 0xF0)
-    {
+    } else if (typeChan >= 0xF0) {
         category = MidiEventCategory::SysEx;
         size = 0;
         s_runningStatus = 0;
-    }
-    else if (typeChan >= 0x80)
-    {
+    } else if (typeChan >= 0x80) {
         category = MidiEventCategory::Control;
 
-        switch (typeChan >> 4)
-        {
-        case 0xC:
-        case 0xD:
-            size = 1;
-            break;
-        default:
-            size = 2;
-            break;
+        switch (typeChan >> 4) {
+            case 0xC:
+            case 0xD:
+                size = 1;
+                break;
+            default:
+                size = 2;
+                break;
         }
         s_runningStatus = typeChan;
-    }
-    else
-    {
+    } else {
         category = MidiEventCategory::Invalid;
     }
 }
 
-void MakeBlockEvent(Event& event, EventType type)
-{
+void MakeBlockEvent(Event& event, EventType type) {
     event.type = type;
     event.param1 = s_blockCount++;
     event.param2 = 0;
 }
 
-std::string ReadEventText()
-{
+std::string ReadEventText() {
     char buffer[2];
     std::uint32_t length = ReadVLQ();
 
-    if (length <= 2)
-    {
+    if (length <= 2) {
         if (fread(buffer, length, 1, g_inputFile) != 1)
             RaiseError("failed to read event text");
-    }
-    else
-    {
+    } else {
         Skip(length);
         length = 0;
     }
@@ -250,8 +221,7 @@ std::string ReadEventText()
     return std::string(buffer, length);
 }
 
-bool ReadSeqEvent(Event& event)
-{
+bool ReadSeqEvent(Event& event) {
     s_absoluteTime += ReadVLQ();
     event.time = s_absoluteTime;
 
@@ -261,14 +231,12 @@ bool ReadSeqEvent(Event& event)
 
     DetermineEventCategory(category, typeChan, size);
 
-    if (category == MidiEventCategory::Control)
-    {
+    if (category == MidiEventCategory::Control) {
         Skip(size);
         return false;
     }
 
-    if (category == MidiEventCategory::SysEx)
-    {
+    if (category == MidiEventCategory::SysEx) {
         SkipEventData();
         return false;
     }
@@ -279,8 +247,7 @@ bool ReadSeqEvent(Event& event)
     // meta event
     int metaEventType = ReadInt8();
 
-    if (metaEventType >= 1 && metaEventType <= 7)
-    {
+    if (metaEventType >= 1 && metaEventType <= 7) {
         // text event
         std::string text = ReadEventText();
 
@@ -294,69 +261,63 @@ bool ReadSeqEvent(Event& event)
             MakeBlockEvent(event, EventType::Label);
         else
             return false;
-    }
-    else
-    {
-        switch (metaEventType)
-        {
-        case 0x2F: // end of track
-            SkipEventData();
-            event.type = EventType::EndOfTrack;
-            event.param1 = 0;
-            event.param2 = 0;
-            break;
-        case 0x51: // tempo
-            if (ReadVLQ() != 3)
-                RaiseError("invalid tempo size");
+    } else {
+        switch (metaEventType) {
+            case 0x2F: // end of track
+                SkipEventData();
+                event.type = EventType::EndOfTrack;
+                event.param1 = 0;
+                event.param2 = 0;
+                break;
+            case 0x51: // tempo
+                if (ReadVLQ() != 3)
+                    RaiseError("invalid tempo size");
 
-            event.type = EventType::Tempo;
-            event.param1 = 0;
-            event.param2 = ReadInt24();
-            break;
-        case 0x58: // time signature
-        {
-            if (ReadVLQ() != 4)
-                RaiseError("invalid time signature size");
+                event.type = EventType::Tempo;
+                event.param1 = 0;
+                event.param2 = ReadInt24();
+                break;
+            case 0x58: // time signature
+            {
+                if (ReadVLQ() != 4)
+                    RaiseError("invalid time signature size");
 
-            int numerator = ReadInt8();
-            int denominatorExponent = ReadInt8();
+                int numerator = ReadInt8();
+                int denominatorExponent = ReadInt8();
 
-            if (denominatorExponent >= 16)
-                RaiseError("invalid time signature denominator");
+                if (denominatorExponent >= 16)
+                    RaiseError("invalid time signature denominator");
 
-            Skip(2); // ignore other values
+                Skip(2); // ignore other values
 
-            int clockTicks = 96 * numerator * g_clocksPerBeat;
-            int denominator = 1 << denominatorExponent;
-            int timeSig = clockTicks / denominator;
+                int clockTicks = 96 * numerator * g_clocksPerBeat;
+                int denominator = 1 << denominatorExponent;
+                int timeSig = clockTicks / denominator;
 
-            if (timeSig <= 0 || timeSig >= 0x10000)
-                RaiseError("invalid time signature");
+                if (timeSig <= 0 || timeSig >= 0x10000)
+                    RaiseError("invalid time signature");
 
-            event.type = EventType::TimeSignature;
-            event.param1 = 0;
-            event.param2 = timeSig;
-            break;
-        }
-        default:
-            SkipEventData();
-            return false;
+                event.type = EventType::TimeSignature;
+                event.param1 = 0;
+                event.param2 = timeSig;
+                break;
+            }
+            default:
+                SkipEventData();
+                return false;
         }
     }
 
     return true;
 }
 
-void ReadSeqEvents()
-{
+void ReadSeqEvents() {
     StartTrack();
 
-    for (;;)
-    {
+    for (;;) {
         Event event = {};
 
-        if (ReadSeqEvent(event))
-        {
+        if (ReadSeqEvent(event)) {
             s_seqEvents.push_back(event);
 
             if (event.type == EventType::EndOfTrack)
@@ -365,8 +326,7 @@ void ReadSeqEvents()
     }
 }
 
-bool CheckNoteEnd(Event& event)
-{
+bool CheckNoteEnd(Event& event) {
     event.param2 += ReadVLQ();
 
     MidiEventCategory category;
@@ -375,50 +335,45 @@ bool CheckNoteEnd(Event& event)
 
     DetermineEventCategory(category, typeChan, size);
 
-    if (category == MidiEventCategory::Control)
-    {
+    if (category == MidiEventCategory::Control) {
         int chan = typeChan & 0xF;
 
-        if (chan != g_midiChan)
-        {
+        if (chan != g_midiChan) {
             Skip(size);
             return false;
         }
 
-        switch (typeChan & 0xF0)
-        {
-        case 0x80: // note off
-        {
-            int note = ReadInt8();
-            ReadInt8(); // ignore velocity
-            if (note == event.note)
-                return true;
-            break;
-        }
-        case 0x90: // note on
-        {
-            int note = ReadInt8();
-            int velocity = ReadInt8();
-            if (velocity == 0 && note == event.note)
-                return true;
-            break;
-        }
-        default:
-            Skip(size);
-            break;
+        switch (typeChan & 0xF0) {
+            case 0x80: // note off
+            {
+                int note = ReadInt8();
+                ReadInt8(); // ignore velocity
+                if (note == event.note)
+                    return true;
+                break;
+            }
+            case 0x90: // note on
+            {
+                int note = ReadInt8();
+                int velocity = ReadInt8();
+                if (velocity == 0 && note == event.note)
+                    return true;
+                break;
+            }
+            default:
+                Skip(size);
+                break;
         }
 
         return false;
     }
 
-    if (category == MidiEventCategory::SysEx)
-    {
+    if (category == MidiEventCategory::SysEx) {
         SkipEventData();
         return false;
     }
 
-    if (category == MidiEventCategory::Meta)
-    {
+    if (category == MidiEventCategory::Meta) {
         int metaEventType = ReadInt8();
         SkipEventData();
 
@@ -431,8 +386,7 @@ bool CheckNoteEnd(Event& event)
     RaiseError("invalid event");
 }
 
-void FindNoteEnd(Event& event)
-{
+void FindNoteEnd(Event& event) {
     // Save the current file position and running status
     // which get modified by CheckNoteEnd.
     long startPos = ftell(g_inputFile);
@@ -447,8 +401,7 @@ void FindNoteEnd(Event& event)
     s_runningStatus = savedRunningStatus;
 }
 
-bool ReadTrackEvent(Event& event)
-{
+bool ReadTrackEvent(Event& event) {
     s_absoluteTime += ReadVLQ();
     event.time = s_absoluteTime;
 
@@ -458,74 +411,66 @@ bool ReadTrackEvent(Event& event)
 
     DetermineEventCategory(category, typeChan, size);
 
-    if (category == MidiEventCategory::Control)
-    {
+    if (category == MidiEventCategory::Control) {
         int chan = typeChan & 0xF;
 
-        if (chan != g_midiChan)
-        {
+        if (chan != g_midiChan) {
             Skip(size);
             return false;
         }
 
-        switch (typeChan & 0xF0)
-        {
-        case 0x90: // note on
-        {
-            int note = ReadInt8();
-            int velocity = ReadInt8();
-
-            if (velocity != 0)
+        switch (typeChan & 0xF0) {
+            case 0x90: // note on
             {
-                event.type = EventType::Note;
-                event.note = note;
-                event.param1 = velocity;
-                FindNoteEnd(event);
-                if (event.param2 > 0)
-                {
-                    if (note < s_minNote)
-                        s_minNote = note;
-                    if (note > s_maxNote)
-                        s_maxNote = note;
+                int note = ReadInt8();
+                int velocity = ReadInt8();
+
+                if (velocity != 0) {
+                    event.type = EventType::Note;
+                    event.note = note;
+                    event.param1 = velocity;
+                    FindNoteEnd(event);
+                    if (event.param2 > 0) {
+                        if (note < s_minNote)
+                            s_minNote = note;
+                        if (note > s_maxNote)
+                            s_maxNote = note;
+                    }
                 }
+                break;
             }
-            break;
-        }
-        case 0xB0: // controller event
-            event.type = EventType::Controller;
-            event.param1 = ReadInt8(); // controller index
-            event.param2 = ReadInt8(); // value
-            break;
-        case 0xC0: // instrument change
-            event.type = EventType::InstrumentChange;
-            event.param1 = ReadInt8(); // instrument
-            event.param2 = 0;
-            break;
-        case 0xE0: // pitch bend
-            event.type = EventType::PitchBend;
-            event.param1 = ReadInt8();
-            event.param2 = ReadInt8();
-            break;
-        default:
-            Skip(size);
-            return false;
+            case 0xB0: // controller event
+                event.type = EventType::Controller;
+                event.param1 = ReadInt8(); // controller index
+                event.param2 = ReadInt8(); // value
+                break;
+            case 0xC0: // instrument change
+                event.type = EventType::InstrumentChange;
+                event.param1 = ReadInt8(); // instrument
+                event.param2 = 0;
+                break;
+            case 0xE0: // pitch bend
+                event.type = EventType::PitchBend;
+                event.param1 = ReadInt8();
+                event.param2 = ReadInt8();
+                break;
+            default:
+                Skip(size);
+                return false;
         }
 
         return true;
     }
 
-    if (category == MidiEventCategory::SysEx)
-    {
+    if (category == MidiEventCategory::SysEx) {
         SkipEventData();
         return false;
     }
 
-    if (category == MidiEventCategory::Meta)
-    {
+    if (category == MidiEventCategory::Meta) {
         int metaEventType = ReadInt8();
 
-        if (metaEventType >= 1 && metaEventType <= 7)
-        {
+        if (metaEventType >= 1 && metaEventType <= 7) {
             // text event
             std::string text = ReadEventText();
 
@@ -540,17 +485,13 @@ bool ReadTrackEvent(Event& event)
             else
                 return false;
             return true;
-        }
-        else if (metaEventType == 0x2F)
-        {
+        } else if (metaEventType == 0x2F) {
             SkipEventData();
             event.type = EventType::EndOfTrack;
             event.param1 = 0;
             event.param2 = 0;
             return true;
-        }
-        else
-        {
+        } else {
             SkipEventData();
         }
 
@@ -560,8 +501,7 @@ bool ReadTrackEvent(Event& event)
     RaiseError("invalid event");
 }
 
-void ReadTrackEvents()
-{
+void ReadTrackEvents() {
     StartTrack();
 
     s_trackEvents.clear();
@@ -569,12 +509,10 @@ void ReadTrackEvents()
     s_minNote = 0xFF;
     s_maxNote = 0;
 
-    for (;;)
-    {
+    for (;;) {
         Event event = {};
 
-        if (ReadTrackEvent(event))
-        {
+        if (ReadTrackEvent(event)) {
             s_trackEvents.push_back(event);
 
             if (event.type == EventType::EndOfTrack)
@@ -583,8 +521,7 @@ void ReadTrackEvents()
     }
 }
 
-bool EventCompare(const Event& event1, const Event& event2)
-{
+bool EventCompare(const Event& event1, const Event& event2) {
     if (event1.time < event2.time)
         return true;
 
@@ -606,8 +543,7 @@ bool EventCompare(const Event& event1, const Event& event2)
     if (event1Type > event2Type)
         return false;
 
-    if (event1.type == EventType::EndOfTie)
-    {
+    if (event1.type == EventType::EndOfTie) {
         if (event1.note < event2.note)
             return true;
 
@@ -618,16 +554,14 @@ bool EventCompare(const Event& event1, const Event& event2)
     return false;
 }
 
-std::unique_ptr<std::vector<Event>> MergeEvents()
-{
+std::unique_ptr<std::vector<Event>> MergeEvents() {
     std::unique_ptr<std::vector<Event>> events(new std::vector<Event>());
 
     unsigned trackEventPos = 0;
     unsigned seqEventPos = 0;
 
-    while (s_trackEvents[trackEventPos].type != EventType::EndOfTrack
-        && s_seqEvents[seqEventPos].type != EventType::EndOfTrack)
-    {
+    while (s_trackEvents[trackEventPos].type != EventType::EndOfTrack &&
+           s_seqEvents[seqEventPos].type != EventType::EndOfTrack) {
         if (EventCompare(s_trackEvents[trackEventPos], s_seqEvents[seqEventPos]))
             events->push_back(s_trackEvents[trackEventPos++]);
         else
@@ -649,14 +583,11 @@ std::unique_ptr<std::vector<Event>> MergeEvents()
     return events;
 }
 
-void ConvertTimes(std::vector<Event>& events)
-{
-    for (Event& event : events)
-    {
+void ConvertTimes(std::vector<Event>& events) {
+    for (Event& event : events) {
         event.time = (24 * g_clocksPerBeat * event.time) / g_midiTimeDiv;
 
-        if (event.type == EventType::Note)
-        {
+        if (event.type == EventType::Note) {
             event.param1 = g_noteVelocityLUT[event.param1];
 
             std::uint32_t duration = (24 * g_clocksPerBeat * event.param2) / g_midiTimeDiv;
@@ -682,8 +613,7 @@ void insertAtCorrectTimeFromEnd(const std::unique_ptr<std::vector<Event>>& event
     events->insert(events->begin(), event);
 }
 
-std::unique_ptr<std::vector<Event>> InsertTimingEvents(std::vector<Event>& inEvents)
-{
+std::unique_ptr<std::vector<Event>> InsertTimingEvents(std::vector<Event>& inEvents) {
     std::unique_ptr<std::vector<Event>> outEvents(new std::vector<Event>());
 
     Event timingEvent = {};
@@ -691,18 +621,14 @@ std::unique_ptr<std::vector<Event>> InsertTimingEvents(std::vector<Event>& inEve
     timingEvent.type = EventType::TimeSignature;
     timingEvent.param2 = 96 * g_clocksPerBeat;
 
-    for (const Event& event : inEvents)
-    {
-        while (EventCompare(timingEvent, event))
-        {
+    for (const Event& event : inEvents) {
+        while (EventCompare(timingEvent, event)) {
             outEvents->push_back(timingEvent);
             timingEvent.time += timingEvent.param2;
         }
 
-        if (event.type == EventType::TimeSignature)
-        {
-            if (g_agbTrack == 1 && event.param2 != timingEvent.param2)
-            {
+        if (event.type == EventType::TimeSignature) {
+            if (g_agbTrack == 1 && event.param2 != timingEvent.param2) {
                 Event originalTimingEvent = event;
                 originalTimingEvent.type = EventType::OriginalTimeSignature;
                 outEvents->push_back(originalTimingEvent);
@@ -717,23 +643,19 @@ std::unique_ptr<std::vector<Event>> InsertTimingEvents(std::vector<Event>& inEve
     return outEvents;
 }
 
-std::unique_ptr<std::vector<Event>> SplitTime(std::vector<Event>& inEvents)
-{
+std::unique_ptr<std::vector<Event>> SplitTime(std::vector<Event>& inEvents) {
     std::unique_ptr<std::vector<Event>> outEvents(new std::vector<Event>());
 
     std::int32_t time = 0;
 
-    for (const Event& event : inEvents)
-    {
+    for (const Event& event : inEvents) {
         std::int32_t diff = event.time - time;
 
-        if (diff > 96)
-        {
+        if (diff > 96) {
             int wholeNoteCount = (diff - 1) / 96;
             diff -= 96 * wholeNoteCount;
 
-            for (int i = 0; i < wholeNoteCount; i++)
-            {
+            for (int i = 0; i < wholeNoteCount; i++) {
                 time += 96;
                 Event timeSplitEvent = {};
                 timeSplitEvent.time = time;
@@ -744,8 +666,7 @@ std::unique_ptr<std::vector<Event>> SplitTime(std::vector<Event>& inEvents)
 
         std::int32_t lutValue = g_noteDurationLUT[diff];
 
-        if (lutValue != diff)
-        {
+        if (lutValue != diff) {
             Event timeSplitEvent = {};
             timeSplitEvent.time = time + lutValue;
             timeSplitEvent.type = EventType::TimeSplit;
@@ -760,14 +681,11 @@ std::unique_ptr<std::vector<Event>> SplitTime(std::vector<Event>& inEvents)
     return outEvents;
 }
 
-std::unique_ptr<std::vector<Event>> CreateTies(std::vector<Event>& inEvents)
-{
+std::unique_ptr<std::vector<Event>> CreateTies(std::vector<Event>& inEvents) {
     std::unique_ptr<std::vector<Event>> outEvents(new std::vector<Event>());
 
-    for (const Event& event : inEvents)
-    {
-        if (event.type == EventType::Note && event.param2 > 96)
-        {
+    for (const Event& event : inEvents) {
+        if (event.type == EventType::Note && event.param2 > 96) {
             Event tieEvent = event;
             tieEvent.param2 = -1;
             insertAtCorrectTimeFromEnd(outEvents, tieEvent);
@@ -779,9 +697,7 @@ std::unique_ptr<std::vector<Event>> CreateTies(std::vector<Event>& inEvents)
             // directly insert at the correct position, so it does not need to be sorted later.
             // TODO rather keep eotEvent in queue until it's time is reached?
             insertAtCorrectTimeFromEnd(outEvents, eotEvent);
-        }
-        else
-        {
+        } else {
             insertAtCorrectTimeFromEnd(outEvents, event);
         }
     }
@@ -789,25 +705,21 @@ std::unique_ptr<std::vector<Event>> CreateTies(std::vector<Event>& inEvents)
     return outEvents;
 }
 
-void CalculateWaits(std::vector<Event>& events)
-{
+void CalculateWaits(std::vector<Event>& events) {
     g_initialWait = events[0].time;
     int wholeNoteCount = 0;
 
-    for (unsigned i = 0; i < events.size() && events[i].type != EventType::EndOfTrack; i++)
-    {
+    for (unsigned i = 0; i < events.size() && events[i].type != EventType::EndOfTrack; i++) {
         events[i].time = events[i + 1].time - events[i].time;
 
-        if (events[i].type == EventType::TimeSignature)
-        {
+        if (events[i].type == EventType::TimeSignature) {
             events[i].type = EventType::WholeNoteMark;
             events[i].param2 = wholeNoteCount++;
         }
     }
 }
 
-int CalculateCompressionScore(std::vector<Event>& events, int index)
-{
+int CalculateCompressionScore(std::vector<Event>& events, int index) {
     int score = 0;
     std::uint8_t lastParam1 = events[index].param1;
     std::uint8_t lastVelocity = 0x80u;
@@ -818,28 +730,23 @@ int CalculateCompressionScore(std::vector<Event>& events, int index)
     if (events[index].time > 0)
         score++;
 
-    for (int i = index + 1; !IsPatternBoundary(events[i].type); i++)
-    {
-        if (events[i].type == EventType::Note)
-        {
+    for (int i = index + 1; !IsPatternBoundary(events[i].type); i++) {
+        if (events[i].type == EventType::Note) {
             int val = 0;
 
-            if (events[i].note != lastNote)
-            {
+            if (events[i].note != lastNote) {
                 val++;
                 lastNote = events[i].note;
             }
 
-            if (events[i].param1 != lastVelocity)
-            {
+            if (events[i].param1 != lastVelocity) {
                 val++;
                 lastVelocity = events[i].param1;
             }
 
             std::int32_t duration = events[i].param2;
 
-            if (g_noteDurationLUT[duration] != lastDuration)
-            {
+            if (g_noteDurationLUT[duration] != lastDuration) {
                 val++;
                 lastDuration = g_noteDurationLUT[duration];
             }
@@ -851,24 +758,17 @@ int CalculateCompressionScore(std::vector<Event>& events, int index)
                 val = 1;
 
             score += val;
-        }
-        else
-        {
+        } else {
             lastDuration = 0x80000000;
 
-            if (events[i].type == lastType)
-            {
-                if ((lastType != EventType::Controller && (int)lastType != 0x25 && lastType != EventType::EndOfTie) || events[i].param1 == lastParam1)
-                {
+            if (events[i].type == lastType) {
+                if ((lastType != EventType::Controller && (int)lastType != 0x25 && lastType != EventType::EndOfTie) ||
+                    events[i].param1 == lastParam1) {
                     score++;
-                }
-                else
-                {
+                } else {
                     score += 2;
                 }
-            }
-            else
-            {
+            } else {
                 score += 2;
             }
         }
@@ -883,19 +783,15 @@ int CalculateCompressionScore(std::vector<Event>& events, int index)
     return score;
 }
 
-bool IsCompressionMatch(std::vector<Event>& events, int index1, int index2)
-{
-    if (events[index1].type != events[index2].type ||
-        events[index1].note != events[index2].note ||
-        events[index1].param1 != events[index2].param1 ||
-        events[index1].time != events[index2].time)
+bool IsCompressionMatch(std::vector<Event>& events, int index1, int index2) {
+    if (events[index1].type != events[index2].type || events[index1].note != events[index2].note ||
+        events[index1].param1 != events[index2].param1 || events[index1].time != events[index2].time)
         return false;
 
     index1++;
     index2++;
 
-    do
-    {
+    do {
         if (events[index1] != events[index2])
             return false;
 
@@ -906,20 +802,16 @@ bool IsCompressionMatch(std::vector<Event>& events, int index1, int index2)
     return IsPatternBoundary(events[index2].type);
 }
 
-void CompressWholeNote(std::vector<Event>& events, int index)
-{
-    for (int j = index + 1; events[j].type != EventType::EndOfTrack; j++)
-    {
-        while (events[j].type != EventType::WholeNoteMark)
-        {
+void CompressWholeNote(std::vector<Event>& events, int index) {
+    for (int j = index + 1; events[j].type != EventType::EndOfTrack; j++) {
+        while (events[j].type != EventType::WholeNoteMark) {
             j++;
 
             if (events[j].type == EventType::EndOfTrack)
                 return;
         }
 
-        if (IsCompressionMatch(events, index, j))
-        {
+        if (IsCompressionMatch(events, index, j)) {
             events[j].type = EventType::Pattern;
             events[j].param2 = events[index].param2 & 0x7FFFFFFF;
             events[index].param2 |= 0x80000000;
@@ -927,27 +819,22 @@ void CompressWholeNote(std::vector<Event>& events, int index)
     }
 }
 
-void Compress(std::vector<Event>& events)
-{
-    for (int i = 0; events[i].type != EventType::EndOfTrack; i++)
-    {
-        while (events[i].type != EventType::WholeNoteMark)
-        {
+void Compress(std::vector<Event>& events) {
+    for (int i = 0; events[i].type != EventType::EndOfTrack; i++) {
+        while (events[i].type != EventType::WholeNoteMark) {
             i++;
 
             if (events[i].type == EventType::EndOfTrack)
                 return;
         }
 
-        if (CalculateCompressionScore(events, i) >= 6)
-        {
+        if (CalculateCompressionScore(events, i) >= 6) {
             CompressWholeNote(events, i);
         }
     }
 }
 
-void ReadMidiTracks()
-{
+void ReadMidiTracks() {
     long trackHeaderStart = 14;
 
     ReadMidiTrackHeader(trackHeaderStart);
@@ -955,16 +842,13 @@ void ReadMidiTracks()
 
     g_agbTrack = 1;
 
-    for (int midiTrack = 0; midiTrack < g_midiTrackCount; midiTrack++)
-    {
+    for (int midiTrack = 0; midiTrack < g_midiTrackCount; midiTrack++) {
         trackHeaderStart += ReadMidiTrackHeader(trackHeaderStart);
 
-        for (g_midiChan = 0; g_midiChan < 16; g_midiChan++)
-        {
+        for (g_midiChan = 0; g_midiChan < 16; g_midiChan++) {
             ReadTrackEvents();
 
-            if (s_minNote != 0xFF)
-            {
+            if (s_minNote != 0xFF) {
 #ifdef DEBUG
                 printf("Track%d = Midi-Ch.%d\n", g_agbTrack, g_midiChan + 1);
 #endif
@@ -972,9 +856,9 @@ void ReadMidiTracks()
                 std::unique_ptr<std::vector<Event>> events(MergeEvents());
 
                 // We don't need TEMPO in anything but track 1.
-                if (g_agbTrack == 1)
-                {
-                    auto it = std::remove_if(s_seqEvents.begin(), s_seqEvents.end(), [](const Event& event) { return event.type == EventType::Tempo; });
+                if (g_agbTrack == 1) {
+                    auto it = std::remove_if(s_seqEvents.begin(), s_seqEvents.end(),
+                                             [](const Event& event) { return event.type == EventType::Tempo; });
                     s_seqEvents.erase(it, s_seqEvents.end());
                 }
 

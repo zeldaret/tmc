@@ -27,9 +27,8 @@
 #include "scaninc.h"
 #include "source_file.h"
 
-bool CanOpenFile(std::string path)
-{
-    FILE *fp = std::fopen(path.c_str(), "rb");
+bool CanOpenFile(std::string path) {
+    FILE* fp = std::fopen(path.c_str(), "rb");
 
     if (fp == NULL)
         return false;
@@ -38,10 +37,9 @@ bool CanOpenFile(std::string path)
     return true;
 }
 
-const char *const USAGE = "Usage: scaninc [-I INCLUDE_PATH] FILE_PATH\n";
+const char* const USAGE = "Usage: scaninc [-I INCLUDE_PATH] FILE_PATH\n";
 
-int main(int argc, char **argv)
-{
+int main(int argc, char** argv) {
     std::queue<std::string> filesToProcess;
     std::set<std::string> dependencies;
 
@@ -50,26 +48,20 @@ int main(int argc, char **argv)
     argc--;
     argv++;
 
-    while (argc > 1)
-    {
+    while (argc > 1) {
         std::string arg(argv[0]);
-        if (arg.substr(0, 2) == "-I")
-        {
+        if (arg.substr(0, 2) == "-I") {
             std::string includeDir = arg.substr(2);
-            if (includeDir.empty())
-            {
+            if (includeDir.empty()) {
                 argc--;
                 argv++;
                 includeDir = std::string(argv[0]);
             }
-            if (!includeDir.empty() && includeDir.back() != '/')
-            {
+            if (!includeDir.empty() && includeDir.back() != '/') {
                 includeDir += '/';
             }
             includeDirs.push_back(includeDir);
-        }
-        else
-        {
+        } else {
             FATAL_ERROR(USAGE);
         }
         argc--;
@@ -84,36 +76,28 @@ int main(int argc, char **argv)
 
     filesToProcess.push(initialPath);
 
-    while (!filesToProcess.empty())
-    {
+    while (!filesToProcess.empty()) {
         std::string filePath = filesToProcess.front();
         SourceFile file(filePath);
         filesToProcess.pop();
 
         includeDirs.push_back(file.GetSrcDir());
-        for (auto incbin : file.GetIncbins())
-        {
+        for (auto incbin : file.GetIncbins()) {
             // Search for the incbin in the include directories as well.
-            for (auto includeDir : includeDirs)
-            {
+            for (auto includeDir : includeDirs) {
                 std::string path(includeDir + incbin);
-                if (CanOpenFile(path))
-                {
+                if (CanOpenFile(path)) {
                     dependencies.insert(path);
                     break;
                 }
             }
         }
-        for (auto include : file.GetIncludes())
-        {
-            for (auto includeDir : includeDirs)
-            {
+        for (auto include : file.GetIncludes()) {
+            for (auto includeDir : includeDirs) {
                 std::string path(includeDir + include);
-                if (CanOpenFile(path))
-                {
+                if (CanOpenFile(path)) {
                     bool inserted = dependencies.insert(path).second;
-                    if (inserted)
-                    {
+                    if (inserted) {
                         filesToProcess.push(path);
                     }
                     break;
@@ -123,8 +107,7 @@ int main(int argc, char **argv)
         includeDirs.pop_back();
     }
 
-    for (const std::string &path : dependencies)
-    {
+    for (const std::string& path : dependencies) {
         std::printf("%s\n", path.c_str());
     }
 }

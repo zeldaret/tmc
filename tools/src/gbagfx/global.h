@@ -8,21 +8,21 @@
 
 #ifdef _MSC_VER
 
-#define FATAL_ERROR(format, ...)          \
-do {                                      \
-    fprintf(stderr, format, __VA_ARGS__); \
-    exit(1);                              \
-} while (0)
+#define FATAL_ERROR(format, ...)              \
+    do {                                      \
+        fprintf(stderr, format, __VA_ARGS__); \
+        exit(1);                              \
+    } while (0)
 
 #define UNUSED
 
 #else
 
-#define FATAL_ERROR(format, ...)            \
-do {                                        \
-    fprintf(stderr, format, ##__VA_ARGS__); \
-    exit(1);                                \
-} while (0)
+#define FATAL_ERROR(format, ...)                \
+    do {                                        \
+        fprintf(stderr, format, ##__VA_ARGS__); \
+        exit(1);                                \
+    } while (0)
 
 #define UNUSED __attribute__((__unused__))
 

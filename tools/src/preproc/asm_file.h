@@ -26,17 +26,10 @@
 #include <string>
 #include "preproc.h"
 
-enum class Directive
-{
-    Include,
-    String,
-    Braille,
-    Unknown
-};
+enum class Directive { Include, String, Braille, Unknown };
 
-class AsmFile
-{
-public:
+class AsmFile {
+  public:
     AsmFile(std::string filename);
     AsmFile(AsmFile&& other);
     AsmFile(const AsmFile&) = delete;
@@ -50,7 +43,7 @@ public:
     void OutputLine();
     void OutputLocation();
 
-private:
+  private:
     char* m_buffer;
     long m_pos;
     long m_size;

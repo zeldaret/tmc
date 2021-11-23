@@ -27,16 +27,15 @@
 #include <memory>
 #include "preproc.h"
 
-class CFile
-{
-public:
+class CFile {
+  public:
     CFile(std::string filename);
     CFile(CFile&& other);
     CFile(const CFile&) = delete;
     ~CFile();
     void Preproc();
 
-private:
+  private:
     char* m_buffer;
     long m_pos;
     long m_size;

@@ -23,14 +23,9 @@
 
 #include <cstdint>
 
-enum class MidiFormat
-{
-    SingleTrack,
-    MultiTrack
-};
+enum class MidiFormat { SingleTrack, MultiTrack };
 
-enum class EventType
-{
+enum class EventType {
     EndOfTie = 0x01,
     Label = 0x11,
     LoopEnd = 0x38, // To place it last if at the same time as other meta events, but before notes on the same frame
@@ -50,25 +45,19 @@ enum class EventType
     EndOfTrack = 0xFF,
 };
 
-struct Event
-{
+struct Event {
     std::int32_t time;
     EventType type;
     std::uint8_t note;
     std::uint8_t param1;
     std::int32_t param2;
 
-    bool operator==(const Event& other)
-    {
-        return (time == other.time
-            && type == other.type
-            && note == other.note
-            && param1 == other.param1
-            && param2 == other.param2);
+    bool operator==(const Event& other) {
+        return (time == other.time && type == other.type && note == other.note && param1 == other.param1 &&
+                param2 == other.param2);
     }
 
-    bool operator!=(const Event& other)
-    {
+    bool operator!=(const Event& other) {
         return !(*this == other);
     }
 };
@@ -79,8 +68,7 @@ void ReadMidiTracks();
 extern int g_midiChan;
 extern std::int32_t g_initialWait;
 
-inline bool IsPatternBoundary(EventType type)
-{
+inline bool IsPatternBoundary(EventType type) {
     return type == EventType::EndOfTrack || (int)type <= 0x17;
 }
 

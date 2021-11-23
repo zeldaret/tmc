@@ -24,17 +24,23 @@
 #include <cstdint>
 #include "utf8.h"
 
-static const unsigned char s_byteTypeTable[] =
-{
-    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, // 00..1f
-    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, // 20..3f
-    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, // 40..5f
-    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, // 60..7f
-    1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9, // 80..9f
-    7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7, // a0..bf
-    8,8,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2, // c0..df
-    0xa,0x3,0x3,0x3,0x3,0x3,0x3,0x3,0x3,0x3,0x3,0x3,0x3,0x4,0x3,0x3, // e0..ef
-    0xb,0x6,0x6,0x6,0x5,0x8,0x8,0x8,0x8,0x8,0x8,0x8,0x8,0x8,0x8,0x8, // f0..ff
+static const unsigned char s_byteTypeTable[] = {
+    0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+    0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0, // 00..1f
+    0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+    0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0, // 20..3f
+    0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+    0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0, // 40..5f
+    0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+    0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0, // 60..7f
+    1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,   1,
+    9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9,   9, // 80..9f
+    7,   7,   7,   7,   7,   7,   7,   7,   7,   7,   7,   7,   7,   7,   7,   7,
+    7,   7,   7,   7,   7,   7,   7,   7,   7,   7,   7,   7,   7,   7,   7,   7, // a0..bf
+    8,   8,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,
+    2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   2,   // c0..df
+    0xa, 0x3, 0x3, 0x3, 0x3, 0x3, 0x3, 0x3, 0x3, 0x3, 0x3, 0x3, 0x3, 0x4, 0x3, 0x3, // e0..ef
+    0xb, 0x6, 0x6, 0x6, 0x5, 0x8, 0x8, 0x8, 0x8, 0x8, 0x8, 0x8, 0x8, 0x8, 0x8, 0x8, // f0..ff
 };
 
 const unsigned char s0 = 0 * 12;
@@ -47,28 +53,25 @@ const unsigned char s6 = 6 * 12;
 const unsigned char s7 = 7 * 12;
 const unsigned char s8 = 8 * 12;
 
-static const unsigned char s_transitionTable[] =
-{
-    s0,s1,s2,s3,s5,s8,s7,s1,s1,s1,s4,s6, // s0
-    s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1, // s1
-    s1,s0,s1,s1,s1,s1,s1,s0,s1,s0,s1,s1, // s2
-    s1,s2,s1,s1,s1,s1,s1,s2,s1,s2,s1,s1, // s3
-    s1,s1,s1,s1,s1,s1,s1,s2,s1,s1,s1,s1, // s4
-    s1,s2,s1,s1,s1,s1,s1,s1,s1,s2,s1,s1, // s5
-    s1,s1,s1,s1,s1,s1,s1,s3,s1,s3,s1,s1, // s6
-    s1,s3,s1,s1,s1,s1,s1,s3,s1,s3,s1,s1, // s7
-    s1,s3,s1,s1,s1,s1,s1,s1,s1,s1,s1,s1, // s8
+static const unsigned char s_transitionTable[] = {
+    s0, s1, s2, s3, s5, s8, s7, s1, s1, s1, s4, s6, // s0
+    s1, s1, s1, s1, s1, s1, s1, s1, s1, s1, s1, s1, // s1
+    s1, s0, s1, s1, s1, s1, s1, s0, s1, s0, s1, s1, // s2
+    s1, s2, s1, s1, s1, s1, s1, s2, s1, s2, s1, s1, // s3
+    s1, s1, s1, s1, s1, s1, s1, s2, s1, s1, s1, s1, // s4
+    s1, s2, s1, s1, s1, s1, s1, s1, s1, s2, s1, s1, // s5
+    s1, s1, s1, s1, s1, s1, s1, s3, s1, s3, s1, s1, // s6
+    s1, s3, s1, s1, s1, s1, s1, s3, s1, s3, s1, s1, // s7
+    s1, s3, s1, s1, s1, s1, s1, s1, s1, s1, s1, s1, // s8
 };
 
 // Decodes UTF-8 encoded Unicode code point at "s".
-UnicodeChar DecodeUtf8(const char* s)
-{
+UnicodeChar DecodeUtf8(const char* s) {
     UnicodeChar unicodeChar;
     int state = s0;
     auto start = s;
 
-    do
-    {
+    do {
         unsigned char byte = *s++;
         int type = s_byteTypeTable[byte];
 
@@ -79,8 +82,7 @@ UnicodeChar DecodeUtf8(const char* s)
 
         state = s_transitionTable[state + type];
 
-        if (state == s1)
-        {
+        if (state == s1) {
             unicodeChar.code = -1;
             return unicodeChar;
         }

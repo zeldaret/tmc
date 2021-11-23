@@ -7,9 +7,8 @@
 #include "convert_png.h"
 #include "gfx.h"
 
-static FILE *PngReadOpen(char *path, png_structp *pngStruct, png_infop *pngInfo)
-{
-    FILE *fp = fopen(path, "rb");
+static FILE* PngReadOpen(char* path, png_structp* pngStruct, png_infop* pngInfo) {
+    FILE* fp = fopen(path, "rb");
 
     if (fp == NULL)
         FATAL_ERROR("Failed to open \"%s\" for reading.\n", path);
@@ -45,31 +44,27 @@ static FILE *PngReadOpen(char *path, png_structp *pngStruct, png_infop *pngInfo)
     return fp;
 }
 
-static unsigned char *ConvertBitDepth(unsigned char *src, int srcBitDepth, int destBitDepth, int numPixels)
-{
+static unsigned char* ConvertBitDepth(unsigned char* src, int srcBitDepth, int destBitDepth, int numPixels) {
     // Round the number of bits up to the next 8 and divide by 8 to get the number of bytes.
     int srcSize = ((numPixels * srcBitDepth + 7) & ~7) / 8;
     int destSize = ((numPixels * destBitDepth + 7) & ~7) / 8;
-    unsigned char *output = calloc(destSize, 1);
-    unsigned char *dest = output;
+    unsigned char* output = calloc(destSize, 1);
+    unsigned char* dest = output;
     int i;
     int j;
     int destBit = 8 - destBitDepth;
 
-    for (i = 0; i < srcSize; i++)
-    {
+    for (i = 0; i < srcSize; i++) {
         unsigned char srcByte = src[i];
 
-        for (j = 8 - srcBitDepth; j >= 0; j -= srcBitDepth)
-        {
+        for (j = 8 - srcBitDepth; j >= 0; j -= srcBitDepth) {
             unsigned char pixel = (srcByte >> j) % (1 << srcBitDepth);
 
             if (pixel >= (1 << destBitDepth))
                 FATAL_ERROR("Image exceeds the maximum color value for a %ibpp image.\n", destBitDepth);
             *dest |= pixel << destBit;
             destBit -= destBitDepth;
-            if (destBit < 0)
-            {
+            if (destBit < 0) {
                 dest++;
                 destBit = 8 - destBitDepth;
             }
@@ -79,12 +74,11 @@ static unsigned char *ConvertBitDepth(unsigned char *src, int srcBitDepth, int d
     return output;
 }
 
-void ReadPng(char *path, struct Image *image)
-{
+void ReadPng(char* path, struct Image* image) {
     png_structp png_ptr;
     png_infop info_ptr;
 
-    FILE *fp = PngReadOpen(path, &png_ptr, &info_ptr);
+    FILE* fp = PngReadOpen(path, &png_ptr, &info_ptr);
 
     int bit_depth = png_get_bit_depth(png_ptr, info_ptr);
 
@@ -125,9 +119,8 @@ void ReadPng(char *path, struct Image *image)
     free(row_pointers);
     fclose(fp);
 
-    if (bit_depth != image->bitDepth)
-    {
-        unsigned char *src = image->pixels;
+    if (bit_depth != image->bitDepth) {
+        unsigned char* src = image->pixels;
 
         if (bit_depth != 1 && bit_depth != 2 && bit_depth != 4 && bit_depth != 8)
             FATAL_ERROR("Bit depth of image must be 1, 2, 4, or 8.\n");
@@ -137,14 +130,13 @@ void ReadPng(char *path, struct Image *image)
     }
 }
 
-void ReadPngPalette(char *path, struct Palette *palette)
-{
+void ReadPngPalette(char* path, struct Palette* palette) {
     png_structp png_ptr;
     png_infop info_ptr;
     png_colorp colors;
     int numColors;
 
-    FILE *fp = PngReadOpen(path, &png_ptr, &info_ptr);
+    FILE* fp = PngReadOpen(path, &png_ptr, &info_ptr);
 
     if (png_get_color_type(png_ptr, info_ptr) != PNG_COLOR_TYPE_PALETTE)
         FATAL_ERROR("The image \"%s\" does not contain a palette.\n", path);
@@ -167,8 +159,7 @@ void ReadPngPalette(char *path, struct Palette *palette)
     fclose(fp);
 }
 
-void SetPngPalette(png_structp png_ptr, png_infop info_ptr, struct Palette *palette)
-{
+void SetPngPalette(png_structp png_ptr, png_infop info_ptr, struct Palette* palette) {
     png_colorp colors = malloc(palette->numColors * sizeof(png_color));
 
     if (colors == NULL)
@@ -185,9 +176,8 @@ void SetPngPalette(png_structp png_ptr, png_infop info_ptr, struct Palette *pale
     free(colors);
 }
 
-void WritePng(char *path, struct Image *image)
-{
-    FILE *fp = fopen(path, "wb");
+void WritePng(char* path, struct Image* image) {
+    FILE* fp = fopen(path, "wb");
 
     if (fp == NULL)
         FATAL_ERROR("Failed to open \"%s\" for writing.\n", path);
@@ -212,9 +202,8 @@ void WritePng(char *path, struct Image *image)
 
     int color_type = image->hasPalette ? PNG_COLOR_TYPE_PALETTE : PNG_COLOR_TYPE_GRAY;
 
-    png_set_IHDR(png_ptr, info_ptr, image->width, image->height,
-        image->bitDepth, color_type, PNG_INTERLACE_NONE,
-        PNG_COMPRESSION_TYPE_BASE, PNG_FILTER_TYPE_BASE);
+    png_set_IHDR(png_ptr, info_ptr, image->width, image->height, image->bitDepth, color_type, PNG_INTERLACE_NONE,
+                 PNG_COMPRESSION_TYPE_BASE, PNG_FILTER_TYPE_BASE);
 
     if (image->hasPalette) {
         SetPngPalette(png_ptr, info_ptr, &image->palette);

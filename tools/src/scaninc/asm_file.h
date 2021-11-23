@@ -24,43 +24,32 @@
 #include <string>
 #include "scaninc.h"
 
-enum class IncDirectiveType
-{
-    None,
-    Include,
-    Incbin
-};
+enum class IncDirectiveType { None, Include, Incbin };
 
-class AsmFile
-{
-public:
+class AsmFile {
+  public:
     AsmFile(std::string path);
     ~AsmFile();
     IncDirectiveType ReadUntilIncDirective(std::string& path);
 
-private:
-    char *m_buffer;
+  private:
+    char* m_buffer;
     int m_pos;
     int m_size;
     int m_lineNum;
     std::string m_path;
 
-    int GetChar()
-    {
+    int GetChar() {
         if (m_pos >= m_size)
             return -1;
 
         int c = m_buffer[m_pos++];
 
-        if (c == '\r')
-        {
-            if (m_pos < m_size && m_buffer[m_pos++] == '\n')
-            {
+        if (c == '\r') {
+            if (m_pos < m_size && m_buffer[m_pos++] == '\n') {
                 m_lineNum++;
                 return '\n';
-            }
-            else
-            {
+            } else {
                 FATAL_INPUT_ERROR("CR line endings are not supported\n");
             }
         }
@@ -72,22 +61,19 @@ private:
     }
 
     // No newline translation because it's not needed for any use of this function.
-    int PeekChar()
-    {
+    int PeekChar() {
         if (m_pos >= m_size)
             return -1;
 
         return m_buffer[m_pos];
     }
 
-    void SkipTabsAndSpaces()
-    {
+    void SkipTabsAndSpaces() {
         while (m_pos < m_size && (m_buffer[m_pos] == '\t' || m_buffer[m_pos] == ' '))
             m_pos++;
     }
 
-    bool MatchIncDirective(std::string directiveName, std::string& path)
-    {
+    bool MatchIncDirective(std::string directiveName, std::string& path) {
         int length = directiveName.length();
         int i;
 

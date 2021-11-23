@@ -26,24 +26,16 @@
 #include "char_util.h"
 #include "utf8.h"
 
-enum LhsType
-{
-    Char,
-    Escape,
-    Constant,
-    None
-};
+enum LhsType { Char, Escape, Constant, None };
 
-struct Lhs
-{
+struct Lhs {
     LhsType type;
     std::string name;
     std::int32_t code;
 };
 
-class CharmapReader
-{
-public:
+class CharmapReader {
+  public:
     CharmapReader(std::string filename);
     CharmapReader(const CharmapReader&) = delete;
     ~CharmapReader();
@@ -53,7 +45,7 @@ public:
     void ExpectEmptyRestOfLine();
     void RaiseError(const char* format, ...);
 
-private:
+  private:
     char* m_buffer;
     long m_pos;
     long m_size;
@@ -65,17 +57,15 @@ private:
     void SkipWhitespace();
 };
 
-CharmapReader::CharmapReader(std::string filename) : m_filename(filename)
-{
-    if (filename == "")
-    {
+CharmapReader::CharmapReader(std::string filename) : m_filename(filename) {
+    if (filename == "") {
         m_pos = 0;
         m_size = 0;
-        m_buffer = new char[1] {};
+        m_buffer = new char[1]{};
         return;
     }
 
-    FILE *fp = std::fopen(filename.c_str(), "rb");
+    FILE* fp = std::fopen(filename.c_str(), "rb");
 
     if (fp == NULL)
         FATAL_ERROR("Failed to open \"%s\" for reading.\n", filename.c_str());
@@ -104,45 +94,36 @@ CharmapReader::CharmapReader(std::string filename) : m_filename(filename)
     RemoveComments();
 }
 
-CharmapReader::~CharmapReader()
-{
+CharmapReader::~CharmapReader() {
     delete[] m_buffer;
 }
 
-Lhs CharmapReader::ReadLhs()
-{
+Lhs CharmapReader::ReadLhs() {
     Lhs lhs;
 
-    for (;;)
-    {
+    for (;;) {
         SkipWhitespace();
 
-        if (m_buffer[m_pos] == '\n')
-        {
+        if (m_buffer[m_pos] == '\n') {
             m_pos++;
             m_lineNum++;
-        }
-        else
-        {
+        } else {
             break;
         }
     }
-    
-    if (m_buffer[m_pos] == '\'')
-    {
+
+    if (m_buffer[m_pos] == '\'') {
         m_pos++;
 
         bool isEscape = (m_buffer[m_pos] == '\\');
 
-        if (isEscape)
-        {
+        if (isEscape) {
             m_pos++;
         }
 
         unsigned char c = m_buffer[m_pos];
 
-        if (c == 0)
-        {
+        if (c == 0) {
             if (m_pos >= m_size)
                 RaiseError("unexpected EOF in UTF-8 character literal");
             else
@@ -167,58 +148,45 @@ Lhs CharmapReader::ReadLhs()
 
         lhs.code = code;
 
-        if (isEscape)
-        {
+        if (isEscape) {
             if (code >= 128)
                 RaiseError("escapes using non-ASCII characters are invalid");
 
-            switch (code)
-            {
-            case '\'':
-                lhs.type = LhsType::Char;
-                break;
-            case '\\':
-                lhs.type = LhsType::Char;
-            case '"':
-                RaiseError("cannot escape double quote");
-                break;
-            default:
-                lhs.type = LhsType::Escape;
+            switch (code) {
+                case '\'':
+                    lhs.type = LhsType::Char;
+                    break;
+                case '\\':
+                    lhs.type = LhsType::Char;
+                case '"':
+                    RaiseError("cannot escape double quote");
+                    break;
+                default:
+                    lhs.type = LhsType::Escape;
             }
-        }
-        else
-        {
+        } else {
             if (code == '\'')
                 RaiseError("empty character literal");
 
             lhs.type = LhsType::Char;
         }
-    }
-    else if (IsIdentifierStartingChar(m_buffer[m_pos]))
-    {
+    } else if (IsIdentifierStartingChar(m_buffer[m_pos])) {
         lhs.type = LhsType::Constant;
         lhs.name = ReadConstant();
-    }
-    else if (m_buffer[m_pos] == '\r')
-    {
+    } else if (m_buffer[m_pos] == '\r') {
         RaiseError("only Unix-style LF newlines are supported");
-    }
-    else if (m_buffer[m_pos] == 0)
-    {
+    } else if (m_buffer[m_pos] == 0) {
         if (m_pos < m_size)
             RaiseError("unexpected null character");
         lhs.type = LhsType::None;
-    }
-    else
-    {
+    } else {
         RaiseError("junk at start of line");
     }
 
     return lhs;
 }
 
-void CharmapReader::ExpectEqualsSign()
-{
+void CharmapReader::ExpectEqualsSign() {
     SkipWhitespace();
 
     if (m_buffer[m_pos] != '=')
@@ -227,8 +195,7 @@ void CharmapReader::ExpectEqualsSign()
     m_pos++;
 }
 
-static unsigned int ConvertHexDigit(char c)
-{
+static unsigned int ConvertHexDigit(char c) {
     unsigned int digit = 0;
 
     if (c >= '0' && c <= '9')
@@ -241,16 +208,14 @@ static unsigned int ConvertHexDigit(char c)
     return digit;
 }
 
-std::string CharmapReader::ReadSequence()
-{
+std::string CharmapReader::ReadSequence() {
     SkipWhitespace();
 
     long startPos = m_pos;
 
     unsigned int length = 0;
 
-    while (IsAsciiHexDigit(m_buffer[m_pos]) && IsAsciiHexDigit(m_buffer[m_pos + 1]))
-    {
+    while (IsAsciiHexDigit(m_buffer[m_pos]) && IsAsciiHexDigit(m_buffer[m_pos + 1])) {
         m_pos += 2;
         length++;
 
@@ -271,8 +236,7 @@ std::string CharmapReader::ReadSequence()
 
     m_pos = startPos;
 
-    for (unsigned int i = 0; i < length; i++)
-    {
+    for (unsigned int i = 0; i < length; i++) {
         unsigned int digit1 = ConvertHexDigit(m_buffer[m_pos]);
         unsigned int digit2 = ConvertHexDigit(m_buffer[m_pos + 1]);
         unsigned char byte = digit1 * 16 + digit2;
@@ -285,32 +249,23 @@ std::string CharmapReader::ReadSequence()
     return sequence;
 }
 
-void CharmapReader::ExpectEmptyRestOfLine()
-{
+void CharmapReader::ExpectEmptyRestOfLine() {
     SkipWhitespace();
 
-    if (m_buffer[m_pos] == 0)
-    {
+    if (m_buffer[m_pos] == 0) {
         if (m_pos < m_size)
             RaiseError("unexpected null character");
-    }
-    else if (m_buffer[m_pos] == '\n')
-    {
+    } else if (m_buffer[m_pos] == '\n') {
         m_pos++;
         m_lineNum++;
-    }
-    else if (m_buffer[m_pos] == '\r')
-    {
+    } else if (m_buffer[m_pos] == '\r') {
         RaiseError("only Unix-style LF newlines are supported");
-    }
-    else
-    {
+    } else {
         RaiseError("junk at end of line");
     }
 }
 
-void CharmapReader::RaiseError(const char* format, ...)
-{
+void CharmapReader::RaiseError(const char* format, ...) {
     const int bufferSize = 1024;
     char buffer[bufferSize];
 
@@ -324,36 +279,26 @@ void CharmapReader::RaiseError(const char* format, ...)
     std::exit(1);
 }
 
-void CharmapReader::RemoveComments()
-{
+void CharmapReader::RemoveComments() {
     long pos = 0;
     bool inString = false;
 
-    for (;;)
-    {
+    for (;;) {
         if (m_buffer[pos] == 0)
             return;
 
-        if (inString)
-        {
-            if (m_buffer[pos] == '\\' && m_buffer[pos + 1] == '\'')
-            {
+        if (inString) {
+            if (m_buffer[pos] == '\\' && m_buffer[pos + 1] == '\'') {
                 pos += 2;
-            }
-            else
-            {
+            } else {
                 if (m_buffer[pos] == '\'')
                     inString = false;
                 pos++;
             }
-        }
-        else if (m_buffer[pos] == '@')
-        {
+        } else if (m_buffer[pos] == '@') {
             while (m_buffer[pos] != '\n' && m_buffer[pos] != 0)
                 m_buffer[pos++] = ' ';
-        }
-        else
-        {
+        } else {
             if (m_buffer[pos] == '\'')
                 inString = true;
             pos++;
@@ -361,8 +306,7 @@ void CharmapReader::RemoveComments()
     }
 }
 
-std::string CharmapReader::ReadConstant()
-{
+std::string CharmapReader::ReadConstant() {
     long startPos = m_pos;
 
     while (IsIdentifierChar(m_buffer[m_pos]))
@@ -371,18 +315,15 @@ std::string CharmapReader::ReadConstant()
     return std::string(&m_buffer[startPos], m_pos - startPos);
 }
 
-void CharmapReader::SkipWhitespace()
-{
+void CharmapReader::SkipWhitespace() {
     while (m_buffer[m_pos] == '\t' || m_buffer[m_pos] == ' ')
         m_pos++;
 }
 
-Charmap::Charmap(std::string filename)
-{
+Charmap::Charmap(std::string filename) {
     CharmapReader reader(filename);
 
-    for (;;)
-    {
+    for (;;) {
         Lhs lhs = reader.ReadLhs();
 
         if (lhs.type == LhsType::None)
@@ -392,23 +333,22 @@ Charmap::Charmap(std::string filename)
 
         std::string sequence = reader.ReadSequence();
 
-        switch (lhs.type)
-        {
-        case LhsType::Char:
-            if (m_chars.find(lhs.code) != m_chars.end())
-                reader.RaiseError("redefining char");
-            m_chars[lhs.code] = sequence;
-            break;
-        case LhsType::Escape:
-            if (m_escapes[lhs.code].length() != 0)
-                reader.RaiseError("redefining escape");
-            m_escapes[lhs.code] = sequence;
-            break;
-        case LhsType::Constant:
-            if (m_constants.find(lhs.name) != m_constants.end())
-                reader.RaiseError("redefining constant");
-            m_constants[lhs.name] = sequence;
-            break;
+        switch (lhs.type) {
+            case LhsType::Char:
+                if (m_chars.find(lhs.code) != m_chars.end())
+                    reader.RaiseError("redefining char");
+                m_chars[lhs.code] = sequence;
+                break;
+            case LhsType::Escape:
+                if (m_escapes[lhs.code].length() != 0)
+                    reader.RaiseError("redefining escape");
+                m_escapes[lhs.code] = sequence;
+                break;
+            case LhsType::Constant:
+                if (m_constants.find(lhs.name) != m_constants.end())
+                    reader.RaiseError("redefining constant");
+                m_constants[lhs.name] = sequence;
+                break;
         }
 
         reader.ExpectEmptyRestOfLine();

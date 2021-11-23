@@ -6,94 +6,94 @@
 #include "global.h"
 #include "huff.h"
 
-static int cmp_tree(const void * a0, const void * b0) {
-    return ((struct HuffData *)a0)->value - ((struct HuffData *)b0)->value;
+static int cmp_tree(const void* a0, const void* b0) {
+    return ((struct HuffData*)a0)->value - ((struct HuffData*)b0)->value;
 }
 
-typedef int (*cmpfun)(const void *, const void *);
+typedef int (*cmpfun)(const void*, const void*);
 
-int msort_r(void * data, size_t count, size_t size, cmpfun cmp, void * buffer) {
+int msort_r(void* data, size_t count, size_t size, cmpfun cmp, void* buffer) {
     /*
      * Out-of-place mergesort (stable sort)
      * Returns 1 on success, 0 on failure
      */
-    void * leftPtr;
-    void * rightPtr;
-    void * leftEnd;
-    void * rightEnd;
+    void* leftPtr;
+    void* rightPtr;
+    void* leftEnd;
+    void* rightEnd;
     int i;
 
     switch (count) {
-    case 0:
-        // Should never be here
-        return 0;
-
-    case 1:
-        // Nothing to do here
-        break;
-
-    case 2:
-        // Swap the two entries if the right one compares higher.
-        if (cmp(data, data + size) > 0) {
-            memcpy(buffer, data, size);
-            memcpy(data, data + size, size);
-            memcpy(data + size, buffer, size);
-        }
-        break;
-    default:
-        // Merge sort out-of-place.
-        leftPtr = data;
-        leftEnd = rightPtr = data + count / 2 * size;
-        rightEnd = data + count * size;
-
-        // Sort the left half
-        if (!msort_r(leftPtr, count / 2, size, cmp, buffer))
+        case 0:
+            // Should never be here
             return 0;
 
-        // Sort the right half
-        if (!msort_r(rightPtr, count / 2 + (count & 1), size, cmp, buffer))
-            return 0;
+        case 1:
+            // Nothing to do here
+            break;
 
-        // Merge the sorted halves out of place
-        i = 0;
-        do {
-            if (cmp(leftPtr, rightPtr) <= 0) {
-                memcpy(buffer + i * size, leftPtr, size);
-                leftPtr += size;
-            } else {
-                memcpy(buffer + i * size, rightPtr, size);
-                rightPtr += size;
+        case 2:
+            // Swap the two entries if the right one compares higher.
+            if (cmp(data, data + size) > 0) {
+                memcpy(buffer, data, size);
+                memcpy(data, data + size, size);
+                memcpy(data + size, buffer, size);
+            }
+            break;
+        default:
+            // Merge sort out-of-place.
+            leftPtr = data;
+            leftEnd = rightPtr = data + count / 2 * size;
+            rightEnd = data + count * size;
+
+            // Sort the left half
+            if (!msort_r(leftPtr, count / 2, size, cmp, buffer))
+                return 0;
+
+            // Sort the right half
+            if (!msort_r(rightPtr, count / 2 + (count & 1), size, cmp, buffer))
+                return 0;
+
+            // Merge the sorted halves out of place
+            i = 0;
+            do {
+                if (cmp(leftPtr, rightPtr) <= 0) {
+                    memcpy(buffer + i * size, leftPtr, size);
+                    leftPtr += size;
+                } else {
+                    memcpy(buffer + i * size, rightPtr, size);
+                    rightPtr += size;
+                }
+
+            } while (++i < count && leftPtr < leftEnd && rightPtr < rightEnd);
+
+            // Copy the remainder
+            if (i < count) {
+                if (leftPtr < leftEnd) {
+                    memcpy(buffer + i * size, leftPtr, leftEnd - leftPtr);
+                } else {
+                    memcpy(buffer + i * size, rightPtr, rightEnd - rightPtr);
+                }
             }
 
-        } while (++i < count && leftPtr < leftEnd && rightPtr < rightEnd);
-
-        // Copy the remainder
-        if (i < count) {
-            if (leftPtr < leftEnd) {
-                memcpy(buffer + i * size, leftPtr, leftEnd - leftPtr);
-            }
-            else {
-                memcpy(buffer + i * size, rightPtr, rightEnd - rightPtr);
-            }
-        }
-
-        // Copy the merged data back
-        memcpy(data, buffer, count * size);
-        break;
+            // Copy the merged data back
+            memcpy(data, buffer, count * size);
+            break;
     }
 
     return 1;
 }
 
-int msort(void * data, size_t count, size_t size, cmpfun cmp) {
-    void * buffer = malloc(count * size);
-    if (buffer == NULL) return 0;
+int msort(void* data, size_t count, size_t size, cmpfun cmp) {
+    void* buffer = malloc(count * size);
+    if (buffer == NULL)
+        return 0;
     int result = msort_r(data, count, size, cmp, buffer);
     free(buffer);
     return result;
 }
 
-static void write_tree(unsigned char * dest, HuffNode_t * tree, int nitems, struct BitEncoding * encoding) {
+static void write_tree(unsigned char* dest, HuffNode_t* tree, int nitems, struct BitEncoding* encoding) {
     /*
      * The example used to guide this function encodes the tree in a
      * breadth-first manner.  We attempt to emulate that here.
@@ -102,7 +102,7 @@ static void write_tree(unsigned char * dest, HuffNode_t * tree, int nitems, stru
     int i, j, k;
 
     // There are (2 * nitems - 1) nodes in the binary tree.  Allocate that.
-    HuffNode_t * traversal = calloc(2 * nitems - 1, sizeof(HuffNode_t));
+    HuffNode_t* traversal = calloc(2 * nitems - 1, sizeof(HuffNode_t));
     if (traversal == NULL)
         FATAL_ERROR("Fatal error while compressing Huff file.\n");
 
@@ -117,8 +117,8 @@ static void write_tree(unsigned char * dest, HuffNode_t * tree, int nitems, stru
             // The index of the path is used to encode the path itself.
             // Start from the most significant relevant bit and work our way down.
             // Keep track of the current and previous nodes.
-            HuffNode_t * currNode = traversal;
-            HuffNode_t * parent = NULL;
+            HuffNode_t* currNode = traversal;
+            HuffNode_t* parent = NULL;
             for (k = 0; k < depth; k++) {
                 if (currNode->header.isLeaf)
                     break;
@@ -159,7 +159,7 @@ static void write_tree(unsigned char * dest, HuffNode_t * tree, int nitems, stru
 
     // Encode each node in the tree.
     for (i = 0; i < 2 * nitems - 1; i++) {
-        HuffNode_t * currNode = traversal + i;
+        HuffNode_t* currNode = traversal + i;
         if (currNode->header.isLeaf) {
             dest[5 + i] = traversal[i].leaf.key;
         } else {
@@ -174,7 +174,7 @@ static void write_tree(unsigned char * dest, HuffNode_t * tree, int nitems, stru
     free(traversal);
 }
 
-static inline void write_32_le(unsigned char * dest, int * destPos, uint32_t * buff, int * buffPos) {
+static inline void write_32_le(unsigned char* dest, int* destPos, uint32_t* buff, int* buffPos) {
     dest[*destPos] = *buff;
     dest[*destPos + 1] = *buff >> 8;
     dest[*destPos + 2] = *buff >> 16;
@@ -184,7 +184,7 @@ static inline void write_32_le(unsigned char * dest, int * destPos, uint32_t * b
     *buffPos = 0;
 }
 
-static inline void read_32_le(unsigned char * src, int * srcPos, uint32_t * buff) {
+static inline void read_32_le(unsigned char* src, int* srcPos, uint32_t* buff) {
     uint32_t tmp = src[*srcPos];
     tmp |= src[*srcPos + 1] << 8;
     tmp |= src[*srcPos + 2] << 16;
@@ -193,7 +193,8 @@ static inline void read_32_le(unsigned char * src, int * srcPos, uint32_t * buff
     *buff = tmp;
 }
 
-static void write_bits(unsigned char * dest, int * destPos, struct BitEncoding * encoding, int value, uint32_t * buff, int * buffBits) {
+static void write_bits(unsigned char* dest, int* destPos, struct BitEncoding* encoding, int value, uint32_t* buff,
+                       int* buffBits) {
     int nbits = encoding[value].nbits;
     uint32_t bitstring = encoding[value].bitstring;
 
@@ -218,23 +219,23 @@ MAIN COMPRESSION/DECOMPRESSION ROUTINES
 =======================================
  */
 
-unsigned char * HuffCompress(unsigned char * src, int srcSize, int * compressedSize_p, int bitDepth) {
+unsigned char* HuffCompress(unsigned char* src, int srcSize, int* compressedSize_p, int bitDepth) {
     if (srcSize <= 0)
         goto fail;
 
     int worstCaseDestSize = 4 + (2 << bitDepth) + srcSize * 3;
 
-    unsigned char *dest = malloc(worstCaseDestSize);
+    unsigned char* dest = malloc(worstCaseDestSize);
     if (dest == NULL)
         goto fail;
 
     int nitems = 1 << bitDepth;
 
-    HuffNode_t * freqs = calloc(nitems, sizeof(HuffNode_t));
+    HuffNode_t* freqs = calloc(nitems, sizeof(HuffNode_t));
     if (freqs == NULL)
         goto fail;
 
-    struct BitEncoding * encoding = calloc(nitems, sizeof(struct BitEncoding));
+    struct BitEncoding* encoding = calloc(nitems, sizeof(struct BitEncoding));
     if (encoding == NULL)
         goto fail;
 
@@ -281,16 +282,16 @@ unsigned char * HuffCompress(unsigned char * src, int srcSize, int * compressedS
             goto fail;
     }
 
-    HuffNode_t * tree = calloc(nitems * 2 - 1, sizeof(HuffNode_t));
+    HuffNode_t* tree = calloc(nitems * 2 - 1, sizeof(HuffNode_t));
     if (tree == NULL)
         goto fail;
 
     // Iteratively collapse the two least frequent nodes.
-    HuffNode_t * endptr = freqs + nitems - 2;
+    HuffNode_t* endptr = freqs + nitems - 2;
 
     for (int i = 0; i < nitems - 1; i++) {
-        HuffNode_t * left = freqs;
-        HuffNode_t * right = freqs + 1;
+        HuffNode_t* left = freqs;
+        HuffNode_t* right = freqs + 1;
         tree[i * 2] = *right;
         tree[i * 2 + 1] = *left;
         for (int j = 0; j < nitems - i - 2; j++)
@@ -342,7 +343,7 @@ fail:
     FATAL_ERROR("Fatal error while compressing Huff file.\n");
 }
 
-unsigned char * HuffDecompress(unsigned char * src, int srcSize, int * uncompressedSize_p) {
+unsigned char* HuffDecompress(unsigned char* src, int srcSize, int* uncompressedSize_p) {
     if (srcSize < 4)
         goto fail;
 
@@ -352,7 +353,7 @@ unsigned char * HuffDecompress(unsigned char * src, int srcSize, int * uncompres
 
     int destSize = (src[3] << 16) | (src[2] << 8) | src[1];
 
-    unsigned char *dest = malloc(destSize);
+    unsigned char* dest = malloc(destSize);
 
     if (dest == NULL)
         goto fail;
@@ -365,8 +366,7 @@ unsigned char * HuffDecompress(unsigned char * src, int srcSize, int * uncompres
     uint32_t destTmp = 0;
     uint32_t window;
 
-    for (;;)
-    {
+    for (;;) {
         if (srcPos >= srcSize)
             goto fail;
         read_32_le(src, &srcPos, &window);

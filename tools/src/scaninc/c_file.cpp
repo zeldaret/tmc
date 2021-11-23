@@ -20,11 +20,10 @@
 
 #include "c_file.h"
 
-CFile::CFile(std::string path)
-{
+CFile::CFile(std::string path) {
     m_path = path;
 
-    FILE *fp = std::fopen(path.c_str(), "rb");
+    FILE* fp = std::fopen(path.c_str(), "rb");
 
     if (fp == NULL)
         FATAL_ERROR("Failed to open \"%s\" for reading.\n", path.c_str());
@@ -47,37 +46,26 @@ CFile::CFile(std::string path)
     m_lineNum = 1;
 }
 
-CFile::~CFile()
-{
+CFile::~CFile() {
     delete[] m_buffer;
 }
 
-void CFile::FindIncbins()
-{
+void CFile::FindIncbins() {
     char stringChar = 0;
 
-    while (m_pos < m_size)
-    {
-        if (stringChar)
-        {
-            if (m_buffer[m_pos] == stringChar)
-            {
+    while (m_pos < m_size) {
+        if (stringChar) {
+            if (m_buffer[m_pos] == stringChar) {
                 m_pos++;
                 stringChar = 0;
-            }
-            else if (m_buffer[m_pos] == '\\' && m_buffer[m_pos + 1] == stringChar)
-            {
+            } else if (m_buffer[m_pos] == '\\' && m_buffer[m_pos + 1] == stringChar) {
                 m_pos += 2;
-            }
-            else
-            {
+            } else {
                 if (m_buffer[m_pos] == '\n')
                     m_lineNum++;
                 m_pos++;
             }
-        }
-        else
-        {
+        } else {
             SkipWhitespace();
             CheckInclude();
             CheckIncbin();
@@ -99,10 +87,8 @@ void CFile::FindIncbins()
     }
 }
 
-bool CFile::ConsumeHorizontalWhitespace()
-{
-    if (m_buffer[m_pos] == '\t' || m_buffer[m_pos] == ' ')
-    {
+bool CFile::ConsumeHorizontalWhitespace() {
+    if (m_buffer[m_pos] == '\t' || m_buffer[m_pos] == ' ') {
         m_pos++;
         return true;
     }
@@ -110,17 +96,14 @@ bool CFile::ConsumeHorizontalWhitespace()
     return false;
 }
 
-bool CFile::ConsumeNewline()
-{
-    if (m_buffer[m_pos] == '\n')
-    {
+bool CFile::ConsumeNewline() {
+    if (m_buffer[m_pos] == '\n') {
         m_pos++;
         m_lineNum++;
         return true;
     }
 
-    if (m_buffer[m_pos] == '\r' && m_buffer[m_pos + 1] == '\n')
-    {
+    if (m_buffer[m_pos] == '\r' && m_buffer[m_pos + 1] == '\n') {
         m_pos += 2;
         m_lineNum++;
         return true;
@@ -129,13 +112,10 @@ bool CFile::ConsumeNewline()
     return false;
 }
 
-bool CFile::ConsumeComment()
-{
-    if (m_buffer[m_pos] == '/' && m_buffer[m_pos + 1] == '*')
-    {
+bool CFile::ConsumeComment() {
+    if (m_buffer[m_pos] == '/' && m_buffer[m_pos + 1] == '*') {
         m_pos += 2;
-        while (m_buffer[m_pos] != '*' || m_buffer[m_pos + 1] != '/')
-        {
+        while (m_buffer[m_pos] != '*' || m_buffer[m_pos + 1] != '/') {
             if (m_buffer[m_pos] == 0)
                 return false;
             if (!ConsumeNewline())
@@ -143,12 +123,9 @@ bool CFile::ConsumeComment()
         }
         m_pos += 2;
         return true;
-    }
-    else if (m_buffer[m_pos] == '/' && m_buffer[m_pos + 1] == '/')
-    {
+    } else if (m_buffer[m_pos] == '/' && m_buffer[m_pos + 1] == '/') {
         m_pos += 2;
-        while (!ConsumeNewline())
-        {
+        while (!ConsumeNewline()) {
             if (m_buffer[m_pos] == 0)
                 return false;
             m_pos++;
@@ -159,14 +136,12 @@ bool CFile::ConsumeComment()
     return false;
 }
 
-void CFile::SkipWhitespace()
-{
+void CFile::SkipWhitespace() {
     while (ConsumeHorizontalWhitespace() || ConsumeNewline() || ConsumeComment())
         ;
 }
 
-bool CFile::CheckIdentifier(const std::string& ident)
-{
+bool CFile::CheckIdentifier(const std::string& ident) {
     unsigned int i;
 
     for (i = 0; i < ident.length() && m_pos + i < (unsigned)m_size; i++)
@@ -176,15 +151,13 @@ bool CFile::CheckIdentifier(const std::string& ident)
     return (i == ident.length());
 }
 
-void CFile::CheckInclude()
-{
+void CFile::CheckInclude() {
     if (m_buffer[m_pos] != '#')
         return;
 
     std::string ident = "#include";
 
-    if (!CheckIdentifier(ident))
-    {
+    if (!CheckIdentifier(ident)) {
         return;
     }
 
@@ -199,27 +172,19 @@ void CFile::CheckInclude()
     }
 }
 
-void CFile::CheckIncbin()
-{
+void CFile::CheckIncbin() {
     // Optimization: assume most lines are not incbins
-    if (!(m_buffer[m_pos+0] == 'I'
-       && m_buffer[m_pos+1] == 'N'
-       && m_buffer[m_pos+2] == 'C'
-       && m_buffer[m_pos+3] == 'B'
-       && m_buffer[m_pos+4] == 'I'
-       && m_buffer[m_pos+5] == 'N'
-       && m_buffer[m_pos+6] == '_'))
-    {
-            return;
+    if (!(m_buffer[m_pos + 0] == 'I' && m_buffer[m_pos + 1] == 'N' && m_buffer[m_pos + 2] == 'C' &&
+          m_buffer[m_pos + 3] == 'B' && m_buffer[m_pos + 4] == 'I' && m_buffer[m_pos + 5] == 'N' &&
+          m_buffer[m_pos + 6] == '_')) {
+        return;
     }
 
     std::string idents[6] = { "INCBIN_S8", "INCBIN_U8", "INCBIN_S16", "INCBIN_U16", "INCBIN_S32", "INCBIN_U32" };
     int incbinType = -1;
 
-    for (int i = 0; i < 6; i++)
-    {
-        if (CheckIdentifier(idents[i]))
-        {
+    for (int i = 0; i < 6; i++) {
+        if (CheckIdentifier(idents[i])) {
             incbinType = i;
             break;
         }
@@ -235,8 +200,7 @@ void CFile::CheckIncbin()
 
     SkipWhitespace();
 
-    if (m_buffer[m_pos] != '(')
-    {
+    if (m_buffer[m_pos] != '(') {
         m_pos = oldPos;
         m_lineNum = oldLineNum;
         return;
@@ -244,8 +208,7 @@ void CFile::CheckIncbin()
 
     m_pos++;
 
-    while (true)
-    {
+    while (true) {
         SkipWhitespace();
 
         std::string path = ReadPath();
@@ -264,15 +227,11 @@ void CFile::CheckIncbin()
         FATAL_INPUT_ERROR("expected ')'");
 
     m_pos++;
-
 }
 
-std::string CFile::ReadPath()
-{
-    if (m_buffer[m_pos] != '"')
-    {
-        if (m_buffer[m_pos] == '<')
-        {
+std::string CFile::ReadPath() {
+    if (m_buffer[m_pos] != '"') {
+        if (m_buffer[m_pos] == '<') {
             return std::string();
         }
         FATAL_INPUT_ERROR("expected '\"' or '<'");
@@ -282,10 +241,8 @@ std::string CFile::ReadPath()
 
     int startPos = m_pos;
 
-    while (m_buffer[m_pos] != '"')
-    {
-        if (m_buffer[m_pos] == 0)
-        {
+    while (m_buffer[m_pos] != '"') {
+        if (m_buffer[m_pos] == 0) {
             if (m_pos >= m_size)
                 FATAL_INPUT_ERROR("unexpected EOF in path string");
             else

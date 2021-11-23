@@ -29,9 +29,8 @@
 #include "utf8.h"
 #include "string_parser.h"
 
-CFile::CFile(std::string filename) : m_filename(filename)
-{
-    FILE *fp = std::fopen(filename.c_str(), "rb");
+CFile::CFile(std::string filename) : m_filename(filename) {
+    FILE* fp = std::fopen(filename.c_str(), "rb");
 
     if (fp == NULL)
         FATAL_ERROR("Failed to open \"%s\" for reading.\n", filename.c_str());
@@ -58,8 +57,7 @@ CFile::CFile(std::string filename) : m_filename(filename)
     m_lineNum = 1;
 }
 
-CFile::CFile(CFile&& other) : m_filename(std::move(other.m_filename))
-{
+CFile::CFile(CFile&& other) : m_filename(std::move(other.m_filename)) {
     m_buffer = other.m_buffer;
     m_pos = other.m_pos;
     m_size = other.m_size;
@@ -68,41 +66,30 @@ CFile::CFile(CFile&& other) : m_filename(std::move(other.m_filename))
     other.m_buffer = nullptr;
 }
 
-CFile::~CFile()
-{
+CFile::~CFile() {
     delete[] m_buffer;
 }
 
-void CFile::Preproc()
-{
+void CFile::Preproc() {
     char stringChar = 0;
 
-    while (m_pos < m_size)
-    {
-        if (stringChar)
-        {
-            if (m_buffer[m_pos] == stringChar)
-            {
+    while (m_pos < m_size) {
+        if (stringChar) {
+            if (m_buffer[m_pos] == stringChar) {
                 std::putchar(stringChar);
                 m_pos++;
                 stringChar = 0;
-            }
-            else if (m_buffer[m_pos] == '\\' && m_buffer[m_pos + 1] == stringChar)
-            {
+            } else if (m_buffer[m_pos] == '\\' && m_buffer[m_pos + 1] == stringChar) {
                 std::putchar('\\');
                 std::putchar(stringChar);
                 m_pos += 2;
-            }
-            else
-            {
+            } else {
                 if (m_buffer[m_pos] == '\n')
                     m_lineNum++;
                 std::putchar(m_buffer[m_pos]);
                 m_pos++;
             }
-        }
-        else
-        {
+        } else {
             TryConvertString();
             TryConvertIncbin();
 
@@ -123,10 +110,8 @@ void CFile::Preproc()
     }
 }
 
-bool CFile::ConsumeHorizontalWhitespace()
-{
-    if (m_buffer[m_pos] == '\t' || m_buffer[m_pos] == ' ')
-    {
+bool CFile::ConsumeHorizontalWhitespace() {
+    if (m_buffer[m_pos] == '\t' || m_buffer[m_pos] == ' ') {
         m_pos++;
         return true;
     }
@@ -134,18 +119,15 @@ bool CFile::ConsumeHorizontalWhitespace()
     return false;
 }
 
-bool CFile::ConsumeNewline()
-{
-    if (m_buffer[m_pos] == '\r' && m_buffer[m_pos + 1] == '\n')
-    {
+bool CFile::ConsumeNewline() {
+    if (m_buffer[m_pos] == '\r' && m_buffer[m_pos + 1] == '\n') {
         m_pos += 2;
         m_lineNum++;
         std::putchar('\n');
         return true;
     }
 
-    if (m_buffer[m_pos] == '\n')
-    {
+    if (m_buffer[m_pos] == '\n') {
         m_pos++;
         m_lineNum++;
         std::putchar('\n');
@@ -155,14 +137,12 @@ bool CFile::ConsumeNewline()
     return false;
 }
 
-void CFile::SkipWhitespace()
-{
+void CFile::SkipWhitespace() {
     while (ConsumeHorizontalWhitespace() || ConsumeNewline())
         ;
 }
 
-void CFile::TryConvertString()
-{
+void CFile::TryConvertString() {
     long oldPos = m_pos;
     long oldLineNum = m_lineNum;
     bool noTerminator = false;
@@ -172,16 +152,14 @@ void CFile::TryConvertString()
 
     m_pos++;
 
-    if (m_buffer[m_pos] == '_')
-    {
+    if (m_buffer[m_pos] == '_') {
         noTerminator = true;
         m_pos++;
     }
 
     SkipWhitespace();
 
-    if (m_buffer[m_pos] != '(')
-    {
+    if (m_buffer[m_pos] != '(') {
         m_pos = oldPos;
         m_lineNum = oldLineNum;
         return;
@@ -193,35 +171,24 @@ void CFile::TryConvertString()
 
     std::printf("{ ");
 
-    while (1)
-    {
+    while (1) {
         SkipWhitespace();
 
-        if (m_buffer[m_pos] == '"')
-        {
+        if (m_buffer[m_pos] == '"') {
             unsigned char s[kMaxStringLength];
             int length;
             StringParser stringParser(m_buffer, m_size);
 
-            try
-            {
+            try {
                 m_pos += stringParser.ParseString(m_pos, s, length);
-            }
-            catch (std::runtime_error& e)
-            {
-                RaiseError(e.what());
-            }
+            } catch (std::runtime_error& e) { RaiseError(e.what()); }
 
             for (int i = 0; i < length; i++)
                 printf("0x%02X, ", s[i]);
-        }
-        else if (m_buffer[m_pos] == ')')
-        {
+        } else if (m_buffer[m_pos] == ')') {
             m_pos++;
             break;
-        }
-        else
-        {
+        } else {
             if (m_pos >= m_size)
                 RaiseError("unexpected EOF");
             if (IsAsciiPrintable(m_buffer[m_pos]))
@@ -237,8 +204,7 @@ void CFile::TryConvertString()
         std::printf("0xFF }");
 }
 
-bool CFile::CheckIdentifier(const std::string& ident)
-{
+bool CFile::CheckIdentifier(const std::string& ident) {
     unsigned int i;
 
     for (i = 0; i < ident.length() && m_pos + i < (unsigned)m_size; i++)
@@ -248,8 +214,7 @@ bool CFile::CheckIdentifier(const std::string& ident)
     return (i == ident.length());
 }
 
-std::unique_ptr<unsigned char[]> CFile::ReadWholeFile(const std::string& path, int& size)
-{
+std::unique_ptr<unsigned char[]> CFile::ReadWholeFile(const std::string& path, int& size) {
     FILE* fp = std::fopen(path.c_str(), "rb");
 
     if (fp == nullptr)
@@ -271,34 +236,25 @@ std::unique_ptr<unsigned char[]> CFile::ReadWholeFile(const std::string& path, i
     return buffer;
 }
 
-int ExtractData(const std::unique_ptr<unsigned char[]>& buffer, int offset, int size)
-{
-    switch (size)
-    {
-    case 1:
-        return buffer[offset];
-    case 2:
-        return (buffer[offset + 1] << 8)
-            | buffer[offset];
-    case 4:
-        return (buffer[offset + 3] << 24)
-            | (buffer[offset + 2] << 16)
-            | (buffer[offset + 1] << 8)
-            | buffer[offset];
-    default:
-        FATAL_ERROR("Invalid size passed to ExtractData.\n");
+int ExtractData(const std::unique_ptr<unsigned char[]>& buffer, int offset, int size) {
+    switch (size) {
+        case 1:
+            return buffer[offset];
+        case 2:
+            return (buffer[offset + 1] << 8) | buffer[offset];
+        case 4:
+            return (buffer[offset + 3] << 24) | (buffer[offset + 2] << 16) | (buffer[offset + 1] << 8) | buffer[offset];
+        default:
+            FATAL_ERROR("Invalid size passed to ExtractData.\n");
     }
 }
 
-void CFile::TryConvertIncbin()
-{
+void CFile::TryConvertIncbin() {
     std::string idents[6] = { "INCBIN_S8", "INCBIN_U8", "INCBIN_S16", "INCBIN_U16", "INCBIN_S32", "INCBIN_U32" };
     int incbinType = -1;
 
-    for (int i = 0; i < 6; i++)
-    {
-        if (CheckIdentifier(idents[i]))
-        {
+    for (int i = 0; i < 6; i++) {
+        if (CheckIdentifier(idents[i])) {
             incbinType = i;
             break;
         }
@@ -317,8 +273,7 @@ void CFile::TryConvertIncbin()
 
     SkipWhitespace();
 
-    if (m_buffer[m_pos] != '(')
-    {
+    if (m_buffer[m_pos] != '(') {
         m_pos = oldPos;
         m_lineNum = oldLineNum;
         return;
@@ -328,8 +283,7 @@ void CFile::TryConvertIncbin()
 
     std::printf("{");
 
-    while (true)
-    {
+    while (true) {
         SkipWhitespace();
 
         if (m_buffer[m_pos] != '"')
@@ -339,10 +293,8 @@ void CFile::TryConvertIncbin()
 
         int startPos = m_pos;
 
-        while (m_buffer[m_pos] != '"')
-        {
-            if (m_buffer[m_pos] == 0)
-            {
+        while (m_buffer[m_pos] != '"') {
+            if (m_buffer[m_pos] == 0) {
                 if (m_pos >= m_size)
                     RaiseError("unexpected EOF in path string");
                 else
@@ -354,7 +306,7 @@ void CFile::TryConvertIncbin()
 
             if (m_buffer[m_pos] == '\\')
                 RaiseError("unexpected escape in path string");
-            
+
             m_pos++;
         }
 
@@ -371,8 +323,7 @@ void CFile::TryConvertIncbin()
         int count = fileSize / size;
         int offset = 0;
 
-        for (int i = 0; i < count; i++)
-        {
+        for (int i = 0; i < count; i++) {
             int data = ExtractData(buffer, offset, size);
             offset += size;
 
@@ -389,7 +340,7 @@ void CFile::TryConvertIncbin()
 
         m_pos++;
     }
-    
+
     if (m_buffer[m_pos] != ')')
         RaiseError("expected ')'");
 
@@ -399,32 +350,28 @@ void CFile::TryConvertIncbin()
 }
 
 // Reports a diagnostic message.
-void CFile::ReportDiagnostic(const char* type, const char* format, std::va_list args)
-{
+void CFile::ReportDiagnostic(const char* type, const char* format, std::va_list args) {
     const int bufferSize = 1024;
     char buffer[bufferSize];
     std::vsnprintf(buffer, bufferSize, format, args);
     std::fprintf(stderr, "%s:%ld: %s: %s\n", m_filename.c_str(), m_lineNum, type, buffer);
 }
 
-#define DO_REPORT(type)                   \
-do                                        \
-{                                         \
-    std::va_list args;                    \
-    va_start(args, format);               \
-    ReportDiagnostic(type, format, args); \
-    va_end(args);                         \
-} while (0)
+#define DO_REPORT(type)                       \
+    do {                                      \
+        std::va_list args;                    \
+        va_start(args, format);               \
+        ReportDiagnostic(type, format, args); \
+        va_end(args);                         \
+    } while (0)
 
 // Reports an error diagnostic and terminates the program.
-void CFile::RaiseError(const char* format, ...)
-{
+void CFile::RaiseError(const char* format, ...) {
     DO_REPORT("error");
     std::exit(1);
 }
 
 // Reports a warning diagnostic.
-void CFile::RaiseWarning(const char* format, ...)
-{
+void CFile::RaiseWarning(const char* format, ...) {
     DO_REPORT("warning");
 }

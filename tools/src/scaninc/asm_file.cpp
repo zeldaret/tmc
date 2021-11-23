@@ -23,11 +23,10 @@
 #include "scaninc.h"
 #include "asm_file.h"
 
-AsmFile::AsmFile(std::string path)
-{
+AsmFile::AsmFile(std::string path) {
     m_path = path;
 
-    FILE *fp = std::fopen(path.c_str(), "rb");
+    FILE* fp = std::fopen(path.c_str(), "rb");
 
     if (fp == NULL)
         FATAL_ERROR("Failed to open \"%s\" for reading.\n", path.c_str());
@@ -49,24 +48,20 @@ AsmFile::AsmFile(std::string path)
     m_lineNum = 1;
 }
 
-AsmFile::~AsmFile()
-{
+AsmFile::~AsmFile() {
     delete[] m_buffer;
 }
 
-IncDirectiveType AsmFile::ReadUntilIncDirective(std::string &path)
-{
+IncDirectiveType AsmFile::ReadUntilIncDirective(std::string& path) {
     // At the beginning of each loop iteration, the current file position
     // should be at the start of a line or at the end of the file.
-    for (;;)
-    {
+    for (;;) {
         SkipTabsAndSpaces();
 
         IncDirectiveType incDirectiveType = IncDirectiveType::None;
 
         char c = PeekChar();
-        if (c == '.' || c == '#')
-        {
+        if (c == '.' || c == '#') {
             m_pos++;
 
             if (MatchIncDirective("incbin", path))
@@ -75,29 +70,21 @@ IncDirectiveType AsmFile::ReadUntilIncDirective(std::string &path)
                 incDirectiveType = IncDirectiveType::Include;
         }
 
-        for (;;)
-        {
+        for (;;) {
             int c = GetChar();
 
             if (c == -1)
                 return incDirectiveType;
 
-            if (c == ';')
-            {
+            if (c == ';') {
                 SkipEndOfLineComment();
                 break;
-            }
-            else if (c == '/' && PeekChar() == '*')
-            {
+            } else if (c == '/' && PeekChar() == '*') {
                 m_pos++;
                 SkipMultiLineComment();
-            }
-            else if (c == '"')
-            {
+            } else if (c == '"') {
                 SkipString();
-            }
-            else if (c == '\n')
-            {
+            } else if (c == '\n') {
                 break;
             }
         }
@@ -107,13 +94,11 @@ IncDirectiveType AsmFile::ReadUntilIncDirective(std::string &path)
     }
 }
 
-std::string AsmFile::ReadPath()
-{
+std::string AsmFile::ReadPath() {
     int length = 0;
     int startPos = m_pos;
 
-    for (;;)
-    {
+    for (;;) {
         int c = GetChar();
 
         if (c == '"')
@@ -141,41 +126,31 @@ std::string AsmFile::ReadPath()
     return std::string(m_buffer + startPos, length);
 }
 
-void AsmFile::SkipEndOfLineComment()
-{
+void AsmFile::SkipEndOfLineComment() {
     int c;
 
-    do
-    {
+    do {
         c = GetChar();
     } while (c != -1 && c != '\n');
 }
 
-void AsmFile::SkipMultiLineComment()
-{
-    for (;;)
-    {
+void AsmFile::SkipMultiLineComment() {
+    for (;;) {
         int c = GetChar();
 
-        if (c == '*')
-        {
-            if (PeekChar() == '/')
-            {
+        if (c == '*') {
+            if (PeekChar() == '/') {
                 m_pos++;
                 return;
             }
-        }
-        else if (c == -1)
-        {
+        } else if (c == -1) {
             return;
         }
     }
 }
 
-void AsmFile::SkipString()
-{
-    for (;;)
-    {
+void AsmFile::SkipString() {
+    for (;;) {
         int c = GetChar();
 
         if (c == '"')
@@ -184,8 +159,7 @@ void AsmFile::SkipString()
         if (c == -1)
             FATAL_INPUT_ERROR("unexpected EOF in string\n");
 
-        if (c == '\\')
-        {
+        if (c == '\\') {
             c = GetChar();
         }
     }

@@ -23,8 +23,7 @@
 
 #include <cstdint>
 
-struct UnicodeChar
-{
+struct UnicodeChar {
     std::int32_t code;
     int encodingLength;
 };

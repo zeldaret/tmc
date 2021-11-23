@@ -26,13 +26,11 @@
 #include <map>
 #include <vector>
 
-class Charmap
-{
-public:
+class Charmap {
+  public:
     Charmap(std::string filename);
 
-    std::string Char(std::int32_t code)
-    {
+    std::string Char(std::int32_t code) {
         auto it = m_chars.find(code);
 
         if (it == m_chars.end())
@@ -41,13 +39,11 @@ public:
         return it->second;
     }
 
-    std::string Escape(unsigned char code)
-    {
+    std::string Escape(unsigned char code) {
         return m_escapes[code];
     }
 
-    std::string Constant(std::string identifier)
-    {
+    std::string Constant(std::string identifier) {
         auto it = m_constants.find(identifier);
 
         if (it == m_constants.end())
@@ -55,7 +51,8 @@ public:
 
         return it->second;
     }
-private:
+
+  private:
     std::map<std::int32_t, std::string> m_chars;
     std::string m_escapes[128];
     std::map<std::string, std::string> m_constants;

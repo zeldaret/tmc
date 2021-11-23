@@ -24,17 +24,14 @@
 
 #define MAX_LINE_LENGTH 11
 
-void ReadJascPaletteLine(FILE *fp, char *line)
-{
+void ReadJascPaletteLine(FILE* fp, char* line) {
     int c;
     int length = 0;
 
-    for (;;)
-    {
+    for (;;) {
         c = fgetc(fp);
 
-        if (c == '\r')
-        {
+        if (c == '\r') {
             c = fgetc(fp);
 
             if (c != '\n')
@@ -54,8 +51,7 @@ void ReadJascPaletteLine(FILE *fp, char *line)
         if (c == 0)
             FATAL_ERROR("NUL character in file.\n");
 
-        if (length == MAX_LINE_LENGTH)
-        {
+        if (length == MAX_LINE_LENGTH) {
             line[length] = 0;
             FATAL_ERROR("The line \"%s\" is too long.\n", line);
         }
@@ -64,11 +60,10 @@ void ReadJascPaletteLine(FILE *fp, char *line)
     }
 }
 
-void ReadJascPalette(char *path, struct Palette *palette)
-{
+void ReadJascPalette(char* path, struct Palette* palette) {
     char line[MAX_LINE_LENGTH + 1];
 
-    FILE *fp = fopen(path, "rb");
+    FILE* fp = fopen(path, "rb");
 
     if (fp == NULL)
         FATAL_ERROR("Failed to open JASC-PAL file \"%s\" for reading.\n", path);
@@ -89,14 +84,14 @@ void ReadJascPalette(char *path, struct Palette *palette)
         FATAL_ERROR("Failed to parse number of colors.\n");
 
     if (palette->numColors < 1 || palette->numColors > 256)
-        FATAL_ERROR("%d is an invalid number of colors. The number of colors must be in the range [1, 256].\n", palette->numColors);
+        FATAL_ERROR("%d is an invalid number of colors. The number of colors must be in the range [1, 256].\n",
+                    palette->numColors);
 
-    for (int i = 0; i < palette->numColors; i++)
-    {
+    for (int i = 0; i < palette->numColors; i++) {
         ReadJascPaletteLine(fp, line);
 
-        char *s = line;
-        char *end;
+        char* s = line;
+        char* end;
 
         int red;
         int green;
@@ -154,17 +149,15 @@ void ReadJascPalette(char *path, struct Palette *palette)
     fclose(fp);
 }
 
-void WriteJascPalette(char *path, struct Palette *palette)
-{
-    FILE *fp = fopen(path, "wb");
+void WriteJascPalette(char* path, struct Palette* palette) {
+    FILE* fp = fopen(path, "wb");
 
     fputs("JASC-PAL\r\n", fp);
     fputs("0100\r\n", fp);
     fprintf(fp, "%d\r\n", palette->numColors);
 
-    for (int i = 0; i < palette->numColors; i++)
-    {
-        struct Color *color = &palette->colors[i];
+    for (int i = 0; i < palette->numColors; i++) {
+        struct Color* color = &palette->colors[i];
         fprintf(fp, "%d %d %d\r\n", color->red, color->green, color->blue);
     }
 

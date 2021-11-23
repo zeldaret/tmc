@@ -26,17 +26,20 @@
 #include <memory>
 #include "scaninc.h"
 
-class CFile
-{
-public:
+class CFile {
+  public:
     CFile(std::string path);
     ~CFile();
     void FindIncbins();
-    const std::set<std::string>& GetIncbins() { return m_incbins; }
-    const std::set<std::string>& GetIncludes() { return m_includes; }
+    const std::set<std::string>& GetIncbins() {
+        return m_incbins;
+    }
+    const std::set<std::string>& GetIncludes() {
+        return m_includes;
+    }
 
-private:
-    char *m_buffer;
+  private:
+    char* m_buffer;
     int m_pos;
     int m_size;
     int m_lineNum;

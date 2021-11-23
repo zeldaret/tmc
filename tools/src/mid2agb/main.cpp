@@ -42,52 +42,44 @@ int g_clocksPerBeat = 1;
 bool g_exactGateTime = false;
 bool g_compressionEnabled = true;
 
-[[noreturn]] static void PrintUsage()
-{
-    std::printf(
-        "Usage: MID2AGB name [options]\n"
-        "\n"
-        "    input_file  filename(.mid) of MIDI file\n"
-        "   output_file  filename(.s) for AGB file (default:input_file)\n"
-        "\n"
-        "options  -L???  label for assembler (default:output_file)\n"
-        "         -V???  master volume (default:127)\n"
-        "         -G???  voice group number (default:0)\n"
-        "         -P???  priority (default:0)\n"
-        "         -R???  reverb (default:off)\n"
-        "            -X  48 clocks/beat (default:24 clocks/beat)\n"
-        "            -E  exact gate-time\n"
-        "            -N  no compression\n"
-    );
+[[noreturn]] static void PrintUsage() {
+    std::printf("Usage: MID2AGB name [options]\n"
+                "\n"
+                "    input_file  filename(.mid) of MIDI file\n"
+                "   output_file  filename(.s) for AGB file (default:input_file)\n"
+                "\n"
+                "options  -L???  label for assembler (default:output_file)\n"
+                "         -V???  master volume (default:127)\n"
+                "         -G???  voice group number (default:0)\n"
+                "         -P???  priority (default:0)\n"
+                "         -R???  reverb (default:off)\n"
+                "            -X  48 clocks/beat (default:24 clocks/beat)\n"
+                "            -E  exact gate-time\n"
+                "            -N  no compression\n");
     std::exit(1);
 }
 
-static std::string StripExtension(std::string s)
-{
+static std::string StripExtension(std::string s) {
     std::size_t pos = s.find_last_of('.');
 
-    if (pos > 0 && pos != std::string::npos)
-    {
+    if (pos > 0 && pos != std::string::npos) {
         s = s.substr(0, pos);
     }
 
     return s;
 }
 
-static std::string GetExtension(std::string s)
-{
+static std::string GetExtension(std::string s) {
     std::size_t pos = s.find_last_of('.');
 
-    if (pos > 0 && pos != std::string::npos)
-    {
+    if (pos > 0 && pos != std::string::npos) {
         return s.substr(pos + 1);
     }
 
     return "";
 }
 
-static std::string BaseName(std::string s)
-{
+static std::string BaseName(std::string s) {
     std::size_t posAfterSlash = s.find_last_of("/\\");
 
     if (posAfterSlash == std::string::npos)
@@ -102,11 +94,10 @@ static std::string BaseName(std::string s)
     return s;
 }
 
-static const char *GetArgument(int argc, char **argv, int& index)
-{
+static const char* GetArgument(int argc, char** argv, int& index) {
     assert(index >= 0 && index < argc);
 
-    const char *option = argv[index];
+    const char* option = argv[index];
 
     assert(option != nullptr);
     assert(option[0] == '-');
@@ -116,77 +107,68 @@ static const char *GetArgument(int argc, char **argv, int& index)
         return option + 2;
 
     // Otherwise, try to get the next arg.
-    if (index + 1 < argc)
-    {
+    if (index + 1 < argc) {
         index++;
         return argv[index];
-    }
-    else
-    {
+    } else {
         return nullptr;
     }
 }
 
-int main(int argc, char** argv)
-{
+int main(int argc, char** argv) {
     std::string inputFilename;
     std::string outputFilename;
 
-    for (int i = 1; i < argc; i++)
-    {
-        const char *option = argv[i];
+    for (int i = 1; i < argc; i++) {
+        const char* option = argv[i];
 
-        if (option[0] == '-' && option[1] != '\0')
-        {
-            const char *arg;
+        if (option[0] == '-' && option[1] != '\0') {
+            const char* arg;
 
-            switch (std::toupper(option[1]))
-            {
-            case 'E':
-                g_exactGateTime = true;
-                break;
-            case 'G':
-                arg = GetArgument(argc, argv, i);
-                if (arg == nullptr)
+            switch (std::toupper(option[1])) {
+                case 'E':
+                    g_exactGateTime = true;
+                    break;
+                case 'G':
+                    arg = GetArgument(argc, argv, i);
+                    if (arg == nullptr)
+                        PrintUsage();
+                    g_voiceGroup = std::stoi(arg);
+                    break;
+                case 'L':
+                    arg = GetArgument(argc, argv, i);
+                    if (arg == nullptr)
+                        PrintUsage();
+                    g_asmLabel = arg;
+                    break;
+                case 'N':
+                    g_compressionEnabled = false;
+                    break;
+                case 'P':
+                    arg = GetArgument(argc, argv, i);
+                    if (arg == nullptr)
+                        PrintUsage();
+                    g_priority = std::stoi(arg);
+                    break;
+                case 'R':
+                    arg = GetArgument(argc, argv, i);
+                    if (arg == nullptr)
+                        PrintUsage();
+                    g_reverb = std::stoi(arg);
+                    break;
+                case 'V':
+                    arg = GetArgument(argc, argv, i);
+                    if (arg == nullptr)
+                        PrintUsage();
+                    g_masterVolume = std::stoi(arg);
+                    break;
+                case 'X':
+                    g_clocksPerBeat = 2;
+                    break;
+                default:
                     PrintUsage();
-                g_voiceGroup = std::stoi(arg);
-                break;
-            case 'L':
-                arg = GetArgument(argc, argv, i);
-                if (arg == nullptr)
-                    PrintUsage();
-                g_asmLabel = arg;
-                break;
-            case 'N':
-                g_compressionEnabled = false;
-                break;
-            case 'P':
-                arg = GetArgument(argc, argv, i);
-                if (arg == nullptr)
-                    PrintUsage();
-                g_priority = std::stoi(arg);
-                break;
-            case 'R':
-                arg = GetArgument(argc, argv, i);
-                if (arg == nullptr)
-                    PrintUsage();
-                g_reverb = std::stoi(arg);
-                break;
-            case 'V':
-                arg = GetArgument(argc, argv, i);
-                if (arg == nullptr)
-                    PrintUsage();
-                g_masterVolume = std::stoi(arg);
-                break;
-            case 'X':
-                g_clocksPerBeat = 2;
-                break;
-            default:
-                PrintUsage();
             }
-        }
-        else
-        {
+        } else {
             if (inputFilename.empty())
                 inputFilename = argv[i];
             else if (outputFilename.empty())

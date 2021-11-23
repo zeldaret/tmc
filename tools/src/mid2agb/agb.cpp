@@ -42,8 +42,7 @@ static int s_memaccOp;
 static int s_memaccParam1;
 static int s_memaccParam2;
 
-void PrintAgbHeader()
-{
+void PrintAgbHeader() {
     std::fprintf(g_outputFile, "\t.include \"sound/MPlayDef.s\"\n\n");
     std::fprintf(g_outputFile, "\t.equ\t%s_grp, voicegroup%03u\n", g_asmLabel.c_str(), g_voiceGroup);
     std::fprintf(g_outputFile, "\t.equ\t%s_pri, %u\n", g_asmLabel.c_str(), g_priority);
@@ -65,8 +64,7 @@ void PrintAgbHeader()
     std::fprintf(g_outputFile, "\t.align\t2\n");
 }
 
-void ResetTrackVars()
-{
+void ResetTrackVars() {
     s_lastVelocity = -1;
     s_lastNote = -1;
     s_velocityChanged = false;
@@ -76,10 +74,8 @@ void ResetTrackVars()
     s_inPattern = false;
 }
 
-void PrintWait(int wait)
-{
-    if (wait > 0)
-    {
+void PrintWait(int wait) {
+    if (wait > 0) {
         std::fprintf(g_outputFile, "\t.byte\tW%02d\n", wait);
         s_velocityChanged = true;
         s_noteChanged = true;
@@ -87,27 +83,20 @@ void PrintWait(int wait)
     }
 }
 
-void PrintOp(int wait, std::string name, const char *format, ...)
-{
+void PrintOp(int wait, std::string name, const char* format, ...) {
     std::va_list args;
     va_start(args, format);
     std::fprintf(g_outputFile, "\t.byte\t\t");
 
-    if (format != nullptr)
-    {
-        if (!g_compressionEnabled || s_lastOpName != name)
-        {
+    if (format != nullptr) {
+        if (!g_compressionEnabled || s_lastOpName != name) {
             std::fprintf(g_outputFile, "%s, ", name.c_str());
             s_lastOpName = name;
-        }
-        else
-        {
+        } else {
             std::fprintf(g_outputFile, "        ");
         }
         std::vfprintf(g_outputFile, format, args);
-    }
-    else
-    {
+    } else {
         std::fputs(name.c_str(), g_outputFile);
         s_lastOpName = name;
     }
@@ -119,8 +108,7 @@ void PrintOp(int wait, std::string name, const char *format, ...)
     PrintWait(wait);
 }
 
-void PrintByte(const char *format, ...)
-{
+void PrintByte(const char* format, ...) {
     std::va_list args;
     va_start(args, format);
     std::fprintf(g_outputFile, "\t.byte\t");
@@ -132,8 +120,7 @@ void PrintByte(const char *format, ...)
     va_end(args);
 }
 
-void PrintWord(const char *format, ...)
-{
+void PrintWord(const char* format, ...) {
     std::va_list args;
     va_start(args, format);
     std::fprintf(g_outputFile, "\t .word\t");
@@ -142,8 +129,7 @@ void PrintWord(const char *format, ...)
     va_end(args);
 }
 
-void PrintNote(const Event& event)
-{
+void PrintNote(const Event& event) {
     int note = event.note;
     int velocity = g_noteVelocityLUT[event.param1];
     int duration = -1;
@@ -173,8 +159,7 @@ void PrintNote(const Event& event)
     bool noteChanged = true;
     bool velocityChanged = true;
 
-    if (g_compressionEnabled)
-    {
+    if (g_compressionEnabled) {
         noteChanged = (note != s_lastNote);
         velocityChanged = (velocity != s_lastVelocity);
     }
@@ -184,8 +169,7 @@ void PrintNote(const Event& event)
     else
         s_lastOpName = "";
 
-    if (noteChanged || velocityChanged || (gateTimeParam > 0))
-    {
+    if (noteChanged || velocityChanged || (gateTimeParam > 0)) {
         s_lastNote = note;
 
         char noteBuf[16];
@@ -197,20 +181,15 @@ void PrintNote(const Event& event)
 
         char velocityBuf[16];
 
-        if (velocityChanged || (gateTimeParam > 0))
-        {
+        if (velocityChanged || (gateTimeParam > 0)) {
             s_lastVelocity = velocity;
             std::snprintf(velocityBuf, sizeof(velocityBuf), ", v%03u", velocity);
-        }
-        else
-        {
+        } else {
             velocityBuf[0] = 0;
         }
 
         PrintOp(event.time, opName, "%s%s%s", noteBuf, velocityBuf, gtpBuf);
-    }
-    else
-    {
+    } else {
         PrintOp(event.time, opName, 0);
     }
 
@@ -218,20 +197,16 @@ void PrintNote(const Event& event)
     s_velocityChanged = velocityChanged;
 }
 
-void PrintEndOfTieOp(const Event& event)
-{
+void PrintEndOfTieOp(const Event& event) {
     int note = event.note;
     bool noteChanged = (note != s_lastNote);
 
     if (!noteChanged || !s_noteChanged)
         s_lastOpName = "";
 
-    if (!noteChanged && g_compressionEnabled)
-    {
+    if (!noteChanged && g_compressionEnabled) {
         PrintOp(event.time, "EOT   ", nullptr);
-    }
-    else
-    {
+    } else {
         s_lastNote = note;
         if (note >= 24)
             PrintOp(event.time, "EOT   ", g_noteTable[note % 12], note / 12 - 2);
@@ -242,181 +217,174 @@ void PrintEndOfTieOp(const Event& event)
     s_noteChanged = noteChanged;
 }
 
-void PrintSeqLoopLabel(const Event& event)
-{
+void PrintSeqLoopLabel(const Event& event) {
     s_blockNum = event.param1 + 1;
     std::fprintf(g_outputFile, "%s_%u_B%u::\n", g_asmLabel.c_str(), g_agbTrack, s_blockNum);
     PrintWait(event.time);
     ResetTrackVars();
 }
 
-void PrintMemAcc(const Event& event)
-{
-    switch (s_memaccOp)
-    {
-    case 0x00:
-        PrintByte("MEMACC, mem_set, 0x%02X, %u", s_memaccParam1, event.param2);
-        break;
-    case 0x01:
-        PrintByte("MEMACC, mem_add, 0x%02X, %u", s_memaccParam1, event.param2);
-        break;
-    case 0x02:
-        PrintByte("MEMACC, mem_sub, 0x%02X, %u", s_memaccParam1, event.param2);
-        break;
-    case 0x03:
-        PrintByte("MEMACC, mem_mem_set, 0x%02X, 0x%02X", s_memaccParam1, event.param2);
-        break;
-    case 0x04:
-        PrintByte("MEMACC, mem_mem_add, 0x%02X, 0x%02X", s_memaccParam1, event.param2);
-        break;
-    case 0x05:
-        PrintByte("MEMACC, mem_mem_sub, 0x%02X, 0x%02X", s_memaccParam1, event.param2);
-        break;
-    // TODO: everything else
-    case 0x06:
-        break;
-    case 0x07:
-        break;
-    case 0x08:
-        break;
-    case 0x09:
-        break;
-    case 0x0A:
-        break;
-    case 0x0B:
-        break;
-    case 0x0C:
-        break;
-    case 0x0D:
-        break;
-    case 0x0E:
-        break;
-    case 0x0F:
-        break;
-    case 0x10:
-        break;
-    case 0x11:
-        break;
-    case 0x46:
-        break;
-    case 0x47:
-        break;
-    case 0x48:
-        break;
-    case 0x49:
-        break;
-    case 0x4A:
-        break;
-    case 0x4B:
-        break;
-    case 0x4C:
-        break;
-    case 0x4D:
-        break;
-    case 0x4E:
-        break;
-    case 0x4F:
-        break;
-    case 0x50:
-        break;
-    case 0x51:
-        break;
-    default:
-        break;
+void PrintMemAcc(const Event& event) {
+    switch (s_memaccOp) {
+        case 0x00:
+            PrintByte("MEMACC, mem_set, 0x%02X, %u", s_memaccParam1, event.param2);
+            break;
+        case 0x01:
+            PrintByte("MEMACC, mem_add, 0x%02X, %u", s_memaccParam1, event.param2);
+            break;
+        case 0x02:
+            PrintByte("MEMACC, mem_sub, 0x%02X, %u", s_memaccParam1, event.param2);
+            break;
+        case 0x03:
+            PrintByte("MEMACC, mem_mem_set, 0x%02X, 0x%02X", s_memaccParam1, event.param2);
+            break;
+        case 0x04:
+            PrintByte("MEMACC, mem_mem_add, 0x%02X, 0x%02X", s_memaccParam1, event.param2);
+            break;
+        case 0x05:
+            PrintByte("MEMACC, mem_mem_sub, 0x%02X, 0x%02X", s_memaccParam1, event.param2);
+            break;
+        // TODO: everything else
+        case 0x06:
+            break;
+        case 0x07:
+            break;
+        case 0x08:
+            break;
+        case 0x09:
+            break;
+        case 0x0A:
+            break;
+        case 0x0B:
+            break;
+        case 0x0C:
+            break;
+        case 0x0D:
+            break;
+        case 0x0E:
+            break;
+        case 0x0F:
+            break;
+        case 0x10:
+            break;
+        case 0x11:
+            break;
+        case 0x46:
+            break;
+        case 0x47:
+            break;
+        case 0x48:
+            break;
+        case 0x49:
+            break;
+        case 0x4A:
+            break;
+        case 0x4B:
+            break;
+        case 0x4C:
+            break;
+        case 0x4D:
+            break;
+        case 0x4E:
+            break;
+        case 0x4F:
+            break;
+        case 0x50:
+            break;
+        case 0x51:
+            break;
+        default:
+            break;
     }
 
     PrintWait(event.time);
 }
 
-void PrintExtendedOp(const Event& event)
-{
+void PrintExtendedOp(const Event& event) {
     // TODO: support for other extended commands
 
-    switch (s_extendedCommand)
-    {
-    case 0x08:
-        PrintOp(event.time, "XCMD  ", "xIECV , %u", event.param2);
-        break;
-    case 0x09:
-        PrintOp(event.time, "XCMD  ", "xIECL , %u", event.param2);
-        break;
-    default:
-        PrintWait(event.time);
-        break;
+    switch (s_extendedCommand) {
+        case 0x08:
+            PrintOp(event.time, "XCMD  ", "xIECV , %u", event.param2);
+            break;
+        case 0x09:
+            PrintOp(event.time, "XCMD  ", "xIECL , %u", event.param2);
+            break;
+        default:
+            PrintWait(event.time);
+            break;
     }
 }
 
-void PrintControllerOp(const Event& event)
-{
-    switch (event.param1)
-    {
-    case 0x01:
-        PrintOp(event.time, "MOD   ", "%u", event.param2);
-        break;
-    case 0x07:
-        PrintOp(event.time, "VOL   ", "%u*%s_mvl/mxv", event.param2, g_asmLabel.c_str());
-        break;
-    case 0x0A:
-        PrintOp(event.time, "PAN   ", "c_v%+d", event.param2 - 64);
-        break;
-    case 0x0C:
-    case 0x10:
-        PrintMemAcc(event);
-        break;
-    case 0x0D:
-        s_memaccOp = event.param2;
-        PrintWait(event.time);
-        break;
-    case 0x0E:
-        s_memaccParam1 = event.param2;
-        PrintWait(event.time);
-        break;
-    case 0x0F:
-        s_memaccParam2 = event.param2;
-        PrintWait(event.time);
-        break;
-    case 0x11:
-        std::fprintf(g_outputFile, "%s_%u_L%u::\n", g_asmLabel.c_str(), g_agbTrack, event.param2);
-        PrintWait(event.time);
-        ResetTrackVars();
-        break;
-    case 0x14:
-        PrintOp(event.time, "BENDR ", "%u", event.param2);
-        break;
-    case 0x15:
-        PrintOp(event.time, "LFOS  ", "%u", event.param2);
-        break;
-    case 0x16:
-        PrintOp(event.time, "MODT  ", "%u", event.param2);
-        break;
-    case 0x18:
-        PrintOp(event.time, "TUNE  ", "c_v%+d", event.param2 - 64);
-        break;
-    case 0x1A:
-        PrintOp(event.time, "LFODL ", "%u", event.param2);
-        break;
-    case 0x1D:
-    case 0x1F:
-        PrintExtendedOp(event);
-        break;
-    case 0x1E:
-        s_extendedCommand = event.param2;
-        // TODO: loop op
-        break;
-    case 0x21:
-    case 0x27:
-        PrintByte("PRIO  , %u", event.param2);
-        PrintWait(event.time);
-        break;
-    default:
-        PrintWait(event.time);
-        break;
+void PrintControllerOp(const Event& event) {
+    switch (event.param1) {
+        case 0x01:
+            PrintOp(event.time, "MOD   ", "%u", event.param2);
+            break;
+        case 0x07:
+            PrintOp(event.time, "VOL   ", "%u*%s_mvl/mxv", event.param2, g_asmLabel.c_str());
+            break;
+        case 0x0A:
+            PrintOp(event.time, "PAN   ", "c_v%+d", event.param2 - 64);
+            break;
+        case 0x0C:
+        case 0x10:
+            PrintMemAcc(event);
+            break;
+        case 0x0D:
+            s_memaccOp = event.param2;
+            PrintWait(event.time);
+            break;
+        case 0x0E:
+            s_memaccParam1 = event.param2;
+            PrintWait(event.time);
+            break;
+        case 0x0F:
+            s_memaccParam2 = event.param2;
+            PrintWait(event.time);
+            break;
+        case 0x11:
+            std::fprintf(g_outputFile, "%s_%u_L%u::\n", g_asmLabel.c_str(), g_agbTrack, event.param2);
+            PrintWait(event.time);
+            ResetTrackVars();
+            break;
+        case 0x14:
+            PrintOp(event.time, "BENDR ", "%u", event.param2);
+            break;
+        case 0x15:
+            PrintOp(event.time, "LFOS  ", "%u", event.param2);
+            break;
+        case 0x16:
+            PrintOp(event.time, "MODT  ", "%u", event.param2);
+            break;
+        case 0x18:
+            PrintOp(event.time, "TUNE  ", "c_v%+d", event.param2 - 64);
+            break;
+        case 0x1A:
+            PrintOp(event.time, "LFODL ", "%u", event.param2);
+            break;
+        case 0x1D:
+        case 0x1F:
+            PrintExtendedOp(event);
+            break;
+        case 0x1E:
+            s_extendedCommand = event.param2;
+            // TODO: loop op
+            break;
+        case 0x21:
+        case 0x27:
+            PrintByte("PRIO  , %u", event.param2);
+            PrintWait(event.time);
+            break;
+        default:
+            PrintWait(event.time);
+            break;
     }
 }
 
-void PrintAgbTrack(std::vector<Event>& events)
-{
-    std::fprintf(g_outputFile, "\n@**************** Track %u (Midi-Chn.%u) ****************@\n\n", g_agbTrack, g_midiChan + 1);
+void PrintAgbTrack(std::vector<Event>& events) {
+    std::fprintf(g_outputFile, "\n@**************** Track %u (Midi-Chn.%u) ****************@\n\n", g_agbTrack,
+                 g_midiChan + 1);
     std::fprintf(g_outputFile, "%s_%u::\n", g_asmLabel.c_str(), g_agbTrack);
 
     int wholeNoteCount = 0;
@@ -426,13 +394,11 @@ void PrintAgbTrack(std::vector<Event>& events)
 
     bool foundVolBeforeNote = false;
 
-    for (const Event& event : events)
-    {
+    for (const Event& event : events) {
         if (event.type == EventType::Note)
             break;
 
-        if (event.type == EventType::Controller && event.param1 == 0x07)
-        {
+        if (event.type == EventType::Controller && event.param1 == 0x07) {
             foundVolBeforeNote = true;
             break;
         }
@@ -444,12 +410,10 @@ void PrintAgbTrack(std::vector<Event>& events)
     PrintWait(g_initialWait);
     PrintByte("KEYSH , %s_key%+d", g_asmLabel.c_str(), 0);
 
-    for (unsigned i = 0; events[i].type != EventType::EndOfTrack; i++)
-    {
+    for (unsigned i = 0; events[i].type != EventType::EndOfTrack; i++) {
         const Event& event = events[i];
 
-        if (IsPatternBoundary(event.type))
-        {
+        if (IsPatternBoundary(event.type)) {
             if (s_inPattern)
                 PrintByte("PEND");
             s_inPattern = false;
@@ -458,75 +422,73 @@ void PrintAgbTrack(std::vector<Event>& events)
         if (event.type == EventType::WholeNoteMark || event.type == EventType::Pattern)
             std::fprintf(g_outputFile, "@ %03d   ----------------------------------------\n", wholeNoteCount++);
 
-        switch (event.type)
-        {
-        case EventType::Note:
-            PrintNote(event);
-            break;
-        case EventType::EndOfTie:
-            PrintEndOfTieOp(event);
-            break;
-        case EventType::Label:
-            PrintSeqLoopLabel(event);
-            break;
-        case EventType::LoopEnd:
-            PrintByte("GOTO"); 
-            PrintWord("%s_%u_B%u", g_asmLabel.c_str(), g_agbTrack, loopEndBlockNum);
-            //PrintSeqLoopLabel(event); // Breaks same note in EOT bgmCrenelStorm 0xDD4356
-            PrintWait(event.time); // instead just print the wait
-            break;
-        case EventType::LoopEndBegin:
-            PrintByte("GOTO");
-            PrintWord("%s_%u_B%u", g_asmLabel.c_str(), g_agbTrack, loopEndBlockNum);
-            PrintSeqLoopLabel(event);
-            loopEndBlockNum = s_blockNum;
-            break;
-        case EventType::LoopBegin:
-            PrintSeqLoopLabel(event);
-            loopEndBlockNum = s_blockNum;
-            break;
-        case EventType::WholeNoteMark:
-            if (event.param2 & 0x80000000)
-            {
-                std::fprintf(g_outputFile, "%s_%u_%03lu::\n", g_asmLabel.c_str(), g_agbTrack, (unsigned long)(event.param2 & 0x7FFFFFFF));
+        switch (event.type) {
+            case EventType::Note:
+                PrintNote(event);
+                break;
+            case EventType::EndOfTie:
+                PrintEndOfTieOp(event);
+                break;
+            case EventType::Label:
+                PrintSeqLoopLabel(event);
+                break;
+            case EventType::LoopEnd:
+                PrintByte("GOTO");
+                PrintWord("%s_%u_B%u", g_asmLabel.c_str(), g_agbTrack, loopEndBlockNum);
+                // PrintSeqLoopLabel(event); // Breaks same note in EOT bgmCrenelStorm 0xDD4356
+                PrintWait(event.time); // instead just print the wait
+                break;
+            case EventType::LoopEndBegin:
+                PrintByte("GOTO");
+                PrintWord("%s_%u_B%u", g_asmLabel.c_str(), g_agbTrack, loopEndBlockNum);
+                PrintSeqLoopLabel(event);
+                loopEndBlockNum = s_blockNum;
+                break;
+            case EventType::LoopBegin:
+                PrintSeqLoopLabel(event);
+                loopEndBlockNum = s_blockNum;
+                break;
+            case EventType::WholeNoteMark:
+                if (event.param2 & 0x80000000) {
+                    std::fprintf(g_outputFile, "%s_%u_%03lu::\n", g_asmLabel.c_str(), g_agbTrack,
+                                 (unsigned long)(event.param2 & 0x7FFFFFFF));
+                    ResetTrackVars();
+                    s_inPattern = true;
+                }
+                PrintWait(event.time);
+                break;
+            case EventType::Pattern:
+                PrintByte("PATT");
+                PrintWord("%s_%u_%03lu", g_asmLabel.c_str(), g_agbTrack, event.param2);
+
+                while (!IsPatternBoundary(events[i + 1].type))
+                    i++;
+
                 ResetTrackVars();
-                s_inPattern = true;
-            }
-            PrintWait(event.time);
-            break;
-        case EventType::Pattern:
-            PrintByte("PATT");
-            PrintWord("%s_%u_%03lu", g_asmLabel.c_str(), g_agbTrack, event.param2);
-
-            while (!IsPatternBoundary(events[i + 1].type))
-                i++;
-
-            ResetTrackVars();
-            break;
-        case EventType::Tempo:
-            PrintByte("TEMPO , %u*%s_tbs/2", 60000000 / event.param2, g_asmLabel.c_str());
-            PrintWait(event.time);
-            break;
-        case EventType::InstrumentChange:
-            PrintOp(event.time, "VOICE ", "%u", event.param1);
-            break;
-        case EventType::PitchBend:
-            PrintOp(event.time, "BEND  ", "c_v%+d", event.param2 - 64);
-            break;
-        case EventType::Controller:
-            PrintControllerOp(event);
-            break;
-        default:
-            PrintWait(event.time);
-            break;
+                break;
+            case EventType::Tempo:
+                PrintByte("TEMPO , %u*%s_tbs/2", 60000000 / event.param2, g_asmLabel.c_str());
+                PrintWait(event.time);
+                break;
+            case EventType::InstrumentChange:
+                PrintOp(event.time, "VOICE ", "%u", event.param1);
+                break;
+            case EventType::PitchBend:
+                PrintOp(event.time, "BEND  ", "c_v%+d", event.param2 - 64);
+                break;
+            case EventType::Controller:
+                PrintControllerOp(event);
+                break;
+            default:
+                PrintWait(event.time);
+                break;
         }
     }
 
     PrintByte("FINE");
 }
 
-void PrintAgbFooter()
-{
+void PrintAgbFooter() {
     int trackCount = g_agbTrack - 1;
 
     std::fprintf(g_outputFile, "\n@******************************************************@\n");
