@@ -14,7 +14,7 @@ INCLUDES = -I./
 
 LIB :=
 ifneq ($(shell uname -s),Darwin)
-	LIB += +lc++fs
+	LIB += -lstdc++fs
 endif
 
 # Create build dirs
