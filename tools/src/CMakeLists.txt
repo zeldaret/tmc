@@ -1,1 +1,2 @@
+add_subdirectory(agb2mid)
 add_subdirectory(asset_processor)

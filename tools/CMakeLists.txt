@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
-project(tmctooltest)
+project(tools)
 include(FetchContent)
 
 set(CMAKE_CXX_STANDARD 20)
