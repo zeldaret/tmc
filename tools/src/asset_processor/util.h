@@ -1,7 +1,7 @@
 #ifndef UTIL_H
 #define UTIL_H
 
-#include <json_fwd.hpp>
+#include <nlohmann/json_fwd.hpp>
 #include <memory>
 #include <stdexcept>
 #include <stdint.h>

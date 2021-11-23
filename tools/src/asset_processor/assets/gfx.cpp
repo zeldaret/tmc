@@ -1,6 +1,6 @@
 #include "gfx.h"
 #include "util.h"
-#include <json.hpp>
+#include <nlohmann/json.hpp>
 
 std::filesystem::path GfxAsset::generateAssetPath() {
     std::filesystem::path pngPath = this->path;

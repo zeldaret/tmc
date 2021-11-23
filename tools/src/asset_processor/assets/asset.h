@@ -3,7 +3,7 @@
 
 #include "util.h"
 #include <filesystem>
-#include <json_fwd.hpp>
+#include <nlohmann/json_fwd.hpp>
 #include <string>
 #include <iostream>
 
