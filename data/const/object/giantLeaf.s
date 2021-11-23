@@ -5,7 +5,7 @@
     .align 2
 
 gUnk_08121750:: @ 08121750 
-	.incbin "baserom.gba", 0x121750, 0x000001A
+	.incbin "giantLeaf/gUnk_08121750.bin"
 
 gUnk_0812176A:: @ 0812176A
-	.incbin "baserom.gba", 0x12176A, 0x000001A
+	.incbin "giantLeaf/gUnk_0812176A.bin"

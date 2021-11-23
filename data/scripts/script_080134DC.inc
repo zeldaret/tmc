@@ -67,7 +67,7 @@ script_080134F8:
 	WaitFor_2
 	PlaySound SFX_109
 	MessageFromTargetPos 0x0503, 0x000c
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E5F8 0x00040000
 	CallWithArg CreateManager36, 0x00000001
 	_0807F0C8 0xffff, 0x0000

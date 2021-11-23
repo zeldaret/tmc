@@ -19,7 +19,7 @@ script_08010B88:
 	_0807E864
 	_0807EB74
 	Call sub_0806E2DC
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	Jump script_08010B88
 script_08010BAC:

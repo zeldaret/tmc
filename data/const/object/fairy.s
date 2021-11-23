@@ -17,4 +17,4 @@ gUnk_08121798:: @ 08121798
 	.4byte sub_0808D7A0
 
 gUnk_081217A4:: @ 081217A4
-	.incbin "baserom.gba", 0x1217A4, 0x0000004
+	.incbin "fairy/gUnk_081217A4.bin"

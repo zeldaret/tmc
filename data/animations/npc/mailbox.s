@@ -4,25 +4,22 @@
 	.section .rodata
     .align 2
 
-gUnk_0810C814:: @ 0810C814
-	.incbin "baserom.gba", 0x10C814, 0x0000005
+gSpriteAnimations_Mailbox_0:: @ 0810C814
+	.include "animations/gSpriteAnimations_Mailbox_0.s"
 
-gUnk_0810C819:: @ 0810C819
-	.incbin "baserom.gba", 0x10C819, 0x0000029
+gSpriteAnimations_Mailbox_4:: @ 0810C819
+	.include "animations/gSpriteAnimations_Mailbox_4.s"
 
-gUnk_0810C842:: @ 0810C842
-	.incbin "baserom.gba", 0x10C842, 0x0000008
+gSpriteAnimations_Mailbox_8:: @ 0810C84A
+	.include "animations/gSpriteAnimations_Mailbox_8.s"
 
-gUnk_0810C84A:: @ 0810C84A
-	.incbin "baserom.gba", 0x10C84A, 0x000001E
-
-gUnk_0810C868:: @ 0810C868
-	.4byte gUnk_0810C814
-	.4byte gUnk_0810C814
-	.4byte gUnk_0810C814
-	.4byte gUnk_0810C814
-	.4byte gUnk_0810C819
-	.4byte gUnk_0810C819
-	.4byte gUnk_0810C819
-	.4byte gUnk_0810C819
-	.4byte gUnk_0810C84A
+gSpriteAnimations_Mailbox:: @ 0810C868
+	.4byte gSpriteAnimations_Mailbox_0
+	.4byte gSpriteAnimations_Mailbox_0
+	.4byte gSpriteAnimations_Mailbox_0
+	.4byte gSpriteAnimations_Mailbox_0
+	.4byte gSpriteAnimations_Mailbox_4
+	.4byte gSpriteAnimations_Mailbox_4
+	.4byte gSpriteAnimations_Mailbox_4
+	.4byte gSpriteAnimations_Mailbox_4
+	.4byte gSpriteAnimations_Mailbox_8

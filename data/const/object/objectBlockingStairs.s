@@ -12,16 +12,16 @@ gUnk_0812283C:: @ 0812283C
 	.4byte nullsub_120
 
 gUnk_08122850:: @ 08122850
-	.incbin "baserom.gba", 0x122850, 0x0000012
+	.incbin "objectBlockingStairs/gUnk_08122850.bin"
 
 gUnk_08122862:: @ 08122862
-	.incbin "baserom.gba", 0x122862, 0x0000012
+	.incbin "objectBlockingStairs/gUnk_08122862.bin"
 
 gUnk_08122874:: @ 08122874
-	.incbin "baserom.gba", 0x122874, 0x0000012
+	.incbin "objectBlockingStairs/gUnk_08122874.bin"
 
 gUnk_08122886:: @ 08122886
-	.incbin "baserom.gba", 0x122886, 0x0000012
+	.incbin "objectBlockingStairs/gUnk_08122886.bin"
 
 gUnk_08122898:: @ 08122898
-	.incbin "baserom.gba", 0x122898, 0x0000010
+	.incbin "objectBlockingStairs/gUnk_08122898.bin"

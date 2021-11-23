@@ -48,8 +48,8 @@ SCRIPT_START script_08010E5A
 	WaitForSomething2 0x00000020
 	WaitForSomething2 0x00000200
 	MessageFromTargetPos 0x1045, 0x000c
-	_0807EA94 
+	WaitUntilTextboxCloses
 	MessageFromTargetPos 0x1046, 0x0000
-	_0807EA94 
+	WaitUntilTextboxCloses
 	CallWithArg CreateManager36, 0x00000002
 	_0807F0C8 0xffff, 0x0000

@@ -4,53 +4,53 @@
 	.section .rodata
     .align 2
 
-gUnk_080CE818:: @ 080CE818
-	.incbin "baserom.gba", 0x0CE818, 0x0000011
+gSpriteAnimations_Keaton_0:: @ 080CE818
+	.include "animations/gSpriteAnimations_Keaton_0.s"
 
-gUnk_080CE829:: @ 080CE829
-	.incbin "baserom.gba", 0x0CE829, 0x0000011
+gSpriteAnimations_Keaton_1:: @ 080CE829
+	.include "animations/gSpriteAnimations_Keaton_1.s"
 
-gUnk_080CE83A:: @ 080CE83A
-	.incbin "baserom.gba", 0x0CE83A, 0x0000011
+gSpriteAnimations_Keaton_2:: @ 080CE83A
+	.include "animations/gSpriteAnimations_Keaton_2.s"
 
-gUnk_080CE84B:: @ 080CE84B
-	.incbin "baserom.gba", 0x0CE84B, 0x0000011
+gSpriteAnimations_Keaton_3:: @ 080CE84B
+	.include "animations/gSpriteAnimations_Keaton_3.s"
 
-gUnk_080CE85C:: @ 080CE85C
-	.incbin "baserom.gba", 0x0CE85C, 0x0000011
+gSpriteAnimations_Keaton_4:: @ 080CE85C
+	.include "animations/gSpriteAnimations_Keaton_4.s"
 
-gUnk_080CE86D:: @ 080CE86D
-	.incbin "baserom.gba", 0x0CE86D, 0x0000011
+gSpriteAnimations_Keaton_5:: @ 080CE86D
+	.include "animations/gSpriteAnimations_Keaton_5.s"
 
-gUnk_080CE87E:: @ 080CE87E
-	.incbin "baserom.gba", 0x0CE87E, 0x0000011
+gSpriteAnimations_Keaton_6:: @ 080CE87E
+	.include "animations/gSpriteAnimations_Keaton_6.s"
 
-gUnk_080CE88F:: @ 080CE88F
-	.incbin "baserom.gba", 0x0CE88F, 0x0000011
+gSpriteAnimations_Keaton_7:: @ 080CE88F
+	.include "animations/gSpriteAnimations_Keaton_7.s"
 
-gUnk_080CE8A0:: @ 080CE8A0
-	.incbin "baserom.gba", 0x0CE8A0, 0x0000029
+gSpriteAnimations_Keaton_8:: @ 080CE8A0
+	.include "animations/gSpriteAnimations_Keaton_8.s"
 
-gUnk_080CE8C9:: @ 080CE8C9
-	.incbin "baserom.gba", 0x0CE8C9, 0x0000029
+gSpriteAnimations_Keaton_9:: @ 080CE8C9
+	.include "animations/gSpriteAnimations_Keaton_9.s"
 
-gUnk_080CE8F2:: @ 080CE8F2
-	.incbin "baserom.gba", 0x0CE8F2, 0x0000029
+gSpriteAnimations_Keaton_10:: @ 080CE8F2
+	.include "animations/gSpriteAnimations_Keaton_10.s"
 
-gUnk_080CE91B:: @ 080CE91B
-	.incbin "baserom.gba", 0x0CE91B, 0x0000029
+gSpriteAnimations_Keaton_11:: @ 080CE91B
+	.include "animations/gSpriteAnimations_Keaton_11.s"
 
-gUnk_080CE944:: @ 080CE944
-	.4byte gUnk_080CE818
-	.4byte gUnk_080CE829
-	.4byte gUnk_080CE83A
-	.4byte gUnk_080CE84B
-	.4byte gUnk_080CE85C
-	.4byte gUnk_080CE86D
-	.4byte gUnk_080CE87E
-	.4byte gUnk_080CE88F
-	.4byte gUnk_080CE8A0
-	.4byte gUnk_080CE8C9
-	.4byte gUnk_080CE8F2
-	.4byte gUnk_080CE91B
+gSpriteAnimations_Keaton:: @ 080CE944
+	.4byte gSpriteAnimations_Keaton_0
+	.4byte gSpriteAnimations_Keaton_1
+	.4byte gSpriteAnimations_Keaton_2
+	.4byte gSpriteAnimations_Keaton_3
+	.4byte gSpriteAnimations_Keaton_4
+	.4byte gSpriteAnimations_Keaton_5
+	.4byte gSpriteAnimations_Keaton_6
+	.4byte gSpriteAnimations_Keaton_7
+	.4byte gSpriteAnimations_Keaton_8
+	.4byte gSpriteAnimations_Keaton_9
+	.4byte gSpriteAnimations_Keaton_10
+	.4byte gSpriteAnimations_Keaton_11
 	.4byte 00000000

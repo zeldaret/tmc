@@ -5,65 +5,53 @@
 	.align 2
 
 gUnk_0812079C:: @ 0812079C
-	.incbin "baserom.gba", 0x12079C, 0x0000008
+	.incbin "greatFairy/gUnk_0812079C.bin"
 
 gUnk_081207A4:: @ 081207A4
 	.4byte sub_080872AC
 	.4byte sub_080872F8
 
 gUnk_081207AC:: @ 081207AC
-	.incbin "baserom.gba", 0x1207AC, 0x0000004
+	.incbin "greatFairy/gUnk_081207AC.bin"
 
-gUnk_081207B0:: @ 081207B0
-	.incbin "baserom.gba", 0x1207B0, 0x0000011
+gSpriteAnimations_GreatFairy_0:: @ 081207B0
+	.include "animations/gSpriteAnimations_GreatFairy_0.s"
 
-gUnk_081207C1:: @ 081207C1
-	.incbin "baserom.gba", 0x1207C1, 0x0000011
+gSpriteAnimations_GreatFairy_2:: @ 081207C1
+	.include "animations/gSpriteAnimations_GreatFairy_2.s"
 
-gUnk_081207D2:: @ 081207D2
-	.incbin "baserom.gba", 0x1207D2, 0x0000005
+gSpriteAnimations_GreatFairy_1:: @ 081207D2
+	.include "animations/gSpriteAnimations_GreatFairy_1.s"
 
-gUnk_081207D7:: @ 081207D7
-	.incbin "baserom.gba", 0x1207D7, 0x000001D
+gSpriteAnimations_GreatFairy_9:: @ 081207D7
+	.include "animations/gSpriteAnimations_GreatFairy_9.s"
 
-gUnk_081207F4:: @ 081207F4
-	.incbin "baserom.gba", 0x1207F4, 0x000000D
+gSpriteAnimations_GreatFairy_5:: @ 081207F4
+	.include "animations/gSpriteAnimations_GreatFairy_5.s"
 
-gUnk_08120801:: @ 08120801
-	.incbin "baserom.gba", 0x120801, 0x0000003
+gSpriteAnimations_GreatFairy_6:: @ 08120819
+	.include "animations/gSpriteAnimations_GreatFairy_6.s"
 
-gUnk_08120804:: @ 08120804
-	.incbin "baserom.gba", 0x120804, 0x0000004
+gSpriteAnimations_GreatFairy_7:: @ 08120826
+	.include "animations/gSpriteAnimations_GreatFairy_7.s"
 
-gUnk_08120808:: @ 08120808
-	.incbin "baserom.gba", 0x120808, 0x0000006
+gSpriteAnimations_GreatFairy_3:: @ 0812082F
+	.include "animations/gSpriteAnimations_GreatFairy_3.s"
 
-gUnk_0812080E:: @ 0812080E
-	.incbin "baserom.gba", 0x12080E, 0x000000B
+gSpriteAnimations_GreatFairy_4:: @ 08120850
+	.include "animations/gSpriteAnimations_GreatFairy_4.s"
 
-gUnk_08120819:: @ 08120819
-	.incbin "baserom.gba", 0x120819, 0x000000D
+gSpriteAnimations_GreatFairy_8:: @ 08120855
+	.include "animations/gSpriteAnimations_GreatFairy_8.s"
 
-gUnk_08120826:: @ 08120826
-	.incbin "baserom.gba", 0x120826, 0x0000009
-
-gUnk_0812082F:: @ 0812082F
-	.incbin "baserom.gba", 0x12082F, 0x0000021
-
-gUnk_08120850:: @ 08120850
-	.incbin "baserom.gba", 0x120850, 0x0000005
-
-gUnk_08120855:: @ 08120855
-	.incbin "baserom.gba", 0x120855, 0x0000023
-
-gUnk_08120878:: @ 08120878
-	.4byte gUnk_081207B0
-	.4byte gUnk_081207D2
-	.4byte gUnk_081207C1
-	.4byte gUnk_0812082F
-	.4byte gUnk_08120850
-	.4byte gUnk_081207F4
-	.4byte gUnk_08120819
-	.4byte gUnk_08120826
-	.4byte gUnk_08120855
-	.4byte gUnk_081207D7
+gSpriteAnimations_GreatFairy:: @ 08120878
+	.4byte gSpriteAnimations_GreatFairy_0
+	.4byte gSpriteAnimations_GreatFairy_1
+	.4byte gSpriteAnimations_GreatFairy_2
+	.4byte gSpriteAnimations_GreatFairy_3
+	.4byte gSpriteAnimations_GreatFairy_4
+	.4byte gSpriteAnimations_GreatFairy_5
+	.4byte gSpriteAnimations_GreatFairy_6
+	.4byte gSpriteAnimations_GreatFairy_7
+	.4byte gSpriteAnimations_GreatFairy_8
+	.4byte gSpriteAnimations_GreatFairy_9

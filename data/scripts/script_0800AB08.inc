@@ -14,8 +14,8 @@ SCRIPT_START script_0800AB08
 	SetEntityPositionRelative 0x0088, 0x0078
 	Call sub_0807F5C0
 	MessageFromTargetPos 0x1664, 0x0000
-	_0807EA94 
+	WaitUntilTextboxCloses
 	MessageFromTargetPos 0x165e, 0x000e
-	_0807EA94 
+	WaitUntilTextboxCloses
 	CallWithArg CreateManager36, 0x00000001
 	_0807F0C8 0xffff, 0x0000

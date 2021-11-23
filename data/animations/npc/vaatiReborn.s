@@ -4,17 +4,17 @@
 	.section .rodata
     .align 2
 
-gUnk_08112F88:: @ 08112F88
-	.incbin "baserom.gba", 0x112F88, 0x000003C
+gSpriteAnimations_VaatiReborn_0:: @ 08112F88
+	.include "animations/gSpriteAnimations_VaatiReborn_0.s"
 
-gUnk_08112FC4:: @ 08112FC4
-	.incbin "baserom.gba", 0x112FC4, 0x0000011
+gSpriteAnimations_VaatiReborn_1:: @ 08112FC4
+	.include "animations/gSpriteAnimations_VaatiReborn_1.s"
 
-gUnk_08112FD5:: @ 08112FD5
-	.incbin "baserom.gba", 0x112FD5, 0x000001F
+gSpriteAnimations_VaatiReborn_2:: @ 08112FD5
+	.include "animations/gSpriteAnimations_VaatiReborn_2.s"
 
-gUnk_08112FF4:: @ 08112FF4
-	.4byte gUnk_08112F88
-	.4byte gUnk_08112FC4
-	.4byte gUnk_08112FD5
+gSpriteAnimations_VaatiReborn:: @ 08112FF4
+	.4byte gSpriteAnimations_VaatiReborn_0
+	.4byte gSpriteAnimations_VaatiReborn_1
+	.4byte gSpriteAnimations_VaatiReborn_2
 	.4byte 00000000

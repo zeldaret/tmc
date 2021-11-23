@@ -5,14 +5,12 @@
     .align 2
 
 gUnk_0811F960:: @ 0811F960
-	.incbin "baserom.gba", 0x11F960, 0x000009B
-
-gUnk_0811F9FB:: @ 0811F9FB
+	.incbin "specialFx/gUnk_0811F960.bin"
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x11F143, 0x00000C5
+	.incbin "specialFx/gUnk_0811F960_1_EU.bin"
 .else
-	.incbin "baserom.gba", 0x11F9FB, 0x00000C5
+	.incbin "specialFx/gUnk_0811F960_2_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
 gUnk_0811FAC0:: @ 0811FAC0
@@ -20,10 +18,10 @@ gUnk_0811FAC0:: @ 0811FAC0
 	.4byte sub_080845B8
 
 gUnk_0811FAC8:: @ 0811FAC8
-	.incbin "baserom.gba", 0x11FAC8, 0x0000004
+	.incbin "specialFx/gUnk_0811FAC8.bin"
 
 gUnk_0811FACC:: @ 0811FACC
-	.incbin "baserom.gba", 0x11FACC, 0x0000004
+	.incbin "specialFx/gUnk_0811FACC.bin"
 
 gUnk_0811FAD0:: @ 0811FAD0
 	.4byte sub_080845DC
@@ -42,4 +40,4 @@ gUnk_0811FAD0:: @ 0811FAD0
 	.4byte sub_080847E0
 
 gUnk_0811FB08:: @ 0811FB08
-	.incbin "baserom.gba", 0x11FB08, 0x0000008
+	.incbin "specialFx/gUnk_0811FB08.bin"

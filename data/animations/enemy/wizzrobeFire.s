@@ -4,37 +4,37 @@
 	.section .rodata
     .align 2
 
-gUnk_080CDFE8:: @ 080CDFE8
-	.incbin "baserom.gba", 0x0CDFE8, 0x000000D
+gSpriteAnimations_WizzrobeFire_0:: @ 080CDFE8
+	.include "animations/gSpriteAnimations_WizzrobeFire_0.s"
 
-gUnk_080CDFF5:: @ 080CDFF5
-	.incbin "baserom.gba", 0x0CDFF5, 0x000000D
+gSpriteAnimations_WizzrobeFire_1:: @ 080CDFF5
+	.include "animations/gSpriteAnimations_WizzrobeFire_1.s"
 
-gUnk_080CE002:: @ 080CE002
-	.incbin "baserom.gba", 0x0CE002, 0x000000D
+gSpriteAnimations_WizzrobeFire_2:: @ 080CE002
+	.include "animations/gSpriteAnimations_WizzrobeFire_2.s"
 
-gUnk_080CE00F:: @ 080CE00F
-	.incbin "baserom.gba", 0x0CE00F, 0x000000D
+gSpriteAnimations_WizzrobeFire_3:: @ 080CE00F
+	.include "animations/gSpriteAnimations_WizzrobeFire_3.s"
 
-gUnk_080CE01C:: @ 080CE01C
-	.incbin "baserom.gba", 0x0CE01C, 0x000000D
+gSpriteAnimations_WizzrobeFire_4:: @ 080CE01C
+	.include "animations/gSpriteAnimations_WizzrobeFire_4.s"
 
-gUnk_080CE029:: @ 080CE029
-	.incbin "baserom.gba", 0x0CE029, 0x000000D
+gSpriteAnimations_WizzrobeFire_5:: @ 080CE029
+	.include "animations/gSpriteAnimations_WizzrobeFire_5.s"
 
-gUnk_080CE036:: @ 080CE036
-	.incbin "baserom.gba", 0x0CE036, 0x000000D
+gSpriteAnimations_WizzrobeFire_6:: @ 080CE036
+	.include "animations/gSpriteAnimations_WizzrobeFire_6.s"
 
-gUnk_080CE043:: @ 080CE043
-	.incbin "baserom.gba", 0x0CE043, 0x000000D
+gSpriteAnimations_WizzrobeFire_7:: @ 080CE043
+	.include "animations/gSpriteAnimations_WizzrobeFire_7.s"
 
-gUnk_080CE050:: @ 080CE050
-	.4byte gUnk_080CDFE8
-	.4byte gUnk_080CDFF5
-	.4byte gUnk_080CE002
-	.4byte gUnk_080CE00F
-	.4byte gUnk_080CE01C
-	.4byte gUnk_080CE029
-	.4byte gUnk_080CE036
-	.4byte gUnk_080CE043
+gSpriteAnimations_WizzrobeFire:: @ 080CE050
+	.4byte gSpriteAnimations_WizzrobeFire_0
+	.4byte gSpriteAnimations_WizzrobeFire_1
+	.4byte gSpriteAnimations_WizzrobeFire_2
+	.4byte gSpriteAnimations_WizzrobeFire_3
+	.4byte gSpriteAnimations_WizzrobeFire_4
+	.4byte gSpriteAnimations_WizzrobeFire_5
+	.4byte gSpriteAnimations_WizzrobeFire_6
+	.4byte gSpriteAnimations_WizzrobeFire_7
 	.4byte 00000000

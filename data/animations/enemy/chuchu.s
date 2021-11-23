@@ -5,47 +5,47 @@
 	.align 2
 
 gUnk_080CA2B4:: @ 080CA2B4
-	.incbin "baserom.gba", 0x0CA2B4, 0x000000A
+	.incbin "chuchu/gUnk_080CA2B4.bin"
 
-gUnk_080CA2BE:: @ 080CA2BE
-	.incbin "baserom.gba", 0x0CA2BE, 0x000002C
+gSpriteAnimations_Chuchu_0:: @ 080CA2BE
+	.include "animations/gSpriteAnimations_Chuchu_0.s"
 
-gUnk_080CA2EA:: @ 080CA2EA
-	.incbin "baserom.gba", 0x0CA2EA, 0x0000011
+gSpriteAnimations_Chuchu_1:: @ 080CA2EA
+	.include "animations/gSpriteAnimations_Chuchu_1.s"
 
-gUnk_080CA2FB:: @ 080CA2FB
-	.incbin "baserom.gba", 0x0CA2FB, 0x0000041
+gSpriteAnimations_Chuchu_2:: @ 080CA2FB
+	.include "animations/gSpriteAnimations_Chuchu_2.s"
 
-gUnk_080CA33C:: @ 080CA33C
-	.incbin "baserom.gba", 0x0CA33C, 0x000001C
+gSpriteAnimations_Chuchu_3:: @ 080CA33C
+	.include "animations/gSpriteAnimations_Chuchu_3.s"
 
-gUnk_080CA358:: @ 080CA358
-	.incbin "baserom.gba", 0x0CA358, 0x000000C
+gSpriteAnimations_Chuchu_4:: @ 080CA358
+	.include "animations/gSpriteAnimations_Chuchu_4.s"
 
-gUnk_080CA364:: @ 080CA364
-	.incbin "baserom.gba", 0x0CA364, 0x000000C
+gSpriteAnimations_Chuchu_5:: @ 080CA364
+	.include "animations/gSpriteAnimations_Chuchu_5.s"
 
-gUnk_080CA370:: @ 080CA370
-	.incbin "baserom.gba", 0x0CA370, 0x0000041
+gSpriteAnimations_Chuchu_6:: @ 080CA370
+	.include "animations/gSpriteAnimations_Chuchu_6.s"
 
-gUnk_080CA3B1:: @ 080CA3B1
-	.incbin "baserom.gba", 0x0CA3B1, 0x0000014
+gSpriteAnimations_Chuchu_7:: @ 080CA3B1
+	.include "animations/gSpriteAnimations_Chuchu_7.s"
 
-gUnk_080CA3C5:: @ 080CA3C5
-	.incbin "baserom.gba", 0x0CA3C5, 0x0000069
+gSpriteAnimations_Chuchu_8:: @ 080CA3C5
+	.include "animations/gSpriteAnimations_Chuchu_8.s"
 
-gUnk_080CA42E:: @ 080CA42E
-	.incbin "baserom.gba", 0x0CA42E, 0x0000042
+gSpriteAnimations_Chuchu_9:: @ 080CA42E
+	.include "animations/gSpriteAnimations_Chuchu_9.s"
 
-gUnk_080CA470:: @ 080CA470
-	.4byte gUnk_080CA2BE
-	.4byte gUnk_080CA2EA
-	.4byte gUnk_080CA2FB
-	.4byte gUnk_080CA33C
-	.4byte gUnk_080CA358
-	.4byte gUnk_080CA364
-	.4byte gUnk_080CA370
-	.4byte gUnk_080CA3B1
-	.4byte gUnk_080CA3C5
-	.4byte gUnk_080CA42E
+gSpriteAnimations_Chuchu:: @ 080CA470
+	.4byte gSpriteAnimations_Chuchu_0
+	.4byte gSpriteAnimations_Chuchu_1
+	.4byte gSpriteAnimations_Chuchu_2
+	.4byte gSpriteAnimations_Chuchu_3
+	.4byte gSpriteAnimations_Chuchu_4
+	.4byte gSpriteAnimations_Chuchu_5
+	.4byte gSpriteAnimations_Chuchu_6
+	.4byte gSpriteAnimations_Chuchu_7
+	.4byte gSpriteAnimations_Chuchu_8
+	.4byte gSpriteAnimations_Chuchu_9
 	.4byte 00000000

@@ -15,4 +15,4 @@ gUnk_081104EC:: @ 081104EC
 	.4byte sub_08066718
 
 gUnk_081104F8:: @ 081104F8
-	.incbin "baserom.gba", 0x1104F8, 0x0000008
+	.incbin "kingDaltus/gUnk_081104F8.bin"

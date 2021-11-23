@@ -50,7 +50,7 @@ sub_0808434C: @ 0x0808434C
 	subs r1, #5
 	movs r0, #2
 	strb r0, [r1]
-	ldr r0, _080843E0 @ =gUnk_080FD188
+	ldr r0, _080843E0 @ =gHitbox_4
 	str r0, [r5, #0x48]
 	ldr r0, _080843E4 @ =0x00004050
 	movs r2, #0x2e
@@ -94,7 +94,7 @@ _080843C8:
 	bl InitializeAnimation
 	b _080843F4
 	.align 2, 0
-_080843E0: .4byte gUnk_080FD188
+_080843E0: .4byte gHitbox_4
 _080843E4: .4byte 0x00004050
 _080843E8: .4byte gRoomControls
 _080843EC:

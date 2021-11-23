@@ -6,7 +6,7 @@ SCRIPT_START script_0800DE78
 	WaitForSomething2 0x00000001
 	WaitForSomething2 0x00000002
 	_0807EB28 0x1647
-	_0807EA94
+	WaitUntilTextboxCloses
 	SetLocalFlag 0x007a
 	Call sub_0807DF50
 	_0807E878

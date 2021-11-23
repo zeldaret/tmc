@@ -4,53 +4,53 @@
 	.section .rodata
     .align 2
 
-gUnk_08112C68:: @ 08112C68
-	.incbin "baserom.gba", 0x112C68, 0x0000005
+gSpriteAnimations_TownMinish_0:: @ 08112C68
+	.include "animations/gSpriteAnimations_TownMinish_0.s"
 
-gUnk_08112C6D:: @ 08112C6D
-	.incbin "baserom.gba", 0x112C6D, 0x0000005
+gSpriteAnimations_TownMinish_1:: @ 08112C6D
+	.include "animations/gSpriteAnimations_TownMinish_1.s"
 
-gUnk_08112C72:: @ 08112C72
-	.incbin "baserom.gba", 0x112C72, 0x0000005
+gSpriteAnimations_TownMinish_2:: @ 08112C72
+	.include "animations/gSpriteAnimations_TownMinish_2.s"
 
-gUnk_08112C77:: @ 08112C77
-	.incbin "baserom.gba", 0x112C77, 0x0000005
+gSpriteAnimations_TownMinish_3:: @ 08112C77
+	.include "animations/gSpriteAnimations_TownMinish_3.s"
 
-gUnk_08112C7C:: @ 08112C7C
-	.incbin "baserom.gba", 0x112C7C, 0x0000021
+gSpriteAnimations_TownMinish_4:: @ 08112C7C
+	.include "animations/gSpriteAnimations_TownMinish_4.s"
 
-gUnk_08112C9D:: @ 08112C9D
-	.incbin "baserom.gba", 0x112C9D, 0x0000021
+gSpriteAnimations_TownMinish_5:: @ 08112C9D
+	.include "animations/gSpriteAnimations_TownMinish_5.s"
 
-gUnk_08112CBE:: @ 08112CBE
-	.incbin "baserom.gba", 0x112CBE, 0x0000021
+gSpriteAnimations_TownMinish_6:: @ 08112CBE
+	.include "animations/gSpriteAnimations_TownMinish_6.s"
 
-gUnk_08112CDF:: @ 08112CDF
-	.incbin "baserom.gba", 0x112CDF, 0x0000021
+gSpriteAnimations_TownMinish_7:: @ 08112CDF
+	.include "animations/gSpriteAnimations_TownMinish_7.s"
 
-gUnk_08112D00:: @ 08112D00
-	.incbin "baserom.gba", 0x112D00, 0x0000005
+gSpriteAnimations_TownMinish_8:: @ 08112D00
+	.include "animations/gSpriteAnimations_TownMinish_8.s"
 
-gUnk_08112D05:: @ 08112D05
-	.incbin "baserom.gba", 0x112D05, 0x0000005
+gSpriteAnimations_TownMinish_9:: @ 08112D05
+	.include "animations/gSpriteAnimations_TownMinish_9.s"
 
-gUnk_08112D0A:: @ 08112D0A
-	.incbin "baserom.gba", 0x112D0A, 0x0000005
+gSpriteAnimations_TownMinish_10:: @ 08112D0A
+	.include "animations/gSpriteAnimations_TownMinish_10.s"
 
-gUnk_08112D0F:: @ 08112D0F
-	.incbin "baserom.gba", 0x112D0F, 0x0000005
+gSpriteAnimations_TownMinish_11:: @ 08112D0F
+	.include "animations/gSpriteAnimations_TownMinish_11.s"
 
-gUnk_08112D14:: @ 08112D14
-	.4byte gUnk_08112C68
-	.4byte gUnk_08112C6D
-	.4byte gUnk_08112C72
-	.4byte gUnk_08112C77
-	.4byte gUnk_08112C7C
-	.4byte gUnk_08112C9D
-	.4byte gUnk_08112CBE
-	.4byte gUnk_08112CDF
-	.4byte gUnk_08112D00
-	.4byte gUnk_08112D05
-	.4byte gUnk_08112D0A
-	.4byte gUnk_08112D0F
+gSpriteAnimations_TownMinish:: @ 08112D14
+	.4byte gSpriteAnimations_TownMinish_0
+	.4byte gSpriteAnimations_TownMinish_1
+	.4byte gSpriteAnimations_TownMinish_2
+	.4byte gSpriteAnimations_TownMinish_3
+	.4byte gSpriteAnimations_TownMinish_4
+	.4byte gSpriteAnimations_TownMinish_5
+	.4byte gSpriteAnimations_TownMinish_6
+	.4byte gSpriteAnimations_TownMinish_7
+	.4byte gSpriteAnimations_TownMinish_8
+	.4byte gSpriteAnimations_TownMinish_9
+	.4byte gSpriteAnimations_TownMinish_10
+	.4byte gSpriteAnimations_TownMinish_11
 	.4byte 00000000

@@ -8,7 +8,7 @@ script_0800B836:
 	_0807E944 
 	_0807E864 
 	MessageFromTarget 0x0a01
-	_0807EA94 
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	Jump script_0800B836
@@ -45,7 +45,7 @@ script_0800B89E:
 	_0807E864 
 	_0807EB74 
 	MessageFromTarget 0x0a01
-	_0807EA94 
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	Jump script_0800B89E
@@ -76,7 +76,7 @@ script_0800B8FC:
 	_0807EB74
 	Call sub_08061FD8
 	Call sub_08062048
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	Jump script_0800B8FC
 	.2byte 0x0000
@@ -94,7 +94,7 @@ script_0800B934:
 	_0807E864 
 	_0807EB74 
 	MessageFromTarget 0x3f19
-	_0807EA94 
+	WaitUntilTextboxCloses
 	SetLocalFlag 0x005f
 	_0807E878
 	Jump script_0800B934
@@ -104,7 +104,7 @@ script_0800B94E:
 	_0807E864 
 	_0807EB74 
 	MessageFromTarget 0x3f1a
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E878 
 	Jump script_0800B94E
 SCRIPT_START script_0800B964

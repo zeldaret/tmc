@@ -42,7 +42,7 @@ void sub_080583EC(ManagerA* this) {
     }
 }
 
-extern void sub_0805E544(void);
+extern void FreezeTime(void);
 
 u32 sub_0805848C(ManagerA*);
 void sub_080585DC(ManagerA*);
@@ -68,7 +68,7 @@ void sub_08058408(ManagerA* this) {
                 return;
             sub_08078A90(3);
             sub_08078B48();
-            sub_0805E544();
+            FreezeTime();
             this->manager.action = 3;
             this->manager.unk_0d = 0;
             this->manager.unk_0e = 0x1e;

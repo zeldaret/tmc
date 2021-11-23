@@ -4,21 +4,21 @@
 	.section .rodata
     .align 2
 
-gUnk_08123CB8:: @ 08123CB8
-	.incbin "baserom.gba", 0x123CB8, 0x0000005
+gSpriteAnimations_MacroBook_0:: @ 08123CB8
+	.include "animations/gSpriteAnimations_MacroBook_0.s"
 
-gUnk_08123CBD:: @ 08123CBD
-	.incbin "baserom.gba", 0x123CBD, 0x0000011
+gSpriteAnimations_MacroBook_1:: @ 08123CBD
+	.include "animations/gSpriteAnimations_MacroBook_1.s"
 
-gUnk_08123CCE:: @ 08123CCE
-	.incbin "baserom.gba", 0x123CCE, 0x000001D
+gSpriteAnimations_MacroBook_2:: @ 08123CCE
+	.include "animations/gSpriteAnimations_MacroBook_2.s"
 
-gUnk_08123CEB:: @ 08123CEB
-	.incbin "baserom.gba", 0x123CEB, 0x0000029
+gSpriteAnimations_MacroBook_3:: @ 08123CEB
+	.include "animations/gSpriteAnimations_MacroBook_3.s"
 
-gUnk_08123D14:: @ 08123D14
-	.4byte gUnk_08123CB8
-	.4byte gUnk_08123CBD
-	.4byte gUnk_08123CCE
-	.4byte gUnk_08123CEB
+gSpriteAnimations_MacroBook:: @ 08123D14
+	.4byte gSpriteAnimations_MacroBook_0
+	.4byte gSpriteAnimations_MacroBook_1
+	.4byte gSpriteAnimations_MacroBook_2
+	.4byte gSpriteAnimations_MacroBook_3
 	.4byte 00000000

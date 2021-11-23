@@ -165,7 +165,7 @@ void sub_0805E524(void) {
     }
 }
 
-void sub_0805E544(void) {
+void FreezeTime(void) {
     gUnk_03003DC0.unk0 = 6;
     gPlayerEntity.updateConditions = 6;
 }

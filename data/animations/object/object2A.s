@@ -4,9 +4,9 @@
 	.section .rodata
     .align 2
 
-gUnk_08120DD8:: @ 08120DD8
-	.incbin "baserom.gba", 0x120DD8, 0x0000014
+gSpriteAnimations_Object2A_0:: @ 08120DD8
+	.include "animations/gSpriteAnimations_Object2A_0.s"
 
-gUnk_08120DEC:: @ 08120DEC
-	.4byte gUnk_08120DD8
+gSpriteAnimations_Object2A:: @ 08120DEC
+	.4byte gSpriteAnimations_Object2A_0
 	.4byte 00000000

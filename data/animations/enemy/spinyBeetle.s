@@ -4,25 +4,25 @@
 	.section .rodata
     .align 2
 
-gUnk_080CEC24:: @ 080CEC24
-	.incbin "baserom.gba", 0x0CEC24, 0x0000005
+gSpriteAnimations_SpinyBeetle_0:: @ 080CEC24
+	.include "animations/gSpriteAnimations_SpinyBeetle_0.s"
 
-gUnk_080CEC29:: @ 080CEC29
-	.incbin "baserom.gba", 0x0CEC29, 0x0000019
+gSpriteAnimations_SpinyBeetle_1:: @ 080CEC29
+	.include "animations/gSpriteAnimations_SpinyBeetle_1.s"
 
-gUnk_080CEC42:: @ 080CEC42
-	.incbin "baserom.gba", 0x0CEC42, 0x0000009
+gSpriteAnimations_SpinyBeetle_2:: @ 080CEC42
+	.include "animations/gSpriteAnimations_SpinyBeetle_2.s"
 
-gUnk_080CEC4B:: @ 080CEC4B
-	.incbin "baserom.gba", 0x0CEC4B, 0x0000011
+gSpriteAnimations_SpinyBeetle_3:: @ 080CEC4B
+	.include "animations/gSpriteAnimations_SpinyBeetle_3.s"
 
-gUnk_080CEC5C:: @ 080CEC5C
-	.incbin "baserom.gba", 0x0CEC5C, 0x0000014
+gSpriteAnimations_SpinyBeetle_4:: @ 080CEC5C
+	.include "animations/gSpriteAnimations_SpinyBeetle_4.s"
 
-gUnk_080CEC70:: @ 080CEC70
-	.4byte gUnk_080CEC24
-	.4byte gUnk_080CEC29
-	.4byte gUnk_080CEC42
-	.4byte gUnk_080CEC4B
-	.4byte gUnk_080CEC5C
+gSpriteAnimations_SpinyBeetle:: @ 080CEC70
+	.4byte gSpriteAnimations_SpinyBeetle_0
+	.4byte gSpriteAnimations_SpinyBeetle_1
+	.4byte gSpriteAnimations_SpinyBeetle_2
+	.4byte gSpriteAnimations_SpinyBeetle_3
+	.4byte gSpriteAnimations_SpinyBeetle_4
 	.4byte 00000000

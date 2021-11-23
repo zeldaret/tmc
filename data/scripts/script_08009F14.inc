@@ -22,7 +22,7 @@ script_08009F36:
 	WaitForSomething2 0x00000002
 	Call sub_0806014C
 	MessageFromTargetPos 0x1f01, 0x0000
-	_0807EA94 
+	WaitUntilTextboxCloses
 	Wait 0x001e
 	_0807F034 0x0065
 	WaitPlayerAction8
@@ -40,7 +40,7 @@ script_08009F86:
 	EndBlock
 	_0807E864
 	Call sub_080602BC
-	_0807EA94
+	WaitUntilTextboxCloses
 	CallWithArg sub_0807F970, 0x00001f03
 	JumpIf script_08009FB6
 	_0807E878
@@ -65,7 +65,7 @@ script_08009FDC:
 	EndBlock 
 	_0807E864 
 	MessageNoOverlap 0x1f0e
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E3E8 
 	JumpIf script_0800A002
 	_0807E878
@@ -78,7 +78,7 @@ script_0800A002:
 	Wait 0x0008
 	_0807EB8C 
 	MessageFromTarget 0x1f13
-	_0807EA94 
+	WaitUntilTextboxCloses
 	SetLocalFlag 0x00b0
 	_0807E878
 script_0800A024:
@@ -92,14 +92,14 @@ script_0800A024:
 	CheckInventory1 0x0008
 	JumpIf script_0800A052
 	MessageNoOverlap 0x1f14
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E3E8 
 	JumpIf script_0800A002
 	_0807E878
 	Jump script_0800A024
 script_0800A052:
 	MessageNoOverlap 0x1f11
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E3E8 
 	JumpIf script_0800A064
 	_0807E878
@@ -112,7 +112,7 @@ script_0800A064:
 	Wait 0x0008
 	_0807EB8C 
 	MessageFromTarget 0x1f10
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E878 
 	Jump script_0800A024
 	.2byte 0x0000

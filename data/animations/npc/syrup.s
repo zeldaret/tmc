@@ -4,20 +4,20 @@
 	.section .rodata
     .align 2
 
-gUnk_08112208:: @ 08112208
-	.incbin "baserom.gba", 0x112208, 0x0000024
+gSpriteAnimations_Syrup_0:: @ 08112208
+	.include "animations/gSpriteAnimations_Syrup_0.s"
 
-gUnk_0811222C:: @ 0811222C
-	.4byte gUnk_08112208
-	.4byte gUnk_08112208
-	.4byte gUnk_08112208
-	.4byte gUnk_08112208
-	.4byte gUnk_08112208
-	.4byte gUnk_08112208
-	.4byte gUnk_08112208
-	.4byte gUnk_08112208
-	.4byte gUnk_08112208
-	.4byte gUnk_08112208
-	.4byte gUnk_08112208
-	.4byte gUnk_08112208
+gSpriteAnimations_Syrup:: @ 0811222C
+	.4byte gSpriteAnimations_Syrup_0
+	.4byte gSpriteAnimations_Syrup_0
+	.4byte gSpriteAnimations_Syrup_0
+	.4byte gSpriteAnimations_Syrup_0
+	.4byte gSpriteAnimations_Syrup_0
+	.4byte gSpriteAnimations_Syrup_0
+	.4byte gSpriteAnimations_Syrup_0
+	.4byte gSpriteAnimations_Syrup_0
+	.4byte gSpriteAnimations_Syrup_0
+	.4byte gSpriteAnimations_Syrup_0
+	.4byte gSpriteAnimations_Syrup_0
+	.4byte gSpriteAnimations_Syrup_0
 	.4byte 00000000

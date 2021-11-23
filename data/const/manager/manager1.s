@@ -5,16 +5,13 @@
     .align 2
 
 gUnk_08107C1C:: @ 08107C1C
-	.incbin "baserom.gba", 0x107C1C, 0x000000E
-
-gUnk_08107C2A:: @ 08107C2A
-	.incbin "baserom.gba", 0x107C2A, 0x0000006
+	.incbin "manager1/gUnk_08107C1C.bin"
 
 gUnk_08107C30:: @ 08107C30
-	.incbin "baserom.gba", 0x107C30, 0x0000010
+	.incbin "manager1/gUnk_08107C30.bin"
 
 gUnk_08107C40:: @ 08107C40
-	.incbin "baserom.gba", 0x107C40, 0x0000008
+	.incbin "manager1/gUnk_08107C40.bin"
 
 gUnk_08107C48:: @ 08107C48
 	.4byte nullsub_494

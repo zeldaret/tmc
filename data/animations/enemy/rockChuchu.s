@@ -3,17 +3,17 @@
 
 	.section .rodata
 
-gUnk_080CB96C:: @ 080CB96C
-	.incbin "baserom.gba", 0x0CB96C, 0x0000029
+gSpriteAnimations_RockChuchu_0:: @ 080CB96C
+	.include "animations/gSpriteAnimations_RockChuchu_0.s"
 
-gUnk_080CB995:: @ 080CB995
-	.incbin "baserom.gba", 0x0CB995, 0x0000041
+gSpriteAnimations_RockChuchu_1:: @ 080CB995
+	.include "animations/gSpriteAnimations_RockChuchu_1.s"
 
-gUnk_080CB9D6:: @ 080CB9D6
-	.incbin "baserom.gba", 0x0CB9D6, 0x0000042
+gSpriteAnimations_RockChuchu_2:: @ 080CB9D6
+	.include "animations/gSpriteAnimations_RockChuchu_2.s"
 
-gUnk_080CBA18:: @ 080CBA18
-	.4byte gUnk_080CB96C
-	.4byte gUnk_080CB995
-	.4byte gUnk_080CB9D6
+gSpriteAnimations_RockChuchu:: @ 080CBA18
+	.4byte gSpriteAnimations_RockChuchu_0
+	.4byte gSpriteAnimations_RockChuchu_1
+	.4byte gSpriteAnimations_RockChuchu_2
 	.4byte 00000000

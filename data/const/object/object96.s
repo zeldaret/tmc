@@ -73,9 +73,7 @@ gUnk_08123FB0:: @ 08123FB0
 	.4byte 0x00001800
 	.4byte 0x00400060
 
-
-gUnk_0812408C:: @ 0812408C
-	.incbin "baserom.gba", 0x12408C, 0x0000024
+	.incbin "object96/gUnk_08123FB0.bin"
 
 gUnk_081240B0:: @ 081240B0
 	.4byte sub_0809D7A8

@@ -60,18 +60,18 @@ script_0800F09A:
 	_0807E5F8 0x0000001e
 	WaitForSomething2 0x00000040
 	MessageFromTargetPos 0x1201, 0x000c
-	_0807EA94 
+	WaitUntilTextboxCloses
 	WaitForSomething2 0x000003c0
 	_0807E8E4_0 
 	MessageFromTargetPos 0x1202, 0x000c
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807F034 0x0067
 	WaitPlayerAction8
 	_0807E8E4_0
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000040
 	MessageFromTargetPos 0x1203, 0x000c
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E5F8 0x00000002
 	Call sub_0807DF50
 	_0807E878

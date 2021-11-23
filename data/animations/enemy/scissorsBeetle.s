@@ -4,85 +4,85 @@
 	.section .rodata
     .align 2
 
-gUnk_080CF644:: @ 080CF644
-	.incbin "baserom.gba", 0x0CF644, 0x0000005
+gSpriteAnimations_ScissorsBeetle_0:: @ 080CF644
+	.include "animations/gSpriteAnimations_ScissorsBeetle_0.s"
 
-gUnk_080CF649:: @ 080CF649
-	.incbin "baserom.gba", 0x0CF649, 0x0000005
+gSpriteAnimations_ScissorsBeetle_1:: @ 080CF649
+	.include "animations/gSpriteAnimations_ScissorsBeetle_1.s"
 
-gUnk_080CF64E:: @ 080CF64E
-	.incbin "baserom.gba", 0x0CF64E, 0x0000005
+gSpriteAnimations_ScissorsBeetle_2:: @ 080CF64E
+	.include "animations/gSpriteAnimations_ScissorsBeetle_2.s"
 
-gUnk_080CF653:: @ 080CF653
-	.incbin "baserom.gba", 0x0CF653, 0x0000005
+gSpriteAnimations_ScissorsBeetle_3:: @ 080CF653
+	.include "animations/gSpriteAnimations_ScissorsBeetle_3.s"
 
-gUnk_080CF658:: @ 080CF658
-	.incbin "baserom.gba", 0x0CF658, 0x0000011
+gSpriteAnimations_ScissorsBeetle_4:: @ 080CF658
+	.include "animations/gSpriteAnimations_ScissorsBeetle_4.s"
 
-gUnk_080CF669:: @ 080CF669
-	.incbin "baserom.gba", 0x0CF669, 0x0000011
+gSpriteAnimations_ScissorsBeetle_5:: @ 080CF669
+	.include "animations/gSpriteAnimations_ScissorsBeetle_5.s"
 
-gUnk_080CF67A:: @ 080CF67A
-	.incbin "baserom.gba", 0x0CF67A, 0x0000011
+gSpriteAnimations_ScissorsBeetle_6:: @ 080CF67A
+	.include "animations/gSpriteAnimations_ScissorsBeetle_6.s"
 
-gUnk_080CF68B:: @ 080CF68B
-	.incbin "baserom.gba", 0x0CF68B, 0x0000011
+gSpriteAnimations_ScissorsBeetle_7:: @ 080CF68B
+	.include "animations/gSpriteAnimations_ScissorsBeetle_7.s"
 
-gUnk_080CF69C:: @ 080CF69C
-	.incbin "baserom.gba", 0x0CF69C, 0x0000005
+gSpriteAnimations_ScissorsBeetle_8:: @ 080CF69C
+	.include "animations/gSpriteAnimations_ScissorsBeetle_8.s"
 
-gUnk_080CF6A1:: @ 080CF6A1
-	.incbin "baserom.gba", 0x0CF6A1, 0x0000005
+gSpriteAnimations_ScissorsBeetle_9:: @ 080CF6A1
+	.include "animations/gSpriteAnimations_ScissorsBeetle_9.s"
 
-gUnk_080CF6A6:: @ 080CF6A6
-	.incbin "baserom.gba", 0x0CF6A6, 0x0000005
+gSpriteAnimations_ScissorsBeetle_10:: @ 080CF6A6
+	.include "animations/gSpriteAnimations_ScissorsBeetle_10.s"
 
-gUnk_080CF6AB:: @ 080CF6AB
-	.incbin "baserom.gba", 0x0CF6AB, 0x0000005
+gSpriteAnimations_ScissorsBeetle_11:: @ 080CF6AB
+	.include "animations/gSpriteAnimations_ScissorsBeetle_11.s"
 
-gUnk_080CF6B0:: @ 080CF6B0
-	.incbin "baserom.gba", 0x0CF6B0, 0x0000011
+gSpriteAnimations_ScissorsBeetle_12:: @ 080CF6B0
+	.include "animations/gSpriteAnimations_ScissorsBeetle_12.s"
 
-gUnk_080CF6C1:: @ 080CF6C1
-	.incbin "baserom.gba", 0x0CF6C1, 0x0000011
+gSpriteAnimations_ScissorsBeetle_13:: @ 080CF6C1
+	.include "animations/gSpriteAnimations_ScissorsBeetle_13.s"
 
-gUnk_080CF6D2:: @ 080CF6D2
-	.incbin "baserom.gba", 0x0CF6D2, 0x0000011
+gSpriteAnimations_ScissorsBeetle_14:: @ 080CF6D2
+	.include "animations/gSpriteAnimations_ScissorsBeetle_14.s"
 
-gUnk_080CF6E3:: @ 080CF6E3
-	.incbin "baserom.gba", 0x0CF6E3, 0x0000011
+gSpriteAnimations_ScissorsBeetle_15:: @ 080CF6E3
+	.include "animations/gSpriteAnimations_ScissorsBeetle_15.s"
 
-gUnk_080CF6F4:: @ 080CF6F4
-	.incbin "baserom.gba", 0x0CF6F4, 0x000000C
+gSpriteAnimations_ScissorsBeetle_16:: @ 080CF6F4
+	.include "animations/gSpriteAnimations_ScissorsBeetle_16.s"
 
-gUnk_080CF700:: @ 080CF700
-	.incbin "baserom.gba", 0x0CF700, 0x000000C
+gSpriteAnimations_ScissorsBeetle_17:: @ 080CF700
+	.include "animations/gSpriteAnimations_ScissorsBeetle_17.s"
 
-gUnk_080CF70C:: @ 080CF70C
-	.incbin "baserom.gba", 0x0CF70C, 0x000000C
+gSpriteAnimations_ScissorsBeetle_18:: @ 080CF70C
+	.include "animations/gSpriteAnimations_ScissorsBeetle_18.s"
 
-gUnk_080CF718:: @ 080CF718
-	.incbin "baserom.gba", 0x0CF718, 0x000000C
+gSpriteAnimations_ScissorsBeetle_19:: @ 080CF718
+	.include "animations/gSpriteAnimations_ScissorsBeetle_19.s"
 
-gUnk_080CF724:: @ 080CF724
-	.4byte gUnk_080CF644
-	.4byte gUnk_080CF649
-	.4byte gUnk_080CF64E
-	.4byte gUnk_080CF653
-	.4byte gUnk_080CF658
-	.4byte gUnk_080CF669
-	.4byte gUnk_080CF67A
-	.4byte gUnk_080CF68B
-	.4byte gUnk_080CF69C
-	.4byte gUnk_080CF6A1
-	.4byte gUnk_080CF6A6
-	.4byte gUnk_080CF6AB
-	.4byte gUnk_080CF6B0
-	.4byte gUnk_080CF6C1
-	.4byte gUnk_080CF6D2
-	.4byte gUnk_080CF6E3
-	.4byte gUnk_080CF6F4
-	.4byte gUnk_080CF700
-	.4byte gUnk_080CF70C
-	.4byte gUnk_080CF718
+gSpriteAnimations_ScissorsBeetle:: @ 080CF724
+	.4byte gSpriteAnimations_ScissorsBeetle_0
+	.4byte gSpriteAnimations_ScissorsBeetle_1
+	.4byte gSpriteAnimations_ScissorsBeetle_2
+	.4byte gSpriteAnimations_ScissorsBeetle_3
+	.4byte gSpriteAnimations_ScissorsBeetle_4
+	.4byte gSpriteAnimations_ScissorsBeetle_5
+	.4byte gSpriteAnimations_ScissorsBeetle_6
+	.4byte gSpriteAnimations_ScissorsBeetle_7
+	.4byte gSpriteAnimations_ScissorsBeetle_8
+	.4byte gSpriteAnimations_ScissorsBeetle_9
+	.4byte gSpriteAnimations_ScissorsBeetle_10
+	.4byte gSpriteAnimations_ScissorsBeetle_11
+	.4byte gSpriteAnimations_ScissorsBeetle_12
+	.4byte gSpriteAnimations_ScissorsBeetle_13
+	.4byte gSpriteAnimations_ScissorsBeetle_14
+	.4byte gSpriteAnimations_ScissorsBeetle_15
+	.4byte gSpriteAnimations_ScissorsBeetle_16
+	.4byte gSpriteAnimations_ScissorsBeetle_17
+	.4byte gSpriteAnimations_ScissorsBeetle_18
+	.4byte gSpriteAnimations_ScissorsBeetle_19
 	.4byte 00000000

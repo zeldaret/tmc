@@ -26,7 +26,7 @@ gUnk_080D0898:: @ 080D0898
 	.4byte sub_0803EE38
 
 gUnk_080D08C4:: @ 080D08C4
-	.incbin "baserom.gba", 0x0D08C4, 0x0000004
+	.incbin "enemy4D/gUnk_080D08C4.bin"
 
 gUnk_080D08C8:: @ 080D08C8
 	.4byte sub_0803EF70
@@ -43,14 +43,8 @@ gUnk_080D08C8:: @ 080D08C8
 	.4byte sub_0803EF70
 	.4byte sub_0803EF70
 	.4byte sub_0803EF70
-
-gUnk_080D0900:: @ 080D0900
 	.4byte sub_0803EF70
-
-gUnk_080D0904:: @ 080D0904
 	.4byte sub_0803EFAC
-
-gUnk_080D0908:: @ 080D0908
 	.4byte sub_0803EF70
 	.4byte sub_0803EFAC
 	.4byte sub_0803EFAC

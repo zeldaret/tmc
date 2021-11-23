@@ -4,70 +4,61 @@
 	.section .rodata
     .align 2
 
-gUnk_08110500:: @ 08110500
-	.incbin "baserom.gba", 0x110500, 0x0000005
+gSpriteAnimations_KingDaltus_0:: @ 08110500
+	.include "animations/gSpriteAnimations_KingDaltus_0.s"
 
-gUnk_08110505:: @ 08110505
-	.incbin "baserom.gba", 0x110505, 0x0000005
+gSpriteAnimations_KingDaltus_1:: @ 08110505
+	.include "animations/gSpriteAnimations_KingDaltus_1.s"
 
-gUnk_0811050A:: @ 0811050A
-	.incbin "baserom.gba", 0x11050A, 0x0000004
+gSpriteAnimations_KingDaltus_2:: @ 0811050A
+	.include "animations/gSpriteAnimations_KingDaltus_2.s"
 
-gUnk_0811050E:: @ 0811050E
-	.incbin "baserom.gba", 0x11050E, 0x0000001
+gSpriteAnimations_KingDaltus_3:: @ 0811050F
+	.include "animations/gSpriteAnimations_KingDaltus_3.s"
 
-gUnk_0811050F:: @ 0811050F
-	.incbin "baserom.gba", 0x11050F, 0x0000005
+gSpriteAnimations_KingDaltus_5:: @ 08110514
+	.include "animations/gSpriteAnimations_KingDaltus_5.s"
 
-gUnk_08110514:: @ 08110514
-	.incbin "baserom.gba", 0x110514, 0x0000021
+gSpriteAnimations_KingDaltus_6:: @ 08110535
+	.include "animations/gSpriteAnimations_KingDaltus_6.s"
 
-gUnk_08110535:: @ 08110535
-	.incbin "baserom.gba", 0x110535, 0x0000021
+gSpriteAnimations_KingDaltus_7:: @ 08110556
+	.include "animations/gSpriteAnimations_KingDaltus_7.s"
 
-gUnk_08110556:: @ 08110556
-	.incbin "baserom.gba", 0x110556, 0x0000021
+gSpriteAnimations_KingDaltus_4:: @ 08110577
+	.include "animations/gSpriteAnimations_KingDaltus_4.s"
 
-gUnk_08110577:: @ 08110577
-	.incbin "baserom.gba", 0x110577, 0x0000009
+gSpriteAnimations_KingDaltus_9:: @ 08110598
+	.include "animations/gSpriteAnimations_KingDaltus_9.s"
 
-gUnk_08110580:: @ 08110580
-	.incbin "baserom.gba", 0x110580, 0x0000018
+gSpriteAnimations_KingDaltus_10:: @ 081105A9
+	.include "animations/gSpriteAnimations_KingDaltus_10.s"
 
-gUnk_08110598:: @ 08110598
-	.incbin "baserom.gba", 0x110598, 0x0000011
+gSpriteAnimations_KingDaltus_11:: @ 081105BA
+	.include "animations/gSpriteAnimations_KingDaltus_11.s"
 
-gUnk_081105A9:: @ 081105A9
-	.incbin "baserom.gba", 0x1105A9, 0x0000011
+gSpriteAnimations_KingDaltus_8:: @ 081105CB
+	.include "animations/gSpriteAnimations_KingDaltus_8.s"
 
-gUnk_081105BA:: @ 081105BA
-	.incbin "baserom.gba", 0x1105BA, 0x0000011
+gSpriteAnimations_KingDaltus_12:: @ 081105DC
+	.include "animations/gSpriteAnimations_KingDaltus_12.s"
 
-gUnk_081105CB:: @ 081105CB
-	.incbin "baserom.gba", 0x1105CB, 0x0000011
+gSpriteAnimations_KingDaltus_13:: @ 081105E1
+	.include "animations/gSpriteAnimations_KingDaltus_13.s"
 
-gUnk_081105DC:: @ 081105DC
-	.incbin "baserom.gba", 0x1105DC, 0x0000005
-
-gUnk_081105E1:: @ 081105E1
-	.incbin "baserom.gba", 0x1105E1, 0x0000010
-
-gUnk_081105F1:: @ 081105F1
-	.incbin "baserom.gba", 0x1105F1, 0x0000017
-
-gUnk_08110608:: @ 08110608
-	.4byte gUnk_08110500
-	.4byte gUnk_08110505
-	.4byte gUnk_0811050A
-	.4byte gUnk_0811050F
-	.4byte gUnk_08110577
-	.4byte gUnk_08110514
-	.4byte gUnk_08110535
-	.4byte gUnk_08110556
-	.4byte gUnk_081105CB
-	.4byte gUnk_08110598
-	.4byte gUnk_081105A9
-	.4byte gUnk_081105BA
-	.4byte gUnk_081105DC
-	.4byte gUnk_081105E1
+gSpriteAnimations_KingDaltus:: @ 08110608
+	.4byte gSpriteAnimations_KingDaltus_0
+	.4byte gSpriteAnimations_KingDaltus_1
+	.4byte gSpriteAnimations_KingDaltus_2
+	.4byte gSpriteAnimations_KingDaltus_3
+	.4byte gSpriteAnimations_KingDaltus_4
+	.4byte gSpriteAnimations_KingDaltus_5
+	.4byte gSpriteAnimations_KingDaltus_6
+	.4byte gSpriteAnimations_KingDaltus_7
+	.4byte gSpriteAnimations_KingDaltus_8
+	.4byte gSpriteAnimations_KingDaltus_9
+	.4byte gSpriteAnimations_KingDaltus_10
+	.4byte gSpriteAnimations_KingDaltus_11
+	.4byte gSpriteAnimations_KingDaltus_12
+	.4byte gSpriteAnimations_KingDaltus_13
 	.4byte 00000000

@@ -40,7 +40,7 @@ sub_080A0F44: @ 0x080A0F44
 	movs r1, #7
 	orrs r0, r1
 	strb r0, [r2]
-	ldr r0, _080A0FA8 @ =gUnk_080FD460
+	ldr r0, _080A0FA8 @ =gHitbox_22
 	str r0, [r5, #0x48]
 	adds r0, r5, #0
 	movs r1, #6
@@ -58,7 +58,7 @@ sub_080A0F44: @ 0x080A0F44
 	movs r0, #3
 	bl sub_08078A90
 	bl sub_08078B48
-	bl sub_0805E544
+	bl FreezeTime
 	movs r0, #0x89
 	lsls r0, r0, #1
 	bl SoundReq
@@ -71,7 +71,7 @@ sub_080A0F44: @ 0x080A0F44
 _080A0FA4:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_080A0FA8: .4byte gUnk_080FD460
+_080A0FA8: .4byte gHitbox_22
 _080A0FAC: .4byte gPlayerEntity
 
 	thumb_func_start sub_080A0FB0
@@ -96,7 +96,7 @@ sub_080A0FB0: @ 0x080A0FB0
 	movs r0, #3
 	bl sub_08078A90
 	bl sub_08078B48
-	bl sub_0805E544
+	bl FreezeTime
 	movs r0, #0x89
 	lsls r0, r0, #1
 	bl SoundReq

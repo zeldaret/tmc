@@ -494,7 +494,7 @@ _080A50E4:
 _080A50E8:
 	strh r0, [r4, #2]
 _080A50EA:
-	ldr r0, _080A5190 @ =gUnk_080FDFD8
+	ldr r0, _080A5190 @ =gSpriteAnimations_322
 	lsls r1, r1, #2
 	adds r1, r1, r0
 	ldr r0, [r1]
@@ -578,7 +578,7 @@ _080A5188:
 	mov sb, r4
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080A5190: .4byte gUnk_080FDFD8
+_080A5190: .4byte gSpriteAnimations_322
 _080A5194: .4byte 0x00000141
 _080A5198: .4byte gChooseFileState
 _080A519C: .4byte gOamCmd
@@ -700,7 +700,7 @@ _080A58D0:
 _080A58D4:
 	strh r0, [r4, #2]
 _080A58D6:
-	ldr r0, _080A5980 @ =gUnk_080FDFD8
+	ldr r0, _080A5980 @ =gSpriteAnimations_322
 	lsls r1, r1, #2
 	adds r1, r1, r0
 	ldr r0, [r1]
@@ -785,7 +785,7 @@ _080A5976:
 	mov sb, r4
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080A5980: .4byte gUnk_080FDFD8
+_080A5980: .4byte gSpriteAnimations_322
 _080A5984: .4byte gMenu
 _080A5988: .4byte gOamCmd
 _080A598C: .4byte gSave
@@ -1349,7 +1349,7 @@ _080A558C:
 	beq _080A55BE
 	movs r0, #0x18
 	strh r0, [r5]
-	ldr r0, _080A56A8 @ =gUnk_080FDFD8
+	ldr r0, _080A56A8 @ =gSpriteAnimations_322
 	movs r1, #0xa0
 	lsls r1, r1, #1
 	adds r0, r0, r1
@@ -1364,7 +1364,7 @@ _080A55BE:
 	beq _080A55DE
 	movs r0, #0x2e
 	strh r0, [r5]
-	ldr r0, _080A56A8 @ =gUnk_080FDFD8
+	ldr r0, _080A56A8 @ =gSpriteAnimations_322
 	movs r1, #0xa4
 	lsls r1, r1, #1
 	adds r0, r0, r1
@@ -1382,7 +1382,7 @@ _080A55DE:
 	movs r0, #0xe0
 	lsls r0, r0, #2
 	strh r0, [r5, #8]
-	ldr r0, _080A56A8 @ =gUnk_080FDFD8
+	ldr r0, _080A56A8 @ =gSpriteAnimations_322
 	movs r1, #0xa2
 	lsls r1, r1, #1
 	adds r0, r0, r1
@@ -1469,7 +1469,7 @@ _080A5698EU: .4byte gUnk_08128D3C
 _080A569CEU: .4byte gOamCmd
 _080A56A0: .4byte gChooseFileState
 _080A56A4: .4byte gMain
-_080A56A8: .4byte gUnk_080FDFD8
+_080A56A8: .4byte gSpriteAnimations_322
 _080A56ACEU: .4byte 0x00000143
 _080A56B0: .4byte gUnk_02019EE0
 _080A56B4: .4byte gScreen
@@ -1605,7 +1605,7 @@ _080A5D9A:
 	beq _080A5DCC
 	movs r0, #0x18
 	strh r0, [r5]
-	ldr r0, _080A5EB4 @ =gUnk_080FDFD8
+	ldr r0, _080A5EB4 @ =gSpriteAnimations_322
 	movs r1, #0xa0
 	lsls r1, r1, #1
 	adds r0, r0, r1
@@ -1621,7 +1621,7 @@ _080A5DCC:
 	beq _080A5DEE
 	movs r0, #0x2e
 	strh r0, [r5]
-	ldr r0, _080A5EB4 @ =gUnk_080FDFD8
+	ldr r0, _080A5EB4 @ =gSpriteAnimations_322
 	movs r1, #0xa4
 	lsls r1, r1, #1
 	adds r0, r0, r1
@@ -1640,7 +1640,7 @@ _080A5DEE:
 	movs r0, #0xe0
 	lsls r0, r0, #2
 	strh r0, [r5, #8]
-	ldr r1, _080A5EB4 @ =gUnk_080FDFD8
+	ldr r1, _080A5EB4 @ =gSpriteAnimations_322
 	movs r0, #0xa2
 	lsls r0, r0, #1
 	adds r1, r1, r0
@@ -1725,7 +1725,7 @@ _080A5EA4: .4byte gOamCmd
 _080A5EA8: .4byte gMenu
 _080A5EAC: .4byte gMain
 _080A5EB0: .4byte 0x000001FB
-_080A5EB4: .4byte gUnk_080FDFD8
+_080A5EB4: .4byte gSpriteAnimations_322
 _080A5EB8: .4byte gUnk_02019EE0
 _080A5EBC: .4byte gScreen
 _080A5EC0:
@@ -1822,12 +1822,12 @@ _080A5F5C:
 	lsls r0, r1, #5
 	ldr r1, _080A5FA0 @ =0x06010000
 	adds r5, r0, r1
-	ldr r1, _080A5FA4 @ =gUnk_080FDFD8
+	ldr r1, _080A5FA4 @ =gSpriteAnimations_322
 	lsls r0, r4, #2
 	adds r0, r0, r1
 	ldr r0, [r0]
 	ldrb r1, [r0]
-	ldr r3, _080A5FA8 @ =gUnk_08003DD4
+	ldr r3, _080A5FA8 @ =gMoreSpritePtrs
 	lsls r1, r1, #2
 	ldr r0, [r3, #4]
 	adds r0, r0, r1
@@ -1853,8 +1853,8 @@ _080A5F5C:
 	.align 2, 0
 _080A5F9C: .4byte gSave
 _080A5FA0: .4byte 0x06010000
-_080A5FA4: .4byte gUnk_080FDFD8
-_080A5FA8: .4byte gUnk_08003DD4
+_080A5FA4: .4byte gSpriteAnimations_322
+_080A5FA8: .4byte gMoreSpritePtrs
 _080A5FAC: .4byte 0x040000D4
 _080A5FB0: .4byte 0x84000040
 _080A5FB4:
@@ -4849,13 +4849,13 @@ sub_080A7250: @ 0x080A7250
 	movs r2, #0x80
 	lsls r2, r2, #3
 	bl MemCopy
-	ldr r0, _080A72FC @ =gUnk_02024490
+	ldr r0, _080A72FC @ =gGFXSlots
 	ldr r4, _080A7300 @ =gUnk_02032F14
 	movs r2, #0x85
 	lsls r2, r2, #2
 	adds r1, r4, #0
 	bl MemCopy
-	ldr r0, _080A7304 @ =gUnk_02001A00
+	ldr r0, _080A7304 @ =gPaletteList
 	movs r2, #0x85
 	lsls r2, r2, #2
 	adds r1, r4, r2
@@ -4909,9 +4909,9 @@ _080A72EC: .4byte gScreen
 _080A72F0: .4byte gUnk_03001020
 _080A72F4: .4byte gPaletteBuffer
 _080A72F8: .4byte gUnk_02024090
-_080A72FC: .4byte gUnk_02024490
+_080A72FC: .4byte gGFXSlots
 _080A7300: .4byte gUnk_02032F14
-_080A7304: .4byte gUnk_02001A00
+_080A7304: .4byte gPaletteList
 _080A7308: .4byte gRoomControls
 _080A730C: .4byte gUnk_03000420
 _080A7310: .4byte gActiveScriptInfo
@@ -4951,7 +4951,7 @@ sub_080A7328: @ 0x080A7328
 	bl sub_080ADD30
 	movs r0, #0
 	bl sub_0801CFA8
-	ldr r0, _080A739C @ =gUnk_02024490
+	ldr r0, _080A739C @ =gGFXSlots
 	movs r2, #1
 	strb r2, [r0]
 	ldr r1, _080A73A0 @ =gUnk_02032EC0
@@ -4968,7 +4968,7 @@ _080A738C: .4byte gMenu
 _080A7390: .4byte gRoomControls
 _080A7394: .4byte gUnk_03000420
 _080A7398: .4byte gActiveScriptInfo
-_080A739C: .4byte gUnk_02024490
+_080A739C: .4byte gGFXSlots
 _080A73A0: .4byte gUnk_02032EC0
 _080A73A4: .4byte gScreenTransition
 
@@ -5013,12 +5013,12 @@ _080A73B4:
 	movs r1, #0x9a
 	lsls r1, r1, #2
 	adds r0, r5, r1
-	ldr r1, _080A7488 @ =gUnk_02001A00
+	ldr r1, _080A7488 @ =gPaletteList
 	movs r2, #0x40
 	bl MemCopy
 	adds r0, r5, #0
 	adds r0, #0x54
-	ldr r1, _080A748C @ =gUnk_02024490
+	ldr r1, _080A748C @ =gGFXSlots
 	movs r2, #0x85
 	lsls r2, r2, #2
 	bl MemCopy
@@ -5065,8 +5065,8 @@ _080A7478: .4byte gUnk_02025EB0
 _080A747C: .4byte gUnk_0200B650
 _080A7480: .4byte gActiveScriptInfo
 _080A7484: .4byte gUnk_03000420
-_080A7488: .4byte gUnk_02001A00
-_080A748C: .4byte gUnk_02024490
+_080A7488: .4byte gPaletteList
+_080A748C: .4byte gGFXSlots
 _080A7490: .4byte gRoomControls
 _080A7494: .4byte gUnk_03001020
 _080A7498: .4byte gScreen

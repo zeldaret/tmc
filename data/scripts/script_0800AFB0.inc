@@ -9,7 +9,7 @@ script_0800AFB2:
 	EndBlock
 	Call sub_0807DF28
 	_0807EB28 0x1c04
-	_0807EA94
+	WaitUntilTextboxCloses
 	SetLocalFlagByOffset 0x0100, 0x0004
 	Call sub_0807DF50
 	_0807E878

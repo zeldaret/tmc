@@ -4,28 +4,28 @@
 	.section .rodata
     .align 2
 
-gUnk_08124A2C:: @ 08124A2C
-	.incbin "baserom.gba", 0x124A2C, 0x0000051
+gSpriteAnimations_ObjectB3_0:: @ 08124A2C
+	.include "animations/gSpriteAnimations_ObjectB3_0.s"
 
-gUnk_08124A7D:: @ 08124A7D
-	.incbin "baserom.gba", 0x124A7D, 0x0000005
+gSpriteAnimations_ObjectB3_1:: @ 08124A7D
+	.include "animations/gSpriteAnimations_ObjectB3_1.s"
 
-gUnk_08124A82:: @ 08124A82
-	.incbin "baserom.gba", 0x124A82, 0x0000005
+gSpriteAnimations_ObjectB3_2:: @ 08124A82
+	.include "animations/gSpriteAnimations_ObjectB3_2.s"
 
-gUnk_08124A87:: @ 08124A87
-	.incbin "baserom.gba", 0x124A87, 0x0000005
+gSpriteAnimations_ObjectB3_3:: @ 08124A87
+	.include "animations/gSpriteAnimations_ObjectB3_3.s"
 
-gUnk_08124A8C:: @ 08124A8C
-	.incbin "baserom.gba", 0x124A8C, 0x0000021
+gSpriteAnimations_ObjectB3_4:: @ 08124A8C
+	.include "animations/gSpriteAnimations_ObjectB3_4.s"
 
-gUnk_08124AAD:: @ 08124AAD
-	.incbin "baserom.gba", 0x124AAD, 0x000004B
+gSpriteAnimations_ObjectB3_5:: @ 08124AAD
+	.include "animations/gSpriteAnimations_ObjectB3_5.s"
 
-gUnk_08124AF8:: @ 08124AF8
-	.4byte gUnk_08124A2C
-	.4byte gUnk_08124A7D
-	.4byte gUnk_08124A82
-	.4byte gUnk_08124A87
-	.4byte gUnk_08124A8C
-	.4byte gUnk_08124AAD
+gSpriteAnimations_ObjectB3:: @ 08124AF8
+	.4byte gSpriteAnimations_ObjectB3_0
+	.4byte gSpriteAnimations_ObjectB3_1
+	.4byte gSpriteAnimations_ObjectB3_2
+	.4byte gSpriteAnimations_ObjectB3_3
+	.4byte gSpriteAnimations_ObjectB3_4
+	.4byte gSpriteAnimations_ObjectB3_5

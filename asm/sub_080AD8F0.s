@@ -7,7 +7,7 @@
 	
 	thumb_func_start sub_080AD8F0
 sub_080AD8F0: @ 0x080AD8F0
-	ldr r2, _080AD908 @ =gUnk_082F3D74
+	ldr r2, _080AD908 @ =gFrameObjLists
 	lsls r0, r0, #2
 	adds r0, r0, r2
 	ldr r0, [r0]
@@ -19,4 +19,4 @@ sub_080AD8F0: @ 0x080AD8F0
 	adds r0, r2, #0
 	bx lr
 	.align 2, 0
-_080AD908: .4byte gUnk_082F3D74
+_080AD908: .4byte gFrameObjLists

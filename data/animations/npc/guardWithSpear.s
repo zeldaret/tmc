@@ -4,124 +4,97 @@
 	.section .rodata
     .align 2
 
-gUnk_0810F6E4:: @ 0810F6E4
-	.incbin "baserom.gba", 0x10F6E4, 0x0000002
+gSpriteAnimations_GuardWithSpear_0:: @ 0810F6E4
+	.include "animations/gSpriteAnimations_GuardWithSpear_0.s"
 
-gUnk_0810F6E6:: @ 0810F6E6
-	.incbin "baserom.gba", 0x10F6E6, 0x0000003
+gSpriteAnimations_GuardWithSpear_1:: @ 0810F6E9
+	.include "animations/gSpriteAnimations_GuardWithSpear_1.s"
 
-gUnk_0810F6E9:: @ 0810F6E9
-	.incbin "baserom.gba", 0x10F6E9, 0x0000005
+gSpriteAnimations_GuardWithSpear_2:: @ 0810F6EE
+	.include "animations/gSpriteAnimations_GuardWithSpear_2.s"
 
-gUnk_0810F6EE:: @ 0810F6EE
-	.incbin "baserom.gba", 0x10F6EE, 0x0000001
+gSpriteAnimations_GuardWithSpear_3:: @ 0810F6F3
+	.include "animations/gSpriteAnimations_GuardWithSpear_3.s"
 
-gUnk_0810F6EF:: @ 0810F6EF
-	.incbin "baserom.gba", 0x10F6EF, 0x0000004
+gSpriteAnimations_GuardWithSpear_8:: @ 0810F6F8
+	.include "animations/gSpriteAnimations_GuardWithSpear_8.s"
 
-gUnk_0810F6F3:: @ 0810F6F3
-	.incbin "baserom.gba", 0x10F6F3, 0x0000005
+gSpriteAnimations_GuardWithSpear_9:: @ 0810F6FD
+	.include "animations/gSpriteAnimations_GuardWithSpear_9.s"
 
-gUnk_0810F6F8:: @ 0810F6F8
-	.incbin "baserom.gba", 0x10F6F8, 0x0000005
+gSpriteAnimations_GuardWithSpear_10:: @ 0810F702
+	.include "animations/gSpriteAnimations_GuardWithSpear_10.s"
 
-gUnk_0810F6FD:: @ 0810F6FD
-	.incbin "baserom.gba", 0x10F6FD, 0x0000003
+gSpriteAnimations_GuardWithSpear_11:: @ 0810F707
+	.include "animations/gSpriteAnimations_GuardWithSpear_11.s"
 
-gUnk_0810F700:: @ 0810F700
-	.incbin "baserom.gba", 0x10F700, 0x0000002
+gSpriteAnimations_GuardWithSpear_4:: @ 0810F70C
+	.include "animations/gSpriteAnimations_GuardWithSpear_4.s"
 
-gUnk_0810F702:: @ 0810F702
-	.incbin "baserom.gba", 0x10F702, 0x0000005
+gSpriteAnimations_GuardWithSpear_5:: @ 0810F71D
+	.include "animations/gSpriteAnimations_GuardWithSpear_5.s"
 
-gUnk_0810F707:: @ 0810F707
-	.incbin "baserom.gba", 0x10F707, 0x0000005
+gSpriteAnimations_GuardWithSpear_6:: @ 0810F72E
+	.include "animations/gSpriteAnimations_GuardWithSpear_6.s"
 
-gUnk_0810F70C:: @ 0810F70C
-	.incbin "baserom.gba", 0x10F70C, 0x0000011
+gSpriteAnimations_GuardWithSpear_7:: @ 0810F73F
+	.include "animations/gSpriteAnimations_GuardWithSpear_7.s"
 
-gUnk_0810F71D:: @ 0810F71D
-	.incbin "baserom.gba", 0x10F71D, 0x0000011
+gSpriteAnimations_GuardWithSpear_12:: @ 0810F750
+	.include "animations/gSpriteAnimations_GuardWithSpear_12.s"
 
-gUnk_0810F72E:: @ 0810F72E
-	.incbin "baserom.gba", 0x10F72E, 0x0000011
+gSpriteAnimations_GuardWithSpear_13:: @ 0810F761
+	.include "animations/gSpriteAnimations_GuardWithSpear_13.s"
 
-gUnk_0810F73F:: @ 0810F73F
-	.incbin "baserom.gba", 0x10F73F, 0x0000011
+gSpriteAnimations_GuardWithSpear_14:: @ 0810F772
+	.include "animations/gSpriteAnimations_GuardWithSpear_14.s"
 
-gUnk_0810F750:: @ 0810F750
-	.incbin "baserom.gba", 0x10F750, 0x0000011
+gSpriteAnimations_GuardWithSpear_15:: @ 0810F783
+	.include "animations/gSpriteAnimations_GuardWithSpear_15.s"
 
-gUnk_0810F761:: @ 0810F761
-	.incbin "baserom.gba", 0x10F761, 0x0000011
+gSpriteAnimations_GuardWithSpear_16:: @ 0810F794
+	.include "animations/gSpriteAnimations_GuardWithSpear_16.s"
 
-gUnk_0810F772:: @ 0810F772
-	.incbin "baserom.gba", 0x10F772, 0x0000011
+gSpriteAnimations_GuardWithSpear_21:: @ 0810F799
+	.include "animations/gSpriteAnimations_GuardWithSpear_21.s"
 
-gUnk_0810F783:: @ 0810F783
-	.incbin "baserom.gba", 0x10F783, 0x0000011
+gSpriteAnimations_GuardWithSpear_17:: @ 0810F7BE
+	.include "animations/gSpriteAnimations_GuardWithSpear_17.s"
 
-gUnk_0810F794:: @ 0810F794
-	.incbin "baserom.gba", 0x10F794, 0x0000005
+gSpriteAnimations_GuardWithSpear_22:: @ 0810F7C3
+	.include "animations/gSpriteAnimations_GuardWithSpear_22.s"
 
-gUnk_0810F799:: @ 0810F799
-	.incbin "baserom.gba", 0x10F799, 0x0000025
+gSpriteAnimations_GuardWithSpear_18:: @ 0810F7E8
+	.include "animations/gSpriteAnimations_GuardWithSpear_18.s"
 
-gUnk_0810F7BE:: @ 0810F7BE
-	.incbin "baserom.gba", 0x10F7BE, 0x0000005
+gSpriteAnimations_GuardWithSpear_19:: @ 0810F7FD
+	.include "animations/gSpriteAnimations_GuardWithSpear_19.s"
 
-gUnk_0810F7C3:: @ 0810F7C3
-	.incbin "baserom.gba", 0x10F7C3, 0x0000005
+gSpriteAnimations_GuardWithSpear_20:: @ 0810F802
+	.include "animations/gSpriteAnimations_GuardWithSpear_20.s"
 
-gUnk_0810F7C8:: @ 0810F7C8
-	.incbin "baserom.gba", 0x10F7C8, 0x0000020
-
-gUnk_0810F7E8:: @ 0810F7E8
-	.incbin "baserom.gba", 0x10F7E8, 0x0000003
-
-gUnk_0810F7EB:: @ 0810F7EB
-	.incbin "baserom.gba", 0x10F7EB, 0x0000003
-
-gUnk_0810F7EE:: @ 0810F7EE
-	.incbin "baserom.gba", 0x10F7EE, 0x000000A
-
-gUnk_0810F7F8:: @ 0810F7F8
-	.incbin "baserom.gba", 0x10F7F8, 0x0000005
-
-gUnk_0810F7FD:: @ 0810F7FD
-	.incbin "baserom.gba", 0x10F7FD, 0x0000003
-
-gUnk_0810F800:: @ 0810F800
-	.incbin "baserom.gba", 0x10F800, 0x0000002
-
-gUnk_0810F802:: @ 0810F802
-	.incbin "baserom.gba", 0x10F802, 0x0000006
-
-gUnk_0810F808:: @ 0810F808
-	.incbin "baserom.gba", 0x10F808, 0x000000C
-
-gUnk_0810F814:: @ 0810F814
-	.4byte gUnk_0810F6E4
-	.4byte gUnk_0810F6E9
-	.4byte gUnk_0810F6EE
-	.4byte gUnk_0810F6F3
-	.4byte gUnk_0810F70C
-	.4byte gUnk_0810F71D
-	.4byte gUnk_0810F72E
-	.4byte gUnk_0810F73F
-	.4byte gUnk_0810F6F8
-	.4byte gUnk_0810F6FD
-	.4byte gUnk_0810F702
-	.4byte gUnk_0810F707
-	.4byte gUnk_0810F750
-	.4byte gUnk_0810F761
-	.4byte gUnk_0810F772
-	.4byte gUnk_0810F783
-	.4byte gUnk_0810F794
-	.4byte gUnk_0810F7BE
-	.4byte gUnk_0810F7E8
-	.4byte gUnk_0810F7FD
-	.4byte gUnk_0810F802
-	.4byte gUnk_0810F799
-	.4byte gUnk_0810F7C3
+gSpriteAnimations_GuardWithSpear:: @ 0810F814
+	.4byte gSpriteAnimations_GuardWithSpear_0
+	.4byte gSpriteAnimations_GuardWithSpear_1
+	.4byte gSpriteAnimations_GuardWithSpear_2
+	.4byte gSpriteAnimations_GuardWithSpear_3
+	.4byte gSpriteAnimations_GuardWithSpear_4
+	.4byte gSpriteAnimations_GuardWithSpear_5
+	.4byte gSpriteAnimations_GuardWithSpear_6
+	.4byte gSpriteAnimations_GuardWithSpear_7
+	.4byte gSpriteAnimations_GuardWithSpear_8
+	.4byte gSpriteAnimations_GuardWithSpear_9
+	.4byte gSpriteAnimations_GuardWithSpear_10
+	.4byte gSpriteAnimations_GuardWithSpear_11
+	.4byte gSpriteAnimations_GuardWithSpear_12
+	.4byte gSpriteAnimations_GuardWithSpear_13
+	.4byte gSpriteAnimations_GuardWithSpear_14
+	.4byte gSpriteAnimations_GuardWithSpear_15
+	.4byte gSpriteAnimations_GuardWithSpear_16
+	.4byte gSpriteAnimations_GuardWithSpear_17
+	.4byte gSpriteAnimations_GuardWithSpear_18
+	.4byte gSpriteAnimations_GuardWithSpear_19
+	.4byte gSpriteAnimations_GuardWithSpear_20
+	.4byte gSpriteAnimations_GuardWithSpear_21
+	.4byte gSpriteAnimations_GuardWithSpear_22
 	.4byte 00000000

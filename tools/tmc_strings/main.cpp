@@ -28,11 +28,11 @@ namespace {
     };
 
     constexpr const char *const ColorStrings[] = {
-        [Color_White]  = "White",
-        [Color_Red]    = "Red",
-        [Color_Green]  = "Green",
-        [Color_Blue]   = "Blue",
-        [Color_Yellow] = "Yellow",
+        "White",
+        "Red",
+        "Green",
+        "Blue",
+        "Yellow",
     };
 
     enum Input {
@@ -52,17 +52,17 @@ namespace {
     };
 
     constexpr const char *const InputStrings[] = {
-        [Input_A]      = "A",
-        [Input_B]      = "B",
-        [Input_Left]   = "Left",
-        [Input_Right]  = "Right",
-        [Input_DUp]    = "DUp",
-        [Input_DDown]  = "DDown",
-        [Input_DLeft]  = "DLeft",
-        [Input_DRight] = "DRight",
-        [Input_Dpad]   = "Dpad",
-        [Input_Select] = "Select",
-        [Input_Start]  = "Start",
+        "A",
+        "B",
+        "Left",
+        "Right",
+        "DUp",
+        "DDown",
+        "DLeft",
+        "DRight",
+        "Dpad",
+        "Select",
+        "Start",
     };
 
     const std::map<u8, std::string> CharConvertArray = {

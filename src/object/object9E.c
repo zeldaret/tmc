@@ -5,7 +5,7 @@
 #include "object.h"
 #include "functions.h"
 
-extern Hitbox gUnk_080FD168;
+extern Hitbox gHitbox_1;
 
 void Object9E(Entity* this) {
     Entity* ent;
@@ -24,7 +24,7 @@ void Object9E(Entity* this) {
             this->hurtType = 0x48;
             this->hitType = 0x7a;
             this->flags2 = 1;
-            this->hitbox = &gUnk_080FD168;
+            this->hitbox = &gHitbox_1;
             tilePos = COORD_TO_TILE(this);
             SetTile(0x4066, tilePos - 1, *layer);
             SetTile(0x4065, tilePos, *layer);

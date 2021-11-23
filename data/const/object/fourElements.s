@@ -14,4 +14,4 @@ gUnk_08124898:: @ 08124898
 	.4byte sub_080A03E8
 
 gUnk_081248B4:: @ 081248B4
-	.incbin "baserom.gba", 0x1248B4, 0x0000008
+	.incbin "fourElements/gUnk_081248B4.bin"

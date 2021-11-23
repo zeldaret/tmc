@@ -5,4 +5,4 @@
     .align 2
 
 gUnk_0810C3C0:: @ 0810C3C0
-	.incbin "baserom.gba", 0x10C3C0, 0x0000008
+	.incbin "wheaton/gUnk_0810C3C0.bin"

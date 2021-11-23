@@ -15,16 +15,16 @@ gUnk_08110E5C:: @ 08110E5C
 	.4byte sub_08067514
 
 gUnk_08110E64:: @ 08110E64
-	.incbin "baserom.gba", 0x110E64, 0x0000004
+	.incbin "castorWildsStatue/gUnk_08110E64.bin"
 
 gUnk_08110E68:: @ 08110E68
-	.incbin "baserom.gba", 0x110E68, 0x0000010
+	.incbin "castorWildsStatue/gUnk_08110E68.bin"
 
 gUnk_08110E78:: @ 08110E78
-	.incbin "baserom.gba", 0x110E78, 0x0000012
+	.incbin "castorWildsStatue/gUnk_08110E78.bin"
 
 gUnk_08110E8A:: @ 08110E8A
-	.incbin "baserom.gba", 0x110E8A, 0x000000A
+	.incbin "castorWildsStatue/gUnk_08110E8A.bin"
 
 gUnk_08110E94:: @ 08110E94
-	.incbin "baserom.gba", 0x110E94, 0x0000008
+	.incbin "castorWildsStatue/gUnk_08110E94.bin"

@@ -185,7 +185,7 @@ _080197DC:
 	ldr r1, [r4]
 	ldr r0, _08019808 @ =0x7FFFFFFF
 	ands r1, r0
-	ldr r0, _0801980C @ =gUnk_08324AE4
+	ldr r0, _0801980C @ =gMapData
 	adds r1, r1, r0
 	ldr r2, [r4, #8]
 	adds r0, r2, #0
@@ -201,7 +201,7 @@ _080197DC:
 	b _0801982E
 	.align 2, 0
 _08019808: .4byte 0x7FFFFFFF
-_0801980C: .4byte gUnk_08324AE4
+_0801980C: .4byte gMapData
 _08019810:
 	adds r0, r1, #0
 	adds r1, r3, #0

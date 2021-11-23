@@ -4,21 +4,21 @@
 	.section .rodata
     .align 2
 
-gUnk_081205E4:: @ 081205E4
-	.incbin "baserom.gba", 0x1205E4, 0x0000004
+gSpriteAnimations_Railtrack_0:: @ 081205E4
+	.include "animations/gSpriteAnimations_Railtrack_0.s"
 
-gUnk_081205E8:: @ 081205E8
-	.incbin "baserom.gba", 0x1205E8, 0x0000004
+gSpriteAnimations_Railtrack_1:: @ 081205E8
+	.include "animations/gSpriteAnimations_Railtrack_1.s"
 
-gUnk_081205EC:: @ 081205EC
-	.incbin "baserom.gba", 0x1205EC, 0x0000004
+gSpriteAnimations_Railtrack_2:: @ 081205EC
+	.include "animations/gSpriteAnimations_Railtrack_2.s"
 
-gUnk_081205F0:: @ 081205F0
-	.incbin "baserom.gba", 0x1205F0, 0x0000004
+gSpriteAnimations_Railtrack_3:: @ 081205F0
+	.include "animations/gSpriteAnimations_Railtrack_3.s"
 
-gUnk_081205F4:: @ 081205F4
-	.4byte gUnk_081205E4
-	.4byte gUnk_081205E8
-	.4byte gUnk_081205EC
-	.4byte gUnk_081205F0
+gSpriteAnimations_Railtrack:: @ 081205F4
+	.4byte gSpriteAnimations_Railtrack_0
+	.4byte gSpriteAnimations_Railtrack_1
+	.4byte gSpriteAnimations_Railtrack_2
+	.4byte gSpriteAnimations_Railtrack_3
 	.4byte 00000000

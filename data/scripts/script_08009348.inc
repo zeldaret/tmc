@@ -13,9 +13,9 @@ script_0800934E:
 	CheckGlobalFlag 0x0055
 	JumpIf script_0800939A
 	MessageNoOverlap 0x1d01
-	_0807EA94 
+	WaitUntilTextboxCloses
 script_08009376:
-	_0807EA94
+	WaitUntilTextboxCloses
 	Call sub_0806D640
 	_0807F0B4 0x0001
 	CameraTargetPlayer

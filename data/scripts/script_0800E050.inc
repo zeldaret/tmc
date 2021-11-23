@@ -7,7 +7,7 @@ SCRIPT_START script_0800E050
 	StopBgm
 	Wait 0x0078
 	_0807EB28 0x1638
-	_0807EA94
+	WaitUntilTextboxCloses
 	SetRoomFlag 0x0000
 	Wait 0x001e
 	_0807E5F8 0x00000001

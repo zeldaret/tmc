@@ -28,7 +28,7 @@ extern void* gUnk_0200B650;
 extern u16 gUnk_020176E0[];
 extern u8 gUnk_02017700[];
 
-extern const u16 gUnk_085A7320[];
+extern const u16 gPalette_549[];
 
 void Manager10_Main(Manager10* this) {
     if (!this->manager.action) {
@@ -85,12 +85,12 @@ void sub_08059690(Manager10* this) {
     if (sub_08059844()) {
         if (this->unk_20 == 0)
             return;
-        sub_08059894(gUnk_085A7320, gUnk_085A7320 + 0xD0, this->unk_20);
+        sub_08059894(gPalette_549, gPalette_549 + 0xD0, this->unk_20);
         this->unk_20--;
     } else {
         if (this->unk_20 > 0x1F)
             return;
-        sub_08059894(gUnk_085A7320, gUnk_085A7320 + 0xD0, this->unk_20);
+        sub_08059894(gPalette_549, gPalette_549 + 0xD0, this->unk_20);
         this->unk_20++;
     }
 }

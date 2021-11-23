@@ -3,9 +3,9 @@
 
 	.section .rodata
 
-gUnk_080CD258:: @ 080CD258
-	.incbin "baserom.gba", 0x0CD258, 0x000001C
+gSpriteAnimations_Spark_0:: @ 080CD258
+	.include "animations/gSpriteAnimations_Spark_0.s"
 
-gUnk_080CD274:: @ 080CD274
-	.4byte gUnk_080CD258
+gSpriteAnimations_Spark:: @ 080CD274
+	.4byte gSpriteAnimations_Spark_0
 	.4byte 00000000

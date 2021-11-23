@@ -10,10 +10,10 @@ gUnk_08123494:: @ 08123494
 	.4byte sub_08098304
 
 gUnk_081234A0:: @ 081234A0
-	.incbin "baserom.gba", 0x1234A0, 0x0000004
+	.incbin "pushableLever/gUnk_081234A0.bin"
 
 gUnk_081234A4:: @ 081234A4
-	.incbin "baserom.gba", 0x1234A4, 0x0000008
+	.incbin "pushableLever/gUnk_081234A4.bin"
 
 gUnk_081234AC:: @ 081234AC
-	.incbin "baserom.gba", 0x1234AC, 0x0000008
+	.incbin "pushableLever/gUnk_081234AC.bin"

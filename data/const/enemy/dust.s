@@ -22,4 +22,4 @@ gUnk_080D15A8:: @ 080D15A8
 	.4byte sub_080441CC
 
 gUnk_080D15B4:: @ 080D15B4
-	.incbin "baserom.gba", 0x0D15B4, 0x0000050
+	.incbin "dust/gUnk_080D15B4.bin"

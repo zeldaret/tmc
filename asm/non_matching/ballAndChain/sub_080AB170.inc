@@ -26,7 +26,7 @@ _080AB180:
 	movs r1, #3
 	orrs r0, r1
 	strb r0, [r2]
-	ldr r0, _080AB1C8 @ =gUnk_080FD460
+	ldr r0, _080AB1C8 @ =gHitbox_22
 	str r0, [r4, #0x48]
 _080AB1AA:
 	ldr r5, [r6, #0x50]
@@ -44,7 +44,7 @@ _080AB1AA:
 	orrs r0, r1
 	b _080AB1D2
 	.align 2, 0
-_080AB1C8: .4byte gUnk_080FD460
+_080AB1C8: .4byte gHitbox_22
 _080AB1CC:
 	ldrb r1, [r4, #0x10]
 	movs r0, #0x7f

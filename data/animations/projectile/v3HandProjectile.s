@@ -4,21 +4,21 @@
 	.section .rodata
     .align 2
 
-gUnk_0812A860:: @ 0812A860
-	.incbin "baserom.gba", 0x12A860, 0x0000011
+gSpriteAnimations_V3HandProjectile_0:: @ 0812A860
+	.include "animations/gSpriteAnimations_V3HandProjectile_0.s"
 
-gUnk_0812A871:: @ 0812A871
-	.incbin "baserom.gba", 0x12A871, 0x0000059
+gSpriteAnimations_V3HandProjectile_1:: @ 0812A871
+	.include "animations/gSpriteAnimations_V3HandProjectile_1.s"
 
-gUnk_0812A8CA:: @ 0812A8CA
-	.incbin "baserom.gba", 0x12A8CA, 0x0000061
+gSpriteAnimations_V3HandProjectile_2:: @ 0812A8CA
+	.include "animations/gSpriteAnimations_V3HandProjectile_2.s"
 
-gUnk_0812A92B:: @ 0812A92B
-	.incbin "baserom.gba", 0x12A92B, 0x0000015
+gSpriteAnimations_V3HandProjectile_3:: @ 0812A92B
+	.include "animations/gSpriteAnimations_V3HandProjectile_3.s"
 
-gUnk_0812A940:: @ 0812A940
-	.4byte gUnk_0812A860
-	.4byte gUnk_0812A871
-	.4byte gUnk_0812A8CA
-	.4byte gUnk_0812A92B
+gSpriteAnimations_V3HandProjectile:: @ 0812A940
+	.4byte gSpriteAnimations_V3HandProjectile_0
+	.4byte gSpriteAnimations_V3HandProjectile_1
+	.4byte gSpriteAnimations_V3HandProjectile_2
+	.4byte gSpriteAnimations_V3HandProjectile_3
 	.4byte 00000000

@@ -12,7 +12,7 @@ gUnk_081216BC:: @ 081216BC
 gUnk_081216C8:: @ 081216C8
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x120E10, 0x0000014
+	.incbin "object3D/gUnk_081216C8_EU.bin"
 .else
-	.incbin "baserom.gba", 0x1216C8, 0x0000014
+	.incbin "object3D/gUnk_081216C8_1_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif

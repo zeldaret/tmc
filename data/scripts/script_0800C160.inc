@@ -11,7 +11,7 @@ SCRIPT_START script_0800C160
 	CallWithArg sub_0807F4F8, 0x00000128
 	Wait 0x001e
 	MessageNoOverlap 0x0e14
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E5F8 0x0000003c
 	WaitForSomething2 0x00000002
 	SetEntitySpeed 0x0100

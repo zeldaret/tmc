@@ -90,7 +90,7 @@ _0808CF82:
 	movs r0, #0
 	bl sub_0801CFA8
 	bl sub_080ADD30
-	ldr r0, _0808D024 @ =gUnk_02024490
+	ldr r0, _0808D024 @ =gGFXSlots
 	movs r6, #1
 	strb r6, [r0]
 	ldrb r0, [r5, #0xa]
@@ -104,7 +104,7 @@ _0808CF82:
 	bl LoadFixedGFX
 	ldrh r1, [r4, #2]
 	adds r0, r5, #0
-	bl sub_0801D040
+	bl LoadObjPalette
 	ldrh r0, [r4, #4]
 	strh r0, [r5, #0x12]
 	ldrb r0, [r5, #0xa]
@@ -158,7 +158,7 @@ _0808D01E:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _0808D020: .4byte gScreen
-_0808D024: .4byte gUnk_02024490
+_0808D024: .4byte gGFXSlots
 _0808D028: .4byte gUnk_081216C8
 _0808D02C: .4byte gArea
 

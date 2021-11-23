@@ -12,7 +12,7 @@ SCRIPT_START script_08013650
 	StartPlayerScript script_080136B4
 	WaitForSomething2 0x00000002
 	_0807EB28 0x1501
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807F0B4 0x0004
 	CameraTargetPlayer
 	SetLocalFlag 0x007a

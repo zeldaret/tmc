@@ -3,30 +3,40 @@
 
 	.section .rodata
     .align 2
+gSpriteAnimations_LavaPlatform_1_0:: @ 08122670
+	.include "animations/gSpriteAnimations_LavaPlatform_1_0.s"
 
-gUnk_081226A4:: @ 081226A4
-	.incbin "baserom.gba", 0x1226A4, 0x0000004
+gSpriteAnimations_LavaPlatform_1_1:: @ 08122684
+	.include "animations/gSpriteAnimations_LavaPlatform_1_1.s"
 
-gUnk_081226A8:: @ 081226A8
-	.incbin "baserom.gba", 0x1226A8, 0x0000004
+gSpriteAnimations_LavaPlatform_1:: @ 08122698
+	.4byte gSpriteAnimations_LavaPlatform_1_0
+	.4byte gSpriteAnimations_LavaPlatform_1_1
+	.include "animations/gSpriteAnimations_LavaPlatform_1.s"
 
-gUnk_081226AC:: @ 081226AC
-	.incbin "baserom.gba", 0x1226AC, 0x0000091
+gSpriteAnimations_LavaPlatform_0_0:: @ 081226A4
+	.include "animations/gSpriteAnimations_LavaPlatform_0_0.s"
 
-gUnk_0812273D:: @ 0812273D
-	.incbin "baserom.gba", 0x12273D, 0x0000005
+gSpriteAnimations_LavaPlatform_0_1:: @ 081226A8
+	.include "animations/gSpriteAnimations_LavaPlatform_0_1.s"
 
-gUnk_08122742:: @ 08122742
-	.incbin "baserom.gba", 0x122742, 0x0000011
+gSpriteAnimations_LavaPlatform_0_2:: @ 081226AC
+	.include "animations/gSpriteAnimations_LavaPlatform_0_2.s"
 
-gUnk_08122753:: @ 08122753
-	.incbin "baserom.gba", 0x122753, 0x0000011
+gSpriteAnimations_LavaPlatform_0_3:: @ 0812273D
+	.include "animations/gSpriteAnimations_LavaPlatform_0_3.s"
 
-gUnk_08122764:: @ 08122764
-	.4byte gUnk_081226A4
-	.4byte gUnk_081226A8
-	.4byte gUnk_081226AC
-	.4byte gUnk_0812273D
-	.4byte gUnk_08122742
-	.4byte gUnk_08122753
+gSpriteAnimations_LavaPlatform_0_4:: @ 08122742
+	.include "animations/gSpriteAnimations_LavaPlatform_0_4.s"
+
+gSpriteAnimations_LavaPlatform_0_5:: @ 08122753
+	.include "animations/gSpriteAnimations_LavaPlatform_0_5.s"
+
+gSpriteAnimations_LavaPlatform:: @ 08122764
+	.4byte gSpriteAnimations_LavaPlatform_0_0
+	.4byte gSpriteAnimations_LavaPlatform_0_1
+	.4byte gSpriteAnimations_LavaPlatform_0_2
+	.4byte gSpriteAnimations_LavaPlatform_0_3
+	.4byte gSpriteAnimations_LavaPlatform_0_4
+	.4byte gSpriteAnimations_LavaPlatform_0_5
 	.4byte 00000000

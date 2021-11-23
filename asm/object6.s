@@ -114,7 +114,7 @@ _080829A4:
 	adds r0, r4, #0
 	movs r1, #1
 	movs r2, #3
-	bl sub_080AE008
+	bl LoadSwapGFX
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0
 	bne _080829CC
@@ -415,7 +415,7 @@ sub_08082B9C: @ 0x08082B9C
 	adds r0, r6, #0
 	movs r1, #1
 	movs r2, #3
-	bl sub_080AE008
+	bl LoadSwapGFX
 	adds r0, r6, #0
 	movs r1, #0xc
 	bl InitAnimationForceUpdate

@@ -33,7 +33,7 @@ void LockedDoor(Entity* this) {
     gUnk_0811F65C[this->action](this);
 }
 
-extern Hitbox gUnk_080FD170;
+extern Hitbox gHitbox_2;
 
 extern u32 sub_080001DA(u32, u32);
 extern void sub_08078850(Entity*, u32, u32, u32);
@@ -97,7 +97,7 @@ void sub_08083338(Entity* this) {
     this->field_0x70.HALF.LO = this->x.HALF.HI;
     this->field_0x70.HALF.HI = this->y.HALF.HI;
     this->field_0x7c.BYTES.byte2 = this->type & 3;
-    this->hitbox = &gUnk_080FD170;
+    this->hitbox = &gHitbox_2;
     this->spritePriority.b0 = 5;
     this->frame = this->type & 0xF;
     this->field_0x76.HWORD = TILE(this->x.HALF.HI, this->y.HALF.HI);

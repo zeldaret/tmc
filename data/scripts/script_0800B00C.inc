@@ -15,31 +15,31 @@ script_0800B024:
 	CheckGlobalFlag 0x0053
 	JumpIf script_0800B064
 	MessageNoOverlap 0x3f32
-	_0807EA94 
+	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0008
 	Call Windcrest_Unlock
 	Wait 0x003c
 	_0807EB28 0x0b5c
-	_0807EA94
+	WaitUntilTextboxCloses
 	SetGlobalFlag 0x0053
 	Jump script_0800B09C
 script_0800B064:
 	MessageNoOverlap 0x3f32
-	_0807EA94 
+	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0008
 	Call Windcrest_Unlock
 	Wait 0x003c
 	_0807EB28 0x0b5d
-	_0807EA94
+	WaitUntilTextboxCloses
 	Jump script_0800B09C
 script_0800B082:
 	MessageNoOverlap 0x3f32
-	_0807EA94 
+	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0008
 	Call Windcrest_Unlock
 	Wait 0x003c
 	_0807EB28 0x0b5e
-	_0807EA94
+	WaitUntilTextboxCloses
 script_0800B09C:
 	Call sub_0807DF50
 	_0807E878

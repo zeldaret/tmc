@@ -7,7 +7,7 @@ SCRIPT_START script_08012D70
 	StartPlayerScript script_08012DB0
 	WaitForSomething2 0x00000001
 	_0807EB28 0x132d
-	_0807EA94
+	WaitUntilTextboxCloses
 .ifdef JP
 	SetLocalFlag 0x0015
 .else

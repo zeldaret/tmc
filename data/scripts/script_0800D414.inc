@@ -91,7 +91,7 @@ script_0800D584:
 	_0807E864
 	_0807EB74
 	Call sub_0806265C
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	Jump script_0800D4E4

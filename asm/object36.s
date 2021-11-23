@@ -79,7 +79,7 @@ _0808BB4C:
 	subs r1, #5
 	movs r0, #4
 	strb r0, [r1]
-	ldr r0, _0808BBD8 @ =gUnk_080FD150
+	ldr r0, _0808BBD8 @ =gHitbox_0
 	str r0, [r4, #0x48]
 	movs r0, #2
 	strb r0, [r4, #0x1e]
@@ -103,7 +103,7 @@ _0808BB4C:
 _0808BBD4:
 	pop {r4, pc}
 	.align 2, 0
-_0808BBD8: .4byte gUnk_080FD150
+_0808BBD8: .4byte gHitbox_0
 _0808BBDC: .4byte gPlayerEntity
 
 	thumb_func_start sub_0808BBE0

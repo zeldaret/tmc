@@ -5,4 +5,4 @@
     .align 2
 
 gUnk_08108CA8:: @ 08108CA8
-	.incbin "baserom.gba", 0x108CA8, 0x0000024
+	.incbin "manager22/gUnk_08108CA8.bin"

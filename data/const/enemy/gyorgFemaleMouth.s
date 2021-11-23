@@ -15,28 +15,28 @@ gUnk_080D28AC:: @ 080D28AC
 	.4byte gUnk_080D2914
 
 gUnk_080D28CC:: @ 080D28CC
-	.incbin "baserom.gba", 0x0D28CC, 0x0000010
+	.incbin "gyorgFemaleMouth/gUnk_080D28CC.bin"
 
 gUnk_080D28DC:: @ 080D28DC
-	.incbin "baserom.gba", 0x0D28DC, 0x0000008
+	.incbin "gyorgFemaleMouth/gUnk_080D28DC.bin"
 
 gUnk_080D28E4:: @ 080D28E4
-	.incbin "baserom.gba", 0x0D28E4, 0x0000008
+	.incbin "gyorgFemaleMouth/gUnk_080D28E4.bin"
 
 gUnk_080D28EC:: @ 080D28EC
-	.incbin "baserom.gba", 0x0D28EC, 0x0000008
+	.incbin "gyorgFemaleMouth/gUnk_080D28EC.bin"
 
 gUnk_080D28F4:: @ 080D28F4
-	.incbin "baserom.gba", 0x0D28F4, 0x0000008
+	.incbin "gyorgFemaleMouth/gUnk_080D28F4.bin"
 
 gUnk_080D28FC:: @ 080D28FC
-	.incbin "baserom.gba", 0x0D28FC, 0x0000008
+	.incbin "gyorgFemaleMouth/gUnk_080D28FC.bin"
 
 gUnk_080D2904:: @ 080D2904
-	.incbin "baserom.gba", 0x0D2904, 0x0000008
+	.incbin "gyorgFemaleMouth/gUnk_080D2904.bin"
 
 gUnk_080D290C:: @ 080D290C
-	.incbin "baserom.gba", 0x0D290C, 0x0000008
+	.incbin "gyorgFemaleMouth/gUnk_080D290C.bin"
 
 gUnk_080D2914:: @ 080D2914
-	.incbin "baserom.gba", 0x0D2914, 0x0000008
+	.incbin "gyorgFemaleMouth/gUnk_080D2914.bin"

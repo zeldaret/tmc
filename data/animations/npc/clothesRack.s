@@ -4,21 +4,21 @@
 	.section .rodata
     .align 2
 
-gUnk_08114244:: @ 08114244
-	.incbin "baserom.gba", 0x114244, 0x0000019
+gSpriteAnimations_ClothesRack_0:: @ 08114244
+	.include "animations/gSpriteAnimations_ClothesRack_0.s"
 
-gUnk_0811425D:: @ 0811425D
-	.incbin "baserom.gba", 0x11425D, 0x0000019
+gSpriteAnimations_ClothesRack_1:: @ 0811425D
+	.include "animations/gSpriteAnimations_ClothesRack_1.s"
 
-gUnk_08114276:: @ 08114276
-	.incbin "baserom.gba", 0x114276, 0x0000019
+gSpriteAnimations_ClothesRack_2:: @ 08114276
+	.include "animations/gSpriteAnimations_ClothesRack_2.s"
 
-gUnk_0811428F:: @ 0811428F
-	.incbin "baserom.gba", 0x11428F, 0x0000019
+gSpriteAnimations_ClothesRack_3:: @ 0811428F
+	.include "animations/gSpriteAnimations_ClothesRack_3.s"
 
-gUnk_081142A8:: @ 081142A8
-	.4byte gUnk_08114244
-	.4byte gUnk_0811425D
-	.4byte gUnk_08114276
-	.4byte gUnk_0811428F
+gSpriteAnimations_ClothesRack:: @ 081142A8
+	.4byte gSpriteAnimations_ClothesRack_0
+	.4byte gSpriteAnimations_ClothesRack_1
+	.4byte gSpriteAnimations_ClothesRack_2
+	.4byte gSpriteAnimations_ClothesRack_3
 	.4byte 00000000

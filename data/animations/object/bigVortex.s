@@ -4,17 +4,17 @@
 	.section .rodata
     .align 2
 
-gUnk_08123698:: @ 08123698
-	.incbin "baserom.gba", 0x123698, 0x0000011
+gSpriteAnimations_BigVortex_0:: @ 08123698
+	.include "animations/gSpriteAnimations_BigVortex_0.s"
 
-gUnk_081236A9:: @ 081236A9
-	.incbin "baserom.gba", 0x1236A9, 0x0000011
+gSpriteAnimations_BigVortex_1:: @ 081236A9
+	.include "animations/gSpriteAnimations_BigVortex_1.s"
 
-gUnk_081236BA:: @ 081236BA
-	.incbin "baserom.gba", 0x1236BA, 0x0000012
+gSpriteAnimations_BigVortex_2:: @ 081236BA
+	.include "animations/gSpriteAnimations_BigVortex_2.s"
 
-gUnk_081236CC:: @ 081236CC
-	.4byte gUnk_08123698
-	.4byte gUnk_081236A9
-	.4byte gUnk_081236BA
+gSpriteAnimations_BigVortex:: @ 081236CC
+	.4byte gSpriteAnimations_BigVortex_0
+	.4byte gSpriteAnimations_BigVortex_1
+	.4byte gSpriteAnimations_BigVortex_2
 	.4byte 00000000

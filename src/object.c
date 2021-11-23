@@ -200,11 +200,11 @@ void (*const gObjectFunctions[])(Entity*) = {
     [OBJECT_C1] = ObjectC1,
 };
 
-void InitObject(Entity*);
+void ObjectInit(Entity*);
 
 void ObjectUpdate(Entity* this) {
     if ((this->flags & ENT_DID_INIT) == 0 && this->action == 0)
-        InitObject(this);
+        ObjectInit(this);
     if (this->iframes != 0)
         this->iframes++;
     if (!CheckDontUpdate(this)) {

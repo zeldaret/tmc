@@ -81,13 +81,13 @@ _0808188E:
 	.align 2, 0
 _08081894: .4byte gUnk_080FD328
 _08081898:
-	ldr r0, _080818A0 @ =gUnk_080FD198
+	ldr r0, _080818A0 @ =gHitbox_5
 _0808189A:
 	str r0, [r4, #0x48]
 _0808189C:
 	pop {r4, pc}
 	.align 2, 0
-_080818A0: .4byte gUnk_080FD198
+_080818A0: .4byte gHitbox_5
 
 	thumb_func_start sub_080818A4
 sub_080818A4: @ 0x080818A4

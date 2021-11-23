@@ -4,25 +4,25 @@
 	.section .rodata
     .align 2
 
-gUnk_0810C360:: @ 0810C360
-	.incbin "baserom.gba", 0x10C360, 0x0000005
+gSpriteAnimations_Marcy_0:: @ 0810C360
+	.include "animations/gSpriteAnimations_Marcy_0.s"
 
-gUnk_0810C365:: @ 0810C365
-	.incbin "baserom.gba", 0x10C365, 0x000001D
+gSpriteAnimations_Marcy_4:: @ 0810C365
+	.include "animations/gSpriteAnimations_Marcy_4.s"
 
-gUnk_0810C382:: @ 0810C382
-	.incbin "baserom.gba", 0x10C382, 0x000000E
+gSpriteAnimations_Marcy_8:: @ 0810C382
+	.include "animations/gSpriteAnimations_Marcy_8.s"
 
-gUnk_0810C390:: @ 0810C390
-	.4byte gUnk_0810C360
-	.4byte gUnk_0810C360
-	.4byte gUnk_0810C360
-	.4byte gUnk_0810C360
-	.4byte gUnk_0810C365
-	.4byte gUnk_0810C365
-	.4byte gUnk_0810C365
-	.4byte gUnk_0810C365
-	.4byte gUnk_0810C382
-	.4byte gUnk_0810C382
-	.4byte gUnk_0810C382
-	.4byte gUnk_0810C382
+gSpriteAnimations_Marcy:: @ 0810C390
+	.4byte gSpriteAnimations_Marcy_0
+	.4byte gSpriteAnimations_Marcy_0
+	.4byte gSpriteAnimations_Marcy_0
+	.4byte gSpriteAnimations_Marcy_0
+	.4byte gSpriteAnimations_Marcy_4
+	.4byte gSpriteAnimations_Marcy_4
+	.4byte gSpriteAnimations_Marcy_4
+	.4byte gSpriteAnimations_Marcy_4
+	.4byte gSpriteAnimations_Marcy_8
+	.4byte gSpriteAnimations_Marcy_8
+	.4byte gSpriteAnimations_Marcy_8
+	.4byte gSpriteAnimations_Marcy_8

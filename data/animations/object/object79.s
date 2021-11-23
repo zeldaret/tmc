@@ -4,17 +4,17 @@
 	.section .rodata
 @    .align 2
 
-gUnk_08123422:: @ 08123422
-	.incbin "baserom.gba", 0x123422, 0x0000019
+gSpriteAnimations_Object79_0:: @ 08123422
+	.include "animations/gSpriteAnimations_Object79_0.s"
 
-gUnk_0812343B:: @ 0812343B
-	.incbin "baserom.gba", 0x12343B, 0x0000011
+gSpriteAnimations_Object79_1:: @ 0812343B
+	.include "animations/gSpriteAnimations_Object79_1.s"
 
-gUnk_0812344C:: @ 0812344C
-	.incbin "baserom.gba", 0x12344C, 0x0000028
+gSpriteAnimations_Object79_2:: @ 0812344C
+	.include "animations/gSpriteAnimations_Object79_2.s"
 
-gUnk_08123474:: @ 08123474
-	.4byte gUnk_08123422
-	.4byte gUnk_0812343B
-	.4byte gUnk_0812344C
+gSpriteAnimations_Object79:: @ 08123474
+	.4byte gSpriteAnimations_Object79_0
+	.4byte gSpriteAnimations_Object79_1
+	.4byte gSpriteAnimations_Object79_2
 	.4byte 00000000

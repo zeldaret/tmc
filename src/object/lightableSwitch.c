@@ -13,7 +13,7 @@ extern void (*const gUnk_081243B4[])(Entity*);
 extern void (*const gUnk_081243BC[])(Entity*);
 extern void (*const gUnk_081243C4[])(Entity*);
 
-extern Hitbox gUnk_080FD150;
+extern Hitbox gHitbox_0;
 
 void LightableSwitch(Entity* this) {
     gUnk_081243B4[this->type](this);
@@ -32,7 +32,7 @@ void sub_0809EA34(Entity* this) {
     this->hurtType = 0x48;
     this->hitType = 0x28;
     this->flags2 = 10;
-    this->hitbox = &gUnk_080FD150;
+    this->hitbox = &gHitbox_0;
     sub_0809EAD8(this);
     UpdateSpriteForCollisionLayer(this);
     sub_0809EABC(this);
@@ -104,7 +104,7 @@ void sub_0809EB80(Entity* this) {
     this->hurtType = 0x48;
     this->hitType = 0x28;
     this->flags2 = 10;
-    this->hitbox = &gUnk_080FD150;
+    this->hitbox = &gHitbox_0;
     sub_0809EAD8(this);
     UpdateSpriteForCollisionLayer(this);
     if (CheckFlags(this->cutsceneBeh.HWORD) != 0) {

@@ -27,7 +27,7 @@ SECTIONS {
         . = 0x000000C0; gUnk_020000C0 = .;
         . = 0x00000CC0; gUnk_02000CC0 = .;
         . = 0x00000D00; gTextGfxBuffer = .;
-        . = 0x00001A00; gUnk_02001A00 = .;
+        . = 0x00001A00; gPaletteList = .;
         . = 0x00001A3C; gUnk_02001A3C = .;
         . = 0x00001A40; gBG3Buffer = .;
         . = 0x00001B40; gUnk_02001B40 = .;
@@ -102,7 +102,7 @@ SECTIONS {
         . = 0x00024048; gUnk_02024048 = .;
         . = 0x00024050; gUnk_02024050 = .;
         . = 0x00024090; gUnk_02024090 = .;
-        . = 0x00024490; gUnk_02024490 = .;
+        . = 0x00024490; gGFXSlots = .;
         . = 0x00024494; gUnk_02024494 = .;
         . = 0x000246B0; gUnk_020246B0 = .;
         . = 0x00025EB0; gUnk_02025EB0 = .;
@@ -319,15 +319,17 @@ SECTIONS {
         asm/code_08000F10.o(.text);
         data/data_08000F54.o(.rodata);
         asm/code_080011C4.o(.text);
-        data/data_080029B4.o(.rodata);
+        data/gfx/sprite_ptrs.o(.rodata);
         asm/code_08003FC4.o(.text);
         asm/code_080043E8.o(.text);
+        data/gfx/link_animations.o(.rodata);
+        asm/code_08007CAC.o(.text);
         data/data_08007DF4.o(.rodata);
         asm/code_0800857C.o(.text);
         /* scripts */
         data/scripts.o(.text);
         asm/code_08016984.o(.text);
-        asm/sub_08016AE4.o(.text);
+        asm/projectileUpdate.o(.text);
 
 
         /* C source compiled with interworking */
@@ -473,6 +475,8 @@ SECTIONS {
         /* END enemies */
         src/code_08049CD4.o(.text);
         asm/code_08049D30.o(.text);
+        src/enemyInit.o(.text);
+        asm/code_0804A720.o(.text);
         asm/sub_0804AA30.o(.text);
         src/createEnemy.o(.text);
         src/code_0804AA84.o(.text);
@@ -901,8 +905,6 @@ SECTIONS {
         asm/objectC1.o(.text);
         /* END objects */
         asm/sub_080A276C.o(.text);
-        asm/sub_080A2838.o(.text);
-        asm/sub_080A285C.o(.text);
         src/createObject.o(.text);
         asm/code_080A29BC.o(.text);
         src/playerItem/playerItemShield.o(.text);
@@ -918,6 +920,7 @@ SECTIONS {
         asm/code_080A5574.o(.text);
         src/playerItem/playerItemSword.o(.text);
         asm/code_080A7C00.o(.text);
+        src/projectileInit.o(.text);
         src/projectile/darkNutSwordSlash.o(.text);
         src/projectile/rockProjectile.o(.text);
         src/projectile/boneProjectile.o(.text);
@@ -1173,19 +1176,20 @@ SECTIONS {
         data/const/enemy/enemy64.o(.rodata);
         data/const/enemy/treeItem.o(.rodata);
         data/const/enemy/enemy66.o(.rodata);
-        data/const/code_08049D30.o(.rodata);
         src/enemy.o(.rodata);
         data/data_080D3D94.o(.rodata);
-        data/entity_headers.o(.rodata);
-        data/data_080D5360.o(.rodata);
+        data/map/entity_headers.o(.rodata);
+        data/data_080FC3C4.o(.rodata);
         src/fileScreen.o(.rodata);
         data/data_080FC8A4.o(.rodata);
         data/const/playerItem/playerItemLantern.o(.rodata);
         data/data_080FEEB8.o(.rodata);
+        data/gfx/palette_groups.o(.rodata);
+        data/gfx/gfx_groups.o(.rodata);
         src/main.o(.rodata);
-        data/tileset_headers.o(.rodata);
-        data/metatile_headers.o(.rodata);
-        data/map_headers.o(.rodata);
+        data/map/tileset_headers.o(.rodata);
+        data/map/metatile_headers.o(.rodata);
+        data/map/map_headers.o(.rodata);
         src/textbox.o(.rodata);
         data/const/manager/manager1.o(.rodata);
         data/const/manager/manager3.o(.rodata);
@@ -1266,7 +1270,6 @@ SECTIONS {
         data/const/npc/pina.o(.rodata);
         data/animations/npc/pina.o(.rodata);
         data/const/npc/guard.o(.rodata);
-        data/animations/npc/guard.o(.rodata);
         data/const/npc/guardWithSpear.o(.rodata);
         data/animations/npc/guardWithSpear.o(.rodata);
         data/const/npc/maid.o(.rodata);
@@ -1338,7 +1341,6 @@ SECTIONS {
         data/animations/npc/percy.o(.rodata);
         src/npc/vaatiReborn.o(.rodata);
         data/animations/npc/vaatiReborn.o(.rodata);
-        data/const/npc/moblinLady.o(.rodata);
         data/animations/npc/moblinLady.o(.rodata);
         data/const/npc/librarians.o(.rodata);
         data/animations/npc/librarians.o(.rodata);
@@ -1380,7 +1382,9 @@ SECTIONS {
         data/const/npc/cuccoChick.o(.rodata);
         data/const/npc/phonograph.o(.rodata);
         data/const/npc/npc58.o(.rodata);
+        src/npcDefinitions.o(.rodata);
         data/data_081146D0.o(.rodata);
+        data/gfx/sprite_frames.o(.rodata);
         data/const/playerItem/playerItem12.o(.rodata);
         data/const/playerItem/playerItemPacciCane.o(.rodata);
         src/player.o(.rodata);
@@ -1400,7 +1404,7 @@ SECTIONS {
         data/const/item/itemMoleMitts.o(.rodata);
         data/const/item/itemJarEmpty.o(.rodata);
         data/data_0811BE38.o(.rodata);
-        data/room_headers.o(.rodata);
+        data/map/room_headers.o(.rodata);
         src/save.o(.rodata);
         data/data_0811E454.o(.rodata);
         src/script.o(.rodata);
@@ -1437,11 +1441,12 @@ SECTIONS {
         data/const/object/floatingPlatform.o(.rodata);
         data/const/object/object17.o(.rodata);
         data/const/object/evilSpirit.o(.rodata);
+        data/animations/object/evilSpirit.o(.rodata);
         data/const/object/houseDoorExterior.o(.rodata);
         data/const/object/object1A.o(.rodata);
         src/object/greatFairy.o(.rodata);
         data/animations/npc/greatFairy.o(.rodata);
-data/const/object/object1D.o(.rodata);
+        data/const/object/object1D.o(.rodata);
         data/const/object/object1E.o(.rodata);
         data/animations/object/object1E.o(.rodata);
         data/const/object/object1F.o(.rodata);
@@ -1556,6 +1561,7 @@ data/const/object/object1D.o(.rodata);
         data/const/object/lilypadSmall.o(.rodata);
         data/const/object/object74.o(.rodata);
         data/const/object/bell.o(.rodata);
+        data/animations/object/bell.o(.rodata);
         data/const/object/macroDecorations.o(.rodata);
         data/const/object/object79.o(.rodata);
         data/animations/object/object79.o(.rodata);
@@ -1592,7 +1598,7 @@ data/const/object/object1D.o(.rodata);
         data/const/object/object91.o(.rodata);
         data/const/object/bakerOven.o(.rodata);
         data/animations/object/bakerOven.o(.rodata);
-        data/const/object/object93.o(.rodata);
+        data/animations/object/object93.o(.rodata);
         data/const/object/bird.o(.rodata);
         data/animations/object/bird.o(.rodata);
         data/const/object/object96.o(.rodata);
@@ -1641,17 +1647,21 @@ data/const/object/object1D.o(.rodata);
         data/const/object/pinwheel.o(.rodata);
         data/animations/object/pinwheel.o(.rodata);
         data/const/object/objectC1.o(.rodata);
+        src/objectDefinitions.o(.rodata);
+        src/playerItemDefinitions.o(.rodata);
         data/data_08125104.o(.rodata);
         data/const/playerItem/playerItemShield.o(.rodata);
         data/const/playerItem/playerItem15.o(.rodata);
 #ifdef DEMO_USA
-    data/const/demoScreen.o(.rodata);
+        data/const/demoScreen.o(.rodata);
 #endif
         data/data_08127280.o(.rodata);
+        data/gfx/figurines.o(.rodata);
+        data/data_08128A38.o(.rodata);
         src/itemMenuTable.o(.rodata);
         data/data_08128BF4.o(.rodata);
         data/const/playerItem/playerItemSword.o(.rodata);
-        data/data_08129320.o(.rodata);
+        data/projectile_functions.o(.rodata);
         src/projectile/darkNutSwordSlash.o(.rodata);
         src/projectile/rockProjectile.o(.rodata);
         data/animations/projectile/rockProjectile.o(.rodata);
@@ -1710,20 +1720,31 @@ data/const/object/object1D.o(.rodata);
         src/projectile/v3TennisBallProjectile.o(.rodata);
         data/const/playerItem/playerItem10.o(.rodata);
         src/playerItem/playerItem10.o(.rodata);
-        /*data/data_0812AA88.o(.rodata);*/
         src/flagDebug.o(.rodata);
         data/const/playerItem/playerItem13.o(.rodata);
         src/intro.o(.rodata);
+#ifdef DEMO_JP
         data/data_081320FC.o(.rodata);
+#endif
+        src/projectile.o(.rodata);
         data/const/playerItem/playerItemGustJar.o(.rodata);
+        data/gfx/fixed_type_gfx.o(.rodata);
         data/data_08132B30.o(.rodata);
+        data/map/exit_lists.o(.rodata);
+        data/gfx_0813AA54.o(.rodata);
+        data/gfx/sprite_gfx.o(.rodata);
+        data/gfx/frame_obj_lists.o(.rodata);
+        data/map/map_data.o(.rodata);
+        data/gfx/gfx_and_palettes.o(.rodata);
         data/strings.o(.rodata);
-        data/sprite_table.o(.rodata);
+        data/gfx/extra_frame_offsets.o(.rodata);
+        data/gfx/sprite_table.o(.rodata);
         src/gba/m4a.o(.rodata);
-        data/data_089FC6C4.o(.rodata);
+        data/sound/voicegroups.o(.rodata);
+        data/sound/programmable_wave_samples.o(.rodata);
         src/audio.o(.rodata);
-        data/data_08A127A1.o(.rodata);
-        data/sounds.o(.rodata);
+        data/sound/direct_sound_samples.o(.rodata);
+        data/sound/sounds.o(.rodata);
         src/eeprom.o(.rodata);
     } >rom
 

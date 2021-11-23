@@ -22,7 +22,7 @@ SCRIPT_START script_08015B34
 	Call sub_0807F9A4
 	Call sub_0807DF28
 	MessageFromTargetPos 0x2506, 0x0002
-	_0807EA94 
+	WaitUntilTextboxCloses
 	StartPlayerScript script_08015B84
 	WaitForSomething2 0x00000004
 	Call sub_0807DF50

@@ -7,8 +7,6 @@
 gUnk_080D06E0:: @ 080D06E0
 	.4byte sub_0803E538
 	.4byte sub_0803E550
-
-gUnk_080D06E8:: @ 080D06E8
 	.4byte sub_0803E560
 	.4byte sub_0803E570
 	.4byte sub_08001242
@@ -16,11 +14,7 @@ gUnk_080D06E8:: @ 080D06E8
 
 gUnk_080D06F8:: @ 080D06F8
 	.4byte sub_0803E580
-
-gUnk_080D06FC:: @ 080D06FC
 	.4byte sub_0803E5E8
-
-gUnk_080D0700:: @ 080D0700
 	.4byte sub_0803E61C
 	.4byte sub_0803E66C
 	.4byte sub_0803E6B4
@@ -32,19 +26,19 @@ gUnk_080D0700:: @ 080D0700
 	.4byte sub_0803E818
 
 gUnk_080D0724:: @ 080D0724
-	.incbin "baserom.gba", 0x0D0724, 0x0000004
+	.incbin "ballChainSoldier/gUnk_080D0724.bin"
 
 gUnk_080D0728:: @ 080D0728
-	.incbin "baserom.gba", 0x0D0728, 0x0000008
+	.incbin "ballChainSoldier/gUnk_080D0728.bin"
 
 gUnk_080D0730:: @ 080D0730
-	.incbin "baserom.gba", 0x0D0730, 0x0000008
+	.incbin "ballChainSoldier/gUnk_080D0730.bin"
 
-gUnk_080D0738:: @ 080D0738
-	.incbin "baserom.gba", 0x0D0738, 0x0000004
+gSpriteAnimations_BallChainSoldier_3:: @ 080D0738
+	.include "animations/gSpriteAnimations_BallChainSoldier_3.s"
 
-gUnk_080D073C:: @ 080D073C
-	.incbin "baserom.gba", 0x0D073C, 0x0000004
+gSpriteAnimations_BallChainSoldier_2:: @ 080D073C
+	.include "animations/gSpriteAnimations_BallChainSoldier_2.s"
 
-gUnk_080D0740:: @ 080D0740
-	.incbin "baserom.gba", 0x0D0740, 0x0000004
+gSpriteAnimations_BallChainSoldier_1:: @ 080D0740
+	.include "animations/gSpriteAnimations_BallChainSoldier_1.s"

@@ -9,4 +9,4 @@ gUnk_08108C80:: @ 08108C80
 	.4byte sub_0805B638
 
 gUnk_08108C88:: @ 08108C88
-	.incbin "baserom.gba", 0x108C88, 0x0000004
+	.incbin "manager1D/gUnk_08108C88.bin"

@@ -52,7 +52,7 @@ sub_080A01E0: @ 0x080A01E0
 	movs r1, #0x40
 	orrs r0, r1
 	strb r0, [r4, #0x19]
-	ldr r0, _080A027C @ =gUnk_080FD1A0
+	ldr r0, _080A027C @ =gHitbox_6
 	str r0, [r4, #0x48]
 	ldr r0, _080A0280 @ =0x0000FF40
 	strh r0, [r4, #0x36]
@@ -104,7 +104,7 @@ _080A0246:
 _080A027A:
 	pop {r4, pc}
 	.align 2, 0
-_080A027C: .4byte gUnk_080FD1A0
+_080A027C: .4byte gHitbox_6
 _080A0280: .4byte 0x0000FF40
 _080A0284: .4byte gScreen
 _080A0288: .4byte 0x0000FDFF

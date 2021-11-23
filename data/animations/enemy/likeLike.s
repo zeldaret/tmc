@@ -3,17 +3,17 @@
 
 	.section .rodata
 
-gUnk_080CC734:: @ 080CC734
-	.incbin "baserom.gba", 0x0CC734, 0x0000025
+gSpriteAnimations_LikeLike_0:: @ 080CC734
+	.include "animations/gSpriteAnimations_LikeLike_0.s"
 
-gUnk_080CC759:: @ 080CC759
-	.incbin "baserom.gba", 0x0CC759, 0x0000015
+gSpriteAnimations_LikeLike_1:: @ 080CC759
+	.include "animations/gSpriteAnimations_LikeLike_1.s"
 
-gUnk_080CC76E:: @ 080CC76E
-	.incbin "baserom.gba", 0x0CC76E, 0x0000012
+gSpriteAnimations_LikeLike_2:: @ 080CC76E
+	.include "animations/gSpriteAnimations_LikeLike_2.s"
 
-gUnk_080CC780:: @ 080CC780
-	.4byte gUnk_080CC734
-	.4byte gUnk_080CC759
-	.4byte gUnk_080CC76E
+gSpriteAnimations_LikeLike:: @ 080CC780
+	.4byte gSpriteAnimations_LikeLike_0
+	.4byte gSpriteAnimations_LikeLike_1
+	.4byte gSpriteAnimations_LikeLike_2
 	.4byte 00000000

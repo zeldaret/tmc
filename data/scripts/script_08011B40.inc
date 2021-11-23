@@ -13,7 +13,7 @@ SCRIPT_START script_08011B40
 	Wait 0x003c
 	_0807EB8C 
 	MessageNoOverlap 0x3d07
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807EB44 0x0004
 	ClearGlobalFlag 0x0050
 	Call sub_0807DF50
@@ -24,7 +24,7 @@ script_08011B84:
 	_0807E864 
 	_0807EB74 
 	MessageNoOverlap 0x3d01
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E3E8 
 	JumpIf script_08011BA4
 script_08011B9A:
@@ -42,7 +42,7 @@ script_08011BBC:
 	ModRupees 0xfff6
 	Wait 0x001e
 	MessageNoOverlap 0x3d06
-	_0807EA94 
+	WaitUntilTextboxCloses
 	CallWithArg sub_0806C2A0, 0x00000000
 	WaitFor_2
 	Wait 0x003c

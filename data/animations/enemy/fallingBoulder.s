@@ -3,13 +3,13 @@
 
 	.section .rodata
 
-gUnk_080CD5A4:: @ 080CD5A4
-	.incbin "baserom.gba", 0x0CD5A4, 0x0000011
+gSpriteAnimations_FallingBoulder_0:: @ 080CD5A4
+	.include "animations/gSpriteAnimations_FallingBoulder_0.s"
 
-gUnk_080CD5B5:: @ 080CD5B5
-	.incbin "baserom.gba", 0x0CD5B5, 0x0000013
+gSpriteAnimations_FallingBoulder_1:: @ 080CD5B5
+	.include "animations/gSpriteAnimations_FallingBoulder_1.s"
 
-gUnk_080CD5C8:: @ 080CD5C8
-	.4byte gUnk_080CD5A4
-	.4byte gUnk_080CD5B5
+gSpriteAnimations_FallingBoulder:: @ 080CD5C8
+	.4byte gSpriteAnimations_FallingBoulder_0
+	.4byte gSpriteAnimations_FallingBoulder_1
 	.4byte 00000000

@@ -4,21 +4,28 @@
 	.section .rodata
     .align 2
 
-gUnk_08123F28:: @ 08123F28
-	.incbin "baserom.gba", 0x123F28, 0x0000021
+gSpriteAnimations_Bird_1_0:: @ 08123F0C
+	.include "animations/gSpriteAnimations_Bird_1_0.s"
 
-gUnk_08123F49:: @ 08123F49
-	.incbin "baserom.gba", 0x123F49, 0x0000019
+gSpriteAnimations_Bird_1:: @ 08123F20
+	.4byte gSpriteAnimations_Bird_1_0
+	.include "animations/gSpriteAnimations_Bird_1.s"
 
-gUnk_08123F62:: @ 08123F62
-	.incbin "baserom.gba", 0x123F62, 0x0000019
+gSpriteAnimations_Bird_0_0:: @ 08123F28
+	.include "animations/gSpriteAnimations_Bird_0_0.s"
 
-gUnk_08123F7B:: @ 08123F7B
-	.incbin "baserom.gba", 0x123F7B, 0x0000021
+gSpriteAnimations_Bird_0_1:: @ 08123F49
+	.include "animations/gSpriteAnimations_Bird_0_1.s"
 
-gUnk_08123F9C:: @ 08123F9C
-	.4byte gUnk_08123F28
-	.4byte gUnk_08123F49
-	.4byte gUnk_08123F62
-	.4byte gUnk_08123F7B
+gSpriteAnimations_Bird_0_2:: @ 08123F62
+	.include "animations/gSpriteAnimations_Bird_0_2.s"
+
+gSpriteAnimations_Bird_0_3:: @ 08123F7B
+	.include "animations/gSpriteAnimations_Bird_0_3.s"
+
+gSpriteAnimations_Bird:: @ 08123F9C
+	.4byte gSpriteAnimations_Bird_0_0
+	.4byte gSpriteAnimations_Bird_0_1
+	.4byte gSpriteAnimations_Bird_0_2
+	.4byte gSpriteAnimations_Bird_0_3
 	.4byte 00000000

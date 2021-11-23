@@ -4,176 +4,176 @@
 	.section .rodata
 @    .align 2
 
-gUnk_08113B3F:: @ 08113B3F
-	.incbin "baserom.gba", 0x113B3F, 0x0000005
+gSpriteAnimations_WindTribespeople_0_0:: @ 08113B3F
+	.include "animations/gSpriteAnimations_WindTribespeople_0_0.s"
 
-gUnk_08113B44:: @ 08113B44
-	.incbin "baserom.gba", 0x113B44, 0x0000005
+gSpriteAnimations_WindTribespeople_0_1:: @ 08113B44
+	.include "animations/gSpriteAnimations_WindTribespeople_0_1.s"
 
-gUnk_08113B49:: @ 08113B49
-	.incbin "baserom.gba", 0x113B49, 0x0000005
+gSpriteAnimations_WindTribespeople_0_2:: @ 08113B49
+	.include "animations/gSpriteAnimations_WindTribespeople_0_2.s"
 
-gUnk_08113B4E:: @ 08113B4E
-	.incbin "baserom.gba", 0x113B4E, 0x0000005
+gSpriteAnimations_WindTribespeople_0_3:: @ 08113B4E
+	.include "animations/gSpriteAnimations_WindTribespeople_0_3.s"
 
-gUnk_08113B53:: @ 08113B53
-	.incbin "baserom.gba", 0x113B53, 0x0000011
+gSpriteAnimations_WindTribespeople_0_4:: @ 08113B53
+	.include "animations/gSpriteAnimations_WindTribespeople_0_4.s"
 
-gUnk_08113B64:: @ 08113B64
-	.incbin "baserom.gba", 0x113B64, 0x0000011
+gSpriteAnimations_WindTribespeople_0_5:: @ 08113B64
+	.include "animations/gSpriteAnimations_WindTribespeople_0_5.s"
 
-gUnk_08113B75:: @ 08113B75
-	.incbin "baserom.gba", 0x113B75, 0x0000011
+gSpriteAnimations_WindTribespeople_0_6:: @ 08113B75
+	.include "animations/gSpriteAnimations_WindTribespeople_0_6.s"
 
-gUnk_08113B86:: @ 08113B86
-	.incbin "baserom.gba", 0x113B86, 0x0000012
+gSpriteAnimations_WindTribespeople_0_7:: @ 08113B86
+	.include "animations/gSpriteAnimations_WindTribespeople_0_7.s"
 
-gUnk_08113B98:: @ 08113B98
-	.4byte gUnk_08113B3F
-	.4byte gUnk_08113B44
-	.4byte gUnk_08113B49
-	.4byte gUnk_08113B4E
-	.4byte gUnk_08113B53
-	.4byte gUnk_08113B64
-	.4byte gUnk_08113B75
-	.4byte gUnk_08113B86
+gSpriteAnimations_WindTribespeople_0:: @ 08113B98
+	.4byte gSpriteAnimations_WindTribespeople_0_0
+	.4byte gSpriteAnimations_WindTribespeople_0_1
+	.4byte gSpriteAnimations_WindTribespeople_0_2
+	.4byte gSpriteAnimations_WindTribespeople_0_3
+	.4byte gSpriteAnimations_WindTribespeople_0_4
+	.4byte gSpriteAnimations_WindTribespeople_0_5
+	.4byte gSpriteAnimations_WindTribespeople_0_6
+	.4byte gSpriteAnimations_WindTribespeople_0_7
 	.4byte 00000000
 
-gUnk_08113BBC:: @ 08113BBC
-	.incbin "baserom.gba", 0x113BBC, 0x0000005
+gSpriteAnimations_WindTribespeople_1_0:: @ 08113BBC
+	.include "animations/gSpriteAnimations_WindTribespeople_1_0.s"
 
-gUnk_08113BC1:: @ 08113BC1
-	.incbin "baserom.gba", 0x113BC1, 0x0000005
+gSpriteAnimations_WindTribespeople_1_1:: @ 08113BC1
+	.include "animations/gSpriteAnimations_WindTribespeople_1_1.s"
 
-gUnk_08113BC6:: @ 08113BC6
-	.incbin "baserom.gba", 0x113BC6, 0x0000005
+gSpriteAnimations_WindTribespeople_1_2:: @ 08113BC6
+	.include "animations/gSpriteAnimations_WindTribespeople_1_2.s"
 
-gUnk_08113BCB:: @ 08113BCB
-	.incbin "baserom.gba", 0x113BCB, 0x0000005
+gSpriteAnimations_WindTribespeople_1_3:: @ 08113BCB
+	.include "animations/gSpriteAnimations_WindTribespeople_1_3.s"
 
-gUnk_08113BD0:: @ 08113BD0
-	.incbin "baserom.gba", 0x113BD0, 0x0000011
+gSpriteAnimations_WindTribespeople_1_4:: @ 08113BD0
+	.include "animations/gSpriteAnimations_WindTribespeople_1_4.s"
 
-gUnk_08113BE1:: @ 08113BE1
-	.incbin "baserom.gba", 0x113BE1, 0x0000011
+gSpriteAnimations_WindTribespeople_1_5:: @ 08113BE1
+	.include "animations/gSpriteAnimations_WindTribespeople_1_5.s"
 
-gUnk_08113BF2:: @ 08113BF2
-	.incbin "baserom.gba", 0x113BF2, 0x0000011
+gSpriteAnimations_WindTribespeople_1_6:: @ 08113BF2
+	.include "animations/gSpriteAnimations_WindTribespeople_1_6.s"
 
-gUnk_08113C03:: @ 08113C03
-	.incbin "baserom.gba", 0x113C03, 0x0000011
+gSpriteAnimations_WindTribespeople_1_7:: @ 08113C03
+	.include "animations/gSpriteAnimations_WindTribespeople_1_7.s"
 
-gUnk_08113C14:: @ 08113C14
-	.4byte gUnk_08113BBC
-	.4byte gUnk_08113BC1
-	.4byte gUnk_08113BC6
-	.4byte gUnk_08113BCB
-	.4byte gUnk_08113BD0
-	.4byte gUnk_08113BE1
-	.4byte gUnk_08113BF2
-	.4byte gUnk_08113C03
+gSpriteAnimations_WindTribespeople_1:: @ 08113C14
+	.4byte gSpriteAnimations_WindTribespeople_1_0
+	.4byte gSpriteAnimations_WindTribespeople_1_1
+	.4byte gSpriteAnimations_WindTribespeople_1_2
+	.4byte gSpriteAnimations_WindTribespeople_1_3
+	.4byte gSpriteAnimations_WindTribespeople_1_4
+	.4byte gSpriteAnimations_WindTribespeople_1_5
+	.4byte gSpriteAnimations_WindTribespeople_1_6
+	.4byte gSpriteAnimations_WindTribespeople_1_7
 	.4byte 00000000
 
-gUnk_08113C38:: @ 08113C38
-	.incbin "baserom.gba", 0x113C38, 0x0000005
+gSpriteAnimations_WindTribespeople_2_1:: @ 08113C38
+	.include "animations/gSpriteAnimations_WindTribespeople_2_1.s"
 
-gUnk_08113C3D:: @ 08113C3D
-	.incbin "baserom.gba", 0x113C3D, 0x0000005
+gSpriteAnimations_WindTribespeople_2_0:: @ 08113C3D
+	.include "animations/gSpriteAnimations_WindTribespeople_2_0.s"
 
-gUnk_08113C42:: @ 08113C42
-	.incbin "baserom.gba", 0x113C42, 0x0000005
+gSpriteAnimations_WindTribespeople_2_3:: @ 08113C42
+	.include "animations/gSpriteAnimations_WindTribespeople_2_3.s"
 
-gUnk_08113C47:: @ 08113C47
-	.incbin "baserom.gba", 0x113C47, 0x0000011
+gSpriteAnimations_WindTribespeople_2_4:: @ 08113C47
+	.include "animations/gSpriteAnimations_WindTribespeople_2_4.s"
 
-gUnk_08113C58:: @ 08113C58
-	.4byte gUnk_08113C3D
-	.4byte gUnk_08113C38
-	.4byte gUnk_08113C3D
-	.4byte gUnk_08113C42
-	.4byte gUnk_08113C47
-	.4byte gUnk_08113C47
-	.4byte gUnk_08113C47
-	.4byte gUnk_08113C47
+gSpriteAnimations_WindTribespeople_2:: @ 08113C58
+	.4byte gSpriteAnimations_WindTribespeople_2_0
+	.4byte gSpriteAnimations_WindTribespeople_2_1
+	.4byte gSpriteAnimations_WindTribespeople_2_0
+	.4byte gSpriteAnimations_WindTribespeople_2_3
+	.4byte gSpriteAnimations_WindTribespeople_2_4
+	.4byte gSpriteAnimations_WindTribespeople_2_4
+	.4byte gSpriteAnimations_WindTribespeople_2_4
+	.4byte gSpriteAnimations_WindTribespeople_2_4
 	.4byte 00000000
 
-gUnk_08113C7C:: @ 08113C7C
-	.incbin "baserom.gba", 0x113C7C, 0x0000005
+gSpriteAnimations_WindTribespeople_3_0:: @ 08113C7C
+	.include "animations/gSpriteAnimations_WindTribespeople_3_0.s"
 
-gUnk_08113C81:: @ 08113C81
-	.incbin "baserom.gba", 0x113C81, 0x0000005
+gSpriteAnimations_WindTribespeople_3_1:: @ 08113C81
+	.include "animations/gSpriteAnimations_WindTribespeople_3_1.s"
 
-gUnk_08113C86:: @ 08113C86
-	.incbin "baserom.gba", 0x113C86, 0x0000005
+gSpriteAnimations_WindTribespeople_3_2:: @ 08113C86
+	.include "animations/gSpriteAnimations_WindTribespeople_3_2.s"
 
-gUnk_08113C8B:: @ 08113C8B
-	.incbin "baserom.gba", 0x113C8B, 0x0000005
+gSpriteAnimations_WindTribespeople_3_3:: @ 08113C8B
+	.include "animations/gSpriteAnimations_WindTribespeople_3_3.s"
 
-gUnk_08113C90:: @ 08113C90
-	.incbin "baserom.gba", 0x113C90, 0x0000011
+gSpriteAnimations_WindTribespeople_3_4:: @ 08113C90
+	.include "animations/gSpriteAnimations_WindTribespeople_3_4.s"
 
-gUnk_08113CA1:: @ 08113CA1
-	.incbin "baserom.gba", 0x113CA1, 0x0000011
+gSpriteAnimations_WindTribespeople_3_5:: @ 08113CA1
+	.include "animations/gSpriteAnimations_WindTribespeople_3_5.s"
 
-gUnk_08113CB2:: @ 08113CB2
-	.incbin "baserom.gba", 0x113CB2, 0x0000011
+gSpriteAnimations_WindTribespeople_3_6:: @ 08113CB2
+	.include "animations/gSpriteAnimations_WindTribespeople_3_6.s"
 
-gUnk_08113CC3:: @ 08113CC3
-	.incbin "baserom.gba", 0x113CC3, 0x0000011
+gSpriteAnimations_WindTribespeople_3_7:: @ 08113CC3
+	.include "animations/gSpriteAnimations_WindTribespeople_3_7.s"
 
-gUnk_08113CD4:: @ 08113CD4
-	.4byte gUnk_08113C7C
-	.4byte gUnk_08113C81
-	.4byte gUnk_08113C86
-	.4byte gUnk_08113C8B
-	.4byte gUnk_08113C90
-	.4byte gUnk_08113CA1
-	.4byte gUnk_08113CB2
-	.4byte gUnk_08113CC3
+gSpriteAnimations_WindTribespeople_3:: @ 08113CD4
+	.4byte gSpriteAnimations_WindTribespeople_3_0
+	.4byte gSpriteAnimations_WindTribespeople_3_1
+	.4byte gSpriteAnimations_WindTribespeople_3_2
+	.4byte gSpriteAnimations_WindTribespeople_3_3
+	.4byte gSpriteAnimations_WindTribespeople_3_4
+	.4byte gSpriteAnimations_WindTribespeople_3_5
+	.4byte gSpriteAnimations_WindTribespeople_3_6
+	.4byte gSpriteAnimations_WindTribespeople_3_7
 	.4byte 00000000
 
-gUnk_08113CF8:: @ 08113CF8
-	.incbin "baserom.gba", 0x113CF8, 0x0000005
+gSpriteAnimations_WindTribespeople_4_1:: @ 08113CF8
+	.include "animations/gSpriteAnimations_WindTribespeople_4_1.s"
 
-gUnk_08113CFD:: @ 08113CFD
-	.incbin "baserom.gba", 0x113CFD, 0x0000005
+gSpriteAnimations_WindTribespeople_4_0:: @ 08113CFD
+	.include "animations/gSpriteAnimations_WindTribespeople_4_0.s"
 
-gUnk_08113D02:: @ 08113D02
-	.incbin "baserom.gba", 0x113D02, 0x0000005
+gSpriteAnimations_WindTribespeople_4_3:: @ 08113D02
+	.include "animations/gSpriteAnimations_WindTribespeople_4_3.s"
 
-gUnk_08113D07:: @ 08113D07
-	.incbin "baserom.gba", 0x113D07, 0x0000015
+gSpriteAnimations_WindTribespeople_4_4:: @ 08113D07
+	.include "animations/gSpriteAnimations_WindTribespeople_4_4.s"
 
-gUnk_08113D1C:: @ 08113D1C
-	.4byte gUnk_08113CFD
-	.4byte gUnk_08113CF8
-	.4byte gUnk_08113CFD
-	.4byte gUnk_08113D02
-	.4byte gUnk_08113D07
-	.4byte gUnk_08113D07
-	.4byte gUnk_08113D07
-	.4byte gUnk_08113D07
+gSpriteAnimations_WindTribespeople_4:: @ 08113D1C
+	.4byte gSpriteAnimations_WindTribespeople_4_0
+	.4byte gSpriteAnimations_WindTribespeople_4_1
+	.4byte gSpriteAnimations_WindTribespeople_4_0
+	.4byte gSpriteAnimations_WindTribespeople_4_3
+	.4byte gSpriteAnimations_WindTribespeople_4_4
+	.4byte gSpriteAnimations_WindTribespeople_4_4
+	.4byte gSpriteAnimations_WindTribespeople_4_4
+	.4byte gSpriteAnimations_WindTribespeople_4_4
 	.4byte 00000000
 
-gUnk_08113D40:: @ 08113D40
-	.incbin "baserom.gba", 0x113D40, 0x0000005
+gSpriteAnimations_WindTribespeople_5_1:: @ 08113D40
+	.include "animations/gSpriteAnimations_WindTribespeople_5_1.s"
 
-gUnk_08113D45:: @ 08113D45
-	.incbin "baserom.gba", 0x113D45, 0x0000005
+gSpriteAnimations_WindTribespeople_5_0:: @ 08113D45
+	.include "animations/gSpriteAnimations_WindTribespeople_5_0.s"
 
-gUnk_08113D4A:: @ 08113D4A
-	.incbin "baserom.gba", 0x113D4A, 0x0000005
+gSpriteAnimations_WindTribespeople_5_3:: @ 08113D4A
+	.include "animations/gSpriteAnimations_WindTribespeople_5_3.s"
 
-gUnk_08113D4F:: @ 08113D4F
-	.incbin "baserom.gba", 0x113D4F, 0x0000011
+gSpriteAnimations_WindTribespeople_5_4:: @ 08113D4F
+	.include "animations/gSpriteAnimations_WindTribespeople_5_4.s"
 
-gUnk_08113D60:: @ 08113D60
-	.4byte gUnk_08113D45
-	.4byte gUnk_08113D40
-	.4byte gUnk_08113D45
-	.4byte gUnk_08113D4A
-	.4byte gUnk_08113D4F
-	.4byte gUnk_08113D4F
-	.4byte gUnk_08113D4F
-	.4byte gUnk_08113D4F
+gSpriteAnimations_WindTribespeople_5:: @ 08113D60
+	.4byte gSpriteAnimations_WindTribespeople_5_0
+	.4byte gSpriteAnimations_WindTribespeople_5_1
+	.4byte gSpriteAnimations_WindTribespeople_5_0
+	.4byte gSpriteAnimations_WindTribespeople_5_3
+	.4byte gSpriteAnimations_WindTribespeople_5_4
+	.4byte gSpriteAnimations_WindTribespeople_5_4
+	.4byte gSpriteAnimations_WindTribespeople_5_4
+	.4byte gSpriteAnimations_WindTribespeople_5_4
 	.4byte 00000000

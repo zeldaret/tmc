@@ -4,89 +4,62 @@
 	.section .rodata
 @    .align 2
 
-gUnk_08120EF9:: @ 08120EF9
-	.incbin "baserom.gba", 0x120EF9, 0x000000A
+gSpriteAnimations_Beanstalk_1_0:: @ 08120EF9
+	.include "animations/gSpriteAnimations_Beanstalk_1_0.s"
 
-gUnk_08120F03:: @ 08120F03
-	.incbin "baserom.gba", 0x120F03, 0x0000018
+gSpriteAnimations_Beanstalk_1_1:: @ 08120F2A
+	.include "animations/gSpriteAnimations_Beanstalk_1_1.s"
 
-gUnk_08120F1B:: @ 08120F1B
-	.incbin "baserom.gba", 0x120F1B, 0x000000F
+gSpriteAnimations_Beanstalk_1_2:: @ 08120F2E
+	.include "animations/gSpriteAnimations_Beanstalk_1_2.s"
 
-gUnk_08120F2A:: @ 08120F2A
-	.incbin "baserom.gba", 0x120F2A, 0x0000004
+gSpriteAnimations_Beanstalk_1_3:: @ 08120F32
+	.include "animations/gSpriteAnimations_Beanstalk_1_3.s"
 
-gUnk_08120F2E:: @ 08120F2E
-	.incbin "baserom.gba", 0x120F2E, 0x0000004
+gSpriteAnimations_Beanstalk_1_4:: @ 08120F5A
+	.include "animations/gSpriteAnimations_Beanstalk_1_4.s"
 
-gUnk_08120F32:: @ 08120F32
-	.incbin "baserom.gba", 0x120F32, 0x0000028
+gSpriteAnimations_Beanstalk_1_5:: @ 08120F5E
+	.include "animations/gSpriteAnimations_Beanstalk_1_5.s"
 
-gUnk_08120F5A:: @ 08120F5A
-	.incbin "baserom.gba", 0x120F5A, 0x0000004
+gSpriteAnimations_Beanstalk_1_6:: @ 08120F7E
+	.include "animations/gSpriteAnimations_Beanstalk_1_6.s"
 
-gUnk_08120F5E:: @ 08120F5E
-	.incbin "baserom.gba", 0x120F5E, 0x0000020
+gSpriteAnimations_Beanstalk_1_7:: @ 08120FA6
+	.include "animations/gSpriteAnimations_Beanstalk_1_7.s"
 
-gUnk_08120F7E:: @ 08120F7E
-	.incbin "baserom.gba", 0x120F7E, 0x0000028
+gSpriteAnimations_Beanstalk_1_8:: @ 08120FAA
+	.include "animations/gSpriteAnimations_Beanstalk_1_8.s"
 
-gUnk_08120FA6:: @ 08120FA6
-	.incbin "baserom.gba", 0x120FA6, 0x0000004
+gSpriteAnimations_Beanstalk_1_9:: @ 08120FCA
+	.include "animations/gSpriteAnimations_Beanstalk_1_9.s"
 
-gUnk_08120FAA:: @ 08120FAA
-	.incbin "baserom.gba", 0x120FAA, 0x0000020
+gSpriteAnimations_Beanstalk_1_10:: @ 08120FF2
+	.include "animations/gSpriteAnimations_Beanstalk_1_10.s"
 
-gUnk_08120FCA:: @ 08120FCA
-	.incbin "baserom.gba", 0x120FCA, 0x0000028
+gSpriteAnimations_Beanstalk_1_11:: @ 08120FF6
+	.include "animations/gSpriteAnimations_Beanstalk_1_11.s"
 
-gUnk_08120FF2:: @ 08120FF2
-	.incbin "baserom.gba", 0x120FF2, 0x0000004
+gSpriteAnimations_Beanstalk_1_12:: @ 08121016
+	.include "animations/gSpriteAnimations_Beanstalk_1_12.s"
 
-gUnk_08120FF6:: @ 08120FF6
-	.incbin "baserom.gba", 0x120FF6, 0x0000013
-
-gUnk_08121009:: @ 08121009
-	.incbin "baserom.gba", 0x121009, 0x0000002
-
-gUnk_0812100B:: @ 0812100B
-	.incbin "baserom.gba", 0x12100B, 0x0000001
-
-gUnk_0812100C:: @ 0812100C
-	.incbin "baserom.gba", 0x12100C, 0x0000001
-
-gUnk_0812100D:: @ 0812100D
-	.incbin "baserom.gba", 0x12100D, 0x0000002
-
-gUnk_0812100F:: @ 0812100F
-	.incbin "baserom.gba", 0x12100F, 0x0000003
-
-gUnk_08121012:: @ 08121012
-	.incbin "baserom.gba", 0x121012, 0x0000002
-
-gUnk_08121014:: @ 08121014
-	.incbin "baserom.gba", 0x121014, 0x0000002
-
-gUnk_08121016:: @ 08121016
-	.incbin "baserom.gba", 0x121016, 0x0000006
-
-gUnk_0812101C:: @ 0812101C
-	.4byte gUnk_08120E8C
-	.4byte gUnk_08120ED1
+gSpriteAnimations_Beanstalk_0:: @ 0812101C
+	.4byte gSpriteAnimations_Beanstalk_0_0
+	.4byte gSpriteAnimations_Beanstalk_0_1
 	.4byte 00000000
 
-gUnk_08121028:: @ 08121028
-	.4byte gUnk_08120EF9
-	.4byte gUnk_08120F2A
-	.4byte gUnk_08120F2E
-	.4byte gUnk_08120F32
-	.4byte gUnk_08120F5A
-	.4byte gUnk_08120F5E
-	.4byte gUnk_08120F7E
-	.4byte gUnk_08120FA6
-	.4byte gUnk_08120FAA
-	.4byte gUnk_08120FCA
-	.4byte gUnk_08120FF2
-	.4byte gUnk_08120FF6
-	.4byte gUnk_08121016
+gSpriteAnimations_Beanstalk_1:: @ 08121028
+	.4byte gSpriteAnimations_Beanstalk_1_0
+	.4byte gSpriteAnimations_Beanstalk_1_1
+	.4byte gSpriteAnimations_Beanstalk_1_2
+	.4byte gSpriteAnimations_Beanstalk_1_3
+	.4byte gSpriteAnimations_Beanstalk_1_4
+	.4byte gSpriteAnimations_Beanstalk_1_5
+	.4byte gSpriteAnimations_Beanstalk_1_6
+	.4byte gSpriteAnimations_Beanstalk_1_7
+	.4byte gSpriteAnimations_Beanstalk_1_8
+	.4byte gSpriteAnimations_Beanstalk_1_9
+	.4byte gSpriteAnimations_Beanstalk_1_10
+	.4byte gSpriteAnimations_Beanstalk_1_11
+	.4byte gSpriteAnimations_Beanstalk_1_12
 	.4byte 00000000

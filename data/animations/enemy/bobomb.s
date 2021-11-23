@@ -3,45 +3,45 @@
 
 	.section .rodata
 
-gUnk_080CD628:: @ 080CD628
-	.incbin "baserom.gba", 0x0CD628, 0x0000011
+gSpriteAnimations_Bobomb_0:: @ 080CD628
+	.include "animations/gSpriteAnimations_Bobomb_0.s"
 
-gUnk_080CD639:: @ 080CD639
-	.incbin "baserom.gba", 0x0CD639, 0x0000011
+gSpriteAnimations_Bobomb_1:: @ 080CD639
+	.include "animations/gSpriteAnimations_Bobomb_1.s"
 
-gUnk_080CD64A:: @ 080CD64A
-	.incbin "baserom.gba", 0x0CD64A, 0x0000011
+gSpriteAnimations_Bobomb_2:: @ 080CD64A
+	.include "animations/gSpriteAnimations_Bobomb_2.s"
 
-gUnk_080CD65B:: @ 080CD65B
-	.incbin "baserom.gba", 0x0CD65B, 0x0000011
+gSpriteAnimations_Bobomb_3:: @ 080CD65B
+	.include "animations/gSpriteAnimations_Bobomb_3.s"
 
-gUnk_080CD66C:: @ 080CD66C
-	.incbin "baserom.gba", 0x0CD66C, 0x0000005
+gSpriteAnimations_Bobomb_4:: @ 080CD66C
+	.include "animations/gSpriteAnimations_Bobomb_4.s"
 
-gUnk_080CD671:: @ 080CD671
-	.incbin "baserom.gba", 0x0CD671, 0x0000005
+gSpriteAnimations_Bobomb_5:: @ 080CD671
+	.include "animations/gSpriteAnimations_Bobomb_5.s"
 
-gUnk_080CD676:: @ 080CD676
-	.incbin "baserom.gba", 0x0CD676, 0x0000009
+gSpriteAnimations_Bobomb_6:: @ 080CD676
+	.include "animations/gSpriteAnimations_Bobomb_6.s"
 
-gUnk_080CD67F:: @ 080CD67F
-	.incbin "baserom.gba", 0x0CD67F, 0x0000009
+gSpriteAnimations_Bobomb_7:: @ 080CD67F
+	.include "animations/gSpriteAnimations_Bobomb_7.s"
 
-gUnk_080CD688:: @ 080CD688
-	.incbin "baserom.gba", 0x0CD688, 0x0000024
+gSpriteAnimations_Bobomb_8:: @ 080CD688
+	.include "animations/gSpriteAnimations_Bobomb_8.s"
 
-gUnk_080CD6AC:: @ 080CD6AC
-	.incbin "baserom.gba", 0x0CD6AC, 0x0000024
+gSpriteAnimations_Bobomb_9:: @ 080CD6AC
+	.include "animations/gSpriteAnimations_Bobomb_9.s"
 
-gUnk_080CD6D0:: @ 080CD6D0
-	.4byte gUnk_080CD628
-	.4byte gUnk_080CD639
-	.4byte gUnk_080CD64A
-	.4byte gUnk_080CD65B
-	.4byte gUnk_080CD66C
-	.4byte gUnk_080CD671
-	.4byte gUnk_080CD676
-	.4byte gUnk_080CD67F
-	.4byte gUnk_080CD688
-	.4byte gUnk_080CD6AC
+gSpriteAnimations_Bobomb:: @ 080CD6D0
+	.4byte gSpriteAnimations_Bobomb_0
+	.4byte gSpriteAnimations_Bobomb_1
+	.4byte gSpriteAnimations_Bobomb_2
+	.4byte gSpriteAnimations_Bobomb_3
+	.4byte gSpriteAnimations_Bobomb_4
+	.4byte gSpriteAnimations_Bobomb_5
+	.4byte gSpriteAnimations_Bobomb_6
+	.4byte gSpriteAnimations_Bobomb_7
+	.4byte gSpriteAnimations_Bobomb_8
+	.4byte gSpriteAnimations_Bobomb_9
 	.4byte 00000000

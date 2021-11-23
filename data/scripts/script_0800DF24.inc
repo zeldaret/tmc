@@ -20,7 +20,7 @@ SCRIPT_START script_0800DF24
 	Wait 0x00e9
 	DoPostScriptAction 0x0007
 	MessageFromTargetPos 0x162f, 0x0002
-	_0807EA94 
+	WaitUntilTextboxCloses
 	PlayBgm BGM_VAATI_REBORN
 	DoPostScriptAction 0x0019
 	PlaySound SFX_198

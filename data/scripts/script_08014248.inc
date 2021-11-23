@@ -26,7 +26,7 @@ script_08014298:
 	JumpIfNot script_08014298
 	_0807E864 
 	MessageFromTargetPos 0x0647, 0x000c
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E878 
 	Jump script_08014298
 	.2byte 0x0000

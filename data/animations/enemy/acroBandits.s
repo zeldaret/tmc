@@ -4,65 +4,65 @@
 	.section .rodata
 @    .align 2
 
-gUnk_080CE60E:: @ 080CE60E
-	.incbin "baserom.gba", 0x0CE60E, 0x0000018
+gSpriteAnimations_AcroBandits_0:: @ 080CE60E
+	.include "animations/gSpriteAnimations_AcroBandits_0.s"
 
-gUnk_080CE626:: @ 080CE626
-	.incbin "baserom.gba", 0x0CE626, 0x0000031
+gSpriteAnimations_AcroBandits_1:: @ 080CE626
+	.include "animations/gSpriteAnimations_AcroBandits_1.s"
 
-gUnk_080CE657:: @ 080CE657
-	.incbin "baserom.gba", 0x0CE657, 0x0000010
+gSpriteAnimations_AcroBandits_2:: @ 080CE657
+	.include "animations/gSpriteAnimations_AcroBandits_2.s"
 
-gUnk_080CE667:: @ 080CE667
-	.incbin "baserom.gba", 0x0CE667, 0x0000028
+gSpriteAnimations_AcroBandits_3:: @ 080CE667
+	.include "animations/gSpriteAnimations_AcroBandits_3.s"
 
-gUnk_080CE68F:: @ 080CE68F
-	.incbin "baserom.gba", 0x0CE68F, 0x0000009
+gSpriteAnimations_AcroBandits_4:: @ 080CE68F
+	.include "animations/gSpriteAnimations_AcroBandits_4.s"
 
-gUnk_080CE698:: @ 080CE698
-	.incbin "baserom.gba", 0x0CE698, 0x0000005
+gSpriteAnimations_AcroBandits_5:: @ 080CE698
+	.include "animations/gSpriteAnimations_AcroBandits_5.s"
 
-gUnk_080CE69D:: @ 080CE69D
-	.incbin "baserom.gba", 0x0CE69D, 0x0000009
+gSpriteAnimations_AcroBandits_6:: @ 080CE69D
+	.include "animations/gSpriteAnimations_AcroBandits_6.s"
 
-gUnk_080CE6A6:: @ 080CE6A6
-	.incbin "baserom.gba", 0x0CE6A6, 0x0000009
+gSpriteAnimations_AcroBandits_7:: @ 080CE6A6
+	.include "animations/gSpriteAnimations_AcroBandits_7.s"
 
-gUnk_080CE6AF:: @ 080CE6AF
-	.incbin "baserom.gba", 0x0CE6AF, 0x0000011
+gSpriteAnimations_AcroBandits_8:: @ 080CE6AF
+	.include "animations/gSpriteAnimations_AcroBandits_8.s"
 
-gUnk_080CE6C0:: @ 080CE6C0
-	.incbin "baserom.gba", 0x0CE6C0, 0x0000011
+gSpriteAnimations_AcroBandits_9:: @ 080CE6C0
+	.include "animations/gSpriteAnimations_AcroBandits_9.s"
 
-gUnk_080CE6D1:: @ 080CE6D1
-	.incbin "baserom.gba", 0x0CE6D1, 0x0000005
+gSpriteAnimations_AcroBandits_10:: @ 080CE6D1
+	.include "animations/gSpriteAnimations_AcroBandits_10.s"
 
-gUnk_080CE6D6:: @ 080CE6D6
-	.incbin "baserom.gba", 0x0CE6D6, 0x0000005
+gSpriteAnimations_AcroBandits_11:: @ 080CE6D6
+	.include "animations/gSpriteAnimations_AcroBandits_11.s"
 
-gUnk_080CE6DB:: @ 080CE6DB
-	.incbin "baserom.gba", 0x0CE6DB, 0x000000C
+gSpriteAnimations_AcroBandits_12:: @ 080CE6DB
+	.include "animations/gSpriteAnimations_AcroBandits_12.s"
 
-gUnk_080CE6E7:: @ 080CE6E7
-	.incbin "baserom.gba", 0x0CE6E7, 0x0000040
+gSpriteAnimations_AcroBandits_13:: @ 080CE6E7
+	.include "animations/gSpriteAnimations_AcroBandits_13.s"
 
-gUnk_080CE727:: @ 080CE727
-	.incbin "baserom.gba", 0x0CE727, 0x0000049
+gSpriteAnimations_AcroBandits_14:: @ 080CE727
+	.include "animations/gSpriteAnimations_AcroBandits_14.s"
 
-gUnk_080CE770:: @ 080CE770
-	.4byte gUnk_080CE60E
-	.4byte gUnk_080CE626
-	.4byte gUnk_080CE657
-	.4byte gUnk_080CE667
-	.4byte gUnk_080CE68F
-	.4byte gUnk_080CE698
-	.4byte gUnk_080CE69D
-	.4byte gUnk_080CE6A6
-	.4byte gUnk_080CE6AF
-	.4byte gUnk_080CE6C0
-	.4byte gUnk_080CE6D1
-	.4byte gUnk_080CE6D6
-	.4byte gUnk_080CE6DB
-	.4byte gUnk_080CE6E7
-	.4byte gUnk_080CE727
+gSpriteAnimations_AcroBandits:: @ 080CE770
+	.4byte gSpriteAnimations_AcroBandits_0
+	.4byte gSpriteAnimations_AcroBandits_1
+	.4byte gSpriteAnimations_AcroBandits_2
+	.4byte gSpriteAnimations_AcroBandits_3
+	.4byte gSpriteAnimations_AcroBandits_4
+	.4byte gSpriteAnimations_AcroBandits_5
+	.4byte gSpriteAnimations_AcroBandits_6
+	.4byte gSpriteAnimations_AcroBandits_7
+	.4byte gSpriteAnimations_AcroBandits_8
+	.4byte gSpriteAnimations_AcroBandits_9
+	.4byte gSpriteAnimations_AcroBandits_10
+	.4byte gSpriteAnimations_AcroBandits_11
+	.4byte gSpriteAnimations_AcroBandits_12
+	.4byte gSpriteAnimations_AcroBandits_13
+	.4byte gSpriteAnimations_AcroBandits_14
 	.4byte 00000000

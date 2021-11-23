@@ -24,7 +24,7 @@ _080A75BA:
 	adds r0, r5, #0
 	movs r1, #1
 	movs r2, #3
-	bl sub_080AE008
+	bl LoadSwapGFX
 	ldr r1, _080A7658 @ =gPlayerEntity
 	adds r0, r1, #0
 	adds r0, #0x3c

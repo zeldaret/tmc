@@ -4,112 +4,109 @@
 	.section .rodata
     .align 2
 
-gUnk_0811EE64:: @ 0811EE64
-	.incbin "baserom.gba", 0x11EE64, 0x0000029
+gSpriteAnimations_Object4_2:: @ 0811EE64
+	.include "animations/gSpriteAnimations_Object4_2.s"
 
-gUnk_0811EE8D:: @ 0811EE8D
-	.incbin "baserom.gba", 0x11EE8D, 0x0000004
+gSpriteAnimations_Object4_10:: @ 0811EE8D
+	.include "animations/gSpriteAnimations_Object4_10.s"
 
-gUnk_0811EE91:: @ 0811EE91
-	.incbin "baserom.gba", 0x11EE91, 0x0000029
+gSpriteAnimations_Object4_3:: @ 0811EE91
+	.include "animations/gSpriteAnimations_Object4_3.s"
 
-gUnk_0811EEBA:: @ 0811EEBA
-	.incbin "baserom.gba", 0x11EEBA, 0x0000004
+gSpriteAnimations_Object4_11:: @ 0811EEBA
+	.include "animations/gSpriteAnimations_Object4_11.s"
 
-gUnk_0811EEBE:: @ 0811EEBE
-	.incbin "baserom.gba", 0x11EEBE, 0x0000005
+gSpriteAnimations_Object4_0:: @ 0811EEBE
+	.include "animations/gSpriteAnimations_Object4_0.s"
 
-gUnk_0811EEC3:: @ 0811EEC3
-	.incbin "baserom.gba", 0x11EEC3, 0x0000004
+gSpriteAnimations_Object4_8:: @ 0811EEC3
+	.include "animations/gSpriteAnimations_Object4_8.s"
 
-gUnk_0811EEC7:: @ 0811EEC7
-	.incbin "baserom.gba", 0x11EEC7, 0x0000029
+gSpriteAnimations_Object4_1:: @ 0811EEC7
+	.include "animations/gSpriteAnimations_Object4_1.s"
 
-gUnk_0811EEF0:: @ 0811EEF0
-	.incbin "baserom.gba", 0x11EEF0, 0x0000004
+gSpriteAnimations_Object4_9:: @ 0811EEF0
+	.include "animations/gSpriteAnimations_Object4_9.s"
 
-gUnk_0811EEF4:: @ 0811EEF4
-	.incbin "baserom.gba", 0x11EEF4, 0x0000009
+gSpriteAnimations_Object4_12:: @ 0811EEF4
+	.include "animations/gSpriteAnimations_Object4_12.s"
 
-gUnk_0811EEFD:: @ 0811EEFD
-	.incbin "baserom.gba", 0x11EEFD, 0x0000009
+gSpriteAnimations_Object4_13:: @ 0811EEFD
+	.include "animations/gSpriteAnimations_Object4_13.s"
 
-gUnk_0811EF06:: @ 0811EF06
-	.incbin "baserom.gba", 0x11EF06, 0x0000009
+gSpriteAnimations_Object4_14:: @ 0811EF06
+	.include "animations/gSpriteAnimations_Object4_14.s"
 
-gUnk_0811EF0F:: @ 0811EF0F
-	.incbin "baserom.gba", 0x11EF0F, 0x0000028
+gSpriteAnimations_Object4_19:: @ 0811EF0F
+	.include "animations/gSpriteAnimations_Object4_19.s"
 
-gUnk_0811EF37:: @ 0811EF37
-	.incbin "baserom.gba", 0x11EF37, 0x0000018
+gSpriteAnimations_Object4_15:: @ 0811EF37
+	.include "animations/gSpriteAnimations_Object4_15.s"
 
-gUnk_0811EF4F:: @ 0811EF4F
-	.incbin "baserom.gba", 0x11EF4F, 0x0000018
+gSpriteAnimations_Object4_16:: @ 0811EF4F
+	.include "animations/gSpriteAnimations_Object4_16.s"
 
-gUnk_0811EF67:: @ 0811EF67
-	.incbin "baserom.gba", 0x11EF67, 0x0000018
+gSpriteAnimations_Object4_17:: @ 0811EF67
+	.include "animations/gSpriteAnimations_Object4_17.s"
 
-gUnk_0811EF7F:: @ 0811EF7F
-	.incbin "baserom.gba", 0x11EF7F, 0x0000018
+gSpriteAnimations_Object4_18:: @ 0811EF7F
+	.include "animations/gSpriteAnimations_Object4_18.s"
 
-gUnk_0811EF97:: @ 0811EF97
-	.incbin "baserom.gba", 0x11EF97, 0x0000009
+gSpriteAnimations_Object4_22:: @ 0811EF97
+	.include "animations/gSpriteAnimations_Object4_22.s"
 
-gUnk_0811EFA0:: @ 0811EFA0
-	.incbin "baserom.gba", 0x11EFA0, 0x0000009
+gSpriteAnimations_Object4_23:: @ 0811EFA0
+	.include "animations/gSpriteAnimations_Object4_23.s"
 
-gUnk_0811EFA9:: @ 0811EFA9
-	.incbin "baserom.gba", 0x11EFA9, 0x0000009
+gSpriteAnimations_Object4_20:: @ 0811EFA9
+	.include "animations/gSpriteAnimations_Object4_20.s"
 
-gUnk_0811EFB2:: @ 0811EFB2
-	.incbin "baserom.gba", 0x11EFB2, 0x0000009
+gSpriteAnimations_Object4_21:: @ 0811EFB2
+	.include "animations/gSpriteAnimations_Object4_21.s"
 
-gUnk_0811EFBB:: @ 0811EFBB
-	.incbin "baserom.gba", 0x11EFBB, 0x0000009
+gSpriteAnimations_Object4_24:: @ 0811EFBB
+	.include "animations/gSpriteAnimations_Object4_24.s"
 
-gUnk_0811EFC4:: @ 0811EFC4
-	.incbin "baserom.gba", 0x11EFC4, 0x0000015
+gSpriteAnimations_Object4_25:: @ 0811EFC4
+	.include "animations/gSpriteAnimations_Object4_25.s"
 
-gUnk_0811EFD9:: @ 0811EFD9
-	.incbin "baserom.gba", 0x11EFD9, 0x0000015
+gSpriteAnimations_Object4_26:: @ 0811EFD9
+	.include "animations/gSpriteAnimations_Object4_26.s"
 
-gUnk_0811EFEE:: @ 0811EFEE
-	.incbin "baserom.gba", 0x11EFEE, 0x000000E
+gSpriteAnimations_Object4_27:: @ 0811EFEE
+	.include "animations/gSpriteAnimations_Object4_27.s"
 
-gUnk_0811EFFC:: @ 0811EFFC
-	.incbin "baserom.gba", 0x11EFFC, 0x0000007
+gSpriteAnimations_Object4_28:: @ 0811F003
+	.include "animations/gSpriteAnimations_Object4_28.s"
 
-gUnk_0811F003:: @ 0811F003
-	.incbin "baserom.gba", 0x11F003, 0x0000015
-
-gUnk_0811F018:: @ 0811F018
-	.4byte gUnk_0811EEBE
-	.4byte gUnk_0811EEC7
-	.4byte gUnk_0811EE64
-	.4byte gUnk_0811EE91
-	.4byte gUnk_0811EEBE
-	.4byte gUnk_0811EEC7
-	.4byte gUnk_0811EE64
-	.4byte gUnk_0811EE91
-	.4byte gUnk_0811EEC3
-	.4byte gUnk_0811EEF0
-	.4byte gUnk_0811EE8D
-	.4byte gUnk_0811EEBA
-	.4byte gUnk_0811EEF4
-	.4byte gUnk_0811EEFD
-	.4byte gUnk_0811EF06
-	.4byte gUnk_0811EF37
-	.4byte gUnk_0811EF4F
-	.4byte gUnk_0811EF67
-	.4byte gUnk_0811EF7F
-	.4byte gUnk_0811EF0F
-	.4byte gUnk_0811EFA9
-	.4byte gUnk_0811EFB2
-	.4byte gUnk_0811EF97
-	.4byte gUnk_0811EFA0
-	.4byte gUnk_0811EFBB
-	.4byte gUnk_0811EFC4
-	.4byte gUnk_0811EFD9
-	.4byte gUnk_0811EFEE
-	.4byte gUnk_0811F003
+gSpriteAnimations_Object4:: @ 0811F018
+	.4byte gSpriteAnimations_Object4_0
+	.4byte gSpriteAnimations_Object4_1
+	.4byte gSpriteAnimations_Object4_2
+	.4byte gSpriteAnimations_Object4_3
+	.4byte gSpriteAnimations_Object4_0
+	.4byte gSpriteAnimations_Object4_1
+	.4byte gSpriteAnimations_Object4_2
+	.4byte gSpriteAnimations_Object4_3
+	.4byte gSpriteAnimations_Object4_8
+	.4byte gSpriteAnimations_Object4_9
+	.4byte gSpriteAnimations_Object4_10
+	.4byte gSpriteAnimations_Object4_11
+	.4byte gSpriteAnimations_Object4_12
+	.4byte gSpriteAnimations_Object4_13
+	.4byte gSpriteAnimations_Object4_14
+	.4byte gSpriteAnimations_Object4_15
+	.4byte gSpriteAnimations_Object4_16
+	.4byte gSpriteAnimations_Object4_17
+	.4byte gSpriteAnimations_Object4_18
+	.4byte gSpriteAnimations_Object4_19
+	.4byte gSpriteAnimations_Object4_20
+	.4byte gSpriteAnimations_Object4_21
+	.4byte gSpriteAnimations_Object4_22
+	.4byte gSpriteAnimations_Object4_23
+	.4byte gSpriteAnimations_Object4_24
+	.4byte gSpriteAnimations_Object4_25
+	.4byte gSpriteAnimations_Object4_26
+	.4byte gSpriteAnimations_Object4_27
+	.4byte gSpriteAnimations_Object4_28
 	.4byte 00000000

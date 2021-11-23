@@ -9,7 +9,7 @@ gUnk_08121060:: @ 08121060
 	.4byte sub_0808A46C
 
 gUnk_08121068:: @ 08121068
-	.incbin "baserom.gba", 0x121068, 0x0000008
+	.incbin "smoke/gUnk_08121068.bin"
 
 gUnk_08121070:: @ 08121070
 	.4byte sub_0808A484

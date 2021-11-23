@@ -4,36 +4,36 @@
 	.section .rodata
     .align 2
 
-gUnk_08110658:: @ 08110658
-	.incbin "baserom.gba", 0x110658, 0x0000005
+gSpriteAnimations_MinisterPotho_0:: @ 08110658
+	.include "animations/gSpriteAnimations_MinisterPotho_0.s"
 
-gUnk_0811065D:: @ 0811065D
-	.incbin "baserom.gba", 0x11065D, 0x0000005
+gSpriteAnimations_MinisterPotho_1:: @ 0811065D
+	.include "animations/gSpriteAnimations_MinisterPotho_1.s"
 
-gUnk_08110662:: @ 08110662
-	.incbin "baserom.gba", 0x110662, 0x0000005
+gSpriteAnimations_MinisterPotho_2:: @ 08110662
+	.include "animations/gSpriteAnimations_MinisterPotho_2.s"
 
-gUnk_08110667:: @ 08110667
-	.incbin "baserom.gba", 0x110667, 0x0000005
+gSpriteAnimations_MinisterPotho_3:: @ 08110667
+	.include "animations/gSpriteAnimations_MinisterPotho_3.s"
 
-gUnk_0811066C:: @ 0811066C
-	.incbin "baserom.gba", 0x11066C, 0x0000011
+gSpriteAnimations_MinisterPotho_4:: @ 0811066C
+	.include "animations/gSpriteAnimations_MinisterPotho_4.s"
 
-gUnk_0811067D:: @ 0811067D
-	.incbin "baserom.gba", 0x11067D, 0x0000005
+gSpriteAnimations_MinisterPotho_8:: @ 0811067D
+	.include "animations/gSpriteAnimations_MinisterPotho_8.s"
 
-gUnk_08110682:: @ 08110682
-	.incbin "baserom.gba", 0x110682, 0x0000026
+gSpriteAnimations_MinisterPotho_9:: @ 08110682
+	.include "animations/gSpriteAnimations_MinisterPotho_9.s"
 
-gUnk_081106A8:: @ 081106A8
-	.4byte gUnk_08110658
-	.4byte gUnk_0811065D
-	.4byte gUnk_08110662
-	.4byte gUnk_08110667
-	.4byte gUnk_0811066C
-	.4byte gUnk_0811066C
-	.4byte gUnk_0811066C
-	.4byte gUnk_0811066C
-	.4byte gUnk_0811067D
-	.4byte gUnk_08110682
+gSpriteAnimations_MinisterPotho:: @ 081106A8
+	.4byte gSpriteAnimations_MinisterPotho_0
+	.4byte gSpriteAnimations_MinisterPotho_1
+	.4byte gSpriteAnimations_MinisterPotho_2
+	.4byte gSpriteAnimations_MinisterPotho_3
+	.4byte gSpriteAnimations_MinisterPotho_4
+	.4byte gSpriteAnimations_MinisterPotho_4
+	.4byte gSpriteAnimations_MinisterPotho_4
+	.4byte gSpriteAnimations_MinisterPotho_4
+	.4byte gSpriteAnimations_MinisterPotho_8
+	.4byte gSpriteAnimations_MinisterPotho_9
 	.4byte 00000000

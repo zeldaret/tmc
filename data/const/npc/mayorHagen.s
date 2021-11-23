@@ -5,7 +5,7 @@
     .align 2
 
 gUnk_08113F44:: @ 08113F44
-	.incbin "baserom.gba", 0x113F44, 0x0000004
+	.incbin "mayorHagen/gUnk_08113F44.bin"
 
 gUnk_08113F48:: @ 08113F48
-	.incbin "baserom.gba", 0x113F48, 0x0000078
+	.incbin "mayorHagen/gUnk_08113F48.bin"

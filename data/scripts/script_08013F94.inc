@@ -17,7 +17,7 @@ script_08013FA4:
 	Call sub_0807DF38
 	Wait 0x0078
 	_0807EB28 0x1505
-	_0807EA94
+	WaitUntilTextboxCloses
 	SetLocalFlag 0x007d
 	Call sub_0807DF50
 	_0807E878

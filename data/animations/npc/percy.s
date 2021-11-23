@@ -4,45 +4,45 @@
 	.section .rodata
     .align 2
 
-gUnk_08112E5C:: @ 08112E5C
-	.incbin "baserom.gba", 0x112E5C, 0x0000049
+gSpriteAnimations_Percy_0:: @ 08112E5C
+	.include "animations/gSpriteAnimations_Percy_0.s"
 
-gUnk_08112EA5:: @ 08112EA5
-	.incbin "baserom.gba", 0x112EA5, 0x0000005
+gSpriteAnimations_Percy_4:: @ 08112EA5
+	.include "animations/gSpriteAnimations_Percy_4.s"
 
-gUnk_08112EAA:: @ 08112EAA
-	.incbin "baserom.gba", 0x112EAA, 0x0000005
+gSpriteAnimations_Percy_7:: @ 08112EAA
+	.include "animations/gSpriteAnimations_Percy_7.s"
 
-gUnk_08112EAF:: @ 08112EAF
-	.incbin "baserom.gba", 0x112EAF, 0x0000005
+gSpriteAnimations_Percy_5:: @ 08112EAF
+	.include "animations/gSpriteAnimations_Percy_5.s"
 
-gUnk_08112EB4:: @ 08112EB4
-	.incbin "baserom.gba", 0x112EB4, 0x0000071
+gSpriteAnimations_Percy_8:: @ 08112EB4
+	.include "animations/gSpriteAnimations_Percy_8.s"
 
-gUnk_08112F25:: @ 08112F25
-	.incbin "baserom.gba", 0x112F25, 0x0000005
+gSpriteAnimations_Percy_12:: @ 08112F25
+	.include "animations/gSpriteAnimations_Percy_12.s"
 
-gUnk_08112F2A:: @ 08112F2A
-	.incbin "baserom.gba", 0x112F2A, 0x0000005
+gSpriteAnimations_Percy_15:: @ 08112F2A
+	.include "animations/gSpriteAnimations_Percy_15.s"
 
-gUnk_08112F2F:: @ 08112F2F
-	.incbin "baserom.gba", 0x112F2F, 0x0000005
+gSpriteAnimations_Percy_13:: @ 08112F2F
+	.include "animations/gSpriteAnimations_Percy_13.s"
 
-gUnk_08112F34:: @ 08112F34
-	.4byte gUnk_08112E5C
-	.4byte gUnk_08112E5C
-	.4byte gUnk_08112E5C
-	.4byte gUnk_08112E5C
-	.4byte gUnk_08112EA5
-	.4byte gUnk_08112EAF
-	.4byte gUnk_08112EA5
-	.4byte gUnk_08112EAA
-	.4byte gUnk_08112EB4
-	.4byte gUnk_08112EB4
-	.4byte gUnk_08112EB4
-	.4byte gUnk_08112EB4
-	.4byte gUnk_08112F25
-	.4byte gUnk_08112F2F
-	.4byte gUnk_08112F25
-	.4byte gUnk_08112F2A
+gSpriteAnimations_Percy:: @ 08112F34
+	.4byte gSpriteAnimations_Percy_0
+	.4byte gSpriteAnimations_Percy_0
+	.4byte gSpriteAnimations_Percy_0
+	.4byte gSpriteAnimations_Percy_0
+	.4byte gSpriteAnimations_Percy_4
+	.4byte gSpriteAnimations_Percy_5
+	.4byte gSpriteAnimations_Percy_4
+	.4byte gSpriteAnimations_Percy_7
+	.4byte gSpriteAnimations_Percy_8
+	.4byte gSpriteAnimations_Percy_8
+	.4byte gSpriteAnimations_Percy_8
+	.4byte gSpriteAnimations_Percy_8
+	.4byte gSpriteAnimations_Percy_12
+	.4byte gSpriteAnimations_Percy_13
+	.4byte gSpriteAnimations_Percy_12
+	.4byte gSpriteAnimations_Percy_15
 	.4byte 00000000

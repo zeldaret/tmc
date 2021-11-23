@@ -64,8 +64,48 @@
 	.2byte 0x00, 0x00
 	.endm
 
+	.macro entity_raw type:req, subtype:req, collision=0, unknown:req, paramA=0, paramB=0, x=0, y=0, paramC=0
+	.byte \type | ((\collision) << 4)
+	.byte \unknown
+	.byte \subtype
+	.byte \paramA
+	.4byte \paramB
+	.2byte \x
+	.2byte \y
+	.4byte \paramC
+	.endm
+
+	.macro manager subtype:req, collision=0, unknown=0xf, paramA=0, paramB=0, x=0, y=0, paramC=0
+	entity_raw type=9, subtype=\subtype, collision=\collision, unknown=\unknown, paramA=\paramA, paramB=\paramB, x=\x, y=\y, paramC=\paramC
+	.endm
+
+	.macro object_raw subtype:req, collision=0, unknown=0xf, paramA=0, paramB=0, x=0, y=0, paramC=0
+	entity_raw type=6, subtype=\subtype, collision=\collision, unknown=\unknown, paramA=\paramA, paramB=\paramB, x=\x, y=\y, paramC=\paramC
+	.endm
+
+	.macro enemy_raw subtype:req, collision=0, unknown=0xf, paramA=0, paramB=0, x=0, y=0, paramC=0
+	entity_raw type=3, subtype=\subtype, collision=\collision, unknown=\unknown, paramA=\paramA, paramB=\paramB, x=\x, y=\y, paramC=\paramC
+	.endm
+
+	.macro npc_raw subtype:req, collision=0, unknown=0x4f, paramA=0, paramB=0, x=0, y=0, script:req
+	entity_raw type=7, subtype=\subtype, collision=\collision, unknown=\unknown, paramA=\paramA, paramB=\paramB, x=\x, y=\y, paramC=\script
+	.endm
+
+	.macro projectile_raw subtype:req, collision=0, unknown=0xf, paramA=0, paramB=0, x=0, y=0, paramC=0
+	entity_raw type=4, subtype=\subtype, collision=\collision, unknown=\unknown, paramA=\paramA, paramB=\paramB, x=\x, y=\y, paramC=\paramC
+	.endm
+
 	.macro entity_list_end
 	.byte 0xFF, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.endm
+
+	.macro tile_entity_list_end
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.endm
+
+	.macro tile_entity type:req, paramA=0, paramB=0, paramC=0, paramD=0
+	.byte \type, \paramA
+	.2byte \paramB, \paramC, \paramD
 	.endm
 
 	.macro chest type, id, item, subnum, tileset_id
@@ -74,6 +114,36 @@
 	.2byte \pixel_width
 	.2byte \pixel_height
 	.2byte \tileset_id
+	.endm
+
+	.macro delayed_entity_raw subtype:req, paramA=0, paramB=0, layer=0, x=0, y=0, paramC=0, paramD=0, conditions=0
+	.byte \subtype
+	.byte \paramA
+	.byte \paramB
+	.byte \layer
+	.2byte \x
+	.2byte \y
+	.4byte \paramC
+	.2byte \paramD
+	.2byte \conditions
+	.endm
+
+	.macro exit_region_raw centerX=0, centerY=0, halfWidth=0, halfHeight=0, exitIndex=0, bitfield=0
+	.2byte \centerX, \centerY
+	.byte \halfWidth, \halfHeight, \exitIndex, \bitfield
+	.endm
+	.macro exit_region_list_end
+	.2byte 0xffff, 0x0, 0x0, 0x0
+	.endm
+
+	.macro exit_raw transition=0, x=0, y=0, destX=0, destY=0, screenEdge=0, destArea=0, destRoom=0, unknownA=0, unknownB=0, unknownC=0, unknownD=0
+	.2byte \transition, \x, \y, \destX, \destY
+	.byte \screenEdge, \destArea, \destRoom, \unknownA, \unknownB, \unknownC
+	.2byte \unknownD, 0x0
+	.endm
+
+	.macro minish_entrance x=0, y=0, unknown=0, actionDelay=0
+	.2byte \x, \y, \unknown, \actionDelay
 	.endm
 
 	.endif @ GUARD_ASM_MACROS_ENTITY_INC

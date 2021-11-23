@@ -8,7 +8,7 @@ SCRIPT_START script_08015390
 	WaitForSomething2 0x00000008
 	_0807E930 0x0010
 	MessageFromTargetPos 0x1314, 0x000c
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E930 0x0018
 	Call sub_0806D8A0
 script_080153C2:

@@ -60,7 +60,7 @@ void sub_0808E7D8(Entity* this) {
 }
 
 void sub_0808E7F0(Entity* this) {
-    sub_080AE008(this, 1, 2);
+    LoadSwapGFX(this, 1, 2);
     this->palette.b.b0 = 0xF;
     this->spriteSettings.draw = 0;
     this->type2 = 0xFF;
@@ -145,7 +145,7 @@ void sub_0808E988(Entity* this) {
         this->spriteIndex = 0x142;
 #endif
         this->type2 = 0xFF;
-        sub_080AE008(this, 1, 3);
+        LoadSwapGFX(this, 1, 3);
     }
 
     if (sub_0808E950()) {

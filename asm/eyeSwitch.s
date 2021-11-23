@@ -52,7 +52,7 @@ sub_080886A4: @ 0x080886A4
 	subs r1, #5
 	movs r0, #2
 	strb r0, [r1]
-	ldr r0, _08088700 @ =gUnk_080FD168
+	ldr r0, _08088700 @ =gHitbox_1
 	str r0, [r4, #0x48]
 	adds r0, r4, #0
 	adds r0, #0x84
@@ -67,7 +67,7 @@ sub_080886A4: @ 0x080886A4
 	bl InitializeAnimation
 	b _08088716
 	.align 2, 0
-_08088700: .4byte gUnk_080FD168
+_08088700: .4byte gHitbox_1
 _08088704:
 	strb r5, [r4, #0xc]
 	ldrb r0, [r4, #0x10]

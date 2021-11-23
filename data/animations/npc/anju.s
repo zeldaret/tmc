@@ -5,37 +5,37 @@
     .align 2
 
 
-gUnk_081136D8:: @ 081136D8
-	.incbin "baserom.gba", 0x1136D8, 0x0000011
+gSpriteAnimations_Anju_4:: @ 081136D8
+	.include "animations/gSpriteAnimations_Anju_4.s"
 
-gUnk_081136E9:: @ 081136E9
-	.incbin "baserom.gba", 0x1136E9, 0x0000011
+gSpriteAnimations_Anju_5:: @ 081136E9
+	.include "animations/gSpriteAnimations_Anju_5.s"
 
-gUnk_081136FA:: @ 081136FA
-	.incbin "baserom.gba", 0x1136FA, 0x0000011
+gSpriteAnimations_Anju_6:: @ 081136FA
+	.include "animations/gSpriteAnimations_Anju_6.s"
 
-gUnk_0811370B:: @ 0811370B
-	.incbin "baserom.gba", 0x11370B, 0x0000011
+gSpriteAnimations_Anju_7:: @ 0811370B
+	.include "animations/gSpriteAnimations_Anju_7.s"
 
-gUnk_0811371C:: @ 0811371C
-	.incbin "baserom.gba", 0x11371C, 0x0000005
+gSpriteAnimations_Anju_0:: @ 0811371C
+	.include "animations/gSpriteAnimations_Anju_0.s"
 
-gUnk_08113721:: @ 08113721
-	.incbin "baserom.gba", 0x113721, 0x0000005
+gSpriteAnimations_Anju_1:: @ 08113721
+	.include "animations/gSpriteAnimations_Anju_1.s"
 
-gUnk_08113726:: @ 08113726
-	.incbin "baserom.gba", 0x113726, 0x0000005
+gSpriteAnimations_Anju_2:: @ 08113726
+	.include "animations/gSpriteAnimations_Anju_2.s"
 
-gUnk_0811372B:: @ 0811372B
-	.incbin "baserom.gba", 0x11372B, 0x0000005
+gSpriteAnimations_Anju_3:: @ 0811372B
+	.include "animations/gSpriteAnimations_Anju_3.s"
 
-gUnk_08113730:: @ 08113730
-	.4byte gUnk_0811371C
-	.4byte gUnk_08113721
-	.4byte gUnk_08113726
-	.4byte gUnk_0811372B
-	.4byte gUnk_081136D8
-	.4byte gUnk_081136E9
-	.4byte gUnk_081136FA
-	.4byte gUnk_0811370B
+gSpriteAnimations_Anju:: @ 08113730
+	.4byte gSpriteAnimations_Anju_0
+	.4byte gSpriteAnimations_Anju_1
+	.4byte gSpriteAnimations_Anju_2
+	.4byte gSpriteAnimations_Anju_3
+	.4byte gSpriteAnimations_Anju_4
+	.4byte gSpriteAnimations_Anju_5
+	.4byte gSpriteAnimations_Anju_6
+	.4byte gSpriteAnimations_Anju_7
 	.4byte 00000000

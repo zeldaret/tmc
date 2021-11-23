@@ -14,7 +14,7 @@ script_0800B0F6:
 	_0807EB74
 	CallWithArg sub_0806BC94, 0x00000004
 	Call sub_0806BCE8
-	_0807EA94
+	WaitUntilTextboxCloses
 	Call sub_0807DF50
 	_0807E878
 	Call sub_0806BCB8

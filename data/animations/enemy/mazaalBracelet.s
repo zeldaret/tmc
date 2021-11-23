@@ -4,110 +4,105 @@
 	.section .rodata
     .align 2
 
-gUnk_080CFD60:: @ 080CFD60
-	.incbin "baserom.gba", 0x0CFD60, 0x0000011
+gSpriteAnimations_MazaalBracelet_0:: @ 080CFD60
+	.include "animations/gSpriteAnimations_MazaalBracelet_0.s"
 
-gUnk_080CFD71:: @ 080CFD71
-	.incbin "baserom.gba", 0x0CFD71, 0x0000011
+gSpriteAnimations_MazaalBracelet_1:: @ 080CFD71
+	.include "animations/gSpriteAnimations_MazaalBracelet_1.s"
 
-gUnk_080CFD82:: @ 080CFD82
-	.incbin "baserom.gba", 0x0CFD82, 0x0000054
+gSpriteAnimations_MazaalBracelet_2:: @ 080CFD82
+	.include "animations/gSpriteAnimations_MazaalBracelet_2.s"
 
-gUnk_080CFDD6:: @ 080CFDD6
-	.incbin "baserom.gba", 0x0CFDD6, 0x0000013
+gSpriteAnimations_MazaalBracelet_3:: @ 080CFDD6
+	.include "animations/gSpriteAnimations_MazaalBracelet_3.s"
 
-gUnk_080CFDE9:: @ 080CFDE9
-	.incbin "baserom.gba", 0x0CFDE9, 0x0000041
+gSpriteAnimations_MazaalBracelet_4:: @ 080CFE2A
+	.include "animations/gSpriteAnimations_MazaalBracelet_4.s"
 
-gUnk_080CFE2A:: @ 080CFE2A
-	.incbin "baserom.gba", 0x0CFE2A, 0x000000D
+gSpriteAnimations_MazaalBracelet_5:: @ 080CFE37
+	.include "animations/gSpriteAnimations_MazaalBracelet_5.s"
 
-gUnk_080CFE37:: @ 080CFE37
-	.incbin "baserom.gba", 0x0CFE37, 0x000000D
+gSpriteAnimations_MazaalBracelet_6:: @ 080CFE44
+	.include "animations/gSpriteAnimations_MazaalBracelet_6.s"
 
-gUnk_080CFE44:: @ 080CFE44
-	.incbin "baserom.gba", 0x0CFE44, 0x0000008
+gSpriteAnimations_MazaalBracelet_7:: @ 080CFE4C
+	.include "animations/gSpriteAnimations_MazaalBracelet_7.s"
 
-gUnk_080CFE4C:: @ 080CFE4C
-	.incbin "baserom.gba", 0x0CFE4C, 0x0000008
+gSpriteAnimations_MazaalBracelet_8:: @ 080CFE54
+	.include "animations/gSpriteAnimations_MazaalBracelet_8.s"
 
-gUnk_080CFE54:: @ 080CFE54
-	.incbin "baserom.gba", 0x0CFE54, 0x0000004
+gSpriteAnimations_MazaalBracelet_9:: @ 080CFE58
+	.include "animations/gSpriteAnimations_MazaalBracelet_9.s"
 
-gUnk_080CFE58:: @ 080CFE58
-	.incbin "baserom.gba", 0x0CFE58, 0x0000004
+gSpriteAnimations_MazaalBracelet_10:: @ 080CFE5C
+	.include "animations/gSpriteAnimations_MazaalBracelet_10.s"
 
-gUnk_080CFE5C:: @ 080CFE5C
-	.incbin "baserom.gba", 0x0CFE5C, 0x0000004
+gSpriteAnimations_MazaalBracelet_11:: @ 080CFE60
+	.include "animations/gSpriteAnimations_MazaalBracelet_11.s"
 
-gUnk_080CFE60:: @ 080CFE60
-	.incbin "baserom.gba", 0x0CFE60, 0x0000011
+gSpriteAnimations_MazaalBracelet_12:: @ 080CFE71
+	.include "animations/gSpriteAnimations_MazaalBracelet_12.s"
 
-gUnk_080CFE71:: @ 080CFE71
-	.incbin "baserom.gba", 0x0CFE71, 0x0000005
+gSpriteAnimations_MazaalBracelet_13:: @ 080CFE76
+	.include "animations/gSpriteAnimations_MazaalBracelet_13.s"
 
-gUnk_080CFE76:: @ 080CFE76
-	.incbin "baserom.gba", 0x0CFE76, 0x0000005
+gSpriteAnimations_MazaalBracelet_14:: @ 080CFE7B
+	.include "animations/gSpriteAnimations_MazaalBracelet_14.s"
 
-gUnk_080CFE7B:: @ 080CFE7B
-	.incbin "baserom.gba", 0x0CFE7B, 0x0000005
+gSpriteAnimations_MazaalBracelet_15:: @ 080CFE80
+	.include "animations/gSpriteAnimations_MazaalBracelet_15.s"
 
-gUnk_080CFE80:: @ 080CFE80
-	.incbin "baserom.gba", 0x0CFE80, 0x0000005
+gSpriteAnimations_MazaalBracelet_16:: @ 080CFE85
+	.include "animations/gSpriteAnimations_MazaalBracelet_16.s"
 
-gUnk_080CFE85:: @ 080CFE85
-	.incbin "baserom.gba", 0x0CFE85, 0x0000005
+gSpriteAnimations_MazaalBracelet_17:: @ 080CFE8A
+	.include "animations/gSpriteAnimations_MazaalBracelet_17.s"
 
-gUnk_080CFE8A:: @ 080CFE8A
-	.incbin "baserom.gba", 0x0CFE8A, 0x0000005
+gSpriteAnimations_MazaalBracelet_18:: @ 080CFE8F
+	.include "animations/gSpriteAnimations_MazaalBracelet_18.s"
 
-gUnk_080CFE8F:: @ 080CFE8F
-	.incbin "baserom.gba", 0x0CFE8F, 0x0000005
+gSpriteAnimations_MazaalBracelet_19:: @ 080CFE94
+	.include "animations/gSpriteAnimations_MazaalBracelet_19.s"
 
-gUnk_080CFE94:: @ 080CFE94
-	.incbin "baserom.gba", 0x0CFE94, 0x0000005
+gSpriteAnimations_MazaalBracelet_20:: @ 080CFE99
+	.include "animations/gSpriteAnimations_MazaalBracelet_20.s"
 
-gUnk_080CFE99:: @ 080CFE99
-	.incbin "baserom.gba", 0x0CFE99, 0x0000005
+gSpriteAnimations_MazaalBracelet_21:: @ 080CFE9E
+	.include "animations/gSpriteAnimations_MazaalBracelet_21.s"
 
-gUnk_080CFE9E:: @ 080CFE9E
-	.incbin "baserom.gba", 0x0CFE9E, 0x0000005
+gSpriteAnimations_MazaalBracelet_22:: @ 080CFEA3
+	.include "animations/gSpriteAnimations_MazaalBracelet_22.s"
 
-gUnk_080CFEA3:: @ 080CFEA3
-	.incbin "baserom.gba", 0x0CFEA3, 0x000000D
+gSpriteAnimations_MazaalBracelet_23:: @ 080CFEB0
+	.include "animations/gSpriteAnimations_MazaalBracelet_23.s"
 
-gUnk_080CFEB0:: @ 080CFEB0
-	.incbin "baserom.gba", 0x0CFEB0, 0x0000011
+gSpriteAnimations_MazaalBracelet_24:: @ 080CFEC1
+	.include "animations/gSpriteAnimations_MazaalBracelet_24.s"
 
-gUnk_080CFEC1:: @ 080CFEC1
-	.incbin "baserom.gba", 0x0CFEC1, 0x0000013
-
-gUnk_080CFED4:: @ 080CFED4
-	.4byte gUnk_080CFD60
-	.4byte gUnk_080CFD71
-	.4byte gUnk_080CFD82
-	.4byte gUnk_080CFDD6
-	.4byte gUnk_080CFE2A
-	.4byte gUnk_080CFE37
-	.4byte gUnk_080CFE44
-	.4byte gUnk_080CFE4C
-	.4byte gUnk_080CFE54
-	.4byte gUnk_080CFE58
-
-gUnk_080CFEFC:: @ 080CFEFC
-	.4byte gUnk_080CFE5C
-	.4byte gUnk_080CFE60
-	.4byte gUnk_080CFE71
-	.4byte gUnk_080CFE76
-	.4byte gUnk_080CFE7B
-	.4byte gUnk_080CFE80
-	.4byte gUnk_080CFE85
-	.4byte gUnk_080CFE8A
-	.4byte gUnk_080CFE8F
-	.4byte gUnk_080CFE94
-	.4byte gUnk_080CFE99
-	.4byte gUnk_080CFE9E
-	.4byte gUnk_080CFEA3
-	.4byte gUnk_080CFEB0
-	.4byte gUnk_080CFEC1
+gSpriteAnimations_MazaalBracelet:: @ 080CFED4
+	.4byte gSpriteAnimations_MazaalBracelet_0
+	.4byte gSpriteAnimations_MazaalBracelet_1
+	.4byte gSpriteAnimations_MazaalBracelet_2
+	.4byte gSpriteAnimations_MazaalBracelet_3
+	.4byte gSpriteAnimations_MazaalBracelet_4
+	.4byte gSpriteAnimations_MazaalBracelet_5
+	.4byte gSpriteAnimations_MazaalBracelet_6
+	.4byte gSpriteAnimations_MazaalBracelet_7
+	.4byte gSpriteAnimations_MazaalBracelet_8
+	.4byte gSpriteAnimations_MazaalBracelet_9
+	.4byte gSpriteAnimations_MazaalBracelet_10
+	.4byte gSpriteAnimations_MazaalBracelet_11
+	.4byte gSpriteAnimations_MazaalBracelet_12
+	.4byte gSpriteAnimations_MazaalBracelet_13
+	.4byte gSpriteAnimations_MazaalBracelet_14
+	.4byte gSpriteAnimations_MazaalBracelet_15
+	.4byte gSpriteAnimations_MazaalBracelet_16
+	.4byte gSpriteAnimations_MazaalBracelet_17
+	.4byte gSpriteAnimations_MazaalBracelet_18
+	.4byte gSpriteAnimations_MazaalBracelet_19
+	.4byte gSpriteAnimations_MazaalBracelet_20
+	.4byte gSpriteAnimations_MazaalBracelet_21
+	.4byte gSpriteAnimations_MazaalBracelet_22
+	.4byte gSpriteAnimations_MazaalBracelet_23
+	.4byte gSpriteAnimations_MazaalBracelet_24
 	.4byte 00000000

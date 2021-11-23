@@ -6,7 +6,7 @@
 	.syntax unified
 
 	.text
-    
+
 	.include "data/scripts/script_08008B5C.inc"
 	.include "data/scripts/script_08008D50.inc"
 	.include "data/scripts/script_08008D8C.inc"

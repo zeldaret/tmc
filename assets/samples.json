@@ -1,0 +1,1662 @@
+[
+  {
+    "offsets": {
+      "EU": 1095256,
+      "JP": -123008,
+      "DEMO_USA": 41596,
+      "DEMO_JP": -122808
+    }
+  },
+  {
+    "path": "programmable_wave_samples/gUnk_08A11BAC.bin",
+    "start": 10558380,
+    "size": 48
+  },
+  {
+    "path": "programmable_wave_samples/gUnk_08A11BDC.bin",
+    "start": 10558428,
+    "size": 48
+  },
+  {
+    "path": "programmable_wave_samples/gUnk_08A11C0C.bin",
+    "start": 10558476,
+    "size": 16
+  },
+  {
+    "path": "programmable_wave_samples/gUnk_08A11C1C.bin",
+    "start": 10558492,
+    "size": 32
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08A12ED0.bin",
+    "start": 10563280,
+    "size": 14144,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08A16610.bin",
+    "start": 10577424,
+    "size": 16188,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08A1A54C.bin",
+    "start": 10593612,
+    "size": 20724,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08A1F640.bin",
+    "start": 10614336,
+    "size": 15204,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08A231A4.bin",
+    "start": 10629540,
+    "size": 3924,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08A240F8.bin",
+    "start": 10633464,
+    "size": 16980,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08A2834C.bin",
+    "start": 10650444,
+    "size": 16908,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08A2C558.bin",
+    "start": 10667352,
+    "size": 35228,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08A34EF4.bin",
+    "start": 10702580,
+    "size": 30760,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08A3C71C.bin",
+    "start": 10733340,
+    "size": 35396,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08A45160.bin",
+    "start": 10768736,
+    "size": 11832,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08A47F98.bin",
+    "start": 10780568,
+    "size": 28240,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08A4EDE8.bin",
+    "start": 10808808,
+    "size": 23428,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08A5496C.bin",
+    "start": 10832236,
+    "size": 24480,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08A5A90C.bin",
+    "start": 10856716,
+    "size": 13868,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08A5DF38.bin",
+    "start": 10870584,
+    "size": 33892,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08A6639C.bin",
+    "start": 10904476,
+    "size": 26516,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08A6CB30.bin",
+    "start": 10930992,
+    "size": 51088,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08A792C0.bin",
+    "start": 10982080,
+    "size": 11420,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08A7BF5C.bin",
+    "start": 10993500,
+    "size": 6188,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08A7D788.bin",
+    "start": 10999688,
+    "size": 12700,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08A80924.bin",
+    "start": 11012388,
+    "size": 17576,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08A84DCC.bin",
+    "start": 11029964,
+    "size": 14984,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08A88854.bin",
+    "start": 11044948,
+    "size": 28244,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08A8F6A8.bin",
+    "start": 11073192,
+    "size": 22612,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08A94EFC.bin",
+    "start": 11095804,
+    "size": 31564,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08A9CA48.bin",
+    "start": 11127368,
+    "size": 23768,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08AA2720.bin",
+    "start": 11151136,
+    "size": 31408,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08AAA1D0.bin",
+    "start": 11182544,
+    "size": 7944,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08AAC0D8.bin",
+    "start": 11190488,
+    "size": 81172,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08ABFDEC.bin",
+    "start": 11271660,
+    "size": 31640,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08AC7984.bin",
+    "start": 11303300,
+    "size": 88276,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08ADD258.bin",
+    "start": 11391576,
+    "size": 84964,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08AF1E3C.bin",
+    "start": 11476540,
+    "size": 15956,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08AF5C90.bin",
+    "start": 11492496,
+    "size": 77444,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B08B14.bin",
+    "start": 11569940,
+    "size": 31316,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B10568.bin",
+    "start": 11601256,
+    "size": 50964,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B1CC7C.bin",
+    "start": 11652220,
+    "size": 36948,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B25CD0.bin",
+    "start": 11689168,
+    "size": 19116,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B2A77C.bin",
+    "start": 11708284,
+    "size": 17428,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B2EB90.bin",
+    "start": 11725712,
+    "size": 45520,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B39D60.bin",
+    "start": 11771232,
+    "size": 22716,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B3F61C.bin",
+    "start": 11793948,
+    "size": 31480,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B47114.bin",
+    "start": 11825428,
+    "size": 11116,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B49C80.bin",
+    "start": 11836544,
+    "size": 3924,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B4ABD4.bin",
+    "start": 11840468,
+    "size": 6812,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B4C670.bin",
+    "start": 11847280,
+    "size": 1348,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B4CBB4.bin",
+    "start": 11848628,
+    "size": 5848,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B4E28C.bin",
+    "start": 11854476,
+    "size": 13740,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B51838.bin",
+    "start": 11868216,
+    "size": 17268,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B55BAC.bin",
+    "start": 11885484,
+    "size": 3748,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B56A50.bin",
+    "start": 11889232,
+    "size": 10356,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B592C4.bin",
+    "start": 11899588,
+    "size": 8104,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B5B26C.bin",
+    "start": 11907692,
+    "size": 2844,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B5BD88.bin",
+    "start": 11910536,
+    "size": 3960,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B5CD00.bin",
+    "start": 11914496,
+    "size": 4908,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B5E02C.bin",
+    "start": 11919404,
+    "size": 21616,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B6349C.bin",
+    "start": 11941020,
+    "size": 2620,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B63ED8.bin",
+    "start": 11943640,
+    "size": 2692,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B6495C.bin",
+    "start": 11946332,
+    "size": 16576,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B68A1C.bin",
+    "start": 11962908,
+    "size": 6148,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B6A220.bin",
+    "start": 11969056,
+    "size": 10076,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B6C97C.bin",
+    "start": 11979132,
+    "size": 7104,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B6E53C.bin",
+    "start": 11986236,
+    "size": 8024,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B70494.bin",
+    "start": 11994260,
+    "size": 8580,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B72618.bin",
+    "start": 12002840,
+    "size": 3972,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B7359C.bin",
+    "start": 12006812,
+    "size": 17940,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B77BB0.bin",
+    "start": 12024752,
+    "size": 13372,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B7AFEC.bin",
+    "start": 12038124,
+    "size": 9024,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B7D32C.bin",
+    "start": 12047148,
+    "size": 16612,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B81410.bin",
+    "start": 12063760,
+    "size": 6964,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B82F44.bin",
+    "start": 12070724,
+    "size": 12968,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B861EC.bin",
+    "start": 12083692,
+    "size": 6328,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B87AA4.bin",
+    "start": 12090020,
+    "size": 13088,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B8ADC4.bin",
+    "start": 12103108,
+    "size": 11452,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B8DA80.bin",
+    "start": 12114560,
+    "size": 24336,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B93990.bin",
+    "start": 12138896,
+    "size": 14276,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B97154.bin",
+    "start": 12153172,
+    "size": 11472,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B99E24.bin",
+    "start": 12164644,
+    "size": 7676,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08B9BC20.bin",
+    "start": 12172320,
+    "size": 18584,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08BA04B8.bin",
+    "start": 12190904,
+    "size": 23508,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08BA608C.bin",
+    "start": 12214412,
+    "size": 6496,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08BA79EC.bin",
+    "start": 12220908,
+    "size": 30572,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08BAF158.bin",
+    "start": 12251480,
+    "size": 11992,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08BB2030.bin",
+    "start": 12263472,
+    "size": 16580,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08BB60F4.bin",
+    "start": 12280052,
+    "size": 4612,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08BB72F8.bin",
+    "start": 12284664,
+    "size": 4072,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08BB82E0.bin",
+    "start": 12288736,
+    "size": 16524,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08BBC36C.bin",
+    "start": 12305260,
+    "size": 14100,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08BBFA80.bin",
+    "start": 12319360,
+    "size": 13512,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08BC2F48.bin",
+    "start": 12332872,
+    "size": 7240,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08BC4B90.bin",
+    "start": 12340112,
+    "size": 6032,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08BC6320.bin",
+    "start": 12346144,
+    "size": 6576,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08BC7CD0.bin",
+    "start": 12352720,
+    "size": 59088,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08BD63A0.bin",
+    "start": 12411808,
+    "size": 19392,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08BDAF60.bin",
+    "start": 12431200,
+    "size": 12020,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08BDDE54.bin",
+    "start": 12443220,
+    "size": 15908,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08BE1C78.bin",
+    "start": 12459128,
+    "size": 17972,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08BE62AC.bin",
+    "start": 12477100,
+    "size": 10496,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08BE8BAC.bin",
+    "start": 12487596,
+    "size": 9764,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08BEB1D0.bin",
+    "start": 12497360,
+    "size": 4488,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08BEC358.bin",
+    "start": 12501848,
+    "size": 16140,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08BF0264.bin",
+    "start": 12517988,
+    "size": 14928,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08BF3CB4.bin",
+    "start": 12532916,
+    "size": 16400,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08BF7CC4.bin",
+    "start": 12549316,
+    "size": 15152,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08BFB7F4.bin",
+    "start": 12564468,
+    "size": 11700,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08BFE5A8.bin",
+    "start": 12576168,
+    "size": 15136,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C020C8.bin",
+    "start": 12591304,
+    "size": 17428,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C064DC.bin",
+    "start": 12608732,
+    "size": 15660,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C0A208.bin",
+    "start": 12624392,
+    "size": 12880,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C0D458.bin",
+    "start": 12637272,
+    "size": 8228,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C0F47C.bin",
+    "start": 12645500,
+    "size": 7480,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C111B4.bin",
+    "start": 12652980,
+    "size": 16988,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C15410.bin",
+    "start": 12669968,
+    "size": 18280,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C19B78.bin",
+    "start": 12688248,
+    "size": 10584,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C1C4D0.bin",
+    "start": 12698832,
+    "size": 13040,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C1F7C0.bin",
+    "start": 12711872,
+    "size": 21244,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C24ABC.bin",
+    "start": 12733116,
+    "size": 16048,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C2896C.bin",
+    "start": 12749164,
+    "size": 8692,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C2AB60.bin",
+    "start": 12757856,
+    "size": 11124,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C2D6D4.bin",
+    "start": 12768980,
+    "size": 8500,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C2F808.bin",
+    "start": 12777480,
+    "size": 4852,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C30AFC.bin",
+    "start": 12782332,
+    "size": 7652,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C328E0.bin",
+    "start": 12789984,
+    "size": 24524,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C388AC.bin",
+    "start": 12814508,
+    "size": 6216,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C3A0F4.bin",
+    "start": 12820724,
+    "size": 16048,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C3DFA4.bin",
+    "start": 12836772,
+    "size": 2564,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C3E9A8.bin",
+    "start": 12839336,
+    "size": 12332,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C419D4.bin",
+    "start": 12851668,
+    "size": 14088,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C450DC.bin",
+    "start": 12865756,
+    "size": 13976,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C48774.bin",
+    "start": 12879732,
+    "size": 19416,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C4D34C.bin",
+    "start": 12899148,
+    "size": 2664,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C4DDB4.bin",
+    "start": 12901812,
+    "size": 5072,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C4F184.bin",
+    "start": 12906884,
+    "size": 8592,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C51314.bin",
+    "start": 12915476,
+    "size": 24328,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C5721C.bin",
+    "start": 12939804,
+    "size": 17180,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C5B538.bin",
+    "start": 12956984,
+    "size": 19908,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C602FC.bin",
+    "start": 12976892,
+    "size": 6132,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C61AF0.bin",
+    "start": 12983024,
+    "size": 6788,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C63574.bin",
+    "start": 12989812,
+    "size": 5096,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C6495C.bin",
+    "start": 12994908,
+    "size": 34144,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C6CEBC.bin",
+    "start": 13029052,
+    "size": 5952,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C6E5FC.bin",
+    "start": 13035004,
+    "size": 5836,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C6FCC8.bin",
+    "start": 13040840,
+    "size": 11176,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C72870.bin",
+    "start": 13052016,
+    "size": 7180,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C7447C.bin",
+    "start": 13059196,
+    "size": 1324,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C749A8.bin",
+    "start": 13060520,
+    "size": 48296,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C80650.bin",
+    "start": 13108816,
+    "size": 71960,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C91F68.bin",
+    "start": 13180776,
+    "size": 6376,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C93850.bin",
+    "start": 13187152,
+    "size": 14472,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C970D8.bin",
+    "start": 13201624,
+    "size": 4876,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08C983E4.bin",
+    "start": 13206500,
+    "size": 34864,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CA0C14.bin",
+    "start": 13241364,
+    "size": 7948,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CA2B20.bin",
+    "start": 13249312,
+    "size": 24412,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CA8A7C.bin",
+    "start": 13273724,
+    "size": 6628,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CAA460.bin",
+    "start": 13280352,
+    "size": 5620,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CABA54.bin",
+    "start": 13285972,
+    "size": 9392,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CADF04.bin",
+    "start": 13295364,
+    "size": 10056,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CB064C.bin",
+    "start": 13305420,
+    "size": 10176,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CB2E0C.bin",
+    "start": 13315596,
+    "size": 7060,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CB49A0.bin",
+    "start": 13322656,
+    "size": 13012,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CB7C74.bin",
+    "start": 13335668,
+    "size": 7916,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CB9B60.bin",
+    "start": 13343584,
+    "size": 9612,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CBC0EC.bin",
+    "start": 13353196,
+    "size": 5592,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CBD6C4.bin",
+    "start": 13358788,
+    "size": 4816,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CBE994.bin",
+    "start": 13363604,
+    "size": 16744,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CC2AFC.bin",
+    "start": 13380348,
+    "size": 3028,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CC36D0.bin",
+    "start": 13383376,
+    "size": 2772,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CC41A4.bin",
+    "start": 13386148,
+    "size": 6824,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CC5C4C.bin",
+    "start": 13392972,
+    "size": 88,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CC5CA4.bin",
+    "start": 13393060,
+    "size": 6064,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CC7454.bin",
+    "start": 13399124,
+    "size": 9740,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CC9A60.bin",
+    "start": 13408864,
+    "size": 9444,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CCBF44.bin",
+    "start": 13418308,
+    "size": 7048,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CCDACC.bin",
+    "start": 13425356,
+    "size": 9028,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CCFE10.bin",
+    "start": 13434384,
+    "size": 5768,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CD1498.bin",
+    "start": 13440152,
+    "size": 5652,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CD2AAC.bin",
+    "start": 13445804,
+    "size": 4956,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CD3E08.bin",
+    "start": 13450760,
+    "size": 10512,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CD6718.bin",
+    "start": 13461272,
+    "size": 3796,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CD75EC.bin",
+    "start": 13465068,
+    "size": 19128,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CDC0A4.bin",
+    "start": 13484196,
+    "size": 19304,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CE0C0C.bin",
+    "start": 13503500,
+    "size": 5928,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CE2334.bin",
+    "start": 13509428,
+    "size": 17976,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CE696C.bin",
+    "start": 13527404,
+    "size": 15416,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CEA5A4.bin",
+    "start": 13542820,
+    "size": 7776,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CEC404.bin",
+    "start": 13550596,
+    "size": 20296,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CF134C.bin",
+    "start": 13570892,
+    "size": 20328,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CF62B4.bin",
+    "start": 13591220,
+    "size": 15904,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CFA0D4.bin",
+    "start": 13607124,
+    "size": 13152,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08CFD434.bin",
+    "start": 13620276,
+    "size": 11552,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D00154.bin",
+    "start": 13631828,
+    "size": 31432,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D07C1C.bin",
+    "start": 13663260,
+    "size": 11160,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D0A7B4.bin",
+    "start": 13674420,
+    "size": 16324,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D0E778.bin",
+    "start": 13690744,
+    "size": 6456,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D100B0.bin",
+    "start": 13697200,
+    "size": 9708,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D1269C.bin",
+    "start": 13706908,
+    "size": 11964,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D15558.bin",
+    "start": 13718872,
+    "size": 4072,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D16540.bin",
+    "start": 13722944,
+    "size": 18308,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D1ACC4.bin",
+    "start": 13741252,
+    "size": 16280,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D1EC5C.bin",
+    "start": 13757532,
+    "size": 7168,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D2085C.bin",
+    "start": 13764700,
+    "size": 5128,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D21C64.bin",
+    "start": 13769828,
+    "size": 8804,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D23EC8.bin",
+    "start": 13778632,
+    "size": 3180,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D24B34.bin",
+    "start": 13781812,
+    "size": 8860,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D26DD0.bin",
+    "start": 13790672,
+    "size": 5864,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D284B8.bin",
+    "start": 13796536,
+    "size": 3396,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D291FC.bin",
+    "start": 13799932,
+    "size": 6668,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D2AC08.bin",
+    "start": 13806600,
+    "size": 13524,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D2E0DC.bin",
+    "start": 13820124,
+    "size": 6928,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D2FBEC.bin",
+    "start": 13827052,
+    "size": 19684,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D348D0.bin",
+    "start": 13846736,
+    "size": 10164,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D37084.bin",
+    "start": 13856900,
+    "size": 8604,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D39220.bin",
+    "start": 13865504,
+    "size": 8564,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D3B394.bin",
+    "start": 13874068,
+    "size": 19604,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D40028.bin",
+    "start": 13893672,
+    "size": 7464,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D41D50.bin",
+    "start": 13901136,
+    "size": 8740,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D43F74.bin",
+    "start": 13909876,
+    "size": 15476,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D47BE8.bin",
+    "start": 13925352,
+    "size": 9036,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D49F34.bin",
+    "start": 13934388,
+    "size": 8352,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D4BFD4.bin",
+    "start": 13942740,
+    "size": 8612,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D4E178.bin",
+    "start": 13951352,
+    "size": 14556,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D51A54.bin",
+    "start": 13965908,
+    "size": 5640,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D5305C.bin",
+    "start": 13971548,
+    "size": 6724,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D54AA0.bin",
+    "start": 13978272,
+    "size": 11448,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D57758.bin",
+    "start": 13989720,
+    "size": 6328,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D59010.bin",
+    "start": 13996048,
+    "size": 17144,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D5D308.bin",
+    "start": 14013192,
+    "size": 12384,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D60368.bin",
+    "start": 14025576,
+    "size": 4560,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D61538.bin",
+    "start": 14030136,
+    "size": 7876,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D633FC.bin",
+    "start": 14038012,
+    "size": 10272,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D65C1C.bin",
+    "start": 14048284,
+    "size": 9088,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D67F9C.bin",
+    "start": 14057372,
+    "size": 4788,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D69250.bin",
+    "start": 14062160,
+    "size": 9204,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D6B644.bin",
+    "start": 14071364,
+    "size": 9508,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D6DB68.bin",
+    "start": 14080872,
+    "size": 5136,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D6EF78.bin",
+    "start": 14086008,
+    "size": 4532,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D7012C.bin",
+    "start": 14090540,
+    "size": 6492,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D71A88.bin",
+    "start": 14097032,
+    "size": 7392,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D73768.bin",
+    "start": 14104424,
+    "size": 6344,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D75030.bin",
+    "start": 14110768,
+    "size": 3944,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D75F98.bin",
+    "start": 14114712,
+    "size": 5944,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D776D0.bin",
+    "start": 14120656,
+    "size": 5732,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D78D34.bin",
+    "start": 14126388,
+    "size": 5980,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D7A490.bin",
+    "start": 14132368,
+    "size": 3396,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D7B1D4.bin",
+    "start": 14135764,
+    "size": 5620,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D7C7C8.bin",
+    "start": 14141384,
+    "size": 7292,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D7E444.bin",
+    "start": 14148676,
+    "size": 6668,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D7FE50.bin",
+    "start": 14155344,
+    "size": 11252,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D82A44.bin",
+    "start": 14166596,
+    "size": 11604,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D85798.bin",
+    "start": 14178200,
+    "size": 6588,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D87154.bin",
+    "start": 14184788,
+    "size": 12592,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D8A284.bin",
+    "start": 14197380,
+    "size": 14372,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D8DAA8.bin",
+    "start": 14211752,
+    "size": 14400,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D912E8.bin",
+    "start": 14226152,
+    "size": 13668,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D9484C.bin",
+    "start": 14239820,
+    "size": 7596,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D965F8.bin",
+    "start": 14247416,
+    "size": 8680,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D987E0.bin",
+    "start": 14256096,
+    "size": 8336,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D9A870.bin",
+    "start": 14264432,
+    "size": 8644,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08D9CA34.bin",
+    "start": 14273076,
+    "size": 16452,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08DA0A78.bin",
+    "start": 14289528,
+    "size": 15116,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08DA4584.bin",
+    "start": 14304644,
+    "size": 25024,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08DAA744.bin",
+    "start": 14329668,
+    "size": 16312,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08DAE6FC.bin",
+    "start": 14345980,
+    "size": 20908,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08DB38A8.bin",
+    "start": 14366888,
+    "size": 17828,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08DB7E4C.bin",
+    "start": 14384716,
+    "size": 25856,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08DBE34C.bin",
+    "start": 14410572,
+    "size": 624,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08DBE5BC.bin",
+    "start": 14411196,
+    "size": 4196,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08DBF620.bin",
+    "start": 14415392,
+    "size": 8472,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08DC1738.bin",
+    "start": 14423864,
+    "size": 14100,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08DC4E4C.bin",
+    "start": 14437964,
+    "size": 13168,
+    "type": "aif"
+  },
+  {
+    "path": "direct_sound_samples/gUnk_08DC81BC.bin",
+    "start": 14451132,
+    "size": 17088,
+    "type": "aif"
+  }
+]

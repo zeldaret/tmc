@@ -4,17 +4,17 @@
 	.section .rodata
     .align 2
 
-gUnk_080CEF08:: @ 080CEF08
-	.incbin "baserom.gba", 0x0CEF08, 0x0000004
+gSpriteAnimations_MazaalMacro_1:: @ 080CEF08
+	.include "animations/gSpriteAnimations_MazaalMacro_1.s"
 
-gUnk_080CEF0C:: @ 080CEF0C
-	.incbin "baserom.gba", 0x0CEF0C, 0x0000011
+gSpriteAnimations_MazaalMacro_0:: @ 080CEF0C
+	.include "animations/gSpriteAnimations_MazaalMacro_0.s"
 
-gUnk_080CEF1D:: @ 080CEF1D
-	.incbin "baserom.gba", 0x0CEF1D, 0x0000007
+gSpriteAnimations_MazaalMacro_2:: @ 080CEF1D
+	.include "animations/gSpriteAnimations_MazaalMacro_2.s"
 
-gUnk_080CEF24:: @ 080CEF24
-	.4byte gUnk_080CEF0C
-	.4byte gUnk_080CEF08
-	.4byte gUnk_080CEF1D
+gSpriteAnimations_MazaalMacro:: @ 080CEF24
+	.4byte gSpriteAnimations_MazaalMacro_0
+	.4byte gSpriteAnimations_MazaalMacro_1
+	.4byte gSpriteAnimations_MazaalMacro_2
 	.4byte 00000000

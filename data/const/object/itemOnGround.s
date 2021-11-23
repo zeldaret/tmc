@@ -49,19 +49,4 @@ gUnk_0811E840:: @ 0811E840
 	.4byte sub_080813F0
 
 gUnk_0811E84C:: @ 0811E84C
-	.incbin "baserom.gba", 0x11E84C, 0x00000B0
-
-gUnk_0811E8FC:: @ 0811E8FC
-	.incbin "baserom.gba", 0x11E8FC, 0x00000FA
-
-gUnk_0811E9F6:: @ 0811E9F6
-	.incbin "baserom.gba", 0x11E9F6, 0x0000001
-
-gUnk_0811E9F7:: @ 0811E9F7
-	.incbin "baserom.gba", 0x11E9F7, 0x0000124
-
-gUnk_0811EB1B:: @ 0811EB1B
-	.incbin "baserom.gba", 0x11EB1B, 0x00000DE
-    
-gUnk_0811EBF9:: @ 0811EBF9
-	.incbin "baserom.gba", 0x11EBF9, 0x0000003
+	.incbin "itemOnGround/gUnk_0811E84C.bin"

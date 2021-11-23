@@ -8,7 +8,7 @@
 #include "flags.h"
 #include "object.h"
 
-extern Hitbox gUnk_080FD170;
+extern Hitbox gHitbox_2;
 typedef struct {
     u32 unk_00;
     s8 unk_04;
@@ -35,7 +35,7 @@ void NPC4E(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
         this->spriteSettings.draw = 4;
-        this->hitbox = &gUnk_080FD170;
+        this->hitbox = &gHitbox_2;
         sub_0807DD50(this);
     } else {
         sub_0807DD94(this, 0);

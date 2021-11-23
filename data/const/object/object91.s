@@ -9,7 +9,7 @@ gUnk_08123DD4:: @ 08123DD4
 	.4byte sub_0809C5C4
 
 gUnk_08123DDC:: @ 08123DDC
-	.incbin "baserom.gba", 0x123DDC, 0x000001C
+	.incbin "object91/gUnk_08123DDC.bin"
 
 gUnk_08123DF8:: @ 08123DF8
 	.4byte sub_0809C7E4
@@ -22,7 +22,7 @@ gUnk_08123DF8:: @ 08123DF8
 	.4byte sub_0809CB4C
 
 gUnk_08123E18:: @ 08123E18
-	.incbin "baserom.gba", 0x123E18, 0x0000004
+	.incbin "object91/gUnk_08123E18.bin"
 
 gUnk_08123E1C:: @ 08123E1C
-	.incbin "baserom.gba", 0x123E1C, 0x0000004
+	.incbin "object91/gUnk_08123E1C.bin"

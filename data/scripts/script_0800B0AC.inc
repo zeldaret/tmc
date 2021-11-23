@@ -4,7 +4,7 @@ SCRIPT_START script_0800B0AC
 	Call sub_0807FA40
 	Call sub_0807DF28
 	_0807EB28 0x0b5f
-	_0807EA94
+	WaitUntilTextboxCloses
 	Call sub_0807DF50
 	_0807E878
 	DoPostScriptAction 0x0006

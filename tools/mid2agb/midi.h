@@ -33,9 +33,9 @@ enum class EventType
 {
     EndOfTie = 0x01,
     Label = 0x11,
-    LoopEnd = 0x12,
+    LoopEnd = 0x38, // To place it last if at the same time as other meta events, but before notes on the same frame
     LoopEndBegin = 0x13,
-    LoopBegin = 0x14,
+    LoopBegin = 0x24, // To place it last if at the same time as other meta events, but before notes on the same frame
     OriginalTimeSignature = 0x15,
     WholeNoteMark = 0x16,
     Pattern = 0x17,

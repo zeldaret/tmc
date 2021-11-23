@@ -23,7 +23,7 @@ SCRIPT_START script_08013AA6
 	CameraTargetEntity
 	Wait 0x003c
 	_0807EB28 0x1502
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807F0B4 0x0004
 	CameraTargetPlayer
 	SetLocalFlag 0x007c

@@ -20,14 +20,14 @@ SCRIPT_START script_08009B78
 	DoPostScriptAction 0x0001
 	MessageFromTargetPos 0x1009, 0x0000
 	_0807E8E4_1 
-	_0807EA94 
+	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000008
 	_0807EB8C
 	DoPostScriptAction 0x0001
 	MessageFromTargetPos 0x100b, 0x0000
-	_0807EA94 
+	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000008
@@ -46,7 +46,7 @@ SCRIPT_START script_08009B78
 	_0807E8E4_1
 	DoPostScriptAction 0x0001
 	MessageFromTargetPos 0x100c, 0x0000
-	_0807EA94 
+	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000004
 script_08009C4C:

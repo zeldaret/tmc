@@ -3,7 +3,7 @@
 #include "effects.h"
 
 extern s32 sub_080AF090(Entity*);
-extern s32 sub_080A7EB0(Entity*);
+extern s32 IsProjectileOffScreen(Entity*);
 
 extern void (*const LakituLightning_Functions[])(Entity*);
 extern void (*const LakituLightning_Actions[])(Entity*);
@@ -39,7 +39,7 @@ void LakituLightning_Action1(Entity* this) {
         CreateFx(this, FX_BLUE_EFC, 0);
         DeleteThisEntity();
     }
-    if (sub_080A7EB0(this) != 0) {
+    if (IsProjectileOffScreen(this) != 0) {
         DeleteThisEntity();
     }
 }

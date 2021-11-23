@@ -4,12 +4,12 @@
 	.section .rodata
     .align 2
 
-gUnk_08122800:: @ 08122800
-	.incbin "baserom.gba", 0x122800, 0x0000019
+gSpriteAnimations_Whirlwind_0:: @ 08122800
+	.include "animations/gSpriteAnimations_Whirlwind_0.s"
 
-gUnk_08122819:: @ 08122819
-	.incbin "baserom.gba", 0x122819, 0x000001B
+gSpriteAnimations_Whirlwind_1:: @ 08122819
+	.include "animations/gSpriteAnimations_Whirlwind_1.s"
 
-gUnk_08122834:: @ 08122834
-	.4byte gUnk_08122800
-	.4byte gUnk_08122819
+gSpriteAnimations_Whirlwind:: @ 08122834
+	.4byte gSpriteAnimations_Whirlwind_0
+	.4byte gSpriteAnimations_Whirlwind_1

@@ -4,145 +4,142 @@
 	.section .rodata
 @    .align 2
 
-gUnk_08111FE2:: @ 08111FE2
-	.incbin "baserom.gba", 0x111FE2, 0x0000005
+gSpriteAnimations_Dog_0:: @ 08111FE2
+	.include "animations/gSpriteAnimations_Dog_0.s"
 
-gUnk_08111FE7:: @ 08111FE7
-	.incbin "baserom.gba", 0x111FE7, 0x0000005
+gSpriteAnimations_Dog_1:: @ 08111FE7
+	.include "animations/gSpriteAnimations_Dog_1.s"
 
-gUnk_08111FEC:: @ 08111FEC
-	.incbin "baserom.gba", 0x111FEC, 0x0000005
+gSpriteAnimations_Dog_2:: @ 08111FEC
+	.include "animations/gSpriteAnimations_Dog_2.s"
 
-gUnk_08111FF1:: @ 08111FF1
-	.incbin "baserom.gba", 0x111FF1, 0x0000005
+gSpriteAnimations_Dog_3:: @ 08111FF1
+	.include "animations/gSpriteAnimations_Dog_3.s"
 
-gUnk_08111FF6:: @ 08111FF6
-	.incbin "baserom.gba", 0x111FF6, 0x0000011
+gSpriteAnimations_Dog_4:: @ 08111FF6
+	.include "animations/gSpriteAnimations_Dog_4.s"
 
-gUnk_08112007:: @ 08112007
-	.incbin "baserom.gba", 0x112007, 0x0000007
+gSpriteAnimations_Dog_6:: @ 08112007
+	.include "animations/gSpriteAnimations_Dog_6.s"
 
-gUnk_0811200E:: @ 0811200E
-	.incbin "baserom.gba", 0x11200E, 0x000000A
+gSpriteAnimations_Dog_10:: @ 08112018
+	.include "animations/gSpriteAnimations_Dog_10.s"
 
-gUnk_08112018:: @ 08112018
-	.incbin "baserom.gba", 0x112018, 0x0000005
+gSpriteAnimations_Dog_11:: @ 0811201D
+	.include "animations/gSpriteAnimations_Dog_11.s"
 
-gUnk_0811201D:: @ 0811201D
-	.incbin "baserom.gba", 0x11201D, 0x0000005
+gSpriteAnimations_Dog_9:: @ 08112022
+	.include "animations/gSpriteAnimations_Dog_9.s"
 
-gUnk_08112022:: @ 08112022
-	.incbin "baserom.gba", 0x112022, 0x0000005
+gSpriteAnimations_Dog_8:: @ 08112027
+	.include "animations/gSpriteAnimations_Dog_8.s"
 
-gUnk_08112027:: @ 08112027
-	.incbin "baserom.gba", 0x112027, 0x0000005
+gSpriteAnimations_Dog_16:: @ 0811202C
+	.include "animations/gSpriteAnimations_Dog_16.s"
 
-gUnk_0811202C:: @ 0811202C
-	.incbin "baserom.gba", 0x11202C, 0x0000005
+gSpriteAnimations_Dog_19:: @ 08112031
+	.include "animations/gSpriteAnimations_Dog_19.s"
 
-gUnk_08112031:: @ 08112031
-	.incbin "baserom.gba", 0x112031, 0x0000005
+gSpriteAnimations_Dog_17:: @ 08112036
+	.include "animations/gSpriteAnimations_Dog_17.s"
 
-gUnk_08112036:: @ 08112036
-	.incbin "baserom.gba", 0x112036, 0x0000005
+gSpriteAnimations_Dog_21:: @ 0811203B
+	.include "animations/gSpriteAnimations_Dog_21.s"
 
-gUnk_0811203B:: @ 0811203B
-	.incbin "baserom.gba", 0x11203B, 0x0000005
+gSpriteAnimations_Dog_22:: @ 08112040
+	.include "animations/gSpriteAnimations_Dog_22.s"
 
-gUnk_08112040:: @ 08112040
-	.incbin "baserom.gba", 0x112040, 0x0000005
+gSpriteAnimations_Dog_20:: @ 08112045
+	.include "animations/gSpriteAnimations_Dog_20.s"
 
-gUnk_08112045:: @ 08112045
-	.incbin "baserom.gba", 0x112045, 0x0000005
+gSpriteAnimations_Dog_13:: @ 0811204A
+	.include "animations/gSpriteAnimations_Dog_13.s"
 
-gUnk_0811204A:: @ 0811204A
-	.incbin "baserom.gba", 0x11204A, 0x0000005
+gSpriteAnimations_Dog_14:: @ 0811204F
+	.include "animations/gSpriteAnimations_Dog_14.s"
 
-gUnk_0811204F:: @ 0811204F
-	.incbin "baserom.gba", 0x11204F, 0x0000005
+gSpriteAnimations_Dog_12:: @ 08112054
+	.include "animations/gSpriteAnimations_Dog_12.s"
 
-gUnk_08112054:: @ 08112054
-	.incbin "baserom.gba", 0x112054, 0x0000005
+gSpriteAnimations_Dog_24:: @ 08112059
+	.include "animations/gSpriteAnimations_Dog_24.s"
 
-gUnk_08112059:: @ 08112059
-	.incbin "baserom.gba", 0x112059, 0x0000005
+gSpriteAnimations_Dog_27:: @ 0811205E
+	.include "animations/gSpriteAnimations_Dog_27.s"
 
-gUnk_0811205E:: @ 0811205E
-	.incbin "baserom.gba", 0x11205E, 0x0000005
+gSpriteAnimations_Dog_25:: @ 08112063
+	.include "animations/gSpriteAnimations_Dog_25.s"
 
-gUnk_08112063:: @ 08112063
-	.incbin "baserom.gba", 0x112063, 0x0000005
+gSpriteAnimations_Dog_30:: @ 08112068
+	.include "animations/gSpriteAnimations_Dog_30.s"
 
-gUnk_08112068:: @ 08112068
-	.incbin "baserom.gba", 0x112068, 0x000000D
+gSpriteAnimations_Dog_31:: @ 08112075
+	.include "animations/gSpriteAnimations_Dog_31.s"
 
-gUnk_08112075:: @ 08112075
-	.incbin "baserom.gba", 0x112075, 0x000000D
+gSpriteAnimations_Dog_29:: @ 08112082
+	.include "animations/gSpriteAnimations_Dog_29.s"
 
-gUnk_08112082:: @ 08112082
-	.incbin "baserom.gba", 0x112082, 0x000000D
+gSpriteAnimations_Dog_28:: @ 0811208F
+	.include "animations/gSpriteAnimations_Dog_28.s"
 
-gUnk_0811208F:: @ 0811208F
-	.incbin "baserom.gba", 0x11208F, 0x000000D
+gSpriteAnimations_Dog_32:: @ 0811209C
+	.include "animations/gSpriteAnimations_Dog_32.s"
 
-gUnk_0811209C:: @ 0811209C
-	.incbin "baserom.gba", 0x11209C, 0x0000011
+gSpriteAnimations_Dog_34:: @ 081120AD
+	.include "animations/gSpriteAnimations_Dog_34.s"
 
-gUnk_081120AD:: @ 081120AD
-	.incbin "baserom.gba", 0x1120AD, 0x0000011
+gSpriteAnimations_Dog_36:: @ 081120BE
+	.include "animations/gSpriteAnimations_Dog_36.s"
 
-gUnk_081120BE:: @ 081120BE
-	.incbin "baserom.gba", 0x1120BE, 0x0000011
+gSpriteAnimations_Dog_38:: @ 081120CF
+	.include "animations/gSpriteAnimations_Dog_38.s"
 
-gUnk_081120CF:: @ 081120CF
-	.incbin "baserom.gba", 0x1120CF, 0x0000011
+gSpriteAnimations_Dog_40:: @ 081120E0
+	.include "animations/gSpriteAnimations_Dog_40.s"
 
-gUnk_081120E0:: @ 081120E0
-	.incbin "baserom.gba", 0x1120E0, 0x0000020
-
-gUnk_08112100:: @ 08112100
-	.4byte gUnk_08111FE2
-	.4byte gUnk_08111FE7
-	.4byte gUnk_08111FEC
-	.4byte gUnk_08111FF1
-	.4byte gUnk_08111FF6
-	.4byte gUnk_08111FF6
-	.4byte gUnk_08112007
-	.4byte gUnk_08112007
-	.4byte gUnk_08112027
-	.4byte gUnk_08112022
-	.4byte gUnk_08112018
-	.4byte gUnk_0811201D
-	.4byte gUnk_08112054
-	.4byte gUnk_0811204A
-	.4byte gUnk_0811204F
-	.4byte gUnk_0811204A
-	.4byte gUnk_0811202C
-	.4byte gUnk_08112036
-	.4byte gUnk_0811202C
-	.4byte gUnk_08112031
-	.4byte gUnk_08112045
-	.4byte gUnk_0811203B
-	.4byte gUnk_08112040
-	.4byte gUnk_0811203B
-	.4byte gUnk_08112059
-	.4byte gUnk_08112063
-	.4byte gUnk_08112059
-	.4byte gUnk_0811205E
-	.4byte gUnk_0811208F
-	.4byte gUnk_08112082
-	.4byte gUnk_08112068
-	.4byte gUnk_08112075
-	.4byte gUnk_0811209C
-	.4byte gUnk_0811209C
-	.4byte gUnk_081120AD
-	.4byte gUnk_081120AD
-	.4byte gUnk_081120BE
-	.4byte gUnk_081120BE
-	.4byte gUnk_081120CF
-	.4byte gUnk_081120CF
-	.4byte gUnk_081120E0
-	.4byte gUnk_081120E0
-	.4byte gUnk_081120E0
-	.4byte gUnk_081120E0
+gSpriteAnimations_Dog:: @ 08112100
+	.4byte gSpriteAnimations_Dog_0
+	.4byte gSpriteAnimations_Dog_1
+	.4byte gSpriteAnimations_Dog_2
+	.4byte gSpriteAnimations_Dog_3
+	.4byte gSpriteAnimations_Dog_4
+	.4byte gSpriteAnimations_Dog_4
+	.4byte gSpriteAnimations_Dog_6
+	.4byte gSpriteAnimations_Dog_6
+	.4byte gSpriteAnimations_Dog_8
+	.4byte gSpriteAnimations_Dog_9
+	.4byte gSpriteAnimations_Dog_10
+	.4byte gSpriteAnimations_Dog_11
+	.4byte gSpriteAnimations_Dog_12
+	.4byte gSpriteAnimations_Dog_13
+	.4byte gSpriteAnimations_Dog_14
+	.4byte gSpriteAnimations_Dog_13
+	.4byte gSpriteAnimations_Dog_16
+	.4byte gSpriteAnimations_Dog_17
+	.4byte gSpriteAnimations_Dog_16
+	.4byte gSpriteAnimations_Dog_19
+	.4byte gSpriteAnimations_Dog_20
+	.4byte gSpriteAnimations_Dog_21
+	.4byte gSpriteAnimations_Dog_22
+	.4byte gSpriteAnimations_Dog_21
+	.4byte gSpriteAnimations_Dog_24
+	.4byte gSpriteAnimations_Dog_25
+	.4byte gSpriteAnimations_Dog_24
+	.4byte gSpriteAnimations_Dog_27
+	.4byte gSpriteAnimations_Dog_28
+	.4byte gSpriteAnimations_Dog_29
+	.4byte gSpriteAnimations_Dog_30
+	.4byte gSpriteAnimations_Dog_31
+	.4byte gSpriteAnimations_Dog_32
+	.4byte gSpriteAnimations_Dog_32
+	.4byte gSpriteAnimations_Dog_34
+	.4byte gSpriteAnimations_Dog_34
+	.4byte gSpriteAnimations_Dog_36
+	.4byte gSpriteAnimations_Dog_36
+	.4byte gSpriteAnimations_Dog_38
+	.4byte gSpriteAnimations_Dog_38
+	.4byte gSpriteAnimations_Dog_40
+	.4byte gSpriteAnimations_Dog_40
+	.4byte gSpriteAnimations_Dog_40
+	.4byte gSpriteAnimations_Dog_40
 	.4byte 00000000

@@ -12,4 +12,4 @@ gUnk_0811BD98:: @ 0811BD98
 	.4byte sub_080765E0
 
 gUnk_0811BDAC:: @ 0811BDAC
-	.incbin "baserom.gba", 0x11BDAC, 0x0000008
+	.incbin "itemBomb/gUnk_0811BDAC.bin"

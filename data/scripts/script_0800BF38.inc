@@ -10,7 +10,7 @@ SCRIPT_START script_0800BF38
 	_0807EB44 0x0002
 	Wait 0x003c
 	MessageNoOverlap 0x0e10
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E930 0x0008
 	Wait 0x003c
 	Jump script_0800BFA4
@@ -26,7 +26,7 @@ SCRIPT_START script_0800BF70
 	_0807E930 0x0000
 	_0807EB44 0x0006
 	Wait 0x003c
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E930 0x0008
 	Wait 0x003c
 	_0807E5F8 0x00000001
@@ -41,7 +41,7 @@ script_0800BFA8:
 	DoPostScriptAction 0x0004
 	Wait 0x003c
 	MessageNoOverlap 0x0e12
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E5F8 0x00000002
 	Call sub_08054F64
 	DoPostScriptAction 0x000f

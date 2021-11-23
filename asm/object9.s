@@ -105,7 +105,7 @@ sub_08083914: @ 0x08083914
 	adds r0, r4, #0
 	movs r1, #1
 	movs r2, #1
-	bl sub_080AE008
+	bl LoadSwapGFX
 	adds r0, r4, #0
 	adds r0, #0x60
 	ldrh r1, [r0]

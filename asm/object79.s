@@ -73,7 +73,7 @@ sub_08097FB4: @ 0x08097FB4
 	adds r0, r4, #0
 	movs r1, #1
 	movs r2, #0
-	bl sub_080AE008
+	bl LoadSwapGFX
 	ldrb r1, [r4, #0xa]
 	adds r0, r4, #0
 	bl InitAnimationForceUpdate

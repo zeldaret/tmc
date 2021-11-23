@@ -4,52 +4,49 @@
 	.section .rodata
     .align 2
 
-gUnk_080D16DC:: @ 080D16DC
-	.incbin "baserom.gba", 0x0D16DC, 0x0000009
+gSpriteAnimations_Slime_0:: @ 080D16DC
+	.include "animations/gSpriteAnimations_Slime_0.s"
 
-gUnk_080D16E5:: @ 080D16E5
-	.incbin "baserom.gba", 0x0D16E5, 0x0000010
+gSpriteAnimations_Slime_1:: @ 080D16E5
+	.include "animations/gSpriteAnimations_Slime_1.s"
 
-gUnk_080D16F5:: @ 080D16F5
-	.incbin "baserom.gba", 0x0D16F5, 0x0000018
+gSpriteAnimations_Slime_2:: @ 080D16F5
+	.include "animations/gSpriteAnimations_Slime_2.s"
 
-gUnk_080D170D:: @ 080D170D
-	.incbin "baserom.gba", 0x0D170D, 0x0000010
+gSpriteAnimations_Slime_3:: @ 080D170D
+	.include "animations/gSpriteAnimations_Slime_3.s"
 
-gUnk_080D171D:: @ 080D171D
-	.incbin "baserom.gba", 0x0D171D, 0x0000004
+gSpriteAnimations_Slime_4:: @ 080D171D
+	.include "animations/gSpriteAnimations_Slime_4.s"
 
-gUnk_080D1721:: @ 080D1721
-	.incbin "baserom.gba", 0x0D1721, 0x0000020
+gSpriteAnimations_Slime_5:: @ 080D1741
+	.include "animations/gSpriteAnimations_Slime_5.s"
 
-gUnk_080D1741:: @ 080D1741
-	.incbin "baserom.gba", 0x0D1741, 0x0000020
+gSpriteAnimations_Slime_6:: @ 080D1761
+	.include "animations/gSpriteAnimations_Slime_6.s"
 
-gUnk_080D1761:: @ 080D1761
-	.incbin "baserom.gba", 0x0D1761, 0x0000009
+gSpriteAnimations_Slime_7:: @ 080D176A
+	.include "animations/gSpriteAnimations_Slime_7.s"
 
-gUnk_080D176A:: @ 080D176A
-	.incbin "baserom.gba", 0x0D176A, 0x0000009
+gSpriteAnimations_Slime_8:: @ 080D1773
+	.include "animations/gSpriteAnimations_Slime_8.s"
 
-gUnk_080D1773:: @ 080D1773
-	.incbin "baserom.gba", 0x0D1773, 0x0000005
+gSpriteAnimations_Slime_9:: @ 080D1778
+	.include "animations/gSpriteAnimations_Slime_9.s"
 
-gUnk_080D1778:: @ 080D1778
-	.incbin "baserom.gba", 0x0D1778, 0x0000005
+gSpriteAnimations_Slime_10:: @ 080D177D
+	.include "animations/gSpriteAnimations_Slime_10.s"
 
-gUnk_080D177D:: @ 080D177D
-	.incbin "baserom.gba", 0x0D177D, 0x0000013
-
-gUnk_080D1790:: @ 080D1790
-	.4byte gUnk_080D16DC
-	.4byte gUnk_080D16E5
-	.4byte gUnk_080D16F5
-	.4byte gUnk_080D170D
-	.4byte gUnk_080D171D
-	.4byte gUnk_080D1741
-	.4byte gUnk_080D1761
-	.4byte gUnk_080D176A
-	.4byte gUnk_080D1773
-	.4byte gUnk_080D1778
-	.4byte gUnk_080D177D
+gSpriteAnimations_Slime:: @ 080D1790
+	.4byte gSpriteAnimations_Slime_0
+	.4byte gSpriteAnimations_Slime_1
+	.4byte gSpriteAnimations_Slime_2
+	.4byte gSpriteAnimations_Slime_3
+	.4byte gSpriteAnimations_Slime_4
+	.4byte gSpriteAnimations_Slime_5
+	.4byte gSpriteAnimations_Slime_6
+	.4byte gSpriteAnimations_Slime_7
+	.4byte gSpriteAnimations_Slime_8
+	.4byte gSpriteAnimations_Slime_9
+	.4byte gSpriteAnimations_Slime_10
 	.4byte 00000000

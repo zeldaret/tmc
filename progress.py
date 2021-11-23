@@ -48,7 +48,7 @@ def parse_map(non_matching_funcs):
                         asm += size
                     elif dir == 'data':
                         # scripts
-                        data += size
+                        src_data += size
                     elif dir == '..':
                         # libc
                         src += size

@@ -4,17 +4,17 @@
 	.section .rodata
     .align 2
 
-gUnk_080D0688:: @ 080D0688
-	.incbin "baserom.gba", 0x0D0688, 0x0000019
+gSpriteAnimations_VaatiProjectile_0:: @ 080D0688
+	.include "animations/gSpriteAnimations_VaatiProjectile_0.s"
 
-gUnk_080D06A1:: @ 080D06A1
-	.incbin "baserom.gba", 0x0D06A1, 0x0000011
+gSpriteAnimations_VaatiProjectile_1:: @ 080D06A1
+	.include "animations/gSpriteAnimations_VaatiProjectile_1.s"
 
-gUnk_080D06B2:: @ 080D06B2
-	.incbin "baserom.gba", 0x0D06B2, 0x000001E
+gSpriteAnimations_VaatiProjectile_2:: @ 080D06B2
+	.include "animations/gSpriteAnimations_VaatiProjectile_2.s"
 
-gUnk_080D06D0:: @ 080D06D0
-	.4byte gUnk_080D0688
-	.4byte gUnk_080D06A1
-	.4byte gUnk_080D06B2
+gSpriteAnimations_VaatiProjectile:: @ 080D06D0
+	.4byte gSpriteAnimations_VaatiProjectile_0
+	.4byte gSpriteAnimations_VaatiProjectile_1
+	.4byte gSpriteAnimations_VaatiProjectile_2
 	.4byte 00000000

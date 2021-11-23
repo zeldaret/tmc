@@ -3,34 +3,34 @@
 
 	.section .rodata
 
-gUnk_080CBE02:: @ 080CBE02
-	.incbin "baserom.gba", 0x0CBE02, 0x0000019
+gSpriteAnimations_Sluggula_0:: @ 080CBE02
+	.include "animations/gSpriteAnimations_Sluggula_0.s"
 
-gUnk_080CBE1B:: @ 080CBE1B
-	.incbin "baserom.gba", 0x0CBE1B, 0x0000019
+gSpriteAnimations_Sluggula_1:: @ 080CBE1B
+	.include "animations/gSpriteAnimations_Sluggula_1.s"
 
-gUnk_080CBE34:: @ 080CBE34
-	.incbin "baserom.gba", 0x0CBE34, 0x0000019
+gSpriteAnimations_Sluggula_2:: @ 080CBE34
+	.include "animations/gSpriteAnimations_Sluggula_2.s"
 
-gUnk_080CBE4D:: @ 080CBE4D
-	.incbin "baserom.gba", 0x0CBE4D, 0x0000019
+gSpriteAnimations_Sluggula_3:: @ 080CBE4D
+	.include "animations/gSpriteAnimations_Sluggula_3.s"
 
-gUnk_080CBE66:: @ 080CBE66
-	.incbin "baserom.gba", 0x0CBE66, 0x0000024
+gSpriteAnimations_Sluggula_4:: @ 080CBE66
+	.include "animations/gSpriteAnimations_Sluggula_4.s"
 
-gUnk_080CBE8A:: @ 080CBE8A
-	.incbin "baserom.gba", 0x0CBE8A, 0x0000014
+gSpriteAnimations_Sluggula_5:: @ 080CBE8A
+	.include "animations/gSpriteAnimations_Sluggula_5.s"
 
-gUnk_080CBE9E:: @ 080CBE9E
-	.incbin "baserom.gba", 0x0CBE9E, 0x0000006
+gSpriteAnimations_Sluggula_6:: @ 080CBE9E
+	.include "animations/gSpriteAnimations_Sluggula_6.s"
 
-gUnk_080CBEA4:: @ 080CBEA4
-	.4byte gUnk_080CBE02
-	.4byte gUnk_080CBE1B
-	.4byte gUnk_080CBE34
-	.4byte gUnk_080CBE4D
-	.4byte gUnk_080CBE66
-	.4byte gUnk_080CBE8A
-	.4byte gUnk_080CBE9E
+gSpriteAnimations_Sluggula:: @ 080CBEA4
+	.4byte gSpriteAnimations_Sluggula_0
+	.4byte gSpriteAnimations_Sluggula_1
+	.4byte gSpriteAnimations_Sluggula_2
+	.4byte gSpriteAnimations_Sluggula_3
+	.4byte gSpriteAnimations_Sluggula_4
+	.4byte gSpriteAnimations_Sluggula_5
+	.4byte gSpriteAnimations_Sluggula_6
 	.4byte 00000000
 

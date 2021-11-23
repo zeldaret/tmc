@@ -4,69 +4,54 @@
 	.section .rodata
     .align 2
 
-gUnk_08111380:: @ 08111380
-	.incbin "baserom.gba", 0x111380, 0x0000005
+gSpriteAnimations_MountainMinish_0:: @ 08111380
+	.include "animations/gSpriteAnimations_MountainMinish_0.s"
 
-gUnk_08111385:: @ 08111385
-	.incbin "baserom.gba", 0x111385, 0x0000005
+gSpriteAnimations_MountainMinish_1:: @ 08111385
+	.include "animations/gSpriteAnimations_MountainMinish_1.s"
 
-gUnk_0811138A:: @ 0811138A
-	.incbin "baserom.gba", 0x11138A, 0x0000005
+gSpriteAnimations_MountainMinish_2:: @ 0811138A
+	.include "animations/gSpriteAnimations_MountainMinish_2.s"
 
-gUnk_0811138F:: @ 0811138F
-	.incbin "baserom.gba", 0x11138F, 0x0000005
+gSpriteAnimations_MountainMinish_3:: @ 0811138F
+	.include "animations/gSpriteAnimations_MountainMinish_3.s"
 
-gUnk_08111394:: @ 08111394
-	.incbin "baserom.gba", 0x111394, 0x0000025
+gSpriteAnimations_MountainMinish_7:: @ 08111394
+	.include "animations/gSpriteAnimations_MountainMinish_7.s"
 
-gUnk_081113B9:: @ 081113B9
-	.incbin "baserom.gba", 0x1113B9, 0x0000025
+gSpriteAnimations_MountainMinish_5:: @ 081113B9
+	.include "animations/gSpriteAnimations_MountainMinish_5.s"
 
-gUnk_081113DE:: @ 081113DE
-	.incbin "baserom.gba", 0x1113DE, 0x0000021
+gSpriteAnimations_MountainMinish_4:: @ 081113DE
+	.include "animations/gSpriteAnimations_MountainMinish_4.s"
 
-gUnk_081113FF:: @ 081113FF
-	.incbin "baserom.gba", 0x1113FF, 0x0000008
+gSpriteAnimations_MountainMinish_8:: @ 081113FF
+	.include "animations/gSpriteAnimations_MountainMinish_8.s"
 
-gUnk_08111407:: @ 08111407
-	.incbin "baserom.gba", 0x111407, 0x0000005
+gSpriteAnimations_MountainMinish_9:: @ 08111424
+	.include "animations/gSpriteAnimations_MountainMinish_9.s"
 
-gUnk_0811140C:: @ 0811140C
-	.incbin "baserom.gba", 0x11140C, 0x0000002
+gSpriteAnimations_MountainMinish_10:: @ 08111449
+	.include "animations/gSpriteAnimations_MountainMinish_10.s"
 
-gUnk_0811140E:: @ 0811140E
-	.incbin "baserom.gba", 0x11140E, 0x0000005
+gSpriteAnimations_MountainMinish_11:: @ 081114BA
+	.include "animations/gSpriteAnimations_MountainMinish_11.s"
 
-gUnk_08111413:: @ 08111413
-	.incbin "baserom.gba", 0x111413, 0x0000009
+gSpriteAnimations_MountainMinish_12:: @ 081114E3
+	.include "animations/gSpriteAnimations_MountainMinish_12.s"
 
-gUnk_0811141C:: @ 0811141C
-	.incbin "baserom.gba", 0x11141C, 0x0000008
-
-gUnk_08111424:: @ 08111424
-	.incbin "baserom.gba", 0x111424, 0x0000025
-
-gUnk_08111449:: @ 08111449
-	.incbin "baserom.gba", 0x111449, 0x0000071
-
-gUnk_081114BA:: @ 081114BA
-	.incbin "baserom.gba", 0x1114BA, 0x0000029
-
-gUnk_081114E3:: @ 081114E3
-	.incbin "baserom.gba", 0x1114E3, 0x0000005
-
-gUnk_081114E8:: @ 081114E8
-	.4byte gUnk_08111380
-	.4byte gUnk_08111385
-	.4byte gUnk_0811138A
-	.4byte gUnk_0811138F
-	.4byte gUnk_081113DE
-	.4byte gUnk_081113B9
-	.4byte gUnk_081113DE
-	.4byte gUnk_08111394
-	.4byte gUnk_081113FF
-	.4byte gUnk_08111424
-	.4byte gUnk_08111449
-	.4byte gUnk_081114BA
-	.4byte gUnk_081114E3
+gSpriteAnimations_MountainMinish:: @ 081114E8
+	.4byte gSpriteAnimations_MountainMinish_0
+	.4byte gSpriteAnimations_MountainMinish_1
+	.4byte gSpriteAnimations_MountainMinish_2
+	.4byte gSpriteAnimations_MountainMinish_3
+	.4byte gSpriteAnimations_MountainMinish_4
+	.4byte gSpriteAnimations_MountainMinish_5
+	.4byte gSpriteAnimations_MountainMinish_4
+	.4byte gSpriteAnimations_MountainMinish_7
+	.4byte gSpriteAnimations_MountainMinish_8
+	.4byte gSpriteAnimations_MountainMinish_9
+	.4byte gSpriteAnimations_MountainMinish_10
+	.4byte gSpriteAnimations_MountainMinish_11
+	.4byte gSpriteAnimations_MountainMinish_12
 	.4byte 00000000

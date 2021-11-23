@@ -50,11 +50,11 @@ _0809F934:
 	subs r1, #5
 	movs r0, #2
 	strb r0, [r1]
-	ldr r0, _0809F960 @ =gUnk_080FD150
+	ldr r0, _0809F960 @ =gHitbox_0
 	str r0, [r4, #0x48]
 	pop {r4, pc}
 	.align 2, 0
-_0809F960: .4byte gUnk_080FD150
+_0809F960: .4byte gHitbox_0
 
 	thumb_func_start sub_0809F964
 sub_0809F964: @ 0x0809F964

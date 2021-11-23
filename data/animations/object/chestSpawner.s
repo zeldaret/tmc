@@ -4,25 +4,25 @@
 	.section .rodata
     .align 2
 
-gUnk_0811F8B8:: @ 0811F8B8
-	.incbin "baserom.gba", 0x11F8B8, 0x0000011
+gSpriteAnimations_ChestSpawner_0:: @ 0811F8B8
+	.include "animations/gSpriteAnimations_ChestSpawner_0.s"
 
-gUnk_0811F8C9:: @ 0811F8C9
-	.incbin "baserom.gba", 0x11F8C9, 0x0000005
+gSpriteAnimations_ChestSpawner_1:: @ 0811F8C9
+	.include "animations/gSpriteAnimations_ChestSpawner_1.s"
 
-gUnk_0811F8CE:: @ 0811F8CE
-	.incbin "baserom.gba", 0x11F8CE, 0x0000005
+gSpriteAnimations_ChestSpawner_4:: @ 0811F8CE
+	.include "animations/gSpriteAnimations_ChestSpawner_4.s"
 
-gUnk_0811F8D3:: @ 0811F8D3
-	.incbin "baserom.gba", 0x11F8D3, 0x0000015
+gSpriteAnimations_ChestSpawner_2:: @ 0811F8D3
+	.include "animations/gSpriteAnimations_ChestSpawner_2.s"
 
-gUnk_0811F8E8:: @ 0811F8E8
-	.incbin "baserom.gba", 0x11F8E8, 0x0000008
+gSpriteAnimations_ChestSpawner_3:: @ 0811F8E8
+	.include "animations/gSpriteAnimations_ChestSpawner_3.s"
 
-gUnk_0811F8F0:: @ 0811F8F0
-	.4byte gUnk_0811F8B8
-	.4byte gUnk_0811F8C9
-	.4byte gUnk_0811F8D3
-	.4byte gUnk_0811F8E8
-	.4byte gUnk_0811F8CE
+gSpriteAnimations_ChestSpawner:: @ 0811F8F0
+	.4byte gSpriteAnimations_ChestSpawner_0
+	.4byte gSpriteAnimations_ChestSpawner_1
+	.4byte gSpriteAnimations_ChestSpawner_2
+	.4byte gSpriteAnimations_ChestSpawner_3
+	.4byte gSpriteAnimations_ChestSpawner_4
 	.4byte 00000000

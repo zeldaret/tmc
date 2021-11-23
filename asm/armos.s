@@ -551,7 +551,7 @@ sub_08030590: @ 0x08030590
 	strb r0, [r1]
 	adds r1, #4
 	strb r0, [r1]
-	ldr r0, _080305B8 @ =gUnk_080FD2F8
+	ldr r0, _080305B8 @ =gHitbox_15
 	str r0, [r4, #0x48]
 	adds r0, r4, #0
 	movs r1, #5
@@ -560,7 +560,7 @@ sub_08030590: @ 0x08030590
 	bl sub_080307EC
 	pop {r4, pc}
 	.align 2, 0
-_080305B8: .4byte gUnk_080FD2F8
+_080305B8: .4byte gHitbox_15
 
 	thumb_func_start sub_080305BC
 sub_080305BC: @ 0x080305BC

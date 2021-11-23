@@ -4,69 +4,69 @@
 	.section .rodata
 @    .align 2
 
-gUnk_080D1EB6:: @ 080D1EB6
-	.incbin "baserom.gba", 0x0D1EB6, 0x0000009
+gSpriteAnimations_GyorgChild_0:: @ 080D1EB6
+	.include "animations/gSpriteAnimations_GyorgChild_0.s"
 
-gUnk_080D1EBF:: @ 080D1EBF
-	.incbin "baserom.gba", 0x0D1EBF, 0x0000009
+gSpriteAnimations_GyorgChild_1:: @ 080D1EBF
+	.include "animations/gSpriteAnimations_GyorgChild_1.s"
 
-gUnk_080D1EC8:: @ 080D1EC8
-	.incbin "baserom.gba", 0x0D1EC8, 0x0000009
+gSpriteAnimations_GyorgChild_2:: @ 080D1EC8
+	.include "animations/gSpriteAnimations_GyorgChild_2.s"
 
-gUnk_080D1ED1:: @ 080D1ED1
-	.incbin "baserom.gba", 0x0D1ED1, 0x0000009
+gSpriteAnimations_GyorgChild_3:: @ 080D1ED1
+	.include "animations/gSpriteAnimations_GyorgChild_3.s"
 
-gUnk_080D1EDA:: @ 080D1EDA
-	.incbin "baserom.gba", 0x0D1EDA, 0x0000009
+gSpriteAnimations_GyorgChild_4:: @ 080D1EDA
+	.include "animations/gSpriteAnimations_GyorgChild_4.s"
 
-gUnk_080D1EE3:: @ 080D1EE3
-	.incbin "baserom.gba", 0x0D1EE3, 0x0000009
+gSpriteAnimations_GyorgChild_5:: @ 080D1EE3
+	.include "animations/gSpriteAnimations_GyorgChild_5.s"
 
-gUnk_080D1EEC:: @ 080D1EEC
-	.incbin "baserom.gba", 0x0D1EEC, 0x0000009
+gSpriteAnimations_GyorgChild_6:: @ 080D1EEC
+	.include "animations/gSpriteAnimations_GyorgChild_6.s"
 
-gUnk_080D1EF5:: @ 080D1EF5
-	.incbin "baserom.gba", 0x0D1EF5, 0x0000009
+gSpriteAnimations_GyorgChild_7:: @ 080D1EF5
+	.include "animations/gSpriteAnimations_GyorgChild_7.s"
 
-gUnk_080D1EFE:: @ 080D1EFE
-	.incbin "baserom.gba", 0x0D1EFE, 0x0000004
+gSpriteAnimations_GyorgChild_8:: @ 080D1EFE
+	.include "animations/gSpriteAnimations_GyorgChild_8.s"
 
-gUnk_080D1F02:: @ 080D1F02
-	.incbin "baserom.gba", 0x0D1F02, 0x0000004
+gSpriteAnimations_GyorgChild_9:: @ 080D1F02
+	.include "animations/gSpriteAnimations_GyorgChild_9.s"
 
-gUnk_080D1F06:: @ 080D1F06
-	.incbin "baserom.gba", 0x0D1F06, 0x0000004
+gSpriteAnimations_GyorgChild_10:: @ 080D1F06
+	.include "animations/gSpriteAnimations_GyorgChild_10.s"
 
-gUnk_080D1F0A:: @ 080D1F0A
-	.incbin "baserom.gba", 0x0D1F0A, 0x0000004
+gSpriteAnimations_GyorgChild_11:: @ 080D1F0A
+	.include "animations/gSpriteAnimations_GyorgChild_11.s"
 
-gUnk_080D1F0E:: @ 080D1F0E
-	.incbin "baserom.gba", 0x0D1F0E, 0x0000004
+gSpriteAnimations_GyorgChild_12:: @ 080D1F0E
+	.include "animations/gSpriteAnimations_GyorgChild_12.s"
 
-gUnk_080D1F12:: @ 080D1F12
-	.incbin "baserom.gba", 0x0D1F12, 0x0000004
+gSpriteAnimations_GyorgChild_13:: @ 080D1F12
+	.include "animations/gSpriteAnimations_GyorgChild_13.s"
 
-gUnk_080D1F16:: @ 080D1F16
-	.incbin "baserom.gba", 0x0D1F16, 0x0000004
+gSpriteAnimations_GyorgChild_14:: @ 080D1F16
+	.include "animations/gSpriteAnimations_GyorgChild_14.s"
 
-gUnk_080D1F1A:: @ 080D1F1A
-	.incbin "baserom.gba", 0x0D1F1A, 0x0000006
+gSpriteAnimations_GyorgChild_15:: @ 080D1F1A
+	.include "animations/gSpriteAnimations_GyorgChild_15.s"
 
-gUnk_080D1F20:: @ 080D1F20
-	.4byte gUnk_080D1EB6
-	.4byte gUnk_080D1EBF
-	.4byte gUnk_080D1EC8
-	.4byte gUnk_080D1ED1
-	.4byte gUnk_080D1EDA
-	.4byte gUnk_080D1EE3
-	.4byte gUnk_080D1EEC
-	.4byte gUnk_080D1EF5
-	.4byte gUnk_080D1EFE
-	.4byte gUnk_080D1F02
-	.4byte gUnk_080D1F06
-	.4byte gUnk_080D1F0A
-	.4byte gUnk_080D1F0E
-	.4byte gUnk_080D1F12
-	.4byte gUnk_080D1F16
-	.4byte gUnk_080D1F1A
+gSpriteAnimations_GyorgChild:: @ 080D1F20
+	.4byte gSpriteAnimations_GyorgChild_0
+	.4byte gSpriteAnimations_GyorgChild_1
+	.4byte gSpriteAnimations_GyorgChild_2
+	.4byte gSpriteAnimations_GyorgChild_3
+	.4byte gSpriteAnimations_GyorgChild_4
+	.4byte gSpriteAnimations_GyorgChild_5
+	.4byte gSpriteAnimations_GyorgChild_6
+	.4byte gSpriteAnimations_GyorgChild_7
+	.4byte gSpriteAnimations_GyorgChild_8
+	.4byte gSpriteAnimations_GyorgChild_9
+	.4byte gSpriteAnimations_GyorgChild_10
+	.4byte gSpriteAnimations_GyorgChild_11
+	.4byte gSpriteAnimations_GyorgChild_12
+	.4byte gSpriteAnimations_GyorgChild_13
+	.4byte gSpriteAnimations_GyorgChild_14
+	.4byte gSpriteAnimations_GyorgChild_15
 	.4byte 00000000

@@ -4,13 +4,13 @@
 	.section .rodata
     .align 2
 
-gUnk_08124994:: @ 08124994
-	.incbin "baserom.gba", 0x124994, 0x000000C
+gSpriteAnimations_JailBars_0:: @ 08124994
+	.include "animations/gSpriteAnimations_JailBars_0.s"
 
-gUnk_081249A0:: @ 081249A0
-	.incbin "baserom.gba", 0x1249A0, 0x000000C
+gSpriteAnimations_JailBars_1:: @ 081249A0
+	.include "animations/gSpriteAnimations_JailBars_1.s"
 
-gUnk_081249AC:: @ 081249AC
-	.4byte gUnk_08124994
-	.4byte gUnk_081249A0
+gSpriteAnimations_JailBars:: @ 081249AC
+	.4byte gSpriteAnimations_JailBars_0
+	.4byte gSpriteAnimations_JailBars_1
 	.4byte 00000000

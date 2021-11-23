@@ -11,10 +11,7 @@ gUnk_08124950:: @ 08124950
 	.4byte nullsub_127
 
 gUnk_08124960:: @ 08124960
-	.incbin "baserom.gba", 0x124960, 0x0000005
-
-gUnk_08124965:: @ 08124965
-	.incbin "baserom.gba", 0x124965, 0x0000015
+	.incbin "jailBars/gUnk_08124960.bin"
 
 gUnk_0812497A:: @ 0812497A
-	.incbin "baserom.gba", 0x12497A, 0x000001A
+	.incbin "jailBars/gUnk_0812497A.bin"

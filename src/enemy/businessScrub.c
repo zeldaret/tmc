@@ -8,7 +8,7 @@
 #include "functions.h"
 #include "effects.h"
 
-extern void sub_0801D040(Entity*, u32);
+extern void LoadObjPalette(Entity*, u32);
 extern Entity* sub_08049DF4(u32);
 extern bool32 sub_08056338(void);
 extern void UnloadOBJPalette(Entity*);
@@ -438,7 +438,7 @@ void sub_08029078(Entity* this) {
     if (LoadFixedGFX(this, 0x72) == 0) {
         DeleteEntity(this);
     } else {
-        sub_0801D040(this, 0x6e);
+        LoadObjPalette(this, 0x6e);
         this->spriteIndex = 0xd0;
         sub_08028FDC(this);
         sub_080290E0(this, 1);

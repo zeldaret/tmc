@@ -19,4 +19,4 @@ gUnk_080CDEE8:: @ 080CDEE8
 	.4byte sub_0802F3F4
 
 gUnk_080CDEF8:: @ 080CDEF8
-	.incbin "baserom.gba", 0x0CDEF8, 0x0000004
+	.incbin "tektite/gUnk_080CDEF8.bin"

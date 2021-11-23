@@ -11,7 +11,7 @@ script_08009DD2:
 	_0807E944
 	_0807E908 0x0002
 	Call sub_0806622C
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E908 0x0003
 	_0807E930 0x000c
 	Jump script_08009DD2
@@ -37,7 +37,7 @@ script_08009DF0:
 	WaitForSomething2 0x00000001
 	_0807EB28 0x3209
 	Wait 0x000f
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	Call sub_0807DF50
 	DoPostScriptAction 0x0006

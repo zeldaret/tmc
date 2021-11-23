@@ -4,312 +4,312 @@
 	.section .rodata
 	.align 2
 
-gUnk_080CAB6C:: @ 080CAB6C
-	.incbin "baserom.gba", 0x0CAB6C, 0x0000004
+gSpriteAnimations_DarkNut_0_0:: @ 080CAB6C
+	.include "animations/gSpriteAnimations_DarkNut_0_0.s"
 
-gUnk_080CAB70:: @ 080CAB70
-	.incbin "baserom.gba", 0x0CAB70, 0x0000004
+gSpriteAnimations_DarkNut_0_1:: @ 080CAB70
+	.include "animations/gSpriteAnimations_DarkNut_0_1.s"
 
-gUnk_080CAB74:: @ 080CAB74
-	.incbin "baserom.gba", 0x0CAB74, 0x0000004
+gSpriteAnimations_DarkNut_0_2:: @ 080CAB74
+	.include "animations/gSpriteAnimations_DarkNut_0_2.s"
 
-gUnk_080CAB78:: @ 080CAB78
-	.incbin "baserom.gba", 0x0CAB78, 0x0000004
+gSpriteAnimations_DarkNut_0_3:: @ 080CAB78
+	.include "animations/gSpriteAnimations_DarkNut_0_3.s"
 
-gUnk_080CAB7C:: @ 080CAB7C
-	.incbin "baserom.gba", 0x0CAB7C, 0x0000010
+gSpriteAnimations_DarkNut_0_4:: @ 080CAB7C
+	.include "animations/gSpriteAnimations_DarkNut_0_4.s"
 
-gUnk_080CAB8C:: @ 080CAB8C
-	.incbin "baserom.gba", 0x0CAB8C, 0x0000010
+gSpriteAnimations_DarkNut_0_5:: @ 080CAB8C
+	.include "animations/gSpriteAnimations_DarkNut_0_5.s"
 
-gUnk_080CAB9C:: @ 080CAB9C
-	.incbin "baserom.gba", 0x0CAB9C, 0x0000010
+gSpriteAnimations_DarkNut_0_6:: @ 080CAB9C
+	.include "animations/gSpriteAnimations_DarkNut_0_6.s"
 
-gUnk_080CABAC:: @ 080CABAC
-	.incbin "baserom.gba", 0x0CABAC, 0x0000010
+gSpriteAnimations_DarkNut_0_7:: @ 080CABAC
+	.include "animations/gSpriteAnimations_DarkNut_0_7.s"
 
-gUnk_080CABBC:: @ 080CABBC
-	.incbin "baserom.gba", 0x0CABBC, 0x0000004
+gSpriteAnimations_DarkNut_0_8:: @ 080CABBC
+	.include "animations/gSpriteAnimations_DarkNut_0_8.s"
 
-gUnk_080CABC0:: @ 080CABC0
-	.incbin "baserom.gba", 0x0CABC0, 0x0000004
+gSpriteAnimations_DarkNut_0_9:: @ 080CABC0
+	.include "animations/gSpriteAnimations_DarkNut_0_9.s"
 
-gUnk_080CABC4:: @ 080CABC4
-	.incbin "baserom.gba", 0x0CABC4, 0x0000004
+gSpriteAnimations_DarkNut_0_10:: @ 080CABC4
+	.include "animations/gSpriteAnimations_DarkNut_0_10.s"
 
-gUnk_080CABC8:: @ 080CABC8
-	.incbin "baserom.gba", 0x0CABC8, 0x0000004
+gSpriteAnimations_DarkNut_0_11:: @ 080CABC8
+	.include "animations/gSpriteAnimations_DarkNut_0_11.s"
 
-gUnk_080CABCC:: @ 080CABCC
-	.incbin "baserom.gba", 0x0CABCC, 0x0000019
+gSpriteAnimations_DarkNut_0_12:: @ 080CABCC
+	.include "animations/gSpriteAnimations_DarkNut_0_12.s"
 
-gUnk_080CABE5:: @ 080CABE5
-	.incbin "baserom.gba", 0x0CABE5, 0x0000019
+gSpriteAnimations_DarkNut_0_13:: @ 080CABE5
+	.include "animations/gSpriteAnimations_DarkNut_0_13.s"
 
-gUnk_080CABFE:: @ 080CABFE
-	.incbin "baserom.gba", 0x0CABFE, 0x0000019
+gSpriteAnimations_DarkNut_0_14:: @ 080CABFE
+	.include "animations/gSpriteAnimations_DarkNut_0_14.s"
 
-gUnk_080CAC17:: @ 080CAC17
-	.incbin "baserom.gba", 0x0CAC17, 0x0000019
+gSpriteAnimations_DarkNut_0_15:: @ 080CAC17
+	.include "animations/gSpriteAnimations_DarkNut_0_15.s"
 
-gUnk_080CAC30:: @ 080CAC30
-	.incbin "baserom.gba", 0x0CAC30, 0x000000C
+gSpriteAnimations_DarkNut_0_16:: @ 080CAC30
+	.include "animations/gSpriteAnimations_DarkNut_0_16.s"
 
-gUnk_080CAC3C:: @ 080CAC3C
-	.incbin "baserom.gba", 0x0CAC3C, 0x000000C
+gSpriteAnimations_DarkNut_0_17:: @ 080CAC3C
+	.include "animations/gSpriteAnimations_DarkNut_0_17.s"
 
-gUnk_080CAC48:: @ 080CAC48
-	.incbin "baserom.gba", 0x0CAC48, 0x000000C
+gSpriteAnimations_DarkNut_0_18:: @ 080CAC48
+	.include "animations/gSpriteAnimations_DarkNut_0_18.s"
 
-gUnk_080CAC54:: @ 080CAC54
-	.incbin "baserom.gba", 0x0CAC54, 0x000000C
+gSpriteAnimations_DarkNut_0_19:: @ 080CAC54
+	.include "animations/gSpriteAnimations_DarkNut_0_19.s"
 
-gUnk_080CAC60:: @ 080CAC60
-	.incbin "baserom.gba", 0x0CAC60, 0x0000028
+gSpriteAnimations_DarkNut_0_20:: @ 080CAC60
+	.include "animations/gSpriteAnimations_DarkNut_0_20.s"
 
-gUnk_080CAC88:: @ 080CAC88
-	.incbin "baserom.gba", 0x0CAC88, 0x0000028
+gSpriteAnimations_DarkNut_0_21:: @ 080CAC88
+	.include "animations/gSpriteAnimations_DarkNut_0_21.s"
 
-gUnk_080CACB0:: @ 080CACB0
-	.incbin "baserom.gba", 0x0CACB0, 0x0000028
+gSpriteAnimations_DarkNut_0_22:: @ 080CACB0
+	.include "animations/gSpriteAnimations_DarkNut_0_22.s"
 
-gUnk_080CACD8:: @ 080CACD8
-	.incbin "baserom.gba", 0x0CACD8, 0x0000028
+gSpriteAnimations_DarkNut_0_23:: @ 080CACD8
+	.include "animations/gSpriteAnimations_DarkNut_0_23.s"
 
-gUnk_080CAD00:: @ 080CAD00
-	.incbin "baserom.gba", 0x0CAD00, 0x0000019
+gSpriteAnimations_DarkNut_0_24:: @ 080CAD00
+	.include "animations/gSpriteAnimations_DarkNut_0_24.s"
 
-gUnk_080CAD19:: @ 080CAD19
-	.incbin "baserom.gba", 0x0CAD19, 0x0000019
+gSpriteAnimations_DarkNut_0_25:: @ 080CAD19
+	.include "animations/gSpriteAnimations_DarkNut_0_25.s"
 
-gUnk_080CAD32:: @ 080CAD32
-	.incbin "baserom.gba", 0x0CAD32, 0x0000019
+gSpriteAnimations_DarkNut_0_26:: @ 080CAD32
+	.include "animations/gSpriteAnimations_DarkNut_0_26.s"
 
-gUnk_080CAD4B:: @ 080CAD4B
-	.incbin "baserom.gba", 0x0CAD4B, 0x0000019
+gSpriteAnimations_DarkNut_0_27:: @ 080CAD4B
+	.include "animations/gSpriteAnimations_DarkNut_0_27.s"
 
-gUnk_080CAD64:: @ 080CAD64
-	.incbin "baserom.gba", 0x0CAD64, 0x000000C
+gSpriteAnimations_DarkNut_0_28:: @ 080CAD64
+	.include "animations/gSpriteAnimations_DarkNut_0_28.s"
 
-gUnk_080CAD70:: @ 080CAD70
-	.incbin "baserom.gba", 0x0CAD70, 0x000000C
+gSpriteAnimations_DarkNut_0_29:: @ 080CAD70
+	.include "animations/gSpriteAnimations_DarkNut_0_29.s"
 
-gUnk_080CAD7C:: @ 080CAD7C
-	.incbin "baserom.gba", 0x0CAD7C, 0x000000C
+gSpriteAnimations_DarkNut_0_30:: @ 080CAD7C
+	.include "animations/gSpriteAnimations_DarkNut_0_30.s"
 
-gUnk_080CAD88:: @ 080CAD88
-	.incbin "baserom.gba", 0x0CAD88, 0x000000C
+gSpriteAnimations_DarkNut_0_31:: @ 080CAD88
+	.include "animations/gSpriteAnimations_DarkNut_0_31.s"
 
-gUnk_080CAD94:: @ 080CAD94
-	.incbin "baserom.gba", 0x0CAD94, 0x0000015
+gSpriteAnimations_DarkNut_0_32:: @ 080CAD94
+	.include "animations/gSpriteAnimations_DarkNut_0_32.s"
 
-gUnk_080CADA9:: @ 080CADA9
-	.incbin "baserom.gba", 0x0CADA9, 0x0000015
+gSpriteAnimations_DarkNut_0_33:: @ 080CADA9
+	.include "animations/gSpriteAnimations_DarkNut_0_33.s"
 
-gUnk_080CADBE:: @ 080CADBE
-	.incbin "baserom.gba", 0x0CADBE, 0x0000015
+gSpriteAnimations_DarkNut_0_34:: @ 080CADBE
+	.include "animations/gSpriteAnimations_DarkNut_0_34.s"
 
-gUnk_080CADD3:: @ 080CADD3
-	.incbin "baserom.gba", 0x0CADD3, 0x0000015
+gSpriteAnimations_DarkNut_0_35:: @ 080CADD3
+	.include "animations/gSpriteAnimations_DarkNut_0_35.s"
 
-gUnk_080CADE8:: @ 080CADE8
-	.incbin "baserom.gba", 0x0CADE8, 0x0000019
+gSpriteAnimations_DarkNut_0_36:: @ 080CADE8
+	.include "animations/gSpriteAnimations_DarkNut_0_36.s"
 
-gUnk_080CAE01:: @ 080CAE01
-	.incbin "baserom.gba", 0x0CAE01, 0x0000019
+gSpriteAnimations_DarkNut_0_37:: @ 080CAE01
+	.include "animations/gSpriteAnimations_DarkNut_0_37.s"
 
-gUnk_080CAE1A:: @ 080CAE1A
-	.incbin "baserom.gba", 0x0CAE1A, 0x0000019
+gSpriteAnimations_DarkNut_0_38:: @ 080CAE1A
+	.include "animations/gSpriteAnimations_DarkNut_0_38.s"
 
-gUnk_080CAE33:: @ 080CAE33
-	.incbin "baserom.gba", 0x0CAE33, 0x0000019
+gSpriteAnimations_DarkNut_0_39:: @ 080CAE33
+	.include "animations/gSpriteAnimations_DarkNut_0_39.s"
 
-gUnk_080CAE4C:: @ 080CAE4C
-	.incbin "baserom.gba", 0x0CAE4C, 0x0000019
+gSpriteAnimations_DarkNut_0_40:: @ 080CAE4C
+	.include "animations/gSpriteAnimations_DarkNut_0_40.s"
 
-gUnk_080CAE65:: @ 080CAE65
-	.incbin "baserom.gba", 0x0CAE65, 0x0000019
+gSpriteAnimations_DarkNut_0_41:: @ 080CAE65
+	.include "animations/gSpriteAnimations_DarkNut_0_41.s"
 
-gUnk_080CAE7E:: @ 080CAE7E
-	.incbin "baserom.gba", 0x0CAE7E, 0x0000019
+gSpriteAnimations_DarkNut_0_42:: @ 080CAE7E
+	.include "animations/gSpriteAnimations_DarkNut_0_42.s"
 
-gUnk_080CAE97:: @ 080CAE97
-	.incbin "baserom.gba", 0x0CAE97, 0x0000019
+gSpriteAnimations_DarkNut_0_43:: @ 080CAE97
+	.include "animations/gSpriteAnimations_DarkNut_0_43.s"
 
-gUnk_080CAEB0:: @ 080CAEB0
-	.incbin "baserom.gba", 0x0CAEB0, 0x0000010
+gSpriteAnimations_DarkNut_0_44:: @ 080CAEB0
+	.include "animations/gSpriteAnimations_DarkNut_0_44.s"
 
-gUnk_080CAEC0:: @ 080CAEC0
-	.incbin "baserom.gba", 0x0CAEC0, 0x0000010
+gSpriteAnimations_DarkNut_0_45:: @ 080CAEC0
+	.include "animations/gSpriteAnimations_DarkNut_0_45.s"
 
-gUnk_080CAED0:: @ 080CAED0
-	.incbin "baserom.gba", 0x0CAED0, 0x0000010
+gSpriteAnimations_DarkNut_0_46:: @ 080CAED0
+	.include "animations/gSpriteAnimations_DarkNut_0_46.s"
 
-gUnk_080CAEE0:: @ 080CAEE0
-	.incbin "baserom.gba", 0x0CAEE0, 0x0000010
+gSpriteAnimations_DarkNut_0_47:: @ 080CAEE0
+	.include "animations/gSpriteAnimations_DarkNut_0_47.s"
 
-gUnk_080CAEF0:: @ 080CAEF0
-	.incbin "baserom.gba", 0x0CAEF0, 0x0000030
+gSpriteAnimations_DarkNut_1_0:: @ 080CAEF0
+	.include "animations/gSpriteAnimations_DarkNut_1_0.s"
 
-gUnk_080CAF20:: @ 080CAF20
-	.incbin "baserom.gba", 0x0CAF20, 0x0000030
+gSpriteAnimations_DarkNut_1_1:: @ 080CAF20
+	.include "animations/gSpriteAnimations_DarkNut_1_1.s"
 
-gUnk_080CAF50:: @ 080CAF50
-	.incbin "baserom.gba", 0x0CAF50, 0x0000030
+gSpriteAnimations_DarkNut_1_2:: @ 080CAF50
+	.include "animations/gSpriteAnimations_DarkNut_1_2.s"
 
-gUnk_080CAF80:: @ 080CAF80
-	.incbin "baserom.gba", 0x0CAF80, 0x0000030
+gSpriteAnimations_DarkNut_1_3:: @ 080CAF80
+	.include "animations/gSpriteAnimations_DarkNut_1_3.s"
 
-gUnk_080CAFB0:: @ 080CAFB0
-	.incbin "baserom.gba", 0x0CAFB0, 0x0000018
+gSpriteAnimations_DarkNut_1_4:: @ 080CAFB0
+	.include "animations/gSpriteAnimations_DarkNut_1_4.s"
 
-gUnk_080CAFC8:: @ 080CAFC8
-	.incbin "baserom.gba", 0x0CAFC8, 0x0000018
+gSpriteAnimations_DarkNut_1_5:: @ 080CAFC8
+	.include "animations/gSpriteAnimations_DarkNut_1_5.s"
 
-gUnk_080CAFE0:: @ 080CAFE0
-	.incbin "baserom.gba", 0x0CAFE0, 0x0000018
+gSpriteAnimations_DarkNut_1_6:: @ 080CAFE0
+	.include "animations/gSpriteAnimations_DarkNut_1_6.s"
 
-gUnk_080CAFF8:: @ 080CAFF8
-	.incbin "baserom.gba", 0x0CAFF8, 0x0000018
+gSpriteAnimations_DarkNut_1_7:: @ 080CAFF8
+	.include "animations/gSpriteAnimations_DarkNut_1_7.s"
 
-gUnk_080CB010:: @ 080CB010
-	.incbin "baserom.gba", 0x0CB010, 0x0000035
+gSpriteAnimations_DarkNut_1_8:: @ 080CB010
+	.include "animations/gSpriteAnimations_DarkNut_1_8.s"
 
-gUnk_080CB045:: @ 080CB045
-	.incbin "baserom.gba", 0x0CB045, 0x0000035
-
-gUnk_080CB07A:: @ 080CB07A
-	.incbin "baserom.gba", 0x0CB07A, 0x0000035
-
-gUnk_080CB0AF:: @ 080CB0AF
-	.incbin "baserom.gba", 0x0CB0AF, 0x0000035
-
-gUnk_080CB0E4:: @ 080CB0E4
-	.incbin "baserom.gba", 0x0CB0E4, 0x0000008
-
-gUnk_080CB0EC:: @ 080CB0EC
-	.incbin "baserom.gba", 0x0CB0EC, 0x0000008
-
-gUnk_080CB0F4:: @ 080CB0F4
-	.incbin "baserom.gba", 0x0CB0F4, 0x0000008
-
-gUnk_080CB0FC:: @ 080CB0FC
-	.incbin "baserom.gba", 0x0CB0FC, 0x0000008
-
-gUnk_080CB104:: @ 080CB104
-	.incbin "baserom.gba", 0x0CB104, 0x0000070
-
-gUnk_080CB174:: @ 080CB174
-	.incbin "baserom.gba", 0x0CB174, 0x0000070
-
-gUnk_080CB1E4:: @ 080CB1E4
-	.incbin "baserom.gba", 0x0CB1E4, 0x0000070
-
-gUnk_080CB254:: @ 080CB254
-	.incbin "baserom.gba", 0x0CB254, 0x0000070
-
-gUnk_080CB2C4:: @ 080CB2C4
-	.incbin "baserom.gba", 0x0CB2C4, 0x0000034
-
-gUnk_080CB2F8:: @ 080CB2F8
-	.incbin "baserom.gba", 0x0CB2F8, 0x0000034
-
-gUnk_080CB32C:: @ 080CB32C
-	.incbin "baserom.gba", 0x0CB32C, 0x0000034
-
-gUnk_080CB360:: @ 080CB360
-	.incbin "baserom.gba", 0x0CB360, 0x0000034
-
-gUnk_080CB394:: @ 080CB394
-	.incbin "baserom.gba", 0x0CB394, 0x0000029
-
-gUnk_080CB3BD:: @ 080CB3BD
-	.incbin "baserom.gba", 0x0CB3BD, 0x0000029
-
-gUnk_080CB3E6:: @ 080CB3E6
-	.incbin "baserom.gba", 0x0CB3E6, 0x0000029
-
-gUnk_080CB40F:: @ 080CB40F
-	.incbin "baserom.gba", 0x0CB40F, 0x0000029
-
-gUnk_080CB438:: @ 080CB438
-	.4byte gUnk_080CAB6C
-	.4byte gUnk_080CAB70
-	.4byte gUnk_080CAB74
-	.4byte gUnk_080CAB78
-	.4byte gUnk_080CAB7C
-	.4byte gUnk_080CAB8C
-	.4byte gUnk_080CAB9C
-	.4byte gUnk_080CABAC
-	.4byte gUnk_080CABBC
-	.4byte gUnk_080CABC0
-	.4byte gUnk_080CABC4
-	.4byte gUnk_080CABC8
-	.4byte gUnk_080CABCC
-	.4byte gUnk_080CABE5
-	.4byte gUnk_080CABFE
-	.4byte gUnk_080CAC17
-	.4byte gUnk_080CAC30
-	.4byte gUnk_080CAC3C
-	.4byte gUnk_080CAC48
-	.4byte gUnk_080CAC54
-	.4byte gUnk_080CAC60
-	.4byte gUnk_080CAC88
-	.4byte gUnk_080CACB0
-	.4byte gUnk_080CACD8
-	.4byte gUnk_080CAD00
-	.4byte gUnk_080CAD19
-	.4byte gUnk_080CAD32
-	.4byte gUnk_080CAD4B
-	.4byte gUnk_080CAD64
-	.4byte gUnk_080CAD70
-	.4byte gUnk_080CAD7C
-	.4byte gUnk_080CAD88
-	.4byte gUnk_080CAD94
-	.4byte gUnk_080CADA9
-	.4byte gUnk_080CADBE
-	.4byte gUnk_080CADD3
-	.4byte gUnk_080CADE8
-	.4byte gUnk_080CAE01
-	.4byte gUnk_080CAE1A
-	.4byte gUnk_080CAE33
-	.4byte gUnk_080CAE4C
-	.4byte gUnk_080CAE65
-	.4byte gUnk_080CAE7E
-	.4byte gUnk_080CAE97
-	.4byte gUnk_080CAEB0
-	.4byte gUnk_080CAEC0
-	.4byte gUnk_080CAED0
-	.4byte gUnk_080CAEE0
+gSpriteAnimations_DarkNut_1_9:: @ 080CB045
+	.include "animations/gSpriteAnimations_DarkNut_1_9.s"
+
+gSpriteAnimations_DarkNut_1_10:: @ 080CB07A
+	.include "animations/gSpriteAnimations_DarkNut_1_10.s"
+
+gSpriteAnimations_DarkNut_1_11:: @ 080CB0AF
+	.include "animations/gSpriteAnimations_DarkNut_1_11.s"
+
+gSpriteAnimations_DarkNut_1_12:: @ 080CB0E4
+	.include "animations/gSpriteAnimations_DarkNut_1_12.s"
+
+gSpriteAnimations_DarkNut_1_13:: @ 080CB0EC
+	.include "animations/gSpriteAnimations_DarkNut_1_13.s"
+
+gSpriteAnimations_DarkNut_1_14:: @ 080CB0F4
+	.include "animations/gSpriteAnimations_DarkNut_1_14.s"
+
+gSpriteAnimations_DarkNut_1_15:: @ 080CB0FC
+	.include "animations/gSpriteAnimations_DarkNut_1_15.s"
+
+gSpriteAnimations_DarkNut_1_16:: @ 080CB104
+	.include "animations/gSpriteAnimations_DarkNut_1_16.s"
+
+gSpriteAnimations_DarkNut_1_17:: @ 080CB174
+	.include "animations/gSpriteAnimations_DarkNut_1_17.s"
+
+gSpriteAnimations_DarkNut_1_18:: @ 080CB1E4
+	.include "animations/gSpriteAnimations_DarkNut_1_18.s"
+
+gSpriteAnimations_DarkNut_1_19:: @ 080CB254
+	.include "animations/gSpriteAnimations_DarkNut_1_19.s"
+
+gSpriteAnimations_DarkNut_1_20:: @ 080CB2C4
+	.include "animations/gSpriteAnimations_DarkNut_1_20.s"
+
+gSpriteAnimations_DarkNut_1_21:: @ 080CB2F8
+	.include "animations/gSpriteAnimations_DarkNut_1_21.s"
+
+gSpriteAnimations_DarkNut_1_22:: @ 080CB32C
+	.include "animations/gSpriteAnimations_DarkNut_1_22.s"
+
+gSpriteAnimations_DarkNut_1_23:: @ 080CB360
+	.include "animations/gSpriteAnimations_DarkNut_1_23.s"
+
+gSpriteAnimations_DarkNut_1_24:: @ 080CB394
+	.include "animations/gSpriteAnimations_DarkNut_1_24.s"
+
+gSpriteAnimations_DarkNut_1_25:: @ 080CB3BD
+	.include "animations/gSpriteAnimations_DarkNut_1_25.s"
+
+gSpriteAnimations_DarkNut_1_26:: @ 080CB3E6
+	.include "animations/gSpriteAnimations_DarkNut_1_26.s"
+
+gSpriteAnimations_DarkNut_1_27:: @ 080CB40F
+	.include "animations/gSpriteAnimations_DarkNut_1_27.s"
+
+gSpriteAnimations_DarkNut_0:: @ 080CB438
+	.4byte gSpriteAnimations_DarkNut_0_0
+	.4byte gSpriteAnimations_DarkNut_0_1
+	.4byte gSpriteAnimations_DarkNut_0_2
+	.4byte gSpriteAnimations_DarkNut_0_3
+	.4byte gSpriteAnimations_DarkNut_0_4
+	.4byte gSpriteAnimations_DarkNut_0_5
+	.4byte gSpriteAnimations_DarkNut_0_6
+	.4byte gSpriteAnimations_DarkNut_0_7
+	.4byte gSpriteAnimations_DarkNut_0_8
+	.4byte gSpriteAnimations_DarkNut_0_9
+	.4byte gSpriteAnimations_DarkNut_0_10
+	.4byte gSpriteAnimations_DarkNut_0_11
+	.4byte gSpriteAnimations_DarkNut_0_12
+	.4byte gSpriteAnimations_DarkNut_0_13
+	.4byte gSpriteAnimations_DarkNut_0_14
+	.4byte gSpriteAnimations_DarkNut_0_15
+	.4byte gSpriteAnimations_DarkNut_0_16
+	.4byte gSpriteAnimations_DarkNut_0_17
+	.4byte gSpriteAnimations_DarkNut_0_18
+	.4byte gSpriteAnimations_DarkNut_0_19
+	.4byte gSpriteAnimations_DarkNut_0_20
+	.4byte gSpriteAnimations_DarkNut_0_21
+	.4byte gSpriteAnimations_DarkNut_0_22
+	.4byte gSpriteAnimations_DarkNut_0_23
+	.4byte gSpriteAnimations_DarkNut_0_24
+	.4byte gSpriteAnimations_DarkNut_0_25
+	.4byte gSpriteAnimations_DarkNut_0_26
+	.4byte gSpriteAnimations_DarkNut_0_27
+	.4byte gSpriteAnimations_DarkNut_0_28
+	.4byte gSpriteAnimations_DarkNut_0_29
+	.4byte gSpriteAnimations_DarkNut_0_30
+	.4byte gSpriteAnimations_DarkNut_0_31
+	.4byte gSpriteAnimations_DarkNut_0_32
+	.4byte gSpriteAnimations_DarkNut_0_33
+	.4byte gSpriteAnimations_DarkNut_0_34
+	.4byte gSpriteAnimations_DarkNut_0_35
+	.4byte gSpriteAnimations_DarkNut_0_36
+	.4byte gSpriteAnimations_DarkNut_0_37
+	.4byte gSpriteAnimations_DarkNut_0_38
+	.4byte gSpriteAnimations_DarkNut_0_39
+	.4byte gSpriteAnimations_DarkNut_0_40
+	.4byte gSpriteAnimations_DarkNut_0_41
+	.4byte gSpriteAnimations_DarkNut_0_42
+	.4byte gSpriteAnimations_DarkNut_0_43
+	.4byte gSpriteAnimations_DarkNut_0_44
+	.4byte gSpriteAnimations_DarkNut_0_45
+	.4byte gSpriteAnimations_DarkNut_0_46
+	.4byte gSpriteAnimations_DarkNut_0_47
 	.4byte 00000000
 
-gUnk_080CB4FC:: @ 080CB4FC
-	.4byte gUnk_080CAEF0
-	.4byte gUnk_080CAF20
-	.4byte gUnk_080CAF50
-	.4byte gUnk_080CAF80
-	.4byte gUnk_080CAFB0
-	.4byte gUnk_080CAFC8
-	.4byte gUnk_080CAFE0
-	.4byte gUnk_080CAFF8
-	.4byte gUnk_080CB010
-	.4byte gUnk_080CB045
-	.4byte gUnk_080CB07A
-	.4byte gUnk_080CB0AF
-	.4byte gUnk_080CB0E4
-	.4byte gUnk_080CB0EC
-	.4byte gUnk_080CB0F4
-	.4byte gUnk_080CB0FC
-	.4byte gUnk_080CB104
-	.4byte gUnk_080CB174
-	.4byte gUnk_080CB1E4
-	.4byte gUnk_080CB254
-	.4byte gUnk_080CB2C4
-	.4byte gUnk_080CB2F8
-	.4byte gUnk_080CB32C
-	.4byte gUnk_080CB360
-	.4byte gUnk_080CB394
-	.4byte gUnk_080CB3BD
-	.4byte gUnk_080CB3E6
-	.4byte gUnk_080CB40F
+gSpriteAnimations_DarkNut_1:: @ 080CB4FC
+	.4byte gSpriteAnimations_DarkNut_1_0
+	.4byte gSpriteAnimations_DarkNut_1_1
+	.4byte gSpriteAnimations_DarkNut_1_2
+	.4byte gSpriteAnimations_DarkNut_1_3
+	.4byte gSpriteAnimations_DarkNut_1_4
+	.4byte gSpriteAnimations_DarkNut_1_5
+	.4byte gSpriteAnimations_DarkNut_1_6
+	.4byte gSpriteAnimations_DarkNut_1_7
+	.4byte gSpriteAnimations_DarkNut_1_8
+	.4byte gSpriteAnimations_DarkNut_1_9
+	.4byte gSpriteAnimations_DarkNut_1_10
+	.4byte gSpriteAnimations_DarkNut_1_11
+	.4byte gSpriteAnimations_DarkNut_1_12
+	.4byte gSpriteAnimations_DarkNut_1_13
+	.4byte gSpriteAnimations_DarkNut_1_14
+	.4byte gSpriteAnimations_DarkNut_1_15
+	.4byte gSpriteAnimations_DarkNut_1_16
+	.4byte gSpriteAnimations_DarkNut_1_17
+	.4byte gSpriteAnimations_DarkNut_1_18
+	.4byte gSpriteAnimations_DarkNut_1_19
+	.4byte gSpriteAnimations_DarkNut_1_20
+	.4byte gSpriteAnimations_DarkNut_1_21
+	.4byte gSpriteAnimations_DarkNut_1_22
+	.4byte gSpriteAnimations_DarkNut_1_23
+	.4byte gSpriteAnimations_DarkNut_1_24
+	.4byte gSpriteAnimations_DarkNut_1_25
+	.4byte gSpriteAnimations_DarkNut_1_26
+	.4byte gSpriteAnimations_DarkNut_1_27
 	.4byte 00000000

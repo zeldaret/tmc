@@ -4,196 +4,187 @@
 	.section .rodata
     .align 2
 
-gUnk_0811073C:: @ 0811073C
-	.incbin "baserom.gba", 0x11073C, 0x0000005
+gSpriteAnimations_Vaati_1_0:: @ 0811073C
+	.include "animations/gSpriteAnimations_Vaati_1_0.s"
 
-gUnk_08110741:: @ 08110741
-	.incbin "baserom.gba", 0x110741, 0x0000005
+gSpriteAnimations_Vaati_1_1:: @ 08110741
+	.include "animations/gSpriteAnimations_Vaati_1_1.s"
 
-gUnk_08110746:: @ 08110746
-	.incbin "baserom.gba", 0x110746, 0x0000005
+gSpriteAnimations_Vaati_1_2:: @ 08110746
+	.include "animations/gSpriteAnimations_Vaati_1_2.s"
 
-gUnk_0811074B:: @ 0811074B
-	.incbin "baserom.gba", 0x11074B, 0x0000005
+gSpriteAnimations_Vaati_1_3:: @ 0811074B
+	.include "animations/gSpriteAnimations_Vaati_1_3.s"
 
-gUnk_08110750:: @ 08110750
-	.incbin "baserom.gba", 0x110750, 0x0000011
+gSpriteAnimations_Vaati_1_4:: @ 08110750
+	.include "animations/gSpriteAnimations_Vaati_1_4.s"
 
-gUnk_08110761:: @ 08110761
-	.incbin "baserom.gba", 0x110761, 0x0000011
+gSpriteAnimations_Vaati_1_5:: @ 08110761
+	.include "animations/gSpriteAnimations_Vaati_1_5.s"
 
-gUnk_08110772:: @ 08110772
-	.incbin "baserom.gba", 0x110772, 0x0000011
+gSpriteAnimations_Vaati_1_6:: @ 08110772
+	.include "animations/gSpriteAnimations_Vaati_1_6.s"
 
-gUnk_08110783:: @ 08110783
-	.incbin "baserom.gba", 0x110783, 0x0000011
+gSpriteAnimations_Vaati_1_7:: @ 08110783
+	.include "animations/gSpriteAnimations_Vaati_1_7.s"
 
-gUnk_08110794:: @ 08110794
-	.incbin "baserom.gba", 0x110794, 0x0000005
+gSpriteAnimations_Vaati_1_8:: @ 08110794
+	.include "animations/gSpriteAnimations_Vaati_1_8.s"
 
-gUnk_08110799:: @ 08110799
-	.incbin "baserom.gba", 0x110799, 0x0000011
+gSpriteAnimations_Vaati_1_12:: @ 08110799
+	.include "animations/gSpriteAnimations_Vaati_1_12.s"
 
-gUnk_081107AA:: @ 081107AA
-	.incbin "baserom.gba", 0x1107AA, 0x0000009
+gSpriteAnimations_Vaati_1_16:: @ 081107AA
+	.include "animations/gSpriteAnimations_Vaati_1_16.s"
 
-gUnk_081107B3:: @ 081107B3
-	.incbin "baserom.gba", 0x1107B3, 0x0000009
+gSpriteAnimations_Vaati_1_20:: @ 081107B3
+	.include "animations/gSpriteAnimations_Vaati_1_20.s"
 
-gUnk_081107BC:: @ 081107BC
-	.incbin "baserom.gba", 0x1107BC, 0x0000010
+gSpriteAnimations_Vaati_1_24:: @ 081107BC
+	.include "animations/gSpriteAnimations_Vaati_1_24.s"
 
-gUnk_081107CC:: @ 081107CC
-	.4byte gUnk_0811073C
-	.4byte gUnk_08110741
-	.4byte gUnk_08110746
-	.4byte gUnk_0811074B
-	.4byte gUnk_08110750
-	.4byte gUnk_08110761
-	.4byte gUnk_08110772
-	.4byte gUnk_08110783
-	.4byte gUnk_08110794
-	.4byte gUnk_08110794
-	.4byte gUnk_08110794
-	.4byte gUnk_08110794
-	.4byte gUnk_08110799
-	.4byte gUnk_08110799
-	.4byte gUnk_08110799
-	.4byte gUnk_08110799
-	.4byte gUnk_081107AA
-	.4byte gUnk_081107AA
-	.4byte gUnk_081107AA
-	.4byte gUnk_081107AA
-	.4byte gUnk_081107B3
-	.4byte gUnk_081107B3
-	.4byte gUnk_081107B3
-	.4byte gUnk_081107B3
-	.4byte gUnk_081107BC
-	.4byte gUnk_081107BC
-	.4byte gUnk_081107BC
-	.4byte gUnk_081107BC
+gSpriteAnimations_Vaati_1:: @ 081107CC
+	.4byte gSpriteAnimations_Vaati_1_0
+	.4byte gSpriteAnimations_Vaati_1_1
+	.4byte gSpriteAnimations_Vaati_1_2
+	.4byte gSpriteAnimations_Vaati_1_3
+	.4byte gSpriteAnimations_Vaati_1_4
+	.4byte gSpriteAnimations_Vaati_1_5
+	.4byte gSpriteAnimations_Vaati_1_6
+	.4byte gSpriteAnimations_Vaati_1_7
+	.4byte gSpriteAnimations_Vaati_1_8
+	.4byte gSpriteAnimations_Vaati_1_8
+	.4byte gSpriteAnimations_Vaati_1_8
+	.4byte gSpriteAnimations_Vaati_1_8
+	.4byte gSpriteAnimations_Vaati_1_12
+	.4byte gSpriteAnimations_Vaati_1_12
+	.4byte gSpriteAnimations_Vaati_1_12
+	.4byte gSpriteAnimations_Vaati_1_12
+	.4byte gSpriteAnimations_Vaati_1_16
+	.4byte gSpriteAnimations_Vaati_1_16
+	.4byte gSpriteAnimations_Vaati_1_16
+	.4byte gSpriteAnimations_Vaati_1_16
+	.4byte gSpriteAnimations_Vaati_1_20
+	.4byte gSpriteAnimations_Vaati_1_20
+	.4byte gSpriteAnimations_Vaati_1_20
+	.4byte gSpriteAnimations_Vaati_1_20
+	.4byte gSpriteAnimations_Vaati_1_24
+	.4byte gSpriteAnimations_Vaati_1_24
+	.4byte gSpriteAnimations_Vaati_1_24
+	.4byte gSpriteAnimations_Vaati_1_24
 	.4byte 00000000
 
-gUnk_08110840:: @ 08110840
-	.incbin "baserom.gba", 0x110840, 0x0000019
+gSpriteAnimations_Vaati_2_0:: @ 08110840
+	.include "animations/gSpriteAnimations_Vaati_2_0.s"
 
-gUnk_08110859:: @ 08110859
-	.incbin "baserom.gba", 0x110859, 0x0000005
+gSpriteAnimations_Vaati_2_1:: @ 08110859
+	.include "animations/gSpriteAnimations_Vaati_2_1.s"
 
-gUnk_0811085E:: @ 0811085E
-	.incbin "baserom.gba", 0x11085E, 0x0000019
+gSpriteAnimations_Vaati_2_2:: @ 0811085E
+	.include "animations/gSpriteAnimations_Vaati_2_2.s"
 
-gUnk_08110877:: @ 08110877
-	.incbin "baserom.gba", 0x110877, 0x0000005
+gSpriteAnimations_Vaati_2_3:: @ 08110877
+	.include "animations/gSpriteAnimations_Vaati_2_3.s"
 
-gUnk_0811087C:: @ 0811087C
-	.incbin "baserom.gba", 0x11087C, 0x000001E
+gSpriteAnimations_Vaati_2_4:: @ 0811087C
+	.include "animations/gSpriteAnimations_Vaati_2_4.s"
 
-gUnk_0811089A:: @ 0811089A
-	.incbin "baserom.gba", 0x11089A, 0x0000019
+gSpriteAnimations_Vaati_2_6:: @ 0811089A
+	.include "animations/gSpriteAnimations_Vaati_2_6.s"
 
-gUnk_081108B3:: @ 081108B3
-	.incbin "baserom.gba", 0x1108B3, 0x0000019
+gSpriteAnimations_Vaati_2_16:: @ 081108B3
+	.include "animations/gSpriteAnimations_Vaati_2_16.s"
 
-gUnk_081108CC:: @ 081108CC
-	.incbin "baserom.gba", 0x1108CC, 0x0000019
+gSpriteAnimations_Vaati_2_18:: @ 081108CC
+	.include "animations/gSpriteAnimations_Vaati_2_18.s"
 
-gUnk_081108E5:: @ 081108E5
-	.incbin "baserom.gba", 0x1108E5, 0x000000D
+gSpriteAnimations_Vaati_2_24:: @ 081108E5
+	.include "animations/gSpriteAnimations_Vaati_2_24.s"
 
-gUnk_081108F2:: @ 081108F2
-	.incbin "baserom.gba", 0x1108F2, 0x000000D
+gSpriteAnimations_Vaati_2_26:: @ 081108F2
+	.include "animations/gSpriteAnimations_Vaati_2_26.s"
 
-gUnk_081108FF:: @ 081108FF
-	.incbin "baserom.gba", 0x1108FF, 0x000000D
+gSpriteAnimations_Vaati_2_40:: @ 081108FF
+	.include "animations/gSpriteAnimations_Vaati_2_40.s"
 
-gUnk_0811090C:: @ 0811090C
-	.incbin "baserom.gba", 0x11090C, 0x000000C
+gSpriteAnimations_Vaati_2_28:: @ 08110918
+	.include "animations/gSpriteAnimations_Vaati_2_28.s"
 
-gUnk_08110918:: @ 08110918
-	.incbin "baserom.gba", 0x110918, 0x0000005
+gSpriteAnimations_Vaati_2_30:: @ 0811091D
+	.include "animations/gSpriteAnimations_Vaati_2_30.s"
 
-gUnk_0811091D:: @ 0811091D
-	.incbin "baserom.gba", 0x11091D, 0x0000005
+gSpriteAnimations_Vaati_2_31:: @ 08110922
+	.include "animations/gSpriteAnimations_Vaati_2_31.s"
 
-gUnk_08110922:: @ 08110922
-	.incbin "baserom.gba", 0x110922, 0x0000005
+gSpriteAnimations_Vaati_2_29:: @ 08110927
+	.include "animations/gSpriteAnimations_Vaati_2_29.s"
 
-gUnk_08110927:: @ 08110927
-	.incbin "baserom.gba", 0x110927, 0x0000005
+gSpriteAnimations_Vaati_2_44:: @ 0811092C
+	.include "animations/gSpriteAnimations_Vaati_2_44.s"
 
-gUnk_0811092C:: @ 0811092C
-	.incbin "baserom.gba", 0x11092C, 0x0000005
+gSpriteAnimations_Vaati_2_32:: @ 08110931
+	.include "animations/gSpriteAnimations_Vaati_2_32.s"
 
-gUnk_08110931:: @ 08110931
-	.incbin "baserom.gba", 0x110931, 0x00000C1
+gSpriteAnimations_Vaati_2_36:: @ 081109F2
+	.include "animations/gSpriteAnimations_Vaati_2_36.s"
 
-gUnk_081109F2:: @ 081109F2
-	.incbin "baserom.gba", 0x1109F2, 0x0000006
+gSpriteAnimations_Vaati_2_48:: @ 08110AD7
+	.include "animations/gSpriteAnimations_Vaati_2_48.s"
 
-gUnk_081109F8:: @ 081109F8
-	.incbin "baserom.gba", 0x1109F8, 0x00000DF
+gSpriteAnimations_Vaati_2_50:: @ 08110AEC
+	.include "animations/gSpriteAnimations_Vaati_2_50.s"
 
-gUnk_08110AD7:: @ 08110AD7
-	.incbin "baserom.gba", 0x110AD7, 0x0000015
-
-gUnk_08110AEC:: @ 08110AEC
-	.incbin "baserom.gba", 0x110AEC, 0x0000010
-
-gUnk_08110AFC:: @ 08110AFC
-	.incbin "baserom.gba", 0x110AFC, 0x0000008
-
-gUnk_08110B04:: @ 08110B04
-	.4byte gUnk_08110840
-	.4byte gUnk_08110859
-	.4byte gUnk_0811085E
-	.4byte gUnk_08110877
-	.4byte gUnk_0811087C
-	.4byte gUnk_0811087C
-	.4byte gUnk_0811089A
-	.4byte gUnk_0811087C
-	.4byte gUnk_08110840
-	.4byte gUnk_08110859
-	.4byte gUnk_0811085E
-	.4byte gUnk_08110877
-	.4byte gUnk_0811087C
-	.4byte gUnk_0811087C
-	.4byte gUnk_0811089A
-	.4byte gUnk_0811087C
-	.4byte gUnk_081108B3
-	.4byte gUnk_081108B3
-	.4byte gUnk_081108CC
-	.4byte gUnk_081108B3
-	.4byte gUnk_081108B3
-	.4byte gUnk_081108B3
-	.4byte gUnk_081108CC
-	.4byte gUnk_081108B3
-	.4byte gUnk_081108E5
-	.4byte gUnk_081108E5
-	.4byte gUnk_081108F2
-	.4byte gUnk_081108E5
-	.4byte gUnk_08110918
-	.4byte gUnk_08110927
-	.4byte gUnk_0811091D
-	.4byte gUnk_08110922
-	.4byte gUnk_08110931
-	.4byte gUnk_08110931
-	.4byte gUnk_08110931
-	.4byte gUnk_08110931
-	.4byte gUnk_081109F2
-	.4byte gUnk_081109F2
-	.4byte gUnk_081109F2
-	.4byte gUnk_081109F2
-	.4byte gUnk_081108FF
-	.4byte gUnk_081108FF
-	.4byte gUnk_081108FF
-	.4byte gUnk_081108FF
-	.4byte gUnk_0811092C
-	.4byte gUnk_0811092C
-	.4byte gUnk_0811092C
-	.4byte gUnk_0811092C
-	.4byte gUnk_08110AD7
-	.4byte gUnk_08110AD7
-	.4byte gUnk_08110AEC
-	.4byte gUnk_08110AEC
+gSpriteAnimations_Vaati:: @ 08110B04
+	.4byte gSpriteAnimations_Vaati_2_0
+	.4byte gSpriteAnimations_Vaati_2_1
+	.4byte gSpriteAnimations_Vaati_2_2
+	.4byte gSpriteAnimations_Vaati_2_3
+	.4byte gSpriteAnimations_Vaati_2_4
+	.4byte gSpriteAnimations_Vaati_2_4
+	.4byte gSpriteAnimations_Vaati_2_6
+	.4byte gSpriteAnimations_Vaati_2_4
+	.4byte gSpriteAnimations_Vaati_2_0
+	.4byte gSpriteAnimations_Vaati_2_1
+	.4byte gSpriteAnimations_Vaati_2_2
+	.4byte gSpriteAnimations_Vaati_2_3
+	.4byte gSpriteAnimations_Vaati_2_4
+	.4byte gSpriteAnimations_Vaati_2_4
+	.4byte gSpriteAnimations_Vaati_2_6
+	.4byte gSpriteAnimations_Vaati_2_4
+	.4byte gSpriteAnimations_Vaati_2_16
+	.4byte gSpriteAnimations_Vaati_2_16
+	.4byte gSpriteAnimations_Vaati_2_18
+	.4byte gSpriteAnimations_Vaati_2_16
+	.4byte gSpriteAnimations_Vaati_2_16
+	.4byte gSpriteAnimations_Vaati_2_16
+	.4byte gSpriteAnimations_Vaati_2_18
+	.4byte gSpriteAnimations_Vaati_2_16
+	.4byte gSpriteAnimations_Vaati_2_24
+	.4byte gSpriteAnimations_Vaati_2_24
+	.4byte gSpriteAnimations_Vaati_2_26
+	.4byte gSpriteAnimations_Vaati_2_24
+	.4byte gSpriteAnimations_Vaati_2_28
+	.4byte gSpriteAnimations_Vaati_2_29
+	.4byte gSpriteAnimations_Vaati_2_30
+	.4byte gSpriteAnimations_Vaati_2_31
+	.4byte gSpriteAnimations_Vaati_2_32
+	.4byte gSpriteAnimations_Vaati_2_32
+	.4byte gSpriteAnimations_Vaati_2_32
+	.4byte gSpriteAnimations_Vaati_2_32
+	.4byte gSpriteAnimations_Vaati_2_36
+	.4byte gSpriteAnimations_Vaati_2_36
+	.4byte gSpriteAnimations_Vaati_2_36
+	.4byte gSpriteAnimations_Vaati_2_36
+	.4byte gSpriteAnimations_Vaati_2_40
+	.4byte gSpriteAnimations_Vaati_2_40
+	.4byte gSpriteAnimations_Vaati_2_40
+	.4byte gSpriteAnimations_Vaati_2_40
+	.4byte gSpriteAnimations_Vaati_2_44
+	.4byte gSpriteAnimations_Vaati_2_44
+	.4byte gSpriteAnimations_Vaati_2_44
+	.4byte gSpriteAnimations_Vaati_2_44
+	.4byte gSpriteAnimations_Vaati_2_48
+	.4byte gSpriteAnimations_Vaati_2_48
+	.4byte gSpriteAnimations_Vaati_2_50
+	.4byte gSpriteAnimations_Vaati_2_50
 	.4byte 00000000

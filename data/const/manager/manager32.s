@@ -5,7 +5,7 @@
     .align 2
 
 gUnk_08108D74:: @ 08108D74
-	.incbin "baserom.gba", 0x108D74, 0x0000008
+	.incbin "manager32/gUnk_08108D74.bin"
 
 gUnk_08108D7C:: @ 08108D7C
 	.4byte sub_0805D7DC

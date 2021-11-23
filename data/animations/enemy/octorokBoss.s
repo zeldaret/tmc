@@ -4,64 +4,64 @@
 	.section .rodata
     .align 2
 
-gUnk_080CF14C:: @ 080CF14C
-	.incbin "baserom.gba", 0x0CF14C, 0x0000004
+gSpriteAnimations_OctorokBoss_1_0:: @ 080CF14C
+	.include "animations/gSpriteAnimations_OctorokBoss_1_0.s"
 
-gUnk_080CF150:: @ 080CF150
-	.incbin "baserom.gba", 0x0CF150, 0x0000004
+gSpriteAnimations_OctorokBoss_1_1:: @ 080CF150
+	.include "animations/gSpriteAnimations_OctorokBoss_1_1.s"
 
-gUnk_080CF154:: @ 080CF154
-	.incbin "baserom.gba", 0x0CF154, 0x0000004
+gSpriteAnimations_OctorokBoss_1_2:: @ 080CF154
+	.include "animations/gSpriteAnimations_OctorokBoss_1_2.s"
 
-gUnk_080CF158:: @ 080CF158
-	.incbin "baserom.gba", 0x0CF158, 0x0000015
+gSpriteAnimations_OctorokBoss_0_1:: @ 080CF158
+	.include "animations/gSpriteAnimations_OctorokBoss_0_1.s"
 
-gUnk_080CF16D:: @ 080CF16D
-	.incbin "baserom.gba", 0x0CF16D, 0x0000015
+gSpriteAnimations_OctorokBoss_0_2:: @ 080CF16D
+	.include "animations/gSpriteAnimations_OctorokBoss_0_2.s"
 
-gUnk_080CF182:: @ 080CF182
-	.incbin "baserom.gba", 0x0CF182, 0x0000004
+gSpriteAnimations_OctorokBoss_1_3:: @ 080CF182
+	.include "animations/gSpriteAnimations_OctorokBoss_1_3.s"
 
-gUnk_080CF186:: @ 080CF186
-	.incbin "baserom.gba", 0x0CF186, 0x0000011
+gSpriteAnimations_OctorokBoss_0_0:: @ 080CF186
+	.include "animations/gSpriteAnimations_OctorokBoss_0_0.s"
 
-gUnk_080CF197:: @ 080CF197
-	.incbin "baserom.gba", 0x0CF197, 0x0000015
+gSpriteAnimations_OctorokBoss_1_4:: @ 080CF197
+	.include "animations/gSpriteAnimations_OctorokBoss_1_4.s"
 
-gUnk_080CF1AC:: @ 080CF1AC
-	.incbin "baserom.gba", 0x0CF1AC, 0x0000011
+gSpriteAnimations_OctorokBoss_1_5:: @ 080CF1AC
+	.include "animations/gSpriteAnimations_OctorokBoss_1_5.s"
 
-gUnk_080CF1BD:: @ 080CF1BD
-	.incbin "baserom.gba", 0x0CF1BD, 0x0000020
+gSpriteAnimations_OctorokBoss_1_6:: @ 080CF1BD
+	.include "animations/gSpriteAnimations_OctorokBoss_1_6.s"
 
-gUnk_080CF1DD:: @ 080CF1DD
-	.incbin "baserom.gba", 0x0CF1DD, 0x0000005
+gSpriteAnimations_OctorokBoss_1_7:: @ 080CF1DD
+	.include "animations/gSpriteAnimations_OctorokBoss_1_7.s"
 
-gUnk_080CF1E2:: @ 080CF1E2
-	.incbin "baserom.gba", 0x0CF1E2, 0x0000019
+gSpriteAnimations_OctorokBoss_1_8:: @ 080CF1E2
+	.include "animations/gSpriteAnimations_OctorokBoss_1_8.s"
 
-gUnk_080CF1FB:: @ 080CF1FB
-	.incbin "baserom.gba", 0x0CF1FB, 0x0000004
+gSpriteAnimations_OctorokBoss_1_9:: @ 080CF1FB
+	.include "animations/gSpriteAnimations_OctorokBoss_1_9.s"
 
-gUnk_080CF1FF:: @ 080CF1FF
-	.incbin "baserom.gba", 0x0CF1FF, 0x0000005
+gSpriteAnimations_OctorokBoss_1_10:: @ 080CF1FF
+	.include "animations/gSpriteAnimations_OctorokBoss_1_10.s"
 
-gUnk_080CF204:: @ 080CF204
-	.4byte gUnk_080CF14C
-	.4byte gUnk_080CF150
-	.4byte gUnk_080CF154
-	.4byte gUnk_080CF182
-	.4byte gUnk_080CF197
-	.4byte gUnk_080CF1AC
-	.4byte gUnk_080CF1BD
-	.4byte gUnk_080CF1DD
-	.4byte gUnk_080CF1E2
-	.4byte gUnk_080CF1FB
-	.4byte gUnk_080CF1FF
+gSpriteAnimations_OctorokBoss_1:: @ 080CF204
+	.4byte gSpriteAnimations_OctorokBoss_1_0
+	.4byte gSpriteAnimations_OctorokBoss_1_1
+	.4byte gSpriteAnimations_OctorokBoss_1_2
+	.4byte gSpriteAnimations_OctorokBoss_1_3
+	.4byte gSpriteAnimations_OctorokBoss_1_4
+	.4byte gSpriteAnimations_OctorokBoss_1_5
+	.4byte gSpriteAnimations_OctorokBoss_1_6
+	.4byte gSpriteAnimations_OctorokBoss_1_7
+	.4byte gSpriteAnimations_OctorokBoss_1_8
+	.4byte gSpriteAnimations_OctorokBoss_1_9
+	.4byte gSpriteAnimations_OctorokBoss_1_10
 	.4byte 00000000
 
-gUnk_080CF234:: @ 080CF234
-	.4byte gUnk_080CF186
-	.4byte gUnk_080CF158
-	.4byte gUnk_080CF16D
+gSpriteAnimations_OctorokBoss_0:: @ 080CF234
+	.4byte gSpriteAnimations_OctorokBoss_0_0
+	.4byte gSpriteAnimations_OctorokBoss_0_1
+	.4byte gSpriteAnimations_OctorokBoss_0_2
 	.4byte 00000000

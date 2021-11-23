@@ -4,9 +4,9 @@
 	.section .rodata
     .align 2
 
-gUnk_08123E2C:: @ 08123E2C
-	.incbin "baserom.gba", 0x123E2C, 0x000004C
+gSpriteAnimations_BakerOven_0:: @ 08123E2C
+	.include "animations/gSpriteAnimations_BakerOven_0.s"
 
-gUnk_08123E78:: @ 08123E78
-	.4byte gUnk_08123E2C
+gSpriteAnimations_BakerOven:: @ 08123E78
+	.4byte gSpriteAnimations_BakerOven_0
 	.4byte 00000000

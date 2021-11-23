@@ -5,5 +5,5 @@
     .align 2
 
 gUnk_08123318:: @ 08123318
-	.incbin "baserom.gba", 0x123318, 0x0000010
+	.incbin "lilypadSmall/gUnk_08123318.bin"
 

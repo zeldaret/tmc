@@ -3,33 +3,33 @@
 
 	.section .rodata
 
-gUnk_080CB5EC:: @ 080CB5EC
-	.incbin "baserom.gba", 0x0CB5EC, 0x0000014
+gSpriteAnimations_Beetle_0:: @ 080CB5EC
+	.include "animations/gSpriteAnimations_Beetle_0.s"
 
-gUnk_080CB600:: @ 080CB600
-	.incbin "baserom.gba", 0x0CB600, 0x000001C
+gSpriteAnimations_Beetle_1:: @ 080CB600
+	.include "animations/gSpriteAnimations_Beetle_1.s"
 
-gUnk_080CB61C:: @ 080CB61C
-	.incbin "baserom.gba", 0x0CB61C, 0x0000011
+gSpriteAnimations_Beetle_2:: @ 080CB61C
+	.include "animations/gSpriteAnimations_Beetle_2.s"
 
-gUnk_080CB62D:: @ 080CB62D
-	.incbin "baserom.gba", 0x0CB62D, 0x0000018
+gSpriteAnimations_Beetle_3:: @ 080CB62D
+	.include "animations/gSpriteAnimations_Beetle_3.s"
 
-gUnk_080CB645:: @ 080CB645
-	.incbin "baserom.gba", 0x0CB645, 0x0000018
+gSpriteAnimations_Beetle_4:: @ 080CB645
+	.include "animations/gSpriteAnimations_Beetle_4.s"
 
-gUnk_080CB65D:: @ 080CB65D
-	.incbin "baserom.gba", 0x0CB65D, 0x0000014
+gSpriteAnimations_Beetle_5:: @ 080CB65D
+	.include "animations/gSpriteAnimations_Beetle_5.s"
 
-gUnk_080CB671:: @ 080CB671
-	.incbin "baserom.gba", 0x0CB671, 0x000000B
+gSpriteAnimations_Beetle_6:: @ 080CB671
+	.include "animations/gSpriteAnimations_Beetle_6.s"
 
-gUnk_080CB67C:: @ 080CB67C
-	.4byte gUnk_080CB5EC
-	.4byte gUnk_080CB600
-	.4byte gUnk_080CB61C
-	.4byte gUnk_080CB62D
-	.4byte gUnk_080CB645
-	.4byte gUnk_080CB65D
-	.4byte gUnk_080CB671
+gSpriteAnimations_Beetle:: @ 080CB67C
+	.4byte gSpriteAnimations_Beetle_0
+	.4byte gSpriteAnimations_Beetle_1
+	.4byte gSpriteAnimations_Beetle_2
+	.4byte gSpriteAnimations_Beetle_3
+	.4byte gSpriteAnimations_Beetle_4
+	.4byte gSpriteAnimations_Beetle_5
+	.4byte gSpriteAnimations_Beetle_6
 	.4byte 00000000

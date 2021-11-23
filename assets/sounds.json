@@ -1,0 +1,5921 @@
+[
+  {
+    "offsets": {
+      "EU": 1095256,
+      "JP": -123008,
+      "DEMO_USA": 41596,
+      "DEMO_JP": -122808
+    }
+  },
+  {
+    "path": "sounds/sfxNone.bin",
+    "start": 14468220,
+    "size": 28,
+    "type": "midi",
+    "options": {
+      "group": 0,
+      "priority": 255,
+      "reverb": 0,
+      "headerOffset": 16
+    }
+  },
+  {
+    "path": "sounds/bgmCastleTournament.bin",
+    "start": 14468248,
+    "type": "midi",
+    "options": {
+      "group": 1,
+      "priority": 0,
+      "reverb": 30,
+      "headerOffset": 564
+    },
+    "size": 600
+  },
+  {
+    "path": "sounds/bgmVaatiMotif.bin",
+    "start": 14468848,
+    "type": "midi",
+    "options": {
+      "group": 2,
+      "priority": 0,
+      "reverb": 40,
+      "headerOffset": 340
+    },
+    "size": 372
+  },
+  {
+    "path": "sounds/bgmTitleScreen.bin",
+    "start": 14469220,
+    "type": "midi",
+    "options": {
+      "group": 3,
+      "priority": 0,
+      "reverb": 40,
+      "headerOffset": 400
+    },
+    "size": 436
+  },
+  {
+    "path": "sounds/bgmCastleMotif.bin",
+    "start": 14469656,
+    "type": "midi",
+    "options": {
+      "group": 4,
+      "priority": 0,
+      "reverb": 40,
+      "timeChanges": {
+        "nominator": 4,
+        "denominator": 4,
+        "time": 168
+      },
+      "headerOffset": 292
+    },
+    "size": 320
+  },
+  {
+    "path": "sounds/bgmElementGet.bin",
+    "start": 14469976,
+    "type": "midi",
+    "options": {
+      "group": 5,
+      "priority": 0,
+      "reverb": 40,
+      "timeChanges": {
+        "nominator": 4,
+        "denominator": 4,
+        "time": 24
+      },
+      "headerOffset": 488
+    },
+    "size": 532
+  },
+  {
+    "path": "sounds/bgmFairyFountain.bin",
+    "start": 14470508,
+    "type": "midi",
+    "options": {
+      "group": 6,
+      "priority": 0,
+      "reverb": 50,
+      "headerOffset": 860
+    },
+    "size": 896
+  },
+  {
+    "path": "sounds/bgmFileSelect.bin",
+    "start": 14471404,
+    "type": "midi",
+    "options": {
+      "group": 7,
+      "priority": 0,
+      "reverb": 60,
+      "headerOffset": 960
+    },
+    "size": 996
+  },
+  {
+    "path": "sounds/bgmIntroCutscene.bin",
+    "start": 14472400,
+    "type": "midi",
+    "options": {
+      "group": 51,
+      "priority": 0,
+      "reverb": 50,
+      "timeChanges": [
+        {
+          "nominator": 3,
+          "denominator": 4,
+          "time": 96
+        },
+        {
+          "nominator": 4,
+          "denominator": 4,
+          "time": 2952
+        },
+        {
+          "nominator": 3,
+          "denominator": 4,
+          "time": 3144
+        }
+      ],
+      "headerOffset": 2652
+    },
+    "size": 2688
+  },
+  {
+    "path": "sounds/bgmCredits.bin",
+    "start": 14475088,
+    "type": "midi",
+    "options": {
+      "group": 8,
+      "priority": 0,
+      "reverb": 40,
+      "headerOffset": 6116
+    },
+    "size": 6156
+  },
+  {
+    "path": "sounds/bgmGameover.bin",
+    "start": 14481244,
+    "type": "midi",
+    "options": {
+      "group": 9,
+      "reverb": 50,
+      "timeChanges": {
+        "nominator": 3,
+        "denominator": 4,
+        "time": 96
+      },
+      "headerOffset": 740
+    },
+    "size": 764
+  },
+  {
+    "path": "sounds/bgmSavingZelda.bin",
+    "start": 14482008,
+    "type": "midi",
+    "options": {
+      "group": 10,
+      "reverb": 50,
+      "headerOffset": 412
+    },
+    "size": 452
+  },
+  {
+    "path": "sounds/bgmLttpTitle.bin",
+    "start": 14482460,
+    "type": "midi",
+    "options": {
+      "group": 11,
+      "reverb": 30,
+      "timeChanges": {
+        "nominator": 4,
+        "denominator": 4,
+        "time": 24
+      },
+      "headerOffset": 380
+    },
+    "size": 412
+  },
+  {
+    "path": "sounds/bgmVaatiTheme.bin",
+    "start": 14482872,
+    "type": "midi",
+    "options": {
+      "group": 12,
+      "reverb": 60,
+      "headerOffset": 1164
+    },
+    "size": 1200
+  },
+  {
+    "path": "sounds/bgmEzloTheme.bin",
+    "start": 14484072,
+    "type": "midi",
+    "options": {
+      "group": 13,
+      "reverb": 30,
+      "timeChanges": {
+        "nominator": 4,
+        "denominator": 4,
+        "time": 912
+      },
+      "headerOffset": 1064
+    },
+    "size": 1100
+  },
+  {
+    "path": "sounds/bgmStory.bin",
+    "start": 14485172,
+    "type": "midi",
+    "options": {
+      "group": 14,
+      "reverb": 50,
+      "timeChanges": {
+        "nominator": 3,
+        "denominator": 4,
+        "time": 96
+      },
+      "headerOffset": 992
+    },
+    "size": 1032
+  },
+  {
+    "path": "sounds/bgmFestivalApproach.bin",
+    "start": 14486204,
+    "options": {
+      "group": 15,
+      "priority": 0,
+      "reverb": 40,
+      "nominator": 4,
+      "denominator": 2,
+      "timeChanges": {
+        "nominator": 4,
+        "denominator": 4,
+        "time": 192
+      },
+      "headerOffset": 568
+    },
+    "type": "midi",
+    "size": 584
+  },
+  {
+    "path": "sounds/bgmBeatVaati.bin",
+    "start": 14486788,
+    "type": "midi",
+    "options": {
+      "group": 16,
+      "reverb": 40,
+      "timeChanges": {
+        "nominator": 3,
+        "denominator": 4,
+        "time": 96
+      },
+      "headerOffset": 1188
+    },
+    "size": 1220
+  },
+  {
+    "path": "sounds/bgmBeanstalk.bin",
+    "start": 14488008,
+    "type": "midi",
+    "options": {
+      "group": 17,
+      "reverb": 30,
+      "headerOffset": 896
+    },
+    "size": 932
+  },
+  {
+    "path": "sounds/bgmHouse.bin",
+    "start": 14488940,
+    "type": "midi",
+    "options": {
+      "group": 18,
+      "reverb": 40,
+      "headerOffset": 1060
+    },
+    "size": 1100
+  },
+  {
+    "path": "sounds/bgmCuccoMinigame.bin",
+    "start": 14490040,
+    "type": "midi",
+    "options": {
+      "group": 19,
+      "reverb": 40,
+      "headerOffset": 628
+    },
+    "size": 660
+  },
+  {
+    "path": "sounds/bgmSyrupTheme.bin",
+    "start": 14490700,
+    "type": "midi",
+    "options": {
+      "group": 20,
+      "reverb": 40,
+      "headerOffset": 600
+    },
+    "size": 632
+  },
+  {
+    "path": "sounds/bgmDungeon.bin",
+    "start": 14491332,
+    "type": "midi",
+    "options": {
+      "group": 21,
+      "reverb": 60,
+      "headerOffset": 620
+    },
+    "size": 648
+  },
+  {
+    "path": "sounds/bgmElementTheme.bin",
+    "start": 14491980,
+    "type": "midi",
+    "options": {
+      "group": 22,
+      "reverb": 60,
+      "headerOffset": 500
+    },
+    "size": 520
+  },
+  {
+    "path": "sounds/bgmHyruleField.bin",
+    "start": 14492500,
+    "type": "midi",
+    "options": {
+      "group": 23,
+      "reverb": 30,
+      "headerOffset": 2556
+    },
+    "size": 2600
+  },
+  {
+    "path": "sounds/bgmHyruleCastle.bin",
+    "start": 14495100,
+    "type": "midi",
+    "options": {
+      "group": 24,
+      "reverb": 40,
+      "timeChanges": {
+        "nominator": 6,
+        "denominator": 4,
+        "time": 288
+      },
+      "headerOffset": 884
+    },
+    "size": 920
+  },
+  {
+    "path": "sounds/bgmHyruleCastleNointro.bin",
+    "start": 14496020,
+    "type": "midi",
+    "options": {
+      "group": 24,
+      "reverb": 40,
+      "timeChanges": {
+        "nominator": 6,
+        "denominator": 4,
+        "time": 96
+      },
+      "headerOffset": 584
+    },
+    "size": 616
+  },
+  {
+    "path": "sounds/bgmMinishVillage.bin",
+    "start": 14496636,
+    "type": "midi",
+    "options": {
+      "group": 25,
+      "reverb": 40,
+      "timeChanges": {
+        "nominator": 3,
+        "denominator": 4,
+        "time": 96
+      },
+      "headerOffset": 2128
+    },
+    "size": 2164
+  },
+  {
+    "path": "sounds/bgmMinishWoods.bin",
+    "start": 14498800,
+    "type": "midi",
+    "options": {
+      "group": 26,
+      "reverb": 40,
+      "headerOffset": 1272
+    },
+    "size": 1308
+  },
+  {
+    "path": "sounds/bgmCrenelStorm.bin",
+    "start": 14500108,
+    "type": "midi",
+    "options": {
+      "group": 27,
+      "reverb": 50,
+      "headerOffset": 1868
+    },
+    "size": 1904
+  },
+  {
+    "path": "sounds/bgmCastorWilds.bin",
+    "start": 14502012,
+    "type": "midi",
+    "options": {
+      "group": 28,
+      "reverb": 30,
+      "headerOffset": 712
+    },
+    "size": 740
+  },
+  {
+    "path": "sounds/bgmHyruleTown.bin",
+    "start": 14502752,
+    "type": "midi",
+    "options": {
+      "group": 29,
+      "reverb": 30,
+      "headerOffset": 1948
+    },
+    "size": 1984
+  },
+  {
+    "path": "sounds/bgmRoyalValley.bin",
+    "start": 14504736,
+    "type": "midi",
+    "options": {
+      "group": 30,
+      "reverb": 50,
+      "headerOffset": 1396
+    },
+    "size": 1432
+  },
+  {
+    "path": "sounds/bgmCloudTops.bin",
+    "start": 14506168,
+    "type": "midi",
+    "options": {
+      "group": 31,
+      "reverb": 30,
+      "headerOffset": 3140
+    },
+    "size": 3180
+  },
+  {
+    "path": "sounds/bgmDarkHyruleCastle.bin",
+    "start": 14509348,
+    "type": "midi",
+    "options": {
+      "group": 32,
+      "reverb": 50,
+      "timeChanges": {
+        "nominator": 4,
+        "denominator": 4,
+        "time": 120
+      },
+      "headerOffset": 1752
+    },
+    "size": 1788,
+    "variants": [
+      "USA",
+      "JP",
+      "DEMO_USA",
+      "DEMO_JP"
+    ]
+  },
+  {
+    "path": "sounds/bgmDarkHyruleCastle.bin",
+    "start": 14509348,
+    "type": "midi",
+    "options": {
+      "group": 32,
+      "reverb": 50,
+      "timeChanges": {
+        "nominator": 4,
+        "denominator": 4,
+        "time": 120
+      },
+      "headerOffset": 1752
+    },
+    "size": 1788,
+    "variants": [
+      "EU"
+    ]
+  },
+  {
+    "offsets": {
+      "EU": 1095188
+    }
+  },
+  {
+    "path": "sounds/bgmSecretCastleEntrance.bin",
+    "start": 14511136,
+    "type": "midi",
+    "options": {
+      "group": 33,
+      "reverb": 60,
+      "headerOffset": 932
+    },
+    "size": 972,
+    "variants": [
+      "USA",
+      "JP",
+      "DEMO_USA",
+      "DEMO_JP"
+    ]
+  },
+  {
+    "path": "sounds/bgmSecretCastleEntrance.bin",
+    "starts": {
+      "EU": 15606392
+    },
+    "type": "midi",
+    "options": {
+      "group": 33,
+      "reverb": 60,
+      "headerOffset": 864
+    },
+    "size": 904,
+    "variants": [
+      "EU"
+    ]
+  },
+  {
+    "path": "sounds/bgmDeepwoodShrine.bin",
+    "start": 14512108,
+    "type": "midi",
+    "options": {
+      "group": 34,
+      "reverb": 60,
+      "timeChanges": {
+        "nominator": 3,
+        "denominator": 4,
+        "time": 96
+      },
+      "headerOffset": 392
+    },
+    "size": 412
+  },
+  {
+    "path": "sounds/bgmCaveOfFlames.bin",
+    "start": 14512520,
+    "type": "midi",
+    "options": {
+      "group": 35,
+      "reverb": 60,
+      "headerOffset": 1256
+    },
+    "size": 1300
+  },
+  {
+    "path": "sounds/bgmFortressOfWinds.bin",
+    "start": 14513820,
+    "type": "midi",
+    "options": {
+      "group": 36,
+      "reverb": 60,
+      "headerOffset": 1900
+    },
+    "size": 1936
+  },
+  {
+    "path": "sounds/bgmTempleOfDroplets.bin",
+    "start": 14515756,
+    "type": "midi",
+    "options": {
+      "group": 37,
+      "reverb": 60,
+      "headerOffset": 1440
+    },
+    "size": 1472
+  },
+  {
+    "path": "sounds/bgmPalaceOfWinds.bin",
+    "start": 14517228,
+    "type": "midi",
+    "options": {
+      "group": 38,
+      "reverb": 40,
+      "headerOffset": 2672
+    },
+    "size": 2712
+  },
+  {
+    "path": "sounds/bgmEzloStory.bin",
+    "start": 14519940,
+    "type": "midi",
+    "options": {
+      "group": 39,
+      "reverb": 40,
+      "timeChanges": {
+        "nominator": 3,
+        "denominator": 4,
+        "time": 96
+      },
+      "headerOffset": 424
+    },
+    "size": 452
+  },
+  {
+    "path": "sounds/bgmRoyalCrypt.bin",
+    "start": 14520392,
+    "type": "midi",
+    "comment": "Crazy timeChanges to avoid pattern creation by mid2agb.",
+    "options": {
+      "group": 40,
+      "reverb": 60,
+      "timeChanges": [
+        {
+          "nominator": 8,
+          "denominator": 4,
+          "time": 960
+        },
+        {
+          "nominator": 4,
+          "denominator": 4,
+          "time": 1080
+        },
+        {
+          "nominator": 12,
+          "denominator": 4,
+          "time": 1560
+        }
+      ],
+      "headerOffset": 1468
+    },
+    "size": 1496
+  },
+  {
+    "path": "sounds/bgmElementalSanctuary.bin",
+    "start": 14521888,
+    "type": "midi",
+    "options": {
+      "group": 41,
+      "reverb": 60,
+      "headerOffset": 1164
+    },
+    "size": 1192
+  },
+  {
+    "path": "sounds/bgmFightTheme.bin",
+    "start": 14523080,
+    "type": "midi",
+    "options": {
+      "group": 42,
+      "reverb": 40,
+      "timeChanges": {
+        "nominator": 2,
+        "denominator": 4,
+        "time": 96
+      },
+      "headerOffset": 1160
+    },
+    "size": 1196
+  },
+  {
+    "path": "sounds/bgmBossTheme.bin",
+    "start": 14524276,
+    "type": "midi",
+    "options": {
+      "group": 43,
+      "reverb": 40,
+      "timeChanges": {
+        "nominator": 4,
+        "denominator": 4,
+        "time": 144
+      },
+      "headerOffset": 1156
+    },
+    "size": 1196
+  },
+  {
+    "path": "sounds/bgmVaatiReborn.bin",
+    "start": 14525472,
+    "type": "midi",
+    "options": {
+      "group": 44,
+      "reverb": 40,
+      "timeChanges": {
+        "nominator": 3,
+        "denominator": 4,
+        "time": 24
+      },
+      "headerOffset": 1704
+    },
+    "size": 1744
+  },
+  {
+    "path": "sounds/bgmVaatiTransfigured.bin",
+    "start": 14527216,
+    "type": "midi",
+    "options": {
+      "group": 45,
+      "reverb": 40,
+      "headerOffset": 1764
+    },
+    "size": 1812
+  },
+  {
+    "path": "sounds/bgmCastleCollapse.bin",
+    "start": 14529028,
+    "type": "midi",
+    "options": {
+      "group": 46,
+      "reverb": 40,
+      "timeChanges": {
+        "nominator": 4,
+        "denominator": 4,
+        "time": 48
+      },
+      "headerOffset": 992
+    },
+    "size": 1032
+  },
+  {
+    "path": "sounds/bgmVaatiWrath.bin",
+    "start": 14530060,
+    "type": "midi",
+    "options": {
+      "group": 47,
+      "reverb": 40,
+      "timeChanges": [
+        {
+          "nominator": 3,
+          "denominator": 4,
+          "time": 108
+        },
+        {
+          "nominator": 4,
+          "denominator": 4,
+          "time": 540
+        }
+      ],
+      "headerOffset": 2660
+    },
+    "size": 2704
+  },
+  {
+    "path": "sounds/bgmFightTheme2.bin",
+    "start": 14532764,
+    "type": "midi",
+    "options": {
+      "group": 48,
+      "reverb": 40,
+      "timeChanges": {
+        "nominator": 4,
+        "denominator": 4,
+        "time": 48
+      },
+      "headerOffset": 436
+    },
+    "size": 472
+  },
+  {
+    "path": "sounds/bgmDiggingCave.bin",
+    "start": 14533236,
+    "type": "midi",
+    "options": {
+      "group": 49,
+      "reverb": 50,
+      "timeChanges": {
+        "nominator": 4,
+        "denominator": 4,
+        "time": 108
+      },
+      "headerOffset": 288
+    },
+    "size": 320
+  },
+  {
+    "path": "sounds/bgmSwiftbladeDojo.bin",
+    "start": 14533556,
+    "type": "midi",
+    "options": {
+      "group": 50,
+      "reverb": 30,
+      "timeChanges": {
+        "nominator": 4,
+        "denominator": 4,
+        "time": 48
+      },
+      "headerOffset": 256
+    },
+    "variants": [
+      "USA",
+      "JP",
+      "DEMO_USA",
+      "DEMO_JP"
+    ],
+    "size": 280
+  },
+  {
+    "path": "sounds/bgmSwiftbladeDojo.bin",
+    "starts": {
+      "EU": 15628744
+    },
+    "type": "midi",
+    "options": {
+      "group": 50,
+      "reverb": 40,
+      "timeChanges": {
+        "nominator": 4,
+        "denominator": 4,
+        "time": 96
+      },
+      "headerOffset": 200
+    },
+    "variants": [
+      "EU"
+    ],
+    "size": 216
+  },
+  {
+    "offsets": {
+      "EU": 1095124
+    }
+  },
+  {
+    "path": "sounds/bgmMinishCap.bin",
+    "start": 14533836,
+    "type": "midi",
+    "options": {
+      "group": 51,
+      "reverb": 50,
+      "timeChanges": [
+        {
+          "nominator": 3,
+          "denominator": 4,
+          "time": 96
+        },
+        {
+          "nominator": 4,
+          "denominator": 4,
+          "time": 2952
+        },
+        {
+          "nominator": 3,
+          "denominator": 4,
+          "time": 3144
+        }
+      ],
+      "headerOffset": 2652
+    },
+    "size": 2688
+  },
+  {
+    "path": "sounds/bgmMtCrenel.bin",
+    "start": 14536524,
+    "type": "midi",
+    "options": {
+      "group": 52,
+      "reverb": 50,
+      "headerOffset": 1476
+    },
+    "size": 1512
+  },
+  {
+    "path": "sounds/bgmPicoriFestival.bin",
+    "start": 14538036,
+    "type": "midi",
+    "options": {
+      "group": 53,
+      "reverb": 30,
+      "headerOffset": 1308
+    },
+    "size": 1344
+  },
+  {
+    "path": "sounds/bgmLostWoods.bin",
+    "start": 14539380,
+    "type": "midi",
+    "options": {
+      "group": 54,
+      "reverb": 30,
+      "headerOffset": 2672
+    },
+    "size": 2708
+  },
+  {
+    "path": "sounds/bgmFairyFountain2.bin",
+    "start": 14542088,
+    "type": "midi",
+    "options": {
+      "group": 55,
+      "reverb": 40,
+      "headerOffset": 796
+    },
+    "size": 832
+  },
+  {
+    "path": "sounds/bgmWindRuins.bin",
+    "start": 14542920,
+    "type": "midi",
+    "options": {
+      "group": 56,
+      "reverb": 40,
+      "headerOffset": 1008
+    },
+    "size": 1044
+  },
+  {
+    "path": "sounds/bgmLearnScroll.bin",
+    "start": 14543964,
+    "type": "midi",
+    "options": {
+      "group": 50,
+      "reverb": 30,
+      "headerOffset": 272
+    },
+    "variants": [
+      "USA",
+      "JP",
+      "DEMO_USA",
+      "DEMO_JP"
+    ],
+    "size": 300
+  },
+  {
+    "path": "sounds/bgmLearnScroll.bin",
+    "starts": {
+      "EU": 15639088
+    },
+    "type": "midi",
+    "options": {
+      "group": 50,
+      "reverb": 50,
+      "headerOffset": 220
+    },
+    "variants": [
+      "EU"
+    ],
+    "start": 14543964,
+    "size": 240
+  },
+  {
+    "offsets": {
+      "EU": 1095064
+    }
+  },
+  {
+    "path": "sounds/bgmEzloGet.bin",
+    "start": 14544264,
+    "type": "midi",
+    "options": {
+      "group": 57,
+      "reverb": 50,
+      "headerOffset": 144
+    },
+    "size": 172
+  },
+  {
+    "path": "sounds/sfxBeep.bin",
+    "start": 14544436,
+    "type": "midi",
+    "options": {
+      "group": 60,
+      "priority": 255,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxTextboxOpen.bin",
+    "start": 14544464,
+    "type": "midi",
+    "options": {
+      "group": 61,
+      "priority": 48,
+      "headerOffset": 108
+    },
+    "size": 124
+  },
+  {
+    "path": "sounds/sfxTextboxClose.bin",
+    "start": 14544588,
+    "type": "midi",
+    "options": {
+      "group": 62,
+      "priority": 48,
+      "headerOffset": 84
+    },
+    "size": 100
+  },
+  {
+    "path": "sounds/sfxTextboxNext.bin",
+    "start": 14544688,
+    "type": "midi",
+    "options": {
+      "group": 63,
+      "priority": 64,
+      "headerOffset": 20
+    },
+    "size": 32
+  },
+  {
+    "path": "sounds/sfxTextboxSwap.bin",
+    "start": 14544720,
+    "type": "midi",
+    "options": {
+      "group": 64,
+      "priority": 64,
+      "headerOffset": 44
+    },
+    "size": 56
+  },
+  {
+    "path": "sounds/sfxTextboxChoice.bin",
+    "start": 14544776,
+    "type": "midi",
+    "options": {
+      "group": 65,
+      "priority": 64,
+      "headerOffset": 20
+    },
+    "size": 32
+  },
+  {
+    "path": "sounds/sfxTextboxSelect.bin",
+    "start": 14544808,
+    "type": "midi",
+    "options": {
+      "group": 66,
+      "priority": 64,
+      "headerOffset": 96
+    },
+    "size": 108
+  },
+  {
+    "path": "sounds/sfx6B.bin",
+    "start": 14544916,
+    "type": "midi",
+    "options": {
+      "group": 67,
+      "priority": 64,
+      "headerOffset": 44
+    },
+    "size": 56
+  },
+  {
+    "path": "sounds/sfxMenuCancel.bin",
+    "start": 14544972,
+    "type": "midi",
+    "options": {
+      "group": 68,
+      "priority": 64,
+      "headerOffset": 28
+    },
+    "size": 40
+  },
+  {
+    "path": "sounds/sfxMenuError.bin",
+    "start": 14545012,
+    "type": "midi",
+    "options": {
+      "group": 69,
+      "priority": 64,
+      "headerOffset": 32
+    },
+    "size": 44
+  },
+  {
+    "path": "sounds/sfxRupeeBounce.bin",
+    "start": 14545056,
+    "type": "midi",
+    "options": {
+      "group": 70,
+      "priority": 88,
+      "headerOffset": 28
+    },
+    "size": 40
+  },
+  {
+    "path": "sounds/sfxRupeeGet.bin",
+    "start": 14545096,
+    "type": "midi",
+    "options": {
+      "group": 71,
+      "priority": 96,
+      "headerOffset": 36
+    },
+    "size": 48
+  },
+  {
+    "path": "sounds/sfxHeartBounce.bin",
+    "start": 14545144,
+    "options": {
+      "G": 72,
+      "P": 88,
+      "headerOffset": 76
+    },
+    "type": "midi",
+    "size": 88
+  },
+  {
+    "path": "sounds/sfxHeartGet.bin",
+    "start": 14545232,
+    "options": {
+      "G": 73,
+      "P": 96,
+      "headerOffset": 28
+    },
+    "type": "midi",
+    "size": 40
+  },
+  {
+    "path": "sounds/sfxSecret.bin",
+    "start": 14545272,
+    "options": {
+      "G": 74,
+      "P": 192,
+      "headerOffset": 36
+    },
+    "type": "midi",
+    "size": 48
+  },
+  {
+    "path": "sounds/sfxSecretBig.bin",
+    "start": 14545320,
+    "options": {
+      "G": 75,
+      "P": 208,
+      "headerOffset": 76
+    },
+    "type": "midi",
+    "variants": [
+      "USA",
+      "JP",
+      "DEMO_USA",
+      "DEMO_JP"
+    ],
+    "size": 92
+  },
+  {
+    "path": "sounds/sfxSecretBig.bin",
+    "start": 14545320,
+    "options": {
+      "G": 75,
+      "P": 192,
+      "headerOffset": 76
+    },
+    "type": "midi",
+    "variants": [
+      "EU"
+    ],
+    "size": 92
+  },
+  {
+    "path": "sounds/sfxMetalClink.bin",
+    "start": 14545412,
+    "type": "midi",
+    "options": {
+      "group": 76,
+      "priority": 68,
+      "headerOffset": 24
+    },
+    "size": 36
+  },
+  {
+    "path": "sounds/sfxPlyVo1.bin",
+    "start": 14545448,
+    "type": "midi",
+    "options": {
+      "group": 77,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxPlyVo2.bin",
+    "start": 14545476,
+    "type": "midi",
+    "options": {
+      "group": 78,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxPlyVo3.bin",
+    "start": 14545504,
+    "type": "midi",
+    "options": {
+      "group": 79,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxPlyVo4.bin",
+    "start": 14545532,
+    "type": "midi",
+    "options": {
+      "group": 80,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxPlyVo5.bin",
+    "start": 14545560,
+    "type": "midi",
+    "options": {
+      "group": 81,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxPlyVo6.bin",
+    "start": 14545588,
+    "type": "midi",
+    "options": {
+      "group": 82,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxPlyVo7.bin",
+    "start": 14545616,
+    "type": "midi",
+    "options": {
+      "group": 83,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxPlyJump.bin",
+    "start": 14545644,
+    "type": "midi",
+    "options": {
+      "group": "084",
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxPlyLand.bin",
+    "start": 14545672,
+    "type": "midi",
+    "options": {
+      "group": "085",
+      "priority": 64,
+      "headerOffset": 20
+    },
+    "size": 32
+  },
+  {
+    "path": "sounds/sfx7E.bin",
+    "start": 14545704,
+    "type": "midi",
+    "options": {
+      "group": "086",
+      "priority": 48,
+      "headerOffset": 20
+    },
+    "size": 32
+  },
+  {
+    "path": "sounds/sfxPlyLift.bin",
+    "start": 14545736,
+    "type": "midi",
+    "options": {
+      "group": "087",
+      "priority": 64,
+      "headerOffset": 68
+    },
+    "size": 80
+  },
+  {
+    "path": "sounds/sfx80.bin",
+    "start": 14545816,
+    "type": "midi",
+    "options": {
+      "group": "088",
+      "priority": 48,
+      "headerOffset": 24
+    },
+    "size": 36
+  },
+  {
+    "path": "sounds/sfx81.bin",
+    "start": 14545852,
+    "type": "midi",
+    "options": {
+      "group": "089",
+      "priority": 64,
+      "headerOffset": 40
+    },
+    "size": 52
+  },
+  {
+    "path": "sounds/sfx82.bin",
+    "start": 14545904,
+    "type": "midi",
+    "options": {
+      "group": "090",
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxWaterWalk.bin",
+    "start": 14545932,
+    "type": "midi",
+    "options": {
+      "group": "091",
+      "priority": 40,
+      "headerOffset": 48
+    },
+    "size": 64
+  },
+  {
+    "path": "sounds/sfxWaterSplash.bin",
+    "start": 14545996,
+    "type": "midi",
+    "options": {
+      "group": "092",
+      "priority": 64,
+      "headerOffset": 56
+    },
+    "size": 68
+  },
+  {
+    "path": "sounds/sfxFallHole.bin",
+    "start": 14546064,
+    "type": "midi",
+    "options": {
+      "group": "093",
+      "priority": 64,
+      "headerOffset": 236
+    },
+    "size": 248
+  },
+  {
+    "path": "sounds/sfx86.bin",
+    "start": 14546312,
+    "type": "midi",
+    "options": {
+      "group": "094",
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxPlyDie.bin",
+    "start": 14546340,
+    "type": "midi",
+    "options": {
+      "group": "095",
+      "priority": 64,
+      "headerOffset": 100
+    },
+    "size": 112
+  },
+  {
+    "path": "sounds/sfx88.bin",
+    "start": 14546452,
+    "type": "midi",
+    "options": {
+      "group": "096",
+      "priority": 64,
+      "headerOffset": 28
+    },
+    "size": 40
+  },
+  {
+    "path": "sounds/sfxBarrelRelease.bin",
+    "start": 14546492,
+    "type": "midi",
+    "options": {
+      "group": "097",
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxBarrelEnter.bin",
+    "start": 14546520,
+    "type": "midi",
+    "options": {
+      "group": "098",
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxBarrelRoll.bin",
+    "start": 14546548,
+    "type": "midi",
+    "options": {
+      "group": "099",
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxBarrelRollStop.bin",
+    "start": 14546576,
+    "type": "midi",
+    "options": {
+      "group": 100,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoEzlo1.bin",
+    "start": 14546604,
+    "type": "midi",
+    "options": {
+      "group": 101,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoEzlo2.bin",
+    "start": 14546632,
+    "type": "midi",
+    "options": {
+      "group": 102,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoEzlo3.bin",
+    "start": 14546660,
+    "type": "midi",
+    "options": {
+      "group": 103,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoEzlo4.bin",
+    "start": 14546688,
+    "type": "midi",
+    "options": {
+      "group": 104,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoEzlo5.bin",
+    "start": 14546716,
+    "type": "midi",
+    "options": {
+      "group": 105,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoEzlo6.bin",
+    "start": 14546744,
+    "type": "midi",
+    "options": {
+      "group": 106,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoEzlo7.bin",
+    "start": 14546772,
+    "type": "midi",
+    "options": {
+      "group": 107,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoZelda1.bin",
+    "start": 14546800,
+    "type": "midi",
+    "options": {
+      "group": 108,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoZelda2.bin",
+    "start": 14546828,
+    "type": "midi",
+    "options": {
+      "group": 109,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoZelda3.bin",
+    "start": 14546856,
+    "type": "midi",
+    "options": {
+      "group": 110,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoZelda4.bin",
+    "start": 14546884,
+    "type": "midi",
+    "options": {
+      "group": 111,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoZelda5.bin",
+    "start": 14546912,
+    "type": "midi",
+    "options": {
+      "group": 112,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoZelda6.bin",
+    "start": 14546940,
+    "type": "midi",
+    "options": {
+      "group": 113,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoZelda7.bin",
+    "start": 14546968,
+    "type": "midi",
+    "options": {
+      "group": 114,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx9B.bin",
+    "start": 14546996,
+    "type": "midi",
+    "options": {
+      "group": 115,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx9C.bin",
+    "start": 14547024,
+    "type": "midi",
+    "options": {
+      "group": 116,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx9D.bin",
+    "start": 14547052,
+    "type": "midi",
+    "options": {
+      "group": 117,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx9E.bin",
+    "start": 14547080,
+    "type": "midi",
+    "options": {
+      "group": 118,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx9F.bin",
+    "start": 14547108,
+    "type": "midi",
+    "options": {
+      "group": 119,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxA0.bin",
+    "start": 14547136,
+    "type": "midi",
+    "options": {
+      "group": 120,
+      "priority": 72,
+      "headerOffset": 20
+    },
+    "size": 32
+  },
+  {
+    "path": "sounds/sfxVoTingle1.bin",
+    "start": 14547168,
+    "type": "midi",
+    "options": {
+      "group": 121,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoTingle2.bin",
+    "start": 14547196,
+    "type": "midi",
+    "options": {
+      "group": 122,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoKing1.bin",
+    "start": 14547224,
+    "type": "midi",
+    "options": {
+      "group": 123,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoKing2.bin",
+    "start": 14547252,
+    "type": "midi",
+    "options": {
+      "group": 124,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoKing3.bin",
+    "start": 14547280,
+    "type": "midi",
+    "options": {
+      "group": 125,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoKing4.bin",
+    "start": 14547308,
+    "type": "midi",
+    "options": {
+      "group": 126,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoKing5.bin",
+    "start": 14547336,
+    "type": "midi",
+    "options": {
+      "group": 127,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxA8.bin",
+    "start": 14547364,
+    "type": "midi",
+    "options": {
+      "group": 128,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxA9.bin",
+    "start": 14547392,
+    "type": "midi",
+    "options": {
+      "group": 129,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxAA.bin",
+    "start": 14547420,
+    "type": "midi",
+    "options": {
+      "group": 130,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxSpiritsRelease.bin",
+    "start": 14547448,
+    "type": "midi",
+    "options": {
+      "group": 131,
+      "priority": 72,
+      "headerOffset": 20
+    },
+    "size": 32
+  },
+  {
+    "path": "sounds/sfxAC.bin",
+    "start": 14547480,
+    "type": "midi",
+    "options": {
+      "group": 132,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoBeedle.bin",
+    "start": 14547508,
+    "type": "midi",
+    "options": {
+      "group": 133,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxAE.bin",
+    "start": 14547536,
+    "type": "midi",
+    "options": {
+      "group": 134,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxAF.bin",
+    "start": 14547564,
+    "type": "midi",
+    "options": {
+      "group": 135,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxB0.bin",
+    "start": 14547592,
+    "type": "midi",
+    "options": {
+      "group": 136,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxMinish1.bin",
+    "start": 14547620,
+    "type": "midi",
+    "options": {
+      "group": 137,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxMinish2.bin",
+    "start": 14547648,
+    "type": "midi",
+    "options": {
+      "group": 138,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxMinish3.bin",
+    "start": 14547676,
+    "type": "midi",
+    "options": {
+      "group": 139,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxMinish4.bin",
+    "start": 14547704,
+    "type": "midi",
+    "options": {
+      "group": 140,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxB5.bin",
+    "start": 14547732,
+    "type": "midi",
+    "options": {
+      "group": 141,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxB6.bin",
+    "start": 14547760,
+    "type": "midi",
+    "options": {
+      "group": 142,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxB7.bin",
+    "start": 14547788,
+    "type": "midi",
+    "options": {
+      "group": 143,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxB8.bin",
+    "start": 14547816,
+    "type": "midi",
+    "options": {
+      "group": 144,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxB9.bin",
+    "start": 14547844,
+    "type": "midi",
+    "options": {
+      "group": 145,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxBA.bin",
+    "start": 14547872,
+    "type": "midi",
+    "options": {
+      "group": 146,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxBB.bin",
+    "start": 14547900,
+    "type": "midi",
+    "options": {
+      "group": 147,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxBC.bin",
+    "start": 14547928,
+    "type": "midi",
+    "options": {
+      "group": 148,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxBD.bin",
+    "start": 14547956,
+    "type": "midi",
+    "options": {
+      "group": 149,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxBE.bin",
+    "start": 14547984,
+    "type": "midi",
+    "options": {
+      "group": 150,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxBF.bin",
+    "start": 14548012,
+    "type": "midi",
+    "options": {
+      "group": 151,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxC0.bin",
+    "start": 14548040,
+    "type": "midi",
+    "options": {
+      "group": 152,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxC1.bin",
+    "start": 14548068,
+    "type": "midi",
+    "options": {
+      "group": 153,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxC2.bin",
+    "start": 14548096,
+    "type": "midi",
+    "options": {
+      "group": 154,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxC3.bin",
+    "start": 14548124,
+    "type": "midi",
+    "options": {
+      "group": 155,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxC4.bin",
+    "start": 14548152,
+    "type": "midi",
+    "options": {
+      "group": 156,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxC5.bin",
+    "start": 14548180,
+    "type": "midi",
+    "options": {
+      "group": 157,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxC6.bin",
+    "start": 14548208,
+    "type": "midi",
+    "options": {
+      "group": 158,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxC7.bin",
+    "start": 14548236,
+    "type": "midi",
+    "options": {
+      "group": 159,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxC8.bin",
+    "start": 14548264,
+    "type": "midi",
+    "options": {
+      "group": 160,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxC9.bin",
+    "start": 14548292,
+    "type": "midi",
+    "options": {
+      "group": 161,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxCA.bin",
+    "start": 14548320,
+    "type": "midi",
+    "options": {
+      "group": 162,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxCB.bin",
+    "start": 14548348,
+    "type": "midi",
+    "options": {
+      "group": 163,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxRemSleep.bin",
+    "start": 14548376,
+    "type": "midi",
+    "options": {
+      "group": 164,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxTaskComplete.bin",
+    "start": 14548404,
+    "type": "midi",
+    "options": {
+      "group": 165,
+      "priority": 192,
+      "headerOffset": 32
+    },
+    "variants": [
+      "EU"
+    ],
+    "size": 44
+  },
+  {
+    "path": "sounds/sfxTaskComplete.bin",
+    "start": 14548404,
+    "type": "midi",
+    "options": {
+      "group": 165,
+      "priority": 176,
+      "headerOffset": 32
+    },
+    "variants": [
+      "USA",
+      "JP",
+      "DEMO_USA",
+      "DEMO_JP"
+    ],
+    "size": 44
+  },
+  {
+    "path": "sounds/sfxKeyAppear.bin",
+    "start": 14548448,
+    "type": "midi",
+    "options": {
+      "group": 166,
+      "priority": 192,
+      "headerOffset": 52
+    },
+    "size": 64
+  },
+  {
+    "path": "sounds/sfxCF.bin",
+    "start": 14548512,
+    "type": "midi",
+    "options": {
+      "group": 167,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxD0.bin",
+    "start": 14548540,
+    "type": "midi",
+    "options": {
+      "group": 168,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoDog.bin",
+    "start": 14548568,
+    "type": "midi",
+    "options": {
+      "group": 169,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoCat.bin",
+    "start": 14548596,
+    "type": "midi",
+    "options": {
+      "group": 170,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoEpona.bin",
+    "start": 14548624,
+    "type": "midi",
+    "options": {
+      "group": 171,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoCow.bin",
+    "start": 14548652,
+    "type": "midi",
+    "options": {
+      "group": 172,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoCuccoCall.bin",
+    "start": 14548680,
+    "type": "midi",
+    "options": {
+      "group": 173,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoCheep.bin",
+    "start": 14548708,
+    "type": "midi",
+    "options": {
+      "group": 174,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxItemSwordCharge.bin",
+    "start": 14548736,
+    "type": "midi",
+    "options": {
+      "group": 175,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxItemSwordChargeFinish.bin",
+    "start": 14548764,
+    "type": "midi",
+    "options": {
+      "group": 176,
+      "priority": 96,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxD9.bin",
+    "start": 14548792,
+    "type": "midi",
+    "options": {
+      "group": 177,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxDA.bin",
+    "start": 14548820,
+    "type": "midi",
+    "options": {
+      "group": 178,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoSturgeon.bin",
+    "start": 14548848,
+    "type": "midi",
+    "options": {
+      "group": 179,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxHammer1.bin",
+    "start": 14548876,
+    "type": "midi",
+    "options": {
+      "group": 180,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxHammer2.bin",
+    "start": 14548904,
+    "type": "midi",
+    "options": {
+      "group": 181,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxHammer3.bin",
+    "start": 14548932,
+    "type": "midi",
+    "options": {
+      "group": 182,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxHammer4.bin",
+    "start": 14548960,
+    "type": "midi",
+    "options": {
+      "group": 183,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxHammer5.bin",
+    "start": 14548988,
+    "type": "midi",
+    "options": {
+      "group": 184,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxHammer6.bin",
+    "start": 14549016,
+    "type": "midi",
+    "options": {
+      "group": 185,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxCuccoMinigameBell.bin",
+    "start": 14549044,
+    "type": "midi",
+    "options": {
+      "group": 186,
+      "priority": 64,
+      "headerOffset": 20
+    },
+    "size": 32
+  },
+  {
+    "path": "sounds/sfxE3.bin",
+    "start": 14549076,
+    "type": "midi",
+    "options": {
+      "group": 187,
+      "priority": 96,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxE4.bin",
+    "start": 14549104,
+    "type": "midi",
+    "options": {
+      "group": 188,
+      "priority": 96,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxButtonDepress.bin",
+    "start": 14549132,
+    "type": "midi",
+    "options": {
+      "group": 189,
+      "priority": 64,
+      "headerOffset": 20
+    },
+    "size": 32
+  },
+  {
+    "path": "sounds/sfxThudHeavy.bin",
+    "start": 14549164,
+    "type": "midi",
+    "options": {
+      "group": 190,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxWind1.bin",
+    "start": 14549192,
+    "type": "midi",
+    "options": {
+      "group": 191,
+      "priority": 48,
+      "headerOffset": 36
+    },
+    "size": 48
+  },
+  {
+    "path": "sounds/sfxWind2.bin",
+    "start": 14549240,
+    "type": "midi",
+    "options": {
+      "group": 192,
+      "priority": 48,
+      "headerOffset": 64
+    },
+    "size": 76
+  },
+  {
+    "path": "sounds/sfxWind3.bin",
+    "start": 14549316,
+    "type": "midi",
+    "options": {
+      "group": 193,
+      "priority": 48,
+      "headerOffset": 60
+    },
+    "size": 72
+  },
+  {
+    "path": "sounds/sfxEA.bin",
+    "start": 14549388,
+    "type": "midi",
+    "options": {
+      "group": 194,
+      "priority": 64,
+      "headerOffset": 40
+    },
+    "size": 52
+  },
+  {
+    "path": "sounds/sfxEB.bin",
+    "start": 14549440,
+    "type": "midi",
+    "options": {
+      "group": 195,
+      "priority": 64,
+      "headerOffset": 52
+    },
+    "size": 64
+  },
+  {
+    "path": "sounds/sfxEC.bin",
+    "start": 14549504,
+    "type": "midi",
+    "options": {
+      "group": 196,
+      "priority": 64,
+      "headerOffset": 68
+    },
+    "size": 80
+  },
+  {
+    "path": "sounds/sfxED.bin",
+    "start": 14549584,
+    "type": "midi",
+    "options": {
+      "group": 197,
+      "priority": 68,
+      "headerOffset": 60
+    },
+    "size": 76
+  },
+  {
+    "path": "sounds/sfxEE.bin",
+    "start": 14549660,
+    "type": "midi",
+    "options": {
+      "group": 198,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxEF.bin",
+    "start": 14549688,
+    "type": "midi",
+    "options": {
+      "group": 199,
+      "priority": 68,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxF0.bin",
+    "start": 14549716,
+    "type": "midi",
+    "options": {
+      "group": 200,
+      "priority": 64,
+      "headerOffset": 24
+    },
+    "size": 36
+  },
+  {
+    "path": "sounds/sfxF1.bin",
+    "start": 14549752,
+    "type": "midi",
+    "options": {
+      "group": 201,
+      "priority": 64,
+      "headerOffset": 24
+    },
+    "size": 36
+  },
+  {
+    "path": "sounds/sfxF2.bin",
+    "start": 14549788,
+    "type": "midi",
+    "options": {
+      "group": 202,
+      "priority": 64,
+      "headerOffset": 108
+    },
+    "size": 124
+  },
+  {
+    "path": "sounds/sfxF3.bin",
+    "start": 14549912,
+    "type": "midi",
+    "options": {
+      "group": 203,
+      "priority": 68,
+      "headerOffset": 44
+    },
+    "size": 56
+  },
+  {
+    "path": "sounds/sfxSummon.bin",
+    "start": 14549968,
+    "type": "midi",
+    "options": {
+      "group": 204,
+      "priority": 64,
+      "headerOffset": 76
+    },
+    "size": 88
+  },
+  {
+    "path": "sounds/sfxF5.bin",
+    "start": 14550056,
+    "type": "midi",
+    "options": {
+      "group": 205,
+      "priority": 64,
+      "headerOffset": 188
+    },
+    "size": 200
+  },
+  {
+    "path": "sounds/sfxEvaporate.bin",
+    "start": 14550256,
+    "type": "midi",
+    "options": {
+      "group": 206,
+      "priority": 64,
+      "headerOffset": 68
+    },
+    "size": 80
+  },
+  {
+    "path": "sounds/sfxApparate.bin",
+    "start": 14550336,
+    "type": "midi",
+    "options": {
+      "group": 207,
+      "priority": 64,
+      "headerOffset": 68
+    },
+    "size": 80
+  },
+  {
+    "path": "sounds/sfxF8.bin",
+    "start": 14550416,
+    "type": "midi",
+    "options": {
+      "group": 208,
+      "priority": 68,
+      "headerOffset": 76
+    },
+    "size": 92
+  },
+  {
+    "path": "sounds/sfxTeleporter.bin",
+    "start": 14550508,
+    "type": "midi",
+    "options": {
+      "group": 209,
+      "priority": 64,
+      "headerOffset": 72
+    },
+    "size": 84
+  },
+  {
+    "path": "sounds/sfxFA.bin",
+    "start": 14550592,
+    "type": "midi",
+    "options": {
+      "group": 210,
+      "priority": 68,
+      "headerOffset": 76
+    },
+    "size": 92
+  },
+  {
+    "path": "sounds/sfxFB.bin",
+    "start": 14550684,
+    "type": "midi",
+    "options": {
+      "group": 211,
+      "priority": 64,
+      "headerOffset": 72
+    },
+    "size": 84
+  },
+  {
+    "path": "sounds/sfxFC.bin",
+    "start": 14550768,
+    "type": "midi",
+    "options": {
+      "group": 212,
+      "priority": 64,
+      "headerOffset": 56
+    },
+    "size": 72
+  },
+  {
+    "path": "sounds/sfxItemBombExplode.bin",
+    "start": 14550840,
+    "type": "midi",
+    "options": {
+      "group": 213,
+      "priority": 127,
+      "headerOffset": 76
+    },
+    "size": 88
+  },
+  {
+    "path": "sounds/sfxHit.bin",
+    "start": 14550928,
+    "type": "midi",
+    "options": {
+      "group": 214,
+      "priority": 68,
+      "headerOffset": 68
+    },
+    "size": 84
+  },
+  {
+    "path": "sounds/sfxFF.bin",
+    "start": 14551012,
+    "type": "midi",
+    "options": {
+      "group": 215,
+      "priority": 72,
+      "headerOffset": 92
+    },
+    "size": 108
+  },
+  {
+    "path": "sounds/sfx100.bin",
+    "start": 14551120,
+    "type": "midi",
+    "options": {
+      "group": 216,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx101.bin",
+    "start": 14551148,
+    "type": "midi",
+    "options": {
+      "group": 217,
+      "priority": 48,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx102.bin",
+    "start": 14551176,
+    "type": "midi",
+    "options": {
+      "group": 218,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx103.bin",
+    "start": 14551204,
+    "type": "midi",
+    "options": {
+      "group": 219,
+      "priority": 96,
+      "headerOffset": 32
+    },
+    "size": 44
+  },
+  {
+    "path": "sounds/sfx104.bin",
+    "start": 14551248,
+    "type": "midi",
+    "options": {
+      "group": 220,
+      "priority": 56,
+      "headerOffset": 44
+    },
+    "size": 56
+  },
+  {
+    "path": "sounds/sfx105.bin",
+    "start": 14551304,
+    "type": "midi",
+    "options": {
+      "group": 221,
+      "priority": 32,
+      "headerOffset": 4244
+    },
+    "size": 4276
+  },
+  {
+    "path": "sounds/sfx106.bin",
+    "start": 14555580,
+    "type": "midi",
+    "options": {
+      "group": 222,
+      "priority": 64,
+      "headerOffset": 20
+    },
+    "size": 32
+  },
+  {
+    "path": "sounds/sfx107.bin",
+    "start": 14555612,
+    "type": "midi",
+    "options": {
+      "group": 223,
+      "priority": 64,
+      "headerOffset": 36
+    },
+    "size": 48
+  },
+  {
+    "path": "sounds/sfx108.bin",
+    "start": 14555660,
+    "type": "midi",
+    "options": {
+      "group": 224,
+      "priority": 64,
+      "headerOffset": 32
+    },
+    "size": 44
+  },
+  {
+    "path": "sounds/sfx109.bin",
+    "start": 14555704,
+    "type": "midi",
+    "options": {
+      "group": "058",
+      "priority": 32,
+      "headerOffset": 1604
+    },
+    "size": 1660
+  },
+  {
+    "path": "sounds/sfx10A.bin",
+    "start": 14557364,
+    "type": "midi",
+    "options": {
+      "group": 225,
+      "priority": 96,
+      "headerOffset": 20
+    },
+    "size": 32
+  },
+  {
+    "path": "sounds/sfx10B.bin",
+    "start": 14557396,
+    "type": "midi",
+    "options": {
+      "group": 226,
+      "priority": 127,
+      "headerOffset": 40
+    },
+    "size": 52
+  },
+  {
+    "path": "sounds/sfx10C.bin",
+    "start": 14557448,
+    "type": "midi",
+    "options": {
+      "group": 227,
+      "priority": 80,
+      "headerOffset": 28
+    },
+    "size": 40
+  },
+  {
+    "path": "sounds/sfx10D.bin",
+    "start": 14557488,
+    "type": "midi",
+    "options": {
+      "group": 228,
+      "priority": 64,
+      "headerOffset": 68
+    },
+    "size": 80
+  },
+  {
+    "path": "sounds/sfx10E.bin",
+    "start": 14557568,
+    "type": "midi",
+    "options": {
+      "group": 229,
+      "priority": 64,
+      "headerOffset": 44
+    },
+    "size": 56
+  },
+  {
+    "path": "sounds/sfx10F.bin",
+    "start": 14557624,
+    "type": "midi",
+    "options": {
+      "group": 230,
+      "priority": 64,
+      "headerOffset": 48
+    },
+    "size": 60
+  },
+  {
+    "path": "sounds/sfx110.bin",
+    "start": 14557684,
+    "type": "midi",
+    "options": {
+      "group": 231,
+      "priority": 96,
+      "headerOffset": 56
+    },
+    "size": 68
+  },
+  {
+    "path": "sounds/sfx111.bin",
+    "start": 14557752,
+    "type": "midi",
+    "options": {
+      "group": 232,
+      "priority": 96,
+      "headerOffset": 40
+    },
+    "size": 52
+  },
+  {
+    "path": "sounds/sfx112.bin",
+    "start": 14557804,
+    "type": "midi",
+    "options": {
+      "group": 233,
+      "priority": 96,
+      "headerOffset": 204
+    },
+    "size": 216
+  },
+  {
+    "path": "sounds/sfx113.bin",
+    "start": 14558020,
+    "type": "midi",
+    "options": {
+      "group": 234,
+      "priority": 96,
+      "headerOffset": 196
+    },
+    "size": 212
+  },
+  {
+    "path": "sounds/sfx114.bin",
+    "start": 14558232,
+    "type": "midi",
+    "options": {
+      "group": 235,
+      "priority": 96,
+      "headerOffset": 96
+    },
+    "size": 108
+  },
+  {
+    "path": "sounds/sfx115.bin",
+    "start": 14558340,
+    "type": "midi",
+    "options": {
+      "group": 236,
+      "priority": 64,
+      "headerOffset": 56
+    },
+    "size": 68
+  },
+  {
+    "path": "sounds/sfx116.bin",
+    "start": 14558408,
+    "type": "midi",
+    "options": {
+      "group": 237,
+      "priority": 64,
+      "headerOffset": 56
+    },
+    "size": 68
+  },
+  {
+    "path": "sounds/sfx117.bin",
+    "start": 14558476,
+    "type": "midi",
+    "options": {
+      "group": 238,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxItemShieldBounce.bin",
+    "start": 14558504,
+    "type": "midi",
+    "options": {
+      "group": 239,
+      "priority": 68,
+      "headerOffset": 28
+    },
+    "size": 44
+  },
+  {
+    "path": "sounds/sfxItemGlovesKnockback.bin",
+    "start": 14558548,
+    "type": "midi",
+    "options": {
+      "group": 240,
+      "priority": 68,
+      "headerOffset": 48
+    },
+    "size": 64
+  },
+  {
+    "path": "sounds/sfxEmArmosOn.bin",
+    "start": 14558612,
+    "type": "midi",
+    "options": {
+      "group": 241,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx11B.bin",
+    "start": 14558640,
+    "type": "midi",
+    "options": {
+      "group": 242,
+      "priority": 64,
+      "headerOffset": 32
+    },
+    "size": 44
+  },
+  {
+    "path": "sounds/sfx11C.bin",
+    "start": 14558684,
+    "type": "midi",
+    "options": {
+      "group": 243,
+      "priority": 64,
+      "headerOffset": 20
+    },
+    "size": 32
+  },
+  {
+    "path": "sounds/sfx11D.bin",
+    "start": 14558716,
+    "type": "midi",
+    "options": {
+      "group": 244,
+      "priority": 64,
+      "headerOffset": 128
+    },
+    "size": 144
+  },
+  {
+    "path": "sounds/sfxEmMoblinSpear.bin",
+    "start": 14558860,
+    "type": "midi",
+    "options": {
+      "group": 245,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxLowHealth.bin",
+    "start": 14558888,
+    "type": "midi",
+    "options": {
+      "group": 246,
+      "priority": 64,
+      "headerOffset": 28
+    },
+    "size": 40
+  },
+  {
+    "path": "sounds/sfxChargingUp.bin",
+    "start": 14558928,
+    "type": "midi",
+    "options": {
+      "group": 247,
+      "priority": 64,
+      "headerOffset": 20
+    },
+    "size": 32
+  },
+  {
+    "path": "sounds/sfxStairs.bin",
+    "start": 14558960,
+    "type": "midi",
+    "options": {
+      "group": 248,
+      "priority": 64,
+      "headerOffset": 40
+    },
+    "size": 52
+  },
+  {
+    "path": "sounds/sfx122.bin",
+    "start": 14559012,
+    "type": "midi",
+    "options": {
+      "group": 249,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx123.bin",
+    "start": 14559040,
+    "type": "midi",
+    "options": {
+      "group": 250,
+      "priority": 64,
+      "headerOffset": 56
+    },
+    "size": 68
+  },
+  {
+    "path": "sounds/sfx124.bin",
+    "start": 14559108,
+    "type": "midi",
+    "options": {
+      "group": 251,
+      "priority": 48,
+      "headerOffset": 60
+    },
+    "size": 72
+  },
+  {
+    "path": "sounds/sfx125.bin",
+    "start": 14559180,
+    "type": "midi",
+    "options": {
+      "group": 252,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx126.bin",
+    "start": 14559208,
+    "type": "midi",
+    "options": {
+      "group": 253,
+      "priority": 64,
+      "headerOffset": 148
+    },
+    "size": 164
+  },
+  {
+    "path": "sounds/sfxBossHit.bin",
+    "start": 14559372,
+    "type": "midi",
+    "options": {
+      "group": 254,
+      "priority": 112,
+      "headerOffset": 184
+    },
+    "size": 200
+  },
+  {
+    "path": "sounds/sfxBossDie.bin",
+    "start": 14559572,
+    "type": "midi",
+    "options": {
+      "group": 255,
+      "priority": 112,
+      "headerOffset": 276
+    },
+    "size": 292
+  },
+  {
+    "path": "sounds/sfxBossExplode.bin",
+    "start": 14559864,
+    "type": "midi",
+    "options": {
+      "group": 256,
+      "priority": 144,
+      "headerOffset": 112
+    },
+    "size": 124
+  },
+  {
+    "path": "sounds/sfx12A.bin",
+    "start": 14559988,
+    "type": "midi",
+    "options": {
+      "group": 257,
+      "priority": 64,
+      "headerOffset": 40
+    },
+    "size": 52
+  },
+  {
+    "path": "sounds/sfx12B.bin",
+    "start": 14560040,
+    "type": "midi",
+    "options": {
+      "group": 258,
+      "priority": 64,
+      "headerOffset": 20
+    },
+    "size": 32
+  },
+  {
+    "path": "sounds/sfx12C.bin",
+    "start": 14560072,
+    "type": "midi",
+    "options": {
+      "group": 259,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx12D.bin",
+    "start": 14560100,
+    "type": "midi",
+    "options": {
+      "group": 260,
+      "priority": 64,
+      "headerOffset": 20
+    },
+    "size": 32
+  },
+  {
+    "path": "sounds/sfx12E.bin",
+    "start": 14560132,
+    "type": "midi",
+    "options": {
+      "group": 261,
+      "priority": 64,
+      "headerOffset": 24
+    },
+    "size": 36
+  },
+  {
+    "path": "sounds/sfx12F.bin",
+    "start": 14560168,
+    "type": "midi",
+    "options": {
+      "group": 262,
+      "priority": 64,
+      "headerOffset": 40
+    },
+    "size": 52
+  },
+  {
+    "path": "sounds/sfx130.bin",
+    "start": 14560220,
+    "type": "midi",
+    "options": {
+      "group": 263,
+      "priority": 64,
+      "headerOffset": 24
+    },
+    "size": 36
+  },
+  {
+    "path": "sounds/sfx131.bin",
+    "start": 14560256,
+    "type": "midi",
+    "options": {
+      "group": 264,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx132.bin",
+    "start": 14560284,
+    "type": "midi",
+    "options": {
+      "group": 265,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx133.bin",
+    "start": 14560312,
+    "type": "midi",
+    "options": {
+      "group": 266,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx134.bin",
+    "start": 14560340,
+    "type": "midi",
+    "options": {
+      "group": 267,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx135.bin",
+    "start": 14560368,
+    "type": "midi",
+    "options": {
+      "group": 268,
+      "priority": 64,
+      "headerOffset": 28
+    },
+    "size": 40
+  },
+  {
+    "path": "sounds/sfx136.bin",
+    "start": 14560408,
+    "type": "midi",
+    "options": {
+      "group": 269,
+      "priority": 64,
+      "headerOffset": 100
+    },
+    "size": 112
+  },
+  {
+    "path": "sounds/sfx137.bin",
+    "start": 14560520,
+    "type": "midi",
+    "options": {
+      "group": 270,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx138.bin",
+    "start": 14560548,
+    "type": "midi",
+    "options": {
+      "group": 271,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx139.bin",
+    "start": 14560576,
+    "type": "midi",
+    "options": {
+      "group": 272,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx13A.bin",
+    "start": 14560604,
+    "type": "midi",
+    "options": {
+      "group": 273,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx13B.bin",
+    "start": 14560632,
+    "type": "midi",
+    "options": {
+      "group": 274,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx13C.bin",
+    "start": 14560660,
+    "type": "midi",
+    "options": {
+      "group": 275,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxItemLanternOn.bin",
+    "start": 14560688,
+    "type": "midi",
+    "options": {
+      "group": 276,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxItemLanternOff.bin",
+    "start": 14560716,
+    "type": "midi",
+    "options": {
+      "group": 277,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxItemSwordBeam.bin",
+    "start": 14560744,
+    "type": "midi",
+    "options": {
+      "group": 278,
+      "priority": 72,
+      "headerOffset": 140
+    },
+    "size": 152
+  },
+  {
+    "path": "sounds/sfx140.bin",
+    "start": 14560896,
+    "type": "midi",
+    "options": {
+      "group": 279,
+      "priority": 64,
+      "headerOffset": 92
+    },
+    "size": 104
+  },
+  {
+    "path": "sounds/sfxHeartContainerSpawn.bin",
+    "start": 14561000,
+    "type": "midi",
+    "options": {
+      "group": 280,
+      "priority": 64,
+      "headerOffset": 176
+    },
+    "size": 192
+  },
+  {
+    "path": "sounds/sfxSparkles.bin",
+    "start": 14561192,
+    "type": "midi",
+    "options": {
+      "group": 281,
+      "priority": 64,
+      "headerOffset": 344
+    },
+    "size": 356
+  },
+  {
+    "path": "sounds/sfx143.bin",
+    "start": 14561548,
+    "type": "midi",
+    "options": {
+      "group": 282,
+      "priority": 240,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx144.bin",
+    "start": 14561576,
+    "type": "midi",
+    "options": {
+      "group": 283,
+      "priority": 64,
+      "headerOffset": 44
+    },
+    "size": 56
+  },
+  {
+    "path": "sounds/sfx145.bin",
+    "start": 14561632,
+    "type": "midi",
+    "options": {
+      "group": 284,
+      "priority": 64,
+      "headerOffset": 40
+    },
+    "size": 52
+  },
+  {
+    "path": "sounds/sfx146.bin",
+    "start": 14561684,
+    "type": "midi",
+    "options": {
+      "group": 285,
+      "priority": 64,
+      "headerOffset": 48
+    },
+    "size": 60
+  },
+  {
+    "path": "sounds/sfx147.bin",
+    "start": 14561744,
+    "type": "midi",
+    "options": {
+      "group": 286,
+      "priority": 64,
+      "headerOffset": 212
+    },
+    "size": 228
+  },
+  {
+    "path": "sounds/sfx148.bin",
+    "start": 14561972,
+    "type": "midi",
+    "options": {
+      "group": 287,
+      "priority": 64,
+      "headerOffset": 256
+    },
+    "size": 272
+  },
+  {
+    "path": "sounds/sfx149.bin",
+    "start": 14562244,
+    "type": "midi",
+    "options": {
+      "group": 288,
+      "priority": 64,
+      "headerOffset": 36
+    },
+    "size": 48
+  },
+  {
+    "path": "sounds/sfx14A.bin",
+    "start": 14562292,
+    "type": "midi",
+    "options": {
+      "group": 289,
+      "priority": 127,
+      "headerOffset": 176
+    },
+    "size": 188
+  },
+  {
+    "path": "sounds/sfx14B.bin",
+    "start": 14562480,
+    "type": "midi",
+    "options": {
+      "group": 290,
+      "priority": 64,
+      "headerOffset": 52
+    },
+    "size": 64
+  },
+  {
+    "path": "sounds/sfx14C.bin",
+    "start": 14562544,
+    "type": "midi",
+    "options": {
+      "group": 291,
+      "priority": 64,
+      "headerOffset": 116
+    },
+    "size": 132
+  },
+  {
+    "path": "sounds/sfx14D.bin",
+    "start": 14562676,
+    "type": "midi",
+    "options": {
+      "group": 292,
+      "priority": 96,
+      "headerOffset": 20
+    },
+    "size": 32
+  },
+  {
+    "path": "sounds/sfx14E.bin",
+    "start": 14562708,
+    "type": "midi",
+    "options": {
+      "group": 293,
+      "priority": 64,
+      "headerOffset": 24
+    },
+    "size": 36
+  },
+  {
+    "path": "sounds/sfx14F.bin",
+    "start": 14562744,
+    "type": "midi",
+    "options": {
+      "group": 294,
+      "priority": 64,
+      "headerOffset": 96
+    },
+    "size": 108
+  },
+  {
+    "path": "sounds/sfx150.bin",
+    "start": 14562852,
+    "type": "midi",
+    "options": {
+      "group": 295,
+      "priority": 64,
+      "headerOffset": 80
+    },
+    "size": 96
+  },
+  {
+    "path": "sounds/sfx151.bin",
+    "start": 14562948,
+    "type": "midi",
+    "options": {
+      "group": 296,
+      "priority": 96,
+      "headerOffset": 44
+    },
+    "size": 56
+  },
+  {
+    "path": "sounds/sfxNearPortal.bin",
+    "start": 14563004,
+    "type": "midi",
+    "options": {
+      "group": 297,
+      "priority": 64,
+      "headerOffset": 272
+    },
+    "size": 288
+  },
+  {
+    "path": "sounds/sfx153.bin",
+    "start": 14563292,
+    "type": "midi",
+    "options": {
+      "group": 298,
+      "priority": 96,
+      "headerOffset": 48
+    },
+    "size": 60
+  },
+  {
+    "path": "sounds/sfx154.bin",
+    "start": 14563352,
+    "type": "midi",
+    "options": {
+      "group": 299,
+      "priority": 64,
+      "headerOffset": 56
+    },
+    "size": 68
+  },
+  {
+    "path": "sounds/sfx155.bin",
+    "start": 14563420,
+    "type": "midi",
+    "options": {
+      "group": 300,
+      "priority": 64,
+      "headerOffset": 44
+    },
+    "size": 56
+  },
+  {
+    "path": "sounds/sfx156.bin",
+    "start": 14563476,
+    "type": "midi",
+    "options": {
+      "group": 301,
+      "priority": 64,
+      "headerOffset": 92
+    },
+    "size": 104
+  },
+  {
+    "path": "sounds/sfx157.bin",
+    "start": 14563580,
+    "type": "midi",
+    "options": {
+      "group": 302,
+      "priority": 64,
+      "headerOffset": 28
+    },
+    "size": 40
+  },
+  {
+    "path": "sounds/sfx158.bin",
+    "start": 14563620,
+    "type": "midi",
+    "options": {
+      "group": 303,
+      "priority": 64,
+      "headerOffset": 68
+    },
+    "size": 80
+  },
+  {
+    "path": "sounds/sfx159.bin",
+    "start": 14563700,
+    "type": "midi",
+    "options": {
+      "group": 304,
+      "priority": 64,
+      "headerOffset": 64
+    },
+    "size": 76
+  },
+  {
+    "path": "sounds/sfx15A.bin",
+    "start": 14563776,
+    "type": "midi",
+    "options": {
+      "group": 305,
+      "priority": 64,
+      "headerOffset": 80
+    },
+    "size": 96
+  },
+  {
+    "path": "sounds/sfx15B.bin",
+    "start": 14563872,
+    "type": "midi",
+    "options": {
+      "group": 306,
+      "priority": 64,
+      "headerOffset": 80
+    },
+    "size": 92
+  },
+  {
+    "path": "sounds/sfx15C.bin",
+    "start": 14563964,
+    "type": "midi",
+    "options": {
+      "group": 307,
+      "priority": 64,
+      "headerOffset": 36
+    },
+    "size": 48
+  },
+  {
+    "path": "sounds/sfx15D.bin",
+    "start": 14564012,
+    "type": "midi",
+    "options": {
+      "group": 308,
+      "priority": 64,
+      "headerOffset": 76
+    },
+    "size": 92
+  },
+  {
+    "path": "sounds/sfx15E.bin",
+    "start": 14564104,
+    "type": "midi",
+    "options": {
+      "group": 309,
+      "priority": 64,
+      "headerOffset": 40
+    },
+    "size": 52
+  },
+  {
+    "path": "sounds/sfx15F.bin",
+    "start": 14564156,
+    "type": "midi",
+    "options": {
+      "group": 310,
+      "priority": 64,
+      "headerOffset": 48
+    },
+    "size": 60
+  },
+  {
+    "path": "sounds/sfx160.bin",
+    "start": 14564216,
+    "type": "midi",
+    "options": {
+      "group": 311,
+      "priority": 64,
+      "headerOffset": 92
+    },
+    "size": 104
+  },
+  {
+    "path": "sounds/sfx161.bin",
+    "start": 14564320,
+    "type": "midi",
+    "options": {
+      "group": 312,
+      "priority": 40,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx162.bin",
+    "start": 14564348,
+    "type": "midi",
+    "options": {
+      "group": 313,
+      "priority": 64,
+      "headerOffset": 24
+    },
+    "size": 36
+  },
+  {
+    "path": "sounds/sfx163.bin",
+    "start": 14564384,
+    "type": "midi",
+    "options": {
+      "group": 314,
+      "priority": 64,
+      "headerOffset": 68
+    },
+    "size": 84
+  },
+  {
+    "path": "sounds/sfx164.bin",
+    "start": 14564468,
+    "type": "midi",
+    "options": {
+      "group": 315,
+      "priority": 64,
+      "headerOffset": 76
+    },
+    "size": 88
+  },
+  {
+    "path": "sounds/sfx165.bin",
+    "start": 14564556,
+    "type": "midi",
+    "options": {
+      "group": 316,
+      "priority": 64,
+      "headerOffset": 104
+    },
+    "size": 116
+  },
+  {
+    "path": "sounds/sfx166.bin",
+    "start": 14564672,
+    "type": "midi",
+    "options": {
+      "group": 317,
+      "priority": 64,
+      "headerOffset": 112
+    },
+    "size": 124
+  },
+  {
+    "path": "sounds/sfx167.bin",
+    "start": 14564796,
+    "type": "midi",
+    "options": {
+      "group": 318,
+      "priority": 64,
+      "headerOffset": 120
+    },
+    "size": 132
+  },
+  {
+    "path": "sounds/sfx168.bin",
+    "start": 14564928,
+    "type": "midi",
+    "options": {
+      "group": 319,
+      "priority": 64,
+      "headerOffset": 28
+    },
+    "size": 40
+  },
+  {
+    "path": "sounds/sfx169.bin",
+    "start": 14564968,
+    "type": "midi",
+    "options": {
+      "group": 320,
+      "priority": 64,
+      "headerOffset": 60
+    },
+    "size": 72
+  },
+  {
+    "path": "sounds/sfx16A.bin",
+    "start": 14565040,
+    "type": "midi",
+    "options": {
+      "group": 321,
+      "priority": 64,
+      "headerOffset": 48
+    },
+    "size": 60
+  },
+  {
+    "path": "sounds/sfx16B.bin",
+    "start": 14565100,
+    "type": "midi",
+    "options": {
+      "group": 322,
+      "priority": 64,
+      "headerOffset": 48
+    },
+    "size": 60
+  },
+  {
+    "path": "sounds/sfx16C.bin",
+    "start": 14565160,
+    "type": "midi",
+    "options": {
+      "group": 323,
+      "priority": 64,
+      "headerOffset": 52
+    },
+    "size": 64
+  },
+  {
+    "path": "sounds/sfx16D.bin",
+    "start": 14565224,
+    "type": "midi",
+    "options": {
+      "group": 324,
+      "priority": 64,
+      "headerOffset": 192
+    },
+    "size": 208
+  },
+  {
+    "path": "sounds/sfx16E.bin",
+    "start": 14565432,
+    "type": "midi",
+    "options": {
+      "group": 325,
+      "priority": 64,
+      "headerOffset": 52
+    },
+    "size": 64
+  },
+  {
+    "path": "sounds/sfxPlyShrinking.bin",
+    "start": 14565496,
+    "type": "midi",
+    "options": {
+      "group": 326,
+      "priority": 64,
+      "headerOffset": 152
+    },
+    "size": 164
+  },
+  {
+    "path": "sounds/sfxPlyGrow.bin",
+    "start": 14565660,
+    "type": "midi",
+    "options": {
+      "group": 327,
+      "priority": 64,
+      "headerOffset": 96
+    },
+    "size": 108
+  },
+  {
+    "path": "sounds/sfx171.bin",
+    "start": 14565768,
+    "type": "midi",
+    "options": {
+      "group": 328,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx172.bin",
+    "start": 14565796,
+    "type": "midi",
+    "options": {
+      "group": 329,
+      "priority": 64,
+      "headerOffset": 44
+    },
+    "size": 56
+  },
+  {
+    "path": "sounds/sfxEzloUi.bin",
+    "start": 14565852,
+    "type": "midi",
+    "options": {
+      "group": 330,
+      "priority": 127,
+      "headerOffset": 48
+    },
+    "size": 64
+  },
+  {
+    "path": "sounds/sfx174.bin",
+    "start": 14565916,
+    "type": "midi",
+    "options": {
+      "group": 331,
+      "priority": 64,
+      "headerOffset": 40
+    },
+    "size": 52
+  },
+  {
+    "path": "sounds/sfx175.bin",
+    "start": 14565968,
+    "type": "midi",
+    "options": {
+      "group": 332,
+      "priority": 48,
+      "headerOffset": 40
+    },
+    "size": 52
+  },
+  {
+    "path": "sounds/sfx176.bin",
+    "start": 14566020,
+    "type": "midi",
+    "options": {
+      "group": 333,
+      "priority": 64,
+      "headerOffset": 60
+    },
+    "size": 76
+  },
+  {
+    "path": "sounds/sfx177.bin",
+    "start": 14566096,
+    "type": "midi",
+    "options": {
+      "group": 334,
+      "priority": 96,
+      "headerOffset": 176
+    },
+    "size": 192
+  },
+  {
+    "path": "sounds/sfx178.bin",
+    "start": 14566288,
+    "type": "midi",
+    "options": {
+      "group": 335,
+      "priority": 64,
+      "headerOffset": 68
+    },
+    "size": 80
+  },
+  {
+    "path": "sounds/sfx179.bin",
+    "start": 14566368,
+    "type": "midi",
+    "options": {
+      "group": 336,
+      "priority": 64,
+      "headerOffset": 68
+    },
+    "size": 80
+  },
+  {
+    "path": "sounds/sfx17A.bin",
+    "start": 14566448,
+    "type": "midi",
+    "options": {
+      "group": 337,
+      "priority": 120,
+      "headerOffset": 148
+    },
+    "size": 164
+  },
+  {
+    "path": "sounds/sfxLavaTitleStep.bin",
+    "start": 14566612,
+    "type": "midi",
+    "options": {
+      "group": 338,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxLavaTitleWobble.bin",
+    "start": 14566640,
+    "type": "midi",
+    "options": {
+      "group": 339,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxLavaTitleSink.bin",
+    "start": 14566668,
+    "type": "midi",
+    "options": {
+      "group": 340,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxLavaTitleFlip.bin",
+    "start": 14566696,
+    "type": "midi",
+    "options": {
+      "group": 341,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxLavaTitleLand.bin",
+    "start": 14566724,
+    "type": "midi",
+    "options": {
+      "group": 342,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx180.bin",
+    "start": 14566752,
+    "type": "midi",
+    "options": {
+      "group": 343,
+      "priority": 64,
+      "headerOffset": 20
+    },
+    "size": 32
+  },
+  {
+    "path": "sounds/sfx181.bin",
+    "start": 14566784,
+    "type": "midi",
+    "options": {
+      "group": 344,
+      "priority": 64,
+      "headerOffset": 20
+    },
+    "size": 32
+  },
+  {
+    "path": "sounds/sfx182.bin",
+    "start": 14566816,
+    "type": "midi",
+    "options": {
+      "group": 345,
+      "priority": 64,
+      "headerOffset": 80
+    },
+    "size": 96
+  },
+  {
+    "path": "sounds/sfx183.bin",
+    "start": 14566912,
+    "type": "midi",
+    "options": {
+      "group": 346,
+      "priority": 48,
+      "headerOffset": 168
+    },
+    "size": 184
+  },
+  {
+    "path": "sounds/sfx184.bin",
+    "start": 14567096,
+    "type": "midi",
+    "options": {
+      "group": 347,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx185.bin",
+    "start": 14567124,
+    "type": "midi",
+    "options": {
+      "group": 348,
+      "priority": 64,
+      "headerOffset": 136
+    },
+    "size": 152
+  },
+  {
+    "path": "sounds/sfx186.bin",
+    "start": 14567276,
+    "type": "midi",
+    "options": {
+      "group": 349,
+      "priority": 64,
+      "headerOffset": 36
+    },
+    "size": 48
+  },
+  {
+    "path": "sounds/sfxStairsAscend.bin",
+    "start": 14567324,
+    "type": "midi",
+    "options": {
+      "group": 350,
+      "priority": 64,
+      "headerOffset": 72
+    },
+    "size": 84
+  },
+  {
+    "path": "sounds/sfxStairsDescend.bin",
+    "start": 14567408,
+    "type": "midi",
+    "options": {
+      "group": 351,
+      "priority": 64,
+      "headerOffset": 72
+    },
+    "size": 84
+  },
+  {
+    "path": "sounds/sfx189.bin",
+    "start": 14567492,
+    "type": "midi",
+    "options": {
+      "group": 352,
+      "priority": 96,
+      "headerOffset": 52
+    },
+    "size": 64
+  },
+  {
+    "path": "sounds/sfx18A.bin",
+    "start": 14567556,
+    "type": "midi",
+    "options": {
+      "group": 353,
+      "priority": 64,
+      "headerOffset": 56
+    },
+    "size": 72
+  },
+  {
+    "path": "sounds/sfx18B.bin",
+    "start": 14567628,
+    "type": "midi",
+    "options": {
+      "group": 354,
+      "priority": 64,
+      "headerOffset": 100
+    },
+    "size": 116
+  },
+  {
+    "path": "sounds/sfx18C.bin",
+    "start": 14567744,
+    "type": "midi",
+    "options": {
+      "group": 355,
+      "priority": 64,
+      "headerOffset": 40
+    },
+    "size": 56
+  },
+  {
+    "path": "sounds/sfx18D.bin",
+    "start": 14567800,
+    "type": "midi",
+    "options": {
+      "group": 356,
+      "priority": 64,
+      "headerOffset": 52
+    },
+    "size": 64
+  },
+  {
+    "path": "sounds/sfx18E.bin",
+    "start": 14567864,
+    "type": "midi",
+    "options": {
+      "group": 357,
+      "priority": 64,
+      "headerOffset": 24
+    },
+    "size": 36
+  },
+  {
+    "path": "sounds/sfx18F.bin",
+    "start": 14567900,
+    "type": "midi",
+    "options": {
+      "group": 358,
+      "priority": 80,
+      "headerOffset": 48
+    },
+    "size": 60
+  },
+  {
+    "path": "sounds/sfx190.bin",
+    "start": 14567960,
+    "type": "midi",
+    "options": {
+      "group": 359,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx191.bin",
+    "start": 14567988,
+    "type": "midi",
+    "options": {
+      "group": 360,
+      "priority": 64,
+      "headerOffset": 44
+    },
+    "size": 56
+  },
+  {
+    "path": "sounds/sfx192.bin",
+    "start": 14568044,
+    "type": "midi",
+    "options": {
+      "group": 361,
+      "priority": 64,
+      "headerOffset": 96
+    },
+    "size": 112
+  },
+  {
+    "path": "sounds/sfx193.bin",
+    "start": 14568156,
+    "type": "midi",
+    "options": {
+      "group": 362,
+      "priority": 64,
+      "headerOffset": 36
+    },
+    "size": 48
+  },
+  {
+    "path": "sounds/sfx194.bin",
+    "start": 14568204,
+    "type": "midi",
+    "options": {
+      "group": 363,
+      "priority": 64,
+      "headerOffset": 68
+    },
+    "size": 84
+  },
+  {
+    "path": "sounds/sfx195.bin",
+    "start": 14568288,
+    "type": "midi",
+    "options": {
+      "group": 364,
+      "priority": 64,
+      "headerOffset": 140
+    },
+    "size": 156
+  },
+  {
+    "path": "sounds/sfx196.bin",
+    "start": 14568444,
+    "type": "midi",
+    "options": {
+      "group": 365,
+      "priority": 96,
+      "headerOffset": 208
+    },
+    "size": 220
+  },
+  {
+    "path": "sounds/sfx197.bin",
+    "start": 14568664,
+    "type": "midi",
+    "options": {
+      "group": 366,
+      "priority": 96,
+      "headerOffset": 76
+    },
+    "size": 88
+  },
+  {
+    "path": "sounds/sfx198.bin",
+    "start": 14568752,
+    "type": "midi",
+    "options": {
+      "group": 367,
+      "priority": 64,
+      "headerOffset": 308
+    },
+    "size": 320
+  },
+  {
+    "path": "sounds/sfx199.bin",
+    "start": 14569072,
+    "type": "midi",
+    "options": {
+      "group": 368,
+      "priority": 64,
+      "headerOffset": 64
+    },
+    "size": 80
+  },
+  {
+    "path": "sounds/sfx19A.bin",
+    "start": 14569152,
+    "type": "midi",
+    "options": {
+      "group": 369,
+      "priority": 64,
+      "headerOffset": 96
+    },
+    "size": 112
+  },
+  {
+    "path": "sounds/sfx19B.bin",
+    "start": 14569264,
+    "type": "midi",
+    "options": {
+      "group": 370,
+      "priority": 64,
+      "headerOffset": 132
+    },
+    "size": 148
+  },
+  {
+    "path": "sounds/sfx19C.bin",
+    "start": 14569412,
+    "type": "midi",
+    "options": {
+      "group": 371,
+      "priority": 64,
+      "headerOffset": 36
+    },
+    "size": 48
+  },
+  {
+    "path": "sounds/sfx19D.bin",
+    "start": 14569460,
+    "type": "midi",
+    "options": {
+      "group": 372,
+      "priority": 64,
+      "headerOffset": 120
+    },
+    "size": 136
+  },
+  {
+    "path": "sounds/sfx19E.bin",
+    "start": 14569596,
+    "type": "midi",
+    "options": {
+      "group": 373,
+      "priority": 64,
+      "headerOffset": 64
+    },
+    "size": 76
+  },
+  {
+    "path": "sounds/sfx19F.bin",
+    "start": 14569672,
+    "type": "midi",
+    "options": {
+      "group": 374,
+      "priority": 64,
+      "headerOffset": 100
+    },
+    "size": 116
+  },
+  {
+    "path": "sounds/sfx1A0.bin",
+    "start": 14569788,
+    "type": "midi",
+    "options": {
+      "group": 375,
+      "priority": 64,
+      "headerOffset": 116
+    },
+    "size": 132
+  },
+  {
+    "path": "sounds/sfx1A1.bin",
+    "start": 14569920,
+    "type": "midi",
+    "options": {
+      "group": 376,
+      "priority": 64,
+      "headerOffset": 88
+    },
+    "size": 104
+  },
+  {
+    "path": "sounds/sfx1A2.bin",
+    "start": 14570024,
+    "type": "midi",
+    "options": {
+      "group": 377,
+      "priority": 64,
+      "headerOffset": 32
+    },
+    "size": 44
+  },
+  {
+    "path": "sounds/sfx1A3.bin",
+    "start": 14570068,
+    "type": "midi",
+    "options": {
+      "group": 378,
+      "priority": 64,
+      "headerOffset": 156
+    },
+    "size": 172
+  },
+  {
+    "path": "sounds/sfx1A4.bin",
+    "start": 14570240,
+    "type": "midi",
+    "options": {
+      "group": 379,
+      "priority": 64,
+      "headerOffset": 24
+    },
+    "size": 36
+  },
+  {
+    "path": "sounds/sfx1A5.bin",
+    "start": 14570276,
+    "type": "midi",
+    "options": {
+      "group": 380,
+      "priority": 64,
+      "headerOffset": 36
+    },
+    "size": 48
+  },
+  {
+    "path": "sounds/sfx1A6.bin",
+    "start": 14570324,
+    "type": "midi",
+    "options": {
+      "group": 381,
+      "priority": 64,
+      "headerOffset": 60
+    },
+    "size": 72
+  },
+  {
+    "path": "sounds/sfx1A7.bin",
+    "start": 14570396,
+    "type": "midi",
+    "options": {
+      "group": 382,
+      "priority": 64,
+      "headerOffset": 96
+    },
+    "size": 108
+  },
+  {
+    "path": "sounds/sfx1A8.bin",
+    "start": 14570504,
+    "type": "midi",
+    "options": {
+      "group": 383,
+      "priority": 64,
+      "headerOffset": 56
+    },
+    "size": 68
+  },
+  {
+    "path": "sounds/sfx1A9.bin",
+    "start": 14570572,
+    "type": "midi",
+    "options": {
+      "group": 384,
+      "priority": 56,
+      "headerOffset": 244
+    },
+    "size": 256
+  },
+  {
+    "path": "sounds/sfx1AA.bin",
+    "start": 14570828,
+    "type": "midi",
+    "options": {
+      "group": 385,
+      "priority": 64,
+      "headerOffset": 264
+    },
+    "size": 280
+  },
+  {
+    "path": "sounds/sfx1AB.bin",
+    "start": 14571108,
+    "type": "midi",
+    "options": {
+      "group": 386,
+      "priority": 64,
+      "headerOffset": 196
+    },
+    "size": 212
+  },
+  {
+    "path": "sounds/sfx1AC.bin",
+    "start": 14571320,
+    "type": "midi",
+    "options": {
+      "group": 387,
+      "priority": 64,
+      "headerOffset": 116
+    },
+    "size": 128
+  },
+  {
+    "path": "sounds/sfx1AD.bin",
+    "start": 14571448,
+    "type": "midi",
+    "options": {
+      "group": 388,
+      "priority": 64,
+      "headerOffset": 80
+    },
+    "size": 96
+  },
+  {
+    "path": "sounds/sfx1AE.bin",
+    "start": 14571544,
+    "type": "midi",
+    "options": {
+      "group": 389,
+      "priority": 64,
+      "headerOffset": 56
+    },
+    "size": 72
+  },
+  {
+    "path": "sounds/sfx1AF.bin",
+    "start": 14571616,
+    "type": "midi",
+    "options": {
+      "group": 390,
+      "priority": 64,
+      "headerOffset": 52
+    },
+    "size": 68
+  },
+  {
+    "path": "sounds/sfx1B0.bin",
+    "start": 14571684,
+    "type": "midi",
+    "options": {
+      "group": 391,
+      "priority": 64,
+      "headerOffset": 60
+    },
+    "size": 72
+  },
+  {
+    "path": "sounds/sfxIceBlockSlide.bin",
+    "start": 14571756,
+    "type": "midi",
+    "options": {
+      "group": 392,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxIceBlockStop.bin",
+    "start": 14571784,
+    "type": "midi",
+    "options": {
+      "group": 393,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxIceBlockMelt.bin",
+    "start": 14571812,
+    "type": "midi",
+    "options": {
+      "group": 394,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1B4.bin",
+    "start": 14571840,
+    "type": "midi",
+    "options": {
+      "group": 395,
+      "priority": 64,
+      "headerOffset": 76
+    },
+    "size": 88
+  },
+  {
+    "path": "sounds/sfx1B5.bin",
+    "start": 14571928,
+    "type": "midi",
+    "options": {
+      "group": 396,
+      "priority": 64,
+      "headerOffset": 48
+    },
+    "size": 60
+  },
+  {
+    "path": "sounds/sfx1B6.bin",
+    "start": 14571988,
+    "type": "midi",
+    "options": {
+      "group": 397,
+      "priority": 64,
+      "headerOffset": 264
+    },
+    "size": 280
+  },
+  {
+    "path": "sounds/sfxVoGoron1.bin",
+    "start": 14572268,
+    "type": "midi",
+    "options": {
+      "group": 398,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoGoron2.bin",
+    "start": 14572296,
+    "type": "midi",
+    "options": {
+      "group": 399,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoGoron3.bin",
+    "start": 14572324,
+    "type": "midi",
+    "options": {
+      "group": 400,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoGoron4.bin",
+    "start": 14572352,
+    "type": "midi",
+    "options": {
+      "group": 401,
+      "priority": 72,
+      "headerOffset": 20
+    },
+    "size": 32
+  },
+  {
+    "path": "sounds/sfxEmDekuscrubHit.bin",
+    "start": 14572384,
+    "type": "midi",
+    "options": {
+      "group": 402,
+      "priority": 72,
+      "headerOffset": 72
+    },
+    "size": 84
+  },
+  {
+    "path": "sounds/sfx1BC.bin",
+    "start": 14572468,
+    "type": "midi",
+    "options": {
+      "group": 403,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1BD.bin",
+    "start": 14572496,
+    "type": "midi",
+    "options": {
+      "group": 404,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1BE.bin",
+    "start": 14572524,
+    "type": "midi",
+    "options": {
+      "group": 405,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1BF.bin",
+    "start": 14572552,
+    "type": "midi",
+    "options": {
+      "group": 406,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1C0.bin",
+    "start": 14572580,
+    "type": "midi",
+    "options": {
+      "group": 407,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1C1.bin",
+    "start": 14572608,
+    "type": "midi",
+    "options": {
+      "group": 408,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1C2.bin",
+    "start": 14572636,
+    "type": "midi",
+    "options": {
+      "group": 409,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1C3.bin",
+    "start": 14572664,
+    "type": "midi",
+    "options": {
+      "group": 410,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1C4.bin",
+    "start": 14572692,
+    "type": "midi",
+    "options": {
+      "group": 411,
+      "priority": 64,
+      "headerOffset": 20
+    },
+    "size": 32
+  },
+  {
+    "path": "sounds/sfx1C5.bin",
+    "start": 14572724,
+    "type": "midi",
+    "options": {
+      "group": 412,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1C6.bin",
+    "start": 14572752,
+    "type": "midi",
+    "options": {
+      "group": 413,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1C7.bin",
+    "start": 14572780,
+    "type": "midi",
+    "options": {
+      "group": 414,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1C8.bin",
+    "start": 14572808,
+    "type": "midi",
+    "options": {
+      "group": 415,
+      "priority": 64,
+      "headerOffset": 32
+    },
+    "size": 44
+  },
+  {
+    "path": "sounds/sfx1C9.bin",
+    "start": 14572852,
+    "type": "midi",
+    "options": {
+      "group": 416,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1CA.bin",
+    "start": 14572880,
+    "type": "midi",
+    "options": {
+      "group": 417,
+      "priority": 68,
+      "headerOffset": 32
+    },
+    "size": 48
+  },
+  {
+    "path": "sounds/sfx1CB.bin",
+    "start": 14572928,
+    "type": "midi",
+    "options": {
+      "group": 418,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1CC.bin",
+    "start": 14572956,
+    "type": "midi",
+    "options": {
+      "group": 419,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxElementPlace.bin",
+    "start": 14572984,
+    "type": "midi",
+    "options": {
+      "group": 420,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxElementFloat.bin",
+    "start": 14573012,
+    "type": "midi",
+    "options": {
+      "group": 421,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxElementCharge.bin",
+    "start": 14573040,
+    "type": "midi",
+    "options": {
+      "group": 422,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1D0.bin",
+    "start": 14573068,
+    "type": "midi",
+    "options": {
+      "group": 423,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxElementInfuse.bin",
+    "start": 14573096,
+    "type": "midi",
+    "options": {
+      "group": 424,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1D2.bin",
+    "start": 14573124,
+    "type": "midi",
+    "options": {
+      "group": 425,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1D3.bin",
+    "start": 14573152,
+    "type": "midi",
+    "options": {
+      "group": 426,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1D4.bin",
+    "start": 14573180,
+    "type": "midi",
+    "options": {
+      "group": 427,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1D5.bin",
+    "start": 14573208,
+    "type": "midi",
+    "options": {
+      "group": 428,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoCucco1.bin",
+    "start": 14573236,
+    "type": "midi",
+    "options": {
+      "group": 429,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoCucco2.bin",
+    "start": 14573264,
+    "type": "midi",
+    "options": {
+      "group": 430,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoCucco3.bin",
+    "start": 14573292,
+    "type": "midi",
+    "options": {
+      "group": 431,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoCucco4.bin",
+    "start": 14573320,
+    "type": "midi",
+    "options": {
+      "group": 432,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfxVoCucco5.bin",
+    "start": 14573348,
+    "type": "midi",
+    "options": {
+      "group": 433,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1DB.bin",
+    "start": 14573376,
+    "type": "midi",
+    "options": {
+      "group": 434,
+      "priority": 64,
+      "headerOffset": 140
+    },
+    "size": 156
+  },
+  {
+    "path": "sounds/sfx1DC.bin",
+    "start": 14573532,
+    "type": "midi",
+    "options": {
+      "group": 435,
+      "priority": 64,
+      "headerOffset": 40
+    },
+    "size": 52
+  },
+  {
+    "path": "sounds/sfx1DD.bin",
+    "start": 14573584,
+    "type": "midi",
+    "options": {
+      "group": 436,
+      "priority": 72,
+      "headerOffset": 52
+    },
+    "size": 64
+  },
+  {
+    "path": "sounds/sfx1DE.bin",
+    "start": 14573648,
+    "type": "midi",
+    "options": {
+      "group": 437,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1DF.bin",
+    "start": 14573676,
+    "type": "midi",
+    "options": {
+      "group": 438,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1E0.bin",
+    "start": 14573704,
+    "type": "midi",
+    "options": {
+      "group": 439,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1E1.bin",
+    "start": 14573732,
+    "type": "midi",
+    "options": {
+      "group": 440,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1E2.bin",
+    "start": 14573760,
+    "type": "midi",
+    "options": {
+      "group": 441,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1E3.bin",
+    "start": 14573788,
+    "type": "midi",
+    "options": {
+      "group": 442,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1E4.bin",
+    "start": 14573816,
+    "type": "midi",
+    "options": {
+      "group": 443,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1E5.bin",
+    "start": 14573844,
+    "type": "midi",
+    "options": {
+      "group": 444,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1E6.bin",
+    "start": 14573872,
+    "type": "midi",
+    "options": {
+      "group": 445,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1E7.bin",
+    "start": 14573900,
+    "type": "midi",
+    "options": {
+      "group": 446,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1E8.bin",
+    "start": 14573928,
+    "type": "midi",
+    "options": {
+      "group": 447,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1E9.bin",
+    "start": 14573956,
+    "type": "midi",
+    "options": {
+      "group": 448,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1EA.bin",
+    "start": 14573984,
+    "type": "midi",
+    "options": {
+      "group": 449,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1EB.bin",
+    "start": 14574012,
+    "type": "midi",
+    "options": {
+      "group": 450,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1EC.bin",
+    "start": 14574040,
+    "type": "midi",
+    "options": {
+      "group": 451,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1ED.bin",
+    "start": 14574068,
+    "type": "midi",
+    "options": {
+      "group": 452,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1EE.bin",
+    "start": 14574096,
+    "type": "midi",
+    "options": {
+      "group": 453,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1EF.bin",
+    "start": 14574124,
+    "type": "midi",
+    "options": {
+      "group": 454,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1F0.bin",
+    "start": 14574152,
+    "type": "midi",
+    "options": {
+      "group": 455,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1F1.bin",
+    "start": 14574180,
+    "type": "midi",
+    "options": {
+      "group": 456,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1F2.bin",
+    "start": 14574208,
+    "type": "midi",
+    "options": {
+      "group": 457,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1F3.bin",
+    "start": 14574236,
+    "type": "midi",
+    "options": {
+      "group": 458,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1F4.bin",
+    "start": 14574264,
+    "type": "midi",
+    "options": {
+      "group": 459,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1F5.bin",
+    "start": 14574292,
+    "type": "midi",
+    "options": {
+      "group": 460,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1F6.bin",
+    "start": 14574320,
+    "type": "midi",
+    "options": {
+      "group": 461,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1F7.bin",
+    "start": 14574348,
+    "type": "midi",
+    "options": {
+      "group": 462,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1F8.bin",
+    "start": 14574376,
+    "type": "midi",
+    "options": {
+      "group": 463,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1F9.bin",
+    "start": 14574404,
+    "type": "midi",
+    "options": {
+      "group": 464,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1FA.bin",
+    "start": 14574432,
+    "type": "midi",
+    "options": {
+      "group": 465,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1FB.bin",
+    "start": 14574460,
+    "type": "midi",
+    "options": {
+      "group": 466,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1FC.bin",
+    "start": 14574488,
+    "type": "midi",
+    "options": {
+      "group": 467,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1FD.bin",
+    "start": 14574516,
+    "type": "midi",
+    "options": {
+      "group": 468,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1FE.bin",
+    "start": 14574544,
+    "type": "midi",
+    "options": {
+      "group": 469,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx1FF.bin",
+    "start": 14574572,
+    "type": "midi",
+    "options": {
+      "group": 470,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx200.bin",
+    "start": 14574600,
+    "type": "midi",
+    "options": {
+      "group": 471,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx201.bin",
+    "start": 14574628,
+    "type": "midi",
+    "options": {
+      "group": 472,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx202.bin",
+    "start": 14574656,
+    "type": "midi",
+    "options": {
+      "group": 473,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx203.bin",
+    "start": 14574684,
+    "type": "midi",
+    "options": {
+      "group": 474,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx204.bin",
+    "start": 14574712,
+    "type": "midi",
+    "options": {
+      "group": 475,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx205.bin",
+    "start": 14574740,
+    "type": "midi",
+    "options": {
+      "group": 476,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx206.bin",
+    "start": 14574768,
+    "type": "midi",
+    "options": {
+      "group": 477,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx207.bin",
+    "start": 14574796,
+    "type": "midi",
+    "options": {
+      "group": 478,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx208.bin",
+    "start": 14574824,
+    "type": "midi",
+    "options": {
+      "group": 479,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx209.bin",
+    "start": 14574852,
+    "type": "midi",
+    "options": {
+      "group": 480,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx20A.bin",
+    "start": 14574880,
+    "type": "midi",
+    "options": {
+      "group": 481,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx20B.bin",
+    "start": 14574908,
+    "type": "midi",
+    "options": {
+      "group": 482,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx20C.bin",
+    "start": 14574936,
+    "type": "midi",
+    "options": {
+      "group": 483,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx20D.bin",
+    "start": 14574964,
+    "type": "midi",
+    "options": {
+      "group": 484,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx20E.bin",
+    "start": 14574992,
+    "type": "midi",
+    "options": {
+      "group": 485,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx20F.bin",
+    "start": 14575020,
+    "type": "midi",
+    "options": {
+      "group": 486,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx210.bin",
+    "start": 14575048,
+    "type": "midi",
+    "options": {
+      "group": 487,
+      "priority": 72,
+      "headerOffset": 20
+    },
+    "size": 32
+  },
+  {
+    "path": "sounds/sfx211.bin",
+    "start": 14575080,
+    "type": "midi",
+    "options": {
+      "group": 488,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx212.bin",
+    "start": 14575108,
+    "type": "midi",
+    "options": {
+      "group": 489,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx213.bin",
+    "start": 14575136,
+    "type": "midi",
+    "options": {
+      "group": 490,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx214.bin",
+    "start": 14575164,
+    "type": "midi",
+    "options": {
+      "group": 491,
+      "priority": 72,
+      "headerOffset": 20
+    },
+    "size": 32
+  },
+  {
+    "path": "sounds/sfx215.bin",
+    "start": 14575196,
+    "type": "midi",
+    "options": {
+      "group": 492,
+      "priority": 192,
+      "headerOffset": 24
+    },
+    "size": 36
+  },
+  {
+    "path": "sounds/sfx216.bin",
+    "start": 14575232,
+    "type": "midi",
+    "options": {
+      "group": "058",
+      "priority": 32,
+      "headerOffset": 3780
+    },
+    "size": 3820
+  },
+  {
+    "path": "sounds/sfx217.bin",
+    "start": 14579052,
+    "type": "midi",
+    "options": {
+      "group": "058",
+      "priority": 32,
+      "headerOffset": 1540
+    },
+    "size": 1596
+  },
+  {
+    "path": "sounds/sfx218.bin",
+    "start": 14580648,
+    "type": "midi",
+    "options": {
+      "group": 493,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx219.bin",
+    "start": 14580676,
+    "type": "midi",
+    "options": {
+      "group": 494,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx21A.bin",
+    "start": 14580704,
+    "type": "midi",
+    "options": {
+      "group": 495,
+      "priority": 64,
+      "headerOffset": 28
+    },
+    "size": 40
+  },
+  {
+    "path": "sounds/sfx21B.bin",
+    "start": 14580744,
+    "type": "midi",
+    "options": {
+      "group": 496,
+      "priority": 64,
+      "headerOffset": 32
+    },
+    "size": 44
+  },
+  {
+    "path": "sounds/sfx21C.bin",
+    "start": 14580788,
+    "type": "midi",
+    "options": {
+      "group": 497,
+      "priority": 64,
+      "headerOffset": 68
+    },
+    "size": 80
+  },
+  {
+    "path": "sounds/sfx21D.bin",
+    "start": 14580868,
+    "type": "midi",
+    "options": {
+      "group": 498,
+      "priority": 64,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx21E.bin",
+    "start": 14580896,
+    "type": "midi",
+    "options": {
+      "group": 499,
+      "priority": 64,
+      "headerOffset": 20
+    },
+    "size": 32
+  },
+  {
+    "path": "sounds/sfx21F.bin",
+    "start": 14580928,
+    "type": "midi",
+    "options": {
+      "group": 500,
+      "priority": 64,
+      "headerOffset": 48
+    },
+    "size": 60
+  },
+  {
+    "path": "sounds/sfx220.bin",
+    "start": 14580988,
+    "type": "midi",
+    "options": {
+      "group": 501,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  },
+  {
+    "path": "sounds/sfx221.bin",
+    "start": 14581016,
+    "type": "midi",
+    "options": {
+      "group": 502,
+      "priority": 72,
+      "headerOffset": 16
+    },
+    "size": 28
+  }
+]

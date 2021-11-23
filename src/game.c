@@ -20,7 +20,7 @@ extern u32 gUnk_03003FC0;
 extern u16 gWalletSizes[4];
 extern u8 gUnk_080FCA84[];
 extern u8 gUnk_080FCAC8[];
-extern u8 gUnk_08127D30[];
+extern u8 gAreaMetadata[];
 
 void sub_080520C4();
 void sub_08052418();
@@ -315,9 +315,9 @@ bool32 sub_08052620(u32 r0) {
 
 bool32 sub_08052638(u32 r0) {
 #if EU
-    return gUnk_08127D30[r0 * 4] == 0x01;
+    return gAreaMetadata[r0 * 4] == 0x01;
 #else
-    return gUnk_08127D30[r0 * 4] == 0x81;
+    return gAreaMetadata[r0 * 4] == 0x81;
 #endif
 }
 

@@ -11,7 +11,7 @@ script_080100DC:
 	_0807EB74
 	Call sub_08061FE4
 	Call sub_08062048
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	Jump script_080100DC
 	.2byte 0x0000
@@ -39,7 +39,7 @@ script_08010132:
 	_0807E864 
 	_0807EB74 
 	MessageFromTarget 0x4f22
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E878 
 	Jump script_08010132
 SCRIPT_START script_08010148
@@ -56,11 +56,11 @@ script_0801015A:
 	CheckRoomFlag 0x0001
 	JumpIf script_0801019E
 	MessageFromTargetPos 0x3001, 0x0000
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E3E8 
 	JumpIfNot script_080101A6
 	Call sub_080A1608
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	CallWithArg sub_080A1550, script_080101AC
 	JumpIfNot script_0801015A
@@ -69,7 +69,7 @@ script_0801015A:
 	Jump script_0801015A
 script_0801019E:
 	Call sub_080A1608
-	_0807EA94
+	WaitUntilTextboxCloses
 script_080101A6:
 	_0807E878
 	Jump script_0801015A
@@ -82,7 +82,7 @@ script_080101AC:
 	_0807E864
 	Call sub_0807DF28
 	MessageFromTargetPos 0x3004, 0x0007
-	_0807EA94 
+	WaitUntilTextboxCloses
 	StopBgm
 	_0807E778 0x0004
 	DoFade5
@@ -104,12 +104,12 @@ script_080101AC:
 	WaitFor_2
 	PlayBGM
 	Call sub_080A13B4
-	_0807EA94
+	WaitUntilTextboxCloses
 	JumpIfNot script_08010240
 	Call sub_080A13E8
 	WaitPlayerAction8
 	Call sub_080A1460
-	_0807EA94
+	WaitUntilTextboxCloses
 	Call sub_080A14A8
 script_08010240:
 	Call sub_0807DF50

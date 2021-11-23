@@ -21,13 +21,13 @@ gUnk_0810AC2C:: @ 0810AC2C
 	.4byte sub_08060E34
 
 gUnk_0810AC4C:: @ 0810AC4C
-	.incbin "baserom.gba", 0x10AC4C, 0x0000008
+	.incbin "npc5/gUnk_0810AC4C.bin"
 
 gUnk_0810AC54:: @ 0810AC54
-	.incbin "baserom.gba", 0x10AC54, 0x0000009
+	.incbin "npc5/gUnk_0810AC54.bin"
 
 gUnk_0810AC5D:: @ 0810AC5D
-	.incbin "baserom.gba", 0x10AC5D, 0x0000013
+	.incbin "npc5/gUnk_0810AC5D.bin"
 
 gUnk_0810AC70:: @ 0810AC70
 	.4byte sub_08061ACC

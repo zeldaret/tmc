@@ -4,46 +4,37 @@
 	.section .rodata
     .align 2
 
-gUnk_08111CBC:: @ 08111CBC
-	.incbin "baserom.gba", 0x111CBC, 0x0000005
+gSpriteAnimations_Gorman_0:: @ 08111CBC
+	.include "animations/gSpriteAnimations_Gorman_0.s"
 
-gUnk_08111CC1:: @ 08111CC1
-	.incbin "baserom.gba", 0x111CC1, 0x0000005
+gSpriteAnimations_Gorman_1:: @ 08111CC1
+	.include "animations/gSpriteAnimations_Gorman_1.s"
 
-gUnk_08111CC6:: @ 08111CC6
-	.incbin "baserom.gba", 0x111CC6, 0x0000005
+gSpriteAnimations_Gorman_2:: @ 08111CC6
+	.include "animations/gSpriteAnimations_Gorman_2.s"
 
-gUnk_08111CCB:: @ 08111CCB
-	.incbin "baserom.gba", 0x111CCB, 0x0000005
+gSpriteAnimations_Gorman_3:: @ 08111CCB
+	.include "animations/gSpriteAnimations_Gorman_3.s"
 
-gUnk_08111CD0:: @ 08111CD0
-	.incbin "baserom.gba", 0x111CD0, 0x0000019
+gSpriteAnimations_Gorman_4:: @ 08111CD0
+	.include "animations/gSpriteAnimations_Gorman_4.s"
 
-gUnk_08111CE9:: @ 08111CE9
-	.incbin "baserom.gba", 0x111CE9, 0x0000019
+gSpriteAnimations_Gorman_6:: @ 08111CE9
+	.include "animations/gSpriteAnimations_Gorman_6.s"
 
-gUnk_08111D02:: @ 08111D02
-	.incbin "baserom.gba", 0x111D02, 0x0000015
+gSpriteAnimations_Gorman_7:: @ 08111D02
+	.include "animations/gSpriteAnimations_Gorman_7.s"
 
-gUnk_08111D17:: @ 08111D17
-	.incbin "baserom.gba", 0x111D17, 0x0000004
+gSpriteAnimations_Gorman_5:: @ 08111D1B
+	.include "animations/gSpriteAnimations_Gorman_5.s"
 
-gUnk_08111D1B:: @ 08111D1B
-	.incbin "baserom.gba", 0x111D1B, 0x000000F
-
-gUnk_08111D2A:: @ 08111D2A
-	.incbin "baserom.gba", 0x111D2A, 0x0000001
-
-gUnk_08111D2B:: @ 08111D2B
-	.incbin "baserom.gba", 0x111D2B, 0x0000009
-
-gUnk_08111D34:: @ 08111D34
-	.4byte gUnk_08111CBC
-	.4byte gUnk_08111CC1
-	.4byte gUnk_08111CC6
-	.4byte gUnk_08111CCB
-	.4byte gUnk_08111CD0
-	.4byte gUnk_08111D1B
-	.4byte gUnk_08111CE9
-	.4byte gUnk_08111D02
+gSpriteAnimations_Gorman:: @ 08111D34
+	.4byte gSpriteAnimations_Gorman_0
+	.4byte gSpriteAnimations_Gorman_1
+	.4byte gSpriteAnimations_Gorman_2
+	.4byte gSpriteAnimations_Gorman_3
+	.4byte gSpriteAnimations_Gorman_4
+	.4byte gSpriteAnimations_Gorman_5
+	.4byte gSpriteAnimations_Gorman_6
+	.4byte gSpriteAnimations_Gorman_7
 	.4byte 00000000

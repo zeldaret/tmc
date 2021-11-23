@@ -15,7 +15,7 @@ extern void (*const gUnk_0811F090[])(Entity*);
 extern void (*const gUnk_0811F0A8[])(Entity*);
 extern void (*const gUnk_0811F0C4[])(Entity*);
 
-extern Hitbox gUnk_080FD338; // TODO: should be const
+extern Hitbox gHitbox_18;    // TODO: should be const
 extern Hitbox gUnk_080FD340; // TODO: should be const
 
 extern u32 sub_080001DA(u32, u32);
@@ -33,7 +33,7 @@ void sub_0808222C(Entity* this) {
     }
 
     this->action = 1;
-    this->hitbox = &gUnk_080FD338;
+    this->hitbox = &gHitbox_18;
     this->speed = 0x80;
     this->y.HALF.HI += 3;
     this->field_0x16 = 0;

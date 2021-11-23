@@ -44,7 +44,7 @@ static int s_memaccParam2;
 
 void PrintAgbHeader()
 {
-    std::fprintf(g_outputFile, "\t.include \"MPlayDef.s\"\n\n");
+    std::fprintf(g_outputFile, "\t.include \"sound/MPlayDef.s\"\n\n");
     std::fprintf(g_outputFile, "\t.equ\t%s_grp, voicegroup%03u\n", g_asmLabel.c_str(), g_voiceGroup);
     std::fprintf(g_outputFile, "\t.equ\t%s_pri, %u\n", g_asmLabel.c_str(), g_priority);
 
@@ -245,7 +245,7 @@ void PrintEndOfTieOp(const Event& event)
 void PrintSeqLoopLabel(const Event& event)
 {
     s_blockNum = event.param1 + 1;
-    std::fprintf(g_outputFile, "%s_%u_B%u:\n", g_asmLabel.c_str(), g_agbTrack, s_blockNum);
+    std::fprintf(g_outputFile, "%s_%u_B%u::\n", g_asmLabel.c_str(), g_agbTrack, s_blockNum);
     PrintWait(event.time);
     ResetTrackVars();
 }
@@ -376,7 +376,7 @@ void PrintControllerOp(const Event& event)
         PrintWait(event.time);
         break;
     case 0x11:
-        std::fprintf(g_outputFile, "%s_%u_L%u:\n", g_asmLabel.c_str(), g_agbTrack, event.param2);
+        std::fprintf(g_outputFile, "%s_%u_L%u::\n", g_asmLabel.c_str(), g_agbTrack, event.param2);
         PrintWait(event.time);
         ResetTrackVars();
         break;
@@ -417,7 +417,7 @@ void PrintControllerOp(const Event& event)
 void PrintAgbTrack(std::vector<Event>& events)
 {
     std::fprintf(g_outputFile, "\n@**************** Track %u (Midi-Chn.%u) ****************@\n\n", g_agbTrack, g_midiChan + 1);
-    std::fprintf(g_outputFile, "%s_%u:\n", g_asmLabel.c_str(), g_agbTrack);
+    std::fprintf(g_outputFile, "%s_%u::\n", g_asmLabel.c_str(), g_agbTrack);
 
     int wholeNoteCount = 0;
     int loopEndBlockNum = 0;
@@ -470,9 +470,10 @@ void PrintAgbTrack(std::vector<Event>& events)
             PrintSeqLoopLabel(event);
             break;
         case EventType::LoopEnd:
-            PrintByte("GOTO");
+            PrintByte("GOTO"); 
             PrintWord("%s_%u_B%u", g_asmLabel.c_str(), g_agbTrack, loopEndBlockNum);
-            PrintSeqLoopLabel(event);
+            //PrintSeqLoopLabel(event); // Breaks same note in EOT bgmCrenelStorm 0xDD4356
+            PrintWait(event.time); // instead just print the wait
             break;
         case EventType::LoopEndBegin:
             PrintByte("GOTO");
@@ -487,7 +488,7 @@ void PrintAgbTrack(std::vector<Event>& events)
         case EventType::WholeNoteMark:
             if (event.param2 & 0x80000000)
             {
-                std::fprintf(g_outputFile, "%s_%u_%03lu:\n", g_asmLabel.c_str(), g_agbTrack, (unsigned long)(event.param2 & 0x7FFFFFFF));
+                std::fprintf(g_outputFile, "%s_%u_%03lu::\n", g_asmLabel.c_str(), g_agbTrack, (unsigned long)(event.param2 & 0x7FFFFFFF));
                 ResetTrackVars();
                 s_inPattern = true;
             }
@@ -543,5 +544,5 @@ void PrintAgbFooter()
     for (int i = 1; i <= trackCount; i++)
         std::fprintf(g_outputFile, "\t.word\t%s_%u\n", g_asmLabel.c_str(), i);
 
-    std::fprintf(g_outputFile, "\n\t.end\n");
+    // std::fprintf(g_outputFile, "\n\t.end\n");
 }

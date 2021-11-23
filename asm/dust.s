@@ -173,7 +173,7 @@ _08044244: .4byte 0x000001EB
 .endif
 _08044248:
 	str r2, [r4, #0x48]
-	ldr r0, _0804427C @ =gUnk_080FD188
+	ldr r0, _0804427C @ =gHitbox_4
 	ldr r1, [r0, #4]
 	ldr r0, [r0]
 	str r0, [r2]
@@ -197,13 +197,13 @@ _08044248:
 	strh r0, [r1]
 	b _08044292
 	.align 2, 0
-_0804427C: .4byte gUnk_080FD188
+_0804427C: .4byte gHitbox_4
 _08044280: .4byte 0x0000FFFF
 _08044284:
 	movs r0, #0
 	strb r0, [r4, #0x1e]
 	strh r0, [r4, #0x24]
-	ldr r0, _0804429C @ =gUnk_080FD168
+	ldr r0, _0804429C @ =gHitbox_1
 	str r0, [r4, #0x48]
 	movs r0, #1
 	strb r0, [r4, #0x1c]
@@ -215,7 +215,7 @@ _08044292:
 _0804429A:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_0804429C: .4byte gUnk_080FD168
+_0804429C: .4byte gHitbox_1
 
 	thumb_func_start sub_080442A0
 sub_080442A0: @ 0x080442A0

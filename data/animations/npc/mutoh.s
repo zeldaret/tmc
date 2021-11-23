@@ -4,25 +4,25 @@
 	.section .rodata
     .align 2
 
-gUnk_08110C60:: @ 08110C60
-	.incbin "baserom.gba", 0x110C60, 0x0000015
+gSpriteAnimations_Mutoh_0:: @ 08110C60
+	.include "animations/gSpriteAnimations_Mutoh_0.s"
 
-gUnk_08110C75:: @ 08110C75
-	.incbin "baserom.gba", 0x110C75, 0x0000005
+gSpriteAnimations_Mutoh_5:: @ 08110C75
+	.include "animations/gSpriteAnimations_Mutoh_5.s"
 
-gUnk_08110C7A:: @ 08110C7A
-	.incbin "baserom.gba", 0x110C7A, 0x0000005
+gSpriteAnimations_Mutoh_4:: @ 08110C7A
+	.include "animations/gSpriteAnimations_Mutoh_4.s"
 
-gUnk_08110C7F:: @ 08110C7F
-	.incbin "baserom.gba", 0x110C7F, 0x0000005
+gSpriteAnimations_Mutoh_7:: @ 08110C7F
+	.include "animations/gSpriteAnimations_Mutoh_7.s"
 
-gUnk_08110C84:: @ 08110C84
-	.4byte gUnk_08110C60
-	.4byte gUnk_08110C60
-	.4byte gUnk_08110C60
-	.4byte gUnk_08110C60
-	.4byte gUnk_08110C7A
-	.4byte gUnk_08110C75
-	.4byte gUnk_08110C7A
-	.4byte gUnk_08110C7F
+gSpriteAnimations_Mutoh:: @ 08110C84
+	.4byte gSpriteAnimations_Mutoh_0
+	.4byte gSpriteAnimations_Mutoh_0
+	.4byte gSpriteAnimations_Mutoh_0
+	.4byte gSpriteAnimations_Mutoh_0
+	.4byte gSpriteAnimations_Mutoh_4
+	.4byte gSpriteAnimations_Mutoh_5
+	.4byte gSpriteAnimations_Mutoh_4
+	.4byte gSpriteAnimations_Mutoh_7
 	.4byte 00000000

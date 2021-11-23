@@ -3,122 +3,122 @@
 
 	.section .rodata
 
-gUnk_080CC2DF:: @ 080CC2DF
-	.incbin "baserom.gba", 0x0CC2DF, 0x0000004
+gSpriteAnimations_ChuchuBoss_1_0:: @ 080CC2DF
+	.include "animations/gSpriteAnimations_ChuchuBoss_1_0.s"
 
-gUnk_080CC2E3:: @ 080CC2E3
-	.incbin "baserom.gba", 0x0CC2E3, 0x0000004
+gSpriteAnimations_ChuchuBoss_1_1:: @ 080CC2E3
+	.include "animations/gSpriteAnimations_ChuchuBoss_1_1.s"
 
-gUnk_080CC2E7:: @ 080CC2E7
-	.incbin "baserom.gba", 0x0CC2E7, 0x0000004
+gSpriteAnimations_ChuchuBoss_1_2:: @ 080CC2E7
+	.include "animations/gSpriteAnimations_ChuchuBoss_1_2.s"
 
-gUnk_080CC2EB:: @ 080CC2EB
-	.incbin "baserom.gba", 0x0CC2EB, 0x0000004
+gSpriteAnimations_ChuchuBoss_1_3:: @ 080CC2EB
+	.include "animations/gSpriteAnimations_ChuchuBoss_1_3.s"
 
-gUnk_080CC2EF:: @ 080CC2EF
-	.incbin "baserom.gba", 0x0CC2EF, 0x0000005
+gSpriteAnimations_ChuchuBoss_0_0:: @ 080CC2EF
+	.include "animations/gSpriteAnimations_ChuchuBoss_0_0.s"
 
-gUnk_080CC2F4:: @ 080CC2F4
-	.incbin "baserom.gba", 0x0CC2F4, 0x0000011
+gSpriteAnimations_ChuchuBoss_0_1:: @ 080CC2F4
+	.include "animations/gSpriteAnimations_ChuchuBoss_0_1.s"
 
-gUnk_080CC305:: @ 080CC305
-	.incbin "baserom.gba", 0x0CC305, 0x0000019
+gSpriteAnimations_ChuchuBoss_0_2:: @ 080CC305
+	.include "animations/gSpriteAnimations_ChuchuBoss_0_2.s"
 
-gUnk_080CC31E:: @ 080CC31E
-	.incbin "baserom.gba", 0x0CC31E, 0x000000D
+gSpriteAnimations_ChuchuBoss_0_3:: @ 080CC31E
+	.include "animations/gSpriteAnimations_ChuchuBoss_0_3.s"
 
-gUnk_080CC32B:: @ 080CC32B
-	.incbin "baserom.gba", 0x0CC32B, 0x000000D
+gSpriteAnimations_ChuchuBoss_0_4:: @ 080CC32B
+	.include "animations/gSpriteAnimations_ChuchuBoss_0_4.s"
 
-gUnk_080CC338:: @ 080CC338
-	.incbin "baserom.gba", 0x0CC338, 0x0000005
+gSpriteAnimations_ChuchuBoss_0_10:: @ 080CC338
+	.include "animations/gSpriteAnimations_ChuchuBoss_0_10.s"
 
-gUnk_080CC33D:: @ 080CC33D
-	.incbin "baserom.gba", 0x0CC33D, 0x0000009
+gSpriteAnimations_ChuchuBoss_0_5:: @ 080CC33D
+	.include "animations/gSpriteAnimations_ChuchuBoss_0_5.s"
 
-gUnk_080CC346:: @ 080CC346
-	.incbin "baserom.gba", 0x0CC346, 0x000000D
+gSpriteAnimations_ChuchuBoss_0_7:: @ 080CC346
+	.include "animations/gSpriteAnimations_ChuchuBoss_0_7.s"
 
-gUnk_080CC353:: @ 080CC353
-	.incbin "baserom.gba", 0x0CC353, 0x0000009
+gSpriteAnimations_ChuchuBoss_0_6:: @ 080CC353
+	.include "animations/gSpriteAnimations_ChuchuBoss_0_6.s"
 
-gUnk_080CC35C:: @ 080CC35C
-	.incbin "baserom.gba", 0x0CC35C, 0x000000D
+gSpriteAnimations_ChuchuBoss_0_8:: @ 080CC35C
+	.include "animations/gSpriteAnimations_ChuchuBoss_0_8.s"
 
-gUnk_080CC369:: @ 080CC369
-	.incbin "baserom.gba", 0x0CC369, 0x0000009
+gSpriteAnimations_ChuchuBoss_0_11:: @ 080CC369
+	.include "animations/gSpriteAnimations_ChuchuBoss_0_11.s"
 
-gUnk_080CC372:: @ 080CC372
-	.incbin "baserom.gba", 0x0CC372, 0x0000009
+gSpriteAnimations_ChuchuBoss_0_12:: @ 080CC372
+	.include "animations/gSpriteAnimations_ChuchuBoss_0_12.s"
 
-gUnk_080CC37B:: @ 080CC37B
-	.incbin "baserom.gba", 0x0CC37B, 0x0000021
+gSpriteAnimations_ChuchuBoss_0_9:: @ 080CC37B
+	.include "animations/gSpriteAnimations_ChuchuBoss_0_9.s"
 
-gUnk_080CC39C:: @ 080CC39C
-	.incbin "baserom.gba", 0x0CC39C, 0x0000038
+gSpriteAnimations_ChuchuBoss_2_0:: @ 080CC39C
+	.include "animations/gSpriteAnimations_ChuchuBoss_2_0.s"
 
-gUnk_080CC3D4:: @ 080CC3D4
-	.incbin "baserom.gba", 0x0CC3D4, 0x0000038
+gSpriteAnimations_ChuchuBoss_2_1:: @ 080CC3D4
+	.include "animations/gSpriteAnimations_ChuchuBoss_2_1.s"
 
-gUnk_080CC40C:: @ 080CC40C
-	.incbin "baserom.gba", 0x0CC40C, 0x0000034
+gSpriteAnimations_ChuchuBoss_2_2:: @ 080CC40C
+	.include "animations/gSpriteAnimations_ChuchuBoss_2_2.s"
 
-gUnk_080CC440:: @ 080CC440
-	.incbin "baserom.gba", 0x0CC440, 0x0000038
+gSpriteAnimations_ChuchuBoss_2_4:: @ 080CC440
+	.include "animations/gSpriteAnimations_ChuchuBoss_2_4.s"
 
-gUnk_080CC478:: @ 080CC478
-	.incbin "baserom.gba", 0x0CC478, 0x0000038
+gSpriteAnimations_ChuchuBoss_2_5:: @ 080CC478
+	.include "animations/gSpriteAnimations_ChuchuBoss_2_5.s"
 
-gUnk_080CC4B0:: @ 080CC4B0
-	.incbin "baserom.gba", 0x0CC4B0, 0x0000065
+gSpriteAnimations_ChuchuBoss_2_3:: @ 080CC4B0
+	.include "animations/gSpriteAnimations_ChuchuBoss_2_3.s"
 
-gUnk_080CC515:: @ 080CC515
-	.incbin "baserom.gba", 0x0CC515, 0x000006D
+gSpriteAnimations_ChuchuBoss_2_6:: @ 080CC515
+	.include "animations/gSpriteAnimations_ChuchuBoss_2_6.s"
 
-gUnk_080CC582:: @ 080CC582
-	.incbin "baserom.gba", 0x0CC582, 0x000006D
+gSpriteAnimations_ChuchuBoss_2_7:: @ 080CC582
+	.include "animations/gSpriteAnimations_ChuchuBoss_2_7.s"
 
-gUnk_080CC5EF:: @ 080CC5EF
-	.incbin "baserom.gba", 0x0CC5EF, 0x000006D
+gSpriteAnimations_ChuchuBoss_2_8:: @ 080CC5EF
+	.include "animations/gSpriteAnimations_ChuchuBoss_2_8.s"
 
-gUnk_080CC65C:: @ 080CC65C
-	.incbin "baserom.gba", 0x0CC65C, 0x0000021
+gSpriteAnimations_ChuchuBoss_2_9:: @ 080CC65C
+	.include "animations/gSpriteAnimations_ChuchuBoss_2_9.s"
 
-gUnk_080CC67D:: @ 080CC67D
-	.incbin "baserom.gba", 0x0CC67D, 0x0000007
+gSpriteAnimations_ChuchuBoss_1_4:: @ 080CC67D
+	.include "animations/gSpriteAnimations_ChuchuBoss_1_4.s"
 
-gUnk_080CC684:: @ 080CC684
-	.4byte gUnk_080CC2DF
-	.4byte gUnk_080CC2E3
-	.4byte gUnk_080CC2E7
-	.4byte gUnk_080CC2EB
-	.4byte gUnk_080CC67D
+gSpriteAnimations_ChuchuBoss_1:: @ 080CC684
+	.4byte gSpriteAnimations_ChuchuBoss_1_0
+	.4byte gSpriteAnimations_ChuchuBoss_1_1
+	.4byte gSpriteAnimations_ChuchuBoss_1_2
+	.4byte gSpriteAnimations_ChuchuBoss_1_3
+	.4byte gSpriteAnimations_ChuchuBoss_1_4
 	.4byte 00000000
 
-gUnk_080CC69C:: @ 080CC69C
-	.4byte gUnk_080CC2EF
-	.4byte gUnk_080CC2F4
-	.4byte gUnk_080CC305
-	.4byte gUnk_080CC31E
-	.4byte gUnk_080CC32B
-	.4byte gUnk_080CC33D
-	.4byte gUnk_080CC353
-	.4byte gUnk_080CC346
-	.4byte gUnk_080CC35C
-	.4byte gUnk_080CC37B
-	.4byte gUnk_080CC338
-	.4byte gUnk_080CC369
-	.4byte gUnk_080CC372
+gSpriteAnimations_ChuchuBoss_0:: @ 080CC69C
+	.4byte gSpriteAnimations_ChuchuBoss_0_0
+	.4byte gSpriteAnimations_ChuchuBoss_0_1
+	.4byte gSpriteAnimations_ChuchuBoss_0_2
+	.4byte gSpriteAnimations_ChuchuBoss_0_3
+	.4byte gSpriteAnimations_ChuchuBoss_0_4
+	.4byte gSpriteAnimations_ChuchuBoss_0_5
+	.4byte gSpriteAnimations_ChuchuBoss_0_6
+	.4byte gSpriteAnimations_ChuchuBoss_0_7
+	.4byte gSpriteAnimations_ChuchuBoss_0_8
+	.4byte gSpriteAnimations_ChuchuBoss_0_9
+	.4byte gSpriteAnimations_ChuchuBoss_0_10
+	.4byte gSpriteAnimations_ChuchuBoss_0_11
+	.4byte gSpriteAnimations_ChuchuBoss_0_12
 	.4byte 00000000
 
-gUnk_080CC6D4:: @ 080CC6D4
-	.4byte gUnk_080CC39C
-	.4byte gUnk_080CC3D4
-	.4byte gUnk_080CC40C
-	.4byte gUnk_080CC4B0
-	.4byte gUnk_080CC440
-	.4byte gUnk_080CC478
-	.4byte gUnk_080CC515
-	.4byte gUnk_080CC582
-	.4byte gUnk_080CC5EF
-	.4byte gUnk_080CC65C
+gSpriteAnimations_ChuchuBoss_2:: @ 080CC6D4
+	.4byte gSpriteAnimations_ChuchuBoss_2_0
+	.4byte gSpriteAnimations_ChuchuBoss_2_1
+	.4byte gSpriteAnimations_ChuchuBoss_2_2
+	.4byte gSpriteAnimations_ChuchuBoss_2_3
+	.4byte gSpriteAnimations_ChuchuBoss_2_4
+	.4byte gSpriteAnimations_ChuchuBoss_2_5
+	.4byte gSpriteAnimations_ChuchuBoss_2_6
+	.4byte gSpriteAnimations_ChuchuBoss_2_7
+	.4byte gSpriteAnimations_ChuchuBoss_2_8
+	.4byte gSpriteAnimations_ChuchuBoss_2_9

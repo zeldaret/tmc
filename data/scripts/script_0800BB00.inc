@@ -7,7 +7,7 @@ script_0800BB04:
 	DoPostScriptAction 0x0004
 	Wait 0x003c
 	MessageNoOverlap 0x0e02
-	_0807EA94 
+	WaitUntilTextboxCloses
 	Wait 0x003c
 	DoPostScriptAction 0x000f
 	Wait 0x00b4

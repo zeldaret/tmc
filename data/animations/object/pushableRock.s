@@ -4,45 +4,30 @@
 	.section .rodata
     .align 2
 
-gUnk_08121090:: @ 08121090
-	.incbin "baserom.gba", 0x121090, 0x0000004
+gSpriteAnimations_PushableRock_0:: @ 08121090
+	.include "animations/gSpriteAnimations_PushableRock_0.s"
 
-gUnk_08121094:: @ 08121094
-	.incbin "baserom.gba", 0x121094, 0x000003C
+gSpriteAnimations_PushableRock_1:: @ 08121094
+	.include "animations/gSpriteAnimations_PushableRock_1.s"
 
-gUnk_081210D0:: @ 081210D0
-	.incbin "baserom.gba", 0x1210D0, 0x0000036
+gSpriteAnimations_PushableRock_2:: @ 081210D0
+	.include "animations/gSpriteAnimations_PushableRock_2.s"
 
-gUnk_08121106:: @ 08121106
-	.incbin "baserom.gba", 0x121106, 0x0000005
+gSpriteAnimations_PushableRock_3:: @ 0812110C
+	.include "animations/gSpriteAnimations_PushableRock_3.s"
 
-gUnk_0812110B:: @ 0812110B
-	.incbin "baserom.gba", 0x12110B, 0x0000001
+gSpriteAnimations_PushableRock_5:: @ 08121148
+	.include "animations/gSpriteAnimations_PushableRock_5.s"
 
-gUnk_0812110C:: @ 0812110C
-	.incbin "baserom.gba", 0x12110C, 0x0000007
+gSpriteAnimations_PushableRock_6:: @ 08121154
+	.include "animations/gSpriteAnimations_PushableRock_6.s"
 
-gUnk_08121113:: @ 08121113
-	.incbin "baserom.gba", 0x121113, 0x0000006
-
-gUnk_08121119:: @ 08121119
-	.incbin "baserom.gba", 0x121119, 0x0000003
-
-gUnk_0812111C:: @ 0812111C
-	.incbin "baserom.gba", 0x12111C, 0x000002C
-
-gUnk_08121148:: @ 08121148
-	.incbin "baserom.gba", 0x121148, 0x000000C
-
-gUnk_08121154:: @ 08121154
-	.incbin "baserom.gba", 0x121154, 0x0000004
-
-gUnk_08121158:: @ 08121158
-	.4byte gUnk_08121090
-	.4byte gUnk_08121094
-	.4byte gUnk_081210D0
-	.4byte gUnk_0812110C
-	.4byte gUnk_081210D0
-	.4byte gUnk_08121148
-	.4byte gUnk_08121154
+gSpriteAnimations_PushableRock:: @ 08121158
+	.4byte gSpriteAnimations_PushableRock_0
+	.4byte gSpriteAnimations_PushableRock_1
+	.4byte gSpriteAnimations_PushableRock_2
+	.4byte gSpriteAnimations_PushableRock_3
+	.4byte gSpriteAnimations_PushableRock_2
+	.4byte gSpriteAnimations_PushableRock_5
+	.4byte gSpriteAnimations_PushableRock_6
 	.4byte 00000000

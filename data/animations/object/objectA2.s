@@ -5,17 +5,17 @@
 @    .align 2
 
 @ TODO might as well be palaceArchway
-gUnk_08124712:: @ 08124712
-	.incbin "baserom.gba", 0x124712, 0x0000031
+gSpriteAnimations_ObjectA2_0:: @ 08124712
+	.include "animation/gSpriteAnimations_ObjectA2_0.s"
 
-gUnk_08124743:: @ 08124743
-	.incbin "baserom.gba", 0x124743, 0x0000021
+gSpriteAnimations_ObjectA2_1:: @ 08124743
+	.include "animation/gSpriteAnimations_ObjectA2_1.s"
 
-gUnk_08124764:: @ 08124764
-	.incbin "baserom.gba", 0x124764, 0x0000024
+gSpriteAnimations_ObjectA2_2:: @ 08124764
+	.include "animation/gSpriteAnimations_ObjectA2_2.s"
 
-gUnk_08124788:: @ 08124788
-	.4byte gUnk_08124712
-	.4byte gUnk_08124743
-	.4byte gUnk_08124764
+gSpriteAnimations_ObjectA2:: @ 08124788
+	.4byte gSpriteAnimations_ObjectA2_0
+	.4byte gSpriteAnimations_ObjectA2_1
+	.4byte gSpriteAnimations_ObjectA2_2
 	.4byte 00000000

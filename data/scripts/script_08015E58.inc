@@ -33,7 +33,7 @@ SCRIPT_START script_08015E58
 	DoPostScriptAction 0x0014
 	Wait 0x001e
 	MessageNoOverlap 0x131b
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E5F8 0x00000020
 	WaitForSomething2 0x00000010
 	DoPostScriptAction 0x0006

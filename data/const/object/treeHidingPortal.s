@@ -11,5 +11,5 @@ gUnk_08124354:: @ 08124354
 	.4byte sub_0809E8EC
 
 gUnk_08124364:: @ 08124364
-	.incbin "baserom.gba", 0x124364, 0x0000050
+	.incbin "treeHidingPortal/gUnk_08124364.bin"
 

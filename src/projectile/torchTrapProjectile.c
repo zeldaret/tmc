@@ -3,7 +3,7 @@
 #include "functions.h"
 
 extern s32 sub_080AF090(Entity*);
-extern s32 sub_080A7EB0(Entity*);
+extern s32 IsProjectileOffScreen(Entity*);
 
 extern void (*const TorchTrapProjectile_Functions[])(Entity*);
 extern void (*const TorchTrapProjectile_Actions[])(Entity*);
@@ -45,7 +45,7 @@ void TorchTrapProjectile_Action2(Entity* this) {
     if (this->collisions != 0) {
         DeleteThisEntity();
     }
-    if (sub_080A7EB0(this) != 0) {
+    if (IsProjectileOffScreen(this) != 0) {
         DeleteThisEntity();
     }
 }

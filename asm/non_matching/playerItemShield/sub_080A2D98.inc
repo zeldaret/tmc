@@ -43,7 +43,7 @@ _080A2DDA:
 	adds r0, r4, #0
 	movs r1, #1
 	movs r2, #3
-	bl sub_080AE008
+	bl LoadSwapGFX
 	adds r0, r4, #0
 	bl sub_080A2E00
 	pop {r4, pc}

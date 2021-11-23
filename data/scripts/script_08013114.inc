@@ -18,11 +18,11 @@ script_0801313C:
 	_0807EB74
 	Call sub_0806AED8
 	CallWithArg sub_0806AA50, 0x00000000
-	_0807EA94
+	WaitUntilTextboxCloses
 	CallWithArg sub_0806AA50, 0x00000001
-	_0807EA94
+	WaitUntilTextboxCloses
 	CallWithArg sub_0806AA50, 0x00000002
-	_0807EA94
+	WaitUntilTextboxCloses
 	JumpIf script_08013176
 	_0807E878
 	Jump script_08013128

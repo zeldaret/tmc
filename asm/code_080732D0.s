@@ -1342,7 +1342,7 @@ sub_08073C80: @ 0x08073C80
 	adds r0, r4, #0
 	movs r1, #1
 	movs r2, #2
-	bl sub_080AE008
+	bl LoadSwapGFX
 	ldr r0, _08073D0C @ =gRoomControls
 	str r4, [r0, #0x30]
 	bl sub_080809D4

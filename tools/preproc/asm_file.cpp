@@ -31,8 +31,13 @@ AsmFile::AsmFile(std::string filename) : m_filename(filename)
 {
     FILE *fp = std::fopen(filename.c_str(), "rb");
 
-    if (fp == NULL)
-        FATAL_ERROR("Failed to open \"%s\" for reading.\n", filename.c_str());
+    if (fp == NULL) {
+        // The include might be an asset.
+        fp = std::fopen(("build/" + g_buildName + "/assets/" + filename).c_str(), "rb");
+
+        if (fp == NULL)
+            FATAL_ERROR("Failed to open \"%s\" for reading.\n", filename.c_str());
+    }
 
     std::fseek(fp, 0, SEEK_END);
 

@@ -29,7 +29,7 @@ script_0800B4F0:
 	_0807EB44 0x0004
 	WaitForSomething2 0x00000008
 	MessageFromTarget 0x2016
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807EDD4 0x0158, 0x0288
 	DoPostScriptAction 0x0000
 	_0807EB44 0x0000

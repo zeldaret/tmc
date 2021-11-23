@@ -4,33 +4,33 @@
 	.section .rodata
     .align 2
 
-gUnk_0812A63C:: @ 0812A63C
-	.incbin "baserom.gba", 0x12A63C, 0x0000020
+gSpriteAnimations_V1EyeLaser_0:: @ 0812A63C
+	.include "animations/gSpriteAnimations_V1EyeLaser_0.s"
 
-gUnk_0812A65C:: @ 0812A65C
-	.incbin "baserom.gba", 0x12A65C, 0x0000009
+gSpriteAnimations_V1EyeLaser_1:: @ 0812A65C
+	.include "animations/gSpriteAnimations_V1EyeLaser_1.s"
 
-gUnk_0812A665:: @ 0812A665
-	.incbin "baserom.gba", 0x12A665, 0x0000009
+gSpriteAnimations_V1EyeLaser_2:: @ 0812A665
+	.include "animations/gSpriteAnimations_V1EyeLaser_2.s"
 
-gUnk_0812A66E:: @ 0812A66E
-	.incbin "baserom.gba", 0x12A66E, 0x0000009
+gSpriteAnimations_V1EyeLaser_3:: @ 0812A66E
+	.include "animations/gSpriteAnimations_V1EyeLaser_3.s"
 
-gUnk_0812A677:: @ 0812A677
-	.incbin "baserom.gba", 0x12A677, 0x0000009
+gSpriteAnimations_V1EyeLaser_4:: @ 0812A677
+	.include "animations/gSpriteAnimations_V1EyeLaser_4.s"
 
-gUnk_0812A680:: @ 0812A680
-	.incbin "baserom.gba", 0x12A680, 0x0000009
+gSpriteAnimations_V1EyeLaser_5:: @ 0812A680
+	.include "animations/gSpriteAnimations_V1EyeLaser_5.s"
 
-gUnk_0812A689:: @ 0812A689
-	.incbin "baserom.gba", 0x12A689, 0x000000B
+gSpriteAnimations_V1EyeLaser_6:: @ 0812A689
+	.include "animations/gSpriteAnimations_V1EyeLaser_6.s"
 
-gUnk_0812A694:: @ 0812A694
-	.4byte gUnk_0812A63C
-	.4byte gUnk_0812A65C
-	.4byte gUnk_0812A665
-	.4byte gUnk_0812A66E
-	.4byte gUnk_0812A677
-	.4byte gUnk_0812A680
-	.4byte gUnk_0812A689
+gSpriteAnimations_V1EyeLaser:: @ 0812A694
+	.4byte gSpriteAnimations_V1EyeLaser_0
+	.4byte gSpriteAnimations_V1EyeLaser_1
+	.4byte gSpriteAnimations_V1EyeLaser_2
+	.4byte gSpriteAnimations_V1EyeLaser_3
+	.4byte gSpriteAnimations_V1EyeLaser_4
+	.4byte gSpriteAnimations_V1EyeLaser_5
+	.4byte gSpriteAnimations_V1EyeLaser_6
 	.4byte 00000000

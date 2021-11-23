@@ -23,7 +23,7 @@ script_08016612:
 	_0807E944 
 	_0807E864 
 	MessageFromTarget 0x0602
-	_0807EA94 
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	Jump script_08016612
@@ -36,7 +36,7 @@ script_0801662E:
 	_0807E944
 	_0807E864
 	_0807EB28 0x0603
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	Jump script_0801662E
@@ -222,7 +222,7 @@ script_0801690A:
 	_0807E864
 	_0807EB74
 	Call sub_08064F28
-	_0807EA94
+	WaitUntilTextboxCloses
 	JumpIfNot script_08016926
 	_0807F034 0x003d
 	WaitPlayerAction8
@@ -240,7 +240,7 @@ script_0801693E:
 	_0807E864
 	Wait 0x0018
 	MessageFromTarget 0x0a01
-	_0807EA94 
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	Jump script_0801693E
@@ -256,7 +256,7 @@ script_0801696A:
 	_0807E864
 	Wait 0x0018
 	MessageFromTarget 0x0a01
-	_0807EA94 
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	Jump script_0801696A

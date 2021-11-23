@@ -4,7 +4,7 @@ SCRIPT_START script_08016004
 	_0807F0C8 0x0000, 0x0000
 	PlaySound SFX_SECRET
 	_0807EB28 0x0b1f
-	_0807EA94
+	WaitUntilTextboxCloses
 	Call sub_0807DF50
 	_0807E878
 script_08016028:

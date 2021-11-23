@@ -6,13 +6,13 @@
 
 
 
-gUnk_080CDEA0:: @ 080CDEA0
-	.incbin "baserom.gba", 0x0CDEA0, 0x0000011
+gSpriteAnimations_VaatiEyesMacro_0:: @ 080CDEA0
+	.include "animations/gSpriteAnimations_VaatiEyesMacro_0.s"
 
-gUnk_080CDEB1:: @ 080CDEB1
-	.incbin "baserom.gba", 0x0CDEB1, 0x0000013
+gSpriteAnimations_VaatiEyesMacro_1:: @ 080CDEB1
+	.include "animations/gSpriteAnimations_VaatiEyesMacro_1.s"
 
-gUnk_080CDEC4:: @ 080CDEC4
-	.4byte gUnk_080CDEA0
-	.4byte gUnk_080CDEB1
+gSpriteAnimations_VaatiEyesMacro:: @ 080CDEC4
+	.4byte gSpriteAnimations_VaatiEyesMacro_0
+	.4byte gSpriteAnimations_VaatiEyesMacro_1
 	.4byte 00000000

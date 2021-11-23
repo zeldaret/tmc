@@ -4,40 +4,37 @@
 	.section .rodata
     .align 2
 
-gUnk_081243F4:: @ 081243F4
-	.incbin "baserom.gba", 0x1243F4, 0x000003F
+gSpriteAnimations_Fan_0:: @ 081243F4
+	.include "animations/gSpriteAnimations_Fan_0.s"
 
-gUnk_08124433:: @ 08124433
-	.incbin "baserom.gba", 0x124433, 0x0000032
+gSpriteAnimations_Fan_1:: @ 08124465
+	.include "animations/gSpriteAnimations_Fan_1.s"
 
-gUnk_08124465:: @ 08124465
-	.incbin "baserom.gba", 0x124465, 0x0000071
+gSpriteAnimations_Fan_2:: @ 081244D6
+	.include "animations/gSpriteAnimations_Fan_2.s"
 
-gUnk_081244D6:: @ 081244D6
-	.incbin "baserom.gba", 0x1244D6, 0x0000071
+gSpriteAnimations_Fan_3:: @ 08124547
+	.include "animations/gSpriteAnimations_Fan_3.s"
 
-gUnk_08124547:: @ 08124547
-	.incbin "baserom.gba", 0x124547, 0x0000071
+gSpriteAnimations_Fan_4:: @ 081245B8
+	.include "animations/gSpriteAnimations_Fan_4.s"
 
-gUnk_081245B8:: @ 081245B8
-	.incbin "baserom.gba", 0x1245B8, 0x0000025
+gSpriteAnimations_Fan_5:: @ 081245DD
+	.include "animations/gSpriteAnimations_Fan_5.s"
 
-gUnk_081245DD:: @ 081245DD
-	.incbin "baserom.gba", 0x1245DD, 0x0000025
+gSpriteAnimations_Fan_6:: @ 08124602
+	.include "animations/gSpriteAnimations_Fan_6.s"
 
-gUnk_08124602:: @ 08124602
-	.incbin "baserom.gba", 0x124602, 0x0000025
+gSpriteAnimations_Fan_7:: @ 08124627
+	.include "animations/gSpriteAnimations_Fan_7.s"
 
-gUnk_08124627:: @ 08124627
-	.incbin "baserom.gba", 0x124627, 0x0000025
-
-gUnk_0812464C:: @ 0812464C
-	.4byte gUnk_081243F4
-	.4byte gUnk_08124465
-	.4byte gUnk_081244D6
-	.4byte gUnk_08124547
-	.4byte gUnk_081245B8
-	.4byte gUnk_081245DD
-	.4byte gUnk_08124602
-	.4byte gUnk_08124627
+gSpriteAnimations_Fan:: @ 0812464C
+	.4byte gSpriteAnimations_Fan_0
+	.4byte gSpriteAnimations_Fan_1
+	.4byte gSpriteAnimations_Fan_2
+	.4byte gSpriteAnimations_Fan_3
+	.4byte gSpriteAnimations_Fan_4
+	.4byte gSpriteAnimations_Fan_5
+	.4byte gSpriteAnimations_Fan_6
+	.4byte gSpriteAnimations_Fan_7
 	.4byte 00000000

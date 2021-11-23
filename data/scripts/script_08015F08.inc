@@ -5,7 +5,7 @@ SCRIPT_START script_08015F08
 	EndBlock
 	WaitForSomething2 0x00000001
 	MessageNoOverlap 0x131c
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E5F8 0x00000002
 	WaitForSomething 0x00000200
 	DoPostScriptAction 0x0005

@@ -10,7 +10,7 @@ script_0800B5FA:
 	_0807E864 
 	_0807EB74 
 	MessageNoOverlap 0x2009
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E878 
 	_0807EB44 0x0004
 	Jump script_0800B5FA
@@ -30,7 +30,7 @@ script_0800B618:
 	CheckLocalFlag 0x009e
 	JumpIf script_0800B7A2
 	MessageNoOverlap 0x0583
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E3E8 
 	JumpIfNot script_0800B684
 	Wait 0x000f
@@ -42,10 +42,10 @@ script_0800B618:
 	Jump script_0800B6A6
 script_0800B684:
 	MessageNoOverlap 0x057d
-	_0807EA94 
+	WaitUntilTextboxCloses
 	Jump script_0800B6A6
 script_0800B68E:
-	_0807EA94
+	WaitUntilTextboxCloses
 	SetLocalFlag 0x009e
 	_0807F034 0x0066
 script_0800B698:
@@ -53,7 +53,7 @@ script_0800B698:
 	_0807EB8C
 	Wait 0x001e
 	MessageNoOverlap 0x057f
-	_0807EA94 
+	WaitUntilTextboxCloses
 script_0800B6A6:
 	_0807E778 0x0004
 	DoFade7

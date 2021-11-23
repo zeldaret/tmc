@@ -21,7 +21,7 @@ gUnk_081228F0:: @ 081228F0
 	.4byte nullsub_526
 
 gUnk_081228F8:: @ 081228F8
-	.incbin "baserom.gba", 0x1228F8, 0x0000026
+	.incbin "giantTwig/gUnk_081228F8.bin"
 
 gUnk_0812291E:: @ 0812291E
-	.incbin "baserom.gba", 0x12291E, 0x0000026
+	.incbin "giantTwig/gUnk_0812291E.bin"

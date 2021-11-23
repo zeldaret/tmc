@@ -4,24 +4,18 @@
 	.section .rodata
     .align 2
 
-gUnk_08120AE8:: @ 08120AE8
-	.incbin "baserom.gba", 0x120AE8, 0x0000005
+gSpriteAnimations_FigurineDevice_0:: @ 08120AE8
+	.include "animations/gSpriteAnimations_FigurineDevice_0.s"
 
-gUnk_08120AED:: @ 08120AED
-	.incbin "baserom.gba", 0x120AED, 0x0000014
+gSpriteAnimations_FigurineDevice_1:: @ 08120AED
+	.include "animations/gSpriteAnimations_FigurineDevice_1.s"
 
-gUnk_08120B01:: @ 08120B01
-	.incbin "baserom.gba", 0x120B01, 0x0000003
+gSpriteAnimations_FigurineDevice_2:: @ 08120B01
+	.include "animations/gSpriteAnimations_FigurineDevice_2.s"
 
-gUnk_08120B04:: @ 08120B04
-	.incbin "baserom.gba", 0x120B04, 0x0000006
-
-gUnk_08120B0A:: @ 08120B0A
-	.incbin "baserom.gba", 0x120B0A, 0x0000006
-
-gUnk_08120B10:: @ 08120B10
-	.4byte gUnk_08120AE8
-	.4byte gUnk_08120AED
-	.4byte gUnk_08120B01
+gSpriteAnimations_FigurineDevice:: @ 08120B10
+	.4byte gSpriteAnimations_FigurineDevice_0
+	.4byte gSpriteAnimations_FigurineDevice_1
+	.4byte gSpriteAnimations_FigurineDevice_2
 	.4byte 00000000
 

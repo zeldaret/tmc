@@ -26,7 +26,7 @@ script_0800F3EA:
 	_0807E864 
 	_0807EB74 
 	MessageNoOverlap 0x1237
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E878 
 script_0800F402:
 	TestBit 0x00000004

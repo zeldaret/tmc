@@ -26,6 +26,7 @@
 #include "charmap.h"
 
 Charmap* g_charmap;
+std::string g_buildName;
 
 void PrintAsmBytes(unsigned char *s, int length)
 {
@@ -132,25 +133,26 @@ char* GetFileExtension(char* filename)
 
 int main(int argc, char **argv)
 {
-    if (argc != 3 && argc != 2)
+    if (argc != 4 && argc != 3)
     {
-        std::fprintf(stderr, "Usage: %s SRC_FILE CHARMAP_FILE", argv[0]);
+        std::fprintf(stderr, "Usage: %s BUILD_NAME SRC_FILE CHARMAP_FILE", argv[0]);
         return 1;
     }
 
-    g_charmap = new Charmap(argc == 3 ? argv[2] : "");
+    g_buildName = std::string(argv[1]);
+    g_charmap = new Charmap(argc == 4 ? argv[3] : "");
 
-    char* extension = GetFileExtension(argv[1]);
+    char* extension = GetFileExtension(argv[2]);
 
     if (!extension)
-        FATAL_ERROR("\"%s\" has no file extension.\n", argv[1]);
+        FATAL_ERROR("\"%s\" has no file extension.\n", argv[2]);
 
     if ((extension[0] == 's') && extension[1] == 0)
-        PreprocAsmFile(argv[1]);
+        PreprocAsmFile(argv[2]);
     else if ((extension[0] == 'c' || extension[0] == 'i') && extension[1] == 0)
-        PreprocCFile(argv[1]);
+        PreprocCFile(argv[2]);
     else
-        FATAL_ERROR("\"%s\" has an unknown file extension of \"%s\".\n", argv[1], extension);
+        FATAL_ERROR("\"%s\" has an unknown file extension of \"%s\".\n", argv[2], extension);
 
     return 0;
 }

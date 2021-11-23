@@ -20,10 +20,10 @@ gUnk_080D1F7C:: @ 080D1F7C
 	.4byte sub_08048CEC
 
 gUnk_080D1F90:: @ 080D1F90
-	.incbin "baserom.gba", 0x0D1F90, 0x0000080
+	.incbin "gyorgFemaleEye/gUnk_080D1F90.bin"
 
 gUnk_080D2010:: @ 080D2010
-	.incbin "baserom.gba", 0x0D2010, 0x0000020
+	.incbin "gyorgFemaleEye/gUnk_080D2010.bin"
 
 gUnk_080D2030:: @ 080D2030
-	.incbin "baserom.gba", 0x0D2030, 0x0000020
+	.incbin "gyorgFemaleEye/gUnk_080D2030.bin"

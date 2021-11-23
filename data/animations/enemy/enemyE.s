@@ -4,7 +4,7 @@
 	.section .rodata
 
 gUnk_080CBBEC:: @ 080CBBEC
-	.incbin "baserom.gba", 0x0CBBEC, 0x0000044
+	.incbin "enemyE/gUnk_080CBBEC.bin"
 	.4byte gUnk_080CBBEC
     .4byte 00000000
 

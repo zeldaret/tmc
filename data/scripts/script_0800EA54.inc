@@ -14,7 +14,7 @@ script_0800EA6A:
 	Call sub_0807F2D4
 	_0807E930 0x0009
 	Call sub_0806CE80
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	_0807E930 0x000a
 	Call sub_0807F2D4
@@ -41,7 +41,7 @@ script_0800EAD4:
 	JumpIfNot script_0800EAD4
 	_0807E930 0x0008
 	Call sub_0806C038
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	_0807E930 0x0000
@@ -59,7 +59,7 @@ script_0800EB0E:
 	_0807E864
 	_0807EB74
 	Call sub_0806C90C
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	Jump script_0800EB0E
@@ -78,7 +78,7 @@ script_0800EB44:
 	_0807EB74
 	Call sub_08061FD8
 	Call sub_08062048
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	Jump script_0800EB44
 	.2byte 0x0000
@@ -96,7 +96,7 @@ script_0800EB7C:
 	_0807EB74
 	Call sub_08061FD8
 	Call sub_08062048
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	_0807EB44 0x0006
 	Call sub_08061FD8
@@ -130,7 +130,7 @@ script_0800EBF4:
 	_0807EB74
 	Call sub_08061FD8
 	Call sub_08062048
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	Jump script_0800EBF4
 	.2byte 0x0000
@@ -148,7 +148,7 @@ script_0800EC2C:
 	_0807EB74
 	Call sub_08061FD8
 	Call sub_08062048
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	_0807EB44 0x0002
 	Call sub_08061FD8
@@ -167,7 +167,7 @@ script_0800EC6C:
 	_0807EB74
 	Call sub_08061FD8
 	Call sub_08062048
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	Jump script_0800EC6C
 	.2byte 0x0000
@@ -217,7 +217,7 @@ script_0800ED20:
 	_0807EB74
 	CallWithArg sub_08063850, 0x00000000
 	Call sub_08063944
-	_0807EA94
+	WaitUntilTextboxCloses
 	JumpIfNot script_0800ED46
 	_0807F050 0x0070
 	WaitPlayerAction8
@@ -239,7 +239,7 @@ script_0800ED76:
 	_0807E864
 	_0807EB74
 	Call sub_08064CD8
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	Jump script_0800ED76
@@ -266,13 +266,13 @@ script_0800EDB6:
 	Wait 0x000a
 	_0807E5F8 0x00000001
 	MessageFromTarget 0x4c07
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E5F8 0x00000010
 	MessageFromTarget 0x4c08
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E5F8 0x00000020
 	MessageFromTarget 0x4c09
-	_0807EA94 
+	WaitUntilTextboxCloses
 	SetIntVariable 0x00000503
 	Call sub_0807F420
 	_0807E5F8 0x00000040
@@ -291,7 +291,7 @@ script_0800EE12:
 	Jump script_0800ED98
 script_0800EE3E:
 	MessageFromTarget 0x4c16
-	_0807EA94 
+	WaitUntilTextboxCloses
 	Call sub_0807DF50
 	_0807E878
 	Jump script_0800ED98
@@ -317,13 +317,13 @@ script_0800EE76:
 	Wait 0x000a
 	_0807E5F8 0x00000001
 	MessageFromTarget 0x4c07
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E5F8 0x00000002
 	MessageFromTarget 0x4c08
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E5F8 0x00000004
 	MessageFromTarget 0x4c09
-	_0807EA94 
+	WaitUntilTextboxCloses
 	SetIntVariable 0x00000503
 	Call sub_0807F420
 	_0807E5F8 0x00000008
@@ -342,19 +342,19 @@ script_0800EED2:
 	Jump script_0800EE58
 script_0800EEFE:
 	MessageFromTarget 0x4c15
-	_0807EA94 
+	WaitUntilTextboxCloses
 	Call sub_0807DF50
 	_0807E878
 	Jump script_0800EE58
 	MessageFromTarget 0x4c07
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E5F8 0x00000012
 	Wait 0x000a
 	MessageFromTarget 0x4c08
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E5F8 0x00000024
 	MessageFromTarget 0x4c09
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E5F8 0x00000048
 	Call sub_080791BC
 SCRIPT_END

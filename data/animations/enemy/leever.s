@@ -4,17 +4,17 @@
 	.section .rodata
 	.align 2
 
-gUnk_080CA4D4:: @ 080CA4D4
-	.incbin "baserom.gba", 0x0CA4D4, 0x000002C
+gSpriteAnimations_Leever_0:: @ 080CA4D4
+	.include "animations/gSpriteAnimations_Leever_0.s"
 
-gUnk_080CA500:: @ 080CA500
-	.incbin "baserom.gba", 0x0CA500, 0x000001C
+gSpriteAnimations_Leever_1:: @ 080CA500
+	.include "animations/gSpriteAnimations_Leever_1.s"
 
-gUnk_080CA51C:: @ 080CA51C
-	.incbin "baserom.gba", 0x0CA51C, 0x0000044
+gSpriteAnimations_Leever_2:: @ 080CA51C
+	.include "animations/gSpriteAnimations_Leever_2.s"
 
-gUnk_080CA560:: @ 080CA560
-	.4byte gUnk_080CA4D4
-	.4byte gUnk_080CA500
-	.4byte gUnk_080CA51C
+gSpriteAnimations_Leever:: @ 080CA560
+	.4byte gSpriteAnimations_Leever_0
+	.4byte gSpriteAnimations_Leever_1
+	.4byte gSpriteAnimations_Leever_2
 	.4byte 00000000

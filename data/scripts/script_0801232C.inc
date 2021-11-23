@@ -10,7 +10,7 @@ script_08012338:
 	_0807EB74 
 	_0807E864 
 	MessageFromTarget 0x2304
-	_0807EA94 
+	WaitUntilTextboxCloses
 	CheckLocalFlag 0x0042
 	JumpIf script_0801235A
 	SetLocalFlag 0x0042
@@ -38,7 +38,7 @@ script_08012368:
 	WaitFor_2
 	PlayBgm BGM_ELEMENTAL_SANCTUARY
 	_0807EB28 0x1401
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x0007
@@ -49,7 +49,7 @@ script_08012368:
 	StartPlayerScript script_08012410
 	WaitForSomething2 0x00000001
 	MessageNoOverlap 0x1402
-	_0807EA94 
+	WaitUntilTextboxCloses
 	StopBgm
 	SetEntity0x20 0x00010000
 	Wait 0x003c
@@ -62,7 +62,7 @@ script_08012368:
 	WaitFor_2
 	PlayBGM
 	_0807EB28 0x1403
-	_0807EA94
+	WaitUntilTextboxCloses
 	SetIntVariable 0x00000203
 	Call sub_0807F420
 	Call sub_0807DF50

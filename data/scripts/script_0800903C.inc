@@ -30,20 +30,20 @@ SCRIPT_START script_08009080
 	_0807ECC4 0x0008
 	_0807E930 0x0004
 	MessageFromTargetPos 0x1050, 0x000e
-	_0807EA94 
+	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000080
 	_0807E930 0x0004
 	MessageFromTargetPos 0x1052, 0x000e
-	_0807EA94 
+	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000080
 	_0807EB44 0x0006
 	_0807E930 0x0005
 	MessageFromTargetPos 0x1054, 0x000e
-	_0807EA94 
+	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000080
@@ -52,25 +52,25 @@ SCRIPT_START script_08009080
 	WaitForSomething2 0x00000080
 	_0807E930 0x0004
 	MessageFromTargetPos 0x1056, 0x000e
-	_0807EA94 
+	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000080
 	_0807E930 0x0004
 	MessageFromTargetPos 0x1057, 0x000e
-	_0807EA94 
+	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000080
 	_0807E930 0x0004
 	MessageFromTargetPos 0x1058, 0x000e
-	_0807EA94 
+	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000080
 	_0807E930 0x0004
 	MessageFromTargetPos 0x105c, 0x000e
-	_0807EA94 
+	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000100
 script_0800917C:
@@ -79,7 +79,7 @@ script_0800917C:
 	_0807E864
 	_0807EB74
 	Call sub_0806673C
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	Jump script_0800917C
@@ -93,7 +93,7 @@ SCRIPT_START script_08009198
 	_0807EB74
 	DoPostScriptAction 0x0001
 	MessageFromTargetPos 0x105b, 0x0000
-	_0807EA94 
+	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000001
@@ -105,7 +105,7 @@ SCRIPT_START script_08009198
 	Wait 0x003c
 	DoPostScriptAction 0x0001
 	MessageFromTargetPos 0x1051, 0x0000
-	_0807EA94 
+	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000001
@@ -115,7 +115,7 @@ SCRIPT_START script_08009198
 	_0807EB8C
 	DoPostScriptAction 0x0001
 	MessageFromTargetPos 0x1055, 0x0000
-	_0807EA94 
+	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000001
@@ -129,7 +129,7 @@ SCRIPT_START script_08009198
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x0001
 	MessageFromTargetPos 0x1059, 0x0000
-	_0807EA94 
+	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000002
 	BeginBlock
@@ -151,7 +151,7 @@ script_0800928A:
 	_0807E864
 	_0807EB74
 	Call sub_08066904
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	Jump script_0800928A
@@ -170,7 +170,7 @@ script_080092BA:
 	_0807E864 
 	_0807EB74 
 	MessageNoOverlap 0x105e
-	_0807EA94 
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	Jump script_080092BA
@@ -195,7 +195,7 @@ script_08009300:
 	_0807E864 
 	_0807EB74 
 	MessageNoOverlap 0x1071
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E878 
 	Jump script_08009300
 	.2byte 0x0000

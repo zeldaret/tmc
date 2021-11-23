@@ -28,32 +28,26 @@ gUnk_080CF7AC:: @ 080CF7AC
 	.4byte sub_08038ED0
 
 gUnk_080CF7BC:: @ 080CF7BC
-	.incbin "baserom.gba", 0x0CF7BC, 0x0000002
+	.incbin "cuccoAggr/gUnk_080CF7BC.bin"
 
 gUnk_080CF7BE:: @ 080CF7BE
-	.incbin "baserom.gba", 0x0CF7BE, 0x0000004
+	.incbin "cuccoAggr/gUnk_080CF7BE.bin"
 
 gUnk_080CF7C2:: @ 080CF7C2
-	.incbin "baserom.gba", 0x0CF7C2, 0x0000002
+	.incbin "cuccoAggr/gUnk_080CF7C2.bin"
 
 gUnk_080CF7C4:: @ 080CF7C4
-	.incbin "baserom.gba", 0x0CF7C4, 0x0000037
-
-gUnk_080CF7FB:: @ 080CF7FB
-	.incbin "baserom.gba", 0x0CF7FB, 0x0000018
-
-gUnk_080CF813:: @ 080CF813
-	.incbin "baserom.gba", 0x0CF813, 0x0000011
+	.incbin "cuccoAggr/gUnk_080CF7C4.bin"
 
 gUnk_080CF824:: @ 080CF824
-	.incbin "baserom.gba", 0x0CF824, 0x0000004
+	.incbin "cuccoAggr/gUnk_080CF824.bin"
 
 gUnk_080CF828:: @ 080CF828
-	.incbin "baserom.gba", 0x0CF828, 0x0000004
+	.incbin "cuccoAggr/gUnk_080CF828.bin"
 
 gUnk_080CF82C:: @ 080CF82C
-	.incbin "baserom.gba", 0x0CF82C, 0x0000002
+	.incbin "cuccoAggr/gUnk_080CF82C.bin"
 
 gUnk_080CF82E:: @ 080CF82E
-	.incbin "baserom.gba", 0x0CF82E, 0x0000003
+	.incbin "cuccoAggr/gUnk_080CF82E.bin"
 

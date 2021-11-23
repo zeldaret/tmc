@@ -223,7 +223,7 @@ static void HandleFileScreenEnter(void) {
     gScreen.bg3.control = BGCNT_PRIORITY(3) | BGCNT_CHARBASE(2) | BGCNT_SCREENBASE(30);
     gScreen.controls.layerFXControl = BLDCNT_TGT1_BG2 | BLDCNT_TGT2_BG3 | BLDCNT_EFFECT_BLEND;
     gScreen.controls.alphaBlend = BLDALPHA_BLEND(15, 10);
-    gUnk_02024490.unk0 = 1;
+    gGFXSlots.unk0 = 1;
     gMain.funcIndex = 1;
     SoundReq(BGM_FILE_SELECT);
     DoFade(4, 8);

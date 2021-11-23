@@ -17,7 +17,7 @@ script_08013CA6:
 	CameraTargetPlayer
 	Call sub_0807F5C0
 	_0807EB28 0x1504
-	_0807EA94
+	WaitUntilTextboxCloses
 	SetLocalFlag 0x0079
 	Call sub_0807DF50
 	_0807E878

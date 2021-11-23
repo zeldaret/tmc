@@ -9,7 +9,7 @@ SCRIPT_START script_08015C7C
 	CallWithArg sub_0807F238, 0x000003c5
 	Call sub_0807F304
 	MessageFromTargetPos 0x1318, 0x000c
-	_0807EA94 
+	WaitUntilTextboxCloses
 	CallWithArg sub_0807F238, 0x000003c9
 	Call sub_0807F304
 	_0807EB44 0x0004

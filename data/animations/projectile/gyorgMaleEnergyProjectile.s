@@ -4,13 +4,13 @@
 	.section .rodata
     .align 2
 
-gUnk_0812A9FC:: @ 0812A9FC
-	.incbin "baserom.gba", 0x12A9FC, 0x0000035
+gSpriteAnimations_GyorgMaleEnergyProjectile_0:: @ 0812A9FC
+	.include "animations/gSpriteAnimations_GyorgMaleEnergyProjectile_0.s"
 
-gUnk_0812AA31:: @ 0812AA31
-	.incbin "baserom.gba", 0x12AA31, 0x000001F
+gSpriteAnimations_GyorgMaleEnergyProjectile_1:: @ 0812AA31
+	.include "animations/gSpriteAnimations_GyorgMaleEnergyProjectile_1.s"
 
-gUnk_0812AA50:: @ 0812AA50
-	.4byte gUnk_0812A9FC
-	.4byte gUnk_0812AA31
+gSpriteAnimations_GyorgMaleEnergyProjectile:: @ 0812AA50
+	.4byte gSpriteAnimations_GyorgMaleEnergyProjectile_0
+	.4byte gSpriteAnimations_GyorgMaleEnergyProjectile_1
 	.4byte 00000000

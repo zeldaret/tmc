@@ -11,212 +11,184 @@ gUnk_08108668:: @ 08108668
 gUnk_08108670:: @ 08108670
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x107DC4, 0x000000C
+	.incbin "manager1A/gUnk_08108670_EU.bin"
 .else
-	.incbin "baserom.gba", 0x108670, 0x000000C
+	.incbin "manager1A/gUnk_08108670_1_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
 gUnk_0810867C:: @ 0810867C
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x107DD0, 0x000000C
+	.incbin "manager1A/gUnk_0810867C_EU.bin"
 .else
-	.incbin "baserom.gba", 0x10867C, 0x000000C
+	.incbin "manager1A/gUnk_0810867C_1_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
 gUnk_08108688:: @ 08108688
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x107DDC, 0x000000C
+	.incbin "manager1A/gUnk_08108688_EU.bin"
 .else
-	.incbin "baserom.gba", 0x108688, 0x000000C
+	.incbin "manager1A/gUnk_08108688_1_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
 gUnk_08108694:: @ 08108694
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x107DE8, 0x000000C
+	.incbin "manager1A/gUnk_08108694_EU.bin"
 .else
-	.incbin "baserom.gba", 0x108694, 0x000000C
+	.incbin "manager1A/gUnk_08108694_1_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
 gUnk_081086A0:: @ 081086A0
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x107DF4, 0x0000009
+	.incbin "manager1A/gUnk_081086A0_EU.bin"
 .else
-	.incbin "baserom.gba", 0x1086A0, 0x0000009
+	.incbin "manager1A/gUnk_081086A0_1_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
-
-gUnk_081086A9:: @ 081086A9
-	.incbin "baserom.gba", 0x1086A9, 0x0000003
+	.incbin "manager1A/gUnk_081086A0_2.bin"
 
 gUnk_081086AC:: @ 081086AC
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x107E00, 0x000000C
+	.incbin "manager1A/gUnk_081086AC_EU.bin"
 .else
-	.incbin "baserom.gba", 0x1086AC, 0x000000C
+	.incbin "manager1A/gUnk_081086AC_1_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
 gUnk_081086B8:: @ 081086B8
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x107E0C, 0x000000C
+	.incbin "manager1A/gUnk_081086B8_EU.bin"
 .else
-	.incbin "baserom.gba", 0x1086B8, 0x000000C
+	.incbin "manager1A/gUnk_081086B8_1_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
 gUnk_081086C4:: @ 081086C4
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x107E18, 0x000000C
+	.incbin "manager1A/gUnk_081086C4_EU.bin"
 .else
-	.incbin "baserom.gba", 0x1086C4, 0x000000C
+	.incbin "manager1A/gUnk_081086C4_1_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
 gUnk_081086D0:: @ 081086D0
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x107E24, 0x0000001
+	.incbin "manager1A/gUnk_081086D0_EU.bin"
 .else
-	.incbin "baserom.gba", 0x1086D0, 0x0000001
+	.incbin "manager1A/gUnk_081086D0_1_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
-
-gUnk_081086D1:: @ 081086D1
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x107E25, 0x000000B
+	.incbin "manager1A/gUnk_081086D0_2_EU.bin"
 .else
-	.incbin "baserom.gba", 0x1086D1, 0x000000B
+	.incbin "manager1A/gUnk_081086D0_3_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
 gUnk_081086DC:: @ 081086DC
-	.incbin "baserom.gba", 0x1086DC, 0x0000008
+	.incbin "manager1A/gUnk_081086DC.bin"
 
 gUnk_081086E4:: @ 081086E4
-	.incbin "baserom.gba", 0x1086E4, 0x0000008
+	.incbin "manager1A/gUnk_081086E4.bin"
 
 gUnk_081086EC:: @ 081086EC
-	.incbin "baserom.gba", 0x1086EC, 0x0000008
+	.incbin "manager1A/gUnk_081086EC.bin"
 
 gUnk_081086F4:: @ 081086F4
-	.incbin "baserom.gba", 0x1086F4, 0x0000008
+	.incbin "manager1A/gUnk_081086F4.bin"
 
 gUnk_081086FC:: @ 081086FC
-	.incbin "baserom.gba", 0x1086FC, 0x0000008
+	.incbin "manager1A/gUnk_081086FC.bin"
 
 gUnk_08108704:: @ 08108704
-	.incbin "baserom.gba", 0x108704, 0x0000003
-
-gUnk_08108707:: @ 08108707
-	.incbin "baserom.gba", 0x108707, 0x0000005
+	.incbin "manager1A/gUnk_08108704.bin"
 
 gUnk_0810870C:: @ 0810870C
-	.incbin "baserom.gba", 0x10870C, 0x0000008
+	.incbin "manager1A/gUnk_0810870C.bin"
 
 gUnk_08108714:: @ 08108714
-	.incbin "baserom.gba", 0x108714, 0x0000008
+	.incbin "manager1A/gUnk_08108714.bin"
 
 gUnk_0810871C:: @ 0810871C
-	.incbin "baserom.gba", 0x10871C, 0x0000008
+	.incbin "manager1A/gUnk_0810871C.bin"
 
 gUnk_08108724:: @ 08108724
-	.incbin "baserom.gba", 0x108724, 0x0000008
+	.incbin "manager1A/gUnk_08108724.bin"
 
 gUnk_0810872C:: @ 0810872C
-	.incbin "baserom.gba", 0x10872C, 0x0000008
+	.incbin "manager1A/gUnk_0810872C.bin"
 
 gUnk_08108734:: @ 08108734
-	.incbin "baserom.gba", 0x108734, 0x0000008
+	.incbin "manager1A/gUnk_08108734.bin"
 
 gUnk_0810873C:: @ 0810873C
-	.incbin "baserom.gba", 0x10873C, 0x0000008
+	.incbin "manager1A/gUnk_0810873C.bin"
 
 gUnk_08108744:: @ 08108744
-	.incbin "baserom.gba", 0x108744, 0x0000006
-
-gUnk_0810874A:: @ 0810874A
-	.incbin "baserom.gba", 0x10874A, 0x0000002
+	.incbin "manager1A/gUnk_08108744.bin"
 
 gUnk_0810874C:: @ 0810874C
-	.incbin "baserom.gba", 0x10874C, 0x0000008
+	.incbin "manager1A/gUnk_0810874C.bin"
 
 gUnk_08108754:: @ 08108754
-	.incbin "baserom.gba", 0x108754, 0x0000008
+	.incbin "manager1A/gUnk_08108754.bin"
 
 gUnk_0810875C:: @ 0810875C
-	.incbin "baserom.gba", 0x10875C, 0x0000002
-
-gUnk_0810875E:: @ 0810875E
-	.incbin "baserom.gba", 0x10875E, 0x0000006
+	.incbin "manager1A/gUnk_0810875C.bin"
 
 gUnk_08108764:: @ 08108764
-	.incbin "baserom.gba", 0x108764, 0x0000020
+	.incbin "manager1A/gUnk_08108764.bin"
 	.4byte gUnk_08108670
-	.incbin "baserom.gba", 0x108788, 0x0000010
+	.incbin "manager1A/gUnk_08108764_1.bin"
 	.4byte gUnk_08108688
-	.incbin "baserom.gba", 0x10879C, 0x0000014
+	.incbin "manager1A/gUnk_08108764_2.bin"
 	.4byte gUnk_0810875C
-	.incbin "baserom.gba", 0x1087B4, 0x000000C
+	.incbin "manager1A/gUnk_08108764_3.bin"
 	.4byte gUnk_08108694
-	.incbin "baserom.gba", 0x1087C4, 0x0000010
+	.incbin "manager1A/gUnk_08108764_4.bin"
 	.4byte gUnk_081086A0
-	.incbin "baserom.gba", 0x1087D8, 0x0000010
+	.incbin "manager1A/gUnk_08108764_5.bin"
 	.4byte gUnk_081086AC
-	.incbin "baserom.gba", 0x1087EC, 0x0000027
-
-gUnk_08108813:: @ 08108813
-	.incbin "baserom.gba", 0x108813, 0x0000001
+	.incbin "manager1A/gUnk_08108764_6.bin"
 	.4byte gUnk_081086DC
-	.incbin "baserom.gba", 0x108818, 0x0000010
+	.incbin "manager1A/gUnk_08108764_7.bin"
 	.4byte gUnk_081086E4
-	.incbin "baserom.gba", 0x10882C, 0x0000010
+	.incbin "manager1A/gUnk_08108764_8.bin"
 	.4byte gUnk_081086EC
-	.incbin "baserom.gba", 0x108840, 0x0000004
-
-gUnk_08108844:: @ 08108844
-	.incbin "baserom.gba", 0x108844, 0x000000C
+	.incbin "manager1A/gUnk_08108764_9.bin"
 	.4byte gUnk_081086F4
-	.incbin "baserom.gba", 0x108854, 0x0000010
-
-gUnk_08108864:: @ 08108864
-	.incbin "baserom.gba", 0x108864, 0x0000010
+	.incbin "manager1A/gUnk_08108764_10.bin"
 	.4byte gUnk_0810867C
-	.incbin "baserom.gba", 0x108878, 0x00001B8
+	.incbin "manager1A/gUnk_08108764_11.bin"
 	.4byte gUnk_081086FC
-	.incbin "baserom.gba", 0x108A34, 0x0000010
+	.incbin "manager1A/gUnk_08108764_12.bin"
 	.4byte gUnk_08108704
-	.incbin "baserom.gba", 0x108A48, 0x0000024
+	.incbin "manager1A/gUnk_08108764_13.bin"
 	.4byte gUnk_0810870C
-	.incbin "baserom.gba", 0x108A70, 0x0000010
+	.incbin "manager1A/gUnk_08108764_14.bin"
 	.4byte gUnk_08108714
-	.incbin "baserom.gba", 0x108A84, 0x0000010
+	.incbin "manager1A/gUnk_08108764_15.bin"
 	.4byte gUnk_0810871C
-	.incbin "baserom.gba", 0x108A98, 0x0000003
-
-gUnk_08108A9B:: @ 08108A9B
-	.incbin "baserom.gba", 0x108A9B, 0x0000021
+	.incbin "manager1A/gUnk_08108764_16.bin"
 	.4byte gUnk_08108724
-	.incbin "baserom.gba", 0x108AC0, 0x0000010
+	.incbin "manager1A/gUnk_08108764_17.bin"
 	.4byte gUnk_0810872C
-	.incbin "baserom.gba", 0x108AD4, 0x0000024
+	.incbin "manager1A/gUnk_08108764_18.bin"
 	.4byte gUnk_08108734
-	.incbin "baserom.gba", 0x108AFC, 0x0000024
+	.incbin "manager1A/gUnk_08108764_19.bin"
 	.4byte gUnk_0810873C
-	.incbin "baserom.gba", 0x108B24, 0x0000010
+	.incbin "manager1A/gUnk_08108764_20.bin"
 	.4byte gUnk_08108744
-	.incbin "baserom.gba", 0x108B38, 0x0000010
+	.incbin "manager1A/gUnk_08108764_21.bin"
 	.4byte gUnk_0810874C
-	.incbin "baserom.gba", 0x108B4C, 0x0000010
+	.incbin "manager1A/gUnk_08108764_22.bin"
 	.4byte gUnk_08108754
-	.incbin "baserom.gba", 0x108B60, 0x0000020
+	.incbin "manager1A/gUnk_08108764_23.bin"
 	.4byte gUnk_081086B8
-	.incbin "baserom.gba", 0x108B84, 0x0000010
+	.incbin "manager1A/gUnk_08108764_24.bin"
 	.4byte gUnk_081086C4
-	.incbin "baserom.gba", 0x108B98, 0x0000010
+	.incbin "manager1A/gUnk_08108764_25.bin"
 	.4byte gUnk_081086D0
-	.incbin "baserom.gba", 0x108BAC, 0x0000066
-
-gUnk_08108C12:: @ 08108C12
-	.incbin "baserom.gba", 0x108C12, 0x0000016
+	.incbin "manager1A/gUnk_08108764_26.bin"

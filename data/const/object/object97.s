@@ -43,23 +43,23 @@ gUnk_08124118:: @ 08124118
 	.4byte sub_0809DFE0
 
 gUnk_08124128:: @ 08124128
-	.incbin "baserom.gba", 0x124128, 0x0000005
+	.incbin "object97/gUnk_08124128.bin"
 
 gUnk_0812412D:: @ 0812412D
-	.incbin "baserom.gba", 0x12412D, 0x0000005
+	.incbin "object97/gUnk_0812412D.bin"
 
 gUnk_08124132:: @ 08124132
-	.incbin "baserom.gba", 0x124132, 0x0000014
+	.incbin "object97/gUnk_08124132.bin"
 
 gUnk_08124146:: @ 08124146
-	.incbin "baserom.gba", 0x124146, 0x000000A
+	.incbin "object97/gUnk_08124146.bin"
 
 gUnk_08124150:: @ 08124150
 	.4byte sub_0809E050
 	.4byte sub_0809E088
 
 gUnk_08124158:: @ 08124158
-	.incbin "baserom.gba", 0x124158, 0x0000020
+	.incbin "object97/gUnk_08124158.bin"
 
 gUnk_08124178:: @ 08124178
-	.incbin "baserom.gba", 0x124178, 0x0000014
+	.incbin "object97/gUnk_08124178.bin"

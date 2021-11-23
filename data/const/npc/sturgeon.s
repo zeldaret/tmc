@@ -5,7 +5,7 @@
     .align 2
 
 gUnk_0810FA38:: @ 0810FA38
-	.incbin "baserom.gba", 0x10FA38, 0x000000C
+	.incbin "sturgeon/gUnk_0810FA38.bin"
 
 gUnk_0810FA44:: @ 0810FA44
 	.4byte sub_08064B44
@@ -14,28 +14,19 @@ gUnk_0810FA44:: @ 0810FA44
 	.4byte sub_08064C50
 
 gUnk_0810FA54:: @ 0810FA54
-	.incbin "baserom.gba", 0x10FA54, 0x0000006
+	.incbin "sturgeon/gUnk_0810FA54.bin"
 
 gUnk_0810FA5A:: @ 0810FA5A
-	.incbin "baserom.gba", 0x10FA5A, 0x0000097
+	.incbin "sturgeon/gUnk_0810FA5A.bin"
 
-gUnk_0810FAF1:: @ 0810FAF1
-	.incbin "baserom.gba", 0x10FAF1, 0x0000002
+gSpriteAnimations_Sturgeon_4:: @ 0810FB24
+	.include "animations/gSpriteAnimations_Sturgeon_4.s"
 
-gUnk_0810FAF3:: @ 0810FAF3
-	.incbin "baserom.gba", 0x10FAF3, 0x0000004
+gSpriteAnimations_Sturgeon_5:: @ 0810FB39
+	.include "animations/gSpriteAnimations_Sturgeon_5.s"
 
-gUnk_0810FAF7:: @ 0810FAF7
-	.incbin "baserom.gba", 0x10FAF7, 0x000002D
+gSpriteAnimations_Sturgeon_6:: @ 0810FB4E
+	.include "animations/gSpriteAnimations_Sturgeon_6.s"
 
-gUnk_0810FB24:: @ 0810FB24
-	.incbin "baserom.gba", 0x10FB24, 0x0000015
-
-gUnk_0810FB39:: @ 0810FB39
-	.incbin "baserom.gba", 0x10FB39, 0x0000015
-
-gUnk_0810FB4E:: @ 0810FB4E
-	.incbin "baserom.gba", 0x10FB4E, 0x0000015
-
-gUnk_0810FB63:: @ 0810FB63
-	.incbin "baserom.gba", 0x10FB63, 0x0000015
+gSpriteAnimations_Sturgeon_7:: @ 0810FB63
+	.include "animations/gSpriteAnimations_Sturgeon_7.s"

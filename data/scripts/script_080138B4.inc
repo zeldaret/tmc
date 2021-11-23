@@ -75,7 +75,7 @@ script_080138D0:
 	WaitFor_2
 	PlaySound SFX_109
 	MessageFromTargetPos 0x0505, 0x000c
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E5F8 0x00040000
 .ifndef EU
 	_0807F0B4 0x0002

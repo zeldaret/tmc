@@ -56,14 +56,16 @@ ASM_SUBDIR = asm
 DATA_ASM_SUBDIR = data
 SONG_SUBDIR = sound/songs
 MID_SUBDIR = sound/songs/midi
+ASSET_SUBDIR = assets
 
 C_BUILDDIR = $(OBJ_DIR)/$(C_SUBDIR)
 ASM_BUILDDIR = $(OBJ_DIR)/$(ASM_SUBDIR)
 DATA_ASM_BUILDDIR = $(OBJ_DIR)/$(DATA_ASM_SUBDIR)
 SONG_BUILDDIR = $(OBJ_DIR)/$(SONG_SUBDIR)
 MID_BUILDDIR = $(OBJ_DIR)/$(MID_SUBDIR)
+ASSET_BUILDDIR = $(OBJ_DIR)/$(ASSET_SUBDIR)
 
-ASFLAGS := -mcpu=arm7tdmi --defsym $(GAME_VERSION)=1 --defsym REVISION=$(REVISION) --defsym $(GAME_LANGUAGE)=1
+ASFLAGS := -mcpu=arm7tdmi --defsym $(GAME_VERSION)=1 --defsym REVISION=$(REVISION) --defsym $(GAME_LANGUAGE)=1 -I $(ASSET_SUBDIR) -I $(ASSET_BUILDDIR)
 
 CC1             := tools/agbcc/bin/agbcc
 override CFLAGS += -O2 -Wimplicit -Wparentheses -Werror -Wno-multichar -g3
@@ -84,9 +86,13 @@ GFX := tools/gbagfx/gbagfx
 AIF := tools/aif2pcm/aif2pcm
 MID := tools/mid2agb/mid2agb
 SCANINC := tools/scaninc/scaninc
-# TODO: use charmap? 
+# TODO: use charmap?
 PREPROC := tools/preproc/preproc
 FIX := tools/gbafix/gbafix
+ASSET_PROCESSOR := tools/asset_processor/asset_processor
+
+ASSET_CONFIGS = assets/assets.json assets/gfx.json assets/map.json assets/samples.json assets/sounds.json
+TRANSLATIONS = translations/USA.bin translations/English.bin translations/French.bin translations/German.bin translations/Spanish.bin translations/Italian.bin
 
 # Clear the default suffixes
 .SUFFIXES:
@@ -104,7 +110,7 @@ infoshell = $(foreach line, $(shell $1 | sed "s/ /__SPACE__/g"), $(info $(subst 
 
 # Build tools when building the rom
 # Disable dependency scanning for clean/tidy/tools
-ifeq (,$(filter-out all compare,$(MAKECMDGOALS)))
+ifeq (,$(filter-out all compare target,$(MAKECMDGOALS)))
 $(call infoshell, $(MAKE) tools)
 else
 NODEP := 1
@@ -147,13 +153,17 @@ TOOLDIRS := $(filter-out tools/agbcc tools/binutils,$(wildcard tools/*))
 TOOLBASE = $(TOOLDIRS:tools/%=%)
 TOOLS = $(foreach tool,$(TOOLBASE),tools/$(tool)/$(tool)$(EXE))
 
-.PHONY: all setup clean-tools mostlyclean clean tidy $(TOOLDIRS)
+.PHONY: all setup clean-tools mostlyclean clean tidy $(TOOLDIRS) extractassets
 
 MAKEFLAGS += --no-print-directory
 
 AUTO_GEN_TARGETS :=
 
-all: $(ROM)
+# TODO do we really need this extra step just so that the assets are always extracted at first?
+all: build/extracted_assets_$(GAME_VERSION)
+	 @$(MAKE) target GAME_VERSION=$(GAME_VERSION)
+
+target: $(ROM)
 	@$(SHA1) $(BUILD_NAME).sha1
 
 # kept for backwards compat
@@ -161,6 +171,15 @@ compare: $(ROM)
 	@$(SHA1) $(BUILD_NAME).sha1
 
 setup: $(TOOLDIRS)
+
+# Automatically extract binary data
+build/extracted_assets_%: $(ASSET_CONFIGS) $(TRANSLATIONS)
+	$(ASSET_PROCESSOR) extract $(GAME_VERSION) $(ASSET_BUILDDIR)
+	touch $@
+
+# Extract assets to human readable form
+extractassets:
+	$(ASSET_PROCESSOR) convert $(GAME_VERSION) $(ASSET_BUILDDIR)
 
 $(TOOLDIRS):
 	@$(MAKE) -C $@
@@ -184,8 +203,6 @@ tidy:
 	rm -f tmc_eu.gba tmc_eu.elf tmc_eu.map
 	rm -r build/*
 
-include graphics_file_rules.mk
-include songs.mk
 
 %.s: ;
 %.png: ;
@@ -199,8 +216,6 @@ include songs.mk
 %.gbapal: %.png ; $(GFX) $< $@
 %.lz: % ; $(GFX) $< $@
 %.rl: % ; $(GFX) $< $@
-sound/%.bin: sound/%.aif ; $(AIF) $< $@
-sound/songs/%.s: sound/songs/%.mid
 	cd $(@D) && ../../$(MID) $(<F)
 translations/USA.bin: translations/USA.json ; tools/tmc_strings/tmc_strings -p --source $< --dest $@ --size 0x499E0
 translations/English.bin: translations/English.json ; tools/tmc_strings/tmc_strings -p --source $< --dest $@ --size 0x488C0
@@ -217,7 +232,7 @@ endif
 
 $(C_BUILDDIR)/%.o : $(C_SUBDIR)/%.c $$(c_dep)
 	@$(CPP) $(CPPFLAGS) $< -o $(C_BUILDDIR)/$*.i
-	$(PREPROC) $(C_BUILDDIR)/$*.i charmap.txt | $(CC1) $(CFLAGS) -o $(C_BUILDDIR)/$*.s
+	$(PREPROC) $(BUILD_NAME) $(C_BUILDDIR)/$*.i charmap.txt | $(CC1) $(CFLAGS) -o $(C_BUILDDIR)/$*.s
 	@echo -e "\t.text\n\t.align\t2, 0 @ Don't pad with nop\n" >> $(C_BUILDDIR)/$*.s
 	$(AS) $(ASFLAGS) -o $@ $(C_BUILDDIR)/$*.s
 
@@ -228,16 +243,16 @@ $(ASM_BUILDDIR)/%.o: asm_dep = $(shell $(SCANINC) -I . $(ASM_SUBDIR)/$*.s)
 endif
 
 $(ASM_BUILDDIR)/%.o: $(ASM_SUBDIR)/%.s $$(asm_dep)
-	$(PREPROC) $< | $(AS) $(ASFLAGS) -o $@
+	$(PREPROC) $(BUILD_NAME) $< | $(AS) $(ASFLAGS) -o $@
 
 ifeq ($(NODEP),1)
 $(DATA_ASM_BUILDDIR)/%.o: data_dep :=
 else
-$(DATA_ASM_BUILDDIR)/%.o: data_dep = $(shell $(SCANINC) -I . $(DATA_ASM_SUBDIR)/$*.s)
+$(DATA_ASM_BUILDDIR)/%.o: data_dep = $(shell $(SCANINC) -I . -I $(ASSET_SUBDIR) -I $(ASSET_BUILDDIR) $(DATA_ASM_SUBDIR)/$*.s)
 endif
 
 $(DATA_ASM_BUILDDIR)/%.o: $(DATA_ASM_SUBDIR)/%.s $$(data_dep)
-	$(PREPROC) $< charmap.txt | $(CPP) -I include -nostdinc -undef -Wno-unicode - | $(AS) $(ASFLAGS) -o $@
+	$(PREPROC) $(BUILD_NAME) $< charmap.txt | $(CPP) -I include -nostdinc -undef -Wno-unicode - | $(AS) $(ASFLAGS) -o $@
 
 $(SONG_BUILDDIR)/%.o: $(SONG_SUBDIR)/%.s
 	$(AS) $(ASFLAGS) -I sound -o $@ $<
@@ -257,55 +272,3 @@ demo_usa: ; @$(MAKE) GAME_VERSION=DEMO_USA
 jp: ; @$(MAKE) GAME_VERSION=JP
 demo_jp: ; @$(MAKE) GAME_VERSION=DEMO_JP
 eu: ; @$(MAKE) GAME_VERSION=EU
-
-ifeq ($(GAME_VERSION), USA)
-baserom.gba:
-	$(error "You need to provide a USA ROM as baserom.gba")
-.PHONY: baserom_demo.gba baserom_jp.gba baserom_eu.gba baserom_demo_jp.gba
-baserom_demo.gba:
-baserom_jp.gba:
-baserom_eu.gba:
-baserom_demo_jp.gba:
-endif
-ifeq ($(GAME_VERSION), DEMO_USA)
-baserom.gba:
-	$(error "You need to provide a USA ROM as baserom.gba")
-baserom_demo.gba:
-	$(error "You need to provide a DEMO ROM as baserom_demo.gba")
-.PHONY: baserom_jp.gba baserom_eu.gba baserom_demo_jp.gba
-baserom_jp.gba:
-baserom_eu.gba:
-baserom_demo_jp.gba:
-endif
-ifeq ($(GAME_VERSION), JP)
-baserom.gba:
-	$(error "You need to provide a USA ROM as baserom.gba")
-baserom_jp.gba:
-	$(error "You need to provide a JP ROM as baserom_jp.gba")
-.PHONY: baserom_demo.gba baserom_eu.gba baserom_demo_jp.gba
-baserom_demo.gba:
-baserom_eu.gba:
-baserom_demo_jp.gba:
-endif
-ifeq ($(GAME_VERSION), DEMO_JP)
-baserom.gba:
-	$(error "You need to provide a USA ROM as baserom.gba")
-baserom_jp.gba:
-	$(error "You need to provide a JP ROM as baserom_jp.gba")
-baserom_demo_jp.gba:
-	$(error "You need to provide a DEMO JP ROM as baserom_demo_jp.gba")
-.PHONY: baserom_demo.gba baserom_eu.gba
-baserom_demo.gba:
-baserom_eu.gba:
-endif
-ifeq ($(GAME_VERSION), EU)
-baserom.gba:
-	$(error "You need to provide a USA ROM as baserom.gba")
-baserom_jp.gba:
-	$(error "You need to provide a JP ROM as baserom_jp.gba")
-baserom_eu.gba:
-	$(error "You need to provide a EU ROM as baserom_eu.gba")
-.PHONY: baserom_demo.gba baserom_demo_jp.gba
-baserom_demo.gba:
-baserom_demo_jp.gba:
-endif

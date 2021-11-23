@@ -11,7 +11,7 @@ script_0800EF50:
 	CheckLocalFlagByOffset 0x0200, 0x006d
 	JumpIf script_0800EF82
 	MessageFromTarget 0x4d01
-	_0807EA94 
+	WaitUntilTextboxCloses
 	StartPlayerScript script_0800EF9C
 	WaitForSomething2 0x00000001
 	Wait 0x000f
@@ -20,7 +20,7 @@ script_0800EF50:
 script_0800EF82:
 	SetGlobalFlag 0x001f
 	MessageFromTarget 0x4d02
-	_0807EA94 
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 script_0800EF92:

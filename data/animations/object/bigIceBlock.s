@@ -4,25 +4,25 @@
 	.section .rodata
 @    .align 2
 
-gUnk_081237BA:: @ 081237BA
-	.incbin "baserom.gba", 0x1237BA, 0x0000004
+gSpriteAnimations_BigIceBlock_0:: @ 081237BA
+	.include "animations/gSpriteAnimations_BigIceBlock_0.s"
 
-gUnk_081237BE:: @ 081237BE
-	.incbin "baserom.gba", 0x1237BE, 0x0000004
+gSpriteAnimations_BigIceBlock_1:: @ 081237BE
+	.include "animations/gSpriteAnimations_BigIceBlock_1.s"
 
-gUnk_081237C2:: @ 081237C2
-	.incbin "baserom.gba", 0x1237C2, 0x0000004
+gSpriteAnimations_BigIceBlock_2:: @ 081237C2
+	.include "animations/gSpriteAnimations_BigIceBlock_2.s"
 
-gUnk_081237C6:: @ 081237C6
-	.incbin "baserom.gba", 0x1237C6, 0x0000004
+gSpriteAnimations_BigIceBlock_3:: @ 081237C6
+	.include "animations/gSpriteAnimations_BigIceBlock_3.s"
 
-gUnk_081237CA:: @ 081237CA
-	.incbin "baserom.gba", 0x1237CA, 0x0000016
+gSpriteAnimations_BigIceBlock_4:: @ 081237CA
+	.include "animations/gSpriteAnimations_BigIceBlock_4.s"
 
-gUnk_081237E0:: @ 081237E0
-	.4byte gUnk_081237BA
-	.4byte gUnk_081237BE
-	.4byte gUnk_081237C2
-	.4byte gUnk_081237C6
-	.4byte gUnk_081237CA
+gSpriteAnimations_BigIceBlock:: @ 081237E0
+	.4byte gSpriteAnimations_BigIceBlock_0
+	.4byte gSpriteAnimations_BigIceBlock_1
+	.4byte gSpriteAnimations_BigIceBlock_2
+	.4byte gSpriteAnimations_BigIceBlock_3
+	.4byte gSpriteAnimations_BigIceBlock_4
 	.4byte 00000000

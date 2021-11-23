@@ -42,10 +42,10 @@ gUnk_0811BA9C:: @ 0811BA9C
 	.4byte PortalUnknownUpdate
 
 gUnk_0811BABC:: @ 0811BABC
-	.incbin "baserom.gba", 0x11BABC, 0x0000008
+	.incbin "data_0811B9E0/gUnk_0811BABC.bin"
 
 gUnk_0811BAC4:: @ 0811BAC4
-	.incbin "baserom.gba", 0x11BAC4, 0x0000010
+	.incbin "data_0811B9E0/gUnk_0811BAC4.bin"
 
 gUnk_0811BAD4:: @ 0811BAD4
 	.4byte sub_080718A0
@@ -59,14 +59,12 @@ gUnk_0811BAE4:: @ 0811BAE4
 	.4byte sub_08071B60
 
 gUnk_0811BAF0:: @ 0811BAF0
-	.incbin "baserom.gba", 0x11BAF0, 0x000003C
+	.incbin "data_0811B9E0/gUnk_0811BAF0.bin"
 
 gUnk_0811BB2C:: @ 0811BB2C
 	.4byte sub_08071BDC
 	.4byte sub_08071CAC
 	.4byte sub_08071D04
-
-gUnk_0811BB38:: @ 0811BB38
 	.4byte sub_08071D80
 
 gUnk_0811BB3C:: @ 0811BB3C
@@ -126,16 +124,16 @@ gUnk_0811BBAC:: @ 0811BBAC
 	.4byte sub_08072F14
 
 gUnk_0811BBBC:: @ 0811BBBC
-	.incbin "baserom.gba", 0x11BBBC, 0x0000006
+	.incbin "data_0811B9E0/gUnk_0811BBBC.bin"
 
 gUnk_0811BBC2:: @ 0811BBC2
-	.incbin "baserom.gba", 0x11BBC2, 0x0000006
+	.incbin "data_0811B9E0/gUnk_0811BBC2.bin"
 
 gUnk_0811BBC8:: @ 0811BBC8
-	.incbin "baserom.gba", 0x11BBC8, 0x0000006
+	.incbin "data_0811B9E0/gUnk_0811BBC8.bin"
 
 gUnk_0811BBCE:: @ 0811BBCE
-	.incbin "baserom.gba", 0x11BBCE, 0x0000006
+	.incbin "data_0811B9E0/gUnk_0811BBCE.bin"
 
 gUnk_0811BBD4:: @ 0811BBD4
 	.4byte gUnk_0811BBBC
@@ -148,7 +146,7 @@ gUnk_0811BBE4:: @ 0811BBE4
 	.4byte sub_08073094
 
 gUnk_0811BBEC:: @ 0811BBEC
-	.incbin "baserom.gba", 0x11BBEC, 0x000000C
+	.incbin "data_0811B9E0/gUnk_0811BBEC.bin"
 
 gUnk_0811BBF8:: @ 0811BBF8
 	.4byte sub_080731D8
@@ -167,16 +165,16 @@ gUnk_0811BC08:: @ 0811BC08
 	.4byte sub_08073884
 
 gUnk_0811BC28:: @ 0811BC28
-	.incbin "baserom.gba", 0x11BC28, 0x0000008
+	.incbin "data_0811B9E0/gUnk_0811BC28.bin"
 
 gUnk_0811BC30:: @ 0811BC30
-	.incbin "baserom.gba", 0x11BC30, 0x0000008
+	.incbin "data_0811B9E0/gUnk_0811BC30.bin"
 
 gUnk_0811BC38:: @ 0811BC38
-	.incbin "baserom.gba", 0x11BC38, 0x0000008
+	.incbin "data_0811B9E0/gUnk_0811BC38.bin"
 
 gUnk_0811BC40:: @ 0811BC40
-	.incbin "baserom.gba", 0x11BC40, 0x0000008
+	.incbin "data_0811B9E0/gUnk_0811BC40.bin"
 
 gUnk_0811BC48:: @ 0811BC48
 	.4byte sub_08073924
@@ -197,7 +195,7 @@ gUnk_0811BC60:: @ 0811BC60
 	.4byte sub_080740D8
 
 gUnk_0811BC80:: @ 0811BC80
-	.incbin "baserom.gba", 0x11BC80, 0x0000008
+	.incbin "data_0811B9E0/gUnk_0811BC80.bin"
 
 gUnk_0811BC88:: @ 0811BC88
 	.4byte sub_08074C68

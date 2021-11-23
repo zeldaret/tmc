@@ -4,109 +4,109 @@
 
 	.section .rodata
 
-gUnk_080CCA0A:: @ 080CCA0A
-	.incbin "baserom.gba", 0x0CCA0A, 0x0000015
+gSpriteAnimations_BusinessScrub_2:: @ 080CCA0A
+	.include "animations/gSpriteAnimations_BusinessScrub_2.s"
 
-gUnk_080CCA1F:: @ 080CCA1F
-	.incbin "baserom.gba", 0x0CCA1F, 0x0000015
+gSpriteAnimations_BusinessScrub_0:: @ 080CCA1F
+	.include "animations/gSpriteAnimations_BusinessScrub_0.s"
 
-gUnk_080CCA34:: @ 080CCA34
-	.incbin "baserom.gba", 0x0CCA34, 0x0000015
+gSpriteAnimations_BusinessScrub_1:: @ 080CCA34
+	.include "animations/gSpriteAnimations_BusinessScrub_1.s"
 
-gUnk_080CCA49:: @ 080CCA49
-	.incbin "baserom.gba", 0x0CCA49, 0x0000015
+gSpriteAnimations_BusinessScrub_3:: @ 080CCA49
+	.include "animations/gSpriteAnimations_BusinessScrub_3.s"
 
-gUnk_080CCA5E:: @ 080CCA5E
-	.incbin "baserom.gba", 0x0CCA5E, 0x0000011
+gSpriteAnimations_BusinessScrub_14:: @ 080CCA5E
+	.include "animations/gSpriteAnimations_BusinessScrub_14.s"
 
-gUnk_080CCA6F:: @ 080CCA6F
-	.incbin "baserom.gba", 0x0CCA6F, 0x0000011
+gSpriteAnimations_BusinessScrub_12:: @ 080CCA6F
+	.include "animations/gSpriteAnimations_BusinessScrub_12.s"
 
-gUnk_080CCA80:: @ 080CCA80
-	.incbin "baserom.gba", 0x0CCA80, 0x0000011
+gSpriteAnimations_BusinessScrub_13:: @ 080CCA80
+	.include "animations/gSpriteAnimations_BusinessScrub_13.s"
 
-gUnk_080CCA91:: @ 080CCA91
-	.incbin "baserom.gba", 0x0CCA91, 0x0000011
+gSpriteAnimations_BusinessScrub_15:: @ 080CCA91
+	.include "animations/gSpriteAnimations_BusinessScrub_15.s"
 
-gUnk_080CCAA2:: @ 080CCAA2
-	.incbin "baserom.gba", 0x0CCAA2, 0x0000005
+gSpriteAnimations_BusinessScrub_6:: @ 080CCAA2
+	.include "animations/gSpriteAnimations_BusinessScrub_6.s"
 
-gUnk_080CCAA7:: @ 080CCAA7
-	.incbin "baserom.gba", 0x0CCAA7, 0x0000005
+gSpriteAnimations_BusinessScrub_4:: @ 080CCAA7
+	.include "animations/gSpriteAnimations_BusinessScrub_4.s"
 
-gUnk_080CCAAC:: @ 080CCAAC
-	.incbin "baserom.gba", 0x0CCAAC, 0x0000005
+gSpriteAnimations_BusinessScrub_5:: @ 080CCAAC
+	.include "animations/gSpriteAnimations_BusinessScrub_5.s"
 
-gUnk_080CCAB1:: @ 080CCAB1
-	.incbin "baserom.gba", 0x0CCAB1, 0x0000005
+gSpriteAnimations_BusinessScrub_7:: @ 080CCAB1
+	.include "animations/gSpriteAnimations_BusinessScrub_7.s"
 
-gUnk_080CCAB6:: @ 080CCAB6
-	.incbin "baserom.gba", 0x0CCAB6, 0x0000010
+gSpriteAnimations_BusinessScrub_10:: @ 080CCAB6
+	.include "animations/gSpriteAnimations_BusinessScrub_10.s"
 
-gUnk_080CCAC6:: @ 080CCAC6
-	.incbin "baserom.gba", 0x0CCAC6, 0x0000010
+gSpriteAnimations_BusinessScrub_8:: @ 080CCAC6
+	.include "animations/gSpriteAnimations_BusinessScrub_8.s"
 
-gUnk_080CCAD6:: @ 080CCAD6
-	.incbin "baserom.gba", 0x0CCAD6, 0x0000010
+gSpriteAnimations_BusinessScrub_9:: @ 080CCAD6
+	.include "animations/gSpriteAnimations_BusinessScrub_9.s"
 
-gUnk_080CCAE6:: @ 080CCAE6
-	.incbin "baserom.gba", 0x0CCAE6, 0x0000010
+gSpriteAnimations_BusinessScrub_11:: @ 080CCAE6
+	.include "animations/gSpriteAnimations_BusinessScrub_11.s"
 
-gUnk_080CCAF6:: @ 080CCAF6
-	.incbin "baserom.gba", 0x0CCAF6, 0x0000011
+gSpriteAnimations_BusinessScrub_18:: @ 080CCAF6
+	.include "animations/gSpriteAnimations_BusinessScrub_18.s"
 
-gUnk_080CCB07:: @ 080CCB07
-	.incbin "baserom.gba", 0x0CCB07, 0x0000011
+gSpriteAnimations_BusinessScrub_16:: @ 080CCB07
+	.include "animations/gSpriteAnimations_BusinessScrub_16.s"
 
-gUnk_080CCB18:: @ 080CCB18
-	.incbin "baserom.gba", 0x0CCB18, 0x0000011
+gSpriteAnimations_BusinessScrub_17:: @ 080CCB18
+	.include "animations/gSpriteAnimations_BusinessScrub_17.s"
 
-gUnk_080CCB29:: @ 080CCB29
-	.incbin "baserom.gba", 0x0CCB29, 0x0000011
+gSpriteAnimations_BusinessScrub_19:: @ 080CCB29
+	.include "animations/gSpriteAnimations_BusinessScrub_19.s"
 
-gUnk_080CCB3A:: @ 080CCB3A
-	.incbin "baserom.gba", 0x0CCB3A, 0x000000D
+gSpriteAnimations_BusinessScrub_22:: @ 080CCB3A
+	.include "animations/gSpriteAnimations_BusinessScrub_22.s"
 
-gUnk_080CCB47:: @ 080CCB47
-	.incbin "baserom.gba", 0x0CCB47, 0x000000D
+gSpriteAnimations_BusinessScrub_20:: @ 080CCB47
+	.include "animations/gSpriteAnimations_BusinessScrub_20.s"
 
-gUnk_080CCB54:: @ 080CCB54
-	.incbin "baserom.gba", 0x0CCB54, 0x000000D
+gSpriteAnimations_BusinessScrub_21:: @ 080CCB54
+	.include "animations/gSpriteAnimations_BusinessScrub_21.s"
 
-gUnk_080CCB61:: @ 080CCB61
-	.incbin "baserom.gba", 0x0CCB61, 0x000000D
+gSpriteAnimations_BusinessScrub_23:: @ 080CCB61
+	.include "animations/gSpriteAnimations_BusinessScrub_23.s"
 
-gUnk_080CCB6E:: @ 080CCB6E
-	.incbin "baserom.gba", 0x0CCB6E, 0x0000011
+gSpriteAnimations_BusinessScrub_24:: @ 080CCB6E
+	.include "animations/gSpriteAnimations_BusinessScrub_24.s"
 
-gUnk_080CCB7F:: @ 080CCB7F
-	.incbin "baserom.gba", 0x0CCB7F, 0x0000015
+gSpriteAnimations_BusinessScrub_25:: @ 080CCB7F
+	.include "animations/gSpriteAnimations_BusinessScrub_25.s"
 
-gUnk_080CCB94:: @ 080CCB94
-	.4byte gUnk_080CCA1F
-	.4byte gUnk_080CCA34
-	.4byte gUnk_080CCA0A
-	.4byte gUnk_080CCA49
-	.4byte gUnk_080CCAA7
-	.4byte gUnk_080CCAAC
-	.4byte gUnk_080CCAA2
-	.4byte gUnk_080CCAB1
-	.4byte gUnk_080CCAC6
-	.4byte gUnk_080CCAD6
-	.4byte gUnk_080CCAB6
-	.4byte gUnk_080CCAE6
-	.4byte gUnk_080CCA6F
-	.4byte gUnk_080CCA80
-	.4byte gUnk_080CCA5E
-	.4byte gUnk_080CCA91
-	.4byte gUnk_080CCB07
-	.4byte gUnk_080CCB18
-	.4byte gUnk_080CCAF6
-	.4byte gUnk_080CCB29
-	.4byte gUnk_080CCB47
-	.4byte gUnk_080CCB54
-	.4byte gUnk_080CCB3A
-	.4byte gUnk_080CCB61
-	.4byte gUnk_080CCB6E
-	.4byte gUnk_080CCB7F
+gSpriteAnimations_BusinessScrub:: @ 080CCB94
+	.4byte gSpriteAnimations_BusinessScrub_0
+	.4byte gSpriteAnimations_BusinessScrub_1
+	.4byte gSpriteAnimations_BusinessScrub_2
+	.4byte gSpriteAnimations_BusinessScrub_3
+	.4byte gSpriteAnimations_BusinessScrub_4
+	.4byte gSpriteAnimations_BusinessScrub_5
+	.4byte gSpriteAnimations_BusinessScrub_6
+	.4byte gSpriteAnimations_BusinessScrub_7
+	.4byte gSpriteAnimations_BusinessScrub_8
+	.4byte gSpriteAnimations_BusinessScrub_9
+	.4byte gSpriteAnimations_BusinessScrub_10
+	.4byte gSpriteAnimations_BusinessScrub_11
+	.4byte gSpriteAnimations_BusinessScrub_12
+	.4byte gSpriteAnimations_BusinessScrub_13
+	.4byte gSpriteAnimations_BusinessScrub_14
+	.4byte gSpriteAnimations_BusinessScrub_15
+	.4byte gSpriteAnimations_BusinessScrub_16
+	.4byte gSpriteAnimations_BusinessScrub_17
+	.4byte gSpriteAnimations_BusinessScrub_18
+	.4byte gSpriteAnimations_BusinessScrub_19
+	.4byte gSpriteAnimations_BusinessScrub_20
+	.4byte gSpriteAnimations_BusinessScrub_21
+	.4byte gSpriteAnimations_BusinessScrub_22
+	.4byte gSpriteAnimations_BusinessScrub_23
+	.4byte gSpriteAnimations_BusinessScrub_24
+	.4byte gSpriteAnimations_BusinessScrub_25
 	.4byte 00000000

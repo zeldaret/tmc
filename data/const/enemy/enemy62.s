@@ -19,7 +19,7 @@ gUnk_080D22F0:: @ 080D22F0
 	.4byte sub_08048F30
 
 gUnk_080D2300:: @ 080D2300
-	.incbin "baserom.gba", 0x0D2300, 0x0000048
+	.incbin "enemy62/gUnk_080D2300.bin"
 
 gUnk_080D2348:: @ 080D2348
-	.incbin "baserom.gba", 0x0D2348, 0x0000020
+	.incbin "enemy62/gUnk_080D2348.bin"

@@ -12,7 +12,7 @@ script_08012440:
 	Call sub_0807F2D4
 	_0807E930 0x0009
 	Call sub_0806B2B4
-	_0807EA94
+	WaitUntilTextboxCloses
 	CheckLocalFlag 0x00b3
 	JumpIf script_08012474
 	SetLocalFlag 0x00b3
@@ -45,7 +45,7 @@ script_0801248A:
 	Call sub_0807DF28
 	StartPlayerScript script_08012AB0
 	MessageFromTargetPos 0x1101, 0x0007
-	_0807EA94 
+	WaitUntilTextboxCloses
 	CameraTargetPlayer 
 	_0807E778 0x0004
 	_0807E80C 0x00000000

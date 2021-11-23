@@ -4,53 +4,53 @@
 	.section .rodata
     .align 2
 
-gUnk_08113D9C:: @ 08113D9C
-	.incbin "baserom.gba", 0x113D9C, 0x0000011
+gSpriteAnimations_Gregal_0:: @ 08113D9C
+	.include "animations/gSpriteAnimations_Gregal_0.s"
 
-gUnk_08113DAD:: @ 08113DAD
-	.incbin "baserom.gba", 0x113DAD, 0x0000005
+gSpriteAnimations_Gregal_16:: @ 08113DAD
+	.include "animations/gSpriteAnimations_Gregal_16.s"
 
-gUnk_08113DB2:: @ 08113DB2
-	.incbin "baserom.gba", 0x113DB2, 0x0000029
+gSpriteAnimations_Gregal_17:: @ 08113DB2
+	.include "animations/gSpriteAnimations_Gregal_17.s"
 
-gUnk_08113DDB:: @ 08113DDB
-	.incbin "baserom.gba", 0x113DDB, 0x00000D9
+gSpriteAnimations_Gregal_4:: @ 08113DDB
+	.include "animations/gSpriteAnimations_Gregal_4.s"
 
-gUnk_08113EB4:: @ 08113EB4
-	.incbin "baserom.gba", 0x113EB4, 0x0000011
+gSpriteAnimations_Gregal_12:: @ 08113EB4
+	.include "animations/gSpriteAnimations_Gregal_12.s"
 
-gUnk_08113EC5:: @ 08113EC5
-	.incbin "baserom.gba", 0x113EC5, 0x0000011
+gSpriteAnimations_Gregal_15:: @ 08113EC5
+	.include "animations/gSpriteAnimations_Gregal_15.s"
 
-gUnk_08113ED6:: @ 08113ED6
-	.incbin "baserom.gba", 0x113ED6, 0x0000011
+gSpriteAnimations_Gregal_13:: @ 08113ED6
+	.include "animations/gSpriteAnimations_Gregal_13.s"
 
-gUnk_08113EE7:: @ 08113EE7
-	.incbin "baserom.gba", 0x113EE7, 0x0000005
+gSpriteAnimations_Gregal_8:: @ 08113EE7
+	.include "animations/gSpriteAnimations_Gregal_8.s"
 
-gUnk_08113EEC:: @ 08113EEC
-	.incbin "baserom.gba", 0x113EEC, 0x0000005
+gSpriteAnimations_Gregal_11:: @ 08113EEC
+	.include "animations/gSpriteAnimations_Gregal_11.s"
 
-gUnk_08113EF1:: @ 08113EF1
-	.incbin "baserom.gba", 0x113EF1, 0x0000007
+gSpriteAnimations_Gregal_9:: @ 08113EF1
+	.include "animations/gSpriteAnimations_Gregal_9.s"
 
-gUnk_08113EF8:: @ 08113EF8
-	.4byte gUnk_08113D9C
-	.4byte gUnk_08113D9C
-	.4byte gUnk_08113D9C
-	.4byte gUnk_08113D9C
-	.4byte gUnk_08113DDB
-	.4byte gUnk_08113DDB
-	.4byte gUnk_08113DDB
-	.4byte gUnk_08113DDB
-	.4byte gUnk_08113EE7
-	.4byte gUnk_08113EF1
-	.4byte gUnk_08113EE7
-	.4byte gUnk_08113EEC
-	.4byte gUnk_08113EB4
-	.4byte gUnk_08113ED6
-	.4byte gUnk_08113EB4
-	.4byte gUnk_08113EC5
-	.4byte gUnk_08113DAD
-	.4byte gUnk_08113DB2
+gSpriteAnimations_Gregal:: @ 08113EF8
+	.4byte gSpriteAnimations_Gregal_0
+	.4byte gSpriteAnimations_Gregal_0
+	.4byte gSpriteAnimations_Gregal_0
+	.4byte gSpriteAnimations_Gregal_0
+	.4byte gSpriteAnimations_Gregal_4
+	.4byte gSpriteAnimations_Gregal_4
+	.4byte gSpriteAnimations_Gregal_4
+	.4byte gSpriteAnimations_Gregal_4
+	.4byte gSpriteAnimations_Gregal_8
+	.4byte gSpriteAnimations_Gregal_9
+	.4byte gSpriteAnimations_Gregal_8
+	.4byte gSpriteAnimations_Gregal_11
+	.4byte gSpriteAnimations_Gregal_12
+	.4byte gSpriteAnimations_Gregal_13
+	.4byte gSpriteAnimations_Gregal_12
+	.4byte gSpriteAnimations_Gregal_15
+	.4byte gSpriteAnimations_Gregal_16
+	.4byte gSpriteAnimations_Gregal_17
 	.4byte 00000000

@@ -4,42 +4,42 @@
 	.section .rodata
     .align 2
 
-gUnk_08113258:: @ 08113258
-	.incbin "baserom.gba", 0x113258, 0x0000005
+gSpriteAnimations_Carlov_0_0:: @ 08113258
+	.include "animations/gSpriteAnimations_Carlov_0_0.s"
 
-gUnk_0811325D:: @ 0811325D
-	.incbin "baserom.gba", 0x11325D, 0x0000011
+gSpriteAnimations_Carlov_0_8:: @ 0811325D
+	.include "animations/gSpriteAnimations_Carlov_0_8.s"
 
-gUnk_0811326E:: @ 0811326E
-	.incbin "baserom.gba", 0x11326E, 0x0000031
+gSpriteAnimations_Carlov_0_9:: @ 0811326E
+	.include "animations/gSpriteAnimations_Carlov_0_9.s"
 
-gUnk_0811329F:: @ 0811329F
-	.incbin "baserom.gba", 0x11329F, 0x0000045
+gSpriteAnimations_Carlov_0_10:: @ 0811329F
+	.include "animations/gSpriteAnimations_Carlov_0_10.s"
 
-gUnk_081132E4:: @ 081132E4
-	.4byte gUnk_08113258
-	.4byte gUnk_08113258
-	.4byte gUnk_08113258
-	.4byte gUnk_08113258
-	.4byte gUnk_08113258
-	.4byte gUnk_08113258
-	.4byte gUnk_08113258
-	.4byte gUnk_08113258
-	.4byte gUnk_0811325D
-	.4byte gUnk_0811326E
-	.4byte gUnk_0811329F
+gSpriteAnimations_Carlov_0:: @ 081132E4
+	.4byte gSpriteAnimations_Carlov_0_0
+	.4byte gSpriteAnimations_Carlov_0_0
+	.4byte gSpriteAnimations_Carlov_0_0
+	.4byte gSpriteAnimations_Carlov_0_0
+	.4byte gSpriteAnimations_Carlov_0_0
+	.4byte gSpriteAnimations_Carlov_0_0
+	.4byte gSpriteAnimations_Carlov_0_0
+	.4byte gSpriteAnimations_Carlov_0_0
+	.4byte gSpriteAnimations_Carlov_0_8
+	.4byte gSpriteAnimations_Carlov_0_9
+	.4byte gSpriteAnimations_Carlov_0_10
 	.4byte 00000000
 
-gUnk_08113314:: @ 08113314
-	.4byte gUnk_08113258
-	.4byte gUnk_08113258
-	.4byte gUnk_08113258
-	.4byte gUnk_08113258
-	.4byte gUnk_0811325D
-	.4byte gUnk_0811326E
-	.4byte gUnk_0811329F
-	.4byte gUnk_08113258
-	.4byte gUnk_0811325D
-	.4byte gUnk_0811326E
-	.4byte gUnk_0811329F
+gSpriteAnimations_Carlov_1:: @ 08113314
+	.4byte gSpriteAnimations_Carlov_0_0
+	.4byte gSpriteAnimations_Carlov_0_0
+	.4byte gSpriteAnimations_Carlov_0_0
+	.4byte gSpriteAnimations_Carlov_0_0
+	.4byte gSpriteAnimations_Carlov_0_8
+	.4byte gSpriteAnimations_Carlov_0_9
+	.4byte gSpriteAnimations_Carlov_0_10
+	.4byte gSpriteAnimations_Carlov_0_0
+	.4byte gSpriteAnimations_Carlov_0_8
+	.4byte gSpriteAnimations_Carlov_0_9
+	.4byte gSpriteAnimations_Carlov_0_10
 	.4byte 00000000

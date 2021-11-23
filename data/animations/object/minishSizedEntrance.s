@@ -5,14 +5,14 @@
     .align 2
 
 @ TODO might as well be giantRock or archway
-gUnk_08122264:: @ 08122264
-	.incbin "baserom.gba", 0x122264, 0x0000004
+gSpriteAnimations_MinishSizedEntrance_0:: @ 08122264
+	.include "animations/gSpriteAnimations_MinishSizedEntrance_0.s"
 
-gUnk_08122268:: @ 08122268
-	.incbin "baserom.gba", 0x122268, 0x0000004
+gSpriteAnimations_MinishSizedEntrance_1:: @ 08122268
+	.include "animations/gSpriteAnimations_MinishSizedEntrance_1.s"
 
-gUnk_0812226C:: @ 0812226C
-	.4byte gUnk_08122264
-	.4byte gUnk_08122268
+gSpriteAnimations_MinishSizedEntrance:: @ 0812226C
+	.4byte gSpriteAnimations_MinishSizedEntrance_0
+	.4byte gSpriteAnimations_MinishSizedEntrance_1
 	.4byte 00000000
 

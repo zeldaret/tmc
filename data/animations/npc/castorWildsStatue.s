@@ -4,30 +4,30 @@
 	.section .rodata
     .align 2
 
-gUnk_08110E9C:: @ 08110E9C
-	.incbin "baserom.gba", 0x110E9C, 0x0000005
+gSpriteAnimations_CastorWildsStatue_0:: @ 08110E9C
+	.include "animations/gSpriteAnimations_CastorWildsStatue_0.s"
 
-gUnk_08110EA1:: @ 08110EA1
-	.incbin "baserom.gba", 0x110EA1, 0x0000005
+gSpriteAnimations_CastorWildsStatue_4:: @ 08110EA1
+	.include "animations/gSpriteAnimations_CastorWildsStatue_4.s"
 
-gUnk_08110EA6:: @ 08110EA6
-	.incbin "baserom.gba", 0x110EA6, 0x0000006
+gSpriteAnimations_CastorWildsStatue_1:: @ 08110EA6
+	.include "animations/gSpriteAnimations_CastorWildsStatue_1.s"
 
-gUnk_08110EAC:: @ 08110EAC
-	.4byte gUnk_08110E9C
-	.4byte gUnk_08110EA6
-	.4byte gUnk_08110E9C
-	.4byte gUnk_08110EA6
-	.4byte gUnk_08110EA1
-	.4byte gUnk_08110EA1
-	.4byte gUnk_08110EA1
-	.4byte gUnk_08110EA1
-	.4byte gUnk_08110E9C
-	.4byte gUnk_08110EA6
-	.4byte gUnk_08110E9C
-	.4byte gUnk_08110EA6
-	.4byte gUnk_08110EA1
-	.4byte gUnk_08110EA1
-	.4byte gUnk_08110EA1
-	.4byte gUnk_08110EA1
+gSpriteAnimations_CastorWildsStatue:: @ 08110EAC
+	.4byte gSpriteAnimations_CastorWildsStatue_0
+	.4byte gSpriteAnimations_CastorWildsStatue_1
+	.4byte gSpriteAnimations_CastorWildsStatue_0
+	.4byte gSpriteAnimations_CastorWildsStatue_1
+	.4byte gSpriteAnimations_CastorWildsStatue_4
+	.4byte gSpriteAnimations_CastorWildsStatue_4
+	.4byte gSpriteAnimations_CastorWildsStatue_4
+	.4byte gSpriteAnimations_CastorWildsStatue_4
+	.4byte gSpriteAnimations_CastorWildsStatue_0
+	.4byte gSpriteAnimations_CastorWildsStatue_1
+	.4byte gSpriteAnimations_CastorWildsStatue_0
+	.4byte gSpriteAnimations_CastorWildsStatue_1
+	.4byte gSpriteAnimations_CastorWildsStatue_4
+	.4byte gSpriteAnimations_CastorWildsStatue_4
+	.4byte gSpriteAnimations_CastorWildsStatue_4
+	.4byte gSpriteAnimations_CastorWildsStatue_4
 	.4byte 00000000

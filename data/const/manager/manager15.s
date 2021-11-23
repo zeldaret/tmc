@@ -5,7 +5,7 @@
     .align 2
 
 gUnk_081085B8:: @ 081085B8
-	.incbin "baserom.gba", 0x1085B8, 0x0000020
+	.incbin "manager15/gUnk_081085B8.bin"
 
 gUnk_081085D8:: @ 081085D8
 	.4byte sub_0805A298
@@ -46,4 +46,4 @@ gUnk_08108638:: @ 08108638
 	.4byte sub_0805A7E4
 
 gUnk_08108648:: @ 08108648
-	.incbin "baserom.gba", 0x108648, 0x000000C
+	.incbin "manager15/gUnk_08108648.bin"

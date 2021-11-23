@@ -21,10 +21,10 @@ gUnk_080CE7C8:: @ 080CE7C8
 	.4byte sub_080325C4
 
 gUnk_080CE7E0:: @ 080CE7E0
-	.incbin "baserom.gba", 0x0CE7E0, 0x0000010
+	.incbin "keaton/gUnk_080CE7E0.bin"
 
 gUnk_080CE7F0:: @ 080CE7F0
-	.incbin "baserom.gba", 0x0CE7F0, 0x0000020
+	.incbin "keaton/gUnk_080CE7F0.bin"
 
 gUnk_080CE810:: @ 080CE810
-	.incbin "baserom.gba", 0x0CE810, 0x0000008
+	.incbin "keaton/gUnk_080CE810.bin"

@@ -50,5 +50,6 @@ const int kMaxStringLength = 1024;
 const unsigned long kMaxCharmapSequenceLength = 16;
 
 extern Charmap* g_charmap;
+extern std::string g_buildName;
 
 #endif // PREPROC_H

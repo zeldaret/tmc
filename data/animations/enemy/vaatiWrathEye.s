@@ -4,47 +4,41 @@
 	.section .rodata
     .align 2
 
-gUnk_080D1DA0:: @ 080D1DA0
-	.incbin "baserom.gba", 0x0D1DA0, 0x0000028
+gSpriteAnimations_WrathEye_0:: @ 080D1DA0
+	.include "animations/gSpriteAnimations_WrathEye_0.s"
 
-gUnk_080D1DC8:: @ 080D1DC8
-	.incbin "baserom.gba", 0x0D1DC8, 0x0000004
+gSpriteAnimations_WrathEye_1:: @ 080D1DC8
+	.include "animations/gSpriteAnimations_WrathEye_1.s"
 
-gUnk_080D1DCC:: @ 080D1DCC
-	.incbin "baserom.gba", 0x0D1DCC, 0x0000004
+gSpriteAnimations_WrathEye_2:: @ 080D1DCC
+	.include "animations/gSpriteAnimations_WrathEye_2.s"
 
-gUnk_080D1DD0:: @ 080D1DD0
-	.incbin "baserom.gba", 0x0D1DD0, 0x000000C
+gSpriteAnimations_WrathEye_4:: @ 080D1DD0
+	.include "animations/gSpriteAnimations_WrathEye_4.s"
 
-gUnk_080D1DDC:: @ 080D1DDC
-	.incbin "baserom.gba", 0x0D1DDC, 0x000000C
+gSpriteAnimations_WrathEye_3:: @ 080D1DDC
+	.include "animations/gSpriteAnimations_WrathEye_3.s"
 
-gUnk_080D1DE8:: @ 080D1DE8
-	.incbin "baserom.gba", 0x0D1DE8, 0x000001D
+gSpriteAnimations_WrathEye_5:: @ 080D1DE8
+	.include "animations/gSpriteAnimations_WrathEye_5.s"
 
-gUnk_080D1E05:: @ 080D1E05
-	.incbin "baserom.gba", 0x0D1E05, 0x0000016
+gSpriteAnimations_WrathEye_6:: @ 080D1E05
+	.include "animations/gSpriteAnimations_WrathEye_6.s"
 
-gUnk_080D1E1B:: @ 080D1E1B
-	.incbin "baserom.gba", 0x0D1E1B, 0x0000006
+gSpriteAnimations_WrathEye_7:: @ 080D1E21
+	.include "animations/gSpriteAnimations_WrathEye_7.s"
 
-gUnk_080D1E21:: @ 080D1E21
-	.incbin "baserom.gba", 0x0D1E21, 0x0000005
+gSpriteAnimations_WrathEye_8:: @ 080D1E32
+	.include "animations/gSpriteAnimations_WrathEye_8.s"
 
-gUnk_080D1E26:: @ 080D1E26
-	.incbin "baserom.gba", 0x0D1E26, 0x000000C
-
-gUnk_080D1E32:: @ 080D1E32
-	.incbin "baserom.gba", 0x0D1E32, 0x0000012
-
-gUnk_080D1E44:: @ 080D1E44
-	.4byte gUnk_080D1DA0
-	.4byte gUnk_080D1DC8
-	.4byte gUnk_080D1DCC
-	.4byte gUnk_080D1DDC
-	.4byte gUnk_080D1DD0
-	.4byte gUnk_080D1DE8
-	.4byte gUnk_080D1E05
-	.4byte gUnk_080D1E21
-	.4byte gUnk_080D1E32
+gSpriteAnimations_WrathEye:: @ 080D1E44
+	.4byte gSpriteAnimations_WrathEye_0
+	.4byte gSpriteAnimations_WrathEye_1
+	.4byte gSpriteAnimations_WrathEye_2
+	.4byte gSpriteAnimations_WrathEye_3
+	.4byte gSpriteAnimations_WrathEye_4
+	.4byte gSpriteAnimations_WrathEye_5
+	.4byte gSpriteAnimations_WrathEye_6
+	.4byte gSpriteAnimations_WrathEye_7
+	.4byte gSpriteAnimations_WrathEye_8
 	.4byte 00000000

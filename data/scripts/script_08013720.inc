@@ -70,7 +70,7 @@ script_0801373C:
 	WaitFor_2
 	PlaySound SFX_109
 	MessageFromTargetPos 0x0504, 0x000c
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E5F8 0x00040000
 	SetLocalFlag 0x007b
 	Call sub_08053250

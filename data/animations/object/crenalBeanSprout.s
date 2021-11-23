@@ -4,38 +4,38 @@
 	.section .rodata
 @    .align 2
 
-gUnk_081231BA:: @ 081231BA
-	.incbin "baserom.gba", 0x1231BA, 0x0000005
+gSpriteAnimations_CrenalBeanSprout_0:: @ 081231BA
+	.include "animations/gSpriteAnimations_CrenalBeanSprout_0.s"
 
-gUnk_081231BF:: @ 081231BF
-	.incbin "baserom.gba", 0x1231BF, 0x000000D
+gSpriteAnimations_CrenalBeanSprout_3:: @ 081231BF
+	.include "animations/gSpriteAnimations_CrenalBeanSprout_3.s"
 
-gUnk_081231CC:: @ 081231CC
-	.incbin "baserom.gba", 0x1231CC, 0x0000009
+gSpriteAnimations_CrenalBeanSprout_6:: @ 081231CC
+	.include "animations/gSpriteAnimations_CrenalBeanSprout_6.s"
 
-gUnk_081231D5:: @ 081231D5
-	.incbin "baserom.gba", 0x1231D5, 0x0000011
+gSpriteAnimations_CrenalBeanSprout_8:: @ 081231D5
+	.include "animations/gSpriteAnimations_CrenalBeanSprout_8.s"
 
-gUnk_081231E6:: @ 081231E6
-	.incbin "baserom.gba", 0x1231E6, 0x0000015
+gSpriteAnimations_CrenalBeanSprout_10:: @ 081231E6
+	.include "animations/gSpriteAnimations_CrenalBeanSprout_10.s"
 
-gUnk_081231FB:: @ 081231FB
-	.incbin "baserom.gba", 0x1231FB, 0x0000009
+gSpriteAnimations_CrenalBeanSprout_1:: @ 081231FB
+	.include "animations/gSpriteAnimations_CrenalBeanSprout_1.s"
 
-gUnk_08123204:: @ 08123204
-	.incbin "baserom.gba", 0x123204, 0x0000004
+gSpriteAnimations_CrenalBeanSprout_12:: @ 08123204
+	.include "animations/gSpriteAnimations_CrenalBeanSprout_12.s"
 
-gUnk_08123208:: @ 08123208
-	.4byte gUnk_081231BA
-	.4byte gUnk_081231FB
-	.4byte gUnk_081231BA
-	.4byte gUnk_081231BF
-	.4byte gUnk_081231FB
-	.4byte gUnk_081231BF
-	.4byte gUnk_081231CC
-	.4byte gUnk_081231CC
-	.4byte gUnk_081231D5
-	.4byte gUnk_081231D5
-	.4byte gUnk_081231E6
-	.4byte gUnk_081231E6
-	.4byte gUnk_08123204
+gSpriteAnimations_CrenalBeanSprout:: @ 08123208
+	.4byte gSpriteAnimations_CrenalBeanSprout_0
+	.4byte gSpriteAnimations_CrenalBeanSprout_1
+	.4byte gSpriteAnimations_CrenalBeanSprout_0
+	.4byte gSpriteAnimations_CrenalBeanSprout_3
+	.4byte gSpriteAnimations_CrenalBeanSprout_1
+	.4byte gSpriteAnimations_CrenalBeanSprout_3
+	.4byte gSpriteAnimations_CrenalBeanSprout_6
+	.4byte gSpriteAnimations_CrenalBeanSprout_6
+	.4byte gSpriteAnimations_CrenalBeanSprout_8
+	.4byte gSpriteAnimations_CrenalBeanSprout_8
+	.4byte gSpriteAnimations_CrenalBeanSprout_10
+	.4byte gSpriteAnimations_CrenalBeanSprout_10
+	.4byte gSpriteAnimations_CrenalBeanSprout_12

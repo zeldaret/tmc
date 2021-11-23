@@ -47,7 +47,7 @@ sub_08082058: @ 0x08082058
 	adds r0, r4, #0
 	movs r1, #1
 	movs r2, #3
-	bl sub_080AE008
+	bl LoadSwapGFX
 	adds r0, r4, #0
 	bl sub_08082098
 	pop {r4, pc}

@@ -11,4 +11,4 @@ gUnk_08121078:: @ 08121078
 	.4byte sub_0808A61C
 
 gUnk_08121088:: @ 08121088
-	.incbin "baserom.gba", 0x121088, 0x0000008
+	.incbin "pushableRock/gUnk_08121088.bin"

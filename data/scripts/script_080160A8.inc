@@ -24,13 +24,13 @@ script_080160E0:
 	HasRoomItemForSale
 	JumpIfNot script_0801611A
 	MessageFromTarget 0x2d07
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807E3E8 
 	JumpIfNot script_08016132
 	BuyItem 0x0000, 0x0000
 	JumpIf script_0801610C
 	MessageFromTarget 0x2d0b
-	_0807EA94 
+	WaitUntilTextboxCloses
 	Jump script_08016132
 script_0801610C:
 	WaitPlayerAction8
@@ -40,17 +40,17 @@ script_0801610C:
 .else
 	MessageFromTarget 0x2d08
 .endif
-	_0807EA94
+	WaitUntilTextboxCloses
 	Jump script_08016132
 script_0801611A:
 	CheckKinstoneFused 0x0014
 	JumpIfNot script_0801612C
 	MessageFromTarget 0x2d09
-	_0807EA94 
+	WaitUntilTextboxCloses
 	Jump script_08016132
 script_0801612C:
 	MessageFromTarget 0x2d01
-	_0807EA94 
+	WaitUntilTextboxCloses
 script_08016132:
 	_0807E878
 	_0807EB44 0x0004
@@ -110,7 +110,7 @@ script_080161C6:
 script_080161D8:
 .ifndef EU
 	WaitPlayerAction8 
-	_0807EA94 
+	WaitUntilTextboxCloses
 	_0807EB8C 
 	MessageNoOverlap 0x2d06
 .else
@@ -141,9 +141,9 @@ script_08016204:
 	Call sub_08068CFC
 	JumpIfNot script_08016332
 	Call sub_08068DB8
-	_0807EA94
+	WaitUntilTextboxCloses
 	Call sub_08068DD0
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E3E8
 	JumpIfNot script_08016346
 	StartPlayerScript script_0801635C
@@ -152,11 +152,11 @@ script_08016204:
 	Call sub_08068C8C
 	JumpIf script_08016262
 	Call sub_08068DE8
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x001e
 script_08016262:
 	Call sub_08068E00
-	_0807EA94
+	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0001
 	Call sub_0807F2D4
 	Call sub_08068E90
@@ -171,7 +171,7 @@ script_08016262:
 	Call sub_08068BD0
 	Wait 0x001e
 	Call sub_08068E18
-	_0807EA94
+	WaitUntilTextboxCloses
 	Call sub_08068EB4
 	Call sub_0807DF50
 	_0807E878
@@ -187,7 +187,7 @@ script_080162E4:
 	EndBlock
 	_0807E864
 	Call sub_08068E78
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	Jump script_080162CC
 script_080162F6:
@@ -203,18 +203,18 @@ script_080162F6:
 	Call sub_08068F3C
 script_0801631C:
 	Call sub_08068E30
-	_0807EA94
+	WaitUntilTextboxCloses
 	Call sub_08068C6C
 	WaitPlayerAction8
-	_0807EA94
+	WaitUntilTextboxCloses
 	Jump script_08016346
 script_08016332:
 	Call sub_08068E60
-	_0807EA94
+	WaitUntilTextboxCloses
 	Jump script_08016346
 script_0801633E:
 	Call sub_08068E48
-	_0807EA94
+	WaitUntilTextboxCloses
 script_08016346:
 	Call sub_0807DF50
 	_0807E878

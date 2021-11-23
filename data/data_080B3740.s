@@ -7,34 +7,32 @@
 gUnk_080B37A0:: @ 080B37A0
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x0B2EC8, 0x0000192
+	.incbin "data_080B3740/gUnk_080B37A0_EU.bin"
 .else
-	.incbin "baserom.gba", 0x0B37A0, 0x0000192
+	.incbin "data_080B3740/gUnk_080B37A0_1_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
-
-gUnk_080B3932:: @ 080B3932
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x0B305A, 0x00003E2
+	.incbin "data_080B3740/gUnk_080B37A0_2_EU.bin"
 .else
-	.incbin "baserom.gba", 0x0B3932, 0x00003E2
+	.incbin "data_080B3740/gUnk_080B37A0_3_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
 gUnk_080B3D14:: @ 080B3D14
-	.incbin "baserom.gba", 0x0B3D14, 0x000000C
+	.incbin "data_080B3740/gUnk_080B3D14.bin"
 
 gUnk_080B3D20:: @ 080B3D20
 .ifdef JP
 	@ TODO only small differences
-	.incbin "baserom_jp.gba", 0x0B3AC0, 0x00000B0
+	.incbin "data_080B3740/gUnk_080B3D20_JP.bin"
 .else
 .ifdef EU
-	.incbin "baserom_jp.gba", 0x0B3AC0, 0x00000B0
+	.incbin "data_080B3740/gUnk_080B3D20_1_EU.bin"
 .else
 .ifdef DEMO_JP 
-	.incbin "baserom_jp.gba", 0x0B3AC0, 0x00000B0 @ TODO deduplicate
+	.incbin "data_080B3740/gUnk_080B3D20_2_DEMO_JP.bin"
 .else
-	.incbin "baserom.gba", 0x0B3D20, 0x00000B0
+	.incbin "data_080B3740/gUnk_080B3D20_3_USA-DEMO_USA.bin"
 .endif
 .endif
 .endif

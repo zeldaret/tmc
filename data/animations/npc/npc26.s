@@ -4,22 +4,22 @@
 	.section .rodata
     .align 2
 
-gUnk_081106E8:: @ 081106E8
-	.incbin "baserom.gba", 0x1106E8, 0x0000005
+gSpriteAnimations_Npc26_0:: @ 081106E8
+	.include "animations/gSpriteAnimations_Npc26_0.s"
 
-gUnk_081106ED:: @ 081106ED
-	.incbin "baserom.gba", 0x1106ED, 0x0000011
+gSpriteAnimations_Npc26_4:: @ 081106ED
+	.include "animations/gSpriteAnimations_Npc26_4.s"
 
-gUnk_081106FE:: @ 081106FE
-	.incbin "baserom.gba", 0x1106FE, 0x0000012
+gSpriteAnimations_Npc26_6:: @ 081106FE
+	.include "animations/gSpriteAnimations_Npc26_6.s"
 
-gUnk_08110710:: @ 08110710
-	.4byte gUnk_081106E8
-	.4byte gUnk_081106E8
-	.4byte gUnk_081106E8
-	.4byte gUnk_081106E8
-	.4byte gUnk_081106ED
-	.4byte gUnk_081106ED
-	.4byte gUnk_081106FE
-	.4byte gUnk_081106FE
+gSpriteAnimations_Npc26:: @ 08110710
+	.4byte gSpriteAnimations_Npc26_0
+	.4byte gSpriteAnimations_Npc26_0
+	.4byte gSpriteAnimations_Npc26_0
+	.4byte gSpriteAnimations_Npc26_0
+	.4byte gSpriteAnimations_Npc26_4
+	.4byte gSpriteAnimations_Npc26_4
+	.4byte gSpriteAnimations_Npc26_6
+	.4byte gSpriteAnimations_Npc26_6
 	.4byte 00000000

@@ -5,37 +5,37 @@
     .align 2
 
 
-gUnk_0810BD00:: @ 0810BD00
-	.incbin "baserom.gba", 0x10BD00, 0x0000005
+gSpriteAnimations_Townsperson_0:: @ 0810BD00
+	.include "animations/gSpriteAnimations_Townsperson_0.s"
 
-gUnk_0810BD05:: @ 0810BD05
-	.incbin "baserom.gba", 0x10BD05, 0x0000005
+gSpriteAnimations_Townsperson_1:: @ 0810BD05
+	.include "animations/gSpriteAnimations_Townsperson_1.s"
 
-gUnk_0810BD0A:: @ 0810BD0A
-	.incbin "baserom.gba", 0x10BD0A, 0x0000005
+gSpriteAnimations_Townsperson_2:: @ 0810BD0A
+	.include "animations/gSpriteAnimations_Townsperson_2.s"
 
-gUnk_0810BD0F:: @ 0810BD0F
-	.incbin "baserom.gba", 0x10BD0F, 0x0000005
+gSpriteAnimations_Townsperson_3:: @ 0810BD0F
+	.include "animations/gSpriteAnimations_Townsperson_3.s"
 
-gUnk_0810BD14:: @ 0810BD14
-	.incbin "baserom.gba", 0x10BD14, 0x0000011
+gSpriteAnimations_Townsperson_4:: @ 0810BD14
+	.include "animations/gSpriteAnimations_Townsperson_4.s"
 
-gUnk_0810BD25:: @ 0810BD25
-	.incbin "baserom.gba", 0x10BD25, 0x0000011
+gSpriteAnimations_Townsperson_5:: @ 0810BD25
+	.include "animations/gSpriteAnimations_Townsperson_5.s"
 
-gUnk_0810BD36:: @ 0810BD36
-	.incbin "baserom.gba", 0x10BD36, 0x0000011
+gSpriteAnimations_Townsperson_6:: @ 0810BD36
+	.include "animations/gSpriteAnimations_Townsperson_6.s"
 
-gUnk_0810BD47:: @ 0810BD47
-	.incbin "baserom.gba", 0x10BD47, 0x0000011
+gSpriteAnimations_Townsperson_7:: @ 0810BD47
+	.include "animations/gSpriteAnimations_Townsperson_7.s"
 
-gUnk_0810BD58:: @ 0810BD58
-	.4byte gUnk_0810BD00
-	.4byte gUnk_0810BD05
-	.4byte gUnk_0810BD0A
-	.4byte gUnk_0810BD0F
-	.4byte gUnk_0810BD14
-	.4byte gUnk_0810BD25
-	.4byte gUnk_0810BD36
-	.4byte gUnk_0810BD47
+gSpriteAnimations_Townsperson:: @ 0810BD58
+	.4byte gSpriteAnimations_Townsperson_0
+	.4byte gSpriteAnimations_Townsperson_1
+	.4byte gSpriteAnimations_Townsperson_2
+	.4byte gSpriteAnimations_Townsperson_3
+	.4byte gSpriteAnimations_Townsperson_4
+	.4byte gSpriteAnimations_Townsperson_5
+	.4byte gSpriteAnimations_Townsperson_6
+	.4byte gSpriteAnimations_Townsperson_7
 	.4byte 00000000

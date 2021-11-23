@@ -25,7 +25,7 @@ typedef struct {
     u16 unk_8; // u16
 } UnkHeap;
 
-extern Hitbox gUnk_080FD150;
+extern Hitbox gHitbox_0;
 
 void sub_08060E70(Entity*, u32);
 
@@ -140,7 +140,7 @@ void sub_08060AE0(Entity* this) {
         this->hurtType = 0x48;
         this->hitType = 0x49;
         this->flags2 = 3;
-        this->hitbox = &gUnk_080FD150;
+        this->hitbox = &gHitbox_0;
         this->field_0x17 &= 0xfe;
         this->field_0x6c.HALF.LO = 0xff;
         sub_08060E70(this, this->animationState);

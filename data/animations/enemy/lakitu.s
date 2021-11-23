@@ -4,121 +4,121 @@
 	.section .rodata
 	.align 2
 
-gUnk_080D015C:: @ 080D015C
-	.incbin "baserom.gba", 0x0D015C, 0x0000011
+gSpriteAnimations_Lakitu_0:: @ 080D015C
+	.include "animations/gSpriteAnimations_Lakitu_0.s"
 
-gUnk_080D016D:: @ 080D016D
-	.incbin "baserom.gba", 0x0D016D, 0x0000011
+gSpriteAnimations_Lakitu_1:: @ 080D016D
+	.include "animations/gSpriteAnimations_Lakitu_1.s"
 
-gUnk_080D017E:: @ 080D017E
-	.incbin "baserom.gba", 0x0D017E, 0x0000011
+gSpriteAnimations_Lakitu_2:: @ 080D017E
+	.include "animations/gSpriteAnimations_Lakitu_2.s"
 
-gUnk_080D018F:: @ 080D018F
-	.incbin "baserom.gba", 0x0D018F, 0x0000011
+gSpriteAnimations_Lakitu_3:: @ 080D018F
+	.include "animations/gSpriteAnimations_Lakitu_3.s"
 
-gUnk_080D01A0:: @ 080D01A0
-	.incbin "baserom.gba", 0x0D01A0, 0x0000011
+gSpriteAnimations_Lakitu_4:: @ 080D01A0
+	.include "animations/gSpriteAnimations_Lakitu_4.s"
 
-gUnk_080D01B1:: @ 080D01B1
-	.incbin "baserom.gba", 0x0D01B1, 0x0000011
+gSpriteAnimations_Lakitu_5:: @ 080D01B1
+	.include "animations/gSpriteAnimations_Lakitu_5.s"
 
-gUnk_080D01C2:: @ 080D01C2
-	.incbin "baserom.gba", 0x0D01C2, 0x0000011
+gSpriteAnimations_Lakitu_6:: @ 080D01C2
+	.include "animations/gSpriteAnimations_Lakitu_6.s"
 
-gUnk_080D01D3:: @ 080D01D3
-	.incbin "baserom.gba", 0x0D01D3, 0x0000011
+gSpriteAnimations_Lakitu_7:: @ 080D01D3
+	.include "animations/gSpriteAnimations_Lakitu_7.s"
 
-gUnk_080D01E4:: @ 080D01E4
-	.incbin "baserom.gba", 0x0D01E4, 0x000000B
+gSpriteAnimations_Lakitu_8:: @ 080D01E4
+	.include "animations/gSpriteAnimations_Lakitu_8.s"
 
 gUnk_080D01EF:: @ 080D01EF
-	.incbin "baserom.gba", 0x0D01EF, 0x000001D
+	.incbin "lakitu/gUnk_080D01EF.bin"
 
 gUnk_080D020C:: @ 080D020C
-	.incbin "baserom.gba", 0x0D020C, 0x0000004
+	.incbin "lakitu/gUnk_080D020C.bin"
 
 gUnk_080D0210:: @ 080D0210
-	.incbin "baserom.gba", 0x0D0210, 0x0000001
+	.incbin "lakitu/gUnk_080D0210.bin"
 
 gUnk_080D0211:: @ 080D0211
-	.incbin "baserom.gba", 0x0D0211, 0x0000014
+	.incbin "lakitu/gUnk_080D0211.bin"
 
-gUnk_080D0225:: @ 080D0225
-	.incbin "baserom.gba", 0x0D0225, 0x0000041
+gSpriteAnimations_Lakitu_9:: @ 080D0225
+	.include "animations/gSpriteAnimations_Lakitu_9.s"
 
-gUnk_080D0266:: @ 080D0266
-	.incbin "baserom.gba", 0x0D0266, 0x0000041
+gSpriteAnimations_Lakitu_10:: @ 080D0266
+	.include "animations/gSpriteAnimations_Lakitu_10.s"
 
-gUnk_080D02A7:: @ 080D02A7
-	.incbin "baserom.gba", 0x0D02A7, 0x0000041
+gSpriteAnimations_Lakitu_11:: @ 080D02A7
+	.include "animations/gSpriteAnimations_Lakitu_11.s"
 
-gUnk_080D02E8:: @ 080D02E8
-	.incbin "baserom.gba", 0x0D02E8, 0x000000B
+gSpriteAnimations_Lakitu_12:: @ 080D02E8
+	.include "animations/gSpriteAnimations_Lakitu_12.s"
 
 gUnk_080D02F3:: @ 080D02F3
-	.incbin "baserom.gba", 0x0D02F3, 0x0000003
+	.incbin "lakitu/gUnk_080D02F3.bin"
 
 gUnk_080D02F6:: @ 080D02F6
-	.incbin "baserom.gba", 0x0D02F6, 0x0000001
+	.incbin "lakitu/gUnk_080D02F6.bin"
 
 gUnk_080D02F7:: @ 080D02F7
-	.incbin "baserom.gba", 0x0D02F7, 0x0000002
+	.incbin "lakitu/gUnk_080D02F7.bin"
 
-gUnk_080D02F9:: @ 080D02F9
-	.incbin "baserom.gba", 0x0D02F9, 0x0000003
+gSpriteAnimations_Lakitu_13:: @ 080D02F9
+	.include "animations/gSpriteAnimations_Lakitu_13.s"
 
 gUnk_080D02FC:: @ 080D02FC
-	.incbin "baserom.gba", 0x0D02FC, 0x0000004
+	.incbin "lakitu/gUnk_080D02FC.bin"
 
 gUnk_080D0300:: @ 080D0300
-	.incbin "baserom.gba", 0x0D0300, 0x000000A
+	.incbin "lakitu/gUnk_080D0300.bin"
 
-gUnk_080D030A:: @ 080D030A
-	.incbin "baserom.gba", 0x0D030A, 0x0000011
+gSpriteAnimations_Lakitu_14:: @ 080D030A
+	.include "animations/gSpriteAnimations_Lakitu_14.s"
 
 gUnk_080D031B:: @ 080D031B
-	.incbin "baserom.gba", 0x0D031B, 0x0000011
+	.incbin "lakitu/gUnk_080D031B.bin"
 
 gUnk_080D032C:: @ 080D032C
-	.incbin "baserom.gba", 0x0D032C, 0x0000011
+	.incbin "lakitu/gUnk_080D032C.bin"
 
 gUnk_080D033D:: @ 080D033D
-	.incbin "baserom.gba", 0x0D033D, 0x0000011
+	.incbin "lakitu/gUnk_080D033D.bin"
 
 gUnk_080D034E:: @ 080D034E
-	.incbin "baserom.gba", 0x0D034E, 0x0000011
+	.incbin "lakitu/gUnk_080D034E.bin"
 
 gUnk_080D035F:: @ 080D035F
-	.incbin "baserom.gba", 0x0D035F, 0x0000011
+	.incbin "lakitu/gUnk_080D035F.bin"
 
 gUnk_080D0370:: @ 080D0370
-	.incbin "baserom.gba", 0x0D0370, 0x0000011
+	.incbin "lakitu/gUnk_080D0370.bin"
 
 gUnk_080D0381:: @ 080D0381
-	.incbin "baserom.gba", 0x0D0381, 0x0000011
+	.incbin "lakitu/gUnk_080D0381.bin"
 
 gUnk_080D0392:: @ 080D0392
-	.incbin "baserom.gba", 0x0D0392, 0x0000011
+	.incbin "lakitu/gUnk_080D0392.bin"
 
 gUnk_080D03A3:: @ 080D03A3
-	.incbin "baserom.gba", 0x0D03A3, 0x0000011
+	.incbin "lakitu/gUnk_080D03A3.bin"
 
-gUnk_080D03B4:: @ 080D03B4
-	.4byte gUnk_080D015C
-	.4byte gUnk_080D016D
-	.4byte gUnk_080D017E
-	.4byte gUnk_080D018F
-	.4byte gUnk_080D01A0
-	.4byte gUnk_080D01B1
-	.4byte gUnk_080D01C2
-	.4byte gUnk_080D01D3
-	.4byte gUnk_080D01E4
-	.4byte gUnk_080D0225
-	.4byte gUnk_080D0266
-	.4byte gUnk_080D02A7
-	.4byte gUnk_080D02E8
-	.4byte gUnk_080D02F9
-	.4byte gUnk_080D030A
+gSpriteAnimations_Lakitu:: @ 080D03B4
+	.4byte gSpriteAnimations_Lakitu_0
+	.4byte gSpriteAnimations_Lakitu_1
+	.4byte gSpriteAnimations_Lakitu_2
+	.4byte gSpriteAnimations_Lakitu_3
+	.4byte gSpriteAnimations_Lakitu_4
+	.4byte gSpriteAnimations_Lakitu_5
+	.4byte gSpriteAnimations_Lakitu_6
+	.4byte gSpriteAnimations_Lakitu_7
+	.4byte gSpriteAnimations_Lakitu_8
+	.4byte gSpriteAnimations_Lakitu_9
+	.4byte gSpriteAnimations_Lakitu_10
+	.4byte gSpriteAnimations_Lakitu_11
+	.4byte gSpriteAnimations_Lakitu_12
+	.4byte gSpriteAnimations_Lakitu_13
+	.4byte gSpriteAnimations_Lakitu_14
 
 gUnk_080D03F0:: @ 080D03F0
 	.4byte gUnk_080D031B

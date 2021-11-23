@@ -37,4 +37,4 @@ gUnk_080CFBD4:: @ 080CFBD4
 	.4byte sub_08039FA4
 
 gUnk_080CFBE4:: @ 080CFBE4
-	.incbin "baserom.gba", 0x0CFBE4, 0x0000004
+	.incbin "flyingSkull/gUnk_080CFBE4.bin"

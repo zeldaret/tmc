@@ -605,7 +605,7 @@ sub_0801CCB0: @ 0x0801CCB0
 	cmp r0, r1
 	beq _0801CCE0
 	strb r1, [r4, #8]
-	ldr r0, _0801CD1C @ =gUnk_080FDFD8
+	ldr r0, _0801CD1C @ =gSpriteAnimations_322
 	lsls r1, r1, #2
 	adds r1, r1, r0
 	ldr r1, [r1]
@@ -643,7 +643,7 @@ _0801CCF4:
 	strb r0, [r3]
 	b _0801CD4C
 	.align 2, 0
-_0801CD1C: .4byte gUnk_080FDFD8
+_0801CD1C: .4byte gSpriteAnimations_322
 _0801CD20: .4byte gUnk_0200AF13
 _0801CD24: .4byte gSave
 _0801CD28:

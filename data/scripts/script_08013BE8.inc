@@ -46,7 +46,7 @@ script_08013C58:
 script_08013C82:
 	_0807EB28 0x1506
 script_08013C86:
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	Jump script_08013C58

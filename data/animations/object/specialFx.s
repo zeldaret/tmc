@@ -4,375 +4,306 @@
 	.section .rodata
     .align 2
 
-gUnk_0811FB10:: @ 0811FB10
-	.incbin "baserom.gba", 0x11FB10, 0x0000015
+gSpriteAnimations_SpecialFx_0:: @ 0811FB10
+	.include "animations/gSpriteAnimations_SpecialFx_0.s"
 
-gUnk_0811FB25:: @ 0811FB25
-	.incbin "baserom.gba", 0x11FB25, 0x0000058
+gSpriteAnimations_SpecialFx_1:: @ 0811FB25
+	.include "animations/gSpriteAnimations_SpecialFx_1.s"
 
-gUnk_0811FB7D:: @ 0811FB7D
-	.incbin "baserom.gba", 0x11FB7D, 0x0000044
+gSpriteAnimations_SpecialFx_67:: @ 0811FB7D
+	.include "animations/gSpriteAnimations_SpecialFx_67.s"
 
-gUnk_0811FBC1:: @ 0811FBC1
-	.incbin "baserom.gba", 0x11FBC1, 0x0000020
+gSpriteAnimations_SpecialFx_2:: @ 0811FBC1
+	.include "animations/gSpriteAnimations_SpecialFx_2.s"
 
-gUnk_0811FBE1:: @ 0811FBE1
-	.incbin "baserom.gba", 0x11FBE1, 0x000000C
+gSpriteAnimations_SpecialFx_3:: @ 0811FBE1
+	.include "animations/gSpriteAnimations_SpecialFx_3.s"
 
-gUnk_0811FBED:: @ 0811FBED
-	.incbin "baserom.gba", 0x11FBED, 0x0000010
+gSpriteAnimations_SpecialFx_23:: @ 0811FBFD
+	.include "animations/gSpriteAnimations_SpecialFx_23.s"
 
-gUnk_0811FBFD:: @ 0811FBFD
-	.incbin "baserom.gba", 0x11FBFD, 0x0000014
+gSpriteAnimations_SpecialFx_4:: @ 0811FC11
+	.include "animations/gSpriteAnimations_SpecialFx_4.s"
 
-gUnk_0811FC11:: @ 0811FC11
-	.incbin "baserom.gba", 0x11FC11, 0x000001C
+gSpriteAnimations_SpecialFx_5:: @ 0811FC2D
+	.include "animations/gSpriteAnimations_SpecialFx_5.s"
 
-gUnk_0811FC2D:: @ 0811FC2D
-	.incbin "baserom.gba", 0x11FC2D, 0x0000024
+gSpriteAnimations_SpecialFx_6:: @ 0811FC51
+	.include "animations/gSpriteAnimations_SpecialFx_6.s"
 
-gUnk_0811FC51:: @ 0811FC51
-	.incbin "baserom.gba", 0x11FC51, 0x0000021
+gSpriteAnimations_SpecialFx_7:: @ 0811FC72
+	.include "animations/gSpriteAnimations_SpecialFx_7.s"
 
-gUnk_0811FC72:: @ 0811FC72
-	.incbin "baserom.gba", 0x11FC72, 0x0000015
+gSpriteAnimations_SpecialFx_8:: @ 0811FC87
+	.include "animations/gSpriteAnimations_SpecialFx_8.s"
 
-gUnk_0811FC87:: @ 0811FC87
-	.incbin "baserom.gba", 0x11FC87, 0x0000024
+gSpriteAnimations_SpecialFx_9:: @ 0811FCAB
+	.include "animations/gSpriteAnimations_SpecialFx_9.s"
 
-gUnk_0811FCAB:: @ 0811FCAB
-	.incbin "baserom.gba", 0x11FCAB, 0x0000034
+gSpriteAnimations_SpecialFx_10:: @ 0811FCDF
+	.include "animations/gSpriteAnimations_SpecialFx_10.s"
 
-gUnk_0811FCDF:: @ 0811FCDF
-	.incbin "baserom.gba", 0x11FCDF, 0x0000044
+gSpriteAnimations_SpecialFx_11:: @ 0811FD23
+	.include "animations/gSpriteAnimations_SpecialFx_11.s"
 
-gUnk_0811FD23:: @ 0811FD23
-	.incbin "baserom.gba", 0x11FD23, 0x0000018
+gSpriteAnimations_SpecialFx_12:: @ 0811FD3B
+	.include "animations/gSpriteAnimations_SpecialFx_12.s"
 
-gUnk_0811FD3B:: @ 0811FD3B
-	.incbin "baserom.gba", 0x11FD3B, 0x000001C
+gSpriteAnimations_SpecialFx_14:: @ 0811FD57
+	.include "animations/gSpriteAnimations_SpecialFx_14.s"
 
-gUnk_0811FD57:: @ 0811FD57
-	.incbin "baserom.gba", 0x11FD57, 0x000001C
+gSpriteAnimations_SpecialFx_16:: @ 0811FD73
+	.include "animations/gSpriteAnimations_SpecialFx_16.s"
 
-gUnk_0811FD73:: @ 0811FD73
-	.incbin "baserom.gba", 0x11FD73, 0x000000C
+gSpriteAnimations_SpecialFx_17:: @ 0811FD7F
+	.include "animations/gSpriteAnimations_SpecialFx_17.s"
 
-gUnk_0811FD7F:: @ 0811FD7F
-	.incbin "baserom.gba", 0x11FD7F, 0x0000010
+gSpriteAnimations_SpecialFx_18:: @ 0811FD8F
+	.include "animations/gSpriteAnimations_SpecialFx_18.s"
 
-gUnk_0811FD8F:: @ 0811FD8F
-	.incbin "baserom.gba", 0x11FD8F, 0x0000014
+gSpriteAnimations_SpecialFx_20:: @ 0811FDA3
+	.include "animations/gSpriteAnimations_SpecialFx_20.s"
 
-gUnk_0811FDA3:: @ 0811FDA3
-	.incbin "baserom.gba", 0x11FDA3, 0x0000015
+gSpriteAnimations_SpecialFx_22:: @ 0811FDB8
+	.include "animations/gSpriteAnimations_SpecialFx_22.s"
 
-gUnk_0811FDB8:: @ 0811FDB8
-	.incbin "baserom.gba", 0x11FDB8, 0x0000014
+gSpriteAnimations_SpecialFx_24:: @ 0811FDCC
+	.include "animations/gSpriteAnimations_SpecialFx_24.s"
 
-gUnk_0811FDCC:: @ 0811FDCC
-	.incbin "baserom.gba", 0x11FDCC, 0x0000008
+gSpriteAnimations_SpecialFx_25:: @ 0811FDD4
+	.include "animations/gSpriteAnimations_SpecialFx_25.s"
 
-gUnk_0811FDD4:: @ 0811FDD4
-	.incbin "baserom.gba", 0x11FDD4, 0x0000018
+gSpriteAnimations_SpecialFx_26:: @ 0811FDEC
+	.include "animations/gSpriteAnimations_SpecialFx_26.s"
 
-gUnk_0811FDEC:: @ 0811FDEC
-	.incbin "baserom.gba", 0x11FDEC, 0x0000010
+gSpriteAnimations_SpecialFx_27:: @ 0811FDFC
+	.include "animations/gSpriteAnimations_SpecialFx_27.s"
 
-gUnk_0811FDFC:: @ 0811FDFC
-	.incbin "baserom.gba", 0x11FDFC, 0x0000019
+gSpriteAnimations_SpecialFx_28:: @ 0811FE15
+	.include "animations/gSpriteAnimations_SpecialFx_28.s"
 
-gUnk_0811FE15:: @ 0811FE15
-	.incbin "baserom.gba", 0x11FE15, 0x0000041
+gSpriteAnimations_SpecialFx_29:: @ 0811FE56
+	.include "animations/gSpriteAnimations_SpecialFx_29.s"
 
-gUnk_0811FE56:: @ 0811FE56
-	.incbin "baserom.gba", 0x11FE56, 0x0000008
+gSpriteAnimations_SpecialFx_31:: @ 0811FE5E
+	.include "animations/gSpriteAnimations_SpecialFx_31.s"
 
-gUnk_0811FE5E:: @ 0811FE5E
-	.incbin "baserom.gba", 0x11FE5E, 0x0000018
+gSpriteAnimations_SpecialFx_32:: @ 0811FE76
+	.include "animations/gSpriteAnimations_SpecialFx_32.s"
 
-gUnk_0811FE76:: @ 0811FE76
-	.incbin "baserom.gba", 0x11FE76, 0x0000018
+gSpriteAnimations_SpecialFx_33:: @ 0811FE8E
+	.include "animations/gSpriteAnimations_SpecialFx_33.s"
 
-gUnk_0811FE8E:: @ 0811FE8E
-	.incbin "baserom.gba", 0x11FE8E, 0x0000014
+gSpriteAnimations_SpecialFx_34:: @ 0811FEA2
+	.include "animations/gSpriteAnimations_SpecialFx_34.s"
 
-gUnk_0811FEA2:: @ 0811FEA2
-	.incbin "baserom.gba", 0x11FEA2, 0x000000C
+gSpriteAnimations_SpecialFx_35:: @ 0811FEAE
+	.include "animations/gSpriteAnimations_SpecialFx_35.s"
 
-gUnk_0811FEAE:: @ 0811FEAE
-	.incbin "baserom.gba", 0x11FEAE, 0x000000C
+gSpriteAnimations_SpecialFx_36:: @ 0811FEBA
+	.include "animations/gSpriteAnimations_SpecialFx_36.s"
 
-gUnk_0811FEBA:: @ 0811FEBA
-	.incbin "baserom.gba", 0x11FEBA, 0x0000028
+gSpriteAnimations_SpecialFx_37:: @ 0811FEE2
+	.include "animations/gSpriteAnimations_SpecialFx_37.s"
 
-gUnk_0811FEE2:: @ 0811FEE2
-	.incbin "baserom.gba", 0x11FEE2, 0x000000D
+gSpriteAnimations_SpecialFx_51:: @ 0811FEEF
+	.include "animations/gSpriteAnimations_SpecialFx_51.s"
 
-gUnk_0811FEEF:: @ 0811FEEF
-	.incbin "baserom.gba", 0x11FEEF, 0x0000020
+gSpriteAnimations_SpecialFx_39:: @ 0811FF0F
+	.include "animations/gSpriteAnimations_SpecialFx_39.s"
 
-gUnk_0811FF0F:: @ 0811FF0F
-	.incbin "baserom.gba", 0x11FF0F, 0x0000020
+gSpriteAnimations_SpecialFx_52:: @ 0811FF2F
+	.include "animations/gSpriteAnimations_SpecialFx_52.s"
 
-gUnk_0811FF2F:: @ 0811FF2F
-	.incbin "baserom.gba", 0x11FF2F, 0x0000020
+gSpriteAnimations_SpecialFx_50:: @ 0811FF4F
+	.include "animations/gSpriteAnimations_SpecialFx_50.s"
 
-gUnk_0811FF4F:: @ 0811FF4F
-	.incbin "baserom.gba", 0x11FF4F, 0x0000020
+gSpriteAnimations_SpecialFx_40:: @ 0811FF6F
+	.include "animations/gSpriteAnimations_SpecialFx_40.s"
 
-gUnk_0811FF6F:: @ 0811FF6F
-	.incbin "baserom.gba", 0x11FF6F, 0x0000020
+gSpriteAnimations_SpecialFx_44:: @ 0811FF8F
+	.include "animations/gSpriteAnimations_SpecialFx_44.s"
 
-gUnk_0811FF8F:: @ 0811FF8F
-	.incbin "baserom.gba", 0x11FF8F, 0x0000018
+gSpriteAnimations_SpecialFx_46:: @ 0811FFA7
+	.include "animations/gSpriteAnimations_SpecialFx_46.s"
 
-gUnk_0811FFA7:: @ 0811FFA7
-	.incbin "baserom.gba", 0x11FFA7, 0x0000020
+gSpriteAnimations_SpecialFx_47:: @ 0811FFC7
+	.include "animations/gSpriteAnimations_SpecialFx_47.s"
 
-gUnk_0811FFC7:: @ 0811FFC7
-	.incbin "baserom.gba", 0x11FFC7, 0x0000018
+gSpriteAnimations_SpecialFx_41:: @ 0811FFDF
+	.include "animations/gSpriteAnimations_SpecialFx_41.s"
 
-gUnk_0811FFDF:: @ 0811FFDF
-	.incbin "baserom.gba", 0x11FFDF, 0x0000018
+gSpriteAnimations_SpecialFx_42:: @ 0811FFF7
+	.include "animations/gSpriteAnimations_SpecialFx_42.s"
 
-gUnk_0811FFF7:: @ 0811FFF7
-	.incbin "baserom.gba", 0x11FFF7, 0x0000009
+gSpriteAnimations_SpecialFx_45:: @ 08120017
+	.include "animations/gSpriteAnimations_SpecialFx_45.s"
 
-gUnk_08120000:: @ 08120000
-	.incbin "baserom.gba", 0x120000, 0x0000004
+gSpriteAnimations_SpecialFx_48:: @ 0812003B
+	.include "animations/gSpriteAnimations_SpecialFx_48.s"
 
-gUnk_08120004:: @ 08120004
-	.incbin "baserom.gba", 0x120004, 0x0000006
+gSpriteAnimations_SpecialFx_49:: @ 08120063
+	.include "animations/gSpriteAnimations_SpecialFx_49.s"
 
-gUnk_0812000A:: @ 0812000A
-	.incbin "baserom.gba", 0x12000A, 0x0000004
+gSpriteAnimations_SpecialFx_54:: @ 0812007F
+	.include "animations/gSpriteAnimations_SpecialFx_54.s"
 
-gUnk_0812000E:: @ 0812000E
-	.incbin "baserom.gba", 0x12000E, 0x0000001
+gSpriteAnimations_SpecialFx_55:: @ 0812009B
+	.include "animations/gSpriteAnimations_SpecialFx_55.s"
 
-gUnk_0812000F:: @ 0812000F
-	.incbin "baserom.gba", 0x12000F, 0x0000001
+gSpriteAnimations_SpecialFx_56:: @ 081200AF
+	.include "animations/gSpriteAnimations_SpecialFx_56.s"
 
-gUnk_08120010:: @ 08120010
-	.incbin "baserom.gba", 0x120010, 0x0000007
+gSpriteAnimations_SpecialFx_57:: @ 081200CB
+	.include "animations/gSpriteAnimations_SpecialFx_57.s"
 
-gUnk_08120017:: @ 08120017
-	.incbin "baserom.gba", 0x120017, 0x0000011
-
-gUnk_08120028:: @ 08120028
-	.incbin "baserom.gba", 0x120028, 0x0000004
-
-gUnk_0812002C:: @ 0812002C
-	.incbin "baserom.gba", 0x12002C, 0x000000F
-
-gUnk_0812003B:: @ 0812003B
-	.incbin "baserom.gba", 0x12003B, 0x0000017
-
-gUnk_08120052:: @ 08120052
-	.incbin "baserom.gba", 0x120052, 0x000000A
-
-gUnk_0812005C:: @ 0812005C
-	.incbin "baserom.gba", 0x12005C, 0x0000007
-
-gUnk_08120063:: @ 08120063
-	.incbin "baserom.gba", 0x120063, 0x000001C
-
-gUnk_0812007F:: @ 0812007F
-	.incbin "baserom.gba", 0x12007F, 0x0000009
-
-gUnk_08120088:: @ 08120088
-	.incbin "baserom.gba", 0x120088, 0x0000013
-
-gUnk_0812009B:: @ 0812009B
-	.incbin "baserom.gba", 0x12009B, 0x0000014
-
-gUnk_081200AF:: @ 081200AF
-	.incbin "baserom.gba", 0x1200AF, 0x000001B
-
-gUnk_081200CA:: @ 081200CA
-	.incbin "baserom.gba", 0x1200CA, 0x0000001
-
-gUnk_081200CB:: @ 081200CB
-	.incbin "baserom.gba", 0x1200CB, 0x0000005
-
-gUnk_081200D0:: @ 081200D0
-	.incbin "baserom.gba", 0x1200D0, 0x0000012
-
-gUnk_081200E2:: @ 081200E2
-	.incbin "baserom.gba", 0x1200E2, 0x0000009
-
-gUnk_081200EB:: @ 081200EB
-	.incbin "baserom.gba", 0x1200EB, 0x0000013
-
-gUnk_081200FE:: @ 081200FE
-	.incbin "baserom.gba", 0x1200FE, 0x0000001
-
-gUnk_081200FF:: @ 081200FF
-	.incbin "baserom.gba", 0x1200FF, 0x0000024
-
-gUnk_08120123:: @ 08120123
-	.incbin "baserom.gba", 0x120123, 0x0000024
-
-gUnk_08120147:: @ 08120147
-	.incbin "baserom.gba", 0x120147, 0x0000020
-
-gUnk_08120167:: @ 08120167
-	.incbin "baserom.gba", 0x120167, 0x0000018
-
-gUnk_0812017F:: @ 0812017F
-	.incbin "baserom.gba", 0x12017F, 0x0000011
-
-gUnk_08120190:: @ 08120190
-	.incbin "baserom.gba", 0x120190, 0x0000007
-
-gUnk_08120197:: @ 08120197
-	.incbin "baserom.gba", 0x120197, 0x0000018
-
-gUnk_081201AF:: @ 081201AF
-	.incbin "baserom.gba", 0x1201AF, 0x0000031
-
-gUnk_081201E0:: @ 081201E0
-	.incbin "baserom.gba", 0x1201E0, 0x000000D
-
-gUnk_081201ED:: @ 081201ED
-	.incbin "baserom.gba", 0x1201ED, 0x000000B
-
-gUnk_081201F8:: @ 081201F8
-	.incbin "baserom.gba", 0x1201F8, 0x0000011
-
-gUnk_08120209:: @ 08120209
-	.incbin "baserom.gba", 0x120209, 0x0000038
-
-gUnk_08120241:: @ 08120241
-	.incbin "baserom.gba", 0x120241, 0x0000038
-
-gUnk_08120279:: @ 08120279
-	.incbin "baserom.gba", 0x120279, 0x0000007
-
-gUnk_08120280:: @ 08120280
-	.incbin "baserom.gba", 0x120280, 0x000002D
-
-gUnk_081202AD:: @ 081202AD
-	.incbin "baserom.gba", 0x1202AD, 0x0000011
-
-gUnk_081202BE:: @ 081202BE
-	.incbin "baserom.gba", 0x1202BE, 0x0000025
-
-gUnk_081202E3:: @ 081202E3
-	.incbin "baserom.gba", 0x1202E3, 0x0000009
-
-gUnk_081202EC:: @ 081202EC
-	.incbin "baserom.gba", 0x1202EC, 0x0000020
-
-gUnk_0812030C:: @ 0812030C
-	.incbin "baserom.gba", 0x12030C, 0x0000014
-
-gUnk_08120320:: @ 08120320
-	.incbin "baserom.gba", 0x120320, 0x0000030
-
-gUnk_08120350:: @ 08120350
-	.incbin "baserom.gba", 0x120350, 0x000001C
-
-gUnk_0812036C:: @ 0812036C
-	.incbin "baserom.gba", 0x12036C, 0x0000020
-
-gUnk_0812038C:: @ 0812038C
-	.incbin "baserom.gba", 0x12038C, 0x0000038
-
-gUnk_081203C4:: @ 081203C4
-	.incbin "baserom.gba", 0x1203C4, 0x0000026
-
-gUnk_081203EA:: @ 081203EA
-	.incbin "baserom.gba", 0x1203EA, 0x0000012
-
-gUnk_081203FC:: @ 081203FC
-	.4byte gUnk_0811FB10
-	.4byte gUnk_0811FB25
-	.4byte gUnk_0811FBC1
-	.4byte gUnk_0811FBE1
-	.4byte gUnk_0811FC11
-	.4byte gUnk_0811FC2D
-	.4byte gUnk_0811FC51
-	.4byte gUnk_0811FC72
-	.4byte gUnk_0811FC87
-	.4byte gUnk_0811FCAB
-	.4byte gUnk_0811FCDF
-	.4byte gUnk_0811FD23
-	.4byte gUnk_0811FD3B
-	.4byte gUnk_0811FC11
-	.4byte gUnk_0811FD57
-	.4byte gUnk_0811FC11
-	.4byte gUnk_0811FD73
-	.4byte gUnk_0811FD7F
-	.4byte gUnk_0811FD8F
-	.4byte gUnk_0811FBE1
-	.4byte gUnk_0811FDA3
-	.4byte gUnk_0811FC11
-	.4byte gUnk_0811FDB8
-	.4byte gUnk_0811FBFD
-	.4byte gUnk_0811FDCC
-	.4byte gUnk_0811FDD4
-	.4byte gUnk_0811FDEC
-	.4byte gUnk_0811FDFC
-	.4byte gUnk_0811FE15
-	.4byte gUnk_0811FE56
-	.4byte gUnk_0811FE15
-	.4byte gUnk_0811FE5E
-	.4byte gUnk_0811FE76
-	.4byte gUnk_0811FE8E
-	.4byte gUnk_0811FEA2
-	.4byte gUnk_0811FEAE
-	.4byte gUnk_0811FEBA
-	.4byte gUnk_0811FEE2
-	.4byte gUnk_0811FC72
-	.4byte gUnk_0811FF0F
-	.4byte gUnk_0811FF6F
-	.4byte gUnk_0811FFDF
-	.4byte gUnk_0811FFF7
-	.4byte gUnk_0811FD23
-	.4byte gUnk_0811FF8F
-	.4byte gUnk_08120017
-	.4byte gUnk_0811FFA7
-	.4byte gUnk_0811FFC7
-	.4byte gUnk_0812003B
-	.4byte gUnk_08120063
-	.4byte gUnk_0811FF4F
-	.4byte gUnk_0811FEEF
-	.4byte gUnk_0811FF2F
-	.4byte gUnk_0811FB25
-	.4byte gUnk_0812007F
-	.4byte gUnk_0812009B
-	.4byte gUnk_081200AF
-	.4byte gUnk_081200CB
-	.4byte gUnk_081200EB
-	.4byte gUnk_081200FF
-	.4byte gUnk_08120123
-	.4byte gUnk_08120147
-	.4byte gUnk_08120167
-	.4byte gUnk_0812017F
-	.4byte gUnk_08120197
-	.4byte gUnk_0811FE5E
-	.4byte gUnk_081201AF
-	.4byte gUnk_0811FB7D
-	.4byte gUnk_081201E0
-	.4byte gUnk_0811FC11
-	.4byte gUnk_08120209
-	.4byte gUnk_08120241
-	.4byte gUnk_08120279
-	.4byte gUnk_081202AD
-	.4byte gUnk_081202BE
-	.4byte gUnk_081202E3
-	.4byte gUnk_081200EB
-	.4byte gUnk_0811FC72
-	.4byte gUnk_0812030C
-	.4byte gUnk_08120350
-	.4byte gUnk_0812036C
-	.4byte gUnk_0812038C
-	.4byte gUnk_0811FD3B
-	.4byte gUnk_0811FBC1
-	.4byte gUnk_0811FBC1
-	.4byte gUnk_0811FBC1
-	.4byte gUnk_081203C4
-	.4byte gUnk_081203C4
+gSpriteAnimations_SpecialFx_58:: @ 081200EB
+	.include "animations/gSpriteAnimations_SpecialFx_58.s"
+
+gSpriteAnimations_SpecialFx_59:: @ 081200FF
+	.include "animations/gSpriteAnimations_SpecialFx_59.s"
+
+gSpriteAnimations_SpecialFx_60:: @ 08120123
+	.include "animations/gSpriteAnimations_SpecialFx_60.s"
+
+gSpriteAnimations_SpecialFx_61:: @ 08120147
+	.include "animations/gSpriteAnimations_SpecialFx_61.s"
+
+gSpriteAnimations_SpecialFx_62:: @ 08120167
+	.include "animations/gSpriteAnimations_SpecialFx_62.s"
+
+gSpriteAnimations_SpecialFx_63:: @ 0812017F
+	.include "animations/gSpriteAnimations_SpecialFx_63.s"
+
+gSpriteAnimations_SpecialFx_64:: @ 08120197
+	.include "animations/gSpriteAnimations_SpecialFx_64.s"
+
+gSpriteAnimations_SpecialFx_66:: @ 081201AF
+	.include "animations/gSpriteAnimations_SpecialFx_66.s"
+
+gSpriteAnimations_SpecialFx_68:: @ 081201E0
+	.include "animations/gSpriteAnimations_SpecialFx_68.s"
+
+gSpriteAnimations_SpecialFx_70:: @ 08120209
+	.include "animations/gSpriteAnimations_SpecialFx_70.s"
+
+gSpriteAnimations_SpecialFx_71:: @ 08120241
+	.include "animations/gSpriteAnimations_SpecialFx_71.s"
+
+gSpriteAnimations_SpecialFx_72:: @ 08120279
+	.include "animations/gSpriteAnimations_SpecialFx_72.s"
+
+gSpriteAnimations_SpecialFx_73:: @ 081202AD
+	.include "animations/gSpriteAnimations_SpecialFx_73.s"
+
+gSpriteAnimations_SpecialFx_74:: @ 081202BE
+	.include "animations/gSpriteAnimations_SpecialFx_74.s"
+
+gSpriteAnimations_SpecialFx_75:: @ 081202E3
+	.include "animations/gSpriteAnimations_SpecialFx_75.s"
+
+gSpriteAnimations_SpecialFx_78:: @ 0812030C
+	.include "animations/gSpriteAnimations_SpecialFx_78.s"
+
+gSpriteAnimations_SpecialFx_79:: @ 08120350
+	.include "animations/gSpriteAnimations_SpecialFx_79.s"
+
+gSpriteAnimations_SpecialFx_80:: @ 0812036C
+	.include "animations/gSpriteAnimations_SpecialFx_80.s"
+
+gSpriteAnimations_SpecialFx_81:: @ 0812038C
+	.include "animations/gSpriteAnimations_SpecialFx_81.s"
+
+gSpriteAnimations_SpecialFx_86:: @ 081203C4
+	.include "animations/gSpriteAnimations_SpecialFx_86.s"
+
+gSpriteAnimations_SpecialFx:: @ 081203FC
+	.4byte gSpriteAnimations_SpecialFx_0
+	.4byte gSpriteAnimations_SpecialFx_1
+	.4byte gSpriteAnimations_SpecialFx_2
+	.4byte gSpriteAnimations_SpecialFx_3
+	.4byte gSpriteAnimations_SpecialFx_4
+	.4byte gSpriteAnimations_SpecialFx_5
+	.4byte gSpriteAnimations_SpecialFx_6
+	.4byte gSpriteAnimations_SpecialFx_7
+	.4byte gSpriteAnimations_SpecialFx_8
+	.4byte gSpriteAnimations_SpecialFx_9
+	.4byte gSpriteAnimations_SpecialFx_10
+	.4byte gSpriteAnimations_SpecialFx_11
+	.4byte gSpriteAnimations_SpecialFx_12
+	.4byte gSpriteAnimations_SpecialFx_4
+	.4byte gSpriteAnimations_SpecialFx_14
+	.4byte gSpriteAnimations_SpecialFx_4
+	.4byte gSpriteAnimations_SpecialFx_16
+	.4byte gSpriteAnimations_SpecialFx_17
+	.4byte gSpriteAnimations_SpecialFx_18
+	.4byte gSpriteAnimations_SpecialFx_3
+	.4byte gSpriteAnimations_SpecialFx_20
+	.4byte gSpriteAnimations_SpecialFx_4
+	.4byte gSpriteAnimations_SpecialFx_22
+	.4byte gSpriteAnimations_SpecialFx_23
+	.4byte gSpriteAnimations_SpecialFx_24
+	.4byte gSpriteAnimations_SpecialFx_25
+	.4byte gSpriteAnimations_SpecialFx_26
+	.4byte gSpriteAnimations_SpecialFx_27
+	.4byte gSpriteAnimations_SpecialFx_28
+	.4byte gSpriteAnimations_SpecialFx_29
+	.4byte gSpriteAnimations_SpecialFx_28
+	.4byte gSpriteAnimations_SpecialFx_31
+	.4byte gSpriteAnimations_SpecialFx_32
+	.4byte gSpriteAnimations_SpecialFx_33
+	.4byte gSpriteAnimations_SpecialFx_34
+	.4byte gSpriteAnimations_SpecialFx_35
+	.4byte gSpriteAnimations_SpecialFx_36
+	.4byte gSpriteAnimations_SpecialFx_37
+	.4byte gSpriteAnimations_SpecialFx_7
+	.4byte gSpriteAnimations_SpecialFx_39
+	.4byte gSpriteAnimations_SpecialFx_40
+	.4byte gSpriteAnimations_SpecialFx_41
+	.4byte gSpriteAnimations_SpecialFx_42
+	.4byte gSpriteAnimations_SpecialFx_11
+	.4byte gSpriteAnimations_SpecialFx_44
+	.4byte gSpriteAnimations_SpecialFx_45
+	.4byte gSpriteAnimations_SpecialFx_46
+	.4byte gSpriteAnimations_SpecialFx_47
+	.4byte gSpriteAnimations_SpecialFx_48
+	.4byte gSpriteAnimations_SpecialFx_49
+	.4byte gSpriteAnimations_SpecialFx_50
+	.4byte gSpriteAnimations_SpecialFx_51
+	.4byte gSpriteAnimations_SpecialFx_52
+	.4byte gSpriteAnimations_SpecialFx_1
+	.4byte gSpriteAnimations_SpecialFx_54
+	.4byte gSpriteAnimations_SpecialFx_55
+	.4byte gSpriteAnimations_SpecialFx_56
+	.4byte gSpriteAnimations_SpecialFx_57
+	.4byte gSpriteAnimations_SpecialFx_58
+	.4byte gSpriteAnimations_SpecialFx_59
+	.4byte gSpriteAnimations_SpecialFx_60
+	.4byte gSpriteAnimations_SpecialFx_61
+	.4byte gSpriteAnimations_SpecialFx_62
+	.4byte gSpriteAnimations_SpecialFx_63
+	.4byte gSpriteAnimations_SpecialFx_64
+	.4byte gSpriteAnimations_SpecialFx_31
+	.4byte gSpriteAnimations_SpecialFx_66
+	.4byte gSpriteAnimations_SpecialFx_67
+	.4byte gSpriteAnimations_SpecialFx_68
+	.4byte gSpriteAnimations_SpecialFx_4
+	.4byte gSpriteAnimations_SpecialFx_70
+	.4byte gSpriteAnimations_SpecialFx_71
+	.4byte gSpriteAnimations_SpecialFx_72
+	.4byte gSpriteAnimations_SpecialFx_73
+	.4byte gSpriteAnimations_SpecialFx_74
+	.4byte gSpriteAnimations_SpecialFx_75
+	.4byte gSpriteAnimations_SpecialFx_58
+	.4byte gSpriteAnimations_SpecialFx_7
+	.4byte gSpriteAnimations_SpecialFx_78
+	.4byte gSpriteAnimations_SpecialFx_79
+	.4byte gSpriteAnimations_SpecialFx_80
+	.4byte gSpriteAnimations_SpecialFx_81
+	.4byte gSpriteAnimations_SpecialFx_12
+	.4byte gSpriteAnimations_SpecialFx_2
+	.4byte gSpriteAnimations_SpecialFx_2
+	.4byte gSpriteAnimations_SpecialFx_2
+	.4byte gSpriteAnimations_SpecialFx_86
+	.4byte gSpriteAnimations_SpecialFx_86
 	.4byte 00000000

@@ -675,7 +675,7 @@ sub_0809D738: @ 0x0809D738
 	adds r0, r4, #0
 	movs r1, #6
 	bl sub_0805E3A0
-	bl sub_0805E544
+	bl FreezeTime
 	movs r0, #0x95
 	movs r1, #0xa
 	movs r2, #0

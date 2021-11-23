@@ -5,39 +5,39 @@
     .align 2
 
 gUnk_080CE164:: @ 080CE164
-	.incbin "baserom.gba", 0x0CE164, 0x0000008
+	.incbin "armos/gUnk_080CE164.bin"
 
-gUnk_080CE16C:: @ 080CE16C
-	.incbin "baserom.gba", 0x0CE16C, 0x0000019
+gSpriteAnimations_Armos_0:: @ 080CE16C
+	.include "animations/gSpriteAnimations_Armos_0.s"
 
-gUnk_080CE185:: @ 080CE185
-	.incbin "baserom.gba", 0x0CE185, 0x0000019
+gSpriteAnimations_Armos_1:: @ 080CE185
+	.include "animations/gSpriteAnimations_Armos_1.s"
 
-gUnk_080CE19E:: @ 080CE19E
-	.incbin "baserom.gba", 0x0CE19E, 0x0000019
+gSpriteAnimations_Armos_2:: @ 080CE19E
+	.include "animations/gSpriteAnimations_Armos_2.s"
 
-gUnk_080CE1B7:: @ 080CE1B7
-	.incbin "baserom.gba", 0x0CE1B7, 0x0000019
+gSpriteAnimations_Armos_3:: @ 080CE1B7
+	.include "animations/gSpriteAnimations_Armos_3.s"
 
-gUnk_080CE1D0:: @ 080CE1D0
-	.incbin "baserom.gba", 0x0CE1D0, 0x0000035
+gSpriteAnimations_Armos_4:: @ 080CE1D0
+	.include "animations/gSpriteAnimations_Armos_4.s"
 
-gUnk_080CE205:: @ 080CE205
-	.incbin "baserom.gba", 0x0CE205, 0x0000041
+gSpriteAnimations_Armos_5:: @ 080CE205
+	.include "animations/gSpriteAnimations_Armos_5.s"
 
-gUnk_080CE246:: @ 080CE246
-	.incbin "baserom.gba", 0x0CE246, 0x0000018
+gSpriteAnimations_Armos_6:: @ 080CE246
+	.include "animations/gSpriteAnimations_Armos_6.s"
 
-gUnk_080CE25E:: @ 080CE25E
-	.incbin "baserom.gba", 0x0CE25E, 0x0000006
+gSpriteAnimations_Armos_7:: @ 080CE25E
+	.include "animations/gSpriteAnimations_Armos_7.s"
 
-gUnk_080CE264:: @ 080CE264
-	.4byte gUnk_080CE16C
-	.4byte gUnk_080CE185
-	.4byte gUnk_080CE19E
-	.4byte gUnk_080CE1B7
-	.4byte gUnk_080CE1D0
-	.4byte gUnk_080CE205
-	.4byte gUnk_080CE246
-	.4byte gUnk_080CE25E
+gSpriteAnimations_Armos:: @ 080CE264
+	.4byte gSpriteAnimations_Armos_0
+	.4byte gSpriteAnimations_Armos_1
+	.4byte gSpriteAnimations_Armos_2
+	.4byte gSpriteAnimations_Armos_3
+	.4byte gSpriteAnimations_Armos_4
+	.4byte gSpriteAnimations_Armos_5
+	.4byte gSpriteAnimations_Armos_6
+	.4byte gSpriteAnimations_Armos_7
 	.4byte 00000000

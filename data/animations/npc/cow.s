@@ -4,106 +4,85 @@
 	.section .rodata
     .align 2
 
-gUnk_08111960:: @ 08111960
-	.incbin "baserom.gba", 0x111960, 0x0000005
+gSpriteAnimations_Cow_0:: @ 08111960
+	.include "animations/gSpriteAnimations_Cow_0.s"
 
-gUnk_08111965:: @ 08111965
-	.incbin "baserom.gba", 0x111965, 0x0000005
+gSpriteAnimations_Cow_1:: @ 08111965
+	.include "animations/gSpriteAnimations_Cow_1.s"
 
-gUnk_0811196A:: @ 0811196A
-	.incbin "baserom.gba", 0x11196A, 0x0000005
+gSpriteAnimations_Cow_2:: @ 0811196A
+	.include "animations/gSpriteAnimations_Cow_2.s"
 
-gUnk_0811196F:: @ 0811196F
-	.incbin "baserom.gba", 0x11196F, 0x0000005
+gSpriteAnimations_Cow_3:: @ 0811196F
+	.include "animations/gSpriteAnimations_Cow_3.s"
 
-gUnk_08111974:: @ 08111974
-	.incbin "baserom.gba", 0x111974, 0x0000011
+gSpriteAnimations_Cow_4:: @ 08111974
+	.include "animations/gSpriteAnimations_Cow_4.s"
 
-gUnk_08111985:: @ 08111985
-	.incbin "baserom.gba", 0x111985, 0x0000011
+gSpriteAnimations_Cow_5:: @ 08111985
+	.include "animations/gSpriteAnimations_Cow_5.s"
 
-gUnk_08111996:: @ 08111996
-	.incbin "baserom.gba", 0x111996, 0x0000011
+gSpriteAnimations_Cow_6:: @ 08111996
+	.include "animations/gSpriteAnimations_Cow_6.s"
 
-gUnk_081119A7:: @ 081119A7
-	.incbin "baserom.gba", 0x1119A7, 0x0000011
+gSpriteAnimations_Cow_7:: @ 081119A7
+	.include "animations/gSpriteAnimations_Cow_7.s"
 
-gUnk_081119B8:: @ 081119B8
-	.incbin "baserom.gba", 0x1119B8, 0x000000C
+gSpriteAnimations_Cow_8:: @ 081119B8
+	.include "animations/gSpriteAnimations_Cow_8.s"
 
-gUnk_081119C4:: @ 081119C4
-	.incbin "baserom.gba", 0x1119C4, 0x000000C
+gSpriteAnimations_Cow_9:: @ 081119C4
+	.include "animations/gSpriteAnimations_Cow_9.s"
 
-gUnk_081119D0:: @ 081119D0
-	.incbin "baserom.gba", 0x1119D0, 0x000000C
+gSpriteAnimations_Cow_10:: @ 081119D0
+	.include "animations/gSpriteAnimations_Cow_10.s"
 
-gUnk_081119DC:: @ 081119DC
-	.incbin "baserom.gba", 0x1119DC, 0x000000C
+gSpriteAnimations_Cow_11:: @ 081119DC
+	.include "animations/gSpriteAnimations_Cow_11.s"
 
-gUnk_081119E8:: @ 081119E8
-	.incbin "baserom.gba", 0x1119E8, 0x0000009
+gSpriteAnimations_Cow_12:: @ 081119E8
+	.include "animations/gSpriteAnimations_Cow_12.s"
 
-gUnk_081119F1:: @ 081119F1
-	.incbin "baserom.gba", 0x1119F1, 0x0000005
+gSpriteAnimations_Cow_13:: @ 081119F1
+	.include "animations/gSpriteAnimations_Cow_13.s"
 
-gUnk_081119F6:: @ 081119F6
-	.incbin "baserom.gba", 0x1119F6, 0x0000004
+gSpriteAnimations_Cow_14:: @ 081119FA
+	.include "animations/gSpriteAnimations_Cow_14.s"
 
-gUnk_081119FA:: @ 081119FA
-	.incbin "baserom.gba", 0x1119FA, 0x0000009
+gSpriteAnimations_Cow_15:: @ 08111A03
+	.include "animations/gSpriteAnimations_Cow_15.s"
 
-gUnk_08111A03:: @ 08111A03
-	.incbin "baserom.gba", 0x111A03, 0x0000009
+gSpriteAnimations_Cow_16:: @ 08111A0C
+	.include "animations/gSpriteAnimations_Cow_16.s"
 
-gUnk_08111A0C:: @ 08111A0C
-	.incbin "baserom.gba", 0x111A0C, 0x0000008
+gSpriteAnimations_Cow_17:: @ 08111A14
+	.include "animations/gSpriteAnimations_Cow_17.s"
 
-gUnk_08111A14:: @ 08111A14
-	.incbin "baserom.gba", 0x111A14, 0x0000002
+gSpriteAnimations_Cow_18:: @ 08111A1C
+	.include "animations/gSpriteAnimations_Cow_18.s"
 
-gUnk_08111A16:: @ 08111A16
-	.incbin "baserom.gba", 0x111A16, 0x0000002
+gSpriteAnimations_Cow_19:: @ 08111A24
+	.include "animations/gSpriteAnimations_Cow_19.s"
 
-gUnk_08111A18:: @ 08111A18
-	.incbin "baserom.gba", 0x111A18, 0x0000001
-
-gUnk_08111A19:: @ 08111A19
-	.incbin "baserom.gba", 0x111A19, 0x0000003
-
-gUnk_08111A1C:: @ 08111A1C
-	.incbin "baserom.gba", 0x111A1C, 0x0000003
-
-gUnk_08111A1F:: @ 08111A1F
-	.incbin "baserom.gba", 0x111A1F, 0x0000002
-
-gUnk_08111A21:: @ 08111A21
-	.incbin "baserom.gba", 0x111A21, 0x0000001
-
-gUnk_08111A22:: @ 08111A22
-	.incbin "baserom.gba", 0x111A22, 0x0000002
-
-gUnk_08111A24:: @ 08111A24
-	.incbin "baserom.gba", 0x111A24, 0x0000008
-
-gUnk_08111A2C:: @ 08111A2C
-	.4byte gUnk_08111960
-	.4byte gUnk_08111965
-	.4byte gUnk_0811196A
-	.4byte gUnk_0811196F
-	.4byte gUnk_08111974
-	.4byte gUnk_08111985
-	.4byte gUnk_08111996
-	.4byte gUnk_081119A7
-	.4byte gUnk_081119B8
-	.4byte gUnk_081119C4
-	.4byte gUnk_081119D0
-	.4byte gUnk_081119DC
-	.4byte gUnk_081119E8
-	.4byte gUnk_081119F1
-	.4byte gUnk_081119FA
-	.4byte gUnk_08111A03
-	.4byte gUnk_08111A0C
-	.4byte gUnk_08111A14
-	.4byte gUnk_08111A1C
-	.4byte gUnk_08111A24
+gSpriteAnimations_Cow:: @ 08111A2C
+	.4byte gSpriteAnimations_Cow_0
+	.4byte gSpriteAnimations_Cow_1
+	.4byte gSpriteAnimations_Cow_2
+	.4byte gSpriteAnimations_Cow_3
+	.4byte gSpriteAnimations_Cow_4
+	.4byte gSpriteAnimations_Cow_5
+	.4byte gSpriteAnimations_Cow_6
+	.4byte gSpriteAnimations_Cow_7
+	.4byte gSpriteAnimations_Cow_8
+	.4byte gSpriteAnimations_Cow_9
+	.4byte gSpriteAnimations_Cow_10
+	.4byte gSpriteAnimations_Cow_11
+	.4byte gSpriteAnimations_Cow_12
+	.4byte gSpriteAnimations_Cow_13
+	.4byte gSpriteAnimations_Cow_14
+	.4byte gSpriteAnimations_Cow_15
+	.4byte gSpriteAnimations_Cow_16
+	.4byte gSpriteAnimations_Cow_17
+	.4byte gSpriteAnimations_Cow_18
+	.4byte gSpriteAnimations_Cow_19
 	.4byte 00000000

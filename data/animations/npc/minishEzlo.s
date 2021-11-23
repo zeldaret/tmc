@@ -4,78 +4,63 @@
 	.section .rodata
     .align 2
 
-gUnk_0810C4A0:: @ 0810C4A0
-	.incbin "baserom.gba", 0x10C4A0, 0x0000005
+gSpriteAnimations_MinishEzlo_2:: @ 0810C4A0
+	.include "animations/gSpriteAnimations_MinishEzlo_2.s"
 
-gUnk_0810C4A5:: @ 0810C4A5
-	.incbin "baserom.gba", 0x10C4A5, 0x0000005
+gSpriteAnimations_MinishEzlo_3:: @ 0810C4A5
+	.include "animations/gSpriteAnimations_MinishEzlo_3.s"
 
-gUnk_0810C4AA:: @ 0810C4AA
-	.incbin "baserom.gba", 0x10C4AA, 0x0000005
+gSpriteAnimations_MinishEzlo_1:: @ 0810C4AA
+	.include "animations/gSpriteAnimations_MinishEzlo_1.s"
 
-gUnk_0810C4AF:: @ 0810C4AF
-	.incbin "baserom.gba", 0x10C4AF, 0x0000005
+gSpriteAnimations_MinishEzlo_0:: @ 0810C4AF
+	.include "animations/gSpriteAnimations_MinishEzlo_0.s"
 
-gUnk_0810C4B4:: @ 0810C4B4
-	.incbin "baserom.gba", 0x10C4B4, 0x0000015
+gSpriteAnimations_MinishEzlo_5:: @ 0810C4B4
+	.include "animations/gSpriteAnimations_MinishEzlo_5.s"
 
-gUnk_0810C4C9:: @ 0810C4C9
-	.incbin "baserom.gba", 0x10C4C9, 0x0000015
+gSpriteAnimations_MinishEzlo_4:: @ 0810C4C9
+	.include "animations/gSpriteAnimations_MinishEzlo_4.s"
 
-gUnk_0810C4DE:: @ 0810C4DE
-	.incbin "baserom.gba", 0x10C4DE, 0x00000D1
+gSpriteAnimations_MinishEzlo_13:: @ 0810C4DE
+	.include "animations/gSpriteAnimations_MinishEzlo_13.s"
 
-gUnk_0810C5AF:: @ 0810C5AF
-	.incbin "baserom.gba", 0x10C5AF, 0x000000C
+gSpriteAnimations_MinishEzlo_14:: @ 0810C5BB
+	.include "animations/gSpriteAnimations_MinishEzlo_14.s"
 
-gUnk_0810C5BB:: @ 0810C5BB
-	.incbin "baserom.gba", 0x10C5BB, 0x0000008
+gSpriteAnimations_MinishEzlo_12:: @ 0810C698
+	.include "animations/gSpriteAnimations_MinishEzlo_12.s"
 
-gUnk_0810C5C3:: @ 0810C5C3
-	.incbin "baserom.gba", 0x10C5C3, 0x00000AB
+gSpriteAnimations_MinishEzlo_18:: @ 0810C6E5
+	.include "animations/gSpriteAnimations_MinishEzlo_18.s"
 
-gUnk_0810C66E:: @ 0810C66E
-	.incbin "baserom.gba", 0x10C66E, 0x000001E
+gSpriteAnimations_MinishEzlo_15:: @ 0810C772
+	.include "animations/gSpriteAnimations_MinishEzlo_15.s"
 
-gUnk_0810C68C:: @ 0810C68C
-	.incbin "baserom.gba", 0x10C68C, 0x000000C
+gSpriteAnimations_MinishEzlo_16:: @ 0810C77F
+	.include "animations/gSpriteAnimations_MinishEzlo_16.s"
 
-gUnk_0810C698:: @ 0810C698
-	.incbin "baserom.gba", 0x10C698, 0x000004D
+gSpriteAnimations_MinishEzlo_17:: @ 0810C7AC
+	.include "animations/gSpriteAnimations_MinishEzlo_17.s"
 
-gUnk_0810C6E5:: @ 0810C6E5
-	.incbin "baserom.gba", 0x10C6E5, 0x000008D
-
-gUnk_0810C772:: @ 0810C772
-	.incbin "baserom.gba", 0x10C772, 0x0000003
-
-gUnk_0810C775:: @ 0810C775
-	.incbin "baserom.gba", 0x10C775, 0x000000A
-
-gUnk_0810C77F:: @ 0810C77F
-	.incbin "baserom.gba", 0x10C77F, 0x000002D
-
-gUnk_0810C7AC:: @ 0810C7AC
-	.incbin "baserom.gba", 0x10C7AC, 0x0000008
-
-gUnk_0810C7B4:: @ 0810C7B4
-	.4byte gUnk_0810C4AF
-	.4byte gUnk_0810C4AA
-	.4byte gUnk_0810C4A0
-	.4byte gUnk_0810C4A5
-	.4byte gUnk_0810C4C9
-	.4byte gUnk_0810C4B4
-	.4byte gUnk_0810C4B4
-	.4byte gUnk_0810C4B4
-	.4byte gUnk_0810C4AF
-	.4byte gUnk_0810C4AA
-	.4byte gUnk_0810C4A0
-	.4byte gUnk_0810C4A5
-	.4byte gUnk_0810C698
-	.4byte gUnk_0810C4DE
-	.4byte gUnk_0810C5BB
-	.4byte gUnk_0810C772
-	.4byte gUnk_0810C77F
-	.4byte gUnk_0810C7AC
-	.4byte gUnk_0810C6E5
+gSpriteAnimations_MinishEzlo:: @ 0810C7B4
+	.4byte gSpriteAnimations_MinishEzlo_0
+	.4byte gSpriteAnimations_MinishEzlo_1
+	.4byte gSpriteAnimations_MinishEzlo_2
+	.4byte gSpriteAnimations_MinishEzlo_3
+	.4byte gSpriteAnimations_MinishEzlo_4
+	.4byte gSpriteAnimations_MinishEzlo_5
+	.4byte gSpriteAnimations_MinishEzlo_5
+	.4byte gSpriteAnimations_MinishEzlo_5
+	.4byte gSpriteAnimations_MinishEzlo_0
+	.4byte gSpriteAnimations_MinishEzlo_1
+	.4byte gSpriteAnimations_MinishEzlo_2
+	.4byte gSpriteAnimations_MinishEzlo_3
+	.4byte gSpriteAnimations_MinishEzlo_12
+	.4byte gSpriteAnimations_MinishEzlo_13
+	.4byte gSpriteAnimations_MinishEzlo_14
+	.4byte gSpriteAnimations_MinishEzlo_15
+	.4byte gSpriteAnimations_MinishEzlo_16
+	.4byte gSpriteAnimations_MinishEzlo_17
+	.4byte gSpriteAnimations_MinishEzlo_18
 	.4byte 00000000

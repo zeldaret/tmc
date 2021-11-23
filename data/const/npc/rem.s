@@ -22,19 +22,19 @@ gUnk_08112278:: @ 08112278
 	.4byte sub_0806A5C0
 
 gUnk_08112294:: @ 08112294
-	.incbin "baserom.gba", 0x112294, 0x0000008
+	.incbin "rem/gUnk_08112294.bin"
 
 gUnk_0811229C:: @ 0811229C
-	.incbin "baserom.gba", 0x11229C, 0x0000004
+	.incbin "rem/gUnk_0811229C.bin"
 
 gUnk_081122A0:: @ 081122A0
-	.incbin "baserom.gba", 0x1122A0, 0x0000008
+	.incbin "rem/gUnk_081122A0.bin"
 
 gUnk_081122A8:: @ 081122A8
-	.incbin "baserom.gba", 0x1122A8, 0x0000008
+	.incbin "rem/gUnk_081122A8.bin"
 
 gUnk_081122B0:: @ 081122B0
-	.incbin "baserom.gba", 0x1122B0, 0x0000008
+	.incbin "rem/gUnk_081122B0.bin"
 
 gUnk_081122B8:: @ 081122B8
-	.incbin "baserom.gba", 0x1122B8, 0x0000008
+	.incbin "rem/gUnk_081122B8.bin"

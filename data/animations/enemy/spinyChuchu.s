@@ -3,33 +3,33 @@
 
 	.section .rodata
 
-gUnk_080CBA64:: @ 080CBA64
-	.incbin "baserom.gba", 0x0CBA64, 0x0000041
+gSpriteAnimations_SpinyChuchu_0:: @ 080CBA64
+	.include "animations/gSpriteAnimations_SpinyChuchu_0.s"
 
-gUnk_080CBAA5:: @ 080CBAA5
-	.incbin "baserom.gba", 0x0CBAA5, 0x0000040
+gSpriteAnimations_SpinyChuchu_1:: @ 080CBAA5
+	.include "animations/gSpriteAnimations_SpinyChuchu_1.s"
 
-gUnk_080CBAE5:: @ 080CBAE5
-	.incbin "baserom.gba", 0x0CBAE5, 0x0000018
+gSpriteAnimations_SpinyChuchu_2:: @ 080CBAE5
+	.include "animations/gSpriteAnimations_SpinyChuchu_2.s"
 
-gUnk_080CBAFD:: @ 080CBAFD
-	.incbin "baserom.gba", 0x0CBAFD, 0x0000024
+gSpriteAnimations_SpinyChuchu_3:: @ 080CBAFD
+	.include "animations/gSpriteAnimations_SpinyChuchu_3.s"
 
-gUnk_080CBB21:: @ 080CBB21
-	.incbin "baserom.gba", 0x0CBB21, 0x0000011
+gSpriteAnimations_SpinyChuchu_4:: @ 080CBB21
+	.include "animations/gSpriteAnimations_SpinyChuchu_4.s"
 
-gUnk_080CBB32:: @ 080CBB32
-	.incbin "baserom.gba", 0x0CBB32, 0x000000D
+gSpriteAnimations_SpinyChuchu_5:: @ 080CBB32
+	.include "animations/gSpriteAnimations_SpinyChuchu_5.s"
 
-gUnk_080CBB3F:: @ 080CBB3F
-	.incbin "baserom.gba", 0x0CBB3F, 0x0000005
+gSpriteAnimations_SpinyChuchu_6:: @ 080CBB3F
+	.include "animations/gSpriteAnimations_SpinyChuchu_6.s"
 
-gUnk_080CBB44:: @ 080CBB44
-	.4byte gUnk_080CBA64
-	.4byte gUnk_080CBAA5
-	.4byte gUnk_080CBAE5
-	.4byte gUnk_080CBAFD
-	.4byte gUnk_080CBB21
-	.4byte gUnk_080CBB32
-	.4byte gUnk_080CBB3F
+gSpriteAnimations_SpinyChuchu:: @ 080CBB44
+	.4byte gSpriteAnimations_SpinyChuchu_0
+	.4byte gSpriteAnimations_SpinyChuchu_1
+	.4byte gSpriteAnimations_SpinyChuchu_2
+	.4byte gSpriteAnimations_SpinyChuchu_3
+	.4byte gSpriteAnimations_SpinyChuchu_4
+	.4byte gSpriteAnimations_SpinyChuchu_5
+	.4byte gSpriteAnimations_SpinyChuchu_6
 	.4byte 00000000

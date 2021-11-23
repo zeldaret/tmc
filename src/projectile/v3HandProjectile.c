@@ -4,7 +4,7 @@
 #include "audio.h"
 
 extern s32 sub_080AF090(Entity*);
-extern s32 sub_080A7EB0(Entity*);
+extern s32 IsProjectileOffScreen(Entity*);
 
 extern void (*const V3HandProjectile_Functions[])(Entity*);
 
@@ -27,7 +27,7 @@ void V3HandProjectile_OnTick(Entity* this) {
         DeleteThisEntity();
     }
     GetNextFrame(this);
-    if (sub_080A7EB0(this) != 0) {
+    if (IsProjectileOffScreen(this) != 0) {
         DeleteThisEntity();
     }
 }

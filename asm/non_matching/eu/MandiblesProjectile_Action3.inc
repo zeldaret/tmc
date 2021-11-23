@@ -86,7 +86,7 @@ _080A98B0:
 	ands r0, r1
 	orrs r0, r2
 	strb r0, [r4, #0x1b]
-	ldr r0, _080A98FC @ =gUnk_080FD150
+	ldr r0, _080A98FC @ =gHitbox_0
 	str r0, [r4, #0x48]
 	adds r0, r4, #0
 	movs r1, #0
@@ -94,5 +94,5 @@ _080A98B0:
 _080A98F8:
 	pop {r4, r5, pc}
 	.align 2, 0
-_080A98FC: .4byte gUnk_080FD150
+_080A98FC: .4byte gHitbox_0
 .syntax divided

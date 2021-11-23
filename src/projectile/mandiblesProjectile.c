@@ -10,7 +10,7 @@ extern Entity* sub_08049DF4(u32);
 extern u32 sub_08049F1C(Entity*, Entity*, u32);
 extern s32 sub_080AF090(Entity*);
 extern u32 sub_0806F824(Entity*, Entity*, u32, u32);
-extern Hitbox gUnk_080FD150;
+extern Hitbox gHitbox_0;
 
 extern void (*const MandiblesProjectile_Functions[])(Entity*);
 extern void (*const MandiblesProjectile_Actions[])(Entity*);
@@ -148,7 +148,7 @@ void MandiblesProjectile_Action3(Entity* this) {
                 uVar1 = entity->animationState;
                 this->direction = uVar1 << 2;
                 this->animationState = uVar1 << 0x1a >> 0x1a;
-                this->hitbox = &gUnk_080FD150;
+                this->hitbox = &gHitbox_0;
                 if (CheckIsDungeon() != 0) {
                     this->spriteOrientation.flipY = 1;
                 }
