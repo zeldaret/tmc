@@ -2,8 +2,8 @@
 #include "util.h"
 
 std::filesystem::path AifAsset::generateAssetPath() {
-    std::filesystem::path path = this->path;
-    return path.replace_extension(".aif");
+    std::filesystem::path asset_path = path;
+    return asset_path.replace_extension(".aif");
 }
 
 void AifAsset::convertToHumanReadable(const std::vector<char>& baserom) {
@@ -11,17 +11,17 @@ void AifAsset::convertToHumanReadable(const std::vector<char>& baserom) {
 
     std::filesystem::path toolsPath = "tools";
     std::vector<std::string> cmd;
-    cmd.push_back(toolsPath / "aif2pcm" / "aif2pcm");
-    cmd.push_back(this->path);
-    cmd.push_back(this->assetPath);
+    cmd.push_back(toolsPath / "bin" / "aif2pcm");
+    cmd.push_back(path);
+    cmd.push_back(assetPath);
     check_call(cmd);
 }
 
 void AifAsset::buildToBinary() {
     std::filesystem::path toolsPath = "tools";
     std::vector<std::string> cmd;
-    cmd.push_back(toolsPath / "aif2pcm" / "aif2pcm");
-    cmd.push_back(this->assetPath);
-    cmd.push_back(this->path);
+    cmd.push_back(toolsPath / "bin" / "aif2pcm");
+    cmd.push_back(assetPath);
+    cmd.push_back(path);
     check_call(cmd);
 }

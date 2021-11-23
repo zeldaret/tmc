@@ -1,5 +1,6 @@
 #include "util.h"
 #include <iostream>
+#include <fmt/format.h>
 
 void check_call(const std::vector<std::string>& cmd) {
     std::string cmdstr;
@@ -17,4 +18,11 @@ void check_call(const std::vector<std::string>& cmd) {
         std::cerr << cmdstr << " failed with return code " << code << std::endl;
         std::exit(1);
     }
+}
+
+std::string opt_param(const std::string& format, int defaultVal, int value) {
+    if (value != defaultVal) {
+        return fmt::format(format, value);
+    }
+    return "";
 }

@@ -13,6 +13,7 @@
 #include <fstream>
 #include <iostream>
 #include <nlohmann/json.hpp>
+#include <fmt/format.h>
 
 using nlohmann::json;
 
@@ -107,12 +108,12 @@ int main(int argc, char** argv) {
 
     // Read baserom.
     std::ifstream file(gBaseromPath, std::ios::binary | std::ios::ate);
-    std::streamsize size = file.tellg();
+    auto size = file.tellg();
     file.seekg(0, std::ios::beg);
 
-    std::vector<char> baserom(size);
+    std::vector<char> baserom(static_cast<size_t>(size));
     if (!file.read(baserom.data(), size)) {
-        std::cerr << "Could not read baserom " << gBaseromPath << std::endl;
+        fmt::print(stderr, "Could not read baserom {}\n", gBaseromPath);
         std::exit(1);
     }
     file.close();
@@ -141,7 +142,7 @@ int main(int argc, char** argv) {
 
         std::unique_ptr<OffsetCalculator> offsetCalculator;
 
-        uint currentOffset = 0;
+        int currentOffset = 0;
         for (const auto& asset : assets) {
             if (asset.contains("offsets")) { // Offset definition
                 if (asset["offsets"].contains(gVariant)) {
@@ -221,7 +222,7 @@ std::unique_ptr<BaseAsset> getAssetHandlerByType(const std::filesystem::path& pa
         start = asset["starts"][gVariant];
     }
 
-    std::string type = "";
+    std::string type;
     if (asset.contains("type")) {
         type = asset["type"];
     }
@@ -256,11 +257,11 @@ std::unique_ptr<BaseAsset> getAssetHandlerByType(const std::filesystem::path& pa
                type == "map_collision" || type == "unknown") {
         // TODO implement conversions
         assetHandler = std::make_unique<BaseAsset>(path, start, size, asset);
-    } else if (type == "") {
+    } else if (type.empty()) {
         // Unknown binary asset
         assetHandler = std::make_unique<BaseAsset>(path, start, size, asset);
     } else {
-        std::cerr << "Error: Unimplemented asset type `" << type << "`" << std::endl;
+        fmt::print(stderr, "Error: Unimplemented asset type \"{}\"", type);
         std::exit(1);
     }
     assetHandler->setup();
@@ -287,7 +288,7 @@ bool shouldExtractAsset(const std::filesystem::path& path, const std::filesystem
 
 void extractAsset(std::unique_ptr<BaseAsset>& assetHandler, const std::vector<char>& baserom) {
     // Create the parent directory
-    std::filesystem::path parentDir = std::filesystem::path(assetHandler->getPath());
+    std::filesystem::path parentDir = assetHandler->getPath();
     parentDir.remove_filename();
     std::filesystem::create_directories(parentDir);
 

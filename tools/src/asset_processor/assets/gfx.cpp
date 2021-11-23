@@ -3,7 +3,7 @@
 #include <nlohmann/json.hpp>
 
 std::filesystem::path GfxAsset::generateAssetPath() {
-    std::filesystem::path pngPath = this->path;
+    std::filesystem::path pngPath = path;
     if (pngPath.extension() == ".lz") {
         pngPath.replace_extension("");
     }
@@ -16,11 +16,11 @@ void GfxAsset::convertToHumanReadable(const std::vector<char>& baserom) {
 
     std::filesystem::path toolsPath = "tools";
     std::vector<std::string> cmd;
-    cmd.push_back(toolsPath / "gbagfx" / "gbagfx");
-    cmd.push_back(this->path);
-    cmd.push_back(this->assetPath);
-    if (this->asset.contains("options")) {
-        for (const auto& it : this->asset["options"].items()) {
+    cmd.push_back(toolsPath / "bin" / "gbagfx");
+    cmd.push_back(path);
+    cmd.push_back(assetPath);
+    if (asset.contains("options")) {
+        for (const auto& it : asset["options"].items()) {
             cmd.push_back("-" + it.key());
             cmd.push_back(to_string(it.value()));
         }
@@ -31,8 +31,8 @@ void GfxAsset::convertToHumanReadable(const std::vector<char>& baserom) {
 void GfxAsset::buildToBinary() {
     std::filesystem::path toolsPath = "tools";
     std::vector<std::string> cmd;
-    cmd.push_back(toolsPath / "gbagfx" / "gbagfx");
-    cmd.push_back(this->assetPath);
-    cmd.push_back(this->path);
+    cmd.push_back(toolsPath / "bin" / "gbagfx");
+    cmd.push_back(assetPath);
+    cmd.push_back(path);
     check_call(cmd);
 }

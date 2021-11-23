@@ -7,8 +7,8 @@
 class OffsetCalculator {
 
   public:
-    OffsetCalculator(std::filesystem::path offsetsFile, int baseOffset);
-    void addAsset(int start, std::string symbol);
+    OffsetCalculator(const std::filesystem::path& offsetsFile, int baseOffset_);
+    void addAsset(int start, const std::string& symbol);
 
   private:
     std::ofstream output;

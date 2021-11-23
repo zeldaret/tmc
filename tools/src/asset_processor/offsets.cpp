@@ -1,9 +1,9 @@
 #include "offsets.h"
 
-OffsetCalculator::OffsetCalculator(std::filesystem::path outputFile, int baseOffset) : baseOffset(baseOffset) {
-    output = std::ofstream(outputFile);
+OffsetCalculator::OffsetCalculator(const std::filesystem::path& outputFile, int baseOffset_)
+    : output(outputFile), baseOffset(baseOffset_) {
 }
 
-void OffsetCalculator::addAsset(int start, std::string symbol) {
-    this->output << "\t.equiv offset_" << symbol << ", " << start - this->baseOffset << std::endl;
+void OffsetCalculator::addAsset(int start, const std::string& symbol) {
+    output << "\t.equiv offset_" << symbol << ", " << start - baseOffset << std::endl;
 }

@@ -2,7 +2,7 @@
 #include "util.h"
 
 std::filesystem::path TilesetAsset::generateAssetPath() {
-    std::filesystem::path pngPath = this->path;
+    std::filesystem::path pngPath = path;
     if (pngPath.extension() == ".lz") {
         pngPath.replace_extension("");
     }
@@ -15,9 +15,9 @@ void TilesetAsset::convertToHumanReadable(const std::vector<char>& baserom) {
 
     std::filesystem::path toolsPath = "tools";
     std::vector<std::string> cmd;
-    cmd.push_back(toolsPath / "gbagfx" / "gbagfx");
-    cmd.push_back(this->path);
-    cmd.push_back(this->assetPath);
+    cmd.push_back(toolsPath / "bin" / "gbagfx");
+    cmd.push_back(path);
+    cmd.push_back(assetPath);
     cmd.push_back("-mwidth");
     cmd.push_back("32");
     check_call(cmd);
@@ -26,8 +26,8 @@ void TilesetAsset::convertToHumanReadable(const std::vector<char>& baserom) {
 void TilesetAsset::buildToBinary() {
     std::filesystem::path toolsPath = "tools";
     std::vector<std::string> cmd;
-    cmd.push_back(toolsPath / "gbagfx" / "gbagfx");
-    cmd.push_back(this->assetPath);
-    cmd.push_back(this->path);
+    cmd.push_back(toolsPath / "bin" / "gbagfx");
+    cmd.push_back(assetPath);
+    cmd.push_back(path);
     check_call(cmd);
 }

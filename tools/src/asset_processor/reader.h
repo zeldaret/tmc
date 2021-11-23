@@ -1,7 +1,7 @@
 #ifndef READER_H
 #define READER_H
 
-#include <stdint.h>
+#include <cstdint>
 #include <vector>
 
 typedef uint8_t u8;
@@ -21,26 +21,22 @@ class Reader {
         data = std::vector<char>(first, last);
     }
 
-    u8 read_u8() {
-        return this->data[this->cursor++];
+    s8 read_s8() {
+        return data[static_cast<unsigned long>(cursor++)];
     }
 
-    s8 read_s8() {
-        return (s8)this->read_u8();
+    u8 read_u8() {
+        return static_cast<u8>(read_s8());
     }
 
     u16 read_u16() {
-        u16 val = (u8)this->data[this->cursor] + (((u8)this->data[this->cursor + 1]) << 8);
-        this->cursor += 2;
-        return val;
+        return static_cast<u16>(read_u8() + (read_u8() << 8));
     }
 
     u32 read_u32() {
-        u32 val = ((u8)this->data[this->cursor]) + (((u8)this->data[this->cursor + 1]) << 8) +
-                  (((u8)this->data[this->cursor + 2]) << 16) + (((u8)this->data[this->cursor + 3]) << 24);
-        this->cursor += 4;
-        return val;
+        return static_cast<u32>(read_u16() + (read_u16() << 16));
     }
+
     int cursor = 0;
 
   private:
