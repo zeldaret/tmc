@@ -1,7 +1,7 @@
 #include "offsets.h"
 
 OffsetCalculator::OffsetCalculator(const std::filesystem::path& outputFile, int baseOffset_)
-    : output(outputFile), baseOffset(baseOffset_) {
+    : output(outputFile), baseOffset(baseOffset_), lastEnd(0) {
 }
 
 void OffsetCalculator::addAsset(int start, const std::string& symbol) {
