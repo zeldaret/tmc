@@ -1174,7 +1174,7 @@ SECTIONS {
         data/const/enemy/gyorgFemaleMouth.o(.rodata);
         data/animations/enemy/gyorgFemaleMouth.o(.rodata);
         data/const/enemy/enemy64.o(.rodata);
-        data/const/enemy/treeItem.o(.rodata);
+        src/enemy/treeItem.o(.rodata);
         data/const/enemy/enemy66.o(.rodata);
         src/enemy.o(.rodata);
         data/data_080D3D94.o(.rodata);
