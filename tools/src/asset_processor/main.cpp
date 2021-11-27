@@ -149,10 +149,16 @@ int main(int argc, char** argv) {
                     currentOffset = asset["offsets"][gVariant];
                 }
             } else if (asset.contains("calculateOffsets")) { // Start offset calculation
-                std::filesystem::path path = gAssetsFolder;
-                path = path / asset["calculateOffsets"];
-                int baseOffset = asset["start"].get<int>() + currentOffset;
-                offsetCalculator = std::make_unique<OffsetCalculator>(path, baseOffset);
+                if (gMode == EXTRACT || gMode == BUILD) {
+                    std::filesystem::path path = gAssetsFolder;
+                    path = path / asset["calculateOffsets"];
+                    int baseOffset = 0;
+                    // During build mode the offsets are calculated directly instead of from a base address.
+                    if (gMode == EXTRACT) {
+                        baseOffset = asset["start"].get<int>() + currentOffset;
+                    }
+                    offsetCalculator = std::make_unique<OffsetCalculator>(path, baseOffset);
+                }
             } else if (asset.contains("path")) { // Asset definition
 
                 if (asset.contains("variants")) {
@@ -182,6 +188,10 @@ int main(int argc, char** argv) {
                     }
                     case CONVERT: {
                         std::unique_ptr<BaseAsset> assetHandler = getAssetHandlerByType(path, asset, currentOffset);
+                        if (!std::filesystem::exists(assetHandler->getBuildPath())) {
+                            std::cerr << "Error: Extracted binary file " << assetHandler->getBuildPath() << " does not exist. Run `make` first." << std::endl;
+                            std::exit(1);
+                        }
                         if (shouldConvertAsset(assetHandler)) {
                             if (gVerbose) {
                                 std::cout << "Converting " << assetHandler->getAssetPath() << "..." << std::endl;
@@ -192,11 +202,27 @@ int main(int argc, char** argv) {
                     }
                     case BUILD: {
                         std::unique_ptr<BaseAsset> assetHandler = getAssetHandlerByType(path, asset, currentOffset);
+                        if (!std::filesystem::exists(assetHandler->getAssetPath())) {
+                            std::cerr << "Error: Extracted asset file " << assetHandler->getAssetPath() << " does not exist. Run `make extractassets` first." << std::endl;
+                            std::exit(1);
+                        }
                         if (shouldBuildAsset(assetHandler)) {
                             if (gVerbose) {
                                 std::cout << "Building " << assetHandler->getAssetPath() << "..." << std::endl;
                             }
                             buildAsset(assetHandler);
+                        }
+                        if (offsetCalculator != nullptr) {
+                            // New start is the end of the previous asset.
+                            int start = offsetCalculator->getLastEnd();
+                            // Get the size of the current asset and calculate the end position.
+                            int filesize = static_cast<int>(std::filesystem::file_size(assetHandler->getBuildPath()));
+                            // Align by four bytes.
+                            if (filesize % 4 != 0) {
+                                filesize += 4 - (filesize % 4);
+                            }
+                            offsetCalculator->setLastEnd(start + filesize);
+                            offsetCalculator->addAsset(start, assetHandler->getSymbol());
                         }
                         break;
                     }

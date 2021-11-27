@@ -149,7 +149,7 @@ SUBDIRS  := $(sort $(dir $(OBJS)))
 
 $(shell mkdir -p $(SUBDIRS))
 
-.PHONY: all setup clean-tools mostlyclean clean tidy tools extractassets
+.PHONY: all setup clean-tools mostlyclean clean tidy tools extractassets buildassets custom
 
 MAKEFLAGS += --no-print-directory
 
@@ -162,6 +162,9 @@ all: build/extracted_assets_$(GAME_VERSION)
 target: $(ROM)
 	@$(SHA1) $(BUILD_NAME).sha1
 
+custom: buildassets
+	@$(MAKE) target GAME_VERSION=$(GAME_VERSION)
+
 # kept for backwards compat
 compare: $(ROM)
 	@$(SHA1) $(BUILD_NAME).sha1
@@ -173,11 +176,11 @@ setup: tools
 tools: $(GFX)
 
 $(GFX) $(AIF) $(MID) $(SCANINC) $(PREPROC) $(FIX) $(ASSET_PROCESSOR) tools/bin/agb2mid tools/bin/tmc_strings tools/bin/bin2c &:
-	mkdir tools/cmake-build
+	mkdir -p tools/cmake-build
 	unset CC CXX AS LD && cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=tools -S tools -B tools/cmake-build
 	cmake --build tools/cmake-build -j
 	cmake --install tools/cmake-build
-	
+
 # Automatically extract binary data
 build/extracted_assets_%: $(ASSET_CONFIGS) $(TRANSLATIONS)
 	$(ASSET_PROCESSOR) extract $(GAME_VERSION) $(ASSET_BUILDDIR)
@@ -186,6 +189,10 @@ build/extracted_assets_%: $(ASSET_CONFIGS) $(TRANSLATIONS)
 # Extract assets to human readable form
 extractassets:
 	$(ASSET_PROCESSOR) convert $(GAME_VERSION) $(ASSET_BUILDDIR)
+
+# Build the assets from the human readable form
+buildassets:
+	$(ASSET_PROCESSOR) build $(GAME_VERSION) $(ASSET_BUILDDIR)
 
 mostlyclean: tidy
 	rm -f sound/direct_sound_samples/*.bin
