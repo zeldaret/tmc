@@ -4,19 +4,9 @@
 #include <nlohmann/json_fwd.hpp>
 #include <memory>
 #include <stdexcept>
-#include <stdint.h>
-#include <stdlib.h>
+#include <cstdlib>
 #include <string>
 #include <vector>
-
-typedef uint8_t u8;
-typedef uint16_t u16;
-typedef uint32_t u32;
-typedef uint64_t u64;
-typedef int8_t s8;
-typedef int16_t s16;
-typedef int32_t s32;
-typedef int64_t s64;
 
 void check_call(const std::vector<std::string>& cmd);
 
