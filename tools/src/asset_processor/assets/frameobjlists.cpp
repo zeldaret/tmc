@@ -1,9 +1,8 @@
 #include "frameobjlists.h"
 #include "reader.h"
 #include <algorithm>
-#include <fstream>
-#include <iostream>
 #include <fmt/format.h>
+#include <util/file.h>
 
 void FrameObjListsAsset::convertToHumanReadable(const std::vector<char>& baserom) {
     Reader reader(baserom, start, size);
@@ -73,9 +72,8 @@ void FrameObjListsAsset::convertToHumanReadable(const std::vector<char>& baserom
         }
     }
 
-    std::ofstream out(assetPath);
+    auto file = util::open_file(assetPath, "w");
     for (const auto& line : lines) {
-        out << line;
+        std::fputs(line.c_str(), file.get());
     }
-    out.close();
 }

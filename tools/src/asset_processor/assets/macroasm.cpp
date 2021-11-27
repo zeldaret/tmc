@@ -1,5 +1,6 @@
 #include "macroasm.h"
-#include <fstream>
+#include <fmt/format.h>
+#include <util/file.h>
 
 std::filesystem::path BaseMacroAsmAsset::generateAssetPath() {
     std::filesystem::path asset_path = path;
@@ -14,7 +15,6 @@ std::filesystem::path BaseMacroAsmAsset::generateBuildPath() {
 void BaseMacroAsmAsset::extractBinary(const std::vector<char>& baserom) {
     BaseAsset::extractBinary(baserom);
     // Create dummy .s file that just incbins the .bin file.
-    std::ofstream out(assetPath);
-    out << "\t.incbin " << path << "\n";
-    out.close();
+    auto file = util::open_file(assetPath, "w");
+    fmt::print(file.get(), "\t.incbin \"{}\"\n", path.native());
 }

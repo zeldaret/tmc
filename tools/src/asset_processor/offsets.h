@@ -9,7 +9,7 @@ class OffsetCalculator {
   public:
     OffsetCalculator(const std::filesystem::path& offsetsFile, int baseOffset_);
     void addAsset(int start, const std::string& symbol);
-    int getLastEnd() const {
+    [[nodiscard]] int getLastEnd() const {
         return lastEnd;
     }
     void setLastEnd(int lastEnd_) {

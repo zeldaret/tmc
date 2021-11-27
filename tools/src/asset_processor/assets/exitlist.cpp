@@ -1,8 +1,7 @@
 #include "exitlist.h"
 #include "reader.h"
-#include <fstream>
-#include <iostream>
 #include <fmt/format.h>
+#include <util/file.h>
 
 void ExitListAsset::convertToHumanReadable(const std::vector<char>& baserom) {
     Reader reader(baserom, start, size);
@@ -41,9 +40,8 @@ void ExitListAsset::convertToHumanReadable(const std::vector<char>& baserom) {
         lines.emplace_back("\n");
     }
 
-    std::ofstream out(assetPath);
+    auto file = util::open_file(assetPath, "w");
     for (const auto& line : lines) {
-        out << line;
+        std::fputs(line.c_str(), file.get());
     }
-    out.close();
 }

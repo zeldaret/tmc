@@ -1,8 +1,7 @@
 #include "animation.h"
 #include "reader.h"
-#include <fstream>
-#include <iostream>
 #include <fmt/format.h>
+#include <util/file.h>
 
 void AnimationAsset::convertToHumanReadable(const std::vector<char>& baserom) {
     Reader reader(baserom, start, size);
@@ -29,9 +28,8 @@ void AnimationAsset::convertToHumanReadable(const std::vector<char>& baserom) {
         u8 keyframe_count = reader.read_u8();
         lines.push_back(fmt::format("\t.byte {} @ keyframe count\n", keyframe_count));
     }
-    std::ofstream out(assetPath);
+    auto file = util::open_file(assetPath, "w");
     for (const auto& line : lines) {
-        out << line;
+        std::fputs(line.c_str(), file.get());
     }
-    out.close();
 }

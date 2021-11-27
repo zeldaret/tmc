@@ -2,11 +2,9 @@
 #include "reader.h"
 #include "util.h"
 #include <filesystem>
-#include <iostream>
-#include <fstream>
-#include <util/file.h>
 #include <nlohmann/json.hpp>
 #include <fmt/format.h>
+#include <util/file.h>
 
 extern std::string gBaseromPath;
 
@@ -33,21 +31,20 @@ void MidiAsset::extractBinary(const std::vector<char>& baserom) {
 
     // Extract tracks
     {
-        auto file = util::open_file(tracksPath.string(), "w");
+        auto file = util::open_file(tracksPath, "w");
         std::fwrite(baserom.data() + start, 1, static_cast<size_t>(headerOffset), file.get());
     }
     // Extract header
     {
-        auto file = util::open_file(headerPath.string(), "w");
+        auto file = util::open_file(headerPath, "w");
         std::fwrite(baserom.data() + start + headerOffset, 1, static_cast<size_t>(size - headerOffset), file.get());
     }
 
     // Create dummy .s file.
-    std::ofstream out(buildPath);
-    out << "\t.incbin " << tracksPath << "\n";
-    out << label << "::\n";
-    out << "\t.incbin " << headerPath << "\n";
-    out.close();
+    auto file = util::open_file(buildPath, "w");
+    fmt::print(file.get(), "\t.incbin \"{}\"\n", tracksPath.native());
+    fmt::print(file.get(), "{}::\n", label);
+    fmt::print(file.get(), "\t.incbin \"{}\"\n", headerPath.native());
 }
 
 void MidiAsset::parseOptions(std::vector<std::string>& commonParams, std::vector<std::string>& agb2midParams) {
