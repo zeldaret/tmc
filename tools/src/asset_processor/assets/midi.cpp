@@ -4,6 +4,7 @@
 #include <filesystem>
 #include <iostream>
 #include <fstream>
+#include <util/file.h>
 #include <nlohmann/json.hpp>
 #include <fmt/format.h>
 
@@ -32,21 +33,13 @@ void MidiAsset::extractBinary(const std::vector<char>& baserom) {
 
     // Extract tracks
     {
-        auto first = baserom.begin() + start;
-        auto last = baserom.begin() + start + headerOffset;
-        std::vector<char> data(first, last);
-        std::fstream file(tracksPath, std::ios::out | std::ios::binary);
-        file.write(&data[0], static_cast<std::streamsize>(data.size()));
-        file.close();
+        auto file = util::open_file(tracksPath.string(), "w");
+        std::fwrite(baserom.data() + start, 1, static_cast<size_t>(headerOffset), file.get());
     }
     // Extract header
     {
-        auto first = baserom.begin() + start + headerOffset;
-        auto last = baserom.begin() + start + size;
-        std::vector<char> data(first, last);
-        std::fstream file(headerPath, std::ios::out | std::ios::binary);
-        file.write(&data[0], static_cast<std::streamsize>(data.size()));
-        file.close();
+        auto file = util::open_file(headerPath.string(), "w");
+        std::fwrite(baserom.data() + start + headerOffset, 1, static_cast<size_t>(size - headerOffset), file.get());
     }
 
     // Create dummy .s file.

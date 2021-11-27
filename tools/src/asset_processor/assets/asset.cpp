@@ -1,11 +1,7 @@
 #include "asset.h"
-#include <fstream>
+#include <util/file.h>
 
 void BaseAsset::extractBinary(const std::vector<char>& baserom) {
-    auto first = baserom.begin() + start;
-    auto last = baserom.begin() + start + size;
-    std::vector<char> data(first, last);
-    std::fstream file(path, std::ios::out | std::ios::binary);
-    file.write(&data[0], static_cast<std::streamsize>(data.size()));
-    file.close();
+    auto file = util::open_file(path.string(), "w");
+    std::fwrite(baserom.data() + start, 1, static_cast<size_t>(size), file.get());
 }
