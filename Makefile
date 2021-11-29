@@ -177,7 +177,7 @@ tools: $(GFX)
 
 $(GFX) $(AIF) $(MID) $(SCANINC) $(PREPROC) $(FIX) $(ASSET_PROCESSOR) tools/bin/agb2mid tools/bin/tmc_strings tools/bin/bin2c &:
 	mkdir -p tools/cmake-build
-	unset CC CXX AS LD && cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=tools -S tools -B tools/cmake-build
+	unset CC CXX AS LD LDFLAGS && cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=tools -S tools -B tools/cmake-build
 	cmake --build tools/cmake-build -j
 	cmake --install tools/cmake-build
 
