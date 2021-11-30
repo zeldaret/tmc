@@ -38,7 +38,8 @@ void sub_0809B7A0(Entity* this) {
 }
 
 void sub_0809B7C0(Entity* this) {
-    if (GetTileTypeByEntity(this) - 0x4061 > 1) {
+    u32 tileType = GetTileTypeByEntity(this);
+    if (tileType != 0x4061 && tileType != 0x4062) {
         sub_0809B7DC(this);
     }
 }
