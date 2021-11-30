@@ -5,6 +5,7 @@
 #include "flags.h"
 #include "coord.h"
 #include "main.h"
+#include "functions.h"
 
 typedef struct {
     Manager manager;
@@ -15,16 +16,12 @@ typedef struct {
     u8 unk_25[0x1B];
 } Manager14;
 
-extern u8 gUnk_03003DE4;
-extern u16 gUnk_02017AA0[];
-
 const u16 gUnk_08108588[] = { 0x1000, 0xF01, 0xE02, 0xD03, 0xC04, 0xB05, 0xA06, 0x907, 0x808 };
 
 const u16 gUnk_0810859A[] = { 0x808, 0x907, 0xA06, 0x907 };
 
-extern void sub_08052D74(void*, void (*)(), void (*)());
-extern void sub_08056250(void);
 extern void sub_0805622C(u16*, u32, u32);
+extern u16 gUnk_02017AA0[];
 
 void Manager14_Main(Manager14*);
 void sub_08059E80(Manager14*);

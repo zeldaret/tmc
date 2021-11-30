@@ -31,8 +31,6 @@ void Manager1A_Main(Manager1A* this) {
     gUnk_08108668[this->manager.action](this);
 }
 
-extern void sub_08052D74(void*, void*, void*);
-
 typedef struct struct_08108764 {
     u8 unk_00;
     u8 unk_01; // area ID?

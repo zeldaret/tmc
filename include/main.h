@@ -97,6 +97,7 @@ extern u16 gPaletteBuffer[];
 extern void VBlankInterruptWait(void);
 extern void DisableInterruptsAndDMA(void);
 extern void EnableVBlankIntr(void);
+extern void sub_08056250(void);
 
 static void sub_08055F70(void);
 static bool32 SoftResetKeysPressed(void);
