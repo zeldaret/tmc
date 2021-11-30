@@ -30,7 +30,7 @@ CFile::CFile(std::string path) {
 
     std::fseek(fp, 0, SEEK_END);
 
-    m_size = std::ftell(fp);
+    m_size = static_cast<size_t>(std::ftell(fp));
 
     m_buffer = new char[m_size + 1];
     m_buffer[m_size] = 0;
@@ -144,7 +144,7 @@ void CFile::SkipWhitespace() {
 bool CFile::CheckIdentifier(const std::string& ident) {
     unsigned int i;
 
-    for (i = 0; i < ident.length() && m_pos + i < (unsigned)m_size; i++)
+    for (i = 0; i < ident.length() && m_pos + i < m_size; i++)
         if (ident[i] != m_buffer[m_pos + i])
             return false;
 
@@ -193,8 +193,8 @@ void CFile::CheckIncbin() {
     if (incbinType == -1)
         return;
 
-    long oldPos = m_pos;
-    long oldLineNum = m_lineNum;
+    auto oldPos = m_pos;
+    auto oldLineNum = m_lineNum;
 
     m_pos += idents[incbinType].length();
 
@@ -239,7 +239,7 @@ std::string CFile::ReadPath() {
 
     m_pos++;
 
-    int startPos = m_pos;
+    auto startPos = m_pos;
 
     while (m_buffer[m_pos] != '"') {
         if (m_buffer[m_pos] == 0) {

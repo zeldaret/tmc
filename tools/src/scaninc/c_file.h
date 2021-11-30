@@ -40,8 +40,8 @@ class CFile {
 
   private:
     char* m_buffer;
-    int m_pos;
-    int m_size;
+    size_t m_pos;
+    size_t m_size;
     int m_lineNum;
     std::string m_path;
     std::set<std::string> m_incbins;

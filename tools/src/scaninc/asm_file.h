@@ -34,8 +34,8 @@ class AsmFile {
 
   private:
     char* m_buffer;
-    int m_pos;
-    int m_size;
+    size_t m_pos;
+    size_t m_size;
     int m_lineNum;
     std::string m_path;
 
@@ -74,8 +74,8 @@ class AsmFile {
     }
 
     bool MatchIncDirective(std::string directiveName, std::string& path) {
-        int length = directiveName.length();
-        int i;
+        size_t length = directiveName.length();
+        size_t i;
 
         for (i = 0; i < length && m_pos + i < m_size; i++)
             if (directiveName[i] != m_buffer[m_pos + i])

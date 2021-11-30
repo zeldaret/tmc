@@ -33,7 +33,7 @@ AsmFile::AsmFile(std::string path) {
 
     std::fseek(fp, 0, SEEK_END);
 
-    m_size = std::ftell(fp);
+    m_size = static_cast<size_t>(std::ftell(fp));
 
     m_buffer = new char[m_size];
 
@@ -60,8 +60,7 @@ IncDirectiveType AsmFile::ReadUntilIncDirective(std::string& path) {
 
         IncDirectiveType incDirectiveType = IncDirectiveType::None;
 
-        char c = PeekChar();
-        if (c == '.' || c == '#') {
+        if (char c = static_cast<char>(PeekChar()); c == '.' || c == '#') {
             m_pos++;
 
             if (MatchIncDirective("incbin", path))
@@ -95,8 +94,8 @@ IncDirectiveType AsmFile::ReadUntilIncDirective(std::string& path) {
 }
 
 std::string AsmFile::ReadPath() {
-    int length = 0;
-    int startPos = m_pos;
+    size_t length = 0;
+    size_t startPos = m_pos;
 
     for (;;) {
         int c = GetChar();
