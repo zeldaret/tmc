@@ -25,40 +25,13 @@
 #include <cstdlib>
 #include <fmt/format.h>
 
-#ifdef _MSC_VER
+#define INPUT_ERROR_MESSAGE(format) "{}:{} " format, m_path.c_str(), m_lineNum
 
-#define FATAL_INPUT_ERROR(format, ...)                                            \
-    do {                                                                          \
-        fprintf(stderr, "%s:%d " format, m_path.c_str(), m_lineNum, __VA_ARGS__); \
-        exit(1);                                                                  \
-    } while (0)
-
-#define FATAL_ERROR(format, ...)              \
-    do {                                      \
-        fprintf(stderr, format, __VA_ARGS__); \
-        exit(1);                              \
-    } while (0)
-
-#else
-
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wgnu-zero-variadic-macro-arguments"
-
-#define FATAL_INPUT_ERROR(format, ...)                                              \
-    do {                                                                            \
-        fmt::print(stderr, "%s:%d " format, m_path.c_str(), m_lineNum, ##__VA_ARGS__); \
-        exit(1);                                                                    \
-    } while (0)
-
-#define FATAL_ERROR(format, ...)                \
-    do {                                        \
-        fmt::print(stderr, format, ##__VA_ARGS__); \
-        exit(1);                                \
-    } while (0)
-
-#pragma GCC diagnostic pop
-
-#endif // _MSC_VER
+template<typename...T>
+inline void fatal_error(std::string_view format, T...args){
+    fmt::print(stderr, format, args...);
+    exit(EXIT_FAILURE);
+}
 
 #define SCANINC_MAX_PATH 255
 

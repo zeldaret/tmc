@@ -50,7 +50,7 @@ class AsmFile {
                 m_lineNum++;
                 return '\n';
             } else {
-                FATAL_INPUT_ERROR("CR line endings are not supported\n");
+                fatal_error(INPUT_ERROR_MESSAGE("CR line endings are not supported\n"));
             }
         }
 
@@ -89,7 +89,7 @@ class AsmFile {
         SkipTabsAndSpaces();
 
         if (GetChar() != '"')
-            FATAL_INPUT_ERROR("no path after \".%s\" directive\n", directiveName.c_str());
+            fatal_error(INPUT_ERROR_MESSAGE("no path after \".%s\" directive\n"), directiveName.c_str());
 
         path = ReadPath();
 

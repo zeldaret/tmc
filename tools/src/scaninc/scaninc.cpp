@@ -62,14 +62,14 @@ int main(int argc, char** argv) {
             }
             includeDirs.push_back(includeDir);
         } else {
-            FATAL_ERROR(USAGE);
+            fatal_error(USAGE);
         }
         argc--;
         argv++;
     }
 
     if (argc != 1) {
-        FATAL_ERROR(USAGE);
+        fatal_error(USAGE);
     }
 
     std::string initialPath(argv[0]);
@@ -92,8 +92,8 @@ int main(int argc, char** argv) {
                 }
             }
         }
-        for (auto include : file.GetIncludes()) {
-            for (auto includeDir : includeDirs) {
+        for (const auto &include : file.GetIncludes()) {
+            for (const auto &includeDir : includeDirs) {
                 std::string path(includeDir + include);
                 if (CanOpenFile(path)) {
                     bool inserted = dependencies.insert(path).second;

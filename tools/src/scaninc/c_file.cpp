@@ -26,7 +26,7 @@ CFile::CFile(std::string path) {
     FILE* fp = std::fopen(path.c_str(), "rb");
 
     if (fp == NULL)
-        FATAL_ERROR("Failed to open \"%s\" for reading.\n", path.c_str());
+        fatal_error("Failed to open \"%s\" for reading.\n", path.c_str());
 
     std::fseek(fp, 0, SEEK_END);
 
@@ -38,7 +38,7 @@ CFile::CFile(std::string path) {
     std::rewind(fp);
 
     if (std::fread(m_buffer, m_size, 1, fp) != 1)
-        FATAL_ERROR("Failed to read \"%s\".\n", path.c_str());
+        fatal_error("Failed to read \"%s\".\n", path.c_str());
 
     std::fclose(fp);
 
@@ -82,7 +82,7 @@ void CFile::FindIncbins() {
             else if (c == '\'')
                 stringChar = '\'';
             else if (c == 0)
-                FATAL_INPUT_ERROR("unexpected null character");
+                fatal_error(INPUT_ERROR_MESSAGE("unexpected null character"));
         }
     }
 }
@@ -224,7 +224,7 @@ void CFile::CheckIncbin() {
     }
 
     if (m_buffer[m_pos] != ')')
-        FATAL_INPUT_ERROR("expected ')'");
+        fatal_error(INPUT_ERROR_MESSAGE("expected ')'"));
 
     m_pos++;
 }
@@ -234,7 +234,7 @@ std::string CFile::ReadPath() {
         if (m_buffer[m_pos] == '<') {
             return std::string();
         }
-        FATAL_INPUT_ERROR("expected '\"' or '<'");
+        fatal_error(INPUT_ERROR_MESSAGE("expected '\"' or '<'"));
     }
 
     m_pos++;
@@ -244,16 +244,16 @@ std::string CFile::ReadPath() {
     while (m_buffer[m_pos] != '"') {
         if (m_buffer[m_pos] == 0) {
             if (m_pos >= m_size)
-                FATAL_INPUT_ERROR("unexpected EOF in path string");
+                fatal_error(INPUT_ERROR_MESSAGE("unexpected EOF in path string"));
             else
-                FATAL_INPUT_ERROR("unexpected null character in path string");
+                fatal_error(INPUT_ERROR_MESSAGE("unexpected null character in path string"));
         }
 
         if (m_buffer[m_pos] == '\r' || m_buffer[m_pos] == '\n')
-            FATAL_INPUT_ERROR("unexpected end of line character in path string");
+            fatal_error(INPUT_ERROR_MESSAGE("unexpected end of line character in path string"));
 
         if (m_buffer[m_pos] == '\\')
-            FATAL_INPUT_ERROR("unexpected escape in path string");
+            fatal_error(INPUT_ERROR_MESSAGE("unexpected escape in path string"));
 
         m_pos++;
     }

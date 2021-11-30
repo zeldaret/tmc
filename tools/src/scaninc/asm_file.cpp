@@ -29,7 +29,7 @@ AsmFile::AsmFile(std::string path) {
     FILE* fp = std::fopen(path.c_str(), "rb");
 
     if (fp == NULL)
-        FATAL_ERROR("Failed to open \"%s\" for reading.\n", path.c_str());
+        fatal_error("Failed to open \"%s\" for reading.\n", path.c_str());
 
     std::fseek(fp, 0, SEEK_END);
 
@@ -40,7 +40,7 @@ AsmFile::AsmFile(std::string path) {
     std::rewind(fp);
 
     if (std::fread(m_buffer, m_size, 1, fp) != 1)
-        FATAL_ERROR("Failed to read \"%s\".\n", path.c_str());
+        fatal_error("Failed to read \"%s\".\n", path.c_str());
 
     std::fclose(fp);
 
@@ -104,22 +104,22 @@ std::string AsmFile::ReadPath() {
             break;
 
         if (c == -1)
-            FATAL_INPUT_ERROR("unexpected EOF in include string\n");
+            fatal_error(INPUT_ERROR_MESSAGE("unexpected EOF in include string\n"));
 
         if (c == 0)
-            FATAL_INPUT_ERROR("unexpected NUL character in include string\n");
+            fatal_error(INPUT_ERROR_MESSAGE("unexpected NUL character in include string\n"));
 
         if (c == '\n')
-            FATAL_INPUT_ERROR("unexpected end of line character in include string\n");
+            fatal_error(INPUT_ERROR_MESSAGE("unexpected end of line character in include string\n"));
 
         // Don't bother allowing any escape sequences.
         if (c == '\\')
-            FATAL_INPUT_ERROR("unexpected escape in include string\n");
+            fatal_error(INPUT_ERROR_MESSAGE("unexpected escape in include string\n"));
 
         length++;
 
         if (length > SCANINC_MAX_PATH)
-            FATAL_INPUT_ERROR("path is too long");
+            fatal_error(INPUT_ERROR_MESSAGE("path is too long"));
     }
 
     return std::string(m_buffer + startPos, length);
@@ -156,10 +156,10 @@ void AsmFile::SkipString() {
             break;
 
         if (c == -1)
-            FATAL_INPUT_ERROR("unexpected EOF in string\n");
+            fatal_error(INPUT_ERROR_MESSAGE("unexpected EOF in string\n"));
 
         if (c == '\\') {
-            c = GetChar();
+                c = GetChar();
         }
     }
 }
