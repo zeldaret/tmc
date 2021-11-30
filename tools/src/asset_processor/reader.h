@@ -6,7 +6,9 @@
 
 class Reader {
   public:
-    Reader(const std::vector<char>& baserom, int start, int size_) : data(baserom.data() + start), size(size_) {
+    Reader(const std::vector<char>& baserom, int start, [[maybe_unused]]int size_)
+        : data(baserom.data() + start) //, size(size_)
+    {
     }
 
     [[nodiscard]] s8 read_s8() {
@@ -30,7 +32,7 @@ class Reader {
 
   private:
     const char* data;
-    const int size;
+    // const int size;
 };
 
 #endif

@@ -5,7 +5,7 @@
 
 void ExitListAsset::convertToHumanReadable(const std::vector<char>& baserom) {
     Reader reader(baserom, start, size);
-    std::vector<std::string> lines;
+    auto file = util::open_file(assetPath, "w");
     while (reader.cursor < size) {
         u16 transition_type = reader.read_u16();
         u16 x_pos = reader.read_u16();
@@ -21,27 +21,23 @@ void ExitListAsset::convertToHumanReadable(const std::vector<char>& baserom) {
         u16 unknown_5 = reader.read_u16();
         u16 padding_1 = reader.read_u16();
         if (transition_type == 0xffff) {
-            lines.emplace_back("\texit_list_end\n");
+            std::fputs("\texit_list_end\n", file.get());
             break;
         }
-        lines.push_back(fmt::format("\texit transition={}", transition_type));
-        lines.push_back(opt_param(", x={:#x}", 0, x_pos));
-        lines.push_back(opt_param(", y={:#x}", 0, y_pos));
-        lines.push_back(opt_param(", destX={:#x}", 0, dest_x));
-        lines.push_back(opt_param(", destY={:#x}", 0, dest_y));
-        lines.push_back(opt_param(", screenEdge={:#x}", 0, screen_edge));
-        lines.push_back(opt_param(", destArea={:#x}", 0, dest_area));
-        lines.push_back(opt_param(", destRoom={:#x}", 0, dest_room));
-        lines.push_back(opt_param(", unknown={:#x}", 0, unknown_2));
-        lines.push_back(opt_param(", unknown2={:#x}", 0, unknown_3));
-        lines.push_back(opt_param(", unknown3={:#x}", 0, unknown_4));
-        lines.push_back(opt_param(", unknown4={:#x}", 0, unknown_5));
-        lines.push_back(opt_param(", padding={:#x}", 0, padding_1));
-        lines.emplace_back("\n");
-    }
-
-    auto file = util::open_file(assetPath, "w");
-    for (const auto& line : lines) {
+        auto line = fmt::format("\texit transition={}", transition_type);
+        line += opt_param(", x={:#x}", 0, x_pos);
+        line += opt_param(", y={:#x}", 0, y_pos);
+        line += opt_param(", destX={:#x}", 0, dest_x);
+        line += opt_param(", destY={:#x}", 0, dest_y);
+        line += opt_param(", screenEdge={:#x}", 0, screen_edge);
+        line += opt_param(", destArea={:#x}", 0, dest_area);
+        line += opt_param(", destRoom={:#x}", 0, dest_room);
+        line += opt_param(", unknown={:#x}", 0, unknown_2);
+        line += opt_param(", unknown2={:#x}", 0, unknown_3);
+        line += opt_param(", unknown3={:#x}", 0, unknown_4);
+        line += opt_param(", unknown4={:#x}", 0, unknown_5);
+        line += opt_param(", padding={:#x}", 0, padding_1);
         std::fputs(line.c_str(), file.get());
+        std::fputc('\n', file.get());
     }
 }

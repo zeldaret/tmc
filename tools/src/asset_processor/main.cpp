@@ -189,7 +189,8 @@ int main(int argc, char** argv) {
                     case CONVERT: {
                         std::unique_ptr<BaseAsset> assetHandler = getAssetHandlerByType(path, asset, currentOffset);
                         if (!std::filesystem::exists(assetHandler->getBuildPath())) {
-                            std::cerr << "Error: Extracted binary file " << assetHandler->getBuildPath() << " does not exist. Run `make` first." << std::endl;
+                            std::cerr << "Error: Extracted binary file " << assetHandler->getBuildPath()
+                                      << " does not exist. Run `make` first." << std::endl;
                             std::exit(1);
                         }
                         if (shouldConvertAsset(assetHandler)) {
@@ -203,7 +204,8 @@ int main(int argc, char** argv) {
                     case BUILD: {
                         std::unique_ptr<BaseAsset> assetHandler = getAssetHandlerByType(path, asset, currentOffset);
                         if (!std::filesystem::exists(assetHandler->getAssetPath())) {
-                            std::cerr << "Error: Extracted asset file " << assetHandler->getAssetPath() << " does not exist. Run `make extractassets` first." << std::endl;
+                            std::cerr << "Error: Extracted asset file " << assetHandler->getAssetPath()
+                                      << " does not exist. Run `make extractassets` first." << std::endl;
                             std::exit(1);
                         }
                         if (shouldBuildAsset(assetHandler)) {
