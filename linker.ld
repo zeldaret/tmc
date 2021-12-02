@@ -846,7 +846,7 @@ SECTIONS {
         asm/object8A.o(.text);
         asm/object8B.o(.text);
         src/object/book.o(.text);
-        asm/fireplace.o(.text);
+        src/object/fireplace.o(.text);
         asm/object8E.o(.text);
         asm/frozenWaterElement.o(.text);
         asm/object90.o(.text);
