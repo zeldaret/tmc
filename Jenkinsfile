@@ -26,8 +26,8 @@ pipeline {
             }
             steps {
                 sh 'mkdir reports'
-                sh 'python3 progress.py >> reports/progress_tmc.csv'
-                sh 'python3 progress.py -m >> reports/progress_tmc_matching.csv'
+                sh 'python3 progress.py csv >> reports/progress_tmc.csv'
+                sh 'python3 progress.py csv -m >> reports/progress_tmc_matching.csv'
                 stash includes: 'reports/*', name: 'reports'
             }
         }
