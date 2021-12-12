@@ -133,7 +133,7 @@ _080A7CDC:
 	bl sub_0807B7D8
 	movs r0, #0
 	movs r1, #0x78
-	bl sub_0805E4E0
+	bl RequestPriorityDuration
 	ldr r0, _080A7CF8 @ =0x0000011B
 	bl SoundReq
 _080A7CF4:

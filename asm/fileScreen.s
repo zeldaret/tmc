@@ -171,7 +171,7 @@ _08051AA8: .4byte gMain
 	thumb_func_start InitializeNewRoom
 InitializeNewRoom: @ 0x08051AAC
 	push {lr}
-	bl sub_0805E5A8
+	bl SetInitializationPriority
 	ldr r1, _08051AE4 @ =gScreen
 	movs r2, #0
 	movs r0, #0xba
@@ -248,14 +248,14 @@ _08051796:
 	cmp r4, #0
 	bne _080517DC
 	bl sub_08052C5C
-	bl sub_0805E5B4
+	bl ResetSystemPriority
 	bl sub_08051E04
 	bl sub_080300C4
 	ldr r1, _080517F0 @ =gMain
 	movs r0, #2
 	strb r0, [r1, #4]
 	movs r0, #0
-	bl sub_08078A90
+	bl SetPlayerControl
 	ldr r0, _080517F4 @ =gUnk_02034490
 	strb r4, [r0]
 	bl sub_08053178
@@ -266,7 +266,7 @@ _08051796:
 	bne _080517DC
 	movs r0, #0
 	movs r1, #1
-	bl sub_0805E4E0
+	bl RequestPriorityDuration
 _080517DC:
 	pop {r4, pc}
 	.align 2, 0
@@ -330,14 +330,14 @@ _08051B5A:
 	cmp r4, #0
 	bne _08051BAE
 	bl sub_08052C5C
-	bl sub_0805E5B4
+	bl ResetSystemPriority
 	bl sub_08051E04
 	bl sub_080300C4
 	ldr r1, _08051BC4 @ =gMain
 	movs r0, #2
 	strb r0, [r1, #4]
 	movs r0, #0
-	bl sub_08078A90
+	bl SetPlayerControl
 	ldr r0, _08051BC8 @ =gUnk_02034490
 	strb r4, [r0]
 .ifdef DEMO_JP
@@ -394,7 +394,7 @@ _08051B96:
 	bne _08051BAE
 	movs r0, #0
 	movs r1, #1
-	bl sub_0805E4E0
+	bl RequestPriorityDuration
 _08051BAE:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -433,7 +433,7 @@ sub_08051BD0: @ 0x08051BD0
 	ands r0, r1
 	cmp r0, #0
 	bne _08051C02
-	ldr r0, _08051C64 @ =gUnk_03003DC0
+	ldr r0, _08051C64 @ =gPriorityHandler
 	ldrh r0, [r0, #8]
 	cmp r0, #0
 	beq _08051C06
@@ -453,7 +453,7 @@ _08051C06:
 	bl sub_0801C208
 	bl sub_08078CB4
 	bl sub_080AD9B0
-	bl sub_0805291C
+	bl HandleRoomExit
 	bl sub_08052C5C
 	bl sub_080528B4
 	bl sub_080185F8
@@ -468,7 +468,7 @@ _08051C06:
 	.align 2, 0
 _08051C5C: .4byte gMain
 _08051C60: .4byte gMessage
-_08051C64: .4byte gUnk_03003DC0
+_08051C64: .4byte gPriorityHandler
 _08051C68: .4byte gRoomControls
 _08051C6C:
 	ldr r0, _08051C80 @ =gPlayerState
@@ -476,7 +476,7 @@ _08051C6C:
 	strb r1, [r0, #0xc]
 	ldr r0, _08051C84 @ =gMain
 	strb r2, [r0, #4]
-	bl sub_0805E59C
+	bl SetRoomReloadPriority
 	bl sub_08051D98
 	b _08051C9C
 	.align 2, 0
@@ -489,7 +489,7 @@ _08051C88:
 	ldr r1, _08051CA4 @ =gMain
 	movs r0, #1
 	strb r0, [r1, #4]
-	bl sub_0805E59C
+	bl SetRoomReloadPriority
 	bl sub_08051DCC
 _08051C9C:
 	pop {pc}
@@ -511,14 +511,14 @@ sub_08051CA8: @ 0x08051CA8
 	bl sub_0801C208
 	bl sub_08078CB4
 	bl sub_080AD9B0
-	bl sub_0805291C
+	bl HandleRoomExit
 	bl sub_080528B4
 	bl sub_080AD918
 	ldr r0, _08051CEC @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _08051CEA
-	bl sub_0805E5B4
+	bl ResetSystemPriority
 _08051CEA:
 	pop {pc}
 	.align 2, 0
@@ -592,7 +592,7 @@ InitializeEntities: @ 0x08051D40
 	bl sub_0805283C
 	movs r0, #0
 	movs r1, #0
-	bl sub_0801D79C
+	bl SetColor
 	bl LoadRoom
 	bl CreateZeldaFollower
 	bl sub_0804AFF4
@@ -622,7 +622,7 @@ sub_08051D98: @ 0x08051D98
 	bl LoadRoom
 	bl sub_0804AFF4
 	movs r0, #1
-	bl sub_08078A90
+	bl SetPlayerControl
 	pop {pc}
 	.align 2, 0
 _08051DC8: .4byte gRoomVars
@@ -636,7 +636,7 @@ sub_08051DCC: @ 0x08051DCC
 	strb r0, [r1, #4]
 	ldrb r0, [r4, #0xd]
 	strb r0, [r1, #5]
-	bl sub_080528F0
+	bl RoomExitCallback
 	movs r0, #3
 	strb r0, [r4, #9]
 	bl sub_08052CFC
@@ -653,7 +653,7 @@ _08051E00: .4byte gScreenTransition
 	thumb_func_start sub_08051E04
 sub_08051E04: @ 0x08051E04
 	push {lr}
-	bl sub_08052620
+	bl CheckIsOverworld
 	cmp r0, #0
 	beq _08051E60
 	ldr r1, _08051E2C @ =gPlayerEntity
@@ -735,7 +735,7 @@ sub_08051E84: @ 0x08051E84
 	strb r0, [r5, #5]
 	bl sub_08053320
 	ldrb r0, [r5, #4]
-	bl sub_08052D58
+	bl GetFlagBankOffset
 	ldr r1, _08051EFC @ =gArea
 	movs r6, #0
 	strh r0, [r1, #4]
@@ -927,7 +927,7 @@ sub_08052010: @ 0x08052010
 	bl LoadPaletteGroup
 	movs r0, #0
 	movs r1, #0
-	bl sub_0801D79C
+	bl SetColor
 	movs r0, #4
 	bl LoadGfxGroup
 	movs r0, #0xc0

@@ -814,7 +814,7 @@ _080738E0: .4byte gPlayerState
 _080738E4: .4byte gUnk_0811BC40
 _080738E8: .4byte gUnk_0813AD88
 _080738EC:
-	bl sub_08052A4C
+	bl InitParachuteRoom
 _080738F0:
 	ldr r1, _08073900 @ =0xFFFFE800
 	adds r0, r4, #0
@@ -4266,7 +4266,7 @@ _08075270:
 	cmp r0, #0
 	beq _0807528C
 	movs r1, #3
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 _0807528C:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0

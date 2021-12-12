@@ -61,7 +61,7 @@ void sub_08059E80(Manager14* this) {
     gScreen.controls.alphaBlend = 0x1000;
     gScreen.bg3.xOffset = 0x80;
     gScreen.bg3.yOffset = 0;
-    sub_08052D74(this, nullsub_495, sub_0805A25C);
+    RegisterTransitionManager(this, nullsub_495, sub_0805A25C);
 }
 
 void sub_08059EF8(Manager14* this) {

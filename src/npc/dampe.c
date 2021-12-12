@@ -16,7 +16,7 @@ void Dampe(Entity* this) {
         case 0:
             this->action = 1;
             this->spriteSettings.draw = 1;
-            sub_0805E3A0(this, 2);
+            SetDefaultPriority(this, 2);
             sub_0807DD50(this);
             return;
         case 1:

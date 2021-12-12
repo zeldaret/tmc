@@ -85,7 +85,7 @@ void sub_08082310(Entity* this) {
                         this->direction = (tileType - 0x4001) * 8;
                         this->actionDelay = 32;
                         this->action = 4;
-                        if (gPlayerState.flags & PL_IS_MINISH) {
+                        if (gPlayerState.flags & PL_MINISH) {
                             this->speed >>= 1;
                             this->actionDelay = 64;
                         }
@@ -184,7 +184,7 @@ void sub_08082614(Entity* this) {
     }
 
     this->action = 1;
-    if (gPlayerState.flags & PL_IS_MINISH) {
+    if (gPlayerState.flags & PL_MINISH) {
         this->speed <<= 1;
     }
 

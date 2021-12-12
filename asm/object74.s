@@ -75,13 +75,13 @@ sub_08097BDC: @ 0x08097BDC
 	cmp r0, #0
 	beq _08097C10
 	movs r0, #1
-	bl sub_08078A90
+	bl SetPlayerControl
 	ldr r0, _08097C14 @ =gUnk_02034490
 	movs r1, #1
 	strb r1, [r0]
 	adds r0, r4, #0
 	movs r1, #0x1e
-	bl sub_0805E4E0
+	bl RequestPriorityDuration
 	adds r0, r4, #0
 	bl sub_08097CB0
 	cmp r0, #0
@@ -108,7 +108,7 @@ sub_08097C20: @ 0x08097C20
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
 	movs r0, #0x1e
-	bl sub_0805E510
+	bl SetPriorityTimer
 	adds r0, r4, #0
 	bl sub_0800445C
 	movs r1, #0x2e
@@ -146,7 +146,7 @@ sub_08097C20: @ 0x08097C20
 	cmp r0, #0x10
 	bne _08097CA6
 	movs r0, #0
-	bl sub_08078A90
+	bl SetPlayerControl
 	ldr r1, _08097CAC @ =gUnk_02034490
 	movs r0, #0
 	strb r0, [r1]

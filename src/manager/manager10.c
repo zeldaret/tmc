@@ -44,7 +44,7 @@ void Manager10_Main(Manager10* this) {
             this->unk_22 = 5;
         }
         gRoomVars.unk_10[0] = 0xFF;
-        sub_08052D74(this, sub_080595E4, 0);
+        RegisterTransitionManager(this, sub_080595E4, 0);
     }
     sub_08059608(this);
     sub_08059690(this);

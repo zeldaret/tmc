@@ -1,12 +1,10 @@
-// clang-format off
-
 #ifndef PLAYER_H
 #define PLAYER_H
 
 #include "global.h"
 #include "entity.h"
 
-enum {
+enum PlayerActions {
     PLAYER_INIT,
     PLAYER_NORMAL,
     PLAYER_DUMMY,
@@ -41,8 +39,32 @@ enum {
     PLAYER_PARACHUTE,
 };
 
-enum {
-    PL_IS_MINISH = (1 << 7),
+enum PlayerSpawnType {
+    PL_SPAWN_DEFAULT,
+    PL_SPAWN_MINISH,
+    PL_SPAWN_DROP,
+    PL_SPAWN_WALKING,
+    PL_SPAWN_STEP_IN,
+    PL_SPAWN_SPECIAL,
+    PL_SPAWN_DROP_MINISH,
+    PL_SPAWN_STAIRS_ASCEND,
+    PL_SPAWN_STAIRS_DESCEND,
+    PL_SPAWN_9,
+    PL_SPAWN_PARACHUTE_FORWARD,
+    PL_SPAWN_PARACHUTE_UP,
+    PL_SPAWN_FAST_TRAVEL,
+};
+
+typedef enum {
+    CONTROL_ENABLED,
+    CONTROL_1,
+    CONTROL_2,
+    CONTROL_DISABLED,
+} PlayerControlMode;
+
+enum PlayerFlags {
+    PL_NO_CAP = (1 << 3),
+    PL_MINISH = (1 << 7),
 };
 
 typedef struct {
@@ -115,7 +137,6 @@ typedef struct {
     /*0xae*/ u16 field_0xae;
 } PlayerState;
 
-
 typedef struct {
     /*0x00*/ u8 walletType;
     /*0x01*/ u8 heartPieces;
@@ -156,19 +177,18 @@ extern void (*const gPlayerItemFunctions[])(Entity*);
 
 extern u8 gBombBagSizes[];
 extern u8 gQuiverSizes[];
+extern u16 gWalletSizes[];
 
 extern PlayerState gPlayerState;
 extern Stats gStats;
 extern Entity gPlayerEntity;
 
-
 extern u32 GetInventoryValue(u32);
 extern s32 ModHealth(s32);
 extern void ModRupees(s32);
 
+extern void SetPlayerControl(PlayerControlMode);
+
 #define COPY_FLAG_FROM_TO(base, src, dest) (base) = ((base) & ~(dest)) | (((dest) * ((base) & (src))) / src)
 
-
 #endif
-
-// clang-format on

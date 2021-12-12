@@ -18,7 +18,7 @@ NONMATCH("asm/non_matching/playerItemLantern/sub_08054A60.inc", void sub_08054A6
     this->actionDelay = 0x04;
     this->frameIndex = -1;
     // TODO regalloc and mov 6 too early
-    this->updateConditions = (this->updateConditions & 0xf0) | 6;
+    this->updatePriority = (this->updatePriority & 0xf0) | 6;
     this->field_0x3c = 7;
     this->flags2 = -0x80;
     this->animationState = gPlayerEntity.animationState & 0xe;

@@ -36,7 +36,7 @@ void ScriptCommand_TestBit(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CheckInventory1(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CheckInventory2(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CheckLocalFlag(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_CheckLocalFlagByOffset(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_CheckLocalFlagByBank(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CheckGlobalFlag(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CheckRoomFlag(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CheckPlayerInRegion(Entity* entity, ScriptExecutionContext* context);
@@ -61,7 +61,7 @@ void ScriptCommand_ComparePlayerAnimationState(Entity* entity, ScriptExecutionCo
 void ScriptCommand_0807E5F8(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807E610(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetLocalFlag(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_SetLocalFlagByOffset(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_SetLocalFlagByBank(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_ClearLocalFlag(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetGlobalFlag(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_ClearGlobalFlag(Entity* entity, ScriptExecutionContext* context);
@@ -182,7 +182,7 @@ const ScriptCommand gScriptCommands[] = { ScriptCommandNop,
                                           ScriptCommand_CheckInventory2,
                                           ScriptCommand_HasRoomItemForSale,
                                           ScriptCommand_CheckLocalFlag,
-                                          ScriptCommand_CheckLocalFlagByOffset,
+                                          ScriptCommand_CheckLocalFlagByBank,
                                           ScriptCommand_CheckGlobalFlag,
                                           ScriptCommand_CheckRoomFlag,
                                           ScriptCommand_CheckPlayerInRegion,
@@ -206,7 +206,7 @@ const ScriptCommand gScriptCommands[] = { ScriptCommandNop,
                                           ScriptCommand_0807E5F8,
                                           ScriptCommand_0807E610,
                                           ScriptCommand_SetLocalFlag,
-                                          ScriptCommand_SetLocalFlagByOffset,
+                                          ScriptCommand_SetLocalFlagByBank,
                                           ScriptCommand_ClearLocalFlag,
                                           ScriptCommand_SetGlobalFlag,
                                           ScriptCommand_ClearGlobalFlag,
@@ -757,9 +757,9 @@ void ScriptCommand_CheckLocalFlag(Entity* entity, ScriptExecutionContext* contex
     gActiveScriptInfo.flags |= 1;
 }
 
-void ScriptCommand_CheckLocalFlagByOffset(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_CheckLocalFlagByBank(Entity* entity, ScriptExecutionContext* context) {
     context->condition =
-        CheckLocalFlagByOffset(context->scriptInstructionPointer[1], context->scriptInstructionPointer[2]);
+        CheckLocalFlagByBank(context->scriptInstructionPointer[1], context->scriptInstructionPointer[2]);
     gActiveScriptInfo.flags |= 1;
 }
 
@@ -806,7 +806,7 @@ void ScriptCommand_CheckEntityInteractType(Entity* entity, ScriptExecutionContex
 }
 
 void ScriptCommand_0807E30C(Entity* entity, ScriptExecutionContext* context) {
-    if ((context->unk_1A & 0xF) == 0 && (gPlayerState.flags & PL_IS_MINISH) == 0 &&
+    if ((context->unk_1A & 0xF) == 0 && (gPlayerState.flags & PL_MINISH) == 0 &&
         sub_080041A0(entity, &gPlayerEntity, 0x28, 0x28)) {
         entity->animationState = sub_0806F5B0(GetFacingDirection(entity, &gPlayerEntity));
     }
@@ -926,8 +926,8 @@ void ScriptCommand_SetLocalFlag(Entity* entity, ScriptExecutionContext* context)
     SetLocalFlag(context->scriptInstructionPointer[1]);
 }
 
-void ScriptCommand_SetLocalFlagByOffset(Entity* entity, ScriptExecutionContext* context) {
-    SetLocalFlagByOffset(context->scriptInstructionPointer[1], context->scriptInstructionPointer[2]);
+void ScriptCommand_SetLocalFlagByBank(Entity* entity, ScriptExecutionContext* context) {
+    SetLocalFlagByBank(context->scriptInstructionPointer[1], context->scriptInstructionPointer[2]);
 }
 
 void ScriptCommand_ClearLocalFlag(Entity* entity, ScriptExecutionContext* context) {
@@ -1535,7 +1535,7 @@ extern u8 gUnk_0811E758[];
 extern u8 gUnk_0811E760[];
 
 void sub_0807F0D8(Entity* entity, ScriptExecutionContext* context) {
-    context->condition = (-(u32)gInput.newKeys | ((u32)gInput.newKeys)) >> 0x1f;
+    context->condition = !!gInput.newKeys;
 }
 
 void sub_0807F0EC(Entity* entity, ScriptExecutionContext* context) {
@@ -1672,15 +1672,15 @@ void sub_0807F338(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807F348(Entity* entity, ScriptExecutionContext* context) {
-    sub_0805E3A0(entity, 2);
+    SetDefaultPriority(entity, 2);
 }
 
 void sub_0807F354(Entity* entity, ScriptExecutionContext* context) {
-    sub_0805E3A0(entity, 6);
+    SetDefaultPriority(entity, 6);
 }
 
 void sub_0807F360(Entity* entity, ScriptExecutionContext* context) {
-    sub_0805E3A0(entity, 3);
+    SetDefaultPriority(entity, 3);
 }
 
 void sub_0807F36C(Entity* entity, ScriptExecutionContext* context) {
@@ -2087,11 +2087,11 @@ void sub_0807FADC(Entity* entity, ScriptExecutionContext* context) {
 
 void sub_0807FB28(Entity* entity, ScriptExecutionContext* context) {
     if (!context->unk_18)
-        sub_0801D7BC(0x7fff, 1);
+        SetFillColor(0x7fff, 1);
 
     context->unk_18++;
     if (context->unk_18 >= context->intVariable)
-        sub_0801D7BC(0, 0);
+        SetFillColor(0, 0);
     else
         gActiveScriptInfo.commandSize = 0;
 }
@@ -2119,11 +2119,11 @@ void sub_0807FBB4(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807FBC4(Entity* entity, ScriptExecutionContext* context) {
-    sub_0805E4A0(entity);
+    RequestPriorityOverPlayer(entity);
 }
 
 void sub_0807FBCC(Entity* entity, ScriptExecutionContext* context) {
-    sub_0805E4CC(entity);
+    RevokePriorityOverPlayer(entity);
 }
 
 void sub_0807FBD4(Entity* entity, ScriptExecutionContext* context) {

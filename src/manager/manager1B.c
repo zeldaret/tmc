@@ -29,9 +29,9 @@ void Manager1B_Main(Manager1B* this) {
     if (this->manager.action == 0) {
         this->manager.action = 1;
         this->manager.unk_10 |= 0x20;
-        sub_0805E3A0(this, 6);
+        SetDefaultPriority((Entity*)this, 6);
         if (this->manager.unk_0a != 0) {
-            sub_08052D74(this, sub_0805B4B4, NULL);
+            RegisterTransitionManager(this, sub_0805B4B4, NULL);
         }
         iVar3 = 0x100 - (u32)gRoomControls.height;
         if (iVar3 < 0) {

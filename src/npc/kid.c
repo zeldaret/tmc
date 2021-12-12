@@ -208,10 +208,10 @@ NONMATCH("asm/non_matching/kid/sub_08062634.inc", void sub_08062634(Entity* this
 END_NONMATCH
 
 NONMATCH("asm/non_matching/kid/sub_0806265C.inc", void sub_0806265C(Entity* this, ScriptExecutionContext* context)) {
-    if (gSave.unk8 == 0) {
+    if (gSave.global_progress == 0) {
         MessageNoOverlap(0, this);
     } else {
-        ShowNPCDialogue(this, &gUnk_0810BE10[this->type * 9 + gSave.unk8]);
+        ShowNPCDialogue(this, &gUnk_0810BE10[this->type * 9 + gSave.global_progress]);
     }
 }
 END_NONMATCH

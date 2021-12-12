@@ -165,7 +165,7 @@ sub_0809B050: @ 0x0809B050
 	adds r0, #0x80
 	strh r1, [r0]
 	movs r0, #0
-	bl sub_08078A90
+	bl SetPlayerControl
 	adds r0, r4, #0
 	bl sub_0809B0B0
 	movs r0, #0x86

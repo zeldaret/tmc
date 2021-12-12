@@ -44,7 +44,7 @@ void sub_0809E86C(Entity* this) {
     if (sub_0809E9A0() == 0x54) {
         this->action = 2;
         this->actionDelay = 0xf;
-        sub_08078A90(1);
+        SetPlayerControl(1);
     }
 }
 
@@ -61,7 +61,7 @@ void sub_0809E8BC(Entity* this) {
 void sub_0809E8EC(Entity* this) {
     if (--this->actionDelay == 0) {
         SetFlag(this->field_0x86.HWORD);
-        sub_08078A90(0);
+        SetPlayerControl(0);
         SoundReq(SFX_SECRET_BIG);
         DeleteThisEntity();
     }

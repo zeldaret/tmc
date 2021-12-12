@@ -25,7 +25,7 @@ void Manager9_Main(Manager9* this) {
     if (!this->manager.action) {
         this->manager.action = 1;
         gScreen.bg1.updated = 0;
-        sub_08052D74(this, sub_08058204, NULL);
+        RegisterTransitionManager(this, sub_08058204, NULL);
     }
 }
 

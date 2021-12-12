@@ -3,6 +3,11 @@
 
 #include "global.h"
 
+#define SIGNATURE 'MCZ3'
+#define MAX_MSG_SPEED 3
+#define NUM_SAVE_SLOTS 3
+#define MAX_BRIGHTNESS 3
+
 typedef struct { // 0x03001000
     u8 field_0x0;
     u8 field_0x1;
@@ -16,11 +21,6 @@ typedef struct { // 0x03001000
     u8 field_0xb;
     u32 spritePriority;
 } MainStruct;
-
-#define SIGNATURE 'MCZ3'
-#define MAX_MSG_SPEED 3
-#define NUM_SAVE_SLOTS 3
-#define MAX_BRIGHTNESS 3
 
 typedef enum {
     LANGUAGE_JP,
@@ -79,6 +79,9 @@ static_assert(sizeof(UI) == 0x3b4);
 extern Main gMain;
 extern UI gUnk_02032EC0;
 
+/**
+ * @brief Begin a subroutine.
+ */
 void InitScreen(u32 screen);
 
 extern void sub_08056208(void);
@@ -99,6 +102,4 @@ extern void DisableInterruptsAndDMA(void);
 extern void EnableVBlankIntr(void);
 extern void sub_08056250(void);
 
-static void sub_08055F70(void);
-static bool32 SoftResetKeysPressed(void);
 #endif

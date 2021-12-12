@@ -103,7 +103,7 @@ void sub_080604DC(Entity* this) {
             ent = CreateFx(this, 17, 0x40);
             if (ent != NULL) {
                 ent->y.HALF.HI++;
-                sub_0805E3A0(ent, 3);
+                SetDefaultPriority(ent, 3);
             }
         }
     }
@@ -184,7 +184,7 @@ void sub_080606C0(Entity* this) {
 void sub_080606D8(Entity* this) {
     s32 index;
 
-    index = gSave.unk8 - 2;
+    index = gSave.global_progress - 2;
     if (index < 0) {
         index = 0;
     }

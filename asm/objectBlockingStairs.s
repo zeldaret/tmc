@@ -182,7 +182,7 @@ _08092FF2:
 	strb r0, [r6, #0xe]
 	adds r0, r6, #0
 	movs r1, #0x50
-	bl sub_0805E4E0
+	bl RequestPriorityDuration
 	ldr r0, _0809303C @ =0x0000010F
 	bl EnqueueSFX
 	adds r0, r6, #0
@@ -554,7 +554,7 @@ sub_080932D8: @ 0x080932D8
 	adds r4, r0, r1
 	ldr r0, [r4]
 	ldrh r1, [r4, #4]
-	bl CheckLocalFlagByOffset
+	bl CheckLocalFlagByBank
 	cmp r0, #0
 	beq _080932F4
 	movs r0, #1
@@ -564,7 +564,7 @@ _080932F0: .4byte gUnk_08122898
 _080932F4:
 	ldr r0, [r4]
 	ldrh r1, [r4, #6]
-	bl CheckLocalFlagByOffset
+	bl CheckLocalFlagByBank
 	cmp r0, #0
 	bne _08093304
 	movs r0, #0
@@ -585,7 +585,7 @@ sub_08093308: @ 0x08093308
 	bne _08093324
 	ldr r0, [r1]
 	ldrh r1, [r1, #4]
-	bl SetLocalFlagByOffset
+	bl SetLocalFlagByBank
 	b _08093330
 	.align 2, 0
 _08093320: .4byte gUnk_08122898
@@ -594,7 +594,7 @@ _08093324:
 	bne _08093330
 	ldr r0, [r1]
 	ldrh r1, [r1, #6]
-	bl SetLocalFlagByOffset
+	bl SetLocalFlagByBank
 _08093330:
 	pop {pc}
 	.align 2, 0

@@ -8,7 +8,7 @@ extern void (*const gUnk_081280C4[])();
 
 void DrawKinstoneMenu(void) {
 #if !(defined(DEMO_USA) || defined(DEMO_JP))
-    gScreenTransition.field_0x24[8] = 2;
+    gScreenTransition.player_status.field_0x24[8] = 2;
     FlushSprites();
     gUnk_081280C4[gMenu.menuType]();
     sub_080A3B74();
@@ -18,7 +18,7 @@ void DrawKinstoneMenu(void) {
     UpdateEntities();
     sub_080AD9B0();
     sub_080AD918();
-    gScreenTransition.field_0x24[8] = 0;
+    gScreenTransition.player_status.field_0x24[8] = 0;
 #endif
 }
 

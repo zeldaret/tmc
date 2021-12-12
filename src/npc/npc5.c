@@ -878,7 +878,7 @@ void sub_08061B58(Entity* this) {
         this->action = 1;
         InitAnimationForceUpdate(this, 2);
     }
-    if (gScreenTransition.field_0x24[8] == 2) {
+    if (gScreenTransition.player_status.field_0x24[8] == 2) {
         UpdateAnimationSingleFrame(this);
     }
     sub_0806FD3C(this);

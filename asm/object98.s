@@ -69,7 +69,7 @@ _0809E3A6:
 	strb r0, [r4, #0x14]
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0
 	beq _0809E3D8

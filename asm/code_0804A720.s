@@ -203,7 +203,7 @@ _0804A864:
 	strb r0, [r5, #0xe]
 	adds r0, r5, #0
 	movs r1, #3
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	ldrb r1, [r5, #9]
 	movs r0, #1
 	movs r2, #0
@@ -299,7 +299,7 @@ _0804A940:
 	strb r0, [r5, #0x18]
 	adds r0, r5, #0
 	movs r1, #0
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	b _0804A982
 _0804A95E:
 	lsls r0, r1, #0x18

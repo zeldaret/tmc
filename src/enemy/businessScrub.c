@@ -210,7 +210,7 @@ void sub_08028BC4(Entity* this) {
                 if (iVar1 != NULL) {
                     iVar1->spritePriority.b0 = 3;
                     iVar1->z.HALF.HI -= 12;
-                    sub_0805E3A0(iVar1, 2);
+                    SetDefaultPriority(iVar1, 2);
                 }
                 SetFlag(this->field_0x86.HWORD);
                 sub_0802925C(this);
@@ -251,7 +251,7 @@ void sub_08028CE8(Entity* this) {
             if (sub_080291DC(this)) {
                 /* Bag full. */
                 MessageFromTarget(0x2904);
-                sub_08078A90(0);
+                SetPlayerControl(0);
             } else {
                 ModRupees(-offer->price);
                 switch (offer->field_0x0 >> 2) {
@@ -286,7 +286,7 @@ void sub_08028CE8(Entity* this) {
         } else {
             /* Not enough money. */
             MessageFromTarget(0x2903);
-            sub_08078A90(0);
+            SetPlayerControl(0);
         }
     }
 
@@ -299,7 +299,7 @@ void sub_08028CE8(Entity* this) {
 void sub_08028DE8(Entity* this) {
     if (gPlayerEntity.action == 8) {
         if (this->field_0x80.HALF.HI == 0) {
-            sub_08078A90(1);
+            SetPlayerControl(1);
             this->field_0x80.HALF.HI = 1;
         }
     } else {
@@ -308,7 +308,7 @@ void sub_08028DE8(Entity* this) {
         this->field_0x80.HALF.HI = 0;
         this->actionDelay = 1;
         sub_08028EDC(this);
-        sub_08078A90(0);
+        SetPlayerControl(0);
         sub_0800445C(this);
         GetNextFrame(this);
     }
@@ -324,7 +324,7 @@ void sub_08028E40(Entity* this) {
         if (CheckLocalFlag(offer->field_0xa) == 0) {
             SetLocalFlag(offer->field_0xa);
         }
-        sub_08078A90(0);
+        SetPlayerControl(0);
     }
     sub_0800445C(this);
     GetNextFrame(this);
@@ -381,7 +381,7 @@ void sub_08028F0C(Entity* this) {
                 this->action = 7;
             }
             dialog = offer->field_0x4;
-            sub_08078A90(1);
+            SetPlayerControl(1);
         }
         MessageFromTarget(dialog);
         gMessage.field_0x10 = offer->price;

@@ -23,7 +23,7 @@ void sub_08066CCC(Entity* this) {
     this->action = 1;
     this->spriteSettings.draw = 1;
     PrependEntityToList(this, 7);
-    sub_0805E3A0(this, 2);
+    SetDefaultPriority(this, 2);
     sub_0807DD50(this);
 }
 

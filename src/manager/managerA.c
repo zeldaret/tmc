@@ -27,7 +27,7 @@ void sub_08058398(ManagerA* this) {
     this->unk_26 = this->unk_3b << 3;
     this->unk_20 = this->unk_24 + (this->unk_38 << 4);
     this->unk_22 = this->unk_26 + (this->unk_39 << 4);
-    sub_0805E3A0(&this->manager, 0x06);
+    SetDefaultPriority((Entity*)&this->manager, 0x06);
     if (this->unk_3e == 0) {
         this->manager.action = 2;
     } else {
@@ -42,7 +42,7 @@ void sub_080583EC(ManagerA* this) {
     }
 }
 
-extern void FreezeTime(void);
+extern void SetPlayerEventPriority(void);
 
 u32 sub_0805848C(ManagerA*);
 void sub_080585DC(ManagerA*);
@@ -59,16 +59,16 @@ void sub_08058408(ManagerA* this) {
             return;
         case 2:
             sub_080585DC(this);
-            if ((gPlayerState.flags & PL_IS_MINISH) == 0)
+            if ((gPlayerState.flags & PL_MINISH) == 0)
                 return;
         case 0:
         default:
             sub_080585DC(this);
             if (sub_0805848C(this) == 0)
                 return;
-            sub_08078A90(3);
+            SetPlayerControl(3);
             sub_08078B48();
-            FreezeTime();
+            SetPlayerEventPriority();
             this->manager.action = 3;
             this->manager.unk_0d = 0;
             this->manager.unk_0e = 0x1e;
@@ -113,7 +113,7 @@ u32 sub_0805848C(ManagerA* this) {
     }
 }
 
-extern void UnfreezeTime(void);
+extern void ResetPlayerEventPriority(void);
 
 void sub_08058514(ManagerA* this) {
     switch (this->manager.unk_0d) {
@@ -137,7 +137,7 @@ void sub_08058514(ManagerA* this) {
             if (gPlayerEntity.action != 1 && gPlayerEntity.action != 9)
                 return;
             gPlayerState.field_0x8b = 1;
-            UnfreezeTime();
+            ResetPlayerEventPriority();
             SetFlag(this->unk_3c);
             DeleteThisEntity();
             return;

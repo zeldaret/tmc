@@ -23,7 +23,7 @@ u32 sub_0804AA84(void) {
         gArea.filler[8] = 0;
         gArea.filler[9] = 0;
         *(u16*)&gArea.filler[10] = 0;
-        sub_0805E5A8();
+        SetInitializationPriority();
         return 1;
     } else {
         gArea.filler[18] = gArea.playShrinkSeq;

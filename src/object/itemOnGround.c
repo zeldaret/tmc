@@ -20,7 +20,6 @@ bool32 CheckShouldPlayItemGetCutscene(Entity*);
 extern u32 sub_080002D0(Entity*);
 extern u32 sub_080177A0(Entity*, Entity*);
 extern void GiveItem(u32, u32);
-extern u32 sub_0805E40C(Entity*);
 
 extern void (*const gUnk_0811E7D4[])(Entity*);
 extern void (*const gUnk_0811E7E8[])(Entity*);
@@ -121,7 +120,7 @@ void sub_08080F20(Entity* this) {
         this->field_0x6c.HWORD = 0;
         this->field_0x68.HALF.LO = 0;
         this->actionDelay = 0;
-        sub_0805E3A0(this, 3);
+        SetDefaultPriority(this, 3);
         this->field_0x1c = sub_0808147C(this->type);
         gUnk_0811E7E8[this->field_0x68.HALF.HI](this);
     } else {
@@ -339,7 +338,7 @@ void sub_08081404(Entity* this, u32 arg1) {
 
 bool32 sub_08081420(Entity* this) {
     if (CheckShouldPlayItemGetCutscene(this)) {
-        sub_0805E3A0(this, 6);
+        SetDefaultPriority(this, 6);
         CreateItemEntity(this->type, this->type2, 0);
         return TRUE;
     } else {
@@ -377,7 +376,7 @@ void sub_080814A4(Entity* this) {
 }
 
 u32 sub_080814C0(Entity* this) {
-    if (!sub_0805E40C(this)) {
+    if (!AnyPrioritySet()) {
         if (--this->field_0x6c.HWORD == 0) {
             return TRUE;
         }

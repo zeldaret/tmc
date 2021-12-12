@@ -18,15 +18,15 @@ SCRIPT_START script_08016384
 	HasRoomItemForSale
 	CheckLocalFlag 0x0067
 .ifdef JP
-	CheckLocalFlagByOffset 0x0100, 0x0069
+	CheckLocalFlagByBank 0x0100, 0x0069
 .else
 .ifdef EU
-	CheckLocalFlagByOffset 0x0100, 0x0069
+	CheckLocalFlagByBank 0x0100, 0x0069
 .else
 .ifdef DEMO_JP
-	CheckLocalFlagByOffset 0x0100, 0x0069 @ TODO deduplicate
+	CheckLocalFlagByBank 0x0100, 0x0069 @ TODO deduplicate
 .else
-	CheckLocalFlagByOffset 0x0100, 0x006b
+	CheckLocalFlagByBank 0x0100, 0x006b
 .endif
 .endif
 .endif
@@ -52,7 +52,7 @@ SCRIPT_START script_08016384
 	_0807E5F8 0x00000001
 	_0807E610 0x00000002
 	SetLocalFlag 0x0067
-	SetLocalFlagByOffset 0x0100, 0x0001
+	SetLocalFlagByBank 0x0100, 0x0001
 	ClearLocalFlag 0x0067
 	SetGlobalFlag 0x0013
 	ClearGlobalFlag 0x0013

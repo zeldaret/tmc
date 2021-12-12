@@ -58,7 +58,7 @@ void sub_08027DA4(Entity* this) {
 
 void sub_08027E40(Entity* this) {
     if (this->actionDelay == 2 && this->field_0x80.HALF.LO != 0xff) {
-        sub_0805E3A0(this, 3);
+        SetDefaultPriority(this, 3);
         sub_08028224(this->field_0x80.HALF.LO);
     }
     sub_0804A7D4(this);

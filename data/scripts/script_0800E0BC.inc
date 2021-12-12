@@ -317,11 +317,11 @@ script_0800E4B6:
 	_0807E864
 .ifdef JP
 .ifndef DEMO_JP
-	Call FreezeTime
+	Call SetPlayerEventPriority
 .endif
 .else
 .ifdef EU
-	Call FreezeTime
+	Call SetPlayerEventPriority
 .endif
 .endif
 	EndBlock
@@ -341,11 +341,11 @@ script_0800E4B6:
 	SetLocalFlag 0x007c
 .ifdef JP
 .ifndef DEMO_JP
-	Call UnfreezeTime
+	Call ResetPlayerEventPriority
 .endif
 .else
 .ifdef EU
-	Call UnfreezeTime
+	Call ResetPlayerEventPriority
 .endif
 .endif
 script_0800E4FA:

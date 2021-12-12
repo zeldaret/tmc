@@ -62,7 +62,7 @@ sub_08097FB4: @ 0x08097FB4
 	str r0, [r4, #0x74]
 	adds r0, r4, #0
 	movs r1, #6
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0
 	bne _08098018

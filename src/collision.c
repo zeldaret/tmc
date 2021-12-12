@@ -52,12 +52,15 @@ void ClearHitboxList(void) {
 
 void CollisionMain(void) {
     void (*doCollision)(void);
-    u32 temp;
+    u32 prio;
 
-    temp = gUnk_03003DC0.unk0;
-    if (gUnk_03003DC0.unk0 <= gUnk_03003DC0.unk1)
-        temp = gUnk_03003DC0.unk1;
-    if (temp != 0)
+    // pick highest priority
+    prio = gPriorityHandler.sys_priority;
+    if (gPriorityHandler.sys_priority <= gPriorityHandler.ent_priority)
+        prio = gPriorityHandler.ent_priority;
+
+    // if any min priority is set, dont do collision
+    if (prio)
         return;
 
     doCollision = &gDoCollision;
@@ -476,7 +479,7 @@ int sub_08017DD4(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
         tgt->damage = 4;
     gPlayerEntity.health = sub_08017874(&gPlayerEntity, tgt);
     tgt->iframes = -12;
-    if ((gPlayerState.flags & PL_IS_MINISH) == 0) {
+    if ((gPlayerState.flags & PL_MINISH) == 0) {
         sub_08079D84();
         org->iframes = 90;
     } else {
@@ -532,7 +535,7 @@ s32 sub_08017F40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 #ifdef EU
                 (gPlayerState.flags & 0x81) == 0 &&
 #else
-                (gPlayerState.flags & PL_IS_MINISH) == 0 &&
+                (gPlayerState.flags & PL_MINISH) == 0 &&
 #endif
                 !gPlayerState.swimState) {
                 gPlayerState.field_0x1a[0] |= 0x80u;

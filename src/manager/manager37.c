@@ -39,7 +39,7 @@ void sub_0805DE68(Manager* this) {
     *(u8*)&gScreenTransition.field_0x3a = 0x20;
     *((u8*)&gScreenTransition.field_0x3a + 1) = 0x20;
 #if !defined(EU) && !defined(JP)
-    gSave.unk498 = 0x1194;
+    gSave.unk48C[3] = 0x1194;
 #endif
 }
 
@@ -54,7 +54,7 @@ void sub_0805DEB8(Manager* this) {
         this->action = 2;
         this->unk_0d = 0;
         this->unk_0e = 0x78;
-        sub_08078A90(2);
+        SetPlayerControl(2);
         sub_08078B48();
         object = CreateObject(OBJECT_64, 0, 0);
         if (object != NULL) {
@@ -119,7 +119,7 @@ void sub_0805E000(Manager* this) {
         }
         *(Entity**)this->unk_18 = enemy;
         this->action = 1;
-        sub_08078A90(3);
+        SetPlayerControl(3);
         gArea.pMusicIndex = 0x80010000;
         DoFade(6, 4);
         SoundReq(SFX_APPARATE);
@@ -134,6 +134,6 @@ void sub_0805E078(Manager* this) {
 }
 
 void sub_0805E094(void) {
-    sub_0805E5A8();
+    SetInitializationPriority();
     sub_0808091C((ScreenTransitionData*)&gUnk_0813AC34, 7);
 }

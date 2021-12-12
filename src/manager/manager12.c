@@ -1,3 +1,4 @@
+#include "area.h"
 #include "manager.h"
 #include "room.h"
 #include "functions.h"
@@ -46,8 +47,8 @@ void Manager12_Main(Manager12* this) {
         this->field_0x22 = 0xff;
         this->field_0x21 = 0xff;
         this->field_0x20 = 0xff;
-        sub_08052D74(this, sub_08059A2C, NULL);
-        sub_0805E3A0(this, 6);
+        RegisterTransitionManager(this, sub_08059A2C, NULL);
+        SetDefaultPriority((Entity*)this, 6);
     }
     sub_08059A58(this);
 }
@@ -63,7 +64,7 @@ void sub_08059A2C(Manager12* this) {
 }
 
 void sub_08059A58(Manager12* this) {
-    if (gRoomControls.areaID != 0x15) {
+    if (gRoomControls.areaID != AREA_FESTIVAL_TOWN) {
         if (sub_08059C8C(this, 0, &this->field_0x20, &gUnk_08108398) != 0) {
             sub_08059CC0(0, (u32)this->field_0x20);
         }
@@ -140,7 +141,7 @@ void sub_08059CC0(u32 param_1, u32 param_2) {
     Unknown* unknown;
 
     gRoomVars.unk_10[param_1] = param_2;
-    if (gRoomControls.areaID != 0x15) {
+    if (gRoomControls.areaID != AREA_FESTIVAL_TOWN) {
         unknown = &gUnk_08108408[param_2];
     } else {
         unknown = &gUnk_08108468[param_2];
@@ -152,7 +153,7 @@ void sub_08059CC0(u32 param_1, u32 param_2) {
 void TryLoadPrologueHyruleTown(void) {
     u32 tmp;
 
-    if (gRoomControls.areaID != 0x15) {
+    if (gRoomControls.areaID != AREA_FESTIVAL_TOWN) {
         tmp = sub_08056300(&gUnk_08108398);
         if (tmp != 0xff) {
             sub_08059CC0(0, tmp);

@@ -39,7 +39,7 @@ sub_080844E0: @ 0x080844E0
 	strb r0, [r5, #0x18]
 	adds r0, r5, #0
 	movs r1, #6
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	adds r0, r5, #0
 	adds r0, #0x38
 	ldrb r0, [r0]

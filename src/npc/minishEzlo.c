@@ -12,7 +12,7 @@ void MinishEzlo(Entity* this) {
         }
         this->action += 1;
         this->animationState = this->actionDelay * 2;
-        sub_0805E3A0(this, 2);
+        SetDefaultPriority(this, 2);
         sub_0807DD50(this);
     }
     ExecuteScriptForEntity(this, NULL);

@@ -27,7 +27,7 @@ _0805B90A:
 	str r2, [r5, #0x20]
 	adds r0, r5, #0
 	movs r1, #6
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	bl sub_0801E120
 	ldrb r0, [r5, #0xe]
 	bl sub_0801E154

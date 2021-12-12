@@ -218,7 +218,7 @@ _08077810:
 	ands r1, r2
 	strb r1, [r0, #0x10]
 	movs r1, #0xb4
-	bl sub_0805E4E0
+	bl RequestPriorityDuration
 	b _080777CC
 	.align 2, 0
 _08077834: .4byte gPlayerEntity

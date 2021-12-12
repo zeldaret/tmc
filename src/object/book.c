@@ -143,7 +143,7 @@ void sub_0809B56C(Entity* this) {
 }
 
 void sub_0809B5B4(Entity* this) {
-    if (gPlayerState.flags & PL_IS_MINISH) {
+    if (gPlayerState.flags & PL_MINISH) {
         sub_0800445C(this);
     } else if (sub_08017850(this)) {
         CreateItemEntity(this->type + 0x39, 0, 0);

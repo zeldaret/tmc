@@ -33,10 +33,11 @@ typedef struct {
 } struct_080FC844;
 
 typedef struct {
-    union SplitWord _0[8];
+    union SplitWord _0;
+    union SplitWord _4;
 } struct_020227E8;
 
-extern struct_020227E8 gUnk_020227E8;
+extern struct_020227E8 gUnk_020227E8[];
 
 typedef struct {
     /*0x00*/ u8 isTransitioning;

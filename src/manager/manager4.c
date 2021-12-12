@@ -95,11 +95,11 @@ ASM_FUNC("asm/non_matching/eu/sub_08057A18.inc", void sub_08057A18(Manager* this
 #else
 void sub_08057A18(Manager* this, DiggingCaveEntrance* entr) {
     u16 tmp;
-    sub_0805E5A8();
+    SetInitializationPriority();
     gUnk_03004030.unk_0a = gUnk_03004030.unk_09;
     gUnk_03004030.unk_09 = gRoomControls.areaID;
-    gScreenTransition.areaID = entr->target_areaID;
-    gScreenTransition.roomID = entr->target_roomID;
+    gScreenTransition.player_status.area_next = entr->target_areaID;
+    gScreenTransition.player_status.room_next = entr->target_roomID;
     gRoomControls.areaID = entr->target_areaID;
     gRoomControls.roomID = entr->target_roomID;
     gUnk_03004030.unk_00 = entr;

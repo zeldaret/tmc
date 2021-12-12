@@ -12,7 +12,7 @@ const u8 gUnk_08114144[];
 void EzloCap(Entity* this) {
     if (this->action == 0) {
         this->action += 1;
-        sub_0805E3A0(this, 2);
+        SetDefaultPriority(this, 2);
         sub_0807DD50(this);
     }
     ExecuteScriptForEntity(this, NULL);

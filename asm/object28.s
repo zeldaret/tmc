@@ -59,7 +59,7 @@ _080897BA:
 	strh r0, [r1]
 	adds r0, r4, #0
 	movs r1, #6
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 _080897D0:
 	ldrb r1, [r4, #0x10]
 	movs r0, #0x10

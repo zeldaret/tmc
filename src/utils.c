@@ -40,7 +40,8 @@ void MemFill32(u32 value, void* dest, u32 size) {
 void MemClear(void* dest, u32 size) {
     u32 zero = 0;
 
-    switch (((u32)dest | size) & 3) {
+    // alignment check
+    switch (((intptr_t)dest | size) % 4) {
         case 0:
             MemFill32(0, dest, size);
             break;
@@ -57,7 +58,7 @@ void MemClear(void* dest, u32 size) {
 }
 
 void MemCopy(const void* src, void* dest, u32 size) {
-    switch (((u32)src | (u32)dest | size) & 3) {
+    switch (((intptr_t)src | (intptr_t)dest | size) % 4) {
         case 0:
             DmaCopy32(3, src, dest, size);
             break;
@@ -90,7 +91,7 @@ static void StoreKeyInput(Input* input, u32 keyInput) {
             input->unk4 = 0;
         }
     } else {
-        input->unk7 = 0x14;
+        input->unk7 = 20;
         input->unk4 = difference;
     }
     input->heldKeys = keyInput;
@@ -124,18 +125,18 @@ void LoadPalettes(const u8* src, int destPaletteNum, int numPalettes) {
     DmaCopy32(3, src, dest, size);
 }
 
-void sub_0801D79C(u32 colorIndex, u32 color) {
+void SetColor(u32 colorIndex, u32 color) {
     gPaletteBuffer[colorIndex] = color;
     gUsedPalettes |= 1 << (colorIndex / 16);
 }
 
-void sub_0801D7BC(u32 color, u32 arg1) {
-    if (arg1) {
-        gScreen.lcd.unk6 = 0xE0FF;
+void SetFillColor(u32 color, u32 disable_layers) {
+    if (disable_layers) {
+        gScreen.lcd.displayControlMask = ~(DISPCNT_OBJ_ON | DISPCNT_BG_ALL_ON);
     } else {
-        gScreen.lcd.unk6 = 0xFFFF;
+        gScreen.lcd.displayControlMask = ~0;
     }
-    sub_0801D79C(0, color);
+    SetColor(0, color);
 }
 
 void LoadGfxGroup(u32 group) {

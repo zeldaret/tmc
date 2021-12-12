@@ -80,7 +80,7 @@ void sub_0809F5F0(Entity* this) {
     if (iVar1 != 0) {
         this->action = 2;
         this->actionDelay = 120;
-        sub_08078A90(3);
+        SetPlayerControl(3);
         sub_08078B48();
         gRoomControls.cameraTarget = this;
     }

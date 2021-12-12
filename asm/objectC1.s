@@ -31,7 +31,7 @@ sub_080A2578: @ 0x080A2578
 	thumb_func_start sub_080A2584
 sub_080A2584: @ 0x080A2584
 	push {lr}
-	bl UnfreezeTime
+	bl ResetPlayerEventPriority
 	ldr r1, _080A2598 @ =gUnk_02034490
 	movs r0, #0
 	strb r0, [r1]
@@ -132,7 +132,7 @@ _080A25E6:
 	strb r0, [r4, #0x14]
 	adds r0, r4, #0
 	movs r1, #6
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	ldr r0, _080A2670 @ =gPlayerState
 	ldr r0, [r0, #0x30]
 	movs r1, #8

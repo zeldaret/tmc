@@ -108,7 +108,7 @@ _08087C64:
 	strb r5, [r0]
 	adds r0, r4, #0
 	movs r1, #7
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	adds r0, r4, #0
 	movs r1, #1
 	bl InitializeAnimation
@@ -136,7 +136,7 @@ _08087C7C:
 	bl sub_0808804C
 	adds r0, r4, #0
 	movs r1, #6
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 _08087CA6:
 	pop {r4, r5, pc}
 
@@ -951,7 +951,7 @@ _08088072:
 	movs r0, #0x80
 	lsls r0, r0, #4
 	movs r1, #0x77
-	bl CheckLocalFlagByOffset
+	bl CheckLocalFlagByBank
 	cmp r0, #0
 	beq _08088084
 	movs r4, #6
@@ -960,7 +960,7 @@ _08088084:
 	movs r0, #0xc0
 	lsls r0, r0, #2
 	movs r1, #0x32
-	bl CheckLocalFlagByOffset
+	bl CheckLocalFlagByBank
 	cmp r0, #0
 	beq _08088096
 	movs r4, #5
@@ -995,7 +995,7 @@ _080880B2:
 .endif
 .endif
 .endif
-	bl CheckLocalFlagByOffset
+	bl CheckLocalFlagByBank
 	cmp r0, #0
 	beq _080880C4
 	movs r4, #2
@@ -1129,7 +1129,7 @@ _08087FB4:
 _08087FBC:
 	ldr r0, [r1]
 	ldrh r1, [r1, #4]
-	bl CheckLocalFlagByOffset
+	bl CheckLocalFlagByBank
 	b _08088064EU
 _08087FC6:
 	ldrh r0, [r1, #4]
@@ -1246,7 +1246,7 @@ _08087B48:
 _08087B50:
 	ldr r0, [r1]
 	ldrh r1, [r1, #4]
-	bl CheckLocalFlagByOffset
+	bl CheckLocalFlagByBank
 	b _08087BF8
 _08087B5A:
 	ldrh r0, [r1, #4]
@@ -1361,7 +1361,7 @@ _0808818C:
 _08088194:
 	ldr r0, [r1]
 	ldrh r1, [r1, #4]
-	bl CheckLocalFlagByOffset
+	bl CheckLocalFlagByBank
 	b _08088262
 _0808819E:
 	ldrh r0, [r1, #4]

@@ -295,7 +295,7 @@ sub_0808D2CC: @ 0x0808D2CC
 	strb r0, [r1, #0xa]
 	adds r0, r1, #0
 	movs r1, #2
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 _0808D2F2:
 	add sp, #4
 	pop {pc}

@@ -813,7 +813,7 @@ sub_080A59AC: @ 0x080A59AC
 	movs r0, #0
 	strb r0, [r1, #3]
 	movs r1, #0
-	bl sub_08052418
+	bl SetPopupState
 	movs r0, #1
 	bl sub_080A7114
 	pop {pc}
@@ -887,7 +887,7 @@ _080A5A3C:
 	strb r2, [r1, #3]
 	movs r0, #0
 	adds r1, r2, #0
-	bl sub_08052418
+	bl SetPopupState
 	movs r0, #0x69
 	bl SoundReq
 _080A5A52:
@@ -998,7 +998,7 @@ sub_080A5AF4: @ 0x080A5AF4
 .endif
 	movs r0, #2
 	movs r1, #0
-	bl sub_08052418
+	bl SetPopupState
 .ifndef EU
 	movs r0, #0x80
 	lsls r0, r0, #0x12
@@ -1077,7 +1077,7 @@ _080A5B76:
 	strb r4, [r1, #3]
 	movs r0, #2
 	adds r1, r4, #0
-	bl sub_08052418
+	bl SetPopupState
 	movs r0, #0x69
 	bl SoundReq
 _080A5B8E:
@@ -1796,7 +1796,7 @@ sub_080A5F24: @ 0x080A5F24
 	movs r0, #0x8c
 	lsls r0, r0, #4
 	movs r1, #0x7b
-	bl CheckLocalFlagByOffset
+	bl CheckLocalFlagByBank
 	cmp r0, #0
 	beq _080A5F40
 	movs r4, #0
@@ -2873,7 +2873,7 @@ sub_080A6534: @ 0x080A6534
 	adds r0, #0xa2
 	ldrh r1, [r0]
 	movs r0, #0
-	bl sub_0801D79C
+	bl SetColor
 	ldr r1, _080A659C @ =gUnk_08128F4C
 	ldr r0, _080A65A0 @ =gUnk_02032EC0
 	ldrb r0, [r0, #3]
@@ -3851,10 +3851,10 @@ sub_080A6B04: @ 0x080A6B04
 	ldr r4, _080A6C00 @ =0x0000475F
 	movs r0, #0
 	adds r1, r4, #0
-	bl sub_0801D79C
+	bl SetColor
 	movs r0, #0x5f
 	adds r1, r4, #0
-	bl sub_0801D79C
+	bl SetColor
 	ldr r0, _080A6C04 @ =0x00005001
 	ldr r1, _080A6C08 @ =gBG3Buffer
 	movs r2, #0x80
@@ -5033,10 +5033,10 @@ _080A73B4:
 	movs r2, #0x7c
 	bl MemCopy
 	ldrb r0, [r4, #4]
-	bl sub_08052D58
+	bl GetFlagBankOffset
 	ldr r4, _080A749C @ =gArea
 	strh r0, [r4, #4]
-	bl sub_08052E8C
+	bl GetCurrentRoomInfo
 	ldr r1, _080A74A0 @ =0x0000085C
 	adds r4, r4, r1
 	str r0, [r4]
@@ -5104,7 +5104,7 @@ sub_080A74C8: @ 0x080A74C8
 	strb r2, [r0, #4]
 	strb r3, [r1]
 	strb r3, [r1, #2]
-	bl sub_0805E5B4
+	bl ResetSystemPriority
 _080A74E6:
 	pop {pc}
 	.align 2, 0
@@ -5115,7 +5115,7 @@ _080A74F0: .4byte gUnk_02032EC0
 	thumb_func_start sub_080A74F4
 sub_080A74F4: @ 0x080A74F4
 	push {lr}
-	bl sub_0805E5A8
+	bl SetInitializationPriority
 	ldr r1, _080A7524 @ =gMain
 	movs r0, #0
 	strb r0, [r1, #0xb]

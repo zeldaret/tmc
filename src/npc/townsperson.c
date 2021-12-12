@@ -276,7 +276,7 @@ void sub_08062048(Entity* this) {
     int iVar1;
 
     if (this->id == 6) {
-        iVar1 = gSave.unk8 - 2;
+        iVar1 = gSave.global_progress - 2;
         if (iVar1 < 0) {
             iVar1 = 0;
         }

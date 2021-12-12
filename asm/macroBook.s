@@ -159,7 +159,7 @@ _0809A87C:
 	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	movs r1, #0x78
-	bl sub_0805E4E0
+	bl RequestPriorityDuration
 _0809A8A0:
 	pop {r4, pc}
 	.align 2, 0
@@ -206,7 +206,7 @@ _0809A8E2:
 	ands r0, r1
 	strb r0, [r2]
 	movs r0, #0xff
-	bl sub_08078A90
+	bl SetPlayerControl
 	movs r0, #0x2a
 	bl SetGlobalFlag
 _0809A8FC:

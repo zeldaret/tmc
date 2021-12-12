@@ -63,6 +63,6 @@ void sub_0805DBF0(Manager34* this) {
 }
 
 void sub_0805DC70(void) {
-    sub_0805E5A8();
+    SetInitializationPriority();
     DoExitTransition(&gUnk_0813AC48);
 }

@@ -1364,14 +1364,14 @@ sub_080A4608: @ 0x080A4608
 	adds r0, r4, r1
 	ldrh r1, [r0]
 	movs r0, #0
-	bl sub_0801D79C
+	bl SetColor
 	movs r0, #0xae
 	lsls r0, r0, #1
 	movs r2, #0xd3
 	lsls r2, r2, #1
 	adds r1, r4, r2
 	ldrh r1, [r1]
-	bl sub_0801D79C
+	bl SetColor
 	ldr r0, _080A46A4 @ =gBG0Buffer
 	movs r1, #0x80
 	lsls r1, r1, #4
@@ -2923,7 +2923,7 @@ sub_080A50A0: @ 0x080A50A0
 	adds r1, r0, #0
 	cmp r1, #0xf
 	bne _080A50B4
-	bl sub_08052690
+	bl CheckHasMap
 	movs r1, #4
 	cmp r0, #0
 	beq _080A50B4

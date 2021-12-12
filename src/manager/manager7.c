@@ -66,8 +66,8 @@ void Manager7_Main(Manager7* this) {
         this->manager.unk_0e = 8;
         this->unk_20 = 0xFF;
 
-        sub_0805E3A0(this, 6);
-        sub_08052D74(this, sub_08057E30, 0);
+        SetDefaultPriority((Entity*)this, 6);
+        RegisterTransitionManager(this, sub_08057E30, 0);
     }
     if (sub_08057E40(this)) {
         tmp = (u32)gRoomVars.unk_10[0];

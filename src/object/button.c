@@ -16,7 +16,7 @@ extern u32 sub_08081E3C(Entity*);
 
 void sub_08081AE0(Entity* this) {
     COLLISION_OFF(this);
-    this->updateConditions = 3;
+    this->updatePriority = 3;
     this->y.HALF.HI++;
     if (this->cutsceneBeh.HWORD != 0) {
         this->collisionLayer = this->cutsceneBeh.HWORD;
@@ -44,14 +44,14 @@ void sub_08081B84(Entity* this) {
 }
 
 u32 sub_08081CB0(Entity*);
-void sub_0805E4E0(Entity*, u32);
+void RequestPriorityDuration(Entity*, u32);
 void sub_08081FF8(Entity*);
 
 void sub_08081BAC(Entity* this) {
     if (sub_08081CB0(this)) {
         this->subAction = 0;
         this->actionDelay = 0xA;
-        sub_0805E4E0(this, 0xA);
+        RequestPriorityDuration(this, 0xA);
         sub_08081FF8(this);
         if (this->type == 1) {
             this->action = 3;
@@ -153,7 +153,7 @@ Entity* sub_08081D74(Entity* this) {
     }
     ent = 0;
     if (sub_08081E0C(this)) {
-        if (!(gPlayerState.flags & 0x10) && !(gPlayerState.flags & PL_IS_MINISH)) {
+        if (!(gPlayerState.flags & 0x10) && !(gPlayerState.flags & PL_MINISH)) {
             ent = &gPlayerEntity;
         }
     } else {
@@ -234,13 +234,13 @@ u32 sub_08081F00(u32* unk1, u32* unk2) {
 void sub_08081F24(Entity* this) {
     Entity* fx = CreateFx(this, FX_DASH, 0x40);
     if (fx) {
-        fx->updateConditions = 3;
+        fx->updatePriority = 3;
         fx->x.HALF.HI += 7;
         fx->y.HALF.HI += 5;
     }
     fx = CreateFx(this, FX_DASH, 0x40);
     if (fx) {
-        fx->updateConditions = 3;
+        fx->updatePriority = 3;
         fx->x.HALF.HI -= 7;
         fx->y.HALF.HI += 5;
     }

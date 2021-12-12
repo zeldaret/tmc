@@ -24,7 +24,7 @@ void Carpenter(Entity* this) {
                 break;
             this->action = 1;
             this->field_0x68.HALF.HI = 0;
-            sub_0805E3A0(this, 2);
+            SetDefaultPriority(this, 2);
             sub_0807DD64(this);
 
         case 1:
@@ -94,7 +94,7 @@ void Carpenter_Fusion(Entity* this) {
         if (LoadExtraSpriteData(this, &gUnk_08110CA8[this->type * 4]) != 0) {
             this->action = this->action + 1;
             this->spriteSettings.draw = 1;
-            sub_0805E3A0(this, 2);
+            SetDefaultPriority(this, 2);
             InitializeAnimation(this, (u32)this->type * 8 + 2);
         }
     } else {

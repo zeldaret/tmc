@@ -23,7 +23,7 @@ void Manager2_Main(Manager2* this) {
         this->manager.action = 1;
         gScreen.bg3.updated = 0;
         gScreen.bg1.updated = 0;
-        sub_08052D74(this, sub_080576A0, 0);
+        RegisterTransitionManager(this, sub_080576A0, 0);
     }
     sub_0805754C(this);
 }

@@ -32,7 +32,7 @@ void ForestMinish(Entity* this) {
                 this->spriteSettings.draw = TRUE;
                 this->field_0x68.HALF.HI = this->animationState = this->actionDelay << 1;
                 this->actionDelay = 0;
-                sub_0805E3A0(this, 2);
+                SetDefaultPriority(this, 2);
                 StartCutscene(this, (u16*)gUnk_08109D18[this->type2]);
                 sub_0807DD50(this);
             }
@@ -234,14 +234,14 @@ void sub_08060318(void) {
 }
 
 void sub_08060340(void) {
-    gSave.unk490 = gSave.unk50;
+    gSave.unk48C[1] = gSave.unk50;
 }
 
 u32 sub_08060354(void) {
     u32 iVar1;
     s32 iVar2;
 
-    iVar2 = gSave.unk50 - gSave.unk490;
+    iVar2 = gSave.unk50 - gSave.unk48C[1];
     if (CheckGlobalFlag(DRUG_1) == 0) {
         if (4 < iVar2) {
             return 0x8444;
@@ -267,7 +267,7 @@ void ForestMinish_Fusion(Entity* this) {
         if (LoadExtraSpriteData(this, &gUnk_0810A348)) {
             this->action++;
             this->spriteSettings.draw = TRUE;
-            sub_0805E3A0(this, 2);
+            SetDefaultPriority(this, 2);
             InitializeAnimation(this, 6);
         }
     } else {

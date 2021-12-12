@@ -500,7 +500,7 @@ _08088DEC:
 	strb r0, [r1]
 	adds r0, r4, #0
 	movs r1, #3
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	ldrb r0, [r4, #0xb]
 	movs r1, #0x16
 	cmp r0, #0
@@ -688,7 +688,7 @@ _08088F6E:
 	movs r1, #0x87
 	lsls r1, r1, #1
 	adds r0, r4, #0
-	bl sub_0805E4E0
+	bl RequestPriorityDuration
 	movs r0, #0x2a
 	movs r1, #1
 	movs r2, #0
@@ -815,7 +815,7 @@ _0808905C:
 	beq _08089088
 	adds r0, r4, #0
 	movs r1, #0x3c
-	bl sub_0805E4E0
+	bl RequestPriorityDuration
 	movs r0, #0x72
 	bl SoundReq
 _08089088:
@@ -883,7 +883,7 @@ sub_080890EC: @ 0x080890EC
 	cmp r4, #0
 	beq _08089132
 	movs r1, #3
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	ldrh r0, [r5, #0x2e]
 	strh r0, [r4, #0x2e]
 	ldrh r0, [r5, #0x32]

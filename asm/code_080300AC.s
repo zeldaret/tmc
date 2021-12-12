@@ -48,7 +48,7 @@ sub_08030118: @ 0x08030118
 	lsls r0, r0, #2
 	adds r1, r2, #0
 	adds r1, #0x67
-	bl SetLocalFlagByOffset
+	bl SetLocalFlagByBank
 	b _0803014C
 	.align 2, 0
 _0803013C: .4byte gScreenTransition
@@ -57,7 +57,7 @@ _08030140:
 	lsls r0, r0, #2
 	adds r1, r2, #0
 	adds r1, #0x67
-	bl ClearLocalFlagByOffset
+	bl ClearLocalFlagByBank
 _0803014C:
 	pop {pc}
 	.align 2, 0

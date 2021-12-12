@@ -194,7 +194,7 @@ _08096494:
 	strb r0, [r5, #0x19]
 	adds r0, r5, #0
 	movs r1, #6
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	b _0809650A
 _080964A6:
 	ldrb r0, [r5, #0xb]

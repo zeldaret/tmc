@@ -7,7 +7,7 @@ typedef struct {
     u16 displayControl;
     u8 filler2[0x2];
     u16 unk4;
-    u16 unk6;
+    u16 displayControlMask;
 } LcdControls;
 
 typedef struct {

@@ -40,7 +40,7 @@ _08067F1E:
 	strb r4, [r0]
 	adds r0, r5, #0
 	movs r1, #2
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	adds r0, r5, #0
 	bl sub_0807DD50
 	ldr r1, _08067F54 @ =gUnk_08111304

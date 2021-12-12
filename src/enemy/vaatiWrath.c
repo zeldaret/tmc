@@ -567,7 +567,7 @@ void sub_08041BE8(Entity* this) {
     if (sub_08079F8C() != 0) {
         this->subAction = 1;
         this->actionDelay = 120;
-        this->updateConditions = 3;
+        this->updatePriority = 3;
         InitAnimationForceUpdate(this, 10);
 
         entity = ((VaatiWrathHeapStruct*)this->myHeap)->type1;
@@ -576,7 +576,7 @@ void sub_08041BE8(Entity* this) {
         ((VaatiWrathHeapStruct*)this->myHeap)->type1 = NULL;
 
         entity = ((VaatiWrathHeapStruct*)this->myHeap)->type2;
-        entity->updateConditions = 3;
+        entity->updatePriority = 3;
         sub_080AE068(entity);
         LoadFixedGFX(entity, 0x1f5);
         sub_0801D2B4(entity, 0x16b);
@@ -614,7 +614,7 @@ void sub_08041BE8(Entity* this) {
         DeleteEntity(entity);
         ((VaatiWrathHeapStruct*)this->myHeap)->eyes[3] = NULL;
 
-        sub_08078A90(2);
+        SetPlayerControl(2);
     }
 }
 
@@ -1001,8 +1001,8 @@ void sub_0804235C(Entity* this) {
 void VaatiWrathType0PreAction(Entity* this) {
     int temp;
     if ((gScreenTransition.field_0x38 & 2) == 0) {
-        if (gSave.unk498 != 0) {
-            gSave.unk498--;
+        if (gSave.unk48C[3] != 0) {
+            gSave.unk48C[3]--;
         } else {
             temp = gPlayerState.field_0xa9;
             if (temp < 2) {

@@ -37,44 +37,6 @@ typedef struct {
 extern struct_02000010 gUnk_02000010;
 
 typedef struct {
-    s32 frameCount; // regular frame count? does anything reset it?
-    u8 field_0x4[0x2];
-    u16 field_0x6;
-    bool8 transitioningOut;
-    u8 transitionType; // transition when changing areas
-    u16 field_0xa;     // seems to be a tile type
-    u8 areaID;
-    u8 roomID;
-    u8 playerState;
-    u8 field_0xf;
-    Coords playerStartPos;
-    u8 playerLayer;
-    u8 field_0x13;
-    u8 field_0x14[0xa];
-    u16 field_0x20;
-    u16 field_0x22;
-    u8 field_0x24[0x14];
-    u8 field_0x38;
-    u8 field_0x39;
-    u8 field_0x3a;
-    u8 field_0x3b;
-    u8 field_0x3c;
-    u8 field_0x3d;
-    u16 field_0x3e;
-    u16 hurtType;
-    u16 field_0x42;
-    u16 field_0x44;
-    u16 field_0x46;
-    u16 field_0x48;
-    u16 field_0x4a;
-    u8 field_0x4c[0x60];
-    u16 field_0xac;
-    u16 field_0xae;
-} ScreenTransition;
-
-extern ScreenTransition gScreenTransition;
-
-typedef struct {
     u16 transitionType;
     u8 field_0x2[4];
     s16 playerXPos;
@@ -112,7 +74,6 @@ typedef struct {
     u8 unk1;
     u16 unk2;
 } struct_020354C0;
-
 extern struct_020354C0 gUnk_020354C0[0x20];
 
 typedef struct {
@@ -124,13 +85,11 @@ typedef struct {
     u8 ezloNagFuncIndex;
     u8 filler25[0x30F];
 } struct_0200AF00;
-
 extern struct_0200AF00 gUnk_0200AF00;
 
 typedef struct {
     u8 unk0;
 } struct_02024490;
-
 extern struct_02024490 gGFXSlots;
 
 typedef struct {
@@ -140,7 +99,6 @@ typedef struct {
     u8 flags;
     u8 unk_08;
 } struct_02033280;
-
 extern struct_02033280 gActiveScriptInfo;
 
 typedef struct {
@@ -175,15 +133,14 @@ struct {
 static_assert(sizeof(gUnk_03000B80) == 0x70);
 
 typedef struct {
-    u8 unk0;
-    u8 unk1;
-    u8 unk2;
-    u8 unk3;
-    Entity* unk4;
-    u16 unk_0xc;
-} EntityHandler;
-
-extern EntityHandler gUnk_03003DC0;
+    u8 sys_priority; // system requested priority
+    u8 ent_priority; // entity requested priority
+    u8 queued_priority;
+    u8 queued_priority_reset;
+    Entity* requester;
+    u16 priority_timer;
+} PriorityHandler;
+extern PriorityHandler gPriorityHandler;
 
 extern u8 gUnk_02022740[];
 extern u8 gUnk_02034490[];

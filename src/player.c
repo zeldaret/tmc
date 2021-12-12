@@ -30,11 +30,11 @@ extern void sub_08079E08();
 extern void sub_08078F60();
 extern void sub_0806F948();
 extern void sub_08077698();
-extern void FreezeTime();
+extern void SetPlayerEventPriority();
 extern void sub_080717F8();
-extern void UnfreezeTime();
+extern void ResetPlayerEventPriority();
 extern void sub_08071A6C();
-extern void sub_08052BB8();
+extern void DisplayEzloMessage();
 extern void sub_08079258();
 extern void sub_08071AF0();
 extern void sub_080728AC();
@@ -61,13 +61,13 @@ extern void sub_0807B068();
 extern u32 sub_080001DA();
 extern void sub_08072A60();
 extern u32 sub_0807A2F8();
-extern u32 sub_08052620();
+extern u32 CheckIsOverworld();
 extern u32 sub_0806F730();
 extern u32 sub_08007DD6();
-extern u32 sub_0807A1E8();
+extern u32 GetSurfaceCalcType();
 extern void sub_08073094();
 extern void sub_08074808();
-extern void sub_0805E4E0();
+extern void RequestPriorityDuration();
 
 typedef struct {
     u8 frame;
@@ -160,7 +160,7 @@ void sub_08070C3C(Entity* this) {
 
     gPlayerState.jumpStatus = 0;
 
-    if ((gPlayerState.flags & PL_IS_MINISH) != 0)
+    if ((gPlayerState.flags & PL_MINISH) != 0)
         gPlayerState.field_0x8 = 0x1ba;
     else if ((gPlayerState.flags & 8) != 0)
         gPlayerState.field_0x8 = 0x458;
@@ -205,7 +205,7 @@ void sub_08070D38(Entity* this) {
     this->actionDelay = gPlayerState.field_0x38;
     this->spriteIndex = 1;
 
-    if ((gPlayerState.flags & PL_IS_MINISH) == 0) {
+    if ((gPlayerState.flags & PL_MINISH) == 0) {
         this->zVelocity = 0x20000;
         gPlayerState.field_0x8 = 0x114;
         sub_08080964(16, 0);
@@ -259,7 +259,7 @@ NONMATCH("asm/non_matching/player/sub_08070DC4.inc", void sub_08070DC4(Entity* t
     this->actionDelay = 8;
     this->subAction++;
 
-    if ((gPlayerState.flags & PL_IS_MINISH) == 0)
+    if ((gPlayerState.flags & PL_MINISH) == 0)
         gPlayerState.field_0x8 = 0x100;
 }
 END_NONMATCH
@@ -285,12 +285,12 @@ void sub_08070E9C(Entity* this) {
 }
 
 void sub_08070EDC(Entity* this) {
-    this->updateConditions = 2;
+    this->updatePriority = 2;
 
     if ((gMessage.doTextBox & 0x7f) != 0)
         this->subAction = 1;
 
-    if ((gPlayerState.flags & PL_IS_MINISH) == 0)
+    if ((gPlayerState.flags & PL_MINISH) == 0)
         sub_08079938();
     else
         gPlayerState.field_0x8 = 0xc18;
@@ -299,7 +299,7 @@ void sub_08070EDC(Entity* this) {
 void sub_08070f24(Entity* this) {
     UpdateAnimationSingleFrame(this);
     if ((gMessage.doTextBox & 0x7f) == 0) {
-        this->updateConditions = this->updateConditions2;
+        this->updatePriority = this->updatePriorityPrev;
         sub_080791D0();
     }
 }
@@ -330,7 +330,7 @@ void sub_08070FA4(Entity* this) {
     gPlayerState.flags |= 1;
     gPlayerState.jumpStatus = 0;
 
-    if ((gPlayerState.flags & PL_IS_MINISH) == 0) {
+    if ((gPlayerState.flags & PL_MINISH) == 0) {
         if (gPlayerState.flags & 0x8) {
             if (sub_080542AC(gPlayerState.field_0x38)) {
                 temp = 0x45e;
@@ -390,7 +390,7 @@ void sub_080710A8(Entity* this) {
     gPlayerState.playerAction = 0;
 
     if ((gPlayerState.heldObject | gPlayerState.field_0x1a[1]) == 0) {
-        if ((gPlayerState.flags & PL_IS_MINISH) == 0) {
+        if ((gPlayerState.flags & PL_MINISH) == 0) {
             ResetPlayer();
 
             if ((gPlayerState.flags & 0x8) != 0) {
@@ -455,7 +455,7 @@ void sub_08071130(Entity* this) {
 
     this->actionDelay = 6;
 
-    if (((gPlayerState.heldObject | gPlayerState.keepFacing) == 0) && ((gPlayerState.flags & PL_IS_MINISH) == 0)) {
+    if (((gPlayerState.heldObject | gPlayerState.keepFacing) == 0) && ((gPlayerState.flags & PL_MINISH) == 0)) {
         if (gPlayerState.flags & 0x8) {
             gPlayerState.field_0x8 = 0x424;
         } else {
@@ -472,7 +472,7 @@ void sub_08071130(Entity* this) {
 
 void sub_08071208(Entity* this) {
     if ((gPlayerState.heldObject | gPlayerState.keepFacing) == 0) {
-        if ((gPlayerState.flags & PL_IS_MINISH) == 0) {
+        if ((gPlayerState.flags & PL_MINISH) == 0) {
             UpdateAnimationSingleFrame(this);
         }
     }
@@ -494,7 +494,7 @@ void sub_0807127C(Entity* this) {
     this->subAction = 1;
     this->spritePriority.b1 = 0;
 
-    if (gPlayerState.flags & PL_IS_MINISH) {
+    if (gPlayerState.flags & PL_MINISH) {
         this->actionDelay = 0x3c;
         gPlayerState.field_0x8 = 0xc19;
         SoundReq(SFX_WATER_SPLASH);
@@ -519,7 +519,7 @@ void sub_080712F0(Entity* this) {
 
     temp = FALSE;
 
-    if ((gPlayerState.flags & PL_IS_MINISH) != 0) {
+    if ((gPlayerState.flags & PL_MINISH) != 0) {
         if (--this->actionDelay == 0)
             temp = TRUE;
     } else if ((this->frame & 0x80) != 0) {
@@ -648,7 +648,7 @@ void PortalActivateInit(Entity* this) {
     gPlayerState.field_0x8 = 0x738;
     CreateObjectWithParent(this, OBJECT_6, 1, 0);
     sub_08077B20();
-    FreezeTime();
+    SetPlayerEventPriority();
 }
 
 void PortalActivateUpdate(Entity* this) {
@@ -657,7 +657,7 @@ void PortalActivateUpdate(Entity* this) {
 
     UpdateAnimationSingleFrame(this);
 
-    if (gPlayerState.flags & PL_IS_MINISH)
+    if (gPlayerState.flags & PL_MINISH)
         this->subAction = 4;
 }
 
@@ -726,7 +726,7 @@ void sub_080717F8(Entity* this) {
     this->subAction = 0;
     gPlayerState.flags = (gPlayerState.flags & ~0x20) | 0x80;
     sub_0805EC60(this);
-    UnfreezeTime();
+    ResetPlayerEventPriority();
 }
 
 void PlayerTalkEzlo(Entity* this) {
@@ -744,13 +744,13 @@ void sub_080718A0(Entity* this) {
     ResetPlayer();
     gUnk_03000B80.filler[0x63] = 0;
     this->iframes = 0;
-    gUnk_03003DC0.unk0 = 6;
-    this->updateConditions = 6;
+    gPriorityHandler.sys_priority = 6;
+    this->updatePriority = 6;
 
-    if (gPlayerState.flags & PL_IS_MINISH) {
+    if (gPlayerState.flags & PL_MINISH) {
         this->subAction = 2;
         this->spritePriority.b1 = 0;
-        sub_08052BB8();
+        DisplayEzloMessage();
         return;
     }
 
@@ -783,7 +783,7 @@ void sub_0807193C(Entity* this) {
                 gPlayerState.field_0x8 = 0x3cc;
             else
                 gPlayerState.field_0x8 = 0x3c7;
-            sub_08052BB8();
+            DisplayEzloMessage();
         }
     }
 }
@@ -794,7 +794,7 @@ void sub_08071990(Entity* this) {
     if ((gMessage.doTextBox & 0x7f) == 0) {
         this->subAction++;
 
-        if ((gPlayerState.flags & PL_IS_MINISH) == 0) {
+        if ((gPlayerState.flags & PL_MINISH) == 0) {
             if (this->animationState == 2)
                 gPlayerState.field_0x8 = 0x3cd;
             else
@@ -806,7 +806,7 @@ void sub_08071990(Entity* this) {
         return;
     }
 
-    if (gPlayerState.flags & PL_IS_MINISH)
+    if (gPlayerState.flags & PL_MINISH)
         return;
 
     if (this->animationState == 2)
@@ -837,8 +837,8 @@ void sub_08071A4C(Entity* this) {
 }
 
 void sub_08071A6C(void) {
-    gUnk_03003DC0.unk0 = 0;
-    gPlayerEntity.updateConditions = gPlayerEntity.updateConditions2;
+    gPriorityHandler.sys_priority = 0;
+    gPlayerEntity.updatePriority = gPlayerEntity.updatePriorityPrev;
 }
 
 void PlayerPush(Entity* this) {
@@ -856,7 +856,7 @@ void sub_08071AB0(Entity* this) {
         this->actionDelay = 0;
         this->field_0xf = 1;
     } else {
-        this->speed = (gPlayerState.flags & PL_IS_MINISH) ? 64 : 128;
+        this->speed = (gPlayerState.flags & PL_MINISH) ? 64 : 128;
     }
     sub_08071AF0(this);
 }
@@ -891,7 +891,7 @@ void sub_08071B60(Entity* this) {
     this->knockbackDuration = 0;
     sub_080728AC(this);
     this->field_0xf = 6;
-    if ((gPlayerState.flags & PL_IS_MINISH) == 0) {
+    if ((gPlayerState.flags & PL_MINISH) == 0) {
         gPlayerState.field_0x8 = 0x104;
         this->spriteIndex = 3;
         InitAnimationForceUpdate(this, (this->animationState >> 1) + 0x3c);
@@ -921,7 +921,7 @@ void sub_08071BDC(Entity* this) {
     }
 
     gPlayerState.playerAction = 0;
-    if (gPlayerState.flags & PL_IS_MINISH) {
+    if (gPlayerState.flags & PL_MINISH) {
         if ((u8)(gPlayerState.field_0x10[2] - 8) < 3) {
             sub_0807A298(this);
             RespawnPlayer();
@@ -949,7 +949,7 @@ void sub_08071CAC(Entity* this) {
     UpdateAnimationSingleFrame(this);
     if (this->frame & 0x80) {
         u32 temp;
-        if ((gPlayerState.flags & PL_IS_MINISH) == 0)
+        if ((gPlayerState.flags & PL_MINISH) == 0)
             temp = (gPlayerState.flags & 8) ? 0x45a : 0x2bd;
         else
             temp = 0xc1b;
@@ -999,7 +999,7 @@ void sub_08071D80(Entity* this) {
     if ((gPlayerState.jumpStatus & 7) == 3) {
         gPlayerState.jumpStatus = 0;
         this->iframes = 226;
-        UnfreezeTime();
+        ResetPlayerEventPriority();
         sub_080791D0();
     }
 }
@@ -1273,7 +1273,7 @@ void sub_080722DC(Entity* this) {
     Entity* ent;
 
     COLLISION_OFF(this);
-    if (!(gPlayerState.flags & PL_IS_MINISH)) {
+    if (!(gPlayerState.flags & PL_MINISH)) {
         this->subAction = 1;
         this->zVelocity = 0x28000;
         ent = CreateObject(OBJECT_42, 0x80, 0);
@@ -1368,7 +1368,7 @@ void sub_080724DC(Entity* this) {
             sub_0807AE20(this);
         }
         if (gRoomControls.unk2 == 0) {
-            this->updateConditions = this->updateConditions2;
+            this->updatePriority = this->updatePriorityPrev;
             sub_080728AC(this);
         } else if (gPlayerState.field_0x1c == 0) {
             UpdateAnimationSingleFrame(this);
@@ -1377,7 +1377,7 @@ void sub_080724DC(Entity* this) {
         this->spriteSettings.draw = 3;
         this->subAction = 1;
         if (gRoomVars.field_0x0 == 0) {
-            if (gPlayerState.flags & PL_IS_MINISH) {
+            if (gPlayerState.flags & PL_MINISH) {
                 gPlayerState.field_0x8 = 0xc18;
             } else {
                 gPlayerState.field_0x8 = 0x104;
@@ -1394,7 +1394,7 @@ void sub_0807258C(Entity* this) {
             if (sub_080797C4() != 0) {
                 gPlayerState.startPosX = gPlayerEntity.x.HALF.HI;
                 gPlayerState.startPosY = gPlayerEntity.y.HALF.HI;
-                this->updateConditions = this->updateConditions2;
+                this->updatePriority = this->updatePriorityPrev;
                 sub_080728AC(this);
             } else {
                 UpdateAnimationSingleFrame(this);
@@ -1402,7 +1402,7 @@ void sub_0807258C(Entity* this) {
         } else {
             gPlayerState.startPosX = gPlayerEntity.x.HALF.HI;
             gPlayerState.startPosY = gPlayerEntity.y.HALF.HI;
-            this->updateConditions = this->updateConditions2;
+            this->updatePriority = this->updatePriorityPrev;
             sub_080728AC(this);
         }
     }
@@ -1423,17 +1423,17 @@ void sub_08072650(Entity* this) {
 
     if ((gPlayerState.flags & 0x200000) == 0) {
         sub_0806F948(&gPlayerEntity);
-        this->direction = this->animationState << 2;
+        this->direction = Direction8FromAnimationState(this->animationState);
     }
     this->subAction = 1;
     this->actionDelay = 0;
     ResetPlayer();
     temp = gPlayerState.flags;
-    if (gPlayerState.flags & PL_IS_MINISH) {
+    if (gPlayerState.flags & PL_MINISH) {
         this->spritePriority.b1 = 0;
         gPlayerState.field_0x8 = 0xc08;
     } else {
-        *(u8*)&this->hurtType = 0x1e;
+        this->hurtType = 0x1e;
         if (temp & 8) {
             gPlayerState.field_0x8 = 0x438;
         } else {
@@ -1459,7 +1459,7 @@ void sub_080726F4(Entity* this) {
     }
 
     this->direction = (this->animationState & 6) << 2;
-    if (((gPlayerState.flags & PL_IS_MINISH) == 0) && (--this->actionDelay == 0xff)) {
+    if (((gPlayerState.flags & PL_MINISH) == 0) && (--this->actionDelay == 0xff)) {
         CreateFx(&gPlayerEntity, FX_DASH, 0x40);
         this->actionDelay = 4;
     }
@@ -1508,7 +1508,7 @@ void sub_080726F4(Entity* this) {
         sub_08078F24();
         sub_08079E08();
     }
-    if (((this->frame & 0x10) == 0) && ((gPlayerState.flags & PL_IS_MINISH) == 0)) {
+    if (((this->frame & 0x10) == 0) && ((gPlayerState.flags & PL_MINISH) == 0)) {
         *(u8*)&this->hurtType = 0;
     }
     if ((this->frame & 0x40) != 0) {
@@ -1525,7 +1525,7 @@ void sub_080726F4(Entity* this) {
 
 void sub_080728AC(Entity* this) {
     sub_08079938();
-    if (gPlayerState.flags & PL_IS_MINISH)
+    if (gPlayerState.flags & PL_MINISH)
         sub_0807B068(this);
     else
         sub_08078F60();
@@ -1534,7 +1534,7 @@ void sub_080728AC(Entity* this) {
         this->speed = 0;
     if (!(gPlayerState.flags & 0x40))
         gPlayerEntity.spriteSettings.draw = 3;
-    if (!(gPlayerState.flags & PL_IS_MINISH))
+    if (!(gPlayerState.flags & PL_MINISH))
         gPlayerEntity.spritePriority.b1 = 1;
 
     if (!(gRoomControls.unk6 & 4)) {
@@ -1644,7 +1644,7 @@ void sub_08072B5C(Entity* this) {
         return;
     }
 
-    if (!sub_08052620()) {
+    if (!CheckIsOverworld()) {
         sub_08004542(this);
     }
     this->subAction++;
@@ -1667,7 +1667,7 @@ void sub_08072C48(Entity* this) {
     if (gPlayerState.field_0x14) {
         if (sub_08008B22()) {
             gPlayerState.field_0x10[1] = 7;
-            if (!(gPlayerState.flags & PL_IS_MINISH)) {
+            if (!(gPlayerState.flags & PL_MINISH)) {
                 sub_080791BC();
             }
         }
@@ -1783,7 +1783,7 @@ NONMATCH("asm/non_matching/player/sub_08072D54.inc", void sub_08072D54(Entity* t
         if (gPlayerState.field_0x14 != 0) {
             if (sub_08008B22() == 0) {
                 gPlayerState.field_0x10[1] = 7;
-                if (!(gPlayerState.flags & PL_IS_MINISH)) {
+                if (!(gPlayerState.flags & PL_MINISH)) {
                     sub_080791BC();
                 }
             }
@@ -1815,7 +1815,7 @@ extern void (*const gUnk_0811BBE4[])(Entity*);
 void sub_08072F34(Entity* this) {
     if (!sub_08078EFC()) {
         gPlayerState.field_0xa8 = 0x18;
-        gPlayerState.field_0x10[2] = sub_0807A1E8(this, 0, 0);
+        gPlayerState.field_0x10[2] = GetSurfaceCalcType(this, 0, 0);
         gUnk_0811BBE4[this->subAction](this);
         if (this->knockbackDuration != 0) {
             sub_080792D8();
@@ -1934,7 +1934,7 @@ extern void (*const gUnk_0811BBF8[])(Entity*);
 
 void PlayerUseEntrance(Entity* this) {
     gPlayerState.field_0xa8 = 0x1c;
-    sub_0805E4E0(NULL, 8);
+    RequestPriorityDuration(NULL, 8);
     gUnk_0811BBF8[this->subAction](this);
 }
 

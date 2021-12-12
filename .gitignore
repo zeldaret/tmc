@@ -68,3 +68,4 @@ __pycache__
 .vscode/settings.json
 .vscode/c_cpp_properties.json
 .vscode/tasks.json
+Info.plist

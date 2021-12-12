@@ -27,7 +27,7 @@ void GoronMerchant(Entity* this) {
 }
 
 void sub_08069584(Entity* this) {
-    if (gScreenTransition.field_0x24[8] != 0) {
+    if (gScreenTransition.player_status.field_0x24[8] != 0) {
         this->action = 3;
     } else {
         this->action = 1;
@@ -55,13 +55,13 @@ void sub_080695E8(Entity* this) {
     if ((gMessage.doTextBox & 0x7f) == 0) {
         this->action = 1;
         this->interactType = gMessage.doTextBox & 0x7f;
-        sub_0805E584(this);
+        RevokePriority(this);
         InitAnimationForceUpdate(this, this->animationState);
     }
 }
 
 void sub_0806961C(Entity* this) {
-    if (gScreenTransition.field_0x24[8] == 2) {
+    if (gScreenTransition.player_status.field_0x24[8] == 2) {
         UpdateAnimationSingleFrame(this);
     }
     sub_0806FD3C(this);

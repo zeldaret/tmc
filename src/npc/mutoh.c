@@ -23,7 +23,7 @@ void Mutoh(Entity* this) {
             if (LoadExtraSpriteData(this, &gUnk_08110C00)) {
                 this->action = 1;
                 this->spriteSettings.draw = TRUE;
-                sub_0805E3A0(this, 2);
+                SetDefaultPriority(this, 2);
                 sub_0807DD50(this);
             }
             break;
@@ -64,7 +64,7 @@ void sub_080670B4(Entity* this) {
 }
 
 void sub_080670E4(Entity* this) {
-    ShowNPCDialogue(this, &gUnk_08110C10[gSave.unk8]);
+    ShowNPCDialogue(this, &gUnk_08110C10[gSave.global_progress]);
 }
 
 void sub_08067100(Entity* this) {

@@ -118,16 +118,16 @@ _080185C2:
 _080185D4:
 	cmp r0, #0xfd
 	beq _080185F0
-	ldr r1, _080185EC @ =gUnk_0811E454
+	ldr r1, _080185EC @ =gLocalFlagBanks
 	ldrb r0, [r2]
 	lsls r0, r0, #1
 	adds r0, r0, r1
 	ldrh r0, [r0]
 	ldrb r1, [r2, #1]
-	bl CheckLocalFlagByOffset
+	bl CheckLocalFlagByBank
 	b _080185F6
 	.align 2, 0
-_080185EC: .4byte gUnk_0811E454
+_080185EC: .4byte gLocalFlagBanks
 _080185F0:
 	ldrb r0, [r2, #1]
 	bl CheckKinstoneFused
@@ -648,7 +648,7 @@ _080189D0:
 .endif
 .endif
 .endif
-	bl SetLocalFlagByOffset
+	bl SetLocalFlagByBank
 	ldr r0, _080189E8 @ =gUnk_080FEE38
 	bl LoadRoomEntityList
 _080189E4:

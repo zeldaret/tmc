@@ -58,7 +58,7 @@ _0809C410: @ jump table
 _0809C430:
 	adds r0, r4, #0
 	movs r1, #6
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	adds r1, r4, #0
 	adds r1, #0x7e
 	movs r0, #0
@@ -451,7 +451,7 @@ _0809C738:
 	beq _0809C74A
 	adds r0, r5, #0
 	movs r1, #0x1e
-	bl sub_0805E4E0
+	bl RequestPriorityDuration
 _0809C74A:
 	ldr r1, _0809C7A8 @ =gUnk_08123DF8
 	ldrb r0, [r5, #0xd]

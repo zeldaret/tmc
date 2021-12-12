@@ -185,7 +185,7 @@ sub_0808D7B4: @ 0x0808D7B4
 	strh r0, [r1]
 	adds r0, r4, #0
 	movs r1, #6
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	movs r0, #0x9b
 	lsls r0, r0, #1
 	bl EnqueueSFX
@@ -335,7 +335,7 @@ _0808D8EE:
 _0808D910:
 	adds r0, r4, #0
 	bl sub_080AEFB4
-	bl sub_0805E40C
+	bl AnyPrioritySet
 	cmp r0, #0
 	bne _0808D954
 	ldrb r0, [r4, #0xb]

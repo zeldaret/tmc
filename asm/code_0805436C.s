@@ -131,7 +131,7 @@ sub_08054974: @ 0x08054974
 	strb r0, [r4, #5]
 	bl sub_08053320
 	ldrb r0, [r4, #4]
-	bl sub_08052D58
+	bl GetFlagBankOffset
 	ldr r1, _080549B8 @ =gArea
 	strh r0, [r1, #4]
 	cmp r5, #0
@@ -194,14 +194,14 @@ sub_08054A14: @ 0x08054A14
 	ldrb r0, [r2, #0x11]
 	cmp r0, #0xd
 	bhi _08054A34
-	ldr r1, _08054A3C @ =gUnk_0811E454
+	ldr r1, _08054A3C @ =gLocalFlagBanks
 	lsls r0, r0, #1
 	adds r0, r0, r1
 	ldrh r0, [r0]
 	ldrh r1, [r2, #0x12]
-	bl SetLocalFlagByOffset
+	bl SetLocalFlagByBank
 _08054A34:
 	pop {pc}
 	.align 2, 0
 _08054A38: .4byte gUnk_080FE320
-_08054A3C: .4byte gUnk_0811E454
+_08054A3C: .4byte gLocalFlagBanks

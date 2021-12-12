@@ -1352,13 +1352,13 @@ void sub_08043DB0(Entity* this) {
     Entity* pEVar3;
     Entity* pEVar4;
 
-    if (((gPlayerState.flags & PL_IS_MINISH) != 0)) {
+    if (((gPlayerState.flags & PL_MINISH) != 0)) {
         pEVar3 = ((VaatiArm_HeapStruct*)this->myHeap)->entities[3];
         if (CheckPlayerInRegion(pEVar3->x.HALF.HI - gRoomControls.roomOriginX,
                                 pEVar3->y.HALF.HI - gRoomControls.roomOriginY + 2, 3, 3)) {
             DoExitTransition((ScreenTransitionData*)&gUnk_080D13EC);
             if ((gScreenTransition.field_0x39 & 3) != 3) {
-                gScreenTransition.roomID = 1;
+                gScreenTransition.player_status.room_next = 1;
             }
             cVar1 = this->field_0x7a.HWORD;
             gScreenTransition.field_0x3d = 0x1e - (cVar1 / 0x3c);

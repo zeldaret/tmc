@@ -10,7 +10,7 @@ void Gentari(Entity* this) {
         case 0:
             this->action = 1;
             this->spriteSettings.draw = TRUE;
-            sub_0805E3A0(this, 2);
+            SetDefaultPriority(this, 2);
             this->field_0x68.HALF.LO = sub_0801E99C(this);
             sub_08078784(this, this->field_0x68.HALF.LO);
             sub_0807DD50(this);
@@ -36,7 +36,7 @@ void Gentari_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action++;
         this->spriteSettings.draw = TRUE;
-        sub_0805E3A0(this, 2);
+        SetDefaultPriority(this, 2);
         InitAnimationForceUpdate(this, 10);
     } else {
         UpdateAnimationSingleFrame(this);

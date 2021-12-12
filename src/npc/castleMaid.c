@@ -107,7 +107,7 @@ void sub_0806464C(Entity* this) {
 }
 
 void sub_08064688(Entity* this) {
-    ShowNPCDialogue(this, &gUnk_0810F894[gSave.unk8]);
+    ShowNPCDialogue(this, &gUnk_0810F894[gSave.global_progress]);
 }
 
 ASM_FUNC("asm/non_matching/castleMaid/sub_080646A4.inc",

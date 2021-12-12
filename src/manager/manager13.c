@@ -1,3 +1,4 @@
+#include "area.h"
 #include "manager.h"
 #include "room.h"
 #include "object.h"
@@ -32,7 +33,7 @@ void Manager13_Main(Manager13* this) {
     if (this->manager.action == 0) {
         this->manager.action = 1;
     }
-    if (gRoomControls.areaID == 0x15) {
+    if (gRoomControls.areaID == AREA_FESTIVAL_TOWN) {
         spawnData = gUnk_08108530;
     } else {
         spawnData = gUnk_081084C8;

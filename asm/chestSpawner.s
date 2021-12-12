@@ -100,7 +100,7 @@ sub_08083EB0: @ 0x08083EB0
 	strb r0, [r4, #0x19]
 	adds r0, r4, #0
 	movs r1, #0x1e
-	bl sub_0805E4E0
+	bl RequestPriorityDuration
 	bl sub_0805BC4C
 _08083F0A:
 	pop {r4, pc}
@@ -113,7 +113,7 @@ sub_08083F14: @ 0x08083F14
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	movs r0, #0x1e
-	bl sub_0805E510
+	bl SetPriorityTimer
 	ldrb r0, [r4, #0xd]
 	cmp r0, #0
 	beq _08083F78
@@ -236,7 +236,7 @@ sub_08083FEC: @ 0x08083FEC
 	bl sub_080788E0
 	adds r0, r4, #0
 	movs r1, #0x3c
-	bl sub_0805E4E0
+	bl RequestPriorityDuration
 	ldr r0, _08084020 @ =0x0000011B
 	bl SoundReq
 _0808401E:

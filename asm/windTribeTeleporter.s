@@ -44,7 +44,7 @@ sub_080A0F44: @ 0x080A0F44
 	str r0, [r5, #0x48]
 	adds r0, r5, #0
 	movs r1, #6
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	adds r0, r5, #0
 	bl sub_080A11C0
 	cmp r0, #0
@@ -56,9 +56,9 @@ sub_080A0F44: @ 0x080A0F44
 	ldrh r0, [r5, #0x32]
 	strh r0, [r1, #0x32]
 	movs r0, #3
-	bl sub_08078A90
+	bl SetPlayerControl
 	bl sub_08078B48
-	bl FreezeTime
+	bl SetPlayerEventPriority
 	movs r0, #0x89
 	lsls r0, r0, #1
 	bl SoundReq
@@ -94,9 +94,9 @@ sub_080A0FB0: @ 0x080A0FB0
 	ldrh r0, [r5, #0x32]
 	strh r0, [r1, #0x32]
 	movs r0, #3
-	bl sub_08078A90
+	bl SetPlayerControl
 	bl sub_08078B48
-	bl FreezeTime
+	bl SetPlayerEventPriority
 	movs r0, #0x89
 	lsls r0, r0, #1
 	bl SoundReq
@@ -693,7 +693,7 @@ _080A11A8:
 	ldr r0, _080A11BC @ =gPlayerState
 	adds r0, #0x8b
 	strb r1, [r0]
-	bl UnfreezeTime
+	bl ResetPlayerEventPriority
 _080A11BA:
 	pop {r4, pc}
 	.align 2, 0

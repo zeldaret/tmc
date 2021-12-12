@@ -14,7 +14,7 @@ extern u16 gUnk_0810865C[];
 
 void Manager18_Main(Manager18* this) {
     if (this == NULL) {
-        if (gArea.unk3 != (u32)sub_0805AEDC) {
+        if (gArea.onEnter != sub_0805AEDC) {
             sub_0805AEDC(NULL);
         }
     } else {
@@ -24,9 +24,9 @@ void Manager18_Main(Manager18* this) {
             this->manager.unk_0e = 0;
             this->manager.unk_0f = 8;
             this->field_0x20 = gUnk_0810865C[0];
-            sub_0805E3A0(this, 6);
-            if (gArea.unk3 == 0) {
-                sub_08052D74(this, sub_0805AEDC, sub_0805AF3C);
+            SetDefaultPriority((Entity*)this, 6);
+            if (gArea.onEnter == NULL) {
+                RegisterTransitionManager(this, sub_0805AEDC, sub_0805AF3C);
             } else {
                 DeleteThisEntity();
             }

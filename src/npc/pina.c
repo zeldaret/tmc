@@ -110,7 +110,7 @@ void sub_08063C74(void) {
 }
 
 void sub_08063C90(Entity* this) {
-    ShowNPCDialogue(this, &gUnk_0810CE04[gSave.unk8]);
+    ShowNPCDialogue(this, &gUnk_0810CE04[gSave.global_progress]);
 }
 
 void sub_08063CAC(Entity* this) {

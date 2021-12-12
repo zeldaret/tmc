@@ -216,14 +216,14 @@ sub_080A034C: @ 0x080A034C
 	bne _080A038C
 	ldr r0, _080A0374 @ =gPlayerEntity
 	movs r1, #0
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	b _080A038C
 	.align 2, 0
 _080A0374: .4byte gPlayerEntity
 _080A0378:
 	movs r0, #0
 	movs r1, #0x3c
-	bl sub_0805E4E0
+	bl RequestPriorityDuration
 	bl sub_0808C67C
 	cmp r0, #0
 	beq _080A038C
@@ -239,7 +239,7 @@ sub_080A0390: @ 0x080A0390
 	adds r4, r0, #0
 	movs r0, #0
 	movs r1, #0x3c
-	bl sub_0805E4E0
+	bl RequestPriorityDuration
 	ldr r0, _080A03B4 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -262,7 +262,7 @@ sub_080A03B8: @ 0x080A03B8
 	adds r4, r0, #0
 	movs r0, #0
 	movs r1, #0xa
-	bl sub_0805E4E0
+	bl RequestPriorityDuration
 	adds r1, r4, #0
 	adds r1, #0x68
 	ldrh r0, [r1]
@@ -286,7 +286,7 @@ sub_080A03E8: @ 0x080A03E8
 	push {lr}
 	movs r0, #0
 	movs r1, #0xa
-	bl sub_0805E4E0
+	bl RequestPriorityDuration
 	ldr r0, _080A041C @ =gMessage
 	ldrb r1, [r0]
 	movs r0, #0x7f
@@ -294,7 +294,7 @@ sub_080A03E8: @ 0x080A03E8
 	cmp r0, #0
 	bne _080A041A
 	movs r0, #0x5a
-	bl sub_0805E510
+	bl SetPriorityTimer
 	ldr r0, _080A0420 @ =gPlayerState
 	adds r0, #0x8b
 	movs r1, #1

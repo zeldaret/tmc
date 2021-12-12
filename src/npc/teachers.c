@@ -18,7 +18,7 @@ void Teachers(Entity* this) {
                 this->spriteSettings.draw = TRUE;
                 this->animationState = this->actionDelay;
                 this->field_0x68.HALF.HI = 0;
-                sub_0805E3A0(this, 2);
+                SetDefaultPriority(this, 2);
                 sub_0807DD50(this);
             }
             break;
@@ -73,7 +73,7 @@ void Teachers_Head(Entity* this) {
 void sub_0806C70C(Entity* this) {
     int offset;
 
-    offset = gSave.unk8 - 2;
+    offset = gSave.global_progress - 2;
     if (offset < 0)
         offset = 0;
 

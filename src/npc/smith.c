@@ -141,10 +141,10 @@ void sub_08066218(Entity* this) {
 void sub_0806622C(Entity* this) {
     u32 index;
 
-    if (gSave.unk8 - 2 < 0) {
+    if (gSave.global_progress - 2 < 0) {
         index = 0;
     } else {
-        index = gSave.unk8 - 2;
+        index = gSave.global_progress - 2;
     }
     ShowNPCDialogue(this, &gUnk_08110390[index]);
 }

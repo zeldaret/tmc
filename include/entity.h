@@ -51,8 +51,8 @@ typedef struct Entity {
     /*0x0e*/ u8 actionDelay;
     /*0x0f*/ u8 field_0xf;
     /*0x10*/ u8 flags;
-    /*0x11*/ u8 updateConditions : 4; // should we update this sprite during pause
-    /*    */ u8 updateConditions2 : 4;
+    /*0x11*/ u8 updatePriority : 4; // Current priority -- See RequestPriority
+    /*    */ u8 updatePriorityPrev : 4; // Priority to restore after request is over
     /*0x12*/ s16 spriteIndex;
     /*0x14*/ u8 animationState;
     /*0x15*/ u8 direction;
@@ -195,7 +195,7 @@ enum {
 #define Direction8RoundUp(expr) Direction8Round((expr) + 2)
 #define Direction8TurnAround(expr) (Direction8RoundUp(expr) ^ 0x10)
 #define Direction8ToAnimationState(expr) (Direction8RoundUp(expr) >> 2)
-#define Direction8FromAnimationState(expr) (((expr) << 2)
+#define Direction8FromAnimationState(expr) ((expr) << 2)
 
 Entity* GetEmptyEntity(void);
 void DrawEntity(Entity*);
@@ -218,11 +218,6 @@ void SetSpriteSubEntryOffsetData2(Entity*, u32, u32);
 u32 GetFacingDirection(Entity*, Entity*);
 
 /**
- * @brief Check if entity should sleep this frame.
- */
-bool32 CheckDontUpdate(Entity* this);
-
-/**
  * @brief Delete the entity currently in execution.
  */
 void DeleteThisEntity(void);
@@ -232,14 +227,7 @@ void DeleteThisEntity(void);
  */
 void DeleteEntity(Entity*);
 
-/**
- * @brief Append entity to linked list.
- */
 void AppendEntityToList(Entity* entity, u32 listIndex);
-
-/**
- * @brief Prepend entity to linked list.
- */
 void PrependEntityToList(Entity* entity, u32 listIndex);
 
 /**
@@ -273,5 +261,64 @@ Entity* FindNextDuplicateID(Entity* ent, int listIndex);
 Entity* FindEntity(u32 kind, u32 id, u32 listIndex, u32 type, u32 type2);
 
 void DeleteEntityAny(Entity* ent);
+
+void UpdateEntities(void);
+void UpdateManagers(void);
+
+void EraseAllEntities(void);
+
+enum {
+    PRIO_MIN = 0,
+    PRIO_PLAYER = 1,
+    PRIO_REQUESTED = 2,
+    PRIO_MESSAGE = 2,
+    PRIO_OVERRIDE_MESSAGE = 3,
+    PRIO_PLAYER_EVENT = 6,
+    PRIO_INITIALIZING = 7,
+};
+
+/**
+ * @brief Set the default priority for entity.
+ */
+void SetDefaultPriority(Entity* ent, u32 prio);
+
+/**
+ * @brief Check if entity should sleep this frame (according to priority).
+ */
+bool32 CheckDontUpdate(Entity* this);
+
+/**
+ * @brief Check if system or entity is blocking updates.
+ */
+bool32 AnyPrioritySet(void);
+
+
+/// Entity Priority: Update blocking events requested by an entity.
+
+s32 SetMinPriority(u32 prio);
+
+void RequestPriority(Entity* this);
+void RevokePriority(Entity* e);
+
+void RequestPriorityDuration(Entity* this, u32 time);
+void SetPriorityTimer(u32 time);
+
+void RequestPriorityOverPlayer(Entity* this);
+void RevokePriorityOverPlayer(Entity* this);
+
+void ResetEntityPriority(void);
+
+
+/// System Priority: Update blocking events sent by the engine.
+
+void SetPlayerEventPriority(void);
+void ResetPlayerEventPriority(void);
+void SetRoomReloadPriority(void);
+void SetInitializationPriority(void);
+
+void ResetSystemPriority(void);
+
+extern u8 gEntCount;
+extern u8 gManagerCount;
 
 #endif

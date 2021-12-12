@@ -46,7 +46,7 @@ void sub_080866D8(Entity* this) {
         this->action = 1;
         *((u32*)(&this->field_0x68)) = 0;
         this->field_0x6c.HALF.LO = this->actionDelay;
-        sub_0805E3A0(this, 6);
+        SetDefaultPriority(this, 6);
     }
 
     prop = GetCurrentRoomProperty(this->field_0x6c.HALF.LO);
