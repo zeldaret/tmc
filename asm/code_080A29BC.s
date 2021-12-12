@@ -391,7 +391,7 @@ CreateSpeechBubble: @ 0x080A2D2C
 	lsls r1, r1, #0x1c
 	lsrs r1, r1, #0x1c
 	adds r0, r4, #0
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 _080A2D6E:
 	adds r0, r4, #0
 	pop {r4, r5, r6, r7, pc}

@@ -36,7 +36,7 @@ void Farore(Entity* this) {
 
 void sub_08064A28(Entity* this) {
     u32 tmp = sub_0801E99C(this);
-    if ((gSave.unk141[sub_08002632(this)] != 0) && (gSave.unk8 < 7)) {
+    if ((gSave.unk141[sub_08002632(this)] != 0) && (gSave.global_progress < 7)) {
         tmp = 0;
     }
     sub_08078784(this, tmp);

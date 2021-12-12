@@ -310,7 +310,7 @@ sub_0808FB68: @ 0x0808FB68
 	orrs r0, r1
 	strb r0, [r4, #0x15]
 	movs r0, #1
-	bl sub_08078A90
+	bl SetPlayerControl
 	adds r0, r4, #0
 	movs r1, #0
 	bl sub_0808FD44
@@ -343,7 +343,7 @@ _0808FBB0:
 	orrs r0, r1
 	strb r0, [r4, #0x15]
 	movs r0, #1
-	bl sub_08078A90
+	bl SetPlayerControl
 	adds r0, r4, #0
 	movs r1, #1
 	bl sub_0808FD44
@@ -378,7 +378,7 @@ sub_0808FBFC: @ 0x0808FBFC
 	lsls r0, r0, #3
 	strb r0, [r4, #0x15]
 	movs r0, #1
-	bl sub_08078A90
+	bl SetPlayerControl
 	adds r0, r4, #0
 	movs r1, #0
 	bl sub_0808FD44
@@ -399,7 +399,7 @@ sub_0808FC3C: @ 0x0808FC3C
 	movs r0, #1
 	strb r0, [r4, #0xc]
 	movs r0, #0
-	bl sub_08078A90
+	bl SetPlayerControl
 _0808FC58:
 	pop {r4, pc}
 	.align 2, 0

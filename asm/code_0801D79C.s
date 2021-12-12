@@ -487,7 +487,7 @@ _0801DC26:
 	ldrb r1, [r4, #1]
 	mov r0, r8
 	str r3, [sp]
-	bl CheckLocalFlagByOffset
+	bl CheckLocalFlagByBank
 	ldr r3, [sp]
 	cmp r0, #0
 	bne _0801DCA6
@@ -682,7 +682,7 @@ sub_0801DDA0: @ 0x0801DDA0
 	push {r5, r6, r7}
 	sub sp, #0x14
 	adds r4, r0, #0
-	bl sub_08052690
+	bl CheckHasMap
 	cmp r0, #0
 	bne _0801DDB8
 	b _0801DEEA
@@ -865,7 +865,7 @@ sub_0801DF10: @ 0x0801DF10
 	b _0801DF26
 _0801DF20:
 	ldrb r0, [r1]
-	bl sub_08052D58
+	bl GetFlagBankOffset
 _0801DF26:
 	pop {pc}
 
@@ -941,7 +941,7 @@ sub_0801DF90: @ 0x0801DF90
 _0801DF9A:
 	ldrb r1, [r0, #1]
 	adds r0, r2, #0
-	bl CheckLocalFlagByOffset
+	bl CheckLocalFlagByBank
 	b _0801DFB2
 _0801DFA4:
 	cmp r1, #1

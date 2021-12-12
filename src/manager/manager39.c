@@ -28,7 +28,7 @@ extern const u8 gUnk_08108E48[0x18];
 extern const u8 gUnk_08108E60[];
 
 extern void sub_0805F46C(void*, const void*);
-extern void sub_0805E5B4(void);
+extern void ResetSystemPriority(void);
 
 void sub_0805E140(Manager39*);
 void sub_0805E18C(Manager39*); // unused?
@@ -48,7 +48,7 @@ void sub_0805E140(Manager39* this) {
     this->unk_20 = gRoomControls.roomID;
     this->manager.unk_0e = 0x78;
     this->manager.unk_0f = 0x3c;
-    sub_0805E3A0((Entity*)this, 7);
+    SetDefaultPriority((Entity*)this, 7);
     sub_0805E1F8(gUnk_08108DE8[gArea.locationIndex], CheckIsDungeon());
 }
 
@@ -59,7 +59,7 @@ void sub_0805E18C(Manager39* this) {
         if (!--this->manager.unk_0f) {
             this->manager.unk_0b = 0;
             gPlayerState.field_0x8b = 1;
-            sub_0805E5B4();
+            ResetSystemPriority();
         }
     }
     if (!--this->manager.unk_0e) {

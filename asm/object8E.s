@@ -25,7 +25,7 @@ sub_0809B858: @ 0x0809B858
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	movs r1, #0x1e
-	bl sub_0805E4E0
+	bl RequestPriorityDuration
 	ldrb r3, [r4, #0xc]
 	cmp r3, #1
 	beq _0809B8CC
@@ -206,7 +206,7 @@ sub_0809B9BC: @ 0x0809B9BC
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	movs r1, #0x1e
-	bl sub_0805E4E0
+	bl RequestPriorityDuration
 	ldrb r0, [r4, #0xc]
 	cmp r0, #1
 	beq _0809BA34
@@ -344,7 +344,7 @@ sub_0809BAD0: @ 0x0809BAD0
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	movs r1, #0xa
-	bl sub_0805E4E0
+	bl RequestPriorityDuration
 	ldrb r0, [r4, #0xc]
 	cmp r0, #4
 	bls _0809BAE2
@@ -545,7 +545,7 @@ sub_0809BC70: @ 0x0809BC70
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
 	movs r1, #0x1e
-	bl sub_0805E4E0
+	bl RequestPriorityDuration
 	ldrb r5, [r4, #0xc]
 	cmp r5, #1
 	beq _0809BCDC
@@ -701,7 +701,7 @@ sub_0809BDB0: @ 0x0809BDB0
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r1, #0x1e
-	bl sub_0805E4E0
+	bl RequestPriorityDuration
 	ldrb r0, [r4, #0xc]
 	cmp r0, #1
 	beq _0809BE00

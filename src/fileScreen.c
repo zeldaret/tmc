@@ -102,7 +102,7 @@ void CreateDialogBox(u32 arg0, u32 arg1) {
 
     sub_08050384();
     MemCopy(&gUnk_080FC844, &var0, sizeof(gUnk_080FC844));
-    sub_08056FEC(arg1, &gUnk_020227E8);
+    sub_08056FEC(arg1, gUnk_020227E8);
     var0.unk10 |= gUnk_080FC85C[arg0][0] << 0xC;
     sub_0805F46C(gUnk_080FC85C[arg0][1], &var0);
     sfx = gUnk_080FC85C[arg0][2];
@@ -1098,7 +1098,7 @@ NONMATCH("asm/non_matching/fileScreen/sub_08051738.inc", void sub_08051738(void)
     for (i = 0; i < 3; i++) {
         if (gUnk_02019EE0.saveStatus[i] == 1) {
             temp = gUnk_02019EE0.unk6 ^ i;
-            uVar3 = BOOLCAST(temp) & 4;
+            uVar3 = !!temp & 4;
         } else {
             uVar3++;
         }

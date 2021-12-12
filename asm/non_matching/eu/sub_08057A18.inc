@@ -4,7 +4,7 @@
 	push {r6}
 	mov r8, r0
 	adds r4, r1, #0
-	bl sub_0805E5A8
+	bl SetInitializationPriority
 	ldr r5, _080575E8 @ =gUnk_03004030
 	ldrb r0, [r5, #9]
 	strb r0, [r5, #0xa]

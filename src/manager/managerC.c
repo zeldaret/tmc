@@ -71,7 +71,7 @@ void sub_08058894(ManagerC* this) {
     this->unk_28 = 0x1234;
     this->manager.unk_0e = CheckLocalFlags(0x15, 0x2) != 0;
     sub_08058CB0(this);
-    sub_08052D74(this, sub_08058D34, 0);
+    RegisterTransitionManager(this, sub_08058D34, 0);
 }
 
 void sub_080588CC(ManagerC* this) {
@@ -204,13 +204,13 @@ const u16 gUnk_081082E8[0xC] = { 0xB8, 0x80, 0x0, 0xB8, 0x110, 0x2, 0x118, 0x80,
 
 void sub_08058B5C(ManagerC* this, u32 unk1) {
     gScreenTransition.transitioningOut = 1;
-    gScreenTransition.transitionType = 0;
-    gScreenTransition.field_0xf = 4;
-    gScreenTransition.areaID = gRoomControls.areaID;
-    gScreenTransition.roomID = 6;
-    gScreenTransition.playerState = unk1 & 1 ? 4 : 0;
-    gScreenTransition.playerStartPos.HALF.x = gUnk_081082E8[unk1 * 3];
-    gScreenTransition.playerStartPos.HALF.y = gUnk_081082E8[unk1 * 3 + 1];
+    gScreenTransition.transitionType = TRANSITION_DEFAULT;
+    gScreenTransition.player_status.spawn_type = 4;
+    gScreenTransition.player_status.area_next = gRoomControls.areaID;
+    gScreenTransition.player_status.room_next = 6;
+    gScreenTransition.player_status.start_anim = unk1 & 1 ? 4 : 0;
+    gScreenTransition.player_status.start_pos.HALF.x = gUnk_081082E8[unk1 * 3];
+    gScreenTransition.player_status.start_pos.HALF.y = gUnk_081082E8[unk1 * 3 + 1];
     gSave.unk7 = gUnk_081082E8[unk1 * 3 + 2];
     SoundReq(SFX_STAIRS);
 }

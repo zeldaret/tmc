@@ -304,8 +304,8 @@ void sub_0805A76C(Manager15* this) {
                     this->manager.action++;
                     sub_08004168(&gPlayerEntity);
                     gPlayerEntity.animationState = 4;
-                    sub_0805E4E0((Entity*)this, 0x258);
-                    sub_08078A90(0xFF);
+                    RequestPriorityDuration((Entity*)this, 0x258);
+                    SetPlayerControl(0xFF);
                     gUnk_02034490[0] = 1;
                     gRoomControls.cameraTarget = 0;
                     sub_08077B20();
@@ -332,7 +332,7 @@ void sub_0805A804(Manager15* this) {
             }
             this->manager.unk_0d = 1;
             this->manager.unk_10 |= 0x20;
-            sub_0805E3A0(this, 6);
+            SetDefaultPriority((Entity*)this, 6);
             break;
         case 1:
             if (CheckLocalFlag(this->unk_3e))
@@ -364,7 +364,7 @@ void sub_0805A804(Manager15* this) {
 void sub_0805AAC8(Manager15*);
 
 void sub_0805A89C(Manager15* this) {
-    sub_0805E3A0(this, 6);
+    SetDefaultPriority((Entity*)this, 6);
     this->manager.action = 1;
     this->manager.unk_10 |= 0x20;
     this->manager.unk_0e = 8;
@@ -374,7 +374,7 @@ void sub_0805A89C(Manager15* this) {
     this->unk_20 = gRoomControls.roomID;
     this->unk_24 = gRoomControls.roomOriginX;
     this->unk_26 = gRoomControls.roomOriginY;
-    sub_08052D74(this, sub_0805AAC8, 0);
+    RegisterTransitionManager(this, sub_0805AAC8, 0);
 }
 
 void sub_0805A94C(Manager15* this);

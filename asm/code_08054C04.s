@@ -531,7 +531,7 @@ _08054FCA:
 	movs r0, #0x80
 	lsls r0, r0, #3
 	movs r1, #0x77
-	bl CheckLocalFlagByOffset
+	bl CheckLocalFlagByBank
 	cmp r0, #0
 	beq _08055004
 	ldrb r0, [r5, #2]
@@ -1288,13 +1288,13 @@ sub_080555B8: @ 0x080555B8
 	push {r4, r5, lr}
 	ldr r5, _08055600 @ =gMenu
 	ldr r4, [r5, #0xc]
-	ldr r1, _08055604 @ =gUnk_0811E454
+	ldr r1, _08055604 @ =gLocalFlagBanks
 	ldrb r0, [r4, #0x11]
 	lsls r0, r0, #1
 	adds r0, r0, r1
 	ldrh r0, [r0]
 	ldrh r1, [r4, #0x12]
-	bl SetLocalFlagByOffset
+	bl SetLocalFlagByBank
 	ldrb r0, [r4, #2]
 	ldrb r1, [r4, #3]
 	bl sub_0804B0E8
@@ -1317,7 +1317,7 @@ sub_080555B8: @ 0x080555B8
 	pop {r4, r5, pc}
 	.align 2, 0
 _08055600: .4byte gMenu
-_08055604: .4byte gUnk_0811E454
+_08055604: .4byte gLocalFlagBanks
 _08055608: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_0805560C

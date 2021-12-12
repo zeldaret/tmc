@@ -20,7 +20,7 @@ void SmallTownMinish(Entity* this) {
     } else {
         sub_0807DD94(this, NULL);
     }
-    if ((gPlayerState.flags & PL_IS_MINISH) != 0) {
+    if ((gPlayerState.flags & PL_MINISH) != 0) {
         this->spriteSettings.draw = 1;
     } else {
         this->spriteSettings.draw = 0;
@@ -28,7 +28,7 @@ void SmallTownMinish(Entity* this) {
 }
 
 void sub_0806E2DC(Entity* this) {
-    s32 dialog = gSave.unk8 - 2;
+    s32 dialog = gSave.global_progress - 2;
     if (dialog < 0) {
         dialog = 0;
     }

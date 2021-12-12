@@ -84,7 +84,7 @@ _0809D234:
 	str r3, [r5, #0x54]
 	adds r0, r5, #0
 	movs r1, #6
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	adds r0, r5, #0
 	movs r1, #0
 	bl InitAnimationForceUpdate
@@ -212,7 +212,7 @@ _0809D2D6:
 	rsbs r0, r0, #0
 	ands r0, r1
 	strb r0, [r6, #0x18]
-	ldr r1, _0809D43C @ =gUnk_03003DC0
+	ldr r1, _0809D43C @ =gPriorityHandler
 	movs r0, #6
 	strb r0, [r1]
 	ldr r0, _0809D440 @ =gUnk_02034490
@@ -287,7 +287,7 @@ _0809D3DA:
 _0809D430: .4byte gPlayerEntity
 _0809D434: .4byte gMessage
 _0809D438: .4byte gPlayerState
-_0809D43C: .4byte gUnk_03003DC0
+_0809D43C: .4byte gPriorityHandler
 _0809D440: .4byte gUnk_02034490
 _0809D444: .4byte 0xFFF80000
 _0809D448:
@@ -384,7 +384,7 @@ sub_0809D498: @ 0x0809D498
 	strb r1, [r5, #0x1b]
 	adds r0, r5, #0
 	movs r1, #6
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	ldr r0, _0809D53C @ =gRoomControls
 	ldrh r0, [r0, #0xa]
 	strh r0, [r5, #0x2e]
@@ -500,7 +500,7 @@ _0809D5E6:
 	orrs r0, r1
 	strb r0, [r6, #0x18]
 	bl sub_080791D0
-	bl UnfreezeTime
+	bl ResetPlayerEventPriority
 	ldr r1, _0809D664 @ =gUnk_02034490
 	movs r0, #0
 	strb r0, [r1]
@@ -609,7 +609,7 @@ _0809D6A2:
 	strb r1, [r4, #0x1b]
 	adds r0, r4, #0
 	movs r1, #6
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	adds r0, r4, #0
 	movs r1, #0xe0
 	bl InitAnimationForceUpdate
@@ -631,7 +631,7 @@ CreateBird: @ 0x0809D700
 	push {r4, lr}
 	sub sp, #4
 .ifdef EU
-	bl sub_08052620 @ TODO correct function?
+	bl CheckIsOverworld @ TODO correct function?
 .else
 	bl sub_08052654
 .endif
@@ -674,8 +674,8 @@ sub_0809D738: @ 0x0809D738
 	str r0, [r1, #0x30]
 	adds r0, r4, #0
 	movs r1, #6
-	bl sub_0805E3A0
-	bl FreezeTime
+	bl SetDefaultPriority
+	bl SetPlayerEventPriority
 	movs r0, #0x95
 	movs r1, #0xa
 	movs r2, #0

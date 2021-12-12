@@ -5,10 +5,10 @@
 extern void (*const gOcarinaStates[4])(ItemBehavior*, u32);
 
 extern void sub_08078F60(void);
-extern void FreezeTime(void);
+extern void SetPlayerEventPriority(void);
 
 extern void CreateBird(void);
-extern void UnfreezeTime(void);
+extern void ResetPlayerEventPriority(void);
 
 void ItemOcarina(ItemBehavior* this, u32 arg1) {
     gOcarinaStates[this->stateID](this, arg1);
@@ -32,7 +32,7 @@ void OcarinaUse(ItemBehavior* this, u32 arg1) {
         sub_08078F60();
         sub_08077D38(this, arg1);
         SoundReq(SFX_216);
-        FreezeTime();
+        SetPlayerEventPriority();
     }
 }
 
@@ -45,7 +45,7 @@ NONMATCH("asm/non_matching/ocarina/OcarinaUpdate.inc", void OcarinaUpdate(ItemBe
         gPlayerState.field_0x27[0] = 0;
         gUnk_02034490[0] = 0;
         CreateBird();
-        UnfreezeTime();
+        ResetPlayerEventPriority();
         sub_08077E78(this, arg1);
     }
 }

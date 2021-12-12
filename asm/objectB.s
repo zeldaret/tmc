@@ -57,7 +57,7 @@ sub_08083BE0: @ 0x08083BE0
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r1, #6
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	movs r0, #1
 	strb r0, [r4, #0xc]
 	pop {r4, pc}

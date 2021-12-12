@@ -165,8 +165,8 @@ void sub_0802A69C(Entity* this) {
 void sub_0802A734(Entity* this) {
     sub_0802A7D0(this);
     if (--this->actionDelay == 0) {
-        sub_0805E5A8();
-        DoExitTransition(gUnk_0813AB1C[gArea.regret]);
+        SetInitializationPriority();
+        DoExitTransition(gUnk_0813AB1C[gArea.dungeon_idx]);
     } else {
         this->z.WORD -= 0x20000;
         gPlayerState.field_0xa |= 0x80;

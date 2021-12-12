@@ -429,7 +429,7 @@ sub_0807FF1C: @ 0x0807FF1C
 	bls _0807FF48
 	movs r0, #0
 	strb r0, [r2, #2]
-	bl sub_0805E5B4
+	bl ResetSystemPriority
 _0807FF48:
 	pop {pc}
 	.align 2, 0
@@ -794,7 +794,7 @@ _08080232:
 	bne _08080268
 	strb r0, [r5, #2]
 	strh r0, [r5]
-	bl sub_0805E5B4
+	bl ResetSystemPriority
 	ldr r1, _08080260 @ =gScreen
 	ldrh r2, [r1]
 	ldr r0, _08080264 @ =0x0000BFFF

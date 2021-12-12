@@ -6,7 +6,7 @@
 #include "functions.h"
 
 void sub_08099ECC(Entity*);
-extern void sub_0805E4E0(Entity*, u32);
+extern void RequestPriorityDuration(Entity*, u32);
 extern void sub_0805B390(u32);
 
 extern void (*const gUnk_081237F8[])(Entity*);
@@ -59,7 +59,7 @@ void sub_08099E8C(Entity* this) {
     if (sub_080041A0(this, &gPlayerEntity, 0xc, 0xc)) {
         if (this->subAction == 0) {
             sub_08099ECC(this);
-            sub_0805E4E0(this, 0x1e);
+            RequestPriorityDuration(this, 0x1e);
         }
         if (CheckLocalFlag(0x75)) {
             sub_0805B390(0x7);

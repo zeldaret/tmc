@@ -138,8 +138,8 @@ void sub_0802CE68(Entity* this) {
 void sub_0802CEF4(Entity* this) {
     sub_0802CFD8(this);
     if (--this->actionDelay == 0) {
-        sub_0805E5A8();
-        DoExitTransition(gUnk_0813AB1C[gArea.regret]);
+        SetInitializationPriority();
+        DoExitTransition(gUnk_0813AB1C[gArea.dungeon_idx]);
     } else {
         this->z.WORD -= 0x20000;
         if (this->z.HALF.HI < -0x30) {

@@ -774,7 +774,7 @@ _080A1B80:
 	ldr r0, _080A1C00 @ =gRoomControls
 	str r4, [r0, #0x30]
 	movs r0, #2
-	bl sub_08078A90
+	bl SetPlayerControl
 _080A1BD0:
 	ldr r2, _080A1BF8 @ =gPlayerState
 	ldr r1, _080A1C00 @ =gRoomControls

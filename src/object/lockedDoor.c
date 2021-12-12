@@ -37,7 +37,7 @@ extern Hitbox gHitbox_2;
 
 extern u32 sub_080001DA(u32, u32);
 extern void sub_08078850(Entity*, u32, u32, u32);
-extern void sub_0805E4E0(Entity*, u32);
+extern void RequestPriorityDuration(Entity*, u32);
 
 typedef struct PACKED {
     s8 x;
@@ -238,7 +238,7 @@ void sub_08083658(Entity* this) {
     tmp = &gUnk_0811F680[this->field_0x7c.BYTES.byte2];
     this->x.HALF.HI += tmp->x;
     this->y.HALF.HI += tmp->y;
-    sub_0805E4E0(this, 0x3c);
+    RequestPriorityDuration(this, 0x3c);
     SoundReq(0x10b);
 }
 

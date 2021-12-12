@@ -125,7 +125,7 @@ _08083942:
 	strb r0, [r4, #0x10]
 	adds r0, r4, #0
 	movs r1, #6
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	pop {r4, pc}
 	.align 2, 0
 .ifdef EU

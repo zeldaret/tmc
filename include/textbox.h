@@ -118,6 +118,14 @@ void MessageNoOverlap(u32 index, Entity* entity);
  */
 void MessageFromTarget(u32 index);
 
+/**
+ * @brief Display message at y position.
+ *
+ * @param index u32 Message index
+ * @param y u32 Screen y
+ */
+void MessageAtHeight(u32 index, u32 y);
+
 void DispMessageFrame(u16*, u32, u32, u32);
 
 #endif

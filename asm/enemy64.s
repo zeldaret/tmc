@@ -887,7 +887,7 @@ sub_080496EC: @ 0x080496EC
 	cmp r0, #0
 	bne _08049720
 	movs r0, #2
-	bl sub_08078A90
+	bl SetPlayerControl
 	movs r0, #2
 	strb r0, [r4, #0xd]
 	movs r0, #0x1e
@@ -916,7 +916,7 @@ sub_0804972C: @ 0x0804972C
 	cmp r0, #0
 	bne _08049750
 	movs r0, #2
-	bl sub_08078A90
+	bl SetPlayerControl
 	movs r0, #2
 	strb r0, [r4, #0xd]
 	movs r0, #1
@@ -1098,7 +1098,7 @@ sub_08049888: @ 0x08049888
 	movs r0, #0x7c
 	bl SetFlag
 	movs r0, #1
-	bl sub_08078A90
+	bl SetPlayerControl
 _080498AE:
 	pop {pc}
 	.align 2, 0

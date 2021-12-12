@@ -198,7 +198,7 @@ sub_0808A968: @ 0x0808A968
 	str r0, [r4, #0x48]
 	adds r0, r4, #0
 	movs r1, #2
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	movs r0, #0xa0
 	lsls r0, r0, #6
 	str r0, [r4, #0x70]

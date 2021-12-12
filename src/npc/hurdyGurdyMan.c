@@ -20,7 +20,7 @@ void HurdyGurdyMan(Entity* this) {
             if (LoadExtraSpriteData(this, &gUnk_081144F0) != 0) {
                 this->action = 1;
                 this->field_0x68.HALF.HI = 0;
-                sub_0805E3A0(this, 2);
+                SetDefaultPriority(this, 2);
                 sub_0807DD50(this);
             }
             break;
@@ -59,7 +59,7 @@ void HurdyGurdyMan_Head(Entity* this) {
 }
 
 void sub_0806E418(Entity* this) {
-    s32 tmp = gSave.unk8 - 2;
+    s32 tmp = gSave.global_progress - 2;
     if (tmp < 0) {
         tmp = 0;
     }
@@ -79,7 +79,7 @@ void HurdyGurdyMan_Fusion(Entity* this) {
         if (uVar1 != 0) {
             this->action += 1;
             this->spriteSettings.draw = 1;
-            sub_0805E3A0(this, 2);
+            SetDefaultPriority(this, 2);
             InitializeAnimation(this, 10);
         }
     } else {

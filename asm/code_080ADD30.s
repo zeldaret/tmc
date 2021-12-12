@@ -3050,7 +3050,7 @@ sub_080AF244: @ 0x080AF244
 sub_080AF250: @ 0x080AF250
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08052E8C
+	bl GetCurrentRoomInfo
 	adds r1, r0, #0
 	ldr r0, _080AF26C @ =gArea
 	ldr r2, _080AF270 @ =0x0000085C
@@ -3084,7 +3084,7 @@ sub_080AF284: @ 0x080AF284
 	bl CheckPlayerInRegion
 	cmp r0, #0
 	beq _080AF2BC
-	bl sub_08052E8C
+	bl GetCurrentRoomInfo
 	ldr r1, _080AF2B0 @ =gArea
 	ldr r2, _080AF2B4 @ =0x0000085C
 	adds r1, r1, r2
@@ -3101,7 +3101,7 @@ _080AF2BC:
 	bl GetInventoryValue
 	cmp r0, #0
 	beq _080AF2D6
-	bl sub_08052E8C
+	bl GetCurrentRoomInfo
 	ldr r1, _080AF2D8 @ =gArea
 	ldr r2, _080AF2DC @ =0x0000085C
 	adds r1, r1, r2
@@ -3123,7 +3123,7 @@ sub_080AF2E4: @ 0x080AF2E4
 	bl GetInventoryValue
 	cmp r0, #0
 	beq _080AF300
-	bl sub_08052E8C
+	bl GetCurrentRoomInfo
 	ldr r1, _080AF304 @ =gArea
 	ldr r2, _080AF308 @ =0x0000085C
 	adds r1, r1, r2

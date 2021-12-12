@@ -32,7 +32,7 @@ void sub_08062BF8(Entity* ent) {
     if (ent->interactType != 0) {
         ent->interactType = 0;
         ent->action++;
-        sub_0805E47C(ent);
+        RequestPriority(ent);
     }
     sub_0806ED78(ent);
 }
@@ -50,7 +50,7 @@ void sub_08062C54(Entity* ent) {
     if ((gMessage.doTextBox & 127) == 0) {
         ent->action = 1;
         InitializeAnimation(ent, 0);
-        sub_0805E584(ent);
+        RevokePriority(ent);
     }
 }
 

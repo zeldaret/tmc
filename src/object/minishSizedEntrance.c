@@ -31,7 +31,7 @@ void sub_08090F00(Entity* this) {
             DeleteThisEntity();
         }
     }
-    if ((gPlayerState.flags & PL_IS_MINISH) && sub_080041A0(this, &gPlayerEntity, 4, 4) &&
+    if ((gPlayerState.flags & PL_MINISH) && sub_080041A0(this, &gPlayerEntity, 4, 4) &&
         (gPlayerEntity.z.HALF.HI == 0) && (((u16)gPlayerState.field_0x90.HALF.LO) & gUnk_0812225C[this->type2])) {
         DoExitTransition(GetCurrentRoomProperty(this->actionDelay));
     }

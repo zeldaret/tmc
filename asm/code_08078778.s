@@ -289,8 +289,8 @@ _08078A88:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 
-	thumb_func_start sub_08078A90
-sub_08078A90: @ 0x08078A90
+	thumb_func_start SetPlayerControl
+SetPlayerControl: @ 0x08078A90
 	push {lr}
 	adds r1, r0, #0
 	ldr r0, _08078AA4 @ =gPlayerState
@@ -1966,7 +1966,7 @@ sub_08079708: @ 0x08079708
 	ands r0, r1
 	cmp r0, #0
 	bne _0807973E
-	bl FreezeTime
+	bl SetPlayerEventPriority
 _0807973E:
 	pop {r4, pc}
 	.align 2, 0
@@ -3378,7 +3378,7 @@ sub_0807A1B8: @ 0x0807A1B8
 	adds r0, r4, #0
 	movs r1, #0
 	movs r2, #0
-	bl sub_0807A1E8
+	bl GetSurfaceCalcType
 	ldr r1, _0807A1E0 @ =gPlayerState
 	strb r0, [r1, #0x12]
 	ldr r2, _0807A1E4 @ =gUnk_0811C120
@@ -3394,8 +3394,8 @@ _0807A1DC: .4byte gPlayerEntity
 _0807A1E0: .4byte gPlayerState
 _0807A1E4: .4byte gUnk_0811C120
 
-	thumb_func_start sub_0807A1E8
-sub_0807A1E8: @ 0x0807A1E8
+	thumb_func_start GetSurfaceCalcType
+GetSurfaceCalcType: @ 0x0807A1E8
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}

@@ -28,7 +28,7 @@ void sub_08065080(Entity* this) {
 
     this->action = 1;
     this->spriteSettings.draw = 1;
-    sub_0805E3A0(this, 2);
+    SetDefaultPriority(this, 2);
     InitializeAnimation(this, 4);
     sub_08078778(this);
 #ifndef EU
@@ -60,7 +60,7 @@ void sub_080651F8(Entity* this) {
         this->actionDelay = 0x3c;
         InitializeAnimation(this, 1);
         CreateSpeechBubbleExclamationMark(this, 8, 0xffffffe8);
-        sub_08078A90(1);
+        SetPlayerControl(1);
     }
 }
 
@@ -98,7 +98,7 @@ void sub_080652B0(Entity* this) {
     if ((gMessage.doTextBox & 0x7f) == 0) {
         this->subAction += 1;
         this->actionDelay = 10;
-        gRoomVars.greatFairyState = this->field_0xf;
+        gRoomVars.animFlags = this->field_0xf;
         CreateItemEntity(0x36, 0, 0);
     }
 }
@@ -125,7 +125,7 @@ void sub_08065338(Entity* this) {
     if ((gMessage.doTextBox & 0x7f) == 0) {
         this->action = 1;
         this->subAction = gMessage.doTextBox & 0x7f;
-        gRoomVars.greatFairyState = this->field_0xf;
+        gRoomVars.animFlags = this->field_0xf;
         InitializeAnimation(this, 4);
     }
 }
@@ -154,5 +154,5 @@ void sub_080654FC(Entity* this) {
 }
 
 void sub_08065528(Entity* this, ScriptExecutionContext* context) {
-    gRoomVars.greatFairyState = context->intVariable;
+    gRoomVars.animFlags = context->intVariable;
 }

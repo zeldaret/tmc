@@ -241,7 +241,7 @@ void sub_0806AFA0(Entity* this) {
 }
 
 void sub_0806AFBC(Entity* this) {
-    int idx = gSave.unk8 - 2;
+    int idx = gSave.global_progress - 2;
     if (idx < 0)
         idx = 0;
 
@@ -326,7 +326,7 @@ void sub_0806B134(Entity* this) {
         idx = 0;
         SetGlobalFlag(POWERGLOVE_HINT);
     }
-    if (5 < gSave.unk8) {
+    if (5 < gSave.global_progress) {
         idx = 3;
     }
     MessageNoOverlap(gUnk_08112C60[idx], this);

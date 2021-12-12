@@ -78,7 +78,7 @@ _080A365E:
 	bl LoadPaletteGroup
 	movs r0, #0
 	movs r1, #0
-	bl sub_0801D79C
+	bl SetColor
 	ldr r2, _080A36B4 @ =gScreen
 	movs r0, #0xc8
 	lsls r0, r0, #3
@@ -96,7 +96,7 @@ _080A365E:
 	subs r0, #0x8a
 	strh r0, [r2, #0x20]
 	bl InitSoundPlayingInfo
-	bl sub_0805E5B4
+	bl ResetSystemPriority
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #5
@@ -511,7 +511,7 @@ _080A39C8:
 	bl LoadPaletteGroup
 	movs r0, #0
 	movs r1, #0
-	bl sub_0801D79C
+	bl SetColor
 	movs r0, #4
 	bl LoadGfxGroup
 	movs r0, #0xc0
@@ -520,7 +520,7 @@ _080A39C8:
 	bl MemClear
 	movs r0, #0
 	movs r1, #0
-	bl sub_08052418
+	bl SetPopupState
 	ldr r2, _080A3A2C @ =gScreen
 	ldrh r0, [r2]
 	movs r3, #0xc0
@@ -604,7 +604,7 @@ _080A3A9A:
 	strb r4, [r1, #3]
 	movs r0, #0
 	adds r1, r4, #0
-	bl sub_08052418
+	bl SetPopupState
 	movs r0, #0x69
 	bl SoundReq
 	b _080A3B36

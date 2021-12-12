@@ -129,7 +129,7 @@ _08081702:
 _0808170C:
 	adds r0, r4, #0
 	movs r1, #3
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	pop {r4, r5, pc}
 	.align 2, 0
 _08081718: .4byte gUnk_0811EC08

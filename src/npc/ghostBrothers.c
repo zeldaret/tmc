@@ -94,7 +94,7 @@ void sub_08065D18(Entity* this) {
     this->spriteSettings.draw = 1;
     this->spriteRendering.alphaBlend = 1;
     *(u32**)&this->field_0x6c = &gUnk_08110188;
-    sub_0805E3A0(this, 2);
+    SetDefaultPriority(this, 2);
     InitAnimationForceUpdate(this, 2);
     gScreen.controls.layerFXControl = 0x3f40;
     gScreen.controls.alphaBlend = 0x1000;
@@ -125,7 +125,7 @@ void sub_08065F20(Entity* this) {
 }
 
 void sub_08065F64(Entity* this) {
-    s32 tmp = gSave.unk8 - 2;
+    s32 tmp = gSave.global_progress - 2;
     if (tmp < 0) {
         tmp = 0;
     }

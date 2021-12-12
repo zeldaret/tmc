@@ -151,13 +151,13 @@ void sub_08058FB0(ManagerF* this) {
             if (CheckFlags(this->unk_3e)) {
                 this->manager.action = 2;
                 this->manager.unk_0e = 120;
-                sub_0805E4E0((Entity*)this, 0xF0);
+                RequestPriorityDuration((Entity*)this, 0xF0);
                 sub_08059064(this);
             }
             break;
         case 2:
             if (this->manager.unk_0e == 90) {
-                sub_08078A90(2);
+                SetPlayerControl(2);
                 sub_08077B20();
             }
             if (this->manager.unk_0e == 60) {
@@ -170,7 +170,7 @@ void sub_08058FB0(ManagerF* this) {
             break;
         default:
             SetFlag(this->unk_3e);
-            sub_08078A90(1);
+            SetPlayerControl(1);
             DeleteThisEntity();
     }
 }
@@ -209,7 +209,7 @@ void sub_08059094(ManagerF* this) {
 void sub_080590E0(ManagerF* this) {
     if (!this->manager.action) {
         this->manager.action = 1;
-        sub_0805E3A0(this, 6);
+        SetDefaultPriority((Entity*)this, 6);
     }
     if (CheckLocalFlag(0x6c)) {
         if (CheckLocalFlag(0x4b)) {
@@ -241,7 +241,7 @@ void sub_08059124(ManagerF* this) {
             break;
         case 1:
             if (CheckFlags(this->unk_3e)) {
-                sub_0805E4E0((Entity*)this, 0x4b);
+                RequestPriorityDuration((Entity*)this, 0x4b);
                 this->manager.unk_0e = 0x2d;
                 this->manager.action++;
             }
@@ -360,7 +360,7 @@ void sub_0805938C(ManagerF* this) {
 }
 
 u32 sub_080593CC(ManagerF* this) {
-    if (!(gPlayerState.flags & PL_IS_MINISH) && gPlayerState.swimState != 0 && gPlayerEntity.animationState == 0 &&
+    if (!(gPlayerState.flags & PL_MINISH) && gPlayerState.swimState != 0 && gPlayerEntity.animationState == 0 &&
         (gPlayerState.field_0x90.HALF.LO & 0xF00) == 0x400) {
         return sub_0806FCB8(&gPlayerEntity, this->unk_38, this->unk_3a + 0xC, 6);
     }
@@ -386,7 +386,7 @@ void sub_08059424(ManagerF* this) {
 
 void sub_0805947C(ManagerF* this) {
     if (!CheckFlags(this->unk_3e)) {
-        sub_08078A90(3);
+        SetPlayerControl(3);
         if (gRoomControls.unk2)
             return;
         if (gRoomVars.field_0x0) {
@@ -407,7 +407,7 @@ void sub_080594DC(ManagerF* this) {
         case 1:
             if (!GetInventoryValue(6))
                 return;
-            if (CheckLocalFlagByOffset(0x8c0, 0x85))
+            if (CheckLocalFlagByBank(0x8c0, 0x85))
                 return;
             this->manager.action = 2;
             sub_080186C0(0xB0F);
@@ -417,7 +417,7 @@ void sub_080594DC(ManagerF* this) {
             if (gArea.field_0x28 != 0xFF) {
                 DeleteThisEntity();
             }
-            if (CheckLocalFlagByOffset(0x8c0, 0x85)) {
+            if (CheckLocalFlagByBank(0x8c0, 0x85)) {
                 sub_0801855C();
                 DeleteThisEntity();
             }
@@ -427,7 +427,7 @@ void sub_080594DC(ManagerF* this) {
 
 #if defined(USA) || defined(DEMO_USA) || defined(DEMO_JP)
 void sub_08059548(ManagerF* this) {
-    sub_0805E3A0(this, 6);
+    SetDefaultPriority((Entity*)this, 6);
     if (gPlayerEntity.action == 0x16) {
         DeleteThisEntity();
     }

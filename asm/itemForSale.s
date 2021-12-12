@@ -64,7 +64,7 @@ sub_08081854: @ 0x08081854
 .ifdef EU
 	adds r0, r4, #0x0
 	movs r1, #0x6
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 .endif
 	str r4, [r4, #0x54]
 	adds r0, r4, #0
@@ -358,7 +358,7 @@ sub_08081AB0: @ 0x08081AB0
 	str r0, [r1, #0x68]
 	strb r0, [r1, #6]
 	strb r0, [r1, #7]
-	bl sub_08078A90
+	bl SetPlayerControl
 	pop {pc}
 	.align 2, 0
 _08081AC4: .4byte gRoomVars

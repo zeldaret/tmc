@@ -114,7 +114,7 @@ void sub_0804AF0C(Entity* ent, EntityData* dat) {
 }
 
 void sub_0804AF90(void) {
-    sub_0804AFB0(gArea.field_0x85c[7]);
+    sub_0804AFB0(gArea.pCurrentRoomInfo->properties);
     sub_080A7C7C();
 }
 

@@ -17,7 +17,7 @@ void DrLeft(Entity* this) {
     if (this->type == 0) {
         if (this->action == 0) {
             this->action += 1;
-            sub_0805E3A0(this, 2);
+            SetDefaultPriority(this, 2);
             sub_0807DD50(this);
         }
         ExecuteScriptForEntity(this, NULL);
@@ -59,7 +59,7 @@ void sub_0806C028(Entity* this, ScriptExecutionContext* context) {
 void sub_0806C038(Entity* this) {
     s32 index;
 
-    index = gSave.unk8 - 5;
+    index = gSave.global_progress - 5;
     if (index != 0) {
         index = 0;
     }

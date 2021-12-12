@@ -76,11 +76,11 @@ _080574DC:
 	adds r0, r5, #0
 	adds r0, #0x87
 	ldrh r1, [r4]
-	bl sub_0801D79C
+	bl SetColor
 	adds r0, r5, #0
 	adds r0, #0x8c
 	ldrh r1, [r4, #0xa]
-	bl sub_0801D79C
+	bl SetColor
 	adds r4, #2
 	adds r5, #1
 	cmp r5, #3

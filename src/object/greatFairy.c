@@ -101,7 +101,7 @@ void GreatFairy_SpawningUpdate(Entity* this) {
     Entity* mini;
     u32 var;
 
-    if (gRoomVars.greatFairyState & 1) {
+    if (gRoomVars.animFlags & 1) {
         mini = GreatFairy_CreateForm(this, WAKE, 0); //???
         if (mini != NULL) {
             CopyPosition(this, mini);
@@ -167,7 +167,7 @@ void GreatFairy_WingsUpdate(Entity* this) {
     if (this->speed == 256) {
         this->action = 2;
         sub_0805EC60(this);
-        gRoomVars.greatFairyState |= 32;
+        gRoomVars.animFlags |= 32;
         gActiveScriptInfo.unk_00 |= 4;
     } else {
         sub_0805EC9C(this, this->speed, 256, 0);
@@ -232,7 +232,7 @@ void GreatFairy_MiniRisingUpdate(Entity* this) {
 void GreatFairy_MiniRemoveMe(Entity* this) {
     GetNextFrame(this);
     sub_080873D0(this);
-    if (gRoomVars.greatFairyState & 1) {
+    if (gRoomVars.animFlags & 1) {
         DeleteEntity(this);
     }
 }
@@ -266,7 +266,7 @@ void GreatFairy_MiniAffineInit2(Entity* this) {
 // Mini great fairy stretch
 void GreatFairy_MiniAffineUpdate(Entity* this) {
     if (--this->actionDelay == 0) {
-        gRoomVars.greatFairyState |= 1;
+        gRoomVars.animFlags |= 1;
         this->action = 3;
         sub_0805EC60(this);
     } else {
@@ -307,7 +307,7 @@ void GreatFairy_RippleInit(Entity* this) {
 }
 
 void GreatFairy_RippleUpdate(Entity* this) {
-    if (gRoomVars.greatFairyState & 2) {
+    if (gRoomVars.animFlags & 2) {
         DeleteEntity(this);
     } else {
         GetNextFrame(this);
@@ -337,7 +337,7 @@ void GreatFairy_BigRippleUpdate(Entity* this) {
         target = GreatFairy_CreateForm(this, MINI, 0);
         if (target != NULL) {
             PositionRelative(this, target, 0, -0x80000);
-            gRoomVars.greatFairyState |= 2;
+            gRoomVars.animFlags |= 2;
             DeleteEntity(this);
         }
     }
@@ -389,13 +389,13 @@ void sub_080871A8(Entity* this) {
     if (--this->actionDelay == 0) {
         this->action = 3;
         this->actionDelay = 60;
-        gRoomVars.greatFairyState |= 4;
+        gRoomVars.animFlags |= 4;
     }
 }
 
 void sub_080871D0(Entity* this) {
     if (--this->actionDelay == 0) {
-        gRoomVars.greatFairyState |= 8;
+        gRoomVars.animFlags |= 8;
         DeleteEntity(this);
     }
 }
@@ -412,7 +412,7 @@ void sub_080871F8(Entity* this) {
 }
 
 void sub_08087240(Entity* this) {
-    if (gRoomVars.greatFairyState & 4) {
+    if (gRoomVars.animFlags & 4) {
         this->action = 3;
         this->actionDelay = 20;
         this->direction = 16;
@@ -469,7 +469,7 @@ void GreatFairy_InitializeAnimation(Entity* this) {
     this->type2 = this->type % temp;
     this->collisionLayer = 2;
     InitializeAnimation(this, this->type2);
-    sub_0805E3A0(this, 2);
+    SetDefaultPriority(this, 2);
 }
 
 Entity* GreatFairy_CreateForm(Entity* this, u32 curForm, u32 parameter) {
@@ -516,7 +516,7 @@ void sub_08087424(Entity* this, ScriptExecutionContext* context) {
     if (ent != NULL) {
         ent->parent = &gPlayerEntity;
         CopyPosition(&gPlayerEntity, ent);
-        sub_0805E3A0(ent, 2);
+        SetDefaultPriority(ent, 2);
     }
 
     switch (context->intVariable) {

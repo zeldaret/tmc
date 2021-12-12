@@ -41,7 +41,7 @@ void sub_0808B474(Entity* this) {
     this->palette.b.b0 = tmp;
     this->spritePriority.b0 = 6;
     this->hitbox = &gHitbox_1;
-    this->updateConditions = 3;
+    this->updatePriority = 3;
     InitializeAnimation(this, 0);
     if (CheckFlags(this->field_0x86.HWORD)) {
         sub_0808B830(this);
@@ -58,7 +58,7 @@ void sub_0808B474(Entity* this) {
     gPlayerEntity.y.HALF.HI = this->y.HALF.HI;
     gPlayerEntity.animationState = 4;
     EnqueueSFX(0x112);
-    sub_0805E4E0(this, this->field_0xf + 0x10);
+    RequestPriorityDuration(this, this->field_0xf + 0x10);
 }
 
 void sub_0808B530(Entity* this) {
@@ -93,7 +93,7 @@ void sub_0808B590(Entity* this) {
         gPlayerEntity.y.HALF.HI = this->y.HALF.HI;
         gPlayerEntity.animationState = 4;
         gPlayerEntity.flags &= ~0x80;
-        sub_0805E4E0(this, this->field_0xf + 0x10);
+        RequestPriorityDuration(this, this->field_0xf + 0x10);
         SoundReq(0x113);
     } else {
         this->actionDelay = 0;
@@ -146,16 +146,16 @@ void sub_0808B684(Entity* this) {
     u32 tmp;
     if (!--this->field_0xf) {
         gScreenTransition.transitioningOut = 1;
-        gScreenTransition.transitionType = 0;
-        gScreenTransition.areaID = this->field_0x7c.BYTES.byte0;
-        gScreenTransition.roomID = this->field_0x7c.BYTES.byte1;
-        gScreenTransition.playerStartPos.HALF.x = ((this->cutsceneBeh.HWORD & 0x3f) << 4) + 8;
-        gScreenTransition.playerStartPos.HALF.y = ((this->cutsceneBeh.HWORD & 0xfc0) >> 2) + 8;
-        gScreenTransition.playerLayer = 0;
-        gScreenTransition.playerState = 4;
-        gScreenTransition.field_0xf = 0;
+        gScreenTransition.transitionType = TRANSITION_DEFAULT;
+        gScreenTransition.player_status.area_next = this->field_0x7c.BYTES.byte0;
+        gScreenTransition.player_status.room_next = this->field_0x7c.BYTES.byte1;
+        gScreenTransition.player_status.start_pos.HALF.x = ((this->cutsceneBeh.HWORD & 0x3f) << 4) + 8;
+        gScreenTransition.player_status.start_pos.HALF.y = ((this->cutsceneBeh.HWORD & 0xfc0) >> 2) + 8;
+        gScreenTransition.player_status.layer = 0;
+        gScreenTransition.player_status.start_anim = 4;
+        gScreenTransition.player_status.spawn_type = 0;
         if (this->type == 2) {
-            gScreenTransition.transitionType = 2;
+            gScreenTransition.transitionType = TRANSITION_FADE_WHITE_SLOW;
         }
         return;
     }
@@ -206,7 +206,7 @@ void sub_0808B73C(Entity* this) {
 }
 
 u32 sub_0808B7C8(Entity* this) {
-    if (!(gPlayerState.flags & PL_IS_MINISH) && gPlayerState.field_0xa8 != 0x12 && gPlayerEntity.health != 0 &&
+    if (!(gPlayerState.flags & PL_MINISH) && gPlayerState.field_0xa8 != 0x12 && gPlayerEntity.health != 0 &&
         sub_08079F8C() && sub_080041A0(this, &gPlayerEntity, 5, 5) && gPlayerEntity.z.HALF.HI == 0) {
         if (this->actionDelay == 0 && gPlayerEntity.action == 0x1b) {
             sub_080791D0();

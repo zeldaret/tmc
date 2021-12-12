@@ -129,7 +129,7 @@ sub_0804614C: @ 0x0804614C
 	ldr r1, _08046258 @ =sub_08046498
 	adds r0, r6, #0
 	movs r2, #0
-	bl sub_08052D74
+	bl RegisterTransitionManager
 _08046244:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

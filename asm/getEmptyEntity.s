@@ -35,7 +35,7 @@ _0805E6A8:
 	ands r0, r1
 	cmp r0, #0
 	beq _0805E6D4
-	ldr r0, _0805E6D0 @ =gUnk_03003DD0
+	ldr r0, _0805E6D0 @ =gUpdateContext
 	ldr r0, [r0, #8]
 	cmp r4, r0
 	beq _0805E6D4
@@ -45,7 +45,7 @@ _0805E6A8:
 	b _0805E730
 	.align 2, 0
 _0805E6CC: .4byte gPlayerEntity
-_0805E6D0: .4byte gUnk_03003DD0
+_0805E6D0: .4byte gUpdateContext
 _0805E6D4:
 	adds r4, #0x88
 	ldr r0, _0805E738 @ =gUnk_03003BE0
@@ -65,7 +65,7 @@ _0805E6EA:
 	cmp r4, r2
 	beq _0805E718
 	movs r7, #0x1c
-	ldr r6, _0805E740 @ =gUnk_03003DD0
+	ldr r6, _0805E740 @ =gUpdateContext
 _0805E6F8:
 	ldrb r0, [r4, #8]
 	cmp r0, #9
@@ -103,5 +103,5 @@ _0805E730:
 	.align 2, 0
 _0805E738: .4byte gUnk_03003BE0
 _0805E73C: .4byte gEntityLists
-_0805E740: .4byte gUnk_03003DD0
+_0805E740: .4byte gUpdateContext
 	.syntax divided

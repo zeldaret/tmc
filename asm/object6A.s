@@ -283,7 +283,7 @@ _08094C44:
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #2
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	ldr r1, _08094C84 @ =gUnk_08114F30
 	ldrb r0, [r5, #0x19]
 	lsrs r0, r0, #6
@@ -333,7 +333,7 @@ _08094CA0:
 	strb r0, [r5, #0x18]
 	adds r0, r5, #0
 	movs r1, #3
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	ldrb r0, [r5, #0xb]
 	cmp r0, #0x43
 	bgt _08094CCC
@@ -478,7 +478,7 @@ _08094DAC:
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #3
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	adds r0, r4, #0
 	movs r1, #0
 	bl InitAnimationForceUpdate
@@ -603,7 +603,7 @@ _08094EA6:
 	str r1, [r4, #0x20]
 	adds r0, r4, #0
 	movs r1, #6
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	adds r0, r4, #0
 	movs r1, #0
 	bl InitializeAnimation
@@ -863,7 +863,7 @@ _08094FF0:
 	movs r1, #0x36
 	strb r1, [r0]
 	movs r0, #2
-	bl sub_08078A90
+	bl SetPlayerControl
 	b _08095086
 	.align 2, 0
 _08095020: .4byte gPlayerState
@@ -913,7 +913,7 @@ _08095070:
 	movs r0, #5
 	strb r0, [r4, #0xc]
 	movs r0, #1
-	bl sub_08078A90
+	bl SetPlayerControl
 _08095086:
 	pop {r4, pc}
 .endif
@@ -1005,7 +1005,7 @@ sub_08095120: @ 0x08095120
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #3
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	adds r0, r4, #0
 	adds r1, r4, #0
 	bl sub_0806FAD8
@@ -1056,7 +1056,7 @@ sub_08095188: @ 0x08095188
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #3
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	adds r0, r4, #0
 	adds r1, r4, #0
 	bl sub_0806FAD8
@@ -1182,7 +1182,7 @@ sub_08095288: @ 0x08095288
 	strb r1, [r4, #0xd]
 	adds r0, r4, #0
 	movs r1, #3
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	adds r0, r4, #0
 	movs r1, #0
 	bl InitAnimationForceUpdate
@@ -1326,7 +1326,7 @@ sub_080953A4: @ 0x080953A4
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
 	movs r1, #2
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	ldr r1, _08095418 @ =gUnk_08114F30
 	ldrb r2, [r4, #0x19]
 	lsrs r0, r2, #6
@@ -2025,7 +2025,7 @@ sub_08095918: @ 0x08095918
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #6
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	adds r0, r4, #0
 	bl sub_0807DD64
 	adds r0, r4, #0
@@ -2116,7 +2116,7 @@ sub_080959CC: @ 0x080959CC
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #3
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	adds r0, r4, #0
 	bl sub_0807DD64
 _080959F2:
@@ -2533,7 +2533,7 @@ sub_08095CE0: @ 0x08095CE0
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #6
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	adds r0, r4, #0
 	bl sub_0807DD64
 _08095D06:
@@ -2956,14 +2956,14 @@ sub_08096028: @ 0x08096028
 	lsls r5, r5, #2
 	adds r0, r5, #0
 	movs r1, #0x7b
-	bl CheckLocalFlagByOffset
+	bl CheckLocalFlagByBank
 	cmp r0, #0
 	bne _0809603E
 	movs r4, #4
 _0809603E:
 	adds r0, r5, #0
 	movs r1, #0x7a
-	bl CheckLocalFlagByOffset
+	bl CheckLocalFlagByBank
 	cmp r0, #0
 	bne _0809604C
 	movs r4, #3

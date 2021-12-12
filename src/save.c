@@ -38,9 +38,6 @@ u32 DataRead(u32 address, void* data, u32 size);
 u32 DataWrite(u32 address, const void* data, u32 size);
 u32 DataCompare(u32 address, const void* data, u32 size);
 
-const u16 gUnk_0811E454[] = { 0x0,   0x0,   0x100, 0x200, 0x300, 0x400, 0x500,
-                              0x5C0, 0x680, 0x740, 0x800, 0x8C0, 0x9C0, 0xA80 };
-
 const char gUnk_0811E470[4] = "LINK";
 
 #if defined(DEMO_USA) || defined(DEMO_JP)
@@ -92,7 +89,7 @@ const SaveFileEEPROMAddresses gSaveFileEEPROMAddresses[] = { { 0x500, 0x30, 0x10
                                                              { 0x8, 0xfa0, 0x1fa0, 0xfa0, 0x1fa0 } };
 #endif
 void sub_0807CD9C() {
-    sub_080530C8();
+    UpdateGlobalProgress();
 }
 
 SaveResult HandleSave(u32 arg0) {

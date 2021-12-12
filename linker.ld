@@ -214,8 +214,8 @@ SECTIONS {
         . = 0x00003DB0; gUnk_03003DB0 = .;
         . = 0x00003DB8; gCollidableCount = .;
         . = 0x00003DBC; gEntCount = .;
-        . = 0x00003DC0; gUnk_03003DC0 = .;
-        . = 0x00003DD0; gUnk_03003DD0 = .;
+        . = 0x00003DC0; gPriorityHandler = .;
+        . = 0x00003DD0; gUpdateContext = .;
         . = 0x00003DE0; gUnk_03003DE0 = .;
         . = 0x00003DE4; gUnk_03003DE4 = .;
         . = 0x00003DF0; gUnk_03003DF0 = .;
@@ -490,7 +490,7 @@ SECTIONS {
         asm/code_08050038.o(.text);
         src/fileScreen.o(.text);
         asm/fileScreen.o(.text);
-        src/game.o(.text);
+        src/overworld.o(.text);
         asm/code_080526F8.o(.text);
         asm/modBombs.o(.text);
         asm/modArrows.o(.text);
@@ -1182,6 +1182,8 @@ SECTIONS {
         data/data_080FC3C4.o(.rodata);
         src/fileScreen.o(.rodata);
         data/data_080FC8A4.o(.rodata);
+        src/overworld.o(.rodata);
+        data/data_080FCAC8.o(.rodata);
         data/const/playerItem/playerItemLantern.o(.rodata);
         data/data_080FEEB8.o(.rodata);
         data/gfx/palette_groups.o(.rodata);
@@ -1405,6 +1407,7 @@ SECTIONS {
         data/const/item/itemJarEmpty.o(.rodata);
         data/data_0811BE38.o(.rodata);
         data/map/room_headers.o(.rodata);
+        src/flags.o(.rodata);
         src/save.o(.rodata);
         data/data_0811E454.o(.rodata);
         src/script.o(.rodata);

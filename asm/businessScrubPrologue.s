@@ -88,7 +88,7 @@ _08045C16:
 	bl EnqueueSFX
 	adds r0, r4, #0
 	movs r1, #2
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 _08045C2C:
 	pop {r4, pc}
 	.align 2, 0
@@ -419,7 +419,7 @@ _08045E70:
 	strh r0, [r2, #0x36]
 	adds r0, r2, #0
 	movs r1, #2
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 _08045EBA:
 	adds r0, r4, #0
 	bl GetNextFrame

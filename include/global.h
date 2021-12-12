@@ -97,4 +97,6 @@ union SplitHWord {
     } PACKED HALF;
 } PACKED;
 
+#define FORCE_WORD_ALIGNED __attribute__((packed, aligned(2)))
+
 #endif // GUARD_GLOBAL_H

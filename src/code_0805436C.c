@@ -152,7 +152,7 @@ NONMATCH("asm/non_matching/sub_08054524.inc", void sub_08054524(void)) {
 
     bVar1 = gArea.locationIndex;
     if (gArea.locationIndex == 0) {
-        bVar1 = gScreenTransition.field_0x24[0xa];
+        bVar1 = gScreenTransition.player_status.field_0x24[0xa];
     }
     if (bVar1 > 0x16) {
         bVar1 = 0;

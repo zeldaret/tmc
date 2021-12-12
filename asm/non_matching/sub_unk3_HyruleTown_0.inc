@@ -1,6 +1,6 @@
     .syntax unified
 	push {r4, r5, r6, lr}
-	bl sub_080530C8
+	bl UpdateGlobalProgress
 	movs r0, #0xb
 	bl CheckKinstoneFused
 	cmp r0, #0

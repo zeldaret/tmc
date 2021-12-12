@@ -139,7 +139,7 @@
 	.2byte \s
 .endm
 
-.macro CheckLocalFlagByOffset a:req, b:req
+.macro CheckLocalFlagByBank a:req, b:req
 	.2byte 0x0c13
 	.2byte \a
 	.2byte \b
@@ -262,7 +262,7 @@
 	.2byte \s
 .endm
 
-.macro SetLocalFlagByOffset a:req, b:req
+.macro SetLocalFlagByBank a:req, b:req
 	.2byte 0x0c2b
 	.2byte \a
 	.2byte \b

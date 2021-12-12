@@ -21,7 +21,7 @@ void sub_0806E4B8(Entity* this) {
     this->action += 1;
     this->field_0x68.HALF.LO = sub_0801E99C(this);
     sub_080787A8(this, this->field_0x68.HALF.LO);
-    sub_0805E3A0(this, 2);
+    SetDefaultPriority(this, 2);
     this->subAction = 0;
     sub_0806E4EC(this);
 }
@@ -59,7 +59,7 @@ void sub_0806E648(Entity* this) {
 
 void sub_0806E65C(Entity* this) {
     if (this->interactType != 0) {
-        if ((gPlayerState.flags & PL_IS_MINISH) != 0) {
+        if ((gPlayerState.flags & PL_MINISH) != 0) {
             if (this->interactType == 2) {
                 this->action = 4;
                 sub_0806F118(this);

@@ -68,7 +68,7 @@ void VaatiProjectileFunction1(Entity* this) {
             gPlayerEntity.spriteRendering.b3 = this->spriteRendering.b3;
             sub_0803E444(this);
 #ifndef EU
-            sub_08078A90(2);
+            SetPlayerControl(2);
             entity = this->parent;
             if (entity != NULL) {
                 entity->flags = entity->flags & 0x7f;
@@ -196,7 +196,7 @@ void VaatiProjectileFunction0Action7(Entity* this) {
     sub_0806F69C(this);
     sub_0803E4D8(this);
     if ((gRoomControls.roomOriginY + gRoomControls.height + -0x10) <= this->y.HALF.HI) {
-        sub_0805E5A8();
+        SetInitializationPriority();
         DoExitTransition((ScreenTransitionData*)&gUnk_0813AB94);
     }
 }

@@ -28,7 +28,7 @@ extern u32 sub_080002C8(u16, u8);
 extern void (*const gUnk_08108CE8[])(u32, u32);
 
 u32 sub_0805C608(void);
-extern u32 sub_08052670(void);
+extern u32 CheckIsInteriorWithEnemies(void);
 
 extern u8 gUnk_08108CFC[];
 
@@ -103,7 +103,7 @@ void sub_0805C050(u32 pos, u32 layer) {
     SetTileType(0xb4, pos - 1, layer);
     SetTileType(0xb7, pos + 1, layer);
     if (layer == 1) {
-        if (sub_08052670() != 0) {
+        if (CheckIsInteriorWithEnemies() != 0) {
             Entity* object = CreateObject(ARCHWAY, 0xe, 0);
             if (object != NULL) {
                 object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.roomOriginX;
@@ -147,7 +147,7 @@ void sub_0805C178(u32 pos, u32 layer) {
     SetTileType(0xf7, pos + 0x41, layer);
     if (layer == 1) {
 
-        if (sub_08052670() != 0) {
+        if (CheckIsInteriorWithEnemies() != 0) {
 
             object = CreateObject(ARCHWAY, 0xe, 1);
             if (object != NULL) {
@@ -189,7 +189,7 @@ void sub_0805C294(u32 pos, u32 layer) {
     SetTileType(0xd6, pos + 0x40, layer);
     SetTileType(0xd7, pos + 0x41, layer);
     if (layer == 1) {
-        if (sub_08052670() != 0) {
+        if (CheckIsInteriorWithEnemies() != 0) {
             object = CreateObject(0x4f, 0xe, 2);
             if (object != NULL) {
                 object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.roomOriginX;
@@ -230,7 +230,7 @@ void sub_0805C3B4(u32 pos, u32 layer) {
     SetTileType(0xe3, pos + 0x3f, layer);
     SetTileType(0xe7, pos + 0x40, layer);
     if (layer == 1) {
-        if (sub_08052670() != 0) {
+        if (CheckIsInteriorWithEnemies() != 0) {
             object = CreateObject(ARCHWAY, 0xe, 3);
             if (object != NULL) {
                 object->x.HALF.HI = ((pos & 0x3f) << 4) + -0x10 + gRoomControls.roomOriginX;
@@ -272,7 +272,7 @@ void sub_0805C4E0(u32 pos, u32 layer) {
     SetTileType(0xc4, pos - 1, layer);
     SetTileType(0xc7, pos + 1, layer);
     if (layer == 1) {
-        if (sub_08052670() != 0) {
+        if (CheckIsInteriorWithEnemies() != 0) {
             object = CreateObject(ARCHWAY, 0xe, 0);
             if (object != NULL) {
                 object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.roomOriginX;
@@ -306,5 +306,5 @@ void sub_0805C4E0(u32 pos, u32 layer) {
 }
 
 u32 sub_0805C608(void) {
-    return gUnk_08108CFC[gArea.regret];
+    return gUnk_08108CFC[gArea.dungeon_idx];
 }

@@ -218,7 +218,7 @@ sub_08097730: @ 0x08097730
 	beq _08097744
 	ldrb r1, [r4, #0xe]
 	adds r0, r4, #0
-	bl sub_0805E4E0
+	bl RequestPriorityDuration
 _08097744:
 	pop {r4, pc}
 	.align 2, 0
@@ -262,7 +262,7 @@ _08097774:
 	strb r0, [r2, #0xf]
 	adds r0, r2, #0
 	movs r1, #0x60
-	bl sub_0805E4E0
+	bl RequestPriorityDuration
 	ldr r0, _0809779C @ =0x0000010F
 	bl SoundReq
 _0809779A:

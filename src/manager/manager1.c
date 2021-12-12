@@ -54,7 +54,7 @@ void sub_08057118(Entity* this) {
     gScreen.lcd.displayControl |= 0x800;
     gScreen.controls.layerFXControl = 0x3648;
     gScreen.controls.alphaBlend = 0x1000;
-    sub_08052D74(this, sub_080570B8, sub_080570F8);
+    RegisterTransitionManager(this, sub_080570B8, sub_080570F8);
 }
 
 ASM_FUNC("asm/non_matching/manager1/sub_08057174.inc", void sub_08057174())

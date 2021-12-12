@@ -58,7 +58,7 @@ _0804ABA4:
 	adds r0, r0, r1
 	ldr r0, [r0]
 	bl LoadRoomEntityList
-	bl sub_0805E5B4
+	bl ResetSystemPriority
 	ldr r1, _0804AC04 @ =gArea
 	ldrb r0, [r1, #0xe]
 	adds r0, #1
@@ -195,7 +195,7 @@ sub_0804ACF8: @ 0x0804ACF8
 	beq _0804AD12
 	ldr r0, _0804AD14 @ =gRoomControls
 	bl sub_0804AD6C
-	bl sub_0805E5A8
+	bl SetInitializationPriority
 	movs r0, #0xf8
 	bl SoundReq
 _0804AD12:

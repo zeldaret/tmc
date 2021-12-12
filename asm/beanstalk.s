@@ -40,7 +40,7 @@ sub_08089D1C: @ 0x08089D1C
 	strb r0, [r5, #0x1b]
 	adds r0, r5, #0
 	movs r1, #4
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	ldrb r0, [r5, #0xa]
 	cmp r0, #7
 	bne _08089688
@@ -288,7 +288,7 @@ _080897FE:
 	strb r0, [r5, #0x1b]
 	adds r0, r5, #0
 	movs r1, #4
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	ldrb r0, [r5, #0xa]
 	cmp r0, #7
 	bne _08089D90

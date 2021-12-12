@@ -11,24 +11,23 @@ extern u32 gUnk_02025EB0;
 extern u8 gUpdateVisibleTiles;
 
 void sub_080808D8(void) {
-    gScreenTransition.transitionType = 0;
+    gScreenTransition.transitionType = TRANSITION_DEFAULT;
 }
 
 void sub_080808E4(void) {
-
-    if (sub_08052638(gScreenTransition.areaID)) {
-        gScreenTransition.transitionType = 0;
+    if (sub_08052638(gScreenTransition.player_status.area_next)) {
+        gScreenTransition.transitionType = TRANSITION_DEFAULT;
     } else {
-        gScreenTransition.transitionType = 5;
+        gScreenTransition.transitionType = TRANSITION_FADE_BLACK;
     }
 }
 
 void sub_08080904(void) {
-    gScreenTransition.transitionType = 1;
+    gScreenTransition.transitionType = TRANSITION_CUT;
 }
 
 void sub_08080910(void) {
-    gScreenTransition.transitionType = 1;
+    gScreenTransition.transitionType = TRANSITION_CUT;
 }
 
 void sub_0808091C(ScreenTransitionData* param_1, u32 param_2) {
@@ -43,7 +42,7 @@ void sub_08080930(void)
     gRoomControls.unk4 = 0;
     gRoomControls.unk2 = 2;
     gRoomControls.unk_10 = 0;
-    sub_0805E5A8();
+    SetInitializationPriority();
 }
 
 u32* GetLayerByIndex(u32 param_1) {

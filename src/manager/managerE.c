@@ -18,7 +18,7 @@ void ManagerE_Main(ManagerE* this) {
         return;
     if (this->manager.unk_0b != 0) {
         this->manager.unk_0b = 0;
-        sub_08078A90(0xff);
+        SetPlayerControl(0xff);
         sub_08078B48();
     }
     if (this->unk_3a == 0) {

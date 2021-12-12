@@ -8,7 +8,7 @@ script_0800EF50:
 	Call sub_080869A4
 	JumpIfNot script_0800EF50
 	_0807E864
-	CheckLocalFlagByOffset 0x0200, 0x006d
+	CheckLocalFlagByBank 0x0200, 0x006d
 	JumpIf script_0800EF82
 	MessageFromTarget 0x4d01
 	WaitUntilTextboxCloses

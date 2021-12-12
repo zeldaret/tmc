@@ -123,7 +123,7 @@ void sub_0806C90C(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_0806C928(Entity* this) {
-    ShowNPCDialogue(this, &gUnk_08113ABC[gSave.unk8]);
+    ShowNPCDialogue(this, &gUnk_08113ABC[gSave.global_progress]);
 }
 
 void sub_0806C944(Entity* this) {

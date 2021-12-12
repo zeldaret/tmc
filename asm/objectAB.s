@@ -84,7 +84,7 @@ sub_080A0158: @ 0x080A0158
 	bl sub_080A0190
 	adds r0, r4, #0
 	movs r1, #0x1e
-	bl sub_0805E4E0
+	bl RequestPriorityDuration
 	ldr r1, _080A018C @ =gPlayerEntity
 	adds r0, r4, #0
 	movs r2, #0x10

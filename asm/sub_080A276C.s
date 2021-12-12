@@ -37,7 +37,7 @@ sub_080A276C: @ 0x080A276C
 	adds r0, r4, #0
 	adds r1, r6, #0
 	bl CopyPosition
-	ldr r0, _080A282C @ =gUnk_03003DC0
+	ldr r0, _080A282C @ =gPriorityHandler
 	mov r1, r8
 	strb r1, [r0]
 	ldr r1, _080A2830 @ =gUnk_02034490
@@ -101,6 +101,6 @@ _080A2820:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _080A2828: .4byte gPlayerEntity
-_080A282C: .4byte gUnk_03003DC0
+_080A282C: .4byte gPriorityHandler
 _080A2830: .4byte gUnk_02034490
 _080A2834: .4byte gPlayerState

@@ -23,7 +23,7 @@ void ItemPegasusBoots(ItemBehavior* this, u32 arg1) {
         if ((bVar1 & 7) == 0) {
             SoundReq(SFX_PLY_LAND);
         }
-        if (((gPlayerState.flags & PL_IS_MINISH) == 0) && ((this->field_0x5[2] & 7) == 0)) {
+        if (((gPlayerState.flags & PL_MINISH) == 0) && ((this->field_0x5[2] & 7) == 0)) {
             if (gPlayerState.field_0x10[2] == 0x11) {
                 if (gPlayerEntity.spriteOffsetY == 0) {
                     CreateFx(&gPlayerEntity, FX_GREEN_SPLASH, 0);
@@ -58,7 +58,7 @@ void sub_080768F8(ItemBehavior* this, u32 arg1) {
     if (bVar1 == 0) {
         gPlayerState.field_0x1d[1] = 1;
         gPlayerState.field_0x1d[4] = bVar1;
-        if ((gPlayerState.flags & PL_IS_MINISH) == 0) {
+        if ((gPlayerState.flags & PL_MINISH) == 0) {
             this->field_0x5[2] = 0x10;
         } else {
             gPlayerState.field_0x8 = 0xc14;

@@ -65,7 +65,7 @@ void sub_08068780(Entity* this) {
             this->action = 1;
             this->spriteSettings.draw = TRUE;
             this->animationState = this->type;
-            sub_0805E3A0(this, 2);
+            SetDefaultPriority(this, 2);
             sub_0807DD50(this);
             break;
         case 1:

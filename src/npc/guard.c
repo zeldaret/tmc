@@ -204,7 +204,7 @@ void Guard_Head(Entity* this) {
 }
 
 void sub_08064030(Entity* arg0, Entity* arg1) {
-    *(u32*)&arg1->animationState = (-gRoomVars.greatFairyState | gRoomVars.greatFairyState) >> 0x1f;
+    *(u32*)&arg1->animationState = !!gRoomVars.animFlags;
 }
 
 void sub_08064044(void) {

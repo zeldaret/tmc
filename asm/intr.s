@@ -657,7 +657,7 @@ _080B21A4: .4byte 0x01010101
 _080B21A8: .4byte gUnk_02000006
 _080B21AC: .4byte gUnk_08000F54
 
-	ldr r11, _080B2270 @ =gUnk_03003DD0
+	ldr r11, _080B2270 @ =gUpdateContext
 	ldr r1, [r11]
 	ldm r1, {r7, r8, r9, r10}
 	ldr sp, [r11, #0xc]
@@ -665,7 +665,7 @@ _080B21AC: .4byte gUnk_08000F54
 	ldr r0, [r11, #8]
 	add pc, pc, #0x60 @ =_080B2230
 
-@ gUnk_03003DD0 { 
+@ gUpdateContext { 
 @	void* chosen_table;
 @	void* linked_list_top;
 @	void* curr_entity;
@@ -679,7 +679,7 @@ UpdateEntities_arm: @ 0x080B21B0
 	ldr r1, _080B2274 @ =gUnk_080026A4
 	add r1, r1, r0, lsl #4
 	push {r4 - r11, lr}
-	ldr r11, _080B2278 @ =gUnk_03003DD0
+	ldr r11, _080B2278 @ =gUpdateContext
 	str r1, [r11, #0x0]
 	str sp, [r11, #0xc]
 	ldm r1, {r7, r8, r9, r10}
@@ -724,9 +724,9 @@ _080B2264: .4byte NPCUpdate
 _080B2268: .4byte ItemUpdate
 _080B226C: .4byte ManagerUpdate
 
-_080B2270: .4byte gUnk_03003DD0
+_080B2270: .4byte gUpdateContext
 _080B2274: .4byte gUnk_080026A4
-_080B2278: .4byte gUnk_03003DD0
+_080B2278: .4byte gUpdateContext
 
 	arm_func_start sub_080B227C
 sub_080B227C: @ 0x080B227C

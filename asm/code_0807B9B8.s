@@ -456,7 +456,7 @@ sub_0807BD14: @ 0x0807BD14
 	strh r4, [r1]
 	strb r3, [r1, #5]
 	strb r5, [r1, #0x10]
-	bl sub_08052E8C
+	bl GetCurrentRoomInfo
 	adds r2, r0, #0
 	ldr r1, _0807BD6C @ =gArea
 	ldr r3, _0807BD70 @ =0x0000085C
@@ -511,7 +511,7 @@ _0807BD98:
 	movs r1, #6
 	orrs r0, r1
 	strb r0, [r2, #0x11]
-	bl sub_0805E5A8
+	bl SetInitializationPriority
 	movs r0, #1
 	b _0807BDB6
 	.align 2, 0

@@ -816,7 +816,7 @@ void sub_08034BC8(Entity* this) {
 }
 
 void sub_08034C00(Entity* this) {
-    if (((gPlayerState.flags & PL_IS_MINISH) != 0) &&
+    if (((gPlayerState.flags & PL_MINISH) != 0) &&
         CheckPlayerInRegion(this->x.HALF.HI - gRoomControls.roomOriginX,
                             this->y.HALF.HI - gRoomControls.roomOriginY + 0xd, 3, 3) != 0) {
         if (gScreenTransition.field_0x39 >= 0x3d) {

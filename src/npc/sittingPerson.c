@@ -63,7 +63,7 @@ void sub_08063944(Entity* this, ScriptExecutionContext* context) {
     s32 tmp;
 
     context->condition = 0;
-    tmp = gSave.unk8 - 2;
+    tmp = gSave.global_progress - 2;
     if (tmp < 0) {
         tmp = 0;
     }

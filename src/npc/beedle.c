@@ -157,8 +157,5 @@ void sub_080634EC(Entity* this) {
 }
 
 void sub_08063504(Entity* this, ScriptExecutionContext* context) {
-    u32 uVar1;
-
-    uVar1 = GetBottleContaining(gUnk_0810C88C[this->type2]);
-    context->condition = BOOLCAST(uVar1);
+    context->condition = !!GetBottleContaining(gUnk_0810C88C[this->type2]);
 }

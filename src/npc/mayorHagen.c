@@ -19,7 +19,7 @@ void MayorHagen(Entity* this) {
             this->action = 1;
             this->field_0x68.HALF.HI = 0;
             this->field_0x68.HALF.LO = sub_0801E99C(this);
-            sub_0805E3A0(this, 2);
+            SetDefaultPriority(this, 2);
             sub_0807DD50(this);
             break;
         case 1:
@@ -52,7 +52,7 @@ void sub_0806CE5C(Entity* this) {
 void sub_0806CE80(Entity* this) {
     u32 v;
     u32 v2;
-    v = gSave.unk8;
+    v = gSave.global_progress;
     if (v == 5) {
         // flippers
         if (GetInventoryValue(0x46) == 0) {

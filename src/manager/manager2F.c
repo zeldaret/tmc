@@ -9,16 +9,16 @@ void sub_0805D470(Manager*);
 
 void Manager2F_Main(Manager* this) {
     if (this == NULL) {
-        if ((void*)gArea.unk3 != sub_0805D470) {
+        if (gArea.onEnter != sub_0805D470) {
             sub_0805D470(NULL);
         }
     } else {
         if (this->action == 0) {
             this->action = 1;
             this->unk_10 |= 0x20;
-            sub_0805E3A0(this, 6);
-            if (gArea.unk3 == 0) {
-                sub_08052D74(this, sub_0805D470, NULL);
+            SetDefaultPriority((Entity*)this, 6);
+            if (gArea.onEnter == NULL) {
+                RegisterTransitionManager(this, sub_0805D470, NULL);
             } else {
                 DeleteThisEntity();
             }

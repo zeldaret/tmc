@@ -18,6 +18,9 @@ extern void HandleGameOverScreen(void);
 extern void HandleCreditsScreen(void);
 extern void HandleDebugTextScreen(void);
 
+static void sub_08055F70(void);
+static bool32 SoftResetKeysPressed(void);
+
 void (*const sScreenHandlers[])(void) = {
     [SCREEN_INTRO] = HandleIntroScreen,
 #ifdef DEMO_USA
@@ -197,7 +200,7 @@ NONMATCH("asm/non_matching/sub_080560B8.inc", static void sub_080560B8(void)) {
     }
 
     temp = gUnk_02000010.signature ^ SIGNATURE;
-    b = BOOLCAST(temp);
+    b = !!temp;
 
     if ((gUnk_02000010.field_0x4 != 0) && (gUnk_02000010.field_0x4 != 0xc1)) {
         b = TRUE;
@@ -210,15 +213,15 @@ NONMATCH("asm/non_matching/sub_080560B8.inc", static void sub_080560B8(void)) {
 END_NONMATCH
 
 u32 sub_08056134(void) {
+
+    if ((gSaveHeader->signature != SIGNATURE) || (gSaveHeader->saveFileId >= NUM_SAVE_SLOTS) ||
+        (gSaveHeader->messageSpeed >= MAX_MSG_SPEED) || (gSaveHeader->brightnessPref >= MAX_BRIGHTNESS)
 #ifdef EU
-    if ((gSaveHeader->signature != SIGNATURE) || (gSaveHeader->saveFileId >= NUM_SAVE_SLOTS) ||
-        (gSaveHeader->messageSpeed >= MAX_MSG_SPEED) || (gSaveHeader->brightnessPref >= MAX_BRIGHTNESS) ||
-        (gSaveHeader->gameLanguage <= GAME_LANGUAGE) || (gSaveHeader->gameLanguage >= 7) || (gSaveHeader->_e != 0))
+        || (gSaveHeader->gameLanguage <= GAME_LANGUAGE) || (gSaveHeader->gameLanguage > NUM_LANGUAGES)
 #else
-    if ((gSaveHeader->signature != SIGNATURE) || (gSaveHeader->saveFileId >= NUM_SAVE_SLOTS) ||
-        (gSaveHeader->messageSpeed >= MAX_MSG_SPEED) || (gSaveHeader->brightnessPref >= MAX_BRIGHTNESS) ||
-        (gSaveHeader->gameLanguage != GAME_LANGUAGE) || (gSaveHeader->_e != 0))
+        || (gSaveHeader->gameLanguage != GAME_LANGUAGE)
 #endif
+        || (gSaveHeader->_e != 0))
         return FALSE;
 
     return TRUE;

@@ -82,7 +82,7 @@ _0808E4C8:
 	ldr r1, _0808E548 @ =sub_0808E55C
 	adds r0, r4, #0
 	movs r2, #0
-	bl sub_08052D74
+	bl RegisterTransitionManager
 	b _0808E55A
 	.align 2, 0
 _0808E540: .4byte gUnk_08121C40

@@ -29,7 +29,7 @@ void sub_0805FA04(void) {
     MemClear((void*)&gMenu, sizeof(Menu));
     gMenu.unk16 = gSaveHeader->gameLanguage;
     sub_08053320();
-    sub_0801D79C(0, 0x1144);
+    SetColor(0, 0x1144);
     gMain.funcIndex = 1;
     InitSoundPlayingInfo();
     sub_08050008();

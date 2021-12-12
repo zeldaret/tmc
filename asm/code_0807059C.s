@@ -56,7 +56,7 @@ sub_080705AC: @ 0x080705AC
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _08070674
-	ldr r0, _0807062C @ =gUnk_03003DC0
+	ldr r0, _0807062C @ =gPriorityHandler
 	ldrh r0, [r0, #8]
 	cmp r0, #0
 	bne _08070674
@@ -76,7 +76,7 @@ _0807061C: .4byte gUnk_02034490
 _08070620: .4byte gMessage
 _08070624: .4byte gSave
 _08070628: .4byte gPlayerState
-_0807062C: .4byte gUnk_03003DC0
+_0807062C: .4byte gPriorityHandler
 _08070630:
 	ldrb r0, [r2]
 _08070632:

@@ -68,7 +68,7 @@ void sub_0805B328(Manager1A*);
 void sub_0805B048(Manager1A* this) {
     struct_08108764* tmp;
     Entity* obj;
-    sub_0805E3A0(&this->manager, 6);
+    SetDefaultPriority((Entity*)&this->manager, 6);
     MemClear(&this->unk_20, 0x20);
     this->manager.action = 1;
     this->unk_3f = gRoomControls.roomID;
@@ -94,7 +94,7 @@ void sub_0805B048(Manager1A* this) {
         sub_0805BC4C();
         sub_0805B2B0(this);
         sub_0805B328(this);
-        sub_08052D74(this, sub_0805B328, 0);
+        RegisterTransitionManager(this, sub_0805B328, 0);
     }
     if (!tmp->unk_10)
         return;
@@ -149,30 +149,32 @@ u32 sub_0805B1CC(Manager1A* this) {
 void sub_0805B210(Manager1A* this) {
     struct_08108764* tmp;
     gScreenTransition.transitioningOut = 1;
-    gScreenTransition.transitionType = 1;
-    gScreenTransition.playerState = 4;
+    gScreenTransition.transitionType = TRANSITION_CUT;
+    gScreenTransition.player_status.start_anim = 4;
     tmp = &gUnk_08108764[this->manager.unk_0a];
-    gScreenTransition.areaID = tmp->unk_01;
-    gScreenTransition.roomID = tmp->unk_02;
-    gScreenTransition.playerLayer = tmp->unk_03;
-    if (gPlayerState.flags & PL_IS_MINISH) {
-        gScreenTransition.field_0xf = 6;
+    gScreenTransition.player_status.area_next = tmp->unk_01;
+    gScreenTransition.player_status.room_next = tmp->unk_02;
+    gScreenTransition.player_status.layer = tmp->unk_03;
+    if (gPlayerState.flags & PL_MINISH) {
+        gScreenTransition.player_status.spawn_type = 6;
     } else {
-        gScreenTransition.field_0xf = 2;
+        gScreenTransition.player_status.spawn_type = 2;
     }
     switch (tmp->unk_00) {
         case 0:
-            gScreenTransition.playerStartPos.HALF.x = tmp->unk_04;
-            gScreenTransition.playerStartPos.HALF.y = tmp->unk_06;
+            gScreenTransition.player_status.start_pos.HALF.x = tmp->unk_04;
+            gScreenTransition.player_status.start_pos.HALF.y = tmp->unk_06;
             break;
         case 1:
-            gScreenTransition.playerStartPos.HALF.x = gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX + tmp->unk_04;
-            gScreenTransition.playerStartPos.HALF.y = gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY + tmp->unk_06;
+            gScreenTransition.player_status.start_pos.HALF.x =
+                gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX + tmp->unk_04;
+            gScreenTransition.player_status.start_pos.HALF.y =
+                gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY + tmp->unk_06;
             break;
         case 2:
-            gScreenTransition.playerStartPos.HALF.x = tmp->unk_04;
-            gScreenTransition.playerStartPos.HALF.y = tmp->unk_06;
-            gScreenTransition.field_0xf = 6;
+            gScreenTransition.player_status.start_pos.HALF.x = tmp->unk_04;
+            gScreenTransition.player_status.start_pos.HALF.y = tmp->unk_06;
+            gScreenTransition.player_status.spawn_type = 6;
             break;
     }
 }

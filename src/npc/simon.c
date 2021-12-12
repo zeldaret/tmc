@@ -26,7 +26,7 @@ void Simon(Entity* this) {
 
 void sub_0806C224(void) {
     DoExitTransition(&gUnk_0813AD60);
-    gScreenTransition.transitionType = 6;
+    gScreenTransition.transitionType = TRANSITION_FADE_BLACK_FAST;
 }
 
 void Simon_CreateChest(Entity* this) {
@@ -38,7 +38,7 @@ void Simon_CreateChest(Entity* this) {
 void sub_0806C280(void) {
     SetGlobalFlag(MAROYA_WAKEUP);
     DoExitTransition(&gUnk_0813AD74);
-    gScreenTransition.transitionType = 6;
+    gScreenTransition.transitionType = TRANSITION_FADE_BLACK_FAST;
 }
 
 void sub_0806C2A0(Entity* this, ScriptExecutionContext* context) {

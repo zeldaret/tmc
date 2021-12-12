@@ -125,7 +125,7 @@ _080875CE:
 _080875DC:
 	adds r0, r4, #0
 	movs r1, #3
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	ldrb r1, [r4, #0xb]
 	lsls r1, r1, #2
 	ldrb r0, [r4, #0x14]

@@ -18,6 +18,6 @@ void sub_080300AC(void) {
 void sub_080300C4(void) {
     if (gScreenTransition.field_0xae == 0xff) {
         gScreenTransition.field_0xac = 0;
-        MemClear(&gScreenTransition.field_0x4c[32], 0x40);
+        MemClear(gScreenTransition.field_0x6c, sizeof gScreenTransition.field_0x6c);
     }
 }

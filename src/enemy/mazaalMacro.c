@@ -10,7 +10,6 @@
 extern void sub_0807B600(u32);
 
 extern const u16 script_08012E20[];
-extern const u8 gEntCount;
 
 void sub_08034E18(Entity*);
 void sub_08034FA0(Entity*);

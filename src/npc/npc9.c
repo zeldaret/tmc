@@ -22,7 +22,7 @@ void sub_08062B14(Entity* this) {
         this->interactType = 0;
         this->action++;
         InitializeAnimation(this, 1);
-        sub_0805E47C(this);
+        RequestPriority(this);
     }
     sub_0806ED78(this);
 }
@@ -39,6 +39,6 @@ void sub_08062B70(Entity* this) {
     if ((gMessage.doTextBox & 0x7f) == 0) {
         InitializeAnimation(this, 2);
         this->action = 1;
-        sub_0805E584(this);
+        RevokePriority(this);
     }
 }

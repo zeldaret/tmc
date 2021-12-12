@@ -15,7 +15,7 @@ extern u32 sub_080028F4(const u8*);
 void Pita(Entity* this) {
     if (this->action == 0) {
         this->action += 1;
-        sub_0805E3A0(this, 2);
+        SetDefaultPriority(this, 2);
         ResolveEntityOnTop(this, this);
         this->hitbox = &gUnk_0810C428;
         sub_0807DD64(this);

@@ -69,7 +69,7 @@ sub_08098F14: @ 0x08098F14
 	bl EnqueueSFX
 	adds r0, r5, #0
 	movs r1, #0x1e
-	bl sub_0805E4E0
+	bl RequestPriorityDuration
 	bl sub_08079F8C
 	cmp r0, #0
 	beq _08098F84

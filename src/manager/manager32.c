@@ -18,7 +18,7 @@ extern void (*const gUnk_08108D7C[])(Manager32*);
 void sub_0805D9D8(Manager32*);
 void sub_0805DA08(u32, u32, u32);
 
-extern void sub_080528F0();
+extern void RoomExitCallback();
 
 extern u8 gUnk_08108D74[];
 
@@ -176,9 +176,10 @@ void sub_0805DA90(Manager32* this, u32 param_2) {
         manager->parent = &this->manager;
         AppendEntityToList((Entity*)manager, 8);
     }
-    if (gArea.unk3 != 0) {
+    if (gArea.onEnter != NULL) {
         gScreen.lcd.displayControl &= 0xf7ff;
-        sub_080528F0();
-        DeleteManager((Manager*)gArea.unk3);
+        RoomExitCallback();
+        //! @bug: this always variable points to ROM, not a Manager*
+        DeleteManager((Manager*)gArea.onEnter);
     }
 }
