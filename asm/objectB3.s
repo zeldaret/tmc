@@ -70,7 +70,7 @@ _080A0A5E:
 	adds r0, r0, r1
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl sub_0801D2B4
+	bl ChangeObjPalette
 _080A0AB0:
 	adds r0, r4, #0
 	bl GetNextFrame

@@ -295,7 +295,7 @@ _0809396C:
 	bl sub_08093984
 	adds r0, r5, #0
 	movs r1, #0x7b
-	bl sub_0801D2B4
+	bl ChangeObjPalette
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _0809397C: .4byte gRoomControls
@@ -377,7 +377,7 @@ sub_080939C0: @ 0x080939C0
 	bl sub_08093A1C
 	adds r0, r4, #0
 	movs r1, #0x7a
-	bl sub_0801D2B4
+	bl ChangeObjPalette
 	pop {r4, r5, pc}
 	.align 2, 0
 _08093A14: .4byte gRoomControls

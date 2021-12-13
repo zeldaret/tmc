@@ -111,7 +111,7 @@ void sub_080ABEA8(Entity* this) {
         this->direction = (Random() & 0xf) << 1;
     } else {
         this->direction = sub_08049F84(this, 0);
-        sub_0801D2B4(this, 0x13f);
+        ChangeObjPalette(this, 0x13f);
     }
     InitializeAnimation(this, 0);
     SoundReq(SFX_193);

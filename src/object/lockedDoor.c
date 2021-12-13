@@ -304,10 +304,10 @@ u32 sub_080837B0(Entity* this) {
         tmp = gUnk_0811F690[tmp2 - 0x40];
     }
     if (tmp2 == 0x68) {
-        sub_0801D2B4(this, 0);
+        ChangeObjPalette(this, 0);
     } else {
         if (tmp2 == 0x88) {
-            sub_0801D2B4(this, 1);
+            ChangeObjPalette(this, 1);
         }
     }
     LoadFixedGFX(this, tmp);

@@ -222,7 +222,7 @@ _0808D24E:
 	adds r0, r0, r4
 	ldrh r1, [r0]
 	adds r0, r5, #0
-	bl sub_0801D2B4
+	bl ChangeObjPalette
 	ldrb r0, [r5, #0xf]
 	lsls r0, r0, #1
 	adds r0, r0, r4
@@ -668,7 +668,7 @@ sub_0808D59C: @ 0x0808D59C
 	adds r0, r0, r4
 	ldrh r1, [r0]
 	adds r0, r5, #0
-	bl sub_0801D2B4
+	bl ChangeObjPalette
 	ldrb r0, [r5, #0xf]
 	lsls r0, r0, #1
 	adds r0, r0, r4

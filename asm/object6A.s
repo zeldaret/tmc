@@ -341,7 +341,7 @@ _08094CA0:
 	blt _08094CCC
 	adds r0, r5, #0
 	adds r1, r5, #0
-	bl sub_0806FAD8
+	bl ResolveEntityBelow
 _08094CCC:
 	ldrb r4, [r5, #0xa]
 	ldrb r0, [r5, #0xb]
@@ -1008,7 +1008,7 @@ sub_08095120: @ 0x08095120
 	bl SetDefaultPriority
 	adds r0, r4, #0
 	adds r1, r4, #0
-	bl sub_0806FAD8
+	bl ResolveEntityBelow
 	adds r0, r4, #0
 	bl sub_0807DD64
 	adds r0, r4, #0
@@ -1059,7 +1059,7 @@ sub_08095188: @ 0x08095188
 	bl SetDefaultPriority
 	adds r0, r4, #0
 	adds r1, r4, #0
-	bl sub_0806FAD8
+	bl ResolveEntityBelow
 	adds r0, r4, #0
 	bl sub_0807DD64
 	adds r0, r4, #0
@@ -1364,7 +1364,7 @@ _080953E0:
 	movs r1, #0
 _0809540C:
 	adds r0, r4, #0
-	bl sub_0801D2B4
+	bl ChangeObjPalette
 _08095412:
 	pop {r4, pc}
 	.align 2, 0
@@ -1540,7 +1540,7 @@ _0809550A:
 	adds r0, r0, r1
 	ldrh r1, [r0]
 	adds r0, r4, #0
-	bl sub_0801D2B4
+	bl ChangeObjPalette
 	adds r0, r4, #0
 	bl sub_0807DD64
 	ldrb r1, [r4, #0xb]
@@ -1807,7 +1807,7 @@ sub_08095754: @ 0x08095754
 	bl CopyPosition
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FAD8
+	bl ResolveEntityBelow
 _0809577A:
 	pop {r4, r5, pc}
 
@@ -1858,7 +1858,7 @@ sub_080957B4: @ 0x080957B4
 	bl CopyPosition
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FAD8
+	bl ResolveEntityBelow
 _080957DA:
 	pop {r4, r5, pc}
 
@@ -2570,7 +2570,7 @@ sub_08095D30: @ 0x08095D30
 	rsbs r0, r0, #0
 	ands r1, r0
 	adds r0, r2, #0
-	bl sub_0801D2B4
+	bl ChangeObjPalette
 _08095D4E:
 	pop {pc}
 	.align 2, 0
@@ -2854,7 +2854,7 @@ _08095F68:
 	movs r1, #4
 _08095F6A:
 	adds r0, r4, #0
-	bl sub_0801D2B4
+	bl ChangeObjPalette
 	ldr r0, _08095F90 @ =gPlayerEntity
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -3056,7 +3056,7 @@ sub_080960C4: @ 0x080960C4
 	strb r0, [r4, #0x19]
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FAD8
+	bl ResolveEntityBelow
 	ldr r1, [r6, #4]
 	adds r0, r4, #0
 	bl StartCutscene

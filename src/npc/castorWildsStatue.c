@@ -126,7 +126,7 @@ void CastorWildsStatue_Fusion(Entity* this) {
         this->spriteSettings.draw = 1;
         this->y.HALF.HI -= 0x18;
         InitializeAnimation(this, 1);
-        sub_0801D2B4(this, 0x17b);
+        ChangeObjPalette(this, 0x17b);
     } else {
         GetNextFrame(this);
     }

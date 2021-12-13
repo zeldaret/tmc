@@ -102,7 +102,7 @@ void sub_0809D0AC(Entity* this) {
         SoundReq(SFX_SECRET);
         fx = CreateFx(this, FX_DASH, 0);
         if (fx != NULL) {
-            sub_0806FAD8(this, fx);
+            ResolveEntityBelow(this, fx);
         }
     }
 }

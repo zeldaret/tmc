@@ -28,7 +28,7 @@ void DrLeft(Entity* this) {
         if (this->action == 0) {
             this->action += 1;
             this->frameIndex = 0;
-            sub_0806FAD8(this, this);
+            ResolveEntityBelow(this, this);
         }
     }
 }

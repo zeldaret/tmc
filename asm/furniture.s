@@ -242,7 +242,7 @@ _0809075C:
 	bne _080907C8
 	adds r0, r7, #0
 	movs r1, #0x7e
-	bl sub_0801D2B4
+	bl ChangeObjPalette
 	b _080907C8
 	.align 2, 0
 _08090778: .4byte gRoomControls
@@ -1062,7 +1062,7 @@ sub_08090E4C: @ 0x08090E4C
 	lsls r1, r1, #2
 	adds r1, r1, r2
 	ldr r1, [r1]
-	bl sub_0801D2B4
+	bl ChangeObjPalette
 	pop {pc}
 	.align 2, 0
 _08090E60: .4byte gUnk_08122244

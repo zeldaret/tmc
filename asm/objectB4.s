@@ -95,7 +95,7 @@ _080A0C08:
 	strh r0, [r4, #0x32]
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FAD8
+	bl ResolveEntityBelow
 _080A0C40:
 	ldrb r0, [r5, #0xf]
 	adds r0, #1
@@ -136,7 +136,7 @@ _080A0C6E:
 	strh r0, [r4, #0x32]
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FAD8
+	bl ResolveEntityBelow
 _080A0C92:
 	ldrb r0, [r5, #0xf]
 	adds r0, #1

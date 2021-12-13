@@ -37,7 +37,7 @@ sub_0808AA1C: @ 0x0808AA1C
 	bne _0808AA36
 	adds r0, r5, #0
 	movs r1, #0
-	bl sub_0801D2B4
+	bl ChangeObjPalette
 _0808AA36:
 	ldrb r0, [r5, #0xa]
 	cmp r0, #1

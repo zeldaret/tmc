@@ -83,7 +83,7 @@ void MandiblesProjectile_Init(Entity* this) {
     this->animationState = 0xff;
     this->field_0x82.HALF.LO = 0;
     this->spritePriority.b0 = 4;
-    sub_0806FAD8(this, this->parent);
+    ResolveEntityBelow(this, this->parent);
     sub_080AA270(this);
 }
 

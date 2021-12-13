@@ -483,13 +483,13 @@ bool32 sub_08023A38(u32 unk) {
 }
 
 void sub_08023A68(Entity* this) {
-    sub_0801D2B4(this, 5);
+    ChangeObjPalette(this, 5);
     this->spritePriority.b0 = 7;
     InitializeAnimation(this, 0x17);
 }
 
 void sub_08023A88(Entity* this, u32 unk) {
-    sub_0801D2B4(this, 0x22);
+    ChangeObjPalette(this, 0x22);
     this->spritePriority.b0 = 4;
     InitializeAnimation(this, unk);
 }

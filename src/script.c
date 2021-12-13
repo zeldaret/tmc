@@ -157,8 +157,6 @@ void ScriptCommand_CameraTargetPlayer(Entity* entity, ScriptExecutionContext* co
 void ScriptCommand_0807F0B4(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807F0C8(Entity* entity, ScriptExecutionContext* context);
 
-extern void CreateSpeechBubbleExclamationMark(Entity*, u32, u32);
-extern void CreateSpeechBubbleQuestionMark(Entity*, u32, u32);
 extern void RecoverUI(u32);
 
 typedef void (*ScriptCommand)(Entity*, ScriptExecutionContext*);
@@ -1861,7 +1859,7 @@ void sub_0807F714(Entity* entity, ScriptExecutionContext* context) {
 
 void sub_0807F738(Entity* entity, ScriptExecutionContext* context) {
     entity->spriteRendering.b3 = gUnk_08114F34[entity->spriteRendering.b3];
-    sub_0806FAD8(entity, entity);
+    ResolveEntityBelow(entity, entity);
 }
 
 void sub_0807F75C(Entity* entity, ScriptExecutionContext* context) {

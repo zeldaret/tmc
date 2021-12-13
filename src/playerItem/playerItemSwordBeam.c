@@ -99,6 +99,6 @@ void sub_08019644(Entity* this) {
         if (gUnk_080B4400[this->field_0x70.WORD] == 0xff) {
             this->field_0x70.WORD = iVar1;
         }
-        sub_0801D2B4(this, (u32)gUnk_080B4400[this->field_0x70.WORD]);
+        ChangeObjPalette(this, (u32)gUnk_080B4400[this->field_0x70.WORD]);
     }
 }
