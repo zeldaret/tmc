@@ -177,7 +177,7 @@ NONMATCH("asm/non_matching/octorokBossObject/OctorokBossObject_Action1.inc",
             this->direction = sub_080045DA(GET_HELPER(this)->tailObjects[this->actionDelay]->x.WORD - this->x.WORD,
                                            GET_HELPER(this)->tailObjects[this->actionDelay]->y.WORD - this->y.WORD);
             sub_0806F62C(this, this->speed, this->direction);
-            if (sub_080041A0(this, GET_HELPER(this)->tailObjects[this->actionDelay], 2, 2) == 0) {
+            if (EntityInRectRadius(this, GET_HELPER(this)->tailObjects[this->actionDelay], 2, 2) == 0) {
                 return;
             }
             if (this->type == 0) {
