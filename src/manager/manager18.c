@@ -49,7 +49,8 @@ void Manager18_Main(Manager18* this) {
 void sub_0805AEDC(Manager18* this) {
     gScreen.bg3.control = BGCNT_SCREENBASE(30) | BGCNT_PRIORITY(1) | BGCNT_CHARBASE(1);
     gScreen.lcd.displayControl |= DISPCNT_BG3_ON;
-    gScreen.controls.layerFXControl = BLDCNT_TGT1_BG3 | BLDCNT_EFFECT_BLEND | BLDCNT_TGT2_BG1 | BLDCNT_TGT2_BG2 | BLDCNT_TGT2_OBJ | BLDCNT_TGT2_BD;
+    gScreen.controls.layerFXControl =
+        BLDCNT_TGT1_BG3 | BLDCNT_EFFECT_BLEND | BLDCNT_TGT2_BG1 | BLDCNT_TGT2_BG2 | BLDCNT_TGT2_OBJ | BLDCNT_TGT2_BD;
     gScreen.controls.alphaBlend = (this != NULL) ? this->field_0x20 : BLDALPHA_BLEND(0, 16);
     gScreen.bg3.xOffset = gRoomControls.roomScrollX + gRoomControls.bg3OffsetX.HALF.HI;
     gScreen.bg3.yOffset = gRoomControls.roomScrollY + gRoomControls.bg3OffsetY.HALF.HI;

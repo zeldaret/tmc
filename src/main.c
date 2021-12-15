@@ -276,7 +276,6 @@ void sub_08056260(void) {
     m->field_0x1 = 0;
 }
 
-
 // Convert AABB to screen coordinates and check if it's within the viewport
 u32 CheckRegionOnScreen(u32 x0, u32 y0, u32 x1, u32 y1) {
     u32 result;

@@ -2214,7 +2214,7 @@ static void sub_08073094(Entity* this) {
 }
 
 static void PlayerUseEntrance(Entity* this) {
-	static EntityAction* const sPlayerUseEntranceStates[] = {
+    static EntityAction* const sPlayerUseEntranceStates[] = {
         sub_080731D8,
         sub_080732D0,
         sub_0807332C,
