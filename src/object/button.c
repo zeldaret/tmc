@@ -16,7 +16,7 @@ extern u32 sub_08081E3C(Entity*);
 
 void sub_08081AE0(Entity* this) {
     COLLISION_OFF(this);
-    this->updatePriority = 3;
+    this->updatePriority = PRIO_NO_BLOCK;
     this->y.HALF.HI++;
     if (this->cutsceneBeh.HWORD != 0) {
         this->collisionLayer = this->cutsceneBeh.HWORD;
@@ -158,11 +158,11 @@ Entity* sub_08081D74(Entity* this) {
         }
     } else {
         if (gPlayerState.flags & 0x400000) {
-            if (sub_080041A0(this, gUnk_03004040[0], 5, 6)) {
+            if (EntityInRectRadius(this, gUnk_03004040[0], 5, 6)) {
                 ent = gUnk_03004040[0];
-            } else if (sub_080041A0(this, gUnk_03004040[1], 5, 6)) {
+            } else if (EntityInRectRadius(this, gUnk_03004040[1], 5, 6)) {
                 ent = gUnk_03004040[1];
-            } else if (sub_080041A0(this, gUnk_03004040[2], 5, 6)) {
+            } else if (EntityInRectRadius(this, gUnk_03004040[2], 5, 6)) {
                 ent = gUnk_03004040[2];
             }
         }
@@ -176,7 +176,7 @@ u32 sub_08081E0C(Entity* this) {
     if (tmp->z.HALF.HI != 0 || !sub_08079F8C()) {
         return 0;
     } else {
-        return sub_080041A0(this, tmp, 5, 6);
+        return EntityInRectRadius(this, tmp, 5, 6);
     }
 }
 
@@ -234,13 +234,13 @@ u32 sub_08081F00(u32* unk1, u32* unk2) {
 void sub_08081F24(Entity* this) {
     Entity* fx = CreateFx(this, FX_DASH, 0x40);
     if (fx) {
-        fx->updatePriority = 3;
+        fx->updatePriority = PRIO_NO_BLOCK;
         fx->x.HALF.HI += 7;
         fx->y.HALF.HI += 5;
     }
     fx = CreateFx(this, FX_DASH, 0x40);
     if (fx) {
-        fx->updatePriority = 3;
+        fx->updatePriority = PRIO_NO_BLOCK;
         fx->x.HALF.HI -= 7;
         fx->y.HALF.HI += 5;
     }
@@ -252,7 +252,7 @@ u32 sub_08081F7C(Entity* this, u32 r7) {
         return 1;
     if (--this->actionDelay > 6) {
         if (this->child)
-            this->child->spriteOffsetY = 0xfc;
+            this->child->spriteOffsetY = -4;
     } else {
         if (this->actionDelay == 6) {
             SetFlag(this->field_0x86.HWORD);

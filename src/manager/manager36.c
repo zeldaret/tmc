@@ -32,7 +32,7 @@ void CreateManager36(Entity* entity, ScriptExecutionContext* context) {
         manager->subtype = 0x36;
         manager->unk_0a = context->intVariable;
         AppendEntityToList((Entity*)manager, 6);
-        SetDefaultPriority((Entity*)manager, 6);
+        SetDefaultPriority((Entity*)manager, PRIO_PLAYER_EVENT);
     }
 }
 

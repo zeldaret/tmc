@@ -56,7 +56,7 @@ void sub_08059E80(Manager14* this) {
     this->manager.action = 4;
     this->manager.unk_10 |= 0x20;
     gScreen.bg3.control = 0x1E04;
-    gScreen.lcd.displayControl |= 0x800;
+    gScreen.lcd.displayControl |= DISPCNT_BG3_ON;
     gScreen.controls.layerFXControl = 0x3E48;
     gScreen.controls.alphaBlend = 0x1000;
     gScreen.bg3.xOffset = 0x80;
@@ -142,7 +142,7 @@ void sub_0805A0C0(Manager14* this) {
         this->manager.unk_0f = 4;
         gScreen.controls.alphaBlend = gUnk_08108588[this->manager.unk_0e--];
         if (this->manager.unk_0e == 0xFF) {
-            gScreen.lcd.displayControl &= ~0x800;
+            gScreen.lcd.displayControl &= ~DISPCNT_BG3_ON;
             sub_08056250();
             DeleteThisEntity();
         }
@@ -179,7 +179,7 @@ void sub_0805A1D8(Manager14* this) {
     gScreen.bg3.xOffset = gRoomControls.bg3OffsetX.HALF.HI;
     gRoomControls.bg3OffsetY.WORD -= 0x1000;
     gScreen.bg3.yOffset = gRoomControls.bg3OffsetY.HALF.HI;
-    if (gScreen.lcd.displayControl & 0x800) {
+    if (gScreen.lcd.displayControl & DISPCNT_BG3_ON) {
         sub_0805A114(6, this->unk_20 >> 1);
         if (this->unk_22 == 0 && (gMain.ticks & 0x1F) == 0) {
             this->unk_24++;
@@ -194,6 +194,6 @@ void nullsub_495() {
 
 void sub_0805A25C() {
     gScreen.controls.layerFXControl = 0;
-    gScreen.lcd.displayControl &= ~0x800;
+    gScreen.lcd.displayControl &= ~DISPCNT_BG3_ON;
     sub_08056250();
 }

@@ -81,7 +81,7 @@ void sub_080318DC(Entity* this) {
             }
 
             if (this->health == 0) {
-                this->knockbackDirection = ((this->knockbackDirection + (7 & Random())) - 4) & 0x1f;
+                this->knockbackDirection = DirectionNormalize((this->knockbackDirection + (7 & Random())) - 4);
                 this->knockbackDuration += this->type2 * 3;
                 sub_08032338(this);
             }

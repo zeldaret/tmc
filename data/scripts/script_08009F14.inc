@@ -25,7 +25,7 @@ script_08009F36:
 	WaitUntilTextboxCloses
 	Wait 0x001e
 	_0807F034 0x0065
-	WaitPlayerAction8
+	WaitPlayerGetItem
 	DoPostScriptAction 0x000a
 	Call sub_0807DF50
 	_0807E878
@@ -74,7 +74,7 @@ script_0800A002:
 	Wait 0x0008
 	_0807F034 0x0008
 	Call sub_08060318
-	WaitPlayerAction8
+	WaitPlayerGetItem
 	Wait 0x0008
 	_0807EB8C 
 	MessageFromTarget 0x1f13
@@ -108,7 +108,7 @@ script_0800A064:
 	Wait 0x0008
 	_0807F034 0x0007
 	Call sub_08060318
-	WaitPlayerAction8
+	WaitPlayerGetItem
 	Wait 0x0008
 	_0807EB8C 
 	MessageFromTarget 0x1f10

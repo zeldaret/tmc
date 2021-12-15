@@ -120,7 +120,7 @@ void sub_0809F69C(Entity* this) {
 void sub_0809F6CC(Entity* this) {
 
     if (((gRoomControls.unk6 & 4) == 0) && (--this->actionDelay == 0)) {
-        gPlayerState.field_0x8b = 1;
+        gPlayerState.controlMode = 1;
         DeleteThisEntity();
     }
 }

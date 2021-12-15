@@ -558,7 +558,7 @@ sub_0803EFAC: @ 0x0803EFAC
 	adds r4, r1, #0
 	movs r2, #0x50
 	movs r3, #0x50
-	bl sub_080041A0
+	bl EntityInRectRadius
 	cmp r0, #0
 	beq _0803EFD6
 	adds r0, r4, #0

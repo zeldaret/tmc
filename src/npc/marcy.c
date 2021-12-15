@@ -9,7 +9,7 @@ extern u16 gUnk_0810C34C[];
 void Marcy(Entity* this) {
     if (this->action == 0) {
         this->action += 1;
-        SetDefaultPriority(this, 2);
+        SetDefaultPriority(this, PRIO_MESSAGE);
         sub_0807DD64(this);
     }
     sub_0807DD94(this, NULL);

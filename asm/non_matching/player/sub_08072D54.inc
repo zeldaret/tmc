@@ -38,7 +38,7 @@ _08072D9C:
 	beq _08072E30
 	b _08072E6C
 _08072DA6:
-	ldr r1, _08072DC8 @ =gUnk_0811BBD4
+	ldr r1, _08072DC8 @ =sTileTable
 	ldr r0, _08072DCC @ =gPlayerEntity
 	ldrb r0, [r0, #0x14]
 	lsrs r0, r0, #1
@@ -54,10 +54,10 @@ _08072DA6:
 	strb r0, [r4, #0xf]
 	b _08072E6C
 	.align 2, 0
-_08072DC8: .4byte gUnk_0811BBD4
+_08072DC8: .4byte sTileTable
 _08072DCC: .4byte gPlayerEntity
 _08072DD0:
-	ldr r1, _08072DEC @ =gUnk_0811BBD4
+	ldr r1, _08072DEC @ =sTileTable
 	ldr r0, _08072DF0 @ =gPlayerEntity
 	ldrb r0, [r0, #0x14]
 	lsrs r0, r0, #1
@@ -71,7 +71,7 @@ _08072DD0:
 	strb r5, [r4, #0xe]
 	b _08072E6C
 	.align 2, 0
-_08072DEC: .4byte gUnk_0811BBD4
+_08072DEC: .4byte sTileTable
 _08072DF0: .4byte gPlayerEntity
 _08072DF4:
 	movs r0, #2
@@ -82,7 +82,7 @@ _08072DFA:
 	movs r5, #4
 	eors r0, r5
 	strb r0, [r4, #0x14]
-	ldr r1, _08072E28 @ =gUnk_0811BBD4
+	ldr r1, _08072E28 @ =sTileTable
 	ldr r0, _08072E2C @ =gPlayerEntity
 	ldrb r0, [r0, #0x14]
 	lsrs r0, r0, #1
@@ -102,14 +102,14 @@ _08072E22:
 	eors r0, r5
 	b _08072E6A
 	.align 2, 0
-_08072E28: .4byte gUnk_0811BBD4
+_08072E28: .4byte sTileTable
 _08072E2C: .4byte gPlayerEntity
 _08072E30:
 	ldrb r0, [r4, #0x14]
 	movs r1, #4
 	eors r0, r1
 	strb r0, [r4, #0x14]
-	ldr r1, _08072E58 @ =gUnk_0811BBD4
+	ldr r1, _08072E58 @ =sTileTable
 	ldr r0, _08072E5C @ =gPlayerEntity
 	ldrb r0, [r0, #0x14]
 	lsrs r0, r0, #1
@@ -124,7 +124,7 @@ _08072E30:
 	strb r0, [r4, #0xe]
 	b _08072E64
 	.align 2, 0
-_08072E58: .4byte gUnk_0811BBD4
+_08072E58: .4byte sTileTable
 _08072E5C: .4byte gPlayerEntity
 _08072E60:
 	movs r0, #4

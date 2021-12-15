@@ -41601,7 +41601,7 @@
     "size": 8
   },
   {
-    "path": "data_081146D0/gUnk_08114F88.bin",
+    "path": "data_081146D0/gPlayerHitbox.bin",
     "start": 1134472,
     "size": 16
   },
@@ -41666,7 +41666,7 @@
     "type": "sprite_frame"
   },
   {
-    "path": "sprites/gSpriteFrames_Object6.bin",
+    "path": "sprites/gSpriteFrames_EzloCap.bin",
     "start": 1142228,
     "size": 400,
     "type": "sprite_frame"
@@ -42751,16 +42751,6 @@
     }
   },
   {
-    "path": "data_0811E454/gUnk_0811E510.bin",
-    "start": 1172752,
-    "size": 4
-  },
-  {
-    "path": "data_0811E454/gUnk_0811E514.bin",
-    "start": 1172756,
-    "size": 16
-  },
-  {
     "path": "data_0811E750/gUnk_0811E750.bin",
     "start": 1173328,
     "size": 8
@@ -43052,233 +43042,233 @@
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_0.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_0.bin",
     "start": 1175952,
     "size": 29,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_1.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_1.bin",
     "start": 1175981,
     "size": 29,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_2.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_2.bin",
     "start": 1176010,
     "size": 29,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_3.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_3.bin",
     "start": 1176039,
     "size": 41,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_8.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_8.bin",
     "start": 1176080,
     "size": 29,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_9.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_9.bin",
     "start": 1176109,
     "size": 29,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_10.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_10.bin",
     "start": 1176138,
     "size": 29,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_11.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_11.bin",
     "start": 1176167,
     "size": 41,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_4.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_4.bin",
     "start": 1176208,
     "size": 29,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_5.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_5.bin",
     "start": 1176237,
     "size": 29,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_6.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_6.bin",
     "start": 1176266,
     "size": 29,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_7.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_7.bin",
     "start": 1176295,
     "size": 41,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_12.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_12.bin",
     "start": 1176336,
     "size": 13,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_13.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_13.bin",
     "start": 1176349,
     "size": 13,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_14.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_14.bin",
     "start": 1176362,
     "size": 13,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_15.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_15.bin",
     "start": 1176375,
     "size": 41,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_16.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_16.bin",
     "start": 1176416,
     "size": 13,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_17.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_17.bin",
     "start": 1176429,
     "size": 13,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_18.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_18.bin",
     "start": 1176442,
     "size": 13,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_19.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_19.bin",
     "start": 1176455,
     "size": 41,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_20.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_20.bin",
     "start": 1176496,
     "size": 13,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_21.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_21.bin",
     "start": 1176509,
     "size": 13,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_22.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_22.bin",
     "start": 1176522,
     "size": 13,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_23.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_23.bin",
     "start": 1176535,
     "size": 41,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_31.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_31.bin",
     "start": 1176576,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_32.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_32.bin",
     "start": 1176581,
     "size": 17,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_33.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_33.bin",
     "start": 1176598,
     "size": 41,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_34.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_34.bin",
     "start": 1176639,
     "size": 41,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_24.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_24.bin",
     "start": 1176680,
     "size": 81,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_25.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_25.bin",
     "start": 1176761,
     "size": 25,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_26.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_26.bin",
     "start": 1176786,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_27.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_27.bin",
     "start": 1176791,
     "size": 116,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_28.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_28.bin",
     "start": 1176907,
     "size": 21,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_29.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_29.bin",
     "start": 1176928,
     "size": 21,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_30.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_30.bin",
     "start": 1176949,
     "size": 21,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_35.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_35.bin",
     "start": 1176970,
     "size": 6,
     "type": "animation"
   },
   {
-    "path": "object6/gUnk_0811F16C.bin",
+    "path": "ezloCap/gUnk_0811F16C.bin",
     "start": 1175916,
     "size": 12
   },
   {
-    "path": "object6/gUnk_0811F178.bin",
+    "path": "ezloCap/gUnk_0811F178.bin",
     "start": 1175928,
     "size": 20
   },
   {
-    "path": "object6/gUnk_0811F18C.bin",
+    "path": "ezloCap/gUnk_0811F18C.bin",
     "start": 1175948,
     "size": 4
   },

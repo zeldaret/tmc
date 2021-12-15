@@ -22,7 +22,7 @@ void sub_0806E730(Entity* this) {
     this->action += 1;
     this->field_0x68.HALF.LO = sub_0801E99C(this);
     sub_080787A8(this, this->field_0x68.HALF.LO);
-    SetDefaultPriority(this, 2);
+    SetDefaultPriority(this, PRIO_MESSAGE);
     this->subAction = 0;
     sub_0806E764(this);
 }

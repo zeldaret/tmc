@@ -83,7 +83,7 @@ enum NPC {
     /*0x4a*/ GREGAL,
     /*0x4b*/ MAYOR_HAGEN,
     /*0x4c*/ BIG_GORON,
-    /*0x4d*/ EZLO_CAP,
+    /*0x4d*/ EZLO,
     /*0x4e*/ NPC_UNK_4E,
     /*0x4f*/ NPC_UNK_4F,
     /*0x50*/ CLOTHES_RACK,
@@ -277,7 +277,7 @@ extern void Gregal_Fusion(Entity*);
 extern void MayorHagen(Entity*);
 extern void MayorHagen_Fusion(Entity*);
 extern void BigGoron(Entity*);
-extern void EzloCap(Entity*);
+extern void Ezlo(Entity*);
 extern void NPC4E(Entity*);
 extern void NPC4E_Fusion(Entity*);
 extern void NPC4F(Entity*);

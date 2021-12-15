@@ -220,7 +220,7 @@ script_0800ED20:
 	WaitUntilTextboxCloses
 	JumpIfNot script_0800ED46
 	_0807F050 0x0070
-	WaitPlayerAction8
+	WaitPlayerGetItem
 script_0800ED46:
 	_0807E878
 	Call sub_08063874

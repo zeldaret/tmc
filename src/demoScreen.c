@@ -31,14 +31,14 @@ void HandleChooseDemoScreen(void) {
 void sub_080A2E40(void) {
     DispReset(1);
     InitSoundPlayingInfo();
-    MemClear((void*)0x6000000, 0x80);
+    MemClear((void*)VRAM, 0x80);
     MessageInitialize();
     EraseAllEntities();
     sub_080ADD30();
     sub_0801CFA8(0);
-    MemClear(&gUnk_02032EC0, 0x3b4);
-    MemClear(&gChooseFileState, 0x30);
-    MemClear(&gBG0Buffer, 0x800);
+    MemClear(&gUnk_02032EC0, sizeof gUnk_02032EC0);
+    MemClear(&gChooseFileState, sizeof gChooseFileState);
+    MemClear(&gBG0Buffer, sizeof gBG0Buffer);
     sub_08053320();
     LoadPaletteGroup(0xb5);
     LoadGfxGroup(0x56);

@@ -97,7 +97,7 @@ void DirtBallProjectile_Action1(Entity* this) {
             break;
         case 2:
             this->z.HALF.HI += 0xe;
-            if (sub_080041A0(this, &gPlayerEntity, 0xe, 0xe) != 0) {
+            if (EntityInRectRadius(this, &gPlayerEntity, 0xe, 0xe) != 0) {
                 this->action = 2;
                 parent->field_0x82.HALF.HI = 0xc0;
             }

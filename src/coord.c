@@ -29,7 +29,7 @@ void PositionEntityOnTop(Entity* ent, Entity* ent2) {
     ResolveEntityOnTop(ent, ent2);
 }
 
-void PositionRelative(Entity* source, Entity* target, s32 offsetX, s32 offsetY) { // r0, r1, r2, r3
+void PositionRelative(Entity* source, Entity* target, s32 offsetX, s32 offsetY) {
     s32 x;
     s32 y;
 
@@ -39,7 +39,7 @@ void PositionRelative(Entity* source, Entity* target, s32 offsetX, s32 offsetY) 
     y = source->y.WORD;
     target->y.WORD = y + offsetY;
 
-    target->z = source->z; // ldr
+    target->z = source->z;
     target->collisionLayer = source->collisionLayer;
     UpdateSpriteForCollisionLayer(target);
 }

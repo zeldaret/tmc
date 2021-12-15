@@ -16,7 +16,7 @@ void Librari(Entity* this) {
             this->animationState = this->actionDelay;
             this->field_0x68.HALF.LO = sub_0801E99C(this);
             sub_08078784(this, this->field_0x68.HALF.LO);
-            SetDefaultPriority(this, 2);
+            SetDefaultPriority(this, PRIO_MESSAGE);
             sub_0807DD50(this);
             break;
         case 1:

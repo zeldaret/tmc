@@ -4,8 +4,6 @@
 #include "functions.h"
 
 extern void sub_08056250(void);
-extern void sub_080570B8(Entity*);
-void sub_080570F8(void);
 
 extern void (*const gUnk_08107C5C[])(Entity*);
 extern void (*const gUnk_08107C48[])(Entity*);
@@ -25,7 +23,7 @@ void Manager1_Main(Entity* this) {
     }
 }
 
-void sub_080570B8(Entity* this) {
+static void sub_080570B8(Entity* this) {
     u8* pbVar1;
 
     LoadGfxGroup(((u8*)&this->zVelocity)[0]);
@@ -38,8 +36,8 @@ void sub_080570B8(Entity* this) {
     }
 }
 
-void sub_080570F8(void) {
-    gScreen.lcd.displayControl &= 0xf7ff;
+static void sub_080570F8(void) {
+    gScreen.lcd.displayControl &= ~DISPCNT_BG3_ON;
     gScreen.controls.layerFXControl = 0;
     sub_08056250();
 }
@@ -51,7 +49,7 @@ void sub_08057118(Entity* this) {
     ((u8*)&this->zVelocity)[2] = 0;
     this->action = 1;
     gScreen.bg3.control = 0x1e04;
-    gScreen.lcd.displayControl |= 0x800;
+    gScreen.lcd.displayControl |= DISPCNT_BG3_ON;
     gScreen.controls.layerFXControl = 0x3648;
     gScreen.controls.alphaBlend = 0x1000;
     RegisterTransitionManager(this, sub_080570B8, sub_080570F8);

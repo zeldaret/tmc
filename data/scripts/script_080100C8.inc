@@ -107,7 +107,7 @@ script_080101AC:
 	WaitUntilTextboxCloses
 	JumpIfNot script_08010240
 	Call sub_080A13E8
-	WaitPlayerAction8
+	WaitPlayerGetItem
 	Call sub_080A1460
 	WaitUntilTextboxCloses
 	Call sub_080A14A8

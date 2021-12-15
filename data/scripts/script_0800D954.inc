@@ -27,7 +27,7 @@ script_0800D962:
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000002
 	_0807F050 0x006d
-	WaitPlayerAction8
+	WaitPlayerGetItem
 	_0807EB28 0x1703
 	WaitUntilTextboxCloses
 	Wait 0x003c

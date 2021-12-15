@@ -163,7 +163,7 @@ _08083F78:
 	adds r1, r5, #0
 	movs r2, #0x10
 	movs r3, #8
-	bl sub_080041A0
+	bl EntityInRectRadius
 	cmp r0, #0
 	beq _08083F98
 	movs r0, #0x10

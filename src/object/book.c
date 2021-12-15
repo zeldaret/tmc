@@ -211,7 +211,7 @@ void sub_0809B5EC(Entity* this) {
 u32 sub_0809B688(Entity* this) {
     u32 ret;
 
-    ret = sub_080041A0(this, &gPlayerEntity, 6, 12);
+    ret = EntityInRectRadius(this, &gPlayerEntity, 6, 12);
     if (ret == 1 && gPlayerState.field_0xd != 16) {
         ret = 0;
     }

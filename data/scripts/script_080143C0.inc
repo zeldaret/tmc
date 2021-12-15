@@ -22,7 +22,7 @@ script_080143FA:
 	SetIntVariable 0x00000000
 	Call sub_08065528
 	_0807F034 0x0036
-	WaitPlayerAction8 
+	WaitPlayerGetItem 
 	MessageNoOverlap 0x2c19
 	WaitUntilTextboxCloses
 	SetIntVariable 0x00000303

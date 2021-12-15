@@ -220,7 +220,7 @@ void VaatiWrathType0Action1(Entity* this) {
             this->actionDelay = 0x1e;
             gScreenTransition.field_0x38 |= 1;
             gRoomControls.cameraTarget = &gPlayerEntity;
-            gPlayerState.field_0x8b = 1;
+            gPlayerState.controlMode = 1;
             break;
         default:
             sub_08042004(this);
@@ -567,7 +567,7 @@ void sub_08041BE8(Entity* this) {
     if (sub_08079F8C() != 0) {
         this->subAction = 1;
         this->actionDelay = 120;
-        this->updatePriority = 3;
+        this->updatePriority = PRIO_NO_BLOCK;
         InitAnimationForceUpdate(this, 10);
 
         entity = ((VaatiWrathHeapStruct*)this->myHeap)->type1;
@@ -576,7 +576,7 @@ void sub_08041BE8(Entity* this) {
         ((VaatiWrathHeapStruct*)this->myHeap)->type1 = NULL;
 
         entity = ((VaatiWrathHeapStruct*)this->myHeap)->type2;
-        entity->updatePriority = 3;
+        entity->updatePriority = PRIO_NO_BLOCK;
         sub_080AE068(entity);
         LoadFixedGFX(entity, 0x1f5);
         sub_0801D2B4(entity, 0x16b);

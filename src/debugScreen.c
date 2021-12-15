@@ -17,12 +17,12 @@ void sub_0805FA04(void) {
     DispReset(1);
     MemClear(&gBG0Buffer, sizeof(gBG0Buffer));
     MemClear(&gBG3Buffer, sizeof(gBG3Buffer));
-    gScreen.lcd.displayControl = 0x940;
+    gScreen.lcd.displayControl = DISPCNT_BG0_ON | DISPCNT_BG3_ON | DISPCNT_OBJ_1D_MAP;
     gScreen.bg0.xOffset = 0;
     gScreen.bg0.yOffset = 0;
     gScreen.bg3.xOffset = 0;
     gScreen.bg3.yOffset = 0;
-    gScreen.bg3.control = 0x1e0f;
+    gScreen.bg3.control = BGCNT_SCREENBASE(30) | BGCNT_PRIORITY(3) | BGCNT_CHARBASE(3);
     gScreen.bg3.updated = 1;
     MessageInitialize();
     MemClear((void*)&gUnk_02032EC0, sizeof(UI));
@@ -39,35 +39,35 @@ void sub_0805FA98(void) {
     int iVar1;
 
     switch (gInput.newKeys) {
-        case 0x40:
+        case DPAD_UP:
             gMenu.focusCoords[1] -= 1;
             break;
-        case 0x80:
+        case DPAD_DOWN:
             gMenu.focusCoords[1] += 1;
             break;
-        case 0x200:
+        case L_BUTTON:
             gMenu.focusCoords[0] ^= 1;
             if (gMenu.focusCoords[0] == 0) {
-                gScreen.bg0.control = 0x1f0c;
-                gScreen.bg3.control = 0x1e0f;
+                gScreen.bg0.control = BGCNT_SCREENBASE(31) | BGCNT_CHARBASE(3);
+                gScreen.bg3.control = BGCNT_SCREENBASE(30) | BGCNT_CHARBASE(3) | BGCNT_PRIORITY(3);
             } else {
-                gScreen.bg0.control = 0x1f0f;
-                gScreen.bg3.control = 0x1e0c;
+                gScreen.bg0.control = BGCNT_SCREENBASE(31) | BGCNT_CHARBASE(3) | BGCNT_PRIORITY(3);
+                gScreen.bg3.control = BGCNT_SCREENBASE(30) | BGCNT_CHARBASE(3);
             }
             break;
-        case 0x100:
+        case R_BUTTON:
             gSaveHeader->gameLanguage = gMenu.unk16;
             MessageFromTarget(gMenu.unk14 * 0x100 + gMenu.unk15);
             break;
-        case 0x2:
+        case B_BUTTON:
             MessageInitialize();
             break;
         default:
             switch (gInput.unk4) {
-                case 0x20:
+                case DPAD_LEFT:
                     iVar1 = -1;
                     break;
-                case 0x10:
+                case DPAD_RIGHT:
                     iVar1 = 1;
                     break;
                 default:

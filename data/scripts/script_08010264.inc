@@ -246,7 +246,7 @@ script_08010570:
 	MessageNoOverlap 0x2b07
 	WaitUntilTextboxCloses
 	CallWithArg sub_0807F800, 0x00000000
-	WaitPlayerAction8 
+	WaitPlayerGetItem 
 	WaitUntilTextboxCloses
 	MessageNoOverlap 0x2b0c
 	Jump script_080105E0
@@ -366,14 +366,14 @@ script_080106E0:
 	MessageNoOverlap 0x3c04
 	Jump script_08010726
 script_0801070C:
-	WaitPlayerAction8
+	WaitPlayerGetItem
 	ModHealth 0x0008
 	Call sub_08062EDC
 	JumpIf script_08010724
 	MessageNoOverlap 0x3c06
 	Jump script_08010726
 script_08010724:
-	WaitPlayerAction8
+	WaitPlayerGetItem
 script_08010726:
 	WaitUntilTextboxCloses
 	_0807E878
@@ -489,7 +489,7 @@ script_08010860:
 	JumpIfNot script_080108B2
 	Call GoronMerchant_TryToBuyKinstone
 	JumpIfNot script_080108B2
-	WaitPlayerAction8
+	WaitPlayerGetItem
 	WaitUntilTextboxCloses
 	_0807EB8C
 	CheckGlobalFlag 0x0042

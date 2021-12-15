@@ -11,7 +11,7 @@ typedef enum {
     BUTTON,
     OBJECT_4,
     POT,
-    OBJECT_6,
+    EZLO_CAP,
     PUSHED_BLOCK,
     LOCKED_DOOR,
     OBJECT_9,
@@ -207,7 +207,7 @@ extern void ItemForSale(Entity*);
 extern void Button(Entity*);
 extern void Object4(Entity*);
 extern void Pot(Entity*);
-extern void Object6(Entity*);
+extern void EzloCap(Entity*);
 extern void BlockPushed(Entity*);
 extern void LockedDoor(Entity*);
 extern void Object9(Entity*);

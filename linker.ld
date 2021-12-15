@@ -407,8 +407,8 @@ SECTIONS {
         asm/wizzrobeWind.o(.text);
         asm/wizzrobeFire.o(.text);
         asm/wizzrobeIce.o(.text);
-        src/code_080300AC.o(.text); /* ??? */
-        asm/code_080300AC.o(.text); /* ??? */
+        src/code_080300AC.o(.text);
+        asm/code_080300AC.o(.text);
         asm/armos.o(.text);
         asm/eyegore.o(.text);
         src/enemy/rope.o(.text);
@@ -641,7 +641,7 @@ SECTIONS {
         src/npc/gregal.o(.text);
         src/npc/mayorHagen.o(.text);
         src/npc/bigGoron.o(.text);
-        src/npc/ezloCap.o(.text);
+        src/npc/ezlo.o(.text);
         src/npc/npc4E.o(.text);
         src/npc/npc4F.o(.text);
         src/npc/clothesRack.o(.text);
@@ -707,7 +707,7 @@ SECTIONS {
         src/object/button.o(.text);
         asm/object4.o(.text);
         src/object/pot.o(.text);
-        asm/object6.o(.text);
+        asm/ezloCap.o(.text);
         asm/blockPushed.o(.text);
         src/object/lockedDoor.o(.text);
         asm/object9.o(.text);
@@ -971,9 +971,9 @@ SECTIONS {
         asm/libagbsyscall.o(.text);
         src/eeprom.o(.text);
         *libc.a:memcpy.o(.text);
-
         /* handwritten assembly in arm mode */
         asm/intr.o(.text);
+
         /* data */
         data/data_080B2A70.o(.rodata);
         src/interrupts.o(.rodata);
@@ -1369,7 +1369,7 @@ SECTIONS {
         data/const/npc/mayorHagen.o(.rodata);
         data/animations/npc/mayorHagen.o(.rodata);
         data/const/npc/bigGoron.o(.rodata);
-        src/npc/ezloCap.o(.rodata);
+        src/npc/ezlo.o(.rodata);
         src/npc/npc4E.o(.rodata);
         src/npc/npc4F.o(.rodata);
         data/animations/npc/npc4F.o(.rodata);
@@ -1409,7 +1409,6 @@ SECTIONS {
         data/map/room_headers.o(.rodata);
         src/flags.o(.rodata);
         src/save.o(.rodata);
-        data/data_0811E454.o(.rodata);
         src/script.o(.rodata);
         data/data_0811E750.o(.rodata);
         data/const/object/itemOnGround.o(.rodata);
@@ -1421,8 +1420,8 @@ SECTIONS {
         data/animations/object/object4.o(.rodata);
         data/const/object/pot.o(.rodata);
         data/animations/object/pot.o(.rodata);
-        data/const/object/object6.o(.rodata);
-        data/animations/object/object6.o(.rodata);
+        data/const/object/ezloCap.o(.rodata);
+        data/animations/object/ezloCap.o(.rodata);
         data/const/object/blockPushed.o(.rodata);
         src/object/lockedDoor.o(.rodata);
         data/const/object/object9.o(.rodata);

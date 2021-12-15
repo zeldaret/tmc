@@ -27,7 +27,7 @@ void sub_0806A1F8(Entity* this) {
     iVar1 = LoadExtraSpriteData(this, paVar2);
     if (iVar1) {
         this->action = 1;
-        SetDefaultPriority(this, 2);
+        SetDefaultPriority(this, PRIO_MESSAGE);
         sub_0807DD50(this);
         InitializeAnimation(this, 0);
     }

@@ -17,7 +17,7 @@ script_08012440:
 	JumpIf script_08012474
 	SetLocalFlag 0x00b3
 	_0807F034 0x0062
-	WaitPlayerAction8
+	WaitPlayerGetItem
 .ifdef USA
 	SetLocalFlag 0x00d0
 .else

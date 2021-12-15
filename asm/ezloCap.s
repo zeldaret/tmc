@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start Object6
-Object6: @ 0x080828E0
+	thumb_func_start EzloCap
+EzloCap: @ 0x080828E0
 	push {lr}
 	adds r2, r0, #0
 	ldrb r1, [r2, #0x10]

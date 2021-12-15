@@ -17,7 +17,7 @@ SCRIPT_START script_0800B41C
 	Wait 0x003c
 	PlaySound SFX_TASK_COMPLETE
 	_0807F088 0x0037
-	WaitPlayerAction8 
+	WaitPlayerGetItem 
 	_0807EB8C 
 	MessageFromTarget 0x200c
 	WaitUntilTextboxCloses

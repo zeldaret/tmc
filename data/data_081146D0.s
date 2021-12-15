@@ -48,6 +48,6 @@ gUnk_08114F78:: @ 08114F78
 gUnk_08114F80:: @ 08114F80
 	.incbin "data_081146D0/gUnk_08114F80.bin"
 
-gUnk_08114F88:: @ 08114F88
-	.incbin "data_081146D0/gUnk_08114F88.bin"
+gPlayerHitbox:: @ 08114F88
+	.incbin "data_081146D0/gPlayerHitbox.bin"
 

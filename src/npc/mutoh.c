@@ -23,7 +23,7 @@ void Mutoh(Entity* this) {
             if (LoadExtraSpriteData(this, &gUnk_08110C00)) {
                 this->action = 1;
                 this->spriteSettings.draw = TRUE;
-                SetDefaultPriority(this, 2);
+                SetDefaultPriority(this, PRIO_MESSAGE);
                 sub_0807DD50(this);
             }
             break;

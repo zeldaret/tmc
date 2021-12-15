@@ -40,7 +40,7 @@ void sub_0809F318(Entity* this) {
     this->spriteOrientation.flipY = 2;
     this->action = 1;
     sub_0801D2B4(this, gUnk_08124704[this->type]);
-    SetDefaultPriority(this, 7);
+    SetDefaultPriority(this, PRIO_HIGHEST);
 }
 
 void sub_0809F374(Entity* this) {

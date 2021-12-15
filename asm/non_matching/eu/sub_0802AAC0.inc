@@ -60,7 +60,7 @@ _0802AAD4:
 	adds r0, r4, #0
 	movs r2, #0x10
 	movs r3, #0x10
-	bl sub_080041A0
+	bl EntityInRectRadius
 	cmp r0, #0
 	beq _0802AB56
 	ldrb r0, [r5, #0xf]

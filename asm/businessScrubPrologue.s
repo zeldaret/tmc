@@ -517,7 +517,7 @@ sub_08045F54: @ 0x08045F54
 	adds r1, r4, #0
 	movs r2, #0x20
 	movs r3, #0x20
-	bl sub_080041A0
+	bl EntityInRectRadius
 	cmp r0, #0
 	bne _08045F90
 	cmp r5, #2
@@ -530,7 +530,7 @@ _08045F82:
 	adds r0, r6, #0
 	adds r1, r4, #0
 	adds r2, r3, #0
-	bl sub_080041A0
+	bl EntityInRectRadius
 	cmp r0, #0
 	bne _08045F94
 _08045F90:

@@ -42,7 +42,7 @@ SCRIPT_START script_08009B78
 	WaitForSomething2 0x00000008
 	Call sub_08053250
 	_0807F034 0x0034
-	WaitPlayerAction8
+	WaitPlayerGetItem
 	_0807E8E4_1
 	DoPostScriptAction 0x0001
 	MessageFromTargetPos 0x100c, 0x0000

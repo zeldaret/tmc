@@ -907,7 +907,7 @@ _08041184:
 	adds r0, r4, #0
 	movs r2, #0x70
 	movs r3, #0x48
-	bl sub_080041A0
+	bl EntityInRectRadius
 	cmp r0, #0
 	beq _080411C8
 _080411B6:

@@ -12,6 +12,7 @@ typedef struct {
     u16 timer;
     u8 fillerA[0x26];
 } ChooseFileState;
+static_assert(sizeof(ChooseFileState) == 0x30);
 
 // TODO: This occupies the same memory region as gMenu
 extern ChooseFileState gChooseFileState;

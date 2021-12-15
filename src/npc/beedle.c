@@ -153,7 +153,7 @@ void sub_080634E4(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_080634EC(Entity* this) {
-    gRoomVars.itemForSaleIndex = gUnk_0810C88C[this->type2];
+    gRoomVars.shopItemType = gUnk_0810C88C[this->type2];
 }
 
 void sub_08063504(Entity* this, ScriptExecutionContext* context) {

@@ -286,7 +286,7 @@ void sub_08058D34() {
     LoadGfxGroup(0x16);
     tmp = gScreen.lcd.displayControl;
     tmp2 = 0;
-    gScreen.lcd.displayControl |= 1;
+    gScreen.lcd.displayControl |= DISPCNT_MODE_1;
     gScreen.bg2.control = 0xBC82;
     gScreen.bg1.control = 0x5E86;
     gScreen.bg1.xOffset = 0;

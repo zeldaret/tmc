@@ -57,7 +57,7 @@ void sub_0806AC3C(Entity* this) {
     if (this->animIndex <= 3) {
         s32 unk;
         Entity* link = &gPlayerEntity;
-        if (sub_080041A0(this, link, 0x18, 0x18)) {
+        if (EntityInRectRadius(this, link, 0x18, 0x18)) {
             unk = GetFacingDirection(this, link) & 0x1e;
         } else {
             unk = this->animationState * 4;

@@ -1,4 +1,4 @@
 SCRIPT_START script_0801609E
-	SetEntityPosition 0x0010, 0x0000
+	OffsetEntityPosition 0x0010, 0x0000
 SCRIPT_END
 	.2byte 0x0000

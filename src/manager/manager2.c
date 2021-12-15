@@ -53,7 +53,7 @@ void sub_080575C8(u32 param) {
     s32 bgOffset;
 
     gUnk_0200B650 = 0;
-    *(u16*)0x4000000 = 0;
+    REG_DISPCNT = 0;
     LoadGfxGroup(param);
     gRoomVars.unk_10[0] = param;
 
@@ -62,7 +62,7 @@ void sub_080575C8(u32 param) {
     gScreen.bg3.yOffset = bgOffset & 0x3f;
     gScreen.bg3.xOffset = 0;
     gScreen.bg3.tilemap = &gMapDataTopSpecial[(bgOffset / 0x40) * 0x200];
-    gScreen.bg3.control = 0x1d49;
+    gScreen.bg3.control = BGCNT_SCREENBASE(29) | BGCNT_PRIORITY(1) | BGCNT_CHARBASE(2) | BGCNT_MOSAIC;
     gScreen.bg3.updated = 1;
 
     bgOffset = (gRoomControls.roomScrollY - gRoomControls.roomOriginY);
@@ -70,16 +70,17 @@ void sub_080575C8(u32 param) {
     gScreen.bg1.yOffset = bgOffset & 0x3f;
     gScreen.bg1.xOffset = 0;
     gScreen.bg1.tilemap = &gMapDataTopSpecial[0x2000 + (bgOffset / 0x40) * 0x200];
-    gScreen.bg1.control = 0x1e49;
+    gScreen.bg1.control = BGCNT_SCREENBASE(30) | BGCNT_PRIORITY(1) | BGCNT_CHARBASE(2) | BGCNT_MOSAIC;
     gScreen.bg1.updated = 1;
-    gScreen.controls.layerFXControl = 0x3c48;
-    gScreen.controls.alphaBlend = 0x609;
-    gScreen.lcd.displayControl |= 0xa00;
+    gScreen.controls.layerFXControl =
+        BLDCNT_TGT1_BG3 | BLDCNT_EFFECT_BLEND | BLDCNT_TGT2_BG2 | BLDCNT_TGT2_BG3 | BLDCNT_TGT2_OBJ | BLDCNT_TGT2_BD;
+    gScreen.controls.alphaBlend = BLDALPHA_BLEND(9, 6);
+    gScreen.lcd.displayControl |= DISPCNT_BG3_ON | DISPCNT_BG1_ON;
 }
 
 void sub_08057688(void) {
-    gScreen.bg3.control = 0x1d48;
-    gScreen.bg1.control = 0x1e48;
+    gScreen.bg3.control = BGCNT_SCREENBASE(29) | BGCNT_CHARBASE(2) | BGCNT_MOSAIC;
+    gScreen.bg1.control = BGCNT_SCREENBASE(30) | BGCNT_CHARBASE(2) | BGCNT_MOSAIC;
 }
 
 void sub_080576A0(Manager2* this) {

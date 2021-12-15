@@ -48,7 +48,7 @@ void sub_0805E140(Manager39* this) {
     this->unk_20 = gRoomControls.roomID;
     this->manager.unk_0e = 0x78;
     this->manager.unk_0f = 0x3c;
-    SetDefaultPriority((Entity*)this, 7);
+    SetDefaultPriority((Entity*)this, PRIO_HIGHEST);
     sub_0805E1F8(gUnk_08108DE8[gArea.locationIndex], CheckIsDungeon());
 }
 
@@ -58,7 +58,7 @@ void sub_0805E18C(Manager39* this) {
     if (this->manager.unk_0b) {
         if (!--this->manager.unk_0f) {
             this->manager.unk_0b = 0;
-            gPlayerState.field_0x8b = 1;
+            gPlayerState.controlMode = 1;
             ResetSystemPriority();
         }
     }

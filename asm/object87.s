@@ -454,7 +454,7 @@ _0809A25C:
 	adds r0, r7, #0
 	movs r2, #2
 	movs r3, #2
-	bl sub_080041A0
+	bl EntityInRectRadius
 	cmp r0, #0
 	bne _0809A2A6
 	b _0809A632

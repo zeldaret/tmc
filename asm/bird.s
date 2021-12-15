@@ -158,7 +158,7 @@ _0809D2D6:
 	adds r1, r6, #0
 	movs r2, #0xe
 	movs r3, #0xe
-	bl sub_080041A0
+	bl EntityInRectRadius
 	cmp r0, #0
 	beq _0809D3A8
 	movs r1, #0x36

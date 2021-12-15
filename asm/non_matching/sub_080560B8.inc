@@ -7,7 +7,7 @@
 	.text
 
 	push {r4, lr}
-	bl sub_08056134
+	bl CheckHeaderValid
 	cmp r0, #0
 	bne _080560F8
 	movs r0, #0x80
@@ -22,7 +22,7 @@
 	ble _080560E4
 	cmp r1, #1
 	bne _080560E4
-	bl sub_08056134
+	bl CheckHeaderValid
 	cmp r0, #0
 	bne _080560F8
 _080560E4:

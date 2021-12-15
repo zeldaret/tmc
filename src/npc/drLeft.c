@@ -17,7 +17,7 @@ void DrLeft(Entity* this) {
     if (this->type == 0) {
         if (this->action == 0) {
             this->action += 1;
-            SetDefaultPriority(this, 2);
+            SetDefaultPriority(this, PRIO_MESSAGE);
             sub_0807DD50(this);
         }
         ExecuteScriptForEntity(this, NULL);

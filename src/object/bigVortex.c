@@ -34,7 +34,7 @@ void sub_08098D1C(Entity* this) {
         this->spriteSettings.draw = TRUE;
         sub_08098E88(this);
     }
-    SetDefaultPriority(this, 6);
+    SetDefaultPriority(this, PRIO_PLAYER_EVENT);
     InitAnimationForceUpdate(this, 0);
 }
 

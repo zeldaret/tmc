@@ -210,7 +210,7 @@ void sub_08028BC4(Entity* this) {
                 if (iVar1 != NULL) {
                     iVar1->spritePriority.b0 = 3;
                     iVar1->z.HALF.HI -= 12;
-                    SetDefaultPriority(iVar1, 2);
+                    SetDefaultPriority(iVar1, PRIO_MESSAGE);
                 }
                 SetFlag(this->field_0x86.HWORD);
                 sub_0802925C(this);
@@ -390,14 +390,14 @@ void sub_08028F0C(Entity* this) {
 
 bool32 sub_08028F98(Entity* this, u32 param_2) {
     Entity* ent = sub_08049DF4(1);
-    if (ent == NULL || sub_080041A0(this, ent, 0x28, 0x28)) {
+    if (ent == NULL || EntityInRectRadius(this, ent, 0x28, 0x28)) {
         return FALSE;
     }
 
     if (param_2 != 2) {
         u32 distance = param_2 ? 0x58 : 0x50;
 
-        if (!sub_080041A0(this, ent, distance, distance)) {
+        if (!EntityInRectRadius(this, ent, distance, distance)) {
             return FALSE;
         }
     }

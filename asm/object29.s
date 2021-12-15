@@ -304,7 +304,7 @@ _0808999E:
 	adds r1, r5, #0
 	movs r2, #0xf
 	movs r3, #0xf
-	bl sub_080041A0
+	bl EntityInRectRadius
 	cmp r0, #0
 	beq _08089A62
 	ldrb r0, [r4, #0xe]
@@ -418,7 +418,7 @@ sub_08089A7C: @ 0x08089A7C
 	adds r1, r5, #0
 	movs r2, #0xf
 	movs r3, #0xf
-	bl sub_080041A0
+	bl EntityInRectRadius
 	cmp r0, #0
 	beq _08089AB8
 	ldr r2, _08089AB4 @ =gPlayerState
@@ -461,7 +461,7 @@ sub_08089AE0: @ 0x08089AE0
 	ldr r1, _08089AF8 @ =gPlayerEntity
 	movs r2, #0xf
 	movs r3, #0xf
-	bl sub_080041A0
+	bl EntityInRectRadius
 	cmp r0, #0
 	beq _08089AF6
 	ldr r1, _08089AFC @ =gPlayerState

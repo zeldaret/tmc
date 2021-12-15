@@ -55,7 +55,7 @@ void sub_0806A3D8(Entity* this) {
 
     this->action = 1;
     this->actionDelay = 0xb4;
-    SetDefaultPriority(this, 2);
+    SetDefaultPriority(this, PRIO_MESSAGE);
     sub_0806A8C8(this);
     uVar1 = StartCutscene(this, &script_08012F0C);
     *(ScriptExecutionContext**)&this->cutsceneBeh = uVar1;
@@ -196,7 +196,7 @@ void sub_0806A830(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
         InitializeAnimation(this, 0x14);
-        SetDefaultPriority(this, 2);
+        SetDefaultPriority(this, PRIO_MESSAGE);
     }
     if ((gActiveScriptInfo.unk_00 & 0x200) != 0) {
         DeleteThisEntity();
@@ -215,7 +215,7 @@ void sub_0806A890(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
         InitializeAnimation(this, 0x15);
-        SetDefaultPriority(this, 2);
+        SetDefaultPriority(this, PRIO_MESSAGE);
     }
     GetNextFrame(this);
     if ((this->frame & 0x80) != 0) {

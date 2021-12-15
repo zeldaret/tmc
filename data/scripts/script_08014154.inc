@@ -2,7 +2,7 @@ SCRIPT_START script_08014154
 	BeginBlock
 	DoPostScriptAction 0x0007
 	_0807E930 0x0006
-	SetEntityPosition 0x0000, 0xfff0
+	OffsetEntityPosition 0x0000, 0xfff0
 	EndBlock
 	WaitForSomething2 0x00000800
 	_0807E930 0x000a

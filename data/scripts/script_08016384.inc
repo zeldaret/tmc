@@ -61,7 +61,7 @@ SCRIPT_START script_08016384
 	Wait 0x001e
 	WaitForSomething 0x00000001
 	WaitForSomething2 0x00000002
-	WaitPlayerAction8
+	WaitPlayerGetItem
 	WaitForPlayerAction0x17
 	WaitFor_1
 	WaitFor_2

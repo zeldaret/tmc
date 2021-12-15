@@ -399,7 +399,7 @@ _0809AA5C:
 	adds r1, r4, #0
 	movs r2, #0x20
 	movs r3, #0x22
-	bl sub_080041A0
+	bl EntityInRectRadius
 	strh r0, [r7]
 	lsls r0, r0, #0x10
 	cmp r0, #0

@@ -61,7 +61,7 @@ void sub_080768F8(ItemBehavior* this, u32 arg1) {
         if ((gPlayerState.flags & PL_MINISH) == 0) {
             this->field_0x5[2] = 0x10;
         } else {
-            gPlayerState.field_0x8 = 0xc14;
+            gPlayerState.animation = 0xc14;
         }
         sub_08077D38(this, arg1);
         sub_08076964(this, arg1);

@@ -60,7 +60,7 @@ script_08014BF2:
 	WaitUntilTextboxCloses
 	SetIntVariable 0x00000064
 	_0807F034 0x003f
-	WaitPlayerAction8
+	WaitPlayerGetItem
 	Jump script_08014C22
 script_08014C1C:
 	MessageNoOverlap 0x2f08
@@ -93,7 +93,7 @@ script_08014C56:
 	MessageNoOverlap 0x2f0d
 	WaitUntilTextboxCloses
 	_0807F034 0x000a
-	WaitPlayerAction8
+	WaitPlayerGetItem
 	Jump script_08014C82
 script_08014C7C:
 	MessageNoOverlap 0x2f09

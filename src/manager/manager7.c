@@ -14,7 +14,7 @@ void sub_08057E30();
 u32 sub_08057E40();
 void sub_08057E7C(u32);
 
-extern u32 sub_08056300(const u16*);
+extern u32 CheckRegionsOnScreen(const u16*);
 
 extern const u8 gGlobalGfxAndPalettes[];
 
@@ -66,7 +66,7 @@ void Manager7_Main(Manager7* this) {
         this->manager.unk_0e = 8;
         this->unk_20 = 0xFF;
 
-        SetDefaultPriority((Entity*)this, 6);
+        SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
         RegisterTransitionManager(this, sub_08057E30, 0);
     }
     if (sub_08057E40(this)) {
@@ -113,7 +113,7 @@ void sub_08057E30(Manager7* this) {
 }
 
 u32 sub_08057E40(Manager7* this) {
-    u32 tmp = sub_08056300(gUnk_08108050);
+    u32 tmp = CheckRegionsOnScreen(gUnk_08108050);
     if (tmp != 0xFF) {
         gRoomVars.unk_10[0] = tmp;
         return 1;
@@ -124,7 +124,7 @@ u32 sub_08057E40(Manager7* this) {
 
 void sub_08057E64() {
     u32 tmp;
-    tmp = sub_08056300(gUnk_08108050);
+    tmp = CheckRegionsOnScreen(gUnk_08108050);
     if (tmp != 0xFF) {
         sub_08057E7C(tmp);
     }

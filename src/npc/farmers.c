@@ -12,7 +12,7 @@ void sub_0806BC58(Entity* this);
 ASM_FUNC("asm/non_matching/farmers/Farmers.inc", void Farmers(Entity* this))
 
 void sub_0806BC58(Entity* this) {
-    SetDefaultPriority(this, 2);
+    SetDefaultPriority(this, PRIO_MESSAGE);
 }
 
 void Farmers_Head(Entity* this) {

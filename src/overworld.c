@@ -637,7 +637,7 @@ static void HandleRoomEnter(void) {
 u32 sub_08052B24(void) {
     s32 tmp = 1;
 
-    if (!(gInput.heldKeys & SELECT_BUTTON) || gPlayerState.field_0x8b || gUnk_02034490[0] || gUnk_0200AF00.filler0[1])
+    if (!(gInput.heldKeys & SELECT_BUTTON) || gPlayerState.controlMode != CONTROL_ENABLED || gUnk_02034490[0] || gUnk_0200AF00.filler0[1])
         return 0;
 
     if ((gPlayerState.flags & 0x118) || (gPlayerState.field_0xa9 > tmp) || gPlayerState.field_0x2c ||

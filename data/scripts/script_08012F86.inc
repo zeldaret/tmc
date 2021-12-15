@@ -39,7 +39,7 @@ script_08013006:
 	EndBlock
 	PlaySound SFX_TASK_COMPLETE
 	_0807F088 0x0038
-	WaitPlayerAction8
+	WaitPlayerGetItem
 	Wait 0x001e
 	_0807E8E4_0
 	Call sub_0806AB9C
@@ -62,7 +62,7 @@ script_08013006:
 	WaitUntilTextboxCloses
 	_0807E5F8 0x00000200
 	_0807F034 0x0015
-	WaitPlayerAction8 
+	WaitPlayerGetItem 
 	_0807EB8C 
 	MessageNoOverlap 0x4406
 	WaitUntilTextboxCloses

@@ -8,12 +8,12 @@
 #include "script.h"
 #include "save.h"
 
-extern u32 GoronMerchant_GetSalePrice(Entity*);
+static u32 GoronMerchant_GetSalePrice(Entity*);
 
 extern void (*const gUnk_08111B88[])(Entity*);
 extern void (*const gUnk_08111B98[])(Entity*);
 
-const u16 GoronMerchant_KinstonePrices[];
+static const u16 sKinstonePrices[];
 
 extern u32 sub_0801E7D0(u32);
 
@@ -78,8 +78,6 @@ void sub_08069654(Entity* this) {
 }
 
 void sub_08069660(Entity* this) {
-    u32 uVar1;
-
     MessageNoOverlap(0x2c1c, this);
     gMessage.field_0x10 = (u16)GoronMerchant_GetSalePrice(this);
 }
@@ -98,16 +96,16 @@ void sub_08069684(void) {
 }
 
 void sub_080696B0(void) {
-    gRoomVars.itemForSaleIndex = 0;
+    gRoomVars.shopItemType = 0;
 }
 
-u32 GoronMerchant_GetSalePrice(Entity* this) {
+static u32 GoronMerchant_GetSalePrice(Entity* this) {
     u32 restockCount;
     u32 temp;
     u32 kinstoneType;
     s32 itemForSale;
 
-    itemForSale = gRoomVars.field_0x7;
+    itemForSale = gRoomVars.shopItemType2;
     if (itemForSale > 0x70) {
         kinstoneType = 1;
     } else {
@@ -129,17 +127,17 @@ u32 GoronMerchant_GetSalePrice(Entity* this) {
     if (CheckGlobalFlag(GORON_KAKERA_LV5)) {
         restockCount = 4;
     }
-    return GoronMerchant_KinstonePrices[restockCount * 3 + kinstoneType];
+    return sKinstonePrices[restockCount * 3 + kinstoneType];
 }
 
 void GoronMerchant_TryToBuyKinstone(Entity* this, ScriptExecutionContext* context) {
     s32 salePrice = GoronMerchant_GetSalePrice(this);
     if (salePrice <= gSave.stats.rupees) {
-        if (sub_0801E7D0(gRoomVars.field_0x7) < 99) {
+        if (sub_0801E7D0(gRoomVars.shopItemType2) < 99) {
             ModRupees(-salePrice);
-            sub_080A7C18(0x5c, gRoomVars.field_0x7, 0);
-            gRoomVars.itemForSaleIndex = 0;
-            gRoomVars.field_0x7 = 0;
+            sub_080A7C18(0x5c, gRoomVars.shopItemType2, 0);
+            gRoomVars.shopItemType = 0;
+            gRoomVars.shopItemType2 = 0;
             context->condition = 1;
         } else {
             MessageNoOverlap(0x2c1f, this);
@@ -149,7 +147,7 @@ void GoronMerchant_TryToBuyKinstone(Entity* this, ScriptExecutionContext* contex
         MessageNoOverlap(0x2c1e, this);
         context->condition = 0;
     }
-    gActiveScriptInfo.flags = gActiveScriptInfo.flags | 1;
+    gActiveScriptInfo.flags |= 1;
 }
 
 void (*const gUnk_08111B88[])(Entity*) = {
@@ -163,7 +161,7 @@ void (*const gUnk_08111B98[])(Entity*) = {
     sub_08069654,
 };
 
-const u16 GoronMerchant_KinstonePrices[] = {
+static const u16 sKinstonePrices[] = {
 #ifdef EU
     200,
     100,

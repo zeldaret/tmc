@@ -24,7 +24,7 @@ SCRIPT_START script_080131AC
 	StartPlayerScript script_08013330
 	WaitForSomething2 0x00000002
 	MoveEntityToPlayer
-	SetEntityPosition 0x0000, 0xfff0
+	OffsetEntityPosition 0x0000, 0xfff0
 	Call sub_0807F844
 	CameraTargetEntity
 	Call sub_080536B8

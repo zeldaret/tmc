@@ -403,7 +403,7 @@ void sub_080244E8(Entity* this) {
                         }
                         break;
                     case 1:
-                        if (sub_080041A0(this, this->child, 6, 6)) {
+                        if (EntityInRectRadius(this, this->child, 6, 6)) {
                             Entity* ent;
 
                             this->field_0x80.HALF.LO += 1;
@@ -424,7 +424,7 @@ void sub_080244E8(Entity* this) {
                         }
                         break;
                     case 2:
-                        if (sub_080041A0(this, this->child, 6, 6)) {
+                        if (EntityInRectRadius(this, this->child, 6, 6)) {
                             Entity* ent;
 
                             this->field_0x80.HALF.LO += 1;

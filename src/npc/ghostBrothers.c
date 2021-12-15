@@ -94,7 +94,7 @@ void sub_08065D18(Entity* this) {
     this->spriteSettings.draw = 1;
     this->spriteRendering.alphaBlend = 1;
     *(u32**)&this->field_0x6c = &gUnk_08110188;
-    SetDefaultPriority(this, 2);
+    SetDefaultPriority(this, PRIO_MESSAGE);
     InitAnimationForceUpdate(this, 2);
     gScreen.controls.layerFXControl = 0x3f40;
     gScreen.controls.alphaBlend = 0x1000;

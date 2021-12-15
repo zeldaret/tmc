@@ -134,7 +134,7 @@ u32 sub_08022B20(Entity* this) {
     if (!sub_08049DF4(2))
         return 0;
 
-    return sub_080041A0(this, &gPlayerEntity, 0x24, 0x24);
+    return EntityInRectRadius(this, &gPlayerEntity, 36, 36);
 }
 
 void sub_08022B44(Entity* this) {
