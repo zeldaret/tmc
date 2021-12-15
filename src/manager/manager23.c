@@ -80,7 +80,7 @@ void sub_0805BD5C(Manager23* this) {
     } else {
         if (GetTileType(this->field_0x20, this->manager.unk_0b) == 0x76) {
             SetFlag(this->field_0x3e);
-            sub_0805308C(this->manager.unk_0e);
+            ChangeLightLevel(this->manager.unk_0e);
             DeleteThisEntity();
         }
     }
@@ -106,7 +106,7 @@ void sub_0805BDB4(Manager23* this) {
                 return;
             }
             SetFlag(this->field_0x3e);
-            sub_0805308C(this->manager.unk_0e);
+            ChangeLightLevel(this->manager.unk_0e);
             this->manager.action = 2;
             this->field_0x22 = this->field_0x36 * 0x3c;
             return;
@@ -117,7 +117,7 @@ void sub_0805BDB4(Manager23* this) {
                 CreateDustAt(*(s16*)&this->field_0x38, *(s16*)&this->field_0x3a, this->manager.unk_0b);
                 ClearFlag(this->field_0x3e);
                 sub_0807BA8C(this->field_0x20, this->manager.unk_0b);
-                sub_0805308C(-this->manager.unk_0e);
+                ChangeLightLevel(-this->manager.unk_0e);
                 this->manager.action = 1;
             } else {
                 if (CheckFlags(this->field_0x3c) == 0) {
@@ -139,7 +139,7 @@ void sub_0805BE70(Manager23* this, u32 param_2) {
 void sub_0805BE94(Manager23* this) {
     SetTileType(0x76, ((this->field_0x38 << 0x10) >> 0x14 & 0x3fU) | ((this->field_0x3a << 0x10) >> 0x14 & 0x3fU) << 6,
                 this->manager.unk_0b);
-    sub_0805308C(this->manager.unk_0e);
+    ChangeLightLevel(this->manager.unk_0e);
     DeleteThisEntity();
 }
 

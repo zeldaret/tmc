@@ -285,7 +285,7 @@ void sub_0806A9E8(Entity* this) {
     Entity* npc = CreateNPC(0x37, 4, 0);
     if (npc != NULL) {
         CopyPosition(this, npc);
-        sub_0806FAD8(this, npc);
+        ResolveEntityBelow(this, npc);
     }
 }
 

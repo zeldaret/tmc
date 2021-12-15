@@ -3204,7 +3204,7 @@ _0807A06A:
 	beq _0807A084
 	strb r1, [r0]
 	ldr r0, _0807A090 @ =gPlayerEntity
-	bl sub_0801D2B4
+	bl ChangeObjPalette
 _0807A084:
 	pop {pc}
 	.align 2, 0

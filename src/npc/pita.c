@@ -10,7 +10,7 @@ extern Hitbox gUnk_0810C428;
 extern u8 gUnk_0810C430[4];
 extern u8 gUnk_0810C435[];
 extern u8 gUnk_0810C43D[];
-extern u32 sub_080028F4(const u8*);
+extern u32 GetRandomByWeight(const u8*);
 
 void Pita(Entity* this) {
     if (this->action == 0) {
@@ -58,7 +58,7 @@ bool32 sub_08062EDC(Entity* this, ScriptExecutionContext* context) {
         context->condition = FALSE;
         return FALSE;
     } else {
-        tmp = sub_080028F4(gUnk_0810C435);
+        tmp = GetRandomByWeight(gUnk_0810C435);
         tmp2 = gUnk_0810C43D[tmp];
         sub_080A7C18(0x5c, tmp2, 1);
         MessageNoOverlap(0x3c05, this);

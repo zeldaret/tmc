@@ -101,7 +101,7 @@ void sub_08068AA4(Entity* this) {
         if (this->type2 == 0) {
             this->type2 += 1;
         }
-        sub_0801D2B4(this, gUnk_081115DC[this->type2]);
+        ChangeObjPalette(this, gUnk_081115DC[this->type2]);
     }
 }
 

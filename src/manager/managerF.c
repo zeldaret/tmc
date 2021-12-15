@@ -253,18 +253,18 @@ void sub_080591CC(ManagerF* this) {
         this->manager.action = 1;
         this->manager.unk_0b = CheckFlags(this->unk_3e);
         if (this->manager.unk_0b) {
-            gRoomVars.field_0xc = this->unk_3a;
+            gRoomVars.lightLevel = this->unk_3a;
         } else {
-            gRoomVars.field_0xc = this->unk_38;
+            gRoomVars.lightLevel = this->unk_38;
         }
     } else {
         u32 tmp = CheckFlags(this->unk_3e);
         if (this->manager.unk_0b != tmp) {
             this->manager.unk_0b = tmp;
             if (tmp) {
-                gRoomVars.field_0xc = this->unk_3a;
+                gRoomVars.lightLevel = this->unk_3a;
             } else {
-                gRoomVars.field_0xc = this->unk_38;
+                gRoomVars.lightLevel = this->unk_38;
             }
         }
     }
@@ -272,16 +272,16 @@ void sub_080591CC(ManagerF* this) {
 
 void sub_08059220(ManagerF* this) {
     const ManagerF_HelperStruct* data;
-    gRoomVars.field_0xc = 0;
+    gRoomVars.lightLevel = 0;
 
     for (data = gUnk_08108354; data->x != 0xFFFF; data++) {
         if (CheckPlayerInRegion(data->x, data->y, data->width, data->height)) {
-            gRoomVars.field_0xc = data->unk_08;
+            gRoomVars.lightLevel = data->unk_08;
         }
     }
     if (!this->manager.action) {
         this->manager.action = 1;
-        gArea.unk_0a = gRoomVars.field_0xc;
+        gArea.unk_0a = gRoomVars.lightLevel;
     }
 }
 

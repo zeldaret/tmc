@@ -19,8 +19,6 @@ extern void (*const gUnk_08108DD8[])(Manager*);
 
 void sub_0805E094(void);
 
-extern Entity* CreateSpeechBubbleExclamationMark(Entity*, u32, u32);
-
 void Manager37_Main(Manager* this) {
     gUnk_08108DBC[this->unk_0a](this);
 }

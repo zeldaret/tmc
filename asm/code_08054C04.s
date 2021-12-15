@@ -446,7 +446,7 @@ sub_08054EFC: @ 0x08054EFC
 	subs r0, #0x10
 	strh r0, [r1, #0x32]
 	adds r0, r4, #0
-	bl sub_0806FAD8
+	bl ResolveEntityBelow
 _08054F54:
 	movs r0, #0xfd
 	bl SoundReq

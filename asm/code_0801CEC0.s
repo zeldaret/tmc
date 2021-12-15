@@ -433,8 +433,8 @@ _0801D2AE:
 	.align 2, 0
 _0801D2B0: .4byte gPaletteList
 
-	thumb_func_start sub_0801D2B4
-sub_0801D2B4: @ 0x0801D2B4
+	thumb_func_start ChangeObjPalette
+ChangeObjPalette: @ 0x0801D2B4
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r5, r1, #0

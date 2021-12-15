@@ -291,7 +291,7 @@ _0809C5E0: @ jump table
 _0809C600:
 	ldr r0, [r5, #0x50]
 	adds r1, r5, #0
-	bl sub_0806FAD8
+	bl ResolveEntityBelow
 	ldr r0, [r5, #0x50]
 	ldrb r0, [r0, #0xd]
 	adds r6, r5, #0
@@ -382,7 +382,7 @@ _0809C6B4: .4byte gUnk_08123E1C
 _0809C6B8:
 	ldr r0, [r5, #0x50]
 	adds r1, r5, #0
-	bl sub_0806FAD8
+	bl ResolveEntityBelow
 	ldr r0, [r5, #0x50]
 	ldrb r0, [r0, #0xd]
 	adds r6, r5, #0
@@ -741,10 +741,10 @@ _0809C948:
 	bl LoadFixedGFX
 	adds r0, r5, #0
 	movs r1, #0xef
-	bl sub_0801D2B4
+	bl ChangeObjPalette
 	ldr r0, [r5, #0x50]
 	movs r1, #0xef
-	bl sub_0801D2B4
+	bl ChangeObjPalette
 	adds r0, r5, #0
 	movs r1, #0xef
 	bl sub_0809CC30
@@ -1112,7 +1112,7 @@ sub_0809CC30: @ 0x0809CC30
 	adds r4, #0x84
 	ldr r0, [r4]
 	ldr r0, [r0, #8]
-	bl sub_0801D2B4
+	bl ChangeObjPalette
 	movs r5, #0
 _0809CC42:
 	ldr r0, [r4]
@@ -1121,7 +1121,7 @@ _0809CC42:
 	adds r0, r0, r1
 	ldr r0, [r0]
 	adds r1, r6, #0
-	bl sub_0801D2B4
+	bl ChangeObjPalette
 	adds r5, #1
 	cmp r5, #3
 	bls _0809CC42

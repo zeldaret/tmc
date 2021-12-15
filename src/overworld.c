@@ -789,7 +789,7 @@ void sub_08052EA0(void) {
     gRoomVars.unk_10[1] = gRoomVars.unk_10[0];
     gRoomVars.unk_10[2] = gRoomVars.unk_10[0];
     gRoomVars.unk_10[3] = gRoomVars.unk_10[0];
-    gRoomVars.field_0xc = 256;
+    gRoomVars.lightLevel = 256;
     gArea.locationIndex = gAreaMetadata[gRoomControls.areaID].location;
     sub_08049D30();
     InitScriptData();
@@ -875,13 +875,13 @@ void sub_08052FF4(u32 area, u32 room) {
     gArea.currentRoomInfo.bg_anim = gUnk_080B755C[area];
 }
 
-void sub_0805308C(s32 a1) {
-    a1 += gRoomVars.field_0xc;
-    if (a1 < 0)
-        a1 = 0;
-    if (a1 > 256)
-        a1 = 256;
-    gRoomVars.field_0xc = a1;
+void ChangeLightLevel(s32 lightLevel) {
+    lightLevel += gRoomVars.lightLevel;
+    if (lightLevel < 0)
+        lightLevel = 0;
+    if (lightLevel > 256)
+        lightLevel = 256;
+    gRoomVars.lightLevel = lightLevel;
 }
 
 void sub_080530B0(void) {

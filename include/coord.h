@@ -13,7 +13,7 @@ void PositionRelative(Entity*, Entity*, s32, s32);
 void CopyPositionAndSpriteOffset(Entity* param_1, Entity* param_2);
 void sub_0806FA90(Entity*, Entity*, s32, s32);
 void ResolveEntityOnTop(Entity*, Entity*);
-void sub_0806FAD8(Entity*, Entity*);
+void ResolveEntityBelow(Entity*, Entity*);
 
 extern const s16 gSineTable[64];
 extern const s16 gCosineTable[256];

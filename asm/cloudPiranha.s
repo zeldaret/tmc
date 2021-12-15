@@ -383,7 +383,7 @@ sub_080386B8: @ 0x080386B8
 	bl EnqueueSFX
 	adds r0, r4, #0
 	movs r1, #0x70
-	bl sub_0801D2B4
+	bl ChangeObjPalette
 	ldrb r1, [r4, #0x15]
 	lsrs r1, r1, #2
 	adds r0, r4, #0
@@ -470,7 +470,7 @@ sub_08038754: @ 0x08038754
 	bl EnqueueSFX
 	adds r0, r4, #0
 	movs r1, #0x71
-	bl sub_0801D2B4
+	bl ChangeObjPalette
 	ldrb r2, [r4, #0x15]
 	movs r0, #0xf
 	ands r0, r2

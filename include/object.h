@@ -140,7 +140,7 @@ typedef enum {
     SMALL_ICE_BLOCK,
     BIG_ICE_BLOCK,
     OBJECT_86,
-    OBJECT_87,
+    OCTOROK_BOSS_OBJECT,
     HUGE_BOOK,
     OBJECT_89,
     OBJECT_8A,
@@ -336,7 +336,7 @@ extern void BigPushableLever(Entity*);
 extern void SmallIceBlock(Entity*);
 extern void BigIceBlock(Entity*);
 extern void Object86(Entity*);
-extern void Object87(Entity*);
+extern void OctorokBossObject(Entity*);
 extern void MacroBook(Entity*);
 extern void Object89(Entity*);
 extern void Object8A(Entity*);

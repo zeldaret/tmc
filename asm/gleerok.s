@@ -3749,7 +3749,7 @@ sub_0802EB9C: @ 0x0802EB9C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r0, _0802EBBC @ =gUnk_080CD850
-	bl sub_080028F4
+	bl GetRandomByWeight
 	ldr r1, _0802EBC0 @ =gUnk_080CD854
 	adds r0, r0, r1
 	ldrb r1, [r0]
@@ -3782,7 +3782,7 @@ sub_0802EBC4: @ 0x0802EBC4
 	lsls r0, r0, #2
 	adds r0, r0, r1
 	ldr r0, [r0]
-	bl sub_080028F4
+	bl GetRandomByWeight
 	ldr r2, _0802EC1C @ =gUnk_080CD878
 	ldrb r1, [r5]
 	lsls r1, r1, #2

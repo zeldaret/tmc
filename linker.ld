@@ -424,7 +424,7 @@ SECTIONS {
         src/enemy/mazaalHead.o(.text);
         src/enemy/mazaalMacro.o(.text);
         src/enemy/mazaalHand.o(.text);
-        asm/octorokBoss.o(.text);
+        src/enemy/octorokBoss.o(.text);
         asm/flyingPot.o(.text);
         src/enemy/gibdo.o(.text);
         asm/octorokGolden.o(.text);
@@ -840,7 +840,7 @@ SECTIONS {
         asm/smallIceBlock.o(.text);
         asm/bigIceBlock.o(.text);
         src/object/object86.o(.text);
-        asm/object87.o(.text);
+        src/object/octorokBossObject.o(.text);
         asm/macroBook.o(.text);
         asm/object89.o(.text);
         asm/object8A.o(.text);
@@ -1103,7 +1103,7 @@ SECTIONS {
         data/animations/enemy/mazaalMacro.o(.rodata);
         src/enemy/mazaalHand.o(.rodata);
         data/animations/enemy/mazaalHand.o(.rodata);
-        data/const/enemy/octorokBoss.o(.rodata);
+        src/enemy/octorokBoss.o(.rodata);
         data/animations/enemy/octorokBoss.o(.rodata);
         data/const/enemy/flyingPot.o(.rodata);
         data/const/enemy/gibdo.o(.rodata);
@@ -1586,7 +1586,7 @@ SECTIONS {
         data/animations/object/bigIceBlock.o(.rodata);
         data/const/object/object86.o(.rodata);
         data/animations/object/object86.o(.rodata);
-        data/const/object/object87.o(.rodata);
+        src/object/octorokBossObject.o(.rodata);
         data/const/object/macroBook.o(.rodata);
         data/animations/object/macroBook.o(.rodata);
         data/const/object/object89.o(.rodata);

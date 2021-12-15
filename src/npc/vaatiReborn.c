@@ -136,7 +136,7 @@ void VaatiRebornAction1(Entity* this) {
                 case 1:
                     if (this->frame & 0x80) {
                         this->subAction = 2;
-                        sub_0801D2B4(this, 0x13f);
+                        ChangeObjPalette(this, 0x13f);
                         InitAnimationForceUpdate(this, this->subAction - 1);
                     }
                     break;

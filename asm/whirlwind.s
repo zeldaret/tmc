@@ -84,7 +84,7 @@ sub_08092CDC: @ 0x08092CDC
 	bne _08092D50
 	ldr r1, _08092D4C @ =0x00000161
 	adds r0, r4, #0
-	bl sub_0801D2B4
+	bl ChangeObjPalette
 	adds r0, r4, #0
 	movs r1, #1
 	bl InitializeAnimation

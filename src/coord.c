@@ -60,7 +60,7 @@ void ResolveEntityOnTop(Entity* param_1, Entity* param_2) {
     param_2->spritePriority.b0 = gUnk_08114F78[param_1->spritePriority.b0];
 }
 
-void sub_0806FAD8(Entity* param_1, Entity* param_2) {
+void ResolveEntityBelow(Entity* param_1, Entity* param_2) {
     param_2->spritePriority.b0 = gUnk_08114F80[param_1->spritePriority.b0];
 }
 

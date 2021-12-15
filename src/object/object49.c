@@ -184,7 +184,7 @@ void sub_0808F3DC(Entity* this) {
         // TODO: This block of code might supposed to be a switch statement.
         if (this->type != 8) {
             if (this->type == 7) {
-                sub_0806FAD8(this->child, this);
+                ResolveEntityBelow(this->child, this);
                 return;
             }
         } else {
@@ -239,7 +239,7 @@ void sub_0808F498(Entity* this) {
         this->x.HALF.HI += (s32)Random() % (this->parent->hitbox->width * 2);
         this->y.HALF.HI -= this->parent->hitbox->height;
         this->y.HALF.HI += (s32)Random() % (this->parent->hitbox->height * 2);
-        sub_0801D2B4(this, var0);
+        ChangeObjPalette(this, var0);
         InitializeAnimation(this, 4);
     }
 }

@@ -3,7 +3,7 @@
 #include "functions.h"
 #include "npc.h"
 
-void sub_0801D2B4(Entity*, u32);
+void ChangeObjPalette(Entity*, u32);
 
 extern void (*gUnk_08113D8C[])(Entity*);
 
@@ -24,7 +24,7 @@ void sub_0806CAF4(Entity* this) {
         if (npc != NULL) {
             npc->parent = this;
             CopyPosition(this, npc);
-            sub_0806FAD8(this, npc);
+            ResolveEntityBelow(this, npc);
         }
         npc = CreateNPC(0x4a, 2, 0);
         if (npc != NULL) {
@@ -118,31 +118,31 @@ void sub_0806CCD0(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_0806CCF8(Entity* this) {
-    sub_0801D2B4(this, 0x10a);
+    ChangeObjPalette(this, 0x10a);
 }
 
 void sub_0806CD04(Entity* this) {
-    sub_0801D2B4(this, 0x10b);
+    ChangeObjPalette(this, 0x10b);
 }
 
 void sub_0806CD14(Entity* this) {
-    sub_0801D2B4(this, 0x10c);
+    ChangeObjPalette(this, 0x10c);
 }
 
 void sub_0806CD20(Entity* this) {
-    sub_0801D2B4(this, 0x10d);
+    ChangeObjPalette(this, 0x10d);
 }
 
 void sub_0806CD30(Entity* this) {
-    sub_0801D2B4(this, 0x10e);
+    ChangeObjPalette(this, 0x10e);
 }
 
 void sub_0806CD3C(Entity* this) {
-    sub_0801D2B4(this, 0x10f);
+    ChangeObjPalette(this, 0x10f);
 }
 
 void sub_0806CD4C(Entity* this) {
-    sub_0801D2B4(this, 0x110);
+    ChangeObjPalette(this, 0x110);
 }
 
 void sub_0806CD58(Entity* this) {

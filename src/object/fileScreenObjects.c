@@ -262,7 +262,7 @@ void sub_0808EB74(Entity* this) {
         this->x.WORD = entity->x.WORD;
         this->y.WORD = entity->y.WORD;
         this->spriteRendering.b3 = entity->spriteRendering.b3;
-        sub_0806FAD8(entity, this);
+        ResolveEntityBelow(entity, this);
     } else {
         this->x.HALF.HI = 0xF000;
         this->y.HALF.HI = 0xF000;
@@ -312,7 +312,7 @@ void sub_0808EBB8(Entity* this) {
         default:
             entity = sub_0808EC80(var0);
             if (entity) {
-                sub_0806FAD8(entity, this);
+                ResolveEntityBelow(entity, this);
                 this->spriteRendering.b3 = entity->spriteRendering.b3;
                 x = entity->x.HALF.HI;
                 y = entity->y.HALF.HI;
