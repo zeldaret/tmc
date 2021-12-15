@@ -223,7 +223,7 @@ sub_0809D91C: @ 0x0809D91C
 	cmp r1, #0
 	beq _0809D934
 	adds r0, r4, #0
-	bl sub_0806FAD8
+	bl ResolveEntityBelow
 _0809D934:
 	movs r0, #0x72
 	bl SoundReq

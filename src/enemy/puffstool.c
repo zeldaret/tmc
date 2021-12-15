@@ -68,7 +68,7 @@ void sub_08025020(Entity* this) {
                 this->cutsceneBeh.HWORD = 0x294;
                 this->hitType = 0x83;
                 this->field_0x82.HALF.LO = 0;
-                sub_0801D2B4(this, 0x7c);
+                ChangeObjPalette(this, 0x7c);
             }
             this->action = 7;
             this->actionDelay = 0x3c;
@@ -133,7 +133,7 @@ void sub_080251AC(Entity* this) {
         this->cutsceneBeh.HWORD = 0x294;
         this->hitType = 0x83;
         this->field_0x82.HALF.LO = 0;
-        sub_0801D2B4(this, 0x7c);
+        ChangeObjPalette(this, 0x7c);
     }
     GetNextFrame(this);
 }
@@ -360,7 +360,7 @@ void sub_0802563C(Entity* this) {
     GetNextFrame(this);
 
     if (--this->cutsceneBeh.HWORD == 0) {
-        sub_0801D2B4(this, 0x28);
+        ChangeObjPalette(this, 0x28);
         this->hitType = 0x82;
         this->field_0x82.HALF.LO = 240;
         sub_080256B4(this);
@@ -369,9 +369,9 @@ void sub_0802563C(Entity* this) {
         u32 tmp3 = gUnk_080CBFF8[this->cutsceneBeh.HWORD >> 4];
         if ((this->cutsceneBeh.HWORD & tmp3) == 0) {
             if (this->cutsceneBeh.HWORD & (tmp3 + 1)) {
-                sub_0801D2B4(this, 124);
+                ChangeObjPalette(this, 124);
             } else {
-                sub_0801D2B4(this, 40);
+                ChangeObjPalette(this, 40);
             }
         }
     }

@@ -90,7 +90,7 @@ _0808CB70:
 	movs r5, #0
 	str r5, [r4, #0x34]
 	adds r1, r4, #0
-	bl sub_0806FAD8
+	bl ResolveEntityBelow
 	ldrb r0, [r4, #0xd]
 	cmp r0, #0
 	beq _0808CB98
@@ -212,7 +212,7 @@ sub_0808CBE8: @ 0x0808CBE8
 	bl sub_0807A094
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl sub_0801D2B4
+	bl ChangeObjPalette
 	movs r0, #0x3c
 	movs r1, #1
 	movs r2, #0

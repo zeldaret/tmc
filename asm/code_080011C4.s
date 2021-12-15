@@ -1443,8 +1443,8 @@ _080028EE:
 _080028F2:
 	bx lr
 
-	thumb_func_start sub_080028F4
-sub_080028F4: @ 0x080028F4
+	thumb_func_start GetRandomByWeight
+GetRandomByWeight: @ 0x080028F4
 	push {r4, lr}
 	adds r4, r0, #0
 	bl Random

@@ -119,7 +119,7 @@ _0808921C:
 	bl sub_08016A30
 	adds r0, r4, #0
 	movs r1, #0x15
-	bl sub_0801D2B4
+	bl ChangeObjPalette
 	b _08089246
 _0808923A:
 	ldrb r1, [r4, #0xb]
@@ -225,7 +225,7 @@ _0808991A:
 	bl sub_08016A30
 	adds r0, r4, #0
 	movs r1, #0x15
-	bl sub_0801D2B4
+	bl ChangeObjPalette
 	b _08089940
 _08089934:
 	ldrb r1, [r4, #0xb]

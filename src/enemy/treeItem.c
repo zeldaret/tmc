@@ -6,7 +6,7 @@
 
 static bool32 ShouldSpawnTreeItem(Entity*);
 
-extern u32 sub_080028F4(const u8*);
+extern u32 GetRandomByWeight(const u8*);
 extern void sub_08049CF4(Entity*);
 
 const u8 gTreeItemDropTables[][16] = {
@@ -33,7 +33,7 @@ void TreeItem(Entity* this) {
 
     if (this->action == 0) {
         this->action++;
-        this->field_0x68.HALF.LO = sub_080028F4(gTreeItemDropTables[this->type]);
+        this->field_0x68.HALF.LO = GetRandomByWeight(gTreeItemDropTables[this->type]);
         if (this->field_0x68.HALF.LO > FAIRY_INDEX) {
             DeleteThisEntity();
         }

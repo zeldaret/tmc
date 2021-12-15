@@ -81,7 +81,7 @@ sub_08087A10: @ 0x08087A10
 	beq _08087A26
 	adds r0, r4, #0
 	movs r1, #3
-	bl sub_0801D2B4
+	bl ChangeObjPalette
 _08087A26:
 	ldrb r0, [r4, #0xa]
 	cmp r0, #2
@@ -92,7 +92,7 @@ _08087A26:
 	adds r1, r1, r0
 	ldrb r1, [r1]
 	adds r0, r4, #0
-	bl sub_0801D2B4
+	bl ChangeObjPalette
 _08087A3C:
 	ldrb r0, [r4, #0xa]
 	cmp r0, #4

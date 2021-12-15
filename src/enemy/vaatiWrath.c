@@ -457,7 +457,7 @@ void VaatiWrathType0ActionA(Entity* this) {
             this->direction = 0;
             this->speed = 0x100;
             this->zVelocity = 0x12000;
-            sub_0801D2B4(this, 0x16b);
+            ChangeObjPalette(this, 0x16b);
             InitAnimationForceUpdate(this, 5);
             type1 = ((VaatiWrathHeapStruct*)this->myHeap)->type1;
             type1->subAction = 1;
@@ -501,7 +501,7 @@ void VaatiWrathType0ActionB(Entity* this) {
             if (this->actionDelay == 0) {
                 this->action = 0xc;
                 this->subAction = 0;
-                sub_0801D2B4(this, 0x140);
+                ChangeObjPalette(this, 0x140);
                 InitAnimationForceUpdate(this, 8);
                 InitializeAnimation(((VaatiWrathHeapStruct*)this->myHeap)->type1, 0x10);
                 InitializeAnimation(((VaatiWrathHeapStruct*)this->myHeap)->type2, 0x18);
@@ -579,7 +579,7 @@ void sub_08041BE8(Entity* this) {
         entity->updatePriority = 3;
         sub_080AE068(entity);
         LoadFixedGFX(entity, 0x1f5);
-        sub_0801D2B4(entity, 0x16b);
+        ChangeObjPalette(entity, 0x16b);
         InitializeAnimation(entity, 0x1a);
 
         entity = ((VaatiWrathHeapStruct*)this->myHeap)->type3;
@@ -664,9 +664,9 @@ void sub_08041D84(Entity* this) {
     } else {
         if (this->field_0xf < 0xf0) {
             if ((0xb7 < this->field_0xf) && ((this->field_0xf & 7) == 0)) {
-                sub_0801D2B4(((VaatiWrathHeapStruct*)this->myHeap)->type2,
-                             gUnk_080D0E80[(this->field_0xf - 0xb8) >> 3]);
-                sub_0801D2B4(this->child, gUnk_080D0E80[(this->field_0xf - 0xb8) >> 3]);
+                ChangeObjPalette(((VaatiWrathHeapStruct*)this->myHeap)->type2,
+                                 gUnk_080D0E80[(this->field_0xf - 0xb8) >> 3]);
+                ChangeObjPalette(this->child, gUnk_080D0E80[(this->field_0xf - 0xb8) >> 3]);
             }
             if (this->field_0xf == 0xe6) {
                 DoFade(7, 4);
@@ -674,7 +674,7 @@ void sub_08041D84(Entity* this) {
         } else {
             this->subAction = 4;
             this->spriteSettings.draw = 1;
-            sub_0801D2B4(this, 0x173);
+            ChangeObjPalette(this, 0x173);
             InitAnimationForceUpdate(this, 0xb);
         }
         this->field_0xf++;

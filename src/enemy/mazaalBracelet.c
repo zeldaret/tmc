@@ -1390,7 +1390,7 @@ void sub_0803BA8C(Entity* this, u32 unk) {
         }
     }
     if (sVar2 != 0) {
-        sub_0801D2B4(this, sVar2);
+        ChangeObjPalette(this, sVar2);
         (*(Entity**)&this->parent->field_0x78)->palette.b.b0 = this->palette.raw << 0x1c >> 0x1c;
         (*(Entity**)&this->parent->field_0x78)->palette.b.b4 = this->palette.b.b0;
         this->parent->child->palette.b.b0 = this->palette.raw << 0x1c >> 0x1c;

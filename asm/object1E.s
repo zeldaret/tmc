@@ -92,7 +92,7 @@ _08087594:
 	lsls r1, r1, #1
 _080875A2:
 	adds r0, r4, #0
-	bl sub_0801D2B4
+	bl ChangeObjPalette
 	ldrb r0, [r4, #0x14]
 	cmp r0, #1
 	beq _080875B8

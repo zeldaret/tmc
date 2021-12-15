@@ -202,7 +202,7 @@ void sub_080AB034(Entity* this) {
     } else {
         tmp = 0x139;
     }
-    sub_0801D2B4(this, tmp);
+    ChangeObjPalette(this, tmp);
 }
 
 void (*const V1DarkMagicProjectile_Functions[])(Entity*) = {

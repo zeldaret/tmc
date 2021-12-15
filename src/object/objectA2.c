@@ -39,7 +39,7 @@ void sub_0809F318(Entity* this) {
     this->z.HALF.HI = 0xFFB0;
     this->spriteOrientation.flipY = 2;
     this->action = 1;
-    sub_0801D2B4(this, gUnk_08124704[this->type]);
+    ChangeObjPalette(this, gUnk_08124704[this->type]);
     SetDefaultPriority(this, 7);
 }
 

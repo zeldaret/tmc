@@ -4,9 +4,6 @@
 #include "textbox.h"
 #include "functions.h"
 
-extern void CreateSpeechBubbleQuestionMark(Entity*, u32, u32);
-extern void CreateSpeechBubbleExclamationMark(Entity*, u32, u32);
-
 extern void (*const gUnk_0810FDC8[])(Entity*);
 
 extern void (*const gUnk_0810FDA4[])(Entity*);

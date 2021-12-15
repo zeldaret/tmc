@@ -64,7 +64,7 @@ _08097E1C:
 	adds r1, r0, #0
 	adds r1, #0xb
 	adds r0, r4, #0
-	bl sub_0801D2B4
+	bl ChangeObjPalette
 	b _08097EA2
 _08097E46:
 	ldrb r0, [r4, #0xb]
@@ -83,7 +83,7 @@ _08097E5C:
 	bne _08097E9C
 	adds r0, r4, #0
 	movs r1, #0xd
-	bl sub_0801D2B4
+	bl ChangeObjPalette
 _08097E68:
 	ldrb r0, [r4, #0x1b]
 	movs r1, #0x3f
@@ -110,7 +110,7 @@ _08097E76:
 	strb r0, [r2]
 	adds r0, r4, #0
 	movs r1, #0xb
-	bl sub_0801D2B4
+	bl ChangeObjPalette
 _08097E9C:
 	adds r0, r4, #0
 	bl sub_08097F34

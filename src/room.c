@@ -2848,7 +2848,7 @@ u32 sub_unk3_TempleOfDroplets_BigOcto() {
 extern EntityData gUnk_additional_a_TempleOfDroplets_BigOcto;
 
 void sub_StateChange_TempleOfDroplets_BigOcto(void) {
-    sub_0805308C(0x100);
+    ChangeLightLevel(0x100);
     if (CheckGlobalFlag(LV4_CLEAR)) {
         LoadRoomEntityList(&gUnk_additional_a_TempleOfDroplets_BigOcto);
     } else {
@@ -6105,7 +6105,7 @@ void sub_StateChange_Caves_LonLonRanchSecret(void) {
     if (CheckLocalFlag(0x11)) {
         SetRoomFlag(0);
         SetRoomFlag(1);
-        sub_0805308C(0x100);
+        ChangeLightLevel(0x100);
         if (!CheckLocalFlag(0x12)) {
             SetTileType(0x73, 0xcb, 1);
         }

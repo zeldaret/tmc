@@ -10,8 +10,6 @@ void sub_08063A80(Entity* this);
 
 extern void (*gUnk_0810CDF8[])(Entity*);
 
-extern void CreateSpeechBubbleExclamationMark(Entity*, u32, u32);
-
 extern Dialog gUnk_0810CE04[];
 
 void Pina(Entity* this) {
