@@ -94,7 +94,7 @@ void sub_080917DC(Entity* this) {
 }
 
 void sub_080918A4(Entity* this) {
-    if (sub_080041A0(this, &gPlayerEntity, 2, 2) != 0) {
+    if (EntityInRectRadius(this, &gPlayerEntity, 2, 2) != 0) {
         gPlayerEntity.x.HALF.HI = this->x.HALF.HI;
         gPlayerEntity.y.HALF.HI = this->y.HALF.HI;
         if (gPlayerEntity.z.HALF.HI > -0x10) {

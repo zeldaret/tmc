@@ -79,7 +79,7 @@ void sub_0806B41C(Entity* this) {
                 if (this->field_0x68.HALF.LO == 33)
                     tmp += 3;
                 sub_0801DFB4(this, tmp[0], tmp[1], tmp[2]);
-                gPlayerState.field_0x8b = 3;
+                gPlayerState.controlMode = CONTROL_DISABLED;
             } else {
                 sub_0807DD94(this, NULL);
             }

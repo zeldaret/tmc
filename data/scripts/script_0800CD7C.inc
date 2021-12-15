@@ -43,7 +43,7 @@ script_0800CDEC:
 	JumpIfNot script_0800CF40
 	PlaySound SFX_TASK_COMPLETE
 	_0807F088 0x0023
-	WaitPlayerAction8
+	WaitPlayerGetItem
 	Jump script_0800CE32
 script_0800CE14:
 	_0807E48C 0x0022
@@ -54,7 +54,7 @@ script_0800CE14:
 	JumpIfNot script_0800CF40
 	PlaySound SFX_TASK_COMPLETE
 	_0807F088 0x0022
-	WaitPlayerAction8
+	WaitPlayerGetItem
 script_0800CE32:
 	_0807EB8C
 	SetGlobalFlag 0x0054
@@ -83,7 +83,7 @@ script_0800CE6E:
 	JumpIfNot script_0800CF40
 	PlaySound SFX_TASK_COMPLETE
 	_0807F088 0x0027
-	WaitPlayerAction8
+	WaitPlayerGetItem
 	_0807EB8C
 	SetGlobalFlag 0x0054
 	Call sub_08060340
@@ -111,7 +111,7 @@ script_0800CECE:
 	JumpIfNot script_0800CF40
 	PlaySound SFX_TASK_COMPLETE
 	_0807F088 0x0024
-	WaitPlayerAction8
+	WaitPlayerGetItem
 	_0807EB8C
 	SetGlobalFlag 0x0054
 	Call sub_08060340

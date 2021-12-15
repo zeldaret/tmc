@@ -42,7 +42,7 @@ void ManagerB_Init(ManagerB* this) {
         if (!this->unk_3c) {
             ManagerB_LoadFight(&this->manager);
         }
-        SetDefaultPriority((Entity*)this, 3);
+        SetDefaultPriority((Entity*)this, PRIO_NO_BLOCK);
     } else {
         DeleteThisEntity();
     }
@@ -148,7 +148,7 @@ void ManagerBHelper_Main(Manager* this) {
     Entity* current;
     if (this->action == 0) {
         this->action = 1;
-        SetDefaultPriority((Entity*)this, 3);
+        SetDefaultPriority((Entity*)this, PRIO_NO_BLOCK);
     }
     // go through and check all monitored enemies.
     anyRemaining = 0;

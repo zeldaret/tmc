@@ -38,7 +38,7 @@ script_08014E64:
 	_0807E48C 0x0020
 	JumpIfNot script_08014EB8
 	CallWithArg sub_0807F800, 0x00000022
-	WaitPlayerAction8 
+	WaitPlayerGetItem 
 	MessageNoOverlap 0x0a04
 	Jump script_08014EBC
 script_08014EB0:
@@ -117,7 +117,7 @@ script_08014F4A:
 	JumpIfNot script_08014FA2
 	ModRupees 0xff9c
 	_0807F034 0x0022
-	WaitPlayerAction8 
+	WaitPlayerGetItem 
 	MessageNoOverlap 0x3b11
 	Jump script_08014FA6
 script_08014F9A:

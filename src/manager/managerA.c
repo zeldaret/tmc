@@ -136,7 +136,7 @@ void sub_08058514(ManagerA* this) {
         case 3:
             if (gPlayerEntity.action != 1 && gPlayerEntity.action != 9)
                 return;
-            gPlayerState.field_0x8b = 1;
+            gPlayerState.controlMode = 1;
             ResetPlayerEventPriority();
             SetFlag(this->unk_3c);
             DeleteThisEntity();

@@ -9,7 +9,7 @@ void Wheaton(Entity* this) {
     if (this->action == 0) {
         this->action++;
 
-        SetDefaultPriority(this, 2);
+        SetDefaultPriority(this, PRIO_MESSAGE);
 
         ResolveEntityOnTop(this, this);
 

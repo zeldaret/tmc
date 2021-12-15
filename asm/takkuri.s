@@ -251,7 +251,7 @@ _0803BD2C:
 	adds r0, r4, #0
 	movs r2, #0x88
 	movs r3, #0x50
-	bl sub_080041A0
+	bl EntityInRectRadius
 	cmp r0, #0
 	beq _0803BD80
 	ldr r0, [r5]

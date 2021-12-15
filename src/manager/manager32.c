@@ -73,7 +73,7 @@ void sub_0805D860(Manager32* this) {
         case 0:
             this->manager.unk_0d = 1;
             this->field_0x20 = 0x80;
-            gScreen.lcd.displayControl |= 0x800;
+            gScreen.lcd.displayControl |= DISPCNT_BG3_ON;
             break;
         case 1:
             if (--this->field_0x20 == 0x10) {
@@ -95,7 +95,7 @@ void sub_0805D860(Manager32* this) {
         default:
             if (--this->manager.unk_0e == 0) {
                 sub_0801E104();
-                gScreen.lcd.displayControl &= 0xf7ff;
+                gScreen.lcd.displayControl &= ~DISPCNT_BG3_ON;
                 DeleteThisEntity();
             }
     }
@@ -107,7 +107,7 @@ void sub_0805D900(Manager32* this) {
             this->manager.unk_0d = 1;
             this->manager.unk_0e = 0x2d;
             this->field_0x20 = 1;
-            gScreen.lcd.displayControl |= 0x800;
+            gScreen.lcd.displayControl |= DISPCNT_BG3_ON;
             break;
         case 1:
             if (--this->manager.unk_0e == 0) {
@@ -126,7 +126,7 @@ void sub_0805D900(Manager32* this) {
             this->field_0x20 += 4;
             if (this->field_0x20 > 0x80) {
                 sub_0801E104();
-                gScreen.lcd.displayControl &= 0xf7ff;
+                gScreen.lcd.displayControl &= ~DISPCNT_BG3_ON;
                 DeleteThisEntity();
             }
             break;
@@ -164,7 +164,7 @@ void sub_0805DA08(u32 x, u32 y, u32 param_3) {
         affineDstData->pa = ((gSineTable[(param_3 + i + y) & 0xff] * x) >> 8) + gScreen.bg3.xOffset;
         affineDstData = (struct BgAffineDstData*)&affineDstData->pb;
     }
-    sub_0805622C(&gUnk_02017AA0[gUnk_03003DE4[0] * 0xa0], 0x400001c, 0xa2600001);
+    sub_0805622C(&gUnk_02017AA0[gUnk_03003DE4[0] * 0xa0], REG_ADDR_BG3HOFS, 0xa2600001);
 }
 
 void sub_0805DA90(Manager32* this, u32 param_2) {
@@ -177,7 +177,7 @@ void sub_0805DA90(Manager32* this, u32 param_2) {
         AppendEntityToList((Entity*)manager, 8);
     }
     if (gArea.onEnter != NULL) {
-        gScreen.lcd.displayControl &= 0xf7ff;
+        gScreen.lcd.displayControl &= ~DISPCNT_BG3_ON;
         RoomExitCallback();
         //! @bug: this always variable points to ROM, not a Manager*
         DeleteManager((Manager*)gArea.onEnter);

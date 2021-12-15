@@ -19,7 +19,7 @@ void MayorHagen(Entity* this) {
             this->action = 1;
             this->field_0x68.HALF.HI = 0;
             this->field_0x68.HALF.LO = sub_0801E99C(this);
-            SetDefaultPriority(this, 2);
+            SetDefaultPriority(this, PRIO_MESSAGE);
             sub_0807DD50(this);
             break;
         case 1:

@@ -31,7 +31,7 @@ static void sub_0808E6A0(Entity* this) {
     this->spriteSettings.draw = 0;
     this->hitbox = &gUnk_08121C58;
     this->collisionLayer = 3;
-    this->updatePriority = 3;
+    this->updatePriority = PRIO_NO_BLOCK;
 }
 
 static void sub_0808E6E4(Entity* this) {

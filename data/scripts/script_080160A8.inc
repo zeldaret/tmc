@@ -33,7 +33,7 @@ script_080160E0:
 	WaitUntilTextboxCloses
 	Jump script_08016132
 script_0801610C:
-	WaitPlayerAction8
+	WaitPlayerGetItem
 .ifndef EU
 	_0807EB8C 
 	MessageFromTarget 0x2d0d
@@ -79,7 +79,7 @@ script_08016172:
 	MessageFromTarget 0x2d0b
 	Jump script_0801618A
 script_08016184:
-	WaitPlayerAction8 
+	WaitPlayerGetItem 
 	MessageFromTarget 0x2d06
 script_0801618A:
 	_0807E878
@@ -109,7 +109,7 @@ script_080161C6:
 	Jump script_080161E2
 script_080161D8:
 .ifndef EU
-	WaitPlayerAction8 
+	WaitPlayerGetItem 
 	WaitUntilTextboxCloses
 	_0807EB8C 
 	MessageNoOverlap 0x2d06
@@ -205,7 +205,7 @@ script_0801631C:
 	Call sub_08068E30
 	WaitUntilTextboxCloses
 	Call sub_08068C6C
-	WaitPlayerAction8
+	WaitPlayerGetItem
 	WaitUntilTextboxCloses
 	Jump script_08016346
 script_08016332:

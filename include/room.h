@@ -60,8 +60,8 @@ typedef struct {
     u8 field_0x3;
     u8 field_0x4;
     u8 filler1[1];
-    u8 itemForSaleIndex;
-    u8 field_0x7;
+    u8 shopItemType;
+    u8 shopItemType2;
     u8 field_0x8;
     u8 field_0x9;
     u8 unk2;

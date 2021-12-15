@@ -89,7 +89,7 @@ sub_080A0158: @ 0x080A0158
 	adds r0, r4, #0
 	movs r2, #0x10
 	movs r3, #0x10
-	bl sub_080041A0
+	bl EntityInRectRadius
 	cmp r0, #0
 	beq _080A018A
 	movs r0, #0x37

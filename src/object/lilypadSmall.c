@@ -34,7 +34,7 @@ void LilypadSmall(Entity* this) {
 u32 sub_08097ADC(Entity* this) {
     if ((gPlayerState.flags & PL_MINISH) == 0) {
         return 0;
-    } else if (sub_080041A0(this, &gPlayerEntity, 8, 8) == 0) {
+    } else if (EntityInRectRadius(this, &gPlayerEntity, 8, 8) == 0) {
         return 0;
     } else if (sub_08079F8C() == 0) {
         return 0;

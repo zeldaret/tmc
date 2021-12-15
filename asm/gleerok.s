@@ -1266,7 +1266,7 @@ _0802D924:
 	adds r0, r4, #0
 	movs r2, #8
 	movs r3, #8
-	bl sub_080041A0
+	bl EntityInRectRadius
 	cmp r0, #0
 	bne _0802D936
 	b _0802DB7E

@@ -42,7 +42,7 @@ void sub_0805D280(Manager2E* this) {
     if (this->manager.unk_0e == 0) {
         this->manager.unk_0e = 0x1e;
     }
-    SetDefaultPriority((Entity*)this, 6);
+    SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
 }
 
 void sub_0805D2C0(Manager2E* this) {
@@ -80,7 +80,7 @@ void sub_0805D344(Manager2E* this) {
         this->manager.unk_0e = 0x1e;
     }
     this->manager.unk_0f = this->manager.unk_0e;
-    SetDefaultPriority((Entity*)this, 6);
+    SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
 }
 
 void sub_0805D36C(Manager2E* this) {

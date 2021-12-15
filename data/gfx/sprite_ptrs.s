@@ -60,8 +60,8 @@ gSpritePtrs:: @ 080029B4
 	.4byte gSprite_Link
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object6
-	.4byte gSpriteFrames_Object6
+	.4byte gSpriteAnimations_EzloCap
+	.4byte gSpriteFrames_EzloCap
 	.4byte gSprite_Link
 	.4byte 00000000
 

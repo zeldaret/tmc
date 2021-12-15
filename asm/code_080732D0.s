@@ -1799,7 +1799,7 @@ sub_08074060: @ 0x08074060
 	bl sub_08003FC4
 	cmp r0, #0
 	bne _080740D0
-	ldr r0, _080740C4 @ =gUnk_08114F88
+	ldr r0, _080740C4 @ =gPlayerHitbox
 	str r0, [r4, #0x48]
 	movs r3, #0x10
 	movs r0, #0x10
@@ -1840,7 +1840,7 @@ sub_08074060: @ 0x08074060
 	bl sub_0805EC60
 	b _080740D6
 	.align 2, 0
-_080740C4: .4byte gUnk_08114F88
+_080740C4: .4byte gPlayerHitbox
 _080740C8: .4byte gPlayerState
 _080740CC: .4byte 0x0000080C
 _080740D0:

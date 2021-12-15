@@ -44,7 +44,7 @@ void sub_0806CF30(Entity* this) {
         this->action = 1;
         this->subAction = 1;
         this->field_0x68.HWORD = this->x.HALF.HI;
-        SetDefaultPriority(this, 2);
+        SetDefaultPriority(this, PRIO_MESSAGE);
         sub_0806D0B0(this);
         sub_0807DD64(this);
     } else {
@@ -133,7 +133,7 @@ void sub_0806D1D0(Entity* this) {
         this->spriteSettings.draw = 3;
         this->frameIndex = 0;
         this->actionDelay = 0x1e;
-        SetDefaultPriority(this, 2);
+        SetDefaultPriority(this, PRIO_MESSAGE);
     }
 
     switch (this->subAction) {
@@ -174,7 +174,7 @@ void sub_0806D274(Entity* this) {
         this->spritePriority.b0 = 7;
         this->frameIndex = 2;
         this->actionDelay = 8;
-        SetDefaultPriority(this, 2);
+        SetDefaultPriority(this, PRIO_MESSAGE);
         npc = CreateNPC(0x4c, 3, 0);
         if (npc != NULL) {
             npc->child = this;
@@ -221,7 +221,7 @@ void sub_0806D348(Entity* this) {
         this->spritePriority.b0 = 6;
         this->spriteSettings.draw = 0;
         this->frameIndex = 5;
-        SetDefaultPriority(this, 2);
+        SetDefaultPriority(this, PRIO_MESSAGE);
     }
     if (this->child->frameIndex == 4) {
         this->spriteSettings.draw = 3;
@@ -239,7 +239,7 @@ void sub_0806D3C0(Entity* this) {
         }
         this->action = 1;
         this->hitbox = &gHitbox_3;
-        SetDefaultPriority(this, 2);
+        SetDefaultPriority(this, PRIO_MESSAGE);
         sub_0807DD64(this);
     } else {
         this->x.HALF.HI = this->parent->x.HALF.HI;
@@ -262,7 +262,7 @@ void sub_0806D41C(Entity* this) {
         sub_0806D4C0(this, 1);
         sub_0806D4C0(this, 2);
         sub_0806D4C0(this, 3);
-        SetDefaultPriority(this, 2);
+        SetDefaultPriority(this, PRIO_MESSAGE);
     } else {
         ExecuteScriptForEntity(this, NULL);
         HandleEntity0x82Actions(this);
@@ -286,7 +286,7 @@ void sub_0806D4C0(Entity* this, u32 param) {
         npc->parent = this;
         CopyPosition(this, npc);
         ResolveEntityOnTop(this, npc);
-        SetDefaultPriority(npc, 2);
+        SetDefaultPriority(npc, PRIO_MESSAGE);
     }
 }
 

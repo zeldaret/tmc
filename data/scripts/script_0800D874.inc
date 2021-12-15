@@ -42,7 +42,7 @@ script_0800D8F4:
 	JumpIfNot script_0800D8F4
 	Call sub_0807DF28
 	_0807E864
-	WaitPlayerAction8
+	WaitPlayerGetItem
 	_0807EB28 0x1325
 	WaitUntilTextboxCloses
 	PlaySound SFX_113

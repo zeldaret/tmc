@@ -9,10 +9,10 @@ const u8 gUnk_08114134[];
 const u8 gUnk_08114144[];
 
 // Ezlo as a cap in the Minish Woods, is destroyed as soon as link wears ezlo
-void EzloCap(Entity* this) {
+void Ezlo(Entity* this) {
     if (this->action == 0) {
         this->action += 1;
-        SetDefaultPriority(this, 2);
+        SetDefaultPriority(this, PRIO_MESSAGE);
         sub_0807DD50(this);
     }
     ExecuteScriptForEntity(this, NULL);

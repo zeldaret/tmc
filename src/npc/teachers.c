@@ -18,7 +18,7 @@ void Teachers(Entity* this) {
                 this->spriteSettings.draw = TRUE;
                 this->animationState = this->actionDelay;
                 this->field_0x68.HALF.HI = 0;
-                SetDefaultPriority(this, 2);
+                SetDefaultPriority(this, PRIO_MESSAGE);
                 sub_0807DD50(this);
             }
             break;

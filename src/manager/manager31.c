@@ -28,7 +28,7 @@ void Manager31_Main(Manager31* this) {
     s32 count;
 
     if (this->manager.action == 0) {
-        this->manager.action += 1;
+        this->manager.action++;
         if (CheckGlobalFlag(GORON_KAKERA_L) != 0 && CheckGlobalFlag(GORON_KAKERA_M) != 0 &&
             CheckGlobalFlag(GORON_KAKERA_R) != 0) {
             if (CheckGlobalFlag(GORON_KAKERA_LV2) == 0) {
@@ -36,28 +36,22 @@ void Manager31_Main(Manager31* this) {
                     SetGlobalFlag(GORON_KAKERA_LV2);
                     goto clearGlobalFlags;
                 }
-            } else {
-                if (CheckGlobalFlag(GORON_KAKERA_LV3) == 0) {
-                    if (CheckGlobalFlag(LV2_CLEAR) != 0) {
-                        SetGlobalFlag(GORON_KAKERA_LV3);
-                        goto clearGlobalFlags;
-                    }
-                } else {
-                    if (CheckGlobalFlag(GORON_KAKERA_LV4) == 0) {
-                        if (CheckGlobalFlag(LV3_CLEAR) != 0) {
-                            SetGlobalFlag(GORON_KAKERA_LV4);
-                            goto clearGlobalFlags;
-                        }
-                    } else {
-                        if (CheckGlobalFlag(GORON_KAKERA_LV5) == 0 && CheckGlobalFlag(LV4_CLEAR) != 0) {
-                            SetGlobalFlag(GORON_KAKERA_LV5);
-                        clearGlobalFlags:
-                            ClearGlobalFlag(GORON_KAKERA_L);
-                            ClearGlobalFlag(GORON_KAKERA_M);
-                            ClearGlobalFlag(GORON_KAKERA_R);
-                        }
-                    }
+            } else if (CheckGlobalFlag(GORON_KAKERA_LV3) == 0) {
+                if (CheckGlobalFlag(LV2_CLEAR) != 0) {
+                    SetGlobalFlag(GORON_KAKERA_LV3);
+                    goto clearGlobalFlags;
                 }
+            } else if (CheckGlobalFlag(GORON_KAKERA_LV4) == 0) {
+                if (CheckGlobalFlag(LV3_CLEAR) != 0) {
+                    SetGlobalFlag(GORON_KAKERA_LV4);
+                    goto clearGlobalFlags;
+                }
+            } else if (CheckGlobalFlag(GORON_KAKERA_LV5) == 0 && CheckGlobalFlag(LV4_CLEAR) != 0) {
+                SetGlobalFlag(GORON_KAKERA_LV5);
+            clearGlobalFlags:
+                ClearGlobalFlag(GORON_KAKERA_L);
+                ClearGlobalFlag(GORON_KAKERA_M);
+                ClearGlobalFlag(GORON_KAKERA_R);
             }
         }
         this->itemActive[2] = 0;

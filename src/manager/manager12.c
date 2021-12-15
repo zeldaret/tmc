@@ -15,7 +15,7 @@ void sub_08059A58(Manager12*);
 
 void sub_08059A2C(Manager12*);
 
-u32 sub_08056300(u16* arr);
+u32 CheckRegionsOnScreen(u16* arr);
 extern u16 gUnk_081083DA;
 extern u16 gUnk_081083F2;
 extern u16 gUnk_08108398;
@@ -48,7 +48,7 @@ void Manager12_Main(Manager12* this) {
         this->field_0x21 = 0xff;
         this->field_0x20 = 0xff;
         RegisterTransitionManager(this, sub_08059A2C, NULL);
-        SetDefaultPriority((Entity*)this, 6);
+        SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
     }
     sub_08059A58(this);
 }
@@ -128,7 +128,7 @@ void sub_08059B18(void) {
 bool32 sub_08059C8C(Manager12* this, u32 param_2, u8* param_3, u16* param_4) {
     bool32 bVar2;
 
-    *param_3 = sub_08056300(param_4);
+    *param_3 = CheckRegionsOnScreen(param_4);
     if ((*param_3 != 0xff) && (gRoomVars.unk_10[param_2] != *param_3)) {
         gRoomVars.unk_10[param_2] = *param_3;
         return TRUE;
@@ -154,24 +154,24 @@ void TryLoadPrologueHyruleTown(void) {
     u32 tmp;
 
     if (gRoomControls.areaID != AREA_FESTIVAL_TOWN) {
-        tmp = sub_08056300(&gUnk_08108398);
+        tmp = CheckRegionsOnScreen(&gUnk_08108398);
         if (tmp != 0xff) {
             sub_08059CC0(0, tmp);
         }
-        tmp = sub_08056300(&gUnk_081083AE);
+        tmp = CheckRegionsOnScreen(&gUnk_081083AE);
         if ((tmp != 0xff) && (sub_08059CC0(1, tmp), tmp == 2)) {
             sub_08059B18();
         }
-        tmp = sub_08056300(&gUnk_081083C4);
+        tmp = CheckRegionsOnScreen(&gUnk_081083C4);
         if (tmp != 0xff) {
             sub_08059CC0(2, tmp);
         }
     } else {
-        tmp = sub_08056300(&gUnk_081083DA);
+        tmp = CheckRegionsOnScreen(&gUnk_081083DA);
         if (tmp != 0xff) {
             sub_08059CC0(0, tmp);
         }
-        tmp = sub_08056300(&gUnk_081083F2);
+        tmp = CheckRegionsOnScreen(&gUnk_081083F2);
         if (tmp != 0xff) {
             sub_08059CC0(2, tmp);
         }

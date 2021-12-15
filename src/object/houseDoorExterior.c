@@ -27,7 +27,7 @@ static bool32 sub_080867CC(u32);
 void sub_0808681C(Entity*);
 static u8 sub_08086954(Entity*);
 
-extern u32 sub_080562CC(u32, u32, u32, u32);
+extern u32 CheckRegionOnScreen(u32, u32, u32, u32);
 extern void sub_08078AC0(u32, u32, u32);
 
 extern void (*const gUnk_081206B4[])(Entity*);
@@ -46,14 +46,14 @@ void sub_080866D8(Entity* this) {
         this->action = 1;
         *((u32*)(&this->field_0x68)) = 0;
         this->field_0x6c.HALF.LO = this->actionDelay;
-        SetDefaultPriority(this, 6);
+        SetDefaultPriority(this, PRIO_PLAYER_EVENT);
     }
 
     prop = GetCurrentRoomProperty(this->field_0x6c.HALF.LO);
     for (i = 0; prop->unk0 != 0xFFFF && i < 32; prop++, i++) {
         int mask = 1 << i;
         if ((*((u32*)(&this->field_0x68)) & mask) == 0 && sub_080867CC(prop->unk5) &&
-            sub_080562CC(prop->unk0, prop->unk2, 32, 32)) {
+            CheckRegionOnScreen(prop->unk0, prop->unk2, 32, 32)) {
             entity = CreateObject(HOUSE_DOOR_EXT, prop->unk7, prop->unk6);
             if (entity) {
                 entity->field_0x6c.HALF.LO = i;
@@ -85,7 +85,7 @@ static bool32 sub_080867CC(u32 arg0) {
 }
 
 void sub_080867E4(Entity* this) {
-    if (!sub_080562CC(this->field_0x68.HWORD, this->field_0x6a.HWORD, 32, 32)) {
+    if (!CheckRegionOnScreen(this->field_0x68.HWORD, this->field_0x6a.HWORD, 32, 32)) {
         *((u32*)(&this->parent->field_0x68)) = *((u32*)(&this->parent->field_0x68)) & ~(1 << this->field_0x6c.HALF.LO);
         DeleteThisEntity();
     }

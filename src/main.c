@@ -18,7 +18,7 @@ extern void HandleGameOverScreen(void);
 extern void HandleCreditsScreen(void);
 extern void HandleDebugTextScreen(void);
 
-static void sub_08055F70(void);
+static void InitOverlays(void);
 static bool32 SoftResetKeysPressed(void);
 
 void (*const sScreenHandlers[])(void) = {
@@ -40,7 +40,7 @@ static void sub_080560B8(void);
 void AgbMain(void) {
     int var0;
 
-    sub_08055F70();
+    InitOverlays();
     InitSound();
     InitDMA();
     InitSaveData();
@@ -101,7 +101,7 @@ extern u8 gUnk_080B2CD8_2[];
 extern u8 gUnk_080B2CD8_3[];
 extern u8 gUnk_02000030[];
 
-static void sub_08055F70(void) {
+static void InitOverlays(void) {
     u32 size;
 
     DisableInterruptsAndDMA();
@@ -185,15 +185,15 @@ NONMATCH("asm/non_matching/sub_080560B8.inc", static void sub_080560B8(void)) {
     u32 temp;
     u32 b;
 
-    if (!sub_08056134()) {
-        switch ((s32)Read_02000000((void*)0x2000000)) {
+    if (!CheckHeaderValid()) {
+        switch ((s32)Read_02000000(gSaveHeader)) {
             case 1:
-                if (sub_08056134())
+                if (CheckHeaderValid())
                     break;
             case 0:
             case -1:
             default:
-                MemCopy(&sDefaultSettings, (void*)0x2000000, 16);
+                MemCopy(&sDefaultSettings, gSaveHeader, sizeof *gSaveHeader);
                 Write_02000000(gSaveHeader);
                 break;
         }
@@ -206,14 +206,13 @@ NONMATCH("asm/non_matching/sub_080560B8.inc", static void sub_080560B8(void)) {
         b = TRUE;
     }
     if (b) {
-        MemClear((u8*)&gUnk_02000010.signature, 0x20);
+        MemClear(&gUnk_02000010, sizeof gUnk_02000010);
         gUnk_02000010.signature = SIGNATURE;
     }
 }
 END_NONMATCH
 
-u32 sub_08056134(void) {
-
+u32 CheckHeaderValid(void) {
     if ((gSaveHeader->signature != SIGNATURE) || (gSaveHeader->saveFileId >= NUM_SAVE_SLOTS) ||
         (gSaveHeader->messageSpeed >= MAX_MSG_SPEED) || (gSaveHeader->brightnessPref >= MAX_BRIGHTNESS)
 #ifdef EU
@@ -259,26 +258,26 @@ void sub_08056250() {
 }
 
 void sub_08056260(void) {
-    u32 temp;
-    Main* temp2;
+    u32 restore;
+    Main* m;
 
-    REG_DISPCNT = 0x80;
-    REG_KEYCNT = 0x8304;
+    REG_DISPCNT = DISPCNT_FORCED_BLANK;
+    REG_KEYCNT = KEY_AND_INTR | L_BUTTON | R_BUTTON | SELECT_BUTTON;
     REG_IME = 0;
-    temp = REG_IE;
-    REG_IE = 0x3000;
+    restore = REG_IE;
+    REG_IE = INTR_FLAG_KEYPAD | INTR_FLAG_GAMEPAK;
     REG_IME = 1;
     Stop();
     REG_IME = 0;
-    REG_IE = temp;
+    REG_IE = restore;
     REG_IME = 1;
-    temp2 = &gMain;
-    asm("ldrb    r1, [r0, #0x1]");
-    temp2->field_0x1 = 0;
+    m = &gMain;
+    *(vu8*)&m->field_0x1; // force a read
+    m->field_0x1 = 0;
 }
 
 // Convert AABB to screen coordinates and check if it's within the viewport
-u32 sub_080562CC(u32 x0, u32 y0, u32 x1, u32 y1) {
+u32 CheckRegionOnScreen(u32 x0, u32 y0, u32 x1, u32 y1) {
     u32 result;
     u32 x = ((gRoomControls.roomScrollX - gRoomControls.roomOriginX) - x0 + DISPLAY_WIDTH);
     u32 y = ((gRoomControls.roomScrollY - gRoomControls.roomOriginY) - y0 + DISPLAY_HEIGHT);
@@ -292,10 +291,10 @@ u32 sub_080562CC(u32 x0, u32 y0, u32 x1, u32 y1) {
 }
 
 // Iterate over array of AABBs and check if any fit on screen
-u16 sub_08056300(u16* arr) {
+u16 CheckRegionsOnScreen(u16* arr) {
     u16* i;
     for (i = arr; *i != 0xff; i += 5) {
-        if (sub_080562CC(i[1], i[2], i[3], i[4]) != 0)
+        if (CheckRegionOnScreen(i[1], i[2], i[3], i[4]))
             return *i;
     }
     return 0xff;

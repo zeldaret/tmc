@@ -241,7 +241,7 @@ sub_0803298C: @ 0x0803298C
 	adds r0, r4, #0
 	movs r2, #0x88
 	movs r3, #0x50
-	bl sub_080041A0
+	bl EntityInRectRadius
 	cmp r0, #0
 	beq _080329E2
 	ldr r0, [r5]

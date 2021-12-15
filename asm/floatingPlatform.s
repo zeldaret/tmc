@@ -107,7 +107,7 @@ sub_08086168: @ 0x08086168
 	ldrb r2, [r1]
 	ldrb r3, [r1, #1]
 	adds r1, r4, #0
-	bl sub_080041A0
+	bl EntityInRectRadius
 	cmp r0, #0
 	beq _080861A8
 	bl sub_08079F8C

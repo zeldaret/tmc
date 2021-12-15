@@ -66,7 +66,7 @@ script_0800F09A:
 	MessageFromTargetPos 0x1202, 0x000c
 	WaitUntilTextboxCloses
 	_0807F034 0x0067
-	WaitPlayerAction8
+	WaitPlayerGetItem
 	_0807E8E4_0
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000040

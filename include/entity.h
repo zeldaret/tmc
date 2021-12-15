@@ -5,6 +5,8 @@
 #include "global.h"
 #include "sprite.h"
 
+#define MAX_ENTITIES 71
+
 typedef enum {
     PLAYER = 1,
     ENEMY = 3,
@@ -176,11 +178,22 @@ enum {
     TILE((entity)->x.HALF.HI - (xOff), (entity)->y.HALF.HI - (yOff))
 
 enum {
+    IdleNorth = 0x0,
+    IdleEast = 0x2,
+    IdleSouth = 0x4,
+    IdleWest = 0x6,
+};
+
+enum {
     DirectionNorth  = 0x00,
     DirectionEast   = 0x08,
     DirectionSouth  = 0x10,
     DirectionWest   = 0x18,
 };
+
+#define AnimationStateTurnAround(expr) ((expr) ^ 0x4)
+#define AnimationStateIdle(expr) ((expr) & 0x6)
+#define AnimationStateWalk(expr) ((expr) & 0xe)
 
 #define DirectionRound(expr) ((expr) & 0x18)
 #define DirectionRoundUp(expr) DirectionRound((expr) + 4)
@@ -194,7 +207,7 @@ enum {
 #define Direction8Round(expr) ((expr) & 0x1c)
 #define Direction8RoundUp(expr) Direction8Round((expr) + 2)
 #define Direction8TurnAround(expr) (Direction8RoundUp(expr) ^ 0x10)
-#define Direction8ToAnimationState(expr) (Direction8RoundUp(expr) >> 2)
+#define Direction8ToAnimationState(expr) ((expr) >> 2)
 #define Direction8FromAnimationState(expr) ((expr) << 2)
 
 Entity* GetEmptyEntity(void);
@@ -270,11 +283,10 @@ void EraseAllEntities(void);
 enum {
     PRIO_MIN = 0,
     PRIO_PLAYER = 1,
-    PRIO_REQUESTED = 2,
-    PRIO_MESSAGE = 2,
-    PRIO_OVERRIDE_MESSAGE = 3,
-    PRIO_PLAYER_EVENT = 6,
-    PRIO_INITIALIZING = 7,
+    PRIO_MESSAGE = 2, /* do not block during message */
+    PRIO_NO_BLOCK = 3, /* do not block during entity requested priority */
+    PRIO_PLAYER_EVENT = 6, /* do not block during special player event */
+    PRIO_HIGHEST = 7, /* do not block EVER */
 };
 
 /**

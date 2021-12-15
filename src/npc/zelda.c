@@ -23,7 +23,7 @@ void sub_08066CCC(Entity* this) {
     this->action = 1;
     this->spriteSettings.draw = 1;
     PrependEntityToList(this, 7);
-    SetDefaultPriority(this, 2);
+    SetDefaultPriority(this, PRIO_MESSAGE);
     sub_0807DD50(this);
 }
 

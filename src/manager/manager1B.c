@@ -29,7 +29,7 @@ void Manager1B_Main(Manager1B* this) {
     if (this->manager.action == 0) {
         this->manager.action = 1;
         this->manager.unk_10 |= 0x20;
-        SetDefaultPriority((Entity*)this, 6);
+        SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
         if (this->manager.unk_0a != 0) {
             RegisterTransitionManager(this, sub_0805B4B4, NULL);
         }
@@ -70,7 +70,7 @@ void sub_0805B4D0(u32 param_1) {
 
     LoadGfxGroup(gUnk_08108C5C[param_1]);
     gScreen.bg3.control = 0x1e07;
-    gScreen.lcd.displayControl |= 0x800;
+    gScreen.lcd.displayControl |= DISPCNT_BG3_ON;
     gScreen.bg3.xOffset = (gRoomControls.roomScrollX - gRoomControls.roomOriginX) >> 2;
 
     uVar2 = (gRoomControls.roomScrollY - gRoomControls.roomOriginY) >> 1;

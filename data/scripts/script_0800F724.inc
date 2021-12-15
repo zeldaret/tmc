@@ -175,7 +175,7 @@ SCRIPT_START script_0800F73C
 	MessageFromTargetPos 0x102b, 0x0000
 	WaitUntilTextboxCloses
 	_0807F034 0x000d
-	WaitPlayerAction8
+	WaitPlayerGetItem
 	Call sub_0806DC3C
 	Call sub_080791BC
 	CallWithArg sub_0807F244, 0x0000000d

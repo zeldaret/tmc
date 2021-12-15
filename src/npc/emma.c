@@ -10,7 +10,7 @@ extern ScreenTransitionData gUnk_0813AD38;
 void Emma(Entity* this) {
     if (this->action == 0) {
         this->action += 1;
-        SetDefaultPriority(this, 2);
+        SetDefaultPriority(this, PRIO_MESSAGE);
         sub_0807DD50(this);
     } else {
         sub_0807DD94(this, 0);

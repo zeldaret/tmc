@@ -225,7 +225,7 @@ script_0801690A:
 	WaitUntilTextboxCloses
 	JumpIfNot script_08016926
 	_0807F034 0x003d
-	WaitPlayerAction8
+	WaitPlayerGetItem
 script_08016926:
 	_0807E878
 	SetGlobalFlag 0x005c

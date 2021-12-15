@@ -70,7 +70,7 @@ void ScriptCommand_ClearRoomFlag(Entity* entity, ScriptExecutionContext* context
 void ScriptCommand_Wait(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_WaitForSomething(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_WaitForSomething2(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_WaitPlayerAction8(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_WaitPlayerGetItem(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_WaitForPlayerAction0x17(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_WaitFor_1(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_WaitFor_2(Entity* entity, ScriptExecutionContext* context);
@@ -122,7 +122,7 @@ void ScriptCommand_SetEntityDirectionWithAnimationState(Entity* entity, ScriptEx
 void ScriptCommand_SetEntitySpeed(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetEntity0x20(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetEntityPositionRelative(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_SetEntityPosition(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_OffsetEntityPosition(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_MoveEntityToPlayer(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommandNop3(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807EC1C(Entity* entity, ScriptExecutionContext* context);
@@ -161,145 +161,7 @@ extern void RecoverUI(u32);
 
 typedef void (*ScriptCommand)(Entity*, ScriptExecutionContext*);
 
-const ScriptCommand gScriptCommands[] = { ScriptCommandNop,
-                                          ScriptCommand_BeginBlock,
-                                          ScriptCommand_EndBlock,
-                                          ScriptCommand_Jump,
-                                          ScriptCommand_JumpIf,
-                                          ScriptCommand_JumpIfNot,
-                                          ScriptCommand_JumpTable,
-                                          ScriptCommand_JumpAbsolute,
-                                          ScriptCommand_JumpAbsoluteIf,
-                                          ScriptCommand_JumpAbsoluteIfNot,
-                                          ScriptCommand_JumpAbsoluteTable,
-                                          ScriptCommand_Call,
-                                          ScriptCommand_CallWithArg,
-                                          ScriptCommand_LoadRoomEntityList,
-                                          ScriptCommand_TestBit,
-                                          ScriptCommand_CheckInventory1,
-                                          ScriptCommand_CheckInventory2,
-                                          ScriptCommand_HasRoomItemForSale,
-                                          ScriptCommand_CheckLocalFlag,
-                                          ScriptCommand_CheckLocalFlagByBank,
-                                          ScriptCommand_CheckGlobalFlag,
-                                          ScriptCommand_CheckRoomFlag,
-                                          ScriptCommand_CheckPlayerInRegion,
-                                          ScriptCommand_CheckPlayerInRegion2,
-                                          ScriptCommand_CheckEntityInteractType,
-                                          ScriptCommand_0807E30C,
-                                          ScriptCommand_HasRupees,
-                                          ScriptCommand_0807E3BC,
-                                          ScriptCommand_0807E3E8,
-                                          ScriptCommand_CheckKinstoneFused,
-                                          ScriptCommand_BuyItem,
-                                          ScriptCommand_0807E48C,
-                                          ScriptCommand_0807E4CC,
-                                          ScriptCommand_0807E4EC,
-                                          ScriptCommand_0807E514,
-                                          ScriptCommand_CheckPlayerFlags,
-                                          ScriptCommand_0807E564,
-                                          ScriptCommand_EntityHasHeight,
-                                          ScriptCommand_ComparePlayerAction,
-                                          ScriptCommand_ComparePlayerAnimationState,
-                                          ScriptCommand_0807E5F8,
-                                          ScriptCommand_0807E610,
-                                          ScriptCommand_SetLocalFlag,
-                                          ScriptCommand_SetLocalFlagByBank,
-                                          ScriptCommand_ClearLocalFlag,
-                                          ScriptCommand_SetGlobalFlag,
-                                          ScriptCommand_ClearGlobalFlag,
-                                          ScriptCommand_SetRoomFlag,
-                                          ScriptCommand_ClearRoomFlag,
-                                          ScriptCommand_Wait,
-                                          ScriptCommand_WaitForSomething,
-                                          ScriptCommand_WaitForSomething2,
-                                          ScriptCommand_WaitPlayerAction8,
-                                          ScriptCommand_WaitForPlayerAction0x17,
-                                          ScriptCommand_WaitFor_1,
-                                          ScriptCommand_WaitFor_2,
-                                          ScriptCommand_0807E778,
-                                          ScriptCommand_SetFadeMask,
-                                          ScriptCommand_0807E79C,
-                                          ScriptCommandNop2,
-                                          ScriptCommand_DoFade4,
-                                          ScriptCommand_DoFade5,
-                                          ScriptCommand_DoFade6,
-                                          ScriptCommand_DoFade7,
-                                          ScriptCommand_0807E800,
-                                          ScriptCommand_0807E80C,
-                                          ScriptCommand_0807E858,
-                                          ScriptCommand_0807E864,
-                                          ScriptCommand_0807E878,
-                                          ScriptCommand_0807E888,
-                                          ScriptCommand_SetPlayerAction,
-                                          ScriptCommand_StartPlayerScript,
-                                          ScriptCommand_0807E8D4,
-                                          ScriptCommand_0807E8E4,
-                                          ScriptCommand_0807E8E4,
-                                          ScriptCommand_0807E8E4,
-                                          ScriptCommand_0807E8E4,
-                                          ScriptCommand_0807E908,
-                                          ScriptCommand_SetIntVariable,
-                                          ScriptCommand_0807E924,
-                                          ScriptCommand_0807E930,
-                                          ScriptCommand_0807E944,
-                                          ScriptCommand_0807E974,
-                                          ScriptCommand_0807E9D4,
-                                          ScriptCommand_0807E9DC,
-                                          ScriptCommand_0807E9E4,
-                                          ScriptCommand_0807E9F0,
-                                          ScriptCommand_0807EA4C,
-                                          ScriptCommand_0807EA88,
-                                          ScriptCommand_WaitUntilTextboxCloses,
-                                          ScriptCommand_MessageFromTarget,
-                                          ScriptCommand_MessageNoOverlap,
-                                          ScriptCommand_MessageFromTargetPos,
-                                          ScriptCommand_MessageFromTargetTable,
-                                          ScriptCommand_MessageNoOverlapVar,
-                                          ScriptCommand_0807EB28,
-                                          ScriptCommand_0807EB38,
-                                          ScriptCommand_0807EB44,
-                                          ScriptCommand_0807EB4C,
-                                          ScriptCommand_0807EB74,
-                                          ScriptCommand_0807EB8C,
-                                          ScriptCommand_SetEntityDirection,
-                                          ScriptCommand_SetEntityDirectionWithAnimationState,
-                                          ScriptCommand_SetEntitySpeed,
-                                          ScriptCommand_SetEntity0x20,
-                                          ScriptCommand_SetEntityPositionRelative,
-                                          ScriptCommand_SetEntityPosition,
-                                          ScriptCommand_MoveEntityToPlayer,
-                                          ScriptCommandNop3,
-                                          ScriptCommand_0807EC1C,
-                                          ScriptCommand_0807EC64,
-                                          ScriptCommand_0807EC94,
-                                          ScriptCommand_0807ECC4,
-                                          ScriptCommand_0807ECF4,
-                                          ScriptCommand_0807ED24,
-                                          ScriptCommand_0807EDD4,
-                                          ScriptCommand_0807EE04,
-                                          ScriptCommand_0807EE30,
-                                          ScriptCommand_0807EEB4,
-                                          ScriptCommand_0807EEF4,
-                                          ScriptCommand_0807EF3C,
-                                          ScriptCommand_DoPostScriptAction,
-                                          ScriptCommand_DoPostScriptAction2,
-                                          ScriptCommand_PlaySound,
-                                          ScriptCommand_PlayBgm,
-                                          ScriptCommand_SoundReq,
-                                          ScriptCommand_StopBgm,
-                                          ScriptCommand_ModRupees,
-                                          ScriptCommand_ModHealth,
-                                          ScriptCommand_IncreaseMaxHealth,
-                                          ScriptCommand_0807F034,
-                                          ScriptCommand_0807F050,
-                                          ScriptCommand_GetInventoryValue,
-                                          ScriptCommand_0807F078,
-                                          ScriptCommand_0807F088,
-                                          ScriptCommand_CameraTargetEntity,
-                                          ScriptCommand_CameraTargetPlayer,
-                                          ScriptCommand_0807F0B4,
-                                          ScriptCommand_0807F0C8 };
+extern const ScriptCommand gScriptCommands[];
 
 extern u16* gUnk_08001A7C[];
 extern u8 gUnk_08114F30[];
@@ -430,10 +292,10 @@ void HandlePostScriptActions(Entity* entity, ScriptExecutionContext* context) {
                 entity->field_0x82.HWORD |= 2;
                 break;
             case 1 << 0x0b:
-                entity->field_0x82.HWORD &= 0xfffd;
+                entity->field_0x82.HWORD &= ~2;
                 break;
             case 1 << 0x0c:
-                entity->field_0x82.HWORD &= 0xfffe;
+                entity->field_0x82.HWORD &= ~1;
                 break;
             case 1 << 0x0d:
                 entity->field_0x82.HWORD |= 1;
@@ -454,7 +316,7 @@ void HandlePostScriptActions(Entity* entity, ScriptExecutionContext* context) {
                 entity->field_0x82.HWORD |= 0x20;
                 break;
             case 1 << 0x13:
-                entity->field_0x82.HWORD &= 0xffdf;
+                entity->field_0x82.HWORD &= ~0x20;
                 break;
             default:
                 break;
@@ -513,22 +375,23 @@ void HandleEntity0x82Actions(Entity* entity) {
         loopVar = loopVar ^ bit;
         switch (bit) {
             case 1 << 1:
-                if (entity->kind == 7) {
+                if (entity->kind == NPC) {
                     sub_0806ED78(entity);
                 } else {
                     sub_0800445C(entity);
                 }
                 break;
             case 1 << 3:
-                if ((gScreenTransition.frameCount & 3) == 0) {
-                    temp = (entity->field_0xf + 2U) & 7;
+                if (gScreenTransition.frameCount % 4 == 0) {
+                    temp = (entity->field_0xf + 2) & 7;
                     entity->animationState = temp;
                     entity->field_0xf = temp;
                 }
                 break;
             case 1 << 4:
-                if ((gScreenTransition.frameCount & 1) == 0) {
-                    entity->spriteOffsetX = gUnk_0811E510[Random() & 3];
+                if (gScreenTransition.frameCount % 2 == 0) {
+                    static const s8 sOffsets[] = { -1, -2, 0, 1 };
+                    entity->spriteOffsetX = sOffsets[Random() % 4];
                 }
                 break;
             case 1 << 5:
@@ -571,6 +434,7 @@ void sub_0807DE80(Entity* entity) {
 }
 
 void sub_0807DEDC(Entity* entity, ScriptExecutionContext* context, u32 x, u32 y) {
+    static const u8 sDirectionTable[] = { 0, 0, 2, 2, 2, 2, 4, 4, 4, 4, 6, 6, 6, 6, 0, 0 };
     int direction;
     s32 xOffset, yOffset;
 
@@ -583,7 +447,7 @@ void sub_0807DEDC(Entity* entity, ScriptExecutionContext* context, u32 x, u32 y)
     yOffset = context->y.HALF.HI - entity->y.HALF.HI;
     direction = sub_080045DA(xOffset, yOffset);
     entity->direction = direction;
-    entity->animationState = (entity->animationState & 0x80) | gUnk_0811E514[(u32)(direction << 0x18) >> 0x1c];
+    entity->animationState = (entity->animationState & 0x80) | sDirectionTable[(u8)direction >> 4];
 }
 
 void sub_0807DF28(void) {
@@ -606,6 +470,148 @@ void sub_0807DF50(void) {
 }
 
 void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
+    static const ScriptCommand gScriptCommands[] = {
+        ScriptCommandNop,
+        ScriptCommand_BeginBlock,
+        ScriptCommand_EndBlock,
+        ScriptCommand_Jump,
+        ScriptCommand_JumpIf,
+        ScriptCommand_JumpIfNot,
+        ScriptCommand_JumpTable,
+        ScriptCommand_JumpAbsolute,
+        ScriptCommand_JumpAbsoluteIf,
+        ScriptCommand_JumpAbsoluteIfNot,
+        ScriptCommand_JumpAbsoluteTable,
+        ScriptCommand_Call,
+        ScriptCommand_CallWithArg,
+        ScriptCommand_LoadRoomEntityList,
+        ScriptCommand_TestBit,
+        ScriptCommand_CheckInventory1,
+        ScriptCommand_CheckInventory2,
+        ScriptCommand_HasRoomItemForSale,
+        ScriptCommand_CheckLocalFlag,
+        ScriptCommand_CheckLocalFlagByBank,
+        ScriptCommand_CheckGlobalFlag,
+        ScriptCommand_CheckRoomFlag,
+        ScriptCommand_CheckPlayerInRegion,
+        ScriptCommand_CheckPlayerInRegion2,
+        ScriptCommand_CheckEntityInteractType,
+        ScriptCommand_0807E30C,
+        ScriptCommand_HasRupees,
+        ScriptCommand_0807E3BC,
+        ScriptCommand_0807E3E8,
+        ScriptCommand_CheckKinstoneFused,
+        ScriptCommand_BuyItem,
+        ScriptCommand_0807E48C,
+        ScriptCommand_0807E4CC,
+        ScriptCommand_0807E4EC,
+        ScriptCommand_0807E514,
+        ScriptCommand_CheckPlayerFlags,
+        ScriptCommand_0807E564,
+        ScriptCommand_EntityHasHeight,
+        ScriptCommand_ComparePlayerAction,
+        ScriptCommand_ComparePlayerAnimationState,
+        ScriptCommand_0807E5F8,
+        ScriptCommand_0807E610,
+        ScriptCommand_SetLocalFlag,
+        ScriptCommand_SetLocalFlagByBank,
+        ScriptCommand_ClearLocalFlag,
+        ScriptCommand_SetGlobalFlag,
+        ScriptCommand_ClearGlobalFlag,
+        ScriptCommand_SetRoomFlag,
+        ScriptCommand_ClearRoomFlag,
+        ScriptCommand_Wait,
+        ScriptCommand_WaitForSomething,
+        ScriptCommand_WaitForSomething2,
+        ScriptCommand_WaitPlayerGetItem,
+        ScriptCommand_WaitForPlayerAction0x17,
+        ScriptCommand_WaitFor_1,
+        ScriptCommand_WaitFor_2,
+        ScriptCommand_0807E778,
+        ScriptCommand_SetFadeMask,
+        ScriptCommand_0807E79C,
+        ScriptCommandNop2,
+        ScriptCommand_DoFade4,
+        ScriptCommand_DoFade5,
+        ScriptCommand_DoFade6,
+        ScriptCommand_DoFade7,
+        ScriptCommand_0807E800,
+        ScriptCommand_0807E80C,
+        ScriptCommand_0807E858,
+        ScriptCommand_0807E864,
+        ScriptCommand_0807E878,
+        ScriptCommand_0807E888,
+        ScriptCommand_SetPlayerAction,
+        ScriptCommand_StartPlayerScript,
+        ScriptCommand_0807E8D4,
+        ScriptCommand_0807E8E4,
+        ScriptCommand_0807E8E4,
+        ScriptCommand_0807E8E4,
+        ScriptCommand_0807E8E4,
+        ScriptCommand_0807E908,
+        ScriptCommand_SetIntVariable,
+        ScriptCommand_0807E924,
+        ScriptCommand_0807E930,
+        ScriptCommand_0807E944,
+        ScriptCommand_0807E974,
+        ScriptCommand_0807E9D4,
+        ScriptCommand_0807E9DC,
+        ScriptCommand_0807E9E4,
+        ScriptCommand_0807E9F0,
+        ScriptCommand_0807EA4C,
+        ScriptCommand_0807EA88,
+        ScriptCommand_WaitUntilTextboxCloses,
+        ScriptCommand_MessageFromTarget,
+        ScriptCommand_MessageNoOverlap,
+        ScriptCommand_MessageFromTargetPos,
+        ScriptCommand_MessageFromTargetTable,
+        ScriptCommand_MessageNoOverlapVar,
+        ScriptCommand_0807EB28,
+        ScriptCommand_0807EB38,
+        ScriptCommand_0807EB44,
+        ScriptCommand_0807EB4C,
+        ScriptCommand_0807EB74,
+        ScriptCommand_0807EB8C,
+        ScriptCommand_SetEntityDirection,
+        ScriptCommand_SetEntityDirectionWithAnimationState,
+        ScriptCommand_SetEntitySpeed,
+        ScriptCommand_SetEntity0x20,
+        ScriptCommand_SetEntityPositionRelative,
+        ScriptCommand_OffsetEntityPosition,
+        ScriptCommand_MoveEntityToPlayer,
+        ScriptCommandNop3,
+        ScriptCommand_0807EC1C,
+        ScriptCommand_0807EC64,
+        ScriptCommand_0807EC94,
+        ScriptCommand_0807ECC4,
+        ScriptCommand_0807ECF4,
+        ScriptCommand_0807ED24,
+        ScriptCommand_0807EDD4,
+        ScriptCommand_0807EE04,
+        ScriptCommand_0807EE30,
+        ScriptCommand_0807EEB4,
+        ScriptCommand_0807EEF4,
+        ScriptCommand_0807EF3C,
+        ScriptCommand_DoPostScriptAction,
+        ScriptCommand_DoPostScriptAction2,
+        ScriptCommand_PlaySound,
+        ScriptCommand_PlayBgm,
+        ScriptCommand_SoundReq,
+        ScriptCommand_StopBgm,
+        ScriptCommand_ModRupees,
+        ScriptCommand_ModHealth,
+        ScriptCommand_IncreaseMaxHealth,
+        ScriptCommand_0807F034,
+        ScriptCommand_0807F050,
+        ScriptCommand_GetInventoryValue,
+        ScriptCommand_0807F078,
+        ScriptCommand_0807F088,
+        ScriptCommand_CameraTargetEntity,
+        ScriptCommand_CameraTargetPlayer,
+        ScriptCommand_0807F0B4,
+        ScriptCommand_0807F0C8,
+    };
+
     if (!context->scriptInstructionPointer)
         return;
     if (context->wait) {
@@ -712,13 +718,13 @@ void ScriptCommand_LoadRoomEntityList(Entity* entity, ScriptExecutionContext* co
 }
 
 void ScriptCommand_TestBit(Entity* entity, ScriptExecutionContext* context) {
-    u32 tmp = GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer);
-    u32 tmp2 = 0;
-    u32 tmp3 = gActiveScriptInfo.unk_00;
-    if ((tmp3 & tmp) == tmp)
-        tmp2 = 1;
-    context->condition = tmp2;
-    gActiveScriptInfo.unk_00 = tmp3 & ~tmp;
+    u32 flag = GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer);
+    u32 set = 0;
+    u32 field = gActiveScriptInfo.unk_00;
+    if ((field & flag) == flag)
+        set = 1;
+    context->condition = set;
+    gActiveScriptInfo.unk_00 = field & ~flag;
     gActiveScriptInfo.flags |= 1;
 }
 
@@ -805,7 +811,7 @@ void ScriptCommand_CheckEntityInteractType(Entity* entity, ScriptExecutionContex
 
 void ScriptCommand_0807E30C(Entity* entity, ScriptExecutionContext* context) {
     if ((context->unk_1A & 0xF) == 0 && (gPlayerState.flags & PL_MINISH) == 0 &&
-        sub_080041A0(entity, &gPlayerEntity, 0x28, 0x28)) {
+        EntityInRectRadius(entity, &gPlayerEntity, 40, 40)) {
         entity->animationState = sub_0806F5B0(GetFacingDirection(entity, &gPlayerEntity));
     }
     context->unk_1A++;
@@ -845,16 +851,16 @@ void ScriptCommand_BuyItem(Entity* entity, ScriptExecutionContext* context) {
     item = context->scriptInstructionPointer[1];
     tmp2 = context->scriptInstructionPointer[2];
     if (!item) {
-        item = gRoomVars.itemForSaleIndex;
-        tmp2 = gRoomVars.field_0x7;
+        item = gRoomVars.shopItemType;
+        tmp2 = gRoomVars.shopItemType2;
     }
     price = GetItemPrice(item);
     context->condition = (price <= gSave.stats.rupees);
     if (context->condition) {
         ModRupees(-price);
         sub_080A7C18(item, tmp2, 0);
-        gRoomVars.itemForSaleIndex = 0;
-        gRoomVars.field_0x7 = 0;
+        gRoomVars.shopItemType = 0;
+        gRoomVars.shopItemType2 = 0;
     }
     gActiveScriptInfo.flags |= 1;
 }
@@ -865,7 +871,7 @@ void ScriptCommand_0807E48C(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void ScriptCommand_HasRoomItemForSale(Entity* entity, ScriptExecutionContext* context) {
-    context->condition = !!gRoomVars.itemForSaleIndex;
+    context->condition = !!gRoomVars.shopItemType;
     gActiveScriptInfo.flags |= 1;
 }
 
@@ -969,11 +975,11 @@ void ScriptCommand_WaitForSomething2(Entity* entity, ScriptExecutionContext* con
     }
 }
 
-void ScriptCommand_WaitPlayerAction8(Entity* entity, ScriptExecutionContext* context) {
-    if (gPlayerEntity.action == 8) {
+void ScriptCommand_WaitPlayerGetItem(Entity* entity, ScriptExecutionContext* context) {
+    if (gPlayerEntity.action == PLAYER_ITEMGET) {
         gActiveScriptInfo.commandSize = 0;
     } else {
-        context->wait = 0x2D;
+        context->wait = 45;
     }
 }
 
@@ -1056,16 +1062,16 @@ void ScriptCommand_0807E858(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void ScriptCommand_0807E864(Entity* entity, ScriptExecutionContext* context) {
-    gPlayerState.field_0x8b = 3;
+    gPlayerState.controlMode = CONTROL_DISABLED;
     sub_08078B48();
 }
 
 void ScriptCommand_0807E878(Entity* entity, ScriptExecutionContext* context) {
-    gPlayerState.field_0x8b = 1;
+    gPlayerState.controlMode = 1;
 }
 
 void ScriptCommand_0807E888(Entity* entity, ScriptExecutionContext* context) {
-    gPlayerState.field_0x8b = 3;
+    gPlayerState.controlMode = CONTROL_DISABLED;
 }
 
 void ScriptCommand_SetPlayerAction(Entity* entity, ScriptExecutionContext* context) {
@@ -1081,7 +1087,7 @@ void ScriptCommand_StartPlayerScript(Entity* entity, ScriptExecutionContext* con
 }
 
 void ScriptCommand_0807E8D4(Entity* entity, ScriptExecutionContext* context) {
-    gPlayerState.field_0x8 = context->scriptInstructionPointer[1];
+    gPlayerState.animation = context->scriptInstructionPointer[1];
 }
 
 void ScriptCommand_0807E8E4(Entity* entity, ScriptExecutionContext* context) {
@@ -1159,7 +1165,7 @@ void ScriptCommand_0807E9F0(Entity* entity, ScriptExecutionContext* context) {
     tmp = 1;
     switch (gUnk_02022740[0]) {
         case 2:
-            gPlayerState.field_0x8b = 3;
+            gPlayerState.controlMode = CONTROL_DISABLED;
             gUnk_02034490[0] = tmp;
             context->condition = tmp;
             break;
@@ -1171,7 +1177,7 @@ void ScriptCommand_0807E9F0(Entity* entity, ScriptExecutionContext* context) {
     }
     if (tmp) {
         sub_0807919C();
-        gPlayerState.field_0x8b = 1;
+        gPlayerState.controlMode = 1;
     } else {
     lbl:
         gActiveScriptInfo.commandSize = 0;
@@ -1273,7 +1279,7 @@ void ScriptCommand_SetEntityPositionRelative(Entity* entity, ScriptExecutionCont
     entity->y.HALF.HI = gRoomControls.roomOriginY + context->scriptInstructionPointer[2];
 }
 
-void ScriptCommand_SetEntityPosition(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_OffsetEntityPosition(Entity* entity, ScriptExecutionContext* context) {
     entity->x.HALF.HI += context->scriptInstructionPointer[1];
     entity->y.HALF.HI += context->scriptInstructionPointer[2];
 }
@@ -1306,7 +1312,7 @@ void ScriptCommand_0807EC64(Entity* entity, ScriptExecutionContext* context) {
         context->unk_18 = 1;
         context->unk_12 = context->scriptInstructionPointer[1];
         entity->animationState = 0;
-        entity->direction = 0;
+        entity->direction = DirectionNorth;
         context->postScriptActions |= 2;
     }
     sub_0807EC44(entity, context);
@@ -1317,7 +1323,7 @@ void ScriptCommand_0807EC94(Entity* entity, ScriptExecutionContext* context) {
         context->unk_18 = 1;
         context->unk_12 = context->scriptInstructionPointer[1];
         entity->animationState = 2;
-        entity->direction = 8;
+        entity->direction = DirectionEast;
         context->postScriptActions |= 2;
     }
     sub_0807EC44(entity, context);
@@ -1328,7 +1334,7 @@ void ScriptCommand_0807ECC4(Entity* entity, ScriptExecutionContext* context) {
         context->unk_18 = 1;
         context->unk_12 = context->scriptInstructionPointer[1];
         entity->animationState = 4;
-        entity->direction = 0x10;
+        entity->direction = DirectionSouth;
         context->postScriptActions |= 2;
     }
     sub_0807EC44(entity, context);
@@ -1339,7 +1345,7 @@ void ScriptCommand_0807ECF4(Entity* entity, ScriptExecutionContext* context) {
         context->unk_18 = 1;
         context->unk_12 = context->scriptInstructionPointer[1];
         entity->animationState = 6;
-        entity->direction = 0x18;
+        entity->direction = DirectionWest;
         context->postScriptActions |= 2;
     }
     sub_0807EC44(entity, context);
@@ -1541,19 +1547,20 @@ void sub_0807F0EC(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807F100(Entity* entity, ScriptExecutionContext* context) {
-    u32 rand;
+    static const u8 sValues[] = { 0xa, 0x14, 0x1e, 0x12, 0x1c, 0x26, 0xc, 0x18 };
 
-    rand = Random();
+    u32 rand = Random();
     entity->animationState = rand & 6;
-    context->unk_1A = gUnk_0811E750[(rand >> 8) & 7];
+    context->unk_1A = sValues[(rand >> 8) % 8];
 }
 
 void sub_0807F128(Entity* entity, ScriptExecutionContext* context) {
-    u32 rand;
+    static const u8 sAnimations[] = { 6, 2, 6, 2, 4, 6, 4, 2 };
+    static const u8 sValues[] = { 0xa, 0x14, 0x1e, 0x12, 0x1c, 0x26, 0xc, 0x18 };
 
-    rand = Random();
-    entity->animationState = gUnk_0811E758[rand & 7];
-    context->unk_1A = gUnk_0811E760[(rand >> 8) & 7];
+    u32 rand = Random();
+    entity->animationState = sAnimations[rand & 7];
+    context->unk_1A = sValues[(rand >> 8) % 8];
 }
 
 void sub_0807F158(Entity* entity, ScriptExecutionContext* context) {
@@ -1581,31 +1588,31 @@ void sub_0807F1A0(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807F1C4(Entity* entity, ScriptExecutionContext* context) {
-    if ((gPlayerState.flags & 8) != 0) {
-        gPlayerState.field_0x8 = 0x459;
+    if (gPlayerState.flags & PL_NO_CAP) {
+        gPlayerState.animation = 0x459;
     } else {
-        gPlayerState.field_0x8 = 0x1bc;
+        gPlayerState.animation = 0x1bc;
     }
 }
 
 void sub_0807F1E8(Entity* entity, ScriptExecutionContext* context) {
-    if ((gPlayerState.flags & 8) != 0) {
-        gPlayerState.field_0x8 = 0x45a;
+    if (gPlayerState.flags & PL_NO_CAP) {
+        gPlayerState.animation = 0x45a;
     } else {
-        gPlayerState.field_0x8 = 0x2bd;
+        gPlayerState.animation = 0x2bd;
     }
 }
 
 void sub_0807F210(Entity* entity, ScriptExecutionContext* context) {
-    if ((gPlayerState.flags & 8) != 0) {
-        gPlayerState.field_0x8 = 0x41c;
+    if (gPlayerState.flags & PL_NO_CAP) {
+        gPlayerState.animation = 0x41c;
     } else {
-        gPlayerState.field_0x8 = 0x80c;
+        gPlayerState.animation = 0x80c;
     }
 }
 
 void sub_0807F238(Entity* entity, ScriptExecutionContext* context) {
-    gPlayerState.field_0x8 = context->intVariable;
+    gPlayerState.animation = context->intVariable;
 }
 
 void sub_0807F244(Entity* entity, ScriptExecutionContext* context) {
@@ -1670,15 +1677,15 @@ void sub_0807F338(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807F348(Entity* entity, ScriptExecutionContext* context) {
-    SetDefaultPriority(entity, 2);
+    SetDefaultPriority(entity, PRIO_MESSAGE);
 }
 
 void sub_0807F354(Entity* entity, ScriptExecutionContext* context) {
-    SetDefaultPriority(entity, 6);
+    SetDefaultPriority(entity, PRIO_PLAYER_EVENT);
 }
 
 void sub_0807F360(Entity* entity, ScriptExecutionContext* context) {
-    SetDefaultPriority(entity, 3);
+    SetDefaultPriority(entity, PRIO_NO_BLOCK);
 }
 
 void sub_0807F36C(Entity* entity, ScriptExecutionContext* context) {
@@ -1686,7 +1693,7 @@ void sub_0807F36C(Entity* entity, ScriptExecutionContext* context) {
     fx = CreateFx(entity, FX_REFLECT4, 0);
     if (fx != NULL) {
         fx->spritePriority.b0 = 1;
-        PositionRelative(entity, fx, 0, -524288);
+        PositionRelative(entity, fx, 0, -0x80000);
         if (Random() & 1)
             fx->spriteSettings.flipX = 1;
         if (Random() & 1)
@@ -1821,13 +1828,13 @@ void sub_0807F5C0(Entity* entity, ScriptExecutionContext* context) {
 void sub_0807F634(Entity* entity, ScriptExecutionContext* context) {
     u16* p = (u16*)context->intVariable;
     sub_0801DFB4(entity, p[0], p[1], p[2]);
-    gPlayerState.field_0x8b = 3;
+    gPlayerState.controlMode = CONTROL_DISABLED;
 }
 
 void sub_0807F650(Entity* entity, ScriptExecutionContext* context) {
     u32 p = sub_08002632(entity);
     sub_0801DFB4(entity, gUnk_08001A7C[p][0], gUnk_08001A7C[p][1], gUnk_08001A7C[p][2]);
-    gPlayerState.field_0x8b = 3;
+    gPlayerState.controlMode = CONTROL_DISABLED;
 }
 
 void sub_0807F680(Entity* entity, ScriptExecutionContext* context) {
@@ -1881,7 +1888,7 @@ void sub_0807F78C(Entity* entity, ScriptExecutionContext* context) {
     u32 price;
 
     if (context->intVariable == 0)
-        item = gRoomVars.itemForSaleIndex;
+        item = gRoomVars.shopItemType;
 
     msg = GetSaleItemConfirmMessageID(item);
     price = GetItemPrice(item);
@@ -1895,7 +1902,7 @@ void sub_0807F7C4(Entity* entity, ScriptExecutionContext* context) {
     u32 price;
 
     if (context->intVariable == 0)
-        item = gRoomVars.itemForSaleIndex;
+        item = gRoomVars.shopItemType;
 
     context->condition = GetItemPrice(item) <= gSave.stats.rupees;
     gActiveScriptInfo.flags |= 1;
@@ -1907,12 +1914,12 @@ void sub_0807F800(Entity* entity, ScriptExecutionContext* context) {
     u32 price;
 
     if (context->intVariable == 0)
-        item = gRoomVars.itemForSaleIndex;
+        item = gRoomVars.shopItemType;
 
     price = GetItemPrice(item);
     ModRupees(-price);
     sub_080A7C18(item, 0, 0);
-    gRoomVars.itemForSaleIndex = 0;
+    gRoomVars.shopItemType = 0;
     gActiveScriptInfo.flags |= 1;
 }
 

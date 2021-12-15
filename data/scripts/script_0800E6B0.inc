@@ -41,7 +41,7 @@ script_0800E708:
 script_0800E722:
 	WaitUntilTextboxCloses
 	_0807F034 0x0057
-	WaitPlayerAction8
+	WaitPlayerGetItem
 	WaitUntilTextboxCloses
 	_0807E878
 	Jump script_0800E6F4

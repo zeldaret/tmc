@@ -241,7 +241,7 @@ void Lakitu_Cloudless(Entity* this) {
 
 bool32 sub_0803CA4C(Entity* this) {
     if (sub_0806FCB8(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x28) == 0) {
-        if (sub_080041A0(this, &gPlayerEntity, 0x70, 0x50)) {
+        if (EntityInRectRadius(this, &gPlayerEntity, 0x70, 0x50)) {
             return 1;
         }
     }

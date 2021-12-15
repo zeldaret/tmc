@@ -6,7 +6,7 @@ Entity* CreateEnemy(u32 subtype, u32 form) {
 
     enemy = GetEmptyEntity();
     if (enemy != NULL) {
-        enemy->kind = 3;
+        enemy->kind = ENEMY;
         enemy->id = subtype;
         enemy->type = form;
         AppendEntityToList(enemy, 4);

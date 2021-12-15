@@ -67,7 +67,7 @@ void sub_08045454(Entity* this) {
 
     /* Can we create enough new entities? */
     count = gUnk_080D180C[this->type];
-    if (72 - count <= gEntCount)
+    if (MAX_ENTITIES + 1 - count <= gEntCount)
         return;
 
     /* Create 2-5 new MiniFireballGuy */

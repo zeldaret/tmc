@@ -19,10 +19,10 @@ gUnk_0811F15C:: @ 0811F15C
 	.4byte sub_08082E6C
 
 gUnk_0811F16C:: @ 0811F16C
-	.incbin "object6/gUnk_0811F16C.bin"
+	.incbin "ezloCap/gUnk_0811F16C.bin"
 
 gUnk_0811F178:: @ 0811F178
-	.incbin "object6/gUnk_0811F178.bin"
+	.incbin "ezloCap/gUnk_0811F178.bin"
 
 gUnk_0811F18C:: @ 0811F18C
-	.incbin "object6/gUnk_0811F18C.bin"
+	.incbin "ezloCap/gUnk_0811F18C.bin"

@@ -308,7 +308,7 @@
 	.4byte \w
 .endm
 
-.macro WaitPlayerAction8
+.macro WaitPlayerGetItem
 	.2byte 0x0434
 .endm
 
@@ -563,7 +563,7 @@
 	.2byte \yOffset
 .endm
 
-.macro SetEntityPosition x:req, y:req
+.macro OffsetEntityPosition x:req, y:req
 	.2byte 0x0c6a
 	.2byte \x
 	.2byte \y

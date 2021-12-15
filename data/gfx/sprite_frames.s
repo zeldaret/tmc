@@ -34,8 +34,8 @@ gSpriteFrames_9:: @ 08116A9C
 gSpriteFrames_Object4:: @ 08116D0C
 	.include "sprites/gSpriteFrames_Object4.s"
 
-gSpriteFrames_Object6:: @ 08116DD4
-	.include "sprites/gSpriteFrames_Object6.s"
+gSpriteFrames_EzloCap:: @ 08116DD4
+	.include "sprites/gSpriteFrames_EzloCap.s"
 
 gSpriteFrames_12:: @ 08116F64
 	.include "sprites/gSpriteFrames_12.s"

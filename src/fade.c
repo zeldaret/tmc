@@ -38,9 +38,9 @@ void DoFade(u32 fadeType, u32 fadeSpeed) {
     }
     if ((fadeType & 8) != 0) {
         gUnk_03000000.spritesOffset = 1;
-        gScreen.bg1.control |= 0x40;
-        gScreen.bg2.control |= 0x40;
-        gScreen.bg3.control |= 0x40;
+        gScreen.bg1.control |= BGCNT_MOSAIC;
+        gScreen.bg2.control |= BGCNT_MOSAIC;
+        gScreen.bg3.control |= BGCNT_MOSAIC;
     }
     if ((fadeType & 0x10) != 0) {
         sub_0801E1B8(gFadeControl.field_0x16, gFadeControl.field_0x18);
@@ -57,7 +57,7 @@ void sub_080500F4(u32 arg0) {
     gFadeControl.fadeSpeed = arg0;
     gFadeControl.fadeType ^= 1;
     gFadeControl.active = 1;
-    gFadeControl.fadeDuration = 0x100;
+    gFadeControl.fadeDuration = 256;
 }
 
 void sub_08050110(u32 param_1, u32 param_2, u32 fadeType, u32 fadeSpeed) {

@@ -49,7 +49,7 @@ script_0800B68E:
 	SetLocalFlag 0x009e
 	_0807F034 0x0066
 script_0800B698:
-	WaitPlayerAction8
+	WaitPlayerGetItem
 	_0807EB8C
 	Wait 0x001e
 	MessageNoOverlap 0x057f

@@ -5,7 +5,7 @@ SCRIPT_START script_0800AB6E
 	_0807E8E4_0
 	_0807E5F8 0x00000040
 	WaitForSomething2 0x00000080
-	SetEntityPosition 0x0000, 0xffe0
+	OffsetEntityPosition 0x0000, 0xffe0
 	Call sub_0807F5C0
 	Wait 0x003c
 	CallWithArg DeleteManager36, 0x00000001
@@ -26,7 +26,7 @@ SCRIPT_START script_0800AB6E
 	_0807E5F8 0x00000008
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000004
-	SetEntityPosition 0x0000, 0x0020
+	OffsetEntityPosition 0x0000, 0x0020
 	Call sub_0807F5C0
 	WaitForSomething2 0x00000010
 	StartPlayerScript script_0800ACE0
@@ -36,7 +36,7 @@ SCRIPT_START script_0800AB6E
 	WaitUntilTextboxCloses
 	MessageFromTargetPos 0x1663, 0x000e
 	WaitUntilTextboxCloses
-	SetEntityPosition 0x0000, 0xffe0
+	OffsetEntityPosition 0x0000, 0xffe0
 	Call sub_0807F5C0
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000004

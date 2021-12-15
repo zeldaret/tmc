@@ -227,7 +227,7 @@ script_0800E3C8:
 	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807F034 0x0053
-	WaitPlayerAction8
+	WaitPlayerGetItem
 	SetLocalFlag 0x0071
 	_0807E878
 script_0800E3E8:

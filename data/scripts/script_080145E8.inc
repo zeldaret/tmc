@@ -233,7 +233,7 @@ script_0801478A:
 	Call sub_08088478
 	WaitUntilTextboxCloses
 	Call sub_080885B0
-	WaitPlayerAction8
+	WaitPlayerGetItem
 	_0807E5F8 0x00000008
 	Jump script_080147CE
 script_080147A4:

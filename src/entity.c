@@ -136,15 +136,15 @@ void ResetEntityPriority(void) {
 
 void RequestPriority(Entity* this) {
     this->updatePriorityPrev = this->updatePriority;
-    this->updatePriority = PRIO_REQUESTED;
-    if (SetMinPriority(PRIO_REQUESTED))
+    this->updatePriority = PRIO_MESSAGE;
+    if (SetMinPriority(PRIO_MESSAGE))
         gPriorityHandler.requester = this;
 }
 
 void RequestPriorityOverPlayer(Entity* this) {
     SetPlayerControl(1);
     this->updatePriorityPrev = this->updatePriority;
-    this->updatePriority = PRIO_OVERRIDE_MESSAGE;
+    this->updatePriority = PRIO_NO_BLOCK;
     if (SetMinPriority(PRIO_PLAYER))
         gPriorityHandler.requester = this;
 }
@@ -157,7 +157,7 @@ void RevokePriorityOverPlayer(Entity* this) {
 void RequestPriorityDuration(Entity* this, u32 time) {
     if (this != NULL) {
         this->updatePriorityPrev = this->updatePriority;
-        this->updatePriority = PRIO_OVERRIDE_MESSAGE;
+        this->updatePriority = PRIO_NO_BLOCK;
     }
     if (SetMinPriority(PRIO_PLAYER))
         gPriorityHandler.requester = this;
@@ -197,7 +197,7 @@ void SetRoomReloadPriority() {
 }
 
 void SetInitializationPriority() {
-    gPriorityHandler.sys_priority = PRIO_INITIALIZING;
+    gPriorityHandler.sys_priority = PRIO_HIGHEST;
 }
 
 void ResetSystemPriority() {

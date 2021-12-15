@@ -15,7 +15,7 @@ void Manager19_Main(Manager* this) {
         if (this->action == 0) {
             this->action = 1;
             this->unk_10 |= 0x20;
-            SetDefaultPriority((Entity*)this, 6);
+            SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
             if (gArea.onEnter == NULL) {
                 RegisterTransitionManager(this, sub_0805AFFC, NULL);
             } else {
@@ -30,8 +30,8 @@ void Manager19_Main(Manager* this) {
 }
 
 void sub_0805AFFC(Manager* this) {
-    gScreen.bg3.control = 0x1e03;
-    gScreen.lcd.displayControl |= 0x800;
+    gScreen.bg3.control = BGCNT_PRIORITY(3) | BGCNT_SCREENBASE(30);
+    gScreen.lcd.displayControl |= DISPCNT_BG3_ON;
     gScreen.bg3.xOffset = gRoomControls.roomScrollX + gRoomControls.bg3OffsetX.HALF.HI;
     gScreen.bg3.yOffset = gRoomControls.roomScrollY + gRoomControls.bg3OffsetY.HALF.HI;
 }

@@ -77,7 +77,7 @@ void sub_08065AA4(Entity* this) {
                 sub_0806F118(this);
             } else {
                 this->action = 3;
-                SetDefaultPriority(this, 2);
+                SetDefaultPriority(this, PRIO_MESSAGE);
                 sub_08065A50(this);
             }
             InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));

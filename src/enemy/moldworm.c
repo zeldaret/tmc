@@ -139,7 +139,7 @@ void sub_080231BC(Entity* this) {
         this->field_0x78.HWORD = 0x1e;
         this->palette.b.b0 = 5;
         this->direction = Random() & 0x1f;
-        this->animationState = Direction8ToAnimationState(this->direction);
+        this->animationState = Direction8ToAnimationState(Direction8RoundUp(this->direction));
         InitializeAnimation(this, this->animationState);
     }
 }
@@ -225,7 +225,7 @@ void sub_08023398(Entity* this) {
             u32 uVar4;
 
             sub_08004596(this, sub_08049F84(this, 1));
-            uVar4 = Direction8ToAnimationState(this->direction);
+            uVar4 = Direction8ToAnimationState(Direction8RoundUp(this->direction));
             if (uVar4 != this->animationState) {
                 this->animationState = uVar4;
                 InitializeAnimation(this, uVar4 + this->field_0x7a.HALF.HI);
@@ -249,7 +249,7 @@ void sub_080234D8(Entity* this) {
         this->action = 2;
         this->palette.b.b0 = 5;
         this->direction = Random() & 0x1f;
-        this->animationState = Direction8ToAnimationState(this->direction);
+        this->animationState = Direction8ToAnimationState(Direction8RoundUp(this->direction));
         sub_08023A88(this, this->animationState);
     }
 }

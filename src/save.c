@@ -79,7 +79,7 @@ static const SaveFileStatus sSaveDescInit = { 0xffff, 0xffff, 'TINI' };
 // Save file is deleted
 static const SaveFileStatus sSaveDescDeleted = { 0xffff, 0xffff, 'FleD' };
 
-const char gUnk_0811E4B4[8] = "DAMEDAME";
+const char sDummyData[8] = "DAMEDAME";
 const SaveFileEEPROMAddresses gSaveFileEEPROMAddresses[] = { { 0x500, 0x30, 0x1030, 0x80, 0x1080 },
                                                              { 0x500, 0x40, 0x1040, 0x580, 0x1580 },
                                                              { 0x500, 0x50, 0x1050, 0xa80, 0x1a80 },
@@ -438,7 +438,7 @@ bool32 DataWrite(u32 address, const void* data, u32 size) {
     address /= 8;
     while (size-- > 0) {
         if (EEPROMWrite0_8k_Check(address, data)) {
-            EEPROMWrite0_8k_Check(address, (const u16*)gUnk_0811E4B4);
+            EEPROMWrite0_8k_Check(address, (const u16*)sDummyData);
             return FALSE;
         }
         address++;

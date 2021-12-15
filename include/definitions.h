@@ -114,7 +114,7 @@ typedef enum {
     SPRITE_8,
     SPRITE_9,
     SPRITE_OBJECT4,
-    SPRITE_OBJECT6,
+    SPRITE_EZLOCAP,
     SPRITE_12,
     SPRITE_13,
     SPRITE_14,

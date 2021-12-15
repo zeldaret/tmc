@@ -74,7 +74,7 @@ script_08011C28:
 	CheckLocalFlag 0x0001
 	JumpIfNot script_08011C28
 	_0807E888
-	WaitPlayerAction8
+	WaitPlayerGetItem
 	Wait 0x001e
 	CallWithArg sub_0806C2A0, 0x00000000
 	WaitFor_2

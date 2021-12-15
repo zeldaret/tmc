@@ -72,7 +72,7 @@ void sub_08076758(ItemBehavior* this, u32 arg1) {
                     gPlayerEntity.field_0x7a.HWORD = 2;
                     gPlayerEntity.zVelocity = 0x20000;
                     gPlayerState.jumpStatus |= 0x10;
-                    gPlayerState.field_0x8 = 0x288;
+                    gPlayerState.animation = 0x288;
                     SoundReq(SFX_172);
                 }
             } else {

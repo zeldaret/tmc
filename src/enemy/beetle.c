@@ -150,7 +150,7 @@ void sub_08021984(Entity* this) {
 
 void sub_08021A10(Entity* this) {
     GetNextFrame(this);
-    if (sub_080041A0(this, &gPlayerEntity, 120, 80) && sub_08021D00(this) == 0) {
+    if (EntityInRectRadius(this, &gPlayerEntity, 120, 80) && sub_08021D00(this) == 0) {
         if (--this->actionDelay == 0) {
             this->action = 3;
             this->actionDelay = (Random() & 0x3f) + 30;

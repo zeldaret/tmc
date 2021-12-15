@@ -89,7 +89,7 @@ SCRIPT_START script_0800C634
 	_0807EB44 0x0004
 	CheckLocalFlag 0x0082
 	JumpIfNot script_0800C650
-	SetEntityPosition 0x0010, 0x0000
+	OffsetEntityPosition 0x0010, 0x0000
 script_0800C650:
 	EndBlock
 script_0800C652:

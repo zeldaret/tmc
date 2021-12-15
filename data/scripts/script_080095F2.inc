@@ -10,7 +10,7 @@ SCRIPT_START script_080095F2
 	PlaySound SFX_109
 	_0807F088 0x003c
 	MessageFromTarget 0x053c
-	WaitPlayerAction8 
+	WaitPlayerGetItem 
 	WaitUntilTextboxCloses
 	_0807F078 0x003c, 0x0001
 script_08009622:

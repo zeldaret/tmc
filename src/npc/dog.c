@@ -66,7 +66,7 @@ void sub_08069B44(Entity* this) {
         this->animationState = 2;
         this->field_0x6a.HALF.LO = 0xff;
         this->field_0x74.HALF.LO = sub_0801E99C(this);
-        SetDefaultPriority(this, 2);
+        SetDefaultPriority(this, PRIO_MESSAGE);
         InitAnimationForceUpdate(this, 10);
         if ((this->flags & 2) != 0) {
             sub_0807DD50(this);
@@ -273,7 +273,7 @@ u32 sub_08069F90(Entity* this) {
     if ((this->type == 2) && (CheckLocalFlag(MACHI_02_DOG) == 0)) {
         return 1;
     } else {
-        return sub_080041A0(this, &gPlayerEntity, 0x14, 0x14);
+        return EntityInRectRadius(this, &gPlayerEntity, 0x14, 0x14);
     }
 }
 
@@ -362,7 +362,7 @@ void Dog_Fusion(Entity* this) {
         if (sub_08069EF0(this) != 0) {
             this->action += 1;
             this->spriteSettings.draw = 1;
-            SetDefaultPriority(this, 2);
+            SetDefaultPriority(this, PRIO_MESSAGE);
             InitializeAnimation(this, 0x23);
         }
     } else {

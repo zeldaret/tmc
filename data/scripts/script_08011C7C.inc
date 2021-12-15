@@ -362,7 +362,7 @@ script_08012070:
 	MessageNoOverlap 0x3125
 	WaitUntilTextboxCloses
 	_0807F034 0x0031
-	WaitPlayerAction8
+	WaitPlayerGetItem
 .ifdef USA
 	Call sub_0807FC24
 .else
@@ -420,7 +420,7 @@ script_080120FC:
 	MessageNoOverlap 0x3119
 	WaitUntilTextboxCloses
 	_0807F034 0x002f
-	WaitPlayerAction8
+	WaitPlayerGetItem
 .ifdef USA
 	Call sub_0807FC24
 .else
@@ -478,7 +478,7 @@ script_08012188:
 	MessageNoOverlap 0x311f
 	WaitUntilTextboxCloses
 	_0807F034 0x0030
-	WaitPlayerAction8
+	WaitPlayerGetItem
 .ifdef USA
 	Call sub_0807FC24
 .else

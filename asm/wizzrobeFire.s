@@ -238,7 +238,7 @@ _0802FCDE:
 	adds r0, r4, #0
 	movs r2, #0xa0
 	movs r3, #0xa0
-	bl sub_080041A0
+	bl EntityInRectRadius
 	cmp r0, #0
 	beq _0802FDCA
 	adds r0, r4, #0

@@ -71,8 +71,8 @@ void DummyIntr(void) {
 
 void EnableVBlankIntr(void) {
     INTR_VECTOR = gIntrMain;
-    REG_DISPSTAT = 0x5028;
-    REG_IE = 0x2005;
+    REG_DISPSTAT = DISPSTAT_VCOUNT_INTR | DISPSTAT_VBLANK_INTR | (80 << 8);
+    REG_IE = INTR_FLAG_VBLANK | INTR_FLAG_VCOUNT | INTR_FLAG_GAMEPAK;
     REG_IME = 1;
 }
 
@@ -89,7 +89,7 @@ void VBlankIntr(void) {
 }
 
 void HBlankIntr(void) {
-    REG_DISPSTAT = 0x5028;
+    REG_DISPSTAT = DISPSTAT_VCOUNT_INTR | DISPSTAT_VBLANK_INTR | (80 << 8);
     m4aSoundMain();
 }
 
@@ -111,9 +111,9 @@ void sub_08016BF8(void) {
 }
 
 void UpdateDisplayControls(void) {
-    if (gUnk_03000000.update && ((gScreen.lcd.displayControl & 0x1000) != 0)) {
+    if (gUnk_03000000.update && (gScreen.lcd.displayControl & DISPCNT_OBJ_ON)) {
         gUnk_03000000.update = 0;
-        DmaCopy32(3, &gUnk_03000000.oam, 0x07000000, 0x400);
+        DmaCopy32(3, &gUnk_03000000.oam, OAM, OAM_SIZE);
     }
     sub_08016CA8(&gScreen.bg0);
     sub_08016CA8(&gScreen.bg1);
@@ -126,7 +126,7 @@ void sub_08016CA8(BgSettings* bg) {
         u32 dest;
         bg->updated = 0;
         dest = bg->control;
-        DmaCopy32(3, bg->tilemap, ((dest << 3) & 0xF800) + 0x06000000, gUnk_080B2CD8[dest >> 14]);
+        DmaCopy32(3, bg->tilemap, ((dest << 3) & 0xF800) + VRAM, gUnk_080B2CD8[dest >> 14]);
     }
 }
 
@@ -189,9 +189,9 @@ void PlayerUpdate(Entity* this) {
         if ((gPlayerState.flags & 0x80000) != 0) {
             sub_08077B20();
             if ((gPlayerState.flags & 0x200000) != 0) {
-                gPlayerState.playerAction = 0x18;
+                gPlayerState.playerAction = PLAYER_ROLL;
                 gPlayerState.flags &= ~0x80000;
-                gPlayerState.hurtBlinkSpeed = 0xf0;
+                gPlayerState.hurtBlinkSpeed = 240;
                 COLLISION_ON(this);
             } else {
                 COLLISION_OFF(this);
@@ -224,7 +224,7 @@ void HandlePlayerLife(Entity* this) {
         SoundReq(SFX_86);
 
     gPlayerState.flags &= ~(0x2000000 | 0x200);
-    if (gPlayerState.flags & 0x400)
+    if (gPlayerState.flags & PL_BURNING)
         ResetPlayer();
     if ((gPlayerState.flags & 0x400000) && !gPlayerState.field_0xa0[0])
         sub_0807A108();
@@ -242,7 +242,7 @@ void HandlePlayerLife(Entity* this) {
         return;
     }
 
-    if ((gPlayerState.field_0x8b != 0) || (gMessage.doTextBox & 0x7f))
+    if ((gPlayerState.controlMode != CONTROL_ENABLED) || (gMessage.doTextBox & 0x7f))
         return;
 
     gRoomVars.unk2 = gMessage.doTextBox & 0x7f;
@@ -294,7 +294,7 @@ void sub_080171F0(void) {
         gPlayerEntity.field_0x7a.HWORD--;
 
     gPlayerEntity.bitfield &= ~0x80;
-    if (gPlayerEntity.action != 0x14)
+    if (gPlayerEntity.action != PLAYER_DROWN)
         COPY_FLAG_FROM_TO(gPlayerState.flags, 0x2, 0x10000);
 
     gPlayerState.flags &= ~2;
@@ -318,7 +318,7 @@ void sub_080171F0(void) {
     if (gPlayerState.flags & 0x400000)
         gUnk_03004040[0]->spriteOffsetY = gUnk_03004040[1]->spriteOffsetY = gUnk_03004040[2]->spriteOffsetY = 0;
 
-    if (gPlayerEntity.action == 0x1d)
+    if (gPlayerEntity.action == PLAYER_08072F34)
         gPlayerState.flags |= 0x20000000;
     else
         gPlayerState.flags &= ~0x20000000;
@@ -327,7 +327,7 @@ void sub_080171F0(void) {
     if (gPlayerState.jumpStatus & 0xc0)
         gPlayerEntity.iframes = 0xfe;
 
-    if (gPlayerEntity.action != 0x17) {
+    if (gPlayerEntity.action != PLAYER_ROOMTRANSITION) {
         sub_08077FEC(gPlayerEntity.action);
     }
 }

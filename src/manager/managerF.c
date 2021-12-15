@@ -209,7 +209,7 @@ void sub_08059094(ManagerF* this) {
 void sub_080590E0(ManagerF* this) {
     if (!this->manager.action) {
         this->manager.action = 1;
-        SetDefaultPriority((Entity*)this, 6);
+        SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
     }
     if (CheckLocalFlag(0x6c)) {
         if (CheckLocalFlag(0x4b)) {
@@ -427,7 +427,7 @@ void sub_080594DC(ManagerF* this) {
 
 #if defined(USA) || defined(DEMO_USA) || defined(DEMO_JP)
 void sub_08059548(ManagerF* this) {
-    SetDefaultPriority((Entity*)this, 6);
+    SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
     if (gPlayerEntity.action == 0x16) {
         DeleteThisEntity();
     }

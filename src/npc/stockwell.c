@@ -25,7 +25,7 @@ void sub_08065080(Entity* this) {
 
     this->action = 1;
     this->spriteSettings.draw = 1;
-    SetDefaultPriority(this, 2);
+    SetDefaultPriority(this, PRIO_MESSAGE);
     InitializeAnimation(this, 4);
     sub_08078778(this);
 #ifndef EU

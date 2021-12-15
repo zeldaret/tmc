@@ -63,8 +63,16 @@ typedef enum {
 } PlayerControlMode;
 
 enum PlayerFlags {
+    PL_BUSY = (1 << 0),
+    PL_DROWNING = (1 << 2),
     PL_NO_CAP = (1 << 3),
+    PL_USE_PORTAL = (1 << 5),
     PL_MINISH = (1 << 7),
+    PL_BURNING = (1 << 10),
+    PL_ROLLING = (1 << 18),
+    PL_IN_HOLE = (1 << 20),
+    PL_USE_LANTERN = (1 << 23),
+    PL_USE_OCARINA = (1 << 28),
 };
 
 typedef struct {
@@ -74,7 +82,7 @@ typedef struct {
     /*0x05*/ u8 heldObject;
     /*0x06*/ u8 pushedObject;
     /*0x07*/ u8 field_0x7;
-    /*0x08*/ u16 field_0x8;
+    /*0x08*/ u16 animation;
     /*0x0a*/ u8 field_0xa;
     /*0x0b*/ u8 keepFacing;
     /*0x0c*/ u8 playerAction;
@@ -121,7 +129,7 @@ typedef struct {
     /*0x40*/ u8 hurtType[64];
     /*0x80*/ u16 field_0x80;
     /*0x82*/ u8 field_0x82[9];
-    /*0x8b*/ u8 field_0x8b;
+    /*0x8b*/ u8 controlMode;
     /*0x8c*/ u32 field_0x8c;
     /*0x90*/ union SplitWord field_0x90;
     /*0x94*/ u32 field_0x94;

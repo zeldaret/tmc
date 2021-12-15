@@ -978,7 +978,7 @@ sub_08033364: @ 0x08033364
 _0803337E:
 	adds r0, r4, #0
 	adds r2, r3, #0
-	bl sub_080041A0
+	bl EntityInRectRadius
 	cmp r0, #0
 	beq _080333B4
 	ldrb r0, [r4, #0xa]

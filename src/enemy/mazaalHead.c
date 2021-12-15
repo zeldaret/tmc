@@ -224,7 +224,7 @@ void sub_08033FFC(Entity* this) {
             if (((*(Entity**)&this->field_0x74)->flags & 0x80) != 0) {
                 gRoomControls.cameraTarget = &gPlayerEntity;
                 sub_08034420(this);
-                gPlayerState.field_0x8b = 1;
+                gPlayerState.controlMode = 1;
                 sub_080791D0();
                 SoundReq(BGM_BOSS_THEME);
             }

@@ -13,7 +13,7 @@ void Manager1D_Main(Manager* this) {
 void sub_0805B5E0(Manager* this) {
     this->action = 1;
 
-    gScreen.lcd.displayControl |= 0x800;
+    gScreen.lcd.displayControl |= DISPCNT_BG3_ON;
     gScreen.bg3.control = gUnk_08108C88[this->unk_0a];
     gRoomControls.bg3OffsetY.WORD = 0;
     gRoomControls.bg3OffsetX.WORD = 0;

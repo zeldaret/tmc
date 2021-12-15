@@ -65,7 +65,7 @@ void CollisionMain(void) {
 
     doCollision = &gDoCollision;
     // Check to see if we should disable collision this frame
-    if (gPlayerState.field_0x8b != 0) {
+    if (gPlayerState.controlMode != CONTROL_ENABLED) {
         u32 flags = gPlayerEntity.flags;
         COLLISION_OFF(&gPlayerEntity);
         doCollision();

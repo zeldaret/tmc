@@ -180,7 +180,7 @@ void sub_08020E78(Entity* this) {
 }
 
 void sub_08020E98(Entity* this) {
-    if (PlayerInRange(this, 1, 0x38)) {
+    if (PlayerInRange(this, 1, 56)) {
         if (sub_0802169C(this, gUnk_020000B0)) {
             this->action = 8;
             sub_08021218(this, 7, this->animationState);
@@ -190,7 +190,7 @@ void sub_08020E98(Entity* this) {
                 this->action = 8;
                 sub_08021218(this, 7, this->animationState);
             } else {
-                this->direction ^= 0x10;
+                this->direction = DirectionTurnAround(this->direction);
                 sub_0802124C(this);
                 sub_08021644(this);
             }

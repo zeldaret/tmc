@@ -27,7 +27,7 @@ void VaatiAction0(Entity* this) {
     this->spriteSettings.draw = 1;
     this->field_0x68.HALF.LO = 0;
     this->field_0x68.HALF.HI = 0;
-    SetDefaultPriority(this, 2);
+    SetDefaultPriority(this, PRIO_MESSAGE);
     sub_0807DD64(this);
     VaatiAction1(this);
 }

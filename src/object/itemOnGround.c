@@ -120,7 +120,7 @@ void sub_08080F20(Entity* this) {
         this->field_0x6c.HWORD = 0;
         this->field_0x68.HALF.LO = 0;
         this->actionDelay = 0;
-        SetDefaultPriority(this, 3);
+        SetDefaultPriority(this, PRIO_NO_BLOCK);
         this->field_0x1c = sub_0808147C(this->type);
         gUnk_0811E7E8[this->field_0x68.HALF.HI](this);
     } else {
@@ -338,7 +338,7 @@ void sub_08081404(Entity* this, u32 arg1) {
 
 bool32 sub_08081420(Entity* this) {
     if (CheckShouldPlayItemGetCutscene(this)) {
-        SetDefaultPriority(this, 6);
+        SetDefaultPriority(this, PRIO_PLAYER_EVENT);
         CreateItemEntity(this->type, this->type2, 0);
         return TRUE;
     } else {

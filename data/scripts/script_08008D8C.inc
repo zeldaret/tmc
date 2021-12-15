@@ -81,7 +81,7 @@ script_08008E12:
 	_0807E5F8 0x00000001
 	WaitForSomething2 0x00000002
 	_0807F034 0x0035
-	WaitPlayerAction8
+	WaitPlayerGetItem
 	StartPlayerScript script_08008FC0
 	WaitForSomething2 0x00000020
 	_0807E8E4_0
@@ -95,7 +95,7 @@ script_08008E12:
 	_0807E5F8 0x00000001
 	WaitForSomething2 0x00000002
 	_0807F034 0x0047
-	WaitPlayerAction8
+	WaitPlayerGetItem
 	SetIntVariable 0x00000003
 	Call sub_0807F420
 	_0807E8E4_0

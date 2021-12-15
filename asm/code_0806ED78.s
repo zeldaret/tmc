@@ -36,7 +36,7 @@ sub_0806ED9C: @ 0x0806ED9C
 	rsbs r6, r6, #0
 	ldr r1, _0806EDC0 @ =gPlayerEntity
 	adds r2, r4, #0
-	bl sub_080041A0
+	bl EntityInRectRadius
 	cmp r0, #0
 	beq _0806EDBC
 	adds r0, r5, #0
@@ -69,7 +69,7 @@ sub_0806EDD8: @ 0x0806EDD8
 	ldr r6, _0806EE00 @ =gPlayerEntity
 	adds r1, r6, #0
 	adds r2, r4, #0
-	bl sub_080041A0
+	bl EntityInRectRadius
 	cmp r0, #0
 	beq _0806EDFC
 	adds r0, r5, #0
@@ -1106,7 +1106,7 @@ sub_0806F548: @ 0x0806F548
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r5, r1, #0
-	bl sub_080041A0
+	bl EntityInRectRadius
 	cmp r0, #0
 	bne _0806F55A
 	movs r0, #0

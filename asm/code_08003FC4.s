@@ -293,8 +293,8 @@ sub_0800419C: @ 0x0800419C
 	push {r5, r6, lr}
 	b _080041B0
 
-	thumb_func_start sub_080041A0
-sub_080041A0: @ 0x080041A0
+	thumb_func_start EntityInRectRadius
+EntityInRectRadius: @ 0x080041A0
 	push {r5, r6, lr}
 	movs r6, #0x38
 	ldrb r5, [r0, r6]
