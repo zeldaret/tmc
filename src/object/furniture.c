@@ -17,7 +17,79 @@ typedef enum {
 } FurnitureFlag;
 
 typedef enum {
-    TMP2,
+    BOOKSHELF,
+    CRATE,
+    BULLETIN_BOARD,
+    CERAMIC_SHELF1,
+    FLOUR_SACK,
+    LOGS,
+    WATER_BARREL,
+    WEAPON_RACK,
+    RED_CAULDRON,
+    SMITH_FORGE,
+    LARGE_CERAMIC_SHELF,
+    LADDER,
+    GLOWING_PLANT,
+    GLOWING_SPORES,
+    LOG_SHELF,
+    KINSTONE_SHELF,
+    BLUE_CAULDRON,
+    HAY_BED,
+    MILK_JUG,
+    HAY_BALE,
+    FLOWER_BED_SMALL,
+    FLOWER_BED_VERT,
+    FLOWER_BED_HORIZ,
+    CARPENTER_MACHINE,
+    SPROUT_CART,
+    ENVELOPE_SHELF,
+    BREAD_SHELF,
+    MAYOR_DESK,
+    SHOES,
+    REPAIRED_SHOE,
+    SHOE_DESK,
+    STAIRCASE,
+    DECORATED_STONE,
+    BIRD_STATUE,
+    CLOSET,
+    DRAWERS,
+    CERAMIC_SHELF2,
+    LARGE_BOOKCASE,
+    MINISH_BED,
+    MINISH_BUTTONS,
+    MINISH_CHEESE,
+    MINISH_CHERRIES,
+    MINISH_CHESSPIECE,
+    MINISH_COOKIES,
+    MINISH_MUG,
+    DR_LEFT_DESK1,
+    DR_LEFT_DESK2,
+    MINISH_DIE,
+    MINISH_GEAR,
+    MINISH_PINCUSHION,
+    MINISH_THREAD,
+    MINISH_MALLET,
+    MINISH_SCROLL_BOX,
+    MINISH_APPLE,
+    MINISH_CANDLE,
+    MINISH_WOOD_PLANK,
+    GBA_SCREEN,
+    PHONOGRAPH,
+    BAKERY_TABLE,
+    WOODEN_TABLE,
+    LOW_BOOKSHELF,
+    FIGURINE_DEVICE_STATIC,
+    FORGE_HELPER,
+    MINISH_UNLIT_CANDLE,
+    MINISH_GEARS,
+    DOUBLE_BOOKSHELF,
+    MINISH_DECOR1,
+    MINISH_DECOR2,
+    MINISH_JAM,
+    MINISH_BREAD,
+    POSTER1,
+    POSTER2,
+    NOTE,
 } FurnitureType;
 
 typedef struct {
@@ -64,13 +136,13 @@ static void sub_08090B6C(FurnitureEntity*);
 static void sub_08090E4C(FurnitureEntity*);
 static void sub_08090CDC(u32, u32, u32);
 
-void Furniture(FurnitureEntity* this) {
+void Furniture(Entity* this) {
     static FurnitureAction* const sFurnitureActions[] = {
         FurnitureInit,
         FurnitureUpdate,
     };
 
-    sFurnitureActions[super->action](this);
+    sFurnitureActions[this->action]((FurnitureEntity*)this);
 }
 
 static void FurnitureInit(FurnitureEntity* this) {
@@ -140,23 +212,23 @@ static void FurnitureInit(FurnitureEntity* this) {
     }
 
     switch (super->type) {
-        case 1:
+        case CRATE:
             if (super->type2 != 0) {
                 super->spritePriority.b0 = 4;
             }
             break;
-        case 9:
-            e = CreateObject(FURNITURE, 62, 0);
+        case SMITH_FORGE:
+            e = CreateObject(FURNITURE, FORGE_HELPER, 0);
             if (e != NULL) {
                 PositionRelative(super, e, 0x100000, 0x100000);
                 e->frameIndex = 1;
-                e->updatePriority = 2;
+                e->updatePriority = PRIO_MESSAGE;
             }
             break;
-        case 30:
+        case SHOE_DESK:
             sub_0807B7D8(774, this->tile + 65, 2);
             break;
-        case 31:
+        case STAIRCASE:
             super->collisionLayer = 1;
             super->spriteOrientation.flipY = 2;
             SetTile(0x4074, this->tile - 64, super->collisionLayer);
@@ -164,16 +236,16 @@ static void FurnitureInit(FurnitureEntity* this) {
             SetTile(0x4017, this->tile, super->collisionLayer);
             SetTile(0x4017, this->tile + 64, super->collisionLayer);
             break;
-        case 40:
+        case MINISH_CHEESE:
             if (super->type2 != 0)
                 super->spriteOffsetX = -4;
             break;
-        case 59:
+        case WOODEN_TABLE:
             SetTile(0x4023, this->tile - 65, super->collisionLayer);
             SetTile(0x4023, this->tile - 64, super->collisionLayer);
             SetTile(0x4023, this->tile - 63, super->collisionLayer);
             break;
-        case 60:
+        case LOW_BOOKSHELF:
             SetTile(0x4022, this->tile + 65, super->collisionLayer);
     }
 }
@@ -195,7 +267,7 @@ static void FurnitureUpdate(FurnitureEntity* this) {
             }
             break;
         case 0x10:
-            if (super->type != 62) {
+            if (super->type != FORGE_HELPER) {
                 if (++super->actionDelay == 20) {
                     super->frameIndex = (super->frameIndex + 1) & 3;
                     super->actionDelay = 0;
