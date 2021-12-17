@@ -783,7 +783,7 @@ SECTIONS {
         src/object/backgroundCloud.o(.text);
         asm/object4B.o(.text);
         asm/pushableFurniture.o(.text);
-        asm/furniture.o(.text);
+        src/object/furniture.o(.text);
         src/object/minishSizedEntrance.o(.text);
         src/object/archway.o(.text);
         asm/giantRock.o(.text);
@@ -1519,6 +1519,7 @@ SECTIONS {
         data/const/object/pushableFurniture.o(.rodata);
         data/const/object/furniture.o(.rodata);
         data/animations/object/furniture.o(.rodata);
+        src/object/furniture.o(.rodata);
         data/const/object/minishSizedEntrance.o(.rodata);
         data/animations/object/minishSizedEntrance.o(.rodata);
         data/const/object/object51.o(.rodata);
