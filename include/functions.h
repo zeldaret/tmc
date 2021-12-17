@@ -29,7 +29,7 @@ extern Entity* CreateDeathFx(Entity*, u32, u32);
 extern void UpdateAnimationVariableFrames(Entity*, u32);
 extern u8* GetSpriteSubEntryOffsetDataPointer(u32, u32);
 extern bool32 LoadFixedGFX(Entity*, u32);
-extern Entity* CreateItemEntity(u32, u32, u32);
+extern void CreateItemEntity(u32, u32, u32);
 extern u32 ProcessMovement(Entity*);
 extern void MenuFadeIn(u32, u32);
 extern void LoadResourceAsync(const void*, u32, u32);

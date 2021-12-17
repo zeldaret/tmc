@@ -65,7 +65,7 @@ SECTIONS {
         . = 0x00012654; gMetatilesTop = .;
         . = 0x00016654; gUnk_02016654 = .;
         . = 0x00017654; gCurrentRoomProperties = .;
-        . = 0x00017660; gUnk_02017660 = .;
+        . = 0x00017660; gSmallChests = .;
         . = 0x000176A0; gPaletteBuffer = .;
         . = 0x000176E0; gUnk_020176E0 = .;
         . = 0x00017700; gUnk_02017700 = .;
@@ -919,7 +919,7 @@ SECTIONS {
         src/sub_080A554C.o(.text);
         asm/code_080A5574.o(.text);
         src/playerItem/playerItemSword.o(.text);
-        asm/code_080A7C00.o(.text);
+        src/code_080A7C00.o(.text);
         src/projectileInit.o(.text);
         src/projectile/darkNutSwordSlash.o(.text);
         src/projectile/rockProjectile.o(.text);
