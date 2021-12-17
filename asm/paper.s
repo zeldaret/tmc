@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start Object5A
-Object5A: @ 0x0809271C
+	thumb_func_start Paper
+Paper: @ 0x0809271C
 	push {lr}
 	ldr r2, _08092730 @ =gUnk_08122780
 	ldrb r1, [r0, #0xc]

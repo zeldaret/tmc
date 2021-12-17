@@ -10,4 +10,4 @@ gUnk_08120BE0:: @ 08120BE0
 	.4byte sub_080888F4
 
 gUnk_08120BEC:: @ 08120BEC
-	.incbin "object24/gUnk_08120BEC.bin"
+	.incbin "PressurePlate/gUnk_08120BEC.bin"

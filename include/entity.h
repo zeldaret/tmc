@@ -130,6 +130,7 @@ typedef struct Entity {
     /*0x62*/ u8 spriteOffsetX;
     /*0x63*/ s8 spriteOffsetY;
     /*0x64*/ u32* myHeap;
+#ifndef NENT_DEPRECATED
     /*0x68*/ union SplitHWord field_0x68;
     /*0x6a*/ union SplitHWord field_0x6a;
     /*0x6c*/ union SplitHWord field_0x6c;
@@ -144,6 +145,7 @@ typedef struct Entity {
     /*0x82*/ union SplitHWord field_0x82;
     /*0x84*/ union SplitHWord cutsceneBeh;
     /*0x86*/ union SplitHWord field_0x86;
+#endif
 } Entity;
 
 typedef struct LinkedList {

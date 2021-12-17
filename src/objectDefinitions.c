@@ -118,9 +118,9 @@ const ObjectDefinition gObjectDefinition_25[] = {
     { { 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, SPRITE_0, 0, 0 } },
 };
 const ObjectDefinition gObjectDefinition_24[] = {
-    { { 1, 0, 0, 0, 22, 0, 0 }, { 0, 0, 0, 0, SPRITE_OBJECT24, 0, 0 } },
-    { { 1, 0, 0, 0, 39, 0, 0 }, { 0, 0, 0, 0, SPRITE_OBJECT24, 0, 0 } },
-    { { 1, 0, 0, 0, 40, 0, 0 }, { 0, 0, 0, 0, SPRITE_OBJECT24, 0, 0 } },
+    { { 1, 0, 0, 0, 22, 0, 0 }, { 0, 0, 0, 0, SPRITE_PRESSUREPLATE, 0, 0 } },
+    { { 1, 0, 0, 0, 39, 0, 0 }, { 0, 0, 0, 0, SPRITE_PRESSUREPLATE, 0, 0 } },
+    { { 1, 0, 0, 0, 40, 0, 0 }, { 0, 0, 0, 0, SPRITE_PRESSUREPLATE, 0, 0 } },
 };
 #ifdef EU
 const ObjectDefinition gObjectDefinition_1C[] = {

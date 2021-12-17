@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start Object80
-Object80: @ 0x08098B10
+	thumb_func_start Board
+Board: @ 0x08098B10
 	push {lr}
 	ldr r2, _08098B24 @ =gUnk_08123664
 	ldrb r1, [r0, #0xc]

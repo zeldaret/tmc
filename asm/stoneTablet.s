@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start Object72
-Object72: @ 0x080979B4
+	thumb_func_start StoneTablet
+StoneTablet: @ 0x080979B4
 	push {lr}
 	ldr r2, _080979C8 @ =gUnk_081232E4
 	ldrb r1, [r0, #0xc]

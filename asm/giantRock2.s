@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start Object51
-Object51: @ 0x08090FF8
+	thumb_func_start GiantRock2
+GiantRock2: @ 0x08090FF8
 	push {lr}
 	ldr r2, _0809100C @ =gUnk_08122278
 	ldrb r1, [r0, #0xc]

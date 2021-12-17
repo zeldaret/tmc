@@ -12,4 +12,4 @@ gUnk_08124670:: @ 08124670
 	.4byte sub_0809F254
 
 gUnk_08124684:: @ 08124684
-	.incbin "objectA0/gUnk_08124684.bin"
+	.incbin "angryStatue/gUnk_08124684.bin"

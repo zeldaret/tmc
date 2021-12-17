@@ -46,7 +46,7 @@ void sub_0805D02C(Manager2B* this) {
         objectData = GetCurrentRoomProperty(this->manager.unk_0a);
         counter = 0;
         while (counter < 4) {
-            object = CreateObject(OBJECT_A0, objectData[2], counter);
+            object = CreateObject(ANGRY_STATUE, objectData[2], counter);
             object->x.HALF.HI = objectData[0] + gRoomControls.roomOriginX;
             object->y.HALF.HI = objectData[1] + gRoomControls.roomOriginY;
             object->parent = (Entity*)this;

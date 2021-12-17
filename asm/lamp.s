@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start Object93
-Object93: @ 0x0809CE90
+	thumb_func_start Lamp
+Lamp: @ 0x0809CE90
 	push {lr}
 	ldr r2, _0809CEA4 @ =gUnk_08123E80
 	ldrb r1, [r0, #0xc]

@@ -50,6 +50,8 @@
 #define BOOLCAST(x) ((-(x) | (x)) >> 31)
 #define static_assert(cond) extern char assertion[(cond) ? 1 : -1]
 
+#define super (&this->base)
+
 #if NON_MATCHING
 #define ASM_FUNC(path, decl)
 #else

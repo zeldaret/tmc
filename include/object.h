@@ -9,7 +9,7 @@ typedef enum {
     DEATH_FX,
     SHOP_ITEM,
     BUTTON,
-    OBJECT_4,
+    MINISH_EMOTICON,
     POT,
     EZLO_CAP,
     PUSHED_BLOCK,
@@ -41,12 +41,12 @@ typedef enum {
     OBJECT_21,
     FIGURINE_DEVICE,
     EYE_SWITCH,
-    OBJECT_24,
+    PRESSURE_PLATE,
     BIG_BARREL,
-    OBJECT_26,
+    BARREL_INSIDE,
     PUSHABLE_STATUE,
     OBJECT_28,
-    OBJECT_29,
+    AMBIENT_CLOUDS,
     OBJECT_2A,
     OBJECT_2B,
     BEANSTALK,
@@ -86,7 +86,7 @@ typedef enum {
     MINISH_SIZED_ENTRANCE,
     ARCHWAY,
     GIANT_ROCK,
-    OBJECT_51,
+    GIANT_ROCK2,
     OBJECT_52,
     OBJECT_53,
     PULLABLE_LEVER,
@@ -95,7 +95,7 @@ typedef enum {
     HIDDEN_LADDER_DOWN,
     GENTARI_CURTAIN,
     LAVA_PLATFORM,
-    OBJECT_5A,
+    PAPER,
     OBJECT_5B,
     MASK,
     HOUSE_DOOR_INT,
@@ -119,7 +119,7 @@ typedef enum {
     MINISH_SIZED_ARCHWAY,
     OBJECT_70,
     PUSHABLE_GRAVE,
-    OBJECT_72,
+    STONE_TABLET,
     LILYPAD_SMALL,
     OBJECT_74,
     OBJECT_75,
@@ -133,7 +133,7 @@ typedef enum {
     OBJECT_ON_BEETLE,
     OBJECT_7E,
     PICO_BLOOM,
-    OBJECT_80,
+    BOARD,
     OBJECT_81,
     BIG_VORTEX,
     BIG_PUSHABLE_LEVER,
@@ -142,9 +142,9 @@ typedef enum {
     OBJECT_86,
     OCTOROK_BOSS_OBJECT,
     HUGE_BOOK,
-    OBJECT_89,
-    OBJECT_8A,
-    OBJECT_8B,
+    MAZAAL_BOSS_OBJECT,
+    CABIN_FURNITURE,
+    DOUBLE_BOOKSHELF,
     BOOK,
     FIREPLACE,
     OBJECT_8E,
@@ -152,7 +152,7 @@ typedef enum {
     OBJECT_90,
     OBJECT_91,
     BAKER_OVEN,
-    OBJECT_93,
+    LAMP,
     WIND_TRIBE_FLAG,
     BIRD,
     OBJECT_96,
@@ -163,14 +163,14 @@ typedef enum {
     OBJECT_9B,
     TREE_HIDING_PORTAL,
     LIGHTABLE_SWITCH,
-    OBJECT_9E,
+    TREE_THORNS,
     FAN,
-    OBJECT_A0,
+    ANGRY_STATUE,
     PALACE_ARCHWAY,
     OBJECT_A2,
     CLOUD,
     MINISH_LIGHT,
-    OBJECT_A5,
+    FIREBALL_CHAIN,
     OBJECT_A6,
     OBJECT_A7,
     OBJECT_A8,
@@ -191,7 +191,7 @@ typedef enum {
     WELL,
     WIND_TRIBE_TELEPORTER,
     OBJECT_B9,
-    OBJECT_BA,
+    GYORG_BOSS_OBJECT,
     WINDCREST,
     LIT_AREA,
     OBJECT_BD,
@@ -205,7 +205,7 @@ extern void ItemOnGround(Entity*);
 extern void DeathFx(Entity*);
 extern void ItemForSale(Entity*);
 extern void Button(Entity*);
-extern void Object4(Entity*);
+extern void MinishEmoticon(Entity*);
 extern void Pot(Entity*);
 extern void EzloCap(Entity*);
 extern void BlockPushed(Entity*);
@@ -237,12 +237,12 @@ extern void Object20(Entity*);
 extern void Object21(Entity*);
 extern void FigurineDevice(Entity*);
 extern void EyeSwitch(Entity*);
-extern void Object24(Entity*);
+extern void PressurePlate(Entity*);
 extern void BigBarrel(Entity*);
-extern void Object26(Entity*);
+extern void BarrelInside(Entity*);
 extern void PushableStatue(Entity*);
 extern void Object28(Entity*);
-extern void Object29(Entity*);
+extern void AmbientClouds(Entity*);
 extern void Object2A(Entity*);
 extern void Object2B(Entity*);
 extern void Beanstalk(Entity*);
@@ -282,7 +282,7 @@ extern void Furniture(Entity*);
 extern void MinishSizedEntrance(Entity*);
 extern void Archway(Entity*);
 extern void GiantRock(Entity*);
-extern void Object51(Entity*);
+extern void GiantRock2(Entity*);
 extern void Object52(Entity*);
 extern void Object53(Entity*);
 extern void PullableLever(Entity*);
@@ -291,7 +291,7 @@ extern void ThoughtBubble(Entity*);
 extern void HiddenLadderDown(Entity*);
 extern void GentariCurtain(Entity*);
 extern void LavaPlatform(Entity*);
-extern void Object5A(Entity*);
+extern void Paper(Entity*);
 extern void Object5B(Entity*);
 extern void Mask(Entity*);
 extern void HouseDoorInterior(Entity*);
@@ -315,7 +315,7 @@ extern void MineralWaterSource(Entity*);
 extern void MinishSizedArchway(Entity*);
 extern void Object70(Entity*);
 extern void PushableGrave(Entity*);
-extern void Object72(Entity*);
+extern void StoneTablet(Entity*);
 extern void LilypadSmall(Entity*);
 extern void Object74(Entity*);
 extern void Object75(Entity*);
@@ -329,7 +329,7 @@ extern void MacroShoes(Entity*);
 extern void ObjectOnSpinyBeetle(Entity*);
 extern void Object7E(Entity*);
 extern void PicoBloom(Entity*);
-extern void Object80(Entity*);
+extern void Board(Entity*);
 extern void Object81(Entity*);
 extern void BigVortex(Entity*);
 extern void BigPushableLever(Entity*);
@@ -338,9 +338,9 @@ extern void BigIceBlock(Entity*);
 extern void Object86(Entity*);
 extern void OctorokBossObject(Entity*);
 extern void MacroBook(Entity*);
-extern void Object89(Entity*);
-extern void Object8A(Entity*);
-extern void Object8B(Entity*);
+extern void MazaalBossObject(Entity*);
+extern void CabinFurniture(Entity*);
+extern void DoubleBookshelf(Entity*);
 extern void Book(Entity*);
 extern void Fireplace(Entity*);
 extern void Object8E(Entity*);
@@ -348,7 +348,7 @@ extern void FrozenWaterElement(Entity*);
 extern void Object90(Entity*);
 extern void Object91(Entity*);
 extern void BakerOven(Entity*);
-extern void Object93(Entity*);
+extern void Lamp(Entity*);
 extern void WindTribeFlag(Entity*);
 extern void Bird(Entity*);
 extern void Object96(Entity*);
@@ -359,14 +359,14 @@ extern void MacroAcorn(Entity*);
 extern void Object9B(Entity*);
 extern void TreeHidingPortal(Entity*);
 extern void LightableSwitch(Entity*);
-extern void Object9E(Entity*);
+extern void TreeThorns(Entity*);
 extern void Fan(Entity*);
-extern void ObjectA0(Entity*);
+extern void AngryStatue(Entity*);
 extern void PalaceArchway(Entity*);
 extern void ObjectA2(Entity*);
 extern void Cloud(Entity*);
 extern void MinishLight(Entity*);
-extern void ObjectA5(Entity*);
+extern void FireballChain(Entity*);
 extern void ObjectA6(Entity*);
 extern void ObjectA7(Entity*);
 extern void ObjectA8(Entity*);
@@ -387,7 +387,7 @@ extern void ObjectB6(Entity*);
 extern void Well(Entity*);
 extern void WindTribeTeleporter(Entity*);
 extern void ObjectB9(Entity*);
-extern void ObjectBA(Entity*);
+extern void GyorgBossObject(Entity*);
 extern void Windcrest(Entity*);
 extern void LitArea(Entity*);
 extern void ObjectBD(Entity*);
