@@ -738,7 +738,7 @@ SECTIONS {
         asm/object21.o(.text);
         asm/figurineDevice.o(.text);
         asm/eyeSwitch.o(.text);
-        asm/PressurePlate.o(.text);
+        asm/pressurePlate.o(.text);
         asm/bigBarrel.o(.text);
         asm/barrelInside.o(.text);
         asm/pushableStatue.o(.text);
