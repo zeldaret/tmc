@@ -7,7 +7,7 @@
 
 extern Hitbox gHitbox_1;
 
-void Object9E(Entity* this) {
+void TreeThorns(Entity* this) {
     Entity* ent;
     u32 tilePos;
     u8* layer;
@@ -29,7 +29,7 @@ void Object9E(Entity* this) {
             SetTile(0x4066, tilePos - 1, *layer);
             SetTile(0x4065, tilePos, *layer);
             UpdateSpriteForCollisionLayer(this);
-            ent = CreateObject(OBJECT_9E, 1, 0);
+            ent = CreateObject(TREE_THORNS, 1, 0);
             if (ent != NULL) {
                 this->child = ent;
                 CopyPosition(this, ent);

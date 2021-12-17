@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start Object4
-Object4: @ 0x08082040
+	thumb_func_start MinishEmoticon
+MinishEmoticon: @ 0x08082040
 	push {lr}
 	ldr r2, _08082054 @ =gUnk_0811EE5C
 	ldrb r1, [r0, #0xc]

@@ -5,7 +5,7 @@
     .align 2
 
 gUnk_08120C80:: @ 08120C80
-	.incbin "object26/gUnk_08120C80.bin"
+	.incbin "barrelInside/gUnk_08120C80.bin"
 
 gUnk_08120C92:: @ 08120C92
-	.incbin "object26/gUnk_08120C92.bin"
+	.incbin "barrelInside/gUnk_08120C92.bin"

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start Object24
-Object24: @ 0x08088804
+	thumb_func_start PressurePlate
+PressurePlate: @ 0x08088804
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xf]

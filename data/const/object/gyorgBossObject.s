@@ -17,4 +17,4 @@ gUnk_08124ED0:: @ 08124ED0
 	.4byte sub_080A1C04
 
 gUnk_08124EF8:: @ 08124EF8
-	.incbin "objectBA/gUnk_08124EF8.bin"
+	.incbin "gyorgBossObject/gUnk_08124EF8.bin"

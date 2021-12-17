@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start ObjectA0
-ObjectA0: @ 0x0809F12C
+	thumb_func_start AngryStatue
+AngryStatue: @ 0x0809F12C
 	push {lr}
 	ldr r2, _0809F140 @ =gUnk_08124670
 	ldrb r1, [r0, #0xc]
