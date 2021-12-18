@@ -26,8 +26,9 @@ pipeline {
             }
             steps {
                 sh 'mkdir reports'
-                sh 'python3 progress.py csv >> reports/progress_tmc.csv'
-                sh 'python3 progress.py csv -m >> reports/progress_tmc_matching.csv'
+                sh 'python3 progress.py csv >> reports/progress-tmc-nonmatching.csv'
+                sh 'python3 progress.py csv -m >> reports/progress-tmc-matching.csv'
+                sh 'python3 progress.py shield-json > reports/progress-tmc-shield.json'
                 stash includes: 'reports/*', name: 'reports'
             }
         }
@@ -40,8 +41,9 @@ pipeline {
             }
             steps {
                 unstash 'reports'
-                sh 'cat reports/progress_tmc.csv >> /var/www/html/reports/progress_tmc.csv'
-                sh 'cat reports/progress_tmc_matching.csv >> /var/www/html/reports/progress_tmc_matching.csv'
+                sh 'cat reports/progress-tmc-nonmatching.csv >> /var/www/zelda64.dev/assets/csv/progress-tmc-nonmatching.csv'
+                sh 'cat reports/progress-tmc-matching.csv >> /var/www/zelda64.dev/assets/csv/progress-tmc-matching.csv'
+                sh 'cat reports/progress-tmc-shield.json > /var/www/zelda64.dev/assets/csv/progress-tmc-shield.json'
             }
         }
     }
