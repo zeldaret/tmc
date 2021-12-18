@@ -1,19 +1,25 @@
 #include "global.h"
-#include "audio.h"
-#include "entity.h"
-#include "area.h"
-#include "room.h"
-#include "flags.h"
-#include "npc.h"
-#include "player.h"
-#include "screen.h"
+
 #include "main.h"
+#include "random.h"
+
+#include "functions.h"
 #include "structures.h"
+
+#include "audio.h"
+#include "effects.h"
+#include "screen.h"
+#include "flags.h"
+#include "item.h"
 #include "save.h"
 #include "script.h"
-#include "random.h"
-#include "functions.h"
-#include "effects.h"
+
+#include "area.h"
+#include "room.h"
+
+#include "entity.h"
+#include "npc.h"
+#include "player.h"
 
 void sub_0804B3C4(void* arg0) {
     sub_0804B29C(arg0);
@@ -373,7 +379,7 @@ extern u32* gUnk_080D6A74[];
 u32 sub_unk3_HouseInteriors1_InnWestRoom(void) {
     u32 index;
 
-    if (CheckLocalFlag(YADO_CHECKIN) != 0) {
+    if (CheckLocalFlag(YADO_CHECKIN)) {
         index = (s32)Random() % 3;
         ClearLocalFlag(BILL05_YADO1F_MATSU_T0);
     } else {
@@ -389,7 +395,7 @@ extern void* script_08010A5C[];
 void sub_StateChange_HouseInteriors1_InnWestRoom(void) {
     if (CheckLocalFlag(YADO_CHECKIN)) {
         ClearLocalFlag(YADO_CHECKIN);
-        DoFade(5, 0x100);
+        DoFade(5, 256);
         gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x50;
         gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
         sub_080751E8(1, 2, &script_08010A5C);
@@ -415,7 +421,7 @@ u32 sub_unk3_HouseInteriors1_InnMiddleRoom(void) {
 void sub_StateChange_HouseInteriors1_InnMiddleRoom(void) {
     if (CheckLocalFlag(YADO_CHECKIN) != 0) {
         ClearLocalFlag(YADO_CHECKIN);
-        DoFade(5, 0x100);
+        DoFade(5, 256);
         gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x50;
         gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
         sub_080751E8(1, 2, &script_08010A5C);
@@ -441,7 +447,7 @@ u32 sub_unk3_HouseInteriors1_InnEastRoom(void) {
 void sub_StateChange_HouseInteriors1_InnEastRoom(void) {
     if (CheckLocalFlag(YADO_CHECKIN)) {
         ClearLocalFlag(YADO_CHECKIN);
-        DoFade(5, 0x100);
+        DoFade(5, 256);
         gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x60;
         gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
         sub_080751E8(1, 2, &script_08010A5C);
@@ -653,7 +659,7 @@ void sub_StateChange_HyruleCastle_3(void) {
 
 u32 sub_unk3_HyruleCastle_4(void) {
     if (!CheckLocalFlag(CASTLE_04_MEZAME)) {
-        gScreenTransition.player_status.spawn_type = 5;
+        gScreenTransition.player_status.spawn_type = PL_SPAWN_SPECIAL;
         ClearGlobalFlag(ZELDA_CHASE);
     }
     return 1;
@@ -663,7 +669,7 @@ extern u32 script_08009E88;
 
 void sub_StateChange_HyruleCastle_4(void) {
     if (!CheckLocalFlag(CASTLE_04_MEZAME)) {
-        DoFade(5, 0x100);
+        DoFade(5, 256);
         gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0xb0;
         gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x40;
         sub_080751E8(0, 6, &script_08009E88);
@@ -685,7 +691,7 @@ void sub_StateChange_HyruleCastle_4(void) {
 #if defined(JP) || defined(DEMO_JP)
             gArea.pMusicIndex = gArea.musicIndex;
 #else
-        gArea.pMusicIndex = 0x1b;
+        gArea.pMusicIndex = BGM_HYRULE_CASTLE_NOINTRO;
 #endif
         }
 #if !(defined(JP) || defined(DEMO_JP))
@@ -1028,15 +1034,14 @@ extern EntityData gUnk_080D9098;
 
 void sub_StateChange_RoyalValley_Main(void) {
     if (!CheckGlobalFlag(HAKA_KEY_LOST)) {
-        // graveyard key
-        if (GetInventoryValue(0x3c) == 1) {
+        if (GetInventoryValue(ITEM_QST_GRAVEYARD_KEY) == 1) {
             LoadRoomEntityList(&gUnk_080D90C8);
             LoadRoomEntityList(&gUnk_080D9108);
         }
     } else if (!CheckGlobalFlag(HAKA_KEY_FOUND))
         LoadRoomEntityList(&gUnk_080D9108);
 
-    if (GetInventoryValue(0x3c) != 2) {
+    if (GetInventoryValue(ITEM_QST_GRAVEYARD_KEY) != 2) {
         LoadRoomEntityList(&gUnk_080D9098);
         SetTileType(0x17a, 0x58e, 1);
         SetTileType(0x17b, 0x58f, 1);
@@ -1145,8 +1150,7 @@ void sub_StateChange_CastorWilds_Main(void) {
     if ((gSave.windcrests & 0x20000000) == 0)
         LoadRoomEntityList(&gUnk_080D9CE8);
 
-    // pegasus boots
-    if (!GetInventoryValue(0x15))
+    if (!GetInventoryValue(ITEM_PEGASUS_BOOTS))
         LoadRoomEntityList(&gUnk_080D9C38);
 }
 
@@ -1335,16 +1339,12 @@ extern EntityData gUnk_080DADA4;
 void sub_StateChange_MinishHouseInteriors_BarrelMinish(void) {
     u32 uVar1;
 
-    // jabber nut
-    if (!GetInventoryValue(0x5b))
+    if (!GetInventoryValue(ITEM_JABBERNUT))
         LoadRoomEntityList(&gUnk_080DAB44);
     else
         LoadRoomEntityList(&gUnk_080DAB64);
 
-    if (!CheckGlobalFlag(DRUG_COUNT))
-        goto a;
-
-    if (sub_08060354()) {
+    if (CheckGlobalFlag(DRUG_COUNT) && sub_08060354()) {
         SetRoomFlag(0);
         if (!CheckGlobalFlag(DRUG_1))
             uVar1 = 0x3200;
@@ -1353,7 +1353,6 @@ void sub_StateChange_MinishHouseInteriors_BarrelMinish(void) {
         else
             uVar1 = 0x4880;
     } else {
-    a:
         if (CheckGlobalFlag(DRUG_3))
             uVar1 = 0x4900;
         else if (CheckGlobalFlag(DRUG_2))
@@ -1400,7 +1399,6 @@ u32 sub_unk3_MinishHouseInteriors_MelariMinesSouthwest() {
 extern EntityData gUnk_080DAEE8;
 
 void sub_StateChange_MinishHouseInteriors_MelariMinesSouthwest(void) {
-
     if (CheckGlobalFlag(WHITE_SWORD_END))
         LoadRoomEntityList(&gUnk_080DAEE8);
 
@@ -1414,7 +1412,6 @@ u32 sub_unk3_MinishHouseInteriors_MelariMinesSoutheast() {
 extern EntityData gUnk_080DAF80;
 
 void sub_StateChange_MinishHouseInteriors_MelariMinesSoutheast(void) {
-
     if (CheckGlobalFlag(WHITE_SWORD_END))
         LoadRoomEntityList(&gUnk_080DAF80);
 
@@ -1428,7 +1425,6 @@ u32 sub_unk3_MinishHouseInteriors_MelariMinesEast() {
 extern EntityData gUnk_080DB018;
 
 void sub_StateChange_MinishHouseInteriors_MelariMinesEast(void) {
-
     if (CheckGlobalFlag(WHITE_SWORD_END))
         LoadRoomEntityList(&gUnk_080DB018);
 
@@ -1466,7 +1462,6 @@ u32 sub_unk3_MinishHouseInteriors_Librari() {
 extern EntityData gUnk_080DB238;
 
 void sub_StateChange_MinishHouseInteriors_Librari(void) {
-
     if (gSave.global_progress > 8)
         LoadRoomEntityList(&gUnk_080DB238);
 
@@ -1513,9 +1508,7 @@ extern EntityData gUnk_080DB4D0;
 extern EntityData gUnk_080DB4A0;
 
 void sub_StateChange_TownMinishHoles_MayorsHouse(void) {
-
-    // flippers and history of masks book
-    if (!GetInventoryValue(0x46) && !GetInventoryValue(0x3b) && CheckLocalFlag(KOBITO_DOUKUTU_04_T0))
+    if (!GetInventoryValue(ITEM_FLIPPERS) && !GetInventoryValue(ITEM_QST_BOOK3) && CheckLocalFlag(KOBITO_DOUKUTU_04_T0))
         LoadRoomEntityList(&gUnk_080DB4D0);
     else
         LoadRoomEntityList(&gUnk_080DB4A0);
@@ -1576,10 +1569,8 @@ extern EntityData gUnk_080DB8F0;
 extern EntityData gUnk_additional_a_TownMinishHoles_LibraryBookshelf;
 
 void sub_StateChange_TownMinishHoles_LibraryBookshelf(void) {
-
     LoadRoomEntityList(&gUnk_080DB8F0);
-    // flippers
-    if (!GetInventoryValue(0x46) && CheckGlobalFlag(MIZUKAKI_START)) {
+    if (!GetInventoryValue(ITEM_FLIPPERS) && CheckGlobalFlag(MIZUKAKI_START)) {
         LoadRoomEntityList(&gUnk_additional_a_TownMinishHoles_LibraryBookshelf);
     }
     sub_0801AFE4();
@@ -1592,9 +1583,7 @@ u32 sub_unk3_TownMinishHoles_LibrariBookHouse() {
 extern EntityData gUnk_080DBA08;
 
 void sub_StateChange_TownMinishHoles_LibrariBookHouse(void) {
-
-    // flippers
-    if (GetInventoryValue(0x46) || !CheckLocalFlag(KOBITO_DOUKUTU_09_T0)) {
+    if (GetInventoryValue(ITEM_FLIPPERS) || !CheckLocalFlag(KOBITO_DOUKUTU_09_T0)) {
         LoadRoomEntityList(&gUnk_080DBA08);
     }
     sub_0801AFE4();
@@ -1618,8 +1607,7 @@ void sub_StateChange_TownMinishHoles_RemShoeShop(void) {
         LoadRoomEntityList(&gUnk_080DBB50);
     }
 
-    // pegasus boots
-    if (GetInventoryValue(0x15) == 1) {
+    if (GetInventoryValue(ITEM_PEGASUS_BOOTS) == 1) {
         LoadRoomEntityList(&gUnk_080DBB70);
         LoadRoomEntityList(&gUnk_080DBB10);
     } else {
@@ -1717,21 +1705,18 @@ extern EntityData gUnk_080DC470;
 extern EntityData gUnk_080DC4C0;
 
 void sub_StateChange_MinishVillage_Main(void) {
-
-    // jabber nut
-    if (!GetInventoryValue(0x5b)) {
+    if (!GetInventoryValue(ITEM_JABBERNUT)) {
         LoadRoomEntityList(&gUnk_080DC390);
         if (!CheckLocalFlagByBank(0x200, 0x80)) {
             LoadRoomEntityList(&gUnk_080DC3F0);
         }
     } else {
         LoadRoomEntityList(&gUnk_080DC430);
-        // gust jar
-        if (!GetInventoryValue(0x11)) {
+        if (!GetInventoryValue(ITEM_GUST_JAR)) {
             LoadRoomEntityList(&gUnk_080DC530);
         }
     }
-    if ((!CheckLocalFlagByBank(0x200, 0x83)) && GetInventoryValue(0x11)) {
+    if ((!CheckLocalFlagByBank(FLAG_BANK_2, M_ELDER_TALK2ND)) && GetInventoryValue(ITEM_GUST_JAR)) {
         LoadRoomEntityList(&gUnk_080DC470);
     }
     if (!CheckLocalFlag(0x8d)) {
@@ -1837,9 +1822,7 @@ u32 sub_unk3_MinishCracks_CastleWildsBowHole() {
 extern EntityData gUnk_080DCB10;
 
 void sub_StateChange_MinishCracks_CastleWildsBowHole(void) {
-
-    // bow
-    if (!GetInventoryValue(0x9)) {
+    if (!GetInventoryValue(ITEM_BOW)) {
         LoadRoomEntityList(&gUnk_080DCB10);
     }
 }
@@ -1930,7 +1913,6 @@ extern EntityData gUnk_additional_9_MelarisMine_Main;
 extern EntityData gUnk_080DD294;
 
 void sub_StateChange_MelarisMine_Main(void) {
-
     if (!CheckGlobalFlag(WHITE_SWORD_END)) {
         LoadRoomEntityList(&gUnk_additional_8_MelarisMine_Main);
     }
@@ -2034,9 +2016,9 @@ void sub_StateChange_Ruins_TripleTektites(void) {
 
 void sub_unk1_Ruins_TripleTektites(void) {
 #if defined(JP) || defined(EU) || defined(DEMO_JP)
-    if (CheckLocalFlagByBank(0x100, 0x28)) {
+    if (CheckLocalFlagByBank(FLAG_BANK_1, LOST_03_00)) {
 #else
-    if (CheckLocalFlagByBank(0x100, 0x27)) {
+    if (CheckLocalFlagByBank(FLAG_BANK_1, LOST_02_00)) {
 #endif
         SetDirtTile(0x85);
     }
@@ -2056,7 +2038,6 @@ u32 sub_unk3_Ruins_FortressEntrance() {
 extern EntityData gUnk_080DE008;
 
 void sub_StateChange_Ruins_FortressEntrance(void) {
-
     sub_080300E8();
     if (CheckGlobalFlag(LV3_CLEAR) && !CheckLocalFlag(3)) {
         LoadRoomEntityList(&gUnk_080DE008);
@@ -2071,7 +2052,6 @@ extern EntityData gUnk_080DE1E0;
 extern EntityData gUnk_080DE200;
 
 void sub_StateChange_Ruins_Armos(void) {
-
     sub_080300E8();
 #if defined(JP) || defined(EU) || defined(DEMO_JP)
     if (!CheckLocalFlag(0x31)) {
@@ -2096,7 +2076,6 @@ u32 sub_unk3_DeepwoodShrine_Madderpillar() {
 extern EntityData gUnk_080DE4C8;
 
 void sub_StateChange_DeepwoodShrine_Madderpillar(void) {
-
     if ((gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY) < (gRoomControls.height >> 1)) {
         if (!CheckLocalFlag(0x17)) {
             LoadRoomEntityList(&gUnk_080DE4C8);
@@ -2119,7 +2098,6 @@ extern EntityData gUnk_080DE814;
 extern EntityData gUnk_additional_8_DeepwoodShrine_StairsToB1;
 
 void sub_StateChange_DeepwoodShrine_StairsToB1(void) {
-
     if (!CheckLocalFlag(0x4b)) {
         LoadRoomEntityList(&gUnk_080DE814);
     } else {
@@ -2214,10 +2192,10 @@ u32 sub_unk3_DeepwoodShrine_Entrance() {
 #if defined(DEMO_USA) || defined(DEMO_JP)
 void sub_StateChange_DeepwoodShrine_Entrance() {
 #ifdef DEMO_USA
-    if (gSaveHeader->saveFileId != 0 && GetInventoryValue(0x40) == 0) {
+    if (gSaveHeader->saveFileId != 0 && GetInventoryValue(ITEM_EARTH_ELEMENT) == 0) {
 #else
 #ifdef DEMO_JP
-    if (GetInventoryValue(0x40) == 0) {
+    if (GetInventoryValue(ITEM_EARTH_ELEMENT) == 0) {
 #endif
 #endif
         SetTileType(0x365, 0x349, 1);
@@ -2324,7 +2302,7 @@ u32 sub_unk3_DeepwoodShrineEntry_Main() {
 extern EntityData gUnk_080DFB78;
 
 void sub_StateChange_DeepwoodShrineEntry_Main(void) {
-    if (CheckGlobalFlag(LV1_CLEAR) && !CheckLocalFlagByBank(0x100, 1)) {
+    if (CheckGlobalFlag(LV1_CLEAR) && !CheckLocalFlagByBank(FLAG_BANK_1, LV1_CLEAR_MES)) {
         LoadRoomEntityList(&gUnk_080DFB78);
     }
 }
@@ -2356,7 +2334,7 @@ u32 sub_unk3_CaveOfFlames_Entrance() {
 
 #ifdef DEMO_USA
 void sub_StateChange_CaveOfFlames_Entrance() {
-    if (GetInventoryValue(0x41) == 0) {
+    if (GetInventoryValue(ITEM_FIRE_ELEMENT) == 0) {
         SetTileType(0x365, 0x287, 2);
         SetTileType(0x365, 0x288, 2);
         SetTileType(0x365, 0x289, 2);
@@ -2696,12 +2674,10 @@ u32 sub_unk3_FortressOfWindsTop_Main() {
 extern EntityData gUnk_080E3850;
 
 void sub_StateChange_FortressOfWindsTop_Main(void) {
-
     SetGlobalFlag(LV3_CLEAR);
     UpdateGlobalProgress();
     sub_0805B4D0(3);
-    // wind ocarina
-    if (!GetInventoryValue(0x17) && CheckLocalFlag(0x45)) {
+    if (!GetInventoryValue(ITEM_OCARINA) && CheckLocalFlag(0x45)) {
         LoadRoomEntityList(&gUnk_080E3850);
     }
 }
@@ -2715,7 +2691,6 @@ void sub_StateChange_TempleOfDroplets_WestHole() {
 }
 
 void sub_0804D0B4(void) {
-
     if (!CheckLocalFlag(0x29)) {
         SetLocalFlag(0x29);
         SetLocalFlag(0x4b);
@@ -2858,7 +2833,6 @@ extern EntityData gUnk_080E4CF8;
 extern EntityData gUnk_080E4CD8;
 
 void sub_StateChange_TempleOfDroplets_BigBlueChuchuKey(void) {
-
     sub_0804D0B4();
     if (CheckLocalFlag(0x6c)) {
         LoadRoomEntityList(&gUnk_080E4CD8);
@@ -2934,7 +2908,6 @@ extern EntityData gUnk_080E5660;
 extern EntityData gUnk_080E5680;
 
 void sub_StateChange_TempleOfDroplets_LilypadIceBlocks(void) {
-
     if (!CheckLocalFlag(0x59)) {
         LoadRoomEntityList(&gUnk_080E5660);
     } else {
@@ -3056,7 +3029,6 @@ u32 sub_unk3_RoyalCrypt_KingGustaf() {
 extern EntityData gUnk_080E693C;
 
 void sub_StateChange_RoyalCrypt_KingGustaf(void) {
-
     if (!CheckLocalFlag(0x32)) {
         LoadRoomEntityList(&gUnk_080E693C);
     }
@@ -3120,7 +3092,6 @@ extern EntityData gUnk_080E718C;
 extern EntityData gUnk_080E71AC;
 
 void sub_StateChange_RoyalCrypt_Entrance(void) {
-
     SetTileType(0x312, 0x108, 1);
     sub_08054570();
     if (!CheckLocalFlag(0xc4)) {
@@ -3140,8 +3111,7 @@ extern EntityData gUnk_080E72C4;
 extern EntityData gUnk_additional_8_PalaceOfWinds_0;
 
 void sub_StateChange_PalaceOfWinds_0(void) {
-
-    Manager19_Main(0);
+    Manager19_Main(NULL);
     if (CheckGlobalFlag(LV5_CLEAR)) {
         LoadRoomEntityList(&gUnk_additional_9_PalaceOfWinds_0);
     }
@@ -3149,8 +3119,7 @@ void sub_StateChange_PalaceOfWinds_0(void) {
         LoadRoomEntityList(&gUnk_080E72C4);
     } else {
         SetGlobalFlag(LV5_CLEAR);
-        // wind element
-        if (!GetInventoryValue(0x43)) {
+        if (!GetInventoryValue(ITEM_WIND_ELEMENT)) {
             SetPlayerControl(3);
             LoadRoomEntityList(&gUnk_additional_8_PalaceOfWinds_0);
             gArea.musicIndex = gArea.pMusicIndex;
@@ -3164,7 +3133,7 @@ u32 sub_unk3_PalaceOfWinds_1() {
 }
 
 void sub_StateChange_PalaceOfWinds_1() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_2() {
@@ -3172,7 +3141,7 @@ u32 sub_unk3_PalaceOfWinds_2() {
 }
 
 void sub_StateChange_PalaceOfWinds_2() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_3() {
@@ -3180,7 +3149,7 @@ u32 sub_unk3_PalaceOfWinds_3() {
 }
 
 void sub_StateChange_PalaceOfWinds_3() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_4() {
@@ -3188,7 +3157,7 @@ u32 sub_unk3_PalaceOfWinds_4() {
 }
 
 void sub_StateChange_PalaceOfWinds_4() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_5() {
@@ -3196,7 +3165,7 @@ u32 sub_unk3_PalaceOfWinds_5() {
 }
 
 void sub_StateChange_PalaceOfWinds_5() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_6() {
@@ -3204,7 +3173,7 @@ u32 sub_unk3_PalaceOfWinds_6() {
 }
 
 void sub_StateChange_PalaceOfWinds_6() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_7() {
@@ -3212,7 +3181,7 @@ u32 sub_unk3_PalaceOfWinds_7() {
 }
 
 void sub_StateChange_PalaceOfWinds_7() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_8() {
@@ -3220,7 +3189,7 @@ u32 sub_unk3_PalaceOfWinds_8() {
 }
 
 void sub_StateChange_PalaceOfWinds_8() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_9() {
@@ -3228,7 +3197,7 @@ u32 sub_unk3_PalaceOfWinds_9() {
 }
 
 void sub_StateChange_PalaceOfWinds_9() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_10() {
@@ -3236,7 +3205,7 @@ u32 sub_unk3_PalaceOfWinds_10() {
 }
 
 void sub_StateChange_PalaceOfWinds_10() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_11() {
@@ -3244,7 +3213,7 @@ u32 sub_unk3_PalaceOfWinds_11() {
 }
 
 void sub_StateChange_PalaceOfWinds_11() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_12() {
@@ -3252,7 +3221,7 @@ u32 sub_unk3_PalaceOfWinds_12() {
 }
 
 void sub_StateChange_PalaceOfWinds_12() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_13() {
@@ -3260,7 +3229,7 @@ u32 sub_unk3_PalaceOfWinds_13() {
 }
 
 void sub_StateChange_PalaceOfWinds_13() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_14() {
@@ -3268,7 +3237,7 @@ u32 sub_unk3_PalaceOfWinds_14() {
 }
 
 void sub_StateChange_PalaceOfWinds_14() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_15() {
@@ -3276,7 +3245,7 @@ u32 sub_unk3_PalaceOfWinds_15() {
 }
 
 void sub_StateChange_PalaceOfWinds_15() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_16() {
@@ -3284,7 +3253,7 @@ u32 sub_unk3_PalaceOfWinds_16() {
 }
 
 void sub_StateChange_PalaceOfWinds_16() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_17() {
@@ -3292,7 +3261,7 @@ u32 sub_unk3_PalaceOfWinds_17() {
 }
 
 void sub_StateChange_PalaceOfWinds_17() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_18() {
@@ -3300,7 +3269,7 @@ u32 sub_unk3_PalaceOfWinds_18() {
 }
 
 void sub_StateChange_PalaceOfWinds_18() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_19() {
@@ -3308,7 +3277,7 @@ u32 sub_unk3_PalaceOfWinds_19() {
 }
 
 void sub_StateChange_PalaceOfWinds_19() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_20() {
@@ -3316,7 +3285,7 @@ u32 sub_unk3_PalaceOfWinds_20() {
 }
 
 void sub_StateChange_PalaceOfWinds_20() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_21() {
@@ -3331,7 +3300,7 @@ u32 sub_unk3_PalaceOfWinds_22() {
 }
 
 void sub_StateChange_PalaceOfWinds_22() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_23() {
@@ -3339,7 +3308,7 @@ u32 sub_unk3_PalaceOfWinds_23() {
 }
 
 void sub_StateChange_PalaceOfWinds_23() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_24() {
@@ -3347,7 +3316,7 @@ u32 sub_unk3_PalaceOfWinds_24() {
 }
 
 void sub_StateChange_PalaceOfWinds_24() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_25() {
@@ -3355,7 +3324,7 @@ u32 sub_unk3_PalaceOfWinds_25() {
 }
 
 void sub_StateChange_PalaceOfWinds_25() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_26() {
@@ -3363,7 +3332,7 @@ u32 sub_unk3_PalaceOfWinds_26() {
 }
 
 void sub_StateChange_PalaceOfWinds_26() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_27() {
@@ -3413,7 +3382,7 @@ u32 sub_unk3_PalaceOfWinds_33() {
 }
 
 void sub_StateChange_PalaceOfWinds_33() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_34() {
@@ -3421,7 +3390,7 @@ u32 sub_unk3_PalaceOfWinds_34() {
 }
 
 void sub_StateChange_PalaceOfWinds_34() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_35() {
@@ -3429,7 +3398,7 @@ u32 sub_unk3_PalaceOfWinds_35() {
 }
 
 void sub_StateChange_PalaceOfWinds_35() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_36() {
@@ -3437,7 +3406,7 @@ u32 sub_unk3_PalaceOfWinds_36() {
 }
 
 void sub_StateChange_PalaceOfWinds_36() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_37() {
@@ -3487,7 +3456,7 @@ u32 sub_unk3_PalaceOfWinds_43() {
 }
 
 void sub_StateChange_PalaceOfWinds_43() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_44() {
@@ -3497,7 +3466,7 @@ u32 sub_unk3_PalaceOfWinds_44() {
 extern EntityData gUnk_080EA09C;
 
 void sub_StateChange_PalaceOfWinds_44(void) {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
     if (!CheckLocalFlag(0x70)) {
         LoadRoomEntityList(&gUnk_080EA09C);
     }
@@ -3508,7 +3477,7 @@ u32 sub_unk3_PalaceOfWinds_45() {
 }
 
 void sub_StateChange_PalaceOfWinds_45() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_46() {
@@ -3516,7 +3485,7 @@ u32 sub_unk3_PalaceOfWinds_46() {
 }
 
 void sub_StateChange_PalaceOfWinds_46() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_47() {
@@ -3524,7 +3493,7 @@ u32 sub_unk3_PalaceOfWinds_47() {
 }
 
 void sub_StateChange_PalaceOfWinds_47() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_48() {
@@ -3532,7 +3501,7 @@ u32 sub_unk3_PalaceOfWinds_48() {
 }
 
 void sub_StateChange_PalaceOfWinds_48() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_49() {
@@ -3540,7 +3509,7 @@ u32 sub_unk3_PalaceOfWinds_49() {
 }
 
 void sub_StateChange_PalaceOfWinds_49() {
-    Manager19_Main(0);
+    Manager19_Main(NULL);
 }
 
 u32 sub_unk3_PalaceOfWinds_50() {
@@ -3571,7 +3540,7 @@ u32 sub_unk3_Vaati3_Main() {
 }
 
 void sub_StateChange_Vaati3_Main(void) {
-    Manager2F_Main(0);
+    Manager2F_Main(NULL);
 
     if ((gScreenTransition.field_0x38 & 1) && gScreenTransition.field_0x39) {
         if (gScreenTransition.field_0x3c == 1) {
@@ -3618,7 +3587,6 @@ extern EntityData gUnk_080EAD68;
 extern EntityData gUnk_080EADB8;
 
 void sub_StateChange_DarkHyruleCastleOutside_ZeldaStatuePlatform(void) {
-
     sub_0805B4D0(4);
     if (!CheckLocalFlag(0x77)) {
         LoadRoomEntityList(&gUnk_080EAD68);
@@ -3740,11 +3708,10 @@ extern u32 gUnk_080EB604;
 extern u32 gUnk_080EB5D4;
 
 u32 sub_unk3_DarkHyruleCastle_0(void) {
-
     if (CheckGlobalFlag(ENDING)) {
         gRoomVars.field_0x6c[0] = &gUnk_080EB604;
         gRoomVars.field_0x6c[2] = 0;
-        gArea.musicIndex = gArea.pMusicIndex = 0x11;
+        gArea.musicIndex = gArea.pMusicIndex = BGM_BEAT_VAATI;
     } else if (CheckLocalFlag(0x79)) {
         gRoomVars.field_0x6c[0] = NULL;
         if (!CheckLocalFlag(0x7a)) {
@@ -4291,7 +4258,6 @@ extern EntityData gUnk_080EEA9C;
 extern EntityData gUnk_080EEBAC;
 
 void sub_StateChange_HyruleTown_0(void) {
-
     sub_08054570();
     TryLoadPrologueHyruleTown();
 #if defined(USA) || defined(DEMO_USA) || defined(DEMO_JP)
@@ -4301,14 +4267,14 @@ void sub_StateChange_HyruleTown_0(void) {
         sub_0801D000(0);
     } else {
         sub_08018C58(0xdb4);
-        if (!CheckLocalFlagByBank(0x200, 0x84)) {
+        if (!CheckLocalFlagByBank(FLAG_BANK_2, MHOUSE04_DANRO)) {
             LoadRoomEntityList(&gUnk_080EEB6C);
         }
-        if (!CheckLocalFlagByBank(0x200, 0x85)) {
+        if (!CheckLocalFlagByBank(FLAG_BANK_2, MHOUSE06_DANRO)) {
             LoadRoomEntityList(&gUnk_080EEB8C);
         }
-        // kinstone bag
-        if ((!GetInventoryValue(0x67)) && CheckGlobalFlag(LV1_CLEAR)) {
+
+        if ((!GetInventoryValue(ITEM_KINSTONE_BAG)) && CheckGlobalFlag(LV1_CLEAR)) {
             LoadRoomEntityList(&gUnk_080EE88C);
         }
         if (!CheckKinstoneFused(0x28)) {
@@ -4323,10 +4289,10 @@ void sub_StateChange_HyruleTown_0(void) {
             LoadRoomEntityList(&gUnk_080EECBC);
         }
         if (CheckKinstoneFused(0x1b) && (gSave.global_progress > 3)) {
-            if (!CheckGlobalFlag(NEW_HOUSE_DIN) && !CheckGlobalFlag(NEW_HOUSE_NAYRU) &&
-                !CheckGlobalFlag(NEW_HOUSE_FARORE)) {
-                if (!CheckGlobalFlag(RENTED_HOUSE_DIN) && !CheckGlobalFlag(RENTED_HOUSE_NAYRU) &&
-                    !CheckGlobalFlag(RENTED_HOUSE_FARORE)) {
+            if (!(CheckGlobalFlag(NEW_HOUSE_DIN) || CheckGlobalFlag(NEW_HOUSE_NAYRU) ||
+                  CheckGlobalFlag(NEW_HOUSE_FARORE))) {
+                if (!(CheckGlobalFlag(RENTED_HOUSE_DIN) || CheckGlobalFlag(RENTED_HOUSE_NAYRU) ||
+                      CheckGlobalFlag(RENTED_HOUSE_FARORE))) {
                     LoadRoomEntityList(&gUnk_080EE95C);
                 } else {
                     if (!CheckGlobalFlag(TATEKAKE_HOUSE)) {
@@ -4355,9 +4321,9 @@ void sub_StateChange_HyruleTown_0(void) {
         }
         // rocs cape
 #if defined(JP) || defined(EU) || defined(DEMO_JP)
-        if (!CheckLocalFlag(0xcd) && GetInventoryValue(0x14)) {
+        if (!CheckLocalFlag(0xcd) && GetInventoryValue(ITEM_ROCS_CAPE)) {
 #else
-        if (!CheckLocalFlag(0xd0) && GetInventoryValue(0x14)) {
+        if (!CheckLocalFlag(0xd0) && GetInventoryValue(ITEM_ROCS_CAPE)) {
 #endif
             LoadRoomEntityList(&gUnk_080EEABC);
         }
@@ -4476,9 +4442,7 @@ void sub_StateChange_HyruleTownUnderground_Well() {
 extern u32 gUnk_080F09A0;
 
 u32 sub_unk3_CastleGarden_Main(void) {
-
-    // four sword
-    if (GetInventoryValue(0x6)) {
+    if (GetInventoryValue(ITEM_FOURSWORD)) {
         gRoomVars.field_0x6c[1] = &gUnk_080F09A0;
     }
     return 1;
@@ -4493,20 +4457,19 @@ extern EntityData gUnk_080F0890;
 extern EntityData gUnk_080F0920;
 
 void sub_StateChange_CastleGarden_Main(void) {
-
     if (!CheckGlobalFlag(TABIDACHI)) {
         LoadRoomEntityList(&gUnk_080F0650);
 #ifdef EU
-        gArea.pMusicIndex = 0x10;
+        gArea.pMusicIndex = BGM_FESTIVAL_APPROACH;
 #else
-        gArea.pMusicIndex = 0x13;
+        gArea.pMusicIndex = BGM_BEANSTALK;
         SetGlobalFlag(CASTLE_BGM);
     } else {
         if (CheckGlobalFlag(CASTLE_BGM)) {
 #if defined(JP) || defined(DEMO_JP)
             gArea.pMusicIndex = gArea.musicIndex;
 #else
-            gArea.pMusicIndex = 0x1b;
+            gArea.pMusicIndex = BGM_HYRULE_CASTLE_NOINTRO;
 #endif
         }
 #endif
@@ -4522,16 +4485,14 @@ void sub_StateChange_CastleGarden_Main(void) {
         SetTileType(0x4072, 0x266, 1);
         SetTileType(0x4072, 0x2a6, 1);
     } else {
-        // four sword
-        if (!GetInventoryValue(0x6)) {
+        if (!GetInventoryValue(ITEM_FOURSWORD)) {
             LoadRoomEntityList(&gUnk_080F08F0);
             SetTileType(0x4072, 0x9e, 1);
             SetTileType(0x4072, 0x9f, 1);
             SetTileType(0x4072, 0xa0, 1);
         }
         LoadRoomEntityList(&gUnk_080F0850);
-        // water element
-        if (!GetInventoryValue(0x42)) {
+        if (!GetInventoryValue(ITEM_WATER_ELEMENT)) {
             LoadRoomEntityList(&gUnk_080F0870);
         } else {
             LoadRoomEntityList(&gUnk_080F0890);
@@ -4649,13 +4610,11 @@ extern EntityData gUnk_080F2194;
 extern EntityData gUnk_080F21B4;
 
 void sub_StateChange_HouseInteriors2_DrLeft(void) {
-
     LoadRoomEntityList(&gUnk_080F2174);
-    // picori legend book
-    if (!GetInventoryValue(0x3a) && CheckGlobalFlag(MIZUKAKI_HARIFALL)) {
+    if (!GetInventoryValue(ITEM_QST_BOOK2) && CheckGlobalFlag(MIZUKAKI_HARIFALL)) {
         LoadRoomEntityList(&gUnk_080F2194);
     }
-    if (gScreenTransition.player_status.spawn_type == 1) {
+    if (gScreenTransition.player_status.spawn_type == PL_SPAWN_MINISH) {
         LoadRoomEntityList(&gUnk_080F21B4);
     }
 }
@@ -4669,12 +4628,10 @@ extern EntityData gUnk_080F238C;
 extern EntityData gUnk_additional_c_HouseInteriors2_Romio;
 
 void sub_StateChange_HouseInteriors2_Romio(void) {
-
     if (gSave.global_progress > 7) {
         LoadRoomEntityList(&gUnk_080F23BC);
     }
-    // flippers
-    if (!GetInventoryValue(0x46) && CheckGlobalFlag(MIZUKAKI_START)) {
+    if (!GetInventoryValue(ITEM_FLIPPERS) && CheckGlobalFlag(MIZUKAKI_START)) {
         LoadRoomEntityList(&gUnk_080F238C);
     } else {
         LoadRoomEntityList(&gUnk_additional_c_HouseInteriors2_Romio);
@@ -4701,8 +4658,7 @@ void sub_StateChange_HouseInteriors2_Julietta(void) {
         case 3:
             break;
         case 5:
-            // flippers
-            if (!GetInventoryValue(0x46)) {
+            if (!GetInventoryValue(ITEM_FLIPPERS)) {
                 if (!CheckGlobalFlag(MIZUKAKI_START)) {
                     LoadRoomEntityList(&gUnk_080F2570);
                     break;
@@ -4831,8 +4787,7 @@ u32 sub_unk3_HouseInteriors2_Dampe() {
 extern EntityData gUnk_080F2FD4;
 
 void sub_StateChange_HouseInteriors2_Dampe(void) {
-    // graveyard key
-    if (!CheckLocalFlag(0x69) || GetInventoryValue(0x3c) > 1) {
+    if (!CheckLocalFlag(0x69) || GetInventoryValue(ITEM_QST_GRAVEYARD_KEY) > 1) {
         LoadRoomEntityList(&gUnk_080F2FD4);
     }
 }
@@ -4844,8 +4799,7 @@ u32 sub_unk3_HouseInteriors2_Stockwell() {
 extern EntityData gUnk_080F30CC;
 
 void sub_StateChange_HouseInteriors2_Stockwell(void) {
-    // dog food
-    if ((GetInventoryValue(0x36) == 1) && !CheckGlobalFlag(BIN_DOGFOOD) && (gPlayerState.flags & PL_MINISH) == 0) {
+    if ((GetInventoryValue(ITEM_QST_DOGFOOD) == 1) && !CheckGlobalFlag(BIN_DOGFOOD) && (gPlayerState.flags & PL_MINISH) == 0) {
         LoadRoomEntityList(&gUnk_080F30CC);
     }
 }
@@ -4858,11 +4812,10 @@ extern EntityData gUnk_080F31D8;
 extern u32 script_08009B30;
 
 void sub_StateChange_HouseInteriors2_LinksHouseBedroom(void) {
-
     if (!CheckGlobalFlag(START) && !CheckLocalFlag(0x46)) {
         sub_080A71C4(5, 1, 4, 4);
         gUpdateVisibleTiles = 0;
-        DoFade(5, 0x100);
+        DoFade(5, 256);
         sub_080751E8(0, 6, &script_08009B30);
     }
     if (!CheckGlobalFlag(OUTDOOR)) {
@@ -4890,8 +4843,7 @@ u32 sub_unk3_HouseInteriors4_Carpenter() {
 extern EntityData gUnk_080F3260;
 
 void sub_StateChange_HouseInteriors4_Carpenter(void) {
-    // pacci cane
-    if (GetInventoryValue(0x12)) {
+    if (GetInventoryValue(ITEM_PACCI_CANE)) {
         LoadRoomEntityList(&gUnk_080F3260);
         SetTileType(0x4072, 0x202, 1);
         SetTileType(0x4072, 0x242, 1);
@@ -4949,8 +4901,7 @@ u32 sub_unk3_HouseInteriors4_Mayor() {
 extern EntityData gUnk_080F3A48;
 
 void sub_StateChange_HouseInteriors4_Mayor(void) {
-    // flippers, history of masks
-    if (!GetInventoryValue(0x46) && CheckGlobalFlag(MIZUKAKI_START) && !GetInventoryValue(0x3b)) {
+    if (!GetInventoryValue(ITEM_FLIPPERS) && CheckGlobalFlag(MIZUKAKI_START) && !GetInventoryValue(ITEM_QST_BOOK3)) {
         LoadRoomEntityList(&gUnk_080F3A48);
     }
     gScreenTransition.player_status.field_0x20 = 0xf28;
@@ -5190,8 +5141,7 @@ extern EntityData gUnk_080F5328;
 extern EntityData gUnk_080F5308;
 
 void sub_StateChange_SanctuaryEntrance_Main(void) {
-    // white sword
-    if (GetInventoryValue(0x2)) {
+    if (GetInventoryValue(ITEM_GREEN_SWORD)) {
         LoadRoomEntityList(&gUnk_080F5328);
 #if defined(JP) || defined(EU) || defined(DEMO_JP)
         if (!CheckLocalFlag(0x15)) {
@@ -5214,7 +5164,7 @@ u32 sub_unk3_Sanctuary_Hall() {
 void sub_StateChange_Sanctuary_Hall(void) {
     sub_080AF2E4();
     if (CheckGlobalFlag(SEIIKI_BGM)) {
-        gArea.pMusicIndex = 0x31;
+        gArea.pMusicIndex = BGM_CASTLE_COLLAPSE;
     }
 }
 
@@ -5236,18 +5186,17 @@ void sub_StateChange_Sanctuary_Main(void) {
         LoadRoomEntityList(&gUnk_080F54E8);
     }
     if (!CheckLocalFlag(0x7a)) {
-        // white sword, white sword 2, earth element, fire element
-        if (GetInventoryValue(0x2) && !GetInventoryValue(0x3) && GetInventoryValue(0x40) && GetInventoryValue(0x41)) {
+        if (GetInventoryValue(ITEM_GREEN_SWORD) && !GetInventoryValue(ITEM_RED_SWORD) && GetInventoryValue(ITEM_EARTH_ELEMENT) && GetInventoryValue(ITEM_FIRE_ELEMENT)) {
             LoadRoomEntityList(&gUnk_080F5508);
         }
     } else {
         if (!CheckLocalFlag(0x7b)) {
-            if (GetInventoryValue(0x3) && !GetInventoryValue(0x4) && GetInventoryValue(0x42)) {
+            if (GetInventoryValue(ITEM_RED_SWORD) && !GetInventoryValue(ITEM_BLUE_SWORD) && GetInventoryValue(ITEM_WATER_ELEMENT)) {
                 LoadRoomEntityList(&gUnk_080F5558);
             }
         } else {
             if (!CheckLocalFlag(0x7c)) {
-                if (!GetInventoryValue(0x6) && GetInventoryValue(0x43)) {
+                if (!GetInventoryValue(ITEM_FOURSWORD) && GetInventoryValue(ITEM_WIND_ELEMENT)) {
                     LoadRoomEntityList(&gUnk_080F5598);
                 }
             } else {
@@ -5265,7 +5214,7 @@ void sub_StateChange_Sanctuary_Main(void) {
         LoadRoomEntityList(&gUnk_080F55B8);
     }
     if (CheckGlobalFlag(SEIIKI_BGM)) {
-        gArea.pMusicIndex = 0x31;
+        gArea.pMusicIndex = BGM_CASTLE_COLLAPSE;
     }
 }
 
@@ -5280,7 +5229,7 @@ void sub_StateChange_Sanctuary_StainedGlass(void) {
         LoadRoomEntityList(&gUnk_080F5660);
     }
     if (CheckGlobalFlag(SEIIKI_BGM)) {
-        gArea.pMusicIndex = 0x31;
+        gArea.pMusicIndex = BGM_CASTLE_COLLAPSE;
     }
 }
 
@@ -5307,10 +5256,10 @@ void sub_StateChange_HouseInteriors3_StockwellShop(void) {
     if (!CheckLocalFlag(0x55)) {
         LoadRoomEntityList(&gUnk_080F57A8);
     } else {
-        if (gBombBagSizes[gSave.stats.bombBagType] > 0x1d) {
+        if (gBombBagSizes[gSave.stats.bombBagType] >= 30) {
             LoadRoomEntityList(&gUnk_080F57C8);
         }
-        if (!GetInventoryValue(0xb) && !GetInventoryValue(0xc)) {
+        if (!GetInventoryValue(ITEM_BOOMERANG) && !GetInventoryValue(ITEM_MAGIC_BOOMERANG)) {
             LoadRoomEntityList(&gUnk_080F5888);
 #ifndef EU
         } else {
@@ -5320,7 +5269,7 @@ void sub_StateChange_HouseInteriors3_StockwellShop(void) {
 #endif
         }
     }
-    if (GetInventoryValue(0x9) || CheckGlobalFlag(LV3_CLEAR)) {
+    if (GetInventoryValue(ITEM_BOW) || CheckGlobalFlag(LV3_CLEAR)) {
         LoadRoomEntityList(&gUnk_080F5868);
         if (!CheckLocalFlag(0x56)) {
             LoadRoomEntityList(&gUnk_080F5828);
@@ -5404,7 +5353,6 @@ extern EntityData gUnk_additional_9_HouseInteriors3_BorlovEntrance;
 extern EntityData gUnk_additional_a_HouseInteriors3_BorlovEntrance;
 
 void sub_StateChange_HouseInteriors3_BorlovEntrance(void) {
-
     if (gSave.global_progress > 4) {
         LoadRoomEntityList(&gUnk_additional_8_HouseInteriors3_BorlovEntrance);
     }
@@ -5492,7 +5440,6 @@ extern EntityData gUnk_080F6564;
 extern EntityData gUnk_080F6584;
 
 void sub_StateChange_WindTribeTower_Floor4(void) {
-
     if (!CheckLocalFlag(0xb1)) {
         LoadRoomEntityList(&gUnk_080F6564);
     } else {
@@ -5601,7 +5548,7 @@ u32 sub_unk3_HyruleField_LinksHouseExterior(void) {
 #else
     if (!CheckLocalFlag(0x6d)) {
 #endif
-        DoFade(7, 0x100);
+        DoFade(7, 256);
     }
     SetGlobalFlag(OUTDOOR);
     return 1;
@@ -5612,7 +5559,7 @@ extern EntityData gUnk_080F70D8;
 extern EntityData gUnk_080F7088;
 
 void sub_StateChange_HyruleField_LinksHouseExterior(void) {
-    Manager18_Main(0);
+    Manager18_Main(NULL);
 #if defined(JP) || defined(EU) || defined(DEMO_JP)
     if (!CheckLocalFlag(0x6b)) {
 #else
@@ -5622,7 +5569,7 @@ void sub_StateChange_HyruleField_LinksHouseExterior(void) {
         ClearGlobalFlag(ZELDA_CHASE);
     }
     if (!CheckGlobalFlag(TABIDACHI)) {
-        gArea.pMusicIndex = 0x10;
+        gArea.pMusicIndex = BGM_FESTIVAL_APPROACH;
     }
     if ((gSave.windcrests & 0x40000000) == 0) {
         LoadRoomEntityList(&gUnk_080F70D8);
@@ -5643,7 +5590,7 @@ u32 sub_unk3_HyruleField_FromMinishWoods() {
 }
 
 void sub_StateChange_HyruleField_FromMinishWoods() {
-    Manager18_Main(0);
+    Manager18_Main(NULL);
 }
 
 u32 sub_unk3_HyruleField_FromMinishWoodsNorth() {
@@ -5651,13 +5598,13 @@ u32 sub_unk3_HyruleField_FromMinishWoodsNorth() {
 }
 
 void sub_StateChange_HyruleField_FromMinishWoodsNorth() {
-    Manager18_Main(0);
+    Manager18_Main(NULL);
 }
 
 extern u32 gUnk_080F7680;
 
 u32 sub_unk3_HyruleField_Farmers(void) {
-    if (GetInventoryValue(0x11) && !GetInventoryValue(0x12)) {
+    if (GetInventoryValue(ITEM_GUST_JAR) && !GetInventoryValue(ITEM_PACCI_CANE)) {
         gRoomVars.field_0x6c[2] = &gUnk_080F7680;
     }
     return 1;
@@ -5667,11 +5614,11 @@ extern EntityData gUnk_080F7500;
 extern EntityData gUnk_080F7550;
 
 void sub_StateChange_HyruleField_Farmers(void) {
-    Manager18_Main(0);
+    Manager18_Main(NULL);
     if (gSave.global_progress > 3) {
         LoadRoomEntityList(&gUnk_080F7500);
     }
-    if (GetInventoryValue(0x11) && !GetInventoryValue(0x12)) {
+    if (GetInventoryValue(ITEM_GUST_JAR) && !GetInventoryValue(ITEM_PACCI_CANE)) {
         LoadRoomEntityList(&gUnk_080F7550);
         SetTileType(0x4072, 0x311, 1);
         SetTileType(0x4072, 0x351, 1);
@@ -5697,10 +5644,10 @@ void sub_StateChange_HyruleField_LonLonRanch(void) {
         if (!CheckGlobalFlag(INLOCK)) {
             LoadRoomEntityList(&gUnk_080F77C0);
         }
-    } else if (GetInventoryValue(0x40)) {
+    } else if (GetInventoryValue(ITEM_EARTH_ELEMENT)) {
         LoadRoomEntityList(&gUnk_080F77F0);
     }
-    if (CheckGlobalFlag(TABIDACHI) && !GetInventoryValue(0x40)) {
+    if (CheckGlobalFlag(TABIDACHI) && !GetInventoryValue(ITEM_EARTH_ELEMENT)) {
         LoadRoomEntityList(&gUnk_080F7810);
     }
     if (!CheckKinstoneFused(0x29)) {
@@ -5741,7 +5688,7 @@ u32 sub_unk3_HyruleField_OutsideCastle(void) {
 }
 
 void sub_0804F4E4() {
-    Manager18_Main(0);
+    Manager18_Main(NULL);
     sub_0804F578();
 }
 
@@ -5929,8 +5876,7 @@ u32 sub_unk3_HyruleField_OutsideCastleWest() {
 extern EntityData gUnk_080F806C;
 
 void sub_StateChange_HyruleField_OutsideCastleWest(void) {
-
-    Manager18_Main(0);
+    Manager18_Main(NULL);
     if ((gSave.global_progress > 3) && CheckGlobalFlag(TINGLE_TALK1ST)) {
         LoadRoomEntityList(&gUnk_080F806C);
     }
@@ -5943,11 +5889,11 @@ u32 sub_unk3_HyruleField_TrilbyHighlands() {
 extern EntityData gUnk_080F82E0;
 
 void sub_StateChange_HyruleField_TrilbyHighlands(void) {
-    Manager18_Main(0);
+    Manager18_Main(NULL);
 #if defined(JP) || defined(EU) || defined(DEMO_JP)
-    if (CheckGlobalFlag(LV2_CLEAR) && GetInventoryValue(0x3) && !CheckLocalFlag(0x9b)) {
+    if (CheckGlobalFlag(LV2_CLEAR) && GetInventoryValue(ITEM_RED_SWORD) && !CheckLocalFlag(0x9b)) {
 #else
-    if (CheckGlobalFlag(LV2_CLEAR) && GetInventoryValue(0x3) && !CheckLocalFlag(0x9c)) {
+    if (CheckGlobalFlag(LV2_CLEAR) && GetInventoryValue(ITEM_RED_SWORD) && !CheckLocalFlag(0x9c)) {
 #endif
         LoadRoomEntityList(&gUnk_080F82E0);
     }
@@ -5960,8 +5906,7 @@ u32 sub_unk3_HyruleField_PercysHouse() {
 extern EntityData gUnk_080F8430;
 
 void sub_StateChange_HyruleField_PercysHouse(void) {
-
-    Manager18_Main(0);
+    Manager18_Main(NULL);
     if (CheckKinstoneFused(0x21) && !CheckLocalFlagByBank(0x200, 0x42)) {
         LoadRoomEntityList(&gUnk_080F8430);
     }
@@ -5975,7 +5920,6 @@ extern EntityData gUnk_080F85F8;
 extern EntityData gUnk_080F85D8;
 
 void sub_StateChange_Caves_Boomerang(void) {
-
     if (CheckGlobalFlag(SOUGEN_06_HASHIGO)) {
         LoadRoomEntityList(&gUnk_080F85D8);
     } else {
@@ -6302,7 +6246,7 @@ void sub_StateChange_TreeInteriors_WitchHut(void) {
     if (CheckKinstoneFused(0x14)) {
         LoadRoomEntityList(&gUnk_080F9FA8);
     }
-    if (!GetInventoryValue(0x38)) {
+    if (!GetInventoryValue(ITEM_QST_MUSHROOM)) {
         LoadRoomEntityList(&gUnk_080F9F88);
     }
 }
@@ -6569,7 +6513,6 @@ extern EntityData gUnk_080FAFE4;
 extern EntityData gUnk_080FB004;
 
 void sub_StateChange_MtCrenel_CaveOfFlamesEntrance(void) {
-
     sub_0805B4D0(1);
     if (CheckGlobalFlag(LV2_CLEAR) && !CheckLocalFlag(LV1_CLEAR)) {
         LoadRoomEntityList(&gUnk_080FAFE4);
@@ -6728,6 +6671,6 @@ void sub_StateChange_CrenelCaves_ToGrayblade() {
 }
 
 void sub_0804FF84(u32 arg0) {
-    ((struct_02000000*)0x02000000)->brightnessPref = arg0;
+    gSaveHeader->brightnessPref = arg0;
     gUsedPalettes = 0xffffffff;
 }
