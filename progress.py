@@ -1,4 +1,7 @@
+#!/usr/bin/env python3
+
 import argparse
+import json
 import git
 import os
 import re
@@ -80,9 +83,13 @@ def parse_map(non_matching_funcs):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-m', '--matching', dest='matching', action='store_true',
-                        help='Output matching progress instead of decompilation progress')
+
+    parser = argparse.ArgumentParser(description="Computes current progress throughout the whole project.")
+    parser.add_argument("format", nargs="?", default="text", choices=["text", "csv", "shield-json"])
+    parser.add_argument("-m", "--matching", dest='matching', action='store_true',
+                        help="Output matching progress instead of decompilation progress")
     args = parser.parse_args()
+
     matching = args.matching
 
     non_matching_funcs = []
@@ -101,21 +108,42 @@ def main():
     total = src + asm
     data_total = src_data + data
 
-    src_pct = '%.4f' % (100 * src / total)
-    asm_pct = '%.4f' % (100 * asm / total)
+    src_percent = 100 * src / total
+    asm_percent = 100 * asm / total
 
-    src_data_pct = '%.4f' % (100 * src_data / data_total)
-    data_pct = '%.4f' % (100 * data / data_total)
+    src_data_percent = 100 * src_data / data_total
+    data_percent     = 100 * data / data_total
 
-    version = 1
-    git_object = git.Repo().head.object
-    timestamp = str(git_object.committed_date)
-    git_hash = git_object.hexsha
 
-    csv_list = [str(version), timestamp, git_hash, str(src_pct),
-                str(asm_pct), str(src_data_pct), str(data_pct)]
+    if args.format == 'csv':
+        version = 2
+        git_object = git.Repo().head.object
+        timestamp = str(git_object.committed_date)
+        git_hash = git_object.hexsha
 
-    print(','.join(csv_list))
+        csv_list = [str(version), timestamp, git_hash, str(src),
+                    str(total), str(src_data), str(data_total)]
+
+        print(','.join(csv_list))
+
+    elif args.format == 'shield-json':
+        # https://shields.io/endpoint
+        print(json.dumps({
+            "schemaVersion": 1,
+            "label": "progress",
+            "message": f"{src_percent:.3g}%",
+            "color": 'yellow',
+        }))
+
+    elif args.format == 'text':
+        adjective = "decompiled" if not args.matching else "matched"
+
+        print("src:  {:>9} / {:>8} total bytes {:<10} {:>9.4f}%".format(src, total, adjective, round(src_percent, 4)))
+        # print()
+        print("data: {:>9} / {:>8} total bytes analysed   {:>9.4f}%".format(src_data, data_total, round(src_data_percent, 4)))
+
+    else:
+        print("Unknown format argument: " + args.format)
 
 
 if __name__ == '__main__':
