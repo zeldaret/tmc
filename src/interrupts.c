@@ -29,7 +29,7 @@ extern void sub_080ADD70();
 extern void sub_0801C25C();
 extern void UpdateDisplayControls();
 extern void LoadResources();
-extern void FadeMain();
+extern void FadeVBlank();
 extern void HandlePlayerLife();
 extern void DoPlayerAction();
 extern void sub_080171F0();
@@ -156,7 +156,7 @@ void LoadResources(void) {
     }
 }
 
-void PrepNextFrame(void) {
+void WaitForNextFrame(void) {
     gMain.interruptFlag = 0;
     VBlankIntrWait();
     do {
@@ -176,7 +176,7 @@ void PrepNextFrame(void) {
         if (gUnk_0200B650 != NULL)
             DmaCopy32(3, &gBG2Buffer, VRAM + (*gUnk_0200B650 & 0x1f00) * 8, 0x5C0);
     }
-    FadeMain();
+    FadeVBlank();
 }
 
 void PlayerUpdate(Entity* this) {

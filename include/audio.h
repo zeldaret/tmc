@@ -593,6 +593,6 @@ extern SoundPlayingInfo gSoundPlayingInfo;
 
 void InitSound(void);
 void SoundReq(Sound sound);
-void SoundLoop(void);
+void AudioMain(void);
 
 #endif // AUDIO_H

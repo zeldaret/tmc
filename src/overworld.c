@@ -513,7 +513,7 @@ void sub_0805289C(void) {
 
 u32 sub_080528B4(void) {
     if (gScreenTransition.field_0x4[1]) {
-        sub_0804FFE4();
+        InitFade();
         gMain.funcIndex = 3;
         gMain.transition = 0;
         DoFade(5, 8);
@@ -564,7 +564,7 @@ u32 HandleRoomExit(void) {
         }
         RoomExitCallback();
         gMain.transition = 3;
-        *(&gMain.field_0xa + 1) = 1;
+        *(&gMain.pauseInterval + 1) = 1;
         return 1;
     }
     return 0;

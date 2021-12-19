@@ -125,7 +125,7 @@ sub_08051A14: @ 0x08051A14
 	bl EraseAllEntities
 	bl sub_080197AC
 	bl sub_08080668
-	bl sub_080ADD30
+	bl ResetPalettes
 	movs r0, #1
 	bl sub_0801CFA8
 	bl sub_0806FD8C

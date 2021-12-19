@@ -49,7 +49,6 @@ extern u32 GetSaleItemConfirmMessageID(u32);
 extern void FlushSprites(void);
 extern void DispReset(u32);
 extern void InitSoundPlayingInfo(void);
-extern void InitDMA(void);
 extern Entity* CreateProjectile(u32);
 extern void RegisterPlayerHitbox();
 extern s32 GetItemPrice();

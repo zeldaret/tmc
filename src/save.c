@@ -2,6 +2,7 @@
 #include "gba/eeprom.h"
 #include "audio.h"
 #include "menu.h"
+#include "main.h"
 #include "functions.h"
 
 typedef struct SaveFileStatus {

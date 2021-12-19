@@ -484,7 +484,6 @@ SECTIONS {
         src/room.o(.text);
         src/roomInit.o(.text);
         src/fade.o(.text);
-        asm/code_08050038.o(.text);
         src/fileScreen.o(.text);
         asm/fileScreen.o(.text);
         src/overworld.o(.text);

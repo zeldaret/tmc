@@ -4948,7 +4948,7 @@ sub_080A7328: @ 0x080A7328
 	movs r0, #1
 	bl DispReset
 	bl MessageInitialize
-	bl sub_080ADD30
+	bl ResetPalettes
 	movs r0, #0
 	bl sub_0801CFA8
 	ldr r0, _080A739C @ =gGFXSlots

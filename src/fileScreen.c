@@ -197,7 +197,7 @@ static void HandleFileScreenEnter(void) {
     MessageInitialize();
     EraseAllEntities();
     sub_08080668();
-    sub_080ADD30();
+    ResetPalettes();
     sub_0801CFA8(0);
     MemClear(&gUnk_0200AF00, sizeof(gUnk_0200AF00));
     MemClear(&gUnk_02019EE0, sizeof(gUnk_02019EE0));

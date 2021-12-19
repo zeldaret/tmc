@@ -143,7 +143,7 @@ void SoundReq(Sound sound) {
     }
 }
 
-void SoundLoop(void) {
+void AudioMain(void) {
     s32 fadeValue;
     SoundPlayingInfo* ptr = &gSoundPlayingInfo;
 
