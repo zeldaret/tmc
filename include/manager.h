@@ -150,6 +150,18 @@ extern struct {
 extern DiggingCaveEntrance* diggingCaveEntrances[];
 
 typedef struct {
+    Manager manager;
+    u8 field_0x20[0x15];
+    u8 field_0x35;
+    u8 field_0x36;
+    u8 field_0x37;
+    s16 x;
+    u16 y;
+    u16 tile;
+    u16 field_0x3e;
+} Manager24;
+
+typedef struct {
     u8 unk_00;
     u8 unk_01;
     u8 unk_02;

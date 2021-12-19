@@ -107,7 +107,6 @@ extern void sub_080AD9B0(void);
 extern void sub_080AD918(void);
 extern void sub_0801E104(void);
 extern void sub_080A57F4(void);
-extern void sub_0804B29C(void*);
 extern void sub_08030118(u32);
 extern void sub_080575C8(u32);
 extern void sub_08057688(void);
@@ -295,4 +294,6 @@ extern void sub_0801855C(void);
 extern u32 sub_0807CAEC(u32);
 extern void sub_0807CAC8(u32);
 extern void LoadObjPalette(Entity*, u32);
+
+void sub_0804B3C4(void*);
 #endif

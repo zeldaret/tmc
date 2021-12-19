@@ -481,11 +481,8 @@ SECTIONS {
         src/createEnemy.o(.text);
         src/code_0804AA84.o(.text);
         asm/code_0804AA84.o(.text);
-        src/loadRoom.o(.text);
-        asm/code_0804B058.o(.text);
         src/room.o(.text);
-        src/code_0804B9F8.o(.text);
-        src/sub_08050008.o(.text);
+        src/roomInit.o(.text);
         src/fade.o(.text);
         asm/code_08050038.o(.text);
         src/fileScreen.o(.text);

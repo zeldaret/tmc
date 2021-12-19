@@ -74,7 +74,8 @@ typedef struct {
     u8 filler4[48];
     u8 filler5[28];
     u32 animFlags;
-    void* field_0x6c[24];
+    void* field_0x6c[8];
+    void* field_0x8c[16];
 } RoomVars;
 static_assert(sizeof(RoomVars) == 0xCC);
 extern RoomVars gRoomVars;
