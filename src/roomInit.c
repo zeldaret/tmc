@@ -4791,7 +4791,8 @@ u32 sub_unk3_HouseInteriors2_Stockwell() {
 extern EntityData gUnk_080F30CC;
 
 void sub_StateChange_HouseInteriors2_Stockwell(void) {
-    if ((GetInventoryValue(ITEM_QST_DOGFOOD) == 1) && !CheckGlobalFlag(BIN_DOGFOOD) && (gPlayerState.flags & PL_MINISH) == 0) {
+    if ((GetInventoryValue(ITEM_QST_DOGFOOD) == 1) && !CheckGlobalFlag(BIN_DOGFOOD) &&
+        (gPlayerState.flags & PL_MINISH) == 0) {
         LoadRoomEntityList(&gUnk_080F30CC);
     }
 }
@@ -5178,12 +5179,14 @@ void sub_StateChange_Sanctuary_Main(void) {
         LoadRoomEntityList(&gUnk_080F54E8);
     }
     if (!CheckLocalFlag(0x7a)) {
-        if (GetInventoryValue(ITEM_GREEN_SWORD) && !GetInventoryValue(ITEM_RED_SWORD) && GetInventoryValue(ITEM_EARTH_ELEMENT) && GetInventoryValue(ITEM_FIRE_ELEMENT)) {
+        if (GetInventoryValue(ITEM_GREEN_SWORD) && !GetInventoryValue(ITEM_RED_SWORD) &&
+            GetInventoryValue(ITEM_EARTH_ELEMENT) && GetInventoryValue(ITEM_FIRE_ELEMENT)) {
             LoadRoomEntityList(&gUnk_080F5508);
         }
     } else {
         if (!CheckLocalFlag(0x7b)) {
-            if (GetInventoryValue(ITEM_RED_SWORD) && !GetInventoryValue(ITEM_BLUE_SWORD) && GetInventoryValue(ITEM_WATER_ELEMENT)) {
+            if (GetInventoryValue(ITEM_RED_SWORD) && !GetInventoryValue(ITEM_BLUE_SWORD) &&
+                GetInventoryValue(ITEM_WATER_ELEMENT)) {
                 LoadRoomEntityList(&gUnk_080F5558);
             }
         } else {
