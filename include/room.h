@@ -152,7 +152,24 @@ typedef struct {
     u8 _6;
     u8 _7;
 } TileEntity;
-extern TileEntity gUnk_02017660[];
+extern TileEntity gSmallChests[];
+
+typedef enum {
+    NONE,
+    ROOM_VISIT_MARKER,
+    SMALL_CHEST,
+    BIG_CHEST,
+    BOMBABLE_WALL,
+    SIGN,
+    TILE_ENTITY_6,
+    MUSIC_SETTER,
+    TILE_ENTITY_8,
+    DARKNESS,
+    DESTRUCTIBLE_TILE,
+    GRASS_DROP_CHANGER,
+    TILE_ENTITY_C,
+    TILE_ENTITY_D
+} TileEntityType;
 
 extern void SetTileType(u32, u32, u32);
 extern void sub_08080964(u32 time, u32 magnitude); // shake screen

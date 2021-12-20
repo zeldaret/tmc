@@ -17,7 +17,7 @@ extern u8 gUnk_081091E4[];
 
 extern void sub_080186EC();
 extern void sub_0804B16C();
-extern void sub_080A7C7C(void);
+extern void ClearSmallChests(void);
 extern Entity* GetEmptyEntityByKind(u32 kind);
 
 void RegisterRoomEntity(Entity*, EntityData*);
@@ -134,7 +134,7 @@ void sub_0804AF0C(Entity* ent, EntityData* dat) {
 
 void sub_0804AF90(void) {
     sub_0804AFB0(gArea.pCurrentRoomInfo->properties);
-    sub_080A7C7C();
+    ClearSmallChests();
 }
 
 void sub_0804AFB0(void** properties) {
@@ -254,12 +254,12 @@ void* GetCurrentRoomProperty(u32 idx) {
 }
 
 void sub_0804B16C(void) {
-    TileEntity* tile = gUnk_02017660;
+    TileEntity* tile = gSmallChests;
     do {
         if (tile->_4 != 0 && CheckLocalFlag(tile->_1)) {
             SetTileType(0x74, tile->_4, tile->_6 & 1 ? 2 : 1);
         }
-    } while (++tile < gUnk_02017660 + 8);
+    } while (++tile < gSmallChests + 8);
 }
 
 void LoadRoomTileEntities(TileEntity* list) {
@@ -315,7 +315,7 @@ static void sub_0804B290(TileEntity* tile) {
 }
 
 static void sub_0804B29C(TileEntity* tile) {
-    TileEntity* t = gUnk_02017660;
+    TileEntity* t = gSmallChests;
     u32 i = 0;
     for (i = 0; i < 8; ++i, ++t) {
         if (!t->_4) {
