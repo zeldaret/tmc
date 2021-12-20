@@ -143,7 +143,7 @@ void SoundReq(Sound sound) {
     }
 }
 
-void SoundLoop(void) {
+void AudioMain(void) {
     s32 fadeValue;
     SoundPlayingInfo* ptr = &gSoundPlayingInfo;
 
@@ -478,7 +478,7 @@ extern const SongHeader sfx117;
 extern const SongHeader sfxItemShieldBounce;
 extern const SongHeader sfxItemGlovesKnockback;
 extern const SongHeader sfxEmArmosOn;
-extern const SongHeader sfx11B;
+extern const SongHeader sfxChestOpen;
 extern const SongHeader sfx11C;
 extern const SongHeader sfx11D;
 extern const SongHeader sfxEmMoblinSpear;
@@ -1110,7 +1110,7 @@ const Song gSongTable[] = {
     [SFX_ITEM_SHIELD_BOUNCE] = { &sfxItemShieldBounce, MUSIC_PLAYER_07, MUSIC_PLAYER_07 },
     [SFX_ITEM_GLOVES_KNOCKBACK] = { &sfxItemGlovesKnockback, MUSIC_PLAYER_14, MUSIC_PLAYER_14 },
     [SFX_EM_ARMOS_ON] = { &sfxEmArmosOn, MUSIC_PLAYER_13, MUSIC_PLAYER_13 },
-    [SFX_11B] = { &sfx11B, MUSIC_PLAYER_12, MUSIC_PLAYER_12 },
+    [SFX_CHEST_OPEN] = { &sfxChestOpen, MUSIC_PLAYER_12, MUSIC_PLAYER_12 },
     [SFX_11C] = { &sfx11C, MUSIC_PLAYER_11, MUSIC_PLAYER_11 },
     [SFX_11D] = { &sfx11D, MUSIC_PLAYER_10, MUSIC_PLAYER_10 },
     [SFX_EM_MOBLIN_SPEAR] = { &sfxEmMoblinSpear, MUSIC_PLAYER_0F, MUSIC_PLAYER_0F },

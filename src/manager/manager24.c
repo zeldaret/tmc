@@ -6,18 +6,6 @@
 #include "object.h"
 #include "area.h"
 
-typedef struct {
-    Manager manager;
-    u8 field_0x20[0x15];
-    u8 field_0x35;
-    u8 field_0x36;
-    u8 field_0x37;
-    s16 x;
-    u16 y;
-    u16 tile;
-    u16 field_0x3e;
-} Manager24;
-
 extern void (*const gUnk_08108CDC[])(Manager24*);
 
 u32 sub_0805BFC4(u32, u32);

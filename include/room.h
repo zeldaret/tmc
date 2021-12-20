@@ -74,7 +74,8 @@ typedef struct {
     u8 filler4[48];
     u8 filler5[28];
     u32 animFlags;
-    void* field_0x6c[24];
+    void* field_0x6c[8];
+    void* field_0x8c[16];
 } RoomVars;
 static_assert(sizeof(RoomVars) == 0xCC);
 extern RoomVars gRoomVars;
@@ -141,6 +142,34 @@ typedef struct {
     u16 field_0xae;
 } ScreenTransition;
 extern ScreenTransition gScreenTransition;
+
+typedef struct {
+    u8 type;
+    u8 _1;
+    u8 _2;
+    u8 _3;
+    u16 _4;
+    u8 _6;
+    u8 _7;
+} TileEntity;
+extern TileEntity gSmallChests[8];
+
+typedef enum {
+    NONE,
+    ROOM_VISIT_MARKER,
+    SMALL_CHEST,
+    BIG_CHEST,
+    BOMBABLE_WALL,
+    SIGN,
+    TILE_ENTITY_6,
+    MUSIC_SETTER,
+    TILE_ENTITY_8,
+    DARKNESS,
+    DESTRUCTIBLE_TILE,
+    GRASS_DROP_CHANGER,
+    LOCATION_CHANGER,
+    TILE_ENTITY_D
+} TileEntityType;
 
 extern void SetTileType(u32, u32, u32);
 extern void sub_08080964(u32 time, u32 magnitude); // shake screen

@@ -47,18 +47,23 @@ enum {
     SCREEN_DEBUG_TEXT,
 };
 
+enum {
+    DEFAULT,
+    SLEEP,
+};
+
 typedef struct {
     vu8 interruptFlag;
-    u8 field_0x1;
+    u8 sleepStatus;
     u8 screen;
     u8 funcIndex;
     u8 transition;
     u8 field_0x5;
     u8 muteAudio;
     u8 field_0x7;
-    u8 countdown;
-    u8 field_0x9;
-    u8 field_0xa;
+    u8 pauseFrames;
+    u8 pauseCount;
+    u8 pauseInterval;
     u16 ticks;
 } Main;
 
@@ -84,18 +89,20 @@ extern UI gUnk_02032EC0;
  */
 void InitScreen(u32 screen);
 
+void InitDMA(void);
+
 extern void sub_08056208(void);
-extern void sub_0804FFE4(void);
-extern void sub_080ADD30(void);
+extern void InitFade(void);
+extern void ResetPalettes(void);
 
 extern void DoSoftReset(void);
-extern void sub_08056260(void);
+extern void SetSleepMode(void);
 extern void VBlankIntrWait();
-extern void UpdateFade(void);
+extern void FadeMain(void);
 
 extern u8 gUnk_03003DE4;
 
-extern void sub_0804FF84(u32);
+extern void SetBrightness(u32);
 extern u16 gPaletteBuffer[];
 extern void VBlankInterruptWait(void);
 extern void DisableInterruptsAndDMA(void);

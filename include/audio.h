@@ -291,7 +291,7 @@ typedef enum {
     SFX_ITEM_SHIELD_BOUNCE,
     SFX_ITEM_GLOVES_KNOCKBACK,
     SFX_EM_ARMOS_ON,
-    SFX_11B,
+    SFX_CHEST_OPEN,
     SFX_11C,
     SFX_11D,
     SFX_EM_MOBLIN_SPEAR,
@@ -593,6 +593,6 @@ extern SoundPlayingInfo gSoundPlayingInfo;
 
 void InitSound(void);
 void SoundReq(Sound sound);
-void SoundLoop(void);
+void AudioMain(void);
 
 #endif // AUDIO_H

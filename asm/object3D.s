@@ -89,7 +89,7 @@ _0808CF82:
 	bl sub_0808D030
 	movs r0, #0
 	bl sub_0801CFA8
-	bl sub_080ADD30
+	bl ResetPalettes
 	ldr r0, _0808D024 @ =gGFXSlots
 	movs r6, #1
 	strb r6, [r0]

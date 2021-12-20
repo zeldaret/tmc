@@ -180,7 +180,6 @@ extern void RespawnPlayer();
 extern void sub_080797EC();
 extern void sub_08079E08();
 extern void sub_08078F60();
-extern void sub_0806F948();
 extern void sub_08077698();
 extern void DisplayEzloMessage();
 extern void sub_08079258();

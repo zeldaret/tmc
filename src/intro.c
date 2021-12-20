@@ -145,7 +145,7 @@ static void HandleTitlescreen(void) {
             gIntroState.gameLanguage = 7;
             EraseAllEntities();
             sub_0801CFA8(0);
-            sub_080ADD30();
+            ResetPalettes();
             gGFXSlots.unk0 = 1;
             LoadGfxGroup(2);
             if (gSaveHeader->gameLanguage == 0) {

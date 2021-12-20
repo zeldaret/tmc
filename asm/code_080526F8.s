@@ -510,7 +510,7 @@ sub_08053974: @ 0x08053974
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080539A8
-	bl sub_0804FFE4
+	bl InitFade
 	movs r0, #1
 	bl DispReset
 	bl sub_080197AC

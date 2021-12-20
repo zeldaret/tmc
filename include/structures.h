@@ -157,30 +157,4 @@ typedef struct {
     void* unk8;
 } WStruct;
 
-typedef struct {
-    u8 type;
-    u8 unk_0x1;
-    u8 unk_0x2;
-    u8 unk_0x3;
-    u16 tilePos;
-    u16 unk_0x6;
-} TileEntityData;
-
-typedef enum {
-    NONE,
-    ROOM_VISIT_MARKER,
-    SMALL_CHEST,
-    BIG_CHEST,
-    BOMBABLE_WALL,
-    SIGN,
-    TILE_ENTITY_6,
-    MUSIC_SETTER,
-    TILE_ENTITY_8,
-    DARKNESS,
-    DESTRUCTIBLE_TILE,
-    GRASS_DROP_CHANGER,
-    TILE_ENTITY_C,
-    TILE_ENTITY_D
-} TileEntityType;
-
 #endif

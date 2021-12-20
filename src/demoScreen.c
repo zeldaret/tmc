@@ -34,7 +34,7 @@ void sub_080A2E40(void) {
     MemClear((void*)VRAM, 0x80);
     MessageInitialize();
     EraseAllEntities();
-    sub_080ADD30();
+    ResetPalettes();
     sub_0801CFA8(0);
     MemClear(&gUnk_02032EC0, sizeof gUnk_02032EC0);
     MemClear(&gChooseFileState, sizeof gChooseFileState);

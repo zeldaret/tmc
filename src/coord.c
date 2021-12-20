@@ -1,9 +1,260 @@
+#include "area.h"
+#include "player.h"
 #include "global.h"
 #include "entity.h"
 #include "coord.h"
+#include "utils.h"
+#include "audio.h"
+#include "room.h"
+#include "functions.h"
 
 extern u8 gUnk_08114F78[];
 extern u8 gUnk_08114F80[];
+
+typedef struct {
+    u32 _0;
+    u16 _4[0x1000];
+    u8 _2004[0x2000];
+} struct_02025EB0;
+extern struct_02025EB0 gUnk_02025EB0;
+
+extern s8 gUnk_08126EE4[];
+extern u8 gUnk_08114F38[];
+extern u8 gUnk_08114F58[];
+
+void sub_080027EA(Entity*, u32, u32);
+void sub_0806F5BC(Entity*, u32, u32);
+u32 sub_0806F58C(Entity*, Entity*);
+u32 sub_0806FCA0(Entity*, Entity*);
+
+void sub_0806F364(void) {
+    gArea.filler[2] ^= 0x80;
+    MemClear(&gArea.filler5[(gArea.filler[2] + 7) / 8], 16);
+}
+
+void sub_0806F38C(void) {
+    gArea.filler[2] ^= 0x80;
+}
+
+u32 sub_0806F39C(Entity* ent) {
+    s32 dist;
+
+    if (gPlayerEntity.animationState & 2) {
+        dist = ent->x.HALF.HI - gPlayerEntity.x.HALF.HI;
+    } else {
+        dist = ent->y.HALF.HI - gPlayerEntity.y.HALF.HI;
+    }
+    if (dist < 0) {
+        dist = -dist;
+    }
+
+    if (dist > 64) {
+        sub_080027EA(&gPlayerEntity, ent->speed, ent->direction);
+        return 1;
+    }
+    return 0;
+}
+
+u32 sub_0806F3E4(Entity* ent) {
+    Entity tmp_ent;
+    s8* p;
+
+    if ((gPlayerState.field_0x1c & 0x7F) != 1)
+        return 0;
+    switch (gPlayerState.field_0x1d[0]) {
+        case 1:
+            ent->field_0x46 += 64;
+            break;
+        case 2:
+            ent->field_0x46 += 128;
+            break;
+        case 3:
+            ent->field_0x46 += 192;
+            break;
+    }
+    if (ent->field_0x46 > 0x500)
+        ent->field_0x46 = 0x500;
+    p = &gUnk_08126EE4[gPlayerEntity.animationState & 0xE];
+    tmp_ent.x.HALF.HI = p[0] + gPlayerEntity.x.HALF.HI;
+    tmp_ent.y.HALF.HI = p[1] + gPlayerEntity.y.HALF.HI;
+    sub_0806F5BC(ent, ent->field_0x46, GetFacingDirection(ent, &tmp_ent));
+    if (sub_0800419C(&tmp_ent, ent, 4, 4)) {
+        u32 state = ent->field_0x1c & 0xF;
+        if (state == 2) {
+            Entity* item;
+            ent->subAction = 3;
+            (Entity*)gPlayerEntity.field_0x70.WORD = ent;
+            gPlayerState.field_0x1c = 7;
+            item = CreatePlayerItem(0x11, 0, 0, 0);
+            if (item != NULL) {
+                item->child = ent;
+                ent->parent = item;
+            }
+            SoundReq(SFX_ED);
+        } else if (state == 1) {
+            gPlayerState.field_0x2c[10] = 1;
+            SoundReq(SFX_EF);
+        }
+        return 1;
+    }
+    return 0;
+}
+
+void sub_0806F4E8(Entity* ent) {
+    switch (ent->field_0x1d & 3) {
+        case 2:
+            ent->spriteOffsetX = -2;
+            break;
+        case 1:
+            ent->spriteOffsetX = 0;
+            break;
+        case 0:
+            ent->spriteOffsetX = 2;
+            break;
+        case 3:
+            ent->spriteOffsetX = 0;
+            break;
+    }
+}
+
+u32 sub_0806F520(Entity* ent) {
+    if (ent->bitfield == 0x93)
+        return 1;
+    ent->field_0x3a &= ~4;
+    ent->spriteOffsetY = 0;
+    return 0;
+}
+
+u32 sub_0806F548(Entity* a, Entity* b, u32 x, u32 y) {
+    if (EntityInRectRadius(a, b, x, y))
+        return sub_0806F58C(a, b);
+    return 0;
+}
+
+u32 sub_0806F564(Entity* ent, u32 b, u32 c) {
+    u32 tmp = sub_080045D4(ent->x.HALF.HI, ent->y.HALF.HI, b, c);
+    return ent->animationState == sub_0806F5A4(tmp);
+}
+
+u32 sub_0806F58C(Entity* a, Entity* b) {
+    return a->animationState >> 1 == sub_0806FCA0(a, b);
+}
+
+u32 sub_0806F5A4(u32 idx) {
+    return gUnk_08114F38[idx];
+}
+
+u32 sub_0806F5B0(u32 idx) {
+    return gUnk_08114F58[idx];
+}
+
+void sub_0806F5BC(Entity* ent, u32 a, u32 b) {
+    if ((b & 0x80) == 0) {
+        u32 m1 = b;
+
+        ent->x.WORD += FixedDiv(FixedMul(gSineTable[m1 *= 8], a), 256) << 8;
+        ent->y.WORD -= FixedDiv(FixedMul(gSineTable[m1 + 64], a), 256) << 8;
+    }
+}
+
+void sub_0806F62C(Entity* ent, u32 a, u32 b) {
+    ent->x.WORD += FixedDiv(FixedMul(gSineTable[(u8)b], a), 256) << 8;
+    ent->y.WORD -= FixedDiv(FixedMul(gSineTable[(u8)b + 64], a), 256) << 8;
+}
+
+void sub_0806F69C(Entity* ent) {
+    if ((ent->direction & 0x80) == 0) {
+        ent->x.WORD += FixedDiv(FixedMul(gSineTable[ent->direction * 8], ent->speed), 256) << 8;
+        ent->y.WORD -= FixedDiv(FixedMul(gSineTable[ent->direction * 8 + 64], ent->speed), 256) << 8;
+    }
+}
+
+void sub_0806F704(Entity* ent, u32 a2) {
+    ent->x.HALF.HI = (((16 * a2) & 0x3F0) | 8) + gRoomControls.roomOriginX;
+    ent->y.HALF.HI = (((a2 >> 2) & 0x3F0) | 8) + gRoomControls.roomOriginY;
+}
+
+u32 sub_0806F730(Entity* ent) {
+    u32 tmp = 0x3F;
+    u32 x = ent->x.HALF.HI + ent->hitbox->offset_x - gRoomControls.roomOriginX;
+    u32 y = ent->y.HALF.HI + ent->hitbox->offset_y - gRoomControls.roomOriginY;
+    switch (ent->animationState) {
+        case 0:
+            y -= ent->hitbox->unk2[3];
+            break;
+        case 4:
+            y += ent->hitbox->unk2[3];
+            break;
+        case 2:
+            x += ent->hitbox->unk2[0];
+            break;
+        case 6:
+            x -= ent->hitbox->unk2[0];
+            break;
+    }
+    return ((x >> 4) & tmp) + (((y >> 4) & tmp) << 6);
+}
+
+ASM_FUNC("asm/non_matching/sub_0806F798.inc", u32 sub_0806F798(Entity* ent));
+
+u32 sub_0806F7D0(Entity* ent) {
+    return gUnk_02025EB0._2004[sub_0806F730(ent)];
+}
+
+u32 sub_0806F7EC(Entity* ent) {
+    return gUnk_02025EB0._4[sub_0806F730(ent)];
+}
+
+u32 sub_0806F804(u32 x, u32 y) {
+    u32 idx = ((x >> 4) & 0x3F) + 4 * (y & 0x3F0);
+    return gUnk_02025EB0._4[idx];
+}
+
+ASM_FUNC("asm/non_matching/sub_0806F824.inc", void sub_0806F824(Entity* a, Entity* b, u32 x, u32 y));
+
+u32 sub_0806F854(Entity* ent, s32 x, s32 y) {
+    if (ent->z.WORD == 0 || (ent->collisionLayer & 2))
+        return 0;
+    if (!sub_080002F0(TILE(ent->x.HALF.HI + x, ent->y.HALF.HI + y), 2, 8)) {
+        ent->spriteRendering.b3 = 1;
+        ent->spriteOrientation.flipY = 1;
+        return 0;
+    }
+    ent->spriteRendering.b3 = 2;
+    ent->spriteOrientation.flipY = 2;
+    return 1;
+}
+
+u32 sub_0806F8DC(Entity* ent) {
+    if (ent->collisionLayer & 2)
+        return 0;
+    if (!GetTileTypeByPos(ent->x.HALF.HI, ent->y.HALF.HI - 4, 2)) {
+        GetTileTypeByPos(ent->x.HALF.HI, ent->y.HALF.HI - 4, ent->collisionLayer);
+        ent->spriteRendering.b3 = 1;
+        ent->spriteOrientation.flipY = 1;
+        return 0;
+    }
+    ent->spriteRendering.b3 = 2;
+    ent->spriteOrientation.flipY = 2;
+    return 1;
+}
+
+u32 sub_0806F948(Entity* ent) {
+    u32 v1;
+    if (gPlayerState.field_0xd == 0xFF)
+        return ent->animationState;
+
+    v1 = gPlayerState.field_0xd / 4;
+    if ((v1 & 1) && !(((v1 + 1) - ent->animationState) & 4)) {
+        return ent->animationState;
+    } else {
+        ent->spriteSettings.flipX = v1 > 4;
+        ent->animationState = v1 & 6;
+    }
+    return ent->animationState;
+}
+
+ASM_FUNC("asm/non_matching/sub_0806F998.inc", u32 sub_0806F998(Entity* ent));
 
 s16 FixedMul(s16 r0, s16 r1) {
     s32 temp = r0 * r1;

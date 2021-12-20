@@ -38,8 +38,6 @@ void (*const sScreenHandlers[])(void) = {
 static void sub_080560B8(void);
 
 void AgbMain(void) {
-    int var0;
-
     InitOverlays();
     InitSound();
     InitDMA();
@@ -47,11 +45,11 @@ void AgbMain(void) {
     sub_080560B8();
     sub_08056208();
     gUnk_02000010.field_0x4 = 193;
-    sub_0804FFE4();
+    InitFade();
     DmaCopy32(3, BG_PLTT, gPaletteBuffer, BG_PLTT_SIZE);
-    sub_0804FF84(1);
+    SetBrightness(1);
     MessageInitialize();
-    sub_080ADD30();
+    ResetPalettes();
     gRand = 0x1234567;
     MemClear(&gMain, sizeof(gMain));
     InitScreen(SCREEN_INTRO);
@@ -61,22 +59,23 @@ void AgbMain(void) {
             DoSoftReset();
         }
 
-        switch (gMain.field_0x1) {
-            case 1:
-                sub_08056260();
+        switch (gMain.sleepStatus) {
+            case SLEEP:
+                SetSleepMode();
                 break;
-            case 0:
+            case DEFAULT:
             default:
-                if (gMain.countdown != 0) {
+                if (gMain.pauseFrames != 0) {
                     do {
                         VBlankIntrWait();
-                    } while (--gMain.countdown);
+                    } while (--gMain.pauseFrames);
                 }
 
-                if (gMain.field_0x9 != 0) {
-                    gMain.field_0x9--;
-                    var0 = gMain.field_0xa;
-                    while (var0-- > 0) {
+                if (gMain.pauseCount != 0) {
+                    int cnt;
+                    gMain.pauseCount--;
+                    cnt = gMain.pauseInterval;
+                    while (cnt-- > 0) {
                         VBlankIntrWait();
                     }
                 }
@@ -84,11 +83,11 @@ void AgbMain(void) {
                 gMain.ticks++;
                 sScreenHandlers[gMain.screen]();
                 MessageMain();
-                UpdateFade();
-                SoundLoop();
+                FadeMain();
+                AudioMain();
                 break;
         }
-        PrepNextFrame();
+        WaitForNextFrame();
     }
 }
 
@@ -200,7 +199,7 @@ NONMATCH("asm/non_matching/sub_080560B8.inc", static void sub_080560B8(void)) {
     }
 
     temp = gUnk_02000010.signature ^ SIGNATURE;
-    b = !!temp;
+    b = BOOLCAST(temp);
 
     if ((gUnk_02000010.field_0x4 != 0) && (gUnk_02000010.field_0x4 != 0xc1)) {
         b = TRUE;
@@ -257,7 +256,7 @@ void sub_08056250() {
     gScreen._6c = 0;
 }
 
-void sub_08056260(void) {
+void SetSleepMode(void) {
     u32 restore;
     Main* m;
 
@@ -272,8 +271,8 @@ void sub_08056260(void) {
     REG_IE = restore;
     REG_IME = 1;
     m = &gMain;
-    *(vu8*)&m->field_0x1; // force a read
-    m->field_0x1 = 0;
+    *(vu8*)&m->sleepStatus; // force a read
+    m->sleepStatus = 0;
 }
 
 // Convert AABB to screen coordinates and check if it's within the viewport

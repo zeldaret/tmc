@@ -281,7 +281,7 @@
     .equiv SFX_ITEM_SHIELD_BOUNCE, 0x118
     .equiv SFX_ITEM_GLOVES_KNOCKBACK, 0x119
     .equiv SFX_EM_ARMOS_ON, 0x11a
-    .equiv SFX_11B, 0x11b
+    .equiv SFX_CHEST_OPEN, 0x11b
     .equiv SFX_11C, 0x11c
     .equiv SFX_11D, 0x11d
     .equiv SFX_EM_MOBLIN_SPEAR, 0x11e

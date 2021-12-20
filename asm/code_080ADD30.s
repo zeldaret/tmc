@@ -8,8 +8,8 @@
 
 
 
-	thumb_func_start sub_080ADD30
-sub_080ADD30: @ 0x080ADD30
+	thumb_func_start ResetPalettes
+ResetPalettes: @ 0x080ADD30
 	push {r4, r5, r6, lr}
 	ldr r4, _080ADD6C @ =gGFXSlots
 	movs r1, #0x85

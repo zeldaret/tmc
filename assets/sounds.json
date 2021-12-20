@@ -3026,7 +3026,7 @@
     "size": 28
   },
   {
-    "path": "sounds/sfx11B.bin",
+    "path": "sounds/sfxChestOpen.bin",
     "start": 14558640,
     "type": "midi",
     "options": {
