@@ -48,7 +48,7 @@ Entity* GiveItemWithCutscene(u32 type, u32 type2, u32 delay) {
 }
 
 void ClearSmallChests(void) {
-    MemClear(gSmallChests, 0x40);
+    MemClear(gSmallChests, sizeof(gSmallChests));
 }
 
 void sub_080A7C8C(u32 pos, u32 layer) {
@@ -70,7 +70,7 @@ void sub_080A7C8C(u32 pos, u32 layer) {
         }
         sub_0807B7D8(0x74, pos, layer);
         RequestPriorityDuration(NULL, 120);
-        SoundReq(SFX_11B);
+        SoundReq(SFX_CHEST_OPEN);
     }
 }
 

@@ -152,7 +152,7 @@ typedef struct {
     u8 _6;
     u8 _7;
 } TileEntity;
-extern TileEntity gSmallChests[];
+extern TileEntity gSmallChests[8];
 
 typedef enum {
     NONE,
@@ -167,7 +167,7 @@ typedef enum {
     DARKNESS,
     DESTRUCTIBLE_TILE,
     GRASS_DROP_CHANGER,
-    TILE_ENTITY_C,
+    LOCATION_CHANGER,
     TILE_ENTITY_D
 } TileEntityType;
 

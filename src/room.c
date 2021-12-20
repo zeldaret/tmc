@@ -4,6 +4,7 @@
 #include "flags.h"
 #include "functions.h"
 #include "utils.h"
+#include "object.h"
 
 extern void sub_0804B058(EntityData* dat);
 extern void sub_0801AC98();
@@ -29,14 +30,13 @@ void sub_0806F704(Entity*, u32);
 
 void sub_0805BB00(u32, u32);
 
-static void sub_0804B290(TileEntity*);
-static void sub_0804B29C(TileEntity*);
-static void sub_0804B300(TileEntity*);
-static void sub_0804B334(TileEntity*);
-static void sub_0804B340(TileEntity*);
-static void sub_0804B260(TileEntity*);
-static void sub_0804B27C(TileEntity*);
-
+static void LoadRoomVisitTile(TileEntity*);
+static void LoadSmallChestTile(TileEntity*);
+static void LoadBombableWallTile(TileEntity*);
+static void LoadDarknessTile(TileEntity*);
+static void LoadDestructibleTile(TileEntity*);
+static void LoadGrassDropTile(TileEntity*);
+static void LoadLocationTile(TileEntity*);
 
 typedef struct {
     u8 filler[0x20];
@@ -221,7 +221,6 @@ void sub_0804B0E8(u32 arg0, u32 arg1) {
     void (*func)();
 
     // init function at index 4 of room data
-
     func = (void (*)())GetRoomProperty(arg0, arg1, 4);
     if (func != NULL) {
         func();
@@ -270,58 +269,58 @@ void LoadRoomTileEntities(TileEntity* list) {
 
     for (t; t->type != 0; ++t) {
         switch (t->type) {
-            case 1:
-                sub_0804B290(t);
+            case ROOM_VISIT_MARKER:
+                LoadRoomVisitTile(t);
                 break;
-            case 2:
-                sub_0804B29C(t);
+            case SMALL_CHEST:
+                LoadSmallChestTile(t);
                 break;
-            case 4:
-                sub_0804B300(t);
+            case BOMBABLE_WALL:
+                LoadBombableWallTile(t);
                 break;
-            case 7:
+            case MUSIC_SETTER:
                 gArea.pMusicIndex = t->_3;
                 break;
-            case 9:
-                sub_0804B334(t);
+            case DARKNESS:
+                LoadDarknessTile(t);
                 break;
-            case 10:
-                sub_0804B340(t);
+            case DESTRUCTIBLE_TILE:
+                LoadDestructibleTile(t);
                 break;
-            case 11:
-                sub_0804B260(t);
+            case GRASS_DROP_CHANGER:
+                LoadGrassDropTile(t);
                 break;
-            case 12:
-                sub_0804B27C(t);
+            case LOCATION_CHANGER:
+                LoadLocationTile(t);
                 break;
-            case 13:
+            case TILE_ENTITY_D:
                 gRoomVars.field_0x9 = t->_3;
                 break;
         }
     }
 }
 
-static void sub_0804B260(TileEntity* tile) {
+static void LoadGrassDropTile(TileEntity* tile) {
     MemCopy(&gUnk_080015BC[tile->_1], &gRoomVars.filler4[44], 0x20);
 }
 
-static void sub_0804B27C(TileEntity* tile) {
+static void LoadLocationTile(TileEntity* tile) {
     gArea.locationIndex = tile->_1;
     sub_08054524();
 }
 
-static void sub_0804B290(TileEntity* tile) {
+static void LoadRoomVisitTile(TileEntity* tile) {
     SetLocalFlag(tile->_1);
 }
 
-static void sub_0804B29C(TileEntity* tile) {
+static void LoadSmallChestTile(TileEntity* tile) {
     TileEntity* t = gSmallChests;
     u32 i = 0;
     for (i = 0; i < 8; ++i, ++t) {
         if (!t->_4) {
             MemCopy(tile, t, sizeof(TileEntity));
             if ((t->_6 & 1) && (gRoomControls.unk6 & 2) && !CheckLocalFlag(t->_1)) {
-                Entity* e = CreateObject(0x52, t->_1, 0);
+                Entity* e = CreateObject(OBJECT_52, t->_1, 0);
                 if (e != NULL) {
                     sub_0806F704(e, t->_4);
                 }
@@ -331,7 +330,7 @@ static void sub_0804B29C(TileEntity* tile) {
     }
 }
 
-static void sub_0804B300(TileEntity* tile) {
+static void LoadBombableWallTile(TileEntity* tile) {
     Manager24* mgr = (Manager24*)GetEmptyManager();
     if (mgr != NULL) {
         mgr->manager.type = 9;
@@ -344,11 +343,11 @@ static void sub_0804B300(TileEntity* tile) {
     }
 }
 
-static void sub_0804B334(TileEntity* tile) {
+static void LoadDarknessTile(TileEntity* tile) {
     sub_0805BB00(tile->_3, 1);
 }
 
-static void sub_0804B340(TileEntity* tile) {
+static void LoadDestructibleTile(TileEntity* tile) {
     if (CheckLocalFlag(*(u16*)&tile->_2)) {
         SetTileType(*(u16*)&tile->_6, tile->_4, tile->_1);
     } else if (!gRoomVars.filler_0x1) {
@@ -375,5 +374,5 @@ void sub_0804B388(u32 a1, u32 a2) {
 }
 
 void sub_0804B3C4(void* arg0) {
-    sub_0804B29C(arg0);
+    LoadSmallChestTile(arg0);
 }

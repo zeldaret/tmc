@@ -139,7 +139,7 @@ void sub_0806A550(Entity* this) {
             this->frame = 0;
             sub_08080964(8, 2);
             gActiveScriptInfo.unk_00 |= 0x100;
-            SoundReq(SFX_11B);
+            SoundReq(SFX_CHEST_OPEN);
         }
         if ((this->frame & 0x80) != 0) {
             this->action = 5;
