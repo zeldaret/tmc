@@ -38,7 +38,7 @@ void MemCopy(const void* src, void* dest, u32 size);
  */
 void ReadKeyInput(void);
 
-void LoadPalettes(const u8*, int, int);
+void LoadPalettes(const u8*, s32, s32);
 void LoadPaletteGroup(u32 group);
 void SetColor(u32 colorIndex, u32 color);
 void SetFillColor(u32 color, u32 arg1);
@@ -69,5 +69,7 @@ void zFree(void* ptr);
  * @param updateHUD bool32 Request refresh of HUD layer (bg 0)
  */
 void DispReset(bool32 updateHUD);
+
+u32 CheckPlayerProximity(u32, u32, u32, u32);
 
 #endif

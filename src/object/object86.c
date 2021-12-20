@@ -1,8 +1,4 @@
-#include "global.h"
-#include "entity.h"
-#include "coord.h"
-#include "player.h"
-#include "flags.h"
+#include "object.h"
 #include "functions.h"
 
 void sub_08099ECC(Entity*);

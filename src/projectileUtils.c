@@ -16,7 +16,7 @@ const ProjectileDefinition* GetProjectileDefinition(Entity* this) {
 }
 
 bool32 ProjectileInit(Entity* this) {
-    if ((this->flags & 1) == 0) {
+    if ((this->flags & ENT_DID_INIT) == 0) {
         const ProjectileDefinition* definition = GetProjectileDefinition(this);
         if (LoadProjectileSprite(this, definition) == FALSE) {
             return FALSE;

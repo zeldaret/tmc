@@ -4,7 +4,7 @@
 #include "area.h"
 #include "textbox.h"
 #include "utils.h"
-#include "game.h"
+#include "overworld.h"
 #include "functions.h"
 
 typedef struct {

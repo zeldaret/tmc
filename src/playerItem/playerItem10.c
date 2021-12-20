@@ -1,7 +1,7 @@
 #include "entity.h"
 #include "player.h"
 #include "functions.h"
-#include "random.h"
+#include "asm.h"
 
 extern void (*const gUnk_0812AA80[])(Entity*);
 

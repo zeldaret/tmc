@@ -1344,7 +1344,7 @@ _080A558C:
 	movs r0, #0x87
 	lsls r0, r0, #7
 	strh r0, [r5, #8]
-	bl sub_080527CC
+	bl HasDungeonSmallKey
 	cmp r0, #0
 	beq _080A55BE
 	movs r0, #0x18
@@ -1359,7 +1359,7 @@ _080A558C:
 	adds r1, r4, #0
 	bl sub_080ADA14
 _080A55BE:
-	bl sub_08052764
+	bl HasDungeonCompass
 	cmp r0, #0
 	beq _080A55DE
 	movs r0, #0x2e
@@ -1374,7 +1374,7 @@ _080A55BE:
 	adds r1, r4, #0
 	bl sub_080ADA14
 _080A55DE:
-	bl sub_0805279C
+	bl HasDungeonBigKey
 	cmp r0, #0
 	beq _080A563CEU
 	movs r0, #0x45
@@ -1600,7 +1600,7 @@ _080A5D9A:
 	movs r0, #0x87
 	lsls r0, r0, #7
 	strh r0, [r5, #8]
-	bl sub_080527CC
+	bl HasDungeonSmallKey
 	cmp r0, #0
 	beq _080A5DCC
 	movs r0, #0x18
@@ -1616,7 +1616,7 @@ _080A5D9A:
 	adds r1, r4, #0
 	bl sub_080ADA14
 _080A5DCC:
-	bl sub_08052764
+	bl HasDungeonCompass
 	cmp r0, #0
 	beq _080A5DEE
 	movs r0, #0x2e
@@ -1632,7 +1632,7 @@ _080A5DCC:
 	adds r1, r4, #0
 	bl sub_080ADA14
 _080A5DEE:
-	bl sub_0805279C
+	bl HasDungeonBigKey
 	cmp r0, #0
 	beq _080A5E48
 	movs r0, #0x45

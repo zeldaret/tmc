@@ -1,13 +1,14 @@
 #include "global.h"
+#include "asm.h"
 #include "entity.h"
 #include "functions.h"
 #include "definitions.h"
 #include "save.h"
+#include "npc.h"
 
 extern const NPCDefinition gNPCDefinitions[];
 
 extern Hitbox* gNPCHitboxes[];
-const NPCDefinition* GetNPCDefinition(Entity*);
 extern u32 (*gUnk_08114EFC[])();
 extern u32 (*gUnk_08114F0C[])(Entity*, u8*);
 
@@ -20,12 +21,13 @@ extern NPCData* gUnk_08001A7C[];
 
 u32 sub_0800445C(Entity*);
 void sub_08077B20(void);
-void sub_0806EF14(Entity*);
 void sub_0806F69C(Entity*);
-void sub_0806EF4C(Entity*, u16*);
 u32 sub_080041DC(Entity*, u32, u32);
-u32 sub_0806EF74(Entity*, u32);
 u32 sub_0806EF88(Entity*);
+
+static void sub_0806EF14(Entity*);
+static void sub_0806EF4C(Entity*, u16*);
+static u32 sub_0806EF74(Entity*, u32);
 
 void sub_0806EC20(Entity* ent) {
     Entity* e = CreateNPC(0x58, 0, 0);
@@ -40,7 +42,7 @@ void sub_0806EC38(void) {
         DeleteEntity(e);
 }
 
-const NPCDefinition* GetNPCDefinition(Entity* this) {
+static const NPCDefinition* GetNPCDefinition(Entity* this) {
     const NPCDefinition* definition = &gNPCDefinitions[this->id];
     if (definition->bitfield.type == 2) {
         definition = &definition->data.definition[this->type];
@@ -52,7 +54,7 @@ void NPCInit(Entity* this) {
     u32 tmp;
     u32 tmp2;
 
-    if ((this->flags & 1) == 0) {
+    if ((this->flags & ENT_DID_INIT) == 0) {
         const NPCDefinition* definition = GetNPCDefinition(this);
         if (definition->bitfield.type == 0) {
             // No sprite for this NPC
@@ -184,7 +186,7 @@ u32 sub_0806EEF4(Entity* ent) {
     return 0;
 }
 
-void sub_0806EF14(Entity* ent) {
+static void sub_0806EF14(Entity* ent) {
     u16 xy[2];
     sub_0806EF4C(ent, xy);
     ent->direction = sub_080045B4(ent, xy[0], xy[1]);
@@ -192,13 +194,13 @@ void sub_0806EF14(Entity* ent) {
         ent->knockbackDirection = sub_0806F5A4(ent->direction);
 }
 
-void sub_0806EF4C(Entity* ent, u16* xy) {
+static void sub_0806EF4C(Entity* ent, u16* xy) {
     u16* src = &((u16*)ent->child)[ent->hitType];
     xy[0] = gRoomControls.roomOriginX + src[1];
     xy[1] = gRoomControls.roomOriginY + src[2];
 }
 
-u32 sub_0806EF74(Entity* ent, u32 a2) {
+static u32 sub_0806EF74(Entity* ent, u32 a2) {
     ent->hitType += a2;
     return sub_0806EF88(ent);
 }
@@ -284,7 +286,7 @@ void sub_0806F118(Entity* ent) {
     gPlayerState.controlMode = 3;
 }
 
-u32 UpdateFuseInteraction(void) {
+u32 UpdateFuseInteraction(Entity* ent) {
     u32 ret;
     sub_0801E00C();
     ret = -1;

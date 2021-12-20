@@ -1,14 +1,9 @@
-#include "global.h"
-#include "audio.h"
 #include "enemy.h"
 #include "functions.h"
 #include "object.h"
 #include "projectile.h"
-#include "random.h"
-#include "room.h"
 #include "structures.h"
-#include "structures.h"
-#include "utils.h"
+#include "overworld.h"
 
 extern void sub_08078AC0(u32, u32, u32);
 extern u32 GetRandomByWeight(const u8*);

@@ -1,16 +1,10 @@
-#include "entity.h"
 #include "enemy.h"
-#include "audio.h"
-#include "room.h"
-#include "random.h"
 #include "object.h"
 #include "textbox.h"
-#include "flags.h"
-#include "utils.h"
 #include "structures.h"
 #include "functions.h"
 #include "save.h"
-#include "effects.h"
+#include "screen.h"
 
 extern u8 gEntCount;
 

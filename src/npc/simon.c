@@ -6,6 +6,7 @@
 #include "script.h"
 #include "object.h"
 #include "functions.h"
+#include "screen.h"
 
 typedef struct {
     u8 filler[4];

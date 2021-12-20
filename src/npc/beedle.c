@@ -1,10 +1,11 @@
 #include "global.h"
 #include "entity.h"
-#include "functions.h"
 #include "textbox.h"
 #include "player.h"
 #include "room.h"
 #include "script.h"
+#include "npc.h"
+#include "overworld.h"
 
 typedef struct {
     u32 unk_00;

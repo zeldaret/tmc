@@ -3,8 +3,8 @@
 #include "coord.h"
 #include "functions.h"
 #include "audio.h"
-#include "random.h"
-#include "game.h"
+#include "asm.h"
+#include "overworld.h"
 
 extern Entity* sub_08049DF4(u32);
 extern u32 sub_08049F1C(Entity*, Entity*, u32);

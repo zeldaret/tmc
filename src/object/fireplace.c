@@ -1,9 +1,6 @@
-#include "entity.h"
-#include "functions.h"
-#include "player.h"
+#include "object.h"
 #include "script.h"
-#include "flags.h"
-#include "room.h"
+#include "functions.h"
 
 extern void (*gUnk_08123D98[])(Entity*);
 

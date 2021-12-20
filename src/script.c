@@ -1,18 +1,14 @@
-#include "global.h"
-#include "audio.h"
-#include "flags.h"
-#include "entity.h"
-#include "area.h"
 #include "script.h"
-#include "structures.h"
-#include "textbox.h"
-#include "utils.h"
-#include "save.h"
-#include "random.h"
-#include "audio.h"
-#include "functions.h"
 #include "main.h"
-#include "effects.h"
+#include "screen.h"
+#include "area.h"
+#include "overworld.h"
+
+#include "object.h"
+#include "npc.h"
+
+#include "functions.h"
+#include "structures.h"
 
 void InitScriptForEntity(Entity*, ScriptExecutionContext*, u16*);
 void InitScriptExecutionContext(ScriptExecutionContext* context, u16* script);
@@ -733,16 +729,16 @@ void ScriptCommand_CheckInventory1(Entity* entity, ScriptExecutionContext* conte
     u32 tmp2 = GetNextScriptCommandHalfwordAfterCommandMetadata(context->scriptInstructionPointer);
     switch (tmp2) {
         case 0x53:
-            tmp = sub_08052734();
+            tmp = HasDungeonMap();
             break;
         case 0x52:
-            tmp = sub_08052764();
+            tmp = HasDungeonCompass();
             break;
         case 0x51:
-            tmp = sub_0805279C();
+            tmp = HasDungeonBigKey();
             break;
         case 0x50:
-            tmp = sub_080527CC();
+            tmp = HasDungeonSmallKey();
             break;
         default:
             tmp = GetInventoryValue(tmp2);

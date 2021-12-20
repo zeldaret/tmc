@@ -1,9 +1,50 @@
+#ifndef NPC_H
+#define NPC_H
+
 #include "global.h"
+#include "asm.h"
+#include "utils.h"
+
+#include "audio.h"
+#include "effects.h"
+#include "room.h"
+#include "flags.h"
+#include "coord.h"
+#include "textbox.h"
+#include "script.h"
+#include "save.h"
+
 #include "entity.h"
 #include "player.h"
 
-#ifndef NPC_H
-#define NPC_H
+#include "structures.h"
+
+void sub_0806EC20(Entity* ent);
+void sub_0806EC38(void);
+u32 sub_0806ED78(Entity* ent);
+s32 sub_0806ED9C(Entity*, u32, u32);
+u32 GetAnimationState(Entity* ent);
+s32 sub_0806EDD8(Entity* ent, u32 x, u32 y);
+void sub_0806EE04(Entity* ent, void* a2, u32 a3);
+u32 sub_0806EE20(Entity* ent);
+s32 sub_0806F078(Entity* ent, s32 a2);
+void sub_0806F118(Entity* ent);
+void sub_0806F188(Entity* ent);
+void ShowNPCDialogue(Entity* ent, Dialog* dia);
+
+Entity* CreateNPC(u32 subtype, u32 form, u32 parameter);
+u32 UpdateFuseInteraction(Entity*);
+
+void NPCInit(Entity* ent);
+void sub_0806F0A4(void);
+
+// TODO move?
+void sub_08078784(Entity* ent, u32 arg1);
+u32 sub_0806F5A4(u32);
+u32 sub_0801E99C(Entity*);
+void sub_08078778(Entity*);
+void sub_0807000C(Entity*);
+void sub_080787A8(Entity*, u32);
 
 enum NPC {
     /*0x00*/ NPC_NONE_0,
@@ -296,8 +337,6 @@ extern void FusionMenuNPC_Head(Entity*);
 extern void Phonograph(Entity*);
 extern void NPC58(Entity*);
 extern void NPC58_Head(Entity*);
-
-extern u32 UpdateFuseInteraction(Entity*);
 
 extern void (*const gNPCFunctions[128][3])(Entity*);
 

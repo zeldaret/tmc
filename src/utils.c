@@ -113,7 +113,7 @@ void LoadPaletteGroup(u32 group) {
     }
 }
 
-void LoadPalettes(const u8* src, int destPaletteNum, int numPalettes) {
+void LoadPalettes(const u8* src, s32 destPaletteNum, s32 numPalettes) {
     u16* dest;
     u32 size = numPalettes * 32;
     u32 usedPalettesMask = 1 << destPaletteNum;

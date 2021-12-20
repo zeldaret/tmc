@@ -1,3 +1,4 @@
+#include "asm.h"
 #include "area.h"
 #include "player.h"
 #include "global.h"

@@ -1,8 +1,3 @@
-#include "global.h"
-#include "audio.h"
-#include "entity.h"
-#include "coord.h"
-#include "random.h"
 #include "object.h"
 #include "structures.h"
 #include "functions.h"

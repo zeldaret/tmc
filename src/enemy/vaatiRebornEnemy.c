@@ -1,12 +1,6 @@
-#include "global.h"
 #include "enemy.h"
-#include "coord.h"
-#include "flags.h"
-#include "random.h"
-#include "audio.h"
 #include "area.h"
 #include "functions.h"
-#include "effects.h"
 
 extern void sub_080AEFB4(Entity*);
 extern u8 gEntCount;

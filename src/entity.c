@@ -6,6 +6,7 @@
 #include "room.h"
 #include "script.h"
 #include "textbox.h"
+#include "npc.h"
 
 extern u8 gUnk_081091F8[];
 extern u8 gUnk_081091EE[];
@@ -13,7 +14,6 @@ extern u8 gUpdateVisibleTiles;
 extern Manager gUnk_02033290;
 void sub_0805ED30(void);
 void ClearHitboxList(void);
-void sub_0806F0A4(void);
 void sub_0805EE88(void);
 void ClearAllDeletedEntities(void);
 void DeleteAllEntities(void);
@@ -277,7 +277,7 @@ void DeleteThisEntity(void) {
     f();
 }
 
-void DeleteManager(Manager*);
+void DeleteManager(void*);
 
 typedef void (*Deleter)(void*);
 
@@ -378,13 +378,14 @@ Manager* GetEmptyManager(void) {
 
 extern u8 gManagerCount;
 
-void DeleteManager(Manager* ent) {
-    if (!ent->next)
+void DeleteManager(void* ent) {
+    Manager* manager = (Manager*)ent;
+    if (!manager->next)
         return;
 
-    ReleaseTransitionManager(ent);
-    UnlinkEntity(ent);
-    MemClear(ent, sizeof(Temp));
+    ReleaseTransitionManager(manager);
+    UnlinkEntity(manager);
+    MemClear(manager, sizeof(Temp));
     gManagerCount--;
 }
 

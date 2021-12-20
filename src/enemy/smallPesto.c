@@ -1,8 +1,4 @@
-#include "global.h"
-#include "entity.h"
 #include "enemy.h"
-#include "coord.h"
-#include "random.h"
 #include "functions.h"
 
 extern void sub_080317F8(Entity*);

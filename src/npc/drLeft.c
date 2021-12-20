@@ -1,10 +1,5 @@
-#include "entity.h"
-#include "script.h"
-#include "random.h"
+#include "npc.h"
 #include "functions.h"
-#include "save.h"
-#include "textbox.h"
-#include "flags.h"
 
 extern void sub_08078850(Entity*, u32, u8, u32*);
 extern u32 gUnk_081133B4;

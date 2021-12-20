@@ -1,7 +1,6 @@
-#include "global.h"
-#include "functions.h"
+#include "asm.h"
+#include "room.h"
 
-extern void sub_08000152(u32);
 extern void sub_0807B778(u32, u32);
 
 void sub_0807B7D8(u32 param_1, u32 param_2, u32 param_3) {

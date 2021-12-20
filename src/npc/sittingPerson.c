@@ -1,9 +1,4 @@
-#include "entity.h"
-#include "script.h"
 #include "npc.h"
-#include "functions.h"
-#include "save.h"
-#include "random.h"
 
 extern void (*gUnk_0810CBD8[])(Entity*);
 

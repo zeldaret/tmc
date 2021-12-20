@@ -1,5 +1,4 @@
 #include "enemy.h"
-#include "random.h"
 #include "object.h"
 #include "functions.h"
 

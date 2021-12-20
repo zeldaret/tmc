@@ -230,4 +230,15 @@ extern void Manager39_Main();
 
 extern void (*const gManagerFunctions[58])();
 
+Manager* GetEmptyManager(void);
+
+/**
+ * @brief Set manager responsible for handling room changes
+ */
+extern void RegisterTransitionManager(void* mgr, void (*onEnter)(), void (*onExit)());
+
+extern u32 sub_0805ACC0(Entity*);
+extern void sub_0801855C(void);
+extern void sub_080186C0(u32);
+
 #endif

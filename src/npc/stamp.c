@@ -4,6 +4,7 @@
 #include "functions.h"
 #include "script.h"
 #include "effects.h"
+#include "npc.h"
 
 extern void sub_08062CA4();
 

@@ -5,6 +5,7 @@
 #include "functions.h"
 #include "utils.h"
 #include "object.h"
+#include "overworld.h"
 
 extern void sub_0804B058(EntityData* dat);
 extern void sub_0801AC98();

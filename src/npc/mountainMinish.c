@@ -3,6 +3,7 @@
 #include "functions.h"
 #include "textbox.h"
 #include "flags.h"
+#include "npc.h"
 
 extern SpriteLoadData gUnk_08111358;
 

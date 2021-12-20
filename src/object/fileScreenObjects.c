@@ -1,12 +1,8 @@
-#include "global.h"
-#include "entity.h"
-#include "flags.h"
+#include "object.h"
 #include "main.h"
 #include "menu.h"
 #include "npc.h"
-#include "coord.h"
 #include "fileScreen.h"
-#include "utils.h"
 #include "structures.h"
 #include "functions.h"
 

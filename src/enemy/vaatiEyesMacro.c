@@ -1,7 +1,4 @@
-#include "global.h"
 #include "enemy.h"
-#include "audio.h"
-#include "random.h"
 #include "functions.h"
 
 extern u32 sub_080002E0(u32, u32);

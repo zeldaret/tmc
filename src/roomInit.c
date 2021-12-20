@@ -1,7 +1,7 @@
 #include "global.h"
 
 #include "main.h"
-#include "random.h"
+#include "utils.h"
 
 #include "functions.h"
 #include "structures.h"
@@ -13,13 +13,17 @@
 #include "item.h"
 #include "save.h"
 #include "script.h"
+#include "screen.h"
 
 #include "area.h"
 #include "room.h"
+#include "overworld.h"
 
 #include "entity.h"
 #include "npc.h"
 #include "player.h"
+
+static void sub_0804E150(void);
 
 u32 sub_unk3_ArmosInteriors_RuinsEntranceNorth(u32 arg0) {
     return 1;

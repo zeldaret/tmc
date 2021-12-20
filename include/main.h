@@ -92,7 +92,6 @@ void InitScreen(u32 screen);
 void InitDMA(void);
 
 extern void sub_08056208(void);
-extern void InitFade(void);
 extern void ResetPalettes(void);
 
 extern void DoSoftReset(void);

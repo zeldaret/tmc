@@ -2,7 +2,24 @@
 #define OBJECT_H
 
 #include "global.h"
+#include "asm.h"
+#include "utils.h"
+
+#include "audio.h"
+#include "flags.h"
+#include "effects.h"
+#include "room.h"
+#include "coord.h"
+
 #include "entity.h"
+#include "player.h"
+
+extern void sub_0807879C(Entity*);
+extern void sub_080787C0(Entity*);
+extern void sub_080787B4(Entity*);
+extern void sub_0808C650(Entity*, u32);
+extern u32 sub_0808C67C(void);
+extern void sub_0808C688(void);
 
 typedef enum {
     GROUND_ITEM,

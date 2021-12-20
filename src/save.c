@@ -4,6 +4,7 @@
 #include "menu.h"
 #include "main.h"
 #include "functions.h"
+#include "overworld.h"
 
 typedef struct SaveFileStatus {
     u16 checksum1;

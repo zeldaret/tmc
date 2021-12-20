@@ -1,4 +1,5 @@
 #include "global.h"
+#include "audio.h"
 #include "entity.h"
 #include "functions.h"
 #include "npc.h"
@@ -12,9 +13,7 @@
 #include "effects.h"
 
 extern void sub_08060528(Entity*);
-extern void sub_0806EE04(Entity*, void*, u32);
 extern void sub_080604DC(Entity*);
-extern void sub_0806EE20(Entity*);
 extern void sub_080606D8(Entity*);
 extern void sub_080606C0(Entity*);
 

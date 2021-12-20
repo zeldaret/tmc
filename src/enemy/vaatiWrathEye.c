@@ -1,8 +1,6 @@
-#include "entity.h"
-#include "audio.h"
+#include "enemy.h"
 #include "structures.h"
 #include "functions.h"
-#include "effects.h"
 
 void sub_080485D8(Entity*);
 void sub_080485FC(Entity*);

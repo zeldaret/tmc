@@ -41,9 +41,9 @@ typedef struct {
     u8 unknown2[3];
 } Hitbox3D;
 
-typedef struct Entity {
-    /*0x00*/ struct Entity* prev;
-    /*0x04*/ struct Entity* next;
+typedef struct Entity_ {
+    /*0x00*/ struct Entity_* prev;
+    /*0x04*/ struct Entity_* next;
     /*0x08*/ u8 kind;
     /*0x09*/ u8 id;
     /*0x0a*/ u8 type;
@@ -118,9 +118,9 @@ typedef struct Entity {
     /*0x45*/ u8 health;
     /*0x46*/ u16 field_0x46;
     /*0x48*/ Hitbox* hitbox;
-    /*0x4c*/ struct Entity* field_0x4c;
-    /*0x50*/ struct Entity* parent;
-    /*0x54*/ struct Entity* child;
+    /*0x4c*/ struct Entity_* field_0x4c;
+    /*0x50*/ struct Entity_* parent;
+    /*0x54*/ struct Entity_* child;
     /*0x58*/ u8 animIndex;
     /*0x59*/ u8 frameDuration;
     /*0x5a*/ u8 frame;
@@ -275,6 +275,7 @@ Entity* FindNextDuplicateID(Entity* ent, int listIndex);
  */
 Entity* FindEntity(u32 kind, u32 id, u32 listIndex, u32 type, u32 type2);
 
+void DeleteManager(void*);
 void DeleteEntityAny(Entity* ent);
 
 void UpdateEntities(void);

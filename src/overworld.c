@@ -14,6 +14,7 @@
 #include "structures.h"
 #include "area.h"
 #include "textbox.h"
+#include "overworld.h"
 
 extern u32 gUnk_03003FC0;
 
@@ -43,8 +44,6 @@ void sub_0801AE44(u32);
 void sub_0801862C(void);
 void sub_08078160(u32);
 void SetPlayerEventPriority(void);
-void InitAllRoomResInfo(void);
-void InitRoomResInfo(RoomResInfo* info, RoomHeader* hdr, u32 area, u32 room);
 RoomResInfo* GetCurrentRoomInfo(void);
 void sub_08049D30(void);
 void InitScriptData(void);
@@ -55,8 +54,6 @@ void sub_08052FF4(u32 area, u32 room);
 void sub_0807C860(void);
 void sub_0807C740(void);
 void sub_080197AC(void);
-void sub_080532E4(void);
-void sub_08053460(void);
 void sub_08053390(void);
 
 static u32 StairsAreValid();
@@ -64,6 +61,10 @@ static void ClearFlagArray(const u16*);
 static void DummyHandler(u32* a1);
 static void sub_08053434(u32* a1);
 static void sub_080534E4(u32* a1);
+static void InitAllRoomResInfo(void);
+static void InitRoomResInfo(RoomResInfo* info, RoomHeader* hdr, u32 area, u32 room);
+static void sub_080532E4(void);
+static void sub_08053460(void);
 
 typedef struct {
     u16* dest;
@@ -90,9 +91,6 @@ typedef struct {
     u16 _a;
 } PopupOption;
 
-extern Font gUnk_080FCA8C;
-extern PopupOption gUnk_080FCAA4[4];
-
 extern void CreateDialogBox();
 
 void sub_0805212C(void) {
@@ -113,7 +111,7 @@ void sub_0805212C(void) {
                 SetPopupState(0, 0);
                 gScreen.lcd.displayControl |= DISPCNT_BG1_ON | DISPCNT_BG2_ON;
                 gFadeControl.mask = 0x0000ffff;
-                DoFade(4, 0x10);
+                DoFade(4, 16);
 #endif
             }
         }
@@ -261,7 +259,11 @@ void sub_080522F4(void) {
 void nullsub_107(void) {
 }
 
-void sub_080523D4(void) {
+void DrawGameOverText(void) {
+    static const u8 sOffsets[] = {
+        48, 68, 88, 108, 137, 156, 174, 192,
+    };
+
     u32 i;
 
     gOamCmd._4 = 0;
@@ -269,7 +271,7 @@ void sub_080523D4(void) {
     gOamCmd._8 = 0x8600;
     gOamCmd.y = gMenu.focusCoords[0];
     for (i = 0; i < 8; ++i) {
-        gOamCmd.x = gUnk_080FCA84[i];
+        gOamCmd.x = sOffsets[i];
 #ifdef EU
         sub_080ADA14(0x1fc, i);
 #else
@@ -279,8 +281,31 @@ void sub_080523D4(void) {
 }
 
 void SetPopupState(u32 type, u32 choice_idx) {
+    static const Font sDefaultFont = {
+        .dest = gBG1Buffer,
+        .gfx_dest = (u16*)0x06006000,
+        .buffer_loc = gTextGfxBuffer,
+        ._c = 0,
+        .gfx_src = 0xD300,
+        .width = 0xE0,
+        .right_align = 0,
+        .sm_border = 0,
+        .unused = 0,
+        .draw_border = 0,
+        .border_type = 0,
+        .fill_type = 6,
+        ._15 = 4,
+        ._16 = 1,
+        .stylized = 0,
+    };
+    static const PopupOption sPopupOptions[] = {
+        { { 11, 11, 11, 10, 11, 10, 10, 0 }, 8, 0, 16 },
+        { { 10, 11, 11, 9, 11, 9, 9, 0 }, 8, 0, 17 },
+        { { 15, 15, 15, 15, 15, 15, 15, 0 }, 5, 1, 13 },
+    };
+
     Font font;
-    PopupOption* opt;
+    const PopupOption* opt;
     u32 fakematch;
 
     MemClear(gBG1Buffer, sizeof gBG1Buffer);
@@ -290,9 +315,9 @@ void SetPopupState(u32 type, u32 choice_idx) {
     gUnk_020227E8[3]._0.WORD = 0xf;
     *(&gUnk_020227E8[choice_idx]._0.BYTES.byte0 + 1) = fakematch = 1;
 
-    MemCopy(&gUnk_080FCA8C, &font, sizeof font);
-    opt = &gUnk_080FCAA4[type];
-    font.dest = gUnk_080FCA8C.dest + (opt->dest_off[gSaveHeader->gameLanguage] + opt->_8 * 32);
+    MemCopy(&sDefaultFont, &font, sizeof font);
+    opt = &sPopupOptions[type];
+    font.dest = sDefaultFont.dest + (opt->dest_off[gSaveHeader->gameLanguage] + opt->_8 * 32);
     font.right_align = opt->right_align;
     sub_0805F46C(opt->_a, &font);
     gScreen.bg1.updated = fakematch;
@@ -437,7 +462,7 @@ void ModRupees(s32 rupeeDelta) {
     s->rupees = newRupeeCount;
 }
 
-void sub_080526F8(int a1) {
+void sub_080526F8(s32 a1) {
     if (sub_08052724()) {
         u8* p = &gSave.unk45C[gArea.dungeon_idx];
         if (*p + a1 < 0)
@@ -451,7 +476,7 @@ u32 sub_08052724(void) {
     return (gArea.areaMetadata >> 1) & 1;
 }
 
-u32 sub_08052734(u32 x, u32 y) {
+u32 HasDungeonMap(void) {
     u32 tmp;
 
     if (sub_08052724())
@@ -459,7 +484,7 @@ u32 sub_08052734(u32 x, u32 y) {
     return tmp ? 1 : 0;
 }
 
-u32 sub_08052764(u32 x, u32 y) {
+u32 HasDungeonCompass(void) {
     u32 tmp;
 
     if (sub_08052724())
@@ -467,13 +492,13 @@ u32 sub_08052764(u32 x, u32 y) {
     return tmp ? 1 : 0;
 }
 
-u32 sub_0805279C(u32 x, u32 y) {
+u32 HasDungeonBigKey(void) {
     if (!sub_08052724())
         return 0;
     return (gSave.unk46C[gArea.dungeon_idx] >> 1) & 1;
 }
 
-u32 sub_080527CC(u32 x, u32 y) {
+u32 HasDungeonSmallKey(void) {
     u32 tmp;
 
     if (!sub_08052724())
@@ -482,7 +507,7 @@ u32 sub_080527CC(u32 x, u32 y) {
 }
 
 void sub_080527FC(u32 a1, u32 a2) {
-    sub_08053320(a1, a2);
+    sub_08053320();
 #ifndef EU
     CleanUpGFXSlots();
 #endif
@@ -506,7 +531,7 @@ void sub_08052878(void) {
     SoundReq(SONG_STOP_ALL);
 }
 
-void sub_0805289C(void) {
+static void sub_0805289C(void) {
     gArea.pMusicIndex = gArea.musicIndex;
 }
 #endif
@@ -724,7 +749,7 @@ void sub_08052CD0(u32 area, u32 room, u32 x, u32 y) {
     gScreenTransition.player_status.field_0x1e = hdr->map_y + y;
 }
 
-void sub_08052CFC() {
+void sub_08052CFC(void) {
     AreaHeader* a_hdr = NULL;
 
     MemClear(&gArea, sizeof gArea);
@@ -753,7 +778,7 @@ void RegisterTransitionManager(void* mgr, void (*onEnter)(), void (*onExit)()) {
     }
 }
 
-void InitAllRoomResInfo(void) {
+static void InitAllRoomResInfo(void) {
     RoomHeader* r_hdr = gAreaRoomHeaders[gRoomControls.areaID];
     RoomResInfo* info = gArea.roomResInfos;
     u32 i;
@@ -765,7 +790,7 @@ void InitAllRoomResInfo(void) {
     gArea.pCurrentRoomInfo = GetCurrentRoomInfo();
 }
 
-void InitRoomResInfo(RoomResInfo* info, RoomHeader* r_hdr, u32 area, u32 room) {
+static void InitRoomResInfo(RoomResInfo* info, RoomHeader* r_hdr, u32 area, u32 room) {
     info->map_x = r_hdr->map_x;
     info->map_y = r_hdr->map_y;
     info->pixel_width = r_hdr->pixel_width;
@@ -800,7 +825,7 @@ void sub_08052EA0(void) {
     UpdateGlobalProgress();
 }
 
-u32 sub_08052EF4(s32 idx) {
+static u32 sub_08052EF4(s32 idx) {
     AreaHeader* a_hdr = NULL;
     u32 i = idx < 0 ? gRoomControls.areaID : idx;
     a_hdr = &gAreaMetadata[i];
@@ -885,7 +910,7 @@ void ChangeLightLevel(s32 lightLevel) {
     gRoomVars.lightLevel = lightLevel;
 }
 
-void sub_080530B0(void) {
+static void sub_080530B0(void) {
     static const u16 sMinecartData[] = { 0x189, 0x0, 0x102, 0x4, 0x1af, 0x0, 0x204, 0x0,
                                          0x1cf, 0x0, 0x10,  0x4, 0x0,   0x0, 0x0,   0x0 };
 
@@ -912,7 +937,7 @@ void UpdateGlobalProgress(void) {
     gSave.global_progress = pcnt;
 }
 
-u32 sub_08053144(void) {
+static u32 sub_08053144(void) {
     u32 ret;
 
     if (CheckGlobalFlag(ENDING))
@@ -992,7 +1017,7 @@ void sub_0805329C(void) {
     }
 }
 
-void sub_080532E4(void) {
+static void sub_080532E4(void) {
     s32 x, y;
 
     RoomHeader* r_hdr = gAreaRoomHeaders[AREA_FORTRESS_OF_WINDS] + 33;
@@ -1065,7 +1090,7 @@ static void sub_08053434(u32* a1) {
     }
 }
 
-void sub_08053460(void) {
+static void sub_08053460(void) {
     static const u16 sClearFlags[] = { FLAG_BANK_10, LV6_GUFUU1_GISHIKI, FLAG_BANK_10, LV6_GUFUU1_DEMO,
                                        FLAG_BANK_10, LV6_ZELDA_DISCURSE, FLAG_BANK_10, LV6_00_ESCAPE,
                                        FLAG_BANK_10, LV6_GUFUU2_DEAD,    FLAG_BANK_G,  ENDING,

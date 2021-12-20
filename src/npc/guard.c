@@ -7,6 +7,7 @@
 #include "script.h"
 #include "structures.h"
 #include "functions.h"
+#include "npc.h"
 
 typedef struct {
     u32 unk;
@@ -19,9 +20,7 @@ typedef struct {
 } struct_08064050;
 
 extern void sub_08063D24(Entity*);
-extern void sub_0806EE20(Entity*);
 extern void sub_08064428(Entity*);
-extern void sub_0806EE04(Entity*, void*, u32);
 void sub_08063DC8(Entity*);
 void sub_08063F20(Entity*);
 

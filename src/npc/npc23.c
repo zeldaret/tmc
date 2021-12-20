@@ -5,6 +5,7 @@
 #include "functions.h"
 #include "structures.h"
 #include "textbox.h"
+#include "npc.h"
 
 extern void (*const gUnk_081104C8[])(Entity*);
 

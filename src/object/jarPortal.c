@@ -1,9 +1,6 @@
-#include "global.h"
-#include "entity.h"
-#include "flags.h"
-#include "functions.h"
+#include "object.h"
 #include "area.h"
-#include "audio.h"
+#include "functions.h"
 
 extern void (*gUnk_08121488[])(Entity*);
 

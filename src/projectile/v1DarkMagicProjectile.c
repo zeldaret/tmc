@@ -4,7 +4,7 @@
 #include "player.h"
 #include "audio.h"
 #include "functions.h"
-#include "random.h"
+#include "asm.h"
 
 extern void sub_0800449C(Entity*, u32);
 

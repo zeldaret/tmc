@@ -1,6 +1,6 @@
 #include "entity.h"
 #include "enemy.h"
-#include "random.h"
+#include "asm.h"
 #include "functions.h"
 #include "audio.h"
 #include "effects.h"

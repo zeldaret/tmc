@@ -8,6 +8,7 @@
 #include "object.h"
 #include "area.h"
 #include "enemy.h"
+#include "screen.h"
 
 extern ScreenTransitionData gUnk_0813AC34;
 

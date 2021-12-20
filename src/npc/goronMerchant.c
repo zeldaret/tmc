@@ -7,6 +7,7 @@
 #include "flags.h"
 #include "script.h"
 #include "save.h"
+#include "npc.h"
 
 static u32 GoronMerchant_GetSalePrice(Entity*);
 

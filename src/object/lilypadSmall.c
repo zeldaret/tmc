@@ -1,12 +1,11 @@
-#include "global.h"
-#include "entity.h"
-#include "player.h"
-#include "random.h"
+#include "object.h"
 #include "functions.h"
 
 extern void sub_080A2CC0(Entity*, Entity**, u16*);
 
 extern u16 gUnk_08123318[];
+
+static void sub_08097B24(Entity* this);
 
 void LilypadSmall(Entity* this) {
     u32 rand;
@@ -48,7 +47,7 @@ u32 sub_08097ADC(Entity* this) {
     }
 }
 
-void sub_08097B24(Entity* this) {
+static void sub_08097B24(Entity* this) {
     u32 temp;
     u32 temp2;
     u16* temp3;

@@ -1,9 +1,5 @@
-#include "entity.h"
 #include "functions.h"
-#include "script.h"
-#include "flags.h"
-#include "random.h"
-#include "textbox.h"
+#include "npc.h"
 
 extern Hitbox gUnk_0810C428;
 

@@ -1,8 +1,5 @@
 #include "enemy.h"
-#include "entity.h"
-#include "random.h"
 #include "functions.h"
-#include "effects.h"
 
 extern void sub_0800449C(Entity*, u32);
 extern bool32 sub_08023A38(u32);

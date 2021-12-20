@@ -1,18 +1,9 @@
-#include "global.h"
-#include "entity.h"
 #include "npc.h"
-#include "flags.h"
-#include "textbox.h"
-#include "player.h"
-#include "save.h"
-#include "script.h"
-#include "random.h"
 #include "createObject.h"
 #include "structures.h"
 #include "functions.h"
 
 extern void sub_080600F0(Entity*);
-extern s32 sub_0806EDD8(Entity*, u32, u32);
 extern void sub_08060158(Entity*);
 extern void ModBombs(s32);
 

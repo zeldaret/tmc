@@ -3,6 +3,7 @@
 #include "room.h"
 #include "textbox.h"
 #include "functions.h"
+#include "npc.h"
 
 extern void (*const gUnk_0810FDC8[])(Entity*);
 

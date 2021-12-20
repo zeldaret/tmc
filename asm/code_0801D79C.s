@@ -466,7 +466,7 @@ _0801DC04:
 	adds r0, r6, #0
 	bl sub_0801DF10
 	mov r8, r0
-	bl sub_0805279C
+	bl HasDungeonBigKey
 	movs r1, #8
 	adds r1, r1, r6
 	mov sb, r1
@@ -548,7 +548,7 @@ _0801DCA6:
 	cmp r0, #0
 	bne _0801DC26
 _0801DCAE:
-	bl sub_0805279C
+	bl HasDungeonBigKey
 	cmp r0, #0
 	beq _0801DD16
 	ldrb r1, [r6, #2]
@@ -731,7 +731,7 @@ _0801DDE4:
 _0801DE14: .4byte gUnk_02032EC0
 _0801DE18: .4byte 0x0000FFFF
 _0801DE1C:
-	bl sub_080527CC
+	bl HasDungeonSmallKey
 	cmp r0, #0
 	beq _0801DE28
 	movs r0, #2

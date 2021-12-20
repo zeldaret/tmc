@@ -677,13 +677,11 @@ SECTIONS {
         asm/code_08077698.o(.text);
         asm/respawnPlayer.o(.text);
         src/code_08077B98.o(.text);
-        src/code_08077DF4.o(.text);
         asm/code_08077B98.o(.text);
         src/code_08078778.o(.text);
         asm/code_08078778.o(.text);
         src/sub_0807B820.o(.text);
         asm/code_0807B9B8.o(.text);
-        src/sub_0807C998.o(.text);
         src/sub_0807CA18.o(.text);
         asm/getInventoryValue.o(.text);
         asm/code_0807CAA0.o(.text);

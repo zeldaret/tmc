@@ -1,7 +1,7 @@
 
 #include "manager.h"
 #include "flags.h"
-#include "random.h"
+#include "asm.h"
 #include "object.h"
 #include "room.h"
 

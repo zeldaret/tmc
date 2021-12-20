@@ -3,7 +3,7 @@
 #include "player.h"
 #include "script.h"
 #include "save.h"
-#include "functions.h"
+#include "npc.h"
 
 extern Hitbox gUnk_081142FC;
 extern void sub_08078850(Entity*, u32, u32, u32*);

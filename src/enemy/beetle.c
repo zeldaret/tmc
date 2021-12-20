@@ -1,7 +1,4 @@
-#include "entity.h"
 #include "enemy.h"
-#include "player.h"
-#include "random.h"
 #include "functions.h"
 
 extern u32 PlayerInRange(Entity*, u32, u32);

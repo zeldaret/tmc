@@ -6,6 +6,7 @@
 #include "audio.h"
 #include "object.h"
 #include "functions.h"
+#include "npc.h"
 
 typedef struct {
     /*0x00*/ u16 unk0;

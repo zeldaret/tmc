@@ -1,10 +1,6 @@
-#include "global.h"
 #include "enemy.h"
-#include "audio.h"
-#include "random.h"
 #include "object.h"
 #include "functions.h"
-#include "effects.h"
 
 void sub_0803B538(Entity*);
 u32 sub_0803B4E4(Entity*);

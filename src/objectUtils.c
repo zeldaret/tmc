@@ -24,7 +24,7 @@ u32 LoadObjectSprite(Entity* this, s32 type, const ObjectDefinition* definition)
     u16 tmp1;
     u8 tmp2;
 
-    if ((this->flags & 1) != 0) {
+    if ((this->flags & ENT_DID_INIT) != 0) {
         // Sprite already loaded
         return 1;
     }

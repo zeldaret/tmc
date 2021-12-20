@@ -1,7 +1,4 @@
-#include "global.h"
-#include "entity.h"
-#include "room.h"
-#include "functions.h"
+#include "object.h"
 
 extern void (*const gUnk_081246EC[])(Entity*);
 

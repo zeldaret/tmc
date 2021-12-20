@@ -1,13 +1,5 @@
-#include "global.h"
-#include "entity.h"
-#include "textbox.h"
-#include "save.h"
-#include "script.h"
-#include "random.h"
 #include "npc.h"
-#include "audio.h"
 #include "functions.h"
-#include "effects.h"
 
 extern void sub_08078850(Entity*, u32, u32, u32*);
 

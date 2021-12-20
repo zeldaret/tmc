@@ -5,6 +5,7 @@
 #include "room.h"
 #include "flags.h"
 #include "script.h"
+#include "npc.h"
 
 extern Entity* DeepFindEntityByID(u32, u32);
 void sub_08068680(Entity*, Entity*);

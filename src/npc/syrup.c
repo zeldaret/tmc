@@ -1,10 +1,6 @@
-#include "global.h"
-#include "entity.h"
 #include "npc.h"
-#include "script.h"
 #include "functions.h"
 #include "object.h"
-#include "random.h"
 
 extern void (*gUnk_081121D4[])(Entity*);
 

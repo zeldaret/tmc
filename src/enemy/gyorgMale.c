@@ -1,10 +1,7 @@
 #include "global.h"
 #include "enemy.h"
 #include "player.h"
-#include "room.h"
-#include "coord.h"
 #include "fileScreen.h"
-#include "random.h"
 #include "functions.h"
 #include "effects.h"
 

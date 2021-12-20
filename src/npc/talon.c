@@ -1,10 +1,4 @@
-#include "global.h"
-#include "entity.h"
-#include "textbox.h"
-#include "player.h"
-#include "script.h"
 #include "npc.h"
-#include "random.h"
 #include "functions.h"
 
 extern void (*gUnk_0810FEC4[])(Entity* this);

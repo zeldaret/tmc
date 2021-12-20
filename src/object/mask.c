@@ -1,12 +1,6 @@
-#include "global.h"
-#include "entity.h"
-#include "room.h"
-#include "random.h"
+#include "object.h"
 #include "structures.h"
-#include "player.h"
-#include "flags.h"
 #include "functions.h"
-#include "effects.h"
 
 extern void (*MaskActionFuncs[])(Entity*);
 

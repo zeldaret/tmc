@@ -1,12 +1,6 @@
-#include "global.h"
-#include "entity.h"
-#include "player.h"
-#include "room.h"
-#include "coord.h"
-#include "random.h"
-#include "utils.h"
 #include "functions.h"
 #include "textbox.h"
+#include "npc.h"
 
 extern void (*const gUnk_0810AC1C[])(Entity*);
 
@@ -86,6 +80,7 @@ void sub_08061AFC(Entity*);
 
 extern u16* gUnk_0810B660[8];
 
+// UNUSED zelda follower, probably because it was too resource heavy
 void NPC5(Entity* this) {
     gUnk_0810AC1C[this->type](this);
 }

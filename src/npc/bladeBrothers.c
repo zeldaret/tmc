@@ -33,8 +33,9 @@ extern u16 gUnk_0811172A[];
 extern u32 gUnk_0300402B;
 extern EntityData gUnk_080F3494;
 
-void BladeBrothers(Entity* this) {
+static void sub_08068BEC(Entity* this, u32 unused);
 
+void BladeBrothers(Entity* this) {
     if ((this->flags & 2) != 0) {
         gUnk_081115D0[this->action](this);
     } else {
@@ -163,7 +164,7 @@ void sub_08068BD0(Entity* this) {
     ForceEquipItem(*(u8*)(&this->field_0x68.HALF.HI + 1), 1);
 }
 
-void sub_08068BEC(Entity* this, u32 unused) {
+static void sub_08068BEC(Entity* this, u32 unused) {
     Entity* target;
 
     target = CreateFx(this, FX_WHITE_SPLASH, 0);

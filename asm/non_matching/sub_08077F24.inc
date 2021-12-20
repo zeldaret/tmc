@@ -1,11 +1,4 @@
-	.include "asm/macros.inc"
-
-	.include "constants/constants.inc"
-
 	.syntax unified
-
-	.text
-
 	push {lr}
 	ldr r2, _08077F34 @ =gStats
 	ldrb r3, [r0, #1]

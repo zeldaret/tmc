@@ -1,12 +1,6 @@
-#include "global.h"
 #include "enemy.h"
-#include "entity.h"
-#include "audio.h"
 #include "object.h"
-#include "random.h"
-#include "utils.h"
 #include "functions.h"
-#include "effects.h"
 
 extern void DoExitTransition(ScreenTransitionData*);
 

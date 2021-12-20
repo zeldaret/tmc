@@ -1,6 +1,4 @@
-#include "global.h"
 #include "enemy.h"
-#include "random.h"
 #include "functions.h"
 
 extern bool32 PlayerInRange(Entity*, u32, u32);
