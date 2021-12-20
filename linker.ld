@@ -475,7 +475,7 @@ SECTIONS {
         /* END enemies */
         src/code_08049CD4.o(.text);
         asm/code_08049D30.o(.text);
-        src/enemyInit.o(.text);
+        src/enemyUtils.o(.text);
         asm/code_0804A720.o(.text);
         asm/sub_0804AA30.o(.text);
         src/createEnemy.o(.text);
@@ -650,9 +650,7 @@ SECTIONS {
         src/npc/phonograph.o(.text);
         src/npc/npc58.o(.text);
         /* END npcs */
-        asm/code_0806EC20.o(.text);
-        src/createNPC.o(.text);
-        asm/code_0806ED78.o(.text);
+        src/npcUtils.o(.text);
         src/coord.o(.text);
         asm/code_0806FA6C.o(.text);
         src/playerItem/playerItem12.o(.text);
@@ -901,7 +899,7 @@ SECTIONS {
         asm/objectC1.o(.text);
         /* END objects */
         asm/sub_080A276C.o(.text);
-        src/createObject.o(.text);
+        src/objectUtils.o(.text);
         asm/code_080A29BC.o(.text);
         src/playerItem/playerItemShield.o(.text);
         src/playerItem/playerItem15.o(.text);
@@ -915,8 +913,8 @@ SECTIONS {
         src/sub_080A554C.o(.text);
         asm/code_080A5574.o(.text);
         src/playerItem/playerItemSword.o(.text);
-        asm/code_080A7C00.o(.text);
-        src/projectileInit.o(.text);
+        src/playerItemUtils.o(.text);
+        src/projectileUtils.o(.text);
         src/projectile/darkNutSwordSlash.o(.text);
         src/projectile/rockProjectile.o(.text);
         src/projectile/boneProjectile.o(.text);

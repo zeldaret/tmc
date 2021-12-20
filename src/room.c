@@ -29,17 +29,6 @@ void sub_0806F704(Entity*, u32);
 
 void sub_0805BB00(u32, u32);
 
-typedef struct {
-    u8 type;
-    u8 _1;
-    u8 _2;
-    u8 _3;
-    u16 _4;
-    u8 _6;
-    u8 _7;
-} TileEntity;
-extern TileEntity gUnk_02017660[];
-
 static void sub_0804B290(TileEntity*);
 static void sub_0804B29C(TileEntity*);
 static void sub_0804B300(TileEntity*);

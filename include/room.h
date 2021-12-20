@@ -143,6 +143,17 @@ typedef struct {
 } ScreenTransition;
 extern ScreenTransition gScreenTransition;
 
+typedef struct {
+    u8 type;
+    u8 _1;
+    u8 _2;
+    u8 _3;
+    u16 _4;
+    u8 _6;
+    u8 _7;
+} TileEntity;
+extern TileEntity gUnk_02017660[];
+
 extern void SetTileType(u32, u32, u32);
 extern void sub_08080964(u32 time, u32 magnitude); // shake screen
 

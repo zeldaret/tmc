@@ -2011,11 +2011,7 @@ void sub_StateChange_Ruins_TripleTektites(void) {
 }
 
 void sub_unk1_Ruins_TripleTektites(void) {
-#if defined(JP) || defined(EU) || defined(DEMO_JP)
-    if (CheckLocalFlagByBank(FLAG_BANK_1, LOST_03_00)) {
-#else
     if (CheckLocalFlagByBank(FLAG_BANK_1, LOST_02_00)) {
-#endif
         SetDirtTile(0x85);
     }
 }
