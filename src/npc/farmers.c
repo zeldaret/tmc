@@ -1,10 +1,9 @@
 #include "entity.h"
 #include "script.h"
 #include "functions.h"
+#include "npc.h"
 
 extern Dialog gUnk_08113158[];
-
-extern void sub_0806F188(Entity*);
 
 extern SpriteLoadData gUnk_08113140[];
 void sub_0806BC58(Entity* this);

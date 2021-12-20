@@ -1,9 +1,5 @@
-#include "entity.h"
-#include "textbox.h"
 #include "npc.h"
 #include "functions.h"
-#include "random.h"
-#include "audio.h"
 
 extern void (*const gUnk_081145D4[])(Entity*);
 

@@ -2,6 +2,7 @@
 #include "menu.h"
 #include "room.h"
 #include "functions.h"
+#include "screen.h"
 
 extern void (*const gUnk_080FF420[])();
 extern void sub_0804B0B0(u32, u32);

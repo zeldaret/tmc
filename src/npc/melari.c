@@ -1,15 +1,7 @@
-#include "global.h"
-#include "entity.h"
 #include "npc.h"
-#include "textbox.h"
-#include "script.h"
-#include "random.h"
-#include "audio.h"
 #include "functions.h"
-#include "effects.h"
 
 extern void sub_08068780(Entity*);
-extern s32 sub_0806EDD8(Entity*, u32, u32);
 
 extern void (*const gUnk_08111530[])(Entity*);
 

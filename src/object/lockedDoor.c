@@ -1,10 +1,10 @@
 #include "global.h"
 #include "entity.h"
 #include "flags.h"
-#include "game.h"
 #include "audio.h"
 #include "functions.h"
 #include "effects.h"
+#include "overworld.h"
 
 void sub_08083338(Entity*);
 void sub_080834B4(Entity*);

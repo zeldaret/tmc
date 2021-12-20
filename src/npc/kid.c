@@ -1,10 +1,7 @@
-#include "entity.h"
 #include "functions.h"
 #include "textbox.h"
 #include "npc.h"
 #include "script.h"
-#include "utils.h"
-#include "random.h"
 #include "save.h"
 
 extern void (*const gUnk_0810BE0C[])(Entity*);

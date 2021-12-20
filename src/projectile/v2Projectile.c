@@ -2,7 +2,7 @@
 #include "entity.h"
 #include "enemy.h"
 #include "functions.h"
-#include "random.h"
+#include "asm.h"
 #include "audio.h"
 #include "effects.h"
 

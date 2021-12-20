@@ -1,8 +1,8 @@
+#include "asm.h"
 #include "global.h"
 #include "entity.h"
 #include "enemy.h"
 #include "player.h"
-#include "random.h"
 #include "object.h"
 #include "functions.h"
 

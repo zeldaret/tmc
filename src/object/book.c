@@ -1,11 +1,7 @@
-#include "entity.h"
+#include "object.h"
 #include "functions.h"
-#include "player.h"
 #include "script.h"
-#include "flags.h"
-#include "room.h"
 #include "textbox.h"
-#include "effects.h"
 
 extern void (*const BookActionFuncs[])(Entity*);
 extern s8 const gUnk_08123D94[];

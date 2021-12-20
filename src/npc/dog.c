@@ -1,12 +1,7 @@
 #include "entity.h"
 #include "functions.h"
-#include "script.h"
-#include "flags.h"
-#include "random.h"
 #include "npc.h"
-#include "audio.h"
 #include "save.h"
-#include "textbox.h"
 
 extern void (*gUnk_08111D88[])(Entity*);
 void sub_08069FE8(Entity*);

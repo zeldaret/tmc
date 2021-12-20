@@ -1,11 +1,5 @@
-#include "global.h"
-#include "entity.h"
-#include "script.h"
-#include "audio.h"
 #include "functions.h"
-#include "random.h"
-#include "flags.h"
-#include "textbox.h"
+#include "npc.h"
 
 extern void sub_0806A8C8(Entity*);
 

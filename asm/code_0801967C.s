@@ -939,7 +939,7 @@ _08019D76:
 _08019D8C: .4byte gPlayerState
 _08019D90: .4byte gUnk_0200AF00
 _08019D94:
-	bl sub_08052734
+	bl HasDungeonMap
 	cmp r0, #0
 	bne _08019D9E
 	b _0801A2A4

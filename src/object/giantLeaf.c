@@ -1,7 +1,4 @@
-#include "global.h"
-#include "entity.h"
-#include "room.h"
-#include "functions.h"
+#include "object.h"
 
 void sub_0808D618(Entity* ent);
 

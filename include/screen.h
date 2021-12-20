@@ -2,6 +2,7 @@
 #define BG_H
 
 #include "global.h"
+#include "fade.h"
 
 typedef struct {
     u16 displayControl;

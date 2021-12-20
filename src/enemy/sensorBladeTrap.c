@@ -1,4 +1,5 @@
 #include "enemy.h"
+#include "audio.h"
 #include "functions.h"
 
 extern u32 sub_0804A024(Entity*, u32, u32);

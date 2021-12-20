@@ -3,7 +3,6 @@
 #include "player.h"
 #include "npc.h"
 #include "script.h"
-#include "functions.h"
 
 void Anju(Entity* this) {
     switch (this->action) {

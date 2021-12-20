@@ -1,10 +1,6 @@
-#include "global.h"
-#include "entity.h"
-#include "coord.h"
-#include "audio.h"
 #include "functions.h"
-#include "random.h"
 #include "object.h"
+#include "overworld.h"
 
 extern void sub_0807B9B8(s32, s32, s32);
 

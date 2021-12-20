@@ -2,7 +2,20 @@
 #define ENEMY_H
 
 #include "global.h"
+#include "asm.h"
+
+#include "audio.h"
+#include "effects.h"
+#include "flags.h"
+#include "utils.h"
+
 #include "entity.h"
+
+extern u32 GetNextFunction(Entity*);
+extern void EnemyFunctionHandler(Entity*, void (*const func[])(Entity*));
+extern void sub_08001324(Entity*);
+
+extern Entity* sub_0804A9FC(Entity*, u32);
 
 typedef enum {
     /*0x00*/ OCTOROK,
@@ -213,7 +226,4 @@ extern void Enemy64(Entity*);
 extern void TreeItem(Entity*);
 extern void Enemy66(Entity*);
 
-extern u32 GetNextFunction(Entity*);
-extern void EnemyFunctionHandler(Entity*, void (*const func[])(Entity*));
-extern void sub_08001324(Entity*);
 #endif

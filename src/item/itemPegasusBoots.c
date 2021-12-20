@@ -1,6 +1,6 @@
+#include "asm.h"
 #include "item.h"
 #include "audio.h"
-#include "random.h"
 #include "functions.h"
 #include "effects.h"
 

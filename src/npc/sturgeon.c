@@ -10,7 +10,6 @@ extern u16 gUnk_0810FA54[];
 
 extern SpriteLoadData gUnk_0810FA38;
 
-extern void sub_0806EE04(Entity*, void*, u32);
 extern u32 gUnk_0810FA5A;
 void sub_08064CC0(Entity* this);
 

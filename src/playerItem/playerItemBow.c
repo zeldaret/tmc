@@ -1,4 +1,5 @@
 #include "global.h"
+#include "asm.h"
 #include "entity.h"
 #include "functions.h"
 #include "effects.h"

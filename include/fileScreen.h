@@ -59,7 +59,6 @@ extern void sub_0805F46C(u32, void*);
 extern void RecoverUI(u32 bottomPt, u32 topPt);
 extern void sub_08080668(void);
 extern void sub_0805194C(u32);
-extern void LoadPalettes(const u8*, int, int);
 extern struct_02036540* sub_0805F2C8(void);
 extern void sub_0805F7DC(u32, struct_02036540*);
 extern void sub_0805F300(struct_02036540*);

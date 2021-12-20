@@ -1,3 +1,4 @@
+#include "audio.h"
 #include "entity.h"
 #include "enemy.h"
 #include "player.h"

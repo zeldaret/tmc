@@ -1,6 +1,4 @@
-#include "entity.h"
 #include "enemy.h"
-#include "random.h"
 #include "functions.h"
 
 typedef struct {

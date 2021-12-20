@@ -1,8 +1,5 @@
-#include "global.h"
-#include "audio.h"
-#include "entity.h"
+#include "object.h"
 #include "functions.h"
-#include "room.h"
 
 extern u32 sub_08091DDC(Entity*);
 extern u32 sub_080002B4(Entity*, u32, u32);

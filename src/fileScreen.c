@@ -4,7 +4,6 @@
 #include "utils.h"
 #include "screen.h"
 #include "menu.h"
-#include "random.h"
 #include "textbox.h"
 #include "object.h"
 #include "functions.h"

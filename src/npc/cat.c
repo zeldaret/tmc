@@ -3,7 +3,6 @@
 #include "functions.h"
 #include "save.h"
 #include "player.h"
-#include "random.h"
 #include "textbox.h"
 #include "npc.h"
 #include "audio.h"

@@ -1,11 +1,7 @@
-#include "global.h"
-#include "entity.h"
 #include "enemy.h"
-#include "random.h"
 #include "script.h"
 #include "structures.h"
 #include "functions.h"
-#include "effects.h"
 
 extern void sub_0807B600(u32);
 

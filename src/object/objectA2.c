@@ -1,11 +1,7 @@
-#include "global.h"
 #include "object.h"
 #include "menu.h"
-#include "random.h"
-#include "audio.h"
 #include "structures.h"
 #include "functions.h"
-#include "effects.h"
 
 void sub_0809F318(Entity*);
 void sub_0809F374(Entity*);

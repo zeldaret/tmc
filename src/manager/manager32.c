@@ -5,7 +5,7 @@
 #include "functions.h"
 #include "area.h"
 #include "utils.h"
-#include "gba/types.h"
+#include "overworld.h"
 
 typedef struct {
     Manager manager;
@@ -17,8 +17,6 @@ typedef struct {
 extern void (*const gUnk_08108D7C[])(Manager32*);
 void sub_0805D9D8(Manager32*);
 void sub_0805DA08(u32, u32, u32);
-
-extern void RoomExitCallback();
 
 extern u8 gUnk_08108D74[];
 

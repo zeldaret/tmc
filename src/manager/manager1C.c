@@ -1,5 +1,5 @@
 #include "manager.h"
-#include "random.h"
+#include "asm.h"
 #include "room.h"
 #include "enemy.h"
 

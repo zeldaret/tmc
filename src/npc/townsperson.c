@@ -1,15 +1,6 @@
-#include "global.h"
-#include "entity.h"
 #include "npc.h"
-#include "player.h"
-#include "textbox.h"
-#include "flags.h"
-#include "save.h"
-#include "script.h"
-#include "random.h"
 #include "structures.h"
 #include "functions.h"
-#include "effects.h"
 
 typedef struct {
     u8 frame1;

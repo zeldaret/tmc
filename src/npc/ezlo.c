@@ -1,9 +1,5 @@
-#include "global.h"
-#include "entity.h"
+#include "npc.h"
 #include "script.h"
-#include "audio.h"
-#include "functions.h"
-#include "effects.h"
 
 const u8 gUnk_08114134[];
 const u8 gUnk_08114144[];

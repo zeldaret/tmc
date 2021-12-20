@@ -1,6 +1,6 @@
 #include "global.h"
 #include "entity.h"
-#include "game.h"
+#include "overworld.h"
 
 void MinishSizedArchway(Entity* this) {
     if (this->action == 0) {

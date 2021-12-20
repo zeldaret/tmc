@@ -1,4 +1,5 @@
 #include "entity.h"
+#include "enemy.h"
 #include "player.h"
 #include "screen.h"
 #include "createObject.h"

@@ -1,16 +1,7 @@
-#include "global.h"
-#include "entity.h"
-#include "player.h"
+#include "npc.h"
 #include "structures.h"
-#include "script.h"
-#include "random.h"
-#include "audio.h"
 #include "functions.h"
-#include "script.h"
-#include "save.h"
 #include "screen.h"
-#include "utils.h"
-#include "textbox.h"
 
 extern void (*gUnk_081140D4[])(Entity*);
 

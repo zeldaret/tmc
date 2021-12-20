@@ -4,6 +4,7 @@
 #include "textbox.h"
 #include "script.h"
 #include "effects.h"
+#include "npc.h"
 
 extern void (*gUnk_08111A80[])(Entity*);
 extern void (*gUnk_08111A8C[])(Entity*);

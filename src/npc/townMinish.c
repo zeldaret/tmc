@@ -12,7 +12,6 @@ extern void sub_0806ACC4(Entity*);
 extern void sub_0806AEA8();
 extern void sub_0806AEE4(Entity*);
 extern void sub_0806AFE8(Entity*, ScriptExecutionContext*);
-extern s32 sub_0806EDD8(Entity*, u32, u32);
 extern void sub_08078850(Entity*, u32, u32, u32*);
 
 extern u8 gUnk_081125F4[12];

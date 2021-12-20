@@ -1,12 +1,6 @@
-#include "global.h"
-#include "audio.h"
-#include "entity.h"
-#include "flags.h"
 #include "save.h"
-#include "random.h"
 #include "object.h"
 #include "functions.h"
-#include "effects.h"
 
 extern void (*const gUnk_08123EC0[])(Entity*);
 extern void (*const gUnk_08123EEC[])(Entity*);

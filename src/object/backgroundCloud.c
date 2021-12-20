@@ -1,6 +1,4 @@
-#include "global.h"
-#include "entity.h"
-#include "random.h"
+#include "object.h"
 #include "functions.h"
 
 extern void (*const gUnk_08121EA4[])(Entity*);

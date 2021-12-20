@@ -1,4 +1,5 @@
 #include "global.h"
+#include "asm.h"
 #include "audio.h"
 #include "entity.h"
 #include "player.h"
@@ -6,13 +7,13 @@
 #include "utils.h"
 #include "area.h"
 #include "save.h"
-#include "game.h"
 #include "object.h"
 #include "functions.h"
 #include "object.h"
 #include "effects.h"
-#include "random.h"
 #include "hitbox.h"
+#include "overworld.h"
+#include "screen.h"
 
 typedef void(EntityAction)(Entity*);
 
@@ -181,7 +182,6 @@ extern void sub_080797EC();
 extern void sub_08079E08();
 extern void sub_08078F60();
 extern void sub_08077698();
-extern void DisplayEzloMessage();
 extern void sub_08079258();
 extern void sub_0807A298();
 extern u32 sub_08079B24();
@@ -206,6 +206,7 @@ extern u32 sub_0806F730();
 extern u32 sub_08007DD6();
 extern u32 GetSurfaceCalcType();
 extern void sub_08074808();
+extern void sub_08073904(Entity*);
 
 extern ScreenTransitionData gUnk_0813AB58;
 

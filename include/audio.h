@@ -5,6 +5,29 @@
 
 #define NUM_BGM 99
 
+void SoundReq(u32 sound);
+extern void EnqueueSFX(u32);
+
+void InitSound(void);
+void InitSoundPlayingInfo(void);
+void AudioMain(void);
+
+typedef struct SoundPlayingInfo {
+    u16 unk_00;
+    bool8 stopBgm;
+    // u8 unk_03;
+    u16 unk_04;
+    s16 volumeMasterUnk;
+    s16 volumeMaster;
+    s16 volumeMasterTarget;
+    s16 volumeBgmUnk;
+    s16 volumeBgm;
+    s16 volumeBgmTarget;
+    s16 volumeSfx;
+    u16 currentBgm;
+} SoundPlayingInfo;
+extern SoundPlayingInfo gSoundPlayingInfo;
+
 typedef enum {
     SFX_NONE,
     // BGM
@@ -573,26 +596,5 @@ typedef enum {
     SONG_STOP_BGM = 0x80100000,
     SONG_BGM_0 = 0x80110000,
 } Sound;
-
-typedef struct SoundPlayingInfo {
-    u16 unk_00;
-    bool8 stopBgm;
-    // u8 unk_03;
-    u16 unk_04;
-    s16 volumeMasterUnk;
-    s16 volumeMaster;
-    s16 volumeMasterTarget;
-    s16 volumeBgmUnk;
-    s16 volumeBgm;
-    s16 volumeBgmTarget;
-    s16 volumeSfx;
-    u16 currentBgm;
-} SoundPlayingInfo;
-
-extern SoundPlayingInfo gSoundPlayingInfo;
-
-void InitSound(void);
-void SoundReq(Sound sound);
-void AudioMain(void);
 
 #endif // AUDIO_H

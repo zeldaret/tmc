@@ -17,7 +17,7 @@ const EnemyDefinition* GetEnemyDefinition(Entity* entity) {
 }
 
 bool32 EnemyInit(Entity* this) {
-    if ((this->flags & 1) == 0) {
+    if ((this->flags & ENT_DID_INIT) == 0) {
         const EnemyDefinition* definition = GetEnemyDefinition(this);
         if (LoadEnemySprite(this, definition) == FALSE) {
             return FALSE;

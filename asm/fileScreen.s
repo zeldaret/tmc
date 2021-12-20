@@ -974,7 +974,7 @@ HandleGameOverScreen: @ 0x08052094
 	cmp r0, #0
 	beq _080520B8
 	bl FlushSprites
-	bl sub_080523D4
+	bl DrawGameOverText
 	bl sub_080AD918
 _080520B8:
 	pop {r4, pc}

@@ -1,16 +1,31 @@
-#include "global.h"
-#include "audio.h"
-#include "entity.h"
-#include "room.h"
-#include "screen.h"
-#include "greatFairy.h"
-#include "flags.h"
-#include "save.h"
-#include "random.h"
-#include "script.h"
 #include "object.h"
+#include "save.h"
+#include "script.h"
 #include "structures.h"
 #include "functions.h"
+#include "screen.h"
+
+void GreatFairy_InitializeAnimation(Entity*);
+Entity* GreatFairy_CreateForm(Entity*, u32, u32);
+void sub_080873D0();
+extern void (*const GreatFairy_Main[])(Entity*);
+extern void (*const GreatFairy_Behaviors[])(Entity*);
+extern void (*const GreatFairy_WingsBehaviors[])(Entity*);
+extern void (*const GreatFairy_WakeBehaviors[])(Entity*);
+extern void (*const GreatFairy_MiniBehaviors[])(Entity*);
+extern void (*const GreatFairy_MiniAffineBehaviors[])(Entity*);
+extern void (*const GreatFairy_DropletBehaviors[])(Entity*);
+extern void (*const GreatFairy_RippleBehaviors[])(Entity*);
+extern void (*const GreatFairy_BigRippleBehaviors[])(Entity*);
+extern void (*const GreatFairy_EnergyBehaviors[])(Entity*);
+extern void (*const GreatFairy_Form1Behaviors[])(Entity*);
+extern void (*const GreatFairy_Form2Behaviors[])(Entity*);
+extern void (*const gUnk_081207A4[])(Entity*);
+
+extern u32 gUnk_0810C2E4;
+extern const s16 GreatFairy_RippleOffsets[10];
+extern u8 gUnk_0812079C[8];
+extern s8 gUnk_081207AC[];
 
 enum {
     BEHAVIORS,

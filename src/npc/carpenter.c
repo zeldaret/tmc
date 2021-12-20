@@ -3,7 +3,6 @@
 #include "sprite.h"
 #include "player.h"
 #include "npc.h"
-#include "functions.h"
 #include "script.h"
 #include "flags.h"
 #include "textbox.h"

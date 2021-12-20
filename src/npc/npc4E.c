@@ -7,6 +7,7 @@
 #include "save.h"
 #include "flags.h"
 #include "object.h"
+#include "npc.h"
 
 extern Hitbox gHitbox_2;
 typedef struct {

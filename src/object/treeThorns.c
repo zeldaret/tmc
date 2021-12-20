@@ -3,7 +3,6 @@
 #include "coord.h"
 #include "room.h"
 #include "object.h"
-#include "functions.h"
 
 extern Hitbox gHitbox_1;
 

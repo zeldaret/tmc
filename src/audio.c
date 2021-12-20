@@ -7,12 +7,11 @@
 #define IS_BGM(song) (song) - 1 <= NUM_BGM - 1
 #define IS_SFX(song) (song) - 1 > NUM_BGM - 1
 
-void InitSoundPlayingInfo(void);
-s32 fade(s32 target, s32 current);
-void doPlaySound(u32 sound);
-void PlayFadeIn(u32 sound);
-void PlayFadeOut(u32 sound);
-void InitVolume(void);
+static s32 fade(s32 target, s32 current);
+static void doPlaySound(u32 sound);
+static void PlayFadeIn(u32 sound);
+static void PlayFadeOut(u32 sound);
+static void InitVolume(void);
 
 void InitSound(void) {
     InitSoundPlayingInfo();
@@ -182,7 +181,7 @@ void AudioMain(void) {
     }
 }
 
-s32 fade(s32 target, s32 current) {
+static s32 fade(s32 target, s32 current) {
     if (target - current >= 1) {
         current += 4;
         if (target > current)
@@ -196,7 +195,7 @@ s32 fade(s32 target, s32 current) {
     }
 }
 
-void doPlaySound(u32 sound) {
+static void doPlaySound(u32 sound) {
     u32 volume;
     MusicPlayerInfo* musicPlayerInfo;
 
@@ -214,17 +213,17 @@ void doPlaySound(u32 sound) {
     m4aMPlayVolumeControl(musicPlayerInfo, 0xffff, volume);
 }
 
-void PlayFadeIn(u32 sound) {
+static void PlayFadeIn(u32 sound) {
     gSoundPlayingInfo.volumeMasterTarget = 0x100;
     doPlaySound(sound);
 }
 
-void PlayFadeOut(u32 sound) {
+static void PlayFadeOut(u32 sound) {
     gSoundPlayingInfo.volumeMasterTarget = 0;
     doPlaySound(sound);
 }
 
-void InitVolume() {
+static void InitVolume() {
     gSoundPlayingInfo.volumeMasterUnk = 0x100;
     gSoundPlayingInfo.volumeMaster = 0x100;
     gSoundPlayingInfo.volumeMasterTarget = 0x100;

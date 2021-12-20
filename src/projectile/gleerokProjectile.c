@@ -3,7 +3,7 @@
 #include "enemy.h"
 #include "player.h"
 #include "functions.h"
-#include "random.h"
+#include "asm.h"
 #include "audio.h"
 #include "effects.h"
 

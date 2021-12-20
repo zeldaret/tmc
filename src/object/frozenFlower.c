@@ -1,5 +1,4 @@
-#include "global.h"
-#include "entity.h"
+#include "object.h"
 
 extern void (*const gUnk_0812119C[])(Entity*);
 

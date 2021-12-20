@@ -1,10 +1,5 @@
-#include "global.h"
-#include "entity.h"
 #include "enemy.h"
-#include "room.h"
-#include "random.h"
 #include "functions.h"
-#include "effects.h"
 
 typedef struct {
     s8 h, v;

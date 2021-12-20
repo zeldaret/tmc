@@ -1,8 +1,5 @@
-#include "entity.h"
-#include "functions.h"
 #include "npc.h"
-#include "audio.h"
-#include "random.h"
+#include "functions.h"
 
 extern void (*const gUnk_081145B4[])(Entity*);
 

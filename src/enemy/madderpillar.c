@@ -1,8 +1,5 @@
 #include "enemy.h"
-#include "entity.h"
-#include "random.h"
 #include "functions.h"
-#include "effects.h"
 
 extern u8 gEntCount;
 extern Hitbox gUnk_080FD298;

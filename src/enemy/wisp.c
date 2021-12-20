@@ -1,12 +1,7 @@
-#include "global.h"
-#include "entity.h"
 #include "enemy.h"
-#include "player.h"
 #include "save.h"
-#include "random.h"
 #include "createObject.h"
 #include "functions.h"
-#include "effects.h"
 
 extern void (*const gUnk_080CEB74[])(Entity*);
 extern void (*const gUnk_080CEB8C[])(Entity*);

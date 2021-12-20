@@ -452,7 +452,6 @@ void sub_0805A9CC(Manager15* this) {
 
 extern struct { u8 unk_00[0x20]; } gUnk_085A97A0[];
 extern u16 gUnk_081085B8[];
-extern void LoadPalettes(const u8*, u32, u32);
 
 void sub_0805AA58(Manager15* this) {
     if (--this->manager.unk_0e == 0) {

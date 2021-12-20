@@ -2,7 +2,7 @@
 #include "functions.h"
 #include "flags.h"
 #include "audio.h"
-#include "game.h"
+#include "overworld.h"
 #include "object.h"
 #include "area.h"
 

@@ -1,7 +1,5 @@
 #include "enemy.h"
-#include "entity.h"
 #include "screen.h"
-#include "random.h"
 #include "object.h"
 #include "structures.h"
 #include "functions.h"

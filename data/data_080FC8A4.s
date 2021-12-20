@@ -93,12 +93,3 @@ gUnk_080FCA70:: @ 080FCA70
 	.4byte sub_080521A0
 	.4byte sub_080522F4
 	.4byte nullsub_107
-
-gUnk_080FCA84:: @ 080FCA84
-	.incbin "data_080FC8A4/gUnk_080FCA84.bin"
-
-gUnk_080FCA8C:: @ 080FCA8C
-	.incbin "data_080FC8A4/gUnk_080FCA8C.bin"
-
-gUnk_080FCAA4:: @ 080FCAA4
-	.incbin "data_080FC8A4/gUnk_080FCAA4.bin"

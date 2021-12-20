@@ -1,12 +1,7 @@
-#include "global.h"
-#include "entity.h"
 #include "enemy.h"
-#include "screen.h"
-#include "audio.h"
-#include "random.h"
 #include "object.h"
 #include "functions.h"
-#include "effects.h"
+#include "screen.h"
 
 extern void UnloadOBJPalette(Entity*);
 

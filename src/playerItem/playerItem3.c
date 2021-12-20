@@ -1,4 +1,5 @@
 #include "entity.h"
+#include "audio.h"
 #include "functions.h"
 
 extern void (*const gUnk_080B77FC[])(Entity*);

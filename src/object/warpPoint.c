@@ -2,11 +2,14 @@
 #include "object.h"
 #include "player.h"
 #include "flags.h"
-#include "game.h"
+#include "overworld.h"
 #include "audio.h"
 #include "functions.h"
 
 extern Hitbox gHitbox_1;
+
+extern void sub_0807CAC8(u32);
+extern u32 sub_0807CAEC(u32);
 
 void WarpPoint(Entity*);
 void sub_0808B474(Entity*);

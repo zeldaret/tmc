@@ -1,11 +1,6 @@
-#include "entity.h"
 #include "enemy.h"
 #include "object.h"
-#include "random.h"
-#include "flags.h"
-#include "audio.h"
 #include "functions.h"
-#include "effects.h"
 
 void sub_080409B0(Entity*);
 void sub_080408EC(Entity*);

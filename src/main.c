@@ -1,14 +1,15 @@
 #include "audio.h"
-#include "global.h"
+#include "asm.h"
 #include "functions.h"
 #include "structures.h"
 #include "main.h"
 #include "screen.h"
-#include "random.h"
 #include "utils.h"
 #include "save.h"
 #include "textbox.h"
-#include "arm_proxy.h"
+#include "interrupts.h"
+
+extern u32 gRand;
 
 extern void HandleIntroScreen(void);
 extern void HandleChooseFileScreen(void);
@@ -20,6 +21,7 @@ extern void HandleDebugTextScreen(void);
 
 static void InitOverlays(void);
 static bool32 SoftResetKeysPressed(void);
+static u32 CheckHeaderValid(void);
 
 void (*const sScreenHandlers[])(void) = {
     [SCREEN_INTRO] = HandleIntroScreen,
@@ -211,7 +213,7 @@ NONMATCH("asm/non_matching/sub_080560B8.inc", static void sub_080560B8(void)) {
 }
 END_NONMATCH
 
-u32 CheckHeaderValid(void) {
+static u32 CheckHeaderValid(void) {
     if ((gSaveHeader->signature != SIGNATURE) || (gSaveHeader->saveFileId >= NUM_SAVE_SLOTS) ||
         (gSaveHeader->messageSpeed >= MAX_MSG_SPEED) || (gSaveHeader->brightnessPref >= MAX_BRIGHTNESS)
 #ifdef EU

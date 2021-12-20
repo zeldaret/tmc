@@ -1,5 +1,5 @@
 #include "entity.h"
-#include "random.h"
+#include "asm.h"
 #include "functions.h"
 #include "utils.h"
 

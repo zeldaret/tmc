@@ -1,8 +1,10 @@
+#include "audio.h"
 #include "entity.h"
 #include "script.h"
 #include "functions.h"
 #include "flags.h"
 #include "effects.h"
+#include "npc.h"
 
 extern Hitbox gUnk_08110E94;
 

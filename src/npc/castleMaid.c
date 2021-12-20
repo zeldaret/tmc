@@ -1,9 +1,10 @@
 #include "entity.h"
 #include "script.h"
 #include "save.h"
-#include "functions.h"
 #include "flags.h"
 #include "textbox.h"
+#include "npc.h"
+#include "manager.h"
 
 extern Dialog gUnk_0810F894[];
 

@@ -1,10 +1,5 @@
-#include "global.h"
-#include "entity.h"
-#include "flags.h"
-#include "room.h"
-#include "audio.h"
+#include "object.h"
 #include "functions.h"
-#include "effects.h"
 
 extern void (*const gUnk_0811EE38[])(Entity*);
 

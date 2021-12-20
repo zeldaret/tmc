@@ -137,7 +137,7 @@ void (*const gNPCFunctions[][3])(Entity* ent) = {
 //clang-format on
 const u8 npc_unk[] = { 0x04, 0x05, 0x06, 0x06 };
 
-extern u8 gUnk_020342F8;
+extern u32 gUnk_020342F8;
 typedef struct {
     u16 unk0;
     u16 unk1;
@@ -147,7 +147,6 @@ typedef struct {
 extern NPCStruct gUnk_02031EC0[100];
 
 void InitNPC(Entity*);
-u32 ReadBit(void*, u32);
 
 // regalloc
 NONMATCH("asm/non_matching/arm_proxy/NPCUpdate.inc", void NPCUpdate(Entity* this)) {

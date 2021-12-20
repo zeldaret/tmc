@@ -1,11 +1,6 @@
 #include "global.h"
-#include "entity.h"
 #include "enemy.h"
 #include "functions.h"
-#include "coord.h"
-#include "random.h"
-#include "player.h"
-#include "effects.h"
 
 extern void (*const LakituActionFuncs[])(Entity*);
 

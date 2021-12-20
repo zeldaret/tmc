@@ -3,6 +3,7 @@
 #include "textbox.h"
 #include "functions.h"
 #include "effects.h"
+#include "npc.h"
 
 extern void sub_08063280();
 

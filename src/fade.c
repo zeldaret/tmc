@@ -2,6 +2,7 @@
 #include "functions.h"
 #include "screen.h"
 #include "utils.h"
+#include "fade.h"
 
 typedef struct {
     u8 field_0x0;
@@ -48,18 +49,18 @@ void FadeVBlank(void) {
     }
 }
 
-void InitFade() {
+void InitFade(void) {
     MemClear(&gFadeControl, sizeof(gFadeControl));
     MemClear(&gUnk_020354C0, sizeof(gUnk_020354C0));
     gFadeControl.mask = 0xffffffff;
 }
 
-void sub_08050008() {
+void sub_08050008(void) {
     MemClear(&gUnk_020354C0, sizeof(gUnk_020354C0));
     gFadeControl.mask = 0xFFFFFFFF;
 }
 
-void sub_08050024() {
+static void sub_08050024(void) {
     sub_0801E104();
     DoFade(5, 256);
 }
@@ -72,9 +73,9 @@ void sub_08050038(u32 arg0) {
     }
 }
 
-void DoFade(u32 fadeType, u32 fadeSpeed) {
-    gFadeControl.fadeSpeed = fadeSpeed;
-    gFadeControl.fadeType = fadeType;
+void DoFade(u32 type, u32 speed) {
+    gFadeControl.fadeSpeed = speed;
+    gFadeControl.fadeType = type;
     gFadeControl.active = 1;
     gFadeControl.fadeDuration = 0x100;
     gFadeControl.field_0xe = 0;
@@ -83,16 +84,16 @@ void DoFade(u32 fadeType, u32 fadeSpeed) {
     } else {
         gFadeControl.field_0x2 = 0;
     }
-    if (fadeType & 8) {
+    if (type & 8) {
         gUnk_03000000.spritesOffset = 1;
         gScreen.bg1.control |= BGCNT_MOSAIC;
         gScreen.bg2.control |= BGCNT_MOSAIC;
         gScreen.bg3.control |= BGCNT_MOSAIC;
     }
-    if (fadeType & 0x10) {
+    if (type & 0x10) {
         sub_0801E1B8(gFadeControl.field_0x16, gFadeControl.field_0x18);
         sub_0801E1EC(gFadeControl.field_0x12, gFadeControl.field_0x14, gFadeControl.field_0x10);
-        if ((fadeType & 1) == 0) {
+        if ((type & 1) == 0) {
             gFadeControl.fadeType &= ~4;
             sub_08050008();
             gUsedPalettes = 0xffffffff;

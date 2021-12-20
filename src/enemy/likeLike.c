@@ -1,8 +1,6 @@
 #include "enemy.h"
-#include "entity.h"
 #include "textbox.h"
 #include "save.h"
-#include "random.h"
 #include "createObject.h"
 #include "functions.h"
 
