@@ -17,7 +17,7 @@ extern u8 gUnk_081091E4[];
 
 extern void sub_080186EC();
 extern void sub_0804B16C();
-extern void sub_080A7C7C(void);
+extern void ClearSmallChests(void);
 extern Entity* GetEmptyEntityByKind(u32 kind);
 
 void RegisterRoomEntity(Entity*, EntityData*);
@@ -115,7 +115,7 @@ void sub_0804AF0C(Entity* ent, EntityData* dat) {
 
 void sub_0804AF90(void) {
     sub_0804AFB0(gArea.pCurrentRoomInfo->properties);
-    sub_080A7C7C();
+    ClearSmallChests();
 }
 
 void sub_0804AFB0(void** properties) {

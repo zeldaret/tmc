@@ -47,7 +47,7 @@ _0804B168: .4byte gRoomVars
 	thumb_func_start sub_0804B16C
 sub_0804B16C: @ 0x0804B16C
 	push {r4, lr}
-	ldr r4, _0804B1A4 @ =gUnk_02017660
+	ldr r4, _0804B1A4 @ =gSmallChests
 _0804B170:
 	ldrh r0, [r4, #4]
 	cmp r0, #0
@@ -75,7 +75,7 @@ _0804B198:
 	blo _0804B170
 	pop {r4, pc}
 	.align 2, 0
-_0804B1A4: .4byte gUnk_02017660
+_0804B1A4: .4byte gSmallChests
 _0804B1A8: .4byte gPaletteBuffer
 
 	thumb_func_start LoadRoomTileEntities
@@ -202,7 +202,7 @@ sub_0804B290: @ 0x0804B290
 sub_0804B29C: @ 0x0804B29C
 	push {r4, lr}
 	adds r2, r0, #0
-	ldr r4, _0804B2EC @ =gUnk_02017660
+	ldr r4, _0804B2EC @ =gSmallChests
 	movs r1, #0
 _0804B2A4:
 	ldrh r0, [r4, #4]
@@ -237,7 +237,7 @@ _0804B2A4:
 	bl sub_0806F704
 	b _0804B2FC
 	.align 2, 0
-_0804B2EC: .4byte gUnk_02017660
+_0804B2EC: .4byte gSmallChests
 _0804B2F0: .4byte gRoomControls
 _0804B2F4:
 	adds r1, #1

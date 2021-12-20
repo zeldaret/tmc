@@ -699,7 +699,7 @@ _08097346:
 sub_08097348: @ 0x08097348
 	push {lr}
 	adds r3, r0, #0
-	ldr r1, _08097360 @ =gUnk_02017660
+	ldr r1, _08097360 @ =gSmallChests
 	movs r2, #0
 _08097350:
 	ldrh r0, [r1, #4]
@@ -709,7 +709,7 @@ _08097350:
 	bl CheckLocalFlag
 	b _0809736E
 	.align 2, 0
-_08097360: .4byte gUnk_02017660
+_08097360: .4byte gSmallChests
 _08097364:
 	adds r2, #1
 	adds r1, #8
