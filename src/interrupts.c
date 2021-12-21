@@ -195,7 +195,7 @@ void PlayerUpdate(Entity* this) {
                 COLLISION_ON(this);
             } else {
                 COLLISION_OFF(this);
-                gPlayerState.field_0xa8 = 0xf;
+                gPlayerState.framestate = PL_STATE_F;
             }
         }
         HandlePlayerLife(this);
@@ -235,8 +235,8 @@ void HandlePlayerLife(Entity* this) {
     if (gPlayerState.field_0x27[0] != 0)
         gPlayerState.field_0x27[0]--;
 
-    gPlayerState.field_0xa9 = gPlayerState.field_0xa8;
-    gPlayerState.field_0xa8 = 0;
+    gPlayerState.framestate_last = gPlayerState.framestate;
+    gPlayerState.framestate = PL_STATE_IDLE;
     if (gPlayerState.hurtType[0x4a] != 0) {
         gPlayerState.hurtType[0x4a]--;
         return;

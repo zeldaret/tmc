@@ -121,8 +121,9 @@ typedef struct {
     u8 transitionType; // transition when changing areas
     u16 stairs_idx;    // seems to be a tile type
     PlayerWorldStatus player_status;
-    u8 field_0x2c[0xa];
-    u16 field_0x36;
+    u8 field_0x2c[0x9];
+    u8 hint_height;
+    u16 hint_idx;
     u8 field_0x38;
     u8 field_0x39;
     u8 field_0x3a;

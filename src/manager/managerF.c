@@ -414,7 +414,7 @@ void sub_080594DC(ManagerF* this) {
             break;
         case 2:
         default:
-            if (gArea.field_0x28 != 0xFF) {
+            if (gArea.inventoryGfxIdx != 0xFF) {
                 DeleteThisEntity();
             }
             if (CheckLocalFlagByBank(0x8c0, 0x85)) {

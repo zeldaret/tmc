@@ -63,19 +63,19 @@ typedef struct {
 
 typedef struct {
     Manager manager;
-    u16 unk_20;
-    u16 unk_22;
-    u16 unk_24;
-    u16 unk_26;
-    u8 unk_28[0x0D];
-    u8 unk_35;
-    u16 unk_36;
-    u8 unk_38;
-    u8 unk_39;
-    u8 unk_3a;
-    u8 unk_3b;
-    u16 unk_3c;
-    u16 unk_3e;
+    u16 x;
+    u16 y;
+    u16 rx;
+    u16 ry;
+    u8 unk_28[13];
+    u8 msg_height;
+    u16 msg_idx;
+    u8 x_raw;
+    u8 y_raw;
+    u8 rx_raw;
+    u8 ry_raw;
+    u16 flag1;
+    u16 flag2;
 } ManagerA;
 
 typedef struct {

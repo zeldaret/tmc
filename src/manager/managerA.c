@@ -6,53 +6,54 @@
 #include "area.h"
 #include "functions.h"
 
-void sub_08058398(ManagerA*);
-void sub_080583EC(ManagerA*);
-void sub_08058408(ManagerA*);
-void sub_08058514(ManagerA*);
-void sub_080585B0(ManagerA*);
+static void sub_08058398(ManagerA*);
+static void sub_080583EC(ManagerA*);
+static void sub_08058408(ManagerA*);
+static void sub_08058514(ManagerA*);
+static void sub_080585B0(ManagerA*);
 
-void (*const gUnk_081081F4[])(ManagerA*) = { sub_08058398, sub_080583EC, sub_08058408, sub_08058514, sub_080585B0 };
+static u32 PlayerStateValid(ManagerA*);
+static void sub_080585DC(ManagerA*);
 
+extern void sub_0801855C(void);
+
+/**
+ * Ezlo hint manager
+ */
 void ManagerA_Main(ManagerA* this) {
-    gUnk_081081F4[this->manager.action](this);
+    static void (*const sActions[])(ManagerA*) = { sub_08058398, sub_080583EC, sub_08058408, sub_08058514,
+                                                   sub_080585B0 };
+
+    sActions[this->manager.action](this);
 }
 
-void sub_08058398(ManagerA* this) {
-
-    if (CheckFlags(this->unk_3c) != 0) {
+static void sub_08058398(ManagerA* this) {
+    if (CheckFlags(this->flag1) != 0) {
         DeleteThisEntity();
     }
-    this->unk_24 = this->unk_3a << 3;
-    this->unk_26 = this->unk_3b << 3;
-    this->unk_20 = this->unk_24 + (this->unk_38 << 4);
-    this->unk_22 = this->unk_26 + (this->unk_39 << 4);
-    SetDefaultPriority((Entity*)&this->manager, 0x06);
-    if (this->unk_3e == 0) {
+    this->rx = this->rx_raw << 3;
+    this->ry = this->ry_raw << 3;
+    this->x = this->rx + (this->x_raw << 4);
+    this->y = this->ry + (this->y_raw << 4);
+    SetDefaultPriority((Entity*)&this->manager, PRIO_PLAYER_EVENT);
+    if (this->flag2 == 0) {
         this->manager.action = 2;
     } else {
         this->manager.action = 1;
     }
 }
 
-void sub_080583EC(ManagerA* this) {
-    if (CheckFlags(this->unk_3e) != 0) {
+static void sub_080583EC(ManagerA* this) {
+    if (CheckFlags(this->flag2)) {
         this->manager.action = 2;
         sub_08058408(this);
     }
 }
 
-extern void SetPlayerEventPriority(void);
-
-u32 sub_0805848C(ManagerA*);
-void sub_080585DC(ManagerA*);
-
-void sub_08058408(ManagerA* this) {
-    u32 tmp2;
-    tmp2 = (gPlayerState.flags & 0x08);
-    if (tmp2 != 0)
+static void sub_08058408(ManagerA* this) {
+    if (gPlayerState.flags & PL_NO_CAP)
         return;
-    if (!CheckPlayerInRegion(this->unk_20, this->unk_22, this->unk_24, this->unk_26))
+    if (!CheckPlayerInRegion(this->x, this->y, this->rx, this->ry))
         return;
     switch (this->manager.unk_0a) {
         case 1:
@@ -64,101 +65,98 @@ void sub_08058408(ManagerA* this) {
         case 0:
         default:
             sub_080585DC(this);
-            if (sub_0805848C(this) == 0)
+            if (!PlayerStateValid(this))
                 return;
             SetPlayerControl(3);
             sub_08078B48();
             SetPlayerEventPriority();
             this->manager.action = 3;
             this->manager.unk_0d = 0;
-            this->manager.unk_0e = 0x1e;
+            this->manager.unk_0e = 30;
             return;
         case 3:
             this->manager.action = 4;
-            this->manager.unk_0d = tmp2;
-            sub_080186C0(this->unk_36);
+            this->manager.unk_0d = 0;
+            sub_080186C0(this->msg_idx);
             return;
     }
 }
 
-u32 sub_0805848C(ManagerA* this) {
-    switch (gPlayerState.field_0xa8 - 5) {
-        case 0:
-        case 2:
-        case 3:
-        case 5:
-        case 6:
-        case 7:
-        case 8:
-        case 9:
-        case 10:
-        case 11:
-        case 12:
-        case 13:
-        case 14:
-        case 15:
-        case 16:
-        case 17:
-        case 18:
-        case 19:
-        case 22:
-        case 23:
+static u32 PlayerStateValid(ManagerA* this) {
+    switch (gPlayerState.framestate) {
+        case PL_STATE_THROW:
+        case PL_STATE_SWIM:
+        case PL_STATE_PARACHUTE:
+        case PL_STATE_FALL:
+        case PL_STATE_JUMP:
+        case PL_STATE_C:
+        case PL_STATE_D:
+        case PL_STATE_USEPORTAL:
+        case PL_STATE_F:
+        case PL_STATE_TRAPPED:
+        case PL_STATE_11:
+        case PL_STATE_DIE:
+        case PL_STATE_TALKEZLO:
+        case PL_STATE_CAPE:
+        case PL_STATE_ITEMGET:
+        case PL_STATE_DROWN:
+        case PL_STATE_HOLE:
+        case PL_STATE_CLIMB:
+        case PL_STATE_1B:
+        case PL_STATE_STAIRS:
             return 0;
-        case 1:
-        case 4:
-        case 20:
-        case 21:
+        case PL_STATE_6:
+        case PL_STATE_ROLL:
+        case PL_STATE_PUSH:
+        case PL_STATE_PULL:
         default:
             return 1;
     }
 }
 
-extern void ResetPlayerEventPriority(void);
-
-void sub_08058514(ManagerA* this) {
+static void sub_08058514(ManagerA* this) {
     switch (this->manager.unk_0d) {
         case 1:
-            if ((gPlayerState.flags & 0x1235) != 0)
+            if (gPlayerState.flags & (PL_BUSY | PL_DROWNING | PL_USE_PORTAL | 0x1210))
                 return;
             if (gPlayerEntity.z.HALF.HI != 0)
                 return;
             gPlayerState.jumpStatus = 0;
-            sub_08078AA8(this->unk_36, this->unk_35);
+            CreateEzloHint(this->msg_idx, this->msg_height);
             this->manager.unk_0d++;
-            this->manager.unk_0e = 0x1E;
+            this->manager.unk_0e = 30;
             return;
         case 0:
         case 2:
-            if (((--this->manager.unk_0e) << 0x18) == 0) {
+            if (--this->manager.unk_0e == 0) {
                 this->manager.unk_0d++;
             }
             return;
         case 3:
-            if (gPlayerEntity.action != 1 && gPlayerEntity.action != 9)
-                return;
-            gPlayerState.controlMode = 1;
-            ResetPlayerEventPriority();
-            SetFlag(this->unk_3c);
-            DeleteThisEntity();
+            /* wait for player to finish talking */
+            if (gPlayerEntity.action == PLAYER_NORMAL || gPlayerEntity.action == PLAYER_MINISH) {
+                gPlayerState.controlMode = 1;
+                ResetPlayerEventPriority();
+                SetFlag(this->flag1);
+                DeleteThisEntity();
+            }
             return;
         default:
             return;
     }
 }
 
-extern void sub_0801855C(void);
-
-void sub_080585B0(ManagerA* this) {
-    if (gArea.field_0x28 != 0xFF) {
+static void sub_080585B0(ManagerA* this) {
+    if (gArea.inventoryGfxIdx != 0xFF) {
         DeleteThisEntity();
     }
-    if (CheckFlags(this->unk_3c)) {
+    if (CheckFlags(this->flag1)) {
         sub_0801855C();
         DeleteThisEntity();
     }
 }
-void sub_080585DC(ManagerA* this) {
-    if (CheckFlags(this->unk_3c)) {
+static void sub_080585DC(ManagerA* this) {
+    if (CheckFlags(this->flag1)) {
         DeleteThisEntity();
     }
 }

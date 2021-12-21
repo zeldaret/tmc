@@ -101,7 +101,7 @@ u32 sub_080A7CFC(u32 a1) {
 
 void sub_080A7D44(u32 msg, u32 isTileEntity6) {
     if (isTileEntity6)
-        sub_08078AA8(msg, 0);
+        CreateEzloHint(msg, 0);
     else
         // Read sign text
         MessageFromTarget(msg);

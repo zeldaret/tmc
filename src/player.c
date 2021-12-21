@@ -6,6 +6,7 @@
 #include "textbox.h"
 #include "utils.h"
 #include "area.h"
+#include "item.h"
 #include "save.h"
 #include "object.h"
 #include "functions.h"
@@ -271,7 +272,7 @@ static void PlayerInit(Entity* this) {
         sub_08016A30(this);
     }
 
-    if (IsItemEquipped(0x10) != 2) {
+    if (IsItemEquipped(ITEM_LANTERN_ON) != 2) {
         sub_08077728();
     }
     sub_0807A108();
@@ -284,7 +285,7 @@ static void PlayerInit(Entity* this) {
             Entity* ent;
             gPlayerState.swimState = 1;
             sub_08079938();
-            gPlayerState.field_0xa8 = 7;
+            gPlayerState.framestate = PL_STATE_SWIM;
             sub_0807ACCC(this);
             ent = FindEntity(0x6, 0xf, 0x6, 0xb, 0x0);
             if (ent != NULL) {
@@ -315,7 +316,7 @@ static void PlayerFall(Entity* this) {
 
     gPlayerState.field_0xd = 0xFF;
     gPlayerState.pushedObject = 0x80;
-    gPlayerState.field_0xa8 = 10;
+    gPlayerState.framestate = PL_STATE_FALL;
 
     sPlayerFallStates[this->subAction](this);
 }
@@ -454,7 +455,7 @@ static void sub_08070E9C(Entity* this) {
         MessageClose();
     } else {
         gPlayerState.field_0x27[0] = 4;
-        gPlayerState.field_0xa8 = 0x13;
+        gPlayerState.framestate = PL_STATE_TALKEZLO;
         sub_0807A1B8();
         gUnk_0811BA74[this->subAction](this);
     }
@@ -490,7 +491,7 @@ static void PlayerItemGet(Entity* this) {
     Entity* child;
     u8* temp;
 
-    gPlayerState.field_0xa8 = 0x15;
+    gPlayerState.framestate = PL_STATE_ITEMGET;
     COLLISION_OFF(this);
     sPlayerItemGetStates[this->subAction](this);
 
@@ -561,7 +562,7 @@ static void PlayerJump(Entity* this) {
         sub_08071208,
     };
 
-    gPlayerState.field_0xa8 = 0xb;
+    gPlayerState.framestate = PL_STATE_JUMP;
     sPlayerJumpStates[this->subAction](this);
 }
 
@@ -675,7 +676,7 @@ static void PlayerDrown(Entity* this) {
         sub_080712F0,
     };
 
-    gPlayerState.field_0xa8 = 0x16;
+    gPlayerState.framestate = PL_STATE_DROWN;
     gPlayerState.flags |= PL_DROWNING;
     COLLISION_OFF(this);
     sPlayerDrownStates[this->subAction](this);
@@ -737,7 +738,7 @@ static void PlayerUsePortal(Entity* this) {
         PortalShrinkInit,   PortalShrinkUpdate, PortalEnterUpdate,  PortalUnknownUpdate,
     };
 
-    gPlayerState.field_0xa8 = 0xe;
+    gPlayerState.framestate = PL_STATE_USEPORTAL;
     sPlayerUsePortalStates[this->subAction](this);
 
     // probably a switch
@@ -813,7 +814,7 @@ static void PortalStandUpdate(Entity* this) {
             this->animationState = Direction8ToAnimationState(this->direction);
             this->zVelocity = 0x20000;
             this->speed = 256;
-            this->action = 9;
+            this->action = PLAYER_MINISH;
             this->subAction = 7;
             this->field_0xf = 0;
             gPlayerState.animation = (gPlayerState.flags & PL_NO_CAP) ? 0x41C : 0x80C;
@@ -866,7 +867,7 @@ static void PortalShrinkInit(Entity* this) {
     *(u32*)&this->cutsceneBeh = 0x100;
     sub_0805EC9C(this, 0x100, 0x100, 0);
     gPlayerState.animation = 0x2c3;
-    gPlayerState.flags |= 0x80;
+    gPlayerState.flags |= PL_MINISH;
     SoundReq(SFX_PLY_SHRINKING);
 }
 
@@ -943,7 +944,7 @@ static void PlayerTalkEzlo(Entity* this) {
         MessageClose();
         ResetPlayerPriority();
     } else {
-        gPlayerState.field_0xa8 = 0x13;
+        gPlayerState.framestate = PL_STATE_TALKEZLO;
         COLLISION_OFF(this);
         sPlayerTalkEzloStates[this->subAction](this);
     }
@@ -1057,7 +1058,7 @@ static void PlayerPush(Entity* this) {
         sub_08071B60,
     };
 
-    gPlayerState.field_0xa8 = 0x19;
+    gPlayerState.framestate = PL_STATE_PUSH;
     sPlayerPushStates[this->subAction](this);
 }
 
@@ -1132,7 +1133,7 @@ static void PlayerMinishDie(Entity* this) {
 
     COLLISION_OFF(this);
     sPlayerMinishDieStates[this->subAction](this);
-    gPlayerState.field_0xa8 = 0x12;
+    gPlayerState.framestate = PL_STATE_DIE;
 }
 
 static void sub_08071BDC(Entity* this) {
@@ -1477,7 +1478,7 @@ static void PlayerPull(Entity* this) {
         sub_08072260,
     };
 
-    gPlayerState.field_0xa8 = 0x1a;
+    gPlayerState.framestate = PL_STATE_PULL;
     sPlayerPullStates[this->subAction](this);
     gUnk_0200AF00.filler25[9] = 8;
 }
@@ -1520,7 +1521,7 @@ static void PlayerLava(Entity* this) {
         sub_0807240C,
     };
 
-    gPlayerState.field_0xa8 = 10;
+    gPlayerState.framestate = PL_STATE_FALL;
     sPlayerLavaStates[this->subAction](this);
 }
 
@@ -1677,7 +1678,7 @@ static void PlayerRoll(Entity* this) {
         sub_080726F4,
     };
 
-    gPlayerState.field_0xa8 = 9;
+    gPlayerState.framestate = PL_STATE_ROLL;
     sPlayerRollStates[this->subAction](this);
 }
 
@@ -1815,7 +1816,7 @@ static void PlayerInHole(Entity* this) {
         sub_08072970, sub_08072A60, sub_08072ACC, sub_08072B5C, sub_08072C48,
     };
 
-    gPlayerState.field_0xa8 = 0x17;
+    gPlayerState.framestate = PL_STATE_HOLE;
     sPlayerInHoleStates[this->subAction](this);
 }
 
@@ -1948,7 +1949,7 @@ static void sub_08072C9C(Entity* this) {
         sub_08072D54,
         sub_08072F14,
     };
-    gPlayerState.field_0xa8 = 0x11;
+    gPlayerState.framestate = 0x11;
     gUnk_0811BBAC[this->subAction](this);
 }
 
@@ -2095,7 +2096,7 @@ static void sub_08072F34(Entity* this) {
     };
 
     if (!sub_08078EFC()) {
-        gPlayerState.field_0xa8 = 0x18;
+        gPlayerState.framestate = PL_STATE_CLIMB;
         gPlayerState.field_0x10[2] = GetSurfaceCalcType(this, 0, 0);
         gUnk_0811BBE4[this->subAction](this);
         if (this->knockbackDuration != 0) {
@@ -2221,7 +2222,7 @@ static void PlayerUseEntrance(Entity* this) {
         sub_080733BC,
     };
 
-    gPlayerState.field_0xa8 = 0x1c;
+    gPlayerState.framestate = PL_STATE_STAIRS;
     RequestPriorityDuration(NULL, 8);
     sPlayerUseEntranceStates[this->subAction](this);
 }

@@ -75,6 +75,22 @@
 	.4byte \paramC
 	.endm
 
+	.macro ezlo_hint type=0 x:req, y:req, rx:req, ry:req, msg:req, flag:req, msg_y=0, flag2=0
+	.byte 9
+	.byte 0
+	.byte 10
+	.byte \type
+	.byte 0
+	.byte \msg_y
+	.2byte \msg
+	.byte \x >> 1 /* normalize to same coordinates */
+	.byte \y >> 1
+	.byte \rx
+	.byte \ry
+	.2byte \flag
+	.2byte \flag2
+	.endm
+
 	.macro manager subtype:req, collision=0, unknown=0xf, paramA=0, paramB=0, x=0, y=0, paramC=0
 	entity_raw type=9, subtype=\subtype, collision=\collision, unknown=\unknown, paramA=\paramA, paramB=\paramB, x=\x, y=\y, paramC=\paramC
 	.endm

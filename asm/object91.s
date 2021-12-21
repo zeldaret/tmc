@@ -998,7 +998,7 @@ sub_0809CB4C: @ 0x0809CB4C
 	bne _0809CB66
 	ldr r0, _0809CB6C @ =0x00000B44
 	movs r1, #0
-	bl sub_08078AA8
+	bl CreateEzloHint
 	bl DeleteThisEntity
 _0809CB66:
 	pop {pc}

@@ -967,7 +967,7 @@ _080950C8:
 	bl sub_080788E0
 	ldr r0, _080950EC @ =0x00001F1F
 	movs r1, #0
-	bl sub_08078AA8
+	bl CreateEzloHint
 	b _0809510A
 	.align 2, 0
 _080950EC: .4byte 0x00001F1F

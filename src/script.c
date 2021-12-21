@@ -1228,7 +1228,7 @@ void ScriptCommand_MessageNoOverlapVar(Entity* entity, ScriptExecutionContext* c
 }
 
 void ScriptCommand_0807EB28(Entity* entity, ScriptExecutionContext* context) {
-    sub_08078AA8(context->scriptInstructionPointer[1], 0);
+    CreateEzloHint(context->scriptInstructionPointer[1], 0);
 }
 
 void ScriptCommand_0807EB38(Entity* entity, ScriptExecutionContext* context) {
@@ -1789,7 +1789,7 @@ void sub_0807F584(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807F594(Entity* entity, ScriptExecutionContext* context) {
-    if (gPlayerState.field_0xa8)
+    if (gPlayerState.framestate)
         gActiveScriptInfo.commandSize = 0;
 }
 
@@ -2011,7 +2011,7 @@ void sub_0807F994(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807F9A4(Entity* entity, ScriptExecutionContext* context) {
-    switch (gPlayerState.field_0xa8) {
+    switch (gPlayerState.framestate) {
         case 5:
         case 7:
         case 8:
@@ -2041,7 +2041,7 @@ void sub_0807F9A4(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807FA40(Entity* entity, ScriptExecutionContext* context) {
-    switch (gPlayerState.field_0xa8) {
+    switch (gPlayerState.framestate) {
         case 5:
         case 7:
         case 8:

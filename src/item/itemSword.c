@@ -11,7 +11,7 @@ extern u32 sub_08077EC8(ItemBehavior*);
 void sub_08075694(ItemBehavior* this, u32 arg1);
 
 void ItemSword(ItemBehavior* this, u32 arg1) {
-    gPlayerState.field_0xa8 = 0x02;
+    gPlayerState.framestate = PL_STATE_SWORD;
     gUnk_0811BD44[this->stateID](this, arg1);
 }
 

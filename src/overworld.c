@@ -554,7 +554,7 @@ void RoomExitCallback(void) {
 }
 
 u32 HandleRoomExit(void) {
-    if (gScreenTransition.transitioningOut && gSave.stats.health != 0 && gPlayerState.field_0xa8 != 18) {
+    if (gScreenTransition.transitioningOut && gSave.stats.health != 0 && gPlayerState.framestate != PL_STATE_DIE) {
         if (StairsAreValid()) {
             gScreenTransition.transitioningOut = 0;
             return 0;
@@ -660,13 +660,13 @@ static void HandleRoomEnter(void) {
 }
 
 u32 sub_08052B24(void) {
-    s32 tmp = 1;
+    s32 tmp = PL_STATE_WALK;
 
     if (!(gInput.heldKeys & SELECT_BUTTON) || gPlayerState.controlMode != CONTROL_ENABLED || gUnk_02034490[0] ||
         gUnk_0200AF00.filler0[1])
         return 0;
 
-    if ((gPlayerState.flags & 0x118) || (gPlayerState.field_0xa9 > tmp) || gPlayerState.field_0x2c ||
+    if ((gPlayerState.flags & 0x118) || (gPlayerState.framestate_last > tmp) || gPlayerState.field_0x2c ||
         gPlayerEntity.field_0x7a.HWORD)
         return 0;
 
@@ -693,7 +693,7 @@ void DisplayEzloMessage(void) {
     } else {
         height = gScreenTransition.player_status.field_0x24[idx];
     }
-    MessageAtHeight(gScreenTransition.field_0x36, height);
+    MessageAtHeight(gScreenTransition.hint_idx, height);
 }
 
 #if defined(USA) || defined(DEMO_USA) || defined(DEMO_JP)

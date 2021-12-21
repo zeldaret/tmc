@@ -998,13 +998,13 @@ void VaatiWrathType0PreAction(Entity* this) {
         if (gSave.unk48C[3] != 0) {
             gSave.unk48C[3]--;
         } else {
-            temp = gPlayerState.field_0xa9;
+            temp = gPlayerState.framestate_last;
             if (temp < 2) {
                 if (temp >= 0) {
                     if (gPlayerState.field_0x2c == NULL) {
                         if (gPlayerEntity.field_0x7a.HWORD == 0) {
                             if ((gPlayerEntity.z.HALF.HI & 0x8000U) == 0 || (gPlayerState.field_0xa != 0)) {
-                                sub_08078AA8(0xb70, 0);
+                                CreateEzloHint(0xb70, 0);
                                 gScreenTransition.field_0x38 |= 2;
                             }
                         }
