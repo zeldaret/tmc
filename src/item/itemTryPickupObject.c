@@ -42,7 +42,7 @@ void sub_08076488(ItemBehavior* this, u32 arg1) {
     } else {
         this->field_0x5[2] -= 1;
     }
-    gPlayerState.field_0xa8 = 4;
+    gPlayerState.framestate = PL_STATE_HOLD;
 }
 
 ASM_FUNC("asm/non_matching/itemTryPickupObject/sub_08076518.inc", void sub_08076518(ItemBehavior* this, u32 arg1))

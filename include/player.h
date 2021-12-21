@@ -39,6 +39,38 @@ enum PlayerActions {
     PLAYER_PARACHUTE,
 };
 
+enum PlayerFrameState {
+    PL_STATE_IDLE,
+    PL_STATE_WALK,
+    PL_STATE_SWORD,
+    PL_STATE_GUSTJAR,
+    PL_STATE_HOLD,
+    PL_STATE_THROW,
+    PL_STATE_6,
+    PL_STATE_SWIM,
+    PL_STATE_PARACHUTE,
+    PL_STATE_ROLL,
+    PL_STATE_FALL,
+    PL_STATE_JUMP,
+    PL_STATE_C,
+    PL_STATE_D,
+    PL_STATE_USEPORTAL,
+    PL_STATE_F,
+    PL_STATE_TRAPPED,
+    PL_STATE_11,
+    PL_STATE_DIE,
+    PL_STATE_TALKEZLO,
+    PL_STATE_CAPE,
+    PL_STATE_ITEMGET,
+    PL_STATE_DROWN,
+    PL_STATE_HOLE,
+    PL_STATE_CLIMB,
+    PL_STATE_PUSH,
+    PL_STATE_PULL,
+    PL_STATE_1B,
+    PL_STATE_STAIRS,
+};
+
 enum PlayerSpawnType {
     PL_SPAWN_DEFAULT,
     PL_SPAWN_MINISH,
@@ -137,8 +169,8 @@ typedef struct {
     /*0x9a*/ u16 field_0x9a;
     /*0x9c*/ u32 field_0x9c;
     /*0xa0*/ u8 field_0xa0[8];
-    /*0xa8*/ u8 field_0xa8;
-    /*0xa9*/ u8 field_0xa9;
+    /*0xa8*/ u8 framestate;
+    /*0xa9*/ u8 framestate_last;
     /*0xaa*/ u8 field_0xaa;
     /*0xab*/ u8 field_0xab;
     /*0xac*/ u16 field_0xac;

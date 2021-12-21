@@ -170,7 +170,7 @@ NONMATCH("asm/non_matching/kid/sub_0806252C.inc", void sub_0806252C(Entity* this
     s32 iVar10;
     s32 iVar11;
 
-    uVar4 = gPlayerState.field_0xa8;
+    uVar4 = gPlayerState.framestate;
     uVar3 = gPlayerEntity.z.HALF.HI;
     sVar2 = gPlayerEntity.y.HALF.HI;
     sVar1 = gPlayerEntity.x.HALF.HI;

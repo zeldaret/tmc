@@ -25,7 +25,7 @@ void sub_08021768(Entity* this) {
 void sub_08021780(Entity* this) {
     switch (this->bitfield) {
         case 0x80:
-            if (gPlayerState.field_0xa8 == 24) {
+            if (gPlayerState.framestate == PL_STATE_CLIMB) {
                 sub_08021768(this);
             } else {
                 this->action = 5;
@@ -219,7 +219,7 @@ void sub_08021B64(Entity* this) {
         InitializeAnimation(this, 2);
     } else {
         int iVar4 = 1;
-        if (gPlayerState.field_0xa8 != 11 && gPlayerState.field_0xa8 != 20) {
+        if (gPlayerState.framestate != PL_STATE_JUMP && gPlayerState.framestate != PL_STATE_CAPE) {
             if (sub_0807953C())
                 iVar4 = this->type * 3 + 8;
 

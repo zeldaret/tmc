@@ -188,7 +188,7 @@ extern void sub_0801DFB4(Entity*, u32, u32, u32);
 extern void sub_0801E00C();
 extern void sub_08078790(Entity*, u32);
 extern void sub_080788E0(Entity*);
-extern void sub_08078AA8(u32, u32);
+extern void CreateEzloHint(u32, u32);
 extern void sub_08078B48(void);
 extern void sub_0807919C();
 extern void sub_0807CAA0(u32, u32);

@@ -38,7 +38,7 @@ typedef struct {
     bool8 playShrinkSeq;
     u8 unk1A;
     u8 filler2[13];
-    u8 field_0x28;
+    u8 inventoryGfxIdx;
     u8 filler4[0x13];
     RoomResInfo roomResInfos[MAX_ROOMS];
     RoomResInfo currentRoomInfo;

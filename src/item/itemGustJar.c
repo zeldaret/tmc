@@ -6,7 +6,7 @@
 extern void (*const gUnk_0811BDF4[])(ItemBehavior* beh, u32);
 
 void ItemGustJar(ItemBehavior* this, u32 arg1) {
-    gPlayerState.field_0xa8 = 3;
+    gPlayerState.framestate = PL_STATE_GUSTJAR;
     gUnk_0811BDF4[this->stateID](this, arg1);
 }
 

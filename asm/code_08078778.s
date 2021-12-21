@@ -305,8 +305,8 @@ _08078AA2:
 	.align 2, 0
 _08078AA4: .4byte gPlayerState
 
-	thumb_func_start sub_08078AA8
-sub_08078AA8: @ 0x08078AA8
+	thumb_func_start CreateEzloHint
+CreateEzloHint: @ 0x08078AA8
 	ldr r3, _08078AB8 @ =gPlayerState
 	movs r2, #0x16
 	strb r2, [r3, #0xc]

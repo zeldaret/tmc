@@ -555,7 +555,7 @@ _08078414: .4byte 0x0000012B
 _08078418:
 	ldr r0, _08078428 @ =0x00000B65
 	movs r1, #0
-	bl sub_08078AA8
+	bl CreateEzloHint
 _08078420:
 	movs r0, #0x13
 	bl sub_08078160

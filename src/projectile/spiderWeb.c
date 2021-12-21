@@ -143,7 +143,7 @@ void SpiderWeb_SubAction0(Entity* this) {
         this->field_0xf = 2;
         InitAnimationForceUpdate(this, this->type + 4);
     }
-    if ((entity->animationState >> 1 == this->type) && (gPlayerState.field_0xa8 == 0x1a) &&
+    if ((entity->animationState >> 1 == this->type) && (gPlayerState.framestate == PL_STATE_PULL) &&
         ((gPlayerState.heldObject & 2) != 0) && ((gPlayerEntity.frame & 2) != 0) && ((this->frame & 0x80) == 0)) {
         UpdateAnimationSingleFrame(this);
         if ((this->frame & 1) != 0) {

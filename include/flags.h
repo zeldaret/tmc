@@ -648,8 +648,8 @@ typedef enum {
     BILL_02_CAP_0,
     MHOUSE_07_CAP_0,
     MHOUSE_07_CAP_1,
-    MHOUSE_10_CAP_0,
-    MHOUSE_15_CAP_0,
+    MHOUSE_10_CAP_0, // links house entrance
+    MHOUSE_15_CAP_0, // links bedroom
     MHOUSE_15_CAP_1,
     SHOP_03_CAP_0,
     MHOUSE_07_CAP_2,
