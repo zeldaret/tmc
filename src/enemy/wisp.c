@@ -1,6 +1,6 @@
 #include "enemy.h"
 #include "save.h"
-#include "createObject.h"
+#include "object.h"
 #include "functions.h"
 
 extern void (*const gUnk_080CEB74[])(Entity*);

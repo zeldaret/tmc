@@ -95,15 +95,6 @@ typedef struct {
 extern struct_02024490 gGFXSlots;
 
 typedef struct {
-    u32 unk_00;
-    u16 commandIndex;
-    u8 commandSize;
-    u8 flags;
-    u8 unk_08;
-} struct_02033280;
-extern struct_02033280 gActiveScriptInfo;
-
-typedef struct {
     u16 unk_00;
     u8 unk_02[0xE];
 } struct_02034480;

@@ -1,7 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "flags.h"
-#include "createObject.h"
+#include "object.h"
 
 extern u32 ReadBit(u32*, u32);
 

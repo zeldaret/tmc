@@ -2,7 +2,7 @@
 #include "enemy.h"
 #include "functions.h"
 #include "audio.h"
-#include "createObject.h"
+#include "object.h"
 
 extern s32 sub_080AF090(Entity*);
 

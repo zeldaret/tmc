@@ -2,7 +2,7 @@
 #include "functions.h"
 #include "npc.h"
 #include "textbox.h"
-#include "createObject.h"
+#include "object.h"
 #include "flags.h"
 #include "script.h"
 

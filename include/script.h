@@ -19,6 +19,15 @@ typedef struct ScriptExecutionContext {
     union SplitWord y;
 } ScriptExecutionContext;
 
+typedef struct {
+    u32 unk_00;
+    u16 commandIndex;
+    u8 commandSize;
+    u8 flags;
+    u8 unk_08;
+} struct_02033280;
+extern struct_02033280 gActiveScriptInfo;
+
 void ExecuteScript(Entity* entity, ScriptExecutionContext* context);
 
 extern u32 GetNextScriptCommandHalfword(u16*);

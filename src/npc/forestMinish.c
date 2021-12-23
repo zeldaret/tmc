@@ -1,5 +1,5 @@
 #include "npc.h"
-#include "createObject.h"
+#include "object.h"
 #include "structures.h"
 #include "functions.h"
 
