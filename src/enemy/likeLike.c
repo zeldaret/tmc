@@ -1,7 +1,7 @@
 #include "enemy.h"
 #include "textbox.h"
 #include "save.h"
-#include "createObject.h"
+#include "object.h"
 #include "functions.h"
 
 extern bool32 ItemIsShield(u32);

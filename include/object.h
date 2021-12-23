@@ -21,6 +21,9 @@ extern void sub_0808C650(Entity*, u32);
 extern u32 sub_0808C67C(void);
 extern void sub_0808C688(void);
 
+void CreateDust(Entity* parent);
+void CreateDustSmall(Entity* parent);
+
 typedef enum {
     GROUND_ITEM,
     DEATH_FX,

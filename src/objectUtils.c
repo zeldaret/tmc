@@ -2,7 +2,6 @@
 #include "entity.h"
 #include "coord.h"
 #include "room.h"
-#include "createObject.h"
 #include "object.h"
 #include "effects.h"
 #include "functions.h"

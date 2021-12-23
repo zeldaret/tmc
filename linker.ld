@@ -805,7 +805,7 @@ SECTIONS {
         asm/object67.o(.text);
         asm/object68.o(.text);
         asm/object69.o(.text);
-        asm/object6A.o(.text);
+        src/object/object6A.o(.text);
         asm/crenalBeanSprout.o(.text);
         asm/minecartDoor.o(.text);
         asm/objectOnPillar.o(.text);
@@ -1543,6 +1543,7 @@ SECTIONS {
         data/const/object/ladderHoleInBookshelf.o(.rodata);
         data/const/object/object67.o(.rodata);
         data/const/object/object68.o(.rodata);
+        src/object/object6A.o(.rodata);
         data/const/object/object6A.o(.rodata);
         data/animations/object/object6A.o(.rodata);
         data/const/object/crenalBeanSprout.o(.rodata);

@@ -2,7 +2,7 @@
 #include "entity.h"
 #include "room.h"
 #include "flags.h"
-#include "createObject.h"
+#include "object.h"
 #include "functions.h"
 #include "overworld.h"
 
