@@ -198,7 +198,7 @@ void MandiblesProjectile_Action4(Entity* this) {
             }
         }
     } else {
-        if (sub_080040A8(this) == 0) {
+        if (CheckOnScreen(this) == 0) {
             DeleteThisEntity();
         }
     }

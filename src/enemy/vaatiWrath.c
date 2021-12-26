@@ -470,7 +470,7 @@ void VaatiWrathType0ActionB(Entity* this) {
             UpdateAnimationSingleFrame(this);
             GetNextFrame(((VaatiWrathHeapStruct*)this->myHeap)->type1);
             GetNextFrame(((VaatiWrathHeapStruct*)this->myHeap)->type2);
-            if (sub_08003FC4(this, 0x2000) == 0) {
+            if (GravityUpdate(this, 0x2000) == 0) {
                 this->subAction = 1;
                 this->actionDelay = 0xf0;
                 this->health = 8;

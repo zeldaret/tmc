@@ -850,7 +850,7 @@ sub_08085B40: @ 0x08085B40
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r5, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	cmp r0, #0
 	beq _08085BE8
 	ldr r1, [r5, #0x78]
@@ -930,7 +930,7 @@ _08085BE8:
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	cmp r0, #0
 	bne _08085C58
 	adds r0, r4, #0

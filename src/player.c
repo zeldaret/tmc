@@ -401,7 +401,7 @@ static NONMATCH("asm/non_matching/player/sub_08070DC4.inc", void PlayerBounceUpd
     sub_08079E08();
     UpdateFloorType();
 
-    if (sub_08078EFC() || sub_08003FC4(this, 0x2000))
+    if (sub_08078EFC() || GravityUpdate(this, 0x2000))
         return;
 
     gPlayerState.jumpStatus = 0;
@@ -615,7 +615,7 @@ static void sub_08071130(Entity* this) {
 
     sub_0806F69C(this);
 
-    if (sub_08003FC4(this, 0x2000))
+    if (GravityUpdate(this, 0x2000))
         return;
 
     gPlayerState.jumpStatus = 0;
@@ -880,7 +880,7 @@ static ASM_FUNC("asm/non_matching/player/PortalShrinkUpdate.inc", void PortalShr
 
 static void PortalEnterUpdate(Entity* this) {
     if (this->actionDelay == 0) {
-        if (sub_08003FC4(this, 0x2000))
+        if (GravityUpdate(this, 0x2000))
             return;
 
         this->spriteSettings.draw = FALSE;
@@ -976,7 +976,7 @@ static void PlayerTalkEzloInit(Entity* this) {
         return;
     }
 
-    if (!sub_08003FC4(this, 0x2000))
+    if (!GravityUpdate(this, 0x2000))
         gPlayerState.jumpStatus = 0;
 }
 
@@ -1142,7 +1142,7 @@ static void PlayerMinishDieInit(Entity* this) {
     if (gPlayerState.flags & (0x10 | 0x100))
         return;
 
-    if (sub_08003FC4(this, 0x2000)) {
+    if (GravityUpdate(this, 0x2000)) {
         if (gPlayerState.flags & PL_NO_CAP)
             gPlayerState.animation = 0x420;
         else
@@ -1287,7 +1287,7 @@ static void sub_08071E04(Entity* this) {
 static void sub_08071E74(Entity* this) {
     u32 temp;
 
-    sub_08003FC4(this, 0x2000);
+    GravityUpdate(this, 0x2000);
     sub_08079E08();
     temp = this->actionDelay--;
     if (temp == 0)
@@ -1353,7 +1353,7 @@ static void PlayerFrozenInit(Entity* this) {
 }
 
 static void PlayerFrozenUpdate(Entity* this) {
-    if (sub_08003FC4(this, 0x2000) == 0) {
+    if (GravityUpdate(this, 0x2000) == 0) {
         UpdateSpriteForCollisionLayer(this);
         gPlayerState.jumpStatus = 0;
         if (gPlayerState.field_0x14 == 0) {
@@ -1457,7 +1457,7 @@ static void sub_08072168(Entity* this) {
 
     UpdateAnimationSingleFrame(this);
     i = (u16)sub_0806F854(this, 0, -12) ? 0x4000 : 0x2000;
-    sub_08003FC4(this, i);
+    GravityUpdate(this, i);
     if (gPlayerState.field_0x3a) {
         sub_0806F69C(this);
     } else {
@@ -1553,7 +1553,7 @@ static void sub_08072354(Entity* this) {
     sub_0806F854(this, 0, -12);
     UpdateAnimationSingleFrame(this);
     sub_08079744(this);
-    if (sub_08003FC4(this, 0x2000))
+    if (GravityUpdate(this, 0x2000))
         return;
 
     this->spritePriority.b1 = 0;
@@ -1929,7 +1929,7 @@ static void sub_08072B5C(Entity* this) {
 static void sub_08072C48(Entity* this) {
     UpdateAnimationSingleFrame(this);
     sub_0806F69C(this);
-    if (sub_08003FC4(this, 0x2000))
+    if (GravityUpdate(this, 0x2000))
         return;
 
     sub_08008790(this, 7);
@@ -2054,7 +2054,7 @@ static NONMATCH("asm/non_matching/player/sub_08072D54.inc", void sub_08072D54(En
     }
 
     this->actionDelay = bVar1;
-    if (!sub_08003FC4(this, 0x2000)) {
+    if (!GravityUpdate(this, 0x2000)) {
         COLLISION_ON(this);
         if (this->collisionLayer == 1) {
             sub_0800455E(this);

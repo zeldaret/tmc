@@ -134,7 +134,7 @@ void sub_0801EFD8(Entity* this) {
             sub_0801FB68(this);
             InitializeAnimation(this, 8);
         }
-        sub_08003FC4(this, 0x1800);
+        GravityUpdate(this, 0x1800);
         GetNextFrame(this);
     }
 }
@@ -146,7 +146,7 @@ void sub_0801F02C(Entity* this) {
 }
 
 void sub_0801F048(Entity* this) {
-    sub_08003FC4(this, 0x1800);
+    GravityUpdate(this, 0x1800);
     GetNextFrame(this);
     if (this->type == 0) {
         sub_0804A7D4(this);
@@ -218,7 +218,7 @@ void sub_0801F1B0(Entity* this) {
             EnqueueSFX(299);
         }
         sub_080AEFE0(this);
-        if (sub_08003FC4(this, 0x4000) == 0)
+        if (GravityUpdate(this, 0x4000) == 0)
             GetNextFrame(this);
     } else {
         GetNextFrame(this);
@@ -278,7 +278,7 @@ void sub_0801F2CC(Entity* this) {
 }
 
 void sub_0801F2F8(Entity* this) {
-    sub_08003FC4(this, 0x1800);
+    GravityUpdate(this, 0x1800);
     GetNextFrame(this);
     if (this->frame & 0x80) {
         sub_0801F340(this);
@@ -409,7 +409,7 @@ void sub_0801F584(Entity* this) {
             EnqueueSFX(299);
         }
         sub_080AEFE0(this);
-        if (sub_08003FC4(this, 0x4000) == 0)
+        if (GravityUpdate(this, 0x4000) == 0)
             GetNextFrame(this);
 
     } else {
@@ -471,7 +471,7 @@ void sub_0801F6CC(Entity* this) {
 }
 
 void sub_0801F6F8(Entity* this) {
-    sub_08003FC4(this, 0x1800);
+    GravityUpdate(this, 0x1800);
     GetNextFrame(this);
     if (this->frame & 0x80) {
         this->action = 4;
@@ -586,7 +586,7 @@ void sub_0801F940(Entity* this) {
             EnqueueSFX(299);
         }
         sub_080AEFE0(this);
-        if (sub_08003FC4(this, 0x4000) == 0)
+        if (GravityUpdate(this, 0x4000) == 0)
             GetNextFrame(this);
     } else {
         GetNextFrame(this);
@@ -646,7 +646,7 @@ void sub_0801FA78(Entity* this) {
 }
 
 void sub_0801FAAC(Entity* this) {
-    sub_08003FC4(this, 0x1800);
+    GravityUpdate(this, 0x1800);
     GetNextFrame(this);
     if (this->frame & 0x80) {
         sub_0801FB14(this);

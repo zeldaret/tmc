@@ -96,7 +96,7 @@ void sub_080ABD70(Entity* this) {
 ASM_FUNC("asm/non_matching/v2Projectile/sub_080ABE04.inc", void sub_080ABE04(Entity* this))
 
 void sub_080ABE88(Entity* this) {
-    if (sub_08003FC4(this, 0x1800) == 0) {
+    if (GravityUpdate(this, 0x1800) == 0) {
         CreateFx(this, FX_ROCK, 0);
         DeleteThisEntity();
     }
@@ -118,7 +118,7 @@ void sub_080ABEA8(Entity* this) {
 }
 
 void sub_080ABF04(Entity* this) {
-    if (sub_080040A8(this) == 0) {
+    if (CheckOnScreen(this) == 0) {
         DeleteThisEntity();
     }
     sub_0806F69C(this);

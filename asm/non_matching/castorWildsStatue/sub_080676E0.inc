@@ -49,7 +49,7 @@ _08067734:
 	movs r1, #0xc0
 	lsls r1, r1, #5
 	adds r0, r3, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	cmp r0, #0
 	beq _08067748
 _08067742:

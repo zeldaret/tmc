@@ -265,7 +265,7 @@ void sub_08060DFC(Entity* this) {
 
     sub_0806F69C(this);
     sub_08060E94(this);
-    uVar1 = sub_08003FC4(this, 0x2000);
+    uVar1 = GravityUpdate(this, 0x2000);
     if (uVar1 == 0) {
         this->action = 7;
         this->collisionLayer = 1;

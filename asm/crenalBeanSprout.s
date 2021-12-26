@@ -648,7 +648,7 @@ _0809681C:
 	movs r1, #0x80
 	lsls r1, r1, #7
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	cmp r0, #0
 	bne _08096830
 	adds r0, r4, #0

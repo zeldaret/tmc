@@ -96,7 +96,7 @@ void sub_080604DC(Entity* this) {
     int iVar2;
     Entity* ent;
 
-    if (this->spriteSettings.draw == 1 && sub_080040A8(this)) {
+    if (this->spriteSettings.draw == 1 && CheckOnScreen(this)) {
         if ((this->frame & 1) != 0) {
             this->frame &= 0xfe;
             ent = CreateFx(this, 17, 0x40);
@@ -163,7 +163,7 @@ void sub_08060528(Entity* this) {
             this->field_0x6a.HWORD -= 1;
         }
     }
-    sub_08003FC4(this, 0x1800);
+    GravityUpdate(this, 0x1800);
     if (((this->field_0x6c.HALF.HI != 0) && (this->zVelocity == 0)) && this->z.WORD == 0) {
         this->field_0x6c.HALF.HI = 0;
         sub_080606C0(this);

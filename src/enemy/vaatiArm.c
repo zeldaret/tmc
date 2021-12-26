@@ -972,7 +972,7 @@ void sub_08043520(Entity* this) {
     Entity* entity;
 
     entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[4];
-    sub_08003FC4(entity, 0x1a00);
+    GravityUpdate(entity, 0x1a00);
     if ((entity->zVelocity < 0) && (-6 < entity->z.HALF.HI)) {
         entity->z.HALF.HI = -6;
         this->subAction = 3;

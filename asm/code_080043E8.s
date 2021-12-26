@@ -102,7 +102,7 @@ _0800449A:
 	thumb_func_start sub_0800449C
 sub_0800449C: @ 0x0800449C
 	push {r1, lr}
-	bl sub_080040A8
+	bl CheckOnScreen
 	cmp r0, #0
 	pop {r0}
 	beq _080044AC

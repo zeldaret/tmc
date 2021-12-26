@@ -312,7 +312,7 @@ sub_08038EE0: @ 0x08038EE0
 	movs r1, #0xe0
 	lsls r1, r1, #5
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	cmp r0, #0
 	bne _08038F1C
 	ldrb r0, [r4, #0xe]

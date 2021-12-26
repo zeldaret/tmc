@@ -1294,7 +1294,7 @@ _0802D95E:
 	movs r1, #0xc0
 	lsls r1, r1, #5
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0802D970
@@ -1526,7 +1526,7 @@ _0802DB20:
 	movs r1, #0xc0
 	lsls r1, r1, #5
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	ldr r0, [r4, #0x20]
 	cmp r0, #0
 	bgt _0802DB7E

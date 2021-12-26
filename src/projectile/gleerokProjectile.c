@@ -89,7 +89,7 @@ void GleerokProjectile_Init(Entity* this) {
 
 void GleerokProjectile_Action1(Entity* this) {
     if (this->type == 3) {
-        if (sub_08003FC4(this, 0x1800) == 0) {
+        if (GravityUpdate(this, 0x1800) == 0) {
             sub_08008790(this, 7);
             CreateFx(this, FX_ROCK, 0);
             DeleteThisEntity();
@@ -101,7 +101,7 @@ void GleerokProjectile_Action1(Entity* this) {
             this->field_0xf = 0x1e;
             sub_08004596(this, GetFacingDirection(this, &gPlayerEntity));
         }
-        if (sub_08003FC4(this, 0) == 0) {
+        if (GravityUpdate(this, 0) == 0) {
             this->action = 2;
             sub_080A90D8(this);
             if (this->type == 2) {

@@ -1028,7 +1028,7 @@ sub_0802647C: @ 0x0802647C
 	adds r4, r0, #0
 	movs r1, #0x80
 	lsls r1, r1, #7
-	bl sub_08003FC4
+	bl GravityUpdate
 	cmp r0, #0
 	bne _080264A6
 	movs r0, #0x10
@@ -1551,7 +1551,7 @@ sub_0802686C: @ 0x0802686C
 	adds r4, r0, #0
 	movs r1, #0x80
 	lsls r1, r1, #7
-	bl sub_08003FC4
+	bl GravityUpdate
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _08026888

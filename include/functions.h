@@ -161,7 +161,7 @@ extern void sub_0802F45C(Entity*);
 extern u32 sub_0800419C(Entity*, Entity*, u32, u32);
 extern void sub_08004542(Entity*);
 extern void sub_08077B20();
-extern bool32 sub_080040A8(Entity*);
+extern bool32 CheckOnScreen(Entity*);
 extern u32 sub_08017850(Entity*);
 extern void sub_080809D4(void);
 extern void sub_08080CB4(Entity*);

@@ -79,7 +79,7 @@ void sub_08068780(Entity* this) {
 
     if (this->frame & 0x40) {
         this->frame &= 0xbf;
-        if (sub_080040A8(this) == 0) {
+        if (CheckOnScreen(this) == 0) {
             SoundReq(gUnk_0811153E[(s32)Random() % 3]);
         } else {
             EnqueueSFX(gUnk_08111538[(s32)Random() % 3]);

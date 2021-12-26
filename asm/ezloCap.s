@@ -551,7 +551,7 @@ _08082D0C:
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r5, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	adds r0, r5, #0
 	bl UpdateAnimationSingleFrame
 _08082D1C:
@@ -709,7 +709,7 @@ sub_08082E14: @ 0x08082E14
 	movs r1, #0xc0
 	lsls r1, r1, #5
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	ldrb r0, [r4, #0xd]
 	cmp r0, #0
 	beq _08082E38

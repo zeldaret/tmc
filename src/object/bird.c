@@ -44,12 +44,12 @@ void sub_0809CF54(Entity* this) {
 void sub_0809CFEC(Entity* this) {
 
     sub_0806F69C(this);
-    sub_08003FC4(this, *(s16*)&this->field_0x68.HWORD);
+    GravityUpdate(this, *(s16*)&this->field_0x68.HWORD);
     if (this->actionDelay != 0) {
         if (--this->actionDelay == 0) {
             this->field_0xf = 0;
         }
-    } else if (sub_080040A8(this) == 0) {
+    } else if (CheckOnScreen(this) == 0) {
         DeleteThisEntity();
     }
     UpdateAnimationSingleFrame(this);

@@ -313,7 +313,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
                 }
                 break;
             }
-            if (sub_08003FC4(this, 0x2800) == 0) {
+            if (GravityUpdate(this, 0x2800) == 0) {
                 this->field_0x80.HALF.LO = 5;
                 this->actionDelay = 0x10;
                 COLLISION_ON(this);
@@ -379,7 +379,7 @@ void VaatiTransfiguredType0Action4(Entity* this) {
             }
             break;
         case 1:
-            if (sub_08003FC4(this, 0x2800) != 0)
+            if (GravityUpdate(this, 0x2800) != 0)
                 break;
             this->field_0x80.HALF.LO += 1;
             switch (this->cutsceneBeh.HALF.LO) {

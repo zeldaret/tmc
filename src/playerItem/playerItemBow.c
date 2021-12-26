@@ -28,7 +28,7 @@ void sub_08019410(Entity* this) {
 void sub_08019444(Entity* this) {
     GetNextFrame(this);
     sub_0806F69C(this);
-    if (sub_08003FC4(this, 0x2000) == 0) {
+    if (GravityUpdate(this, 0x2000) == 0) {
         DeleteThisEntity();
     }
 }

@@ -104,7 +104,7 @@ void sub_0802511C(Entity* this) {
 }
 
 void sub_0802514C(Entity* this) {
-    sub_08003FC4(this, 0x2000);
+    GravityUpdate(this, 0x2000);
     if (sub_0806F520(this)) {
         gUnk_080CBFEC[this->subAction](this);
     } else {
@@ -209,7 +209,7 @@ void sub_0802538C(Entity* this) {
         if (this->frame == 0) {
             GetNextFrame(this);
         } else {
-            sub_08003FC4(this, 0x2000);
+            GravityUpdate(this, 0x2000);
             if (this->zVelocity < 0x2000) {
                 this->action = 4;
                 InitializeAnimation(this, 2);
@@ -220,7 +220,7 @@ void sub_0802538C(Entity* this) {
 
 void sub_080253D4(Entity* this) {
     GetNextFrame(this);
-    if (!sub_08003FC4(this, 0x2000)) {
+    if (!GravityUpdate(this, 0x2000)) {
         if (this->field_0xf == 0) {
             this->action = 5;
             InitializeAnimation(this, 3);
@@ -256,7 +256,7 @@ void sub_0802544C(Entity* this) {
 }
 
 void sub_0802547C(Entity* this) {
-    sub_08003FC4(this, 0x2000);
+    GravityUpdate(this, 0x2000);
     GetNextFrame(this);
     if ((this->actionDelay & 7) == 0) {
         sub_08025BD4(this);
@@ -268,7 +268,7 @@ void sub_0802547C(Entity* this) {
 }
 
 void sub_080254B4(Entity* this) {
-    sub_08003FC4(this, 0x2000);
+    GravityUpdate(this, 0x2000);
     if (this->frame & 0x80) {
         if (this->z.HALF.HI == 0) {
             if (this->cutsceneBeh.HWORD == 0) {

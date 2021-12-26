@@ -161,7 +161,7 @@ _0806802C:
 	ands r0, r2
 	strb r0, [r6]
 	adds r0, r5, #0
-	bl sub_080040A8
+	bl CheckOnScreen
 	cmp r0, #0
 	bne _08068068
 	ldr r4, _08068064 @ =gUnk_0811137A

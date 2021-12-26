@@ -61,7 +61,7 @@ typedef struct Entity_ {
     /*0x16*/ u8 field_0x16;
     /*0x17*/ u8 field_0x17;
     /*0x18*/ struct {
-    /*    */     u32 draw        : 2; // 1-2
+    /*    */     u32 draw        : 2; // 0 = no draw, 1 = draw clip, 3 = force draw
     /*    */     u32 ss2         : 1; //   4
     /*    */     u32 ss3         : 1; //   8
     /*    */     u32 shadow      : 2; //0x10-0x20

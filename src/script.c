@@ -391,7 +391,7 @@ void HandleEntity0x82Actions(Entity* entity) {
                 }
                 break;
             case 1 << 5:
-                sub_08003FC4(entity, 0x2000);
+                GravityUpdate(entity, 0x2000);
                 break;
         }
     }
@@ -1440,9 +1440,9 @@ void ScriptCommand_0807EF3C(Entity* entity, ScriptExecutionContext* context) {
         context->unk_18 = 1;
         entity->zVelocity = ((s16)context->scriptInstructionPointer[1]) << 8;
         context->x.HALF.LO = context->scriptInstructionPointer[2] << 8;
-        sub_08003FC4(entity, (u16)context->x.HALF.LO);
+        GravityUpdate(entity, (u16)context->x.HALF.LO);
     } else {
-        if (!sub_08003FC4(entity, (u16)context->x.HALF.LO))
+        if (!GravityUpdate(entity, (u16)context->x.HALF.LO))
             return;
     }
     gActiveScriptInfo.commandSize = 0;
@@ -1952,14 +1952,14 @@ void sub_0807F854(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807F8BC(Entity* entity, ScriptExecutionContext* context) {
-    if (sub_080040A8(entity))
+    if (CheckOnScreen(entity))
         context->condition = 1;
     else
         context->condition = 0;
 }
 
 void sub_0807F8D0(Entity* entity, ScriptExecutionContext* context) {
-    sub_08003FC4(entity, context->intVariable);
+    GravityUpdate(entity, context->intVariable);
     gActiveScriptInfo.flags |= 1;
 }
 
@@ -2129,7 +2129,7 @@ void sub_0807FBCC(Entity* entity, ScriptExecutionContext* context) {
 
 void sub_0807FBD4(Entity* entity, ScriptExecutionContext* context) {
     sub_0806F62C(entity, entity->speed, entity->direction);
-    if (sub_080040A8(entity))
+    if (CheckOnScreen(entity))
         gActiveScriptInfo.commandSize = 0;
 }
 

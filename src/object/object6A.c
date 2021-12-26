@@ -104,7 +104,7 @@ Object6ATypeAction sub_08096290;
 
 extern void sub_08080CB4(Entity*);
 extern u32 sub_080002B8(Entity*);
-extern u32 sub_080040A8(Entity*);
+extern u32 CheckOnScreen(Entity*);
 extern void sub_08078850(Entity*, u32, u32, u8*);
 
 void sub_08095754(Object6AEntity*);
@@ -355,7 +355,7 @@ void sub_08094E30(Object6AEntity* this) {
             case 3:
                 super->z.WORD -= super->zVelocity;
                 super->zVelocity -= 0x2000;
-                if (!sub_080040A8(super)) {
+                if (!CheckOnScreen(super)) {
                     DeleteThisEntity();
                 }
                 break;
@@ -695,7 +695,7 @@ void sub_080954DC(Object6AEntity* this) {
             break;
     }
     this->off += 4;
-    if (super->subAction != 0 && !sub_080040A8(super))
+    if (super->subAction != 0 && !CheckOnScreen(super))
         DeleteThisEntity();
     if (super->direction & 0x80)
         super->spriteSettings.flipX = 0;
@@ -1090,9 +1090,9 @@ void sub_08095DBC(Object6AEntity* this) {
             super->zVelocity = 0x40000;
             super->speed = 0xC000;
         }
-        sub_08003FC4(super, super->speed);
+        GravityUpdate(super, super->speed);
         GetNextFrame(super);
-        if (!sub_080040A8(super))
+        if (!CheckOnScreen(super))
             DeleteThisEntity();
     }
 }
@@ -1241,7 +1241,7 @@ void sub_08096168(Object6AEntity* this) {
     }
     GetNextFrame(super);
     sub_0806F62C(super, super->speed, super->direction);
-    if (!sub_080040A8(super))
+    if (!CheckOnScreen(super))
         DeleteThisEntity();
 }
 
@@ -1301,7 +1301,7 @@ void sub_0809629C(Object6AEntity* this, u32 type) {
     }
     ExecuteScriptForEntity(super, 0);
     HandleEntity0x82Actions(super);
-    sub_08003FC4(super, 0x1000);
+    GravityUpdate(super, 0x1000);
     tmp = super->type;
     super->type = type;
     sub_08080CB4(super);

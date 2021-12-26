@@ -76,7 +76,7 @@ void V1FireProjectile_Init(Entity* this) {
 void V1FireProjectile_Action1(Entity* this) {
     GetNextFrame(this);
     sub_0806F69C(this);
-    if (sub_08003FC4(this, 0) == 0) {
+    if (GravityUpdate(this, 0) == 0) {
         this->action = 2;
         this->actionDelay = 0xf;
         InitializeAnimation(this, 0x54);

@@ -216,7 +216,7 @@ void sub_080811EC(Entity* this) {
         sub_0806F69C(this);
     }
 
-    sub_08003FC4(this, 0x2800);
+    GravityUpdate(this, 0x2800);
     if (this->zVelocity <= 0) {
         this->action = 2;
         COLLISION_ON(this);
@@ -302,7 +302,7 @@ void sub_0808136C(Entity* this) {
         this->y.WORD = other->y.WORD;
         this->spriteOrientation.flipY = other->spriteOrientation.flipY;
         this->spriteRendering.b3 = other->spriteRendering.b3;
-        sub_08003FC4(this, 0x2800);
+        GravityUpdate(this, 0x2800);
     } else {
         sub_08081404(this, 1);
     }
@@ -410,14 +410,14 @@ void sub_0808153C(Entity* this) {
         return;
 
     if (this->field_0x68.HALF.LO == 0) {
-        if (!sub_08003FC4(this, 0x1000) && !sub_0800442E(this)) {
+        if (!GravityUpdate(this, 0x1000) && !sub_0800442E(this)) {
             this->field_0x68.HALF.LO = 1;
             this->zVelocity = 0x1E000;
             sub_0808148C(this->type);
             UpdateSpriteForCollisionLayer(this);
         }
     } else {
-        if (!sub_08003FC4(this, 0x2800)) {
+        if (!GravityUpdate(this, 0x2800)) {
             this->field_0x68.HALF.LO = 2;
             sub_0808148C(this->type);
         }

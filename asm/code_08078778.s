@@ -5581,13 +5581,13 @@ sub_0807B21C: @ 0x0807B21C
 	movs r1, #0x80
 	lsls r1, r1, #3
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	b _0807B240
 _0807B236:
 	movs r1, #0x80
 	lsls r1, r1, #4
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 _0807B240:
 	ldr r1, [r4, #0x20]
 	ldr r0, _0807B260 @ =0xFFFF8000
@@ -5659,7 +5659,7 @@ sub_0807B2B8: @ 0x0807B2B8
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0807B2F0 @ =0xFFFFE000
-	bl sub_08003FC4
+	bl GravityUpdate
 	adds r0, r4, #0
 	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xe]

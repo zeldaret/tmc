@@ -272,7 +272,7 @@ sub_080734D4: @ 0x080734D4
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _080734FC @ =0xFFFFF000
-	bl sub_08003FC4
+	bl GravityUpdate
 	ldr r0, [r4, #0x20]
 	cmp r0, #0
 	bgt _080734EE
@@ -307,7 +307,7 @@ sub_08073504: @ 0x08073504
 	lsls r1, r1, #4
 _08073516:
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	ldr r0, [r4, #0x20]
 	cmp r0, #0
 	bge _08073576
@@ -737,7 +737,7 @@ _0807382A:
 	movs r1, #0x80
 	lsls r1, r1, #2
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	b _0807387A
 	.align 2, 0
 _08073854: .4byte gScreenTransition
@@ -818,7 +818,7 @@ _080738EC:
 _080738F0:
 	ldr r1, _08073900 @ =0xFFFFE800
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	adds r0, r4, #0
 	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
@@ -1029,7 +1029,7 @@ _08073A48:
 _08073A7E:
 	adds r0, r4, #0
 	adds r1, r2, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	cmp r0, #0
 	bne _08073A90
 	adds r0, r4, #0
@@ -1206,7 +1206,7 @@ _08073BD0:
 	movs r1, #0x80
 	lsls r1, r1, #7
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	movs r0, #0x36
 	ldrsh r1, [r4, r0]
 	movs r0, #8
@@ -1500,7 +1500,7 @@ _08073E10:
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	adds r1, r0, #0
 	cmp r1, #0
 	bne _08073E32
@@ -1737,7 +1737,7 @@ _08073FF8:
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	ldr r0, [r4, #0x20]
 	cmp r0, #0
 	bne _08074016
@@ -1796,7 +1796,7 @@ sub_08074060: @ 0x08074060
 	adds r4, r0, #0
 	movs r1, #0x80
 	lsls r1, r1, #6
-	bl sub_08003FC4
+	bl GravityUpdate
 	cmp r0, #0
 	bne _080740D0
 	ldr r0, _080740C4 @ =gPlayerHitbox
@@ -1966,7 +1966,7 @@ _080741B0:
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	cmp r0, #0
 	bne _080741C2
 	bl sub_0807921C
@@ -3517,7 +3517,7 @@ _08074D20:
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r5, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	adds r0, r5, #0
 	bl UpdateAnimationSingleFrame
 	pop {r4, r5, r6, pc}
@@ -4009,7 +4009,7 @@ sub_0807508C: @ 0x0807508C
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	cmp r0, #0
 	beq _080750AA
 	adds r0, r4, #0

@@ -139,7 +139,7 @@ _08087788:
 	movs r1, #0xa0
 	lsls r1, r1, #6
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 _08087798:
 	cmp r0, #0
 	bne _080877A0

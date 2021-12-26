@@ -109,7 +109,7 @@ sub_08001242: @ 0x08001242
 	pop {r0}
 _08001282:
 	ldr r1, _08001364 @ =0x00001800
-	bl sub_08003FC4
+	bl GravityUpdate
 	pop {pc}
 	.align 2, 0
 _0800128C:
@@ -126,6 +126,8 @@ sub_08001290: @ 0x08001290
 _0800129C:
 	bx lr
 
+	@ r0: Entity*
+	@ r1: Function* array
 	non_word_aligned_thumb_func_start EnemyFunctionHandler
 EnemyFunctionHandler: @ 0x0800129E
 	mov r3, lr

@@ -34,7 +34,7 @@ void sub_0802A250(Entity* this) {
 }
 
 void sub_0802A2B4(Entity* this) {
-    if (!sub_08003FC4(this, 0x2800)) {
+    if (!GravityUpdate(this, 0x2800)) {
         this->action = 2;
         this->spritePriority.b0 = 7;
         EnqueueSFX(0x84);

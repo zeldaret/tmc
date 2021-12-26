@@ -19,7 +19,7 @@ ItemForSale: @ 0x08081814
 	adds r0, r4, #0
 	bl _call_via_r1
 	adds r0, r4, #0
-	bl sub_080040A8
+	bl CheckOnScreen
 	cmp r0, #0
 	beq _08081838
 	adds r0, r4, #0

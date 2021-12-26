@@ -262,7 +262,7 @@ sub_0808CCBC: @ 0x0808CCBC
 	movs r1, #0x80
 	lsls r1, r1, #5
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	cmp r0, #0
 	bne _0808CCFA
 	ldrb r0, [r4, #0xc]
@@ -300,7 +300,7 @@ sub_0808CD00: @ 0x0808CD00
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	cmp r0, #0
 	beq _0808CD24
 	adds r0, r4, #0
@@ -335,7 +335,7 @@ sub_0808CD44: @ 0x0808CD44
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	cmp r0, #0
 	beq _0808CD68
 	adds r0, r4, #0
@@ -368,7 +368,7 @@ sub_0808CD88: @ 0x0808CD88
 	movs r1, #0xc0
 	lsls r1, r1, #5
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	cmp r0, #0
 	beq _0808CDB8
 	adds r0, r4, #0

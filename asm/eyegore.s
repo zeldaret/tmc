@@ -161,7 +161,7 @@ sub_08030B34: @ 0x08030B34
 	movs r1, #0xe0
 	lsls r1, r1, #5
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	b _08030B70
 _08030B52:
 	adds r0, r4, #0
@@ -425,7 +425,7 @@ _08030D44:
 	movs r1, #0xe0
 	lsls r1, r1, #5
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	cmp r0, #0
 	bne _08030D66
 	adds r0, r4, #0
@@ -506,7 +506,7 @@ _08030DDE:
 	movs r1, #0xe0
 	lsls r1, r1, #5
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	cmp r0, #0
 	bne _08030E1C
 	adds r0, r4, #0

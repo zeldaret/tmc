@@ -57,7 +57,7 @@ void sub_0808BF14(Entity* this) {
 }
 
 void sub_0808BF58(Entity* this) {
-    sub_08003FC4(this, 0x2000);
+    GravityUpdate(this, 0x2000);
     switch (this->subAction) {
         case 0:
             if (this->zVelocity <= 98303) {
@@ -125,7 +125,7 @@ void sub_0808C01C(Entity* this, u32 r1) {
 }
 
 void sub_0808C0AC(Entity* this) {
-    sub_08003FC4(this, 0x2000);
+    GravityUpdate(this, 0x2000);
     switch (this->subAction) {
         case 0:
             if (this->zVelocity <= 98303) {

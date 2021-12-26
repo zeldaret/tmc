@@ -353,7 +353,7 @@ sub_08039530: @ 0x08039530
 	adds r4, r0, #0
 	movs r1, #0xc0
 	lsls r1, r1, #5
-	bl sub_08003FC4
+	bl GravityUpdate
 	cmp r0, #0
 	bne _08039568
 	adds r0, r4, #0
@@ -442,7 +442,7 @@ sub_080395D8: @ 0x080395D8
 	movs r1, #0xc0
 	lsls r1, r1, #5
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	cmp r0, #0
 	bne _08039602
 	adds r0, r4, #0
@@ -464,7 +464,7 @@ sub_08039604: @ 0x08039604
 	movs r1, #0xc0
 	lsls r1, r1, #5
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	ldr r0, [r4, #0x20]
 	cmp r0, #0
 	bge _08039624
@@ -563,7 +563,7 @@ sub_080396BC: @ 0x080396BC
 	adds r4, r0, #0
 	movs r1, #0xc0
 	lsls r1, r1, #5
-	bl sub_08003FC4
+	bl GravityUpdate
 	cmp r0, #0
 	bne _080396E2
 	adds r1, r4, #0
