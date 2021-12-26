@@ -1,0 +1,11 @@
+@ OBJECT_6A in sub_080954AC ? businessScrubPrologue?
+SCRIPT_START script_08015B14
+	BeginBlock
+	_0807E930 0x0018
+	SetEntitySpeed 0x0300
+	EndBlock
+	_0807EDD4 0x0248, 0x0218
+	_0807E5F8 0x00000020
+	DoPostScriptAction 0x0006
+SCRIPT_END
+	.2byte 0x0000

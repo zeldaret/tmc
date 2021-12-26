@@ -13,7 +13,7 @@ extern bool32 sub_08056338(void);
 
 extern void sub_08078850(Entity*, u32, u8, u32*);
 extern u32 gUnk_0810FDA0;
-extern u16 script_080142B0;
+extern u16 script_Stockwell;
 
 void Stockwell(Entity* this) {
     gUnk_0810FDA4[this->action](this);
@@ -32,7 +32,7 @@ void sub_08065080(Entity* this) {
 #ifndef EU
     sub_08078850(this, 0, 0, &gUnk_0810FDA0);
 #endif
-    context = StartCutscene(this, &script_080142B0);
+    context = StartCutscene(this, &script_Stockwell);
     *(ScriptExecutionContext**)&this->cutsceneBeh = context;
 }
 

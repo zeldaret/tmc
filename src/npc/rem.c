@@ -6,7 +6,7 @@ extern void sub_0806A8C8(Entity*);
 extern void (*gUnk_08112260[])(Entity*);
 extern void (*gUnk_08112278[])(Entity*);
 
-extern void script_08012F0C;
+extern void script_Rem;
 
 extern void sub_08078850(Entity*, u32, u32, u32*);
 extern u32 gUnk_0811229C;
@@ -51,7 +51,7 @@ void sub_0806A3D8(Entity* this) {
     this->actionDelay = 0xb4;
     SetDefaultPriority(this, PRIO_MESSAGE);
     sub_0806A8C8(this);
-    uVar1 = StartCutscene(this, &script_08012F0C);
+    uVar1 = StartCutscene(this, &script_Rem);
     *(ScriptExecutionContext**)&this->cutsceneBeh = uVar1;
     sub_0807DD94(this, NULL);
 }

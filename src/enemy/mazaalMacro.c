@@ -5,7 +5,7 @@
 
 extern void sub_0807B600(u32);
 
-extern const u16 script_08012E20[];
+extern const u16 script_MazaalMacroDefeated[];
 
 void sub_08034E18(Entity*);
 void sub_08034FA0(Entity*);
@@ -139,7 +139,7 @@ void sub_08034E68(Entity* this) {
         if (gScreenTransition.field_0x39 == 0) {
             if (sub_08079F8C() != 0) {
                 this->action = 3;
-                scriptExecutionContext = StartCutscene(this, (u16*)script_08012E20);
+                scriptExecutionContext = StartCutscene(this, (u16*)script_MazaalMacroDefeated);
                 *(ScriptExecutionContext**)&this->cutsceneBeh = scriptExecutionContext;
             }
         } else {

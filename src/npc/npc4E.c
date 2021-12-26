@@ -17,8 +17,8 @@ typedef struct {
 
 extern void sub_08078850(Entity*, u32, u8 /* TODO this is a s8 in beedle.c*/, gUnk_0810C89C_struct*);
 
-extern void script_08016030; // Cutscene data type?
-extern void script_0801606C; // Cutscene data type?
+extern void script_Object3ELeftStoneOpening; // Cutscene data type?
+extern void script_Object3ERightStoneOpening; // Cutscene data type?
 
 const Hitbox gUnk_08114154;
 const u8 gUnk_0811415C[];
@@ -142,12 +142,12 @@ void sub_0806DB84(Entity* this, ScriptExecutionContext* context) {
     ent = CreateObject(OBJECT_3E, 4, 0);
     if (ent != NULL) {
         PositionRelative(this, ent, -0x80000, 0);
-        *(ScriptExecutionContext**)&ent->cutsceneBeh = StartCutscene(ent, &script_08016030);
+        *(ScriptExecutionContext**)&ent->cutsceneBeh = StartCutscene(ent, &script_Object3ELeftStoneOpening);
     }
     ent = CreateObject(OBJECT_3E, 5, 0);
     if (ent != NULL) {
         PositionRelative(this, ent, 0x80000, 0);
-        *(ScriptExecutionContext**)&ent->cutsceneBeh = StartCutscene(ent, &script_0801606C);
+        *(ScriptExecutionContext**)&ent->cutsceneBeh = StartCutscene(ent, &script_Object3ERightStoneOpening);
     }
 }
 

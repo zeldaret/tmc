@@ -15,27 +15,27 @@ gUnk_080FCBB4:: @ 080FCBB4
 
 gUnk_080FCBC4:: @ 080FCBC4
 	.incbin "data_080FC8A4/gUnk_080FCBC4.bin"
-	.4byte script_08009A50
+	.4byte script_IntroCameraTarget
 	.incbin "data_080FC8A4/gUnk_080FCBC4_1.bin"
-	.4byte script_08009A84
+	.4byte script_ZeldaMoveToLinksHouse
 	.incbin "data_080FC8A4/gUnk_080FCBC4_2.bin"
-	.4byte script_08009AF8
+	.4byte script_HouseDoorIntro
 	.incbin "data_080FC8A4/gUnk_080FCBC4_3.bin"
-	.4byte script_08009A34
+	.4byte script_Object69Intro2
 	.incbin "data_080FC8A4/gUnk_080FCBC4_4.bin"
 
 gUnk_080FCC14:: @ 080FCC14
 	.incbin "data_080FC8A4/gUnk_080FCC14.bin"
-	.4byte script_08009918
+	.4byte script_Object69Intro
 	.incbin "data_080FC8A4/gUnk_080FCC14_1.bin"
-	.4byte script_08009950
+	.4byte script_SmithIntro
 	.incbin "data_080FC8A4/gUnk_080FCC14_2.bin"
-	.4byte script_080099DC
+	.4byte script_ZeldaIntro
 	.incbin "data_080FC8A4/gUnk_080FCC14_3.bin"
 
 gUnk_080FCC54:: @ 080FCC54
 	.incbin "data_080FC8A4/gUnk_080FCC54.bin"
-	.4byte script_08009D6C
+	.4byte script_ZeldaLeaveLinksHouse
 	.incbin "data_080FC8A4/gUnk_080FCC54_1.bin"
 
 gUnk_080FCC84:: @ 080FCC84
@@ -100,13 +100,13 @@ gUnk_080FCD40:: @ 080FCD40
 
 gUnk_080FCD84:: @ 080FCD84
 	.incbin "data_080FC8A4/gUnk_080FCD84.bin"
-	.4byte script_080153EC
+	.4byte script_Object69MinishVaati
 	.incbin "data_080FC8A4/gUnk_080FCD84_1.bin"
-	.4byte script_0801550C
+	.4byte script_MinishEzlo
 	.incbin "data_080FC8A4/gUnk_080FCD84_2.bin"
-	.4byte script_08015618
+	.4byte script_Object6AMinishCap
 	.incbin "data_080FC8A4/gUnk_080FCD84_3.bin"
-	.4byte script_08015684
+	.4byte script_Vaati
 	.incbin "data_080FC8A4/gUnk_080FCD84_4.bin"
 
 gUnk_080FCDD4:: @ 080FCDD4
@@ -116,30 +116,30 @@ gUnk_080FCDD4:: @ 080FCDD4
 
 gUnk_080FCDE0:: @ 080FCDE0
 	.incbin "data_080FC8A4/gUnk_080FCDE0.bin"
-	.4byte script_08015CD4
+	.4byte script_Object69TakeoverCutscene
 	.incbin "data_080FC8A4/gUnk_080FCDE0_1.bin"
-	.4byte script_08015DF0
+	.4byte script_KingDaltusTakeover
 	.incbin "data_080FC8A4/gUnk_080FCDE0_2.bin"
-	.4byte script_08015E58
+	.4byte script_VaatiTakeover
 	.incbin "data_080FC8A4/gUnk_080FCDE0_3.bin"
-	.4byte script_08015FA4
+	.4byte script_ZeldaStoneTakeover
 	.incbin "data_080FC8A4/gUnk_080FCDE0_4.bin"
 
 gUnk_080FCE30:: @ 080FCE30
 	.incbin "data_080FC8A4/gUnk_080FCE30.bin"
-	.4byte script_08015F08
+	.4byte script_MinisterPothoTakeover
 	.incbin "data_080FC8A4/gUnk_080FCE30_1.bin"
-	.4byte script_08015F3C
+	.4byte script_GuardTakeover
 	.incbin "data_080FC8A4/gUnk_080FCE30_2.bin"
-	.4byte script_08015F3C
+	.4byte script_GuardTakeover
 	.incbin "data_080FC8A4/gUnk_080FCE30_3.bin"
-	.4byte script_08015F3C
+	.4byte script_GuardTakeover
 	.incbin "data_080FC8A4/gUnk_080FCE30_4.bin"
-	.4byte script_08015F3C
+	.4byte script_GuardTakeover
 	.incbin "data_080FC8A4/gUnk_080FCE30_5.bin"
-	.4byte script_08015F3C
+	.4byte script_GuardTakeover
 	.incbin "data_080FC8A4/gUnk_080FCE30_6.bin"
-	.4byte script_08015F3C
+	.4byte script_GuardTakeover
 	.incbin "data_080FC8A4/gUnk_080FCE30_7.bin"
 
 gUnk_080FCEB0:: @ 080FCEB0
@@ -149,9 +149,9 @@ gUnk_080FCEB0:: @ 080FCEB0
 
 gUnk_080FCEBC:: @ 080FCEBC
 	.incbin "data_080FC8A4/gUnk_080FCEBC.bin"
-	.4byte script_0800DB18
+	.4byte script_ZeldaStoneInDHC
 	.incbin "data_080FC8A4/gUnk_080FCEBC_1.bin"
-	.4byte script_0800E58C
+	.4byte script_ZeldaStoneDHC
 	.incbin "data_080FC8A4/gUnk_080FCEBC_2.bin"
 
 gUnk_080FCEEC:: @ 080FCEEC

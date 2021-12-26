@@ -1,0 +1,21 @@
+@ Ezlo Cutscene OBJECT_6A dark magic
+SCRIPT_START script_Object6ADarkMagic
+	BeginBlock
+	_0807E930 0x0000
+	SetEntitySpeed 0x0200
+	Call sub_08094B80
+	EndBlock
+	Wait 0x0078
+	PlaySound SFX_1C5
+	Call sub_08094B6C
+	_0807EDD4 0x0078, 0x00b8
+	PlaySound SFX_1C6
+	Call sub_08094B80
+	_0807E5F8 0x00020000
+	SetEntitySpeed 0x0080
+	WaitForSomething2 0x00040000
+	_0807EDD4 0x0078, 0x00c8
+	_0807E5F8 0x00080000
+	WaitForSomething2 0x00040000
+	DoPostScriptAction 0x0006
+SCRIPT_END

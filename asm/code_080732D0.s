@@ -4223,16 +4223,16 @@ sub_080751E8: @ 0x080751E8
 	cmp r7, #0
 	bne _08075240
 	strb r7, [r3]
-	ldr r6, _0807523C @ =script_08009ECC
+	ldr r6, _0807523C @ =script_BedInLinksRoom
 	b _08075244
 	.align 2, 0
 _08075230: .4byte gPlayerScriptExecutionContext
 _08075234: .4byte gPlayerEntity
 _08075238: .4byte gPlayerState
-_0807523C: .4byte script_08009ECC
+_0807523C: .4byte script_BedInLinksRoom
 _08075240:
 	strb r4, [r3]
-	ldr r6, _08075290 @ =script_08009EF0
+	ldr r6, _08075290 @ =script_BedAtSimons
 _08075244:
 	ldr r0, _08075294 @ =gPlayerState
 	adds r0, #0x39
@@ -4270,7 +4270,7 @@ _08075270:
 _0807528C:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_08075290: .4byte script_08009EF0
+_08075290: .4byte script_BedAtSimons
 _08075294: .4byte gPlayerState
 _08075298: .4byte gPlayerEntity
 

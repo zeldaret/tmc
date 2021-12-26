@@ -16,10 +16,10 @@ extern s16 gUnk_08122B0E[];
 extern u16 gUnk_08122B1E[];
 extern s8 gUnk_08122B2E[];
 
-extern u16 script_0800AEDC;
-extern u16 script_0801183C;
+extern u16 script_Object6ATheLittleHat;
+extern u16 script_Object6ASwordInChest;
 extern u16 script_08015B14;
-extern u16 script_08011940;
+extern u16 script_ZeldaMagic;
 extern u16 script_08012C48;
 
 typedef struct {
@@ -186,7 +186,7 @@ void sub_08094B94(Object6AEntity* this) {
     if (e != NULL) {
         CopyPosition(&gPlayerEntity, e);
         e->z.HALF.HI = -48;
-        ((Object6AEntity*)e)->ctx = StartCutscene(e, &script_0800AEDC);
+        ((Object6AEntity*)e)->ctx = StartCutscene(e, &script_Object6ATheLittleHat);
         CreateDust(e);
         e->z.HALF.HI += 16;
         e->y.HALF.HI++;
@@ -535,7 +535,7 @@ void sub_08095244(Object6AEntity* this) {
         if (e != NULL) {
             e->parent = super;
             PositionRelative(super, e, 0x100000, -0x100000);
-            ((Object6AEntity*)e)->ctx = StartCutscene(e, &script_0801183C);
+            ((Object6AEntity*)e)->ctx = StartCutscene(e, &script_Object6ASwordInChest);
         }
     }
 }
@@ -804,7 +804,7 @@ void sub_08095810(Object6AEntity* this) {
         e->parent = super;
         CopyPosition(super, e);
         ResolveEntityOnTop(super, e);
-        ((Object6AEntity*)e)->ctx = StartCutscene(e, &script_08011940);
+        ((Object6AEntity*)e)->ctx = StartCutscene(e, &script_ZeldaMagic);
     }
 }
 

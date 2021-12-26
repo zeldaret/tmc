@@ -1,0 +1,64 @@
+@ Outro NPC4E
+SCRIPT_START script_Npc4EOutro
+	BeginBlock
+	_0807E864
+	Call sub_0807DF28
+	SetEntityPositionRelative 0x0088, 0x0080
+	Call sub_0807F844
+	_0807E8E4_3
+	CallWithArg sub_0807F75C, 0x00a80088
+	EndBlock
+	Wait 0x003c
+	StartPlayerScript script_PlayerAtOutro
+	WaitForSomething2 0x00000001
+	_0807E5F8 0x00000004
+	WaitForSomething2 0x00000080
+	MessageFromTargetPos 0x1659, 0x0000
+	WaitUntilTextboxCloses
+	Wait 0x003c
+	_0807E5F8 0x00000010
+	WaitForSomething2 0x00000200
+	_0807E5F8 0x00000004
+	_0807E8E4_0
+	WaitForSomething2 0x00000080
+	_0807E5F8 0x00000010
+	WaitForSomething2 0x00000200
+	_0807E5F8 0x00000002
+	WaitForSomething2 0x00000040
+	_0807E5F8 0x00000004
+	Call sub_0807F3F8
+	WaitForSomething2 0x00000080
+	MessageFromTargetPos 0x165a, 0x000e
+	WaitUntilTextboxCloses
+	Wait 0x003c
+	MessageFromTargetPos 0x165b, 0x000e
+	WaitUntilTextboxCloses
+	_0807E5F8 0x00000002
+	WaitForSomething2 0x00000040
+	_0807E5F8 0x00000008
+	WaitForSomething2 0x00000100
+	Wait 0x003c
+	_0807E8E4_3
+	_0807E5F8 0x00000004
+	WaitForSomething2 0x00000080
+	Wait 0x003c
+	_0807E5F8 0x00000008
+	WaitForSomething2 0x00000100
+	_0807E5F8 0x00000006
+	WaitForSomething2 0x000000c0
+	MessageFromTargetPos 0x165c, 0x000e
+	WaitUntilTextboxCloses
+	StopBgm
+	MessageFromTargetPos 0x165d, 0x000e
+	WaitUntilTextboxCloses
+	_0807E5F8 0x00000006
+	WaitForSomething2 0x000000c0
+	_0807E5F8 0x00000006
+	WaitForSomething2 0x00000080
+	_0807E5F8 0x00000008
+	WaitForSomething2 0x00000100
+	PlayBgm BGM_INTRO_CUTSCENE
+	PlaySound SFX_APPARATE
+	CallWithArg sub_0806DA1C, 0x00000007
+	DoPostScriptAction 0x0006
+SCRIPT_END

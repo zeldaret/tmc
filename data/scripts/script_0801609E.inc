@@ -1,4 +1,0 @@
-SCRIPT_START script_0801609E
-	OffsetEntityPosition 0x0010, 0x0000
-SCRIPT_END
-	.2byte 0x0000
