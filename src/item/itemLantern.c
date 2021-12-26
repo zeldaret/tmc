@@ -21,7 +21,7 @@ void sub_08075A0C(ItemBehavior* this, u32 arg1) {
     s8* tmp;
     itemSlot = IsItemEquipped(this->behaviorID);
     if (gPlayerState.heldObject != 0 || gPlayerState.playerAction == 0x18 || gPlayerState.jumpStatus != 0 ||
-        gPlayerState.field_0x2c != NULL || (gPlayerState.flags & PL_MINISH) != 0) {
+        gPlayerState.item != NULL || (gPlayerState.flags & PL_MINISH) != 0) {
         ForceEquipItem(0xf, itemSlot);
         gPlayerState.flags &= 0xff7fffff;
         ForceEquipItem(0xf, itemSlot);
@@ -50,7 +50,7 @@ ASM_FUNC("asm/non_matching/eu/sub_08075ADC.inc", void sub_08075ADC(ItemBehavior*
 void sub_08075ADC(ItemBehavior* this, u32 arg1) {
     u32 bVar1;
 
-    if (gPlayerState.field_0x2c != NULL || (this->field_0x5[9] & 1) == 0 || (gPlayerState.flags & 0x110) != 0 ||
+    if (gPlayerState.item != NULL || (this->field_0x5[9] & 1) == 0 || (gPlayerState.flags & 0x110) != 0 ||
         sub_08079D48() == 0) {
         this->field_0xf = 0;
         this->stateID += 1;

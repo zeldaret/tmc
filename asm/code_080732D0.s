@@ -182,7 +182,7 @@ PlayerParachute: @ 0x08073420
 	bl sub_08078EFC
 	cmp r0, #0
 	bne _0807345E
-	bl sub_0807A1B8
+	bl UpdateFloorType
 	ldrb r2, [r4, #0x1b]
 	movs r1, #0x3f
 	adds r0, r1, #0
@@ -1105,7 +1105,7 @@ _08073AFA:
 	bl sub_0807A2B8
 	movs r0, #0
 	strb r0, [r6, #2]
-	bl sub_0807A1B8
+	bl UpdateFloorType
 	ldrb r0, [r6, #0xc]
 	cmp r0, #0
 	bne _08073B5C
@@ -1422,7 +1422,7 @@ _08073D74:
 _08073D80:
 	adds r0, r4, #0
 	bl sub_08073904
-	bl sub_0807A1B8
+	bl UpdateFloorType
 	ldrb r0, [r5, #2]
 	cmp r0, #0
 	beq _08073D96

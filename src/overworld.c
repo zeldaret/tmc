@@ -666,7 +666,7 @@ u32 sub_08052B24(void) {
         gUnk_0200AF00.filler0[1])
         return 0;
 
-    if ((gPlayerState.flags & 0x118) || (gPlayerState.framestate_last > tmp) || gPlayerState.field_0x2c ||
+    if ((gPlayerState.flags & 0x118) || (gPlayerState.framestate_last > tmp) || gPlayerState.item ||
         gPlayerEntity.field_0x7a.HWORD)
         return 0;
 

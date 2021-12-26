@@ -12,7 +12,7 @@ extern bool32 sub_08077EFC(ItemBehavior*);
         sub_08076758(this, arg1);
         return;
     }
-    if (gPlayerState.field_0x2c == NULL) {
+    if (gPlayerState.item == NULL) {
         if (gPlayerState.field_0x0[1] == 0) {
             if (((u8)(gPlayerState.field_0x1a[1] | gPlayerState.field_0xa | gPlayerState.field_0x3[1] |
                         gPlayerState.heldObject | gPlayerState.field_0x1c | gPlayerState.field_0x3c[1]) == 0) &&
@@ -24,7 +24,7 @@ extern bool32 sub_08077EFC(ItemBehavior*);
                 if (-1 < gPlayerEntity.z.WORD) {
                     gPlayerEntity.zVelocity = 0x20000;
                     gPlayerState.jumpStatus = 1;
-                    gPlayerState.field_0x2c = NULL;
+                    gPlayerState.item = NULL;
                     this->stateID += 1;
                     goto _0807673C;
                 }
@@ -44,7 +44,7 @@ extern bool32 sub_08077EFC(ItemBehavior*);
                     gPlayerState.keepFacing = 0;
                     gPlayerState.jumpStatus = 1;
                     gPlayerState.field_0xe = -1;
-                    gPlayerState.field_0x2c = NULL;
+                    gPlayerState.item = NULL;
                     gPlayerEntity.zVelocity = 0x20000;
                 _0807673C:
                     sub_08077F84();

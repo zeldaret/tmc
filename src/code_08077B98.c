@@ -18,18 +18,18 @@ extern Entity* sub_0805E744();
 extern struct_0811BE48 gUnk_0811BE48[];
 
 void sub_08077B98(UnkItemStruct* unk) {
-    if ((gPlayerState.field_0x2c == NULL) || (gPlayerState.field_0x2c[9] != 1)) {
-        gPlayerState.field_0x2c = sub_08077C54(unk);
+    if ((gPlayerState.item == NULL) || (gPlayerState.item->id != 1)) {
+        gPlayerState.item = sub_08077C54(unk);
     }
 }
 
 void sub_08077BB8(ItemBehavior* beh) {
     UnkItemStruct* unk = (UnkItemStruct*)beh; // @nocheckin
-    u8* temp = sub_08077C54(unk);
+    Entity* temp = sub_08077C54(unk);
     if (temp != NULL) {
-        temp[0x10] = 0x20;
+        temp->flags = 0x20;
     }
-    gPlayerState.field_0x2c = temp;
+    gPlayerState.item = temp;
 }
 
 Entity* sub_08077BD4(ItemBehavior* beh) {
@@ -164,11 +164,11 @@ void sub_08077E78(ItemBehavior* arg0, u32 bits) {
     u32 not ;
 
     if (bits == 0) {
-        if (gPlayerState.field_0x2c != NULL) {
-            ((Unk_bitfield*)gPlayerState.field_0x2c)[0x11].b0 = 6;
-            gPlayerState.field_0x2c = (u8*)bits;
+        if (gPlayerState.item != NULL) {
+            ((Unk_bitfield*)gPlayerState.item)[0x11].b0 = 6;
+            gPlayerState.item = NULL;
         } else {
-            gPlayerState.field_0x2c = (u8*)bits;
+            gPlayerState.item = NULL;
         }
     }
 

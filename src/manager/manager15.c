@@ -296,7 +296,7 @@ void sub_0805A758(Manager15* this) {
 }
 
 void sub_0805A76C(Manager15* this) {
-    if ((gPlayerEntity.health != 0) && (gPlayerEntity.z.HALF.HI == 0) && (!gPlayerState.field_0x2c)) {
+    if ((gPlayerEntity.health != 0) && (gPlayerEntity.z.HALF.HI == 0) && (!gPlayerState.item)) {
         switch (gPlayerState.framestate_last) {
             case PL_STATE_IDLE:
             case PL_STATE_WALK:

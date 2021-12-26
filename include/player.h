@@ -107,6 +107,54 @@ enum PlayerFlags {
     PL_USE_OCARINA = (1 << 28),
 };
 
+enum SurfaceType {
+    SURFACE_NORMAL,
+    SURFACE_PIT,
+    SURFACE_2,
+    SURFACE_3,
+    SURFACE_SLOPE_GNDGND_V,
+    SURFACE_SLOPE_GNDGND_H,
+    SURFACE_6,
+    SURFACE_7,
+    SURFACE_MINISH_DOOR_FRONT,
+    SURFACE_MINISH_DOOR_BACK,
+    SURFACE_A,
+    SURFACE_B,
+    SURFACE_SLOPE_GNDWATER,
+    SURFACE_D,
+    SURFACE_E,
+    SURFACE_F,
+    SURFACE_10,
+    SURFACE_11,
+    SURFACE_DOOR,
+    SURFACE_DOOR_13,
+    SURFACE_14,
+    SURFACE_CLONE_TILE,
+    SURFACE_16,
+    SURFACE_ICE,
+    SURFACE_SHALLOW_WATER,
+    SURFACE_WATER,
+    SURFACE_BUTTON,
+    SURFACE_1B,
+    SURFACE_1C,
+    SURFACE_1D,
+    SURFACE_LADDER,
+    SURFACE_1F,
+    SURFACE_20,
+    SURFACE_21,
+    SURFACE_22,
+    SURFACE_EDGE,
+    SURFACE_24,
+    SURFACE_DUST,
+    SURFACE_26,
+    SURFACE_HOLE,
+    SURFACE_LIGHT_GRADE,
+    SURFACE_29,
+    SURFACE_AUTO_LADDER,
+    SURFACE_CLIMB_WALL,
+    SURFACE_2C,
+};
+
 typedef struct {
     /*0x00*/ u8 field_0x0[2];
     /*0x02*/ u8 jumpStatus;
@@ -121,32 +169,24 @@ typedef struct {
     /*0x0d*/ u8 field_0xd;
     /*0x0e*/ u8 field_0xe;
     /*0x0f*/ u8 hurtBlinkSpeed;
-    /*0x10*/ u8 field_0x10[4];
-    /*0x11*/ u8 field_0x14;
-    /*0x11*/ u8 field_0x15;
-    /*0x14*/ u16 startPosX;
-    /*0x16*/ u16 startPosY;
+    /*0x10*/ u8 field_0x10;
+    /*0x11*/ u8 field_0x11;
+    /*0x12*/ u8 floor_type;
+    /*0x13*/ u8 floor_type_last;
+    /*0x14*/ u8 field_0x14;
+    /*0x15*/ u8 field_0x15;
+    /*0x16*/ u16 startPosX;
+    /*0x18*/ u16 startPosY;
     /*0x1a*/ u8 field_0x1a[2];
     /*0x1c*/ u8 field_0x1c;
-    /*0x1d*/ u8 field_0x1d[5];
+    /*0x1d*/ u8 field_0x1d;
+    /*0x1e*/ u8 dash_state;
+    /*0x1f*/ u8 field_0x1f[3];
     /*0x22*/ u16 field_0x22[2];
     /*0x26*/ u8 swimState;
     /*0x27*/ u8 field_0x27[5];
-    /*0x2c*/ u8* field_0x2c;
+    /*0x2c*/ Entity* item;
     /*0x30*/ u32 flags;
-    /* unk1 : 1; */
-    /* unk2 : 1; */
-    /* unk4 : 1; */
-    /* noMinishCap : 1; */
-    /* pullingState : 1; */
-    /* windyState : 1; */
-    /* filler6 : 1; */
-    /* unk7 : 1; */
-    /* unk8 : 1; */
-    /* unk9 : 1; */
-    /* slipperyState : 1; */
-    /* filler11 : 5; */
-    /* filler11b : 16; */
     /*0x34*/ u8 field_0x34[2];
     /*0x36*/ s16 field_0x36;
     /*0x38*/ u8 field_0x38;
@@ -162,7 +202,8 @@ typedef struct {
     /*0x80*/ u16 field_0x80;
     /*0x82*/ u8 field_0x82[9];
     /*0x8b*/ u8 controlMode;
-    /*0x8c*/ u32 field_0x8c;
+    /*0x8c*/ u16 vel_x;
+    /*0x8e*/ u16 vel_y;
     /*0x90*/ union SplitWord field_0x90;
     /*0x94*/ u32 field_0x94;
     /*0x98*/ u16 field_0x98;

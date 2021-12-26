@@ -359,7 +359,7 @@ s32 CollisionGroundItem(Entity* org, Entity* tgt, u32 direction, ColSettings* se
 }
 
 s32 sub_08017B1C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
-    if ((gPlayerState.field_0x1d[1] & 0x60) != 0) {
+    if ((gPlayerState.dash_state & 0x60) != 0) {
         COLLISION_OFF(tgt);
     } else {
         org->knockbackDuration = 0x10;
@@ -372,7 +372,7 @@ s32 sub_08017B1C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 s32 sub_08017B58(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     if ((tgt->field_0x3a & 4) != 0) {
         if (tgt->field_0x1d) {
-            s32 x = tgt->field_0x1d = tgt->field_0x1d - gPlayerState.field_0x1d[0];
+            s32 x = tgt->field_0x1d = tgt->field_0x1d - gPlayerState.field_0x1d;
             if (x << 24 <= 0) {
                 tgt->field_0x1d = 0;
                 tgt->subAction = 2;

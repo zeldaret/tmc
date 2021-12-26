@@ -16,7 +16,7 @@ void sub_08075DF4(ItemBehavior* this, u32 arg1) {
         sub_0806F948(&gPlayerEntity);
         sub_08077BB8(this);
         sub_08077D38(this, arg1);
-        gPlayerState.field_0x1d[4] = 1;
+        gPlayerState.field_0x1f[2] = 1;
     } else {
         sub_08077E78(this, arg1);
     }
@@ -25,7 +25,7 @@ void sub_08075DF4(ItemBehavior* this, u32 arg1) {
 void sub_08075E40(ItemBehavior* this, u32 arg1) {
     u8 bVar1;
 
-    if (gPlayerState.field_0x1d[4] != 0) {
+    if (gPlayerState.field_0x1f[2] != 0) {
         bVar1 = gPlayerState.field_0x3[1] & 0x80;
         if (bVar1 == 0) {
             UpdateItemAnim(this);
@@ -40,7 +40,7 @@ void sub_08075E40(ItemBehavior* this, u32 arg1) {
             return;
         }
     }
-    gPlayerState.field_0x1d[4] = 0;
+    gPlayerState.field_0x1f[2] = 0;
     sub_08077E78(this, arg1);
 }
 
@@ -51,8 +51,8 @@ void sub_08075EC0(ItemBehavior* this, u32 arg1) {
     arrowCount = gSave.stats.arrowCount;
     iVar2 = sub_08077EFC(this);
     if (iVar2 != 0 && arrowCount != 0) {
-        if (((gPlayerState.field_0x3[1] & 0x80) != 0) || (gPlayerState.field_0x1d[4] == 0)) {
-            gPlayerState.field_0x1d[4] = 0;
+        if (((gPlayerState.field_0x3[1] & 0x80) != 0) || (gPlayerState.field_0x1f[2] == 0)) {
+            gPlayerState.field_0x1f[2] = 0;
             sub_08077E78(this, arg1);
         }
     } else {
@@ -65,19 +65,19 @@ void sub_08075EC0(ItemBehavior* this, u32 arg1) {
 }
 
 void sub_08075F38(ItemBehavior* this, u32 arg1) {
-    if (((gPlayerState.field_0x3[1] & 0x80) == 0) && (gPlayerState.field_0x1d[4] != 0)) {
+    if (((gPlayerState.field_0x3[1] & 0x80) == 0) && (gPlayerState.field_0x1f[2] != 0)) {
         UpdateItemAnim(this);
         if ((this->field_0x5[9] & 1) != 0) {
             this->stateID = 4;
         }
     } else {
-        gPlayerState.field_0x1d[4] = 0;
+        gPlayerState.field_0x1f[2] = 0;
         sub_08077E78(this, arg1);
     }
 }
 
 void sub_08075F84(ItemBehavior* this, u32 arg1) {
-    if (((gPlayerState.field_0x3[1] & 0x80) == 0) && (gPlayerState.field_0x1d[4] != 0)) {
+    if (((gPlayerState.field_0x3[1] & 0x80) == 0) && (gPlayerState.field_0x1f[2] != 0)) {
         if (GetInventoryValue(0x70) == 1) {
             sub_08077E3C(this, 5);
         } else {
@@ -87,6 +87,6 @@ void sub_08075F84(ItemBehavior* this, u32 arg1) {
             return;
         }
     }
-    gPlayerState.field_0x1d[4] = 0;
+    gPlayerState.field_0x1f[2] = 0;
     sub_08077E78(this, arg1);
 }

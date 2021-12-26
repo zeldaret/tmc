@@ -14,7 +14,7 @@ void Manager6_Main(Manager6* this) {
             return;
         }
     }
-    if (this->manager.unk_0e == 0 || gPlayerState.field_0x10[2] == 0x1e) {
+    if (this->manager.unk_0e == 0 || gPlayerState.floor_type == SURFACE_LADDER) {
         for (i = this->warpList; i->posX != 0xFFFF; i++) {
             tmp = (i->unk_07.all & 0x3);
             if (((tmp & (gPlayerEntity.collisionLayer)) != 0) &&

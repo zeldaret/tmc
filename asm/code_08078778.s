@@ -3371,8 +3371,8 @@ sub_0807A180: @ 0x0807A180
 	.align 2, 0
 _0807A1B4: .4byte 0xFFFC0000
 
-	thumb_func_start sub_0807A1B8
-sub_0807A1B8: @ 0x0807A1B8
+	thumb_func_start UpdateFloorType
+UpdateFloorType: @ 0x0807A1B8
 	push {r4, lr}
 	ldr r4, _0807A1DC @ =gPlayerEntity
 	adds r0, r4, #0

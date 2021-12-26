@@ -27,7 +27,7 @@ void sub_08075580(ItemBehavior* this, u32 arg1) {
     if ((sub_08077EFC(this) != 0) && (gPlayerState.jumpStatus == 0)) {
         gPlayerState.field_0xa = gPlayerState.field_0xa & ~(8 >> arg1);
         gPlayerState.field_0x1a[1] = 1;
-        gPlayerState.field_0x2c[0x40] = 0xd;
+        gPlayerState.item->hurtType = 0xd;
         this->field_0xf = 0;
         this->stateID = 2;
         if ((gPlayerState.field_0xac & 0x200) != 0) {
@@ -126,6 +126,6 @@ void sub_080759B8(ItemBehavior* this, u32 arg1) {
     }
     gPlayerState.flags &= 0xf7ffffff;
     gPlayerState.field_0x1a[1] = 0;
-    gPlayerState.field_0x2c = NULL;
+    gPlayerState.item = NULL;
     sub_08077E78(this, arg1);
 }
