@@ -10,7 +10,7 @@ void sub_080ADC84(Entity*);
 void sub_080ADCA0(Entity*, u32);
 
 void PlayerItemGustJar(Entity* this) {
-    if (((Entity*)gPlayerState.field_0x2c != this) || (gPlayerState.field_0x1c == 0)) {
+    if (((Entity*)gPlayerState.item != this) || (gPlayerState.field_0x1c == 0)) {
         DeleteThisEntity();
     }
     gUnk_08132700[this->action](this);

@@ -147,7 +147,7 @@ extern void sub_08077728();
 extern void sub_0807AEE4();
 extern u32 sub_08078EFC();
 extern void sub_0807921C();
-extern void sub_0807A1B8();
+extern void UpdateFloorType();
 extern void sub_08079938();
 extern void sub_0807ACCC(Entity*);
 extern void sub_080A2BE4(Entity*, u32);

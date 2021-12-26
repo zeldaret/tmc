@@ -103,7 +103,7 @@ Entity* CreateNPC(u32 subtype, u32 form, u32 parameter) {
 u32 sub_0806ED78(Entity* ent) {
     u32 result = sub_0800445C(ent);
     if (result) {
-        if (gPlayerState.field_0x1d[1] & 0x40) {
+        if (gPlayerState.dash_state & 0x40) {
             sub_08077B20();
         }
     }

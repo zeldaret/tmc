@@ -5,7 +5,7 @@
 	adds r0, r4, #0
 	bl sub_080085B0
 	bl sub_08079E08
-	bl sub_0807A1B8
+	bl UpdateFloorType
 	bl sub_08078EFC
 	cmp r0, #0
 	bne _08070E76

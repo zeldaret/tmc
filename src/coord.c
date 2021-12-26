@@ -62,7 +62,7 @@ u32 sub_0806F3E4(Entity* ent) {
 
     if ((gPlayerState.field_0x1c & 0x7F) != 1)
         return 0;
-    switch (gPlayerState.field_0x1d[0]) {
+    switch (gPlayerState.field_0x1d) {
         case 1:
             ent->field_0x46 += 64;
             break;
@@ -93,7 +93,7 @@ u32 sub_0806F3E4(Entity* ent) {
             }
             SoundReq(SFX_ED);
         } else if (state == 1) {
-            gPlayerState.field_0x2c[10] = 1;
+            gPlayerState.item->type = 1;
             SoundReq(SFX_EF);
         }
         return 1;

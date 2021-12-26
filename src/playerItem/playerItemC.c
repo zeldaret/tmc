@@ -17,8 +17,8 @@ void PlayerItemC(Entity* this) {
 }
 
 void sub_0801B8B0(Entity* this) {
-    if (gPlayerState.field_0x1d[1] != 0) {
-        gPlayerState.field_0x2c = (u8*)this;
+    if (gPlayerState.dash_state != 0) {
+        gPlayerState.item = this;
         this->flags |= 0x20;
         this->action = 0x01;
         this->flags2 = 8;
@@ -33,12 +33,12 @@ void sub_0801B8B0(Entity* this) {
 
 void sub_0801B8FC(Entity* this) {
     Entity* pbVar1;
-    pbVar1 = (Entity*)gPlayerState.field_0x2c;
-    if ((Entity*)gPlayerState.field_0x2c != this) {
+    pbVar1 = (Entity*)gPlayerState.item;
+    if ((Entity*)gPlayerState.item != this) {
         DeleteThisEntity();
     } else {
-        if ((u8*)(u32)gPlayerState.field_0x1d[1] == NULL) {
-            gPlayerState.field_0x2c = (u8*)(u32)gPlayerState.field_0x1d[1];
+        if (gPlayerState.dash_state == 0) {
+            gPlayerState.item = NULL;
             DeleteThisEntity();
         } else {
             pbVar1->flags |= 0x80;

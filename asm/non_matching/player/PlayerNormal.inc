@@ -154,7 +154,7 @@ _080708AC:
 	ands r0, r6
 	cmp r0, #0
 	bne _080708C4
-	bl sub_0807A1B8
+	bl UpdateFloorType
 _080708C4:
 	bl sub_08078EFC
 	cmp r0, #0
@@ -194,7 +194,7 @@ _08070902:
 	beq _0807090C
 	b _08070BE4
 _0807090C:
-	bl sub_0807A1B8
+	bl UpdateFloorType
 	bl sub_08078EFC
 	b _08070BE4
 	.align 2, 0

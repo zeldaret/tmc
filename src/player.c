@@ -54,12 +54,12 @@ static EntityAction PlayerUseEntrance;
 EntityAction PlayerParachute;
 
 // PLAYER_FALL
-static EntityAction sub_08070C3C;
-static EntityAction sub_08070CB4;
+static EntityAction PlayerFallInit;
+static EntityAction PlayerFallUpdate;
 
 // PLAYER_BOUNCE
-static EntityAction sub_08070D38;
-static EntityAction sub_08070DC4;
+static EntityAction PlayerBounceInit;
+static EntityAction PlayerBounceUpdate;
 static EntityAction sub_08070E7C;
 
 // PLAYER_08070E9C
@@ -67,17 +67,17 @@ static EntityAction sub_08070EDC;
 static EntityAction sub_08070f24;
 
 // PLAYER_ITEMGET
-static EntityAction sub_08070FA4;
-static EntityAction sub_08071020;
+static EntityAction PlayerItemGetInit;
+static EntityAction PlayerItemGetUpdate;
 static EntityAction sub_08071038;
 
 // PLAYER_JUMP
-static EntityAction sub_080710A8;
+static EntityAction PlayerJumpInit;
 static EntityAction sub_08071130;
 static EntityAction sub_08071208;
 
 // PLAYER_DROWN
-static EntityAction sub_0807127C;
+static EntityAction PlayerDrownInit;
 static EntityAction sub_080712F0;
 
 // PLAYER_USEPORTAL
@@ -91,18 +91,18 @@ static EntityAction PortalEnterUpdate;
 static EntityAction PortalUnknownUpdate;
 
 // PLAYER_TALKEZLO
-static EntityAction sub_080718A0;
+static EntityAction PlayerTalkEzloInit;
 static EntityAction sub_0807193C;
 static EntityAction sub_08071990;
 static EntityAction sub_08071A4C;
 
 // PLAYER_PUSH
-static EntityAction sub_08071AB0;
-static EntityAction sub_08071AF0;
+static EntityAction PlayerPushInit;
+static EntityAction PlayerPushUpdate;
 static EntityAction sub_08071B60;
 
 // PLAYER_MINISHDIE
-static EntityAction sub_08071BDC;
+static EntityAction PlayerMinishDieInit;
 static EntityAction sub_08071CAC;
 static EntityAction sub_08071D04;
 static EntityAction sub_08071D80;
@@ -113,12 +113,12 @@ static EntityAction sub_08071E04;
 static EntityAction sub_08071E74;
 
 // PLAYER_EMPTYBOTTLE
-static EntityAction sub_08071EB0;
-static EntityAction sub_08071F14;
+static EntityAction PlayerEmptyBottleInit;
+static EntityAction PlayerEmptyBottleUpdate;
 
 // PLAYER_FROZEN
-static EntityAction sub_08071F50;
-static EntityAction sub_08071F80;
+static EntityAction PlayerFrozenInit;
+static EntityAction PlayerFrozenUpdate;
 
 // PLAYER_0807204C
 static EntityAction sub_08072064;
@@ -133,7 +133,7 @@ static EntityAction sub_08072214;
 static EntityAction sub_08072260;
 
 // PLAYER_LAVA
-static EntityAction sub_080722DC;
+static EntityAction PlayerLavaInit;
 static EntityAction sub_08072354;
 static EntityAction sub_080723D0;
 static EntityAction sub_0807240C;
@@ -147,12 +147,12 @@ static EntityAction sub_080724DC;
 static EntityAction sub_0807258C;
 
 // PLAYER_ROLL
-static EntityAction sub_08072650;
-static EntityAction sub_080726F4;
+static EntityAction PlayerRollInit;
+static EntityAction PlayerRollUpdate;
 
 // PLAYER_INHOLE
-static EntityAction sub_08072970;
-static EntityAction sub_08072A60;
+static EntityAction PlayerInHoleInit;
+static EntityAction PlayerInHoleUpdate;
 static EntityAction sub_08072ACC;
 static EntityAction sub_08072B5C;
 static EntityAction sub_08072C48;
@@ -280,7 +280,7 @@ static void PlayerInit(Entity* this) {
 
     if (sub_08078EFC() == 0) {
         sub_0807921C();
-        sub_0807A1B8();
+        UpdateFloorType();
         if (gPlayerState.swimState != 0) {
             Entity* ent;
             gPlayerState.swimState = 1;
@@ -310,8 +310,8 @@ static void sub_08070BEC(Entity* this, u32 r0) {
 
 static void PlayerFall(Entity* this) {
     static EntityAction* const sPlayerFallStates[] = {
-        sub_08070C3C,
-        sub_08070CB4,
+        PlayerFallInit,
+        PlayerFallUpdate,
     };
 
     gPlayerState.field_0xd = 0xFF;
@@ -321,7 +321,7 @@ static void PlayerFall(Entity* this) {
     sPlayerFallStates[this->subAction](this);
 }
 
-static void sub_08070C3C(Entity* this) {
+static void PlayerFallInit(Entity* this) {
     sub_08004168(this);
 
     gPlayerState.flags |= PL_BUSY | PL_DROWNING;
@@ -345,7 +345,7 @@ static void sub_08070C3C(Entity* this) {
     SoundReq(SFX_FALL_HOLE);
 }
 
-static void sub_08070CB4(Entity* this) {
+static void PlayerFallUpdate(Entity* this) {
     UpdateAnimationSingleFrame(this);
     if ((this->frame & 0x80) != 0) {
         if ((gSave.stats.health != 0) && ((gPlayerState.flags & 0x8000) != 0)) {
@@ -363,14 +363,14 @@ static void sub_08070CB4(Entity* this) {
 
 static void PlayerBounce(Entity* this) {
     static EntityAction* const sPlayerBounceStates[] = {
-        sub_08070D38,
-        sub_08070DC4,
+        PlayerBounceInit,
+        PlayerBounceUpdate,
         sub_08070E7C,
     };
     sPlayerBounceStates[this->subAction](this);
 }
 
-static void sub_08070D38(Entity* this) {
+static void PlayerBounceInit(Entity* this) {
     COLLISION_OFF(this);
     this->direction = DirectionTurnAround(Direction8FromAnimationState(AnimationStateWalk(this->animationState)));
     this->speed = 0x100;
@@ -395,11 +395,11 @@ static void sub_08070D38(Entity* this) {
 }
 
 // minor regalloc
-static NONMATCH("asm/non_matching/player/sub_08070DC4.inc", void sub_08070DC4(Entity* this)) {
+static NONMATCH("asm/non_matching/player/sub_08070DC4.inc", void PlayerBounceUpdate(Entity* this)) {
     UpdateAnimationSingleFrame(this);
     sub_080085B0(this);
     sub_08079E08();
-    sub_0807A1B8();
+    UpdateFloorType();
 
     if (sub_08078EFC() || sub_08003FC4(this, 0x2000))
         return;
@@ -423,7 +423,7 @@ static NONMATCH("asm/non_matching/player/sub_08070DC4.inc", void sub_08070DC4(En
     COLLISION_ON(this);
 
     if ((gPlayerState.field_0x14 == 0) && sub_08008B22()) {
-        gPlayerState.field_0x10[1] = 7;
+        gPlayerState.field_0x11 = 7;
         sub_08079938();
         sub_080791BC();
         return;
@@ -456,7 +456,7 @@ static void sub_08070E9C(Entity* this) {
     } else {
         gPlayerState.field_0x27[0] = 4;
         gPlayerState.framestate = PL_STATE_TALKEZLO;
-        sub_0807A1B8();
+        UpdateFloorType();
         gUnk_0811BA74[this->subAction](this);
     }
 }
@@ -483,8 +483,8 @@ static void sub_08070f24(Entity* this) {
 
 static void PlayerItemGet(Entity* this) {
     static EntityAction* const sPlayerItemGetStates[] = {
-        sub_08070FA4,
-        sub_08071020,
+        PlayerItemGetInit,
+        PlayerItemGetUpdate,
         sub_08071038,
     };
 
@@ -504,7 +504,7 @@ static void PlayerItemGet(Entity* this) {
     }
 }
 
-static void sub_08070FA4(Entity* this) {
+static void PlayerItemGetInit(Entity* this) {
     this->spriteSettings.flipX = FALSE;
     this->animationState = IdleSouth;
 
@@ -534,9 +534,9 @@ static void sub_08070FA4(Entity* this) {
     sub_08078F60();
 }
 
-static void sub_08071020(Entity* this) {
+static void PlayerItemGetUpdate(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (this->frame != 0)
+    if (this->frame != /* entire animation is a static frame */ 0)
         this->subAction = 2;
 }
 
@@ -557,7 +557,7 @@ static void sub_08071038(Entity* this) {
 
 static void PlayerJump(Entity* this) {
     static EntityAction* const sPlayerJumpStates[] = {
-        sub_080710A8,
+        PlayerJumpInit,
         sub_08071130,
         sub_08071208,
     };
@@ -566,7 +566,7 @@ static void PlayerJump(Entity* this) {
     sPlayerJumpStates[this->subAction](this);
 }
 
-static void sub_080710A8(Entity* this) {
+static void PlayerJumpInit(Entity* this) {
     u32 temp;
 
     this->subAction++;
@@ -588,7 +588,7 @@ static void sub_080710A8(Entity* this) {
         }
     }
 
-    gPlayerState.field_0x1d[1] = 0;
+    gPlayerState.dash_state = 0;
     this->direction = Direction8FromAnimationState(AnimationStateWalk(this->animationState));
 
     temp = sub_08079FC4(1);
@@ -629,7 +629,7 @@ static void sub_08071130(Entity* this) {
     if (gPlayerState.field_0x14)
         return;
 
-    sub_0807A1B8();
+    UpdateFloorType();
 
     if (sub_08078EFC())
         return;
@@ -672,7 +672,7 @@ static void sub_08071208(Entity* this) {
 
 static void PlayerDrown(Entity* this) {
     static EntityAction* const sPlayerDrownStates[] = {
-        sub_0807127C,
+        PlayerDrownInit,
         sub_080712F0,
     };
 
@@ -682,7 +682,7 @@ static void PlayerDrown(Entity* this) {
     sPlayerDrownStates[this->subAction](this);
 }
 
-static void sub_0807127C(Entity* this) {
+static void PlayerDrownInit(Entity* this) {
     this->subAction = 1;
     this->spritePriority.b1 = 0;
 
@@ -934,7 +934,7 @@ static void sub_080717F8(Entity* this) {
 
 static void PlayerTalkEzlo(Entity* this) {
     static EntityAction* const sPlayerTalkEzloStates[] = {
-        sub_080718A0,
+        PlayerTalkEzloInit,
         sub_0807193C,
         sub_08071990,
         sub_08071A4C,
@@ -950,7 +950,7 @@ static void PlayerTalkEzlo(Entity* this) {
     }
 }
 
-static void sub_080718A0(Entity* this) {
+static void PlayerTalkEzloInit(Entity* this) {
     ResetPlayer();
     gUnk_03000B80.filler[0x63] = 0;
     this->iframes = 0;
@@ -1053,8 +1053,8 @@ static void ResetPlayerPriority(void) {
 
 static void PlayerPush(Entity* this) {
     static EntityAction* const sPlayerPushStates[] = {
-        sub_08071AB0,
-        sub_08071AF0,
+        PlayerPushInit,
+        PlayerPushUpdate,
         sub_08071B60,
     };
 
@@ -1062,7 +1062,7 @@ static void PlayerPush(Entity* this) {
     sPlayerPushStates[this->subAction](this);
 }
 
-static void sub_08071AB0(Entity* this) {
+static void PlayerPushInit(Entity* this) {
     u32 speed;
 
     this->subAction++;
@@ -1074,10 +1074,10 @@ static void sub_08071AB0(Entity* this) {
     } else {
         this->speed = (gPlayerState.flags & PL_MINISH) ? 64 : 128;
     }
-    sub_08071AF0(this);
+    PlayerPushUpdate(this);
 }
 
-static void sub_08071AF0(Entity* this) {
+static void PlayerPushUpdate(Entity* this) {
     typedef struct {
         u8 frame;
         u16 speed;
@@ -1125,7 +1125,7 @@ static void sub_08071B60(Entity* this) {
 
 static void PlayerMinishDie(Entity* this) {
     static EntityAction* const sPlayerMinishDieStates[] = {
-        sub_08071BDC,
+        PlayerMinishDieInit,
         sub_08071CAC,
         sub_08071D04,
         sub_08071D80,
@@ -1136,7 +1136,7 @@ static void PlayerMinishDie(Entity* this) {
     gPlayerState.framestate = PL_STATE_DIE;
 }
 
-static void sub_08071BDC(Entity* this) {
+static void PlayerMinishDieInit(Entity* this) {
     u32 temp;
 
     if (gPlayerState.flags & (0x10 | 0x100))
@@ -1152,7 +1152,8 @@ static void sub_08071BDC(Entity* this) {
 
     gPlayerState.playerAction = 0;
     if (gPlayerState.flags & PL_MINISH) {
-        if ((u8)(gPlayerState.field_0x10[2] - 8) < 3) {
+        if (gPlayerState.floor_type == SURFACE_MINISH_DOOR_FRONT ||
+            gPlayerState.floor_type == SURFACE_MINISH_DOOR_BACK || gPlayerState.floor_type == SURFACE_A) {
             sub_0807A298(this);
             RespawnPlayer();
             this->action = 10;
@@ -1258,9 +1259,9 @@ static void sub_08071DD0(Entity* this) {
 
 static void sub_08071E04(Entity* this) {
     if ((this->z.WORD != 0) && (gPlayerState.field_0x14 == '\0')) {
-        sub_0807A1B8();
-        if (gPlayerState.field_0x10[2] == 1) {
-            gPlayerState.field_0x10[1] = 7;
+        UpdateFloorType();
+        if (gPlayerState.floor_type == SURFACE_PIT) {
+            gPlayerState.field_0x11 = 7;
             gPlayerState.flags |= 0x200;
             sub_080791BC();
             return;
@@ -1295,14 +1296,14 @@ static void sub_08071E74(Entity* this) {
 
 static void PlayerEmptyBottle(Entity* this) {
     static EntityAction* const sPlayerEmptyBottleStates[] = {
-        sub_08071EB0,
-        sub_08071F14,
+        PlayerEmptyBottleInit,
+        PlayerEmptyBottleUpdate,
     };
 
     sPlayerEmptyBottleStates[this->subAction](this);
 }
 
-static void sub_08071EB0(Entity* this) {
+static void PlayerEmptyBottleInit(Entity* this) {
     Entity* ent;
 
     ResetPlayer();
@@ -1325,24 +1326,24 @@ static void sub_08071EB0(Entity* this) {
     }
 }
 
-static void sub_08071F14(Entity* this) {
+static void PlayerEmptyBottleUpdate(Entity* this) {
     UpdateAnimationSingleFrame(this);
     if (this->frame & 0x80) {
-        gPlayerState.field_0x2c = NULL;
+        gPlayerState.item = NULL;
         sub_0807921C();
     }
 }
 
 static void PlayerFrozen(Entity* this) {
     static EntityAction* const sPlayerFrozenStates[] = {
-        sub_08071F50,
-        sub_08071F80,
+        PlayerFrozenInit,
+        PlayerFrozenUpdate,
     };
 
     sPlayerFrozenStates[this->subAction](this);
 }
 
-static void sub_08071F50(Entity* this) {
+static void PlayerFrozenInit(Entity* this) {
     COLLISION_OFF(this);
     this->actionDelay = 120;
     this->subAction++;
@@ -1351,7 +1352,7 @@ static void sub_08071F50(Entity* this) {
     SoundReq(SFX_195);
 }
 
-static void sub_08071F80(Entity* this) {
+static void PlayerFrozenUpdate(Entity* this) {
     if (sub_08003FC4(this, 0x2000) == 0) {
         UpdateSpriteForCollisionLayer(this);
         gPlayerState.jumpStatus = 0;
@@ -1515,7 +1516,7 @@ static void sub_08072260(Entity* this) {
 
 static void PlayerLava(Entity* this) {
     static EntityAction* const sPlayerLavaStates[] = {
-        sub_080722DC,
+        PlayerLavaInit,
         sub_08072354,
         sub_080723D0,
         sub_0807240C,
@@ -1525,7 +1526,7 @@ static void PlayerLava(Entity* this) {
     sPlayerLavaStates[this->subAction](this);
 }
 
-static void sub_080722DC(Entity* this) {
+static void PlayerLavaInit(Entity* this) {
     Entity* ent;
 
     COLLISION_OFF(this);
@@ -1674,15 +1675,15 @@ static void sub_0807258C(Entity* this) {
 
 static void PlayerRoll(Entity* this) {
     static EntityAction* const sPlayerRollStates[] = {
-        sub_08072650,
-        sub_080726F4,
+        PlayerRollInit,
+        PlayerRollUpdate,
     };
 
     gPlayerState.framestate = PL_STATE_ROLL;
     sPlayerRollStates[this->subAction](this);
 }
 
-static void sub_08072650(Entity* this) {
+static void PlayerRollInit(Entity* this) {
     u32 temp;
 
     if ((gPlayerState.flags & 0x200000) == 0) {
@@ -1713,7 +1714,7 @@ static void sub_08072650(Entity* this) {
     SoundReq(SFX_7E);
 }
 
-static void sub_080726F4(Entity* this) {
+static void PlayerRollUpdate(Entity* this) {
     if (((gPlayerState.flags & (PL_ROLLING | 0x80000)) != PL_ROLLING) ||
         (!(gPlayerState.flags & 0x200000) && (this->iframes != 0) && (this->bitfield & 0x80))) {
         gPlayerState.flags &= ~PL_ROLLING;
@@ -1728,7 +1729,7 @@ static void sub_080726F4(Entity* this) {
         this->actionDelay = 4;
     }
     if ((gPlayerState.flags & 2) == 0) {
-        sub_0807A1B8();
+        UpdateFloorType();
     }
     if (sub_08078EFC()) {
         gPlayerState.flags &= ~PL_ROLLING;
@@ -1750,7 +1751,8 @@ static void sub_080726F4(Entity* this) {
         return;
     }
 
-    if (gPlayerState.field_0x10[2] == 0x17) {
+    if (gPlayerState.floor_type == SURFACE_ICE) {
+        // roll in place when on ice
         sub_0800892E(this);
     } else {
         switch (this->frame & 0xf) {
@@ -1773,7 +1775,8 @@ static void sub_080726F4(Entity* this) {
         sub_08079E08();
     }
     if (((this->frame & 0x10) == 0) && ((gPlayerState.flags & PL_MINISH) == 0)) {
-        *(u8*)&this->hurtType = 0;
+        // dont take damage
+        this->hurtType = 0;
     }
     if ((this->frame & 0x40) != 0) {
         sub_08077698(this);
@@ -1796,31 +1799,31 @@ static void sub_080728AC(Entity* this) {
 
     if (gPlayerState.swimState != 0)
         this->speed = 0;
-    if (!(gPlayerState.flags & 0x40))
+    if ((gPlayerState.flags & 0x40) == 0)
         gPlayerEntity.spriteSettings.draw = 3;
-    if (!(gPlayerState.flags & PL_MINISH))
+    if ((gPlayerState.flags & PL_MINISH) == 0)
         gPlayerEntity.spritePriority.b1 = 1;
 
-    if (!(gRoomControls.unk6 & 4)) {
-        if ((gPlayerState.flags & 0x40))
+    if ((gRoomControls.unk6 & 4) == 0) {
+        if (gPlayerState.flags & 0x40)
             COLLISION_ON(this);
         sub_080791D0();
     }
-    if (!(gPlayerState.flags & 2)) {
-        sub_0807A1B8();
+    if ((gPlayerState.flags & 2) == 0) {
+        UpdateFloorType();
     }
 }
 
 static void PlayerInHole(Entity* this) {
     static EntityAction* const sPlayerInHoleStates[] = {
-        sub_08072970, sub_08072A60, sub_08072ACC, sub_08072B5C, sub_08072C48,
+        PlayerInHoleInit, PlayerInHoleUpdate, sub_08072ACC, sub_08072B5C, sub_08072C48,
     };
 
     gPlayerState.framestate = PL_STATE_HOLE;
     sPlayerInHoleStates[this->subAction](this);
 }
 
-static void sub_08072970(Entity* this) {
+static void PlayerInHoleInit(Entity* this) {
     if (this->health != 0) {
         this->subAction = 1;
         this->x.HALF.HI = (this->x.HALF.HI & ~0xF) | 8;
@@ -1840,12 +1843,12 @@ static void sub_08072970(Entity* this) {
         }
         SetTile(0x4070, COORD_TO_TILE(this), this->collisionLayer);
         ResetPlayer();
-        sub_08072A60(this);
+        PlayerInHoleUpdate(this);
         SoundReq(0x81);
     }
 }
 
-static void sub_08072A60(Entity* this) {
+static void PlayerInHoleUpdate(Entity* this) {
     if (this->frame & 0x80) {
         if (this->actionDelay == 1) {
             this->subAction = 3;
@@ -1932,7 +1935,7 @@ static void sub_08072C48(Entity* this) {
     sub_08008790(this, 7);
     if (gPlayerState.field_0x14) {
         if (sub_08008B22()) {
-            gPlayerState.field_0x10[1] = 7;
+            gPlayerState.field_0x11 = 7;
             if (!(gPlayerState.flags & PL_MINISH)) {
                 sub_080791BC();
             }
@@ -2061,7 +2064,7 @@ static NONMATCH("asm/non_matching/player/sub_08072D54.inc", void sub_08072D54(En
         sub_08008790(this, 7);
         if (gPlayerState.field_0x14 != 0) {
             if (sub_08008B22() == 0) {
-                gPlayerState.field_0x10[1] = 7;
+                gPlayerState.field_0x11 = 7;
                 if (!(gPlayerState.flags & PL_MINISH)) {
                     sub_080791BC();
                 }
@@ -2097,7 +2100,7 @@ static void sub_08072F34(Entity* this) {
 
     if (!sub_08078EFC()) {
         gPlayerState.framestate = PL_STATE_CLIMB;
-        gPlayerState.field_0x10[2] = GetSurfaceCalcType(this, 0, 0);
+        gPlayerState.floor_type = GetSurfaceCalcType(this, 0, 0);
         gUnk_0811BBE4[this->subAction](this);
         if (this->knockbackDuration != 0) {
             sub_080792D8();
@@ -2114,18 +2117,20 @@ static void sub_08072F34(Entity* this) {
 static void sub_08072F94(Entity* this) {
     u32 bVar1;
 
-    switch (gPlayerState.field_0x10[2]) {
+    switch (gPlayerState.floor_type) {
         default:
             sub_0807921C();
             break;
-        case 0x1E:
-        case 0x2A ... 0x2C:
+        case SURFACE_LADDER:
+        case SURFACE_AUTO_LADDER:
+        case SURFACE_CLIMB_WALL:
+        case SURFACE_2C:
             this->spritePriority.b1 = 0;
             bVar1 = gPlayerState.field_0xd;
             if ((gPlayerState.field_0xd & 0x80) == 0) {
                 this->direction = gPlayerState.field_0xd;
                 if ((gPlayerState.field_0xd == 8) || (gPlayerState.field_0xd == 0x18)) {
-                    if (gPlayerState.field_0x10[2] == 0x1e) {
+                    if (gPlayerState.floor_type == SURFACE_LADDER) {
                         return;
                     }
                     if ((this->frame & 0x10)) {
@@ -2135,7 +2140,7 @@ static void sub_08072F94(Entity* this) {
                     }
                     sub_08073094(this);
                 } else {
-                    if ((gPlayerState.field_0x10[2] == 0x1e) && ((bVar1 & 7) != 0)) {
+                    if ((gPlayerState.floor_type == SURFACE_LADDER) && ((bVar1 & 7) != 0)) {
                         this->direction = (bVar1 + 8) & 0x10;
                     }
                     if (this->direction & 0x10) {
@@ -2174,36 +2179,36 @@ static void sub_08073094(Entity* this) {
     sub_08079E08();
     if (!sub_08019840()) {
         gPlayerState.pushedObject ^= 0x80;
-        if ((gPlayerState.field_0x10[2] != 0x2a) && (gPlayerState.field_0x10[2] != 0x2c)) {
-            sub_0807A1B8();
+        if ((gPlayerState.floor_type != SURFACE_AUTO_LADDER) && (gPlayerState.floor_type != SURFACE_2C)) {
+            UpdateFloorType();
         }
 
         if (sub_08078EFC() == 0) {
-            switch (gPlayerState.field_0x10[2]) {
-                case 0x2a:
-                case 0x2c:
+            switch (gPlayerState.floor_type) {
+                case SURFACE_AUTO_LADDER:
+                case SURFACE_2C:
                     this->knockbackDuration = 0;
                     gPlayerState.flags |= 0x20000000;
                     UpdateAnimationSingleFrame(this);
                     if ((this->frame & 0x40) != 0) {
-                        sub_0807A1B8();
+                        UpdateFloorType();
                         if (!sub_08078EFC()) {
                             this->subAction--;
                         }
                     }
                     break;
-                case 0x19:
+                case SURFACE_WATER:
                     sub_08074808(this);
                     sub_080791D0();
                     break;
                 default:
                     sub_0807921C();
                     break;
-                case 0x1e:
-                case 0x2b:
+                case SURFACE_LADDER:
+                case SURFACE_CLIMB_WALL:
                     UpdateAnimationSingleFrame(this);
                     if ((this->frame & 0x40) != 0) {
-                        sub_0807A1B8();
+                        UpdateFloorType();
                         if (!sub_08078EFC()) {
                             this->subAction--;
                         }
