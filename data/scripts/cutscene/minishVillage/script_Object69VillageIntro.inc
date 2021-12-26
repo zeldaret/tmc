@@ -11,68 +11,68 @@ script_0800C928:
 	Call sub_0807F9A4
 	Call sub_0807DF28
 	StartPlayerScript script_PlayerAtVillageIntro
-	WaitForSomething2 0x00000002
+	WaitForSyncFlagAndClear 0x00000002
 	Wait 0x003c
 	_0807EB28 0x1125
 	WaitUntilTextboxCloses
-	_0807E5F8 0x00000800
+	SetSyncFlag 0x00000800
 	_0807E8E4_3
 	Wait 0x003c
-	_0807E5F8 0x00000200
+	SetSyncFlag 0x00000200
 	_0807E8E4_0
 	Wait 0x001e
-	_0807E5F8 0x00002000
+	SetSyncFlag 0x00002000
 	_0807E8E4_1
 	Wait 0x0014
-	_0807E5F8 0x00020000
+	SetSyncFlag 0x00020000
 	_0807E8E4_1
 	Wait 0x000a
-	_0807E5F8 0x00008000
+	SetSyncFlag 0x00008000
 	_0807E8E4_3
 	Wait 0x001e
-	WaitForSomething2 0x00000400
-	WaitForSomething2 0x00001000
-	WaitForSomething2 0x00004000
-	WaitForSomething2 0x00010000
-	WaitForSomething2 0x00040000
+	WaitForSyncFlagAndClear 0x00000400
+	WaitForSyncFlagAndClear 0x00001000
+	WaitForSyncFlagAndClear 0x00004000
+	WaitForSyncFlagAndClear 0x00010000
+	WaitForSyncFlagAndClear 0x00040000
 	_0807E8E4_0
 	Wait 0x003c
-	_0807E5F8 0x00000200
-	WaitForSomething2 0x00000400
+	SetSyncFlag 0x00000200
+	WaitForSyncFlagAndClear 0x00000400
 	_0807E8E4_0 
 	MessageFromTarget 0x1126
 	Call sub_0807F40C
 	WaitUntilTextboxCloses
-	_0807E5F8 0x00000200
-	_0807E5F8 0x00000800
-	_0807E5F8 0x00002000
-	_0807E5F8 0x00008000
-	_0807E5F8 0x00020000
-	WaitForSomething2 0x00000400
-	WaitForSomething2 0x00001000
-	WaitForSomething2 0x00004000
-	WaitForSomething2 0x00010000
-	WaitForSomething2 0x00040000
-	_0807E5F8 0x00008000
-	WaitForSomething2 0x00010000
+	SetSyncFlag 0x00000200
+	SetSyncFlag 0x00000800
+	SetSyncFlag 0x00002000
+	SetSyncFlag 0x00008000
+	SetSyncFlag 0x00020000
+	WaitForSyncFlagAndClear 0x00000400
+	WaitForSyncFlagAndClear 0x00001000
+	WaitForSyncFlagAndClear 0x00004000
+	WaitForSyncFlagAndClear 0x00010000
+	WaitForSyncFlagAndClear 0x00040000
+	SetSyncFlag 0x00008000
+	WaitForSyncFlagAndClear 0x00010000
 	_0807E8E4_3 
 	MessageFromTarget 0x1127
 	WaitUntilTextboxCloses
-	_0807E5F8 0x00002000
-	WaitForSomething2 0x00004000
+	SetSyncFlag 0x00002000
+	WaitForSyncFlagAndClear 0x00004000
 	_0807E8E4_1 
 	MessageFromTarget 0x1128
 	WaitUntilTextboxCloses
-	_0807E5F8 0x00000200
-	_0807E5F8 0x00000800
-	_0807E5F8 0x00002000
-	_0807E5F8 0x00008000
-	_0807E5F8 0x00020000
-	WaitForSomething2 0x00000400
-	WaitForSomething2 0x00001000
-	WaitForSomething2 0x00004000
-	WaitForSomething2 0x00010000
-	WaitForSomething2 0x00040000
+	SetSyncFlag 0x00000200
+	SetSyncFlag 0x00000800
+	SetSyncFlag 0x00002000
+	SetSyncFlag 0x00008000
+	SetSyncFlag 0x00020000
+	WaitForSyncFlagAndClear 0x00000400
+	WaitForSyncFlagAndClear 0x00001000
+	WaitForSyncFlagAndClear 0x00004000
+	WaitForSyncFlagAndClear 0x00010000
+	WaitForSyncFlagAndClear 0x00040000
 	_0807E8E4_0
 	_0807EB28 0x1129
 	WaitUntilTextboxCloses

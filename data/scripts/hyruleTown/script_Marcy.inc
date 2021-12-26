@@ -16,7 +16,7 @@ script_08010746:
 	JumpIfNot script_08010786
 	EndBlock
 	WaitUntilTextboxCloses
-	_0807E3E8
+	CheckTextboxResult
 	JumpIfNot script_08010786
 	HasRupees 0x00c8
 	JumpIf script_08010778

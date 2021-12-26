@@ -22,7 +22,7 @@ script_08014C56:
 	SetLocalFlag 0x0066
 	MessageNoOverlap 0x2f0d
 	WaitUntilTextboxCloses
-	_0807F034 0x000a
+	GivePlayerItem 0x000a
 	WaitPlayerGetItem
 	Jump script_08014C82
 script_08014C7C:

@@ -15,11 +15,11 @@ script_0800DA64:
 	SetEntityPositionRelative 0x0078, 0x0080
 	CameraTargetEntity
 	Call sub_0807F5C0
-	_0807E5F8 0x00000001
-	WaitForSomething2 0x00000002
+	SetSyncFlag 0x00000001
+	WaitForSyncFlagAndClear 0x00000002
 	MessageFromTargetPos 0x162d, 0x0002
 	WaitUntilTextboxCloses
-	_0807E5F8 0x00000001
+	SetSyncFlag 0x00000001
 	Wait 0x001e
 	MessageFromTargetPos 0x162e, 0x0002
 	WaitUntilTextboxCloses

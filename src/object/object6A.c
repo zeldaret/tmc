@@ -873,7 +873,7 @@ void sub_08095954(Object6AEntity* this) {
         EnqueueSFX(292);
         super->frame &= ~1;
     } else {
-        gActiveScriptInfo.unk_00 |= 0x100;
+        gActiveScriptInfo.syncFlags |= 0x100;
     }
 }
 
@@ -1069,7 +1069,7 @@ void sub_08095D8C(Object6AEntity* this, ScriptExecutionContext* ctx) {
 }
 
 void sub_08095DBC(Object6AEntity* this) {
-    if (gActiveScriptInfo.unk_00 & 0x10)
+    if (gActiveScriptInfo.syncFlags & 0x10)
         DeleteThisEntity();
     if (super->type2 == 0) {
         if (super->action == 0) {
@@ -1085,7 +1085,7 @@ void sub_08095DBC(Object6AEntity* this) {
             super->spriteRendering.b3 = gUnk_08114F30[super->spriteRendering.b3];
             ResolveEntityOnTop(super, super);
         }
-        if ((super->type2 & 0x80) == 0 && gActiveScriptInfo.unk_00 & 0x20000) {
+        if ((super->type2 & 0x80) == 0 && gActiveScriptInfo.syncFlags & 0x20000) {
             super->type2 = -1;
             super->zVelocity = 0x40000;
             super->speed = 0xC000;

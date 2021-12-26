@@ -10,7 +10,7 @@ script_0800BA46:
 	Call sub_0807DF28
 	MessageFromTarget 0x3301
 	WaitUntilTextboxCloses
-	_0807E3E8 
+	CheckTextboxResult 
 	JumpIfNot script_0800BA6C
 	StopBgm
 	Call sub_0806E964

@@ -20,8 +20,8 @@ script_0800A0FE:
 	_0807E778 0x0002
 	DoFade6
 	EndBlock
-	WaitFor_2
-	WaitForSomething2 0x00000004
+	WaitForFadeFinish
+	WaitForSyncFlagAndClear 0x00000004
 	CallWithArg sub_0806DA1C, 0x00000006
 	DoPostScriptAction 0x0006
 SCRIPT_END

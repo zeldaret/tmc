@@ -69,7 +69,7 @@ SCRIPT_START script_08016482
 	ModHealth 0x0010
 	IncreaseMaxHealth
 	_0807F050 0x0001
-	_0807F034 0x0001
+	GivePlayerItem 0x0001
 	GetInventoryValue 0x0001
 	_0807F078 0x0001, 0x0002
 	_0807F088 0x0001

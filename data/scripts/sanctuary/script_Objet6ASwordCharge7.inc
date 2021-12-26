@@ -5,12 +5,12 @@ SCRIPT_START script_Objet6ASwordCharge7
 	_0807E930 0x0006
 	OffsetEntityPosition 0x0000, 0xfff0
 	EndBlock
-	WaitForSomething2 0x00000800
+	WaitForSyncFlagAndClear 0x00000800
 	_0807E930 0x000a
 	Call sub_0807F2D4
 	_0807E930 0x000e
-	_0807E5F8 0x00008000
-	WaitForSomething 0x00000020
+	SetSyncFlag 0x00008000
+	WaitForSyncFlag 0x00000020
 	_0807E930 0x0012
 	Call sub_0807F2D4
 	DoPostScriptAction 0x0006

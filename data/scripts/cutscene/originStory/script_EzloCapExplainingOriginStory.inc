@@ -6,7 +6,7 @@ SCRIPT_START script_EzloCapExplainingOriginStory
 	EndBlock
 	_0807E930 0x001f
 	Call sub_0806D944
-	WaitForSomething2 0x00000008
+	WaitForSyncFlagAndClear 0x00000008
 	_0807E930 0x0010
 	MessageFromTargetPos 0x1314, 0x000c
 	WaitUntilTextboxCloses
@@ -20,6 +20,6 @@ script_080153C2:
 	Call sub_0806D9A4
 	DoPostScriptAction 0x0008
 	Wait 0x0078
-	_0807E5F8 0x00000010
+	SetSyncFlag 0x00000010
 	DoPostScriptAction 0x0006
 SCRIPT_END

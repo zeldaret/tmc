@@ -4,22 +4,22 @@ SCRIPT_START script_Npc4EIntroCastle
 	Call sub_0807F9A4
 	Call sub_0807DF28
 	StartPlayerScript script_PlayerIntroCastle
-	WaitForSomething2 0x00000400
+	WaitForSyncFlagAndClear 0x00000400
 	_0807F078 0x0034, 0x0002
 	MessageFromTargetPos 0x1036, 0x000c
 	WaitUntilTextboxCloses
-	_0807E5F8 0x00000010
-	WaitForSomething2 0x00000020
+	SetSyncFlag 0x00000010
+	WaitForSyncFlagAndClear 0x00000020
 	MessageFromTargetPos 0x1037, 0x0002
 	WaitUntilTextboxCloses
-	_0807E5F8 0x00000010
-	WaitForSomething2 0x00000020
+	SetSyncFlag 0x00000010
+	WaitForSyncFlagAndClear 0x00000020
 	MessageFromTargetPos 0x1038, 0x000c
 	WaitUntilTextboxCloses
 	StopBgm
 	_0807E778 0x0004
 	DoFade5
-	WaitFor_2
+	WaitForFadeFinish
 	Call sub_08064180
 	Call sub_08064180
 	Call sub_08064180
@@ -29,10 +29,10 @@ SCRIPT_START script_Npc4EIntroCastle
 	Call sub_08064180
 	Call sub_08064180
 	LoadRoomEntityList gUnk_080F06E0
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000008
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000008
 	StartPlayerScript script_PlayerAtIntroCeremony
-	WaitForSomething2 0x00000400
+	WaitForSyncFlagAndClear 0x00000400
 	SetEntityPositionRelative 0x01f8, 0x0050
 	_0807F0B4 0x0007
 	CameraTargetEntity
@@ -40,82 +40,82 @@ SCRIPT_START script_Npc4EIntroCastle
 	_0807F0B4 0x0001
 	_0807E778 0x0001
 	DoFade4
-	_0807E5F8 0x0002a800
-	WaitForSomething2 0x00055000
+	SetSyncFlag 0x0002a800
+	WaitForSyncFlagAndClear 0x00055000
 	SetEntityPositionRelative 0x01f8, 0x0078
 	Wait 0x003c
-	_0807E5F8 0x00800000
-	WaitForSomething2 0x01000000
-	_0807E5F8 0x0002a800
-	WaitForSomething2 0x00055000
+	SetSyncFlag 0x00800000
+	WaitForSyncFlagAndClear 0x01000000
+	SetSyncFlag 0x0002a800
+	WaitForSyncFlagAndClear 0x00055000
 	_0807E8E4_1
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000008
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000008
 	MessageFromTargetPos 0x1039, 0x000c
 	WaitUntilTextboxCloses
 	PlayBgm BGM_CASTLE_TOURNAMENT
 	_0807E8E4_2
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000008
-	_0807E5F8 0x00000010
-	_0807E5F8 0x00000040
-	WaitForSomething2 0x00000020
-	WaitForSomething2 0x00000080
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000008
+	SetSyncFlag 0x00000010
+	SetSyncFlag 0x00000040
+	WaitForSyncFlagAndClear 0x00000020
+	WaitForSyncFlagAndClear 0x00000080
 	Wait 0x012c
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000008
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000008
 	MessageFromTargetPos 0x103a, 0x000c
 	WaitUntilTextboxCloses
 	SetEntityPositionRelative 0x01f8, 0x01c0
 	_0807F0B4 0x0004
 	Wait 0x0078
-	_0807E5F8 0x00280000
-	WaitForSomething2 0x00500000
-	_0807E5F8 0x00000100
+	SetSyncFlag 0x00280000
+	WaitForSyncFlagAndClear 0x00500000
+	SetSyncFlag 0x00000100
 	SetEntityPositionRelative 0x01f8, 0x0220
 	SetEntitySpeed 0x0100
 	_0807EDD4 0x01f8, 0x0098
 	Wait 0x003c
-	WaitForSomething2 0x00000200
-	_0807E5F8 0x00280000
+	WaitForSyncFlagAndClear 0x00000200
+	SetSyncFlag 0x00280000
 	StopBgm
 	PlaySound SFX_9B
-	_0807E5F8 0x00000100
-	WaitForSomething2 0x00000200
+	SetSyncFlag 0x00000100
+	WaitForSyncFlagAndClear 0x00000200
 	MessageFromTargetPos 0x1043, 0x0000
 	WaitUntilTextboxCloses
 	PlayBgm BGM_VAATI_THEME
-	_0807E5F8 0x00000100
-	WaitForSomething2 0x00000200
-	_0807E5F8 0x0002a800
-	WaitForSomething2 0x00055000
+	SetSyncFlag 0x00000100
+	WaitForSyncFlagAndClear 0x00000200
+	SetSyncFlag 0x0002a800
+	WaitForSyncFlagAndClear 0x00055000
 	PlaySound SFX_1C7
 	PlaySound SFX_BUTTON_DEPRESS
-	_0807E5F8 0x00000100
-	_0807E5F8 0x00002800
+	SetSyncFlag 0x00000100
+	SetSyncFlag 0x00002800
 	CallWithArg sub_0807FB28, 0x00000003
-	WaitForSomething2 0x00000200
-	WaitForSomething2 0x00005000
-	_0807E5F8 0x00028000
-	WaitForSomething2 0x00050000
+	WaitForSyncFlagAndClear 0x00000200
+	WaitForSyncFlagAndClear 0x00005000
+	SetSyncFlag 0x00028000
+	WaitForSyncFlagAndClear 0x00050000
 	MessageFromTargetPos 0x1044, 0x0000
 	WaitUntilTextboxCloses
 	SetEntityPositionRelative 0x01f8, 0x0098
 	StopBgm
 	Wait 0x003c
 	PlayBgm BGM_VAATI_REBORN
-	_0807E5F8 0x00028000
-	_0807E5F8 0x00000100
-	WaitForSomething2 0x00000200
-	WaitForSomething2 0x00050000
+	SetSyncFlag 0x00028000
+	SetSyncFlag 0x00000100
+	WaitForSyncFlagAndClear 0x00000200
+	WaitForSyncFlagAndClear 0x00050000
 	CallWithArg sub_0807FB28, 0x00000003
 	PlaySound SFX_BUTTON_DEPRESS
-	_0807E5F8 0x00028000
-	WaitForSomething2 0x00050000
+	SetSyncFlag 0x00028000
+	WaitForSyncFlagAndClear 0x00050000
 	PlaySound SFX_125
 	CallWithArg sub_0807FB28, 0x00000003
-	_0807E5F8 0x08000000
-	_0807E5F8 0x00800000
-	WaitForSomething2 0x01000000
+	SetSyncFlag 0x08000000
+	SetSyncFlag 0x00800000
+	WaitForSyncFlagAndClear 0x01000000
 	CallWithArg CreateManager36, 0x00000002
 	_0807F0C8 0xffff, 0x0000

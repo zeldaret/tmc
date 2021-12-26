@@ -13,7 +13,7 @@ script_080138D0:
 	_0807E864
 	Call sub_0807DF28
 	StartPlayerScript script_PlayerAtPedestal
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 	CallWithArg sub_08095A1C, script_Object6ASword3
 	PlaySound SFX_ELEMENT_PLACE
 	Wait 0x005a
@@ -21,7 +21,7 @@ script_080138D0:
 	PlaySound SFX_ELEMENT_FLOAT
 	CallWithArg sub_08095D54, script_Object6AWindElementFloating
 	EndBlock
-	WaitForSomething2 0x40000000
+	WaitForSyncFlagAndClear 0x40000000
 	BeginBlock
 	PlaySound SFX_ELEMENT_CHARGE
 	CallWithArg sub_08095D8C, script_Object6ASwordChange1
@@ -39,26 +39,26 @@ script_080138D0:
 	EndBlock
 	Wait 0x003c
 	CallWithArg CreateManager36, 0x00000000
-	_0807E5F8 0x00000200
-	WaitForSomething2 0x00002000
+	SetSyncFlag 0x00000200
+	WaitForSyncFlagAndClear 0x00002000
 	PlaySound SFX_1D2
 	CallWithArg sub_08095D8C, script_Object6ASwordCharge9
 	CallWithArg sub_08095D8C, script_Object6ASwordCharge10
-	_0807E5F8 0x00000400
-	WaitForSomething2 0x00004000
-	_0807E5F8 0x00000800
-	WaitForSomething2 0x00008000
-	_0807E5F8 0x00001000
-	WaitForSomething2 0x00010000
+	SetSyncFlag 0x00000400
+	WaitForSyncFlagAndClear 0x00004000
+	SetSyncFlag 0x00000800
+	WaitForSyncFlagAndClear 0x00008000
+	SetSyncFlag 0x00001000
+	WaitForSyncFlagAndClear 0x00010000
 	Wait 0x0078
-	_0807E5F8 0x00000060
+	SetSyncFlag 0x00000060
 	CallWithArg DeleteManager36, 0x00000000
 	Wait 0x0078
-	_0807E5F8 0x00000080
-	WaitForSomething2 0x00000100
+	SetSyncFlag 0x00000080
+	WaitForSyncFlagAndClear 0x00000100
 	Wait 0x003c
 	StartPlayerScript script_PlayerPickUpFinalSword
-	_0807E5F8 0x00000080
+	SetSyncFlag 0x00000080
 	_0807F078 0x0006, 0x0001
 	Call sub_0807AEE4
 	Call sub_0806DC3C
@@ -68,16 +68,16 @@ script_080138D0:
 	_0807E778 0x0004
 	DoFade7
 	PlaySound SFX_EVAPORATE
-	WaitFor_2
+	WaitForFadeFinish
 	Wait 0x003c
-	_0807E5F8 0x00000010
+	SetSyncFlag 0x00000010
 	_0807E778 0x0002
 	DoFade6
-	WaitFor_2
+	WaitForFadeFinish
 	PlaySound SFX_109
 	MessageFromTargetPos 0x0505, 0x000c
 	WaitUntilTextboxCloses
-	_0807E5F8 0x00040000
+	SetSyncFlag 0x00040000
 .ifndef EU
 	_0807F0B4 0x0002
 	SetEntityPositionRelative 0x00e8, 0x00d8

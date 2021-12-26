@@ -9,14 +9,14 @@ script_0800B618:
 	_0807E864
 	Call sub_0807F9A4
 	StartPlayerScript script_PlayerAtGreatFairy
-	WaitForSomething2 0x00000004
+	WaitForSyncFlagAndClear 0x00000004
 	SetRoomFlag 0x0000
-	WaitForSomething2 0x00000004
+	WaitForSyncFlagAndClear 0x00000004
 	CheckLocalFlag 0x009e
 	JumpIf script_0800B7A2
 	MessageNoOverlap 0x0583
 	WaitUntilTextboxCloses
-	_0807E3E8 
+	CheckTextboxResult 
 	JumpIfNot script_0800B684
 	Wait 0x000f
 	MessageNoOverlap 0x0584
@@ -32,7 +32,7 @@ script_0800B684:
 script_0800B68E:
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x009e
-	_0807F034 0x0066
+	GivePlayerItem 0x0066
 script_0800B698:
 	WaitPlayerGetItem
 	_0807EB8C
@@ -42,10 +42,10 @@ script_0800B698:
 script_0800B6A6:
 	_0807E778 0x0004
 	DoFade7
-	WaitFor_2
+	WaitForFadeFinish
 	Call sub_080873FC
 	DoFade6
-	WaitFor_2
+	WaitForFadeFinish
 	CameraTargetPlayer
 	Wait 0x001e
 	Call sub_0807DF50

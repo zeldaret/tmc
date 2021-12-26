@@ -36,22 +36,22 @@ script_0800CDC4:
 script_0800CDEC:
 	MessageNoOverlap 0x213e
 	WaitUntilTextboxCloses
-	_0807E48C 0x0023
+	CheckBottleContaining 0x0023
 	JumpIfNot script_0800CE14
 	MessageNoOverlap 0x214b
 	WaitUntilTextboxCloses
-	_0807E3E8 
+	CheckTextboxResult 
 	JumpIfNot script_0800CF40
 	PlaySound SFX_TASK_COMPLETE
 	_0807F088 0x0023
 	WaitPlayerGetItem
 	Jump script_0800CE32
 script_0800CE14:
-	_0807E48C 0x0022
+	CheckBottleContaining 0x0022
 	JumpIfNot script_0800CF40
 	MessageNoOverlap 0x214b
 	WaitUntilTextboxCloses
-	_0807E3E8 
+	CheckTextboxResult 
 	JumpIfNot script_0800CF40
 	PlaySound SFX_TASK_COMPLETE
 	_0807F088 0x0022
@@ -76,11 +76,11 @@ script_0800CE46:
 script_0800CE6E:
 	MessageNoOverlap 0x2142
 	WaitUntilTextboxCloses
-	_0807E48C 0x0027
+	CheckBottleContaining 0x0027
 	JumpIfNot script_0800CF40
 	MessageNoOverlap 0x214c
 	WaitUntilTextboxCloses
-	_0807E3E8 
+	CheckTextboxResult 
 	JumpIfNot script_0800CF40
 	PlaySound SFX_TASK_COMPLETE
 	_0807F088 0x0027
@@ -104,11 +104,11 @@ script_0800CEA6:
 script_0800CECE:
 	MessageNoOverlap 0x2146
 	WaitUntilTextboxCloses
-	_0807E48C 0x0024
+	CheckBottleContaining 0x0024
 	JumpIfNot script_0800CF40
 	MessageNoOverlap 0x214d
 	WaitUntilTextboxCloses
-	_0807E3E8 
+	CheckTextboxResult 
 	JumpIfNot script_0800CF40
 	PlaySound SFX_TASK_COMPLETE
 	_0807F088 0x0024

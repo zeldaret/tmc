@@ -6,12 +6,12 @@ SCRIPT_START script_Npc4ESpawnTextBoard
 	SetEntityPositionRelative 0x00e8, 0x00a8
 	CameraTargetEntity
 	Wait 0x003c
-	_0807E5F8 0x00000004
+	SetSyncFlag 0x00000004
 	Wait 0x0078
 	CallWithArg DeleteManager36, 0x00000001
 	_0807F0C8 0x0000, 0x0000
 	StartPlayerScript script_PlayerTextBoardAppears
-	WaitForSomething2 0x00000002
+	WaitForSyncFlagAndClear 0x00000002
 	_0807EB28 0x1501
 	WaitUntilTextboxCloses
 	_0807F0B4 0x0004

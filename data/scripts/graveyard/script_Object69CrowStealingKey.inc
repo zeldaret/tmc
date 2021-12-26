@@ -9,14 +9,14 @@ SCRIPT_START script_Object69CrowStealingKey
 	Wait 0x000a
 	_0807E8E4_3
 	Wait 0x0032
-	_0807E5F8 0x00000002
-	WaitForSomething2 0x00000004
+	SetSyncFlag 0x00000002
+	WaitForSyncFlagAndClear 0x00000004
 	StartPlayerScript script_PlayerGetKeyStolen
-	WaitForSomething2 0x00000040
-	_0807E5F8 0x00000008
-	WaitForSomething2 0x00000010
-	_0807E5F8 0x00000020
-	WaitForSomething2 0x00000040
+	WaitForSyncFlagAndClear 0x00000040
+	SetSyncFlag 0x00000008
+	WaitForSyncFlagAndClear 0x00000010
+	SetSyncFlag 0x00000020
+	WaitForSyncFlagAndClear 0x00000040
 	_0807F078 0x003c, 0x0000
 	SetGlobalFlag 0x0020
 	_0807E8E4_3

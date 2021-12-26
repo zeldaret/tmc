@@ -38,7 +38,7 @@ script_08011D6E:
 	DoPostScriptAction 0x0000
 	MessageNoOverlap 0x3103
 	WaitUntilTextboxCloses
-	_0807E3E8 
+	CheckTextboxResult 
 	JumpIf script_08011DBA
 	_0807E878
 	_0807EB44 0x0004

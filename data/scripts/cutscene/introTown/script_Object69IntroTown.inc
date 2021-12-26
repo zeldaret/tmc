@@ -14,7 +14,7 @@ SCRIPT_START script_Object69IntroTown
 .endif
 .endif
 	JumpIf script_0800FD50
-	WaitForSomething2 0x00000010
+	WaitForSyncFlagAndClear 0x00000010
 script_0800FD1A:
 	@ Prevent Link from leaving
 	CheckPlayerInRegion 0x00c8, 0x03c0, 0x1040
@@ -38,7 +38,7 @@ script_0800FD1A:
 	MessageFromTargetPos 0x2506, 0x0000
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerIntroTown
-	WaitForSomething2 0x00000008
+	WaitForSyncFlagAndClear 0x00000008
 	_0807E878
 	Jump script_0800FD1A
 script_0800FD50:
@@ -50,7 +50,7 @@ script_0800FD5C:
 	MessageFromTargetPos 0x106c, 0x0000
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerIntroTown
-	WaitForSomething2 0x00000008
+	WaitForSyncFlagAndClear 0x00000008
 	_0807E878
 	Jump script_0800FD50
 	.2byte 0x0000

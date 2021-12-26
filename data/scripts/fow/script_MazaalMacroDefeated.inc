@@ -6,7 +6,7 @@ SCRIPT_START script_MazaalMacroDefeated
 	Wait 0x0078
 	_0807E908 0x0004
 	StartPlayerScript script_PlayerDefeatedMazaal
-	WaitForSomething2 0x00000002
+	WaitForSyncFlagAndClear 0x00000002
 	Wait 0x000c
 	_0807E908 0x0005
 SCRIPT_END

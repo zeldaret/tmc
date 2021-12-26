@@ -40,11 +40,11 @@ script_08010570:
 	Call sub_080634EC
 	CallWithArg sub_0807F78C, 0x00000000
 	WaitUntilTextboxCloses
-	_0807E3E8
+	CheckTextboxResult
 	JumpIfNot script_080105E0
 	CallWithArg sub_0807F7C4, 0x00000000
 	JumpIfNot script_080105C4
-	_0807E48C 0x0020
+	CheckBottleContaining 0x0020
 	JumpIfNot script_080105CC
 	Call sub_08063504
 	JumpIf script_080105D4

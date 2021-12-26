@@ -9,11 +9,11 @@ SCRIPT_START script_TalonGotKey
 	EndBlock
 	Wait 0x000a
 	DoPostScriptAction 0x0004
-	_0807E5F8 0x00000008
+	SetSyncFlag 0x00000008
 	StartPlayerScript script_PlayerGiveKey
 	_0807EDD4 0x0140, 0x0298
 	_0807EB74
-	WaitForSomething2 0x00000004
+	WaitForSyncFlagAndClear 0x00000004
 	_0807EB74
 	Wait 0x003c
 	PlaySound SFX_TASK_COMPLETE
@@ -27,11 +27,11 @@ SCRIPT_START script_TalonGotKey
 	Wait 0x000a
 	_0807EDD4 0x0158, 0x0288
 	Wait 0x0014
-	_0807E5F8 0x00000010
+	SetSyncFlag 0x00000010
 	_0807EDD4 0x0158, 0x0280
 	Wait 0x000a
 	DoPostScriptAction 0x0008
-	_0807E5F8 0x00000010
-	_0807E5F8 0x00000008
+	SetSyncFlag 0x00000010
+	SetSyncFlag 0x00000008
 	DoPostScriptAction 0x0006
 SCRIPT_END

@@ -6,7 +6,7 @@ SCRIPT_START script_SimonsDoor
 	Call sub_0807F9A4
 	Call sub_0807DF28
 	StartPlayerScript script_PlayerCannotEnter
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 	CheckRoomFlag 0x0001
 	JumpIf script_08010994
 	_0807EB28 0x0b63

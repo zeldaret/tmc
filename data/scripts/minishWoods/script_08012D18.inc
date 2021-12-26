@@ -15,7 +15,7 @@ SCRIPT_START script_08012D18
 	_0807EB28 0x111a
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerCannotEnter
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 	Call sub_0807DF50
 	_0807E878
 	Jump script_08012D18

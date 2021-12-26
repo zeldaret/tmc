@@ -3,7 +3,7 @@ SCRIPT_START script_StockwellBuy
 	EndBlock
 	_0807E864
 	WaitUntilTextboxCloses
-	_0807E3E8
+	CheckTextboxResult
 	JumpIfNot script_080143AC
 	Wait 0x001e
 	Call sub_08065370

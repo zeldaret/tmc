@@ -26,7 +26,7 @@ SCRIPT_START script_08015B34
 	MessageFromTargetPos 0x2506, 0x0002
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerAtIntroBusinessScrub4
-	WaitForSomething2 0x00000004
+	WaitForSyncFlagAndClear 0x00000004
 	Call sub_0807DF50
 	_0807E878
 	Jump script_08015B34

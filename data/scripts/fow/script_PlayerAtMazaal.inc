@@ -8,6 +8,6 @@ SCRIPT_START script_PlayerAtMazaal
 	Wait 0x0008
 	DoPostScriptAction 0x0000
 	Wait 0x0008
-	_0807E5F8 0x00000001
+	SetSyncFlag 0x00000001
 SCRIPT_END
 	.2byte 0x0000

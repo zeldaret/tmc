@@ -9,7 +9,7 @@ script_0800C780:
 	_0807E864
 	Call sub_0807DF28
 	StartPlayerScript script_PlayerAtGentari
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 	CheckInventory1 0x0040
 	JumpIf script_0800C824
 	CheckInventory1 0x005b

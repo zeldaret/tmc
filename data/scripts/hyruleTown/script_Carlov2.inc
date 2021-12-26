@@ -13,7 +13,7 @@ script_0801463A:
 .else
 	JumpIf script_080146A0
 .endif
-	TestBit 0x00000004
+	CheckSyncFlagAndClear 0x00000004
 	JumpIf script_0801477A
 .ifdef EU
 	CheckPlayerInRegion 0x0078, 0x0078, 0x0810
@@ -26,8 +26,8 @@ script_0801463A:
 script_0801469A:
 	StartPlayerScript script_PlayerAtCarlov
 	Wait 0x0010
-	_0807E5F8 0x00000002
-	WaitForSomething2 0x00000001
+	SetSyncFlag 0x00000002
+	WaitForSyncFlagAndClear 0x00000001
 	_0807E878
 	Jump script_0801463A
 script_080146E2:
@@ -80,8 +80,8 @@ script_08014672:
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerAtCarlov
 	Wait 0x0010
-	_0807E5F8 0x00000002
-	WaitForSomething2 0x00000001
+	SetSyncFlag 0x00000002
+	WaitForSyncFlagAndClear 0x00000001
 	_0807E878
 	Jump script_0801463A
 script_080146A0:
@@ -146,7 +146,7 @@ script_0801472E:
 	ClearRoomFlag 0x0006
 	Call sub_08088544
 script_0801473C:
-	_0807E3E8
+	CheckTextboxResult
 	JumpIfNot script_08014770
 	WaitUntilTextboxCloses
 	_0807E3BC 0x0001
@@ -183,7 +183,7 @@ script_0801478A:
 	WaitUntilTextboxCloses
 	Call sub_080885B0
 	WaitPlayerGetItem
-	_0807E5F8 0x00000008
+	SetSyncFlag 0x00000008
 	Jump script_080147CE
 script_080147A4:
 	_0807E930 0x0009

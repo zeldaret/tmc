@@ -486,7 +486,9 @@
 	.include "data/scripts/sanctuary/script_Object6ASwordCharge9.inc"
 	.include "data/scripts/sanctuary/script_Object6ASwordCharge10.inc"
 	.include "data/scripts/sanctuary/script_Object6ASwordCharge11.inc"
+.ifndef EU
 	.include "data/scripts/sanctuary/script_Npc4ELookAtPictureAgain.inc"
+.endif
 	.include "data/scripts/hyruleTown/script_Stockwell.inc"
 	.include "data/scripts/hyruleTown/script_StockwellBuy.inc"
 	.include "data/scripts/hyruleTown/script_StockwellDogFood.inc"

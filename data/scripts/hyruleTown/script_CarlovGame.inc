@@ -13,9 +13,9 @@ SCRIPT_START script_CarlovGame
 	MessageFromTargetPos 0x4215, 0x000c
 	_0807E878 
 script_0801482E:
-	TestBit 0x00000001
+	CheckSyncFlagAndClear 0x00000001
 	JumpIf script_08014862
-	TestBit 0x00000004
+	CheckSyncFlagAndClear 0x00000004
 	JumpIf script_08014878
 	_0807E30C
 	JumpIfNot script_0801482E
@@ -30,18 +30,18 @@ script_08014862:
 	_0807E930 0x0008
 	Wait 0x0020
 	_0807E930 0x0002
-	_0807E5F8 0x00000002
+	SetSyncFlag 0x00000002
 	Jump script_0801482E
 script_08014878:
 	_0807E930 0x0009
 	Wait 0x003c
 	_0807E930 0x0002
-	_0807E5F8 0x00000008
+	SetSyncFlag 0x00000008
 	Jump script_0801482E
 script_0801488E:
-	TestBit 0x00000001
+	CheckSyncFlagAndClear 0x00000001
 	JumpIf script_080148C2
-	TestBit 0x00000004
+	CheckSyncFlagAndClear 0x00000004
 	JumpIf script_080148D8
 	_0807E30C
 	JumpIfNot script_0801488E
@@ -57,12 +57,12 @@ script_080148C2:
 	_0807E930 0x0008
 	Wait 0x0020
 	_0807E930 0x0002
-	_0807E5F8 0x00000002
+	SetSyncFlag 0x00000002
 	Jump script_0801488E
 script_080148D8:
 	_0807E930 0x0009
 	Wait 0x003c
 	_0807E930 0x0002
-	_0807E5F8 0x00000008
+	SetSyncFlag 0x00000008
 	Jump script_0801488E
 	.2byte 0x0000

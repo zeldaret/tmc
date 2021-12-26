@@ -5,7 +5,7 @@ SCRIPT_START script_Goron1Kinstone4
 	_0807E930 0x0008
 	Call sub_0807F348
 	EndBlock
-	WaitFor_2
+	WaitForFadeFinish
 	Wait 0x00f0
 	_0807E930 0x0000
 	_0807EB44 0x0002

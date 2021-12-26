@@ -22,7 +22,7 @@ script_0800B2E2:
 	Call sub_080676E0
 	Call sub_08067534
 	DoPostScriptAction 0x0012
-	_0807E5F8 0x00000001
+	SetSyncFlag 0x00000001
 script_0800B302:
 	EndBlock
 SCRIPT_END

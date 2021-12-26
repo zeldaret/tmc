@@ -8,8 +8,8 @@ SCRIPT_START script_Object69DarknutFight
 	WaitForPlayerAction0x17
 	StartPlayerScript script_PlayerAtDarknutFight
 	Wait 0x0018
-	_0807E5F8 0x00000002
-	WaitForSomething2 0x00000001
+	SetSyncFlag 0x00000002
+	WaitForSyncFlagAndClear 0x00000001
 	SetRoomFlag 0x0000
 	Wait 0x0010
 	PlayBgm BGM_FIGHT_THEME

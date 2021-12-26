@@ -8,6 +8,6 @@ SCRIPT_START script_PlayerAtBombMinish
 	_0807EB44 0x0000
 	Wait 0x000f
 	DoPostScriptAction 0x0000
-	_0807E5F8 0x00000002
+	SetSyncFlag 0x00000002
 	Call sub_080791BC
 SCRIPT_END

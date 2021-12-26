@@ -30,8 +30,8 @@ script_08014632:
 script_08014642:
 	CheckRoomFlag 0x0009
 	JumpIf script_08014642
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000008
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000008
 	Call sub_0807DF50
 	_0807E878
 	Jump script_080145F8
@@ -43,8 +43,8 @@ script_08014642:
 script_08014608:
 	CheckRoomFlag 0x0004
 	JumpIf script_08014608
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000008
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000008
 	Call sub_0807DF50
 	_0807E878
 	Jump script_080145F8

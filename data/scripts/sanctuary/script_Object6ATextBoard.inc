@@ -13,7 +13,7 @@ SCRIPT_START script_Object6ATextBoard
 	JumpIfNot script_08013C98
 	EndBlock
 	DoPostScriptAction 0x0008
-	WaitForSomething2 0x00000004
+	WaitForSyncFlagAndClear 0x00000004
 	_0807E908 0x0002
 	PlaySound SFX_134
 	Jump script_08013C32
@@ -33,7 +33,7 @@ script_08013C32:
 script_08013C58:
 	EndBlock
 	BeginBlock
-	TestBit 0x00000008
+	CheckSyncFlagAndClear 0x00000008
 	JumpIf script_08013C92
 	CheckEntityInteractType
 	JumpIfNot script_08013C58

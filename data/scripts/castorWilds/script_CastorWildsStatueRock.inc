@@ -34,14 +34,14 @@ script_0800B348:
 	Call sub_0806757C
 script_0800B350:
 	EndBlock
-	WaitForSomething2 0x00000002
+	WaitForSyncFlagAndClear 0x00000002
 	PlaySound SFX_ITEM_BOMB_EXPLODE
 	Call sub_080676D8
 	Call sub_0806757C
 	Call sub_080675D4
 	Wait 0x0014
 	BeginBlock
-	_0807E5F8 0x00000001
+	SetSyncFlag 0x00000001
 	CheckKinstoneFused 0x0006
 	JumpIfNot script_0800B350
 	CheckKinstoneFused 0x0007

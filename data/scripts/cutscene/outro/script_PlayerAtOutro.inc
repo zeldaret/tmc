@@ -9,6 +9,6 @@ SCRIPT_START script_PlayerAtOutro
 	Wait 0x000a
 	_0807EB44 0x0006
 	Wait 0x000a
-	_0807E5F8 0x00000001
+	SetSyncFlag 0x00000001
 	Call sub_080791BC
 	.2byte 0x0000

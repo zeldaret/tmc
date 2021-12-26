@@ -11,7 +11,7 @@ script_0800D962:
 	Call sub_0807F9A4
 	Call sub_0807DF28
 	StartPlayerScript script_PlayerAtKingGustav
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 	Wait 0x003c
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000
@@ -20,13 +20,13 @@ script_0800D962:
 	SetEntity0x20 0xffff8000
 	MessageNoOverlap 0x1701
 	WaitUntilTextboxCloses
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000002
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000002
 	MessageNoOverlap 0x1702
 	WaitUntilTextboxCloses
 	SetEntity0x20 0x00010000
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000002
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000002
 	_0807F050 0x006d
 	WaitPlayerGetItem
 	_0807EB28 0x1703

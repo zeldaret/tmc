@@ -10,7 +10,7 @@ script_08013DDC:
 	JumpIfNot script_08013DDC
 	CallWithArg sub_08095D54, 0x00000003
 	PlaySound SFX_ELEMENT_PLACE
-	_0807E5F8 0x40000000
+	SetSyncFlag 0x40000000
 	Call sub_080791BC
 	DoPostScriptAction 0x0006
 SCRIPT_END

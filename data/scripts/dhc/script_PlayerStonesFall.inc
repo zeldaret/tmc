@@ -5,6 +5,6 @@ SCRIPT_START script_PlayerStonesFall
 	DoPostScriptAction 0x0000
 	CallWithArg sub_0807F238, 0x000003c5
 	Call sub_0807F304
-	_0807E5F8 0x00000004
+	SetSyncFlag 0x00000004
 	Call sub_080791BC
 SCRIPT_END

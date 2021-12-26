@@ -14,58 +14,58 @@ script_08008E12:
 	WaitForPlayerAction0x17
 	Wait 0x003c
 	StartPlayerScript script_PlayerEnters
-	WaitForSomething2 0x00000020
-	_0807E5F8 0x00000001
-	WaitForSomething2 0x00000002
-	_0807E5F8 0x00000001
-	WaitForSomething2 0x00000002
+	WaitForSyncFlagAndClear 0x00000020
+	SetSyncFlag 0x00000001
+	WaitForSyncFlagAndClear 0x00000002
+	SetSyncFlag 0x00000001
+	WaitForSyncFlagAndClear 0x00000002
 	Wait 0x003c
-	_0807E5F8 0x00000080
-	WaitForSomething2 0x00000100
-	_0807E5F8 0x00000001
-	WaitForSomething2 0x00000002
+	SetSyncFlag 0x00000080
+	WaitForSyncFlagAndClear 0x00000100
+	SetSyncFlag 0x00000001
+	WaitForSyncFlagAndClear 0x00000002
 	Wait 0x000f
-	_0807E5F8 0x00000080
-	WaitForSomething2 0x00000100
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000008
+	SetSyncFlag 0x00000080
+	WaitForSyncFlagAndClear 0x00000100
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000008
 	MessageFromTargetPos 0x1053, 0x000e
 	WaitUntilTextboxCloses
-	_0807E5F8 0x00000080
-	WaitForSomething2 0x00000100
-	_0807E5F8 0x00000080
-	WaitForSomething2 0x00000100
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000008
-	_0807E5F8 0x00000001
-	WaitForSomething2 0x00000002
-	_0807E5F8 0x00000080
-	WaitForSomething2 0x00000100
-	_0807E5F8 0x00000040
-	WaitForSomething2 0x00000020
-	_0807E5F8 0x00000001
-	WaitForSomething2 0x00000002
-	_0807F034 0x0035
+	SetSyncFlag 0x00000080
+	WaitForSyncFlagAndClear 0x00000100
+	SetSyncFlag 0x00000080
+	WaitForSyncFlagAndClear 0x00000100
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000008
+	SetSyncFlag 0x00000001
+	WaitForSyncFlagAndClear 0x00000002
+	SetSyncFlag 0x00000080
+	WaitForSyncFlagAndClear 0x00000100
+	SetSyncFlag 0x00000040
+	WaitForSyncFlagAndClear 0x00000020
+	SetSyncFlag 0x00000001
+	WaitForSyncFlagAndClear 0x00000002
+	GivePlayerItem 0x0035
 	WaitPlayerGetItem
 	StartPlayerScript script_PlayerGetSword
-	WaitForSomething2 0x00000020
+	WaitForSyncFlagAndClear 0x00000020
 	_0807E8E4_0
-	_0807E5F8 0x00000080
-	WaitForSomething2 0x00000100
-	_0807E5F8 0x00000010
+	SetSyncFlag 0x00000080
+	WaitForSyncFlagAndClear 0x00000100
+	SetSyncFlag 0x00000010
 	Wait 0x0078
-	_0807E5F8 0x00000080
-	WaitForSomething2 0x00000100
+	SetSyncFlag 0x00000080
+	WaitForSyncFlagAndClear 0x00000100
 	_0807E8E4_1
-	_0807E5F8 0x00000001
-	WaitForSomething2 0x00000002
-	_0807F034 0x0047
+	SetSyncFlag 0x00000001
+	WaitForSyncFlagAndClear 0x00000002
+	GivePlayerItem 0x0047
 	WaitPlayerGetItem
 	SetIntVariable 0x00000003
 	Call sub_0807F420
 	_0807E8E4_0
-	_0807E5F8 0x00000080
-	WaitForSomething2 0x00000100
+	SetSyncFlag 0x00000080
+	WaitForSyncFlagAndClear 0x00000100
 	_0807F0B4 0x0004
 	CameraTargetPlayer
 	SetGlobalFlag 0x0015

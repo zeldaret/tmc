@@ -5,7 +5,7 @@ SCRIPT_START script_PlayerIntro
 	_0807E864
 	SetLocalFlag 0x0046
 	EndBlock
-	WaitFor_2
+	WaitForFadeFinish
 	Wait 0x001e
 	@ Wake up message
 	MessageFromTarget 0x1005

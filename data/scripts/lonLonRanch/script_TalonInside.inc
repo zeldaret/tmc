@@ -14,11 +14,11 @@ script_08014E64:
 	_0807EB74
 	CallWithArg sub_0807F78C, 0x00000022
 	WaitUntilTextboxCloses
-	_0807E3E8
+	CheckTextboxResult
 	JumpIfNot script_08014EBC
 	CallWithArg sub_0807F7C4, 0x00000022
 	JumpIfNot script_08014EB0
-	_0807E48C 0x0020
+	CheckBottleContaining 0x0020
 	JumpIfNot script_08014EB8
 	CallWithArg sub_0807F800, 0x00000022
 	WaitPlayerGetItem 

@@ -12,9 +12,9 @@ script_0800B6D4:
 	_0807E864
 	Call sub_0807F9A4
 	StartPlayerScript script_PlayerAtGreatFairy
-	WaitForSomething2 0x00000004
+	WaitForSyncFlagAndClear 0x00000004
 	SetRoomFlag 0x0000
-	WaitForSomething2 0x00000004
+	WaitForSyncFlagAndClear 0x00000004
 	CheckLocalFlag 0x009f
 	JumpIf script_0800B7A2
 	MessageNoOverlap 0x057b
@@ -23,6 +23,6 @@ script_0800B6D4:
 	JumpIf script_0800B6A6
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x009f
-	_0807F034 0x0064
+	GivePlayerItem 0x0064
 	Jump script_0800B698
 	.2byte 0x0000

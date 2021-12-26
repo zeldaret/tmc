@@ -4,12 +4,12 @@ SCRIPT_START script_Object6ASwordCharge6
 	DoPostScriptAction 0x0007
 	_0807E930 0x0005
 	EndBlock
-	WaitForSomething2 0x00000400
+	WaitForSyncFlagAndClear 0x00000400
 	_0807E930 0x0009
 	Call sub_0807F2D4
 	_0807E930 0x000d
-	_0807E5F8 0x00004000
-	WaitForSomething 0x00000020
+	SetSyncFlag 0x00004000
+	WaitForSyncFlag 0x00000020
 	_0807E930 0x0011
 	Call sub_0807F2D4
 	DoPostScriptAction 0x0006

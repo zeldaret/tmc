@@ -10,6 +10,6 @@ SCRIPT_START script_PlayerAtRem
 	Wait 0x0008
 	DoPostScriptAction 0x0004
 	Wait 0x000f
-	_0807E5F8 0x00000004
+	SetSyncFlag 0x00000004
 SCRIPT_END
 	.2byte 0x0000

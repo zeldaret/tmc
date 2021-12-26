@@ -19,7 +19,7 @@ script_0801203A:
 	SetLocalFlag 0x0094
 	Jump script_0801209E
 script_0801205E:
-	_0807E48C 0x0031
+	CheckBottleContaining 0x0031
 	JumpIfNot script_08012070
 	MessageNoOverlap 0x3123
 	WaitUntilTextboxCloses
@@ -27,13 +27,13 @@ script_0801205E:
 script_08012070:
 	MessageNoOverlap 0x3124
 	WaitUntilTextboxCloses
-	_0807E3E8 
+	CheckTextboxResult 
 	JumpIfNot script_0801209E
-	_0807E48C 0x0020
+	CheckBottleContaining 0x0020
 	JumpIfNot script_0801209A
 	MessageNoOverlap 0x3125
 	WaitUntilTextboxCloses
-	_0807F034 0x0031
+	GivePlayerItem 0x0031
 	WaitPlayerGetItem
 .ifdef USA
 	Call sub_0807FC24

@@ -12,6 +12,6 @@ SCRIPT_START script_PlayerFainting
 	DoPostScriptAction 0x0011
 	EndBlock
 	Call sub_0807F2D4
-	WaitForSomething 0x80000000
+	WaitForSyncFlag 0x80000000
 	Call sub_080791BC
 SCRIPT_END

@@ -5,9 +5,9 @@ SCRIPT_START script_GuardStoneOutro2
 	_0807EB44 0x0004
 	_0807E930 0x0010
 	EndBlock
-	WaitForSomething 0x00000001
+	WaitForSyncFlag 0x00000001
 	_0807E930 0x0002
-	WaitForSomething2 0x00000004
+	WaitForSyncFlagAndClear 0x00000004
 	DoPostScriptAction 0x0004
 	Wait 0x003c
 script_0800A848:

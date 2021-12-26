@@ -9,16 +9,16 @@ script_08009DF0:
 	Call sub_0807F9A4
 	Wait 0x0008
 	_0807EB28 0x3207
-	_0807E3E8
+	CheckTextboxResult
 	JumpIfNot script_08009E4E
 	Call sub_0807DF28
 	_0807E778 0x0002
 	DoFade5
-	WaitFor_2
+	WaitForFadeFinish
 	Call sub_0804E864
 	Wait 0x001e
-	_0807E5F8 0x00000002
-	WaitForSomething2 0x00000001
+	SetSyncFlag 0x00000002
+	WaitForSyncFlagAndClear 0x00000001
 	_0807EB28 0x3209
 	Wait 0x000f
 	WaitUntilTextboxCloses

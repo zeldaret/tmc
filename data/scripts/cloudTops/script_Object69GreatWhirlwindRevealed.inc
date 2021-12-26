@@ -7,12 +7,12 @@ SCRIPT_START script_Object69GreatWhirlwindRevealed
 	CameraTargetEntity
 	Call sub_0807FBC4
 	EndBlock
-	_0807E5F8 0x00000008
-	WaitForSomething2 0x00000010
-	_0807E5F8 0x00000002
-	WaitForSomething2 0x00000004
-	_0807E5F8 0x0000000a
-	WaitForSomething2 0x00000004
+	SetSyncFlag 0x00000008
+	WaitForSyncFlagAndClear 0x00000010
+	SetSyncFlag 0x00000002
+	WaitForSyncFlagAndClear 0x00000004
+	SetSyncFlag 0x0000000a
+	WaitForSyncFlagAndClear 0x00000004
 	_0807EEB4
 	_0807F0B4 0x0004
 	CameraTargetPlayer

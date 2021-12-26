@@ -8,7 +8,7 @@ SCRIPT_START script_SturgeonAllBooksCollected
 	SetEntitySpeed 0x0300
 	PlaySound SFX_STAIRS
 	EndBlock
-	WaitForSomething 0x00000002
+	WaitForSyncFlag 0x00000002
 	MessageNoOverlap 0x490d
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0007
@@ -49,7 +49,7 @@ SCRIPT_START script_SturgeonAllBooksCollected
 	_0807EDD4 0x0068, 0x0018
 	Call sub_08064D10
 	PlaySound SFX_STAIRS
-	_0807E5F8 0x00000001
+	SetSyncFlag 0x00000001
 	DoPostScriptAction 0x0006
 SCRIPT_END
 	.2byte 0x0000

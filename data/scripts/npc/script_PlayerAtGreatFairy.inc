@@ -10,7 +10,7 @@ SCRIPT_START script_PlayerAtGreatFairy
 script_0800B7EE:
 	_0807E8E4_0
 	DoPostScriptAction 0x0000
-	_0807E5F8 0x00000004
+	SetSyncFlag 0x00000004
 SCRIPT_END
 script_0800B7FC:
 	CallWithArg sub_0807F4F8, 0x00000090

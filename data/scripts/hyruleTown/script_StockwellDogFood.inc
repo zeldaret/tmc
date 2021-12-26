@@ -9,7 +9,7 @@ SCRIPT_START script_StockwellDogFood
 	Wait 0x003c
 	MessageNoOverlap 0x2c16
 	WaitUntilTextboxCloses
-	_0807E3E8 
+	CheckTextboxResult 
 	JumpIf script_080143FA
 	SetIntVariable 0x00000002
 	Call sub_08065528
@@ -22,7 +22,7 @@ script_080143FA:
 	Wait 0x000a
 	SetIntVariable 0x00000000
 	Call sub_08065528
-	_0807F034 0x0036
+	GivePlayerItem 0x0036
 	WaitPlayerGetItem 
 	MessageNoOverlap 0x2c19
 	WaitUntilTextboxCloses

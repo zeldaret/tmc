@@ -7,26 +7,26 @@ SCRIPT_START script_MinishEzloOutro
 	_0807EB44 0x0004
 	CallWithArg sub_0807F3D8, 0x00000000
 	EndBlock
-	WaitForSomething2 0x00000002
+	WaitForSyncFlagAndClear 0x00000002
 	_0807E930 0x000e
 	DoPostScriptAction 0x0007
 	Call sub_0807F2D4
 	DoPostScriptAction 0x0004
-	_0807E5F8 0x00000040
-	WaitForSomething2 0x00000002
+	SetSyncFlag 0x00000040
+	WaitForSyncFlagAndClear 0x00000002
 	_0807E930 0x000c
 	Call sub_0807F2D4
-	_0807E5F8 0x00000040
-	WaitForSomething2 0x00000002
+	SetSyncFlag 0x00000040
+	WaitForSyncFlagAndClear 0x00000002
 	_0807E930 0x000f
 	Call sub_0807F2D4
-	_0807E5F8 0x00000040
-	WaitForSomething2 0x00000002
+	SetSyncFlag 0x00000040
+	WaitForSyncFlagAndClear 0x00000002
 	_0807E930 0x000c
 	Call sub_0807F2D4
-	_0807E5F8 0x00000040
-	WaitForSomething2 0x00000002
+	SetSyncFlag 0x00000040
+	WaitForSyncFlagAndClear 0x00000002
 	CallWithArg sub_080960C4, script_EzloZeldaMagic
-	_0807E5F8 0x00000040
+	SetSyncFlag 0x00000040
 SCRIPT_END
 	.2byte 0x0000

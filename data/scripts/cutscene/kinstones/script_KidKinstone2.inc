@@ -9,14 +9,14 @@ SCRIPT_START script_KidKinstone2
 	DoPostScriptAction 0x000b
 	EndBlock
 	Call sub_0807F348
-	WaitForSomething2 0x00000008
+	WaitForSyncFlagAndClear 0x00000008
 	DoPostScriptAction 0x0007
 	_0807EDD4 0x01d8, 0x0328
 	_0807EDD4 0x01f8, 0x0348
 	_0807EB44 0x0000
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x000a
-	_0807E5F8 0x00000100
+	SetSyncFlag 0x00000100
 script_0800F478:
 	EndBlock
 	BeginBlock
@@ -29,7 +29,7 @@ script_0800F478:
 	WaitUntilTextboxCloses
 	_0807E878 
 script_0800F490:
-	TestBit 0x00000008
+	CheckSyncFlagAndClear 0x00000008
 	JumpIfNot script_0800F478
 	EndBlock
 	DoPostScriptAction 0x000b
@@ -38,7 +38,7 @@ script_0800F490:
 	_0807EC94 0x0010
 	_0807EC64 0x0020
 	_0807EDD4 0x0288, 0x0328
-	_0807E5F8 0x00000100
+	SetSyncFlag 0x00000100
 	DoPostScriptAction 0x0006
 SCRIPT_END
 	.2byte 0x0000

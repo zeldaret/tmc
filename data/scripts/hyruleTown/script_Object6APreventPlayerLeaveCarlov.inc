@@ -12,8 +12,8 @@ script_0801454C:
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerWhenLeavingCarlovAlreadyPaid
 	Wait 0x0010
-	_0807E5F8 0x00000001
-	WaitForSomething2 0x00000002
+	SetSyncFlag 0x00000001
+	WaitForSyncFlagAndClear 0x00000002
 	_0807E878
 	Jump script_0801454C
 SCRIPT_END

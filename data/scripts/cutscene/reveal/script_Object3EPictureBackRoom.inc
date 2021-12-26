@@ -6,17 +6,17 @@ SCRIPT_START script_Object3EPictureBackRoom
 	Call sub_0807F9A4
 	Call sub_0807DF28
 	StartPlayerScript script_PlayerAtPicture
-	WaitForSomething2 0x00000002
+	WaitForSyncFlagAndClear 0x00000002
 	_0807EB28 0x1601
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerMoveToPicture
-	WaitForSomething2 0x00000002
+	WaitForSyncFlagAndClear 0x00000002
 	_0807E778 0x0004
 	DoFade5
-	WaitFor_2
+	WaitForFadeFinish
 	LoadRoomEntityList gUnk_080F5680
 	StartPlayerScript script_PlayerSanctuaryIntro
-	WaitForSomething2 0x00000002
+	WaitForSyncFlagAndClear 0x00000002
 	MoveEntityToPlayer
 	OffsetEntityPosition 0x0000, 0xfff0
 	Call sub_0807F844
@@ -24,29 +24,29 @@ SCRIPT_START script_Object3EPictureBackRoom
 	Call sub_080536B8
 	_0807E864
 	Call sub_0807DF28
-	WaitFor_2
+	WaitForFadeFinish
 	MessageFromTargetPos 0x1602, 0x000c
 	WaitUntilTextboxCloses
-	_0807E5F8 0x00000008
-	WaitForSomething2 0x00000010
-	_0807E5F8 0x00000020
-	WaitForSomething2 0x00000040
+	SetSyncFlag 0x00000008
+	WaitForSyncFlagAndClear 0x00000010
+	SetSyncFlag 0x00000020
+	WaitForSyncFlagAndClear 0x00000040
 	PlayBgm BGM_VAATI_THEME
 	StartPlayerScript script_PlayerDistanceFromVaati
-	WaitForSomething2 0x00000002
-	_0807E5F8 0x00000020
-	WaitForSomething2 0x00000040
+	WaitForSyncFlagAndClear 0x00000002
+	SetSyncFlag 0x00000020
+	WaitForSyncFlagAndClear 0x00000040
 	StartPlayerScript script_PlayerFaintAgain
-	_0807E5F8 0x00000020
-	WaitForSomething2 0x00000042
+	SetSyncFlag 0x00000020
+	WaitForSyncFlagAndClear 0x00000042
 	MessageFromTargetPos 0x1603, 0x000c
 	WaitUntilTextboxCloses
-	_0807E5F8 0x00000020
-	WaitForSomething2 0x00000040
+	SetSyncFlag 0x00000020
+	WaitForSyncFlagAndClear 0x00000040
 	SetFadeMask 0xffff7fff
 	_0807E778 0x0004
 	DoFade5
-	WaitFor_2
+	WaitForFadeFinish
 	StopBgm
 	_0807E858 0x0000
 	Wait 0x003c
@@ -57,9 +57,9 @@ SCRIPT_START script_Object3EPictureBackRoom
 	SetFadeMask 0xffffffff
 	_0807E778 0x0004
 	DoFade4
-	WaitFor_2
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000002
+	WaitForFadeFinish
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000002
 	_0807EB28 0x1605
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x0078

@@ -14,15 +14,15 @@ script_08014FCC:
 	_0807F0B4 0x0001
 	CameraTargetEntity
 	StartPlayerScript script_PlayerAtVaatisAppearance
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 	MessageFromTargetPos 0x1301, 0x0002
 	WaitUntilTextboxCloses
 	Call sub_0807F3F8
 	Wait 0x003c
-	_0807E5F8 0x00000002
-	WaitForSomething2 0x00000004
-	_0807E5F8 0x00000002
-	WaitForSomething2 0x00000004
+	SetSyncFlag 0x00000002
+	WaitForSyncFlagAndClear 0x00000004
+	SetSyncFlag 0x00000002
+	WaitForSyncFlagAndClear 0x00000004
 	PlayBgm BGM_VAATI_THEME
 	_0807EB28 0x1302
 	WaitUntilTextboxCloses
@@ -32,8 +32,8 @@ script_08014FCC:
 	WaitUntilTextboxCloses
 	MessageFromTargetPos 0x1305, 0x0002
 	WaitUntilTextboxCloses
-	_0807E5F8 0x00000002
-	WaitForSomething2 0x00000004
+	SetSyncFlag 0x00000002
+	WaitForSyncFlagAndClear 0x00000004
 	_0807EB28 0x1306
 	WaitUntilTextboxCloses
 	StopBgm
@@ -41,7 +41,7 @@ script_08014FCC:
 	CameraTargetEntity
 	_0807F0B4 0x0003
 	SetEntityPositionRelative 0x01f8, 0x0148
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 	Call sub_0804F6A8
 	Wait 0x0004
 	Call sub_0804F808
@@ -64,7 +64,7 @@ script_08014FCC:
 	Call sub_0804F8E0
 	PlaySound SFX_10B
 	Wait 0x003c
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 	PlaySound SFX_1B0
 	Call sub_0804F79C
 	Wait 0x000a
@@ -81,7 +81,7 @@ script_08015104:
 	Call sub_0807DF28
 	StopBgm
 	StartPlayerScript script_PlayerDefeatedMoblins
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 	Wait 0x003c
 	Call sub_0804F6A8
 	Wait 0x0004
@@ -126,7 +126,7 @@ script_08015104:
 	CameraTargetPlayer
 	_0807E778 0x0004
 	_0807E80C 0x00000000
-	WaitFor_2
+	WaitForFadeFinish
 	Call sub_08053B3C
 	BeginBlock
 	_0807E864
@@ -139,13 +139,13 @@ script_08015104:
 	_0807E80C 0x00000000
 	EndBlock
 	StartPlayerScript script_PlayerSeenOriginStory
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 	LoadRoomEntityList gUnk_080F7CB0
 	_0807E778 0x0004
 	_0807E800 0x00000000
-	WaitFor_2
-	_0807E5F8 0x00000008
-	WaitForSomething2 0x00000010
+	WaitForFadeFinish
+	SetSyncFlag 0x00000008
+	WaitForSyncFlagAndClear 0x00000010
 	BeginBlock
 	_0807E8E4_2
 	_0807EB28 0x1315

@@ -21,7 +21,7 @@ script_080106E0:
 	Call sub_08062EB8
 	CallWithArg sub_0807F78C, 0x00000000
 	WaitUntilTextboxCloses
-	_0807E3E8
+	CheckTextboxResult
 	JumpIfNot script_08010726
 	WaitUntilTextboxCloses
 	BuyItem 0x0000, 0x0000

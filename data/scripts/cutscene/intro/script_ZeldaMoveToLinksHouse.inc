@@ -5,7 +5,7 @@ SCRIPT_START script_ZeldaMoveToLinksHouse
 	SetEntitySpeed 0x00c0
 	DoPostScriptAction 0x0008
 	EndBlock
-	WaitForSomething2 0x00000004
+	WaitForSyncFlagAndClear 0x00000004
 	DoPostScriptAction 0x0007
 	_0807EDD4 0x01e8, 0x0200
 	_0807EDD4 0x01f8, 0x0218
@@ -21,7 +21,7 @@ SCRIPT_START script_ZeldaMoveToLinksHouse
 	_0807EDD4 0x0290, 0x0198
 	Wait 0x001e
 	@ Door is opening
-	_0807E5F8 0x00000010 @ Send signal to door
+	SetSyncFlag 0x00000010 @ Send signal to door
 	_0807EDD4 0x0290, 0x0190
 	DoPostScriptAction 0x0008
 	_0807EDD4 0x0290, 0x0188

@@ -22,10 +22,10 @@ script_08016204:
 	WaitUntilTextboxCloses
 	Call sub_08068DD0
 	WaitUntilTextboxCloses
-	_0807E3E8
+	CheckTextboxResult
 	JumpIfNot script_08016346
 	StartPlayerScript script_PlayerAtBladeBrothers
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 	_0807EB74
 	Call sub_08068C8C
 	JumpIf script_08016262

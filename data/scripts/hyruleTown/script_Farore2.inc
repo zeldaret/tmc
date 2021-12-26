@@ -27,7 +27,7 @@ script_08011FAE:
 script_08011FE4:
 	MessageNoOverlap 0x3110
 	WaitUntilTextboxCloses
-	_0807E3E8 
+	CheckTextboxResult 
 	JumpIf script_0801200C
 script_08011FF0:
 	_0807E878

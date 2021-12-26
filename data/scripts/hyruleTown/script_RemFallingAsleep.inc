@@ -9,7 +9,7 @@ SCRIPT_START script_RemFallingAsleep
 	SetLocalFlag 0x0060
 	ClearLocalFlag 0x0061
 	EndBlock
-	WaitForSomething2 0x00000004
+	WaitForSyncFlagAndClear 0x00000004
 	_0807E908 0x0004
 	Call sub_0806A958
 	CallWithArg sub_0807F93C, 0x0000f2f4
@@ -61,8 +61,8 @@ script_08013006:
 	Wait 0x00f0
 	MessageNoOverlap 0x4405
 	WaitUntilTextboxCloses
-	_0807E5F8 0x00000200
-	_0807F034 0x0015
+	SetSyncFlag 0x00000200
+	GivePlayerItem 0x0015
 	WaitPlayerGetItem
 	_0807EB8C
 	MessageNoOverlap 0x4406

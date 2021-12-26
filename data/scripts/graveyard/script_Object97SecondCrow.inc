@@ -6,13 +6,13 @@ SCRIPT_START script_Object97SecondCrow
 	SetEntitySpeed 0x0300
 	Call sub_0807F348
 	EndBlock
-	WaitForSomething2 0x00000008
+	WaitForSyncFlagAndClear 0x00000008
 	Call sub_0809E0A0
 	Call sub_0809E0D4
 	PlaySound SFX_1F3
 	Call sub_0807FBD4
 	PlaySound SFX_1F3
-	_0807E5F8 0x00000010
+	SetSyncFlag 0x00000010
 	DoPostScriptAction 0x0006
 SCRIPT_END
 	.2byte 0x0000

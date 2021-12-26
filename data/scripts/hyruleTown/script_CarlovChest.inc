@@ -9,11 +9,11 @@ script_080148F4:
 	Call sub_0806E140
 	JumpIfNot script_08014932
 	WaitUntilTextboxCloses
-	_0807E3E8
+	CheckTextboxResult
 	JumpIfNot script_08014938
 	_0807E864
-	_0807E5F8 0x00000001
-	WaitForSomething2 0x00000002
+	SetSyncFlag 0x00000001
+	WaitForSyncFlagAndClear 0x00000002
 	Call sub_0806E1E0
 	WaitUntilTextboxCloses
 	Wait 0x0018
@@ -23,8 +23,8 @@ script_08014932:
 	WaitUntilTextboxCloses
 	Jump script_08014938
 script_08014938:
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000008
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000008
 	Call sub_0806E1FC
 	Wait 0x001e
 	Call sub_0807DF50

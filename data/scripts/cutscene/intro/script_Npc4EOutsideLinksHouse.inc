@@ -9,9 +9,9 @@ SCRIPT_START script_Npc4EOutsideLinksHouse
 	EndBlock
 	_0807E778 0x0010
 	DoFade6
-	WaitFor_2
-	_0807E5F8 0x00000001
-	WaitForSomething2 0x00000002
+	WaitForFadeFinish
+	SetSyncFlag 0x00000001
+	WaitForSyncFlagAndClear 0x00000002
 	_0807F0B4 0x0004
 	CameraTargetPlayer
 	Call sub_0807DF50

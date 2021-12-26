@@ -7,7 +7,7 @@ SCRIPT_START script_PlayerGetSword
 	Call sub_0807F304
 	MessageFromTargetPos 0x0501, 0x000e
 	WaitUntilTextboxCloses
-	_0807E5F8 0x00000020
+	SetSyncFlag 0x00000020
 	Call sub_080791BC
 SCRIPT_END
 	.2byte 0x0000

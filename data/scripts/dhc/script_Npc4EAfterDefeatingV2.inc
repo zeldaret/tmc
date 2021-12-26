@@ -15,8 +15,8 @@ script_0800DB7C:
 	_0807EB28 0x1648
 	WaitUntilTextboxCloses
 	Call sub_0804D7EC
-	_0807E5F8 0x00000001
-	WaitForSomething2 0x00000002
+	SetSyncFlag 0x00000001
+	WaitForSyncFlagAndClear 0x00000002
 	Call sub_0807DF50
 	_0807E878
 script_0800DBCA:
@@ -29,18 +29,18 @@ script_0800DBCA:
 	Call sub_0807F3F8
 	Wait 0x003c
 	StartPlayerScript script_PlayerRescuedZelda
-	WaitForSomething2 0x00000004
-	_0807E5F8 0x00000001
-	WaitForSomething2 0x00000002
-	_0807E5F8 0x00000001
+	WaitForSyncFlagAndClear 0x00000004
+	SetSyncFlag 0x00000001
+	WaitForSyncFlagAndClear 0x00000002
+	SetSyncFlag 0x00000001
 	StartPlayerScript script_PlayerAfterDefeatingV2
-	WaitForSomething2 0x00000006
+	WaitForSyncFlagAndClear 0x00000006
 	MessageFromTargetPos 0x1643, 0x0002
 	WaitUntilTextboxCloses
 	_0807EB28 0x1645
 	WaitUntilTextboxCloses
 	Call sub_0807F3F8
-	_0807E5F8 0x00000001
+	SetSyncFlag 0x00000001
 	StopBgm
 	Call sub_08094F98
 	CallWithArg CreateManager36, 0x00000001

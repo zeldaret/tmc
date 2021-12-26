@@ -13,7 +13,7 @@ SCRIPT_START script_ZeldaLeaveLinksHouse
 	DoPostScriptAction 0x0008
 	_0807E778 0x0010
 	DoFade5
-	WaitFor_2
+	WaitForFadeFinish
 	Call sub_08053634
 	DoPostScriptAction 0x0006
 SCRIPT_END

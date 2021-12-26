@@ -1,7 +1,7 @@
 @ Castor Wilds OBJECT_69?
 SCRIPT_START script_Object69
 	BeginBlock
-	_0807E5F8 0x00000000
+	SetSyncFlag 0x00000000
 .ifdef JP
 	CheckLocalFlag 0x001e
 .else
@@ -19,13 +19,13 @@ SCRIPT_START script_Object69
 	SetEntitySpeed 0x00c0
 	EndBlock
 script_0800B216:
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 	Call sub_0807DF28
 	MoveEntityToPlayer
 	CameraTargetEntity
 	_0807EDD4 0x0068, 0x0380
-	_0807E5F8 0x00000002
-	WaitForSomething2 0x00000001
+	SetSyncFlag 0x00000002
+	WaitForSyncFlagAndClear 0x00000001
 	Call sub_0807DF50
 	Wait 0x000c
 	CameraTargetPlayer

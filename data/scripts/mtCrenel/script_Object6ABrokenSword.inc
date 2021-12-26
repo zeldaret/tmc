@@ -7,9 +7,9 @@ SCRIPT_START script_Object6ABrokenSword
 	JumpIf script_0800D242
 	DoPostScriptAction 0x0008
 	EndBlock
-	WaitForSomething2 0x00000010
+	WaitForSyncFlagAndClear 0x00000010
 	DoPostScriptAction 0x0007
-	WaitForSomething2 0x00000010
+	WaitForSyncFlagAndClear 0x00000010
 SCRIPT_END
 script_0800D242:
 	DoPostScriptAction 0x0007

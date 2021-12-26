@@ -5,7 +5,7 @@ SCRIPT_START script_Object6ASwordCharge2
 	_0807E930 0x0001
 	Call sub_0807F738
 	EndBlock
-	WaitForSomething 0x00000040
+	WaitForSyncFlag 0x00000040
 	DoPostScriptAction 0x0006
 SCRIPT_END
 	.2byte 0x0000

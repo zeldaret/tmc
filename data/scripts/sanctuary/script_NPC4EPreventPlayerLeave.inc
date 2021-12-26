@@ -23,7 +23,7 @@ script_08013FF0:
 	_0807EB28 0x1508
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerSanctuary
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 	Call sub_0807DF50
 	_0807E878
 	Jump script_08013FF0

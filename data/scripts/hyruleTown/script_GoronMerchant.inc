@@ -51,7 +51,7 @@ script_08010860:
 	_0807EB74
 	Call sub_08069660
 	WaitUntilTextboxCloses
-	_0807E3E8
+	CheckTextboxResult
 	JumpIfNot script_080108B2
 	Call GoronMerchant_TryToBuyKinstone
 	JumpIfNot script_080108B2

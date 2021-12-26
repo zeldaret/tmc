@@ -16,7 +16,7 @@ script_08014462:
 	MessageFromTarget 0x4202
 	MessageFromTarget 0x4203
 	WaitUntilTextboxCloses
-	_0807E3E8 
+	CheckTextboxResult 
 	JumpIfNot script_080144F0
 	DoPostScriptAction 0x0001
 	Wait 0x008c

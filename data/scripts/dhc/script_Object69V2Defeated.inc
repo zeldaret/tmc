@@ -11,9 +11,9 @@ SCRIPT_START script_Object69V2Defeated
 	WaitUntilTextboxCloses
 	SetRoomFlag 0x0000
 	Wait 0x001e
-	_0807E5F8 0x00000001
+	SetSyncFlag 0x00000001
 	StartPlayerScript script_PlayerV2Defeated
-	WaitForSomething2 0x00000002
+	WaitForSyncFlagAndClear 0x00000002
 	Call sub_0807DF50
 	_0807E878
 	DoPostScriptAction 0x0006

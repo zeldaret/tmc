@@ -11,11 +11,11 @@ SCRIPT_START script_Object6ADarkMagic
 	_0807EDD4 0x0078, 0x00b8
 	PlaySound SFX_1C6
 	Call sub_08094B80
-	_0807E5F8 0x00020000
+	SetSyncFlag 0x00020000
 	SetEntitySpeed 0x0080
-	WaitForSomething2 0x00040000
+	WaitForSyncFlagAndClear 0x00040000
 	_0807EDD4 0x0078, 0x00c8
-	_0807E5F8 0x00080000
-	WaitForSomething2 0x00040000
+	SetSyncFlag 0x00080000
+	WaitForSyncFlagAndClear 0x00040000
 	DoPostScriptAction 0x0006
 SCRIPT_END

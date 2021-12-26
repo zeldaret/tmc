@@ -17,7 +17,7 @@ script_0801091C:
 	WaitUntilTextboxCloses
 script_08010942:
 	StartPlayerScript script_PlayerAtInnDoor
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 	Call sub_0807DF50
 	_0807E878
 	Jump script_0801091C

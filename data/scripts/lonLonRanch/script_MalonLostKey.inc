@@ -10,7 +10,7 @@ script_0800B4BC:
 	BeginBlock
 	CheckEntityInteractType
 	JumpIf script_0800B4D4
-	TestBit 0x00000008
+	CheckSyncFlagAndClear 0x00000008
 	JumpIf script_0800B4F0
 	Jump script_0800B4BC
 script_0800B4D4:
@@ -25,20 +25,20 @@ script_0800B4D4:
 	Jump script_0800B4BC
 script_0800B4F0:
 	EndBlock
-	_0807E610 0x00000008
+	ClearSyncFlag 0x00000008
 	_0807EDD4 0x0134, 0x0288
 	_0807EB44 0x0004
-	WaitForSomething2 0x00000008
+	WaitForSyncFlagAndClear 0x00000008
 	MessageFromTarget 0x2016
 	WaitUntilTextboxCloses
 	_0807EDD4 0x0158, 0x0288
 	DoPostScriptAction 0x0000
 	_0807EB44 0x0000
 	Wait 0x000a
-	_0807E5F8 0x00000010
+	SetSyncFlag 0x00000010
 	DoPostScriptAction 0x0008
 	Wait 0x001e
-	_0807E5F8 0x00000010
+	SetSyncFlag 0x00000010
 	SetGlobalFlag 0x001d
 	Call sub_0807921C
 	_0807E878

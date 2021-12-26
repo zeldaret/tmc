@@ -15,7 +15,7 @@ script_08012368:
 	DoFade5
 	_0807E858 0x0080
 	EndBlock
-	WaitFor_2
+	WaitForFadeFinish
 	PlayBgm BGM_ELEMENTAL_SANCTUARY
 	_0807EB28 0x1401
 	WaitUntilTextboxCloses
@@ -27,7 +27,7 @@ script_08012368:
 	Wait 0x003c
 	_0807E8E4_0
 	StartPlayerScript script_PlayerAfterToD
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 	MessageNoOverlap 0x1402
 	WaitUntilTextboxCloses
 	StopBgm
@@ -39,7 +39,7 @@ script_08012368:
 	DoFade4
 	_0807E858 0x0080
 	EndBlock
-	WaitFor_2
+	WaitForFadeFinish
 	PlayBGM
 	_0807EB28 0x1403
 	WaitUntilTextboxCloses

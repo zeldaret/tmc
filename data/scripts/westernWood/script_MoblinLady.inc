@@ -15,7 +15,7 @@ script_08012338:
 	CheckLocalFlag 0x0042
 	JumpIf script_0801235A
 	SetLocalFlag 0x0042
-	_0807F034 0x0057
+	GivePlayerItem 0x0057
 	WaitPlayerGetItem
 script_0801235A:
 	_0807E878

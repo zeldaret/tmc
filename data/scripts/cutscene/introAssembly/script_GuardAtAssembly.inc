@@ -4,7 +4,7 @@ SCRIPT_START script_GuardAtAssembly
 	_0807EB44 0x0000
 	_0807E930 0x0000
 	EndBlock
-	WaitForSomething 0x00000010
+	WaitForSyncFlag 0x00000010
 	PlaySound SFX_11C
 	_0807E930 0x0001
 	Wait 0x0010

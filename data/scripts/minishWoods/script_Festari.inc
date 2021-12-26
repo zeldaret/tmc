@@ -20,7 +20,7 @@ script_0800C652:
 	DoPostScriptAction 0x000b
 script_0800C674:
 	StartPlayerScript script_PlayerAtFestari
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 	DoPostScriptAction 0x000a
 script_0800C684:
 	CheckInventory1 0x0040

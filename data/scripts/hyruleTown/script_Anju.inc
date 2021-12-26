@@ -14,7 +14,7 @@ script_0801015A:
 	JumpIf script_0801019E
 	MessageFromTargetPos 0x3001, 0x0000
 	WaitUntilTextboxCloses
-	_0807E3E8 
+	CheckTextboxResult 
 	JumpIfNot script_080101A6
 	Call sub_080A1608
 	WaitUntilTextboxCloses
@@ -43,7 +43,7 @@ script_080101AC:
 	StopBgm
 	_0807E778 0x0004
 	DoFade5
-	WaitFor_2
+	WaitForFadeFinish
 	CallWithArg sub_0807F75C, 0x03400378
 	Call sub_080791BC
 	Call sub_0807FB74
@@ -58,7 +58,7 @@ script_080101AC:
 	EndBlock
 	_0807E778 0x0004
 	DoFade4
-	WaitFor_2
+	WaitForFadeFinish
 	PlayBGM
 	Call sub_080A13B4
 	WaitUntilTextboxCloses

@@ -9,9 +9,9 @@ script_0801619A:
 	_0807E864
 	GetInventoryValue 0x0024
 	MessageFromTargetTable 0x2d05, 0x2d04, 0x2d04, 0x2d04
-	_0807E3E8 
+	CheckTextboxResult 
 	JumpIfNot script_080161E2
-	_0807E48C 0x0020
+	CheckBottleContaining 0x0020
 	JumpIf script_080161C6
 	MessageFromTarget 0x2d0c
 	Jump script_080161E2

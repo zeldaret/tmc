@@ -6,7 +6,7 @@ SCRIPT_START script_ObjectB3KinstoneSparkGoron
 	_0807E930 0x0004
 	DoPostScriptAction 0x0008
 	EndBlock
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 	Wait 0x000a
 	DoPostScriptAction 0x0007
 	PlaySound SFX_136

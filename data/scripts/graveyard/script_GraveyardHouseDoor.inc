@@ -13,7 +13,7 @@ script_080096AC:
 	Call sub_0807F9A4
 	Call sub_0807DF28
 	StartPlayerScript script_PlayerAtGraveyardHouseDoor
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 	PlaySound SFX_111
 	DoPostScriptAction 0x0008
 	LoadRoomEntityList gUnk_080D9048

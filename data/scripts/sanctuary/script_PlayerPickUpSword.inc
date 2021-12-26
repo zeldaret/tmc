@@ -4,10 +4,10 @@ SCRIPT_START script_PlayerPickUpSword
 	CallWithArg sub_0807F238, 0x000008bf
 	Call sub_08096028
 	Wait 0x003c
-	_0807E5F8 0x00020000
+	SetSyncFlag 0x00020000
 	Call sub_0807F304
 	Wait 0x0078
-	WaitForSomething2 0x00040000
+	WaitForSyncFlagAndClear 0x00040000
 	Call sub_080791BC
 SCRIPT_END
 	.2byte 0x0000

@@ -5,12 +5,12 @@ SCRIPT_START script_GuardEntryRight
 	_0807EB44 0x0006
 	_0807E930 0x0003
 	EndBlock
-	WaitForSomething2 0x00200000
+	WaitForSyncFlagAndClear 0x00200000
 	_0807E930 0x0007
 	PlaySound SFX_11C
 	_0807EC94 0x0010
 	_0807E930 0x0003
-	_0807E5F8 0x00400000
-	WaitForSomething2 0x00200000
+	SetSyncFlag 0x00400000
+	WaitForSyncFlagAndClear 0x00200000
 	DoPostScriptAction 0x0006
 SCRIPT_END

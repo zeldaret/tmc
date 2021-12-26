@@ -8,7 +8,7 @@ SCRIPT_START script_PlayerAtGraveyardHouseDoor
 	Wait 0x000a
 	DoPostScriptAction 0x0004
 	Wait 0x003c
-	_0807E5F8 0x00000001
+	SetSyncFlag 0x00000001
 	DoPostScriptAction 0x000d
 	SetEntitySpeed 0x0100
 	_0807ECC4 0x0010

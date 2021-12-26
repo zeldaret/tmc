@@ -19,14 +19,14 @@ script_08014F4A:
 	CallWithArg sub_0807F854, 0x00010064
 	EndBlock
 	WaitUntilTextboxCloses
-	_0807E3E8
+	CheckTextboxResult
 	JumpIfNot script_08014FA6
 	HasRupees 0x0064
 	JumpIfNot script_08014F9A
-	_0807E48C 0x0020
+	CheckBottleContaining 0x0020
 	JumpIfNot script_08014FA2
 	ModRupees 0xff9c
-	_0807F034 0x0022
+	GivePlayerItem 0x0022
 	WaitPlayerGetItem 
 	MessageNoOverlap 0x3b11
 	Jump script_08014FA6

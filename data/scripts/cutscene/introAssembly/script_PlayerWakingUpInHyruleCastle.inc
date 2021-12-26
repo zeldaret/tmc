@@ -20,7 +20,7 @@ SCRIPT_START script_PlayerWakingUpInHyruleCastle
 	Wait 0x003c
 	_0807E778 0x0004
 	DoFade4
-	WaitFor_2
+	WaitForFadeFinish
 script_08009EA4:
 	Call sub_0807F0D8
 	JumpIfNot script_08009EA4

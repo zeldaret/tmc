@@ -9,12 +9,12 @@ SCRIPT_START script_ZeldaOutsideLinksHouse
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000
 	EndBlock
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 	Call sub_08066E08
 	_0807E864 
 	MessageFromTargetPos 0x1010, 0x000c
 	WaitUntilTextboxCloses
-	_0807E5F8 0x00000002
+	SetSyncFlag 0x00000002
 script_08014D1E:
 	EndBlock
 	BeginBlock

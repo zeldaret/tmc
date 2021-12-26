@@ -5,17 +5,17 @@ SCRIPT_START script_Object6AMinishCap
 	SetEntitySpeed 0x0040
 	Call sub_08094B80
 	EndBlock
-	WaitForSomething2 0x00000080
+	WaitForSyncFlagAndClear 0x00000080
 	CallWithArg CreateManager36, 0x00000003
 	Call sub_08094B0C
 	_0807EDD4 0x0078, 0x0068
-	_0807E5F8 0x00000100
-	WaitForSomething2 0x00000080
+	SetSyncFlag 0x00000100
+	WaitForSyncFlagAndClear 0x00000080
 	_0807EF3C 0xff80, 0x0000
 	CallWithArg DeleteManager36, 0x00000003
 	Wait 0x003c
-	_0807E5F8 0x00000100
-	WaitForSomething2 0x00000080
+	SetSyncFlag 0x00000100
+	WaitForSyncFlagAndClear 0x00000080
 	_0807E930 0x0001
 	Call sub_0807F2D4
 	DoPostScriptAction 0x0006

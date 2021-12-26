@@ -16,7 +16,7 @@ script_0801248A:
 	CameraTargetPlayer 
 	_0807E778 0x0004
 	_0807E80C 0x00000000
-	WaitFor_2
+	WaitForFadeFinish
 	_0807E858 0x0000
 	Call sub_080791BC
 	LoadRoomEntityList gUnk_080F4D70
@@ -25,29 +25,29 @@ script_0801248A:
 	Call sub_0807F844
 	_0807E778 0x0004
 	_0807E800 0x00000000
-	WaitFor_2
+	WaitForFadeFinish
 	PlayBgm BGM_EZLO_THEME
-	_0807E5F8 0x00000010
-	WaitForSomething2 0x00000020
-	WaitForSomething2 0x00000100
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000008
-	_0807E5F8 0x00000040
-	WaitForSomething2 0x00000080
-	WaitForSomething2 0x00000100
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000008
+	SetSyncFlag 0x00000010
+	WaitForSyncFlagAndClear 0x00000020
+	WaitForSyncFlagAndClear 0x00000100
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000008
+	SetSyncFlag 0x00000040
+	WaitForSyncFlagAndClear 0x00000080
+	WaitForSyncFlagAndClear 0x00000100
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000008
 	StopBgm
 	_0807E778 0x0004
 	_0807E80C 0x00000000
-	WaitFor_2
+	WaitForFadeFinish
 	MoveEntityToPlayer
 	Call sub_0807F844
 	CameraTargetPlayer
 	SetFadeMask 0xffffffff
 	_0807E778 0x0004
 	_0807E800 0x00000000
-	WaitFor_2
+	WaitForFadeFinish
 	Call sub_0807DF50
 	_0807E878
 	PlayBGM
@@ -60,55 +60,55 @@ script_08012566:
 	Call sub_0806DC7C
 	StopBgm
 	StartPlayerScript script_PlayerEzloBeingBullied
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 	SetEntityPositionRelative 0x0388, 0x0168
 	_0807F0B4 0x0001
 	CameraTargetEntity
 	Wait 0x005a
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000008
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000008
 	PlayBgm BGM_EZLO_THEME
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000008
-	_0807E5F8 0x00000040
-	WaitForSomething2 0x00000080
-	WaitForSomething2 0x00000100
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000008
-	_0807E5F8 0x00000010
-	WaitForSomething2 0x00000020
-	WaitForSomething2 0x00000100
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000008
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000008
+	SetSyncFlag 0x00000040
+	WaitForSyncFlagAndClear 0x00000080
+	WaitForSyncFlagAndClear 0x00000100
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000008
+	SetSyncFlag 0x00000010
+	WaitForSyncFlagAndClear 0x00000020
+	WaitForSyncFlagAndClear 0x00000100
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000008
 	StopBgm
 	PlayBgm BGM_FIGHT_THEME2
 	Call sub_0807DF50
 	_0807E878
-	_0807E5F8 0x00000050
+	SetSyncFlag 0x00000050
 	LoadRoomEntityList gUnk_080F51D0
-	WaitForSomething2 0x00000008
+	WaitForSyncFlagAndClear 0x00000008
 	_0807E864
 	Call sub_0807FA40
 	Call sub_0807DF28
 	PlaySound SFX_SECRET
 	StopBgm
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000008
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000008
 	StartPlayerScript script_PlayerDefeatedOctoroks
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 	_0807E8E4_0
 	PlayBgm BGM_EZLO_THEME
 	Wait 0x001e
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000008
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000008
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000008
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000008
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000008
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000008
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000008
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000008
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000008
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000008
 	StopBgm
 	Wait 0x003c
 	PlayBGM
@@ -117,12 +117,12 @@ script_08012566:
 	CameraTargetPlayer
 	Call sub_0807DF50
 	_0807E878
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000008
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000008
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000008
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000008
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000008
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000008
 	StopBgm
 	Wait 0x003c
 	PlayBGM

@@ -8,7 +8,7 @@ script_0800EE58:
 	BeginBlock
 	CheckEntityInteractType
 	JumpIf script_0800EE76
-	TestBit 0x00000001
+	CheckSyncFlagAndClear 0x00000001
 	JumpIf script_0800EED2
 	Call sub_0806AEE4
 	Jump script_0800EE58
@@ -19,30 +19,30 @@ script_0800EE76:
 	CheckLocalFlag 0x00ae
 	JumpIf script_0800EEFE
 	Wait 0x000a
-	_0807E5F8 0x00000001
+	SetSyncFlag 0x00000001
 	MessageFromTarget 0x4c07
 	WaitUntilTextboxCloses
-	_0807E5F8 0x00000002
+	SetSyncFlag 0x00000002
 	MessageFromTarget 0x4c08
 	WaitUntilTextboxCloses
-	_0807E5F8 0x00000004
+	SetSyncFlag 0x00000004
 	MessageFromTarget 0x4c09
 	WaitUntilTextboxCloses
 	SetIntVariable 0x00000503
 	Call sub_0807F420
-	_0807E5F8 0x00000008
+	SetSyncFlag 0x00000008
 	Call sub_0807DF50
 	_0807E878
 	SetLocalFlag 0x00ae
 	Jump script_0800EE58
 script_0800EED2:
 	EndBlock
-	WaitForSomething2 0x00000010
+	WaitForSyncFlagAndClear 0x00000010
 	_0807EB44 0x0006
 	CallWithArg sub_0806AF60, 0x00000008
-	WaitForSomething2 0x00000020
+	WaitForSyncFlagAndClear 0x00000020
 	Call sub_0806AED8
-	WaitForSomething2 0x00000040
+	WaitForSyncFlagAndClear 0x00000040
 	Jump script_0800EE58
 script_0800EEFE:
 	MessageFromTarget 0x4c15
@@ -52,13 +52,13 @@ script_0800EEFE:
 	Jump script_0800EE58
 	MessageFromTarget 0x4c07
 	WaitUntilTextboxCloses
-	_0807E5F8 0x00000012
+	SetSyncFlag 0x00000012
 	Wait 0x000a
 	MessageFromTarget 0x4c08
 	WaitUntilTextboxCloses
-	_0807E5F8 0x00000024
+	SetSyncFlag 0x00000024
 	MessageFromTarget 0x4c09
 	WaitUntilTextboxCloses
-	_0807E5F8 0x00000048
+	SetSyncFlag 0x00000048
 	Call sub_080791BC
 SCRIPT_END

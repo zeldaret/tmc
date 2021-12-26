@@ -7,61 +7,61 @@ SCRIPT_START script_Object69TakeoverCutscene
 	EndBlock
 	_0807E778 0x0004
 	DoFade4
-	WaitFor_2
+	WaitForFadeFinish
 	Wait 0x003c
 	_0807F0B4 0x0004
 	SetEntityPositionRelative 0x0088, 0x00e0
 	CameraTargetEntity
 	Wait 0x003c
 	PlayBgm BGM_VAATI_THEME
-	_0807E5F8 0x00000010
-	WaitForSomething2 0x00000020
+	SetSyncFlag 0x00000010
+	WaitForSyncFlagAndClear 0x00000020
 	_0807F0B4 0x0004
 	SetEntityPositionRelative 0x0088, 0x0070
 	CameraTargetEntity
 	Wait 0x003c
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000008
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000008
 	_0807F0B4 0x0004
 	SetEntityPositionRelative 0x0088, 0x00e0
 	CameraTargetEntity
 	Wait 0x003c
-	_0807E5F8 0x00000010
-	WaitForSomething2 0x00000020
+	SetSyncFlag 0x00000010
+	WaitForSyncFlagAndClear 0x00000020
 	_0807F0B4 0x0004
 	SetEntityPositionRelative 0x0088, 0x0070
 	CameraTargetEntity
 	Wait 0x003c
-	_0807E5F8 0x00000010
-	WaitForSomething2 0x00000020
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000008
-	_0807E5F8 0x00000010
-	WaitForSomething2 0x00000020
+	SetSyncFlag 0x00000010
+	WaitForSyncFlagAndClear 0x00000020
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000008
+	SetSyncFlag 0x00000010
+	WaitForSyncFlagAndClear 0x00000020
 	_0807E778 0x0004
 	DoFade5
-	WaitFor_2
-	_0807E5F8 0x00000010
+	WaitForFadeFinish
+	SetSyncFlag 0x00000010
 	LoadRoomEntityList gUnk_080FCE30
 	StopBgm
 	Wait 0x0078
 	_0807E778 0x0004
 	DoFade4
-	WaitFor_2
+	WaitForFadeFinish
 	PlayBgm BGM_DIGGING_CAVE
-	_0807E5F8 0x00000040
-	WaitForSomething2 0x00000080
-	_0807E5F8 0x00000001
-	WaitForSomething2 0x00000002
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000008
-	_0807E5F8 0x00000200
+	SetSyncFlag 0x00000040
+	WaitForSyncFlagAndClear 0x00000080
+	SetSyncFlag 0x00000001
+	WaitForSyncFlagAndClear 0x00000002
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000008
+	SetSyncFlag 0x00000200
 	Wait 0x003c
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000008
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000008
 	_0807E778 0x0004
 	DoFade5
-	WaitFor_2
+	WaitForFadeFinish
 	StopBgm
 	SetRoomFlag 0x0000
 	DoPostScriptAction 0x0006

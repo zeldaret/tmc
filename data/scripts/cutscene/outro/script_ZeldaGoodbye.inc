@@ -7,10 +7,10 @@ SCRIPT_START script_ZeldaGoodbye
 	_0807EB44 0x0002
 	DoPostScriptAction 0x0000
 	EndBlock
-	WaitForSomething2 0x00000040
+	WaitForSyncFlagAndClear 0x00000040
 	_0807EB44 0x0000
 	DoPostScriptAction 0x0000
-	_0807E5F8 0x00000080
-	WaitForSomething2 0x80000000
+	SetSyncFlag 0x00000080
+	WaitForSyncFlagAndClear 0x80000000
 	DoPostScriptAction 0x0006
 SCRIPT_END

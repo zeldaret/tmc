@@ -1,9 +1,9 @@
 @ TODO UNUSED?
 SCRIPT_START script_080155F4
-	WaitForSomething2 0x00000020
+	WaitForSyncFlagAndClear 0x00000020
 	_0807E930 0x0000
 	Wait 0x0014
-	_0807E5F8 0x00000040
+	SetSyncFlag 0x00000040
 script_08015608:
 	CheckRoomFlag 0x0001
 	JumpIfNot script_08015608

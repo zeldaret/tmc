@@ -17,7 +17,7 @@ typedef struct {
 
 extern void sub_08078850(Entity*, u32, u8 /* TODO this is a s8 in beedle.c*/, gUnk_0810C89C_struct*);
 
-extern void script_Object3ELeftStoneOpening; // Cutscene data type?
+extern void script_Object3ELeftStoneOpening;  // Cutscene data type?
 extern void script_Object3ERightStoneOpening; // Cutscene data type?
 
 const Hitbox gUnk_08114154;

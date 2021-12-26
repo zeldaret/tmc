@@ -4,7 +4,7 @@ SCRIPT_START script_BigGoronKinstone3
 	Call sub_0806D660
 	SetEntitySpeed 0x0080
 	EndBlock
-	WaitForSomething2 0x00000004
+	WaitForSyncFlagAndClear 0x00000004
 	CallWithArg sub_0807F4F8, 0x00000048
 	Call sub_0806D66C
 	Wait 0x000f
@@ -12,6 +12,6 @@ SCRIPT_START script_BigGoronKinstone3
 	Call sub_0806D67C
 	_0807F0C8 0x001e, 0x0000
 	PlaySound SFX_10B
-	_0807E5F8 0x00000001
+	SetSyncFlag 0x00000001
 SCRIPT_END
 	.2byte 0x0000

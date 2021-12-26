@@ -14,8 +14,8 @@ script_0800A0D2:
 	_0807E8E4_0
 	Wait 0x0008
 	DoPostScriptAction 0x0000
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000002
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000002
 	Wait 0x003c
 	SetEntitySpeed 0x0080
 	_0807EC64 0x0030

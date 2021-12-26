@@ -10,22 +10,22 @@ SCRIPT_START script_Npc4EUnfreezeCastleStaff
 	PlaySound SFX_EVAPORATE
 	_0807E778 0x0004
 	DoFade7
-	WaitFor_2
-	_0807E5F8 0x00000001
+	WaitForFadeFinish
+	SetSyncFlag 0x00000001
 	PlaySound SFX_APPARATE
 	_0807E778 0x0002
 	DoFade6
-	WaitFor_2
+	WaitForFadeFinish
 	Wait 0x001e
-	_0807E5F8 0x00000002
+	SetSyncFlag 0x00000002
 	Wait 0x0014
-	_0807E5F8 0x00000004
+	SetSyncFlag 0x00000004
 	Wait 0x000a
-	_0807E5F8 0x00000008
+	SetSyncFlag 0x00000008
 	Wait 0x0005
-	_0807E5F8 0x00000010
+	SetSyncFlag 0x00000010
 	Wait 0x0002
-	_0807E5F8 0x00000020
+	SetSyncFlag 0x00000020
 	Wait 0x0078
 	CallWithArg sub_0806DA1C, 0x0000000c
 	DoPostScriptAction 0x0006

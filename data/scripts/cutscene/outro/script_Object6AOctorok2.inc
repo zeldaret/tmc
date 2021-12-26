@@ -5,7 +5,7 @@ SCRIPT_START script_Object6AOctorok2
 	DoPostScriptAction 0x0007
 	_0807E930 0x0002
 	EndBlock
-	WaitForSomething2 0x00000002
+	WaitForSyncFlagAndClear 0x00000002
 	Call CreateDust
 	DoPostScriptAction 0x0006
 SCRIPT_END

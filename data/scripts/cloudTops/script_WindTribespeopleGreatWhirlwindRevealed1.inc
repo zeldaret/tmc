@@ -7,7 +7,7 @@ SCRIPT_START script_WindTribespeopleGreatWhirlwindRevealed1
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000
 	EndBlock
-	WaitForSomething2 0x00000008
+	WaitForSyncFlagAndClear 0x00000008
 	DoPostScriptAction 0x0004
 	Wait 0x003c
 	PlaySound SFX_123
@@ -15,12 +15,12 @@ SCRIPT_START script_WindTribespeopleGreatWhirlwindRevealed1
 	_0807EDD4 0x01e0, 0x01d8
 	_0807EB44 0x0002
 	DoPostScriptAction 0x0000
-	_0807E5F8 0x00000010
+	SetSyncFlag 0x00000010
 	PlaySound SFX_PLY_JUMP
 	_0807EF3C 0x0180, 0x0030
 	PlaySound SFX_PLY_JUMP
 	_0807EF3C 0x0180, 0x0030
 	_0807EB44 0x0002
 	DoPostScriptAction 0x0001
-	WaitForSomething2 0x00000008
+	WaitForSyncFlagAndClear 0x00000008
 	Jump script_0800D80C

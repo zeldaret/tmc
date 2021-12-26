@@ -14,7 +14,7 @@ script_0801690A:
 	Call sub_08064F28
 	WaitUntilTextboxCloses
 	JumpIfNot script_08016926
-	_0807F034 0x003d
+	GivePlayerItem 0x003d
 	WaitPlayerGetItem
 script_08016926:
 	_0807E878

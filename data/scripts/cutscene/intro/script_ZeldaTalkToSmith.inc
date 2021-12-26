@@ -5,20 +5,20 @@ SCRIPT_START script_ZeldaTalkToSmith
 	SetEntitySpeed 0x0100
 	Call sub_0807F348
 	EndBlock
-	WaitForSomething2 0x00000004
+	WaitForSyncFlagAndClear 0x00000004
 	DoPostScriptAction 0x0004
 	_0807EB74
-	WaitForSomething2 0x00000004
+	WaitForSyncFlagAndClear 0x00000004
 	_0807EB74
-	WaitForSomething2 0x00000004
+	WaitForSyncFlagAndClear 0x00000004
 	_0807EB74
 	_0807EB8C
 	DoPostScriptAction 0x0001
 	MessageFromTargetPos 0x100a, 0x0000
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
-	_0807E5F8 0x00000008
-	WaitForSomething2 0x00000004
+	SetSyncFlag 0x00000008
+	WaitForSyncFlagAndClear 0x00000004
 	_0807EB8C
 	DoPostScriptAction 0x0001
 	_0807EB8C

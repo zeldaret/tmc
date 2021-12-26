@@ -7,6 +7,6 @@ SCRIPT_START script_Object6AEarthElementFloating
 	SetEntitySpeed 0x0080
 	_0807EDD4 0x00b0, 0x00f8
 	_0807E930 0x0001
-	_0807E5F8 0x08000000
+	SetSyncFlag 0x08000000
 SCRIPT_END
 	.2byte 0x0000

@@ -25,9 +25,9 @@ script_08014B70:
 	EndBlock
 	_0807E864
 	Call sub_0807DF28
-	_0807E5F8 0x00000001
+	SetSyncFlag 0x00000001
 	DoPostScriptAction 0x0004
-	WaitForSomething2 0x00000002
+	WaitForSyncFlagAndClear 0x00000002
 	_0807E930 0x0010
 	Call sub_0806CCF8
 	Wait 0x0014
@@ -43,8 +43,8 @@ script_08014B70:
 	Wait 0x0014
 	Call sub_0806CD4C
 	PlaySound SFX_SECRET
-	_0807E5F8 0x00000001
-	WaitForSomething2 0x00000002
+	SetSyncFlag 0x00000001
+	WaitForSyncFlagAndClear 0x00000002
 	Call sub_0807DF50
 	_0807E878
 script_08014BE8:
@@ -60,7 +60,7 @@ script_08014BF2:
 	MessageNoOverlap 0x2f07
 	WaitUntilTextboxCloses
 	SetIntVariable 0x00000064
-	_0807F034 0x003f
+	GivePlayerItem 0x003f
 	WaitPlayerGetItem
 	Jump script_08014C22
 script_08014C1C:

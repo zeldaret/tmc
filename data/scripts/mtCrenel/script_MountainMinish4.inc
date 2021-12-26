@@ -26,7 +26,7 @@ script_0800D372:
 	CheckPlayerInRegion 0x0090, 0x0130, 0x0810
 	JumpIfNot script_0800D3B2
 	StartPlayerScript script_PlayerAtMountainMinishExit
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 script_0800D3B2:
 	_0807EB44 0x0002
 	_0807E930 0x0005

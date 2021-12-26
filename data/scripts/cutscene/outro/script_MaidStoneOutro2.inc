@@ -5,9 +5,9 @@ SCRIPT_START script_MaidStoneOutro2
 	_0807EB44 0x0004
 	_0807E930 0x0008
 	EndBlock
-	WaitForSomething 0x00000001
+	WaitForSyncFlag 0x00000001
 	DoPostScriptAction 0x0000
-	WaitForSomething2 0x00000020
+	WaitForSyncFlagAndClear 0x00000020
 	DoPostScriptAction 0x0004
 	Wait 0x003c
 script_0800A8FC:

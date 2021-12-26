@@ -5,17 +5,17 @@ SCRIPT_START script_Object6ARightBullyingOctorok
 	DoPostScriptAction 0x0007
 	_0807E930 0x0003
 	EndBlock
-	WaitForSomething2 0x00000010
+	WaitForSyncFlagAndClear 0x00000010
 	_0807E930 0x0007
 	Wait 0x001e
-	_0807E5F8 0x00000020
+	SetSyncFlag 0x00000020
 	_0807E930 0x0003
-	WaitForSomething2 0x00000010
+	WaitForSyncFlagAndClear 0x00000010
 	_0807E930 0x0007
 	Wait 0x001e
-	_0807E5F8 0x00000020
+	SetSyncFlag 0x00000020
 	_0807E930 0x0003
-	WaitForSomething2 0x00000010
+	WaitForSyncFlagAndClear 0x00000010
 	Wait 0x0001
 	DoPostScriptAction 0x0006
 SCRIPT_END

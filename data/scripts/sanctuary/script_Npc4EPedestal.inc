@@ -13,7 +13,7 @@ script_080134F8:
 	_0807E864
 	Call sub_0807DF28
 	StartPlayerScript script_PlayerAtPedestal
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 	CallWithArg sub_08095A1C, script_Object6ASwordInPedestal
 	PlaySound SFX_ELEMENT_PLACE
 	Wait 0x005a
@@ -22,7 +22,7 @@ script_080134F8:
 	CallWithArg sub_08095D54, script_Object6AEarthElementFloating
 	CallWithArg sub_08095D54, script_Object6AFireElementFloating
 	EndBlock
-	WaitForSomething2 0x18000000
+	WaitForSyncFlagAndClear 0x18000000
 	BeginBlock
 	PlaySound SFX_ELEMENT_CHARGE
 	CallWithArg sub_08095D8C, script_Object6ASwordChange1
@@ -36,22 +36,22 @@ script_080134F8:
 	EndBlock
 	Wait 0x003c
 	CallWithArg CreateManager36, 0x00000000
-	_0807E5F8 0x00000200
-	WaitForSomething2 0x00002000
+	SetSyncFlag 0x00000200
+	WaitForSyncFlagAndClear 0x00002000
 	PlaySound SFX_1D2
 	CallWithArg sub_08095D8C, script_Object6ASwordCharge9
 	CallWithArg sub_08095D8C, script_Object6ASwordCharge10
-	_0807E5F8 0x00000400
-	WaitForSomething2 0x00004000
+	SetSyncFlag 0x00000400
+	WaitForSyncFlagAndClear 0x00004000
 	Wait 0x0078
-	_0807E5F8 0x00000060
+	SetSyncFlag 0x00000060
 	CallWithArg DeleteManager36, 0x00000000
 	Wait 0x0078
-	_0807E5F8 0x00000080
-	WaitForSomething2 0x00000100
+	SetSyncFlag 0x00000080
+	WaitForSyncFlagAndClear 0x00000100
 	Wait 0x003c
 	StartPlayerScript script_PlayerPickUpSword
-	_0807E5F8 0x00000080
+	SetSyncFlag 0x00000080
 	_0807F078 0x0003, 0x0001
 	Call sub_0806DC3C
 	Call sub_0806DC58
@@ -60,15 +60,15 @@ script_080134F8:
 	_0807E778 0x0004
 	DoFade7
 	PlaySound SFX_EVAPORATE
-	WaitFor_2
+	WaitForFadeFinish
 	Wait 0x003c
-	_0807E5F8 0x00000010
+	SetSyncFlag 0x00000010
 	_0807E778 0x0002
 	DoFade6
-	WaitFor_2
+	WaitForFadeFinish
 	PlaySound SFX_109
 	MessageFromTargetPos 0x0503, 0x000c
 	WaitUntilTextboxCloses
-	_0807E5F8 0x00040000
+	SetSyncFlag 0x00040000
 	CallWithArg CreateManager36, 0x00000001
 	_0807F0C8 0xffff, 0x0000

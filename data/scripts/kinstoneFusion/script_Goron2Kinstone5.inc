@@ -5,7 +5,7 @@ SCRIPT_START script_Goron2Kinstone5
 	_0807E930 0x0008
 	Call sub_0807F348
 	EndBlock
-	WaitFor_2
+	WaitForFadeFinish
 	Wait 0x00f0
 	_0807E930 0x0000
 	_0807EB44 0x0006
@@ -13,20 +13,20 @@ SCRIPT_START script_Goron2Kinstone5
 	WaitUntilTextboxCloses
 	_0807E930 0x0008
 	Wait 0x003c
-	_0807E5F8 0x00000001
+	SetSyncFlag 0x00000001
 script_0800C11C:
 	_0807EB44 0x0004
 script_0800C120:
 	CheckRoomFlag 0x00ff
 	JumpIfNot script_0800C120
-	_0807E5F8 0x00000002
+	SetSyncFlag 0x00000002
 	Call sub_08054F64
 	_0807E930 0x0000
 	DoPostScriptAction 0x0004
 	Wait 0x003c
 	MessageNoOverlap 0x0e15
 	WaitUntilTextboxCloses
-	_0807E5F8 0x00000002
+	SetSyncFlag 0x00000002
 	Call sub_08054F64
 	DoPostScriptAction 0x000f
 	_0807E930 0x0008

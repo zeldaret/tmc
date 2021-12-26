@@ -6,7 +6,7 @@ SCRIPT_START script_Object69SanctuaryEntrance
 	Call sub_0807F9A4
 	Call sub_0807DF28
 	StartPlayerScript script_PlayerAtSanctuaryEntrance
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 	_0807EB28 0x132d
 	WaitUntilTextboxCloses
 .ifdef JP

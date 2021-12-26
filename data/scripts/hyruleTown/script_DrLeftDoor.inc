@@ -14,7 +14,7 @@ script_0800EF50:
 	MessageFromTarget 0x4d01
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerAtDrLeftDoor
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 	Wait 0x000f
 	_0807E878
 	Jump script_0800EF50

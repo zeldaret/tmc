@@ -6,7 +6,7 @@ SCRIPT_START script_ZeldaIntroBusinessScrub
 	DoPostScriptAction 0x000b
 	Call sub_08066D04
 	EndBlock
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 	BeginBlock
 	Call sub_08066D14
 	MoveEntityToPlayer
@@ -22,12 +22,12 @@ SCRIPT_START script_ZeldaIntroBusinessScrub
 	SetEntityPositionRelative 0x0248, 0x0218
 	_0807EB44 0x0006
 	DoPostScriptAction 0x0000
-	_0807E5F8 0x00000002
-	WaitForSomething2 0x00000001
+	SetSyncFlag 0x00000002
+	WaitForSyncFlagAndClear 0x00000001
 	_0807EB44 0x0000
 	DoPostScriptAction 0x0000
-	_0807E5F8 0x00000002
-	WaitForSomething2 0x00000001
+	SetSyncFlag 0x00000002
+	WaitForSyncFlagAndClear 0x00000001
 	Call sub_0807F3C8
 	PlaySound SFX_VO_ZELDA3
 	SetEntitySpeed 0x0200
@@ -36,19 +36,19 @@ SCRIPT_START script_ZeldaIntroBusinessScrub
 	Call sub_0807F2D4
 	_0807EB44 0x0006
 	DoPostScriptAction 0x0000
-	_0807E5F8 0x00000002
-	WaitForSomething2 0x00000001
+	SetSyncFlag 0x00000002
+	WaitForSyncFlagAndClear 0x00000001
 	_0807EB44 0x0006
 	DoPostScriptAction 0x0000
-	_0807E5F8 0x00000002
-	WaitForSomething2 0x00000001
+	SetSyncFlag 0x00000002
+	WaitForSyncFlagAndClear 0x00000001
 	SetEntitySpeed 0x0100
 	_0807EDD4 0x0238, 0x0238
 	_0807EB44 0x0000
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x000a
 	_0807E9D4
-	_0807E5F8 0x00000002
+	SetSyncFlag 0x00000002
 script_08015A32:
 	EndBlock
 	BeginBlock
@@ -66,9 +66,9 @@ script_08015A54:
 	DoPostScriptAction 0x000b
 	_0807EB44 0x0000
 	DoPostScriptAction 0x0000
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 	Call sub_08066D4C
-	_0807E5F8 0x00000002
+	SetSyncFlag 0x00000002
 	DoPostScriptAction 0x0006
 SCRIPT_END
 	.2byte 0x0000

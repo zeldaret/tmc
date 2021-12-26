@@ -11,7 +11,7 @@ script_0800D282:
 	JumpIf script_0800D2EA
 script_0800D292:
 	BeginBlock
-	TestBit 0x00000001
+	CheckSyncFlagAndClear 0x00000001
 	JumpIf script_0800D2C6
 	CheckEntityInteractType
 	JumpIf script_0800D2B0
@@ -28,12 +28,12 @@ script_0800D2B0:
 	Jump script_0800D282
 script_0800D2C6:
 	EndBlock
-	_0807E5F8 0x00000004
-	WaitForSomething2 0x00000002
-	_0807E5F8 0x00000004
+	SetSyncFlag 0x00000004
+	WaitForSyncFlagAndClear 0x00000002
+	SetSyncFlag 0x00000004
 	_0807E930 0x000c
-	WaitForSomething2 0x00000001
-	_0807E5F8 0x00000004
+	WaitForSyncFlagAndClear 0x00000001
+	SetSyncFlag 0x00000004
 script_0800D2EA:
 	_0807E930 0x000b
 script_0800D2EE:

@@ -7,7 +7,7 @@ SCRIPT_START script_PlayerPlaceBrokenSword
 	_0807EDD4 0x01a8, 0x0120
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000
-	_0807E5F8 0x00000008
+	SetSyncFlag 0x00000008
 	Call sub_080791BC
 SCRIPT_END
 	.2byte 0x0000

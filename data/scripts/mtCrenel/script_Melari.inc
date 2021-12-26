@@ -16,12 +16,12 @@ script_0800CFD2:
 	JumpIf script_0800CFFA
 	CheckInventory1 0x0041
 	JumpIfNot script_0800CFEC
-	_0807E5F8 0x00000020
+	SetSyncFlag 0x00000020
 	Jump script_0800CFFA
 script_0800CFEC:
 	CheckLocalFlag 0x007e
 	JumpIfNot script_0800CFFA
-	_0807E5F8 0x00000010
+	SetSyncFlag 0x00000010
 script_0800CFFA:
 	EndBlock
 	BeginBlock
@@ -42,21 +42,21 @@ script_0800D032:
 	CheckInventory1 0x0041
 	JumpIfNot script_0800D098
 	StartPlayerScript script_PlayerAtMelari
-	WaitForSomething2 0x00000008
+	WaitForSyncFlagAndClear 0x00000008
 	_0807EB74
 	SetIntVariable 0x00000000
 	Call sub_0806C028
 	MessageFromTargetPos 0x125c, 0x0002
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerPlaceBrokenSword
-	WaitForSomething2 0x00000008
+	WaitForSyncFlagAndClear 0x00000008
 	_0807EB44 0x0002
 	SetIntVariable 0x00000000
 	Call sub_0806C028
 	Wait 0x000f
-	_0807E5F8 0x00000020
+	SetSyncFlag 0x00000020
 	StartPlayerScript script_PlayerGetWhiteSword
-	WaitForSomething2 0x00000008
+	WaitForSyncFlagAndClear 0x00000008
 	MessageFromTargetPos 0x125d, 0x0002
 	Jump script_0800D17C
 script_0800D098:
@@ -66,18 +66,18 @@ script_0800D098:
 	Jump script_0800D17C
 script_0800D0A8:
 	StartPlayerScript script_PlayerAtMelari
-	WaitForSomething2 0x00000008
-	_0807E5F8 0x00000001
-	WaitForSomething2 0x00000004
-	_0807E5F8 0x00000001
-	WaitForSomething2 0x00000004
+	WaitForSyncFlagAndClear 0x00000008
+	SetSyncFlag 0x00000001
+	WaitForSyncFlagAndClear 0x00000004
+	SetSyncFlag 0x00000001
+	WaitForSyncFlagAndClear 0x00000004
 	_0807EB74
 	SetIntVariable 0x00000000
 	Call sub_0806C028
 	MessageFromTargetPos 0x123d, 0x0002
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerPlaceBrokenSword
-	WaitForSomething2 0x00000008
+	WaitForSyncFlagAndClear 0x00000008
 	_0807EB44 0x0002
 	SetIntVariable 0x00000000
 	Call sub_0806C028
@@ -87,23 +87,23 @@ script_0800D108:
 	ComparePlayerAction 0x0008
 	JumpIf script_0800D108
 	PlaySound SFX_F8
-	_0807E5F8 0x00000010
+	SetSyncFlag 0x00000010
 	SetLocalFlag 0x007e
 	MessageFromTargetPos 0x123e, 0x0002
 	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E930 0x0009
-	_0807E5F8 0x00000002
-	WaitForSomething2 0x00000004
-	_0807E5F8 0x00000002
-	WaitForSomething2 0x00000004
+	SetSyncFlag 0x00000002
+	WaitForSyncFlagAndClear 0x00000004
+	SetSyncFlag 0x00000002
+	WaitForSyncFlagAndClear 0x00000004
 	Wait 0x001e
 	MessageFromTargetPos 0x123f, 0x0002
 	WaitUntilTextboxCloses
-	_0807E5F8 0x00000001
-	WaitForSomething2 0x00000004
-	_0807E5F8 0x00000001
-	WaitForSomething2 0x00000004
+	SetSyncFlag 0x00000001
+	WaitForSyncFlagAndClear 0x00000004
+	SetSyncFlag 0x00000001
+	WaitForSyncFlagAndClear 0x00000004
 	_0807E930 0x0008
 	Wait 0x003c
 	Call sub_08095164

@@ -8,15 +8,15 @@ script_080160B0:
 	BeginBlock
 	CheckEntityInteractType
 	JumpIf script_080160E0
-	TestBit 0x00000008
+	CheckSyncFlagAndClear 0x00000008
 	JumpIf script_080160D2
-	TestBit 0x00000010
+	CheckSyncFlagAndClear 0x00000010
 	JumpIf script_080160D2
 	Jump script_080160B0
 script_080160D2:
 	EndBlock
 	_0807EB74
-	WaitForSomething2 0x00000004
+	WaitForSyncFlagAndClear 0x00000004
 	Jump script_080160B0
 script_080160E0:
 	_0807E864
@@ -26,7 +26,7 @@ script_080160E0:
 	JumpIfNot script_0801611A
 	MessageFromTarget 0x2d07
 	WaitUntilTextboxCloses
-	_0807E3E8 
+	CheckTextboxResult 
 	JumpIfNot script_08016132
 	BuyItem 0x0000, 0x0000
 	JumpIf script_0801610C

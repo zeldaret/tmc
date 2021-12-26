@@ -49,7 +49,7 @@ script_080093DA:
 script_080093EE:
 	MessageNoOverlapVar 
 	WaitUntilTextboxCloses
-	_0807E3E8 
+	CheckTextboxResult 
 	JumpIfNot script_08009376
 	Wait 0x001e
 	MessageNoOverlap 0x1d08

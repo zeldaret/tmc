@@ -4,8 +4,8 @@ SCRIPT_START script_Object69CastleEscape
 	Call sub_0807F9A4
 	Call sub_0807DF28
 	StartPlayerScript script_PlayerCastleEscape
-	WaitForSomething2 0x00000001
-	WaitForSomething2 0x00000002
+	WaitForSyncFlagAndClear 0x00000001
+	WaitForSyncFlagAndClear 0x00000002
 	_0807EB28 0x1647
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x007a

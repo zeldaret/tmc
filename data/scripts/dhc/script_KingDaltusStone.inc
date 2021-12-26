@@ -42,7 +42,7 @@ script_0800E3C8:
 	MessageNoOverlap 0x240c
 	WaitUntilTextboxCloses
 	Wait 0x000f
-	_0807F034 0x0053
+	GivePlayerItem 0x0053
 	WaitPlayerGetItem
 	SetLocalFlag 0x0071
 	_0807E878

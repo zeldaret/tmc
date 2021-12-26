@@ -11,11 +11,11 @@ script_08015BF0:
 	Call sub_0807DF28
 	Call sub_0807FBC4
 	StartPlayerScript script_PlayerAtTakeover
-	WaitForSomething2 0x00000100
+	WaitForSyncFlagAndClear 0x00000100
 	CameraTargetPlayer
 	_0807E778 0x0004
 	_0807E80C 0x00000000
-	WaitFor_2
+	WaitForFadeFinish
 	StopBgm
 	Call sub_08053BE8
 	BeginBlock
@@ -28,7 +28,7 @@ script_08015BF0:
 	EndBlock
 	_0807E778 0x0004
 	_0807E800 0x00000000
-	WaitFor_2
+	WaitForFadeFinish
 	PlayBGM
 	_0807EB28 0x131f
 	WaitUntilTextboxCloses

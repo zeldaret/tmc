@@ -20,12 +20,12 @@ script_08009F36:
 	Call sub_0807DF28
 	DoPostScriptAction 0x000b
 	StartPlayerScript script_PlayerAtBombMinish
-	WaitForSomething2 0x00000002
+	WaitForSyncFlagAndClear 0x00000002
 	Call sub_0806014C
 	MessageFromTargetPos 0x1f01, 0x0000
 	WaitUntilTextboxCloses
 	Wait 0x001e
-	_0807F034 0x0065
+	GivePlayerItem 0x0065
 	WaitPlayerGetItem
 	DoPostScriptAction 0x000a
 	Call sub_0807DF50
@@ -67,13 +67,13 @@ script_08009FDC:
 	_0807E864 
 	MessageNoOverlap 0x1f0e
 	WaitUntilTextboxCloses
-	_0807E3E8 
+	CheckTextboxResult 
 	JumpIf script_0800A002
 	_0807E878
 	Jump script_08009FDC
 script_0800A002:
 	Wait 0x0008
-	_0807F034 0x0008
+	GivePlayerItem 0x0008
 	Call sub_08060318
 	WaitPlayerGetItem
 	Wait 0x0008
@@ -94,20 +94,20 @@ script_0800A024:
 	JumpIf script_0800A052
 	MessageNoOverlap 0x1f14
 	WaitUntilTextboxCloses
-	_0807E3E8 
+	CheckTextboxResult 
 	JumpIf script_0800A002
 	_0807E878
 	Jump script_0800A024
 script_0800A052:
 	MessageNoOverlap 0x1f11
 	WaitUntilTextboxCloses
-	_0807E3E8 
+	CheckTextboxResult 
 	JumpIf script_0800A064
 	_0807E878
 	Jump script_0800A024
 script_0800A064:
 	Wait 0x0008
-	_0807F034 0x0007
+	GivePlayerItem 0x0007
 	Call sub_08060318
 	WaitPlayerGetItem
 	Wait 0x0008

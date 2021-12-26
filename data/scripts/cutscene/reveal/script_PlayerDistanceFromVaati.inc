@@ -8,7 +8,7 @@ SCRIPT_START script_PlayerDistanceFromVaati
 	_0807ECC4 0x0020
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x000c
-	_0807E5F8 0x00000002
+	SetSyncFlag 0x00000002
 	Call sub_080791BC
 SCRIPT_END
 	.2byte 0x0000

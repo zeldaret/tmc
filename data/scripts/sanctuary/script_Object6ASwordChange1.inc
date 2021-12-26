@@ -5,7 +5,7 @@ SCRIPT_START script_Object6ASwordChange1
 	_0807E930 0x0000
 	Call sub_0807F738
 	EndBlock
-	WaitForSomething 0x00000040
+	WaitForSyncFlag 0x00000040
 	DoPostScriptAction 0x0006
 SCRIPT_END
 	.2byte 0x0000

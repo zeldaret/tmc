@@ -4,6 +4,6 @@ SCRIPT_START script_PlayerIntroBusinessScrub1
 	_0807EDD4 0x0218, 0x0238
 	_0807EB44 0x0002
 	DoPostScriptAction 0x0000
-	_0807E5F8 0x00000010
+	SetSyncFlag 0x00000010
 	Call sub_080791BC
 SCRIPT_END

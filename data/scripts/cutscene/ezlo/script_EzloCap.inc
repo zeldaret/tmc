@@ -5,32 +5,32 @@ SCRIPT_START script_EzloCap
 	DoPostScriptAction 0x0007
 	EndBlock
 	_0807E930 0x0020
-	WaitForSomething2 0x00000004
+	WaitForSyncFlagAndClear 0x00000004
 	_0807E930 0x0022
 	Call sub_0807F3C8
 	MessageFromTargetPos 0x1102, 0x000c
 	WaitUntilTextboxCloses
 	_0807E930 0x0020
-	_0807E5F8 0x00000008
-	WaitForSomething2 0x00000004
+	SetSyncFlag 0x00000008
+	WaitForSyncFlagAndClear 0x00000004
 	_0807E930 0x0021
 	Call sub_0807F3C8
 	MessageFromTargetPos 0x1103, 0x000c
 	WaitUntilTextboxCloses
 	_0807E930 0x0020
-	_0807E5F8 0x00000008
-	WaitForSomething2 0x00000004
+	SetSyncFlag 0x00000008
+	WaitForSyncFlagAndClear 0x00000004
 	DoPostScriptAction 0x0004
 	Wait 0x003c
-	_0807E5F8 0x00000008
-	WaitForSomething2 0x00000004
+	SetSyncFlag 0x00000008
+	WaitForSyncFlagAndClear 0x00000004
 	DoPostScriptAction 0x0011
 	_0807E930 0x001c
 	MessageFromTargetPos 0x1105, 0x000c
 	WaitUntilTextboxCloses
 	_0807E930 0x0020
-	_0807E5F8 0x00000008
-	WaitForSomething2 0x00000004
+	SetSyncFlag 0x00000008
+	WaitForSyncFlagAndClear 0x00000004
 	_0807E930 0x0022
 	Call sub_0807F3C8
 	MessageFromTargetPos 0x1106, 0x000c
@@ -40,8 +40,8 @@ SCRIPT_START script_EzloCap
 	MessageFromTargetPos 0x1107, 0x000c
 	WaitUntilTextboxCloses
 	_0807E930 0x0020
-	_0807E5F8 0x00000008
-	WaitForSomething2 0x00000004
+	SetSyncFlag 0x00000008
+	WaitForSyncFlagAndClear 0x00000004
 	_0807E930 0x0021
 	Call sub_0807F3C8
 	MessageFromTargetPos 0x1108, 0x000c
@@ -53,7 +53,7 @@ SCRIPT_START script_EzloCap
 	_0807E930 0x0020
 	DoPostScriptAction 0x000a
 	_0807E9D4
-	_0807E5F8 0x00000008
+	SetSyncFlag 0x00000008
 script_080127F2:
 	EndBlock
 	BeginBlock
@@ -76,38 +76,38 @@ script_08012824:
 	CallWithArg sub_0807F5B0, 0x0000003c
 	Call sub_080791D0
 	EndBlock
-	_0807E5F8 0x00000008
-	WaitForSomething2 0x00000004
+	SetSyncFlag 0x00000008
+	WaitForSyncFlagAndClear 0x00000004
 	DoPostScriptAction 0x000b
-	_0807E5F8 0x00000008
-	WaitForSomething2 0x00000004
+	SetSyncFlag 0x00000008
+	WaitForSyncFlagAndClear 0x00000004
 	Call sub_0806D944
 	_0807E930 0x0010
 	MessageFromTargetPos 0x110a, 0x000c
 	WaitUntilTextboxCloses
 	_0807E930 0x001f
-	_0807E5F8 0x00000008
-	WaitForSomething2 0x00000004
+	SetSyncFlag 0x00000008
+	WaitForSyncFlagAndClear 0x00000004
 	_0807E930 0x0010
 	MessageFromTargetPos 0x110b, 0x000c
 	WaitUntilTextboxCloses
 	_0807E930 0x001f
-	_0807E5F8 0x00000008
-	WaitForSomething2 0x00000004
+	SetSyncFlag 0x00000008
+	WaitForSyncFlagAndClear 0x00000004
 	DoPostScriptAction 0x0004
 	Wait 0x003c
 	_0807E930 0x0010
 	MessageFromTargetPos 0x110c, 0x000c
 	WaitUntilTextboxCloses
 	_0807E930 0x001f
-	_0807E5F8 0x00000008
-	WaitForSomething2 0x00000004
+	SetSyncFlag 0x00000008
+	WaitForSyncFlagAndClear 0x00000004
 	_0807E930 0x0010
 	MessageFromTargetPos 0x110d, 0x000c
 	WaitUntilTextboxCloses
 	_0807E930 0x001f
-	_0807E5F8 0x00000008
-	WaitForSomething2 0x00000004
+	SetSyncFlag 0x00000008
+	WaitForSyncFlagAndClear 0x00000004
 	_0807E930 0x0010
 	MessageFromTargetPos 0x110e, 0x000c
 	WaitUntilTextboxCloses
@@ -117,8 +117,8 @@ script_08012824:
 	_0807EC1C 0x0010
 	DoPostScriptAction 0x000a
 	_0807E9D4
-	_0807E5F8 0x00000008
-	WaitForSomething2 0x00000004
+	SetSyncFlag 0x00000008
+	WaitForSyncFlagAndClear 0x00000004
 script_08012904:
 	EndBlock
 	BeginBlock
@@ -153,8 +153,8 @@ script_0801293A:
 	WaitUntilTextboxCloses
 	Call sub_0807DF50
 	_0807E878
-	_0807E5F8 0x00000008
-	WaitForSomething2 0x00000004
+	SetSyncFlag 0x00000008
+	WaitForSyncFlagAndClear 0x00000004
 script_08012984:
 	EndBlock
 	BeginBlock
@@ -190,8 +190,8 @@ script_080129BA:
 	WaitUntilTextboxCloses
 	Call sub_0807DF50
 	_0807E878
-	_0807E5F8 0x00000008
-	WaitForSomething2 0x00000004
+	SetSyncFlag 0x00000008
+	WaitForSyncFlagAndClear 0x00000004
 script_08012A08:
 	EndBlock
 	BeginBlock
@@ -239,6 +239,6 @@ script_08012A74:
 	_0807EB28 0x1112
 	EndBlock
 	WaitUntilTextboxCloses
-	_0807E5F8 0x00000008
+	SetSyncFlag 0x00000008
 	DoPostScriptAction 0x0006
 SCRIPT_END

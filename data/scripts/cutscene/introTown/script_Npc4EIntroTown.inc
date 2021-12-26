@@ -20,9 +20,9 @@ SCRIPT_START script_Npc4EIntroTown
 	Call sub_0807F844
 	_0807E778 0x0002
 	DoFade6
-	WaitFor_2
+	WaitForFadeFinish
 	StartPlayerScript script_PlayerIntro1
-	_0807E5F8 0x00000002
+	SetSyncFlag 0x00000002
 	_0807F0B4 0x0001
 	SetEntityPositionRelative 0x00c8, 0x0218
 	Call sub_0807F5C0
@@ -31,60 +31,60 @@ SCRIPT_START script_Npc4EIntroTown
 	_0807F0B4 0x0002
 	SetEntityPositionRelative 0x00c8, 0x0368
 	Call sub_0807F5C0
-	WaitForSomething2 0x00000001
-	WaitForSomething2 0x00000004
+	WaitForSyncFlagAndClear 0x00000001
+	WaitForSyncFlagAndClear 0x00000004
 	@ First message from Zelda
 	MessageFromTargetPos 0x2501, 0x0000
 	WaitUntilTextboxCloses
-	_0807E5F8 0x00000002
-	WaitForSomething2 0x00000004
+	SetSyncFlag 0x00000002
+	WaitForSyncFlagAndClear 0x00000004
 	@ Zelda ran off. Give control to the player
 	_0807F0B4 0x0004
 	CameraTargetPlayer
 	Call sub_0807DF50
 	_0807E878
-	_0807E5F8 0x00000010
-	WaitForSomething2 0x00000004
+	SetSyncFlag 0x00000010
+	WaitForSyncFlagAndClear 0x00000004
 	_0807E864
 	Call sub_0807DF28
 	StartPlayerScript script_PlayerIntro2
-	WaitForSomething2 0x00000001
-	_0807E5F8 0x00000002
-	WaitForSomething2 0x00000004
+	WaitForSyncFlagAndClear 0x00000001
+	SetSyncFlag 0x00000002
+	WaitForSyncFlagAndClear 0x00000004
 	MessageFromTargetPos 0x2503, 0x000e
 	WaitUntilTextboxCloses
-	_0807E5F8 0x00000002
-	WaitForSomething2 0x00000004
+	SetSyncFlag 0x00000002
+	WaitForSyncFlagAndClear 0x00000004
 	Call sub_0807DF50
 	_0807E878
-	WaitForSomething2 0x00000004
+	WaitForSyncFlagAndClear 0x00000004
 	_0807E864
 	Call sub_0807DF28
 	StartPlayerScript script_PlayerIntro3
-	WaitForSomething2 0x00000001
-	_0807E5F8 0x00000002
-	WaitForSomething2 0x00000004
+	WaitForSyncFlagAndClear 0x00000001
+	SetSyncFlag 0x00000002
+	WaitForSyncFlagAndClear 0x00000004
 	MessageFromTargetPos 0x2504, 0x000e
 	WaitUntilTextboxCloses
-	_0807E5F8 0x00000002
-	WaitForSomething2 0x00000004
+	SetSyncFlag 0x00000002
+	WaitForSyncFlagAndClear 0x00000004
 	Call sub_0807DF50
 	_0807E878
-	WaitForSomething2 0x00000004
+	WaitForSyncFlagAndClear 0x00000004
 	_0807E864
 	Call sub_0807DF28
 	StartPlayerScript script_PlayerIntro4
-	WaitForSomething2 0x00000001
-	_0807E5F8 0x00000002
-	WaitForSomething2 0x00000004
+	WaitForSyncFlagAndClear 0x00000001
+	SetSyncFlag 0x00000002
+	WaitForSyncFlagAndClear 0x00000004
 	MessageFromTargetPos 0x2505, 0x000e
 	WaitUntilTextboxCloses
-	_0807E5F8 0x00000002
-	WaitForSomething2 0x00000004
+	SetSyncFlag 0x00000002
+	WaitForSyncFlagAndClear 0x00000004
 	Call sub_0807DF50
 	_0807E878
 	@ Wait for Link at Pina
-	WaitForSomething2 0x00000004
+	WaitForSyncFlagAndClear 0x00000004
 	_0807E864
 	Call sub_0807DF28
 	Call sub_08063C5C
@@ -101,7 +101,7 @@ SCRIPT_START script_Npc4EIntroTown
 	CameraTargetEntity
 	Wait 0x001e
 	Call sub_08063C2C
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 	MessageFromTargetPos 0x1022, 0x000e
 	WaitUntilTextboxCloses
 	_0807E8E4_0 
@@ -123,8 +123,8 @@ SCRIPT_START script_Npc4EIntroTown
 	Call sub_08063C5C
 	MessageFromTargetPos 0x1026, 0x000e
 	WaitUntilTextboxCloses
-	_0807E5F8 0x00000002
-	WaitForSomething2 0x00000004
+	SetSyncFlag 0x00000002
+	WaitForSyncFlagAndClear 0x00000004
 	_0807E8E4_1
 	Call sub_08063C2C
 	MessageFromTargetPos 0x1027, 0x0000
@@ -144,8 +144,8 @@ SCRIPT_START script_Npc4EIntroTown
 	Call sub_08063C14
 	Call sub_08094D70
 	PlaySound SFX_103
-	_0807E5F8 0x00000002
-	WaitForSomething2 0x00000004
+	SetSyncFlag 0x00000002
+	WaitForSyncFlagAndClear 0x00000004
 	Call sub_08063C14
 	Call sub_08094D10
 	Wait 0x001e
@@ -157,7 +157,7 @@ SCRIPT_START script_Npc4EIntroTown
 	MessageFromTargetPos 0x102b, 0x0000
 	WaitUntilTextboxCloses
 	@ Give the shield to the player
-	_0807F034 0x000d
+	GivePlayerItem 0x000d
 	WaitPlayerGetItem
 	Call sub_0806DC3C
 	Call sub_080791BC
@@ -176,7 +176,7 @@ SCRIPT_START script_Npc4EIntroTown
 	_0807F0B4 0x0004
 	CameraTargetPlayer
 	Wait 0x000a
-	_0807E5F8 0x00000002
+	SetSyncFlag 0x00000002
 	Call sub_08063C44
 .ifdef JP
 	SetLocalFlag 0x00ca

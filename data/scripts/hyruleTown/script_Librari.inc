@@ -17,7 +17,7 @@ script_0800E974:
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x000b
 	StartPlayerScript script_PlayerStepOnTrap
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 	DoPostScriptAction 0x000a
 	MessageFromTarget 0x4a24
 	WaitUntilTextboxCloses
@@ -27,7 +27,7 @@ script_0800E974:
 	WaitUntilTextboxCloses
 	_0807E930 0x0000
 	StartPlayerScript script_PlayerActivatedTrapCard
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 	SetLocalFlag 0x0074
 	PlaySound SFX_SECRET
 	Wait 0x00f0

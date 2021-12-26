@@ -4,7 +4,7 @@ SCRIPT_START script_Object69SimonsSimulation
 	_0807E888
 	EndBlock
 	CallWithArg sub_0806C2A0, 0x00000001
-	WaitFor_2
+	WaitForFadeFinish
 	Wait 0x003c
 	_0807E878
 	SetRoomFlag 0x0000
@@ -28,7 +28,7 @@ script_08011C28:
 	WaitPlayerGetItem
 	Wait 0x001e
 	CallWithArg sub_0806C2A0, 0x00000000
-	WaitFor_2
+	WaitForFadeFinish
 	Wait 0x003c
 	Call sub_0806C280
 SCRIPT_END

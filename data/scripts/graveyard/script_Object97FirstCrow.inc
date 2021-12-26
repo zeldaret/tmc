@@ -6,7 +6,7 @@ SCRIPT_START script_Object97FirstCrow
 	SetEntitySpeed 0x0300
 	Call sub_0807F348
 	EndBlock
-	WaitForSomething2 0x00000002
+	WaitForSyncFlagAndClear 0x00000002
 	PlaySound SFX_123
 	Call sub_0807F1A0
 script_08009816:
@@ -15,7 +15,7 @@ script_08009816:
 	_0807EE30
 	JumpIfNot script_08009816
 	EndBlock
-	_0807E5F8 0x00000004
+	SetSyncFlag 0x00000004
 	Call sub_0807FBD4
 	PlaySound SFX_1F3
 	DoPostScriptAction 0x0006

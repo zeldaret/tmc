@@ -29,8 +29,8 @@ script_08008BD2:
 	MessageNoOverlap 0x490c
 	WaitUntilTextboxCloses
 	LoadRoomEntityList gUnk_080D6784
-	WaitForSomething 0x00000001
-	WaitForSomething 0x00000004
+	WaitForSyncFlag 0x00000001
+	WaitForSyncFlag 0x00000004
 	Wait 0x000f
 	PlaySound SFX_SECRET
 	_0807E930 0x0004

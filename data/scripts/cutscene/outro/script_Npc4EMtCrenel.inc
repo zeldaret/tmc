@@ -7,13 +7,13 @@ SCRIPT_START script_Npc4EMtCrenel
 	Call sub_0807F844
 	EndBlock
 	Wait 0x003c
-	_0807E5F8 0x00000001
+	SetSyncFlag 0x00000001
 	Wait 0x000a
-	_0807E5F8 0x00000002
+	SetSyncFlag 0x00000002
 	Wait 0x0014
-	_0807E5F8 0x00000004
+	SetSyncFlag 0x00000004
 	Wait 0x001e
-	_0807E5F8 0x00000008
+	SetSyncFlag 0x00000008
 	Wait 0x003c
 	CallWithArg sub_0806DA1C, 0x0000000e
 	DoPostScriptAction 0x0006

@@ -10,7 +10,7 @@ script_08014AD2:
 	_0807E864
 	_0807EB74
 	StartPlayerScript script_PlayerAtSiroc
-	WaitForSomething2 0x00000001
+	WaitForSyncFlagAndClear 0x00000001
 	_0807EB74
 	CheckLocalFlag 0x0064
 	JumpIf script_08014AFE
