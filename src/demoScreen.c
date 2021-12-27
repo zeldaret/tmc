@@ -25,8 +25,6 @@ extern u16 gUnk_08127CC8[4];
 extern void* gUnk_08127C98;
 extern u8 gUnk_08A068BF[129];
 
-extern s32 __modsi3(s32, s32);
-
 void HandleChooseDemoScreen(void) {
     FlushSprites();
     demoFunctions[gMain.funcIndex]();
@@ -99,61 +97,63 @@ void sub_080A2F8C(void) {
 // This causes the entire function heirarchy to change on a whim and I couldn't quite figure out
 // the correct conditions/code to make it like the original function.
 NONMATCH("asm/non_matching/demoScreen/sub_080A2FD0.inc", void sub_080A2FD0(void)) {
-    u32 tmp;
+    s32 tmp;
     u32 tmp2;
     u32 val;
     s32 tmp3;
     u32 unk_0x0;
     u32 tmp4;
+    s32 tmp5;
     u32 keys;
 
     if (gFadeControl.active == 0) {
         val = 0;
         keys = gInput.heldKeys;
-        if (keys == DPAD_RIGHT) {
-            if (gChooseFileState.unk_0x0 == 0) {
-                val = 1;
-                gChooseFileState.unk_0x20 = 4;
-                SoundReq(SFX_TEXTBOX_CHOICE);
-            }
-        } else if ((keys) > 0x10) {
-            if ((keys) != 0x40) {
-                if ((keys) <= (s16)0x40) {
-                    if (keys == DPAD_LEFT) {
-                        if (gChooseFileState.unk_0x0 == 0) {
-                            val = -1;
-                            gChooseFileState.unk_0x20 = 0xfc;
-                            SoundReq(SFX_TEXTBOX_CHOICE);
-                        }
-                    }
+        switch (keys) {
+            case DPAD_RIGHT:
+            {
+                if (gChooseFileState.unk_0x0 == 0) {
+                    val = 1;
+                    gChooseFileState.unk_0x20 = 4;
+                    SoundReq(SFX_TEXTBOX_CHOICE);
                 }
             }
-        } else if ((keys) == 0x1 || (keys) == 0x8) {
-            if (gChooseFileState.unk_0x0 == 0) {
-                gMain.screen = 2;
-                gMain.funcIndex = gChooseFileState.unk_0x0;
-                SoundReq(SFX_TEXTBOX_SELECT);
+            case DPAD_LEFT:
+            {
+                if (gChooseFileState.unk_0x0 == 0) {
+                    val = -1;
+                    gChooseFileState.unk_0x20 = 0xfc;
+                    SoundReq(SFX_TEXTBOX_CHOICE);
+                }
+            }
+            case START_BUTTON:
+            case A_BUTTON:
+            {
+                if (gChooseFileState.unk_0x0 == 0) {
+                    gMain.screen = 2;
+                    gMain.funcIndex = gChooseFileState.unk_0x0;
+                    SoundReq(SFX_TEXTBOX_SELECT);
+                }
             }
         }
         tmp4 = (0x80 << 0x12);
         tmp = *(u8*)(tmp4 + 4);
         tmp2 = val + 3;
         tmp += tmp2;
-        *(u8*)(tmp4 + 4) = __modsi3(tmp, 3);
+        *(u8*)(tmp4 + 4) = tmp % 3;
 
         tmp3 = gChooseFileState.unk_0x10;
 
         tmp = *(u8*)(tmp4 + 4);
         tmp *= 0x68;
 
-        if (tmp != tmp3) {
-            tmp4 = gChooseFileState.unk_0x20;
-            tmp4 <<= 18;
-            tmp4 >>= 18;
-            tmp4 += tmp3;
-            gChooseFileState.unk_0x10 = __modsi3(tmp4 + (0x9c << 1), 0x9c << 1);
+       if (tmp != tmp3) {
+            tmp5 = gChooseFileState.unk_0x20;
+            tmp5 += tmp3;
+            gChooseFileState.unk_0x10 = (tmp5 + (0x9c << 1)) % (0x9c << 1);
             unk_0x0 = 1;
-        } else {
+        }
+        else {
             unk_0x0 = 0;
         }
 
