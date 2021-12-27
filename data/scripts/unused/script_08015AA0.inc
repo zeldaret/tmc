@@ -1,0 +1,11 @@
+@ TODO UNUSED?
+SCRIPT_START script_08015AA0
+	SetEntitySpeed 0x0100
+	DoPostScriptAction 0x0001
+	_0807EC94 0x0010
+	_0807EB44 0x0002
+	DoPostScriptAction 0x0000
+	SetSyncFlag 0x00000004
+	Call sub_080791BC
+SCRIPT_END
+	.2byte 0x0000

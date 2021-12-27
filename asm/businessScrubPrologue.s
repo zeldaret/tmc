@@ -142,14 +142,14 @@ sub_08045C3C: @ 0x08045C3C
 	bl sub_08046030
 	adds r0, r4, #0
 	bl sub_08095C48
-	ldr r1, _08045CA0 @ =script_08015AC4
+	ldr r1, _08045CA0 @ =script_BusinessScrubIntro
 	adds r0, r4, #0
 	bl StartCutscene
 	adds r0, r4, #0
 	bl sub_0807DD50
 	pop {r4, pc}
 	.align 2, 0
-_08045CA0: .4byte script_08015AC4
+_08045CA0: .4byte script_BusinessScrubIntro
 
 	thumb_func_start sub_08045CA4
 sub_08045CA4: @ 0x08045CA4

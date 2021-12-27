@@ -183,7 +183,7 @@ void GreatFairy_WingsUpdate(Entity* this) {
         this->action = 2;
         sub_0805EC60(this);
         gRoomVars.animFlags |= 32;
-        gActiveScriptInfo.unk_00 |= 4;
+        gActiveScriptInfo.syncFlags |= 4;
     } else {
         sub_0805EC9C(this, this->speed, 256, 0);
     }

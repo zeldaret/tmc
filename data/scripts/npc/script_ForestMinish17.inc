@@ -1,0 +1,17 @@
+@ Some Forest Minish ?
+SCRIPT_START script_ForestMinish17
+	SetEntitySpeed 0x0100
+script_080166BC:
+	_0807EDD4 0x0055, 0x0039
+	Wait 0x0008
+	_0807EDD4 0x0075, 0x0076
+	Wait 0x0008
+	_0807EDD4 0x0105, 0x006c
+	Wait 0x0008
+	_0807EDD4 0x018e, 0x007a
+	Wait 0x0008
+	_0807EDD4 0x0173, 0x0023
+	Wait 0x0008
+	_0807EDD4 0x00d8, 0x003f
+	Wait 0x0008
+	Jump script_080166BC

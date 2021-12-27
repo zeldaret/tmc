@@ -1,4 +1,0 @@
-SCRIPT_START script_08011940
-	WaitForSomething 0x40000000
-	DoPostScriptAction 0x0006
-SCRIPT_END

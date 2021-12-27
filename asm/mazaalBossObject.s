@@ -85,7 +85,7 @@ _0809AB70:
 	adds r1, #0x63
 	movs r0, #0x20
 	strb r0, [r1]
-	ldr r1, _0809ABA0 @ =script_08012DD8
+	ldr r1, _0809ABA0 @ =script_Object89Mazaal
 	adds r0, r5, #0
 	bl StartCutscene
 	adds r1, r5, #0
@@ -94,7 +94,7 @@ _0809AB70:
 _0809AB9C:
 	pop {r4, r5, pc}
 	.align 2, 0
-_0809ABA0: .4byte script_08012DD8
+_0809ABA0: .4byte script_Object89Mazaal
 
 	thumb_func_start sub_0809ABA4
 sub_0809ABA4: @ 0x0809ABA4

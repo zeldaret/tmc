@@ -6,7 +6,7 @@ extern void sub_0806A8C8(Entity*);
 extern void (*gUnk_08112260[])(Entity*);
 extern void (*gUnk_08112278[])(Entity*);
 
-extern void script_08012F0C;
+extern void script_Rem;
 
 extern void sub_08078850(Entity*, u32, u32, u32*);
 extern u32 gUnk_0811229C;
@@ -51,7 +51,7 @@ void sub_0806A3D8(Entity* this) {
     this->actionDelay = 0xb4;
     SetDefaultPriority(this, PRIO_MESSAGE);
     sub_0806A8C8(this);
-    uVar1 = StartCutscene(this, &script_08012F0C);
+    uVar1 = StartCutscene(this, &script_Rem);
     *(ScriptExecutionContext**)&this->cutsceneBeh = uVar1;
     sub_0807DD94(this, NULL);
 }
@@ -132,7 +132,7 @@ void sub_0806A550(Entity* this) {
         if (this->frame == 1) {
             this->frame = 0;
             sub_08080964(8, 2);
-            gActiveScriptInfo.unk_00 |= 0x100;
+            gActiveScriptInfo.syncFlags |= 0x100;
             SoundReq(SFX_CHEST_OPEN);
         }
         if ((this->frame & 0x80) != 0) {
@@ -173,7 +173,7 @@ void sub_0806A630(Entity* this) {
         this->action = 1;
         InitializeAnimation(this, 0x12);
     }
-    if ((gActiveScriptInfo.unk_00 & 0x100) != 0) {
+    if ((gActiveScriptInfo.syncFlags & 0x100) != 0) {
         GetNextFrame(this);
     }
     if (this->frame == 1) {
@@ -192,7 +192,7 @@ void sub_0806A830(Entity* this) {
         InitializeAnimation(this, 0x14);
         SetDefaultPriority(this, PRIO_MESSAGE);
     }
-    if ((gActiveScriptInfo.unk_00 & 0x200) != 0) {
+    if ((gActiveScriptInfo.syncFlags & 0x200) != 0) {
         DeleteThisEntity();
     }
     GetNextFrame(this);

@@ -28,7 +28,7 @@ void ScriptCommand_JumpAbsoluteTable(Entity* entity, ScriptExecutionContext* con
 void ScriptCommand_Call(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CallWithArg(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_LoadRoomEntityList(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_TestBit(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_CheckSyncFlagAndClear(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CheckInventory1(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CheckInventory2(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CheckLocalFlag(Entity* entity, ScriptExecutionContext* context);
@@ -41,10 +41,10 @@ void ScriptCommand_CheckEntityInteractType(Entity* entity, ScriptExecutionContex
 void ScriptCommand_0807E30C(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_HasRupees(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807E3BC(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E3E8(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_CheckTextboxResult(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CheckKinstoneFused(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_BuyItem(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E48C(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_CheckBottleContaining(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_HasRoomItemForSale(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807E4CC(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807E4EC(Entity* entity, ScriptExecutionContext* context);
@@ -54,8 +54,8 @@ void ScriptCommand_0807E564(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_EntityHasHeight(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_ComparePlayerAction(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_ComparePlayerAnimationState(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E5F8(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E610(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_SetSyncFlag(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_ClearSyncFlag(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetLocalFlag(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetLocalFlagByBank(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_ClearLocalFlag(Entity* entity, ScriptExecutionContext* context);
@@ -64,12 +64,12 @@ void ScriptCommand_ClearGlobalFlag(Entity* entity, ScriptExecutionContext* conte
 void ScriptCommand_SetRoomFlag(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_ClearRoomFlag(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_Wait(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_WaitForSomething(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_WaitForSomething2(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_WaitForSyncFlag(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_WaitForSyncFlagAndClear(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_WaitPlayerGetItem(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_WaitForPlayerAction0x17(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_WaitFor_1(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_WaitFor_2(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_WaitForFadeFinish(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807E778(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetFadeMask(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807E79C(Entity* entity, ScriptExecutionContext* context);
@@ -143,7 +143,7 @@ void ScriptCommand_StopBgm(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_ModRupees(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_ModHealth(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_IncreaseMaxHealth(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807F034(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_GivePlayerItem(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807F050(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_GetInventoryValue(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807F078(Entity* entity, ScriptExecutionContext* context);
@@ -481,7 +481,7 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
         ScriptCommand_Call,
         ScriptCommand_CallWithArg,
         ScriptCommand_LoadRoomEntityList,
-        ScriptCommand_TestBit,
+        ScriptCommand_CheckSyncFlagAndClear,
         ScriptCommand_CheckInventory1,
         ScriptCommand_CheckInventory2,
         ScriptCommand_HasRoomItemForSale,
@@ -495,10 +495,10 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
         ScriptCommand_0807E30C,
         ScriptCommand_HasRupees,
         ScriptCommand_0807E3BC,
-        ScriptCommand_0807E3E8,
+        ScriptCommand_CheckTextboxResult,
         ScriptCommand_CheckKinstoneFused,
         ScriptCommand_BuyItem,
-        ScriptCommand_0807E48C,
+        ScriptCommand_CheckBottleContaining,
         ScriptCommand_0807E4CC,
         ScriptCommand_0807E4EC,
         ScriptCommand_0807E514,
@@ -507,8 +507,8 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
         ScriptCommand_EntityHasHeight,
         ScriptCommand_ComparePlayerAction,
         ScriptCommand_ComparePlayerAnimationState,
-        ScriptCommand_0807E5F8,
-        ScriptCommand_0807E610,
+        ScriptCommand_SetSyncFlag,
+        ScriptCommand_ClearSyncFlag,
         ScriptCommand_SetLocalFlag,
         ScriptCommand_SetLocalFlagByBank,
         ScriptCommand_ClearLocalFlag,
@@ -517,12 +517,12 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
         ScriptCommand_SetRoomFlag,
         ScriptCommand_ClearRoomFlag,
         ScriptCommand_Wait,
-        ScriptCommand_WaitForSomething,
-        ScriptCommand_WaitForSomething2,
+        ScriptCommand_WaitForSyncFlag,
+        ScriptCommand_WaitForSyncFlagAndClear,
         ScriptCommand_WaitPlayerGetItem,
         ScriptCommand_WaitForPlayerAction0x17,
         ScriptCommand_WaitFor_1,
-        ScriptCommand_WaitFor_2,
+        ScriptCommand_WaitForFadeFinish,
         ScriptCommand_0807E778,
         ScriptCommand_SetFadeMask,
         ScriptCommand_0807E79C,
@@ -597,7 +597,7 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
         ScriptCommand_ModRupees,
         ScriptCommand_ModHealth,
         ScriptCommand_IncreaseMaxHealth,
-        ScriptCommand_0807F034,
+        ScriptCommand_GivePlayerItem,
         ScriptCommand_0807F050,
         ScriptCommand_GetInventoryValue,
         ScriptCommand_0807F078,
@@ -613,7 +613,7 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
     if (context->wait) {
         context->wait--;
     } else {
-        struct_02033280* activeScriptInfo = &gActiveScriptInfo;
+        ActiveScriptInfo* activeScriptInfo = &gActiveScriptInfo;
         activeScriptInfo->flags = 0;
         do {
             u32 cmd = GetNextScriptCommandHalfword(context->scriptInstructionPointer);
@@ -713,14 +713,14 @@ void ScriptCommand_LoadRoomEntityList(Entity* entity, ScriptExecutionContext* co
     LoadRoomEntityList((EntityData*)GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer));
 }
 
-void ScriptCommand_TestBit(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_CheckSyncFlagAndClear(Entity* entity, ScriptExecutionContext* context) {
     u32 flag = GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer);
     u32 set = 0;
-    u32 field = gActiveScriptInfo.unk_00;
+    u32 field = gActiveScriptInfo.syncFlags;
     if ((field & flag) == flag)
         set = 1;
     context->condition = set;
-    gActiveScriptInfo.unk_00 = field & ~flag;
+    gActiveScriptInfo.syncFlags = field & ~flag;
     gActiveScriptInfo.flags |= 1;
 }
 
@@ -831,7 +831,7 @@ void ScriptCommand_0807E3BC(Entity* entity, ScriptExecutionContext* context) {
     gActiveScriptInfo.flags |= 1;
 }
 
-void ScriptCommand_0807E3E8(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_CheckTextboxResult(Entity* entity, ScriptExecutionContext* context) {
     context->condition = !gUnk_02000040.unk_01;
     gActiveScriptInfo.flags |= 1;
 }
@@ -861,7 +861,7 @@ void ScriptCommand_BuyItem(Entity* entity, ScriptExecutionContext* context) {
     gActiveScriptInfo.flags |= 1;
 }
 
-void ScriptCommand_0807E48C(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_CheckBottleContaining(Entity* entity, ScriptExecutionContext* context) {
     context->condition = GetBottleContaining(context->scriptInstructionPointer[1]);
     gActiveScriptInfo.flags |= 1;
 }
@@ -914,12 +914,12 @@ void ScriptCommand_ComparePlayerAnimationState(Entity* entity, ScriptExecutionCo
     gActiveScriptInfo.flags |= 1;
 }
 
-void ScriptCommand_0807E5F8(Entity* entity, ScriptExecutionContext* context) {
-    gActiveScriptInfo.unk_00 |= GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer);
+void ScriptCommand_SetSyncFlag(Entity* entity, ScriptExecutionContext* context) {
+    gActiveScriptInfo.syncFlags |= GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer);
 }
 
-void ScriptCommand_0807E610(Entity* entity, ScriptExecutionContext* context) {
-    gActiveScriptInfo.unk_00 &= ~GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer);
+void ScriptCommand_ClearSyncFlag(Entity* entity, ScriptExecutionContext* context) {
+    gActiveScriptInfo.syncFlags &= ~GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer);
 }
 
 void ScriptCommand_SetLocalFlag(Entity* entity, ScriptExecutionContext* context) {
@@ -954,19 +954,19 @@ void ScriptCommand_Wait(Entity* entity, ScriptExecutionContext* context) {
     context->wait = GetNextScriptCommandHalfwordAfterCommandMetadata(context->scriptInstructionPointer);
 }
 
-void ScriptCommand_WaitForSomething(Entity* entity, ScriptExecutionContext* context) {
-    u32 tmp = GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer);
-    if ((gActiveScriptInfo.unk_00 & tmp) != tmp) {
+void ScriptCommand_WaitForSyncFlag(Entity* entity, ScriptExecutionContext* context) {
+    u32 flag = GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer);
+    if ((gActiveScriptInfo.syncFlags & flag) != flag) {
         gActiveScriptInfo.commandSize = 0;
     }
 }
 
-void ScriptCommand_WaitForSomething2(Entity* entity, ScriptExecutionContext* context) {
-    u32 tmp = GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer);
-    if ((gActiveScriptInfo.unk_00 & tmp) != tmp) {
+void ScriptCommand_WaitForSyncFlagAndClear(Entity* entity, ScriptExecutionContext* context) {
+    u32 flag = GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer);
+    if ((gActiveScriptInfo.syncFlags & flag) != flag) {
         gActiveScriptInfo.commandSize = 0;
     } else {
-        gActiveScriptInfo.unk_00 &= ~tmp;
+        gActiveScriptInfo.syncFlags &= ~flag;
         gActiveScriptInfo.flags |= 1;
     }
 }
@@ -995,7 +995,7 @@ void ScriptCommand_WaitFor_1(Entity* entity, ScriptExecutionContext* context) {
     }
 }
 
-void ScriptCommand_WaitFor_2(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_WaitForFadeFinish(Entity* entity, ScriptExecutionContext* context) {
     if (gFadeControl.active) {
         gActiveScriptInfo.commandSize = 0;
     }
@@ -1040,7 +1040,7 @@ void ScriptCommand_0807E80C(Entity* entity, ScriptExecutionContext* context) {
     sub_0807E818(0x11);
 }
 
-void sub_0807E818(u32 unk1) {
+void sub_0807E818(u32 fadeType) {
     Entity* cameraTarget = gRoomControls.cameraTarget;
     u32 x, y;
     if (cameraTarget) {
@@ -1050,7 +1050,7 @@ void sub_0807E818(u32 unk1) {
         x = 0x78;
         y = 0x50;
     }
-    sub_08050110(x, y, unk1, gActiveScriptInfo.unk_08);
+    sub_08050110(x, y, fadeType, gActiveScriptInfo.unk_08);
 }
 
 void ScriptCommand_0807E858(Entity* entity, ScriptExecutionContext* context) {
@@ -1489,7 +1489,7 @@ void ScriptCommand_IncreaseMaxHealth(Entity* entity, ScriptExecutionContext* con
     gSave.stats.health = gSave.stats.maxHealth;
 }
 
-void ScriptCommand_0807F034(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_GivePlayerItem(Entity* entity, ScriptExecutionContext* context) {
     u32 tmp = 0;
     if (context->scriptInstructionPointer[1] == 0x3F) {
         tmp = context->intVariable;

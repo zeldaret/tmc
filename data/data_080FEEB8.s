@@ -17,11 +17,11 @@ gUnk_080FEEC8:: @ 080FEEC8
 
 gUnk_080FEED4:: @ 080FEED4
 	.incbin "data_080FEEB8/gUnk_080FEED4.bin"
-	.4byte script_0800C350
+	.4byte script_BigGoronKinstone1
 	.incbin "data_080FEEB8/gUnk_080FEED4_1.bin"
-	.4byte script_0800C3CC
+	.4byte script_BigGoronKinstone2
 	.incbin "data_080FEEB8/gUnk_080FEED4_2.bin"
-	.4byte script_0800C410
+	.4byte script_BigGoronKinstone3
 	.incbin "data_080FEEB8/gUnk_080FEED4_3.bin"
 
 gUnk_080FEF34:: @ 080FEF34
@@ -35,7 +35,7 @@ gUnk_080FEF3C:: @ 080FEF3C
 
 gUnk_080FEF48:: @ 080FEF48
 	.incbin "data_080FEEB8/gUnk_080FEF48.bin"
-	.4byte script_0800BC50
+	.4byte script_GoronKinstone
 .ifdef JP
 	.incbin "data_080FEEB8/gUnk_080FEF48_1_JP.bin"
 .else
@@ -52,57 +52,57 @@ gUnk_080FEF48:: @ 080FEF48
 
 gUnk_080FEF78:: @ 080FEF78
 	.incbin "data_080FEEB8/gUnk_080FEF78.bin"
-	.4byte script_0800BCE8
+	.4byte script_Goron1Kinstone2
 	.incbin "data_080FEEB8/gUnk_080FEF78_1.bin"
-	.4byte script_0800BD78
+	.4byte script_Goron2Kinstone2
 	.incbin "data_080FEEB8/gUnk_080FEF78_2.bin"
 
 gUnk_080FEFA8:: @ 080FEFA8
 	.incbin "data_080FEEB8/gUnk_080FEFA8.bin"
-	.4byte script_0800BE1C
+	.4byte script_Goron1Kinstone3
 	.incbin "data_080FEEB8/gUnk_080FEFA8_1.bin"
-	.4byte script_0800BE54
+	.4byte script_Goron2Kinstone3
 	.incbin "data_080FEEB8/gUnk_080FEFA8_2.bin"
-	.4byte script_0800BECC
+	.4byte script_Goron3Kinstone3
 	.incbin "data_080FEEB8/gUnk_080FEFA8_3.bin"
 
 gUnk_080FEFE8:: @ 080FEFE8
 	.incbin "data_080FEEB8/gUnk_080FEFE8.bin"
-	.4byte script_0800BF38
+	.4byte script_Goron1Kinstone4
 	.incbin "data_080FEEB8/gUnk_080FEFE8_1.bin"
-	.4byte script_0800BF70
+	.4byte script_Goron2Kinstone4
 	.incbin "data_080FEEB8/gUnk_080FEFE8_2.bin"
-	.4byte script_0800BF70
+	.4byte script_Goron2Kinstone4
 	.incbin "data_080FEEB8/gUnk_080FEFE8_3.bin"
-	.4byte script_0800C004
+	.4byte script_Goron4Kinstone4
 	.incbin "data_080FEEB8/gUnk_080FEFE8_4.bin"
 
 gUnk_080FF038:: @ 080FF038
 	.incbin "data_080FEEB8/gUnk_080FF038.bin"
-	.4byte script_0800C0B0
+	.4byte script_Goron1Kinstone5
 	.incbin "data_080FEEB8/gUnk_080FF038_1.bin"
-	.4byte script_0800C0E8
+	.4byte script_Goron2Kinstone5
 	.incbin "data_080FEEB8/gUnk_080FF038_2.bin"
-	.4byte script_0800C0E8
+	.4byte script_Goron2Kinstone5
 	.incbin "data_080FEEB8/gUnk_080FF038_3.bin"
-	.4byte script_0800C0E8
+	.4byte script_Goron2Kinstone5
 	.incbin "data_080FEEB8/gUnk_080FF038_4.bin"
-	.4byte script_0800C160
+	.4byte script_Goron5Kinstone5
 	.incbin "data_080FEEB8/gUnk_080FF038_5.bin"
 
 gUnk_080FF098:: @ 080FF098
 	.incbin "data_080FEEB8/gUnk_080FF098.bin"
-	.4byte script_0800C1D8
+	.4byte script_Goron1Kinstone6
 	.incbin "data_080FEEB8/gUnk_080FF098_1.bin"
-	.4byte script_0800C210
+	.4byte script_Goron2Kinstone6
 	.incbin "data_080FEEB8/gUnk_080FF098_2.bin"
-	.4byte script_0800C210
+	.4byte script_Goron2Kinstone6
 	.incbin "data_080FEEB8/gUnk_080FF098_3.bin"
-	.4byte script_0800C210
+	.4byte script_Goron2Kinstone6
 	.incbin "data_080FEEB8/gUnk_080FF098_4.bin"
-	.4byte script_0800C210
+	.4byte script_Goron2Kinstone6
 	.incbin "data_080FEEB8/gUnk_080FF098_5.bin"
-	.4byte script_0800C2A4
+	.4byte script_Goron6Kindstone6
 	.incbin "data_080FEEB8/gUnk_080FF098_6.bin"
 
 gUnk_080FF108:: @ 080FF108
@@ -119,7 +119,7 @@ gUnk_080FF120:: @ 080FF120
 
 gUnk_080FF128:: @ 080FF128
 	.incbin "data_080FEEB8/gUnk_080FF128.bin"
-	.4byte script_0800BB64
+	.4byte script_GoronMerchantArriving
 	.incbin "data_080FEEB8/gUnk_080FF128_1.bin"
 
 gUnk_080FF148:: @ 080FF148
@@ -129,7 +129,7 @@ gUnk_080FF148:: @ 080FF148
 
 gUnk_080FF154:: @ 080FF154
 	.incbin "data_080FEEB8/gUnk_080FF154.bin"
-	.4byte script_0800BACC
+	.4byte script_MutohKinstone
 	.incbin "data_080FEEB8/gUnk_080FF154_1.bin"
 
 gUnk_080FF174:: @ 080FF174
@@ -138,7 +138,7 @@ gUnk_080FF174:: @ 080FF174
 
 gUnk_080FF17C:: @ 080FF17C
 	.incbin "data_080FEEB8/gUnk_080FF17C.bin"
-	.4byte script_0800BC08
+	.4byte script_GhostBrotherKinstone
 	.incbin "data_080FEEB8/gUnk_080FF17C_1.bin"
 
 gUnk_080FF1CC:: @ 080FF1CC
@@ -182,7 +182,7 @@ gUnk_080FF254:: @ 080FF254
 
 gUnk_080FF264:: @ 080FF264
 	.incbin "data_080FEEB8/gUnk_080FF264.bin"
-	.4byte script_0800BBDC
+	.4byte script_CarlovKinstone
 	.incbin "data_080FEEB8/gUnk_080FF264_1.bin"
 
 gUnk_080FF284:: @ 080FF284
@@ -203,7 +203,7 @@ gUnk_080FF2B8:: @ 080FF2B8
 
 gUnk_080FF2C0:: @ 080FF2C0
 	.incbin "data_080FEEB8/gUnk_080FF2C0.bin"
-	.4byte script_0800BA78
+	.4byte script_GormanFirstAppearance
 	.incbin "data_080FEEB8/gUnk_080FF2C0_1.bin"
 
 gUnk_080FF300:: @ 080FF300
@@ -212,7 +212,7 @@ gUnk_080FF300:: @ 080FF300
 
 gUnk_080FF308:: @ 080FF308
 	.incbin "data_080FEEB8/gUnk_080FF308.bin"
-	.4byte script_0800BB00
+	.4byte script_SyrupKinstone
 	.incbin "data_080FEEB8/gUnk_080FF308_1.bin"
 
 gUnk_080FF328:: @ 080FF328
@@ -240,13 +240,13 @@ gUnk_080FF36C:: @ 080FF36C
 
 gUnk_080FF378:: @ 080FF378
 	.incbin "data_080FEEB8/gUnk_080FF378.bin"
-	.4byte script_0800C45C
+	.4byte script_ObjectB3KinstoneSpark
 	.incbin "data_080FEEB8/gUnk_080FF378_1.bin"
-	.4byte script_0800C494
+	.4byte script_ObjectB3KinstoneSparkFromBottom
 	.incbin "data_080FEEB8/gUnk_080FF378_2.bin"
-	.4byte script_0800C4D0
+	.4byte script_ObjectB3KinstoneSparkGoronMerchang
 	.incbin "data_080FEEB8/gUnk_080FF378_3.bin"
-	.4byte script_0800C50C
+	.4byte script_ObjectB3KinstoneSparkGoron
 	.incbin "data_080FEEB8/gUnk_080FF378_4.bin"
 
 gUnk_080FF3C8:: @ 080FF3C8
@@ -271,7 +271,7 @@ gUnk_080FF3F4:: @ 080FF3F4
 
 gUnk_080FF400:: @ 080FF400
 	.incbin "data_080FEEB8/gUnk_080FF400.bin"
-	.4byte script_0800BBA4
+	.4byte script_StampKinstone
 	.incbin "data_080FEEB8/gUnk_080FF400_1.bin"
 
 gUnk_080FF420:: @ 080FF420

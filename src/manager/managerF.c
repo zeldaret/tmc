@@ -75,16 +75,16 @@ const ManagerF_HelperStruct gUnk_08108354[] = {
 
 const u32 gUnk_08108354_terminator = 0xFFFF; // terminator for the previous array
 
-extern u16 script_0800E600[];
-extern u16 script_0800E62C[];
-extern u16 script_0800E658[];
-extern u16 script_0800E684[];
+extern u16 script_PlayerAtDarkNut1[];
+extern u16 script_PlayerAtDarkNut2[];
+extern u16 script_PlayerAtDarkNut3[];
+extern u16 script_PlayerAtMadderpillar[];
 
 u16* const gUnk_08108380[] = {
-    script_0800E600,
-    script_0800E62C,
-    script_0800E658,
-    script_0800E684,
+    script_PlayerAtDarkNut1,
+    script_PlayerAtDarkNut2,
+    script_PlayerAtDarkNut3,
+    script_PlayerAtMadderpillar,
 };
 
 void sub_08058F44(u32, u32, u32);
