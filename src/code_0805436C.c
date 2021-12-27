@@ -46,7 +46,7 @@ u32 IsItemEquipped(u32 itemID) {
 
 void PutItemOnSlot(u32 itemID) {
     u32 itemSlot;
-    register u32 itemID2 asm ("r5") = itemID;
+    register u32 itemID2 asm("r5") = itemID;
     if (itemID2 < 0x47) {
         sub_0807CAA0(0, 1);
     }
