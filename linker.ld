@@ -461,7 +461,7 @@ SECTIONS {
         src/enemy/miniFireballGuy.o(.text);
         src/enemy/vaatiTransfiguredEye.o(.text);
         asm/businessScrubPrologue.o(.text);
-        asm/gyorgFemale.o(.text);
+        src/enemy/gyorgFemale.o(.text);
         src/enemy/gyorgMale.o(.text);
         asm/curtain.o(.text);
         src/enemy/vaatiWrathEye.o(.text);
