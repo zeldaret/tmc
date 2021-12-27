@@ -44,13 +44,13 @@ u32 IsItemEquipped(u32 itemID) {
     return itemSlot;
 }
 
-NONMATCH("asm/non_matching/PutItemOnSlot.inc", void PutItemOnSlot(u32 itemID)) {
-    // reg-alloc
+void PutItemOnSlot(u32 itemID) {
     u32 itemSlot;
-    if (itemID < 0x47) {
+    register u32 itemID2 asm ("r5") = itemID;
+    if (itemID2 < 0x47) {
         sub_0807CAA0(0, 1);
     }
-    if (itemID - 1 < 0x1f) {
+    if (itemID2 - 1 < 0x1f) {
         itemSlot = 2;
         if (gSave.stats.itemOnA == 0) {
             itemSlot = 0;
@@ -58,7 +58,7 @@ NONMATCH("asm/non_matching/PutItemOnSlot.inc", void PutItemOnSlot(u32 itemID)) {
             itemSlot = 1;
         }
         if (itemSlot == 2) {
-            u8 temp = gUnk_080FD5B4[itemID].unk;
+            u8 temp = gUnk_080FD5B4[itemID2].unk;
             if (temp == gUnk_080FD5B4[gSave.stats.itemOnA].unk) {
                 itemSlot = 0;
             } else {
@@ -70,10 +70,9 @@ NONMATCH("asm/non_matching/PutItemOnSlot.inc", void PutItemOnSlot(u32 itemID)) {
                 return;
             }
         }
-        ForceEquipItem(itemID, itemSlot);
+        ForceEquipItem(itemID2, itemSlot);
     }
 }
-END_NONMATCH
 
 ASM_FUNC("asm/non_matching/ForceEquipItem.inc", void ForceEquipItem(u32 itemID, u8 itemSlot))
 
