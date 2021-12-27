@@ -53,8 +53,8 @@ void MoblinSpear_Action1(Entity* this) {
     u8 frames;
     Entity* parent;
     u32 tmp;
-    
-    //const HitboxChange* a;
+
+    // const HitboxChange* a;
     // TODO: Copying a members using HitboxChange members addresses them directly using [r2, 0x1]
     // while the assembly increases the pointer after every copy.
     // Not sure how to make this more readable.
@@ -68,7 +68,7 @@ void MoblinSpear_Action1(Entity* this) {
         DeleteThisEntity();
     }
     frames = parent->frame * 4;
-    a = (u8*) &gUnk_0812966C[frames / 4];
+    a = (u8*)&gUnk_0812966C[frames / 4];
     this->hitbox->offset_x = *a++;
     if (parent->frameSpriteSettings == 0x40) {
         this->hitbox->offset_x = -this->hitbox->offset_x;
