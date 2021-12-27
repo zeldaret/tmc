@@ -116,8 +116,7 @@ NONMATCH("asm/non_matching/demoScreen/sub_080A2FD0.inc", void sub_080A2FD0(void)
                 gChooseFileState.unk_0x20 = 4;
                 SoundReq(SFX_TEXTBOX_CHOICE);
             }
-        }
-        else if ((keys) > 0x10) {
+        } else if ((keys) > 0x10) {
             if ((keys) != 0x40) {
                 if ((keys) <= (s16)0x40) {
                     if (keys == DPAD_LEFT) {
@@ -129,8 +128,7 @@ NONMATCH("asm/non_matching/demoScreen/sub_080A2FD0.inc", void sub_080A2FD0(void)
                     }
                 }
             }
-        }
-        else if ((keys) == 0x1 || (keys) == 0x8) {
+        } else if ((keys) == 0x1 || (keys) == 0x8) {
             if (gChooseFileState.unk_0x0 == 0) {
                 gMain.screen = 2;
                 gMain.funcIndex = gChooseFileState.unk_0x0;
@@ -144,7 +142,7 @@ NONMATCH("asm/non_matching/demoScreen/sub_080A2FD0.inc", void sub_080A2FD0(void)
         *(u8*)(tmp4 + 4) = __modsi3(tmp, 3);
 
         tmp3 = gChooseFileState.unk_0x10;
-        
+
         tmp = *(u8*)(tmp4 + 4);
         tmp *= 0x68;
 
@@ -155,8 +153,7 @@ NONMATCH("asm/non_matching/demoScreen/sub_080A2FD0.inc", void sub_080A2FD0(void)
             tmp4 += tmp3;
             gChooseFileState.unk_0x10 = __modsi3(tmp4 + (0x9c << 1), 0x9c << 1);
             unk_0x0 = 1;
-        }
-        else {
+        } else {
             unk_0x0 = 0;
         }
 
@@ -221,7 +218,7 @@ void sub_080A3198(u32 param_1, u32 param_2) {
         if (r4 != 0) {
             sub_0805F46C(r4, &gUnk_08127C98);
         }
-        
+
         gScreen.bg0.updated = 1;
     }
 }

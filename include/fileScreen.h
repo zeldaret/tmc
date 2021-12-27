@@ -14,9 +14,9 @@ typedef struct {
     u8 fillerA[0x5];
     s16 unk_0x10;
     u16 unk_0x12;
-    u8 fillerB[0xC];    
+    u8 fillerB[0xC];
     u8 unk_0x20;
-    u8 fillerC[0xF];    
+    u8 fillerC[0xF];
 } ChooseFileState;
 static_assert(sizeof(ChooseFileState) == 0x30);
 
