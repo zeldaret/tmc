@@ -136,15 +136,14 @@ NONMATCH("asm/non_matching/demoScreen/sub_080A2FD0.inc", void sub_080A2FD0(void)
                 }
             }
         }
-        tmp4 = (0x80 << 0x12);
-        tmp = *(u8*)(tmp4 + 4);
+        tmp = gSaveHeader->saveFileId;
         tmp2 = val + 3;
         tmp += tmp2;
-        *(u8*)(tmp4 + 4) = tmp % 3;
+        gSaveHeader->saveFileId = tmp % 3;
 
         tmp3 = gChooseFileState.unk_0x10;
 
-        tmp = *(u8*)(tmp4 + 4);
+        tmp = gSaveHeader->saveFileId;
         tmp *= 0x68;
 
        if (tmp != tmp3) {
@@ -158,8 +157,7 @@ NONMATCH("asm/non_matching/demoScreen/sub_080A2FD0.inc", void sub_080A2FD0(void)
         }
 
         gChooseFileState.unk_0x0 = unk_0x0;
-        tmp4 = (0x80 << 0x12);
-        sub_080A3198(*(u8*)(tmp4 + 4), 0);
+        sub_080A3198(gSaveHeader->saveFileId, 0);
     }
 }
 END_NONMATCH
