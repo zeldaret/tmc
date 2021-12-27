@@ -70,15 +70,16 @@ typedef struct {
     /*0x78*/ u32 _78;
 } Screen;
 
-struct OAMCommand {
+typedef struct {
     u16 x;
     u16 y;
     u16 _4;
     u16 _6;
     u16 _8;
-} extern gOamCmd;
+} OAMCommand;
 
 extern BgControls gBgControls;
 extern Screen gScreen;
+extern OAMCommand gOamCmd;
 
 #endif

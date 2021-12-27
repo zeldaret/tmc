@@ -10,6 +10,7 @@
 #include "room.h"
 #include "structures.h"
 #include "script.h"
+#include "screen.h"
 
 // Identified - to be sorted into header files
 extern u32 CheckKinstoneFused(u32);
@@ -222,5 +223,7 @@ extern u32 sub_080002A8(u32, u32, u32);
 extern void sub_080806BC(u32, u32, u32, u32);
 
 extern void LoadObjPalette(Entity*, u32);
+
+extern void sub_080ADA04(OAMCommand*, void*);
 
 #endif
