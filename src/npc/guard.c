@@ -5,7 +5,6 @@
 #include "textbox.h"
 #include "room.h"
 #include "script.h"
-#include "structures.h"
 #include "functions.h"
 #include "npc.h"
 
@@ -28,10 +27,8 @@ extern void (*const gUnk_0810F544[])(Entity*);
 extern void (*const gUnk_0810F550[])(Entity*);
 
 // entity count
-extern u8 gEntCount;
 extern SpriteLoadData gUnk_0810F524[];
 extern void* gUnk_0810F6BC[];
-extern ScreenTransition gScreenTransition;
 
 void Guard(Entity* this) {
     if ((this->flags & 2) != 0) {
@@ -113,7 +110,6 @@ void sub_08063E6C(Entity* this) {
 }
 
 void sub_08063E90(Entity* this) {
-    Entity* ent;
     u32 temp, idx;
     u32 unk;
 
@@ -166,7 +162,6 @@ void sub_08063F78(Entity* this) {
 }
 
 void Guard_Head(Entity* this) {
-    u8 bVar1;
     u32 uVar2;
     u32 pbVar3;
     u32 uVar4;

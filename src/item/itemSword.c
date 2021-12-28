@@ -89,7 +89,7 @@ void sub_08075694(ItemBehavior* this, u32 arg1) {
     gPlayerState.field_0x1a[1] &= 0xdf;
     if ((gPlayerState.field_0xa0[0] == 0x04) && ((gPlayerState.flags & PL_CLONING) == 0)) {
         gPlayerState.field_0xa0[0] = 0x01;
-        sub_0807A108();
+        DeleteClones();
     }
     SoundReq(SFX_PLY_VO2);
 }

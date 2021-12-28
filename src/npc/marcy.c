@@ -1,6 +1,5 @@
 #include "entity.h"
 #include "functions.h"
-#include "script.h"
 #include "flags.h"
 #include "textbox.h"
 

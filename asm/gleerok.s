@@ -2883,7 +2883,7 @@ _0802E552:
 	lsls r0, r0, #8
 	strh r0, [r1, #0x24]
 	ldr r0, [r2, #0x3c]
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	movs r6, #0
 	movs r0, #0x3c
 	add r0, sb

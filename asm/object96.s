@@ -125,7 +125,7 @@ sub_0809D860: @ 0x0809D860
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
 	adds r6, r1, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	ldr r1, [r6, #0x14]
 	adds r0, r5, #0
 	bl sub_080044EC

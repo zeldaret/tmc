@@ -116,7 +116,7 @@ _0808921C:
 	movs r0, #1
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl sub_08016A30
+	bl ResolveCollisionLayer
 	adds r0, r4, #0
 	movs r1, #0x15
 	bl ChangeObjPalette
@@ -222,7 +222,7 @@ _0808991A:
 	movs r0, #1
 	strb r0, [r5]
 	adds r0, r4, #0
-	bl sub_08016A30
+	bl ResolveCollisionLayer
 	adds r0, r4, #0
 	movs r1, #0x15
 	bl ChangeObjPalette

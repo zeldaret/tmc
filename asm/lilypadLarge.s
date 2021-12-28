@@ -183,7 +183,7 @@ _08085634:
 	cmp r0, #1
 	bne _08085654
 	adds r0, r6, #0
-	bl sub_0800455E
+	bl ResetCollisionLayer
 	b _0808565A
 	.align 2, 0
 _0808564C: .4byte gPlayerEntity
@@ -768,7 +768,7 @@ sub_08085A98: @ 0x08085A98
 	adds r4, r0, #0
 	bl sub_08085EFC
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	adds r0, r4, #0
 	bl sub_08085F1C
 	ldr r1, [r4, #0x78]
@@ -901,14 +901,14 @@ _08085BAE:
 	b _08085BE8
 _08085BB4:
 	adds r0, r5, #0
-	bl sub_0800455E
+	bl ResetCollisionLayer
 	adds r0, r5, #0
 	bl sub_080002B8
 	cmp r0, #0xd
 	bne _08085BE8
 	ldr r4, _08085C50 @ =gPlayerEntity
 	adds r0, r4, #0
-	bl sub_0800455E
+	bl ResetCollisionLayer
 	adds r0, r5, #0
 	bl sub_08085CDC
 	adds r0, r4, #0
@@ -934,7 +934,7 @@ _08085BE8:
 	cmp r0, #0
 	bne _08085C58
 	adds r0, r4, #0
-	bl sub_0800455E
+	bl ResetCollisionLayer
 	adds r0, r5, #0
 	bl sub_08085F1C
 	movs r0, #1
@@ -988,13 +988,13 @@ sub_08085C5C: @ 0x08085C5C
 	cmp r0, #0
 	beq _08085CAE
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	ldrh r0, [r4, #0x24]
 	strh r0, [r5, #0x24]
 	ldrb r0, [r4, #0x15]
 	strb r0, [r5, #0x15]
 	adds r0, r5, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	ldr r2, _08085CA4 @ =gPlayerState
 	ldr r0, [r2, #0x30]
 	movs r1, #2
@@ -1006,7 +1006,7 @@ sub_08085C5C: @ 0x08085C5C
 	cmp r0, #1
 	bne _08085CA8
 	adds r0, r5, #0
-	bl sub_0800455E
+	bl ResetCollisionLayer
 	b _08085CAE
 	.align 2, 0
 _08085CA0: .4byte gPlayerEntity

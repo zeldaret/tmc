@@ -29,5 +29,5 @@ script_08009EA4:
 	Call sub_08053250
 	EnablePlayerControl
 	Call sub_0807DF50
-	Call sub_080791D0
+	Call ResetPlayerAnimationAndAction
 SCRIPT_END

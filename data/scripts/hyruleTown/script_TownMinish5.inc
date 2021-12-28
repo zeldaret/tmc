@@ -60,5 +60,5 @@ script_0800EEFE:
 	MessageFromTarget 0x4c09
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000048
-	Call sub_080791BC
+	Call SetPlayerActionNormal
 SCRIPT_END

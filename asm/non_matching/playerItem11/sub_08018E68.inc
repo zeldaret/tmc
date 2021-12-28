@@ -38,7 +38,7 @@ _08018EA8:
 	cmp r0, #0xff
 	beq _08018F46
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	ldrb r0, [r4, #0x15]
 	cmp r0, #8
 	beq _08018EEA

@@ -1,7 +1,6 @@
 #include "entity.h"
 #include "functions.h"
 
-extern u8 gEntCount;
 bool32 sub_080AB12C(Entity* this);
 
 extern void (*const gUnk_0812A494[])(Entity*);

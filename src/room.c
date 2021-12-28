@@ -80,8 +80,8 @@ NONMATCH("asm/loadRoomEntity.s", Entity* LoadRoomEntity(EntityData* dat)) {
                     v5->collisionLayer = 2;
                     return v5;
                 }
-                if ((gRoomControls.unk6 & 2) == 0) {
-                    sub_08016A30(v5);
+                if ((gRoomControls.scroll_flags & 2) == 0) {
+                    ResolveCollisionLayer(v5);
                 }
             }
             v5->collisionLayer = 1;
@@ -320,7 +320,7 @@ static void LoadSmallChestTile(TileEntity* tile) {
     for (i = 0; i < 8; ++i, ++t) {
         if (!t->_4) {
             MemCopy(tile, t, sizeof(TileEntity));
-            if ((t->_6 & 1) && (gRoomControls.unk6 & 2) && !CheckLocalFlag(t->_1)) {
+            if ((t->_6 & 1) && (gRoomControls.scroll_flags & 2) && !CheckLocalFlag(t->_1)) {
                 Entity* e = CreateObject(OBJECT_52, t->_1, 0);
                 if (e != NULL) {
                     sub_0806F704(e, t->_4);

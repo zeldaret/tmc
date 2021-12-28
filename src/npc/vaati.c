@@ -2,7 +2,6 @@
 #include "entity.h"
 #include "script.h"
 #include "audio.h"
-#include "structures.h"
 #include "functions.h"
 
 extern void sub_08095CB0(Entity*);

@@ -37,7 +37,6 @@ typedef struct {
     s8 x;
     s8 y;
 } PACKED xy;
-extern u8 gEntCount;
 
 #ifdef EU
 const u8 gUnk_080D0ABC[] = { 0xf0, 0xd0, 0xb0 };
@@ -288,7 +287,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
                 if (this->animationState > 2) {
                     this->action = 7;
                     this->actionDelay = 0xe0;
-                    sub_0807A108();
+                    DeleteClones();
                     SoundReq(SFX_BOSS_HIT);
                     return;
                 }

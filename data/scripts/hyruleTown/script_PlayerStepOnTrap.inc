@@ -8,5 +8,5 @@ SCRIPT_START script_PlayerStepOnTrap
 	_0807EDD4 0x0078, 0x0080
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000001
-	Call sub_080791BC
+	Call SetPlayerActionNormal
 SCRIPT_END

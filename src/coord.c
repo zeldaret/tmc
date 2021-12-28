@@ -1,8 +1,6 @@
 #include "asm.h"
 #include "area.h"
 #include "player.h"
-#include "global.h"
-#include "entity.h"
 #include "coord.h"
 #include "utils.h"
 #include "audio.h"
@@ -163,7 +161,7 @@ void sub_0806F62C(Entity* ent, u32 a, u32 b) {
     ent->y.WORD -= FixedDiv(FixedMul(gSineTable[(u8)b + 64], a), 256) << 8;
 }
 
-void sub_0806F69C(Entity* ent) {
+void LinearMoveUpdate(Entity* ent) {
     if ((ent->direction & 0x80) == 0) {
         ent->x.WORD += FixedDiv(FixedMul(gSineTable[ent->direction * 8], ent->speed), 256) << 8;
         ent->y.WORD -= FixedDiv(FixedMul(gSineTable[ent->direction * 8 + 64], ent->speed), 256) << 8;

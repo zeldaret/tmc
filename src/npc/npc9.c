@@ -1,7 +1,6 @@
 #include "global.h"
 #include "entity.h"
 #include "textbox.h"
-#include "functions.h"
 #include "npc.h"
 
 extern void (*const gUnk_0810C290[])(Entity*);

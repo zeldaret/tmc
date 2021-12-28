@@ -137,7 +137,7 @@ sub_0808F858: @ 0x0808F858
 	cmp r0, #0
 	beq _0808F884
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r4, #0

@@ -1,4 +1,5 @@
 #include "global.h"
+#include "asm.h"
 #include "entity.h"
 #include "flags.h"
 #include "audio.h"
@@ -37,7 +38,6 @@ extern Hitbox gHitbox_2;
 
 extern u32 sub_080001DA(u32, u32);
 extern void sub_08078850(Entity*, u32, u32, u32);
-extern void RequestPriorityDuration(Entity*, u32);
 
 typedef struct PACKED {
     s8 x;
@@ -153,7 +153,7 @@ void sub_080834B4(Entity* this) {
 }
 
 void sub_080834EC(Entity* this) {
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     if (--this->actionDelay == 0) {
         if (this->type & 0x80) {
             sub_08083638(this);
@@ -171,7 +171,7 @@ void sub_08083518(Entity* this) {
 }
 
 void sub_08083540(Entity* this) {
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     if (!--this->actionDelay) {
         if (this->type & 0x10) {
             this->type &= ~0x10;

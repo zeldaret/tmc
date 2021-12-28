@@ -15,6 +15,6 @@ SCRIPT_START script_PlayerEnters
 	DoPostScriptAction 0x0000
 	Wait 0x000f
 	SetSyncFlag 0x00000020
-	Call sub_080791BC
+	Call SetPlayerActionNormal
 SCRIPT_END
 	.2byte 0x0000

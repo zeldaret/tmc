@@ -607,6 +607,6 @@ _080388A8:
 	subs r0, #1
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 _080388B2:
 	pop {r4, r5, r6, pc}

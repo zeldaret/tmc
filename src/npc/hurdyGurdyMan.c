@@ -2,13 +2,11 @@
 #include "functions.h"
 #include "save.h"
 #include "npc.h"
-#include "script.h"
 
 extern Dialog gUnk_081144FC[];
 
 extern SpriteLoadData gUnk_081144F0;
 
-extern u32 sub_08002632(Entity*);
 extern u16* gUnk_08001A7C[];
 
 void HurdyGurdyMan(Entity* this) {

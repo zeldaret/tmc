@@ -91,7 +91,7 @@ _08070842:
 	ands r4, r1
 	cmp r4, #0
 	beq _08070852
-	bl sub_08079938
+	bl ResolvePlayerAnimation
 	b _08070BE4
 _08070852:
 	adds r0, r5, #0
@@ -320,7 +320,7 @@ _08070A26:
 	b _08070BE4
 _08070A32:
 	adds r0, r5, #0
-	bl sub_08073904
+	bl DoJump
 	bl RunQueuedAction
 	cmp r0, #0
 	beq _08070A42
@@ -357,7 +357,7 @@ _08070A7C:
 	movs r0, #0xff
 	strb r0, [r5, #0x15]
 _08070A80:
-	bl sub_08079E08
+	bl UpdatePlayerMovement
 	adds r0, r5, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -465,7 +465,7 @@ _08070B1E:
 	lsls r0, r0, #2
 	strb r0, [r5, #0x15]
 _08070B52:
-	bl sub_0807A108
+	bl DeleteClones
 _08070B56:
 	movs r4, #0
 	ldr r3, _08070BB8 @ =gPlayerState

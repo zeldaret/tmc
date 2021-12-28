@@ -1050,7 +1050,7 @@ _08041250:
 	adds r1, #1
 	strb r0, [r1]
 	adds r0, r2, #0
-	bl sub_08016A30
+	bl ResolveCollisionLayer
 	adds r6, #2
 	movs r0, #6
 	ands r6, r0
@@ -1077,7 +1077,7 @@ _080412C8:
 	adds r0, #0x38
 	strb r3, [r0]
 	adds r0, r4, #0
-	bl sub_08016A30
+	bl ResolveCollisionLayer
 	pop {r3, r4, r5}
 	mov r8, r3
 	mov sb, r4

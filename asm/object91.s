@@ -933,7 +933,7 @@ _0809CAC4:
 sub_0809CAC8: @ 0x0809CAC8
 	push {r4, r5, lr}
 	adds r5, r0, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	ldr r2, _0809CB3C @ =gRoomControls
 	ldrh r0, [r2, #8]
 	movs r1, #0xe4

@@ -13,5 +13,5 @@ SCRIPT_START script_PlayerFainting
 	EndBlock
 	Call WaitForFrameHiBit
 	WaitForSyncFlag 0x80000000
-	Call sub_080791BC
+	Call SetPlayerActionNormal
 SCRIPT_END

@@ -1,5 +1,4 @@
 #include "npc.h"
-#include "functions.h"
 
 extern void sub_08078850(Entity*, u32, u32, u32*);
 
@@ -65,7 +64,6 @@ void sub_080660EC(Entity* this) {
 
 void sub_08066118(Entity* this) {
     s32 uVar1;
-    u32 iVar2;
 
     uVar1 = sub_0806ED9C(this, 0x28, 0x28);
     if (uVar1 < 0) {
@@ -105,8 +103,6 @@ void sub_080661B0(Entity* this) {
 }
 
 void sub_080661BC(Entity* this) {
-    u32 sVar1;
-
     if (this->animIndex == 0xc) {
         UpdateAnimationSingleFrame(this);
         if (this->frame & 0x80) {

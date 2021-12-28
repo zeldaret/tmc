@@ -330,7 +330,7 @@ sub_0809DBE4: @ 0x0809DBE4
 sub_0809DC14: @ 0x0809DC14
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r4, #0
@@ -1099,7 +1099,7 @@ sub_0809E1F0: @ 0x0809E1F0
 	strh r2, [r1, #0x24]
 _0809E208:
 	adds r0, r1, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	pop {pc}
 
 	thumb_func_start sub_0809E210

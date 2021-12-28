@@ -9,6 +9,6 @@ SCRIPT_START script_PlayerAtVillageIntro
 	_0807EDD4 0x0208, 0x0340
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000002
-	Call sub_080791BC
+	Call SetPlayerActionNormal
 SCRIPT_END
 	.2byte 0x0000

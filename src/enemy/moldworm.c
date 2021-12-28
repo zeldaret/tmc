@@ -14,7 +14,6 @@ void sub_0802390C(Entity*);
 void sub_080239F0(Entity*);
 bool32 sub_08023B38(Entity*);
 
-extern u8 gEntCount;
 extern const u8 gUnk_080B37A0[];
 
 extern void (*const gUnk_080CBC38[])(Entity*);

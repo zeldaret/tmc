@@ -1,8 +1,6 @@
 #include "audio.h"
 #include "enemy.h"
-#include "entity.h"
 #include "functions.h"
-#include "effects.h"
 
 extern s16 sub_080001DA(u32, u32); // ?
 extern void sub_08049CF4();

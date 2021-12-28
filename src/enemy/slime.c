@@ -16,8 +16,6 @@ extern void (*const gUnk_080D16A4[])(Entity*);
 extern u8 gUnk_080D16D0[4]; // Entity count per form
 extern PosOffset gUnk_080D16D4[4];
 
-extern u8 gEntCount;
-
 void Slime(Entity* this) {
     EnemyFunctionHandler(this, gUnk_080D16A4);
     SetChildOffset(this, 0, 1, -12);

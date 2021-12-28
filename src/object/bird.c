@@ -43,7 +43,7 @@ void sub_0809CF54(Entity* this) {
 
 void sub_0809CFEC(Entity* this) {
 
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     GravityUpdate(this, *(s16*)&this->field_0x68.HWORD);
     if (this->actionDelay != 0) {
         if (--this->actionDelay == 0) {

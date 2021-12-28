@@ -3,7 +3,6 @@
 #include "coord.h"
 #include "room.h"
 #include "object.h"
-#include "effects.h"
 #include "functions.h"
 #include "definitions.h"
 

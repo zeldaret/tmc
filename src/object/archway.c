@@ -1,4 +1,3 @@
-#include "global.h"
 #include "entity.h"
 #include "overworld.h"
 

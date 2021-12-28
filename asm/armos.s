@@ -459,7 +459,7 @@ _080304F0:
 sub_080304F4: @ 0x080304F4
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	adds r0, r4, #0
 	bl sub_080309A8
 	ldrb r0, [r4, #0xe]

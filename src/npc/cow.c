@@ -208,7 +208,7 @@ void sub_0806924C(Entity* ent) {
             }
         } else {
             Cow_ShowDialogue(ent);
-            sub_080791D0();
+            ResetPlayerAnimationAndAction();
         }
         SoundReq(SFX_VO_COW);
         ent->interactType = 0;

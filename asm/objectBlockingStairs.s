@@ -351,7 +351,7 @@ sub_08093178: @ 0x08093178
 	adds r4, r0, #0
 	bl sub_0800445C
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -501,7 +501,7 @@ sub_08093280: @ 0x08093280
 	adds r4, r0, #0
 	bl sub_0800445C
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]

@@ -6,8 +6,8 @@
 #include "utils.h"
 #include "functions.h"
 #include "enemy.h"
-#include "effects.h"
 #include "object.h"
+#include "overworld.h"
 
 extern u8 gCollidableCount;
 extern u8 gUnk_080B3740[];
@@ -317,7 +317,6 @@ Entity* sub_08017A90(Entity* a1, Entity* parent) {
 }
 
 typedef s32 (*CollisionHandler)(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
-s32 sub_08018308(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
 s32 CollisionNoOp(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
 s32 CollisionGroundItem(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
 s32 sub_08017B58(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);

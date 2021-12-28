@@ -196,7 +196,7 @@ _0809D2D6:
 	strh r0, [r1]
 	bl sub_08079184
 	bl sub_08078B48
-	bl sub_080791D0
+	bl ResetPlayerAnimationAndAction
 	bl sub_08077B20
 	adds r0, r7, #0
 	adds r0, #0x26
@@ -220,7 +220,7 @@ _0809D2D6:
 	strb r3, [r0]
 _0809D3A8:
 	adds r0, r5, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	mov r0, r8
 	movs r2, #0
 	ldrsh r1, [r0, r2]
@@ -499,7 +499,7 @@ _0809D5E6:
 	movs r1, #1
 	orrs r0, r1
 	strb r0, [r6, #0x18]
-	bl sub_080791D0
+	bl ResetPlayerAnimationAndAction
 	bl ResetPlayerEventPriority
 	ldr r1, _0809D664 @ =gUnk_02034490
 	movs r0, #0
@@ -524,7 +524,7 @@ _0809D5E6:
 	bl SetGlobalFlag
 _0809D62E:
 	adds r0, r5, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	movs r0, #0
 	ldrsh r1, [r7, r0]
 	adds r0, r5, #0
@@ -692,7 +692,7 @@ _0809D76C:
 _0809D774: .4byte gRoomControls
 _0809D778: .4byte gUnk_02034490
 _0809D77C:
-	bl sub_080791D0
+	bl ResetPlayerAnimationAndAction
 _0809D780:
 	pop {r4, pc}
 	.align 2, 0

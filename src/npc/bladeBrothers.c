@@ -7,9 +7,7 @@
 #include "save.h"
 #include "script.h"
 #include "npc.h"
-#include "audio.h"
 #include "functions.h"
-#include "effects.h"
 
 extern void (*gUnk_081115C0[])(Entity*);
 extern void (*gUnk_081115D0[])(Entity*);
@@ -93,8 +91,6 @@ void sub_08068A4C(Entity* this) {
 }
 
 void sub_08068AA4(Entity* this) {
-    u8 bVar1;
-
     this->action = 1;
     if (this->type != 0) {
         this->type2++;
@@ -176,9 +172,6 @@ static void sub_08068BEC(Entity* this, u32 unused) {
 }
 
 void sub_08068C28(Entity* this) {
-    u8 bVar1;
-    u32 uVar2;
-
     this->actionDelay = gUnk_08111623[this->type];
     if (this->type == 1) {
         if (GetInventoryValue(0x48)) {      // spin attack

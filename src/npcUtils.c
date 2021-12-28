@@ -19,9 +19,6 @@ typedef struct {
 } NPCData;
 extern NPCData* gUnk_08001A7C[];
 
-u32 sub_0800445C(Entity*);
-void sub_08077B20(void);
-void sub_0806F69C(Entity*);
 u32 sub_080041DC(Entity*, u32, u32);
 u32 sub_0806EF88(Entity*);
 
@@ -161,7 +158,7 @@ u32 sub_0806EE70(Entity* ent) {
         ent->field_0x46 = 0;
         sub_0806EF14(ent);
     }
-    sub_0806F69C(ent);
+    LinearMoveUpdate(ent);
     sub_0806EF4C(ent, xy);
     tmp1 = sub_080041DC(ent, xy[0], xy[1]);
     tmp2 = ent->speed;

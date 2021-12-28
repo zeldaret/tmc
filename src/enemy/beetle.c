@@ -245,7 +245,7 @@ void sub_08021B64(Entity* this) {
             InitializeAnimation(this, 5);
         } else {
             gPlayerState.field_0x1a[0] |= 0x80;
-            gPlayerState.field_0x80 -= 0x50;
+            gPlayerState.speed_modifier -= 0x50;
             gPlayerState.field_0xaa++;
             CopyPositionAndSpriteOffset(&gPlayerEntity, this);
             this->x.HALF.HI += gUnk_080CB5E4[(this->field_0xf++ & 0xe) >> 1];

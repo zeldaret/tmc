@@ -167,7 +167,7 @@ _08087CCA:
 	beq _08087D1A
 	movs r0, #0
 	strb r0, [r1]
-	bl sub_080791D0
+	bl ResetPlayerAnimationAndAction
 	movs r0, #0x5e
 	bl CheckLocalFlag
 	cmp r0, #0

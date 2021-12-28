@@ -3,11 +3,9 @@
 #include "audio.h"
 #include "entity.h"
 #include "enemy.h"
-#include "npc.h"
-#include "player.h"
-#include "save.h"
 #include "object.h"
 #include "functions.h"
+#include "save.h"
 
 extern void sub_080293DC(Entity*);
 extern void sub_080296D8(Entity*);

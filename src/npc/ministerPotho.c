@@ -1,8 +1,6 @@
 #include "entity.h"
-#include "functions.h"
 #include "flags.h"
 #include "textbox.h"
-#include "script.h"
 #include "npc.h"
 
 extern void (*const gUnk_08110644[])(Entity*);

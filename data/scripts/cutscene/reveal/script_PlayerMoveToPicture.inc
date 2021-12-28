@@ -7,6 +7,6 @@ SCRIPT_START script_PlayerMoveToPicture
 	WalkNorth 0x0020
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000002
-	Call sub_080791BC
+	Call SetPlayerActionNormal
 SCRIPT_END
 	.2byte 0x0000

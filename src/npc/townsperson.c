@@ -1,5 +1,4 @@
 #include "npc.h"
-#include "structures.h"
 #include "functions.h"
 
 typedef struct {

@@ -221,7 +221,7 @@ _0808C382:
 sub_0808C384: @ 0x0808C384
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -296,7 +296,7 @@ _0808C410: .4byte gUnk_081214F4
 sub_0808C414: @ 0x0808C414
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]

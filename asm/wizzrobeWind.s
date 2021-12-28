@@ -711,7 +711,7 @@ _0802FA02:
 	cmp r0, #0
 	beq _0802FA3E
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	ldrb r0, [r6]
 	cmp r0, #0
 	bne _0802FA3E

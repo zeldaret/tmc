@@ -1,5 +1,3 @@
-#include "flags.h"
-
 const char* const globalFlagNames[] = {
     "BEGIN",
     "LV0_CLEAR",

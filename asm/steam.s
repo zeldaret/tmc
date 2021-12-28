@@ -43,7 +43,7 @@ Steam: @ 0x08098168
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl sub_08016A30
+	bl ResolveCollisionLayer
 	ldr r1, _080981CC @ =gScreen
 	adds r2, r1, #0
 	adds r2, #0x66

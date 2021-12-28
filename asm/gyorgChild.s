@@ -181,7 +181,7 @@ _0804877A:
 sub_0804877C: @ 0x0804877C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	ldrb r0, [r4, #0xe]
 	cmp r0, #0
 	beq _080487AA
@@ -387,7 +387,7 @@ _08048900: .4byte gPlayerEntity
 sub_08048904: @ 0x08048904
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	adds r0, r4, #0
 	bl GetNextFrame
 	ldrb r0, [r4, #0x14]

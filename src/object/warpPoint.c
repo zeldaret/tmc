@@ -1,9 +1,6 @@
 #include "global.h"
 #include "object.h"
-#include "player.h"
-#include "flags.h"
 #include "overworld.h"
-#include "audio.h"
 #include "functions.h"
 
 extern Hitbox gHitbox_1;
@@ -11,7 +8,6 @@ extern Hitbox gHitbox_1;
 extern void sub_0807CAC8(u32);
 extern u32 sub_0807CAEC(u32);
 
-void WarpPoint(Entity*);
 void sub_0808B474(Entity*);
 void sub_0808B530(Entity*);
 void sub_0808B564(Entity*);
@@ -212,7 +208,7 @@ u32 sub_0808B7C8(Entity* this) {
     if (!(gPlayerState.flags & PL_MINISH) && gPlayerState.framestate != PL_STATE_DIE && gPlayerEntity.health != 0 &&
         sub_08079F8C() && EntityInRectRadius(this, &gPlayerEntity, 5, 5) && gPlayerEntity.z.HALF.HI == 0) {
         if (this->actionDelay == 0 && gPlayerEntity.action == PLAYER_08072C9C) {
-            sub_080791D0();
+            ResetPlayerAnimationAndAction();
         }
         return 1;
     }

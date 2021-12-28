@@ -6,5 +6,5 @@ SCRIPT_START script_PlayerStonesFall
 	CallWithArg SetPlayerAnimation2, 0x000003c5
 	Call WaitForPlayerFrameHiBit
 	SetSyncFlag 0x00000004
-	Call sub_080791BC
+	Call SetPlayerActionNormal
 SCRIPT_END

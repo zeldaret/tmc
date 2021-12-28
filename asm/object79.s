@@ -243,7 +243,7 @@ sub_08098130: @ 0x08098130
 	ldrh r0, [r0]
 	strh r0, [r4, #0x24]
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	ldr r0, [r4, #0x30]
 	ldr r1, _08098164 @ =0xFFEC0000
 	adds r0, r0, r1

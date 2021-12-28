@@ -109,7 +109,7 @@ sub_0809E3E4: @ 0x0809E3E4
 	cmp r0, #0
 	bne _0809E40E
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 _0809E40E:
 	adds r2, r4, #0
 	adds r2, #0x74

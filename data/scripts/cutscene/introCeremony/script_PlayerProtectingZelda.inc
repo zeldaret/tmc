@@ -9,5 +9,5 @@ SCRIPT_START script_PlayerProtectingZelda
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000400
-	Call sub_080791BC
+	Call SetPlayerActionNormal
 SCRIPT_END

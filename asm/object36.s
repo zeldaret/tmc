@@ -289,7 +289,7 @@ _0808BD34:
 	bl GetFacingDirection
 	strb r0, [r5, #0x15]
 	adds r0, r5, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	movs r0, #0x2e
 	ldrsh r1, [r4, r0]
 	movs r0, #0x32

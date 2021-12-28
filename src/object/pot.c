@@ -6,7 +6,6 @@
 #include "room.h"
 #include "object.h"
 #include "functions.h"
-#include "effects.h"
 
 void sub_08082824(Entity*);
 static void sub_08082850(Entity*, Entity*);
@@ -45,7 +44,7 @@ void sub_0808222C(Entity* this) {
     this->flags2 = 0x84;
     this->field_0x1c = 0x12;
     if (this->collisionLayer == 0) {
-        sub_08016A30(this);
+        ResolveCollisionLayer(this);
     }
 
     this->field_0x70.HALF.LO = sub_080001DA(COORD_TO_TILE(this), this->collisionLayer);
@@ -175,7 +174,7 @@ void sub_08082614(Entity* this) {
 
     sub_0800445C(this);
     if (--this->actionDelay != 0xFF) {
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
         sub_08016A6C(this);
         return;
     }

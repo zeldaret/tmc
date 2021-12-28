@@ -1,6 +1,5 @@
 #include "object.h"
 #include "functions.h"
-#include "script.h"
 #include "textbox.h"
 
 extern void (*const BookActionFuncs[])(Entity*);
@@ -117,7 +116,7 @@ void sub_0809B524(Entity* this) {
         }
     }
 
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
 }
 
 void sub_0809B56C(Entity* this) {

@@ -7,7 +7,6 @@
 #include "player.h"
 #include "audio.h"
 #include "object.h"
-#include "functions.h"
 
 // Facilitates the usage of minish portals.
 

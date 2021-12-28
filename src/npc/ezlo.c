@@ -1,5 +1,4 @@
 #include "npc.h"
-#include "script.h"
 
 const u8 gUnk_08114134[];
 const u8 gUnk_08114144[];

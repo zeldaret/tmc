@@ -1,10 +1,9 @@
 #include "object.h"
-#include "script.h"
 #include "functions.h"
 
 extern void (*gUnk_08123D98[])(Entity*);
 
-void sub_0809B7A0(Entity* e);
+void sub_0809B7A0(Entity* this);
 void sub_0809B7DC(Entity* this);
 void sub_0809B7C0(Entity* this);
 

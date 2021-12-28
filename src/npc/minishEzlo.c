@@ -1,6 +1,5 @@
 #include "entity.h"
 #include "functions.h"
-#include "script.h"
 #include "audio.h"
 
 extern SpriteLoadData gUnk_0810C48C;

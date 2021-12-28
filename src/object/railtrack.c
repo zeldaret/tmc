@@ -1,4 +1,5 @@
 #include "global.h"
+#include "asm.h"
 #include "audio.h"
 #include "entity.h"
 #include "room.h"

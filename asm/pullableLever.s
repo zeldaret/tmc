@@ -187,7 +187,7 @@ sub_08091338: @ 0x08091338
 	lsls r0, r0, #3
 	strb r0, [r4, #0x15]
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	adds r0, r4, #0
 	bl sub_08091660
 _0809135C:

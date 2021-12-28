@@ -10,5 +10,5 @@ SCRIPT_START script_PlayerAtOutro
 	SetAnimationState 0x0006
 	Wait 0x000a
 	SetSyncFlag 0x00000001
-	Call sub_080791BC
+	Call SetPlayerActionNormal
 	.2byte 0x0000

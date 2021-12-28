@@ -485,7 +485,7 @@ sub_0807FF6C: @ 0x0807FF6C
 	adds r0, #4
 	strh r1, [r0]
 	bl ResetPlayer
-	bl sub_080791D0
+	bl ResetPlayerAnimationAndAction
 	ldr r0, _0807FFCC @ =gUnk_03004030
 	ldrb r0, [r0, #8]
 	cmp r0, #0

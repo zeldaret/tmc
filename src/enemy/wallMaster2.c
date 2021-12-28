@@ -92,7 +92,7 @@ void sub_0802CD54(Entity* this) {
         this->actionDelay = 60;
         sub_0802CF64(this);
     }
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
 }
 
 void sub_0802CDE8(Entity* this) {
@@ -101,7 +101,7 @@ void sub_0802CDE8(Entity* this) {
             sub_08004596(this, GetFacingDirection(this, gUnk_020000B0));
             sub_0802CF8C(this);
         }
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
     } else {
         this->action = 1;
         this->actionDelay = 60;
@@ -120,7 +120,7 @@ void sub_0802CE68(Entity* this) {
     gPlayerState.flags |= 0x100;
     if (!sub_0806FCB8(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 4)) {
         this->direction = GetFacingDirection(this, &gPlayerEntity);
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
     }
     sub_0802CFD8(this);
     GetNextFrame(this);

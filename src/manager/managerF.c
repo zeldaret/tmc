@@ -7,13 +7,10 @@
 #include "functions.h"
 #include "area.h"
 #include "textbox.h"
-#include "script.h"
 #include "utils.h"
 #include "tiles.h"
 #include "object.h"
 #include "item.h"
-
-void sub_08058ECC(ManagerF*);
 
 void sub_08058EE4(ManagerF*);
 void sub_08058FB0(ManagerF*);

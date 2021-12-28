@@ -57,7 +57,7 @@ void sub_0806E838(Entity* this) {
                 sub_0806E884(this);
             }
         } else {
-            sub_080791D0();
+            ResetPlayerAnimationAndAction();
         }
         SoundReq(SFX_VO_CHEEP);
         this->interactType = 0;

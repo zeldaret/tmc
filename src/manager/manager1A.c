@@ -1,7 +1,6 @@
 #include "global.h"
 #include "manager.h"
 #include "flags.h"
-#include "entity.h"
 #include "room.h"
 #include "screen.h"
 #include "utils.h"

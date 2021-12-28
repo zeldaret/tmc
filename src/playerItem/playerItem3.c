@@ -47,7 +47,7 @@ void sub_0801B7A8(Entity* this) {
             this->speed += 8;
         }
         this->direction = GetFacingDirection(this, &gPlayerEntity);
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
         if (sub_0800419C(this, &gPlayerEntity, 2, 2) != 0) {
             DeleteThisEntity();
         }

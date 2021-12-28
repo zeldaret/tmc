@@ -3,14 +3,6 @@
 #include "entity.h"
 #include "functions.h"
 #include "npc.h"
-#include "textbox.h"
-#include "player.h"
-#include "room.h"
-#include "structures.h"
-#include "save.h"
-#include "script.h"
-#include "flags.h"
-#include "effects.h"
 
 extern void sub_08060528(Entity*);
 extern void sub_080604DC(Entity*);
@@ -37,7 +29,6 @@ void Postman(Entity* this) {
 }
 
 void sub_08060428(Entity* this) {
-    u8 bVar1;
     void* data;
 
     this->actionDelay = 0x5a;
@@ -54,7 +45,6 @@ void sub_08060428(Entity* this) {
 
 void sub_0806045C(Entity* this) {
     u8 bVar1;
-    u32 uVar2;
     u32 bVar3;
     s32 temp;
 
@@ -92,8 +82,6 @@ void sub_080604C8(Entity* this) {
 }
 
 void sub_080604DC(Entity* this) {
-    u8 bVar1;
-    int iVar2;
     Entity* ent;
 
     if (this->spriteSettings.draw == 1 && CheckOnScreen(this)) {

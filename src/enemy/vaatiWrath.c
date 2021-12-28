@@ -1,12 +1,9 @@
 #include "enemy.h"
 #include "object.h"
 #include "textbox.h"
-#include "structures.h"
 #include "functions.h"
 #include "save.h"
 #include "screen.h"
-
-extern u8 gEntCount;
 
 void VaatiWrathType0PreAction(Entity*);
 u32 sub_08041FCC(Entity*);
@@ -380,7 +377,7 @@ void VaatiWrathType0Action7(Entity* this) {
     if (gRoomControls.roomOriginY + 0x48 != this->y.HALF.HI) {
         this->speed = 0x100;
         this->direction = ((gRoomControls.roomOriginY + 0x48) >= this->y.HALF.HI) ? 0x10 : 0;
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
     } else {
         if (--this->actionDelay == 0) {
             sub_08042050(this);
@@ -391,7 +388,7 @@ void VaatiWrathType0Action7(Entity* this) {
 void VaatiWrathType0Action8(Entity* this) {
     sub_08042004(this);
     UpdateAnimationSingleFrame(this);
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     if (((gRoomControls.roomOriginX + 0x20) > this->x.HALF.HI) ||
         ((gRoomControls.roomOriginX + 0x140) < this->x.HALF.HI)) {
         if (0x3f < this->speed) {
@@ -466,7 +463,7 @@ void VaatiWrathType0ActionA(Entity* this) {
 void VaatiWrathType0ActionB(Entity* this) {
     switch (this->subAction) {
         case 0:
-            sub_0806F69C(this);
+            LinearMoveUpdate(this);
             UpdateAnimationSingleFrame(this);
             GetNextFrame(((VaatiWrathHeapStruct*)this->myHeap)->type1);
             GetNextFrame(((VaatiWrathHeapStruct*)this->myHeap)->type2);
@@ -527,7 +524,7 @@ void VaatiWrathType0ActionC(Entity* this) {
             if (this->actionDelay) {
                 this->actionDelay--;
             } else {
-                sub_0806F69C(this);
+                LinearMoveUpdate(this);
                 if (gRoomControls.roomOriginY + 0x48 == this->y.HALF.HI) {
                     this->subAction = 2;
                     InitializeAnimation(((VaatiWrathHeapStruct*)this->myHeap)->type1, 0x11);

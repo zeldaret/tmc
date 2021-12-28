@@ -1,11 +1,7 @@
 #include "global.h"
 #include "entity.h"
-#include "sprite.h"
 #include "player.h"
 #include "npc.h"
-#include "script.h"
-#include "flags.h"
-#include "textbox.h"
 
 extern SpriteLoadData gUnk_08110CA8[];
 

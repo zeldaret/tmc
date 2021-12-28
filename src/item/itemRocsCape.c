@@ -5,8 +5,6 @@
 void sub_08076758(ItemBehavior*, u32);
 extern void sub_08077F84(void);
 
-extern bool32 sub_08077EFC(ItemBehavior*);
-
 /*void ItemRocsCape(ItemBehavior* this, u32 arg1) {
     if (this->stateID != 0) {
         sub_08076758(this, arg1);

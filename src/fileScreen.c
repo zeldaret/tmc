@@ -1,6 +1,5 @@
 #include "fileScreen.h"
 #include "main.h"
-#include "player.h"
 #include "utils.h"
 #include "screen.h"
 #include "menu.h"

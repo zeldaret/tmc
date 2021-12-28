@@ -7,5 +7,5 @@ SCRIPT_START script_PlayerCastleCollapsing
 	DoPostScriptAction 0x0000
 	_0807EEF4 0x0000, 0x0080
 	SetSyncFlag 0x00000004
-	Call sub_080791BC
+	Call SetPlayerActionNormal
 SCRIPT_END

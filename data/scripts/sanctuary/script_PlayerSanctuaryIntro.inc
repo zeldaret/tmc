@@ -5,5 +5,5 @@ SCRIPT_START script_PlayerSanctuaryIntro
 	SetEntityPositionRelative 0x0098, 0x0070
 	EndBlock
 	SetSyncFlag 0x00000002
-	Call sub_080791BC
+	Call SetPlayerActionNormal
 SCRIPT_END

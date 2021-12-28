@@ -1,5 +1,4 @@
 #include "object.h"
-#include "structures.h"
 #include "functions.h"
 
 static void sub_0808F2B0(Entity*);

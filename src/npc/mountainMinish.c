@@ -10,8 +10,6 @@ extern SpriteLoadData gUnk_08111358;
 extern void (*const gUnk_08111368[])(Entity*);
 void sub_08067EF0(Entity*);
 
-extern SpriteLoadData gUnk_08111358;
-
 extern u16 gUnk_0811130E[];
 
 void MountainMinish(Entity* this) {

@@ -8,5 +8,5 @@ SCRIPT_START script_08012B50
 	WalkNorth 0x0008
 	SetSyncFlag 0x00000002
 	CallWithArg sub_0807FB64, 0xffffffe2
-	Call sub_080791BC
+	Call SetPlayerActionNormal
 SCRIPT_END

@@ -2,7 +2,6 @@
 #include "functions.h"
 #include "object.h"
 #include "projectile.h"
-#include "structures.h"
 #include "overworld.h"
 
 extern void sub_08078AC0(u32, u32, u32);
@@ -36,25 +35,25 @@ this->field_0x7c.BYTES.byte0 Boss Phase
 3: frozen 2
 4: unfrozen -> death
 */
-#define IS_FROZEN(this) (this->field_0x7c.BYTES.byte0 & 1)
-#define GET_BOSS_PHASE(this) (this->field_0x7c.BYTES.byte0)
+#define IS_FROZEN(this) ((this)->field_0x7c.BYTES.byte0 & 1)
+#define GET_BOSS_PHASE(this) ((this)->field_0x7c.BYTES.byte0)
 /*
 this->field_0x78.HALF.HI reused timer
 */
-#define GET_TIMER(this) this->field_0x78.HALF.HI
+#define GET_TIMER(this) ((this)->field_0x78.HALF.HI)
 /*
 this->field_0x78.HALF.LO turns until the next attack
 */
-#define GET_ATTACK_WAIT_TURNS(this) this->field_0x78.HALF.LO
+#define GET_ATTACK_WAIT_TURNS(this) ((this)->field_0x78.HALF.LO)
 /*
 this->field_0x7a.HALF.HI angle of legs
 */
-#define GET_ANGLE(this) this->field_0x7a.HWORD
-#define GET_ANGLE_HI(this) this->field_0x7a.HALF.HI
+#define GET_ANGLE(this) ((this)->field_0x7a.HWORD)
+#define GET_ANGLE_HI(this) ((this)->field_0x7a.HALF.HI)
 /*
 this->field_0x82.HWORD angular speed
 */
-#define GET_ANGULAR_VEL(this) this->field_0x82.HWORD
+#define GET_ANGULAR_VEL(this) ((this)->field_0x82.HWORD)
 
 enum OctorokBossPart { WHOLE, LEG_BR, LEG_FR, LEG_FL, LEG_BL, MOUTH, TAIL_END, TAIL };
 enum OctorokBossAction {

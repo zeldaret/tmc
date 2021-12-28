@@ -211,7 +211,7 @@ _080A2C04:
 _080A2C0E:
 	ldrh r5, [r4, #0x32]
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	ldrh r1, [r4, #0x32]
 	lsls r0, r5, #0x10
 	asrs r0, r0, #0x10
@@ -232,7 +232,7 @@ _080A2C38: .4byte gPlayerEntity
 _080A2C3C:
 	ldrh r5, [r4, #0x2e]
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	ldrh r1, [r4, #0x2e]
 	lsls r0, r5, #0x10
 	asrs r0, r0, #0x10
@@ -253,7 +253,7 @@ _080A2C64: .4byte gPlayerEntity
 _080A2C68:
 	ldrh r5, [r4, #0x32]
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	ldrh r1, [r4, #0x32]
 	lsls r0, r5, #0x10
 	asrs r0, r0, #0x10
@@ -274,7 +274,7 @@ _080A2C90: .4byte gPlayerEntity
 _080A2C94:
 	ldrh r5, [r4, #0x2e]
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	ldrh r1, [r4, #0x2e]
 	lsls r0, r5, #0x10
 	asrs r0, r0, #0x10

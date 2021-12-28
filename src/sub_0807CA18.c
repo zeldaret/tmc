@@ -1,10 +1,8 @@
 #include "global.h"
-#include "structures.h"
 #include "save.h"
 #include "utils.h"
 
 extern void sub_0807C960();
-extern void LoadPalettes(const u8*, s32, s32);
 
 extern u16 gMetatilesBottom[];
 extern u16 gMetatilesTop[];

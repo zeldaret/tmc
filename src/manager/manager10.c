@@ -1,4 +1,5 @@
 #include "global.h"
+#include "asm.h"
 #include "manager.h"
 #include "room.h"
 #include "area.h"
@@ -8,7 +9,6 @@
 #include "fileScreen.h"
 #include "functions.h"
 
-void Manager10_Main(Manager10*);
 void sub_080595E4(Manager10*);
 void sub_08059608(Manager10*);
 void sub_08059690(Manager10*);
@@ -18,7 +18,6 @@ u32 sub_0805986C(void);
 void sub_08059894(const u16*, const u16*, u32);
 u32 sub_080598F8(u32, u32, u32);
 void sub_08059960(const u16*, const u16*, u16*, u8);
-void sub_08059994(void);
 
 const u8 gUnk_08108390[6] = {
     0x0F, 0x1E, 0x2D, 0x3C, 0x01, 0x01,

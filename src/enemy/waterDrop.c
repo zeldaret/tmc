@@ -2,7 +2,6 @@
 #include "screen.h"
 #include "object.h"
 #include "structures.h"
-#include "functions.h"
 
 void sub_0802A39C(Entity*);
 void sub_0802A334(Entity*);
@@ -39,7 +38,7 @@ void sub_0802A2B4(Entity* this) {
         this->spritePriority.b0 = 7;
         EnqueueSFX(0x84);
     } else {
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
     }
 
     sub_0802A39C(this);

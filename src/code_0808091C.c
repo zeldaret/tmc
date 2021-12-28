@@ -3,7 +3,6 @@
 #include "structures.h"
 #include "functions.h"
 #include "overworld.h"
-#include "room.h"
 
 extern void sub_08080BC4(void);
 
@@ -97,7 +96,7 @@ void sub_080809D4(void) {
     int x, y;
     int var1, var0;
     RoomControls* roomControls = &gRoomControls;
-    roomControls->unk6 &= 0xFB;
+    roomControls->scroll_flags &= ~4;
 
     target = roomControls->cameraTarget;
     x = target->x.HALF.HI;

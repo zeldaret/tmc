@@ -17,8 +17,6 @@ typedef struct {
 
 extern void (*const gUnk_08108D98[])(Manager35*);
 
-extern void RequestPriorityDuration(Entity*, u32);
-
 void Manager35_Main(Manager35* this) {
     gUnk_08108D98[this->manager.action](this);
 }
@@ -57,7 +55,7 @@ void sub_0805DCC8(Manager35* this) {
 
 void sub_0805DD24(Manager35* this) {
     RequestPriorityDuration(0, 8);
-    if ((gRoomControls.unk6 & 4) == 0 && --this->manager.unk_0e == 0) {
+    if ((gRoomControls.scroll_flags & 4) == 0 && --this->manager.unk_0e == 0) {
         this->manager.action = 3;
         SetFlag(this->field_0x3c);
         if (this->field_0x36 == 0) {
@@ -73,7 +71,7 @@ void sub_0805DD68(Manager35* this) {
             gRoomControls.cameraTarget = (Entity*)this->manager.parent;
         }
     } else {
-        if ((gRoomControls.unk6 & 4) == 0) {
+        if ((gRoomControls.scroll_flags & 4) == 0) {
             Entity* entity = *(Entity**)this->manager.unk_18;
             if (entity != NULL) {
                 DeleteEntity(entity);

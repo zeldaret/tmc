@@ -211,7 +211,7 @@ typedef struct {
     /*    */ u8 filler14 : 6;
     /*0x3f*/ u8 field_0x3f;
     /*0x40*/ u8 hurtType[64];
-    /*0x80*/ u16 field_0x80;
+    /*0x80*/ u16 speed_modifier;
     /*0x82*/ u8 field_0x82[9];
     /*0x8b*/ u8 controlMode;
     /*0x8c*/ u16 vel_x;
@@ -277,11 +277,23 @@ extern PlayerState gPlayerState;
 extern Stats gStats;
 extern Entity gPlayerEntity;
 
-extern u32 GetInventoryValue(u32);
-extern s32 ModHealth(s32);
-extern void ModRupees(s32);
+void SetPlayerControl(PlayerControlMode mode);
+void ResetPlayer(void);
+void ResetPlayerVelocity(void);
+void ResetPlayerAnimationAndAction(void);
+void SetPlayerActionNormal(void);
+void RespawnAsMinish(void);
 
-extern void SetPlayerControl(PlayerControlMode);
+void ResolvePlayerAnimation(void);
+void RegisterPlayerHitbox(void);
+void UpdateFloorType(void);
+void CreateEzloHint(u32, u32);
+
+u32 IsItemEquipped(u32);
+u32 GetInventoryValue(u32);
+s32 ModHealth(s32 delta);
+void ModRupees(s32 delta);
+void DeleteClones(void);
 
 #define COPY_FLAG_FROM_TO(base, src, dest) (base) = ((base) & ~(dest)) | (((dest) * ((base) & (src))) / src)
 

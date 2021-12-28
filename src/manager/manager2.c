@@ -1,8 +1,6 @@
 #include "global.h"
-#include "entity.h"
 #include "screen.h"
 #include "functions.h"
-#include "room.h"
 
 typedef struct {
     Manager manager;

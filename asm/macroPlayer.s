@@ -304,7 +304,7 @@ sub_0808CD00: @ 0x0808CD00
 	cmp r0, #0
 	beq _0808CD24
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	b _0808CD3E
 _0808CD24:
 	ldrb r0, [r4, #0xc]
@@ -339,7 +339,7 @@ sub_0808CD44: @ 0x0808CD44
 	cmp r0, #0
 	beq _0808CD68
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	b _0808CD82
 _0808CD68:
 	ldrb r0, [r4, #0xc]
@@ -374,7 +374,7 @@ sub_0808CD88: @ 0x0808CD88
 	adds r0, r4, #0
 	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	movs r1, #0x2e
 	ldrsh r0, [r4, r1]
 	cmp r0, #0x7f
@@ -459,7 +459,7 @@ sub_0808CE38: @ 0x0808CE38
 	adds r4, r0, #0
 	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	movs r1, #0x32
 	ldrsh r0, [r4, r1]
 	cmp r0, #0xc7
@@ -485,7 +485,7 @@ sub_0808CE68: @ 0x0808CE68
 	adds r4, r0, #0
 	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	movs r1, #0x32
 	ldrsh r0, [r4, r1]
 	cmp r0, #0xc7
@@ -511,7 +511,7 @@ sub_0808CE98: @ 0x0808CE98
 	adds r4, r0, #0
 	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	movs r0, #0x32
 	ldrsh r1, [r4, r0]
 	movs r0, #0x90
@@ -532,7 +532,7 @@ sub_0808CEC0: @ 0x0808CEC0
 	adds r4, r0, #0
 	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	movs r1, #0x32
 	ldrsh r0, [r4, r1]
 	cmp r0, #0xc7

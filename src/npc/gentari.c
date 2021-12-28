@@ -1,9 +1,6 @@
 #include "global.h"
 #include "entity.h"
 #include "npc.h"
-#include "player.h"
-#include "script.h"
-#include "functions.h"
 
 void Gentari(Entity* this) {
     switch (this->action) {

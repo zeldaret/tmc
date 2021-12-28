@@ -48,7 +48,7 @@ _0801B6D0:
 	strb r0, [r4, #0x15]
 _0801B6DC:
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	movs r5, #0
 	adds r0, r4, #0
 	bl sub_0801B864

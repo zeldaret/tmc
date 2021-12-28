@@ -17,7 +17,7 @@ void ResolveEntityBelow(Entity*, Entity*);
 
 u32 sub_0806F5A4(u32 idx);
 u32 sub_0806F3E4(Entity*);
-void sub_0806F69C(Entity*);
+void LinearMoveUpdate(Entity*);
 
 extern const s16 gSineTable[64];
 extern const s16 gCosineTable[256];

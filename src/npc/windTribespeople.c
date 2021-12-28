@@ -2,12 +2,6 @@
 #include "audio.h"
 #include "entity.h"
 #include "npc.h"
-#include "textbox.h"
-#include "flags.h"
-#include "structures.h"
-#include "functions.h"
-#include "save.h"
-#include "script.h"
 
 extern void sub_0806C7D4(Entity*);
 
@@ -32,8 +26,6 @@ extern u16 gUnk_08113B1E[];
 extern u16 gUnk_08113B16[];
 
 extern u8 gUnk_08113B38[];
-
-extern SpriteLoadData gUnk_08113A1C[];
 
 void WindTribespeople(Entity* this) {
     gUnk_08113A7C[this->action](this);

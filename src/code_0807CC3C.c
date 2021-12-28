@@ -1,9 +1,4 @@
 #include "global.h"
-#include "structures.h"
-#include "functions.h"
-#include "script.h"
-#include "entity.h"
-#include "save.h"
 
 // these three functions use gRoomControls, maybe once that is understood better, these can be decompiled easier
 ASM_FUNC("asm/non_matching/code_0807CC3C/sub_0807D280.inc", void sub_0807D280(u32 unk_1, u32 unk_2))

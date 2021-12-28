@@ -43,8 +43,6 @@ const u8 gUnk_080CDE70[] = {
 const s8 gUnk_080CDE90[] = { -2, -3, -4, -5, -6, -5, -4, -3 };
 const u16 gUnk_080CDE98[] = { 0xc0, 0x100, 0x140, 0x180 };
 
-extern u8 gEntCount;
-
 void VaatiEyesMacro(Entity* this) {
     vaatiEyesMacroFunctions[GetNextFunction(this)](this);
     SetChildOffset(this, 0, 1, -0x10);

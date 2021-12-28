@@ -80,7 +80,7 @@ void sub_080917DC(Entity* this) {
                 gPlayerEntity.speed = 0x100;
                 gPlayerEntity.flags &= ~PL_MINISH;
                 ResetPlayer();
-                sub_0807A108();
+                DeleteClones();
                 SoundReq(SFX_PLY_JUMP);
             }
         } else {
@@ -140,7 +140,7 @@ void sub_080919AC(Entity* this) {
     } else {
         COLLISION_ON(this);
         gPlayerEntity.speed = 0;
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
         CopyPosition(this, &gPlayerEntity);
         gPlayerEntity.spritePriority.b0 = this->spritePriority.b0 - 1;
         if (!sub_08091DDC(this)) {

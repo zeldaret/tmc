@@ -85,7 +85,7 @@ _0804AE94:
 _0804AEA0: .4byte gRoomControls
 _0804AEA4:
 	adds r0, r5, #0
-	bl sub_08016A30
+	bl ResolveCollisionLayer
 _0804AEAA:
 	adds r0, r5, #0
 _0804AEAC:

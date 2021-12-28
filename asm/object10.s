@@ -369,7 +369,7 @@ _08084AEA:
 	.align 2, 0
 _08084AF4: .4byte gPlayerState
 _08084AF8:
-	bl sub_0807A108
+	bl DeleteClones
 	adds r0, r4, #0
 	movs r1, #0x30
 	movs r2, #0

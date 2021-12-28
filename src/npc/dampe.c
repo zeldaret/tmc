@@ -5,8 +5,6 @@
 #include "flags.h"
 #include "textbox.h"
 #include "npc.h"
-#include "functions.h"
-#include "script.h"
 
 extern u16 gUnk_08113344[];
 extern u16 gUnk_0811334A[];

@@ -1,10 +1,7 @@
 #include "entity.h"
 #include "functions.h"
 #include "npc.h"
-#include "textbox.h"
 #include "object.h"
-#include "flags.h"
-#include "script.h"
 
 extern u16 gUnk_0810FA54[];
 

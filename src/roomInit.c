@@ -4,7 +4,6 @@
 #include "utils.h"
 
 #include "functions.h"
-#include "structures.h"
 
 #include "audio.h"
 #include "effects.h"
@@ -12,16 +11,11 @@
 #include "flags.h"
 #include "item.h"
 #include "save.h"
-#include "script.h"
-#include "screen.h"
 
 #include "area.h"
-#include "room.h"
 #include "overworld.h"
 
-#include "entity.h"
 #include "npc.h"
-#include "player.h"
 
 static void sub_0804E150(void);
 

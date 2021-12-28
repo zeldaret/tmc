@@ -1,10 +1,6 @@
 #include "global.h"
 #include "entity.h"
 #include "npc.h"
-#include "flags.h"
-#include "textbox.h"
-#include "functions.h"
-#include "script.h"
 
 extern u16 gUnk_08112D48[];
 

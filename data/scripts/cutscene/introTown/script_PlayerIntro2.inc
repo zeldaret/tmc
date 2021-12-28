@@ -7,5 +7,5 @@ SCRIPT_START script_PlayerIntro2
 	SetAnimationState 0x0000
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000001
-	Call sub_080791BC
+	Call SetPlayerActionNormal
 SCRIPT_END

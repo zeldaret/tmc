@@ -13,8 +13,6 @@ extern void (*const gUnk_080D1800[])(Entity*);
 extern u8 gUnk_080D180C[4]; // Entity count per form
 extern PosOffset gUnk_080D1810[4];
 
-extern u8 gEntCount;
-
 void FireballGuy(Entity* this) {
     EnemyFunctionHandler(this, gUnk_080D17E8);
 }

@@ -53,7 +53,7 @@ _080879EA:
 	cmp r0, #0
 	beq _08087A0C
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	ldrh r1, [r4, #0x24]
 	movs r2, #0x24
 	ldrsh r0, [r4, r2]

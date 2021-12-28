@@ -3,7 +3,7 @@
 	adds r4, r0, #0
 	bl GetNextFrame
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	adds r5, r4, #0
 	adds r5, #0x7a
 	ldrb r0, [r5]

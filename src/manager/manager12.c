@@ -1,4 +1,5 @@
 #include "area.h"
+#include "asm.h"
 #include "manager.h"
 #include "room.h"
 #include "functions.h"
@@ -87,7 +88,7 @@ void sub_08059A58(Manager12* this) {
     }
 }
 
-#define COMMON(tmp2, tmp1) ((tmp2) >> 4 & 0x3f) | (((tmp1) + 0x188U) >> 4 & 0x3f) << 6
+#define COMMON(tmp2, tmp1) (((tmp2) >> 4 & 0x3f) | (((tmp1) + 0x188U) >> 4 & 0x3f) << 6)
 void sub_08059B18(void) {
     u32 loopVar;
     u32 innerLoopVar;

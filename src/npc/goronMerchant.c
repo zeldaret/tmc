@@ -1,11 +1,8 @@
 #include "global.h"
 #include "entity.h"
 #include "functions.h"
-#include "structures.h"
 #include "textbox.h"
-#include "room.h"
 #include "flags.h"
-#include "script.h"
 #include "save.h"
 #include "npc.h"
 

@@ -29,7 +29,7 @@ sub_08087824: @ 0x08087824
 	cmp r0, #0
 	bne _08087836
 	adds r0, r4, #0
-	bl sub_08016A30
+	bl ResolveCollisionLayer
 _08087836:
 	movs r0, #1
 	strb r0, [r4, #0xc]

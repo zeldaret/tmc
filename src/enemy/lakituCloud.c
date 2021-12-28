@@ -85,7 +85,7 @@ void sub_0803CDA8(Entity* this) {
     UpdateAnimationSingleFrame(this);
 
     if ((this->direction & 0x80) == 0) {
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
     }
 
     if (--this->field_0x74.HWORD << 0x10 == 0) {

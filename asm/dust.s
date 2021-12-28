@@ -633,7 +633,7 @@ _08044570:
 	bl sub_080045D4
 	strb r0, [r6, #0x15]
 	adds r0, r6, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	b _080445BE
 	.align 2, 0
 _080445A8: .4byte gPlayerState

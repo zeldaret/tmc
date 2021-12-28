@@ -1,9 +1,7 @@
 #include "entity.h"
-#include "script.h"
 #include "player.h"
 #include "structures.h"
 #include "functions.h"
-#include "structures.h"
 #include "textbox.h"
 #include "npc.h"
 

@@ -28,7 +28,7 @@ SCRIPT_START script_Npc4EMonsters
 	CallWithArg DeleteManager36, 0x00000002
 	_0807F0C8 0x0000, 0x0000
 	Call sub_0806DC3C
-	Call sub_080791BC
+	Call SetPlayerActionNormal
 	CallWithArg EquipItem, 0x0000000d
 	CallWithArg sub_0807F29C, gUnk_080049F6
 	_0807F0B4 0x0001

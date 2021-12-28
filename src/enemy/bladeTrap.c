@@ -1,4 +1,3 @@
-#include "global.h"
 #include "audio.h"
 #include "entity.h"
 #include "room.h"
@@ -13,7 +12,7 @@ void BladeTrap(Entity* this) {
         sub_080A2CC0(this, &this->child, &this->field_0x74);
     }
     if (!(this->direction & 0x80)) {
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
     }
 
     if (!(--this->field_0x74.HWORD)) {

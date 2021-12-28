@@ -2,8 +2,6 @@
 #include "enemy.h"
 #include "coord.h"
 #include "functions.h"
-#include "audio.h"
-#include "asm.h"
 #include "overworld.h"
 
 extern Entity* sub_08049DF4(u32);
@@ -202,7 +200,7 @@ void MandiblesProjectile_Action4(Entity* this) {
             DeleteThisEntity();
         }
     }
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     UpdateAnimationSingleFrame(this);
 }
 

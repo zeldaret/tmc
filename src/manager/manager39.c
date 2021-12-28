@@ -28,7 +28,6 @@ extern const u8 gUnk_08108E48[0x18];
 extern const u8 gUnk_08108E60[];
 
 extern void sub_0805F46C(void*, const void*);
-extern void ResetSystemPriority(void);
 
 void sub_0805E140(Manager39*);
 void sub_0805E18C(Manager39*); // unused?

@@ -11,5 +11,5 @@ SCRIPT_START script_PlayerAtDarkNut2
 	DoPostScriptAction 0x0001
 	Call sub_080752AC
 	EnablePlayerControl
-	Call sub_080791D0
+	Call ResetPlayerAnimationAndAction
 SCRIPT_END

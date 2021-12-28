@@ -2,7 +2,6 @@
 #include "entity.h"
 #include "functions.h"
 #include "textbox.h"
-#include "script.h"
 #include "effects.h"
 #include "npc.h"
 

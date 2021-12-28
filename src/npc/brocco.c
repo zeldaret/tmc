@@ -2,7 +2,6 @@
 #include "textbox.h"
 #include "save.h"
 #include "npc.h"
-#include "script.h"
 
 void sub_08063544(Entity*);
 void sub_0806362C(Entity*);

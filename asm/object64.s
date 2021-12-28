@@ -43,7 +43,7 @@ sub_08093E3C: @ 0x08093E3C
 	cmp r0, #0
 	bne _08093E6A
 	adds r0, r4, #0
-	bl sub_08016A30
+	bl ResolveCollisionLayer
 _08093E6A:
 	ldrb r1, [r4, #0xa]
 	adds r0, r4, #0

@@ -9,7 +9,6 @@ extern void SoundReqClipped(Entity*, u32);
 extern u32 sub_08049F1C(Entity*, Entity*, u32);
 extern u32 PlayerInRange(Entity*, u32, u32);
 extern void sub_080AEFB4(Entity*);
-extern Entity* FindNextDuplicateID(Entity* ent, int listIndex);
 
 void sub_080249F4(Entity*);
 void sub_08024940(Entity*);

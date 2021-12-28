@@ -364,7 +364,7 @@ _0808E162:
 	strb r0, [r4, #0x15]
 _0808E17A:
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	ldrb r0, [r4, #0xb]
 	cmp r0, #0
 	bne _0808E1BA

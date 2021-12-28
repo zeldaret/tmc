@@ -337,7 +337,7 @@ _080943A8:
 	adds r0, r4, #0
 	bl GetNextFrame
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	movs r1, #0x80
 	lsls r1, r1, #7
 	adds r0, r4, #0

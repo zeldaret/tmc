@@ -39,9 +39,9 @@ u32 CheckRoomFlag(u32 flag) {
     return ReadBit(&gRoomVars.roomFlags, flag);
 }
 
-u32 CheckLocalFlagsByBank(u32 flag, u32 offset, u32 length) {
+u32 CheckLocalFlagsByBank(u32 offset, u32 flag, u32 length) {
 
-    return CheckBits(&gGlobalFlags, flag + offset, length);
+    return CheckBits(&gGlobalFlags, offset + flag, length);
 }
 
 u32 CheckLocalFlags(u32 flag, u32 length) {

@@ -190,7 +190,7 @@ _0808177E:
 	cmp r0, #0
 	beq _0808178C
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 _0808178C:
 	pop {r4, pc}
 	.align 2, 0

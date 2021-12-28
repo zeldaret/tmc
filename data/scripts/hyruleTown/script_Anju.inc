@@ -45,7 +45,7 @@ script_080101AC:
 	DoFade5
 	WaitForFadeFinish
 	CallWithArg SetPlayerPos, 0x03400378
-	Call sub_080791BC
+	Call SetPlayerActionNormal
 	Call sub_0807FB74
 	_0807E8E4_1
 	Call SetPlayerCollisionLayer1

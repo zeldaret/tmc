@@ -159,7 +159,7 @@ _080850C8:
 sub_080850CC: @ 0x080850CC
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]

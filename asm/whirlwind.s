@@ -261,7 +261,7 @@ sub_08092E94: @ 0x08092E94
 	cmp r0, #0
 	bne _08092ECE
 	adds r0, r4, #0
-	bl sub_0800455E
+	bl ResetCollisionLayer
 	ldrb r2, [r4, #0x1b]
 	movs r1, #0x3f
 	adds r0, r1, #0

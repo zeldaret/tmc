@@ -643,7 +643,7 @@ _08096802:
 	bl sub_080045D4
 	strb r0, [r4, #0x15]
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 _0809681C:
 	movs r1, #0x80
 	lsls r1, r1, #7

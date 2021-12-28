@@ -146,7 +146,7 @@ sub_0808A5E0: @ 0x0808A5E0
 	ldrh r0, [r0]
 	strh r0, [r4, #0x24]
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	adds r0, r4, #0
 	bl GetNextFrame
 	ldrb r1, [r5]

@@ -3,9 +3,6 @@
 #include "enemy.h"
 #include "player.h"
 #include "functions.h"
-#include "asm.h"
-#include "audio.h"
-#include "effects.h"
 
 extern void sub_0806F5BC(Entity*, u32, u32);
 extern u32 sub_080041DC(Entity*, u32, u32);
@@ -96,7 +93,7 @@ void GleerokProjectile_Action1(Entity* this) {
         }
     } else {
         GetNextFrame(this);
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
         if ((this->type != 2) && (--this->field_0xf == 0xff)) {
             this->field_0xf = 0x1e;
             sub_08004596(this, GetFacingDirection(this, &gPlayerEntity));
@@ -122,7 +119,7 @@ void GleerokProjectile_Action2(Entity* this) {
             this->action = 3;
             InitializeAnimation(this, 0x55);
         } else {
-            sub_0806F69C(this);
+            LinearMoveUpdate(this);
             sub_080A90D8(this);
         }
     } else {

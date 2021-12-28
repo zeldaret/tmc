@@ -343,7 +343,7 @@ void PeahatPropeller_Fly(Entity* this) {
             this->spriteSettings.draw ^= 1;
 
         this->z.WORD -= 0xc000;
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
         if (--this->field_0xf == 0) {
             this->field_0xf = 40;
             this->direction = (Random() & 0x10) + 8;

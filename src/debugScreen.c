@@ -5,7 +5,6 @@
 #include "main.h"
 #include "menu.h"
 #include "screen.h"
-#include "structures.h"
 #include "textbox.h"
 
 extern void (*const gUnk_08109A30[])();

@@ -26,7 +26,7 @@ void sub_080A3084(Entity* this) {
         this->direction = this->animationState << 2;
         *(u32*)&this->field_0x6c = 0x3c;
         sub_0801766C(this);
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
         SoundReq(SFX_ITEM_SWORD_BEAM);
     } else {
         this->actionDelay = 0x06;

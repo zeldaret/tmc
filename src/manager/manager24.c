@@ -4,7 +4,6 @@
 #include "audio.h"
 #include "overworld.h"
 #include "object.h"
-#include "area.h"
 
 extern void (*const gUnk_08108CDC[])(Manager24*);
 
@@ -16,7 +15,6 @@ extern u32 sub_080002C8(u16, u8);
 extern void (*const gUnk_08108CE8[])(u32, u32);
 
 u32 sub_0805C608(void);
-extern u32 CheckIsInteriorWithEnemies(void);
 
 extern u8 gUnk_08108CFC[];
 

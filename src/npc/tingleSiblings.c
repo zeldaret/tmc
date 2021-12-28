@@ -1,8 +1,6 @@
 #include "global.h"
 #include "entity.h"
 #include "npc.h"
-#include "textbox.h"
-#include "script.h"
 #include "functions.h"
 
 extern void sub_08064DE4(Entity*);

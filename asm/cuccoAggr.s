@@ -430,7 +430,7 @@ _08038FE0:
 	adds r0, r4, #0
 	bl sub_080390F8
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	adds r0, r4, #0
 	bl GetNextFrame
 	b _08039018
@@ -439,7 +439,7 @@ _08038FF4: .4byte 0x0000FFFF
 _08038FF8: .4byte gPlayerEntity
 _08038FFC:
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	adds r0, r4, #0
 	bl GetNextFrame
 	adds r0, r4, #0

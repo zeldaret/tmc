@@ -1,7 +1,6 @@
 #include "global.h"
 #include "functions.h"
 #include "menu.h"
-#include "structures.h"
 #include "screen.h"
 
 extern void (*const gUnk_081280C4[])();

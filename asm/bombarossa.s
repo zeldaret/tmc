@@ -162,7 +162,7 @@ sub_0803350C: @ 0x0803350C
 	cmp r0, #0
 	bne _08033520
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 _08033520:
 	adds r2, r4, #0
 	adds r2, #0x76

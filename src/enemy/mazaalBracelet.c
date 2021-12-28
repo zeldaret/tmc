@@ -85,7 +85,6 @@ void sub_0803B978(Entity*);
 void sub_0803BA6C(Entity*);
 void sub_0803BA80(Entity*);
 
-extern u8 gEntCount;
 // these are not with the rest of this files constant data
 extern Hitbox gUnk_080FD35C;
 extern Hitbox gUnk_080FD364;
@@ -242,7 +241,7 @@ void sub_0803A364(Entity* this) {
             break;
         case 5:
             if (sub_0803B4E4(this) == 0) {
-                sub_0806F69C(this);
+                LinearMoveUpdate(this);
                 return;
             }
             this->type2 = 0;
@@ -325,7 +324,7 @@ void sub_0803A548(Entity* this) {
     index = ((this->parent->field_0xf >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     if (sub_0803B4E4(this) == 0) {
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
     }
 }
 
@@ -339,7 +338,7 @@ void sub_0803A58C(Entity* this) {
     if (sub_0803B4E4(this) != 0) {
         sub_0803B59C(this);
     } else {
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
     }
 }
 
@@ -408,7 +407,7 @@ void sub_0803A6E8(Entity* this) {
         this->actionDelay = 10;
     } else {
         sub_0803B63C(this);
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
         y = this->parent->y.HALF.HI + 8;
         if (y > this->y.HALF.HI) {
             this->y.HALF.HI = y;
@@ -468,7 +467,7 @@ void sub_0803A7CC(Entity* this) {
         this->action = 0xd;
         InitAnimationForceUpdate(this->child, 6);
     } else {
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
     }
 }
 
@@ -527,7 +526,7 @@ void sub_0803A90C(Entity* this) {
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     GetNextFrame(this);
     sub_0803B55C(this);
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     this->actionDelay--;
     if (this->actionDelay == 0) {
         this->action = 0x11;
@@ -550,7 +549,7 @@ void sub_0803A978(Entity* this) {
     if ((++this->actionDelay & 3) == 0) {
         sub_08004596(this, 0x10);
     }
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     if (this->direction == 0x10) {
         this->action = 0x12;
         this->actionDelay = 3;
@@ -574,7 +573,7 @@ void sub_0803AA00(Entity* this) {
         if ((++this->actionDelay & 3) == 0) {
             sub_08004596(this, direction);
         }
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
         if ((this->direction == direction) || (this->y.HALF.HI >= gPlayerEntity.y.HALF.HI)) {
             this->action = 0x13;
             this->spriteSettings.draw = 0;
@@ -594,7 +593,7 @@ NONMATCH("asm/non_matching/mazaal/sub_0803AA98.inc", void sub_0803AA98(Entity* t
     index = ((this->parent->field_0xf >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     if (sub_0803B870(this) == 0) {
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
         if (sub_0803B6F4(this) != 0) {
             this->action = 0x14;
             this->speed = 0x40;
@@ -616,7 +615,7 @@ void sub_0803AB10(Entity* this) {
     ptr = gUnk_080CED6C;
     index = ((this->parent->field_0xf >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     sub_0803B55C(this);
     if ((this->child->frame & 0x80) != 0) {
         this->action = 0x15;
@@ -667,7 +666,7 @@ void sub_0803AC1C(Entity* this) {
     if (sub_0803B4E4(this)) {
         sub_0803B59C(this);
     } else {
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
     }
 }
 
@@ -685,7 +684,7 @@ void sub_0803AC60(Entity* this) {
             this->subAction = 0;
             this->actionDelay = 0x1e;
         } else {
-            sub_0806F69C(this);
+            LinearMoveUpdate(this);
         }
     } else {
         this->actionDelay = this->actionDelay - 1;
@@ -788,7 +787,7 @@ void sub_0803AE48(Entity* this) {
         InitializeAnimation(this, 4);
     } else {
         if (sub_0803B4E4(this) == 0) {
-            sub_0806F69C(this);
+            LinearMoveUpdate(this);
         }
     }
 }
@@ -1049,7 +1048,7 @@ void sub_0803B398(Entity* this) {
         InitializeAnimation(this, 4);
         InitAnimationForceUpdate(this->child, 0);
     } else {
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
     }
 }
 
@@ -1214,7 +1213,7 @@ void sub_0803B724(Entity* param_1) {
         pEVar1->x.HALF.HI = (random_value & 0x70) + temp + gRoomControls.roomOriginX;
         pEVar1->y.HALF.HI = ((random_value >> 0x10) & 7) * 10 + 0x5c + gRoomControls.roomOriginY;
         pEVar1->parent = param_1;
-        sub_08016A30(pEVar1);
+        ResolveCollisionLayer(pEVar1);
         param_1->field_0xf++;
         param_1->cutsceneBeh.HALF.LO--;
     }

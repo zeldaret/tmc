@@ -517,7 +517,7 @@ _0808ADE2:
 	lsls r0, r0, #3
 	strh r0, [r1, #0x24]
 	ldr r0, [r4, #0x54]
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 _0808ADEE:
 	pop {r4, pc}
 
@@ -964,7 +964,7 @@ _0808B154:
 	cmp r7, #0x3f
 	bhi _0808B162
 	adds r0, r5, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 _0808B162:
 	add sp, #0x88
 	pop {r4, r5, r6, r7, pc}

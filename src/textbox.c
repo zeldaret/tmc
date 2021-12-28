@@ -1,11 +1,10 @@
 #include "global.h"
 #include "audio.h"
+#include "asm.h"
 #include "room.h"
-#include "entity.h"
 #include "utils.h"
 #include "functions.h"
 #include "textbox.h"
-#include "structures.h"
 #include "save.h"
 
 #define MESSAGE_ADVANCE_KEYS (A_BUTTON | B_BUTTON | DPAD_ANY | R_BUTTON)

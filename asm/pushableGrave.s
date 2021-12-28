@@ -280,7 +280,7 @@ sub_080977A0: @ 0x080977A0
 	subs r0, #1
 	strb r0, [r4, #0xe]
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	adds r0, r4, #0
 	bl sub_0800445C
 	b _080977E4

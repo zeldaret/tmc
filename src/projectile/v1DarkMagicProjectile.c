@@ -2,9 +2,7 @@
 #include "enemy.h"
 #include "coord.h"
 #include "player.h"
-#include "audio.h"
 #include "functions.h"
-#include "asm.h"
 
 extern void SoundReqClipped(Entity*, u32);
 
@@ -124,7 +122,7 @@ void V1DarkMagicProjectile_Action1(Entity* this) {
                 uVar2 = GetFacingDirection(this, &gPlayerEntity);
                 sub_08004596(this, uVar2);
             }
-            sub_0806F69C(this);
+            LinearMoveUpdate(this);
             break;
         case 1:
             if ((this->parent == NULL) || (this->parent->next == NULL)) {

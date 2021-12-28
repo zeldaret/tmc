@@ -11,7 +11,7 @@ script_08013D5C:
 	CallWithArg sub_08095D54, 0x00000001
 	PlaySound SFX_ELEMENT_PLACE
 	SetSyncFlag 0x10000000
-	Call sub_080791BC
+	Call SetPlayerActionNormal
 	DoPostScriptAction 0x0006
 SCRIPT_END
 	.2byte 0x0000

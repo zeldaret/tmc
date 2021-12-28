@@ -1,7 +1,6 @@
 #include "entity.h"
 #include "enemy.h"
 #include "functions.h"
-#include "audio.h"
 #include "object.h"
 
 extern s32 sub_080AF090(Entity*);
@@ -75,7 +74,7 @@ void ArrowProjectile_Action2(Entity* this) {
         this->actionDelay = 0x20;
         InitializeAnimation(this, this->animIndex + 2);
         EnqueueSFX(0x18a);
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
     } else if (--this->actionDelay == 0) {
         DeleteThisEntity();
     }

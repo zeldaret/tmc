@@ -243,7 +243,7 @@ _08083090: .4byte 0x0000010F
 sub_08083094: @ 0x08083094
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	adds r0, r4, #0
 	bl sub_0800445C
 	ldrb r0, [r4, #0xe]

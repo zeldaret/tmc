@@ -371,7 +371,7 @@ sub_080840A8: @ 0x080840A8
 	ldr r0, _08084148 @ =0x0000FFF8
 	strh r0, [r5, #0x36]
 	adds r0, r5, #0
-	bl sub_08016A30
+	bl ResolveCollisionLayer
 	adds r0, r5, #0
 	movs r1, #0x11
 	movs r2, #0

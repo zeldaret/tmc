@@ -12,5 +12,5 @@ SCRIPT_START script_PlayerAtGraveyardHouseDoor
 	DoPostScriptAction 0x000d
 	SetEntitySpeed 0x0100
 	WalkSouth 0x0010
-	Call sub_080791BC
+	Call SetPlayerActionNormal
 SCRIPT_END

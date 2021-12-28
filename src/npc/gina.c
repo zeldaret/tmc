@@ -2,9 +2,6 @@
 #include "entity.h"
 #include "player.h"
 #include "npc.h"
-#include "flags.h"
-#include "functions.h"
-#include "script.h"
 
 void Gina(Entity* this) {
     switch (this->action) {

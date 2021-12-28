@@ -808,7 +808,7 @@ sub_080A1C04: @ 0x080A1C04
 	cmp r0, #0
 	bne _080A1C52
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	adds r0, r4, #0
 	bl sub_080A1E54
 	ldrb r0, [r4, #0xf]

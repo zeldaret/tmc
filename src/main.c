@@ -1,7 +1,5 @@
 #include "audio.h"
-#include "asm.h"
 #include "functions.h"
-#include "structures.h"
 #include "main.h"
 #include "screen.h"
 #include "utils.h"

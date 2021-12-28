@@ -26,7 +26,7 @@ _080A312A:
 	adds r0, r4, #0
 	bl GetNextFrame
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	ldrb r0, [r4, #0xe]
 	adds r0, #1
 	strb r0, [r4, #0xe]

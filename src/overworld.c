@@ -11,7 +11,6 @@
 #include "fileScreen.h"
 #include "menu.h"
 #include "functions.h"
-#include "structures.h"
 #include "area.h"
 #include "textbox.h"
 #include "overworld.h"
@@ -20,7 +19,6 @@ extern u32 gUnk_03003FC0;
 
 extern u8 gUnk_080FCA84[];
 extern u8 gUnk_080FCAC8[];
-extern u32 gUsedPalettes;
 extern u8 gUnk_02024090[];
 extern u16 gUnk_080FCAD6[];
 
@@ -35,16 +33,12 @@ extern u8 gUnk_080FCAF8[];
 extern u16 gUnk_020178E0[];
 
 void sub_080520C4();
-void SetPopupState();
-u32 sub_08052724();
 void CleanUpGFXSlots();
 void sub_080ADE24();
 void sub_0801C370(u32);
 void sub_0801AE44(u32);
 void GenerateAreaHint(void);
 void ForceSetPlayerState(u32);
-void SetPlayerEventPriority(void);
-RoomResInfo* GetCurrentRoomInfo(void);
 void UpdateRoomTracker(void);
 void InitScriptData(void);
 void sub_08054524(void);
@@ -432,10 +426,10 @@ u32 CheckHasMap(void) {
     return (gArea.areaMetadata >> 3) & 1;
 }
 
-s32 ModHealth(s32 deltaHealth) {
+s32 ModHealth(s32 delta) {
     s32 newHealth;
 
-    newHealth = gStats.health + deltaHealth;
+    newHealth = gStats.health + delta;
     if (newHealth < 0) {
         newHealth = 0;
     }
@@ -447,11 +441,11 @@ s32 ModHealth(s32 deltaHealth) {
     return newHealth;
 }
 
-void ModRupees(s32 rupeeDelta) {
+void ModRupees(s32 delta) {
     s32 newRupeeCount;
     Stats* s = &gStats;
 
-    newRupeeCount = s->rupees + rupeeDelta;
+    newRupeeCount = s->rupees + delta;
     if (newRupeeCount < 0) {
         newRupeeCount = 0;
     } else {

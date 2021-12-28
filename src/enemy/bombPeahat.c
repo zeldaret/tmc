@@ -1,5 +1,4 @@
 #include "asm.h"
-#include "global.h"
 #include "entity.h"
 #include "enemy.h"
 #include "player.h"
@@ -280,7 +279,7 @@ ASM_FUNC("asm/non_matching/eu/sub_0802AC40.inc", void sub_0802AC40(Entity* this)
 #else
 void sub_0802AC40(Entity* this) {
     GetNextFrame(this);
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     if (this->field_0x7a.HALF.LO) {
         if (sub_0802B234(this) == 0) {
             this->field_0x7a.HALF.LO = 0;

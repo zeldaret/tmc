@@ -17,8 +17,7 @@ u32 CheckIsInteriorWithEnemies(void);
 u32 CheckIsInteriorNoEnemies(void);
 u32 CheckHasMap(void);
 
-s32 ModHealth(s32 deltaHealth);
-void ModRupees(s32 rupeeDelta);
+u32 ItemIsSword(u32 item);
 
 void sub_080526F8(s32 a1);
 u32 sub_08052724(void);
@@ -50,7 +49,6 @@ u32 GetFlagBankOffset(u32 idx);
 RoomResInfo* GetCurrentRoomInfo(void);
 void sub_08052EA0(void);
 void sub_08052FD8(u32 room, u32 area);
-void UpdateGlobalProgress(void);
 void sub_08053250(void);
 void sub_08053320(void);
 void sub_080533CC(void);

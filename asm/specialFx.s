@@ -46,7 +46,7 @@ sub_080844E0: @ 0x080844E0
 	cmp r0, #0
 	bne _08084516
 	adds r0, r5, #0
-	bl sub_08016A30
+	bl ResolveCollisionLayer
 _08084516:
 	ldrb r0, [r5, #0xa]
 	cmp r0, #0x20
@@ -187,7 +187,7 @@ sub_080845F8: @ 0x080845F8
 	lsrs r0, r0, #3
 	strb r0, [r4, #0x15]
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 _08084626:
 	adds r0, r4, #0
 	bl sub_08084630
@@ -283,7 +283,7 @@ sub_080846B0: @ 0x080846B0
 	strh r0, [r4, #0x24]
 _080846CA:
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	adds r0, r4, #0
 	bl sub_080845DC
 	b _08084718
@@ -434,7 +434,7 @@ _080847CC: .4byte 0xFFFFE000
 sub_080847D0: @ 0x080847D0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	adds r0, r4, #0
 	bl sub_080845DC
 	pop {r4, pc}

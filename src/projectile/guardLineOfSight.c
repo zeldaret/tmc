@@ -61,7 +61,7 @@ void GuardLineOfSight(Entity* this) {
         if (--this->actionDelay == 0) {
             DeleteThisEntity();
         }
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
         if (sub_080AE4CC(&gUnk_02027EB4, this->x.HALF.HI, this->y.HALF.HI, 2) != 0) {
             DeleteThisEntity();
         }

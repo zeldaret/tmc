@@ -136,7 +136,7 @@ sub_0809B034: @ 0x0809B034
 sub_0809B050: @ 0x0809B050
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]

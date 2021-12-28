@@ -1,8 +1,6 @@
 #include "object.h"
-#include "functions.h"
 
 void sub_08099ECC(Entity*);
-extern void RequestPriorityDuration(Entity*, u32);
 extern void sub_0805B390(u32);
 
 extern void (*const gUnk_081237F8[])(Entity*);

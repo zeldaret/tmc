@@ -4,7 +4,6 @@
 #include "flags.h"
 #include "player.h"
 #include "room.h"
-#include "structures.h"
 #include "functions.h"
 #include "effects.h"
 

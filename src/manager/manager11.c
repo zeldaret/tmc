@@ -1,4 +1,3 @@
-#include "global.h"
 #include "manager.h"
 #include "flags.h"
 

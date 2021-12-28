@@ -2,12 +2,9 @@
 #include "audio.h"
 #include "entity.h"
 #include "functions.h"
-#include "room.h"
 #include "flags.h"
-#include "script.h"
 #include "npc.h"
 
-extern Entity* DeepFindEntityByID(u32, u32);
 void sub_08068680(Entity*, Entity*);
 void sub_08068694(Entity*, Entity*);
 extern Entity* GetEntityByType(u32, u32);

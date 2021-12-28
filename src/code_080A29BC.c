@@ -2,7 +2,6 @@
 #include "entity.h"
 #include "room.h"
 #include "object.h"
-#include "effects.h"
 
 void sub_080A29C8(s32 xOff, s32 yOff, u32 layer) {
     Entity* pEVar1;

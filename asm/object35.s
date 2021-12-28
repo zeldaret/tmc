@@ -230,7 +230,7 @@ _0808BA0C: .4byte 0x0000010B
 sub_0808BA10: @ 0x0808BA10
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -281,7 +281,7 @@ _0808BA68:
 sub_0808BA6C: @ 0x0808BA6C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]

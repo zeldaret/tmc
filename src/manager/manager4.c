@@ -1,4 +1,5 @@
 #include "global.h"
+#include "asm.h"
 #include "player.h"
 #include "room.h"
 #include "manager.h"

@@ -525,7 +525,7 @@ _080895BC: .4byte gUnk_080B4488
 sub_080895C0: @ 0x080895C0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	adds r1, r4, #0
 	adds r1, #0x86
 	ldrh r0, [r1]

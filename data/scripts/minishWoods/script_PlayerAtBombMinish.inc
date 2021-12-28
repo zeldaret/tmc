@@ -9,5 +9,5 @@ SCRIPT_START script_PlayerAtBombMinish
 	Wait 0x000f
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000002
-	Call sub_080791BC
+	Call SetPlayerActionNormal
 SCRIPT_END
