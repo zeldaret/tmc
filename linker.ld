@@ -466,7 +466,7 @@ SECTIONS {
         asm/curtain.o(.text);
         src/enemy/vaatiWrathEye.o(.text);
         asm/gyorgChild.o(.text);
-        asm/gyorgFemaleEye.o(.text);
+        src/enemy/gyorgFemaleEye.o(.text);
         asm/enemy62.o(.text);
         asm/gyorgFemaleMouth.o(.text);
         asm/enemy64.o(.text);
