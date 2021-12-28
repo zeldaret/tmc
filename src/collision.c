@@ -83,19 +83,19 @@ void RegisterPlayerHitbox(void) {
     gUnk_03003C70[0].node = &gPlayerEntity;
 }
 
-// Loop declaration seems wrong
-NONMATCH("asm/non_matching/arm_proxy/sub_0801766C.inc", u32 sub_0801766C(Entity* this)) {
+u32 sub_0801766C(Entity* this) {
     u32 uVar1;
     LinkedList2* puVar3;
     LinkedList2* puVar2;
     LinkedList2* pLVar2;
     LinkedList2* i;
+    LinkedList2* end;
     u8* pbVar4;
 
     if (this->spritePriority.b2 != 0) {
         return 1;
     } else {
-        for (i = &gUnk_03003C70[0]; i < &gUnk_03003C70[16]; ++i) {
+        for (i = gUnk_03003C70, end = gUnk_03003C70 + 16; end > i; ++i) {
             if (i->node == NULL) {
                 i->node = this;
                 i->flags = 0;
@@ -124,19 +124,18 @@ NONMATCH("asm/non_matching/arm_proxy/sub_0801766C.inc", u32 sub_0801766C(Entity*
         return 0;
     }
 }
-END_NONMATCH
 
-// same loop issue
-NONMATCH("asm/non_matching/arm_proxy/sub_080176E4.inc", u32 sub_080176E4(Entity* this)) {
+u32 sub_080176E4(Entity* this) {
     u32 uVar1;
     LinkedList2* j;
     LinkedList2* i;
+    LinkedList2* end;
     u8* pbVar4;
 
     if (this->spritePriority.b2 != 0) {
         return 1;
     } else {
-        for (i = &gUnk_03003C70[0]; i < &gUnk_03003C70[16]; ++i) {
+        for (i = gUnk_03003C70, end = gUnk_03003C70 + 16; end > i; ++i) {
             if (i->node == NULL) {
                 i->node = this;
                 i->flags = 1;
@@ -153,12 +152,15 @@ NONMATCH("asm/non_matching/arm_proxy/sub_080176E4.inc", u32 sub_080176E4(Entity*
         return 0;
     }
 }
-END_NONMATCH
 
-// you guessed it
+// Several issues:
+// 1. b2 mask value is set before the loop even begins
+// 2. data is allocated mid function
+// 3. regalloc
 NONMATCH("asm/non_matching/arm_proxy/sub_08017744.inc", void sub_08017744(Entity* this)) {
     LinkedList2* i;
-    for (i = &gUnk_03003C70[0]; i < &gUnk_03003C70[16]; ++i) {
+    LinkedList2* end;
+    for (i = gUnk_03003C70, end = gUnk_03003C70 + 16; end > i; ++i) {
         if (i->node == this) {
             if (this->spritePriority.b2 != 0) {
                 this->spritePriority.b2 = 0;
@@ -179,17 +181,17 @@ NONMATCH("asm/non_matching/arm_proxy/sub_080177A0.inc", bool32 sub_080177A0(Enti
     u32 this_d;
     u32 depth;
 
-    if ((that->collisionLayer & this->collisionLayer) != 0) {
+    if ((this->collisionLayer & that->collisionLayer) != 0) {
         Hitbox* bb_this = this->hitbox;
         Hitbox* bb_that = that->hitbox;
         u32 this_w = bb_this->width;
         u32 that_w = bb_that->width;
-        if ((((this->x.HALF.HI - that->x.HALF.HI) + bb_this->offset_x) - bb_that->offset_x) + this_w + that_w <=
-            (this_w + that_w) * 2) {
+        u32 sumw = this_w + that_w;
+        if ((((this->x.HALF.HI - that->x.HALF.HI) + bb_this->offset_x) - bb_that->offset_x) + sumw <= (sumw)*2) {
             u32 this_h = bb_this->height;
             u32 that_h = bb_that->height;
-            if ((((this->y.HALF.HI - that->y.HALF.HI) + bb_this->offset_y) - bb_that->offset_y) + this_h + that_h <=
-                (this_h + that_h) * 2) {
+            u32 sumh = this_h + that_h;
+            if ((((this->y.HALF.HI - that->y.HALF.HI) + bb_this->offset_y) - bb_that->offset_y) + sumh <= (sumh)*2) {
                 if ((this->field_0x3c & 0x10) != 0)
                     this_d = ((Hitbox3D*)bb_this)->depth;
                 else
@@ -424,9 +426,9 @@ s32 sub_08017C40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
     return 1;
 }
 
-NONMATCH("asm/non_matching/collision/sub_08017CBC.inc",
-         s32 sub_08017CBC(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)) {
-    if (((-(((direction ^ 0x10) - 0xc) & 0x1f) + tgt->direction) & 0x1f) < 0x19) {
+s32 sub_08017CBC(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
+    direction = ((direction ^ 0x10) - 0xc) & 0x1f;
+    if (((-direction + tgt->direction) & 0x1f) < 0x19) {
         org->iframes = -12;
         tgt->iframes = -12;
         sub_08017940(org, tgt);
@@ -440,7 +442,6 @@ NONMATCH("asm/non_matching/collision/sub_08017CBC.inc",
     }
     return 1;
 }
-END_NONMATCH
 
 s32 sub_08017D28(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     gPlayerState.field_0x1a[0] = 1;
@@ -565,19 +566,22 @@ s32 sub_08017F40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
     return 0;
 }
 
-// inverted branch
-NONMATCH("asm/non_matching/collision/sub_0801802C.inc",
-         s32 sub_0801802C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)) {
+s32 sub_0801802C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     int kind;
     ColSettings* p;
     u32 x;
 
     kind = org->kind;
     if (kind == 1) {
-        if (sub_08079F8C() && (((direction ^ 0x10) - 4 * tgt->animationState + 5) & 0x1Fu) <= 0xA)
-            goto _0801807A;
+        if (sub_08079F8C()) {
+            if (((((direction ^ 0x10) - 4 * tgt->animationState + 5) & 0x1F)) > 0xA) {
+                goto _08018090;
+            } else {
+                goto _0801807A;
+            }
+        }
     } else if (kind == 8) {
-        if ((((org->direction ^ 0x10) - 4 * tgt->animationState + 5) & 0x1Fu) <= 0xA) {
+        if ((((org->direction ^ 0x10) - 4 * tgt->animationState + 5) & 0x1F) <= 0xA) {
             org->health = 0;
         _0801807A:
             sub_080180BC(org, tgt);
@@ -587,10 +591,10 @@ NONMATCH("asm/non_matching/collision/sub_0801802C.inc",
         org->health = 0;
         return 0;
     }
+_08018090:
     x = 0x11aa;
     return sub_08018308(org, tgt, direction, &gCollisionMtx[x + org->hurtType]);
 }
-END_NONMATCH
 
 void sub_080180BC(Entity* org, Entity* tgt) {
     if (org->iframes == 0)
