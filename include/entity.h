@@ -94,10 +94,10 @@ typedef struct Entity_ {
     /*0x24*/ s16 speed;
     /*0x26*/ u8 spriteAnimation[3];
     /*0x29*/ struct {
-    /*    */     u8 b0 : 3; // 0-2
-    /*    */     u8 b1 : 3; // 3-5
-    /*    */     u8 b2 : 1; // 6
-    /*    */     u8 b3 : 1; // 7
+    /*    */     u8 b0 : 3; // 1-4
+    /*    */     u8 b1 : 3; // 8
+    /*    */     u8 b2 : 1; // 0x40
+    /*    */     u8 b3 : 1; // 0x80
     /*    */ } PACKED spritePriority;
     /*0x2a*/ u16 collisions;
     /*0x2c*/ union SplitWord x;
