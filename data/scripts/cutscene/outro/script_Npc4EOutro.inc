@@ -1,12 +1,12 @@
 @ Outro NPC4E
 SCRIPT_START script_Npc4EOutro
 	BeginBlock
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
 	SetEntityPositionRelative 0x0088, 0x0080
 	Call sub_0807F844
 	_0807E8E4_3
-	CallWithArg sub_0807F75C, 0x00a80088
+	CallWithArg SetPlayerPos, 0x00a80088
 	EndBlock
 	Wait 0x003c
 	StartPlayerScript script_PlayerAtOutro
@@ -26,7 +26,7 @@ SCRIPT_START script_Npc4EOutro
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000040
 	SetSyncFlag 0x00000004
-	Call sub_0807F3F8
+	Call CreatePlayerExclamationMark
 	WaitForSyncFlagAndClear 0x00000080
 	MessageFromTargetPos 0x165a, 0x000e
 	WaitUntilTextboxCloses

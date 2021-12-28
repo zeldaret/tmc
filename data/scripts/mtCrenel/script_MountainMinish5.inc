@@ -6,35 +6,35 @@ SCRIPT_START script_MountainMinish5
 	DoPostScriptAction 0x000a
 	EndBlock
 script_0800D426:
-	_0807EB44 0x0002
+	SetAnimationState 0x0002
 	SetIntVariable 0x00000000
 	Call sub_0806AF60
 	Wait 0x0014
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	SetIntVariable 0x00000000
 	Call sub_0806AF60
 	Wait 0x0014
-	_0807EB44 0x0006
+	SetAnimationState 0x0006
 	SetIntVariable 0x00000000
 	Call sub_0806AF60
 	Wait 0x0014
-	_0807EB44 0x0006
+	SetAnimationState 0x0006
 	SetIntVariable 0x00000004
 	Call sub_0806AF60
 	_0807EDD4 0x00a8, 0x01e8
-	_0807EB44 0x0006
+	SetAnimationState 0x0006
 	SetIntVariable 0x00000000
 	Call sub_0806AF60
 	Wait 0x0014
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	SetIntVariable 0x00000000
 	Call sub_0806AF60
 	Wait 0x0014
-	_0807EB44 0x0002
+	SetAnimationState 0x0002
 	SetIntVariable 0x00000000
 	Call sub_0806AF60
 	Wait 0x0014
-	_0807EB44 0x0002
+	SetAnimationState 0x0002
 	SetIntVariable 0x00000004
 	Call sub_0806AF60
 	_0807EDD4 0x0228, 0x01e8
@@ -43,13 +43,13 @@ script_0800D426:
 	BeginBlock
 	DoPostScriptAction 0x000a
 	Call sub_08062A48
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 script_0800D4E4:
 	EndBlock
 	Call sub_08062698
 	Call sub_080626AC
-	CallWithArg sub_0807F0EC, 0x00000009
+	CallWithArg GetRandomInt, 0x00000009
 	JumpTable script_0800D510, script_0800D51A, script_0800D524, script_0800D52E, script_0800D538, script_0800D542, script_0800D54C, script_0800D556, script_0800D560
 script_0800D510:
 	_0807EE04 0x0038, 0x0068
@@ -89,10 +89,10 @@ script_0800D566:
 	Jump script_0800D4E4
 script_0800D584:
 	EndBlock
-	_0807E864
-	_0807EB74
+	SetPlayerIdle
+	FacePlayer
 	Call sub_0806265C
 	WaitUntilTextboxCloses
 	Wait 0x000f
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800D4E4

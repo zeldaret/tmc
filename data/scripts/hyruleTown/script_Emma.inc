@@ -3,13 +3,13 @@ SCRIPT_START script_Emma
 	BeginBlock
 	_0807E9D4
 	DoPostScriptAction 0x000a
-	_0807EB44 0x0000
+	SetAnimationState 0x0000
 	EndBlock
 script_0800E832:
 	CheckEntityInteractType
 	JumpIfNot script_0800E832
-	_0807E864
-	_0807EB44 0x0004
+	SetPlayerIdle
+	SetAnimationState 0x0004
 	BeginBlock 
 	MessageFromTarget 0x4501
 	CallWithArg sub_0807F854, 0x00010032

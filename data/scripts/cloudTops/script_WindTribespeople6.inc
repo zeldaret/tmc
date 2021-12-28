@@ -4,7 +4,7 @@ SCRIPT_START script_WindTribespeople6
 	DoPostScriptAction 0x000a
 	EndBlock
 	WaitForSyncFlagAndClear 0x00000001
-	_0807EB74
+	FacePlayer
 	DoPostScriptAction 0x0004
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000001
@@ -12,12 +12,12 @@ SCRIPT_START script_WindTribespeople6
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000002
 script_08014AAC:
-	_0807E30C
+	FacePlayerAndCheckDist
 	JumpIfNot script_08014AAC
-	_0807E864 
-	_0807EB74 
+	SetPlayerIdle 
+	FacePlayer 
 	MessageNoOverlap 0x2f0a
 	WaitUntilTextboxCloses
-	_0807E878 
+	EnablePlayerControl 
 	Jump script_08014AAC
 	.2byte 0x0000

@@ -2,17 +2,17 @@
 SCRIPT_START script_Objet6ASwordCharge7
 	BeginBlock
 	DoPostScriptAction 0x0007
-	_0807E930 0x0006
+	SetAnimation 0x0006
 	OffsetEntityPosition 0x0000, 0xfff0
 	EndBlock
 	WaitForSyncFlagAndClear 0x00000800
-	_0807E930 0x000a
-	Call sub_0807F2D4
-	_0807E930 0x000e
+	SetAnimation 0x000a
+	Call WaitForFrameHiBit
+	SetAnimation 0x000e
 	SetSyncFlag 0x00008000
 	WaitForSyncFlag 0x00000020
-	_0807E930 0x0012
-	Call sub_0807F2D4
+	SetAnimation 0x0012
+	Call WaitForFrameHiBit
 	DoPostScriptAction 0x0006
 SCRIPT_END
 	.2byte 0x0000

@@ -4,7 +4,7 @@ SCRIPT_START script_Object6ATheLittleHat
 	SetEntitySpeed 0x0080
 	DoPostScriptAction 0x0007
 	DoPostScriptAction 0x000b
-	_0807E930 0x0000
+	SetAnimation 0x0000
 	EndBlock
 	WaitForSyncFlagAndClear 0x00000008
 	Call sub_08094B80

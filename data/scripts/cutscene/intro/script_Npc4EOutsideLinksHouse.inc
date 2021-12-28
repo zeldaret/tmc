@@ -3,11 +3,11 @@ SCRIPT_START script_Npc4EOutsideLinksHouse
 	BeginBlock
 	SetEntityPositionRelative 0x0238, 0x01a8
 	Call sub_0807F844
-	Call sub_0807F348
-	_0807E864
+	Call SetPriorityMessage
+	SetPlayerIdle
 	Call sub_0807DF28
 	EndBlock
-	_0807E778 0x0010
+	SetFadeTime 0x0010
 	DoFade6
 	WaitForFadeFinish
 	SetSyncFlag 0x00000001
@@ -15,7 +15,7 @@ SCRIPT_START script_Npc4EOutsideLinksHouse
 	_0807F0B4 0x0004
 	CameraTargetPlayer
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END
 	.2byte 0x0000

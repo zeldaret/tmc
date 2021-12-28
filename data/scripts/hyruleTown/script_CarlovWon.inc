@@ -2,11 +2,11 @@
 SCRIPT_START script_CarlovWon
 	BeginBlock
 	_0807E9D4
-	_0807EB44 0x0000
+	SetAnimationState 0x0000
 	SetEntitySpeed 0x01c0
 	DoPostScriptAction 0x000a
 	EndBlock
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
 	Call sub_0806E20C
 	WaitUntilTextboxCloses

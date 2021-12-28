@@ -1,7 +1,7 @@
 @ Player entering Mazaal
 SCRIPT_START script_PlayerAtMazaal
 	BeginBlock
-	_0807EB44 0x0000
+	SetAnimationState 0x0000
 	SetEntitySpeed 0x0140
 	EndBlock
 	_0807EDD4 0x00b8, 0x0094

@@ -16,8 +16,8 @@ SCRIPT_START script_Object6AMinishCap
 	Wait 0x003c
 	SetSyncFlag 0x00000100
 	WaitForSyncFlagAndClear 0x00000080
-	_0807E930 0x0001
-	Call sub_0807F2D4
+	SetAnimation 0x0001
+	Call WaitForFrameHiBit
 	DoPostScriptAction 0x0006
 SCRIPT_END
 	.2byte 0x0000

@@ -1,7 +1,7 @@
 @ Player at Librari move on trap
 SCRIPT_START script_PlayerStepOnTrap
 	BeginBlock
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	SetEntitySpeed 0x0100
 	EndBlock
 	DoPostScriptAction 0x0001

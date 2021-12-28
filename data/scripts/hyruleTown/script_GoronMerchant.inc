@@ -1,12 +1,12 @@
 @ Hyrule Town Goron Merchant
 SCRIPT_START script_GoronMerchant
 	BeginBlock
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x000a
 	DoPostScriptAction 0x0007
 	_0807E9D4
-	Call sub_0807F348
+	Call SetPriorityMessage
 	Call sub_08069684
 	EndBlock
 script_080107F2:
@@ -25,9 +25,9 @@ script_08010804:
 	CheckEntityInteractType
 	JumpIfNot script_08010804
 	EndBlock
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
-	_0807EB74
+	FacePlayer
 	CheckGlobalFlag 0x0042
 	JumpIfNot script_08010858
 	CheckGlobalFlag 0x0043
@@ -46,9 +46,9 @@ script_08010858:
 	Jump script_080108BA
 script_08010860:
 	EndBlock
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF38
-	_0807EB74
+	FacePlayer
 	Call sub_08069660
 	WaitUntilTextboxCloses
 	CheckTextboxResult
@@ -57,7 +57,7 @@ script_08010860:
 	JumpIfNot script_080108B2
 	WaitPlayerGetItem
 	WaitUntilTextboxCloses
-	_0807EB8C
+	FaceAwayFromPlayer
 	CheckGlobalFlag 0x0042
 	JumpIfNot script_080108AA
 	CheckGlobalFlag 0x0043
@@ -81,7 +81,7 @@ script_080108B2:
 script_080108BA:
 	WaitUntilTextboxCloses
 	Call sub_0807DF50
-	_0807E878
-	_0807EB44 0x0004
+	EnablePlayerControl
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	Jump script_08010804

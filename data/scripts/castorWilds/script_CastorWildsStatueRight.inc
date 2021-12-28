@@ -4,20 +4,20 @@ SCRIPT_START script_CastorWildsStatueRight
 	CheckKinstoneFused 0x0008
 	JumpIf script_0800B302
 	_0807EA88 0x0008
-	_0807EB44 0x0002
+	SetAnimationState 0x0002
 	EndBlock
 script_0800B2C8:
 	_0807EA4C
 	_0807E9F0
-	_0807E864
+	SetPlayerIdle
 	CheckKinstoneFused 0x0008
 	JumpIf script_0800B2E2
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800B2C8
 script_0800B2E2:
 	DoPostScriptAction 0x0013
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	_0807E9DC
 	Call sub_080676E0
 	Call sub_08067534

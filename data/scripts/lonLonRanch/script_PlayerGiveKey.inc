@@ -5,7 +5,7 @@ SCRIPT_START script_PlayerGiveKey
 	EndBlock
 	_0807EDD4 0x0128, 0x0298
 	Wait 0x000a
-	_0807EB44 0x0002
+	SetAnimationState 0x0002
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000002

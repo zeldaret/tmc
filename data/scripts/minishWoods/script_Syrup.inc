@@ -2,7 +2,7 @@
 SCRIPT_START script_Syrup
 	BeginBlock
 	_0807E9D4
-	_0807E930 0x0008
+	SetAnimation 0x0008
 script_080160B0:
 	EndBlock
 	BeginBlock
@@ -15,12 +15,12 @@ script_080160B0:
 	Jump script_080160B0
 script_080160D2:
 	EndBlock
-	_0807EB74
+	FacePlayer
 	WaitForSyncFlagAndClear 0x00000004
 	Jump script_080160B0
 script_080160E0:
-	_0807E864
-	_0807EB74
+	SetPlayerIdle
+	FacePlayer
 	EndBlock
 	HasRoomItemForSale
 	JumpIfNot script_0801611A
@@ -36,7 +36,7 @@ script_080160E0:
 script_0801610C:
 	WaitPlayerGetItem
 .ifndef EU
-	_0807EB8C 
+	FaceAwayFromPlayer 
 	MessageFromTarget 0x2d0d
 .else
 	MessageFromTarget 0x2d08
@@ -53,8 +53,8 @@ script_0801612C:
 	MessageFromTarget 0x2d01
 	WaitUntilTextboxCloses
 script_08016132:
-	_0807E878
-	_0807EB44 0x0004
+	EnablePlayerControl
+	SetAnimationState 0x0004
 	Jump script_080160B0
 	.align 2, 0
 

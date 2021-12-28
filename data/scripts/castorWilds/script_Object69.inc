@@ -30,7 +30,7 @@ script_0800B216:
 	Wait 0x000c
 	CameraTargetPlayer
 	Wait 0x0008
-	_0807E878
+	EnablePlayerControl
 .ifdef JP
 	CheckLocalFlag 0x001e
 .else

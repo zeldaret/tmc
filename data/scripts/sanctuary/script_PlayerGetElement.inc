@@ -2,7 +2,7 @@
 SCRIPT_START script_PlayerGetElement
 	BeginBlock
 	SetEntitySpeed 0x0140
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
 	EndBlock
 	Wait 0x0078
@@ -18,5 +18,5 @@ script_0800A0D2:
 	WaitForSyncFlagAndClear 0x00000002
 	Wait 0x003c
 	SetEntitySpeed 0x0080
-	_0807EC64 0x0030
+	WalkNorth 0x0030
 SCRIPT_END

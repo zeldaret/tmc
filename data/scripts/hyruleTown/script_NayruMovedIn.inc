@@ -2,15 +2,15 @@
 SCRIPT_START script_NayruMovedIn
 	BeginBlock
 	Call sub_08064928
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0001
 	DoPostScriptAction 0x000a
 	EndBlock
 script_080120C6:
 	CheckEntityInteractType
 	JumpIfNot script_080120C6
-	_0807E864
-	_0807EB74
+	SetPlayerIdle
+	FacePlayer
 	DoPostScriptAction 0x0000
 	CheckLocalFlag 0x0095
 	JumpIf script_080120EA
@@ -51,8 +51,8 @@ script_08012126:
 	MessageNoOverlap 0x311b
 script_0801212A:
 	WaitUntilTextboxCloses
-	_0807E878
-	_0807EB44 0x0004
+	EnablePlayerControl
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0001
 	Jump script_080120C6
 	.align 2, 0

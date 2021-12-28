@@ -6,7 +6,7 @@ SCRIPT_START script_Object69MinishVaati
 	CameraTargetEntity
 	EndBlock
 	PlayBgm BGM_EZLO_STORY
-	_0807E778 0x0004
+	SetFadeTime 0x0004
 	DoFade4
 	WaitForFadeFinish
 	Wait 0x003c

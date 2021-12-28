@@ -1,17 +1,17 @@
 @ Hyrule Town Beedle
 SCRIPT_START script_Beedle
 	BeginBlock
-	_0807EB44 0x0004
-	_0807E930 0x0000
+	SetAnimationState 0x0004
+	SetAnimation 0x0000
 	DoPostScriptAction 0x000a
-	Call sub_0807F348
+	Call SetPriorityMessage
 	EndBlock
 script_08010502:
 	CheckEntityInteractType
 	JumpIfNot script_08010502
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
-	_0807EB74
+	FacePlayer
 	CallWithArg sub_0807F3D8, 0x00000008
 	CheckRoomFlag 0x000e
 	JumpIf script_0801052E
@@ -69,22 +69,22 @@ script_080105DC:
 script_080105E0:
 	WaitUntilTextboxCloses
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	Jump script_08010502
 	.2byte 0x0000
 	BeginBlock
 	_0807E9D4
 	DoPostScriptAction 0x000a
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	EndBlock
 script_08010602:
 	CheckEntityInteractType
 	JumpIfNot script_08010602
-	_0807E864 
-	_0807EB74 
+	SetPlayerIdle 
+	FacePlayer 
 	MessageFromTarget 0x0a01
 	WaitUntilTextboxCloses
-	_0807E878 
-	_0807EB44 0x0004
+	EnablePlayerControl 
+	SetAnimationState 0x0004
 	Jump script_08010602

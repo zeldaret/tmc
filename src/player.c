@@ -3631,7 +3631,7 @@ void sub_08074F8C(Entity* this) {
     UpdateAnimationSingleFrame(this);
     if (this->frame == 1) {
         this->frame = 0;
-        gActiveScriptInfo.unk_00 |= 4;
+        gActiveScriptInfo.syncFlags |= 4;
     }
     if (this->frame & 0x80) {
         this->field_0x68.HALF.LO++;

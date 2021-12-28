@@ -9,7 +9,7 @@ SCRIPT_START script_Npc4EVaatiAttacking
 	WaitUntilTextboxCloses
 	Call sub_0806DC3C
 	Call sub_080791BC
-	CallWithArg sub_0807F244, 0x0000000d
+	CallWithArg EquipItem, 0x0000000d
 	CallWithArg sub_0807F29C, gUnk_080049F6
 	Wait 0x001e
 	SetSyncFlag 0x00000100

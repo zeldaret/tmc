@@ -5,7 +5,7 @@ SCRIPT_START script_PlayerDistanceFromVaati
 	DoPostScriptAction 0x000d
 	EndBlock
 	DoPostScriptAction 0x0001
-	_0807ECC4 0x0020
+	WalkSouth 0x0020
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x000c
 	SetSyncFlag 0x00000002

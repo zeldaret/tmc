@@ -5,7 +5,7 @@ SCRIPT_START script_Object6AMirrorShield
 	SetEntitySpeed 0x0180
 	EndBlock
 	Wait 0x003c
-	SetEntity0x20 0x00018000
+	SetEntityVelocity 0x00018000
 	Call sub_0806D858
 script_080094EA:
 	_0807EE30

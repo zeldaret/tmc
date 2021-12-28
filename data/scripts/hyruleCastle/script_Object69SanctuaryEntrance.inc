@@ -2,12 +2,12 @@
 SCRIPT_START script_Object69SanctuaryEntrance
 	CheckPlayerInRegion 0x0088, 0x0048, 0x3030
 	JumpIfNot script_Object69SanctuaryEntrance
-	_0807E864
-	Call sub_0807F9A4
+	SetPlayerIdle
+	Call WaitForPlayerNormal
 	Call sub_0807DF28
 	StartPlayerScript script_PlayerAtSanctuaryEntrance
 	WaitForSyncFlagAndClear 0x00000001
-	_0807EB28 0x132d
+	EzloMessage 0x132d
 	WaitUntilTextboxCloses
 .ifdef JP
 	SetLocalFlag 0x0015
@@ -23,7 +23,7 @@ SCRIPT_START script_Object69SanctuaryEntrance
 .endif
 .endif
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END
 	.2byte 0x0000

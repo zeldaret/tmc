@@ -1,7 +1,7 @@
 @ DHC OBJECT_69 Towards Vaati in room with Ball&Chain soldier
 SCRIPT_START script_Object69BallAndChainSoldierRoom
 	BeginBlock
-	Call sub_0807F354
+	Call SetPriorityPlayerEvent
 	EndBlock
 	CheckLocalFlag 0x007c
 	JumpIf script_0800E4FA
@@ -17,7 +17,7 @@ script_0800E4B6:
 .endif
 	JumpIfNot script_0800E4B6
 	BeginBlock
-	_0807E864
+	SetPlayerIdle
 .ifdef JP
 .ifndef DEMO_JP
 	Call SetPlayerEventPriority
@@ -28,7 +28,7 @@ script_0800E4B6:
 .endif
 .endif
 	EndBlock
-	Call sub_0807F3F8
+	Call CreatePlayerExclamationMark
 	Wait 0x003c
 	MessageFromTarget 0x160c
 	WaitUntilTextboxCloses
@@ -36,7 +36,7 @@ script_0800E4B6:
 	MessageFromTarget 0x160d
 	WaitUntilTextboxCloses
 	Wait 0x001e
-	_0807EB28 0x160e
+	EzloMessage 0x160e
 	Wait 0x003c
 	WaitUntilTextboxCloses
 	BeginBlock
@@ -52,7 +52,7 @@ script_0800E4B6:
 .endif
 .endif
 script_0800E4FA:
-	_0807E878
+	EnablePlayerControl
 	DoPostScriptAction 0x0006
 	EndBlock
 SCRIPT_END

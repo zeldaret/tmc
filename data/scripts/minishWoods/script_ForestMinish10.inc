@@ -15,7 +15,7 @@ script_0800CD92:
 	Jump script_0800CD92
 script_0800CDA6:
 	EndBlock
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
 	CheckLocalFlag 0x009d
 	JumpIf script_0800CDC4
@@ -57,7 +57,7 @@ script_0800CE14:
 	_0807F088 0x0022
 	WaitPlayerGetItem
 script_0800CE32:
-	_0807EB8C
+	FaceAwayFromPlayer
 	SetGlobalFlag 0x0054
 	Call sub_08060340
 	MessageNoOverlap 0x213f
@@ -85,7 +85,7 @@ script_0800CE6E:
 	PlaySound SFX_TASK_COMPLETE
 	_0807F088 0x0027
 	WaitPlayerGetItem
-	_0807EB8C
+	FaceAwayFromPlayer
 	SetGlobalFlag 0x0054
 	Call sub_08060340
 	MessageNoOverlap 0x2143
@@ -113,14 +113,14 @@ script_0800CECE:
 	PlaySound SFX_TASK_COMPLETE
 	_0807F088 0x0024
 	WaitPlayerGetItem
-	_0807EB8C
+	FaceAwayFromPlayer
 	SetGlobalFlag 0x0054
 	Call sub_08060340
 	MessageNoOverlap 0x2147
 script_0800CF02:
 	WaitUntilTextboxCloses
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 script_0800CF0C:
 	EndBlock
 	BeginBlock
@@ -130,19 +130,19 @@ script_0800CF0C:
 	Jump script_0800CF0C
 script_0800CF20:
 	EndBlock
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
 script_0800CF2A:
 	MessageNoOverlap 0x2140
 	WaitUntilTextboxCloses
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800CF0C
 script_0800CF3C:
 	MessageNoOverlap 0x214a
 script_0800CF40:
 	WaitUntilTextboxCloses
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800CD92
 	.2byte 0x0000

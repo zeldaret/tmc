@@ -20,15 +20,15 @@ SCRIPT_START script_08015B34
 	CallWithArg sub_0807F6B4, 0x00000318
 	JumpIfNot script_08015B34
 	EndBlock
-	_0807E864
-	Call sub_0807F9A4
+	SetPlayerIdle
+	Call WaitForPlayerNormal
 	Call sub_0807DF28
 	MessageFromTargetPos 0x2506, 0x0002
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerAtIntroBusinessScrub4
 	WaitForSyncFlagAndClear 0x00000004
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	Jump script_08015B34
 script_08015B7E:
 	DoPostScriptAction 0x0006

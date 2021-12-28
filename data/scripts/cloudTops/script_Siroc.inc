@@ -5,13 +5,13 @@ SCRIPT_START script_Siroc
 	DoPostScriptAction 0x000a
 	EndBlock
 script_08014AD2:
-	_0807E30C
+	FacePlayerAndCheckDist
 	JumpIfNot script_08014AD2
-	_0807E864
-	_0807EB74
+	SetPlayerIdle
+	FacePlayer
 	StartPlayerScript script_PlayerAtSiroc
 	WaitForSyncFlagAndClear 0x00000001
-	_0807EB74
+	FacePlayer
 	CheckLocalFlag 0x0064
 	JumpIf script_08014AFE
 	SetLocalFlag 0x0064
@@ -22,6 +22,6 @@ script_08014AFE:
 script_08014B02:
 	WaitUntilTextboxCloses
 	Wait 0x000f
-	_0807E878
+	EnablePlayerControl
 	Jump script_08014AD2
 	.2byte 0x0000

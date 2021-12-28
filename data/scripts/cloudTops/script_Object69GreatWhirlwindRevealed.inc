@@ -1,7 +1,7 @@
 @ Cloud Tops OBJECT_69 great whirlwind revealed
 SCRIPT_START script_Object69GreatWhirlwindRevealed
 	BeginBlock
-	Call sub_0807F360
+	Call SetPriorityHighest
 	SetEntitySpeed 0x0700
 	_0807F0B4 0x0007
 	CameraTargetEntity
@@ -17,7 +17,7 @@ SCRIPT_START script_Object69GreatWhirlwindRevealed
 	_0807F0B4 0x0004
 	CameraTargetPlayer
 	Call sub_0807FBCC
-	_0807E878
+	EnablePlayerControl
 	Call sub_0807DF50
 	DoPostScriptAction 0x0006
 SCRIPT_END

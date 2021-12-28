@@ -13,7 +13,7 @@ script_0800C592:
 	Jump script_0800C592
 script_0800C5A6:
 	EndBlock
-	_0807E864
+	SetPlayerIdle
 	CheckInventory1 0x0067
 	JumpIfNot script_0800C5BC
 	Call sub_08060208
@@ -22,5 +22,5 @@ script_0800C5BC:
 	MessageNoOverlap 0x4710
 script_0800C5C0:
 	WaitUntilTextboxCloses
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800C592

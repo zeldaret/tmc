@@ -6,7 +6,7 @@ SCRIPT_START script_Phonograph
 script_0800BA46:
 	CheckEntityInteractType
 	JumpIfNot script_0800BA46
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
 	MessageFromTarget 0x3301
 	WaitUntilTextboxCloses
@@ -17,5 +17,5 @@ script_0800BA46:
 	PlayBGM
 script_0800BA6C:
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800BA46

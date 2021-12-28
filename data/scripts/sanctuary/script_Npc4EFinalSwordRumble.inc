@@ -1,6 +1,6 @@
 @ Sanctuary NPC4E Rumble after fusing final sword
 SCRIPT_START script_Npc4EFinalSwordRumble
-	Call sub_0807F3F8
+	Call CreatePlayerExclamationMark
 	Wait 0x003c
 .ifdef EU
 	_0807F0B4 0x0007
@@ -23,13 +23,13 @@ SCRIPT_START script_Npc4EFinalSwordRumble
 	MoveEntityToPlayer
 	CameraTargetEntity
 	Wait 0x003c
-	_0807EB28 0x1502
+	EzloMessage 0x1502
 	WaitUntilTextboxCloses
 	_0807F0B4 0x0004
 	CameraTargetPlayer
 	SetLocalFlag 0x007c
 	Call sub_08053250
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END

@@ -6,12 +6,12 @@ SCRIPT_START script_Npc4EIntroAssembly
 script_08008E12:
 	CheckPlayerInRegion 0x00d8, 0x0098, 0x4020
 	JumpIfNot script_08008E12
-	_0807E864
-	Call sub_0807F9A4
+	SetPlayerIdle
+	Call WaitForPlayerNormal
 	Call sub_0807DF28
 	_0807F0B4 0x0001
 	CameraTargetEntity
-	WaitForPlayerAction0x17
+	WaitForPlayerEnterRoom
 	Wait 0x003c
 	StartPlayerScript script_PlayerEnters
 	WaitForSyncFlagAndClear 0x00000020
@@ -62,7 +62,7 @@ script_08008E12:
 	GivePlayerItem 0x0047
 	WaitPlayerGetItem
 	SetIntVariable 0x00000003
-	Call sub_0807F420
+	Call LoadMenu
 	_0807E8E4_0
 	SetSyncFlag 0x00000080
 	WaitForSyncFlagAndClear 0x00000100
@@ -71,7 +71,7 @@ script_08008E12:
 	SetGlobalFlag 0x0015
 	Call sub_0806DCC0
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END
 	.2byte 0x0000

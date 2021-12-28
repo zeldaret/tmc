@@ -1,7 +1,7 @@
 @ Kinstone Cutscene for Carlov
 SCRIPT_START script_CarlovKinstone
 	BeginBlock
-	_0807E930 0x0000
+	SetAnimation 0x0000
 	EndBlock
 script_0800BBE4:
 	CheckRoomFlag 0x00ff

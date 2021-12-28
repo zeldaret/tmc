@@ -9,8 +9,8 @@ SCRIPT_START script_GraveyardHouseDoor
 script_080096AC:
 	CheckPlayerInRegion 0x0188, 0x01c0, 0x1020
 	JumpIfNot script_080096AC
-	_0807E864
-	Call sub_0807F9A4
+	SetPlayerIdle
+	Call WaitForPlayerNormal
 	Call sub_0807DF28
 	StartPlayerScript script_PlayerAtGraveyardHouseDoor
 	WaitForSyncFlagAndClear 0x00000001
@@ -24,7 +24,7 @@ script_080096EC:
 	CheckGlobalFlag 0x0020
 	JumpIfNot script_080096EC
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 script_080096FC:
 	Call sub_0808692C
 SCRIPT_END

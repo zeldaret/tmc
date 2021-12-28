@@ -2,16 +2,16 @@
 SCRIPT_START script_EzloTalkMinishPortal
 	EndBlock
 	BeginBlock
-	_0807E564
+	CheckPlayerMinish
 	JumpIfNot script_EzloTalkMinishPortal
 	CheckPlayerInRegion 0x0380, 0x03b0, 0x4040
 	JumpIfNot script_EzloTalkMinishPortal
 	ComparePlayerAction 0x0015
 	JumpIf script_EzloTalkMinishPortal
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
 	EndBlock
-	_0807EB28 0x2203
+	EzloMessage 0x2203
 	WaitUntilTextboxCloses
 .ifdef JP
 	SetLocalFlag 0x003d
@@ -27,6 +27,6 @@ SCRIPT_START script_EzloTalkMinishPortal
 .endif
 .endif
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END

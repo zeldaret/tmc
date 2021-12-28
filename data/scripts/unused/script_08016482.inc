@@ -1,6 +1,6 @@
 @ TODO UNUSED?
 SCRIPT_START script_08016482
-	_0807E79C
+	FadeInvert
 	Nop2 0x0080
 	DoFade4
 	DoFade5
@@ -9,21 +9,21 @@ SCRIPT_START script_08016482
 	_0807E800 0x00000000
 	_0807E80C 0x00000000
 	_0807E858_0
-	_0807E864
-	_0807E878
-	_0807E888
+	SetPlayerIdle
+	EnablePlayerControl
+	DisablePlayerControl
 	SetPlayerAction 0x00005408
 	StartPlayerScript script_08016384
-	_0807E8D4 0x03a0
+	SetPlayerAnimation 0x03a0
 	_0807E8E4_0
 	_0807E8E4_1
 	_0807E8E4_2
 	_0807E8E4_3
-	_0807E908 0x0004
+	SetAction 0x0004
 	SetIntVariable 0x00000000
-	_0807E924
-	_0807E930 0x0000
-	_0807E944
+	SetVariableToFrame
+	SetAnimation 0x0000
+	TriggerInteract
 	_0807E974 0x0600
 	_0807E9D4
 	_0807E9DC
@@ -35,24 +35,24 @@ SCRIPT_START script_08016482
 	MessageFromTargetPos_1 0x0601
 	MessageFromTargetTable 0x0601, 0x0602, 0x0603
 	MessageNoOverlapVar 
-	_0807EB28 0x0602
+	EzloMessage 0x0602
 	_0807EB38
-	_0807EB44 0x0000
+	SetAnimationState 0x0000
 	_0807EB4C 0x0000, 0x0000
-	_0807EB74
-	_0807EB8C
+	FacePlayer
+	FaceAwayFromPlayer
 	SetEntityDirection 0x0000
 	SetEntityDirectionWithAnimationState 0x0000
 	SetEntitySpeed 0x0100
-	SetEntity0x20 0x00018000
+	SetEntityVelocity 0x00018000
 	SetEntityPositionRelative 0x0000, 0x0000
 	MoveEntityToPlayer
 	Nop3
-	_0807EC1C 0x0010
-	_0807EC64 0x0020
-	_0807EC94 0x0030
-	_0807ECC4 0x0040
-	_0807ECF4 0x0050
+	WalkForward 0x0010
+	WalkNorth 0x0020
+	WalkEast 0x0030
+	WalkSouth 0x0040
+	WalkWest 0x0050
 	_0807ED24 0x0000, 0x0000, 0x0000
 	_0807EDD4 0x0000, 0x0000
 	_0807EE04 0x0000, 0x0000
@@ -68,7 +68,7 @@ SCRIPT_START script_08016482
 	ModRupees 0xff38
 	ModHealth 0x0010
 	IncreaseMaxHealth
-	_0807F050 0x0001
+	GiveKinstone 0x0001
 	GivePlayerItem 0x0001
 	GetInventoryValue 0x0001
 	_0807F078 0x0001, 0x0002

@@ -13,8 +13,8 @@ script_0800C55E:
 	Jump script_0800C55E
 script_0800C572:
 	EndBlock
-	_0807E864
+	SetPlayerIdle
 	Call sub_08060208
 	WaitUntilTextboxCloses
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800C55E

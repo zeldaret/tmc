@@ -1,7 +1,7 @@
 @ Gorman at third house
 SCRIPT_START script_GormanCats
 	BeginBlock
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x000a
 	_0807E9D4
@@ -21,16 +21,16 @@ script_0800FE66:
 	Jump script_0800FE5A
 script_0800FE7E:
 	EndBlock
-	_0807EB44 0x0002
+	SetAnimationState 0x0002
 	DoPostScriptAction 0x0000
 	Wait 0x001e
-	_0807EB44 0x0006
+	SetAnimationState 0x0006
 	DoPostScriptAction 0x0000
 	Wait 0x001e
-	_0807EB44 0x0002
+	SetAnimationState 0x0002
 	DoPostScriptAction 0x0000
 	Wait 0x001e
-	_0807EB44 0x0006
+	SetAnimationState 0x0006
 	DoPostScriptAction 0x0000
 	Wait 0x003c
 	Call sub_08069A84

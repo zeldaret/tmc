@@ -2,12 +2,12 @@
 SCRIPT_START script_Carlov2
 	BeginBlock
 	_0807E9D4
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	SetEntityDirection 0x0000
 	DoPostScriptAction 0x000a
 	EndBlock
 script_0801463A:
-	_0807E30C
+	FacePlayerAndCheckDist
 .ifdef EU
 	JumpIf script_080146E2
 .else
@@ -20,21 +20,21 @@ script_0801463A:
 	JumpIfNot script_0801463A
 	CheckRoomFlag 0x0009
 	JumpIfNot script_0801463A
-	_0807E864
-	_0807EB28 0x431f
+	SetPlayerIdle
+	EzloMessage 0x431f
 	WaitUntilTextboxCloses
 script_0801469A:
 	StartPlayerScript script_PlayerAtCarlov
 	Wait 0x0010
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000001
-	_0807E878
+	EnablePlayerControl
 	Jump script_0801463A
 script_080146E2:
-	_0807E864
-	_0807E930 0x0008
+	SetPlayerIdle
+	SetAnimation 0x0008
 	Wait 0x0020
-	_0807E930 0x0002
+	SetAnimation 0x0002
 	CheckGlobalFlag 0x0059
 	JumpIf script_0801472E_2
 	CheckRoomFlag 0x0009
@@ -60,8 +60,8 @@ script_0801472E_2:
 	JumpIfNot script_0801463A
 	CheckLocalFlag 0x005e
 	JumpIf script_080146A0
-	_0807E864 
-	_0807EB8C 
+	SetPlayerIdle 
+	FaceAwayFromPlayer 
 	MessageFromTargetPos 0x432b, 0x000c
 	Jump script_080147CE
 script_08014672:
@@ -75,22 +75,22 @@ script_08014672:
 .endif
 .endif
 	JumpIfNot script_0801463A
-	_0807E864
-	_0807EB28 0x431f
+	SetPlayerIdle
+	EzloMessage 0x431f
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerAtCarlov
 	Wait 0x0010
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000001
-	_0807E878
+	EnablePlayerControl
 	Jump script_0801463A
 script_080146A0:
-	_0807E864
-	_0807E930 0x0008
+	SetPlayerIdle
+	SetAnimation 0x0008
 	Wait 0x0010
-	_0807EB8C
+	FaceAwayFromPlayer
 	Wait 0x0010
-	_0807E930 0x0002
+	SetAnimation 0x0002
 	CheckGlobalFlag 0x0059
 	JumpIfNot script_080146C6
 	MessageFromTargetPos 0x432f, 0x000c
@@ -125,7 +125,7 @@ script_0801474A:
 .endif
 	MessageFromTargetPos 0x4305, 0x000c
 	WaitUntilTextboxCloses
-	_0807E3BC 0x0001
+	HasShells 0x0001
 	JumpIfNot script_080147C4
 	MessageFromTargetPos 0x4306, 0x000c
 	Jump script_0801473C
@@ -149,7 +149,7 @@ script_0801473C:
 	CheckTextboxResult
 	JumpIfNot script_08014770
 	WaitUntilTextboxCloses
-	_0807E3BC 0x0001
+	HasShells 0x0001
 	JumpIfNot script_080147C4
 	SetRoomFlag 0x0001
 	Wait 0x0014
@@ -186,14 +186,14 @@ script_0801478A:
 	SetSyncFlag 0x00000008
 	Jump script_080147CE
 script_080147A4:
-	_0807E930 0x0009
+	SetAnimation 0x0009
 	Wait 0x003c
-	_0807E930 0x0002
+	SetAnimation 0x0002
 	Jump script_0801478A
 script_080147B4:
-	_0807E930 0x000a
+	SetAnimation 0x000a
 	Wait 0x008c
-	_0807E930 0x0002
+	SetAnimation 0x0002
 	Jump script_0801478A
 script_080147C4:
 .ifdef EU
@@ -209,6 +209,6 @@ script_080147CE:
 .else
 	Wait 0x0004
 .endif
-	_0807E878
+	EnablePlayerControl
 	Jump script_0801463A
 	.align 2, 0

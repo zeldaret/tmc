@@ -4,13 +4,13 @@ SCRIPT_START script_Marcy
 	DoPostScriptAction 0x0007
 	_0807E9D4
 	DoPostScriptAction 0x000a
-	_0807E930 0x0000
+	SetAnimation 0x0000
 	EndBlock
 script_08010746:
 	CheckEntityInteractType
 	JumpIfNot script_08010746
-	_0807E864
-	_0807E930 0x0004
+	SetPlayerIdle
+	SetAnimation 0x0004
 	BeginBlock
 	Call sub_08062D18
 	JumpIfNot script_08010786
@@ -29,6 +29,6 @@ script_08010778:
 script_08010786:
 	EndBlock
 	WaitUntilTextboxCloses
-	_0807E878
-	_0807E930 0x0008
+	EnablePlayerControl
+	SetAnimation 0x0008
 	Jump script_08010746

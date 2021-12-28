@@ -12,7 +12,7 @@ SCRIPT_START script_Object6ASwordInChest
 	Wait 0x003c
 	SetSyncFlag 0x01000000
 	WaitForSyncFlagAndClear 0x00800000
-	_0807E930 0x0002
+	SetAnimation 0x0002
 	SetSyncFlag 0x01000000
 	WaitForSyncFlagAndClear 0x00800000
 	DoPostScriptAction 0x0006

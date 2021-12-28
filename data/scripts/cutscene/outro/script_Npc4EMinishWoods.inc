@@ -1,7 +1,7 @@
 @ Outro NPC4E Minish Woods
 SCRIPT_START script_Npc4EMinishWoods
 	BeginBlock
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
 	SetEntityPositionRelative 0x0378, 0x0178
 	Call sub_0807F844

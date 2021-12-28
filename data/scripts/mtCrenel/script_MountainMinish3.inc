@@ -20,28 +20,28 @@ script_0800D292:
 	Jump script_0800D282
 script_0800D2B0:
 	EndBlock
-	_0807E864
+	SetPlayerIdle
 	Call sub_08068190
 	WaitUntilTextboxCloses
 	Wait 0x000f
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800D282
 script_0800D2C6:
 	EndBlock
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000002
 	SetSyncFlag 0x00000004
-	_0807E930 0x000c
+	SetAnimation 0x000c
 	WaitForSyncFlagAndClear 0x00000001
 	SetSyncFlag 0x00000004
 script_0800D2EA:
-	_0807E930 0x000b
+	SetAnimation 0x000b
 script_0800D2EE:
 	CheckEntityInteractType
 	JumpIfNot script_0800D2EE
-	_0807E864
+	SetPlayerIdle
 	Call sub_08068190
 	WaitUntilTextboxCloses
 	Wait 0x000f
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800D2EE

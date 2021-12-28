@@ -1,7 +1,7 @@
 @ DHC Zelda trying to escape the collapsing castle
 SCRIPT_START script_ZeldaCastleEscape
 	BeginBlock
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	SetEntitySpeed 0x0100
 	DoPostScriptAction 0x000b
@@ -13,7 +13,7 @@ SCRIPT_START script_ZeldaCastleEscape
 	DoPostScriptAction 0x0007
 	EndBlock
 	_0807EDD4 0x0198, 0x01a8
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000002
 	Call sub_08066D4C

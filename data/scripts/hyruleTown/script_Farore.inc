@@ -2,7 +2,7 @@
 SCRIPT_START script_Farore
 	BeginBlock
 	Call sub_08064A28
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0001
 	DoPostScriptAction 0x000a
 	CheckGlobalFlag 0x0047
@@ -14,13 +14,13 @@ script_08011DF2:
 	CheckEntityInteractType
 	JumpIfNot script_08011DF2
 	EndBlock
-	_0807E864
-	_0807EB74
+	SetPlayerIdle
+	FacePlayer
 	DoPostScriptAction 0x0000
 	MessageNoOverlap 0x4514
 	WaitUntilTextboxCloses
-	_0807E878 
-	_0807EB44 0x0004
+	EnablePlayerControl 
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0001
 	Jump script_08011DF2
 script_08011E1A:
@@ -33,29 +33,29 @@ script_08011E1A:
 	CheckEntityInteractType
 	JumpIfNot script_08011E1A
 	EndBlock
-	_0807E864
-	_0807EB74
+	SetPlayerIdle
+	FacePlayer
 	DoPostScriptAction 0x0000
 	MessageNoOverlap 0x3104
 	WaitUntilTextboxCloses
 	CheckTextboxResult 
 	JumpIf script_08011E66
-	_0807E878
-	_0807EB44 0x0004
+	EnablePlayerControl
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0001
 	Jump script_08011E1A
 script_08011E58:
 	CheckEntityInteractType
 	JumpIfNot script_08011E58
-	_0807E864
-	_0807EB74
+	SetPlayerIdle
+	FacePlayer
 	DoPostScriptAction 0x0000
 script_08011E66:
 	MessageNoOverlap 0x3107
 	WaitUntilTextboxCloses
 	SetGlobalFlag 0x002d
-	_0807E878
-	_0807EB44 0x0004
+	EnablePlayerControl
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0001
 	Jump script_08011E58
 	.2byte 0x0000

@@ -1,10 +1,10 @@
 @ Stockwell pick up dog food
 SCRIPT_START script_StockwellDogFood
 	EndBlock
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
 	Call sub_080654FC
-	_0807E930 0x0001
+	SetAnimation 0x0001
 	Call sub_080654EC
 	Wait 0x003c
 	MessageNoOverlap 0x2c16
@@ -27,16 +27,16 @@ script_080143FA:
 	MessageNoOverlap 0x2c19
 	WaitUntilTextboxCloses
 	SetIntVariable 0x00000303
-	Call sub_0807F420
+	Call LoadMenu
 .ifndef EU
 	Wait 0x001e
-	_0807EB8C 
+	FaceAwayFromPlayer 
 	MessageNoOverlap 0x2c22
 	WaitUntilTextboxCloses
 .endif
 script_0801443E:
-	_0807E930 0x0004
-	_0807E908 0x0001
+	SetAnimation 0x0004
+	SetAction 0x0001
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 SCRIPT_END

@@ -8,11 +8,11 @@ SCRIPT_START script_LibraryVisitor
 script_08008DA0:
 	CheckEntityInteractType
 	JumpIfNot script_08008DA0
-	_0807E864
-	_0807EB74
+	SetPlayerIdle
+	FacePlayer
 	Call sub_08061FD8
 	Call sub_08062048
 	WaitUntilTextboxCloses
-	_0807E878
+	EnablePlayerControl
 	Jump script_08008DA0
 	.2byte 0x0000

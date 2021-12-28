@@ -1,7 +1,7 @@
 @ Outro NPC4E Fix DHC Entrance
 SCRIPT_START script_Npc4EDHCEntrance
 	BeginBlock
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
 	SetEntityPositionRelative 0x0198, 0x01c8
 	Call sub_0807F844
