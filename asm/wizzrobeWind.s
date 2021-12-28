@@ -294,7 +294,7 @@ _0802F6B6:
 	cmp r0, #0
 	beq _0802F7A2
 	adds r0, r4, #0
-	bl sub_080040A8
+	bl CheckOnScreen
 	cmp r0, #0
 	beq _0802F7A2
 	adds r0, r4, #0

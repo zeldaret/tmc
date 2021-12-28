@@ -6,12 +6,12 @@ SCRIPT_START script_WindtribespeopleIntro
 	DoPostScriptAction 0x0001
 	EndBlock
 script_0800F636:
-	_0807E30C
+	FacePlayerAndCheckDist
 	JumpIfNot script_0800F636
-	_0807E864
-	_0807EB74
+	SetPlayerIdle
+	FacePlayer
 	Call sub_0806C90C
 	WaitUntilTextboxCloses
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800F636
 	.2byte 0x0000

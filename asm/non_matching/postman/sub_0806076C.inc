@@ -148,7 +148,7 @@ _08060864:
 	strh r0, [r7, #0x32]
 	adds r0, r7, #0
 	str r2, [sp]
-	bl sub_080040A8
+	bl CheckOnScreen
 	cmp r0, #0
 	beq _080608B8
 	ldr r0, [sp, #4]

@@ -13,9 +13,9 @@ script_0800CF5E:
 	Jump script_0800CF5E
 script_0800CF72:
 	EndBlock
-	_0807E864
+	SetPlayerIdle
 	Call sub_08068190
 	WaitUntilTextboxCloses
 	Wait 0x000f
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800CF5E

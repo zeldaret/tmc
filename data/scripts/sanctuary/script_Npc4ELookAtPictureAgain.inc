@@ -13,9 +13,9 @@ script_0801427C:
 script_08014298:
 	CheckEntityInteractType
 	JumpIfNot script_08014298
-	_0807E864 
+	SetPlayerIdle 
 	MessageFromTargetPos 0x0647, 0x000c
 	WaitUntilTextboxCloses
-	_0807E878 
+	EnablePlayerControl 
 	Jump script_08014298
 	.2byte 0x0000

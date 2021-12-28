@@ -7,7 +7,7 @@ script_08010314:
 	EndBlock
 	Call sub_08062698
 	Call sub_080626AC
-	CallWithArg sub_0807F0EC, 0x00000009
+	CallWithArg GetRandomInt, 0x00000009
 	JumpTable script_08010340, script_0801034A, script_08010354, script_0801035E, script_08010368, script_08010372, script_0801037C, script_08010386, script_08010390
 script_08010340:
 	_0807EE04 0x0358, 0x0078

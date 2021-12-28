@@ -1,10 +1,10 @@
 @ Graveyard OBJECT_97 Crow stealing the key? Second crow that picks up the key
 SCRIPT_START script_Object97SecondCrow
 	BeginBlock
-	_0807E930 0x0003
+	SetAnimation 0x0003
 	DoPostScriptAction 0x0007
 	SetEntitySpeed 0x0300
-	Call sub_0807F348
+	Call SetPriorityMessage
 	EndBlock
 	WaitForSyncFlagAndClear 0x00000008
 	Call sub_0809E0A0

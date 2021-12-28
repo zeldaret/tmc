@@ -8,11 +8,11 @@ SCRIPT_START script_Townsperson1
 script_080100DC:
 	CheckEntityInteractType
 	JumpIfNot script_080100DC
-	_0807E864
-	_0807EB74
+	SetPlayerIdle
+	FacePlayer
 	Call sub_08061FE4
 	Call sub_08062048
 	WaitUntilTextboxCloses
-	_0807E878
+	EnablePlayerControl
 	Jump script_080100DC
 	.2byte 0x0000

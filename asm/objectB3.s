@@ -92,7 +92,7 @@ sub_080A0AC4: @ 0x080A0AC4
 sub_080A0AD0: @ 0x080A0AD0
 	push {lr}
 	movs r1, #0x80
-	bl sub_08003FC4
+	bl GravityUpdate
 	pop {pc}
 	.align 2, 0
 
@@ -131,7 +131,7 @@ sub_080A0AF0: @ 0x080A0AF0
 _080A0B1C:
 	adds r0, r4, #0
 	movs r1, #0x80
-	bl sub_08003FC4
+	bl GravityUpdate
 	pop {r4, pc}
 	.align 2, 0
 

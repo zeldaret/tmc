@@ -8,12 +8,12 @@ script_08012CA0:
 	BeginBlock
 	CheckPlayerInRegion 0x0398, 0x03b0, 0x2040
 	JumpIfNot script_08012CA0
-	_0807E564
+	CheckPlayerMinish
 	JumpIf script_08012CD2
 	EndBlock
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
-	_0807EB28 0x2202
+	EzloMessage 0x2202
 	WaitUntilTextboxCloses
 .ifdef JP
 	SetLocalFlag 0x003a
@@ -29,7 +29,7 @@ script_08012CA0:
 .endif
 .endif
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 script_08012CD2:
 	DoPostScriptAction 0x0006
 SCRIPT_END

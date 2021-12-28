@@ -121,7 +121,7 @@ _0808A7C2:
 _0808A7C8:
 	ldr r1, _0808A7D4 @ =0x00000117
 	adds r0, r5, #0
-	bl sub_0800449C
+	bl SoundReqClipped
 _0808A7D0:
 	pop {r4, r5, pc}
 	.align 2, 0

@@ -6,7 +6,7 @@ SCRIPT_START script_Object69PotionBlue
 script_08016146:
 	CheckEntityInteractType
 	JumpIfNot script_08016146
-	_0807E864
+	SetPlayerIdle
 	GetInventoryValue 0x0025
 	MessageFromTargetTable 0x2d03, 0x2d02, 0x2d02, 0x2d02
 	CheckTextboxResult 
@@ -24,7 +24,7 @@ script_08016184:
 	WaitPlayerGetItem 
 	MessageFromTarget 0x2d06
 script_0801618A:
-	_0807E878
+	EnablePlayerControl
 	Jump script_08016146
 	.align 2, 0
 

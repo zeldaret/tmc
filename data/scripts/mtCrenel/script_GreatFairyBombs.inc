@@ -6,9 +6,9 @@ script_0800B734:
 	Call sub_0808747C
 	JumpIfNot script_0800B734
 	Call sub_08079184
-	_0807E864
+	SetPlayerIdle
 	Wait 0x000a
-	Call sub_0807F9A4
+	Call WaitForPlayerNormal
 	StartPlayerScript script_PlayerAtGreatFairy
 	WaitForSyncFlagAndClear 0x00000004
 	SetRoomFlag 0x0000
@@ -17,7 +17,7 @@ script_0800B734:
 	JumpIf script_0800B7A2
 	MessageNoOverlap 0x0580
 	WaitUntilTextboxCloses
-	CallWithArg sub_0807F970, 0x00000582
+	CallWithArg CheckMessageEqual, 0x00000582
 	JumpIf script_0800B794
 	CallWithArg sub_08087424, 0x00000001
 	Wait 0x00b4
@@ -30,7 +30,7 @@ script_0800B794:
 script_0800B7A2:
 	MessageNoOverlap 0x0590
 	WaitUntilTextboxCloses
-	_0807E778 0x0010
+	SetFadeTime 0x0010
 	DoFade7
 	WaitForFadeFinish
 	ModHealth 0x00a0

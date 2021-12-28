@@ -8,10 +8,10 @@ SCRIPT_START script_Kid2
 script_080102F2:
 	CheckEntityInteractType
 	JumpIfNot script_080102F2
-	_0807E864
-	_0807EB74
+	SetPlayerIdle
+	FacePlayer
 	Call sub_0806265C
 	WaitUntilTextboxCloses
-	_0807E878
+	EnablePlayerControl
 	Jump script_080102F2
 	.2byte 0x0000

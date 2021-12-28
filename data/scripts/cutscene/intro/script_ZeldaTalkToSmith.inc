@@ -1,28 +1,28 @@
 @ Intro Zelda at Smith 2
 SCRIPT_START script_ZeldaTalkToSmith
 	BeginBlock
-	_0807EB44 0x0002
+	SetAnimationState 0x0002
 	SetEntitySpeed 0x0100
-	Call sub_0807F348
+	Call SetPriorityMessage
 	EndBlock
 	WaitForSyncFlagAndClear 0x00000004
 	DoPostScriptAction 0x0004
-	_0807EB74
+	FacePlayer
 	WaitForSyncFlagAndClear 0x00000004
-	_0807EB74
+	FacePlayer
 	WaitForSyncFlagAndClear 0x00000004
-	_0807EB74
-	_0807EB8C
+	FacePlayer
+	FaceAwayFromPlayer
 	DoPostScriptAction 0x0001
 	MessageFromTargetPos 0x100a, 0x0000
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000008
 	WaitForSyncFlagAndClear 0x00000004
-	_0807EB8C
+	FaceAwayFromPlayer
 	DoPostScriptAction 0x0001
-	_0807EB8C
-	_0807EB44 0x0002
+	FaceAwayFromPlayer
+	SetAnimationState 0x0002
 	MessageFromTargetPos 0x100d, 0x0000
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0000
@@ -35,7 +35,7 @@ SCRIPT_START script_ZeldaTalkToSmith
 	SetGlobalFlag 0x0013
 	Call sub_0807DF50
 	Call sub_080791D0
-	_0807E878
+	EnablePlayerControl
 	EndBlock
 SCRIPT_END
 	.2byte 0x0000

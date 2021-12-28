@@ -2,17 +2,17 @@
 SCRIPT_START script_Carlov
 	BeginBlock
 	_0807E9D4
-	_0807EB44 0x0000
+	SetAnimationState 0x0000
 	SetEntitySpeed 0x01c0
 	DoPostScriptAction 0x000a
 	EndBlock
 script_08014462:
-	_0807E30C
+	FacePlayerAndCheckDist
 	JumpIfNot script_08014462
-	_0807E864
-	_0807E930 0x0008
+	SetPlayerIdle
+	SetAnimation 0x0008
 	Wait 0x0020
-	_0807E930 0x0002
+	SetAnimation 0x0002
 	MessageFromTarget 0x4202
 	MessageFromTarget 0x4203
 	WaitUntilTextboxCloses
@@ -54,11 +54,11 @@ script_080144C8:
 	Call sub_0807DF38
 	Jump script_080144FC
 script_080144F0:
-	_0807E930 0x0009
+	SetAnimation 0x0009
 	Wait 0x003c
-	_0807E930 0x0002
+	SetAnimation 0x0002
 script_080144FC:
-	_0807E878
+	EnablePlayerControl
 	CheckRoomFlag 0x0000
 	JumpIfNot script_08014462
 .ifdef USA

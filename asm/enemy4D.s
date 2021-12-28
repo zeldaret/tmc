@@ -284,7 +284,7 @@ _0803EDC0:
 	strb r0, [r2, #0xe]
 	movs r0, #8
 	movs r1, #0
-	bl sub_08080964
+	bl InitScreenShake
 _0803EDD0:
 	pop {pc}
 	.align 2, 0

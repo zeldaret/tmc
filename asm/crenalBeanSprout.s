@@ -535,7 +535,7 @@ sub_08096740: @ 0x08096740
 	adds r4, r0, #0
 	movs r0, #0x10
 	movs r1, #0
-	bl sub_08080964
+	bl InitScreenShake
 	movs r1, #0
 	movs r0, #1
 	strb r0, [r4, #0xc]
@@ -648,7 +648,7 @@ _0809681C:
 	movs r1, #0x80
 	lsls r1, r1, #7
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	cmp r0, #0
 	bne _08096830
 	adds r0, r4, #0

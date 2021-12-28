@@ -470,12 +470,12 @@ void VaatiWrathType0ActionB(Entity* this) {
             UpdateAnimationSingleFrame(this);
             GetNextFrame(((VaatiWrathHeapStruct*)this->myHeap)->type1);
             GetNextFrame(((VaatiWrathHeapStruct*)this->myHeap)->type2);
-            if (sub_08003FC4(this, 0x2000) == 0) {
+            if (GravityUpdate(this, 0x2000) == 0) {
                 this->subAction = 1;
                 this->actionDelay = 0xf0;
                 this->health = 8;
                 this->hitType = 0x38;
-                sub_08080964(0x14, 0);
+                InitScreenShake(0x14, 0);
                 InitAnimationForceUpdate(this, 6);
                 InitializeAnimation(((VaatiWrathHeapStruct*)this->myHeap)->type2, 0x16);
             }
@@ -709,7 +709,7 @@ void sub_08041E78(Entity* this) {
             fx->x.HALF.HI += *temp++;
             fx->y.HALF.HI += *temp;
             fx->spritePriority.b0 = 3;
-            sub_08080964(4, 0);
+            InitScreenShake(4, 0);
         }
     }
 }

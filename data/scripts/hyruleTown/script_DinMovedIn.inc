@@ -2,15 +2,15 @@
 SCRIPT_START script_DinMovedIn
 	BeginBlock
 	Call sub_08064828
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0001
 	DoPostScriptAction 0x000a
 	EndBlock
 script_0801203A:
 	CheckEntityInteractType
 	JumpIfNot script_0801203A
-	_0807E864
-	_0807EB74
+	SetPlayerIdle
+	FacePlayer
 	DoPostScriptAction 0x0000
 	CheckLocalFlag 0x0094
 	JumpIf script_0801205E
@@ -51,8 +51,8 @@ script_0801209A:
 	MessageNoOverlap 0x3127
 script_0801209E:
 	WaitUntilTextboxCloses
-	_0807E878
-	_0807EB44 0x0004
+	EnablePlayerControl
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0001
 	Jump script_0801203A
 	.align 2, 0

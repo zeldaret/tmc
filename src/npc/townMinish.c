@@ -174,7 +174,7 @@ void sub_0806AEA8(Entity* this) {
     int old = this->field_0x82.HWORD;
     this->field_0x82.HWORD &= ~0x20;
     if (old & 0x20) {
-        sub_08003FC4(this, 0x4000);
+        GravityUpdate(this, 0x4000);
     }
     HandleEntity0x82Actions(this);
     this->field_0x82.HWORD = old;
@@ -226,7 +226,7 @@ void sub_0806AF70(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_0806AF78(Entity* this, ScriptExecutionContext* context) {
-    sub_08003FC4(this, 0x1800);
+    GravityUpdate(this, 0x1800);
     if (0 <= this->z.WORD && this->zVelocity < 1) {
         this->z.WORD = 0;
         sub_0806AF70(this, context);

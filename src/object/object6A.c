@@ -104,7 +104,7 @@ Object6ATypeAction sub_08096290;
 
 extern void sub_08080CB4(Entity*);
 extern u32 sub_080002B8(Entity*);
-extern u32 sub_080040A8(Entity*);
+extern u32 CheckOnScreen(Entity*);
 extern void sub_08078850(Entity*, u32, u32, u8*);
 
 void sub_08095754(Object6AEntity*);
@@ -152,7 +152,7 @@ void sub_08094A90(Object6AEntity* this) {
 }
 
 void sub_08094AE8(Entity* this, ScriptExecutionContext* ctx) {
-    Object6AEntity* e = (Object6AEntity*)CreateObject(0x6A, 1, 0);
+    Object6AEntity* e = (Object6AEntity*)CreateObject(OBJECT_6A, 1, 0);
     if (e != NULL) {
         e->ctx = StartCutscene(&e->base, (void*)ctx->intVariable);
     }
@@ -182,7 +182,7 @@ void sub_08094B80(Object6AEntity* this) {
 }
 
 void sub_08094B94(Object6AEntity* this) {
-    Entity* e = CreateObject(0x6A, 0x22, 0);
+    Entity* e = CreateObject(OBJECT_6A, 0x22, 0);
     if (e != NULL) {
         CopyPosition(&gPlayerEntity, e);
         e->z.HALF.HI = -48;
@@ -194,7 +194,7 @@ void sub_08094B94(Object6AEntity* this) {
 }
 
 void sub_08094BE0(Entity* this) {
-    Entity* e = FindEntity(6, 0x6A, 6, 0x22, 0);
+    Entity* e = FindEntity(6, OBJECT_6A, 6, 0x22, 0);
     if (e != NULL) {
         CopyPosition(&gPlayerEntity, e);
         e->z.HALF.HI = -12;
@@ -355,7 +355,7 @@ void sub_08094E30(Object6AEntity* this) {
             case 3:
                 super->z.WORD -= super->zVelocity;
                 super->zVelocity -= 0x2000;
-                if (!sub_080040A8(super)) {
+                if (!CheckOnScreen(super)) {
                     DeleteThisEntity();
                 }
                 break;
@@ -382,7 +382,7 @@ void sub_08094E30(Object6AEntity* this) {
 }
 
 void sub_08094F98(Object6AEntity* this) {
-    CreateObject(0x6A, 5, 0);
+    CreateObject(OBJECT_6A, 5, 0);
 }
 
 void sub_08094FA8(Object6AEntity* this) {
@@ -398,7 +398,7 @@ void sub_08094FA8(Object6AEntity* this) {
                 super->interactType = 0;
                 super->action = 2;
                 sub_080788E0(super);
-                gPlayerState.playerAction = 12;
+                gPlayerState.queued_action = PLAYER_EMPTYBOTTLE;
                 gPlayerState.field_0x38 = 54;
 #ifndef EU
                 SetPlayerControl(2);
@@ -531,7 +531,7 @@ void sub_080951C4(Object6AEntity* this) {
 
 void sub_08095244(Object6AEntity* this) {
     if (super->type == 0) {
-        Entity* e = CreateObject(0x6A, 0xA, 0);
+        Entity* e = CreateObject(OBJECT_6A, 0xA, 0);
         if (e != NULL) {
             e->parent = super;
             PositionRelative(super, e, 0x100000, -0x100000);
@@ -575,7 +575,7 @@ void sub_08095288(Object6AEntity* this) {
 }
 
 void sub_08095330(Object6AEntity* this) {
-    Entity* e = CreateObject(0x6A, 0xB, 0);
+    Entity* e = CreateObject(OBJECT_6A, 0xB, 0);
     if (e != NULL) {
         super->child = e;
         e->child = super;
@@ -622,7 +622,7 @@ void sub_080953A4(Object6AEntity* this) {
 }
 
 void sub_08095420(Object6AEntity* this, ScriptExecutionContext* ctx) {
-    Entity* e = CreateObject(0x6A, 0xC, 0);
+    Entity* e = CreateObject(OBJECT_6A, 0xC, 0);
     if (e != NULL) {
         PositionRelative(super, e, 0, -0x100000);
         ((Object6AEntity*)e)->ctx = StartCutscene(e, (u16*)ctx->intVariable);
@@ -633,12 +633,12 @@ void nullsub_527(Object6AEntity* this) {
 }
 
 void sub_0809545C(Object6AEntity* this, ScriptExecutionContext* ctx) {
-    Entity* p = CreateObject(0x6A, 0xD, 0);
+    Entity* p = CreateObject(OBJECT_6A, 0xD, 0);
     Entity* e;
     if (p != NULL) {
         PositionRelative(super, p, 0, -0x100000);
         ((Object6AEntity*)p)->ctx = StartCutscene(p, (u16*)ctx->intVariable);
-        e = CreateObject(0x6A, 2, 0);
+        e = CreateObject(OBJECT_6A, 2, 0);
         if (e != NULL) {
             CopyPosition(p, e);
             e->parent = p;
@@ -647,7 +647,7 @@ void sub_0809545C(Object6AEntity* this, ScriptExecutionContext* ctx) {
 }
 
 void sub_080954AC(Object6AEntity* this) {
-    Entity* e = CreateObject(0x6A, 0x1A, 0);
+    Entity* e = CreateObject(OBJECT_6A, 0x1A, 0);
     if (e != NULL) {
         CopyPosition(super, e);
         ((Object6AEntity*)e)->ctx = StartCutscene(e, &script_08015B14);
@@ -695,7 +695,7 @@ void sub_080954DC(Object6AEntity* this) {
             break;
     }
     this->off += 4;
-    if (super->subAction != 0 && !sub_080040A8(super))
+    if (super->subAction != 0 && !CheckOnScreen(super))
         DeleteThisEntity();
     if (super->direction & 0x80)
         super->spriteSettings.flipX = 0;
@@ -759,7 +759,7 @@ void sub_080956B4(Object6AEntity* this) {
 }
 
 void sub_08095754(Object6AEntity* this) {
-    Entity* e = CreateObject(0x6A, 0xF, super->type2);
+    Entity* e = CreateObject(OBJECT_6A, 0xF, super->type2);
     if (e != NULL) {
         e->parent = super;
         CopyPosition(super, e);
@@ -779,7 +779,7 @@ void sub_0809577C(Object6AEntity* this) {
 }
 
 void sub_080957B4(Object6AEntity* this) {
-    Entity* e = CreateObject(0x6A, 0x10, 0);
+    Entity* e = CreateObject(OBJECT_6A, 0x10, 0);
     if (e != NULL) {
         e->parent = super;
         CopyPosition(super, e);
@@ -799,7 +799,7 @@ void sub_080957DC(Object6AEntity* this) {
 }
 
 void sub_08095810(Object6AEntity* this) {
-    Entity* e = CreateObject(0x6A, 0x11, 0);
+    Entity* e = CreateObject(OBJECT_6A, 0x11, 0);
     if (e != NULL) {
         e->parent = super;
         CopyPosition(super, e);
@@ -860,7 +860,7 @@ void sub_08095954(Object6AEntity* this) {
         s8 x, y;
     } s8XY;
 
-    Entity* e = CreateObject(0x6A, 0x14, 0);
+    Entity* e = CreateObject(OBJECT_6A, 0x14, 0);
     if (e != NULL) {
         u32 tmp, x, y;
         e->parent = super;
@@ -891,7 +891,7 @@ void sub_080959CC(Object6AEntity* this) {
 }
 
 void sub_08095A1C(Object6AEntity* this, ScriptExecutionContext* ctx) {
-    Entity* e = CreateObject(0x6A, 0x16, 0);
+    Entity* e = CreateObject(OBJECT_6A, 0x16, 0);
     if (e != NULL) {
         e->x.HALF.HI = gRoomControls.roomOriginX + 232;
         e->y.HALF.HI = gRoomControls.roomOriginY + 312;
@@ -902,7 +902,7 @@ void sub_08095A1C(Object6AEntity* this, ScriptExecutionContext* ctx) {
 }
 
 void sub_08095A68(Object6AEntity* this) {
-    Entity* e = FindEntity(6, 0x6A, 6, 0x16, 0);
+    Entity* e = FindEntity(6, OBJECT_6A, 6, 0x16, 0);
     if (e != NULL) {
         e->action = 0xFF;
     }
@@ -974,7 +974,7 @@ void sub_08095B48(Object6AEntity* this) {
 }
 
 void sub_08095BE0(Object6AEntity* this, u32 val) {
-    Entity* e = CreateObject(0x6A, 0x18, val);
+    Entity* e = CreateObject(OBJECT_6A, 0x18, val);
     if (e != NULL) {
         e->parent = super;
         CopyPosition(super, e);
@@ -997,7 +997,7 @@ void sub_08095C00(Object6AEntity* this) {
 }
 
 void sub_08095C48(Object6AEntity* this) {
-    Entity* e = CreateObject(0x6A, 0x19, 0);
+    Entity* e = CreateObject(OBJECT_6A, 0x19, 0);
     if (e != NULL) {
         super->child = e;
         e->parent = super;
@@ -1022,7 +1022,7 @@ void sub_08095C68(Object6AEntity* this) {
 }
 
 void sub_08095CB0(Object6AEntity* this) {
-    Entity* e = CreateObject(0x6A, 0x1B, 0);
+    Entity* e = CreateObject(OBJECT_6A, 0x1B, 0);
     if (e != NULL) {
         super->child = e;
         e->parent = super;
@@ -1052,7 +1052,7 @@ void sub_08095D30(Object6AEntity* this, u32 a2) {
 }
 
 void sub_08095D54(Object6AEntity* this, ScriptExecutionContext* ctx) {
-    Entity* e = CreateObject(0x6A, 0x1C, 0);
+    Entity* e = CreateObject(OBJECT_6A, 0x1C, 0);
     if (e != NULL) {
         CopyPosition(&gPlayerEntity, e);
         e->collisionLayer = 2;
@@ -1061,7 +1061,7 @@ void sub_08095D54(Object6AEntity* this, ScriptExecutionContext* ctx) {
 }
 
 void sub_08095D8C(Object6AEntity* this, ScriptExecutionContext* ctx) {
-    Entity* e = CreateObject(0x6A, 0x1D, 0);
+    Entity* e = CreateObject(OBJECT_6A, 0x1D, 0);
     if (e != NULL) {
         CopyPosition(super, e);
         ((Object6AEntity*)e)->ctx = StartCutscene(e, (u16*)ctx->intVariable);
@@ -1090,15 +1090,15 @@ void sub_08095DBC(Object6AEntity* this) {
             super->zVelocity = 0x40000;
             super->speed = 0xC000;
         }
-        sub_08003FC4(super, super->speed);
+        GravityUpdate(super, super->speed);
         GetNextFrame(super);
-        if (!sub_080040A8(super))
+        if (!CheckOnScreen(super))
             DeleteThisEntity();
     }
 }
 
 void sub_08095E7C(Object6AEntity* this, ScriptExecutionContext* ctx) {
-    Entity* e = CreateObject(0x6A, 0x1E, 0);
+    Entity* e = CreateObject(OBJECT_6A, 0x1E, 0);
     if (e != NULL) {
         CopyPosition(super, e);
         ((Object6AEntity*)e)->ctx = StartCutscene(e, (u16*)ctx->intVariable);
@@ -1107,7 +1107,7 @@ void sub_08095E7C(Object6AEntity* this, ScriptExecutionContext* ctx) {
 
 NONMATCH("asm/non_matching/object6A/sub_08095EAC.inc",
          void sub_08095EAC(Object6AEntity* this, ScriptExecutionContext* ctx)) {
-    Entity* e = CreateObject(0x6A, 0x1E, 1);
+    Entity* e = CreateObject(OBJECT_6A, 0x1E, 1);
     s32 x, y;
 
     if (e != NULL) {
@@ -1186,7 +1186,7 @@ void sub_08096028(Object6AEntity* this) {
         type2 = 4;
     if (!CheckLocalFlagByBank(768, 122))
         type2 = 3;
-    CreateObject(0x6A, 0x1F, type2);
+    CreateObject(OBJECT_6A, 0x1F, type2);
 }
 
 void sub_08096058(Object6AEntity* this) {
@@ -1214,7 +1214,7 @@ void sub_08096084(Object6AEntity* this) {
 }
 
 void sub_080960C4(Object6AEntity* this, ScriptExecutionContext* ctx) {
-    Entity* e = CreateObject(0x6A, 0x23, 0x49);
+    Entity* e = CreateObject(OBJECT_6A, 0x23, 0x49);
     if (e != NULL) {
         e->parent = super;
         CopyPosition(super, e);
@@ -1222,7 +1222,7 @@ void sub_080960C4(Object6AEntity* this, ScriptExecutionContext* ctx) {
         ResolveEntityBelow(super, e);
         ((Object6AEntity*)e)->ctx = StartCutscene(e, (u16*)ctx->intVariable);
     }
-    e = CreateObject(0x6A, 0x24, 0x4A);
+    e = CreateObject(OBJECT_6A, 0x24, 0x4A);
     if (e != NULL) {
         e->parent = super;
         CopyPosition(super, e);
@@ -1241,14 +1241,14 @@ void sub_08096168(Object6AEntity* this) {
     }
     GetNextFrame(super);
     sub_0806F62C(super, super->speed, super->direction);
-    if (!sub_080040A8(super))
+    if (!CheckOnScreen(super))
         DeleteThisEntity();
 }
 
 void sub_080961B0(Object6AEntity* this) {
     int i;
     for (i = 0; i < 8; ++i) {
-        Entity* e = CreateObject(0x6A, 0x25, 0);
+        Entity* e = CreateObject(OBJECT_6A, 0x25, 0);
         if (e != NULL) {
             CopyPosition(super, e);
             e->direction = 32 * i;
@@ -1264,21 +1264,21 @@ void sub_080961F4(Object6AEntity* this) {
 
 void sub_08096208(Object6AEntity* this, u32 x) {
     s8* p = &gUnk_08122B2E[x * 2];
-    Entity* e = CreateObject(0x6A, 0x26, 0);
+    Entity* e = CreateObject(OBJECT_6A, 0x26, 0);
     if (e != NULL) {
         PositionRelative(super, e, p[0] << 16, p[1] << 16);
     }
 }
 
 void sub_0809623C(Object6AEntity* this) {
-    Entity* e = CreateObject(0x6A, 0x27, 0);
+    Entity* e = CreateObject(OBJECT_6A, 0x27, 0);
     if (e != NULL) {
         PositionRelative(super, e, 0, -0x100000);
     }
 }
 
 void sub_08096260(Object6AEntity* this) {
-    Entity* e = CreateObject(0x6A, 0x28, 0);
+    Entity* e = CreateObject(OBJECT_6A, 0x28, 0);
     if (e != NULL) {
         PositionRelative(super, e, 0, -0x100000);
     }
@@ -1301,7 +1301,7 @@ void sub_0809629C(Object6AEntity* this, u32 type) {
     }
     ExecuteScriptForEntity(super, 0);
     HandleEntity0x82Actions(super);
-    sub_08003FC4(super, 0x1000);
+    GravityUpdate(super, 0x1000);
     tmp = super->type;
     super->type = type;
     sub_08080CB4(super);

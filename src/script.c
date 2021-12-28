@@ -38,19 +38,19 @@ void ScriptCommand_CheckRoomFlag(Entity* entity, ScriptExecutionContext* context
 void ScriptCommand_CheckPlayerInRegion(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CheckPlayerInRegion2(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CheckEntityInteractType(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E30C(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_FacePlayerAndCheckDist(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_HasRupees(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E3BC(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_HasShells(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CheckTextboxResult(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CheckKinstoneFused(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_BuyItem(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CheckBottleContaining(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_HasRoomItemForSale(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E4CC(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E4EC(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E514(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_VariableBitSet(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_VariableOnlyBitSet(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_VariableEqual(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CheckPlayerFlags(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E564(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_CheckPlayerMinish(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_EntityHasHeight(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_ComparePlayerAction(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_ComparePlayerAnimationState(Entity* entity, ScriptExecutionContext* context);
@@ -67,12 +67,12 @@ void ScriptCommand_Wait(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_WaitForSyncFlag(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_WaitForSyncFlagAndClear(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_WaitPlayerGetItem(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_WaitForPlayerAction0x17(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_WaitForPlayerEnterRoom(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_WaitFor_1(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_WaitForFadeFinish(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E778(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_SetFadeTime(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetFadeMask(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E79C(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_FadeInvert(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommandNop2(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_DoFade4(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_DoFade5(Entity* entity, ScriptExecutionContext* context);
@@ -82,18 +82,18 @@ void ScriptCommand_0807E800(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807E80C(Entity* entity, ScriptExecutionContext* context);
 void sub_0807E818(u32);
 void ScriptCommand_0807E858(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E864(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E878(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E888(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_SetPlayerIdle(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_EnablePlayerControl(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_DisablePlayerControl(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetPlayerAction(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_StartPlayerScript(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E8D4(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_SetPlayerAnimation(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807E8E4(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E908(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_SetAction(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetIntVariable(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E924(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E930(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E944(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_SetVariableToFrame(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_SetAnimation(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_TriggerInteract(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807E974(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807E9D4(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807E9DC(Entity* entity, ScriptExecutionContext* context);
@@ -107,26 +107,26 @@ void ScriptCommand_MessageNoOverlap(Entity* entity, ScriptExecutionContext* cont
 void ScriptCommand_MessageFromTargetPos(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_MessageFromTargetTable(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_MessageNoOverlapVar(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807EB28(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_EzloMessage(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807EB38(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807EB44(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_SetAnimationState(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807EB4C(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807EB74(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807EB8C(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_FacePlayer(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_FaceAwayFromPlayer(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetEntityDirection(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetEntityDirectionWithAnimationState(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetEntitySpeed(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_SetEntity0x20(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_SetEntityVelocity(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetEntityPositionRelative(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_OffsetEntityPosition(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_MoveEntityToPlayer(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommandNop3(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807EC1C(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_WalkForward(Entity* entity, ScriptExecutionContext* context);
 void sub_0807EC44(Entity*, ScriptExecutionContext*);
-void ScriptCommand_0807EC64(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807EC94(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807ECC4(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807ECF4(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_WalkNorth(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_WalkEast(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_WalkSouth(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_WalkWest(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807ED24(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807EDD4(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807EE04(Entity* entity, ScriptExecutionContext* context);
@@ -144,7 +144,7 @@ void ScriptCommand_ModRupees(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_ModHealth(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_IncreaseMaxHealth(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_GivePlayerItem(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807F050(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_GiveKinstone(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_GetInventoryValue(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807F078(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807F088(Entity* entity, ScriptExecutionContext* context);
@@ -157,14 +157,10 @@ extern void RecoverUI(u32);
 
 typedef void (*ScriptCommand)(Entity*, ScriptExecutionContext*);
 
-extern const ScriptCommand gScriptCommands[];
-
 extern u16* gUnk_08001A7C[];
 extern u8 gUnk_08114F30[];
 extern u8 gUnk_08114F34[];
 extern const u16 gUnk_08016984;
-extern u8 gUnk_0811E514[];
-extern u8 gUnk_0811E510[];
 extern ScriptExecutionContext gPlayerScriptExecutionContext;
 extern ScriptExecutionContext gScriptExecutionContextArray[0x20];
 
@@ -223,7 +219,7 @@ void StartPlayerScript(u16* script) {
     gPlayerScriptExecutionContext.scriptInstructionPointer = script;
     player = &gPlayerEntity;
     *(ScriptExecutionContext**)&player->cutsceneBeh = &gPlayerScriptExecutionContext;
-    gPlayerState.playerAction = 0x1c;
+    gPlayerState.queued_action = PLAYER_08074C44;
     gPlayerState.field_0x3a = 0;
     gPlayerState.field_0x39 = 0;
     gPlayerState.field_0x38 = 0;
@@ -391,7 +387,7 @@ void HandleEntity0x82Actions(Entity* entity) {
                 }
                 break;
             case 1 << 5:
-                sub_08003FC4(entity, 0x2000);
+                GravityUpdate(entity, 0x2000);
                 break;
         }
     }
@@ -492,18 +488,18 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
         ScriptCommand_CheckPlayerInRegion,
         ScriptCommand_CheckPlayerInRegion2,
         ScriptCommand_CheckEntityInteractType,
-        ScriptCommand_0807E30C,
+        ScriptCommand_FacePlayerAndCheckDist,
         ScriptCommand_HasRupees,
-        ScriptCommand_0807E3BC,
+        ScriptCommand_HasShells,
         ScriptCommand_CheckTextboxResult,
         ScriptCommand_CheckKinstoneFused,
         ScriptCommand_BuyItem,
         ScriptCommand_CheckBottleContaining,
-        ScriptCommand_0807E4CC,
-        ScriptCommand_0807E4EC,
-        ScriptCommand_0807E514,
+        ScriptCommand_VariableBitSet,
+        ScriptCommand_VariableOnlyBitSet,
+        ScriptCommand_VariableEqual,
         ScriptCommand_CheckPlayerFlags,
-        ScriptCommand_0807E564,
+        ScriptCommand_CheckPlayerMinish,
         ScriptCommand_EntityHasHeight,
         ScriptCommand_ComparePlayerAction,
         ScriptCommand_ComparePlayerAnimationState,
@@ -520,12 +516,12 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
         ScriptCommand_WaitForSyncFlag,
         ScriptCommand_WaitForSyncFlagAndClear,
         ScriptCommand_WaitPlayerGetItem,
-        ScriptCommand_WaitForPlayerAction0x17,
+        ScriptCommand_WaitForPlayerEnterRoom,
         ScriptCommand_WaitFor_1,
         ScriptCommand_WaitForFadeFinish,
-        ScriptCommand_0807E778,
+        ScriptCommand_SetFadeTime,
         ScriptCommand_SetFadeMask,
-        ScriptCommand_0807E79C,
+        ScriptCommand_FadeInvert,
         ScriptCommandNop2,
         ScriptCommand_DoFade4,
         ScriptCommand_DoFade5,
@@ -534,21 +530,21 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
         ScriptCommand_0807E800,
         ScriptCommand_0807E80C,
         ScriptCommand_0807E858,
-        ScriptCommand_0807E864,
-        ScriptCommand_0807E878,
-        ScriptCommand_0807E888,
+        ScriptCommand_SetPlayerIdle,
+        ScriptCommand_EnablePlayerControl,
+        ScriptCommand_DisablePlayerControl,
         ScriptCommand_SetPlayerAction,
         ScriptCommand_StartPlayerScript,
-        ScriptCommand_0807E8D4,
+        ScriptCommand_SetPlayerAnimation,
         ScriptCommand_0807E8E4,
         ScriptCommand_0807E8E4,
         ScriptCommand_0807E8E4,
         ScriptCommand_0807E8E4,
-        ScriptCommand_0807E908,
+        ScriptCommand_SetAction,
         ScriptCommand_SetIntVariable,
-        ScriptCommand_0807E924,
-        ScriptCommand_0807E930,
-        ScriptCommand_0807E944,
+        ScriptCommand_SetVariableToFrame,
+        ScriptCommand_SetAnimation,
+        ScriptCommand_TriggerInteract,
         ScriptCommand_0807E974,
         ScriptCommand_0807E9D4,
         ScriptCommand_0807E9DC,
@@ -562,25 +558,25 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
         ScriptCommand_MessageFromTargetPos,
         ScriptCommand_MessageFromTargetTable,
         ScriptCommand_MessageNoOverlapVar,
-        ScriptCommand_0807EB28,
+        ScriptCommand_EzloMessage,
         ScriptCommand_0807EB38,
-        ScriptCommand_0807EB44,
+        ScriptCommand_SetAnimationState,
         ScriptCommand_0807EB4C,
-        ScriptCommand_0807EB74,
-        ScriptCommand_0807EB8C,
+        ScriptCommand_FacePlayer,
+        ScriptCommand_FaceAwayFromPlayer,
         ScriptCommand_SetEntityDirection,
         ScriptCommand_SetEntityDirectionWithAnimationState,
         ScriptCommand_SetEntitySpeed,
-        ScriptCommand_SetEntity0x20,
+        ScriptCommand_SetEntityVelocity,
         ScriptCommand_SetEntityPositionRelative,
         ScriptCommand_OffsetEntityPosition,
         ScriptCommand_MoveEntityToPlayer,
         ScriptCommandNop3,
-        ScriptCommand_0807EC1C,
-        ScriptCommand_0807EC64,
-        ScriptCommand_0807EC94,
-        ScriptCommand_0807ECC4,
-        ScriptCommand_0807ECF4,
+        ScriptCommand_WalkForward,
+        ScriptCommand_WalkNorth,
+        ScriptCommand_WalkEast,
+        ScriptCommand_WalkSouth,
+        ScriptCommand_WalkWest,
         ScriptCommand_0807ED24,
         ScriptCommand_0807EDD4,
         ScriptCommand_0807EE04,
@@ -598,7 +594,7 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
         ScriptCommand_ModHealth,
         ScriptCommand_IncreaseMaxHealth,
         ScriptCommand_GivePlayerItem,
-        ScriptCommand_0807F050,
+        ScriptCommand_GiveKinstone,
         ScriptCommand_GetInventoryValue,
         ScriptCommand_0807F078,
         ScriptCommand_0807F088,
@@ -805,7 +801,7 @@ void ScriptCommand_CheckEntityInteractType(Entity* entity, ScriptExecutionContex
     gActiveScriptInfo.flags |= 1;
 }
 
-void ScriptCommand_0807E30C(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_FacePlayerAndCheckDist(Entity* entity, ScriptExecutionContext* context) {
     if ((context->unk_1A & 0xF) == 0 && (gPlayerState.flags & PL_MINISH) == 0 &&
         EntityInRectRadius(entity, &gPlayerEntity, 40, 40)) {
         entity->animationState = sub_0806F5B0(GetFacingDirection(entity, &gPlayerEntity));
@@ -826,7 +822,7 @@ void ScriptCommand_HasRupees(Entity* entity, ScriptExecutionContext* context) {
     gActiveScriptInfo.flags |= 1;
 }
 
-void ScriptCommand_0807E3BC(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_HasShells(Entity* entity, ScriptExecutionContext* context) {
     context->condition = (context->scriptInstructionPointer[1] <= gSave.stats.field_0x1a);
     gActiveScriptInfo.flags |= 1;
 }
@@ -871,18 +867,18 @@ void ScriptCommand_HasRoomItemForSale(Entity* entity, ScriptExecutionContext* co
     gActiveScriptInfo.flags |= 1;
 }
 
-void ScriptCommand_0807E4CC(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_VariableBitSet(Entity* entity, ScriptExecutionContext* context) {
     context->condition = !!(context->intVariable & context->scriptInstructionPointer[1]);
     gActiveScriptInfo.flags |= 1;
 }
 
-void ScriptCommand_0807E4EC(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_VariableOnlyBitSet(Entity* entity, ScriptExecutionContext* context) {
     u32 tmp = context->scriptInstructionPointer[1];
     context->condition = tmp == (tmp & context->intVariable);
     gActiveScriptInfo.flags |= 1;
 }
 
-void ScriptCommand_0807E514(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_VariableEqual(Entity* entity, ScriptExecutionContext* context) {
     u32 tmp = context->scriptInstructionPointer[1];
     context->condition = tmp == context->intVariable;
     gActiveScriptInfo.flags |= 1;
@@ -894,7 +890,7 @@ void ScriptCommand_CheckPlayerFlags(Entity* entity, ScriptExecutionContext* cont
     gActiveScriptInfo.flags |= 1;
 }
 
-void ScriptCommand_0807E564(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_CheckPlayerMinish(Entity* entity, ScriptExecutionContext* context) {
     context->condition = (gPlayerState.flags >> 7) & 1;
     gActiveScriptInfo.flags |= 1;
 }
@@ -979,8 +975,8 @@ void ScriptCommand_WaitPlayerGetItem(Entity* entity, ScriptExecutionContext* con
     }
 }
 
-void ScriptCommand_WaitForPlayerAction0x17(Entity* entity, ScriptExecutionContext* context) {
-    if (gPlayerEntity.action != 0x17) {
+void ScriptCommand_WaitForPlayerEnterRoom(Entity* entity, ScriptExecutionContext* context) {
+    if (gPlayerEntity.action != PLAYER_ROOMTRANSITION) {
         gActiveScriptInfo.flags |= 1;
     } else {
         gActiveScriptInfo.commandSize = 0;
@@ -1001,7 +997,7 @@ void ScriptCommand_WaitForFadeFinish(Entity* entity, ScriptExecutionContext* con
     }
 }
 
-void ScriptCommand_0807E778(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_SetFadeTime(Entity* entity, ScriptExecutionContext* context) {
     gActiveScriptInfo.unk_08 = context->scriptInstructionPointer[1];
 }
 
@@ -1009,7 +1005,7 @@ void ScriptCommand_SetFadeMask(Entity* entity, ScriptExecutionContext* context) 
     gFadeControl.mask = GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer);
 }
 
-void ScriptCommand_0807E79C(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_FadeInvert(Entity* entity, ScriptExecutionContext* context) {
     sub_080500F4(gActiveScriptInfo.unk_08);
 }
 
@@ -1057,22 +1053,22 @@ void ScriptCommand_0807E858(Entity* entity, ScriptExecutionContext* context) {
     sub_08050038(context->scriptInstructionPointer[1]);
 }
 
-void ScriptCommand_0807E864(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_SetPlayerIdle(Entity* entity, ScriptExecutionContext* context) {
     gPlayerState.controlMode = CONTROL_DISABLED;
     sub_08078B48();
 }
 
-void ScriptCommand_0807E878(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_EnablePlayerControl(Entity* entity, ScriptExecutionContext* context) {
     gPlayerState.controlMode = 1;
 }
 
-void ScriptCommand_0807E888(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_DisablePlayerControl(Entity* entity, ScriptExecutionContext* context) {
     gPlayerState.controlMode = CONTROL_DISABLED;
 }
 
 void ScriptCommand_SetPlayerAction(Entity* entity, ScriptExecutionContext* context) {
     u32 tmp = GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer);
-    gPlayerState.playerAction = tmp;
+    gPlayerState.queued_action = tmp;
     gPlayerState.field_0x38 = tmp >> 8;
     gPlayerState.field_0x39 = tmp >> 0x10;
     gPlayerState.field_0x3a = tmp >> 0x18;
@@ -1082,7 +1078,7 @@ void ScriptCommand_StartPlayerScript(Entity* entity, ScriptExecutionContext* con
     StartPlayerScript((u16*)GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer));
 }
 
-void ScriptCommand_0807E8D4(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_SetPlayerAnimation(Entity* entity, ScriptExecutionContext* context) {
     gPlayerState.animation = context->scriptInstructionPointer[1];
 }
 
@@ -1092,7 +1088,7 @@ void ScriptCommand_0807E8E4(Entity* entity, ScriptExecutionContext* context) {
     gPlayerEntity.animationState = tmp2 = (context->scriptInstructionPointer[0] - tmp) << 1;
 }
 
-void ScriptCommand_0807E908(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_SetAction(Entity* entity, ScriptExecutionContext* context) {
     entity->action = context->scriptInstructionPointer[1];
     entity->subAction = 0;
 }
@@ -1101,17 +1097,17 @@ void ScriptCommand_SetIntVariable(Entity* entity, ScriptExecutionContext* contex
     context->intVariable = GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer);
 }
 
-void ScriptCommand_0807E924(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_SetVariableToFrame(Entity* entity, ScriptExecutionContext* context) {
     context->intVariable = entity->frame;
     entity->frame = 0;
 }
 
-void ScriptCommand_0807E930(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_SetAnimation(Entity* entity, ScriptExecutionContext* context) {
     entity->field_0x80.HWORD = context->scriptInstructionPointer[1];
     InitAnimationForceUpdate(entity, context->scriptInstructionPointer[1]);
 }
 
-void ScriptCommand_0807E944(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_TriggerInteract(Entity* entity, ScriptExecutionContext* context) {
     if (entity->interactType) {
         entity->interactType = 0;
         gActiveScriptInfo.flags |= 1;
@@ -1227,7 +1223,7 @@ void ScriptCommand_MessageNoOverlapVar(Entity* entity, ScriptExecutionContext* c
     MessageNoOverlap(context->intVariable, entity);
 }
 
-void ScriptCommand_0807EB28(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_EzloMessage(Entity* entity, ScriptExecutionContext* context) {
     CreateEzloHint(context->scriptInstructionPointer[1], 0);
 }
 
@@ -1235,7 +1231,7 @@ void ScriptCommand_0807EB38(Entity* entity, ScriptExecutionContext* context) {
     context->intVariable = gUnk_02000040.unk_01;
 }
 
-void ScriptCommand_0807EB44(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_SetAnimationState(Entity* entity, ScriptExecutionContext* context) {
     entity->animationState = context->scriptInstructionPointer[1];
 }
 
@@ -1245,11 +1241,11 @@ void ScriptCommand_0807EB4C(Entity* entity, ScriptExecutionContext* context) {
                                   context->scriptInstructionPointer[2] + gRoomControls.roomOriginY));
 }
 
-void ScriptCommand_0807EB74(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_FacePlayer(Entity* entity, ScriptExecutionContext* context) {
     entity->animationState = sub_0806F5B0(GetFacingDirection(entity, &gPlayerEntity));
 }
 
-void ScriptCommand_0807EB8C(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_FaceAwayFromPlayer(Entity* entity, ScriptExecutionContext* context) {
     gPlayerEntity.animationState = sub_0806F5B0(GetFacingDirection(&gPlayerEntity, entity)) & ~1;
 }
 
@@ -1266,7 +1262,7 @@ void ScriptCommand_SetEntitySpeed(Entity* entity, ScriptExecutionContext* contex
     entity->speed = context->scriptInstructionPointer[1];
 }
 
-void ScriptCommand_SetEntity0x20(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_SetEntityVelocity(Entity* entity, ScriptExecutionContext* context) {
     entity->zVelocity = GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer);
 }
 
@@ -1287,7 +1283,7 @@ void ScriptCommand_MoveEntityToPlayer(Entity* entity, ScriptExecutionContext* co
 void ScriptCommandNop3(Entity* entity, ScriptExecutionContext* context) {
 }
 
-void ScriptCommand_0807EC1C(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_WalkForward(Entity* entity, ScriptExecutionContext* context) {
     if (!context->unk_18) {
         context->unk_18 = 1;
         context->unk_12 = context->scriptInstructionPointer[1];
@@ -1303,7 +1299,7 @@ void sub_0807EC44(Entity* entity, ScriptExecutionContext* context) {
     }
 }
 
-void ScriptCommand_0807EC64(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_WalkNorth(Entity* entity, ScriptExecutionContext* context) {
     if (!context->unk_18) {
         context->unk_18 = 1;
         context->unk_12 = context->scriptInstructionPointer[1];
@@ -1314,7 +1310,7 @@ void ScriptCommand_0807EC64(Entity* entity, ScriptExecutionContext* context) {
     sub_0807EC44(entity, context);
 }
 
-void ScriptCommand_0807EC94(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_WalkEast(Entity* entity, ScriptExecutionContext* context) {
     if (!context->unk_18) {
         context->unk_18 = 1;
         context->unk_12 = context->scriptInstructionPointer[1];
@@ -1325,7 +1321,7 @@ void ScriptCommand_0807EC94(Entity* entity, ScriptExecutionContext* context) {
     sub_0807EC44(entity, context);
 }
 
-void ScriptCommand_0807ECC4(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_WalkSouth(Entity* entity, ScriptExecutionContext* context) {
     if (!context->unk_18) {
         context->unk_18 = 1;
         context->unk_12 = context->scriptInstructionPointer[1];
@@ -1336,7 +1332,7 @@ void ScriptCommand_0807ECC4(Entity* entity, ScriptExecutionContext* context) {
     sub_0807EC44(entity, context);
 }
 
-void ScriptCommand_0807ECF4(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_WalkWest(Entity* entity, ScriptExecutionContext* context) {
     if (!context->unk_18) {
         context->unk_18 = 1;
         context->unk_12 = context->scriptInstructionPointer[1];
@@ -1440,9 +1436,9 @@ void ScriptCommand_0807EF3C(Entity* entity, ScriptExecutionContext* context) {
         context->unk_18 = 1;
         entity->zVelocity = ((s16)context->scriptInstructionPointer[1]) << 8;
         context->x.HALF.LO = context->scriptInstructionPointer[2] << 8;
-        sub_08003FC4(entity, (u16)context->x.HALF.LO);
+        GravityUpdate(entity, (u16)context->x.HALF.LO);
     } else {
-        if (!sub_08003FC4(entity, (u16)context->x.HALF.LO))
+        if (!GravityUpdate(entity, (u16)context->x.HALF.LO))
             return;
     }
     gActiveScriptInfo.commandSize = 0;
@@ -1497,7 +1493,7 @@ void ScriptCommand_GivePlayerItem(Entity* entity, ScriptExecutionContext* contex
     sub_080A7C18(context->scriptInstructionPointer[1], tmp, 0);
 }
 
-void ScriptCommand_0807F050(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_GiveKinstone(Entity* entity, ScriptExecutionContext* context) {
     sub_080A7C18(0x5C, context->scriptInstructionPointer[1], 0);
 }
 
@@ -1527,18 +1523,18 @@ void ScriptCommand_0807F0B4(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void ScriptCommand_0807F0C8(Entity* entity, ScriptExecutionContext* context) {
-    sub_08080964(context->scriptInstructionPointer[1], context->scriptInstructionPointer[2]);
+    InitScreenShake(context->scriptInstructionPointer[1], context->scriptInstructionPointer[2]);
 }
 
 extern u8 gUnk_0811E750[];
 extern u8 gUnk_0811E758[];
 extern u8 gUnk_0811E760[];
 
-void sub_0807F0D8(Entity* entity, ScriptExecutionContext* context) {
+void CheckAnyKeyPressed(Entity* entity, ScriptExecutionContext* context) {
     context->condition = !!gInput.newKeys;
 }
 
-void sub_0807F0EC(Entity* entity, ScriptExecutionContext* context) {
+void GetRandomInt(Entity* entity, ScriptExecutionContext* context) {
     context->intVariable = (s32)Random() % (s32)context->intVariable;
 }
 
@@ -1559,17 +1555,17 @@ void sub_0807F128(Entity* entity, ScriptExecutionContext* context) {
     context->unk_1A = sValues[(rand >> 8) % 8];
 }
 
-void sub_0807F158(Entity* entity, ScriptExecutionContext* context) {
+void SetCollisionLayer1(Entity* entity, ScriptExecutionContext* context) {
     entity->collisionLayer = 1;
     UpdateSpriteForCollisionLayer(entity);
 }
 
-void sub_0807F168(Entity* entity, ScriptExecutionContext* context) {
+void SetPlayerCollisionLayer1(Entity* entity, ScriptExecutionContext* context) {
     gPlayerEntity.collisionLayer = 1;
     UpdateSpriteForCollisionLayer(&gPlayerEntity);
 }
 
-void sub_0807F180(Entity* entity, ScriptExecutionContext* context) {
+void SetCollisionLayer2(Entity* entity, ScriptExecutionContext* context) {
     entity->collisionLayer = 2;
     UpdateSpriteForCollisionLayer(entity);
 }
@@ -1607,11 +1603,11 @@ void sub_0807F210(Entity* entity, ScriptExecutionContext* context) {
     }
 }
 
-void sub_0807F238(Entity* entity, ScriptExecutionContext* context) {
+void SetPlayerAnimation2(Entity* entity, ScriptExecutionContext* context) {
     gPlayerState.animation = context->intVariable;
 }
 
-void sub_0807F244(Entity* entity, ScriptExecutionContext* context) {
+void EquipItem(Entity* entity, ScriptExecutionContext* context) {
     u32 slot;
     u32 item;
 
@@ -1651,7 +1647,7 @@ void sub_0807F2A8(Entity* entity, ScriptExecutionContext* context) {
     }
 }
 
-void sub_0807F2D4(Entity* entity, ScriptExecutionContext* context) {
+void WaitForFrameHiBit(Entity* entity, ScriptExecutionContext* context) {
     if ((entity->frame & 0x80) != 0) {
         gActiveScriptInfo.flags |= 1;
     } else {
@@ -1659,7 +1655,7 @@ void sub_0807F2D4(Entity* entity, ScriptExecutionContext* context) {
     }
 }
 
-void sub_0807F304(Entity* entity, ScriptExecutionContext* context) {
+void WaitForPlayerFrameHiBit(Entity* entity, ScriptExecutionContext* context) {
     if ((gPlayerEntity.frame & 0x80) != 0) {
         gActiveScriptInfo.flags |= 1;
     } else {
@@ -1667,20 +1663,20 @@ void sub_0807F304(Entity* entity, ScriptExecutionContext* context) {
     }
 }
 
-void sub_0807F338(Entity* entity, ScriptExecutionContext* context) {
+void DeleteHitbox(Entity* entity, ScriptExecutionContext* context) {
     entity->hitbox = NULL;
     entity->field_0x17 &= ~1;
 }
 
-void sub_0807F348(Entity* entity, ScriptExecutionContext* context) {
+void SetPriorityMessage(Entity* entity, ScriptExecutionContext* context) {
     SetDefaultPriority(entity, PRIO_MESSAGE);
 }
 
-void sub_0807F354(Entity* entity, ScriptExecutionContext* context) {
+void SetPriorityPlayerEvent(Entity* entity, ScriptExecutionContext* context) {
     SetDefaultPriority(entity, PRIO_PLAYER_EVENT);
 }
 
-void sub_0807F360(Entity* entity, ScriptExecutionContext* context) {
+void SetPriorityHighest(Entity* entity, ScriptExecutionContext* context) {
     SetDefaultPriority(entity, PRIO_NO_BLOCK);
 }
 
@@ -1707,15 +1703,15 @@ void sub_0807F3D8(Entity* entity, ScriptExecutionContext* context) {
     entity->field_0x80.HWORD = entity->animIndex;
 }
 
-void sub_0807F3F8(Entity* entity, ScriptExecutionContext* context) {
+void CreatePlayerExclamationMark(Entity* entity, ScriptExecutionContext* context) {
     CreateSpeechBubbleExclamationMark(&gPlayerEntity, 8, -24);
 }
 
-void sub_0807F40C(Entity* entity, ScriptExecutionContext* context) {
+void CreatePlayerQuestionMark(Entity* entity, ScriptExecutionContext* context) {
     CreateSpeechBubbleQuestionMark(&gPlayerEntity, 8, -24);
 }
 
-void sub_0807F420(Entity* entity, ScriptExecutionContext* context) {
+void LoadMenu(Entity* entity, ScriptExecutionContext* context) {
     MenuFadeIn(context->intVariable & 0xff, (u8)(context->intVariable >> 8));
 }
 
@@ -1784,11 +1780,11 @@ void sub_0807F4F8(Entity* entity, ScriptExecutionContext* context) {
         gActiveScriptInfo.commandSize = 0;
 }
 
-void sub_0807F584(Entity* entity, ScriptExecutionContext* context) {
+void ReadPlayerAnimationState(Entity* entity, ScriptExecutionContext* context) {
     context->intVariable = gPlayerEntity.animationState >> 1;
 }
 
-void sub_0807F594(Entity* entity, ScriptExecutionContext* context) {
+void WaitForPlayerIdle(Entity* entity, ScriptExecutionContext* context) {
     if (gPlayerState.framestate)
         gActiveScriptInfo.commandSize = 0;
 }
@@ -1797,7 +1793,7 @@ void sub_0807F5B0(Entity* entity, ScriptExecutionContext* context) {
     gPlayerState.field_0x27[0] = context->intVariable;
 }
 
-void sub_0807F5C0(Entity* entity, ScriptExecutionContext* context) {
+void WaitForCameraTouchRoomBorder(Entity* entity, ScriptExecutionContext* context) {
     s32 left;
     s32 bottom;
 
@@ -1843,11 +1839,11 @@ void sub_0807F6B4(Entity* entity, ScriptExecutionContext* context) {
     gActiveScriptInfo.flags |= 1;
 }
 
-void sub_0807F6E8(Entity* entity, ScriptExecutionContext* context) {
+void SetPlayerFlag(Entity* entity, ScriptExecutionContext* context) {
     gPlayerState.flags |= context->intVariable;
 }
 
-void sub_0807F6F8(Entity* entity, ScriptExecutionContext* context) {
+void ResetPlayerFlag(Entity* entity, ScriptExecutionContext* context) {
     gPlayerState.flags &= ~context->intVariable;
 }
 
@@ -1865,13 +1861,13 @@ void sub_0807F738(Entity* entity, ScriptExecutionContext* context) {
     ResolveEntityBelow(entity, entity);
 }
 
-void sub_0807F75C(Entity* entity, ScriptExecutionContext* context) {
+void SetPlayerPos(Entity* entity, ScriptExecutionContext* context) {
     s32 s32Var = context->intVariable;
     gPlayerEntity.x.HALF.HI = (s32Var >> 16) + gRoomControls.roomOriginX;
     gPlayerEntity.y.HALF.HI = (s32Var & 0xffff) + gRoomControls.roomOriginY;
 }
 
-void sub_0807F77C(Entity* entity, ScriptExecutionContext* context) {
+void GetConditionSet(Entity* entity, ScriptExecutionContext* context) {
     if (context->condition)
         context->intVariable = 1;
     else
@@ -1951,15 +1947,15 @@ void sub_0807F854(Entity* entity, ScriptExecutionContext* context) {
     }
 }
 
-void sub_0807F8BC(Entity* entity, ScriptExecutionContext* context) {
-    if (sub_080040A8(entity))
+void CheckEntityOnScreen(Entity* entity, ScriptExecutionContext* context) {
+    if (CheckOnScreen(entity))
         context->condition = 1;
     else
         context->condition = 0;
 }
 
-void sub_0807F8D0(Entity* entity, ScriptExecutionContext* context) {
-    sub_08003FC4(entity, context->intVariable);
+void DoGravity(Entity* entity, ScriptExecutionContext* context) {
+    GravityUpdate(entity, context->intVariable);
     gActiveScriptInfo.flags |= 1;
 }
 
@@ -1971,7 +1967,7 @@ void sub_0807F8E8(Entity* entity, ScriptExecutionContext* context) {
     }
 }
 
-void sub_0807F918(Entity* entity, ScriptExecutionContext* context) {
+void PutItemAnySlot(Entity* entity, ScriptExecutionContext* context) {
     PutItemOnSlot(context->intVariable);
 }
 
@@ -1997,70 +1993,70 @@ void sub_0807F950(Entity* entity, ScriptExecutionContext* context) {
         DeleteEntity(c);
 }
 
-void sub_0807F970(Entity* entity, ScriptExecutionContext* context) {
+void CheckMessageEqual(Entity* entity, ScriptExecutionContext* context) {
     context->condition = context->intVariable == gTextRender.curToken.textIndex;
 }
 
-void sub_0807F98C(Entity* entity, ScriptExecutionContext* context) {
+void SetEntityHeight(Entity* entity, ScriptExecutionContext* context) {
     entity->z.WORD = context->intVariable;
 }
 
-void sub_0807F994(Entity* entity, ScriptExecutionContext* context) {
+void SetSpriteOffset(Entity* entity, ScriptExecutionContext* context) {
     entity->spriteOffsetX = (s32)context->intVariable >> 0x10;
     entity->spriteOffsetY = context->intVariable & 0xffff;
 }
 
-void sub_0807F9A4(Entity* entity, ScriptExecutionContext* context) {
+void WaitForPlayerNormal(Entity* entity, ScriptExecutionContext* context) {
     switch (gPlayerState.framestate) {
-        case 5:
-        case 7:
-        case 8:
-        case 10:
-        case 11:
-        case 12:
-        case 13:
-        case 14:
-        case 15:
-        case 16:
-        case 17:
-        case 18:
-        case 19:
-        case 20:
-        case 21:
-        case 22:
-        case 23:
-        case 24:
-        case 27:
-        case 28:
+        case PL_STATE_THROW:
+        case PL_STATE_SWIM:
+        case PL_STATE_PARACHUTE:
+        case PL_STATE_FALL:
+        case PL_STATE_JUMP:
+        case PL_STATE_C:
+        case PL_STATE_D:
+        case PL_STATE_USEPORTAL:
+        case PL_STATE_F:
+        case PL_STATE_TRAPPED:
+        case PL_STATE_11:
+        case PL_STATE_DIE:
+        case PL_STATE_TALKEZLO:
+        case PL_STATE_CAPE:
+        case PL_STATE_ITEMGET:
+        case PL_STATE_DROWN:
+        case PL_STATE_HOLE:
+        case PL_STATE_CLIMB:
+        case PL_STATE_1B:
+        case PL_STATE_STAIRS:
             gActiveScriptInfo.commandSize = 0;
             break;
         default:
-            gActiveScriptInfo.flags |= 1u;
+            gActiveScriptInfo.flags |= 1;
             break;
     }
 }
 
-void sub_0807FA40(Entity* entity, ScriptExecutionContext* context) {
+void WaitForPlayerNormalOrTalkEzlo(Entity* entity, ScriptExecutionContext* context) {
     switch (gPlayerState.framestate) {
-        case 5:
-        case 7:
-        case 8:
-        case 10:
-        case 11:
-        case 12:
-        case 13:
-        case 14:
-        case 15:
-        case 16:
-        case 17:
-        case 18:
-        case 20:
-        case 21:
-        case 22:
-        case 23:
-        case 24:
-        case 27:
-        case 28:
+        case PL_STATE_THROW:
+        case PL_STATE_SWIM:
+        case PL_STATE_PARACHUTE:
+        case PL_STATE_FALL:
+        case PL_STATE_JUMP:
+        case PL_STATE_C:
+        case PL_STATE_D:
+        case PL_STATE_USEPORTAL:
+        case PL_STATE_F:
+        case PL_STATE_TRAPPED:
+        case PL_STATE_11:
+        case PL_STATE_DIE:
+        case PL_STATE_CAPE:
+        case PL_STATE_ITEMGET:
+        case PL_STATE_DROWN:
+        case PL_STATE_HOLE:
+        case PL_STATE_CLIMB:
+        case PL_STATE_1B:
+        case PL_STATE_STAIRS:
             gActiveScriptInfo.commandSize = 0;
             break;
         default:
@@ -2129,7 +2125,7 @@ void sub_0807FBCC(Entity* entity, ScriptExecutionContext* context) {
 
 void sub_0807FBD4(Entity* entity, ScriptExecutionContext* context) {
     sub_0806F62C(entity, entity->speed, entity->direction);
-    if (sub_080040A8(entity))
+    if (CheckOnScreen(entity))
         gActiveScriptInfo.commandSize = 0;
 }
 

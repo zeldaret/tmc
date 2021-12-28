@@ -517,7 +517,7 @@ _080988FA:
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	cmp r0, #0
 	bne _0809890E
 	adds r0, r4, #0

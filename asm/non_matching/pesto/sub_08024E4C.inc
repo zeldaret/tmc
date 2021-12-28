@@ -123,7 +123,7 @@ _08024ECC:
 	bl ModHealth
 	adds r0, r6, #0
 	movs r1, #0x7a
-	bl sub_0800449C
+	bl SoundReqClipped
 _08024F46:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0

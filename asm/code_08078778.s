@@ -862,8 +862,8 @@ sub_08078EE4: @ 0x08078EE4
 _08078EF4: .4byte gPlayerEntity
 _08078EF8: .4byte gPlayerState
 
-	thumb_func_start sub_08078EFC
-sub_08078EFC: @ 0x08078EFC
+	thumb_func_start RunQueuedAction
+RunQueuedAction: @ 0x08078EFC
 	push {lr}
 	ldr r3, _08078F18 @ =gPlayerState
 	ldrb r2, [r3, #0xc]
@@ -894,7 +894,7 @@ sub_08078F24: @ 0x08078F24
 	ands r0, r3
 	cmp r0, #0
 	beq _08078F3C
-	bl sub_08078F60
+	bl ResetPlayerVelocity
 	b _08078F5A
 	.align 2, 0
 _08078F38: .4byte gPlayerState
@@ -919,8 +919,8 @@ _08078F5A:
 	.align 2, 0
 _08078F5C: .4byte gSineTable
 
-	thumb_func_start sub_08078F60
-sub_08078F60: @ 0x08078F60
+	thumb_func_start ResetPlayerVelocity
+ResetPlayerVelocity: @ 0x08078F60
 	ldr r0, _08078F70 @ =gPlayerState
 	adds r1, r0, #0
 	adds r1, #0x8c
@@ -3282,7 +3282,7 @@ _0807A104:
 	thumb_func_start sub_0807A108
 sub_0807A108: @ 0x0807A108
 	push {lr}
-	ldr r1, _0807A148 @ =gUnk_03004040
+	ldr r1, _0807A148 @ =gPlayerClones
 	movs r0, #0
 	str r0, [r1]
 	str r0, [r1, #4]
@@ -3315,7 +3315,7 @@ _0807A130:
 _0807A144:
 	pop {pc}
 	.align 2, 0
-_0807A148: .4byte gUnk_03004040
+_0807A148: .4byte gPlayerClones
 _0807A14C: .4byte gPlayerState
 _0807A150: .4byte 0xFFBFFFFF
 _0807A154: .4byte gPlayerEntity
@@ -3483,8 +3483,8 @@ _0807A28C: .4byte gPlayerEntity
 _0807A290: .4byte gPlayerState
 _0807A294: .4byte gUnk_08007CAC
 
-	thumb_func_start sub_0807A298
-sub_0807A298: @ 0x0807A298
+	thumb_func_start EnablePlayerDraw
+EnablePlayerDraw: @ 0x0807A298
 	movs r1, #0
 	strb r1, [r0, #0xb]
 	ldrb r1, [r0, #0x18]
@@ -5581,13 +5581,13 @@ sub_0807B21C: @ 0x0807B21C
 	movs r1, #0x80
 	lsls r1, r1, #3
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	b _0807B240
 _0807B236:
 	movs r1, #0x80
 	lsls r1, r1, #4
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 _0807B240:
 	ldr r1, [r4, #0x20]
 	ldr r0, _0807B260 @ =0xFFFF8000
@@ -5659,7 +5659,7 @@ sub_0807B2B8: @ 0x0807B2B8
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0807B2F0 @ =0xFFFFE000
-	bl sub_08003FC4
+	bl GravityUpdate
 	adds r0, r4, #0
 	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xe]

@@ -101,14 +101,14 @@ typedef struct {
     Coords start_pos;
     u8 layer;
     u8 field_0x15;
-    u8 field_0x16;
-    u8 field_0x17;
-    s16 field_0x18;
-    s16 field_0x1a;
-    s16 field_0x1c;
-    s16 field_0x1e;
-    s16 field_0x20;
-    s16 field_0x22;
+    u8 dungeon_area;
+    u8 dungeon_room;
+    s16 dungeon_x;
+    s16 dungeon_y;
+    s16 dungeon_map_x;
+    s16 dungeon_map_y;
+    s16 overworld_map_x;
+    s16 overworld_map_y;
     u8 field_0x24[0x8];
 } PlayerWorldStatus;
 static_assert(sizeof(PlayerWorldStatus) == 0x20);
@@ -173,7 +173,7 @@ typedef enum {
 } TileEntityType;
 
 extern void SetTileType(u32, u32, u32);
-extern void sub_08080964(u32 time, u32 magnitude); // shake screen
+extern void InitScreenShake(u32 time, u32 magnitude);
 
 extern void* GetCurrentRoomProperty(u32);
 extern void LoadRoomTileEntities();

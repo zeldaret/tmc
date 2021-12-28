@@ -3,9 +3,9 @@ SCRIPT_START script_Object69DarknutFight
 	BeginBlock
 	Call sub_0807DF28
 	SetLocalFlag 0x0039
-	_0807E864
+	SetPlayerIdle
 	EndBlock
-	WaitForPlayerAction0x17
+	WaitForPlayerEnterRoom
 	StartPlayerScript script_PlayerAtDarknutFight
 	Wait 0x0018
 	SetSyncFlag 0x00000002
@@ -13,8 +13,8 @@ SCRIPT_START script_Object69DarknutFight
 	SetRoomFlag 0x0000
 	Wait 0x0010
 	PlayBgm BGM_FIGHT_THEME
-	_0807EB28 0x2701
-	_0807E878
+	EzloMessage 0x2701
+	EnablePlayerControl
 	Call sub_0807DF50
 SCRIPT_END
 	.2byte 0x0000

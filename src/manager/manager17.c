@@ -1,6 +1,7 @@
 #include "manager.h"
 #include "flags.h"
 #include "room.h"
+#include "object.h"
 
 typedef struct {
     Manager manager;
@@ -32,7 +33,7 @@ void sub_0805AD60(Manager17* manager) {
 
 void sub_0805AD80(Manager17* manager) {
     if (CheckFlags(manager->field_0x3e) != 0) {
-        Entity* object = CreateObject(0, manager->manager.unk_0a, manager->manager.unk_0b);
+        Entity* object = CreateObject(GROUND_ITEM, manager->manager.unk_0a, manager->manager.unk_0b);
         if (object != NULL) {
             object->actionDelay = manager->field_0x35;
             object->collisionLayer = manager->field_0x36;

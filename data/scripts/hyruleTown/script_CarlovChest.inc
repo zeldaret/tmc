@@ -11,13 +11,13 @@ script_080148F4:
 	WaitUntilTextboxCloses
 	CheckTextboxResult
 	JumpIfNot script_08014938
-	_0807E864
+	SetPlayerIdle
 	SetSyncFlag 0x00000001
 	WaitForSyncFlagAndClear 0x00000002
 	Call sub_0806E1E0
 	WaitUntilTextboxCloses
 	Wait 0x0018
-	_0807E878
+	EnablePlayerControl
 	Jump script_080148F4
 script_08014932:
 	WaitUntilTextboxCloses

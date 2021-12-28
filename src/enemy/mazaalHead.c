@@ -315,12 +315,12 @@ void sub_080342C8(Entity* this) {
         this->spriteOffsetX = gUnk_080CECEC[this->actionDelay >> 1 & 7];
     } else {
         this->spriteOffsetX = 0;
-        if (sub_08003FC4(this, 0x2000) == 0) {
+        if (GravityUpdate(this, 0x2000) == 0) {
             this->action = 0xc;
             this->field_0x7c.HALF.HI = 0x708;
             this->field_0x7c.BYTES.byte1 = 0;
             this->field_0x80.HALF.HI = 0;
-            sub_08080964(0x1e, 0);
+            InitScreenShake(0x1e, 0);
             SoundReq(SFX_1A1);
         }
     }

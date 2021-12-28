@@ -3,7 +3,7 @@ SCRIPT_START script_GuardNorth
 	BeginBlock
 	CheckInventory1 0x0012
 	JumpIf script_0800FF0E
-	_0807EB44 0x0006
+	SetAnimationState 0x0006
 	_0807E9D4
 	CallWithArg sub_0807F3D8, 0x00000008
 	EndBlock
@@ -15,13 +15,13 @@ script_0800FED8:
 	CheckEntityInteractType
 	JumpIfNot script_0800FED8
 	EndBlock
-	_0807E864
-	_0807EB74
+	SetPlayerIdle
+	FacePlayer
 	CallWithArg sub_0807F3D8, 0x00000008
 	Call sub_08064428
 	WaitUntilTextboxCloses
 	Wait 0x000f
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800FED8
 script_0800FF0E:
 	DoPostScriptAction 0x0008

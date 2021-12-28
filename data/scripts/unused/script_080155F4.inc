@@ -1,7 +1,7 @@
 @ TODO UNUSED?
 SCRIPT_START script_080155F4
 	WaitForSyncFlagAndClear 0x00000020
-	_0807E930 0x0000
+	SetAnimation 0x0000
 	Wait 0x0014
 	SetSyncFlag 0x00000040
 script_08015608:

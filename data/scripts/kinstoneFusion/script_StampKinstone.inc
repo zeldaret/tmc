@@ -2,9 +2,9 @@
 SCRIPT_START script_StampKinstone
 	BeginBlock
 	DoPostScriptAction 0x0007
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
-	Call sub_0807F348
+	Call SetPriorityMessage
 	EndBlock
 script_0800BBBA:
 	CheckRoomFlag 0x00ff

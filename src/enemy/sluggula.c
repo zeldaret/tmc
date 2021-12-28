@@ -117,7 +117,7 @@ void sub_08023CE0(Entity* this) {
                     EnqueueSFX(0x12d);
                     InitializeAnimation(this, 4);
                 }
-            } else if (!sub_08003FC4(this, 0x1800)) {
+            } else if (!GravityUpdate(this, 0x1800)) {
                 this->action = 3;
                 this->spriteSettings.draw = 1;
                 EnqueueSFX(0x84);

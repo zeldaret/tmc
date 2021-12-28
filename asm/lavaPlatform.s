@@ -87,7 +87,7 @@ sub_080922E4: @ 0x080922E4
 	adds r4, r0, #0
 	movs r1, #0x90
 	lsls r1, r1, #6
-	bl sub_08003FC4
+	bl GravityUpdate
 	adds r2, r0, #0
 	cmp r2, #0
 	bne _08092322

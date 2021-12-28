@@ -4,21 +4,21 @@ SCRIPT_START script_ZeldaOutro
 	SetEntitySpeed 0x0100
 	DoPostScriptAction 0x0007
 	DoPostScriptAction 0x000b
-	_0807EB44 0x0002
+	SetAnimationState 0x0002
 	DoPostScriptAction 0x0000
 	EndBlock
 	WaitForSyncFlagAndClear 0x00000004
 	BeginBlock
 	DoPostScriptAction 0x0004
-	Call sub_0807F3F8
+	Call CreatePlayerExclamationMark
 	EndBlock
 	Wait 0x003c
-	_0807EC94 0x0010
-	_0807EB44 0x0002
+	WalkEast 0x0010
+	SetAnimationState 0x0002
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000080
 	WaitForSyncFlagAndClear 0x00000004
-	_0807EB44 0x0000
+	SetAnimationState 0x0000
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000080
 	WaitForSyncFlagAndClear 0x00000004
@@ -26,7 +26,7 @@ SCRIPT_START script_ZeldaOutro
 	Wait 0x003c
 	SetSyncFlag 0x00000080
 	WaitForSyncFlagAndClear 0x00000004
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	PlaySound SFX_SPARKLES
 	CallWithArg sub_080960C4, script_Object6AZeldaMagic

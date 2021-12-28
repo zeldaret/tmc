@@ -2,16 +2,16 @@
 SCRIPT_START script_EzloCapOutro
 	BeginBlock
 	SetEntitySpeed 0x0080
-	SetEntity0x20 0x00000000
+	SetEntityVelocity 0x00000000
 	DoPostScriptAction 0x0008
-	_0807EB44 0x0000
+	SetAnimationState 0x0000
 	Call sub_0807F714
 	MoveEntityToPlayer
-	CallWithArg sub_0807F98C, 0xfff00000
+	CallWithArg SetEntityHeight, 0xfff00000
 	EndBlock
-	_0807E930 0x0023
+	SetAnimation 0x0023
 	WaitForSyncFlagAndClear 0x00000010
-	CallWithArg sub_0807F6E8, 0x00000008
+	CallWithArg SetPlayerFlag, 0x00000008
 	DoPostScriptAction 0x0007
 	PlaySound SFX_SPARKLES
 	ClearSyncFlag 0x00000800
@@ -22,7 +22,7 @@ SCRIPT_START script_EzloCapOutro
 	SetSyncFlag 0x00000800
 	PlaySound SFX_143
 	_0807EF3C 0x0000, 0x0020
-	_0807E930 0x001f
+	SetAnimation 0x001f
 	SetSyncFlag 0x00000200
 	WaitForSyncFlagAndClear 0x00000010
 	Wait 0x0078

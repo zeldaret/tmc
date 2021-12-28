@@ -5,8 +5,12 @@
 
 	.text
 
-	thumb_func_start sub_08003FC4
-sub_08003FC4: @ 0x08003FC4
+	thumb_func_start GravityUpdate
+GravityUpdate: @ 0x08003FC4
+	@ r0 = Entity*
+	@ r1 = Gravity strength
+	@ returns z pos
+
 	adds r3, r0, #0
 	ldr r0, [r3, #0x34]
 	ldr r2, [r3, #0x20]
@@ -141,8 +145,8 @@ sub_080040A2: @ 0x080040A2
 	lsrs r1, r1, #2
 	bhs _080040D0
 
-	thumb_func_start sub_080040A8
-sub_080040A8: @ 0x080040A8
+	thumb_func_start CheckOnScreen
+CheckOnScreen: @ 0x080040A8
 	ldr r1, _08004368 @ =gRoomControls
 	movs r2, #0x2e
 	ldrsh r2, [r0, r2]

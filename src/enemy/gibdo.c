@@ -21,7 +21,7 @@ void sub_08037A14();
 extern void sub_0804A4E4(Entity*, Entity*);
 extern Entity* sub_08049DF4(u32);
 u32 sub_0804A044(Entity*, Entity*, u32);
-extern void sub_0800449C(Entity*, u32);
+extern void SoundReqClipped(Entity*, u32);
 
 extern void (*const gGibdo[6])(Entity*);
 extern void (*const gUnk_080CF2AC[9])(Entity*);
@@ -347,8 +347,8 @@ void sub_08037A58(Entity* this) {
 }
 
 void sub_08037ACC(Entity* this) {
-    gPlayerState.flags &= 0xFFFFFEFF;
-    gPlayerEntity.flags |= 0x80;
+    gPlayerState.flags &= ~0x100;
+    COLLISION_ON(&gPlayerEntity);
     gPlayerEntity.iframes = 0x1e;
     gPlayerEntity.knockbackDirection = DirectionFromAnimationState(this->animationState);
     gPlayerEntity.knockbackDuration = 4;
@@ -359,7 +359,7 @@ void sub_08037B10(Entity* this) {
     u32 h;
     gPlayerEntity.iframes = 0xc;
     h = ModHealth(-8);
-    sub_0800449C(&gPlayerEntity, 0x7a);
+    SoundReqClipped(&gPlayerEntity, 0x7a);
     if (h == 0) {
         sub_08037A58(this);
         this->field_0x76.HALF.LO = 0xf0;

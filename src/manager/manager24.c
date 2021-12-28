@@ -178,7 +178,7 @@ void sub_0805C294(u32 pos, u32 layer) {
     SetTileType(0xd7, pos + 0x41, layer);
     if (layer == 1) {
         if (CheckIsInteriorWithEnemies() != 0) {
-            object = CreateObject(0x4f, 0xe, 2);
+            object = CreateObject(ARCHWAY, 0xe, 2);
             if (object != NULL) {
                 object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.roomOriginX;
                 object->y.HALF.HI = ((pos & 0xfc0) >> 2) + 0x20 + gRoomControls.roomOriginY;
@@ -199,7 +199,7 @@ void sub_0805C294(u32 pos, u32 layer) {
         if (CheckIsDungeon() == 0) {
             return;
         }
-        object = CreateObject(0x4f, sub_0805C608(), 8);
+        object = CreateObject(ARCHWAY, sub_0805C608(), 8);
         if (object == NULL) {
             return;
         }

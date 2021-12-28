@@ -1,7 +1,7 @@
 @ Player waking up after Simons Simulation
 SCRIPT_START script_PlayerWakingUpAtSimons
 	BeginBlock
-	_0807E864
+	SetPlayerIdle
 	EndBlock
 	Wait 0x003c
 	CallWithArg sub_0806C2A0, 0x00000001

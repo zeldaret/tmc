@@ -2,7 +2,7 @@
 SCRIPT_START script_080165A4
 	BeginBlock
 	DoPostScriptAction 0x000a
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	_0807E9D4
 	EndBlock
 script_080165B2:

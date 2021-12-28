@@ -7,14 +7,14 @@ SCRIPT_START script_WindTribespeople2
 	JumpIfNot script_080149C6
 	EndBlock
 script_080149AA:
-	_0807E30C
+	FacePlayerAndCheckDist
 	JumpIfNot script_080149AA
-	_0807E864
-	_0807EB74
+	SetPlayerIdle
+	FacePlayer
 	Call sub_0806C90C
 	WaitUntilTextboxCloses
 	Wait 0x000f
-	_0807E878
+	EnablePlayerControl
 	Jump script_080149AA
 script_080149C6:
 	DoPostScriptAction 0x0006

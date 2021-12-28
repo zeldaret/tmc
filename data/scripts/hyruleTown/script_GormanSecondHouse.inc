@@ -1,7 +1,7 @@
 @ Hyrule Town Gorman at second house
 SCRIPT_START script_GormanSecondHouse
 	BeginBlock
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x000a
 	_0807E9D4
@@ -21,16 +21,16 @@ script_0800FDEE:
 	Jump script_0800FDE2
 script_0800FE06:
 	EndBlock
-	_0807EB44 0x0002
+	SetAnimationState 0x0002
 	DoPostScriptAction 0x0000
 	Wait 0x001e
-	_0807EB44 0x0006
+	SetAnimationState 0x0006
 	DoPostScriptAction 0x0000
 	Wait 0x001e
-	_0807EB44 0x0002
+	SetAnimationState 0x0002
 	DoPostScriptAction 0x0000
 	Wait 0x001e
-	_0807EB44 0x0006
+	SetAnimationState 0x0006
 	DoPostScriptAction 0x0000
 	Wait 0x003c
 	Call sub_08069A3C

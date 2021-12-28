@@ -9,14 +9,14 @@ script_0800D8F4:
 	CheckInventory1 0x0017
 	JumpIfNot script_0800D8F4
 	Call sub_0807DF28
-	_0807E864
+	SetPlayerIdle
 	WaitPlayerGetItem
-	_0807EB28 0x1325
+	EzloMessage 0x1325
 	WaitUntilTextboxCloses
 	PlaySound SFX_113
 	SetIntVariable 0x00000000
 	Call sub_0806DA1C
-	_0807E878
+	EnablePlayerControl
 	Call sub_0807DF50
 script_0800D924:
 	DoPostScriptAction 0x0006

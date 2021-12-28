@@ -280,7 +280,7 @@ sub_080329E8: @ 0x080329E8
 sub_080329F0: @ 0x080329F0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080040A8
+	bl CheckOnScreen
 	cmp r0, #0
 	bne _08032A3A
 	movs r0, #4
@@ -326,7 +326,7 @@ _08032A46:
 sub_08032A48: @ 0x08032A48
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_080040A8
+	bl CheckOnScreen
 	adds r5, r0, #0
 	cmp r5, #0
 	bne _08032AAE

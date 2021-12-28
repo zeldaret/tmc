@@ -3,15 +3,15 @@ SCRIPT_START script_TalonInside
 	BeginBlock
 	DoPostScriptAction 0x000a
 	DoPostScriptAction 0x0007
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	EndBlock
 script_08014E64:
 	CheckEntityInteractType
 	JumpIfNot script_08014E64
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
-	_0807EB74
+	FacePlayer
 	CallWithArg sub_0807F78C, 0x00000022
 	WaitUntilTextboxCloses
 	CheckTextboxResult
@@ -32,6 +32,6 @@ script_08014EB8:
 script_08014EBC:
 	WaitUntilTextboxCloses
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	Jump script_08014E64
 	.2byte 0x0000

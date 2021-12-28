@@ -10,27 +10,27 @@ script_0800B9CA:
 	Call sub_0807F434
 	JumpTable script_0800B9CA, script_0800B9D8, script_0800B9F4
 script_0800B9D8:
-	_0807E864
-	_0807EB74
+	SetPlayerIdle
+	FacePlayer
 	DoPostScriptAction 0x0000
 	Call sub_080694D8
 	WaitUntilTextboxCloses
 	Call sub_080694EC
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800B9CA
 script_0800B9F4:
-	_0807E864
-	_0807EB74
+	SetPlayerIdle
+	FacePlayer
 	DoPostScriptAction 0x0000
 	Call sub_0807F650
 	_0807E9F0
-	_0807E864
+	SetPlayerIdle
 	Call sub_0806948C
 	JumpIf script_0800BA24
 	WaitUntilTextboxCloses
 	Call sub_080694EC
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800B9CA
 script_0800BA24:
 	WaitUntilTextboxCloses
@@ -38,5 +38,5 @@ script_0800BA24:
 	_0807E9D4
 	Call sub_080694EC
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800B9CA

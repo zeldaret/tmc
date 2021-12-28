@@ -2,10 +2,10 @@
 SCRIPT_START script_KingDaltusIntroCeremony
 	BeginBlock
 	DoPostScriptAction 0x0008
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	SetEntitySpeed 0x0100
 	EndBlock
-	Call sub_0807F338
+	Call DeleteHitbox
 	WaitForSyncFlagAndClear 0x00000040
 	DoPostScriptAction 0x0007
 	DoPostScriptAction 0x0001
@@ -20,7 +20,7 @@ SCRIPT_START script_KingDaltusIntroCeremony
 	Call sub_0807F3C8
 	SetEntitySpeed 0x0400
 	SetEntityDirection 0x0008
-	_0807EC1C 0x003c
+	WalkForward 0x003c
 	SetSyncFlag 0x00000080
 	DoPostScriptAction 0x0006
 SCRIPT_END

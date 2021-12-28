@@ -2,7 +2,7 @@
 SCRIPT_START script_GhostBrotherKinstone
 	BeginBlock
 	DoPostScriptAction 0x0007
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	EndBlock
 script_0800BC18:
@@ -13,8 +13,8 @@ script_0800BC18:
 	MessageNoOverlap 0x0e07
 	WaitUntilTextboxCloses
 	BeginBlock 
-	_0807EB44 0x0000
-	_0807E930 0x0004
+	SetAnimationState 0x0000
+	SetAnimation 0x0004
 	EndBlock
 	Wait 0x003c
 	Call sub_08065CCC

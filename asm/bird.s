@@ -225,7 +225,7 @@ _0809D3A8:
 	movs r2, #0
 	ldrsh r1, [r0, r2]
 	adds r0, r5, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	adds r0, r5, #0
 	bl UpdateAnimationSingleFrame
 	ldr r4, [r5, #0x54]
@@ -298,7 +298,7 @@ _0809D448:
 	bl CopyPosition
 _0809D454:
 	adds r0, r5, #0
-	bl sub_080040A8
+	bl CheckOnScreen
 	cmp r0, #0
 	bne _0809D488
 	ldrb r0, [r5, #0xc]
@@ -528,11 +528,11 @@ _0809D62E:
 	movs r0, #0
 	ldrsh r1, [r7, r0]
 	adds r0, r5, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	adds r0, r5, #0
 	bl UpdateAnimationSingleFrame
 	adds r0, r5, #0
-	bl sub_080040A8
+	bl CheckOnScreen
 	cmp r0, #0
 	bne _0809D652
 	bl DeleteThisEntity

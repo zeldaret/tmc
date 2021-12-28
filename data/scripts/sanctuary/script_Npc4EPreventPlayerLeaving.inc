@@ -12,14 +12,14 @@ script_08013B1E:
 	CheckLocalFlag 0x0078
 	JumpIf script_08013B1E
 	EndBlock
-	_0807E864
-	Call sub_0807F9A4
+	SetPlayerIdle
+	Call WaitForPlayerNormal
 	Call sub_0807DF28
-	_0807EB28 0x1507
+	EzloMessage 0x1507
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerSanctuary
 	WaitForSyncFlagAndClear 0x00000001
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	Jump script_08013B1E
 	.2byte 0x0000

@@ -141,7 +141,7 @@ sub_0808F858: @ 0x0808F858
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	cmp r0, #0
 	bne _0808F88A
 	adds r0, r4, #0

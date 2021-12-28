@@ -266,7 +266,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
             this->actionDelay = 0xc0;
             COLLISION_ON(this);
             SoundReq(SFX_14C);
-            sub_08080964(0x14, 4);
+            InitScreenShake(0x14, 4);
             break;
         case 1:
             if (--this->actionDelay == 0) {
@@ -313,7 +313,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
                 }
                 break;
             }
-            if (sub_08003FC4(this, 0x2800) == 0) {
+            if (GravityUpdate(this, 0x2800) == 0) {
                 this->field_0x80.HALF.LO = 5;
                 this->actionDelay = 0x10;
                 COLLISION_ON(this);
@@ -321,7 +321,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
                 this->field_0x86.HALF.LO = 0;
                 sub_080408EC(this);
                 SoundReq(SFX_14C);
-                sub_08080964(0x1e, 4);
+                InitScreenShake(0x1e, 4);
             } else {
                 if (this->field_0xf != 0) {
                     if (--this->field_0xf == 0) {
@@ -341,7 +341,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
                 this->field_0x86.HALF.LO = 0;
                 sub_080408EC(this);
             } else {
-                if (((this->actionDelay & 1) != 0) && (pEVar3 = CreateObject(0x9b, 1, 0xff), pEVar3 != NULL)) {
+                if (((this->actionDelay & 1) != 0) && (pEVar3 = CreateObject(OBJECT_9B, 1, 0xff), pEVar3 != NULL)) {
                     pEVar3->parent = this;
                     CopyPosition(this, pEVar3);
                     pEVar3->x.HALF.HI += (Random() & 0xf) - 7;
@@ -379,7 +379,7 @@ void VaatiTransfiguredType0Action4(Entity* this) {
             }
             break;
         case 1:
-            if (sub_08003FC4(this, 0x2800) != 0)
+            if (GravityUpdate(this, 0x2800) != 0)
                 break;
             this->field_0x80.HALF.LO += 1;
             switch (this->cutsceneBeh.HALF.LO) {
@@ -399,7 +399,7 @@ void VaatiTransfiguredType0Action4(Entity* this) {
                 this->field_0xf = 1;
             }
             SoundReq(SFX_14C);
-            sub_08080964(0x1e, 4);
+            InitScreenShake(0x1e, 4);
             break;
         case 2:
             if (--this->actionDelay == 0) {
@@ -1069,7 +1069,7 @@ void sub_080409B0(Entity* this) {
         }
     } else {
         if (((this->bitfield & 0x80) != 0) && (0 < this->iframes)) {
-            sub_08080964(0xc, 1);
+            InitScreenShake(0xc, 1);
             SoundReq(SFX_BOSS_HIT);
         }
         if ((this->bitfield == 0x8a) && (gPlayerState.field_0xa0[0] == 5)) {

@@ -1,7 +1,7 @@
 @ Outro NPC4E DHC Fix Sanctuary entrance
 SCRIPT_START script_Npc4ESanctuaryEntrance
 	BeginBlock
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
 	SetEntityPositionRelative 0x0088, 0x0148
 	Call sub_0807F844

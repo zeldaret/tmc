@@ -90,52 +90,52 @@ gUnk_0811C118:: @ 0811C118
 	.incbin "data_0811BE38/gUnk_0811C118.bin"
 
 gUnk_0811C120:: @ 0811C120
-	.4byte nullsub_112
-	.4byte sub_08074200
+	.4byte SurfaceAction_DoNothing
+	.4byte SurfaceAction_Pit
 	.4byte 00000000
 	.4byte 00000000
-	.4byte sub_0807422C
-	.4byte sub_08074238
-	.4byte sub_080742AC
-	.4byte sub_080742E4
-	.4byte sub_08074314
-	.4byte sub_08074338
-	.4byte sub_0807435C
-	.4byte sub_08074380
-	.4byte sub_08074638
-	.4byte sub_08074B4C
-	.4byte sub_08074B74
-	.4byte sub_08074BA0
-	.4byte sub_08074BCC
-	.4byte sub_08074678
-	.4byte nullsub_112
-	.4byte nullsub_112
-	.4byte sub_080743D4
-	.4byte sub_0807441C
-	.4byte sub_0807450C
-	.4byte sub_08074584
-	.4byte sub_080745B4
-	.4byte sub_0807479C
-	.4byte sub_080748C4
-	.4byte sub_080748DC
-	.4byte sub_08074918
+	.4byte SurfaceAction_SlopeGndGndVertical
+	.4byte SurfaceAction_SlopeGndGndHorizontal
+	.4byte SurfaceAction_6
+	.4byte SurfaceAction_7
+	.4byte SurfaceAction_MinishDoorFront
+	.4byte SurfaceAction_MinishDoorBack
+	.4byte SurfaceAction_A
+	.4byte SurfaceAction_B
+	.4byte SurfaceAction_SlopeGndWater
+	.4byte SurfaceAction_D
+	.4byte SurfaceAction_E
+	.4byte SurfaceAction_F
+	.4byte SurfaceAction_10
+	.4byte SurfaceAction_Swamp
+	.4byte SurfaceAction_DoNothing
+	.4byte SurfaceAction_DoNothing
+	.4byte SurfaceAction_14
+	.4byte SurfaceAction_CloneTile
+	.4byte SurfaceAction_16
+	.4byte SurfaceAction_Ice
+	.4byte SurfaceAction_ShallowWater
+	.4byte SurfaceAction_Water
+	.4byte SurfaceAction_Button
+	.4byte SurfaceAction_1B
+	.4byte SurfaceAction_1C
 	.4byte 00000000
-	.4byte sub_0807496C
+	.4byte SurfaceAction_Ladder
 	.4byte 00000000
-	.4byte sub_08074A48
-	.4byte sub_0807450C
-	.4byte nullsub_504
-	.4byte sub_080742AC
-	.4byte sub_080742AC
-	.4byte sub_08074A9C
-	.4byte sub_08074AF4
-	.4byte sub_08074B18
-	.4byte sub_0807422C
-	.4byte sub_08074238
-	.4byte sub_080749D4
-	.4byte sub_0807493C
-	.4byte sub_080749A8
-	.4byte sub_08074A9C
+	.4byte SurfaceAction_20
+	.4byte SurfaceAction_16
+	.4byte SurfaceAction_22
+	.4byte SurfaceAction_6
+	.4byte SurfaceAction_6
+	.4byte SurfaceAction_Dust
+	.4byte SurfaceAction_26
+	.4byte SurfaceAction_Hole
+	.4byte SurfaceAction_SlopeGndGndVertical
+	.4byte SurfaceAction_SlopeGndGndHorizontal
+	.4byte SurfaceAction_AutoLadder
+	.4byte SurfaceAction_ClimbWall
+	.4byte SurfaceAction_2C
+	.4byte SurfaceAction_Dust
 
 gUnk_0811C1D8:: @ 0811C1D8
 	.4byte gUnk_0811C240

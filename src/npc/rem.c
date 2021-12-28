@@ -131,7 +131,7 @@ void sub_0806A550(Entity* this) {
     } else {
         if (this->frame == 1) {
             this->frame = 0;
-            sub_08080964(8, 2);
+            InitScreenShake(8, 2);
             gActiveScriptInfo.syncFlags |= 0x100;
             SoundReq(SFX_CHEST_OPEN);
         }

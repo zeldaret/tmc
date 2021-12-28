@@ -1,7 +1,7 @@
 @ Player at Rem
 SCRIPT_START script_PlayerAtRem
 	BeginBlock
-	_0807EB44 0x0006
+	SetAnimationState 0x0006
 	SetEntitySpeed 0x0140
 	EndBlock
 	_0807EDD4 0x00a8, 0x0060

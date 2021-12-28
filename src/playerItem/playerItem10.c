@@ -2,6 +2,7 @@
 #include "player.h"
 #include "functions.h"
 #include "asm.h"
+#include "object.h"
 
 extern void (*const gUnk_0812AA80[])(Entity*);
 
@@ -115,7 +116,7 @@ void sub_080ACC78(Entity* this) {
         }
         o = sub_08008782(this, 0xe, puVar8[*(u32*)&this->field_0x74], puVar8[*(u32*)&this->field_0x74 + 1]);
         if (o != NULL) {
-            child = CreateObject(0x11, o->type, o->type2);
+            child = CreateObject(OBJECT_11, o->type, o->type2);
             if (child != NULL) {
                 child->actionDelay = o->actionDelay;
                 child->x.HALF.HI = puVar8[*(u32*)&this->field_0x74] + this->x.HALF.HI;
@@ -136,7 +137,7 @@ void sub_080ACC78(Entity* this) {
     } else {
         this->field_0x70.WORD = gUnk_0812AABC[this->type];
     }
-    child = CreateObject(0x17, 0, 0);
+    child = CreateObject(OBJECT_17, 0, 0);
     if (child == NULL) {
         return;
     }

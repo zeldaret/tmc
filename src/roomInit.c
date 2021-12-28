@@ -1010,7 +1010,7 @@ void sub_0804BF38(u32 arg0, struct_0804BF38* arg1)
     }
   }
 
-  sub_08080964(gUnk_080D8E50[iVar3].shakeTime, gUnk_080D8E50[iVar3].shakeMag);
+  InitScreenShake(gUnk_080D8E50[iVar3].shakeTime, gUnk_080D8E50[iVar3].shakeMag);
   SoundReq(gUnk_080D8E50[iVar2].sfx);
 }
 #else
@@ -4819,7 +4819,7 @@ void sub_StateChange_HouseInteriors2_LinksHouseBedroom(void) {
         gArea.musicIndex = gArea.pMusicIndex;
         SoundReq(SONG_PLAY_VOL_RESET | BGM_MINISH_CAP);
     }
-    if ((gPlayerState.flags & 8) == 0) {
+    if ((gPlayerState.flags & PL_NO_CAP) == 0) {
         LoadRoomEntityList(&gUnk_080F31D8);
     }
 }
@@ -4901,8 +4901,8 @@ void sub_StateChange_HouseInteriors4_Mayor(void) {
     if (!GetInventoryValue(ITEM_FLIPPERS) && CheckGlobalFlag(MIZUKAKI_START) && !GetInventoryValue(ITEM_QST_BOOK3)) {
         LoadRoomEntityList(&gUnk_080F3A48);
     }
-    gScreenTransition.player_status.field_0x20 = 0xf28;
-    gScreenTransition.player_status.field_0x22 = 0x82d;
+    gScreenTransition.player_status.overworld_map_x = 0xf28;
+    gScreenTransition.player_status.overworld_map_y = 0x82d;
 }
 
 extern u32 Enemies_LakeHylia_Main;

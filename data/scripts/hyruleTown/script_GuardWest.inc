@@ -1,7 +1,7 @@
 @ Hyrule Town Guard west
 SCRIPT_START script_GuardWest
 	BeginBlock
-	_0807EB44 0x0002
+	SetAnimationState 0x0002
 	_0807E9D4
 	CallWithArg sub_0807F3D8, 0x00000008
 	Call sub_080644A4
@@ -73,8 +73,8 @@ script_0800FFCC:
 .endif
 .endif
 .endif
-	_0807E864
-	_0807EB74
+	SetPlayerIdle
+	FacePlayer
 	CallWithArg sub_0807F3D8, 0x00000008
 	CheckInventory1 0x0048
 	JumpIf script_0800FFF8
@@ -105,19 +105,19 @@ script_0801000A:
 	Jump script_08010060
 script_08010014:
 	EndBlock
-	_0807E888
-	Call sub_0807F594
-	_0807E864
-	_0807EB74
+	DisablePlayerControl
+	Call WaitForPlayerIdle
+	SetPlayerIdle
+	FacePlayer
 	CallWithArg sub_0807F3D8, 0x00000008
 	PlaySound SFX_TASK_COMPLETE
 	MessageNoOverlap 0x340a
 	WaitUntilTextboxCloses
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	CallWithArg sub_0807F3D8, 0x0000000c
 	SetEntitySpeed 0x0100
 	_0807EDD4 0x0018, 0x0108
-	_0807EB44 0x0002
+	SetAnimationState 0x0002
 	CallWithArg sub_0807F3D8, 0x00000008
 .ifdef JP
 	SetLocalFlag 0x00cb
@@ -135,26 +135,26 @@ script_08010014:
 script_08010060:
 	Call sub_080644A4
 	CallWithArg sub_0807F5B0, 0x0000000a
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800FF92
 	.2byte 0x0000
 	BeginBlock
 	_0807E9D4
 	DoPostScriptAction 0x000a
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	CallWithArg sub_080672B0, 0x00000000
 	EndBlock
 script_08010090:
 	CheckEntityInteractType
 	JumpIfNot script_08010090
-	_0807E864
-	_0807EB74
+	SetPlayerIdle
+	FacePlayer
 	CallWithArg sub_080672B0, 0x00000004
 	MessageFromTarget 0x0a01
 	WaitUntilTextboxCloses
 	Wait 0x000f
-	_0807E878
-	_0807EB44 0x0004
+	EnablePlayerControl
+	SetAnimationState 0x0004
 	CallWithArg sub_080672B0, 0x00000000
 	Jump script_08010090
 	DoPostScriptAction 0x0006

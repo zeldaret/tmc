@@ -133,7 +133,7 @@ void sub_08021984(Entity* this) {
         EnqueueSFX(0x12d);
     }
 
-    if (sub_08003FC4(this, 0x1800) == 0) {
+    if (GravityUpdate(this, 0x1800) == 0) {
         this->action = 2;
         this->actionDelay = 16;
         this->field_0xf = 1;
@@ -200,7 +200,7 @@ void sub_08021AD8(Entity* this) {
             EnqueueSFX(0x7c);
         }
         sub_080AEFE0(this);
-        if (!sub_08003FC4(this, 0x1800))
+        if (!GravityUpdate(this, 0x1800))
             this->frameDuration = 1;
     }
 
@@ -213,7 +213,7 @@ void sub_08021AD8(Entity* this) {
 }
 
 void sub_08021B64(Entity* this) {
-    if (gPlayerState.flags & 4) {
+    if (gPlayerState.flags & PL_DROWNING) {
         this->action = 3;
         this->z.WORD = 0;
         InitializeAnimation(this, 2);
@@ -259,7 +259,7 @@ void sub_08021C58(Entity* this) {
     GetNextFrame(this);
     if (this->frame & 1) {
         sub_080AEFE0(this);
-        if (sub_08003FC4(this, 0x1800) == 0)
+        if (GravityUpdate(this, 0x1800) == 0)
             this->frameDuration = 1;
     }
 

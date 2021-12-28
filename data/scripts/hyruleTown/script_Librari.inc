@@ -2,16 +2,16 @@
 SCRIPT_START script_Librari
 	BeginBlock
 	DoPostScriptAction 0x000a
-	_0807EB44 0x0004
-	_0807E930 0x0000
+	SetAnimationState 0x0004
+	SetAnimation 0x0000
 	EndBlock
 script_0800E974:
 	CheckEntityInteractType
 	JumpIfNot script_0800E974
-	_0807E864
-	_0807E930 0x0008
-	Call sub_0807F2D4
-	_0807E930 0x0009
+	SetPlayerIdle
+	SetAnimation 0x0008
+	Call WaitForFrameHiBit
+	SetAnimation 0x0009
 	Call sub_0806B260
 	JumpIfNot script_0800E9E4
 	WaitUntilTextboxCloses
@@ -21,11 +21,11 @@ script_0800E974:
 	DoPostScriptAction 0x000a
 	MessageFromTarget 0x4a24
 	WaitUntilTextboxCloses
-	_0807E930 0x000a
+	SetAnimation 0x000a
 	Wait 0x0014
 	MessageFromTarget 0x4a25
 	WaitUntilTextboxCloses
-	_0807E930 0x0000
+	SetAnimation 0x0000
 	StartPlayerScript script_PlayerActivatedTrapCard
 	WaitForSyncFlagAndClear 0x00000001
 	SetLocalFlag 0x0074
@@ -37,6 +37,6 @@ script_0800E974:
 script_0800E9E4:
 	WaitUntilTextboxCloses
 	Wait 0x000f
-	_0807E878
-	_0807E930 0x0000
+	EnablePlayerControl
+	SetAnimation 0x0000
 	Jump script_0800E974

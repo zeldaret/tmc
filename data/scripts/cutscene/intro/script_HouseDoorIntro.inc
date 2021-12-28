@@ -11,7 +11,7 @@ SCRIPT_START script_HouseDoorIntro
 	PlaySound SFX_F1
 	DoPostScriptAction 0x0007
 	Wait 0x005a
-	_0807E778 0x0004
+	SetFadeTime 0x0004
 	@ Circle transition
 	_0807E80C 0x00000000
 	WaitForFadeFinish @ Wait for end of transition

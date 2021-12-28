@@ -197,7 +197,7 @@ sub_0809DB14: @ 0x0809DB14
 	adds r4, r0, #0
 	bl sub_0809E1F0
 	adds r0, r4, #0
-	bl sub_080040A8
+	bl CheckOnScreen
 	adds r5, r0, #0
 	cmp r5, #0
 	bne _0809DB36
@@ -586,7 +586,7 @@ sub_0809DDE4: @ 0x0809DDE4
 	adds r0, r4, #0
 	bl sub_0809E210
 	adds r0, r4, #0
-	bl sub_080040A8
+	bl CheckOnScreen
 	adds r5, r0, #0
 	cmp r5, #0
 	bne _0809DE2A
@@ -814,7 +814,7 @@ _0809DFD6:
 sub_0809DFE0: @ 0x0809DFE0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080040A8
+	bl CheckOnScreen
 	cmp r0, #0
 	bne _0809E028
 	ldr r1, [r4, #0x54]

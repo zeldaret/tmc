@@ -3,15 +3,15 @@ SCRIPT_START script_Pita
 	BeginBlock
 	_0807E9D4
 	DoPostScriptAction 0x000a
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	EndBlock
 script_080106BE:
 	CheckEntityInteractType
 	JumpIfNot script_080106BE
-	_0807E864
-	_0807EB74
-	Call sub_0807F2D4
+	SetPlayerIdle
+	FacePlayer
+	Call WaitForFrameHiBit
 	DoPostScriptAction 0x0000
 	HasRoomItemForSale
 	JumpIf script_080106E0
@@ -39,7 +39,7 @@ script_08010724:
 	WaitPlayerGetItem
 script_08010726:
 	WaitUntilTextboxCloses
-	_0807E878
+	EnablePlayerControl
 	DoPostScriptAction 0x0001
 	Jump script_080106BE
 	.2byte 0x0000

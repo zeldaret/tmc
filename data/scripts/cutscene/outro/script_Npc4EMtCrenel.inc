@@ -1,7 +1,7 @@
 @ Outro NPC4E Mt. Crenel
 SCRIPT_START script_Npc4EMtCrenel
 	BeginBlock
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
 	SetEntityPositionRelative 0x0128, 0x0058
 	Call sub_0807F844

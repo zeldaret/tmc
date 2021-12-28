@@ -2,7 +2,7 @@
 @ Reponsible for Kinstone cutscenes
 SCRIPT_START script_Npc4EFirstCloud
 	BeginBlock
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x000b
 	DoPostScriptAction 0x0008
 	Call sub_0806DAAC
@@ -16,10 +16,10 @@ script_0800D636:
 	Call sub_0806DAAC
 	JumpIf script_0800D650
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800D636
 script_0800D650:
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
 	Call sub_0807FBC4
 	Call sub_0807FBA0

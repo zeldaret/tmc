@@ -8,11 +8,11 @@ SCRIPT_START script_KidIntro1
 script_0800F592:
 	CheckEntityInteractType
 	JumpIfNot script_0800F592
-	_0807E864
-	_0807EB74
+	SetPlayerIdle
+	FacePlayer
 	Call sub_0806265C
 	WaitUntilTextboxCloses
-	_0807E878
+	EnablePlayerControl
 	DoPostScriptAction 0x0001
 	Jump script_0800F592
 	.2byte 0x0000

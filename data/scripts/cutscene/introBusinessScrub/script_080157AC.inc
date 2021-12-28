@@ -2,20 +2,20 @@
 SCRIPT_START script_080157AC
 	CheckPlayerInRegion 0x01f8, 0x0310, 0x2020
 	JumpIfNot script_080157AC
-	_0807E864
-	Call sub_0807F9A4
+	SetPlayerIdle
+	Call WaitForPlayerNormal
 	Call sub_0807DF28
 	SetSyncFlag 0x00000001
 	WaitForSyncFlagAndClear 0x00000002
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 script_080157DA:
 	CheckPlayerInRegion 0x0250, 0x0230, 0x3040
 	JumpIfNot script_080157DA
-	_0807E864
-	Call sub_0807F9A4
+	SetPlayerIdle
+	Call WaitForPlayerNormal
 	Call sub_0807DF28
-	Call sub_0807F3F8
+	Call CreatePlayerExclamationMark
 	Wait 0x003c
 	SetSyncFlag 0x00000001
 	WaitForSyncFlagAndClear 0x00000002
@@ -23,7 +23,7 @@ script_080157DA:
 	_0807F0B4 0x0001
 	SetEntityPositionRelative 0x0248, 0x0218
 	CameraTargetEntity
-	Call sub_0807F5C0
+	Call WaitForCameraTouchRoomBorder
 	WaitForSyncFlagAndClear 0x00000010
 	SetSyncFlag 0x00000008
 	WaitForSyncFlagAndClear 0x00000020
@@ -38,7 +38,7 @@ script_080157DA:
 	SetSyncFlag 0x00000001
 	WaitForSyncFlagAndClear 0x00000002
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	Call sub_08066F94
 	SetSyncFlag 0x00000008
 script_08015880:
@@ -48,7 +48,7 @@ script_08015888:
 	WaitUntilTextboxCloses
 	ComparePlayerAction 0x001c
 	JumpIf script_08015888
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
 	_0807F0B4 0x0002
 	SetEntityPositionRelative 0x0248, 0x0208
@@ -79,7 +79,7 @@ script_08015888:
 .endif
 	Call sub_08066FB8
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	_0807F0B4 0x0004
 	CameraTargetPlayer
 	DoPostScriptAction 0x0006

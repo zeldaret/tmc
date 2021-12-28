@@ -7,8 +7,8 @@ SCRIPT_START script_Npc4EFirstKinstone
 script_0800F09A:
 	CheckPlayerInRegion 0x01f8, 0x0338, 0x1030
 	JumpIfNot script_0800F09A
-	_0807E864
-	Call sub_0807F9A4
+	SetPlayerIdle
+	Call WaitForPlayerNormal
 	Call sub_0807DF28
 	LoadRoomEntityList gUnk_080EE8AC
 	StartPlayerScript script_PlayerAtFirstKinstone
@@ -30,19 +30,19 @@ script_0800F09A:
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000002
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	WaitForSyncFlagAndClear 0x00000040
 script_0800F11A:
 	CheckKinstoneFused 0x0032
 	JumpIfNot script_0800F11A
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
 	SetSyncFlag 0x0000001e
 	Wait 0x003c
 	_0807E8E4_1
 	WaitForSyncFlagAndClear 0x000003c0
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END
 	.2byte 0x0000

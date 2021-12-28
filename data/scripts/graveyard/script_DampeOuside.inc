@@ -20,8 +20,8 @@ script_08009646:
 script_08009660:
 	CheckEntityInteractType
 	JumpIfNot script_08009660
-	_0807E864
-	_0807EB74
+	SetPlayerIdle
+	FacePlayer
 	DoPostScriptAction 0x0001
 	Call sub_0806BEC8
 	WaitUntilTextboxCloses
@@ -31,6 +31,6 @@ script_08009660:
 	_0807F078 0x003c, 0x0002
 	Call sub_0806BEFC
 script_0800968E:
-	_0807E878
+	EnablePlayerControl
 	DoPostScriptAction 0x0000
 	Jump script_08009660

@@ -13,8 +13,8 @@ script_0800C5D6:
 	Jump script_0800C5D6
 script_0800C5EA:
 	EndBlock
-	_0807E864
+	SetPlayerIdle
 	Call sub_08060270
 	WaitUntilTextboxCloses
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800C5D6

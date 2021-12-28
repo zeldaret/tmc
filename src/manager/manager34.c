@@ -39,11 +39,11 @@ void sub_0805DBF0(Manager34* this) {
         sub_0805DC70();
     } else {
         if (this->field_0x20 == 0x78) {
-            sub_08080964(0x78, 2);
+            InitScreenShake(0x78, 2);
         } else if (this->field_0x20 == 0xd2) {
-            sub_08080964(0x5a, 1);
+            InitScreenShake(0x5a, 1);
         } else if (this->field_0x20 == 0x12c) {
-            sub_08080964(0x5a, 0);
+            InitScreenShake(0x5a, 0);
         }
 
         if (this->field_0x20 < 0x78) {

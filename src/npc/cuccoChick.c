@@ -74,7 +74,7 @@ void CuccoChick_Fusion(Entity* this) {
         this->spriteSettings.draw = 1;
         this->frameIndex = 1;
     } else {
-        if (sub_08003FC4(this, 0x3000) == 0) {
+        if (GravityUpdate(this, 0x3000) == 0) {
             this->zVelocity = 0x10000;
         }
     }

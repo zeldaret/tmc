@@ -7,6 +7,7 @@
 #include "functions.h"
 #include "enemy.h"
 #include "effects.h"
+#include "object.h"
 
 extern u8 gCollidableCount;
 extern u8 gUnk_080B3740[];
@@ -30,7 +31,7 @@ extern ColSettings gCollisionMtx[173 * 34];
 
 extern void gDoCollision(void);
 u32 sub_08081420(Entity*);
-extern void sub_0800449C(Entity*, u32);
+extern void SoundReqClipped(Entity*, u32);
 s32 sub_08018308(Entity*, Entity*, u32, ColSettings*);
 void sub_08079D84(void);
 void sub_080180BC(Entity*, Entity*);
@@ -59,7 +60,7 @@ void CollisionMain(void) {
     if (gPriorityHandler.sys_priority <= gPriorityHandler.ent_priority)
         prio = gPriorityHandler.ent_priority;
 
-    // if any min priority is set, dont do collision
+    // if any priority is set, dont do collision
     if (prio)
         return;
 
@@ -234,7 +235,7 @@ s32 sub_08017874(Entity* a, Entity* b) {
         if (newDmg <= 0)
             newDmg = 1;
         v5 = ModHealth(-newDmg);
-        sub_0800449C(a, 122);
+        SoundReqClipped(a, 122);
     } else {
         v6 = b->damage;
         if (b->kind == 8) {
@@ -250,9 +251,9 @@ s32 sub_08017874(Entity* a, Entity* b) {
         v5 = a->health - v6;
         if (a->kind == 3) {
             if ((a->field_0x6c.HALF.HI & 1) != 0)
-                sub_0800449C(a, 295);
+                SoundReqClipped(a, 295);
             else
-                sub_0800449C(a, 254);
+                SoundReqClipped(a, 254);
         }
     }
     if (v5 <= 0) {
@@ -304,7 +305,7 @@ void sub_080179EC(Entity* a1, Entity* a2) {
 Entity* sub_08017A90(Entity* a1, Entity* parent) {
     Entity* e;
 
-    e = (Entity*)CreateObject(153, 0, 0);
+    e = (Entity*)CreateObject(OBJECT_99, 0, 0);
     if (e != NULL) {
         e->animationState = (a1->direction >> 3) & 3;
         e->spriteOffsetX = a1->x.HALF.HI - parent->x.HALF.HI;
@@ -391,11 +392,11 @@ s32 sub_08017B58(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 }
 
 s32 sub_08017BBC(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
-    if ((gPlayerState.flags & (0x1 | 0x80 | 0x400 | 0x1000)) == 0) {
-        Entity* e = CreateObject(66, 1, 0);
+    if ((gPlayerState.flags & (PL_BUSY | PL_MINISH | PL_BURNING | 0x1000)) == 0) {
+        Entity* e = CreateObject(OBJECT_42, 1, 0);
         if (e != NULL) {
             e->child = org;
-            gPlayerState.flags |= 0x400;
+            gPlayerState.flags |= PL_BURNING;
             org->animationState = (direction ^ 0x10) >> 2;
         }
     }
@@ -410,12 +411,12 @@ s32 sub_08017BBC(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 }
 
 s32 sub_08017C40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
-    if ((gPlayerState.flags & (0x1 | 0x80 | 0x800 | 0x1000)) == 0 && gPlayerState.playerAction == 0) {
+    if ((gPlayerState.flags & (PL_BUSY | PL_MINISH | PL_FROZEN | 0x1000)) == 0 && gPlayerState.queued_action == 0) {
         if (org->action == 1 || org->action == 24) {
             tgt->damage = 4;
             org->health = sub_08017874(org, tgt);
-            gPlayerState.flags = 0x800;
-            gPlayerState.playerAction = 13;
+            gPlayerState.flags = PL_FROZEN;
+            gPlayerState.queued_action = PLAYER_FROZEN;
         }
     }
     org->knockbackDuration = 12;
@@ -534,7 +535,7 @@ s32 sub_08017F40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
         if (org == &gPlayerEntity) {
             if (sub_08079F8C() &&
 #ifdef EU
-                (gPlayerState.flags & 0x81) == 0 &&
+                (gPlayerState.flags & (PL_MINISH | PL_BUSY)) == 0 &&
 #else
                 (gPlayerState.flags & PL_MINISH) == 0 &&
 #endif
@@ -626,18 +627,18 @@ s32 sub_080180E8(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 s32 sub_08018168(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     if (tgt->field_0x43 == 0) {
         if (org == &gPlayerEntity) {
-            if (((sub_08079F8C() != 0) &&
+            if (sub_08079F8C() &&
 #ifdef EU
-                 ((gPlayerState.flags & 0x81) == 0)) &&
+                (gPlayerState.flags & (PL_MINISH | PL_BUSY)) == 0 &&
 #else
-                 ((gPlayerState.flags & 0x40080) == 0)) &&
+                (gPlayerState.flags & (PL_MINISH | PL_ROLLING)) == 0 &&
 #endif
-                (gPlayerState.swimState == 0)) {
+                gPlayerState.swimState == 0) {
                 gPlayerState.field_0x1a[0] |= 0x80;
                 gPlayerState.field_0xa |= 0x80;
                 gPlayerState.flags |= 0x100;
                 gPlayerState.jumpStatus = 0;
-                gPlayerEntity.flags &= ~0x80;
+                COLLISION_OFF(&gPlayerEntity);
                 gPlayerEntity.spriteRendering.b3 = tgt->spriteRendering.b3;
                 gPlayerEntity.spriteOrientation.flipY = tgt->spriteOrientation.flipY;
                 gPlayerEntity.iframes = 0xff;
@@ -753,7 +754,7 @@ s32 sub_08018308(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
             }
         } else if (org->id == 3) {
             if (settings->_9) {
-                sub_0800449C(tgt, 254);
+                SoundReqClipped(tgt, 254);
             }
         } else if (org->id == 5) {
             gPlayerEntity.iframes = 0x80;

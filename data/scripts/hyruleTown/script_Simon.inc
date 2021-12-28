@@ -3,34 +3,34 @@ SCRIPT_START script_Simon
 	BeginBlock
 	_0807E9D4
 	DoPostScriptAction 0x000a
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	EndBlock
 	CheckGlobalFlag 0x0050
 	JumpIfNot script_08011B84
 	WaitForSyncFlagAndClear 0x00000004
-	_0807EB44 0x0006
+	SetAnimationState 0x0006
 	DoPostScriptAction 0x0004
 	Wait 0x003c
-	_0807EB8C 
+	FaceAwayFromPlayer 
 	MessageNoOverlap 0x3d07
 	WaitUntilTextboxCloses
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	ClearGlobalFlag 0x0050
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 script_08011B84:
 	CheckEntityInteractType
 	JumpIfNot script_08011B84
-	_0807E864 
-	_0807EB74 
+	SetPlayerIdle 
+	FacePlayer 
 	MessageNoOverlap 0x3d01
 	WaitUntilTextboxCloses
 	CheckTextboxResult 
 	JumpIf script_08011BA4
 script_08011B9A:
-	_0807E878
-	_0807EB44 0x0004
+	EnablePlayerControl
+	SetAnimationState 0x0004
 	Jump script_08011B84
 script_08011BA4:
 	HasRupees 0x000a

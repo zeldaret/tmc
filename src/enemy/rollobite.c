@@ -206,7 +206,7 @@ void Rollobite_Unroll(Entity* this) {
 }
 
 void Rollobite_LinedUp(Entity* this) {
-    if (sub_08003FC4(this, 0x1c00) == 0) {
+    if (GravityUpdate(this, 0x1c00) == 0) {
         this->action = 7;
         this->spritePriority.b0 = 7;
     }

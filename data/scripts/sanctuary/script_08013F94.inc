@@ -13,15 +13,15 @@ script_08013FA4:
 	CheckPlayerFlags 0x00400000
 	JumpIfNot script_08013FA4
 	EndBlock
-	Call sub_0807FA40
-	_0807E888
+	Call WaitForPlayerNormalOrTalkEzlo
+	DisablePlayerControl
 	Call sub_0807DF38
 	Wait 0x0078
-	_0807EB28 0x1505
+	EzloMessage 0x1505
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x007d
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 script_08013FE0:
 	DoPostScriptAction 0x0006
 SCRIPT_END

@@ -132,7 +132,7 @@ _0809A85C:
 	beq _0809A87C
 	subs r0, #1
 	strb r0, [r4, #0xe]
-	ldr r0, _0809A878 @ =gUnk_03004040
+	ldr r0, _0809A878 @ =gPlayerClones
 	ldr r1, [r0]
 	cmp r1, #0
 	bne _0809A8A0
@@ -142,7 +142,7 @@ _0809A870:
 	strb r1, [r4, #0xe]
 	b _0809A8A0
 	.align 2, 0
-_0809A878: .4byte gUnk_03004040
+_0809A878: .4byte gPlayerClones
 _0809A87C:
 	adds r0, r4, #0
 	adds r0, #0x5a
@@ -241,7 +241,7 @@ _0809A92A:
 	adds r0, r4, #0
 	movs r2, #1
 	bl sub_0809AA9C
-	ldr r0, _0809A954 @ =gUnk_03004040
+	ldr r0, _0809A954 @ =gPlayerClones
 	ldr r1, [r0]
 	cmp r1, #0
 	beq _0809A94E
@@ -252,7 +252,7 @@ _0809A94E:
 	pop {r4, pc}
 	.align 2, 0
 _0809A950: .4byte gPlayerEntity
-_0809A954: .4byte gUnk_03004040
+_0809A954: .4byte gPlayerClones
 
 	thumb_func_start sub_0809A958
 sub_0809A958: @ 0x0809A958
@@ -408,7 +408,7 @@ _0809AA5C:
 	adds r1, r4, #0
 	movs r2, #1
 	bl sub_0809AA9C
-	ldr r0, _0809AA98 @ =gUnk_03004040
+	ldr r0, _0809AA98 @ =gPlayerClones
 	ldr r4, [r0]
 	cmp r4, #0
 	beq _0809AA8E
@@ -422,7 +422,7 @@ _0809AA8E:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _0809AA94: .4byte gPlayerEntity
-_0809AA98: .4byte gUnk_03004040
+_0809AA98: .4byte gPlayerClones
 
 	thumb_func_start sub_0809AA9C
 sub_0809AA9C: @ 0x0809AA9C

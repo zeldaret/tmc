@@ -226,7 +226,7 @@ sub_0803BD08: @ 0x0803BD08
 	cmp r0, #0
 	beq _0803BD2C
 	adds r0, r4, #0
-	bl sub_080040A8
+	bl CheckOnScreen
 	cmp r0, #0
 	bne _0803BD80
 	strb r0, [r4, #0xf]
@@ -290,7 +290,7 @@ sub_0803BD88: @ 0x0803BD88
 sub_0803BD90: @ 0x0803BD90
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080040A8
+	bl CheckOnScreen
 	cmp r0, #0
 	bne _0803BDC8
 	movs r0, #4
@@ -415,7 +415,7 @@ _0803BE78: .4byte gRoomControls
 sub_0803BE7C: @ 0x0803BE7C
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_080040A8
+	bl CheckOnScreen
 	adds r5, r0, #0
 	cmp r5, #0
 	bne _0803BEE6

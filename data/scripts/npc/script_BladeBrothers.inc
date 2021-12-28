@@ -1,9 +1,9 @@
 @ Blade Brothers
 SCRIPT_START script_BladeBrothers
 	BeginBlock
-	Call sub_0807F348
+	Call SetPriorityMessage
 	DoPostScriptAction 0x000a
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	EndBlock
 script_080161FE:
@@ -11,9 +11,9 @@ script_080161FE:
 script_08016204:
 	CheckEntityInteractType
 	JumpIfNot script_08016204
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
-	_0807EB74
+	FacePlayer
 	Call sub_08068CA0
 	JumpIf script_0801633E
 	Call sub_08068CFC
@@ -26,7 +26,7 @@ script_08016204:
 	JumpIfNot script_08016346
 	StartPlayerScript script_PlayerAtBladeBrothers
 	WaitForSyncFlagAndClear 0x00000001
-	_0807EB74
+	FacePlayer
 	Call sub_08068C8C
 	JumpIf script_08016262
 	Call sub_08068DE8
@@ -36,14 +36,14 @@ script_08016262:
 	Call sub_08068E00
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0001
-	Call sub_0807F2D4
+	Call WaitForFrameHiBit
 	Call sub_08068E90
 	Call sub_08068C8C
 	JumpIf script_0801631C
 	Call sub_08068F00
 	Call sub_08068F14
 	Call sub_08068BB4
-	CallWithArg sub_0807F244, 0x00010001
+	CallWithArg EquipItem, 0x00010001
 	Call sub_08068B84
 	Call sub_0807F2A8
 	Call sub_08068BD0
@@ -52,7 +52,7 @@ script_08016262:
 	WaitUntilTextboxCloses
 	Call sub_08068EB4
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 script_080162CC:
 	EndBlock
 	BeginBlock
@@ -63,17 +63,17 @@ script_080162CC:
 	Jump script_080162CC
 script_080162E4:
 	EndBlock
-	_0807E864
+	SetPlayerIdle
 	Call sub_08068E78
 	WaitUntilTextboxCloses
-	_0807E878
+	EnablePlayerControl
 	Jump script_080162CC
 script_080162F6:
 	EndBlock
-	_0807E888
-	Call sub_0807F594
+	DisablePlayerControl
+	Call WaitForPlayerIdle
 	Call sub_0807DF28
-	_0807E864
+	SetPlayerIdle
 	StopBgm
 	PlaySound SFX_TASK_COMPLETE
 	Wait 0x003c
@@ -95,8 +95,8 @@ script_0801633E:
 	WaitUntilTextboxCloses
 script_08016346:
 	Call sub_0807DF50
-	_0807E878
-	_0807EB44 0x0004
+	EnablePlayerControl
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	Jump script_080161FE
 	.2byte 0x0000

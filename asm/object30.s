@@ -127,7 +127,7 @@ _0808A924:
 _0808A926:
 	ldr r1, [r4, #0x70]
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	b _0808A962
 _0808A930:
 	ldr r2, _0808A964 @ =gUnk_08121194

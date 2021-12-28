@@ -850,7 +850,7 @@ sub_08085B40: @ 0x08085B40
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r5, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	cmp r0, #0
 	beq _08085BE8
 	ldr r1, [r5, #0x78]
@@ -930,7 +930,7 @@ _08085BE8:
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	cmp r0, #0
 	bne _08085C58
 	adds r0, r4, #0
@@ -1380,7 +1380,7 @@ sub_08085F48: @ 0x08085F48
 	ldrb r0, [r5, #0x12]
 	cmp r0, #0x17
 	bne _08085F6A
-	bl sub_08078F60
+	bl ResetPlayerVelocity
 	movs r0, #0x19
 	strb r0, [r5, #0x12]
 _08085F6A:

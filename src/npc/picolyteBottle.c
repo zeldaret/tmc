@@ -3,6 +3,7 @@
 #include "structures.h"
 #include "functions.h"
 #include "textbox.h"
+#include "object.h"
 
 extern ScreenTransitionData gUnk_0813AD4C;
 
@@ -60,7 +61,7 @@ void sub_0806DFB4(Entity* this) {
     } else {
         if (this->actionDelay != 0) {
             this->actionDelay = 0;
-            obj = CreateObject(0x35, 2, this->field_0xf);
+            obj = CreateObject(OBJECT_35, 2, this->field_0xf);
             if (obj != NULL) {
                 obj->parent = this;
                 this->child = obj;

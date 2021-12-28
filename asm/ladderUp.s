@@ -83,7 +83,7 @@ _0808D4D8:
 	movs r1, #0x80
 	lsls r1, r1, #5
 	adds r0, r7, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	cmp r0, #0
 	beq _0808D4E8
 	b _0808D642
@@ -101,7 +101,7 @@ _0808D4E8:
 _0808D4FE:
 	movs r0, #0x1e
 	movs r1, #0
-	bl sub_08080964
+	bl InitScreenShake
 	ldr r0, _0808D514 @ =0x0000010B
 	bl SoundReq
 	movs r0, #2
@@ -340,7 +340,7 @@ _0808DBE8:
 	movs r1, #0x80
 	lsls r1, r1, #5
 	adds r0, r7, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	cmp r0, #0
 	beq _0808DBF8
 	b _0808DD72
@@ -358,7 +358,7 @@ _0808DBF8:
 _0808DC0E:
 	movs r0, #0x1e
 	movs r1, #0
-	bl sub_08080964
+	bl InitScreenShake
 	ldr r0, _0808DC28 @ =0x0000010B
 	bl SoundReq
 	movs r0, #2

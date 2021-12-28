@@ -53,7 +53,7 @@ void sub_0808F0D0(Entity* this) {
 
 void sub_0808F14C(Entity* this) {
     sub_0808F2B0(this);
-    if (sub_08003FC4(this, 0x2000) == 0) {
+    if (GravityUpdate(this, 0x2000) == 0) {
         this->action++;
         SoundReq(SFX_WATER_SPLASH);
     }

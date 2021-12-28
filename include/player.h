@@ -34,7 +34,7 @@ enum PlayerActions {
     PLAYER_INHOLE,
     PLAYER_08072C9C,
     PLAYER_08074C44,
-    PLAYER_08072F34,
+    PLAYER_CLIMB,
     PLAYER_USEENTRANCE,
     PLAYER_PARACHUTE,
 };
@@ -99,12 +99,23 @@ enum PlayerFlags {
     PL_DROWNING = (1 << 2),
     PL_NO_CAP = (1 << 3),
     PL_USE_PORTAL = (1 << 5),
+    PL_HIDDEN = (1 << 6),
     PL_MINISH = (1 << 7),
+    PL_FALLING = (1 << 9),
     PL_BURNING = (1 << 10),
+    PL_FROZEN = (1 << 11),
+    PL_DRUGGED = (1 << 14),
     PL_ROLLING = (1 << 18),
+    PL_TRAPPED = (1 << 19),
     PL_IN_HOLE = (1 << 20),
+    PL_RELEASED = (1 << 21),
+    PL_CLONING = (1 << 22),
     PL_USE_LANTERN = (1 << 23),
+    PL_PARACHUTE = (1 << 24),
+    PL_MINECART = (1 << 26),
+    PL_SWORD_THRUST = (1 << 27),
     PL_USE_OCARINA = (1 << 28),
+    PL_CLIMBING = (1 << 29),
 };
 
 enum SurfaceType {
@@ -125,7 +136,7 @@ enum SurfaceType {
     SURFACE_E,
     SURFACE_F,
     SURFACE_10,
-    SURFACE_11,
+    SURFACE_SWAMP,
     SURFACE_DOOR,
     SURFACE_DOOR_13,
     SURFACE_14,
@@ -137,9 +148,9 @@ enum SurfaceType {
     SURFACE_BUTTON,
     SURFACE_1B,
     SURFACE_1C,
-    SURFACE_1D,
+    SURFACE_1D, // nulled
     SURFACE_LADDER,
-    SURFACE_1F,
+    SURFACE_1F, // nulled
     SURFACE_20,
     SURFACE_21,
     SURFACE_22,
@@ -165,7 +176,7 @@ typedef struct {
     /*0x08*/ u16 animation;
     /*0x0a*/ u8 field_0xa;
     /*0x0b*/ u8 keepFacing;
-    /*0x0c*/ u8 playerAction;
+    /*0x0c*/ u8 queued_action;
     /*0x0d*/ u8 field_0xd;
     /*0x0e*/ u8 field_0xe;
     /*0x0f*/ u8 hurtBlinkSpeed;
@@ -188,7 +199,8 @@ typedef struct {
     /*0x2c*/ Entity* item;
     /*0x30*/ u32 flags;
     /*0x34*/ u8 field_0x34[2];
-    /*0x36*/ s16 field_0x36;
+    /*0x36*/ u8 field_0x36;
+    /*0x37*/ u8 field_0x37;
     /*0x38*/ u8 field_0x38;
     /*0x39*/ u8 field_0x39;
     /*0x3a*/ u8 field_0x3a;
@@ -204,7 +216,8 @@ typedef struct {
     /*0x8b*/ u8 controlMode;
     /*0x8c*/ u16 vel_x;
     /*0x8e*/ u16 vel_y;
-    /*0x90*/ union SplitWord field_0x90;
+    /*0x90*/ u16 field_0x90;
+    /*0x92*/ u16 field_0x92;
     /*0x94*/ u32 field_0x94;
     /*0x98*/ u16 field_0x98;
     /*0x9a*/ u16 field_0x9a;

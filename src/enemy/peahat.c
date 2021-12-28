@@ -238,7 +238,7 @@ void Peahat_Stunned(Entity* this) {
             GetNextFrame(this);
             break;
         case PeahatAnimation_SlicedPropeller:
-            sub_08003FC4(this, 0x1c00);
+            GravityUpdate(this, 0x1c00);
             if (this->z.HALF.HI == 0) {
                 this->action = 7;
                 this->actionDelay = 150;
@@ -316,7 +316,7 @@ void Peahat_Takeoff(Entity* this) {
     } else if (this->frame & 1) {
         sub_0800442E(this);
     } else {
-        sub_08003FC4(this, 0x1c00);
+        GravityUpdate(this, 0x1c00);
         ProcessMovement(this);
     }
 }

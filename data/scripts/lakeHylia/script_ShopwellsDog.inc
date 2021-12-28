@@ -2,7 +2,7 @@
 SCRIPT_START script_ShopwellsDog
 	BeginBlock
 	SetEntitySpeed 0x0100
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	EndBlock
 	Wait 0x001e
 	PlaySound SFX_VO_DOG

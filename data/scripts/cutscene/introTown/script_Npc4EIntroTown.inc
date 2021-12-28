@@ -14,23 +14,23 @@ SCRIPT_START script_Npc4EIntroTown
 .endif
 .endif
 	JumpIf script_0800FA4C
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
 	SetEntityPositionRelative 0x00c8, 0x0148
 	Call sub_0807F844
-	_0807E778 0x0002
+	SetFadeTime 0x0002
 	DoFade6
 	WaitForFadeFinish
 	StartPlayerScript script_PlayerIntro1
 	SetSyncFlag 0x00000002
 	_0807F0B4 0x0001
 	SetEntityPositionRelative 0x00c8, 0x0218
-	Call sub_0807F5C0
+	Call WaitForCameraTouchRoomBorder
 	Wait 0x0064
 	@ Camera reaches center of town square
 	_0807F0B4 0x0002
 	SetEntityPositionRelative 0x00c8, 0x0368
-	Call sub_0807F5C0
+	Call WaitForCameraTouchRoomBorder
 	WaitForSyncFlagAndClear 0x00000001
 	WaitForSyncFlagAndClear 0x00000004
 	@ First message from Zelda
@@ -42,10 +42,10 @@ SCRIPT_START script_Npc4EIntroTown
 	_0807F0B4 0x0004
 	CameraTargetPlayer
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	SetSyncFlag 0x00000010
 	WaitForSyncFlagAndClear 0x00000004
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
 	StartPlayerScript script_PlayerIntro2
 	WaitForSyncFlagAndClear 0x00000001
@@ -56,9 +56,9 @@ SCRIPT_START script_Npc4EIntroTown
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	WaitForSyncFlagAndClear 0x00000004
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
 	StartPlayerScript script_PlayerIntro3
 	WaitForSyncFlagAndClear 0x00000001
@@ -69,9 +69,9 @@ SCRIPT_START script_Npc4EIntroTown
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	WaitForSyncFlagAndClear 0x00000004
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
 	StartPlayerScript script_PlayerIntro4
 	WaitForSyncFlagAndClear 0x00000001
@@ -82,16 +82,16 @@ SCRIPT_START script_Npc4EIntroTown
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	@ Wait for Link at Pina
 	WaitForSyncFlagAndClear 0x00000004
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
 	Call sub_08063C5C
 	PlaySound SFX_CUCCO_MINIGAME_BELL
 	Wait 0x001e
 	_0807E8E4_0
-	Call sub_0807F3F8
+	Call CreatePlayerExclamationMark
 	Wait 0x003c
 	MessageFromTargetPos 0x1021, 0x000e
 	WaitUntilTextboxCloses
@@ -152,7 +152,7 @@ SCRIPT_START script_Npc4EIntroTown
 	Call sub_08094E0C
 	Wait 0x001e
 	_0807E8E4_1
-	Call sub_0807F3F8
+	Call CreatePlayerExclamationMark
 	Wait 0x003c
 	MessageFromTargetPos 0x102b, 0x0000
 	WaitUntilTextboxCloses
@@ -161,7 +161,7 @@ SCRIPT_START script_Npc4EIntroTown
 	WaitPlayerGetItem
 	Call sub_0806DC3C
 	Call sub_080791BC
-	CallWithArg sub_0807F244, 0x0000000d
+	CallWithArg EquipItem, 0x0000000d
 	SetIntVariable 0x000000ff
 	Call sub_0807F5B0
 	CallWithArg sub_0807F29C, gUnk_080049D6
@@ -192,7 +192,7 @@ SCRIPT_START script_Npc4EIntroTown
 .endif
 .endif
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 script_0800FA4C:
 	DoPostScriptAction 0x0006
 SCRIPT_END

@@ -1,6 +1,7 @@
 #include "item.h"
 #include "functions.h"
 #include "audio.h"
+#include "object.h"
 
 extern void (*const gUnk_0811BD44[])(ItemBehavior*, u32);
 
@@ -36,7 +37,7 @@ void sub_08075580(ItemBehavior* this, u32 arg1) {
             this->field_0x5[2] = 0x50;
         }
         sub_08077DF4(this, 0x168);
-        CreateObject(0x43, 0, 0);
+        CreateObject(OBJECT_43, 0, 0);
         return;
     }
     sub_080759B8(this, arg1);
@@ -72,9 +73,9 @@ void sub_0807564C(ItemBehavior* this, u32 arg1) {
 
 void sub_08075694(ItemBehavior* this, u32 arg1) {
     this->field_0x5[2] = 1;
-    if ((gPlayerState.flags & 0x8000000) != 0) {
-        gPlayerState.flags &= 0xf7ffffff;
-        gPlayerState.flags &= 0xfffbffff;
+    if (gPlayerState.flags & PL_SWORD_THRUST) {
+        gPlayerState.flags &= ~PL_SWORD_THRUST;
+        gPlayerState.flags &= ~PL_ROLLING;
         sub_08077DF4(this, 300);
     } else {
         gPlayerState.field_0xab = 1;
@@ -86,7 +87,7 @@ void sub_08075694(ItemBehavior* this, u32 arg1) {
     gPlayerEntity.hurtType = 0x1e;
     gPlayerState.field_0x1a[1] |= 0x40;
     gPlayerState.field_0x1a[1] &= 0xdf;
-    if ((gPlayerState.field_0xa0[0] == 0x04) && ((gPlayerState.flags & 0x400000) == 0)) {
+    if ((gPlayerState.field_0xa0[0] == 0x04) && ((gPlayerState.flags & PL_CLONING) == 0)) {
         gPlayerState.field_0xa0[0] = 0x01;
         sub_0807A108();
     }
@@ -124,7 +125,7 @@ void sub_080759B8(ItemBehavior* this, u32 arg1) {
     if ((gPlayerState.flags & PL_MINISH) == 0) {
         gPlayerEntity.hurtType = 0;
     }
-    gPlayerState.flags &= 0xf7ffffff;
+    gPlayerState.flags &= ~PL_SWORD_THRUST;
     gPlayerState.field_0x1a[1] = 0;
     gPlayerState.item = NULL;
     sub_08077E78(this, arg1);

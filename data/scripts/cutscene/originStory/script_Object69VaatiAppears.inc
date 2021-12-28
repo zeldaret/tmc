@@ -7,8 +7,8 @@ SCRIPT_START script_Object69VaatiAppears
 script_08014FCC:
 	CheckPlayerInRegion 0x01f8, 0x00a0, 0x2040
 	JumpIfNot script_08014FCC
-	_0807E864
-	Call sub_0807F9A4
+	SetPlayerIdle
+	Call WaitForPlayerNormal
 	Call sub_0807DF28
 	StopBgm
 	_0807F0B4 0x0001
@@ -17,24 +17,24 @@ script_08014FCC:
 	WaitForSyncFlagAndClear 0x00000001
 	MessageFromTargetPos 0x1301, 0x0002
 	WaitUntilTextboxCloses
-	Call sub_0807F3F8
+	Call CreatePlayerExclamationMark
 	Wait 0x003c
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004
 	PlayBgm BGM_VAATI_THEME
-	_0807EB28 0x1302
+	EzloMessage 0x1302
 	WaitUntilTextboxCloses
 	MessageFromTargetPos 0x1303, 0x0002
 	WaitUntilTextboxCloses
-	_0807EB28 0x1304
+	EzloMessage 0x1304
 	WaitUntilTextboxCloses
 	MessageFromTargetPos 0x1305, 0x0002
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004
-	_0807EB28 0x1306
+	EzloMessage 0x1306
 	WaitUntilTextboxCloses
 	StopBgm
 	StartPlayerScript script_PlayerTryToFollowVaati
@@ -71,13 +71,13 @@ script_08014FCC:
 	LoadRoomEntityList gUnk_080F7FC0
 	PlayBgm BGM_FIGHT_THEME
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 script_08015104:
 	CheckRoomFlag 0x0000
 	JumpIfNot script_08015104
 	@ Defeated Moblins
-	_0807E864
-	Call sub_0807F9A4
+	SetPlayerIdle
+	Call WaitForPlayerNormal
 	Call sub_0807DF28
 	StopBgm
 	StartPlayerScript script_PlayerDefeatedMoblins
@@ -120,35 +120,35 @@ script_08015104:
 .endif
 .endif
 .endif
-	_0807EB28 0x130c
+	EzloMessage 0x130c
 	WaitUntilTextboxCloses
 	@ Ezlo cutscene starts
 	CameraTargetPlayer
-	_0807E778 0x0004
+	SetFadeTime 0x0004
 	_0807E80C 0x00000000
 	WaitForFadeFinish
 	Call sub_08053B3C
 	BeginBlock
-	_0807E864
-	CallWithArg sub_0807F6E8, 0x00000008
+	SetPlayerIdle
+	CallWithArg SetPlayerFlag, 0x00000008
 	MoveEntityToPlayer
 	_0807F0B4 0x0004
 	CameraTargetEntity
-	_0807E778 0x0100
+	SetFadeTime 0x0100
 	DoFade4
 	_0807E80C 0x00000000
 	EndBlock
 	StartPlayerScript script_PlayerSeenOriginStory
 	WaitForSyncFlagAndClear 0x00000001
 	LoadRoomEntityList gUnk_080F7CB0
-	_0807E778 0x0004
+	SetFadeTime 0x0004
 	_0807E800 0x00000000
 	WaitForFadeFinish
 	SetSyncFlag 0x00000008
 	WaitForSyncFlagAndClear 0x00000010
 	BeginBlock
 	_0807E8E4_2
-	_0807EB28 0x1315
+	EzloMessage 0x1315
 	EndBlock
 	WaitUntilTextboxCloses
 	_0807F0B4 0x0004
@@ -156,6 +156,6 @@ script_08015104:
 	Call sub_08054570
 	PlayBGM
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END

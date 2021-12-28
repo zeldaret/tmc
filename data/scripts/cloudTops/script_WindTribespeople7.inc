@@ -12,14 +12,14 @@ script_08014CAE:
 	BeginBlock
 	CheckGlobalFlag 0x0024
 	JumpIf script_08014CD4
-	_0807E30C
+	FacePlayerAndCheckDist
 	JumpIfNot script_08014CAE
 	EndBlock
-	_0807E864
-	_0807EB74
+	SetPlayerIdle
+	FacePlayer
 	Call sub_0806C90C
 	WaitUntilTextboxCloses
-	_0807E878
+	EnablePlayerControl
 	Jump script_08014CAE
 script_08014CD4:
 	DoPostScriptAction 0x0006

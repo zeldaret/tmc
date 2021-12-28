@@ -1,6 +1,6 @@
 @ After ToD OBJECT_69 Cutscene
 SCRIPT_START script_Object69AfterToD
-	_0807E864
+	SetPlayerIdle
 script_0800AFB2:
 	EndBlock
 	BeginBlock
@@ -9,11 +9,11 @@ script_0800AFB2:
 	JumpIfNot script_0800AFB2
 	EndBlock
 	Call sub_0807DF28
-	_0807EB28 0x1c04
+	EzloMessage 0x1c04
 	WaitUntilTextboxCloses
 	SetLocalFlagByBank 0x0100, 0x0004
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END
 	.2byte 0x0000

@@ -154,7 +154,7 @@ void OctorokBossProjectile_Action1(Entity* this) {
                 OctorokBossProjectile_Action2(this);
             }
             GetNextFrame(this);
-            if (sub_08003FC4(this, 0x1800) != 0) {
+            if (GravityUpdate(this, 0x1800) != 0) {
                 sub_080AE58C(this, this->direction >> 3, 0);
                 if (this->collisions == 0) {
                     sub_0806F62C(this, (s32)this->speed, (u32)this->direction);
@@ -189,7 +189,7 @@ void OctorokBossProjectile_Action1(Entity* this) {
             DeleteThisEntity();
             break;
         case 3:
-            if (sub_08003FC4(this, 0x1800) != 0) {
+            if (GravityUpdate(this, 0x1800) != 0) {
                 return;
             }
             CreateFx(this, FX_ROCK, 0);

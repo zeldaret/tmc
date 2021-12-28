@@ -137,7 +137,7 @@ void sub_0805B168(Manager1A* this) {
 u32 sub_0805B1CC(Manager1A* this) {
     u32 re = 0;
     if (CheckPlayerProximity(this->unk_20, this->unk_22, this->unk_24, this->unk_26)) {
-        if ((gPlayerState.flags & 0x4) && (gPlayerState.flags & 0x1)) {
+        if ((gPlayerState.flags & PL_DROWNING) && (gPlayerState.flags & PL_BUSY)) {
             gPlayerState.flags |= 0x8000;
         } else if (gPlayerState.flags & 0x8000) {
             re = 1;

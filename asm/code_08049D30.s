@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_08049D30
-sub_08049D30: @ 0x08049D30
+	thumb_func_start UpdateRoomTracker
+UpdateRoomTracker: @ 0x08049D30
 	push {r4, r5, r6, lr}
 	ldr r1, _08049D58 @ =gUnk_020354B0
 	ldr r0, _08049D5C @ =gUnk_02024050

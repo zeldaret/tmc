@@ -35,13 +35,13 @@ script_080098E0:
 .endif
 .endif
 .endif
-	_0807E864
-	Call sub_0807F9A4
+	SetPlayerIdle
+	Call WaitForPlayerNormal
 	Call sub_0807DF28
-	_0807EB28 0x280a
+	EzloMessage 0x280a
 	WaitUntilTextboxCloses
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 script_08009910:
 	DoPostScriptAction 0x0006
 SCRIPT_END

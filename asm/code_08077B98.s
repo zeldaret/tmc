@@ -221,8 +221,8 @@ _0807815C:
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_08078160
-sub_08078160: @ 0x08078160
+	thumb_func_start ForceSetPlayerState
+ForceSetPlayerState: @ 0x08078160
 	push {lr}
 	ldr r1, _08078178 @ =gPlayerState
 	adds r1, #0xa8
@@ -558,7 +558,7 @@ _08078418:
 	bl CreateEzloHint
 _08078420:
 	movs r0, #0x13
-	bl sub_08078160
+	bl ForceSetPlayerState
 	b _080784C4
 	.align 2, 0
 _08078428: .4byte 0x00000B65
@@ -599,7 +599,7 @@ _08078484:
 	movs r0, #7
 	strb r0, [r4, #0xc]
 	movs r0, #0x13
-	bl sub_08078160
+	bl ForceSetPlayerState
 _0807848E:
 	adds r1, r6, #0
 	adds r1, #0x39

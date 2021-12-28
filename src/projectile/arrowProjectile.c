@@ -90,7 +90,7 @@ void ArrowProjectile_Action3(Entity* this) {
 }
 
 void ArrowProjectile_Action4(Entity* this) {
-    if (sub_08003FC4(this, 0x2800) == 0) {
+    if (GravityUpdate(this, 0x2800) == 0) {
         CreateDust(this);
         DeleteThisEntity();
     } else {

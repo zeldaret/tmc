@@ -7,14 +7,14 @@ script_0801454C:
 	JumpIfNot script_0801454C
 	CheckRoomFlag 0x0000
 	JumpIfNot script_0801454C
-	_0807E864
-	_0807EB28 0x4217
+	SetPlayerIdle
+	EzloMessage 0x4217
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerWhenLeavingCarlovAlreadyPaid
 	Wait 0x0010
 	SetSyncFlag 0x00000001
 	WaitForSyncFlagAndClear 0x00000002
-	_0807E878
+	EnablePlayerControl
 	Jump script_0801454C
 SCRIPT_END
 	.2byte 0x0000

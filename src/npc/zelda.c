@@ -85,7 +85,7 @@ void sub_08066D94(Entity* this) {
     DeleteThisEntity();
 }
 
-void sub_08066DE4(Entity* this) {
+void SetZeldaFollowTarget(Entity* this) {
     Entity* pEVar1;
 
     pEVar1 = DeepFindEntityByID(7, 0x2E);
@@ -137,7 +137,7 @@ void sub_08066E80(Entity* this, ScriptExecutionContext* context) {
             break;
         case 2:
             sub_0806F62C(this, 0x100, 0x80);
-            sub_08003FC4(this, 0x2000);
+            GravityUpdate(this, 0x2000);
             if (!(this->frame & 1)) {
                 UpdateAnimationSingleFrame(this);
             }
@@ -148,7 +148,7 @@ void sub_08066E80(Entity* this, ScriptExecutionContext* context) {
         case 3:
             sub_0806F62C(this, 0x100, 0x80);
             UpdateAnimationSingleFrame(this);
-            if (sub_08003FC4(this, 0x2000) == 0) {
+            if (GravityUpdate(this, 0x2000) == 0) {
                 context->unk_18++;
                 InitAnimationForceUpdate(this, 0x1E);
             }

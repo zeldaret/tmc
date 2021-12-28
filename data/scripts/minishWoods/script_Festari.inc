@@ -3,15 +3,15 @@ SCRIPT_START script_Festari
 	BeginBlock
 	DoPostScriptAction 0x000a
 	SetEntitySpeed 0x0080
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	CheckLocalFlag 0x0082
 	JumpIfNot script_0800C650
 	OffsetEntityPosition 0x0010, 0x0000
 script_0800C650:
 	EndBlock
 script_0800C652:
-	_0807E944
-	_0807E864
+	TriggerInteract
+	SetPlayerIdle
 	Call sub_0807DF28
 	CheckLocalFlag 0x0082
 	JumpIf script_0800C684
@@ -34,7 +34,7 @@ script_0800C684:
 	Wait 0x000a
 	SetLocalFlag 0x0080
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800C652
 script_0800C6B6:
 	CheckLocalFlag 0x0081
@@ -45,7 +45,7 @@ script_0800C6B6:
 	DoPostScriptAction 0x0015
 	Wait 0x000a
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800C652
 script_0800C6DC:
 	CheckLocalFlag 0x0082
@@ -55,10 +55,10 @@ script_0800C6DC:
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0015
 	Wait 0x000a
-	_0807EB44 0x0002
+	SetAnimationState 0x0002
 	DoPostScriptAction 0x0001
-	_0807EC94 0x0020
-	_0807EB44 0x0004
+	WalkEast 0x0020
+	SetAnimationState 0x0004
 	Wait 0x000f
 	PlaySound SFX_SECRET
 	SetLocalFlag 0x0082
@@ -69,7 +69,7 @@ script_0800C712:
 	DoPostScriptAction 0x0015
 	Wait 0x000a
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800C652
 script_0800C730:
 	CheckLocalFlag 0x0083
@@ -80,7 +80,7 @@ script_0800C730:
 	DoPostScriptAction 0x0015
 	Wait 0x000a
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800C652
 script_0800C756:
 	DoPostScriptAction 0x0002
@@ -89,5 +89,5 @@ script_0800C756:
 	DoPostScriptAction 0x0015
 	Wait 0x000a
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800C652

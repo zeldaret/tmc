@@ -32,7 +32,7 @@ void sub_08033564(Entity* this) {
             this->spriteSettings.draw = FALSE;
             COLLISION_OFF(this);
             this->field_0x7c.HALF.LO = 0x27c;
-            gPlayerState.flags |= 0x4000;
+            gPlayerState.flags |= PL_DRUGGED;
             gSave.stats.effect = this->type + 1;
             gSave.stats.effectTimer = 600;
             if (this->type == 0) {

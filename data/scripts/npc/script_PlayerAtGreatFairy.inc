@@ -18,8 +18,8 @@ script_0800B7FC:
 	Jump script_0800B7EE
 	BeginBlock
 	DoPostScriptAction 0x0007
-	_0807EB44 0x0004
-	_0807E930 0x0000
+	SetAnimationState 0x0004
+	SetAnimation 0x0000
 	EndBlock
 SCRIPT_END
 	.2byte 0x0000

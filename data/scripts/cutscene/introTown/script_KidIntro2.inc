@@ -23,11 +23,11 @@ script_0800F6F4:
 	JumpIf script_0800F718
 	CheckEntityInteractType
 	JumpIfNot script_0800F6F4
-	_0807E864
-	_0807EB74
+	SetPlayerIdle
+	FacePlayer
 	Call sub_0806265C
 	WaitUntilTextboxCloses
-	_0807E878
+	EnablePlayerControl
 	DoPostScriptAction 0x0001
 	Jump script_0800F6F4
 script_0800F718:
