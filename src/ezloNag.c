@@ -41,7 +41,7 @@ void sub_0801CED8(Element* arg0) {
     register struct_0200AF00* ptr asm("r0") = &gUnk_0200AF00;
     register u8* pFuncIndex asm("r1") = &(ptr->ezloNagFuncIndex);
     if (*pFuncIndex == 1) {
-        register u8 constant_2 asm("r2") = 2; 
+        register u8 constant_2 asm("r2") = 2;
         *pFuncIndex = 2;
         arg0->unkC = 0x10;
         arg0->unkE = 0x90;
