@@ -224,6 +224,4 @@ extern void sub_080806BC(u32, u32, u32, u32);
 
 extern void LoadObjPalette(Entity*, u32);
 
-extern void sub_080ADA04(OAMCommand*, void*);
-
 #endif

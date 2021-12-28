@@ -82,4 +82,6 @@ extern BgControls gBgControls;
 extern Screen gScreen;
 extern OAMCommand gOamCmd;
 
+extern void sub_080ADA04(OAMCommand*, void*);
+
 #endif

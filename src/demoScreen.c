@@ -110,16 +110,14 @@ NONMATCH("asm/non_matching/demoScreen/sub_080A2FD0.inc", void sub_080A2FD0(void)
         val = 0;
         keys = gInput.heldKeys;
         switch (keys) {
-            case DPAD_RIGHT:
-            {
+            case DPAD_RIGHT: {
                 if (gChooseFileState.unk_0x0 == 0) {
                     val = 1;
                     gChooseFileState.unk_0x20 = 4;
                     SoundReq(SFX_TEXTBOX_CHOICE);
                 }
             }
-            case DPAD_LEFT:
-            {
+            case DPAD_LEFT: {
                 if (gChooseFileState.unk_0x0 == 0) {
                     val = -1;
                     gChooseFileState.unk_0x20 = 0xfc;
@@ -127,8 +125,7 @@ NONMATCH("asm/non_matching/demoScreen/sub_080A2FD0.inc", void sub_080A2FD0(void)
                 }
             }
             case START_BUTTON:
-            case A_BUTTON:
-            {
+            case A_BUTTON: {
                 if (gChooseFileState.unk_0x0 == 0) {
                     gMain.screen = 2;
                     gMain.funcIndex = gChooseFileState.unk_0x0;
@@ -146,13 +143,12 @@ NONMATCH("asm/non_matching/demoScreen/sub_080A2FD0.inc", void sub_080A2FD0(void)
         tmp = gSaveHeader->saveFileId;
         tmp *= 0x68;
 
-       if (tmp != tmp3) {
+        if (tmp != tmp3) {
             tmp5 = gChooseFileState.unk_0x20;
             tmp5 += tmp3;
             gChooseFileState.unk_0x10 = (tmp5 + (0x9c << 1)) % (0x9c << 1);
             unk_0x0 = 1;
-        }
-        else {
+        } else {
             unk_0x0 = 0;
         }
 
