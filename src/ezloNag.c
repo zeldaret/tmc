@@ -37,19 +37,24 @@ void EzloNag(Element* arg0) {
 extern u32 gUnk_080C9094;
 extern void sub_0801CAB8(Element*, u32*);
 
-NONMATCH("asm/non_matching/sub_0801CED8.inc", void sub_0801CED8(Element* arg0)) {
-    if (gUnk_0200AF00.ezloNagFuncIndex == 1) {
-        gUnk_0200AF00.ezloNagFuncIndex = 2;
+void sub_0801CED8(Element* arg0) {
+    register struct_0200AF00* ptr asm("r0") = &gUnk_0200AF00;
+    register u8* pFuncIndex asm("r1") = &(ptr->ezloNagFuncIndex);
+    if (*pFuncIndex == 1) {
+        register u8 constant_2 asm("r2") = 2; 
+        *pFuncIndex = 2;
         arg0->unkC = 0x10;
         arg0->unkE = 0x90;
         arg0->unk6 = 0;
         arg0->unk1 = 7;
         arg0->unk4 = 1;
-        arg0->unk0 |= 2;
+        {
+            register u8 tmp3 asm("r0") = arg0->unk0 | constant_2;
+            arg0->unk0 = tmp3;
+        }
         sub_0801CAB8(arg0, &gUnk_080C9094);
     }
 }
-END_NONMATCH
 
 void sub_0801CF18(Element* arg0) {
     u32 temp;
