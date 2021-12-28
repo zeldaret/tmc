@@ -279,8 +279,8 @@ extern ScreenTransitionData gUnk_0813AB58;
 extern ScreenTransitionData gUnk_0813AD88[];
 extern u8 gUnk_080082DC[];
 
-extern u16 script_08009ECC;
-extern u16 script_08009EF0;
+extern u16 script_BedInLinksRoom;
+extern u16 script_BedAtSimons;
 
 extern Entity* gPlayerClones[];
 extern ScriptExecutionContext gPlayerScriptExecutionContext;
@@ -3765,10 +3765,10 @@ NONMATCH("asm/non_matching/player/sub_080751E8.inc", void sub_080751E8(u32 a1, u
     gPlayerState.flags |= 8;
     if (!a1) {
         gPlayerState.field_0x39 = 0;
-        tmp = &script_08009ECC;
+        tmp = &script_BedInLinksRoom;
     } else {
         gPlayerState.field_0x39 = 1;
-        tmp = &script_08009EF0;
+        tmp = &script_BedAtSimons;
     }
     e = CreateObject(OBJECT_5B, !gPlayerState.field_0x39 ? 2 : 0, 0);
     if (e != NULL) {

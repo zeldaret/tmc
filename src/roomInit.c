@@ -390,7 +390,7 @@ u32 sub_unk3_HouseInteriors1_InnWestRoom(void) {
     return 1;
 }
 
-extern void* script_08010A5C[];
+extern void* script_PlayerSleepingInn[];
 
 void sub_StateChange_HouseInteriors1_InnWestRoom(void) {
     if (CheckLocalFlag(YADO_CHECKIN)) {
@@ -398,7 +398,7 @@ void sub_StateChange_HouseInteriors1_InnWestRoom(void) {
         DoFade(5, 256);
         gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x50;
         gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
-        sub_080751E8(1, 2, &script_08010A5C);
+        sub_080751E8(1, 2, &script_PlayerSleepingInn);
     }
 }
 
@@ -424,7 +424,7 @@ void sub_StateChange_HouseInteriors1_InnMiddleRoom(void) {
         DoFade(5, 256);
         gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x50;
         gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
-        sub_080751E8(1, 2, &script_08010A5C);
+        sub_080751E8(1, 2, &script_PlayerSleepingInn);
     }
 }
 
@@ -450,7 +450,7 @@ void sub_StateChange_HouseInteriors1_InnEastRoom(void) {
         DoFade(5, 256);
         gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x60;
         gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
-        sub_080751E8(1, 2, &script_08010A5C);
+        sub_080751E8(1, 2, &script_PlayerSleepingInn);
     }
 }
 
@@ -665,14 +665,14 @@ u32 sub_unk3_HyruleCastle_4(void) {
     return 1;
 }
 
-extern u32 script_08009E88;
+extern u32 script_PlayerWakingUpInHyruleCastle;
 
 void sub_StateChange_HyruleCastle_4(void) {
     if (!CheckLocalFlag(CASTLE_04_MEZAME)) {
         DoFade(5, 256);
         gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0xb0;
         gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x40;
-        sub_080751E8(0, 6, &script_08009E88);
+        sub_080751E8(0, 6, &script_PlayerWakingUpInHyruleCastle);
 #ifdef EU
         SoundReq(0x80010000);
         gArea.musicIndex = gArea.pMusicIndex;
@@ -4806,14 +4806,14 @@ u32 sub_unk3_HouseInteriors2_LinksHouseBedroom() {
 }
 
 extern EntityData gUnk_080F31D8;
-extern u32 script_08009B30;
+extern u32 script_PlayerIntro;
 
 void sub_StateChange_HouseInteriors2_LinksHouseBedroom(void) {
     if (!CheckGlobalFlag(START) && !CheckLocalFlag(0x46)) {
         sub_080A71C4(5, 1, 4, 4);
         gUpdateVisibleTiles = 0;
         DoFade(5, 256);
-        sub_080751E8(0, 6, &script_08009B30);
+        sub_080751E8(0, 6, &script_PlayerIntro);
     }
     if (!CheckGlobalFlag(OUTDOOR)) {
         gArea.musicIndex = gArea.pMusicIndex;
@@ -4824,12 +4824,12 @@ void sub_StateChange_HouseInteriors2_LinksHouseBedroom(void) {
     }
 }
 
-extern u32 script_08009E58;
+extern u32 script_PlayerWakeAfterRest;
 
 void sub_0804E864(void) {
     gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x90;
     gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
-    sub_080751E8(1, 6, &script_08009E58);
+    sub_080751E8(1, 6, &script_PlayerWakeAfterRest);
     ModHealth(0xa0);
 }
 
@@ -5316,14 +5316,14 @@ u32 sub_unk3_HouseInteriors3_Simon(void) {
 }
 
 extern EntityData gUnk_080F5DD0;
-extern u32 script_08011C50;
+extern u32 script_PlayerWakingUpAtSimons;
 
 void sub_StateChange_HouseInteriors3_Simon(void) {
     if (gSave.global_progress > 7) {
         LoadRoomEntityList(&gUnk_080F5DD0);
     }
     if (CheckGlobalFlag(MAROYA_WAKEUP)) {
-        sub_080751E8(1, 2, &script_08011C50);
+        sub_080751E8(1, 2, &script_PlayerWakingUpAtSimons);
     }
 }
 

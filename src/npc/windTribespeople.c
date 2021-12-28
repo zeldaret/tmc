@@ -15,7 +15,7 @@ extern void (*const gUnk_08113A7C[])(Entity*);
 extern void (*const gUnk_08113A8C[])(Entity*, ScriptExecutionContext*);
 
 extern SpriteLoadData gUnk_08113A1C[];
-extern u16 script_08014A80;
+extern u16 script_WindTribespeople6;
 extern Dialog gUnk_08113ABC[];
 extern u16 gUnk_08113B0C[];
 
@@ -64,7 +64,7 @@ void sub_0806C7D4(Entity* this) {
         sub_0807DD94(this, NULL);
         if ((this->type2 == 3) && (!CheckGlobalFlag(WARP_EVENT_END)) && (CheckLocalFlag(0x63)) && (CheckRoomFlag(0))) {
             this->type2 = 7;
-            sub_0807DD80(this, &script_08014A80);
+            sub_0807DD80(this, &script_WindTribespeople6);
         }
     }
 }

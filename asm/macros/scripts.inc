@@ -115,7 +115,7 @@
 	.4byte \entityDataList
 .endm
 
-.macro TestBit bitmask:req
+.macro CheckSyncFlagAndClear bitmask:req
 	.2byte 0x0c0e
 	.4byte \bitmask
 .endm
@@ -185,7 +185,7 @@
 	.2byte \s
 .endm
 
-.macro _0807E3E8 
+.macro CheckTextboxResult 
 	.2byte 0x041c
 .endm
 
@@ -204,7 +204,7 @@
 	.endif
 .endm
 
-.macro _0807E48C s:req
+.macro CheckBottleContaining s:req
 	.2byte 0x081f
 	.2byte \s
 .endm
@@ -247,12 +247,12 @@
 	.2byte \s
 .endm
 
-.macro _0807E5F8 w:req
+.macro SetSyncFlag w:req
 	.2byte 0x0c28
 	.4byte \w
 .endm
 
-.macro _0807E610 w:req
+.macro ClearSyncFlag w:req
 	.2byte 0x0c29
 	.4byte \w
 .endm
@@ -298,12 +298,12 @@
 	.2byte \frames
 .endm
 
-.macro WaitForSomething w:req
+.macro WaitForSyncFlag w:req
 	.2byte 0x0c32
 	.4byte \w
 .endm
 
-.macro WaitForSomething2 w:req
+.macro WaitForSyncFlagAndClear w:req
 	.2byte 0x0c33
 	.4byte \w
 .endm
@@ -320,7 +320,7 @@
 	.2byte 0x0436
 .endm
 
-.macro WaitFor_2 
+.macro WaitForFadeFinish 
 	.2byte 0x0437
 .endm
 
@@ -690,7 +690,7 @@
 	.2byte 8
 .endm
 
-.macro _0807F034 s:req
+.macro GivePlayerItem s:req
 	.2byte 0x0882
 	.2byte \s
 .endm
