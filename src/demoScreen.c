@@ -21,6 +21,10 @@ extern void gUnk_089FD2F4;
 
 extern u8 gUnk_02000006;
 
+extern u16 gUnk_08127CC8[4];
+extern void* gUnk_08127C98;
+extern u8 gUnk_08A068BF[129];
+
 void HandleChooseDemoScreen(void) {
     FlushSprites();
     demoFunctions[gMain.funcIndex]();
@@ -89,8 +93,126 @@ void sub_080A2F8C(void) {
     }
 }
 
-ASM_FUNC("asm/non_matching/demoScreen/sub_080A2FD0.inc", void sub_080A2FD0(void))
+// The condition on the left dpad is very convuluted for some reason (instead oj just an equality check).
+// This causes the entire function heirarchy to change on a whim and I couldn't quite figure out
+// the correct conditions/code to make it like the original function.
+NONMATCH("asm/non_matching/demoScreen/sub_080A2FD0.inc", void sub_080A2FD0(void)) {
+    s32 tmp;
+    u32 tmp2;
+    u32 val;
+    s32 tmp3;
+    u32 unk_0x0;
+    u32 tmp4;
+    s32 tmp5;
+    u32 keys;
 
-ASM_FUNC("asm/non_matching/demoScreen/sub_080A30AC.inc", void sub_080A30AC(void))
+    if (gFadeControl.active == 0) {
+        val = 0;
+        keys = gInput.heldKeys;
+        switch (keys) {
+            case DPAD_RIGHT: {
+                if (gChooseFileState.unk_0x0 == 0) {
+                    val = 1;
+                    gChooseFileState.unk_0x20 = 4;
+                    SoundReq(SFX_TEXTBOX_CHOICE);
+                }
+            }
+            case DPAD_LEFT: {
+                if (gChooseFileState.unk_0x0 == 0) {
+                    val = -1;
+                    gChooseFileState.unk_0x20 = 0xfc;
+                    SoundReq(SFX_TEXTBOX_CHOICE);
+                }
+            }
+            case START_BUTTON:
+            case A_BUTTON: {
+                if (gChooseFileState.unk_0x0 == 0) {
+                    gMain.screen = 2;
+                    gMain.funcIndex = gChooseFileState.unk_0x0;
+                    SoundReq(SFX_TEXTBOX_SELECT);
+                }
+            }
+        }
+        tmp = gSaveHeader->saveFileId;
+        tmp2 = val + 3;
+        tmp += tmp2;
+        gSaveHeader->saveFileId = tmp % 3;
 
-ASM_FUNC("asm/non_matching/demoScreen/sub_080A3198.inc", void sub_080A3198(u32 param_1, u32 param_2))
+        tmp3 = gChooseFileState.unk_0x10;
+
+        tmp = gSaveHeader->saveFileId;
+        tmp *= 0x68;
+
+        if (tmp != tmp3) {
+            tmp5 = gChooseFileState.unk_0x20;
+            tmp5 += tmp3;
+            gChooseFileState.unk_0x10 = (tmp5 + (0x9c << 1)) % (0x9c << 1);
+            unk_0x0 = 1;
+        } else {
+            unk_0x0 = 0;
+        }
+
+        gChooseFileState.unk_0x0 = unk_0x0;
+        sub_080A3198(gSaveHeader->saveFileId, 0);
+    }
+}
+END_NONMATCH
+
+NONMATCH("asm/non_matching/demoScreen/sub_080A30AC.inc", void sub_080A30AC(void)) {
+    u32 unk_0x10;
+    u8* ptr;
+    u8* currentPtr;
+    u32 offset;
+    u32 xoffset;
+    gOamCmd._4 = 0x2000;
+    gOamCmd._6 = 0;
+    gOamCmd._8 = 0xc00;
+    gOamCmd.y = 0x40;
+    unk_0x10 = gChooseFileState.unk_0x10;
+    gOamCmd.x = 0xFFFFFED8 - unk_0x10;
+    offset = *(u32*)gUnk_08A068BF;
+    ptr = gUnk_08A068BF - 0xc;
+    sub_080ADA04(&gOamCmd, ptr + offset);
+    // FIX: original assembly uses r1 for xoffset for no apparent reason. Could not make it compile to do the same.
+    // Maybe the original code was some sort of loop unrolling.
+    xoffset = -0xc0;
+    gOamCmd.x = xoffset - unk_0x10;
+    sub_080ADA04(&gOamCmd, ptr + *(u32*)(ptr + 4));
+    xoffset = -0x58;
+    gOamCmd.x = xoffset - unk_0x10;
+    sub_080ADA04(&gOamCmd, ptr + *(u32*)(ptr + 8));
+    xoffset = 0x10;
+    gOamCmd.x = xoffset - unk_0x10;
+    sub_080ADA04(&gOamCmd, ptr + *(u32*)(gUnk_08A068BF));
+    xoffset = 0x78;
+    gOamCmd.x = xoffset - unk_0x10;
+    sub_080ADA04(&gOamCmd, ptr + *(u32*)(ptr + 4));
+    xoffset = 0xe0;
+    gOamCmd.x = xoffset - unk_0x10;
+    sub_080ADA04(&gOamCmd, ptr + *(u32*)(ptr + 8));
+    xoffset = 0xa4 << 1;
+    gOamCmd.x = xoffset - unk_0x10;
+    sub_080ADA04(&gOamCmd, ptr + *(u32*)(gUnk_08A068BF));
+    xoffset = 0xd8 << 1;
+    gOamCmd.x = xoffset - unk_0x10;
+    sub_080ADA04(&gOamCmd, ptr + *(u32*)(ptr + 4));
+    xoffset = 0x86 << 2;
+    gOamCmd.x = xoffset - unk_0x10;
+    sub_080ADA04(&gOamCmd, ptr + *(u32*)(ptr + 8));
+}
+END_NONMATCH
+
+void sub_080A3198(u32 param_1, u32 param_2) {
+    u16 r4 = gUnk_08127CC8[param_1];
+
+    if (gChooseFileState.unk_0x12 != r4) {
+        gChooseFileState.unk_0x12 = r4;
+        MemClear(gUnk_08127C98 - 0x1e, 0x180);
+
+        if (r4 != 0) {
+            sub_0805F46C(r4, &gUnk_08127C98);
+        }
+
+        gScreen.bg0.updated = 1;
+    }
+}
