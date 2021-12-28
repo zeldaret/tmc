@@ -1380,7 +1380,7 @@ sub_08085F48: @ 0x08085F48
 	ldrb r0, [r5, #0x12]
 	cmp r0, #0x17
 	bne _08085F6A
-	bl sub_08078F60
+	bl ResetPlayerVelocity
 	movs r0, #0x19
 	strb r0, [r5, #0x12]
 _08085F6A:

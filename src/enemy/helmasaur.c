@@ -186,7 +186,7 @@ void sub_0802BE18(Entity* this) {
 void sub_0802BE48(Entity* this) {
     if (!sub_080AEFE0(this)) {
         sub_0802C218(this);
-        sub_08080964(8, 0);
+        InitScreenShake(8, 0);
     } else {
         GetNextFrame(this);
         sub_0802C1CC(this);

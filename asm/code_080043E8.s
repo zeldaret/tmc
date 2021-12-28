@@ -99,8 +99,8 @@ EnqueueSFX: @ 0x08004488
 _0800449A:
 	bx lr
 
-	thumb_func_start sub_0800449C
-sub_0800449C: @ 0x0800449C
+	thumb_func_start SoundReqClipped
+SoundReqClipped: @ 0x0800449C
 	push {r1, lr}
 	bl CheckOnScreen
 	cmp r0, #0

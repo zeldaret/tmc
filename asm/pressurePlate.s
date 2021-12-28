@@ -250,7 +250,7 @@ _080889CA:
 	ands r0, r1
 	cmp r0, #0
 	beq _08088A3A
-	ldr r6, _08088A4C @ =gUnk_03004040
+	ldr r6, _08088A4C @ =gPlayerClones
 	ldr r1, [r6]
 	adds r0, r4, #0
 	bl sub_080177A0
@@ -305,4 +305,4 @@ _08088A3A:
 _08088A40: .4byte gPlayerEntity
 _08088A44: .4byte gUnk_08120BEC
 _08088A48: .4byte gPlayerState
-_08088A4C: .4byte gUnk_03004040
+_08088A4C: .4byte gPlayerClones

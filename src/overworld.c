@@ -351,7 +351,7 @@ void InitializePlayer(void) {
     pl = &gPlayerEntity;
 
     gRoomControls.cameraTarget = pl;
-    gPlayerState.playerAction = sPlayerSpawnStates[gScreenTransition.player_status.spawn_type];
+    gPlayerState.queued_action = sPlayerSpawnStates[gScreenTransition.player_status.spawn_type];
     if (!CheckGlobalFlag(EZERO_1ST)) {
         gPlayerState.flags |= PL_NO_CAP;
     }
@@ -607,7 +607,7 @@ static u32 StairsAreValid(void) {
 
     for (i = sStairTypes; i[0] != 0; i += 2) {
         if (tgt == i[0]) {
-            gPlayerState.playerAction = 30;
+            gPlayerState.queued_action = PLAYER_USEENTRANCE;
             gPlayerState.field_0x38 = 0;
             gPlayerState.field_0x39 = i[1];
             if (!gScreenTransition.player_status.spawn_type)
@@ -666,7 +666,7 @@ u32 sub_08052B24(void) {
         gUnk_0200AF00.filler0[1])
         return 0;
 
-    if ((gPlayerState.flags & 0x118) || (gPlayerState.framestate_last > tmp) || gPlayerState.item ||
+    if ((gPlayerState.flags & (PL_NO_CAP | 0x110)) || (gPlayerState.framestate_last > tmp) || gPlayerState.item ||
         gPlayerEntity.field_0x7a.HWORD)
         return 0;
 

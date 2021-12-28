@@ -1033,7 +1033,7 @@ sub_0802647C: @ 0x0802647C
 	bne _080264A6
 	movs r0, #0x10
 	movs r1, #0
-	bl sub_08080964
+	bl InitScreenShake
 	ldr r0, _080264A8 @ =0x000001A1
 	bl SoundReq
 	adds r0, r4, #0
@@ -1561,7 +1561,7 @@ sub_0802686C: @ 0x0802686C
 _08026888:
 	movs r0, #0x10
 	movs r1, #0
-	bl sub_08080964
+	bl InitScreenShake
 	movs r0, #5
 	strb r0, [r4, #0xd]
 	adds r0, r4, #0
@@ -1852,7 +1852,7 @@ _08026A7C:
 	strh r0, [r1]
 	movs r0, #0x20
 	movs r1, #0
-	bl sub_08080964
+	bl InitScreenShake
 	ldr r0, _08026B24 @ =0x0000010B
 	bl SoundReq
 	adds r0, r6, #0
@@ -2126,7 +2126,7 @@ _08026A98:
 	strh r0, [r1]
 	movs r0, #0x20
 	movs r1, #0
-	bl sub_08080964
+	bl InitScreenShake
 	ldr r0, _08026B24 @ =0x0000010B
 	bl SoundReq
 	adds r0, r6, #0

@@ -320,7 +320,7 @@ void sub_080342C8(Entity* this) {
             this->field_0x7c.HALF.HI = 0x708;
             this->field_0x7c.BYTES.byte1 = 0;
             this->field_0x80.HALF.HI = 0;
-            sub_08080964(0x1e, 0);
+            InitScreenShake(0x1e, 0);
             SoundReq(SFX_1A1);
         }
     }

@@ -11,7 +11,7 @@ extern void (*const gUnk_080D0418[6])(Entity*);
 extern void (*const gUnk_080D0430[3])(Entity*);
 extern void (*const gUnk_080D043C[3])(Entity*);
 
-extern void sub_0800449C(Entity*, u32);
+extern void SoundReqClipped(Entity*, u32);
 extern void sub_0803CE14(Entity*);
 extern void sub_0803CE3C(Entity*);
 extern void sub_08079D84(void);
@@ -56,7 +56,7 @@ void sub_0803CD40(Entity* this) {
 
     ModHealth(-2);
 
-    sub_0800449C(&gPlayerEntity, 122);
+    SoundReqClipped(&gPlayerEntity, 122);
     sub_08079D84();
 
     sub_0803CE3C(this);

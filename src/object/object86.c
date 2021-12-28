@@ -69,7 +69,7 @@ void nullsub_534(Entity* this) {
 void sub_08099ECC(Entity* this) {
     this->subAction = 1;
     CopyPosition(this, &gPlayerEntity);
-    gPlayerState.playerAction = 3;
+    gPlayerState.queued_action = PLAYER_FALL;
     gPlayerState.field_0x34[4] = 0;
     gPlayerState.flags |= 0x8000;
 }

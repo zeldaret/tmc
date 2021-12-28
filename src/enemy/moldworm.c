@@ -1,7 +1,7 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern void sub_0800449C(Entity*, u32);
+extern void SoundReqClipped(Entity*, u32);
 extern bool32 sub_08023A38(u32);
 extern void sub_08023990(Entity*, u32, u32);
 extern void sub_08023A88(Entity*, u32);
@@ -263,7 +263,7 @@ void sub_0802351C(Entity* this) {
     if (this->field_0x7c.BYTES.byte3 == 0) {
         if (this->type2 == 0) {
             gPlayerEntity.animationState = this->animationState & 7;
-            gPlayerState.flags |= 0x80000;
+            gPlayerState.flags |= PL_TRAPPED;
             PositionRelative(this, &gPlayerEntity, 0, gUnk_080CBC90[this->animationState & 7] << 0x10);
             gPlayerEntity.spriteOffsetY = -gUnk_080CBC90[this->animationState & 7];
         }
@@ -398,14 +398,14 @@ void sub_08023894(Entity* this) {
         this->parent->field_0x7c.BYTES.byte3 = 1;
         InitializeAnimation(this, this->animationState);
         if (this->parent->type2 == 0) {
-            gPlayerState.flags |= 0x200000;
+            gPlayerState.flags |= PL_RELEASED;
             gPlayerEntity.x.HALF.HI = this->x.HALF.HI;
             gPlayerEntity.y.HALF.HI = this->y.HALF.HI;
             gPlayerEntity.direction = DirectionRoundUp(GetFacingDirection(*(Entity**)&this->field_0x74, this));
             gPlayerEntity.animationState = gPlayerEntity.direction >> 2;
             gPlayerEntity.iframes = 12;
             ModHealth(-0x10);
-            sub_0800449C(&gPlayerEntity, 0x7a);
+            SoundReqClipped(&gPlayerEntity, 0x7a);
         }
     }
 }

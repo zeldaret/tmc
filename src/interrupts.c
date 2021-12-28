@@ -21,7 +21,7 @@ extern u16* gUnk_0200B650;
 extern u8 gUpdateVisibleTiles;
 extern u8 gUnk_03003DF0[];
 extern u8 gUnk_03003BE0;
-extern Entity* gUnk_03004040[3];
+extern Entity* gPlayerClones[3];
 extern u16 gUnk_080B2CD8[];
 extern u32 gUnk_03000FBC;
 
@@ -181,16 +181,16 @@ void WaitForNextFrame(void) {
 
 void PlayerUpdate(Entity* this) {
     if (gSave.stats.effect != 0)
-        gPlayerState.flags |= 0x4000;
+        gPlayerState.flags |= PL_DRUGGED;
     else
-        gPlayerState.flags &= ~0x4000;
+        gPlayerState.flags &= ~PL_DRUGGED;
 
     if (CheckDontUpdate(this) == 0) {
-        if ((gPlayerState.flags & 0x80000) != 0) {
+        if (gPlayerState.flags & PL_TRAPPED) {
             sub_08077B20();
-            if ((gPlayerState.flags & 0x200000) != 0) {
-                gPlayerState.playerAction = PLAYER_ROLL;
-                gPlayerState.flags &= ~0x80000;
+            if (gPlayerState.flags & PL_RELEASED) {
+                gPlayerState.queued_action = PLAYER_ROLL;
+                gPlayerState.flags &= ~PL_TRAPPED;
                 gPlayerState.hurtBlinkSpeed = 240;
                 COLLISION_ON(this);
             } else {
@@ -223,10 +223,10 @@ void HandlePlayerLife(Entity* this) {
     if ((gPlayerEntity.bitfield & 0x80) && (gPlayerEntity.iframes > 0))
         SoundReq(SFX_86);
 
-    gPlayerState.flags &= ~(0x2000000 | 0x200);
+    gPlayerState.flags &= ~(0x2000000 | PL_FALLING);
     if (gPlayerState.flags & PL_BURNING)
         ResetPlayer();
-    if ((gPlayerState.flags & 0x400000) && !gPlayerState.field_0xa0[0])
+    if ((gPlayerState.flags & PL_CLONING) && !gPlayerState.field_0xa0[0])
         sub_0807A108();
     if (sub_08079B24() == 0)
         sub_08079708(this);
@@ -300,7 +300,7 @@ void sub_080171F0(void) {
     gPlayerState.flags &= ~2;
     sub_080028E0(&gPlayerEntity);
 
-    if (gPlayerState.flags & 0x400000)
+    if (gPlayerState.flags & PL_CLONING)
         gUnk_0200AF00.filler25[10] = 1;
 
     sub_08078180();
@@ -315,13 +315,13 @@ void sub_080171F0(void) {
     gPlayerState.field_0x3f = 0;
     sub_0807B0C8();
 
-    if (gPlayerState.flags & 0x400000)
-        gUnk_03004040[0]->spriteOffsetY = gUnk_03004040[1]->spriteOffsetY = gUnk_03004040[2]->spriteOffsetY = 0;
+    if (gPlayerState.flags & PL_CLONING)
+        gPlayerClones[0]->spriteOffsetY = gPlayerClones[1]->spriteOffsetY = gPlayerClones[2]->spriteOffsetY = 0;
 
-    if (gPlayerEntity.action == PLAYER_08072F34)
-        gPlayerState.flags |= 0x20000000;
+    if (gPlayerEntity.action == PLAYER_CLIMB)
+        gPlayerState.flags |= PL_CLIMBING;
     else
-        gPlayerState.flags &= ~0x20000000;
+        gPlayerState.flags &= ~PL_CLIMBING;
 
     sub_0807A8D8(&gPlayerEntity);
     if (gPlayerState.jumpStatus & 0xc0)

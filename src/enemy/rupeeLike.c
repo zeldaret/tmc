@@ -233,7 +233,7 @@ void sub_080296C8(Entity* this) {
 
 void sub_080296D8(Entity* this) {
     gPlayerState.jumpStatus = 0x41;
-    gPlayerState.flags &= 0xffffffef;
+    gPlayerState.flags &= ~0x10;
     gPlayerEntity.flags |= 0x80;
     gPlayerEntity.zVelocity = 0x18000;
     gPlayerEntity.iframes = 0xa6;

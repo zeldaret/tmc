@@ -92,8 +92,8 @@ void sub_0809B4A8(Entity* this) {
         this->direction = 16;
 
         gPlayerState.pushedObject = 0x9e;
-        gPlayerState.playerAction = 5;
-        gPlayerState.flags |= 1;
+        gPlayerState.queued_action = PLAYER_PUSH;
+        gPlayerState.flags |= PL_BUSY;
 
         gPlayerEntity.x.HALF.LO = 0;
         gPlayerEntity.y.HALF.LO = 0;

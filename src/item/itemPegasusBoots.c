@@ -24,7 +24,7 @@ void ItemPegasusBoots(ItemBehavior* this, u32 arg1) {
             SoundReq(SFX_PLY_LAND);
         }
         if (((gPlayerState.flags & PL_MINISH) == 0) && ((this->field_0x5[2] & 7) == 0)) {
-            if (gPlayerState.floor_type == SURFACE_11) {
+            if (gPlayerState.floor_type == SURFACE_SWAMP) {
                 if (gPlayerEntity.spriteOffsetY == 0) {
                     CreateFx(&gPlayerEntity, FX_GREEN_SPLASH, 0);
                 }

@@ -105,7 +105,7 @@ _08048E48:
 	bl SoundReq
 	movs r0, #0x28
 	movs r1, #0
-	bl sub_08080964
+	bl InitScreenShake
 _08048E5C:
 	adds r2, r5, #0
 	adds r2, #0x3d

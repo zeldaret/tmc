@@ -6,7 +6,7 @@
 #include "functions.h"
 #include "asm.h"
 
-extern void sub_0800449C(Entity*, u32);
+extern void SoundReqClipped(Entity*, u32);
 
 extern void (*const V1DarkMagicProjectile_Functions[])(Entity*);
 extern void (*const V1DarkMagicProjectile_Actions[])(Entity*);
@@ -173,7 +173,7 @@ void sub_080AAF74(Entity* this) {
         this->actionDelay = 0x1e;
         gPlayerEntity.iframes = 8;
         ModHealth(-4);
-        sub_0800449C(&gPlayerEntity, 0x7a);
+        SoundReqClipped(&gPlayerEntity, 0x7a);
         if (gPlayerEntity.health == 0) {
             this->health = 0;
         }

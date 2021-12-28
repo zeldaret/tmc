@@ -225,7 +225,7 @@ SECTIONS {
         . = 0x00004010; gUnk_03004010 = .;
         . = 0x00004020; gUnk_03004020 = .;
         . = 0x00004030; gUnk_03004030 = .;
-        . = 0x00004040; gUnk_03004040 = .;
+        . = 0x00004040; gPlayerClones = .;
         . = 0x0000404C; SoundMainRAM_Buffer = .;
         . = 0x0000404D; gUnk_0300404D = .;
         . = 0x000043D0; gSoundInfo = .;
@@ -657,8 +657,7 @@ SECTIONS {
         src/playerItem/playerItemPacciCane.o(.text);
         asm/code_0807059C.o(.text);
         src/player.o(.text);
-        asm/stairsInteract.o(.text);
-        asm/code_080732D0.o(.text);
+        src/item.o(.text);
         src/item/itemDebug.o(.text);
         src/item/itemSword.o(.text);
         src/item/itemLantern.o(.text);
@@ -1382,7 +1381,6 @@ SECTIONS {
         data/const/playerItem/playerItem12.o(.rodata);
         data/const/playerItem/playerItemPacciCane.o(.rodata);
         src/player.o(.rodata);
-        data/data_0811B9E0.o(.rodata);
         src/item.o(.rodata);
         data/const/item/itemSword.o(.rodata);
         data/const/item/itemLantern.o(.rodata);

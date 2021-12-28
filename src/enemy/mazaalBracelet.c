@@ -20,7 +20,7 @@ void sub_0803B798(void);
 void sub_0803BA8C(Entity*, u32);
 
 void sub_0803B724(Entity*);
-extern void sub_0800449C(Entity*, u32);
+extern void SoundReqClipped(Entity*, u32);
 
 void sub_0803A170(Entity*);
 void sub_0803A188(Entity*);
@@ -434,7 +434,7 @@ void sub_0803A740(Entity* this) {
         this->actionDelay = 10;
         this->parent->field_0x7c.BYTES.byte1 |= 0x40;
         sub_0803B8E8(this, 0x13);
-        sub_08080964(10, 0);
+        InitScreenShake(10, 0);
         SoundReq(SFX_158);
     }
 }
@@ -713,7 +713,7 @@ void sub_0803ACC0(Entity* this) {
                 this->z.HALF.HI = 0;
                 this->actionDelay = 0xc;
                 this->subAction = 3;
-                sub_08080964(8, 0);
+                InitScreenShake(8, 0);
                 SoundReq(SFX_158);
                 sub_0803B804(this);
             }
@@ -735,7 +735,7 @@ void sub_0803ACC0(Entity* this) {
                 this->z.HALF.HI = 0;
                 this->action = 0x1a;
                 this->actionDelay = 0x3c;
-                sub_08080964(0x1e, 0);
+                InitScreenShake(0x1e, 0);
                 SoundReq(SFX_158);
                 sub_0803B804(this);
                 return;
@@ -859,7 +859,7 @@ void sub_0803AFE0(Entity* this) {
         this->actionDelay = 0xf0;
         *(u8*)&this->cutsceneBeh = 3;
         this->z.HALF.HI = 0;
-        sub_08080964(0xa0, 0);
+        InitScreenShake(0xa0, 0);
         SoundReq(SFX_158);
     }
 }
@@ -931,7 +931,7 @@ void sub_0803B144(Entity* this) {
         this->action = 0x2a;
         InitializeAnimation(this, 0x16);
         sub_0803B8E8(this, 0x14);
-        sub_08080964(8, 0);
+        InitScreenShake(8, 0);
     }
 }
 
@@ -1238,7 +1238,7 @@ void sub_0803B798(void) {
 void sub_0803B804(Entity* this) {
     gPlayerEntity.iframes = 30;
     ModHealth(-4);
-    sub_0800449C(&gPlayerEntity, 0x7a);
+    SoundReqClipped(&gPlayerEntity, 0x7a);
 }
 
 void sub_0803B824(Entity* this) {

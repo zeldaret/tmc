@@ -399,7 +399,7 @@ sub_080A189C: @ 0x080A189C
 	bl SoundReq
 	movs r0, #0x96
 	movs r1, #1
-	bl sub_08080964
+	bl InitScreenShake
 _080A18E6:
 	ldr r2, _080A1904 @ =gPlayerState
 	ldr r1, _080A1908 @ =gRoomControls
@@ -521,7 +521,7 @@ sub_080A1990: @ 0x080A1990
 	bl SoundReq
 	movs r0, #0x96
 	movs r1, #1
-	bl sub_08080964
+	bl InitScreenShake
 _080A19D6:
 	ldr r2, _080A19F4 @ =gPlayerState
 	ldr r1, _080A19F8 @ =gRoomControls
@@ -640,7 +640,7 @@ sub_080A1A80: @ 0x080A1A80
 	bl SoundReq
 	movs r0, #0x96
 	movs r1, #1
-	bl sub_08080964
+	bl InitScreenShake
 _080A1AC0:
 	ldr r2, _080A1AE0 @ =gPlayerState
 	ldr r1, _080A1AE4 @ =gRoomControls
@@ -728,7 +728,7 @@ sub_080A1B4C: @ 0x080A1B4C
 	beq _080A1B80
 	movs r0, #0x2d
 	movs r1, #1
-	bl sub_08080964
+	bl InitScreenShake
 	movs r0, #0x94
 	lsls r0, r0, #1
 	bl SoundReq
@@ -860,7 +860,7 @@ _080A1C76:
 	movs r0, #0xb4
 	lsls r0, r0, #2
 	movs r1, #2
-	bl sub_08080964
+	bl InitScreenShake
 	b _080A1C9A
 _080A1C8A:
 	movs r0, #0x94
@@ -868,7 +868,7 @@ _080A1C8A:
 	bl SoundReq
 	movs r0, #0x4b
 	movs r1, #1
-	bl sub_08080964
+	bl InitScreenShake
 _080A1C9A:
 	pop {r4, pc}
 
@@ -1418,7 +1418,7 @@ _080A20A4:
 	bne _080A20B4
 	movs r0, #0x1e
 	movs r1, #0
-	bl sub_08080964
+	bl InitScreenShake
 	b _080A20B4
 _080A20B2:
 	strb r0, [r4]

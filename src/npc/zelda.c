@@ -85,7 +85,7 @@ void sub_08066D94(Entity* this) {
     DeleteThisEntity();
 }
 
-void sub_08066DE4(Entity* this) {
+void SetZeldaFollowTarget(Entity* this) {
     Entity* pEVar1;
 
     pEVar1 = DeepFindEntityByID(7, 0x2E);

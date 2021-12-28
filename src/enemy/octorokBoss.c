@@ -811,7 +811,7 @@ void OctorokBoss_Action1_ChargeAttack(Entity* this) {
             this->knockbackDirection = this->direction ^ 0x10;
             GET_HELPER(this)->fallingStonesTimer += 0x3c;
             OctorokBoss_SetAttackTimer(this);
-            sub_08080964(0x3c, 0);
+            InitScreenShake(0x3c, 0);
             SoundReq(SFX_158);
             SoundReq(SFX_14C);
         }
@@ -946,7 +946,7 @@ void OctorokBoss_ExecuteAttackVacuum(Entity* this) {
                         }
                     }
                 } else {
-                    gPlayerState.flags &= 0xfffff7ff;
+                    gPlayerState.flags &= ~PL_FROZEN;
                 }
             }
         }
@@ -1077,7 +1077,7 @@ void OctorokBoss_Burning_SubAction1(Entity* this) {
         this->field_0x46 = 0x200;
         this->knockbackDirection = this->direction ^ 0x10;
         GET_HELPER(this)->fallingStonesTimer += 0x1e;
-        sub_08080964(0x1e, 0);
+        InitScreenShake(0x1e, 0);
         SoundReq(SFX_158);
         SoundReq(SFX_14C);
     }

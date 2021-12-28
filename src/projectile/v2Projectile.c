@@ -12,7 +12,7 @@ extern void (*const gUnk_0812A7F8[])(Entity*);
 extern void (*const gUnk_0812A800[])(Entity*);
 extern void (*const gUnk_0812A808[])(Entity*);
 
-extern void sub_0800449C(Entity*, u32);
+extern void SoundReqClipped(Entity*, u32);
 extern void sub_08079D84(void);
 
 extern s32 sub_080AF090(Entity*);
@@ -43,7 +43,7 @@ void nullsub_542(Entity* this) {
 void sub_080ABC90(Entity* this) {
     if (sub_0806F3E4(this) != 0) {
         ModHealth(-2);
-        sub_0800449C(&gPlayerEntity, 0x7a);
+        SoundReqClipped(&gPlayerEntity, 0x7a);
         sub_08079D84();
         CreateFx(this, FX_DEATH, 0);
         DeleteThisEntity();

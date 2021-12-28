@@ -6,7 +6,7 @@
 	bl sub_080085B0
 	bl sub_08079E08
 	bl UpdateFloorType
-	bl sub_08078EFC
+	bl RunQueuedAction
 	cmp r0, #0
 	bne _08070E76
 	movs r1, #0x80
@@ -17,7 +17,7 @@
 	bne _08070E76
 	ldr r6, _08070E18 @ =gPlayerState
 	strb r0, [r6, #2]
-	bl sub_08078EFC
+	bl RunQueuedAction
 	adds r5, r0, #0
 	cmp r5, #0
 	bne _08070E76

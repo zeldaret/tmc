@@ -213,7 +213,7 @@ void sub_08021AD8(Entity* this) {
 }
 
 void sub_08021B64(Entity* this) {
-    if (gPlayerState.flags & 4) {
+    if (gPlayerState.flags & PL_DROWNING) {
         this->action = 3;
         this->z.WORD = 0;
         InitializeAnimation(this, 2);

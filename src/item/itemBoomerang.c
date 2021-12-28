@@ -3,7 +3,7 @@
 
 extern void (*const gUnk_0811BD78[])(ItemBehavior*, u32);
 
-extern void sub_08078F60(void);
+extern void ResetPlayerVelocity(void);
 
 void ItemBoomerang(ItemBehavior* this, u32 arg1) {
     gUnk_0811BD78[this->stateID](this, arg1);
@@ -24,7 +24,7 @@ void sub_08075D2C(ItemBehavior* this, u32 arg1) {
 void sub_08075D88(ItemBehavior* this, u32 arg1) {
     if ((gPlayerState.field_0x3[1] & 0x80) == 0) {
         if (((this->behaviorID == 0xc) && ((gPlayerState.field_0xa & 0x80) != 0)) && ((this->field_0x5[9] & 2) != 0)) {
-            sub_08078F60();
+            ResetPlayerVelocity();
             return;
         }
         UpdateItemAnim(this);

@@ -475,7 +475,7 @@ void VaatiWrathType0ActionB(Entity* this) {
                 this->actionDelay = 0xf0;
                 this->health = 8;
                 this->hitType = 0x38;
-                sub_08080964(0x14, 0);
+                InitScreenShake(0x14, 0);
                 InitAnimationForceUpdate(this, 6);
                 InitializeAnimation(((VaatiWrathHeapStruct*)this->myHeap)->type2, 0x16);
             }
@@ -709,7 +709,7 @@ void sub_08041E78(Entity* this) {
             fx->x.HALF.HI += *temp++;
             fx->y.HALF.HI += *temp;
             fx->spritePriority.b0 = 3;
-            sub_08080964(4, 0);
+            InitScreenShake(4, 0);
         }
     }
 }

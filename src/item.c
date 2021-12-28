@@ -10,3 +10,7 @@ void (*const gItemFunctions[])(ItemBehavior*, u32) = {
     ItemPegasusBoots, ItemDebug,    ItemOcarina,  ItemDebug,    ItemDebug,     ItemDebug,     ItemTryPickupObject,
     ItemJarEmpty,     ItemJarEmpty, ItemJarEmpty, ItemJarEmpty,
 };
+
+void sub_080752E8(ItemBehavior* behavior, u32 arg1) {
+    gItemFunctions[behavior->behaviorID](behavior, arg1);
+}

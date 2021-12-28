@@ -851,7 +851,7 @@ sub_0803F630: @ 0x0803F630
 	movs r0, #0x25
 	strb r0, [r1]
 	movs r5, #0
-	ldr r0, _0803F664 @ =gUnk_03004040
+	ldr r0, _0803F664 @ =gPlayerClones
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _0803F64C
@@ -869,7 +869,7 @@ _0803F64C:
 	strh r0, [r1]
 	pop {r4, r5, pc}
 	.align 2, 0
-_0803F664: .4byte gUnk_03004040
+_0803F664: .4byte gPlayerClones
 _0803F668: .4byte gUnk_080D0980
 
 	thumb_func_start sub_0803F66C
@@ -937,7 +937,7 @@ sub_0803F6C0: @ 0x0803F6C0
 	bl ModHealth
 	adds r0, r4, #0
 	movs r1, #0x7a
-	bl sub_0800449C
+	bl SoundReqClipped
 	pop {r4, pc}
 	.align 2, 0
 _0803F6E8: .4byte gPlayerEntity

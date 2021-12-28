@@ -1,6 +1,6 @@
 #include "object.h"
 
-extern void sub_0800449C(Entity*, u32);
+extern void SoundReqClipped(Entity*, u32);
 extern u32 sub_0806FC80(Entity*, Entity*, s32);
 extern void sub_0809CDF0(Entity*);
 
@@ -61,7 +61,7 @@ void sub_0809CD0C(Entity* this) {
             sub_0806FC80(this, &gPlayerEntity, 4)) {
             this->field_0xf++;
             ModHealth(-2);
-            sub_0800449C(&gPlayerEntity, 0x7a);
+            SoundReqClipped(&gPlayerEntity, 0x7a);
             gPlayerEntity.iframes = 16;
             gPlayerEntity.knockbackDirection = 16;
             gPlayerEntity.knockbackDuration = 12;

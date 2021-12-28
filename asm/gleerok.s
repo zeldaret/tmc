@@ -900,7 +900,7 @@ sub_0802D6F0: @ 0x0802D6F0
 	str r0, [r2, #0x7c]
 	movs r0, #0x96
 	movs r1, #0
-	bl sub_08080964
+	bl InitScreenShake
 _0802D712:
 	pop {pc}
 
@@ -2496,7 +2496,7 @@ _0802E23A:
 	movs r0, #0xf0
 	strh r0, [r7]
 	movs r1, #0
-	bl sub_08080964
+	bl InitScreenShake
 	b _0802E2E4
 	.align 2, 0
 _0802E280: .4byte gPlayerEntity
@@ -2545,7 +2545,7 @@ _0802E29E:
 	strh r0, [r1]
 	movs r0, #0x1e
 	movs r1, #0
-	bl sub_08080964
+	bl InitScreenShake
 _0802E2E4:
 	movs r0, #5
 	strb r0, [r5, #0xb]

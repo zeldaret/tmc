@@ -142,7 +142,7 @@ sub_080848C8: @ 0x080848C8
 	lsls r0, r1, #0x10
 	cmp r0, #0
 	beq _0808493C
-	ldr r0, _0808498C @ =gUnk_03004040
+	ldr r0, _0808498C @ =gPlayerClones
 	ldrb r1, [r4, #0xa]
 	lsls r1, r1, #2
 	adds r1, r1, r0
@@ -182,7 +182,7 @@ _0808496A:
 _08084980: .4byte gPlayerState
 _08084984: .4byte gUnk_08120574
 _08084988: .4byte gPlayerEntity
-_0808498C: .4byte gUnk_03004040
+_0808498C: .4byte gPlayerClones
 _08084990: .4byte 0x00000315
 _08084994:
 	cmp r0, #4
@@ -195,7 +195,7 @@ _08084994:
 	adds r2, #0x38
 	ldrb r2, [r2]
 	bl sub_08000152
-	ldr r1, _080849C0 @ =gUnk_03004040
+	ldr r1, _080849C0 @ =gPlayerClones
 	ldrb r0, [r4, #0xa]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -205,7 +205,7 @@ _08084994:
 	b _080849D6
 	.align 2, 0
 _080849BC: .4byte 0x00000315
-_080849C0: .4byte gUnk_03004040
+_080849C0: .4byte gPlayerClones
 _080849C4:
 	ldrb r2, [r4, #0x18]
 	lsls r1, r2, #0x1e
@@ -246,7 +246,7 @@ _080849F6:
 	beq _08084A04
 	b _08084AF8
 _08084A04:
-	ldr r0, _08084A40 @ =gUnk_03004040
+	ldr r0, _08084A40 @ =gPlayerClones
 	ldrb r1, [r4, #0xa]
 	lsls r1, r1, #2
 	adds r1, r1, r0
@@ -276,7 +276,7 @@ _08084A04:
 	b _08084AF8
 	.align 2, 0
 _08084A3C: .4byte gPlayerState
-_08084A40: .4byte gUnk_03004040
+_08084A40: .4byte gPlayerClones
 _08084A44: .4byte gPlayerEntity
 _08084A48:
 	adds r0, r4, #0
@@ -585,7 +585,7 @@ _08084CA8: .4byte gPlayerState
 sub_08084CAC: @ 0x08084CAC
 	push {r4, r5, r6, r7, lr}
 	adds r5, r0, #0
-	ldr r6, _08084D18 @ =gUnk_03004040
+	ldr r6, _08084D18 @ =gPlayerClones
 	ldrb r0, [r5, #0xa]
 	lsls r0, r0, #2
 	adds r0, r0, r6
@@ -636,7 +636,7 @@ sub_08084CAC: @ 0x08084CAC
 	orrs r0, r1
 	b _08084D30
 	.align 2, 0
-_08084D18: .4byte gUnk_03004040
+_08084D18: .4byte gPlayerClones
 _08084D1C: .4byte gUnk_080B4468
 _08084D20: .4byte gRoomControls
 _08084D24:

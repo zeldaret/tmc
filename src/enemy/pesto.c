@@ -5,7 +5,7 @@
 #include "save.h"
 
 extern u32 sub_080002E0(u16, u32);
-extern void sub_0800449C(Entity*, u32);
+extern void SoundReqClipped(Entity*, u32);
 extern u32 sub_08049F1C(Entity*, Entity*, u32);
 extern u32 PlayerInRange(Entity*, u32, u32);
 extern void sub_080AEFB4(Entity*);
@@ -809,7 +809,7 @@ NONMATCH("asm/non_matching/pesto/sub_08024E4C.inc", void sub_08024E4C(Entity* th
             ResetPlayer();
             gPlayerState.flags |= 0x100;
             gPlayerState.field_0xa |= 0x80;
-            gPlayerState.playerAction = 0xe;
+            gPlayerState.queued_action = PLAYER_0807204C;
             gPlayerState.field_0x38 = 0x14;
             gPlayerState.field_0x39 = 1;
             *(u8*)&gPlayerState.field_0x3a = 0;
@@ -821,7 +821,7 @@ NONMATCH("asm/non_matching/pesto/sub_08024E4C.inc", void sub_08024E4C(Entity* th
                 this->field_0x86.HALF.HI++;
                 player->iframes = 8;
                 ModHealth(-2);
-                sub_0800449C(player, 0x7a);
+                SoundReqClipped(player, 0x7a);
             }
         }
     }
@@ -830,10 +830,10 @@ END_NONMATCH
 
 void sub_08024F50(Entity* this) {
     gPlayerState.field_0xa = 0;
-    gPlayerState.flags &= 0xfffffeff;
+    gPlayerState.flags &= ~0x100;
     CopyPosition(this, &gPlayerEntity);
     gPlayerEntity.action = 1;
-    gPlayerEntity.flags |= 0x80;
+    COLLISION_ON(&gPlayerEntity);
     gPlayerEntity.iframes = -0x3c;
     gPlayerEntity.direction = gPlayerEntity.animationState << 2;
     gPlayerEntity.speed = 0;

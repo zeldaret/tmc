@@ -398,7 +398,7 @@ void sub_08094FA8(Object6AEntity* this) {
                 super->interactType = 0;
                 super->action = 2;
                 sub_080788E0(super);
-                gPlayerState.playerAction = 12;
+                gPlayerState.queued_action = PLAYER_EMPTYBOTTLE;
                 gPlayerState.field_0x38 = 54;
 #ifndef EU
                 SetPlayerControl(2);

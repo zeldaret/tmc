@@ -145,7 +145,7 @@ extern bool32 LoadSwapGFX(Entity*, u16, u32);
 extern u32 sub_08016A30(Entity*);
 extern void sub_08077728();
 extern void sub_0807AEE4();
-extern u32 sub_08078EFC();
+extern u32 RunQueuedAction();
 extern void sub_0807921C();
 extern void UpdateFloorType();
 extern void sub_08079938();

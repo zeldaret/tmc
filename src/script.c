@@ -223,7 +223,7 @@ void StartPlayerScript(u16* script) {
     gPlayerScriptExecutionContext.scriptInstructionPointer = script;
     player = &gPlayerEntity;
     *(ScriptExecutionContext**)&player->cutsceneBeh = &gPlayerScriptExecutionContext;
-    gPlayerState.playerAction = 0x1c;
+    gPlayerState.queued_action = PLAYER_08074C44;
     gPlayerState.field_0x3a = 0;
     gPlayerState.field_0x39 = 0;
     gPlayerState.field_0x38 = 0;
@@ -1072,7 +1072,7 @@ void ScriptCommand_0807E888(Entity* entity, ScriptExecutionContext* context) {
 
 void ScriptCommand_SetPlayerAction(Entity* entity, ScriptExecutionContext* context) {
     u32 tmp = GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer);
-    gPlayerState.playerAction = tmp;
+    gPlayerState.queued_action = tmp;
     gPlayerState.field_0x38 = tmp >> 8;
     gPlayerState.field_0x39 = tmp >> 0x10;
     gPlayerState.field_0x3a = tmp >> 0x18;
@@ -1527,7 +1527,7 @@ void ScriptCommand_0807F0B4(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void ScriptCommand_0807F0C8(Entity* entity, ScriptExecutionContext* context) {
-    sub_08080964(context->scriptInstructionPointer[1], context->scriptInstructionPointer[2]);
+    InitScreenShake(context->scriptInstructionPointer[1], context->scriptInstructionPointer[2]);
 }
 
 extern u8 gUnk_0811E750[];

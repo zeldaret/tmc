@@ -813,7 +813,7 @@ _08046498:
 	beq _0804650E
 	movs r0, #8
 	movs r1, #0
-	bl sub_08080964
+	bl InitScreenShake
 	adds r1, r4, #0
 	adds r1, #0x82
 	ldrb r0, [r1]
@@ -965,7 +965,7 @@ _080466D0:
 	beq _08046746
 	movs r0, #8
 	movs r1, #0
-	bl sub_08080964
+	bl InitScreenShake
 	adds r1, r4, #0
 	adds r1, #0x82
 	ldrb r0, [r1]

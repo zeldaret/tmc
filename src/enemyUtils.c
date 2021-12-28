@@ -1,6 +1,7 @@
 #include "entity.h"
 #include "definitions.h"
 #include "functions.h"
+#include "object.h"
 
 extern EnemyDefinition gEnemyDefinitions[];
 
@@ -46,7 +47,7 @@ bool32 EnemyInit(Entity* this) {
         if ((this->field_0x6c.HALF.HI & 0x20) != 0) {
             u32 uVar4 = gUnk_080D3E74[this->id >> 3] >> ((this->id & 7) << 1) & 3;
             if (uVar4 != 0) {
-                Entity* object = CreateObject(0xa9, uVar4 - 1, 0);
+                Entity* object = CreateObject(OBJECT_A9, uVar4 - 1, 0);
                 if (object != NULL) {
                     object->actionDelay = this->flags;
                     object->field_0xf = this->spriteSettings.draw;

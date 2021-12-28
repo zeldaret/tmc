@@ -99,7 +99,7 @@ _08070852:
 	adds r0, r5, #0
 	adds r0, #0x40
 	strb r4, [r0]
-	bl sub_08078EFC
+	bl RunQueuedAction
 	cmp r0, #0
 	beq _08070868
 	b _08070BE4
@@ -156,7 +156,7 @@ _080708AC:
 	bne _080708C4
 	bl UpdateFloorType
 _080708C4:
-	bl sub_08078EFC
+	bl RunQueuedAction
 	cmp r0, #0
 	beq _080708CE
 	b _08070BE4
@@ -195,7 +195,7 @@ _08070902:
 	b _08070BE4
 _0807090C:
 	bl UpdateFloorType
-	bl sub_08078EFC
+	bl RunQueuedAction
 	b _08070BE4
 	.align 2, 0
 _08070918: .4byte gPlayerState
@@ -296,7 +296,7 @@ _080709D8:
 _080709FC:
 	adds r0, r5, #0
 	bl sub_08077698
-	bl sub_08078EFC
+	bl RunQueuedAction
 	cmp r0, #0
 	beq _08070A0C
 	b _08070BE4
@@ -321,7 +321,7 @@ _08070A26:
 _08070A32:
 	adds r0, r5, #0
 	bl sub_08073904
-	bl sub_08078EFC
+	bl RunQueuedAction
 	cmp r0, #0
 	beq _08070A42
 	b _08070BE4
@@ -432,7 +432,7 @@ _08070B00:
 _08070B0E:
 	cmp r0, #1
 	bne _08070B18
-	bl sub_08078F60
+	bl ResetPlayerVelocity
 	b _08070B1E
 _08070B18:
 	adds r0, r5, #0

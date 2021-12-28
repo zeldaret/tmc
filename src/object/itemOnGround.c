@@ -17,7 +17,6 @@ void sub_080813BC(Entity*);
 void sub_080810FC(Entity*);
 bool32 CheckShouldPlayItemGetCutscene(Entity*);
 
-extern u32 sub_080002D0(Entity*);
 extern u32 sub_080177A0(Entity*, Entity*);
 extern void GiveItem(u32, u32);
 

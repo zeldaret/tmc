@@ -15,7 +15,7 @@ void Carlov(Entity* this) {
     if ((this->frame & 0x10) != 0) {
         this->frame = this->frame & 0xef;
         EnqueueSFX(0x104);
-        sub_08080964(0x10, 0);
+        InitScreenShake(0x10, 0);
     }
     if ((this->frame & 0x20) != 0) {
         this->frame = this->frame & 0xdf;

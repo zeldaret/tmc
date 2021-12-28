@@ -535,7 +535,7 @@ sub_08096740: @ 0x08096740
 	adds r4, r0, #0
 	movs r0, #0x10
 	movs r1, #0
-	bl sub_08080964
+	bl InitScreenShake
 	movs r1, #0
 	movs r0, #1
 	strb r0, [r4, #0xc]

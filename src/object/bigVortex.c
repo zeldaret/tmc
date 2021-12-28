@@ -67,7 +67,7 @@ void sub_08098DC4(Entity* this) {
         sub_08004542(&gPlayerEntity);
         gPlayerEntity.collisionLayer = 1;
         ResolveEntityOnTop(this, &gPlayerEntity);
-        gPlayerState.playerAction = 0x1f;
+        gPlayerState.queued_action = PLAYER_PARACHUTE;
         gPlayerState.field_0x34[4] = 1;
         gPlayerState.field_0x34[5] = this->type2;
         this->action = 4;

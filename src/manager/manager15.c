@@ -315,8 +315,8 @@ void sub_0805A76C(Manager15* this) {
 }
 
 void sub_0805A7E4(Manager15* this) {
-    if (gPlayerState.playerAction != PLAYER_WARP) {
-        gPlayerState.playerAction = PLAYER_WARP;
+    if (gPlayerState.queued_action != PLAYER_WARP) {
+        gPlayerState.queued_action = PLAYER_WARP;
         gPlayerState.field_0x38 = 0;
         gPlayerState.field_0x39 = 0;
     }

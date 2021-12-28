@@ -1260,7 +1260,7 @@ _08019FDA:
 	ands r7, r0
 	movs r4, #0
 	movs r6, #0
-	ldr r5, _0801A088 @ =gUnk_03004040
+	ldr r5, _0801A088 @ =gPlayerClones
 	mov sb, r5
 _08019FEC:
 	mov r1, sb
@@ -1340,7 +1340,7 @@ _0801A02A:
 _0801A07C: .4byte gPlayerState
 _0801A080: .4byte 0x0000FFFF
 _0801A084: .4byte 0x00000FFF
-_0801A088: .4byte gUnk_03004040
+_0801A088: .4byte gPlayerClones
 _0801A08C: .4byte gPlayerEntity
 _0801A090: .4byte gRoomControls
 _0801A094:
@@ -1465,7 +1465,7 @@ _0801A166:
 	b _0801A2A4
 _0801A174:
 	movs r4, #0
-	ldr r5, _0801A194 @ =gUnk_03004040
+	ldr r5, _0801A194 @ =gPlayerClones
 _0801A178:
 	ldr r0, [r5]
 	movs r1, #0
@@ -1481,7 +1481,7 @@ _0801A186:
 	b _0801A2A4
 	.align 2, 0
 _0801A190: .4byte gPlayerState
-_0801A194: .4byte gUnk_03004040
+_0801A194: .4byte gPlayerClones
 _0801A198:
 	subs r7, #0x40
 _0801A19A:
@@ -1499,7 +1499,7 @@ _0801A1A6:
 	cmp r0, #9
 	ble _0801A2A4
 	movs r4, #0
-	ldr r5, _0801A1D0 @ =gUnk_03004040
+	ldr r5, _0801A1D0 @ =gPlayerClones
 _0801A1B6:
 	ldr r0, [r5]
 	movs r1, #6
@@ -1513,7 +1513,7 @@ _0801A1B6:
 	b _0801A2A4
 	.align 2, 0
 _0801A1CC: .4byte gPlayerState
-_0801A1D0: .4byte gUnk_03004040
+_0801A1D0: .4byte gPlayerClones
 _0801A1D4:
 	movs r0, #2
 	ands r0, r1

@@ -854,7 +854,7 @@ sub_08041134: @ 0x08041134
 	movs r0, #0x25
 	strb r0, [r1]
 	movs r5, #0
-	ldr r0, _08041168 @ =gUnk_03004040
+	ldr r0, _08041168 @ =gPlayerClones
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _08041150
@@ -872,7 +872,7 @@ _08041150:
 	strh r0, [r1]
 	pop {r4, r5, pc}
 	.align 2, 0
-_08041168: .4byte gUnk_03004040
+_08041168: .4byte gPlayerClones
 _0804116C: .4byte gUnk_080D0E18
 
 	thumb_func_start sub_08041170
