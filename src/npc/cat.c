@@ -2,7 +2,7 @@
 #include "entity.h"
 #include "functions.h"
 #include "save.h"
-#include "textbox.h"
+#include "message.h"
 #include "npc.h"
 
 extern void sub_08067C44();

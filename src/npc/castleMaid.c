@@ -2,7 +2,7 @@
 #include "script.h"
 #include "save.h"
 #include "flags.h"
-#include "textbox.h"
+#include "message.h"
 #include "npc.h"
 #include "manager.h"
 

@@ -4,7 +4,7 @@
 #include "flags.h"
 #include "object.h"
 #include "functions.h"
-#include "overworld.h"
+#include "game.h"
 
 extern Hitbox gHitbox_2;
 

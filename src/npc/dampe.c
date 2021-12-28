@@ -3,7 +3,7 @@
 #include "player.h"
 #include "room.h"
 #include "flags.h"
-#include "textbox.h"
+#include "message.h"
 #include "npc.h"
 
 extern u16 gUnk_08113344[];

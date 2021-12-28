@@ -2,7 +2,7 @@
 #include "player.h"
 #include "coord.h"
 #include "functions.h"
-#include "audio.h"
+#include "sound.h"
 #include "effects.h"
 
 extern void (*const gUnk_080B43F4[])(Entity*);

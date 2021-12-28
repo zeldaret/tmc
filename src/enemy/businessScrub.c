@@ -1,10 +1,10 @@
 #include "asm.h"
 #include "enemy.h"
-#include "textbox.h"
+#include "message.h"
 #include "save.h"
 #include "npc.h"
 #include "functions.h"
-#include "overworld.h"
+#include "game.h"
 
 extern Entity* sub_08049DF4(u32);
 extern bool32 sub_08056338(void);

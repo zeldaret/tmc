@@ -1,6 +1,6 @@
 #include "global.h"
 #include "object.h"
-#include "overworld.h"
+#include "game.h"
 #include "functions.h"
 
 extern Hitbox gHitbox_1;

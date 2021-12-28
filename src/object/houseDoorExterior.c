@@ -3,7 +3,7 @@
 #include "flags.h"
 #include "room.h"
 #include "script.h"
-#include "audio.h"
+#include "sound.h"
 #include "object.h"
 #include "functions.h"
 #include "npc.h"

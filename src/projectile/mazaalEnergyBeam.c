@@ -1,5 +1,5 @@
 #include "entity.h"
-#include "audio.h"
+#include "sound.h"
 #include "coord.h"
 
 extern void (*const MazaalEnergyBeam_Actions[])(Entity*);

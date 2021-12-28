@@ -4,7 +4,7 @@
 #include "room.h"
 #include "area.h"
 #include "utils.h"
-#include "audio.h"
+#include "sound.h"
 
 /*
  * Manager B is used to create fights:

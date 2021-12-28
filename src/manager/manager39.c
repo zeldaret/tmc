@@ -2,9 +2,9 @@
 #include "manager.h"
 #include "screen.h"
 #include "area.h"
-#include "textbox.h"
+#include "message.h"
 #include "utils.h"
-#include "overworld.h"
+#include "game.h"
 #include "functions.h"
 
 typedef struct {

@@ -1,5 +1,5 @@
 #include "manager.h"
-#include "audio.h"
+#include "sound.h"
 #include "script.h"
 
 typedef struct {

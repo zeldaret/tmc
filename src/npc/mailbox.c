@@ -1,6 +1,6 @@
 #include "global.h"
 #include "entity.h"
-#include "textbox.h"
+#include "message.h"
 #include "effects.h"
 #include "npc.h"
 

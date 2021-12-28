@@ -1,6 +1,6 @@
 #include "entity.h"
 #include "enemy.h"
-#include "textbox.h"
+#include "message.h"
 #include "coord.h"
 #include "functions.h"
 

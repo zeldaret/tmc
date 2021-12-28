@@ -1,5 +1,5 @@
 #include "functions.h"
-#include "textbox.h"
+#include "message.h"
 #include "npc.h"
 
 extern void (*const gUnk_0810BE0C[])(Entity*);

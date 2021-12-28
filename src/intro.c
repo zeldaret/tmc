@@ -1,10 +1,10 @@
-#include "audio.h"
+#include "sound.h"
 #include "main.h"
 #include "entity.h"
 #include "utils.h"
 #include "screen.h"
 #include "object.h"
-#include "textbox.h"
+#include "message.h"
 #include "functions.h"
 
 typedef struct {

@@ -3,7 +3,7 @@
 #include "manager.h"
 #include "room.h"
 #include "area.h"
-#include "audio.h"
+#include "sound.h"
 #include "screen.h"
 #include "utils.h"
 #include "fileScreen.h"

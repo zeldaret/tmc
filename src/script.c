@@ -2,7 +2,7 @@
 #include "main.h"
 #include "screen.h"
 #include "area.h"
-#include "overworld.h"
+#include "game.h"
 
 #include "object.h"
 #include "npc.h"

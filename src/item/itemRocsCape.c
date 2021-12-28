@@ -1,5 +1,5 @@
 #include "item.h"
-#include "audio.h"
+#include "sound.h"
 #include "functions.h"
 
 void sub_08076758(ItemBehavior*, u32);

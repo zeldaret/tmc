@@ -2,7 +2,7 @@
 #include "entity.h"
 #include "player.h"
 #include "flags.h"
-#include "textbox.h"
+#include "message.h"
 #include "npc.h"
 
 extern SpriteLoadData gUnk_08110C00;

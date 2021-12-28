@@ -1,5 +1,5 @@
 #include "item.h"
-#include "audio.h"
+#include "sound.h"
 #include "functions.h"
 
 extern void (*const gOcarinaStates[4])(ItemBehavior*, u32);

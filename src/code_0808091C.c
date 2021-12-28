@@ -2,7 +2,7 @@
 #include "entity.h"
 #include "structures.h"
 #include "functions.h"
-#include "overworld.h"
+#include "game.h"
 
 extern void sub_08080BC4(void);
 

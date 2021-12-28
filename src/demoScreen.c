@@ -2,7 +2,7 @@
 #include "functions.h"
 #include "main.h"
 #include "utils.h"
-#include "textbox.h"
+#include "message.h"
 #include "fileScreen.h"
 #include "screen.h"
 

@@ -7,7 +7,7 @@
 #include "functions.h"
 #include "enemy.h"
 #include "object.h"
-#include "overworld.h"
+#include "game.h"
 
 extern u8 gCollidableCount;
 extern u8 gUnk_080B3740[];

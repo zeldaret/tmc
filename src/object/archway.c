@@ -1,5 +1,5 @@
 #include "entity.h"
-#include "overworld.h"
+#include "game.h"
 
 void Archway(Entity* this) {
     if (this->action == 0) {

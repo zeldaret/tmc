@@ -1,6 +1,6 @@
 #include "object.h"
 #include "functions.h"
-#include "textbox.h"
+#include "message.h"
 
 extern void (*const BookActionFuncs[])(Entity*);
 extern s8 const gUnk_08123D94[];

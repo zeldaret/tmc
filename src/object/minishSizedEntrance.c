@@ -1,5 +1,5 @@
 #include "object.h"
-#include "overworld.h"
+#include "game.h"
 #include "functions.h"
 
 extern void (*const gUnk_08122254[])(Entity*);

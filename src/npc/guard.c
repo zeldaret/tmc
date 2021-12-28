@@ -2,7 +2,7 @@
 #include "entity.h"
 #include "player.h"
 #include "flags.h"
-#include "textbox.h"
+#include "message.h"
 #include "room.h"
 #include "script.h"
 #include "functions.h"

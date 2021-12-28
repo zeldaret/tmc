@@ -1,5 +1,5 @@
-#ifndef AUDIO_H
-#define AUDIO_H
+#ifndef SOUND_H
+#define SOUND_H
 
 #include "global.h"
 
@@ -597,4 +597,4 @@ typedef enum {
     SONG_BGM_0 = 0x80110000,
 } Sound;
 
-#endif // AUDIO_H
+#endif // SOUND_H

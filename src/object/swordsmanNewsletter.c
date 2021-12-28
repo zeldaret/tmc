@@ -1,6 +1,6 @@
 #include "global.h"
 #include "entity.h"
-#include "textbox.h"
+#include "message.h"
 
 extern void sub_080787B4(Entity*);
 

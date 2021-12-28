@@ -5,12 +5,12 @@
 #include "asm.h"
 #include "utils.h"
 
-#include "audio.h"
+#include "sound.h"
 #include "effects.h"
 #include "room.h"
 #include "flags.h"
 #include "coord.h"
-#include "textbox.h"
+#include "message.h"
 #include "script.h"
 #include "save.h"
 

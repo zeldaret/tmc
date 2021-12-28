@@ -1,6 +1,6 @@
 #include "entity.h"
 #include "functions.h"
-#include "textbox.h"
+#include "message.h"
 #include "save.h"
 #include "npc.h"
 

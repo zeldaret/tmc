@@ -1,6 +1,6 @@
 #include "item.h"
 #include "coord.h"
-#include "audio.h"
+#include "sound.h"
 #include "functions.h"
 
 extern void (*const gUnk_0811BD98[])(ItemBehavior*, u32);

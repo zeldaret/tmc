@@ -1,7 +1,7 @@
 #include "global.h"
 #include "main.h"
 #include "gba/m4a.h"
-#include "audio.h"
+#include "sound.h"
 #include "utils.h"
 
 #define IS_BGM(song) ((song)-1 <= NUM_BGM - 1)

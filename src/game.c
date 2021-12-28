@@ -1,5 +1,5 @@
 #include "global.h"
-#include "audio.h"
+#include "sound.h"
 #include "screen.h"
 #include "entity.h"
 #include "player.h"
@@ -12,8 +12,8 @@
 #include "menu.h"
 #include "functions.h"
 #include "area.h"
-#include "textbox.h"
-#include "overworld.h"
+#include "message.h"
+#include "game.h"
 
 extern u32 gUnk_03003FC0;
 

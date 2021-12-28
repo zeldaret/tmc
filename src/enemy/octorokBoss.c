@@ -2,7 +2,7 @@
 #include "functions.h"
 #include "object.h"
 #include "projectile.h"
-#include "overworld.h"
+#include "game.h"
 
 extern void sub_08078AC0(u32, u32, u32);
 extern u32 GetRandomByWeight(const u8*);

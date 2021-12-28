@@ -1,10 +1,10 @@
 #include "save.h"
 #include "gba/eeprom.h"
-#include "audio.h"
+#include "sound.h"
 #include "menu.h"
 #include "main.h"
 #include "functions.h"
-#include "overworld.h"
+#include "game.h"
 
 typedef struct SaveFileStatus {
     u16 checksum1;

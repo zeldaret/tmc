@@ -3,7 +3,7 @@
 #include "flags.h"
 #include "player.h"
 #include "room.h"
-#include "textbox.h"
+#include "message.h"
 #include "save.h"
 #include "script.h"
 #include "npc.h"

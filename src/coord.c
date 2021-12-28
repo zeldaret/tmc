@@ -3,7 +3,7 @@
 #include "player.h"
 #include "coord.h"
 #include "utils.h"
-#include "audio.h"
+#include "sound.h"
 #include "room.h"
 #include "functions.h"
 

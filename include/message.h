@@ -1,5 +1,5 @@
-#ifndef TEXTBOX_H
-#define TEXTBOX_H
+#ifndef MESSAGE_H
+#define MESSAGE_H
 
 #include "global.h"
 #include "entity.h"
@@ -128,4 +128,4 @@ void MessageAtHeight(u32 index, u32 y);
 
 void DispMessageFrame(u16*, u32, u32, u32);
 
-#endif
+#endif // MESSAGE_H

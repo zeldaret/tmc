@@ -1,8 +1,8 @@
 #include "entity.h"
 #include "functions.h"
 #include "flags.h"
-#include "audio.h"
-#include "overworld.h"
+#include "sound.h"
+#include "game.h"
 #include "object.h"
 
 extern void (*const gUnk_08108CDC[])(Manager24*);

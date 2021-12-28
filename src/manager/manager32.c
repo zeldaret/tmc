@@ -4,7 +4,7 @@
 #include "functions.h"
 #include "area.h"
 #include "utils.h"
-#include "overworld.h"
+#include "game.h"
 
 typedef struct {
     Manager manager;

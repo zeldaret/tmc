@@ -5,7 +5,7 @@
 
 #include "functions.h"
 
-#include "audio.h"
+#include "sound.h"
 #include "effects.h"
 #include "screen.h"
 #include "flags.h"
@@ -13,7 +13,7 @@
 #include "save.h"
 
 #include "area.h"
-#include "overworld.h"
+#include "game.h"
 
 #include "npc.h"
 

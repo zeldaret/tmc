@@ -1,7 +1,7 @@
 
 #include "item.h"
 #include "functions.h"
-#include "audio.h"
+#include "sound.h"
 
 extern void (*const gUnk_0811BE04[])(ItemBehavior*, u32);
 

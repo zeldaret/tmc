@@ -1,7 +1,7 @@
 #include "global.h"
-#include "audio.h"
+#include "sound.h"
 #include "entity.h"
-#include "textbox.h"
+#include "message.h"
 #include "npc.h"
 #include "functions.h"
 

@@ -5,7 +5,7 @@
 #include "asm.h"
 #include "utils.h"
 
-#include "audio.h"
+#include "sound.h"
 #include "flags.h"
 #include "effects.h"
 #include "room.h"

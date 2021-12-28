@@ -1,5 +1,5 @@
-#ifndef OVERWORLD_H
-#define OVERWORLD_H
+#ifndef GAME_H
+#define GAME_H
 
 #include "global.h"
 #include "area.h"
@@ -58,4 +58,4 @@ void sub_08053500(void);
 
 u32 GetBottleContaining(u32);
 
-#endif // OVERWORLD_H
+#endif // GAME_H

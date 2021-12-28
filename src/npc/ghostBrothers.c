@@ -2,7 +2,7 @@
 #include "functions.h"
 #include "save.h"
 #include "screen.h"
-#include "textbox.h"
+#include "message.h"
 #include "npc.h"
 
 extern void (*const gUnk_0811017C[])(Entity*);

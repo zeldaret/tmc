@@ -2,9 +2,9 @@
 #include "functions.h"
 #include "save.h"
 #include "utils.h"
-#include "audio.h"
+#include "sound.h"
 #include "flags.h"
-#include "textbox.h"
+#include "message.h"
 #include "object.h"
 #include "player.h"
 

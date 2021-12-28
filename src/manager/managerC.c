@@ -1,5 +1,5 @@
 #include "global.h"
-#include "audio.h"
+#include "sound.h"
 #include "manager.h"
 #include "flags.h"
 #include "structures.h"

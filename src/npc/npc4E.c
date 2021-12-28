@@ -1,7 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "functions.h"
-#include "audio.h"
+#include "sound.h"
 #include "save.h"
 #include "flags.h"
 #include "object.h"

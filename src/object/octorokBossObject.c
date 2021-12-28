@@ -1,6 +1,6 @@
 #include "functions.h"
 #include "object.h"
-#include "overworld.h"
+#include "game.h"
 
 extern void sub_0807B9B8(s32, s32, s32);
 

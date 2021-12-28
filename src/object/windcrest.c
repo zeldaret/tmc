@@ -1,5 +1,5 @@
 #include "global.h"
-#include "audio.h"
+#include "sound.h"
 #include "entity.h"
 #include "save.h"
 #include "script.h"

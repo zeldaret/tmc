@@ -1,7 +1,7 @@
 #include "entity.h"
 #include "script.h"
 #include "room.h"
-#include "textbox.h"
+#include "message.h"
 #include "functions.h"
 #include "npc.h"
 

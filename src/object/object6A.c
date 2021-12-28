@@ -2,7 +2,7 @@
 #include "object.h"
 #include "area.h"
 #include "script.h"
-#include "textbox.h"
+#include "message.h"
 #include "functions.h"
 #include "screen.h"
 

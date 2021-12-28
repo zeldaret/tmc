@@ -2,7 +2,7 @@
 #include "utils.h"
 #include "functions.h"
 #include "area.h"
-#include "textbox.h"
+#include "message.h"
 #include "npc.h"
 
 extern u8 gUnk_081091F8[];

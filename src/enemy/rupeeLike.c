@@ -1,6 +1,6 @@
 #include "global.h"
 #include "asm.h"
-#include "audio.h"
+#include "sound.h"
 #include "entity.h"
 #include "enemy.h"
 #include "object.h"

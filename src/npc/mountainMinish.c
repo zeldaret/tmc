@@ -1,7 +1,7 @@
 #include "entity.h"
 #include "script.h"
 #include "functions.h"
-#include "textbox.h"
+#include "message.h"
 #include "flags.h"
 #include "npc.h"
 
