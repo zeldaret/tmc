@@ -49,11 +49,16 @@ void MoblinSpear_Init(Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/moblinSpear/MoblinSpear_Action1.inc", void MoblinSpear_Action1(Entity* this)) {
+void MoblinSpear_Action1(Entity* this) {
     u8 frames;
     Entity* parent;
     u32 tmp;
-    const HitboxChange* a;
+
+    // const HitboxChange* a;
+    // TODO: Copying a members using HitboxChange members addresses them directly using [r2, 0x1]
+    // while the assembly increases the pointer after every copy.
+    // Not sure how to make this more readable.
+    const u8* a;
 
     parent = this->parent;
     if (parent == NULL) {
@@ -63,15 +68,14 @@ NONMATCH("asm/non_matching/moblinSpear/MoblinSpear_Action1.inc", void MoblinSpea
         DeleteThisEntity();
     }
     frames = parent->frame * 4;
-    a = &gUnk_0812966C[frames / 4];
-    this->hitbox->offset_x = a->offsetX;
-    // TODO offset used to increase a pointer is already increated here?
+    a = (u8*)&gUnk_0812966C[frames / 4];
+    this->hitbox->offset_x = *a++;
     if (parent->frameSpriteSettings == 0x40) {
         this->hitbox->offset_x = -this->hitbox->offset_x;
     }
-    this->hitbox->offset_y = a->offsetY;
-    this->hitbox->width = a->width;
-    this->hitbox->height = a->height;
+    this->hitbox->offset_y = *a++;
+    this->hitbox->width = *a++;
+    this->hitbox->height = *a++;
     if (parent->field_0x43 != 0) {
         if ((this->flags & ENT_COLLIDE) != 0) {
             COLLISION_OFF(this);
@@ -82,7 +86,6 @@ NONMATCH("asm/non_matching/moblinSpear/MoblinSpear_Action1.inc", void MoblinSpea
         }
     }
 }
-END_NONMATCH
 
 void (*const MoblinSpear_Functions[])(Entity*) = {
     MoblinSpear_OnTick, sub_080A832C, DeleteEntity, DeleteEntity, DeleteEntity,
