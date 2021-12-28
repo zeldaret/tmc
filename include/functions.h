@@ -10,7 +10,6 @@
 #include "room.h"
 #include "structures.h"
 #include "script.h"
-#include "screen.h"
 
 // Identified - to be sorted into header files
 extern u32 CheckKinstoneFused(u32);
