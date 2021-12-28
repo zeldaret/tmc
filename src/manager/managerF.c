@@ -10,6 +10,8 @@
 #include "script.h"
 #include "utils.h"
 #include "tiles.h"
+#include "object.h"
+#include "item.h"
 
 void sub_08058ECC(ManagerF*);
 
@@ -125,7 +127,7 @@ void sub_08058F44(u32 unk0, u32 unk1, u32 unk2) {
 
 void sub_08058F84(u32 unk0, u32 unk1) {
     Entity* tmp;
-    tmp = CreateObject(0x21, 0, 0);
+    tmp = CreateObject(OBJECT_21, 0, 0);
     if (!tmp)
         return;
     tmp->x.HALF.HI = gRoomControls.roomOriginX + unk0;
@@ -177,7 +179,7 @@ void sub_08058FB0(ManagerF* this) {
 
 void sub_08059064(ManagerF* this) {
     Entity* tmp;
-    tmp = CreateObject(0, 0x53, 0);
+    tmp = CreateObject(GROUND_ITEM, ITEM_SMALL_KEY, 0);
     if (!tmp)
         return;
     tmp->actionDelay = 2;
@@ -324,9 +326,9 @@ void sub_080592EC(ManagerF* this) {
 void sub_0805930C(ManagerF* this) {
     Entity* tmp;
 #ifdef EU
-    tmp = CreateObject(0xF, 0x43, 0x0);
+    tmp = CreateObject(SPECIAL_FX, FX_BIG_EXPLOSION2, 0x0);
 #else
-    tmp = CreateObject(0xF, 0x43, 0x40);
+    tmp = CreateObject(SPECIAL_FX, FX_BIG_EXPLOSION2, 0x40);
 #endif
     if (!tmp)
         return;
@@ -361,7 +363,7 @@ void sub_0805938C(ManagerF* this) {
 
 u32 sub_080593CC(ManagerF* this) {
     if (!(gPlayerState.flags & PL_MINISH) && gPlayerState.swimState != 0 && gPlayerEntity.animationState == 0 &&
-        (gPlayerState.field_0x90.HALF.LO & 0xF00) == 0x400) {
+        (gPlayerState.field_0x90 & 0xF00) == 0x400) {
         return sub_0806FCB8(&gPlayerEntity, this->unk_38, this->unk_3a + 0xC, 6);
     }
     return 0;
@@ -374,7 +376,7 @@ void sub_08059424(ManagerF* this) {
     }
     if (!CheckFlags(this->unk_3c))
         return;
-    tmp = CreateObject(0xF, 0x35, 0);
+    tmp = CreateObject(SPECIAL_FX, FX_BIG_EXPLOSION, 0);
     if (!tmp)
         return;
     tmp->collisionLayer = 2;

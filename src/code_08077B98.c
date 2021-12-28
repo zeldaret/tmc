@@ -195,11 +195,11 @@ u32 sub_08077EC8(ItemBehavior* beh) {
 }
 
 bool32 sub_08077EFC(ItemBehavior* arg0) {
-    return sub_08077F24(arg0, (u16)gPlayerState.field_0x90.HALF.LO);
+    return sub_08077F24(arg0, (u16)gPlayerState.field_0x90);
 }
 
 bool32 sub_08077F10(ItemBehavior* arg0) {
-    return sub_08077F24(arg0, (u16)gPlayerState.field_0x90.HALF.HI);
+    return sub_08077F24(arg0, (u16)gPlayerState.field_0x92);
 }
 
 ASM_FUNC("asm/non_matching/sub_08077F24.inc", bool32 sub_08077F24(ItemBehavior* beh, u32 arg1))

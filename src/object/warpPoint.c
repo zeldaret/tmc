@@ -224,7 +224,7 @@ void sub_0808B830(Entity* this) {
     this->action = 3;
     this->actionDelay = 0;
     this->spriteSettings.draw = 1;
-    tmp = CreateObject(0x34, 0, 0);
+    tmp = CreateObject(WARP_POINT, 0, 0);
     if (tmp) {
         tmp->field_0x70.BYTES.byte0 = 1;
         tmp->parent = this;

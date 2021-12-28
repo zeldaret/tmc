@@ -216,7 +216,8 @@ typedef struct {
     /*0x8b*/ u8 controlMode;
     /*0x8c*/ u16 vel_x;
     /*0x8e*/ u16 vel_y;
-    /*0x90*/ union SplitWord field_0x90;
+    /*0x90*/ u16 field_0x90;
+    /*0x92*/ u16 field_0x92;
     /*0x94*/ u32 field_0x94;
     /*0x98*/ u16 field_0x98;
     /*0x9a*/ u16 field_0x9a;

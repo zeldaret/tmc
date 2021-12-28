@@ -341,7 +341,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
                 this->field_0x86.HALF.LO = 0;
                 sub_080408EC(this);
             } else {
-                if (((this->actionDelay & 1) != 0) && (pEVar3 = CreateObject(0x9b, 1, 0xff), pEVar3 != NULL)) {
+                if (((this->actionDelay & 1) != 0) && (pEVar3 = CreateObject(OBJECT_9B, 1, 0xff), pEVar3 != NULL)) {
                     pEVar3->parent = this;
                     CopyPosition(this, pEVar3);
                     pEVar3->x.HALF.HI += (Random() & 0xf) - 7;

@@ -343,9 +343,9 @@ void OctorokBoss_Hit_SubAction6(Entity* this) {
     if (GET_TIMER(this) == 0) {
         if ((gScreenTransition.frameCount & 0xfU) == 0) {
             // Explosion in the center
-            CreateFx(this, 0x48, 0);
+            CreateFx(this, FX_GIANT_EXPLOSION3, 0);
             // Explosion at the front right leg
-            CreateFx(GET_HELPER(this)->legObjects[0], 0x48, 0);
+            CreateFx(GET_HELPER(this)->legObjects[0], FX_GIANT_EXPLOSION3, 0);
         }
         if (++this->field_0x82.HALF.LO == 0x79) {
             GET_HELPER(this)->mouthObject->health = 1;

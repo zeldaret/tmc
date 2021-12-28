@@ -1,6 +1,7 @@
 #include "item.h"
 #include "functions.h"
 #include "audio.h"
+#include "object.h"
 
 extern void (*const gUnk_0811BD44[])(ItemBehavior*, u32);
 
@@ -36,7 +37,7 @@ void sub_08075580(ItemBehavior* this, u32 arg1) {
             this->field_0x5[2] = 0x50;
         }
         sub_08077DF4(this, 0x168);
-        CreateObject(0x43, 0, 0);
+        CreateObject(OBJECT_43, 0, 0);
         return;
     }
     sub_080759B8(this, arg1);

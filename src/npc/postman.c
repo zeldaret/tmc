@@ -99,7 +99,7 @@ void sub_080604DC(Entity* this) {
     if (this->spriteSettings.draw == 1 && CheckOnScreen(this)) {
         if ((this->frame & 1) != 0) {
             this->frame &= 0xfe;
-            ent = CreateFx(this, 17, 0x40);
+            ent = CreateFx(this, FX_DASH, 0x40);
             if (ent != NULL) {
                 ent->y.HALF.HI++;
                 SetDefaultPriority(ent, 3);

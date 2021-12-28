@@ -2493,7 +2493,7 @@ static const u16 gUnk_0811BC30[] = {
 static NONMATCH("asm/non_matching/player/sub_08073584.inc", void sub_08073584(Entity* this)) {
     u32 state, dir, tmp, tmp2, idx;
 
-    if ((gPlayerState.field_0x90.HALF.HI & 0x80) || this->iframes > 0 || gPlayerState.field_0x3c[0] ||
+    if ((gPlayerState.field_0x92 & 0x80) || this->iframes > 0 || gPlayerState.field_0x3c[0] ||
         (gPlayerState.flags & PL_PARACHUTE) == 0) {
         gPlayerState.jumpStatus |= 0x40;
         sub_0807921C();
@@ -2871,7 +2871,7 @@ static void sub_08073D20(Entity* this) {
             gPlayerState.framestate = PL_STATE_CAPE;
         if (gPlayerState.floor_type != SURFACE_SHALLOW_WATER && gPlayerState.floor_type != SURFACE_WATER) {
             gPlayerState.swimState = 0;
-            this->field_0x3c &= 0xFBu;
+            this->field_0x3c &= ~4;
         }
         if (!RunQueuedAction() && this->subAction != 2) {
             if ((gPlayerState.flags & PL_HIDDEN) == 0) {
@@ -3254,7 +3254,7 @@ void SurfaceAction_ShallowWater(Entity* this) {
                 this->spritePriority.b0 = 4;
                 gPlayerState.swimState = 0;
             }
-            if ((gPlayerState.field_0x90.HALF.HI & 0xF00) || gPlayerState.field_0x11 == 1)
+            if ((gPlayerState.field_0x92 & 0xF00) || gPlayerState.field_0x11 == 1)
                 SoundReq(SFX_WATER_WALK);
         }
     }
@@ -3406,7 +3406,7 @@ void SurfaceAction_22(Entity* this) {
 void SurfaceAction_Dust(Entity* this) {
     if (!sub_080741C4()) {
         gPlayerState.field_0x80 -= 128;
-        if (gPlayerState.field_0x11 == 1 || (gPlayerState.field_0x90.HALF.HI & 0xF00) != 0) {
+        if (gPlayerState.field_0x11 == 1 || (gPlayerState.field_0x92 & 0xF00) != 0) {
             if (gPlayerState.floor_type == SURFACE_DUST)
                 CreateObjectWithParent(this, OBJECT_21, 1, 0);
             else
@@ -3770,7 +3770,7 @@ NONMATCH("asm/non_matching/player/sub_080751E8.inc", void sub_080751E8(u32 a1, u
         gPlayerState.field_0x39 = 1;
         tmp = &script_08009EF0;
     }
-    e = CreateObject(0x5B, !gPlayerState.field_0x39 ? 2 : 0, 0);
+    e = CreateObject(OBJECT_5B, !gPlayerState.field_0x39 ? 2 : 0, 0);
     if (e != NULL) {
         CopyPosition(&gPlayerEntity, e);
         StartCutscene(e, tmp);

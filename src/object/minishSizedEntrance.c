@@ -30,7 +30,7 @@ void sub_08090F00(Entity* this) {
         }
     }
     if ((gPlayerState.flags & PL_MINISH) && EntityInRectRadius(this, &gPlayerEntity, 4, 4) &&
-        (gPlayerEntity.z.HALF.HI == 0) && (((u16)gPlayerState.field_0x90.HALF.LO) & gUnk_0812225C[this->type2])) {
+        (gPlayerEntity.z.HALF.HI == 0) && (((u16)gPlayerState.field_0x90) & gUnk_0812225C[this->type2])) {
         DoExitTransition(GetCurrentRoomProperty(this->actionDelay));
     }
 }

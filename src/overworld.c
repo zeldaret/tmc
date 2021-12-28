@@ -41,11 +41,11 @@ void CleanUpGFXSlots();
 void sub_080ADE24();
 void sub_0801C370(u32);
 void sub_0801AE44(u32);
-void sub_0801862C(void);
-void sub_08078160(u32);
+void GenerateAreaHint(void);
+void ForceSetPlayerState(u32);
 void SetPlayerEventPriority(void);
 RoomResInfo* GetCurrentRoomInfo(void);
-void sub_08049D30(void);
+void UpdateRoomTracker(void);
 void InitScriptData(void);
 void sub_08054524(void);
 void sub_080186D4(void);
@@ -673,8 +673,8 @@ u32 sub_08052B24(void) {
     if ((gPlayerEntity.z.HALF.HI & 0x8000) && !gPlayerState.field_0xa)
         return 0;
 
-    sub_0801862C();
-    sub_08078160(19);
+    GenerateAreaHint();
+    ForceSetPlayerState(PL_STATE_TALKEZLO);
     SetPlayerEventPriority();
     return 1;
 }
@@ -728,25 +728,25 @@ void sub_08052C3C(void) {
 void sub_08052C5C(void) {
     if (!CheckIsInteriorNoEnemies()) {
         if (CheckIsOverworld()) {
-            gScreenTransition.player_status.field_0x20 = gPlayerEntity.x.HALF_U.HI;
-            gScreenTransition.player_status.field_0x22 = gPlayerEntity.y.HALF_U.HI;
+            gScreenTransition.player_status.overworld_map_x = gPlayerEntity.x.HALF_U.HI;
+            gScreenTransition.player_status.overworld_map_y = gPlayerEntity.y.HALF_U.HI;
         } else if (CheckIsDungeon()) {
-            gScreenTransition.player_status.field_0x1c = gPlayerEntity.x.HALF.HI;
-            gScreenTransition.player_status.field_0x1e = gPlayerEntity.y.HALF.HI;
+            gScreenTransition.player_status.dungeon_map_x = gPlayerEntity.x.HALF.HI;
+            gScreenTransition.player_status.dungeon_map_y = gPlayerEntity.y.HALF.HI;
         }
     }
 }
 
 void sub_08052CA4(u32 area, u32 room, u32 x, u32 y) {
     RoomHeader* hdr = gAreaRoomHeaders[area] + room;
-    gScreenTransition.player_status.field_0x20 = hdr->map_x + x;
-    gScreenTransition.player_status.field_0x22 = hdr->map_y + y;
+    gScreenTransition.player_status.overworld_map_x = hdr->map_x + x;
+    gScreenTransition.player_status.overworld_map_y = hdr->map_y + y;
 }
 
 void sub_08052CD0(u32 area, u32 room, u32 x, u32 y) {
     RoomHeader* hdr = gAreaRoomHeaders[area] + room;
-    gScreenTransition.player_status.field_0x1c = hdr->map_x + x;
-    gScreenTransition.player_status.field_0x1e = hdr->map_y + y;
+    gScreenTransition.player_status.dungeon_map_x = hdr->map_x + x;
+    gScreenTransition.player_status.dungeon_map_y = hdr->map_y + y;
 }
 
 void sub_08052CFC(void) {
@@ -817,7 +817,7 @@ void sub_08052EA0(void) {
     gRoomVars.unk_10[3] = gRoomVars.unk_10[0];
     gRoomVars.lightLevel = 256;
     gArea.locationIndex = gAreaMetadata[gRoomControls.areaID].location;
-    sub_08049D30();
+    UpdateRoomTracker();
     InitScriptData();
     sub_08054524();
     sub_080186D4();
@@ -979,10 +979,10 @@ void sub_080531F8(void) {
     if (sub_08053144()) {
         MemCopy(&gScreenTransition.player_status, &gSave.saved_status, sizeof gScreenTransition.player_status);
         if (CheckIsDungeon()) {
-            gScreenTransition.player_status.field_0x16 = gRoomControls.areaID;
-            gScreenTransition.player_status.field_0x17 = gRoomControls.roomID;
-            gScreenTransition.player_status.field_0x18 = gPlayerEntity.x.HALF.HI;
-            gScreenTransition.player_status.field_0x1a = gPlayerEntity.y.HALF.HI;
+            gScreenTransition.player_status.dungeon_area = gRoomControls.areaID;
+            gScreenTransition.player_status.dungeon_room = gRoomControls.roomID;
+            gScreenTransition.player_status.dungeon_x = gPlayerEntity.x.HALF.HI;
+            gScreenTransition.player_status.dungeon_y = gPlayerEntity.y.HALF.HI;
         }
     }
 }
@@ -1022,13 +1022,13 @@ static void sub_080532E4(void) {
 
     RoomHeader* r_hdr = gAreaRoomHeaders[AREA_FORTRESS_OF_WINDS] + 33;
 
-    gScreenTransition.player_status.field_0x16 = AREA_FORTRESS_OF_WINDS;
-    gScreenTransition.player_status.field_0x17 = 33;
+    gScreenTransition.player_status.dungeon_area = AREA_FORTRESS_OF_WINDS;
+    gScreenTransition.player_status.dungeon_room = 33;
 
-    gScreenTransition.player_status.field_0x18 = r_hdr->map_x + r_hdr->pixel_width / 2;
-    gScreenTransition.player_status.field_0x1c = gScreenTransition.player_status.field_0x18;
-    gScreenTransition.player_status.field_0x1a = r_hdr->map_y + r_hdr->pixel_height + 0xa0;
-    gScreenTransition.player_status.field_0x1e = gScreenTransition.player_status.field_0x1a;
+    gScreenTransition.player_status.dungeon_x = r_hdr->map_x + r_hdr->pixel_width / 2;
+    gScreenTransition.player_status.dungeon_map_x = gScreenTransition.player_status.dungeon_x;
+    gScreenTransition.player_status.dungeon_y = r_hdr->map_y + r_hdr->pixel_height + 0xa0;
+    gScreenTransition.player_status.dungeon_map_y = gScreenTransition.player_status.dungeon_y;
 }
 
 void sub_08053320(void) {

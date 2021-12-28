@@ -4901,8 +4901,8 @@ void sub_StateChange_HouseInteriors4_Mayor(void) {
     if (!GetInventoryValue(ITEM_FLIPPERS) && CheckGlobalFlag(MIZUKAKI_START) && !GetInventoryValue(ITEM_QST_BOOK3)) {
         LoadRoomEntityList(&gUnk_080F3A48);
     }
-    gScreenTransition.player_status.field_0x20 = 0xf28;
-    gScreenTransition.player_status.field_0x22 = 0x82d;
+    gScreenTransition.player_status.overworld_map_x = 0xf28;
+    gScreenTransition.player_status.overworld_map_y = 0x82d;
 }
 
 extern u32 Enemies_LakeHylia_Main;

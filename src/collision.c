@@ -60,7 +60,7 @@ void CollisionMain(void) {
     if (gPriorityHandler.sys_priority <= gPriorityHandler.ent_priority)
         prio = gPriorityHandler.ent_priority;
 
-    // if any min priority is set, dont do collision
+    // if any priority is set, dont do collision
     if (prio)
         return;
 
@@ -303,7 +303,7 @@ void sub_080179EC(Entity* a1, Entity* a2) {
 Entity* sub_08017A90(Entity* a1, Entity* parent) {
     Entity* e;
 
-    e = (Entity*)CreateObject(153, 0, 0);
+    e = (Entity*)CreateObject(OBJECT_99, 0, 0);
     if (e != NULL) {
         e->animationState = (a1->direction >> 3) & 3;
         e->spriteOffsetX = a1->x.HALF.HI - parent->x.HALF.HI;

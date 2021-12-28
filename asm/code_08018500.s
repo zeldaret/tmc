@@ -160,8 +160,8 @@ _08018620:
 _08018624: .4byte gUnk_02033AB8
 _08018628: .4byte gUnk_080B3D20
 
-	thumb_func_start sub_0801862C
-sub_0801862C: @ 0x0801862C
+	thumb_func_start GenerateAreaHint
+GenerateAreaHint: @ 0x0801862C
 	push {r4, r5, lr}
 	ldr r1, _0801864C @ =gPlayerState
 	movs r2, #0

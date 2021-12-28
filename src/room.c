@@ -366,7 +366,7 @@ static void LoadDestructibleTile(TileEntity* tile) {
 void sub_0804B388(u32 a1, u32 a2) {
     Entity* e;
     SetTileType(a2 == 1 ? 38 : 52, a1, a2);
-    e = CreateObject(0xF, 2, 0);
+    e = CreateObject(SPECIAL_FX, 2, 0);
     if (e != NULL) {
         e->collisionLayer = a2;
         sub_0806F704(e, a1);
