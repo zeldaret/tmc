@@ -1,10 +1,9 @@
 #include "global.h"
-#include "audio.h"
+#include "sound.h"
 #include "entity.h"
 #include "flags.h"
 #include "player.h"
 #include "room.h"
-#include "structures.h"
 #include "functions.h"
 #include "effects.h"
 

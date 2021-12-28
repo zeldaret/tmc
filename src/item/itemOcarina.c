@@ -1,14 +1,12 @@
 #include "item.h"
-#include "audio.h"
+#include "sound.h"
 #include "functions.h"
 
 extern void (*const gOcarinaStates[4])(ItemBehavior*, u32);
 
 extern void ResetPlayerVelocity(void);
-extern void SetPlayerEventPriority(void);
 
 extern void CreateBird(void);
-extern void ResetPlayerEventPriority(void);
 
 void ItemOcarina(ItemBehavior* this, u32 arg1) {
     gOcarinaStates[this->stateID](this, arg1);

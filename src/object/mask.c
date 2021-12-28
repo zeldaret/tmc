@@ -1,5 +1,4 @@
 #include "object.h"
-#include "structures.h"
 #include "functions.h"
 
 extern void (*MaskActionFuncs[])(Entity*);

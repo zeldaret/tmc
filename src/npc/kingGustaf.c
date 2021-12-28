@@ -1,7 +1,6 @@
 #include "global.h"
 #include "entity.h"
 #include "functions.h"
-#include "script.h"
 #include "screen.h"
 
 void KingGustaf(Entity* this) {

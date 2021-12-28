@@ -1,7 +1,6 @@
 #include "entity.h"
 #include "enemy.h"
 #include "player.h"
-#include "audio.h"
 
 extern s32 sub_080AF090(Entity*);
 extern s32 IsProjectileOffScreen(Entity*);

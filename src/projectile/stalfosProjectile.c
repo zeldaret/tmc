@@ -1,7 +1,6 @@
 #include "entity.h"
 #include "enemy.h"
 #include "functions.h"
-#include "effects.h"
 
 extern void (*const StalfosProjectile_Functions[])(Entity*);
 extern void (*const StalfosProjectile_Actions[])(Entity*);

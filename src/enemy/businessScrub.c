@@ -1,15 +1,11 @@
 #include "asm.h"
 #include "enemy.h"
-#include "audio.h"
-#include "entity.h"
-#include "flags.h"
-#include "textbox.h"
+#include "message.h"
 #include "save.h"
 #include "npc.h"
 #include "functions.h"
-#include "effects.h"
+#include "game.h"
 
-extern void LoadObjPalette(Entity*, u32);
 extern Entity* sub_08049DF4(u32);
 extern bool32 sub_08056338(void);
 extern void UnloadOBJPalette(Entity*);

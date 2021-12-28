@@ -1,7 +1,7 @@
 #include "manager.h"
 #include "structures.h"
 #include "functions.h"
-#include "audio.h"
+#include "sound.h"
 
 typedef struct {
     Manager manager;

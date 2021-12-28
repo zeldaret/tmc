@@ -74,7 +74,7 @@ script_08012824:
 	SetPlayerIdle
 	_0807E9DC
 	CallWithArg sub_0807F5B0, 0x0000003c
-	Call sub_080791D0
+	Call ResetPlayerAnimationAndAction
 	EndBlock
 	SetSyncFlag 0x00000008
 	WaitForSyncFlagAndClear 0x00000004

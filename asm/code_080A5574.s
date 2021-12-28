@@ -4234,7 +4234,7 @@ sub_080A6DF8: @ 0x080A6DF8
 	.align 2, 0
 _080A6E14: .4byte gMenu
 _080A6E18:
-	bl sub_080791D0
+	bl ResetPlayerAnimationAndAction
 	ldr r0, _080A6E3C @ =gPlayerEntity
 	adds r1, r0, #0
 	adds r1, #0x58

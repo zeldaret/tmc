@@ -5,9 +5,8 @@
 #include "area.h"
 #include "room.h"
 #include "player.h"
-#include "audio.h"
+#include "sound.h"
 #include "object.h"
-#include "functions.h"
 
 // Facilitates the usage of minish portals.
 

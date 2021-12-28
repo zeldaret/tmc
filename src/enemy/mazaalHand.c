@@ -1,4 +1,3 @@
-#include "global.h"
 #include "entity.h"
 
 void sub_08035194(Entity*);

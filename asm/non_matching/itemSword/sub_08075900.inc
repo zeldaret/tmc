@@ -54,7 +54,7 @@ _08075962:
 	movs r0, #0xc0
 	lsls r0, r0, #2
 	strh r0, [r4, #0x24]
-	bl sub_08079E08
+	bl UpdatePlayerMovement
 	ldr r0, _08075994 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #3

@@ -3,7 +3,6 @@
 #include "flags.h"
 #include "asm.h"
 #include "object.h"
-#include "room.h"
 
 typedef struct {
     Manager manager;

@@ -1,5 +1,4 @@
 #include "enemy.h"
-#include "structures.h"
 #include "functions.h"
 
 void sub_080485D8(Entity*);
@@ -82,7 +81,7 @@ void VaatiWrathEyeAction3(Entity* this) {
         y = parent->y.HALF.HI + ptr[1];
         direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, x, y);
         this->direction = direction;
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
         this->z.HALF.HI = this->parent->z.HALF.HI;
         if ((this->x.HALF.HI == x) && (this->y.HALF.HI == y)) {
             this->action = 4;

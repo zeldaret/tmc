@@ -36,7 +36,7 @@ _080735C0:
 	strb r1, [r6, #2]
 	bl sub_0807921C
 	adds r0, r4, #0
-	bl sub_08073904
+	bl DoJump
 	movs r0, #0xe6
 	lsls r0, r0, #3
 	strh r0, [r6, #8]
@@ -114,7 +114,7 @@ _0807365A:
 	movs r1, #0x1f
 	ands r0, r1
 	strb r0, [r4, #0x15]
-	bl sub_08079E08
+	bl UpdatePlayerMovement
 	ldrb r2, [r4, #0x14]
 	lsls r3, r2, #2
 	ldrb r1, [r4, #0x15]

@@ -3,7 +3,6 @@
 #include "functions.h"
 
 extern void sub_080AEFB4(Entity*);
-extern u8 gEntCount;
 
 void VaatiRebornEnemyType0PreAction(Entity*);
 void VaatiRebornEnemyType1PreAction(Entity*);

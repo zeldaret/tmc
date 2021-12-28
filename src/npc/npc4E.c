@@ -1,9 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "functions.h"
-#include "script.h"
-#include "functions.h"
-#include "audio.h"
+#include "sound.h"
 #include "save.h"
 #include "flags.h"
 #include "object.h"
@@ -196,7 +194,6 @@ void sub_0806DC7C() {
 }
 
 void sub_0806DCA0() {
-    u16 uVar1;
     const u16* tiles = gUnk_081141F4;
     while (*tiles != 0) {
         u32 tile = *tiles;

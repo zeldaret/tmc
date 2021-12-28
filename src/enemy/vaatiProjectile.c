@@ -2,7 +2,6 @@
 #include "functions.h"
 
 extern bool32 PlayerInRange(Entity*, u32, u32);
-extern void DoExitTransition(ScreenTransitionData*);
 extern u32 sub_080002E0(u32, u32);
 extern Entity* gUnk_020000B0;
 extern const ScreenTransitionData gUnk_0813AB94;
@@ -131,7 +130,7 @@ void VaatiProjectileFunction0Action1(Entity* this) {
     } else {
         if (gUnk_020000B0 != NULL) {
             sub_08004596(this, GetFacingDirection(this, gUnk_020000B0));
-            sub_0806F69C(this);
+            LinearMoveUpdate(this);
         }
     }
     GetNextFrame(this);
@@ -191,7 +190,7 @@ void VaatiProjectileFunction0Action6(Entity* this) {
 
 void VaatiProjectileFunction0Action7(Entity* this) {
     sub_0803E444(this);
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     sub_0803E4D8(this);
     if ((gRoomControls.roomOriginY + gRoomControls.height + -0x10) <= this->y.HALF.HI) {
         SetInitializationPriority();

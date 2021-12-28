@@ -1,5 +1,4 @@
 #include "enemy.h"
-#include "entity.h"
 #include "functions.h"
 
 void sub_08023000(Entity*, int);

@@ -187,8 +187,8 @@ _0804ACEC: .4byte gFadeControl
 _0804ACF0: .4byte gArea
 _0804ACF4: .4byte gUnk_02032EDC
 
-	thumb_func_start sub_0804ACF8
-sub_0804ACF8: @ 0x0804ACF8
+	thumb_func_start RespawnAsMinish
+RespawnAsMinish: @ 0x0804ACF8
 	push {lr}
 	bl sub_0804AD18
 	cmp r0, #0

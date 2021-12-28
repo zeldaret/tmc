@@ -1,5 +1,5 @@
 #include "entity.h"
-#include "audio.h"
+#include "sound.h"
 #include "functions.h"
 
 extern void (*const gUnk_080B77FC[])(Entity*);
@@ -47,7 +47,7 @@ void sub_0801B7A8(Entity* this) {
             this->speed += 8;
         }
         this->direction = GetFacingDirection(this, &gPlayerEntity);
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
         if (sub_0800419C(this, &gPlayerEntity, 2, 2) != 0) {
             DeleteThisEntity();
         }

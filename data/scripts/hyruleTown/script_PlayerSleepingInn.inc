@@ -15,6 +15,6 @@ script_08010A78:
 	DoPostScriptAction 0x0014
 	EnablePlayerControl
 	Call sub_0807DF50
-	Call sub_080791D0
+	Call ResetPlayerAnimationAndAction
 SCRIPT_END
 	.2byte 0x0000

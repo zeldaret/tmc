@@ -1,8 +1,6 @@
 #include "entity.h"
 #include "enemy.h"
 #include "functions.h"
-#include "player.h"
-#include "effects.h"
 
 extern void SoundReqClipped(Entity*, u32);
 extern void sub_08079D84(void);

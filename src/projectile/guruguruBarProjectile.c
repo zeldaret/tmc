@@ -1,6 +1,5 @@
 
 #include "entity.h"
-#include "enemy.h"
 #include "coord.h"
 
 void sub_080AABB0(Entity*);

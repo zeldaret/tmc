@@ -2,7 +2,7 @@
 #include "script.h"
 #include "structures.h"
 #include "functions.h"
-#include "textbox.h"
+#include "message.h"
 #include "object.h"
 
 extern ScreenTransitionData gUnk_0813AD4C;

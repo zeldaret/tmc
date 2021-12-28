@@ -4,7 +4,7 @@
 #include "functions.h"
 #include "flags.h"
 #include "object.h"
-#include "overworld.h"
+#include "game.h"
 
 extern void (*const gUnk_08108CCC[])(Manager*);
 

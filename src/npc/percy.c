@@ -1,23 +1,14 @@
 #include "global.h"
 #include "entity.h"
 #include "npc.h"
-#include "textbox.h"
 #include "functions.h"
-#include "flags.h"
-#include "script.h"
-#include "save.h"
-#include "effects.h"
 
 extern void sub_0806B41C(Entity*);
 extern void sub_0806B3CC(Entity*);
 
-extern u32 sub_08002632(Entity*);
-
 extern u16* gUnk_08001A7C[40];
 extern u16 gUnk_08112E54[4];
 extern Dialog gUnk_08112E2C[5];
-extern SpriteLoadData gUnk_08112E1C;
-
 extern SpriteLoadData gUnk_08112E1C;
 
 void Percy_Head(Entity* this) {

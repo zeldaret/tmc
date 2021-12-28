@@ -65,7 +65,7 @@ void BoneProjectile_Action2(Entity* this) {
 
 void BoneProjectile_Action3(Entity* this) {
     this->spriteSettings.draw ^= 1;
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     GetNextFrame(this);
     if (sub_080044EC(this, 0x1800) == 0) {
         DeleteEntity(this);
@@ -74,7 +74,7 @@ void BoneProjectile_Action3(Entity* this) {
 
 void BoneProjectile_Action4(Entity* this) {
     GetNextFrame(this);
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     if (GravityUpdate(this, 0x1800) == 0) {
         DeleteEntity(this);
     }

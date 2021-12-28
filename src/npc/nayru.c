@@ -1,11 +1,6 @@
 #include "global.h"
 #include "entity.h"
 #include "npc.h"
-#include "script.h"
-#include "functions.h"
-#include "save.h"
-
-extern u32 sub_08002632(Entity*);
 
 void Nayru(Entity* this) {
     switch (this->action) {

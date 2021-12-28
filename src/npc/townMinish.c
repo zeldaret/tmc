@@ -2,10 +2,6 @@
 #include "entity.h"
 #include "npc.h"
 #include "functions.h"
-#include "textbox.h"
-#include "flags.h"
-#include "save.h"
-#include "script.h"
 
 extern u32 sub_080002C0();
 extern void sub_0806ACC4(Entity*);
@@ -63,8 +59,6 @@ void sub_0806AC3C(Entity* this) {
         }
 
         if (unk != this->field_0x68.HALF.HI) {
-            s32 temp;
-
             if (((unk - this->field_0x68.HALF.HI) & 0x1f) <= 0xf) {
                 this->field_0x68.HALF.HI--;
             } else {

@@ -1,7 +1,6 @@
 #include "global.h"
 #include "entity.h"
 #include "functions.h"
-#include "script.h"
 #include "utils.h"
 
 extern void sub_08068318(Entity*);

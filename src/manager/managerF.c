@@ -1,19 +1,16 @@
 #include "global.h"
 #include "manager.h"
 #include "flags.h"
-#include "audio.h"
+#include "sound.h"
 #include "room.h"
 #include "player.h"
 #include "functions.h"
 #include "area.h"
-#include "textbox.h"
-#include "script.h"
+#include "message.h"
 #include "utils.h"
 #include "tiles.h"
 #include "object.h"
 #include "item.h"
-
-void sub_08058ECC(ManagerF*);
 
 void sub_08058EE4(ManagerF*);
 void sub_08058FB0(ManagerF*);

@@ -10,7 +10,6 @@ typedef struct {
     u8 field_0x1;
 } UnkItemStruct;
 
-Entity* sub_08077C94(ItemBehavior*, u32);
 void* sub_08077C54(UnkItemStruct* unk);
 Entity* CreatePlayerBomb(ItemBehavior*, u32);
 extern Entity* sub_0805E744();

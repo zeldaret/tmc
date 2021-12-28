@@ -5,5 +5,5 @@ SCRIPT_START script_PlayerIntroBusinessScrub3
 	SetAnimationState 0x0000
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000010
-	Call sub_080791BC
+	Call SetPlayerActionNormal
 SCRIPT_END

@@ -51,7 +51,7 @@ _0801708A:
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080170A4
-	bl sub_0807A108
+	bl DeleteClones
 _080170A4:
 	bl sub_08079B24
 	cmp r0, #0

@@ -391,7 +391,7 @@ sub_08078AF0: @ 0x08078AF0
 	movs r1, #2
 	orrs r0, r1
 	strb r0, [r2, #0x11]
-	bl sub_0807A108
+	bl DeleteClones
 	pop {r4, pc}
 	.align 2, 0
 _08078B40: .4byte gPlayerState
@@ -1239,7 +1239,7 @@ sub_0807919C: @ 0x0807919C
 	ands r0, r1
 	cmp r0, #0
 	bne _080791B4
-	bl sub_080791BC
+	bl SetPlayerActionNormal
 	b _080791B8
 	.align 2, 0
 _080791B0: .4byte gPlayerState
@@ -1249,8 +1249,8 @@ _080791B8:
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_080791BC
-sub_080791BC: @ 0x080791BC
+	thumb_func_start SetPlayerActionNormal
+SetPlayerActionNormal: @ 0x080791BC
 	ldr r0, _080791CC @ =gPlayerEntity
 	movs r2, #0
 	movs r1, #1
@@ -1261,8 +1261,8 @@ sub_080791BC: @ 0x080791BC
 	.align 2, 0
 _080791CC: .4byte gPlayerEntity
 
-	thumb_func_start sub_080791D0
-sub_080791D0: @ 0x080791D0
+	thumb_func_start ResetPlayerAnimationAndAction
+ResetPlayerAnimationAndAction: @ 0x080791D0
 	push {lr}
 	ldr r3, _0807920C @ =gPlayerState
 	ldr r0, [r3, #0x30]
@@ -1318,8 +1318,8 @@ sub_0807921C: @ 0x0807921C
 	ldr r1, _08079254 @ =0xFECBF6FA
 	ands r0, r1
 	str r0, [r2, #0x30]
-	bl sub_08079938
-	bl sub_080791BC
+	bl ResolvePlayerAnimation
+	bl SetPlayerActionNormal
 	adds r0, r4, #0
 	bl sub_0805E374
 	pop {r4, pc}
@@ -2248,8 +2248,8 @@ _0807992E:
 _08079930: .4byte gPlayerState
 _08079934: .4byte gPlayerEntity
 
-	thumb_func_start sub_08079938
-sub_08079938: @ 0x08079938
+	thumb_func_start ResolvePlayerAnimation
+ResolvePlayerAnimation: @ 0x08079938
 	push {r4, lr}
 	ldr r3, _08079954 @ =gPlayerState
 	ldr r2, [r3, #0x30]
@@ -2865,8 +2865,8 @@ _08079DFC: .4byte gPlayerEntity
 _08079E00: .4byte gPlayerState
 _08079E04: .4byte 0x00000193
 
-	thumb_func_start sub_08079E08
-sub_08079E08: @ 0x08079E08
+	thumb_func_start UpdatePlayerMovement
+UpdatePlayerMovement: @ 0x08079E08
 	push {r4, lr}
 	ldr r0, _08079E50 @ =gPlayerEntity
 	ldrh r2, [r0, #0x24]
@@ -3279,8 +3279,8 @@ _0807A104:
 	adds r0, r2, #0
 	pop {r4, r5, pc}
 
-	thumb_func_start sub_0807A108
-sub_0807A108: @ 0x0807A108
+	thumb_func_start DeleteClones
+DeleteClones: @ 0x0807A108
 	push {lr}
 	ldr r1, _0807A148 @ =gPlayerClones
 	movs r0, #0
@@ -5131,8 +5131,8 @@ _0807AEDE:
 	.align 2, 0
 _0807AEE0: .4byte gScreenTransition
 
-	thumb_func_start sub_0807AEE4
-sub_0807AEE4: @ 0x0807AEE4
+	thumb_func_start UpdatePlayerSkills
+UpdatePlayerSkills: @ 0x0807AEE4
 	push {r4, lr}
 	ldr r0, _0807AFE4 @ =gPlayerState
 	adds r4, r0, #0
@@ -5471,7 +5471,7 @@ sub_0807B144: @ 0x0807B144
 	ldr r1, _0807B170 @ =gPlayerState
 	movs r0, #0x81
 	strb r0, [r1, #2]
-	bl sub_080791BC
+	bl SetPlayerActionNormal
 	pop {pc}
 	.align 2, 0
 _0807B170: .4byte gPlayerState
@@ -5501,7 +5501,7 @@ sub_0807B178: @ 0x0807B178
 	ldr r1, _0807B1A4 @ =gPlayerState
 	movs r0, #0x81
 	strb r0, [r1, #2]
-	bl sub_080791BC
+	bl SetPlayerActionNormal
 	pop {pc}
 	.align 2, 0
 _0807B1A4: .4byte gPlayerState

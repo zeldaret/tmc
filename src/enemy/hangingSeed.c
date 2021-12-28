@@ -1,7 +1,6 @@
 #include "entity.h"
 #include "enemy.h"
 #include "functions.h"
-#include "effects.h"
 
 extern void (*const gHangingSeedFunctions[])(Entity*);
 extern void (*const gUnk_080CB588[])(Entity*);

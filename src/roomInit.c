@@ -4,24 +4,18 @@
 #include "utils.h"
 
 #include "functions.h"
-#include "structures.h"
 
-#include "audio.h"
+#include "sound.h"
 #include "effects.h"
 #include "screen.h"
 #include "flags.h"
 #include "item.h"
 #include "save.h"
-#include "script.h"
-#include "screen.h"
 
 #include "area.h"
-#include "room.h"
-#include "overworld.h"
+#include "game.h"
 
-#include "entity.h"
 #include "npc.h"
-#include "player.h"
 
 static void sub_0804E150(void);
 

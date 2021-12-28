@@ -34,6 +34,7 @@ bool32 sub_08062EDC(Entity* this, ScriptExecutionContext* context) {
     u32 tmp;
     u32 tmp2;
 
+    //! @bug: tmp is uninitialized, in practice player must have an item here
     if (GetInventoryValue(0x68) != 0) {
         tmp = 0;
     }

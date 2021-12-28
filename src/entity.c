@@ -1,11 +1,8 @@
 #include "global.h"
 #include "utils.h"
 #include "functions.h"
-#include "entity.h"
 #include "area.h"
-#include "room.h"
-#include "script.h"
-#include "textbox.h"
+#include "message.h"
 #include "npc.h"
 
 extern u8 gUnk_081091F8[];
@@ -18,12 +15,9 @@ void sub_0805EE88(void);
 void ClearAllDeletedEntities(void);
 void DeleteAllEntities(void);
 void sub_0805E98C(void);
-extern void sub_080AE068();
 extern void UnloadOBJPalette();
 extern void sub_0806FE84();
-extern void sub_080788E0();
 extern void sub_08078954();
-extern void sub_0805EC60();
 extern void sub_08017744(Entity*);
 extern void UnloadHitbox();
 extern void sub_0804AA1C();
@@ -31,7 +25,6 @@ extern void sub_0804AA1C();
 extern void _ClearAndUpdateEntities();
 extern void UpdateEntities_arm(u32);
 
-void SetPriorityTimer(u32);
 static void UpdatePriorityTimer(void);
 static void ReleaseTransitionManager();
 static void UnlinkEntity();
@@ -256,8 +249,6 @@ Entity* sub_0805E744(void) {
     return NULL;
 }
 
-Manager* GetEmptyManager(void);
-
 typedef void* (*Getter)(void);
 
 void* GetEmptyEntityByKind(u32 kind) {
@@ -276,8 +267,6 @@ void DeleteThisEntity(void) {
     f = _ClearAndUpdateEntities;
     f();
 }
-
-void DeleteManager(void*);
 
 typedef void (*Deleter)(void*);
 
@@ -320,7 +309,6 @@ void DeleteEntity(Entity* ent) {
     }
 }
 
-extern Entity gPlayerEntity;
 void ClearDeletedEntity(Entity*);
 
 void ClearAllDeletedEntities(void) {
@@ -332,8 +320,6 @@ void ClearAllDeletedEntities(void) {
         }
     } while (ent++, ent < (&gPlayerEntity + 80));
 }
-
-extern u8 gEntCount;
 
 void ClearDeletedEntity(Entity* ent) {
     DmaClear32(3, ent, sizeof(Entity));
@@ -357,8 +343,6 @@ void DeleteAllEntities(void) {
     }
 }
 
-extern Manager gUnk_02033290;
-
 typedef struct Temp {
     void* prev;
     void* next;
@@ -375,8 +359,6 @@ Manager* GetEmptyManager(void) {
     }
     return NULL;
 }
-
-extern u8 gManagerCount;
 
 void DeleteManager(void* ent) {
     Manager* manager = (Manager*)ent;
@@ -399,7 +381,6 @@ void ReleaseTransitionManager(void* mgr) {
 }
 
 extern Entity gUnk_020369F0;
-void sub_0805E98C(void);
 
 void sub_0805E958(void) {
     MemCopy(&gEntityLists, &gUnk_020369F0, 0x48);
@@ -448,8 +429,6 @@ void DeleteSleepingEntities(void) {
         }
     } while (++list < &gEntityLists[9]);
 }
-
-extern void sub_0805E374(Entity*);
 
 void AppendEntityToList(Entity* entity, u32 listIndex) {
     LinkedList* list;

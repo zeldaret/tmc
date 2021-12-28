@@ -60,7 +60,7 @@ script_080138D0:
 	StartPlayerScript script_PlayerPickUpFinalSword
 	SetSyncFlag 0x00000080
 	_0807F078 0x0006, 0x0001
-	Call sub_0807AEE4
+	Call UpdatePlayerSkills
 	Call sub_0806DC3C
 	Call sub_0806DC58
 	Call WaitForPlayerFrameHiBit

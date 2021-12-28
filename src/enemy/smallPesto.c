@@ -94,7 +94,7 @@ void sub_08031770(Entity* this) {
 
 void sub_080317B4(Entity* this) {
     this->z.HALF.HI = ((Random() & 0x30) != 0) ? -0xc : -0xd;
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     GetNextFrame(this);
 }
 

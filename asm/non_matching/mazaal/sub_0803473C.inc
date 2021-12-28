@@ -59,7 +59,7 @@ _08034798:
 _080347A8:
 	strb r0, [r3, #0x15]
 	adds r0, r3, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 _080347B0:
 	pop {r4, r5, pc}
 	.align 2, 0

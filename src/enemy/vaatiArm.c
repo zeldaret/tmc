@@ -2,8 +2,6 @@
 #include "object.h"
 #include "functions.h"
 
-extern void DoExitTransition(ScreenTransitionData*);
-
 typedef struct VaatiArm_HeapStruct1 {
     union SplitHWord unk00;
     u16 unk02;
@@ -165,7 +163,6 @@ const u16 gUnk_080D140E[] = { -0x6000, -0x5000, -0x4000 };
 const u8 gUnk_080D1414[] = { 0, 0xc, 0xe, 0x10, 0x1c };
 const u8 gUnk_080D1419[] = { 0, 0xa, 0xa, 0xa, 0x1c };
 
-extern u8 gEntCount;
 extern const Hitbox gUnk_080FD450;
 extern const Hitbox gUnk_080FD538;
 

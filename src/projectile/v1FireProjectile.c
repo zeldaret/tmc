@@ -2,8 +2,6 @@
 #include "enemy.h"
 #include "player.h"
 #include "functions.h"
-#include "audio.h"
-#include "asm.h"
 
 extern void sub_0806F5BC(Entity*, u32, u32);
 extern u32 sub_080041DC(Entity*, u32, u32);
@@ -75,7 +73,7 @@ void V1FireProjectile_Init(Entity* this) {
 
 void V1FireProjectile_Action1(Entity* this) {
     GetNextFrame(this);
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     if (GravityUpdate(this, 0) == 0) {
         this->action = 2;
         this->actionDelay = 0xf;

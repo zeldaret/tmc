@@ -1,10 +1,8 @@
 #include "entity.h"
-#include "script.h"
 #include "player.h"
 #include "structures.h"
 #include "functions.h"
-#include "structures.h"
-#include "textbox.h"
+#include "message.h"
 #include "npc.h"
 
 extern void (*const gUnk_081104C8[])(Entity*);

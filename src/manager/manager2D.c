@@ -1,3 +1,4 @@
+#include "asm.h"
 #include "entity.h"
 #include "functions.h"
 

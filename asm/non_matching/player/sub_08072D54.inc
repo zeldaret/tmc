@@ -11,7 +11,7 @@
 	cmp r0, #0
 	beq _08072D7A
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	b _08072E80
@@ -140,10 +140,10 @@ _08072E6C:
 	cmp r0, #0
 	beq _08072E7A
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	b _08072E7E
 _08072E7A:
-	bl sub_08079E08
+	bl UpdatePlayerMovement
 _08072E7E:
 	movs r0, #0
 _08072E80:
@@ -164,7 +164,7 @@ _08072E80:
 	cmp r0, #1
 	bne _08072EAA
 	adds r0, r4, #0
-	bl sub_0800455E
+	bl ResetCollisionLayer
 	b _08072EB0
 _08072EAA:
 	adds r0, r4, #0
@@ -187,7 +187,7 @@ _08072EB0:
 	ands r0, r1
 	cmp r0, #0
 	bne _08072F10
-	bl sub_080791BC
+	bl SetPlayerActionNormal
 	b _08072F10
 	.align 2, 0
 _08072EDC: .4byte gPlayerState

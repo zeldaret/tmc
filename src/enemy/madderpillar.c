@@ -1,7 +1,6 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern u8 gEntCount;
 extern Hitbox gUnk_080FD298;
 extern Hitbox gUnk_080FD2A0;
 

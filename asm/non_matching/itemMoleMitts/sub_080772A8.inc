@@ -73,7 +73,7 @@ _0807732E:
 	ldrsh r0, [r5, r1]
 	cmp r0, #0
 	beq _08077344
-	bl sub_08079E08
+	bl UpdatePlayerMovement
 _08077344:
 	ldrb r1, [r4, #0xe]
 	movs r0, #0x10

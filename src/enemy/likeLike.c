@@ -1,5 +1,5 @@
 #include "enemy.h"
-#include "textbox.h"
+#include "message.h"
 #include "save.h"
 #include "object.h"
 #include "functions.h"

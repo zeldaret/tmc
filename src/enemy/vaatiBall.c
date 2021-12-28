@@ -1,9 +1,7 @@
 #include "entity.h"
 #include "enemy.h"
 #include "player.h"
-#include "screen.h"
 #include "object.h"
-#include "audio.h"
 #include "functions.h"
 
 typedef struct {
@@ -112,7 +110,7 @@ void sub_0804474C(Entity* this) {
             this->direction++;
             this->direction &= 0x1f;
         }
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
         UpdateAnimationSingleFrame(this);
     }
 }
@@ -164,7 +162,7 @@ void sub_08044868(Entity* this) {
                         }
                         break;
                     case 1:
-                        sub_0806F69C(this);
+                        LinearMoveUpdate(this);
                         if (sub_0806FCB8(this, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10, 0xc)) {
                             this->field_0x74.HALF.LO++;
                             this->x.HALF.HI = vaati->x.HALF.HI;
@@ -200,7 +198,7 @@ void sub_08044868(Entity* this) {
         case 2:
             if (this->actionDelay)
                 if (--this->actionDelay < 0x11)
-                    sub_0806F69C(this);
+                    LinearMoveUpdate(this);
             break;
         case 3: {
             u8 draw;
@@ -229,7 +227,7 @@ void sub_080449F8(Entity* this) {
 
     switch (vaati->field_0x74.HALF.LO) {
         case 0:
-            sub_0806F69C(this);
+            LinearMoveUpdate(this);
             if (--this->actionDelay)
                 break;
 
@@ -254,17 +252,17 @@ void sub_080449F8(Entity* this) {
                     break;
                 case 1:
                     this->direction = (this->direction + 0x10) & 0x1f;
-                    sub_0806F69C(this);
+                    LinearMoveUpdate(this);
                     this->direction = (this->direction + 0x10) & 0x1f;
                     this->actionDelay = 2;
                     break;
                 case 3:
-                    sub_0806F69C(this);
+                    LinearMoveUpdate(this);
                     this->actionDelay = 2;
                     break;
                 case 4:
-                    sub_0806F69C(this);
-                    sub_0806F69C(this);
+                    LinearMoveUpdate(this);
+                    LinearMoveUpdate(this);
                     this->actionDelay = 2;
                     break;
             }
@@ -305,7 +303,7 @@ void sub_08044B04(Entity* this) {
 
     switch (vaati->field_0x74.HALF.LO) {
         case 0:
-            sub_0806F69C(this);
+            LinearMoveUpdate(this);
             switch (this->field_0x74.HALF.LO) {
                 case 0:
                     if (--this->actionDelay == 0) {
@@ -420,7 +418,7 @@ void sub_08044B04(Entity* this) {
                     }
                     break;
                 case 1:
-                    sub_0806F69C(this);
+                    LinearMoveUpdate(this);
                     if (--this->actionDelay == 0)
                         this->field_0x74.HALF.LO++;
                     break;
@@ -472,11 +470,11 @@ void sub_08044E74(Entity* this, u32 state) {
             this->direction &= 0x1f;
             PositionRelative(this->parent, this, 0, -0x100000);
             this->speed = 12288;
-            sub_0806F69C(this);
+            LinearMoveUpdate(this);
             this->direction += 0x8;
             this->direction &= 0x1f;
             this->speed = 1280;
-            sub_0806F69C(this);
+            LinearMoveUpdate(this);
             break;
         case 1:
             this->direction = (this->direction + 8) & 0x1f;
@@ -486,18 +484,18 @@ void sub_08044E74(Entity* this, u32 state) {
                 switch (this->actionDelay) {
                     case 3 ... 4:
                         do {
-                            sub_0806F69C(this);
+                            LinearMoveUpdate(this);
                         } while (this->actionDelay-- != 3);
                         break;
                     case 1:
                         this->direction = (this->direction + 0x10) & 0x1f;
-                        sub_0806F69C(this);
+                        LinearMoveUpdate(this);
                         this->direction = (this->direction + 0x10) & 0x1f;
                         break;
                 }
             } else {
                 if (this->actionDelay == 2) {
-                    sub_0806F69C(this);
+                    LinearMoveUpdate(this);
                 }
             }
             break;

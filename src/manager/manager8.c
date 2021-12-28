@@ -1,8 +1,6 @@
-#include "global.h"
 #include "manager.h"
 #include "screen.h"
 #include "functions.h"
-#include "gba/gba.h"
 
 typedef struct {
     Manager manager;

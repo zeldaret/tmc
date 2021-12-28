@@ -1,9 +1,7 @@
 #include "entity.h"
 #include "enemy.h"
-#include "audio.h"
 #include "functions.h"
 #include "object.h"
-#include "flags.h"
 
 extern void sub_0806FBB4(Entity*);
 extern u32 sub_080002D4(s32, s32, u32);

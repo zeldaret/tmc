@@ -3,8 +3,6 @@
 #include "flags.h"
 #include "object.h"
 
-extern u32 ReadBit(u32*, u32);
-
 extern u32 gUnk_020342F8;
 extern u16 gUnk_08125050[];
 extern void (*gUnk_0812505C[])(Entity*);

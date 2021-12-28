@@ -1,12 +1,10 @@
 #include "global.h"
 #include "manager.h"
 #include "flags.h"
-#include "entity.h"
 #include "room.h"
 #include "area.h"
 #include "utils.h"
-#include "audio.h"
-#include "functions.h"
+#include "sound.h"
 
 /*
  * Manager B is used to create fights:
@@ -47,7 +45,6 @@ void ManagerB_Init(ManagerB* this) {
         DeleteThisEntity();
     }
 }
-extern void sub_080186C0(u32);
 
 void ManagerB_WaitForFlag(ManagerB* this) {
     int tmp;
@@ -62,8 +59,6 @@ void ManagerB_WaitForFlag(ManagerB* this) {
         sub_080186C0(0xB0F);
     }
 }
-
-extern void sub_0801855C(void);
 
 void ManagerB_WaitForDone(ManagerB* this) {
     // check if all helpers are done

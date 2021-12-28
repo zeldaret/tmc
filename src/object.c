@@ -1,6 +1,4 @@
-#include "global.h"
 #include "entity.h"
-#include "manager.h"
 #include "object.h"
 
 void (*const gObjectFunctions[])(Entity*) = {

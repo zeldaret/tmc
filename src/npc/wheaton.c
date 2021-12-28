@@ -1,5 +1,4 @@
 #include "npc.h"
-#include "script.h"
 
 extern Hitbox gUnk_0810C3C0;
 

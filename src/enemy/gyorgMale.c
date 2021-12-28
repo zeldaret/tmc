@@ -3,7 +3,6 @@
 #include "player.h"
 #include "fileScreen.h"
 #include "functions.h"
-#include "effects.h"
 
 void (*const gUnk_080D1AFC[8])(Entity*);
 void (*const gUnk_080D1B1C[7])(Entity*);

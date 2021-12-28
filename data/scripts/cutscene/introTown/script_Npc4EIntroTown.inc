@@ -160,7 +160,7 @@ SCRIPT_START script_Npc4EIntroTown
 	GivePlayerItem 0x000d
 	WaitPlayerGetItem
 	Call sub_0806DC3C
-	Call sub_080791BC
+	Call SetPlayerActionNormal
 	CallWithArg EquipItem, 0x0000000d
 	SetIntVariable 0x000000ff
 	Call sub_0807F5B0

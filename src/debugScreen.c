@@ -1,12 +1,11 @@
 #include "global.h"
-#include "audio.h"
+#include "sound.h"
 #include "utils.h"
 #include "functions.h"
 #include "main.h"
 #include "menu.h"
 #include "screen.h"
-#include "structures.h"
-#include "textbox.h"
+#include "message.h"
 
 extern void (*const gUnk_08109A30[])();
 

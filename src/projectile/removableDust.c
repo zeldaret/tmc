@@ -2,8 +2,6 @@
 #include "enemy.h"
 #include "coord.h"
 #include "functions.h"
-#include "flags.h"
-#include "utils.h"
 #include "object.h"
 
 extern u32 sub_080002C8(u16, u8);

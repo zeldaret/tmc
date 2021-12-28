@@ -2,9 +2,8 @@
 #include "functions.h"
 #include "save.h"
 #include "screen.h"
-#include "textbox.h"
+#include "message.h"
 #include "npc.h"
-#include "script.h"
 
 extern void (*const gUnk_0811017C[])(Entity*);
 
@@ -25,8 +24,6 @@ void sub_08065BF4(Entity* this) {
 }
 
 NONMATCH("asm/non_matching/ghostBrothers/sub_08065C0C.inc", void sub_08065C0C(Entity* this)) {
-    u8 bVar1;
-    u32 uVar2;
     u16* puVar3;
 
     switch (this->action) {

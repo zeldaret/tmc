@@ -3099,7 +3099,7 @@ sub_0801AD6C: @ 0x0801AD6C
 	adds r0, #0x38
 	strb r3, [r0]
 	adds r0, r5, #0
-	bl sub_08016A30
+	bl ResolveCollisionLayer
 	ldr r1, _0801ADD8 @ =gUnk_081091E4
 	ldrb r0, [r5, #8]
 	adds r0, r0, r1

@@ -1,6 +1,6 @@
 #include "functions.h"
 #include "object.h"
-#include "overworld.h"
+#include "game.h"
 
 extern void sub_0807B9B8(s32, s32, s32);
 
@@ -38,7 +38,7 @@ enum OctorokBossObjectType {
     TYPE8, // OctorokBoss_Hit_SubAction1
     TYPE9  // OctorokBoss_Hit_SubAction4
 };
-#define GET_HELPER(this) (*(HelperStruct**)&this->cutsceneBeh)
+#define GET_HELPER(this) (*(HelperStruct**)&(this)->cutsceneBeh)
 
 extern u32 sub_0806FC80(Entity*, Entity*, s32);
 

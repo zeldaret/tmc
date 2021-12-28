@@ -3,8 +3,6 @@
 #include "functions.h"
 #include "npc.h"
 
-void ChangeObjPalette(Entity*, u32);
-
 extern void (*gUnk_08113D8C[])(Entity*);
 
 extern void sub_08078850(Entity*, u32, u8, u32*);

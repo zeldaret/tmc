@@ -69,8 +69,8 @@ UpdateSpriteForCollisionLayer: @ 0x08016A04
 _08016A28:
 	.byte 0x80, 0x80, 0x80, 0x80, 0x40, 0x40, 0x40, 0x40
 
-	thumb_func_start sub_08016A30
-sub_08016A30: @ 0x08016A30
+	thumb_func_start ResolveCollisionLayer
+ResolveCollisionLayer: @ 0x08016A30
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	movs r5, #0x38

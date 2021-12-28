@@ -18,7 +18,7 @@ script_0801248A:
 	_0807E80C 0x00000000
 	WaitForFadeFinish
 	_0807E858 0x0000
-	Call sub_080791BC
+	Call SetPlayerActionNormal
 	LoadRoomEntityList gUnk_080F4D70
 	Call DeleteAllEnemies
 	SetEntityPositionRelative 0x0388, 0x0168

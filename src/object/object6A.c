@@ -2,7 +2,7 @@
 #include "object.h"
 #include "area.h"
 #include "script.h"
-#include "textbox.h"
+#include "message.h"
 #include "functions.h"
 #include "screen.h"
 
@@ -556,7 +556,7 @@ void sub_08095288(Object6AEntity* this) {
         } else {
             sub_0805EC9C(super, 0x100, 0x100, super->actionDelay << 8);
             super->actionDelay += 10;
-            sub_0806F69C(super);
+            LinearMoveUpdate(super);
         }
     }
     p = super->child;

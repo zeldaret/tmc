@@ -1,7 +1,6 @@
 #include "global.h"
-#include "audio.h"
-#include "textbox.h"
-#include "structures.h"
+#include "sound.h"
+#include "message.h"
 
 typedef struct {
     s8 unk0;

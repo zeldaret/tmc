@@ -1,10 +1,9 @@
 #include "fileScreen.h"
 #include "main.h"
-#include "player.h"
 #include "utils.h"
 #include "screen.h"
 #include "menu.h"
-#include "textbox.h"
+#include "message.h"
 #include "object.h"
 #include "functions.h"
 

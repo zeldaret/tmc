@@ -137,7 +137,7 @@ sub_08077758: @ 0x08077758
 	.align 2, 0
 _08077794: .4byte gPlayerState
 _08077798:
-	bl sub_0807A108
+	bl DeleteClones
 _0807779C:
 	movs r0, #0
 _0807779E:
@@ -165,7 +165,7 @@ sub_080777A0: @ 0x080777A0
 	adds r1, #0xa0
 	movs r0, #1
 	strb r0, [r1]
-	bl sub_0807A108
+	bl DeleteClones
 _080777CC:
 	movs r0, #1
 	b _0807787C

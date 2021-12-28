@@ -2,7 +2,6 @@
 #include "functions.h"
 #include "screen.h"
 #include "utils.h"
-#include "fade.h"
 
 typedef struct {
     u8 field_0x0;

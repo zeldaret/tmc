@@ -35,7 +35,7 @@ typedef struct {
     /*0x0A*/ s16 roomScrollX;
     /*0x0C*/ s16 roomScrollY;
     /*0x0E*/ u8 unk5;
-    /*0x0F*/ u8 unk6;
+    /*0x0F*/ u8 scroll_flags; // 0x2 = ??, 0x4 = camera scrolling
     /*0x10*/ u8 unk_10;
     /*0x11*/ s8 oam_offset_x;
     /*0x12*/ s8 oam_offset_y;

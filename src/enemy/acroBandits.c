@@ -12,7 +12,6 @@ extern void sub_08032338(Entity*);
 extern Entity* sub_08049DF4(u32);
 
 extern Entity* gUnk_020000B0;
-extern u8 gEntCount;
 extern void (*const gUnk_080012C8[])(Entity*);
 extern void (*const gUnk_080CE56C[])(Entity*);
 extern void (*const gUnk_080CE584[])(Entity*);
@@ -411,12 +410,12 @@ void sub_08032008(Entity* this) {
                     this->field_0x76.HALF.HI = 1;
                     this->direction = GetFacingDirection(this, parent);
                     sub_080322E8(this);
-                    sub_0806F69C(this);
+                    LinearMoveUpdate(this);
                 }
             } else {
                 this->direction = GetFacingDirection(this, parent);
                 sub_080322E8(this);
-                sub_0806F69C(this);
+                LinearMoveUpdate(this);
                 if (this->x.HALF.HI == parent->x.HALF.HI && this->y.HALF.HI == parent->y.HALF.HI)
                     this->field_0x76.HALF.HI = 0;
             }

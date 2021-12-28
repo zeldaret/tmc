@@ -1,7 +1,5 @@
 #include "entity.h"
 #include "enemy.h"
-#include "functions.h"
-#include "effects.h"
 
 extern void CreateItemOnGround(Entity*);
 extern s32 sub_080AF090(Entity*);

@@ -34,7 +34,7 @@ SCRIPT_START script_ZeldaTalkToSmith
 	BeginBlock
 	SetGlobalFlag 0x0013
 	Call sub_0807DF50
-	Call sub_080791D0
+	Call ResetPlayerAnimationAndAction
 	EnablePlayerControl
 	EndBlock
 SCRIPT_END

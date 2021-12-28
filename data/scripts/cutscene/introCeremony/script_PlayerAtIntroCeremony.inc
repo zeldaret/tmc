@@ -6,5 +6,5 @@ SCRIPT_START script_PlayerAtIntroCeremony
 	SetSyncFlag 0x00000400
 	ClearSyncFlag 0x00000002
 	EndBlock
-	Call sub_080791BC
+	Call SetPlayerActionNormal
 SCRIPT_END

@@ -2,9 +2,6 @@
 #include "entity.h"
 #include "enemy.h"
 #include "functions.h"
-#include "asm.h"
-#include "audio.h"
-#include "effects.h"
 
 extern void (*const V2Projectile_Functions[])(Entity*);
 extern void (*const gUnk_0812A7EC[])(Entity*);
@@ -121,7 +118,7 @@ void sub_080ABF04(Entity* this) {
     if (CheckOnScreen(this) == 0) {
         DeleteThisEntity();
     }
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     GetNextFrame(this);
 }
 

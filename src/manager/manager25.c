@@ -1,3 +1,4 @@
+#include "asm.h"
 #include "manager.h"
 #include "room.h"
 #include "functions.h"

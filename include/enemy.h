@@ -4,7 +4,7 @@
 #include "global.h"
 #include "asm.h"
 
-#include "audio.h"
+#include "sound.h"
 #include "effects.h"
 #include "flags.h"
 #include "utils.h"

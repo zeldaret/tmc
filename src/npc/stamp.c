@@ -1,8 +1,7 @@
 #include "global.h"
 #include "entity.h"
-#include "textbox.h"
+#include "message.h"
 #include "functions.h"
-#include "script.h"
 #include "effects.h"
 #include "npc.h"
 

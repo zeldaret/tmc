@@ -2,14 +2,10 @@
 #include "entity.h"
 #include "functions.h"
 #include "npc.h"
-#include "player.h"
-#include "script.h"
 
 extern void sub_0805FF2C(Entity*, ScriptExecutionContext*);
 
 extern void (*const gUnk_08109BBC[])(Entity*);
-
-extern void HandlePostScriptActions(Entity*, ScriptExecutionContext*);
 
 void Festari(Entity* this) {
     gUnk_08109BBC[this->action](this);
@@ -25,9 +21,6 @@ void sub_0805FE10(Entity* this) {
 }
 
 void sub_0805FE48(Entity* this) {
-    u8 bVar1;
-    u16 uVar2;
-    u32 uVar3;
     u32 uVar4;
 
     if (this->interactType == 2) {

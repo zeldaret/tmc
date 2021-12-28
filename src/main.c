@@ -1,12 +1,10 @@
-#include "audio.h"
-#include "asm.h"
+#include "sound.h"
 #include "functions.h"
-#include "structures.h"
 #include "main.h"
 #include "screen.h"
 #include "utils.h"
 #include "save.h"
-#include "textbox.h"
+#include "message.h"
 #include "interrupts.h"
 
 extern u32 gRand;

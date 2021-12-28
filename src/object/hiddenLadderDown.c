@@ -1,7 +1,7 @@
 #include "global.h"
+#include "asm.h"
 #include "entity.h"
 #include "functions.h"
-#include "room.h"
 #include "flags.h"
 
 extern void (*const gUnk_08122604[])(Entity*);

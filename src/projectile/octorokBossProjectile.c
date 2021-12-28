@@ -1,9 +1,6 @@
 #include "entity.h"
 #include "enemy.h"
-#include "asm.h"
 #include "functions.h"
-#include "audio.h"
-#include "effects.h"
 #include "projectile.h"
 
 void OctorokBossProjectile_Action2(Entity*);

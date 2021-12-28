@@ -8,5 +8,5 @@ SCRIPT_START script_PlayerGetWhiteSword
 	MessageNoOverlap 0x0502
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000008
-	Call sub_080791BC
+	Call SetPlayerActionNormal
 SCRIPT_END

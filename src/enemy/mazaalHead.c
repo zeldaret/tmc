@@ -5,8 +5,6 @@
 
 extern void UnloadOBJPalette(Entity*);
 
-extern u8 gEntCount;
-
 void sub_0803499C(Entity*);
 void sub_08034420(Entity*);
 void sub_08034830(Entity*);
@@ -220,7 +218,7 @@ void sub_08033FFC(Entity* this) {
                 gRoomControls.cameraTarget = &gPlayerEntity;
                 sub_08034420(this);
                 gPlayerState.controlMode = 1;
-                sub_080791D0();
+                ResetPlayerAnimationAndAction();
                 SoundReq(BGM_BOSS_THEME);
             }
     }
@@ -243,7 +241,7 @@ void sub_0803414C(Entity* this) {
         }
     } else {
         this->direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, x, y);
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
     }
 }
 
@@ -562,7 +560,7 @@ NONMATCH("asm/non_matching/mazaal/sub_0803473C.inc", void sub_0803473C(Entity* t
         direction = 0x18;
     }
     this->direction = direction;
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
 }
 END_NONMATCH
 
@@ -585,7 +583,7 @@ NONMATCH("asm/non_matching/mazaal/sub_080347B4.inc", void sub_080347B4(Entity* t
         direction = 0x18;
     }
     this->direction = direction;
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
 }
 END_NONMATCH
 

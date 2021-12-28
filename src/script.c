@@ -2,13 +2,12 @@
 #include "main.h"
 #include "screen.h"
 #include "area.h"
-#include "overworld.h"
+#include "game.h"
 
 #include "object.h"
 #include "npc.h"
 
 #include "functions.h"
-#include "structures.h"
 
 void InitScriptForEntity(Entity*, ScriptExecutionContext*, u16*);
 void InitScriptExecutionContext(ScriptExecutionContext* context, u16* script);
@@ -225,12 +224,12 @@ void StartPlayerScript(u16* script) {
     gPlayerState.field_0x38 = 0;
 }
 
-ScriptExecutionContext* StartCutscene2(Entity* entity, u16* script) {
+UNUSED ScriptExecutionContext* StartCutscene2(Entity* entity, u16* script) {
     ScriptExecutionContext* context;
 
     context = CreateScriptExecutionContext();
     if (context) {
-        entity->flags |= 2;
+        entity->flags |= ENT_SCRIPTED;
         *(ScriptExecutionContext**)&entity->field_0x3c = context;
         context->scriptInstructionPointer = script;
     }
@@ -457,7 +456,7 @@ void sub_0807DF50(void) {
     gUnk_02034490[0] = 0;
     gUnk_0200AF00.filler0[1] = 0;
     RecoverUI(0);
-    sub_080791D0();
+    ResetPlayerAnimationAndAction();
     sub_08079184();
 }
 
@@ -984,7 +983,7 @@ void ScriptCommand_WaitForPlayerEnterRoom(Entity* entity, ScriptExecutionContext
 }
 
 void ScriptCommand_WaitFor_1(Entity* entity, ScriptExecutionContext* context) {
-    if (gRoomControls.unk6 & 4) {
+    if (gRoomControls.scroll_flags & 4) {
         gActiveScriptInfo.commandSize = 0;
     } else {
         gActiveScriptInfo.flags |= 1;
@@ -1293,7 +1292,7 @@ void ScriptCommand_WalkForward(Entity* entity, ScriptExecutionContext* context) 
 }
 
 void sub_0807EC44(Entity* entity, ScriptExecutionContext* context) {
-    sub_0806F69C(entity);
+    LinearMoveUpdate(entity);
     if (--context->unk_12) {
         gActiveScriptInfo.commandSize = 0;
     }
@@ -1890,8 +1889,6 @@ void sub_0807F78C(Entity* entity, ScriptExecutionContext* context) {
 
 void sub_0807F7C4(Entity* entity, ScriptExecutionContext* context) {
     u32 item = context->intVariable;
-    u32 msg;
-    u32 price;
 
     if (context->intVariable == 0)
         item = gRoomVars.shopItemType;
@@ -1902,7 +1899,6 @@ void sub_0807F7C4(Entity* entity, ScriptExecutionContext* context) {
 
 void sub_0807F800(Entity* entity, ScriptExecutionContext* context) {
     u32 item = context->intVariable;
-    u32 msg;
     u32 price;
 
     if (context->intVariable == 0)

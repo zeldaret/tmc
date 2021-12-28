@@ -1,17 +1,14 @@
 #include "global.h"
-#include "audio.h"
+#include "sound.h"
 #include "main.h"
 #include "player.h"
 #include "structures.h"
 #include "save.h"
-#include "textbox.h"
+#include "message.h"
 #include "functions.h"
-#include "object.h"
-#include "utils.h"
-#include "npc.h"
-#include "effects.h"
 #include "screen.h"
 #include "gba/m4a.h"
+#include "object.h"
 
 extern u8 gUnk_03003DE0;
 extern u8 gUnk_03000C30;
@@ -29,13 +26,10 @@ extern void sub_080ADD70();
 extern void sub_0801C25C();
 extern void UpdateDisplayControls();
 extern void LoadResources();
-extern void FadeVBlank();
 extern void HandlePlayerLife();
 extern void DoPlayerAction();
 extern void sub_080171F0();
 extern void sub_08078FB0();
-extern u32 CheckDontUpdate();
-extern void DrawEntity();
 extern void sub_0807A050();
 extern u32 sub_08079B24();
 extern void sub_08079708();
@@ -227,7 +221,7 @@ void HandlePlayerLife(Entity* this) {
     if (gPlayerState.flags & PL_BURNING)
         ResetPlayer();
     if ((gPlayerState.flags & PL_CLONING) && !gPlayerState.field_0xa0[0])
-        sub_0807A108();
+        DeleteClones();
     if (sub_08079B24() == 0)
         sub_08079708(this);
 
@@ -308,7 +302,7 @@ void sub_080171F0(void) {
     gPlayerState.field_0xa &= 0xf;
     gPlayerState.keepFacing &= ~0x80;
     gPlayerState.field_0x1a[0] = 0;
-    gPlayerState.field_0x80 = 0;
+    gPlayerState.speed_modifier = 0;
     gPlayerState.field_0xaa = 0;
     MemClear(&gUnk_03003BE0, 0x8c);
     gPlayerEntity.spriteOffsetY = gPlayerState.field_0x3f;

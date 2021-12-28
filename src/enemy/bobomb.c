@@ -1,5 +1,5 @@
 #include "asm.h"
-#include "audio.h"
+#include "sound.h"
 #include "enemy.h"
 #include "object.h"
 #include "functions.h"

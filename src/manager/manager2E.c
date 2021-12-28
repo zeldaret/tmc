@@ -3,7 +3,7 @@
 #include "manager.h"
 #include "flags.h"
 #include "functions.h"
-#include "audio.h"
+#include "sound.h"
 
 typedef struct {
     Manager manager;

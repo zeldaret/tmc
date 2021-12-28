@@ -8,7 +8,7 @@ SCRIPT_START script_Npc4EVaatiAttacking
 	MessageFromTargetPos 0x1047, 0x0000
 	WaitUntilTextboxCloses
 	Call sub_0806DC3C
-	Call sub_080791BC
+	Call SetPlayerActionNormal
 	CallWithArg EquipItem, 0x0000000d
 	CallWithArg sub_0807F29C, gUnk_080049F6
 	Wait 0x001e

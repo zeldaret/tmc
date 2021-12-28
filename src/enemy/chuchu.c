@@ -1,8 +1,6 @@
 #include "asm.h"
 #include "enemy.h"
-#include "entity.h"
 #include "functions.h"
-#include "audio.h"
 
 extern s32 sub_080012DC(Entity*);
 extern void sub_08001318(Entity*);

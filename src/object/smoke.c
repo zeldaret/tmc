@@ -43,7 +43,7 @@ void sub_0808A484(Entity* this) {
 
 void sub_0808A4D0(Entity* this) {
     GetNextFrame(this);
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     if (this->frame & 0x80) {
         DeleteEntity(this);
     }

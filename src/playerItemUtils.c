@@ -1,12 +1,12 @@
 #include "entity.h"
 #include "functions.h"
-#include "room.h"
 #include "save.h"
 #include "utils.h"
-#include "audio.h"
+#include "sound.h"
 #include "flags.h"
-#include "textbox.h"
+#include "message.h"
 #include "object.h"
+#include "player.h"
 
 Entity* GiveItemWithCutscene(u32, u32, u32);
 Entity* sub_080A276C(Entity*, u32, u32);

@@ -2,7 +2,7 @@
 #include "script.h"
 #include "save.h"
 #include "flags.h"
-#include "textbox.h"
+#include "message.h"
 #include "npc.h"
 #include "manager.h"
 
@@ -46,7 +46,6 @@ void Maid_Head(Entity* this) {
 }
 
 NONMATCH("asm/non_matching/castleMaid/sub_08064570.inc", void sub_08064570(Entity* this)) {
-    u8 bVar1;
     u32 tmp;
 
     switch (this->action) {

@@ -1,9 +1,7 @@
 #include "object.h"
 #include "main.h"
 #include "menu.h"
-#include "npc.h"
 #include "fileScreen.h"
-#include "structures.h"
 #include "functions.h"
 
 extern int sub_0807A094(int);
@@ -506,7 +504,7 @@ static u32 sub_0808EF6C(Entity* this) {
     }
     this->speed = var7;
     this->direction = sub_080045DA(var0, var2) >> 3;
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     return 1;
 }
 

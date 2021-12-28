@@ -81,7 +81,7 @@ void sub_0809F5F0(Entity* this) {
 
 void sub_0809F61C(Entity* this) {
 
-    if ((gRoomControls.unk6 & 4) == 0) {
+    if ((gRoomControls.scroll_flags & 4) == 0) {
         if (this->actionDelay == 30) {
             SetLocalFlag(this->type2);
         }
@@ -112,7 +112,7 @@ void sub_0809F69C(Entity* this) {
 
 void sub_0809F6CC(Entity* this) {
 
-    if (((gRoomControls.unk6 & 4) == 0) && (--this->actionDelay == 0)) {
+    if (((gRoomControls.scroll_flags & 4) == 0) && (--this->actionDelay == 0)) {
         gPlayerState.controlMode = 1;
         DeleteThisEntity();
     }
@@ -132,7 +132,7 @@ void sub_0809F700(Entity* this) {
         this->spriteOffsetX = gUnk_081247C0[uVar2 & 7];
         this->spriteOffsetY = gUnk_081247C0[uVar2 >> 4 & 7];
     }
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     if (--this->actionDelay == 0) {
         DeleteThisEntity();
     }

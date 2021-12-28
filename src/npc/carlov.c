@@ -1,9 +1,7 @@
-#include "global.h"
-#include "audio.h"
+#include "sound.h"
 #include "entity.h"
 #include "room.h"
 #include "npc.h"
-#include "script.h"
 
 void Carlov(Entity* this) {
     if (this->action == 0) {

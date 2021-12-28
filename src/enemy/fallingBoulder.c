@@ -110,7 +110,7 @@ NONMATCH("asm/non_matching/fallingBoulder/sub_0802C334.inc", void sub_0802C334(E
         if (y >= 5) {
             sub_080AEFB4(this);
         } else {
-            sub_0806F69C(this);
+            LinearMoveUpdate(this);
             if (this->z.HALF.HI - y > 0x38) {
                 sub_0802C62C(this);
                 this->field_0x7a.HWORD = (Random() & 0x7f) | 0x80;

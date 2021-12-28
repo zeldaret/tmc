@@ -3,7 +3,6 @@
 #include "flags.h"
 #include "object.h"
 #include "functions.h"
-#include "effects.h"
 
 extern void sub_08098E3C(Entity*);
 extern void sub_08098E88(Entity*);

@@ -1,4 +1,5 @@
 #include "global.h"
+#include "asm.h"
 #include "entity.h"
 #include "player.h"
 #include "manager.h"
@@ -14,8 +15,6 @@ static void sub_080585B0(ManagerA*);
 
 static u32 PlayerStateValid(ManagerA*);
 static void sub_080585DC(ManagerA*);
-
-extern void sub_0801855C(void);
 
 /**
  * Ezlo hint manager

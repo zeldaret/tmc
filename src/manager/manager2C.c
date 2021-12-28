@@ -1,4 +1,5 @@
 #include "manager.h"
+#include "asm.h"
 #include "functions.h"
 #include "utils.h"
 

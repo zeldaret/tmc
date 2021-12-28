@@ -1,7 +1,7 @@
 #include "entity.h"
 #include "asm.h"
 #include "coord.h"
-#include "audio.h"
+#include "sound.h"
 #include "functions.h"
 
 extern u8 gEntCount;

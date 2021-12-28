@@ -39,7 +39,6 @@ void sub_08081B84(Entity* this) {
 }
 
 u32 sub_08081CB0(Entity*);
-void RequestPriorityDuration(Entity*, u32);
 void sub_08081FF8(Entity*);
 
 void sub_08081BAC(Entity* this) {

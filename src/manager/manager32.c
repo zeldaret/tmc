@@ -1,11 +1,10 @@
 #include "manager.h"
 #include "screen.h"
-#include "structures.h"
 #include "room.h"
 #include "functions.h"
 #include "area.h"
 #include "utils.h"
-#include "overworld.h"
+#include "game.h"
 
 typedef struct {
     Manager manager;

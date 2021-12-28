@@ -102,7 +102,7 @@ _0807418C:
 	cmp r0, #0
 	beq _080741AC
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	b _080741B0
 	.align 2, 0
 _080741A4: .4byte gRoomControls

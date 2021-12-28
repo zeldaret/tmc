@@ -4,17 +4,15 @@
 #include "menu.h"
 #include "area.h"
 #include "utils.h"
-#include "structures.h"
 #include "save.h"
+#include "item.h"
 
 typedef struct {
     u8 unk;
     u8 filler[7];
 } struct_080FD5B4;
 
-extern SaveFile gSave;
 extern struct_080FD5B4 gUnk_080FD5B4[];
-extern ScreenTransition gScreenTransition;
 
 extern u8 gUnk_0200AF13;
 extern u8 gUnk_0200AF14;
@@ -96,16 +94,16 @@ u32 SetBottleContents(u32 itemID, u32 bottleIndex) {
     return bottleIndex;
 }
 
-u32 ItemIsSword(u32 arg0) {
-    switch (arg0) {
-        case 1:
-        case 2:
-        case 3:
-        case 4:
-        case 6:
-            return 1;
+u32 ItemIsSword(u32 item) {
+    switch (item) {
+        case ITEM_SMITH_SWORD:
+        case ITEM_GREEN_SWORD:
+        case ITEM_RED_SWORD:
+        case ITEM_BLUE_SWORD:
+        case ITEM_FOURSWORD:
+            return TRUE;
         default:
-            return 0;
+            return FALSE;
     }
 }
 

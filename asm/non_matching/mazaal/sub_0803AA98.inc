@@ -24,7 +24,7 @@
 	cmp r0, #0
 	bne _0803AB0A
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	adds r0, r4, #0
 	bl sub_0803B6F4
 	cmp r0, #0

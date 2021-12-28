@@ -1,7 +1,6 @@
 #include "manager.h"
 #include "area.h"
 #include "room.h"
-#include "functions.h"
 #include "screen.h"
 
 void sub_0805AFFC(Manager*);

@@ -1,5 +1,5 @@
 #include "functions.h"
-#include "textbox.h"
+#include "message.h"
 #include "npc.h"
 
 extern void (*const gUnk_0810AC1C[])(Entity*);
@@ -161,6 +161,7 @@ void sub_08060B5C(Entity* this) {
 
 void sub_08060BA0(Entity* this) {
     Entity* r5;
+    //! @bug: r5 is uninitialized
 
     if (sub_08061230(this) != 0) {
         return;
@@ -263,7 +264,7 @@ void sub_08060DF4(Entity* this) {
 void sub_08060DFC(Entity* this) {
     u32 uVar1;
 
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     sub_08060E94(this);
     uVar1 = GravityUpdate(this, 0x2000);
     if (uVar1 == 0) {
@@ -406,9 +407,7 @@ NONMATCH("asm/non_matching/npc5/sub_08061170.inc", bool32 sub_08061170(Entity* t
 END_NONMATCH
 
 NONMATCH("asm/non_matching/npc5/sub_080611D4.inc", u32 sub_080611D4(Entity* this)) {
-    u8 bVar1;
     u32 uVar2;
-    u8* pbVar3;
 
     u32 x;
     s32 a;
@@ -420,8 +419,7 @@ NONMATCH("asm/non_matching/npc5/sub_080611D4.inc", u32 sub_080611D4(Entity* this
     b = gUnk_0810AC4C[x].unk_1;
     // asm("d");
     uVar2 = sub_080002B4(this, a, b);
-// asm("b");
-code4:
+    // asm("b");
     if ((gUnk_0810AC54[0] != uVar2 || (this->animationState != gUnk_0810AC54[1] >> 2))) {
         // asm ("e");
         if (gUnk_0810AC54[2] == 0) {
@@ -473,7 +471,6 @@ u32 sub_08061230(Entity* this) {
 }
 
 NONMATCH("asm/non_matching/npc5/sub_08061358.inc", void sub_08061358(Entity* this)) {
-    u8 bVar1;
     u32 uVar2;
     s32 iVar3;
     u8 bVar4;
@@ -629,7 +626,6 @@ NONMATCH("asm/non_matching/npc5/sub_08061464.inc", void sub_08061464(Entity* thi
                 sub_08061630(this, iVar10, iVar9 + -8, param_a);
             }
     }
-_08061612:
     bVar1 = ((UnkHeap*)this->myHeap)->unk_0;
     if ((bVar1 & 8) == 0) {
         this->action = 3;
@@ -843,7 +839,6 @@ void sub_08061AFC(Entity* this) {
 }
 
 NONMATCH("asm/non_matching/npc5/sub_08061B18.inc", void sub_08061B18(Entity* this)) {
-    u8 bVar1;
     u16* puVar2;
 
     typedef struct {

@@ -3,8 +3,6 @@
 
 extern void (*const gUnk_0811BD78[])(ItemBehavior*, u32);
 
-extern void ResetPlayerVelocity(void);
-
 void ItemBoomerang(ItemBehavior* this, u32 arg1) {
     gUnk_0811BD78[this->stateID](this, arg1);
 }
