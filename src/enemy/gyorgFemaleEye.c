@@ -1,27 +1,14 @@
-// #define NENT_DEPRECATED
+#define NENT_DEPRECATED
 #include "global.h"
 #include "entity.h"
 #include "enemy.h"
 #include "player.h"
 #include "functions.h"
-
-typedef struct {
-    u8 unk_00[0x8];
-    Entity* unk_08;
-    Entity* unk_0c;
-    u8 unk_10[0x08];
-    void* unk_18[0x8];
-    u16 unk_38;
-    u16 unk_3a;
-    u8 unk_3c;
-} GyorgFemaleHeap;
-
-typedef struct {
-} GyorgFemaleEyeHeap;
+#include "enemy/gyorg.h"
 
 typedef struct {
     Entity base;
-    // u8 unk_68[0x20];
+    u8 unk_68[0x20];
 } GyorgFemaleEyeEntity;
 
 extern void (*const gUnk_080D1F64[])(GyorgFemaleEyeEntity*);
@@ -32,7 +19,7 @@ extern const u8 gUnk_080D2010[];
 
 void sub_08048D20(GyorgFemaleEyeEntity*);
 
-u32 sub_08048D70(Entity*); // GyorgFemaleEntity*
+u32 sub_08048D70(GyorgFemaleEntity*);
 
 void GyorgFemaleEye(Entity* this) {
     if (this->parent->next == NULL) {
@@ -46,13 +33,13 @@ void sub_080489B4(GyorgFemaleEyeEntity* this) {
 }
 
 void sub_080489CC(GyorgFemaleEyeEntity* this) {
-    Entity* parent;
+    GyorgFemaleEntity* parent;
     if (super->health != 0xFF) {
-        parent = super->parent;
+        parent = (GyorgFemaleEntity*)super->parent;
 #ifndef EU
-        if ((parent->field_0x78.HALF.LO >> super->type) & 1) {
+        if ((parent->unk_78 >> super->type) & 1) {
 #endif
-            parent->field_0x7c.BYTES.byte0 |= (1 << super->type);
+            parent->unk_7c |= (1 << super->type);
 #ifndef EU
             switch (super->bitfield & 0x7F) {
                 case 4 ... 6:
@@ -60,14 +47,14 @@ void sub_080489CC(GyorgFemaleEyeEntity* this) {
                 case 16 ... 18:
                 case 24 ... 26:
 #endif
-                    ((GyorgFemaleHeap*)parent->myHeap)->unk_18[super->type] = super->field_0x4c;
-                    ((GyorgFemaleHeap*)parent->myHeap)->unk_38 = (gPlayerEntity.x.HALF.HI + super->x.HALF.HI) / 2;
-                    ((GyorgFemaleHeap*)parent->myHeap)->unk_3a = (gPlayerEntity.y.HALF.HI + super->y.HALF.HI) / 2;
-                    ((GyorgFemaleHeap*)parent->myHeap)->unk_3c = (super->knockbackDirection ^= 0x10);
+                    ((GyorgFemaleHeap*)parent->base.myHeap)->unk_18[super->type] = super->field_0x4c;
+                    ((GyorgFemaleHeap*)parent->base.myHeap)->unk_38 = (gPlayerEntity.x.HALF.HI + super->x.HALF.HI) / 2;
+                    ((GyorgFemaleHeap*)parent->base.myHeap)->unk_3a = (gPlayerEntity.y.HALF.HI + super->y.HALF.HI) / 2;
+                    ((GyorgFemaleHeap*)parent->base.myHeap)->unk_3c = (super->knockbackDirection ^= 0x10);
 #ifndef EU
                     break;
                 default:
-                    ((GyorgFemaleHeap*)parent->myHeap)->unk_3c = 0xFF;
+                    ((GyorgFemaleHeap*)parent->base.myHeap)->unk_3c = 0xFF;
                     break;
             }
         }
@@ -88,9 +75,9 @@ void sub_08048AF0(GyorgFemaleEyeEntity* this) {
 }
 
 void sub_08048B2C(GyorgFemaleEyeEntity* this) {
-    Entity* parent;
+    GyorgFemaleEntity* parent;
     sub_08048D20(this);
-    parent = super->parent;
+    parent = (GyorgFemaleEntity*)super->parent;
     if (sub_08048D70(parent)) {
         if (!super->spriteSettings.draw) {
             CreateFx(super, 2, 0x40);
@@ -99,7 +86,7 @@ void sub_08048B2C(GyorgFemaleEyeEntity* this) {
     } else {
         super->spriteSettings.draw = 0;
     }
-    if ((parent->field_0x78.HALF.LO >> super->type) & 1) {
+    if ((parent->unk_78 >> super->type) & 1) {
         super->action = 2;
     }
 }
@@ -114,9 +101,9 @@ void sub_08048B84(GyorgFemaleEyeEntity* this) {
 }
 
 void sub_08048BB0(GyorgFemaleEyeEntity* this) {
-    Entity* parent = super->parent;
-    if (!((parent->field_0x78.HALF.LO >> super->type) & 1)) {
-        if (parent->health != 0) {
+    GyorgFemaleEntity* parent = (GyorgFemaleEntity*)super->parent;
+    if (!((parent->unk_78 >> super->type) & 1)) {
+        if (parent->base.health != 0) {
             super->action = 4;
             super->flags &= ~0x80;
             InitializeAnimation(super, gUnk_080D2030[(super->animationState << 3) + super->type]);
@@ -128,11 +115,11 @@ void sub_08048BB0(GyorgFemaleEyeEntity* this) {
             CreateFx(super, 2, 0x40);
         }
     } else {
-        if ((parent->field_0x80.HALF.LO >> super->type) & 1) {
+        if ((parent->unk_80 >> super->type) & 1) {
             if (super->animIndex <= 0x13) {
                 super->iframes = 0xF4;
                 super->hitType = 0x89;
-                InitializeAnimation(super, (parent->animationState >> 6) + 0x14);
+                InitializeAnimation(super, (parent->base.animationState >> 6) + 0x14);
                 SoundReq(0x119);
             }
             GetNextFrame(super);
@@ -140,10 +127,10 @@ void sub_08048BB0(GyorgFemaleEyeEntity* this) {
                 super->hitType = 0x1E;
                 InitializeAnimation(super, gUnk_080D2010[(super->animationState << 3) + super->type]);
                 UpdateAnimationVariableFrames(super, 7);
-                parent->field_0x80.HALF.LO &= ~(1 << super->type);
+                parent->unk_80 &= ~(1 << super->type);
             }
         } else {
-            if (parent->field_0x78.HALF.LO == 0xFF) {
+            if (parent->unk_78 == 0xFF) {
                 u32 tmp = super->animIndex;
                 if (tmp < 0x10 || tmp > 0x13) {
                     InitializeAnimation(super, super->animationState + 0x10);
@@ -170,9 +157,9 @@ typedef struct {
 extern const xy gUnk_080D1F90[];
 
 void sub_08048D20(GyorgFemaleEyeEntity* this) {
-    Entity* parent = super->parent;
+    GyorgFemaleEntity* parent = (GyorgFemaleEntity*)super->parent;
     const xy* tmp;
-    u32 tmp2 = (parent->animationState >> 6);
+    u32 tmp2 = (parent->base.animationState >> 6);
     if (tmp2 != super->animationState) {
         super->animationState = tmp2;
         tmp = &gUnk_080D1F90[super->type + (tmp2 << 3)];
@@ -182,14 +169,14 @@ void sub_08048D20(GyorgFemaleEyeEntity* this) {
     }
 }
 
-u32 sub_08048D70(Entity* parent) {
+u32 sub_08048D70(GyorgFemaleEntity* parent) {
     Entity* tmp;
-    if (parent->health != 0) {
+    if (parent->base.health != 0) {
         return 1;
     }
-    tmp = ((GyorgFemaleHeap*)parent->myHeap)->unk_08;
+    tmp = ((GyorgFemaleHeap*)parent->base.myHeap)->unk_08;
     if (!tmp) {
-        tmp = ((GyorgFemaleHeap*)parent->myHeap)->unk_0c;
+        tmp = ((GyorgFemaleHeap*)parent->base.myHeap)->unk_0c;
     }
     if (tmp->health != 0) {
         return 0;
