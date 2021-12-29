@@ -1,3 +1,4 @@
+#define NENT_DEPRECATED
 #include "global.h"
 #include "entity.h"
 #include "enemy.h"
@@ -13,67 +14,96 @@ extern u16 gUnk_02019EE0[];
 
 extern void sub_080197D4(u32);
 
-void sub_08046498();
-void sub_0804660C(Entity*, u32);
-void sub_080464C0(Entity*);
-void sub_08046634(Entity*, u32);
-void sub_080465C8(void);
-void sub_080466A8(Entity*);
-void sub_08046668(Entity*);
-void sub_08046518(void);
-void sub_080467DC(Entity*);
-
 extern u32 sub_08000E62(u32);
 extern void RegisterTransitionManager(void*, void (*)(), void (*)());
 
 typedef struct {
-    u8 unk_00[0x18];
+    Entity base;
+    u8 unk_68[0x8];
+    u16 unk_70;
+    u8 unk_72[0x6];
+    u8 unk_78;
+    u8 unk_79;
+    u16 unk_7a;
+    u8 unk_7c;
+    u8 unk_7d;
+    u8 unk_7e[1];
+    u8 unk_7f;
+    u8 unk_80;
+    u8 unk_81[1];
+    u8 unk_82;
+    u8 unk_83[5];
+} GyorgFemaleEntity;
+
+typedef struct {
+    GenericEntity* unk_00;
+    u8 unk_04[0xC];
+    void* unk_10;
+    void* unk_14;
     u32 unk_18[0x8];
     u16 unk_38;
     u16 unk_3a;
     u8 unk_3c;
 } GyorgFemaleHeap;
 
-extern void (*const gUnk_080D1A64[])(Entity*);
+void sub_08046498();
+void sub_0804660C(GyorgFemaleEntity*, u32);
+void sub_080464C0(GyorgFemaleEntity*);
+void sub_08046634(GyorgFemaleEntity*, u32);
+void sub_080465C8(void);
+void sub_080466A8(GyorgFemaleEntity*);
+void sub_08046668(GyorgFemaleEntity*);
+void sub_08046518(void);
+void sub_080467DC(GyorgFemaleEntity*);
+
+extern void (*const gUnk_080D1A64[])(GyorgFemaleEntity*);
+extern u32 gUnk_080D1A74[];
+extern u8 gUpdateVisibleTiles;
+extern u8 gUnk_080B3E80[];
+extern u8 gUnk_080B37A0[];
+extern u16 gMetatileTypesTop[];
+extern const u16 gUnk_080D1A84[];
+extern const u8 gUnk_080D1AF4[];
+extern const u8 gUnk_080D1AF8[];
 
 void GyorgFemale(Entity* this) {
-    gUnk_080D1A64[this->action](this);
+    gUnk_080D1A64[this->action]((GyorgFemaleEntity*)this);
 }
 
-void sub_0804614C(Entity* this) {
+void sub_0804614C(GyorgFemaleEntity* this) {
     Entity* tmp;
     if (gEntCount > 0x3d)
         return;
     tmp = CreateProjectile(0x22);
     tmp->type = 0;
-    tmp->parent = this;
-    ((Entity**)this->myHeap)[5] = tmp;
+    tmp->parent = super;
+    ((GyorgFemaleHeap*)super->myHeap)->unk_14 = tmp;
     tmp = CreateEnemy(GYORG_FEMALE_MOUTH, 0);
-    tmp->parent = this;
-    ((Entity**)this->myHeap)[4] = tmp;
+    tmp->parent = super;
+    ((GyorgFemaleHeap*)super->myHeap)->unk_10 = tmp;
     tmp = CreateEnemy(GYORG_FEMALE_EYE, 0);
-    tmp->parent = this;
+    tmp->parent = super;
     tmp = CreateEnemy(GYORG_FEMALE_EYE, 1);
-    tmp->parent = this;
+    tmp->parent = super;
     tmp = CreateEnemy(GYORG_FEMALE_EYE, 2);
-    tmp->parent = this;
+    tmp->parent = super;
     tmp = CreateEnemy(GYORG_FEMALE_EYE, 3);
-    tmp->parent = this;
+    tmp->parent = super;
     tmp = CreateEnemy(GYORG_FEMALE_EYE, 4);
-    tmp->parent = this;
+    tmp->parent = super;
     tmp = CreateEnemy(GYORG_FEMALE_EYE, 5);
-    tmp->parent = this;
+    tmp->parent = super;
     tmp = CreateEnemy(GYORG_FEMALE_EYE, 6);
-    tmp->parent = this;
+    tmp->parent = super;
     tmp = CreateEnemy(GYORG_FEMALE_EYE, 7);
-    tmp->parent = this;
-    this->action = 1;
-    this->spriteOrientation.flipY = 2;
-    this->spriteRendering.b3 = 2;
-    this->collisionLayer = 2;
-    this->field_0x78.HALF.LO = 0;
-    this->field_0x78.HALF.HI = 0;
-    this->field_0x70.HALF.LO = 0x3C;
+    tmp->parent = super;
+    super->action = 1;
+    super->spriteOrientation.flipY = 2;
+    super->spriteRendering.b3 = 2;
+    super->collisionLayer = 2;
+    this->unk_78 = 0;
+    this->unk_79 = 0;
+    this->unk_70 = 0x3C;
     MemClear(&gUnk_02019EE0, 0x8000);
     MemClear(&gMapDataTopSpecial, 0x8000);
     sub_0804660C(this, 0);
@@ -87,136 +117,133 @@ void sub_0804614C(Entity* this) {
 #endif
 }
 
-void sub_0804625C(Entity* this) {
-    if (this->field_0x78.HALF.HI & 0x80) {
-        this->field_0x78.HALF.HI &= ~0x80;
-        this->field_0x78.HALF.HI |= 0x40;
-        sub_0804660C(this, (this->field_0x78.HALF.HI & 3) << 6);
+void sub_0804625C(GyorgFemaleEntity* this) {
+    if (this->unk_79 & 0x80) {
+        this->unk_79 &= ~0x80;
+        this->unk_79 |= 0x40;
+        sub_0804660C(this, (this->unk_79 & 3) << 6);
     } else {
-        if (this->field_0x78.HALF.HI & 0x40) {
-            this->field_0x78.HALF.HI &= ~0x40;
+        if (this->unk_79 & 0x40) {
+            this->unk_79 &= ~0x40;
             sub_080464C0(this);
         }
     }
     sub_080465C8();
-    if (((Entity**)this->myHeap)[0]->field_0x6c.HWORD & 0x38) {
-        this->action = 2;
-        this->actionDelay = 0;
-        this->field_0x7a.HWORD = 0;
-        this->field_0x7c.BYTES.byte0 = 0;
-        this->field_0x7c.BYTES.byte1 = 0;
-        this->field_0x70.HALF.LO = 0x3c;
-        this->field_0x80.HALF.LO = 0;
+    if (((GyorgFemaleHeap*)super->myHeap)->unk_00->field_0x6c.HWORD & 0x38) {
+        super->action = 2;
+        super->actionDelay = 0;
+        this->unk_7a = 0;
+        this->unk_7c = 0;
+        this->unk_7d = 0;
+        this->unk_70 = 0x3c;
+        this->unk_80 = 0;
         return;
     }
-    if (((Entity**)this->myHeap)[0]->field_0x6c.HWORD & 0x40) {
-        this->action = 3;
-        this->field_0x70.HALF.LO = 0x3c;
-        this->actionDelay = 0;
-        this->field_0x7a.HWORD = 0;
-        this->field_0x7c.BYTES.byte0 = 0;
-        this->field_0x7c.BYTES.byte1 = 0;
-        this->field_0x80.HALF.LO = 0;
+    if (((GyorgFemaleHeap*)super->myHeap)->unk_00->field_0x6c.HWORD & 0x40) {
+        super->action = 3;
+        this->unk_70 = 0x3c;
+        super->actionDelay = 0;
+        this->unk_7a = 0;
+        this->unk_7c = 0;
+        this->unk_7d = 0;
+        this->unk_80 = 0;
         return;
     }
-    if (((Entity**)this->myHeap)[0]->field_0x6c.HWORD & 0x100) {
-        if (--this->field_0x70.HALF.LO == 0) {
-            this->field_0x70.HALF.LO = 0x168;
+    if (((GyorgFemaleHeap*)super->myHeap)->unk_00->field_0x6c.HWORD & 0x100) {
+        if (--this->unk_70 == 0) {
+            this->unk_70 = 0x168;
             sub_08046634(this, 1);
         }
     }
 }
 
-void sub_0804632C(Entity* this) {
+void sub_0804632C(GyorgFemaleEntity* this) {
     sub_080465C8();
     sub_080466A8(this);
-    if (++this->field_0x7a.HWORD > 0x59f) {
-        this->field_0x7a.HWORD = 0;
-        this->field_0x7c.BYTES.byte0 = 0;
-        this->field_0x7c.BYTES.byte1 = 0;
-        this->field_0x80.HALF.LO = 0;
+    if (++this->unk_7a > 0x59f) {
+        this->unk_7a = 0;
+        this->unk_7c = 0;
+        this->unk_7d = 0;
+        this->unk_80 = 0;
     } else {
-        if (this->field_0x7a.HWORD == 0x78) {
+        if (this->unk_7a == 0x78) {
             sub_08046668(this);
         } else {
-            if (this->field_0x7a.HWORD == 0x528) {
-                this->field_0x78.HALF.LO = 0;
+            if (this->unk_7a == 0x528) {
+                this->unk_78 = 0;
 #ifndef EU
-                this->field_0x7c.BYTES.byte1 = 0;
-                this->field_0x7c.BYTES.byte3 = 0;
+                this->unk_7d = 0;
+                this->unk_7f = 0;
 #endif
             }
         }
     }
-    if (((Entity**)this->myHeap)[0]->field_0x6c.HWORD & 0x80 && --this->field_0x70.HALF.LO == 0) {
-        this->field_0x70.HALF.LO = 0x168;
+    if (((GyorgFemaleHeap*)super->myHeap)->unk_00->field_0x6c.HWORD & 0x80 && --this->unk_70 == 0) {
+        this->unk_70 = 0x168;
         sub_08046634(this, 0);
     }
-    if ((((Entity**)this->myHeap)[0]->field_0x6c.HWORD & 0x38) == 0) {
-        this->action = 1;
-        this->field_0x70.HALF.LO = 0x3c;
+    if ((((GyorgFemaleHeap*)super->myHeap)->unk_00->field_0x6c.HWORD & 0x38) == 0) {
+        super->action = 1;
+        this->unk_70 = 0x3c;
 #ifndef EU
-        this->field_0x78.HALF.LO = 0;
+        this->unk_78 = 0;
 #endif
-        this->field_0x80.HALF.LO = 0;
+        this->unk_80 = 0;
     }
 }
 
-void sub_080463E4(Entity* this) {
+void sub_080463E4(GyorgFemaleEntity* this) {
     sub_080465C8();
-    if (--this->field_0x70.HALF_U.LO == 0) {
-        this->field_0x70.HALF.LO = 0x168;
+    if (--this->unk_70 == 0) {
+        this->unk_70 = 0x168;
         sub_08046634(this, 1);
     }
     sub_080466A8(this);
-    if (++this->field_0x7a.HWORD > 0x59f) {
-        this->field_0x7a.HWORD = 0;
-        this->field_0x7c.BYTES.byte0 = 0;
-        this->field_0x7c.BYTES.byte1 = 0;
-        this->field_0x80.HALF.LO = 0;
+    if (++this->unk_7a > 0x59f) {
+        this->unk_7a = 0;
+        this->unk_7c = 0;
+        this->unk_7d = 0;
+        this->unk_80 = 0;
     } else {
-        if (this->field_0x7a.HWORD == 0x78) {
+        if (this->unk_7a == 0x78) {
             sub_08046668(this);
         } else {
-            if (this->field_0x7a.HWORD == 0x528) {
-                this->field_0x78.HALF.LO = 0;
+            if (this->unk_7a == 0x528) {
+                this->unk_78 = 0;
 #ifndef EU
-                this->field_0x7c.BYTES.byte1 = 0;
-                this->field_0x7c.BYTES.byte3 = 0;
+                this->unk_7d = 0;
+                this->unk_7f = 0;
 #endif
             }
         }
     }
-    if (this->health == 0) {
-        this->action = 1;
+    if (super->health == 0) {
+        super->action = 1;
 #ifdef EU
-        this->field_0x78.HALF.LO = 0;
+        this->unk_78 = 0;
 #endif
-        this->field_0x70.HALF.LO = 0x3c;
+        this->unk_70 = 0x3c;
 #ifndef EU
-        this->field_0x78.HALF.LO = 0;
+        this->unk_78 = 0;
 #endif
-        this->field_0x80.HALF.LO = 0;
+        this->unk_80 = 0;
         SoundReq(0x128);
     }
 }
 
 #ifndef EU
-void sub_08046498(Entity* this) {
+void sub_08046498(GyorgFemaleEntity* this) {
     MemClear(&gUnk_02019EE0, 0x8000);
     MemClear(&gMapDataTopSpecial, 0x8000);
     sub_080464C0(this);
 }
 #endif
 
-extern u32 gUnk_080D1A74[];
-extern u8 gUpdateVisibleTiles;
-
-void sub_080464C0(Entity* this) {
+void sub_080464C0(GyorgFemaleEntity* this) {
     s32 i;
     u8* src;
     u8* dst;
-    sub_080197D4(gUnk_080D1A74[this->animationState >> 6]);
+    sub_080197D4(gUnk_080D1A74[super->animationState >> 6]);
     sub_08046518();
     for (i = 0x20, src = ((u8*)&gUnk_02019EE0), dst = ((u8*)&gUnk_02019EE0) + 0x3260; i != 0; i--) {
         MemCopy(src, dst, 0x40);
@@ -226,10 +253,6 @@ void sub_080464C0(Entity* this) {
     MemClear(&gUnk_02019EE0, 0x800);
     gUpdateVisibleTiles = 1;
 }
-
-extern u8 gUnk_080B3E80[];
-extern u8 gUnk_080B37A0[];
-extern u16 gMetatileTypesTop[];
 
 NONMATCH("asm/non_matching/gyorg_female/sub_08046518.inc", void sub_08046518(void)) {
     u32 r5;
@@ -265,94 +288,88 @@ void sub_080465C8(void) {
     }
 }
 
-extern const u16 gUnk_080D1A84[];
-
-void sub_0804660C(Entity* this, u32 unk1) {
+void sub_0804660C(GyorgFemaleEntity* this, u32 unk1) {
     const u16* p;
-    this->animationState = unk1;
+    super->animationState = unk1;
     p = &gUnk_080D1A84[unk1 >> 5];
-    this->x.HALF.HI = p[0] + gRoomControls.roomOriginX;
-    this->y.HALF.HI = p[1] + gRoomControls.roomOriginY;
+    super->x.HALF.HI = p[0] + gRoomControls.roomOriginX;
+    super->y.HALF.HI = p[1] + gRoomControls.roomOriginY;
 }
 
-extern const u8 gUnk_080D1AF4[];
-
-void sub_08046634(Entity* this, u32 unk1) {
+void sub_08046634(GyorgFemaleEntity* this, u32 unk1) {
     u32 tmp;
     if (unk1 == 0) {
         tmp = gUnk_080D1AF4[Random() & 3];
     } else {
         tmp = Random() & 7;
     }
-    sub_080A1ED0(tmp, 0, this->animationState >> 3);
+    sub_080A1ED0(tmp, 0, super->animationState >> 3);
 }
 
-extern const u8 gUnk_080D1AF8[];
-
-void sub_08046668(Entity* this) {
-    if (this->health == 0) {
+void sub_08046668(GyorgFemaleEntity* this) {
+    if (super->health == 0) {
         return;
     }
 #ifndef EU
-    if (this->field_0x78.HALF.LO == 0xFF) {
+    if (this->unk_78 == 0xFF) {
         return;
     }
 #endif
-    this->field_0x78.HALF.LO = gUnk_080D1AF8[Random() & 3];
-    this->field_0x7c.BYTES.byte3 = 0;
-    this->field_0x82.HALF.LO = 0;
+    this->unk_78 = gUnk_080D1AF8[Random() & 3];
+    this->unk_7f = 0;
+    this->unk_82 = 0;
     sub_080467DC(this);
 }
 
-void sub_080466A8(Entity* this) {
-    if (this->field_0x7c.BYTES.byte0 != 0) {
-        this->field_0x7c.BYTES.byte1 |= this->field_0x7c.BYTES.byte0;
-        if (this->actionDelay == 0 && this->field_0x78.HALF.LO != 0xFF) {
+void sub_080466A8(GyorgFemaleEntity* this) {
+    if (this->unk_7c != 0) {
+        this->unk_7d |= this->unk_7c;
+        if (super->actionDelay == 0 && this->unk_78 != 0xFF) {
 #ifndef EU
-            this->actionDelay = 4;
+            super->actionDelay = 4;
 #else
-            this->actionDelay = 3;
+            super->actionDelay = 3;
 #endif
         }
-        if (sub_08000E62(this->field_0x7c.BYTES.byte1) > 2) {
-            this->actionDelay = 0;
-            this->field_0x7c.BYTES.byte1 = 0;
-            this->field_0x78.HALF.LO = 0xFF;
+        if (sub_08000E62(this->unk_7d) > 2) {
+            super->actionDelay = 0;
+            this->unk_7d = 0;
+            this->unk_78 = 0xFF;
             SoundReq(0x127);
-            if (this->health != 0) {
+            if (super->health != 0) {
                 sub_08080964(8, 0);
-                if (++this->field_0x82.HALF.LO <= 0xC) {
-                    this->health--;
+                if (++this->unk_82 <= 0xC) {
+                    super->health--;
                 }
-                if (this->health == 0) {
-                    this->field_0x78.HALF.LO = 0;
-                    this->field_0x7a.HWORD = 0x528;
+                if (super->health == 0) {
+                    this->unk_78 = 0;
+                    this->unk_7a = 0x528;
                 } else {
-                    if (this->field_0x7c.BYTES.byte3 == 0) {
-                        this->field_0x7c.BYTES.byte3 = 1;
-                        this->field_0x7a.HWORD = 0x438;
+                    if (this->unk_7f == 0) {
+                        this->unk_7f = 1;
+                        this->unk_7a = 0x438;
                     }
                 }
             }
             sub_080467DC(this);
         }
     }
-    if (this->actionDelay != 0 && this->field_0x78.HALF.LO != 0xFF && --this->actionDelay == 0) {
+    if (super->actionDelay != 0 && this->unk_78 != 0xFF && --super->actionDelay == 0) {
         Entity* tmp;
-        this->field_0x80.HALF.LO |= this->field_0x7c.BYTES.byte1;
-        this->field_0x7c.BYTES.byte1 = 0;
+        this->unk_80 |= this->unk_7d;
+        this->unk_7d = 0;
         sub_080467DC(this);
 #ifndef EU
-        if (((GyorgFemaleHeap*)this->myHeap)->unk_3c != 0xFF) {
+        if (((GyorgFemaleHeap*)super->myHeap)->unk_3c != 0xFF) {
 #endif
             tmp = &gPlayerEntity;
-            tmp->knockbackDirection = ((GyorgFemaleHeap*)this->myHeap)->unk_3c;
+            tmp->knockbackDirection = ((GyorgFemaleHeap*)super->myHeap)->unk_3c;
             tmp->iframes = 0xF4;
             tmp->knockbackDuration = 0xA;
-            tmp = CreateFx(this, 0x2C, 0);
+            tmp = CreateFx(super, 0x2C, 0);
             if (tmp) {
-                tmp->x.HALF.HI = ((GyorgFemaleHeap*)this->myHeap)->unk_38;
-                tmp->y.HALF.HI = ((GyorgFemaleHeap*)this->myHeap)->unk_3a;
+                tmp->x.HALF.HI = ((GyorgFemaleHeap*)super->myHeap)->unk_38;
+                tmp->y.HALF.HI = ((GyorgFemaleHeap*)super->myHeap)->unk_3a;
                 tmp->collisionLayer = 1;
                 UpdateSpriteForCollisionLayer(tmp);
             }
@@ -360,12 +377,12 @@ void sub_080466A8(Entity* this) {
         }
 #endif
     }
-    this->field_0x7c.BYTES.byte0 = 0;
+    this->unk_7c = 0;
 }
 
-void sub_080467DC(Entity* this) {
+void sub_080467DC(GyorgFemaleEntity* this) {
     u32 i;
     for (i = 0; i < 8; i++) {
-        ((GyorgFemaleHeap*)this->myHeap)->unk_18[i] = 0;
+        ((GyorgFemaleHeap*)super->myHeap)->unk_18[i] = 0;
     }
 }
