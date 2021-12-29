@@ -179,7 +179,7 @@ void sub_0805A1D8(Manager14* this) {
     gScreen.bg3.yOffset = gRoomControls.bg3OffsetY.HALF.HI;
     if (gScreen.lcd.displayControl & DISPCNT_BG3_ON) {
         sub_0805A114(6, this->unk_20 >> 1);
-        if (this->unk_22 == 0 && (gMain.ticks & 0x1F) == 0) {
+        if (this->unk_22 == 0 && (gMain.ticks.HWORD & 0x1F) == 0) {
             this->unk_24++;
             this->unk_24 &= 3;
             gScreen.controls.alphaBlend = gUnk_0810859A[this->unk_24];

@@ -46,7 +46,10 @@ typedef struct {
     /*0x18*/ u16 filler2[3];
     /*0x1E*/ u16 width;
     /*0x20*/ u16 height;
-    /*0x22*/ u8 filler3[6];
+    /*0x22*/ u8 filler3[2];
+    /*0x24*/ s8 aff_x;
+    /*0x25*/ s8 aff_y;
+    /*0x26*/ u8 filler26[2];
     /*0x28*/ union SplitWord bg3OffsetX;
     /*0x2C*/ union SplitWord bg3OffsetY;
     /*0x30*/ Entity* cameraTarget;

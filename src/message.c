@@ -807,3 +807,11 @@ NONMATCH("asm/non_matching/textbox/sub_08056FEC.inc", u32 sub_08056FEC(u32 this,
     return iVar4;
 }
 END_NONMATCH
+
+void sub_08057044(u32 a1, u32* a2, u32 a3) {
+    u32 z[2];
+    u32 tmp = sub_08056FEC(a1, (u8*)z);
+    u32 first = z[0];
+    first <<= 8 * (3 - tmp);
+    *a2 = first | a3;
+}

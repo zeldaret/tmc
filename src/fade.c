@@ -1,14 +1,8 @@
 #include "global.h"
+#include "structures.h"
 #include "functions.h"
 #include "screen.h"
 #include "utils.h"
-
-typedef struct {
-    u8 field_0x0;
-    u8 field_0x1;
-    u8 spritesOffset;
-} struct_03000000;
-extern struct_03000000 gUnk_03000000;
 
 static u32 sub_080501C0(FadeControl* ctl);
 static u32 sub_08050230(FadeControl* ctl);

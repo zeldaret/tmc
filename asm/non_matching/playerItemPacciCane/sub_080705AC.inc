@@ -1,23 +1,4 @@
-	.include "asm/macros.inc"
-
-	.include "constants/constants.inc"
-
-	.syntax unified
-
-	.text
-
-	thumb_func_start sub_0807059C
-sub_0807059C: @ 0x0807059C
-	push {lr}
-	ldr r0, _080705A8 @ =gUnk_02034490
-	movs r1, #0x18
-	bl MemClear
-	pop {pc}
-	.align 2, 0
-_080705A8: .4byte gUnk_02034490
-
-	thumb_func_start sub_080705AC
-sub_080705AC: @ 0x080705AC
+    .syntax unified
 	push {lr}
 	ldr r0, _08070614 @ =gInput
 	ldrh r1, [r0, #2]
@@ -110,3 +91,4 @@ _08070678:
 	movs r0, #1
 _0807067E:
 	pop {pc}
+    .syntax divided

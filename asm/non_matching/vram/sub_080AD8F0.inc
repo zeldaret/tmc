@@ -1,12 +1,4 @@
-	.include "asm/macros.inc"
-	.include "constants/constants.inc"
-
-	.syntax unified
-
-	.text
-	
-	thumb_func_start sub_080AD8F0
-sub_080AD8F0: @ 0x080AD8F0
+    .syntax unified
 	ldr r2, _080AD908 @ =gFrameObjLists
 	lsls r0, r0, #2
 	adds r0, r0, r2
@@ -20,3 +12,4 @@ sub_080AD8F0: @ 0x080AD8F0
 	bx lr
 	.align 2, 0
 _080AD908: .4byte gFrameObjLists
+    .syntax divided

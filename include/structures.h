@@ -110,7 +110,7 @@ typedef struct {
             u16 a;
             u16 b;
         } indices;
-        void (*func)(Entity*);
+        void (*func)(Entity* e);
     } data;
 } Dialog;
 
@@ -147,5 +147,31 @@ typedef struct {
     u16 unk6;
     void* unk8;
 } WStruct;
+
+typedef struct {
+    u16 unk0;
+    u16 unk2;
+    u16 unk4;
+    u8 unk6;
+    u8 unk7;
+} OAMObj;
+
+typedef struct {
+    u8 field_0x0;
+    u8 field_0x1;
+    u8 spritesOffset;
+    u8 updated;
+    u16 _4;
+    u16 _6;
+    u8 _0[0x18];
+    struct OamData oam[0x80];
+    OAMObj unk[0x100];
+    u8 fill[10];
+    u8 _426;
+    u8 _427;
+    u8 _428[6];
+    u8 _42e;
+} OAMSettings;
+extern OAMSettings gUnk_03000000;
 
 #endif

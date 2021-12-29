@@ -220,7 +220,6 @@ void UpdateManagers() {
 }
 
 void EraseAllEntities() {
-    extern u8 gUnk_03000000[];
     DeleteAllEntities();
     MemClear(&gPriorityHandler, 12);
     MemClear(&gPlayerEntity, 10880);
@@ -228,9 +227,9 @@ void EraseAllEntities() {
     sub_0805E98C();
     gEntCount = 0;
     gManagerCount = 0;
-    gUnk_03000000[0x427] = 1;
-    gUnk_03000000[0x426] = 1;
-    gUnk_03000000[0x42e] = 1;
+    gUnk_03000000.unk[0].unk7 = 1;
+    gUnk_03000000.unk[0].unk6 = 1;
+    gUnk_03000000.unk[1].unk6 = 1;
 }
 
 ASM_FUNC("./asm/getEmptyEntity.s", Entity* GetEmptyEntity());

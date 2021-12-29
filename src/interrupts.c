@@ -43,12 +43,6 @@ extern void sub_08077FEC(u32);
 void gIntrMain(void);
 
 struct {
-    u8 update;
-    u8 _0[0x1c];
-    struct OamData oam[0x80];
-} extern gUnk_03000000;
-
-struct {
     u8 ready;
     u16* src;
     u16* dest;
@@ -105,8 +99,8 @@ void sub_08016BF8(void) {
 }
 
 void UpdateDisplayControls(void) {
-    if (gUnk_03000000.update && (gScreen.lcd.displayControl & DISPCNT_OBJ_ON)) {
-        gUnk_03000000.update = 0;
+    if (gUnk_03000000.field_0x0 && (gScreen.lcd.displayControl & DISPCNT_OBJ_ON)) {
+        gUnk_03000000.field_0x0 = 0;
         DmaCopy32(3, &gUnk_03000000.oam, OAM, OAM_SIZE);
     }
     sub_08016CA8(&gScreen.bg0);
