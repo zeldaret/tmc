@@ -42,8 +42,8 @@ typedef struct {
     /*0x088*/ PlayerWorldStatus saved_status;
     /*0x0A8*/ Stats stats;
     /*0x0D0*/ u8 fillerD0[0x71];
-    /*0x141*/ u8 unk141[0x1c1 - 0x141];
-    /*0x1C1*/ u8 unk1C1[0x45c - 0x1c1];
+    /*0x141*/ u8 unk141[128];
+    /*0x1C1*/ u8 unk1C1[667];
     /*0x45C*/ u8 unk45C[0x10];
     /*0x46C*/ u8 unk46C[0x20];
     /*0x48C*/ u32 unk48C[8];

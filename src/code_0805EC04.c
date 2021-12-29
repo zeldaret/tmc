@@ -1,25 +1,10 @@
 #include "entity.h"
 #include "player.h"
-
-typedef struct {
-    u16 unk0;
-    u16 unk2;
-    u16 unk4;
-    u8 unk6;
-    u8 unk7;
-} VStruct;
-
-typedef struct {
-    u8 _0[0x20];
-    struct OamData oam[0x80];
-    VStruct unk[0x100];
-} UStruct;
-
-extern UStruct gUnk_03000000;
+#include "structures.h"
 
 bool32 sub_0805EC04(Entity* this) {
     u32 i = 1;
-    UStruct* temp = &gUnk_03000000;
+    OAMSettings* temp = &gUnk_03000000;
     u32 j = 1;
     for (; i < 0x20; i++) {
         if (temp->unk[i].unk6 == 0) {
@@ -34,7 +19,7 @@ bool32 sub_0805EC04(Entity* this) {
 
 void sub_0805EC60(Entity* this) {
     u8 temp;
-    UStruct* temp2;
+    OAMSettings* temp2;
 
     if (this->spriteRendering.b0 != 0) {
         this->spriteRendering.b0 = 0;

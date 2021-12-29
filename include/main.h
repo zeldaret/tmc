@@ -8,20 +8,6 @@
 #define NUM_SAVE_SLOTS 3
 #define MAX_BRIGHTNESS 3
 
-typedef struct { // 0x03001000
-    u8 field_0x0;
-    u8 field_0x1;
-    u8 field_0x2;
-    u8 field_0x3;
-    u8 field_0x4;
-    u16 field_0x6;
-    u8 field_0x8;
-    u8 field_0x9;
-    u8 field_0xa;
-    u8 field_0xb;
-    u32 spritePriority;
-} MainStruct;
-
 typedef enum {
     LANGUAGE_JP,
     LANGUAGE_EN,
@@ -64,7 +50,8 @@ typedef struct {
     u8 pauseFrames;
     u8 pauseCount;
     u8 pauseInterval;
-    u16 ticks;
+    u8 pad;
+    union SplitHWord ticks;
 } Main;
 
 typedef struct {

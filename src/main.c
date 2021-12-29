@@ -80,7 +80,7 @@ void AgbMain(void) {
                     }
                 }
 
-                gMain.ticks++;
+                gMain.ticks.HWORD++;
                 sScreenHandlers[gMain.screen]();
                 MessageMain();
                 FadeMain();

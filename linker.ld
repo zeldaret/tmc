@@ -312,25 +312,24 @@ SECTIONS {
 
         /* handwritten assembly */
         asm/crt0.o(.text);
-        asm/code_08000108.o(.text);
+        asm/veneer.o(.text);
         data/data_08000360.o(.rodata);
         asm/code_08000E44.o(.text);
-        asm/libgcc.o(.text);
+        asm/lib/libgcc.o(.text);
         asm/code_08000F10.o(.text);
         data/data_08000F54.o(.rodata);
-        asm/code_080011C4.o(.text);
+        asm/enemy.o(.text);
         data/gfx/sprite_ptrs.o(.rodata);
         asm/code_08003FC4.o(.text);
         asm/code_080043E8.o(.text);
         data/gfx/link_animations.o(.rodata);
         asm/code_08007CAC.o(.text);
         data/data_08007DF4.o(.rodata);
-        asm/code_0800857C.o(.text);
+        asm/player.o(.text);
         /* scripts */
         data/scripts.o(.text);
-        asm/code_08016984.o(.text);
+        asm/script.o(.text);
         asm/projectileUpdate.o(.text);
-
 
         /* C source compiled with interworking */
         src/interrupts.o(.text);
@@ -340,29 +339,22 @@ SECTIONS {
         src/npc.o(.text);
         src/collision.o(.text);
         /* C source compiled without interworking */
-        asm/code_08018500.o(.text);
-        src/code_08018C58.o(.text);
+        asm/kinstone.o(.text);
+        src/kinstone.o(.text);
         src/playerItem/playerItem11.o(.text);
         src/playerItem/playerItemBow.o(.text);
         src/playerItem/playerItemSwordBeam.o(.text);
-        asm/code_0801967C.o(.text);
+        asm/beanstalkSubtask.o(.text);
         src/playerItem/playerItemBomb.o(.text);
         src/playerItem/playerItem3.o(.text);
         src/playerItem/playerItemC.o(.text);
         src/playerItem/playerItemSwordSpin.o(.text);
         src/playerItem/playerItemCellOverwriteSet.o(.text);
-        asm/code_0801C1D4.o(.text);
-        asm/drawUI.o(.text);
-        asm/code_0801C370.o(.text);
-        asm/drawRupees.o(.text);
-        asm/code_0801C5E0.o(.text);
-        asm/drawHealth.o(.text);
-        asm/sub_0801C824.o(.text);
-        asm/code_0801C85C.o(.text);
-        src/ezloNag.o(.text);
-        asm/code_0801CEC0.o(.text);
+        asm/ui.o(.text);
+        src/ui.o(.text);
+        asm/code_0801CEC0.o(.text); /* utils.c */
         src/utils.o(.text);
-        asm/code_0801D79C.o(.text);
+        asm/utils.o(.text);
         /* enemies */
         src/enemy/octorok.o(.text);
         src/enemy/chuchu.o(.text);
@@ -473,14 +465,13 @@ SECTIONS {
         src/enemy/treeItem.o(.text);
         asm/enemy/enemy66.o(.text);
         /* END enemies */
-        src/code_08049CD4.o(.text);
+        src/code_08049CD4.o(.text); /* enemyUtils.c */
         asm/code_08049D30.o(.text);
         src/enemyUtils.o(.text);
-        asm/code_0804A720.o(.text);
-        asm/sub_0804AA30.o(.text);
+        asm/enemyUtils.o(.text);
         src/createEnemy.o(.text);
-        src/code_0804AA84.o(.text);
-        asm/code_0804AA84.o(.text);
+        src/enterPortalSubtask.o(.text);
+        asm/enterPortalSubtask.o(.text);
         src/room.o(.text);
         src/roomInit.o(.text);
         src/fade.o(.text);
@@ -491,13 +482,12 @@ SECTIONS {
         asm/modBombs.o(.text);
         asm/modArrows.o(.text);
         src/code_0805436C.o(.text);
-        asm/code_0805436C.o(.text);
+        asm/code_0805436C.o(.text); /* game.c */
         src/playerItem/playerItemLantern.o(.text);
-        asm/code_08054C04.o(.text);
+        asm/code_08054C04.o(.text); /* subtask */
         src/sub_08055E08.o(.text);
         src/main.o(.text);
         src/message.o(.text);
-        asm/code_08056418.o(.text);
         src/manager/manager1.o(.text);
         src/manager/manager2.o(.text);
         src/manager/manager3.o(.text);
@@ -557,8 +547,9 @@ SECTIONS {
         src/manager/manager39.o(.text);
         src/entity.o(.text);
         src/code_0805EC04.o(.text);
-        asm/code_0805EC04.o(.text);
-        src/code_0805F9A0.o(.text);
+        asm/code_0805EC04.o(.text); /* objaffine? */
+        asm/text.o(.text);
+        src/text.o(.text);
         src/debugScreen.o(.text);
         src/playerItem/playerItem14.o(.text);
         /* npcs */
@@ -651,11 +642,10 @@ SECTIONS {
         src/npc/npc58.o(.text);
         /* END npcs */
         src/npcUtils.o(.text);
-        src/coord.o(.text);
-        asm/code_0806FA6C.o(.text);
+        src/coord.o(.text); /* physics? */
+        asm/coord.o(.text);
         src/playerItem/playerItem12.o(.text);
         src/playerItem/playerItemPacciCane.o(.text);
-        asm/code_0807059C.o(.text);
         src/player.o(.text);
         src/item.o(.text);
         src/item/itemDebug.o(.text);
@@ -673,7 +663,7 @@ SECTIONS {
         src/item/itemGustJar.o(.text);
         src/item/itemMoleMitts.o(.text);
         src/item/itemJarEmpty.o(.text);
-        asm/code_08077698.o(.text);
+        asm/playerUtils.o(.text);
         asm/respawnPlayer.o(.text);
         src/code_08077B98.o(.text);
         asm/code_08077B98.o(.text);
@@ -683,14 +673,14 @@ SECTIONS {
         asm/code_0807B9B8.o(.text);
         src/sub_0807CA18.o(.text);
         asm/getInventoryValue.o(.text);
-        asm/code_0807CAA0.o(.text);
+        asm/code_0807CAA0.o(.text); /* playerUtils.c */
         src/flags.o(.text);
         src/save.o(.text);
-        src/scroll.o(.text);
+        src/screenTilemap.o(.text);
         src/script.o(.text);
-        asm/code_0807F0D8.o(.text);
-        src/code_0808091C.o(.text);
-        asm/code_0808091C.o(.text);
+        asm/scroll.o(.text);
+        src/scroll.o(.text);
+        asm/code_0808091C.o(.text); /* scroll.c */
         /* objects */
         src/object/itemOnGround.o(.text);
         asm/object/deathFx.o(.text);
@@ -754,7 +744,7 @@ SECTIONS {
         asm/object/bossDoor.o(.text);
         asm/object/object3A.o(.text);
         asm/object/macroMushroomStalks.o(.text);
-        asm/object/object75.o(.text); /* 75 and 76 are mislocated in base game */
+        asm/object/object75.o(.text); /* 75 and 76 are mislocated in object table */
         asm/object/object76.o(.text);
         asm/object/code_0808C964.o(.text);
         asm/object/macroPlayer.o(.text);
@@ -895,20 +885,19 @@ SECTIONS {
         asm/object/enemyItem.o(.text);
         asm/object/objectC1.o(.text);
         /* END objects */
-        asm/sub_080A276C.o(.text);
         src/objectUtils.o(.text);
-        asm/code_080A29BC.o(.text);
+        asm/objectUtils.o(.text);
         src/playerItem/playerItemShield.o(.text);
         src/playerItem/playerItem15.o(.text);
 #ifdef DEMO_USA
         src/demoScreen.o(.text);
 #endif
         src/sound.o(.text);
-        asm/code_080A3480.o(.text);
-        src/sub_080A3B84.o(.text);
-        asm/code_080A3BD0.o(.text);
-        src/sub_080A554C.o(.text);
-        asm/code_080A5574.o(.text);
+        asm/staffroll.o(.text);
+        src/subtask.o(.text);
+        asm/subtask.o(.text);
+        src/subtask2.o(.text);
+        asm/subtask2.o(.text); /* subtask.c */
         src/playerItem/playerItemSword.o(.text);
         src/playerItemUtils.o(.text);
         src/projectileUtils.o(.text);
@@ -951,15 +940,15 @@ SECTIONS {
         src/projectile/v3TennisBallProjectile.o(.text);
         src/playerItem/playerItem10.o(.text);
         src/playerItem/playerItem13.o(.text);
-        src/intro.o(.text);
-        asm/sub_080AD8F0.o(.text);
-        asm/code_080AD90C.o(.text);
+        src/title.o(.text);
+        src/affine.o(.text);
         src/playerItem/playerItemGustJar.o(.text);
-        asm/code_080ADD30.o(.text);
+        asm/vram.o(.text);
+        asm/movement.o(.text);
         /* library functions */
-        asm/m4a_asm.o(.text);
+        asm/lib/m4a_asm.o(.text);
         src/gba/m4a.o(.text);
-        asm/libagbsyscall.o(.text);
+        asm/lib/libagbsyscall.o(.text);
         src/eeprom.o(.text);
         *libc.a:memcpy.o(.text);
         /* handwritten assembly in arm mode */
@@ -1717,7 +1706,7 @@ SECTIONS {
         src/playerItem/playerItem10.o(.rodata);
         src/flagDebug.o(.rodata);
         data/const/playerItem/playerItem13.o(.rodata);
-        src/intro.o(.rodata);
+        src/title.o(.rodata);
 #ifdef DEMO_JP
         data/data_081320FC.o(.rodata);
 #endif
