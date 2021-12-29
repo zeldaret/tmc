@@ -468,7 +468,7 @@ SECTIONS {
         asm/gyorgChild.o(.text);
         src/enemy/gyorgFemaleEye.o(.text);
         asm/enemy62.o(.text);
-        asm/gyorgFemaleMouth.o(.text);
+        src/enemy/gyorgFemaleMouth.o(.text);
         asm/enemy64.o(.text);
         src/enemy/treeItem.o(.text);
         asm/enemy66.o(.text);
