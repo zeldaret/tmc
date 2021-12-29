@@ -19,8 +19,6 @@ extern u8 gUnk_08A05751[];
 extern void gUnk_089FD1B4;
 extern void gUnk_089FD2F4;
 
-extern u8 gUnk_02000006;
-
 extern u16 gUnk_08127CC8[4];
 extern void* gUnk_08127C98;
 extern u8 gUnk_08A068BF[129];

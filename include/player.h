@@ -274,7 +274,6 @@ extern u8 gQuiverSizes[];
 extern u16 gWalletSizes[];
 
 extern PlayerState gPlayerState;
-extern Stats gStats;
 extern Entity gPlayerEntity;
 
 void SetPlayerControl(PlayerControlMode mode);

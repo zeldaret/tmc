@@ -165,14 +165,12 @@ void ManagerBHelper_Main(Manager* this) {
     }
 }
 
-extern Manager gUnk_03003DB0;
-
 /*
  * Replace an entity that is currently being monitored with a new one
  */
 void ReplaceMonitoredEntity(Entity* old, Entity* new) {
     ManagerBHelper* current;
-    Manager* end = &gUnk_03003DB0;
+    Manager* end = (Manager*)&gEntityLists[8];
     u32 i;
     for (current = (ManagerBHelper*)end->next; (Manager*)current != end;
          current = (ManagerBHelper*)current->manager.next) {

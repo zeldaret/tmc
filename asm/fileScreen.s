@@ -39,10 +39,10 @@ HandleGameplayScreen: @ 08051A28
 _08051A64:
     pop {r4, pc}
     .byte 0x00, 0x00
-_08051A68: .4byte gUnk_030010A0
+_08051A68: .4byte gScreenTransition
 _08051A6C: .4byte gUnk_080FC9D8
 _08051A70x: .4byte gMain
-_08051A74x: .4byte gUnk_02002A40
+_08051A74x: .4byte gSave
 .else
 	thumb_func_start HandleGameplayScreen
 HandleGameplayScreen: @ 0x08051988
@@ -341,7 +341,7 @@ _08051B5A:
 	ldr r0, _08051BC8 @ =gUnk_02034490
 	strb r4, [r0]
 .ifdef DEMO_JP
-	ldr r0, _08051C30 @ =gUnk_030010A0
+	ldr r0, _08051C30 @ =gScreenTransition
 	adds r0,#0x31
 	ldrb r0,[r0,#0x0]
 	cmp r0,#0x0
@@ -408,7 +408,7 @@ _08051BC0: .4byte 0x800B0000
 _08051BC4: .4byte gMain
 _08051BC8: .4byte gUnk_02034490
 .ifdef DEMO_JP
-_08051C30: .4byte gUnk_030010A0
+_08051C30: .4byte gScreenTransition
 .endif
 _08051BCC: .4byte gRoomVars
 .endif

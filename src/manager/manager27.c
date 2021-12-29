@@ -19,9 +19,9 @@ void Manager27_Main(Entity* this) {
 
     gUnk_08108D10[this->action](this);
     if (CheckLocalFlagByBank(0x300, this->type + 0x67)) {
-        gScreenTransition.field_0xac |= (1 << this->type);
+        gScreenTransition.armos_data.field_0xac |= (1 << this->type);
     } else {
-        gScreenTransition.field_0xac &= ~(1 << this->type);
+        gScreenTransition.armos_data.field_0xac &= ~(1 << this->type);
     }
 }
 

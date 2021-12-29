@@ -15,8 +15,6 @@
 #include "message.h"
 #include "game.h"
 
-extern u32 gUnk_03003FC0;
-
 extern u8 gUnk_080FCA84[];
 extern u8 gUnk_080FCAC8[];
 extern u8 gUnk_02024090[];
@@ -379,8 +377,8 @@ void InitializePlayer(void) {
     pl->flags |= ENT_COLLIDE | ENT_20;
     pl->spritePriority.b0 = 4;
     pl->health = gSave.stats.health;
-    pl->x.HALF.HI = gScreenTransition.player_status.start_pos.HALF.x;
-    pl->y.HALF.HI = gScreenTransition.player_status.start_pos.HALF.y;
+    pl->x.HALF.HI = gScreenTransition.player_status.start_pos_x;
+    pl->y.HALF.HI = gScreenTransition.player_status.start_pos_y;
     pl->animationState = gScreenTransition.player_status.start_anim;
     pl->collisionLayer = gScreenTransition.player_status.layer;
     UpdateSpriteForCollisionLayer(pl);
@@ -428,22 +426,23 @@ u32 CheckHasMap(void) {
 
 s32 ModHealth(s32 delta) {
     s32 newHealth;
+    Stats* stats = &gSave.stats;
 
-    newHealth = gStats.health + delta;
+    newHealth = stats->health + delta;
     if (newHealth < 0) {
         newHealth = 0;
     }
-    if (gStats.maxHealth < newHealth) {
-        newHealth = (u32)gStats.maxHealth;
+    if (stats->maxHealth < newHealth) {
+        newHealth = (u32)stats->maxHealth;
     }
-    gStats.health = newHealth;
+    stats->health = newHealth;
     gPlayerEntity.health = newHealth;
     return newHealth;
 }
 
 void ModRupees(s32 delta) {
     s32 newRupeeCount;
-    Stats* s = &gStats;
+    Stats* s = &gSave.stats;
 
     newRupeeCount = s->rupees + delta;
     if (newRupeeCount < 0) {
@@ -614,8 +613,8 @@ static u32 StairsAreValid(void) {
 
 void InitParachuteRoom(void) {
     gScreenTransition.transitioningOut = 1;
-    gScreenTransition.player_status.start_pos.HALF.x = (gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX) & 0x3F8;
-    gScreenTransition.player_status.start_pos.HALF.y = (gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY) & 0x3F8;
+    gScreenTransition.player_status.start_pos_x = (gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX) & 0x3F8;
+    gScreenTransition.player_status.start_pos_y = (gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY) & 0x3F8;
     gScreenTransition.player_status.start_anim = 4;
     gScreenTransition.player_status.spawn_type = PL_SPAWN_PARACHUTE_FORWARD;
     gScreenTransition.player_status.area_next = gRoomControls.areaID;
@@ -983,8 +982,8 @@ void sub_080531F8(void) {
 
 void sub_08053250(void) {
     gScreenTransition.player_status.spawn_type = PL_SPAWN_DEFAULT;
-    gScreenTransition.player_status.start_pos.HALF.x = gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX;
-    gScreenTransition.player_status.start_pos.HALF.y = gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY;
+    gScreenTransition.player_status.start_pos_x = gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX;
+    gScreenTransition.player_status.start_pos_y = gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY;
     gScreenTransition.player_status.start_anim = gPlayerEntity.animationState;
     gScreenTransition.player_status.layer = gPlayerEntity.collisionLayer;
     gScreenTransition.player_status.area_next = gRoomControls.areaID;

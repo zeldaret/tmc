@@ -101,10 +101,10 @@ _0800861A:
 	ldrh r4, [r0, r2]
 	movs r2, #0x48
 	ldr r5, [r0, r2]
-	ldr r1, _080088B4 @ =gUnk_03000BF6
+	ldr r1, _080088B4 @ =gRoomControls + 6
 	ldrh r1, [r1]
 	subs r3, r3, r1
-	ldr r1, _080088B8 @ =gUnk_03000BF8
+	ldr r1, _080088B8 @ =gRoomControls + 8
 	ldrh r1, [r1]
 	subs r4, r4, r1
 	eors r2, r2
@@ -439,8 +439,8 @@ _080088A4: .4byte gUnk_080084BC
 _080088A8: .4byte gPlayerState
 _080088AC: .4byte gUnk_0800851C
 _080088B0: .4byte gUnk_080082DC
-_080088B4: .4byte gUnk_03000BF6
-_080088B8: .4byte gUnk_03000BF8
+_080088B4: .4byte gRoomControls + 6
+_080088B8: .4byte gRoomControls + 8
 _080088BC: .4byte gPlayerEntity
 _080088C0: .4byte 0x000003F0
 _080088C4: .4byte gUnk_08000248

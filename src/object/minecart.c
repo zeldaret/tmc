@@ -7,18 +7,8 @@ extern u32 sub_08007DD6(u32, u32);
 extern void sub_08017744(Entity*);
 extern void sub_08091C0C(Entity*);
 
-typedef struct {
-    u16 field_0x0;
-    u16 field_0x2;
-    u8 field_0x4;
-    u8 field_0x5;
-    u8 field_0x6;
-    u8 field_0x7;
-} struct_030010EC;
-
 extern void (*const gUnk_081223A8[])(Entity*);
 
-extern struct_030010EC gUnk_030010EC[];
 extern Hitbox gUnk_080FD310;
 
 extern const s8 gUnk_081223C8[];
@@ -30,7 +20,7 @@ void Minecart(Entity* this) {
 }
 
 void sub_080916EC(Entity* this) {
-    struct_030010EC* unk = &gUnk_030010EC[this->actionDelay];
+    struct_030010EC* unk = &gScreenTransition.minecart_data[this->actionDelay];
 
     *(struct_030010EC**)&this->cutsceneBeh.HWORD = unk;
     if ((gRoomControls.roomID != unk->field_0x4) || (gPlayerState.flags & 0x1000) != 0) {

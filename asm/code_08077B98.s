@@ -9,7 +9,7 @@
 	thumb_func_start sub_08077FEC
 sub_08077FEC: @ 0x08077FEC
 	push {lr}
-	ldr r0, _08078000 @ =gUnk_03004020
+	ldr r0, _08078000 @ =gPlayerState + 0xA0
 	ldr r2, _08078004 @ =gUnk_0811BFE8
 	ldrb r1, [r0]
 	lsls r1, r1, #2
@@ -18,7 +18,7 @@ sub_08077FEC: @ 0x08077FEC
 	bl _call_via_r1
 	pop {pc}
 	.align 2, 0
-_08078000: .4byte gUnk_03004020
+_08078000: .4byte gPlayerState + 0xA0
 _08078004: .4byte gUnk_0811BFE8
 
 	thumb_func_start sub_08078008

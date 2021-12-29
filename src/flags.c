@@ -36,7 +36,7 @@ u32 CheckGlobalFlag(u32 flag) {
 }
 
 u32 CheckRoomFlag(u32 flag) {
-    return ReadBit(&gRoomVars.roomFlags, flag);
+    return ReadBit(&gRoomVars.flags, flag);
 }
 
 u32 CheckLocalFlagsByBank(u32 offset, u32 flag, u32 length) {
@@ -53,7 +53,7 @@ u32 CheckGlobalFlags(u32 flag, u32 length) {
 }
 
 u32 CheckRoomFlags(u32 flag, u32 length) {
-    return CheckBits(&gRoomVars.roomFlags, flag, length);
+    return CheckBits(&gRoomVars.flags, flag, length);
 }
 
 void SetLocalFlagByBank(u32 offset, u32 flag) {
@@ -92,7 +92,7 @@ void SetGlobalFlag(u32 flag) {
 }
 
 void SetRoomFlag(u32 flag) {
-    WriteBit(&gRoomFlags, flag);
+    WriteBit(&gRoomVars.flags, flag);
 }
 
 void ClearLocalFlagByBank(u32 offset, u32 flag) {
@@ -127,5 +127,5 @@ void ClearGlobalFlag(u32 flag) {
 }
 
 void ClearRoomFlag(u32 flag) {
-    ClearBit(&gRoomFlags, flag);
+    ClearBit(&gRoomVars.flags, flag);
 }

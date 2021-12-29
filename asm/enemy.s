@@ -1135,12 +1135,12 @@ _080026A0: .4byte gUnk_08002342
 gUnk_080026A4::
 @ normal entities
 	.4byte gUnk_020000B0 @ enemy target? (player)
-	.4byte gUnk_03003D68 @ first linked list
-	.4byte gUnk_03003DB0 @ last linked list
+	.4byte gEntityLists - 8 @ first linked list
+	.4byte gEntityLists + 64 @ last linked list
 	.4byte gUnk_03005FBC @ entity table
 @ managers
 	.4byte gUnk_020000B0
-	.4byte gUnk_03003DA8
+	.4byte gEntityLists + 56
 	.4byte gCollidableCount
 	.4byte gUnk_03005FBC
 

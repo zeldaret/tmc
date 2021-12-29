@@ -7,8 +7,6 @@
 extern void sub_08057044(u32, struct_020227E8*, u32);
 extern u32 gUnk_081146B8;
 
-extern u16 gBG0Settings[];
-
 void Phonograph(Entity* this) {
     if (this->action == 0) {
         this->action += 1;

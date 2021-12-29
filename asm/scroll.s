@@ -379,7 +379,7 @@ sub_0807FEC8: @ 0x0807FEC8
 	strh r0, [r4, #0x18]
 	pop {r4, r5, pc}
 	.align 2, 0
-_0807FEEC: .4byte gUnk_03003FC0
+_0807FEEC: .4byte gPlayerState+0x40
 
 	thumb_func_start sub_0807FEF0
 sub_0807FEF0: @ 0x0807FEF0

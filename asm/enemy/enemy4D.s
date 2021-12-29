@@ -474,7 +474,7 @@ _0803EF1C: .4byte gUnk_020000B0
 sub_0803EF20: @ 0x0803EF20
 	push {r4, r5, r6, r7, lr}
 	adds r5, r0, #0
-	ldr r6, _0803EF5C @ =gUnk_03003D80
+	ldr r6, _0803EF5C @ =gEntityLists + 16
 	ldr r4, [r6, #4]
 	cmp r4, r6
 	beq _0803EF6A
@@ -503,7 +503,7 @@ _0803EF2E:
 	strb r0, [r1]
 	b _0803EF6C
 	.align 2, 0
-_0803EF5C: .4byte gUnk_03003D80
+_0803EF5C: .4byte gEntityLists + 16
 _0803EF60: .4byte gUnk_080D08C8
 _0803EF64:
 	ldr r4, [r4, #4]

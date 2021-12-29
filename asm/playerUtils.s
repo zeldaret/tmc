@@ -275,7 +275,7 @@ sub_08077880: @ 0x08077880
 	lsls r0, r0, #2
 	ldr r1, _080778C4 @ =gUnk_0811BE48
 	adds r5, r0, r1
-	ldr r1, _080778C8 @ =gUnk_03004010
+	ldr r1, _080778C8 @ =gPlayerState + 0x90
 	ldrb r0, [r5]
 	cmp r0, #0
 	beq _080778A0
@@ -301,7 +301,7 @@ _080778C0:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _080778C4: .4byte gUnk_0811BE48
-_080778C8: .4byte gUnk_03004010
+_080778C8: .4byte gPlayerState + 0x90
 
 	thumb_func_start sub_080778CC
 sub_080778CC: @ 0x080778CC

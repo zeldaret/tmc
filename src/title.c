@@ -6,6 +6,9 @@
 #include "object.h"
 #include "message.h"
 #include "functions.h"
+#include "save.h"
+#include "area.h"
+#include "item.h"
 
 typedef struct {
     u8 filler0[0x4];
@@ -51,6 +54,67 @@ static const u16 sLightRaysAlphaBlends[] = {
     BLDALPHA_BLEND(9, 9),  BLDALPHA_BLEND(8, 10), BLDALPHA_BLEND(7, 11), BLDALPHA_BLEND(6, 12),
     BLDALPHA_BLEND(5, 13), BLDALPHA_BLEND(6, 12), BLDALPHA_BLEND(7, 11), BLDALPHA_BLEND(8, 10),
 };
+
+#define FLAG_BYTE(bank, flag) (((bank) + (flag)) >> 3)
+#define FLAG_X(flag) (1 << ((flag)&7))
+
+#ifdef DEMO_JP
+static const SaveFile gDemoSave = {
+    .unk_01 = 1,
+    .messageSpeed = 1,
+    .brightnessPref = 1,
+    .global_progress = 1,
+    .field_0x9 = { [23] = 0x1F },
+    .windcrests = 0x00013780,
+    .unk50 = 7,
+    .areaVisitFlags = { 0x0114C300 },
+    .playerName = "\x97\x7f\xdd",
+    .saved_status = {
+        .area_next = AREA_DEEPWOOD_SHRINE,
+        .room_next = 0xb,
+        .start_pos_x = 0xa8,
+        .start_pos_y = 0xc8,
+        .layer = 1,
+        .overworld_map_x = 0xd66,
+        .overworld_map_y = 0xae0,
+    },
+    .stats = {
+        .health = 40,
+        .maxHealth = 40,
+        .itemOnA = ITEM_SHIELD,
+        .itemOnB = ITEM_SMITH_SWORD,
+        .rupees = 5,
+    },
+    .fillerD0 = {
+        [34] = 5,
+        [37] = 4,
+        [47] = 6,
+        [51] = 0x40,
+        [56] = 0x40,
+    },
+    .flags = {
+        [FLAG_BYTE(FLAG_BANK_G, START)] = FLAG_X(START) | FLAG_X(EZERO_1ST) | FLAG_X(TABIDACHI),
+        [FLAG_BYTE(FLAG_BANK_G, OUTDOOR)] = FLAG_X(OUTDOOR),
+        [FLAG_BYTE(FLAG_BANK_G, ENTRANCE_0)] = FLAG_X(ENTRANCE_0),
+        [FLAG_BYTE(FLAG_BANK_1, MORI_00_KOBITO)] = FLAG_X(MORI_00_KOBITO) | FLAG_X(MORI_ENTRANCE_1ST),
+        [FLAG_BYTE(FLAG_BANK_1, SOUGEN_01_ZELDA)] = FLAG_X(SOUGEN_01_ZELDA),
+        [FLAG_BYTE(FLAG_BANK_1, SOUGEN_06_WAKAGI_1)] = FLAG_X(SOUGEN_06_WAKAGI_1) | FLAG_X(SOUGEN_06_WAKAGI_2) | FLAG_X(SOUGEN_06_WAKAGI_3),
+        [FLAG_BYTE(FLAG_BANK_1, SOUGEN_06_AKINDO)] = FLAG_X(SOUGEN_06_AKINDO),
+        [FLAG_BYTE(FLAG_BANK_1, CASTLE_04_MEZAME)] = FLAG_X(CASTLE_04_MEZAME),
+        [FLAG_BYTE(FLAG_BANK_1, MACHI_01_DEMO)] = FLAG_X(MACHI_01_DEMO),
+        [FLAG_BYTE(FLAG_BANK_2, MHOUSE15_OP1ST)] = FLAG_X(MHOUSE15_OP1ST),
+        [FLAG_BYTE(FLAG_BANK_2, M_PRIEST_TALK)] = FLAG_X(M_PRIEST_TALK) | FLAG_X(M_ELDER_TALK1ST) | FLAG_X(M_PRIEST_MOVE),
+        [FLAG_BYTE(FLAG_BANK_2, KOBITO_MORI_1ST)] = FLAG_X(KOBITO_MORI_1ST),
+        [FLAG_BYTE(FLAG_BANK_5, LV1_0B_WALK)] = FLAG_X(LV1_0B_WALK),
+    },
+};
+static const u8 unk[] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xd0,
+                          0xc2, 0xd1, 0xc2, 0xd2, 0xc2, 0xd3, 0xc2, 0xd4, 0xc2, 0xd5, 0xc2, 0xd6, 0xc2,
+                          0xd7, 0xc2, 0xd8, 0xc2, 0x00, 0xf0, 0x11, 0x90, 0x11, 0x90, 0x05, 0xd3, 0x49,
+                          0xd3, 0x26, 0xd3, 0x65, 0xdf, 0x11, 0x90, 0x11, 0x90, 0x11, 0x90, 0x11, 0x90,
+                          0x11, 0x90, 0x11, 0x90, 0x11, 0x90, 0x11, 0x90, 0x11, 0x90, 0x11, 0x90, 0x11,
+                          0x90, 0x11, 0x90, 0x8a, 0xc2, 0x8b, 0xc2, 0x8c, 0xc2, 0x8d, 0xc2 };
+#endif
 
 static u32 AdvanceIntroSequence(u32 transition) {
     gUnk_02032EC0.lastState = transition;
@@ -266,7 +330,7 @@ static void UpdateSwordBgAffineData(void) {
     aff.scrY = DISPLAY_HEIGHT / 2 - 8;
     aff.alpha = 0;
     aff.sy = aff.sx = gIntroState.swordBgScaleRatio;
-    BgAffineSet(&aff, (struct BgAffineDstData*)&gBgControls, 1);
+    BgAffineSet(&aff, (struct BgAffineDstData*)&gScreen.controls, 1);
 }
 
 static void HandleJapaneseTitlescreenAnimationIntro(void) {
@@ -361,15 +425,10 @@ static void HandleTitlescreenAnimationIntro(void) {
             break;
     }
 }
-
-#ifdef DEMO_JP
-extern u8 gUnk_02002A40;
-#endif
-
 static void ExitTitlescreen(void) {
     if (!gFadeControl.active) {
 #ifdef DEMO_JP
-        MemCopy(&sLightRaysAlphaBlends[8], &gUnk_02002A40, 0x4B4);
+        MemCopy(&gDemoSave, &gSave, sizeof(gSave));
         InitScreen(SCREEN_GAMEPLAY);
 #else
         InitScreen(SCREEN_CHOOSE_FILE);

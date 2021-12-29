@@ -28,7 +28,7 @@ _080A245E:
 	ldrb r0, [r5, #0xe]
 	strb r0, [r5, #0xa]
 	str r1, [r5, #0x54]
-	ldr r2, _080A24B4 @ =gUnk_03003D90
+	ldr r2, _080A24B4 @ =gEntityLists + 32
 	ldr r4, [r2, #4]
 	cmp r4, r2
 	beq _080A24BE
@@ -63,7 +63,7 @@ _080A2478:
 	str r4, [r5, #0x54]
 	b _080A24BE
 	.align 2, 0
-_080A24B4: .4byte gUnk_03003D90
+_080A24B4: .4byte gEntityLists + 32
 _080A24B8:
 	ldr r4, [r4, #4]
 	cmp r4, r2

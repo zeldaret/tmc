@@ -700,9 +700,6 @@ static void CreateWindow(void) {
 ASM_FUNC("asm/non_matching/textbox/DispMessageFrame.inc",
          void DispMessageFrame(u16* buffer, u32 width_, u32 height_, u32 flags_))
 
-extern u16 gUnk_02034CB2[];
-extern u16 gUnk_0202281E[];
-
 /*
     Each character is two tiles tall.
     They are stored in VRAM in the following order:

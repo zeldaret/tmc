@@ -130,7 +130,7 @@ sub_0803026C: @ 0x0803026C
 	strb r0, [r3]
 	ldrb r2, [r3]
 	lsls r0, r2, #2
-	ldr r5, _080302A8 @ =gUnk_0300110C
+	ldr r5, _080302A8 @ =armos_data
 	adds r0, r0, r5
 	ldrh r1, [r0]
 	cmp r1, #0
@@ -150,7 +150,7 @@ sub_0803026C: @ 0x0803026C
 	str r0, [r2]
 	b _080302BA
 	.align 2, 0
-_080302A8: .4byte gUnk_0300110C
+_080302A8: .4byte gScreenTransition + 0x6c
 _080302AC:
 	adds r0, r4, #0
 	adds r0, #0x84
