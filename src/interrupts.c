@@ -20,7 +20,6 @@ extern u8 gUnk_03003DF0[];
 extern u8 gUnk_03003BE0;
 extern Entity* gPlayerClones[3];
 extern u16 gUnk_080B2CD8[];
-extern u32 gUnk_03000FBC;
 
 extern void sub_080ADD70();
 extern void sub_0801C25C();
@@ -69,7 +68,7 @@ void VBlankIntr(void) {
     m4aSoundVSync();
     if (gMain.interruptFlag == 0) {
         DispCtrlSet();
-        DmaCopy32(0, &gUnk_03000FBC, &gUnk_02022730, 16);
+        DmaCopy32(0, &gScreen._6c, &gUnk_02022730, 16);
         gMain.interruptFlag = 1;
     }
     sub_08016BF8();

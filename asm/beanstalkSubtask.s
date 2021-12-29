@@ -168,7 +168,7 @@ sub_080197AC: @ 0x080197AC
 	bx lr
 	.align 2, 0
 _080197C4: .4byte gUnk_02025EB0
-_080197C8: .4byte gBGAffSettings
+_080197C8: .4byte gScreen + 0x20
 _080197CC: .4byte gUnk_080B77C0
 _080197D0: .4byte gUnk_0200B650
 

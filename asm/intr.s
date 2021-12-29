@@ -623,7 +623,7 @@ MakeFadeBuff256: @ 0x080B2124
 	mul r3, r2, r3
 	mov r4, #0x400
 	sub r2, r4, r2, lsl #2
-	ldr r7, _080B21A8 @ =gUnk_02000006
+	ldr r7, _080B21A8 @ =0x02000006
 	ldrb r7, [r7]
 	ldr ip, _080B21AC @ =gUnk_08000F54
 	add ip, ip, r7, lsl #4
@@ -654,7 +654,7 @@ _080B2150:
 	bx lr
 	.align 2, 0
 _080B21A4: .4byte 0x01010101
-_080B21A8: .4byte gUnk_02000006
+_080B21A8: .4byte 0x02000000 + 6 @ brightness preference
 _080B21AC: .4byte gUnk_08000F54
 
 	ldr r11, _080B2270 @ =gUpdateContext

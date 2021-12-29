@@ -161,18 +161,18 @@ void sub_0805B210(Manager1A* this) {
     }
     switch (tmp->unk_00) {
         case 0:
-            gScreenTransition.player_status.start_pos.HALF.x = tmp->unk_04;
-            gScreenTransition.player_status.start_pos.HALF.y = tmp->unk_06;
+            gScreenTransition.player_status.start_pos_x = tmp->unk_04;
+            gScreenTransition.player_status.start_pos_y = tmp->unk_06;
             break;
         case 1:
-            gScreenTransition.player_status.start_pos.HALF.x =
+            gScreenTransition.player_status.start_pos_x =
                 gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX + tmp->unk_04;
-            gScreenTransition.player_status.start_pos.HALF.y =
+            gScreenTransition.player_status.start_pos_y =
                 gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY + tmp->unk_06;
             break;
         case 2:
-            gScreenTransition.player_status.start_pos.HALF.x = tmp->unk_04;
-            gScreenTransition.player_status.start_pos.HALF.y = tmp->unk_06;
+            gScreenTransition.player_status.start_pos_x = tmp->unk_04;
+            gScreenTransition.player_status.start_pos_y = tmp->unk_06;
             gScreenTransition.player_status.spawn_type = 6;
             break;
     }

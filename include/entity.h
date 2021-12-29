@@ -155,9 +155,6 @@ typedef struct LinkedList {
 } LinkedList;
 
 extern LinkedList gEntityLists[9];
-extern LinkedList gUnk_03003D90;
-
-extern LinkedList gUnk_03003DA0;
 
 enum {
     ENT_DID_INIT = 0x1,

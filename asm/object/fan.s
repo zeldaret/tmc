@@ -37,7 +37,7 @@ _0809EE60:
 	ldrb r1, [r5, #0x15]
 	bl sub_08079E58
 _0809EE80:
-	ldr r6, _0809EEA8 @ =gUnk_03003D80
+	ldr r6, _0809EEA8 @ =gEntityLists + 16
 	ldr r4, [r6, #4]
 	cmp r6, r4
 	beq _0809EF74
@@ -57,7 +57,7 @@ _0809EE88:
 	mov pc, r0
 	.align 2, 0
 _0809EEA4: .4byte gPlayerEntity
-_0809EEA8: .4byte gUnk_03003D80
+_0809EEA8: .4byte gEntityLists + 16
 _0809EEAC: .4byte _0809EEB0
 _0809EEB0: @ jump table
 	.4byte _0809EF1E @ case 0

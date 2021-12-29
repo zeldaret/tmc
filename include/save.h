@@ -43,7 +43,8 @@ typedef struct {
     /*0x0A8*/ Stats stats;
     /*0x0D0*/ u8 fillerD0[0x71];
     /*0x141*/ u8 unk141[128];
-    /*0x1C1*/ u8 unk1C1[667];
+    /*0x1C1*/ u8 unk1C1[155];
+    /*0x25C*/ u8 flags[0x200];
     /*0x45C*/ u8 unk45C[0x10];
     /*0x46C*/ u8 unk46C[0x20];
     /*0x48C*/ u32 unk48C[8];

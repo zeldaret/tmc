@@ -2,22 +2,14 @@
 #include "utils.h"
 #include "functions.h"
 
-typedef struct {
-    u16 unk0;
-    u16 filler2[32];
-    u16 unk66;
-} struct_0300110C;
-
-extern struct_0300110C gUnk_0300110C;
-
 void sub_080300AC(void) {
-    MemClear(&gUnk_0300110C.unk0, 0x44);
-    gUnk_0300110C.unk66 = 0xff;
+    MemClear(&gScreenTransition.armos_data, sizeof(gScreenTransition.armos_data));
+    gScreenTransition.armos_data.field_0xae = 0xff;
 }
 
 void sub_080300C4(void) {
-    if (gScreenTransition.field_0xae == 0xff) {
-        gScreenTransition.field_0xac = 0;
-        MemClear(gScreenTransition.field_0x6c, sizeof gScreenTransition.field_0x6c);
+    if (gScreenTransition.armos_data.field_0xae == 0xff) {
+        gScreenTransition.armos_data.field_0xac = 0;
+        MemClear(&gScreenTransition.armos_data.data, sizeof(gScreenTransition.armos_data.data));
     }
 }

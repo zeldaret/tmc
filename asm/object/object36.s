@@ -342,7 +342,7 @@ _0808BDAE:
 sub_0808BDB0: @ 0x0808BDB0
 	push {r4, r5, r6, lr}
 	adds r3, r0, #0
-	ldr r4, _0808BDD4 @ =gUnk_03003DA0
+	ldr r4, _0808BDD4 @ =gEntityLists + 48
 	ldr r2, [r4, #4]
 	movs r0, #0
 	str r0, [r3, #0x50]
@@ -359,7 +359,7 @@ _0808BDC4:
 	str r2, [r3, #0x50]
 	b _0808BDE6
 	.align 2, 0
-_0808BDD4: .4byte gUnk_03003DA0
+_0808BDD4: .4byte gEntityLists + 48
 _0808BDD8: .4byte 0x0000FFFF
 _0808BDDC: .4byte 0x00000C09
 _0808BDE0:

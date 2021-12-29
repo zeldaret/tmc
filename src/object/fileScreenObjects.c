@@ -319,7 +319,7 @@ void sub_0808EBB8(Entity* this) {
 }
 
 static Entity* sub_0808EC80(int form) {
-    Entity* entityA = (Entity*)&gUnk_03003DA0;
+    Entity* entityA = (Entity*)&gEntityLists[6];
     Entity* entityB = entityA->next;
     while (entityB != entityA) {
         if ((entityB->kind == 0x6 && entityB->id == 0x48) && form == entityB->type) {

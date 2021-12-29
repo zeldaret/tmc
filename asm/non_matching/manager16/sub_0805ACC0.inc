@@ -28,7 +28,7 @@ _0805ACF0:
 	movs r0, #0x7f
 	ands r0, r1
 	subs r5, r0, #1
-	ldr r6, _0805AD3C @ =gUnk_03003DA0
+	ldr r6, _0805AD3C @ =gEntityLists + 48
 	ldr r4, [r6, #4]
 	cmp r4, r6
 	beq _0805AD32
@@ -66,7 +66,7 @@ _0805AD34:
 	mov r8, r3
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_0805AD3C: .4byte gUnk_03003DA0
+_0805AD3C: .4byte gEntityLists + 48
 _0805AD40: .4byte 0x00001609
 _0805AD44: .4byte 0x0000FFFF
 	.syntax divided

@@ -53,8 +53,8 @@ u8 sub_0807CA18() {
         gSave.saved_status.start_anim = 0;
         gSave.saved_status.spawn_type = 0;
         gSave.saved_status.layer = 1;
-        gSave.saved_status.start_pos.HALF.x = 0x90;
-        gSave.saved_status.start_pos.HALF.y = 0x38;
+        gSave.saved_status.start_pos_x = 0x90;
+        gSave.saved_status.start_pos_y = 0x38;
     }
     if (gSave.playerName[0] == '\0') {
         MemCopy(gUnk_0811E470, &gSave.playerName, FILENAME_LENGTH - 1);

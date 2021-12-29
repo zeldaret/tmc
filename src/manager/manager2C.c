@@ -29,8 +29,8 @@ void Manager2C_Main(Manager2C* manager) {
         gScreenTransition.player_status.area_next = manager->manager.unk_0b;
         gScreenTransition.player_status.room_next = manager->manager.unk_0e;
         gScreenTransition.player_status.start_anim = manager->field_0x37;
-        gScreenTransition.player_status.start_pos.HALF.x = manager->field_0x3c;
-        gScreenTransition.player_status.start_pos.HALF.y = manager->field_0x3e;
+        gScreenTransition.player_status.start_pos_x = manager->field_0x3c;
+        gScreenTransition.player_status.start_pos_y = manager->field_0x3e;
         gScreenTransition.player_status.layer = manager->field_0x36;
     }
 }

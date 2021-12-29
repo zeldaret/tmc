@@ -124,7 +124,7 @@ _08056844:
 	bl WriteBit
 	b _08056942
 	.align 2, 0
-_08056854: .4byte gUnk_0200005C
+_08056854: .4byte gMessage+0xc
 _08056858:
 	ldrh r3, [r5, #0x22]
 	cmp r3, #0xe

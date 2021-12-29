@@ -148,8 +148,8 @@ void sub_0808B684(Entity* this) {
         gScreenTransition.transitionType = TRANSITION_DEFAULT;
         gScreenTransition.player_status.area_next = this->field_0x7c.BYTES.byte0;
         gScreenTransition.player_status.room_next = this->field_0x7c.BYTES.byte1;
-        gScreenTransition.player_status.start_pos.HALF.x = ((this->cutsceneBeh.HWORD & 0x3f) << 4) + 8;
-        gScreenTransition.player_status.start_pos.HALF.y = ((this->cutsceneBeh.HWORD & 0xfc0) >> 2) + 8;
+        gScreenTransition.player_status.start_pos_x = ((this->cutsceneBeh.HWORD & 0x3f) << 4) + 8;
+        gScreenTransition.player_status.start_pos_y = ((this->cutsceneBeh.HWORD & 0xfc0) >> 2) + 8;
         gScreenTransition.player_status.layer = 0;
         gScreenTransition.player_status.start_anim = 4;
         gScreenTransition.player_status.spawn_type = 0;

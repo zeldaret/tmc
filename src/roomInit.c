@@ -233,7 +233,7 @@ extern EntityData Entities_HouseInteriors1_Mayor_080D6210;
 
 void sub_StateChange_HouseInteriors1_Mayor(void) {
 
-    if ((u16)gScreenTransition.player_status.start_pos.HALF.y > 0x40)
+    if ((u16)gScreenTransition.player_status.start_pos_y > 0x40)
         LoadRoomEntityList(&Entities_HouseInteriors1_Mayor_080D6210);
 }
 
@@ -1049,7 +1049,7 @@ void sub_StateChange_RoyalValley_Main(void) {
     SetTile(0x4072, 0xc47, 1);
 
     if (CheckGlobalFlag(MAZE_CLEAR))
-        if (gScreenTransition.player_status.start_pos.WORD == 0x2780078) // todo: wtf
+        if (gScreenTransition.player_status.start_pos_x == 0x78 && gScreenTransition.player_status.start_pos_y == 0x278)
             SoundReq(SFX_SECRET);
 
     ClearGlobalFlag(MAZE_CLEAR);

@@ -78,7 +78,6 @@ extern const u8 gGlobalGfxAndPalettes[];
 extern void (*const gUnk_080FC93C[])();
 extern u32 gUsedPalettes;
 extern u8 gTextGfxBuffer[];
-extern u8 gUnk_02001B40;
 extern u8 gUnk_02022030;
 
 #endif

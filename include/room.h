@@ -72,7 +72,7 @@ typedef struct {
     s16 lightLevel;
     u8 filler3[2];
     u8 unk_10[4];
-    u32 roomFlags;
+    u32 flags;
     u32 unk3;
     u8 filler4[48];
     u8 filler5[28];
@@ -95,13 +95,29 @@ typedef struct {
     u32 spritePtr;
 } EntityData;
 
+typedef struct {
+    u16 field_0x0;
+    u16 field_0x2;
+    u8 field_0x4;
+    u8 field_0x5;
+    u8 field_0x6;
+    u8 field_0x7;
+} struct_030010EC;
+
+typedef struct {
+    u16 data[32];
+    u16 field_0xac;
+    u16 field_0xae;
+} struct_0300110C;
+
 // Status of the player's positioning within the scene.
 typedef struct {
     u8 area_next;
     u8 room_next;
     u8 start_anim;
     u8 spawn_type;
-    Coords start_pos;
+    s16 start_pos_x;
+    s16 start_pos_y;
     u8 layer;
     u8 field_0x15;
     u8 dungeon_area;
@@ -140,10 +156,8 @@ typedef struct {
     u16 field_0x46;
     u16 field_0x48;
     u16 field_0x4a;
-    u8 minecart_data[0x20];
-    u8 field_0x6c[0x40];
-    u16 field_0xac;
-    u16 field_0xae;
+    struct_030010EC minecart_data[4];
+    struct_0300110C armos_data;
 } ScreenTransition;
 extern ScreenTransition gScreenTransition;
 

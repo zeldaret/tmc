@@ -209,8 +209,8 @@ void sub_08058B5C(ManagerC* this, u32 unk1) {
     gScreenTransition.player_status.area_next = gRoomControls.areaID;
     gScreenTransition.player_status.room_next = 6;
     gScreenTransition.player_status.start_anim = unk1 & 1 ? 4 : 0;
-    gScreenTransition.player_status.start_pos.HALF.x = gUnk_081082E8[unk1 * 3];
-    gScreenTransition.player_status.start_pos.HALF.y = gUnk_081082E8[unk1 * 3 + 1];
+    gScreenTransition.player_status.start_pos_x = gUnk_081082E8[unk1 * 3];
+    gScreenTransition.player_status.start_pos_y = gUnk_081082E8[unk1 * 3 + 1];
     gSave.unk7 = gUnk_081082E8[unk1 * 3 + 2];
     SoundReq(SFX_STAIRS);
 }

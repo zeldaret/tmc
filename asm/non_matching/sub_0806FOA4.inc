@@ -1,7 +1,7 @@
     .syntax unified
 	push {r4, r5, r6, r7, lr}
 	sub sp, #4
-	ldr r7, _0806F114 @ =gUnk_03003DA8
+	ldr r7, _0806F114 @ =gEntityLists + 56
 	ldr r5, [r7, #4]
 	movs r0, #0
 	cmp r5, r7
@@ -61,5 +61,5 @@ _0806F10E:
 	add sp, #4
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_0806F114: .4byte gUnk_03003DA8
+_0806F114: .4byte gEntityLists + 56
     .syntax divided

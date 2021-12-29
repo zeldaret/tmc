@@ -78,7 +78,6 @@ typedef struct {
     u16 _8;
 } OAMCommand;
 
-extern BgControls gBgControls;
 extern Screen gScreen;
 extern OAMCommand gOamCmd;
 
