@@ -1670,9 +1670,6 @@ SECTIONS {
         src/flagDebug.o(.rodata);
         data/const/playerItem/playerItem13.o(.rodata);
         src/title.o(.rodata);
-#ifdef DEMO_JP
-        data/data_081320FC.o(.rodata);
-#endif
         src/projectile.o(.rodata);
         data/const/playerItem/playerItemGustJar.o(.rodata);
         data/gfx/fixed_type_gfx.o(.rodata);
