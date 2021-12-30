@@ -5,10 +5,10 @@
 #include "fade.h"
 
 typedef struct {
-    u16 displayControl;     // 0x0
-    u8 filler2[0x2];        // 0x2
-    u16 unk4;               // 0x4
-    u16 displayControlMask; // 0x6
+    /*0x00*/ u16 displayControl;
+    /*0x02*/ u8 filler2[0x2];
+    /*0x04*/ u16 unk4;
+    /*0x06*/ u16 displayControlMask;
 } LcdControls;
 
 typedef struct {
