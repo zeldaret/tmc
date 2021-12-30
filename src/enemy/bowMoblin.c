@@ -30,8 +30,8 @@ extern Entity* sub_08049DF4(u32);
 extern u32 sub_0806FC80(Entity*, Entity*, s32);
 void sub_0803C664(BowMoblinEntity*);
 
-extern void (*const gUnk_080CFF78[])(Entity*);
-extern void (*const gUnk_080CFF90[])(Entity*);
+extern void (*const gUnk_080CFF78[])(BowMoblinEntity*);
+extern void (*const gUnk_080CFF90[])(BowMoblinEntity*);
 
 extern const s8 gUnk_080CFFC4[8];
 extern const s8 gUnk_080CFFA4[8];
@@ -39,12 +39,12 @@ extern const s8 gUnk_080CFFAC[16];
 extern const u16 gUnk_080CFFBC[4];
 
 void BowMoblin(Entity* this) {
-    EnemyFunctionHandler(this, gUnk_080CFF78);
+    EnemyFunctionHandler(this, (EntityActionArray)gUnk_080CFF78);
     SetChildOffset(this, 0, 1, -0x18);
 }
 
 void sub_0803C180(BowMoblinEntity* this) {
-    gUnk_080CFF90[super->action](super);
+    gUnk_080CFF90[super->action](this);
 }
 
 void sub_0803C198(BowMoblinEntity* this) {
@@ -53,7 +53,7 @@ void sub_0803C198(BowMoblinEntity* this) {
     if (super->field_0x43 != 0) {
         sub_0804A9FC(super, 0x1c);
     }
-    sub_0804AA30(super, gUnk_080CFF78);
+    sub_0804AA30(super, (EntityActionArray)gUnk_080CFF78);
     if ((super->bitfield & 0x80) != 0) {
         sub_0803C5F0(this);
         pEVar1 = super->child;
@@ -371,7 +371,7 @@ u32 sub_0803C6F8(BowMoblinEntity* this) {
 }
 
 void sub_0803C714(BowMoblinEntity* this) {
-    Entity* child = super->child; // Unused
+    Entity* child = super->child;
     const s8* tmp;
     u32 offsetX;
     u32 offsetY;
