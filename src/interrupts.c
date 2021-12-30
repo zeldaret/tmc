@@ -117,7 +117,55 @@ void sub_08016CA8(BgSettings* bg) {
     }
 }
 
-ASM_FUNC("asm/dispCtrlSet.s", void DispCtrlSet(void));
+NONMATCH("asm/non_matching/dispCtrlSet.inc", void DispCtrlSet(void)) {
+    BgControls* controls;
+    u16 tmp = gScreen.lcd.displayControl & gScreen.lcd.displayControlMask;
+    REG_DISPCNT = tmp;
+
+    REG_BG0CNT = gScreen.bg0.control;
+    REG_BG1CNT = gScreen.bg1.control;
+    REG_BG2CNT = gScreen.bg2.control;
+    REG_BG3CNT = gScreen.bg3.control;
+    REG_BG0HOFS = gScreen.bg0.xOffset;
+    REG_BG0VOFS = gScreen.bg0.yOffset;
+    REG_BG1HOFS = gScreen.bg1.xOffset;
+    REG_BG1VOFS = gScreen.bg1.yOffset;
+    REG_BG2HOFS = gScreen.bg2.xOffset;
+    REG_BG2VOFS = gScreen.bg2.yOffset;
+    REG_BG3HOFS = gScreen.bg3.xOffset;
+    REG_BG3VOFS = gScreen.bg3.yOffset;
+
+    controls = &(gScreen.controls);
+    REG_BG2PA = controls->bg2.dx;
+    REG_BG2PB = controls->bg2.dmx;
+    REG_BG2PC = controls->bg2.dy;
+    REG_BG2PD = controls->bg2.dmy;
+    REG_BG2X_L = controls->bg2.xPointLeastSig;
+    REG_BG2X_H = controls->bg2.xPointMostSig;
+    REG_BG2Y_L = controls->bg2.yPointLeastSig;
+    REG_BG2Y_H = controls->bg2.yPointMostSig;
+
+    REG_BG3PA = controls->bg3.dx;
+    REG_BG3PB = controls->bg3.dmx;
+    REG_BG3PC = controls->bg3.dy;
+    REG_BG3PD = controls->bg3.dmy;
+    REG_BG3X_L = controls->bg3.xPointLeastSig;
+    REG_BG3X_H = controls->bg3.xPointMostSig;
+    REG_BG3Y_L = controls->bg3.yPointLeastSig;
+    REG_BG3Y_H = controls->bg3.yPointMostSig;
+
+    REG_WIN0H = controls->window0HorizontalDimensions;
+    REG_WIN1H = controls->window1HorizontalDimensions;
+    REG_WIN0V = controls->window0VerticalDimensions;
+    REG_WIN1V = controls->window1VerticalDimensions;
+    REG_WININ = controls->windowInsideControl;
+    REG_WINOUT = controls->windowOutsideControl;
+    REG_MOSAIC = controls->mosaicSize;
+    REG_BLDCNT = controls->layerFXControl;
+    REG_BLDALPHA = controls->alphaBlend;
+    REG_BLDY = controls->layerBrightness;
+}
+END_NONMATCH
 
 // Load any resources that were requested with LoadResourceAsync
 void LoadResources(void) {

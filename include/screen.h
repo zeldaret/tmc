@@ -5,10 +5,10 @@
 #include "fade.h"
 
 typedef struct {
-    u16 displayControl;
-    u8 filler2[0x2];
-    u16 unk4;
-    u16 displayControlMask;
+    u16 displayControl;     // 0x0
+    u8 filler2[0x2];        // 0x2
+    u16 unk4;               // 0x4
+    u16 displayControlMask; // 0x6
 } LcdControls;
 
 typedef struct {
@@ -28,22 +28,19 @@ typedef struct {
 } BgAffSettings;
 
 typedef struct {
-    u16 bg2dx;
-    u16 bg2dmx;
-    u16 bg2dy;
-    u16 bg2dmy;
-    u16 bg2xPointLeastSig;
-    u16 bg2xPointMostSig;
-    u16 bg2yPointLeastSig;
-    u16 bg2yPointMostSig;
-    u16 bg3dx;
-    u16 bg3dmx;
-    u16 bg3dy;
-    u16 bg3dmy;
-    u16 bg3xPointLeastSig;
-    u16 bg3xPointMostSig;
-    u16 bg3yPointLeastSig;
-    u16 bg3yPointMostSig;
+    u16 dx;
+    u16 dmx;
+    u16 dy;
+    u16 dmy;
+    u16 xPointLeastSig;
+    u16 xPointMostSig;
+    u16 yPointLeastSig;
+    u16 yPointMostSig;
+} BgTransformationSettings;
+
+typedef struct {
+    BgTransformationSettings bg2;
+    BgTransformationSettings bg3;
     u16 window0HorizontalDimensions;
     u16 window1HorizontalDimensions;
     u16 window0VerticalDimensions;

@@ -237,14 +237,14 @@ void sub_08058BC8(ManagerC* this) {
         tmp++;
     } while (++tmp3 < 0xA0u);
     tmp = &gUnk_02017BA0[gUnk_03003DE4[0] * 0xA0];
-    gScreen.controls.bg2dx = tmp->pa;
-    gScreen.controls.bg2dmx = tmp->pb;
-    gScreen.controls.bg2dy = tmp->pc;
-    gScreen.controls.bg2dmy = tmp->pd;
-    gScreen.controls.bg2xPointLeastSig = ((union SplitWord*)&tmp->dx)->HALF.LO;
-    gScreen.controls.bg2xPointMostSig = ((union SplitWord*)&tmp->dx)->HALF.HI;
-    gScreen.controls.bg2yPointLeastSig = ((union SplitWord*)&tmp->dy)->HALF.LO;
-    gScreen.controls.bg2yPointMostSig = ((union SplitWord*)&tmp->dy)->HALF.HI;
+    gScreen.controls.bg2.dx = tmp->pa;
+    gScreen.controls.bg2.dmx = tmp->pb;
+    gScreen.controls.bg2.dy = tmp->pc;
+    gScreen.controls.bg2.dmy = tmp->pd;
+    gScreen.controls.bg2.xPointLeastSig = ((union SplitWord*)&tmp->dx)->HALF.LO;
+    gScreen.controls.bg2.xPointMostSig = ((union SplitWord*)&tmp->dx)->HALF.HI;
+    gScreen.controls.bg2.yPointLeastSig = ((union SplitWord*)&tmp->dy)->HALF.LO;
+    gScreen.controls.bg2.yPointMostSig = ((union SplitWord*)&tmp->dy)->HALF.HI;
 }
 
 const u16 gUnk_08108300[4] = { 0xA4, 0x4C, 0xF4, 0x9C };
