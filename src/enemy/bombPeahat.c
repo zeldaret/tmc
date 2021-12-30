@@ -473,28 +473,28 @@ void sub_0802AF9C(Entity* this) {
 }
 
 NONMATCH("asm/non_matching/bombPeahat/sub_0802AFC8.inc", void sub_0802AFC8(Entity* this)) {
+    u32 field_0xf = this->field_0xf;
     u32 flag = 8;
-    if (this->field_0xf < 0x29) {
-        u32 tmp;
-
+    if (field_0xf < 0x29) {
+        u32 tmp, tmp2;
         flag = 4;
         if (this->field_0x82.HWORD & 0x8000) {
             this->field_0x82.HWORD -= 0x10;
         } else {
             this->field_0x82.HWORD += 0x10;
         }
-        if (0x7f < (this->field_0x82.HWORD & 0xf0) - 1) {
+        tmp2 = this->field_0x82.HWORD;
+        tmp = tmp2 & 0xf0;
+        if (tmp == 0 || tmp > 0x80) {
             this->field_0x82.HWORD ^= 0x8000;
         }
-
         tmp = 0x130 - (this->field_0x82.HWORD & 0xf0);
         sub_0805EC9C(this, tmp, tmp, 0);
     }
-
     if (this->field_0xf & flag) {
-        this->palette.b.b0 = 0;
-    } else {
         this->palette.b.b0 = this->palette.b.b4;
+    } else {
+        this->palette.b.b0 = 0;
     }
 }
 END_NONMATCH
