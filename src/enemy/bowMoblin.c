@@ -218,15 +218,16 @@ void sub_0803C400(Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/bowMoblin/sub_0803C4B0.inc", void sub_0803C4B0(Entity* this)) {
+void sub_0803C4B0(Entity* this) {
     u32 dir;
     this->field_0xf = 0;
     if (this->field_0x82.HALF.LO == 1) {
         this->actionDelay = gUnk_080CFFA4[Random() & 7];
         this->speed = 0x80;
-
         if (sub_08049FA0(this)) {
-            this->direction = (Random() & 6) << 2;
+            dir = Random();
+            dir &= 6;
+            this->direction = dir << 2;
         } else {
             dir = sub_08049EE4(this);
             if (this->field_0x82.HALF.HI == 0) {
@@ -236,24 +237,18 @@ NONMATCH("asm/non_matching/bowMoblin/sub_0803C4B0.inc", void sub_0803C4B0(Entity
                 this->actionDelay += 0x10;
                 this->field_0x82.HALF.HI--;
             }
-
-            dir = (dir + 4) & 0x18;
-            this->direction = dir;
-            dir <<= 2;
+            dir = (this->direction = (dir + 4) & 0x18) >> 2;
         }
     } else {
         this->actionDelay = 0xc;
         this->speed = this->field_0xf;
-        dir = this->direction;
-        dir <<= 2;
+        dir = this->direction >> 2;
     }
-
-    if (this->animationState != dir) {
+    if (dir != this->animationState) {
         this->animationState = dir;
         sub_0803C690(this);
     }
 }
-END_NONMATCH
 
 u32 sub_0803C568(Entity* this) {
     if (this->field_0x80.HALF.HI == 0) {
