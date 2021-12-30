@@ -1,21 +1,34 @@
+#define NENT_DEPRECATED
 #include "global.h"
 #include "entity.h"
 #include "enemy.h"
 #include "functions.h"
 
-extern void sub_0803C5F0(Entity*);
-extern void sub_0803C690(Entity*);
-extern void sub_0803C4B0(Entity*);
-extern void sub_0803C5C4(Entity*);
-extern void sub_0803C624(Entity*);
-extern void sub_0803C6DC(Entity*);
-extern void sub_0803C714(Entity*);
-extern void sub_0803C634(Entity*);
-extern u32 sub_0803C6F8(Entity*);
-extern u32 sub_0803C568(Entity*);
+typedef struct {
+    Entity base;
+    u8 filler[0x12];
+    u8 unk_0x7a;
+    u8 unk_0x7b;
+    u8 filter[0x4];
+    u8 unk_0x80;
+    u8 unk_0x81;
+    u8 unk_0x82;
+    u8 unk_0x83;
+} BowMoblinEntity;
+
+void sub_0803C5F0(BowMoblinEntity*);
+void sub_0803C690(BowMoblinEntity*);
+void sub_0803C4B0(BowMoblinEntity*);
+void sub_0803C5C4(BowMoblinEntity*);
+void sub_0803C624(BowMoblinEntity*);
+void sub_0803C6DC(BowMoblinEntity*);
+void sub_0803C714(BowMoblinEntity*);
+void sub_0803C634(BowMoblinEntity*);
+u32 sub_0803C6F8(BowMoblinEntity*);
+u32 sub_0803C568(BowMoblinEntity*);
 extern Entity* sub_08049DF4(u32);
 extern u32 sub_0806FC80(Entity*, Entity*, s32);
-extern void sub_0803C664(Entity*);
+void sub_0803C664(BowMoblinEntity*);
 
 extern void (*const gUnk_080CFF78[])(Entity*);
 extern void (*const gUnk_080CFF90[])(Entity*);
@@ -30,73 +43,73 @@ void BowMoblin(Entity* this) {
     SetChildOffset(this, 0, 1, -0x18);
 }
 
-void sub_0803C180(Entity* this) {
-    gUnk_080CFF90[this->action](this);
+void sub_0803C180(BowMoblinEntity* this) {
+    gUnk_080CFF90[super->action](super);
 }
 
-void sub_0803C198(Entity* this) {
+void sub_0803C198(BowMoblinEntity* this) {
     Entity* pEVar1;
 
-    if (this->field_0x43 != 0) {
-        sub_0804A9FC(this, 0x1c);
+    if (super->field_0x43 != 0) {
+        sub_0804A9FC(super, 0x1c);
     }
-    sub_0804AA30(this, gUnk_080CFF78);
-    if ((this->bitfield & 0x80) != 0) {
+    sub_0804AA30(super, gUnk_080CFF78);
+    if ((super->bitfield & 0x80) != 0) {
         sub_0803C5F0(this);
-        pEVar1 = this->child;
+        pEVar1 = super->child;
         if (pEVar1 != NULL) {
             pEVar1->field_0xf++;
         }
     }
 }
 
-void nullsub_168(Entity* this) {
+void nullsub_168(BowMoblinEntity* this) {
 }
 
-void sub_0803C1E0(Entity* this) {
-    sub_0804A720(this);
+void sub_0803C1E0(BowMoblinEntity* this) {
+    sub_0804A720(super);
 
-    this->action = 1;
-    this->field_0x7a.HALF.HI = 0;
-    this->field_0x80.HALF.LO = 0;
-    this->field_0x82.HALF.HI = 0;
-    this->field_0x80.HALF.HI = 0;
-    this->field_0x7a.HALF.LO = 0;
-    this->field_0x82.HALF.LO = 1;
+    super->action = 1;
+    this->unk_0x7b = 0;
+    this->unk_0x80 = 0;
+    this->unk_0x83 = 0;
+    this->unk_0x81 = 0;
+    this->unk_0x7a = 0;
+    this->unk_0x82 = 1;
 
-    if (this->actionDelay) {
-        this->animationState = this->type2 << 1;
-        this->actionDelay = 0x1e;
-        this->speed = 0x80;
-        this->direction = this->type2 << 3;
+    if (super->actionDelay) {
+        super->animationState = super->type2 << 1;
+        super->actionDelay = 0x1e;
+        super->speed = 0x80;
+        super->direction = super->type2 << 3;
         sub_0803C690(this);
     } else {
-        this->animationState = 0x10;
+        super->animationState = 0x10;
         sub_0803C4B0(this);
     }
 }
 
-void sub_0803C234(Entity* this) {
+void sub_0803C234(BowMoblinEntity* this) {
     u8 mask;
-    if (this->field_0x80.HALF.HI) {
-        this->field_0x80.HALF.HI--;
+    if (this->unk_0x81) {
+        this->unk_0x81--;
     }
     mask = 0xff;
-    if (((--this->actionDelay) & mask) == 0) {
-        u8 tmp = ++this->field_0x80.HALF.LO;
+    if (((--super->actionDelay) & mask) == 0) {
+        u8 tmp = ++this->unk_0x80;
 
         if ((tmp) > 0xf) {
             sub_0803C5C4(this);
-        } else if (((this->field_0x80.HALF.LO & 0x3) == 0) && (Random() & 0x10)) {
+        } else if (((this->unk_0x80 & 0x3) == 0) && (Random() & 0x10)) {
             sub_0803C624(this);
         } else {
             sub_0803C4B0(this);
         }
 
     } else if (sub_0803C6F8(this)) {
-        sub_0800417E(this, this->collisions);
-        this->animationState = ((this->direction + 4) & 0x18) >> 2;
-        this->field_0x82.HALF.HI++;
+        sub_0800417E(super, super->collisions);
+        super->animationState = ((super->direction + 4) & 0x18) >> 2;
+        this->unk_0x83++;
         sub_0803C690(this);
     } else if (sub_0803C568(this)) {
         sub_0803C5F0(this);
@@ -105,86 +118,86 @@ void sub_0803C234(Entity* this) {
     sub_0803C6DC(this);
 }
 
-void sub_0803C2DC(Entity* this) {
+void sub_0803C2DC(BowMoblinEntity* this) {
     u32 res;
-    u32 actionDelay = --this->actionDelay;
+    u32 actionDelay = --super->actionDelay;
     if (actionDelay == 0) {
-        this->action = 3;
-        this->field_0x82.HALF.LO = actionDelay;
-        this->field_0x80.HALF.LO = actionDelay;
-        this->animationState = 0x10;
+        super->action = 3;
+        this->unk_0x82 = actionDelay;
+        this->unk_0x80 = actionDelay;
+        super->animationState = 0x10;
         sub_0803C4B0(this);
     } else if (res = sub_0803C568(this), res) {
-        this->field_0x7a.HALF.HI |= 0x1;
+        this->unk_0x7b |= 0x1;
     }
 
-    if (this->field_0xf > 0xb) {
-        if (this->field_0x7a.HALF.HI != 0) {
+    if (super->field_0xf > 0xb) {
+        if (this->unk_0x7b != 0) {
             sub_0803C5F0(this);
         }
     } else {
-        this->field_0xf++;
+        super->field_0xf++;
     }
 
     sub_0803C6DC(this);
 }
 
-void sub_0803C344(Entity* this) {
-    if (--this->actionDelay == 0) {
-        switch (this->field_0x82.HALF.LO) {
+void sub_0803C344(BowMoblinEntity* this) {
+    if (--super->actionDelay == 0) {
+        switch (this->unk_0x82) {
             case 3: {
-                this->action = 4;
-                this->speed = 0x80;
-                this->direction = sub_08049F84(this, 1);
+                super->action = 4;
+                super->speed = 0x80;
+                super->direction = sub_08049F84(super, 1);
                 break;
             }
             case 5: {
-                this->action = 4;
-                this->speed = 0x80;
+                super->action = 4;
+                super->speed = 0x80;
                 break;
             }
             case 2: {
                 u32 tmp;
-                this->action = 2;
-                this->speed = 0;
+                super->action = 2;
+                super->speed = 0;
                 tmp = Random() & 0x7;
-                this->actionDelay = (tmp << 1) + tmp + 0x40;
+                super->actionDelay = (tmp << 1) + tmp + 0x40;
                 break;
             }
             case 4: {
-                this->direction = (this->direction + 0x10) & 0x18;
+                super->direction = (super->direction + 0x10) & 0x18;
             }
             case 0:
             case 1:
             default: {
                 u32 tmp;
-                this->action = 1;
-                this->field_0x82.HALF.LO = 1;
-                this->speed = 0x80;
+                super->action = 1;
+                this->unk_0x82 = 1;
+                super->speed = 0x80;
                 tmp = (Random() & 0x7);
-                this->actionDelay = (tmp << 1) + tmp + 0x22;
+                super->actionDelay = (tmp << 1) + tmp + 0x22;
                 break;
             }
         }
 
-        this->field_0xf = 0;
-        this->animationState = ((this->direction + 4) & 0x18) >> 2;
+        super->field_0xf = 0;
+        super->animationState = ((super->direction + 4) & 0x18) >> 2;
         sub_0803C690(this);
     }
     sub_0803C6DC(this);
 }
 
-void sub_0803C400(Entity* this) {
-    if (this->field_0xf) {
+void sub_0803C400(BowMoblinEntity* this) {
+    if (super->field_0xf) {
         u8 mask;
-        this->field_0xf--;
+        super->field_0xf--;
         mask = 0xff;
-        if ((this->field_0xf & mask) == 0) {
-            if (this->field_0x82.HALF.LO == 3) {
-                this->field_0x7a.HALF.LO++;
-                if ((this->field_0x7a.HALF.LO & mask) <= 2) {
+        if ((super->field_0xf & mask) == 0) {
+            if (this->unk_0x82 == 3) {
+                this->unk_0x7a++;
+                if ((this->unk_0x7a & mask) <= 2) {
                     if (Random() & 0xc0) {
-                        this->actionDelay = 0;
+                        super->actionDelay = 0;
                         sub_0803C690(this);
                         sub_0803C6DC(this);
                         return;
@@ -195,75 +208,75 @@ void sub_0803C400(Entity* this) {
         }
     } else {
         Entity* projectile;
-        switch (++this->actionDelay) {
+        switch (++super->actionDelay) {
             case 1:
-                this->direction = this->animationState << 2;
-                projectile = CreateProjectileWithParent(this, 0xd, this->animationState >> 1);
+                super->direction = super->animationState << 2;
+                projectile = CreateProjectileWithParent(super, 0xd, super->animationState >> 1);
                 if (projectile) {
-                    this->child = projectile;
-                    projectile->direction = (this->direction + 4) & 0x18;
-                    projectile->parent = this;
+                    super->child = projectile;
+                    projectile->direction = (super->direction + 4) & 0x18;
+                    projectile->parent = super;
                 }
                 break;
             case 24:
-                this->actionDelay = 0;
-                this->field_0xf = 0x20;
+                super->actionDelay = 0;
+                super->field_0xf = 0x20;
                 break;
         }
 
         sub_0803C6DC(this);
-        if (this->child) {
+        if (super->child) {
             sub_0803C714(this);
         }
     }
 }
 
-void sub_0803C4B0(Entity* this) {
+void sub_0803C4B0(BowMoblinEntity* this) {
     u32 dir;
-    this->field_0xf = 0;
-    if (this->field_0x82.HALF.LO == 1) {
-        this->actionDelay = gUnk_080CFFA4[Random() & 7];
-        this->speed = 0x80;
-        if (sub_08049FA0(this)) {
+    super->field_0xf = 0;
+    if (this->unk_0x82 == 1) {
+        super->actionDelay = gUnk_080CFFA4[Random() & 7];
+        super->speed = 0x80;
+        if (sub_08049FA0(super)) {
             dir = Random();
             dir &= 6;
-            this->direction = dir << 2;
+            super->direction = dir << 2;
         } else {
-            dir = sub_08049EE4(this);
-            if (this->field_0x82.HALF.HI == 0) {
+            dir = sub_08049EE4(super);
+            if (this->unk_0x83 == 0) {
                 dir += gUnk_080CFFAC[Random() & 0xf];
             } else {
                 dir += gUnk_080CFFAC[Random() & 0x7];
-                this->actionDelay += 0x10;
-                this->field_0x82.HALF.HI--;
+                super->actionDelay += 0x10;
+                this->unk_0x83--;
             }
-            dir = (this->direction = (dir + 4) & 0x18) >> 2;
+            dir = (super->direction = (dir + 4) & 0x18) >> 2;
         }
     } else {
-        this->actionDelay = 0xc;
-        this->speed = this->field_0xf;
-        dir = this->direction >> 2;
+        super->actionDelay = 0xc;
+        super->speed = super->field_0xf;
+        dir = super->direction >> 2;
     }
-    if (dir != this->animationState) {
-        this->animationState = dir;
+    if (dir != super->animationState) {
+        super->animationState = dir;
         sub_0803C690(this);
     }
 }
 
-u32 sub_0803C568(Entity* this) {
-    if (this->field_0x80.HALF.HI == 0) {
+u32 sub_0803C568(BowMoblinEntity* this) {
+    if (this->unk_0x81 == 0) {
         Entity* ent = sub_08049DF4(1);
         if (ent) {
-            if (this->field_0x82.HALF.LO == 2) {
-                if (sub_0806FC80(this, ent, 0x30)) {
+            if (this->unk_0x82 == 2) {
+                if (sub_0806FC80(super, ent, 0x30)) {
                     return 1;
                 }
             }
 
-            if (sub_0806FC80(this, ent, 0x40)) {
-                u32 direction = (GetFacingDirection(this, ent) + 4) & 0x18;
+            if (sub_0806FC80(super, ent, 0x40)) {
+                u32 direction = (GetFacingDirection(super, ent) + 4) & 0x18;
                 direction = direction >> 2;
-                if (direction == this->animationState) {
+                if (direction == super->animationState) {
                     return 1;
                 }
             }
@@ -273,52 +286,52 @@ u32 sub_0803C568(Entity* this) {
     return 0;
 }
 
-void sub_0803C5C4(Entity* this) {
-    u32 state = ((this->direction + 4) & 0x18) >> 2;
-    this->animationState = state;
-    this->direction = state << 2;
-    this->field_0x82.HALF.HI >>= 1;
+void sub_0803C5C4(BowMoblinEntity* this) {
+    u32 state = ((super->direction + 4) & 0x18) >> 2;
+    super->animationState = state;
+    super->direction = state << 2;
+    this->unk_0x83 >>= 1;
     sub_0803C664(this);
-    this->field_0x82.HALF.LO = 2;
+    this->unk_0x82 = 2;
 }
 
-void sub_0803C5F0(Entity* this) {
-    this->direction = sub_08049F84(this, 1);
-    this->animationState = ((this->direction + 4) & 0x18) >> 2;
-    this->field_0x82.HALF.HI = 0;
-    this->field_0x7a.HALF.LO = 0;
+void sub_0803C5F0(BowMoblinEntity* this) {
+    super->direction = sub_08049F84(super, 1);
+    super->animationState = ((super->direction + 4) & 0x18) >> 2;
+    this->unk_0x83 = 0;
+    this->unk_0x7a = 0;
     sub_0803C664(this);
-    this->field_0x82.HALF.LO = 3;
+    this->unk_0x82 = 3;
 }
 
-void sub_0803C624(Entity* this) {
+void sub_0803C624(BowMoblinEntity* this) {
     sub_0803C664(this);
-    this->field_0x82.HALF.LO = 5;
+    this->unk_0x82 = 5;
 }
 
-void sub_0803C634(Entity* this) {
-    this->animationState = ((this->direction + 4) & 0x18) >> 2;
-    this->direction = this->animationState << 2;
-    this->field_0x82.HALF.HI = 0;
+void sub_0803C634(BowMoblinEntity* this) {
+    super->animationState = ((super->direction + 4) & 0x18) >> 2;
+    super->direction = super->animationState << 2;
+    this->unk_0x83 = 0;
     sub_0803C664(this);
-    this->actionDelay <<= 1;
-    this->field_0x82.HALF.LO = 4;
+    super->actionDelay <<= 1;
+    this->unk_0x82 = 4;
 }
 
-void sub_0803C664(Entity* this) {
-    this->action = 3;
-    this->actionDelay = 0x20;
-    this->field_0xf = 0;
-    this->field_0x80.HALF.LO = 0;
-    this->field_0x7a.HALF.HI = 0;
-    this->speed = 0;
-    this->field_0x82.HALF.LO = 0;
+void sub_0803C664(BowMoblinEntity* this) {
+    super->action = 3;
+    super->actionDelay = 0x20;
+    super->field_0xf = 0;
+    this->unk_0x80 = 0;
+    this->unk_0x7b = 0;
+    super->speed = 0;
+    this->unk_0x82 = 0;
     sub_0803C690(this);
 }
 
-void sub_0803C690(Entity* this) {
-    u32 tmp = this->animationState >> 1;
-    switch (this->field_0x82.HALF.LO) {
+void sub_0803C690(BowMoblinEntity* this) {
+    u32 tmp = super->animationState >> 1;
+    switch (this->unk_0x82) {
         case 1:
         case 4: {
             tmp += 0x4;
@@ -338,34 +351,34 @@ void sub_0803C690(Entity* this) {
         }
     }
 
-    InitializeAnimation(this, tmp);
+    InitializeAnimation(super, tmp);
 }
 
-void sub_0803C6DC(Entity* this) {
-    u8 tmp = this->field_0x82.HALF.LO;
+void sub_0803C6DC(BowMoblinEntity* this) {
+    u8 tmp = this->unk_0x82;
     if (tmp == 0) {
-        this->speed = tmp;
+        super->speed = tmp;
     }
 
-    ProcessMovement(this);
-    GetNextFrame(this);
+    ProcessMovement(super);
+    GetNextFrame(super);
 }
 
-u32 sub_0803C6F8(Entity* this) {
-    u32 tmp = (this->collisions & gUnk_080CFFBC[(this->animationState ^ 1) / 2]);
+u32 sub_0803C6F8(BowMoblinEntity* this) {
+    u32 tmp = (super->collisions & gUnk_080CFFBC[(super->animationState ^ 1) / 2]);
     u32 tmp2 = -tmp;
     return (tmp2 | tmp) >> 0x1f;
 }
 
-void sub_0803C714(Entity* this) {
-    Entity* child = this->child; // Unused
+void sub_0803C714(BowMoblinEntity* this) {
+    Entity* child = super->child; // Unused
     const s8* tmp;
     u32 offsetX;
     u32 offsetY;
-    tmp = &gUnk_080CFFC4[this->animationState];
+    tmp = &gUnk_080CFFC4[super->animationState];
     // TODO fix array access
     offsetX = tmp[0] << 0x10;
     offsetY = tmp[1] << 0x10;
 
-    PositionRelative(this, child, offsetX, offsetY);
+    PositionRelative(super, child, offsetX, offsetY);
 }
