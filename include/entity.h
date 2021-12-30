@@ -129,7 +129,7 @@ typedef struct Entity_ {
     /*0x60*/ u16 spriteVramOffset;
     /*0x62*/ u8 spriteOffsetX;
     /*0x63*/ s8 spriteOffsetY;
-    /*0x64*/ u32* myHeap;
+    /*0x64*/ void* myHeap;
 #ifndef NENT_DEPRECATED
     /*0x68*/ union SplitHWord field_0x68;
     /*0x6a*/ union SplitHWord field_0x6a;

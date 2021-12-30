@@ -887,6 +887,7 @@ SECTIONS {
         src/object/well.o(.text);
         asm/windTribeTeleporter.o(.text);
         asm/objectB9.o(.text);
+        src/object/gyorgBossObject.o(.text);
         asm/gyorgBossObject.o(.text);
         src/object/windcrest.o(.text);
         asm/litArea.o(.text);

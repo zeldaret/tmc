@@ -101,7 +101,7 @@ void sub_0804625C(GyorgFemaleEntity* this) {
         }
     }
     sub_080465C8();
-    if (((GyorgFemaleHeap*)super->myHeap)->unk_00->field_0x6c.HWORD & 0x38) {
+    if (((GyorgFemaleHeap*)super->myHeap)->boss->unk_6c & 0x38) {
         super->action = 2;
         super->actionDelay = 0;
         this->unk_7a = 0;
@@ -111,7 +111,7 @@ void sub_0804625C(GyorgFemaleEntity* this) {
         this->unk_80 = 0;
         return;
     }
-    if (((GyorgFemaleHeap*)super->myHeap)->unk_00->field_0x6c.HWORD & 0x40) {
+    if (((GyorgFemaleHeap*)super->myHeap)->boss->unk_6c & 0x40) {
         super->action = 3;
         this->unk_70 = 0x3c;
         super->actionDelay = 0;
@@ -121,7 +121,7 @@ void sub_0804625C(GyorgFemaleEntity* this) {
         this->unk_80 = 0;
         return;
     }
-    if (((GyorgFemaleHeap*)super->myHeap)->unk_00->field_0x6c.HWORD & 0x100) {
+    if (((GyorgFemaleHeap*)super->myHeap)->boss->unk_6c & 0x100) {
         if (--this->unk_70 == 0) {
             this->unk_70 = 0x168;
             sub_08046634(this, 1);
@@ -150,11 +150,11 @@ void sub_0804632C(GyorgFemaleEntity* this) {
             }
         }
     }
-    if (((GyorgFemaleHeap*)super->myHeap)->unk_00->field_0x6c.HWORD & 0x80 && --this->unk_70 == 0) {
+    if (((GyorgFemaleHeap*)super->myHeap)->boss->unk_6c & 0x80 && --this->unk_70 == 0) {
         this->unk_70 = 0x168;
         sub_08046634(this, 0);
     }
-    if ((((GyorgFemaleHeap*)super->myHeap)->unk_00->field_0x6c.HWORD & 0x38) == 0) {
+    if ((((GyorgFemaleHeap*)super->myHeap)->boss->unk_6c & 0x38) == 0) {
         super->action = 1;
         this->unk_70 = 0x3c;
 #ifndef EU
@@ -355,6 +355,6 @@ void sub_080466A8(GyorgFemaleEntity* this) {
 void sub_080467DC(GyorgFemaleEntity* this) {
     u32 i;
     for (i = 0; i < 8; i++) {
-        ((GyorgFemaleHeap*)super->myHeap)->unk_18[i] = 0;
+        (*((GyorgFemaleHeap**)(&super->myHeap)))->unk_18[i] = 0;
     }
 }

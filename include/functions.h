@@ -180,7 +180,6 @@ extern void sub_080026F2(u8*, void*, u8*, u32);
 extern u32 sub_0805F7A0(u32);
 extern u32* sub_0805F25C(u32);
 u32 sub_0806FCB8(Entity*, u32, u32, u32);
-extern void sub_080A1D70(Entity*, u32);
 extern void sub_0806F62C(Entity*, u32, u32);
 extern void sub_080A1ED0(u32, u32, u32);
 extern u32 sub_0806F5B0(u32);

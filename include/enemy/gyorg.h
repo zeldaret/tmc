@@ -22,10 +22,26 @@ typedef struct {
 } GyorgFemaleEntity;
 
 typedef struct {
-    GenericEntity* unk_00;
-    u8 unk_04[0x4];
-    Entity* unk_08;
-    Entity* unk_0c;
+    Entity base;
+    u8 unk_68[4];
+    u16 unk_6c;
+    u16 unk_6e;
+    u16 unk_70;
+    u16 unk_72;
+    u8 unk_74;
+    // u8 unk_75[1];
+    u16 unk_76;
+    u16 unk_78;
+    u8 unk_7a;
+    u8 unk_7b;
+    u8 unk_7c[0xc];
+} GyorgBossObjectEntity;
+
+typedef struct {
+    GyorgBossObjectEntity* boss;
+    GyorgFemaleEntity* female;
+    Entity* male1;
+    Entity* male2;
     void* unk_10;
     void* unk_14;
     void* unk_18[0x8];

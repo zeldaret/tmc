@@ -5,6 +5,9 @@
 #include "functions.h"
 #include "effects.h"
 
+// todo: wrong types
+extern void sub_080A1D70(Entity*, u32);
+
 void (*const gUnk_080D1AFC[8])(Entity*);
 void (*const gUnk_080D1B1C[7])(Entity*);
 void (*const gUnk_080D1B38[5])(Entity*);
