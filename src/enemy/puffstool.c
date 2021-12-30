@@ -4,7 +4,7 @@
 
 extern u32 sub_080002E0(u32, u32);
 extern u32 sub_080002C8(u16, u8);
-extern u16 sub_080002D4(u32, u32, u32);
+extern u8 sub_080002D4(u32, u32, u32);
 extern void sub_0804AA1C(Entity*);
 extern Entity* sub_08049DF4(u32);
 
@@ -465,19 +465,22 @@ bool32 sub_080258C4(Entity* this) {
     }
 }
 
+// regalloc
 NONMATCH("asm/non_matching/puffstool/sub_0802594C.inc", bool32 sub_0802594C(Entity* this, u32 param_2)) {
+    s16 xDiff;
+    s16 yDiff;
     const s8* unk = gUnk_080CC090[param_2];
     u32 uVar1 = this->collisionLayer;
     RoomControls* ctrl = &gRoomControls;
-    u16 xDiff = (this->x.HALF.HI - ctrl->roomOriginX + 8) & -0x10;
-    u16 yDiff = (this->y.HALF.HI - ctrl->roomOriginY + 8) & -0x10;
+    xDiff = (this->x.HALF.HI - ctrl->roomOriginX + 8) & -0x10;
+    yDiff = (this->y.HALF.HI - ctrl->roomOriginY + 8) & -0x10;
     do {
-        u16 iVar9 = xDiff + unk[0];
-        u16 iVar11 = yDiff + unk[1];
-        u32 bVar4 = sub_080002D4(iVar9 - 0x00, iVar11 - 0x00, uVar1);
-        u32 bVar5 = sub_080002D4(iVar9 - 0x10, iVar11 - 0x00, uVar1);
-        u32 bVar6 = sub_080002D4(iVar9 - 0x00, iVar11 - 0x10, uVar1);
-        u32 bVar7 = sub_080002D4(iVar9 - 0x10, iVar11 - 0x10, uVar1);
+        s16 iVar9 = xDiff + unk[0];
+        s16 iVar11 = yDiff + unk[1];
+        u8 bVar4 = sub_080002D4(iVar9 - 0x00, iVar11 - 0x00, uVar1);
+        u8 bVar5 = sub_080002D4(iVar9 - 0x10, iVar11 - 0x00, uVar1);
+        u8 bVar6 = sub_080002D4(iVar9 - 0x00, iVar11 - 0x10, uVar1);
+        u8 bVar7 = sub_080002D4(iVar9 - 0x10, iVar11 - 0x10, uVar1);
         if ((bVar6 | bVar4 | bVar5 | bVar7) == 0) {
             this->field_0x7c.HALF.LO = ctrl->roomOriginX + iVar9;
             this->field_0x7c.HALF.HI = ctrl->roomOriginY + iVar11;
