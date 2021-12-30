@@ -83,11 +83,10 @@ Then, start translating the code to `src/evilSpirit.c`, bit by bit:
 	adds r4, r0, #0
 ```
 ```c
-	void sub_08086284(u8 *r4) {
+	void sub_08086284(u8* r0) {
 ```
 ---
 ```asm
-        add     r4, r0, #0
         ldr     r1, _080862B4 @ =gUnk_08120668
         ldrb    r0, [r4, #0xc]
         lsl     r0, r0, #0x2
@@ -97,7 +96,7 @@ Then, start translating the code to `src/evilSpirit.c`, bit by bit:
         bl      _call_via_r1
 ```
 ```c
-	gUnk_08120668[*(u8 *)(r4 + 12)](r4);
+	gUnk_08120668[*(u8 *)(r0 + 0xc)](r0);
 ```
 ---
 
@@ -109,7 +108,7 @@ Then, start translating the code to `src/evilSpirit.c`, bit by bit:
         strb    r0, [r1]
 ```
 ```c
-    *(u8 *)(r4 + 65) = 0;
+    *(u8 *)(r0 + 0x41) = 0;
 ```
 ---
 ```asm
@@ -123,7 +122,7 @@ Then, start translating the code to `src/evilSpirit.c`, bit by bit:
         bl      sub_0805EC9C
 ```
 ```c
-	sub_0805EC9C(r4, *(u16 *)(r4 + 118), *(u16 *)(r4 + 122), 0);
+	sub_0805EC9C(r0, *(u16 *)(r0 + 0x76), *(u16 *)(r0 + 0x7a), 0);
 ```
 ---
 ```asm
@@ -132,10 +131,14 @@ Then, start translating the code to `src/evilSpirit.c`, bit by bit:
 ```c
 	return;
 ```
-The type signature of the function depends on the return type.
-* `pop {r4, pc}`: `void`
+The type signature of the function depends on the return type. Return values are stored in r0,
+so pay attention to how the assembly treats this register toward the end of the function.
+ex:
 * `add r0, r4, #0`
-  `pop {r4, pc}`: `void`, `*`
+
+  `pop {r4, pc}`
+
+The compiler chose to move a value into r0 here; the most likely explanation is that it's returning something.
 
 You will need to look at the caller and the function prologue to determine the exact type if not void.
 
@@ -145,11 +148,10 @@ Since it only used `pop {r4, pc}`, it's probably `void`.
 
 Putting it all together, we get:
 ```c
-void sub_08086284(u8 *r4) {
-{
-    gUnk_08120668[*(u8 *)(r4 + 12)](r4);
-    *(u8 *)(r4 + 65) = 0;
-    sub_0805EC9C(r4, *(u16 *)(r4 + 118), *(u16 *)(r4 + 122), 0);
+void sub_08086284(u8 *r0) {
+    gUnk_08120668[*(u8 *)(r0 + 0xc)](r0);
+    *(u8 *)(r0 + 0x41) = 0;
+    sub_0805EC9C(r0, *(u16 *)(r0 + 0x76), *(u16 *)(r0 + 0x7a), 0);
     return;
 }
 ```
@@ -160,10 +162,10 @@ void sub_08086284(u8 *r4) {
 This line doesn't look quite right.
 
 ```c
-	gUnk_08120668[*(u8 *)(r4 + 12)](r4);
+	gUnk_08120668[*(u8 *)(r0 + 0xc)](r0);
 ```
 
-What is `r4`? Since this function corresponds to an entity, we should first try to assign r4 to an`Entity` struct.
+What is `r0`? Since this function corresponds to an entity, we should first try to assign r0 to an `Entity` struct.
 You can find out what this is with `git grep`:
 
 ```sh
@@ -176,39 +178,35 @@ include/entity.h:typedef struct Entity
 So it's a struct called `Entity`. Let's look in `entity.h`:
 
 ```c
-typedef struct Entity
-{
-    u32 *field_0x0;
-    u32 * field_0x4;
-    EntityType entityType;
-    u8 action;
-    u8 subAction;
-    u8 actionDelay;
-    u8 field_0xf;
-    u8 flags;
-    
+typedef struct Entity_ {
+    /*0x00*/ struct Entity_* prev;
+    /*0x04*/ struct Entity_* next;
+    /*0x08*/ u8 kind;
+    /*0x09*/ u8 id;
+    /*0x0a*/ u8 type;
+    /*0x0b*/ u8 type2;
+    /*0x0c*/ u8 action;
+    /*0x0d*/ u8 subAction;
     ...
-    
 } Entity;
 ```
 ---
 
 What's the 12th byte in this struct?
 ```c
-    u32 *field_0x0; //0-3
-    u32 * field_0x4; //4-7
-    EntityType entityType; //8-11
-    u8 action; //12
-    u8 subAction; //13
+    /*0x00*/ struct Entity_* prev;
+    /*0x04*/ struct Entity_* next;
+    ...
+    /*0x0c*/ u8 action; <-
 ```
 
 ---
 
-The 12th byte belongs to `action`. We can substitute this in by replacing r4's parameter type and adding in the member names.
+The 12th byte belongs to `action`. We can substitute this in by replacing r0's parameter type and adding in the member names.
 
 ```c
-void sub_08086284(Entity *r4) {
-    gUnk_08120668[r4->action](r4);
+void sub_08086284(Entity *r0) {
+    gUnk_08120668[r0->action](r0);
 ```
 
 Much better.
@@ -216,35 +214,33 @@ Much better.
 ---
 
 ```c
-void sub_08086284(Entity *r4) {
-
-    gUnk_08120668[r4->action](r4);
-    r4->bitfield = 0;
-    sub_0805EC9C(r4, *((u16 *)&r4->heldObjectPtr + 1), r4->field_0x7a, 0);
+void sub_08086284(Entity *r0) {
+    gUnk_08120668[r0->action](r0);
+    r0->bitfield = 0;
+    sub_0805EC9C(r0, r0->field_0x76.HWORD, r0->field_0x7a.HWORD, 0);
     return;
 }
 ```
 
-The second of the function that is called uses an offset right in the middle of `heldObjectPtr`. Something seems wrong.
-We can ignore this for now, since we can come back to that later.
-Right now we are just concerned with making the function match, even if it isn't pretty.
+The fields at the end of of `Entity` are general purpose. For this reason the fields are defined as unions so the proper data size may be loaded.
+This isn't pretty, but right now we are just concerned with making the function match. Later on we can define these entity-specific fields.
 
 ## 5. Build
 
 ```sh
 make
 ```
-```gcc
+```
 src/evilSpirit.c: In function `sub_08086284':
-src/evilSpirit.c:5: `r4' undeclared (first use in this function)
+src/evilSpirit.c:4: syntax error before `*'
 src/evilSpirit.c:5: `gUnk_08120668' undeclared (first use in this function)
 src/evilSpirit.c:5: (Each undeclared identifier is reported only once for each function it appears in.)
 src/evilSpirit.c:7: warning: implicit declaration of function `sub_0805EC9C'
 ```
 
-We got some errors. We need to tell the compiler what `gUnk_08120668`, `r4`, and `sub_0805EC9C` are.
+We got some errors. We need to tell the compiler what `gUnk_08120668`, `Entity`, and `sub_0805EC9C` are.
 
-We know `r4` is an `Entity`, which is from `entity.h`. We can declare this above the function:
+We know `r0` is an `Entity`, which is from `entity.h`. We can declare this above the function:
 ```c
 #include "entity.h"
 ```
@@ -265,10 +261,10 @@ Now our file looks like this:
 extern void sub_0805EC9C();
 extern void (*gUnk_08120668[])(Entity *);
 
-void sub_08086284(Entity *r4) {
-    gUnk_08120668[r4->action](r4);
-    r4->bitfield = 0;
-    sub_0805EC9C(r4, *((u16 *)&r4->heldObjectPtr + 1), r4->field_0x7a, 0);
+void sub_08086284(Entity *r0) {
+    gUnk_08120668[r0->action](r0);
+    r0->bitfield = 0;
+    sub_0805EC9C(r0, r0->field_0x76.HWORD, r0->field_0x7a.HWORD, 0);
     return;
 }
 ```
