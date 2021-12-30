@@ -393,7 +393,6 @@ SECTIONS {
         src/enemy/mazaalBracelet.o(.text);
         asm/enemy/takkuri.o(.text);
         src/enemy/bowMoblin.o(.text);
-        asm/enemy/bowMoblin.o(.text);
         src/enemy/lakitu.o(.text);
         src/enemy/lakituCloud.o(.text);
         asm/enemy/enemy49.o(.text);

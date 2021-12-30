@@ -31,8 +31,6 @@
 
 #define DEFAULT_ANIM 0x100
 
-typedef void(EntityAction)(Entity*);
-
 static EntityAction PlayerInit;
 static EntityAction PlayerNormal;
 // static EntityAction PlayerInit;

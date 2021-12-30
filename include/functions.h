@@ -48,7 +48,7 @@ extern void ChangeObjPalette(Entity*, u32);
 extern void sub_0806FD3C(Entity*);
 extern void sub_0805ED14(u32*);
 extern void sub_080A7C18(u32, u32, u32);
-extern void sub_0804AA30(Entity*, void (*const funcs[])(Entity*));
+extern void sub_0804AA30(Entity*, EntityActionArray);
 extern void sub_0804A720(Entity*);
 extern u32 sub_080AEFE0(Entity*);
 extern u32 sub_08049FA0(Entity*);

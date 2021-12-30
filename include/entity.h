@@ -149,6 +149,10 @@ typedef struct Entity_ {
 #endif
 } Entity;
 
+typedef void(EntityAction)(Entity*);
+typedef void(*EntityActionPtr)(Entity*);
+typedef void(*const* EntityActionArray)(Entity*);
+
 typedef struct LinkedList {
     Entity* last;
     Entity* first;

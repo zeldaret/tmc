@@ -12,7 +12,7 @@
 #include "entity.h"
 
 extern u32 GetNextFunction(Entity*);
-extern void EnemyFunctionHandler(Entity*, void (*const func[])(Entity*));
+extern void EnemyFunctionHandler(Entity*, EntityActionArray);
 extern void sub_08001324(Entity*);
 
 extern Entity* sub_0804A9FC(Entity*, u32);
