@@ -22,6 +22,7 @@ extern void sub_08017744(Entity*);
 extern void UnloadHitbox();
 extern void sub_0804AA1C();
 
+void ClearDeletedEntity(Entity*);
 extern void _ClearAndUpdateEntities();
 extern void UpdateEntities_arm(u32);
 
@@ -232,7 +233,73 @@ void EraseAllEntities() {
     gUnk_03000000.unk[1].unk6 = 1;
 }
 
-ASM_FUNC("./asm/getEmptyEntity.s", Entity* GetEmptyEntity());
+extern Entity gUnk_030015A0[0x4848];
+extern Entity gUnk_03003BE0;
+
+NONMATCH("./asm/getEmptyEntity.s", Entity* GetEmptyEntity()) {
+    u8 flags_ip;
+    Entity* ptr;
+    Entity* end;
+    Entity* rv;
+    Entity* currentEnt;
+    LinkedList* nextList;
+
+    LinkedList* listPtr;
+    LinkedList* endListPtr;
+
+    if (gEntCount <= 0x46) {
+        ptr = gUnk_030015A0;
+        end = ptr + ARRAY_COUNT(gUnk_030015A0);
+
+        do {
+            if (ptr->prev == 0) {
+                return ptr;
+            }
+        } while (++ptr < end);
+    }
+
+    ptr = &gPlayerEntity;
+
+    do {
+        if ((s32)ptr->prev < 0 && (ptr->flags & 0xc) && gUpdateContext.current_entity != ptr) {
+            ClearDeletedEntity(ptr);
+            return ptr;
+        }
+    } while (++ptr < &gUnk_03003BE0);
+
+    flags_ip = 0;
+    rv = NULL;
+    listPtr = gEntityLists;
+    endListPtr = listPtr + ARRAY_COUNT(gEntityLists);
+
+    do {
+        currentEnt = listPtr->first;
+        nextList = listPtr + 1;
+        while ((u32)currentEnt != (u32)listPtr) {
+            if (currentEnt->kind != MANAGER && (currentEnt->flags & 0x1c) == flags_ip &&
+                gUpdateContext.current_entity != currentEnt) {
+                flags_ip = currentEnt->flags & 0x1c;
+                rv = currentEnt;
+            }
+            currentEnt = currentEnt->next;
+        }
+
+        listPtr = nextList;
+    } while (listPtr < endListPtr);
+
+    if (rv) {
+        DeleteEntity(rv);
+        ClearDeletedEntity(rv);
+    }
+
+    return rv;
+}
+END_NONMATCH
+
+//#define NDEPRECATED
+
+#include "entity.h"
+#include "functions.h"
 
 extern Entity gUnk_030011E8[7];
 
@@ -307,8 +374,6 @@ void DeleteEntity(Entity* ent) {
         ent->prev = (Entity*)0xffffffff;
     }
 }
-
-void ClearDeletedEntity(Entity*);
 
 void ClearAllDeletedEntities(void) {
     Entity* ent = &gPlayerEntity;
