@@ -194,7 +194,12 @@ u32 sub_0806F730(Entity* ent) {
     return ((x >> 4) & tmp) + (((y >> 4) & tmp) << 6);
 }
 
-ASM_FUNC("asm/non_matching/sub_0806F798.inc", u32 sub_0806F798(Entity* ent));
+u32 sub_0806F798(Entity* ent) {
+    u32 hitboxX = ent->x.HALF.HI + ent->hitbox->offset_x - gRoomControls.roomOriginX;
+    u32 hitboxY = ent->y.HALF.HI + ent->hitbox->offset_y - gRoomControls.roomOriginY;
+    u32 mask = 0x3f;
+    return (mask & (hitboxX >> 4)) + ((mask & (hitboxY >> 4)) << 6);
+}
 
 u32 sub_0806F7D0(Entity* ent) {
     return gUnk_02025EB0._2004[sub_0806F730(ent)];
@@ -209,7 +214,9 @@ u32 sub_0806F804(u32 x, u32 y) {
     return gUnk_02025EB0._4[idx];
 }
 
-ASM_FUNC("asm/non_matching/sub_0806F824.inc", void sub_0806F824(Entity* a, Entity* b, u32 x, u32 y));
+void sub_0806F824(Entity* a, Entity* b, s32 x, s32 y) {
+    sub_080045D4(a->x.HALF.HI, a->y.HALF.HI, b->x.HALF.HI + x, b->y.HALF.HI + y);
+}
 
 u32 sub_0806F854(Entity* ent, s32 x, s32 y) {
     if (ent->z.WORD == 0 || (ent->collisionLayer & 2))
@@ -253,7 +260,23 @@ u32 sub_0806F948(Entity* ent) {
     return ent->animationState;
 }
 
-ASM_FUNC("asm/non_matching/sub_0806F998.inc", u32 sub_0806F998(Entity* ent));
+NONMATCH("asm/non_matching/sub_0806F998.inc", u32 sub_0806F998(Entity* ent)) {
+    u8 state = ent->animationState;
+    if ((ent->direction & 0x80) == 0) {
+        u8 tmp = ((ent->direction & 0x1c) >> 2);
+        if ((tmp & 0x1) == 0 || ((tmp - state + 1) & 0x4)) {
+            u8 dir = ent->direction;
+            state = ent->animationState = (dir >> 2) & 0x7e;
+            if (ent->animationState <= 4) {
+                ent->spriteSettings.flipX = 0;
+            } else {
+                ent->spriteSettings.flipX = 1;
+            }
+        }
+    }
+    return state;
+}
+END_NONMATCH
 
 s16 FixedMul(s16 r0, s16 r1) {
     s32 temp = r0 * r1;
