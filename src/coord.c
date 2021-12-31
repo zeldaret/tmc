@@ -261,12 +261,12 @@ u32 sub_0806F948(Entity* ent) {
 }
 
 NONMATCH("asm/non_matching/sub_0806F998.inc", u32 sub_0806F998(Entity* ent)) {
-    u8 animationState = ent->animationState;
-
+    u8 state = ent->animationState;
     if ((ent->direction & 0x80) == 0) {
         u8 tmp = ((ent->direction & 0x1c) >> 2);
-        if ((tmp & 0x1) == 0 || ((tmp - animationState + 1) & 0x4)) {
-            animationState = ent->animationState = (animationState >> 2) & 0x7e;
+        if ((tmp & 0x1) == 0 || ((tmp - state + 1) & 0x4)) {
+            u8 dir = ent->direction;
+            state = ent->animationState = (dir >> 2) & 0x7e;
             if (ent->animationState <= 4) {
                 ent->spriteSettings.flipX = 0;
             } else {
@@ -274,8 +274,7 @@ NONMATCH("asm/non_matching/sub_0806F998.inc", u32 sub_0806F998(Entity* ent)) {
             }
         }
     }
-
-    return animationState;
+    return state;
 }
 END_NONMATCH
 
