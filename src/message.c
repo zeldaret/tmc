@@ -708,7 +708,7 @@ void DispMessageFrame(u16* buffer, s32 width, s32 height, u32 flags) {
         *ptr++ = flags + 1;
         *ptr2++ = (flags + 1) | 0x800;
         width -= 2;
-        while(width-->0){
+        while (width-- > 0) {
             *ptr++ = flags + 2;
             *ptr2++ = (flags + 2) | 0x800;
         }
@@ -727,7 +727,7 @@ void DispMessageFrame(u16* buffer, s32 width, s32 height, u32 flags) {
         *ptr = (flags + 3) | 0x400;
         buffer += 0x20;
         ptr += 0x20;
-    
+
         height -= 2;
         while (height-- > 0) {
             *buffer = flags + 4;
@@ -735,7 +735,6 @@ void DispMessageFrame(u16* buffer, s32 width, s32 height, u32 flags) {
             buffer += 0x20;
             ptr += 0x20;
         }
-    
 
         *buffer = (flags + 3) | 0x800;
         *ptr++ = (flags + 3) | 0xc00;
