@@ -31,7 +31,7 @@ void sub_08080910(void) {
     gScreenTransition.transitionType = TRANSITION_CUT;
 }
 
-void sub_0808091C(ScreenTransitionData* param_1, u32 param_2) {
+void sub_0808091C(const ScreenTransitionData* param_1, u32 param_2) {
     DoExitTransition(param_1);
     gScreenTransition.transitionType = param_2;
 }

@@ -49,10 +49,10 @@ void sub_0804614C(GyorgFemaleEntity* this) {
     tmp = CreateProjectile(0x22);
     tmp->type = 0;
     tmp->parent = super;
-    ((GyorgFemaleHeap*)super->myHeap)->unk_14 = tmp;
+    ((GyorgFemaleHeap*)super->myHeap)->unk_14 = (GenericEntity*)tmp;
     tmp = CreateEnemy(GYORG_FEMALE_MOUTH, 0);
     tmp->parent = super;
-    ((GyorgFemaleHeap*)super->myHeap)->unk_10 = tmp;
+    ((GyorgFemaleHeap*)super->myHeap)->unk_10 = (GyorgFemaleMouthEntity*)tmp;
     tmp = CreateEnemy(GYORG_FEMALE_EYE, 0);
     tmp->parent = super;
     tmp = CreateEnemy(GYORG_FEMALE_EYE, 1);

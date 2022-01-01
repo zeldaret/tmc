@@ -2,8 +2,6 @@
 #include "object.h"
 #include "functions.h"
 
-extern void DoExitTransition(ScreenTransitionData*);
-
 typedef struct VaatiArm_HeapStruct1 {
     union SplitHWord unk00;
     u16 unk02;

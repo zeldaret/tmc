@@ -172,7 +172,7 @@ void sub_08048D20(GyorgFemaleEyeEntity* this) {
 }
 
 u32 sub_08048D70(GyorgFemaleEntity* parent) {
-    Entity* tmp;
+    GenericEntity* tmp;
     if (parent->base.health != 0) {
         return 1;
     }
@@ -180,7 +180,7 @@ u32 sub_08048D70(GyorgFemaleEntity* parent) {
     if (!tmp) {
         tmp = ((GyorgFemaleHeap*)parent->base.myHeap)->male2;
     }
-    if (tmp->health != 0) {
+    if (tmp->base.health != 0) {
         return 0;
     }
     return 1;
