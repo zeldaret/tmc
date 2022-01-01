@@ -276,8 +276,7 @@ NONMATCH("./asm/getEmptyEntity.s", Entity* GetEmptyEntity()) {
         currentEnt = listPtr->first;
         nextList = listPtr + 1;
         while ((u32)currentEnt != (u32)listPtr) {
-            if (currentEnt->kind != MANAGER
-             &&  flags_ip < (currentEnt->flags & 0x1c) &&
+            if (currentEnt->kind != MANAGER && flags_ip < (currentEnt->flags & 0x1c) &&
                 gUpdateContext.current_entity != currentEnt) {
                 flags_ip = currentEnt->flags & 0x1c;
                 rv = currentEnt;
