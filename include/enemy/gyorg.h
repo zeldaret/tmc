@@ -33,7 +33,8 @@ typedef struct {
     u16 unk_76;
     u16 unk_78;
     u8 unk_7a;
-    u8 unk_7b[0xD];
+    u8 unk_7b;
+    u8 unk_7c[0xC];
 } GyorgChildEntity;
 
 typedef struct {
