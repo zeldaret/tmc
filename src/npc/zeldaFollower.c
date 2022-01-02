@@ -1,7 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "functions.h"
-#include "utils.h"
+#include "common.h"
 
 extern void sub_08068318(Entity*);
 extern void sub_0806854C(Entity*, u32*);

@@ -44,7 +44,6 @@ extern void sub_0805EC9C();
 extern void sub_0805EC60(Entity*);
 extern void sub_0806D0B0(Entity*);
 extern void sub_0806D02C(Entity*);
-extern void ChangeObjPalette(Entity*, u32);
 extern void sub_0806FD3C(Entity*);
 extern void sub_0805ED14(u32*);
 extern void sub_080A7C18(u32, u32, u32);
@@ -101,10 +100,8 @@ extern void sub_0804ED18();
 extern void sub_080AF2E4(void);
 extern void sub_0804F578(void);
 extern void sub_08059994(void);
-extern s32 sub_0801CFA8(u32);
 extern void sub_080ADA14(u32, u32); // trampoline to sub_080B27F4
 extern void sub_0801E1B8(u32, u32);
-extern void sub_0801E1EC(s32, s32, s32);
 extern void sub_080A3B74(void);
 extern void sub_080A4054(void);
 extern void sub_0801C1D4(void);
@@ -169,7 +166,7 @@ extern void sub_0806F62C(Entity*, u32, u32);
 extern void sub_080A1ED0(u32, u32, u32);
 extern u32 sub_0806F5B0(u32);
 extern void sub_0801DFB4(Entity*, u32, u32, u32);
-extern void sub_0801E00C();
+extern u32 sub_0801E00C(void);
 extern void sub_08078790(Entity*, u32);
 extern void sub_080788E0(Entity*);
 extern void sub_08078B48(void);
@@ -199,7 +196,5 @@ extern void sub_080042D0(Entity*, u32, u16);
 
 extern u32 sub_080002A8(u32, u32, u32);
 extern void sub_080806BC(u32, u32, u32, u32);
-
-extern void LoadObjPalette(Entity*, u32);
 
 #endif

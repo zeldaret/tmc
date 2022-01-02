@@ -1,14 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "functions.h"
-
-typedef struct {
-    u8 unk[4];
-    u32 unk2;
-    u32 unk4;
-} Unk_struct;
-
-extern Unk_struct gUnk_03003DF0[];
+#include "kinstone.h"
 
 void sub_08078778(Entity* ent) {
     sub_0807887C(ent, 1, 0);

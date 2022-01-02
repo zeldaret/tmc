@@ -2,7 +2,7 @@
 #include "area.h"
 #include "player.h"
 #include "coord.h"
-#include "utils.h"
+#include "common.h"
 #include "sound.h"
 #include "room.h"
 #include "functions.h"

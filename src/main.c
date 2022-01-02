@@ -2,7 +2,7 @@
 #include "functions.h"
 #include "main.h"
 #include "screen.h"
-#include "utils.h"
+#include "common.h"
 #include "save.h"
 #include "message.h"
 #include "interrupts.h"
@@ -244,7 +244,7 @@ void sub_08056208() {
     gScreen._6d = 0;
 }
 
-void sub_0805622C(u32 a1, u32 a2, u32 a3) {
+void sub_0805622C(void* a1, u32 a2, u32 a3) {
     gScreen._70 = a1;
     gScreen._74 = a2;
     gScreen._78 = a3;

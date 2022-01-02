@@ -186,7 +186,7 @@ sub_080A3DB8: @ 0x080A3DB8
 	ldrb r1, [r0, #1]
 	cmp r1, #6
 	bne _080A3DEE
-	ldr r0, _080A3DE0 @ =gUnk_02022740
+	ldr r0, _080A3DE0 @ =gFuseInfo
 	strb r1, [r0]
 	ldrb r0, [r0, #3]
 	lsls r0, r0, #3
@@ -200,20 +200,20 @@ sub_080A3DB8: @ 0x080A3DB8
 	b _080A3DF8
 	.align 2, 0
 _080A3DDC: .4byte gMenu
-_080A3DE0: .4byte gUnk_02022740
+_080A3DE0: .4byte gFuseInfo
 _080A3DE4: .4byte gUnk_080C9CBC
 _080A3DE8:
 	bl sub_080A71DC
 	b _080A3DF8
 _080A3DEE:
-	ldr r1, _080A3DFC @ =gUnk_02022740
+	ldr r1, _080A3DFC @ =gFuseInfo
 	movs r0, #5
 	strb r0, [r1]
 	bl sub_080A71DC
 _080A3DF8:
 	pop {pc}
 	.align 2, 0
-_080A3DFC: .4byte gUnk_02022740
+_080A3DFC: .4byte gFuseInfo
 
 	thumb_func_start sub_080A3E00
 sub_080A3E00: @ 0x080A3E00
@@ -267,7 +267,7 @@ sub_080A3E48: @ 0x080A3E48
 	lsls r0, r0, #3
 	adds r0, r0, r2
 	ldrb r1, [r0, #5]
-	ldr r0, _080A3E80 @ =gUnk_02022740
+	ldr r0, _080A3E80 @ =gFuseInfo
 	ldrb r0, [r0, #3]
 	lsls r0, r0, #3
 	adds r0, r0, r2
@@ -283,7 +283,7 @@ sub_080A3E48: @ 0x080A3E48
 	.align 2, 0
 _080A3E78: .4byte gUnk_080C9CBC
 _080A3E7C: .4byte gMenu
-_080A3E80: .4byte gUnk_02022740
+_080A3E80: .4byte gFuseInfo
 _080A3E84:
 	movs r2, #0
 	movs r0, #2
@@ -407,7 +407,7 @@ sub_080A3F68: @ 0x080A3F68
 	movs r0, #5
 	strb r0, [r5, #1]
 	ldr r4, _080A3FB8 @ =gUnk_02002C81
-	ldr r0, _080A3FBC @ =gUnk_02022740
+	ldr r0, _080A3FBC @ =gFuseInfo
 	ldrb r1, [r0, #3]
 	adds r0, r4, #0
 	bl WriteBit
@@ -439,7 +439,7 @@ _080A3F96:
 	.align 2, 0
 _080A3FB4: .4byte gMenu
 _080A3FB8: .4byte gUnk_02002C81
-_080A3FBC: .4byte gUnk_02022740
+_080A3FBC: .4byte gFuseInfo
 _080A3FC0: .4byte 0xFFFFFED6
 _080A3FC4: .4byte 0xFFFFFED5
 _080A3FC8: .4byte 0x00000702
@@ -924,14 +924,14 @@ _080A42C4:
 _080A42C6:
 	ldr r0, _080A42D8 @ =gOamCmd
 	strh r4, [r0]
-	ldr r0, _080A42DC @ =gUnk_02022740
+	ldr r0, _080A42DC @ =gFuseInfo
 	ldrb r0, [r0, #3]
 	movs r1, #0
 	bl sub_080A42E0
 	pop {r4, r5, pc}
 	.align 2, 0
 _080A42D8: .4byte gOamCmd
-_080A42DC: .4byte gUnk_02022740
+_080A42DC: .4byte gFuseInfo
 
 	thumb_func_start sub_080A42E0
 sub_080A42E0: @ 0x080A42E0
@@ -1150,7 +1150,7 @@ sub_080A4468: @ 0x080A4468
 	strb r1, [r0, #2]
 	ldr r0, [r0, #4]
 	strb r1, [r0, #3]
-	ldr r0, _080A448C @ =gUnk_02022740
+	ldr r0, _080A448C @ =gFuseInfo
 	ldrb r0, [r0, #3]
 	bl sub_0801E6C8
 	ldr r0, _080A4490 @ =gMenu
@@ -1160,7 +1160,7 @@ sub_080A4468: @ 0x080A4468
 	pop {pc}
 	.align 2, 0
 _080A4488: .4byte gUnk_03003DF0
-_080A448C: .4byte gUnk_02022740
+_080A448C: .4byte gFuseInfo
 _080A4490: .4byte gMenu
 
 	thumb_func_start sub_080A4494
@@ -1181,7 +1181,7 @@ sub_080A4494: @ 0x080A4494
 	adds r0, r4, #0
 	movs r2, #0x80
 	bl sub_080A44E0
-	ldr r0, _080A44DC @ =gUnk_02022740
+	ldr r0, _080A44DC @ =gFuseInfo
 	ldr r0, [r0, #0xc]
 	bl sub_08002632
 	adds r0, r4, #0
@@ -1196,7 +1196,7 @@ _080A44D0:
 	.align 2, 0
 _080A44D4: .4byte gTextGfxBuffer
 _080A44D8: .4byte gUnk_02002AC0
-_080A44DC: .4byte gUnk_02022740
+_080A44DC: .4byte gFuseInfo
 
 	thumb_func_start sub_080A44E0
 sub_080A44E0: @ 0x080A44E0
@@ -1237,7 +1237,7 @@ _080A4524: .4byte 0x06010000
 	thumb_func_start sub_080A4528
 sub_080A4528: @ 0x080A4528
 	push {r4, lr}
-	ldr r0, _080A4540 @ =gUnk_02022740
+	ldr r0, _080A4540 @ =gFuseInfo
 	ldr r2, [r0, #0xc]
 	ldrb r0, [r2, #8]
 	cmp r0, #7
@@ -1248,7 +1248,7 @@ sub_080A4528: @ 0x080A4528
 	bl CreateNPC
 	b _080A4550
 	.align 2, 0
-_080A4540: .4byte gUnk_02022740
+_080A4540: .4byte gFuseInfo
 _080A4544:
 	cmp r0, #3
 	bne _080A45A2

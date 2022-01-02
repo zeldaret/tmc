@@ -75,7 +75,7 @@ sub_08054920: @ 0x08054920
 	bl MessageInitialize
 	bl sub_0806F38C
 	ldr r1, _08054948 @ =gUnk_080C9CBC
-	ldr r0, _0805494C @ =gUnk_02022740
+	ldr r0, _0805494C @ =gFuseInfo
 	ldrb r0, [r0, #3]
 	lsls r0, r0, #3
 	adds r0, r0, r1
@@ -89,7 +89,7 @@ sub_08054920: @ 0x08054920
 	b _08054962
 	.align 2, 0
 _08054948: .4byte gUnk_080C9CBC
-_0805494C: .4byte gUnk_02022740
+_0805494C: .4byte gFuseInfo
 _08054950: .4byte gUnk_02032EC0
 _08054954:
 	ldr r1, _08054964 @ =gUnk_02032EC0

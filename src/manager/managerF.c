@@ -7,7 +7,7 @@
 #include "functions.h"
 #include "area.h"
 #include "message.h"
-#include "utils.h"
+#include "common.h"
 #include "tiles.h"
 #include "object.h"
 #include "item.h"

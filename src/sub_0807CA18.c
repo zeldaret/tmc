@@ -1,6 +1,6 @@
 #include "global.h"
 #include "save.h"
-#include "utils.h"
+#include "common.h"
 
 extern void sub_0807C960();
 

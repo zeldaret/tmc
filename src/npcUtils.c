@@ -5,6 +5,7 @@
 #include "definitions.h"
 #include "save.h"
 #include "npc.h"
+#include "kinstone.h"
 
 extern const NPCDefinition gNPCDefinitions[];
 
@@ -287,7 +288,7 @@ u32 UpdateFuseInteraction(Entity* ent) {
     u32 ret;
     sub_0801E00C();
     ret = -1;
-    switch (gUnk_02022740[0]) {
+    switch (gFuseInfo._0) {
         default:
             ret = 0;
             break;

@@ -3,7 +3,7 @@
 #include "screen.h"
 #include "area.h"
 #include "message.h"
-#include "utils.h"
+#include "common.h"
 #include "game.h"
 #include "functions.h"
 

@@ -3,7 +3,7 @@
 #include "room.h"
 #include "menu.h"
 #include "area.h"
-#include "utils.h"
+#include "common.h"
 #include "save.h"
 #include "item.h"
 

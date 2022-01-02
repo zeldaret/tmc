@@ -3,7 +3,7 @@
 #include "flags.h"
 #include "room.h"
 #include "screen.h"
-#include "utils.h"
+#include "common.h"
 #include "object.h"
 #include "functions.h"
 

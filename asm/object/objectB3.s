@@ -64,7 +64,7 @@ _080A0A5E:
 	orrs r1, r3
 	strb r1, [r4, #0x1b]
 	ldr r1, _080A0ABC @ =gUnk_080C9CBC
-	ldr r0, _080A0AC0 @ =gUnk_02022740
+	ldr r0, _080A0AC0 @ =gFuseInfo
 	ldrb r0, [r0, #3]
 	lsls r0, r0, #3
 	adds r0, r0, r1
@@ -78,7 +78,7 @@ _080A0AB0:
 	.align 2, 0
 _080A0AB8: .4byte gUnk_08124A20
 _080A0ABC: .4byte gUnk_080C9CBC
-_080A0AC0: .4byte gUnk_02022740
+_080A0AC0: .4byte gFuseInfo
 
 	thumb_func_start sub_080A0AC4
 sub_080A0AC4: @ 0x080A0AC4

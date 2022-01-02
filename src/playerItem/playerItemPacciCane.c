@@ -1,7 +1,7 @@
 #include "entity.h"
 #include "sound.h"
 #include "functions.h"
-#include "utils.h"
+#include "common.h"
 #include "message.h"
 #include "save.h"
 

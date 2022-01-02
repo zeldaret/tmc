@@ -7,7 +7,7 @@
 #include "sound.h"
 #include "effects.h"
 #include "flags.h"
-#include "utils.h"
+#include "common.h"
 
 #include "entity.h"
 

@@ -17,7 +17,7 @@ Object9: @ 0x0808386C
 	rsbs r0, r1, #0
 	orrs r0, r1
 	lsrs r2, r0, #0x1f
-	ldr r0, _080838CC @ =gUnk_02022740
+	ldr r0, _080838CC @ =gFuseInfo
 	ldrb r0, [r0]
 	cmp r0, #2
 	bgt _08083894
@@ -58,7 +58,7 @@ _080838B6:
 	pop {r4, pc}
 	.align 2, 0
 _080838C8: .4byte gPlayerState
-_080838CC: .4byte gUnk_02022740
+_080838CC: .4byte gFuseInfo
 _080838D0: .4byte gMessage
 _080838D4: .4byte gUnk_03003DF0
 _080838D8: .4byte gUnk_0811F754

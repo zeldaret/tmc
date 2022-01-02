@@ -13,13 +13,13 @@ u32 CheckLocalFlag(u32 flag) {
 }
 
 u32 CheckFlags(u32 flags) {
-    s32 type;
-    s32 index;
-    s32 length;
+    u32 type;
+    u32 index;
+    u32 length;
     index = flags & 0x3ff;
     length = (((flags & (0xf0) << 0x6) >> 0xa) + 1);
     type = (flags & 0xc000) >> 0xe;
-    switch ((u32)type) {
+    switch (type) {
         case 2:
             return CheckRoomFlags(index, length);
         case 0:
@@ -40,7 +40,6 @@ u32 CheckRoomFlag(u32 flag) {
 }
 
 u32 CheckLocalFlagsByBank(u32 offset, u32 flag, u32 length) {
-
     return CheckBits(&gGlobalFlags, offset + flag, length);
 }
 
@@ -67,13 +66,13 @@ void SetLocalFlag(u32 flag) {
 }
 
 void SetFlag(u32 flag) {
-    s32 uVar1;
-    s32 index;
+    u32 type;
+    u32 index;
 
     if (flag != 0) {
         index = flag & 0x3ff;
-        uVar1 = (flag & 0xc000) >> 0xe;
-        switch ((u32)uVar1) {
+        type = (flag & 0xc000) >> 0xe;
+        switch (type) {
             case 2:
                 SetRoomFlag(index);
                 return;
@@ -104,12 +103,12 @@ void ClearLocalFlag(u32 flag) {
 }
 
 void ClearFlag(u32 flag) {
-    s32 uVar1;
-    s32 index;
+    u32 type;
+    u32 index;
 
     index = flag & 0x3ff;
-    uVar1 = (flag & 0xc000) >> 0xe;
-    switch ((u32)uVar1) {
+    type = (flag & 0xc000) >> 0xe;
+    switch (type) {
         case 2:
             ClearRoomFlag(index);
             return;

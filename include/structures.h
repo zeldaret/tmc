@@ -135,7 +135,6 @@ typedef struct {
 } PriorityHandler;
 extern PriorityHandler gPriorityHandler;
 
-extern u8 gUnk_02022740[];
 extern u8 gUnk_02034490[];
 
 typedef struct {

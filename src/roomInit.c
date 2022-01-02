@@ -1,7 +1,7 @@
 #include "global.h"
 
 #include "main.h"
-#include "utils.h"
+#include "common.h"
 
 #include "functions.h"
 

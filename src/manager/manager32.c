@@ -3,7 +3,7 @@
 #include "room.h"
 #include "functions.h"
 #include "area.h"
-#include "utils.h"
+#include "common.h"
 #include "game.h"
 
 typedef struct {

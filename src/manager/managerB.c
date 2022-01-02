@@ -3,7 +3,7 @@
 #include "flags.h"
 #include "room.h"
 #include "area.h"
-#include "utils.h"
+#include "common.h"
 #include "sound.h"
 
 /*

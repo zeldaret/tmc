@@ -1,7 +1,7 @@
 #include "sound.h"
 #include "main.h"
 #include "entity.h"
-#include "utils.h"
+#include "common.h"
 #include "screen.h"
 #include "object.h"
 #include "message.h"
