@@ -2,7 +2,7 @@
 #include "structures.h"
 #include "functions.h"
 #include "screen.h"
-#include "utils.h"
+#include "common.h"
 
 static u32 sub_080501C0(FadeControl* ctl);
 static u32 sub_08050230(FadeControl* ctl);

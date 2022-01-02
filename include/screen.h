@@ -62,7 +62,7 @@ typedef struct {
     /*0x38*/ BgControls controls;
     /*0x6c*/ u8 _6c;
     /*0x6d*/ u8 _6d;
-    /*0x70*/ u32 _70;
+    /*0x70*/ void* _70;
     /*0x74*/ u32 _74;
     /*0x78*/ u32 _78;
 } Screen;

@@ -101,4 +101,7 @@ union SplitHWord {
 
 #define FORCE_WORD_ALIGNED __attribute__((packed, aligned(2)))
 
+/* forward decls */
+struct Entity_;
+
 #endif // GUARD_GLOBAL_H

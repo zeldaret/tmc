@@ -1,6 +1,6 @@
 #include "global.h"
 #include "sound.h"
-#include "utils.h"
+#include "common.h"
 #include "functions.h"
 #include "main.h"
 #include "menu.h"

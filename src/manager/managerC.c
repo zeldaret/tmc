@@ -9,7 +9,7 @@
 #include "functions.h"
 #include "save.h"
 #include "area.h"
-#include "utils.h"
+#include "common.h"
 
 typedef struct {
     Manager manager;

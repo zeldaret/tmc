@@ -3,6 +3,7 @@
 #define ENTITY_H
 
 #include "global.h"
+#include "color.h"
 #include "sprite.h"
 
 #define MAX_ENTITIES 71

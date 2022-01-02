@@ -1,5 +1,5 @@
 #include "global.h"
-#include "utils.h"
+#include "common.h"
 #include "functions.h"
 #include "area.h"
 #include "message.h"
@@ -15,7 +15,6 @@ void sub_0805EE88(void);
 void ClearAllDeletedEntities(void);
 void DeleteAllEntities(void);
 void sub_0805E98C(void);
-extern void UnloadOBJPalette();
 extern void sub_0806FE84();
 extern void sub_08078954();
 extern void sub_08017744(Entity*);

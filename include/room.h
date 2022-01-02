@@ -124,8 +124,8 @@ typedef struct {
     u8 dungeon_room;
     s16 dungeon_x;
     s16 dungeon_y;
-    s16 dungeon_map_x;
-    s16 dungeon_map_y;
+    u16 dungeon_map_x;
+    u16 dungeon_map_y;
     s16 overworld_map_x;
     s16 overworld_map_y;
     u8 field_0x24[0x8];

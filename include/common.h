@@ -1,5 +1,5 @@
-#ifndef UTILS_H
-#define UTILS_H
+#ifndef COMMON_H
+#define COMMON_H
 
 #include "global.h"
 
@@ -12,6 +12,11 @@ typedef struct {
 } Input;
 
 extern Input gInput;
+
+void LoadPalettes(const u8*, s32, s32);
+void LoadPaletteGroup(u32 group);
+void SetColor(u32 colorIndex, u32 color);
+void SetFillColor(u32 color, u32 arg1);
 
 /**
  * Fill memory with 16 bit value.
@@ -38,11 +43,6 @@ void MemCopy(const void* src, void* dest, u32 size);
  */
 void ReadKeyInput(void);
 
-void LoadPalettes(const u8*, s32, s32);
-void LoadPaletteGroup(u32 group);
-void SetColor(u32 colorIndex, u32 color);
-void SetFillColor(u32 color, u32 arg1);
-
 /**
  * Allocate memory on heap.
  *
@@ -66,10 +66,12 @@ void zFree(void* ptr);
 /**
  * Reset All display hardware registers.
  *
- * @param updateHUD bool32 Request refresh of HUD layer (bg 0)
+ * @param refresh bool32 Request refresh of HUD layer (bg 0)
  */
-void DispReset(bool32 updateHUD);
+void DispReset(bool32 refresh);
 
 u32 CheckPlayerProximity(u32, u32, u32, u32);
 
-#endif
+void sub_0801E1EC(u32, u32, u32);
+
+#endif // COMMON_H

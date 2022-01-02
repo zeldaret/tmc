@@ -5,7 +5,7 @@
 #include "area.h"
 #include "sound.h"
 #include "screen.h"
-#include "utils.h"
+#include "common.h"
 #include "fileScreen.h"
 #include "functions.h"
 

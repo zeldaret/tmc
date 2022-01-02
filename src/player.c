@@ -4,7 +4,7 @@
 #include "entity.h"
 #include "player.h"
 #include "message.h"
-#include "utils.h"
+#include "common.h"
 #include "area.h"
 #include "item.h"
 #include "save.h"

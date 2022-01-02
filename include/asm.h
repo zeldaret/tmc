@@ -3,8 +3,6 @@
 
 #include "global.h"
 
-struct Entity_;
-
 extern u32 Random(void);
 extern void sub_08000152(u32, u32, u32);
 extern u32 GetTileTypeByEntity(struct Entity_*);

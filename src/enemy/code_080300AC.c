@@ -1,5 +1,5 @@
 #include "global.h"
-#include "utils.h"
+#include "common.h"
 #include "functions.h"
 
 void sub_080300AC(void) {

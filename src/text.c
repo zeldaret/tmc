@@ -1,5 +1,5 @@
 #include "global.h"
-#include "utils.h"
+#include "common.h"
 #include "structures.h"
 #include "functions.h"
 #include "asm.h"

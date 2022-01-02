@@ -78,6 +78,8 @@ void InitScreen(u32 screen);
 
 void InitDMA(void);
 
+void sub_0805622C(void* a1, u32 a2, u32 a3);
+
 extern void sub_08056208(void);
 extern void ResetPalettes(void);
 

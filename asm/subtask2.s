@@ -1258,13 +1258,13 @@ _080A5CFA:
 sub_080A5CFC: @ 0x080A5CFC
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0801DDA0
+	bl DrawDungeonFeatures
 	bl LoadDungeonMap
 	ldr r1, _080A5D18 @ =gUnk_02019EE0
 	movs r2, #0x80
 	lsls r2, r2, #3
 	adds r0, r4, #0
-	bl sub_0801DBA0
+	bl DrawDungeonMap
 	pop {r4, pc}
 	.align 2, 0
 _080A5D18: .4byte gUnk_02019EE0
@@ -3818,7 +3818,7 @@ sub_080A6B04: @ 0x080A6B04
 	bl sub_080A4D34
 	movs r0, #6
 	bl sub_080A4DB8
-	ldr r0, _080A6BF0 @ =gUnk_02022740
+	ldr r0, _080A6BF0 @ =gFuseInfo
 	ldrb r2, [r0, #3]
 	lsls r2, r2, #3
 	ldr r0, _080A6BF4 @ =gUnk_080C9CBC
@@ -3925,7 +3925,7 @@ _080A6BD4:
 	mov r8, r3
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080A6BF0: .4byte gUnk_02022740
+_080A6BF0: .4byte gFuseInfo
 _080A6BF4: .4byte gUnk_080C9CBC
 _080A6BF8: .4byte gUnk_080FE320
 _080A6BFC: .4byte gMenu

@@ -6,6 +6,7 @@
 
 #include "object.h"
 #include "npc.h"
+#include "kinstone.h"
 
 #include "functions.h"
 
@@ -1154,7 +1155,7 @@ void ScriptCommand_0807E9F0(Entity* entity, ScriptExecutionContext* context) {
     u32 tmp;
     sub_0801E00C();
     tmp = 1;
-    switch (gUnk_02022740[0]) {
+    switch (gFuseInfo._0) {
         case 2:
             gPlayerState.controlMode = CONTROL_DISABLED;
             gUnk_02034490[0] = tmp;

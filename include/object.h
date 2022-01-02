@@ -3,7 +3,7 @@
 
 #include "global.h"
 #include "asm.h"
-#include "utils.h"
+#include "common.h"
 
 #include "sound.h"
 #include "flags.h"

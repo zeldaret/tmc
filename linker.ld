@@ -79,7 +79,7 @@ SECTIONS {
         . = 0x00022030; gUnk_02022030 = .;
         . = 0x00022130; gUnk_02022130 = .;
         . = 0x00022730; gUnk_02022730 = .;
-        . = 0x00022740; gUnk_02022740 = .;
+        . = 0x00022740; gFuseInfo = .;
         . = 0x00022750; gPlayerScriptExecutionContext = .;
         . = 0x00022780; gTextRender = .;
         . = 0x000227DC; gUnk_020227DC = .;
@@ -315,9 +315,8 @@ SECTIONS {
         src/playerItem/playerItemCellOverwriteSet.o(.text);
         asm/ui.o(.text);
         src/ui.o(.text);
-        asm/code_0801CEC0.o(.text); /* utils.c */
-        src/utils.o(.text);
-        asm/utils.o(.text);
+        src/color.o(.text);
+        src/common.o(.text);
         /* enemies */
         src/enemy/octorok.o(.text);
         src/enemy/chuchu.o(.text);

@@ -2,7 +2,7 @@
 #include "main.h"
 #include "gba/m4a.h"
 #include "sound.h"
-#include "utils.h"
+#include "common.h"
 
 #define IS_BGM(song) ((song)-1 <= NUM_BGM - 1)
 #define IS_SFX(song) ((song)-1 > NUM_BGM - 1)

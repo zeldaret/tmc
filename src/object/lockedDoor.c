@@ -6,6 +6,7 @@
 #include "functions.h"
 #include "effects.h"
 #include "game.h"
+#include "common.h"
 
 void sub_08083338(Entity*);
 void sub_080834B4(Entity*);

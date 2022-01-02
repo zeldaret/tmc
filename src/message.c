@@ -2,7 +2,7 @@
 #include "sound.h"
 #include "asm.h"
 #include "room.h"
-#include "utils.h"
+#include "common.h"
 #include "functions.h"
 #include "message.h"
 #include "save.h"
@@ -35,7 +35,7 @@ extern void sub_0805EF40(Token* tok, const u8*);
 extern void RecoverUI(u32 bottomPt, u32 topPt);
 extern void RefreshUI(void);
 extern void sub_0805F918(u32, u32, u32);
-extern u32 sub_0801D51C(u32, u8*, u32);
+extern u32 DecToHex(u32, u8*, u32);
 
 u32 sub_08056FEC(u32, u8*);
 u32 GetCharacter(Token* tok);
@@ -831,7 +831,7 @@ NONMATCH("asm/non_matching/textbox/sub_08056FEC.inc", u32 sub_08056FEC(u32 this,
     int iVar4;
     u8 local_1c[8];
 
-    uVar1 = sub_0801D51C(this, param_2, this);
+    uVar1 = DecToHex(this, param_2, this);
     uVar1 = uVar1 & 0xfffffff;
     iVar4 = 0;
     do {
