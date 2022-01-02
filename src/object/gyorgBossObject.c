@@ -11,7 +11,6 @@
 extern const ScreenTransitionData gUnk_0813ABD0;
 
 extern u32 sub_08079F8C(void);
-extern const u16 gUnk_08124EF8[];
 extern s16* const gUnk_08124FF0[];
 
 extern void sub_080A1DCC(GyorgBossObjectEntity*);
@@ -24,9 +23,22 @@ void sub_080A1FF0(GyorgBossObjectEntity*);
 u32 sub_080A20B8(GyorgBossObjectEntity*, GenericEntity*);
 void sub_080A1D70(GyorgBossObjectEntity*, u32);
 
-extern void (*const gUnk_08124ED0[])(GyorgBossObjectEntity*);
+void sub_080A1704(GyorgBossObjectEntity*);
+void sub_080A184C(GyorgBossObjectEntity*);
+void sub_080A189C(GyorgBossObjectEntity*);
+void sub_080A190C(GyorgBossObjectEntity*);
+void sub_080A1990(GyorgBossObjectEntity*);
+void sub_080A19FC(GyorgBossObjectEntity*);
+void sub_080A1A80(GyorgBossObjectEntity*);
+void sub_080A1AE8(GyorgBossObjectEntity*);
+void sub_080A1B4C(GyorgBossObjectEntity*);
+void sub_080A1C04(GyorgBossObjectEntity*);
 
 void GyorgBossObject(Entity* this) {
+    static void (*const gUnk_08124ED0[])(GyorgBossObjectEntity*) = {
+        sub_080A1704, sub_080A184C, sub_080A189C, sub_080A190C, sub_080A1990,
+        sub_080A19FC, sub_080A1A80, sub_080A1AE8, sub_080A1B4C, sub_080A1C04,
+    };
     gUnk_08124ED0[this->action]((GyorgBossObjectEntity*)this);
     sub_080A1DCC((GyorgBossObjectEntity*)this);
     sub_080A1C9C((GyorgBossObjectEntity*)this);
@@ -130,7 +142,7 @@ void sub_080A190C(GyorgBossObjectEntity* this) {
     }
 }
 
-void sub_080A1990(GyorgBossObjectEntity* this, u32 unk1) {
+void sub_080A1990(GyorgBossObjectEntity* this) {
     if (((GyorgFemaleHeap*)super->myHeap)->female->base.health == 0) {
         ((GyorgFemaleHeap*)super->myHeap)->male1->base.health = 0xC;
         super->action = 5;
@@ -339,6 +351,7 @@ void sub_080A1E54(GyorgBossObjectEntity* this) {
 }
 
 void sub_080A1ED0(u32 unk0, u32 unk1, u32 unk2) {
+    static const u16 gUnk_08124EF8[] = { 0x200, 0x1C0, 0x250, 0x210, 0x200, 0x260, 0x1B0, 0x210 };
     u32 i = 0;
     s16* p;
     u32 x, y;

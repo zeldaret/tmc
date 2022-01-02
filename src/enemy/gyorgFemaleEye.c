@@ -6,20 +6,26 @@
 #include "functions.h"
 #include "enemy/gyorg.h"
 
-typedef struct {
-    Entity base;
-    u8 unk_68[0x20];
-} GyorgFemaleEyeEntity;
+void sub_080489B4(GyorgFemaleEyeEntity*);
+void sub_080489CC(GyorgFemaleEyeEntity*);
 
-extern void (*const gUnk_080D1F64[])(GyorgFemaleEyeEntity*);
-extern void (*const gUnk_080D1F7C[])(GyorgFemaleEyeEntity*);
-
-extern const u8 gUnk_080D2030[];
-extern const u8 gUnk_080D2010[];
+void sub_08048AF0(GyorgFemaleEyeEntity*);
+void sub_08048B2C(GyorgFemaleEyeEntity*);
+void sub_08048B84(GyorgFemaleEyeEntity*);
+void sub_08048BB0(GyorgFemaleEyeEntity*);
+void sub_08048CEC(GyorgFemaleEyeEntity*);
 
 void sub_08048D20(GyorgFemaleEyeEntity*);
-
 u32 sub_08048D70(GyorgFemaleEntity*);
+
+void (*const gUnk_080D1F64[])(GyorgFemaleEyeEntity*) = {
+    sub_080489B4,
+    sub_080489CC,
+    (void (*)(GyorgFemaleEyeEntity*))sub_08001324,
+    (void (*)(GyorgFemaleEyeEntity*))sub_0804A7D4,
+    (void (*)(GyorgFemaleEyeEntity*))sub_08001242,
+    sub_080489B4,
+};
 
 void GyorgFemaleEye(Entity* this) {
     if (this->parent->next == NULL) {
@@ -29,8 +35,32 @@ void GyorgFemaleEye(Entity* this) {
 }
 
 void sub_080489B4(GyorgFemaleEyeEntity* this) {
+    static void (*const gUnk_080D1F7C[])(GyorgFemaleEyeEntity*) = {
+        sub_08048AF0, sub_08048B2C, sub_08048B84, sub_08048BB0, sub_08048CEC,
+    };
     gUnk_080D1F7C[super->action](this);
 }
+
+typedef struct {
+    u16 x, y;
+} xy;
+
+const xy gUnk_080D1F90[] = {
+    { 0x1e8, 0x1d8 }, { 0x1f8, 0x1d8 }, { 0x208, 0x1d8 }, { 0x218, 0x1d8 }, { 0x1e8, 0x1e8 }, { 0x1f8, 0x1e8 },
+    { 0x208, 0x1e8 }, { 0x218, 0x1e8 }, { 0x238, 0x1f8 }, { 0x238, 0x208 }, { 0x238, 0x218 }, { 0x238, 0x228 },
+    { 0x228, 0x1f8 }, { 0x228, 0x208 }, { 0x228, 0x218 }, { 0x228, 0x228 }, { 0x218, 0x248 }, { 0x208, 0x248 },
+    { 0x1f8, 0x248 }, { 0x1e8, 0x248 }, { 0x218, 0x238 }, { 0x208, 0x238 }, { 0x1f8, 0x238 }, { 0x1e8, 0x238 },
+    { 0x1c8, 0x228 }, { 0x1c8, 0x218 }, { 0x1c8, 0x208 }, { 0x1c8, 0x1f8 }, { 0x1d8, 0x228 }, { 0x1d8, 0x218 },
+    { 0x1d8, 0x208 }, { 0x1d8, 0x1f8 },
+};
+
+const u8 gUnk_080D2010[] = {
+    0, 0, 1, 1, 0, 0, 1, 1, 4, 4, 5, 5, 4, 4, 5, 5, 9, 9, 8, 8, 9, 9, 8, 8, 13, 13, 12, 12, 13, 13, 12, 12,
+};
+
+const u8 gUnk_080D2030[] = {
+    2, 2, 3, 3, 2, 2, 3, 3, 6, 6, 7, 7, 6, 6, 7, 7, 11, 11, 10, 10, 11, 11, 10, 10, 15, 15, 14, 14, 15, 15, 14, 14,
+};
 
 void sub_080489CC(GyorgFemaleEyeEntity* this) {
     GyorgFemaleEntity* parent;
@@ -151,13 +181,6 @@ void sub_08048CEC(GyorgFemaleEyeEntity* this) {
         InitializeAnimation(super, gUnk_080D2010[(super->animationState << 3) + super->type]);
     }
 }
-
-typedef struct {
-    u16 x, y;
-} xy;
-
-extern const xy gUnk_080D1F90[];
-
 void sub_08048D20(GyorgFemaleEyeEntity* this) {
     GyorgFemaleEntity* parent = (GyorgFemaleEntity*)super->parent;
     const xy* tmp;

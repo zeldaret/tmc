@@ -13,7 +13,7 @@ extern u8 gMapDataTopSpecial[];
 
 extern u16 gUnk_02019EE0[];
 
-extern void sub_080197D4(u32);
+extern void sub_080197D4(const void*);
 
 extern u32 sub_08000E62(u32);
 extern void RegisterTransitionManager(void*, void (*)(), void (*)());
@@ -28,17 +28,23 @@ void sub_08046668(GyorgFemaleEntity*);
 void sub_08046518(void);
 void sub_080467DC(GyorgFemaleEntity*);
 
-extern void (*const gUnk_080D1A64[])(GyorgFemaleEntity*);
-extern u32 gUnk_080D1A74[];
 extern u8 gUpdateVisibleTiles;
 extern u8 gUnk_080B3E80[];
 extern u8 gUnk_080B37A0[];
 extern u16 gMetatileTypesTop[];
-extern const u16 gUnk_080D1A84[];
-extern const u8 gUnk_080D1AF4[];
-extern const u8 gUnk_080D1AF8[];
+
+void sub_0804614C(GyorgFemaleEntity*);
+void sub_0804625C(GyorgFemaleEntity*);
+void sub_0804632C(GyorgFemaleEntity*);
+void sub_080463E4(GyorgFemaleEntity*);
 
 void GyorgFemale(Entity* this) {
+    static void (*const gUnk_080D1A64[])(GyorgFemaleEntity*) = {
+        sub_0804614C,
+        sub_0804625C,
+        sub_0804632C,
+        sub_080463E4,
+    };
     gUnk_080D1A64[this->action]((GyorgFemaleEntity*)this);
 }
 
@@ -211,7 +217,18 @@ void sub_08046498(GyorgFemaleEntity* this) {
 }
 #endif
 
+extern const u8 gUnk_080D1A94[];
+extern const u8 gUnk_080D1AAC[];
+extern const u8 gUnk_080D1AC4[];
+extern const u8 gUnk_080D1ADC[];
+
 void sub_080464C0(GyorgFemaleEntity* this) {
+    static const void* const gUnk_080D1A74[] = {
+        gUnk_080D1A94,
+        gUnk_080D1AAC,
+        gUnk_080D1AC4,
+        gUnk_080D1ADC,
+    };
     s32 i;
     u8* src;
     u8* dst;
@@ -261,6 +278,9 @@ void sub_080465C8(void) {
 }
 
 void sub_0804660C(GyorgFemaleEntity* this, u32 unk1) {
+    static const u16 gUnk_080D1A84[] = {
+        0x200, 0x258, 0x1B8, 0x210, 0x200, 0x1C8, 0x248, 0x210,
+    };
     const u16* p;
     super->animationState = unk1;
     p = &gUnk_080D1A84[unk1 >> 5];
@@ -268,7 +288,85 @@ void sub_0804660C(GyorgFemaleEntity* this, u32 unk1) {
     super->y.HALF.HI = p[1] + gRoomControls.roomOriginY;
 }
 
+// todo: correct type
+const u8 gUnk_080D1A94[] = {
+#if defined(JP) || defined(DEMO_JP)
+    0x7C,
+#elif defined(EU)
+    0x50,
+#else
+    0x08,
+#endif
+    0x41, 0x22, 0x80, 0xE0, 0x9E, 0x01, 0x02, 0x00, 0x08, 0x00, 0x80,
+#if defined(JP) || defined(DEMO_JP)
+    0x2C, 0xD3,
+#elif defined(EU)
+    0x00, 0xD3,
+#else
+    0xB8, 0xD2,
+#endif
+    0x22, 0x00, 0x54, 0xB6, 0x00, 0x02, 0x80, 0x1F, 0x00, 0x80,
+};
+
+const u8 gUnk_080D1AAC[] = {
+#if defined(JP) || defined(DEMO_JP)
+    0xFC,
+#elif defined(EU)
+    0xD0,
+#else
+    0x88,
+#endif
+    0x3D, 0x22, 0x80, 0xE0, 0x9E, 0x01, 0x02, 0x00, 0x08, 0x00, 0x80,
+#if defined(JP) || defined(DEMO_JP)
+    0xF8,
+#elif defined(EU)
+    0xCC,
+#else
+    0x84,
+#endif
+    0xD6, 0x22, 0x00, 0x54, 0xB6, 0x00, 0x02, 0x80, 0x1F, 0x00, 0x80,
+};
+
+const u8 gUnk_080D1AC4[] = {
+#if defined(JP) || defined(DEMO_JP)
+    0xE4,
+#elif defined(EU)
+    0xB8,
+#else
+    0x70,
+#endif
+    0x36, 0x22, 0x80, 0xE0, 0x9E, 0x01, 0x02, 0x00, 0x08, 0x00, 0x80,
+#if defined(JP) || defined(DEMO_JP)
+    0xC0,
+#elif defined(EU)
+    0x94,
+#else
+    0x4C,
+#endif
+    0xDA, 0x22, 0x00, 0x54, 0xB6, 0x00, 0x02, 0x80, 0x1F, 0x00, 0x80,
+};
+
+const u8 gUnk_080D1ADC[] = {
+#if defined(JP) || defined(DEMO_JP)
+    0x78,
+#elif defined(EU)
+    0x4C,
+#else
+    0x04,
+#endif
+    0x3A, 0x22, 0x80, 0xE0, 0x9E, 0x01, 0x02, 0x00, 0x08, 0x00, 0x80,
+#if defined(JP) || defined(DEMO_JP)
+    0x88,
+#elif defined(EU)
+    0x5C,
+#else
+    0x14,
+#endif
+    0xDE, 0x22, 0x00, 0x54, 0xB6, 0x00, 0x02, 0x80, 0x1F, 0x00, 0x80,
+};
+
 void sub_08046634(GyorgFemaleEntity* this, u32 unk1) {
+    static const u8 gUnk_080D1AF4[] = { 2, 3, 6, 7 };
     u32 tmp;
     if (unk1 == 0) {
         tmp = gUnk_080D1AF4[Random() & 3];
@@ -279,6 +377,7 @@ void sub_08046634(GyorgFemaleEntity* this, u32 unk1) {
 }
 
 void sub_08046668(GyorgFemaleEntity* this) {
+    static const u8 gUnk_080D1AF8[] = { 0x16, 0x92, 0x94, 0x86 };
     if (super->health == 0) {
         return;
     }

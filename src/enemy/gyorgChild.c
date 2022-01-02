@@ -1,10 +1,22 @@
 #define NENT_DEPRECATED
 #include "global.h"
 #include "room.h"
+#include "asm.h"
 #include "functions.h"
 #include "enemy/gyorg.h"
 
-extern void (*const gUnk_080D1E6C[])(GyorgChildEntity*);
+void sub_08048684(GyorgChildEntity*);
+void sub_0804869C(GyorgChildEntity*);
+void sub_080486AC(GyorgChildEntity*);
+
+void (*const gUnk_080D1E6C[])(GyorgChildEntity*) = {
+    sub_08048684,
+    sub_0804869C,
+    (void (*)(GyorgChildEntity*))sub_08001324,
+    (void (*)(GyorgChildEntity*))sub_0804A7D4,
+    (void (*)(GyorgChildEntity*))sub_08001242,
+    sub_080486AC,
+};
 
 void GyorgChild(Entity* this) {
     if (gScreenTransition.field_0x39 == 0) {
@@ -15,21 +27,35 @@ void GyorgChild(Entity* this) {
     gUnk_080D1E6C[GetNextFunction(this)]((GyorgChildEntity*)this);
 }
 
-extern void (*const gUnk_080D1E84[])(GyorgChildEntity*);
+void sub_080486F4(GyorgChildEntity*);
+void sub_0804877C(GyorgChildEntity*);
+void sub_0804882C(GyorgChildEntity*);
+void sub_08048904(GyorgChildEntity*);
 
 void sub_08048684(GyorgChildEntity* this) {
+    static void (*const gUnk_080D1E84[])(GyorgChildEntity*) = {
+        sub_080486F4,
+        sub_0804877C,
+        sub_0804882C,
+        sub_08048904,
+    };
     gUnk_080D1E84[super->action](this);
 }
-
-extern void (*const gUnk_080D1E6C[])(GyorgChildEntity*);
 
 void sub_0804869C(GyorgChildEntity* this) {
     sub_0804AA30(super, gUnk_080D1E6C);
 }
 
-extern void (*const gUnk_080D1E94[])(GyorgChildEntity*);
+void sub_080486D0(GyorgChildEntity*);
+void sub_080486D8(GyorgChildEntity*);
+void sub_080486E0(GyorgChildEntity*);
 
 void sub_080486AC(GyorgChildEntity* this) {
+    static void (*const gUnk_080D1E94[])(GyorgChildEntity*) = {
+        sub_080486D0,
+        sub_080486D8,
+        sub_080486E0,
+    };
     if (sub_0806F520()) {
         gUnk_080D1E94[super->subAction](this);
     }
@@ -49,9 +75,11 @@ void sub_080486E0(GyorgChildEntity* this) {
     }
 }
 
-extern const u8 gUnk_080D1EA0[];
-
 void sub_080486F4(GyorgChildEntity* this) {
+    static const s8 gUnk_080D1EA0[] = {
+        0x50, 0x1,  0x40, 0x1,  0x30, 0x1,  0x20, 0x1,  0x10, 0x1,  0,
+        0,    0x10, -0x1, 0x20, -0x1, 0x30, -0x1, 0x40, -0x1, 0x50, -0x1,
+    };
     super->field_0x1c = 1;
     super->spriteOrientation.flipY = 3;
     super->spriteRendering.b3 = 3;

@@ -23,6 +23,11 @@ typedef struct {
 
 typedef struct {
     Entity base;
+    u8 unk_68[0x20];
+} GyorgFemaleEyeEntity;
+
+typedef struct {
+    Entity base;
     u8 filler[0x20];
 } GyorgFemaleMouthEntity;
 
