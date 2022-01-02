@@ -296,11 +296,6 @@ NONMATCH("./asm/getEmptyEntity.s", Entity* GetEmptyEntity()) {
 }
 END_NONMATCH
 
-//#define NDEPRECATED
-
-#include "entity.h"
-#include "functions.h"
-
 extern Entity gUnk_030011E8[7];
 
 Entity* sub_0805E744(void) {
