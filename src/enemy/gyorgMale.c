@@ -1,392 +1,393 @@
+#define NENT_DEPRECATED
 #include "global.h"
 #include "enemy.h"
 #include "player.h"
 #include "fileScreen.h"
 #include "functions.h"
 #include "effects.h"
+#include "enemy/gyorg.h"
 
 // todo: wrong types
 extern void sub_080A1D70(Entity*, u32);
 
-void (*const gUnk_080D1AFC[8])(Entity*);
-void (*const gUnk_080D1B1C[7])(Entity*);
-void (*const gUnk_080D1B38[5])(Entity*);
-void (*const gUnk_080D1B4C[5])(Entity*);
+void (*const gUnk_080D1AFC[8])(GyorgMaleEntity*);
+void (*const gUnk_080D1B1C[7])(GyorgMaleEntity*);
+void (*const gUnk_080D1B38[5])(GyorgMaleEntity*);
+void (*const gUnk_080D1B4C[5])(GyorgMaleEntity*);
 const u16 gUnk_080D1B60[8];
 const s16 gUnk_080D1B70[2]; // or 3?
 const u16 gUnk_080D1B74[0x10];
-void (*const gUnk_080D1B94[0xA])(Entity*);
+void (*const gUnk_080D1B94[0xA])(GyorgMaleEntity*);
 const u16 gUnk_080D1BBC[2];
-void (*const gUnk_080D1BC0[7])(Entity*);
-void (*const gUnk_080D1BDC[5])(Entity*);
+void (*const gUnk_080D1BC0[7])(GyorgMaleEntity*);
+void (*const gUnk_080D1BDC[5])(GyorgMaleEntity*);
 const s16 gUnk_080D1BF0[2];
-void (*const gUnk_080D1BF4[3])(Entity*);
+void (*const gUnk_080D1BF4[3])(GyorgMaleEntity*);
 const s8 gUnk_080D1C00[4];
 const u16 gUnk_080D1C04[0x20];
 const u8 gUnk_080D1C44[0xC];
 const u16 gUnk_080D1C50[8];
 const u16 gUnk_080D1C60[8];
 
-void sub_08046898(Entity*); // action 0
-void sub_08046910(Entity*); // action 1
-void sub_08046930(Entity*); // action 1 subAction 0
-void sub_0804696C(Entity*); // action 1 subAction 1
-void sub_080469CC(Entity*); // action 1 subAction 2
-void sub_080469F4(Entity*); // action 1 subAction 3
-void sub_08046A30(Entity*); // action 1 subAction 4
-void sub_08046A54(Entity*); // action 1 subAction 5
-void sub_08046A78(Entity*); // action 1 subAction 6
-void sub_08046A9C(Entity*); // action 2
-void sub_08046AE8(Entity*); // action 2 subAction 0
-void sub_08046B18(Entity*); // action 2 subAction 1
-void sub_08046B8C(Entity*); // action 2 subAction 2
-void sub_08046C04(Entity*); // action 2 subAction 3
-void sub_08046C88(Entity*); // action 2 subAction 4
-void sub_08046CEC(Entity*); // action 3
-void sub_08046D44(Entity*); // action 3 subAction 0
-void sub_08046D98(Entity*); // action 3 subAction 1
-void sub_08046E0C(Entity*); // action 3 subAction 2
-void sub_08046E68(Entity*); // action 3 subAction 3
-void sub_08046EF4(Entity*); // action 3 subAction 4
-void sub_08046F64(Entity*); // action 4
-void sub_08046FE8(Entity*); // action 4 subAction 0
-void sub_0804702C(Entity*); // action 4 subAction 1
-void sub_080470B4(Entity*); // action 4 subAction 2
-void sub_08047140(Entity*); // action 4 subAction 3
-void sub_0804717C(Entity*); // action 4 subAction 4
-void sub_080471C8(Entity*); // action 4 subAction 5
-void sub_0804723C(Entity*); // action 4 subAction 6
-void sub_08047284(Entity*); // action 4 subAction 7
-void sub_080472BC(Entity*); // action 4 subAction 8
-void sub_08047310(Entity*); // action 4 subAction 9
-void sub_0804736C(Entity*); // action 5
-void sub_080473B8(Entity*); // action 5 subAction 0
-void sub_080473F0(Entity*); // action 5 subAction 1
-void sub_08047484(Entity*); // action 5 subAction 2
-void sub_08047508(Entity*); // action 5 subAction 3
-void sub_080475F4(Entity*); // action 5 subAction 4
-void sub_0804763C(Entity*); // action 5 subAction 5
-void sub_0804772C(Entity*); // action 5 subAction 6
-void sub_08047778(Entity*); // action 6
-void sub_08047798(Entity*); // action 6 subAction 0
-void sub_080477F0(Entity*); // action 6 subAction 1
-void sub_08047914(Entity*); // action 6 subAction 2
-void sub_08047978(Entity*); // action 6 subAction 3
-void sub_08047B08(Entity*); // action 6 subAction 4
-void sub_08047B84(Entity*); // action 7
-void sub_08047BA4(Entity*); // action 7 subAction 0
-void sub_08047BF0(Entity*); // action 7 subAction 1, also called elsewhere
-void sub_08047D24(Entity*); // action 7 subAction 2
-void sub_08047D88(Entity*); //
-void sub_08047DF0(Entity*, u32);
-void sub_08047E48(Entity*); //
-void sub_08047E58(Entity*); //
-void sub_08047EA4(Entity*, u32);
-u32 sub_08047F68(Entity*);  // distance this to player?
-void sub_08048004(Entity*); //
-void sub_0804813C(Entity*); //
+void sub_08046898(GyorgMaleEntity*); // action 0
+void sub_08046910(GyorgMaleEntity*); // action 1
+void sub_08046930(GyorgMaleEntity*); // action 1 subAction 0
+void sub_0804696C(GyorgMaleEntity*); // action 1 subAction 1
+void sub_080469CC(GyorgMaleEntity*); // action 1 subAction 2
+void sub_080469F4(GyorgMaleEntity*); // action 1 subAction 3
+void sub_08046A30(GyorgMaleEntity*); // action 1 subAction 4
+void sub_08046A54(GyorgMaleEntity*); // action 1 subAction 5
+void sub_08046A78(GyorgMaleEntity*); // action 1 subAction 6
+void sub_08046A9C(GyorgMaleEntity*); // action 2
+void sub_08046AE8(GyorgMaleEntity*); // action 2 subAction 0
+void sub_08046B18(GyorgMaleEntity*); // action 2 subAction 1
+void sub_08046B8C(GyorgMaleEntity*); // action 2 subAction 2
+void sub_08046C04(GyorgMaleEntity*); // action 2 subAction 3
+void sub_08046C88(GyorgMaleEntity*); // action 2 subAction 4
+void sub_08046CEC(GyorgMaleEntity*); // action 3
+void sub_08046D44(GyorgMaleEntity*); // action 3 subAction 0
+void sub_08046D98(GyorgMaleEntity*); // action 3 subAction 1
+void sub_08046E0C(GyorgMaleEntity*); // action 3 subAction 2
+void sub_08046E68(GyorgMaleEntity*); // action 3 subAction 3
+void sub_08046EF4(GyorgMaleEntity*); // action 3 subAction 4
+void sub_08046F64(GyorgMaleEntity*); // action 4
+void sub_08046FE8(GyorgMaleEntity*); // action 4 subAction 0
+void sub_0804702C(GyorgMaleEntity*); // action 4 subAction 1
+void sub_080470B4(GyorgMaleEntity*); // action 4 subAction 2
+void sub_08047140(GyorgMaleEntity*); // action 4 subAction 3
+void sub_0804717C(GyorgMaleEntity*); // action 4 subAction 4
+void sub_080471C8(GyorgMaleEntity*); // action 4 subAction 5
+void sub_0804723C(GyorgMaleEntity*); // action 4 subAction 6
+void sub_08047284(GyorgMaleEntity*); // action 4 subAction 7
+void sub_080472BC(GyorgMaleEntity*); // action 4 subAction 8
+void sub_08047310(GyorgMaleEntity*); // action 4 subAction 9
+void sub_0804736C(GyorgMaleEntity*); // action 5
+void sub_080473B8(GyorgMaleEntity*); // action 5 subAction 0
+void sub_080473F0(GyorgMaleEntity*); // action 5 subAction 1
+void sub_08047484(GyorgMaleEntity*); // action 5 subAction 2
+void sub_08047508(GyorgMaleEntity*); // action 5 subAction 3
+void sub_080475F4(GyorgMaleEntity*); // action 5 subAction 4
+void sub_0804763C(GyorgMaleEntity*); // action 5 subAction 5
+void sub_0804772C(GyorgMaleEntity*); // action 5 subAction 6
+void sub_08047778(GyorgMaleEntity*); // action 6
+void sub_08047798(GyorgMaleEntity*); // action 6 subAction 0
+void sub_080477F0(GyorgMaleEntity*); // action 6 subAction 1
+void sub_08047914(GyorgMaleEntity*); // action 6 subAction 2
+void sub_08047978(GyorgMaleEntity*); // action 6 subAction 3
+void sub_08047B08(GyorgMaleEntity*); // action 6 subAction 4
+void sub_08047B84(GyorgMaleEntity*); // action 7
+void sub_08047BA4(GyorgMaleEntity*); // action 7 subAction 0
+void sub_08047BF0(GyorgMaleEntity*); // action 7 subAction 1, also called elsewhere
+void sub_08047D24(GyorgMaleEntity*); // action 7 subAction 2
+void sub_08047D88(GyorgMaleEntity*); //
+void sub_08047DF0(GyorgMaleEntity*, u32);
+void sub_08047E48(GyorgMaleEntity*); //
+void sub_08047E58(GyorgMaleEntity*); //
+void sub_08047EA4(GyorgMaleEntity*, u32);
+u32 sub_08047F68(GyorgMaleEntity*);  // distance this to player?
+void sub_08048004(GyorgMaleEntity*); //
+void sub_0804813C(GyorgMaleEntity*); //
 u32 sub_08048158(u32);
-void sub_08048178(Entity*, u32);
+void sub_08048178(GyorgMaleEntity*, u32);
 
-void (*const gUnk_080D1AFC[8])(Entity*) = { sub_08046898, sub_08046910, sub_08046A9C, sub_08046CEC,
-                                            sub_08046F64, sub_0804736C, sub_08047778, sub_08047B84 };
+void (*const gUnk_080D1AFC[8])(GyorgMaleEntity*) = { sub_08046898, sub_08046910, sub_08046A9C, sub_08046CEC,
+                                                     sub_08046F64, sub_0804736C, sub_08047778, sub_08047B84 };
 
-void GyorgMale(Entity* this) {
-    if (this->action) {
-        this->spriteSettings.draw = this->field_0x7c.BYTES.byte1;
+void GyorgMale(GyorgMaleEntity* this) {
+    if (super->action) {
+        super->spriteSettings.draw = this->unk_7d;
     }
-    gUnk_080D1AFC[this->action](this);
-    if (this->action != 7) {
-        sub_0805EC9C(this, 0xaa, 0xaa, this->field_0x78.HWORD);
+    gUnk_080D1AFC[super->action](this);
+    if (super->action != 7) {
+        sub_0805EC9C(this, 0xaa, 0xaa, this->unk_78);
     }
-    this->animationState = -(this->field_0x78.HWORD >> 8);
+    super->animationState = -(this->unk_78 >> 8);
     sub_08048004(this);
-    this->field_0x7c.BYTES.byte1 = this->spriteSettings.draw;
-    if (this->spriteSettings.draw == 1 && (this->y.HALF.HI - gRoomControls.roomScrollY + 0x30) > 0x100u) {
-        this->spriteSettings.draw = 0;
+    this->unk_7d = super->spriteSettings.draw;
+    if (super->spriteSettings.draw == 1 && (super->y.HALF.HI - gRoomControls.roomScrollY + 0x30) > 0x100u) {
+        super->spriteSettings.draw = 0;
     }
-    this->cutsceneBeh.HWORD = gPlayerEntity.x.HALF.HI;
-    this->field_0x86.HWORD = gPlayerEntity.y.HALF.HI;
+    this->unk_84 = gPlayerEntity.x.HALF.HI;
+    this->unk_86 = gPlayerEntity.y.HALF.HI;
 }
 
-void sub_08046898(Entity* this) {
+void sub_08046898(GyorgMaleEntity* this) {
     Entity* tmp = CreateProjectile(0x22);
     u32 tmp2;
     if (!tmp)
         return;
     tmp->type = 1;
-    tmp->parent = this;
-    this->child = tmp;
-    this->action = 1;
-    this->subAction = 0;
-    this->spriteRendering.b0 = 3;
-    this->spriteSettings.draw = 1;
-    this->spriteOrientation.flipY = 2;
-    this->spriteRendering.b3 = 2;
-    this->field_0x3c |= 0x10;
-    this->collisionLayer = 2;
-    this->field_0x7c.BYTES.byte0 = 0;
-    this->field_0x78.HWORD = 0;
-    this->field_0x7a.HWORD = 0;
-    this->field_0x70.HALF.HI = 0;
-    InitAnimationForceUpdate(this, 0);
+    tmp->parent = super;
+    super->child = tmp;
+    super->action = 1;
+    super->subAction = 0;
+    super->spriteRendering.b0 = 3;
+    super->spriteSettings.draw = 1;
+    super->spriteOrientation.flipY = 2;
+    super->spriteRendering.b3 = 2;
+    super->field_0x3c |= 0x10;
+    super->collisionLayer = 2;
+    this->unk_7c = 0;
+    this->unk_78 = 0;
+    this->unk_7a = 0;
+    this->unk_72 = 0;
+    InitAnimationForceUpdate(super, 0);
 }
 
-void (*const gUnk_080D1B1C[7])(Entity*) = { sub_08046930, sub_0804696C, sub_080469CC, sub_080469F4,
-                                            sub_08046A30, sub_08046A54, sub_08046A78 };
+void (*const gUnk_080D1B1C[7])(GyorgMaleEntity*) = { sub_08046930, sub_0804696C, sub_080469CC, sub_080469F4,
+                                                     sub_08046A30, sub_08046A54, sub_08046A78 };
 
-void sub_08046910(Entity* this) {
-    gUnk_080D1B1C[this->subAction](this);
-    UpdateAnimationSingleFrame(this);
+void sub_08046910(GyorgMaleEntity* this) {
+    gUnk_080D1B1C[super->subAction](this);
+    UpdateAnimationSingleFrame(super);
 }
 
-void sub_08046930(Entity* this) {
-    if (this->type) {
-        this->subAction = 5;
-        this->direction = 0x20;
+void sub_08046930(GyorgMaleEntity* this) {
+    if (super->type) {
+        super->subAction = 5;
+        super->direction = 0x20;
 #ifdef EU
-        this->speed = 0x200;
+        super->speed = 0x200;
 #else
-        this->speed = 0x280;
+        super->speed = 0x280;
 #endif
     }
     sub_08047D88(this);
-    if (this->field_0x7c.BYTES.byte0 == 0)
+    if (this->unk_7c == 0)
         return;
-    this->subAction = 1;
-    this->actionDelay = 1;
-    this->animationState = 0;
-    this->direction = 0;
+    super->subAction = 1;
+    super->actionDelay = 1;
+    super->animationState = 0;
+    super->direction = 0;
 #ifdef EU
-    this->speed = 0x200;
+    super->speed = 0x200;
 #else
-    this->speed = 0x280;
+    super->speed = 0x280;
 #endif
 }
 
-void sub_0804696C(Entity* this) {
+void sub_0804696C(GyorgMaleEntity* this) {
     sub_08047E48(this);
-    if (gRoomControls.roomOriginY + 0x130 > this->y.HALF.HI) {
-        this->subAction = 2;
-        this->direction = 0x80;
-        this->speed = 0x100;
-        this->spriteOrientation.flipY = 3;
-        this->spriteRendering.b3 = 3;
+    if (gRoomControls.roomOriginY + 0x130 > super->y.HALF.HI) {
+        super->subAction = 2;
+        super->direction = 0x80;
+        super->speed = 0x100;
+        super->spriteOrientation.flipY = 3;
+        super->spriteRendering.b3 = 3;
 #ifndef EU
         SoundReq(BGM_BOSS_THEME);
 #endif
     }
-    if (this->actionDelay) {
+    if (super->actionDelay) {
 #ifdef EU
-        if (gRoomControls.roomOriginY + 0x210 > this->y.HALF.HI) {
+        if (gRoomControls.roomOriginY + 0x210 > super->y.HALF.HI) {
 #else
-        if (gRoomControls.roomOriginY + 0x258 > this->y.HALF.HI) {
+        if (gRoomControls.roomOriginY + 0x258 > super->y.HALF.HI) {
 #endif
-            this->actionDelay = 0;
+            super->actionDelay = 0;
             SoundReq(SFX_APPARATE);
         }
     }
 }
 
-void sub_080469CC(Entity* this) {
+void sub_080469CC(GyorgMaleEntity* this) {
     sub_08047E48(this);
-    if (gRoomControls.roomOriginY + 0x210 < this->y.HALF.HI) {
-        this->subAction = 3;
-        this->direction = 0x90;
+    if (gRoomControls.roomOriginY + 0x210 < super->y.HALF.HI) {
+        super->subAction = 3;
+        super->direction = 0x90;
     }
 }
 
-void sub_080469F4(Entity* this) {
+void sub_080469F4(GyorgMaleEntity* this) {
     sub_08047E48(this);
-    if (gRoomControls.roomOriginY + 0x290 < this->y.HALF.HI) {
-        this->subAction = 4;
-        this->spriteOrientation.flipY = 2;
-        this->spriteRendering.b3 = 2;
+    if (gRoomControls.roomOriginY + 0x290 < super->y.HALF.HI) {
+        super->subAction = 4;
+        super->spriteOrientation.flipY = 2;
+        super->spriteRendering.b3 = 2;
     }
 }
 
-void sub_08046A30(Entity* this) {
+void sub_08046A30(GyorgMaleEntity* this) {
     sub_08047D88(this);
-    if (((Entity*)this->myHeap)->prev->field_0x6c.HWORD & 1) {
-        this->action = 2;
-        this->subAction = 0;
+    if (((GyorgFemaleHeap*)super->myHeap)->boss->unk_6c & 1) {
+        super->action = 2;
+        super->subAction = 0;
     }
 }
 
-void sub_08046A54(Entity* this) {
+void sub_08046A54(GyorgMaleEntity* this) {
     sub_08047E48(this);
-    if (gRoomControls.roomOriginX + 0x380 < this->x.HALF.HI) {
-        this->subAction = 6;
+    if (gRoomControls.roomOriginX + 0x380 < super->x.HALF.HI) {
+        super->subAction = 6;
     }
 }
 
-void sub_08046A78(Entity* this) {
+void sub_08046A78(GyorgMaleEntity* this) {
     sub_08047D88(this);
-    if (((Entity*)this->myHeap)->prev->field_0x6c.HWORD & 0x10) {
-        this->action = 3;
-        this->subAction = 0;
+    if (((GyorgFemaleHeap*)super->myHeap)->boss->unk_6c & 0x10) {
+        super->action = 3;
+        super->subAction = 0;
     }
 }
 
-void (*const gUnk_080D1B38[5])(Entity*) = { sub_08046AE8, sub_08046B18, sub_08046B8C, sub_08046C04, sub_08046C88 };
+void (*const gUnk_080D1B38[5])(GyorgMaleEntity*) = { sub_08046AE8, sub_08046B18, sub_08046B8C, sub_08046C04,
+                                                     sub_08046C88 };
 
-void sub_08046A9C(Entity* this) {
-    if (this->animIndex == 1) {
-        if (this->frame == 1) {
-            InitAnimationForceUpdate(this, 0);
+void sub_08046A9C(GyorgMaleEntity* this) {
+    if (super->animIndex == 1) {
+        if (super->frame == 1) {
+            InitAnimationForceUpdate(super, 0);
         }
     }
-    gUnk_080D1B38[this->subAction](this);
-    UpdateAnimationSingleFrame(this);
-    if (this->field_0x7c.BYTES.byte0) {
-        this->action = 6;
-        this->subAction = 0;
+    gUnk_080D1B38[super->subAction](this);
+    UpdateAnimationSingleFrame(super);
+    if (this->unk_7c) {
+        super->action = 6;
+        super->subAction = 0;
     }
 }
 
-void sub_08046AE8(Entity* this) {
-    this->subAction = 1;
-    this->speed = 0x180;
-    sub_08048178(this, ((Entity*)this->myHeap)->next->animationState >> 5);
-    this->field_0x76.HWORD = this->direction << 8;
+void sub_08046AE8(GyorgMaleEntity* this) {
+    super->subAction = 1;
+    super->speed = 0x180;
+    sub_08048178(this, ((GyorgFemaleHeap*)super->myHeap)->female->base.animationState >> 5);
+    this->unk_76 = super->direction << 8;
     sub_08047D88(this);
 }
 
-void sub_08046B18(Entity* this) {
-    u32 tmp = sub_080045DA(this->field_0x80.HWORD - this->x.HALF.HI, this->field_0x82.HWORD - this->y.HALF.HI);
-    if (tmp != this->direction) {
-        if (((tmp - this->direction) & 0xFF) > 0x80) {
-            this->field_0x76.HWORD -= 0x100;
+void sub_08046B18(GyorgMaleEntity* this) {
+    u32 tmp = sub_080045DA(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
+    if (tmp != super->direction) {
+        if (((tmp - super->direction) & 0xFF) > 0x80) {
+            this->unk_76 -= 0x100;
         } else {
-            this->field_0x76.HWORD += 0x100;
+            this->unk_76 += 0x100;
         }
-        this->direction = this->field_0x76.HWORD >> 8;
+        super->direction = this->unk_76 >> 8;
     } else {
-        this->subAction = 2;
+        super->subAction = 2;
     }
     sub_08047D88(this);
-    sub_08047EA4(this, ((0x100 - this->direction) & 0xFF) << 8);
+    sub_08047EA4(this, ((0x100 - super->direction) & 0xFF) << 8);
 }
 
-void sub_08046B8C(Entity* this) {
-    if (sub_0806FCB8(this, this->field_0x80.HWORD, this->field_0x82.HWORD, 4)) {
-        this->subAction = 3;
-        this->field_0x76.HWORD = this->direction << 8;
-        this->field_0x80.HWORD = gRoomControls.roomOriginX + 0x200;
-        this->field_0x82.HWORD = gRoomControls.roomOriginY + 0x210;
+void sub_08046B8C(GyorgMaleEntity* this) {
+    if (sub_0806FCB8(super, this->unk_80, this->unk_82, 4)) {
+        super->subAction = 3;
+        this->unk_76 = super->direction << 8;
+        this->unk_80 = gRoomControls.roomOriginX + 0x200;
+        this->unk_82 = gRoomControls.roomOriginY + 0x210;
         sub_08047D88(this);
     } else {
-        this->direction =
-            sub_080045DA(this->field_0x80.HWORD - this->x.HALF.HI, this->field_0x82.HWORD - this->y.HALF.HI);
-        sub_08047DF0(this, ((0x100 - this->direction) & 0xFF) << 8);
+        super->direction = sub_080045DA(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
+        sub_08047DF0(this, ((0x100 - super->direction) & 0xFF) << 8);
     }
 }
 
-void sub_08046C04(Entity* this) {
-    u32 tmp = sub_080045DA(this->field_0x80.HWORD - this->x.HALF.HI, this->field_0x82.HWORD - this->y.HALF.HI);
-    if (tmp != this->direction) {
-        if (((tmp - this->direction) & 0xFF) > 0x80) {
-            this->field_0x76.HWORD -= 0x100;
+void sub_08046C04(GyorgMaleEntity* this) {
+    u32 tmp = sub_080045DA(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
+    if (tmp != super->direction) {
+        if (((tmp - super->direction) & 0xFF) > 0x80) {
+            this->unk_76 -= 0x100;
         } else {
-            this->field_0x76.HWORD += 0x100;
+            this->unk_76 += 0x100;
         }
-        this->direction = this->field_0x76.HWORD >> 8;
+        super->direction = this->unk_76 >> 8;
     } else {
-        this->subAction = 4;
-        this->field_0x70.HALF.LO = ((tmp + 0x20) & 0xC0) >> 6;
+        super->subAction = 4;
+        this->unk_70 = ((tmp + 0x20) & 0xC0) >> 6;
     }
     sub_08047D88(this);
-    sub_08047EA4(this, ((0x100 - this->direction) & 0xFF) << 8);
+    sub_08047EA4(this, ((0x100 - super->direction) & 0xFF) << 8);
 }
 
-void sub_08046C88(Entity* this) {
-    if (sub_0806FCB8(this, this->field_0x80.HWORD, this->field_0x82.HWORD, 4)) {
-        this->subAction = 1;
-        sub_08048178(this, sub_08048158(this->field_0x70.HALF_U.LO));
+void sub_08046C88(GyorgMaleEntity* this) {
+    if (sub_0806FCB8(super, this->unk_80, this->unk_82, 4)) {
+        super->subAction = 1;
+        sub_08048178(this, sub_08048158(this->unk_70));
         sub_08047D88(this);
     } else {
-        this->direction =
-            sub_080045DA(this->field_0x80.HWORD - this->x.HALF.HI, this->field_0x82.HWORD - this->y.HALF.HI);
-        sub_08047DF0(this, ((0x100 - this->direction) & 0xFF) << 8);
+        super->direction = sub_080045DA(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
+        sub_08047DF0(this, ((0x100 - super->direction) & 0xFF) << 8);
     }
 }
 
-void (*const gUnk_080D1B4C[5])(Entity*) = { sub_08046D44, sub_08046D98, sub_08046E0C, sub_08046E68, sub_08046EF4 };
+void (*const gUnk_080D1B4C[5])(GyorgMaleEntity*) = { sub_08046D44, sub_08046D98, sub_08046E0C, sub_08046E68,
+                                                     sub_08046EF4 };
 
-void sub_08046CEC(Entity* this) {
-    if (this->animIndex == 0) {
-        if (this->frame == 1) {
-            InitAnimationForceUpdate(this, 1);
+void sub_08046CEC(GyorgMaleEntity* this) {
+    if (super->animIndex == 0) {
+        if (super->frame == 1) {
+            InitAnimationForceUpdate(super, 1);
         }
     }
-    gUnk_080D1B4C[this->subAction](this);
-    UpdateAnimationSingleFrame(this);
-    if (((Entity*)this->myHeap)->prev->field_0x6c.HWORD & 2) {
-        this->action = 2;
-        this->subAction = 0;
-        this->animationState = this->speed;
+    gUnk_080D1B4C[super->subAction](this);
+    UpdateAnimationSingleFrame(super);
+    if (((GyorgFemaleHeap*)super->myHeap)->boss->unk_6c & 2) {
+        super->action = 2;
+        super->subAction = 0;
+        super->animationState = super->speed;
     }
 }
 
 const u16 gUnk_080D1B60[8] = { 0x200, 0x184, 0x28C, 0x210, 0x200, 0x29C, 0x174, 0x210 };
 
-void sub_08046D44(Entity* this) {
+void sub_08046D44(GyorgMaleEntity* this) {
     const u16* tmp;
-    this->subAction = 1;
-    this->speed = 0x200;
-    tmp = gUnk_080D1B60 + (((Entity*)this->myHeap)->next->animationState >> 5);
-    this->field_0x80.HWORD = tmp[0] + gRoomControls.roomOriginX;
-    this->field_0x82.HWORD = tmp[1] + gRoomControls.roomOriginY;
-    this->field_0x76.HWORD = this->direction << 8;
+    super->subAction = 1;
+    super->speed = 0x200;
+    tmp = gUnk_080D1B60 + (((Entity*)super->myHeap)->next->animationState >> 5);
+    this->unk_80 = tmp[0] + gRoomControls.roomOriginX;
+    this->unk_82 = tmp[1] + gRoomControls.roomOriginY;
+    this->unk_76 = super->direction << 8;
     sub_08047D88(this);
 }
 
-void sub_08046D98(Entity* this) {
-    u32 tmp = sub_080045DA(this->field_0x80.HWORD - this->x.HALF.HI, this->field_0x82.HWORD - this->y.HALF.HI);
-    if (tmp != this->direction) {
-        if (((tmp - this->direction) & 0xFF) > 0x80) {
-            this->field_0x76.HWORD -= 0x100;
+void sub_08046D98(GyorgMaleEntity* this) {
+    u32 tmp = sub_080045DA(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
+    if (tmp != super->direction) {
+        if (((tmp - super->direction) & 0xFF) > 0x80) {
+            this->unk_76 -= 0x100;
         } else {
-            this->field_0x76.HWORD += 0x100;
+            this->unk_76 += 0x100;
         }
-        this->direction = this->field_0x76.HWORD >> 8;
+        super->direction = this->unk_76 >> 8;
     } else {
-        this->subAction = 2;
+        super->subAction = 2;
     }
     sub_08047D88(this);
-    sub_08047EA4(this, ((0x100 - this->direction) & 0xFF) << 8);
+    sub_08047EA4(this, ((0x100 - super->direction) & 0xFF) << 8);
 }
 
-void sub_08046E0C(Entity* this) {
-    if (sub_0806FCB8(this, this->field_0x80.HWORD, this->field_0x82.HWORD, 4)) {
-        this->subAction = 3;
-        this->field_0x76.HWORD = this->direction << 8;
+void sub_08046E0C(GyorgMaleEntity* this) {
+    if (sub_0806FCB8(super, this->unk_80, this->unk_82, 4)) {
+        super->subAction = 3;
+        this->unk_76 = super->direction << 8;
         sub_08047D88(this);
     } else {
-        this->direction =
-            sub_080045DA(this->field_0x80.HWORD - this->x.HALF.HI, this->field_0x82.HWORD - this->y.HALF.HI);
-        sub_08047DF0(this, ((0x100 - this->direction) & 0xFF) << 8);
+        super->direction = sub_080045DA(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
+        sub_08047DF0(this, ((0x100 - super->direction) & 0xFF) << 8);
     }
 }
 
 const s16 gUnk_080D1B70[2] = { 0x40, -0x40 };
 
-void sub_08046E68(Entity* this) {
-    u32 tmp = ((Entity*)this->myHeap)->next->animationState ^ 0x80;
-    if (tmp != this->direction) {
-        if (((tmp - this->direction) & 0xFF) > 0x80) {
-            this->field_0x76.HWORD -= 0x100;
+void sub_08046E68(GyorgMaleEntity* this) {
+    u32 tmp = ((GyorgFemaleHeap*)super->myHeap)->female->base.animationState ^ 0x80;
+    if (tmp != super->direction) {
+        if (((tmp - super->direction) & 0xFF) > 0x80) {
+            this->unk_76 -= 0x100;
         } else {
-            this->field_0x76.HWORD += 0x100;
+            this->unk_76 += 0x100;
         }
-        this->direction = this->field_0x76.HWORD >> 8;
+        super->direction = this->unk_76 >> 8;
         sub_08047D88(this);
-        sub_08047EA4(this, ((0x100 - this->direction) & 0xFF) << 8);
+        sub_08047EA4(this, ((0x100 - super->direction) & 0xFF) << 8);
     } else {
-        this->subAction = 4;
-        this->actionDelay = 0x3F;
-        this->field_0xf = 1;
-        this->direction = (gUnk_080D1B70[Random() & 1] + tmp) & 0xC0;
+        super->subAction = 4;
+        super->actionDelay = 0x3F;
+        super->field_0xf = 1;
+        super->direction = (gUnk_080D1B70[Random() & 1] + tmp) & 0xC0;
         sub_08047D88(this);
     }
 }
@@ -394,534 +395,536 @@ void sub_08046E68(Entity* this) {
 const u16 gUnk_080D1B74[0x10] = { 0x20,  0x40, 0x60, 0x80, 0xA0, 0xC0, 0xE0, 0x100,
                                   0x100, 0xE0, 0xC0, 0xA0, 0x80, 0x60, 0x40, 0x20 };
 
-void sub_08046EF4(Entity* this) {
-    if (--this->actionDelay == 0) {
-        this->actionDelay = 0x7F;
-        this->direction ^= 0x80;
+void sub_08046EF4(GyorgMaleEntity* this) {
+    if (--super->actionDelay == 0) {
+        super->actionDelay = 0x7F;
+        super->direction ^= 0x80;
     }
-    this->speed = gUnk_080D1B74[(this->actionDelay >> 3) & 0xF];
-    if ((--this->field_0xf & 0xFF) == 0) {
+    super->speed = gUnk_080D1B74[(super->actionDelay >> 3) & 0xF];
+    if ((--super->field_0xf & 0xFF) == 0) {
         Entity* tmp;
-        this->field_0xf = (Random() & 0x38) + 0x78;
+        super->field_0xf = (Random() & 0x38) + 0x78;
         tmp = CreateProjectile(0x23);
         if (tmp) {
             tmp->collisionLayer = 2;
-            tmp->parent = this;
+            tmp->parent = super;
             UpdateSpriteForCollisionLayer(tmp);
         }
     }
     sub_08047E48(this);
 }
 
-void (*const gUnk_080D1B94[0xA])(Entity*) = { sub_08046FE8, sub_0804702C, sub_080470B4, sub_08047140, sub_0804717C,
-                                              sub_080471C8, sub_0804723C, sub_08047284, sub_080472BC, sub_08047310 };
+void (*const gUnk_080D1B94[0xA])(GyorgMaleEntity*) = { sub_08046FE8, sub_0804702C, sub_080470B4, sub_08047140,
+                                                       sub_0804717C, sub_080471C8, sub_0804723C, sub_08047284,
+                                                       sub_080472BC, sub_08047310 };
 
-void sub_08046F64(Entity* this) {
-    if (this->animIndex == 0) {
-        if (this->frame == 1) {
-            InitAnimationForceUpdate(this, 1);
+void sub_08046F64(GyorgMaleEntity* this) {
+    if (super->animIndex == 0) {
+        if (super->frame == 1) {
+            InitAnimationForceUpdate(super, 1);
         }
     }
-    gUnk_080D1B94[this->subAction](this);
-    UpdateAnimationSingleFrame(this);
-    if (--this->field_0x7c.HALF.HI == 0) {
+    gUnk_080D1B94[super->subAction](this);
+    UpdateAnimationSingleFrame(super);
+    if (--this->unk_7e == 0) {
         Entity* tmp;
-        this->field_0x7c.HALF.HI = 0x78;
+        this->unk_7e = 0x78;
         tmp = CreateProjectile(0x23);
         if (tmp) {
             tmp->collisionLayer = 2;
-            tmp->parent = this;
+            tmp->parent = super;
             UpdateSpriteForCollisionLayer(tmp);
         }
     }
-    if (((Entity*)this->myHeap)->prev->field_0x6c.HWORD & 4) {
-        this->action = 5;
-        this->subAction = 0;
+    if (((GyorgFemaleHeap*)super->myHeap)->boss->unk_6c & 4) {
+        super->action = 5;
+        super->subAction = 0;
     }
 }
 
-void sub_08046FE8(Entity* this) {
-    this->subAction = 1;
-    this->speed = 0x1c0;
-    this->field_0x7c.HALF.HI = 0x1e;
-    this->field_0x80.HWORD = gRoomControls.roomOriginX + 0x290;
-    this->field_0x82.HWORD = gRoomControls.roomOriginY + 0x190;
+void sub_08046FE8(GyorgMaleEntity* this) {
+    super->subAction = 1;
+    super->speed = 0x1c0;
+    this->unk_7e = 0x1e;
+    this->unk_80 = gRoomControls.roomOriginX + 0x290;
+    this->unk_82 = gRoomControls.roomOriginY + 0x190;
     sub_08047D88(this);
 }
 
-void sub_0804702C(Entity* this) {
-    u32 tmp = sub_080045DA(this->field_0x80.HWORD - this->x.HALF.HI, this->field_0x82.HWORD - this->y.HALF.HI);
-    if (((this->direction - tmp + 2) & 0xFF) > 4) {
-        if ((tmp - this->direction) & 0x80) {
-            this->direction--;
+void sub_0804702C(GyorgMaleEntity* this) {
+    u32 tmp = sub_080045DA(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
+    if (((super->direction - tmp + 2) & 0xFF) > 4) {
+        if ((tmp - super->direction) & 0x80) {
+            super->direction--;
         } else {
-            this->direction++;
+            super->direction++;
         }
     }
-    sub_08047DF0(this, ((0x100 - this->direction) & 0xFF) << 8);
-    if (sub_0806FCB8(this, this->field_0x80.HWORD, this->field_0x82.HWORD, (this->speed >> 0x10) + 0x10)) {
-        this->subAction = 2;
-        this->field_0x76.HWORD = this->direction << 8;
-        this->speed = 0x280;
+    sub_08047DF0(this, ((0x100 - super->direction) & 0xFF) << 8);
+    if (sub_0806FCB8(super, this->unk_80, this->unk_82, (super->speed >> 0x10) + 0x10)) {
+        super->subAction = 2;
+        this->unk_76 = super->direction << 8;
+        super->speed = 0x280;
     }
 }
 
 const u16 gUnk_080D1BBC[2] = { 0x1A0, 0xE0 };
 
-void sub_080470B4(Entity* this) {
+void sub_080470B4(GyorgMaleEntity* this) {
     u32 tmp = 0x40;
-    if (tmp != this->direction) {
-        if (((tmp - this->direction) & 0xFF) > 0x80) {
-            this->field_0x76.HWORD -= 0x100;
+    if (tmp != super->direction) {
+        if (((tmp - super->direction) & 0xFF) > 0x80) {
+            this->unk_76 -= 0x100;
         } else {
-            this->field_0x76.HWORD += 0x100;
+            this->unk_76 += 0x100;
         }
-        this->direction = this->field_0x76.HWORD >> 8;
+        super->direction = this->unk_76 >> 8;
         sub_08047D88(this);
-        sub_08047EA4(this, ((0x100 - this->direction) & 0xFF) << 8);
+        sub_08047EA4(this, ((0x100 - super->direction) & 0xFF) << 8);
     } else {
-        this->subAction = 3;
-        this->speed = 0x200;
-        this->field_0x76.HWORD = this->direction << 8;
-        this->field_0x74.HWORD = gUnk_080D1BBC[Random() & 1];
+        super->subAction = 3;
+        super->speed = 0x200;
+        this->unk_76 = super->direction << 8;
+        this->unk_74 = gUnk_080D1BBC[Random() & 1];
         sub_08047D88(this);
     }
 }
 
-void sub_08047140(Entity* this) {
-    this->field_0x76.HWORD += this->field_0x74.HWORD;
-    this->direction = this->field_0x76.HWORD >> 8;
-    if (this->direction > 0xbf) {
-        this->direction = 0xC0;
-        this->subAction = 4;
+void sub_08047140(GyorgMaleEntity* this) {
+    this->unk_76 += this->unk_74;
+    super->direction = this->unk_76 >> 8;
+    if (super->direction > 0xbf) {
+        super->direction = 0xC0;
+        super->subAction = 4;
     }
-    sub_08047DF0(this, ((0x100 - this->direction) & 0xFF) << 8);
+    sub_08047DF0(this, ((0x100 - super->direction) & 0xFF) << 8);
 }
 
-void sub_0804717C(Entity* this) {
-    if (this->speed < 0x280) {
-        this->speed += 8;
+void sub_0804717C(GyorgMaleEntity* this) {
+    if (super->speed < 0x280) {
+        super->speed += 8;
     }
-    sub_08047DF0(this, ((0x100 - this->direction) & 0xFF) << 8);
-    if (gRoomControls.roomOriginX + 0x200 > this->x.HALF.HI) {
-        this->subAction = 5;
+    sub_08047DF0(this, ((0x100 - super->direction) & 0xFF) << 8);
+    if (gRoomControls.roomOriginX + 0x200 > super->x.HALF.HI) {
+        super->subAction = 5;
     }
 }
 
-void sub_080471C8(Entity* this) {
-    if (this->speed > 0x180) {
-        this->speed -= 0x10;
+void sub_080471C8(GyorgMaleEntity* this) {
+    if (super->speed > 0x180) {
+        super->speed -= 0x10;
     }
-    if (this->direction < 0xe0) {
-        this->direction++;
+    if (super->direction < 0xe0) {
+        super->direction++;
     }
-    sub_08047DF0(this, ((0x100 - this->direction) & 0xFF) << 8);
-    if (gRoomControls.roomOriginY + 0x190 <= this->y.HALF.HI)
+    sub_08047DF0(this, ((0x100 - super->direction) & 0xFF) << 8);
+    if (gRoomControls.roomOriginY + 0x190 <= super->y.HALF.HI)
         return;
-    if (this->field_0x74.HWORD > 0x100) {
+    if (this->unk_74 > 0x100) {
         if (Random() & 1) {
-            this->subAction = 6;
+            super->subAction = 6;
         } else {
-            this->subAction = 0;
+            super->subAction = 0;
         }
     } else {
-        this->subAction = 0;
+        super->subAction = 0;
     }
 }
 
-void sub_0804723C(Entity* this) {
-    this->direction -= 2;
-    if (this->direction < 0xc0) {
-        this->subAction = 7;
-        this->speed = 0x200;
-        this->direction = 0xc0;
-        this->field_0x76.HWORD = 0xc000;
+void sub_0804723C(GyorgMaleEntity* this) {
+    super->direction -= 2;
+    if (super->direction < 0xc0) {
+        super->subAction = 7;
+        super->speed = 0x200;
+        super->direction = 0xc0;
+        this->unk_76 = 0xc000;
     }
     sub_08047D88(this);
-    sub_08047EA4(this, ((0x100 - this->direction) & 0xFF) << 8);
+    sub_08047EA4(this, ((0x100 - super->direction) & 0xFF) << 8);
 }
 
-void sub_08047284(Entity* this) {
-    this->field_0x76.HWORD -= 0xe0;
-    this->direction = this->field_0x76.HWORD >> 8;
-    if (this->direction < 0x40) {
-        this->direction = 0x40;
-        this->subAction = 8;
+void sub_08047284(GyorgMaleEntity* this) {
+    this->unk_76 -= 0xe0;
+    super->direction = this->unk_76 >> 8;
+    if (super->direction < 0x40) {
+        super->direction = 0x40;
+        super->subAction = 8;
     }
-    sub_08047DF0(this, ((0x100 - this->direction) & 0xFF) << 8);
+    sub_08047DF0(this, ((0x100 - super->direction) & 0xFF) << 8);
 }
 
-void sub_080472BC(Entity* this) {
-    if (this->speed < 0x300) {
-        this->speed += 8;
+void sub_080472BC(GyorgMaleEntity* this) {
+    if (super->speed < 0x300) {
+        super->speed += 8;
     }
-    sub_08047DF0(this, ((0x100 - this->direction) & 0xFF) << 8);
-    if (gRoomControls.roomOriginX + 0x2B0 >= this->x.HALF.HI)
+    sub_08047DF0(this, ((0x100 - super->direction) & 0xFF) << 8);
+    if (gRoomControls.roomOriginX + 0x2B0 >= super->x.HALF.HI)
         return;
-    this->subAction = 9;
-    this->field_0x76.HWORD = this->direction << 8;
+    super->subAction = 9;
+    this->unk_76 = super->direction << 8;
 }
 
-void sub_08047310(Entity* this) {
-    if (this->speed < 0x180) {
-        this->speed -= 0x10;
+void sub_08047310(GyorgMaleEntity* this) {
+    if (super->speed < 0x180) {
+        super->speed -= 0x10;
     }
-    this->field_0x76.HWORD -= 0x1D0;
-    this->direction = this->field_0x76.HWORD >> 8;
-    if ((u8)(this->direction + 0x7F) < 0x40) {
-        this->direction = 0xC0;
-        this->subAction = 4;
+    this->unk_76 -= 0x1D0;
+    super->direction = this->unk_76 >> 8;
+    if ((u8)(super->direction + 0x7F) < 0x40) {
+        super->direction = 0xC0;
+        super->subAction = 4;
     }
-    sub_08047DF0(this, ((0x100 - this->direction) & 0xFF) << 8);
+    sub_08047DF0(this, ((0x100 - super->direction) & 0xFF) << 8);
 }
 
-void (*const gUnk_080D1BC0[7])(Entity*) = { sub_080473B8, sub_080473F0, sub_08047484, sub_08047508,
-                                            sub_080475F4, sub_0804763C, sub_0804772C };
+void (*const gUnk_080D1BC0[7])(GyorgMaleEntity*) = { sub_080473B8, sub_080473F0, sub_08047484, sub_08047508,
+                                                     sub_080475F4, sub_0804763C, sub_0804772C };
 
-void sub_0804736C(Entity* this) {
-    if (this->animIndex == 1) {
-        if (this->frame == 1) {
-            InitAnimationForceUpdate(this, 0);
+void sub_0804736C(GyorgMaleEntity* this) {
+    if (super->animIndex == 1) {
+        if (super->frame == 1) {
+            InitAnimationForceUpdate(super, 0);
         }
     }
-    gUnk_080D1BC0[this->subAction](this);
-    UpdateAnimationSingleFrame(this);
-    if (this->health == 0) {
-        this->action = 7;
-        this->subAction = 0;
+    gUnk_080D1BC0[super->subAction](this);
+    UpdateAnimationSingleFrame(super);
+    if (super->health == 0) {
+        super->action = 7;
+        super->subAction = 0;
     }
 }
 
-void sub_080473B8(Entity* this) {
-    this->subAction = 1;
-    this->speed = 0x120;
-    this->field_0x80.HWORD = gRoomControls.roomOriginX + 0x200;
-    this->field_0x82.HWORD = gRoomControls.roomOriginY + 0x1D0;
+void sub_080473B8(GyorgMaleEntity* this) {
+    super->subAction = 1;
+    super->speed = 0x120;
+    this->unk_80 = gRoomControls.roomOriginX + 0x200;
+    this->unk_82 = gRoomControls.roomOriginY + 0x1D0;
     sub_08047D88(this);
 }
 
-void sub_080473F0(Entity* this) {
-    u32 tmp = sub_080045DA(this->field_0x80.HWORD - this->x.HALF.HI, this->field_0x82.HWORD - this->y.HALF.HI);
-    if (((this->direction - tmp + 2) & 0xFF) > 4) {
-        s32 tmp2 = tmp - this->direction;
+void sub_080473F0(GyorgMaleEntity* this) {
+    u32 tmp = sub_080045DA(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
+    if (((super->direction - tmp + 2) & 0xFF) > 4) {
+        s32 tmp2 = tmp - super->direction;
         if (tmp2 & 0x80) {
             if (tmp2 < -1) {
-                this->direction -= 2;
+                super->direction -= 2;
             } else {
-                this->direction -= 1;
+                super->direction -= 1;
             }
         } else {
             if (tmp2 > 1) {
-                this->direction += 2;
+                super->direction += 2;
             } else {
-                this->direction += 1;
+                super->direction += 1;
             }
         }
     }
-    sub_08047DF0(this, ((0x100 - this->direction) & 0xFF) << 8);
-    if (sub_0806FCB8(this, this->field_0x80.HWORD, this->field_0x82.HWORD, 8)) {
-        this->subAction = 2;
-        this->field_0x76.HWORD = this->direction << 8;
-        this->speed = 0x180;
+    sub_08047DF0(this, ((0x100 - super->direction) & 0xFF) << 8);
+    if (sub_0806FCB8(super, this->unk_80, this->unk_82, 8)) {
+        super->subAction = 2;
+        this->unk_76 = super->direction << 8;
+        super->speed = 0x180;
     }
 }
 
-void sub_08047484(Entity* this) {
+void sub_08047484(GyorgMaleEntity* this) {
     u32 tmp = 0x40;
-    if (tmp != this->direction) {
-        if (((tmp - this->direction) & 0xFF) > 0x80) {
-            this->field_0x76.HWORD -= 0x100;
+    if (tmp != super->direction) {
+        if (((tmp - super->direction) & 0xFF) > 0x80) {
+            this->unk_76 -= 0x100;
         } else {
-            this->field_0x76.HWORD += 0x100;
+            this->unk_76 += 0x100;
         }
-        this->direction = this->field_0x76.HWORD >> 8;
+        super->direction = this->unk_76 >> 8;
         sub_08047D88(this);
-        sub_08047EA4(this, ((0x100 - this->direction) & 0xFF) << 8);
+        sub_08047EA4(this, ((0x100 - super->direction) & 0xFF) << 8);
     } else {
-        this->subAction = 3;
-        this->speed = 0x200;
-        this->direction = 0x40;
-        this->field_0x76.HWORD = 0x4000;
-        this->field_0x74.HWORD = 0x180;
-        this->field_0x7c.HALF.HI = 0xF0;
+        super->subAction = 3;
+        super->speed = 0x200;
+        super->direction = 0x40;
+        this->unk_76 = 0x4000;
+        this->unk_74 = 0x180;
+        this->unk_7e = 0xF0;
         sub_08047D88(this);
     }
 }
 
-void sub_08047508(Entity* this) {
-    if (gRoomControls.roomOriginX + 0x1A0 < this->x.HALF.HI) {
-        if (this->direction == 0) {
-            if (gRoomControls.roomOriginY + 0x208 >= this->y.HALF.HI) {
-                this->field_0x74.HWORD = -this->field_0x74.HWORD;
-                this->field_0x76.HWORD += this->field_0x74.HWORD;
-                this->direction = this->field_0x76.HWORD >> 8;
+void sub_08047508(GyorgMaleEntity* this) {
+    if (gRoomControls.roomOriginX + 0x1A0 < super->x.HALF.HI) {
+        if (super->direction == 0) {
+            if (gRoomControls.roomOriginY + 0x208 >= super->y.HALF.HI) {
+                this->unk_74 = -this->unk_74;
+                this->unk_76 += this->unk_74;
+                super->direction = this->unk_76 >> 8;
             }
         } else {
-            s32 tmp = (s16)this->field_0x74.HWORD;
+            s32 tmp = (s16)this->unk_74;
             if (tmp < 0) {
-                this->field_0x76.HWORD += tmp;
-                this->direction = this->field_0x76.HWORD >> 8;
-                if (this->direction & 0x80) {
-                    this->direction = 0;
-                    this->field_0x76.HWORD = 0;
+                this->unk_76 += tmp;
+                super->direction = this->unk_76 >> 8;
+                if (super->direction & 0x80) {
+                    super->direction = 0;
+                    this->unk_76 = 0;
                 }
             } else {
-                if (this->direction < 0x40) {
-                    this->field_0x76.HWORD += tmp;
-                    this->direction = this->field_0x76.HWORD >> 8;
-                    if (this->direction >= 0x40) {
-                        this->direction = 0x40;
+                if (super->direction < 0x40) {
+                    this->unk_76 += tmp;
+                    super->direction = this->unk_76 >> 8;
+                    if (super->direction >= 0x40) {
+                        super->direction = 0x40;
                     }
                 }
             }
         }
     }
     sub_08047E48(this);
-    if (gRoomControls.roomOriginX + 0x280 < this->x.HALF.HI) {
-        this->subAction = 4;
-        this->speed = 0x200;
-        this->animationState = this->direction;
-        this->field_0x76.HWORD = this->direction << 8;
+    if (gRoomControls.roomOriginX + 0x280 < super->x.HALF.HI) {
+        super->subAction = 4;
+        super->speed = 0x200;
+        super->animationState = super->direction;
+        this->unk_76 = super->direction << 8;
     }
-    if (--this->field_0x7c.HALF.HI == 0) {
+    if (--this->unk_7e == 0) {
         Entity* tmp = CreateEnemy(ENEMY_62, Random() & 3);
         if (tmp) {
-            tmp->parent = this;
+            tmp->parent = super;
         }
     }
 }
 
-void sub_080475F4(Entity* this) {
-    this->field_0x76.HWORD += 0x180;
-    this->direction = this->field_0x76.HWORD >> 8;
-    if (this->direction >= 0xc0) {
-        this->direction = 0xc0;
-        this->subAction = 5;
-        this->speed = 0x200;
-        this->field_0x7c.HALF.HI = 0x3c;
+void sub_080475F4(GyorgMaleEntity* this) {
+    this->unk_76 += 0x180;
+    super->direction = this->unk_76 >> 8;
+    if (super->direction >= 0xc0) {
+        super->direction = 0xc0;
+        super->subAction = 5;
+        super->speed = 0x200;
+        this->unk_7e = 0x3c;
     }
-    sub_08047DF0(this, ((0x100 - this->direction) & 0xFF) << 8);
+    sub_08047DF0(this, ((0x100 - super->direction) & 0xFF) << 8);
 }
 
-void sub_0804763C(Entity* this) {
-    if (gRoomControls.roomOriginX + 0x1F0 > this->x.HALF.HI) {
-        if (this->direction == 0) {
-            if (gRoomControls.roomOriginY + 0x208 >= this->y.HALF.HI) {
-                this->field_0x74.HWORD = -this->field_0x74.HWORD;
-                this->field_0x76.HWORD += this->field_0x74.HWORD;
-                this->direction = this->field_0x76.HWORD >> 8;
+void sub_0804763C(GyorgMaleEntity* this) {
+    if (gRoomControls.roomOriginX + 0x1F0 > super->x.HALF.HI) {
+        if (super->direction == 0) {
+            if (gRoomControls.roomOriginY + 0x208 >= super->y.HALF.HI) {
+                this->unk_74 = -this->unk_74;
+                this->unk_76 += this->unk_74;
+                super->direction = this->unk_76 >> 8;
             }
         } else {
-            s32 tmp = (s16)this->field_0x74.HWORD;
+            s32 tmp = (s16)this->unk_74;
             if (tmp > 0) {
-                this->field_0x76.HWORD += tmp;
-                this->direction = this->field_0x76.HWORD >> 8;
-                if ((this->direction & 0x80) == 0) {
-                    this->direction = 0;
-                    this->field_0x76.HWORD = 0;
+                this->unk_76 += tmp;
+                super->direction = this->unk_76 >> 8;
+                if ((super->direction & 0x80) == 0) {
+                    super->direction = 0;
+                    this->unk_76 = 0;
                 }
             } else {
-                if (this->direction > 0xC0) {
-                    this->field_0x76.HWORD += tmp;
-                    this->direction = this->field_0x76.HWORD >> 8;
-                    if (this->direction <= 0xC0) {
-                        this->direction = 0xC0;
+                if (super->direction > 0xC0) {
+                    this->unk_76 += tmp;
+                    super->direction = this->unk_76 >> 8;
+                    if (super->direction <= 0xC0) {
+                        super->direction = 0xC0;
                     }
                 }
             }
         }
     }
     sub_08047E48(this);
-    if (gRoomControls.roomOriginX + 0x180 > this->x.HALF.HI) {
-        this->subAction = 6;
-        this->speed = 0x200;
-        this->animationState = this->direction;
-        this->field_0x76.HWORD = this->direction << 8;
+    if (gRoomControls.roomOriginX + 0x180 > super->x.HALF.HI) {
+        super->subAction = 6;
+        super->speed = 0x200;
+        super->animationState = super->direction;
+        this->unk_76 = super->direction << 8;
     }
-    if (--this->field_0x7c.HALF.HI == 0) {
+    if (--this->unk_7e == 0) {
         Entity* tmp = CreateEnemy(ENEMY_62, Random() & 3);
         if (tmp) {
-            tmp->parent = this;
+            tmp->parent = super;
         }
     }
 }
 
-void sub_0804772C(Entity* this) {
-    this->field_0x76.HWORD -= 0x180;
-    this->direction = this->field_0x76.HWORD >> 8;
-    if (this->direction <= 0x40) {
-        this->direction = 0x40;
-        this->subAction = 3;
-        this->speed = 0x200;
-        this->field_0x7c.HALF.HI = 0x1e;
+void sub_0804772C(GyorgMaleEntity* this) {
+    this->unk_76 -= 0x180;
+    super->direction = this->unk_76 >> 8;
+    if (super->direction <= 0x40) {
+        super->direction = 0x40;
+        super->subAction = 3;
+        super->speed = 0x200;
+        this->unk_7e = 0x1e;
     }
-    sub_08047DF0(this, ((0x100 - this->direction) & 0xFF) << 8);
+    sub_08047DF0(this, ((0x100 - super->direction) & 0xFF) << 8);
 }
 
-void (*const gUnk_080D1BDC[5])(Entity*) = { sub_08047798, sub_080477F0, sub_08047914, sub_08047978, sub_08047B08 };
+void (*const gUnk_080D1BDC[5])(GyorgMaleEntity*) = { sub_08047798, sub_080477F0, sub_08047914, sub_08047978,
+                                                     sub_08047B08 };
 
-void sub_08047778(Entity* this) {
-    gUnk_080D1BDC[this->subAction](this);
-    UpdateAnimationSingleFrame(this);
+void sub_08047778(GyorgMaleEntity* this) {
+    gUnk_080D1BDC[super->subAction](this);
+    UpdateAnimationSingleFrame(super);
 }
 
-void sub_08047798(Entity* this) {
-    this->subAction = 1;
-    this->speed = 0x80;
-    if (this->x.HALF.HI - gRoomControls.roomOriginX < 0x1F8) {
-        this->field_0x80.HWORD = 0xa8;
+void sub_08047798(GyorgMaleEntity* this) {
+    super->subAction = 1;
+    super->speed = 0x80;
+    if (super->x.HALF.HI - gRoomControls.roomOriginX < 0x1F8) {
+        this->unk_80 = 0xa8;
     } else {
-        this->field_0x80.HWORD = 0x348;
+        this->unk_80 = 0x348;
     }
-    this->field_0x80.HWORD += gRoomControls.roomOriginX;
-    this->field_0x82.HWORD = gRoomControls.roomOriginY + 0x348;
+    this->unk_80 += gRoomControls.roomOriginX;
+    this->unk_82 = gRoomControls.roomOriginY + 0x348;
     sub_08047D88(this);
 }
 
 const s16 gUnk_080D1BF0[2] = { 0x80, -0x80 };
 
-void sub_080477F0(Entity* this) {
-    if (this->speed < 0x300) {
-        this->speed += 8;
+void sub_080477F0(GyorgMaleEntity* this) {
+    if (super->speed < 0x300) {
+        super->speed += 8;
     }
-    this->direction = sub_080045DA(this->field_0x80.HWORD - this->x.HALF.HI, this->field_0x82.HWORD - this->y.HALF.HI);
+    super->direction = sub_080045DA(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
     sub_08047E48(this);
-    if (!sub_0806FCB8(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x80)) {
-        this->action = 2;
-        this->subAction = 0;
-        this->spriteOrientation.flipY = 2;
-        this->spriteRendering.b3 = 2;
-        this->direction = this->animationState;
+    if (!sub_0806FCB8(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x80)) {
+        super->action = 2;
+        super->subAction = 0;
+        super->spriteOrientation.flipY = 2;
+        super->spriteRendering.b3 = 2;
+        super->direction = super->animationState;
         return;
     }
-    if (!sub_0806FCB8(this, gRoomControls.roomOriginX + 0x200, gRoomControls.roomOriginY + 0x210, 0x100)) {
-        this->spriteOrientation.flipY = 3;
-        this->spriteRendering.b3 = 3;
+    if (!sub_0806FCB8(super, gRoomControls.roomOriginX + 0x200, gRoomControls.roomOriginY + 0x210, 0x100)) {
+        super->spriteOrientation.flipY = 3;
+        super->spriteRendering.b3 = 3;
     }
-    if (sub_0806FCB8(this, this->field_0x80.HWORD, this->field_0x82.HWORD, 4)) {
-        this->subAction = 2;
-        this->field_0x76.HWORD = this->animationState << 8;
-        this->field_0x74.HWORD = gUnk_080D1BF0[Random() & 1];
-        if (((Entity*)this->myHeap)->prev->field_0x6c.HWORD & 1) {
-            ((Entity*)this->myHeap)->next->field_0x78.HALF.HI =
-                gRoomControls.roomOriginX + 0x200 > this->x.HALF.HI ? 0x81 : 0x83;
+    if (sub_0806FCB8(super, this->unk_80, this->unk_82, 4)) {
+        super->subAction = 2;
+        this->unk_76 = super->animationState << 8;
+        this->unk_74 = gUnk_080D1BF0[Random() & 1];
+        if (((GyorgFemaleHeap*)super->myHeap)->boss->unk_6c & 1) {
+            ((GyorgFemaleHeap*)super->myHeap)->female->unk_79 =
+                gRoomControls.roomOriginX + 0x200 > super->x.HALF.HI ? 0x81 : 0x83;
         } else {
-            ((Entity*)this->myHeap)->next->field_0x78.HALF.HI = 0x80;
+            ((GyorgFemaleHeap*)super->myHeap)->female->unk_79 = 0x80;
         }
     }
 }
 
-void sub_08047914(Entity* this) {
+void sub_08047914(GyorgMaleEntity* this) {
     sub_08047D88(this);
-    if (this->animationState & 0x1F) {
-        this->field_0x76.HWORD += this->field_0x74.HWORD;
-        this->animationState = this->field_0x76.HWORD >> 8;
-        sub_08047EA4(this, ((0x100 - this->animationState) & 0xFF) << 8);
+    if (super->animationState & 0x1F) {
+        this->unk_76 += this->unk_74;
+        super->animationState = this->unk_76 >> 8;
+        sub_08047EA4(this, ((0x100 - super->animationState) & 0xFF) << 8);
     } else {
-        this->subAction = 3;
-        this->field_0x70.HALF.LO = 0x3C;
-        this->field_0x7c.HALF.HI = ((this->type * 0xF) << 2) + 0x78;
-        sub_080A1D70(((Entity*)this->myHeap)->prev, this->animationState);
+        super->subAction = 3;
+        this->unk_70 = 0x3C;
+        this->unk_7e = ((super->type * 0xF) << 2) + 0x78;
+        sub_080A1D70(&(((GyorgFemaleHeap*)super->myHeap)->boss->base), super->animationState);
     }
 }
 
-void sub_08047978(Entity* this) {
+void sub_08047978(GyorgMaleEntity* this) {
     sub_08047D88(this);
-    if (this->health != 0) {
-        if (--this->field_0x70.HALF_U.LO == 0) {
-            this->field_0x70.HALF.HI = 1;
-            if (this->type == 0) {
-                this->field_0x70.HALF.LO = 0xB4;
+    if (super->health != 0) {
+        if (--this->unk_70 == 0) {
+            this->unk_72 = 1;
+            if (super->type == 0) {
+                this->unk_70 = 0xB4;
             } else {
-                this->field_0x70.HALF.LO = 0x168;
+                this->unk_70 = 0x168;
             }
         } else {
-            if (this->field_0x70.HALF_U.LO == 0xF0) {
+            if (this->unk_70 == 0xF0) {
                 sub_0804813C(this);
             }
         }
     } else {
-        this->field_0x70.HALF.HI = 0;
+        this->unk_72 = 0;
     }
-    if (--this->field_0x7c.HALF.HI == 0) {
+    if (--this->unk_7e == 0) {
         Entity* tmp;
-        this->field_0x7c.HALF.HI = 0xF0;
+        this->unk_7e = 0xF0;
         tmp = CreateEnemy(ENEMY_62, Random() & 3);
         if (tmp) {
-            tmp->parent = this;
+            tmp->parent = super;
         }
     }
-    if (!sub_0806FCB8(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x80)) {
-        this->action = 2;
-        this->subAction = 0;
-        this->spriteOrientation.flipY = 2;
-        this->spriteRendering.b3 = 2;
-        this->direction = this->animationState;
+    if (!sub_0806FCB8(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x80)) {
+        super->action = 2;
+        super->subAction = 0;
+        super->spriteOrientation.flipY = 2;
+        super->spriteRendering.b3 = 2;
+        super->direction = super->animationState;
     }
-    if (this->health != 0)
+    if (super->health != 0)
         return;
-    if (this->child->action != 1)
+    if (super->child->action != 1)
         return;
-    this->subAction = 4;
-    if (this->type == 0) {
-        if ((((Entity*)this->myHeap)->next->animationState >> 6) == 1) {
-            this->field_0x80.HWORD = gRoomControls.roomOriginX + 0x1C0;
-            this->field_0x82.HWORD = gRoomControls.roomOriginY + 0x250;
+    super->subAction = 4;
+    if (super->type == 0) {
+        if ((((GyorgFemaleHeap*)super->myHeap)->female->base.animationState >> 6) == 1) {
+            this->unk_80 = gRoomControls.roomOriginX + 0x1C0;
+            this->unk_82 = gRoomControls.roomOriginY + 0x250;
         } else {
-            this->field_0x80.HWORD = gRoomControls.roomOriginX + 0x240;
-            this->field_0x82.HWORD = gRoomControls.roomOriginY + 0x250;
+            this->unk_80 = gRoomControls.roomOriginX + 0x240;
+            this->unk_82 = gRoomControls.roomOriginY + 0x250;
         }
     } else {
-        if (gRoomControls.roomOriginX + 0x200 < this->x.HALF.HI) {
-            this->field_0x80.HWORD = 0x190;
+        if (gRoomControls.roomOriginX + 0x200 < super->x.HALF.HI) {
+            this->unk_80 = 0x190;
         } else {
-            this->field_0x80.HWORD = 0x270;
+            this->unk_80 = 0x270;
         }
-        this->field_0x80.HWORD += gRoomControls.roomOriginX;
-        if (gRoomControls.roomOriginY + 0x210 < this->y.HALF.HI) {
-            this->field_0x82.HWORD = 0x1A0;
+        this->unk_80 += gRoomControls.roomOriginX;
+        if (gRoomControls.roomOriginY + 0x210 < super->y.HALF.HI) {
+            this->unk_82 = 0x1A0;
         } else {
-            this->field_0x82.HWORD = 0x280;
+            this->unk_82 = 0x280;
         }
-        this->field_0x82.HWORD += gRoomControls.roomOriginY;
+        this->unk_82 += gRoomControls.roomOriginY;
     }
 }
 
-void sub_08047B08(Entity* this) {
+void sub_08047B08(GyorgMaleEntity* this) {
     sub_08047D88(this);
-    this->direction = sub_080045DA(this->field_0x80.HWORD - this->x.HALF.HI, this->field_0x82.HWORD - this->y.HALF.HI);
-    this->speed = 0x200;
+    super->direction = sub_080045DA(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
+    super->speed = 0x200;
     sub_08047E58(this);
-    if (!sub_0806FCB8(this, this->field_0x80.HWORD, this->field_0x82.HWORD, 4))
+    if (!sub_0806FCB8(super, this->unk_80, this->unk_82, 4))
         return;
-    if (this->type == 0) {
-        this->action = 7;
-        this->subAction = 0;
-        this->direction ^= 0x80;
+    if (super->type == 0) {
+        super->action = 7;
+        super->subAction = 0;
+        super->direction ^= 0x80;
     } else {
-        this->action = 4;
-        this->subAction = 0;
-        this->spriteOrientation.flipY = 2;
-        this->spriteRendering.b3 = 2;
-        this->direction = this->animationState;
+        super->action = 4;
+        super->subAction = 0;
+        super->spriteOrientation.flipY = 2;
+        super->spriteRendering.b3 = 2;
+        super->direction = super->animationState;
     }
 }
 
-void (*const gUnk_080D1BF4[3])(Entity*) = { sub_08047BA4, sub_08047BF0, sub_08047D24 };
+void (*const gUnk_080D1BF4[3])(GyorgMaleEntity*) = { sub_08047BA4, sub_08047BF0, sub_08047D24 };
 
-void sub_08047B84(Entity* this) {
-    gUnk_080D1BF4[this->subAction](this);
-    UpdateAnimationSingleFrame(this);
+void sub_08047B84(GyorgMaleEntity* this) {
+    gUnk_080D1BF4[super->subAction](this);
+    UpdateAnimationSingleFrame(super);
 }
 
-void sub_08047BA4(Entity* this) {
-    this->subAction = 1;
-    this->actionDelay = 0x78;
-    this->field_0xf = 0;
-    if (gRoomControls.roomOriginX + 0x200 < this->x.HALF.HI) {
-        this->field_0x76.HWORD = 0x78;
+void sub_08047BA4(GyorgMaleEntity* this) {
+    super->subAction = 1;
+    super->actionDelay = 0x78;
+    super->field_0xf = 0;
+    if (gRoomControls.roomOriginX + 0x200 < super->x.HALF.HI) {
+        this->unk_76 = 0x78;
     } else {
-        this->field_0x76.HWORD = 0x88;
+        this->unk_76 = 0x88;
     }
     SoundReq(SFX_1B5);
     sub_08047BF0(this);
@@ -929,14 +932,14 @@ void sub_08047BA4(Entity* this) {
 
 const s8 gUnk_080D1C00[4] = { 0x40, -0x40, -0x40, 0x40 };
 
-void sub_08047BF0(Entity* this) {
+void sub_08047BF0(GyorgMaleEntity* this) {
     Entity* tmp;
-    this->direction = gUnk_080D1C00[this->actionDelay & 3];
-    this->speed = 0x100;
+    super->direction = gUnk_080D1C00[super->actionDelay & 3];
+    super->speed = 0x100;
     sub_08047E48(this);
-    if (this->actionDelay == 0) {
-        if ((this->field_0xf++ & 0xF) == 0) {
-            tmp = CreateFx(this, FX_GIANT_EXPLOSION4, 0);
+    if (super->actionDelay == 0) {
+        if ((super->field_0xf++ & 0xF) == 0) {
+            tmp = CreateFx(super, FX_GIANT_EXPLOSION4, 0);
             if (tmp) {
                 u32 rand = Random();
                 tmp->x.HALF.HI += (rand & 0x1E) + 0xFFF1;
@@ -947,135 +950,135 @@ void sub_08047BF0(Entity* this) {
                 UpdateSpriteForCollisionLayer(tmp);
             }
         }
-        this->direction = this->field_0x76.HWORD;
-        this->speed = 0x140;
+        super->direction = this->unk_76;
+        super->speed = 0x140;
         sub_08047E48(this);
-        if (this->y.HALF.HI > gRoomControls.roomOriginY + 0x270) {
-            this->subAction = 2;
-            this->field_0x7c.HALF.HI = 0xAA;
+        if (super->y.HALF.HI > gRoomControls.roomOriginY + 0x270) {
+            super->subAction = 2;
+            this->unk_7e = 0xAA;
             SoundReq(SFX_12D);
-            InitAnimationForceUpdate(this, 1);
+            InitAnimationForceUpdate(super, 1);
         }
     } else {
-        this->actionDelay--;
-        if (this->actionDelay == 0x5A) {
-            tmp = this->child;
+        super->actionDelay--;
+        if (super->actionDelay == 0x5A) {
+            tmp = super->child;
             tmp->spriteSettings.draw = 0;
             CreateFx(tmp, FX_GIANT_EXPLOSION4, 0);
         } else {
-            if (this->actionDelay == 0x3C) {
-                tmp = this->child->child;
+            if (super->actionDelay == 0x3C) {
+                tmp = super->child->child;
                 tmp->spriteSettings.draw = 0;
                 CreateFx(tmp, FX_GIANT_EXPLOSION4, 0);
             } else {
-                if (this->actionDelay == 0x1E) {
-                    tmp = this->child->child->child;
+                if (super->actionDelay == 0x1E) {
+                    tmp = super->child->child->child;
                     tmp->spriteSettings.draw = 0;
                     CreateFx(tmp, FX_GIANT_EXPLOSION4, 0);
                 }
             }
         }
     }
-    sub_0805EC9C(this, 0xAA, 0xAA, this->field_0x78.HWORD);
+    sub_0805EC9C(this, 0xAA, 0xAA, this->unk_78);
 }
 
-void sub_08047D24(Entity* this) {
-    this->field_0x7c.HALF_U.HI += 8;
-    if (this->field_0x7c.HALF_U.HI > 0x800) {
-        if (this->type == 0) {
-            ((u32*)this->myHeap)[2] = 0;
+void sub_08047D24(GyorgMaleEntity* this) {
+    this->unk_7e += 8;
+    if (this->unk_7e > 0x800) {
+        if (super->type == 0) {
+            ((u32*)super->myHeap)[2] = 0;
         } else {
-            ((u32*)this->myHeap)[3] = 0;
+            ((u32*)super->myHeap)[3] = 0;
         }
-        this->myHeap = NULL;
+        super->myHeap = NULL;
         DeleteThisEntity();
     } else {
-        if (this->field_0x7c.HALF_U.HI < 0x200) {
+        if (this->unk_7e < 0x200) {
             sub_08047E48(this);
         } else {
             sub_08047E58(this);
         }
-        sub_0805EC9C(this, this->field_0x7c.HALF_U.HI, this->field_0x7c.HALF_U.HI, this->field_0x78.HWORD);
+        sub_0805EC9C(this, this->unk_7e, this->unk_7e, this->unk_78);
     }
 }
 
-void sub_08047D88(Entity* this) {
+void sub_08047D88(GyorgMaleEntity* this) {
     u32 tmp2;
-    u32 tmp = this->field_0x7c.BYTES.byte0;
+    u32 tmp = this->unk_7c;
     tmp = ((tmp << 1) & 0x7F) | (tmp & 0x80);
-    this->field_0x7c.BYTES.byte0 = tmp;
-    tmp2 = this->spriteRendering.b3;
+    this->unk_7c = tmp;
+    tmp2 = super->spriteRendering.b3;
     if (tmp2 == 3 && gPlayerState.field_0x14 != 0)
         return;
-    if (this->animIndex == 1)
+    if (super->animIndex == 1)
         return;
-    if (!sub_0806FCB8(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x20))
+    if (!sub_0806FCB8(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x20))
         return;
     gPlayerState.field_0x14 = 1;
     if (gPlayerEntity.z.HALF.HI != 0)
         return;
-    this->field_0x7c.BYTES.byte0 |= 1;
+    this->unk_7c |= 1;
 }
 
-void sub_08047DF0(Entity* this, u32 unk1) {
+void sub_08047DF0(GyorgMaleEntity* this, u32 unk1) {
     u32 oldX, oldY;
     sub_08047D88(this);
     sub_08047EA4(this, unk1);
-    oldX = this->x.HALF.HI;
-    oldY = this->y.HALF.HI;
-    sub_0806F62C(this, this->speed, this->direction);
-    if (this->field_0x7c.BYTES.byte0 & 1) {
+    oldX = super->x.HALF.HI;
+    oldY = super->y.HALF.HI;
+    sub_0806F62C(super, super->speed, super->direction);
+    if (this->unk_7c & 1) {
         if (sub_08079F8C()) {
-            gPlayerEntity.x.HALF.HI += this->x.HALF.HI - oldX;
-            gPlayerEntity.y.HALF.HI += this->y.HALF.HI - oldY;
+            gPlayerEntity.x.HALF.HI += super->x.HALF.HI - oldX;
+            gPlayerEntity.y.HALF.HI += super->y.HALF.HI - oldY;
         }
     }
 }
 
-void sub_08047E48(Entity* this) {
+void sub_08047E48(GyorgMaleEntity* this) {
     sub_08047D88(this);
     sub_08047E58(this);
 }
 
-void sub_08047E58(Entity* this) {
+void sub_08047E58(GyorgMaleEntity* this) {
     u32 oldX, oldY;
-    oldX = this->x.HALF.HI;
-    oldY = this->y.HALF.HI;
-    sub_0806F62C(this, this->speed, this->direction);
-    if (this->field_0x7c.BYTES.byte0 & 1) {
+    oldX = super->x.HALF.HI;
+    oldY = super->y.HALF.HI;
+    sub_0806F62C(super, super->speed, super->direction);
+    if (this->unk_7c & 1) {
         if (sub_08079F8C()) {
-            gPlayerEntity.x.HALF.HI += this->x.HALF.HI - oldX;
-            gPlayerEntity.y.HALF.HI += this->y.HALF.HI - oldY;
+            gPlayerEntity.x.HALF.HI += super->x.HALF.HI - oldX;
+            gPlayerEntity.y.HALF.HI += super->y.HALF.HI - oldY;
         }
     }
 }
 
-void sub_08047EA4(Entity* this, u32 unk1) {
+void sub_08047EA4(GyorgMaleEntity* this, u32 unk1) {
     s32 tmp;
     u32 tmp2, dir;
-    this->field_0x78.HWORD = unk1;
-    tmp = this->field_0x78.HWORD - this->field_0x7a.HWORD;
+    this->unk_78 = unk1;
+    tmp = this->unk_78 - this->unk_7a;
     if (tmp + 0x100 < 0x200u)
         return;
-    if (this->field_0x7c.BYTES.byte0 & 1) {
+    if (this->unk_7c & 1) {
         tmp2 = sub_08047F68(this) << 8;
-        dir = sub_080045DA(gPlayerEntity.x.HALF.HI - this->x.HALF.HI, gPlayerEntity.y.HALF.HI - this->y.HALF.HI);
+        dir = sub_080045DA(gPlayerEntity.x.HALF.HI - super->x.HALF.HI, gPlayerEntity.y.HALF.HI - super->y.HALF.HI);
         tmp = dir - (tmp / 256);
         tmp &= 0xFF;
         gPlayerEntity.x.WORD += (gSineTable[tmp] - gSineTable[dir]) * tmp2;
         gPlayerEntity.y.WORD -= (gSineTable[tmp + 0x40] - gSineTable[dir + 0x40]) * tmp2;
     }
-    this->field_0x7a.HWORD = this->field_0x78.HWORD;
+    this->unk_7a = this->unk_78;
 }
 
 const u16 gUnk_080D1C04[0x20] = { 0,   1,   4,   9,   16,  25,  36,  49,  64,  81,  100, 121, 144, 169, 196, 225,
                                   256, 289, 324, 361, 400, 441, 484, 529, 576, 625, 676, 729, 784, 841, 900, 961 };
 
-u32 sub_08047F68(Entity* this) {
+u32 sub_08047F68(GyorgMaleEntity* this) {
     s32 diffX, diffY;
     s32 distSquared, approx;
-    diffX = gPlayerEntity.x.HALF.HI - this->x.HALF.HI;
-    diffY = gPlayerEntity.y.HALF.HI - this->y.HALF.HI;
+    diffX = gPlayerEntity.x.HALF.HI - super->x.HALF.HI;
+    diffY = gPlayerEntity.y.HALF.HI - super->y.HALF.HI;
     distSquared = (diffX * diffX) + (diffY * diffY);
     if (distSquared == 0x400)
         return 0x20;
@@ -1109,53 +1112,53 @@ u32 sub_08047F68(Entity* this) {
     return approx;
 }
 
-void sub_08048004(Entity* this) {
-    if (this->action == 0)
+void sub_08048004(GyorgMaleEntity* this) {
+    if (super->action == 0)
         return;
-    if (this->animIndex == 0) {
-        COLLISION_OFF(this);
+    if (super->animIndex == 0) {
+        COLLISION_OFF(super);
         if (gPlayerEntity.z.HALF.HI != 0)
             return;
         if (!sub_08079F8C())
             return;
-        if (this->field_0x7c.BYTES.byte0 & 1) {
-            u32 b = this->spriteRendering.b3;
+        if (this->unk_7c & 1) {
+            u32 b = super->spriteRendering.b3;
             if (b == 3) {
                 s32 posX = ((gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX) >> 3);
                 s32 posY = ((gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY) >> 3);
                 u16* tmp = (u16*)&gUnk_02019EE0;
                 if (tmp[(posY << 7) + posX]) {
-                    if (!(this->field_0x7c.BYTES.byte0 & 2)) {
-                        this->field_0x7c.BYTES.byte0 |= 0x80;
+                    if (!(this->unk_7c & 2)) {
+                        this->unk_7c |= 0x80;
                     }
-                    if ((this->field_0x7c.BYTES.byte0 & 0x80))
+                    if ((this->unk_7c & 0x80))
                         return;
-                    gPlayerEntity.x.HALF.HI = this->cutsceneBeh.HWORD;
-                    gPlayerEntity.y.HALF.HI = this->field_0x86.HWORD;
+                    gPlayerEntity.x.HALF.HI = this->unk_84;
+                    gPlayerEntity.y.HALF.HI = this->unk_86;
                     return;
                 }
             }
-            this->field_0x7c.BYTES.byte0 &= ~0x80;
+            this->unk_7c &= ~0x80;
         } else {
-            u32 b = this->spriteRendering.b3;
+            u32 b = super->spriteRendering.b3;
             if (b != 3) {
-                if (sub_0806FCB8(&gPlayerEntity, this->x.HALF.HI, this->y.HALF.HI, 0x24)) {
-                    if (!(this->field_0x7c.BYTES.byte0 & 2)) {
-                        u32 tmp = sub_080045DA(gPlayerEntity.x.HALF.HI - this->x.HALF.HI,
-                                               gPlayerEntity.y.HALF.HI - this->y.HALF.HI);
-                        gPlayerEntity.x.WORD = this->x.WORD + (gSineTable[tmp] * 9216);
-                        gPlayerEntity.y.WORD = this->y.WORD - (gSineTable[tmp + 0x40] * 9216);
+                if (sub_0806FCB8(&gPlayerEntity, super->x.HALF.HI, super->y.HALF.HI, 0x24)) {
+                    if (!(this->unk_7c & 2)) {
+                        u32 tmp = sub_080045DA(gPlayerEntity.x.HALF.HI - super->x.HALF.HI,
+                                               gPlayerEntity.y.HALF.HI - super->y.HALF.HI);
+                        gPlayerEntity.x.WORD = super->x.WORD + (gSineTable[tmp] * 9216);
+                        gPlayerEntity.y.WORD = super->y.WORD - (gSineTable[tmp + 0x40] * 9216);
                     }
                 }
             }
-            this->field_0x7c.BYTES.byte0 = 0;
+            this->unk_7c = 0;
         }
     } else {
-        COLLISION_ON(this);
+        COLLISION_ON(super);
     }
 }
 
-void sub_0804813C(Entity* this) {
+void sub_0804813C(GyorgMaleEntity* this) {
     u32 rand = Random();
     sub_080A1ED0(rand & 7, 1, (rand >> 8) & 3);
 }
@@ -1170,9 +1173,9 @@ const u16 gUnk_080D1C50[8] = { 0x200, 0x180, 0x2C0, 0x210, 0x200, 0x2A0, 0x140, 
 
 const u16 gUnk_080D1C60[8] = { 0x200, 0x150, 0x290, 0x210, 0x200, 0x2D0, 0x170, 0x210 };
 
-void sub_08048178(Entity* this, u32 unk1) {
-    const u16* tmp =
-        ((((Entity*)this->myHeap)->next->animationState >> 6 & 1) ? gUnk_080D1C60 + unk1 : gUnk_080D1C50 + unk1);
-    this->field_0x80.HWORD = *tmp + gRoomControls.roomOriginX;
-    this->field_0x82.HWORD = *(tmp + 1) + gRoomControls.roomOriginY;
+void sub_08048178(GyorgMaleEntity* this, u32 unk1) {
+    const u16* tmp = ((((GyorgFemaleHeap*)super->myHeap)->female->base.animationState >> 6 & 1) ? gUnk_080D1C60 + unk1
+                                                                                                : gUnk_080D1C50 + unk1);
+    this->unk_80 = *tmp + gRoomControls.roomOriginX;
+    this->unk_82 = *(tmp + 1) + gRoomControls.roomOriginY;
 }

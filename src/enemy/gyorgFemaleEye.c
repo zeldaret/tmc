@@ -195,7 +195,7 @@ void sub_08048D20(GyorgFemaleEyeEntity* this) {
 }
 
 u32 sub_08048D70(GyorgFemaleEntity* parent) {
-    GenericEntity* tmp;
+    GyorgMaleEntity* tmp;
     if (parent->base.health != 0) {
         return 1;
     }

@@ -33,6 +33,24 @@ typedef struct {
 
 typedef struct {
     Entity base;
+    u8 unk_68[0x8];
+    u16 unk_70;
+    u16 unk_72;
+    u16 unk_74;
+    u16 unk_76;
+    u16 unk_78;
+    u16 unk_7a;
+    u8 unk_7c;
+    u8 unk_7d;
+    u16 unk_7e;
+    u16 unk_80;
+    u16 unk_82;
+    u16 unk_84;
+    u16 unk_86;
+} GyorgMaleEntity;
+
+typedef struct {
+    Entity base;
     u8 unk_68[0xC];
     u16 unk_74;
     u16 unk_76;
@@ -62,8 +80,8 @@ typedef struct {
 typedef struct {
     GyorgBossObjectEntity* boss;
     GyorgFemaleEntity* female;
-    GenericEntity* male1;
-    GenericEntity* male2;
+    GyorgMaleEntity* male1;
+    GyorgMaleEntity* male2;
     GyorgFemaleMouthEntity* unk_10;
     GenericEntity* unk_14;
     void* unk_18[0x8];

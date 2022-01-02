@@ -20,7 +20,7 @@ void sub_080A1E54(GyorgBossObjectEntity*);
 void sub_080A1D8C(GyorgBossObjectEntity*, s32);
 
 void sub_080A1FF0(GyorgBossObjectEntity*);
-u32 sub_080A20B8(GyorgBossObjectEntity*, GenericEntity*);
+u32 sub_080A20B8(GyorgBossObjectEntity*, GyorgMaleEntity*);
 void sub_080A1D70(GyorgBossObjectEntity*, u32);
 
 void sub_080A1704(GyorgBossObjectEntity*);
@@ -71,7 +71,7 @@ void sub_080A1704(GyorgBossObjectEntity* this) {
     tmp->y.HALF.HI = gRoomControls.roomOriginY + 0x330;
 #endif
     tmp->myHeap = heap;
-    heap->male1 = (GenericEntity*)tmp;
+    heap->male1 = (GyorgMaleEntity*)tmp;
     tmp = CreateEnemy(GYORG_MALE, 1);
     tmp->x.HALF.HI = gRoomControls.roomOriginX + 0x260;
 #ifdef EU
@@ -80,7 +80,7 @@ void sub_080A1704(GyorgBossObjectEntity* this) {
     tmp->y.HALF.HI = gRoomControls.roomOriginY + 0x310;
 #endif
     tmp->myHeap = heap;
-    heap->male2 = (GenericEntity*)tmp;
+    heap->male2 = (GyorgMaleEntity*)tmp;
     gScreen.bg3.control = 0x1E07;
     gScreen.lcd.displayControl |= 0x800;
     this->unk_70 = 0;
@@ -309,8 +309,8 @@ void sub_080A1D8C(GyorgBossObjectEntity* this, s32 unk1) {
 
 void sub_080A1DCC(GyorgBossObjectEntity* this) {
     GenericEntity* tmp;
-    if ((tmp = ((GyorgFemaleHeap*)super->myHeap)->male1) != NULL ||
-        (tmp = ((GyorgFemaleHeap*)super->myHeap)->male2) != NULL) {
+    if ((tmp = (GenericEntity*)((GyorgFemaleHeap*)super->myHeap)->male1) != NULL ||
+        (tmp = (GenericEntity*)((GyorgFemaleHeap*)super->myHeap)->male2) != NULL) {
         if (tmp->field_0x7c.BYTES.byte0 && tmp->base.spriteRendering.b3 == 2) {
             ((GyorgFemaleHeap*)super->myHeap)->unk_10->base.flags &= ~0x80;
             tmp = ((GyorgFemaleHeap*)super->myHeap)->unk_14;
@@ -432,12 +432,12 @@ void sub_080A1FF0(GyorgBossObjectEntity* this) {
     }
 }
 
-u32 sub_080A20B8(GyorgBossObjectEntity* this, GenericEntity* other) {
+u32 sub_080A20B8(GyorgBossObjectEntity* this, GyorgMaleEntity* other) {
     if (other == NULL) {
         return 1;
     }
     if (sub_08079F8C() && gPlayerEntity.z.HALF.HI == 0) {
-        return other->field_0x7c.BYTES.byte0 == 0 && gPlayerState.field_0x14 != 0;
+        return other->unk_7c == 0 && gPlayerState.field_0x14 != 0;
     }
     return 0;
 }
