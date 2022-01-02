@@ -17,7 +17,7 @@ extern u16* gUnk_02025EB0;
 extern u16* gUnk_0200B650;
 extern u8 gUpdateVisibleTiles;
 extern u8 gUnk_03003DF0[];
-extern u8 gUnk_03003BE0;
+extern Entity gUnk_03003BE0;
 extern Entity* gPlayerClones[3];
 extern u16 gUnk_080B2CD8[];
 
