@@ -95,27 +95,30 @@ typedef enum {
 } PlayerControlMode;
 
 enum PlayerFlags {
-    PL_BUSY = (1 << 0),
-    PL_DROWNING = (1 << 2),
-    PL_NO_CAP = (1 << 3),
-    PL_USE_PORTAL = (1 << 5),
-    PL_HIDDEN = (1 << 6),
-    PL_MINISH = (1 << 7),
-    PL_FALLING = (1 << 9),
-    PL_BURNING = (1 << 10),
-    PL_FROZEN = (1 << 11),
-    PL_DRUGGED = (1 << 14),
-    PL_ROLLING = (1 << 18),
-    PL_TRAPPED = (1 << 19),
-    PL_IN_HOLE = (1 << 20),
-    PL_RELEASED = (1 << 21),
-    PL_CLONING = (1 << 22),
-    PL_USE_LANTERN = (1 << 23),
-    PL_PARACHUTE = (1 << 24),
-    PL_MINECART = (1 << 26),
-    PL_SWORD_THRUST = (1 << 27),
-    PL_USE_OCARINA = (1 << 28),
-    PL_CLIMBING = (1 << 29),
+    PL_BUSY = 0x1,
+    PL_DROWNING = 0x4,
+    PL_NO_CAP = 0x8,
+    PL_CAPTURED = 0x10,
+    PL_USE_PORTAL = 0x20,
+    PL_HIDDEN = 0x40,
+    PL_MINISH = 0x80,
+    PL_DISABLE_ITEMS = 0x100,
+    PL_FALLING = 0x200,
+    PL_BURNING = 0x400,
+    PL_FROZEN = 0x800,
+    PL_IN_MINECART = 0x1000,
+    PL_DRUGGED = 0x4000,
+    PL_ROLLING = 0x40000,
+    PL_MOLDWORM_CAPTURED = 0x80000,
+    PL_IN_HOLE = 0x100000,
+    PL_MOLDWORM_RELEASED = 0x200000,
+    PL_CLONING = 0x400000,
+    PL_USE_LANTERN = 0x800000,
+    PL_PARACHUTE = 0x1000000,
+    PL_ENTER_MINECART = 0x4000000,
+    PL_SWORD_THRUST = 0x8000000,
+    PL_USE_OCARINA = 0x10000000,
+    PL_CLIMBING = 0x20000000,
 };
 
 enum SurfaceType {
@@ -168,7 +171,7 @@ enum SurfaceType {
 
 typedef struct {
     /*0x00*/ u8 field_0x0[2];
-    /*0x02*/ u8 jumpStatus;
+    /*0x02*/ u8 jump_status;
     /*0x03*/ u8 field_0x3[2];
     /*0x05*/ u8 heldObject;
     /*0x06*/ u8 pushedObject;
@@ -188,13 +191,14 @@ typedef struct {
     /*0x15*/ u8 field_0x15;
     /*0x16*/ u16 startPosX;
     /*0x18*/ u16 startPosY;
-    /*0x1a*/ u8 field_0x1a[2];
+    /*0x1a*/ u8 mobility;
+    /*0x1b*/ u8 sword_state;
     /*0x1c*/ u8 field_0x1c;
     /*0x1d*/ u8 field_0x1d;
     /*0x1e*/ u8 dash_state;
     /*0x1f*/ u8 field_0x1f[3];
     /*0x22*/ u16 field_0x22[2];
-    /*0x26*/ u8 swimState;
+    /*0x26*/ u8 swim_state;
     /*0x27*/ u8 field_0x27[5];
     /*0x2c*/ Entity* item;
     /*0x30*/ u32 flags;
@@ -210,7 +214,7 @@ typedef struct {
     /*    */ u8 swordBlueParticle : 1;
     /*    */ u8 filler14 : 6;
     /*0x3f*/ u8 field_0x3f;
-    /*0x40*/ u8 hurtType[64];
+    /*0x40*/ u8 path_memory[64];
     /*0x80*/ u16 speed_modifier;
     /*0x82*/ u8 field_0x82[9];
     /*0x8b*/ u8 controlMode;

@@ -52,8 +52,8 @@ void sub_080768F8(ItemBehavior* this, u32 arg1) {
     u32 bVar1;
     u32 bVar2;
 
-    bVar1 = gPlayerState.field_0x1c | gPlayerState.field_0x3[1] | gPlayerState.heldObject | gPlayerState.jumpStatus;
-    bVar2 = (gPlayerState.flags & 0x1000);
+    bVar1 = gPlayerState.field_0x1c | gPlayerState.field_0x3[1] | gPlayerState.heldObject | gPlayerState.jump_status;
+    bVar2 = (gPlayerState.flags & PL_IN_MINECART);
     bVar1 |= bVar2;
     if (bVar1 == 0) {
         gPlayerState.dash_state = 1;

@@ -227,8 +227,8 @@ _0801982E:
 	pop {r4, r5, pc}
 	.align 2, 0
 
-	thumb_func_start sub_08019840
-sub_08019840: @ 0x08019840
+	thumb_func_start UpdatePlayerCollision
+UpdatePlayerCollision: @ 0x08019840
 	push {r4, r5, r6, r7, lr}
 	mov r7, sb
 	mov r6, r8

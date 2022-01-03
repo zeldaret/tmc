@@ -230,7 +230,7 @@ void sub_08021B64(Entity* this) {
             this->actionDelay = (u8)iVar4;
         }
 
-        if (gPlayerState.flags & 0x110)
+        if (gPlayerState.flags & (PL_DISABLE_ITEMS | PL_CAPTURED))
             iVar4 = 0;
 
         if (iVar4 == 0) {
@@ -244,7 +244,7 @@ void sub_08021B64(Entity* this) {
             }
             InitializeAnimation(this, 5);
         } else {
-            gPlayerState.field_0x1a[0] |= 0x80;
+            gPlayerState.mobility |= 0x80;
             gPlayerState.speed_modifier -= 0x50;
             gPlayerState.field_0xaa++;
             CopyPositionAndSpriteOffset(&gPlayerEntity, this);

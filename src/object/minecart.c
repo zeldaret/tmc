@@ -23,7 +23,7 @@ void sub_080916EC(Entity* this) {
     struct_030010EC* unk = &gScreenTransition.minecart_data[this->actionDelay];
 
     *(struct_030010EC**)&this->cutsceneBeh.HWORD = unk;
-    if ((gRoomControls.roomID != unk->field_0x4) || (gPlayerState.flags & 0x1000) != 0) {
+    if ((gRoomControls.roomID != unk->field_0x4) || (gPlayerState.flags & PL_IN_MINECART) != 0) {
         DeleteThisEntity();
     }
     this->x.HALF.HI = gRoomControls.roomOriginX + ((unk->field_0x0 & 0x3f) << 4) + 8;
@@ -53,7 +53,7 @@ void sub_080917DC(Entity* this) {
     } else {
         if (sub_0800445C(this) != 0) {
             if (!((gPlayerState.flags & (PL_MINISH | PL_ROLLING)) || gPlayerState.field_0x1c ||
-                  gPlayerState.heldObject || gPlayerState.jumpStatus)) {
+                  gPlayerState.heldObject || gPlayerState.jump_status)) {
                 this->actionDelay++;
             } else {
                 this->actionDelay = 0;
@@ -64,8 +64,8 @@ void sub_080917DC(Entity* this) {
         if (this->type2 == 0) {
             if (this->actionDelay > 8) {
                 this->action++;
-                gPlayerState.jumpStatus = 0x81;
-                gPlayerState.flags |= PL_MINECART;
+                gPlayerState.jump_status = 0x81;
+                gPlayerState.flags |= PL_ENTER_MINECART;
                 gPlayerEntity.zVelocity = 0x20000;
                 gPlayerEntity.speed = 0x100;
                 gPlayerEntity.flags &= ~PL_MINISH;
@@ -88,7 +88,7 @@ void sub_080918A4(Entity* this) {
                 return;
             }
             gPlayerEntity.animationState = this->animationState << 1;
-            gPlayerState.flags = (gPlayerState.flags ^ PL_MINECART) | 0x1000;
+            gPlayerState.flags = (gPlayerState.flags ^ PL_ENTER_MINECART) | PL_IN_MINECART;
             this->action++;
             this->field_0xf = 1;
             this->flags |= ENT_20;
@@ -114,7 +114,7 @@ void sub_080919AC(Entity* this) {
     u32 uVar3;
 
     gRoomControls.unk5 = 7;
-    if ((gPlayerState.flags & 0x1000) == 0) {
+    if ((gPlayerState.flags & PL_IN_MINECART) == 0) {
         this->action = 1;
         return;
     }
@@ -159,8 +159,8 @@ void sub_080919AC(Entity* this) {
                         this->flags2 = 0x80;
                         this->action = 6;
                         sub_08017744(this);
-                        gPlayerState.jumpStatus = 0x41;
-                        gPlayerState.flags = (gPlayerState.flags ^ 0x1000) | PL_MINECART;
+                        gPlayerState.jump_status = 0x41;
+                        gPlayerState.flags = (gPlayerState.flags ^ PL_IN_MINECART) | PL_ENTER_MINECART;
                         gPlayerEntity.zVelocity = 0x20000;
                         gPlayerEntity.speed = 0x200;
                         gPlayerEntity.animationState = this->animationState << 1;

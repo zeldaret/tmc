@@ -211,7 +211,7 @@ _08070924:
 	orrs r1, r0
 	cmp r1, #0
 	bne _080709D8
-	bl sub_08019840
+	bl UpdatePlayerCollision
 	cmp r0, #0xf
 	bls _08070940
 	b _08070BE4

@@ -168,7 +168,7 @@ void sub_0808692C(Entity* this) {
 static u8 sub_08086954(Entity* this) {
     if (sub_0800445C(this)) {
         if (sub_0806ED9C(this, 6, 20) >= 0 && gPlayerEntity.animationState == 0 &&
-            (u16)gPlayerState.field_0x90 == 0x400 && gPlayerState.jumpStatus == 0) {
+            (u16)gPlayerState.field_0x90 == 0x400 && gPlayerState.jump_status == 0) {
             this->actionDelay--;
         }
     } else {

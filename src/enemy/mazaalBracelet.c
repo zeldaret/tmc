@@ -1220,9 +1220,9 @@ void sub_0803B724(Entity* param_1) {
 }
 
 void sub_0803B798(void) {
-    gPlayerState.jumpStatus = 0x41;
+    gPlayerState.jump_status = 0x41;
     gPlayerState.field_0xa = 0;
-    gPlayerState.flags &= 0xffef;
+    gPlayerState.flags &= ~(0xffff0000 | PL_CAPTURED);
     gPlayerEntity.flags |= 0x80;
     gPlayerEntity.zVelocity = 0x18000;
     gPlayerEntity.z.HALF.HI = -10;
@@ -1242,7 +1242,7 @@ void sub_0803B804(Entity* this) {
 
 void sub_0803B824(Entity* this) {
     ResetPlayer();
-    gPlayerState.field_0x1a[0] = gPlayerState.field_0x1a[0] | 0x80;
+    gPlayerState.mobility = gPlayerState.mobility | 0x80;
     sub_0806FA90(this, &gPlayerEntity, gUnk_080CFD1D[this->type], 1);
     gPlayerEntity.spriteOffsetY = -6;
     gPlayerEntity.spritePriority.b1 = 0;
@@ -1252,7 +1252,7 @@ u32 sub_0803B870(Entity* this) {
     Entity* entity;
 
     entity = this->child;
-    if ((entity->bitfield & 0x80) != 0 && (gPlayerState.flags & 0x10) != 0) {
+    if ((entity->bitfield & 0x80) != 0 && (gPlayerState.flags & PL_CAPTURED)) {
         this->action = 0x18;
         this->actionDelay = 0x44;
         this->spriteSettings.draw = 0;

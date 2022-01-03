@@ -19,7 +19,7 @@ extern Hitbox gHitbox_0;
 void PicolyteBottle(Entity* this) {
     gUnk_081142BC[this->action](this);
     if (this->type == 0) {
-        gPlayerState.field_0x1a[0] |= 0x80;
+        gPlayerState.mobility |= 0x80;
     }
 }
 

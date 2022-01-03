@@ -392,10 +392,10 @@ void sub_080244E8(Entity* this) {
                             sub_080249DC(this);
                             this->cutsceneBeh.HALF.HI = gPlayerEntity.spritePriority.b1;
                             gPlayerEntity.flags &= 0x7f;
-                            gPlayerState.flags |= 0x100;
+                            gPlayerState.flags |= PL_DISABLE_ITEMS;
                             gPlayerState.field_0xa |= 0x80;
-                            if (gPlayerState.swimState != 0) {
-                                gPlayerState.swimState = 0;
+                            if (gPlayerState.swim_state != 0) {
+                                gPlayerState.swim_state = 0;
                             }
                         }
                         break;
@@ -636,7 +636,7 @@ bool32 sub_08024B38(Entity* this) {
     Entity* ent;
 
     if (gPlayerState.hurtBlinkSpeed != 0) {
-        if (gPlayerState.swimState == 1) {
+        if (gPlayerState.swim_state == 1) {
             if (gPlayerState.hurtBlinkSpeed > 3) {
                 gPlayerState.hurtBlinkSpeed -= 3;
             } else {
@@ -806,7 +806,7 @@ NONMATCH("asm/non_matching/pesto/sub_08024E4C.inc", void sub_08024E4C(Entity* th
             Entity* player = &gPlayerEntity;
 
             ResetPlayer();
-            gPlayerState.flags |= 0x100;
+            gPlayerState.flags |= PL_DISABLE_ITEMS;
             gPlayerState.field_0xa |= 0x80;
             gPlayerState.queued_action = PLAYER_0807204C;
             gPlayerState.field_0x38 = 0x14;
@@ -829,7 +829,7 @@ END_NONMATCH
 
 void sub_08024F50(Entity* this) {
     gPlayerState.field_0xa = 0;
-    gPlayerState.flags &= ~0x100;
+    gPlayerState.flags &= ~PL_DISABLE_ITEMS;
     CopyPosition(this, &gPlayerEntity);
     gPlayerEntity.action = 1;
     COLLISION_ON(&gPlayerEntity);

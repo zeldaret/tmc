@@ -71,7 +71,7 @@ void VaatiProjectileFunction1(Entity* this) {
                 entity->flags = entity->flags & 0x7f;
             }
         } else {
-            gPlayerState.flags &= 0xfffffeff; // using b.unk8 does not match
+            gPlayerState.flags &= ~PL_DISABLE_ITEMS;
             entity = &gPlayerEntity;
             entity->flags = gPlayerEntity.flags | 0x80;
         }
@@ -222,7 +222,7 @@ void VaatiProjectileFunction0Action9(Entity* this) {
 
 void sub_0803E444(Entity* this) {
     ResetPlayer();
-    gPlayerState.field_0x1a[0] = gPlayerState.field_0x1a[0] | 0x80;
+    gPlayerState.mobility = gPlayerState.mobility | 0x80;
     gPlayerState.field_0xa = gPlayerState.field_0xa | 0x80;
     sub_0806FA90(this, this->field_0x4c, 0, -2);
     gPlayerEntity.spriteOffsetY += 0xe;

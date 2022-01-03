@@ -116,11 +116,12 @@ static u32 PlayerStateValid(ManagerA* this) {
 static void sub_08058514(ManagerA* this) {
     switch (this->manager.unk_0d) {
         case 1:
-            if (gPlayerState.flags & (PL_BUSY | PL_DROWNING | PL_USE_PORTAL | PL_FALLING | 0x1010))
+            if (gPlayerState.flags &
+                (PL_BUSY | PL_DROWNING | PL_USE_PORTAL | PL_FALLING | PL_IN_MINECART | PL_CAPTURED))
                 return;
             if (gPlayerEntity.z.HALF.HI != 0)
                 return;
-            gPlayerState.jumpStatus = 0;
+            gPlayerState.jump_status = 0;
             CreateEzloHint(this->msg_idx, this->msg_height);
             this->manager.unk_0d++;
             this->manager.unk_0e = 30;

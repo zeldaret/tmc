@@ -21,7 +21,7 @@ void sub_08075FF8(ItemBehavior* this, u32 arg1) {
     s32 x;
     s32 y;
 
-    if ((gPlayerState.jumpStatus | gPlayerState.field_0x3[1]) == 0) {
+    if ((gPlayerState.jump_status | gPlayerState.field_0x3[1]) == 0) {
         bombCount = 0;
         for (entity = FindEntityByID(8, 2, 2); entity != NULL; entity = FindNextDuplicateID(entity, 2)) {
             bombCount += 1;

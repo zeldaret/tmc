@@ -36,7 +36,7 @@ void sub_080AAC44(Entity* this) {
                     ResolveEntityOnTop(this->parent, this);
                 }
                 ResetPlayer();
-                gPlayerState.field_0x1a[0] |= 0x80;
+                gPlayerState.mobility |= 0x80;
                 gPlayerState.field_0xa |= 0x80;
             }
             if (gPlayerEntity.health == 0) {
@@ -180,11 +180,11 @@ void sub_080AAF74(Entity* this) {
         this->action = 1;
         this->field_0x80.HALF.LO = 0;
         gPlayerEntity.iframes = 0xf0;
-        gPlayerState.field_0x1a[0] = 0;
+        gPlayerState.mobility = 0;
         this->health = 0;
     } else {
         ResetPlayer();
-        gPlayerState.field_0x1a[0] |= 0x80;
+        gPlayerState.mobility |= 0x80;
         gPlayerState.field_0xa |= 0x80;
         CopyPosition(&gPlayerEntity, this);
         this->z.HALF.HI = gPlayerEntity.z.HALF.HI - 4;

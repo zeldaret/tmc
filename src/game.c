@@ -337,7 +337,7 @@ void InitializePlayer(void) {
     sub_080784C8();
     MemClear(&gUnk_03000B80, sizeof gUnk_03000B80);
     MemClear(&gPlayerState, sizeof gPlayerState);
-    MemFill32(0xffffffff, &gPlayerState.hurtType, sizeof gPlayerState.hurtType);
+    MemFill32(0xffffffff, &gPlayerState.path_memory, sizeof gPlayerState.path_memory);
     MemClear(&gPlayerEntity, sizeof gPlayerEntity);
 
     pl = &gPlayerEntity;

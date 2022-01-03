@@ -182,7 +182,7 @@ void sub_08077E78(ItemBehavior* arg0, u32 bits) {
 u32 sub_08077EC8(ItemBehavior* beh) {
     Unk_struct* arg0 = (Unk_struct*)beh; // @nocheckin
 
-    if ((gPlayerState.field_0x1a[1] & 8) != 0) {
+    if ((gPlayerState.sword_state & 8) != 0) {
         sub_08077DF4(beh, 0x170);
         arg0->unk[7] = 0x28;
         arg0->unk[4] = 7;
@@ -225,7 +225,7 @@ void sub_08077F84(void) {
     if (((gPlayerEntity.collisionLayer & 2) == 0) &&
         GetTileTypeByPos(gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI - 0xc, 2) - 0x343U < 4) {
         sub_0807AA80(&gPlayerEntity);
-        gPlayerState.jumpStatus |= 8;
+        gPlayerState.jump_status |= 8;
         obj = CreateObject(OBJECT_44, 0, 0);
         if (obj != NULL) {
             obj->x = gPlayerEntity.x;

@@ -103,10 +103,10 @@ gUnk_0811C120:: @ 0811C120
 	.4byte SurfaceAction_A
 	.4byte SurfaceAction_B
 	.4byte SurfaceAction_SlopeGndWater
-	.4byte SurfaceAction_D
-	.4byte SurfaceAction_E
-	.4byte SurfaceAction_F
-	.4byte SurfaceAction_10
+	.4byte SurfaceAction_ConveyerNorth
+	.4byte SurfaceAction_ConveyerSouth
+	.4byte SurfaceAction_ConveyerWest
+	.4byte SurfaceAction_ConveyerEast
 	.4byte SurfaceAction_Swamp
 	.4byte SurfaceAction_DoNothing
 	.4byte SurfaceAction_DoNothing
