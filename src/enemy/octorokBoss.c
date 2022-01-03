@@ -931,8 +931,8 @@ void OctorokBoss_ExecuteAttackVacuum(Entity* this) {
         }
         if (tmp < 0x10) {
             if (sub_0806FC80(this, &gPlayerEntity, 0xf0) != 0) {
-                if ((gPlayerState.flags & 0x800) == 0) {
-                    if ((gPlayerEntity.flags & 0x80) != 0) {
+                if ((gPlayerState.flags & PL_FROZEN) == 0) {
+                    if ((gPlayerEntity.flags & PL_MINISH) != 0) {
                         sub_0806F62C(&gPlayerEntity, 0x280, -GET_ANGLE_HI(this));
                         if (sub_0806FC80(this, &gPlayerEntity, 0x48) != 0) {
                             this->field_0x80.HALF.LO = 1;
@@ -981,7 +981,7 @@ void OctorokBoss_ExecuteAttackVacuum(Entity* this) {
         OctorokBoss_SetAttackTimer(this);
     } else {
         GET_TIMER(this)--;
-        if ((gPlayerState.flags == 0x800) && (GET_TIMER(this) == 0x3c)) {
+        if ((gPlayerState.flags == PL_FROZEN) && (GET_TIMER(this) == 0x3c)) {
             tmp = sub_080045DA(gPlayerEntity.x.WORD - this->x.WORD, gPlayerEntity.y.WORD - this->y.WORD);
             if ((u8)((tmp - ((u8)-GET_ANGLE_HI(this) ^ 0x80))) > 0x80) {
                 GET_HELPER(this)->targetAngle = GET_ANGLE_HI(this) + 0x30;

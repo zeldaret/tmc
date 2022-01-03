@@ -46,7 +46,7 @@ void Manager3_Main(Manager3* this) {
             gArea.field_0x18 = 1;
             gArea.curPortalType = 5;
         } else {
-            if ((gPlayerState.flags & 0x20) && gPlayerState.jumpStatus == 0) {
+            if ((gPlayerState.flags & PL_USE_PORTAL) && gPlayerState.jump_status == 0) {
                 gArea.field_0x18 = 2;
             } else {
                 if (sub_08057810()) {

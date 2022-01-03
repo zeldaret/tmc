@@ -444,7 +444,7 @@ s32 sub_08017CBC(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 }
 
 s32 sub_08017D28(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
-    gPlayerState.field_0x1a[0] = 1;
+    gPlayerState.mobility = 1;
     org->field_0x7a.HWORD = 600;
     org->knockbackDuration = 12;
     org->iframes = 16;
@@ -538,11 +538,11 @@ s32 sub_08017F40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 #else
                 (gPlayerState.flags & PL_MINISH) == 0 &&
 #endif
-                !gPlayerState.swimState) {
-                gPlayerState.field_0x1a[0] |= 0x80u;
-                gPlayerState.field_0xa |= 0x80u;
-                gPlayerState.flags |= 0x10u;
-                gPlayerState.jumpStatus = 0;
+                !gPlayerState.swim_state) {
+                gPlayerState.mobility |= 0x80;
+                gPlayerState.field_0xa |= 0x80;
+                gPlayerState.flags |= PL_CAPTURED;
+                gPlayerState.jump_status = 0;
                 if (tgt->kind == ENEMY && (tgt->id == GHINI || tgt->id == ENEMY_50)) {
                     org->z.HALF.HI = 0;
                     PositionRelative(org, tgt, 0, 0x10000);
@@ -632,11 +632,11 @@ s32 sub_08018168(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 #else
                 (gPlayerState.flags & (PL_MINISH | PL_ROLLING)) == 0 &&
 #endif
-                gPlayerState.swimState == 0) {
-                gPlayerState.field_0x1a[0] |= 0x80;
+                gPlayerState.swim_state == 0) {
+                gPlayerState.mobility |= 0x80;
                 gPlayerState.field_0xa |= 0x80;
-                gPlayerState.flags |= 0x100;
-                gPlayerState.jumpStatus = 0;
+                gPlayerState.flags |= PL_DISABLE_ITEMS;
+                gPlayerState.jump_status = 0;
                 COLLISION_OFF(&gPlayerEntity);
                 gPlayerEntity.spriteRendering.b3 = tgt->spriteRendering.b3;
                 gPlayerEntity.spriteOrientation.flipY = tgt->spriteOrientation.flipY;

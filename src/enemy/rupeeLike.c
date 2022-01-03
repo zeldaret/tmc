@@ -163,7 +163,7 @@ void sub_0802953C(Entity* this) {
         sub_080296D8(this);
     } else {
         ResetPlayer();
-        gPlayerState.field_0x1a[0] |= 0x80;
+        gPlayerState.mobility |= 0x80;
         PositionRelative(this, &gPlayerEntity, 0, 0x10000);
         pbVar3 = GetSpriteSubEntryOffsetDataPointer((u16)this->spriteIndex, this->frameIndex);
         gPlayerEntity.spriteOffsetX = pbVar3[0];
@@ -230,8 +230,8 @@ void sub_080296C8(Entity* this) {
 }
 
 void sub_080296D8(Entity* this) {
-    gPlayerState.jumpStatus = 0x41;
-    gPlayerState.flags &= ~0x10;
+    gPlayerState.jump_status = 0x41;
+    gPlayerState.flags &= ~PL_CAPTURED;
     gPlayerEntity.flags |= 0x80;
     gPlayerEntity.zVelocity = 0x18000;
     gPlayerEntity.iframes = 0xa6;

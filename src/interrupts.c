@@ -221,11 +221,11 @@ void PlayerUpdate(Entity* this) {
         gPlayerState.flags &= ~PL_DRUGGED;
 
     if (CheckDontUpdate(this) == 0) {
-        if (gPlayerState.flags & PL_TRAPPED) {
+        if (gPlayerState.flags & PL_MOLDWORM_CAPTURED) {
             sub_08077B20();
-            if (gPlayerState.flags & PL_RELEASED) {
+            if (gPlayerState.flags & PL_MOLDWORM_RELEASED) {
                 gPlayerState.queued_action = PLAYER_ROLL;
-                gPlayerState.flags &= ~PL_TRAPPED;
+                gPlayerState.flags &= ~PL_MOLDWORM_CAPTURED;
                 gPlayerState.hurtBlinkSpeed = 240;
                 COLLISION_ON(this);
             } else {
@@ -272,8 +272,8 @@ void HandlePlayerLife(Entity* this) {
 
     gPlayerState.framestate_last = gPlayerState.framestate;
     gPlayerState.framestate = PL_STATE_IDLE;
-    if (gPlayerState.hurtType[0x4a] != 0) {
-        gPlayerState.hurtType[0x4a]--;
+    if (gPlayerState.field_0x82[0x8] != 0) {
+        gPlayerState.field_0x82[0x8]--;
         return;
     }
 
@@ -321,7 +321,7 @@ void HandlePlayerLife(Entity* this) {
 #endif
 
 void sub_080171F0(void) {
-    if (gPlayerState.field_0x1a[0] != 0)
+    if (gPlayerState.mobility != 0)
         ResetPlayer();
     if (gPlayerState.field_0x14 != 0)
         gPlayerState.field_0x14--;
@@ -342,7 +342,7 @@ void sub_080171F0(void) {
     gPlayerState.field_0x7 &= ~0x80;
     gPlayerState.field_0xa &= 0xf;
     gPlayerState.keepFacing &= ~0x80;
-    gPlayerState.field_0x1a[0] = 0;
+    gPlayerState.mobility = 0;
     gPlayerState.speed_modifier = 0;
     gPlayerState.field_0xaa = 0;
     MemClear(&gUnk_03003BE0, 0x8c);
@@ -359,7 +359,7 @@ void sub_080171F0(void) {
         gPlayerState.flags &= ~PL_CLIMBING;
 
     sub_0807A8D8(&gPlayerEntity);
-    if (gPlayerState.jumpStatus & 0xc0)
+    if (gPlayerState.jump_status & 0xc0)
         gPlayerEntity.iframes = 0xfe;
 
     if (gPlayerEntity.action != PLAYER_ROOMTRANSITION) {

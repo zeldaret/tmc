@@ -2095,7 +2095,7 @@ void sub_0807FB64(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807FB74(Entity* entity, ScriptExecutionContext* context) {
-    gPlayerState.swimState = 0;
+    gPlayerState.swim_state = 0;
     gPlayerEntity.field_0x3c &= ~4;
 }
 
@@ -2109,7 +2109,7 @@ void sub_0807FBA0(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807FBB4(Entity* entity, ScriptExecutionContext* context) {
-    gPlayerState.field_0x1a[0] |= 0x80;
+    gPlayerState.mobility |= 0x80;
 }
 
 void sub_0807FBC4(Entity* entity, ScriptExecutionContext* context) {

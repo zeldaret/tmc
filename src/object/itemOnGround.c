@@ -269,9 +269,9 @@ void sub_080812A8(Entity* this) {
 void sub_080812E8(Entity* this) {
     PlayerState* playerState = &gPlayerState;
 #ifdef EU
-    if ((playerState->swimState & 0x80) && sub_080177A0(this, &gPlayerEntity)) {
+    if ((playerState->swim_state & 0x80) && sub_080177A0(this, &gPlayerEntity)) {
 #else
-    if ((playerState->swimState & 0x80) && (playerState->flags & PL_MINISH) == 0 &&
+    if ((playerState->swim_state & 0x80) && (playerState->flags & PL_MINISH) == 0 &&
         sub_080177A0(this, &gPlayerEntity)) {
 #endif
         sub_080810FC(this);

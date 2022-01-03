@@ -88,7 +88,7 @@ void NPC5(Entity* this) {
 void sub_08060A00(Entity* this) {
     u32 tmp;
 
-    if ((gPlayerState.jumpStatus & 0x80) != 0) {
+    if ((gPlayerState.jump_status & 0x80) != 0) {
         if (this->action != 0) {
             if (((((UnkHeap*)this->myHeap)->unk_0) & 4) == 0) {
                 ((UnkHeap*)this->myHeap)->unk_0 |= 4;

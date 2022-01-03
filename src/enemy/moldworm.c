@@ -83,7 +83,7 @@ void sub_080230E4(Entity* this) {
         gPlayerEntity.zVelocity = 0x18000;
         gPlayerEntity.direction = 0xff;
         gPlayerEntity.iframes = -0x14;
-        gPlayerState.jumpStatus = 0x41;
+        gPlayerState.jump_status = 0x41;
         gPlayerState.flags &= 0xfff7ffff;
     }
 
@@ -262,7 +262,7 @@ void sub_0802351C(Entity* this) {
     if (this->field_0x7c.BYTES.byte3 == 0) {
         if (this->type2 == 0) {
             gPlayerEntity.animationState = this->animationState & 7;
-            gPlayerState.flags |= PL_TRAPPED;
+            gPlayerState.flags |= PL_MOLDWORM_CAPTURED;
             PositionRelative(this, &gPlayerEntity, 0, gUnk_080CBC90[this->animationState & 7] << 0x10);
             gPlayerEntity.spriteOffsetY = -gUnk_080CBC90[this->animationState & 7];
         }
@@ -397,7 +397,7 @@ void sub_08023894(Entity* this) {
         this->parent->field_0x7c.BYTES.byte3 = 1;
         InitializeAnimation(this, this->animationState);
         if (this->parent->type2 == 0) {
-            gPlayerState.flags |= PL_RELEASED;
+            gPlayerState.flags |= PL_MOLDWORM_RELEASED;
             gPlayerEntity.x.HALF.HI = this->x.HALF.HI;
             gPlayerEntity.y.HALF.HI = this->y.HALF.HI;
             gPlayerEntity.direction = DirectionRoundUp(GetFacingDirection(*(Entity**)&this->field_0x74, this));

@@ -116,8 +116,8 @@ void sub_0802CE68(Entity* this) {
     u8 frames;
 
     gPlayerState.field_0xa |= 0x80;
-    gPlayerState.field_0x1a[0] |= 0x80;
-    gPlayerState.flags |= 0x100;
+    gPlayerState.mobility |= 0x80;
+    gPlayerState.flags |= PL_DISABLE_ITEMS;
     if (!sub_0806FCB8(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 4)) {
         this->direction = GetFacingDirection(this, &gPlayerEntity);
         LinearMoveUpdate(this);
@@ -145,7 +145,7 @@ void sub_0802CEF4(Entity* this) {
             this->spriteSettings.shadow = 1;
         }
         gPlayerState.field_0xa |= 0x80;
-        gPlayerState.field_0x1a[0] |= 0x80;
+        gPlayerState.mobility |= 0x80;
     }
 }
 

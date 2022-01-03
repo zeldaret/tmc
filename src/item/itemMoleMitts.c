@@ -19,7 +19,7 @@ void ItemMoleMitts(ItemBehavior* this, u32 arg1) {
 void sub_08077130(ItemBehavior* this, u32 arg1) {
     s32 iVar1;
 
-    if (gPlayerState.jumpStatus == 0) {
+    if (gPlayerState.jump_status == 0) {
         sub_08077D38(this, arg1);
         gPlayerState.field_0x3c[1] = 1;
         this->field_0x5[4] |= 0x80;

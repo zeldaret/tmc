@@ -21,7 +21,7 @@ void sub_08075A0C(ItemBehavior* this, u32 arg1) {
     u32 itemSlot;
     s8* tmp;
     itemSlot = IsItemEquipped(this->behaviorID);
-    if (gPlayerState.heldObject != 0 || gPlayerState.queued_action == PLAYER_ROLL || gPlayerState.jumpStatus != 0 ||
+    if (gPlayerState.heldObject != 0 || gPlayerState.queued_action == PLAYER_ROLL || gPlayerState.jump_status != 0 ||
         gPlayerState.item != NULL || (gPlayerState.flags & PL_MINISH) != 0) {
         ForceEquipItem(0xf, itemSlot);
         gPlayerState.flags &= ~PL_USE_LANTERN;
@@ -50,8 +50,8 @@ ASM_FUNC("asm/non_matching/eu/sub_08075ADC.inc", void sub_08075ADC(ItemBehavior*
 void sub_08075ADC(ItemBehavior* this, u32 arg1) {
     u32 bVar1;
 
-    if (gPlayerState.item != NULL || (this->field_0x5[9] & 1) == 0 || (gPlayerState.flags & 0x110) != 0 ||
-        sub_08079D48() == 0) {
+    if (gPlayerState.item != NULL || (this->field_0x5[9] & 1) == 0 ||
+        (gPlayerState.flags & (PL_DISABLE_ITEMS | PL_CAPTURED)) != 0 || sub_08079D48() == 0) {
         this->field_0xf = 0;
         this->stateID += 1;
         gPlayerState.flags |= PL_USE_LANTERN;
@@ -73,9 +73,9 @@ void sub_08075B54(ItemBehavior* this, u32 arg1) {
     Entity* object;
     s8* tmp;
 
-    if ((gPlayerState.flags & 0x110) == 0) {
+    if ((gPlayerState.flags & (PL_CAPTURED | PL_DISABLE_ITEMS)) == 0) {
         itemSlot = IsItemEquipped(this->behaviorID);
-        if (!(((sub_08077F10(this) == 0) && (itemSlot < 2)) || (gPlayerState.jumpStatus != 0))) {
+        if (!(((sub_08077F10(this) == 0) && (itemSlot < 2)) || (gPlayerState.jump_status != 0))) {
             ForceEquipItem(0xf, itemSlot);
             gPlayerState.flags &= ~PL_USE_LANTERN;
             sub_08077E78(this, arg1);
@@ -85,7 +85,7 @@ void sub_08075B54(ItemBehavior* this, u32 arg1) {
                 ((u16)gPlayerEntity.spriteIndex == 6)) {
                 tmp = &gUnk_08126EEC[gPlayerEntity.animationState & 6];
 
-                if ((gPlayerState.jumpStatus == 0) &&
+                if ((gPlayerState.jump_status == 0) &&
                     (sub_080002F0(TILE(gPlayerEntity.x.HALF.HI + tmp[0], gPlayerEntity.y.HALF.HI + tmp[1]),
                                   gPlayerEntity.collisionLayer, 0x40) != 0)) {
                     this->field_0xf = 0xf;

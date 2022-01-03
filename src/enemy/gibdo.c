@@ -160,7 +160,7 @@ NONMATCH("asm/non_matching/gibdo/sub_080376D0.inc", void sub_080376D0(Entity* th
     u8* x;
     if (sub_080379EC(this) == 0) {
         ResetPlayer();
-        gPlayerState.field_0x1a[0] = gPlayerState.field_0x1a[0] | 0x80;
+        gPlayerState.mobility = gPlayerState.mobility | 0x80;
         gPlayerState.field_0xa = gPlayerState.field_0xa | 0x80;
         CopyPositionAndSpriteOffset(&gPlayerEntity, this);
         UpdateAnimationSingleFrame(this);
@@ -347,7 +347,7 @@ void sub_08037A58(Entity* this) {
 }
 
 void sub_08037ACC(Entity* this) {
-    gPlayerState.flags &= ~0x100;
+    gPlayerState.flags &= ~PL_DISABLE_ITEMS;
     COLLISION_ON(&gPlayerEntity);
     gPlayerEntity.iframes = 0x1e;
     gPlayerEntity.knockbackDirection = DirectionFromAnimationState(this->animationState);
