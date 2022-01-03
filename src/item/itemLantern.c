@@ -44,14 +44,15 @@ void sub_08075A0C(ItemBehavior* this, u32 arg1) {
     }
 }
 
-#ifdef EU
-ASM_FUNC("asm/non_matching/eu/sub_08075ADC.inc", void sub_08075ADC(ItemBehavior* this, u32 arg1))
-#else
 void sub_08075ADC(ItemBehavior* this, u32 arg1) {
     u32 bVar1;
 
-    if (gPlayerState.item != NULL || (this->field_0x5[9] & 1) == 0 ||
-        (gPlayerState.flags & (PL_DISABLE_ITEMS | PL_CAPTURED)) != 0 || sub_08079D48() == 0) {
+    if (
+#ifndef EU
+        gPlayerState.item != NULL ||
+#endif
+        (this->field_0x5[9] & 1) == 0 || (gPlayerState.flags & (PL_DISABLE_ITEMS | PL_CAPTURED)) != 0 ||
+        sub_08079D48() == 0) {
         this->field_0xf = 0;
         this->stateID += 1;
         gPlayerState.flags |= PL_USE_LANTERN;
@@ -65,7 +66,6 @@ void sub_08075ADC(ItemBehavior* this, u32 arg1) {
         UpdateItemAnim(this);
     }
 }
-#endif
 
 void sub_08075B54(ItemBehavior* this, u32 arg1) {
     u32 bVar1;
