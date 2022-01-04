@@ -11,7 +11,7 @@
 	bl MemClear
 	movs r0, #1
 	strb r0, [r5]
-	ldr r2, _0801DBE4 @ =gScreenTransition
+	ldr r2, _0801DBE4 @ =gRoomTransition
 	ldrh r0, [r2, #0x1c]
 	lsrs r0, r0, #4
 	movs r1, #0x7f
@@ -33,7 +33,7 @@
 	ldr r6, [r4]
 	b _0801DD3A
 	.align 2, 0
-_0801DBE4: .4byte gScreenTransition
+_0801DBE4: .4byte gRoomTransition
 _0801DBE8: .4byte gUnk_080C9C50
 _0801DBEC: .4byte gArea
 _0801DBF0:
@@ -184,7 +184,7 @@ _0801DCF8:
 	strb r0, [r5, #2]
 	adds r5, #3
 _0801DD16:
-	ldr r2, _0801DD54 @ =gScreenTransition
+	ldr r2, _0801DD54 @ =gRoomTransition
 	ldrh r0, [r6]
 	ldrh r1, [r2, #0x16]
 	cmp r0, r1
@@ -217,5 +217,5 @@ _0801DD42:
 	.align 2, 0
 _0801DD4C: .4byte gArea
 _0801DD50: .4byte gAreaRoomHeaders
-_0801DD54: .4byte gScreenTransition
+_0801DD54: .4byte gRoomTransition
     .syntax divided

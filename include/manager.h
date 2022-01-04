@@ -130,10 +130,10 @@ typedef struct Manager11 {
 
 typedef struct {
     u16 unk_00;
-    u8 source_roomID;
+    u8 source_room;
     u8 unk_03;
-    u8 target_areaID;
-    u8 target_roomID;
+    u8 target_area;
+    u8 target_room;
     u16 unk_06;
 } DiggingCaveEntrance;
 

@@ -79,8 +79,8 @@ _08000144EU:
 .endif
 .endif
 
-	thumb_func_start sub_08000108
-sub_08000108: @ 0x08000108
+	thumb_func_start UpdateScrollVram
+UpdateScrollVram: @ 0x08000108
 	push {r4, lr}
 	ldr r0, _080001E8 @ =gUpdateVisibleTiles
 	ldrb r1, [r0]

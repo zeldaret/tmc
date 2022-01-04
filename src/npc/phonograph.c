@@ -1,7 +1,7 @@
 #include "entity.h"
 #include "script.h"
 #include "functions.h"
-#include "fileScreen.h"
+#include "fileselect.h"
 #include "screen.h"
 
 extern void sub_08057044(u32, struct_020227E8*, u32);

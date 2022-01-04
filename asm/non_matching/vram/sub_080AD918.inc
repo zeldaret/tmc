@@ -5,7 +5,7 @@
 	adds r2, r0, #0
 	cmp r2, #0
 	bne _080AD958
-	ldr r1, _080AD94C @ =gUnk_03000000
+	ldr r1, _080AD94C @ =gOAMControls
 	movs r3, #0xa4
 	lsls r3, r3, #3
 	adds r0, r1, r3
@@ -24,13 +24,13 @@
 	b _080AD95E
 	.align 2, 0
 _080AD948: .4byte gMain
-_080AD94C: .4byte gUnk_03000000
+_080AD94C: .4byte gOAMControls
 _080AD950: .4byte 0x00000664
 _080AD954: .4byte 0x000008EC
 _080AD958:
 	subs r0, #1
 	strb r0, [r1, #0xb]
-	ldr r4, _080AD9A8 @ =gUnk_03000000
+	ldr r4, _080AD9A8 @ =gOAMControls
 _080AD95E:
 	ldrb r1, [r4, #3]
 	movs r0, #0x80
@@ -71,6 +71,6 @@ _080AD9A0:
 	strb r0, [r4]
 	pop {r4, pc}
 	.align 2, 0
-_080AD9A8: .4byte gUnk_03000000
+_080AD9A8: .4byte gOAMControls
 _080AD9AC: .4byte 0x00000427
     .syntax divided

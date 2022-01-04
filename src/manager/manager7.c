@@ -74,7 +74,7 @@ void Manager7_Main(Manager7* this) {
             this->manager.unk_0e = 0;
         }
     }
-    if (gRoomControls.unk2)
+    if (gRoomControls.reload_flags)
         return;
 #ifndef JP
     tmp = this->unk_20;

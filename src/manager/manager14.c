@@ -83,7 +83,7 @@ void sub_08059EF8(Manager14* this) {
 }
 
 u32 sub_08059F9C(Manager14* this) {
-    switch (gRoomControls.roomID) {
+    switch (gRoomControls.room) {
         case 1:
             if (CheckLocalFlag(0x16)) {
                 return 0;
@@ -123,7 +123,7 @@ void sub_0805A048(Manager14* this) {
 }
 
 void sub_0805A098(Manager14* this) {
-    switch (gRoomControls.roomID) {
+    switch (gRoomControls.room) {
         case 0:
         case 8:
         case 9:

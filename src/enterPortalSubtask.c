@@ -17,9 +17,9 @@ extern void (*const gUnk_080D412C[])();
 
 extern struct_02018EB0 gUnk_02018EB0;
 
-u32 sub_0804AA84(void) {
+u32 IsEnterPortal(void) {
     if (gArea.playShrinkSeq) {
-        gMain.transition = 4;
+        gMain.substate = 4;
         gArea.filler[8] = 0;
         gArea.filler[9] = 0;
         *(u16*)&gArea.filler[10] = 0;
@@ -32,7 +32,7 @@ u32 sub_0804AA84(void) {
     }
 }
 
-void sub_0804AAB8(void) {
+void GameMain_MinishPortal(void) {
     gUnk_080D4120[gArea.filler[8]]();
 }
 
@@ -48,8 +48,8 @@ void sub_0804AB04(void) {
     UpdateEntities();
     if (gArea.field_0x10 != 0) {
         FlushSprites();
-        sub_080AD9B0();
-        sub_080AD918();
+        DrawEntities();
+        CopyOAM();
     }
 }
 
@@ -63,6 +63,6 @@ void sub_0804AB24(void) {
     }
 }
 
-void sub_0804AB54(void) {
+void Subtask_PortalCutscene(void) {
     gUnk_080D412C[gArea.filler[8]]();
 }

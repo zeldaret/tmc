@@ -77,7 +77,7 @@ void sub_08058894(ManagerC* this) {
 void sub_080588CC(ManagerC* this) {
     sub_08058CFC();
     sub_08058A04(this);
-    if (gScreenTransition.transitioningOut) {
+    if (gRoomTransition.transitioningOut) {
         this->manager.action = 2;
     } else {
         sub_080588F8(this);
@@ -111,7 +111,7 @@ void sub_080588F8(ManagerC* this) {
         }
     }
     if (this->manager.unk_0e) {
-        s32 tmp = gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY;
+        s32 tmp = gPlayerEntity.y.HALF.HI - gRoomControls.origin_y;
         u32 tmp2;
         tmp2 = (((unsigned)(tmp - 0x50 < 0 ? 0x50 - tmp : tmp - 0x50) >> 3) * 0x3000) + 0x4000;
         if (this->manager.unk_0f == 0) {
@@ -152,14 +152,14 @@ const struct_08108228 gUnk_081082B8[6] = { { 0xA0, 0x88, 0x20, 0x0A }, { 0x9E, 0
                                            { 0x98, 0x64, 0x1E, 0x1E }, { 0x98, 0x6A, 0x1C, 0x10 } };
 
 void sub_08058A04(ManagerC* this) {
-    s32 tmp = gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX;
-    s32 tmp2 = gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY;
+    s32 tmp = gPlayerEntity.x.HALF.HI - gRoomControls.origin_x;
+    s32 tmp2 = gPlayerEntity.y.HALF.HI - gRoomControls.origin_y;
     if ((this->unk_20 - 0x118 < 0xDu) && CheckGlobalFlag(LV1TARU_OPEN) && (tmp - 0x6d < 0x17u) &&
         (tmp2 - 0x45 < 0x17u) && (gPlayerEntity.z.HALF.HI == 0)) {
         gPlayerState.queued_action = PLAYER_FALL;
         gPlayerState.field_0x38 = 0;
-        gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x78;
-        gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x50;
+        gPlayerEntity.x.HALF.HI = gRoomControls.origin_x + 0x78;
+        gPlayerEntity.y.HALF.HI = gRoomControls.origin_y + 0x50;
         return;
     }
     if (tmp < 0x78) {
@@ -194,8 +194,8 @@ u32 sub_08058B08(ManagerC* this, u32 unk1, u32 unk2, const struct_08108228* unk3
         tmp -= unk1;
         tmp >>= 3;
         unk3 += tmp;
-        tmp2 = (gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX - unk3->unk_0);
-        tmp3 = (gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY - unk3->unk_2);
+        tmp2 = (gPlayerEntity.x.HALF.HI - gRoomControls.origin_x - unk3->unk_0);
+        tmp3 = (gPlayerEntity.y.HALF.HI - gRoomControls.origin_y - unk3->unk_2);
         return ((tmp2 < unk3->unk_4) && (tmp3 < unk3->unk_6));
     }
 }
@@ -203,14 +203,14 @@ u32 sub_08058B08(ManagerC* this, u32 unk1, u32 unk2, const struct_08108228* unk3
 const u16 gUnk_081082E8[0xC] = { 0xB8, 0x80, 0x0, 0xB8, 0x110, 0x2, 0x118, 0x80, 0x2, 0x118, 0x110, 0x0 };
 
 void sub_08058B5C(ManagerC* this, u32 unk1) {
-    gScreenTransition.transitioningOut = 1;
-    gScreenTransition.transitionType = TRANSITION_DEFAULT;
-    gScreenTransition.player_status.spawn_type = 4;
-    gScreenTransition.player_status.area_next = gRoomControls.areaID;
-    gScreenTransition.player_status.room_next = 6;
-    gScreenTransition.player_status.start_anim = unk1 & 1 ? 4 : 0;
-    gScreenTransition.player_status.start_pos_x = gUnk_081082E8[unk1 * 3];
-    gScreenTransition.player_status.start_pos_y = gUnk_081082E8[unk1 * 3 + 1];
+    gRoomTransition.transitioningOut = 1;
+    gRoomTransition.type = TRANSITION_DEFAULT;
+    gRoomTransition.player_status.spawn_type = 4;
+    gRoomTransition.player_status.area_next = gRoomControls.area;
+    gRoomTransition.player_status.room_next = 6;
+    gRoomTransition.player_status.start_anim = unk1 & 1 ? 4 : 0;
+    gRoomTransition.player_status.start_pos_x = gUnk_081082E8[unk1 * 3];
+    gRoomTransition.player_status.start_pos_y = gUnk_081082E8[unk1 * 3 + 1];
     gSave.unk7 = gUnk_081082E8[unk1 * 3 + 2];
     SoundReq(SFX_STAIRS);
 }
@@ -250,8 +250,8 @@ void sub_08058BC8(ManagerC* this) {
 const u16 gUnk_08108300[4] = { 0xA4, 0x4C, 0xF4, 0x9C };
 
 void sub_08058CB0(ManagerC* this) {
-    u32 tmp = gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX;
-    u32 tmp2 = gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY;
+    u32 tmp = gPlayerEntity.x.HALF.HI - gRoomControls.origin_x;
+    u32 tmp2 = gPlayerEntity.y.HALF.HI - gRoomControls.origin_y;
     u32 tmp3;
     if (tmp < 0x78) {
         tmp3 = 1;
@@ -268,7 +268,7 @@ void sub_08058CB0(ManagerC* this) {
 }
 
 void sub_08058CFC() {
-    u32 tmp = gPlayerEntity.y.HALF.HI - gRoomControls.roomScrollY;
+    u32 tmp = gPlayerEntity.y.HALF.HI - gRoomControls.scroll_y;
     if (tmp < 0x4C) {
         sub_080044AE(&gPlayerEntity, 0xC0, 0x10);
     }

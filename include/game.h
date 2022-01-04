@@ -4,6 +4,24 @@
 #include "global.h"
 #include "area.h"
 
+enum {
+    GAMETASK_TRANSITION,
+    GAMETASK_INIT,
+    GAMETASK_MAIN,
+    GAMETASK_EXIT,
+};
+
+enum {
+    GAMEMAIN_INITROOM,
+    GAMEMAIN_CHANGEROOM,
+    GAMEMAIN_UPDATE,
+    GAMEMAIN_CHANGEAREA,
+    GAMEMAIN_MINISHPORTAL,
+    GAMEMAIN_BARRELUPDATE,
+    GAMEMAIN_RESERVED,
+    GAMEMAIN_SUBTASK,
+};
+
 void ChangeLightLevel(s32);
 void SetPopupState(u32 type, u32 choice_idx);
 
@@ -39,7 +57,7 @@ void DisplayEzloMessage(void);
 void sub_08052CA4(u32 area, u32 room, u32 x, u32 y);
 void sub_08052CD0(u32 area, u32 room, u32 x, u32 y);
 
-void sub_08052CFC(void);
+void InitRoom(void);
 
 /**
  * @brief Get bank offset for area
@@ -50,7 +68,7 @@ RoomResInfo* GetCurrentRoomInfo(void);
 void sub_08052EA0(void);
 void sub_08052FD8(u32 room, u32 area);
 void sub_08053250(void);
-void sub_08053320(void);
+void LoadGfxGroups(void);
 void sub_080533CC(void);
 void sub_08053494(void);
 void sub_080534AC(void);

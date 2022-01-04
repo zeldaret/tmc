@@ -9,7 +9,7 @@ extern u32 GetTileTypeByEntity(struct Entity_*);
 extern u32 GetTileTypeByPos(s32 x, s32 y, u32 layer);
 extern u32 GetTileType(u32 pos, u32 layer);
 extern void SetTile(u32 index, u32 position, u32 layer);
-extern void sub_08000108(void);
+extern void UpdateScrollVram(void);
 extern u32 sub_080002D0(struct Entity_*);
 extern void LoadResourceAsync(const void*, u32, u32);
 extern void sub_08001242(struct Entity_*);

@@ -63,7 +63,7 @@ extern struct_02019EE0 gUnk_02019EE0;
 extern void sub_08056FEC(u32, struct_020227E8*);
 extern void sub_0805F46C(u32, void*);
 extern void RecoverUI(u32 bottomPt, u32 topPt);
-extern void sub_08080668(void);
+extern void ClearTilemaps(void);
 extern void sub_0805194C(u32);
 extern struct_02036540* sub_0805F2C8(void);
 extern void sub_0805F7DC(u32, struct_02036540*);

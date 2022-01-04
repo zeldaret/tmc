@@ -2480,7 +2480,7 @@ _080A5B86:
 	ands r0, r1
 	cmp r0, #0
 	bne _080A5BE0
-	ldr r4, _080A5C20 @ =gScreenTransition
+	ldr r4, _080A5C20 @ =gRoomTransition
 	ldrh r1, [r4, #0x20]
 	lsls r0, r1, #2
 	adds r0, r0, r1
@@ -2538,7 +2538,7 @@ _080A5BE0:
 	.align 2, 0
 _080A5C18: .4byte gChooseFileState
 _080A5C1C: .4byte gOamCmd
-_080A5C20: .4byte gScreenTransition
+_080A5C20: .4byte gRoomTransition
 _080A5C24: .4byte gPlayerState
 _080A5C28: .4byte gUnk_08128DE8
 
@@ -2570,7 +2570,7 @@ _080A6392:
 	ands r0, r1
 	cmp r0, #0
 	bne _080A63EA
-	ldr r4, _080A6428 @ =gScreenTransition
+	ldr r4, _080A6428 @ =gRoomTransition
 	ldrh r1, [r4, #0x20]
 	lsls r0, r1, #2
 	adds r0, r0, r1
@@ -2626,7 +2626,7 @@ _080A63EA:
 	.align 2, 0
 _080A6420: .4byte gMenu
 _080A6424: .4byte gOamCmd
-_080A6428: .4byte gScreenTransition
+_080A6428: .4byte gRoomTransition
 _080A642C: .4byte gPlayerState
 _080A6430: .4byte 0x000001FB
 _080A6434: .4byte gUnk_08128DE8
@@ -2830,8 +2830,8 @@ _080A64F4: .4byte gScreen
 _080A64F8: .4byte 0x00003D3F
 .endif
 
-	thumb_func_start sub_080A64FC
-sub_080A64FC: @ 0x080A64FC
+	thumb_func_start Subtask_MapHint
+Subtask_MapHint: @ 0x080A64FC
 	push {r4, lr}
 	bl FlushSprites
 	ldr r1, _080A652C @ =gUnk_08128E70
@@ -2850,7 +2850,7 @@ sub_080A64FC: @ 0x080A64FC
 	bl sub_080A6438
 _080A6522:
 	bl sub_080A6498
-	bl sub_080AD918
+	bl CopyOAM
 	pop {r4, pc}
 	.align 2, 0
 _080A652C: .4byte gUnk_08128E70
@@ -2949,7 +2949,7 @@ _080A65EC:
 	cmp r0, #8
 	bne _080A6600
 _080A65FC:
-	bl sub_080A71DC
+	bl Subtask_Exit
 _080A6600:
 	pop {r4, pc}
 	.align 2, 0
@@ -3448,7 +3448,7 @@ sub_080A68D4: @ 0x080A68D4
 	beq _080A60DA
 	movs r4, #0x65
 _080A60DA:
-	ldr r1, _080A6104EU @ =gScreenTransition
+	ldr r1, _080A6104EU @ =gRoomTransition
 	ldrh r0, [r1, #0x20]
 	ldrh r1, [r1, #0x22]
 	movs r2, #0xfd
@@ -3467,7 +3467,7 @@ _080A60DA:
 	b _080A612C
 	.align 2, 0
 _080A6100EU: .4byte gPlayerState
-_080A6104EU: .4byte gScreenTransition
+_080A6104EU: .4byte gRoomTransition
 _080A6108: .4byte gSave
 _080A610C: .4byte gUnk_08128F58
 _080A6110:
@@ -3536,7 +3536,7 @@ _080A6178EU: .4byte gUnk_080FE320
 	beq _080A68E6
 	movs r4, #0x65
 _080A68E6:
-	ldr r1, _080A6910 @ =gScreenTransition
+	ldr r1, _080A6910 @ =gRoomTransition
 	ldrh r0, [r1, #0x20]
 	ldrh r1, [r1, #0x22]
 	ldr r2, _080A6914 @ =0x000001FB
@@ -3554,7 +3554,7 @@ _080A68E6:
 	b _080A693A
 	.align 2, 0
 _080A690C: .4byte gPlayerState
-_080A6910: .4byte gScreenTransition
+_080A6910: .4byte gRoomTransition
 _080A6914: .4byte 0x000001FB
 _080A6918: .4byte gSave
 _080A691C: .4byte gUnk_08128F58
@@ -3776,8 +3776,8 @@ _080A6AAE:
 _080A6AB6:
 	pop {pc}
 
-	thumb_func_start sub_080A6AB8
-sub_080A6AB8: @ 0x080A6AB8
+	thumb_func_start Subtask_LocalMapHint
+Subtask_LocalMapHint: @ 0x080A6AB8
 	push {r4, lr}
 	bl FlushSprites
 	ldr r1, _080A6AF4 @ =gUnk_08128F1C
@@ -3802,7 +3802,7 @@ sub_080A6AB8: @ 0x080A6AB8
 	ldrh r0, [r4, #0xa]
 	subs r0, r0, r1
 	strh r0, [r2, #0x24]
-	bl sub_080AD918
+	bl CopyOAM
 	pop {r4, pc}
 	.align 2, 0
 _080A6AF4: .4byte gUnk_08128F1C
@@ -3869,7 +3869,7 @@ sub_080A6B04: @ 0x080A6B04
 	beq _080A6B84
 	movs r2, #0x65
 _080A6B84:
-	ldr r1, _080A6C10 @ =gScreenTransition
+	ldr r1, _080A6C10 @ =gRoomTransition
 	ldrh r0, [r1, #0x20]
 	ldrh r1, [r1, #0x22]
 .ifdef EU
@@ -3933,7 +3933,7 @@ _080A6C00: .4byte 0x0000475F
 _080A6C04: .4byte 0x00005001
 _080A6C08: .4byte gBG3Buffer
 _080A6C0C: .4byte gPlayerState
-_080A6C10: .4byte gScreenTransition
+_080A6C10: .4byte gRoomTransition
 .ifndef EU
 _080A6C14: .4byte 0x000001FB
 .endif
@@ -3967,7 +3967,7 @@ _080A6C3C:
 	cmp r0, #8
 	bne _080A6C6A
 _080A6C50:
-	bl sub_080A71DC
+	bl Subtask_Exit
 	b _080A6C6A
 	.align 2, 0
 _080A6C58: .4byte gInput
@@ -3985,8 +3985,8 @@ _080A6C6A:
 _080A6C6C: .4byte 0x00000103
 _080A6C70: .4byte gMenu
 
-	thumb_func_start sub_080A6C74
-sub_080A6C74: @ 0x080A6C74
+	thumb_func_start Subtask_FastTravel
+Subtask_FastTravel: @ 0x080A6C74
 	push {r4, lr}
 	bl FlushSprites
 	ldr r1, _080A6CA0 @ =gUnk_08128F24
@@ -4002,7 +4002,7 @@ sub_080A6C74: @ 0x080A6C74
 	bl sub_080A6E70
 _080A6C94:
 	bl sub_080A6498
-	bl sub_080AD918
+	bl CopyOAM
 	pop {r4, pc}
 	.align 2, 0
 _080A6CA0: .4byte gUnk_08128F24
@@ -4241,7 +4241,7 @@ _080A6E18:
 	ldrb r1, [r1]
 	ldrh r2, [r0, #0x12]
 	bl sub_080042D0
-	bl sub_080A71DC
+	bl Subtask_Exit
 	ldr r1, _080A6E40 @ =gUnk_02034490
 	movs r0, #0
 	strb r0, [r1]
@@ -4677,8 +4677,8 @@ sub_080A7114: @ 0x080A7114
 	.align 2, 0
 _080A7120: .4byte gMenu
 
-	thumb_func_start sub_080A7124
-sub_080A7124: @ 0x080A7124
+	thumb_func_start ResetUI
+ResetUI: @ 0x080A7124
 	push {lr}
 	ldr r0, _080A7134 @ =gUnk_02032EC0
 	movs r1, #0xed
@@ -4773,8 +4773,8 @@ sub_080A71C4: @ 0x080A71C4
 	.align 2, 0
 _080A71D8: .4byte gUnk_02032EC0
 
-	thumb_func_start sub_080A71DC
-sub_080A71DC: @ 0x080A71DC
+	thumb_func_start Subtask_Exit
+Subtask_Exit: @ 0x080A71DC
 	push {lr}
 	ldr r1, _080A71F0 @ =gUnk_02032EC0
 	movs r0, #3
@@ -4805,8 +4805,8 @@ _080A71FE:
 	.align 2, 0
 _080A7218: .4byte gMain
 
-	thumb_func_start sub_080A721C
-sub_080A721C: @ 0x080A721C
+	thumb_func_start GameMain_Subtask
+GameMain_Subtask: @ 0x080A721C
 	push {lr}
 	ldr r0, _080A7248 @ =gUnk_02032EC0
 	ldrb r1, [r0]
@@ -4833,8 +4833,8 @@ _080A7238:
 _080A7248: .4byte gUnk_02032EC0
 _080A724C: .4byte gUnk_0812901C
 
-	thumb_func_start sub_080A7250
-sub_080A7250: @ 0x080A7250
+	thumb_func_start Subtask_FadeIn
+Subtask_FadeIn: @ 0x080A7250
 	push {r4, lr}
 	ldr r0, _080A72E8 @ =gFadeControl
 	ldrb r0, [r0]
@@ -4882,7 +4882,7 @@ sub_080A7250: @ 0x080A7250
 	bl sub_0805E958
 	adds r1, r4, #0
 	subs r1, #0x54
-	ldr r0, _080A7314 @ =gScreenTransition
+	ldr r0, _080A7314 @ =gRoomTransition
 	adds r0, #0x2f
 	ldrb r0, [r0]
 	strb r0, [r1, #0xd]
@@ -4915,14 +4915,14 @@ _080A7304: .4byte gPaletteList
 _080A7308: .4byte gRoomControls
 _080A730C: .4byte gUnk_03000420
 _080A7310: .4byte gActiveScriptInfo
-_080A7314: .4byte gScreenTransition
+_080A7314: .4byte gRoomTransition
 _080A7318: .4byte gPlayerState
 _080A731C: .4byte gCurrentRoomProperties
 _080A7320: .4byte gUnk_02025EB0
 _080A7324: .4byte gUnk_0200B650
 
-	thumb_func_start sub_080A7328
-sub_080A7328: @ 0x080A7328
+	thumb_func_start Subtask_Init
+Subtask_Init: @ 0x080A7328
 	push {r4, lr}
 	ldr r0, _080A7388 @ =gFadeControl
 	ldrb r0, [r0]
@@ -4950,14 +4950,14 @@ sub_080A7328: @ 0x080A7328
 	bl MessageInitialize
 	bl ResetPalettes
 	movs r0, #0
-	bl sub_0801CFA8
+	bl ResetPaletteTable
 	ldr r0, _080A739C @ =gGFXSlots
 	movs r2, #1
 	strb r2, [r0]
 	ldr r1, _080A73A0 @ =gUnk_02032EC0
 	movs r0, #2
 	strb r0, [r1]
-	ldr r0, _080A73A4 @ =gScreenTransition
+	ldr r0, _080A73A4 @ =gRoomTransition
 	adds r0, #0x30
 	strb r2, [r0]
 _080A7384:
@@ -4970,10 +4970,10 @@ _080A7394: .4byte gUnk_03000420
 _080A7398: .4byte gActiveScriptInfo
 _080A739C: .4byte gGFXSlots
 _080A73A0: .4byte gUnk_02032EC0
-_080A73A4: .4byte gScreenTransition
+_080A73A4: .4byte gRoomTransition
 
-	thumb_func_start sub_080A73A8
-sub_080A73A8: @ 0x080A73A8
+	thumb_func_start Subtask_FadeOut
+Subtask_FadeOut: @ 0x080A73A8
 	push {r4, r5, lr}
 	ldr r0, _080A7468 @ =gFadeControl
 	ldrb r0, [r0]
@@ -5081,17 +5081,17 @@ _080A74AE:
 	movs r2, #0
 	movs r0, #4
 	strb r0, [r1]
-	ldr r0, _080A74C4 @ =gScreenTransition
+	ldr r0, _080A74C4 @ =gRoomTransition
 	adds r0, #0x30
 	strb r2, [r0]
 _080A74BC:
 	pop {r4, r5, pc}
 	.align 2, 0
 _080A74C0: .4byte gUnk_02032EC0
-_080A74C4: .4byte gScreenTransition
+_080A74C4: .4byte gRoomTransition
 
-	thumb_func_start sub_080A74C8
-sub_080A74C8: @ 0x080A74C8
+	thumb_func_start Subtask_Die
+Subtask_Die: @ 0x080A74C8
 	push {lr}
 	bl sub_080A74F4
 	ldr r0, _080A74E8 @ =gFadeControl
@@ -5122,17 +5122,17 @@ sub_080A74F4: @ 0x080A74F4
 	bl FlushSprites
 	bl UpdateEntities
 	bl UpdateManagers
-	bl sub_0801C344
-	bl sub_0801C208
-	bl sub_08078CB4
-	bl sub_080AD9B0
-	bl sub_080AD918
+	bl DrawUI
+	bl DrawOAMCmd
+	bl UpdateCarriedObject
+	bl DrawEntities
+	bl CopyOAM
 	pop {pc}
 	.align 2, 0
 _080A7524: .4byte gMain
 
-	thumb_func_start sub_080A7528
-sub_080A7528: @ 0x080A7528
+	thumb_func_start Subtask_Update
+Subtask_Update: @ 0x080A7528
 	push {lr}
 	ldr r1, _080A753C @ =gUnk_08129030
 	ldr r0, _080A7540 @ =gUnk_02032EC0

@@ -53,7 +53,7 @@ void V1FireProjectile_Init(Entity* this) {
     y = this->y.HALF.HI + data[1];
     iVar2 = sub_080041DC(this, x, y);
     rnd = Random() & 0x1ff;
-    if ((gScreenTransition.frameCount & 1U) != 0) {
+    if ((gRoomTransition.frameCount & 1U) != 0) {
 
         iVar2 += rnd;
         if (0x400 < iVar2) {

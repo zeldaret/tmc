@@ -164,8 +164,8 @@ extern LinkedList gEntityLists[9];
 enum {
     ENT_DID_INIT = 0x1,
     ENT_SCRIPTED = 0x2,
-    ENT_ASLEEP = 0x10,
-    ENT_20 = 0x20,
+    ENT_DELETED = 0x10,
+    ENT_PERSIST = 0x20,
     ENT_COLLIDE = 0x80,
 };
 
@@ -173,8 +173,8 @@ enum {
 #define COLLISION_ON(entity) ((entity)->flags |= ENT_COLLIDE)
 
 #define TILE(x, y)                                      \
-    (((((x) - gRoomControls.roomOriginX) >> 4) & 0x3F) | \
-     ((((y) - gRoomControls.roomOriginY) >> 4) & 0x3F) << 6)
+    (((((x) - gRoomControls.origin_x) >> 4) & 0x3F) | \
+     ((((y) - gRoomControls.origin_y) >> 4) & 0x3F) << 6)
 
 #define COORD_TO_TILE(entity) \
     TILE((entity)->x.HALF.HI, (entity)->y.HALF.HI)

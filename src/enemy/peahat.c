@@ -195,7 +195,7 @@ void Peahat_ChargeTarget(Entity* this) {
             if (this->actionDelay & 1)
                 this->speed += 4;
 
-            if ((gScreenTransition.frameCount & 3) == 0)
+            if ((gRoomTransition.frameCount & 3) == 0)
                 sub_08004596(this, GetFacingDirection(this, gUnk_020000B0));
         }
         sub_080AEFE0(this);

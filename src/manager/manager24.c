@@ -92,8 +92,8 @@ void sub_0805C050(u32 pos, u32 layer) {
         if (CheckIsInteriorWithEnemies() != 0) {
             Entity* object = CreateObject(ARCHWAY, 0xe, 0);
             if (object != NULL) {
-                object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.roomOriginX;
-                object->y.HALF.HI = ((pos & 0xfc0) >> 2) - 8 + gRoomControls.roomOriginY;
+                object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.origin_x;
+                object->y.HALF.HI = ((pos & 0xfc0) >> 2) - 8 + gRoomControls.origin_y;
             }
             SetTileType(0xb5, pos, 1);
         } else {
@@ -117,8 +117,8 @@ void sub_0805C050(u32 pos, u32 layer) {
         if (object == NULL) {
             return;
         }
-        object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.roomOriginX;
-        object->y.HALF.HI = ((pos & 0xfc0) >> 2) - 0x10 + gRoomControls.roomOriginY;
+        object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.origin_x;
+        object->y.HALF.HI = ((pos & 0xfc0) >> 2) - 0x10 + gRoomControls.origin_y;
         object->collisionLayer = 2;
     }
 }
@@ -137,8 +137,8 @@ void sub_0805C178(u32 pos, u32 layer) {
 
             object = CreateObject(ARCHWAY, 0xe, 1);
             if (object != NULL) {
-                object->x.HALF.HI = ((pos & 0x3f) << 4) + 0x18 + gRoomControls.roomOriginX;
-                object->y.HALF.HI = ((pos & 0xfc0) >> 2) + 8 + gRoomControls.roomOriginY;
+                object->x.HALF.HI = ((pos & 0x3f) << 4) + 0x18 + gRoomControls.origin_x;
+                object->y.HALF.HI = ((pos & 0xfc0) >> 2) + 8 + gRoomControls.origin_y;
             }
             SetTileType(0xf2, pos, 1);
         } else {
@@ -160,8 +160,8 @@ void sub_0805C178(u32 pos, u32 layer) {
         if (object == NULL) {
             return;
         }
-        object->x.HALF.HI = ((pos & 0x3f) << 4) + 0x20 + gRoomControls.roomOriginX;
-        object->y.HALF.HI = ((pos & 0xfc0) >> 2) + 8 + gRoomControls.roomOriginY;
+        object->x.HALF.HI = ((pos & 0x3f) << 4) + 0x20 + gRoomControls.origin_x;
+        object->y.HALF.HI = ((pos & 0xfc0) >> 2) + 8 + gRoomControls.origin_y;
         object->collisionLayer = 2;
     }
 }
@@ -178,8 +178,8 @@ void sub_0805C294(u32 pos, u32 layer) {
         if (CheckIsInteriorWithEnemies() != 0) {
             object = CreateObject(ARCHWAY, 0xe, 2);
             if (object != NULL) {
-                object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.roomOriginX;
-                object->y.HALF.HI = ((pos & 0xfc0) >> 2) + 0x20 + gRoomControls.roomOriginY;
+                object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.origin_x;
+                object->y.HALF.HI = ((pos & 0xfc0) >> 2) + 0x20 + gRoomControls.origin_y;
             }
             SetTileType(0xd2, pos, 1);
         } else {
@@ -201,8 +201,8 @@ void sub_0805C294(u32 pos, u32 layer) {
         if (object == NULL) {
             return;
         }
-        object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.roomOriginX;
-        object->y.HALF.HI = ((pos & 0xfc0) >> 2) + 0x20 + gRoomControls.roomOriginY;
+        object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.origin_x;
+        object->y.HALF.HI = ((pos & 0xfc0) >> 2) + 0x20 + gRoomControls.origin_y;
         object->collisionLayer = 2;
     }
 }
@@ -219,8 +219,8 @@ void sub_0805C3B4(u32 pos, u32 layer) {
         if (CheckIsInteriorWithEnemies() != 0) {
             object = CreateObject(ARCHWAY, 0xe, 3);
             if (object != NULL) {
-                object->x.HALF.HI = ((pos & 0x3f) << 4) + -0x10 + gRoomControls.roomOriginX;
-                object->y.HALF.HI = ((pos & 0xfc0) >> 2) + 8 + gRoomControls.roomOriginY;
+                object->x.HALF.HI = ((pos & 0x3f) << 4) + -0x10 + gRoomControls.origin_x;
+                object->y.HALF.HI = ((pos & 0xfc0) >> 2) + 8 + gRoomControls.origin_y;
             }
             SetTileType(0xe5, pos, 1);
         } else {
@@ -243,8 +243,8 @@ void sub_0805C3B4(u32 pos, u32 layer) {
         if (object == NULL) {
             return;
         }
-        object->x.HALF.HI = ((pos & 0x3f) << 4) + -0x10 + gRoomControls.roomOriginX;
-        object->y.HALF.HI = ((pos & 0xfc0) >> 2) + 8 + gRoomControls.roomOriginY;
+        object->x.HALF.HI = ((pos & 0x3f) << 4) + -0x10 + gRoomControls.origin_x;
+        object->y.HALF.HI = ((pos & 0xfc0) >> 2) + 8 + gRoomControls.origin_y;
         object->collisionLayer = 2;
     }
 }
@@ -261,8 +261,8 @@ void sub_0805C4E0(u32 pos, u32 layer) {
         if (CheckIsInteriorWithEnemies() != 0) {
             object = CreateObject(ARCHWAY, 0xe, 0);
             if (object != NULL) {
-                object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.roomOriginX;
-                object->y.HALF.HI = ((pos & 0xfc0) >> 2) + -0x10 + gRoomControls.roomOriginY;
+                object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.origin_x;
+                object->y.HALF.HI = ((pos & 0xfc0) >> 2) + -0x10 + gRoomControls.origin_y;
             }
             SetTileType(0xc5, pos, 1);
         } else {
@@ -285,8 +285,8 @@ void sub_0805C4E0(u32 pos, u32 layer) {
         if (object == NULL) {
             return;
         }
-        object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.roomOriginX;
-        object->y.HALF.HI = ((pos & 0xfc0) >> 2) + -0x10 + gRoomControls.roomOriginY;
+        object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.origin_x;
+        object->y.HALF.HI = ((pos & 0xfc0) >> 2) + -0x10 + gRoomControls.origin_y;
         object->collisionLayer = 2;
     }
 }

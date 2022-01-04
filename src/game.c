@@ -9,12 +9,13 @@
 #include "flags.h"
 #include "save.h"
 #include "common.h"
-#include "fileScreen.h"
+#include "fileselect.h"
 #include "menu.h"
 #include "functions.h"
 #include "area.h"
 #include "message.h"
 #include "game.h"
+#include "item.h"
 
 extern u8 gUpdateVisibleTiles;
 
@@ -39,37 +40,37 @@ extern void (*gUnk_080FCA08[])();
 extern void (*gUnk_080FCA14[])();
 extern void (*gUnk_080FCA70[])(void);
 
-void sub_0807CA18(void);
-void sub_080300AC(void);
-void sub_08049CD4(void);
-void sub_0807059C(void);
-void sub_080A7124(void);
+void FinalizeSave(void);
+void ClearArmosData(void);
+void ClearRoomMemory(void);
+void ClearMenuSavestate(void);
+void ResetUI(void);
 void sub_0806FD8C(void);
 void sub_080300C4(void);
 u32 sub_0805BC04(void);
 void DeleteSleepingEntities(void);
-u32 sub_0805BBBC(void);
+u32 UpdateLightLevel(void);
 void sub_080185F8(void);
-void sub_08080A40(void);
-u32 sub_0804AA84(void);
-void sub_08078CB4(void);
-void sub_0801C344();
-u32 sub_080705AC();
+void UpdateDoorTransition(void);
+u32 IsEnterPortal(void);
+void UpdateCarriedObject(void);
+void DrawUI();
+u32 CheckPlayerActivity();
 void CollisionMain();
 void sub_0805BB74();
 void CreateZeldaFollower(void);
-void sub_0807C0DC();
-void sub_0805E9A8();
+void LoadRoomGfx();
+void QueueEntityDeletion();
 void sub_0804AF90();
-void sub_0804AFDC();
-void sub_0805283C();
+void CallRoomProp6();
+void LoadRoomBgm();
 void UpdateScroll();
 void UpdateBgAnim();
 void sub_08052010();
 void sub_080520C4();
 void CleanUpGFXSlots();
 void sub_080ADE24();
-void sub_0801C370(u32);
+void InitUI(u32);
 void sub_0801AE44(u32);
 void GenerateAreaHint(void);
 void ForceSetPlayerState(u32);
@@ -81,22 +82,22 @@ void sub_0806F364(void);
 void sub_08052FF4(u32 area, u32 room);
 void sub_0807C860(void);
 void sub_0807C740(void);
-void sub_080197AC(void);
-void sub_08053390(void);
+void SetBGDefaults(void);
+void LoadItemGfx(void);
 
-static void sub_08053518(void);
+static void ResetTmpFlags(void);
 static void InitializeEntities(void);
-static void sub_08053178(void);
-static void sub_08052BF8(void);
-static void sub_08051E04(void);
-static void sub_08052F1C(void);
-/* static */ void sub_08052C5C(void);
+static void CheckAreaDiscovery(void);
+static void CreateManagerF(void);
+static void UpdateWindcrests(void);
+static void UpdateFakeScroll(void);
+static void UpdatePlayerMapCoords(void);
 static void sub_08052C3C(void);
 static void sub_0805340C(void);
 static void sub_08051D98(void);
 static void sub_08051DCC(void);
-/* static */ u32 sub_080528B4(void);
-/* static */ u32 HandleRoomExit(void);
+static u32 CheckGameOver(void);
+static u32 HandleRoomExit(void);
 static void sub_080531F8(void);
 static void sub_0805329C(void);
 static void InitializePlayer(void);
@@ -160,98 +161,102 @@ typedef struct {
 
 extern void CreateDialogBox();
 
-void HandleGameplayScreen(void) {
-    gScreenTransition.frameCount++;
-    gUnk_080FC9D8[gMain.funcIndex]();
+void GameTask(void) {
+    gRoomTransition.frameCount++;
+    gUnk_080FC9D8[gMain.state]();
 #ifdef DEMO_USA
-    if (gSave.unk48C[7] != 0) {
-        if (--gSave.unk48C[7] == 0) {
+    if (gSave.demo_timer != 0) {
+        if (--gSave.demo_timer == 0) {
             DoFade(7, 2);
-            gMain.funcIndex = 3;
+            gMain.state = GAMETASK_EXIT;
         }
     }
 #endif
 }
 
-void sub_080519B0(void) {
+void GameTask_Transition(void) {
+    // wait for file select to fade out
     if (gFadeControl.active)
         return;
 
     DispReset(1);
     InitSoundPlayingInfo();
     zMallocInit();
-    sub_080A7124();
-    sub_0807059C();
-    MemClear(&gScreenTransition, 0xB0);
-    sub_08049CD4();
-    sub_080300AC();
-    sub_0807CA18();
-    MemCopy(&gSave.saved_status, &gScreenTransition.player_status, 0x20);
-    gScreenTransition.transitionType = 4;
-    sub_08053518();
-    gMain.funcIndex = 1;
-    gMain.transition = 0;
+    ResetUI();
+    ClearMenuSavestate();
+    MemClear(&gRoomTransition, sizeof(gRoomTransition));
+    ClearRoomMemory();
+    ClearArmosData();
+
+    FinalizeSave();
+    // spawn in with saved status
+    MemCopy(&gSave.saved_status, &gRoomTransition.player_status, sizeof (gRoomTransition.player_status));
+    gRoomTransition.type = TRANSITION_FADE_BLACK_SLOW;
+    ResetTmpFlags();
+
+    gMain.state = GAMETASK_INIT;
+    gMain.substate = 0;
 }
 
-void sub_08051A14(void) {
+void GameTask_Init(void) {
     DispReset(1);
     gFadeControl.mask = 0xffffffff;
-    MemClear(&gUnk_03000000, 0xB74);
-    MemClear(&gUnk_02032EC0, 0x3B4);
+    MemClear(&gOAMControls, 0xB74);
+    MemClear(&gUnk_02032EC0, sizeof(gUnk_02032EC0));
     EraseAllEntities();
-    sub_080197AC();
-    sub_08080668();
+    SetBGDefaults();
+    ClearTilemaps();
     ResetPalettes();
-    sub_0801CFA8(1);
+    ResetPaletteTable(1);
     sub_0806FD8C();
-    gRoomControls.areaID = gScreenTransition.player_status.area_next;
-    gRoomControls.roomID = gScreenTransition.player_status.room_next;
-    sub_08053320();
+    gRoomControls.area = gRoomTransition.player_status.area_next;
+    gRoomControls.room = gRoomTransition.player_status.room_next;
+    LoadGfxGroups();
     gGFXSlots.unk0 = 1;
-    gMain.funcIndex = 2;
+    gMain.state = GAMETASK_MAIN;
 }
 
-void sub_08051A90(void) {
-    gUnk_080FC9E8[gMain.transition]();
+void GameTask_Main(void) {
+    gUnk_080FC9E8[gMain.substate]();
 }
 
-void InitializeNewRoom(void) {
+void GameMain_InitRoom(void) {
     SetInitializationPriority();
     gScreen.lcd.displayControl = 0x1740;
-    gMain.transition = 1;
-    gScreenTransition.transitioningOut = 0;
-    gScreenTransition.field_0x4[0] = 0;
-    gScreenTransition.field_0x4[1] = 0;
+    gMain.substate = GAMEMAIN_CHANGEROOM;
+    gRoomTransition.transitioningOut = 0;
+    gRoomTransition.field_0x4[0] = 0;
+    gRoomTransition.field_0x4[1] = 0;
     MessageInitialize();
-    sub_08052CFC();
-    sub_0801C370(0);
+    InitRoom();
+    InitUI(0);
     InitializeEntities();
 #ifndef EU
     sub_0801855C();
 #endif
 }
 
-void sub_08051AF0(void) {
+void GameMain_ChangeRoom(void) {
     UpdateEntities();
-    if (!sub_0805BBBC())
+    if (!UpdateLightLevel())
         UpdateScroll();
     UpdateBgAnim();
-    sub_08000108();
-    sub_0801C344();
+    UpdateScrollVram();
+    DrawUI();
     UpdateManagers();
     FlushSprites();
-    sub_0801C208();
-    sub_08078CB4();
-    sub_080AD9B0();
-    sub_080AD918();
+    DrawOAMCmd();
+    UpdateCarriedObject();
+    DrawEntities();
+    CopyOAM();
 
-    if (gFadeControl.active || gRoomControls.unk2 != 0)
+    if (gFadeControl.active || gRoomControls.reload_flags != 0)
         return;
 
-    sub_08052F1C();
+    UpdateFakeScroll();
     if (gArea.musicIndex != gArea.pMusicIndex) {
         gArea.musicIndex = gArea.pMusicIndex;
-        SoundReq(gArea.pMusicIndex | 0x800B0000);
+        SoundReq(gArea.pMusicIndex | SONG_PLAY_VOL_RESET);
     }
 
     DeleteSleepingEntities();
@@ -259,47 +264,48 @@ void sub_08051AF0(void) {
     if (sub_0805BC04())
         return;
 
-    sub_08052C5C();
+    UpdatePlayerMapCoords();
     ResetSystemPriority();
-    sub_08051E04();
+    UpdateWindcrests();
     sub_080300C4();
-    gMain.transition = 2;
+    gMain.substate = GAMEMAIN_UPDATE;
     SetPlayerControl(0);
     gUnk_02034490[0] = 0;
 #if defined(USA) || defined(DEMO_USA)
     if (gArea.inventoryGfxIdx != 0xff) {
         sub_0801855C();
     }
-    sub_08052BF8();
-    sub_08053178();
+    CreateManagerF();
+    CheckAreaDiscovery();
 #elif defined(EU)
-    sub_08053178();
+    CheckAreaDiscovery();
     sub_0801855C();
 #elif defined(JP)
-    sub_08053178();
+    CheckAreaDiscovery();
     if (gArea.inventoryGfxIdx != 0xff) {
         sub_0801855C();
     }
 #elif defined(DEMO_JP)
-    if (gScreenTransition.field_0x2c[5])
-        sub_08053178();
+    if (gRoomTransition.field_0x2c[5])
+        CheckAreaDiscovery();
     if (gArea.inventoryGfxIdx != 0xff) {
         sub_0801855C();
     }
-    sub_08052BF8();
+    CreateManagerF();
 #endif
     if (!gRoomVars.field_0x0) {
         RequestPriorityDuration(NULL, 1);
     }
 }
 
-void sub_08051BD0(void) {
-    if (sub_080705AC() || sub_0804AA84()) {
+void GameMain_Update(void) {
+    if (CheckPlayerActivity() || IsEnterPortal()) {
         return;
     }
     sub_0805340C();
 
-    if (gMain.transition != 2) {
+    // leave early if player is entering a portal
+    if (gMain.substate != GAMEMAIN_UPDATE) {
         return;
     }
 
@@ -308,68 +314,68 @@ void sub_08051BD0(void) {
 
     FlushSprites();
     UpdateEntities();
-    sub_08080A40();
+    UpdateDoorTransition();
     CollisionMain();
     UpdateScroll();
     UpdateBgAnim();
-    sub_08000108();
+    UpdateScrollVram();
     sub_08052C3C();
-    sub_0801C344();
+    DrawUI();
     UpdateManagers();
-    sub_0801C208();
-    sub_08078CB4();
-    sub_080AD9B0();
+    DrawOAMCmd();
+    UpdateCarriedObject();
+    DrawEntities();
     HandleRoomExit();
-    sub_08052C5C();
-    sub_080528B4();
+    UpdatePlayerMapCoords();
+    CheckGameOver();
     sub_080185F8();
-    sub_080AD918();
-    switch (gRoomControls.unk2) {
-        case 1:
-            gPlayerState.queued_action = 0x17;
-            gMain.transition = 1;
+    CopyOAM();
+    switch (gRoomControls.reload_flags) {
+        case RELOAD_ALL:
+            gPlayerState.queued_action = PLAYER_ROOMTRANSITION;
+            gMain.substate = GAMEMAIN_CHANGEROOM;
             SetRoomReloadPriority();
             sub_08051D98();
             break;
-        case 2:
-            gPlayerState.queued_action = 0x17;
-            gMain.transition = 1;
+        case RELOAD_ENTITIES:
+            gPlayerState.queued_action = PLAYER_ROOMTRANSITION;
+            gMain.substate = GAMEMAIN_CHANGEROOM;
             SetRoomReloadPriority();
             sub_08051DCC();
             break;
     }
 }
 
-void sub_08051CA8(void) {
-    if (sub_080705AC())
+void GameMain_BarrelUpdate(void) {
+    if (CheckPlayerActivity())
         return;
 
     UpdateEntities();
     CollisionMain();
-    sub_0801C344();
+    DrawUI();
     UpdateManagers();
     FlushSprites();
-    sub_0801C208();
-    sub_08078CB4();
-    sub_080AD9B0();
+    DrawOAMCmd();
+    UpdateCarriedObject();
+    DrawEntities();
     HandleRoomExit();
-    sub_080528B4();
-    sub_080AD918();
+    CheckGameOver();
+    CopyOAM();
     if (!gFadeControl.active)
         ResetSystemPriority();
 }
 
-void sub_08051CF0(void) {
+void GameMain_ChangeArea(void) {
     FlushSprites();
-    sub_0801C208();
-    sub_080AD9B0();
+    DrawOAMCmd();
+    DrawEntities();
     gMain.pad = 1;
-    sub_080AD918();
+    CopyOAM();
     if (!gFadeControl.active) {
         DispReset(1);
-        gMain.funcIndex = 1;
-        gMain.transition = 0;
-        gScreenTransition.transitioningOut = 1;
+        gMain.state = GAMETASK_INIT;
+        gMain.substate = 0;
+        gRoomTransition.transitioningOut = 1;
     }
 }
 
@@ -379,25 +385,25 @@ void sub_08051D2C(void) {
         DoSoftReset();
 #else
     DoFade(7, 8);
-    InitScreen(3);
+    SetTask(TASK_GAMEOVER);
 #endif
 }
 
 static void InitializeEntities(void) {
     sub_08052EA0();
     sub_0804AF90();
-    sub_0804AFDC();
+    CallRoomProp6();
     InitializePlayer();
     gUnk_03004030.unk_00 = NULL;
     sub_0807C740();
     gUpdateVisibleTiles = 1;
-    sub_0805283C();
+    LoadRoomBgm();
     SetColor(0, 0);
     LoadRoom();
     CreateZeldaFollower();
-    sub_0804AFF4();
+    CallRoomProp5And7();
     sub_0805329C();
-    sub_08000108();
+    UpdateScrollVram();
     sub_0805BB74(0xffffffff);
     sub_080531F8();
 }
@@ -405,30 +411,33 @@ static void InitializeEntities(void) {
 void sub_08051D98(void) {
     sub_08052EA0();
     gRoomVars.field_0x0 = 1;
-    sub_0805E9A8();
+
+    // remove old entities, unless persistent
+    QueueEntityDeletion();
+
     sub_0804AF90();
-    sub_0804AFDC();
-    sub_0807C0DC();
-    sub_0805283C();
+    CallRoomProp6();
+    LoadRoomGfx();
+    LoadRoomBgm();
     LoadRoom();
-    sub_0804AFF4();
+    CallRoomProp5And7();
     SetPlayerControl(1);
 }
 
 void sub_08051DCC(void) {
-    gRoomControls.areaID = gScreenTransition.player_status.area_next;
-    gRoomControls.roomID = gScreenTransition.player_status.room_next;
+    gRoomControls.area = gRoomTransition.player_status.area_next;
+    gRoomControls.room = gRoomTransition.player_status.room_next;
     RoomExitCallback();
-    gScreenTransition.transitionType = 3;
-    sub_08052CFC();
+    gRoomTransition.type = TRANSITION_3;
+    InitRoom();
     sub_08052EA0();
-    sub_0805E9A8();
+    QueueEntityDeletion();
     sub_0804AF90();
-    sub_0804AFDC();
-    sub_0805283C();
+    CallRoomProp6();
+    LoadRoomBgm();
 }
 
-void sub_08051E04() {
+void UpdateWindcrests() {
     if (CheckIsOverworld()) {
         struct_08127F94* i;
         u32 hi_x, hi_y;
@@ -453,20 +462,20 @@ void sub_08051E04() {
     }
 }
 
-void sub_08051E68() {
+void Subtask_ChuchuCutscene() {
     gUnk_080FCA08[gMenu.menuType]();
 }
 
 void sub_08051E84() {
     struct_080FCA20* p = &gUnk_080FCA20[gUnk_02032EC0.field_0x3];
-    gRoomControls.areaID = p->_0;
-    gRoomControls.roomID = p->_1;
-    sub_08053320();
-    gArea.localFlagOffset = GetFlagBankOffset(gRoomControls.areaID);
+    gRoomControls.area = p->_0;
+    gRoomControls.room = p->_1;
+    LoadGfxGroups();
+    gArea.localFlagOffset = GetFlagBankOffset(gRoomControls.area);
     SetCurrentRoomPropertyList(p->_0, p->_1);
     sub_08052FD8(p->_0, p->_1);
-    gRoomControls.roomScrollX = gRoomControls.roomOriginX + p->_4;
-    gRoomControls.roomScrollY = gRoomControls.roomOriginY + p->_6;
+    gRoomControls.scroll_x = gRoomControls.origin_x + p->_4;
+    gRoomControls.scroll_y = gRoomControls.origin_y + p->_6;
     gMenu.field_0x0 = p->_2;
     gMenu.field_0x3 = p->_3 & 0xf;
     gMenu.field_0xc = (void*)p;
@@ -480,12 +489,12 @@ void sub_08051F04(void) {
     gUnk_080FCA14[gMenu.field_0x0]();
     FlushSprites();
     UpdateEntities();
-    sub_080AD9B0();
-    sub_080AD918();
+    DrawEntities();
+    CopyOAM();
     UpdateScroll();
     UpdateBgAnim();
     UpdateManagers();
-    sub_08000108();
+    UpdateScrollVram();
 }
 
 void sub_08051F40(u32 a1, u32 a2, u32 a3, u32 a4) {
@@ -508,8 +517,8 @@ void sub_08051F78(u32 a1, u32 a2, u32 a3, u32 a4) {
 void sub_08051F9C(u32 a1, u32 a2, u32 a3, u32 a4) {
     u32 tmp = gScreen.lcd.displayControl & 0x6000;
     sub_08052FF4(a1, a2);
-    gRoomControls.roomScrollX = gRoomControls.roomOriginX + a3;
-    gRoomControls.roomScrollY = gRoomControls.roomOriginY + a4;
+    gRoomControls.scroll_x = gRoomControls.origin_x + a3;
+    gRoomControls.scroll_y = gRoomControls.origin_y + a4;
     sub_0807C740();
     gUpdateVisibleTiles = 1;
     gUsedPalettes = 0;
@@ -543,17 +552,17 @@ void sub_08052010() {
     gScreen.bg2.updated = 1;
 }
 
-void HandleGameOverScreen() {
-    gUnk_080FCA70[gMain.funcIndex]();
-    if (gMain.funcIndex != 0) {
+void GameOverTask() {
+    gUnk_080FCA70[gMain.state]();
+    if (gMain.state != 0) {
         FlushSprites();
         DrawGameOverText();
-        sub_080AD918();
+        CopyOAM();
     }
 }
 
 void sub_080520C4(u32 idx) {
-    gMain.funcIndex = idx;
+    gMain.state = idx;
     sub_080A7114(0);
 }
 
@@ -725,7 +734,7 @@ void sub_080522F4(void) {
         default:
             if (gFadeControl.active == 0) {
                 if (gMenu.field_0x3 == 0) {
-                    InitScreen(2);
+                    SetTask(TASK_GAME);
                 } else {
                     DoSoftReset();
                 }
@@ -795,7 +804,7 @@ void SetPopupState(u32 type, u32 choice_idx) {
 
     MemCopy(&sDefaultFont, &font, sizeof font);
     opt = &sPopupOptions[type];
-    font.dest = sDefaultFont.dest + (opt->dest_off[gSaveHeader->gameLanguage] + opt->_8 * 32);
+    font.dest = sDefaultFont.dest + (opt->dest_off[gSaveHeader->language] + opt->_8 * 32);
     font.right_align = opt->right_align;
     sub_0805F46C(opt->_a, &font);
     gScreen.bg1.updated = fakematch;
@@ -828,26 +837,26 @@ void InitializePlayer(void) {
 
     pl = &gPlayerEntity;
 
-    gRoomControls.cameraTarget = pl;
-    gPlayerState.queued_action = sPlayerSpawnStates[gScreenTransition.player_status.spawn_type];
+    gRoomControls.camera_target = pl;
+    gPlayerState.queued_action = sPlayerSpawnStates[gRoomTransition.player_status.spawn_type];
     if (!CheckGlobalFlag(EZERO_1ST)) {
         gPlayerState.flags |= PL_NO_CAP;
     }
-    switch (gScreenTransition.player_status.spawn_type) {
+    switch (gRoomTransition.player_status.spawn_type) {
         case PL_SPAWN_DROP:
         case PL_SPAWN_DROP_MINISH:
             pl->z.HALF.HI = -0xc0;
             break;
         case PL_SPAWN_STEP_IN:
             gPlayerState.field_0x34[4] = 16;
-            pl->direction = Direction8FromAnimationState(gScreenTransition.player_status.start_anim);
+            pl->direction = Direction8FromAnimationState(gRoomTransition.player_status.start_anim);
         case PL_SPAWN_WALKING:
             pl->speed = 224;
             break;
         case PL_SPAWN_STAIRS_ASCEND:
         case PL_SPAWN_STAIRS_DESCEND:
             gPlayerState.field_0x34[4] = 1;
-            gPlayerState.field_0x34[5] = gScreenTransition.player_status.spawn_type;
+            gPlayerState.field_0x34[5] = gRoomTransition.player_status.spawn_type;
             break;
         case PL_SPAWN_PARACHUTE_FORWARD:
             gPlayerState.field_0x34[4] = 1;
@@ -860,13 +869,13 @@ void InitializePlayer(void) {
     }
 
     pl->kind = PLAYER;
-    pl->flags |= ENT_COLLIDE | ENT_20;
+    pl->flags |= ENT_COLLIDE | ENT_PERSIST;
     pl->spritePriority.b0 = 4;
     pl->health = gSave.stats.health;
-    pl->x.HALF.HI = gScreenTransition.player_status.start_pos_x;
-    pl->y.HALF.HI = gScreenTransition.player_status.start_pos_y;
-    pl->animationState = gScreenTransition.player_status.start_anim;
-    pl->collisionLayer = gScreenTransition.player_status.layer;
+    pl->x.HALF.HI = gRoomTransition.player_status.start_pos_x;
+    pl->y.HALF.HI = gRoomTransition.player_status.start_pos_y;
+    pl->animationState = gRoomTransition.player_status.start_anim;
+    pl->collisionLayer = gRoomTransition.player_status.layer;
     UpdateSpriteForCollisionLayer(pl);
     AppendEntityToList(pl, 1);
     RegisterPlayerHitbox();
@@ -986,19 +995,19 @@ u32 HasDungeonSmallKey(void) {
 }
 
 void sub_080527FC(u32 a1, u32 a2) {
-    sub_08053320();
+    LoadGfxGroups();
 #ifndef EU
     CleanUpGFXSlots();
 #endif
     sub_080ADE24();
-    sub_0801C370(1);
+    InitUI(1);
     sub_0801AE44(a1);
     MemCopy(gUnk_02024090, gPaletteBuffer, 1024);
     gUsedPalettes = -1;
 }
 
-void sub_0805283C(void) {
-    gArea.pMusicIndex = gAreaMetadata[gRoomControls.areaID]._3;
+void LoadRoomBgm(void) {
+    gArea.pMusicIndex = gAreaMetadata[gRoomControls.area]._3;
     if (CheckLocalFlagByBank(FLAG_BANK_10, LV6_KANE_START)) {
         gArea.pMusicIndex = BGM_FIGHT_THEME2;
     }
@@ -1015,11 +1024,11 @@ static void sub_0805289C(void) {
 }
 #endif
 
-u32 sub_080528B4(void) {
-    if (gScreenTransition.field_0x4[1]) {
+u32 CheckGameOver(void) {
+    if (gRoomTransition.field_0x4[1]) {
         InitFade();
-        gMain.funcIndex = 3;
-        gMain.transition = 0;
+        gMain.state = 3;
+        gMain.substate = 0;
         DoFade(5, 8);
         SoundReq(SONG_STOP_BGM);
         return 1;
@@ -1033,13 +1042,13 @@ void RoomExitCallback(void) {
 }
 
 u32 HandleRoomExit(void) {
-    if (gScreenTransition.transitioningOut && gSave.stats.health != 0 && gPlayerState.framestate != PL_STATE_DIE) {
+    if (gRoomTransition.transitioningOut && gSave.stats.health != 0 && gPlayerState.framestate != PL_STATE_DIE) {
         if (StairsAreValid()) {
-            gScreenTransition.transitioningOut = 0;
+            gRoomTransition.transitioningOut = 0;
             return 0;
         }
 
-        switch (gScreenTransition.transitionType) {
+        switch (gRoomTransition.type) {
             case TRANSITION_CUT:
                 DoFade(13, 8);
                 break;
@@ -1067,7 +1076,7 @@ u32 HandleRoomExit(void) {
                 break;
         }
         RoomExitCallback();
-        gMain.transition = 3;
+        gMain.substate = 3;
         *(&gMain.pauseInterval + 1) = 1;
         return 1;
     }
@@ -1082,15 +1091,15 @@ static u32 StairsAreValid(void) {
                                        0 };
 
     const u16* i;
-    u32 tgt = gScreenTransition.stairs_idx;
+    u32 tgt = gRoomTransition.stairs_idx;
 
     for (i = sStairTypes; i[0] != 0; i += 2) {
         if (tgt == i[0]) {
             gPlayerState.queued_action = PLAYER_USEENTRANCE;
             gPlayerState.field_0x38 = 0;
             gPlayerState.field_0x39 = i[1];
-            if (!gScreenTransition.player_status.spawn_type)
-                gScreenTransition.player_status.spawn_type = i[1];
+            if (!gRoomTransition.player_status.spawn_type)
+                gRoomTransition.player_status.spawn_type = i[1];
             return 1;
         }
     }
@@ -1098,17 +1107,17 @@ static u32 StairsAreValid(void) {
 }
 
 void InitParachuteRoom(void) {
-    gScreenTransition.transitioningOut = 1;
-    gScreenTransition.player_status.start_pos_x = (gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX) & 0x3F8;
-    gScreenTransition.player_status.start_pos_y = (gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY) & 0x3F8;
-    gScreenTransition.player_status.start_anim = 4;
-    gScreenTransition.player_status.spawn_type = PL_SPAWN_PARACHUTE_FORWARD;
-    gScreenTransition.player_status.area_next = gRoomControls.areaID;
-    gScreenTransition.player_status.room_next = gRoomControls.roomID - 1;
+    gRoomTransition.transitioningOut = 1;
+    gRoomTransition.player_status.start_pos_x = (gPlayerEntity.x.HALF.HI - gRoomControls.origin_x) & 0x3F8;
+    gRoomTransition.player_status.start_pos_y = (gPlayerEntity.y.HALF.HI - gRoomControls.origin_y) & 0x3F8;
+    gRoomTransition.player_status.start_anim = 4;
+    gRoomTransition.player_status.spawn_type = PL_SPAWN_PARACHUTE_FORWARD;
+    gRoomTransition.player_status.area_next = gRoomControls.area;
+    gRoomTransition.player_status.room_next = gRoomControls.room - 1;
 }
 
-static void HandleRoomEnter(void) {
-    switch (gScreenTransition.transitionType) {
+static void InitRoomTransition(void) {
+    switch (gRoomTransition.type) {
         case TRANSITION_CUT:
             DoFade(12, 8);
             break;
@@ -1167,23 +1176,23 @@ void DisplayEzloMessage(void) {
     idx = 0x11;
 #endif
 
-    if (gScreenTransition.player_status.field_0x24[idx] == 0) {
-        height = gPlayerEntity.y.HALF.HI - gRoomControls.roomScrollY > 96 ? 1 : 13;
+    if (gRoomTransition.player_status.field_0x24[idx] == 0) {
+        height = gPlayerEntity.y.HALF.HI - gRoomControls.scroll_y > 96 ? 1 : 13;
     } else {
-        height = gScreenTransition.player_status.field_0x24[idx];
+        height = gRoomTransition.player_status.field_0x24[idx];
     }
-    MessageAtHeight(gScreenTransition.hint_idx, height);
+    MessageAtHeight(gRoomTransition.hint_idx, height);
 }
 
 #if defined(USA) || defined(DEMO_USA) || defined(DEMO_JP)
-void sub_08052BF8(void) {
+void CreateManagerF(void) {
     Entity* e = NULL;
 
-    if (gScreenTransition.player_status.field_0x24[13])
+    if (gRoomTransition.player_status.field_0x24[13])
         return;
-    gScreenTransition.player_status.field_0x24[13] = 1;
+    gRoomTransition.player_status.field_0x24[13] = 1;
 #ifndef DEMO_JP
-    gScreenTransition.player_status.field_0x24[10] = gArea.locationIndex;
+    gRoomTransition.player_status.field_0x24[10] = gArea.locationIndex;
 #endif
     e = (Entity*)GetEmptyManager();
     if (e == NULL)
@@ -1204,35 +1213,35 @@ void sub_08052C3C(void) {
     }
 }
 
-void sub_08052C5C(void) {
+void UpdatePlayerMapCoords(void) {
     if (!CheckIsInteriorNoEnemies()) {
         if (CheckIsOverworld()) {
-            gScreenTransition.player_status.overworld_map_x = gPlayerEntity.x.HALF_U.HI;
-            gScreenTransition.player_status.overworld_map_y = gPlayerEntity.y.HALF_U.HI;
+            gRoomTransition.player_status.overworld_map_x = gPlayerEntity.x.HALF_U.HI;
+            gRoomTransition.player_status.overworld_map_y = gPlayerEntity.y.HALF_U.HI;
         } else if (CheckIsDungeon()) {
-            gScreenTransition.player_status.dungeon_map_x = gPlayerEntity.x.HALF.HI;
-            gScreenTransition.player_status.dungeon_map_y = gPlayerEntity.y.HALF.HI;
+            gRoomTransition.player_status.dungeon_map_x = gPlayerEntity.x.HALF.HI;
+            gRoomTransition.player_status.dungeon_map_y = gPlayerEntity.y.HALF.HI;
         }
     }
 }
 
 void sub_08052CA4(u32 area, u32 room, u32 x, u32 y) {
     RoomHeader* hdr = gAreaRoomHeaders[area] + room;
-    gScreenTransition.player_status.overworld_map_x = hdr->map_x + x;
-    gScreenTransition.player_status.overworld_map_y = hdr->map_y + y;
+    gRoomTransition.player_status.overworld_map_x = hdr->map_x + x;
+    gRoomTransition.player_status.overworld_map_y = hdr->map_y + y;
 }
 
 void sub_08052CD0(u32 area, u32 room, u32 x, u32 y) {
     RoomHeader* hdr = gAreaRoomHeaders[area] + room;
-    gScreenTransition.player_status.dungeon_map_x = hdr->map_x + x;
-    gScreenTransition.player_status.dungeon_map_y = hdr->map_y + y;
+    gRoomTransition.player_status.dungeon_map_x = hdr->map_x + x;
+    gRoomTransition.player_status.dungeon_map_y = hdr->map_y + y;
 }
 
-void sub_08052CFC(void) {
+void InitRoom(void) {
     AreaHeader* a_hdr = NULL;
 
     MemClear(&gArea, sizeof gArea);
-    a_hdr = &gAreaMetadata[gRoomControls.areaID];
+    a_hdr = &gAreaMetadata[gRoomControls.area];
     gArea.areaMetadata = a_hdr->flags;
     gArea.locationIndex = a_hdr->location;
     gArea.dungeon_idx = a_hdr->location - 23;
@@ -1240,7 +1249,7 @@ void sub_08052CFC(void) {
     gArea.filler[0] = a_hdr->flag_bank;
     gArea.unk1A = 180;
     gArea.unk_0a = 256;
-    HandleRoomEnter();
+    InitRoomTransition();
     InitAllRoomResInfo();
 }
 
@@ -1250,7 +1259,7 @@ u32 GetFlagBankOffset(u32 idx) {
 }
 
 void RegisterTransitionManager(void* mgr, void (*onEnter)(), void (*onExit)()) {
-    if (gMain.transition != 7) {
+    if (gMain.substate != 7) {
         gArea.transitionManager = mgr;
         gArea.onEnter = onEnter;
         gArea.onExit = onExit;
@@ -1258,12 +1267,12 @@ void RegisterTransitionManager(void* mgr, void (*onEnter)(), void (*onExit)()) {
 }
 
 static void InitAllRoomResInfo(void) {
-    RoomHeader* r_hdr = gAreaRoomHeaders[gRoomControls.areaID];
+    RoomHeader* r_hdr = gAreaRoomHeaders[gRoomControls.area];
     RoomResInfo* info = gArea.roomResInfos;
     u32 i;
     for (i = 0; i < MAX_ROOMS && *(u16*)r_hdr != 0xFFFF; i++, r_hdr++) {
         if (r_hdr->tileset_id != 0xFFFF)
-            InitRoomResInfo(info, r_hdr, gRoomControls.areaID, i);
+            InitRoomResInfo(info, r_hdr, gRoomControls.area, i);
         info++;
     }
     gArea.pCurrentRoomInfo = GetCurrentRoomInfo();
@@ -1285,7 +1294,7 @@ static void InitRoomResInfo(RoomResInfo* info, RoomHeader* r_hdr, u32 area, u32 
 }
 
 RoomResInfo* GetCurrentRoomInfo(void) {
-    return &gArea.roomResInfos[gRoomControls.roomID];
+    return &gArea.roomResInfos[gRoomControls.room];
 }
 
 void sub_08052EA0(void) {
@@ -1295,7 +1304,7 @@ void sub_08052EA0(void) {
     gRoomVars.unk_10[2] = gRoomVars.unk_10[0];
     gRoomVars.unk_10[3] = gRoomVars.unk_10[0];
     gRoomVars.lightLevel = 256;
-    gArea.locationIndex = gAreaMetadata[gRoomControls.areaID].location;
+    gArea.locationIndex = gAreaMetadata[gRoomControls.area].location;
     UpdateRoomTracker();
     InitScriptData();
     sub_08054524();
@@ -1306,12 +1315,16 @@ void sub_08052EA0(void) {
 
 static u32 sub_08052EF4(s32 idx) {
     AreaHeader* a_hdr = NULL;
-    u32 i = idx < 0 ? gRoomControls.areaID : idx;
+    u32 i = idx < 0 ? gRoomControls.area : idx;
     a_hdr = &gAreaMetadata[i];
     return gLocalFlagBanks[a_hdr->flag_bank];
 }
 
-void sub_08052F1C(void) {
+/**
+ * @brief If enabled, this type of transition does not change the room
+ * and keeps all entities.
+ */
+void UpdateFakeScroll(void) {
     u32 x, y;
     LinkedList* ll;
     Entity* e;
@@ -1323,7 +1336,7 @@ void sub_08052F1C(void) {
     x = 0;
 
     // WTF?
-    switch (gRoomControls.unk_10) {
+    switch (gRoomControls.scroll_direction) {
         case 0:
             y = gArea.pCurrentRoomInfo->pixel_height;
         case 1:
@@ -1336,10 +1349,10 @@ void sub_08052F1C(void) {
 
     gArea.pCurrentRoomInfo->map_x += x;
     gArea.pCurrentRoomInfo->map_y += y;
-    gRoomControls.roomOriginX += x;
-    gRoomControls.roomOriginY += y;
-    gRoomControls.roomScrollX += x;
-    gRoomControls.roomScrollY += y;
+    gRoomControls.origin_x += x;
+    gRoomControls.origin_y += y;
+    gRoomControls.scroll_x += x;
+    gRoomControls.scroll_y += y;
 
     ll = gEntityLists;
     do {
@@ -1354,7 +1367,7 @@ void sub_08052F1C(void) {
 
 void sub_08052FD8(u32 area, u32 room) {
     sub_08052FF4(area, room);
-    gRoomControls.cameraTarget = NULL;
+    gRoomControls.camera_target = NULL;
     sub_0807C860();
     sub_0807C740();
 }
@@ -1362,10 +1375,10 @@ void sub_08052FD8(u32 area, u32 room) {
 void sub_08052FF4(u32 area, u32 room) {
     RoomHeader* r_hdr = NULL;
 
-    sub_08080668();
-    sub_080197AC();
-    gRoomControls.areaID = area;
-    gRoomControls.roomID = room;
+    ClearTilemaps();
+    SetBGDefaults();
+    gRoomControls.area = area;
+    gRoomControls.room = room;
     gScreen.lcd.displayControl = 0x1740;
     MemClear(&gArea.currentRoomInfo, sizeof gArea.currentRoomInfo);
     gArea.pCurrentRoomInfo = &gArea.currentRoomInfo;
@@ -1393,7 +1406,7 @@ static void sub_080530B0(void) {
     static const u16 sMinecartData[] = { 0x189, 0x0, 0x102, 0x4, 0x1af, 0x0, 0x204, 0x0,
                                          0x1cf, 0x0, 0x10,  0x4, 0x0,   0x0, 0x0,   0x0 };
 
-    MemCopy(sMinecartData, gScreenTransition.minecart_data, sizeof sMinecartData);
+    MemCopy(sMinecartData, gRoomTransition.minecart_data, sizeof sMinecartData);
 }
 
 void UpdateGlobalProgress(void) {
@@ -1423,15 +1436,15 @@ static u32 sub_08053144(void) {
         return 0;
     ret = 0;
     if (gArea.locationIndex != 0)
-        ret = !!(gScreenTransition.player_status.field_0x24[10] ^ gArea.locationIndex);
+        ret = !!(gRoomTransition.player_status.field_0x24[10] ^ gArea.locationIndex);
     return ret;
 }
 
-void sub_08053178(void) {
+void CheckAreaDiscovery(void) {
     if (!sub_08053144())
         return;
 
-    gScreenTransition.player_status.field_0x24[10] = gArea.locationIndex;
+    gRoomTransition.player_status.field_0x24[10] = gArea.locationIndex;
 
     if (!CheckGlobalFlag(TABIDACHI))
         return;
@@ -1456,30 +1469,30 @@ void sub_080531F8(void) {
     gPlayerState.startPosX = gPlayerEntity.x.HALF.HI;
     gPlayerState.startPosY = gPlayerEntity.y.HALF.HI;
     if (sub_08053144()) {
-        MemCopy(&gScreenTransition.player_status, &gSave.saved_status, sizeof gScreenTransition.player_status);
+        MemCopy(&gRoomTransition.player_status, &gSave.saved_status, sizeof gRoomTransition.player_status);
         if (CheckIsDungeon()) {
-            gScreenTransition.player_status.dungeon_area = gRoomControls.areaID;
-            gScreenTransition.player_status.dungeon_room = gRoomControls.roomID;
-            gScreenTransition.player_status.dungeon_x = gPlayerEntity.x.HALF.HI;
-            gScreenTransition.player_status.dungeon_y = gPlayerEntity.y.HALF.HI;
+            gRoomTransition.player_status.dungeon_area = gRoomControls.area;
+            gRoomTransition.player_status.dungeon_room = gRoomControls.room;
+            gRoomTransition.player_status.dungeon_x = gPlayerEntity.x.HALF.HI;
+            gRoomTransition.player_status.dungeon_y = gPlayerEntity.y.HALF.HI;
         }
     }
 }
 
 void sub_08053250(void) {
-    gScreenTransition.player_status.spawn_type = PL_SPAWN_DEFAULT;
-    gScreenTransition.player_status.start_pos_x = gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX;
-    gScreenTransition.player_status.start_pos_y = gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY;
-    gScreenTransition.player_status.start_anim = gPlayerEntity.animationState;
-    gScreenTransition.player_status.layer = gPlayerEntity.collisionLayer;
-    gScreenTransition.player_status.area_next = gRoomControls.areaID;
-    gScreenTransition.player_status.room_next = gRoomControls.roomID;
-    MemCopy(&gScreenTransition.player_status, &gSave.saved_status, sizeof gScreenTransition.player_status);
+    gRoomTransition.player_status.spawn_type = PL_SPAWN_DEFAULT;
+    gRoomTransition.player_status.start_pos_x = gPlayerEntity.x.HALF.HI - gRoomControls.origin_x;
+    gRoomTransition.player_status.start_pos_y = gPlayerEntity.y.HALF.HI - gRoomControls.origin_y;
+    gRoomTransition.player_status.start_anim = gPlayerEntity.animationState;
+    gRoomTransition.player_status.layer = gPlayerEntity.collisionLayer;
+    gRoomTransition.player_status.area_next = gRoomControls.area;
+    gRoomTransition.player_status.room_next = gRoomControls.room;
+    MemCopy(&gRoomTransition.player_status, &gSave.saved_status, sizeof gRoomTransition.player_status);
 }
 
 void sub_0805329C(void) {
     if (sub_08053144()) {
-        switch (gRoomControls.areaID) {
+        switch (gRoomControls.area) {
             case AREA_DEEPWOOD_SHRINE:
                 gSave.unk7 = 0;
                 break;
@@ -1501,35 +1514,35 @@ static void sub_080532E4(void) {
 
     RoomHeader* r_hdr = gAreaRoomHeaders[AREA_FORTRESS_OF_WINDS] + 33;
 
-    gScreenTransition.player_status.dungeon_area = AREA_FORTRESS_OF_WINDS;
-    gScreenTransition.player_status.dungeon_room = 33;
+    gRoomTransition.player_status.dungeon_area = AREA_FORTRESS_OF_WINDS;
+    gRoomTransition.player_status.dungeon_room = 33;
 
-    gScreenTransition.player_status.dungeon_x = r_hdr->map_x + r_hdr->pixel_width / 2;
-    gScreenTransition.player_status.dungeon_map_x = gScreenTransition.player_status.dungeon_x;
-    gScreenTransition.player_status.dungeon_y = r_hdr->map_y + r_hdr->pixel_height + 0xa0;
-    gScreenTransition.player_status.dungeon_map_y = gScreenTransition.player_status.dungeon_y;
+    gRoomTransition.player_status.dungeon_x = r_hdr->map_x + r_hdr->pixel_width / 2;
+    gRoomTransition.player_status.dungeon_map_x = gRoomTransition.player_status.dungeon_x;
+    gRoomTransition.player_status.dungeon_y = r_hdr->map_y + r_hdr->pixel_height + 0xa0;
+    gRoomTransition.player_status.dungeon_map_y = gRoomTransition.player_status.dungeon_y;
 }
 
-void sub_08053320(void) {
+void LoadGfxGroups(void) {
     MemClear(&gBG0Buffer, sizeof gBG0Buffer);
     MemClear(&gBG1Buffer, sizeof gBG1Buffer);
     MemClear(&gBG2Buffer, sizeof gBG2Buffer);
     MemClear(&gBG3Buffer, sizeof gBG3Buffer);
     LoadGfxGroup(16);
     LoadGfxGroup(23);
-    if (gRoomControls.areaID == AREA_CASTOR_WILDS)
+    if (gRoomControls.area == AREA_CASTOR_WILDS)
         LoadGfxGroup(26);
-    sub_08053390();
+    LoadItemGfx();
     LoadPaletteGroup(11);
     LoadPaletteGroup(12);
     SetColor(0, 0);
 }
 
-void sub_08053390(void) {
-    LoadGfxGroup(GetInventoryValue(8) ? 24 : 25);
-    if (GetInventoryValue(0xAu))
+void LoadItemGfx(void) {
+    LoadGfxGroup(GetInventoryValue(ITEM_REMOTE_BOMBS) ? 24 : 25);
+    if (GetInventoryValue(ITEM_LIGHT_ARROW))
         LoadGfxGroup(29);
-    LoadGfxGroup(GetInventoryValue(12) ? 28 : 27);
+    LoadGfxGroup(GetInventoryValue(ITEM_MAGIC_BOOMERANG) ? 28 : 27);
 }
 
 void sub_080533CC(void) {
@@ -1596,7 +1609,7 @@ void sub_080534AC(void) {
 }
 
 static void sub_080534E4(u32* a1) {
-    if (gRoomControls.areaID != AREA_VEIL_FALLS_TOP) {
+    if (gRoomControls.area != AREA_VEIL_FALLS_TOP) {
         if (*a1)
             --*a1;
     }
@@ -1606,7 +1619,7 @@ void sub_08053500(void) {
     gSave.unk48C[2] = 36000;
 }
 
-void sub_08053518(void) {
+void ResetTmpFlags(void) {
     static const u16 sClearFlags[] = { FLAG_BANK_2, BILL00_SHICHOU_00, FLAG_BANK_2, BILL0A_YADO_TAKARA_00,
                                        FLAG_BANK_2, BILL0C_SCHOOLR_00, FLAG_BANK_1, MACHI00_00,
                                        FLAG_BANK_1, MACHI00_02,        FLAG_BANK_2, MHOUSE06_00,

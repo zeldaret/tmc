@@ -40,8 +40,8 @@ void Manager21_Main(Manager21* this) {
                 if (object != NULL) {
                     object->actionDelay = spawnData->actionDelay;
                     object->field_0xf = count;
-                    object->x.HALF.HI = gRoomControls.roomOriginX + spawnData->x;
-                    object->y.HALF.HI = gRoomControls.roomOriginY + spawnData->y;
+                    object->x.HALF.HI = gRoomControls.origin_x + spawnData->x;
+                    object->y.HALF.HI = gRoomControls.origin_y + spawnData->y;
                     object->parent = (Entity*)this;
                     ResolveCollisionLayer(object);
                     this->field_0x20 |= 1 << count;

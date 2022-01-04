@@ -924,7 +924,7 @@ _080AE2B4:
 	movs r4, #0
 	ldr r0, _080AE318 @ =0xFFFFFC00
 	mov sl, r0
-	ldr r5, _080AE31C @ =gUnk_03000000
+	ldr r5, _080AE31C @ =gOAMControls
 	adds r5, #0x24
 	ldr r1, _080AE320 @ =0x000003FF
 	mov sb, r1
@@ -948,7 +948,7 @@ _080AE2D2:
 	orrs r0, r1
 	strh r0, [r5]
 	mov r2, r8
-	ldr r1, _080AE31C @ =gUnk_03000000
+	ldr r1, _080AE31C @ =gOAMControls
 	strb r2, [r1]
 _080AE2F8:
 	adds r5, #8
@@ -965,7 +965,7 @@ _080AE30C: .4byte gGFXSlots
 _080AE310: .4byte gUnk_020000C0
 _080AE314: .4byte gPlayerEntity
 _080AE318: .4byte 0xFFFFFC00
-_080AE31C: .4byte gUnk_03000000
+_080AE31C: .4byte gOAMControls
 _080AE320: .4byte 0x000003FF
 
 	thumb_func_start sub_080AE324

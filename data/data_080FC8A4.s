@@ -59,20 +59,20 @@ gUnk_080FC9C8:: @ 080FC9C8
 	.4byte sub_080518E4
 
 gUnk_080FC9D8:: @ 080FC9D8
-	.4byte sub_080519B0
-	.4byte sub_08051A14
-	.4byte sub_08051A90
+	.4byte GameTask_Transition
+	.4byte GameTask_Init
+	.4byte GameTask_Main
 	.4byte sub_08051D2C
 
 gUnk_080FC9E8:: @ 080FC9E8
-	.4byte InitializeNewRoom
-	.4byte sub_08051AF0
-	.4byte sub_08051BD0
-	.4byte sub_08051CF0
-	.4byte sub_0804AAB8
-	.4byte sub_08051CA8
+	.4byte GameMain_InitRoom
+	.4byte GameMain_ChangeRoom
+	.4byte GameMain_Update
+	.4byte GameMain_ChangeArea
+	.4byte GameMain_MinishPortal
+	.4byte GameMain_BarrelUpdate
 	.4byte 00000000
-	.4byte sub_080A721C
+	.4byte GameMain_Subtask
 
 gUnk_080FCA08:: @ 080FCA08
 	.4byte sub_08051E84

@@ -1,13 +1,13 @@
 #include "global.h"
 
 extern u32* gUnk_020354B0;
-extern u32 gUnk_02024050;
+extern u32 gRoomMemory;
 
 extern void MemFill32(u32, void*, u32);
 
-void sub_08049CD4() {
-    MemFill32(0xFFFFFFFF, &gUnk_02024050, 0x40);
-    gUnk_020354B0 = &gUnk_02024050;
+void ClearRoomMemory() {
+    MemFill32(0xFFFFFFFF, &gRoomMemory, 0x40);
+    gUnk_020354B0 = &gRoomMemory;
 }
 
 void sub_08049CF4(u8* arg0) {

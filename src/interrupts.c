@@ -98,9 +98,9 @@ void sub_08016BF8(void) {
 }
 
 void UpdateDisplayControls(void) {
-    if (gUnk_03000000.field_0x0 && (gScreen.lcd.displayControl & DISPCNT_OBJ_ON)) {
-        gUnk_03000000.field_0x0 = 0;
-        DmaCopy32(3, &gUnk_03000000.oam, OAM, OAM_SIZE);
+    if (gOAMControls.field_0x0 && (gScreen.lcd.displayControl & DISPCNT_OBJ_ON)) {
+        gOAMControls.field_0x0 = 0;
+        DmaCopy32(3, &gOAMControls.oam, OAM, OAM_SIZE);
     }
     sub_08016CA8(&gScreen.bg0);
     sub_08016CA8(&gScreen.bg1);
@@ -289,7 +289,7 @@ void HandlePlayerLife(Entity* this) {
 
     if (gSave.stats.health <= temp) {
         gRoomVars.unk2 = 1;
-        if ((gUnk_0200AF00.filler0[1] == 0) && gScreenTransition.frameCount % 90 == 0) {
+        if ((gUnk_0200AF00.filler0[1] == 0) && gRoomTransition.frameCount % 90 == 0) {
             EnqueueSFX(SFX_LOW_HEALTH);
         }
     }

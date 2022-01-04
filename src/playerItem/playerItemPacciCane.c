@@ -25,6 +25,6 @@ void sub_080704D4(Entity* this) {
 
 ASM_FUNC("asm/non_matching/playerItemPacciCane/sub_080704FC.inc", void sub_080704FC(Entity* this))
 
-void sub_0807059C() {
+void ClearMenuSavestate() {
     MemClear(gUnk_02034490, sizeof(gUnk_02034490));
 }

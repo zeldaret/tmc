@@ -44,8 +44,8 @@ void sub_0805D02C(Manager2B* this) {
         counter = 0;
         while (counter < 4) {
             object = CreateObject(ANGRY_STATUE, objectData[2], counter);
-            object->x.HALF.HI = objectData[0] + gRoomControls.roomOriginX;
-            object->y.HALF.HI = objectData[1] + gRoomControls.roomOriginY;
+            object->x.HALF.HI = objectData[0] + gRoomControls.origin_x;
+            object->y.HALF.HI = objectData[1] + gRoomControls.origin_y;
             object->parent = (Entity*)this;
             ResolveCollisionLayer(object);
             this->field_0x20[counter] = object;

@@ -6,10 +6,10 @@
 
 	.text
 
-	thumb_func_start HandleCreditsScreen
-HandleCreditsScreen: @ 0x080A35E0
+	thumb_func_start StaffrollTask
+StaffrollTask: @ 0x080A35E0
 	push {lr}
-	ldr r1, _080A35FC @ =gScreenTransition
+	ldr r1, _080A35FC @ =gRoomTransition
 	ldr r0, [r1]
 	adds r0, #1
 	str r0, [r1]
@@ -22,7 +22,7 @@ HandleCreditsScreen: @ 0x080A35E0
 	bl _call_via_r0
 	pop {pc}
 	.align 2, 0
-_080A35FC: .4byte gScreenTransition
+_080A35FC: .4byte gRoomTransition
 _080A3600: .4byte gUnk_08127D00
 _080A3604: .4byte gMain
 
@@ -242,7 +242,7 @@ _080A37C4:
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A385E
-	ldr r0, _080A37FC @ =gScreenTransition
+	ldr r0, _080A37FC @ =gRoomTransition
 	ldr r0, [r0]
 	ands r0, r1
 	cmp r0, #0
@@ -266,7 +266,7 @@ _080A37C4:
 	b _080A383C
 	.align 2, 0
 _080A37F8: .4byte gFadeControl
-_080A37FC: .4byte gScreenTransition
+_080A37FC: .4byte gRoomTransition
 _080A3800: .4byte gScreen
 _080A3804:
 	ldrh r0, [r4, #8]
@@ -277,7 +277,7 @@ _080A3804:
 	bne _080A385E
 	b _080A383C
 _080A3812:
-	ldr r0, _080A3844 @ =gScreenTransition
+	ldr r0, _080A3844 @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #1
 	ands r0, r1
@@ -304,7 +304,7 @@ _080A383C:
 	strb r0, [r4, #6]
 	b _080A385E
 	.align 2, 0
-_080A3844: .4byte gScreenTransition
+_080A3844: .4byte gRoomTransition
 _080A3848: .4byte gScreen
 _080A384C:
 	ldr r1, _080A3860 @ =gFadeControl

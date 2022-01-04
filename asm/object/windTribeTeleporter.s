@@ -163,12 +163,12 @@ _080A0B60:
 	bl SoundReq
 	b _080A0BF0
 _080A0B7E:
-	ldr r0, _080A0B88 @ =gScreenTransition
+	ldr r0, _080A0B88 @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #7
 	b _080A0BDE
 	.align 2, 0
-_080A0B88: .4byte gScreenTransition
+_080A0B88: .4byte gRoomTransition
 _080A0B8C:
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
@@ -184,11 +184,11 @@ _080A0B98:
 	strb r0, [r4, #0xe]
 	b _080A0BF0
 _080A0BA4:
-	ldr r0, _080A0BAC @ =gScreenTransition
+	ldr r0, _080A0BAC @ =gRoomTransition
 	ldr r0, [r0]
 	b _080A0BDE
 	.align 2, 0
-_080A0BAC: .4byte gScreenTransition
+_080A0BAC: .4byte gRoomTransition
 _080A0BB0:
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
@@ -209,7 +209,7 @@ _080A0BB0:
 	.align 2, 0
 _080A0BD4: .4byte 0x0813AA10
 _080A0BD8:
-	ldr r0, _080A0BF4 @ =gScreenTransition
+	ldr r0, _080A0BF4 @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #1
 _080A0BDE:
@@ -225,7 +225,7 @@ _080A0BDE:
 _080A0BF0:
 	pop {r4, pc}
 	.align 2, 0
-_080A0BF4: .4byte gScreenTransition
+_080A0BF4: .4byte gRoomTransition
 _080A0BF8: .4byte gPlayerEntity
 
 
@@ -391,12 +391,12 @@ _080A0884:
 	bl SoundReq
 	b _080A0910
 _080A08A2:
-	ldr r0, _080A08AC @ =gScreenTransition
+	ldr r0, _080A08AC @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #7
 	b _080A08FE
 	.align 2, 0
-_080A08AC: .4byte gScreenTransition
+_080A08AC: .4byte gRoomTransition
 _080A08B0:
 	ldrb r0, [r1, #0xe]
 	subs r0, #1
@@ -412,12 +412,12 @@ _080A08BC:
 	strb r0, [r1, #0xe]
 	b _080A0910
 _080A08C8:
-	ldr r0, _080A08D0 @ =gScreenTransition
+	ldr r0, _080A08D0 @ =gRoomTransition
 	ldr r0, [r0]
 	ands r0, r2
 	b _080A0900
 	.align 2, 0
-_080A08D0: .4byte gScreenTransition
+_080A08D0: .4byte gRoomTransition
 _080A08D4:
 	ldrb r0, [r1, #0xe]
 	subs r0, #1
@@ -436,7 +436,7 @@ _080A08D4:
 	.align 2, 0
 _080A08F4: .4byte gUnk_0813ADEC
 _080A08F8:
-	ldr r0, _080A0914 @ =gScreenTransition
+	ldr r0, _080A0914 @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #1
 _080A08FE:
@@ -453,7 +453,7 @@ _080A0900:
 _080A0910:
 	pop {pc}
 	.align 2, 0
-_080A0914: .4byte gScreenTransition
+_080A0914: .4byte gRoomTransition
 _080A0918: .4byte gPlayerEntity
 
 .else
@@ -504,12 +504,12 @@ _080A1038:
 	bl SoundReq
 	b _080A10D4
 _080A1056:
-	ldr r0, _080A1060 @ =gScreenTransition
+	ldr r0, _080A1060 @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #7
 	b _080A10C2
 	.align 2, 0
-_080A1060: .4byte gScreenTransition
+_080A1060: .4byte gRoomTransition
 _080A1064:
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
@@ -525,11 +525,11 @@ _080A1070:
 	strb r0, [r4, #0xe]
 	b _080A10D4
 _080A107C:
-	ldr r0, _080A1084 @ =gScreenTransition
+	ldr r0, _080A1084 @ =gRoomTransition
 	ldr r0, [r0]
 	b _080A10C2
 	.align 2, 0
-_080A1084: .4byte gScreenTransition
+_080A1084: .4byte gRoomTransition
 _080A1088:
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
@@ -556,7 +556,7 @@ _080A10A2:
 _080A10B4: .4byte gRoomControls
 _080A10B8: .4byte gUnk_0813ADEC
 _080A10BC:
-	ldr r0, _080A10D8 @ =gScreenTransition
+	ldr r0, _080A10D8 @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #1
 _080A10C2:
@@ -572,7 +572,7 @@ _080A10C2:
 _080A10D4:
 	pop {r4, pc}
 	.align 2, 0
-_080A10D8: .4byte gScreenTransition
+_080A10D8: .4byte gRoomTransition
 _080A10DC: .4byte gPlayerEntity
 .endif
 .endif
@@ -611,11 +611,11 @@ _080A110E:
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A1130
-	ldr r0, _080A1120 @ =gScreenTransition
+	ldr r0, _080A1120 @ =gRoomTransition
 	ldr r0, [r0]
 	b _080A1162
 	.align 2, 0
-_080A1120: .4byte gScreenTransition
+_080A1120: .4byte gRoomTransition
 _080A1124:
 	ldrb r0, [r2, #0xe]
 	subs r0, #1
@@ -631,12 +631,12 @@ _080A1130:
 	strb r0, [r2, #0xe]
 	b _080A11BA
 _080A113C:
-	ldr r0, _080A1144 @ =gScreenTransition
+	ldr r0, _080A1144 @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #3
 	b _080A1162
 	.align 2, 0
-_080A1144: .4byte gScreenTransition
+_080A1144: .4byte gRoomTransition
 _080A1148:
 	ldrb r0, [r2, #0xe]
 	subs r0, #1
@@ -649,7 +649,7 @@ _080A1148:
 	strb r0, [r2, #0xd]
 	b _080A11BA
 _080A115C:
-	ldr r0, _080A1178 @ =gScreenTransition
+	ldr r0, _080A1178 @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #7
 _080A1162:
@@ -664,14 +664,14 @@ _080A1162:
 	strb r1, [r0, #0x14]
 	b _080A11BA
 	.align 2, 0
-_080A1178: .4byte gScreenTransition
+_080A1178: .4byte gRoomTransition
 _080A117C: .4byte gPlayerEntity
 _080A1180:
 	ldr r4, _080A11A0 @ =gPlayerEntity
 	ldrb r3, [r4, #0x14]
 	cmp r3, #4
 	beq _080A11A8
-	ldr r0, _080A11A4 @ =gScreenTransition
+	ldr r0, _080A11A4 @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #7
 	ands r0, r1
@@ -684,7 +684,7 @@ _080A1180:
 	b _080A11BA
 	.align 2, 0
 _080A11A0: .4byte gPlayerEntity
-_080A11A4: .4byte gScreenTransition
+_080A11A4: .4byte gRoomTransition
 _080A11A8:
 	movs r0, #0
 	movs r1, #1

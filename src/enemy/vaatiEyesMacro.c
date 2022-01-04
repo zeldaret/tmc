@@ -58,12 +58,12 @@ void VaatiEyesMacroFunction0(Entity* this) {
 void VaatiEyesMacroFunction1(Entity* this) {
     if (this->type == 0) {
         if (this->health == 0) {
-            gScreenTransition.field_0x39 &= ~(1 << (gScreenTransition.field_0x3c + 2));
+            gRoomTransition.field_0x39 &= ~(1 << (gRoomTransition.field_0x3c + 2));
         }
-        if (gRoomControls.roomID == 0) {
-            gScreenTransition.field_0x3a = this->health;
+        if (gRoomControls.room == 0) {
+            gRoomTransition.field_0x3a = this->health;
         } else {
-            gScreenTransition.field_0x3b = this->health;
+            gRoomTransition.field_0x3b = this->health;
         }
         if (this->field_0x78.HALF.HI != this->health) {
             EnqueueSFX(SFX_17A);
@@ -102,10 +102,10 @@ void VaatiEyesMacroFunction0Type0Action0(Entity* this) {
         enemy = CreateEnemy(VAATI_EYES_MACRO, 2);
         enemy->parent = this;
         this->action = 1;
-        if (gRoomControls.roomID == 0) {
-            this->field_0x78.HALF.HI = this->health = gScreenTransition.field_0x3a;
+        if (gRoomControls.room == 0) {
+            this->field_0x78.HALF.HI = this->health = gRoomTransition.field_0x3a;
         } else {
-            this->field_0x78.HALF.HI = this->health = gScreenTransition.field_0x3b;
+            this->field_0x78.HALF.HI = this->health = gRoomTransition.field_0x3b;
         }
         this->field_0x78.HALF.LO = Random();
         sub_0802EFB8(this);

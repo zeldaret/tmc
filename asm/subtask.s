@@ -203,13 +203,13 @@ _080A3DDC: .4byte gMenu
 _080A3DE0: .4byte gFuseInfo
 _080A3DE4: .4byte gUnk_080C9CBC
 _080A3DE8:
-	bl sub_080A71DC
+	bl Subtask_Exit
 	b _080A3DF8
 _080A3DEE:
 	ldr r1, _080A3DFC @ =gFuseInfo
 	movs r0, #5
 	strb r0, [r1]
-	bl sub_080A71DC
+	bl Subtask_Exit
 _080A3DF8:
 	pop {pc}
 	.align 2, 0
@@ -1300,8 +1300,8 @@ _080A4576:
 _080A45A2:
 	pop {r4, pc}
 
-	thumb_func_start sub_080A45A4
-sub_080A45A4: @ 0x080A45A4
+	thumb_func_start Subtask_FigurineMenu
+Subtask_FigurineMenu: @ 0x080A45A4
 .ifdef DEMO_USA
 	bx lr
 	.align 2, 0
@@ -1339,10 +1339,10 @@ _080A45D0:
 _080A45E0:
 	bl UpdateEntities
 	bl sub_0801C1D4
-	bl sub_0801C208
-	bl sub_080AD9B0
+	bl DrawOAMCmd
+	bl DrawEntities
 	bl sub_080A4978
-	bl sub_080AD918
+	bl CopyOAM
 	bl sub_080A4B44
 	pop {pc}
 	.align 2, 0
@@ -1445,7 +1445,7 @@ sub_080A46C0: @ 0x080A46C0
 	bl SoundReq
 	movs r0, #2
 	bl ClearRoomFlag
-	bl sub_080A71DC
+	bl Subtask_Exit
 	pop {pc}
 
 	thumb_func_start sub_080A46DC
@@ -2499,7 +2499,7 @@ _080A4D2E:
 	thumb_func_start sub_080A4D34
 sub_080A4D34: @ 0x080A4D34
 	push {lr}
-	bl sub_08053320
+	bl LoadGfxGroups
 	movs r0, #0xb5
 	bl LoadPaletteGroup
 	ldr r1, _080A4D50 @ =gSave
@@ -2669,8 +2669,8 @@ sub_080A4E90: @ 0x080A4E90
 	.align 2, 0
 _080A4E9C: .4byte gUnk_02034490
 
-	thumb_func_start sub_080A4EA0
-sub_080A4EA0: @ 0x080A4EA0
+	thumb_func_start Subtask_PauseMenu
+Subtask_PauseMenu: @ 0x080A4EA0
 	push {r4, lr}
 	ldr r4, _080A4EB8 @ =gUnk_02034490
 	ldrb r0, [r4, #0x11]
@@ -2679,7 +2679,7 @@ sub_080A4EA0: @ 0x080A4EA0
 	movs r0, #0x80
 	lsls r0, r0, #1
 	bl SetBgmVolume
-	bl sub_080A71DC
+	bl Subtask_Exit
 	b _080A4F14
 	.align 2, 0
 _080A4EB8: .4byte gUnk_02034490
@@ -2693,7 +2693,7 @@ _080A4EBC:
 	bl _call_via_r0
 	bl sub_080A5128
 	bl sub_0801C1D4
-	bl sub_0801C208
+	bl DrawOAMCmd
 	ldrb r0, [r4, #0x11]
 	cmp r0, #4
 	beq _080A4EF0
@@ -2705,7 +2705,7 @@ _080A4EBC:
 	ldr r0, [r1]
 	bl _call_via_r0
 _080A4EF0:
-	bl sub_080AD918
+	bl CopyOAM
 	movs r3, #0x16
 	ldrsb r3, [r4, r3]
 	movs r1, #0
@@ -2745,7 +2745,7 @@ _080A4F38:
 	adds r1, #1
 	cmp r1, #0xd
 	ble _080A4F38
-	ldr r1, _080A4F94 @ =gScreenTransition
+	ldr r1, _080A4F94 @ =gRoomTransition
 	ldrh r0, [r1, #0x20]
 	ldrh r1, [r1, #0x22]
 	bl sub_080A6A80
@@ -2779,7 +2779,7 @@ _080A4F66:
 	pop {r4, pc}
 	.align 2, 0
 _080A4F90: .4byte gUnk_02034492
-_080A4F94: .4byte gScreenTransition
+_080A4F94: .4byte gRoomTransition
 _080A4F98: .4byte gUnk_02034490
 _080A4F9C: .4byte gUnk_08128A38
 

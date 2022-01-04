@@ -417,7 +417,7 @@ _080857F6:
 _08085806:
 	str r1, [r7, #0x6c]
 _08085808:
-	ldr r0, _080858B0 @ =gScreenTransition
+	ldr r0, _080858B0 @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #0xf
 	ands r0, r1
@@ -495,7 +495,7 @@ _08085884:
 	.align 2, 0
 _080858A8: .4byte gSineTable
 _080858AC: .4byte 0xFFFF0000
-_080858B0: .4byte gScreenTransition
+_080858B0: .4byte gRoomTransition
 _080858B4: .4byte 0x00000FFF
 _080858B8:
 	movs r0, #0
@@ -679,7 +679,7 @@ _080859E6:
 	bl sub_08085D60
 	b _08085A0A
 _080859F4:
-	ldr r0, _08085A18 @ =gScreenTransition
+	ldr r0, _08085A18 @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #0x1f
 	ands r0, r1
@@ -696,7 +696,7 @@ _08085A0A:
 	mov r8, r3
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_08085A18: .4byte gScreenTransition
+_08085A18: .4byte gRoomTransition
 
 	thumb_func_start sub_08085A1C
 sub_08085A1C: @ 0x08085A1C

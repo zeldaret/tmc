@@ -217,7 +217,7 @@ void sub_StateChange_MinishPaths1_MayorsCabin(void) {
 
     sub_080575C8(0x20);
 
-    if (gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY > 0x40)
+    if (gPlayerEntity.y.HALF.HI - gRoomControls.origin_y > 0x40)
         LoadRoomEntityList(&Entities_MinishPaths1_MayorsCabin_gUnk_080D6138);
 }
 
@@ -233,7 +233,7 @@ extern EntityData Entities_HouseInteriors1_Mayor_080D6210;
 
 void sub_StateChange_HouseInteriors1_Mayor(void) {
 
-    if ((u16)gScreenTransition.player_status.start_pos_y > 0x40)
+    if ((u16)gRoomTransition.player_status.start_pos_y > 0x40)
         LoadRoomEntityList(&Entities_HouseInteriors1_Mayor_080D6210);
 }
 
@@ -390,8 +390,8 @@ void sub_StateChange_HouseInteriors1_InnWestRoom(void) {
     if (CheckLocalFlag(YADO_CHECKIN)) {
         ClearLocalFlag(YADO_CHECKIN);
         DoFade(5, 256);
-        gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x50;
-        gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
+        gPlayerEntity.x.HALF.HI = gRoomControls.origin_x + 0x50;
+        gPlayerEntity.y.HALF.HI = gRoomControls.origin_y + 0x38;
         sub_080751E8(1, 2, &script_PlayerSleepingInn);
     }
 }
@@ -416,8 +416,8 @@ void sub_StateChange_HouseInteriors1_InnMiddleRoom(void) {
     if (CheckLocalFlag(YADO_CHECKIN) != 0) {
         ClearLocalFlag(YADO_CHECKIN);
         DoFade(5, 256);
-        gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x50;
-        gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
+        gPlayerEntity.x.HALF.HI = gRoomControls.origin_x + 0x50;
+        gPlayerEntity.y.HALF.HI = gRoomControls.origin_y + 0x38;
         sub_080751E8(1, 2, &script_PlayerSleepingInn);
     }
 }
@@ -442,8 +442,8 @@ void sub_StateChange_HouseInteriors1_InnEastRoom(void) {
     if (CheckLocalFlag(YADO_CHECKIN)) {
         ClearLocalFlag(YADO_CHECKIN);
         DoFade(5, 256);
-        gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x60;
-        gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
+        gPlayerEntity.x.HALF.HI = gRoomControls.origin_x + 0x60;
+        gPlayerEntity.y.HALF.HI = gRoomControls.origin_y + 0x38;
         sub_080751E8(1, 2, &script_PlayerSleepingInn);
     }
 }
@@ -653,7 +653,7 @@ void sub_StateChange_HyruleCastle_3(void) {
 
 u32 sub_unk3_HyruleCastle_4(void) {
     if (!CheckLocalFlag(CASTLE_04_MEZAME)) {
-        gScreenTransition.player_status.spawn_type = PL_SPAWN_SPECIAL;
+        gRoomTransition.player_status.spawn_type = PL_SPAWN_SPECIAL;
         ClearGlobalFlag(ZELDA_CHASE);
     }
     return 1;
@@ -664,8 +664,8 @@ extern u32 script_PlayerWakingUpInHyruleCastle;
 void sub_StateChange_HyruleCastle_4(void) {
     if (!CheckLocalFlag(CASTLE_04_MEZAME)) {
         DoFade(5, 256);
-        gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0xb0;
-        gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x40;
+        gPlayerEntity.x.HALF.HI = gRoomControls.origin_x + 0xb0;
+        gPlayerEntity.y.HALF.HI = gRoomControls.origin_y + 0x40;
         sub_080751E8(0, 6, &script_PlayerWakingUpInHyruleCastle);
 #ifdef EU
         SoundReq(0x80010000);
@@ -697,7 +697,7 @@ void sub_StateChange_HyruleCastle_4(void) {
 extern ScreenTransitionData gUnk_0813AB80;
 
 void sub_0804BCDC() {
-    sub_0808091C(&gUnk_0813AB80, 4);
+    sub_0808091C(&gUnk_0813AB80, TRANSITION_FADE_BLACK_SLOW);
 }
 
 u32 sub_unk3_HyruleCastle_5() {
@@ -991,13 +991,13 @@ void sub_0804BF38(u32 arg0, struct_0804BF38* arg1)
     for (xOff = 0; entCnt < numEnts; xOff += 0x10, entCnt++) {
       fx = CreateObject(SPECIAL_FX, 0xf, 0);
       if (fx != NULL) {
-        fx->x.HALF.HI = gUnk_080D8E50[iVar3].x + gRoomControls.roomOriginX + xOff;
-        fx->y.HALF.HI = gUnk_080D8E50[iVar3].y + gRoomControls.roomOriginY + (entCnt & 1) * 8;
+        fx->x.HALF.HI = gUnk_080D8E50[iVar3].x + gRoomControls.origin_x + xOff;
+        fx->y.HALF.HI = gUnk_080D8E50[iVar3].y + gRoomControls.origin_y + (entCnt & 1) * 8;
       }
       fx = CreateObject(SPECIAL_FX, 0x54, 0);
       if (fx != NULL) {
-        fx->x.HALF.HI = gUnk_080D8E50[iVar3].x + gRoomControls.roomOriginX + xOff;
-        fx->y.HALF.HI = gUnk_080D8E50[iVar3].y + gRoomControls.roomOriginY + -0xc + (entCnt & 1) * 8;
+        fx->x.HALF.HI = gUnk_080D8E50[iVar3].x + gRoomControls.origin_x + xOff;
+        fx->y.HALF.HI = gUnk_080D8E50[iVar3].y + gRoomControls.origin_y + -0xc + (entCnt & 1) * 8;
         fx->direction = 0;
         fx->speed = 0x100;
       }
@@ -1049,7 +1049,7 @@ void sub_StateChange_RoyalValley_Main(void) {
     SetTile(0x4072, 0xc47, 1);
 
     if (CheckGlobalFlag(MAZE_CLEAR))
-        if (gScreenTransition.player_status.start_pos_x == 0x78 && gScreenTransition.player_status.start_pos_y == 0x278)
+        if (gRoomTransition.player_status.start_pos_x == 0x78 && gRoomTransition.player_status.start_pos_y == 0x278)
             SoundReq(SFX_SECRET);
 
     ClearGlobalFlag(MAZE_CLEAR);
@@ -2066,7 +2066,7 @@ u32 sub_unk3_DeepwoodShrine_Madderpillar() {
 extern EntityData gUnk_080DE4C8;
 
 void sub_StateChange_DeepwoodShrine_Madderpillar(void) {
-    if ((gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY) < (gRoomControls.height >> 1)) {
+    if ((gPlayerEntity.y.HALF.HI - gRoomControls.origin_y) < (gRoomControls.height >> 1)) {
         if (!CheckLocalFlag(0x17)) {
             LoadRoomEntityList(&gUnk_080DE4C8);
         }
@@ -2282,7 +2282,7 @@ u32 sub_unk3_DeepwoodShrine_InsideBarrel() {
 void sub_StateChange_DeepwoodShrine_InsideBarrel(void) {
     sub_08058D34();
     gArea.areaMetadata |= 0x40;
-    gMain.transition = 5;
+    gMain.substate = 5;
 }
 
 u32 sub_unk3_DeepwoodShrineEntry_Main() {
@@ -2478,8 +2478,8 @@ u32 sub_unk3_FortressOfWinds_BeforeMazaal() {
 }
 
 void sub_StateChange_FortressOfWinds_BeforeMazaal(void) {
-    gScreenTransition.field_0x38 = 0;
-    gScreenTransition.field_0x39 = 0x5a;
+    gRoomTransition.field_0x38 = 0;
+    gRoomTransition.field_0x39 = 0x5a;
 }
 
 u32 sub_unk3_FortressOfWinds_EastKeyLever() {
@@ -2554,10 +2554,10 @@ u32 sub_unk3_FortressOfWinds_Mazaal() {
 void sub_StateChange_FortressOfWinds_Mazaal(void) {
 
     if (!CheckFlags(0x31)) {
-        if (gScreenTransition.field_0x38 == 0) {
+        if (gRoomTransition.field_0x38 == 0) {
             SoundReq(SONG_STOP_BGM);
         } else {
-            if (gScreenTransition.field_0x39 == 0) {
+            if (gRoomTransition.field_0x39 == 0) {
                 SoundReq(SONG_STOP);
                 SetPlayerControl(3);
             }
@@ -3532,16 +3532,16 @@ u32 sub_unk3_Vaati3_Main() {
 void sub_StateChange_Vaati3_Main(void) {
     Manager2F_Main(NULL);
 
-    if ((gScreenTransition.field_0x38 & 1) && gScreenTransition.field_0x39) {
-        if (gScreenTransition.field_0x3c == 1) {
-            gPlayerEntity.x.HALF.HI = gScreenTransition.field_0x48;
-            gPlayerEntity.y.HALF.HI = gScreenTransition.field_0x4a + 8;
+    if ((gRoomTransition.field_0x38 & 1) && gRoomTransition.field_0x39) {
+        if (gRoomTransition.field_0x3c == 1) {
+            gPlayerEntity.x.HALF.HI = gRoomTransition.field_0x48;
+            gPlayerEntity.y.HALF.HI = gRoomTransition.field_0x4a + 8;
         } else {
-            if (gScreenTransition.field_0x3c) {
+            if (gRoomTransition.field_0x3c) {
                 return;
             }
-            gPlayerEntity.x.HALF.HI = gScreenTransition.field_0x44;
-            gPlayerEntity.y.HALF.HI = gScreenTransition.field_0x46 + 8;
+            gPlayerEntity.x.HALF.HI = gRoomTransition.field_0x44;
+            gPlayerEntity.y.HALF.HI = gRoomTransition.field_0x46 + 8;
         }
     }
 }
@@ -4604,7 +4604,7 @@ void sub_StateChange_HouseInteriors2_DrLeft(void) {
     if (!GetInventoryValue(ITEM_QST_BOOK2) && CheckGlobalFlag(MIZUKAKI_HARIFALL)) {
         LoadRoomEntityList(&gUnk_080F2194);
     }
-    if (gScreenTransition.player_status.spawn_type == PL_SPAWN_MINISH) {
+    if (gRoomTransition.player_status.spawn_type == PL_SPAWN_MINISH) {
         LoadRoomEntityList(&gUnk_080F21B4);
     }
 }
@@ -4821,8 +4821,8 @@ void sub_StateChange_HouseInteriors2_LinksHouseBedroom(void) {
 extern u32 script_PlayerWakeAfterRest;
 
 void sub_0804E864(void) {
-    gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x90;
-    gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
+    gPlayerEntity.x.HALF.HI = gRoomControls.origin_x + 0x90;
+    gPlayerEntity.y.HALF.HI = gRoomControls.origin_y + 0x38;
     sub_080751E8(1, 6, &script_PlayerWakeAfterRest);
     ModHealth(0xa0);
 }
@@ -4895,8 +4895,8 @@ void sub_StateChange_HouseInteriors4_Mayor(void) {
     if (!GetInventoryValue(ITEM_FLIPPERS) && CheckGlobalFlag(MIZUKAKI_START) && !GetInventoryValue(ITEM_QST_BOOK3)) {
         LoadRoomEntityList(&gUnk_080F3A48);
     }
-    gScreenTransition.player_status.overworld_map_x = 0xf28;
-    gScreenTransition.player_status.overworld_map_y = 0x82d;
+    gRoomTransition.player_status.overworld_map_x = 0xf28;
+    gRoomTransition.player_status.overworld_map_y = 0x82d;
 }
 
 extern u32 Enemies_LakeHylia_Main;
@@ -5304,7 +5304,7 @@ void sub_StateChange_HouseInteriors3_Bakery() {
 
 u32 sub_unk3_HouseInteriors3_Simon(void) {
     if (CheckGlobalFlag(MAROYA_WAKEUP)) {
-        gScreenTransition.player_status.spawn_type = 5;
+        gRoomTransition.player_status.spawn_type = 5;
     }
     return 1;
 }
@@ -5747,8 +5747,8 @@ void sub_0804F680(Entity* parent, s32 x, s32 y) {
 
     fx = CreateFx(parent, FX_DEATH, 0);
     if (fx != NULL) {
-        fx->x.HALF.HI = gRoomControls.roomOriginX + x;
-        fx->y.HALF.HI = gRoomControls.roomOriginY + y;
+        fx->x.HALF.HI = gRoomControls.origin_x + x;
+        fx->y.HALF.HI = gRoomControls.origin_y + y;
     }
 }
 
@@ -5789,14 +5789,14 @@ void sub_0804F79C(Entity* parent) {
     fx = CreateFx(parent, FX_BIG_EXPLOSION, 0);
     if (fx != NULL) {
         fx->spriteRendering.b3 = 0;
-        fx->x.HALF.HI = gRoomControls.roomOriginX + 0x1b8;
-        fx->y.HALF.HI = gRoomControls.roomOriginY + 0x148;
+        fx->x.HALF.HI = gRoomControls.origin_x + 0x1b8;
+        fx->y.HALF.HI = gRoomControls.origin_y + 0x148;
     }
     fx = CreateFx(parent, FX_BIG_EXPLOSION, 0);
     if (fx != NULL) {
         fx->spriteRendering.b3 = 0;
-        fx->x.HALF.HI = gRoomControls.roomOriginX + 0x238;
-        fx->y.HALF.HI = gRoomControls.roomOriginY + 0x148;
+        fx->x.HALF.HI = gRoomControls.origin_x + 0x238;
+        fx->y.HALF.HI = gRoomControls.origin_y + 0x148;
     }
 }
 

@@ -586,7 +586,7 @@ _08088E94:
 	.align 2, 0
 _08088EB0: .4byte gRoomVars
 _08088EB4:
-	ldr r0, _08088F18 @ =gScreenTransition
+	ldr r0, _08088F18 @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #7
 	ands r0, r1
@@ -635,7 +635,7 @@ _08088EB4:
 _08088F14:
 	pop {r4, pc}
 	.align 2, 0
-_08088F18: .4byte gScreenTransition
+_08088F18: .4byte gRoomTransition
 _08088F1C: .4byte gUnk_08120C52
 
 	thumb_func_start sub_08088F20

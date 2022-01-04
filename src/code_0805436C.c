@@ -149,7 +149,7 @@ NONMATCH("asm/non_matching/sub_08054524.inc", void sub_08054524(void)) {
 
     bVar1 = gArea.locationIndex;
     if (gArea.locationIndex == 0) {
-        bVar1 = gScreenTransition.player_status.field_0x24[0xa];
+        bVar1 = gRoomTransition.player_status.field_0x24[0xa];
     }
     if (bVar1 > 0x16) {
         bVar1 = 0;
@@ -263,7 +263,7 @@ u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
 }
 */
 
-void sub_08054870(void) {
+void Subtask_WorldEvent(void) {
 #if !(defined(DEMO_USA) || defined(DEMO_JP))
     gUnk_080FE2A0[gMenu.menuType]();
 #endif

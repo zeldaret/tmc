@@ -6,7 +6,7 @@
 #include "sound.h"
 #include "screen.h"
 #include "common.h"
-#include "fileScreen.h"
+#include "fileselect.h"
 #include "functions.h"
 
 void sub_080595E4(Manager10*);
@@ -95,7 +95,7 @@ void sub_08059690(Manager10* this) {
 }
 
 void sub_080596E0(Manager10* this) {
-    if ((gScreenTransition.frameCount & 7) == 0) {
+    if ((gRoomTransition.frameCount & 7) == 0) {
         gScreen.bg1.xOffset += 8;
         gScreen.bg1.xOffset &= 0x1F;
     }
@@ -149,11 +149,11 @@ void sub_080596E0(Manager10* this) {
 }
 
 u32 sub_08059844() {
-    return gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX > gRoomControls.width >> 1;
+    return gPlayerEntity.x.HALF.HI - gRoomControls.origin_x > gRoomControls.width >> 1;
 }
 
 u32 sub_0805986C() {
-    return gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX > 0x200;
+    return gPlayerEntity.x.HALF.HI - gRoomControls.origin_x > 0x200;
 }
 
 void sub_08059894(const u16* unk1, const u16* unk2, u32 unk3) {

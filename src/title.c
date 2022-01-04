@@ -12,7 +12,7 @@
 
 typedef struct {
     u8 filler0[0x4];
-    u8 gameLanguage;
+    u8 language;
     u8 state;
     u8 subState;
     u8 filler7[0x1];
@@ -61,14 +61,14 @@ static const u16 sLightRaysAlphaBlends[] = {
 #ifdef DEMO_JP
 static const SaveFile gDemoSave = {
     .unk_01 = 1,
-    .messageSpeed = 1,
-    .brightnessPref = 1,
+    .msg_speed = 1,
+    .brightness = 1,
     .global_progress = 1,
     .field_0x9 = { [23] = 0x1F },
     .windcrests = 0x00013780,
     .unk50 = 7,
     .areaVisitFlags = { 0x0114C300 },
-    .playerName = "\x97\x7f\xdd",
+    .name = "\x97\x7f\xdd",
     .saved_status = {
         .area_next = AREA_DEEPWOOD_SHRINE,
         .room_next = 0xb,
@@ -118,14 +118,14 @@ static const u8 unk[] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
 
 static u32 AdvanceIntroSequence(u32 transition) {
     gUnk_02032EC0.lastState = transition;
-    gMain.funcIndex = 2;
+    gMain.state = 2;
     MemClear(&gIntroState, sizeof(gIntroState));
     DoFade(7, 8);
 }
 
-void HandleIntroScreen(void) {
+void TitleTask(void) {
     FlushSprites();
-    switch (gMain.funcIndex) {
+    switch (gMain.state) {
         case 0:
             MessageInitialize();
             MemClear(&gUnk_02032EC0, sizeof(gUnk_02032EC0));
@@ -139,10 +139,10 @@ void HandleIntroScreen(void) {
                 return;
             }
             DispReset(1);
-            gMain.funcIndex = 1;
+            gMain.state = 1;
             break;
     }
-    sub_080AD918();
+    CopyOAM();
 }
 
 static void HandleNintendoCapcomLogos(void) {
@@ -156,7 +156,7 @@ static void HandleNintendoCapcomLogos(void) {
         gIntroState.timer = 120;
         LoadGfxGroup(16);
         LoadGfxGroup(1);
-        if (gSaveHeader->gameLanguage == 0) {
+        if (gSaveHeader->language == 0) {
             paletteGroup = 1;
         } else {
             paletteGroup = 2;
@@ -204,19 +204,19 @@ static void HandleTitlescreen(void) {
             gIntroState.state = 1;
             gIntroState.subState = 0;
             gIntroState.timer = 30;
-            gIntroState.gameLanguage = 7;
+            gIntroState.language = 7;
             EraseAllEntities();
-            sub_0801CFA8(0);
+            ResetPaletteTable(0);
             ResetPalettes();
             gGFXSlots.unk0 = 1;
             LoadGfxGroup(2);
-            if (gSaveHeader->gameLanguage == 0) {
+            if (gSaveHeader->language == 0) {
                 paletteGroup = 3;
             } else {
                 paletteGroup = 4;
             }
             LoadPaletteGroup(paletteGroup);
-            if (gSaveHeader->gameLanguage == 0) {
+            if (gSaveHeader->language == 0) {
                 // Blend first and second layer
                 gScreen.controls.layerFXControl = BLDCNT_TGT1_BG2 | BLDCNT_TGT2_BG3 | BLDCNT_EFFECT_BLEND;
                 gScreen.controls.alphaBlend = BLDALPHA_BLEND(9, 9);
@@ -245,7 +245,7 @@ static void HandleTitlescreen(void) {
             if (gFadeControl.active) {
                 return;
             }
-            if (gSaveHeader->gameLanguage == 0) {
+            if (gSaveHeader->language == 0) {
                 HandleJapaneseTitlescreenAnimationIntro();
             } else {
                 HandleTitlescreenAnimationIntro();
@@ -302,13 +302,13 @@ static void HandleTitlescreen(void) {
 #endif
             }
     }
-    if (gIntroState.gameLanguage != gSaveHeader->gameLanguage) {
-        gIntroState.gameLanguage = gSaveHeader->gameLanguage;
+    if (gIntroState.language != gSaveHeader->language) {
+        gIntroState.language = gSaveHeader->language;
         LoadGfxGroup(3);
     }
     UpdateLightRays();
     UpdateEntities();
-    sub_080AD9B0();
+    DrawEntities();
 }
 
 #if defined(USA) || defined(DEMO_USA)
@@ -429,9 +429,9 @@ static void ExitTitlescreen(void) {
     if (!gFadeControl.active) {
 #ifdef DEMO_JP
         MemCopy(&gDemoSave, &gSave, sizeof(gSave));
-        InitScreen(SCREEN_GAMEPLAY);
+        SetTask(TASK_GAME);
 #else
-        InitScreen(SCREEN_CHOOSE_FILE);
+        SetTask(TASK_FILE_SELECT);
 #endif
     }
 }

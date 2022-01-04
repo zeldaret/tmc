@@ -66,8 +66,8 @@ bool32 LoadProjectileSprite(Entity* this, const ProjectileDefinition* definition
 }
 
 bool32 IsProjectileOffScreen(Entity* this) {
-    if (((u32)this->x.HALF.HI - gRoomControls.roomOriginX > gRoomControls.width) ||
-        ((u32)this->y.HALF.HI - gRoomControls.roomOriginY > gRoomControls.height)) {
+    if (((u32)this->x.HALF.HI - gRoomControls.origin_x > gRoomControls.width) ||
+        ((u32)this->y.HALF.HI - gRoomControls.origin_y > gRoomControls.height)) {
         return TRUE;
     } else {
         return FALSE;

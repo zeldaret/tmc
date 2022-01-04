@@ -15,7 +15,7 @@ struct {
     /*0x1d*/ u8 unk1D;
     /*0x1e*/ u8 unk1E;
     /*0x1f*/ u8 unk1F;
-} gUpdateVisibleTiles = {};
+} gUpdateVisibleTiles;
 
 extern EntityData gUnk_080FF400;
 

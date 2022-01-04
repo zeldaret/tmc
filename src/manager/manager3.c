@@ -33,8 +33,8 @@ void Manager3_Main(Manager3* this) {
     s8 tmp;
     if (this->manager.action == 0) {
         this->manager.action = 1;
-        this->unk_20 = this->unk_38 + gRoomControls.roomOriginX - 0x20;
-        this->unk_24 = this->unk_3a + gRoomControls.roomOriginY - 0x20;
+        this->unk_20 = this->unk_38 + gRoomControls.origin_x - 0x20;
+        this->unk_24 = this->unk_3a + gRoomControls.origin_y - 0x20;
         return;
     }
     if (CheckPlayerProximity(this->unk_20, this->unk_24, 0x40, 0x40)) {
@@ -54,7 +54,7 @@ void Manager3_Main(Manager3* this) {
                 }
             }
             if (sub_080002C0(this->unk_38, this->unk_3a, this->manager.unk_0e) == 0x3d) {
-                CreateMagicSparkles(this->unk_38 + gRoomControls.roomOriginX, this->unk_3a + gRoomControls.roomOriginY,
+                CreateMagicSparkles(this->unk_38 + gRoomControls.origin_x, this->unk_3a + gRoomControls.origin_y,
                                     this->manager.unk_0e);
                 if (!this->manager.unk_0f) {
                     this->manager.unk_0f = 1;

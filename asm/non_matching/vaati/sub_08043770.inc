@@ -10,7 +10,7 @@
 	bne _080437D8
 	ldr r0, [r2, #0x64]
 	ldr r3, [r0, #0x14]
-	ldr r0, _080437AC @ =gScreenTransition
+	ldr r0, _080437AC @ =gRoomTransition
 	adds r5, r0, #0
 	adds r5, #0x39
 	ldrb r1, [r5]
@@ -30,7 +30,7 @@ _0804379A:
 	movs r0, #0xfe
 	b _080437B8
 	.align 2, 0
-_080437AC: .4byte gScreenTransition
+_080437AC: .4byte gRoomTransition
 _080437B0:
 	ldr r0, [r3, #0x64]
 	str r4, [r0, #0x18]

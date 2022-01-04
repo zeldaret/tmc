@@ -42,7 +42,7 @@ void sub_0809F318(Entity* this) {
 void sub_0809F374(Entity* this) {
     LinearMoveUpdate(this);
 #ifndef EU
-    if (gSaveHeader->gameLanguage < 2) {
+    if (gSaveHeader->language < 2) {
         if (sub_080044EC(this, 0x2000) < 2) {
             this->z.WORD = 0;
             this->action = 2;

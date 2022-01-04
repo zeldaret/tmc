@@ -320,7 +320,7 @@ extern u16 script_BedAtSimons;
 extern Entity* gPlayerClones[];
 extern ScriptExecutionContext gPlayerScriptExecutionContext;
 
-NONMATCH("asm/non_matching/playerItemPacciCane/sub_080705AC.inc", u32 sub_080705AC(void)) {
+NONMATCH("asm/non_matching/playerItemPacciCane/sub_080705AC.inc", u32 CheckPlayerActivity(void)) {
     if (!((gInput.newKeys & START_BUTTON) == 0 || gFadeControl.active || gUnk_02034490[0] ||
           (gMessage.doTextBox & 0x7F) || gSave.stats.health == 0 || !gSave.fillerD0[34] ||
           gPlayerState.controlMode != 0 || gPriorityHandler.priority_timer != 0)) {
@@ -596,7 +596,7 @@ static void PlayerNormal(Entity* this) {
     } else {
         if (gPlayerState.item == NULL)
             UpdateAnimationSingleFrame(this);
-        if (gPlayerState.swim_state != 0 && (gScreenTransition.frameCount & 7) == 0)
+        if (gPlayerState.swim_state != 0 && (gRoomTransition.frameCount & 7) == 0)
             CreateWaterTrace(this);
         return;
     }
@@ -1140,7 +1140,7 @@ static void PortalStandUpdate(Entity* this) {
 }
 
 static void PortalActivateInit(Entity* this) {
-    gRoomControls.cameraTarget = NULL;
+    gRoomControls.camera_target = NULL;
     gUnk_02034490[0] = 1;
     this->subAction = 3;
     this->field_0xf = 0x1e;
@@ -1533,7 +1533,7 @@ static void sub_08071D04(Entity* this) {
         return;
     }
 
-    gScreenTransition.field_0x4[1] = 1;
+    gRoomTransition.field_0x4[1] = 1;
 }
 
 static void sub_08071D80(Entity* this) {
@@ -1942,7 +1942,7 @@ static void sub_080724DC(Entity* this) {
         if ((gPlayerState.field_0x82[7] == 0) && (gPlayerState.swim_state != 0)) {
             sub_0807AE20(this);
         }
-        if (gRoomControls.unk2 == 0) {
+        if (gRoomControls.reload_flags == 0) {
             this->updatePriority = this->updatePriorityPrev;
             PlayerWaitForScroll(this);
         } else if (gPlayerState.field_0x1c == 0) {
@@ -1963,7 +1963,7 @@ static void sub_080724DC(Entity* this) {
 }
 
 static void sub_0807258C(Entity* this) {
-    if (gRoomControls.unk2 == 0) {
+    if (gRoomControls.reload_flags == 0) {
         if (sub_0807A894(this) == 0x29) {
             UpdatePlayerMovement();
             if (sub_080797C4() != 0) {
@@ -2580,7 +2580,7 @@ static void sub_080731D8(Entity* this) {
     } else {
         gPlayerState.animation = 260;
     }
-    gRoomControls.cameraTarget = NULL;
+    gRoomControls.camera_target = NULL;
     DeleteClones();
     ResetPlayer();
 }
@@ -2625,10 +2625,10 @@ static void sub_0807332C(Entity* this) {
         return;
     }
     if (gPlayerState.field_0x38 != 0) {
-        gRoomControls.cameraTarget = this;
+        gRoomControls.camera_target = this;
         SetPlayerActionNormal();
     } else {
-        gMain.transition = 3;
+        gMain.substate = 3;
         *(&gMain.pauseInterval + 1) = 1;
         DoFade(5, 8);
     }
@@ -2653,7 +2653,7 @@ static void sub_080733BC(Entity* this) {
     }
     LinearMoveUpdate(this);
     if (this->field_0x7c.HALF_U.HI == this->y.HALF.HI) {
-        gRoomControls.cameraTarget = this;
+        gRoomControls.camera_target = this;
         sub_0807921C();
     }
 }
@@ -2856,7 +2856,7 @@ static void sub_0807380C(Entity* this) {
         0x0714,
     };
 
-    if ((gScreenTransition.frameCount & 3) == 0) {
+    if ((gRoomTransition.frameCount & 3) == 0) {
         u32 tmp = (this->animationState + 2) & 6;
         this->animationState = tmp;
         this->direction = 4 * tmp;
@@ -2882,7 +2882,7 @@ void sub_08073884(Entity* this) {
         0x0714,
     };
 
-    if ((gScreenTransition.frameCount & 1) == 0) {
+    if ((gRoomTransition.frameCount & 1) == 0) {
         u32 tmp = (this->animationState + 2) & 6;
         this->animationState = tmp;
         this->direction = 4 * tmp;
@@ -3081,10 +3081,10 @@ static void sub_08073C80(Entity* this) {
     this->knockbackDuration = 0;
     this->subAction = 1;
     LoadSwapGFX(this, 1, 2);
-    gRoomControls.cameraTarget = this;
+    gRoomControls.camera_target = this;
     sub_080809D4();
-    if (gScreenTransition.player_status.spawn_type == PL_SPAWN_9) {
-        gScreenTransition.player_status.spawn_type = PL_SPAWN_DEFAULT;
+    if (gRoomTransition.player_status.spawn_type == PL_SPAWN_9) {
+        gRoomTransition.player_status.spawn_type = PL_SPAWN_DEFAULT;
         this->spriteSettings.draw = 0;
         this->subAction = 2;
     } else {
@@ -3259,27 +3259,27 @@ static NONMATCH("asm/non_matching/player/sub_080740D8.inc", void sub_080740D8(En
     switch (v4) {
         case 24:
             v5 = this->hitbox;
-            v2 = this->x.HALF.HI - v5->unk2[0] + v5->offset_x - gRoomControls.roomOriginX;
+            v2 = this->x.HALF.HI - v5->unk2[0] + v5->offset_x - gRoomControls.origin_x;
             v6 = this->y.HALF.HI;
-            v1 = v6 + v5->offset_y - gRoomControls.roomOriginY;
+            v1 = v6 + v5->offset_y - gRoomControls.origin_y;
             break;
         case 8:
             v5 = this->hitbox;
-            v2 = this->x.HALF.HI + v5->unk2[0] + v5->offset_x - gRoomControls.roomOriginX;
+            v2 = this->x.HALF.HI + v5->unk2[0] + v5->offset_x - gRoomControls.origin_x;
             v6 = this->y.HALF.HI;
-            v1 = v6 + v5->offset_y - gRoomControls.roomOriginY;
+            v1 = v6 + v5->offset_y - gRoomControls.origin_y;
             break;
         case 16:
             v5 = this->hitbox;
-            v2 = this->x.HALF.HI + v5->offset_x - gRoomControls.roomOriginX;
+            v2 = this->x.HALF.HI + v5->offset_x - gRoomControls.origin_x;
             v6 = this->y.HALF.HI + v5->unk2[3];
-            v1 = v6 + v5->offset_y - gRoomControls.roomOriginY;
+            v1 = v6 + v5->offset_y - gRoomControls.origin_y;
             break;
         case 0:
             v5 = this->hitbox;
-            v2 = this->x.HALF.HI + v5->unk2[0] + v5->offset_x - gRoomControls.roomOriginX;
+            v2 = this->x.HALF.HI + v5->unk2[0] + v5->offset_x - gRoomControls.origin_x;
             v6 = this->y.HALF.HI;
-            v1 = v6 + v5->offset_y - gRoomControls.roomOriginY;
+            v1 = v6 + v5->offset_y - gRoomControls.origin_y;
             break;
         default:
             break;

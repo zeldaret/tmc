@@ -47,9 +47,9 @@ u32 sub_08058244(int i) {
     s32 tmp2;
     u32 tmp3;
     s32 tmp4;
-    tmp = ((gRoomControls.roomScrollY - gRoomControls.roomOriginY) * 0x20) / (gRoomControls.height - 0xa0);
-    gScreen.bg1.yOffset = gRoomControls.roomOriginY + tmp;
-    tmp = (((gRoomControls.roomScrollX - gRoomControls.roomOriginX) * gUnk_081081EC[i]) / (gRoomControls.width - 0xf0));
+    tmp = ((gRoomControls.scroll_y - gRoomControls.origin_y) * 0x20) / (gRoomControls.height - 0xa0);
+    gScreen.bg1.yOffset = gRoomControls.origin_y + tmp;
+    tmp = (((gRoomControls.scroll_x - gRoomControls.origin_x) * gUnk_081081EC[i]) / (gRoomControls.width - 0xf0));
     gScreen.bg1.xOffset = tmp & 0xf;
     return tmp;
 }

@@ -192,7 +192,7 @@ void VaatiProjectileFunction0Action7(Entity* this) {
     sub_0803E444(this);
     LinearMoveUpdate(this);
     sub_0803E4D8(this);
-    if ((gRoomControls.roomOriginY + gRoomControls.height + -0x10) <= this->y.HALF.HI) {
+    if ((gRoomControls.origin_y + gRoomControls.height + -0x10) <= this->y.HALF.HI) {
         SetInitializationPriority();
         DoExitTransition((ScreenTransitionData*)&gUnk_0813AB94);
     }
@@ -239,7 +239,7 @@ void sub_0803E480(Entity* this) {
 bool32 sub_0803E4A0(Entity* this) {
 #ifdef EU
     bool32 ret;
-    if (gScreenTransition.field_0x39 == 0) {
+    if (gRoomTransition.field_0x39 == 0) {
         return TRUE;
     } else {
         if (this->parent == NULL) {
@@ -250,7 +250,7 @@ bool32 sub_0803E4A0(Entity* this) {
     return ret;
 #else
     bool32 ret;
-    if (gScreenTransition.field_0x39 != 0) {
+    if (gRoomTransition.field_0x39 != 0) {
         if (this->parent == NULL) {
             return FALSE;
         }

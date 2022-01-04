@@ -119,7 +119,7 @@ void sub_08033F3C(Entity* this) {
     Entity* pEVar2;
 
     if (gEntCount < 0x43) {
-        if (gScreenTransition.field_0x38 != 0) {
+        if (gRoomTransition.field_0x38 != 0) {
             sub_08034420(this);
             this->field_0x80.HALF.HI = 1;
         } else {
@@ -133,7 +133,7 @@ void sub_08033F3C(Entity* this) {
         pEVar1->parent = this;
         pEVar2 = CreateObject(OBJECT_7E, 0, 0);
         pEVar2->parent = this;
-        if (gScreenTransition.field_0x39 == 0) {
+        if (gRoomTransition.field_0x39 == 0) {
             this->action = 0xd;
             this->subAction = 0;
             this->actionDelay = 0xfc;
@@ -215,7 +215,7 @@ void sub_08033FFC(Entity* this) {
             break;
         default:
             if (((*(Entity**)&this->field_0x74)->flags & 0x80) != 0) {
-                gRoomControls.cameraTarget = &gPlayerEntity;
+                gRoomControls.camera_target = &gPlayerEntity;
                 sub_08034420(this);
                 gPlayerState.controlMode = 1;
                 ResetPlayerAnimationAndAction();
@@ -227,8 +227,8 @@ void sub_08033FFC(Entity* this) {
 void sub_0803414C(Entity* this) {
     u32 x, y;
 
-    x = gRoomControls.roomOriginX + 0xb8;
-    y = gRoomControls.roomOriginY + 0x48;
+    x = gRoomControls.origin_x + 0xb8;
+    y = gRoomControls.origin_y + 0x48;
 
     if (this->x.HALF.HI - x + 1 < 3 && this->y.HALF.HI - y + 1 < 3) {
         if (sub_080349D8(this)) {
@@ -377,10 +377,10 @@ void sub_0803442C(Entity* this, u32 unk) {
 
 void sub_0803443C(Entity* this) {
     this->field_0x7c.BYTES.byte1 = 0;
-    if (gScreenTransition.field_0x39 < 0x1f) {
+    if (gRoomTransition.field_0x39 < 0x1f) {
         sub_080344BC(this);
     } else {
-        if (gScreenTransition.field_0x39 < 0x3d) {
+        if (gRoomTransition.field_0x39 < 0x3d) {
             sub_08034498(this);
         } else {
             sub_08034474(this);
@@ -544,7 +544,7 @@ NONMATCH("asm/non_matching/mazaal/sub_0803473C.inc", void sub_0803473C(Entity* t
         }
         playerX = gPlayerEntity.x.HALF.HI + 0x60;
     }
-    roomX = gRoomControls.roomOriginX;
+    roomX = gRoomControls.origin_x;
     if (playerX - 4 > this->x.HALF.HI) {
         if (roomX + 0xe0 < this->x.HALF.HI) {
             return;
@@ -567,7 +567,7 @@ END_NONMATCH
 NONMATCH("asm/non_matching/mazaal/sub_080347B4.inc", void sub_080347B4(Entity* this)) {
     u32 direction;
     u32 playerX = gPlayerEntity.x.HALF.HI;
-    u32 roomX = gRoomControls.roomOriginX;
+    u32 roomX = gRoomControls.origin_x;
     if (playerX - 4 > this->x.HALF.HI) {
         if (roomX + 0xe0 < this->x.HALF.HI) {
             return;
@@ -810,9 +810,9 @@ void sub_08034BC8(Entity* this) {
 
 void sub_08034C00(Entity* this) {
     if (((gPlayerState.flags & PL_MINISH) != 0) &&
-        CheckPlayerInRegion(this->x.HALF.HI - gRoomControls.roomOriginX,
-                            this->y.HALF.HI - gRoomControls.roomOriginY + 0xd, 3, 3) != 0) {
-        if (gScreenTransition.field_0x39 >= 0x3d) {
+        CheckPlayerInRegion(this->x.HALF.HI - gRoomControls.origin_x,
+                            this->y.HALF.HI - gRoomControls.origin_y + 0xd, 3, 3) != 0) {
+        if (gRoomTransition.field_0x39 >= 0x3d) {
             DoExitTransition((ScreenTransitionData*)&gUnk_080CED88);
         } else {
             DoExitTransition((ScreenTransitionData*)&gUnk_080CED9C);

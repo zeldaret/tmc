@@ -191,7 +191,7 @@ u32 WriteSaveFile(u32 index, SaveFile* saveFile) {
 #endif
 }
 
-u32 Write_02000000(struct_02000000* arg0) {
+u32 Write_02000000(SaveHeader* arg0) {
 #if defined(DEMO_USA) || defined(DEMO_JP)
     return 1;
 #else
@@ -215,7 +215,7 @@ s32 ReadSaveFile(u32 index, SaveFile* saveFile) {
 #endif
 }
 
-u32 Read_02000000(struct_02000000* arg0) {
+u32 Read_02000000(SaveHeader* arg0) {
 #if defined(DEMO_USA) || defined(DEMO_JP)
     return 0;
 #else

@@ -4,7 +4,7 @@
 	ldrb r1, [r0, #1]
 	cmp r1, #0
 	bne _08054534
-	ldr r0, _08054554 @ =gScreenTransition
+	ldr r0, _08054554 @ =gRoomTransition
 	adds r0, #0x2e
 	ldrb r1, [r0]
 _08054534:
@@ -24,7 +24,7 @@ _0805453A:
 	pop {pc}
 	.align 2, 0
 _08054550: .4byte gArea
-_08054554: .4byte gScreenTransition
+_08054554: .4byte gRoomTransition
 _08054558: .4byte gUnk_080FE1C6
 _0805455C: .4byte gUnk_080015BC
 _08054560: .4byte gUnk_02034398

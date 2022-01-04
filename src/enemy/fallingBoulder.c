@@ -61,7 +61,7 @@ void sub_0802C318(Entity* this) {
 
 NONMATCH("asm/non_matching/fallingBoulder/sub_0802C334.inc", void sub_0802C334(Entity* this)) {
     if ((u16)this->field_0x7c.HALF.LO == 0) {
-        u32 tmp = gRoomControls.roomOriginY;
+        u32 tmp = gRoomControls.origin_y;
         if (&gPlayerEntity == NULL)
             return;
         if (tmp - gPlayerEntity.y.HALF.HI <= 0x38) {
@@ -106,7 +106,7 @@ NONMATCH("asm/non_matching/fallingBoulder/sub_0802C334.inc", void sub_0802C334(E
             }
         }
 
-        y = gRoomControls.roomOriginY + gRoomControls.height - this->y.HALF.HI;
+        y = gRoomControls.origin_y + gRoomControls.height - this->y.HALF.HI;
         if (y >= 5) {
             sub_080AEFB4(this);
         } else {

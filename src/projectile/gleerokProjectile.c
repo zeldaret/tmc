@@ -49,7 +49,7 @@ void GleerokProjectile_Init(Entity* this) {
             iVar2 = sub_080041DC(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI);
             if (this->type == 1) {
                 uVar1 = Random() & 0x1ff;
-                if ((gScreenTransition.frameCount & 1U) == 0) {
+                if ((gRoomTransition.frameCount & 1U) == 0) {
                     iVar2 += uVar1;
                 } else {
                     iVar2 -= uVar1;

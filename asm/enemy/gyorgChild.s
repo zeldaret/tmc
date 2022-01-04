@@ -11,7 +11,7 @@
 GyorgChild: @ 0x08048640
 	push {r4, r5, lr}
 	adds r5, r0, #0
-	ldr r0, _0804867C @ =gScreenTransition
+	ldr r0, _0804867C @ =gRoomTransition
 	adds r0, #0x39
 	ldrb r2, [r0]
 	cmp r2, #0
@@ -38,7 +38,7 @@ _08048664:
 	bl _call_via_r1
 	pop {r4, r5, pc}
 	.align 2, 0
-_0804867C: .4byte gScreenTransition
+_0804867C: .4byte gRoomTransition
 _08048680: .4byte gUnk_080D1E6C
 
 	thumb_func_start sub_08048684

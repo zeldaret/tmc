@@ -117,20 +117,20 @@ void VaatiWrathType0(Entity* this) {
 void VaatiWrathType0Action0(Entity* this) {
     u32 bVar1;
 
-    bVar1 = gScreenTransition.field_0x38 & 1;
+    bVar1 = gRoomTransition.field_0x38 & 1;
     if (bVar1 != 0) {
         if (sub_08041FCC(this) == 0) {
             return;
         }
-        if ((gScreenTransition.field_0x39 & 0xc) == 0) {
+        if ((gRoomTransition.field_0x39 & 0xc) == 0) {
             this->action = 5;
             this->subAction = 1;
         } else {
             this->action = 2;
             this->actionDelay = 0x3c;
         }
-        this->x.HALF.HI = gScreenTransition.hurtType;
-        this->y.HALF.HI = gScreenTransition.field_0x42;
+        this->x.HALF.HI = gRoomTransition.hurtType;
+        this->y.HALF.HI = gRoomTransition.field_0x42;
         sub_08042004(this);
     } else {
         if (sub_08041ED4(this) == 0) {
@@ -141,7 +141,7 @@ void VaatiWrathType0Action0(Entity* this) {
         this->actionDelay = 120;
         this->spritePriority.b1 = 0;
         this->z.HALF.HI = 0xffb0;
-        gRoomControls.cameraTarget = this;
+        gRoomControls.camera_target = this;
         sub_080809D4();
     }
     this->spriteSettings.draw = 1;
@@ -209,8 +209,8 @@ void VaatiWrathType0Action1(Entity* this) {
             sub_08042004(this);
             this->subAction = 6;
             this->actionDelay = 0x1e;
-            gScreenTransition.field_0x38 |= 1;
-            gRoomControls.cameraTarget = &gPlayerEntity;
+            gRoomTransition.field_0x38 |= 1;
+            gRoomControls.camera_target = &gPlayerEntity;
             gPlayerState.controlMode = 1;
             break;
         default:
@@ -243,7 +243,7 @@ void VaatiWrathType0Action3(Entity* this) {
     UpdateAnimationSingleFrame(this);
     ProcessMovement(this);
 
-    roomY = gRoomControls.roomOriginY;
+    roomY = gRoomControls.origin_y;
     bound = roomY + 0x90;
     thisY = this->y.HALF.HI;
     if ((bound < thisY)) {
@@ -319,12 +319,12 @@ void VaatiWrathType0Action5(Entity* this) {
     } else {
         if (this->field_0x78.HALF.HI == 0) {
             if (this->subAction == 2) {
-                if ((gScreenTransition.field_0x39 & 3) == 0) {
+                if ((gRoomTransition.field_0x39 & 3) == 0) {
                     object = CreateObject(OBJECT_B5, 0, 0);
                     if (object != NULL) {
                         object->parent = this;
                         ((VaatiWrathHeapStruct*)this->myHeap)->object5b = object;
-                        gRoomControls.cameraTarget = object;
+                        gRoomControls.camera_target = object;
                         this->action = 6;
                         this->actionDelay = 0x1e;
                         ((VaatiWrathHeapStruct*)this->myHeap)->type1->subAction = 1;
@@ -374,9 +374,9 @@ void VaatiWrathType0Action7(Entity* this) {
     sub_08042214(this);
     sub_08042004(this);
     UpdateAnimationSingleFrame(this);
-    if (gRoomControls.roomOriginY + 0x48 != this->y.HALF.HI) {
+    if (gRoomControls.origin_y + 0x48 != this->y.HALF.HI) {
         this->speed = 0x100;
-        this->direction = ((gRoomControls.roomOriginY + 0x48) >= this->y.HALF.HI) ? 0x10 : 0;
+        this->direction = ((gRoomControls.origin_y + 0x48) >= this->y.HALF.HI) ? 0x10 : 0;
         LinearMoveUpdate(this);
     } else {
         if (--this->actionDelay == 0) {
@@ -389,8 +389,8 @@ void VaatiWrathType0Action8(Entity* this) {
     sub_08042004(this);
     UpdateAnimationSingleFrame(this);
     LinearMoveUpdate(this);
-    if (((gRoomControls.roomOriginX + 0x20) > this->x.HALF.HI) ||
-        ((gRoomControls.roomOriginX + 0x140) < this->x.HALF.HI)) {
+    if (((gRoomControls.origin_x + 0x20) > this->x.HALF.HI) ||
+        ((gRoomControls.origin_x + 0x140) < this->x.HALF.HI)) {
         if (0x3f < this->speed) {
             this->direction ^= 0x10;
         }
@@ -525,7 +525,7 @@ void VaatiWrathType0ActionC(Entity* this) {
                 this->actionDelay--;
             } else {
                 LinearMoveUpdate(this);
-                if (gRoomControls.roomOriginY + 0x48 == this->y.HALF.HI) {
+                if (gRoomControls.origin_y + 0x48 == this->y.HALF.HI) {
                     this->subAction = 2;
                     InitializeAnimation(((VaatiWrathHeapStruct*)this->myHeap)->type1, 0x11);
                     InitializeAnimation(((VaatiWrathHeapStruct*)this->myHeap)->type2, 0x19);
@@ -583,7 +583,7 @@ void sub_08041BE8(Entity* this) {
         DeleteEntity(entity);
         ((VaatiWrathHeapStruct*)this->myHeap)->object5b = NULL;
 
-        gRoomControls.cameraTarget = &gPlayerEntity;
+        gRoomControls.camera_target = &gPlayerEntity;
 #endif
         entity = ((VaatiWrathHeapStruct*)this->myHeap)->eyes[0];
         entity->myHeap = NULL;
@@ -766,7 +766,7 @@ u32 sub_08041F74(Entity* this, u32 unk1) {
     }
     heap = ((VaatiWrathHeapStruct*)this->myHeap);
     arm = NULL;
-    if ((gScreenTransition.field_0x39 >> unk1 & 1U) != 0) {
+    if ((gRoomTransition.field_0x39 >> unk1 & 1U) != 0) {
         arm = CreateEnemy(VAATI_ARM, 0);
         arm->type2 = unk1;
         arm->parent = this;
@@ -830,7 +830,7 @@ u32 sub_0804207C(Entity* this) {
             return sub_080045D4(arm->x.HALF.HI, arm->y.HALF.HI, x, y);
         } else {
             if (gPlayerEntity.y.HALF.HI < 0x40) {
-                tmp = gRoomControls.roomOriginY + 0x18;
+                tmp = gRoomControls.origin_y + 0x18;
 
             } else {
                 tmp = gPlayerEntity.y.HALF.HI - 0x28;
@@ -885,7 +885,7 @@ void sub_080421AC(Entity* this) {
         this->field_0x7c.HALF_U.HI--;
     } else {
         if (this->field_0x78.HALF.HI == 0) {
-            if (((Random() & 1) != 0) && ((gScreenTransition.field_0x39 & 0xc) != 0)) {
+            if (((Random() & 1) != 0) && ((gRoomTransition.field_0x39 & 0xc) != 0)) {
                 sub_08042264(this);
                 this->field_0x78.HALF.HI = 1;
                 return;
@@ -991,7 +991,7 @@ void sub_0804235C(Entity* this) {
 #if defined USA || defined DEMO_USA || defined DEMO_JP
 void VaatiWrathType0PreAction(Entity* this) {
     int temp;
-    if ((gScreenTransition.field_0x38 & 2) == 0) {
+    if ((gRoomTransition.field_0x38 & 2) == 0) {
         if (gSave.unk48C[3] != 0) {
             gSave.unk48C[3]--;
         } else {
@@ -1002,7 +1002,7 @@ void VaatiWrathType0PreAction(Entity* this) {
                         if (gPlayerEntity.field_0x7a.HWORD == 0) {
                             if ((gPlayerEntity.z.HALF.HI & 0x8000U) == 0 || (gPlayerState.field_0xa != 0)) {
                                 CreateEzloHint(0xb70, 0);
-                                gScreenTransition.field_0x38 |= 2;
+                                gRoomTransition.field_0x38 |= 2;
                             }
                         }
                     }

@@ -136,21 +136,21 @@ gUnk_08129004:: @ 08129004
 	.incbin "data_08127280/gUnk_08129004.bin"
 
 gUnk_0812901C:: @ 0812901C
-	.4byte sub_080A7250
-	.4byte sub_080A7328
-	.4byte sub_080A7528
-	.4byte sub_080A73A8
-	.4byte sub_080A74C8
+	.4byte Subtask_FadeIn
+	.4byte Subtask_Init
+	.4byte Subtask_Update
+	.4byte Subtask_FadeOut
+	.4byte Subtask_Die
 
 gUnk_08129030:: @ 08129030
-	.4byte sub_080A71DC
-	.4byte sub_080A4EA0
-	.4byte sub_080A71DC
-	.4byte sub_080A64FC
-	.4byte DrawKinstoneMenu
-	.4byte sub_08051E68
-	.4byte sub_0804AB54
-	.4byte sub_080A45A4
-	.4byte sub_08054870
-	.4byte sub_080A6C74
-	.4byte sub_080A6AB8
+	.4byte Subtask_Exit
+	.4byte Subtask_PauseMenu
+	.4byte Subtask_Exit
+	.4byte Subtask_MapHint
+	.4byte Subtask_KinstoneMenu
+	.4byte Subtask_ChuchuCutscene
+	.4byte Subtask_PortalCutscene
+	.4byte Subtask_FigurineMenu
+	.4byte Subtask_WorldEvent
+	.4byte Subtask_FastTravel
+	.4byte Subtask_LocalMapHint

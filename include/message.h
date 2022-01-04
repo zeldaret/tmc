@@ -39,7 +39,7 @@ typedef struct {
     Message message;
     Token curToken;
     WStruct _50;
-    char playerName[10];
+    char player_name[10];
     u8 _66[0x10];
     u8 _76;
     u8 _77[0x11];

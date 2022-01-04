@@ -116,17 +116,17 @@ void RegisterRoomEntity(Entity* ent, EntityData* dat) {
 void sub_0804AF0C(Entity* ent, EntityData* dat) {
     switch (dat->flags & 0xf0) {
         case 0x0:
-            ent->x.HALF.HI = dat->xPos + gRoomControls.roomOriginX;
-            ent->y.HALF.HI = dat->yPos + gRoomControls.roomOriginY;
+            ent->x.HALF.HI = dat->xPos + gRoomControls.origin_x;
+            ent->y.HALF.HI = dat->yPos + gRoomControls.origin_y;
             break;
         case 0x20:
             ent->field_0x6c.HALF.HI |= 0x20;
-            ent->x.HALF.HI = dat->xPos + gRoomControls.roomOriginX;
-            ent->y.HALF.HI = dat->yPos + gRoomControls.roomOriginY;
+            ent->x.HALF.HI = dat->xPos + gRoomControls.origin_x;
+            ent->y.HALF.HI = dat->yPos + gRoomControls.origin_y;
             break;
         case 0x40:
-            ent->x.HALF.HI = dat->xPos + gRoomControls.roomOriginX;
-            ent->y.HALF.HI = dat->yPos + gRoomControls.roomOriginY;
+            ent->x.HALF.HI = dat->xPos + gRoomControls.origin_x;
+            ent->y.HALF.HI = dat->yPos + gRoomControls.origin_y;
             if (!StartCutscene(ent, (u16*)dat->spritePtr))
                 DeleteEntity(ent);
             break;
@@ -147,7 +147,7 @@ void sub_0804AFB0(void** properties) {
     }
 }
 
-u32 sub_0804AFDC() {
+u32 CallRoomProp6() {
     u32 result;
     u32 (*func)();
 
@@ -158,7 +158,7 @@ u32 sub_0804AFDC() {
     return result;
 }
 
-void sub_0804AFF4(void) {
+void CallRoomProp5And7(void) {
     void (*func)();
 
     sub_080186EC();

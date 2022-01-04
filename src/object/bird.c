@@ -29,7 +29,7 @@ void sub_0809CF54(Entity* this) {
     this->speed = 0x280;
     this->direction = 8;
     this->collisionLayer = 2;
-    this->x.HALF.HI = gRoomControls.roomScrollX;
+    this->x.HALF.HI = gRoomControls.scroll_x;
     SoundReq(SFX_123);
     UpdateSpriteForCollisionLayer(this);
     InitAnimationForceUpdate(this, 0);

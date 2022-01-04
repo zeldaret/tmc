@@ -17,7 +17,7 @@ extern u32 gMakeFadeBuff256;
 typedef void (*fptrMakeFadeBuff256)(u8*, u8*, u16, u8);
 
 void SetBrightness(u32 arg0) {
-    gSaveHeader->brightnessPref = arg0;
+    gSaveHeader->brightness = arg0;
     gUsedPalettes = 0xffffffff;
 }
 
@@ -78,7 +78,7 @@ void DoFade(u32 type, u32 speed) {
         gFadeControl.field_0x2 = 0;
     }
     if (type & 8) {
-        gUnk_03000000.spritesOffset = 1;
+        gOAMControls.spritesOffset = 1;
         gScreen.bg1.control |= BGCNT_MOSAIC;
         gScreen.bg2.control |= BGCNT_MOSAIC;
         gScreen.bg3.control |= BGCNT_MOSAIC;
@@ -182,7 +182,7 @@ static u32 sub_08050230(FadeControl* ctl) {
         return 1;
 
     // fade is finished
-    gUnk_03000000.spritesOffset = 0;
+    gOAMControls.spritesOffset = 0;
     if ((type & 1) == 0) {
         // reset registers if fading in
         gScreen.bg0.control &= ~BGCNT_MOSAIC;

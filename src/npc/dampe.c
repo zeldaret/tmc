@@ -93,8 +93,8 @@ void sub_0806BEFC() {
 
 void sub_0806BF44(Entity* this, ScriptExecutionContext* context) {
     context->condition = 0;
-    if (((this->x.HALF.HI - gRoomControls.roomScrollX) + 0x10U < 0x110) &&
-        ((this->y.HALF.HI - gRoomControls.roomScrollY) + 0x18U < 0xD0)) {
+    if (((this->x.HALF.HI - gRoomControls.scroll_x) + 0x10U < 0x110) &&
+        ((this->y.HALF.HI - gRoomControls.scroll_y) + 0x18U < 0xD0)) {
         context->condition = 1;
     }
 }

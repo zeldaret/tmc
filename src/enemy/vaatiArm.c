@@ -189,11 +189,11 @@ void sub_080425B4(Entity* this) {
     if (sub_080437DC(this)) {
         this->field_0x7c.BYTES.byte0 = 0;
         this->field_0x7c.BYTES.byte1 = 0;
-        if ((gScreenTransition.field_0x38 & 1) != 0) {
-            if (gScreenTransition.field_0x3c == this->type2) {
+        if ((gRoomTransition.field_0x38 & 1) != 0) {
+            if (gRoomTransition.field_0x3c == this->type2) {
                 sub_08043EB8(this);
                 sub_08043ABC(this);
-                if ((gScreenTransition.field_0x39 >> (this->type2 + 2) & 1U) != 0) {
+                if ((gRoomTransition.field_0x39 >> (this->type2 + 2) & 1U) != 0) {
                     this->action = 7;
                     this->subAction = 4;
                 } else {
@@ -207,7 +207,7 @@ void sub_080425B4(Entity* this) {
             }
         } else {
             this->action = 1;
-            this->subAction = gScreenTransition.field_0x38 & 1;
+            this->subAction = gRoomTransition.field_0x38 & 1;
             ((VaatiArm_HeapStruct*)this->myHeap)->s1[0].unk08 = gUnk_080D1280[this->type2];
             sub_08042654(this);
         }
@@ -528,28 +528,28 @@ void sub_08042C34(Entity* this) {
         temp = &gUnk_080D12F8[random];
         x = gPlayerEntity.x.HALF.HI + *temp;
         y = gPlayerEntity.y.HALF.HI + *(temp + 1);
-        if ((gRoomControls.roomOriginX + 0x20) > x) {
-            x = gRoomControls.roomOriginX + 0x20;
+        if ((gRoomControls.origin_x + 0x20) > x) {
+            x = gRoomControls.origin_x + 0x20;
         }
-        if (gRoomControls.roomOriginX + gRoomControls.width + -0x20 < x) {
-            x = gRoomControls.roomOriginX + gRoomControls.width + -0x20;
+        if (gRoomControls.origin_x + gRoomControls.width + -0x20 < x) {
+            x = gRoomControls.origin_x + gRoomControls.width + -0x20;
         }
-        if ((gRoomControls.roomOriginY + 0x20) > y) {
-            y = gRoomControls.roomOriginY + 0x20;
+        if ((gRoomControls.origin_y + 0x20) > y) {
+            y = gRoomControls.origin_y + 0x20;
         }
 #if defined EU || defined JP || defined DEMO_JP
-        if (gRoomControls.roomOriginY + gRoomControls.height + -0x20 < y) {
-            y = gRoomControls.roomOriginY + gRoomControls.height + -0x20;
+        if (gRoomControls.origin_y + gRoomControls.height + -0x20 < y) {
+            y = gRoomControls.origin_y + gRoomControls.height + -0x20;
         }
 #else
-        if (gRoomControls.roomOriginY + gRoomControls.height + -0x40 < y) {
-            y = gRoomControls.roomOriginY + gRoomControls.height + -0x40;
+        if (gRoomControls.origin_y + gRoomControls.height + -0x40 < y) {
+            y = gRoomControls.origin_y + gRoomControls.height + -0x40;
         }
 #endif
-        if (((u32)((x - gRoomControls.roomOriginX) - 0x90) < 0x41) &&
-            ((u32)((y - gRoomControls.roomOriginY) - 8) < 0x41)) {
-            x = gRoomControls.roomOriginX + 0xb0;
-            y = gRoomControls.roomOriginY + 0x40;
+        if (((u32)((x - gRoomControls.origin_x) - 0x90) < 0x41) &&
+            ((u32)((y - gRoomControls.origin_y) - 8) < 0x41)) {
+            x = gRoomControls.origin_x + 0xb0;
+            y = gRoomControls.origin_y + 0x40;
         }
         for (i = 0; i < 4; i++) {
             entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[i];
@@ -636,8 +636,8 @@ void sub_08042E30(Entity* this) {
         this->actionDelay = (Random() & 0x38) + 0x28;
         this->speed = 0x200;
         this->direction = pVVar9->unk00.HALF.HI >> 3;
-        uVar6 = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, gRoomControls.roomOriginX + 0x110,
-                             gRoomControls.roomOriginY + 0x60);
+        uVar6 = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, gRoomControls.origin_x + 0x110,
+                             gRoomControls.origin_y + 0x60);
         this->field_0x78.HALF.HI = (gUnk_080D1304[Random() & 7] + uVar6) & 0x1f;
     }
     pVVar9->unk00.HWORD += pVVar9->unk08;
@@ -1079,15 +1079,15 @@ NONMATCH("asm/non_matching/vaati/sub_08043770.inc", void sub_08043770(Entity* th
 
     if (--this->actionDelay == 0) {
         entity = ((VaatiArm_HeapStruct*)this->myHeap)->parent;
-        if ((gScreenTransition.field_0x39 & 0xc) == 0) {
+        if ((gRoomTransition.field_0x39 & 0xc) == 0) {
             entity->subAction = 2;
         }
         if (this->type2 == 0) {
             ((VaatiArm_HeapStruct*)this->myHeap)->parent = NULL;
-            gScreenTransition.field_0x39 &= 0xfe;
+            gRoomTransition.field_0x39 &= 0xfe;
         } else {
             *(u32*)((VaatiArm_HeapStruct*)this->myHeap)->s1 = 0;
-            gScreenTransition.field_0x39 &= 0xfd;
+            gRoomTransition.field_0x39 &= 0xfd;
         }
         ((VaatiArm_HeapStruct*)this->myHeap)->entities[4]->myHeap = NULL;
         ((VaatiArm_HeapStruct*)this->myHeap)->entities[4]->health = 0;
@@ -1291,7 +1291,7 @@ u32 sub_08043C98(Entity* this) {
     Entity* e2 = ((VaatiArm_HeapStruct*)this->myHeap)->entities[3];
     if ((e1->bitfield == 0x9d) || (e2->bitfield == 0x9d)) {
         sub_08043D08(this);
-        gScreenTransition.field_0x38 |= 2;
+        gRoomTransition.field_0x38 |= 2;
         return 1;
     } else {
         return 0;
@@ -1345,33 +1345,33 @@ void sub_08043DB0(Entity* this) {
 
     if (((gPlayerState.flags & PL_MINISH) != 0)) {
         pEVar3 = ((VaatiArm_HeapStruct*)this->myHeap)->entities[3];
-        if (CheckPlayerInRegion(pEVar3->x.HALF.HI - gRoomControls.roomOriginX,
-                                pEVar3->y.HALF.HI - gRoomControls.roomOriginY + 2, 3, 3)) {
+        if (CheckPlayerInRegion(pEVar3->x.HALF.HI - gRoomControls.origin_x,
+                                pEVar3->y.HALF.HI - gRoomControls.origin_y + 2, 3, 3)) {
             DoExitTransition((ScreenTransitionData*)&gUnk_080D13EC);
-            if ((gScreenTransition.field_0x39 & 3) != 3) {
-                gScreenTransition.player_status.room_next = 1;
+            if ((gRoomTransition.field_0x39 & 3) != 3) {
+                gRoomTransition.player_status.room_next = 1;
             }
             cVar1 = this->field_0x7a.HWORD;
-            gScreenTransition.field_0x3d = 0x1e - (cVar1 / 0x3c);
-            gScreenTransition.field_0x3c = this->type2;
+            gRoomTransition.field_0x3d = 0x1e - (cVar1 / 0x3c);
+            gRoomTransition.field_0x3c = this->type2;
             pEVar2 = ((VaatiArm_HeapStruct*)this->myHeap)->parent;
-            gScreenTransition.hurtType = pEVar2->x.HALF.HI;
-            gScreenTransition.field_0x42 = pEVar2->y.HALF.HI;
+            gRoomTransition.hurtType = pEVar2->x.HALF.HI;
+            gRoomTransition.field_0x42 = pEVar2->y.HALF.HI;
             pEVar4 = ((VaatiArm_HeapStruct*)pEVar2->myHeap)->parent;
             if (pEVar4 != NULL) {
-                gScreenTransition.field_0x44 = pEVar4->x.HALF.HI;
-                gScreenTransition.field_0x46 = pEVar4->y.HALF.HI;
+                gRoomTransition.field_0x44 = pEVar4->x.HALF.HI;
+                gRoomTransition.field_0x46 = pEVar4->y.HALF.HI;
             } else {
-                gScreenTransition.field_0x44 = gRoomControls.roomOriginX + 0x110;
-                gScreenTransition.field_0x46 = gRoomControls.roomOriginY + 0x60;
+                gRoomTransition.field_0x44 = gRoomControls.origin_x + 0x110;
+                gRoomTransition.field_0x46 = gRoomControls.origin_y + 0x60;
             }
             pEVar4 = (Entity*)(*(int*)((VaatiArm_HeapStruct*)pEVar2->myHeap)->s1);
             if (pEVar4 != NULL) {
-                gScreenTransition.field_0x48 = pEVar4->x.HALF.HI;
-                gScreenTransition.field_0x4a = pEVar4->y.HALF.HI;
+                gRoomTransition.field_0x48 = pEVar4->x.HALF.HI;
+                gRoomTransition.field_0x4a = pEVar4->y.HALF.HI;
             } else {
-                gScreenTransition.field_0x48 = gRoomControls.roomOriginX + 0x110;
-                gScreenTransition.field_0x4a = gRoomControls.roomOriginY + 0x60;
+                gRoomTransition.field_0x48 = gRoomControls.origin_x + 0x110;
+                gRoomTransition.field_0x4a = gRoomControls.origin_y + 0x60;
             }
         }
     }
@@ -1399,8 +1399,8 @@ void sub_08043EB8(Entity* this) {
     pEVar4->flags = pEVar4->flags | 0x80;
     pEVar4->spriteSettings.draw = 1;
     pEVar4->spritePriority.b0 = 4;
-    pEVar4->x.HALF.HI = (this->type2 == 0) ? gScreenTransition.field_0x44 : gScreenTransition.field_0x48;
-    pEVar4->y.HALF.HI = (this->type2 == 0) ? gScreenTransition.field_0x46 : gScreenTransition.field_0x4a;
+    pEVar4->x.HALF.HI = (this->type2 == 0) ? gRoomTransition.field_0x44 : gRoomTransition.field_0x48;
+    pEVar4->y.HALF.HI = (this->type2 == 0) ? gRoomTransition.field_0x46 : gRoomTransition.field_0x4a;
     pEVar4->z.HALF.HI = 0;
     pEVar4->field_0x3c = pEVar4->field_0x3c & 0xef;
     pEVar4->hitType = 0x3a;
@@ -1442,8 +1442,8 @@ void sub_08044078(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
         if (this->type != 3 ||
-            !(((gScreenTransition.field_0x38 & 1) == 0 ||
-               (((VaatiArm_HeapStruct*)this->myHeap)->entities[0]->type2 != gScreenTransition.field_0x3c)))) {
+            !(((gRoomTransition.field_0x38 & 1) == 0 ||
+               (((VaatiArm_HeapStruct*)this->myHeap)->entities[0]->type2 != gRoomTransition.field_0x3c)))) {
             InitializeAnimation(this, 0x12);
         } else {
             InitializeAnimation(this, 0x11);
@@ -1455,8 +1455,8 @@ void sub_08044078(Entity* this) {
 void sub_080440CC(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
-        if ((gScreenTransition.field_0x38 & 1) != 0 &&
-            ((VaatiArm_HeapStruct*)this->myHeap)->entities[0]->type2 == gScreenTransition.field_0x3c) {
+        if ((gRoomTransition.field_0x38 & 1) != 0 &&
+            ((VaatiArm_HeapStruct*)this->myHeap)->entities[0]->type2 == gRoomTransition.field_0x3c) {
             InitializeAnimation(this, 0x13);
         } else {
             InitializeAnimation(this, 0x11);

@@ -118,13 +118,13 @@ void sub_08060A00(Entity* this) {
         ((UnkHeap*)this->myHeap)->unk_1 = gPlayerEntity.x.HALF.HI;
         ((UnkHeap*)this->myHeap)->unk_2 = gPlayerEntity.y.HALF.HI;
     }
-    if (this->field_0x74.HWORD != gRoomControls.roomID) {
-        this->field_0x74.HWORD = gRoomControls.roomID;
+    if (this->field_0x74.HWORD != gRoomControls.room) {
+        this->field_0x74.HWORD = gRoomControls.room;
         CopyPosition(&gPlayerEntity, this);
         this->action = 1;
         this->spriteSettings.draw = 1;
         this->speed = 0x120;
-        tmp = gRoomControls.unk_10;
+        tmp = gRoomControls.scroll_direction;
         this->animationState = tmp * 2;
         InitAnimationForceUpdate(this, tmp << 0x19 >> 0x19); // TODO some conversion between u8 and u32?
         this->frameDuration = (Random() & 0x7f) + 0x80;
@@ -880,7 +880,7 @@ void sub_08061B58(Entity* this) {
         this->action = 1;
         InitAnimationForceUpdate(this, 2);
     }
-    if (gScreenTransition.player_status.field_0x24[8] == 2) {
+    if (gRoomTransition.player_status.field_0x24[8] == 2) {
         UpdateAnimationSingleFrame(this);
     }
     sub_0806FD3C(this);

@@ -51,7 +51,7 @@ void sub_08068A1C(Entity* this) {
     int offset;
 
     this->type2 = this->type;
-    if (gScreenTransition.player_status.field_0x24[8] != 0) {
+    if (gRoomTransition.player_status.field_0x24[8] != 0) {
         offset = 6;
         bVar1 = 3;
 
@@ -103,7 +103,7 @@ void sub_08068AA4(Entity* this) {
 }
 
 void sub_08068ADC(Entity* this) {
-    if (gScreenTransition.player_status.field_0x24[8] == 2) {
+    if (gRoomTransition.player_status.field_0x24[8] == 2) {
         GetNextFrame(this);
     }
     sub_0806FD3C(this);

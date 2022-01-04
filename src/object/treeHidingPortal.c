@@ -35,7 +35,7 @@ void sub_0809E86C(Entity* this) {
 
     if (sub_0800419C(this, &gPlayerEntity, 0x30, 0x30)) {
         if (CheckGlobalFlag(EZERO_1ST)) {
-            if (((gScreenTransition.frameCount & 3) == 0)) {
+            if (((gRoomTransition.frameCount & 3) == 0)) {
                 CreateSparkle(this);
             }
         }

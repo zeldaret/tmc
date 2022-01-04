@@ -374,14 +374,14 @@ void HandleEntity0x82Actions(Entity* entity) {
                 }
                 break;
             case 1 << 3:
-                if (gScreenTransition.frameCount % 4 == 0) {
+                if (gRoomTransition.frameCount % 4 == 0) {
                     temp = (entity->field_0xf + 2) & 7;
                     entity->animationState = temp;
                     entity->field_0xf = temp;
                 }
                 break;
             case 1 << 4:
-                if (gScreenTransition.frameCount % 2 == 0) {
+                if (gRoomTransition.frameCount % 2 == 0) {
                     static const s8 sOffsets[] = { -1, -2, 0, 1 };
                     entity->spriteOffsetX = sOffsets[Random() % 4];
                 }
@@ -785,8 +785,8 @@ void ScriptCommand_CheckPlayerInRegion2(Entity* entity, ScriptExecutionContext* 
     u32 x, y, width, height;
     width = context->scriptInstructionPointer[1] & 0xFF;
     height = context->scriptInstructionPointer[1] >> 8;
-    x = entity->x.HALF.HI - gRoomControls.roomOriginX;
-    y = entity->y.HALF.HI - gRoomControls.roomOriginY;
+    x = entity->x.HALF.HI - gRoomControls.origin_x;
+    y = entity->y.HALF.HI - gRoomControls.origin_y;
     context->condition = CheckPlayerInRegion(x, y, width, height);
     gActiveScriptInfo.flags |= 1;
 }
@@ -1037,11 +1037,11 @@ void ScriptCommand_0807E80C(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807E818(u32 fadeType) {
-    Entity* cameraTarget = gRoomControls.cameraTarget;
+    Entity* cameraTarget = gRoomControls.camera_target;
     u32 x, y;
     if (cameraTarget) {
-        x = cameraTarget->x.HALF.HI - gRoomControls.roomScrollX;
-        y = cameraTarget->y.HALF.HI - gRoomControls.roomScrollY;
+        x = cameraTarget->x.HALF.HI - gRoomControls.scroll_x;
+        y = cameraTarget->y.HALF.HI - gRoomControls.scroll_y;
     } else {
         x = 0x78;
         y = 0x50;
@@ -1237,8 +1237,8 @@ void ScriptCommand_SetAnimationState(Entity* entity, ScriptExecutionContext* con
 
 void ScriptCommand_0807EB4C(Entity* entity, ScriptExecutionContext* context) {
     entity->animationState =
-        sub_0806F5B0(sub_080045B4(entity, context->scriptInstructionPointer[1] + gRoomControls.roomOriginX,
-                                  context->scriptInstructionPointer[2] + gRoomControls.roomOriginY));
+        sub_0806F5B0(sub_080045B4(entity, context->scriptInstructionPointer[1] + gRoomControls.origin_x,
+                                  context->scriptInstructionPointer[2] + gRoomControls.origin_y));
 }
 
 void ScriptCommand_FacePlayer(Entity* entity, ScriptExecutionContext* context) {
@@ -1267,8 +1267,8 @@ void ScriptCommand_SetEntityVelocity(Entity* entity, ScriptExecutionContext* con
 }
 
 void ScriptCommand_SetEntityPositionRelative(Entity* entity, ScriptExecutionContext* context) {
-    entity->x.HALF.HI = gRoomControls.roomOriginX + context->scriptInstructionPointer[1];
-    entity->y.HALF.HI = gRoomControls.roomOriginY + context->scriptInstructionPointer[2];
+    entity->x.HALF.HI = gRoomControls.origin_x + context->scriptInstructionPointer[1];
+    entity->y.HALF.HI = gRoomControls.origin_y + context->scriptInstructionPointer[2];
 }
 
 void ScriptCommand_OffsetEntityPosition(Entity* entity, ScriptExecutionContext* context) {
@@ -1349,19 +1349,19 @@ void ScriptCommand_0807ED24(Entity* entity, ScriptExecutionContext* context) {
         context->unk_18 = 1;
         context->unk_12 = context->scriptInstructionPointer[3];
         tmp = context->scriptInstructionPointer[1];
-        tmp2 = entity->x.HALF.HI - gRoomControls.roomOriginX;
+        tmp2 = entity->x.HALF.HI - gRoomControls.origin_x;
         context->x.WORD = ((tmp - tmp2) << 0x10) / context->unk_12;
         tmp = context->scriptInstructionPointer[2];
-        tmp3 = entity->y.HALF.HI - gRoomControls.roomOriginY;
+        tmp3 = entity->y.HALF.HI - gRoomControls.origin_y;
         context->y.WORD = ((tmp - tmp3) << 0x10) / context->unk_12;
         entity->animationState =
-            sub_0806F5B0(sub_080045B4(entity, context->scriptInstructionPointer[1] + gRoomControls.roomOriginX,
-                                      context->scriptInstructionPointer[2] + gRoomControls.roomOriginY));
+            sub_0806F5B0(sub_080045B4(entity, context->scriptInstructionPointer[1] + gRoomControls.origin_x,
+                                      context->scriptInstructionPointer[2] + gRoomControls.origin_y));
         context->postScriptActions |= 2;
     } else {
         if (!--context->unk_12) {
-            entity->x.HALF.HI = context->scriptInstructionPointer[1] + gRoomControls.roomOriginX;
-            entity->y.HALF.HI = context->scriptInstructionPointer[2] + gRoomControls.roomOriginY;
+            entity->x.HALF.HI = context->scriptInstructionPointer[1] + gRoomControls.origin_x;
+            entity->y.HALF.HI = context->scriptInstructionPointer[2] + gRoomControls.origin_y;
             return;
         }
         entity->x.WORD += context->x.WORD;
@@ -1382,8 +1382,8 @@ void ScriptCommand_0807EDD4(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void ScriptCommand_0807EE04(Entity* entity, ScriptExecutionContext* context) {
-    sub_0807DEDC(entity, context, context->scriptInstructionPointer[1] + gRoomControls.roomOriginX,
-                 context->scriptInstructionPointer[2] + gRoomControls.roomOriginY);
+    sub_0807DEDC(entity, context, context->scriptInstructionPointer[1] + gRoomControls.origin_x,
+                 context->scriptInstructionPointer[2] + gRoomControls.origin_y);
     gActiveScriptInfo.flags |= 1;
 }
 
@@ -1511,11 +1511,11 @@ void ScriptCommand_0807F088(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void ScriptCommand_CameraTargetEntity(Entity* entity, ScriptExecutionContext* context) {
-    gRoomControls.cameraTarget = entity;
+    gRoomControls.camera_target = entity;
 }
 
 void ScriptCommand_CameraTargetPlayer(Entity* entity, ScriptExecutionContext* context) {
-    gRoomControls.cameraTarget = &gPlayerEntity;
+    gRoomControls.camera_target = &gPlayerEntity;
 }
 
 void ScriptCommand_0807F0B4(Entity* entity, ScriptExecutionContext* context) {
@@ -1739,9 +1739,9 @@ void sub_0807F464(Entity* entity, ScriptExecutionContext* context) {
         context->unk_18++;
         context->postScriptActions |= 2;
         s32Var = context->intVariable;
-        context->x.HALF.HI = gRoomControls.roomOriginX + s32Var;
+        context->x.HALF.HI = gRoomControls.origin_x + s32Var;
         context->y.HALF.HI = entity->y.HALF.HI;
-        if (s32Var > entity->x.HALF.HI - gRoomControls.roomOriginX) {
+        if (s32Var > entity->x.HALF.HI - gRoomControls.origin_x) {
             entity->direction = 64;
             entity->animationState = (entity->animationState & 0x80) | 2;
         } else {
@@ -1764,8 +1764,8 @@ void sub_0807F4F8(Entity* entity, ScriptExecutionContext* context) {
         context->postScriptActions |= 2;
         s32Var = context->intVariable;
         context->x.HALF.HI = entity->x.HALF.HI;
-        context->y.HALF.HI = gRoomControls.roomOriginY + s32Var;
-        if (s32Var > entity->y.HALF.HI - gRoomControls.roomOriginY) {
+        context->y.HALF.HI = gRoomControls.origin_y + s32Var;
+        if (s32Var > entity->y.HALF.HI - gRoomControls.origin_y) {
             entity->direction = 128;
             entity->animationState = (entity->animationState & 0x80) | 4;
         } else {
@@ -1797,20 +1797,20 @@ void WaitForCameraTouchRoomBorder(Entity* entity, ScriptExecutionContext* contex
     s32 left;
     s32 bottom;
 
-    if (gRoomControls.cameraTarget != NULL) {
-        left = gRoomControls.cameraTarget->x.HALF.HI - DISPLAY_WIDTH / 2;
-        bottom = gRoomControls.cameraTarget->y.HALF.HI - DISPLAY_HEIGHT / 2;
+    if (gRoomControls.camera_target != NULL) {
+        left = gRoomControls.camera_target->x.HALF.HI - DISPLAY_WIDTH / 2;
+        bottom = gRoomControls.camera_target->y.HALF.HI - DISPLAY_HEIGHT / 2;
 
-        if (left < gRoomControls.roomOriginX)
-            left = gRoomControls.roomOriginX;
-        if (left > gRoomControls.roomOriginX + gRoomControls.width - DISPLAY_WIDTH)
-            left = gRoomControls.roomOriginX + gRoomControls.width - DISPLAY_WIDTH;
-        if (bottom < gRoomControls.roomOriginY)
-            bottom = gRoomControls.roomOriginY;
-        if (bottom > gRoomControls.roomOriginY + gRoomControls.height - DISPLAY_HEIGHT)
-            bottom = gRoomControls.roomOriginY + gRoomControls.height - DISPLAY_HEIGHT;
+        if (left < gRoomControls.origin_x)
+            left = gRoomControls.origin_x;
+        if (left > gRoomControls.origin_x + gRoomControls.width - DISPLAY_WIDTH)
+            left = gRoomControls.origin_x + gRoomControls.width - DISPLAY_WIDTH;
+        if (bottom < gRoomControls.origin_y)
+            bottom = gRoomControls.origin_y;
+        if (bottom > gRoomControls.origin_y + gRoomControls.height - DISPLAY_HEIGHT)
+            bottom = gRoomControls.origin_y + gRoomControls.height - DISPLAY_HEIGHT;
 
-        if (left == gRoomControls.roomScrollX && bottom == gRoomControls.roomScrollY)
+        if (left == gRoomControls.scroll_x && bottom == gRoomControls.scroll_y)
             gActiveScriptInfo.flags |= 1u;
         else
             gActiveScriptInfo.commandSize = 0;
@@ -1830,12 +1830,12 @@ void sub_0807F650(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807F680(Entity* entity, ScriptExecutionContext* context) {
-    context->condition = gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX > (s32)(context->intVariable & 0xffff);
+    context->condition = gPlayerEntity.x.HALF.HI - gRoomControls.origin_x > (s32)(context->intVariable & 0xffff);
     gActiveScriptInfo.flags |= 1;
 }
 
 void sub_0807F6B4(Entity* entity, ScriptExecutionContext* context) {
-    context->condition = gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY > (s32)(context->intVariable & 0xffff);
+    context->condition = gPlayerEntity.y.HALF.HI - gRoomControls.origin_y > (s32)(context->intVariable & 0xffff);
     gActiveScriptInfo.flags |= 1;
 }
 
@@ -1863,8 +1863,8 @@ void sub_0807F738(Entity* entity, ScriptExecutionContext* context) {
 
 void SetPlayerPos(Entity* entity, ScriptExecutionContext* context) {
     s32 s32Var = context->intVariable;
-    gPlayerEntity.x.HALF.HI = (s32Var >> 16) + gRoomControls.roomOriginX;
-    gPlayerEntity.y.HALF.HI = (s32Var & 0xffff) + gRoomControls.roomOriginY;
+    gPlayerEntity.x.HALF.HI = (s32Var >> 16) + gRoomControls.origin_x;
+    gPlayerEntity.y.HALF.HI = (s32Var & 0xffff) + gRoomControls.origin_y;
 }
 
 void GetConditionSet(Entity* entity, ScriptExecutionContext* context) {
@@ -1917,7 +1917,7 @@ void sub_0807F83C(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807F844(Entity* entity, ScriptExecutionContext* context) {
-    gRoomControls.cameraTarget = entity;
+    gRoomControls.camera_target = entity;
     sub_080809D4();
 }
 
@@ -2100,12 +2100,12 @@ void sub_0807FB74(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807FB94(Entity* entity, ScriptExecutionContext* context) {
-    InitScreen(SCREEN_CREDITS);
+    SetTask(TASK_STAFFROLL);
 }
 
 void sub_0807FBA0(Entity* entity, ScriptExecutionContext* context) {
-    entity->x.HALF.HI = gRoomControls.roomScrollX + 120;
-    entity->y.HALF.HI = gRoomControls.roomScrollY + 80;
+    entity->x.HALF.HI = gRoomControls.scroll_x + 120;
+    entity->y.HALF.HI = gRoomControls.scroll_y + 80;
 }
 
 void sub_0807FBB4(Entity* entity, ScriptExecutionContext* context) {
@@ -2139,9 +2139,9 @@ void sub_0807FBFC(Entity* entity, ScriptExecutionContext* context) {
 #if defined(USA) || defined(DEMO_USA) || defined(DEMO_JP)
 void sub_0807FC24(Entity* entity, ScriptExecutionContext* context) {
 #if defined(DEMO_JP)
-    u32 idx = gRoomControls.roomID == 1 ? 0xcf : 0xd0;
+    u32 idx = gRoomControls.room == 1 ? 0xcf : 0xd0;
 #else
-    u32 idx = gRoomControls.roomID == 1 ? 0xcf : 0xd1;
+    u32 idx = gRoomControls.room == 1 ? 0xcf : 0xd1;
 #endif
     SetLocalFlag(idx);
 }

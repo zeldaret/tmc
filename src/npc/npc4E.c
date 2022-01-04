@@ -203,8 +203,8 @@ void sub_0806DCA0() {
 }
 
 void sub_0806DCC0() {
-    gScreenTransition.player_status.overworld_map_x = 0x7c8;
-    gScreenTransition.player_status.overworld_map_y = 0xf8;
+    gRoomTransition.player_status.overworld_map_x = 0x7c8;
+    gRoomTransition.player_status.overworld_map_y = 0xf8;
 }
 
 void NPC4E_Fusion(Entity* this) {

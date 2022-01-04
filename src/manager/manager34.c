@@ -22,7 +22,7 @@ void Manager34_Main(Manager34* this) {
 
 void sub_0805DBB4(Manager34* this) {
     this->manager.action = 1;
-    this->field_0x20 = gScreenTransition.field_0x3d * 0x3c;
+    this->field_0x20 = gRoomTransition.field_0x3d * 0x3c;
 }
 
 void sub_0805DBCC(Manager34* this) {

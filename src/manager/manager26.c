@@ -30,7 +30,7 @@ void sub_0805C6D0(Manager26* this) {
         DeleteManager(&this->manager);
         return;
     }
-    this->unk_2a = gRoomControls.roomOriginY + this->manager.unk_0e;
+    this->unk_2a = gRoomControls.origin_y + this->manager.unk_0e;
     this->manager.unk_0e = 0;
     this->unk_28 = 0;
     this->unk_29 = 0;
@@ -39,8 +39,8 @@ void sub_0805C6D0(Manager26* this) {
         obj = CreateObject(PUSHABLE_FURNITURE, tmp->unk_01, tmp->unk_02);
         if (obj) {
             obj->actionDelay = tmp->unk_03;
-            obj->x.HALF.HI = gRoomControls.roomOriginX + tmp->unk_04;
-            obj->y.HALF.HI = gRoomControls.roomOriginY + tmp->unk_06;
+            obj->x.HALF.HI = gRoomControls.origin_x + tmp->unk_04;
+            obj->y.HALF.HI = gRoomControls.origin_y + tmp->unk_06;
             obj->parent = (Entity*)this;
             obj->collisionLayer = 1;
             obj->field_0x82.HALF.HI = this->manager.unk_0e;

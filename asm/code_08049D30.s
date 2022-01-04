@@ -10,7 +10,7 @@
 UpdateRoomTracker: @ 0x08049D30
 	push {r4, r5, r6, lr}
 	ldr r1, _08049D58 @ =gUnk_020354B0
-	ldr r0, _08049D5C @ =gUnk_02024050
+	ldr r0, _08049D5C @ =gRoomMemory
 	str r0, [r1]
 	adds r5, r1, #0
 	ldr r6, _08049D60 @ =gRoomControls
@@ -30,7 +30,7 @@ _08049D3E:
 	b _08049D7C
 	.align 2, 0
 _08049D58: .4byte gUnk_020354B0
-_08049D5C: .4byte gUnk_02024050
+_08049D5C: .4byte gRoomMemory
 _08049D60: .4byte gRoomControls
 _08049D64: .4byte 0x0000FFFF
 _08049D68:
@@ -52,7 +52,7 @@ _08049D84: .4byte gUnk_020354B0
 	thumb_func_start sub_08049D88
 sub_08049D88: @ 0x08049D88
 	push {r4, r5, lr}
-	ldr r4, _08049DC0 @ =gUnk_02024050
+	ldr r4, _08049DC0 @ =gRoomMemory
 	adds r1, r4, #0
 	adds r1, #8
 	ldr r3, _08049DC4 @ =gRoomControls
@@ -81,7 +81,7 @@ _08049DA0:
 	adds r0, r4, #0
 	pop {r4, r5, pc}
 	.align 2, 0
-_08049DC0: .4byte gUnk_02024050
+_08049DC0: .4byte gRoomMemory
 _08049DC4: .4byte gRoomControls
 _08049DC8: .4byte 0x0000FFFF
 
@@ -89,7 +89,7 @@ _08049DC8: .4byte 0x0000FFFF
 sub_08049DCC: @ 0x08049DCC
 	push {r4, lr}
 	adds r2, r0, #0
-	ldr r1, _08049DF0 @ =gUnk_02024050
+	ldr r1, _08049DF0 @ =gRoomMemory
 	adds r3, r1, #0
 	adds r3, #0x40
 _08049DD6:
@@ -107,7 +107,7 @@ _08049DE2:
 	strh r0, [r2, #2]
 	pop {r4, pc}
 	.align 2, 0
-_08049DF0: .4byte gUnk_02024050
+_08049DF0: .4byte gRoomMemory
 
 	thumb_func_start sub_08049DF4
 sub_08049DF4: @ 0x08049DF4

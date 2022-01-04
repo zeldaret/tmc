@@ -45,7 +45,7 @@ void sub_0806CF30(Entity* this) {
     switch (this->subAction) {
         case 0:
         case 1:
-            if (gScreenTransition.frameCount % 4 == 0) {
+            if (gRoomTransition.frameCount % 4 == 0) {
                 if (gPlayerEntity.x.HALF.HI < this->x.HALF.HI && this->field_0x68.HWORD - 32 < this->x.HALF.HI) {
                     this->x.HALF.HI--;
                 }
@@ -257,7 +257,7 @@ void sub_0806D41C(Entity* this) {
         ExecuteScriptForEntity(this, NULL);
         HandleEntity0x82Actions(this);
     }
-    if ((gScreenTransition.frameCount & 1) == 0) {
+    if ((gRoomTransition.frameCount & 1) == 0) {
         if (CheckPlayerProximity(this->x.HALF.HI - 0x20, this->y.HALF.HI, 0x40, 0x40) != 0) {
             if (this->spriteOffsetY > -8) {
                 this->spriteOffsetY -= 1;

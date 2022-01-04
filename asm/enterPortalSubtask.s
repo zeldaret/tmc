@@ -121,8 +121,8 @@ _0804AC5E:
 	ldrh r0, [r1, #0xc]
 	strh r0, [r2, #0x18]
 	bl FlushSprites
-	bl sub_080AD9B0
-	bl sub_080AD918
+	bl DrawEntities
+	bl CopyOAM
 	ldr r0, _0804AC98 @ =gUnk_02018EB0
 	ldrb r0, [r0, #0x1b]
 	cmp r0, #0
@@ -248,7 +248,7 @@ sub_0804AD6C: @ 0x0804AD6C
 	push {r4, r5, r6, lr}
 	mov r6, r8
 	push {r6}
-	ldr r3, _0804ADD0 @ =gScreenTransition
+	ldr r3, _0804ADD0 @ =gRoomTransition
 	movs r1, #0
 	movs r6, #1
 	strb r6, [r3, #8]
@@ -287,12 +287,12 @@ sub_0804AD6C: @ 0x0804AD6C
 	strb r0, [r3, #0xd]
 	mov r0, r8
 	strb r0, [r3, #0x14]
-	bl sub_080300AC
+	bl ClearArmosData
 	bl sub_080300C4
 	pop {r3}
 	mov r8, r3
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_0804ADD0: .4byte gScreenTransition
+_0804ADD0: .4byte gRoomTransition
 _0804ADD4: .4byte gArea
 _0804ADD8: .4byte gUnk_080D4140

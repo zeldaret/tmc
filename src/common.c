@@ -6,7 +6,7 @@
 #include "main.h"
 #include "area.h"
 #include "room.h"
-#include "fileScreen.h"
+#include "fileselect.h"
 #include "game.h"
 #include "flags.h"
 #include "kinstone.h"
@@ -266,17 +266,17 @@ void LoadGfxGroup(u32 group) {
             case 0xD:
                 return;
             case 0xE:
-                if (gSaveHeader->gameLanguage != 0 && gSaveHeader->gameLanguage != 1) {
+                if (gSaveHeader->language != 0 && gSaveHeader->language != 1) {
                     loadGfx = TRUE;
                 }
                 break;
             case 0xF:
-                if (gSaveHeader->gameLanguage != 0) {
+                if (gSaveHeader->language != 0) {
                     loadGfx = TRUE;
                 }
                 break;
             default:
-                if (ctrl == gSaveHeader->gameLanguage) {
+                if (ctrl == gSaveHeader->language) {
                     loadGfx = TRUE;
                 }
                 break;
@@ -350,7 +350,7 @@ void DispReset(bool32 refresh) {
 }
 
 void ClearOAM(void) {
-    u8* d = (u8*)gUnk_03000000.oam;
+    u8* d = (u8*)gOAMControls.oam;
     u8* mem = (u8*)0x07000000;
     u32 i;
     for (i = 128; i != 0; --i) {
@@ -376,7 +376,7 @@ void ResetScreenRegs(void) {
 }
 
 u32 sub_0801DB94(void) {
-    return gScreenTransition.player_status.dungeon_map_y >> 11;
+    return gRoomTransition.player_status.dungeon_map_y >> 11;
 }
 
 ASM_FUNC("asm/non_matching/common/DrawDungeonMap.inc", void DrawDungeonMap(u32 floor, struct_02019EE0* data, u32 size));

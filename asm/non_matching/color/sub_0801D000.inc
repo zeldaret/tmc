@@ -1,7 +1,7 @@
     .syntax unified
 	push {lr}
 	adds r2, r0, #0
-	ldr r0, _0801D024 @ =gScreenTransition
+	ldr r0, _0801D024 @ =gRoomTransition
 	movs r1, #0
 	cmp r2, #0
 	beq _0801D00E
@@ -16,7 +16,7 @@ _0801D00E:
 	bl sub_0801CFD0
 	b _0801D03A
 	.align 2, 0
-_0801D024: .4byte gScreenTransition
+_0801D024: .4byte gRoomTransition
 _0801D028:
 	ldr r3, _0801D03C @ =gUnk_02001A3C
 	ldrb r1, [r3]

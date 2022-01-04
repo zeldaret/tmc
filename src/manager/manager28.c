@@ -109,8 +109,8 @@ Entity* Manager28_FindMatchingEntity(EntityData* unk1) {
     u32 x, y;
     Entity* i;
     LinkedList* tmp;
-    x = unk1->xPos + gRoomControls.roomOriginX;
-    y = unk1->yPos + gRoomControls.roomOriginY;
+    x = unk1->xPos + gRoomControls.origin_x;
+    y = unk1->yPos + gRoomControls.origin_y;
     tmp = &gEntityLists[4];
     for (i = tmp->first; (u32)i != (u32)tmp; i = i->next) {
         if (x == i->x.HALF.HI && y == i->y.HALF.HI && unk1->id == i->id && 3 == i->kind && unk1->type == i->type) {
