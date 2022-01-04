@@ -437,7 +437,6 @@ SECTIONS {
         src/roomInit.o(.text);
         src/fade.o(.text);
         src/fileScreen.o(.text);
-        asm/fileScreen.o(.text);
         src/game.o(.text);
         asm/code_080526F8.o(.text);
         asm/modBombs.o(.text);

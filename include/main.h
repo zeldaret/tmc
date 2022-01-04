@@ -55,7 +55,8 @@ typedef struct {
 } Main;
 
 typedef struct {
-    /*0x00*/ u16 nextToLoad;
+    /*0x00*/ u8 nextToLoad;
+    /*0x01*/ u8 _1;
     /*0x02*/ u8 lastState;
     /*0x03*/ u8 field_0x3;
     /*0x04*/ u8 state;

@@ -205,15 +205,3 @@ void Postman_Fusion(Entity* this) {
         UpdateAnimationSingleFrame(this);
     }
 }
-
-void CreateZeldaFollower(void) {
-    Entity* npc;
-    if (CheckGlobalFlag(0x1c) != 0) {
-        npc = CreateNPC(0x2e, 0, 0);
-        if (npc != NULL) {
-            CopyPosition(&gPlayerEntity, npc);
-            npc->flags |= 0x20;
-            npc->animationState = GetAnimationState(npc);
-        }
-    }
-}

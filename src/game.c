@@ -1,4 +1,5 @@
 #include "global.h"
+#include "asm.h"
 #include "sound.h"
 #include "screen.h"
 #include "entity.h"
@@ -15,6 +16,8 @@
 #include "message.h"
 #include "game.h"
 
+extern u8 gUpdateVisibleTiles;
+
 extern u8 gUnk_080FCA84[];
 extern u8 gUnk_080FCAC8[];
 extern u8 gUnk_02024090[];
@@ -30,6 +33,39 @@ extern void** gAreaTable[];
 extern u8 gUnk_080FCAF8[];
 extern u16 gUnk_020178E0[];
 
+extern void (*gUnk_080FC9D8[])();
+extern void (*gUnk_080FC9E8[])();
+extern void (*gUnk_080FCA08[])();
+extern void (*gUnk_080FCA14[])();
+extern void (*gUnk_080FCA70[])(void);
+
+void sub_0807CA18(void);
+void sub_080300AC(void);
+void sub_08049CD4(void);
+void sub_0807059C(void);
+void sub_080A7124(void);
+void sub_0806FD8C(void);
+void sub_080300C4(void);
+u32 sub_0805BC04(void);
+void DeleteSleepingEntities(void);
+u32 sub_0805BBBC(void);
+void sub_080185F8(void);
+void sub_08080A40(void);
+u32 sub_0804AA84(void);
+void sub_08078CB4(void);
+void sub_0801C344();
+u32 sub_080705AC();
+void CollisionMain();
+void sub_0805BB74();
+void CreateZeldaFollower(void);
+void sub_0807C0DC();
+void sub_0805E9A8();
+void sub_0804AF90();
+void sub_0804AFDC();
+void sub_0805283C();
+void UpdateScroll();
+void UpdateBgAnim();
+void sub_08052010();
 void sub_080520C4();
 void CleanUpGFXSlots();
 void sub_080ADE24();
@@ -48,6 +84,25 @@ void sub_0807C740(void);
 void sub_080197AC(void);
 void sub_08053390(void);
 
+static void sub_08053518(void);
+static void InitializeEntities(void);
+static void sub_08053178(void);
+static void sub_08052BF8(void);
+static void sub_08051E04(void);
+static void sub_08052F1C(void);
+/* static */ void sub_08052C5C(void);
+static void sub_08052C3C(void);
+static void sub_0805340C(void);
+static void sub_08051D98(void);
+static void sub_08051DCC(void);
+/* static */ u32 sub_080528B4(void);
+/* static */ u32 HandleRoomExit(void);
+static void sub_080531F8(void);
+static void sub_0805329C(void);
+static void InitializePlayer(void);
+/* static */ void sub_08051F04(void);
+/* static */ void sub_08051F9C(u32 a1, u32 a2, u32 a3, u32 a4);
+static void DrawGameOverText(void);
 static u32 StairsAreValid();
 static void ClearFlagArray(const u16*);
 static void DummyHandler(u32* a1);
@@ -57,6 +112,26 @@ static void InitAllRoomResInfo(void);
 static void InitRoomResInfo(RoomResInfo* info, RoomHeader* hdr, u32 area, u32 room);
 static void sub_080532E4(void);
 static void sub_08053460(void);
+
+typedef struct {
+    u8 _0;
+    u8 _1;
+    u8 _2;
+    u8 _3;
+    u8 _4;
+    u16 _6;
+} struct_08127F94;
+extern struct_08127F94 gUnk_08127F94[];
+
+typedef struct {
+    u8 _0;
+    u8 _1;
+    u8 _2;
+    u8 _3;
+    u16 _4;
+    u16 _6;
+} struct_080FCA20;
+extern struct_080FCA20 gUnk_080FCA20[];
 
 typedef struct {
     u16* dest;
@@ -84,6 +159,417 @@ typedef struct {
 } PopupOption;
 
 extern void CreateDialogBox();
+
+void HandleGameplayScreen(void) {
+    gScreenTransition.frameCount++;
+    gUnk_080FC9D8[gMain.funcIndex]();
+#ifdef DEMO_USA
+    if (gSave.unk48C[7] != 0) {
+        if (--gSave.unk48C[7] == 0) {
+            DoFade(7, 2);
+            gMain.funcIndex = 3;
+        }
+    }
+#endif
+}
+
+void sub_080519B0(void) {
+    if (gFadeControl.active)
+        return;
+
+    DispReset(1);
+    InitSoundPlayingInfo();
+    zMallocInit();
+    sub_080A7124();
+    sub_0807059C();
+    MemClear(&gScreenTransition, 0xB0);
+    sub_08049CD4();
+    sub_080300AC();
+    sub_0807CA18();
+    MemCopy(&gSave.saved_status, &gScreenTransition.player_status, 0x20);
+    gScreenTransition.transitionType = 4;
+    sub_08053518();
+    gMain.funcIndex = 1;
+    gMain.transition = 0;
+}
+
+void sub_08051A14(void) {
+    DispReset(1);
+    gFadeControl.mask = 0xffffffff;
+    MemClear(&gUnk_03000000, 0xB74);
+    MemClear(&gUnk_02032EC0, 0x3B4);
+    EraseAllEntities();
+    sub_080197AC();
+    sub_08080668();
+    ResetPalettes();
+    sub_0801CFA8(1);
+    sub_0806FD8C();
+    gRoomControls.areaID = gScreenTransition.player_status.area_next;
+    gRoomControls.roomID = gScreenTransition.player_status.room_next;
+    sub_08053320();
+    gGFXSlots.unk0 = 1;
+    gMain.funcIndex = 2;
+}
+
+void sub_08051A90(void) {
+    gUnk_080FC9E8[gMain.transition]();
+}
+
+void InitializeNewRoom(void) {
+    SetInitializationPriority();
+    gScreen.lcd.displayControl = 0x1740;
+    gMain.transition = 1;
+    gScreenTransition.transitioningOut = 0;
+    gScreenTransition.field_0x4[0] = 0;
+    gScreenTransition.field_0x4[1] = 0;
+    MessageInitialize();
+    sub_08052CFC();
+    sub_0801C370(0);
+    InitializeEntities();
+#ifndef EU
+    sub_0801855C();
+#endif
+}
+
+void sub_08051AF0(void) {
+    UpdateEntities();
+    if (!sub_0805BBBC())
+        UpdateScroll();
+    UpdateBgAnim();
+    sub_08000108();
+    sub_0801C344();
+    UpdateManagers();
+    FlushSprites();
+    sub_0801C208();
+    sub_08078CB4();
+    sub_080AD9B0();
+    sub_080AD918();
+
+    if (gFadeControl.active || gRoomControls.unk2 != 0)
+        return;
+
+    sub_08052F1C();
+    if (gArea.musicIndex != gArea.pMusicIndex) {
+        gArea.musicIndex = gArea.pMusicIndex;
+        SoundReq(gArea.pMusicIndex | 0x800B0000);
+    }
+
+    DeleteSleepingEntities();
+
+    if (sub_0805BC04())
+        return;
+
+    sub_08052C5C();
+    ResetSystemPriority();
+    sub_08051E04();
+    sub_080300C4();
+    gMain.transition = 2;
+    SetPlayerControl(0);
+    gUnk_02034490[0] = 0;
+#if defined(USA) || defined(DEMO_USA)
+    if (gArea.inventoryGfxIdx != 0xff) {
+        sub_0801855C();
+    }
+    sub_08052BF8();
+    sub_08053178();
+#elif defined(EU)
+    sub_08053178();
+    sub_0801855C();
+#elif defined(JP)
+    sub_08053178();
+    if (gArea.inventoryGfxIdx != 0xff) {
+        sub_0801855C();
+    }
+#elif defined(DEMO_JP)
+    if (gScreenTransition.field_0x2c[5])
+        sub_08053178();
+    if (gArea.inventoryGfxIdx != 0xff) {
+        sub_0801855C();
+    }
+    sub_08052BF8();
+#endif
+    if (!gRoomVars.field_0x0) {
+        RequestPriorityDuration(NULL, 1);
+    }
+}
+
+void sub_08051BD0(void) {
+    if (sub_080705AC() || sub_0804AA84()) {
+        return;
+    }
+    sub_0805340C();
+
+    if (gMain.transition != 2) {
+        return;
+    }
+
+    if ((gMessage.doTextBox & 0x7f) || gPriorityHandler.priority_timer != 0)
+        sub_08078B48();
+
+    FlushSprites();
+    UpdateEntities();
+    sub_08080A40();
+    CollisionMain();
+    UpdateScroll();
+    UpdateBgAnim();
+    sub_08000108();
+    sub_08052C3C();
+    sub_0801C344();
+    UpdateManagers();
+    sub_0801C208();
+    sub_08078CB4();
+    sub_080AD9B0();
+    HandleRoomExit();
+    sub_08052C5C();
+    sub_080528B4();
+    sub_080185F8();
+    sub_080AD918();
+    switch (gRoomControls.unk2) {
+        case 1:
+            gPlayerState.queued_action = 0x17;
+            gMain.transition = 1;
+            SetRoomReloadPriority();
+            sub_08051D98();
+            break;
+        case 2:
+            gPlayerState.queued_action = 0x17;
+            gMain.transition = 1;
+            SetRoomReloadPriority();
+            sub_08051DCC();
+            break;
+    }
+}
+
+void sub_08051CA8(void) {
+    if (sub_080705AC())
+        return;
+
+    UpdateEntities();
+    CollisionMain();
+    sub_0801C344();
+    UpdateManagers();
+    FlushSprites();
+    sub_0801C208();
+    sub_08078CB4();
+    sub_080AD9B0();
+    HandleRoomExit();
+    sub_080528B4();
+    sub_080AD918();
+    if (!gFadeControl.active)
+        ResetSystemPriority();
+}
+
+void sub_08051CF0(void) {
+    FlushSprites();
+    sub_0801C208();
+    sub_080AD9B0();
+    gMain.pad = 1;
+    sub_080AD918();
+    if (!gFadeControl.active) {
+        DispReset(1);
+        gMain.funcIndex = 1;
+        gMain.transition = 0;
+        gScreenTransition.transitioningOut = 1;
+    }
+}
+
+void sub_08051D2C(void) {
+#ifdef DEMO_USA
+    if (!gFadeControl.active)
+        DoSoftReset();
+#else
+    DoFade(7, 8);
+    InitScreen(3);
+#endif
+}
+
+static void InitializeEntities(void) {
+    sub_08052EA0();
+    sub_0804AF90();
+    sub_0804AFDC();
+    InitializePlayer();
+    gUnk_03004030.unk_00 = NULL;
+    sub_0807C740();
+    gUpdateVisibleTiles = 1;
+    sub_0805283C();
+    SetColor(0, 0);
+    LoadRoom();
+    CreateZeldaFollower();
+    sub_0804AFF4();
+    sub_0805329C();
+    sub_08000108();
+    sub_0805BB74(0xffffffff);
+    sub_080531F8();
+}
+
+void sub_08051D98(void) {
+    sub_08052EA0();
+    gRoomVars.field_0x0 = 1;
+    sub_0805E9A8();
+    sub_0804AF90();
+    sub_0804AFDC();
+    sub_0807C0DC();
+    sub_0805283C();
+    LoadRoom();
+    sub_0804AFF4();
+    SetPlayerControl(1);
+}
+
+void sub_08051DCC(void) {
+    gRoomControls.areaID = gScreenTransition.player_status.area_next;
+    gRoomControls.roomID = gScreenTransition.player_status.room_next;
+    RoomExitCallback();
+    gScreenTransition.transitionType = 3;
+    sub_08052CFC();
+    sub_08052EA0();
+    sub_0805E9A8();
+    sub_0804AF90();
+    sub_0804AFDC();
+    sub_0805283C();
+}
+
+void sub_08051E04() {
+    if (CheckIsOverworld()) {
+        struct_08127F94* i;
+        u32 hi_x, hi_y;
+        s32 x, y;
+
+        x = gPlayerEntity.x.HALF.HI;
+        if (x < 0)
+            x += 0xf;
+        hi_x = x >> 4;
+
+        y = gPlayerEntity.y.HALF.HI;
+        if (y < 0)
+            y += 0xf;
+        hi_y = y >> 4;
+
+        for (i = gUnk_08127F94; i->_0 != 0xFF; i++) {
+            if (i->_0 <= hi_x && i->_2 >= hi_x && i->_1 <= hi_y && i->_3 >= hi_y) {
+                gSave.windcrests |= 1 << i->_4;
+                break;
+            }
+        }
+    }
+}
+
+void sub_08051E68() {
+    gUnk_080FCA08[gMenu.menuType]();
+}
+
+void sub_08051E84() {
+    struct_080FCA20* p = &gUnk_080FCA20[gUnk_02032EC0.field_0x3];
+    gRoomControls.areaID = p->_0;
+    gRoomControls.roomID = p->_1;
+    sub_08053320();
+    gArea.localFlagOffset = GetFlagBankOffset(gRoomControls.areaID);
+    SetCurrentRoomPropertyList(p->_0, p->_1);
+    sub_08052FD8(p->_0, p->_1);
+    gRoomControls.roomScrollX = gRoomControls.roomOriginX + p->_4;
+    gRoomControls.roomScrollY = gRoomControls.roomOriginY + p->_6;
+    gMenu.field_0x0 = p->_2;
+    gMenu.field_0x3 = p->_3 & 0xf;
+    gMenu.field_0xc = (void*)p;
+    gMenu.menuType++;
+    gMenu.overlayType = 0;
+    gMenu.transitionTimer = 300;
+    sub_08051F04();
+}
+
+void sub_08051F04(void) {
+    gUnk_080FCA14[gMenu.field_0x0]();
+    FlushSprites();
+    UpdateEntities();
+    sub_080AD9B0();
+    sub_080AD918();
+    UpdateScroll();
+    UpdateBgAnim();
+    UpdateManagers();
+    sub_08000108();
+}
+
+void sub_08051F40(u32 a1, u32 a2, u32 a3, u32 a4) {
+    u32 flag = gUnk_080FCA20[gUnk_02032EC0.field_0x3]._3;
+    if (flag & 0xF0) {
+        MenuFadeIn(2, flag >> 4);
+    } else {
+        gUnk_02032EC0.nextToLoad = 3;
+        sub_080500F4(0x10);
+        MessageInitialize();
+    }
+}
+
+void sub_08051F78(u32 a1, u32 a2, u32 a3, u32 a4) {
+    u32 idx = gUnk_02032EC0.field_0x3;
+    struct_080FCA20* p = &gUnk_080FCA20[idx];
+    sub_08051F9C(p->_0, p->_1, p->_4, p->_6);
+}
+
+void sub_08051F9C(u32 a1, u32 a2, u32 a3, u32 a4) {
+    u32 tmp = gScreen.lcd.displayControl & 0x6000;
+    sub_08052FF4(a1, a2);
+    gRoomControls.roomScrollX = gRoomControls.roomOriginX + a3;
+    gRoomControls.roomScrollY = gRoomControls.roomOriginY + a4;
+    sub_0807C740();
+    gUpdateVisibleTiles = 1;
+    gUsedPalettes = 0;
+    gScreen.lcd.displayControl |= tmp;
+}
+
+void sub_08051FF0() {
+    sub_0804B0B0(gMenu.field_0xc[0], gMenu.field_0xc[1]);
+}
+
+void sub_08052004() {
+    gMenu.menuType = 2;
+}
+
+void sub_08052010() {
+    InitSoundPlayingInfo();
+    MessageInitialize();
+    DispReset(1);
+    MemClear(gBG1Buffer, 0x800);
+    MemClear(gBG2Buffer, 0x800);
+    sub_080A4D34();
+    LoadPaletteGroup(0xA);
+    SetColor(0, 0);
+    LoadGfxGroup(4);
+    MemClear((void*)0x06000000, 0x20);
+    MemClear(&gMenu, 0x30);
+    gScreen.lcd.displayControl |= 0x1000;
+    gScreen.bg1.control = 0x1C01;
+    gScreen.bg2.control = 0x1D05;
+    gScreen.bg1.updated = 1;
+    gScreen.bg2.updated = 1;
+}
+
+void HandleGameOverScreen() {
+    gUnk_080FCA70[gMain.funcIndex]();
+    if (gMain.funcIndex != 0) {
+        FlushSprites();
+        DrawGameOverText();
+        sub_080AD918();
+    }
+}
+
+void sub_080520C4(u32 idx) {
+    gMain.funcIndex = idx;
+    sub_080A7114(0);
+}
+
+void sub_080520D8(void) {
+    if (gFadeControl.active)
+        return;
+    sub_08052010();
+    gMenu.focusCoords[0] = 80;
+    gMenu.transitionTimer = 60;
+    gSave.stats.health = 24;
+    gMain.field_0x5 = 60;
+    SoundReq(BGM_GAMEOVER);
+    sub_080500F4(4);
+    gFadeControl.mask = 0xFFFF0001;
+    sub_080520C4(1);
+}
 
 void sub_0805212C(void) {
     if (gFadeControl.active)
@@ -251,7 +737,7 @@ void sub_080522F4(void) {
 void nullsub_107(void) {
 }
 
-void DrawGameOverText(void) {
+static void DrawGameOverText(void) {
     static const u8 sOffsets[] = {
         48, 68, 88, 108, 137, 156, 174, 192,
     };

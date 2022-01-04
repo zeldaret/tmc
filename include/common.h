@@ -43,6 +43,8 @@ void MemCopy(const void* src, void* dest, u32 size);
  */
 void ReadKeyInput(void);
 
+void zMallocInit(void);
+
 /**
  * Allocate memory on heap.
  *

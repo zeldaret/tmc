@@ -80,6 +80,18 @@ void sub_08061AFC(Entity*);
 
 extern u16* gUnk_0810B660[8];
 
+void CreateZeldaFollower(void) {
+    Entity* npc;
+    if (CheckGlobalFlag(0x1c) != 0) {
+        npc = CreateNPC(0x2e, 0, 0);
+        if (npc != NULL) {
+            CopyPosition(&gPlayerEntity, npc);
+            npc->flags |= 0x20;
+            npc->animationState = GetAnimationState(npc);
+        }
+    }
+}
+
 // UNUSED zelda follower, probably because it was too resource heavy
 void NPC5(Entity* this) {
     gUnk_0810AC1C[this->type](this);

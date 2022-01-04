@@ -192,9 +192,13 @@ typedef enum {
 extern void SetTileType(u32, u32, u32);
 extern void InitScreenShake(u32 time, u32 magnitude);
 
+void sub_0804AFF4(void);
+void LoadRoom(void);
+void SetCurrentRoomPropertyList(u32 area, u32 room);
 extern void* GetCurrentRoomProperty(u32);
 extern void LoadRoomTileEntities();
 
 void sub_0804B3C4(void*);
+void sub_0804B0B0(u32 arg0, u32 arg1);
 
 #endif
