@@ -14,7 +14,7 @@ sound/songs/midi/*.s
 translations/*.bin
 
 # doxygen
-docs/doxygen/
+docs/doxygen/html/
 
 # tools
 tools/agbcc
