@@ -5,7 +5,7 @@ extern u32 gRoomMemory;
 
 extern void MemFill32(u32, void*, u32);
 
-void ClearRoomMemory() {
+void ClearRoomMemory(void) {
     MemFill32(0xFFFFFFFF, &gRoomMemory, 0x40);
     gUnk_020354B0 = &gRoomMemory;
 }

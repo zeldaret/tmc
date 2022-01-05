@@ -1,6 +1,8 @@
 #include "global.h"
 #include "screen.h"
 #include "functions.h"
+#include "game.h"
+#include "common.h"
 
 typedef struct {
     Manager manager;
@@ -9,7 +11,7 @@ typedef struct {
     void* field_0x3c;
 } Manager2;
 
-extern void sub_080576A0();
+extern void sub_080576A0(void*);
 extern void sub_0805754C(Manager2*);
 
 extern u8 gMapDataTopSpecial[];
@@ -81,9 +83,9 @@ void sub_08057688(void) {
     gScreen.bg1.control = BGCNT_SCREENBASE(30) | BGCNT_CHARBASE(2) | BGCNT_MOSAIC;
 }
 
-void sub_080576A0(Manager2* this) {
+void sub_080576A0(void* this) {
     LoadGfxGroup(gRoomVars.unk_10[0]);
-    this->field_0x38 = NULL;
-    this->field_0x3c = NULL;
-    sub_0805754C(this);
+    ((Manager2*)this)->field_0x38 = NULL;
+    ((Manager2*)this)->field_0x3c = NULL;
+    sub_0805754C((Manager2*)this);
 }

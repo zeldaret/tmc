@@ -78,7 +78,7 @@ void sub_080293B4(Entity* this) {
     CreateDeathFx(this, 0xff, gUnk_080CCC34[this->cutsceneBeh.HALF.LO * 3 + this->type]);
 }
 
-void nullsub_141() {
+void nullsub_141(Entity* this) {
 }
 
 void sub_080293DC(Entity* this) {

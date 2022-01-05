@@ -165,10 +165,8 @@ void sub_0805B210(Manager1A* this) {
             gRoomTransition.player_status.start_pos_y = tmp->unk_06;
             break;
         case 1:
-            gRoomTransition.player_status.start_pos_x =
-                gPlayerEntity.x.HALF.HI - gRoomControls.origin_x + tmp->unk_04;
-            gRoomTransition.player_status.start_pos_y =
-                gPlayerEntity.y.HALF.HI - gRoomControls.origin_y + tmp->unk_06;
+            gRoomTransition.player_status.start_pos_x = gPlayerEntity.x.HALF.HI - gRoomControls.origin_x + tmp->unk_04;
+            gRoomTransition.player_status.start_pos_y = gPlayerEntity.y.HALF.HI - gRoomControls.origin_y + tmp->unk_06;
             break;
         case 2:
             gRoomTransition.player_status.start_pos_x = tmp->unk_04;

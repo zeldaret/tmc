@@ -10,7 +10,7 @@
 extern const NPCDefinition gNPCDefinitions[];
 
 extern Hitbox* gNPCHitboxes[];
-extern u32 (*gUnk_08114EFC[])();
+extern u32 (*gUnk_08114EFC[])(Entity*);
 extern u32 (*gUnk_08114F0C[])(Entity*, u8*);
 
 typedef struct {

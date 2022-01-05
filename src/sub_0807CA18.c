@@ -2,8 +2,6 @@
 #include "save.h"
 #include "common.h"
 
-extern void sub_0807C960();
-
 extern u16 gMetatilesBottom[];
 extern u16 gMetatilesTop[];
 extern u8 gMapData;
@@ -41,7 +39,7 @@ void sub_0807C9D8(u32* a1) {
     LoadPalettes(gUnk_020176E0, 2, 13);
 }
 
-u32 FinalizeSave() {
+u32 FinalizeSave(void) {
     if (gSave.invalid || gSave.initialized != 1) {
         gSave.invalid = 0;
         gSave.initialized = 1;

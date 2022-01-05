@@ -6,10 +6,11 @@
 #include "menu.h"
 #include "screen.h"
 #include "message.h"
+#include "game.h"
 
-extern void (*const gUnk_08109A30[])();
+extern void (*const gUnk_08109A30[])(void);
 
-void DebugTask() {
+void DebugTask(void) {
     gUnk_08109A30[gMain.state]();
 }
 
@@ -90,6 +91,6 @@ void sub_0805FA98(void) {
     gScreen.bg3.updated = 1;
 }
 
-void sub_0805FBC4() {
+void sub_0805FBC4(void) {
     SetTask(TASK_TITLE);
 }

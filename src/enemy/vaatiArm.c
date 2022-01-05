@@ -546,8 +546,7 @@ void sub_08042C34(Entity* this) {
             y = gRoomControls.origin_y + gRoomControls.height + -0x40;
         }
 #endif
-        if (((u32)((x - gRoomControls.origin_x) - 0x90) < 0x41) &&
-            ((u32)((y - gRoomControls.origin_y) - 8) < 0x41)) {
+        if (((u32)((x - gRoomControls.origin_x) - 0x90) < 0x41) && ((u32)((y - gRoomControls.origin_y) - 8) < 0x41)) {
             x = gRoomControls.origin_x + 0xb0;
             y = gRoomControls.origin_y + 0x40;
         }

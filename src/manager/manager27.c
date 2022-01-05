@@ -3,6 +3,7 @@
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
+#include "common.h"
 
 extern u32 sub_0805C920(Entity*);
 

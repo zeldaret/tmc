@@ -3,7 +3,7 @@
 
 void sub_08045374(Entity*);
 
-extern void sub_080452E4();
+extern void sub_080452E4(Entity*);
 extern void ReplaceMonitoredEntity(Entity*, Entity*);
 
 extern void (*const gUnk_080D17C0[])(Entity*);

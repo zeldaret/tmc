@@ -6,6 +6,7 @@
 #include "flags.h"
 #include "object.h"
 #include "npc.h"
+#include "game.h"
 
 extern Hitbox gHitbox_2;
 typedef struct {
@@ -184,7 +185,7 @@ void sub_0806DC58(Entity* this) {
     ForceEquipItem(sub_0806DBF4(this->field_0x68.HALF.HI), 1);
 }
 
-void sub_0806DC7C() {
+void sub_0806DC7C(void) {
     const u16* tiles = gUnk_081141F4;
     while (*tiles != 0) {
         u32 tile = *tiles;
@@ -193,7 +194,7 @@ void sub_0806DC7C() {
     }
 }
 
-void sub_0806DCA0() {
+void sub_0806DCA0(void) {
     const u16* tiles = gUnk_081141F4;
     while (*tiles != 0) {
         u32 tile = *tiles;
@@ -202,7 +203,7 @@ void sub_0806DCA0() {
     }
 }
 
-void sub_0806DCC0() {
+void sub_0806DCC0(void) {
     gRoomTransition.player_status.overworld_map_x = 0x7c8;
     gRoomTransition.player_status.overworld_map_y = 0xf8;
 }

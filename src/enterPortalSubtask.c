@@ -12,8 +12,8 @@ typedef struct {
     u32 unk;
 } struct_02018EB0;
 
-extern void (*const gUnk_080D4120[])();
-extern void (*const gUnk_080D412C[])();
+extern void (*const gUnk_080D4120[])(void);
+extern void (*const gUnk_080D412C[])(void);
 
 extern struct_02018EB0 gUnk_02018EB0;
 

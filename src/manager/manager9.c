@@ -3,6 +3,7 @@
 #include "room.h"
 #include "screen.h"
 #include "functions.h"
+#include "common.h"
 
 typedef struct {
     Manager manager;
@@ -66,7 +67,7 @@ void sub_080582A0(u32 unk, u32* unk2, u16* unk3) {
 
 extern u8 gMapDataTopSpecial[];
 
-void sub_080582D0() {
+void sub_080582D0(void) {
     u8* tmp = gMapDataTopSpecial;
     u8* tmp2 = tmp + 0x4000;
     sub_080582F8(tmp, tmp2);

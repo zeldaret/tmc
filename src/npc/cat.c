@@ -5,7 +5,7 @@
 #include "message.h"
 #include "npc.h"
 
-extern void sub_08067C44();
+extern void sub_08067C44(Entity*);
 
 extern void (*gCat[9])(Entity*);
 
@@ -14,7 +14,7 @@ extern Dialog gUnk_08110EF8;
 extern Hitbox gUnk_08110EF0;
 extern void sub_08067B08(Entity*);
 
-extern u32 sub_08067D20();
+extern u32 sub_08067D20(Entity*);
 extern void sub_08067AAC(Entity*);
 extern void sub_08067B34(Entity*);
 extern void sub_08067B80(Entity*, u32);

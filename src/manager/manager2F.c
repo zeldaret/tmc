@@ -4,6 +4,7 @@
 #include "room.h"
 #include "screen.h"
 #include "functions.h"
+#include "common.h"
 
 void sub_0805D470(Manager*);
 

@@ -21,7 +21,7 @@ void sub_08031680(Entity* this) {
     gUnk_080CE548[this->action](this);
 }
 
-void nullsub_152() {
+void nullsub_152(Entity* this) {
 }
 
 void sub_0803169C(Entity* this) {

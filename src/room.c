@@ -8,7 +8,7 @@
 #include "game.h"
 
 extern void sub_0804B058(EntityData* dat);
-extern void sub_0801AC98();
+extern void sub_0801AC98(void);
 extern u32 sub_08049D1C(u32);
 extern Entity* LoadRoomEntity(EntityData*);
 extern void* GetRoomProperty(u32, u32, u32);
@@ -17,8 +17,8 @@ extern void** gCurrentRoomProperties;
 extern void*** gAreaTable[];
 extern u8 gUnk_081091E4[];
 
-extern void sub_080186EC();
-extern void sub_0804B16C();
+extern void sub_080186EC(void);
+extern void sub_0804B16C(void);
 extern void ClearSmallChests(void);
 extern Entity* GetEmptyEntityByKind(u32 kind);
 
@@ -147,9 +147,9 @@ void sub_0804AFB0(void** properties) {
     }
 }
 
-u32 CallRoomProp6() {
+u32 CallRoomProp6(void) {
     u32 result;
-    u32 (*func)();
+    u32 (*func)(void);
 
     result = 1;
     func = (u32(*)())GetCurrentRoomProperty(6);
@@ -159,7 +159,7 @@ u32 CallRoomProp6() {
 }
 
 void CallRoomProp5And7(void) {
-    void (*func)();
+    void (*func)(void);
 
     sub_080186EC();
     func = (void (*)())GetCurrentRoomProperty(5);
@@ -219,7 +219,7 @@ void SetCurrentRoomPropertyList(u32 area, u32 room) {
 }
 
 void sub_0804B0E8(u32 arg0, u32 arg1) {
-    void (*func)();
+    void (*func)(void);
 
     // init function at index 4 of room data
     func = (void (*)())GetRoomProperty(arg0, arg1, 4);

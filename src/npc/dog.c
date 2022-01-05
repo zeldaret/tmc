@@ -4,7 +4,7 @@
 
 extern void (*gUnk_08111D88[])(Entity*);
 void sub_08069FE8(Entity*);
-u32 sub_08069EF0();
+u32 sub_08069EF0(Entity*);
 
 extern u8 gUnk_08111DA8[];
 u32 sub_08069F90(Entity*);

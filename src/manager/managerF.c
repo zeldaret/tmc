@@ -284,7 +284,7 @@ void sub_08059220(ManagerF* this) {
     }
 }
 
-void sub_08059278() {
+void sub_08059278(void) {
     ManagerF* tmp;
     tmp = (ManagerF*)FindEntityByID(0x9, 0xF, 0x6);
     if (tmp) {

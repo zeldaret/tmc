@@ -70,6 +70,7 @@ extern void sub_0805F7DC(u32, struct_02036540*);
 extern void sub_0805F300(struct_02036540*);
 extern void sub_08050A64(u32);
 extern void sub_08050AFC(u32);
+extern void sub_08050384();
 
 extern const struct_080FC844 gUnk_080FC844;
 extern const u16 gUnk_080FC85C[][3];

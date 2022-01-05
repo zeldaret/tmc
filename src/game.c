@@ -16,6 +16,7 @@
 #include "message.h"
 #include "game.h"
 #include "item.h"
+#include "subtask.h"
 
 // Game task
 
@@ -71,49 +72,50 @@ extern void* gUnk_080B755C[];
 extern void** gExitLists[];
 extern void** gAreaTable[];
 
-void FinalizeSave(void);
-void ClearArmosData(void);
-void ClearRoomMemory(void);
-void ClearMenuSavestate(void);
-void ResetUI(void);
-void sub_0806FD8C(void);
-void sub_080300C4(void);
-u32 sub_0805BC04(void);
-void DeleteSleepingEntities(void);
-u32 UpdateLightLevel(void);
-void sub_080185F8(void);
-void UpdateDoorTransition(void);
-u32 IsEnterPortal(void);
-void UpdateCarriedObject(void);
-void DrawUI();
-u32 CheckPlayerInactive();
-void CollisionMain();
-void sub_0805BB74();
-void CreateZeldaFollower(void);
-void LoadRoomGfx();
-void RecycleEntities();
-void sub_0804AF90();
-void CallRoomProp6();
-void UpdateScroll();
-void UpdateBgAnim();
-void CleanUpGFXSlots();
-void sub_080ADE24();
-void InitUI(u32);
-void sub_0801AE44(u32);
-void GenerateAreaHint(void);
-void ForceSetPlayerState(u32);
-void UpdateRoomTracker(void);
-void InitScriptData(void);
-void sub_08054524(void);
-void sub_080186D4(void);
-void sub_0806F364(void);
-void sub_08052FF4(u32 area, u32 room);
-void sub_0807C860(void);
-void sub_0807C740(void);
-void SetBGDefaults(void);
-void LoadItemGfx(void);
+extern void CreateDialogBox(u32, u32);
+extern void FinalizeSave(void);
+extern void ClearArmosData(void);
+extern void ClearRoomMemory(void);
+extern void ClearMenuSavestate(void);
+extern void ResetUI(void);
+extern void sub_0806FD8C(void);
+extern void sub_080300C4(void);
+extern u32 sub_0805BC04(void);
+extern void DeleteSleepingEntities(void);
+extern u32 UpdateLightLevel(void);
+extern void sub_080185F8(void);
+extern void UpdateDoorTransition(void);
+extern u32 IsEnterPortal(void);
+extern void UpdateCarriedObject(void);
+extern void DrawUI(void);
+extern u32 CheckPlayerInactive(void);
+extern void CollisionMain(void);
+extern void sub_0805BB74(u32);
+extern void CreateZeldaFollower(void);
+extern void LoadRoomGfx(void);
+extern void RecycleEntities(void);
+extern void sub_0804AF90(void);
+extern void CallRoomProp6(void);
+extern void UpdateScroll(void);
+extern void UpdateBgAnim(void);
+extern void CleanUpGFXSlots(void);
+extern void sub_080ADE24(void);
+extern void InitUI(u32);
+extern void sub_0801AE44(u32);
+extern void GenerateAreaHint(void);
+extern void ForceSetPlayerState(u32);
+extern void UpdateRoomTracker(void);
+extern void InitScriptData(void);
+extern void sub_08054524(void);
+extern void sub_080186D4(void);
+extern void sub_0806F364(void);
+extern void sub_08052FF4(u32 area, u32 room);
+extern void sub_0807C860(void);
+extern void sub_0807C740(void);
+extern void SetBGDefaults(void);
+extern void LoadItemGfx(void);
 
-static void LoadRoomBgm();
+static void LoadRoomBgm(void);
 static void sub_08052010(void);
 static void ResetTmpFlags(void);
 static void InitializeEntities(void);
@@ -133,7 +135,7 @@ static void sub_0805329C(void);
 static void InitializePlayer(void);
 /* static */ void sub_08051F9C(u32 a1, u32 a2, u32 a3, u32 a4);
 static void DrawGameOverText(void);
-static u32 StairsAreValid();
+static u32 StairsAreValid(void);
 static void ClearFlagArray(const u16*);
 static void DummyHandler(u32* a1);
 static void sub_08053434(u32* a1);
@@ -177,8 +179,6 @@ typedef struct {
     u8 right_align;
     u16 _a;
 } PopupOption;
-
-extern void CreateDialogBox();
 
 typedef struct {
     u8 area;

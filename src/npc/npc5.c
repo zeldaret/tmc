@@ -822,7 +822,7 @@ bool32 sub_08061A74(Entity* this, s32 x, s32 y, s32 param) {
     return TRUE;
 }
 
-void sub_08061AA0() {
+void sub_08061AA0(void) {
     DeleteThisEntity();
 }
 

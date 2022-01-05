@@ -5,6 +5,7 @@
 #include "main.h"
 #include "functions.h"
 #include "game.h"
+#include "fileselect.h"
 
 typedef struct SaveFileStatus {
     u16 checksum1;
@@ -90,7 +91,7 @@ const SaveFileEEPROMAddresses gSaveFileEEPROMAddresses[] = { { 0x500, 0x30, 0x10
                                                              { 0x20, 0x60, 0x1060, 0xf80, 0x1f80 },
                                                              { 0x8, 0xfa0, 0x1fa0, 0xfa0, 0x1fa0 } };
 #endif
-void sub_0807CD9C() {
+void sub_0807CD9C(void) {
     UpdateGlobalProgress();
 }
 

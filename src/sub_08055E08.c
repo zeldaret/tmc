@@ -4,7 +4,7 @@
 #include "functions.h"
 #include "screen.h"
 
-extern void (*const gUnk_080FF420[])();
+extern void (*const gUnk_080FF420[])(void);
 extern void sub_0804B0B0(u32, u32);
 extern void sub_08055B70(u32, u32, u32, u32);
 

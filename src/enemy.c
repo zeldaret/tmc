@@ -419,11 +419,11 @@ const EnemyDefinition gEnemyDefinition_46[] = {
     { 72, 384, &gUnk_080FD258, SPRITE_BOWMOBLIN_1, { 1, 1, 1, 2 }, 8, 256, 138, 139 },
 };
 
-extern void sub_08049E18();
-extern void sub_08049E4C();
-extern void sub_08049E80();
-extern void sub_08049EB0();
-void (*const gUnk_080D3BE8[])() = {
+extern Entity* sub_08049E18(void);
+extern Entity* sub_08049E4C(void);
+extern Entity* sub_08049E80(void);
+extern Entity* sub_08049EB0(void);
+Entity* (*const gUnk_080D3BE8[])(void) = {
     sub_08049E18,
     sub_08049E4C,
     sub_08049E80,

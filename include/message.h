@@ -126,6 +126,11 @@ void MessageFromTarget(u32 index);
  */
 void MessageAtHeight(u32 index, u32 y);
 
+/**
+ * @brief Close message.
+ */
+void MessageClose(void);
+
 void DispMessageFrame(u16*, s32, s32, u32);
 
 #endif // MESSAGE_H

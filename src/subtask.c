@@ -2,8 +2,10 @@
 #include "functions.h"
 #include "menu.h"
 #include "screen.h"
+#include "common.h"
+#include "subtask.h"
 
-extern void (*const gUnk_081280C4[])();
+extern void (*const gUnk_081280C4[])(void);
 
 void Subtask_KinstoneMenu(void) {
 #if !(defined(DEMO_USA) || defined(DEMO_JP))

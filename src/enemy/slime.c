@@ -37,7 +37,7 @@ void sub_08044F88(Entity* this) {
     }
 }
 
-void nullsub_171() {
+void nullsub_171(Entity* this) {
 }
 
 void sub_08044FC8(Entity* this) {

@@ -5,6 +5,7 @@
 #include "sound.h"
 #include "effects.h"
 #include "common.h"
+#include "asm.h"
 
 extern void (*const gUnk_080B43F4[])(Entity*);
 

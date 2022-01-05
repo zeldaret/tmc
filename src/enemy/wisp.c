@@ -3,6 +3,8 @@
 #include "object.h"
 #include "functions.h"
 
+static void sub_08033744(Entity* this);
+
 extern void (*const gUnk_080CEB74[])(Entity*);
 extern void (*const gUnk_080CEB8C[])(Entity*);
 extern void (*const gUnk_080CEB98[])(Entity*);
@@ -120,7 +122,7 @@ void sub_080336DC(Entity* this) {
     }
 }
 
-void sub_08033744(Entity* this) {
+static void sub_08033744(Entity* this) {
     u32 temp;
     u32 rand = (u32)Random() % 256;
 

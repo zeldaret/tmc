@@ -2,6 +2,7 @@
 #include "manager.h"
 #include "functions.h"
 #include "screen.h"
+#include "common.h"
 
 typedef struct {
     Manager manager;

@@ -7,6 +7,7 @@
 #include "script.h"
 #include "functions.h"
 #include "npc.h"
+#include "projectile.h"
 
 typedef struct {
     u32 unk;

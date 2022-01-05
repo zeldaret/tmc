@@ -60,7 +60,7 @@ static const u16 sLightRaysAlphaBlends[] = {
 
 #ifdef DEMO_JP
 static const SaveFile gDemoSave = {
-    .unk_01 = 1,
+    .initialized = 1,
     .msg_speed = 1,
     .brightness = 1,
     .global_progress = 1,

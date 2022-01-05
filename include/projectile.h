@@ -1,6 +1,8 @@
 #ifndef PROJECTILE_H
 #define PROJECTILE_H
 
+extern Entity* CreateProjectile(u32);
+
 typedef enum {
     /*00*/ DARK_NUT_SWORD_SLASH,
     /*01*/ ROCK_PROJECTILE,

@@ -2,6 +2,7 @@
 #include "asm.h"
 #include "functions.h"
 #include "common.h"
+#include "projectile.h"
 
 extern void (*const Winder_Actions[])(Entity*);
 extern const u8 gUnk_0812A6BC[];

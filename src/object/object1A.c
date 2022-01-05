@@ -1,7 +1,7 @@
 #include "object.h"
 #include "functions.h"
 
-extern void sub_08086A6C();
+extern void sub_08086A6C(Entity*);
 
 extern void (*gUnk_081206C4[99])(Entity*);
 

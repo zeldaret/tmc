@@ -5,10 +5,10 @@ extern void (*const gRope[6])(Entity*);
 extern void (*const gUnk_080CE460[4])(Entity*);
 extern void (*const gUnk_080CE470[3])(Entity*);
 extern Entity* gUnk_020000B0;
-extern u32 sub_0804A044();
+extern u32 sub_0804A044(Entity*, Entity*, u32);
 
-void sub_08031600();
-u32 sub_0803163C();
+void sub_08031600(Entity*);
+u32 sub_0803163C(Entity*);
 
 void Rope(Entity* this) {
     EnemyFunctionHandler(this, gRope);

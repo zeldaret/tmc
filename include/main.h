@@ -97,5 +97,6 @@ extern void VBlankInterruptWait(void);
 extern void DisableInterruptsAndDMA(void);
 extern void EnableVBlankIntr(void);
 extern void sub_08056250(void);
+extern void sub_08056208(void);
 
 #endif

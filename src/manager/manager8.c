@@ -1,6 +1,7 @@
 #include "manager.h"
 #include "screen.h"
 #include "functions.h"
+#include "common.h"
 
 typedef struct {
     Manager manager;
@@ -11,7 +12,7 @@ typedef struct {
 } Manager8;
 
 void sub_08057F20(Manager8*);
-void sub_08057EFC();
+void sub_08057EFC(void*);
 void sub_08058034(void);
 void sub_08058084(u16*, u16*);
 
@@ -27,12 +28,12 @@ void Manager8_Main(Manager8* this) {
     }
 }
 
-void sub_08057EFC(Manager8* this) {
+void sub_08057EFC(void* this) {
     LoadGfxGroup((u32)gRoomVars.unk_10[0]);
     sub_08058034();
-    this->unk_3c = 0;
-    this->unk_38 = 0;
-    sub_08057F20(this);
+    ((Manager8*)this)->unk_3c = 0;
+    ((Manager8*)this)->unk_38 = 0;
+    sub_08057F20(((Manager8*)this));
 }
 
 void sub_08058004(u32, void*, void*);
@@ -75,7 +76,7 @@ void sub_08058004(u32 unk1, void* unk2, void* unk3) {
     }
 }
 
-void sub_08058034() {
+void sub_08058034(void) {
     u32 tmp;
     u16 *tmp2, *tmp3;
     tmp2 = gMapDataTopSpecial;

@@ -19,7 +19,7 @@ extern u8 gUnk_0200AF14;
 extern u32 gUnk_080015BC;
 extern u8 gUnk_080FE1C6[];
 extern u32 gUnk_02034398;
-extern void (*const gUnk_080FE2A0[])();
+extern void (*const gUnk_080FE2A0[])(void);
 
 void ForceEquipItem(u32, u8);
 extern void sub_0807CAA0(u32, u32);

@@ -389,8 +389,7 @@ void VaatiWrathType0Action8(Entity* this) {
     sub_08042004(this);
     UpdateAnimationSingleFrame(this);
     LinearMoveUpdate(this);
-    if (((gRoomControls.origin_x + 0x20) > this->x.HALF.HI) ||
-        ((gRoomControls.origin_x + 0x140) < this->x.HALF.HI)) {
+    if (((gRoomControls.origin_x + 0x20) > this->x.HALF.HI) || ((gRoomControls.origin_x + 0x140) < this->x.HALF.HI)) {
         if (0x3f < this->speed) {
             this->direction ^= 0x10;
         }

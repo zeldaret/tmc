@@ -39,20 +39,6 @@ static_assert(sizeof(struct_02000010) == 0x20);
 extern struct_02000010 gUnk_02000010;
 
 typedef struct {
-    u16 type;
-    u8 field_0x2[4];
-    s16 playerXPos;
-    s16 playerYPos;
-    u8 field_0xa;
-    u8 area;
-    u8 room;
-    u8 playerLayer;
-    u8 field_0xe;
-    u8 playerState;
-    u16 transitionSFX;
-} ScreenTransitionData;
-
-typedef struct {
     u8 active;
     u8 field_0x1;
     u8 field_0x2;

@@ -89,7 +89,7 @@ u32 sub_0805795C(Manager* this, DiggingCaveEntrance* entr) {
     }
 }
 
-extern void sub_08080930();
+extern void sub_08080930(u32);
 
 #ifdef EU
 ASM_FUNC("asm/non_matching/eu/sub_08057A18.inc", void sub_08057A18(Manager* this, DiggingCaveEntrance* entr))

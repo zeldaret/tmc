@@ -32,13 +32,17 @@ bool32 HasDungeonSmallKey(void);
 bool32 ItemIsSword(u32 item);
 bool32 ItemIsShield(u32 item);
 u32 GetBottleContaining(u32 item);
+void PutItemOnSlot(u32 item);
+s32 GetItemPrice(u32 item);
+u32 GetSaleItemConfirmMessageID(u32 item);
+void ForceEquipItem(u32 item, u32 slot);
 
 void LoadGfxGroups(void);
 void LoadCutsceneRoom(u32 room, u32 area);
 void InitRoom(void);
 void InitParachuteRoom(void);
 
-void RegisterTransitionManager(void* mgr, void (*onEnter)(void), void (*onExit)(void));
+void RegisterTransitionManager(void* mgr, void (*onEnter)(void*), void (*onExit)(void*));
 void RoomExitCallback(void);
 
 void RestoreGameTask(u32 a1);

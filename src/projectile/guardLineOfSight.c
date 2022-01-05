@@ -2,6 +2,7 @@
 #include "asm.h"
 #include "coord.h"
 #include "functions.h"
+#include "projectile.h"
 
 extern u32 sub_080644C8(Entity*);
 extern bool32 sub_080AE4CC(Entity*, u32, u32, u32);

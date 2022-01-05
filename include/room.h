@@ -161,6 +161,20 @@ static_assert(sizeof(RoomTransition) == 0xB0);
 extern RoomTransition gRoomTransition;
 
 typedef struct {
+    u16 type;
+    u8 field_0x2[4];
+    s16 playerXPos;
+    s16 playerYPos;
+    u8 field_0xa;
+    u8 area;
+    u8 room;
+    u8 playerLayer;
+    u8 field_0xe;
+    u8 playerState;
+    u16 transitionSFX;
+} ScreenTransitionData;
+
+typedef struct {
     u8 type;
     u8 _1;
     u8 _2;
@@ -188,16 +202,19 @@ typedef enum {
     TILE_ENTITY_D,
 } TileEntityType;
 
-extern void SetTileType(u32, u32, u32);
-extern void InitScreenShake(u32 time, u32 magnitude);
+void SetTileType(u32, u32, u32);
+void InitScreenShake(u32 time, u32 magnitude);
 
 void CallRoomProp5And7(void);
 void LoadRoom(void);
 void SetCurrentRoomPropertyList(u32 area, u32 room);
-extern void* GetCurrentRoomProperty(u32);
-extern void LoadRoomTileEntities();
+void* GetCurrentRoomProperty(u32);
+void LoadRoomTileEntities();
+void LoadRoomEntityList(EntityData* listPtr);
 
 void sub_0804B3C4(void*);
 void sub_0804B0B0(u32 arg0, u32 arg1);
+
+void DoExitTransition(ScreenTransitionData* data);
 
 #endif

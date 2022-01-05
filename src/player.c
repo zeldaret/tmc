@@ -241,7 +241,7 @@ static EntityAction sub_0807518C;
 static EntityAction sub_080751B4;
 
 static void sub_080717F8(Entity*);
-static void reset_priority();
+static void reset_priority(void);
 static void break_out(Entity* this);
 static void sub_08073AD4(Entity* this);
 static void sub_08073B60(Entity*);
@@ -257,44 +257,41 @@ void SurfaceAction_Ladder(Entity*);
 void SurfaceAction_AutoLadder(Entity*);
 
 extern void sub_080A4D88(void);
-extern void RespawnPlayer();
-extern void sub_080797EC();
-extern void UpdatePlayerMovement();
-extern void sub_08077698();
-extern void sub_08079258();
-extern void EnablePlayerDraw();
-extern u32 sub_08079B24();
-extern void sub_08079708();
-extern void sub_080792D8();
-extern Entity* CreatePlayerBomb();
-extern u32 sub_0806F854();
-extern u32 UpdatePlayerCollision();
-extern void sub_08079744();
-extern void sub_0807AE20();
-extern u32 sub_0807A894();
-extern u32 sub_080797C4();
-extern u32 sub_0807AC54();
-extern void sub_0800892E();
-extern void sub_08078F24();
-extern void sub_0807B068();
-extern u32 sub_080001DA();
-extern u32 sub_0807A2F8();
-extern u32 sub_0806F730();
-extern u32 sub_08007DD6();
-extern u32 GetSurfaceCalcType();
+extern void RespawnPlayer(void);
+extern void sub_080797EC(void);
+extern void UpdatePlayerMovement(void);
+extern void sub_08079258(void);
+extern void EnablePlayerDraw(Entity*);
+extern u32 sub_08079B24(void);
+extern void sub_08079708(Entity*);
+extern Entity* CreatePlayerBomb(Entity*, u32);
+extern u32 sub_0806F854(Entity*, s32, s32);
+extern u32 UpdatePlayerCollision(void);
+extern void sub_08079744(Entity*);
+extern void sub_0807AE20(Entity*);
+extern u32 sub_0807A894(Entity*);
+extern u32 sub_080797C4(void);
+extern void sub_0800892E(Entity*);
+extern void sub_08078F24(void);
+extern void sub_0807B068(Entity*);
+extern u32 sub_080001DA(u32, u32);
+extern u32 sub_0807A2F8(u32);
+extern u32 sub_0806F730(Entity*);
+extern u32 sub_08007DD6(u32, const u16*);
+extern u32 GetSurfaceCalcType(Entity*, u32, u32);
 extern void sub_08074808(Entity* this);
 extern void DoJump(Entity*);
 extern void SetZeldaFollowTarget(Entity*);
 u32 ItemIsSword(u32 item);
-extern u32 sub_0807A2B8();
-extern u32 sub_08079550();
-extern u32 sub_080782C0();
+extern u32 sub_0807A2B8(void);
+extern u32 sub_08079550(void);
+extern u32 sub_080782C0(void);
 extern u32 sub_080793E4(u32);
 extern void sub_08008AC6(Entity*);
 extern u32 sub_08079C30(Entity*);
-extern void sub_08077AEC();
-extern u32 RunQueuedAction();
-extern void UpdatePlayerSkills();
+extern void sub_08077AEC(void);
+extern u32 RunQueuedAction(void);
+extern void UpdatePlayerSkills(void);
 
 void sub_08077698(Entity*);
 u32 sub_080782C0(void);
@@ -3294,7 +3291,7 @@ static NONMATCH("asm/non_matching/player/sub_080740D8.inc", void sub_080740D8(En
 }
 END_NONMATCH
 
-u32 sub_080741C4() {
+u32 sub_080741C4(void) {
     if ((gPlayerState.jump_status && (gPlayerState.jump_status & 7) != 3) || gPlayerEntity.z.WORD != 0) {
         gPlayerState.field_0x11 = 0;
         gPlayerState.field_0x37 = 0;
@@ -3529,7 +3526,7 @@ void SurfaceAction_Water(Entity* this) {
 }
 
 void sub_08074808(Entity* this) {
-    sub_08077AEC(this);
+    sub_08077AEC();
     if (GetInventoryValue(ITEM_FLIPPERS) == 1) {
         if (!gPlayerState.swim_state) {
             if ((gPlayerState.flags & 0x10000) != 0)
@@ -3559,7 +3556,7 @@ void SurfaceAction_Button(Entity* this) {
     gPlayerState.field_0x3f -= 2;
 }
 
-void sub_080748D4() {
+void sub_080748D4(void) {
     sub_080741C4();
 }
 

@@ -27,6 +27,8 @@ typedef struct {
     u16 unk_6;
 } struct_08108228;
 
+void sub_08058D34(void);
+
 void (*const gUnk_0810821C[])(ManagerC*);
 const struct_08108228 gUnk_08108228[6];
 const struct_08108228 gUnk_08108258[6];
@@ -267,7 +269,7 @@ void sub_08058CB0(ManagerC* this) {
     this->unk_24.HALF.HI = this->unk_20 = gUnk_08108300[tmp3];
 }
 
-void sub_08058CFC() {
+void sub_08058CFC(void) {
     u32 tmp = gPlayerEntity.y.HALF.HI - gRoomControls.scroll_y;
     if (tmp < 0x4C) {
         sub_080044AE(&gPlayerEntity, 0xC0, 0x10);
@@ -277,7 +279,7 @@ void sub_08058CFC() {
     }
 }
 
-void sub_08058D34() {
+void sub_08058D34(void) {
     u16 tmp;
     u32 tmp2;
     LoadPaletteGroup(0x28);

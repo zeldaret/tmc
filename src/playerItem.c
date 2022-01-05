@@ -1,26 +1,29 @@
 #include "global.h"
 #include "functions.h"
+#include "player.h"
 
-extern void PlayerItemSword();
-extern void PlayerItemBomb();
-extern void PlayerItem3();
-extern void PlayerItemBow();
-extern void PlayerItemShield();
-extern void PlayerItemLantern();
-extern void PlayerItemNulled();
-extern void PlayerItemGustJar();
-extern void PlayerItemPacciCane();
-extern void PlayerItemC();
-extern void PlayerItemCellOverwriteSet();
-extern void PlayerItemSwordSpin();
-extern void PlayerItemSwordBeam();
-extern void PlayerItem10();
-extern void PlayerItem11();
-extern void PlayerItem12();
-extern void PlayerItem13();
-extern void PlayerItem14();
-extern void PlayerItem15();
-extern void PlayerItemNulled2();
+typedef void(PlayerItemFunc)(Entity*);
+
+PlayerItemFunc PlayerItemSword;
+PlayerItemFunc PlayerItemBomb;
+PlayerItemFunc PlayerItem3;
+PlayerItemFunc PlayerItemBow;
+PlayerItemFunc PlayerItemShield;
+PlayerItemFunc PlayerItemLantern;
+PlayerItemFunc PlayerItemNulled;
+PlayerItemFunc PlayerItemGustJar;
+PlayerItemFunc PlayerItemPacciCane;
+PlayerItemFunc PlayerItemC;
+PlayerItemFunc PlayerItemCellOverwriteSet;
+PlayerItemFunc PlayerItemSwordSpin;
+PlayerItemFunc PlayerItemSwordBeam;
+PlayerItemFunc PlayerItem10;
+PlayerItemFunc PlayerItem11;
+PlayerItemFunc PlayerItem12;
+PlayerItemFunc PlayerItem13;
+PlayerItemFunc PlayerItem14;
+PlayerItemFunc PlayerItem15;
+PlayerItemFunc PlayerItemNulled2;
 
 typedef struct {
     u8 bitfield;
@@ -34,7 +37,7 @@ typedef struct {
 extern const PlayerItemDefinition gPlayerItemDefinitions[];
 extern const PlayerItemDefinition* gAdditionalPlayerItemDefinitions[3];
 
-void (*const gPlayerItemFunctions[])() = {
+PlayerItemFunc* const gPlayerItemFunctions[] = {
     DeleteEntity,
     PlayerItemSword,
     PlayerItemBomb,

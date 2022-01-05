@@ -8,6 +8,7 @@
 #include "script.h"
 #include "npc.h"
 #include "functions.h"
+#include "game.h"
 
 extern void (*gUnk_081115C0[])(Entity*);
 extern void (*gUnk_081115D0[])(Entity*);

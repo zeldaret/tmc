@@ -3,8 +3,8 @@
 #include "functions.h"
 
 extern s16 sub_080001DA(u32, u32); // ?
-extern void sub_08049CF4();
-void sub_080221C0();
+extern void sub_08049CF4(Entity*);
+void sub_080221C0(Entity*);
 
 typedef struct {
     s8 h;

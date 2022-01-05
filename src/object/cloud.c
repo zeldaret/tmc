@@ -2,6 +2,8 @@
 #include "structures.h"
 #include "functions.h"
 
+void sub_0809F814(u32 r0);
+
 extern void sub_0809F7BC(Entity*);
 extern void sub_0809F7F4(Entity*);
 extern void (*gUnk_08124798[])(Entity*);

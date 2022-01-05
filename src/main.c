@@ -29,10 +29,8 @@ void (*const sTaskHandlers[])(void) = {
     [TASK_FILE_SELECT] = FileSelectTask,
 #endif
 
-    [TASK_GAME] = GameTask,
-    [TASK_GAMEOVER] = GameOverTask,
-    [TASK_STAFFROLL] = StaffrollTask,
-    [TASK_DEBUG] = DebugTask,
+    [TASK_GAME] = GameTask,           [TASK_GAMEOVER] = GameOverTask,
+    [TASK_STAFFROLL] = StaffrollTask, [TASK_DEBUG] = DebugTask,
 };
 
 static void sub_080560B8(void);
@@ -225,7 +223,7 @@ static u32 CheckHeaderValid(void) {
     return TRUE;
 }
 
-void InitDMA() {
+void InitDMA(void) {
     SoundReq(SONG_VSYNC_OFF);
     gScreen._6d = gScreen._6c;
     gScreen._6c = 0;
@@ -238,7 +236,7 @@ void InitDMA() {
     DmaWait(3);
 }
 
-void sub_08056208() {
+void sub_08056208(void) {
     SoundReq(SONG_VSYNC_ON);
     gScreen._6c = gScreen._6d;
     gScreen._6d = 0;
@@ -252,7 +250,7 @@ void sub_0805622C(void* a1, u32 a2, u32 a3) {
     gUnk_03003DE4 ^= 1;
 }
 
-void sub_08056250() {
+void sub_08056250(void) {
     gScreen._6c = 0;
 }
 
@@ -299,10 +297,10 @@ u16 CheckRegionsOnScreen(u16* arr) {
     return 0xff;
 }
 
-void PlayerItemNulled2() {
+void PlayerItemNulled2(void) {
     DeleteThisEntity();
 }
 
-void PlayerItemNulled() {
+void PlayerItemNulled(void) {
     DeleteThisEntity();
 }

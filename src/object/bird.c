@@ -1,6 +1,7 @@
 #include "save.h"
 #include "object.h"
 #include "functions.h"
+#include "item.h"
 
 extern void (*const gUnk_08123EC0[])(Entity*);
 extern void (*const gUnk_08123EEC[])(Entity*);

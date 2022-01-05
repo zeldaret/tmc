@@ -148,11 +148,11 @@ void sub_080596E0(Manager10* this) {
     }
 }
 
-u32 sub_08059844() {
+u32 sub_08059844(void) {
     return gPlayerEntity.x.HALF.HI - gRoomControls.origin_x > gRoomControls.width >> 1;
 }
 
-u32 sub_0805986C() {
+u32 sub_0805986C(void) {
     return gPlayerEntity.x.HALF.HI - gRoomControls.origin_x > 0x200;
 }
 
@@ -207,7 +207,7 @@ void sub_08059960(const u16* unk1, const u16* unk2, u16* unk3, u8 unk4) {
     }
 }
 
-void sub_08059994() {
+void sub_08059994(void) {
     if (sub_0805986C()) {
         LoadPaletteGroup(0x5B);
         gArea.queued_bgm = 0x1E;

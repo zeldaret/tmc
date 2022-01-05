@@ -6,7 +6,7 @@
 
 void GreatFairy_InitializeAnimation(Entity*);
 Entity* GreatFairy_CreateForm(Entity*, u32, u32);
-void sub_080873D0();
+void sub_080873D0(Entity*);
 extern void (*const GreatFairy_Main[])(Entity*);
 extern void (*const GreatFairy_Behaviors[])(Entity*);
 extern void (*const GreatFairy_WingsBehaviors[])(Entity*);

@@ -232,8 +232,11 @@ u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
 void SetExtraSpriteFrame(Entity*, u32, u32);
 void SetSpriteSubEntryOffsetData1(Entity*, u32, u32);
 void SetSpriteSubEntryOffsetData2(Entity*, u32, u32);
+u8* GetSpriteSubEntryOffsetDataPointer(u32, u32);
 
 u32 GetFacingDirection(Entity*, Entity*);
+
+u32 ProcessMovement(Entity*);
 
 /**
  * @brief Delete the entity currently in execution.

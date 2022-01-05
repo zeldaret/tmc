@@ -3,6 +3,7 @@
 #include "structures.h"
 #include "functions.h"
 #include "asm.h"
+#include "enemy.h"
 
 extern u16 gUnk_081092D4;
 extern u8 gUnk_081094CE;

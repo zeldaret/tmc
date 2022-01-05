@@ -6,6 +6,7 @@
 #include "message.h"
 #include "object.h"
 #include "functions.h"
+#include "subtask.h"
 
 // copy, erase, start
 #define NUM_FILE_OPERATIONS 3
@@ -92,7 +93,7 @@ static void sub_08050624(u32);
 static void sub_0805066C(void);
 static void HideButtonR(void);
 static void ShowButtonR(void);
-void sub_08051458();
+void sub_08051458(void);
 
 void CreateDialogBox(u32 arg0, u32 arg1) {
     u32 sfx;

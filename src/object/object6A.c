@@ -5,6 +5,7 @@
 #include "message.h"
 #include "functions.h"
 #include "screen.h"
+#include "item.h"
 
 extern u8 gUnk_08114F30[];
 extern u8 gUnk_08114F34[];

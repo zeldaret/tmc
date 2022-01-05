@@ -84,7 +84,7 @@ void sub_0806BEC8(Entity* this, ScriptExecutionContext* context) {
     MessageNoOverlap(gUnk_0811334A[msgIndex], this);
 }
 
-void sub_0806BEFC() {
+void sub_0806BEFC(void) {
     SetTileType(0x17E, 0x58E, 1);
     SetTileType(0x17F, 0x58F, 1);
     SetTileType(0x180, 0x5CE, 1);

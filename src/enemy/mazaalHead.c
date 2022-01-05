@@ -810,8 +810,8 @@ void sub_08034BC8(Entity* this) {
 
 void sub_08034C00(Entity* this) {
     if (((gPlayerState.flags & PL_MINISH) != 0) &&
-        CheckPlayerInRegion(this->x.HALF.HI - gRoomControls.origin_x,
-                            this->y.HALF.HI - gRoomControls.origin_y + 0xd, 3, 3) != 0) {
+        CheckPlayerInRegion(this->x.HALF.HI - gRoomControls.origin_x, this->y.HALF.HI - gRoomControls.origin_y + 0xd, 3,
+                            3) != 0) {
         if (gRoomTransition.field_0x39 >= 0x3d) {
             DoExitTransition((ScreenTransitionData*)&gUnk_080CED88);
         } else {

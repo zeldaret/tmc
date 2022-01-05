@@ -5,9 +5,10 @@
 #include "message.h"
 #include "fileselect.h"
 #include "screen.h"
+#include "game.h"
 
 extern void (*const demoFunctions[])(void);
-void sub_080A30AC();
+void sub_080A30AC(void);
 
 extern u8 gUnk_02000004;
 void sub_080A3198(u32, u32);

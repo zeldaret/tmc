@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
+#include "item.h"
 
 static void sub_0808E6A0(Entity*);
 static void sub_0808E6E4(Entity*);

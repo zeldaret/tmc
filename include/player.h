@@ -288,6 +288,8 @@ void ResetPlayerAnimationAndAction(void);
 void SetPlayerActionNormal(void);
 void RespawnAsMinish(void);
 
+Entity* CreatePlayerItem(u32, u32, u32, u32);
+
 void ResolvePlayerAnimation(void);
 void RegisterPlayerHitbox(void);
 void UpdateFloorType(void);
@@ -298,6 +300,11 @@ u32 GetInventoryValue(u32);
 s32 ModHealth(s32 delta);
 void ModRupees(s32 delta);
 void DeleteClones(void);
+
+void sub_08077728();
+extern void sub_08077B20();
+extern u32 sub_08008B22();
+extern u32* sub_08008790(Entity*, u32);
 
 #define COPY_FLAG_FROM_TO(base, src, dest) (base) = ((base) & ~(dest)) | (((dest) * ((base) & (src))) / src)
 

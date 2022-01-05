@@ -15,19 +15,19 @@ void sub_0805EE88(void);
 void ClearAllDeletedEntities(void);
 void DeleteAllEntities(void);
 void sub_0805E98C(void);
-extern void sub_0806FE84();
-extern void sub_08078954();
+extern void sub_0806FE84(Entity*);
+extern void sub_08078954(Entity*);
 extern void sub_08017744(Entity*);
-extern void UnloadHitbox();
-extern void sub_0804AA1C();
+extern void UnloadHitbox(Entity*);
+extern void sub_0804AA1C(Entity*);
 
 void ClearDeletedEntity(Entity*);
-extern void _ClearAndUpdateEntities();
+extern void _ClearAndUpdateEntities(void);
 extern void UpdateEntities_arm(u32);
 
 static void UpdatePriorityTimer(void);
-static void ReleaseTransitionManager();
-static void UnlinkEntity();
+static void ReleaseTransitionManager(void*);
+static void UnlinkEntity(Entity*);
 
 typedef struct {
     void* table;
@@ -106,7 +106,7 @@ bool32 AnyPrioritySet(void) {
     return prio != PRIO_MIN;
 }
 
-static void UpdatePriority() {
+static void UpdatePriority(void) {
     UpdatePriorityTimer();
     if (gPriorityHandler.queued_priority) {
         gPriorityHandler.ent_priority = gPriorityHandler.queued_priority;
@@ -175,7 +175,7 @@ void SetPlayerEventPriority(void) {
     gPlayerEntity.updatePriority = PRIO_PLAYER_EVENT;
 }
 
-void ResetPlayerEventPriority() {
+void ResetPlayerEventPriority(void) {
     gPriorityHandler.sys_priority = PRIO_MIN;
     gPlayerEntity.updatePriority = PRIO_PLAYER;
 }
@@ -185,19 +185,19 @@ void RevokePriority(Entity* e) {
     ResetEntityPriority();
 }
 
-void SetRoomReloadPriority() {
+void SetRoomReloadPriority(void) {
     gPriorityHandler.sys_priority = PRIO_PLAYER_EVENT;
 }
 
-void SetInitializationPriority() {
+void SetInitializationPriority(void) {
     gPriorityHandler.sys_priority = PRIO_HIGHEST;
 }
 
-void ResetSystemPriority() {
+void ResetSystemPriority(void) {
     gPriorityHandler.sys_priority = PRIO_MIN;
 }
 
-void UpdateEntities() {
+void UpdateEntities(void) {
     void (*f)(u32);
 
     gRoomVars.filler1[0] = gRoomVars.field_0x4;
@@ -212,14 +212,14 @@ void UpdateEntities() {
     sub_0805EE88();
 }
 
-void UpdateManagers() {
+void UpdateManagers(void) {
     void (*f)(u32);
     f = UpdateEntities_arm;
     f(1);
     ClearAllDeletedEntities();
 }
 
-void EraseAllEntities() {
+void EraseAllEntities(void) {
     DeleteAllEntities();
     MemClear(&gPriorityHandler, 12);
     MemClear(&gPlayerEntity, 10880);
@@ -424,7 +424,7 @@ void DeleteManager(void* ent) {
         return;
 
     ReleaseTransitionManager(manager);
-    UnlinkEntity(manager);
+    UnlinkEntity((Entity*)manager);
     MemClear(manager, sizeof(Temp));
     gManagerCount--;
 }

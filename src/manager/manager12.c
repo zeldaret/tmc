@@ -24,7 +24,7 @@ extern u16 gUnk_081083AE;
 extern u16 gUnk_081083C4;
 
 void sub_08059CC0(u32, u32);
-void sub_08059B18();
+void sub_08059B18(void);
 
 bool32 sub_08059C8C(Manager12*, u32, u8*, u16*);
 
