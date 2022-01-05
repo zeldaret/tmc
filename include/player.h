@@ -280,7 +280,7 @@ extern u16 gWalletSizes[];
 extern PlayerState gPlayerState;
 extern Entity gPlayerEntity;
 
-u32 CheckPlayerActivity(void);
+u32 CheckPlayerInactive(void);
 void SetPlayerControl(PlayerControlMode mode);
 void ResetPlayer(void);
 void ResetPlayerVelocity(void);

@@ -127,7 +127,7 @@ void sub_08083338(Entity* this) {
             if (!CheckFlags(this->field_0x86.HWORD)) {
                 this->frameIndex |= 4;
                 sub_080836DC(this, this->field_0x7c.BYTES.byte2, this->field_0x76.HWORD);
-                if (!CheckIsDungeon()) {
+                if (!AreaIsDungeon()) {
                     this->action = 5;
                 } else {
                     this->action = 8;

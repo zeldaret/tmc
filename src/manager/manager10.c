@@ -60,21 +60,21 @@ void sub_080595E4(Manager10* this) {
 void sub_08059608(Manager10* this) {
     if (this->unk_23) {
         if (!--this->unk_23) {
-            gArea.musicIndex = gArea.pMusicIndex;
-            SoundReq(gArea.musicIndex);
+            gArea.bgm = gArea.queued_bgm;
+            SoundReq(gArea.bgm);
         }
         return;
     }
     if (sub_0805986C()) {
-        if (gArea.pMusicIndex != 0x1E) {
-            gArea.pMusicIndex = 0x1E;
+        if (gArea.queued_bgm != 0x1E) {
+            gArea.queued_bgm = 0x1E;
             this->unk_23 = 0x78;
             SoundReq(0x800d0000);
         }
         return;
     }
-    if (gArea.pMusicIndex != 0x37) {
-        gArea.pMusicIndex = 0x37;
+    if (gArea.queued_bgm != 0x37) {
+        gArea.queued_bgm = 0x37;
         this->unk_23 = 0x78;
         SoundReq(0x800d0000);
     }
@@ -210,6 +210,6 @@ void sub_08059960(const u16* unk1, const u16* unk2, u16* unk3, u8 unk4) {
 void sub_08059994() {
     if (sub_0805986C()) {
         LoadPaletteGroup(0x5B);
-        gArea.pMusicIndex = 0x1E;
+        gArea.queued_bgm = 0x1E;
     }
 }

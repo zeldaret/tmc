@@ -653,7 +653,7 @@ void VaatiRebornEnemyType1PreAction(Entity* this) {
                 parent->direction = -1;
                 this->actionDelay = 0;
                 SoundReq(SONG_STOP_BGM);
-                gArea.musicIndex = gArea.pMusicIndex;
+                gArea.bgm = gArea.queued_bgm;
                 return;
             }
             this->actionDelay = 1;

@@ -458,7 +458,7 @@ void sub_0805E98C(void) {
     }
 }
 
-void QueueEntityDeletion(void) {
+void RecycleEntities(void) {
     Entity* i;
     LinkedList* list;
 

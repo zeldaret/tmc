@@ -425,7 +425,7 @@ _080A502E:
 _080A505A:
 	movs r0, #0xfd
 	lsls r0, r0, #1
-	bl sub_080ADA14
+	bl DrawDirect
 	movs r3, #0
 	mov r8, r3
 	mov r7, sb
@@ -501,7 +501,7 @@ _080A50EA:
 	ldrb r1, [r0]
 	ldr r0, _080A5194 @ =0x00000141
 _080A50F6:
-	bl sub_080ADA14
+	bl DrawDirect
 _080A50FA:
 	adds r7, #8
 	movs r0, #1
@@ -529,7 +529,7 @@ _080A50FA:
 	strh r0, [r2, #2]
 	movs r0, #0
 	movs r1, #1
-	bl sub_080ADA14
+	bl DrawDirect
 _080A5132:
 	ldrb r0, [r4, #0x13]
 	cmp r0, #0x3f
@@ -559,7 +559,7 @@ _080A5156:
 	strh r0, [r5, #8]
 	movs r0, #0
 	movs r1, #1
-	bl sub_080ADA14
+	bl DrawDirect
 	adds r0, r4, #0
 	movs r1, #0xa
 	bl __divsi3
@@ -630,7 +630,7 @@ _080A581A:
 	adds r1, #1
 _080A5846:
 	ldr r0, _080A58A4 @ =0x000001FB
-	bl sub_080ADA14
+	bl DrawDirect
 	movs r3, #0
 	mov r8, r3
 	mov r7, sb
@@ -708,7 +708,7 @@ _080A58D6:
 	movs r0, #0xa1
 	lsls r0, r0, #1
 _080A58E4:
-	bl sub_080ADA14
+	bl DrawDirect
 _080A58E8:
 	adds r7, #8
 	movs r0, #1
@@ -736,7 +736,7 @@ _080A58E8:
 	strh r0, [r2, #2]
 	movs r0, #0
 	movs r1, #1
-	bl sub_080ADA14
+	bl DrawDirect
 _080A5920:
 	ldrb r0, [r4, #0x13]
 	cmp r0, #0x3f
@@ -766,7 +766,7 @@ _080A5944:
 	strh r0, [r5, #8]
 	movs r0, #0
 	movs r1, #1
-	bl sub_080ADA14
+	bl DrawDirect
 	adds r0, r4, #0
 	movs r1, #0xa
 	bl __divsi3
@@ -1316,7 +1316,7 @@ sub_080A5D1C: @ 0x080A5D1C
 _080A5560:
 	movs r0, #0xfd
 	lsls r0, r0, #1
-	bl sub_080ADA14
+	bl DrawDirect
 	movs r0, #0x20
 	mov sb, r0
 	mov r1, sb
@@ -1338,7 +1338,7 @@ _080A5560:
 _080A558C:
 	movs r0, #0xfd
 	lsls r0, r0, #1
-	bl sub_080ADA14
+	bl DrawDirect
 	movs r0, #0x7e
 	strh r0, [r5, #2]
 	movs r0, #0x87
@@ -1357,7 +1357,7 @@ _080A558C:
 	ldrb r4, [r0]
 	ldr r0, _080A56ACEU @ =0x00000143
 	adds r1, r4, #0
-	bl sub_080ADA14
+	bl DrawDirect
 _080A55BE:
 	bl HasDungeonCompass
 	cmp r0, #0
@@ -1372,7 +1372,7 @@ _080A55BE:
 	ldrb r4, [r0]
 	ldr r0, _080A56ACEU @ =0x00000143
 	adds r1, r4, #0
-	bl sub_080ADA14
+	bl DrawDirect
 _080A55DE:
 	bl HasDungeonBigKey
 	cmp r0, #0
@@ -1390,7 +1390,7 @@ _080A55DE:
 	ldrb r4, [r0]
 	ldr r0, _080A56ACEU @ =0x00000143
 	adds r1, r4, #0
-	bl sub_080ADA14
+	bl DrawDirect
 	bl sub_080A5F24
 	cmp r0, #0
 	beq _080A563CEU
@@ -1417,7 +1417,7 @@ _080A55DE:
 _080A5634EU:
 	movs r0, #0xfd
 	lsls r0, r0, #1
-	bl sub_080ADA14
+	bl DrawDirect
 _080A563CEU:
 	ldr r1, _080A569CEU @ =gOamCmd
 	movs r0, #0
@@ -1437,7 +1437,7 @@ _080A5658:
 	movs r0, #0xfd
 	lsls r0, r0, #1
 	adds r1, r4, #0
-	bl sub_080ADA14
+	bl DrawDirect
 	subs r4, #1
 	ldrh r0, [r6, #2]
 	adds r0, #0xc
@@ -1516,7 +1516,7 @@ _080A56E8:
 	movs r0, #0xfd
 	lsls r0, r0, #1
 	adds r1, r4, #0
-	bl sub_080ADA14
+	bl DrawDirect
 	adds r5, #3
 	ldrb r0, [r5]
 	cmp r0, #0
@@ -1573,7 +1573,7 @@ _080A570E:
 	movs r1, #0x75
 _080A5D70:
 	ldr r0, _080A5EB0 @ =0x000001FB
-	bl sub_080ADA14
+	bl DrawDirect
 	movs r0, #0x20
 	mov sb, r0
 	mov r1, sb
@@ -1594,7 +1594,7 @@ _080A5D70:
 	movs r1, #0x78
 _080A5D9A:
 	ldr r0, _080A5EB0 @ =0x000001FB
-	bl sub_080ADA14
+	bl DrawDirect
 	movs r0, #0x7e
 	strh r0, [r5, #2]
 	movs r0, #0x87
@@ -1614,7 +1614,7 @@ _080A5D9A:
 	movs r0, #0xa2
 	lsls r0, r0, #1
 	adds r1, r4, #0
-	bl sub_080ADA14
+	bl DrawDirect
 _080A5DCC:
 	bl HasDungeonCompass
 	cmp r0, #0
@@ -1630,7 +1630,7 @@ _080A5DCC:
 	movs r0, #0xa2
 	lsls r0, r0, #1
 	adds r1, r4, #0
-	bl sub_080ADA14
+	bl DrawDirect
 _080A5DEE:
 	bl HasDungeonBigKey
 	cmp r0, #0
@@ -1647,7 +1647,7 @@ _080A5DEE:
 	ldr r1, [r1]
 	ldrb r4, [r1]
 	adds r1, r4, #0
-	bl sub_080ADA14
+	bl DrawDirect
 	bl sub_080A5F24
 	cmp r0, #0
 	beq _080A5E48
@@ -1673,7 +1673,7 @@ _080A5DEE:
 	movs r1, #0x7a
 _080A5E42:
 	ldr r0, _080A5EB0 @ =0x000001FB
-	bl sub_080ADA14
+	bl DrawDirect
 _080A5E48:
 	ldr r1, _080A5EA4 @ =gOamCmd
 	movs r0, #0
@@ -1692,7 +1692,7 @@ _080A5E48:
 _080A5E64:
 	ldr r0, _080A5EB0 @ =0x000001FB
 	adds r1, r4, #0
-	bl sub_080ADA14
+	bl DrawDirect
 	subs r4, #1
 	ldrh r0, [r6, #2]
 	adds r0, #0xc
@@ -1770,7 +1770,7 @@ _080A5EF0:
 	strh r0, [r7, #2]
 	ldr r0, _080A5F20 @ =0x000001FB
 	adds r1, r4, #0
-	bl sub_080ADA14
+	bl DrawDirect
 	adds r5, #3
 	ldrb r0, [r5]
 	cmp r0, #0
@@ -2119,7 +2119,7 @@ sub_080A617C: @ 0x080A617C
 _080A59AC:
 	ldr r5, _080A5A5C @ =0x000001FB
 	adds r0, r5, #0
-	bl sub_080ADA14
+	bl DrawDirect
 	ldrb r0, [r4, #3]
 	lsls r0, r0, #3
 	ldr r1, _080A5A60 @ =gUnk_08128D70
@@ -2135,7 +2135,7 @@ _080A59AC:
 	strh r0, [r6, #2]
 	adds r0, r5, #0
 	movs r1, #0xb
-	bl sub_080ADA14
+	bl DrawDirect
 	movs r0, #0x30
 	strh r0, [r6]
 	movs r0, #0x6c
@@ -2149,7 +2149,7 @@ _080A59AC:
 	strh r0, [r6, #8]
 	ldrb r1, [r4, #2]
 	adds r0, r5, #0
-	bl sub_080ADA14
+	bl DrawDirect
 	ldrb r0, [r4, #1]
 	lsls r0, r0, #0xc
 	orrs r0, r7
@@ -2160,7 +2160,7 @@ _080A59AC:
 	strh r0, [r6, #2]
 	adds r0, r5, #0
 	movs r1, #0xc
-	bl sub_080ADA14
+	bl DrawDirect
 _080A5A0E:
 	mov r0, r8
 	strh r0, [r6, #2]
@@ -2185,7 +2185,7 @@ _080A5A18:
 	strh r6, [r7]
 	ldr r0, _080A5A5C @ =0x000001FB
 	movs r1, #0xa
-	bl sub_080ADA14
+	bl DrawDirect
 _080A5A40:
 	adds r6, #0x1b
 	adds r5, #1
@@ -2236,7 +2236,7 @@ _080A61B8:
 	movs r5, #0xfe
 	lsls r5, r5, #1
 	adds r0, r5, #0
-	bl sub_080ADA14
+	bl DrawDirect
 	ldrb r0, [r4, #3]
 	lsls r0, r0, #3
 	ldr r1, _080A626C @ =gUnk_08128D70
@@ -2252,7 +2252,7 @@ _080A61B8:
 	strh r0, [r6, #2]
 	adds r0, r5, #0
 	movs r1, #0xb
-	bl sub_080ADA14
+	bl DrawDirect
 	movs r0, #0x30
 	strh r0, [r6]
 	movs r0, #0x6c
@@ -2266,7 +2266,7 @@ _080A61B8:
 	strh r0, [r6, #8]
 	ldrb r1, [r4, #2]
 	adds r0, r5, #0
-	bl sub_080ADA14
+	bl DrawDirect
 	ldrb r0, [r4, #1]
 	lsls r0, r0, #0xc
 	orrs r0, r7
@@ -2277,7 +2277,7 @@ _080A61B8:
 	strh r0, [r6, #2]
 	adds r0, r5, #0
 	movs r1, #0xc
-	bl sub_080ADA14
+	bl DrawDirect
 _080A621C:
 	mov r0, r8
 	strh r0, [r6, #2]
@@ -2303,7 +2303,7 @@ _080A6226:
 	movs r0, #0xfe
 	lsls r0, r0, #1
 	movs r1, #0xa
-	bl sub_080ADA14
+	bl DrawDirect
 _080A6250:
 	adds r6, #0x1b
 	adds r5, #1
@@ -2508,7 +2508,7 @@ _080A5B86:
 _080A5BD8:
 	movs r0, #0xfd
 	lsls r0, r0, #1
-	bl sub_080ADA14
+	bl DrawDirect
 _080A5BE0:
 	ldr r3, _080A5C18 @ =gChooseFileState
 	ldrb r0, [r3, #3]
@@ -2532,7 +2532,7 @@ _080A5BE0:
 	adds r1, r2, r0
 	movs r0, #0xfd
 	lsls r0, r0, #1
-	bl sub_080ADA14
+	bl DrawDirect
 	bl sub_080A6498
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -2597,7 +2597,7 @@ _080A6392:
 	movs r1, #0x5a
 _080A63E4:
 	ldr r0, _080A6430 @ =0x000001FB
-	bl sub_080ADA14
+	bl DrawDirect
 _080A63EA:
 	ldr r3, _080A6420 @ =gMenu
 	ldrb r0, [r3, #3]
@@ -2620,7 +2620,7 @@ _080A63EA:
 	bics r0, r1
 	adds r1, r2, r0
 	ldr r0, _080A6430 @ =0x000001FB
-	bl sub_080ADA14
+	bl DrawDirect
 	bl sub_080A6498
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -2667,7 +2667,7 @@ _080A5C52:
 	ldrb r1, [r4]
 	movs r0, #0xfd
 	lsls r0, r0, #1
-	bl sub_080ADA14
+	bl DrawDirect
 _080A5C6E:
 	adds r6, #1
 	adds r4, #8
@@ -2714,7 +2714,7 @@ _080A645E:
 	strh r0, [r7, #2]
 	ldrb r1, [r4]
 	ldr r0, _080A6494 @ =0x000001FB
-	bl sub_080ADA14
+	bl DrawDirect
 _080A6478:
 	adds r6, #1
 	adds r4, #8
@@ -2763,7 +2763,7 @@ _080A5CA4:
 	movs r0, #0xfd
 	lsls r0, r0, #1
 	adds r1, r5, #0
-	bl sub_080ADA14
+	bl DrawDirect
 _080A5CC8EU:
 	adds r5, #3
 	adds r4, #1
@@ -2810,7 +2810,7 @@ _080A64B0:
 	strh r0, [r6, #2]
 	ldr r0, _080A64F0 @ =0x000001FB
 	adds r1, r5, #0
-	bl sub_080ADA14
+	bl DrawDirect
 _080A64D2:
 	adds r5, #3
 	adds r4, #1
@@ -3096,7 +3096,7 @@ sub_080A66D0: @ 0x080A66D0
 	movs r0, #0xfd
 	lsls r0, r0, #1
 	movs r1, #0x71
-	bl sub_080ADA14
+	bl DrawDirect
 _080A5F1A:
 	ldrb r0, [r5, #2]
 	ldrh r4, [r4, #0xa]
@@ -3107,7 +3107,7 @@ _080A5F1A:
 	movs r0, #0xfd
 	lsls r0, r0, #1
 	movs r1, #0x72
-	bl sub_080ADA14
+	bl DrawDirect
 _080A5F30:
 	ldrb r0, [r5, #7]
 	mov sl, r0
@@ -3165,7 +3165,7 @@ _080A5F8A:
 	strh r0, [r7, #2]
 	ldrh r0, [r4, #2]
 	ldrb r1, [r4, #1]
-	bl sub_080ADA14
+	bl DrawDirect
 _080A5FA6:
 	adds r4, #8
 	ldrh r0, [r4, #2]
@@ -3219,7 +3219,7 @@ _080A5FAE:
 	strh r0, [r6, #2]
 	ldr r0, _080A6788 @ =0x000001FB
 	movs r1, #0x71
-	bl sub_080ADA14
+	bl DrawDirect
 _080A6724:
 	ldrb r0, [r5, #2]
 	ldrh r4, [r4, #0xa]
@@ -3229,7 +3229,7 @@ _080A6724:
 	strh r0, [r6, #2]
 	ldr r0, _080A6788 @ =0x000001FB
 	movs r1, #0x72
-	bl sub_080ADA14
+	bl DrawDirect
 _080A6738:
 	ldrb r0, [r5, #7]
 	mov sl, r0
@@ -3288,7 +3288,7 @@ _080A6796:
 	strh r0, [r7, #2]
 	ldrh r0, [r4, #2]
 	ldrb r1, [r4, #1]
-	bl sub_080ADA14
+	bl DrawDirect
 _080A67B2:
 	adds r4, #8
 	ldrh r0, [r4, #2]
@@ -4304,7 +4304,7 @@ sub_080A6E70: @ 0x080A6E70
 _080A6698:
 	movs r0, #0xfd
 	lsls r0, r0, #1
-	bl sub_080ADA14
+	bl DrawDirect
 	movs r4, #0
 	ldr r5, _080A66D4 @ =gSave
 _080A66A4EU:
@@ -4321,7 +4321,7 @@ _080A66A4EU:
 	movs r0, #0xfd
 	lsls r0, r0, #1
 	movs r1, #0x5c
-	bl sub_080ADA14
+	bl DrawDirect
 _080A66C4:
 	adds r4, #1
 	cmp r4, #7
@@ -4358,7 +4358,7 @@ _080A66D4: .4byte gSave
 	movs r1, #0x5d
 _080A6EA0:
 	ldr r0, _080A6ED8 @ =0x000001FB
-	bl sub_080ADA14
+	bl DrawDirect
 	movs r4, #0
 	ldr r5, _080A6EDC @ =gSave
 _080A6EAA:
@@ -4374,7 +4374,7 @@ _080A6EAA:
 	bl sub_080A6EE0
 	ldr r0, _080A6ED8 @ =0x000001FB
 	movs r1, #0x5c
-	bl sub_080ADA14
+	bl DrawDirect
 _080A6EC8:
 	adds r4, #1
 	cmp r4, #7
@@ -5041,7 +5041,7 @@ _080A73B4:
 	adds r4, r4, r1
 	str r0, [r4]
 	ldrb r0, [r5, #6]
-	bl sub_080527FC
+	bl RestoreGameTask
 	ldrb r1, [r5, #0xd]
 	rsbs r0, r1, #0
 	orrs r0, r1
@@ -5134,7 +5134,7 @@ _080A7524: .4byte gMain
 	thumb_func_start Subtask_Update
 Subtask_Update: @ 0x080A7528
 	push {lr}
-	ldr r1, _080A753C @ =gUnk_08129030
+	ldr r1, _080A753C @ =gSubtasks
 	ldr r0, _080A7540 @ =gUnk_02032EC0
 	ldrb r0, [r0, #2]
 	lsls r0, r0, #2
@@ -5143,5 +5143,5 @@ Subtask_Update: @ 0x080A7528
 	bl _call_via_r0
 	pop {pc}
 	.align 2, 0
-_080A753C: .4byte gUnk_08129030
+_080A753C: .4byte gSubtasks
 _080A7540: .4byte gUnk_02032EC0

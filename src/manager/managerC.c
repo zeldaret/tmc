@@ -293,7 +293,7 @@ void sub_08058D34() {
     gScreen.bg1.yOffset = tmp2;
     gScreen.controls.layerFXControl = 0x3456;
     gScreen.controls.alphaBlend = 0x909;
-    gArea.musicIndex = gArea.pMusicIndex;
+    gArea.bgm = gArea.queued_bgm;
     gUpdateVisibleTiles = 0;
     if (CheckGlobalFlag(LV1TARU_OPEN)) {
         LoadGfxGroup(0x4A);

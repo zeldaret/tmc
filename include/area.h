@@ -43,8 +43,8 @@ typedef struct {
     RoomResInfo roomResInfos[MAX_ROOMS];
     RoomResInfo currentRoomInfo;
     RoomResInfo* pCurrentRoomInfo;
-    u32 musicIndex;
-    u32 pMusicIndex;
+    u32 bgm;
+    u32 queued_bgm;
     u8 filler5[0x20];
     void* transitionManager;
     void (*onEnter)();

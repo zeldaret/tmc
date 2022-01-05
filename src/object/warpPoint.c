@@ -45,7 +45,7 @@ void sub_0808B474(Entity* this) {
     if (CheckFlags(this->field_0x86.HWORD)) {
         sub_0808B830(this);
     } else {
-        if (CheckIsDungeon() && sub_0807CAEC(this->type)) {
+        if (AreaIsDungeon() && sub_0807CAEC(this->type)) {
             sub_0808B830(this);
         }
     }
@@ -63,7 +63,7 @@ void sub_0808B474(Entity* this) {
 void sub_0808B530(Entity* this) {
     if (CheckFlags(this->field_0x86.HWORD)) {
         sub_0808B830(this);
-        if (CheckIsDungeon()) {
+        if (AreaIsDungeon()) {
             sub_0807CAC8(this->type);
         }
         this->action = 2;

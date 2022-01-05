@@ -148,7 +148,7 @@ void sub_080240B8(Entity* this) {
     }
 
     UpdateSpriteForCollisionLayer(this);
-    if (CheckIsDungeon())
+    if (AreaIsDungeon())
         this->spriteOrientation.flipY = 1;
 
     this->field_0x80.HALF.HI = Random() & 0x40;
@@ -534,7 +534,7 @@ void sub_08024940(Entity* this) {
             this->z.HALF.HI += 2;
     }
 
-    if (this->type2 != 0 || CheckIsDungeon()) {
+    if (this->type2 != 0 || AreaIsDungeon()) {
         if (!sub_08049FA0(this)) {
             this->direction = sub_08049EE4(this);
             sub_080249F4(this);

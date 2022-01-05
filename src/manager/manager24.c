@@ -89,7 +89,7 @@ void sub_0805C050(u32 pos, u32 layer) {
     SetTileType(0xb4, pos - 1, layer);
     SetTileType(0xb7, pos + 1, layer);
     if (layer == 1) {
-        if (CheckIsInteriorWithEnemies() != 0) {
+        if (AreaHasEnemies() != 0) {
             Entity* object = CreateObject(ARCHWAY, 0xe, 0);
             if (object != NULL) {
                 object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.origin_x;
@@ -97,7 +97,7 @@ void sub_0805C050(u32 pos, u32 layer) {
             }
             SetTileType(0xb5, pos, 1);
         } else {
-            if (CheckIsDungeon() != 0) {
+            if (AreaIsDungeon() != 0) {
                 SetTileType(0xb5, pos, 1);
             } else {
                 SetTileType(0xb6, pos, 1);
@@ -110,7 +110,7 @@ void sub_0805C050(u32 pos, u32 layer) {
     } else {
         Entity* object;
         SetTileType(0xb5, pos, 2);
-        if (CheckIsDungeon() == 0) {
+        if (AreaIsDungeon() == 0) {
             return;
         }
         object = CreateObject(ARCHWAY, sub_0805C608(), 6);
@@ -133,7 +133,7 @@ void sub_0805C178(u32 pos, u32 layer) {
     SetTileType(0xf7, pos + 0x41, layer);
     if (layer == 1) {
 
-        if (CheckIsInteriorWithEnemies() != 0) {
+        if (AreaHasEnemies() != 0) {
 
             object = CreateObject(ARCHWAY, 0xe, 1);
             if (object != NULL) {
@@ -142,7 +142,7 @@ void sub_0805C178(u32 pos, u32 layer) {
             }
             SetTileType(0xf2, pos, 1);
         } else {
-            if (CheckIsDungeon() != 0) {
+            if (AreaIsDungeon() != 0) {
                 SetTileType(0xf2, pos, 1);
             } else {
                 SetTileType(0xf3, pos, 1);
@@ -153,7 +153,7 @@ void sub_0805C178(u32 pos, u32 layer) {
         SetTileType(0xfa, pos + 0x41, 2);
     } else {
         SetTileType(0xf2, pos, 2);
-        if (CheckIsDungeon() == 0) {
+        if (AreaIsDungeon() == 0) {
             return;
         }
         object = CreateObject(ARCHWAY, sub_0805C608(), 7);
@@ -175,7 +175,7 @@ void sub_0805C294(u32 pos, u32 layer) {
     SetTileType(0xd6, pos + 0x40, layer);
     SetTileType(0xd7, pos + 0x41, layer);
     if (layer == 1) {
-        if (CheckIsInteriorWithEnemies() != 0) {
+        if (AreaHasEnemies() != 0) {
             object = CreateObject(ARCHWAY, 0xe, 2);
             if (object != NULL) {
                 object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.origin_x;
@@ -183,7 +183,7 @@ void sub_0805C294(u32 pos, u32 layer) {
             }
             SetTileType(0xd2, pos, 1);
         } else {
-            if (CheckIsDungeon() != 0) {
+            if (AreaIsDungeon() != 0) {
                 SetTileType(0xd2, pos, 1);
             } else {
                 SetTileType(0xd3, pos, 1);
@@ -194,7 +194,7 @@ void sub_0805C294(u32 pos, u32 layer) {
         SetTileType(0xda, pos + 0x41, 2);
     } else {
         SetTileType(0xd2, pos, 2);
-        if (CheckIsDungeon() == 0) {
+        if (AreaIsDungeon() == 0) {
             return;
         }
         object = CreateObject(ARCHWAY, sub_0805C608(), 8);
@@ -216,7 +216,7 @@ void sub_0805C3B4(u32 pos, u32 layer) {
     SetTileType(0xe3, pos + 0x3f, layer);
     SetTileType(0xe7, pos + 0x40, layer);
     if (layer == 1) {
-        if (CheckIsInteriorWithEnemies() != 0) {
+        if (AreaHasEnemies() != 0) {
             object = CreateObject(ARCHWAY, 0xe, 3);
             if (object != NULL) {
                 object->x.HALF.HI = ((pos & 0x3f) << 4) + -0x10 + gRoomControls.origin_x;
@@ -224,7 +224,7 @@ void sub_0805C3B4(u32 pos, u32 layer) {
             }
             SetTileType(0xe5, pos, 1);
         } else {
-            if (CheckIsDungeon() != 0) {
+            if (AreaIsDungeon() != 0) {
                 SetTileType(0xe5, pos, 1);
             } else {
                 SetTileType(0xe6, pos, 1);
@@ -235,7 +235,7 @@ void sub_0805C3B4(u32 pos, u32 layer) {
         SetTileType(0xea, pos + 0x3f, 2);
     } else {
         SetTileType(0xe5, pos, 2);
-        if (CheckIsDungeon() == 0) {
+        if (AreaIsDungeon() == 0) {
             return;
         }
 
@@ -258,7 +258,7 @@ void sub_0805C4E0(u32 pos, u32 layer) {
     SetTileType(0xc4, pos - 1, layer);
     SetTileType(0xc7, pos + 1, layer);
     if (layer == 1) {
-        if (CheckIsInteriorWithEnemies() != 0) {
+        if (AreaHasEnemies() != 0) {
             object = CreateObject(ARCHWAY, 0xe, 0);
             if (object != NULL) {
                 object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.origin_x;
@@ -266,7 +266,7 @@ void sub_0805C4E0(u32 pos, u32 layer) {
             }
             SetTileType(0xc5, pos, 1);
         } else {
-            if (CheckIsDungeon() != 0) {
+            if (AreaIsDungeon() != 0) {
                 SetTileType(0xc5, pos, 1);
             } else {
                 SetTileType(0xc6, pos, 1);
@@ -277,7 +277,7 @@ void sub_0805C4E0(u32 pos, u32 layer) {
         SetTileType(0xca, pos - 0x3f, 2);
     } else {
         SetTileType(0xc5, pos, 2);
-        if (CheckIsDungeon() == 0) {
+        if (AreaIsDungeon() == 0) {
             return;
         }
 

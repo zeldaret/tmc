@@ -481,36 +481,36 @@ void sub_08050A64(u32 idx) {
         gOamCmd.x = 0xA2;
         gOamCmd.y = 0x36;
 #ifdef EU
-        sub_080ADA14(0x144, 0x24);
+        DrawDirect(0x144, 0x24);
 #else
-        sub_080ADA14(0x145, 0x24);
+        DrawDirect(0x145, 0x24);
 #endif
     }
     if (GetInventoryValue(0x41)) {
         gOamCmd.x = 0x96;
         gOamCmd.y = 0x3D;
 #ifdef EU
-        sub_080ADA14(0x144, 0x22);
+        DrawDirect(0x144, 0x22);
 #else
-        sub_080ADA14(0x145, 0x22);
+        DrawDirect(0x145, 0x22);
 #endif
     }
     if (GetInventoryValue(0x42)) {
         gOamCmd.x = 0xAE;
         gOamCmd.y = 0x3D;
 #ifdef EU
-        sub_080ADA14(0x144, 0x23);
+        DrawDirect(0x144, 0x23);
 #else
-        sub_080ADA14(0x145, 0x23);
+        DrawDirect(0x145, 0x23);
 #endif
     }
     if (GetInventoryValue(0x43)) {
         gOamCmd.x = 0xA2;
         gOamCmd.y = 0x44;
 #ifdef EU
-        sub_080ADA14(0x144, 0x21);
+        DrawDirect(0x144, 0x21);
 #else
-        sub_080ADA14(0x145, 0x21);
+        DrawDirect(0x145, 0x21);
 #endif
     }
 }

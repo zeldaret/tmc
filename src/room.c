@@ -280,7 +280,7 @@ void LoadRoomTileEntities(TileEntity* list) {
                 LoadBombableWallTile(t);
                 break;
             case MUSIC_SETTER:
-                gArea.pMusicIndex = t->_3;
+                gArea.queued_bgm = t->_3;
                 break;
             case DARKNESS:
                 LoadDarknessTile(t);

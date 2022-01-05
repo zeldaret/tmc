@@ -3722,7 +3722,7 @@ _0807A468:
 	cmp r2, #0
 	beq _0807A4F2
 _0807A46E:
-	bl CheckIsDungeon
+	bl AreaIsDungeon
 	cmp r0, #0
 	beq _0807A4B0
 	ldr r4, _0807A4AC @ =gPlayerEntity

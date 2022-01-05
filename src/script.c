@@ -1458,7 +1458,7 @@ void ScriptCommand_PlaySound(Entity* entity, ScriptExecutionContext* context) {
 
 void ScriptCommand_PlayBgm(Entity* entity, ScriptExecutionContext* context) {
     if (context->scriptInstructionPointer[1] >= 100) {
-        SoundReq(gArea.musicIndex);
+        SoundReq(gArea.bgm);
     } else {
         SoundReq(context->scriptInstructionPointer[1]);
     }

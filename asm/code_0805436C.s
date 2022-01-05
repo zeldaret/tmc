@@ -138,7 +138,7 @@ sub_08054974: @ 0x08054974
 	beq _080549BC
 	ldrb r0, [r6, #2]
 	ldrb r1, [r6, #3]
-	bl sub_08052FD8
+	bl LoadCutsceneRoom
 	b _080549CE
 	.align 2, 0
 _080549B0: .4byte gUnk_080FE320

@@ -38,7 +38,7 @@ void sub_0805DE68(Manager* this) {
     *(u8*)&gRoomTransition.field_0x3a = 0x20;
     *((u8*)&gRoomTransition.field_0x3a + 1) = 0x20;
 #if !defined(EU) && !defined(JP)
-    gSave.unk48C[3] = 0x1194;
+    gSave.timers[3] = 0x1194;
 #endif
 }
 
@@ -119,7 +119,7 @@ void sub_0805E000(Manager* this) {
         *(Entity**)this->unk_18 = enemy;
         this->action = 1;
         SetPlayerControl(3);
-        gArea.pMusicIndex = 0x80010000;
+        gArea.queued_bgm = 0x80010000;
         DoFade(6, 4);
         SoundReq(SFX_APPARATE);
     }

@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_08053590
-sub_08053590: @ 0x08053590
+	thumb_func_start CutsceneMain_Init
+CutsceneMain_Init: @ 0x08053590
 	push {lr}
 	ldr r1, _080535A4 @ =gUnk_080FCBB4
 	ldr r0, _080535A8 @ =gMenu
@@ -901,8 +901,8 @@ sub_08053C84: @ 0x08053C84
 	.align 2, 0
 _08053C8C: .4byte gMenu
 
-	thumb_func_start sub_08053C90
-sub_08053C90: @ 0x08053C90
+	thumb_func_start CutsceneMain_Exit
+CutsceneMain_Exit: @ 0x08053C90
 	push {lr}
 	ldr r1, _08053CA4 @ =gUnk_080FCEF8
 	ldr r0, _08053CA8 @ =gMenu
@@ -1294,8 +1294,8 @@ _08053FAA:
 _08053FAC: .4byte gFadeControl
 _08053FB0: .4byte gMenu
 
-	thumb_func_start sub_08053FB4
-sub_08053FB4: @ 0x08053FB4
+	thumb_func_start CutsceneMain_Update
+CutsceneMain_Update: @ 0x08053FB4
 	push {lr}
 	ldr r1, _08053FC8 @ =gUnk_080FD138
 	ldr r0, _08053FCC @ =gMenu

@@ -6,7 +6,7 @@
 	push {r5, r6, r7}
 	sub sp, #0x14
 	adds r4, r0, #0
-	bl CheckHasMap
+	bl AreaHasMap
 	cmp r0, #0
 	bne _0801DDB8
 	b _0801DEEA

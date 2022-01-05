@@ -142,13 +142,13 @@ gUnk_0812901C:: @ 0812901C
 	.4byte Subtask_FadeOut
 	.4byte Subtask_Die
 
-gUnk_08129030:: @ 08129030
+gSubtasks:: @ 08129030
 	.4byte Subtask_Exit
 	.4byte Subtask_PauseMenu
 	.4byte Subtask_Exit
 	.4byte Subtask_MapHint
 	.4byte Subtask_KinstoneMenu
-	.4byte Subtask_ChuchuCutscene
+	.4byte Subtask_AuxCutscene
 	.4byte Subtask_PortalCutscene
 	.4byte Subtask_FigurineMenu
 	.4byte Subtask_WorldEvent

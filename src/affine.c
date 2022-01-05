@@ -66,7 +66,7 @@ void sub_080ADA04(OAMCommand* cmd, void* dst) {
     fn(cmd, dst);
 }
 
-void sub_080ADA14(u32 a1, u32 a2) {
+void DrawDirect(u32 a1, u32 a2) {
     void (*fn)(OAMCommand*, u32, u32) = gUnk_03006580;
     fn(&gOamCmd, a1, a2);
 }

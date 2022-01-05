@@ -15,7 +15,7 @@ void sub_080808D8(void) {
 }
 
 void sub_080808E4(void) {
-    if (sub_08052638(gRoomTransition.player_status.area_next)) {
+    if (CheckAreaOverworld(gRoomTransition.player_status.area_next)) {
         gRoomTransition.type = TRANSITION_DEFAULT;
     } else {
         gRoomTransition.type = TRANSITION_FADE_BLACK;

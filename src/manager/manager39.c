@@ -48,7 +48,7 @@ void sub_0805E140(Manager39* this) {
     this->manager.unk_0e = 0x78;
     this->manager.unk_0f = 0x3c;
     SetDefaultPriority((Entity*)this, PRIO_HIGHEST);
-    sub_0805E1F8(gUnk_08108DE8[gArea.locationIndex], CheckIsDungeon());
+    sub_0805E1F8(gUnk_08108DE8[gArea.locationIndex], AreaIsDungeon());
 }
 
 void sub_0805E18C(Manager39* this) {

@@ -320,7 +320,7 @@ extern u16 script_BedAtSimons;
 extern Entity* gPlayerClones[];
 extern ScriptExecutionContext gPlayerScriptExecutionContext;
 
-NONMATCH("asm/non_matching/playerItemPacciCane/sub_080705AC.inc", u32 CheckPlayerActivity(void)) {
+NONMATCH("asm/non_matching/playerItemPacciCane/sub_080705AC.inc", u32 CheckPlayerInactive(void)) {
     if (!((gInput.newKeys & START_BUTTON) == 0 || gFadeControl.active || gUnk_02034490[0] ||
           (gMessage.doTextBox & 0x7F) || gSave.stats.health == 0 || !gSave.fillerD0[34] ||
           gPlayerState.controlMode != 0 || gPriorityHandler.priority_timer != 0)) {
@@ -1053,7 +1053,7 @@ static void PlayerUsePortal(Entity* this) {
     if ((gInput.newKeys & (B_BUTTON | R_BUTTON)) == 0)
         return;
 
-    if (CheckIsDungeon() || gArea.curPortalType == 3) {
+    if (AreaIsDungeon() || gArea.curPortalType == 3) {
         this->subAction = 7;
         this->actionDelay = 30;
         DoFade(7, 16);
@@ -2228,7 +2228,7 @@ static void sub_08072B5C(Entity* this) {
         return;
     }
 
-    if (!CheckIsOverworld()) {
+    if (!AreaIsOverworld()) {
         sub_08004542(this);
     }
     this->subAction++;

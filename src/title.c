@@ -281,14 +281,14 @@ static void HandleTitlescreen(void) {
             gOamCmd._8 = 0xE020;
             gOamCmd.x = 120;
             gOamCmd.y = 152;
-            sub_080ADA14(511, 1);
+            DrawDirect(511, 1);
 #elif defined(EU)
             gOamCmd._4 = 0;
             gOamCmd._6 = 0;
             gOamCmd._8 = 0xE020;
             gOamCmd.x = 120;
             gOamCmd.y = 152;
-            sub_080ADA14(510, 1);
+            DrawDirect(510, 1);
 #else
         UpdatePressStartIcon();
 #endif
@@ -296,9 +296,9 @@ static void HandleTitlescreen(void) {
                 gOamCmd._8 = 0xe000;
                 gOamCmd.y = 0x84;
 #ifdef EU
-                sub_080ADA14(0x1fe, 0);
+                DrawDirect(0x1fe, 0);
 #else
-                sub_080ADA14(0x1ff, 0);
+                DrawDirect(0x1ff, 0);
 #endif
             }
     }
@@ -318,7 +318,7 @@ static void UpdatePressStartIcon(void) {
     gOamCmd._8 = 0xE020;
     gOamCmd.x = 120;
     gOamCmd.y = 152;
-    sub_080ADA14(511, 1);
+    DrawDirect(511, 1);
 }
 #endif
 

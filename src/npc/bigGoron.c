@@ -14,7 +14,7 @@ extern u8 gMapDataTopSpecial[];
 
 void sub_0806D138(u8* param_1, u8* param_2);
 
-extern void sub_08053500(void);
+extern void InitBiggoronTimer(void);
 
 extern u32 gUnk_0200B650;
 void sub_0806D110(void);
@@ -302,7 +302,7 @@ ASM_FUNC("asm/non_matching/bigGoron/sub_0806D520.inc", void sub_0806D520(Entity*
 NONMATCH("asm/non_matching/bigGoron/sub_0806D5D4.inc", void sub_0806D5D4(void)) {
     u32 itemSlot;
 
-    sub_08053500();
+    InitBiggoronTimer();
     itemSlot = IsItemEquipped(0xd);
     if (itemSlot != 2) {
         ((u8*)&gSave.stats.itemOnA)[itemSlot] = 0;
@@ -312,7 +312,7 @@ NONMATCH("asm/non_matching/bigGoron/sub_0806D5D4.inc", void sub_0806D5D4(void)) 
 END_NONMATCH
 
 void sub_0806D600(Entity* this, ScriptExecutionContext* context) {
-    context->condition = gSave.unk48C[2] == 0;
+    context->condition = gSave.timers[2] == 0;
 }
 
 void sub_0806D620(void) {

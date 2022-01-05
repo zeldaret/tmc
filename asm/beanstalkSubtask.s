@@ -37,7 +37,7 @@ sub_08019698: @ 0x08019698
 	bl SetLocalFlagByBank
 	ldrh r0, [r4]
 	ldrh r1, [r4, #2]
-	bl sub_08052FD8
+	bl LoadCutsceneRoom
 	ldr r5, _0801972C @ =gRoomControls
 	ldrh r0, [r4, #6]
 	ldrh r1, [r5, #0xa]

@@ -100,7 +100,7 @@ extern void sub_0804ED18();
 extern void sub_080AF2E4(void);
 extern void sub_0804F578(void);
 extern void sub_08059994(void);
-extern void sub_080ADA14(u32, u32); // trampoline to sub_080B27F4
+extern void DrawDirect(u32, u32); // trampoline to sub_080B27F4
 extern void sub_0801E1B8(u32, u32);
 extern void sub_080A3B74(void);
 extern void sub_080A4054(void);

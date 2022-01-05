@@ -147,7 +147,7 @@ void MandiblesProjectile_Action3(Entity* this) {
                 this->direction = uVar1 << 2;
                 this->animationState = uVar1 << 0x1a >> 0x1a;
                 this->hitbox = &gHitbox_0;
-                if (CheckIsDungeon() != 0) {
+                if (AreaIsDungeon() != 0) {
                     this->spriteOrientation.flipY = 1;
                 }
                 sub_080AA3E0(this, 0);

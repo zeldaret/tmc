@@ -17,12 +17,52 @@
 #include "game.h"
 #include "item.h"
 
+// Game task
+
+typedef void(GameState)(void);
+typedef void(GameMainState)(void);
+
+static GameState GameTask_Transition;
+static GameState GameTask_Init;
+static GameState GameTask_Exit;
+static GameState GameTask_Main;
+
+static GameMainState GameMain_InitRoom;
+static GameMainState GameMain_ChangeRoom;
+static GameMainState GameMain_Update;
+static GameMainState GameMain_ChangeArea;
+GameMainState GameMain_MinishPortal;
+static GameMainState GameMain_BarrelUpdate;
+/*static GameMainState 00000000;*/
+GameMainState GameMain_Subtask;
+
+// Cutscene subtask
+
+typedef void(AuxCutsceneState)(void);
+typedef void(CutsceneMainState)(void);
+
+static AuxCutsceneState AuxCutscene_Init;
+static AuxCutsceneState AuxCutscene_Main;
+static AuxCutsceneState AuxCutscene_Exit;
+
+CutsceneMainState CutsceneMain_Init;
+CutsceneMainState CutsceneMain_Update;
+CutsceneMainState CutsceneMain_Exit;
+
+// Game Over task
+
+typedef void(GameOverState)(void);
+
+static GameOverState GameOver_Init;
+static GameOverState GameOver_FadeIn;
+static GameOverState GameOver_TextMove;
+static GameOverState GameOver_Update;
+static GameOverState GameOver_Exit;
+
 extern u8 gUpdateVisibleTiles;
 
-extern u8 gUnk_080FCA84[];
-extern u8 gUnk_080FCAC8[];
+extern u16 gUnk_020178E0[];
 extern u8 gUnk_02024090[];
-extern u16 gUnk_080FCAD6[];
 
 extern void** gAreaTilesets[];
 extern void** gAreaRoomMaps[];
@@ -30,15 +70,6 @@ extern void* gAreaMetatiles[];
 extern void* gUnk_080B755C[];
 extern void** gExitLists[];
 extern void** gAreaTable[];
-
-extern u8 gUnk_080FCAF8[];
-extern u16 gUnk_020178E0[];
-
-extern void (*gUnk_080FC9D8[])();
-extern void (*gUnk_080FC9E8[])();
-extern void (*gUnk_080FCA08[])();
-extern void (*gUnk_080FCA14[])();
-extern void (*gUnk_080FCA70[])(void);
 
 void FinalizeSave(void);
 void ClearArmosData(void);
@@ -55,19 +86,16 @@ void UpdateDoorTransition(void);
 u32 IsEnterPortal(void);
 void UpdateCarriedObject(void);
 void DrawUI();
-u32 CheckPlayerActivity();
+u32 CheckPlayerInactive();
 void CollisionMain();
 void sub_0805BB74();
 void CreateZeldaFollower(void);
 void LoadRoomGfx();
-void QueueEntityDeletion();
+void RecycleEntities();
 void sub_0804AF90();
 void CallRoomProp6();
-void LoadRoomBgm();
 void UpdateScroll();
 void UpdateBgAnim();
-void sub_08052010();
-void sub_080520C4();
 void CleanUpGFXSlots();
 void sub_080ADE24();
 void InitUI(u32);
@@ -85,6 +113,8 @@ void sub_0807C740(void);
 void SetBGDefaults(void);
 void LoadItemGfx(void);
 
+static void LoadRoomBgm();
+static void sub_08052010(void);
 static void ResetTmpFlags(void);
 static void InitializeEntities(void);
 static void CheckAreaDiscovery(void);
@@ -97,11 +127,10 @@ static void sub_0805340C(void);
 static void sub_08051D98(void);
 static void sub_08051DCC(void);
 static u32 CheckGameOver(void);
-static u32 HandleRoomExit(void);
-static void sub_080531F8(void);
+static u32 CheckRoomExit(void);
+static void UpdatePlayerRoomStatus(void);
 static void sub_0805329C(void);
 static void InitializePlayer(void);
-/* static */ void sub_08051F04(void);
 /* static */ void sub_08051F9C(u32 a1, u32 a2, u32 a3, u32 a4);
 static void DrawGameOverText(void);
 static u32 StairsAreValid();
@@ -123,16 +152,6 @@ typedef struct {
     u16 _6;
 } struct_08127F94;
 extern struct_08127F94 gUnk_08127F94[];
-
-typedef struct {
-    u8 _0;
-    u8 _1;
-    u8 _2;
-    u8 _3;
-    u16 _4;
-    u16 _6;
-} struct_080FCA20;
-extern struct_080FCA20 gUnk_080FCA20[];
 
 typedef struct {
     u16* dest;
@@ -161,9 +180,26 @@ typedef struct {
 
 extern void CreateDialogBox();
 
+typedef struct {
+    u8 area;
+    u8 room;
+    u8 _2;
+    u8 _3;
+    u16 x;
+    u16 y;
+} CutsceneData;
+static const CutsceneData sCutsceneData[];
+
 void GameTask(void) {
+    static GameState* const sStates[] = {
+        GameTask_Transition,
+        GameTask_Init,
+        GameTask_Main,
+        GameTask_Exit,
+    };
+
     gRoomTransition.frameCount++;
-    gUnk_080FC9D8[gMain.state]();
+    sStates[gMain.state]();
 #ifdef DEMO_USA
     if (gSave.demo_timer != 0) {
         if (--gSave.demo_timer == 0) {
@@ -174,7 +210,7 @@ void GameTask(void) {
 #endif
 }
 
-void GameTask_Transition(void) {
+static void GameTask_Transition(void) {
     // wait for file select to fade out
     if (gFadeControl.active)
         return;
@@ -190,7 +226,7 @@ void GameTask_Transition(void) {
 
     FinalizeSave();
     // spawn in with saved status
-    MemCopy(&gSave.saved_status, &gRoomTransition.player_status, sizeof (gRoomTransition.player_status));
+    MemCopy(&gSave.saved_status, &gRoomTransition.player_status, sizeof(gRoomTransition.player_status));
     gRoomTransition.type = TRANSITION_FADE_BLACK_SLOW;
     ResetTmpFlags();
 
@@ -198,7 +234,7 @@ void GameTask_Transition(void) {
     gMain.substate = 0;
 }
 
-void GameTask_Init(void) {
+static void GameTask_Init(void) {
     DispReset(1);
     gFadeControl.mask = 0xffffffff;
     MemClear(&gOAMControls, 0xB74);
@@ -216,13 +252,23 @@ void GameTask_Init(void) {
     gMain.state = GAMETASK_MAIN;
 }
 
-void GameTask_Main(void) {
-    gUnk_080FC9E8[gMain.substate]();
+static void GameTask_Main(void) {
+    static GameMainState* const sStates[] = {
+        GameMain_InitRoom,
+        GameMain_ChangeRoom,
+        GameMain_Update,
+        GameMain_ChangeArea,
+        GameMain_MinishPortal,
+        GameMain_BarrelUpdate,
+        0,
+        GameMain_Subtask,
+    };
+    sStates[gMain.substate]();
 }
 
-void GameMain_InitRoom(void) {
+static void GameMain_InitRoom(void) {
     SetInitializationPriority();
-    gScreen.lcd.displayControl = 0x1740;
+    gScreen.lcd.displayControl = DISPCNT_BG0_ON | DISPCNT_BG1_ON | DISPCNT_BG2_ON | DISPCNT_OBJ_ON | DISPCNT_OBJ_1D_MAP;
     gMain.substate = GAMEMAIN_CHANGEROOM;
     gRoomTransition.transitioningOut = 0;
     gRoomTransition.field_0x4[0] = 0;
@@ -236,7 +282,7 @@ void GameMain_InitRoom(void) {
 #endif
 }
 
-void GameMain_ChangeRoom(void) {
+static void GameMain_ChangeRoom(void) {
     UpdateEntities();
     if (!UpdateLightLevel())
         UpdateScroll();
@@ -254,9 +300,9 @@ void GameMain_ChangeRoom(void) {
         return;
 
     UpdateFakeScroll();
-    if (gArea.musicIndex != gArea.pMusicIndex) {
-        gArea.musicIndex = gArea.pMusicIndex;
-        SoundReq(gArea.pMusicIndex | SONG_PLAY_VOL_RESET);
+    if (gArea.bgm != gArea.queued_bgm) {
+        gArea.bgm = gArea.queued_bgm;
+        SoundReq(gArea.queued_bgm | SONG_PLAY_VOL_RESET);
     }
 
     DeleteSleepingEntities();
@@ -298,13 +344,13 @@ void GameMain_ChangeRoom(void) {
     }
 }
 
-void GameMain_Update(void) {
-    if (CheckPlayerActivity() || IsEnterPortal()) {
+static void GameMain_Update(void) {
+    if (CheckPlayerInactive() || IsEnterPortal()) {
         return;
     }
     sub_0805340C();
 
-    // leave early if player is entering a portal
+    // leave early if player is now entering a portal
     if (gMain.substate != GAMEMAIN_UPDATE) {
         return;
     }
@@ -325,7 +371,7 @@ void GameMain_Update(void) {
     DrawOAMCmd();
     UpdateCarriedObject();
     DrawEntities();
-    HandleRoomExit();
+    CheckRoomExit();
     UpdatePlayerMapCoords();
     CheckGameOver();
     sub_080185F8();
@@ -346,8 +392,8 @@ void GameMain_Update(void) {
     }
 }
 
-void GameMain_BarrelUpdate(void) {
-    if (CheckPlayerActivity())
+static void GameMain_BarrelUpdate(void) {
+    if (CheckPlayerInactive())
         return;
 
     UpdateEntities();
@@ -358,14 +404,14 @@ void GameMain_BarrelUpdate(void) {
     DrawOAMCmd();
     UpdateCarriedObject();
     DrawEntities();
-    HandleRoomExit();
+    CheckRoomExit();
     CheckGameOver();
     CopyOAM();
     if (!gFadeControl.active)
         ResetSystemPriority();
 }
 
-void GameMain_ChangeArea(void) {
+static void GameMain_ChangeArea(void) {
     FlushSprites();
     DrawOAMCmd();
     DrawEntities();
@@ -379,7 +425,7 @@ void GameMain_ChangeArea(void) {
     }
 }
 
-void sub_08051D2C(void) {
+static void GameTask_Exit(void) {
 #ifdef DEMO_USA
     if (!gFadeControl.active)
         DoSoftReset();
@@ -405,15 +451,15 @@ static void InitializeEntities(void) {
     sub_0805329C();
     UpdateScrollVram();
     sub_0805BB74(0xffffffff);
-    sub_080531F8();
+    UpdatePlayerRoomStatus();
 }
 
-void sub_08051D98(void) {
+static void sub_08051D98(void) {
     sub_08052EA0();
     gRoomVars.field_0x0 = 1;
 
     // remove old entities, unless persistent
-    QueueEntityDeletion();
+    RecycleEntities();
 
     sub_0804AF90();
     CallRoomProp6();
@@ -424,21 +470,21 @@ void sub_08051D98(void) {
     SetPlayerControl(1);
 }
 
-void sub_08051DCC(void) {
+static void sub_08051DCC(void) {
     gRoomControls.area = gRoomTransition.player_status.area_next;
     gRoomControls.room = gRoomTransition.player_status.room_next;
     RoomExitCallback();
     gRoomTransition.type = TRANSITION_3;
     InitRoom();
     sub_08052EA0();
-    QueueEntityDeletion();
+    RecycleEntities();
     sub_0804AF90();
     CallRoomProp6();
     LoadRoomBgm();
 }
 
-void UpdateWindcrests() {
-    if (CheckIsOverworld()) {
+static void UpdateWindcrests(void) {
+    if (AreaIsOverworld()) {
         struct_08127F94* i;
         u32 hi_x, hi_y;
         s32 x, y;
@@ -462,31 +508,43 @@ void UpdateWindcrests() {
     }
 }
 
-void Subtask_ChuchuCutscene() {
-    gUnk_080FCA08[gMenu.menuType]();
+void Subtask_AuxCutscene(void) {
+    static AuxCutsceneState* const sStates[] = {
+        AuxCutscene_Init,
+        AuxCutscene_Main,
+        AuxCutscene_Exit,
+    };
+
+    sStates[gMenu.menuType]();
 }
 
-void sub_08051E84() {
-    struct_080FCA20* p = &gUnk_080FCA20[gUnk_02032EC0.field_0x3];
-    gRoomControls.area = p->_0;
-    gRoomControls.room = p->_1;
+static void AuxCutscene_Init(void) {
+    const CutsceneData* p = &sCutsceneData[gUnk_02032EC0.field_0x3];
+    gRoomControls.area = p->area;
+    gRoomControls.room = p->room;
     LoadGfxGroups();
     gArea.localFlagOffset = GetFlagBankOffset(gRoomControls.area);
-    SetCurrentRoomPropertyList(p->_0, p->_1);
-    sub_08052FD8(p->_0, p->_1);
-    gRoomControls.scroll_x = gRoomControls.origin_x + p->_4;
-    gRoomControls.scroll_y = gRoomControls.origin_y + p->_6;
+    SetCurrentRoomPropertyList(p->area, p->room);
+    LoadCutsceneRoom(p->area, p->room);
+    gRoomControls.scroll_x = gRoomControls.origin_x + p->x;
+    gRoomControls.scroll_y = gRoomControls.origin_y + p->y;
     gMenu.field_0x0 = p->_2;
     gMenu.field_0x3 = p->_3 & 0xf;
     gMenu.field_0xc = (void*)p;
     gMenu.menuType++;
     gMenu.overlayType = 0;
     gMenu.transitionTimer = 300;
-    sub_08051F04();
+    AuxCutscene_Main(); // init
 }
 
-void sub_08051F04(void) {
-    gUnk_080FCA14[gMenu.field_0x0]();
+static void AuxCutscene_Main(void) {
+    static CutsceneMainState* const sStates[] = {
+        CutsceneMain_Init,
+        CutsceneMain_Update,
+        CutsceneMain_Exit,
+    };
+
+    sStates[gMenu.field_0x0]();
     FlushSprites();
     UpdateEntities();
     DrawEntities();
@@ -497,8 +555,21 @@ void sub_08051F04(void) {
     UpdateScrollVram();
 }
 
-void sub_08051F40(u32 a1, u32 a2, u32 a3, u32 a4) {
-    u32 flag = gUnk_080FCA20[gUnk_02032EC0.field_0x3]._3;
+static const CutsceneData sCutsceneData[] = {
+    { AREA_MINISH_WOODS, 0, 0, 0, 336, 528 },
+    { AREA_HYRULE_FIELD, 1, 1, 0, 472, 312 },
+    { AREA_HYRULE_CASTLE, 2, 1, 1, 16, 16 },
+    { AREA_SANCTUARY, 2, 1, 2, 0, 0 },
+    { AREA_EZLO_CUTSCENE, 0, 1, 3, 0, 0 },
+    { AREA_HOUSE_INTERIORS_2, 16, 1, 4, 0, 0 },
+    { AREA_DARK_HYRULE_CASTLE_OUTSIDE, 0, 1, 5, 0, 40 },
+    { AREA_FORTRESS_OF_WINDS, 28, 2, 0, 0, 0 },
+    { AREA_FORTRESS_OF_WINDS, 29, 2, 1, 0, 0 },
+    { AREA_DARK_HYRULE_CASTLE, 14, 2, 2, 16, 16 },
+};
+
+static void AuxCutscene_Exit(void) {
+    u32 flag = sCutsceneData[gUnk_02032EC0.field_0x3]._3;
     if (flag & 0xF0) {
         MenuFadeIn(2, flag >> 4);
     } else {
@@ -510,12 +581,12 @@ void sub_08051F40(u32 a1, u32 a2, u32 a3, u32 a4) {
 
 void sub_08051F78(u32 a1, u32 a2, u32 a3, u32 a4) {
     u32 idx = gUnk_02032EC0.field_0x3;
-    struct_080FCA20* p = &gUnk_080FCA20[idx];
-    sub_08051F9C(p->_0, p->_1, p->_4, p->_6);
+    const CutsceneData* p = &sCutsceneData[idx];
+    sub_08051F9C(p->area, p->room, p->x, p->y);
 }
 
 void sub_08051F9C(u32 a1, u32 a2, u32 a3, u32 a4) {
-    u32 tmp = gScreen.lcd.displayControl & 0x6000;
+    u32 tmp = gScreen.lcd.displayControl & (DISPCNT_WIN0_ON | DISPCNT_WIN1_ON);
     sub_08052FF4(a1, a2);
     gRoomControls.scroll_x = gRoomControls.origin_x + a3;
     gRoomControls.scroll_y = gRoomControls.origin_y + a4;
@@ -525,15 +596,15 @@ void sub_08051F9C(u32 a1, u32 a2, u32 a3, u32 a4) {
     gScreen.lcd.displayControl |= tmp;
 }
 
-void sub_08051FF0() {
+void sub_08051FF0(void) {
     sub_0804B0B0(gMenu.field_0xc[0], gMenu.field_0xc[1]);
 }
 
-void sub_08052004() {
+void sub_08052004(void) {
     gMenu.menuType = 2;
 }
 
-void sub_08052010() {
+static void sub_08052010(void) {
     InitSoundPlayingInfo();
     MessageInitialize();
     DispReset(1);
@@ -545,15 +616,19 @@ void sub_08052010() {
     LoadGfxGroup(4);
     MemClear((void*)0x06000000, 0x20);
     MemClear(&gMenu, 0x30);
-    gScreen.lcd.displayControl |= 0x1000;
-    gScreen.bg1.control = 0x1C01;
-    gScreen.bg2.control = 0x1D05;
+    gScreen.lcd.displayControl |= DISPCNT_OBJ_ON;
+    gScreen.bg1.control = BGCNT_PRIORITY(1) | BGCNT_SCREENBASE(28) | BGCNT_CHARBASE(0);
+    gScreen.bg2.control = BGCNT_PRIORITY(1) | BGCNT_SCREENBASE(29) | BGCNT_CHARBASE(1);
     gScreen.bg1.updated = 1;
     gScreen.bg2.updated = 1;
 }
 
-void GameOverTask() {
-    gUnk_080FCA70[gMain.state]();
+void GameOverTask(void) {
+    static GameOverState* const sStates[] = {
+        GameOver_Init, GameOver_FadeIn, GameOver_TextMove, GameOver_Update, GameOver_Exit,
+    };
+
+    sStates[gMain.state]();
     if (gMain.state != 0) {
         FlushSprites();
         DrawGameOverText();
@@ -561,12 +636,12 @@ void GameOverTask() {
     }
 }
 
-void sub_080520C4(u32 idx) {
+static void switch_state(u32 idx) {
     gMain.state = idx;
     sub_080A7114(0);
 }
 
-void sub_080520D8(void) {
+static void GameOver_Init(void) {
     if (gFadeControl.active)
         return;
     sub_08052010();
@@ -577,10 +652,10 @@ void sub_080520D8(void) {
     SoundReq(BGM_GAMEOVER);
     sub_080500F4(4);
     gFadeControl.mask = 0xFFFF0001;
-    sub_080520C4(1);
+    switch_state(1);
 }
 
-void sub_0805212C(void) {
+static void GameOver_FadeIn(void) {
     if (gFadeControl.active)
         return;
 
@@ -590,7 +665,7 @@ void sub_0805212C(void) {
         } else {
             gMenu.transitionTimer--;
             if (gMenu.transitionTimer == 0) {
-                sub_080520C4(2);
+                switch_state(2);
 #if defined(DEMO_USA) || defined(DEMO_JP)
                 SoundReq(SONG_VOL_FADE_OUT);
                 DoFade(7, 4);
@@ -607,14 +682,13 @@ void sub_0805212C(void) {
     }
 }
 
+static void GameOver_TextMove(void) {
 #if defined(DEMO_USA) || defined(DEMO_JP)
-void sub_080521A0(void) {
     if (gFadeControl.active == 0) {
         DoSoftReset();
     }
 }
 #else
-void sub_080521A0(void) {
     s32 temp3;
     u32 temp2;
 
@@ -685,13 +759,13 @@ void sub_080521A0(void) {
         default:
             gScreen.lcd.displayControl &= ~DISPCNT_BG1_ON;
             sub_08050384();
-            sub_080520C4(3);
+            switch_state(3);
             return;
     }
 }
 #endif
 
-void sub_080522F4(void) {
+static void GameOver_Update(void) {
     switch (gMenu.menuType) {
         case 0x0:
             gMenu.transitionTimer = 0x1e;
@@ -743,7 +817,9 @@ void sub_080522F4(void) {
     }
 }
 
-void nullsub_107(void) {
+// Unused, since task is set above
+// if we got here, it would be a softlock
+static void GameOver_Exit(void) {
 }
 
 static void DrawGameOverText(void) {
@@ -760,9 +836,9 @@ static void DrawGameOverText(void) {
     for (i = 0; i < 8; ++i) {
         gOamCmd.x = sOffsets[i];
 #ifdef EU
-        sub_080ADA14(0x1fc, i);
+        DrawDirect(0x1fc, i);
 #else
-        sub_080ADA14(0x1fd, i);
+        DrawDirect(0x1fd, i);
 #endif
     }
 }
@@ -810,7 +886,7 @@ void SetPopupState(u32 type, u32 choice_idx) {
     gScreen.bg1.updated = fakematch;
 }
 
-void InitializePlayer(void) {
+static void InitializePlayer(void) {
     static const u8 sPlayerSpawnStates[] = {
         [PL_SPAWN_DEFAULT] = PLAYER_INIT,
         [PL_SPAWN_MINISH] = PLAYER_MINISH,
@@ -881,7 +957,7 @@ void InitializePlayer(void) {
     RegisterPlayerHitbox();
 }
 
-bool32 CheckIsOverworld(void) {
+bool32 AreaIsOverworld(void) {
 #ifdef EU
     return gArea.areaMetadata == 0x01;
 #else
@@ -889,33 +965,33 @@ bool32 CheckIsOverworld(void) {
 #endif
 }
 
-bool32 sub_08052638(u32 r0) {
+bool32 CheckAreaOverworld(u32 area) {
 #if EU
-    return gAreaMetadata[r0].flags == 0x01;
+    return gAreaMetadata[area].flags == 0x01;
 #else
-    return gAreaMetadata[r0].flags == 0x81;
+    return gAreaMetadata[area].flags == 0x81;
 #endif
 }
 
 #ifndef EU
-u32 sub_08052654(void) {
+bool32 AreaAllowsWarp(void) {
     return (gArea.areaMetadata >> 7) & 1;
 }
 #endif
 
-u32 CheckIsDungeon(void) {
+bool32 AreaIsDungeon(void) {
     return (gArea.areaMetadata >> 2) & 1;
 }
 
-u32 CheckIsInteriorWithEnemies(void) {
+bool32 AreaHasEnemies(void) {
     return (gArea.areaMetadata >> 4) & 1;
 }
 
-u32 CheckIsInteriorNoEnemies(void) {
+bool32 AreaHasNoEnemies(void) {
     return (gArea.areaMetadata >> 6) & 1;
 }
 
-u32 CheckHasMap(void) {
+bool32 AreaHasMap(void) {
     return (gArea.areaMetadata >> 3) & 1;
 }
 
@@ -951,7 +1027,7 @@ void ModRupees(s32 delta) {
 }
 
 void sub_080526F8(s32 a1) {
-    if (sub_08052724()) {
+    if (AreaHasKeys()) {
         u8* p = &gSave.unk45C[gArea.dungeon_idx];
         if (*p + a1 < 0)
             *p = 0;
@@ -960,41 +1036,41 @@ void sub_080526F8(s32 a1) {
     }
 }
 
-u32 sub_08052724(void) {
+bool32 AreaHasKeys(void) {
     return (gArea.areaMetadata >> 1) & 1;
 }
 
-u32 HasDungeonMap(void) {
+bool32 HasDungeonMap(void) {
     u32 tmp;
 
-    if (sub_08052724())
+    if (AreaHasKeys())
         tmp = gSave.unk45C[gArea.dungeon_idx];
     return tmp ? 1 : 0;
 }
 
-u32 HasDungeonCompass(void) {
+bool32 HasDungeonCompass(void) {
     u32 tmp;
 
-    if (sub_08052724())
+    if (AreaHasKeys())
         tmp = gSave.unk46C[gArea.dungeon_idx] & 4;
     return tmp ? 1 : 0;
 }
 
-u32 HasDungeonBigKey(void) {
-    if (!sub_08052724())
+bool32 HasDungeonBigKey(void) {
+    if (!AreaHasKeys())
         return 0;
     return (gSave.unk46C[gArea.dungeon_idx] >> 1) & 1;
 }
 
-u32 HasDungeonSmallKey(void) {
+bool32 HasDungeonSmallKey(void) {
     u32 tmp;
 
-    if (!sub_08052724())
+    if (!AreaHasKeys())
         return 0;
     return gSave.unk46C[gArea.dungeon_idx] & 1;
 }
 
-void sub_080527FC(u32 a1, u32 a2) {
+void RestoreGameTask(u32 a1) {
     LoadGfxGroups();
 #ifndef EU
     CleanUpGFXSlots();
@@ -1003,28 +1079,28 @@ void sub_080527FC(u32 a1, u32 a2) {
     InitUI(1);
     sub_0801AE44(a1);
     MemCopy(gUnk_02024090, gPaletteBuffer, 1024);
-    gUsedPalettes = -1;
+    gUsedPalettes = 0xffffffff;
 }
 
-void LoadRoomBgm(void) {
-    gArea.pMusicIndex = gAreaMetadata[gRoomControls.area]._3;
+static void LoadRoomBgm(void) {
+    gArea.queued_bgm = gAreaMetadata[gRoomControls.area]._3;
     if (CheckLocalFlagByBank(FLAG_BANK_10, LV6_KANE_START)) {
-        gArea.pMusicIndex = BGM_FIGHT_THEME2;
+        gArea.queued_bgm = BGM_FIGHT_THEME2;
     }
 }
 
 #ifndef EU
 void sub_08052878(void) {
-    gArea.musicIndex = gArea.pMusicIndex;
+    gArea.bgm = gArea.queued_bgm;
     SoundReq(SONG_STOP_ALL);
 }
 
 static void sub_0805289C(void) {
-    gArea.pMusicIndex = gArea.musicIndex;
+    gArea.queued_bgm = gArea.bgm;
 }
 #endif
 
-u32 CheckGameOver(void) {
+static u32 CheckGameOver(void) {
     if (gRoomTransition.field_0x4[1]) {
         InitFade();
         gMain.state = 3;
@@ -1041,7 +1117,7 @@ void RoomExitCallback(void) {
         gArea.onExit(gArea.transitionManager);
 }
 
-u32 HandleRoomExit(void) {
+static u32 CheckRoomExit(void) {
     if (gRoomTransition.transitioningOut && gSave.stats.health != 0 && gPlayerState.framestate != PL_STATE_DIE) {
         if (StairsAreValid()) {
             gRoomTransition.transitioningOut = 0;
@@ -1147,7 +1223,7 @@ static void InitRoomTransition(void) {
     }
 }
 
-u32 sub_08052B24(void) {
+bool32 CanDispEzloMessage(void) {
     s32 tmp = PL_STATE_WALK;
 
     if (!(gInput.heldKeys & SELECT_BUTTON) || gPlayerState.controlMode != CONTROL_ENABLED || gUnk_02034490[0] ||
@@ -1185,7 +1261,7 @@ void DisplayEzloMessage(void) {
 }
 
 #if defined(USA) || defined(DEMO_USA) || defined(DEMO_JP)
-void CreateManagerF(void) {
+static void CreateManagerF(void) {
     Entity* e = NULL;
 
     if (gRoomTransition.player_status.field_0x24[13])
@@ -1204,7 +1280,7 @@ void CreateManagerF(void) {
 }
 #endif
 
-void sub_08052C3C(void) {
+static void sub_08052C3C(void) {
     if (gArea.field_0x18 == 0)
         gArea.unk1A = gArea.field_0x18;
     if (gArea.unk1A) {
@@ -1213,25 +1289,25 @@ void sub_08052C3C(void) {
     }
 }
 
-void UpdatePlayerMapCoords(void) {
-    if (!CheckIsInteriorNoEnemies()) {
-        if (CheckIsOverworld()) {
+static void UpdatePlayerMapCoords(void) {
+    if (!AreaHasNoEnemies()) {
+        if (AreaIsOverworld()) {
             gRoomTransition.player_status.overworld_map_x = gPlayerEntity.x.HALF_U.HI;
             gRoomTransition.player_status.overworld_map_y = gPlayerEntity.y.HALF_U.HI;
-        } else if (CheckIsDungeon()) {
+        } else if (AreaIsDungeon()) {
             gRoomTransition.player_status.dungeon_map_x = gPlayerEntity.x.HALF.HI;
             gRoomTransition.player_status.dungeon_map_y = gPlayerEntity.y.HALF.HI;
         }
     }
 }
 
-void sub_08052CA4(u32 area, u32 room, u32 x, u32 y) {
+void SetWorldMapPos(u32 area, u32 room, u32 x, u32 y) {
     RoomHeader* hdr = gAreaRoomHeaders[area] + room;
     gRoomTransition.player_status.overworld_map_x = hdr->map_x + x;
     gRoomTransition.player_status.overworld_map_y = hdr->map_y + y;
 }
 
-void sub_08052CD0(u32 area, u32 room, u32 x, u32 y) {
+void SetDungeonMapPos(u32 area, u32 room, u32 x, u32 y) {
     RoomHeader* hdr = gAreaRoomHeaders[area] + room;
     gRoomTransition.player_status.dungeon_map_x = hdr->map_x + x;
     gRoomTransition.player_status.dungeon_map_y = hdr->map_y + y;
@@ -1324,7 +1400,7 @@ static u32 sub_08052EF4(s32 idx) {
  * @brief If enabled, this type of transition does not change the room
  * and keeps all entities.
  */
-void UpdateFakeScroll(void) {
+static void UpdateFakeScroll(void) {
     u32 x, y;
     LinkedList* ll;
     Entity* e;
@@ -1365,7 +1441,7 @@ void UpdateFakeScroll(void) {
     } while (++ll < gEntityLists + 9);
 }
 
-void sub_08052FD8(u32 area, u32 room) {
+void LoadCutsceneRoom(u32 area, u32 room) {
     sub_08052FF4(area, room);
     gRoomControls.camera_target = NULL;
     sub_0807C860();
@@ -1440,7 +1516,7 @@ static u32 sub_08053144(void) {
     return ret;
 }
 
-void CheckAreaDiscovery(void) {
+static void CheckAreaDiscovery(void) {
     if (!sub_08053144())
         return;
 
@@ -1465,12 +1541,12 @@ void CheckAreaDiscovery(void) {
     WriteBit(gSave.areaVisitFlags, gArea.locationIndex);
 }
 
-void sub_080531F8(void) {
+static void UpdatePlayerRoomStatus(void) {
     gPlayerState.startPosX = gPlayerEntity.x.HALF.HI;
     gPlayerState.startPosY = gPlayerEntity.y.HALF.HI;
     if (sub_08053144()) {
         MemCopy(&gRoomTransition.player_status, &gSave.saved_status, sizeof gRoomTransition.player_status);
-        if (CheckIsDungeon()) {
+        if (AreaIsDungeon()) {
             gRoomTransition.player_status.dungeon_area = gRoomControls.area;
             gRoomTransition.player_status.dungeon_room = gRoomControls.room;
             gRoomTransition.player_status.dungeon_x = gPlayerEntity.x.HALF.HI;
@@ -1490,7 +1566,7 @@ void sub_08053250(void) {
     MemCopy(&gRoomTransition.player_status, &gSave.saved_status, sizeof gRoomTransition.player_status);
 }
 
-void sub_0805329C(void) {
+static void sub_0805329C(void) {
     if (sub_08053144()) {
         switch (gRoomControls.area) {
             case AREA_DEEPWOOD_SHRINE:
@@ -1556,7 +1632,7 @@ void sub_080533CC(void) {
     gUsedPalettes |= 8;
 }
 
-void sub_0805340C(void) {
+static void sub_0805340C(void) {
     static void (*const sHandlers[])(u32*) = {
         sub_08053434, DummyHandler, sub_080534E4, DummyHandler, DummyHandler, DummyHandler, DummyHandler, DummyHandler,
     };
@@ -1564,7 +1640,7 @@ void sub_0805340C(void) {
     u32* p;
     u32 i;
 
-    p = gSave.unk48C;
+    p = gSave.timers;
     for (i = 0; i < 8; i++, p++) {
         (sHandlers[i])(p);
     }
@@ -1590,20 +1666,20 @@ static void sub_08053460(void) {
                                        FLAG_BANK_10, LV6_KANE_2ND,       FLAG_BANK_10, LV6_SOTO_ENDING,
                                        0xFFFF };
 
-    gSave.unk48C[0] = 0;
+    gSave.timers[0] = 0;
     if (CheckLocalFlagByBank(FLAG_BANK_10, LV6_ZELDA_DISCURSE))
         ClearGlobalFlag(ZELDA_CHASE);
     ClearFlagArray(sClearFlags);
 }
 
 void sub_08053494(void) {
-    gSave.unk48C[0] = 10800;
+    gSave.timers[0] = 10800;
 }
 
 void sub_080534AC(void) {
     if (CheckLocalFlagByBank(FLAG_BANK_10, LV6_KANE_START)) {
         ClearLocalFlagByBank(FLAG_BANK_10, LV6_KANE_START);
-        gSave.unk48C[0] = 0;
+        gSave.timers[0] = 0;
         SoundReq(SONG_STOP_BGM);
     }
 }
@@ -1615,11 +1691,11 @@ static void sub_080534E4(u32* a1) {
     }
 }
 
-void sub_08053500(void) {
-    gSave.unk48C[2] = 36000;
+void InitBiggoronTimer(void) {
+    gSave.timers[2] = 36000;
 }
 
-void ResetTmpFlags(void) {
+static void ResetTmpFlags(void) {
     static const u16 sClearFlags[] = { FLAG_BANK_2, BILL00_SHICHOU_00, FLAG_BANK_2, BILL0A_YADO_TAKARA_00,
                                        FLAG_BANK_2, BILL0C_SCHOOLR_00, FLAG_BANK_1, MACHI00_00,
                                        FLAG_BANK_1, MACHI00_02,        FLAG_BANK_2, MHOUSE06_00,

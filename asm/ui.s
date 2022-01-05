@@ -68,7 +68,7 @@ _0801C20E:
 	strh r0, [r4, #8]
 	ldrh r0, [r2, #6]
 	ldrb r1, [r3, #0x10]
-	bl sub_080ADA14
+	bl DrawDirect
 _0801C248:
 	adds r5, #1
 	cmp r5, #0x17
@@ -1009,7 +1009,7 @@ sub_0801C99C: @ 0x0801C99C
 	ands r0, r1
 	cmp r0, #0
 	bne _0801C9B2
-	bl sub_08052724
+	bl AreaHasKeys
 	cmp r0, #0
 	bne _0801C9EC
 _0801C9B2:

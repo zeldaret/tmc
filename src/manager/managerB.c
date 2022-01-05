@@ -52,8 +52,8 @@ void ManagerB_WaitForFlag(ManagerB* this) {
         ManagerB_LoadFight(&this->manager);
         if (!this->unk_35) {
             tmp = gRoomVars.field_0x9 ? gRoomVars.field_0x9 : 0x33;
-            this->unk_20 = gArea.musicIndex;
-            gArea.musicIndex = tmp;
+            this->unk_20 = gArea.bgm;
+            gArea.bgm = tmp;
             SoundReq(tmp);
         }
         sub_080186C0(0xB0F);
@@ -69,8 +69,8 @@ void ManagerB_WaitForDone(ManagerB* this) {
     // restore music (if it was set, which apparently is only possible if there's a flag the fight waited for)
     if (this->unk_3c) {
         if (!this->unk_35) {
-            gArea.musicIndex = this->unk_20;
-            SoundReq(gArea.musicIndex);
+            gArea.bgm = this->unk_20;
+            SoundReq(gArea.bgm);
             sub_0801855C();
         }
     }

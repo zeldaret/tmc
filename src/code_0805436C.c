@@ -94,7 +94,7 @@ u32 SetBottleContents(u32 itemID, u32 bottleIndex) {
     return bottleIndex;
 }
 
-u32 ItemIsSword(u32 item) {
+bool32 ItemIsSword(u32 item) {
     switch (item) {
         case ITEM_SMITH_SWORD:
         case ITEM_GREEN_SWORD:
@@ -107,7 +107,7 @@ u32 ItemIsSword(u32 item) {
     }
 }
 
-u32 ItemIsShield(u32 id) {
+bool32 ItemIsShield(u32 id) {
     switch (id) {
         case 13:
         case 14:
@@ -117,7 +117,7 @@ u32 ItemIsShield(u32 id) {
     }
 }
 
-u32 ItemIsBottle(u32 id) {
+bool32 ItemIsBottle(u32 id) {
     switch (id) {
         case 28:
         case 29:

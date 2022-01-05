@@ -631,9 +631,9 @@ CreateBird: @ 0x0809D700
 	push {r4, lr}
 	sub sp, #4
 .ifdef EU
-	bl CheckIsOverworld @ TODO correct function?
+	bl AreaIsOverworld @ TODO correct function?
 .else
-	bl sub_08052654
+	bl AreaAllowsWarp
 .endif
 	cmp r0, #0
 	beq _0809D732
