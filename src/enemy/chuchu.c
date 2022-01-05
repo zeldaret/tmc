@@ -331,9 +331,6 @@ void sub_0801F3AC(Entity* this) {
     }
 }
 
-#ifdef EU
-ASM_FUNC("asm/non_matching/eu/sub_0801F428.inc", void sub_0801F428(Entity* this))
-#else
 void sub_0801F428(Entity* this) {
     sub_0804A720(this);
     this->action = 1;
@@ -345,12 +342,20 @@ void sub_0801F428(Entity* this) {
 
     this->action = 3;
     this->field_0xf = 30;
+
+#ifdef EU
+    this->direction = sub_08049F84(this, 1);
+#endif
+
     COLLISION_ON(this);
     this->spritePriority.b1 = 3;
+
+#ifndef EU
     this->spriteSettings.draw = 1;
+#endif
+
     InitializeAnimation(this, 2);
 }
-#endif
 
 void sub_0801F48C(Entity* this) {
     GetNextFrame(this);
