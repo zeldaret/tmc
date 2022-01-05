@@ -14,7 +14,7 @@ SCRIPT_START script_Npc4EMonsters
 	SetSyncFlag 0x00800000
 	WaitForSyncFlagAndClear 0x01000000
 	SetFadeTime 0x0004
-	DoFade7
+	SetFade7
 	WaitForFadeFinish
 	Wait 0x003c
 	PlaySound SFX_SPIRITS_RELEASE
@@ -23,7 +23,7 @@ SCRIPT_START script_Npc4EMonsters
 	SetSyncFlag 0x00000010
 	WaitForSyncFlagAndClear 0x00000020
 	SetFadeTime 0x0002
-	DoFade6
+	SetFade6
 	WaitForFadeFinish
 	CallWithArg DeleteManager36, 0x00000002
 	_0807F0C8 0x0000, 0x0000

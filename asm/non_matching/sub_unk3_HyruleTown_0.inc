@@ -86,7 +86,7 @@ _0804DE5C:
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #7
-	bl DoFade
+	bl SetFade
 	b _0804DECC
 	.align 2, 0
 _0804DEB4: .4byte gArea
@@ -96,7 +96,7 @@ _0804DEC0: .4byte gRoomTransition
 _0804DEC4:
 	movs r0, #6
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 _0804DECC:
 	movs r0, #1
 	pop {r4, r5, r6, pc}

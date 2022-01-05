@@ -16,8 +16,8 @@ extern u16 gUnk_080FC3C4[];
 extern u32 gMakeFadeBuff256;
 typedef void (*fptrMakeFadeBuff256)(u8*, u8*, u16, u8);
 
-void SetBrightness(u32 arg0) {
-    gSaveHeader->brightness = arg0;
+void SetBrightness(u32 brightness) {
+    gSaveHeader->brightness = brightness;
     gUsedPalettes = 0xffffffff;
 }
 
@@ -48,34 +48,34 @@ void InitFade(void) {
     gFadeControl.mask = 0xffffffff;
 }
 
-void sub_08050008(void) {
+void ResetFadeMask(void) {
     MemClear(&gUnk_020354C0, sizeof(gUnk_020354C0));
     gFadeControl.mask = 0xFFFFFFFF;
 }
 
 static void sub_08050024(void) {
     sub_0801E104();
-    DoFade(5, 256);
+    SetFade(5, 256);
 }
 
-void sub_08050038(u32 arg0) {
-    if ((gFadeControl.fadeType & 1) != 0) {
-        gFadeControl.field_0xe = arg0;
+void SetFadeProgress(u32 arg0) {
+    if ((gFadeControl.type & 1) != 0) {
+        gFadeControl.sustain = arg0;
     } else {
-        gFadeControl.fadeDuration = arg0;
+        gFadeControl.progress = arg0;
     }
 }
 
-void DoFade(u32 type, u32 speed) {
-    gFadeControl.fadeSpeed = speed;
-    gFadeControl.fadeType = type;
+void SetFade(u32 type, u32 speed) {
+    gFadeControl.speed = speed;
+    gFadeControl.type = type;
     gFadeControl.active = 1;
-    gFadeControl.fadeDuration = 0x100;
-    gFadeControl.field_0xe = 0;
-    if (gFadeControl.fadeType & 2) {
-        gFadeControl.field_0x2 = 0xf8;
+    gFadeControl.progress = 0x100;
+    gFadeControl.sustain = 0;
+    if (gFadeControl.type & 2) {
+        gFadeControl.color = 0xf8;
     } else {
-        gFadeControl.field_0x2 = 0;
+        gFadeControl.color = 0;
     }
     if (type & 8) {
         gOAMControls.spritesOffset = 1;
@@ -84,46 +84,46 @@ void DoFade(u32 type, u32 speed) {
         gScreen.bg3.control |= BGCNT_MOSAIC;
     }
     if (type & 0x10) {
-        sub_0801E1B8(gFadeControl.field_0x16, gFadeControl.field_0x18);
-        sub_0801E1EC(gFadeControl.field_0x12, gFadeControl.field_0x14, gFadeControl.field_0x10);
+        sub_0801E1B8(gFadeControl.win_inside_cnt, gFadeControl.win_outside_cnt);
+        sub_0801E1EC(gFadeControl.iris_x, gFadeControl.iris_y, gFadeControl.iris_size);
         if ((type & 1) == 0) {
-            gFadeControl.fadeType &= ~4;
-            sub_08050008();
+            gFadeControl.type &= ~4;
+            ResetFadeMask();
             gUsedPalettes = 0xffffffff;
         }
     }
 }
 
-void sub_080500F4(u32 arg0) {
-    gFadeControl.fadeSpeed = arg0;
-    gFadeControl.fadeType ^= 1;
+void SetFadeInverted(u32 arg0) {
+    gFadeControl.speed = arg0;
+    gFadeControl.type ^= 1;
     gFadeControl.active = 1;
-    gFadeControl.fadeDuration = 256;
+    gFadeControl.progress = 256;
 }
 
-void sub_08050110(u32 param_1, u32 param_2, u32 fadeType, u32 fadeSpeed) {
-    if ((fadeType & 1) != 0) {
-        gFadeControl.field_0x10 = 0x96;
+void SetFadeIris(u32 x, u32 y, u32 type, u32 speed) {
+    if ((type & 1) != 0) {
+        gFadeControl.iris_size = 0x96;
     } else {
-        gFadeControl.field_0x10 = 0;
+        gFadeControl.iris_size = 0;
     }
-    gFadeControl.field_0x12 = param_1;
-    gFadeControl.field_0x14 = param_2;
-    gFadeControl.field_0x16 = 0x3f3f;
-    gFadeControl.field_0x18 = 0;
-    DoFade(fadeType, fadeSpeed);
+    gFadeControl.iris_x = x;
+    gFadeControl.iris_y = y;
+    gFadeControl.win_inside_cnt = 0x3f3f;
+    gFadeControl.win_outside_cnt = 0;
+    SetFade(type, speed);
 }
 
 void FadeMain(void) {
     FadeControl* ctl = &gFadeControl;
-    u32 flags = ctl->fadeType & 0x1C;
+    u32 flags = ctl->type & 0x1C;
     u32 active = 0;
     u32 bit;
 
     if (ctl->active) {
-        ctl->fadeDuration -= ctl->fadeSpeed;
-        if ((s16)ctl->fadeDuration <= (s16)ctl->field_0xe)
-            ctl->fadeDuration = ctl->field_0xe;
+        ctl->progress -= ctl->speed;
+        if ((s16)ctl->progress <= (s16)ctl->sustain)
+            ctl->progress = ctl->sustain;
         while (flags) {
             bit = (~flags + 1) & flags;
             flags ^= bit;
@@ -149,10 +149,10 @@ static u32 sub_080501C0(FadeControl* ctl) {
     struct_020354C0* v3;
     u32 i;
 
-    if (ctl->fadeType & 1) {
-        v1 = 256 - (s16)ctl->fadeDuration;
+    if (ctl->type & 1) {
+        v1 = 256 - (s16)ctl->progress;
     } else {
-        v1 = (s16)ctl->fadeDuration;
+        v1 = (s16)ctl->progress;
     }
     v2 = gFadeControl.mask;
     v3 = gUnk_020354C0;
@@ -164,21 +164,21 @@ static u32 sub_080501C0(FadeControl* ctl) {
             v3->unk0 = 0;
             v3->unk2 = 0;
         }
-        v3->unk1 = ctl->field_0x2;
+        v3->unk1 = ctl->color;
         v2 >>= 1;
     }
     gUsedPalettes = 0xffffffff;
 
-    return !!((s16)ctl->field_0xe ^ (s16)ctl->fadeDuration);
+    return !!((s16)ctl->sustain ^ (s16)ctl->progress);
 }
 
 static u32 sub_08050230(FadeControl* ctl) {
-    u32 type = ctl->fadeType;
-    u32 idx = ((s16)ctl->fadeDuration >> 4) & 0xF;
+    u32 type = ctl->type;
+    u32 idx = ((s16)ctl->progress >> 4) & 0xF;
     if (type & 1)
         idx = 0xF - idx;
     gScreen.controls.mosaicSize = gUnk_080FC3C4[idx];
-    if (ctl->fadeDuration != 0)
+    if (ctl->progress != 0)
         return 1;
 
     // fade is finished
@@ -194,18 +194,18 @@ static u32 sub_08050230(FadeControl* ctl) {
 }
 
 static u32 sub_080502A4(FadeControl* ctl) {
-    if (ctl->fadeType & 1) {
-        s32 delta = (u16)gFadeControl.field_0x10 - gFadeControl.fadeSpeed;
-        gFadeControl.field_0x10 -= gFadeControl.fadeSpeed;
+    if (ctl->type & 1) {
+        s32 delta = (u16)gFadeControl.iris_size - gFadeControl.speed;
+        gFadeControl.iris_size -= gFadeControl.speed;
         if (delta << 16 <= 0)
-            gFadeControl.field_0x10 = 0;
-        sub_0801E1EC(gFadeControl.field_0x12, gFadeControl.field_0x14, gFadeControl.field_0x10);
-        if (!gFadeControl.field_0x10)
+            gFadeControl.iris_size = 0;
+        sub_0801E1EC(gFadeControl.iris_x, gFadeControl.iris_y, gFadeControl.iris_size);
+        if (!gFadeControl.iris_size)
             return 0;
     } else {
-        gFadeControl.field_0x10 += gFadeControl.fadeSpeed;
-        sub_0801E1EC(gFadeControl.field_0x12, gFadeControl.field_0x14, gFadeControl.field_0x10);
-        if (gFadeControl.field_0x10 > 150) {
+        gFadeControl.iris_size += gFadeControl.speed;
+        sub_0801E1EC(gFadeControl.iris_x, gFadeControl.iris_y, gFadeControl.iris_size);
+        if (gFadeControl.iris_size > 150) {
             sub_0801E104();
             return 0;
         }

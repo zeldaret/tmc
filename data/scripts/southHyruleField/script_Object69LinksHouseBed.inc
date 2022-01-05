@@ -13,7 +13,7 @@ script_08009DF0:
 	JumpIfNot script_08009E4E
 	Call sub_0807DF28
 	SetFadeTime 0x0002
-	DoFade5
+	SetFade5
 	WaitForFadeFinish
 	Call sub_0804E864
 	Wait 0x001e

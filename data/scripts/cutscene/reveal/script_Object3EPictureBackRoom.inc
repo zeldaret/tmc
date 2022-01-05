@@ -12,7 +12,7 @@ SCRIPT_START script_Object3EPictureBackRoom
 	StartPlayerScript script_PlayerMoveToPicture
 	WaitForSyncFlagAndClear 0x00000002
 	SetFadeTime 0x0004
-	DoFade5
+	SetFade5
 	WaitForFadeFinish
 	LoadRoomEntityList gUnk_080F5680
 	StartPlayerScript script_PlayerSanctuaryIntro
@@ -45,7 +45,7 @@ SCRIPT_START script_Object3EPictureBackRoom
 	WaitForSyncFlagAndClear 0x00000040
 	SetFadeMask 0xffff7fff
 	SetFadeTime 0x0004
-	DoFade5
+	SetFade5
 	WaitForFadeFinish
 	StopBgm
 	_0807E858 0x0000
@@ -56,7 +56,7 @@ SCRIPT_START script_Object3EPictureBackRoom
 	WaitUntilTextboxCloses
 	SetFadeMask 0xffffffff
 	SetFadeTime 0x0004
-	DoFade4
+	SetFade4
 	WaitForFadeFinish
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000002

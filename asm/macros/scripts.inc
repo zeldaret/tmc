@@ -343,19 +343,19 @@
 	.2byte \s
 .endm
 
-.macro DoFade4 
+.macro SetFade4 
 	.2byte 0x043c
 .endm
 
-.macro DoFade5 
+.macro SetFade5 
 	.2byte 0x043d
 .endm
 
-.macro DoFade6 
+.macro SetFade6 
 	.2byte 0x043e
 .endm
 
-.macro DoFade7 
+.macro SetFade7 
 	.2byte 0x043f
 .endm
 

@@ -97,7 +97,7 @@ _08054954:
 	strb r0, [r1]
 	movs r0, #7
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 _08054962:
 	pop {pc}
 	.align 2, 0

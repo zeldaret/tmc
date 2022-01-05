@@ -225,7 +225,7 @@ static void HandleFileScreenEnter(void) {
     gGFXSlots.unk0 = 1;
     gMain.state = 1;
     SoundReq(BGM_FILE_SELECT);
-    DoFade(4, 8);
+    SetFade(4, 8);
 }
 
 static void HandleFileScreenActive(void) {
@@ -1204,7 +1204,7 @@ void HandleFileStart(void) {
         gSaveHeader->msg_speed = gSave.msg_speed;
         gSaveHeader->brightness = gSave.brightness;
         gMain.state = 2;
-        DoFade(5, 8);
+        SetFade(5, 8);
     }
 }
 

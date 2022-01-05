@@ -54,7 +54,7 @@ SCRIPT_START script_Npc4EMinishPortalClosing
 	Call sub_0808D280
 	Wait 0x0078
 	SetFadeTime 0x0004
-	DoFade5
+	SetFade5
 	WaitForFadeFinish
 	Call sub_0807FB94 @ Roll Credits
 	MoveEntityToPlayer
@@ -62,7 +62,7 @@ SCRIPT_START script_Npc4EMinishPortalClosing
 	_0807F0B4 0x0004
 	CameraTargetPlayer
 	SetSyncFlag 0x80000000
-	DoFade4
+	SetFade4
 	WaitForFadeFinish
 	Call sub_0807DF50
 	EnablePlayerControl

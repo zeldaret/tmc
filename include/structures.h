@@ -39,25 +39,6 @@ static_assert(sizeof(struct_02000010) == 0x20);
 extern struct_02000010 gUnk_02000010;
 
 typedef struct {
-    u8 active;
-    u8 field_0x1;
-    u8 field_0x2;
-    u8 field_0x3;
-    u32 mask;
-    u16 fadeType;  // fade in or out, are there others?
-    u16 fadeSpeed; // subtracted from duration
-    u16 fadeDuration;
-    u16 field_0xe;
-    s16 field_0x10;
-    s16 field_0x12;
-    s16 field_0x14;
-    u16 field_0x16;
-    u16 field_0x18;
-} FadeControl;
-
-extern FadeControl gFadeControl;
-
-typedef struct {
     u8 unk0;
     u8 unk1;
     u16 unk2;

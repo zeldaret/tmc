@@ -120,7 +120,7 @@ static u32 AdvanceIntroSequence(u32 transition) {
     gUnk_02032EC0.lastState = transition;
     gMain.state = 2;
     MemClear(&gIntroState, sizeof(gIntroState));
-    DoFade(7, 8);
+    SetFade(7, 8);
 }
 
 void TitleTask(void) {
@@ -164,7 +164,7 @@ static void HandleNintendoCapcomLogos(void) {
         LoadPaletteGroup(paletteGroup);
         gScreen.lcd.displayControl |= DISPCNT_BG2_ON;
         gScreen.bg1.updated = 1;
-        DoFade(6, 8);
+        SetFade(6, 8);
         advance = ADVANCE_NONE;
 #if defined(DEMO_USA)
         if (gUnk_02000010.listenForKeyPresses == 0) {
@@ -239,7 +239,7 @@ static void HandleTitlescreen(void) {
             }
             InitSoundPlayingInfo();
             SoundReq(BGM_TITLE_SCREEN);
-            DoFade(6, 8);
+            SetFade(6, 8);
             break;
         case 1:
             if (gFadeControl.active) {
@@ -348,7 +348,7 @@ static void HandleJapaneseTitlescreenAnimationIntro(void) {
                     gScreen.bg1.yOffset = 0;
                     gScreen.bg1.control = BGCNT_SCREENBASE(12) | BGCNT_PRIORITY(1) | BGCNT_CHARBASE(2);
                     gFadeControl.mask = 0x00000040;
-                    DoFade(6, 0x10);
+                    SetFade(6, 0x10);
                     SoundReq(SFX_F8);
                 }
             }
@@ -396,7 +396,7 @@ static void HandleTitlescreenAnimationIntro(void) {
                 gIntroState.swordBgScaleRatio = 0x100;
                 gIntroState.timer = 40;
                 gIntroState.subState++;
-                DoFade(6, 16);
+                SetFade(6, 16);
             }
             UpdateSwordBgAffineData();
             break;
@@ -409,7 +409,7 @@ static void HandleTitlescreenAnimationIntro(void) {
 #endif
                 gIntroState.subState++;
                 CreateObject(OBJECT_BD, 0, 0);
-                DoFade(6, 16);
+                SetFade(6, 16);
                 SoundReq(SFX_F8);
             }
             break;

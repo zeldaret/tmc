@@ -74,10 +74,10 @@ void ScriptCommand_SetFadeTime(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetFadeMask(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_FadeInvert(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommandNop2(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_DoFade4(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_DoFade5(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_DoFade6(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_DoFade7(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_SetFade4(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_SetFade5(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_SetFade6(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_SetFade7(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807E800(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807E80C(Entity* entity, ScriptExecutionContext* context);
 void sub_0807E818(u32);
@@ -523,10 +523,10 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
         ScriptCommand_SetFadeMask,
         ScriptCommand_FadeInvert,
         ScriptCommandNop2,
-        ScriptCommand_DoFade4,
-        ScriptCommand_DoFade5,
-        ScriptCommand_DoFade6,
-        ScriptCommand_DoFade7,
+        ScriptCommand_SetFade4,
+        ScriptCommand_SetFade5,
+        ScriptCommand_SetFade6,
+        ScriptCommand_SetFade7,
         ScriptCommand_0807E800,
         ScriptCommand_0807E80C,
         ScriptCommand_0807E858,
@@ -1006,26 +1006,26 @@ void ScriptCommand_SetFadeMask(Entity* entity, ScriptExecutionContext* context) 
 }
 
 void ScriptCommand_FadeInvert(Entity* entity, ScriptExecutionContext* context) {
-    sub_080500F4(gActiveScriptInfo.unk_08);
+    SetFadeInverted(gActiveScriptInfo.unk_08);
 }
 
 void ScriptCommandNop2(Entity* entity, ScriptExecutionContext* context) {
 }
 
-void ScriptCommand_DoFade4(Entity* entity, ScriptExecutionContext* context) {
-    DoFade(4, gActiveScriptInfo.unk_08);
+void ScriptCommand_SetFade4(Entity* entity, ScriptExecutionContext* context) {
+    SetFade(4, gActiveScriptInfo.unk_08);
 }
 
-void ScriptCommand_DoFade5(Entity* entity, ScriptExecutionContext* context) {
-    DoFade(5, gActiveScriptInfo.unk_08);
+void ScriptCommand_SetFade5(Entity* entity, ScriptExecutionContext* context) {
+    SetFade(5, gActiveScriptInfo.unk_08);
 }
 
-void ScriptCommand_DoFade6(Entity* entity, ScriptExecutionContext* context) {
-    DoFade(6, gActiveScriptInfo.unk_08);
+void ScriptCommand_SetFade6(Entity* entity, ScriptExecutionContext* context) {
+    SetFade(6, gActiveScriptInfo.unk_08);
 }
 
-void ScriptCommand_DoFade7(Entity* entity, ScriptExecutionContext* context) {
-    DoFade(7, gActiveScriptInfo.unk_08);
+void ScriptCommand_SetFade7(Entity* entity, ScriptExecutionContext* context) {
+    SetFade(7, gActiveScriptInfo.unk_08);
 }
 
 void ScriptCommand_0807E800(Entity* entity, ScriptExecutionContext* context) {
@@ -1036,7 +1036,7 @@ void ScriptCommand_0807E80C(Entity* entity, ScriptExecutionContext* context) {
     sub_0807E818(0x11);
 }
 
-void sub_0807E818(u32 fadeType) {
+void sub_0807E818(u32 type) {
     Entity* cameraTarget = gRoomControls.camera_target;
     u32 x, y;
     if (cameraTarget) {
@@ -1046,11 +1046,11 @@ void sub_0807E818(u32 fadeType) {
         x = 0x78;
         y = 0x50;
     }
-    sub_08050110(x, y, fadeType, gActiveScriptInfo.unk_08);
+    SetFadeIris(x, y, type, gActiveScriptInfo.unk_08);
 }
 
 void ScriptCommand_0807E858(Entity* entity, ScriptExecutionContext* context) {
-    sub_08050038(context->scriptInstructionPointer[1]);
+    SetFadeProgress(context->scriptInstructionPointer[1]);
 }
 
 void ScriptCommand_SetPlayerIdle(Entity* entity, ScriptExecutionContext* context) {
@@ -1571,7 +1571,7 @@ void SetCollisionLayer2(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807F190(Entity* entity, ScriptExecutionContext* context) {
-    DoFade(4, 256);
+    SetFade(4, 256);
 }
 
 void sub_0807F1A0(Entity* entity, ScriptExecutionContext* context) {

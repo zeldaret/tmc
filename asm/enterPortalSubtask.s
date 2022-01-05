@@ -65,7 +65,7 @@ _0804ABA4:
 	strb r0, [r1, #0xe]
 	movs r0, #4
 	movs r1, #8
-	bl DoFade
+	bl SetFade
 	pop {r4, r5, pc}
 	.align 2, 0
 _0804ABF8: .4byte gScreen
@@ -137,7 +137,7 @@ _0804AC86:
 	strb r0, [r1, #0xe]
 	movs r0, #7
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 _0804AC96:
 	pop {r4, pc}
 	.align 2, 0

@@ -169,7 +169,7 @@ sub_0802D158: @ 0x0802D158
 	strb r1, [r0]
 	movs r0, #7
 	movs r1, #8
-	bl DoFade
+	bl SetFade
 	pop {pc}
 	.align 2, 0
 _0802D16C: .4byte gUnk_02034490
@@ -234,7 +234,7 @@ sub_0802D170: @ 0x0802D170
 	str r5, [r4, #0x30]
 	movs r0, #6
 	movs r1, #8
-	bl DoFade
+	bl SetFade
 	b _0802D216
 	.align 2, 0
 _0802D1F0: .4byte gFadeControl

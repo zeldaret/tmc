@@ -135,7 +135,7 @@ script_08015104:
 	_0807F0B4 0x0004
 	CameraTargetEntity
 	SetFadeTime 0x0100
-	DoFade4
+	SetFade4
 	_0807E80C 0x00000000
 	EndBlock
 	StartPlayerScript script_PlayerSeenOriginStory
