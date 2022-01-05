@@ -659,7 +659,7 @@ void sub_08041D84(Entity* this) {
                 ChangeObjPalette(this->child, gUnk_080D0E80[(this->field_0xf - 0xb8) >> 3]);
             }
             if (this->field_0xf == 0xe6) {
-                DoFade(7, 4);
+                SetFade(7, 4);
             }
         } else {
             this->subAction = 4;

@@ -153,7 +153,7 @@ _0808CFC6:
 	strh r6, [r0, #0x10]
 	movs r0, #5
 	movs r1, #8
-	bl DoFade
+	bl SetFade
 _0808D01E:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

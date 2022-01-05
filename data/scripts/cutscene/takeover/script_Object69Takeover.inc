@@ -23,7 +23,7 @@ script_08015BF0:
 	Call sub_0807FBC4
 	CameraTargetPlayer
 	SetFadeTime 0x0100
-	DoFade4
+	SetFade4
 	_0807E80C 0x00000000
 	EndBlock
 	SetFadeTime 0x0004

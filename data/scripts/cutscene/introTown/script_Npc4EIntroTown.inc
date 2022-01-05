@@ -19,7 +19,7 @@ SCRIPT_START script_Npc4EIntroTown
 	SetEntityPositionRelative 0x00c8, 0x0148
 	Call sub_0807F844
 	SetFadeTime 0x0002
-	DoFade6
+	SetFade6
 	WaitForFadeFinish
 	StartPlayerScript script_PlayerIntro1
 	SetSyncFlag 0x00000002

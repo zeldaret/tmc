@@ -42,7 +42,7 @@ sub_080535AC: @ 0x080535AC
 	bl LoadRoomEntityList
 	movs r0, #6
 	movs r1, #8
-	bl DoFade
+	bl SetFade
 	pop {pc}
 	.align 2, 0
 _080535DC: .4byte gMenu
@@ -175,7 +175,7 @@ sub_080536B8: @ 0x080536B8
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #5
-	bl DoFade
+	bl SetFade
 	pop {pc}
 	.align 2, 0
 
@@ -224,7 +224,7 @@ sub_0805370C: @ 0x0805370C
 	bl LoadRoomEntityList
 	movs r0, #4
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	pop {pc}
 	.align 2, 0
 _08053730: .4byte gMenu
@@ -306,7 +306,7 @@ sub_08053758: @ 0x08053758
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #5
-	bl DoFade
+	bl SetFade
 	pop {r4, pc}
 	.align 2, 0
 _080537DC: .4byte gMenu
@@ -376,7 +376,7 @@ sub_08053800: @ 0x08053800
 	strh r1, [r0]
 	ldrh r1, [r4, #0xa]
 	movs r0, #4
-	bl DoFade
+	bl SetFade
 _0805387A:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -438,7 +438,7 @@ _080538E4:
 	strb r0, [r4, #6]
 	movs r0, #5
 	movs r1, #8
-	bl DoFade
+	bl SetFade
 _080538F8:
 	pop {r4, pc}
 	.align 2, 0
@@ -496,7 +496,7 @@ _08053954:
 	strb r0, [r4, #6]
 	movs r0, #5
 	movs r1, #1
-	bl DoFade
+	bl SetFade
 _08053968:
 	pop {r4, pc}
 	.align 2, 0
@@ -520,7 +520,7 @@ sub_08053974: @ 0x08053974
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #5
-	bl DoFade
+	bl SetFade
 	ldr r1, _080539B4 @ =gMenu
 	ldrb r0, [r1, #6]
 	adds r0, #1
@@ -606,7 +606,7 @@ sub_08053A1C: @ 0x08053A1C
 	strb r4, [r1, #7]
 	movs r0, #4
 	movs r1, #8
-	bl DoFade
+	bl SetFade
 _08053A4E:
 	pop {r4, pc}
 	.align 2, 0
@@ -635,7 +635,7 @@ sub_08053A5C: @ 0x08053A5C
 	strb r0, [r1, #6]
 	movs r0, #5
 	movs r1, #8
-	bl DoFade
+	bl SetFade
 _08053A86:
 	pop {pc}
 	.align 2, 0
@@ -690,7 +690,7 @@ sub_08053ACC: @ 0x08053ACC
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #5
-	bl DoFade
+	bl SetFade
 	pop {pc}
 	.align 2, 0
 _08053AF4: .4byte gMenu
@@ -723,7 +723,7 @@ sub_08053B10: @ 0x08053B10
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #4
-	bl DoFade
+	bl SetFade
 _08053B34:
 	pop {pc}
 	.align 2, 0
@@ -741,7 +741,7 @@ sub_08053B3C: @ 0x08053B3C
 	bl sub_080A71C4
 	movs r0, #5
 	adds r1, r4, #0
-	bl DoFade
+	bl SetFade
 	pop {r4, pc}
 
 	thumb_func_start sub_08053B58
@@ -776,7 +776,7 @@ sub_08053B74: @ 0x08053B74
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #5
-	bl DoFade
+	bl SetFade
 	pop {pc}
 	.align 2, 0
 _08053BA0: .4byte gMenu
@@ -809,7 +809,7 @@ sub_08053BBC: @ 0x08053BBC
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #4
-	bl DoFade
+	bl SetFade
 _08053BE0:
 	pop {pc}
 	.align 2, 0
@@ -827,7 +827,7 @@ sub_08053BE8: @ 0x08053BE8
 	bl sub_080A71C4
 	movs r0, #5
 	adds r1, r4, #0
-	bl DoFade
+	bl SetFade
 	pop {r4, pc}
 
 	thumb_func_start sub_08053C04
@@ -862,7 +862,7 @@ sub_08053C20: @ 0x08053C20
 	bl LoadRoomEntityList
 	movs r0, #4
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	movs r0, #0x33
 	bl SoundReq
 	pop {pc}
@@ -881,7 +881,7 @@ sub_08053C60: @ 0x08053C60
 	push {lr}
 	movs r0, #5
 	movs r1, #2
-	bl DoFade
+	bl SetFade
 	movs r0, #0xf4
 	bl SoundReq
 	ldr r0, _08053C80 @ =0x80100000
@@ -965,7 +965,7 @@ sub_08053CC8: @ 0x08053CC8
 	strb r5, [r0]
 	movs r0, #4
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	ldrb r0, [r4, #5]
 	cmp r0, #0x1d
 	bne _08053D1E
@@ -1040,7 +1040,7 @@ sub_08053D90: @ 0x08053D90
 	adds r0, #1
 	strb r0, [r1, #6]
 	movs r0, #0x10
-	bl sub_080500F4
+	bl SetFadeInverted
 _08053DAC:
 	pop {pc}
 	.align 2, 0
@@ -1091,7 +1091,7 @@ sub_08053DB4: @ 0x08053DB4
 	adds r0, #1
 	strb r0, [r5, #6]
 	movs r0, #0x10
-	bl sub_080500F4
+	bl SetFadeInverted
 _08053E1C:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -1165,7 +1165,7 @@ sub_08053E74: @ 0x08053E74
 	bl SetMinPriority
 	movs r0, #4
 	movs r1, #8
-	bl DoFade
+	bl SetFade
 	pop {r4, pc}
 	.align 2, 0
 _08053EB0: .4byte gUnk_080FCFB8
@@ -1217,7 +1217,7 @@ sub_08053EFC: @ 0x08053EFC
 	adds r0, #1
 	strb r0, [r1, #6]
 	movs r0, #8
-	bl sub_080500F4
+	bl SetFadeInverted
 _08053F18:
 	pop {pc}
 	.align 2, 0
@@ -1261,7 +1261,7 @@ sub_08053F20: @ 0x08053F20
 	adds r0, #1
 	strb r0, [r5, #6]
 	movs r0, #8
-	bl sub_080500F4
+	bl SetFadeInverted
 _08053F74:
 	pop {r4, r5, pc}
 	.align 2, 0

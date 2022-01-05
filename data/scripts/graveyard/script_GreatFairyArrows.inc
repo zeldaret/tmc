@@ -41,10 +41,10 @@ script_0800B698:
 	WaitUntilTextboxCloses
 script_0800B6A6:
 	SetFadeTime 0x0004
-	DoFade7
+	SetFade7
 	WaitForFadeFinish
 	Call sub_080873FC
-	DoFade6
+	SetFade6
 	WaitForFadeFinish
 	CameraTargetPlayer
 	Wait 0x001e

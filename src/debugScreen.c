@@ -33,7 +33,7 @@ void sub_0805FA04(void) {
     SetColor(0, 0x1144);
     gMain.state = 1;
     InitSoundPlayingInfo();
-    sub_08050008();
+    ResetFadeMask();
 }
 
 void sub_0805FA98(void) {

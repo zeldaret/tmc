@@ -183,7 +183,7 @@ sub_080A02CC: @ 0x080A02CC
 	bl sub_0808C650
 	movs r0, #6
 	movs r1, #2
-	bl DoFade
+	bl SetFade
 	movs r0, #0xf8
 	bl SoundReq
 	movs r0, #0xa4

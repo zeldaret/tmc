@@ -8,7 +8,7 @@ SCRIPT_START script_Npc4EOutsideLinksHouse
 	Call sub_0807DF28
 	EndBlock
 	SetFadeTime 0x0010
-	DoFade6
+	SetFade6
 	WaitForFadeFinish
 	SetSyncFlag 0x00000001
 	WaitForSyncFlagAndClear 0x00000002

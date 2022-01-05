@@ -5,7 +5,7 @@ SCRIPT_START script_PlayerWakeAfterRest
 	EndBlock
 	WaitForSyncFlagAndClear 0x00000002
 	SetFadeTime 0x0002
-	DoFade4
+	SetFade4
 	WaitForFadeFinish
 	DoPostScriptAction 0x0014
 	Wait 0x001e

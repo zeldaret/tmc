@@ -18,7 +18,7 @@ SCRIPT_START script_Npc4EIntroCastle
 	WaitUntilTextboxCloses
 	StopBgm
 	SetFadeTime 0x0004
-	DoFade5
+	SetFade5
 	WaitForFadeFinish
 	Call sub_08064180
 	Call sub_08064180
@@ -39,7 +39,7 @@ SCRIPT_START script_Npc4EIntroCastle
 	Wait 0x000a
 	_0807F0B4 0x0001
 	SetFadeTime 0x0001
-	DoFade4
+	SetFade4
 	SetSyncFlag 0x0002a800
 	WaitForSyncFlagAndClear 0x00055000
 	SetEntityPositionRelative 0x01f8, 0x0078

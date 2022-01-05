@@ -611,7 +611,7 @@ _0809BCDC:
 	bne _0809BDAE
 	movs r0, #6
 	movs r1, #8
-	bl DoFade
+	bl SetFade
 	movs r0, #3
 	bl sub_0805AAF0
 	ldr r2, _0809BD18 @ =gScreen

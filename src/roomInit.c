@@ -398,7 +398,7 @@ extern void* script_PlayerSleepingInn[];
 void sub_StateChange_HouseInteriors1_InnWestRoom(void) {
     if (CheckLocalFlag(YADO_CHECKIN)) {
         ClearLocalFlag(YADO_CHECKIN);
-        DoFade(5, 256);
+        SetFade(5, 256);
         gPlayerEntity.x.HALF.HI = gRoomControls.origin_x + 0x50;
         gPlayerEntity.y.HALF.HI = gRoomControls.origin_y + 0x38;
         sub_080751E8(1, 2, &script_PlayerSleepingInn);
@@ -424,7 +424,7 @@ u32 sub_unk3_HouseInteriors1_InnMiddleRoom(void) {
 void sub_StateChange_HouseInteriors1_InnMiddleRoom(void) {
     if (CheckLocalFlag(YADO_CHECKIN) != 0) {
         ClearLocalFlag(YADO_CHECKIN);
-        DoFade(5, 256);
+        SetFade(5, 256);
         gPlayerEntity.x.HALF.HI = gRoomControls.origin_x + 0x50;
         gPlayerEntity.y.HALF.HI = gRoomControls.origin_y + 0x38;
         sub_080751E8(1, 2, &script_PlayerSleepingInn);
@@ -450,7 +450,7 @@ u32 sub_unk3_HouseInteriors1_InnEastRoom(void) {
 void sub_StateChange_HouseInteriors1_InnEastRoom(void) {
     if (CheckLocalFlag(YADO_CHECKIN)) {
         ClearLocalFlag(YADO_CHECKIN);
-        DoFade(5, 256);
+        SetFade(5, 256);
         gPlayerEntity.x.HALF.HI = gRoomControls.origin_x + 0x60;
         gPlayerEntity.y.HALF.HI = gRoomControls.origin_y + 0x38;
         sub_080751E8(1, 2, &script_PlayerSleepingInn);
@@ -672,7 +672,7 @@ extern u32 script_PlayerWakingUpInHyruleCastle;
 
 void sub_StateChange_HyruleCastle_4(void) {
     if (!CheckLocalFlag(CASTLE_04_MEZAME)) {
-        DoFade(5, 256);
+        SetFade(5, 256);
         gPlayerEntity.x.HALF.HI = gRoomControls.origin_x + 0xb0;
         gPlayerEntity.y.HALF.HI = gRoomControls.origin_y + 0x40;
         sub_080751E8(0, 6, &script_PlayerWakingUpInHyruleCastle);
@@ -4815,7 +4815,7 @@ void sub_StateChange_HouseInteriors2_LinksHouseBedroom(void) {
     if (!CheckGlobalFlag(START) && !CheckLocalFlag(0x46)) {
         sub_080A71C4(5, 1, 4, 4);
         gUpdateVisibleTiles = 0;
-        DoFade(5, 256);
+        SetFade(5, 256);
         sub_080751E8(0, 6, &script_PlayerIntro);
     }
     if (!CheckGlobalFlag(OUTDOOR)) {
@@ -5550,7 +5550,7 @@ u32 sub_unk3_HyruleField_LinksHouseExterior(void) {
 #else
     if (!CheckLocalFlag(0x6d)) {
 #endif
-        DoFade(7, 256);
+        SetFade(7, 256);
     }
     SetGlobalFlag(OUTDOOR);
     return 1;

@@ -832,7 +832,7 @@ _080A1C40:
 	bne _080A1C9A
 	movs r0, #7
 	movs r1, #4
-	bl DoFade
+	bl SetFade
 	b _080A1C9A
 _080A1C52:
 	subs r0, #1

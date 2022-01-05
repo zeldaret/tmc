@@ -61,13 +61,13 @@ script_0801373C:
 	Call WaitForPlayerFrameHiBit
 	Wait 0x003c
 	SetFadeTime 0x0004
-	DoFade7
+	SetFade7
 	PlaySound SFX_EVAPORATE
 	WaitForFadeFinish
 	Wait 0x003c
 	SetSyncFlag 0x00000010
 	SetFadeTime 0x0002
-	DoFade6
+	SetFade6
 	WaitForFadeFinish
 	PlaySound SFX_109
 	MessageFromTargetPos 0x0504, 0x000c

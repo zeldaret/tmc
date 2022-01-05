@@ -31,10 +31,10 @@ script_0800B7A2:
 	MessageNoOverlap 0x0590
 	WaitUntilTextboxCloses
 	SetFadeTime 0x0010
-	DoFade7
+	SetFade7
 	WaitForFadeFinish
 	ModHealth 0x00a0
-	DoFade6 
+	SetFade6 
 	WaitForFadeFinish 
 	MessageNoOverlap 0x057f
 	WaitUntilTextboxCloses

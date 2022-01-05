@@ -58,5 +58,5 @@ void sub_080A3BD0(void) {
     sub_0801E738(0);
     sub_080A70AC(&gUnk_081280DC);
     sub_080A7114(1);
-    DoFade(6, 8);
+    SetFade(6, 8);
 }

@@ -7,7 +7,7 @@ SCRIPT_START script_IntroCameraTarget
 	PlayBgm BGM_MINISH_CAP
 	SetFadeTime 0x0002
 	@ Fade in
-	DoFade4
+	SetFade4
 	WaitForFadeFinish @ TODO wait for fade to be finished
 	Wait 0x0078
 	SetSyncFlag 0x00000004

@@ -42,7 +42,7 @@ script_080101AC:
 	WaitUntilTextboxCloses
 	StopBgm
 	SetFadeTime 0x0004
-	DoFade5
+	SetFade5
 	WaitForFadeFinish
 	CallWithArg SetPlayerPos, 0x03400378
 	Call SetPlayerActionNormal
@@ -57,7 +57,7 @@ script_080101AC:
 	CameraTargetPlayer
 	EndBlock
 	SetFadeTime 0x0004
-	DoFade4
+	SetFade4
 	WaitForFadeFinish
 	PlayBGM
 	Call sub_080A13B4

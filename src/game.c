@@ -203,7 +203,7 @@ void GameTask(void) {
 #ifdef DEMO_USA
     if (gSave.demo_timer != 0) {
         if (--gSave.demo_timer == 0) {
-            DoFade(7, 2);
+            SetFade(7, 2);
             gMain.state = GAMETASK_EXIT;
         }
     }
@@ -430,7 +430,7 @@ static void GameTask_Exit(void) {
     if (!gFadeControl.active)
         DoSoftReset();
 #else
-    DoFade(7, 8);
+    SetFade(7, 8);
     SetTask(TASK_GAMEOVER);
 #endif
 }
@@ -574,7 +574,7 @@ static void AuxCutscene_Exit(void) {
         MenuFadeIn(2, flag >> 4);
     } else {
         gUnk_02032EC0.nextToLoad = 3;
-        sub_080500F4(0x10);
+        SetFadeInverted(0x10);
         MessageInitialize();
     }
 }
@@ -650,7 +650,7 @@ static void GameOver_Init(void) {
     gSave.stats.health = 24;
     gMain.field_0x5 = 60;
     SoundReq(BGM_GAMEOVER);
-    sub_080500F4(4);
+    SetFadeInverted(4);
     gFadeControl.mask = 0xFFFF0001;
     switch_state(1);
 }
@@ -668,12 +668,12 @@ static void GameOver_FadeIn(void) {
                 switch_state(2);
 #if defined(DEMO_USA) || defined(DEMO_JP)
                 SoundReq(SONG_VOL_FADE_OUT);
-                DoFade(7, 4);
+                SetFade(7, 4);
 #else
                 SetPopupState(0, 0);
                 gScreen.lcd.displayControl |= DISPCNT_BG1_ON | DISPCNT_BG2_ON;
                 gFadeControl.mask = 0x0000ffff;
-                DoFade(4, 16);
+                SetFade(4, 16);
 #endif
             }
         }
@@ -791,9 +791,9 @@ static void GameOver_Update(void) {
                         sub_080A7114(2);
                         SoundReq(SFX_TEXTBOX_SELECT);
                         if (temp == 0) {
-                            DoFade(5, 8);
+                            SetFade(5, 8);
                         } else {
-                            DoFade(7, 8);
+                            SetFade(7, 8);
                         }
                         break;
                 }
@@ -1105,7 +1105,7 @@ static u32 CheckGameOver(void) {
         InitFade();
         gMain.state = 3;
         gMain.substate = 0;
-        DoFade(5, 8);
+        SetFade(5, 8);
         SoundReq(SONG_STOP_BGM);
         return 1;
     }
@@ -1126,29 +1126,29 @@ static u32 CheckRoomExit(void) {
 
         switch (gRoomTransition.type) {
             case TRANSITION_CUT:
-                DoFade(13, 8);
+                SetFade(13, 8);
                 break;
             case TRANSITION_CUT_FAST:
-                DoFade(13, 3);
+                SetFade(13, 3);
                 break;
             case TRANSITION_FADE_WHITE_SLOW:
-                DoFade(7, 4);
+                SetFade(7, 4);
                 break;
             case TRANSITION_FADE_BLACK_SLOW:
-                DoFade(5, 4);
+                SetFade(5, 4);
                 break;
             case TRANSITION_FADE_BLACK:
-                DoFade(5, 16);
+                SetFade(5, 16);
                 break;
             case TRANSITION_FADE_BLACK_FAST:
-                DoFade(5, 256);
+                SetFade(5, 256);
                 break;
             case TRANSITION_7:
             case TRANSITION_FADE_WHITE_FAST:
-                DoFade(7, 256);
+                SetFade(7, 256);
                 break;
             default:
-                DoFade(7, 16);
+                SetFade(7, 16);
                 break;
         }
         RoomExitCallback();
@@ -1195,30 +1195,30 @@ void InitParachuteRoom(void) {
 static void InitRoomTransition(void) {
     switch (gRoomTransition.type) {
         case TRANSITION_CUT:
-            DoFade(12, 8);
+            SetFade(12, 8);
             break;
         case TRANSITION_CUT_FAST:
-            DoFade(12, 3);
+            SetFade(12, 3);
             break;
         case TRANSITION_FADE_WHITE_SLOW:
-            DoFade(6, 4);
+            SetFade(6, 4);
             break;
         case TRANSITION_3:
             break;
         case TRANSITION_FADE_BLACK_FAST:
-            DoFade(5, 256);
+            SetFade(5, 256);
             break;
         case TRANSITION_7:
-            DoFade(7, 256);
+            SetFade(7, 256);
             break;
         case TRANSITION_FADE_BLACK:
-            DoFade(4, 16);
+            SetFade(4, 16);
             break;
         case TRANSITION_FADE_WHITE_FAST:
-            DoFade(6, 8);
+            SetFade(6, 8);
             break;
         default:
-            sub_080500F4(16);
+            SetFadeInverted(16);
             break;
     }
 }

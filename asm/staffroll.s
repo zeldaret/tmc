@@ -100,7 +100,7 @@ _080A365E:
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #5
-	bl DoFade
+	bl SetFade
 	pop {r4, r5, pc}
 	.align 2, 0
 _080A36B0: .4byte gUnk_081272F0
@@ -181,7 +181,7 @@ sub_080A36F8: @ 0x080A36F8
 _080A374A:
 	movs r0, #4
 	movs r1, #8
-	bl DoFade
+	bl SetFade
 _080A3752:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -333,7 +333,7 @@ sub_080A3864: @ 0x080A3864
 	bl sub_080A3954
 	movs r0, #5
 	movs r1, #8
-	bl DoFade
+	bl SetFade
 _080A3880:
 	pop {pc}
 	.align 2, 0
@@ -347,10 +347,10 @@ sub_080A3888: @ 0x080A3888
 	str r0, [r1, #4]
 	movs r0, #5
 	movs r1, #4
-	bl DoFade
+	bl SetFade
 	ldr r0, _080A38B0 @ =gMenu
 	ldrh r0, [r0, #8]
-	bl sub_08050038
+	bl SetFadeProgress
 	bl sub_080A3954
 	pop {pc}
 	.align 2, 0
@@ -363,10 +363,10 @@ sub_080A38B4: @ 0x080A38B4
 	push {lr}
 	movs r0, #4
 	movs r1, #4
-	bl DoFade
+	bl SetFade
 	ldr r0, _080A38CC @ =gMenu
 	ldrh r0, [r0, #8]
-	bl sub_08050038
+	bl SetFadeProgress
 	bl sub_080A3954
 	pop {pc}
 	.align 2, 0
@@ -404,7 +404,7 @@ sub_080A38D0: @ 0x080A38D0
 	strb r1, [r0, #5]
 	movs r0, #4
 	movs r1, #8
-	bl DoFade
+	bl SetFade
 _080A3914:
 	pop {r3}
 	mov r8, r3
@@ -425,7 +425,7 @@ sub_080A3930: @ 0x080A3930
 	bne _080A3948
 	movs r0, #7
 	movs r1, #8
-	bl DoFade
+	bl SetFade
 	ldr r1, _080A3950 @ =gMain
 	movs r0, #2
 	strb r0, [r1, #3]
@@ -535,7 +535,7 @@ _080A39C8:
 	strh r5, [r2, #0x26]
 	movs r0, #4
 	movs r1, #8
-	bl DoFade
+	bl SetFade
 	b _080A3B36
 	.align 2, 0
 _080A3A2C: .4byte gScreen
@@ -666,7 +666,7 @@ _080A3B14:
 	bl sub_08050384
 	movs r0, #7
 	movs r1, #8
-	bl DoFade
+	bl SetFade
 	ldr r1, _080A3B40 @ =gMain
 	movs r0, #3
 	strb r0, [r1, #3]

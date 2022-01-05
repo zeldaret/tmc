@@ -1013,7 +1013,7 @@ sub_080497D0: @ 0x080497D0
 	movs r0, #5
 	strb r0, [r4, #0xd]
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 _08049802:
 	pop {r4, pc}
 
@@ -1073,7 +1073,7 @@ sub_08049804: @ 0x08049804
 	bl sub_080809D4
 	movs r0, #4
 	movs r1, #4
-	bl DoFade
+	bl SetFade
 _08049878:
 	pop {r4, pc}
 	.align 2, 0

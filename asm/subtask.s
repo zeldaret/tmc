@@ -1423,7 +1423,7 @@ _080A4694:
 	strb r1, [r3, #0x1c]
 	movs r0, #4
 	movs r1, #8
-	bl DoFade
+	bl SetFade
 	pop {r4, pc}
 	.align 2, 0
 _080A46A0: .4byte gPaletteBuffer
@@ -2773,7 +2773,7 @@ _080A4F66:
 	bl sub_080A4DB8
 	movs r0, #4
 	movs r1, #0x20
-	bl DoFade
+	bl SetFade
 	movs r0, #1
 	bl sub_080A4E90
 	pop {r4, pc}

@@ -19,7 +19,7 @@ SCRIPT_START script_PlayerWakingUpInHyruleCastle
 	EndBlock
 	Wait 0x003c
 	SetFadeTime 0x0004
-	DoFade4
+	SetFade4
 	WaitForFadeFinish
 script_08009EA4:
 	Call CheckAnyKeyPressed

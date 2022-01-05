@@ -1310,11 +1310,11 @@ void sub_0809629C(Object6AEntity* this, u32 type) {
 }
 
 void sub_080962D8(Object6AEntity* this) {
-    DoFade(6, 0x100);
+    SetFade(6, 0x100);
 }
 
 void sub_080962E8(Object6AEntity* this) {
-    DoFade(7, 0x100);
+    SetFade(7, 0x100);
 }
 
 void sub_080962F8(Object6AEntity* this, ScriptExecutionContext* ctx) {

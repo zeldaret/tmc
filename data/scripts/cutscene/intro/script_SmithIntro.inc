@@ -32,7 +32,7 @@ SCRIPT_START script_SmithIntro
 	DoPostScriptAction 0x0000
 	Wait 0x001e
 	SetFadeTime 0x0002
-	DoFade5
+	SetFade5
 	WaitForFadeFinish
 	Call sub_08053634
 SCRIPT_END

@@ -2,10 +2,10 @@
 SCRIPT_START script_08016482
 	FadeInvert
 	Nop2 0x0080
-	DoFade4
-	DoFade5
-	DoFade6
-	DoFade7
+	SetFade4
+	SetFade5
+	SetFade6
+	SetFade7
 	_0807E800 0x00000000
 	_0807E80C 0x00000000
 	_0807E858_0

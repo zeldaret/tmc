@@ -68,7 +68,7 @@ void sub_080A2E40(void) {
     sub_080A3198(0, 0);
     gMain.state = 1;
     SoundReq(BGM_FILE_SELECT);
-    DoFade(4, 8);
+    SetFade(4, 8);
 }
 
 void sub_080A2F8C(void) {
@@ -83,7 +83,7 @@ void sub_080A2F8C(void) {
                     *(u8*)(addr + 6) = 1;
                 }
                 gMain.state = 2;
-                DoFade(5, 8);
+                SetFade(5, 8);
                 break;
             case 1:
                 SetTask(TASK_GAME);

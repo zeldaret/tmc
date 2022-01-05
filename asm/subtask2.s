@@ -1087,7 +1087,7 @@ _080A5B8E:
 	bne _080A5BAA
 	movs r0, #7
 	movs r1, #0x20
-	bl DoFade
+	bl SetFade
 	movs r0, #0x3c
 	strh r0, [r6, #8]
 	movs r0, #2
@@ -1115,7 +1115,7 @@ sub_080A5BB8: @ 0x080A5BB8
 	strb r0, [r1, #1]
 	movs r0, #6
 	movs r1, #8
-	bl DoFade
+	bl SetFade
 	movs r0, #2
 	bl sub_080A4E84
 	ldr r1, _080A5BEC @ =gUnk_02034490
@@ -2896,7 +2896,7 @@ sub_080A6534: @ 0x080A6534
 	bl sub_080A7114
 	movs r0, #4
 	movs r1, #8
-	bl DoFade
+	bl SetFade
 	pop {r4, pc}
 	.align 2, 0
 _080A6590: .4byte gScreen
@@ -3920,7 +3920,7 @@ _080A6BD4:
 	bl sub_080A7114
 	movs r0, #4
 	movs r1, #8
-	bl DoFade
+	bl SetFade
 	pop {r3}
 	mov r8, r3
 	pop {r4, r5, r6, r7, pc}
@@ -4023,7 +4023,7 @@ sub_080A6CA8: @ 0x080A6CA8
 	bl sub_080A7114
 	movs r0, #4
 	movs r1, #8
-	bl DoFade
+	bl SetFade
 	pop {pc}
 	.align 2, 0
 _080A6CD4: .4byte gMenu
@@ -4229,7 +4229,7 @@ sub_080A6DF8: @ 0x080A6DF8
 	bl sub_080A7114
 	movs r0, #5
 	movs r1, #8
-	bl DoFade
+	bl SetFade
 	b _080A6E3A
 	.align 2, 0
 _080A6E14: .4byte gMenu
@@ -4729,7 +4729,7 @@ _080A716C:
 	strb r0, [r1, #4]
 	movs r0, #5
 	movs r1, #0x20
-	bl DoFade
+	bl SetFade
 	ldr r0, _080A71A0 @ =gUnk_02018EB0
 	strb r4, [r0]
 	strb r4, [r0, #1]
@@ -4781,7 +4781,7 @@ Subtask_Exit: @ 0x080A71DC
 	strb r0, [r1]
 	movs r0, #5
 	movs r1, #0x20
-	bl DoFade
+	bl SetFade
 	pop {pc}
 	.align 2, 0
 _080A71F0: .4byte gUnk_02032EC0
@@ -5054,7 +5054,7 @@ _080A73B4:
 	beq _080A74A8
 	adds r0, r1, #0
 	ldrh r1, [r5, #0xa]
-	bl DoFade
+	bl SetFade
 	b _080A74AE
 	.align 2, 0
 _080A7468: .4byte gFadeControl
@@ -5075,7 +5075,7 @@ _080A74A0: .4byte 0x0000085C
 _080A74A4: .4byte 0x0000FFFF
 _080A74A8:
 	ldrh r0, [r5, #0xa]
-	bl sub_080500F4
+	bl SetFadeInverted
 _080A74AE:
 	ldr r1, _080A74C0 @ =gUnk_02032EC0
 	movs r2, #0

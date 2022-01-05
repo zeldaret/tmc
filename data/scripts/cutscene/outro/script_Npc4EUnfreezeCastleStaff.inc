@@ -9,12 +9,12 @@ SCRIPT_START script_Npc4EUnfreezeCastleStaff
 	Wait 0x003c
 	PlaySound SFX_EVAPORATE
 	SetFadeTime 0x0004
-	DoFade7
+	SetFade7
 	WaitForFadeFinish
 	SetSyncFlag 0x00000001
 	PlaySound SFX_APPARATE
 	SetFadeTime 0x0002
-	DoFade6
+	SetFade6
 	WaitForFadeFinish
 	Wait 0x001e
 	SetSyncFlag 0x00000002

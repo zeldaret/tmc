@@ -18,7 +18,7 @@ script_0800A0FE:
 	CallWithArg sub_08094AE8, script_Object6AV3DefeatedMinishCap
 	PlaySound SFX_APPARATE
 	SetFadeTime 0x0002
-	DoFade6
+	SetFade6
 	EndBlock
 	WaitForFadeFinish
 	WaitForSyncFlagAndClear 0x00000004

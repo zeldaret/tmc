@@ -79,7 +79,7 @@ _08019700:
 	bl CopyOAM
 	movs r0, #4
 	movs r1, #8
-	bl DoFade
+	bl SetFade
 	ldr r1, _0801973C @ =gUnk_02018EB0
 	ldrb r0, [r1]
 	adds r0, #1

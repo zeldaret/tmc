@@ -12,7 +12,7 @@ script_08012368:
 	BeginBlock
 	SetFadeTime 0x0004
 	SetFadeMask 0x00007fff
-	DoFade5
+	SetFade5
 	_0807E858 0x0080
 	EndBlock
 	WaitForFadeFinish
@@ -36,7 +36,7 @@ script_08012368:
 	BeginBlock
 	SetFadeTime 0x0004
 	SetFadeMask 0xffffffff
-	DoFade4
+	SetFade4
 	_0807E858 0x0080
 	EndBlock
 	WaitForFadeFinish
