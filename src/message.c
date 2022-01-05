@@ -135,8 +135,8 @@ void MessageClose(void) {
 }
 
 void MessageFromTarget(u32 index) {
-    if (gRoomControls.cameraTarget != NULL) {
-        MessageNoOverlap(index, gRoomControls.cameraTarget);
+    if (gRoomControls.camera_target != NULL) {
+        MessageNoOverlap(index, gRoomControls.camera_target);
     } else {
         MessageRequest(index);
     }
@@ -151,7 +151,7 @@ void MessageNoOverlap(u32 index, Entity* entity) {
     y = entity->y.HALF.HI;
     height = entity->z.HALF.HI;
 
-    if (((y + height) - gRoomControls.roomScrollY) > 0x58) {
+    if (((y + height) - gRoomControls.scroll_y) > 0x58) {
         gMessage.textWindowPosY = 1;
     }
 }
@@ -237,16 +237,16 @@ NONMATCH("asm/non_matching/textbox/TextBoxFunction1.inc", static u32 MsgInit(voi
     MemClear((void*)&gTextRender, sizeof(gTextRender));
     MemCopy(&gMessage, &gTextRender, sizeof(gMessage));
     if (gTextRender.message.textSpeed == 99) {
-        gTextRender.message.textSpeed = gSaveHeader->messageSpeed;
+        gTextRender.message.textSpeed = gSaveHeader->msg_speed;
     }
     gTextRender._9c = 0xff;
     sub_0805EEB4(&gTextRender.curToken, gTextRender.message.textIndex);
-    gTextRender.playerName[0] = 2;
-    gTextRender.playerName[1] = 0xe; // Green text color
-    dest = &gTextRender.playerName[2];
+    gTextRender.player_name[0] = 2;
+    gTextRender.player_name[1] = 0xe; // Green text color
+    dest = &gTextRender.player_name[2];
 
     for (i = 0; i < FILENAME_LENGTH; ++i) {
-        char c = gSave.playerName[i];
+        char c = gSave.name[i];
         if (c == '\0')
             break;
         *dest++ = c;

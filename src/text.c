@@ -3,6 +3,7 @@
 #include "structures.h"
 #include "functions.h"
 #include "asm.h"
+#include "enemy.h"
 
 extern u16 gUnk_081092D4;
 extern u8 gUnk_081094CE;
@@ -141,7 +142,7 @@ void sub_0805F918(u32 idx, u32 idx2, void* dest) {
 }
 
 u32 sub_0805F9A0(u32 r0) {
-    if (gSaveHeader->gameLanguage == 0) {
+    if (gSaveHeader->language == 0) {
         u16* val = &gUnk_081092D4;
         u32 i = 0;
 

@@ -196,7 +196,7 @@ void sub_0803A274(Entity* this) {
             this->spriteSettings.flipX = 1;
             PositionRelative(this->parent, this, -0x100000, 0x200000);
         }
-        if (gScreenTransition.field_0x38 != 0) {
+        if (gRoomTransition.field_0x38 != 0) {
             this->action = 3;
             COLLISION_ON(this);
             this->spriteSettings.draw = 1;
@@ -1210,8 +1210,8 @@ void sub_0803B724(Entity* param_1) {
         pEVar1->type2 = 1;
         random_value = Random();
         temp = gUnk_080CFD1B[param_1->type];
-        pEVar1->x.HALF.HI = (random_value & 0x70) + temp + gRoomControls.roomOriginX;
-        pEVar1->y.HALF.HI = ((random_value >> 0x10) & 7) * 10 + 0x5c + gRoomControls.roomOriginY;
+        pEVar1->x.HALF.HI = (random_value & 0x70) + temp + gRoomControls.origin_x;
+        pEVar1->y.HALF.HI = ((random_value >> 0x10) & 7) * 10 + 0x5c + gRoomControls.origin_y;
         pEVar1->parent = param_1;
         ResolveCollisionLayer(pEVar1);
         param_1->field_0xf++;
@@ -1282,7 +1282,7 @@ void sub_0803B8F8(Entity* this) {
 }
 
 void sub_0803B910(Entity* this) {
-    if (gScreenTransition.field_0x38 != 0) {
+    if (gRoomTransition.field_0x38 != 0) {
         this->action = 2;
         this->spriteSettings.draw = 1;
         *(u8*)&this->field_0x74 = 0;

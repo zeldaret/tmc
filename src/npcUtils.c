@@ -10,7 +10,7 @@
 extern const NPCDefinition gNPCDefinitions[];
 
 extern Hitbox* gNPCHitboxes[];
-extern u32 (*gUnk_08114EFC[])();
+extern u32 (*gUnk_08114EFC[])(Entity*);
 extern u32 (*gUnk_08114F0C[])(Entity*, u8*);
 
 typedef struct {
@@ -194,8 +194,8 @@ static void sub_0806EF14(Entity* ent) {
 
 static void sub_0806EF4C(Entity* ent, u16* xy) {
     u16* src = &((u16*)ent->child)[ent->hitType];
-    xy[0] = gRoomControls.roomOriginX + src[1];
-    xy[1] = gRoomControls.roomOriginY + src[2];
+    xy[0] = gRoomControls.origin_x + src[1];
+    xy[1] = gRoomControls.origin_y + src[2];
 }
 
 static u32 sub_0806EF74(Entity* ent, u32 a2) {

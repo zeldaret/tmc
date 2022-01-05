@@ -8,7 +8,7 @@
 #include "game.h"
 
 extern void sub_0804B058(EntityData* dat);
-extern void sub_0801AC98();
+extern void sub_0801AC98(void);
 extern u32 sub_08049D1C(u32);
 extern Entity* LoadRoomEntity(EntityData*);
 extern void* GetRoomProperty(u32, u32, u32);
@@ -17,8 +17,8 @@ extern void** gCurrentRoomProperties;
 extern void*** gAreaTable[];
 extern u8 gUnk_081091E4[];
 
-extern void sub_080186EC();
-extern void sub_0804B16C();
+extern void sub_080186EC(void);
+extern void sub_0804B16C(void);
 extern void ClearSmallChests(void);
 extern Entity* GetEmptyEntityByKind(u32 kind);
 
@@ -116,17 +116,17 @@ void RegisterRoomEntity(Entity* ent, EntityData* dat) {
 void sub_0804AF0C(Entity* ent, EntityData* dat) {
     switch (dat->flags & 0xf0) {
         case 0x0:
-            ent->x.HALF.HI = dat->xPos + gRoomControls.roomOriginX;
-            ent->y.HALF.HI = dat->yPos + gRoomControls.roomOriginY;
+            ent->x.HALF.HI = dat->xPos + gRoomControls.origin_x;
+            ent->y.HALF.HI = dat->yPos + gRoomControls.origin_y;
             break;
         case 0x20:
             ent->field_0x6c.HALF.HI |= 0x20;
-            ent->x.HALF.HI = dat->xPos + gRoomControls.roomOriginX;
-            ent->y.HALF.HI = dat->yPos + gRoomControls.roomOriginY;
+            ent->x.HALF.HI = dat->xPos + gRoomControls.origin_x;
+            ent->y.HALF.HI = dat->yPos + gRoomControls.origin_y;
             break;
         case 0x40:
-            ent->x.HALF.HI = dat->xPos + gRoomControls.roomOriginX;
-            ent->y.HALF.HI = dat->yPos + gRoomControls.roomOriginY;
+            ent->x.HALF.HI = dat->xPos + gRoomControls.origin_x;
+            ent->y.HALF.HI = dat->yPos + gRoomControls.origin_y;
             if (!StartCutscene(ent, (u16*)dat->spritePtr))
                 DeleteEntity(ent);
             break;
@@ -147,9 +147,9 @@ void sub_0804AFB0(void** properties) {
     }
 }
 
-u32 sub_0804AFDC() {
+u32 CallRoomProp6(void) {
     u32 result;
-    u32 (*func)();
+    u32 (*func)(void);
 
     result = 1;
     func = (u32(*)())GetCurrentRoomProperty(6);
@@ -158,8 +158,8 @@ u32 sub_0804AFDC() {
     return result;
 }
 
-void sub_0804AFF4(void) {
-    void (*func)();
+void CallRoomProp5And7(void) {
+    void (*func)(void);
 
     sub_080186EC();
     func = (void (*)())GetCurrentRoomProperty(5);
@@ -219,7 +219,7 @@ void SetCurrentRoomPropertyList(u32 area, u32 room) {
 }
 
 void sub_0804B0E8(u32 arg0, u32 arg1) {
-    void (*func)();
+    void (*func)(void);
 
     // init function at index 4 of room data
     func = (void (*)())GetRoomProperty(arg0, arg1, 4);
@@ -280,7 +280,7 @@ void LoadRoomTileEntities(TileEntity* list) {
                 LoadBombableWallTile(t);
                 break;
             case MUSIC_SETTER:
-                gArea.pMusicIndex = t->_3;
+                gArea.queued_bgm = t->_3;
                 break;
             case DARKNESS:
                 LoadDarknessTile(t);

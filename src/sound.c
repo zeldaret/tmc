@@ -223,7 +223,7 @@ static void PlayFadeOut(u32 sound) {
     doPlaySound(sound);
 }
 
-static void InitVolume() {
+static void InitVolume(void) {
     gSoundPlayingInfo.volumeMasterUnk = 0x100;
     gSoundPlayingInfo.volumeMaster = 0x100;
     gSoundPlayingInfo.volumeMasterTarget = 0x100;

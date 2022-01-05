@@ -4,6 +4,7 @@
 #include "player.h"
 #include "functions.h"
 #include "effects.h"
+#include "enemy.h"
 
 extern u32 GetNextFunction(Entity*);
 

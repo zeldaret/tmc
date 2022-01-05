@@ -37,7 +37,7 @@ sub_08019698: @ 0x08019698
 	bl SetLocalFlagByBank
 	ldrh r0, [r4]
 	ldrh r1, [r4, #2]
-	bl sub_08052FD8
+	bl LoadCutsceneRoom
 	ldr r5, _0801972C @ =gRoomControls
 	ldrh r0, [r4, #6]
 	ldrh r1, [r5, #0xa]
@@ -50,7 +50,7 @@ sub_08019698: @ 0x08019698
 	ldr r1, _08019730 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
-	bl sub_08000108
+	bl UpdateScrollVram
 	ldr r2, _08019734 @ =gScreen
 	ldrh r1, [r2]
 	ldr r0, _08019738 @ =0x0000FEFF
@@ -75,8 +75,8 @@ _08019700:
 	movs r0, #0x11
 	bl LoadGfxGroup
 	bl FlushSprites
-	bl sub_080AD9B0
-	bl sub_080AD918
+	bl DrawEntities
+	bl CopyOAM
 	movs r0, #4
 	movs r1, #8
 	bl DoFade
@@ -119,8 +119,8 @@ sub_08019764: @ 0x08019764
 	push {lr}
 	bl FlushSprites
 	bl UpdateEntities
-	bl sub_080AD9B0
-	bl sub_080AD918
+	bl DrawEntities
+	bl CopyOAM
 	ldr r2, _08019798 @ =gUnk_02018EB0
 	ldrh r0, [r2, #4]
 	subs r0, #1
@@ -152,8 +152,8 @@ sub_080197A0: @ 0x080197A0
 	bl MenuFadeIn
 	pop {pc}
 
-	thumb_func_start sub_080197AC
-sub_080197AC: @ 0x080197AC
+	thumb_func_start SetBGDefaults
+SetBGDefaults: @ 0x080197AC
 	ldr r0, _080197C4 @ =gUnk_02025EB0
 	ldr r1, _080197C8 @ =gBGAffSettings
 	str r1, [r0]
@@ -3178,11 +3178,11 @@ sub_0801AE44: @ 0x0801AE44
 	bl sub_0807BFD0
 	cmp r4, #0
 	beq _0801AE5A
-	bl sub_0807C0DC
+	bl LoadRoomGfx
 _0801AE5A:
 	bl sub_080809D4
 	bl sub_080805F8
-	ldr r0, _0801AEE4 @ =gScreenTransition
+	ldr r0, _0801AEE4 @ =gRoomTransition
 	adds r0, #0x2d
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -3244,7 +3244,7 @@ _0801AED0:
 	b _0801AF10
 	.align 2, 0
 _0801AEE0: .4byte gRoomControls
-_0801AEE4: .4byte gScreenTransition
+_0801AEE4: .4byte gRoomTransition
 _0801AEE8: .4byte gArea
 _0801AEEC: .4byte 0x0600F000
 _0801AEF0: .4byte gUnk_03004030
@@ -3257,7 +3257,7 @@ _0801AF08: .4byte gMapDataTopSpecial
 _0801AF0C:
 	bl sub_0807C4F8
 _0801AF10:
-	bl sub_08000108
+	bl UpdateScrollVram
 	pop {r4, pc}
 	.align 2, 0
 
@@ -3298,7 +3298,7 @@ sub_0801AF48: @ 0x0801AF48
 	ldr r0, _0801AF7C @ =0x00003FFF
 	cmp r4, r0
 	bhi _0801AF7A
-	ldr r0, _0801AF80 @ =gScreenTransition
+	ldr r0, _0801AF80 @ =gRoomTransition
 	adds r0, #0x30
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -3320,7 +3320,7 @@ _0801AF7A:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _0801AF7C: .4byte 0x00003FFF
-_0801AF80: .4byte gScreenTransition
+_0801AF80: .4byte gRoomTransition
 _0801AF84: .4byte gRoomVars
 _0801AF88: .4byte gUnk_0200B240
 

@@ -127,7 +127,7 @@ void sub_08083338(Entity* this) {
             if (!CheckFlags(this->field_0x86.HWORD)) {
                 this->frameIndex |= 4;
                 sub_080836DC(this, this->field_0x7c.BYTES.byte2, this->field_0x76.HWORD);
-                if (!CheckIsDungeon()) {
+                if (!AreaIsDungeon()) {
                     this->action = 5;
                 } else {
                     this->action = 8;
@@ -288,7 +288,7 @@ u32 sub_08083734(Entity* this, u32 unk0) {
 
 u32 sub_080837B0(Entity* this) {
     u32 tmp;
-    u32 tmp2 = gRoomControls.areaID;
+    u32 tmp2 = gRoomControls.area;
     if (tmp2 < 0x40) {
         switch (tmp2) {
             default:

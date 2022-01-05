@@ -90,7 +90,7 @@ SECTIONS {
         . = 0x00022830; gUnk_02022830 = .;
         . = 0x00024030; gMessageChoices = .;
         . = 0x00024048; gUnk_02024048 = .;
-        . = 0x00024050; gUnk_02024050 = .;
+        . = 0x00024050; gRoomMemory = .;
         . = 0x00024090; gUnk_02024090 = .;
         . = 0x00024490; gGFXSlots = .;
         . = 0x00024494; gUnk_02024494 = .;
@@ -158,7 +158,7 @@ SECTIONS {
     } >ewram
 
     iwram (NOLOAD) : ALIGN(4) {
-        . = 0x00000000; gUnk_03000000 = .;
+        . = 0x00000000; gOAMControls = .;
         . = 0x00000020; gUnk_03000020 = .;
         . = 0x00000420; gUnk_03000420 = .;
         . = 0x00000B80; gUnk_03000B80 = .;
@@ -173,7 +173,7 @@ SECTIONS {
         . = 0x00001000; gMain = .;
         . = 0x00001010; gOamCmd = .;
         . = 0x00001020; gUnk_03001020 = .;
-        . = 0x000010A0; gScreenTransition = .;
+        . = 0x000010A0; gRoomTransition = .;
         . = 0x00001150; gRand = .;
         . = 0x00001160; gPlayerEntity = .;
         . = 0x000011E8; gUnk_030011E8 = .;
@@ -436,8 +436,7 @@ SECTIONS {
         src/room.o(.text);
         src/roomInit.o(.text);
         src/fade.o(.text);
-        src/fileScreen.o(.text);
-        asm/fileScreen.o(.text);
+        src/fileselect.o(.text);
         src/game.o(.text);
         asm/code_080526F8.o(.text);
         asm/modBombs.o(.text);
@@ -1121,7 +1120,7 @@ SECTIONS {
         data/data_080D3D94.o(.rodata);
         data/map/entity_headers.o(.rodata);
         data/data_080FC3C4.o(.rodata);
-        src/fileScreen.o(.rodata);
+        src/fileselect.o(.rodata);
         data/data_080FC8A4.o(.rodata);
         src/game.o(.rodata);
         data/data_080FCAC8.o(.rodata);

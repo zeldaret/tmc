@@ -7,6 +7,7 @@
 #include "script.h"
 #include "functions.h"
 #include "npc.h"
+#include "projectile.h"
 
 typedef struct {
     u32 unk;
@@ -202,7 +203,7 @@ void sub_08064030(Entity* arg0, Entity* arg1) {
 }
 
 void sub_08064044(void) {
-    gScreenTransition.transitioningOut = 1;
+    gRoomTransition.transitioningOut = 1;
 }
 
 void sub_08064050(Entity* this, ScriptExecutionContext* context) {

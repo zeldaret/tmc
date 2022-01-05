@@ -310,7 +310,7 @@ CreateEzloHint: @ 0x08078AA8
 	ldr r3, _08078AB8 @ =gPlayerState
 	movs r2, #0x16
 	strb r2, [r3, #0xc]
-	ldr r2, _08078ABC @ =gScreenTransition
+	ldr r2, _08078ABC @ =gRoomTransition
 	strh r0, [r2, #0x36]
 .ifdef JP
 	adds r2, #0x34
@@ -325,7 +325,7 @@ CreateEzloHint: @ 0x08078AA8
 	bx lr
 	.align 2, 0
 _08078AB8: .4byte gPlayerState
-_08078ABC: .4byte gScreenTransition
+_08078ABC: .4byte gRoomTransition
 
 	thumb_func_start sub_08078AC0
 sub_08078AC0: @ 0x08078AC0
@@ -556,8 +556,8 @@ sub_08078C24: @ 0x08078C24
 _08078CAC: .4byte gPlayerState
 _08078CB0: .4byte gUnk_03003DF0
 
-	thumb_func_start sub_08078CB4
-sub_08078CB4: @ 0x08078CB4
+	thumb_func_start UpdateCarriedObject
+UpdateCarriedObject: @ 0x08078CB4
 	push {lr}
 	ldr r0, _08078CCC @ =gPlayerState
 	ldrb r0, [r0, #5]
@@ -744,7 +744,7 @@ _08078DE0:
 	ands r0, r1
 	cmp r0, #2
 	bne _08078E82
-	ldr r0, _08078E38 @ =gScreenTransition
+	ldr r0, _08078E38 @ =gRoomTransition
 	ldr r1, [r0]
 	movs r0, #3
 	ands r1, r0
@@ -755,7 +755,7 @@ _08078DE0:
 	b _08078E82
 	.align 2, 0
 _08078E34: .4byte gPlayerState
-_08078E38: .4byte gScreenTransition
+_08078E38: .4byte gRoomTransition
 _08078E3C:
 	ldrh r0, [r4, #0x2e]
 	adds r0, #1
@@ -3722,7 +3722,7 @@ _0807A468:
 	cmp r2, #0
 	beq _0807A4F2
 _0807A46E:
-	bl CheckIsDungeon
+	bl AreaIsDungeon
 	cmp r0, #0
 	beq _0807A4B0
 	ldr r4, _0807A4AC @ =gPlayerEntity
@@ -5105,7 +5105,7 @@ _0807AEA8:
 	ands r0, r1
 	cmp r0, #0
 	beq _0807AECC
-	ldr r0, _0807AEC8 @ =gScreenTransition
+	ldr r0, _0807AEC8 @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #0xf
 	ands r0, r1
@@ -5116,9 +5116,9 @@ _0807AEA8:
 	bl sub_080A2A84
 	b _0807AEDE
 	.align 2, 0
-_0807AEC8: .4byte gScreenTransition
+_0807AEC8: .4byte gRoomTransition
 _0807AECC:
-	ldr r0, _0807AEE0 @ =gScreenTransition
+	ldr r0, _0807AEE0 @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #7
 	ands r0, r1
@@ -5129,7 +5129,7 @@ _0807AECC:
 _0807AEDE:
 	pop {r4, pc}
 	.align 2, 0
-_0807AEE0: .4byte gScreenTransition
+_0807AEE0: .4byte gRoomTransition
 
 	thumb_func_start UpdatePlayerSkills
 UpdatePlayerSkills: @ 0x0807AEE4
@@ -5518,7 +5518,7 @@ sub_0807B1A8: @ 0x0807B1A8
 	ldr r1, [r0]
 	adds r0, r4, #0
 	bl _call_via_r1
-	ldr r0, _0807B1D8 @ =gScreenTransition
+	ldr r0, _0807B1D8 @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #7
 	ands r0, r1
@@ -5530,7 +5530,7 @@ _0807B1D0:
 	pop {r4, pc}
 	.align 2, 0
 _0807B1D4: .4byte gUnk_0811C298
-_0807B1D8: .4byte gScreenTransition
+_0807B1D8: .4byte gRoomTransition
 
 	thumb_func_start sub_0807B1DC
 sub_0807B1DC: @ 0x0807B1DC

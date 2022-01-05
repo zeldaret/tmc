@@ -1,5 +1,6 @@
 #include "entity.h"
 #include "functions.h"
+#include "projectile.h"
 
 bool32 sub_080AB12C(Entity* this);
 

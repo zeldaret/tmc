@@ -58,8 +58,8 @@ void sub_080866D8(Entity* this) {
             entity = CreateObject(HOUSE_DOOR_EXT, prop->unk7, prop->unk6);
             if (entity) {
                 entity->field_0x6c.HALF.LO = i;
-                entity->x.HALF.HI = gRoomControls.roomOriginX + prop->unk0 + 16;
-                entity->y.HALF.HI = gRoomControls.roomOriginY + prop->unk2 + 32;
+                entity->x.HALF.HI = gRoomControls.origin_x + prop->unk0 + 16;
+                entity->y.HALF.HI = gRoomControls.origin_y + prop->unk2 + 32;
                 entity->parent = this;
                 entity->field_0x68.HWORD = prop->unk0;
                 entity->field_0x6a.HWORD = prop->unk2;

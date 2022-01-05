@@ -856,8 +856,8 @@ void sub_080406A0(Entity* this) {
     uVar5 = this->field_0x86.HALF.LO;
     {
         u32 tmp;
-        uVar6 = gRoomControls.roomOriginX + gUnk_080D0B58[tmp = uVar5 * 2];
-        uVar4 = gRoomControls.roomOriginY + gUnk_080D0B58[tmp + 1];
+        uVar6 = gRoomControls.origin_x + gUnk_080D0B58[tmp = uVar5 * 2];
+        uVar4 = gRoomControls.origin_y + gUnk_080D0B58[tmp + 1];
     }
     if (sub_0806FCB8(this, uVar6, uVar4, 0x1c)) {
         if (uVar5 != 0) {
@@ -867,8 +867,8 @@ void sub_080406A0(Entity* this) {
         }
         {
             u32 tmp;
-            uVar6 = gRoomControls.roomOriginX + gUnk_080D0B58[tmp = uVar5 * 2];
-            uVar4 = gRoomControls.roomOriginY + gUnk_080D0B58[tmp + 1];
+            uVar6 = gRoomControls.origin_x + gUnk_080D0B58[tmp = uVar5 * 2];
+            uVar4 = gRoomControls.origin_y + gUnk_080D0B58[tmp + 1];
         }
     }
     uVar3 = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, uVar6, uVar4);
@@ -891,8 +891,8 @@ void sub_08040770(Entity* this) {
     u32 tmp5, tmp6;
     {
         u32 index;
-        tmp5 = gRoomControls.roomOriginX + gUnk_080D0B64[index = tmp2 * 2];
-        tmp6 = gRoomControls.roomOriginY + gUnk_080D0B64[index + 1];
+        tmp5 = gRoomControls.origin_x + gUnk_080D0B64[index = tmp2 * 2];
+        tmp6 = gRoomControls.origin_y + gUnk_080D0B64[index + 1];
     }
     if (sub_0806FCB8(this, tmp5, tmp6, 0x1c)) {
         if (this->animationState != 2) {
@@ -954,8 +954,8 @@ void sub_08040770(Entity* this) {
         }
         {
             u32 tmp3;
-            tmp5 = gRoomControls.roomOriginX + gUnk_080D0B64[tmp3 = tmp2 * 2],
-            tmp6 = gRoomControls.roomOriginY + gUnk_080D0B64[tmp3 + 1];
+            tmp5 = gRoomControls.origin_x + gUnk_080D0B64[tmp3 = tmp2 * 2],
+            tmp6 = gRoomControls.origin_y + gUnk_080D0B64[tmp3 + 1];
         }
     }
     this->direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, tmp5, tmp6);

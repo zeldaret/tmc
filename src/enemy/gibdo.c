@@ -2,21 +2,22 @@
 #include "enemy.h"
 #include "object.h"
 #include "functions.h"
+
 // Gibudo
-void sub_08037794();
-void sub_08037B10();
-void sub_0803797C();
-void sub_080379BC();
-void sub_08037C0C();
-u32 sub_08037810();
-void sub_080377B0();
-u32 sub_080378B0();
-u32 sub_08037914();
-u32 sub_080379EC();
-void sub_08037A58();
-void sub_08037ACC();
-void sub_08037B48();
-void sub_08037A14();
+void sub_08037794(Entity*);
+void sub_08037B10(Entity*);
+void sub_0803797C(Entity*);
+void sub_080379BC(Entity*);
+void sub_08037C0C(Entity*, Entity*);
+u32 sub_08037810(Entity*);
+void sub_080377B0(Entity*);
+u32 sub_080378B0(Entity*);
+u32 sub_08037914(Entity*);
+u32 sub_080379EC(Entity*);
+void sub_08037A58(Entity*);
+void sub_08037ACC(Entity*);
+void sub_08037B48(Entity*);
+void sub_08037A14(Entity*);
 
 extern void sub_0804A4E4(Entity*, Entity*);
 extern Entity* sub_08049DF4(u32);
@@ -75,7 +76,7 @@ NONMATCH("asm/non_matching/gibdo/sub_080374A4.inc", void sub_080374A4(Entity* th
 }
 END_NONMATCH
 
-void nullsub_162() {
+void nullsub_162(Entity* this) {
 }
 
 void sub_08037558(Entity* this) {

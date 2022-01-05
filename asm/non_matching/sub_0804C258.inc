@@ -10,7 +10,7 @@
 	movs r0, #0xf
 	ands r2, r0
 	strb r2, [r3, #0xd]
-	ldr r0, _0804C28C @ =gScreenTransition
+	ldr r0, _0804C28C @ =gRoomTransition
 	ldrb r0, [r0, #0xe]
 	cmp r0, #4
 	bne _0804C284
@@ -24,5 +24,5 @@ _0804C284:
 	pop {pc}
 	.align 2, 0
 _0804C288: .4byte gArea
-_0804C28C: .4byte gScreenTransition
+_0804C28C: .4byte gRoomTransition
     .syntax divided

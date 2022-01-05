@@ -59,11 +59,11 @@ sub_080548E8: @ 0x080548E8
 	bl _call_via_r0
 	bl FlushSprites
 	bl UpdateEntities
-	bl sub_080AD9B0
-	bl sub_080AD918
+	bl DrawEntities
+	bl CopyOAM
 	bl UpdateScroll
 	bl UpdateBgAnim
-	bl sub_08000108
+	bl UpdateScrollVram
 	pop {pc}
 	.align 2, 0
 _08054918: .4byte gUnk_080FE2AC
@@ -129,7 +129,7 @@ sub_08054974: @ 0x08054974
 	strb r0, [r4, #4]
 	ldrb r0, [r6, #3]
 	strb r0, [r4, #5]
-	bl sub_08053320
+	bl LoadGfxGroups
 	ldrb r0, [r4, #4]
 	bl GetFlagBankOffset
 	ldr r1, _080549B8 @ =gArea
@@ -138,7 +138,7 @@ sub_08054974: @ 0x08054974
 	beq _080549BC
 	ldrb r0, [r6, #2]
 	ldrb r1, [r6, #3]
-	bl sub_08052FD8
+	bl LoadCutsceneRoom
 	b _080549CE
 	.align 2, 0
 _080549B0: .4byte gUnk_080FE320

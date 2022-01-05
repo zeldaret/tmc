@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_08053590
-sub_08053590: @ 0x08053590
+	thumb_func_start CutsceneMain_Init
+CutsceneMain_Init: @ 0x08053590
 	push {lr}
 	ldr r1, _080535A4 @ =gUnk_080FCBB4
 	ldr r0, _080535A8 @ =gMenu
@@ -409,7 +409,7 @@ sub_08053894: @ 0x08053894
 _080538B4: .4byte gFadeControl
 _080538B8: .4byte gMenu
 _080538BC:
-	ldr r0, _080538FC @ =gScreenTransition
+	ldr r0, _080538FC @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #1
 	ands r0, r1
@@ -442,7 +442,7 @@ _080538E4:
 _080538F8:
 	pop {r4, pc}
 	.align 2, 0
-_080538FC: .4byte gScreenTransition
+_080538FC: .4byte gRoomTransition
 _08053900: .4byte gScreen
 
 	thumb_func_start sub_08053904
@@ -467,7 +467,7 @@ sub_08053904: @ 0x08053904
 _08053924: .4byte gFadeControl
 _08053928: .4byte gMenu
 _0805392C:
-	ldr r0, _0805396C @ =gScreenTransition
+	ldr r0, _0805396C @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #1
 	ands r0, r1
@@ -500,7 +500,7 @@ _08053954:
 _08053968:
 	pop {r4, pc}
 	.align 2, 0
-_0805396C: .4byte gScreenTransition
+_0805396C: .4byte gRoomTransition
 _08053970: .4byte gScreen
 
 	thumb_func_start sub_08053974
@@ -513,7 +513,7 @@ sub_08053974: @ 0x08053974
 	bl InitFade
 	movs r0, #1
 	bl DispReset
-	bl sub_080197AC
+	bl SetBGDefaults
 	bl sub_08051F78
 	ldr r0, _080539B0 @ =gUnk_080FCBC4
 	bl LoadRoomEntityList
@@ -540,7 +540,7 @@ nullsub_482: @ 0x080539B8
 	thumb_func_start sub_080539BC
 sub_080539BC: @ 0x080539BC
 	push {lr}
-	bl sub_080197AC
+	bl SetBGDefaults
 	bl DeleteAllEntities
 	movs r0, #0x22
 	movs r1, #0x11
@@ -652,7 +652,7 @@ sub_08053A90: @ 0x08053A90
 	ldr r1, _08053AAC @ =gUnk_02032EC0
 	movs r0, #3
 	strb r0, [r1]
-	bl sub_080197AC
+	bl SetBGDefaults
 _08053AA4:
 	pop {pc}
 	.align 2, 0
@@ -887,7 +887,7 @@ sub_08053C60: @ 0x08053C60
 	ldr r0, _08053C80 @ =0x80100000
 	bl SoundReq
 	movs r0, #3
-	bl InitScreen
+	bl SetTask
 	pop {pc}
 	.align 2, 0
 _08053C80: .4byte 0x80100000
@@ -901,8 +901,8 @@ sub_08053C84: @ 0x08053C84
 	.align 2, 0
 _08053C8C: .4byte gMenu
 
-	thumb_func_start sub_08053C90
-sub_08053C90: @ 0x08053C90
+	thumb_func_start CutsceneMain_Exit
+CutsceneMain_Exit: @ 0x08053C90
 	push {lr}
 	ldr r1, _08053CA4 @ =gUnk_080FCEF8
 	ldr r0, _08053CA8 @ =gMenu
@@ -1294,8 +1294,8 @@ _08053FAA:
 _08053FAC: .4byte gFadeControl
 _08053FB0: .4byte gMenu
 
-	thumb_func_start sub_08053FB4
-sub_08053FB4: @ 0x08053FB4
+	thumb_func_start CutsceneMain_Update
+CutsceneMain_Update: @ 0x08053FB4
 	push {lr}
 	ldr r1, _08053FC8 @ =gUnk_080FD138
 	ldr r0, _08053FCC @ =gMenu
@@ -1537,7 +1537,7 @@ _080541AA:
 	movs r0, #0x63
 	bl ModBombs
 _080541B0:
-	bl sub_08053390
+	bl LoadItemGfx
 	b _0805427C
 _080541B6:
 	cmp r5, #0

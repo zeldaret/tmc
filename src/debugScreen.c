@@ -6,11 +6,12 @@
 #include "menu.h"
 #include "screen.h"
 #include "message.h"
+#include "game.h"
 
-extern void (*const gUnk_08109A30[])();
+extern void (*const gUnk_08109A30[])(void);
 
-void HandleDebugTextScreen() {
-    gUnk_08109A30[gMain.funcIndex]();
+void DebugTask(void) {
+    gUnk_08109A30[gMain.state]();
 }
 
 void sub_0805FA04(void) {
@@ -27,10 +28,10 @@ void sub_0805FA04(void) {
     MessageInitialize();
     MemClear((void*)&gUnk_02032EC0, sizeof(UI));
     MemClear((void*)&gMenu, sizeof(Menu));
-    gMenu.unk16 = gSaveHeader->gameLanguage;
-    sub_08053320();
+    gMenu.unk16 = gSaveHeader->language;
+    LoadGfxGroups();
     SetColor(0, 0x1144);
-    gMain.funcIndex = 1;
+    gMain.state = 1;
     InitSoundPlayingInfo();
     sub_08050008();
 }
@@ -56,7 +57,7 @@ void sub_0805FA98(void) {
             }
             break;
         case R_BUTTON:
-            gSaveHeader->gameLanguage = gMenu.unk16;
+            gSaveHeader->language = gMenu.unk16;
             MessageFromTarget(gMenu.unk14 * 0x100 + gMenu.unk15);
             break;
         case B_BUTTON:
@@ -90,6 +91,6 @@ void sub_0805FA98(void) {
     gScreen.bg3.updated = 1;
 }
 
-void sub_0805FBC4() {
-    InitScreen(0);
+void sub_0805FBC4(void) {
+    SetTask(TASK_TITLE);
 }

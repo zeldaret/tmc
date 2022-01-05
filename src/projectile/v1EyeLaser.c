@@ -1,5 +1,6 @@
 #include "entity.h"
 #include "functions.h"
+#include "projectile.h"
 
 extern void (*const V1EyeLaser_Actions[])(Entity*);
 extern const Hitbox* const gUnk_0812A5F4[];

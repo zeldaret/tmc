@@ -39,7 +39,7 @@ void sub_0806DF00(Entity* this) {
         npc->parent = this;
         this->field_0x74.HWORD = 0;
         this->field_0x76.HWORD = 10;
-        gScreenTransition.field_0x6 = 10;
+        gRoomTransition.field_0x6 = 10;
         sub_0806E014(this);
         sub_0807DD50(this);
     } else {
@@ -109,17 +109,17 @@ void sub_0806E1FC(Entity* this) {
 }
 
 void sub_0806E20C(void) {
-    if (gScreenTransition.field_0x6 != 0) {
+    if (gRoomTransition.field_0x6 != 0) {
         MessageFromTarget(0x421f);
-        gMessage.field_0x10 = gScreenTransition.field_0x6;
+        gMessage.field_0x10 = gRoomTransition.field_0x6;
     } else {
         MessageFromTarget(0x4220);
     }
 }
 
 void sub_0806E23C(void) {
-    if (gScreenTransition.field_0x6 != 0) {
-        ModRupees(gScreenTransition.field_0x6);
+    if (gRoomTransition.field_0x6 != 0) {
+        ModRupees(gRoomTransition.field_0x6);
     }
 }
 

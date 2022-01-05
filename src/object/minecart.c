@@ -20,14 +20,14 @@ void Minecart(Entity* this) {
 }
 
 void sub_080916EC(Entity* this) {
-    struct_030010EC* unk = &gScreenTransition.minecart_data[this->actionDelay];
+    struct_030010EC* unk = &gRoomTransition.minecart_data[this->actionDelay];
 
     *(struct_030010EC**)&this->cutsceneBeh.HWORD = unk;
-    if ((gRoomControls.roomID != unk->field_0x4) || (gPlayerState.flags & PL_IN_MINECART) != 0) {
+    if ((gRoomControls.room != unk->field_0x4) || (gPlayerState.flags & PL_IN_MINECART) != 0) {
         DeleteThisEntity();
     }
-    this->x.HALF.HI = gRoomControls.roomOriginX + ((unk->field_0x0 & 0x3f) << 4) + 8;
-    this->y.HALF.HI = gRoomControls.roomOriginY + ((unk->field_0x0 & 0xfc << 4) >> 2) + 8;
+    this->x.HALF.HI = gRoomControls.origin_x + ((unk->field_0x0 & 0x3f) << 4) + 8;
+    this->y.HALF.HI = gRoomControls.origin_y + ((unk->field_0x0 & 0xfc << 4) >> 2) + 8;
     this->animationState = unk->field_0x5;
     this->type2 = unk->field_0x6;
     this->action = 1;
@@ -91,7 +91,7 @@ void sub_080918A4(Entity* this) {
             gPlayerState.flags = (gPlayerState.flags ^ PL_ENTER_MINECART) | PL_IN_MINECART;
             this->action++;
             this->field_0xf = 1;
-            this->flags |= ENT_20;
+            this->flags |= ENT_PERSIST;
             this->hitType = 0x97;
             this->field_0x3c = (gPlayerEntity.field_0x3c + 1) | 0x20;
             this->flags2 = gPlayerEntity.flags2;
@@ -134,7 +134,7 @@ void sub_080919AC(Entity* this) {
         CopyPosition(this, &gPlayerEntity);
         gPlayerEntity.spritePriority.b0 = this->spritePriority.b0 - 1;
         if (!sub_08091DDC(this)) {
-            if ((gScreenTransition.frameCount & 0xf) == 0) {
+            if ((gRoomTransition.frameCount & 0xf) == 0) {
                 SoundReq(SFX_138);
             }
 
@@ -152,7 +152,7 @@ void sub_080919AC(Entity* this) {
             } else {
                 switch (uVar3) {
                     case 0x64:
-                        this->flags &= ~ENT_20;
+                        this->flags &= ~ENT_PERSIST;
                         this->hitType = 1;
                         this->field_0x3c = 0x47;
                         this->hurtType = 0x44;

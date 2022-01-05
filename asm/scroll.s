@@ -228,7 +228,7 @@ sub_0807FDC8: @ 0x0807FDC8
 	ldr r4, _0807FDE0 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r4]
-	bl sub_08000108
+	bl UpdateScrollVram
 	movs r1, #0
 	movs r0, #1
 	strb r0, [r5, #3]
@@ -411,7 +411,7 @@ _0807FF18: .4byte gUpdateVisibleTiles
 sub_0807FF1C: @ 0x0807FF1C
 	push {lr}
 	adds r2, r0, #0
-	ldr r0, _0807FF4C @ =gScreenTransition
+	ldr r0, _0807FF4C @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #1
 	ands r0, r1
@@ -433,7 +433,7 @@ sub_0807FF1C: @ 0x0807FF1C
 _0807FF48:
 	pop {pc}
 	.align 2, 0
-_0807FF4C: .4byte gScreenTransition
+_0807FF4C: .4byte gRoomTransition
 _0807FF50: .4byte gUpdateVisibleTiles
 
 	thumb_func_start sub_0807FF54
@@ -716,7 +716,7 @@ sub_08080198: @ 0x08080198
 	movs r1, #0xff
 	strh r1, [r0, #0x1c]
 	bl LoadRoom
-	bl sub_0804AFF4
+	bl CallRoomProp5And7
 	ldr r0, _080801B8 @ =gUpdateVisibleTiles
 	strb r4, [r0]
 	bl sub_080805F8
@@ -1335,8 +1335,8 @@ _08080660:
 	.align 2, 0
 _08080664: .4byte gUnk_03004030
 
-	thumb_func_start sub_08080668
-sub_08080668: @ 0x08080668
+	thumb_func_start ClearTilemaps
+ClearTilemaps: @ 0x08080668
 	push {r4, r5, lr}
 	ldr r5, _080806A4 @ =gRoomControls
 	adds r0, r5, #0
@@ -1587,7 +1587,7 @@ _0808083E:
 DoExitTransition: @ 0x08080840
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r0, _0808085C @ =gScreenTransition
+	ldr r0, _0808085C @ =gRoomTransition
 	movs r1, #1
 	strb r1, [r0, #8]
 	adds r2, r0, #0
@@ -1599,7 +1599,7 @@ DoExitTransition: @ 0x08080840
 	strh r1, [r2, #4]
 	b _08080872
 	.align 2, 0
-_0808085C: .4byte gScreenTransition
+_0808085C: .4byte gRoomTransition
 _08080860: .4byte 0x000003FF
 _08080864:
 	ldr r0, _08080880 @ =gRoomControls

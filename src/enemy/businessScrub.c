@@ -5,6 +5,7 @@
 #include "npc.h"
 #include "functions.h"
 #include "game.h"
+#include "item.h"
 
 extern Entity* sub_08049DF4(u32);
 extern bool32 sub_08056338(void);

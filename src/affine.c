@@ -21,42 +21,42 @@ NONMATCH("asm/non_matching/vram/sub_080AD8F0.inc", void* sub_080AD8F0(u32 sprite
 END_NONMATCH
 
 void FlushSprites(void) {
-    gUnk_03000000.updated = 0;
+    gOAMControls.updated = 0;
 }
 
-NONMATCH("asm/non_matching/vram/sub_080AD918.inc", void sub_080AD918(void)) {
+NONMATCH("asm/non_matching/vram/sub_080AD918.inc", void CopyOAM(void)) {
     s32 rem;
     u16* d;
 
     if (gMain.ticks.HALF.LO == 0) {
-        gUnk_03000000.unk[0x20].unk0 = gMain.ticks.HALF.LO;
-        gUnk_03000000.unk[0x48].unk4 = gMain.ticks.HALF.LO;
-        gUnk_03000000.unk[0x71].unk0 = gMain.ticks.HALF.LO;
-        gUnk_03000000.unk[0x99].unk4 = gMain.ticks.HALF.LO;
+        gOAMControls.unk[0x20].unk0 = gMain.ticks.HALF.LO;
+        gOAMControls.unk[0x48].unk4 = gMain.ticks.HALF.LO;
+        gOAMControls.unk[0x71].unk0 = gMain.ticks.HALF.LO;
+        gOAMControls.unk[0x99].unk4 = gMain.ticks.HALF.LO;
     } else {
         gMain.ticks.HALF.LO--;
     }
 
-    rem = 0x80 - gUnk_03000000.updated;
-    for (d = (u16*)&gUnk_03000000.oam[0x80 + gUnk_03000000.updated]; rem > 0; rem--) {
+    rem = 0x80 - gOAMControls.updated;
+    for (d = (u16*)&gOAMControls.oam[0x80 + gOAMControls.updated]; rem > 0; rem--) {
         *d = 0x2A0;
         (u8*)d += 6;
     }
-    if (gUnk_03000000.unk[0].unk7) {
-        gUnk_03000000.unk[0].unk7 = 0;
-        ObjAffineSet((struct ObjAffineSrcData*)gUnk_03000000.unk, &gUnk_03000000.oam[0].affineParam, 32, 8);
+    if (gOAMControls.unk[0].unk7) {
+        gOAMControls.unk[0].unk7 = 0;
+        ObjAffineSet((struct ObjAffineSrcData*)gOAMControls.unk, &gOAMControls.oam[0].affineParam, 32, 8);
     }
-    gUnk_03000000.field_0x0 = 1;
+    gOAMControls.field_0x0 = 1;
 }
 END_NONMATCH
 
-void sub_080AD9B0(void) {
+void DrawEntities(void) {
     void (*fn)(void);
 
-    gUnk_03000000._0[6] = gScreenTransition.field_0x2c[3] ? 15 : 0;
-    gUnk_03000000._4 = gRoomControls.aff_x + gRoomControls.roomScrollX;
-    gUnk_03000000._6 = gRoomControls.aff_y + gRoomControls.roomScrollY;
-    gUnk_03000000.field_0x1++;
+    gOAMControls._0[6] = gRoomTransition.field_0x2c[3] ? 15 : 0;
+    gOAMControls._4 = gRoomControls.aff_x + gRoomControls.scroll_x;
+    gOAMControls._6 = gRoomControls.aff_y + gRoomControls.scroll_y;
+    gOAMControls.field_0x1++;
     fn = &gUnk_03006164;
     fn();
 }
@@ -66,7 +66,7 @@ void sub_080ADA04(OAMCommand* cmd, void* dst) {
     fn(cmd, dst);
 }
 
-void sub_080ADA14(u32 a1, u32 a2) {
+void DrawDirect(u32 a1, u32 a2) {
     void (*fn)(OAMCommand*, u32, u32) = gUnk_03006580;
     fn(&gOamCmd, a1, a2);
 }

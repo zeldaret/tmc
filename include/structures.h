@@ -8,15 +8,15 @@
 typedef struct {
     int signature;
     u8 saveFileId;
-    u8 messageSpeed;
-    u8 brightnessPref;
-    u8 gameLanguage;
+    u8 msg_speed;
+    u8 brightness;
+    u8 language;
     u8 name[6];
-    u8 _e;
+    u8 invalid;
     u8 _f;
-} struct_02000000;
-#define gSaveHeader ((struct_02000000*)(0x2000000))
-// extern struct_02000000 gSaveHeader;
+} SaveHeader;
+#define gSaveHeader ((SaveHeader*)(0x2000000))
+// extern SaveHeader gSaveHeader;
 
 typedef struct {
     u8 unk_00;
@@ -37,20 +37,6 @@ typedef struct {
 static_assert(sizeof(struct_02000010) == 0x20);
 
 extern struct_02000010 gUnk_02000010;
-
-typedef struct {
-    u16 transitionType;
-    u8 field_0x2[4];
-    s16 playerXPos;
-    s16 playerYPos;
-    u8 field_0xa;
-    u8 areaID;
-    u8 roomID;
-    u8 playerLayer;
-    u8 field_0xe;
-    u8 playerState;
-    u16 transitionSFX;
-} ScreenTransitionData;
 
 typedef struct {
     u8 active;
@@ -164,13 +150,8 @@ typedef struct {
     u16 _6;
     u8 _0[0x18];
     struct OamData oam[0x80];
-    OAMObj unk[0x100];
-    u8 fill[10];
-    u8 _426;
-    u8 _427;
-    u8 _428[6];
-    u8 _42e;
-} OAMSettings;
-extern OAMSettings gUnk_03000000;
+    OAMObj unk[0xA0]; /* todo: affine */
+} OAMControls;
+extern OAMControls gOAMControls;
 
 #endif

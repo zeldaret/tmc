@@ -66,7 +66,7 @@ void sub_08066D4C(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_08066D94(Entity* this) {
-    u32 roomID;
+    u32 room;
     Entity* npc;
 
     SetGlobalFlag(ZELDA_CHASE);
@@ -75,8 +75,8 @@ void sub_08066D94(Entity* this) {
         npc->animationState = gPlayerEntity.animationState;
         npc->flags |= 0x20;
         npc->animationState = GetAnimationState(this);
-        roomID = gRoomControls.roomID;
-        npc->field_0x74.HWORD = roomID;
+        room = gRoomControls.room;
+        npc->field_0x74.HWORD = room;
         CopyPosition(this, npc);
     }
     DeleteThisEntity();

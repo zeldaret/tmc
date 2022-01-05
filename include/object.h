@@ -20,9 +20,14 @@ extern void sub_080787B4(Entity*);
 extern void sub_0808C650(Entity*, u32);
 extern u32 sub_0808C67C(void);
 extern void sub_0808C688(void);
+extern void sub_080A2BE4(Entity*, u32);
 
 void CreateDust(Entity* parent);
+void CreateDustAt(s32, s32, u32);
 void CreateDustSmall(Entity* parent);
+Entity* CreateSpeechBubbleQuestionMark(Entity*, s32, s32);
+Entity* CreateSpeechBubbleExclamationMark(Entity*, s32, s32);
+Entity* CreateSpeechBubbleSleep(Entity*, s32, s32);
 
 typedef enum {
     GROUND_ITEM,

@@ -162,7 +162,7 @@ _0804A81C:
 	ldrb r0, [r5, #9]
 	cmp r0, #0x37
 	bne _0804A84A
-	ldr r0, _0804A85C @ =gScreenTransition
+	ldr r0, _0804A85C @ =gRoomTransition
 	adds r0, #0x39
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -175,7 +175,7 @@ _0804A84A:
 	bl DeleteThisEntity
 	b _0804A982
 	.align 2, 0
-_0804A85C: .4byte gScreenTransition
+_0804A85C: .4byte gRoomTransition
 _0804A860: .4byte 0x80100000
 _0804A864:
 	adds r4, r5, #0

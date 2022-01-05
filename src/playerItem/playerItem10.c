@@ -87,7 +87,7 @@ void sub_080ACC04(Entity* this) {
     this->flags2 = gPlayerEntity.flags2;
     this->direction = this->animationState << 2;
     this->speed = 0x200;
-    this->flags |= ENT_COLLIDE | ENT_20;
+    this->flags |= ENT_COLLIDE | ENT_PERSIST;
     this->field_0x3c = 2;
     this->hitbox = (Hitbox*)gUnk_0812AAD8[this->type];
     this->field_0x70.WORD = 0x10;
@@ -109,7 +109,7 @@ void sub_080ACC78(Entity* this) {
     s32 offset;
     const s8* puVar8;
 
-    if ((this->type + gScreenTransition.frameCount) & 1) {
+    if ((this->type + gRoomTransition.frameCount) & 1) {
         puVar8 = gUnk_0812AAAC[this->type];
         if (puVar8[*(u32*)&this->field_0x74] == 0) {
             *(u32*)&this->field_0x74 = 0;

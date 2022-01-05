@@ -3,11 +3,12 @@
 #include "main.h"
 #include "common.h"
 #include "message.h"
-#include "fileScreen.h"
+#include "fileselect.h"
 #include "screen.h"
+#include "game.h"
 
 extern void (*const demoFunctions[])(void);
-void sub_080A30AC();
+void sub_080A30AC(void);
 
 extern u8 gUnk_02000004;
 void sub_080A3198(u32, u32);
@@ -23,11 +24,11 @@ extern u16 gUnk_08127CC8[4];
 extern void* gUnk_08127C98;
 extern u8 gUnk_08A068BF[129];
 
-void HandleChooseDemoScreen(void) {
+void DemoTask(void) {
     FlushSprites();
-    demoFunctions[gMain.funcIndex]();
+    demoFunctions[gMain.state]();
     sub_080A30AC();
-    sub_080AD918();
+    CopyOAM();
 }
 
 void sub_080A2E40(void) {
@@ -37,11 +38,11 @@ void sub_080A2E40(void) {
     MessageInitialize();
     EraseAllEntities();
     ResetPalettes();
-    sub_0801CFA8(0);
+    ResetPaletteTable(0);
     MemClear(&gUnk_02032EC0, sizeof gUnk_02032EC0);
     MemClear(&gChooseFileState, sizeof gChooseFileState);
     MemClear(&gBG0Buffer, sizeof gBG0Buffer);
-    sub_08053320();
+    LoadGfxGroups();
     LoadPaletteGroup(0xb5);
     LoadGfxGroup(0x56);
     MemCopy(&gUnk_089FD1B4, &gUnk_02017760[0], 0x100);
@@ -65,27 +66,27 @@ void sub_080A2E40(void) {
         *(u8*)(addr + 4) = 0;
     }
     sub_080A3198(0, 0);
-    gMain.funcIndex = 1;
+    gMain.state = 1;
     SoundReq(BGM_FILE_SELECT);
     DoFade(4, 8);
 }
 
 void sub_080A2F8C(void) {
     if (gFadeControl.active == 0) {
-        switch (gMain.transition) {
+        switch (gMain.substate) {
             case 0:
-                gMain.transition = 1;
+                gMain.substate = 1;
                 {
                     // TODO write to 0x2000005
                     u32 addr = (0x80 << 0x12);
                     *(u8*)(addr + 5) = 1;
                     *(u8*)(addr + 6) = 1;
                 }
-                gMain.funcIndex = 2;
+                gMain.state = 2;
                 DoFade(5, 8);
                 break;
             case 1:
-                InitScreen(2);
+                SetTask(TASK_GAME);
                 break;
         }
     }
@@ -125,8 +126,8 @@ NONMATCH("asm/non_matching/demoScreen/sub_080A2FD0.inc", void sub_080A2FD0(void)
             case START_BUTTON:
             case A_BUTTON: {
                 if (gChooseFileState.unk_0x0 == 0) {
-                    gMain.screen = 2;
-                    gMain.funcIndex = gChooseFileState.unk_0x0;
+                    gMain.task = 2;
+                    gMain.state = gChooseFileState.unk_0x0;
                     SoundReq(SFX_TEXTBOX_SELECT);
                 }
             }

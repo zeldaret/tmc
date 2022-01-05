@@ -217,7 +217,7 @@ void sub_08023398(Entity* this) {
             this->field_0x7c.BYTES.byte0--;
         }
 
-        if ((gScreenTransition.frameCount & 7) == 0) {
+        if ((gRoomTransition.frameCount & 7) == 0) {
             u32 uVar4;
 
             sub_08004596(this, sub_08049F84(this, 1));

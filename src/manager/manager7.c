@@ -1,6 +1,7 @@
 #include "manager.h"
 #include "asm.h"
 #include "functions.h"
+#include "common.h"
 
 typedef struct {
     Manager manager;
@@ -8,8 +9,8 @@ typedef struct {
     u8 unk_21[0x1F];
 } Manager7;
 
-void sub_08057E30();
-u32 sub_08057E40();
+void sub_08057E30(void*);
+u32 sub_08057E40(Manager7*);
 void sub_08057E7C(u32);
 
 extern u32 CheckRegionsOnScreen(const u16*);
@@ -74,7 +75,7 @@ void Manager7_Main(Manager7* this) {
             this->manager.unk_0e = 0;
         }
     }
-    if (gRoomControls.unk2)
+    if (gRoomControls.reload_flags)
         return;
 #ifndef JP
     tmp = this->unk_20;
@@ -106,7 +107,7 @@ void Manager7_Main(Manager7* this) {
 }
 #endif
 
-void sub_08057E30(Manager7* this) {
+void sub_08057E30(void* this) {
     sub_08057E7C(gRoomVars.unk_10[0]);
 }
 
@@ -120,7 +121,7 @@ u32 sub_08057E40(Manager7* this) {
     }
 }
 
-void sub_08057E64() {
+void sub_08057E64(void) {
     u32 tmp;
     tmp = CheckRegionsOnScreen(gUnk_08108050);
     if (tmp != 0xFF) {

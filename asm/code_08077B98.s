@@ -467,7 +467,7 @@ _0807835C:
 	bne _0807836A
 	b _080784AC
 _0807836A:
-	bl sub_08052B24
+	bl CanDispEzloMessage
 	cmp r0, #0
 	beq _08078374
 	b _080784C4
@@ -482,7 +482,7 @@ _08078376:
 	beq _08078384
 	b _080784AC
 _08078384:
-	bl sub_08052B24
+	bl CanDispEzloMessage
 	cmp r0, #0
 	beq _0807838E
 	b _080784C4

@@ -245,8 +245,8 @@ void VaatiRebornEnemyType0Action2(Entity* this) {
                     tmp = this->field_0x80.HALF.HI;
                     this->field_0x80.HALF.HI = tmp % 5;
                     ptr = &gUnk_080D04AC[this->field_0x80.HALF.HI];
-                    this->x.HALF.HI = gRoomControls.roomOriginX + ptr->HALF.x + 0x10;
-                    this->y.HALF.HI = gRoomControls.roomOriginY + ptr->HALF.y + 0x10;
+                    this->x.HALF.HI = gRoomControls.origin_x + ptr->HALF.x + 0x10;
+                    this->y.HALF.HI = gRoomControls.origin_y + ptr->HALF.y + 0x10;
                 }
                 this->spriteSettings.draw = 1;
                 this->actionDelay = 0x20;
@@ -653,7 +653,7 @@ void VaatiRebornEnemyType1PreAction(Entity* this) {
                 parent->direction = -1;
                 this->actionDelay = 0;
                 SoundReq(SONG_STOP_BGM);
-                gArea.musicIndex = gArea.pMusicIndex;
+                gArea.bgm = gArea.queued_bgm;
                 return;
             }
             this->actionDelay = 1;
@@ -879,15 +879,15 @@ u32 sub_0803E028(Entity* this) {
     if (this->field_0x76.HALF.HI != 1) {
         return ret;
     }
-    tmp = gRoomControls.roomOriginX + 0x58;
+    tmp = gRoomControls.origin_x + 0x58;
     if (tmp > gPlayerEntity.x.HALF.HI) {
         return ret;
     }
-    tmp = gRoomControls.roomOriginY + 0x58;
+    tmp = gRoomControls.origin_y + 0x58;
     if (tmp > gPlayerEntity.x.HALF.HI) {
         return ret;
     }
-    tmp = gRoomControls.roomOriginY + 0xf8;
+    tmp = gRoomControls.origin_y + 0xf8;
     if (tmp >= gPlayerEntity.x.HALF.HI) {
         this->field_0x80.HALF.HI += 5;
         ret = 1;

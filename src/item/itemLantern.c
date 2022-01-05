@@ -2,6 +2,7 @@
 #include "functions.h"
 #include "sound.h"
 #include "object.h"
+#include "game.h"
 
 extern void (*const gUnk_0811BD68[])(ItemBehavior*, u32);
 

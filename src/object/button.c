@@ -16,8 +16,8 @@ void sub_08081AE0(Entity* this) {
     if (this->cutsceneBeh.HWORD != 0) {
         this->collisionLayer = this->cutsceneBeh.HWORD;
     }
-    this->field_0x74.HWORD = (((this->x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 0x3F) |
-                             ((((this->y.HALF.HI - gRoomControls.roomOriginY) >> 4) & 0x3F) << 6);
+    this->field_0x74.HWORD = (((this->x.HALF.HI - gRoomControls.origin_x) >> 4) & 0x3F) |
+                             ((((this->y.HALF.HI - gRoomControls.origin_y) >> 4) & 0x3F) << 6);
     this->field_0x70.HALF.HI = GetTileType(this->field_0x74.HWORD, this->collisionLayer);
     if (this->type == 0 && CheckFlags(this->field_0x86.HWORD)) {
         this->action = 5;

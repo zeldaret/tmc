@@ -63,7 +63,7 @@ _080641E6:
 	lsls r0, r0, #1
 	cmp r1, r0
 	ble _08064222
-	ldr r0, _080642B4 @ =gScreenTransition
+	ldr r0, _080642B4 @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #6
 	bl __modsi3
@@ -140,5 +140,5 @@ _080642AC:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _080642B0: .4byte gPlayerEntity
-_080642B4: .4byte gScreenTransition
+_080642B4: .4byte gRoomTransition
 	.syntax divided

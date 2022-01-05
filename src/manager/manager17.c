@@ -37,8 +37,8 @@ void sub_0805AD80(Manager17* manager) {
         if (object != NULL) {
             object->actionDelay = manager->field_0x35;
             object->collisionLayer = manager->field_0x36;
-            object->x.HALF.HI = manager->field_0x38 + gRoomControls.roomOriginX;
-            object->y.HALF.HI = manager->field_0x3a + gRoomControls.roomOriginY;
+            object->x.HALF.HI = manager->field_0x38 + gRoomControls.origin_x;
+            object->y.HALF.HI = manager->field_0x3a + gRoomControls.origin_y;
             object->field_0x86.HWORD = manager->field_0x3c;
         }
         DeleteThisEntity();

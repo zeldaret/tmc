@@ -106,7 +106,7 @@ _0806FBB2:
 sub_0806FBB4: @ 0x0806FBB4
 	push {lr}
 	adds r1, r0, #0
-	ldr r0, _0806FBD0 @ =gScreenTransition
+	ldr r0, _0806FBD0 @ =gRoomTransition
 	ldrb r0, [r0, #5]
 	cmp r0, #0
 	bne _0806FBC8
@@ -120,7 +120,7 @@ _0806FBC8:
 _0806FBCC:
 	pop {pc}
 	.align 2, 0
-_0806FBD0: .4byte gScreenTransition
+_0806FBD0: .4byte gRoomTransition
 _0806FBD4: .4byte gPlayerState
 
 	thumb_func_start AllocMutableHitbox

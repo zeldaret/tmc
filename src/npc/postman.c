@@ -181,8 +181,8 @@ void sub_080606D8(Entity* this) {
 void sub_08060700(Entity* entity, ScriptExecutionContext* context) {
     s8* var0 = gUnk_0810A918[(s8)entity->field_0x68.HALF.LO];
     Coords16* coords = &gUnk_0810A66C[var0[(s8)entity->field_0x68.HALF.HI]];
-    u32 x = coords->x + gRoomControls.roomOriginX;
-    u32 y = coords->y + gRoomControls.roomOriginY;
+    u32 x = coords->x + gRoomControls.origin_x;
+    u32 y = coords->y + gRoomControls.origin_y;
     sub_0807DEDC(entity, context, x, y);
     gActiveScriptInfo.flags |= 1;
 }
@@ -203,17 +203,5 @@ void Postman_Fusion(Entity* this) {
         InitAnimationForceUpdate(this, 2);
     } else {
         UpdateAnimationSingleFrame(this);
-    }
-}
-
-void CreateZeldaFollower(void) {
-    Entity* npc;
-    if (CheckGlobalFlag(0x1c) != 0) {
-        npc = CreateNPC(0x2e, 0, 0);
-        if (npc != NULL) {
-            CopyPosition(&gPlayerEntity, npc);
-            npc->flags |= 0x20;
-            npc->animationState = GetAnimationState(npc);
-        }
     }
 }

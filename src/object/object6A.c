@@ -5,6 +5,7 @@
 #include "message.h"
 #include "functions.h"
 #include "screen.h"
+#include "item.h"
 
 extern u8 gUnk_08114F30[];
 extern u8 gUnk_08114F34[];
@@ -249,8 +250,8 @@ void sub_08094C88(Object6AEntity* this) {
 void sub_08094CDC(Object6AEntity* this) {
     Entity* e = CreateObject(0x6a, 3, 0x62);
     if (e != NULL) {
-        e->x.HALF.HI = gRoomControls.roomOriginX + 224;
-        e->y.HALF.HI = gRoomControls.roomOriginY + 600;
+        e->x.HALF.HI = gRoomControls.origin_x + 224;
+        e->y.HALF.HI = gRoomControls.origin_y + 600;
         SoundReq(324);
     }
 }
@@ -265,8 +266,8 @@ void sub_08094D10(Object6AEntity* this) {
 void sub_08094D34(Object6AEntity* this) {
     Entity* e = CreateObject(0x6a, 0x15, 0xd);
     if (e != NULL) {
-        e->x.HALF.HI = gRoomControls.roomOriginX + 256;
-        e->y.HALF.HI = gRoomControls.roomOriginY + 600;
+        e->x.HALF.HI = gRoomControls.origin_x + 256;
+        e->y.HALF.HI = gRoomControls.origin_y + 600;
         SoundReq(324);
     }
 }
@@ -298,8 +299,8 @@ void sub_08094D94(Object6AEntity* this) {
 void sub_08094DD8(Object6AEntity* this) {
     Entity* e = CreateObject(0x6a, 0x4, 0);
     if (e != NULL) {
-        e->x.HALF.HI = gRoomControls.roomOriginX + 240;
-        e->y.HALF.HI = gRoomControls.roomOriginY + 600;
+        e->x.HALF.HI = gRoomControls.origin_x + 240;
+        e->y.HALF.HI = gRoomControls.origin_y + 600;
         SoundReq(324);
     }
 }
@@ -313,11 +314,11 @@ void sub_08094E0C(Object6AEntity* this) {
 
 void sub_08094E30(Object6AEntity* this) {
     if (super->type2 == 0) {
-        if ((gScreenTransition.frameCount % 32) == 0) {
+        if ((gRoomTransition.frameCount % 32) == 0) {
             Entity* e = CreateObject(0x6A, 5, 1);
             if (e != NULL) {
-                e->x.HALF.HI = gRoomControls.roomScrollX + (s32)Random() % DISPLAY_WIDTH;
-                e->y.HALF.HI = gRoomControls.roomScrollY + (s32)Random() % DISPLAY_HEIGHT;
+                e->x.HALF.HI = gRoomControls.scroll_x + (s32)Random() % DISPLAY_WIDTH;
+                e->y.HALF.HI = gRoomControls.scroll_y + (s32)Random() % DISPLAY_HEIGHT;
             }
         }
         return;
@@ -738,7 +739,7 @@ void sub_080956B4(Object6AEntity* this) {
         }
     }
     GetNextFrame(super);
-    if ((super->type2 + gScreenTransition.frameCount) % 16 == 0)
+    if ((super->type2 + gRoomTransition.frameCount) % 16 == 0)
         sub_080957B4(this);
     p = super->parent;
     if (p != NULL) {
@@ -893,8 +894,8 @@ void sub_080959CC(Object6AEntity* this) {
 void sub_08095A1C(Object6AEntity* this, ScriptExecutionContext* ctx) {
     Entity* e = CreateObject(OBJECT_6A, 0x16, 0);
     if (e != NULL) {
-        e->x.HALF.HI = gRoomControls.roomOriginX + 232;
-        e->y.HALF.HI = gRoomControls.roomOriginY + 312;
+        e->x.HALF.HI = gRoomControls.origin_x + 232;
+        e->y.HALF.HI = gRoomControls.origin_y + 312;
         e->z.HALF.HI = -4;
         e->collisionLayer = 2;
         ((Object6AEntity*)e)->ctx = StartCutscene(e, (u16*)ctx->intVariable);

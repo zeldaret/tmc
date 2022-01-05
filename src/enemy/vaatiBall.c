@@ -141,7 +141,7 @@ void sub_080447E0(Entity* this) {
     }
 }
 
-extern void sub_08044DEC();
+extern void sub_08044DEC(Entity*);
 
 void sub_08044868(Entity* this) {
     Entity* vaati = this->parent;

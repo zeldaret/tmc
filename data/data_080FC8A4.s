@@ -57,39 +57,3 @@ gUnk_080FC9C8:: @ 080FC9C8
 	.4byte sub_080517EC
 	.4byte sub_08051874
 	.4byte sub_080518E4
-
-gUnk_080FC9D8:: @ 080FC9D8
-	.4byte sub_080519B0
-	.4byte sub_08051A14
-	.4byte sub_08051A90
-	.4byte sub_08051D2C
-
-gUnk_080FC9E8:: @ 080FC9E8
-	.4byte InitializeNewRoom
-	.4byte sub_08051AF0
-	.4byte sub_08051BD0
-	.4byte sub_08051CF0
-	.4byte sub_0804AAB8
-	.4byte sub_08051CA8
-	.4byte 00000000
-	.4byte sub_080A721C
-
-gUnk_080FCA08:: @ 080FCA08
-	.4byte sub_08051E84
-	.4byte sub_08051F04
-	.4byte sub_08051F40
-
-gUnk_080FCA14:: @ 080FCA14
-	.4byte sub_08053590
-	.4byte sub_08053FB4
-	.4byte sub_08053C90
-
-gUnk_080FCA20:: @ 080FCA20
-	.incbin "data_080FC8A4/gUnk_080FCA20.bin"
-
-gUnk_080FCA70:: @ 080FCA70
-	.4byte sub_080520D8
-	.4byte sub_0805212C
-	.4byte sub_080521A0
-	.4byte sub_080522F4
-	.4byte nullsub_107

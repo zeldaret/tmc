@@ -2,6 +2,7 @@
 #include "sound.h"
 #include "functions.h"
 #include "effects.h"
+#include "asm.h"
 
 extern void (*const gUnk_08109AC8[])(Entity*);
 extern Hitbox gUnk_08109AD0;

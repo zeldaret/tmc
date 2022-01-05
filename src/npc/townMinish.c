@@ -3,9 +3,9 @@
 #include "npc.h"
 #include "functions.h"
 
-extern u32 sub_080002C0();
+extern u32 sub_080002C0(u32, u32, u32);
 extern void sub_0806ACC4(Entity*);
-extern void sub_0806AEA8();
+extern void sub_0806AEA8(Entity*);
 extern void sub_0806AEE4(Entity*);
 extern void sub_0806AFE8(Entity*, ScriptExecutionContext*);
 extern void sub_08078850(Entity*, u32, u32, u32*);
@@ -14,7 +14,7 @@ extern u8 gUnk_081125F4[12];
 extern SpriteLoadData gUnk_08112674[];
 extern u32 gUnk_081126D4[4];
 extern u8 gUnk_081126E4[4];
-extern void (*gUnk_081126E8[])();
+extern void (*gUnk_081126E8[])(Entity*);
 extern Dialog gUnk_081126F0[0x10];
 extern void (*gUnk_08112BF0[])(Entity*, ScriptExecutionContext*);
 extern u16 gUnk_08112C40[5];

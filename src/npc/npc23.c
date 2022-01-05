@@ -86,7 +86,7 @@ void sub_0806643C(Entity* this) {
     bool32 tmp = sub_0806650C(this);
     if (tmp == FALSE) {
         this->action = 5;
-        gRoomControls.cameraTarget = NULL;
+        gRoomControls.camera_target = NULL;
         sub_08078AC0(0x40, 0, 0);
         gPlayerEntity.animationState = 0;
         gPlayerEntity.direction = 0;

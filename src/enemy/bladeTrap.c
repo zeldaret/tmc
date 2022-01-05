@@ -3,7 +3,7 @@
 #include "room.h"
 #include "functions.h"
 
-extern void sub_080A2CC0();
+extern void sub_080A2CC0(Entity*, void*, void*);
 
 void BladeTrap(Entity* this) {
     if (this->action == 0) {

@@ -83,7 +83,7 @@ void Sturgeon_Head(Entity* this) {
 }
 
 void sub_08064C9C(Entity* this) {
-    if ((this->actionDelay != 0) && ((gScreenTransition.frameCount & 3U) == 0)) {
+    if ((this->actionDelay != 0) && ((gRoomTransition.frameCount & 3U) == 0)) {
         CreateDust(this);
     }
 }

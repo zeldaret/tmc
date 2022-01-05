@@ -136,19 +136,19 @@ void sub_0802A9A8(Entity* this) {
                 sub_0802ACDC(this, 8);
             }
         } else {
-            if (gRoomControls.unk2 != 0) {
+            if (gRoomControls.reload_flags != 0) {
                 return;
             }
             this->spriteSettings.draw = 1;
             this->field_0x82.HWORD = 1;
             if (this->field_0x80.HALF.LO) {
-                this->x.HALF.HI = gRoomControls.roomScrollX - 0x10;
+                this->x.HALF.HI = gRoomControls.scroll_x - 0x10;
                 this->direction = 8;
             } else {
-                this->x.HALF.HI = gRoomControls.roomScrollX + 0x100;
+                this->x.HALF.HI = gRoomControls.scroll_x + 0x100;
                 this->direction = 0x18;
             }
-            this->y.HALF.HI = gRoomControls.roomScrollY + 0x40;
+            this->y.HALF.HI = gRoomControls.scroll_y + 0x40;
             this->actionDelay = 0x80;
             sub_0802ADDC(this);
         }
@@ -311,9 +311,9 @@ void sub_0802AC40(Entity* this) {
 void sub_0802ACDC(Entity* this, u32 param_2) {
     u32 x;
     if (this->field_0x80.HALF.LO) {
-        x = sub_080045B4(this, gRoomControls.roomScrollX + 0x20, gRoomControls.roomScrollY + 0x60);
+        x = sub_080045B4(this, gRoomControls.scroll_x + 0x20, gRoomControls.scroll_y + 0x60);
     } else {
-        x = sub_080045B4(this, gRoomControls.roomScrollX + 0xd0, gRoomControls.roomScrollY + 0x60);
+        x = sub_080045B4(this, gRoomControls.scroll_x + 0xd0, gRoomControls.scroll_y + 0x60);
     }
     sub_08004596(this, x);
     this->field_0xf = param_2;
@@ -333,13 +333,13 @@ void sub_0802AD1C(Entity* this, u32 param_2) {
 
 void sub_0802AD54(Entity* this) {
     if (this->field_0x82.HWORD != 0) {
-        if (gRoomControls.unk2 != 0) {
+        if (gRoomControls.reload_flags != 0) {
             this->spriteSettings.draw = 0;
             DeleteEntity(this);
             return;
         }
-        if (gRoomControls.roomOriginY > this->y.HALF.HI ||
-            (gRoomControls.roomOriginY + gRoomControls.height + 0x20) < this->y.HALF.HI) {
+        if (gRoomControls.origin_y > this->y.HALF.HI ||
+            (gRoomControls.origin_y + gRoomControls.height + 0x20) < this->y.HALF.HI) {
             this->spriteSettings.draw = 0;
         } else {
             this->spriteSettings.draw = 1;
@@ -504,8 +504,8 @@ void sub_0802B048(Entity* this) {
     u32 action;
 
     if (this->field_0x7a.HALF.HI) {
-        if (gRoomControls.roomOriginY > this->y.HALF.HI ||
-            (gRoomControls.roomOriginY + gRoomControls.height + 0x20) < this->y.HALF.HI) {
+        if (gRoomControls.origin_y > this->y.HALF.HI ||
+            (gRoomControls.origin_y + gRoomControls.height + 0x20) < this->y.HALF.HI) {
             COLLISION_OFF(this);
         } else {
             COLLISION_ON(this);

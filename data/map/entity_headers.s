@@ -1061,7 +1061,7 @@ Area_MinishRafters:: @ 080D4F20
 	.4byte Room_MinishRafters_Bakery
 
 Area_EzloCutscene:: @ 080D4F30
-	.4byte Area_EzloCutscene_Main
+	.4byte Area_EzloAuxCutscene_Main
 
 Area_WindTribeTower:: @ 080D4F34
 	.4byte Room_WindTribeTower_Entrance
@@ -3516,10 +3516,10 @@ Room_GoronCave_Main:: @ 080D8EB0
 	.4byte sub_unk3_GoronCave_Main
 	.4byte sub_StateChange_GoronCave_Main
 
-Entities_EzloCutscene_Main_0:: @ 080D8ED0
+Entities_EzloAuxCutscene_Main_0:: @ 080D8ED0
 	entity_list_end
 
-Entities_EzloCutscene_Main_1:: @ 080D8EE0
+Entities_EzloAuxCutscene_Main_1:: @ 080D8EE0
 	object_raw subtype=0x4d, x=0x34, y=0x28, collision=1, paramA=0x3f
 	object_raw subtype=0x4d, x=0x28, y=0x48, collision=1, paramA=0xc
 	object_raw subtype=0x4d, x=0x80, y=0x24, collision=1, paramA=0x42
@@ -3531,21 +3531,21 @@ Entities_EzloCutscene_Main_1:: @ 080D8EE0
 	object_raw subtype=0x4d, x=0xb8, y=0xd8, collision=1, paramA=0x41
 	entity_list_end
 
-Enemies_EzloCutscene_Main:: @ 080D8F80
+Enemies_EzloAuxCutscene_Main:: @ 080D8F80
 	entity_list_end
 
-TileEntities_EzloCutscene_Main:: @ 080D8F90
+TileEntities_EzloAuxCutscene_Main:: @ 080D8F90
 	tile_entity_list_end
 
-Area_EzloCutscene_Main:: @ 080D8F98
-	.4byte Entities_EzloCutscene_Main_0
-	.4byte Entities_EzloCutscene_Main_1
-	.4byte Enemies_EzloCutscene_Main
-	.4byte TileEntities_EzloCutscene_Main
+Area_EzloAuxCutscene_Main:: @ 080D8F98
+	.4byte Entities_EzloAuxCutscene_Main_0
+	.4byte Entities_EzloAuxCutscene_Main_1
+	.4byte Enemies_EzloAuxCutscene_Main
+	.4byte TileEntities_EzloAuxCutscene_Main
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_EzloCutscene_Main
-	.4byte sub_StateChange_EzloCutscene_Main
+	.4byte sub_unk3_EzloAuxCutscene_Main
+	.4byte sub_StateChange_EzloAuxCutscene_Main
 
 Entities_RoyalValley_Main_0:: @ 080D8FB8
 	manager subtype=0xf, paramA=0x7

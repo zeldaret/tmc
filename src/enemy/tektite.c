@@ -1,6 +1,8 @@
 #include "enemy.h"
 #include "functions.h"
 
+static void sub_0802F45C(Entity* this);
+
 extern void (*const gUnk_080CDED0[])(Entity*);
 extern void (*const gUnk_080CDEE8[])(Entity*);
 
@@ -175,7 +177,7 @@ void sub_0802F3F4(Entity* this) {
     }
 }
 
-void sub_0802F45C(Entity* this) {
+static void sub_0802F45C(Entity* this) {
     u32 temp;
 
     if (sub_08049FA0(this) == 0) {

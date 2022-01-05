@@ -94,8 +94,8 @@ void sub_08034D4C(Entity* this) {
     if (--this->field_0x78.HWORD == 0) {
         if ((this->field_0xf < 8) && (entity = CreateEnemy(VAATI_PROJECTILE, 0), entity != (Entity*)0x0)) {
             entity->direction = (s32)Random() % 5 + 0xc;
-            entity->x.HALF.HI = (gRoomControls.width / 2) + gRoomControls.roomOriginX;
-            entity->y.HALF.HI = gRoomControls.roomOriginY + 8;
+            entity->x.HALF.HI = (gRoomControls.width / 2) + gRoomControls.origin_x;
+            entity->y.HALF.HI = gRoomControls.origin_y + 8;
             entity->collisionLayer = 3;
             entity->parent = this;
             UpdateSpriteForCollisionLayer(entity);
@@ -108,7 +108,7 @@ void sub_08034D4C(Entity* this) {
 }
 
 void sub_08034DC8(Entity* this) {
-    if (gScreenTransition.field_0x39 == 0) {
+    if (gRoomTransition.field_0x39 == 0) {
         CreateFx(this, FX_GIANT_EXPLOSION4, 0);
         sub_0807BA8C(COORD_TO_TILE(this), this->collisionLayer);
         DeleteThisEntity();
@@ -136,7 +136,7 @@ void sub_08034E68(Entity* this) {
             this->spriteSettings.draw = 0;
             sub_08035120(this);
         }
-        if (gScreenTransition.field_0x39 == 0) {
+        if (gRoomTransition.field_0x39 == 0) {
             if (sub_08079F8C() != 0) {
                 this->action = 3;
                 scriptExecutionContext = StartCutscene(this, (u16*)script_MazaalMacroDefeated);
@@ -167,8 +167,8 @@ void sub_08034EE4(Entity* this) {
         randomValue = Random();
         entity = CreateFx(this, gUnk_080CEEC8[randomValue & 3], 0);
         if (entity != NULL) {
-            entity->x.HALF.HI = (((randomValue >> 2) & 0x77) << 1) + 1 + gRoomControls.roomScrollX;
-            entity->y.HALF.HI = ((randomValue >> 9) & 0x7e) + 1 + gRoomControls.roomScrollY;
+            entity->x.HALF.HI = (((randomValue >> 2) & 0x77) << 1) + 1 + gRoomControls.scroll_x;
+            entity->y.HALF.HI = ((randomValue >> 9) & 0x7e) + 1 + gRoomControls.scroll_y;
             entity->collisionLayer = 2;
             UpdateSpriteForCollisionLayer(entity);
         }
@@ -182,10 +182,10 @@ void sub_08034F58(Entity* this) {
 }
 
 void sub_08034F70(Entity* this) {
-    this->health = gScreenTransition.field_0x39;
-    if (gScreenTransition.field_0x39 >= 0x3d) {
+    this->health = gRoomTransition.field_0x39;
+    if (gRoomTransition.field_0x39 >= 0x3d) {
         this->type2 = 0;
-    } else if (gScreenTransition.field_0x39 >= 0x1f) {
+    } else if (gRoomTransition.field_0x39 >= 0x1f) {
         this->type2 = 1;
     } else {
         this->type2 = 2;
@@ -200,14 +200,14 @@ void sub_08034FA0(Entity* this) {
     switch (this->type2) {
         case 0:
             if (this->health < 0x3c) {
-                gScreenTransition.field_0x39 = 0x3c;
+                gRoomTransition.field_0x39 = 0x3c;
                 sub_08035050(this);
                 return;
             }
             break;
         case 1:
             if (this->health < 0x1e) {
-                gScreenTransition.field_0x39 = 0x1e;
+                gRoomTransition.field_0x39 = 0x1e;
                 sub_08035050(this);
                 return;
             }
@@ -218,7 +218,7 @@ void sub_08034FA0(Entity* this) {
             }
             break;
     }
-    gScreenTransition.field_0x39 = this->health;
+    gRoomTransition.field_0x39 = this->health;
 }
 
 void sub_08035050(Entity* this) {
@@ -247,16 +247,16 @@ u32 sub_08035084(Entity* this) {
         }
         do {
             vulnPillar = (s32)Random() % 6;
-        } while (vulnPillar == gScreenTransition.field_0x38 >> 4);
-        gScreenTransition.field_0x38 = (gScreenTransition.field_0x38 & 0xf) | (vulnPillar << 4);
+        } while (vulnPillar == gRoomTransition.field_0x38 >> 4);
+        gRoomTransition.field_0x38 = (gRoomTransition.field_0x38 & 0xf) | (vulnPillar << 4);
         for (i = 0, coords = gUnk_080CEECC; i < 6; i++, coords += 2) {
             if (i == vulnPillar) {
                 entity = this;
             } else {
                 entity = CreateEnemy(MAZAAL_MACRO, 1);
             }
-            entity->x.HALF.HI = gRoomControls.roomOriginX + *coords;
-            entity->y.HALF.HI = gRoomControls.roomOriginY + *(coords + 1);
+            entity->x.HALF.HI = gRoomControls.origin_x + *coords;
+            entity->y.HALF.HI = gRoomControls.origin_y + *(coords + 1);
             entity->collisionLayer = 1;
             UpdateSpriteForCollisionLayer(entity);
         }

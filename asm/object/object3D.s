@@ -88,7 +88,7 @@ _0808CF82:
 	strh r1, [r0]
 	bl sub_0808D030
 	movs r0, #0
-	bl sub_0801CFA8
+	bl ResetPaletteTable
 	bl ResetPalettes
 	ldr r0, _0808D024 @ =gGFXSlots
 	movs r6, #1
@@ -180,14 +180,14 @@ _0808D046:
 	subs r5, #1
 	cmp r5, #0
 	bne _0808D046
-	ldr r1, _0808D060 @ =gUnk_03000000
+	ldr r1, _0808D060 @ =gOAMControls
 	movs r0, #1
 	strb r0, [r1]
 	pop {r4, r5, pc}
 	.align 2, 0
 _0808D058: .4byte gUnk_03000020
 _0808D05C: .4byte 0x00000B74
-_0808D060: .4byte gUnk_03000000
+_0808D060: .4byte gOAMControls
 
 	thumb_func_start sub_0808D064
 sub_0808D064: @ 0x0808D064

@@ -39,7 +39,7 @@ typedef struct {
     Message message;
     Token curToken;
     WStruct _50;
-    char playerName[10];
+    char player_name[10];
     u8 _66[0x10];
     u8 _76;
     u8 _77[0x11];
@@ -125,6 +125,11 @@ void MessageFromTarget(u32 index);
  * @param y u32 Screen y
  */
 void MessageAtHeight(u32 index, u32 y);
+
+/**
+ * @brief Close message.
+ */
+void MessageClose(void);
 
 void DispMessageFrame(u16*, s32, s32, u32);
 

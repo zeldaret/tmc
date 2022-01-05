@@ -20,17 +20,17 @@ void Manager2C_Main(Manager2C* manager) {
         manager->field_0x3a = 0;
     }
     if (((CheckPlayerInRegion(manager->field_0x38, manager->field_0x3a, 0x14, 0x40) != 0) &&
-         (((gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY) + gPlayerEntity.z.HALF.HI) < 0)) &&
-        (gRoomControls.roomScrollY == gRoomControls.roomOriginY)) {
-        MemClear(&gScreenTransition.player_status, 0x20);
-        gScreenTransition.transitioningOut = 1;
-        gScreenTransition.transitionType = TRANSITION_DEFAULT;
-        gScreenTransition.player_status.spawn_type = 0xb;
-        gScreenTransition.player_status.area_next = manager->manager.unk_0b;
-        gScreenTransition.player_status.room_next = manager->manager.unk_0e;
-        gScreenTransition.player_status.start_anim = manager->field_0x37;
-        gScreenTransition.player_status.start_pos_x = manager->field_0x3c;
-        gScreenTransition.player_status.start_pos_y = manager->field_0x3e;
-        gScreenTransition.player_status.layer = manager->field_0x36;
+         (((gPlayerEntity.y.HALF.HI - gRoomControls.origin_y) + gPlayerEntity.z.HALF.HI) < 0)) &&
+        (gRoomControls.scroll_y == gRoomControls.origin_y)) {
+        MemClear(&gRoomTransition.player_status, 0x20);
+        gRoomTransition.transitioningOut = 1;
+        gRoomTransition.type = TRANSITION_DEFAULT;
+        gRoomTransition.player_status.spawn_type = 0xb;
+        gRoomTransition.player_status.area_next = manager->manager.unk_0b;
+        gRoomTransition.player_status.room_next = manager->manager.unk_0e;
+        gRoomTransition.player_status.start_anim = manager->field_0x37;
+        gRoomTransition.player_status.start_pos_x = manager->field_0x3c;
+        gRoomTransition.player_status.start_pos_y = manager->field_0x3e;
+        gRoomTransition.player_status.layer = manager->field_0x36;
     }
 }

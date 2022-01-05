@@ -19,7 +19,7 @@ extern u8 gUnk_0200AF14;
 extern u32 gUnk_080015BC;
 extern u8 gUnk_080FE1C6[];
 extern u32 gUnk_02034398;
-extern void (*const gUnk_080FE2A0[])();
+extern void (*const gUnk_080FE2A0[])(void);
 
 void ForceEquipItem(u32, u8);
 extern void sub_0807CAA0(u32, u32);
@@ -94,7 +94,7 @@ u32 SetBottleContents(u32 itemID, u32 bottleIndex) {
     return bottleIndex;
 }
 
-u32 ItemIsSword(u32 item) {
+bool32 ItemIsSword(u32 item) {
     switch (item) {
         case ITEM_SMITH_SWORD:
         case ITEM_GREEN_SWORD:
@@ -107,7 +107,7 @@ u32 ItemIsSword(u32 item) {
     }
 }
 
-u32 ItemIsShield(u32 id) {
+bool32 ItemIsShield(u32 id) {
     switch (id) {
         case 13:
         case 14:
@@ -117,7 +117,7 @@ u32 ItemIsShield(u32 id) {
     }
 }
 
-u32 ItemIsBottle(u32 id) {
+bool32 ItemIsBottle(u32 id) {
     switch (id) {
         case 28:
         case 29:
@@ -149,7 +149,7 @@ NONMATCH("asm/non_matching/sub_08054524.inc", void sub_08054524(void)) {
 
     bVar1 = gArea.locationIndex;
     if (gArea.locationIndex == 0) {
-        bVar1 = gScreenTransition.player_status.field_0x24[0xa];
+        bVar1 = gRoomTransition.player_status.field_0x24[0xa];
     }
     if (bVar1 > 0x16) {
         bVar1 = 0;
@@ -263,7 +263,7 @@ u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
 }
 */
 
-void sub_08054870(void) {
+void Subtask_WorldEvent(void) {
 #if !(defined(DEMO_USA) || defined(DEMO_JP))
     gUnk_080FE2A0[gMenu.menuType]();
 #endif

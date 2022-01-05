@@ -3,6 +3,8 @@
 
 #include "global.h"
 
+extern void sub_08018C58(u32);
+
 typedef struct {
     u8 unk[4];
     u32 unk2;

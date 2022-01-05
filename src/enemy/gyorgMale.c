@@ -1,7 +1,7 @@
 #include "global.h"
 #include "enemy.h"
 #include "player.h"
-#include "fileScreen.h"
+#include "fileselect.h"
 #include "functions.h"
 
 void (*const gUnk_080D1AFC[8])(Entity*);
@@ -98,7 +98,7 @@ void GyorgMale(Entity* this) {
     this->animationState = -(this->field_0x78.HWORD >> 8);
     sub_08048004(this);
     this->field_0x7c.BYTES.byte1 = this->spriteSettings.draw;
-    if (this->spriteSettings.draw == 1 && (this->y.HALF.HI - gRoomControls.roomScrollY + 0x30) > 0x100u) {
+    if (this->spriteSettings.draw == 1 && (this->y.HALF.HI - gRoomControls.scroll_y + 0x30) > 0x100u) {
         this->spriteSettings.draw = 0;
     }
     this->cutsceneBeh.HWORD = gPlayerEntity.x.HALF.HI;
@@ -162,7 +162,7 @@ void sub_08046930(Entity* this) {
 
 void sub_0804696C(Entity* this) {
     sub_08047E48(this);
-    if (gRoomControls.roomOriginY + 0x130 > this->y.HALF.HI) {
+    if (gRoomControls.origin_y + 0x130 > this->y.HALF.HI) {
         this->subAction = 2;
         this->direction = 0x80;
         this->speed = 0x100;
@@ -174,9 +174,9 @@ void sub_0804696C(Entity* this) {
     }
     if (this->actionDelay) {
 #ifdef EU
-        if (gRoomControls.roomOriginY + 0x210 > this->y.HALF.HI) {
+        if (gRoomControls.origin_y + 0x210 > this->y.HALF.HI) {
 #else
-        if (gRoomControls.roomOriginY + 0x258 > this->y.HALF.HI) {
+        if (gRoomControls.origin_y + 0x258 > this->y.HALF.HI) {
 #endif
             this->actionDelay = 0;
             SoundReq(SFX_APPARATE);
@@ -186,7 +186,7 @@ void sub_0804696C(Entity* this) {
 
 void sub_080469CC(Entity* this) {
     sub_08047E48(this);
-    if (gRoomControls.roomOriginY + 0x210 < this->y.HALF.HI) {
+    if (gRoomControls.origin_y + 0x210 < this->y.HALF.HI) {
         this->subAction = 3;
         this->direction = 0x90;
     }
@@ -194,7 +194,7 @@ void sub_080469CC(Entity* this) {
 
 void sub_080469F4(Entity* this) {
     sub_08047E48(this);
-    if (gRoomControls.roomOriginY + 0x290 < this->y.HALF.HI) {
+    if (gRoomControls.origin_y + 0x290 < this->y.HALF.HI) {
         this->subAction = 4;
         this->spriteOrientation.flipY = 2;
         this->spriteRendering.b3 = 2;
@@ -211,7 +211,7 @@ void sub_08046A30(Entity* this) {
 
 void sub_08046A54(Entity* this) {
     sub_08047E48(this);
-    if (gRoomControls.roomOriginX + 0x380 < this->x.HALF.HI) {
+    if (gRoomControls.origin_x + 0x380 < this->x.HALF.HI) {
         this->subAction = 6;
     }
 }
@@ -268,8 +268,8 @@ void sub_08046B8C(Entity* this) {
     if (sub_0806FCB8(this, this->field_0x80.HWORD, this->field_0x82.HWORD, 4)) {
         this->subAction = 3;
         this->field_0x76.HWORD = this->direction << 8;
-        this->field_0x80.HWORD = gRoomControls.roomOriginX + 0x200;
-        this->field_0x82.HWORD = gRoomControls.roomOriginY + 0x210;
+        this->field_0x80.HWORD = gRoomControls.origin_x + 0x200;
+        this->field_0x82.HWORD = gRoomControls.origin_y + 0x210;
         sub_08047D88(this);
     } else {
         this->direction =
@@ -331,8 +331,8 @@ void sub_08046D44(Entity* this) {
     this->subAction = 1;
     this->speed = 0x200;
     tmp = gUnk_080D1B60 + (((Entity*)this->myHeap)->next->animationState >> 5);
-    this->field_0x80.HWORD = tmp[0] + gRoomControls.roomOriginX;
-    this->field_0x82.HWORD = tmp[1] + gRoomControls.roomOriginY;
+    this->field_0x80.HWORD = tmp[0] + gRoomControls.origin_x;
+    this->field_0x82.HWORD = tmp[1] + gRoomControls.origin_y;
     this->field_0x76.HWORD = this->direction << 8;
     sub_08047D88(this);
 }
@@ -440,8 +440,8 @@ void sub_08046FE8(Entity* this) {
     this->subAction = 1;
     this->speed = 0x1c0;
     this->field_0x7c.HALF.HI = 0x1e;
-    this->field_0x80.HWORD = gRoomControls.roomOriginX + 0x290;
-    this->field_0x82.HWORD = gRoomControls.roomOriginY + 0x190;
+    this->field_0x80.HWORD = gRoomControls.origin_x + 0x290;
+    this->field_0x82.HWORD = gRoomControls.origin_y + 0x190;
     sub_08047D88(this);
 }
 
@@ -499,7 +499,7 @@ void sub_0804717C(Entity* this) {
         this->speed += 8;
     }
     sub_08047DF0(this, ((0x100 - this->direction) & 0xFF) << 8);
-    if (gRoomControls.roomOriginX + 0x200 > this->x.HALF.HI) {
+    if (gRoomControls.origin_x + 0x200 > this->x.HALF.HI) {
         this->subAction = 5;
     }
 }
@@ -512,7 +512,7 @@ void sub_080471C8(Entity* this) {
         this->direction++;
     }
     sub_08047DF0(this, ((0x100 - this->direction) & 0xFF) << 8);
-    if (gRoomControls.roomOriginY + 0x190 <= this->y.HALF.HI)
+    if (gRoomControls.origin_y + 0x190 <= this->y.HALF.HI)
         return;
     if (this->field_0x74.HWORD > 0x100) {
         if (Random() & 1) {
@@ -552,7 +552,7 @@ void sub_080472BC(Entity* this) {
         this->speed += 8;
     }
     sub_08047DF0(this, ((0x100 - this->direction) & 0xFF) << 8);
-    if (gRoomControls.roomOriginX + 0x2B0 >= this->x.HALF.HI)
+    if (gRoomControls.origin_x + 0x2B0 >= this->x.HALF.HI)
         return;
     this->subAction = 9;
     this->field_0x76.HWORD = this->direction << 8;
@@ -591,8 +591,8 @@ void sub_0804736C(Entity* this) {
 void sub_080473B8(Entity* this) {
     this->subAction = 1;
     this->speed = 0x120;
-    this->field_0x80.HWORD = gRoomControls.roomOriginX + 0x200;
-    this->field_0x82.HWORD = gRoomControls.roomOriginY + 0x1D0;
+    this->field_0x80.HWORD = gRoomControls.origin_x + 0x200;
+    this->field_0x82.HWORD = gRoomControls.origin_y + 0x1D0;
     sub_08047D88(this);
 }
 
@@ -645,9 +645,9 @@ void sub_08047484(Entity* this) {
 }
 
 void sub_08047508(Entity* this) {
-    if (gRoomControls.roomOriginX + 0x1A0 < this->x.HALF.HI) {
+    if (gRoomControls.origin_x + 0x1A0 < this->x.HALF.HI) {
         if (this->direction == 0) {
-            if (gRoomControls.roomOriginY + 0x208 >= this->y.HALF.HI) {
+            if (gRoomControls.origin_y + 0x208 >= this->y.HALF.HI) {
                 this->field_0x74.HWORD = -this->field_0x74.HWORD;
                 this->field_0x76.HWORD += this->field_0x74.HWORD;
                 this->direction = this->field_0x76.HWORD >> 8;
@@ -673,7 +673,7 @@ void sub_08047508(Entity* this) {
         }
     }
     sub_08047E48(this);
-    if (gRoomControls.roomOriginX + 0x280 < this->x.HALF.HI) {
+    if (gRoomControls.origin_x + 0x280 < this->x.HALF.HI) {
         this->subAction = 4;
         this->speed = 0x200;
         this->animationState = this->direction;
@@ -700,9 +700,9 @@ void sub_080475F4(Entity* this) {
 }
 
 void sub_0804763C(Entity* this) {
-    if (gRoomControls.roomOriginX + 0x1F0 > this->x.HALF.HI) {
+    if (gRoomControls.origin_x + 0x1F0 > this->x.HALF.HI) {
         if (this->direction == 0) {
-            if (gRoomControls.roomOriginY + 0x208 >= this->y.HALF.HI) {
+            if (gRoomControls.origin_y + 0x208 >= this->y.HALF.HI) {
                 this->field_0x74.HWORD = -this->field_0x74.HWORD;
                 this->field_0x76.HWORD += this->field_0x74.HWORD;
                 this->direction = this->field_0x76.HWORD >> 8;
@@ -728,7 +728,7 @@ void sub_0804763C(Entity* this) {
         }
     }
     sub_08047E48(this);
-    if (gRoomControls.roomOriginX + 0x180 > this->x.HALF.HI) {
+    if (gRoomControls.origin_x + 0x180 > this->x.HALF.HI) {
         this->subAction = 6;
         this->speed = 0x200;
         this->animationState = this->direction;
@@ -764,13 +764,13 @@ void sub_08047778(Entity* this) {
 void sub_08047798(Entity* this) {
     this->subAction = 1;
     this->speed = 0x80;
-    if (this->x.HALF.HI - gRoomControls.roomOriginX < 0x1F8) {
+    if (this->x.HALF.HI - gRoomControls.origin_x < 0x1F8) {
         this->field_0x80.HWORD = 0xa8;
     } else {
         this->field_0x80.HWORD = 0x348;
     }
-    this->field_0x80.HWORD += gRoomControls.roomOriginX;
-    this->field_0x82.HWORD = gRoomControls.roomOriginY + 0x348;
+    this->field_0x80.HWORD += gRoomControls.origin_x;
+    this->field_0x82.HWORD = gRoomControls.origin_y + 0x348;
     sub_08047D88(this);
 }
 
@@ -790,7 +790,7 @@ void sub_080477F0(Entity* this) {
         this->direction = this->animationState;
         return;
     }
-    if (!sub_0806FCB8(this, gRoomControls.roomOriginX + 0x200, gRoomControls.roomOriginY + 0x210, 0x100)) {
+    if (!sub_0806FCB8(this, gRoomControls.origin_x + 0x200, gRoomControls.origin_y + 0x210, 0x100)) {
         this->spriteOrientation.flipY = 3;
         this->spriteRendering.b3 = 3;
     }
@@ -800,7 +800,7 @@ void sub_080477F0(Entity* this) {
         this->field_0x74.HWORD = gUnk_080D1BF0[Random() & 1];
         if (((Entity*)this->myHeap)->prev->field_0x6c.HWORD & 1) {
             ((Entity*)this->myHeap)->next->field_0x78.HALF.HI =
-                gRoomControls.roomOriginX + 0x200 > this->x.HALF.HI ? 0x81 : 0x83;
+                gRoomControls.origin_x + 0x200 > this->x.HALF.HI ? 0x81 : 0x83;
         } else {
             ((Entity*)this->myHeap)->next->field_0x78.HALF.HI = 0x80;
         }
@@ -861,25 +861,25 @@ void sub_08047978(Entity* this) {
     this->subAction = 4;
     if (this->type == 0) {
         if ((((Entity*)this->myHeap)->next->animationState >> 6) == 1) {
-            this->field_0x80.HWORD = gRoomControls.roomOriginX + 0x1C0;
-            this->field_0x82.HWORD = gRoomControls.roomOriginY + 0x250;
+            this->field_0x80.HWORD = gRoomControls.origin_x + 0x1C0;
+            this->field_0x82.HWORD = gRoomControls.origin_y + 0x250;
         } else {
-            this->field_0x80.HWORD = gRoomControls.roomOriginX + 0x240;
-            this->field_0x82.HWORD = gRoomControls.roomOriginY + 0x250;
+            this->field_0x80.HWORD = gRoomControls.origin_x + 0x240;
+            this->field_0x82.HWORD = gRoomControls.origin_y + 0x250;
         }
     } else {
-        if (gRoomControls.roomOriginX + 0x200 < this->x.HALF.HI) {
+        if (gRoomControls.origin_x + 0x200 < this->x.HALF.HI) {
             this->field_0x80.HWORD = 0x190;
         } else {
             this->field_0x80.HWORD = 0x270;
         }
-        this->field_0x80.HWORD += gRoomControls.roomOriginX;
-        if (gRoomControls.roomOriginY + 0x210 < this->y.HALF.HI) {
+        this->field_0x80.HWORD += gRoomControls.origin_x;
+        if (gRoomControls.origin_y + 0x210 < this->y.HALF.HI) {
             this->field_0x82.HWORD = 0x1A0;
         } else {
             this->field_0x82.HWORD = 0x280;
         }
-        this->field_0x82.HWORD += gRoomControls.roomOriginY;
+        this->field_0x82.HWORD += gRoomControls.origin_y;
     }
 }
 
@@ -914,7 +914,7 @@ void sub_08047BA4(Entity* this) {
     this->subAction = 1;
     this->actionDelay = 0x78;
     this->field_0xf = 0;
-    if (gRoomControls.roomOriginX + 0x200 < this->x.HALF.HI) {
+    if (gRoomControls.origin_x + 0x200 < this->x.HALF.HI) {
         this->field_0x76.HWORD = 0x78;
     } else {
         this->field_0x76.HWORD = 0x88;
@@ -946,7 +946,7 @@ void sub_08047BF0(Entity* this) {
         this->direction = this->field_0x76.HWORD;
         this->speed = 0x140;
         sub_08047E48(this);
-        if (this->y.HALF.HI > gRoomControls.roomOriginY + 0x270) {
+        if (this->y.HALF.HI > gRoomControls.origin_y + 0x270) {
             this->subAction = 2;
             this->field_0x7c.HALF.HI = 0xAA;
             SoundReq(SFX_12D);
@@ -1117,8 +1117,8 @@ void sub_08048004(Entity* this) {
         if (this->field_0x7c.BYTES.byte0 & 1) {
             u32 b = this->spriteRendering.b3;
             if (b == 3) {
-                s32 posX = ((gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX) >> 3);
-                s32 posY = ((gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY) >> 3);
+                s32 posX = ((gPlayerEntity.x.HALF.HI - gRoomControls.origin_x) >> 3);
+                s32 posY = ((gPlayerEntity.y.HALF.HI - gRoomControls.origin_y) >> 3);
                 u16* tmp = (u16*)&gUnk_02019EE0;
                 if (tmp[(posY << 7) + posX]) {
                     if (!(this->field_0x7c.BYTES.byte0 & 2)) {
@@ -1169,6 +1169,6 @@ const u16 gUnk_080D1C60[8] = { 0x200, 0x150, 0x290, 0x210, 0x200, 0x2D0, 0x170, 
 void sub_08048178(Entity* this, u32 unk1) {
     const u16* tmp =
         ((((Entity*)this->myHeap)->next->animationState >> 6 & 1) ? gUnk_080D1C60 + unk1 : gUnk_080D1C50 + unk1);
-    this->field_0x80.HWORD = *tmp + gRoomControls.roomOriginX;
-    this->field_0x82.HWORD = *(tmp + 1) + gRoomControls.roomOriginY;
+    this->field_0x80.HWORD = *tmp + gRoomControls.origin_x;
+    this->field_0x82.HWORD = *(tmp + 1) + gRoomControls.origin_y;
 }

@@ -10,7 +10,7 @@ typedef struct {
 } Palette;
 extern Palette gPaletteList[];
 
-void sub_0801CFA8(u32 a1);
+void ResetPaletteTable(u32 a1);
 void sub_0801D000(u32 a1);
 void LoadObjPalette(struct Entity_*, u32);
 void UnloadOBJPalette(struct Entity_* entity);

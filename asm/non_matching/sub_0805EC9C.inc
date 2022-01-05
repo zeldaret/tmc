@@ -16,7 +16,7 @@
 	movs r0, #0
 	b _0805ECE0
 _0805ECBE:
-	ldr r1, _0805ECE4 @ =gUnk_03000000
+	ldr r1, _0805ECE4 @ =gOAMControls
 	ldr r0, _0805ECE8 @ =0x00000427
 	adds r2, r1, r0
 	movs r0, #1
@@ -36,6 +36,6 @@ _0805ECBE:
 _0805ECE0:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_0805ECE4: .4byte gUnk_03000000
+_0805ECE4: .4byte gOAMControls
 _0805ECE8: .4byte 0x00000427
     .syntax divided

@@ -25,7 +25,7 @@ extern void sub_0805622C(struct BgAffineDstData*, u32, u32);
 
 void Manager32_Main(Manager32* this) {
     gUnk_08108D7C[this->manager.action](this);
-    this->field_0x24 = gScreenTransition.frameCount << 4;
+    this->field_0x24 = gRoomTransition.frameCount << 4;
     sub_0805D9D8(this);
     sub_0805DA08(this->field_0x20, this->field_0x28, this->field_0x24);
 }
@@ -36,7 +36,7 @@ void sub_0805D7DC(Manager32* this) {
     this->manager.action = (this->manager.unk_0a == 0) ? 1 : 2;
     this->field_0x20 = 0;
     this->field_0x24 = 0;
-    switch (gRoomControls.areaID) {
+    switch (gRoomControls.area) {
         case 7:
         default:
             index = 0;
@@ -149,8 +149,8 @@ void sub_0805D9D8(Manager32* this) {
     // TODO find out the actual type of the parent of this manager.
     Manager* pMVar1 = this->manager.parent;
     if (pMVar1 != NULL) {
-        gScreen.bg3.xOffset = 0x80 - (*(s16*)&pMVar1[1].unk_0e - gRoomControls.roomScrollX);
-        gScreen.bg3.yOffset = 0x8c - (*(s16*)(pMVar1[1].unk_11 + 1) - gRoomControls.roomScrollY);
+        gScreen.bg3.xOffset = 0x80 - (*(s16*)&pMVar1[1].unk_0e - gRoomControls.scroll_x);
+        gScreen.bg3.yOffset = 0x8c - (*(s16*)(pMVar1[1].unk_11 + 1) - gRoomControls.scroll_y);
     }
 }
 

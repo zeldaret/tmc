@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_08080A40
-sub_08080A40: @ 0x08080A40
+	thumb_func_start UpdateDoorTransition
+UpdateDoorTransition: @ 0x08080A40
 	push {r4, r5, r6, r7, lr}
 	ldr r7, _08080A70 @ =gRoomControls
 	ldr r1, [r7, #0x30]
@@ -100,7 +100,7 @@ _08080AFA:
 	adds r0, r5, #0
 	adds r1, r6, #0
 	bl sub_080002A8
-	ldr r1, _08080B48 @ =gScreenTransition
+	ldr r1, _08080B48 @ =gRoomTransition
 	strh r0, [r1, #0xa]
 	cmp r4, #0x3f
 	beq _08080B50
@@ -112,7 +112,7 @@ _08080AFA:
 	blo _08080B5C
 	b _08080B50
 	.align 2, 0
-_08080B48: .4byte gScreenTransition
+_08080B48: .4byte gRoomTransition
 _08080B4C:
 	cmp r4, #0xf1
 	bne _08080B5C
@@ -422,7 +422,7 @@ _08080DB4:
 	bl ResolveEntityOnTop
 	b _08080E00
 _08080DEE:
-	ldr r0, _08080E04 @ =gScreenTransition
+	ldr r0, _08080E04 @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #0xf
 	ands r0, r1
@@ -433,4 +433,4 @@ _08080DEE:
 _08080E00:
 	pop {r4, r5, pc}
 	.align 2, 0
-_08080E04: .4byte gScreenTransition
+_08080E04: .4byte gRoomTransition

@@ -240,7 +240,7 @@ _0808E084:
 	ldrh r0, [r5]
 	cmp r0, #0
 	beq _0808E0BC
-	ldr r0, _0808E0B8 @ =gScreenTransition
+	ldr r0, _0808E0B8 @ =gRoomTransition
 	ldr r1, [r0]
 	movs r0, #0x1f
 	ands r1, r0
@@ -260,7 +260,7 @@ _0808E084:
 	strb r1, [r0]
 	b _0808E0E4
 	.align 2, 0
-_0808E0B8: .4byte gScreenTransition
+_0808E0B8: .4byte gRoomTransition
 _0808E0BC:
 	ldr r0, _0808E140 @ =0x00000115
 	bl EnqueueSFX
@@ -446,7 +446,7 @@ sub_0808E208: @ 0x0808E208
 	ldrb r0, [r0, #0x1b]
 	cmp r0, #0
 	beq _0808E248
-	ldr r0, _0808E244 @ =gScreenTransition
+	ldr r0, _0808E244 @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #3
 	ands r0, r1
@@ -464,7 +464,7 @@ sub_0808E208: @ 0x0808E208
 	b _0808E24C
 	.align 2, 0
 _0808E240: .4byte gPlayerState
-_0808E244: .4byte gScreenTransition
+_0808E244: .4byte gRoomTransition
 _0808E248:
 	bl DeleteThisEntity
 _0808E24C:

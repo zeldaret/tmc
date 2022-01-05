@@ -2,8 +2,6 @@
 #include "save.h"
 #include "common.h"
 
-extern void sub_0807C960();
-
 extern u16 gMetatilesBottom[];
 extern u16 gMetatilesTop[];
 extern u8 gMapData;
@@ -41,10 +39,10 @@ void sub_0807C9D8(u32* a1) {
     LoadPalettes(gUnk_020176E0, 2, 13);
 }
 
-u8 sub_0807CA18() {
-    if (gSave.unk_00 != 0x00 || gSave.unk_01 != 1) {
-        gSave.unk_00 = 0;
-        gSave.unk_01 = 1;
+u32 FinalizeSave(void) {
+    if (gSave.invalid || gSave.initialized != 1) {
+        gSave.invalid = 0;
+        gSave.initialized = 1;
         gSave.global_progress = 1;
         gSave.stats.health = 24;
         gSave.stats.maxHealth = 24;
@@ -56,23 +54,23 @@ u8 sub_0807CA18() {
         gSave.saved_status.start_pos_x = 0x90;
         gSave.saved_status.start_pos_y = 0x38;
     }
-    if (gSave.playerName[0] == '\0') {
-        MemCopy(gUnk_0811E470, &gSave.playerName, FILENAME_LENGTH - 1);
+    if (gSave.name[0] == '\0') {
+        MemCopy(gUnk_0811E470, &gSave.name, FILENAME_LENGTH - 1);
     }
 #ifdef DEMO_USA
     {
         const u8* tmp;
         MemCopy(demoPointers[gSaveHeader->saveFileId], &gSave, 0x4B4);
-        if (gSaveHeader->gameLanguage == 0) {
-            gSave.playerName[0] = 0x97;
-            gSave.playerName[1] = 0x7F;
-            gSave.playerName[2] = 0xDD;
-            gSave.playerName[3] = 0;
+        if (gSaveHeader->language == 0) {
+            gSave.name[0] = 0x97;
+            gSave.name[1] = 0x7F;
+            gSave.name[2] = 0xDD;
+            gSave.name[3] = 0;
         }
         ModHealth(0xA0);
         ModRupees(-9999);
         tmp = demoUnknown1 + gUnk_02000010.field_0x7 * 3;
-        gSave.unk48C[7] = tmp[gSaveHeader->saveFileId] * 3600;
+        gSave.demo_timer = tmp[gSaveHeader->saveFileId] * 3600;
     }
 #endif
     return 1;

@@ -15,19 +15,19 @@ void sub_0805EE88(void);
 void ClearAllDeletedEntities(void);
 void DeleteAllEntities(void);
 void sub_0805E98C(void);
-extern void sub_0806FE84();
-extern void sub_08078954();
+extern void sub_0806FE84(Entity*);
+extern void sub_08078954(Entity*);
 extern void sub_08017744(Entity*);
-extern void UnloadHitbox();
-extern void sub_0804AA1C();
+extern void UnloadHitbox(Entity*);
+extern void sub_0804AA1C(Entity*);
 
 void ClearDeletedEntity(Entity*);
-extern void _ClearAndUpdateEntities();
+extern void _ClearAndUpdateEntities(void);
 extern void UpdateEntities_arm(u32);
 
 static void UpdatePriorityTimer(void);
-static void ReleaseTransitionManager();
-static void UnlinkEntity();
+static void ReleaseTransitionManager(void*);
+static void UnlinkEntity(Entity*);
 
 typedef struct {
     void* table;
@@ -41,7 +41,7 @@ void sub_0805E248(void) {
     s32 v0;
 
     v0 = gUnk_03004030.unk_00->unk_06;
-    if (gRoomControls.areaID == AREA_VEIL_FALLS || gRoomControls.areaID == AREA_VEIL_FALLS_DIG_CAVE) {
+    if (gRoomControls.area == AREA_VEIL_FALLS || gRoomControls.area == AREA_VEIL_FALLS_DIG_CAVE) {
         SetTileType(636, v0 - 65, 1);
         SetTileType(643, v0 - 65, 2);
         SetTileType(637, v0 - 64, 1);
@@ -66,7 +66,7 @@ void sub_0805E248(void) {
 }
 
 void sub_0805E374(Entity* e) {
-    u8 r3 = gScreenTransition.player_status.field_0x24[8];
+    u8 r3 = gRoomTransition.player_status.field_0x24[8];
     u8* array = gUnk_081091F8;
 
     if (r3 != 2) {
@@ -83,7 +83,7 @@ void SetDefaultPriority(Entity* ent, u32 prio) {
 bool32 CheckDontUpdate(Entity* this) {
     u32 value;
 
-    if (this->flags & ENT_ASLEEP)
+    if (this->flags & ENT_DELETED)
         return TRUE;
     if (this->action == 0)
         return FALSE;
@@ -106,7 +106,7 @@ bool32 AnyPrioritySet(void) {
     return prio != PRIO_MIN;
 }
 
-static void UpdatePriority() {
+static void UpdatePriority(void) {
     UpdatePriorityTimer();
     if (gPriorityHandler.queued_priority) {
         gPriorityHandler.ent_priority = gPriorityHandler.queued_priority;
@@ -175,7 +175,7 @@ void SetPlayerEventPriority(void) {
     gPlayerEntity.updatePriority = PRIO_PLAYER_EVENT;
 }
 
-void ResetPlayerEventPriority() {
+void ResetPlayerEventPriority(void) {
     gPriorityHandler.sys_priority = PRIO_MIN;
     gPlayerEntity.updatePriority = PRIO_PLAYER;
 }
@@ -185,19 +185,19 @@ void RevokePriority(Entity* e) {
     ResetEntityPriority();
 }
 
-void SetRoomReloadPriority() {
+void SetRoomReloadPriority(void) {
     gPriorityHandler.sys_priority = PRIO_PLAYER_EVENT;
 }
 
-void SetInitializationPriority() {
+void SetInitializationPriority(void) {
     gPriorityHandler.sys_priority = PRIO_HIGHEST;
 }
 
-void ResetSystemPriority() {
+void ResetSystemPriority(void) {
     gPriorityHandler.sys_priority = PRIO_MIN;
 }
 
-void UpdateEntities() {
+void UpdateEntities(void) {
     void (*f)(u32);
 
     gRoomVars.filler1[0] = gRoomVars.field_0x4;
@@ -212,14 +212,14 @@ void UpdateEntities() {
     sub_0805EE88();
 }
 
-void UpdateManagers() {
+void UpdateManagers(void) {
     void (*f)(u32);
     f = UpdateEntities_arm;
     f(1);
     ClearAllDeletedEntities();
 }
 
-void EraseAllEntities() {
+void EraseAllEntities(void) {
     DeleteAllEntities();
     MemClear(&gPriorityHandler, 12);
     MemClear(&gPlayerEntity, 10880);
@@ -227,9 +227,9 @@ void EraseAllEntities() {
     sub_0805E98C();
     gEntCount = 0;
     gManagerCount = 0;
-    gUnk_03000000.unk[0].unk7 = 1;
-    gUnk_03000000.unk[0].unk6 = 1;
-    gUnk_03000000.unk[1].unk6 = 1;
+    gOAMControls.unk[0].unk7 = 1;
+    gOAMControls.unk[0].unk6 = 1;
+    gOAMControls.unk[1].unk6 = 1;
 }
 
 extern Entity gUnk_030015A0[0x48];
@@ -424,7 +424,7 @@ void DeleteManager(void* ent) {
         return;
 
     ReleaseTransitionManager(manager);
-    UnlinkEntity(manager);
+    UnlinkEntity((Entity*)manager);
     MemClear(manager, sizeof(Temp));
     gManagerCount--;
 }
@@ -458,16 +458,16 @@ void sub_0805E98C(void) {
     }
 }
 
-void sub_0805E9A8(void) {
+void RecycleEntities(void) {
     Entity* i;
     LinkedList* list;
 
     list = &gEntityLists[0];
     do {
         for (i = list->first; (u32)i != (u32)list; i = i->next) {
-            i->flags &= ~2;
-            if ((i->flags & 0x20) == 0) {
-                i->flags |= 0x10;
+            i->flags &= ~ENT_SCRIPTED;
+            if ((i->flags & ENT_PERSIST) == 0) {
+                i->flags |= ENT_DELETED;
             }
         }
     } while (++list < &gEntityLists[9]);
@@ -482,7 +482,7 @@ void DeleteSleepingEntities(void) {
     do {
         for (ent = list->first; (u32)ent != (u32)list; ent = next) {
             next = ent->next;
-            if (ent->flags & ENT_ASLEEP)
+            if (ent->flags & ENT_DELETED)
                 DeleteEntityAny(ent);
         }
     } while (++list < &gEntityLists[9]);

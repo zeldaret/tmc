@@ -1,6 +1,7 @@
 #include "manager.h"
 #include "screen.h"
 #include "functions.h"
+#include "common.h"
 
 typedef struct {
     Manager manager;
@@ -11,7 +12,7 @@ typedef struct {
 } Manager8;
 
 void sub_08057F20(Manager8*);
-void sub_08057EFC();
+void sub_08057EFC(void*);
 void sub_08058034(void);
 void sub_08058084(u16*, u16*);
 
@@ -27,12 +28,12 @@ void Manager8_Main(Manager8* this) {
     }
 }
 
-void sub_08057EFC(Manager8* this) {
+void sub_08057EFC(void* this) {
     LoadGfxGroup((u32)gRoomVars.unk_10[0]);
     sub_08058034();
-    this->unk_3c = 0;
-    this->unk_38 = 0;
-    sub_08057F20(this);
+    ((Manager8*)this)->unk_3c = 0;
+    ((Manager8*)this)->unk_38 = 0;
+    sub_08057F20(((Manager8*)this));
 }
 
 void sub_08058004(u32, void*, void*);
@@ -41,10 +42,10 @@ extern u8 gUnk_02006F00[];
 
 void sub_08057F20(Manager8* this) {
     u32 tmp;
-    tmp = gRoomControls.roomScrollX - gRoomControls.roomOriginX;
+    tmp = gRoomControls.scroll_x - gRoomControls.origin_x;
     tmp = tmp + (tmp >> 3) + ((0x400 - gRoomControls.width) / 2);
     gScreen.bg3.xOffset = tmp & 0xF;
-    gScreen.bg3.yOffset = 0x30 - ((0x30 - (gRoomControls.roomScrollY - gRoomControls.roomOriginY)) >> 2);
+    gScreen.bg3.yOffset = 0x30 - ((0x30 - (gRoomControls.scroll_y - gRoomControls.origin_y)) >> 2);
     gScreen.bg3.tilemap = gBG3Buffer;
     sub_08058004(tmp, gUnk_02006F00, gBG3Buffer);
     tmp = ((tmp >> 4) << 1);
@@ -52,10 +53,10 @@ void sub_08057F20(Manager8* this) {
         this->unk_38 = tmp;
         gScreen.bg3.updated = 1;
     }
-    tmp = (gRoomControls.roomScrollX - gRoomControls.roomOriginX);
+    tmp = (gRoomControls.scroll_x - gRoomControls.origin_x);
     tmp = tmp + (tmp >> 2) + ((0x400 - gRoomControls.width) / 2);
     gScreen.bg1.xOffset = tmp & 0xF;
-    gScreen.bg1.yOffset = 0x30 - ((0x30 - (gRoomControls.roomScrollY - gRoomControls.roomOriginY)) >> 1);
+    gScreen.bg1.yOffset = 0x30 - ((0x30 - (gRoomControls.scroll_y - gRoomControls.origin_y)) >> 1);
     gScreen.bg1.tilemap = gBG3Buffer + 0x400;
     sub_08058004(tmp, gUnk_02006F00 + 0x2000, gBG3Buffer + 0x400);
     tmp = ((tmp >> 4) << 1);
@@ -75,7 +76,7 @@ void sub_08058004(u32 unk1, void* unk2, void* unk3) {
     }
 }
 
-void sub_08058034() {
+void sub_08058034(void) {
     u32 tmp;
     u16 *tmp2, *tmp3;
     tmp2 = gMapDataTopSpecial;
@@ -110,19 +111,19 @@ void sub_080580B0(u32 unk1) {
     LoadGfxGroup(unk1);
     gRoomVars.unk_10[0] = unk1;
     sub_08058034();
-    tmp = gRoomControls.roomScrollX - gRoomControls.roomOriginX; // r7
+    tmp = gRoomControls.scroll_x - gRoomControls.origin_x; // r7
     tmp = tmp + (tmp >> 3) + (0x400 - gRoomControls.width) / 2;
     sub_08058004(tmp, gUnk_02006F00, gBG3Buffer);
     gScreen.bg3.xOffset = tmp & 0xF;
-    gScreen.bg3.yOffset = 0x30 - ((0x30 - (gRoomControls.roomScrollY - gRoomControls.roomOriginY)) >> 1); //?
+    gScreen.bg3.yOffset = 0x30 - ((0x30 - (gRoomControls.scroll_y - gRoomControls.origin_y)) >> 1); //?
     gScreen.bg3.control = 0x1D09;
     gScreen.bg3.tilemap = gBG3Buffer;
     gScreen.bg3.updated = 1;
-    tmp = gRoomControls.roomScrollX - gRoomControls.roomOriginX; // r7
+    tmp = gRoomControls.scroll_x - gRoomControls.origin_x; // r7
     tmp = tmp + (tmp >> 2) + (0x400 - gRoomControls.width) / 2;
     sub_08058004(tmp, gUnk_02006F00 + 0x2000, gBG3Buffer + 0x400);
     gScreen.bg1.xOffset = tmp & 0xF;
-    gScreen.bg1.yOffset = 0x30 - ((0x30 - (gRoomControls.roomScrollY - gRoomControls.roomOriginY)) >> 1); //?
+    gScreen.bg1.yOffset = 0x30 - ((0x30 - (gRoomControls.scroll_y - gRoomControls.origin_y)) >> 1); //?
     gScreen.bg1.control = 0x1E09;
     gScreen.bg1.tilemap = gBG3Buffer + 0x400;
     gScreen.bg1.updated = 1;

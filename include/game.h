@@ -4,42 +4,54 @@
 #include "global.h"
 #include "area.h"
 
-void ChangeLightLevel(s32);
+void ChangeLightLevel(s32 level);
 void SetPopupState(u32 type, u32 choice_idx);
 
-bool32 CheckIsOverworld(void);
-bool32 sub_08052638(u32 r0);
+bool32 CheckAreaOverworld(u32 area);
+bool32 AreaIsOverworld(void);
+bool32 AreaIsDungeon(void);
+bool32 AreaHasEnemies(void);
+bool32 AreaHasNoEnemies(void);
+bool32 AreaHasMap(void);
+bool32 AreaHasKeys(void);
+
 #ifndef EU
-u32 sub_08052654(void);
-#endif
-u32 CheckIsDungeon(void);
-u32 CheckIsInteriorWithEnemies(void);
-u32 CheckIsInteriorNoEnemies(void);
-u32 CheckHasMap(void);
+// This function was introduced to allow warping from indoor areas (palace of winds).
+u32 AreaAllowsWarp(void);
 
-u32 ItemIsSword(u32 item);
-
-void sub_080526F8(s32 a1);
-u32 sub_08052724(void);
-u32 HasDungeonMap(void);
-u32 HasDungeonCompass(void);
-u32 HasDungeonBigKey(void);
-u32 HasDungeonSmallKey(void);
-
-void sub_080527FC(u32 a1, u32 a2);
-#ifndef EU
+// related to a music bug?
 void sub_08052878(void);
 #endif
 
-void RoomExitCallback(void);
+void sub_080526F8(s32 a1);
+bool32 HasDungeonMap(void);
+bool32 HasDungeonCompass(void);
+bool32 HasDungeonBigKey(void);
+bool32 HasDungeonSmallKey(void);
+
+bool32 ItemIsSword(u32 item);
+bool32 ItemIsShield(u32 item);
+u32 GetBottleContaining(u32 item);
+void PutItemOnSlot(u32 item);
+s32 GetItemPrice(u32 item);
+u32 GetSaleItemConfirmMessageID(u32 item);
+void ForceEquipItem(u32 item, u32 slot);
+
+void LoadGfxGroups(void);
+void LoadCutsceneRoom(u32 room, u32 area);
+void InitRoom(void);
 void InitParachuteRoom(void);
-u32 sub_08052B24(void);
+
+void RegisterTransitionManager(void* mgr, void (*onEnter)(void*), void (*onExit)(void*));
+void RoomExitCallback(void);
+
+void RestoreGameTask(u32 a1);
+
+bool32 CanDispEzloMessage(void);
 void DisplayEzloMessage(void);
 
-void sub_08052CA4(u32 area, u32 room, u32 x, u32 y);
-void sub_08052CD0(u32 area, u32 room, u32 x, u32 y);
-
-void sub_08052CFC(void);
+void SetWorldMapPos(u32 area, u32 room, u32 x, u32 y);
+void SetDungeonMapPos(u32 area, u32 room, u32 x, u32 y);
 
 /**
  * @brief Get bank offset for area
@@ -48,14 +60,59 @@ u32 GetFlagBankOffset(u32 idx);
 
 RoomResInfo* GetCurrentRoomInfo(void);
 void sub_08052EA0(void);
-void sub_08052FD8(u32 room, u32 area);
 void sub_08053250(void);
-void sub_08053320(void);
 void sub_080533CC(void);
+
 void sub_08053494(void);
 void sub_080534AC(void);
-void sub_08053500(void);
+void InitBiggoronTimer(void);
 
-u32 GetBottleContaining(u32);
+enum {
+    GAMETASK_TRANSITION, /* transition from fileselect task */
+    GAMETASK_INIT,
+    GAMETASK_MAIN,
+    GAMETASK_EXIT, /* gameover task or reset */
+};
+
+enum {
+    GAMEMAIN_INITROOM,
+    GAMEMAIN_CHANGEROOM,
+    GAMEMAIN_UPDATE,
+    GAMEMAIN_CHANGEAREA,
+    GAMEMAIN_MINISHPORTAL, /* moments after viewing portal cutscene */
+    GAMEMAIN_BARRELUPDATE, /* barrel in deepwood shrine */
+    GAMEMAIN_RESERVED,
+    GAMEMAIN_SUBTASK,
+};
+
+/**
+ * @brief Subtasks override the game task for short periods
+ */
+enum {
+    SUBTASK_EXIT,
+    SUBTASK_PAUSEMENU,
+    SUBTASK_EXIT2,
+    SUBTASK_MAPHINT,
+    SUBTASK_KINSTONEMENU,
+    SUBTASK_AUXCUTSCENE,    /* cutscene without presence of player */
+    SUBTASK_PORTALCUTSCENE, /* player "falling" down portal cutscene */
+    SUBTASK_FIGURINEMENU,
+    SUBTASK_WORLDEVENT,
+    SUBTASK_FASTTRAVEL,
+    SUBTASK_LOCALMAPHINT,
+};
+
+typedef void(Subtask)(void);
+Subtask Subtask_Exit;
+Subtask Subtask_PauseMenu;
+Subtask Subtask_Exit;
+Subtask Subtask_MapHint;
+Subtask Subtask_KinstoneMenu;
+Subtask Subtask_AuxCutscene;
+Subtask Subtask_PortalCutscene;
+Subtask Subtask_FigurineMenu;
+Subtask Subtask_WorldEvent;
+Subtask Subtask_FastTravel;
+Subtask Subtask_LocalMapHint;
 
 #endif // GAME_H

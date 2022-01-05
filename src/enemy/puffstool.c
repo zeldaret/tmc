@@ -386,8 +386,8 @@ void sub_080256B4(Entity* this) {
 
 bool32 sub_0802571C(Entity* this) {
     RoomControls* ctrl = &gRoomControls;
-    u16 xDiff = (this->x.HALF.HI - ctrl->roomOriginX + 8) & -0x10;
-    u16 yDiff = (this->y.HALF.HI - ctrl->roomOriginY + 8) & -0x10;
+    u16 xDiff = (this->x.HALF.HI - ctrl->origin_x + 8) & -0x10;
+    u16 yDiff = (this->y.HALF.HI - ctrl->origin_y + 8) & -0x10;
     u16 unk = this->field_0x7a.HALF.LO;
     u16 i;
 
@@ -396,8 +396,8 @@ bool32 sub_0802571C(Entity* this) {
         u16 sVar4 = yDiff + gUnk_080CC020[unk + 1];
 
         if (sub_080257EC(this, sVar3, sVar4)) {
-            this->field_0x7c.HALF.LO = sVar3 + ctrl->roomOriginX;
-            this->field_0x7c.HALF.HI = sVar4 + ctrl->roomOriginY;
+            this->field_0x7c.HALF.LO = sVar3 + ctrl->origin_x;
+            this->field_0x7c.HALF.HI = sVar4 + ctrl->origin_y;
             return TRUE;
         }
 
@@ -472,8 +472,8 @@ NONMATCH("asm/non_matching/puffstool/sub_0802594C.inc", bool32 sub_0802594C(Enti
     const s8* unk = gUnk_080CC090[param_2];
     u32 uVar1 = this->collisionLayer;
     RoomControls* ctrl = &gRoomControls;
-    xDiff = (this->x.HALF.HI - ctrl->roomOriginX + 8) & -0x10;
-    yDiff = (this->y.HALF.HI - ctrl->roomOriginY + 8) & -0x10;
+    xDiff = (this->x.HALF.HI - ctrl->origin_x + 8) & -0x10;
+    yDiff = (this->y.HALF.HI - ctrl->origin_y + 8) & -0x10;
     do {
         s16 iVar9 = xDiff + unk[0];
         s16 iVar11 = yDiff + unk[1];
@@ -482,8 +482,8 @@ NONMATCH("asm/non_matching/puffstool/sub_0802594C.inc", bool32 sub_0802594C(Enti
         u8 bVar6 = sub_080002D4(iVar9 - 0x00, iVar11 - 0x10, uVar1);
         u8 bVar7 = sub_080002D4(iVar9 - 0x10, iVar11 - 0x10, uVar1);
         if ((bVar6 | bVar4 | bVar5 | bVar7) == 0) {
-            this->field_0x7c.HALF.LO = ctrl->roomOriginX + iVar9;
-            this->field_0x7c.HALF.HI = ctrl->roomOriginY + iVar11;
+            this->field_0x7c.HALF.LO = ctrl->origin_x + iVar9;
+            this->field_0x7c.HALF.HI = ctrl->origin_y + iVar11;
             return TRUE;
         }
         unk += 2;
@@ -495,8 +495,8 @@ END_NONMATCH
 
 void sub_08025A54(Entity* this) {
     u32 layer = this->collisionLayer;
-    s16 x = this->x.HALF.HI - gRoomControls.roomOriginX;
-    s16 y = this->y.HALF.HI - gRoomControls.roomOriginY;
+    s16 x = this->x.HALF.HI - gRoomControls.origin_x;
+    s16 y = this->y.HALF.HI - gRoomControls.origin_y;
 
     const s8* offset = gUnk_080CC0A0;
     u32 i = 0;
@@ -535,8 +535,8 @@ void sub_08025AE8(Entity* this) {
 void sub_08025B18(Entity* this) {
     Entity* ent;
 
-    s32 x = this->x.HALF.HI - gRoomControls.roomOriginX;
-    s32 y = this->y.HALF.HI - gRoomControls.roomOriginY;
+    s32 x = this->x.HALF.HI - gRoomControls.origin_x;
+    s32 y = this->y.HALF.HI - gRoomControls.origin_y;
     u32 layer = this->collisionLayer;
 
     const s8* offset = gUnk_080CC0A8;

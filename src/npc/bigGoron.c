@@ -14,7 +14,7 @@ extern u8 gMapDataTopSpecial[];
 
 void sub_0806D138(u8* param_1, u8* param_2);
 
-extern void sub_08053500(void);
+extern void InitBiggoronTimer(void);
 
 extern u32 gUnk_0200B650;
 void sub_0806D110(void);
@@ -45,7 +45,7 @@ void sub_0806CF30(Entity* this) {
     switch (this->subAction) {
         case 0:
         case 1:
-            if (gScreenTransition.frameCount % 4 == 0) {
+            if (gRoomTransition.frameCount % 4 == 0) {
                 if (gPlayerEntity.x.HALF.HI < this->x.HALF.HI && this->field_0x68.HWORD - 32 < this->x.HALF.HI) {
                     this->x.HALF.HI--;
                 }
@@ -257,7 +257,7 @@ void sub_0806D41C(Entity* this) {
         ExecuteScriptForEntity(this, NULL);
         HandleEntity0x82Actions(this);
     }
-    if ((gScreenTransition.frameCount & 1) == 0) {
+    if ((gRoomTransition.frameCount & 1) == 0) {
         if (CheckPlayerProximity(this->x.HALF.HI - 0x20, this->y.HALF.HI, 0x40, 0x40) != 0) {
             if (this->spriteOffsetY > -8) {
                 this->spriteOffsetY -= 1;
@@ -302,7 +302,7 @@ ASM_FUNC("asm/non_matching/bigGoron/sub_0806D520.inc", void sub_0806D520(Entity*
 NONMATCH("asm/non_matching/bigGoron/sub_0806D5D4.inc", void sub_0806D5D4(void)) {
     u32 itemSlot;
 
-    sub_08053500();
+    InitBiggoronTimer();
     itemSlot = IsItemEquipped(0xd);
     if (itemSlot != 2) {
         ((u8*)&gSave.stats.itemOnA)[itemSlot] = 0;
@@ -312,7 +312,7 @@ NONMATCH("asm/non_matching/bigGoron/sub_0806D5D4.inc", void sub_0806D5D4(void)) 
 END_NONMATCH
 
 void sub_0806D600(Entity* this, ScriptExecutionContext* context) {
-    context->condition = gSave.unk48C[2] == 0;
+    context->condition = gSave.timers[2] == 0;
 }
 
 void sub_0806D620(void) {

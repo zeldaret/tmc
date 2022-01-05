@@ -283,7 +283,7 @@ _0809FCAC:
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0
 	bne _0809FCF8
-	ldr r0, _0809FCFC @ =gScreenTransition
+	ldr r0, _0809FCFC @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #1
 	ands r0, r1
@@ -314,7 +314,7 @@ _0809FCE0:
 _0809FCF8:
 	pop {r4, r5, pc}
 	.align 2, 0
-_0809FCFC: .4byte gScreenTransition
+_0809FCFC: .4byte gRoomTransition
 
 	thumb_func_start sub_0809FD00
 sub_0809FD00: @ 0x0809FD00

@@ -85,7 +85,7 @@ _08074714:
 	.align 2, 0
 _0807471C: .4byte 0x00000161
 _08074720:
-	ldr r0, _08074760 @ =gScreenTransition
+	ldr r0, _08074760 @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #0xf
 	ands r0, r1
@@ -118,7 +118,7 @@ _08074732:
 	strb r0, [r1]
 	b _08074792
 	.align 2, 0
-_08074760: .4byte gScreenTransition
+_08074760: .4byte gRoomTransition
 _08074764: .4byte 0x00000161
 _08074768: .4byte gPlayerState
 _0807476C:

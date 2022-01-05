@@ -167,7 +167,7 @@ GenerateAreaHint: @ 0x0801862C
 	movs r2, #0
 	movs r0, #0x16
 	strb r0, [r1, #0xc]
-	ldr r5, _08018650 @ =gScreenTransition
+	ldr r5, _08018650 @ =gRoomTransition
 	adds r0, r5, #0
 .ifdef JP
 	adds r0, #0x34
@@ -188,7 +188,7 @@ GenerateAreaHint: @ 0x0801862C
 	b _0801868C
 	.align 2, 0
 _0801864C: .4byte gPlayerState
-_08018650: .4byte gScreenTransition
+_08018650: .4byte gRoomTransition
 _08018654: .4byte gUnk_02033AB8
 _08018658:
 	ldrb r0, [r4, #2]

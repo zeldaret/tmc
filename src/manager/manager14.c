@@ -30,8 +30,8 @@ void sub_0805A098(Manager14*);
 void sub_0805A0C0(Manager14*);
 void sub_0805A114(u32, u32);
 void sub_0805A1D8(Manager14*);
-void nullsub_495();
-void sub_0805A25C();
+void nullsub_495(void*);
+void sub_0805A25C(void*);
 
 void Manager14_Main(Manager14* this) {
     static void (*const gUnk_081085A4[])(Manager14*) = {
@@ -83,7 +83,7 @@ void sub_08059EF8(Manager14* this) {
 }
 
 u32 sub_08059F9C(Manager14* this) {
-    switch (gRoomControls.roomID) {
+    switch (gRoomControls.room) {
         case 1:
             if (CheckLocalFlag(0x16)) {
                 return 0;
@@ -123,7 +123,7 @@ void sub_0805A048(Manager14* this) {
 }
 
 void sub_0805A098(Manager14* this) {
-    switch (gRoomControls.roomID) {
+    switch (gRoomControls.room) {
         case 0:
         case 8:
         case 9:
@@ -186,10 +186,10 @@ void sub_0805A1D8(Manager14* this) {
     }
 }
 
-void nullsub_495() {
+void nullsub_495(void* this) {
 }
 
-void sub_0805A25C() {
+void sub_0805A25C(void* this) {
     gScreen.controls.layerFXControl = 0;
     gScreen.lcd.displayControl &= ~DISPCNT_BG3_ON;
     sub_08056250();

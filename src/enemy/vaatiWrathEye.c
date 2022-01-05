@@ -35,7 +35,7 @@ void VaatiWrathEye(Entity* this) {
 }
 
 void VaatiWrathEyeAction0(Entity* this) {
-    if ((gScreenTransition.field_0x38 & 1) != 0) {
+    if ((gRoomTransition.field_0x38 & 1) != 0) {
         this->action = 2;
         InitializeAnimation(this, 1);
     } else {
@@ -57,7 +57,7 @@ void VaatiWrathEyeAction1(Entity* this) {
 
 void VaatiWrathEyeAction2(Entity* this) {
     sub_080485D8(this);
-    if ((gScreenTransition.field_0x39 & 3) == 0) {
+    if ((gRoomTransition.field_0x39 & 3) == 0) {
         this->action = 3;
         COLLISION_ON(this);
         this->speed = 0x80;

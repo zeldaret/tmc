@@ -85,8 +85,8 @@ void sub_0809CDB4(Entity* this) {
 void sub_0809CDF0(Entity* this) {
     u32 y;
 
-    this->field_0x80.HWORD = (((this->x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 0x3f) |
-                             (((this->y.HALF.HI - gRoomControls.roomOriginY) >> 4 & 0x3f) << 6);
+    this->field_0x80.HWORD = (((this->x.HALF.HI - gRoomControls.origin_x) >> 4) & 0x3f) |
+                             (((this->y.HALF.HI - gRoomControls.origin_y) >> 4 & 0x3f) << 6);
 
     y = this->field_0x80.HWORD;
     SetTile(0x402e, y - 0x01, this->collisionLayer);

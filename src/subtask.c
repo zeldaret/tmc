@@ -2,22 +2,24 @@
 #include "functions.h"
 #include "menu.h"
 #include "screen.h"
+#include "common.h"
+#include "subtask.h"
 
-extern void (*const gUnk_081280C4[])();
+extern void (*const gUnk_081280C4[])(void);
 
-void DrawKinstoneMenu(void) {
+void Subtask_KinstoneMenu(void) {
 #if !(defined(DEMO_USA) || defined(DEMO_JP))
-    gScreenTransition.player_status.field_0x24[8] = 2;
+    gRoomTransition.player_status.field_0x24[8] = 2;
     FlushSprites();
     gUnk_081280C4[gMenu.menuType]();
     sub_080A3B74();
     sub_080A4054();
     sub_0801C1D4();
-    sub_0801C208();
+    DrawOAMCmd();
     UpdateEntities();
-    sub_080AD9B0();
-    sub_080AD918();
-    gScreenTransition.player_status.field_0x24[8] = 0;
+    DrawEntities();
+    CopyOAM();
+    gRoomTransition.player_status.field_0x24[8] = 0;
 #endif
 }
 

@@ -45,7 +45,7 @@ void sub_0808B474(Entity* this) {
     if (CheckFlags(this->field_0x86.HWORD)) {
         sub_0808B830(this);
     } else {
-        if (CheckIsDungeon() && sub_0807CAEC(this->type)) {
+        if (AreaIsDungeon() && sub_0807CAEC(this->type)) {
             sub_0808B830(this);
         }
     }
@@ -63,7 +63,7 @@ void sub_0808B474(Entity* this) {
 void sub_0808B530(Entity* this) {
     if (CheckFlags(this->field_0x86.HWORD)) {
         sub_0808B830(this);
-        if (CheckIsDungeon()) {
+        if (AreaIsDungeon()) {
             sub_0807CAC8(this->type);
         }
         this->action = 2;
@@ -144,17 +144,17 @@ void sub_0808B5E8(Entity* this) {
 void sub_0808B684(Entity* this) {
     u32 tmp;
     if (!--this->field_0xf) {
-        gScreenTransition.transitioningOut = 1;
-        gScreenTransition.transitionType = TRANSITION_DEFAULT;
-        gScreenTransition.player_status.area_next = this->field_0x7c.BYTES.byte0;
-        gScreenTransition.player_status.room_next = this->field_0x7c.BYTES.byte1;
-        gScreenTransition.player_status.start_pos_x = ((this->cutsceneBeh.HWORD & 0x3f) << 4) + 8;
-        gScreenTransition.player_status.start_pos_y = ((this->cutsceneBeh.HWORD & 0xfc0) >> 2) + 8;
-        gScreenTransition.player_status.layer = 0;
-        gScreenTransition.player_status.start_anim = 4;
-        gScreenTransition.player_status.spawn_type = 0;
+        gRoomTransition.transitioningOut = 1;
+        gRoomTransition.type = TRANSITION_DEFAULT;
+        gRoomTransition.player_status.area_next = this->field_0x7c.BYTES.byte0;
+        gRoomTransition.player_status.room_next = this->field_0x7c.BYTES.byte1;
+        gRoomTransition.player_status.start_pos_x = ((this->cutsceneBeh.HWORD & 0x3f) << 4) + 8;
+        gRoomTransition.player_status.start_pos_y = ((this->cutsceneBeh.HWORD & 0xfc0) >> 2) + 8;
+        gRoomTransition.player_status.layer = 0;
+        gRoomTransition.player_status.start_anim = 4;
+        gRoomTransition.player_status.spawn_type = 0;
         if (this->type == 2) {
-            gScreenTransition.transitionType = TRANSITION_FADE_WHITE_SLOW;
+            gRoomTransition.type = TRANSITION_FADE_WHITE_SLOW;
         }
         return;
     }

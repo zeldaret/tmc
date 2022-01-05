@@ -1,6 +1,7 @@
 #include "object.h"
 #include "functions.h"
 #include "message.h"
+#include "item.h"
 
 extern void (*const BookActionFuncs[])(Entity*);
 extern s8 const gUnk_08123D94[];
@@ -54,7 +55,7 @@ void sub_0809B3C4(Entity* this) {
             u32 scroll;
             u32 height;
             this->action = 3;
-            scroll = (u16)gRoomControls.roomScrollY - 0x10;
+            scroll = (u16)gRoomControls.scroll_y - 0x10;
             height = (u16)this->y.HALF.HI - scroll;
             this->z.HALF.HI -= height;
             return;

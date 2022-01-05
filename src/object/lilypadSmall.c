@@ -6,6 +6,7 @@ extern void sub_080A2CC0(Entity*, Entity**, u16*);
 extern u16 gUnk_08123318[];
 
 static void sub_08097B24(Entity* this);
+static u32 sub_08097ADC(Entity* this);
 
 void LilypadSmall(Entity* this) {
     u32 rand;
@@ -30,7 +31,7 @@ void LilypadSmall(Entity* this) {
     }
 }
 
-u32 sub_08097ADC(Entity* this) {
+static u32 sub_08097ADC(Entity* this) {
     if ((gPlayerState.flags & PL_MINISH) == 0) {
         return 0;
     } else if (EntityInRectRadius(this, &gPlayerEntity, 8, 8) == 0) {

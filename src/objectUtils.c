@@ -132,8 +132,8 @@ void CreateDustAt(s32 xOff, s32 yOff, u32 layer) {
 
     ent = CreateObject(SPECIAL_FX, FX_DEATH, 0);
     if (ent != NULL) {
-        ent->x.HALF.HI = gRoomControls.roomOriginX + xOff;
-        ent->y.HALF.HI = gRoomControls.roomOriginY + yOff;
+        ent->x.HALF.HI = gRoomControls.origin_x + xOff;
+        ent->y.HALF.HI = gRoomControls.origin_y + yOff;
         ent->collisionLayer = layer;
     }
 }

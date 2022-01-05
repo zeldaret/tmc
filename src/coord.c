@@ -169,14 +169,14 @@ void LinearMoveUpdate(Entity* ent) {
 }
 
 void sub_0806F704(Entity* ent, u32 a2) {
-    ent->x.HALF.HI = (((16 * a2) & 0x3F0) | 8) + gRoomControls.roomOriginX;
-    ent->y.HALF.HI = (((a2 >> 2) & 0x3F0) | 8) + gRoomControls.roomOriginY;
+    ent->x.HALF.HI = (((16 * a2) & 0x3F0) | 8) + gRoomControls.origin_x;
+    ent->y.HALF.HI = (((a2 >> 2) & 0x3F0) | 8) + gRoomControls.origin_y;
 }
 
 u32 sub_0806F730(Entity* ent) {
     u32 tmp = 0x3F;
-    u32 x = ent->x.HALF.HI + ent->hitbox->offset_x - gRoomControls.roomOriginX;
-    u32 y = ent->y.HALF.HI + ent->hitbox->offset_y - gRoomControls.roomOriginY;
+    u32 x = ent->x.HALF.HI + ent->hitbox->offset_x - gRoomControls.origin_x;
+    u32 y = ent->y.HALF.HI + ent->hitbox->offset_y - gRoomControls.origin_y;
     switch (ent->animationState) {
         case 0:
             y -= ent->hitbox->unk2[3];
@@ -195,8 +195,8 @@ u32 sub_0806F730(Entity* ent) {
 }
 
 u32 sub_0806F798(Entity* ent) {
-    u32 hitboxX = ent->x.HALF.HI + ent->hitbox->offset_x - gRoomControls.roomOriginX;
-    u32 hitboxY = ent->y.HALF.HI + ent->hitbox->offset_y - gRoomControls.roomOriginY;
+    u32 hitboxX = ent->x.HALF.HI + ent->hitbox->offset_x - gRoomControls.origin_x;
+    u32 hitboxY = ent->y.HALF.HI + ent->hitbox->offset_y - gRoomControls.origin_y;
     u32 mask = 0x3f;
     return (mask & (hitboxX >> 4)) + ((mask & (hitboxY >> 4)) << 6);
 }

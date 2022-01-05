@@ -3,6 +3,7 @@
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
+#include "common.h"
 
 extern u32 sub_0805C920(Entity*);
 
@@ -19,9 +20,9 @@ void Manager27_Main(Entity* this) {
 
     gUnk_08108D10[this->action](this);
     if (CheckLocalFlagByBank(0x300, this->type + 0x67)) {
-        gScreenTransition.armos_data.field_0xac |= (1 << this->type);
+        gRoomTransition.armos_data.field_0xac |= (1 << this->type);
     } else {
-        gScreenTransition.armos_data.field_0xac &= ~(1 << this->type);
+        gRoomTransition.armos_data.field_0xac &= ~(1 << this->type);
     }
 }
 

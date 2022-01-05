@@ -37,7 +37,7 @@ void sub_08044F88(Entity* this) {
     }
 }
 
-void nullsub_171() {
+void nullsub_171(Entity* this) {
 }
 
 void sub_08044FC8(Entity* this) {
@@ -127,10 +127,10 @@ void sub_08045178(Entity* this, Entity* child, int h, int v) {
         return;
 
     x = child->x.HALF.HI + h;
-    if (0 <= x && x < (gRoomControls.roomOriginX + gRoomControls.width))
+    if (0 <= x && x < (gRoomControls.origin_x + gRoomControls.width))
         child->x.HALF.HI = x;
 
     y = child->y.HALF.HI + v;
-    if (0 <= y && y < (gRoomControls.roomOriginY + gRoomControls.height))
+    if (0 <= y && y < (gRoomControls.origin_y + gRoomControls.height))
         child->y.HALF.HI = y;
 }

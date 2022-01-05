@@ -529,7 +529,7 @@ _08070BC8:
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _08070BE4
-	ldr r0, _08070BE8 @ =gScreenTransition
+	ldr r0, _08070BE8 @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #7
 	ands r0, r1
@@ -540,5 +540,5 @@ _08070BC8:
 _08070BE4:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_08070BE8: .4byte gScreenTransition
+_08070BE8: .4byte gRoomTransition
     .syntax divided

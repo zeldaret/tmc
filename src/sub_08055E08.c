@@ -4,7 +4,7 @@
 #include "functions.h"
 #include "screen.h"
 
-extern void (*const gUnk_080FF420[])();
+extern void (*const gUnk_080FF420[])(void);
 extern void sub_0804B0B0(u32, u32);
 extern void sub_08055B70(u32, u32, u32, u32);
 
@@ -15,7 +15,7 @@ struct {
     /*0x1d*/ u8 unk1D;
     /*0x1e*/ u8 unk1E;
     /*0x1f*/ u8 unk1F;
-} gUpdateVisibleTiles = {};
+} gUpdateVisibleTiles;
 
 extern EntityData gUnk_080FF400;
 

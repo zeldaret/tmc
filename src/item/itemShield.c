@@ -6,7 +6,7 @@
 extern void sub_08077E78(ItemBehavior*, u32);
 extern void SoundReq(u32);
 extern void UpdateItemAnim(ItemBehavior*);
-extern u32 sub_08077EFC();
+extern u32 sub_08077EFC(ItemBehavior*);
 extern void sub_08077BB8(ItemBehavior*);
 extern void sub_08077D38(ItemBehavior*, u32);
 extern void sub_0806F948(Entity*);
@@ -26,7 +26,7 @@ void sub_08076D04(ItemBehavior* beh, u32 arg1) {
 }
 
 void sub_08076D34(ItemBehavior* beh, u32 arg1) {
-    if (sub_08077EFC() != 0) {
+    if (sub_08077EFC(beh) != 0) {
         gPlayerState.field_0x3[0] |= 1;
         UpdateItemAnim(beh);
         if (beh->field_0x5[9] != 0) {

@@ -6,7 +6,7 @@
 
 void GreatFairy_InitializeAnimation(Entity*);
 Entity* GreatFairy_CreateForm(Entity*, u32, u32);
-void sub_080873D0();
+void sub_080873D0(Entity*);
 extern void (*const GreatFairy_Main[])(Entity*);
 extern void (*const GreatFairy_Behaviors[])(Entity*);
 extern void (*const GreatFairy_WingsBehaviors[])(Entity*);
@@ -52,12 +52,12 @@ void GreatFairy(Entity* this) {
 void GreatFairy_CallBehavior(Entity* this) {
     GreatFairy_Behaviors[this->action](this);
 
-    if ((gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY) < 168) {
+    if ((gPlayerEntity.y.HALF.HI - gRoomControls.origin_y) < 168) {
 
-        gRoomControls.cameraTarget = this;
+        gRoomControls.camera_target = this;
         gRoomControls.unk5 = 2;
     } else {
-        gRoomControls.cameraTarget = &gPlayerEntity;
+        gRoomControls.camera_target = &gPlayerEntity;
         gRoomControls.unk5 = 2;
     }
 }
@@ -515,7 +515,7 @@ void sub_080873FC(void) {
     Entity* ent;
 
     SoundReq(SFX_APPARATE);
-    gRoomControls.cameraTarget = NULL;
+    gRoomControls.camera_target = NULL;
 
     while (ent = FindEntityByID(0x6, 0x1b, 0x6), ent != NULL) {
         DeleteEntity(ent);

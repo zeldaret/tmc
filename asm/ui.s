@@ -35,8 +35,8 @@ _0801C1F8:
 _0801C200: .4byte gUnk_0200AF34
 _0801C204: .4byte gUnk_080C8F8C
 
-	thumb_func_start sub_0801C208
-sub_0801C208: @ 0x0801C208
+	thumb_func_start DrawOAMCmd
+DrawOAMCmd: @ 0x0801C208
 	push {r4, r5, lr}
 	movs r5, #0
 	ldr r4, _0801C250 @ =gOamCmd
@@ -68,7 +68,7 @@ _0801C20E:
 	strh r0, [r4, #8]
 	ldrh r0, [r2, #6]
 	ldrb r1, [r3, #0x10]
-	bl sub_080ADA14
+	bl DrawDirect
 _0801C248:
 	adds r5, #1
 	cmp r5, #0x17
@@ -195,8 +195,8 @@ _0801C338: .4byte gUnk_085C4620
 _0801C33C: .4byte 0x84000008
 _0801C340: .4byte 0x06010020
 
-	thumb_func_start sub_0801C344
-sub_0801C344: @ 0x0801C344
+	thumb_func_start DrawUI
+DrawUI: @ 0x0801C344
 	push {r4, r5, lr}
 	ldr r4, _0801C36C @ =gUnk_0200AF00
 	ldrb r1, [r4, #1]
@@ -214,8 +214,8 @@ sub_0801C344: @ 0x0801C344
 	.align 2, 0
 _0801C36C: .4byte gUnk_0200AF00
 
-	thumb_func_start sub_0801C370
-sub_0801C370: @ 0x0801C370
+	thumb_func_start InitUI
+InitUI: @ 0x0801C370
 	push {r4, r5, r6, lr}
 	cmp r0, #0
 	bne _0801C390
@@ -267,7 +267,7 @@ _0801C398:
 	adds r0, r3, #0
 	orrs r0, r2
 	strh r0, [r1]
-	ldr r1, _0801C484 @ =gUnk_03000000
+	ldr r1, _0801C484 @ =gOAMControls
 	ldr r2, _0801C488 @ =0x00000427
 	adds r0, r1, r2
 	movs r2, #1
@@ -333,7 +333,7 @@ _0801C474: .4byte gSave
 _0801C478: .4byte gBG0Buffer
 _0801C47C: .4byte gScreen
 _0801C480: .4byte 0x00001F0C
-_0801C484: .4byte gUnk_03000000
+_0801C484: .4byte gOAMControls
 _0801C488: .4byte 0x00000427
 _0801C48C: .4byte 0x00000426
 _0801C490: .4byte 0x0000042E
@@ -1009,7 +1009,7 @@ sub_0801C99C: @ 0x0801C99C
 	ands r0, r1
 	cmp r0, #0
 	bne _0801C9B2
-	bl sub_08052724
+	bl AreaHasKeys
 	cmp r0, #0
 	bne _0801C9EC
 _0801C9B2:

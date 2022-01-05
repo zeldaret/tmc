@@ -236,8 +236,8 @@ NONMATCH("asm/non_matching/kid/sub_080626E0.inc", void sub_080626E0(Entity* this
         context->unk_19 = 10;
         context->postScriptActions |= 2;
         sVar1 = *(s16*)&context->intVariable;
-        context->x.HALF.HI = *((u16*)&context->intVariable + 2) + gRoomControls.roomOriginX;
-        context->y.HALF.HI = gRoomControls.roomOriginY + sVar1;
+        context->x.HALF.HI = *((u16*)&context->intVariable + 2) + gRoomControls.origin_x;
+        context->y.HALF.HI = gRoomControls.origin_y + sVar1;
     }
     bVar2 = context->unk_19 - 1;
     context->unk_19 = bVar2;

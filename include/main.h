@@ -25,12 +25,12 @@ typedef enum {
 #endif
 
 enum {
-    SCREEN_INTRO,
-    SCREEN_CHOOSE_FILE,
-    SCREEN_GAMEPLAY,
-    SCREEN_GAME_OVER,
-    SCREEN_CREDITS,
-    SCREEN_DEBUG_TEXT,
+    TASK_TITLE,
+    TASK_FILE_SELECT,
+    TASK_GAME,
+    TASK_GAMEOVER,
+    TASK_STAFFROLL,
+    TASK_DEBUG,
 };
 
 enum {
@@ -41,9 +41,9 @@ enum {
 typedef struct {
     vu8 interruptFlag;
     u8 sleepStatus;
-    u8 screen;
-    u8 funcIndex;
-    u8 transition;
+    u8 task;
+    u8 state;
+    u8 substate;
     u8 field_0x5;
     u8 muteAudio;
     u8 field_0x7;
@@ -55,7 +55,8 @@ typedef struct {
 } Main;
 
 typedef struct {
-    /*0x00*/ u16 nextToLoad;
+    /*0x00*/ u8 nextToLoad;
+    /*0x01*/ u8 _1;
     /*0x02*/ u8 lastState;
     /*0x03*/ u8 field_0x3;
     /*0x04*/ u8 state;
@@ -74,7 +75,7 @@ extern UI gUnk_02032EC0;
 /**
  * @brief Begin a subroutine.
  */
-void InitScreen(u32 screen);
+void SetTask(u32 screen);
 
 void InitDMA(void);
 
@@ -96,5 +97,6 @@ extern void VBlankInterruptWait(void);
 extern void DisableInterruptsAndDMA(void);
 extern void EnableVBlankIntr(void);
 extern void sub_08056250(void);
+extern void sub_08056208(void);
 
 #endif

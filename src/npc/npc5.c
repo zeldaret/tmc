@@ -80,6 +80,18 @@ void sub_08061AFC(Entity*);
 
 extern u16* gUnk_0810B660[8];
 
+void CreateZeldaFollower(void) {
+    Entity* npc;
+    if (CheckGlobalFlag(0x1c) != 0) {
+        npc = CreateNPC(0x2e, 0, 0);
+        if (npc != NULL) {
+            CopyPosition(&gPlayerEntity, npc);
+            npc->flags |= 0x20;
+            npc->animationState = GetAnimationState(npc);
+        }
+    }
+}
+
 // UNUSED zelda follower, probably because it was too resource heavy
 void NPC5(Entity* this) {
     gUnk_0810AC1C[this->type](this);
@@ -106,13 +118,13 @@ void sub_08060A00(Entity* this) {
         ((UnkHeap*)this->myHeap)->unk_1 = gPlayerEntity.x.HALF.HI;
         ((UnkHeap*)this->myHeap)->unk_2 = gPlayerEntity.y.HALF.HI;
     }
-    if (this->field_0x74.HWORD != gRoomControls.roomID) {
-        this->field_0x74.HWORD = gRoomControls.roomID;
+    if (this->field_0x74.HWORD != gRoomControls.room) {
+        this->field_0x74.HWORD = gRoomControls.room;
         CopyPosition(&gPlayerEntity, this);
         this->action = 1;
         this->spriteSettings.draw = 1;
         this->speed = 0x120;
-        tmp = gRoomControls.unk_10;
+        tmp = gRoomControls.scroll_direction;
         this->animationState = tmp * 2;
         InitAnimationForceUpdate(this, tmp << 0x19 >> 0x19); // TODO some conversion between u8 and u32?
         this->frameDuration = (Random() & 0x7f) + 0x80;
@@ -810,7 +822,7 @@ bool32 sub_08061A74(Entity* this, s32 x, s32 y, s32 param) {
     return TRUE;
 }
 
-void sub_08061AA0() {
+void sub_08061AA0(void) {
     DeleteThisEntity();
 }
 
@@ -868,7 +880,7 @@ void sub_08061B58(Entity* this) {
         this->action = 1;
         InitAnimationForceUpdate(this, 2);
     }
-    if (gScreenTransition.player_status.field_0x24[8] == 2) {
+    if (gRoomTransition.player_status.field_0x24[8] == 2) {
         UpdateAnimationSingleFrame(this);
     }
     sub_0806FD3C(this);

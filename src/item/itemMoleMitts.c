@@ -10,7 +10,7 @@ s32 sub_080774A0(void);
 extern u8 gUnk_0811BE14[];
 extern s32 sub_0800875A(Entity*, u32, ItemBehavior*);
 
-extern void UpdatePlayerMovement();
+extern void UpdatePlayerMovement(void);
 
 void ItemMoleMitts(ItemBehavior* this, u32 arg1) {
     gUnk_0811BE04[this->stateID](this, arg1);

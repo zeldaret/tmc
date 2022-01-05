@@ -21,18 +21,18 @@ extern Entity gUnk_03003BE0;
 extern Entity* gPlayerClones[3];
 extern u16 gUnk_080B2CD8[];
 
-extern void sub_080ADD70();
-extern void sub_0801C25C();
-extern void UpdateDisplayControls();
-extern void LoadResources();
-extern void HandlePlayerLife();
-extern void DoPlayerAction();
-extern void sub_080171F0();
-extern void sub_08078FB0();
-extern void sub_0807A050();
-extern u32 sub_08079B24();
-extern void sub_08079708();
-extern void CreateSparkle();
+extern void sub_080ADD70(void);
+extern void sub_0801C25C(void);
+extern void UpdateDisplayControls(void);
+extern void LoadResources(void);
+extern void HandlePlayerLife(Entity*);
+extern void DoPlayerAction(Entity*);
+extern void sub_080171F0(void);
+extern void sub_08078FB0(Entity*);
+extern void sub_0807A050(void);
+extern u32 sub_08079B24(void);
+extern void sub_08079708(Entity*);
+extern void CreateSparkle(Entity*);
 extern void sub_080028E0(Entity*);
 extern void sub_08078180(void);
 extern void sub_0807B0C8(void);
@@ -98,9 +98,9 @@ void sub_08016BF8(void) {
 }
 
 void UpdateDisplayControls(void) {
-    if (gUnk_03000000.field_0x0 && (gScreen.lcd.displayControl & DISPCNT_OBJ_ON)) {
-        gUnk_03000000.field_0x0 = 0;
-        DmaCopy32(3, &gUnk_03000000.oam, OAM, OAM_SIZE);
+    if (gOAMControls.field_0x0 && (gScreen.lcd.displayControl & DISPCNT_OBJ_ON)) {
+        gOAMControls.field_0x0 = 0;
+        DmaCopy32(3, &gOAMControls.oam, OAM, OAM_SIZE);
     }
     sub_08016CA8(&gScreen.bg0);
     sub_08016CA8(&gScreen.bg1);
@@ -289,7 +289,7 @@ void HandlePlayerLife(Entity* this) {
 
     if (gSave.stats.health <= temp) {
         gRoomVars.unk2 = 1;
-        if ((gUnk_0200AF00.filler0[1] == 0) && gScreenTransition.frameCount % 90 == 0) {
+        if ((gUnk_0200AF00.filler0[1] == 0) && gRoomTransition.frameCount % 90 == 0) {
             EnqueueSFX(SFX_LOW_HEALTH);
         }
     }

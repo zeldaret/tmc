@@ -24,7 +24,7 @@ void ObjectA(Entity* this) {
         this->field_0x70.HALF.LO = uVar2;
         if (CheckFlags(this->field_0x86.HWORD) != 0) {
             SetTileType(*(u16*)&this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
-            if ((gRoomControls.unk2 & 1) != 0) {
+            if ((gRoomControls.reload_flags & 1) != 0) {
                 gUpdateVisibleTiles = 0;
             }
             DeleteThisEntity();

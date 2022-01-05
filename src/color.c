@@ -7,7 +7,7 @@ void LoadObjPaletteAtIndex(u32 a1, u32 a2);
 
 static void sub_0801CFD0(u32 a1);
 
-void sub_0801CFA8(u32 a1) {
+void ResetPaletteTable(u32 a1) {
     u32 i;
 
     MemClear(gPaletteList, 0x40);
