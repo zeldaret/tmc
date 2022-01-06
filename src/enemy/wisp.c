@@ -1,3 +1,10 @@
+/**
+ * @file wisp.c
+ * @ingroup Enemies
+ *
+ * @brief Wisp enemy
+ */
+
 #include "enemy.h"
 #include "save.h"
 #include "object.h"

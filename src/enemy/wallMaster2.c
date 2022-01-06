@@ -1,3 +1,10 @@
+/**
+ * @file wallMaster2.c
+ * @ingroup Enemies
+ *
+ * @brief Wall Master 2 enemy
+ */
+
 #include "enemy.h"
 #include "area.h"
 #include "functions.h"

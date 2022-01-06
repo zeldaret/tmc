@@ -1,3 +1,10 @@
+/**
+ * @file player.c
+ * @ingroup Player
+ *
+ * @brief Player entity
+ */
+
 #include "global.h"
 #include "asm.h"
 #include "sound.h"

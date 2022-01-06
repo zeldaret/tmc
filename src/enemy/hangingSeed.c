@@ -1,3 +1,10 @@
+/**
+ * @file hangingSeed.c
+ * @ingroup Enemies
+ *
+ * @brief Hanging Seed enemy
+ */
+
 #include "entity.h"
 #include "enemy.h"
 #include "functions.h"

@@ -1,3 +1,10 @@
+/**
+ * @file darkNut.c
+ * @ingroup Enemies
+ *
+ * @brief Dark Nut enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 

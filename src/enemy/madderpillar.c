@@ -1,3 +1,10 @@
+/**
+ * @file madderpillar.c
+ * @ingroup Enemies
+ *
+ * @brief Madderpillar enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 

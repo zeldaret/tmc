@@ -1,3 +1,10 @@
+/**
+ * @file rollobite.c
+ * @ingroup Enemies
+ *
+ * @brief Rollobite enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 

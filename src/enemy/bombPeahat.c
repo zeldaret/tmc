@@ -1,3 +1,10 @@
+/**
+ * @file bombPeahat.c
+ * @ingroup Enemies
+ *
+ * @brief Bomb Peahat enemy
+ */
+
 #include "asm.h"
 #include "entity.h"
 #include "enemy.h"

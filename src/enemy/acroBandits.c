@@ -1,3 +1,10 @@
+/**
+ * @file acroBandits.c
+ * @ingroup Enemies
+ *
+ * @brief Acro Bandits enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 

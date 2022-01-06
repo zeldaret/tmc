@@ -1,3 +1,10 @@
+/**
+ * @file sensorBladeTrap.c
+ * @ingroup Enemies
+ *
+ * @brief Sensor Blade Trap enemy
+ */
+
 #include "enemy.h"
 
 extern u32 sub_0804A024(Entity*, u32, u32);

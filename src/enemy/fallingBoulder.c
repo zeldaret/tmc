@@ -1,3 +1,10 @@
+/**
+ * @file fallingBoulder.c
+ * @ingroup Enemies
+ *
+ * @brief Falling Boulder enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 

@@ -1,3 +1,10 @@
+/**
+ * @file bobomb.c
+ * @ingroup Enemies
+ *
+ * @brief Bobomb enemy
+ */
+
 #include "asm.h"
 #include "sound.h"
 #include "enemy.h"

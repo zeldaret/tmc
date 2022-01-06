@@ -1,3 +1,10 @@
+/**
+ * @file moldorm.c
+ * @ingroup Enemies
+ *
+ * @brief Moldorm enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 

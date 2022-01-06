@@ -1,3 +1,10 @@
+/**
+ * @file spikedBeetle.c
+ * @ingroup Enemies
+ *
+ * @brief Spiked Beetle enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 

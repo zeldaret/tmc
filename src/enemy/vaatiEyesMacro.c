@@ -1,3 +1,10 @@
+/**
+ * @file vaatiEyesMacro.c
+ * @ingroup Enemies
+ *
+ * @brief Vaati Eyes Macro enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 

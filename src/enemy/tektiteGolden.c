@@ -1,3 +1,10 @@
+/**
+ * @file tektiteGolden.c
+ * @ingroup Enemies
+ *
+ * @brief Golden Tektite enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 

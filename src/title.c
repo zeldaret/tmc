@@ -1,3 +1,10 @@
+/**
+ * @file title.c
+ * @ingroup Tasks
+ *
+ * @brief Title task
+ */
+
 #include "sound.h"
 #include "main.h"
 #include "entity.h"

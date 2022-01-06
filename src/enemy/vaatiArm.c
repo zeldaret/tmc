@@ -1,3 +1,10 @@
+/**
+ * @file vaatiArm.c
+ * @ingroup Enemies
+ *
+ * @brief Vaati Arm enemy
+ */
+
 #include "enemy.h"
 #include "object.h"
 #include "functions.h"

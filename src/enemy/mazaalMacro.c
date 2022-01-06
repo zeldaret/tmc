@@ -1,3 +1,10 @@
+/**
+ * @file mazaalMacro.c
+ * @ingroup Enemies
+ *
+ * @brief Mazaal Macro enemy
+ */
+
 #include "enemy.h"
 #include "script.h"
 #include "structures.h"

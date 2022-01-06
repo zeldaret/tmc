@@ -1,3 +1,10 @@
+/**
+ * @file vaatiWrathEye.c
+ * @ingroup Enemies
+ *
+ * @brief Vaati Wrath Eye enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 

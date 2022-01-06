@@ -1,3 +1,10 @@
+/**
+ * @file puffstool.c
+ * @ingroup Enemies
+ *
+ * @brief Puffstool enemy
+ */
+
 #include "enemy.h"
 #include "object.h"
 #include "functions.h"

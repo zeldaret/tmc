@@ -1,3 +1,10 @@
+/**
+ * @file mazaalBracelet.c
+ * @ingroup Enemies
+ *
+ * @brief Mazaal Bracelet enemy
+ */
+
 #include "enemy.h"
 #include "object.h"
 #include "functions.h"

@@ -510,7 +510,7 @@ SECTIONS {
         asm/code_0805EC04.o(.text); /* objaffine? */
         asm/text.o(.text);
         src/text.o(.text);
-        src/debugScreen.o(.text);
+        src/debug.o(.text);
         src/playerItem/playerItem14.o(.text);
         /* npcs */
         src/npc/gentari.o(.text);
@@ -850,7 +850,7 @@ SECTIONS {
         src/playerItem/playerItemShield.o(.text);
         src/playerItem/playerItem15.o(.text);
 #ifdef DEMO_USA
-        src/demoScreen.o(.text);
+        src/demo.o(.text);
 #endif
         src/sound.o(.text);
         asm/staffroll.o(.text);
@@ -1597,7 +1597,7 @@ SECTIONS {
         data/const/playerItem/playerItemShield.o(.rodata);
         data/const/playerItem/playerItem15.o(.rodata);
 #ifdef DEMO_USA
-        data/const/demoScreen.o(.rodata);
+        data/const/demo.o(.rodata);
 #endif
         data/data_08127280.o(.rodata);
         data/gfx/figurines.o(.rodata);

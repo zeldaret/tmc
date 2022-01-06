@@ -1,3 +1,10 @@
+/**
+ * @file lakituCloud.c
+ * @ingroup Enemies
+ *
+ * @brief Lakitu Cloud enemy
+ */
+
 #include "global.h"
 #include "asm.h"
 #include "entity.h"

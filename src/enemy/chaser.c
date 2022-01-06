@@ -1,3 +1,10 @@
+/**
+ * @file chaser.c
+ * @ingroup Enemies
+ *
+ * @brief Chaser enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 

@@ -1,3 +1,10 @@
+/**
+ * @file game.c
+ * @ingroup Tasks
+ *
+ * @brief Game task
+ */
+
 #include "global.h"
 #include "asm.h"
 #include "sound.h"

@@ -1,3 +1,10 @@
+/**
+ * @file doorMimic.c
+ * @ingroup Enemies
+ *
+ * @brief Door Mimic enemy
+ */
+
 #include "sound.h"
 #include "enemy.h"
 #include "functions.h"

@@ -1,3 +1,10 @@
+/**
+ * @file mazaalHand.c
+ * @ingroup Enemies
+ *
+ * @brief Mazaal Hand enemy
+ */
+
 #include "entity.h"
 
 void sub_08035194(Entity*);

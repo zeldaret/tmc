@@ -1,3 +1,10 @@
+/**
+ * @file waterDrop.c
+ * @ingroup Enemies
+ *
+ * @brief Water Drop enemy
+ */
+
 #include "enemy.h"
 #include "screen.h"
 #include "object.h"

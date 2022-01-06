@@ -1,3 +1,10 @@
+/**
+ * @file vaatiWrath.c
+ * @ingroup Enemies
+ *
+ * @brief Vaati Wrath enemy
+ */
+
 #include "enemy.h"
 #include "object.h"
 #include "message.h"

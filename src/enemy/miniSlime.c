@@ -1,3 +1,10 @@
+/**
+ * @file miniSlime.c
+ * @ingroup Enemies
+ *
+ * @brief Mini Slime enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 

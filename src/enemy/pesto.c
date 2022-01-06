@@ -1,3 +1,10 @@
+/**
+ * @file pesto.c
+ * @ingroup Enemies
+ *
+ * @brief Pesto enemy
+ */
+
 #include "enemy.h"
 #include "object.h"
 #include "game.h"

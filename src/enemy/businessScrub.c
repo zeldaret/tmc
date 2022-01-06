@@ -1,3 +1,10 @@
+/**
+ * @file businessScrub.c
+ * @ingroup Enemies
+ *
+ * @brief Business Scrub enemy
+ */
+
 #include "asm.h"
 #include "enemy.h"
 #include "message.h"

@@ -1,3 +1,10 @@
+/**
+ * @file bowMoblin.c
+ * @ingroup Enemies
+ *
+ * @brief Bow Moblin enemy
+ */
+
 #define NENT_DEPRECATED
 #include "global.h"
 #include "entity.h"

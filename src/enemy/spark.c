@@ -1,3 +1,10 @@
+/**
+ * @file spark.c
+ * @ingroup Enemies
+ *
+ * @brief Spark enemy
+ */
+
 #include "enemy.h"
 #include "object.h"
 #include "functions.h"

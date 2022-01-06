@@ -1,3 +1,10 @@
+/**
+ * @file moldworm.c
+ * @ingroup Enemies
+ *
+ * @brief Moldworm enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 

@@ -1,3 +1,10 @@
+/**
+ * @file vaatiRebornEnemy.c
+ * @ingroup Enemies
+ *
+ * @brief Vaati Reborn enemy
+ */
+
 #include "enemy.h"
 #include "area.h"
 #include "functions.h"
