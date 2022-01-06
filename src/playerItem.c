@@ -71,7 +71,7 @@ void ItemUpdate(Entity* this) {
     if ((this->flags & ENT_DID_INIT) == 0 && this->action == 0 && this->subAction == 0)
         ItemInit(this);
 
-    if (!CheckDontUpdate(this)) {
+    if (!EntityIsDeleted(this)) {
         gPlayerItemFunctions[this->id](this);
         this->bitfield &= ~0x80;
         if (this->iframes != 0) {

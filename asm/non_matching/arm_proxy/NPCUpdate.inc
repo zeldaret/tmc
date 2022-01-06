@@ -26,7 +26,7 @@ _08017550:
 	bl NPCInit
 _08017566:
 	adds r0, r4, #0
-	bl CheckDontUpdate
+	bl EntityIsDeleted
 	cmp r0, #0
 	bne _08017584
 	ldr r2, _080175DC @ =gNPCFunctions

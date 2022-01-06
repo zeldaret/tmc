@@ -5,72 +5,112 @@
 
 struct Entity_;
 
+/**
+ * Holds input information from system registers.
+ */
 typedef struct {
-    u16 heldKeys;
-    u16 newKeys;
+    u16 heldKeys; /**< Keys held since last frame. */
+    u16 newKeys;  /** Keys newly pressed this frame. */
     u16 unk4;
     u8 unk6;
     u8 unk7;
 } Input;
-extern Input gInput;
+extern Input gInput; /**< Input instance. */
 
 void LoadPalettes(const u8*, s32, s32);
+
+/**
+ * Loads a packed group of palettes.
+ *
+ * @param group Group number.
+ */
 void LoadPaletteGroup(u32 group);
+
+/**
+ * Loads a packed group of tiles.
+ *
+ * @param group Group number.
+ */
 void LoadGfxGroup(u32 group);
+
+/**
+ * Set color in the palette.
+ *
+ * @param colorIndex Color index.
+ * @param color Color.
+ */
 void SetColor(u32 colorIndex, u32 color);
+
 void SetFillColor(u32 color, u32 arg1);
 
 /**
  * Fill memory with 16 bit value.
+ *
+ * @param value Fill value.
+ * @param dest Destination.
+ * @param size Byte count.
  */
 void MemFill16(u32 value, void* dest, u32 size);
 
 /**
  * Fill memory with 32 bit value.
+ *
+ * @param value Fill value.
+ * @param dest Destination.
+ * @param size Byte count.
  */
 void MemFill32(u32 value, void* dest, u32 size);
 
 /**
  * Clear memory.
+ *
+ * @param dest Destination
+ * @param size Byte count.
  */
 void MemClear(void* dest, u32 size);
 
 /**
  * Copy memory.
+ *
+ * @param src Source.
+ * @param dest Destination.
+ * @param size Byte count.
  */
 void MemCopy(const void* src, void* dest, u32 size);
 
 /**
- * Refresh gInput from hardware registers.
+ * Refresh #gInput from system registers.
  */
 void ReadKeyInput(void);
 
+/**
+ * Initialize the heap.
+ */
 void zMallocInit(void);
 
 /**
  * Allocate memory on heap.
  *
  * The heap size is 0x1000 bytes and should be used sparingly.
- * It is customary for entities store the returned handle in their 'myHeap' field.
+ * It is customary for entities store the returned pointer in the Entity.myHeap field.
  *
- * @param size u32 Size to be allocated
- * @return void* Pointer to allocated memory
+ * @param size u32 Size to be allocated.
+ * @return Pointer to allocated memory.
  */
 void* zMalloc(u32 size);
 
 /**
  * Free memory from heap.
+ * The Entity system will automatically free the pointer stored in the Entity.myHeap field.
  *
- * The entity system will automatically free the address stored in the 'myHeap' field.
- *
- * @param ptr void* Handle to be freed
+ * @param ptr Pointer to be freed.
  */
 void zFree(void* ptr);
 
 /**
- * Reset All display hardware registers.
+ * Reset All display system registers.
  *
- * @param refresh bool32 Request refresh of HUD layer (bg 0)
+ * @param refresh Request refresh of HUD layer (bg 0).
  */
 void DispReset(bool32 refresh);
 

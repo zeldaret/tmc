@@ -154,7 +154,7 @@ NONMATCH("asm/non_matching/arm_proxy/NPCUpdate.inc", void NPCUpdate(Entity* this
         DeleteThisEntity();
     if (this->action == 0 && (this->flags & ENT_DID_INIT) == 0)
         InitNPC(this);
-    if (!CheckDontUpdate(this))
+    if (!EntityIsDeleted(this))
         gNPCFunctions[this->id][0](this);
     if (this->next != NULL) {
         if (gNPCFunctions[this->id][1] != NULL)

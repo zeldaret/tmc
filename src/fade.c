@@ -94,8 +94,8 @@ void SetFade(u32 type, u32 speed) {
     }
 }
 
-void SetFadeInverted(u32 arg0) {
-    gFadeControl.speed = arg0;
+void SetFadeInverted(u32 speed) {
+    gFadeControl.speed = speed;
     gFadeControl.type ^= 1;
     gFadeControl.active = 1;
     gFadeControl.progress = 256;
