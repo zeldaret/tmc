@@ -624,7 +624,7 @@ SECTIONS {
         src/item/itemMoleMitts.o(.text);
         src/item/itemJarEmpty.o(.text);
         asm/playerUtils.o(.text);
-        asm/respawnPlayer.o(.text);
+        src/respawnPlayer.o(.text);
         src/code_08077B98.o(.text);
         asm/code_08077B98.o(.text);
         src/code_08078778.o(.text);

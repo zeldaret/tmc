@@ -86,10 +86,7 @@ extern u16 gBG1Buffer[0x400];
 extern u16 gBG2Buffer[0x400];
 extern u16 gBG3Buffer[0x800];
 
-struct {
-    u8 filler[0x70];
-} extern gUnk_03000B80;
-// TODO extern ItemBehavior gUnk_03000B80[4];
+extern ItemBehavior gUnk_03000B80[4];
 static_assert(sizeof(gUnk_03000B80) == 0x70);
 
 typedef struct {

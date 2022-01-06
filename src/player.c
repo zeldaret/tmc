@@ -1256,7 +1256,7 @@ static void PlayerTalkEzlo(Entity* this) {
 
 static void PlayerTalkEzloInit(Entity* this) {
     ResetPlayer();
-    gUnk_03000B80.filler[0x63] = 0;
+    gUnk_03000B80[3].field_0xf = 0;
     this->iframes = 0;
     gPriorityHandler.sys_priority = PRIO_PLAYER_EVENT;
     this->updatePriority = PRIO_PLAYER_EVENT;
