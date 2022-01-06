@@ -9,14 +9,6 @@
 
 extern u32 gRand;
 
-extern void TitleTask(void);
-extern void FileSelectTask(void);
-extern void DemoTask(void);
-extern void GameTask(void);
-extern void GameOverTask(void);
-extern void StaffrollTask(void);
-extern void DebugTask(void);
-
 static void InitOverlays(void);
 static bool32 SoftResetKeysPressed(void);
 static u32 CheckHeaderValid(void);
