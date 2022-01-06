@@ -33,30 +33,30 @@ typedef struct {
 extern void sub_080A70AC(const KeyButtonLayout*);
 
 typedef struct {
-    u8 field_0x0;
-    u8 column_idx;
-    u8 field_0x2;
-    u8 field_0x3;
-    u8 field_0x4;
-    u8 menuType;
-    u8 overlayType;
-    u8 storyPanelIndex;
-    u16 transitionTimer;
-    u16 field_0xa;
-    u8* field_0xc;
-    u8 focusCoords[2];
-    u8 field_0x12;
-    u8 unk13;
-    u8 unk14;
-    u8 unk15;
-    u8 unk16;
-    // While struct offsets are usually loaded indirectly, this one is often loaded
-    // directly in the code. This happens when you take the address off the field with '&`.
-    // Perhaps they had a macro to cast this to different sized arrays.
-    u8 selectMtx;
-    u8 filler18[0x12];
-    u8 unk2a;
-    int field_0x2c;
+    /*0x00*/ u8 field_0x0;
+    /*0x01*/ u8 column_idx;
+    /*0x02*/ u8 field_0x2;
+    /*0x03*/ u8 field_0x3;
+    /*0x04*/ u8 field_0x4;
+    /*0x05*/ u8 menuType;
+    /*0x06*/ u8 overlayType;
+    /*0x07*/ u8 storyPanelIndex;
+    /*0x08*/ u16 transitionTimer;
+    /*0x0a*/ u16 field_0xa;
+    /*0x0c*/ u8* field_0xc;
+    /*0x10*/ u8 focusCoords[2];
+    /*0x12*/ u8 field_0x12;
+    /*0x13*/ u8 unk13;
+    /*0x14*/ u8 unk14;
+    /*0x15*/ u8 unk15;
+    /*0x16*/ u8 unk16;
+    /*    */ // While struct offsets are usually loaded indirectly, this one is often loaded
+    /*    */ // directly in the code. This happens when you take the address off the field with '&`.
+    /*    */ // Perhaps they had a macro to cast this to different sized arrays.
+    /*0x17*/ u8 selectMtx;
+    /*0x18*/ u8 filler18[0x12];
+    /*0x2a*/ u8 unk2a;
+    /*0x2c*/ int field_0x2c;
 } Menu;
 static_assert(sizeof(Menu) == 0x30);
 
