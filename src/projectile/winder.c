@@ -5,10 +5,13 @@
 #include "projectile.h"
 
 extern void (*const Winder_Actions[])(Entity*);
-extern const u8 gUnk_0812A6BC[];
-extern const u8 gUnk_0812A6C4[];
+extern s16 gUnk_080B4488[];
+extern u8* GetLayerByIndex(u32);
+static const u8 gUnk_0812A6BC[];
+static const u16 gUnk_0812A6C4[];
 
 void sub_080AB9DC(Entity*);
+bool32 sub_080AB9FC(Entity* this, u32 param_1);
 
 void Winder(Entity* this) {
     Winder_Actions[this->action](this);
@@ -45,7 +48,36 @@ void Winder_Init(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/winder/sub_080AB950.inc", void sub_080AB950(Entity* this))
+void sub_080AB950(Entity* this) {
+    if (this->type == 0) {
+        u8 dir;
+        ProcessMovement(this);
+        dir = this->direction >> 3;
+        if (((gUnk_0812A6C4)[dir] & this->collisions) || sub_080AB9FC(this, this->direction)) {
+            this->direction = gUnk_0812A6BC[(Random() & 0x1) + (dir << 1)];
+        }
+    } else {
+        Entity* child;
+
+        if (this->parent == NULL) {
+            DeleteThisEntity();
+        }
+
+        if (this->parent->next == NULL) {
+            DeleteThisEntity();
+        }
+
+        child = this->child;
+        if (child && child->next) {
+            this->x.HALF.HI = child->field_0x68.HWORD;
+            this->y.HALF.HI = child->field_0x6a.HWORD;
+        } else {
+            DeleteThisEntity();
+        }
+    }
+
+    GetNextFrame(this);
+}
 
 void sub_080AB9DC(Entity* this) {
     MemCopy(&this->field_0x6c, &this->field_0x68, 0x1c);
@@ -53,7 +85,26 @@ void sub_080AB9DC(Entity* this) {
     this->field_0x86.HWORD = this->y.HALF.HI;
 }
 
-ASM_FUNC("asm/non_matching/winder/sub_080AB9FC.inc", void sub_080AB9FC(Entity* this))
+bool32 sub_080AB9FC(Entity* this, u32 dir) {
+    u32 val;
+    u8* layer = GetLayerByIndex(this->collisionLayer);
+    u32 tmp;
+    val = (((this->x.HALF.HI - gRoomControls.origin_x) >> 4) & 0x3f) |
+          ((((this->y.HALF.HI - gRoomControls.origin_y) >> 4) & 0x3f) << 6);
+    val += gUnk_080B4488[dir >> 3];
+    layer += 0x2004;
+    layer += val;
+    tmp = *layer;
+    if (tmp <= 0x1f) {
+        return 0;
+    }
+
+    if (tmp > 0x3f) {
+        return 0;
+    }
+
+    return 1;
+}
 
 void (*const Winder_Actions[])(Entity*) = {
     Winder_Init,
@@ -62,6 +113,9 @@ void (*const Winder_Actions[])(Entity*) = {
 const u8 gUnk_0812A6BC[] = {
     8, 24, 0, 16, 8, 24, 0, 16,
 };
-const u8 gUnk_0812A6C4[] = {
-    14, 0, 0, 224, 224, 0, 0, 14,
+const u16 gUnk_0812A6C4[] = {
+    0xe,
+    0xe000,
+    0xe0,
+    0xe00,
 };

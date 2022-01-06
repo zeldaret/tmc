@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "enemy.h"
 #include "functions.h"
+#include "object.h"
 
 extern void (*const V2Projectile_Functions[])(Entity*);
 extern void (*const gUnk_0812A7EC[])(Entity*);
@@ -18,9 +19,52 @@ void V2Projectile(Entity* this) {
     V2Projectile_Functions[GetNextFunction(this)](this);
 }
 
-ASM_FUNC("asm/non_matching/v2Projectile/sub_080ABBA8.inc", void sub_080ABBA8(Entity* this))
+void sub_080ABBA8(Entity* this) {
+    switch (this->type) {
+        case 0: {
+            gUnk_0812A7EC[this->action](this);
+            break;
+        }
+        case 1: {
+            gUnk_0812A7F8[this->action](this);
+            break;
+        }
+        case 2:
+        default:
+            gUnk_0812A800[this->action](this);
+    }
+}
 
-ASM_FUNC("asm/non_matching/v2Projectile/sub_080ABBF4.inc", void sub_080ABBF4(Entity* this))
+void sub_080ABBF4(Entity* this) {
+    if ((this->bitfield & 0x80) == 0)
+        return;
+
+    switch (this->type) {
+        case 2: {
+            switch ((this->bitfield & 0x3f)) {
+                case 0: {
+                    ModHealth(-4);
+                    // fallthrough
+                }
+                case 3:
+                case 0x14: {
+                    CreateDust(this);
+                    DeleteThisEntity();
+                    break;
+                }
+            }
+            break;
+        }
+        case 0:
+        case 1: {
+            if ((this->bitfield & 0x3f) == 0) {
+                ModHealth(-2);
+                DeleteThisEntity();
+            }
+            break;
+        }
+    }
+}
 
 void sub_080ABC54(Entity* this) {
     if (sub_0806F520() == 0) {
@@ -90,7 +134,26 @@ void sub_080ABD70(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/v2Projectile/sub_080ABE04.inc", void sub_080ABE04(Entity* this))
+void sub_080ABE04(Entity* this) {
+    u32 rand = Random() & 0xff;
+    u32 newX;
+    this->action = 1;
+    this->zVelocity = 0xffff0000;
+    this->z.HALF.HI -= 0xa0;
+    this->x.HALF.HI = (gRoomControls.origin_x & 0x7ff0) | 0x8;
+    this->y.HALF.HI = (gRoomControls.origin_y & 0x7ff0) | 0x8;
+    newX = this->x.HALF.HI;
+    if (rand & 0x10) {
+        newX += 0x10;
+    } else {
+        newX += 0xc0;
+    }
+    this->x.HALF.HI = newX + ((0xe0 & rand) >> 1);
+    this->y.HALF.HI += ((0xf & rand) << 4);
+    sub_08004168(this);
+    InitializeAnimation(this, 0);
+    SoundReq(SFX_12D);
+}
 
 void sub_080ABE88(Entity* this) {
     if (GravityUpdate(this, 0x1800) == 0) {

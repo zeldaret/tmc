@@ -52,7 +52,39 @@ void sub_080AAC44(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/v1DarkMagicProjectile/sub_080AACE0.inc", void sub_080AACE0(Entity* this))
+void sub_080AACE0(Entity* this) {
+    Entity* parent;
+    if (this->type && this->type2) {
+        DeleteThisEntity();
+    }
+
+    if (this->spriteSettings.draw == 1) {
+        this->spriteSettings.draw = 0;
+        this->field_0x86.HALF.LO = 1;
+        CreateFx(this, 2, 0);
+    }
+
+    parent = this->parent;
+    if (this->type2 == 0) {
+        u8* ptr = &(parent->field_0x74.HALF.LO);
+        parent->field_0x74.HALF.LO = 3;
+        parent->field_0x80.HALF.LO += this->field_0x80.HALF.HI >> 1;
+        if (parent->field_0x80.HALF.LO > 8) {
+            parent->field_0x80.HALF.LO = 8;
+        } else if (parent->field_0x80.HALF.LO == 0) {
+            parent->field_0x80.HALF.LO = 1;
+        }
+    } else {
+        parent->cutsceneBeh.HALF.LO = 0;
+        parent->hitType = 0x2b;
+    }
+
+    if (this->field_0x86.HALF.LO == 0) {
+        CreateFx(this, 2, 0);
+    }
+
+    DeleteThisEntity();
+}
 
 void sub_080AAD70(Entity* this) {
     if (sub_0806F520() == 0) {
