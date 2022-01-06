@@ -57,14 +57,6 @@ void AgbMain(void) {
             DoSoftReset();
         }
 
-        // if (gInput.newKeys & B_BUTTON) {
-        //     ResetFadeMask();
-        // }
-
-        // if (gInput.newKeys & A_BUTTON) {
-        //     SetFade(0x7, 1);
-        // }
-
         switch (gMain.sleepStatus) {
             case SLEEP:
                 SetSleepMode();

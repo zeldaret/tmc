@@ -220,7 +220,7 @@ void PlayerUpdate(Entity* this) {
     else
         gPlayerState.flags &= ~PL_DRUGGED;
 
-    if (CheckDontUpdate(this) == 0) {
+    if (EntityIsDeleted(this) == 0) {
         if (gPlayerState.flags & PL_MOLDWORM_CAPTURED) {
             sub_08077B20();
             if (gPlayerState.flags & PL_MOLDWORM_RELEASED) {

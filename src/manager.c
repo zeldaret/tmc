@@ -14,6 +14,6 @@ void (*const gManagerFunctions[])() = {
 };
 
 void ManagerUpdate(Entity* this) {
-    if (!CheckDontUpdate(this))
+    if (!EntityIsDeleted(this))
         gManagerFunctions[this->id](this);
 }

@@ -25,7 +25,7 @@ typedef struct {
     u16 win_inside_cnt;
     u16 win_outside_cnt;
 } FadeControl;
-extern FadeControl gFadeControl; /**< Fade control instance. */
+extern FadeControl gFadeControl; /**< FadeControl instance. */
 
 /** Set game brightness.
  * @param brightness brightness level, 0-2

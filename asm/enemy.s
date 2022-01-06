@@ -18,7 +18,7 @@ EnemyUpdate: @ 0x080011C4
 	bne _080011EA
 	bl DeleteThisEntity
 _080011DC:
-	bl CheckDontUpdate
+	bl EntityIsDeleted
 	cmp r0, #0
 	bne _0800120A
 	adds r0, r4, #0

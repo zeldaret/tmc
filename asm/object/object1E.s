@@ -11,7 +11,7 @@
 Object1E: @ 0x08087504
 	push {r4, lr}
 	adds r4, r0, #0
-	bl CheckDontUpdate
+	bl EntityIsDeleted
 	cmp r0, #0
 	bne _08087520
 	ldr r0, _08087524 @ =gUnk_081208B8

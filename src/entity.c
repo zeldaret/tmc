@@ -80,7 +80,7 @@ void SetDefaultPriority(Entity* ent, u32 prio) {
     ent->updatePriority = prio;
 }
 
-bool32 CheckDontUpdate(Entity* this) {
+bool32 EntityIsDeleted(Entity* this) {
     u32 value;
 
     if (this->flags & ENT_DELETED)
