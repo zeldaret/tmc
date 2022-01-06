@@ -1,3 +1,10 @@
+/**
+ * @file tektite.c
+ * @ingroup Enemies
+ *
+ * @brief Tektite enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 

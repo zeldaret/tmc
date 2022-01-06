@@ -1,3 +1,10 @@
+/**
+ * @file chuchu.c
+ * @ingroup Enemies
+ *
+ * @brief Chuchu enemy
+ */
+
 #include "asm.h"
 #include "enemy.h"
 #include "functions.h"

@@ -1,3 +1,10 @@
+/**
+ * @file likeLike.c
+ * @ingroup Enemies
+ *
+ * @brief Like Like enemy
+ */
+
 #include "enemy.h"
 #include "message.h"
 #include "save.h"

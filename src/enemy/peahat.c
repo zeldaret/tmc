@@ -1,3 +1,10 @@
+/**
+ * @file peahat.c
+ * @ingroup Enemies
+ *
+ * @brief Peahat enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 

@@ -1,3 +1,10 @@
+/**
+ * @file gyorgMale.c
+ * @ingroup Enemies
+ *
+ * @brief Gyorg Male enemy
+ */
+
 #include "global.h"
 #include "enemy.h"
 #include "player.h"

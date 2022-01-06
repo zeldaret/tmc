@@ -1,3 +1,10 @@
+/**
+ * @file keese.c
+ * @ingroup Enemies
+ *
+ * @brief Keese enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 

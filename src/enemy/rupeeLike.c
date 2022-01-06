@@ -1,3 +1,10 @@
+/**
+ * @file rupeeLike.c
+ * @ingroup Enemies
+ *
+ * @brief Rupee Like enemy
+ */
+
 #include "global.h"
 #include "asm.h"
 #include "sound.h"

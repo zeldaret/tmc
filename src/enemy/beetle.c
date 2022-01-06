@@ -1,3 +1,10 @@
+/**
+ * @file beetle.c
+ * @ingroup Enemies
+ *
+ * @brief Beetle enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 

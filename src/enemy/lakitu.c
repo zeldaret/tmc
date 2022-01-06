@@ -1,3 +1,10 @@
+/**
+ * @file lakitu.c
+ * @ingroup Enemies
+ *
+ * @brief Lakitu enemy
+ */
+
 #include "global.h"
 #include "enemy.h"
 #include "functions.h"

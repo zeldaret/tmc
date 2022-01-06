@@ -1,3 +1,10 @@
+/**
+ * @file octorok.c
+ * @ingroup Enemies
+ *
+ * @brief Octorok enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 

@@ -3,6 +3,44 @@
 
 extern Entity* CreateProjectile(u32);
 
+void DarkNutSwordSlash(Entity*);
+void RockProjectile(Entity*);
+void BoneProjectile(Entity*);
+void MoblinSpear(Entity*);
+void DekuSeedProjectile(Entity*);
+void Projectile5(Entity*);
+void DirtBallProjectile(Entity*);
+void WindProjectile(Entity*);
+void FireProjectile(Entity*);
+void IceProjectile(Entity*);
+void GleerokProjectile(Entity*);
+void KeatonDagger(Entity*);
+void GuardLineOfSight(Entity*);
+void ArrowProjectile(Entity*);
+void MazaalEnergyBeam(Entity*);
+void OctorokBossProjectile(Entity*);
+void StalfosProjectile(Entity*);
+void LakituCloudProjectile(Entity*);
+void LakituLightning(Entity*);
+void MandiblesProjectile(Entity*);
+void RemovableDust(Entity*);
+void SpiderWeb(Entity*);
+void TorchTrapProjectile(Entity*);
+void GuruguruBarProjectile(Entity*);
+void V1DarkMagicProjectile(Entity*);
+void BallAndChain(Entity*);
+void V1FireProjectile(Entity*);
+void CannonballProjectile(Entity*);
+void V1EyeLaser(Entity*);
+void Winder(Entity*);
+void SpikedRollers(Entity*);
+void V2Projectile(Entity*);
+void V3HandProjectile(Entity*);
+void V3ElectricProjectile(Entity*);
+void GyorgTail(Entity*);
+void GyorgMaleEnergyProjectile(Entity*);
+void V3TennisBallProjectile(Entity*);
+
 typedef enum {
     /*00*/ DARK_NUT_SWORD_SLASH,
     /*01*/ ROCK_PROJECTILE,

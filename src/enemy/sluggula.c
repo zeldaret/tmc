@@ -1,3 +1,10 @@
+/**
+ * @file sluggula.c
+ * @ingroup Enemies
+ *
+ * @brief Sluggula enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 

@@ -1,3 +1,10 @@
+/**
+ * @file miniFireballGuy.c
+ * @ingroup Enemies
+ *
+ * @brief Mini Fireball Guy enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 

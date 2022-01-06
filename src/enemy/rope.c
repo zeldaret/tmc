@@ -1,3 +1,10 @@
+/**
+ * @file rope.c
+ * @ingroup Enemies
+ *
+ * @brief Rope enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 

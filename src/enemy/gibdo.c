@@ -1,3 +1,10 @@
+/**
+ * @file gibdo.c
+ * @ingroup Enemies
+ *
+ * @brief Gibdo enemy
+ */
+
 #include "global.h"
 #include "enemy.h"
 #include "object.h"

@@ -1,6 +1,24 @@
 #ifndef GUARD_GLOBAL_H
 #define GUARD_GLOBAL_H
 
+/**
+ * @defgroup Tasks Tasks
+ * @defgroup Subtasks Subtasks
+ */
+
+/** @defgroup Entities Entities */
+///@{
+/**
+ * @defgroup Player Player
+ * @defgroup Enemies Enemies
+ * @defgroup Projectiles Projectiles
+ * @defgroup Objects Objects
+ * @defgroup NPCs NPCs
+ * @defgroup Items Items
+ * @defgroup Managers Managers
+ */
+///@}
+
 #include "gba/gba.h"
 #include <string.h>
 

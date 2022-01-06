@@ -1,3 +1,10 @@
+/**
+ * @file cuccoChickAggr.c
+ * @ingroup Enemies
+ *
+ * @brief Cucco Chick Aggr enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 

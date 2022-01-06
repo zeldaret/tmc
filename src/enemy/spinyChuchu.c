@@ -1,3 +1,10 @@
+/**
+ * @file spinyChuchu.c
+ * @ingroup Enemies
+ *
+ * @brief Spiny Chuchu enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 

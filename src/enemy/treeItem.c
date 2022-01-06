@@ -1,3 +1,10 @@
+/**
+ * @file treeItem.c
+ * @ingroup Enemies
+ *
+ * @brief Tree Item enemy
+ */
+
 #include "global.h"
 #include "enemy.h"
 #include "object.h"

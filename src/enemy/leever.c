@@ -1,3 +1,10 @@
+/**
+ * @file leever.c
+ * @ingroup Enemies
+ *
+ * @brief Leever enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 

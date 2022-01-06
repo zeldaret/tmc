@@ -1,3 +1,10 @@
+/**
+ * @file debug.c
+ * @ingroup Tasks
+ *
+ * @brief Debug task
+ */
+
 #include "global.h"
 #include "sound.h"
 #include "common.h"

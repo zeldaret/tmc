@@ -1,3 +1,10 @@
+/**
+ * @file bladeTrap.c
+ * @ingroup Enemies
+ *
+ * @brief Blade Trap enemy
+ */
+
 #include "sound.h"
 #include "entity.h"
 #include "room.h"

@@ -1,3 +1,10 @@
+/**
+ * @file helmasaur.c
+ * @ingroup Enemies
+ *
+ * @brief Helmasaur enemy
+ */
+
 #include "enemy.h"
 #include "object.h"
 #include "functions.h"

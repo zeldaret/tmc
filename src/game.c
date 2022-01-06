@@ -1,3 +1,10 @@
+/**
+ * @file game.c
+ * @ingroup Tasks
+ *
+ * @brief Game task
+ */
+
 #include "global.h"
 #include "asm.h"
 #include "sound.h"
@@ -525,7 +532,7 @@ static void AuxCutscene_Init(void) {
     LoadGfxGroups();
     gArea.localFlagOffset = GetFlagBankOffset(gRoomControls.area);
     SetCurrentRoomPropertyList(p->area, p->room);
-    LoadCutsceneRoom(p->area, p->room);
+    LoadAuxiliaryRoom(p->area, p->room);
     gRoomControls.scroll_x = gRoomControls.origin_x + p->x;
     gRoomControls.scroll_y = gRoomControls.origin_y + p->y;
     gMenu.field_0x0 = p->_2;
@@ -1441,7 +1448,7 @@ static void UpdateFakeScroll(void) {
     } while (++ll < gEntityLists + 9);
 }
 
-void LoadCutsceneRoom(u32 area, u32 room) {
+void LoadAuxiliaryRoom(u32 area, u32 room) {
     sub_08052FF4(area, room);
     gRoomControls.camera_target = NULL;
     sub_0807C860();

@@ -1,3 +1,10 @@
+/**
+ * @file demo.c
+ * @ingroup Tasks
+ *
+ * @brief Demo task
+ */
+
 #include "global.h"
 #include "functions.h"
 #include "main.h"

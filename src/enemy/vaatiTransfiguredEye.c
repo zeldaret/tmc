@@ -1,3 +1,10 @@
+/**
+ * @file vaatiTransfiguredEye.c
+ * @ingroup Enemies
+ *
+ * @brief Vaati Transfigured Eye enemy
+ */
+
 #include "entity.h"
 #include "enemy.h"
 #include "message.h"

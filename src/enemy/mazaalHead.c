@@ -1,3 +1,10 @@
+/**
+ * @file mazaalHead.c
+ * @ingroup Enemies
+ *
+ * @brief Mazaal Head enemy
+ */
+
 #include "enemy.h"
 #include "object.h"
 #include "functions.h"

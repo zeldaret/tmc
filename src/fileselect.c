@@ -1,3 +1,10 @@
+/**
+ * @file fileselect.c
+ * @ingroup Tasks
+ *
+ * @brief File select task
+ */
+
 #include "fileselect.h"
 #include "main.h"
 #include "common.h"

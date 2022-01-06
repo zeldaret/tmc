@@ -1,3 +1,10 @@
+/**
+ * @file vaatiBall.c
+ * @ingroup Enemies
+ *
+ * @brief Vaati Ball enemy
+ */
+
 #include "entity.h"
 #include "enemy.h"
 #include "player.h"

@@ -1,3 +1,10 @@
+/**
+ * @file ropeGolden.c
+ * @ingroup Enemies
+ *
+ * @brief Golden Rope enemy
+ */
+
 #include "global.h"
 #include "entity.h"
 #include "functions.h"

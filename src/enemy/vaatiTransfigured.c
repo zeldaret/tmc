@@ -1,3 +1,10 @@
+/**
+ * @file vaatiTransfigured.c
+ * @ingroup Enemies
+ *
+ * @brief Vaati Transfigured enemy
+ */
+
 #include "enemy.h"
 #include "object.h"
 #include "functions.h"

@@ -9,7 +9,7 @@
 #define MAX_ENTITIES 71
 
 /** Kinds of Entity's supported by the game. */
-enum EntityKind {
+typedef enum {
     PLAYER = 1,      /**< There is only one id assigned to the Player kind.
                       * The player Entity shares much of its code with LTTP GBA, however the game only supports
                       * one player Entity active at a time, assigned to the global #gPlayerEntity.
@@ -32,16 +32,16 @@ enum EntityKind {
                       * Examples: drawing clouds, ezlo hints, playing cutscenes.
                       * Updates independently of other entities, and does not add to maximum entity count.
                       */
-};
+} EntityKind;
 
 /** Entity flags. */
-enum EntityFlags {
+typedef enum {
     ENT_DID_INIT = 0x1, /**< Graphics and other data loaded. */
     ENT_SCRIPTED = 0x2, /**< Execute in a scripted environment. */
     ENT_DELETED = 0x10, /**< Queue deletion next frame. */
     ENT_PERSIST = 0x20, /**< Persist between rooms. */
     ENT_COLLIDE = 0x80, /**< Collide with other Entity's. */
-};
+} EntityFlags;
 
 /** Priority level to determine what events will block an Entity from updating. */
 typedef enum {
@@ -56,20 +56,20 @@ typedef enum {
 } Priority;
 
 /** Animation state. */
-enum AnimationState {
+typedef enum {
     IdleNorth = 0x0, /**< Idle facing north. */
     IdleEast = 0x2,  /**< Idle facing east. */
     IdleSouth = 0x4, /**< Idle facing south. */
     IdleWest = 0x6,  /**< Idle facing west. */
-};
+} AnimationState;
 
 /** Direction. */
-enum Direction {
+typedef enum {
     DirectionNorth = 0x00, /**< North. */
     DirectionEast = 0x08,  /**< East. */
     DirectionSouth = 0x10, /**< South. */
     DirectionWest = 0x18,  /**< West. */
-};
+} Direction;
 
 typedef struct {
     void* entity1;
@@ -509,3 +509,4 @@ extern u8 gManagerCount;
 ///@}
 
 #endif // ENTITY_H
+// clang-format on

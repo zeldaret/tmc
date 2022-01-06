@@ -1,3 +1,10 @@
+/**
+ * @file keaton.c
+ * @ingroup Enemies
+ *
+ * @brief keaton enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 
