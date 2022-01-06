@@ -3,8 +3,14 @@
 #include "functions.h"
 #include "object.h"
 
+typedef struct {
+    u8 b0;
+    u8 direction;
+} PACKED Struct_0812A074;
+
 extern void sub_0806FBB4(Entity*);
 extern u32 sub_080002D4(s32, s32, u32);
+extern void sub_08078930(Entity*);
 
 extern void (*const SpiderWeb_Functions[])(Entity*);
 extern void (*const SpiderWeb_Actions[])(Entity*);
@@ -13,7 +19,7 @@ extern const Hitbox* const gUnk_0812A04C[];
 extern void (*const SpiderWeb_SubActions[])(Entity*);
 extern const s8 gUnk_0812A064[];
 extern const s8 gUnk_0812A06C[];
-extern const u8 gUnk_0812A074[];
+extern const Struct_0812A074 gUnk_0812A074[];
 extern const u16 gUnk_0812A084[];
 
 void sub_080AA6C0(Entity*);
@@ -165,7 +171,50 @@ void SpiderWeb_Action3(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/spiderWeb/sub_080AA9E0.inc", void sub_080AA9E0(Entity* this))
+NONMATCH("asm/non_matching/spiderWeb/sub_080AA9E0.inc", void sub_080AA9E0(Entity* this)) {
+    s32 coord1, coord2, diff;
+    Struct_0812A074* ptr;
+    SpritePriority* priorityPtr;
+    SpritePriority prio;
+    u8 val1, val2;
+    if (this->type & 0x1) {
+        coord2 = gPlayerEntity.x.HALF.HI;
+        coord1 = this->x.HALF.HI;
+    } else {
+        coord2 = gPlayerEntity.y.HALF.HI;
+        coord1 = this->y.HALF.HI;
+    }
+
+    diff = coord2 - coord1;
+    ptr = (Struct_0812A074*)gUnk_0812A074 + (this->type << 1);
+    switch (this->type) {
+        case 3:
+        case 0: {
+            if (diff > 4) {
+                ptr++;
+            }
+            break;
+        }
+        case 1:
+        case 2: {
+            if (diff < -4) {
+                ptr++;
+            }
+            break;
+        }
+    }
+
+    val1 = ptr->b0;
+    priorityPtr = (SpritePriority*)&this->spritePriority;
+    priorityPtr->b0 = val1 & 0x7;
+    // instruction order problems
+    // this->spritePriority.b0 = ptr->b0 & 0x7;
+    this->direction = ptr->direction;
+    if (val1 == 5) {
+        sub_08078930(this);
+    }
+}
+END_NONMATCH
 
 void sub_080AAA68(Entity* this) {
     SetTile(gUnk_0812A084[this->type], TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
@@ -205,5 +254,6 @@ void (*const SpiderWeb_SubActions[])(Entity*) = {
 };
 const s8 gUnk_0812A064[] = { 0, 17, -15, 4, 0, -11, 15, 4 };
 const s8 gUnk_0812A06C[] = { 0, 2, -2, 0, 0, -2, 2, 0 };
-const u8 gUnk_0812A074[] = { 4, 0, 5, 16, 3, 8, 5, 24, 3, 16, 5, 0, 3, 24, 5, 8 };
+const Struct_0812A074 gUnk_0812A074[] = { { 4, 0 },  { 5, 16 }, { 3, 8 },  { 5, 24 },
+                                          { 3, 16 }, { 5, 0 },  { 3, 24 }, { 5, 8 } };
 const u16 gUnk_0812A084[] = { 16419, 16421, 16422, 16420 };

@@ -8,6 +8,7 @@ extern void (*const V3TennisBallProjectile_Functions[])(Entity*);
 extern void (*const V3TennisBallProjectile_Actions[])(Entity*);
 
 void sub_080ACB90(Entity*);
+bool32 sub_080ACB40(Entity* this);
 
 void V3TennisBallProjectile(Entity* this) {
     V3TennisBallProjectile_Functions[GetNextFunction(this)](this);
@@ -17,7 +18,32 @@ void V3TennisBallProjectile_OnTick(Entity* this) {
     V3TennisBallProjectile_Actions[this->action](this);
 }
 
-ASM_FUNC("asm/non_matching/v3TennisBallProjectile/sub_080ACA68.inc", void sub_080ACA68(Entity* this))
+void sub_080ACA68(Entity* this) {
+    switch (this->bitfield & 0x7f) {
+        case 0x1a:
+        case 0xa:
+        case 0xb:
+        case 0xc:
+        case 0x6: {
+            this->action = 2;
+            this->flags &= 0x7f;
+            this->speed += 0x80 * 2;
+            this->child = this->field_0x4c;
+            if (sub_080ACB40(this)) {
+                this->direction = 0;
+            } else {
+                this->direction = this->knockbackDirection;
+            }
+
+            SoundReq(SFX_ITEM_SWORD_CHARGE_FINISH);
+            break;
+        }
+        default: {
+            DeleteThisEntity();
+            break;
+        }
+    }
+}
 
 void V3TennisBallProjectile_Init(Entity* this) {
     this->action = 1;
@@ -48,7 +74,35 @@ void V3TennisBallProjectile_Action2(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/v3TennisBallProjectile/sub_080ACB40.inc", void sub_080ACB40(Entity* this))
+bool32 sub_080ACB40(Entity* this) {
+    Entity* r1_grandparent = this->parent->parent;
+    Entity* child = this->child;
+    Entity* tmp = ((Entity*)(r1_grandparent->myHeap[7]))->child;
+
+    if (tmp != this && child == tmp->child) {
+        return 0;
+    }
+
+    tmp = ((Entity*)(r1_grandparent->myHeap[8]))->child;
+
+    if (tmp != this && child == tmp->child) {
+        return 0;
+    }
+
+    tmp = ((Entity*)(r1_grandparent->myHeap[9]))->child;
+
+    if (tmp != this && child == tmp->child) {
+        return 0;
+    }
+
+    tmp = ((Entity*)(r1_grandparent->myHeap[10]))->child;
+
+    if (tmp != this && child == tmp->child) {
+        return 0;
+    }
+
+    return 1;
+}
 
 void sub_080ACB90(Entity* this) {
     Entity* parent = this->parent;

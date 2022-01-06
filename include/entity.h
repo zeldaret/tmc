@@ -101,6 +101,13 @@ typedef struct {
     u8 unknown2[3];
 } Hitbox3D;
 
+typedef struct {
+    u8 b0 : 3; // 1-4
+    u8 b1 : 3; // 8
+    u8 b2 : 1; // 0x40
+    u8 b3 : 1; // 0x80
+} PACKED SpritePriority;
+
 /**
  * Container for instantiable behavior.
  */
@@ -156,12 +163,7 @@ typedef struct Entity_ {
     /*0x20*/ s32 zVelocity; /**< Z axis speed. */
     /*0x24*/ s16 speed;     /**< Magnitude of speed. */
     /*0x26*/ u8 spriteAnimation[3];
-    /*0x29*/ struct {
-    /*    */     u8 b0 : 3; /* 1-4 */
-    /*    */     u8 b1 : 3; /* 8 */
-    /*    */     u8 b2 : 1; /* 0x40 */
-    /*    */     u8 b3 : 1; /* 0x80 */
-    /*    */ } PACKED spritePriority;
+    /*0x29*/ SpritePriority spritePriority;
     /*0x2a*/ u16 collisions;
     /*0x2c*/ union SplitWord x; /**< X position, fixed point. */
     /*0x30*/ union SplitWord y; /**< Y position, fixed point. */

@@ -19,7 +19,30 @@ void GyorgMaleEnergyProjectile_OnTick(Entity* this) {
     GyorgMaleEnergyProjectile_Actions[this->action](this);
 }
 
-ASM_FUNC("asm/non_matching/gyorgMaleEnergyProjectile/sub_080AC8DC.inc", void sub_080AC8DC(Entity* this))
+void sub_080AC8DC(Entity* this) {
+    switch ((s8)(this->bitfield & 0x7f)) {
+        case 0:
+        case 1:
+        case 2:
+        case 3:
+        case 0x1e:
+        case 0x1f: {
+            DeleteThisEntity();
+            break;
+        }
+        default: {
+            if (this->action != 3) {
+                this->action = 3;
+                this->flags &= 0x7f;
+                this->speed >>= 1;
+                InitializeAnimation(this, 1);
+            }
+            break;
+        }
+    }
+
+    GyorgMaleEnergyProjectile_OnTick(this);
+}
 
 void GyorgMaleEnergyProjectile_Init(Entity* this) {
     this->action = 1;
