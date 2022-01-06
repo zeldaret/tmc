@@ -1124,17 +1124,18 @@ NONMATCH("asm/non_matching/fileScreen/sub_08051738.inc", void sub_08051738(void)
 }
 END_NONMATCH
 
-NONMATCH("asm/non_matching/fileScreen/sub_080517B4.inc", s32 sub_080517B4(s32 a1)) {
+s32 sub_080517B4(s32 a1) {
     u32 i = gUnk_02019EE0.unk7;
     if (a1 != 0) {
-        for (; i < 5; i += a1) {
-            if ((&gMenu.selectMtx)[i] != 0 && (&gMenu.selectMtx)[i] != 4)
+        for (i = i + a1; i < 5; i += a1) {
+            if ((&gMenu.focusCoords[0])[i] != 0 && (&gMenu.focusCoords[0])[i] != 4)
                 return i;
         }
+
+        i = gUnk_02019EE0.unk7;
     }
     return i;
 }
-END_NONMATCH
 
 void sub_080517EC(void) {
     u32 temp;
