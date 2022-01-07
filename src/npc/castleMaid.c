@@ -114,7 +114,7 @@ void sub_08064688(Entity* this) {
 
 void sub_080646A4(Entity* this, ScriptExecutionContext* context) {
     u8 dir;
-    s32 x,y;
+    s32 x, y;
     s32 diff;
     if (context->unk_18 == 0) {
         context->unk_18++;
