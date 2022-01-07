@@ -5,6 +5,7 @@
 #include "message.h"
 #include "npc.h"
 #include "manager.h"
+#include "functions.h"
 
 extern Dialog gUnk_0810F894[];
 
@@ -45,26 +46,28 @@ void Maid_Head(Entity* this) {
     sub_0807000C(this);
 }
 
-NONMATCH("asm/non_matching/castleMaid/sub_08064570.inc", void sub_08064570(Entity* this)) {
+void sub_08064570(Entity* this) {
     u32 tmp;
+    u32 tmp2;
+    SpriteLoadData* data;
 
     switch (this->action) {
         case 0:
-            // (&gUnk_0810F874[((s32)-(this->id ^ 0x16) >> 0x1f) * -0xc]))
-            // TODO fix this array access
-            tmp = -(this->id ^ 0x16);
-            if (LoadExtraSpriteData(this, &gUnk_0810F874[(BOOLCAST(tmp)) * 2 + tmp]) == 0) {
+            tmp = this->id;
+            tmp ^= 0x16;
+            data = &gUnk_0810F874[BOOLCAST(tmp) * 3];
+            if (LoadExtraSpriteData(this, data) == 0) {
                 return;
             }
             this->action += 1;
             this->actionDelay = 0;
-            tmp = sub_0805ACC0(this);
-            if (tmp == 0) {
+            tmp2 = sub_0805ACC0(this);
+            if (tmp2 == 0) {
                 this->field_0x6c.HWORD = this->x.HALF.HI;
                 this->field_0x6e.HWORD = this->y.HALF.HI;
             } else {
-                this->field_0x6c.HWORD = tmp >> 0x10;
-                this->field_0x6e.HWORD = tmp;
+                this->field_0x6c.HWORD = tmp2 >> 0x10;
+                this->field_0x6e.HWORD = tmp2;
             }
             *(u32*)&this->field_0x68 = 0;
             sub_0807DD50(this);
@@ -87,7 +90,6 @@ NONMATCH("asm/non_matching/castleMaid/sub_08064570.inc", void sub_08064570(Entit
             break;
     }
 }
-END_NONMATCH
 
 void sub_08064644(Entity* this, ScriptExecutionContext* context) {
     *(u32*)&this->field_0x68 = context->intVariable;
@@ -110,5 +112,69 @@ void sub_08064688(Entity* this) {
     ShowNPCDialogue(this, &gUnk_0810F894[gSave.global_progress]);
 }
 
-ASM_FUNC("asm/non_matching/castleMaid/sub_080646A4.inc",
-         void sub_080646A4(Entity* this, ScriptExecutionContext* context))
+void sub_080646A4(Entity* this, ScriptExecutionContext* context) {
+    u8 dir;
+    s32 x,y;
+    s32 diff;
+    if (context->unk_18 == 0) {
+        context->unk_18++;
+        context->unk_12 = (Random() & 0x3f) + 0x20;
+        dir = Random() & 0x18;
+
+        switch (this->direction) {
+            case 0:
+                if (dir == 0x10) {
+                    dir = 0x8;
+                }
+                break;
+            case 0x8:
+                if (dir == 0x18) {
+                    dir = 0x10;
+                }
+                break;
+            case 0x10:
+                if (dir == 0) {
+                    dir = 0x18;
+                }
+                break;
+            case 0x18:
+                if (dir == 0x8) {
+                    dir = 0;
+                }
+                break;
+        }
+        this->direction = dir;
+        this->animationState = sub_0806F5B0(dir);
+        this->speed = 0x80;
+    }
+
+    context->postScriptActions |= 0x2;
+    ProcessMovement(this);
+    x = this->x.HALF.HI;
+    diff = x - (s16)this->field_0x6c.HWORD;
+    if (diff > 0x10) {
+        this->x.HALF.HI = this->field_0x6c.HWORD + 0x10;
+        context->unk_12 = 1;
+    }
+
+    if (diff < -0x10) {
+        this->x.HALF.HI = this->field_0x6c.HWORD - 0x10;
+        context->unk_12 = 1;
+    }
+
+    y = this->y.HALF.HI;
+    diff = y - (s16)this->field_0x6e.HWORD;
+    if (diff > 0x10) {
+        this->y.HALF.HI = this->field_0x6e.HWORD + 0x10;
+        context->unk_12 = 1;
+    }
+
+    if (diff < -0x10) {
+        this->y.HALF.HI = this->field_0x6e.HWORD - 0x10;
+        context->unk_12 = 1;
+    }
+
+    if (--context->unk_12) {
+        gActiveScriptInfo.commandSize = 0;
+    }
+}
