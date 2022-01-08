@@ -26,5 +26,7 @@ echo "Running clang-tidy..."
 clang-tidy ${TIDY_OPTS} src/**/*.c -- ${COMPILER_OPTS} &> /dev/null
 clang-tidy ${TIDY_OPTS} include/**/*.h -- ${COMPILER_OPTS} &> /dev/null
 echo "Adding missing final new lines..."
-find src/ -type f -name "*.c" -exec sed -i -e '$a\' {} \;
+
+# only run sed if no line at the end of file so we don't unnecessarily touch the file.
+find src/ -type f -name "*.c" -exec bash -c 'if [[ -n  "$(tail -c 1 {})" ]]; then sed -i -e '"'"'$a\'"'"' {}; fi' \;
 echo "Done formatting all files."
