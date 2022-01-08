@@ -564,14 +564,14 @@ void sub_080249DC(Entity* this) {
     InitializeAnimation(this, this->animationState);
 }
 
-NONMATCH("asm/non_matching/pesto/sub_080249F4.inc", void sub_080249F4(Entity* this)) {
-    u8 direction = ((this->direction + 2) & 0x1c) >> 2;
+void sub_080249F4(Entity* this) {
+    u32 direction = ((this->direction + 2) & 0x1f);
+    direction >>= 2;
     if (direction != this->animationState) {
         this->animationState = direction;
         InitializeAnimation(this, this->animationState);
     }
 }
-END_NONMATCH
 
 void sub_08024A14(Entity* this, u32 param_2, u32 param_3) {
     u8 unk = FALSE;
