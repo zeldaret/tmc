@@ -15,6 +15,13 @@ extern s8 gUnk_08110E64[];
 
 extern u32 gUnk_08110E68[];
 
+typedef struct {
+    s8 x;
+    s8 y;
+} PACKED PosOffset;
+extern PosOffset gUnk_08110E78[];
+extern PosOffset gUnk_08110E8A[];
+
 void CastorWildsStatue(Entity* this) {
     if ((this->flags & 2) != 0) {
         gUnk_08110E5C[this->action](this);
@@ -113,14 +120,77 @@ void sub_0806757C(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/castorWildsStatue/sub_080675D4.inc", void sub_080675D4(Entity* this))
+void sub_080675D4(Entity* this) {
+    PosOffset* gUnk = gUnk_08110E78;
+    u32 subAction = (this->subAction << 2) - 0xc;
+    s32 i;
+
+    for (i = 0; i < 9; i++, gUnk++) {
+        Entity* ent = CreateFx(this, 2, 0);
+        if (ent) {
+            ent->x.HALF.HI += gUnk->x;
+            ent->y.HALF.HI += gUnk->y;
+            ent->z.HALF.HI = subAction;
+            ent->collisionLayer = this->collisionLayer;
+            ent->spriteOrientation.flipY = this->spriteOrientation.flipY;
+            ent->spriteRendering.b3 = this->spriteRendering.b3;
+            ResolveEntityOnTop(this, ent);
+        }
+    };
+    gUnk = gUnk_08110E8A;
+    for (i = 0; i < 4; i++, gUnk++) {
+        Entity* ent = CreateFx(this, 4, 0);
+        if (ent) {
+            ent->x.HALF.HI = gUnk->x + ent->x.HALF.HI;
+            ent->y.HALF.HI = gUnk->y + ent->y.HALF.HI;
+            ent->z.HALF.HI = subAction;
+            ent->collisionLayer = this->collisionLayer;
+            ent->spriteOrientation.flipY = this->spriteOrientation.flipY;
+            ent->spriteRendering.b3 = this->spriteRendering.b3;
+            ResolveEntityOnTop(this, ent);
+        }
+    };
+    if (this->subAction > 2) {
+        this->spriteSettings.draw = 0;
+    }
+}
 
 void sub_080676D8(Entity* this) {
     this->subAction += 1;
 }
 
-ASM_FUNC("asm/non_matching/castorWildsStatue/sub_080676E0.inc",
-         void sub_080676E0(Entity* this, ScriptExecutionContext* context))
+void sub_080676E0(Entity* this, ScriptExecutionContext* context) {
+    switch (context->unk_18) {
+        case 0: {
+            context->unk_18 = 1;
+            context->unk_19 = 0x20;
+            break;
+        }
+        case 1: {
+            this->z.HALF.HI = (context->unk_19 >> 1) - 0x10;
+            if (--context->unk_19 == 0) {
+                context->unk_18 = 2;
+                context->unk_19 = 0x24;
+            }
+
+            break;
+        }
+        case 2: {
+            if (--context->unk_19 == 0) {
+                context->unk_18 = 3;
+            }
+            break;
+        }
+        default: {
+            if (GravityUpdate(this, 0x1800) == 0) {
+                return;
+            }
+            break;
+        }
+    }
+
+    gActiveScriptInfo.commandSize = 0;
+}
 
 void CastorWildsStatue_Fusion(Entity* this) {
     if (this->action == 0) {
