@@ -790,16 +790,15 @@ u32 sub_08024E34(void) {
     return gUnk_080CBF20[idx];
 }
 
-NONMATCH("asm/non_matching/pesto/sub_08024E4C.inc", void sub_08024E4C(Entity* this)) {
+void sub_08024E4C(Entity* this) {
     if (this->field_0x82.HALF.HI == 3) {
-        this->field_0xf++;
-        this->field_0xf &= 0xff;
-        this->field_0xf &= 0x1f;
-
+        this->field_0xf = ++this->field_0xf & 0x1f;
         if (sub_0807953C()) {
-            this->cutsceneBeh.HALF.LO += 1 + (Random() & 1);
+            u32 r = Random();
+            this->cutsceneBeh.HALF.LO++;
+            r &= 1;
+            this->cutsceneBeh.HALF.LO += r;
         }
-
         if (gSave.stats.health == 0 || this->field_0x86.HALF.HI == 4) {
             this->cutsceneBeh.HALF.LO = 0x30;
             this->field_0x86.HALF.HI = 0;
@@ -811,7 +810,6 @@ NONMATCH("asm/non_matching/pesto/sub_08024E4C.inc", void sub_08024E4C(Entity* th
             sub_08024A14(this, 0, 8);
         } else {
             Entity* player = &gPlayerEntity;
-
             ResetPlayer();
             gPlayerState.flags |= PL_DISABLE_ITEMS;
             gPlayerState.field_0xa |= 0x80;
@@ -832,7 +830,6 @@ NONMATCH("asm/non_matching/pesto/sub_08024E4C.inc", void sub_08024E4C(Entity* th
         }
     }
 }
-END_NONMATCH
 
 void sub_08024F50(Entity* this) {
     gPlayerState.field_0xa = 0;
