@@ -163,8 +163,8 @@ void sub_08037690(Entity* this) {
         }
     }
 }
-// Non-matching
-NONMATCH("asm/non_matching/gibdo/sub_080376D0.inc", void sub_080376D0(Entity* this)) {
+
+void sub_080376D0(Entity* this) {
     u8* x;
     if (sub_080379EC(this) == 0) {
         ResetPlayer();
@@ -172,18 +172,16 @@ NONMATCH("asm/non_matching/gibdo/sub_080376D0.inc", void sub_080376D0(Entity* th
         gPlayerState.field_0xa = gPlayerState.field_0xa | 0x80;
         CopyPositionAndSpriteOffset(&gPlayerEntity, this);
         UpdateAnimationSingleFrame(this);
-        x = &this->frame;
-        if ((*x & 0x1) != 0) {
-            if (!(--this->field_0x7c.BYTES.byte0)) {
+        if ((this->frame & 0x1) != 0) {
+            if (--this->field_0x7c.BYTES.byte0 == 0) {
                 sub_08037A58(this);
+            } else {
+                this->frame ^= 1;
+                sub_08037B10(this);
             }
-        } else {
-            *x = *x ^ 1;
-            sub_08037B10(this);
         }
     }
 }
-END_NONMATCH
 
 void sub_0803773C(Entity* this) {
     UpdateAnimationSingleFrame(this);
@@ -373,12 +371,12 @@ void sub_08037B10(Entity* this) {
         this->field_0x76.HALF.LO = 0xf0;
     }
 }
-NONMATCH("asm/non_matching/gibdo/sub_08037B48.inc", void sub_08037B48(Entity* this)) {
+void sub_08037B48(Entity* this) {
     Entity* E;
     E = CreateObject(OBJECT_2A, 3, 0);
     if (E != 0) {
         E->type2 = this->actionDelay;
-        E->spritePriority.b0 = (E->spritePriority.b0 & 0xf8) | 3;
+        E->spritePriority.b0 = 3;
         E->spriteOffsetX = 0;
         E->spriteOffsetY = 0xfc;
         E->parent = this;
@@ -387,7 +385,7 @@ NONMATCH("asm/non_matching/gibdo/sub_08037B48.inc", void sub_08037B48(Entity* th
     E = CreateObject(OBJECT_2A, 3, 0);
     if (E != 0) {
         E->type2 = this->actionDelay;
-        E->spritePriority.b0 = (E->spritePriority.b0 & 0xf8) | 3;
+        E->spritePriority.b0 = 3;
         E->spriteOffsetX = 0xfd;
         E->spriteOffsetY = 0xf8;
         E->parent = this;
@@ -396,14 +394,13 @@ NONMATCH("asm/non_matching/gibdo/sub_08037B48.inc", void sub_08037B48(Entity* th
     E = CreateObject(OBJECT_2A, 3, 0);
     if (E != 0) {
         E->type2 = this->actionDelay;
-        E->spritePriority.b0 = (E->spritePriority.b0 & 0xf8) | 3;
+        E->spritePriority.b0 = 3;
         E->spriteOffsetX = 0x5;
         E->spriteOffsetY = 0xf5;
         E->parent = this;
     }
     this->child = E;
 }
-END_NONMATCH
 
 NONMATCH("asm/non_matching/gibdo/sub_08037C0C.inc", void sub_08037C0C(Entity* this, Entity* that)) {
     if (this->field_0x80.HWORD != 0) {
