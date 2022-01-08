@@ -21,13 +21,12 @@ extern u8 gUnk_0811022E[];
 
 void sub_08065C0C(Entity* this);
 static EntityAction* const gUnk_08110164[];
-extern u32 _call_via_r1(u32, u32*);
 
 void GhostBrothers(Entity* this) {
     if (this->flags & 0x2) {
         sub_08065C0C(this);
     } else {
-        _call_via_r1((u32)this, (u32*)gUnk_08110164[this->type]);
+        gUnk_08110164[this->type](this);
 
         if (this->type < 3) {
             s8* ptr = gUnk_0811015C;
