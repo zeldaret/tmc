@@ -381,7 +381,7 @@ SECTIONS {
         src/enemy/octorokBoss.o(.text);
         asm/enemy/flyingPot.o(.text);
         src/enemy/gibdo.o(.text);
-        asm/enemy/octorokGolden.o(.text);
+        src/enemy/octorokGolden.o(.text);
         src/enemy/tektiteGolden.o(.text);
         src/enemy/ropeGolden.o(.text);
         asm/enemy/cloudPiranha.o(.text);
