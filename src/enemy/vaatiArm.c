@@ -944,8 +944,10 @@ void sub_08043440(Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/vaati/sub_08043490.inc", void sub_08043490(Entity* this)) {
+void sub_08043490(Entity* this) {
     Entity* entity;
+    Entity* entity2;
+    Entity* entity3;
 
     entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[4];
     if (entity->z.HALF.HI < -4) {
@@ -961,15 +963,14 @@ NONMATCH("asm/non_matching/vaati/sub_08043490.inc", void sub_08043490(Entity* th
             entity->field_0x3c = entity->field_0x3c & 0xef;
             entity->hitType = 0x3a;
             entity->hitbox = (Hitbox*)&gUnk_080FD450;
-            entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[2];
-            entity->flags = entity->flags | 0x80;
-            entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[3];
-            entity->flags = entity->flags & 0x7f;
+            entity2 = ((VaatiArm_HeapStruct*)this->myHeap)->entities[2];
+            entity2->flags = entity2->flags | 0x80;
+            entity3 = ((VaatiArm_HeapStruct*)this->myHeap)->entities[3];
+            entity3->flags = entity3->flags & 0x7f;
         }
     }
     UpdateAnimationSingleFrame(this);
 }
-END_NONMATCH
 
 void sub_08043520(Entity* this) {
     Entity* entity;
