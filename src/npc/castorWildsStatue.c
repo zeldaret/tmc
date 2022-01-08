@@ -120,30 +120,25 @@ void sub_0806757C(Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/castorWildsStatue/sub_080675D4.inc", void sub_080675D4(Entity* this)) {
+void sub_080675D4(Entity* this) {
     PosOffset* gUnk = gUnk_08110E78;
     u32 subAction = (this->subAction << 2) - 0xc;
-    s32 index = 8;
+    s32 i;
 
-    do {
+    for (i = 0; i < 9; i++, gUnk++) {
         Entity* ent = CreateFx(this, 2, 0);
         if (ent) {
-            ent->x.HALF.HI = gUnk->x + ent->x.HALF.HI;
-            ent->y.HALF.HI = gUnk->y + ent->y.HALF.HI;
+            ent->x.HALF.HI += gUnk->x;
+            ent->y.HALF.HI += gUnk->y;
             ent->z.HALF.HI = subAction;
             ent->collisionLayer = this->collisionLayer;
             ent->spriteOrientation.flipY = this->spriteOrientation.flipY;
             ent->spriteRendering.b3 = this->spriteRendering.b3;
             ResolveEntityOnTop(this, ent);
         }
-        index--;
-        gUnk += 1;
-    } while (index >= 0);
-
+    };
     gUnk = gUnk_08110E8A;
-    index = 3;
-
-    do {
+    for (i = 0; i < 4; i++, gUnk++) {
         Entity* ent = CreateFx(this, 4, 0);
         if (ent) {
             ent->x.HALF.HI = gUnk->x + ent->x.HALF.HI;
@@ -154,16 +149,11 @@ NONMATCH("asm/non_matching/castorWildsStatue/sub_080675D4.inc", void sub_080675D
             ent->spriteRendering.b3 = this->spriteRendering.b3;
             ResolveEntityOnTop(this, ent);
         }
-        index--;
-        gUnk += 1;
-
-    } while (index >= 0);
-
+    };
     if (this->subAction > 2) {
         this->spriteSettings.draw = 0;
     }
 }
-END_NONMATCH
 
 void sub_080676D8(Entity* this) {
     this->subAction += 1;
