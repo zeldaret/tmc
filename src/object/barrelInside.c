@@ -19,7 +19,6 @@ void BarrelInside(Entity* this) {
 
     if (this->type == 4) {
         if (--this->actionDelay == 0) {
-            u32 tmp;
             this->actionDelay = 0x10;
             this->frameIndex = gUnk_08120C92[this->field_0xf++];
             if (this->field_0xf == 3) {
