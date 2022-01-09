@@ -768,7 +768,7 @@ SECTIONS {
         src/object/bell.o(.text);
         asm/object/macroDecorations.o(.text);
         asm/object/object79.o(.text);
-        asm/object/steam.o(.text);
+        src/object/steam.o(.text);
         asm/object/pushableLever.o(.text);
         asm/object/macroShoes.o(.text);
         asm/object/objectOnSpinyBeetle.o(.text);
