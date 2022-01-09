@@ -418,34 +418,39 @@ NONMATCH("asm/non_matching/npc5/sub_08061170.inc", bool32 sub_08061170(Entity* t
 }
 END_NONMATCH
 
-NONMATCH("asm/non_matching/npc5/sub_080611D4.inc", u32 sub_080611D4(Entity* this)) {
+u32 sub_080611D4(Entity* this) {
     u32 uVar2;
 
     u32 x;
     s32 a;
     s32 b;
+    s8* ptr;
+    u8* ptr2;
     x = this->animationState & 6;
-    // asm("a");
-    a = gUnk_0810AC4C[x].unk_0;
-    // asm("c");
-    b = gUnk_0810AC4C[x].unk_1;
-    // asm("d");
+    ptr = (s8*)gUnk_0810AC4C;
+    a = ptr[x];
+    b = ptr[x + 1];
     uVar2 = sub_080002B4(this, a, b);
-    // asm("b");
-    if ((gUnk_0810AC54[0] != uVar2 || (this->animationState != gUnk_0810AC54[1] >> 2))) {
-        // asm ("e");
-        if (gUnk_0810AC54[2] == 0) {
-            this->field_0xf = 0;
+    ptr2 = gUnk_0810AC54;
+
+    do {
+        if (*ptr2 != uVar2 || this->animationState != (ptr2[1] >> 2)) {
+            continue;
+        }
+
+        ++this->field_0xf;
+
+        if (this->field_0xf < 8) {
             return 0xff;
         }
-    }
-    this->field_0xf += 1;
-    if (this->field_0xf < 8) {
-        return 0xff;
-    }
-    return gUnk_0810AC54[3];
+
+        return ptr2[1];
+    } while (ptr2 += 2, *ptr2 != 0);
+
+    this->field_0xf = 0;
+
+    return 0xff;
 }
-END_NONMATCH
 
 u32 sub_08061230(Entity* this) {
     if ((((UnkHeap*)this->myHeap)->unk_0 & 1) == 0) {
