@@ -177,11 +177,11 @@ static void HandleNintendoCapcomLogos(void) {
         if (gUnk_02000010.listenForKeyPresses == 0) {
             if ((gInput.heldKeys & 0x204) == 0x204) { // TODO
                 gUnk_02000010.field_0x7 = 1;
-                SoundReq(0x73);
+                SoundReq(SFX_SECRET_BIG);
             } else {
                 if ((gInput.heldKeys & 0x104) == 0x104) { // TODO
                     gUnk_02000010.field_0x7 = 2;
-                    SoundReq(0xcd);
+                    SoundReq(SFX_TASK_COMPLETE);
                 } else {
                     gUnk_02000010.field_0x7 = 0;
                 }

@@ -93,7 +93,7 @@ void sub_0808B590(Entity* this) {
         gPlayerEntity.animationState = 4;
         gPlayerEntity.flags &= ~0x80;
         RequestPriorityDuration(this, this->field_0xf + 0x10);
-        SoundReq(0x113);
+        SoundReq(SFX_113);
     } else {
         this->actionDelay = 0;
     }
@@ -112,7 +112,7 @@ void sub_0808B5E8(Entity* this) {
     switch (this->field_0xf & 0x60) {
         case 0x40:
             if (this->field_0xf == 0x58) {
-                SoundReq(0x114);
+                SoundReq(SFX_114);
             }
             if (!(this->field_0xf & 1)) {
                 tmp = 1;

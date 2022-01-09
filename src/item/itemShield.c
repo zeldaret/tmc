@@ -1,6 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "item.h"
+#include "sound.h"
 
 // TODO include correct headers?
 extern void sub_08077E78(ItemBehavior*, u32);
@@ -33,7 +34,7 @@ void sub_08076D34(ItemBehavior* beh, u32 arg1) {
             beh->stateID++;
             beh->field_0xf = 0;
             gPlayerState.field_0xa &= ~(u8)(8 >> arg1);
-            SoundReq(0x15d);
+            SoundReq(SFX_15D);
         }
     } else {
         gPlayerState.field_0x3[0] = 0;

@@ -677,7 +677,7 @@ void sub_StateChange_HyruleCastle_4(void) {
         gPlayerEntity.y.HALF.HI = gRoomControls.origin_y + 0x40;
         sub_080751E8(0, 6, &script_PlayerWakingUpInHyruleCastle);
 #ifdef EU
-        SoundReq(0x80010000);
+        SoundReq(SONG_STOP_ALL);
         gArea.bgm = gArea.queued_bgm;
     }
 #else
