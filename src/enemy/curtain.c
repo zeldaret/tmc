@@ -55,7 +55,6 @@ void sub_08048268(Entity* this) {
     }
 }
 
-
 void sub_08048294(Entity* this) {
     GetNextFrame(this);
 
