@@ -463,7 +463,7 @@ void sub_0801E044(void) {
         MenuFadeIn(4, 0);
         gFuseInfo._0 = 4;
         gFuseInfo.action = 2;
-        SoundReq(0x6b);
+        SoundReq(SFX_6B);
     }
 }
 

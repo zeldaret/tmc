@@ -69,14 +69,14 @@ void sub_08059608(Manager10* this) {
         if (gArea.queued_bgm != 0x1E) {
             gArea.queued_bgm = 0x1E;
             this->unk_23 = 0x78;
-            SoundReq(0x800d0000);
+            SoundReq(SONG_FADE_OUT_BGM);
         }
         return;
     }
     if (gArea.queued_bgm != 0x37) {
         gArea.queued_bgm = 0x37;
         this->unk_23 = 0x78;
-        SoundReq(0x800d0000);
+        SoundReq(SONG_FADE_OUT_BGM);
     }
 }
 

@@ -667,7 +667,7 @@ void VaatiRebornEnemyType1PreAction(Entity* this) {
             this->field_0x76.HALF.HI = 0xff;
         }
         if (0 < this->iframes) {
-            SoundReq(0x127);
+            SoundReq(SFX_BOSS_HIT);
             InitScreenShake(0xc, 1);
             if (this->actionDelay == 0)
                 this->actionDelay = 0x48;

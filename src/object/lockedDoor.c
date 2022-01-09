@@ -240,7 +240,7 @@ void sub_08083658(Entity* this) {
     this->x.HALF.HI += tmp->x;
     this->y.HALF.HI += tmp->y;
     RequestPriorityDuration(this, 0x3c);
-    SoundReq(0x10b);
+    SoundReq(SFX_10B);
 }
 
 void sub_080836A0(Entity* this) {

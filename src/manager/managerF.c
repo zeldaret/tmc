@@ -109,7 +109,7 @@ void sub_08058EE4(ManagerF* this) {
     sub_08058F44(0x158, 0x68, this->manager.unk_0b + 2);
     sub_08058F44(0x128, 0x98, this->manager.unk_0b + 3);
     sub_08058F44(0x158, 0x98, this->manager.unk_0b + 4);
-    SoundReq(0x124);
+    SoundReq(SFX_124);
     DeleteThisEntity();
 }
 
@@ -227,7 +227,7 @@ void sub_08059124(ManagerF* this) {
             if (!--this->manager.unk_0e) {
                 CreateDustAt(this->unk_38, this->unk_3a, this->manager.unk_0b);
                 sub_0807BA8C(((this->unk_38 >> 4) & 0x3f) | ((this->unk_3a >> 4) & 0x3f) << 6, this->manager.unk_0b);
-                SoundReq(0xcd);
+                SoundReq(SFX_TASK_COMPLETE);
                 DeleteThisEntity();
             }
             break;
@@ -309,7 +309,7 @@ void sub_080592A4(ManagerF* this) {
             sub_080592EC(this);
             sub_0805930C(this);
 #ifndef EU
-            SoundReq(0x16E);
+            SoundReq(SFX_16E);
 #endif
             DeleteThisEntity();
         }

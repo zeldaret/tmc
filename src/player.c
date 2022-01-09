@@ -1917,7 +1917,7 @@ static void sub_0807246C(Entity* this) {
     this->subAction = 1;
     this->actionDelay = gPlayerState.field_0x38;
     gPlayerState.animation = 0x3c0;
-    SoundReq(0x7b);
+    SoundReq(SFX_PLY_VO7);
 }
 
 static void sub_08072490(Entity* this) {
@@ -2163,7 +2163,7 @@ static void PlayerInHoleInit(Entity* this) {
         SetTile(0x4070, COORD_TO_TILE(this), this->collisionLayer);
         ResetPlayer();
         PlayerInHoleUpdate(this);
-        SoundReq(0x81);
+        SoundReq(SFX_81);
     }
 }
 
@@ -2242,7 +2242,7 @@ static void sub_08072B5C(Entity* this) {
     this->zVelocity = temp;
     this->speed = 0x100;
     gPlayerState.animation = 0x810;
-    SoundReq(0x7c);
+    SoundReq(SFX_PLY_JUMP);
 }
 
 static void sub_08072C48(Entity* this) {
@@ -2396,7 +2396,7 @@ static NONMATCH("asm/non_matching/player/sub_08072D54.inc", void sub_08072D54(En
             this->actionDelay = 6;
             this->subAction = 3;
             this->knockbackDuration = 0;
-            SoundReq(0x7d);
+            SoundReq(SFX_PLY_LAND);
         }
     }
 }
