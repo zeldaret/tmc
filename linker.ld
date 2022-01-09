@@ -681,7 +681,7 @@ SECTIONS {
         asm/object/eyeSwitch.o(.text);
         asm/object/pressurePlate.o(.text);
         asm/object/bigBarrel.o(.text);
-        asm/object/barrelInside.o(.text);
+        src/object/barrelInside.o(.text);
         asm/object/pushableStatue.o(.text);
         asm/object/object28.o(.text);
         asm/object/ambientClouds.o(.text);
