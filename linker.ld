@@ -372,7 +372,7 @@ SECTIONS {
         src/enemy/keaton.o(.text);
         asm/enemy/crow.o(.text);
         asm/enemy/mulldozer.o(.text);
-        asm/enemy/bombarossa.o(.text);
+        src/enemy/bombarossa.o(.text);
         src/enemy/wisp.o(.text);
         asm/enemy/spinyBeetle.o(.text);
         src/enemy/mazaalHead.o(.text);
