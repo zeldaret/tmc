@@ -77,16 +77,14 @@ void sub_080489CC(GyorgFemaleEyeEntity* this) {
                 case 16 ... 18:
                 case 24 ... 26:
 #endif
-                    (*(((GyorgFemaleHeap**)&parent->base.myHeap)))->unk_18[super->type] = super->field_0x4c;
-                    (*(((GyorgFemaleHeap**)&parent->base.myHeap)))->unk_38 =
-                        (gPlayerEntity.x.HALF.HI + super->x.HALF.HI) / 2;
-                    (*(((GyorgFemaleHeap**)&parent->base.myHeap)))->unk_3a =
-                        (gPlayerEntity.y.HALF.HI + super->y.HALF.HI) / 2;
-                    (*(((GyorgFemaleHeap**)&parent->base.myHeap)))->unk_3c = (super->knockbackDirection ^= 0x10);
+                    (*(((GyorgHeap**)&parent->base.myHeap)))->unk_18[super->type] = super->field_0x4c;
+                    (*(((GyorgHeap**)&parent->base.myHeap)))->unk_38 = (gPlayerEntity.x.HALF.HI + super->x.HALF.HI) / 2;
+                    (*(((GyorgHeap**)&parent->base.myHeap)))->unk_3a = (gPlayerEntity.y.HALF.HI + super->y.HALF.HI) / 2;
+                    (*(((GyorgHeap**)&parent->base.myHeap)))->unk_3c = (super->knockbackDirection ^= 0x10);
 #ifndef EU
                     break;
                 default:
-                    ((GyorgFemaleHeap*)parent->base.myHeap)->unk_3c = 0xFF;
+                    ((GyorgHeap*)parent->base.myHeap)->unk_3c = 0xFF;
                     break;
             }
         }
@@ -199,9 +197,9 @@ u32 sub_08048D70(GyorgFemaleEntity* parent) {
     if (parent->base.health != 0) {
         return 1;
     }
-    tmp = ((GyorgFemaleHeap*)parent->base.myHeap)->male1;
+    tmp = ((GyorgHeap*)parent->base.myHeap)->male1;
     if (!tmp) {
-        tmp = ((GyorgFemaleHeap*)parent->base.myHeap)->male2;
+        tmp = ((GyorgHeap*)parent->base.myHeap)->male2;
     }
     if (tmp->base.health != 0) {
         return 0;

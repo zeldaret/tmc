@@ -33,6 +33,11 @@ extern u8 gUnk_080B3E80[];
 extern u8 gUnk_080B37A0[];
 extern u16 gMetatileTypesTop[];
 
+extern const u8 gUnk_080D1A94[];
+extern const u8 gUnk_080D1AAC[];
+extern const u8 gUnk_080D1AC4[];
+extern const u8 gUnk_080D1ADC[];
+
 void sub_0804614C(GyorgFemaleEntity*);
 void sub_0804625C(GyorgFemaleEntity*);
 void sub_0804632C(GyorgFemaleEntity*);
@@ -55,10 +60,10 @@ void sub_0804614C(GyorgFemaleEntity* this) {
     tmp = CreateProjectile(0x22);
     tmp->type = 0;
     tmp->parent = super;
-    ((GyorgFemaleHeap*)super->myHeap)->unk_14 = (GenericEntity*)tmp;
+    ((GyorgHeap*)super->myHeap)->unk_14 = (GenericEntity*)tmp;
     tmp = CreateEnemy(GYORG_FEMALE_MOUTH, 0);
     tmp->parent = super;
-    ((GyorgFemaleHeap*)super->myHeap)->unk_10 = (GyorgFemaleMouthEntity*)tmp;
+    ((GyorgHeap*)super->myHeap)->unk_10 = (GyorgFemaleMouthEntity*)tmp;
     tmp = CreateEnemy(GYORG_FEMALE_EYE, 0);
     tmp->parent = super;
     tmp = CreateEnemy(GYORG_FEMALE_EYE, 1);
@@ -107,7 +112,7 @@ void sub_0804625C(GyorgFemaleEntity* this) {
         }
     }
     sub_080465C8();
-    if (((GyorgFemaleHeap*)super->myHeap)->boss->unk_6c & 0x38) {
+    if (((GyorgHeap*)super->myHeap)->boss->unk_6c & 0x38) {
         super->action = 2;
         super->actionDelay = 0;
         this->unk_7a = 0;
@@ -117,7 +122,7 @@ void sub_0804625C(GyorgFemaleEntity* this) {
         this->unk_80 = 0;
         return;
     }
-    if (((GyorgFemaleHeap*)super->myHeap)->boss->unk_6c & 0x40) {
+    if (((GyorgHeap*)super->myHeap)->boss->unk_6c & 0x40) {
         super->action = 3;
         this->unk_70 = 0x3c;
         super->actionDelay = 0;
@@ -127,7 +132,7 @@ void sub_0804625C(GyorgFemaleEntity* this) {
         this->unk_80 = 0;
         return;
     }
-    if (((GyorgFemaleHeap*)super->myHeap)->boss->unk_6c & 0x100) {
+    if (((GyorgHeap*)super->myHeap)->boss->unk_6c & 0x100) {
         if (--this->unk_70 == 0) {
             this->unk_70 = 0x168;
             sub_08046634(this, 1);
@@ -156,11 +161,11 @@ void sub_0804632C(GyorgFemaleEntity* this) {
             }
         }
     }
-    if (((GyorgFemaleHeap*)super->myHeap)->boss->unk_6c & 0x80 && --this->unk_70 == 0) {
+    if (((GyorgHeap*)super->myHeap)->boss->unk_6c & 0x80 && --this->unk_70 == 0) {
         this->unk_70 = 0x168;
         sub_08046634(this, 0);
     }
-    if ((((GyorgFemaleHeap*)super->myHeap)->boss->unk_6c & 0x38) == 0) {
+    if ((((GyorgHeap*)super->myHeap)->boss->unk_6c & 0x38) == 0) {
         super->action = 1;
         this->unk_70 = 0x3c;
 #ifndef EU
@@ -205,7 +210,7 @@ void sub_080463E4(GyorgFemaleEntity* this) {
         this->unk_78 = 0;
 #endif
         this->unk_80 = 0;
-        SoundReq(0x128);
+        SoundReq(SFX_BOSS_DIE);
     }
 }
 
@@ -216,11 +221,6 @@ void sub_08046498(GyorgFemaleEntity* this) {
     sub_080464C0(this);
 }
 #endif
-
-extern const u8 gUnk_080D1A94[];
-extern const u8 gUnk_080D1AAC[];
-extern const u8 gUnk_080D1AC4[];
-extern const u8 gUnk_080D1ADC[];
 
 void sub_080464C0(GyorgFemaleEntity* this) {
     static const void* const gUnk_080D1A74[] = {
@@ -406,7 +406,7 @@ void sub_080466A8(GyorgFemaleEntity* this) {
             super->actionDelay = 0;
             this->unk_7d = 0;
             this->unk_78 = 0xFF;
-            SoundReq(0x127);
+            SoundReq(SFX_BOSS_HIT);
             if (super->health != 0) {
                 sub_08080964(8, 0);
                 if (++this->unk_82 <= 0xC) {
@@ -431,16 +431,16 @@ void sub_080466A8(GyorgFemaleEntity* this) {
         this->unk_7d = 0;
         sub_080467DC(this);
 #ifndef EU
-        if (((GyorgFemaleHeap*)super->myHeap)->unk_3c != 0xFF) {
+        if (((GyorgHeap*)super->myHeap)->unk_3c != 0xFF) {
 #endif
             tmp = &gPlayerEntity;
-            tmp->knockbackDirection = ((GyorgFemaleHeap*)super->myHeap)->unk_3c;
+            tmp->knockbackDirection = ((GyorgHeap*)super->myHeap)->unk_3c;
             tmp->iframes = 0xF4;
             tmp->knockbackDuration = 0xA;
             tmp = CreateFx(super, 0x2C, 0);
             if (tmp) {
-                tmp->x.HALF.HI = ((GyorgFemaleHeap*)super->myHeap)->unk_38;
-                tmp->y.HALF.HI = ((GyorgFemaleHeap*)super->myHeap)->unk_3a;
+                tmp->x.HALF.HI = ((GyorgHeap*)super->myHeap)->unk_38;
+                tmp->y.HALF.HI = ((GyorgHeap*)super->myHeap)->unk_3a;
                 tmp->collisionLayer = 1;
                 UpdateSpriteForCollisionLayer(tmp);
             }
@@ -454,6 +454,6 @@ void sub_080466A8(GyorgFemaleEntity* this) {
 void sub_080467DC(GyorgFemaleEntity* this) {
     u32 i;
     for (i = 0; i < 8; i++) {
-        (*((GyorgFemaleHeap**)(&super->myHeap)))->unk_18[i] = 0;
+        (*((GyorgHeap**)(&super->myHeap)))->unk_18[i] = 0;
     }
 }

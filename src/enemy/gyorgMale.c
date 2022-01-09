@@ -209,7 +209,7 @@ void sub_080469F4(GyorgMaleEntity* this) {
 
 void sub_08046A30(GyorgMaleEntity* this) {
     sub_08047D88(this);
-    if (((GyorgFemaleHeap*)super->myHeap)->boss->unk_6c & 1) {
+    if (((GyorgHeap*)super->myHeap)->boss->unk_6c & 1) {
         super->action = 2;
         super->subAction = 0;
     }
@@ -224,7 +224,7 @@ void sub_08046A54(GyorgMaleEntity* this) {
 
 void sub_08046A78(GyorgMaleEntity* this) {
     sub_08047D88(this);
-    if (((GyorgFemaleHeap*)super->myHeap)->boss->unk_6c & 0x10) {
+    if (((GyorgHeap*)super->myHeap)->boss->unk_6c & 0x10) {
         super->action = 3;
         super->subAction = 0;
     }
@@ -250,7 +250,7 @@ void sub_08046A9C(GyorgMaleEntity* this) {
 void sub_08046AE8(GyorgMaleEntity* this) {
     super->subAction = 1;
     super->speed = 0x180;
-    sub_08048178(this, ((GyorgFemaleHeap*)super->myHeap)->female->base.animationState >> 5);
+    sub_08048178(this, ((GyorgHeap*)super->myHeap)->female->base.animationState >> 5);
     this->unk_76 = super->direction << 8;
     sub_08047D88(this);
 }
@@ -323,7 +323,7 @@ void sub_08046CEC(GyorgMaleEntity* this) {
     }
     gUnk_080D1B4C[super->subAction](this);
     UpdateAnimationSingleFrame(super);
-    if (((GyorgFemaleHeap*)super->myHeap)->boss->unk_6c & 2) {
+    if (((GyorgHeap*)super->myHeap)->boss->unk_6c & 2) {
         super->action = 2;
         super->subAction = 0;
         super->animationState = super->speed;
@@ -373,7 +373,7 @@ void sub_08046E0C(GyorgMaleEntity* this) {
 const s16 gUnk_080D1B70[2] = { 0x40, -0x40 };
 
 void sub_08046E68(GyorgMaleEntity* this) {
-    u32 tmp = ((GyorgFemaleHeap*)super->myHeap)->female->base.animationState ^ 0x80;
+    u32 tmp = ((GyorgHeap*)super->myHeap)->female->base.animationState ^ 0x80;
     if (tmp != super->direction) {
         if (((tmp - super->direction) & 0xFF) > 0x80) {
             this->unk_76 -= 0x100;
@@ -436,7 +436,7 @@ void sub_08046F64(GyorgMaleEntity* this) {
             UpdateSpriteForCollisionLayer(tmp);
         }
     }
-    if (((GyorgFemaleHeap*)super->myHeap)->boss->unk_6c & 4) {
+    if (((GyorgHeap*)super->myHeap)->boss->unk_6c & 4) {
         super->action = 5;
         super->subAction = 0;
     }
@@ -805,11 +805,11 @@ void sub_080477F0(GyorgMaleEntity* this) {
         super->subAction = 2;
         this->unk_76 = super->animationState << 8;
         this->unk_74 = gUnk_080D1BF0[Random() & 1];
-        if (((GyorgFemaleHeap*)super->myHeap)->boss->unk_6c & 1) {
-            ((GyorgFemaleHeap*)super->myHeap)->female->unk_79 =
+        if (((GyorgHeap*)super->myHeap)->boss->unk_6c & 1) {
+            ((GyorgHeap*)super->myHeap)->female->unk_79 =
                 gRoomControls.roomOriginX + 0x200 > super->x.HALF.HI ? 0x81 : 0x83;
         } else {
-            ((GyorgFemaleHeap*)super->myHeap)->female->unk_79 = 0x80;
+            ((GyorgHeap*)super->myHeap)->female->unk_79 = 0x80;
         }
     }
 }
@@ -824,7 +824,7 @@ void sub_08047914(GyorgMaleEntity* this) {
         super->subAction = 3;
         this->unk_70 = 0x3C;
         this->unk_7e = ((super->type * 0xF) << 2) + 0x78;
-        sub_080A1D70(&(((GyorgFemaleHeap*)super->myHeap)->boss->base), super->animationState);
+        sub_080A1D70(&(((GyorgHeap*)super->myHeap)->boss->base), super->animationState);
     }
 }
 
@@ -867,7 +867,7 @@ void sub_08047978(GyorgMaleEntity* this) {
         return;
     super->subAction = 4;
     if (super->type == 0) {
-        if ((((GyorgFemaleHeap*)super->myHeap)->female->base.animationState >> 6) == 1) {
+        if ((((GyorgHeap*)super->myHeap)->female->base.animationState >> 6) == 1) {
             this->unk_80 = gRoomControls.roomOriginX + 0x1C0;
             this->unk_82 = gRoomControls.roomOriginY + 0x250;
         } else {
@@ -1174,8 +1174,8 @@ const u16 gUnk_080D1C50[8] = { 0x200, 0x180, 0x2C0, 0x210, 0x200, 0x2A0, 0x140, 
 const u16 gUnk_080D1C60[8] = { 0x200, 0x150, 0x290, 0x210, 0x200, 0x2D0, 0x170, 0x210 };
 
 void sub_08048178(GyorgMaleEntity* this, u32 unk1) {
-    const u16* tmp = ((((GyorgFemaleHeap*)super->myHeap)->female->base.animationState >> 6 & 1) ? gUnk_080D1C60 + unk1
-                                                                                                : gUnk_080D1C50 + unk1);
+    const u16* tmp = ((((GyorgHeap*)super->myHeap)->female->base.animationState >> 6 & 1) ? gUnk_080D1C60 + unk1
+                                                                                          : gUnk_080D1C50 + unk1);
     this->unk_80 = *tmp + gRoomControls.roomOriginX;
     this->unk_82 = *(tmp + 1) + gRoomControls.roomOriginY;
 }

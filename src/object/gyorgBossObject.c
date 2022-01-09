@@ -45,14 +45,14 @@ void GyorgBossObject(Entity* this) {
 }
 
 void sub_080A1704(GyorgBossObjectEntity* this) {
-    GyorgFemaleHeap* heap;
+    GyorgHeap* heap;
     Entity* tmp;
     if (CheckFlags(0x7B)) {
         DeleteThisEntity();
     }
     if (gEntCount > 0x45)
         return;
-    heap = zMalloc(sizeof(GyorgFemaleHeap));
+    heap = zMalloc(sizeof(GyorgHeap));
     if (!heap)
         return;
     super->action = 1;
@@ -103,20 +103,20 @@ void sub_080A184C(GyorgBossObjectEntity* this) {
     if (--this->unk_6e == 0) {
         super->action = 2;
         this->unk_6c = 8;
-        ((GyorgFemaleHeap*)super->myHeap)->female->base.health = 8;
+        ((GyorgHeap*)super->myHeap)->female->base.health = 8;
     }
     gPlayerState.startPosX = gRoomControls.roomOriginX + 0x200;
     gPlayerState.startPosY = gRoomControls.roomOriginY + 0x210;
 }
 
 void sub_080A189C(GyorgBossObjectEntity* this) {
-    if (((GyorgFemaleHeap*)super->myHeap)->female->base.health == 0) {
+    if (((GyorgHeap*)super->myHeap)->female->base.health == 0) {
         super->action = 3;
         super->actionDelay = 0x23;
         this->unk_6c = 1;
         this->unk_78 = 0x400;
         this->unk_7b = 1;
-        ((GyorgFemaleHeap*)super->myHeap)->male1->base.health = 0xC;
+        ((GyorgHeap*)super->myHeap)->male1->base.health = 0xC;
         SoundReq(0x128);
         sub_08080964(0x96, 1);
     }
@@ -126,25 +126,25 @@ void sub_080A189C(GyorgBossObjectEntity* this) {
 
 void sub_080A190C(GyorgBossObjectEntity* this) {
     sub_080A1FF0(this);
-    if (((GyorgFemaleHeap*)super->myHeap)->male1->base.health == 0) {
-        if (sub_080A20B8(this, ((GyorgFemaleHeap*)super->myHeap)->male1)) {
+    if (((GyorgHeap*)super->myHeap)->male1->base.health == 0) {
+        if (sub_080A20B8(this, ((GyorgHeap*)super->myHeap)->male1)) {
             super->action = 4;
             this->unk_6c = 0x10;
             this->unk_78 = 0xC0;
-            sub_080A1D70(this, ((GyorgFemaleHeap*)super->myHeap)->female->base.animationState);
-            ((GyorgFemaleHeap*)super->myHeap)->female->base.health = 0x18;
+            sub_080A1D70(this, ((GyorgHeap*)super->myHeap)->female->base.animationState);
+            ((GyorgHeap*)super->myHeap)->female->base.health = 0x18;
         }
         gPlayerState.startPosX = gRoomControls.roomOriginX + 0x200;
         gPlayerState.startPosY = gRoomControls.roomOriginY + 0x210;
     } else {
-        gPlayerState.startPosX = ((GyorgFemaleHeap*)super->myHeap)->male1->base.x.HALF.HI;
-        gPlayerState.startPosY = ((GyorgFemaleHeap*)super->myHeap)->male1->base.y.HALF.HI;
+        gPlayerState.startPosX = ((GyorgHeap*)super->myHeap)->male1->base.x.HALF.HI;
+        gPlayerState.startPosY = ((GyorgHeap*)super->myHeap)->male1->base.y.HALF.HI;
     }
 }
 
 void sub_080A1990(GyorgBossObjectEntity* this) {
-    if (((GyorgFemaleHeap*)super->myHeap)->female->base.health == 0) {
-        ((GyorgFemaleHeap*)super->myHeap)->male1->base.health = 0xC;
+    if (((GyorgHeap*)super->myHeap)->female->base.health == 0) {
+        ((GyorgHeap*)super->myHeap)->male1->base.health = 0xC;
         super->action = 5;
         super->actionDelay = 0x23;
         this->unk_6c = 2;
@@ -159,25 +159,25 @@ void sub_080A1990(GyorgBossObjectEntity* this) {
 
 void sub_080A19FC(GyorgBossObjectEntity* this) {
     sub_080A1FF0(this);
-    if (((GyorgFemaleHeap*)super->myHeap)->male2->base.health == 0) {
-        if (sub_080A20B8(this, ((GyorgFemaleHeap*)super->myHeap)->male2)) {
+    if (((GyorgHeap*)super->myHeap)->male2->base.health == 0) {
+        if (sub_080A20B8(this, ((GyorgHeap*)super->myHeap)->male2)) {
             super->action = 6;
             this->unk_6c = 0x20;
             this->unk_78 = 0xc0;
-            sub_080A1D70(this, ((GyorgFemaleHeap*)super->myHeap)->female->base.animationState);
-            ((GyorgFemaleHeap*)super->myHeap)->female->base.health = 0x18;
+            sub_080A1D70(this, ((GyorgHeap*)super->myHeap)->female->base.animationState);
+            ((GyorgHeap*)super->myHeap)->female->base.health = 0x18;
         }
         gPlayerState.startPosX = gRoomControls.roomOriginX + 0x200;
         gPlayerState.startPosY = gRoomControls.roomOriginY + 0x210;
     } else {
-        gPlayerState.startPosX = ((GyorgFemaleHeap*)super->myHeap)->male2->base.x.HALF.HI;
-        gPlayerState.startPosY = ((GyorgFemaleHeap*)super->myHeap)->male2->base.y.HALF.HI;
+        gPlayerState.startPosX = ((GyorgHeap*)super->myHeap)->male2->base.x.HALF.HI;
+        gPlayerState.startPosY = ((GyorgHeap*)super->myHeap)->male2->base.y.HALF.HI;
     }
 }
 
 void sub_080A1A80(GyorgBossObjectEntity* this) {
-    if (((GyorgFemaleHeap*)super->myHeap)->female->base.health == 0) {
-        ((GyorgFemaleHeap*)super->myHeap)->male2->base.health = 0xC;
+    if (((GyorgHeap*)super->myHeap)->female->base.health == 0) {
+        ((GyorgHeap*)super->myHeap)->male2->base.health = 0xC;
         super->action = 7;
         super->actionDelay = 0x23;
         this->unk_6c = 0x104;
@@ -191,12 +191,12 @@ void sub_080A1A80(GyorgBossObjectEntity* this) {
 
 void sub_080A1AE8(GyorgBossObjectEntity* this) {
     sub_080A1FF0(this);
-    if (((GyorgFemaleHeap*)super->myHeap)->male2->base.health == 0) {
-        if (sub_080A20B8(this, ((GyorgFemaleHeap*)super->myHeap)->male2)) {
+    if (((GyorgHeap*)super->myHeap)->male2->base.health == 0) {
+        if (sub_080A20B8(this, ((GyorgHeap*)super->myHeap)->male2)) {
             super->action = 8;
             this->unk_6c = 0x40;
             this->unk_78 = 0xC0;
-            ((GyorgFemaleHeap*)super->myHeap)->female->base.health = 0xC;
+            ((GyorgHeap*)super->myHeap)->female->base.health = 0xC;
         }
     }
     gPlayerState.startPosX = gRoomControls.roomOriginX + 0x200;
@@ -204,7 +204,7 @@ void sub_080A1AE8(GyorgBossObjectEntity* this) {
 }
 
 void sub_080A1B4C(GyorgBossObjectEntity* this) {
-    if (((GyorgFemaleHeap*)super->myHeap)->female->base.health == 0) {
+    if (((GyorgHeap*)super->myHeap)->female->base.health == 0) {
         if (this->unk_6c != 0) {
             sub_08080964(0x2d, 1);
             SoundReq(SFX_BOSS_DIE);
@@ -309,11 +309,11 @@ void sub_080A1D8C(GyorgBossObjectEntity* this, s32 unk1) {
 
 void sub_080A1DCC(GyorgBossObjectEntity* this) {
     GenericEntity* tmp;
-    if ((tmp = (GenericEntity*)((GyorgFemaleHeap*)super->myHeap)->male1) != NULL ||
-        (tmp = (GenericEntity*)((GyorgFemaleHeap*)super->myHeap)->male2) != NULL) {
+    if ((tmp = (GenericEntity*)((GyorgHeap*)super->myHeap)->male1) != NULL ||
+        (tmp = (GenericEntity*)((GyorgHeap*)super->myHeap)->male2) != NULL) {
         if (tmp->field_0x7c.BYTES.byte0 && tmp->base.spriteRendering.b3 == 2) {
-            ((GyorgFemaleHeap*)super->myHeap)->unk_10->base.flags &= ~0x80;
-            tmp = ((GyorgFemaleHeap*)super->myHeap)->unk_14;
+            ((GyorgHeap*)super->myHeap)->unk_10->base.flags &= ~0x80;
+            tmp = ((GyorgHeap*)super->myHeap)->unk_14;
             tmp->base.flags &= ~0x80;
             tmp = (GenericEntity*)tmp->base.child;
             tmp->base.flags &= ~0x80;
@@ -324,8 +324,8 @@ void sub_080A1DCC(GyorgBossObjectEntity* this) {
             return;
         }
     }
-    ((GyorgFemaleHeap*)super->myHeap)->unk_10->base.flags |= 0x80;
-    tmp = ((GyorgFemaleHeap*)super->myHeap)->unk_14;
+    ((GyorgHeap*)super->myHeap)->unk_10->base.flags |= 0x80;
+    tmp = ((GyorgHeap*)super->myHeap)->unk_14;
     tmp->base.flags |= 0x80;
     tmp = (GenericEntity*)tmp->base.child;
     tmp->base.flags |= 0x80;

@@ -88,6 +88,6 @@ typedef struct {
     u16 unk_38;
     u16 unk_3a;
     u8 unk_3c;
-} GyorgFemaleHeap;
+} GyorgHeap;
 
 #endif
