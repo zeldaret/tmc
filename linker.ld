@@ -416,7 +416,7 @@ SECTIONS {
         asm/enemy/businessScrubPrologue.o(.text);
         asm/enemy/gyorgFemale.o(.text);
         src/enemy/gyorgMale.o(.text);
-        asm/enemy/curtain.o(.text);
+        src/enemy/curtain.o(.text);
         src/enemy/vaatiWrathEye.o(.text);
         asm/enemy/gyorgChild.o(.text);
         asm/enemy/gyorgFemaleEye.o(.text);
