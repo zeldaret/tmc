@@ -309,7 +309,7 @@ void LoadGfxGroup(u32 group) {
 }
 
 // regalloc
-NONMATCH("asm/non_matching/common/sub_0801D898.inc", void sub_0801D898(void* dest, void* src, u32 word, u32 size)) {
+void sub_0801D898(void* dest, void* src, u32 word, u32 size) {
     u32 v6;
     u32 i;
 
@@ -318,13 +318,12 @@ NONMATCH("asm/non_matching/common/sub_0801D898.inc", void sub_0801D898(void* des
     else
         v6 = 0x20;
 
-    i = size & ~0x8000;
+    size &= (short)~0x8000;
     do {
         DmaSet(3, src, dest, word | 0x80000000) src += word * 2;
         dest += v6 * 2;
-    } while (--i);
+    } while (--size);
 }
-END_NONMATCH
 
 ASM_FUNC("asm/non_matching/common/zMalloc.inc", void* zMalloc(u32 size));
 
