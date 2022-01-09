@@ -5,14 +5,14 @@ SCRIPT_START script_ForestMinish6
 	DoPostScriptAction 0x0008
 	SetEntitySpeed 0x0100
 	DoPostScriptAction 0x000f
-	Call sub_0807F338
+	Call DeleteHitbox
 	EndBlock
 	WaitForSyncFlagAndClear 0x00000800
 	DoPostScriptAction 0x0007
-	_0807EB44 0x0002
+	SetAnimationState 0x0002
 	DoPostScriptAction 0x0001
 	_0807EDD4 0x01a8, 0x0330
-	_0807EB44 0x0002
+	SetAnimationState 0x0002
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00001000
 	WaitForSyncFlagAndClear 0x00000800

@@ -3,13 +3,12 @@
 #include "flags.h"
 #include "player.h"
 #include "room.h"
-#include "textbox.h"
+#include "message.h"
 #include "save.h"
 #include "script.h"
 #include "npc.h"
-#include "audio.h"
 #include "functions.h"
-#include "effects.h"
+#include "game.h"
 
 extern void (*gUnk_081115C0[])(Entity*);
 extern void (*gUnk_081115D0[])(Entity*);
@@ -53,7 +52,7 @@ void sub_08068A1C(Entity* this) {
     int offset;
 
     this->type2 = this->type;
-    if (gScreenTransition.player_status.field_0x24[8] != 0) {
+    if (gRoomTransition.player_status.field_0x24[8] != 0) {
         offset = 6;
         bVar1 = 3;
 
@@ -93,8 +92,6 @@ void sub_08068A4C(Entity* this) {
 }
 
 void sub_08068AA4(Entity* this) {
-    u8 bVar1;
-
     this->action = 1;
     if (this->type != 0) {
         this->type2++;
@@ -107,7 +104,7 @@ void sub_08068AA4(Entity* this) {
 }
 
 void sub_08068ADC(Entity* this) {
-    if (gScreenTransition.player_status.field_0x24[8] == 2) {
+    if (gRoomTransition.player_status.field_0x24[8] == 2) {
         GetNextFrame(this);
     }
     sub_0806FD3C(this);
@@ -176,9 +173,6 @@ static void sub_08068BEC(Entity* this, u32 unused) {
 }
 
 void sub_08068C28(Entity* this) {
-    u8 bVar1;
-    u32 uVar2;
-
     this->actionDelay = gUnk_08111623[this->type];
     if (this->type == 1) {
         if (GetInventoryValue(0x48)) {      // spin attack

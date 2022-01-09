@@ -1,3 +1,10 @@
+/**
+ * @file moldorm.c
+ * @ingroup Enemies
+ *
+ * @brief Moldorm enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 
@@ -9,7 +16,6 @@ extern void (*const gUnk_080CBBA0[])(Entity*);
 extern void (*const gUnk_080CBBB4[])(Entity*);
 extern void (*const gUnk_080CBBBC[])(Entity*);
 
-extern u8 gEntCount;
 extern const s8 gUnk_080CBBC4[];
 
 void Moldorm(Entity* this) {

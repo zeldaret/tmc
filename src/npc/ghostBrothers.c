@@ -2,9 +2,8 @@
 #include "functions.h"
 #include "save.h"
 #include "screen.h"
-#include "textbox.h"
+#include "message.h"
 #include "npc.h"
-#include "script.h"
 
 extern void (*const gUnk_0811017C[])(Entity*);
 
@@ -12,21 +11,36 @@ extern void (*const gUnk_08110274[])(Entity*);
 
 extern Dialog gUnk_08110280[];
 
-extern u32 gUnk_0811022E;
-
 extern u32 gSpriteAnimations_GhostBrothers[];
 
 extern u32 gUnk_08110188;
+extern s8 gUnk_0811015C[8];
 
-ASM_FUNC("asm/non_matching/ghostBrothers/GhostBrothers.inc", void GhostBrothers(Entity* this))
+extern u8 gUnk_02018EB0[];
+extern u8 gUnk_0811022E[];
+
+void sub_08065C0C(Entity* this);
+static EntityAction* const gUnk_08110164[];
+
+void GhostBrothers(Entity* this) {
+    if (this->flags & 0x2) {
+        sub_08065C0C(this);
+    } else {
+        gUnk_08110164[this->type](this);
+
+        if (this->type < 3) {
+            s8* ptr = gUnk_0811015C;
+            u32 field_0xf = this->field_0xf++;
+            this->z.HALF_U.HI = *(ptr + (((field_0xf << 0x18) >> 0x1b) & 0x7));
+        }
+    }
+}
 
 void sub_08065BF4(Entity* this) {
     gUnk_0811017C[this->action](this);
 }
 
-NONMATCH("asm/non_matching/ghostBrothers/sub_08065C0C.inc", void sub_08065C0C(Entity* this)) {
-    u8 bVar1;
-    u32 uVar2;
+void sub_08065C0C(Entity* this) {
     u16* puVar3;
 
     switch (this->action) {
@@ -56,12 +70,12 @@ NONMATCH("asm/non_matching/ghostBrothers/sub_08065C0C.inc", void sub_08065C0C(En
             if (--this->actionDelay != 0) {
                 return;
             }
-            // TODO this is still wrong!
+
             puVar3 = *(u16**)&this->field_0x6c.HWORD;
             if (*puVar3 != 0xffff) {
                 gScreen.controls.alphaBlend = *puVar3;
-                this->actionDelay = (u8)puVar3[1];
-                *(u16**)&this->field_0x6c = puVar3 + 2;
+                this->actionDelay = (u8) * (++puVar3);
+                *(u16**)&this->field_0x6c = ++puVar3;
                 return;
             }
 
@@ -71,13 +85,12 @@ NONMATCH("asm/non_matching/ghostBrothers/sub_08065C0C.inc", void sub_08065C0C(En
             break;
     }
 }
-END_NONMATCH
 
 void sub_08065CCC(Entity* this) {
     this->action = 3;
     this->actionDelay = 0x1e;
     this->spriteRendering.alphaBlend = 1;
-    *(u32**)&this->field_0x6c = &gUnk_0811022E;
+    *(u32**)&this->field_0x6c = (u32*)gUnk_0811022E;
     gScreen.controls.layerFXControl = 0x3f40;
     gScreen.controls.alphaBlend = 0x10;
 }
@@ -100,16 +113,96 @@ void sub_08065D18(Entity* this) {
     gScreen.controls.alphaBlend = 0x1000;
 }
 
-ASM_FUNC("asm/non_matching/ghostBrothers/sub_08065D74.inc", void sub_08065D74(Entity* this))
+void sub_08065D74(Entity* this) {
+    u16* ptr;
+    if (--this->actionDelay) {
+        return;
+    }
 
-ASM_FUNC("asm/non_matching/ghostBrothers/sub_08065DB8.inc", void sub_08065DB8(Entity* this))
+    ptr = *(u16**)&this->field_0x6c;
+    if (*ptr != 0xffff) {
+        gScreen.controls.alphaBlend = *ptr;
+        this->actionDelay = *(ptr + 1);
+        *(u32*)&this->field_0x6c = (u32)(ptr + 2);
+    } else {
+        this->action++;
+        MessageFromTarget(0);
+    }
+}
+
+void sub_08065DB8(Entity* this) {
+    switch (this->subAction) {
+        case 0: {
+            if ((gMessage.doTextBox & 0x7f) == 0) {
+                this->subAction++;
+                this->actionDelay = 0x3c;
+                InitAnimationForceUpdate(this, 4);
+            }
+            break;
+        }
+        case 1: {
+            if (--this->actionDelay == 0) {
+                this->subAction++;
+                this->actionDelay = 0xb4;
+                gUnk_02018EB0[1]++;
+                InitAnimationForceUpdate(this, 2);
+            }
+            break;
+        }
+        case 2:
+            break;
+        case 3: {
+            if (--this->actionDelay == 0) {
+                MessageFromTarget(0);
+                this->subAction++;
+            }
+            break;
+        }
+        case 4: {
+            if ((gMessage.doTextBox & 0x7f) == 0) {
+                this->subAction++;
+                this->actionDelay = 0x1e;
+                *(u8**)&this->field_0x6c = gUnk_0811022E;
+            }
+            break;
+        }
+        default: {
+            if (--this->actionDelay == 0) {
+                u16* puVar3 = *(u16**)&this->field_0x6c.HWORD;
+                if (*puVar3 != 0xffff) {
+                    gScreen.controls.alphaBlend = *puVar3;
+                    this->actionDelay = (u8) * (puVar3 + 1);
+                    *(u16**)&this->field_0x6c = (puVar3 + 2);
+                } else {
+                    gUnk_02018EB0[0]++;
+                    DeleteThisEntity();
+                }
+            }
+            break;
+        }
+    }
+
+    UpdateAnimationSingleFrame(this);
+}
 
 void sub_08065EBC(Entity* this) {
     gUnk_08110274[this->action](this);
     sub_0806ED78(this);
 }
 
-ASM_FUNC("asm/non_matching/ghostBrothers/sub_08065EDC.inc", void sub_08065EDC(Entity* this))
+void sub_08065EDC(Entity* this) {
+    if (--this->actionDelay == 0) {
+        u16* puVar3 = *(u16**)&this->field_0x6c.HWORD;
+        if (*puVar3 != 0xffff) {
+            gScreen.controls.alphaBlend = *puVar3;
+            this->actionDelay = (u8) * (++puVar3);
+            *(u16**)&this->field_0x6c = (++puVar3);
+        } else {
+            this->action++;
+            sub_08078778(this);
+        }
+    }
+}
 
 void sub_08065F20(Entity* this) {
     UpdateAnimationSingleFrame(this);

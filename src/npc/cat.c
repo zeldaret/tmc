@@ -2,12 +2,10 @@
 #include "entity.h"
 #include "functions.h"
 #include "save.h"
-#include "player.h"
-#include "textbox.h"
+#include "message.h"
 #include "npc.h"
-#include "audio.h"
 
-extern void sub_08067C44();
+extern void sub_08067C44(Entity*);
 
 extern void (*gCat[9])(Entity*);
 
@@ -16,7 +14,7 @@ extern Dialog gUnk_08110EF8;
 extern Hitbox gUnk_08110EF0;
 extern void sub_08067B08(Entity*);
 
-extern u32 sub_08067D20();
+extern u32 sub_08067D20(Entity*);
 extern void sub_08067AAC(Entity*);
 extern void sub_08067B34(Entity*);
 extern void sub_08067B80(Entity*, u32);
@@ -58,7 +56,6 @@ void Cat(Entity* ent) {
 }
 
 void sub_080677EC(Entity* this) {
-    u8 bVar1;
     u32 uVar2;
 
     this->spriteSettings.draw = 1;
@@ -96,7 +93,7 @@ void sub_080678AC(Entity* this) {
     u32 iVar1;
     u16* psVar2;
 
-    iVar1 = sub_08067D20();
+    iVar1 = sub_08067D20(this);
     if (iVar1 != 0) {
         sub_08067B80(this, 5);
     } else {
@@ -116,7 +113,7 @@ void sub_080678AC(Entity* this) {
 }
 
 void sub_08067904(Entity* this) {
-    if (sub_08067D20() != 0) {
+    if (sub_08067D20(this) != 0) {
         sub_08067B80(this, 8);
         return;
     }
@@ -137,7 +134,7 @@ void sub_08067904(Entity* this) {
             this->spriteSettings.flipX = 1;
         }
     }
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     UpdateAnimationSingleFrame(this);
 }
 
@@ -346,7 +343,6 @@ u32 sub_08067D20(Entity* this) {
 u32 sub_08067D74(Entity* this) {
     Entity* entity;
     int iVar2;
-    s32 tmp;
 
     if (this->type != 5) {
         if (this->actionDelay != 0) {

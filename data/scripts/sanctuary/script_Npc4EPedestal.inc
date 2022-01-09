@@ -10,7 +10,7 @@ SCRIPT_START script_Npc4EPedestal
 script_080134F8:
 	CheckEntityInteractType
 	JumpIfNot script_080134F8
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
 	StartPlayerScript script_PlayerAtPedestal
 	WaitForSyncFlagAndClear 0x00000001
@@ -55,16 +55,16 @@ script_080134F8:
 	_0807F078 0x0003, 0x0001
 	Call sub_0806DC3C
 	Call sub_0806DC58
-	Call sub_0807F304
+	Call WaitForPlayerFrameHiBit
 	Wait 0x003c
-	_0807E778 0x0004
-	DoFade7
+	SetFadeTime 0x0004
+	SetFade7
 	PlaySound SFX_EVAPORATE
 	WaitForFadeFinish
 	Wait 0x003c
 	SetSyncFlag 0x00000010
-	_0807E778 0x0002
-	DoFade6
+	SetFadeTime 0x0002
+	SetFade6
 	WaitForFadeFinish
 	PlaySound SFX_109
 	MessageFromTargetPos 0x0503, 0x000c

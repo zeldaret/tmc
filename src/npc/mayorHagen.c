@@ -3,12 +3,8 @@
 #include "player.h"
 #include "flags.h"
 #include "npc.h"
-#include "structures.h"
-#include "functions.h"
-#include "save.h"
-#include "script.h"
 
-extern void sub_08078850();
+extern void sub_08078850(Entity*, u32, u32, u32*);
 extern u32 gUnk_08113F44;
 extern Dialog gUnk_08113F48[];
 

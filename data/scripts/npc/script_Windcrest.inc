@@ -9,7 +9,7 @@ SCRIPT_START script_Windcrest
 script_0800B024:
 	CheckEntityInteractType
 	JumpIfNot script_0800B024
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
 	CheckGlobalFlag 0x0052
 	JumpIf script_0800B082
@@ -20,7 +20,7 @@ script_0800B024:
 	DoPostScriptAction 0x0008
 	Call Windcrest_Unlock
 	Wait 0x003c
-	_0807EB28 0x0b5c
+	EzloMessage 0x0b5c
 	WaitUntilTextboxCloses
 	SetGlobalFlag 0x0053
 	Jump script_0800B09C
@@ -30,7 +30,7 @@ script_0800B064:
 	DoPostScriptAction 0x0008
 	Call Windcrest_Unlock
 	Wait 0x003c
-	_0807EB28 0x0b5d
+	EzloMessage 0x0b5d
 	WaitUntilTextboxCloses
 	Jump script_0800B09C
 script_0800B082:
@@ -39,11 +39,11 @@ script_0800B082:
 	DoPostScriptAction 0x0008
 	Call Windcrest_Unlock
 	Wait 0x003c
-	_0807EB28 0x0b5e
+	EzloMessage 0x0b5e
 	WaitUntilTextboxCloses
 script_0800B09C:
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END
 	.2byte 0x0000

@@ -8,10 +8,10 @@ SCRIPT_START script_MalonAtRanch
 script_0800B5FA:
 	CheckEntityInteractType
 	JumpIfNot script_0800B5FA
-	_0807E864 
-	_0807EB74 
+	SetPlayerIdle 
+	FacePlayer 
 	MessageNoOverlap 0x2009
 	WaitUntilTextboxCloses
-	_0807E878 
-	_0807EB44 0x0004
+	EnablePlayerControl 
+	SetAnimationState 0x0004
 	Jump script_0800B5FA

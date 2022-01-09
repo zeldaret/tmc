@@ -57,7 +57,7 @@ _08070268:
 	adds r0, r5, #0
 	bl GetNextFrame
 	adds r0, r5, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	ldrb r0, [r5, #0xa]
 	cmp r0, #0
 	bne _08070280

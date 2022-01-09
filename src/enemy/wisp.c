@@ -1,7 +1,16 @@
+/**
+ * @file wisp.c
+ * @ingroup Enemies
+ *
+ * @brief Wisp enemy
+ */
+
 #include "enemy.h"
 #include "save.h"
 #include "object.h"
 #include "functions.h"
+
+static void sub_08033744(Entity* this);
 
 extern void (*const gUnk_080CEB74[])(Entity*);
 extern void (*const gUnk_080CEB8C[])(Entity*);
@@ -32,7 +41,7 @@ void sub_08033564(Entity* this) {
             this->spriteSettings.draw = FALSE;
             COLLISION_OFF(this);
             this->field_0x7c.HALF.LO = 0x27c;
-            gPlayerState.flags |= 0x4000;
+            gPlayerState.flags |= PL_DRUGGED;
             gSave.stats.effect = this->type + 1;
             gSave.stats.effectTimer = 600;
             if (this->type == 0) {
@@ -120,7 +129,7 @@ void sub_080336DC(Entity* this) {
     }
 }
 
-void sub_08033744(Entity* this) {
+static void sub_08033744(Entity* this) {
     u32 temp;
     u32 rand = (u32)Random() % 256;
 

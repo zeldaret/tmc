@@ -5,8 +5,8 @@ SCRIPT_START script_Object69TakeoverCutscene
 	SetEntityPositionRelative 0x0088, 0x0068
 	CameraTargetEntity
 	EndBlock
-	_0807E778 0x0004
-	DoFade4
+	SetFadeTime 0x0004
+	SetFade4
 	WaitForFadeFinish
 	Wait 0x003c
 	_0807F0B4 0x0004
@@ -38,15 +38,15 @@ SCRIPT_START script_Object69TakeoverCutscene
 	WaitForSyncFlagAndClear 0x00000008
 	SetSyncFlag 0x00000010
 	WaitForSyncFlagAndClear 0x00000020
-	_0807E778 0x0004
-	DoFade5
+	SetFadeTime 0x0004
+	SetFade5
 	WaitForFadeFinish
 	SetSyncFlag 0x00000010
 	LoadRoomEntityList gUnk_080FCE30
 	StopBgm
 	Wait 0x0078
-	_0807E778 0x0004
-	DoFade4
+	SetFadeTime 0x0004
+	SetFade4
 	WaitForFadeFinish
 	PlayBgm BGM_DIGGING_CAVE
 	SetSyncFlag 0x00000040
@@ -59,8 +59,8 @@ SCRIPT_START script_Object69TakeoverCutscene
 	Wait 0x003c
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000008
-	_0807E778 0x0004
-	DoFade5
+	SetFadeTime 0x0004
+	SetFade5
 	WaitForFadeFinish
 	StopBgm
 	SetRoomFlag 0x0000

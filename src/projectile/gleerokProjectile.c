@@ -3,9 +3,6 @@
 #include "enemy.h"
 #include "player.h"
 #include "functions.h"
-#include "asm.h"
-#include "audio.h"
-#include "effects.h"
 
 extern void sub_0806F5BC(Entity*, u32, u32);
 extern u32 sub_080041DC(Entity*, u32, u32);
@@ -52,7 +49,7 @@ void GleerokProjectile_Init(Entity* this) {
             iVar2 = sub_080041DC(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI);
             if (this->type == 1) {
                 uVar1 = Random() & 0x1ff;
-                if ((gScreenTransition.frameCount & 1U) == 0) {
+                if ((gRoomTransition.frameCount & 1U) == 0) {
                     iVar2 += uVar1;
                 } else {
                     iVar2 -= uVar1;
@@ -89,19 +86,19 @@ void GleerokProjectile_Init(Entity* this) {
 
 void GleerokProjectile_Action1(Entity* this) {
     if (this->type == 3) {
-        if (sub_08003FC4(this, 0x1800) == 0) {
+        if (GravityUpdate(this, 0x1800) == 0) {
             sub_08008790(this, 7);
             CreateFx(this, FX_ROCK, 0);
             DeleteThisEntity();
         }
     } else {
         GetNextFrame(this);
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
         if ((this->type != 2) && (--this->field_0xf == 0xff)) {
             this->field_0xf = 0x1e;
             sub_08004596(this, GetFacingDirection(this, &gPlayerEntity));
         }
-        if (sub_08003FC4(this, 0) == 0) {
+        if (GravityUpdate(this, 0) == 0) {
             this->action = 2;
             sub_080A90D8(this);
             if (this->type == 2) {
@@ -122,7 +119,7 @@ void GleerokProjectile_Action2(Entity* this) {
             this->action = 3;
             InitializeAnimation(this, 0x55);
         } else {
-            sub_0806F69C(this);
+            LinearMoveUpdate(this);
             sub_080A90D8(this);
         }
     } else {

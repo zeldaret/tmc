@@ -171,7 +171,7 @@
 	.2byte 0x0418
 .endm
 
-.macro _0807E30C 
+.macro FacePlayerAndCheckDist 
 	.2byte 0x0419
 .endm
 
@@ -180,7 +180,7 @@
 	.2byte \amount
 .endm
 
-.macro _0807E3BC s:req
+.macro HasShells s:req
 	.2byte 0x081b
 	.2byte \s
 .endm
@@ -209,17 +209,17 @@
 	.2byte \s
 .endm
 
-.macro _0807E4CC w:req
+.macro VariableBitSet w:req
 	.2byte 0x0c20
 	.4byte \w
 .endm
 
-.macro _0807E4EC w:req
+.macro VariableOnlyBitSet w:req
 	.2byte 0x0c21
 	.4byte \w
 .endm
 
-.macro _0807E514 w:req
+.macro VariableEqual w:req
 	.2byte 0x0c22
 	.4byte \w
 .endm
@@ -229,7 +229,7 @@
 	.4byte \w
 .endm
 
-.macro _0807E564 
+.macro CheckPlayerMinish 
 	.2byte 0x0424
 .endm
 
@@ -312,7 +312,7 @@
 	.2byte 0x0434
 .endm
 
-.macro WaitForPlayerAction0x17 
+.macro WaitForPlayerEnterRoom 
 	.2byte 0x0435
 .endm
 
@@ -324,7 +324,7 @@
 	.2byte 0x0437
 .endm
 
-.macro _0807E778 s:req
+.macro SetFadeTime s:req
 	.2byte 0x0838
 	.2byte \s
 .endm
@@ -334,7 +334,7 @@
 	.4byte \w
 .endm
 
-.macro _0807E79C 
+.macro FadeInvert 
 	.2byte 0x043a
 .endm
 
@@ -343,19 +343,19 @@
 	.2byte \s
 .endm
 
-.macro DoFade4 
+.macro SetFade4 
 	.2byte 0x043c
 .endm
 
-.macro DoFade5 
+.macro SetFade5 
 	.2byte 0x043d
 .endm
 
-.macro DoFade6 
+.macro SetFade6 
 	.2byte 0x043e
 .endm
 
-.macro DoFade7 
+.macro SetFade7 
 	.2byte 0x043f
 .endm
 
@@ -378,15 +378,15 @@
 	.2byte 0x0442
 .endm
 
-.macro _0807E864 
+.macro SetPlayerIdle 
 	.2byte 0x0443
 .endm
 
-.macro _0807E878 
+.macro EnablePlayerControl 
 	.2byte 0x0444
 .endm
 
-.macro _0807E888 
+.macro DisablePlayerControl 
 	.2byte 0x0445
 .endm
 
@@ -400,7 +400,7 @@
 	.4byte \script
 .endm
 
-.macro _0807E8D4 s:req
+.macro SetPlayerAnimation s:req
 	.2byte 0x0848
 	.2byte \s
 .endm
@@ -421,7 +421,7 @@
 	.2byte 0x044c
 .endm
 
-.macro _0807E908 s:req
+.macro SetAction s:req
 	.2byte 0x084d
 	.2byte \s
 .endm
@@ -431,16 +431,16 @@
 	.4byte \value
 .endm
 
-.macro _0807E924 
+.macro SetVariableToFrame 
 	.2byte 0x044f
 .endm
 
-.macro _0807E930 s:req
+.macro SetAnimation s:req
 	.2byte 0x0850
 	.2byte \s
 .endm
 
-.macro _0807E944 
+.macro TriggerInteract 
 	.2byte 0x0451
 .endm
 
@@ -509,7 +509,7 @@
 	.2byte 0x045e
 .endm
 
-.macro _0807EB28 s:req
+.macro EzloMessage s:req
 	.2byte 0x085f
 	.2byte \s
 .endm
@@ -518,7 +518,7 @@
 	.2byte 0x0460
 .endm
 
-.macro _0807EB44 s:req
+.macro SetAnimationState s:req
 	.2byte 0x0861
 	.2byte \s
 .endm
@@ -529,11 +529,11 @@
 	.2byte \b
 .endm
 
-.macro _0807EB74 
+.macro FacePlayer 
 	.2byte 0x0463
 .endm
 
-.macro _0807EB8C 
+.macro FaceAwayFromPlayer 
 	.2byte 0x0464
 .endm
 
@@ -552,7 +552,7 @@
 	.2byte \speed
 .endm
 
-.macro SetEntity0x20 value:req
+.macro SetEntityVelocity value:req
 	.2byte 0x0c68
 	.4byte \value
 .endm
@@ -577,27 +577,27 @@
 	.2byte 0x046c
 .endm
 
-.macro _0807EC1C s:req
+.macro WalkForward s:req
 	.2byte 0x086d
 	.2byte \s
 .endm
 
-.macro _0807EC64 s:req
+.macro WalkNorth s:req
 	.2byte 0x086e
 	.2byte \s
 .endm
 
-.macro _0807EC94 s:req
+.macro WalkEast s:req
 	.2byte 0x086f
 	.2byte \s
 .endm
 
-.macro _0807ECC4 s:req
+.macro WalkSouth s:req
 	.2byte 0x0870
 	.2byte \s
 .endm
 
-.macro _0807ECF4 s:req
+.macro WalkWest s:req
 	.2byte 0x0871
 	.2byte \s
 .endm
@@ -695,7 +695,7 @@
 	.2byte \s
 .endm
 
-.macro _0807F050 s:req
+.macro GiveKinstone s:req
 	.2byte 0x0883
 	.2byte \s
 .endm

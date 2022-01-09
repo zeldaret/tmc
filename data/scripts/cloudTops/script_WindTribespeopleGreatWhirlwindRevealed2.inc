@@ -1,7 +1,7 @@
 @ Cloud Tops WindTribespeople great whirlwind revealed
 SCRIPT_START script_WindTribespeopleGreatWhirlwindRevealed2
 	BeginBlock
-	Call sub_0807F360
+	Call SetPriorityHighest
 	DoPostScriptAction 0x000b
 	SetEntityPositionRelative 0x0268, 0x01d8
 	SetEntitySpeed 0x0100
@@ -15,11 +15,11 @@ script_0800D80C:
 	_0807EEF4 0x0000, 0xffe0
 	DoPostScriptAction 0x000e
 	Call sub_0806CA5C
-	SetEntity0x20 0x00040000
+	SetEntityVelocity 0x00040000
 	PlaySound SFX_F5
 script_0800D82A:
-	CallWithArg sub_0807F8D0, 0xffffe000
-	Call sub_0807F8BC
+	CallWithArg DoGravity, 0xffffe000
+	Call CheckEntityOnScreen
 	JumpIf script_0800D82A
 	SetSyncFlag 0x00000004
 	DoPostScriptAction 0x0006

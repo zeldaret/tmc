@@ -8,7 +8,7 @@ script_0800D5AC:
 	EndBlock
 	Call sub_08062698
 	Call sub_080626AC
-	CallWithArg sub_0807F0EC, 0x00000004
+	CallWithArg GetRandomInt, 0x00000004
 	JumpTable script_0800D5CE, script_0800D5D8, script_0800D5E2, script_0800D5EC
 script_0800D5CE:
 	_0807EE04 0x0038, 0x0098

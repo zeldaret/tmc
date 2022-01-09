@@ -47,8 +47,8 @@ void GyorgFemaleMouth(Entity* this) {
     tmp = this->parent->animationState >> 5;
     if (tmp != this->animationState) {
         this->animationState = tmp;
-        this->x.HALF.HI = gUnk_080D28CC[tmp] + gRoomControls.roomOriginX;
-        this->y.HALF.HI = gUnk_080D28CC[tmp + 1] + gRoomControls.roomOriginY;
+        this->x.HALF.HI = gUnk_080D28CC[tmp] + gRoomControls.origin_x;
+        this->y.HALF.HI = gUnk_080D28CC[tmp + 1] + gRoomControls.origin_y;
         InitializeAnimation(this, tmp >> 1);
     } else {
         GetNextFrame(this);

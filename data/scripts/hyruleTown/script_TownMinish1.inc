@@ -13,18 +13,18 @@ script_0800E6F4:
 	Jump script_0800E6F4
 script_0800E708:
 	EndBlock
-	_0807E864
+	SetPlayerIdle
 	Call sub_0806AFE8
 	JumpIf script_0800E722
 	WaitUntilTextboxCloses
 	Wait 0x000f
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800E6F4
 script_0800E722:
 	WaitUntilTextboxCloses
 	GivePlayerItem 0x0057
 	WaitPlayerGetItem
 	WaitUntilTextboxCloses
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800E6F4
 	.2byte 0x0000

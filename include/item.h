@@ -5,6 +5,9 @@
 #include "entity.h"
 #include "player.h"
 
+void CreateItemEntity(u32, u32, u32);
+void sub_08081404(Entity*, u32);
+
 extern void ItemDebug(ItemBehavior*, u32);
 extern void ItemSword(ItemBehavior*, u32);
 extern void ItemBomb(ItemBehavior*, u32);

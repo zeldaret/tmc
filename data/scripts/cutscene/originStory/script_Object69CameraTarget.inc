@@ -19,8 +19,8 @@ SCRIPT_START script_Object69CameraTarget
 	SetSyncFlag 0x00000800
 	WaitForSyncFlagAndClear 0x00001000
 	StopBgm
-	_0807E778 0x0004
-	DoFade5
+	SetFadeTime 0x0004
+	SetFade5
 	WaitForFadeFinish
 	SetRoomFlag 0x0001
 	DoPostScriptAction 0x0006

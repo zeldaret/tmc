@@ -1,3 +1,10 @@
+/**
+ * @file acroBandits.c
+ * @ingroup Enemies
+ *
+ * @brief Acro Bandits enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 
@@ -12,7 +19,6 @@ extern void sub_08032338(Entity*);
 extern Entity* sub_08049DF4(u32);
 
 extern Entity* gUnk_020000B0;
-extern u8 gEntCount;
 extern void (*const gUnk_080012C8[])(Entity*);
 extern void (*const gUnk_080CE56C[])(Entity*);
 extern void (*const gUnk_080CE584[])(Entity*);
@@ -108,7 +114,7 @@ void sub_080318DC(Entity* this) {
 
 void sub_08031A60(Entity* this) {
     if (this->iframes > 0)
-        sub_08003FC4(this, 0x1800);
+        GravityUpdate(this, 0x1800);
 
     sub_08001324(this);
 }
@@ -351,7 +357,7 @@ void sub_08031EE8(Entity* this) {
 }
 
 void sub_08031F54(Entity* this) {
-    sub_08003FC4(this, gUnk_080CE5F0[this->type2]);
+    GravityUpdate(this, gUnk_080CE5F0[this->type2]);
     if (this->type2 * -0xe <= this->z.HALF.HI) {
         this->action = 3;
         this->actionDelay = 20;
@@ -411,12 +417,12 @@ void sub_08032008(Entity* this) {
                     this->field_0x76.HALF.HI = 1;
                     this->direction = GetFacingDirection(this, parent);
                     sub_080322E8(this);
-                    sub_0806F69C(this);
+                    LinearMoveUpdate(this);
                 }
             } else {
                 this->direction = GetFacingDirection(this, parent);
                 sub_080322E8(this);
-                sub_0806F69C(this);
+                LinearMoveUpdate(this);
                 if (this->x.HALF.HI == parent->x.HALF.HI && this->y.HALF.HI == parent->y.HALF.HI)
                     this->field_0x76.HALF.HI = 0;
             }
@@ -426,7 +432,7 @@ void sub_08032008(Entity* this) {
 }
 
 void sub_08032148(Entity* this) {
-    if (sub_08003FC4(this, 0x2000))
+    if (GravityUpdate(this, 0x2000))
         return;
 
     sub_08032290(this);
@@ -481,7 +487,7 @@ void sub_08032204(Entity* this) {
 }
 
 void sub_08032248(Entity* this) {
-    if (sub_08003FC4(this, 0x1800) == 0) {
+    if (GravityUpdate(this, 0x1800) == 0) {
         if (this->frame & 0x80) {
             ((Entity*)this->field_0x7c.WORD)->actionDelay--;
 

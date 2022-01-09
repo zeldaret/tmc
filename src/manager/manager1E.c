@@ -1,7 +1,7 @@
 #include "global.h"
+#include "asm.h"
 #include "manager.h"
 #include "flags.h"
-#include "functions.h"
 
 typedef struct {
     Manager manager;

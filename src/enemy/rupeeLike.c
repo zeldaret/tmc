@@ -1,13 +1,18 @@
+/**
+ * @file rupeeLike.c
+ * @ingroup Enemies
+ *
+ * @brief Rupee Like enemy
+ */
+
 #include "global.h"
 #include "asm.h"
-#include "audio.h"
+#include "sound.h"
 #include "entity.h"
 #include "enemy.h"
-#include "npc.h"
-#include "player.h"
-#include "save.h"
 #include "object.h"
 #include "functions.h"
+#include "save.h"
 
 extern void sub_080293DC(Entity*);
 extern void sub_080296D8(Entity*);
@@ -80,7 +85,7 @@ void sub_080293B4(Entity* this) {
     CreateDeathFx(this, 0xff, gUnk_080CCC34[this->cutsceneBeh.HALF.LO * 3 + this->type]);
 }
 
-void nullsub_141() {
+void nullsub_141(Entity* this) {
 }
 
 void sub_080293DC(Entity* this) {
@@ -165,7 +170,7 @@ void sub_0802953C(Entity* this) {
         sub_080296D8(this);
     } else {
         ResetPlayer();
-        gPlayerState.field_0x1a[0] |= 0x80;
+        gPlayerState.mobility |= 0x80;
         PositionRelative(this, &gPlayerEntity, 0, 0x10000);
         pbVar3 = GetSpriteSubEntryOffsetDataPointer((u16)this->spriteIndex, this->frameIndex);
         gPlayerEntity.spriteOffsetX = pbVar3[0];
@@ -232,8 +237,8 @@ void sub_080296C8(Entity* this) {
 }
 
 void sub_080296D8(Entity* this) {
-    gPlayerState.jumpStatus = 0x41;
-    gPlayerState.flags &= 0xffffffef;
+    gPlayerState.jump_status = 0x41;
+    gPlayerState.flags &= ~PL_CAPTURED;
     gPlayerEntity.flags |= 0x80;
     gPlayerEntity.zVelocity = 0x18000;
     gPlayerEntity.iframes = 0xa6;

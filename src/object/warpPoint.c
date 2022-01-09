@@ -1,9 +1,6 @@
 #include "global.h"
 #include "object.h"
-#include "player.h"
-#include "flags.h"
-#include "overworld.h"
-#include "audio.h"
+#include "game.h"
 #include "functions.h"
 
 extern Hitbox gHitbox_1;
@@ -11,7 +8,6 @@ extern Hitbox gHitbox_1;
 extern void sub_0807CAC8(u32);
 extern u32 sub_0807CAEC(u32);
 
-void WarpPoint(Entity*);
 void sub_0808B474(Entity*);
 void sub_0808B530(Entity*);
 void sub_0808B564(Entity*);
@@ -49,7 +45,7 @@ void sub_0808B474(Entity* this) {
     if (CheckFlags(this->field_0x86.HWORD)) {
         sub_0808B830(this);
     } else {
-        if (CheckIsDungeon() && sub_0807CAEC(this->type)) {
+        if (AreaIsDungeon() && sub_0807CAEC(this->type)) {
             sub_0808B830(this);
         }
     }
@@ -67,7 +63,7 @@ void sub_0808B474(Entity* this) {
 void sub_0808B530(Entity* this) {
     if (CheckFlags(this->field_0x86.HWORD)) {
         sub_0808B830(this);
-        if (CheckIsDungeon()) {
+        if (AreaIsDungeon()) {
             sub_0807CAC8(this->type);
         }
         this->action = 2;
@@ -148,17 +144,17 @@ void sub_0808B5E8(Entity* this) {
 void sub_0808B684(Entity* this) {
     u32 tmp;
     if (!--this->field_0xf) {
-        gScreenTransition.transitioningOut = 1;
-        gScreenTransition.transitionType = TRANSITION_DEFAULT;
-        gScreenTransition.player_status.area_next = this->field_0x7c.BYTES.byte0;
-        gScreenTransition.player_status.room_next = this->field_0x7c.BYTES.byte1;
-        gScreenTransition.player_status.start_pos.HALF.x = ((this->cutsceneBeh.HWORD & 0x3f) << 4) + 8;
-        gScreenTransition.player_status.start_pos.HALF.y = ((this->cutsceneBeh.HWORD & 0xfc0) >> 2) + 8;
-        gScreenTransition.player_status.layer = 0;
-        gScreenTransition.player_status.start_anim = 4;
-        gScreenTransition.player_status.spawn_type = 0;
+        gRoomTransition.transitioningOut = 1;
+        gRoomTransition.type = TRANSITION_DEFAULT;
+        gRoomTransition.player_status.area_next = this->field_0x7c.BYTES.byte0;
+        gRoomTransition.player_status.room_next = this->field_0x7c.BYTES.byte1;
+        gRoomTransition.player_status.start_pos_x = ((this->cutsceneBeh.HWORD & 0x3f) << 4) + 8;
+        gRoomTransition.player_status.start_pos_y = ((this->cutsceneBeh.HWORD & 0xfc0) >> 2) + 8;
+        gRoomTransition.player_status.layer = 0;
+        gRoomTransition.player_status.start_anim = 4;
+        gRoomTransition.player_status.spawn_type = 0;
         if (this->type == 2) {
-            gScreenTransition.transitionType = TRANSITION_FADE_WHITE_SLOW;
+            gRoomTransition.type = TRANSITION_FADE_WHITE_SLOW;
         }
         return;
     }
@@ -212,7 +208,7 @@ u32 sub_0808B7C8(Entity* this) {
     if (!(gPlayerState.flags & PL_MINISH) && gPlayerState.framestate != PL_STATE_DIE && gPlayerEntity.health != 0 &&
         sub_08079F8C() && EntityInRectRadius(this, &gPlayerEntity, 5, 5) && gPlayerEntity.z.HALF.HI == 0) {
         if (this->actionDelay == 0 && gPlayerEntity.action == PLAYER_08072C9C) {
-            sub_080791D0();
+            ResetPlayerAnimationAndAction();
         }
         return 1;
     }
@@ -224,7 +220,7 @@ void sub_0808B830(Entity* this) {
     this->action = 3;
     this->actionDelay = 0;
     this->spriteSettings.draw = 1;
-    tmp = CreateObject(0x34, 0, 0);
+    tmp = CreateObject(WARP_POINT, 0, 0);
     if (tmp) {
         tmp->field_0x70.BYTES.byte0 = 1;
         tmp->parent = this;

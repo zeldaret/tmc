@@ -24,15 +24,15 @@ script_0800E788:
 	Jump script_0800E788
 script_0800E7A4:
 	EndBlock
-	_0807E864
+	SetPlayerIdle
 	Call sub_0806AFE8
 	WaitUntilTextboxCloses
 	Wait 0x000f
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800E788
 script_0800E7BA:
 	DoPostScriptAction 0x000f
-	_0807EB44 0x0002
+	SetAnimationState 0x0002
 	CallWithArg sub_0806AF60, 0x00000004
 	Call sub_0806AF70
 	_0807EE04 0x0188, 0x0058

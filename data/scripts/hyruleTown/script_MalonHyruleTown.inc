@@ -3,16 +3,16 @@ SCRIPT_START script_MalonHyruleTown
 	BeginBlock
 	DoPostScriptAction 0x000a
 	DoPostScriptAction 0x0007
-	_0807EB44 0x0004
-	_0807E930 0x000e
+	SetAnimationState 0x0004
+	SetAnimation 0x000e
 	EndBlock
 	Call sub_08065914
 script_08014F4A:
 	CheckEntityInteractType
 	JumpIfNot script_08014F4A
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
-	_0807EB74
+	FacePlayer
 	DoPostScriptAction 0x0000
 	BeginBlock 
 	MessageNoOverlap 0x3b0b
@@ -38,7 +38,7 @@ script_08014FA2:
 script_08014FA6:
 	WaitUntilTextboxCloses
 	Call sub_0807DF50
-	_0807E878
-	_0807EB44 0x0004
-	_0807E930 0x000e
+	EnablePlayerControl
+	SetAnimationState 0x0004
+	SetAnimation 0x000e
 	Jump script_08014F4A

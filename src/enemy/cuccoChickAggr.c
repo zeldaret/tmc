@@ -1,3 +1,10 @@
+/**
+ * @file cuccoChickAggr.c
+ * @ingroup Enemies
+ *
+ * @brief Cucco Chick Aggr enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 
@@ -52,7 +59,7 @@ void sub_08022988(Entity* this) {
         }
 
         ProcessMovement(this);
-        if (sub_08003FC4(this, 0x2000) == 0) {
+        if (GravityUpdate(this, 0x2000) == 0) {
             if (--this->actionDelay == 0) {
                 sub_08022A88(this);
             } else {
@@ -64,7 +71,7 @@ void sub_08022988(Entity* this) {
 }
 
 void sub_080229F8(Entity* this) {
-    if (sub_08003FC4(this, 0x2800) == 0) {
+    if (GravityUpdate(this, 0x2800) == 0) {
         if (--this->actionDelay == 0) {
             this->action = 4;
             this->actionDelay = 6;
@@ -88,7 +95,7 @@ void sub_08022A40(Entity* this) {
     }
 
     ProcessMovement(this);
-    if (sub_08003FC4(this, 0x2000) == 0) {
+    if (GravityUpdate(this, 0x2000) == 0) {
         if (--this->actionDelay == 0) {
             sub_08022A88(this);
         } else {

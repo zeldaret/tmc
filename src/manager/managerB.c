@@ -1,12 +1,10 @@
 #include "global.h"
 #include "manager.h"
 #include "flags.h"
-#include "entity.h"
 #include "room.h"
 #include "area.h"
-#include "utils.h"
-#include "audio.h"
-#include "functions.h"
+#include "common.h"
+#include "sound.h"
 
 /*
  * Manager B is used to create fights:
@@ -47,7 +45,6 @@ void ManagerB_Init(ManagerB* this) {
         DeleteThisEntity();
     }
 }
-extern void sub_080186C0(u32);
 
 void ManagerB_WaitForFlag(ManagerB* this) {
     int tmp;
@@ -55,15 +52,13 @@ void ManagerB_WaitForFlag(ManagerB* this) {
         ManagerB_LoadFight(&this->manager);
         if (!this->unk_35) {
             tmp = gRoomVars.field_0x9 ? gRoomVars.field_0x9 : 0x33;
-            this->unk_20 = gArea.musicIndex;
-            gArea.musicIndex = tmp;
+            this->unk_20 = gArea.bgm;
+            gArea.bgm = tmp;
             SoundReq(tmp);
         }
         sub_080186C0(0xB0F);
     }
 }
-
-extern void sub_0801855C(void);
 
 void ManagerB_WaitForDone(ManagerB* this) {
     // check if all helpers are done
@@ -74,8 +69,8 @@ void ManagerB_WaitForDone(ManagerB* this) {
     // restore music (if it was set, which apparently is only possible if there's a flag the fight waited for)
     if (this->unk_3c) {
         if (!this->unk_35) {
-            gArea.musicIndex = this->unk_20;
-            SoundReq(gArea.musicIndex);
+            gArea.bgm = this->unk_20;
+            SoundReq(gArea.bgm);
             sub_0801855C();
         }
     }
@@ -170,14 +165,12 @@ void ManagerBHelper_Main(Manager* this) {
     }
 }
 
-extern Manager gUnk_03003DB0;
-
 /*
  * Replace an entity that is currently being monitored with a new one
  */
 void ReplaceMonitoredEntity(Entity* old, Entity* new) {
     ManagerBHelper* current;
-    Manager* end = &gUnk_03003DB0;
+    Manager* end = (Manager*)&gEntityLists[8];
     u32 i;
     for (current = (ManagerBHelper*)end->next; (Manager*)current != end;
          current = (ManagerBHelper*)current->manager.next) {

@@ -1,3 +1,10 @@
+/**
+ * @file enemy4D.c
+ * @ingroup Enemies
+ *
+ * @brief enemy 4D
+ */
+
 #include "global.h"
 #include "entity.h"
 #include "enemy.h"
@@ -29,7 +36,7 @@ void sub_0803EB34(Entity* this) {
     CreateDeathFx(this, 0xff, 0x57);
 }
 
-void nullsub_21() {
+void nullsub_21(Entity* this) {
 }
 
 void sub_0803EB44(Entity* this) {

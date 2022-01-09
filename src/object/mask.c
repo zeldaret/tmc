@@ -1,5 +1,4 @@
 #include "object.h"
-#include "structures.h"
 #include "functions.h"
 
 extern void (*MaskActionFuncs[])(Entity*);
@@ -21,7 +20,7 @@ void sub_080929A4(Entity* this) {
 
             switch (this->type2 & 0xC0) {
                 case 0x40:
-                    field_0x0a = gScreenTransition.stairs_idx;
+                    field_0x0a = gRoomTransition.stairs_idx;
 
                     switch (field_0x0a) {
                         case 0x44D ... 0x44F:

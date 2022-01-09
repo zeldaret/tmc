@@ -1,17 +1,16 @@
 #include "global.h"
 #include "manager.h"
 #include "flags.h"
-#include "audio.h"
+#include "sound.h"
 #include "room.h"
 #include "player.h"
 #include "functions.h"
 #include "area.h"
-#include "textbox.h"
-#include "script.h"
-#include "utils.h"
+#include "message.h"
+#include "common.h"
 #include "tiles.h"
-
-void sub_08058ECC(ManagerF*);
+#include "object.h"
+#include "item.h"
 
 void sub_08058EE4(ManagerF*);
 void sub_08058FB0(ManagerF*);
@@ -125,11 +124,11 @@ void sub_08058F44(u32 unk0, u32 unk1, u32 unk2) {
 
 void sub_08058F84(u32 unk0, u32 unk1) {
     Entity* tmp;
-    tmp = CreateObject(0x21, 0, 0);
+    tmp = CreateObject(OBJECT_21, 0, 0);
     if (!tmp)
         return;
-    tmp->x.HALF.HI = gRoomControls.roomOriginX + unk0;
-    tmp->y.HALF.HI = gRoomControls.roomOriginY + unk1;
+    tmp->x.HALF.HI = gRoomControls.origin_x + unk0;
+    tmp->y.HALF.HI = gRoomControls.origin_y + unk1;
 }
 
 void sub_08058FB0(ManagerF* this) {
@@ -177,12 +176,12 @@ void sub_08058FB0(ManagerF* this) {
 
 void sub_08059064(ManagerF* this) {
     Entity* tmp;
-    tmp = CreateObject(0, 0x53, 0);
+    tmp = CreateObject(GROUND_ITEM, ITEM_SMALL_KEY, 0);
     if (!tmp)
         return;
     tmp->actionDelay = 2;
-    tmp->x.HALF.HI = this->unk_38 + gRoomControls.roomOriginX;
-    tmp->y.HALF.HI = this->unk_3a + gRoomControls.roomOriginY;
+    tmp->x.HALF.HI = this->unk_38 + gRoomControls.origin_x;
+    tmp->y.HALF.HI = this->unk_3a + gRoomControls.origin_y;
 }
 
 void sub_08059094(ManagerF* this) {
@@ -285,7 +284,7 @@ void sub_08059220(ManagerF* this) {
     }
 }
 
-void sub_08059278() {
+void sub_08059278(void) {
     ManagerF* tmp;
     tmp = (ManagerF*)FindEntityByID(0x9, 0xF, 0x6);
     if (tmp) {
@@ -295,7 +294,7 @@ void sub_08059278() {
 
 void sub_08059290(ManagerF* this) {
     this->manager.action = 1;
-    gRoomControls.cameraTarget = &gPlayerEntity;
+    gRoomControls.camera_target = &gPlayerEntity;
 }
 
 void sub_080592A4(ManagerF* this) {
@@ -324,14 +323,14 @@ void sub_080592EC(ManagerF* this) {
 void sub_0805930C(ManagerF* this) {
     Entity* tmp;
 #ifdef EU
-    tmp = CreateObject(0xF, 0x43, 0x0);
+    tmp = CreateObject(SPECIAL_FX, FX_BIG_EXPLOSION2, 0x0);
 #else
-    tmp = CreateObject(0xF, 0x43, 0x40);
+    tmp = CreateObject(SPECIAL_FX, FX_BIG_EXPLOSION2, 0x40);
 #endif
     if (!tmp)
         return;
-    tmp->x.HALF.HI = this->unk_38 + gRoomControls.roomOriginX;
-    tmp->y.HALF.HI = this->unk_3a + gRoomControls.roomOriginY;
+    tmp->x.HALF.HI = this->unk_38 + gRoomControls.origin_x;
+    tmp->y.HALF.HI = this->unk_3a + gRoomControls.origin_y;
     tmp->collisionLayer = 1;
 }
 
@@ -352,7 +351,7 @@ void sub_08059368(ManagerF* this) {
 void sub_0805938C(ManagerF* this) {
     if (sub_080593CC(this)) {
         if (++this->manager.unk_0e >= 8) {
-            sub_080806BC(this->unk_38 - gRoomControls.roomOriginX, this->unk_3a - gRoomControls.roomOriginY, 0xFF, 0xA);
+            sub_080806BC(this->unk_38 - gRoomControls.origin_x, this->unk_3a - gRoomControls.origin_y, 0xFF, 0xA);
         }
     } else {
         this->manager.unk_0e = 0;
@@ -360,8 +359,8 @@ void sub_0805938C(ManagerF* this) {
 }
 
 u32 sub_080593CC(ManagerF* this) {
-    if (!(gPlayerState.flags & PL_MINISH) && gPlayerState.swimState != 0 && gPlayerEntity.animationState == 0 &&
-        (gPlayerState.field_0x90.HALF.LO & 0xF00) == 0x400) {
+    if (!(gPlayerState.flags & PL_MINISH) && gPlayerState.swim_state != 0 && gPlayerEntity.animationState == 0 &&
+        (gPlayerState.field_0x90 & 0xF00) == 0x400) {
         return sub_0806FCB8(&gPlayerEntity, this->unk_38, this->unk_3a + 0xC, 6);
     }
     return 0;
@@ -374,12 +373,12 @@ void sub_08059424(ManagerF* this) {
     }
     if (!CheckFlags(this->unk_3c))
         return;
-    tmp = CreateObject(0xF, 0x35, 0);
+    tmp = CreateObject(SPECIAL_FX, FX_BIG_EXPLOSION, 0);
     if (!tmp)
         return;
     tmp->collisionLayer = 2;
-    tmp->x.HALF.HI = this->unk_38 + gRoomControls.roomOriginX;
-    tmp->y.HALF.HI = this->unk_3a + gRoomControls.roomOriginY;
+    tmp->x.HALF.HI = this->unk_38 + gRoomControls.origin_x;
+    tmp->y.HALF.HI = this->unk_3a + gRoomControls.origin_y;
     EnqueueSFX(0x1B0);
     DeleteThisEntity();
 }
@@ -387,10 +386,10 @@ void sub_08059424(ManagerF* this) {
 void sub_0805947C(ManagerF* this) {
     if (!CheckFlags(this->unk_3e)) {
         SetPlayerControl(3);
-        if (gRoomControls.unk2)
+        if (gRoomControls.reload_flags)
             return;
         if (gRoomVars.field_0x0) {
-            StartPlayerScript(gUnk_08108380[gRoomControls.unk_10]);
+            StartPlayerScript(gUnk_08108380[gRoomControls.scroll_direction]);
         } else {
             StartPlayerScript(gUnk_08108380[gPlayerEntity.animationState >> 1]);
         }

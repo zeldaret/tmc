@@ -13,7 +13,7 @@ script_0800D35E:
 	Jump script_0800D35E
 script_0800D372:
 	EndBlock
-	_0807E864
+	SetPlayerIdle
 	Call sub_08068190
 	WaitUntilTextboxCloses
 	Wait 0x000f
@@ -28,11 +28,11 @@ script_0800D372:
 	StartPlayerScript script_PlayerAtMountainMinishExit
 	WaitForSyncFlagAndClear 0x00000001
 script_0800D3B2:
-	_0807EB44 0x0002
-	_0807E930 0x0005
+	SetAnimationState 0x0002
+	SetAnimation 0x0005
 	_0807EDD4 0x00a0, 0x0130
-	_0807EB44 0x0006
-	_0807E930 0x0003
+	SetAnimationState 0x0006
+	SetAnimation 0x0003
 	SetIntVariable 0x00000004
 	Call sub_080681D8
 	PlaySound SFX_TASK_COMPLETE
@@ -40,6 +40,6 @@ script_0800D3B2:
 	DoPostScriptAction 0x000a
 	SetLocalFlag 0x007f
 script_0800D3E4:
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800D35E
 	.2byte 0x0000

@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "screen.h"
 #include "functions.h"
+#include "common.h"
 
 extern void sub_08056250(void);
 

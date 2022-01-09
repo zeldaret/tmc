@@ -1,25 +1,10 @@
 #include "entity.h"
 #include "player.h"
-
-typedef struct {
-    u16 unk0;
-    u16 unk2;
-    u16 unk4;
-    u8 unk6;
-    u8 unk7;
-} VStruct;
-
-typedef struct {
-    u8 _0[0x20];
-    struct OamData oam[0x80];
-    VStruct unk[0x100];
-} UStruct;
-
-extern UStruct gUnk_03000000;
+#include "structures.h"
 
 bool32 sub_0805EC04(Entity* this) {
     u32 i = 1;
-    UStruct* temp = &gUnk_03000000;
+    OAMControls* temp = &gOAMControls;
     u32 j = 1;
     for (; i < 0x20; i++) {
         if (temp->unk[i].unk6 == 0) {
@@ -34,13 +19,13 @@ bool32 sub_0805EC04(Entity* this) {
 
 void sub_0805EC60(Entity* this) {
     u8 temp;
-    UStruct* temp2;
+    OAMControls* temp2;
 
     if (this->spriteRendering.b0 != 0) {
         this->spriteRendering.b0 = 0;
         temp = this->spriteOrientation.b1;
         this->spriteOrientation.b1 = 0;
-        temp2 = &gUnk_03000000;
+        temp2 = &gOAMControls;
         temp2->unk[temp].unk6 = 0;
     }
 }
@@ -50,9 +35,9 @@ ASM_FUNC("asm/non_matching/sub_0805EC9C.inc", bool32 sub_0805EC9C(Entity* ent, u
 void sub_0805ECEC(int param_1, u32 param_2, u32 param_3, u32 param_4) {
     u16* temp;
 
-    gUnk_03000000.unk[0].unk7 = 1;
+    gOAMControls.unk[0].unk7 = 1;
 
-    temp = &gUnk_03000000.unk[param_1].unk0;
+    temp = &gOAMControls.unk[param_1].unk0;
     temp[0] = param_2;
     temp[1] = param_3;
     temp[2] = param_4;

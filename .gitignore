@@ -1,33 +1,64 @@
+# build artifacts
+src/*.s
+build/
+cmake-build-*
+*.elf
+*.exe
+*.gba
+*.i
+*.o
+*.map
+*.pcm
+sound/**/*.bin
+sound/songs/midi/*.s
+translations/*.bin
+
+# doxygen
+docs/doxygen/html/
+
+# tools
+tools/agbcc
+tools/binutils
+
+# scripts
+*.py
+*.pl
+
+# graphics
 *.1bpp
 *.4bpp
 *.8bpp
-*.DS_Store
-*.bak
-*.bat
-*.diff
-*.dump
-*.elf
-*.exe
 *.fwjpnfont
-*.gba
 *.sgm
 *.sa1
 *.sg1
 *.gbapal
 *.hwjpnfont
-*.i
+*.latfont
+*.lz
+
+# system files
+*.DS_Store
+
+# IDE
+.vscode/settings.json
+.vscode/c_cpp_properties.json
+.vscode/tasks.json
+*.code-workspace
+.idea/
+
+# misc
+.fuse_hidden*
+*.bak
+*.bat
+*.diff
+*.dump
 *.id0
 *.id1
 *.id2
 *.idb
 *.dmp
-*.latfont
-*.lz
-*.map
 *.nam
-*.o
-*.pcm
-*.pl
 *.rl
 *.s.old
 *.s.old2
@@ -35,7 +66,6 @@
 *.swo
 *.swp
 *.til
-*.code-workspace
 *.ss1
 *.ss2
 *.ss3
@@ -45,27 +75,13 @@
 *.ss7
 *.ss8
 *.ss9
-.fuse_hidden*
-.idea/
 Thumbs.db
-build/
-cmake-build-*
-sound/**/*.bin
-sound/songs/midi/*.s
-src/*.s
 tags
-tools/agbcc
-tools/binutils
-translations/*.bin
 types_*.taghl
 *.zip
 !calcrom.pl
 !sound/programmable_wave_samples/*.pcm
 _Deparsed_XSubs.pm
-*.py
 *.sna
 __pycache__
-.vscode/settings.json
-.vscode/c_cpp_properties.json
-.vscode/tasks.json
 Info.plist

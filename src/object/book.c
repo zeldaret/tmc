@@ -1,7 +1,7 @@
 #include "object.h"
 #include "functions.h"
-#include "script.h"
-#include "textbox.h"
+#include "message.h"
+#include "item.h"
 
 extern void (*const BookActionFuncs[])(Entity*);
 extern s8 const gUnk_08123D94[];
@@ -55,7 +55,7 @@ void sub_0809B3C4(Entity* this) {
             u32 scroll;
             u32 height;
             this->action = 3;
-            scroll = (u16)gRoomControls.roomScrollY - 0x10;
+            scroll = (u16)gRoomControls.scroll_y - 0x10;
             height = (u16)this->y.HALF.HI - scroll;
             this->z.HALF.HI -= height;
             return;
@@ -92,8 +92,8 @@ void sub_0809B4A8(Entity* this) {
         this->direction = 16;
 
         gPlayerState.pushedObject = 0x9e;
-        gPlayerState.playerAction = 5;
-        gPlayerState.flags |= 1;
+        gPlayerState.queued_action = PLAYER_PUSH;
+        gPlayerState.flags |= PL_BUSY;
 
         gPlayerEntity.x.HALF.LO = 0;
         gPlayerEntity.y.HALF.LO = 0;
@@ -117,7 +117,7 @@ void sub_0809B524(Entity* this) {
         }
     }
 
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
 }
 
 void sub_0809B56C(Entity* this) {

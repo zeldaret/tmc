@@ -2,8 +2,8 @@
 #include "script.h"
 #include "functions.h"
 #include "flags.h"
-#include "textbox.h"
-#include "audio.h"
+#include "message.h"
+#include "sound.h"
 
 extern u16 gUnk_08113078[];
 

@@ -1,6 +1,5 @@
 #include "entity.h"
 #include "script.h"
-#include "functions.h"
 #include "save.h"
 #include "npc.h"
 

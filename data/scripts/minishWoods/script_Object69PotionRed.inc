@@ -6,7 +6,7 @@ SCRIPT_START script_Object69PotionRed
 script_0801619A:
 	CheckEntityInteractType
 	JumpIfNot script_0801619A
-	_0807E864
+	SetPlayerIdle
 	GetInventoryValue 0x0024
 	MessageFromTargetTable 0x2d05, 0x2d04, 0x2d04, 0x2d04
 	CheckTextboxResult 
@@ -24,13 +24,13 @@ script_080161D8:
 .ifndef EU
 	WaitPlayerGetItem 
 	WaitUntilTextboxCloses
-	_0807EB8C 
+	FaceAwayFromPlayer 
 	MessageNoOverlap 0x2d06
 .else
 	MessageFromTarget 0x2d06
 .endif
 script_080161E2:
-	_0807E878
+	EnablePlayerControl
 	Jump script_0801619A
 	.align 2, 0
 

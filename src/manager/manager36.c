@@ -1,7 +1,6 @@
 #include "manager.h"
-#include "audio.h"
+#include "sound.h"
 #include "script.h"
-#include "functions.h"
 
 typedef struct {
     u16 waitTime;

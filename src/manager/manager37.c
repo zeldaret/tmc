@@ -2,8 +2,8 @@
 #include "structures.h"
 #include "functions.h"
 #include "flags.h"
-#include "textbox.h"
-#include "audio.h"
+#include "message.h"
+#include "sound.h"
 #include "save.h"
 #include "object.h"
 #include "area.h"
@@ -33,12 +33,12 @@ void sub_0805DE68(Manager* this) {
         DeleteThisEntity();
     }
     this->action = 1;
-    gScreenTransition.field_0x38 = 0;
-    gScreenTransition.field_0x39 = 0x0f;
-    *(u8*)&gScreenTransition.field_0x3a = 0x20;
-    *((u8*)&gScreenTransition.field_0x3a + 1) = 0x20;
+    gRoomTransition.field_0x38 = 0;
+    gRoomTransition.field_0x39 = 0x0f;
+    *(u8*)&gRoomTransition.field_0x3a = 0x20;
+    *((u8*)&gRoomTransition.field_0x3a + 1) = 0x20;
 #if !defined(EU) && !defined(JP)
-    gSave.unk48C[3] = 0x1194;
+    gSave.timers[3] = 0x1194;
 #endif
 }
 
@@ -47,8 +47,8 @@ void sub_0805DEB8(Manager* this) {
     s32 distY;
     Entity* object;
 
-    distX = gPlayerEntity.x.HALF.HI - (gRoomControls.roomOriginX + 0x88);
-    distY = gPlayerEntity.y.HALF.HI - (gRoomControls.roomOriginY + 0x40);
+    distX = gPlayerEntity.x.HALF.HI - (gRoomControls.origin_x + 0x88);
+    distY = gPlayerEntity.y.HALF.HI - (gRoomControls.origin_y + 0x40);
     if (distX * distX + distY * distY < 0x901) {
         this->action = 2;
         this->unk_0d = 0;
@@ -57,8 +57,8 @@ void sub_0805DEB8(Manager* this) {
         sub_08078B48();
         object = CreateObject(OBJECT_64, 0, 0);
         if (object != NULL) {
-            object->x.HALF.HI = gRoomControls.roomOriginX + 0x88;
-            object->y.HALF.HI = gRoomControls.roomOriginY + 0x48;
+            object->x.HALF.HI = gRoomControls.origin_x + 0x88;
+            object->y.HALF.HI = gRoomControls.origin_y + 0x48;
         }
         object = CreateSpeechBubbleExclamationMark(&gPlayerEntity, 8, 0xfffffff0);
         if (object != NULL) {
@@ -71,8 +71,8 @@ void sub_0805DEB8(Manager* this) {
 void sub_0805DF4C(Manager* this) {
     gPlayerEntity.animationState = 0;
     if (gPlayerEntity.z.HALF.HI != 0) {
-        if (gPlayerEntity.y.HALF.HI < (gRoomControls.roomOriginY + 0x48)) {
-            gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x48;
+        if (gPlayerEntity.y.HALF.HI < (gRoomControls.origin_y + 0x48)) {
+            gPlayerEntity.y.HALF.HI = gRoomControls.origin_y + 0x48;
         }
     } else {
         if (--this->unk_0e == 0) {
@@ -89,7 +89,7 @@ void sub_0805DF98(Manager* this) {
             this->unk_0e -= 1;
         } else {
             this->action = 4;
-            DoFade(7, 4);
+            SetFade(7, 4);
             SoundReq(SFX_EVAPORATE);
         }
     }
@@ -109,18 +109,18 @@ void sub_0805DFE8(Manager* this) {
 void sub_0805E000(Manager* this) {
     Entity* enemy = CreateEnemy(VAATI_WRATH, 0);
     if (enemy != NULL) {
-        enemy->x.HALF.HI = gRoomControls.roomOriginX + 0xb0;
-        enemy->y.HALF.HI = gRoomControls.roomOriginY + 0x48;
+        enemy->x.HALF.HI = gRoomControls.origin_x + 0xb0;
+        enemy->y.HALF.HI = gRoomControls.origin_y + 0x48;
         enemy->collisionLayer = 1;
         UpdateSpriteForCollisionLayer(enemy);
-        if ((gScreenTransition.field_0x38 & 1) != 0) {
+        if ((gRoomTransition.field_0x38 & 1) != 0) {
             DeleteThisEntity();
         }
         *(Entity**)this->unk_18 = enemy;
         this->action = 1;
         SetPlayerControl(3);
-        gArea.pMusicIndex = 0x80010000;
-        DoFade(6, 4);
+        gArea.queued_bgm = 0x80010000;
+        SetFade(6, 4);
         SoundReq(SFX_APPARATE);
     }
 }
@@ -134,5 +134,5 @@ void sub_0805E078(Manager* this) {
 
 void sub_0805E094(void) {
     SetInitializationPriority();
-    sub_0808091C((ScreenTransitionData*)&gUnk_0813AC34, 7);
+    sub_0808091C((ScreenTransitionData*)&gUnk_0813AC34, TRANSITION_7);
 }

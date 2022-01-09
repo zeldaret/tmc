@@ -1,8 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "script.h"
-#include "audio.h"
-#include "structures.h"
+#include "sound.h"
 #include "functions.h"
 
 extern void sub_08095CB0(Entity*);
@@ -35,7 +34,7 @@ void VaatiAction0(Entity* this) {
 void VaatiAction1(Entity* this) {
     ScriptExecutionContext* tmp;
     sub_0807DD94(this, sub_08066B74);
-    if ((*(s8*)&this->field_0x68.HALF.HI != 0) && ((gScreenTransition.frameCount & 3) == 0)) {
+    if ((*(s8*)&this->field_0x68.HALF.HI != 0) && ((gRoomTransition.frameCount & 3) == 0)) {
         sub_08095CB0(this);
     }
 

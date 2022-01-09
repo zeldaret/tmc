@@ -1,5 +1,5 @@
 #include "functions.h"
-#include "textbox.h"
+#include "message.h"
 #include "npc.h"
 
 extern void (*const gUnk_0810AC1C[])(Entity*);
@@ -80,6 +80,18 @@ void sub_08061AFC(Entity*);
 
 extern u16* gUnk_0810B660[8];
 
+void CreateZeldaFollower(void) {
+    Entity* npc;
+    if (CheckGlobalFlag(0x1c) != 0) {
+        npc = CreateNPC(0x2e, 0, 0);
+        if (npc != NULL) {
+            CopyPosition(&gPlayerEntity, npc);
+            npc->flags |= 0x20;
+            npc->animationState = GetAnimationState(npc);
+        }
+    }
+}
+
 // UNUSED zelda follower, probably because it was too resource heavy
 void NPC5(Entity* this) {
     gUnk_0810AC1C[this->type](this);
@@ -88,7 +100,7 @@ void NPC5(Entity* this) {
 void sub_08060A00(Entity* this) {
     u32 tmp;
 
-    if ((gPlayerState.jumpStatus & 0x80) != 0) {
+    if ((gPlayerState.jump_status & 0x80) != 0) {
         if (this->action != 0) {
             if (((((UnkHeap*)this->myHeap)->unk_0) & 4) == 0) {
                 ((UnkHeap*)this->myHeap)->unk_0 |= 4;
@@ -106,13 +118,13 @@ void sub_08060A00(Entity* this) {
         ((UnkHeap*)this->myHeap)->unk_1 = gPlayerEntity.x.HALF.HI;
         ((UnkHeap*)this->myHeap)->unk_2 = gPlayerEntity.y.HALF.HI;
     }
-    if (this->field_0x74.HWORD != gRoomControls.roomID) {
-        this->field_0x74.HWORD = gRoomControls.roomID;
+    if (this->field_0x74.HWORD != gRoomControls.room) {
+        this->field_0x74.HWORD = gRoomControls.room;
         CopyPosition(&gPlayerEntity, this);
         this->action = 1;
         this->spriteSettings.draw = 1;
         this->speed = 0x120;
-        tmp = gRoomControls.unk_10;
+        tmp = gRoomControls.scroll_direction;
         this->animationState = tmp * 2;
         InitAnimationForceUpdate(this, tmp << 0x19 >> 0x19); // TODO some conversion between u8 and u32?
         this->frameDuration = (Random() & 0x7f) + 0x80;
@@ -161,6 +173,7 @@ void sub_08060B5C(Entity* this) {
 
 void sub_08060BA0(Entity* this) {
     Entity* r5;
+    //! @bug: r5 is uninitialized
 
     if (sub_08061230(this) != 0) {
         return;
@@ -263,9 +276,9 @@ void sub_08060DF4(Entity* this) {
 void sub_08060DFC(Entity* this) {
     u32 uVar1;
 
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     sub_08060E94(this);
-    uVar1 = sub_08003FC4(this, 0x2000);
+    uVar1 = GravityUpdate(this, 0x2000);
     if (uVar1 == 0) {
         this->action = 7;
         this->collisionLayer = 1;
@@ -406,9 +419,7 @@ NONMATCH("asm/non_matching/npc5/sub_08061170.inc", bool32 sub_08061170(Entity* t
 END_NONMATCH
 
 NONMATCH("asm/non_matching/npc5/sub_080611D4.inc", u32 sub_080611D4(Entity* this)) {
-    u8 bVar1;
     u32 uVar2;
-    u8* pbVar3;
 
     u32 x;
     s32 a;
@@ -420,8 +431,7 @@ NONMATCH("asm/non_matching/npc5/sub_080611D4.inc", u32 sub_080611D4(Entity* this
     b = gUnk_0810AC4C[x].unk_1;
     // asm("d");
     uVar2 = sub_080002B4(this, a, b);
-// asm("b");
-code4:
+    // asm("b");
     if ((gUnk_0810AC54[0] != uVar2 || (this->animationState != gUnk_0810AC54[1] >> 2))) {
         // asm ("e");
         if (gUnk_0810AC54[2] == 0) {
@@ -473,7 +483,6 @@ u32 sub_08061230(Entity* this) {
 }
 
 NONMATCH("asm/non_matching/npc5/sub_08061358.inc", void sub_08061358(Entity* this)) {
-    u8 bVar1;
     u32 uVar2;
     s32 iVar3;
     u8 bVar4;
@@ -629,7 +638,6 @@ NONMATCH("asm/non_matching/npc5/sub_08061464.inc", void sub_08061464(Entity* thi
                 sub_08061630(this, iVar10, iVar9 + -8, param_a);
             }
     }
-_08061612:
     bVar1 = ((UnkHeap*)this->myHeap)->unk_0;
     if ((bVar1 & 8) == 0) {
         this->action = 3;
@@ -814,7 +822,7 @@ bool32 sub_08061A74(Entity* this, s32 x, s32 y, s32 param) {
     return TRUE;
 }
 
-void sub_08061AA0() {
+void sub_08061AA0(void) {
     DeleteThisEntity();
 }
 
@@ -843,7 +851,6 @@ void sub_08061AFC(Entity* this) {
 }
 
 NONMATCH("asm/non_matching/npc5/sub_08061B18.inc", void sub_08061B18(Entity* this)) {
-    u8 bVar1;
     u16* puVar2;
 
     typedef struct {
@@ -873,7 +880,7 @@ void sub_08061B58(Entity* this) {
         this->action = 1;
         InitAnimationForceUpdate(this, 2);
     }
-    if (gScreenTransition.player_status.field_0x24[8] == 2) {
+    if (gRoomTransition.player_status.field_0x24[8] == 2) {
         UpdateAnimationSingleFrame(this);
     }
     sub_0806FD3C(this);

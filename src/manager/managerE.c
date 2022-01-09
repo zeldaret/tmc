@@ -1,9 +1,8 @@
-#include "global.h"
 #include "entity.h"
 #include "manager.h"
 #include "flags.h"
 #include "room.h"
-#include "audio.h"
+#include "sound.h"
 #include "functions.h"
 
 void ManagerE_Main(ManagerE* this) {

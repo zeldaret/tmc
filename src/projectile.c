@@ -3,7 +3,7 @@
 #include "hitbox.h"
 
 #define MULTI_FORM(definition_ptr) \
-    { 0xffff, 0, { .definition = definition_ptr }, 0, 0, 0 }
+    { 0xffff, 0, { .definition = (definition_ptr) }, 0, 0, 0 }
 
 const ProjectileDefinition gProjectileDefinition_0[];
 const ProjectileDefinition gProjectileDefinition_6[];

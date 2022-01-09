@@ -1,10 +1,9 @@
-#include "audio.h"
+#include "sound.h"
 #include "entity.h"
 #include "enemy.h"
 #include "player.h"
 #include "coord.h"
 #include "functions.h"
-#include "effects.h"
 
 extern void sub_08078954(Entity*);
 

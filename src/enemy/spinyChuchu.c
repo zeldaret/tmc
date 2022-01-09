@@ -1,3 +1,10 @@
+/**
+ * @file spinyChuchu.c
+ * @ingroup Enemies
+ *
+ * @brief Spiny Chuchu enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 
@@ -86,7 +93,7 @@ void sub_080225A0(Entity* this) {
 }
 
 void sub_080225BC(Entity* this) {
-    sub_08003FC4(this, 0x1800);
+    GravityUpdate(this, 0x1800);
     if (this->frame & 1) {
         sub_0804A7D4(this);
     } else {
@@ -125,7 +132,7 @@ void sub_08022654(Entity* this) {
             InitializeAnimation(this, 0);
             /* fallthrough */
         case 1:
-            if (sub_08003FC4(this, 0x1800))
+            if (GravityUpdate(this, 0x1800))
                 return;
 
             this->subAction = 2;
@@ -204,7 +211,7 @@ void sub_080227AC(Entity* this) {
 }
 
 void sub_0802281C(Entity* this) {
-    sub_08003FC4(this, 0x1800);
+    GravityUpdate(this, 0x1800);
     GetNextFrame(this);
     if (this->frame & 0x80) {
         this->action = 2;
@@ -218,7 +225,7 @@ void sub_08022854(Entity* this) {
     GetNextFrame(this);
     if (this->frame & 1) {
         sub_080AEFE0(this);
-        if (sub_08003FC4(this, 0x1800) == 0) {
+        if (GravityUpdate(this, 0x1800) == 0) {
             this->action = 7;
             this->hitType = 0x5c;
             InitializeAnimation(this, 5);

@@ -623,7 +623,7 @@ MakeFadeBuff256: @ 0x080B2124
 	mul r3, r2, r3
 	mov r4, #0x400
 	sub r2, r4, r2, lsl #2
-	ldr r7, _080B21A8 @ =gUnk_02000006
+	ldr r7, _080B21A8 @ =0x02000006
 	ldrb r7, [r7]
 	ldr ip, _080B21AC @ =gUnk_08000F54
 	add ip, ip, r7, lsl #4
@@ -654,7 +654,7 @@ _080B2150:
 	bx lr
 	.align 2, 0
 _080B21A4: .4byte 0x01010101
-_080B21A8: .4byte gUnk_02000006
+_080B21A8: .4byte 0x02000000 + 6 @ brightness preference
 _080B21AC: .4byte gUnk_08000F54
 
 	ldr r11, _080B2270 @ =gUpdateContext
@@ -835,7 +835,7 @@ _080B23EC: .4byte gUnk_0800464E
 sub_080B23F0: @ 0x080B23F0
 .ifdef EU
 	push {r4, r5, r6, r7, r8, sb, sl, fp, lr}
-	ldr fp, _080B2A30 @ =gUnk_03000000
+	ldr fp, _080B2A30 @ =gOAMControls
 	ldrb r2, [fp, #3]
 	cmp r2, #0x80
 	bhs _080B19C0EU
@@ -885,7 +885,7 @@ sub_080B19C8: @ 0x080B19C8
 .else
 .ifdef DEMO_JP @ TODO deduplicate same as EU
 	push {r4, r5, r6, r7, r8, sb, sl, fp, lr}
-	ldr fp, _080B2A30 @ =gUnk_03000000
+	ldr fp, _080B2A30 @ =gOAMControls
 	ldrb r2, [fp, #3]
 	cmp r2, #0x80
 	bhs _080B19C0EU
@@ -934,7 +934,7 @@ sub_080B19C8: @ 0x080B19C8
 	b _080B1C40EU
 .else
 	push {r4, r5, r6, r7, r8, sb, sl, fp, lr}
-	ldr fp, _080B2A30 @ =gUnk_03000000
+	ldr fp, _080B2A30 @ =gOAMControls
 	ldrb r2, [fp, #3]
 	cmp r2, #0x80
 	bhs _080B2440
@@ -1527,7 +1527,7 @@ sub_080B280C: @ 0x080B280C
 	cmp r2, #0
 	bxeq lr
 	push {r4, r5, r6, r7, r8, sb, sl, fp, lr}
-	ldr fp, _080B2A64 @ =gUnk_03000000
+	ldr fp, _080B2A64 @ =gOAMControls
 	ldrb r3, [fp, #3]
 	cmp r3, #0x80
 	bhs _080B286C
@@ -1898,7 +1898,7 @@ _080B2144:
 	.4byte gUnk_0300689C
 .endif
 	
-_080B2A30: .4byte gUnk_03000000
+_080B2A30: .4byte gOAMControls
 .ifdef EU
 _080B2154: .4byte 0x03006958 @TODO make pointer?
 .endif
@@ -1917,7 +1917,7 @@ _080B2A54: .4byte gUnk_0300694C
 _080B2A58: .4byte gUnk_020000C0
 _080B2A5C: .4byte gFrameObjLists
 _080B2A60: .4byte gFrameObjLists
-_080B2A64: .4byte gUnk_03000000
+_080B2A64: .4byte gOAMControls
 _080B2A68: .4byte gUnk_0300695C
 _080B2A6C: .4byte 0x3E003F00
 .ifdef EU

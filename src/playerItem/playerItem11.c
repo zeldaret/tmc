@@ -2,7 +2,7 @@
 #include "entity.h"
 #include "player.h"
 #include "functions.h"
-#include "audio.h"
+#include "sound.h"
 
 extern void sub_08078CD0(Entity*);
 extern void sub_08018FA0(Entity*);

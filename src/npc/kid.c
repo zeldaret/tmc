@@ -1,8 +1,6 @@
 #include "functions.h"
-#include "textbox.h"
+#include "message.h"
 #include "npc.h"
-#include "script.h"
-#include "save.h"
 
 extern void (*const gUnk_0810BE0C[])(Entity*);
 void sub_080621AC(Entity*);
@@ -27,8 +25,6 @@ extern u16 gUnk_0810BDE8[];
 extern Dialog gUnk_0810BE10[];
 
 extern u8 gUnk_0810C0A0[];
-
-extern SpriteLoadData* gUnk_0810BDC4[];
 
 void Kid(Entity* this) {
     if ((this->flags & 2) != 0) {
@@ -240,8 +236,8 @@ NONMATCH("asm/non_matching/kid/sub_080626E0.inc", void sub_080626E0(Entity* this
         context->unk_19 = 10;
         context->postScriptActions |= 2;
         sVar1 = *(s16*)&context->intVariable;
-        context->x.HALF.HI = *((u16*)&context->intVariable + 2) + gRoomControls.roomOriginX;
-        context->y.HALF.HI = gRoomControls.roomOriginY + sVar1;
+        context->x.HALF.HI = *((u16*)&context->intVariable + 2) + gRoomControls.origin_x;
+        context->y.HALF.HI = gRoomControls.origin_y + sVar1;
     }
     bVar2 = context->unk_19 - 1;
     context->unk_19 = bVar2;
@@ -338,7 +334,6 @@ NONMATCH("asm/non_matching/kid/sub_08062948.inc", void sub_08062948(Entity* this
     u16 uVar2;
     u32 uVar3;
     s32 iVar4;
-    s16* psVar5;
 
     if (context->unk_18 == 0) {
         context->unk_18 += 1;

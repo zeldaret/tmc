@@ -1,9 +1,9 @@
 @ Intro Zelda at Smith
 SCRIPT_START script_ZeldaIntro
 	BeginBlock
-	Call sub_0807F348
+	Call SetPriorityMessage
 	SetEntitySpeed 0x00c0
-	_0807EB44 0x0002
+	SetAnimationState 0x0002
 	DoPostScriptAction 0x0008
 	EndBlock
 	WaitForSyncFlagAndClear 0x00000004

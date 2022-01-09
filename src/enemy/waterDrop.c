@@ -1,8 +1,14 @@
+/**
+ * @file waterDrop.c
+ * @ingroup Enemies
+ *
+ * @brief Water Drop enemy
+ */
+
 #include "enemy.h"
 #include "screen.h"
 #include "object.h"
 #include "structures.h"
-#include "functions.h"
 
 void sub_0802A39C(Entity*);
 void sub_0802A334(Entity*);
@@ -34,12 +40,12 @@ void sub_0802A250(Entity* this) {
 }
 
 void sub_0802A2B4(Entity* this) {
-    if (!sub_08003FC4(this, 0x2800)) {
+    if (!GravityUpdate(this, 0x2800)) {
         this->action = 2;
         this->spritePriority.b0 = 7;
         EnqueueSFX(0x84);
     } else {
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
     }
 
     sub_0802A39C(this);
@@ -60,8 +66,8 @@ void sub_0802A2FC(Entity* this) {
 }
 
 void sub_0802A334(Entity* this) {
-    u32 x = (this->x.HALF.HI - gRoomControls.roomScrollX + gScreen.bg1.xOffset) >> 3;
-    u32 y = (this->y.HALF.HI - gRoomControls.roomScrollY + gScreen.bg1.yOffset) >> 3;
+    u32 x = (this->x.HALF.HI - gRoomControls.scroll_x + gScreen.bg1.xOffset) >> 3;
+    u32 y = (this->y.HALF.HI - gRoomControls.scroll_y + gScreen.bg1.yOffset) >> 3;
     if (gBG3Buffer[(x & 0x1fU) + (y & 0x1fU) * 0x20 + 0x400]) {
         this->collisionLayer = 2;
     } else {
@@ -71,8 +77,8 @@ void sub_0802A334(Entity* this) {
 }
 
 void sub_0802A39C(Entity* this) {
-    u32 x = (gPlayerEntity.x.HALF.HI - gRoomControls.roomScrollX + gScreen.bg1.xOffset) >> 3;
-    u32 y = (gPlayerEntity.y.HALF.HI - gRoomControls.roomScrollY + gScreen.bg1.yOffset - 10) >> 3;
+    u32 x = (gPlayerEntity.x.HALF.HI - gRoomControls.scroll_x + gScreen.bg1.xOffset) >> 3;
+    u32 y = (gPlayerEntity.y.HALF.HI - gRoomControls.scroll_y + gScreen.bg1.yOffset - 10) >> 3;
     if (gBG3Buffer[(x & 0x1fU) + (y & 0x1fU) * 0x20 + 0x400]) {
         COLLISION_OFF(this);
     } else {

@@ -11,11 +11,11 @@ SCRIPT_START script_NPC4ESourceOfTheFlow
 script_08015FE4:
 	_0807EA4C
 	_0807E9F0
-	_0807E864
+	SetPlayerIdle
 	CheckKinstoneFused 0x0009
 	JumpIf script_08015FFE
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	Jump script_08015FE4
 script_08015FFE:
 	_0807F0C8 0xffff, 0x0000

@@ -10,7 +10,7 @@ SCRIPT_START script_Npc4ESecondSanctuary
 script_0801373C:
 	CheckEntityInteractType
 	JumpIfNot script_0801373C
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
 	StartPlayerScript script_PlayerAtPedestal
 	WaitForSyncFlagAndClear 0x00000001
@@ -58,16 +58,16 @@ script_0801373C:
 	_0807F078 0x0004, 0x0001
 	Call sub_0806DC3C
 	Call sub_0806DC58
-	Call sub_0807F304
+	Call WaitForPlayerFrameHiBit
 	Wait 0x003c
-	_0807E778 0x0004
-	DoFade7
+	SetFadeTime 0x0004
+	SetFade7
 	PlaySound SFX_EVAPORATE
 	WaitForFadeFinish
 	Wait 0x003c
 	SetSyncFlag 0x00000010
-	_0807E778 0x0002
-	DoFade6
+	SetFadeTime 0x0002
+	SetFade6
 	WaitForFadeFinish
 	PlaySound SFX_109
 	MessageFromTargetPos 0x0504, 0x000c
@@ -76,7 +76,7 @@ script_0801373C:
 	SetLocalFlag 0x007b
 	Call sub_08053250
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END
 	.2byte 0x0000

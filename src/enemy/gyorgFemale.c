@@ -2,8 +2,7 @@
 #include "global.h"
 #include "entity.h"
 #include "enemy.h"
-#include "utils.h"
-#include "audio.h"
+#include "sound.h"
 #include "asm.h"
 #include "functions.h"
 #include "enemy/gyorg.h"
@@ -270,8 +269,8 @@ END_NONMATCH
 
 void sub_080465C8(void) {
     s32 x, y;
-    x = (gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX) >> 3;
-    y = (gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY) >> 3;
+    x = (gPlayerEntity.x.HALF.HI - gRoomControls.origin_x) >> 3;
+    y = (gPlayerEntity.y.HALF.HI - gRoomControls.origin_y) >> 3;
     if (gUnk_02019EE0[(y << 7) + x]) {
         gPlayerState.field_0x14 = 1;
     }
@@ -284,8 +283,8 @@ void sub_0804660C(GyorgFemaleEntity* this, u32 unk1) {
     const u16* p;
     super->animationState = unk1;
     p = &gUnk_080D1A84[unk1 >> 5];
-    super->x.HALF.HI = p[0] + gRoomControls.roomOriginX;
-    super->y.HALF.HI = p[1] + gRoomControls.roomOriginY;
+    super->x.HALF.HI = p[0] + gRoomControls.origin_x;
+    super->y.HALF.HI = p[1] + gRoomControls.origin_y;
 }
 
 // todo: correct type
@@ -408,7 +407,7 @@ void sub_080466A8(GyorgFemaleEntity* this) {
             this->unk_78 = 0xFF;
             SoundReq(SFX_BOSS_HIT);
             if (super->health != 0) {
-                sub_08080964(8, 0);
+                InitScreenShake(8, 0);
                 if (++this->unk_82 <= 0xC) {
                     super->health--;
                 }

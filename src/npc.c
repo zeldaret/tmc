@@ -154,15 +154,15 @@ NONMATCH("asm/non_matching/arm_proxy/NPCUpdate.inc", void NPCUpdate(Entity* this
         DeleteThisEntity();
     if (this->action == 0 && (this->flags & ENT_DID_INIT) == 0)
         InitNPC(this);
-    if (!CheckDontUpdate(this))
+    if (!EntityIsDeleted(this))
         gNPCFunctions[this->id][0](this);
     if (this->next != NULL) {
         if (gNPCFunctions[this->id][1] != NULL)
             gNPCFunctions[this->id][1](this);
         if ((this->health & 0x7f) != 0) {
             u32 temp = this->health & 0x7f;
-            gUnk_02031EC0[temp * 2 - 2].x = this->x.HALF.HI - gRoomControls.roomOriginX;
-            gUnk_02031EC0[temp * 2 - 2].y = this->y.HALF.HI - gRoomControls.roomOriginY;
+            gUnk_02031EC0[temp * 2 - 2].x = this->x.HALF.HI - gRoomControls.origin_x;
+            gUnk_02031EC0[temp * 2 - 2].y = this->y.HALF.HI - gRoomControls.origin_y;
         }
         DrawEntity(this);
     }

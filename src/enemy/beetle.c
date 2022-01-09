@@ -1,9 +1,16 @@
+/**
+ * @file beetle.c
+ * @ingroup Enemies
+ *
+ * @brief Beetle enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 
 extern u32 PlayerInRange(Entity*, u32, u32);
 
-u32 sub_08021D00();
+u32 sub_08021D00(Entity*);
 void sub_08021D44(Entity* this, u32 direction);
 
 extern void (*const gUnk_080CB590[])(Entity*);
@@ -133,7 +140,7 @@ void sub_08021984(Entity* this) {
         EnqueueSFX(0x12d);
     }
 
-    if (sub_08003FC4(this, 0x1800) == 0) {
+    if (GravityUpdate(this, 0x1800) == 0) {
         this->action = 2;
         this->actionDelay = 16;
         this->field_0xf = 1;
@@ -200,7 +207,7 @@ void sub_08021AD8(Entity* this) {
             EnqueueSFX(0x7c);
         }
         sub_080AEFE0(this);
-        if (!sub_08003FC4(this, 0x1800))
+        if (!GravityUpdate(this, 0x1800))
             this->frameDuration = 1;
     }
 
@@ -213,7 +220,7 @@ void sub_08021AD8(Entity* this) {
 }
 
 void sub_08021B64(Entity* this) {
-    if (gPlayerState.flags & 4) {
+    if (gPlayerState.flags & PL_DROWNING) {
         this->action = 3;
         this->z.WORD = 0;
         InitializeAnimation(this, 2);
@@ -230,7 +237,7 @@ void sub_08021B64(Entity* this) {
             this->actionDelay = (u8)iVar4;
         }
 
-        if (gPlayerState.flags & 0x110)
+        if (gPlayerState.flags & (PL_DISABLE_ITEMS | PL_CAPTURED))
             iVar4 = 0;
 
         if (iVar4 == 0) {
@@ -244,8 +251,8 @@ void sub_08021B64(Entity* this) {
             }
             InitializeAnimation(this, 5);
         } else {
-            gPlayerState.field_0x1a[0] |= 0x80;
-            gPlayerState.field_0x80 -= 0x50;
+            gPlayerState.mobility |= 0x80;
+            gPlayerState.speed_modifier -= 0x50;
             gPlayerState.field_0xaa++;
             CopyPositionAndSpriteOffset(&gPlayerEntity, this);
             this->x.HALF.HI += gUnk_080CB5E4[(this->field_0xf++ & 0xe) >> 1];
@@ -259,7 +266,7 @@ void sub_08021C58(Entity* this) {
     GetNextFrame(this);
     if (this->frame & 1) {
         sub_080AEFE0(this);
-        if (sub_08003FC4(this, 0x1800) == 0)
+        if (GravityUpdate(this, 0x1800) == 0)
             this->frameDuration = 1;
     }
 

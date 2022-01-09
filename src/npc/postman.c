@@ -1,16 +1,8 @@
 #include "global.h"
-#include "audio.h"
+#include "sound.h"
 #include "entity.h"
 #include "functions.h"
 #include "npc.h"
-#include "textbox.h"
-#include "player.h"
-#include "room.h"
-#include "structures.h"
-#include "save.h"
-#include "script.h"
-#include "flags.h"
-#include "effects.h"
 
 extern void sub_08060528(Entity*);
 extern void sub_080604DC(Entity*);
@@ -37,7 +29,6 @@ void Postman(Entity* this) {
 }
 
 void sub_08060428(Entity* this) {
-    u8 bVar1;
     void* data;
 
     this->actionDelay = 0x5a;
@@ -54,7 +45,6 @@ void sub_08060428(Entity* this) {
 
 void sub_0806045C(Entity* this) {
     u8 bVar1;
-    u32 uVar2;
     u32 bVar3;
     s32 temp;
 
@@ -92,14 +82,12 @@ void sub_080604C8(Entity* this) {
 }
 
 void sub_080604DC(Entity* this) {
-    u8 bVar1;
-    int iVar2;
     Entity* ent;
 
-    if (this->spriteSettings.draw == 1 && sub_080040A8(this)) {
+    if (this->spriteSettings.draw == 1 && CheckOnScreen(this)) {
         if ((this->frame & 1) != 0) {
             this->frame &= 0xfe;
-            ent = CreateFx(this, 17, 0x40);
+            ent = CreateFx(this, FX_DASH, 0x40);
             if (ent != NULL) {
                 ent->y.HALF.HI++;
                 SetDefaultPriority(ent, 3);
@@ -163,7 +151,7 @@ void sub_08060528(Entity* this) {
             this->field_0x6a.HWORD -= 1;
         }
     }
-    sub_08003FC4(this, 0x1800);
+    GravityUpdate(this, 0x1800);
     if (((this->field_0x6c.HALF.HI != 0) && (this->zVelocity == 0)) && this->z.WORD == 0) {
         this->field_0x6c.HALF.HI = 0;
         sub_080606C0(this);
@@ -193,8 +181,8 @@ void sub_080606D8(Entity* this) {
 void sub_08060700(Entity* entity, ScriptExecutionContext* context) {
     s8* var0 = gUnk_0810A918[(s8)entity->field_0x68.HALF.LO];
     Coords16* coords = &gUnk_0810A66C[var0[(s8)entity->field_0x68.HALF.HI]];
-    u32 x = coords->x + gRoomControls.roomOriginX;
-    u32 y = coords->y + gRoomControls.roomOriginY;
+    u32 x = coords->x + gRoomControls.origin_x;
+    u32 y = coords->y + gRoomControls.origin_y;
     sub_0807DEDC(entity, context, x, y);
     gActiveScriptInfo.flags |= 1;
 }
@@ -215,17 +203,5 @@ void Postman_Fusion(Entity* this) {
         InitAnimationForceUpdate(this, 2);
     } else {
         UpdateAnimationSingleFrame(this);
-    }
-}
-
-void CreateZeldaFollower(void) {
-    Entity* npc;
-    if (CheckGlobalFlag(0x1c) != 0) {
-        npc = CreateNPC(0x2e, 0, 0);
-        if (npc != NULL) {
-            CopyPosition(&gPlayerEntity, npc);
-            npc->flags |= 0x20;
-            npc->animationState = GetAnimationState(npc);
-        }
     }
 }

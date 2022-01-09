@@ -3,10 +3,11 @@
 #include "entity.h"
 #include "player.h"
 #include "save.h"
-#include "utils.h"
+#include "common.h"
 #include "functions.h"
 #include "enemy.h"
-#include "effects.h"
+#include "object.h"
+#include "game.h"
 
 extern u8 gCollidableCount;
 extern u8 gUnk_080B3740[];
@@ -30,7 +31,7 @@ extern ColSettings gCollisionMtx[173 * 34];
 
 extern void gDoCollision(void);
 u32 sub_08081420(Entity*);
-extern void sub_0800449C(Entity*, u32);
+extern void SoundReqClipped(Entity*, u32);
 s32 sub_08018308(Entity*, Entity*, u32, ColSettings*);
 void sub_08079D84(void);
 void sub_080180BC(Entity*, Entity*);
@@ -59,7 +60,7 @@ void CollisionMain(void) {
     if (gPriorityHandler.sys_priority <= gPriorityHandler.ent_priority)
         prio = gPriorityHandler.ent_priority;
 
-    // if any min priority is set, dont do collision
+    // if any priority is set, dont do collision
     if (prio)
         return;
 
@@ -83,19 +84,19 @@ void RegisterPlayerHitbox(void) {
     gUnk_03003C70[0].node = &gPlayerEntity;
 }
 
-// Loop declaration seems wrong
-NONMATCH("asm/non_matching/arm_proxy/sub_0801766C.inc", u32 sub_0801766C(Entity* this)) {
+u32 sub_0801766C(Entity* this) {
     u32 uVar1;
     LinkedList2* puVar3;
     LinkedList2* puVar2;
     LinkedList2* pLVar2;
     LinkedList2* i;
+    LinkedList2* end;
     u8* pbVar4;
 
     if (this->spritePriority.b2 != 0) {
         return 1;
     } else {
-        for (i = &gUnk_03003C70[0]; i < &gUnk_03003C70[16]; ++i) {
+        for (i = gUnk_03003C70, end = gUnk_03003C70 + 16; end > i; ++i) {
             if (i->node == NULL) {
                 i->node = this;
                 i->flags = 0;
@@ -124,19 +125,18 @@ NONMATCH("asm/non_matching/arm_proxy/sub_0801766C.inc", u32 sub_0801766C(Entity*
         return 0;
     }
 }
-END_NONMATCH
 
-// same loop issue
-NONMATCH("asm/non_matching/arm_proxy/sub_080176E4.inc", u32 sub_080176E4(Entity* this)) {
+u32 sub_080176E4(Entity* this) {
     u32 uVar1;
     LinkedList2* j;
     LinkedList2* i;
+    LinkedList2* end;
     u8* pbVar4;
 
     if (this->spritePriority.b2 != 0) {
         return 1;
     } else {
-        for (i = &gUnk_03003C70[0]; i < &gUnk_03003C70[16]; ++i) {
+        for (i = gUnk_03003C70, end = gUnk_03003C70 + 16; end > i; ++i) {
             if (i->node == NULL) {
                 i->node = this;
                 i->flags = 1;
@@ -153,12 +153,15 @@ NONMATCH("asm/non_matching/arm_proxy/sub_080176E4.inc", u32 sub_080176E4(Entity*
         return 0;
     }
 }
-END_NONMATCH
 
-// you guessed it
+// Several issues:
+// 1. b2 mask value is set before the loop even begins
+// 2. data is allocated mid function
+// 3. regalloc
 NONMATCH("asm/non_matching/arm_proxy/sub_08017744.inc", void sub_08017744(Entity* this)) {
     LinkedList2* i;
-    for (i = &gUnk_03003C70[0]; i < &gUnk_03003C70[16]; ++i) {
+    LinkedList2* end;
+    for (i = gUnk_03003C70, end = gUnk_03003C70 + 16; end > i; ++i) {
         if (i->node == this) {
             if (this->spritePriority.b2 != 0) {
                 this->spritePriority.b2 = 0;
@@ -179,17 +182,17 @@ NONMATCH("asm/non_matching/arm_proxy/sub_080177A0.inc", bool32 sub_080177A0(Enti
     u32 this_d;
     u32 depth;
 
-    if ((that->collisionLayer & this->collisionLayer) != 0) {
+    if ((this->collisionLayer & that->collisionLayer) != 0) {
         Hitbox* bb_this = this->hitbox;
         Hitbox* bb_that = that->hitbox;
         u32 this_w = bb_this->width;
         u32 that_w = bb_that->width;
-        if ((((this->x.HALF.HI - that->x.HALF.HI) + bb_this->offset_x) - bb_that->offset_x) + this_w + that_w <=
-            (this_w + that_w) * 2) {
+        u32 sumw = this_w + that_w;
+        if ((((this->x.HALF.HI - that->x.HALF.HI) + bb_this->offset_x) - bb_that->offset_x) + sumw <= (sumw)*2) {
             u32 this_h = bb_this->height;
             u32 that_h = bb_that->height;
-            if ((((this->y.HALF.HI - that->y.HALF.HI) + bb_this->offset_y) - bb_that->offset_y) + this_h + that_h <=
-                (this_h + that_h) * 2) {
+            u32 sumh = this_h + that_h;
+            if ((((this->y.HALF.HI - that->y.HALF.HI) + bb_this->offset_y) - bb_that->offset_y) + sumh <= (sumh)*2) {
                 if ((this->field_0x3c & 0x10) != 0)
                     this_d = ((Hitbox3D*)bb_this)->depth;
                 else
@@ -232,7 +235,7 @@ s32 sub_08017874(Entity* a, Entity* b) {
         if (newDmg <= 0)
             newDmg = 1;
         v5 = ModHealth(-newDmg);
-        sub_0800449C(a, 122);
+        SoundReqClipped(a, 122);
     } else {
         v6 = b->damage;
         if (b->kind == 8) {
@@ -248,9 +251,9 @@ s32 sub_08017874(Entity* a, Entity* b) {
         v5 = a->health - v6;
         if (a->kind == 3) {
             if ((a->field_0x6c.HALF.HI & 1) != 0)
-                sub_0800449C(a, 295);
+                SoundReqClipped(a, 295);
             else
-                sub_0800449C(a, 254);
+                SoundReqClipped(a, 254);
         }
     }
     if (v5 <= 0) {
@@ -302,7 +305,7 @@ void sub_080179EC(Entity* a1, Entity* a2) {
 Entity* sub_08017A90(Entity* a1, Entity* parent) {
     Entity* e;
 
-    e = (Entity*)CreateObject(153, 0, 0);
+    e = (Entity*)CreateObject(OBJECT_99, 0, 0);
     if (e != NULL) {
         e->animationState = (a1->direction >> 3) & 3;
         e->spriteOffsetX = a1->x.HALF.HI - parent->x.HALF.HI;
@@ -314,7 +317,6 @@ Entity* sub_08017A90(Entity* a1, Entity* parent) {
 }
 
 typedef s32 (*CollisionHandler)(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
-s32 sub_08018308(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
 s32 CollisionNoOp(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
 s32 CollisionGroundItem(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
 s32 sub_08017B58(Entity* org, Entity* tgt, u32 direction, ColSettings* settings);
@@ -389,11 +391,11 @@ s32 sub_08017B58(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 }
 
 s32 sub_08017BBC(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
-    if ((gPlayerState.flags & (0x1 | 0x80 | 0x400 | 0x1000)) == 0) {
-        Entity* e = CreateObject(66, 1, 0);
+    if ((gPlayerState.flags & (PL_BUSY | PL_MINISH | PL_BURNING | 0x1000)) == 0) {
+        Entity* e = CreateObject(OBJECT_42, 1, 0);
         if (e != NULL) {
             e->child = org;
-            gPlayerState.flags |= 0x400;
+            gPlayerState.flags |= PL_BURNING;
             org->animationState = (direction ^ 0x10) >> 2;
         }
     }
@@ -408,12 +410,12 @@ s32 sub_08017BBC(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 }
 
 s32 sub_08017C40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
-    if ((gPlayerState.flags & (0x1 | 0x80 | 0x800 | 0x1000)) == 0 && gPlayerState.playerAction == 0) {
+    if ((gPlayerState.flags & (PL_BUSY | PL_MINISH | PL_FROZEN | 0x1000)) == 0 && gPlayerState.queued_action == 0) {
         if (org->action == 1 || org->action == 24) {
             tgt->damage = 4;
             org->health = sub_08017874(org, tgt);
-            gPlayerState.flags = 0x800;
-            gPlayerState.playerAction = 13;
+            gPlayerState.flags = PL_FROZEN;
+            gPlayerState.queued_action = PLAYER_FROZEN;
         }
     }
     org->knockbackDuration = 12;
@@ -424,9 +426,9 @@ s32 sub_08017C40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
     return 1;
 }
 
-NONMATCH("asm/non_matching/collision/sub_08017CBC.inc",
-         s32 sub_08017CBC(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)) {
-    if (((-(((direction ^ 0x10) - 0xc) & 0x1f) + tgt->direction) & 0x1f) < 0x19) {
+s32 sub_08017CBC(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
+    direction = ((direction ^ 0x10) - 0xc) & 0x1f;
+    if (((-direction + tgt->direction) & 0x1f) < 0x19) {
         org->iframes = -12;
         tgt->iframes = -12;
         sub_08017940(org, tgt);
@@ -440,10 +442,9 @@ NONMATCH("asm/non_matching/collision/sub_08017CBC.inc",
     }
     return 1;
 }
-END_NONMATCH
 
 s32 sub_08017D28(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
-    gPlayerState.field_0x1a[0] = 1;
+    gPlayerState.mobility = 1;
     org->field_0x7a.HWORD = 600;
     org->knockbackDuration = 12;
     org->iframes = 16;
@@ -533,15 +534,15 @@ s32 sub_08017F40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
         if (org == &gPlayerEntity) {
             if (sub_08079F8C() &&
 #ifdef EU
-                (gPlayerState.flags & 0x81) == 0 &&
+                (gPlayerState.flags & (PL_MINISH | PL_BUSY)) == 0 &&
 #else
                 (gPlayerState.flags & PL_MINISH) == 0 &&
 #endif
-                !gPlayerState.swimState) {
-                gPlayerState.field_0x1a[0] |= 0x80u;
-                gPlayerState.field_0xa |= 0x80u;
-                gPlayerState.flags |= 0x10u;
-                gPlayerState.jumpStatus = 0;
+                !gPlayerState.swim_state) {
+                gPlayerState.mobility |= 0x80;
+                gPlayerState.field_0xa |= 0x80;
+                gPlayerState.flags |= PL_CAPTURED;
+                gPlayerState.jump_status = 0;
                 if (tgt->kind == ENEMY && (tgt->id == GHINI || tgt->id == ENEMY_50)) {
                     org->z.HALF.HI = 0;
                     PositionRelative(org, tgt, 0, 0x10000);
@@ -565,19 +566,22 @@ s32 sub_08017F40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
     return 0;
 }
 
-// inverted branch
-NONMATCH("asm/non_matching/collision/sub_0801802C.inc",
-         s32 sub_0801802C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)) {
+s32 sub_0801802C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     int kind;
     ColSettings* p;
     u32 x;
 
     kind = org->kind;
     if (kind == 1) {
-        if (sub_08079F8C() && (((direction ^ 0x10) - 4 * tgt->animationState + 5) & 0x1Fu) <= 0xA)
-            goto _0801807A;
+        if (sub_08079F8C()) {
+            if (((((direction ^ 0x10) - 4 * tgt->animationState + 5) & 0x1F)) > 0xA) {
+                goto _08018090;
+            } else {
+                goto _0801807A;
+            }
+        }
     } else if (kind == 8) {
-        if ((((org->direction ^ 0x10) - 4 * tgt->animationState + 5) & 0x1Fu) <= 0xA) {
+        if ((((org->direction ^ 0x10) - 4 * tgt->animationState + 5) & 0x1F) <= 0xA) {
             org->health = 0;
         _0801807A:
             sub_080180BC(org, tgt);
@@ -587,10 +591,10 @@ NONMATCH("asm/non_matching/collision/sub_0801802C.inc",
         org->health = 0;
         return 0;
     }
+_08018090:
     x = 0x11aa;
     return sub_08018308(org, tgt, direction, &gCollisionMtx[x + org->hurtType]);
 }
-END_NONMATCH
 
 void sub_080180BC(Entity* org, Entity* tgt) {
     if (org->iframes == 0)
@@ -622,18 +626,18 @@ s32 sub_080180E8(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 s32 sub_08018168(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     if (tgt->field_0x43 == 0) {
         if (org == &gPlayerEntity) {
-            if (((sub_08079F8C() != 0) &&
+            if (sub_08079F8C() &&
 #ifdef EU
-                 ((gPlayerState.flags & 0x81) == 0)) &&
+                (gPlayerState.flags & (PL_MINISH | PL_BUSY)) == 0 &&
 #else
-                 ((gPlayerState.flags & 0x40080) == 0)) &&
+                (gPlayerState.flags & (PL_MINISH | PL_ROLLING)) == 0 &&
 #endif
-                (gPlayerState.swimState == 0)) {
-                gPlayerState.field_0x1a[0] |= 0x80;
+                gPlayerState.swim_state == 0) {
+                gPlayerState.mobility |= 0x80;
                 gPlayerState.field_0xa |= 0x80;
-                gPlayerState.flags |= 0x100;
-                gPlayerState.jumpStatus = 0;
-                gPlayerEntity.flags &= ~0x80;
+                gPlayerState.flags |= PL_DISABLE_ITEMS;
+                gPlayerState.jump_status = 0;
+                COLLISION_OFF(&gPlayerEntity);
                 gPlayerEntity.spriteRendering.b3 = tgt->spriteRendering.b3;
                 gPlayerEntity.spriteOrientation.flipY = tgt->spriteOrientation.flipY;
                 gPlayerEntity.iframes = 0xff;
@@ -749,7 +753,7 @@ s32 sub_08018308(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
             }
         } else if (org->id == 3) {
             if (settings->_9) {
-                sub_0800449C(tgt, 254);
+                SoundReqClipped(tgt, 254);
             }
         } else if (org->id == 5) {
             gPlayerEntity.iframes = 0x80;

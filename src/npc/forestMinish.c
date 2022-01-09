@@ -1,6 +1,5 @@
 #include "npc.h"
 #include "object.h"
-#include "structures.h"
 #include "functions.h"
 
 extern void sub_080600F0(Entity*);
@@ -225,14 +224,13 @@ void sub_08060318(void) {
 }
 
 void sub_08060340(void) {
-    gSave.unk48C[1] = gSave.unk50;
+    gSave.timers[1] = gSave.unk50;
 }
 
 u32 sub_08060354(void) {
-    u32 iVar1;
     s32 iVar2;
 
-    iVar2 = gSave.unk50 - gSave.unk48C[1];
+    iVar2 = gSave.unk50 - gSave.timers[1];
     if (CheckGlobalFlag(DRUG_1) == 0) {
         if (4 < iVar2) {
             return 0x8444;

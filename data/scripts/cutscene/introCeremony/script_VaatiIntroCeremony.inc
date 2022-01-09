@@ -1,37 +1,37 @@
 @ Intro Ceremony Vaati
 SCRIPT_START script_VaatiIntroCeremony
 	BeginBlock
-	_0807EB44 0x0000
+	SetAnimationState 0x0000
 	SetEntitySpeed 0x0100
 	EndBlock
-	Call sub_0807F338
+	Call DeleteHitbox
 	WaitForSyncFlagAndClear 0x00000100
 	DoPostScriptAction 0x0001
 	_0807EDD4 0x01f8, 0x00d0
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000200
 	WaitForSyncFlagAndClear 0x00000100
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x001c
-	Call sub_0807F2D4
-	_0807EB44 0x0004
+	Call WaitForFrameHiBit
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000200
 	WaitForSyncFlagAndClear 0x00000100
-	_0807EB44 0x0000
+	SetAnimationState 0x0000
 	DoPostScriptAction 0x001c
-	Call sub_0807F2D4
-	_0807EB44 0x0000
+	Call WaitForFrameHiBit
+	SetAnimationState 0x0000
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000200
 	WaitForSyncFlagAndClear 0x00000100
-	_0807EB44 0x0000
+	SetAnimationState 0x0000
 	DoPostScriptAction 0x001a
-	Call sub_0807F2D4
+	Call WaitForFrameHiBit
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000200
 	WaitForSyncFlagAndClear 0x00000100
-	_0807EB44 0x0000
+	SetAnimationState 0x0000
 	DoPostScriptAction 0x0014
 	PlaySound SFX_CHARGING_UP
 	CallWithArg sub_08095420, script_08011890
@@ -45,7 +45,7 @@ SCRIPT_START script_VaatiIntroCeremony
 	SetEntitySpeed 0x0080
 	DoPostScriptAction 0x0001
 	_0807EDD4 0x01d8, 0x00a8
-	_0807EB44 0x0000
+	SetAnimationState 0x0000
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000200
 	WaitForSyncFlagAndClear 0x00000100
@@ -65,14 +65,14 @@ SCRIPT_START script_VaatiIntroCeremony
 	SetEntitySpeed 0x0100
 	DoPostScriptAction 0x0001
 	_0807EDD4 0x01f8, 0x0098
-	_0807EB44 0x0000
+	SetAnimationState 0x0000
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x0004
 	Wait 0x005a
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x001c
-	Call sub_0807F2D4
-	_0807EB44 0x0004
+	Call WaitForFrameHiBit
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	Wait 0x001e
 	SetSyncFlag 0x00000200

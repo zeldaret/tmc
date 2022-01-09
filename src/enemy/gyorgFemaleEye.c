@@ -186,8 +186,8 @@ void sub_08048D20(GyorgFemaleEyeEntity* this) {
     if (tmp2 != super->animationState) {
         super->animationState = tmp2;
         tmp = &gUnk_080D1F90[super->type + (tmp2 << 3)];
-        super->x.HALF.HI = tmp->x + gRoomControls.roomOriginX;
-        super->y.HALF.HI = tmp->y + gRoomControls.roomOriginY;
+        super->x.HALF.HI = tmp->x + gRoomControls.origin_x;
+        super->y.HALF.HI = tmp->y + gRoomControls.origin_y;
         InitializeAnimation(super, gUnk_080D2010[super->type + (tmp2 << 3)]);
     }
 }

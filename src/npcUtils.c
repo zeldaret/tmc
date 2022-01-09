@@ -5,11 +5,12 @@
 #include "definitions.h"
 #include "save.h"
 #include "npc.h"
+#include "kinstone.h"
 
 extern const NPCDefinition gNPCDefinitions[];
 
 extern Hitbox* gNPCHitboxes[];
-extern u32 (*gUnk_08114EFC[])();
+extern u32 (*gUnk_08114EFC[])(Entity*);
 extern u32 (*gUnk_08114F0C[])(Entity*, u8*);
 
 typedef struct {
@@ -19,9 +20,6 @@ typedef struct {
 } NPCData;
 extern NPCData* gUnk_08001A7C[];
 
-u32 sub_0800445C(Entity*);
-void sub_08077B20(void);
-void sub_0806F69C(Entity*);
 u32 sub_080041DC(Entity*, u32, u32);
 u32 sub_0806EF88(Entity*);
 
@@ -161,7 +159,7 @@ u32 sub_0806EE70(Entity* ent) {
         ent->field_0x46 = 0;
         sub_0806EF14(ent);
     }
-    sub_0806F69C(ent);
+    LinearMoveUpdate(ent);
     sub_0806EF4C(ent, xy);
     tmp1 = sub_080041DC(ent, xy[0], xy[1]);
     tmp2 = ent->speed;
@@ -196,8 +194,8 @@ static void sub_0806EF14(Entity* ent) {
 
 static void sub_0806EF4C(Entity* ent, u16* xy) {
     u16* src = &((u16*)ent->child)[ent->hitType];
-    xy[0] = gRoomControls.roomOriginX + src[1];
-    xy[1] = gRoomControls.roomOriginY + src[2];
+    xy[0] = gRoomControls.origin_x + src[1];
+    xy[1] = gRoomControls.origin_y + src[2];
 }
 
 static u32 sub_0806EF74(Entity* ent, u32 a2) {
@@ -290,7 +288,7 @@ u32 UpdateFuseInteraction(Entity* ent) {
     u32 ret;
     sub_0801E00C();
     ret = -1;
-    switch (gUnk_02022740[0]) {
+    switch (gFuseInfo._0) {
         default:
             ret = 0;
             break;

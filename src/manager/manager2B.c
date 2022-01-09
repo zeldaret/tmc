@@ -3,7 +3,6 @@
 #include "room.h"
 #include "functions.h"
 #include "object.h"
-#include "audio.h"
 
 typedef struct {
     Manager manager;
@@ -27,8 +26,6 @@ typedef struct {
 
 extern void (*const gUnk_08108D30[])(Manager2B*);
 
-extern u8 gEntCount;
-
 void sub_0805D11C(Manager2B*);
 
 void Manager2B_Main(Manager2B* this) {
@@ -47,10 +44,10 @@ void sub_0805D02C(Manager2B* this) {
         counter = 0;
         while (counter < 4) {
             object = CreateObject(ANGRY_STATUE, objectData[2], counter);
-            object->x.HALF.HI = objectData[0] + gRoomControls.roomOriginX;
-            object->y.HALF.HI = objectData[1] + gRoomControls.roomOriginY;
+            object->x.HALF.HI = objectData[0] + gRoomControls.origin_x;
+            object->y.HALF.HI = objectData[1] + gRoomControls.origin_y;
             object->parent = (Entity*)this;
-            sub_08016A30(object);
+            ResolveCollisionLayer(object);
             this->field_0x20[counter] = object;
             counter += 1;
             objectData += 3;

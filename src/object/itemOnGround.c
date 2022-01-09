@@ -1,10 +1,11 @@
 #include "global.h"
-#include "audio.h"
+#include "sound.h"
 #include "entity.h"
 #include "flags.h"
 #include "player.h"
 #include "object.h"
 #include "functions.h"
+#include "item.h"
 
 void sub_08081150(Entity*);
 u8 sub_0808147C(u32);
@@ -17,7 +18,6 @@ void sub_080813BC(Entity*);
 void sub_080810FC(Entity*);
 bool32 CheckShouldPlayItemGetCutscene(Entity*);
 
-extern u32 sub_080002D0(Entity*);
 extern u32 sub_080177A0(Entity*, Entity*);
 extern void GiveItem(u32, u32);
 
@@ -88,7 +88,7 @@ void sub_08080F20(Entity* this) {
         DeleteThisEntity();
     }
 
-    if (this->type != 0x60) {
+    if (this->type != ITEM_FAIRY) {
         this->spriteSettings.draw = 1;
         this->spritePriority.b1 = 3;
         this->spriteSettings.shadow = 0;
@@ -98,16 +98,16 @@ void sub_08080F20(Entity* this) {
         this->health = 0xFF;
         this->hitbox = &gUnk_080FD1A8;
         switch (this->type) {
-            case 0x3f:
-            case 0x54:
-            case 0x55:
-            case 0x56:
-            case 0x57:
-            case 0x58:
-            case 0x5c:
-            case 0x5d:
-            case 0x5e:
-            case 0x5f:
+            case ITEM_SHELLS:
+            case ITEM_RUPEE1:
+            case ITEM_RUPEE5:
+            case ITEM_RUPEE20:
+            case ITEM_RUPEE50:
+            case ITEM_RUPEE100:
+            case ITEM_KINSTONE:
+            case ITEM_BOMBS5:
+            case ITEM_ARROWS5:
+            case ITEM_HEART:
                 this->flags2 = 0x17;
                 break;
             default:
@@ -125,12 +125,11 @@ void sub_08080F20(Entity* this) {
         gUnk_0811E7E8[this->field_0x68.HALF.HI](this);
     } else {
         Entity* entity = CreateObject(FAIRY, 0x60, 0);
-        if (entity) {
+        if (entity != NULL) {
             entity->actionDelay = 0;
             if (this->actionDelay == 1) {
                 entity->type2 = 2;
             }
-
             CopyPosition(this, entity);
             DeleteThisEntity();
         }
@@ -154,12 +153,12 @@ void sub_080810A8(Entity* this) {
     }
 
     if (this->collisionLayer == 2) {
-        sub_08016A30(this);
+        ResolveCollisionLayer(this);
     }
 }
 
 void sub_080810FC(Entity* this) {
-    if (this->type != 0x5F) {
+    if (this->type != ITEM_HEART) {
         sub_08081598(this);
     } else {
         this->action = 2;
@@ -189,7 +188,7 @@ void sub_08081188(Entity* this) {
     this->action = 2;
     COLLISION_ON(this);
     if (this->collisionLayer == 2) {
-        sub_08016A30(this);
+        ResolveCollisionLayer(this);
     }
 }
 
@@ -213,10 +212,10 @@ void sub_080811EC(Entity* this) {
     if (this->field_0x68.HALF.HI != 6) {
         sub_080AEFE0(this);
     } else {
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
     }
 
-    sub_08003FC4(this, 0x2800);
+    GravityUpdate(this, 0x2800);
     if (this->zVelocity <= 0) {
         this->action = 2;
         COLLISION_ON(this);
@@ -270,9 +269,10 @@ void sub_080812A8(Entity* this) {
 void sub_080812E8(Entity* this) {
     PlayerState* playerState = &gPlayerState;
 #ifdef EU
-    if ((playerState->swimState & 0x80) && sub_080177A0(this, &gPlayerEntity)) {
+    if ((playerState->swim_state & 0x80) && sub_080177A0(this, &gPlayerEntity)) {
 #else
-    if ((playerState->swimState & 0x80) && !(playerState->flags & 0x80) && sub_080177A0(this, &gPlayerEntity)) {
+    if ((playerState->swim_state & 0x80) && (playerState->flags & PL_MINISH) == 0 &&
+        sub_080177A0(this, &gPlayerEntity)) {
 #endif
         sub_080810FC(this);
     }
@@ -302,7 +302,7 @@ void sub_0808136C(Entity* this) {
         this->y.WORD = other->y.WORD;
         this->spriteOrientation.flipY = other->spriteOrientation.flipY;
         this->spriteRendering.b3 = other->spriteRendering.b3;
-        sub_08003FC4(this, 0x2800);
+        GravityUpdate(this, 0x2800);
     } else {
         sub_08081404(this, 1);
     }
@@ -410,14 +410,14 @@ void sub_0808153C(Entity* this) {
         return;
 
     if (this->field_0x68.HALF.LO == 0) {
-        if (!sub_08003FC4(this, 0x1000) && !sub_0800442E(this)) {
+        if (!GravityUpdate(this, 0x1000) && !sub_0800442E(this)) {
             this->field_0x68.HALF.LO = 1;
             this->zVelocity = 0x1E000;
             sub_0808148C(this->type);
             UpdateSpriteForCollisionLayer(this);
         }
     } else {
-        if (!sub_08003FC4(this, 0x2800)) {
+        if (!GravityUpdate(this, 0x2800)) {
             this->field_0x68.HALF.LO = 2;
             sub_0808148C(this->type);
         }

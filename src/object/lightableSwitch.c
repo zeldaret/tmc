@@ -1,5 +1,6 @@
 #include "global.h"
-#include "audio.h"
+#include "asm.h"
+#include "sound.h"
 #include "entity.h"
 #include "room.h"
 #include "flags.h"
@@ -83,7 +84,7 @@ void sub_0809EB30(Entity* this) {
 
     if (this->type2 != 0) {
         if ((this->direction & 0x80) == 0) {
-            sub_0806F69C(this);
+            LinearMoveUpdate(this);
         }
         puVar2 = &this->field_0x74.HWORD;
         if (!--*puVar2) {

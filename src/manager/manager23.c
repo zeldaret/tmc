@@ -4,7 +4,7 @@
 #include "functions.h"
 #include "flags.h"
 #include "object.h"
-#include "overworld.h"
+#include "game.h"
 
 extern void (*const gUnk_08108CCC[])(Manager*);
 
@@ -148,8 +148,8 @@ void sub_0805BEC4(Manager23* this) {
     Entity* object = CreateObject(OBJECT_2A, 1, 0);
     if (object != NULL) {
         *(s8*)(&object->flags + 1) = ((*(s8*)(&object->flags + 1)) & (-0x10)) | 3;
-        object->x.HALF.HI = this->field_0x38 + gRoomControls.roomOriginX;
-        object->y.HALF.HI = this->field_0x3a + gRoomControls.roomOriginY;
+        object->x.HALF.HI = this->field_0x38 + gRoomControls.origin_x;
+        object->y.HALF.HI = this->field_0x3a + gRoomControls.origin_y;
         object->collisionLayer = this->manager.unk_0b;
         object->spritePriority.b0 = 2;
     }

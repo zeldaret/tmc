@@ -2,9 +2,9 @@
 #include "manager.h"
 #include "screen.h"
 #include "area.h"
-#include "textbox.h"
-#include "utils.h"
-#include "overworld.h"
+#include "message.h"
+#include "common.h"
+#include "game.h"
 #include "functions.h"
 
 typedef struct {
@@ -28,7 +28,6 @@ extern const u8 gUnk_08108E48[0x18];
 extern const u8 gUnk_08108E60[];
 
 extern void sub_0805F46C(void*, const void*);
-extern void ResetSystemPriority(void);
 
 void sub_0805E140(Manager39*);
 void sub_0805E18C(Manager39*); // unused?
@@ -37,7 +36,7 @@ void sub_0805E1F8(u32, u32);
 
 void Manager39_Main(Manager39* this) {
     gUnk_08108E28[this->manager.action](this);
-    if ((gRoomControls.roomID != this->unk_20) || (gMessage.doTextBox & 0x7F)) {
+    if ((gRoomControls.room != this->unk_20) || (gMessage.doTextBox & 0x7F)) {
         sub_0805E1D8(this);
     }
 }
@@ -45,11 +44,11 @@ void Manager39_Main(Manager39* this) {
 void sub_0805E140(Manager39* this) {
     this->manager.unk_10 |= 0x20;
     this->manager.action = 1;
-    this->unk_20 = gRoomControls.roomID;
+    this->unk_20 = gRoomControls.room;
     this->manager.unk_0e = 0x78;
     this->manager.unk_0f = 0x3c;
     SetDefaultPriority((Entity*)this, PRIO_HIGHEST);
-    sub_0805E1F8(gUnk_08108DE8[gArea.locationIndex], CheckIsDungeon());
+    sub_0805E1F8(gUnk_08108DE8[gArea.locationIndex], AreaIsDungeon());
 }
 
 void sub_0805E18C(Manager39* this) {

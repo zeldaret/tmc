@@ -1,3 +1,10 @@
+/**
+ * @file fireballGuy.c
+ * @ingroup Enemies
+ *
+ * @brief Fireball Guy enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 
@@ -12,8 +19,6 @@ extern void (*const gUnk_080D17E8[])(Entity*);
 extern void (*const gUnk_080D1800[])(Entity*);
 extern u8 gUnk_080D180C[4]; // Entity count per form
 extern PosOffset gUnk_080D1810[4];
-
-extern u8 gEntCount;
 
 void FireballGuy(Entity* this) {
     EnemyFunctionHandler(this, gUnk_080D17E8);
@@ -49,7 +54,7 @@ void sub_080453E8(Entity* this) {
 void sub_08045430(Entity* this) {
     sub_080AEFE0(this);
     GetNextFrame(this);
-    if (sub_08003FC4(this, 0x1800) == 0)
+    if (GravityUpdate(this, 0x1800) == 0)
         sub_08045524(this);
 }
 

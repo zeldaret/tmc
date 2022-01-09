@@ -1,9 +1,7 @@
 #include "object.h"
 #include "main.h"
 #include "menu.h"
-#include "npc.h"
-#include "fileScreen.h"
-#include "structures.h"
+#include "fileselect.h"
 #include "functions.h"
 
 extern int sub_0807A094(int);
@@ -177,7 +175,7 @@ void sub_0808EA28(Entity* this) {
     u32 var1;
 
     if (this->type == 3) {
-        if (gSaveHeader->gameLanguage > LANGUAGE_EN) {
+        if (gSaveHeader->language > LANGUAGE_EN) {
             this->spriteSettings.draw = 2;
         } else {
             this->spriteSettings.draw = 0;
@@ -296,7 +294,7 @@ void sub_0808EBB8(Entity* this) {
         case 0:
             break;
         case 1:
-            y = ((struct_02000000*)0x2000000)->gameLanguage * 16 + 24;
+            y = ((SaveHeader*)0x2000000)->language * 16 + 24;
             x = 112;
             break;
         case 2:
@@ -321,7 +319,7 @@ void sub_0808EBB8(Entity* this) {
 }
 
 static Entity* sub_0808EC80(int form) {
-    Entity* entityA = (Entity*)&gUnk_03003DA0;
+    Entity* entityA = (Entity*)&gEntityLists[6];
     Entity* entityB = entityA->next;
     while (entityB != entityA) {
         if ((entityB->kind == 0x6 && entityB->id == 0x48) && form == entityB->type) {
@@ -404,7 +402,7 @@ void sub_0808ED98(Entity* this) {
 void sub_0808EE00(Entity* this) {
     int var0, var1, var2;
 
-    var0 = ((struct_02000000*)0x2000000)->gameLanguage != 0;
+    var0 = ((SaveHeader*)0x2000000)->language != 0;
     var1 = this->type - 10;
     this->frameIndex = gUnk_08121D38[var0][var1];
     this->x.HALF.HI = gUnk_08121D18[var0][var1];
@@ -454,9 +452,9 @@ void sub_0808EF24(Entity* this) {
     } else {
         this->spriteSettings.draw = 2;
         if (this->type == 21) {
-            var0 = ((struct_02000000*)0x2000000)->messageSpeed;
+            var0 = ((SaveHeader*)0x2000000)->msg_speed;
         } else {
-            var0 = ((struct_02000000*)0x2000000)->brightnessPref;
+            var0 = ((SaveHeader*)0x2000000)->brightness;
         }
         this->frameIndex = this->lastFrameIndex + var0;
     }
@@ -506,7 +504,7 @@ static u32 sub_0808EF6C(Entity* this) {
     }
     this->speed = var7;
     this->direction = sub_080045DA(var0, var2) >> 3;
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     return 1;
 }
 

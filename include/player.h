@@ -34,7 +34,7 @@ enum PlayerActions {
     PLAYER_INHOLE,
     PLAYER_08072C9C,
     PLAYER_08074C44,
-    PLAYER_08072F34,
+    PLAYER_CLIMB,
     PLAYER_USEENTRANCE,
     PLAYER_PARACHUTE,
 };
@@ -95,16 +95,30 @@ typedef enum {
 } PlayerControlMode;
 
 enum PlayerFlags {
-    PL_BUSY = (1 << 0),
-    PL_DROWNING = (1 << 2),
-    PL_NO_CAP = (1 << 3),
-    PL_USE_PORTAL = (1 << 5),
-    PL_MINISH = (1 << 7),
-    PL_BURNING = (1 << 10),
-    PL_ROLLING = (1 << 18),
-    PL_IN_HOLE = (1 << 20),
-    PL_USE_LANTERN = (1 << 23),
-    PL_USE_OCARINA = (1 << 28),
+    PL_BUSY = 0x1,
+    PL_DROWNING = 0x4,
+    PL_NO_CAP = 0x8,
+    PL_CAPTURED = 0x10,
+    PL_USE_PORTAL = 0x20,
+    PL_HIDDEN = 0x40,
+    PL_MINISH = 0x80,
+    PL_DISABLE_ITEMS = 0x100,
+    PL_FALLING = 0x200,
+    PL_BURNING = 0x400,
+    PL_FROZEN = 0x800,
+    PL_IN_MINECART = 0x1000,
+    PL_DRUGGED = 0x4000,
+    PL_ROLLING = 0x40000,
+    PL_MOLDWORM_CAPTURED = 0x80000,
+    PL_IN_HOLE = 0x100000,
+    PL_MOLDWORM_RELEASED = 0x200000,
+    PL_CLONING = 0x400000,
+    PL_USE_LANTERN = 0x800000,
+    PL_PARACHUTE = 0x1000000,
+    PL_ENTER_MINECART = 0x4000000,
+    PL_SWORD_THRUST = 0x8000000,
+    PL_USE_OCARINA = 0x10000000,
+    PL_CLIMBING = 0x20000000,
 };
 
 enum SurfaceType {
@@ -125,7 +139,7 @@ enum SurfaceType {
     SURFACE_E,
     SURFACE_F,
     SURFACE_10,
-    SURFACE_11,
+    SURFACE_SWAMP,
     SURFACE_DOOR,
     SURFACE_DOOR_13,
     SURFACE_14,
@@ -137,9 +151,9 @@ enum SurfaceType {
     SURFACE_BUTTON,
     SURFACE_1B,
     SURFACE_1C,
-    SURFACE_1D,
+    SURFACE_1D, // nulled
     SURFACE_LADDER,
-    SURFACE_1F,
+    SURFACE_1F, // nulled
     SURFACE_20,
     SURFACE_21,
     SURFACE_22,
@@ -157,7 +171,7 @@ enum SurfaceType {
 
 typedef struct {
     /*0x00*/ u8 field_0x0[2];
-    /*0x02*/ u8 jumpStatus;
+    /*0x02*/ u8 jump_status;
     /*0x03*/ u8 field_0x3[2];
     /*0x05*/ u8 heldObject;
     /*0x06*/ u8 pushedObject;
@@ -165,7 +179,7 @@ typedef struct {
     /*0x08*/ u16 animation;
     /*0x0a*/ u8 field_0xa;
     /*0x0b*/ u8 keepFacing;
-    /*0x0c*/ u8 playerAction;
+    /*0x0c*/ u8 queued_action;
     /*0x0d*/ u8 field_0xd;
     /*0x0e*/ u8 field_0xe;
     /*0x0f*/ u8 hurtBlinkSpeed;
@@ -177,18 +191,20 @@ typedef struct {
     /*0x15*/ u8 field_0x15;
     /*0x16*/ u16 startPosX;
     /*0x18*/ u16 startPosY;
-    /*0x1a*/ u8 field_0x1a[2];
+    /*0x1a*/ u8 mobility;
+    /*0x1b*/ u8 sword_state;
     /*0x1c*/ u8 field_0x1c;
     /*0x1d*/ u8 field_0x1d;
     /*0x1e*/ u8 dash_state;
     /*0x1f*/ u8 field_0x1f[3];
     /*0x22*/ u16 field_0x22[2];
-    /*0x26*/ u8 swimState;
+    /*0x26*/ u8 swim_state;
     /*0x27*/ u8 field_0x27[5];
     /*0x2c*/ Entity* item;
     /*0x30*/ u32 flags;
     /*0x34*/ u8 field_0x34[2];
-    /*0x36*/ s16 field_0x36;
+    /*0x36*/ u8 field_0x36;
+    /*0x37*/ u8 field_0x37;
     /*0x38*/ u8 field_0x38;
     /*0x39*/ u8 field_0x39;
     /*0x3a*/ u8 field_0x3a;
@@ -198,13 +214,14 @@ typedef struct {
     /*    */ u8 swordBlueParticle : 1;
     /*    */ u8 filler14 : 6;
     /*0x3f*/ u8 field_0x3f;
-    /*0x40*/ u8 hurtType[64];
-    /*0x80*/ u16 field_0x80;
+    /*0x40*/ u8 path_memory[64];
+    /*0x80*/ u16 speed_modifier;
     /*0x82*/ u8 field_0x82[9];
     /*0x8b*/ u8 controlMode;
     /*0x8c*/ u16 vel_x;
     /*0x8e*/ u16 vel_y;
-    /*0x90*/ union SplitWord field_0x90;
+    /*0x90*/ u16 field_0x90;
+    /*0x92*/ u16 field_0x92;
     /*0x94*/ u32 field_0x94;
     /*0x98*/ u16 field_0x98;
     /*0x9a*/ u16 field_0x9a;
@@ -261,14 +278,33 @@ extern u8 gQuiverSizes[];
 extern u16 gWalletSizes[];
 
 extern PlayerState gPlayerState;
-extern Stats gStats;
 extern Entity gPlayerEntity;
 
-extern u32 GetInventoryValue(u32);
-extern s32 ModHealth(s32);
-extern void ModRupees(s32);
+u32 CheckPlayerInactive(void);
+void SetPlayerControl(PlayerControlMode mode);
+void ResetPlayer(void);
+void ResetPlayerVelocity(void);
+void ResetPlayerAnimationAndAction(void);
+void SetPlayerActionNormal(void);
+void RespawnAsMinish(void);
 
-extern void SetPlayerControl(PlayerControlMode);
+Entity* CreatePlayerItem(u32, u32, u32, u32);
+
+void ResolvePlayerAnimation(void);
+void RegisterPlayerHitbox(void);
+void UpdateFloorType(void);
+void CreateEzloHint(u32, u32);
+
+u32 IsItemEquipped(u32);
+u32 GetInventoryValue(u32);
+s32 ModHealth(s32 delta);
+void ModRupees(s32 delta);
+void DeleteClones(void);
+
+void sub_08077728();
+extern void sub_08077B20();
+extern u32 sub_08008B22();
+extern u32* sub_08008790(Entity*, u32);
 
 #define COPY_FLAG_FROM_TO(base, src, dest) (base) = ((base) & ~(dest)) | (((dest) * ((base) & (src))) / src)
 

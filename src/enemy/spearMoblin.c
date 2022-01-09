@@ -1,3 +1,10 @@
+/**
+ * @file spearMoblin.c
+ * @ingroup Enemies
+ *
+ * @brief Spear Moblin enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 

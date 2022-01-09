@@ -1,3 +1,10 @@
+/**
+ * @file vaatiTransfigured.c
+ * @ingroup Enemies
+ *
+ * @brief Vaati Transfigured enemy
+ */
+
 #include "enemy.h"
 #include "object.h"
 #include "functions.h"
@@ -37,7 +44,6 @@ typedef struct {
     s8 x;
     s8 y;
 } PACKED xy;
-extern u8 gEntCount;
 
 #ifdef EU
 const u8 gUnk_080D0ABC[] = { 0xf0, 0xd0, 0xb0 };
@@ -266,7 +272,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
             this->actionDelay = 0xc0;
             COLLISION_ON(this);
             SoundReq(SFX_14C);
-            sub_08080964(0x14, 4);
+            InitScreenShake(0x14, 4);
             break;
         case 1:
             if (--this->actionDelay == 0) {
@@ -288,7 +294,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
                 if (this->animationState > 2) {
                     this->action = 7;
                     this->actionDelay = 0xe0;
-                    sub_0807A108();
+                    DeleteClones();
                     SoundReq(SFX_BOSS_HIT);
                     return;
                 }
@@ -313,7 +319,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
                 }
                 break;
             }
-            if (sub_08003FC4(this, 0x2800) == 0) {
+            if (GravityUpdate(this, 0x2800) == 0) {
                 this->field_0x80.HALF.LO = 5;
                 this->actionDelay = 0x10;
                 COLLISION_ON(this);
@@ -321,7 +327,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
                 this->field_0x86.HALF.LO = 0;
                 sub_080408EC(this);
                 SoundReq(SFX_14C);
-                sub_08080964(0x1e, 4);
+                InitScreenShake(0x1e, 4);
             } else {
                 if (this->field_0xf != 0) {
                     if (--this->field_0xf == 0) {
@@ -341,7 +347,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
                 this->field_0x86.HALF.LO = 0;
                 sub_080408EC(this);
             } else {
-                if (((this->actionDelay & 1) != 0) && (pEVar3 = CreateObject(0x9b, 1, 0xff), pEVar3 != NULL)) {
+                if (((this->actionDelay & 1) != 0) && (pEVar3 = CreateObject(OBJECT_9B, 1, 0xff), pEVar3 != NULL)) {
                     pEVar3->parent = this;
                     CopyPosition(this, pEVar3);
                     pEVar3->x.HALF.HI += (Random() & 0xf) - 7;
@@ -379,7 +385,7 @@ void VaatiTransfiguredType0Action4(Entity* this) {
             }
             break;
         case 1:
-            if (sub_08003FC4(this, 0x2800) != 0)
+            if (GravityUpdate(this, 0x2800) != 0)
                 break;
             this->field_0x80.HALF.LO += 1;
             switch (this->cutsceneBeh.HALF.LO) {
@@ -399,7 +405,7 @@ void VaatiTransfiguredType0Action4(Entity* this) {
                 this->field_0xf = 1;
             }
             SoundReq(SFX_14C);
-            sub_08080964(0x1e, 4);
+            InitScreenShake(0x1e, 4);
             break;
         case 2:
             if (--this->actionDelay == 0) {
@@ -857,8 +863,8 @@ void sub_080406A0(Entity* this) {
     uVar5 = this->field_0x86.HALF.LO;
     {
         u32 tmp;
-        uVar6 = gRoomControls.roomOriginX + gUnk_080D0B58[tmp = uVar5 * 2];
-        uVar4 = gRoomControls.roomOriginY + gUnk_080D0B58[tmp + 1];
+        uVar6 = gRoomControls.origin_x + gUnk_080D0B58[tmp = uVar5 * 2];
+        uVar4 = gRoomControls.origin_y + gUnk_080D0B58[tmp + 1];
     }
     if (sub_0806FCB8(this, uVar6, uVar4, 0x1c)) {
         if (uVar5 != 0) {
@@ -868,8 +874,8 @@ void sub_080406A0(Entity* this) {
         }
         {
             u32 tmp;
-            uVar6 = gRoomControls.roomOriginX + gUnk_080D0B58[tmp = uVar5 * 2];
-            uVar4 = gRoomControls.roomOriginY + gUnk_080D0B58[tmp + 1];
+            uVar6 = gRoomControls.origin_x + gUnk_080D0B58[tmp = uVar5 * 2];
+            uVar4 = gRoomControls.origin_y + gUnk_080D0B58[tmp + 1];
         }
     }
     uVar3 = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, uVar6, uVar4);
@@ -892,8 +898,8 @@ void sub_08040770(Entity* this) {
     u32 tmp5, tmp6;
     {
         u32 index;
-        tmp5 = gRoomControls.roomOriginX + gUnk_080D0B64[index = tmp2 * 2];
-        tmp6 = gRoomControls.roomOriginY + gUnk_080D0B64[index + 1];
+        tmp5 = gRoomControls.origin_x + gUnk_080D0B64[index = tmp2 * 2];
+        tmp6 = gRoomControls.origin_y + gUnk_080D0B64[index + 1];
     }
     if (sub_0806FCB8(this, tmp5, tmp6, 0x1c)) {
         if (this->animationState != 2) {
@@ -955,8 +961,8 @@ void sub_08040770(Entity* this) {
         }
         {
             u32 tmp3;
-            tmp5 = gRoomControls.roomOriginX + gUnk_080D0B64[tmp3 = tmp2 * 2],
-            tmp6 = gRoomControls.roomOriginY + gUnk_080D0B64[tmp3 + 1];
+            tmp5 = gRoomControls.origin_x + gUnk_080D0B64[tmp3 = tmp2 * 2],
+            tmp6 = gRoomControls.origin_y + gUnk_080D0B64[tmp3 + 1];
         }
     }
     this->direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, tmp5, tmp6);
@@ -1069,7 +1075,7 @@ void sub_080409B0(Entity* this) {
         }
     } else {
         if (((this->bitfield & 0x80) != 0) && (0 < this->iframes)) {
-            sub_08080964(0xc, 1);
+            InitScreenShake(0xc, 1);
             SoundReq(SFX_BOSS_HIT);
         }
         if ((this->bitfield == 0x8a) && (gPlayerState.field_0xa0[0] == 5)) {

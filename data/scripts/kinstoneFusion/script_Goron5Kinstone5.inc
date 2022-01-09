@@ -1,11 +1,11 @@
 @ 5th Goron during 5th Goron cutscene
 SCRIPT_START script_Goron5Kinstone5
 	BeginBlock
-	_0807EB44 0x0000
-	_0807E930 0x0000
+	SetAnimationState 0x0000
+	SetAnimation 0x0000
 	DoPostScriptAction 0x0008
 	SetEntitySpeed 0x0080
-	Call sub_0807F348
+	Call SetPriorityMessage
 	EndBlock
 	WaitForSyncFlagAndClear 0x00000002
 	DoPostScriptAction 0x0007
@@ -22,7 +22,7 @@ SCRIPT_START script_Goron5Kinstone5
 	Wait 0x000f
 	SetSyncFlag 0x0000003c
 	DoPostScriptAction 0x000f
-	_0807E930 0x0008
+	SetAnimation 0x0008
 	Wait 0x00f0
 	Call sub_08054968
 SCRIPT_END

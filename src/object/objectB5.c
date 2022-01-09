@@ -8,7 +8,7 @@ void ObjectB5(Entity* this) {
         this->action = 1;
     }
 #ifndef EU
-    gRoomControls.cameraTarget = this;
+    gRoomControls.camera_target = this;
 #endif
     PositionRelative(&gPlayerEntity, this, 0, -0x280000);
 }

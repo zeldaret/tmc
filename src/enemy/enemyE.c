@@ -1,5 +1,11 @@
+/**
+ * @file enemyE.c
+ * @ingroup Enemies
+ *
+ * @brief enemy E
+ */
+
 #include "enemy.h"
-#include "entity.h"
 #include "functions.h"
 
 void sub_08023000(Entity*, int);

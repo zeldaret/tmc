@@ -1,13 +1,12 @@
 #include "object.h"
 #include "save.h"
 #include "script.h"
-#include "structures.h"
 #include "functions.h"
 #include "screen.h"
 
 void GreatFairy_InitializeAnimation(Entity*);
 Entity* GreatFairy_CreateForm(Entity*, u32, u32);
-void sub_080873D0();
+void sub_080873D0(Entity*);
 extern void (*const GreatFairy_Main[])(Entity*);
 extern void (*const GreatFairy_Behaviors[])(Entity*);
 extern void (*const GreatFairy_WingsBehaviors[])(Entity*);
@@ -53,12 +52,12 @@ void GreatFairy(Entity* this) {
 void GreatFairy_CallBehavior(Entity* this) {
     GreatFairy_Behaviors[this->action](this);
 
-    if ((gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY) < 168) {
+    if ((gPlayerEntity.y.HALF.HI - gRoomControls.origin_y) < 168) {
 
-        gRoomControls.cameraTarget = this;
+        gRoomControls.camera_target = this;
         gRoomControls.unk5 = 2;
     } else {
-        gRoomControls.cameraTarget = &gPlayerEntity;
+        gRoomControls.camera_target = &gPlayerEntity;
         gRoomControls.unk5 = 2;
     }
 }
@@ -120,7 +119,7 @@ void GreatFairy_SpawningUpdate(Entity* this) {
         mini = GreatFairy_CreateForm(this, WAKE, 0); //???
         if (mini != NULL) {
             CopyPosition(this, mini);
-            DoFade(6, 4);
+            SetFade(6, 4);
             SoundReq(SFX_145);
             this->action = 4;
             this->actionDelay = 60;
@@ -422,7 +421,7 @@ void sub_080871F8(Entity* this) {
         this->action = 2;
     } else {
         this->direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, temp->x.HALF.HI, temp->y.HALF.HI - 32);
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
     }
 }
 
@@ -437,7 +436,7 @@ void sub_08087240(Entity* this) {
 void sub_08087264(Entity* this) {
     if (this->actionDelay != 0) {
         this->actionDelay--;
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
     }
 }
 
@@ -464,7 +463,7 @@ void sub_080872AC(Entity* this) {
 
 void sub_080872F8(Entity* this) {
     s32 temp;
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     GetNextFrame(this);
     if (((u16)(this->field_0x68.HWORD - this->x.HALF.HI) > 0xc) ||
         ((u16)(this->field_0x6a.HWORD - this->y.HALF.HI) > 0xc)) {
@@ -516,7 +515,7 @@ void sub_080873FC(void) {
     Entity* ent;
 
     SoundReq(SFX_APPARATE);
-    gRoomControls.cameraTarget = NULL;
+    gRoomControls.camera_target = NULL;
 
     while (ent = FindEntityByID(0x6, 0x1b, 0x6), ent != NULL) {
         DeleteEntity(ent);
@@ -526,7 +525,7 @@ void sub_080873FC(void) {
 void sub_08087424(Entity* this, ScriptExecutionContext* context) {
     Entity* ent;
 
-    sub_080791D0();
+    ResetPlayerAnimationAndAction();
     ent = CreateObject(OBJECT_64, 0, 0);
     if (ent != NULL) {
         ent->parent = &gPlayerEntity;

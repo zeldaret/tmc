@@ -1,7 +1,6 @@
 #include "manager.h"
 #include "area.h"
 #include "room.h"
-#include "functions.h"
 #include "screen.h"
 
 void sub_0805AFFC(Manager*);
@@ -23,8 +22,8 @@ void Manager19_Main(Manager* this) {
             }
         } else {
             gRoomControls.bg3OffsetX.WORD = gRoomControls.bg3OffsetX.WORD - 0x2000;
-            gScreen.bg3.xOffset = gRoomControls.roomScrollX + gRoomControls.bg3OffsetX.HALF.HI;
-            gScreen.bg3.yOffset = gRoomControls.roomScrollY + gRoomControls.bg3OffsetY.HALF.HI;
+            gScreen.bg3.xOffset = gRoomControls.scroll_x + gRoomControls.bg3OffsetX.HALF.HI;
+            gScreen.bg3.yOffset = gRoomControls.scroll_y + gRoomControls.bg3OffsetY.HALF.HI;
         }
     }
 }
@@ -32,6 +31,6 @@ void Manager19_Main(Manager* this) {
 void sub_0805AFFC(Manager* this) {
     gScreen.bg3.control = BGCNT_PRIORITY(3) | BGCNT_SCREENBASE(30);
     gScreen.lcd.displayControl |= DISPCNT_BG3_ON;
-    gScreen.bg3.xOffset = gRoomControls.roomScrollX + gRoomControls.bg3OffsetX.HALF.HI;
-    gScreen.bg3.yOffset = gRoomControls.roomScrollY + gRoomControls.bg3OffsetY.HALF.HI;
+    gScreen.bg3.xOffset = gRoomControls.scroll_x + gRoomControls.bg3OffsetX.HALF.HI;
+    gScreen.bg3.yOffset = gRoomControls.scroll_y + gRoomControls.bg3OffsetY.HALF.HI;
 }

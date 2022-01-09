@@ -6,10 +6,10 @@ SCRIPT_START script_WindTribespeople3
 	DoPostScriptAction 0x000a
 	EndBlock
 script_080149DE:
-	_0807E30C
+	FacePlayerAndCheckDist
 	JumpIfNot script_080149DE
-	_0807E864
-	_0807EB74
+	SetPlayerIdle
+	FacePlayer
 	Call sub_0806C90C
 	WaitUntilTextboxCloses
 	CheckLocalFlag 0x0064
@@ -21,10 +21,10 @@ script_080149DE:
 	DoPostScriptAction 0x0001
 	_0807EDD4 0x0068, 0x00f8
 	PlaySound SFX_SECRET
-	_0807EB74
+	FacePlayer
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x000a
 script_08014A20:
-	_0807E878
+	EnablePlayerControl
 	Jump script_080149DE
 	.2byte 0x0000

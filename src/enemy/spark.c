@@ -1,8 +1,13 @@
+/**
+ * @file spark.c
+ * @ingroup Enemies
+ *
+ * @brief Spark enemy
+ */
+
 #include "enemy.h"
-#include "entity.h"
 #include "object.h"
 #include "functions.h"
-#include "effects.h"
 
 extern void (*const gUnk_080CD234[])(Entity*);
 extern void (*const gUnk_080CD24C[])(Entity*);

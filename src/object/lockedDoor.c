@@ -1,10 +1,12 @@
 #include "global.h"
+#include "asm.h"
 #include "entity.h"
 #include "flags.h"
-#include "audio.h"
+#include "sound.h"
 #include "functions.h"
 #include "effects.h"
-#include "overworld.h"
+#include "game.h"
+#include "common.h"
 
 void sub_08083338(Entity*);
 void sub_080834B4(Entity*);
@@ -37,7 +39,6 @@ extern Hitbox gHitbox_2;
 
 extern u32 sub_080001DA(u32, u32);
 extern void sub_08078850(Entity*, u32, u32, u32);
-extern void RequestPriorityDuration(Entity*, u32);
 
 typedef struct PACKED {
     s8 x;
@@ -126,7 +127,7 @@ void sub_08083338(Entity* this) {
             if (!CheckFlags(this->field_0x86.HWORD)) {
                 this->frameIndex |= 4;
                 sub_080836DC(this, this->field_0x7c.BYTES.byte2, this->field_0x76.HWORD);
-                if (!CheckIsDungeon()) {
+                if (!AreaIsDungeon()) {
                     this->action = 5;
                 } else {
                     this->action = 8;
@@ -153,7 +154,7 @@ void sub_080834B4(Entity* this) {
 }
 
 void sub_080834EC(Entity* this) {
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     if (--this->actionDelay == 0) {
         if (this->type & 0x80) {
             sub_08083638(this);
@@ -171,7 +172,7 @@ void sub_08083518(Entity* this) {
 }
 
 void sub_08083540(Entity* this) {
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     if (!--this->actionDelay) {
         if (this->type & 0x10) {
             this->type &= ~0x10;
@@ -287,7 +288,7 @@ u32 sub_08083734(Entity* this, u32 unk0) {
 
 u32 sub_080837B0(Entity* this) {
     u32 tmp;
-    u32 tmp2 = gRoomControls.areaID;
+    u32 tmp2 = gRoomControls.area;
     if (tmp2 < 0x40) {
         switch (tmp2) {
             default:

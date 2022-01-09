@@ -2,7 +2,7 @@
 SCRIPT_START script_PlayerIntro
 	BeginBlock
 	Call sub_0807DF28
-	_0807E864
+	SetPlayerIdle
 	SetLocalFlag 0x0046
 	EndBlock
 	WaitForFadeFinish
@@ -18,7 +18,7 @@ SCRIPT_START script_PlayerIntro
 	Wait 0x001e
 	@ Give control to the player?
 	Call sub_08053250
-	_0807E878
+	EnablePlayerControl
 	Call sub_0807DF50
-	Call sub_080791D0
+	Call ResetPlayerAnimationAndAction
 SCRIPT_END

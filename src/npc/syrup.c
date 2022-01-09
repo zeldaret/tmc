@@ -32,7 +32,7 @@ void sub_0806A1F8(Entity* this) {
 void sub_0806A234(Entity* this) {
     sub_0807DD94(this, 0);
     if ((this->field_0x82.HWORD & 4) != 0) {
-        if ((gScreenTransition.frameCount & 7) == 0) {
+        if ((gRoomTransition.frameCount & 7) == 0) {
             sub_0806A26C(this);
         }
         sub_080042BA(this, 2);

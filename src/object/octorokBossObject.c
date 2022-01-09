@@ -1,6 +1,6 @@
 #include "functions.h"
 #include "object.h"
-#include "overworld.h"
+#include "game.h"
 
 extern void sub_0807B9B8(s32, s32, s32);
 
@@ -38,7 +38,7 @@ enum OctorokBossObjectType {
     TYPE8, // OctorokBoss_Hit_SubAction1
     TYPE9  // OctorokBoss_Hit_SubAction4
 };
-#define GET_HELPER(this) (*(HelperStruct**)&this->cutsceneBeh)
+#define GET_HELPER(this) (*(HelperStruct**)&(this)->cutsceneBeh)
 
 extern u32 sub_0806FC80(Entity*, Entity*, s32);
 
@@ -127,8 +127,8 @@ void OctorokBossObject_Init(Entity* this) {
             this->type2 = this->parent->field_0x7c.BYTES.byte0;
             this->actionDelay = 4;
             this->field_0xf = 0;
-            this->field_0x82.HWORD = (this->x.HALF.HI - (gRoomControls.roomOriginX)) & 0x1f0;
-            this->field_0x80.HWORD = (this->y.HALF.HI - ((u32)gRoomControls.roomOriginY)) & 0x1f0;
+            this->field_0x82.HWORD = (this->x.HALF.HI - (gRoomControls.origin_x)) & 0x1f0;
+            this->field_0x80.HWORD = (this->y.HALF.HI - ((u32)gRoomControls.origin_y)) & 0x1f0;
             *(int*)&this->cutsceneBeh =
                 ((s32)(this->field_0x82.HWORD - 0x10) >> 4) + (this->field_0x80.HWORD >> 4) * 0x1f;
             sub_0809A6F8(this->field_0x82.HWORD, this->field_0x80.HWORD, *(int*)&this->cutsceneBeh, this->type2);
@@ -304,7 +304,7 @@ NONMATCH("asm/non_matching/octorokBossObject/OctorokBossObject_Action1.inc",
         case 9:
             sub_08078B48();
             if ((*(int*)&this->field_0x78)-- == 0) {
-                gRoomControls.cameraTarget = &gPlayerEntity;
+                gRoomControls.camera_target = &gPlayerEntity;
                 DeleteThisEntity();
             }
             break;

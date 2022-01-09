@@ -1,6 +1,4 @@
-#include "global.h"
 #include "entity.h"
-#include "manager.h"
 #include "object.h"
 
 void (*const gObjectFunctions[])(Entity*) = {
@@ -207,7 +205,7 @@ void ObjectUpdate(Entity* this) {
         ObjectInit(this);
     if (this->iframes != 0)
         this->iframes++;
-    if (!CheckDontUpdate(this)) {
+    if (!EntityIsDeleted(this)) {
         gObjectFunctions[this->id](this);
         this->bitfield &= ~0x80;
     }

@@ -1,7 +1,7 @@
 @ Western Wood Moblin disguised as Townsperson in Percys house
 SCRIPT_START script_MoblinLadyDisguised
 	BeginBlock
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	Call sub_08061FD8
 	_0807E9D4
 	DoPostScriptAction 0x000a
@@ -17,12 +17,12 @@ script_08012298:
 	CheckEntityInteractType
 	JumpIfNot script_08012284
 	EndBlock
-	_0807EB74
-	_0807E864
+	FacePlayer
+	SetPlayerIdle
 	Call sub_08061FD8
 	MessageFromTarget 0x2302
 	WaitUntilTextboxCloses
-	_0807E878 
+	EnablePlayerControl 
 	SetGlobalFlag 0x001e
 	Jump script_08012284
 script_080122BA:
@@ -36,17 +36,17 @@ script_080122CE:
 	CheckEntityInteractType
 	JumpIfNot script_080122BA
 	EndBlock
-	_0807EB74
-	_0807E864
+	FacePlayer
+	SetPlayerIdle
 	Call sub_08061FD8
 	MessageFromTarget 0x2303
 	WaitUntilTextboxCloses
-	_0807E878 
+	EnablePlayerControl 
 	Jump script_080122BA
 script_080122EC:
 	EndBlock
-	_0807EB74
-	_0807E864
+	FacePlayer
+	SetPlayerIdle
 	Call sub_08061FD8
 	DoPostScriptAction 0x000b
 	Call sub_08061FB0
@@ -57,7 +57,7 @@ script_080122EC:
 	PlaySound SFX_SECRET
 	SetLocalFlag 0x0043
 	Wait 0x001e
-	_0807E878
+	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END
 	.align 2, 0

@@ -2,12 +2,8 @@
 #include "entity.h"
 #include "player.h"
 #include "flags.h"
-#include "textbox.h"
+#include "message.h"
 #include "npc.h"
-#include "structures.h"
-#include "functions.h"
-#include "save.h"
-#include "script.h"
 
 extern SpriteLoadData gUnk_08110C00;
 extern u16 gUnk_08110C0C[];

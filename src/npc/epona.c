@@ -1,8 +1,7 @@
 #include "global.h"
-#include "audio.h"
+#include "sound.h"
 #include "entity.h"
-#include "textbox.h"
-#include "player.h"
+#include "message.h"
 #include "npc.h"
 #include "functions.h"
 
@@ -83,7 +82,7 @@ void sub_08065AA4(Entity* this) {
             InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
         } else {
             sub_08065A50(this);
-            sub_080791D0();
+            ResetPlayerAnimationAndAction();
         }
         SoundReq(SFX_VO_EPONA);
         this->interactType = 0;

@@ -1,3 +1,10 @@
+/**
+ * @file helmasaur.c
+ * @ingroup Enemies
+ *
+ * @brief Helmasaur enemy
+ */
+
 #include "enemy.h"
 #include "object.h"
 #include "functions.h"
@@ -186,7 +193,7 @@ void sub_0802BE18(Entity* this) {
 void sub_0802BE48(Entity* this) {
     if (!sub_080AEFE0(this)) {
         sub_0802C218(this);
-        sub_08080964(8, 0);
+        InitScreenShake(8, 0);
     } else {
         GetNextFrame(this);
         sub_0802C1CC(this);
@@ -227,7 +234,7 @@ void sub_0802BEEC(Entity* this) {
             this->direction = this->animationState << 3;
             InitializeAnimation(this, this->animationState + 4);
         }
-    } else if (!sub_08003FC4(this, 0x1c00)) {
+    } else if (!GravityUpdate(this, 0x1c00)) {
         this->action = 8;
         this->actionDelay = 30;
         this->speed = 0x120;

@@ -25,7 +25,7 @@ void sub_08076488(ItemBehavior* this, u32 arg1) {
 
     if (this->field_0x5[2] == 0) {
         if (sub_08077F64(this, arg1) != 0) {
-            if (((*(u8*)((this->field_0x18) + 0x16) & 0xf0) == 0x10) && ((gScreenTransition.frameCount & 1U) != 0)) {
+            if (((*(u8*)((this->field_0x18) + 0x16) & 0xf0) == 0x10) && ((gRoomTransition.frameCount & 1U) != 0)) {
                 return;
             }
             UpdateItemAnim(this);

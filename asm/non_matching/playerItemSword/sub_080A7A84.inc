@@ -88,7 +88,7 @@ _080A7AEC:
 	bne _080A7B4C
 	ldr r0, _080A7B44 @ =gPlayerEntity
 	ldr r1, _080A7B48 @ =0x00000119
-	bl sub_0800449C
+	bl SoundReqClipped
 	b _080A7B54
 	.align 2, 0
 _080A7B44: .4byte gPlayerEntity
@@ -96,7 +96,7 @@ _080A7B48: .4byte 0x00000119
 _080A7B4C:
 	ldr r0, _080A7B90 @ =gPlayerEntity
 	movs r1, #0x74
-	bl sub_0800449C
+	bl SoundReqClipped
 _080A7B54:
 	movs r0, #0xf
 	movs r1, #0x1a

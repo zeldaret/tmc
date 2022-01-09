@@ -1,19 +1,19 @@
 @ Minish Village OBJECT_69 Intro Cutscene?
 SCRIPT_START script_Object69VillageIntro
 	BeginBlock
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	SetEntitySpeed 0x0300
 	EndBlock
 script_0800C928:
 	CheckPlayerInRegion 0x0208, 0x0360, 0x2040
 	JumpIfNot script_0800C928
-	_0807E864
-	Call sub_0807F9A4
+	SetPlayerIdle
+	Call WaitForPlayerNormal
 	Call sub_0807DF28
 	StartPlayerScript script_PlayerAtVillageIntro
 	WaitForSyncFlagAndClear 0x00000002
 	Wait 0x003c
-	_0807EB28 0x1125
+	EzloMessage 0x1125
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000800
 	_0807E8E4_3
@@ -41,7 +41,7 @@ script_0800C928:
 	WaitForSyncFlagAndClear 0x00000400
 	_0807E8E4_0 
 	MessageFromTarget 0x1126
-	Call sub_0807F40C
+	Call CreatePlayerQuestionMark
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000200
 	SetSyncFlag 0x00000800
@@ -74,10 +74,10 @@ script_0800C928:
 	WaitForSyncFlagAndClear 0x00010000
 	WaitForSyncFlagAndClear 0x00040000
 	_0807E8E4_0
-	_0807EB28 0x1129
+	EzloMessage 0x1129
 	WaitUntilTextboxCloses
 	SetLocalFlag 0x008d
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END

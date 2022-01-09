@@ -41,7 +41,7 @@ sub_08054C20: @ 0x08054C20
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	pop {r4, pc}
 	.align 2, 0
 _08054C50: .4byte gMenu
@@ -60,7 +60,7 @@ sub_08054C58: @ 0x08054C58
 	beq _08054C7C
 	movs r0, #7
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	ldr r1, _08054C84 @ =gMenu
 	ldrb r0, [r1, #6]
 	adds r0, #1
@@ -84,7 +84,7 @@ sub_08054C88: @ 0x08054C88
 	bl sub_08054974
 	movs r0, #6
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	movs r0, #0x73
 	bl SoundReq
 	ldrb r0, [r4, #6]
@@ -157,7 +157,7 @@ sub_08054D04: @ 0x08054D04
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	pop {r4, pc}
 	.align 2, 0
 _08054D34: .4byte gMenu
@@ -251,7 +251,7 @@ sub_08054DAC: @ 0x08054DAC
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	pop {r4, pc}
 	.align 2, 0
 _08054DF0: .4byte gMenu
@@ -302,7 +302,7 @@ sub_08054E1C: @ 0x08054E1C
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	pop {r4, r5, pc}
 	.align 2, 0
 _08054E54: .4byte gMenu
@@ -327,7 +327,7 @@ sub_08054E5C: @ 0x08054E5C
 	strh r0, [r4, #8]
 	movs r0, #6
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	ldrb r0, [r4, #4]
 	bl sub_080553E0
 	ldrb r0, [r4, #4]
@@ -526,7 +526,7 @@ _08054FCA:
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	strh r4, [r6, #0xa]
 	movs r0, #0x80
 	lsls r0, r0, #3
@@ -599,7 +599,7 @@ sub_08055054: @ 0x08055054
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	pop {r4, pc}
 	.align 2, 0
 _08055080: .4byte gUnk_080FF128
@@ -654,7 +654,7 @@ sub_080550B0: @ 0x080550B0
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	pop {r4, pc}
 	.align 2, 0
 _080550E8: .4byte gMenu
@@ -707,7 +707,7 @@ _0805512A:
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	pop {r4, pc}
 	.align 2, 0
 _08055150: .4byte gUnk_080FF17C
@@ -798,7 +798,7 @@ sub_08055184: @ 0x08055184
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	pop {r3}
 	mov r8, r3
 	pop {r4, r5, r6, pc}
@@ -853,7 +853,7 @@ sub_0805524C: @ 0x0805524C
 	.align 2, 0
 _08055270: .4byte gMenu
 _08055274:
-	ldr r0, _080552A4 @ =gScreenTransition
+	ldr r0, _080552A4 @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #7
 	ands r0, r1
@@ -877,7 +877,7 @@ _08055274:
 	strh r0, [r1]
 	b _080552D6
 	.align 2, 0
-_080552A4: .4byte gScreenTransition
+_080552A4: .4byte gRoomTransition
 _080552A8: .4byte gUnk_080FF204
 _080552AC: .4byte 0x0000FFFF
 _080552B0: .4byte gScreen
@@ -959,7 +959,7 @@ sub_08055318: @ 0x08055318
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	pop {r4, pc}
 	.align 2, 0
 _08055348: .4byte gMenu
@@ -978,7 +978,7 @@ sub_08055350: @ 0x08055350
 	beq _08055374
 	movs r0, #7
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	ldr r1, _0805537C @ =gMenu
 	ldrb r0, [r1, #6]
 	adds r0, #1
@@ -1002,7 +1002,7 @@ sub_08055380: @ 0x08055380
 	bl sub_08054974
 	movs r0, #6
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	movs r0, #0x73
 	bl SoundReq
 	ldrb r0, [r4, #6]
@@ -1102,7 +1102,7 @@ sub_08055430: @ 0x08055430
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	pop {r4, pc}
 	.align 2, 0
 _08055460: .4byte gMenu
@@ -1121,7 +1121,7 @@ sub_08055468: @ 0x08055468
 	beq _0805548C
 	movs r0, #7
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	ldr r1, _08055494 @ =gMenu
 	ldrb r0, [r1, #6]
 	adds r0, #1
@@ -1147,7 +1147,7 @@ sub_08055498: @ 0x08055498
 	bl sub_080553E0
 	movs r0, #6
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	movs r0, #0x73
 	bl SoundReq
 	ldrb r0, [r4, #6]
@@ -1216,7 +1216,7 @@ sub_08055518: @ 0x08055518
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	pop {r4, pc}
 	.align 2, 0
 _08055540: .4byte gMenu
@@ -1313,7 +1313,7 @@ sub_080555B8: @ 0x080555B8
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	pop {r4, r5, pc}
 	.align 2, 0
 _08055600: .4byte gMenu
@@ -1430,7 +1430,7 @@ sub_080556AC: @ 0x080556AC
 	bl sub_08055B70
 	movs r0, #4
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	pop {r4, pc}
 	.align 2, 0
 _080556E4: .4byte gMenu
@@ -1491,7 +1491,7 @@ _08055734:
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	pop {r4, pc}
 	.align 2, 0
 _0805575C: .4byte gMenu
@@ -1578,7 +1578,7 @@ sub_080557D0: @ 0x080557D0
 	bl sub_08055B70
 	movs r0, #4
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	pop {r4, pc}
 	.align 2, 0
 _08055808: .4byte gMenu
@@ -1631,7 +1631,7 @@ _0805584A:
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	pop {r4, pc}
 	.align 2, 0
 _08055870: .4byte gUnk_080FF2C0
@@ -1683,7 +1683,7 @@ sub_080558A4: @ 0x080558A4
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	pop {r4, pc}
 	.align 2, 0
 _080558DC: .4byte gMenu
@@ -1734,7 +1734,7 @@ sub_08055908: @ 0x08055908
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	pop {r4, r5, pc}
 	.align 2, 0
 _08055940: .4byte gMenu
@@ -1859,7 +1859,7 @@ _08055A0E:
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	pop {r4, pc}
 	.align 2, 0
 _08055A30: .4byte gMenu
@@ -1879,7 +1879,7 @@ sub_08055A3C: @ 0x08055A3C
 	beq _08055A60
 	movs r0, #7
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	ldr r1, _08055A68 @ =gMenu
 	ldrb r0, [r1, #6]
 	adds r0, #1
@@ -1905,7 +1905,7 @@ sub_08055A6C: @ 0x08055A6C
 	bl sub_080553E0
 	movs r0, #6
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	movs r0, #0x73
 	bl SoundReq
 	ldrb r0, [r4, #6]
@@ -1986,7 +1986,7 @@ _08055B14:
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	pop {r4, pc}
 	.align 2, 0
 _08055B2C: .4byte gMenu
@@ -2095,7 +2095,7 @@ sub_08055BCC: @ 0x08055BCC
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	pop {r4, pc}
 	.align 2, 0
 _08055BFC: .4byte gMenu
@@ -2114,7 +2114,7 @@ sub_08055C04: @ 0x08055C04
 	beq _08055C28
 	movs r0, #7
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	ldr r1, _08055C30 @ =gMenu
 	ldrb r0, [r1, #6]
 	adds r0, #1
@@ -2168,7 +2168,7 @@ _08055C6C:
 _08055C8C:
 	movs r0, #6
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	movs r0, #0x73
 	bl SoundReq
 	ldr r0, _08055CAC @ =gMenu
@@ -2242,7 +2242,7 @@ sub_08055CF4: @ 0x08055CF4
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	pop {r4, pc}
 	.align 2, 0
 _08055D24: .4byte gMenu
@@ -2321,7 +2321,7 @@ sub_08055D9C: @ 0x08055D9C
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 	pop {pc}
 	.align 2, 0
 _08055DB8: .4byte gMenu

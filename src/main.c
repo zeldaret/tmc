@@ -1,40 +1,28 @@
-#include "audio.h"
-#include "asm.h"
+#include "sound.h"
 #include "functions.h"
-#include "structures.h"
 #include "main.h"
 #include "screen.h"
-#include "utils.h"
+#include "common.h"
 #include "save.h"
-#include "textbox.h"
+#include "message.h"
 #include "interrupts.h"
 
 extern u32 gRand;
-
-extern void HandleIntroScreen(void);
-extern void HandleChooseFileScreen(void);
-extern void HandleChooseDemoScreen(void);
-extern void HandleGameplayScreen(void);
-extern void HandleGameOverScreen(void);
-extern void HandleCreditsScreen(void);
-extern void HandleDebugTextScreen(void);
 
 static void InitOverlays(void);
 static bool32 SoftResetKeysPressed(void);
 static u32 CheckHeaderValid(void);
 
-void (*const sScreenHandlers[])(void) = {
-    [SCREEN_INTRO] = HandleIntroScreen,
+void (*const sTaskHandlers[])(void) = {
+    [TASK_TITLE] = TitleTask,
 #ifdef DEMO_USA
-    [SCREEN_CHOOSE_FILE] = HandleChooseDemoScreen,
+    [TASK_FILE_SELECT] = DemoTask,
 #else
-    [SCREEN_CHOOSE_FILE] = HandleChooseFileScreen,
+    [TASK_FILE_SELECT] = FileSelectTask,
 #endif
 
-    [SCREEN_GAMEPLAY] = HandleGameplayScreen,
-    [SCREEN_GAME_OVER] = HandleGameOverScreen,
-    [SCREEN_CREDITS] = HandleCreditsScreen,
-    [SCREEN_DEBUG_TEXT] = HandleDebugTextScreen,
+    [TASK_GAME] = GameTask,           [TASK_GAMEOVER] = GameOverTask,
+    [TASK_STAFFROLL] = StaffrollTask, [TASK_DEBUG] = DebugTask,
 };
 
 static void sub_080560B8(void);
@@ -54,7 +42,7 @@ void AgbMain(void) {
     ResetPalettes();
     gRand = 0x1234567;
     MemClear(&gMain, sizeof(gMain));
-    InitScreen(SCREEN_INTRO);
+    SetTask(TASK_TITLE);
     while (1) {
         ReadKeyInput();
         if (SoftResetKeysPressed()) {
@@ -82,8 +70,8 @@ void AgbMain(void) {
                     }
                 }
 
-                gMain.ticks++;
-                sScreenHandlers[gMain.screen]();
+                gMain.ticks.HWORD++;
+                sTaskHandlers[gMain.task]();
                 MessageMain();
                 FadeMain();
                 AudioMain();
@@ -131,10 +119,10 @@ static bool32 SoftResetKeysPressed(void) {
     return (gInput.heldKeys & SOFT_RESET_KEYS) == SOFT_RESET_KEYS;
 }
 
-void InitScreen(u32 screen) {
-    gMain.screen = screen;
-    gMain.funcIndex = 0;
-    gMain.transition = 0;
+void SetTask(u32 task) {
+    gMain.task = task;
+    gMain.state = 0;
+    gMain.substate = 0;
 }
 
 void DisableInterruptsAndDMA(void) {
@@ -158,27 +146,27 @@ void DoSoftReset(void) {
 typedef struct {
     int signature;
     u8 saveFileId;
-    u8 messageSpeed;
-    u8 brightnessPref;
-    u8 gameLanguage;
+    u8 msg_speed;
+    u8 brightness;
+    u8 language;
     u8 name[6];
-    u8 _e;
-    u8 _f;
+    u8 invalid;
+    u8 initialized;
 } Defaults;
 
 const Defaults sDefaultSettings = {
     .signature = SIGNATURE,
     .saveFileId = 0,
-    .messageSpeed = 1,
-    .brightnessPref = 1,
+    .msg_speed = 1,
+    .brightness = 1,
 #ifdef EU
-    .gameLanguage = 2, // TODO in EU 2 is english?
+    .language = 2, // TODO in EU 2 is english?
 #else
-    .gameLanguage = GAME_LANGUAGE,
+    .language = GAME_LANGUAGE,
 #endif
     .name = "LINK",
-    ._e = 0,
-    ._f = 0,
+    .invalid = 0,
+    .initialized = 0,
 };
 
 // single misplaced ldr
@@ -215,19 +203,19 @@ END_NONMATCH
 
 static u32 CheckHeaderValid(void) {
     if ((gSaveHeader->signature != SIGNATURE) || (gSaveHeader->saveFileId >= NUM_SAVE_SLOTS) ||
-        (gSaveHeader->messageSpeed >= MAX_MSG_SPEED) || (gSaveHeader->brightnessPref >= MAX_BRIGHTNESS)
+        (gSaveHeader->msg_speed >= MAX_MSG_SPEED) || (gSaveHeader->brightness >= MAX_BRIGHTNESS)
 #ifdef EU
-        || (gSaveHeader->gameLanguage <= GAME_LANGUAGE) || (gSaveHeader->gameLanguage > NUM_LANGUAGES)
+        || (gSaveHeader->language <= GAME_LANGUAGE) || (gSaveHeader->language > NUM_LANGUAGES)
 #else
-        || (gSaveHeader->gameLanguage != GAME_LANGUAGE)
+        || (gSaveHeader->language != GAME_LANGUAGE)
 #endif
-        || (gSaveHeader->_e != 0))
+        || (gSaveHeader->invalid))
         return FALSE;
 
     return TRUE;
 }
 
-void InitDMA() {
+void InitDMA(void) {
     SoundReq(SONG_VSYNC_OFF);
     gScreen._6d = gScreen._6c;
     gScreen._6c = 0;
@@ -240,13 +228,13 @@ void InitDMA() {
     DmaWait(3);
 }
 
-void sub_08056208() {
+void sub_08056208(void) {
     SoundReq(SONG_VSYNC_ON);
     gScreen._6c = gScreen._6d;
     gScreen._6d = 0;
 }
 
-void sub_0805622C(u32 a1, u32 a2, u32 a3) {
+void sub_0805622C(void* a1, u32 a2, u32 a3) {
     gScreen._70 = a1;
     gScreen._74 = a2;
     gScreen._78 = a3;
@@ -254,7 +242,7 @@ void sub_0805622C(u32 a1, u32 a2, u32 a3) {
     gUnk_03003DE4 ^= 1;
 }
 
-void sub_08056250() {
+void sub_08056250(void) {
     gScreen._6c = 0;
 }
 
@@ -280,8 +268,8 @@ void SetSleepMode(void) {
 // Convert AABB to screen coordinates and check if it's within the viewport
 u32 CheckRegionOnScreen(u32 x0, u32 y0, u32 x1, u32 y1) {
     u32 result;
-    u32 x = ((gRoomControls.roomScrollX - gRoomControls.roomOriginX) - x0 + DISPLAY_WIDTH);
-    u32 y = ((gRoomControls.roomScrollY - gRoomControls.roomOriginY) - y0 + DISPLAY_HEIGHT);
+    u32 x = ((gRoomControls.scroll_x - gRoomControls.origin_x) - x0 + DISPLAY_WIDTH);
+    u32 y = ((gRoomControls.scroll_y - gRoomControls.origin_y) - y0 + DISPLAY_HEIGHT);
     u32 a = x1 + DISPLAY_WIDTH;
     u32 b = y1 + DISPLAY_HEIGHT;
     if ((x < a) && (y < b))
@@ -301,10 +289,10 @@ u16 CheckRegionsOnScreen(u16* arr) {
     return 0xff;
 }
 
-void PlayerItemNulled2() {
+void PlayerItemNulled2(void) {
     DeleteThisEntity();
 }
 
-void PlayerItemNulled() {
+void PlayerItemNulled(void) {
     DeleteThisEntity();
 }

@@ -1,7 +1,7 @@
 #include "asm.h"
 #include "entity.h"
 #include "functions.h"
-#include "audio.h"
+#include "sound.h"
 
 extern void (*const gUnk_0811B98C[])(Entity*);
 
@@ -24,8 +24,8 @@ void sub_0807037C(Entity* this) {
 
 void sub_08070398(Entity* this) {
     GetNextFrame(this);
-    sub_0806F69C(this);
-    if (sub_08003FC4(this, 0x2000) == 0) {
+    LinearMoveUpdate(this);
+    if (GravityUpdate(this, 0x2000) == 0) {
         DeleteThisEntity();
     }
 }

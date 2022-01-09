@@ -131,7 +131,7 @@ void sub_0806A550(Entity* this) {
     } else {
         if (this->frame == 1) {
             this->frame = 0;
-            sub_08080964(8, 2);
+            InitScreenShake(8, 2);
             gActiveScriptInfo.syncFlags |= 0x100;
             SoundReq(SFX_CHEST_OPEN);
         }
@@ -291,7 +291,7 @@ void sub_0806AA18(Entity* this) {
     u32 index;
     if (this->field_0x6a.HWORD != 0) {
         index = 0x4408;
-    } else if ((gScreenTransition.frameCount & 1U) == 0) {
+    } else if ((gRoomTransition.frameCount & 1U) == 0) {
         index = 0x4407;
     } else {
         index = 0x440d;
@@ -303,8 +303,8 @@ ASM_FUNC("asm/non_matching/rem/sub_0806AA50.inc", void sub_0806AA50(Entity* this
 
 void sub_0806AB74(Entity* this) {
     gRoomVars.field_0x3 = 1;
-    if ((s32)(this->y.HALF.HI - (u32)gRoomControls.roomOriginY) < 0xa8) {
-        this->y.HALF.HI = gRoomControls.roomOriginY + 0xa8;
+    if ((s32)(this->y.HALF.HI - (u32)gRoomControls.origin_y) < 0xa8) {
+        this->y.HALF.HI = gRoomControls.origin_y + 0xa8;
     }
 }
 

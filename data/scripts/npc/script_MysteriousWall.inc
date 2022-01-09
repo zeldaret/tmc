@@ -13,12 +13,12 @@ script_0800B98A:
 	_0807E9F0
 	JumpIf script_0800B99E
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800B98A
 script_0800B99E:
 	Call sub_0806F188
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 script_0800B9AC:
 	DoPostScriptAction 0x0006
 SCRIPT_END

@@ -6,6 +6,6 @@ script_0800E910: @ Rent no room
 	MessageFromTarget 0x4509
 script_0800E914:
 	WaitUntilTextboxCloses
-	_0807E878
-	_0807EB44 0x0000
+	EnablePlayerControl
+	SetAnimationState 0x0000
 	Jump script_0800E832

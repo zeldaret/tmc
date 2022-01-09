@@ -1,11 +1,8 @@
 #include "global.h"
 #include "entity.h"
 #include "functions.h"
-#include "structures.h"
-#include "textbox.h"
-#include "room.h"
+#include "message.h"
 #include "flags.h"
-#include "script.h"
 #include "save.h"
 #include "npc.h"
 
@@ -28,7 +25,7 @@ void GoronMerchant(Entity* this) {
 }
 
 void sub_08069584(Entity* this) {
-    if (gScreenTransition.player_status.field_0x24[8] != 0) {
+    if (gRoomTransition.player_status.field_0x24[8] != 0) {
         this->action = 3;
     } else {
         this->action = 1;
@@ -62,7 +59,7 @@ void sub_080695E8(Entity* this) {
 }
 
 void sub_0806961C(Entity* this) {
-    if (gScreenTransition.player_status.field_0x24[8] == 2) {
+    if (gRoomTransition.player_status.field_0x24[8] == 2) {
         UpdateAnimationSingleFrame(this);
     }
     sub_0806FD3C(this);

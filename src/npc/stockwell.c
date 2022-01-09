@@ -1,9 +1,11 @@
 #include "entity.h"
 #include "script.h"
 #include "room.h"
-#include "textbox.h"
+#include "message.h"
 #include "functions.h"
 #include "npc.h"
+#include "object.h"
+#include "item.h"
 
 extern void (*const gUnk_0810FDC8[])(Entity*);
 

@@ -78,7 +78,7 @@ script_080093EE:
 .endif
 .endif
 	Call sub_0806D5D4
-	_0807EB8C 
+	FaceAwayFromPlayer 
 	MessageNoOverlap 0x1d09
 	WaitUntilTextboxCloses
 	Wait 0x000a

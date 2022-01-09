@@ -54,7 +54,7 @@ _080AD088:
 	cmp r0, #0x74
 	bne _080AD0B4
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	b _080AD0C8
 	.align 2, 0
 _080AD0B0: .4byte gUnk_081320C4
@@ -71,7 +71,7 @@ _080AD0C8:
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	cmp r0, #0
 	beq _080AD0D8
 	b _080AD202

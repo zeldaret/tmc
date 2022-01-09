@@ -7,10 +7,10 @@ SCRIPT_START script_TownMinish2
 script_0800E73E:
 	CheckEntityInteractType
 	JumpIfNot script_0800E73E
-	_0807E864
-	_0807EB74
+	SetPlayerIdle
+	FacePlayer
 	CallWithArg sub_0806AF60, 0x00000000
 	Call sub_0806AFE8
 	WaitUntilTextboxCloses
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800E73E

@@ -1,9 +1,9 @@
 #include "entity.h"
 #include "functions.h"
-#include "textbox.h"
+#include "message.h"
 #include "save.h"
-#include "script.h"
 #include "npc.h"
+#include "object.h"
 
 void sub_08063B68(Entity* this);
 void sub_08063A80(Entity* this);

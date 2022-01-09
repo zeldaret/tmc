@@ -1,11 +1,10 @@
 #include "entity.h"
 #include "functions.h"
 #include "npc.h"
-#include "save.h"
 
 extern void (*gUnk_08111D88[])(Entity*);
 void sub_08069FE8(Entity*);
-u32 sub_08069EF0();
+u32 sub_08069EF0(Entity*);
 
 extern u8 gUnk_08111DA8[];
 u32 sub_08069F90(Entity*);
@@ -304,7 +303,7 @@ void sub_0806A028(Entity* this) {
             sub_08069FBC(this);
             sub_0806A080(this);
             SoundReq(SFX_VO_DOG);
-            sub_080791D0();
+            ResetPlayerAnimationAndAction();
         }
         this->interactType = 0;
     }

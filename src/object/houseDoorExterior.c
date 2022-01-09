@@ -3,7 +3,7 @@
 #include "flags.h"
 #include "room.h"
 #include "script.h"
-#include "audio.h"
+#include "sound.h"
 #include "object.h"
 #include "functions.h"
 #include "npc.h"
@@ -58,8 +58,8 @@ void sub_080866D8(Entity* this) {
             entity = CreateObject(HOUSE_DOOR_EXT, prop->unk7, prop->unk6);
             if (entity) {
                 entity->field_0x6c.HALF.LO = i;
-                entity->x.HALF.HI = gRoomControls.roomOriginX + prop->unk0 + 16;
-                entity->y.HALF.HI = gRoomControls.roomOriginY + prop->unk2 + 32;
+                entity->x.HALF.HI = gRoomControls.origin_x + prop->unk0 + 16;
+                entity->y.HALF.HI = gRoomControls.origin_y + prop->unk2 + 32;
                 entity->parent = this;
                 entity->field_0x68.HWORD = prop->unk0;
                 entity->field_0x6a.HWORD = prop->unk2;
@@ -168,7 +168,7 @@ void sub_0808692C(Entity* this) {
 static u8 sub_08086954(Entity* this) {
     if (sub_0800445C(this)) {
         if (sub_0806ED9C(this, 6, 20) >= 0 && gPlayerEntity.animationState == 0 &&
-            (u16)gPlayerState.field_0x90.HALF.LO == 0x400 && gPlayerState.jumpStatus == 0) {
+            (u16)gPlayerState.field_0x90 == 0x400 && gPlayerState.jump_status == 0) {
             this->actionDelay--;
         }
     } else {

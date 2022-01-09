@@ -14,7 +14,7 @@ script_0800EE58:
 	Jump script_0800EE58
 script_0800EE76:
 	EndBlock
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
 	CheckLocalFlag 0x00ae
 	JumpIf script_0800EEFE
@@ -29,16 +29,16 @@ script_0800EE76:
 	MessageFromTarget 0x4c09
 	WaitUntilTextboxCloses
 	SetIntVariable 0x00000503
-	Call sub_0807F420
+	Call LoadMenu
 	SetSyncFlag 0x00000008
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	SetLocalFlag 0x00ae
 	Jump script_0800EE58
 script_0800EED2:
 	EndBlock
 	WaitForSyncFlagAndClear 0x00000010
-	_0807EB44 0x0006
+	SetAnimationState 0x0006
 	CallWithArg sub_0806AF60, 0x00000008
 	WaitForSyncFlagAndClear 0x00000020
 	Call sub_0806AED8
@@ -48,7 +48,7 @@ script_0800EEFE:
 	MessageFromTarget 0x4c15
 	WaitUntilTextboxCloses
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800EE58
 	MessageFromTarget 0x4c07
 	WaitUntilTextboxCloses
@@ -60,5 +60,5 @@ script_0800EEFE:
 	MessageFromTarget 0x4c09
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000048
-	Call sub_080791BC
+	Call SetPlayerActionNormal
 SCRIPT_END

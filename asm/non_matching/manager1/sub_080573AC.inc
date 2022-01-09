@@ -28,7 +28,7 @@
 	adds r0, r0, r2
 	strh r0, [r5, #0x30]
 	ldr r2, _08057444 @ =gSineTable
-	ldr r4, _08057448 @ =gScreenTransition
+	ldr r4, _08057448 @ =gRoomTransition
 	ldr r1, [r4]
 	ldrb r0, [r4]
 	adds r0, #0x40
@@ -72,6 +72,6 @@ _08057438: .4byte 0xFFFFE000
 _0805743C: .4byte 0xFFFFF000
 _08057440: .4byte gScreen
 _08057444: .4byte gSineTable
-_08057448: .4byte gScreenTransition
+_08057448: .4byte gRoomTransition
 _0805744C: .4byte gUnk_08107C30
 	.syntax divided

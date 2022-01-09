@@ -1,9 +1,8 @@
 #include "entity.h"
-#include "audio.h"
+#include "sound.h"
 #include "functions.h"
-#include "player.h"
-#include "room.h"
 #include "effects.h"
+#include "asm.h"
 
 extern void (*const gUnk_08109AC8[])(Entity*);
 extern Hitbox gUnk_08109AD0;
@@ -30,7 +29,7 @@ void sub_0805FBE8(Entity* this) {
     *(u32*)&this->field_0x6c = 0x3c;
     InitializeAnimation(this, (this->animationState >> 1) + 0xc);
     sub_0801766C(this);
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     sub_0805FC74(this);
     SoundReq(SFX_ITEM_SWORD_BEAM);
 }
@@ -40,7 +39,7 @@ void sub_0805FC74(Entity* this) {
 
     if (--*(int*)&this->field_0x6c != -1) {
         GetNextFrame(this);
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
         this->actionDelay++;
         if (this->type2 == 0) {
             sub_0800451C(this);

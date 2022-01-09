@@ -2,8 +2,8 @@
 SCRIPT_START script_GuardGarden7
 	CheckRoomFlag 0x000f
 	JumpIfNot script_GuardGarden7
-	_0807E864
-	Call sub_0807F9A4
+	SetPlayerIdle
+	Call WaitForPlayerNormal
 	Call sub_0807DF28
 script_08011AFA:
 	MessageFromTargetPos 0x1321, 0x0007
@@ -22,7 +22,7 @@ script_08011AFA:
 .endif
 .endif
 	CallWithArg sub_0806DA1C, 0x00000003
-	_0807E878
+	EnablePlayerControl
 	Call sub_0807DF50
 	DoPostScriptAction 0x0006
 SCRIPT_END

@@ -3,25 +3,16 @@
 
 #include "global.h"
 
+/** File signature */
 #define SIGNATURE 'MCZ3'
+/** Maximum message speed. */
 #define MAX_MSG_SPEED 3
+/** Number of save slots */
 #define NUM_SAVE_SLOTS 3
+/** Maximum brightness. */
 #define MAX_BRIGHTNESS 3
 
-typedef struct { // 0x03001000
-    u8 field_0x0;
-    u8 field_0x1;
-    u8 field_0x2;
-    u8 field_0x3;
-    u8 field_0x4;
-    u16 field_0x6;
-    u8 field_0x8;
-    u8 field_0x9;
-    u8 field_0xa;
-    u8 field_0xb;
-    u32 spritePriority;
-} MainStruct;
-
+/** Supported game languages. */
 typedef enum {
     LANGUAGE_JP,
     LANGUAGE_EN,
@@ -38,37 +29,47 @@ typedef enum {
 #define GAME_LANGUAGE LANGUAGE_JP
 #endif
 
-enum {
-    SCREEN_INTRO,
-    SCREEN_CHOOSE_FILE,
-    SCREEN_GAMEPLAY,
-    SCREEN_GAME_OVER,
-    SCREEN_CREDITS,
-    SCREEN_DEBUG_TEXT,
-};
+/** Program tasks. */
+typedef enum {
+    TASK_TITLE,       /**< Title task. This is the first task to be entered. */
+    TASK_FILE_SELECT, /**< File selection task. */
+    TASK_GAME,        /**< Gameplay task. Overworld, menus, cutscenes are all contained here. */
+    TASK_GAMEOVER,    /**< Gameover task. */
+    TASK_STAFFROLL,   /**< Staffroll task. Only accessible through the script played during the game ending. */
+    TASK_DEBUG,       /**< Debug task. Inaccessible in normal gameplay. */
+} Task;
 
-enum {
+/** System sleep status. */
+typedef enum {
     DEFAULT,
     SLEEP,
-};
+} SleepStatus;
 
+/**
+ * Main system structure.
+ */
 typedef struct {
     vu8 interruptFlag;
     u8 sleepStatus;
-    u8 screen;
-    u8 funcIndex;
-    u8 transition;
+    u8 task;     /**< Current #Task. */
+    u8 state;    /**< State of the current #Task. */
+    u8 substate; /**< Substate of the current #Task. */
     u8 field_0x5;
-    u8 muteAudio;
+    u8 muteAudio; /**< Mute audio. */
     u8 field_0x7;
-    u8 pauseFrames;
-    u8 pauseCount;
-    u8 pauseInterval;
-    u16 ticks;
+    u8 pauseFrames;   /**< Number of frames to pause. */
+    u8 pauseCount;    /**< Number of pauses to make. */
+    u8 pauseInterval; /**< Number of frames to play between each pause. */
+    u8 pad;
+    union SplitHWord ticks; /**< Current time. */
 } Main;
 
+/**
+ * HUD structure.
+ */
 typedef struct {
-    /*0x00*/ u16 nextToLoad;
+    /*0x00*/ u8 nextToLoad;
+    /*0x01*/ u8 _1;
     /*0x02*/ u8 lastState;
     /*0x03*/ u8 field_0x3;
     /*0x04*/ u8 state;
@@ -81,31 +82,62 @@ typedef struct {
 } UI;
 static_assert(sizeof(UI) == 0x3b4);
 
-extern Main gMain;
-extern UI gUnk_02032EC0;
+extern Main gMain;       /**< Main instance. */
+extern UI gUnk_02032EC0; /**< UI instance. */
 
 /**
- * @brief Begin a subroutine.
+ * Program entry point.
  */
-void InitScreen(u32 screen);
+void AgbMain(void);
 
+/**
+ * Begin a new task.
+ *
+ * @param task #Task to begin.
+ */
+void SetTask(u32 task);
+
+/**
+ * Initialize the DMA system.
+ */
 void InitDMA(void);
 
+/**
+ * Soft reset the system.
+ */
+void DoSoftReset(void);
+
+/**
+ * Put the system into sleep mode.
+ */
+void SetSleepMode(void);
+
+extern void sub_0805622C(void* a1, u32 a2, u32 a3);
 extern void sub_08056208(void);
 extern void ResetPalettes(void);
-
-extern void DoSoftReset(void);
-extern void SetSleepMode(void);
 extern void VBlankIntrWait();
-extern void FadeMain(void);
-
-extern u8 gUnk_03003DE4;
-
-extern void SetBrightness(u32);
-extern u16 gPaletteBuffer[];
 extern void VBlankInterruptWait(void);
 extern void DisableInterruptsAndDMA(void);
 extern void EnableVBlankIntr(void);
 extern void sub_08056250(void);
+extern void sub_08056208(void);
+
+/** @name Task entrypoints */
+///@{
+/** Task entrypoint. */
+extern void TitleTask(void);
+extern void FileSelectTask(void);
+extern void GameTask(void);
+extern void GameOverTask(void);
+extern void StaffrollTask(void);
+extern void DebugTask(void);
+
+#ifdef DEMO_USA
+extern void DemoTask(void);
+#endif
+/// @}
+
+extern u8 gUnk_03003DE4;
+extern u16 gPaletteBuffer[];
 
 #endif

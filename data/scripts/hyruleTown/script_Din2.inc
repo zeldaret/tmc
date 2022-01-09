@@ -2,7 +2,7 @@
 SCRIPT_START script_Din2
 	BeginBlock
 	Call sub_08064828
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0001
 	DoPostScriptAction 0x000a
 	EndBlock
@@ -16,8 +16,8 @@ script_08011E96:
 	CheckEntityInteractType
 	JumpIfNot script_08011E96
 	EndBlock
-	_0807E864
-	_0807EB74
+	SetPlayerIdle
+	FacePlayer
 	DoPostScriptAction 0x0000
 	CheckGlobalFlag 0x0048
 	JumpIf script_08011ECC
@@ -30,21 +30,21 @@ script_08011ECC:
 	CheckTextboxResult 
 	JumpIf script_08011EF4
 script_08011ED8:
-	_0807E878
-	_0807EB44 0x0004
+	EnablePlayerControl
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0001
 	Jump script_08011E96
 script_08011EE6:
 	CheckEntityInteractType
 	JumpIfNot script_08011EE6
-	_0807E864
-	_0807EB74
+	SetPlayerIdle
+	FacePlayer
 	DoPostScriptAction 0x0000
 script_08011EF4:
 	MessageNoOverlap 0x3114
 	WaitUntilTextboxCloses
 	SetGlobalFlag 0x002e
-	_0807E878
-	_0807EB44 0x0004
+	EnablePlayerControl
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0001
 	Jump script_08011EE6

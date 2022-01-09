@@ -1,6 +1,6 @@
 	.syntax unified
 	push {lr}
-	bl sub_08053500
+	bl InitBiggoronTimer
 	movs r0, #0xd
 	bl IsItemEquipped
 	adds r1, r0, #0

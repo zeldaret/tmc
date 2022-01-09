@@ -99,7 +99,7 @@ _0807701C:
 	eors r1, r2
 	strb r1, [r0, #0x15]
 	strh r5, [r0, #0x24]
-	bl sub_08079E08
+	bl UpdatePlayerMovement
 	b _08077110
 	.align 2, 0
 _08077044: .4byte gPlayerState
@@ -151,7 +151,7 @@ _0807708C:
 	strb r0, [r2, #0x15]
 	movs r0, #0x80
 	strh r0, [r2, #0x24]
-	bl sub_08079E08
+	bl UpdatePlayerMovement
 	b _08077110
 	.align 2, 0
 _080770B0: .4byte gPlayerState

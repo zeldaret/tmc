@@ -1,7 +1,7 @@
 
 #include "item.h"
 #include "functions.h"
-#include "audio.h"
+#include "sound.h"
 
 extern void (*const gUnk_0811BE04[])(ItemBehavior*, u32);
 
@@ -10,7 +10,7 @@ s32 sub_080774A0(void);
 extern u8 gUnk_0811BE14[];
 extern s32 sub_0800875A(Entity*, u32, ItemBehavior*);
 
-extern void sub_08079E08();
+extern void UpdatePlayerMovement(void);
 
 void ItemMoleMitts(ItemBehavior* this, u32 arg1) {
     gUnk_0811BE04[this->stateID](this, arg1);
@@ -19,7 +19,7 @@ void ItemMoleMitts(ItemBehavior* this, u32 arg1) {
 void sub_08077130(ItemBehavior* this, u32 arg1) {
     s32 iVar1;
 
-    if (gPlayerState.jumpStatus == 0) {
+    if (gPlayerState.jump_status == 0) {
         sub_08077D38(this, arg1);
         gPlayerState.field_0x3c[1] = 1;
         this->field_0x5[4] |= 0x80;
@@ -89,7 +89,7 @@ void sub_08077448(ItemBehavior* this, u32 arg1) {
     gPlayerEntity.direction = gPlayerEntity.animationState << 2 ^ 0x10;
     gPlayerEntity.speed = 0x100;
     if (((this->field_0x5[9] & 1) != 0) && (this->field_0x5[0] != 0)) {
-        sub_08079E08();
+        UpdatePlayerMovement();
     }
     UpdateItemAnim(this);
     if ((this->field_0x5[9] & 0x80) != 0) {

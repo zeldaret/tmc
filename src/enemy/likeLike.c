@@ -1,8 +1,16 @@
+/**
+ * @file likeLike.c
+ * @ingroup Enemies
+ *
+ * @brief Like Like enemy
+ */
+
 #include "enemy.h"
-#include "textbox.h"
+#include "message.h"
 #include "save.h"
 #include "object.h"
 #include "functions.h"
+#include "item.h"
 
 extern bool32 ItemIsShield(u32);
 
@@ -184,7 +192,7 @@ void sub_0802805C(Entity* this) {
         sub_0802810C(this);
     } else {
         ResetPlayer();
-        gPlayerState.field_0x1a[0] |= 0x80;
+        gPlayerState.mobility |= 0x80;
         PositionRelative(this, &gPlayerEntity, 0, 0x10000);
 
         tmp = GetSpriteSubEntryOffsetDataPointer((u16)this->spriteIndex, this->frameIndex);
@@ -203,7 +211,7 @@ void sub_0802805C(Entity* this) {
 }
 
 NONMATCH("asm/non_matching/likeLike/sub_0802810C.inc", void sub_0802810C(Entity* this)) {
-    gPlayerState.jumpStatus = 0x41;
+    gPlayerState.jump_status = 0x41;
     gPlayerState.field_0xa = 0;
     gPlayerState.flags &= 0xffffffef;
     gPlayerEntity.flags |= 0x80;

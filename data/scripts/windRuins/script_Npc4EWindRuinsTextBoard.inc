@@ -9,7 +9,7 @@ SCRIPT_START script_Npc4EWindRuinsTextBoard
 script_0800D88E:
 	CheckEntityInteractType
 	JumpIfNot script_0800D88E
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
 	CheckLocalFlag 0x0045
 	JumpIf script_0800D8B0
@@ -29,6 +29,6 @@ script_0800D8CE:
 	JumpIfNot script_0800D8CE
 script_0800D8D6:
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 	Jump script_0800D88E
 	.2byte 0x0000

@@ -57,7 +57,7 @@ void sub_0806E838(Entity* this) {
                 sub_0806E884(this);
             }
         } else {
-            sub_080791D0();
+            ResetPlayerAnimationAndAction();
         }
         SoundReq(SFX_VO_CHEEP);
         this->interactType = 0;
@@ -74,7 +74,7 @@ void CuccoChick_Fusion(Entity* this) {
         this->spriteSettings.draw = 1;
         this->frameIndex = 1;
     } else {
-        if (sub_08003FC4(this, 0x3000) == 0) {
+        if (GravityUpdate(this, 0x3000) == 0) {
             this->zVelocity = 0x10000;
         }
     }

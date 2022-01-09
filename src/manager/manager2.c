@@ -1,8 +1,8 @@
 #include "global.h"
-#include "entity.h"
 #include "screen.h"
 #include "functions.h"
-#include "room.h"
+#include "game.h"
+#include "common.h"
 
 typedef struct {
     Manager manager;
@@ -11,7 +11,7 @@ typedef struct {
     void* field_0x3c;
 } Manager2;
 
-extern void sub_080576A0();
+extern void sub_080576A0(void*);
 extern void sub_0805754C(Manager2*);
 
 extern u8 gMapDataTopSpecial[];
@@ -31,7 +31,7 @@ void Manager2_Main(Manager2* this) {
 void sub_0805754C(Manager2* this) {
     s32 bgOffset;
 
-    bgOffset = (gRoomControls.roomScrollY - gRoomControls.roomOriginY);
+    bgOffset = (gRoomControls.scroll_y - gRoomControls.origin_y);
     bgOffset += bgOffset >> 3;
     gScreen.bg3.yOffset = bgOffset & 0x3f;
     gScreen.bg3.tilemap = gMapDataTopSpecial + (bgOffset / 0x40) * 0x200;
@@ -39,7 +39,7 @@ void sub_0805754C(Manager2* this) {
         this->field_0x38 = gScreen.bg3.tilemap;
         gScreen.bg3.updated = 1;
     }
-    bgOffset = (gRoomControls.roomScrollY - gRoomControls.roomOriginY);
+    bgOffset = (gRoomControls.scroll_y - gRoomControls.origin_y);
     bgOffset += bgOffset >> 2;
     gScreen.bg1.yOffset = bgOffset & 0x3f;
     gScreen.bg1.tilemap = gMapDataTopSpecial + 0x2000 + (bgOffset / 0x40) * 0x200;
@@ -57,7 +57,7 @@ void sub_080575C8(u32 param) {
     LoadGfxGroup(param);
     gRoomVars.unk_10[0] = param;
 
-    bgOffset = (gRoomControls.roomScrollY - gRoomControls.roomOriginY);
+    bgOffset = (gRoomControls.scroll_y - gRoomControls.origin_y);
     bgOffset += bgOffset >> 3;
     gScreen.bg3.yOffset = bgOffset & 0x3f;
     gScreen.bg3.xOffset = 0;
@@ -65,7 +65,7 @@ void sub_080575C8(u32 param) {
     gScreen.bg3.control = BGCNT_SCREENBASE(29) | BGCNT_PRIORITY(1) | BGCNT_CHARBASE(2) | BGCNT_MOSAIC;
     gScreen.bg3.updated = 1;
 
-    bgOffset = (gRoomControls.roomScrollY - gRoomControls.roomOriginY);
+    bgOffset = (gRoomControls.scroll_y - gRoomControls.origin_y);
     bgOffset += bgOffset >> 2;
     gScreen.bg1.yOffset = bgOffset & 0x3f;
     gScreen.bg1.xOffset = 0;
@@ -83,9 +83,9 @@ void sub_08057688(void) {
     gScreen.bg1.control = BGCNT_SCREENBASE(30) | BGCNT_CHARBASE(2) | BGCNT_MOSAIC;
 }
 
-void sub_080576A0(Manager2* this) {
+void sub_080576A0(void* this) {
     LoadGfxGroup(gRoomVars.unk_10[0]);
-    this->field_0x38 = NULL;
-    this->field_0x3c = NULL;
-    sub_0805754C(this);
+    ((Manager2*)this)->field_0x38 = NULL;
+    ((Manager2*)this)->field_0x3c = NULL;
+    sub_0805754C((Manager2*)this);
 }

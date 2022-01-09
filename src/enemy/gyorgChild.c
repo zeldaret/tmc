@@ -19,7 +19,7 @@ void (*const gUnk_080D1E6C[])(GyorgChildEntity*) = {
 };
 
 void GyorgChild(Entity* this) {
-    if (gScreenTransition.field_0x39 == 0) {
+    if (gRoomTransition.field_0x39 == 0) {
         this->flags &= ~0x80;
         this->health = 0;
         this->collisionLayer = 2;
@@ -106,7 +106,7 @@ void sub_080486F4(GyorgChildEntity* this) {
 }
 
 void sub_0804877C(GyorgChildEntity* this) {
-    sub_0806F69C(super);
+    LinearMoveUpdate(super);
     if (super->actionDelay != 0) {
         if ((--super->actionDelay & 0xF) == 0) {
             super->direction += this->unk_7b;
@@ -115,22 +115,22 @@ void sub_0804877C(GyorgChildEntity* this) {
     }
     switch (super->animationState >> 1) {
         case 0:
-            if (super->y.HALF.HI > gRoomControls.roomScrollY - 0x18) {
+            if (super->y.HALF.HI > gRoomControls.scroll_y - 0x18) {
                 return;
             }
             break;
         case 1:
-            if (super->x.HALF.HI < gRoomControls.roomScrollX + 0x108) {
+            if (super->x.HALF.HI < gRoomControls.scroll_x + 0x108) {
                 return;
             }
             break;
         case 2:
-            if (super->y.HALF.HI < gRoomControls.roomScrollY + 0xb8) {
+            if (super->y.HALF.HI < gRoomControls.scroll_y + 0xb8) {
                 return;
             }
             break;
         default:
-            if (super->x.HALF.HI > gRoomControls.roomScrollX - 0x18) {
+            if (super->x.HALF.HI > gRoomControls.scroll_x - 0x18) {
                 return;
             }
             break;
@@ -157,11 +157,11 @@ void sub_0804882C(GyorgChildEntity* this) {
             case 0:
             case 2:
                 super->x.HALF.HI = gPlayerEntity.x.HALF.HI + this->unk_74;
-                super->y.HALF.HI = gRoomControls.roomScrollY + this->unk_76;
+                super->y.HALF.HI = gRoomControls.scroll_y + this->unk_76;
                 break;
             case 1:
             default:
-                super->x.HALF.HI = gRoomControls.roomScrollX + this->unk_74;
+                super->x.HALF.HI = gRoomControls.scroll_x + this->unk_74;
                 super->y.HALF.HI = gPlayerEntity.y.HALF.HI + this->unk_76;
                 break;
         }
@@ -172,26 +172,26 @@ void sub_0804882C(GyorgChildEntity* this) {
 }
 
 void sub_08048904(GyorgChildEntity* this) {
-    sub_0806F69C(super);
+    LinearMoveUpdate(super);
     GetNextFrame(super);
     switch (super->animationState >> 1) {
         case 0:
-            if (super->y.HALF.HI > gRoomControls.roomScrollY - 0x28) {
+            if (super->y.HALF.HI > gRoomControls.scroll_y - 0x28) {
                 return;
             }
             break;
         case 1:
-            if (super->x.HALF.HI < gRoomControls.roomScrollX + 0x118) {
+            if (super->x.HALF.HI < gRoomControls.scroll_x + 0x118) {
                 return;
             }
             break;
         case 2:
-            if (super->y.HALF.HI < gRoomControls.roomScrollY + 0xc8) {
+            if (super->y.HALF.HI < gRoomControls.scroll_y + 0xc8) {
                 return;
             }
             break;
         default:
-            if (super->x.HALF.HI > gRoomControls.roomScrollX - 0x28) {
+            if (super->x.HALF.HI > gRoomControls.scroll_x - 0x28) {
                 return;
             }
             break;

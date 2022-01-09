@@ -1,4 +1,5 @@
 #include "area.h"
+#include "asm.h"
 #include "manager.h"
 #include "room.h"
 #include "functions.h"
@@ -23,7 +24,7 @@ extern u16 gUnk_081083AE;
 extern u16 gUnk_081083C4;
 
 void sub_08059CC0(u32, u32);
-void sub_08059B18();
+void sub_08059B18(void);
 
 bool32 sub_08059C8C(Manager12*, u32, u8*, u16*);
 
@@ -64,7 +65,7 @@ void sub_08059A2C(Manager12* this) {
 }
 
 void sub_08059A58(Manager12* this) {
-    if (gRoomControls.areaID != AREA_FESTIVAL_TOWN) {
+    if (gRoomControls.area != AREA_FESTIVAL_TOWN) {
         if (sub_08059C8C(this, 0, &this->field_0x20, &gUnk_08108398) != 0) {
             sub_08059CC0(0, (u32)this->field_0x20);
         }
@@ -87,7 +88,7 @@ void sub_08059A58(Manager12* this) {
     }
 }
 
-#define COMMON(tmp2, tmp1) ((tmp2) >> 4 & 0x3f) | (((tmp1) + 0x188U) >> 4 & 0x3f) << 6
+#define COMMON(tmp2, tmp1) (((tmp2) >> 4 & 0x3f) | (((tmp1) + 0x188U) >> 4 & 0x3f) << 6)
 void sub_08059B18(void) {
     u32 loopVar;
     u32 innerLoopVar;
@@ -141,7 +142,7 @@ void sub_08059CC0(u32 param_1, u32 param_2) {
     Unknown* unknown;
 
     gRoomVars.unk_10[param_1] = param_2;
-    if (gRoomControls.areaID != AREA_FESTIVAL_TOWN) {
+    if (gRoomControls.area != AREA_FESTIVAL_TOWN) {
         unknown = &gUnk_08108408[param_2];
     } else {
         unknown = &gUnk_08108468[param_2];
@@ -153,7 +154,7 @@ void sub_08059CC0(u32 param_1, u32 param_2) {
 void TryLoadPrologueHyruleTown(void) {
     u32 tmp;
 
-    if (gRoomControls.areaID != AREA_FESTIVAL_TOWN) {
+    if (gRoomControls.area != AREA_FESTIVAL_TOWN) {
         tmp = CheckRegionsOnScreen(&gUnk_08108398);
         if (tmp != 0xff) {
             sub_08059CC0(0, tmp);

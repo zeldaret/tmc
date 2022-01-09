@@ -54,8 +54,8 @@ _08075962:
 	movs r0, #0xc0
 	lsls r0, r0, #2
 	strh r0, [r4, #0x24]
-	bl sub_08079E08
-	ldr r0, _08075994 @ =gScreenTransition
+	bl UpdatePlayerMovement
+	ldr r0, _08075994 @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #3
 	ands r0, r1
@@ -68,7 +68,7 @@ _08075962:
 	b _080759B2
 	.align 2, 0
 _08075990: .4byte gPlayerEntity
-_08075994: .4byte gScreenTransition
+_08075994: .4byte gRoomTransition
 _08075998:
 	ldrb r1, [r4, #0xe]
 	adds r0, r2, #0

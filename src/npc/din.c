@@ -1,9 +1,6 @@
 #include "global.h"
 #include "entity.h"
 #include "npc.h"
-#include "script.h"
-#include "functions.h"
-#include "save.h"
 
 void Din(Entity* this) {
     switch (this->action) {

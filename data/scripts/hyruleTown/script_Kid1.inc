@@ -10,18 +10,18 @@ script_080102A6:
 	JumpIfNot script_080102A6
 	CheckRoomFlag 0x0009
 	JumpIfNot script_080102CC
-	_0807E864
-	_0807EB74
+	SetPlayerIdle
+	FacePlayer
 	Call sub_0806265C
 	WaitUntilTextboxCloses
-	_0807E878
+	EnablePlayerControl
 	Call sub_08062500
 	Jump script_080102A6
 script_080102CC:
-	_0807E864
-	_0807EB74
+	SetPlayerIdle
+	FacePlayer
 	Call sub_0806265C
 	WaitUntilTextboxCloses
-	_0807E878
+	EnablePlayerControl
 	Jump script_080102A6
 	.2byte 0x0000

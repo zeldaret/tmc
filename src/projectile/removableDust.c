@@ -2,8 +2,7 @@
 #include "enemy.h"
 #include "coord.h"
 #include "functions.h"
-#include "flags.h"
-#include "utils.h"
+#include "object.h"
 
 extern u32 sub_080002C8(u16, u8);
 extern Entity* LoadRoomEntity(EntityData*);
@@ -50,7 +49,7 @@ void sub_080AA464(Entity* this) {
     if (this->type == 0) {
         sub_080AA544(this);
     }
-    entity = CreateObject(0x21, 3, 0);
+    entity = CreateObject(OBJECT_21, 3, 0);
     if (entity != NULL) {
         CopyPosition(this, entity);
     }

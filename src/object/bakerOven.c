@@ -1,6 +1,6 @@
 #include "object.h"
 
-extern void sub_0800449C(Entity*, u32);
+extern void SoundReqClipped(Entity*, u32);
 extern u32 sub_0806FC80(Entity*, Entity*, s32);
 extern void sub_0809CDF0(Entity*);
 
@@ -61,7 +61,7 @@ void sub_0809CD0C(Entity* this) {
             sub_0806FC80(this, &gPlayerEntity, 4)) {
             this->field_0xf++;
             ModHealth(-2);
-            sub_0800449C(&gPlayerEntity, 0x7a);
+            SoundReqClipped(&gPlayerEntity, 0x7a);
             gPlayerEntity.iframes = 16;
             gPlayerEntity.knockbackDirection = 16;
             gPlayerEntity.knockbackDuration = 12;
@@ -85,8 +85,8 @@ void sub_0809CDB4(Entity* this) {
 void sub_0809CDF0(Entity* this) {
     u32 y;
 
-    this->field_0x80.HWORD = (((this->x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 0x3f) |
-                             (((this->y.HALF.HI - gRoomControls.roomOriginY) >> 4 & 0x3f) << 6);
+    this->field_0x80.HWORD = (((this->x.HALF.HI - gRoomControls.origin_x) >> 4) & 0x3f) |
+                             (((this->y.HALF.HI - gRoomControls.origin_y) >> 4 & 0x3f) << 6);
 
     y = this->field_0x80.HWORD;
     SetTile(0x402e, y - 0x01, this->collisionLayer);

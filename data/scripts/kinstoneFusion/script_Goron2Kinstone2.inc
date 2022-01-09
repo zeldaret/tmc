@@ -1,11 +1,11 @@
 @ 2nd Goron during Kinstone cutscene for 2nd Goron
 SCRIPT_START script_Goron2Kinstone2
 	BeginBlock
-	_0807EB44 0x0000
-	_0807E930 0x0000
+	SetAnimationState 0x0000
+	SetAnimation 0x0000
 	DoPostScriptAction 0x0008
 	SetEntitySpeed 0x0080
-	Call sub_0807F348
+	Call SetPriorityMessage
 	EndBlock
 	WaitForSyncFlagAndClear 0x00000002
 	DoPostScriptAction 0x0007
@@ -20,15 +20,15 @@ SCRIPT_START script_Goron2Kinstone2
 	Wait 0x000f
 	SetSyncFlag 0x00000004
 	DoPostScriptAction 0x000f
-	_0807E930 0x0008
+	SetAnimation 0x0008
 	Wait 0x00b4
 	CallWithArg sub_0804BF38, 0x00000000
 	Wait 0x00b4
 	CallWithArg sub_0804BF38, 0x00000003
-	_0807EB44 0x0004
-	_0807E930 0x0000
+	SetAnimationState 0x0004
+	SetAnimation 0x0000
 	Wait 0x003c
-	_0807EB44 0x0006
+	SetAnimationState 0x0006
 	SetSyncFlag 0x00000004
 	SetEntitySpeed 0x0080
 	_0807EEF4 0x0000, 0xffe0

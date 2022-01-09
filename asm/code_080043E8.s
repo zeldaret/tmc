@@ -99,10 +99,10 @@ EnqueueSFX: @ 0x08004488
 _0800449A:
 	bx lr
 
-	thumb_func_start sub_0800449C
-sub_0800449C: @ 0x0800449C
+	thumb_func_start SoundReqClipped
+SoundReqClipped: @ 0x0800449C
 	push {r1, lr}
-	bl sub_080040A8
+	bl CheckOnScreen
 	cmp r0, #0
 	pop {r0}
 	beq _080044AC
@@ -179,9 +179,9 @@ sub_0800451C: @ 0x0800451C
 	cmp r1, #0xb
 	beq sub_08004542
 	cmp r1, #0xa
-	beq sub_0800455E
+	beq ResetCollisionLayer
 	cmp r1, #9
-	beq sub_0800455E
+	beq ResetCollisionLayer
 	cmp r1, #0x26
 	beq _0800457A
 	cmp r1, #0x27
@@ -205,8 +205,8 @@ sub_08004542: @ 0x08004542
 	strb r1, [r0, #0x19]
 	bx lr
 
-	non_word_aligned_thumb_func_start sub_0800455E
-sub_0800455E: @ 0x0800455E
+	non_word_aligned_thumb_func_start ResetCollisionLayer
+ResetCollisionLayer: @ 0x0800455E
 	movs r1, #0x38
 	movs r2, #1
 	strb r2, [r0, r1]

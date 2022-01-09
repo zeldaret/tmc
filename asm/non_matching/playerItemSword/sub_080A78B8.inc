@@ -13,7 +13,7 @@
 	ldrb r0, [r6, #0x1e]
 	subs r0, #0x6a
 	strb r0, [r4, #0x1e]
-	ldr r0, _080A78EC @ =gScreenTransition
+	ldr r0, _080A78EC @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #4
 	ands r0, r1
@@ -25,7 +25,7 @@
 	b _080A78F2
 	.align 2, 0
 _080A78E8: .4byte gPlayerState
-_080A78EC: .4byte gScreenTransition
+_080A78EC: .4byte gRoomTransition
 _080A78F0:
 	ldrb r1, [r4, #0x1e]
 _080A78F2:

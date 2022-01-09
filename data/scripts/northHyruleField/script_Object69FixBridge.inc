@@ -14,14 +14,14 @@ SCRIPT_START script_Object69FixBridge
 .endif
 .endif
 .endif
-	_0807E864
+	SetPlayerIdle
 	MoveEntityToPlayer
 	CameraTargetEntity
 	SetEntitySpeed 0x0200
 	EndBlock
 	Wait 0x000f
 	_0807E8E4_2
-	Call sub_0807F3F8
+	Call CreatePlayerExclamationMark
 	Wait 0x001e
 	_0807EDD4 0x00b8, 0x0258
 	Wait 0x001e
@@ -29,6 +29,6 @@ SCRIPT_START script_Object69FixBridge
 	Wait 0x0078
 	_0807EEB4
 	CameraTargetPlayer
-	_0807E878
+	EnablePlayerControl
 	DoPostScriptAction 0x0006
 SCRIPT_END

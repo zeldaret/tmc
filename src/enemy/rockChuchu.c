@@ -1,3 +1,10 @@
+/**
+ * @file rockChuchu.c
+ * @ingroup Enemies
+ *
+ * @brief Rock Chuchu enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 

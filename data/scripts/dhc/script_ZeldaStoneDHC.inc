@@ -2,7 +2,7 @@
 SCRIPT_START script_ZeldaStoneDHC
 	BeginBlock
 	DoPostScriptAction 0x0007
-	_0807EB44 0x0000
+	SetAnimationState 0x0000
 	DoPostScriptAction 0x0014
 	EndBlock
 	Wait 0x003c

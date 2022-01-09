@@ -2,9 +2,7 @@
 #include "enemy.h"
 #include "coord.h"
 #include "functions.h"
-#include "audio.h"
-#include "asm.h"
-#include "overworld.h"
+#include "game.h"
 
 extern Entity* sub_08049DF4(u32);
 extern u32 sub_08049F1C(Entity*, Entity*, u32);
@@ -149,7 +147,7 @@ void MandiblesProjectile_Action3(Entity* this) {
                 this->direction = uVar1 << 2;
                 this->animationState = uVar1 << 0x1a >> 0x1a;
                 this->hitbox = &gHitbox_0;
-                if (CheckIsDungeon() != 0) {
+                if (AreaIsDungeon() != 0) {
                     this->spriteOrientation.flipY = 1;
                 }
                 sub_080AA3E0(this, 0);
@@ -198,11 +196,11 @@ void MandiblesProjectile_Action4(Entity* this) {
             }
         }
     } else {
-        if (sub_080040A8(this) == 0) {
+        if (CheckOnScreen(this) == 0) {
             DeleteThisEntity();
         }
     }
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     UpdateAnimationSingleFrame(this);
 }
 

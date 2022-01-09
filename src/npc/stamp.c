@@ -1,12 +1,11 @@
 #include "global.h"
 #include "entity.h"
-#include "textbox.h"
+#include "message.h"
 #include "functions.h"
-#include "script.h"
 #include "effects.h"
 #include "npc.h"
 
-extern void sub_08062CA4();
+extern void sub_08062CA4(Entity*);
 
 extern void (*gStampBehaviors1[4])(Entity*);
 extern void (*gStampBehaviors2[2])(Entity*);

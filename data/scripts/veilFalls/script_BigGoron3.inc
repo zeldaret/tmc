@@ -6,7 +6,7 @@ SCRIPT_START script_BigGoron3
 script_0800934E:
 	CheckEntityInteractType
 	JumpIfNot script_0800934E
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
 	Call sub_0806D638
 	_0807F0B4 0x0001
@@ -22,7 +22,7 @@ script_08009376:
 	CameraTargetPlayer
 	Wait 0x002d
 	_0807F0B4 0x0004
-	_0807E878
+	EnablePlayerControl
 	Call sub_0807DF50
 	Jump script_0800934E
 SCRIPT_END

@@ -5,28 +5,28 @@ SCRIPT_START script_Npc4EAfterDefeatingV2
 script_0800DB7C:
 	CallWithArg sub_0807F6B4, 0x000000a0
 	JumpIf script_0800DB7C
-	_0807E864
-	Call sub_0807F9A4
+	SetPlayerIdle
+	Call WaitForPlayerNormal
 	Call sub_0807DF28
 	_0807F0B4 0x0001
 	SetEntityPositionRelative 0x0078, 0x0078
 	CameraTargetEntity
-	Call sub_0807F5C0
-	_0807EB28 0x1648
+	Call WaitForCameraTouchRoomBorder
+	EzloMessage 0x1648
 	WaitUntilTextboxCloses
 	Call sub_0804D7EC
 	SetSyncFlag 0x00000001
 	WaitForSyncFlagAndClear 0x00000002
 	Call sub_0807DF50
-	_0807E878
+	EnablePlayerControl
 script_0800DBCA:
 	CheckRoomFlag 0x0000
 	JumpIfNot script_0800DBCA
-	_0807E864
-	Call sub_0807F9A4
+	SetPlayerIdle
+	Call WaitForPlayerNormal
 	Call sub_0807DF28
 	Call sub_0804D810
-	Call sub_0807F3F8
+	Call CreatePlayerExclamationMark
 	Wait 0x003c
 	StartPlayerScript script_PlayerRescuedZelda
 	WaitForSyncFlagAndClear 0x00000004
@@ -37,9 +37,9 @@ script_0800DBCA:
 	WaitForSyncFlagAndClear 0x00000006
 	MessageFromTargetPos 0x1643, 0x0002
 	WaitUntilTextboxCloses
-	_0807EB28 0x1645
+	EzloMessage 0x1645
 	WaitUntilTextboxCloses
-	Call sub_0807F3F8
+	Call CreatePlayerExclamationMark
 	SetSyncFlag 0x00000001
 	StopBgm
 	Call sub_08094F98

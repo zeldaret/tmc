@@ -1,5 +1,5 @@
 #include "global.h"
-#include "audio.h"
+#include "sound.h"
 #include "flags.h"
 #include "screen.h"
 #include "manager.h"
@@ -163,8 +163,8 @@ void sub_0805A4CC(Manager15* this, u32 unk_0) {
     Entity* tmp;
     tmp = CreateObject(OBJECT_8E, unk_0, 0);
     if (tmp) {
-        tmp->x.HALF.HI = this->unk_38 + gRoomControls.roomOriginX;
-        tmp->y.HALF.HI = this->unk_3a + gRoomControls.roomOriginY - 0x30;
+        tmp->x.HALF.HI = this->unk_38 + gRoomControls.origin_x;
+        tmp->y.HALF.HI = this->unk_3a + gRoomControls.origin_y - 0x30;
         tmp->parent = (Entity*)this;
         this->manager.unk_0d = 0;
     }
@@ -199,7 +199,7 @@ void sub_0805A500(Manager15* this) {
     }
     sub_0805AA58(this);
     sub_0805A9CC(this);
-    if (gRoomControls.unk2 == 1) {
+    if (gRoomControls.reload_flags == 1) {
         gScreen.lcd.displayControl |= DISPCNT_WIN1_ON;
         this->manager.unk_0d = 1;
         return;
@@ -207,7 +207,7 @@ void sub_0805A500(Manager15* this) {
     if (!this->manager.unk_0d)
         return;
     this->manager.unk_0d = 0;
-    if (this->unk_20 == gRoomControls.roomID)
+    if (this->unk_20 == gRoomControls.room)
         return;
     gScreen.lcd.displayControl &= ~(DISPCNT_WIN1_ON | DISPCNT_BG3_ON);
     DeleteThisEntity();
@@ -275,8 +275,8 @@ void sub_0805A6E8(Manager15* this) {
     sub_0805A89C(this);
     this->unk_23 = 0;
     sub_0805AAF0(0);
-    this->unk_38 += gRoomControls.roomOriginX;
-    this->unk_3a += gRoomControls.roomOriginY;
+    this->unk_38 += gRoomControls.origin_x;
+    this->unk_3a += gRoomControls.origin_y;
     if (!sub_0805A73C(this)) {
         this->manager.action++;
     }
@@ -307,7 +307,7 @@ void sub_0805A76C(Manager15* this) {
                     RequestPriorityDuration((Entity*)this, 600);
                     SetPlayerControl(0xFF);
                     gUnk_02034490[0] = 1;
-                    gRoomControls.cameraTarget = NULL;
+                    gRoomControls.camera_target = NULL;
                     sub_08077B20();
                 }
         }
@@ -315,8 +315,8 @@ void sub_0805A76C(Manager15* this) {
 }
 
 void sub_0805A7E4(Manager15* this) {
-    if (gPlayerState.playerAction != PLAYER_WARP) {
-        gPlayerState.playerAction = PLAYER_WARP;
+    if (gPlayerState.queued_action != PLAYER_WARP) {
+        gPlayerState.queued_action = PLAYER_WARP;
         gPlayerState.field_0x38 = 0;
         gPlayerState.field_0x39 = 0;
     }
@@ -371,9 +371,9 @@ void sub_0805A89C(Manager15* this) {
     this->manager.unk_0f = 0x10;
     this->unk_21 = 0;
     this->unk_22 = 0;
-    this->unk_20 = gRoomControls.roomID;
-    this->unk_24 = gRoomControls.roomOriginX;
-    this->unk_26 = gRoomControls.roomOriginY;
+    this->unk_20 = gRoomControls.room;
+    this->unk_24 = gRoomControls.origin_x;
+    this->unk_26 = gRoomControls.origin_y;
     RegisterTransitionManager(this, sub_0805AAC8, 0);
 }
 
@@ -382,14 +382,14 @@ void sub_0805A94C(Manager15* this);
 void sub_0805A8EC(Manager15* this) {
     sub_0805AA58(this);
     sub_0805A94C(this);
-    if (gRoomControls.unk2 == 1) {
+    if (gRoomControls.reload_flags == 1) {
         gScreen.lcd.displayControl |= DISPCNT_WIN1_ON;
         this->manager.unk_0d = 1;
     } else {
         if (!this->manager.unk_0d)
             return;
         this->manager.unk_0d = 0;
-        if (this->unk_20 == gRoomControls.roomID)
+        if (this->unk_20 == gRoomControls.room)
             return;
         gScreen.lcd.displayControl &= ~(DISPCNT_WIN1_ON | DISPCNT_BG3_ON);
         DeleteThisEntity();
@@ -398,8 +398,8 @@ void sub_0805A8EC(Manager15* this) {
 
 void sub_0805A94C(Manager15* this) {
     int tmp1, tmp2;
-    gScreen.bg3.xOffset = gRoomControls.roomScrollX - this->unk_24 + this->unk_34;
-    gScreen.bg3.yOffset = gRoomControls.roomScrollY - this->unk_26 + this->unk_36;
+    gScreen.bg3.xOffset = gRoomControls.scroll_x - this->unk_24 + this->unk_34;
+    gScreen.bg3.yOffset = gRoomControls.scroll_y - this->unk_26 + this->unk_36;
     tmp1 = -gScreen.bg3.xOffset;
     tmp2 = tmp1 + 0x100;
     if (tmp1 < 0)
@@ -427,7 +427,7 @@ void sub_0805A94C(Manager15* this) {
 void sub_0805A9CC(Manager15* this) {
     int tmp1, tmp2;
     void* tmp3;
-    gScreen.bg3.xOffset = gRoomControls.roomScrollX - this->unk_24 + this->unk_34;
+    gScreen.bg3.xOffset = gRoomControls.scroll_x - this->unk_24 + this->unk_34;
     tmp1 = -gScreen.bg3.xOffset;
     tmp2 = tmp1 + 0x100;
     if (tmp1 < 0)
@@ -439,7 +439,7 @@ void sub_0805A9CC(Manager15* this) {
     if (tmp2 > DISPLAY_WIDTH)
         tmp2 = DISPLAY_WIDTH;
     gScreen.controls.window1HorizontalDimensions = tmp1 << 8 | tmp2;
-    tmp1 = gRoomControls.roomScrollY - this->unk_26 + this->unk_36;
+    tmp1 = gRoomControls.scroll_y - this->unk_26 + this->unk_36;
     gScreen.bg3.yOffset = tmp1 & 0x3F;
     tmp3 = (&gBG3Buffer[((tmp1 / 0x40) << 8)]);
     gScreen.bg3.tilemap = (u32*)tmp3;

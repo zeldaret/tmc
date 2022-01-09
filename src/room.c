@@ -3,12 +3,12 @@
 #include "room.h"
 #include "flags.h"
 #include "functions.h"
-#include "utils.h"
+#include "common.h"
 #include "object.h"
-#include "overworld.h"
+#include "game.h"
 
 extern void sub_0804B058(EntityData* dat);
-extern void sub_0801AC98();
+extern void sub_0801AC98(void);
 extern u32 sub_08049D1C(u32);
 extern Entity* LoadRoomEntity(EntityData*);
 extern void* GetRoomProperty(u32, u32, u32);
@@ -17,8 +17,8 @@ extern void** gCurrentRoomProperties;
 extern void*** gAreaTable[];
 extern u8 gUnk_081091E4[];
 
-extern void sub_080186EC();
-extern void sub_0804B16C();
+extern void sub_080186EC(void);
+extern void sub_0804B16C(void);
 extern void ClearSmallChests(void);
 extern Entity* GetEmptyEntityByKind(u32 kind);
 
@@ -80,8 +80,8 @@ NONMATCH("asm/loadRoomEntity.s", Entity* LoadRoomEntity(EntityData* dat)) {
                     v5->collisionLayer = 2;
                     return v5;
                 }
-                if ((gRoomControls.unk6 & 2) == 0) {
-                    sub_08016A30(v5);
+                if ((gRoomControls.scroll_flags & 2) == 0) {
+                    ResolveCollisionLayer(v5);
                 }
             }
             v5->collisionLayer = 1;
@@ -116,17 +116,17 @@ void RegisterRoomEntity(Entity* ent, EntityData* dat) {
 void sub_0804AF0C(Entity* ent, EntityData* dat) {
     switch (dat->flags & 0xf0) {
         case 0x0:
-            ent->x.HALF.HI = dat->xPos + gRoomControls.roomOriginX;
-            ent->y.HALF.HI = dat->yPos + gRoomControls.roomOriginY;
+            ent->x.HALF.HI = dat->xPos + gRoomControls.origin_x;
+            ent->y.HALF.HI = dat->yPos + gRoomControls.origin_y;
             break;
         case 0x20:
             ent->field_0x6c.HALF.HI |= 0x20;
-            ent->x.HALF.HI = dat->xPos + gRoomControls.roomOriginX;
-            ent->y.HALF.HI = dat->yPos + gRoomControls.roomOriginY;
+            ent->x.HALF.HI = dat->xPos + gRoomControls.origin_x;
+            ent->y.HALF.HI = dat->yPos + gRoomControls.origin_y;
             break;
         case 0x40:
-            ent->x.HALF.HI = dat->xPos + gRoomControls.roomOriginX;
-            ent->y.HALF.HI = dat->yPos + gRoomControls.roomOriginY;
+            ent->x.HALF.HI = dat->xPos + gRoomControls.origin_x;
+            ent->y.HALF.HI = dat->yPos + gRoomControls.origin_y;
             if (!StartCutscene(ent, (u16*)dat->spritePtr))
                 DeleteEntity(ent);
             break;
@@ -147,9 +147,9 @@ void sub_0804AFB0(void** properties) {
     }
 }
 
-u32 sub_0804AFDC() {
+u32 CallRoomProp6(void) {
     u32 result;
-    u32 (*func)();
+    u32 (*func)(void);
 
     result = 1;
     func = (u32(*)())GetCurrentRoomProperty(6);
@@ -158,8 +158,8 @@ u32 sub_0804AFDC() {
     return result;
 }
 
-void sub_0804AFF4(void) {
-    void (*func)();
+void CallRoomProp5And7(void) {
+    void (*func)(void);
 
     sub_080186EC();
     func = (void (*)())GetCurrentRoomProperty(5);
@@ -219,7 +219,7 @@ void SetCurrentRoomPropertyList(u32 area, u32 room) {
 }
 
 void sub_0804B0E8(u32 arg0, u32 arg1) {
-    void (*func)();
+    void (*func)(void);
 
     // init function at index 4 of room data
     func = (void (*)())GetRoomProperty(arg0, arg1, 4);
@@ -280,7 +280,7 @@ void LoadRoomTileEntities(TileEntity* list) {
                 LoadBombableWallTile(t);
                 break;
             case MUSIC_SETTER:
-                gArea.pMusicIndex = t->_3;
+                gArea.queued_bgm = t->_3;
                 break;
             case DARKNESS:
                 LoadDarknessTile(t);
@@ -320,7 +320,7 @@ static void LoadSmallChestTile(TileEntity* tile) {
     for (i = 0; i < 8; ++i, ++t) {
         if (!t->_4) {
             MemCopy(tile, t, sizeof(TileEntity));
-            if ((t->_6 & 1) && (gRoomControls.unk6 & 2) && !CheckLocalFlag(t->_1)) {
+            if ((t->_6 & 1) && (gRoomControls.scroll_flags & 2) && !CheckLocalFlag(t->_1)) {
                 Entity* e = CreateObject(OBJECT_52, t->_1, 0);
                 if (e != NULL) {
                     sub_0806F704(e, t->_4);
@@ -366,7 +366,7 @@ static void LoadDestructibleTile(TileEntity* tile) {
 void sub_0804B388(u32 a1, u32 a2) {
     Entity* e;
     SetTileType(a2 == 1 ? 38 : 52, a1, a2);
-    e = CreateObject(0xF, 2, 0);
+    e = CreateObject(SPECIAL_FX, 2, 0);
     if (e != NULL) {
         e->collisionLayer = a2;
         sub_0806F704(e, a1);

@@ -4,18 +4,27 @@
 #include "global.h"
 #include "asm.h"
 
-#include "audio.h"
+#include "sound.h"
 #include "effects.h"
 #include "flags.h"
-#include "utils.h"
+#include "common.h"
 
 #include "entity.h"
+#include "projectile.h"
 
 extern u32 GetNextFunction(Entity*);
-extern void EnemyFunctionHandler(Entity*, void (*const func[])(Entity*));
+extern void EnemyFunctionHandler(Entity*, EntityActionArray);
 extern void sub_08001324(Entity*);
+extern Entity* CreateDeathFx(Entity*, u32, u32);
 
 extern Entity* sub_0804A9FC(Entity*, u32);
+extern void SetChildOffset(Entity*, s32, s32, s32);
+extern Entity* CreateProjectileWithParent(Entity*, u8, u8);
+
+extern void sub_0804A7D4(Entity*);
+extern void sub_08002724(void*, u8*);
+extern void sub_080026C4(u8*, u8*, u8*, u32);
+extern void sub_080026F2(u8*, void*, u8*, u32);
 
 typedef enum {
     /*0x00*/ OCTOROK,
@@ -123,107 +132,107 @@ typedef enum {
     /*0x66*/ ENEMY_66
 } Enemy;
 
-extern void Octorok(Entity*);
-extern void Chuchu(Entity*);
-extern void Leever(Entity*);
-extern void Peahat(Entity*);
-extern void Rollobite(Entity*);
-extern void DarkNut(Entity*);
-extern void HangingSeed(Entity*);
-extern void Beetle(Entity*);
-extern void Keese(Entity*);
-extern void DoorMimic(Entity*);
-extern void RockChuchu(Entity*);
-extern void SpinyChuchu(Entity*);
-extern void CuccoChickAggr(Entity*);
-extern void Moldorm(Entity*);
-extern void EnemyE(Entity*);
-extern void Moldworm(Entity*);
-extern void Sluggula(Entity*);
-extern void Pesto(Entity*);
-extern void Puffstool(Entity*);
-extern void ChuchuBoss(Entity*);
-extern void LikeLike(Entity*);
-extern void SpearMoblin(Entity*);
-extern void BusinessScrub(Entity*);
-extern void RupeeLike(Entity*);
-extern void Madderpillar(Entity*);
-extern void WaterDrop(Entity*);
-extern void WallMaster(Entity*);
-extern void BombPeahat(Entity*);
-extern void Spark(Entity*);
-extern void Chaser(Entity*);
-extern void SpikedBeetle(Entity*);
-extern void SensorBladeTrap(Entity*);
-extern void Helmasaur(Entity*);
-extern void FallingBoulder(Entity*);
-extern void Bobomb(Entity*);
-extern void WallMaster2(Entity*);
-extern void Gleerok(Entity*);
-extern void VaatiEyesMacro(Entity*);
-extern void Tektite(Entity*);
-extern void WizzrobeWind(Entity*);
-extern void WizzrobeFire(Entity*);
-extern void WizzrobeIce(Entity*);
-extern void Armos(Entity*);
-extern void Eyegore(Entity*);
-extern void Rope(Entity*);
-extern void SmallPesto(Entity*);
-extern void AcroBandit(Entity*);
-extern void BladeTrap(Entity*);
-extern void Keaton(Entity*);
-extern void Crow(Entity*);
-extern void Mulldozer(Entity*);
-extern void Bombarossa(Entity*);
-extern void Wisp(Entity*);
-extern void SpinyBeetle(Entity*);
-extern void MazaalHead(Entity*);
-extern void MazaalMacro(Entity*);
-extern void MazaalHand(Entity*);
-extern void OctorokBoss(Entity*);
-extern void FlyingPot(Entity*);
-extern void Gibdo(Entity*);
-extern void OctorokGolden(Entity*);
-extern void TektiteGolden(Entity*);
-extern void RopeGolden(Entity*);
-extern void CloudPiranha(Entity*);
-extern void ScissorsBeetle(Entity*);
-extern void CuccoAggr(Entity*);
-extern void Stalfos(Entity*);
-extern void FlyingSkull(Entity*);
-extern void MazaalBracelet(Entity*);
-extern void Takkuri(Entity*);
-extern void BowMoblin(Entity*);
-extern void Lakitu(Entity*);
-extern void LakituCloud(Entity*);
-extern void Enemy49(Entity*);
-extern void VaatiRebornEnemy(Entity*);
-extern void VaatiProjectile(Entity*);
-extern void BallChainSoldier(Entity*);
-extern void Enemy4D(Entity*);
-extern void Ghini(Entity*);
-extern void VaatiTransfigured(Entity*);
-extern void Enemy50(Entity*);
-extern void VaatiWrath(Entity*);
-extern void VaatiArm(Entity*);
-extern void Dust(Entity*);
-extern void VaatiBall(Entity*);
-extern void Slime(Entity*);
-extern void MiniSlime(Entity*);
-extern void FireballGuy(Entity*);
-extern void MiniFireballGuy(Entity*);
-extern void VaatiTransfiguredEye(Entity*);
-extern void BusinessScrubPrologue(Entity*);
-extern void GyorgFemale();
-extern void GyorgMale();
-extern void Curtain(Entity*);
-extern void VaatiWrathEye(Entity*);
-extern void GyorgChild();
-extern void GyorgFemaleEye();
-extern void Enemy62(Entity*);
-extern void GyorgFemaleMouth();
-extern void Enemy64(Entity*);
-extern void TreeItem(Entity*);
-extern void Enemy66(Entity*);
+void Octorok(Entity*);
+void Chuchu(Entity*);
+void Leever(Entity*);
+void Peahat(Entity*);
+void Rollobite(Entity*);
+void DarkNut(Entity*);
+void HangingSeed(Entity*);
+void Beetle(Entity*);
+void Keese(Entity*);
+void DoorMimic(Entity*);
+void RockChuchu(Entity*);
+void SpinyChuchu(Entity*);
+void CuccoChickAggr(Entity*);
+void Moldorm(Entity*);
+void EnemyE(Entity*);
+void Moldworm(Entity*);
+void Sluggula(Entity*);
+void Pesto(Entity*);
+void Puffstool(Entity*);
+void ChuchuBoss(Entity*);
+void LikeLike(Entity*);
+void SpearMoblin(Entity*);
+void BusinessScrub(Entity*);
+void RupeeLike(Entity*);
+void Madderpillar(Entity*);
+void WaterDrop(Entity*);
+void WallMaster(Entity*);
+void BombPeahat(Entity*);
+void Spark(Entity*);
+void Chaser(Entity*);
+void SpikedBeetle(Entity*);
+void SensorBladeTrap(Entity*);
+void Helmasaur(Entity*);
+void FallingBoulder(Entity*);
+void Bobomb(Entity*);
+void WallMaster2(Entity*);
+void Gleerok(Entity*);
+void VaatiEyesMacro(Entity*);
+void Tektite(Entity*);
+void WizzrobeWind(Entity*);
+void WizzrobeFire(Entity*);
+void WizzrobeIce(Entity*);
+void Armos(Entity*);
+void Eyegore(Entity*);
+void Rope(Entity*);
+void SmallPesto(Entity*);
+void AcroBandit(Entity*);
+void BladeTrap(Entity*);
+void Keaton(Entity*);
+void Crow(Entity*);
+void Mulldozer(Entity*);
+void Bombarossa(Entity*);
+void Wisp(Entity*);
+void SpinyBeetle(Entity*);
+void MazaalHead(Entity*);
+void MazaalMacro(Entity*);
+void MazaalHand(Entity*);
+void OctorokBoss(Entity*);
+void FlyingPot(Entity*);
+void Gibdo(Entity*);
+void OctorokGolden(Entity*);
+void TektiteGolden(Entity*);
+void RopeGolden(Entity*);
+void CloudPiranha(Entity*);
+void ScissorsBeetle(Entity*);
+void CuccoAggr(Entity*);
+void Stalfos(Entity*);
+void FlyingSkull(Entity*);
+void MazaalBracelet(Entity*);
+void Takkuri(Entity*);
+void BowMoblin(Entity*);
+void Lakitu(Entity*);
+void LakituCloud(Entity*);
+void Enemy49(Entity*);
+void VaatiRebornEnemy(Entity*);
+void VaatiProjectile(Entity*);
+void BallChainSoldier(Entity*);
+void Enemy4D(Entity*);
+void Ghini(Entity*);
+void VaatiTransfigured(Entity*);
+void Enemy50(Entity*);
+void VaatiWrath(Entity*);
+void VaatiArm(Entity*);
+void Dust(Entity*);
+void VaatiBall(Entity*);
+void Slime(Entity*);
+void MiniSlime(Entity*);
+void FireballGuy(Entity*);
+void MiniFireballGuy(Entity*);
+void VaatiTransfiguredEye(Entity*);
+void BusinessScrubPrologue(Entity*);
+void GyorgFemale();
+void GyorgMale();
+void Curtain(Entity*);
+void VaatiWrathEye(Entity*);
+void GyorgChild();
+void GyorgFemaleEye();
+void Enemy62(Entity*);
+void GyorgFemaleMouth();
+void Enemy64(Entity*);
+void TreeItem(Entity*);
+void Enemy66(Entity*);
 
 #endif

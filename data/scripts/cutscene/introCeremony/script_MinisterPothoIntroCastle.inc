@@ -1,7 +1,7 @@
 @ Intro Hyrule Castle Minister Potho
 SCRIPT_START script_MinisterPothoIntroCastle
 	BeginBlock
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 .ifdef JP
 .ifndef DEMO_JP
@@ -22,18 +22,18 @@ script_08011134:
 	DoPostScriptAction 0x000b
 	WaitForSyncFlagAndClear 0x00000004
 	SetEntityPositionRelative 0x01b8, 0x0058
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	SetSyncFlag 0x00000008
 	WaitForSyncFlagAndClear 0x00000004
-	_0807EB44 0x0006
+	SetAnimationState 0x0006
 	SetSyncFlag 0x00000008
 	WaitForSyncFlagAndClear 0x00000004
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	SetSyncFlag 0x00000008
 	WaitForSyncFlagAndClear 0x00000004
 	SetEntitySpeed 0x0100
 	DoPostScriptAction 0x0001
-	_0807ECC4 0x0010
+	WalkSouth 0x0010
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000008
 	WaitForSyncFlagAndClear 0x00000004
@@ -43,7 +43,7 @@ script_08011134:
 	Call sub_0807F3C8
 	SetEntitySpeed 0x0400
 	SetEntityDirection 0x001c
-	_0807EC1C 0x003c
+	WalkForward 0x003c
 	SetSyncFlag 0x00000008
 	DoPostScriptAction 0x0006
 SCRIPT_END

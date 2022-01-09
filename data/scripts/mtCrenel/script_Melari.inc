@@ -3,14 +3,14 @@ SCRIPT_START script_Melari
 	BeginBlock
 	_0807E9D4
 	DoPostScriptAction 0x000a
-	_0807EB44 0x0004
-	_0807E930 0x0000
+	SetAnimationState 0x0004
+	SetAnimation 0x0000
 	EndBlock
 	CheckInventory1 0x0041
 	JumpIf script_0800CFD2
 	CheckLocalFlag 0x007e
 	JumpIfNot script_0800CFD2
-	_0807E930 0x0008
+	SetAnimation 0x0008
 script_0800CFD2:
 	CheckInventory1 0x0002
 	JumpIf script_0800CFFA
@@ -29,11 +29,11 @@ script_0800CFFA:
 	CheckEntityInteractType
 	JumpIfNot script_0800CFFA
 	EndBlock
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
 	CheckInventory1 0x0002
 	JumpIfNot script_0800D032
-	_0807EB74
+	FacePlayer
 	SetIntVariable 0x00000000
 	Call sub_0806C028
 	MessageNoOverlap 0x1219
@@ -43,14 +43,14 @@ script_0800D032:
 	JumpIfNot script_0800D098
 	StartPlayerScript script_PlayerAtMelari
 	WaitForSyncFlagAndClear 0x00000008
-	_0807EB74
+	FacePlayer
 	SetIntVariable 0x00000000
 	Call sub_0806C028
 	MessageFromTargetPos 0x125c, 0x0002
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerPlaceBrokenSword
 	WaitForSyncFlagAndClear 0x00000008
-	_0807EB44 0x0002
+	SetAnimationState 0x0002
 	SetIntVariable 0x00000000
 	Call sub_0806C028
 	Wait 0x000f
@@ -71,14 +71,14 @@ script_0800D0A8:
 	WaitForSyncFlagAndClear 0x00000004
 	SetSyncFlag 0x00000001
 	WaitForSyncFlagAndClear 0x00000004
-	_0807EB74
+	FacePlayer
 	SetIntVariable 0x00000000
 	Call sub_0806C028
 	MessageFromTargetPos 0x123d, 0x0002
 	WaitUntilTextboxCloses
 	StartPlayerScript script_PlayerPlaceBrokenSword
 	WaitForSyncFlagAndClear 0x00000008
-	_0807EB44 0x0002
+	SetAnimationState 0x0002
 	SetIntVariable 0x00000000
 	Call sub_0806C028
 	PlaySound SFX_TASK_COMPLETE
@@ -92,7 +92,7 @@ script_0800D108:
 	MessageFromTargetPos 0x123e, 0x0002
 	WaitUntilTextboxCloses
 	Wait 0x000f
-	_0807E930 0x0009
+	SetAnimation 0x0009
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004
 	SetSyncFlag 0x00000002
@@ -104,14 +104,14 @@ script_0800D108:
 	WaitForSyncFlagAndClear 0x00000004
 	SetSyncFlag 0x00000001
 	WaitForSyncFlagAndClear 0x00000004
-	_0807E930 0x0008
+	SetAnimation 0x0008
 	Wait 0x003c
 	Call sub_08095164
-	_0807EB28 0x1240
+	EzloMessage 0x1240
 script_0800D17C:
 	WaitUntilTextboxCloses
 	Wait 0x000f
-	_0807E878
+	EnablePlayerControl
 	Call sub_0807DF50
 	Jump script_0800CFFA
 	.2byte 0x0000

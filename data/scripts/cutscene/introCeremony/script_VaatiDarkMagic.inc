@@ -1,7 +1,7 @@
 @ Intro Ceremony Vaati Dark magic?
 SCRIPT_START script_VaatiDarkMagic
 	BeginBlock
-	_0807E930 0x0000
+	SetAnimation 0x0000
 	SetEntitySpeed 0x0200
 	Call nullsub_527
 	Call sub_08094B80

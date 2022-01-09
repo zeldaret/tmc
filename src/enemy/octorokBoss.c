@@ -1,9 +1,15 @@
+/**
+ * @file octorokBoss.c
+ * @ingroup Enemies
+ *
+ * @brief Octorok boss enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 #include "object.h"
 #include "projectile.h"
-#include "structures.h"
-#include "overworld.h"
+#include "game.h"
 
 extern void sub_08078AC0(u32, u32, u32);
 extern u32 GetRandomByWeight(const u8*);
@@ -36,25 +42,25 @@ this->field_0x7c.BYTES.byte0 Boss Phase
 3: frozen 2
 4: unfrozen -> death
 */
-#define IS_FROZEN(this) (this->field_0x7c.BYTES.byte0 & 1)
-#define GET_BOSS_PHASE(this) (this->field_0x7c.BYTES.byte0)
+#define IS_FROZEN(this) ((this)->field_0x7c.BYTES.byte0 & 1)
+#define GET_BOSS_PHASE(this) ((this)->field_0x7c.BYTES.byte0)
 /*
 this->field_0x78.HALF.HI reused timer
 */
-#define GET_TIMER(this) this->field_0x78.HALF.HI
+#define GET_TIMER(this) ((this)->field_0x78.HALF.HI)
 /*
 this->field_0x78.HALF.LO turns until the next attack
 */
-#define GET_ATTACK_WAIT_TURNS(this) this->field_0x78.HALF.LO
+#define GET_ATTACK_WAIT_TURNS(this) ((this)->field_0x78.HALF.LO)
 /*
 this->field_0x7a.HALF.HI angle of legs
 */
-#define GET_ANGLE(this) this->field_0x7a.HWORD
-#define GET_ANGLE_HI(this) this->field_0x7a.HALF.HI
+#define GET_ANGLE(this) ((this)->field_0x7a.HWORD)
+#define GET_ANGLE_HI(this) ((this)->field_0x7a.HALF.HI)
 /*
 this->field_0x82.HWORD angular speed
 */
-#define GET_ANGULAR_VEL(this) this->field_0x82.HWORD
+#define GET_ANGULAR_VEL(this) ((this)->field_0x82.HWORD)
 
 enum OctorokBossPart { WHOLE, LEG_BR, LEG_FR, LEG_FL, LEG_BL, MOUTH, TAIL_END, TAIL };
 enum OctorokBossAction {
@@ -168,7 +174,7 @@ Hit SubActions
 void OctorokBoss_Hit(Entity* this) {
     if (GET_BOSS_PHASE(this) == 0) {
         if (this->subAction != 3) {
-            gRoomControls.cameraTarget = GET_HELPER(this)->tailObjects[0];
+            gRoomControls.camera_target = GET_HELPER(this)->tailObjects[0];
             GET_HELPER(this)->field_0x7 = 0x5a;
             sub_08078B48();
         }
@@ -220,17 +226,17 @@ void OctorokBoss_Hit_SubAction1(Entity* this) {
             GET_HELPER(this)->tailObjects[0]->field_0x7c.BYTES.byte1--;
         }
         // Move to the center of the screen before freezing
-        diffX = 0x108 + gRoomControls.roomOriginX - this->x.HALF.HI + 0x4;
-        diffY = gRoomControls.roomOriginY - this->y.HALF.HI + 0x8c;
+        diffX = 0x108 + gRoomControls.origin_x - this->x.HALF.HI + 0x4;
+        diffY = gRoomControls.origin_y - this->y.HALF.HI + 0x8c;
         if (diffX > 8 || diffY > 8) {
             GET_HELPER(this)->field_0x2 = 1;
 #if defined(JP) || defined(DEMO_JP) || defined(EU)
-            this->direction = ((s32)sub_080045DA((((gRoomControls.roomOriginX + 0x108) << 0x10) - this->x.WORD),
-                                                 (((gRoomControls.roomOriginY + 0x88) << 0x10) - this->y.WORD))) >>
+            this->direction = ((s32)sub_080045DA((((gRoomControls.origin_x + 0x108) << 0x10) - this->x.WORD),
+                                                 (((gRoomControls.origin_y + 0x88) << 0x10) - this->y.WORD))) >>
                               3;
 #else
-            this->direction = ((s32)sub_080045DA(gRoomControls.roomOriginX + 0x108 - this->x.HALF.HI,
-                                                 gRoomControls.roomOriginY + 0x88 - this->y.HALF.HI)) >>
+            this->direction = ((s32)sub_080045DA(gRoomControls.origin_x + 0x108 - this->x.HALF.HI,
+                                                 gRoomControls.origin_y + 0x88 - this->y.HALF.HI)) >>
                               3;
 #endif
             this->speed = 0x100;
@@ -254,7 +260,7 @@ void OctorokBoss_Hit_SubAction1(Entity* this) {
             Entity* tail = GET_HELPER(this)->tailObjects[i - 1];
             tail->spriteSettings.draw |= 1;
         }
-        if ((gScreenTransition.frameCount & 2) != 0) {
+        if ((gRoomTransition.frameCount & 2) != 0) {
             CreateObjectWithParent(this, OCTOROK_BOSS_OBJECT, 6, 0);
         }
         GET_TIMER(this)--;
@@ -286,7 +292,7 @@ void OctorokBoss_Hit_SubAction2(Entity* this) {
     } else {
         this->subAction = 3;
         GET_TIMER(this) = 0x96;
-        gRoomControls.cameraTarget = &gPlayerEntity;
+        gRoomControls.camera_target = &gPlayerEntity;
     }
 }
 
@@ -306,7 +312,7 @@ void OctorokBoss_Hit_SubAction4(Entity* this) {
     this->subAction = 5;
     object = CreateObjectWithParent(this, OCTOROK_BOSS_OBJECT, 9, 0);
     if (object != NULL) {
-        gRoomControls.cameraTarget = object;
+        gRoomControls.camera_target = object;
     }
 }
 
@@ -341,11 +347,11 @@ void OctorokBoss_Hit_SubAction6(Entity* this) {
     tmp = FixedDiv(tmp, 0x100);
     this->spriteOffsetY = -((tmp << 0x10) >> 8) >> 0x10;
     if (GET_TIMER(this) == 0) {
-        if ((gScreenTransition.frameCount & 0xfU) == 0) {
+        if ((gRoomTransition.frameCount & 0xfU) == 0) {
             // Explosion in the center
-            CreateFx(this, 0x48, 0);
+            CreateFx(this, FX_GIANT_EXPLOSION3, 0);
             // Explosion at the front right leg
-            CreateFx(GET_HELPER(this)->legObjects[0], 0x48, 0);
+            CreateFx(GET_HELPER(this)->legObjects[0], FX_GIANT_EXPLOSION3, 0);
         }
         if (++this->field_0x82.HALF.LO == 0x79) {
             GET_HELPER(this)->mouthObject->health = 1;
@@ -449,7 +455,7 @@ ASM_FUNC("asm/non_matching/octorokBoss/OctorokBoss_Init.inc", void OctorokBoss_I
             gPlayerEntity.spriteSettings.draw = 0;
             gPlayerEntity.x.HALF.HI = this->x.HALF.HI;
             gPlayerEntity.y.HALF.HI = this->y.HALF.HI - 0xa0;
-            gRoomControls.cameraTarget = this;
+            gRoomControls.camera_target = this;
             break;
 
         case LEG_BR:
@@ -534,7 +540,7 @@ void OctorokBoss_Intro_SubAction2(Entity* this) {
         this->subAction = 3;
         GET_TIMER(this) = 0x3c;
         gPlayerEntity.spriteSettings.draw |= 1;
-        gRoomControls.cameraTarget = &gPlayerEntity;
+        gRoomControls.camera_target = &gPlayerEntity;
         gRoomControls.unk5 = 1;
     }
 }
@@ -715,7 +721,7 @@ void OctorokBoss_Action1(Entity* this) {
             sub_08036F60(this);
             if (GET_HELPER(this)->fallingStonesTimer != 0) {
                 GET_HELPER(this)->fallingStonesTimer--;
-                if ((gScreenTransition.frameCount & 3) == 0) {
+                if ((gRoomTransition.frameCount & 3) == 0) {
                     // Falling stones
                     CreateProjectileWithParent(this, OCTOROK_BOSS_PROJECTILE, 3);
                 }
@@ -811,7 +817,7 @@ void OctorokBoss_Action1_ChargeAttack(Entity* this) {
             this->knockbackDirection = this->direction ^ 0x10;
             GET_HELPER(this)->fallingStonesTimer += 0x3c;
             OctorokBoss_SetAttackTimer(this);
-            sub_08080964(0x3c, 0);
+            InitScreenShake(0x3c, 0);
             SoundReq(SFX_158);
             SoundReq(SFX_14C);
         }
@@ -893,7 +899,7 @@ void OctorokBoss_Action1_Attack_Type2_2(Entity* this) {
 }
 
 void OctorokBoss_Action1_Attack_Type2_3(Entity* this) {
-    if ((gScreenTransition.frameCount & 2) != 0) {
+    if ((gRoomTransition.frameCount & 2) != 0) {
         GET_HELPER(this)->mouthObject->field_0x76.HWORD -= 8;
     } else {
         GET_HELPER(this)->mouthObject->field_0x76.HWORD += 8;
@@ -932,25 +938,25 @@ void OctorokBoss_ExecuteAttackVacuum(Entity* this) {
         }
         if (tmp < 0x10) {
             if (sub_0806FC80(this, &gPlayerEntity, 0xf0) != 0) {
-                if ((gPlayerState.flags & 0x800) == 0) {
-                    if ((gPlayerEntity.flags & 0x80) != 0) {
+                if ((gPlayerState.flags & PL_FROZEN) == 0) {
+                    if ((gPlayerEntity.flags & PL_MINISH) != 0) {
                         sub_0806F62C(&gPlayerEntity, 0x280, -GET_ANGLE_HI(this));
                         if (sub_0806FC80(this, &gPlayerEntity, 0x48) != 0) {
                             this->field_0x80.HALF.LO = 1;
                             GET_TIMER(this) = 2;
                             GET_HELPER(this)->targetAngle =
-                                sub_080045DA((gRoomControls.roomOriginX + 0x108) * 0x10000 - this->x.WORD,
-                                             (gRoomControls.roomOriginY + 0x88) * 0x10000 - this->y.WORD);
+                                sub_080045DA((gRoomControls.origin_x + 0x108) * 0x10000 - this->x.WORD,
+                                             (gRoomControls.origin_y + 0x88) * 0x10000 - this->y.WORD);
                             GET_HELPER(this)->targetAngle = (u8) - (GET_HELPER(this)->targetAngle + 0x80);
                             SoundReq(SFX_ED);
                         }
                     }
                 } else {
-                    gPlayerState.flags &= 0xfffff7ff;
+                    gPlayerState.flags &= ~PL_FROZEN;
                 }
             }
         }
-        if ((gScreenTransition.frameCount & 3) == 0) {
+        if ((gRoomTransition.frameCount & 3) == 0) {
             CreateObjectWithParent(this, OCTOROK_BOSS_OBJECT, 2, 0);
         }
     } else {
@@ -982,7 +988,7 @@ void OctorokBoss_ExecuteAttackVacuum(Entity* this) {
         OctorokBoss_SetAttackTimer(this);
     } else {
         GET_TIMER(this)--;
-        if ((gPlayerState.flags == 0x800) && (GET_TIMER(this) == 0x3c)) {
+        if ((gPlayerState.flags == PL_FROZEN) && (GET_TIMER(this) == 0x3c)) {
             tmp = sub_080045DA(gPlayerEntity.x.WORD - this->x.WORD, gPlayerEntity.y.WORD - this->y.WORD);
             if ((u8)((tmp - ((u8)-GET_ANGLE_HI(this) ^ 0x80))) > 0x80) {
                 GET_HELPER(this)->targetAngle = GET_ANGLE_HI(this) + 0x30;
@@ -1013,8 +1019,8 @@ void OctorokBoss_ExecuteAttackSmoke(Entity* this) {
     } else {
         GET_TIMER(this)++;
         ChangeLightLevel(-1);
-        if ((gScreenTransition.frameCount & 3) == 0) {
-            if ((gScreenTransition.frameCount & 7) == 0) {
+        if ((gRoomTransition.frameCount & 3) == 0) {
+            if ((gRoomTransition.frameCount & 7) == 0) {
                 SoundReq(SFX_124);
             }
             CreateObjectWithParent(this, OCTOROK_BOSS_OBJECT, 3, 0);
@@ -1028,7 +1034,7 @@ void OctorokBoss_ExecuteAttackFreeze(Entity* this) {
         OctorokBoss_SetAttackTimer(this);
     } else {
         GET_TIMER(this)--;
-        if ((gScreenTransition.frameCount & 3) == 0) {
+        if ((gRoomTransition.frameCount & 3) == 0) {
             this->child = CreateProjectileWithParent(this, OCTOROK_BOSS_PROJECTILE, 2);
             if (this->child != NULL) {
                 this->child->parent = this;
@@ -1042,7 +1048,7 @@ void OctorokBoss_Burning(Entity* this) {
     OctorokBoss_Burning_SubActions[this->subAction](this);
     if (GET_HELPER(this)->fallingStonesTimer != 0) {
         GET_HELPER(this)->fallingStonesTimer--;
-        if ((gScreenTransition.frameCount & 7) == 0) {
+        if ((gRoomTransition.frameCount & 7) == 0) {
             // Falling stones
             CreateProjectileWithParent(this, OCTOROK_BOSS_PROJECTILE, 3);
         }
@@ -1077,14 +1083,14 @@ void OctorokBoss_Burning_SubAction1(Entity* this) {
         this->field_0x46 = 0x200;
         this->knockbackDirection = this->direction ^ 0x10;
         GET_HELPER(this)->fallingStonesTimer += 0x1e;
-        sub_08080964(0x1e, 0);
+        InitScreenShake(0x1e, 0);
         SoundReq(SFX_158);
         SoundReq(SFX_14C);
     }
     if (GET_TIMER(this)-- == 0) {
         this->health = 0;
     }
-    if ((gScreenTransition.frameCount & 0x1f) == 0) {
+    if ((gRoomTransition.frameCount & 0x1f) == 0) {
         SoundReq(SFX_159);
     }
 }
@@ -1411,7 +1417,7 @@ void sub_08036F60(Entity* this) {
 }
 
 void OctorokBoss_StepSound(Entity* this, u32 frameMask) {
-    if ((gScreenTransition.frameCount & frameMask) == 0) {
+    if ((gRoomTransition.frameCount & frameMask) == 0) {
         if (IS_FROZEN(this) == FALSE) {
             SoundReq(SFX_163);
         } else {

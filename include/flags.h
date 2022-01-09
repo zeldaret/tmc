@@ -25,10 +25,10 @@ void SetLocalFlag(u32);
 void SetLocalFlagByBank(u32, u32);
 void SetRoomFlag(u32);
 
-extern u32 ReadBit(u32*, u32);
-extern u32 CheckBits(u32*, u32, u32);
-extern void WriteBit(u32*, u32);
-extern void ClearBit(u32*, u32);
+extern u32 ReadBit(void*, u32);
+extern u32 CheckBits(void*, u32, u32);
+extern u32 WriteBit(void*, u32);
+extern u32 ClearBit(void*, u32);
 
 extern u32 gGlobalFlags;
 extern u32 gRoomFlags;

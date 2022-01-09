@@ -2,8 +2,8 @@
 SCRIPT_START script_DampeInside
 	CheckEntityInteractType
 	JumpIfNot script_080095DE
-	_0807E864
-	_0807EB74
+	SetPlayerIdle
+	FacePlayer
 	DoPostScriptAction 0x0001
 	Call sub_0806BE84
 	WaitUntilTextboxCloses
@@ -15,6 +15,6 @@ SCRIPT_START script_DampeInside
 	WaitUntilTextboxCloses
 	_0807F078 0x003c, 0x0001
 script_08009622:
-	_0807E878
+	EnablePlayerControl
 	DoPostScriptAction 0x0000
 	Jump script_080095DE

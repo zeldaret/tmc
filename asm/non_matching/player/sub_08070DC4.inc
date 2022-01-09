@@ -4,20 +4,20 @@
 	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_080085B0
-	bl sub_08079E08
+	bl UpdatePlayerMovement
 	bl UpdateFloorType
-	bl sub_08078EFC
+	bl RunQueuedAction
 	cmp r0, #0
 	bne _08070E76
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	cmp r0, #0
 	bne _08070E76
 	ldr r6, _08070E18 @ =gPlayerState
 	strb r0, [r6, #2]
-	bl sub_08078EFC
+	bl RunQueuedAction
 	adds r5, r0, #0
 	cmp r5, #0
 	bne _08070E76
@@ -31,7 +31,7 @@
 	beq _08070E1C
 _08070E10:
 	strb r5, [r6, #2]
-	bl sub_080791D0
+	bl ResetPlayerAnimationAndAction
 	b _08070E76
 	.align 2, 0
 _08070E18: .4byte gPlayerState
@@ -60,8 +60,8 @@ _08070E32:
 	beq _08070E56
 	movs r0, #7
 	strb r0, [r6, #0x11]
-	bl sub_08079938
-	bl sub_080791BC
+	bl ResolvePlayerAnimation
+	bl SetPlayerActionNormal
 	b _08070E76
 _08070E56:
 	movs r0, #1

@@ -1,3 +1,10 @@
+/**
+ * @file vaatiProjectile.c
+ * @ingroup Enemies
+ *
+ * @brief Vaati Projectile enemy
+ */
+
 #include "enemy.h"
 #include "functions.h"
 
@@ -71,7 +78,7 @@ void VaatiProjectileFunction1(Entity* this) {
                 entity->flags = entity->flags & 0x7f;
             }
         } else {
-            gPlayerState.flags &= 0xfffffeff; // using b.unk8 does not match
+            gPlayerState.flags &= ~PL_DISABLE_ITEMS;
             entity = &gPlayerEntity;
             entity->flags = gPlayerEntity.flags | 0x80;
         }
@@ -130,7 +137,7 @@ void VaatiProjectileFunction0Action1(Entity* this) {
     } else {
         if (gUnk_020000B0 != NULL) {
             sub_08004596(this, GetFacingDirection(this, gUnk_020000B0));
-            sub_0806F69C(this);
+            LinearMoveUpdate(this);
         }
     }
     GetNextFrame(this);
@@ -190,9 +197,9 @@ void VaatiProjectileFunction0Action6(Entity* this) {
 
 void VaatiProjectileFunction0Action7(Entity* this) {
     sub_0803E444(this);
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     sub_0803E4D8(this);
-    if ((gRoomControls.roomOriginY + gRoomControls.height + -0x10) <= this->y.HALF.HI) {
+    if ((gRoomControls.origin_y + gRoomControls.height + -0x10) <= this->y.HALF.HI) {
         SetInitializationPriority();
         DoExitTransition((ScreenTransitionData*)&gUnk_0813AB94);
     }
@@ -222,7 +229,7 @@ void VaatiProjectileFunction0Action9(Entity* this) {
 
 void sub_0803E444(Entity* this) {
     ResetPlayer();
-    gPlayerState.field_0x1a[0] = gPlayerState.field_0x1a[0] | 0x80;
+    gPlayerState.mobility = gPlayerState.mobility | 0x80;
     gPlayerState.field_0xa = gPlayerState.field_0xa | 0x80;
     sub_0806FA90(this, this->field_0x4c, 0, -2);
     gPlayerEntity.spriteOffsetY += 0xe;
@@ -239,7 +246,7 @@ void sub_0803E480(Entity* this) {
 bool32 sub_0803E4A0(Entity* this) {
 #ifdef EU
     bool32 ret;
-    if (gScreenTransition.field_0x39 == 0) {
+    if (gRoomTransition.field_0x39 == 0) {
         return TRUE;
     } else {
         if (this->parent == NULL) {
@@ -250,7 +257,7 @@ bool32 sub_0803E4A0(Entity* this) {
     return ret;
 #else
     bool32 ret;
-    if (gScreenTransition.field_0x39 != 0) {
+    if (gRoomTransition.field_0x39 != 0) {
         if (this->parent == NULL) {
             return FALSE;
         }

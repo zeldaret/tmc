@@ -1,10 +1,9 @@
 #include "global.h"
-#include "audio.h"
+#include "sound.h"
 #include "entity.h"
 #include "flags.h"
 #include "player.h"
 #include "room.h"
-#include "structures.h"
 #include "functions.h"
 #include "effects.h"
 
@@ -36,7 +35,7 @@ void sub_0809E86C(Entity* this) {
 
     if (sub_0800419C(this, &gPlayerEntity, 0x30, 0x30)) {
         if (CheckGlobalFlag(EZERO_1ST)) {
-            if (((gScreenTransition.frameCount & 3) == 0)) {
+            if (((gRoomTransition.frameCount & 3) == 0)) {
                 CreateSparkle(this);
             }
         }

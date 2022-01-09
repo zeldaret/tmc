@@ -10,7 +10,7 @@ SCRIPT_START script_Npc4EThirdSanctuary
 script_080138D0:
 	CheckEntityInteractType
 	JumpIfNot script_080138D0
-	_0807E864
+	SetPlayerIdle
 	Call sub_0807DF28
 	StartPlayerScript script_PlayerAtPedestal
 	WaitForSyncFlagAndClear 0x00000001
@@ -60,19 +60,19 @@ script_080138D0:
 	StartPlayerScript script_PlayerPickUpFinalSword
 	SetSyncFlag 0x00000080
 	_0807F078 0x0006, 0x0001
-	Call sub_0807AEE4
+	Call UpdatePlayerSkills
 	Call sub_0806DC3C
 	Call sub_0806DC58
-	Call sub_0807F304
+	Call WaitForPlayerFrameHiBit
 	Wait 0x003c
-	_0807E778 0x0004
-	DoFade7
+	SetFadeTime 0x0004
+	SetFade7
 	PlaySound SFX_EVAPORATE
 	WaitForFadeFinish
 	Wait 0x003c
 	SetSyncFlag 0x00000010
-	_0807E778 0x0002
-	DoFade6
+	SetFadeTime 0x0002
+	SetFade6
 	WaitForFadeFinish
 	PlaySound SFX_109
 	MessageFromTargetPos 0x0505, 0x000c
@@ -84,7 +84,7 @@ script_080138D0:
 	CameraTargetEntity
 .endif
 	Call sub_0806DC3C
-	CallWithArg sub_0807F244, 0x00010001
+	CallWithArg EquipItem, 0x00010001
 	CallWithArg sub_0807F29C, gUnk_080049FE
 	Wait 0x00c8
 	CallWithArg sub_0807F29C, 0x00000000

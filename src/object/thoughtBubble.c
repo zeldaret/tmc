@@ -1,6 +1,6 @@
 #include "global.h"
 #include "entity.h"
-#include "audio.h"
+#include "sound.h"
 
 extern void (*const ThoughtBubble_Behaviors[])(Entity*);
 

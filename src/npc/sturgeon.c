@@ -1,10 +1,7 @@
 #include "entity.h"
 #include "functions.h"
 #include "npc.h"
-#include "textbox.h"
 #include "object.h"
-#include "flags.h"
-#include "script.h"
 
 extern u16 gUnk_0810FA54[];
 
@@ -86,7 +83,7 @@ void Sturgeon_Head(Entity* this) {
 }
 
 void sub_08064C9C(Entity* this) {
-    if ((this->actionDelay != 0) && ((gScreenTransition.frameCount & 3U) == 0)) {
+    if ((this->actionDelay != 0) && ((gRoomTransition.frameCount & 3U) == 0)) {
         CreateDust(this);
     }
 }

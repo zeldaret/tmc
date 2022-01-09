@@ -3,10 +3,10 @@ SCRIPT_START script_Postman
 	BeginBlock
 	CheckInventory1 0x0067
 	JumpIfNot script_08010B62
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	SetEntitySpeed 0x0180
-	CallWithArg sub_0807F348
+	CallWithArg SetPriorityMessage
 	Call sub_0806075C
 	EndBlock
 	WaitUntilTextboxCloses
@@ -20,7 +20,7 @@ script_08010B1C:
 script_08010B22:
 	EndBlock
 	BeginBlock
-	_0807E564
+	CheckPlayerMinish
 	JumpIf script_08010B3A
 	CallWithArg sub_080608E4, 0x00000000
 	JumpIf script_08010B44

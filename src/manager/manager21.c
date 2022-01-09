@@ -3,7 +3,6 @@
 #include "room.h"
 #include "object.h"
 #include "functions.h"
-#include "flags.h"
 
 extern bool32 CheckRectOnScreen(u16, u16, u32, u32);
 
@@ -41,10 +40,10 @@ void Manager21_Main(Manager21* this) {
                 if (object != NULL) {
                     object->actionDelay = spawnData->actionDelay;
                     object->field_0xf = count;
-                    object->x.HALF.HI = gRoomControls.roomOriginX + spawnData->x;
-                    object->y.HALF.HI = gRoomControls.roomOriginY + spawnData->y;
+                    object->x.HALF.HI = gRoomControls.origin_x + spawnData->x;
+                    object->y.HALF.HI = gRoomControls.origin_y + spawnData->y;
                     object->parent = (Entity*)this;
-                    sub_08016A30(object);
+                    ResolveCollisionLayer(object);
                     this->field_0x20 |= 1 << count;
                 }
             }

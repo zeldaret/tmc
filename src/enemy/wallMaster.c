@@ -1,3 +1,10 @@
+/**
+ * @file wallMaster.c
+ * @ingroup Enemies
+ *
+ * @brief Wall Master enemy
+ */
+
 #include "enemy.h"
 #include "area.h"
 #include "functions.h"
@@ -134,7 +141,7 @@ void sub_0802A69C(Entity* this) {
 
     sub_0802A7D0(this);
     gPlayerState.field_0xa |= 0x80;
-    gPlayerState.field_0x1a[0] |= 0x80;
+    gPlayerState.mobility |= 0x80;
     gPlayerEntity.x.HALF.HI = this->field_0x7c.HALF.HI;
     gPlayerEntity.y.HALF.HI = this->field_0x80.HWORD;
     gPlayerEntity.z.HALF.HI = this->field_0x82.HWORD;
@@ -168,7 +175,7 @@ void sub_0802A734(Entity* this) {
     } else {
         this->z.WORD -= 0x20000;
         gPlayerState.field_0xa |= 0x80;
-        gPlayerState.field_0x1a[0] |= 0x80;
+        gPlayerState.mobility |= 0x80;
     }
 }
 

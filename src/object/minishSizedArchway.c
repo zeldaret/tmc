@@ -1,6 +1,5 @@
-#include "global.h"
 #include "entity.h"
-#include "overworld.h"
+#include "game.h"
 
 void MinishSizedArchway(Entity* this) {
     if (this->action == 0) {
@@ -8,7 +7,7 @@ void MinishSizedArchway(Entity* this) {
         this->frameIndex = this->type;
         this->collisionLayer = 2;
         UpdateSpriteForCollisionLayer(this);
-        if (CheckIsDungeon()) {
+        if (AreaIsDungeon()) {
             this->spritePriority.b0 = 1;
         }
     }

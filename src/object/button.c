@@ -16,8 +16,8 @@ void sub_08081AE0(Entity* this) {
     if (this->cutsceneBeh.HWORD != 0) {
         this->collisionLayer = this->cutsceneBeh.HWORD;
     }
-    this->field_0x74.HWORD = (((this->x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 0x3F) |
-                             ((((this->y.HALF.HI - gRoomControls.roomOriginY) >> 4) & 0x3F) << 6);
+    this->field_0x74.HWORD = (((this->x.HALF.HI - gRoomControls.origin_x) >> 4) & 0x3F) |
+                             ((((this->y.HALF.HI - gRoomControls.origin_y) >> 4) & 0x3F) << 6);
     this->field_0x70.HALF.HI = GetTileType(this->field_0x74.HWORD, this->collisionLayer);
     if (this->type == 0 && CheckFlags(this->field_0x86.HWORD)) {
         this->action = 5;
@@ -39,7 +39,6 @@ void sub_08081B84(Entity* this) {
 }
 
 u32 sub_08081CB0(Entity*);
-void RequestPriorityDuration(Entity*, u32);
 void sub_08081FF8(Entity*);
 
 void sub_08081BAC(Entity* this) {
@@ -138,7 +137,7 @@ u32 sub_08081D28(Entity* this) {
 }
 
 extern u32 sub_080002E0(u32, u32);
-extern Entity* gUnk_03004040[3];
+extern Entity* gPlayerClones[3];
 u32 sub_08081E0C(Entity*);
 
 Entity* sub_08081D74(Entity* this) {
@@ -148,17 +147,17 @@ Entity* sub_08081D74(Entity* this) {
     }
     ent = 0;
     if (sub_08081E0C(this)) {
-        if (!(gPlayerState.flags & 0x10) && !(gPlayerState.flags & PL_MINISH)) {
+        if ((gPlayerState.flags & PL_CAPTURED) == 0 && (gPlayerState.flags & PL_MINISH) == 0) {
             ent = &gPlayerEntity;
         }
     } else {
-        if (gPlayerState.flags & 0x400000) {
-            if (EntityInRectRadius(this, gUnk_03004040[0], 5, 6)) {
-                ent = gUnk_03004040[0];
-            } else if (EntityInRectRadius(this, gUnk_03004040[1], 5, 6)) {
-                ent = gUnk_03004040[1];
-            } else if (EntityInRectRadius(this, gUnk_03004040[2], 5, 6)) {
-                ent = gUnk_03004040[2];
+        if (gPlayerState.flags & PL_CLONING) {
+            if (EntityInRectRadius(this, gPlayerClones[0], 5, 6)) {
+                ent = gPlayerClones[0];
+            } else if (EntityInRectRadius(this, gPlayerClones[1], 5, 6)) {
+                ent = gPlayerClones[1];
+            } else if (EntityInRectRadius(this, gPlayerClones[2], 5, 6)) {
+                ent = gPlayerClones[2];
             }
         }
     }
@@ -272,8 +271,8 @@ void sub_08081FF8(Entity* this) {
     direction = GetFacingDirection(this->child, this);
     sub_080044AE(this->child, 0x200, direction);
     for (i = 0; i < 3; i++) {
-        if (gUnk_03004040[i]) {
-            sub_080044AE(gUnk_03004040[i], 0x200, direction);
+        if (gPlayerClones[i]) {
+            sub_080044AE(gPlayerClones[i], 0x200, direction);
         }
     }
 }

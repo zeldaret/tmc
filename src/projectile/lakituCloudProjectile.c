@@ -1,10 +1,8 @@
 #include "entity.h"
 #include "enemy.h"
 #include "functions.h"
-#include "player.h"
-#include "effects.h"
 
-extern void sub_0800449C(Entity*, u32);
+extern void SoundReqClipped(Entity*, u32);
 extern void sub_08079D84(void);
 
 extern void (*const LakituCloudProjectile_Functions[])(Entity*);
@@ -44,7 +42,7 @@ void LakituCloudProjectile_SubAction2(Entity* this) {
     if (sub_0806F3E4(this) != 0) {
         if (this->hitType == 0xa6) {
             ModHealth(-2);
-            sub_0800449C(&gPlayerEntity, 0x7a);
+            SoundReqClipped(&gPlayerEntity, 0x7a);
             sub_08079D84();
         }
         CreateFx(this, FX_DEATH, 0);

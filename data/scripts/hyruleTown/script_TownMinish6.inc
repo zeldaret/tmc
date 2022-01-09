@@ -9,30 +9,30 @@ SCRIPT_START script_TownMinish6
 	EndBlock
 	Jump script_0800EFFE
 script_0800EFDA:
-	_0807EB44 0x0006
+	SetAnimationState 0x0006
 	CallWithArg sub_0806AF60, 0x00000008
 	Wait 0x0004
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	CallWithArg sub_0806AF60, 0x00000008
 	Wait 0x0004
 script_0800EFFE:
-	_0807EB44 0x0002
+	SetAnimationState 0x0002
 	CallWithArg sub_0806AF60, 0x00000008
 	Wait 0x0004
-	_0807EB44 0x0002
+	SetAnimationState 0x0002
 	CallWithArg sub_0806AF60, 0x00000004
 	_0807EDD4 0x0088, 0x0040
 	DoPostScriptAction 0x000a
-	_0807EB44 0x0002
+	SetAnimationState 0x0002
 	CallWithArg sub_0806AF60, 0x00000008
 	Wait 0x0004
-	_0807EB44 0x0004
+	SetAnimationState 0x0004
 	CallWithArg sub_0806AF60, 0x00000008
 	Wait 0x0004
-	_0807EB44 0x0006
+	SetAnimationState 0x0006
 	CallWithArg sub_0806AF60, 0x00000008
 	Wait 0x0004
-	_0807EB44 0x0006
+	SetAnimationState 0x0006
 	CallWithArg sub_0806AF60, 0x00000004
 	_0807EDD4 0x0068, 0x0040
 	DoPostScriptAction 0x000a

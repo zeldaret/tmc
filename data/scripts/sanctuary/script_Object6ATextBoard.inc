@@ -14,7 +14,7 @@ SCRIPT_START script_Object6ATextBoard
 	EndBlock
 	DoPostScriptAction 0x0008
 	WaitForSyncFlagAndClear 0x00000004
-	_0807E908 0x0002
+	SetAction 0x0002
 	PlaySound SFX_134
 	Jump script_08013C32
 script_08013C2A:
@@ -38,22 +38,22 @@ script_08013C58:
 	CheckEntityInteractType
 	JumpIfNot script_08013C58
 	EndBlock
-	_0807E864
-	_0807EB74
+	SetPlayerIdle
+	FacePlayer
 	CheckLocalFlag 0x007d
 	JumpIf script_08013C82
-	_0807EB28 0x1501
+	EzloMessage 0x1501
 	Jump script_08013C86
 script_08013C82:
-	_0807EB28 0x1506
+	EzloMessage 0x1506
 script_08013C86:
 	WaitUntilTextboxCloses
 	Wait 0x000f
-	_0807E878
+	EnablePlayerControl
 	Jump script_08013C58
 script_08013C92:
 	EndBlock
-	_0807E908 0x0004
+	SetAction 0x0004
 script_08013C98:
 	DoPostScriptAction 0x0008
 	DoPostScriptAction 0x0006

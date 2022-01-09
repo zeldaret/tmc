@@ -5,7 +5,7 @@ SCRIPT_START script_Object6AVeilFallsTop
 	SetEntitySpeed 0x0080
 	EndBlock
 	Wait 0x003c
-	SetEntity0x20 0x00018000
+	SetEntityVelocity 0x00018000
 script_080094BC:
 	_0807EE30
 	JumpIfNot script_080094BC

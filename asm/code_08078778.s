@@ -310,7 +310,7 @@ CreateEzloHint: @ 0x08078AA8
 	ldr r3, _08078AB8 @ =gPlayerState
 	movs r2, #0x16
 	strb r2, [r3, #0xc]
-	ldr r2, _08078ABC @ =gScreenTransition
+	ldr r2, _08078ABC @ =gRoomTransition
 	strh r0, [r2, #0x36]
 .ifdef JP
 	adds r2, #0x34
@@ -325,7 +325,7 @@ CreateEzloHint: @ 0x08078AA8
 	bx lr
 	.align 2, 0
 _08078AB8: .4byte gPlayerState
-_08078ABC: .4byte gScreenTransition
+_08078ABC: .4byte gRoomTransition
 
 	thumb_func_start sub_08078AC0
 sub_08078AC0: @ 0x08078AC0
@@ -391,7 +391,7 @@ sub_08078AF0: @ 0x08078AF0
 	movs r1, #2
 	orrs r0, r1
 	strb r0, [r2, #0x11]
-	bl sub_0807A108
+	bl DeleteClones
 	pop {r4, pc}
 	.align 2, 0
 _08078B40: .4byte gPlayerState
@@ -556,8 +556,8 @@ sub_08078C24: @ 0x08078C24
 _08078CAC: .4byte gPlayerState
 _08078CB0: .4byte gUnk_03003DF0
 
-	thumb_func_start sub_08078CB4
-sub_08078CB4: @ 0x08078CB4
+	thumb_func_start UpdateCarriedObject
+UpdateCarriedObject: @ 0x08078CB4
 	push {lr}
 	ldr r0, _08078CCC @ =gPlayerState
 	ldrb r0, [r0, #5]
@@ -744,7 +744,7 @@ _08078DE0:
 	ands r0, r1
 	cmp r0, #2
 	bne _08078E82
-	ldr r0, _08078E38 @ =gScreenTransition
+	ldr r0, _08078E38 @ =gRoomTransition
 	ldr r1, [r0]
 	movs r0, #3
 	ands r1, r0
@@ -755,7 +755,7 @@ _08078DE0:
 	b _08078E82
 	.align 2, 0
 _08078E34: .4byte gPlayerState
-_08078E38: .4byte gScreenTransition
+_08078E38: .4byte gRoomTransition
 _08078E3C:
 	ldrh r0, [r4, #0x2e]
 	adds r0, #1
@@ -862,8 +862,8 @@ sub_08078EE4: @ 0x08078EE4
 _08078EF4: .4byte gPlayerEntity
 _08078EF8: .4byte gPlayerState
 
-	thumb_func_start sub_08078EFC
-sub_08078EFC: @ 0x08078EFC
+	thumb_func_start RunQueuedAction
+RunQueuedAction: @ 0x08078EFC
 	push {lr}
 	ldr r3, _08078F18 @ =gPlayerState
 	ldrb r2, [r3, #0xc]
@@ -894,7 +894,7 @@ sub_08078F24: @ 0x08078F24
 	ands r0, r3
 	cmp r0, #0
 	beq _08078F3C
-	bl sub_08078F60
+	bl ResetPlayerVelocity
 	b _08078F5A
 	.align 2, 0
 _08078F38: .4byte gPlayerState
@@ -919,8 +919,8 @@ _08078F5A:
 	.align 2, 0
 _08078F5C: .4byte gSineTable
 
-	thumb_func_start sub_08078F60
-sub_08078F60: @ 0x08078F60
+	thumb_func_start ResetPlayerVelocity
+ResetPlayerVelocity: @ 0x08078F60
 	ldr r0, _08078F70 @ =gPlayerState
 	adds r1, r0, #0
 	adds r1, #0x8c
@@ -1239,7 +1239,7 @@ sub_0807919C: @ 0x0807919C
 	ands r0, r1
 	cmp r0, #0
 	bne _080791B4
-	bl sub_080791BC
+	bl SetPlayerActionNormal
 	b _080791B8
 	.align 2, 0
 _080791B0: .4byte gPlayerState
@@ -1249,8 +1249,8 @@ _080791B8:
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_080791BC
-sub_080791BC: @ 0x080791BC
+	thumb_func_start SetPlayerActionNormal
+SetPlayerActionNormal: @ 0x080791BC
 	ldr r0, _080791CC @ =gPlayerEntity
 	movs r2, #0
 	movs r1, #1
@@ -1261,8 +1261,8 @@ sub_080791BC: @ 0x080791BC
 	.align 2, 0
 _080791CC: .4byte gPlayerEntity
 
-	thumb_func_start sub_080791D0
-sub_080791D0: @ 0x080791D0
+	thumb_func_start ResetPlayerAnimationAndAction
+ResetPlayerAnimationAndAction: @ 0x080791D0
 	push {lr}
 	ldr r3, _0807920C @ =gPlayerState
 	ldr r0, [r3, #0x30]
@@ -1318,8 +1318,8 @@ sub_0807921C: @ 0x0807921C
 	ldr r1, _08079254 @ =0xFECBF6FA
 	ands r0, r1
 	str r0, [r2, #0x30]
-	bl sub_08079938
-	bl sub_080791BC
+	bl ResolvePlayerAnimation
+	bl SetPlayerActionNormal
 	adds r0, r4, #0
 	bl sub_0805E374
 	pop {r4, pc}
@@ -2248,8 +2248,8 @@ _0807992E:
 _08079930: .4byte gPlayerState
 _08079934: .4byte gPlayerEntity
 
-	thumb_func_start sub_08079938
-sub_08079938: @ 0x08079938
+	thumb_func_start ResolvePlayerAnimation
+ResolvePlayerAnimation: @ 0x08079938
 	push {r4, lr}
 	ldr r3, _08079954 @ =gPlayerState
 	ldr r2, [r3, #0x30]
@@ -2865,8 +2865,8 @@ _08079DFC: .4byte gPlayerEntity
 _08079E00: .4byte gPlayerState
 _08079E04: .4byte 0x00000193
 
-	thumb_func_start sub_08079E08
-sub_08079E08: @ 0x08079E08
+	thumb_func_start UpdatePlayerMovement
+UpdatePlayerMovement: @ 0x08079E08
 	push {r4, lr}
 	ldr r0, _08079E50 @ =gPlayerEntity
 	ldrh r2, [r0, #0x24]
@@ -3279,10 +3279,10 @@ _0807A104:
 	adds r0, r2, #0
 	pop {r4, r5, pc}
 
-	thumb_func_start sub_0807A108
-sub_0807A108: @ 0x0807A108
+	thumb_func_start DeleteClones
+DeleteClones: @ 0x0807A108
 	push {lr}
-	ldr r1, _0807A148 @ =gUnk_03004040
+	ldr r1, _0807A148 @ =gPlayerClones
 	movs r0, #0
 	str r0, [r1]
 	str r0, [r1, #4]
@@ -3315,7 +3315,7 @@ _0807A130:
 _0807A144:
 	pop {pc}
 	.align 2, 0
-_0807A148: .4byte gUnk_03004040
+_0807A148: .4byte gPlayerClones
 _0807A14C: .4byte gPlayerState
 _0807A150: .4byte 0xFFBFFFFF
 _0807A154: .4byte gPlayerEntity
@@ -3483,8 +3483,8 @@ _0807A28C: .4byte gPlayerEntity
 _0807A290: .4byte gPlayerState
 _0807A294: .4byte gUnk_08007CAC
 
-	thumb_func_start sub_0807A298
-sub_0807A298: @ 0x0807A298
+	thumb_func_start EnablePlayerDraw
+EnablePlayerDraw: @ 0x0807A298
 	movs r1, #0
 	strb r1, [r0, #0xb]
 	ldrb r1, [r0, #0x18]
@@ -3722,7 +3722,7 @@ _0807A468:
 	cmp r2, #0
 	beq _0807A4F2
 _0807A46E:
-	bl CheckIsDungeon
+	bl AreaIsDungeon
 	cmp r0, #0
 	beq _0807A4B0
 	ldr r4, _0807A4AC @ =gPlayerEntity
@@ -5105,7 +5105,7 @@ _0807AEA8:
 	ands r0, r1
 	cmp r0, #0
 	beq _0807AECC
-	ldr r0, _0807AEC8 @ =gScreenTransition
+	ldr r0, _0807AEC8 @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #0xf
 	ands r0, r1
@@ -5116,9 +5116,9 @@ _0807AEA8:
 	bl sub_080A2A84
 	b _0807AEDE
 	.align 2, 0
-_0807AEC8: .4byte gScreenTransition
+_0807AEC8: .4byte gRoomTransition
 _0807AECC:
-	ldr r0, _0807AEE0 @ =gScreenTransition
+	ldr r0, _0807AEE0 @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #7
 	ands r0, r1
@@ -5129,10 +5129,10 @@ _0807AECC:
 _0807AEDE:
 	pop {r4, pc}
 	.align 2, 0
-_0807AEE0: .4byte gScreenTransition
+_0807AEE0: .4byte gRoomTransition
 
-	thumb_func_start sub_0807AEE4
-sub_0807AEE4: @ 0x0807AEE4
+	thumb_func_start UpdatePlayerSkills
+UpdatePlayerSkills: @ 0x0807AEE4
 	push {r4, lr}
 	ldr r0, _0807AFE4 @ =gPlayerState
 	adds r4, r0, #0
@@ -5471,7 +5471,7 @@ sub_0807B144: @ 0x0807B144
 	ldr r1, _0807B170 @ =gPlayerState
 	movs r0, #0x81
 	strb r0, [r1, #2]
-	bl sub_080791BC
+	bl SetPlayerActionNormal
 	pop {pc}
 	.align 2, 0
 _0807B170: .4byte gPlayerState
@@ -5501,7 +5501,7 @@ sub_0807B178: @ 0x0807B178
 	ldr r1, _0807B1A4 @ =gPlayerState
 	movs r0, #0x81
 	strb r0, [r1, #2]
-	bl sub_080791BC
+	bl SetPlayerActionNormal
 	pop {pc}
 	.align 2, 0
 _0807B1A4: .4byte gPlayerState
@@ -5518,7 +5518,7 @@ sub_0807B1A8: @ 0x0807B1A8
 	ldr r1, [r0]
 	adds r0, r4, #0
 	bl _call_via_r1
-	ldr r0, _0807B1D8 @ =gScreenTransition
+	ldr r0, _0807B1D8 @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #7
 	ands r0, r1
@@ -5530,7 +5530,7 @@ _0807B1D0:
 	pop {r4, pc}
 	.align 2, 0
 _0807B1D4: .4byte gUnk_0811C298
-_0807B1D8: .4byte gScreenTransition
+_0807B1D8: .4byte gRoomTransition
 
 	thumb_func_start sub_0807B1DC
 sub_0807B1DC: @ 0x0807B1DC
@@ -5581,13 +5581,13 @@ sub_0807B21C: @ 0x0807B21C
 	movs r1, #0x80
 	lsls r1, r1, #3
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	b _0807B240
 _0807B236:
 	movs r1, #0x80
 	lsls r1, r1, #4
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 _0807B240:
 	ldr r1, [r4, #0x20]
 	ldr r0, _0807B260 @ =0xFFFF8000
@@ -5659,7 +5659,7 @@ sub_0807B2B8: @ 0x0807B2B8
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0807B2F0 @ =0xFFFFE000
-	bl sub_08003FC4
+	bl GravityUpdate
 	adds r0, r4, #0
 	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xe]

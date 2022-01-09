@@ -1,8 +1,13 @@
+/**
+ * @file treeItem.c
+ * @ingroup Enemies
+ *
+ * @brief Tree Item enemy
+ */
+
 #include "global.h"
 #include "enemy.h"
-#include "entity.h"
 #include "object.h"
-#include "functions.h"
 
 static bool32 ShouldSpawnTreeItem(Entity*);
 

@@ -1,10 +1,17 @@
+/**
+ * @file puffstool.c
+ * @ingroup Enemies
+ *
+ * @brief Puffstool enemy
+ */
+
 #include "enemy.h"
 #include "object.h"
 #include "functions.h"
 
 extern u32 sub_080002E0(u32, u32);
 extern u32 sub_080002C8(u16, u8);
-extern u16 sub_080002D4(u32, u32, u32);
+extern u8 sub_080002D4(u32, u32, u32);
 extern void sub_0804AA1C(Entity*);
 extern Entity* sub_08049DF4(u32);
 
@@ -104,7 +111,7 @@ void sub_0802511C(Entity* this) {
 }
 
 void sub_0802514C(Entity* this) {
-    sub_08003FC4(this, 0x2000);
+    GravityUpdate(this, 0x2000);
     if (sub_0806F520(this)) {
         gUnk_080CBFEC[this->subAction](this);
     } else {
@@ -209,7 +216,7 @@ void sub_0802538C(Entity* this) {
         if (this->frame == 0) {
             GetNextFrame(this);
         } else {
-            sub_08003FC4(this, 0x2000);
+            GravityUpdate(this, 0x2000);
             if (this->zVelocity < 0x2000) {
                 this->action = 4;
                 InitializeAnimation(this, 2);
@@ -220,7 +227,7 @@ void sub_0802538C(Entity* this) {
 
 void sub_080253D4(Entity* this) {
     GetNextFrame(this);
-    if (!sub_08003FC4(this, 0x2000)) {
+    if (!GravityUpdate(this, 0x2000)) {
         if (this->field_0xf == 0) {
             this->action = 5;
             InitializeAnimation(this, 3);
@@ -256,7 +263,7 @@ void sub_0802544C(Entity* this) {
 }
 
 void sub_0802547C(Entity* this) {
-    sub_08003FC4(this, 0x2000);
+    GravityUpdate(this, 0x2000);
     GetNextFrame(this);
     if ((this->actionDelay & 7) == 0) {
         sub_08025BD4(this);
@@ -268,7 +275,7 @@ void sub_0802547C(Entity* this) {
 }
 
 void sub_080254B4(Entity* this) {
-    sub_08003FC4(this, 0x2000);
+    GravityUpdate(this, 0x2000);
     if (this->frame & 0x80) {
         if (this->z.HALF.HI == 0) {
             if (this->cutsceneBeh.HWORD == 0) {
@@ -386,8 +393,8 @@ void sub_080256B4(Entity* this) {
 
 bool32 sub_0802571C(Entity* this) {
     RoomControls* ctrl = &gRoomControls;
-    u16 xDiff = (this->x.HALF.HI - ctrl->roomOriginX + 8) & -0x10;
-    u16 yDiff = (this->y.HALF.HI - ctrl->roomOriginY + 8) & -0x10;
+    u16 xDiff = (this->x.HALF.HI - ctrl->origin_x + 8) & -0x10;
+    u16 yDiff = (this->y.HALF.HI - ctrl->origin_y + 8) & -0x10;
     u16 unk = this->field_0x7a.HALF.LO;
     u16 i;
 
@@ -396,8 +403,8 @@ bool32 sub_0802571C(Entity* this) {
         u16 sVar4 = yDiff + gUnk_080CC020[unk + 1];
 
         if (sub_080257EC(this, sVar3, sVar4)) {
-            this->field_0x7c.HALF.LO = sVar3 + ctrl->roomOriginX;
-            this->field_0x7c.HALF.HI = sVar4 + ctrl->roomOriginY;
+            this->field_0x7c.HALF.LO = sVar3 + ctrl->origin_x;
+            this->field_0x7c.HALF.HI = sVar4 + ctrl->origin_y;
             return TRUE;
         }
 
@@ -465,22 +472,25 @@ bool32 sub_080258C4(Entity* this) {
     }
 }
 
+// regalloc
 NONMATCH("asm/non_matching/puffstool/sub_0802594C.inc", bool32 sub_0802594C(Entity* this, u32 param_2)) {
+    s16 xDiff;
+    s16 yDiff;
     const s8* unk = gUnk_080CC090[param_2];
     u32 uVar1 = this->collisionLayer;
     RoomControls* ctrl = &gRoomControls;
-    u16 xDiff = (this->x.HALF.HI - ctrl->roomOriginX + 8) & -0x10;
-    u16 yDiff = (this->y.HALF.HI - ctrl->roomOriginY + 8) & -0x10;
+    xDiff = (this->x.HALF.HI - ctrl->origin_x + 8) & -0x10;
+    yDiff = (this->y.HALF.HI - ctrl->origin_y + 8) & -0x10;
     do {
-        u16 iVar9 = xDiff + unk[0];
-        u16 iVar11 = yDiff + unk[1];
-        u32 bVar4 = sub_080002D4(iVar9 - 0x00, iVar11 - 0x00, uVar1);
-        u32 bVar5 = sub_080002D4(iVar9 - 0x10, iVar11 - 0x00, uVar1);
-        u32 bVar6 = sub_080002D4(iVar9 - 0x00, iVar11 - 0x10, uVar1);
-        u32 bVar7 = sub_080002D4(iVar9 - 0x10, iVar11 - 0x10, uVar1);
+        s16 iVar9 = xDiff + unk[0];
+        s16 iVar11 = yDiff + unk[1];
+        u8 bVar4 = sub_080002D4(iVar9 - 0x00, iVar11 - 0x00, uVar1);
+        u8 bVar5 = sub_080002D4(iVar9 - 0x10, iVar11 - 0x00, uVar1);
+        u8 bVar6 = sub_080002D4(iVar9 - 0x00, iVar11 - 0x10, uVar1);
+        u8 bVar7 = sub_080002D4(iVar9 - 0x10, iVar11 - 0x10, uVar1);
         if ((bVar6 | bVar4 | bVar5 | bVar7) == 0) {
-            this->field_0x7c.HALF.LO = ctrl->roomOriginX + iVar9;
-            this->field_0x7c.HALF.HI = ctrl->roomOriginY + iVar11;
+            this->field_0x7c.HALF.LO = ctrl->origin_x + iVar9;
+            this->field_0x7c.HALF.HI = ctrl->origin_y + iVar11;
             return TRUE;
         }
         unk += 2;
@@ -492,8 +502,8 @@ END_NONMATCH
 
 void sub_08025A54(Entity* this) {
     u32 layer = this->collisionLayer;
-    s16 x = this->x.HALF.HI - gRoomControls.roomOriginX;
-    s16 y = this->y.HALF.HI - gRoomControls.roomOriginY;
+    s16 x = this->x.HALF.HI - gRoomControls.origin_x;
+    s16 y = this->y.HALF.HI - gRoomControls.origin_y;
 
     const s8* offset = gUnk_080CC0A0;
     u32 i = 0;
@@ -532,8 +542,8 @@ void sub_08025AE8(Entity* this) {
 void sub_08025B18(Entity* this) {
     Entity* ent;
 
-    s32 x = this->x.HALF.HI - gRoomControls.roomOriginX;
-    s32 y = this->y.HALF.HI - gRoomControls.roomOriginY;
+    s32 x = this->x.HALF.HI - gRoomControls.origin_x;
+    s32 y = this->y.HALF.HI - gRoomControls.origin_y;
     u32 layer = this->collisionLayer;
 
     const s8* offset = gUnk_080CC0A8;

@@ -5,7 +5,7 @@
 	sub sp, #8
 	adds r2, r0, #0
 	adds r5, r1, #0
-	bl sub_0801D51C
+	bl DecToHex
 	adds r2, r0, #0
 	ldr r0, _08057040 @ =0x0FFFFFFF
 	ands r2, r0

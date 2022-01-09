@@ -2,19 +2,19 @@
 SCRIPT_START script_KidKinstone1
 	BeginBlock
 	_0807E9D4
-	_0807EB44 0x0002
+	SetAnimationState 0x0002
 	DoPostScriptAction 0x0001
 	DoPostScriptAction 0x0008
 	SetEntitySpeed 0x0080
 	DoPostScriptAction 0x000b
 	EndBlock
-	Call sub_0807F348
+	Call SetPriorityMessage
 	WaitForSyncFlagAndClear 0x00000004
 	DoPostScriptAction 0x0007
 	_0807EDD4 0x01f8, 0x0318
 	_0807EDD4 0x0208, 0x0318
 	_0807EDD4 0x0208, 0x0338
-	_0807EB44 0x0006
+	SetAnimationState 0x0006
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x000a
 	SetSyncFlag 0x00000080
@@ -24,11 +24,11 @@ script_0800F3EA:
 	CheckEntityInteractType
 	JumpIfNot script_0800F402
 	EndBlock 
-	_0807E864 
-	_0807EB74 
+	SetPlayerIdle 
+	FacePlayer 
 	MessageNoOverlap 0x1237
 	WaitUntilTextboxCloses
-	_0807E878 
+	EnablePlayerControl 
 script_0800F402:
 	CheckSyncFlagAndClear 0x00000004
 	JumpIfNot script_0800F3EA
@@ -36,7 +36,7 @@ script_0800F402:
 	DoPostScriptAction 0x000b
 	Wait 0x0010
 	SetEntitySpeed 0x0100
-	_0807EC64 0x0010
+	WalkNorth 0x0010
 	_0807EDD4 0x0288, 0x0328
 	SetSyncFlag 0x00000080
 	DoPostScriptAction 0x0006

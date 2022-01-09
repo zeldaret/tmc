@@ -1,7 +1,7 @@
 @ Intro Hyrule Castle NPC4E
 SCRIPT_START script_Npc4EIntroCastle
-	_0807E864
-	Call sub_0807F9A4
+	SetPlayerIdle
+	Call WaitForPlayerNormal
 	Call sub_0807DF28
 	StartPlayerScript script_PlayerIntroCastle
 	WaitForSyncFlagAndClear 0x00000400
@@ -17,8 +17,8 @@ SCRIPT_START script_Npc4EIntroCastle
 	MessageFromTargetPos 0x1038, 0x000c
 	WaitUntilTextboxCloses
 	StopBgm
-	_0807E778 0x0004
-	DoFade5
+	SetFadeTime 0x0004
+	SetFade5
 	WaitForFadeFinish
 	Call sub_08064180
 	Call sub_08064180
@@ -38,8 +38,8 @@ SCRIPT_START script_Npc4EIntroCastle
 	CameraTargetEntity
 	Wait 0x000a
 	_0807F0B4 0x0001
-	_0807E778 0x0001
-	DoFade4
+	SetFadeTime 0x0001
+	SetFade4
 	SetSyncFlag 0x0002a800
 	WaitForSyncFlagAndClear 0x00055000
 	SetEntityPositionRelative 0x01f8, 0x0078

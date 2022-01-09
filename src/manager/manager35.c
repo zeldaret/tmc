@@ -17,8 +17,6 @@ typedef struct {
 
 extern void (*const gUnk_08108D98[])(Manager35*);
 
-extern void RequestPriorityDuration(Entity*, u32);
-
 void Manager35_Main(Manager35* this) {
     gUnk_08108D98[this->manager.action](this);
 }
@@ -43,13 +41,13 @@ void sub_0805DCC8(Manager35* this) {
         if (this->manager.unk_0e == 0) {
             this->manager.unk_0e = 0x1e;
         }
-        this->manager.parent = (Manager*)gRoomControls.cameraTarget;
+        this->manager.parent = (Manager*)gRoomControls.camera_target;
         object = CreateObject(OBJECT_69, 0, 0);
         if (object != NULL) {
-            object->x.HALF.HI = this->field_0x38 + gRoomControls.roomOriginX;
-            object->y.HALF.HI = this->field_0x3a + gRoomControls.roomOriginY;
+            object->x.HALF.HI = this->field_0x38 + gRoomControls.origin_x;
+            object->y.HALF.HI = this->field_0x3a + gRoomControls.origin_y;
             *(Entity**)this->manager.unk_18 = object;
-            gRoomControls.cameraTarget = object;
+            gRoomControls.camera_target = object;
             RequestPriorityDuration(object, 0x1e);
         }
     }
@@ -57,7 +55,7 @@ void sub_0805DCC8(Manager35* this) {
 
 void sub_0805DD24(Manager35* this) {
     RequestPriorityDuration(0, 8);
-    if ((gRoomControls.unk6 & 4) == 0 && --this->manager.unk_0e == 0) {
+    if ((gRoomControls.scroll_flags & 4) == 0 && --this->manager.unk_0e == 0) {
         this->manager.action = 3;
         SetFlag(this->field_0x3c);
         if (this->field_0x36 == 0) {
@@ -70,10 +68,10 @@ void sub_0805DD68(Manager35* this) {
     RequestPriorityDuration(0, 8);
     if (this->field_0x36 != 0) {
         if (--this->field_0x36 == 0) {
-            gRoomControls.cameraTarget = (Entity*)this->manager.parent;
+            gRoomControls.camera_target = (Entity*)this->manager.parent;
         }
     } else {
-        if ((gRoomControls.unk6 & 4) == 0) {
+        if ((gRoomControls.scroll_flags & 4) == 0) {
             Entity* entity = *(Entity**)this->manager.unk_18;
             if (entity != NULL) {
                 DeleteEntity(entity);

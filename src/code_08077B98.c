@@ -10,7 +10,6 @@ typedef struct {
     u8 field_0x1;
 } UnkItemStruct;
 
-Entity* sub_08077C94(ItemBehavior*, u32);
 void* sub_08077C54(UnkItemStruct* unk);
 Entity* CreatePlayerBomb(ItemBehavior*, u32);
 extern Entity* sub_0805E744();
@@ -183,7 +182,7 @@ void sub_08077E78(ItemBehavior* arg0, u32 bits) {
 u32 sub_08077EC8(ItemBehavior* beh) {
     Unk_struct* arg0 = (Unk_struct*)beh; // @nocheckin
 
-    if ((gPlayerState.field_0x1a[1] & 8) != 0) {
+    if ((gPlayerState.sword_state & 8) != 0) {
         sub_08077DF4(beh, 0x170);
         arg0->unk[7] = 0x28;
         arg0->unk[4] = 7;
@@ -195,11 +194,11 @@ u32 sub_08077EC8(ItemBehavior* beh) {
 }
 
 bool32 sub_08077EFC(ItemBehavior* arg0) {
-    return sub_08077F24(arg0, (u16)gPlayerState.field_0x90.HALF.LO);
+    return sub_08077F24(arg0, (u16)gPlayerState.field_0x90);
 }
 
 bool32 sub_08077F10(ItemBehavior* arg0) {
-    return sub_08077F24(arg0, (u16)gPlayerState.field_0x90.HALF.HI);
+    return sub_08077F24(arg0, (u16)gPlayerState.field_0x92);
 }
 
 ASM_FUNC("asm/non_matching/sub_08077F24.inc", bool32 sub_08077F24(ItemBehavior* beh, u32 arg1))
@@ -226,7 +225,7 @@ void sub_08077F84(void) {
     if (((gPlayerEntity.collisionLayer & 2) == 0) &&
         GetTileTypeByPos(gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI - 0xc, 2) - 0x343U < 4) {
         sub_0807AA80(&gPlayerEntity);
-        gPlayerState.jumpStatus |= 8;
+        gPlayerState.jump_status |= 8;
         obj = CreateObject(OBJECT_44, 0, 0);
         if (obj != NULL) {
             obj->x = gPlayerEntity.x;

@@ -53,7 +53,7 @@ void sub_0806559C(Entity* this) {
     sub_0806ED78(this);
     if (this->interactType != 0) {
         this->interactType = 0;
-        sub_080791D0();
+        ResetPlayerAnimationAndAction();
     }
 }
 

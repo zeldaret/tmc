@@ -1,5 +1,5 @@
 #include "global.h"
-#include "audio.h"
+#include "sound.h"
 #include "entity.h"
 #include "room.h"
 #include "flags.h"
@@ -27,7 +27,7 @@ void Simon(Entity* this) {
 
 void sub_0806C224(void) {
     DoExitTransition(&gUnk_0813AD60);
-    gScreenTransition.transitionType = TRANSITION_FADE_BLACK_FAST;
+    gRoomTransition.type = TRANSITION_FADE_BLACK_FAST;
 }
 
 void Simon_CreateChest(Entity* this) {
@@ -39,16 +39,16 @@ void Simon_CreateChest(Entity* this) {
 void sub_0806C280(void) {
     SetGlobalFlag(MAROYA_WAKEUP);
     DoExitTransition(&gUnk_0813AD74);
-    gScreenTransition.transitionType = TRANSITION_FADE_BLACK_FAST;
+    gRoomTransition.type = TRANSITION_FADE_BLACK_FAST;
 }
 
 void sub_0806C2A0(Entity* this, ScriptExecutionContext* context) {
     switch (context->intVariable) {
         case 0:
-            DoFade(0xd, 4);
+            SetFade(0xd, 4);
             break;
         case 1:
-            DoFade(0xc, 4);
+            SetFade(0xc, 4);
             break;
     }
 }

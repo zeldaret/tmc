@@ -1,5 +1,4 @@
 #include "object.h"
-#include "structures.h"
 #include "functions.h"
 
 static void sub_0808F2B0(Entity*);
@@ -53,7 +52,7 @@ void sub_0808F0D0(Entity* this) {
 
 void sub_0808F14C(Entity* this) {
     sub_0808F2B0(this);
-    if (sub_08003FC4(this, 0x2000) == 0) {
+    if (GravityUpdate(this, 0x2000) == 0) {
         this->action++;
         SoundReq(SFX_WATER_SPLASH);
     }
@@ -213,7 +212,7 @@ void sub_0808F498(Entity* this) {
 
     if (this->action != 0) {
         if (sub_0806F3E4(this)) {
-            if (gScreenTransition.frameCount % 16 == 0) {
+            if (gRoomTransition.frameCount % 16 == 0) {
                 SoundReq(SFX_EF);
             }
             DeleteThisEntity();

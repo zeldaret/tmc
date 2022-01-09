@@ -1,5 +1,11 @@
+/**
+ * @file vaatiWrathEye.c
+ * @ingroup Enemies
+ *
+ * @brief Vaati Wrath Eye enemy
+ */
+
 #include "enemy.h"
-#include "structures.h"
 #include "functions.h"
 
 void sub_080485D8(Entity*);
@@ -36,7 +42,7 @@ void VaatiWrathEye(Entity* this) {
 }
 
 void VaatiWrathEyeAction0(Entity* this) {
-    if ((gScreenTransition.field_0x38 & 1) != 0) {
+    if ((gRoomTransition.field_0x38 & 1) != 0) {
         this->action = 2;
         InitializeAnimation(this, 1);
     } else {
@@ -58,7 +64,7 @@ void VaatiWrathEyeAction1(Entity* this) {
 
 void VaatiWrathEyeAction2(Entity* this) {
     sub_080485D8(this);
-    if ((gScreenTransition.field_0x39 & 3) == 0) {
+    if ((gRoomTransition.field_0x39 & 3) == 0) {
         this->action = 3;
         COLLISION_ON(this);
         this->speed = 0x80;
@@ -82,7 +88,7 @@ void VaatiWrathEyeAction3(Entity* this) {
         y = parent->y.HALF.HI + ptr[1];
         direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, x, y);
         this->direction = direction;
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
         this->z.HALF.HI = this->parent->z.HALF.HI;
         if ((this->x.HALF.HI == x) && (this->y.HALF.HI == y)) {
             this->action = 4;

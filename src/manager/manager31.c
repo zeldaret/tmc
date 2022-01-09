@@ -3,7 +3,6 @@
 #include "flags.h"
 #include "asm.h"
 #include "object.h"
-#include "room.h"
 
 typedef struct {
     Manager manager;
@@ -66,8 +65,8 @@ void Manager31_Main(Manager31* this) {
                 if (object != NULL) {
                     object->actionDelay = 1;
                     object->field_0xf = count;
-                    object->x.HALF.HI = spawnData->x + gRoomControls.roomOriginX;
-                    object->y.HALF.HI = spawnData->y + gRoomControls.roomOriginY;
+                    object->x.HALF.HI = spawnData->x + gRoomControls.origin_x;
+                    object->y.HALF.HI = spawnData->y + gRoomControls.origin_y;
                     object->field_0x80.HWORD = spawnData->x;
                     object->field_0x82.HWORD = spawnData->y;
                     object->collisionLayer = 1;

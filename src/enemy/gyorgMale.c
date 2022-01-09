@@ -1,8 +1,15 @@
+/**
+ * @file gyorgMale.c
+ * @ingroup Enemies
+ *
+ * @brief Gyorg Male enemy
+ */
+
 #define NENT_DEPRECATED
 #include "global.h"
 #include "enemy.h"
 #include "player.h"
-#include "fileScreen.h"
+#include "fileselect.h"
 #include "functions.h"
 #include "effects.h"
 #include "enemy/gyorg.h"
@@ -104,7 +111,7 @@ void GyorgMale(GyorgMaleEntity* this) {
     super->animationState = -(this->unk_78 >> 8);
     sub_08048004(this);
     this->unk_7d = super->spriteSettings.draw;
-    if (super->spriteSettings.draw == 1 && (super->y.HALF.HI - gRoomControls.roomScrollY + 0x30) > 0x100u) {
+    if (super->spriteSettings.draw == 1 && (super->y.HALF.HI - gRoomControls.scroll_y + 0x30) > 0x100u) {
         super->spriteSettings.draw = 0;
     }
     this->unk_84 = gPlayerEntity.x.HALF.HI;
@@ -168,7 +175,7 @@ void sub_08046930(GyorgMaleEntity* this) {
 
 void sub_0804696C(GyorgMaleEntity* this) {
     sub_08047E48(this);
-    if (gRoomControls.roomOriginY + 0x130 > super->y.HALF.HI) {
+    if (gRoomControls.origin_y + 0x130 > super->y.HALF.HI) {
         super->subAction = 2;
         super->direction = 0x80;
         super->speed = 0x100;
@@ -180,9 +187,9 @@ void sub_0804696C(GyorgMaleEntity* this) {
     }
     if (super->actionDelay) {
 #ifdef EU
-        if (gRoomControls.roomOriginY + 0x210 > super->y.HALF.HI) {
+        if (gRoomControls.origin_y + 0x210 > super->y.HALF.HI) {
 #else
-        if (gRoomControls.roomOriginY + 0x258 > super->y.HALF.HI) {
+        if (gRoomControls.origin_y + 0x258 > super->y.HALF.HI) {
 #endif
             super->actionDelay = 0;
             SoundReq(SFX_APPARATE);
@@ -192,7 +199,7 @@ void sub_0804696C(GyorgMaleEntity* this) {
 
 void sub_080469CC(GyorgMaleEntity* this) {
     sub_08047E48(this);
-    if (gRoomControls.roomOriginY + 0x210 < super->y.HALF.HI) {
+    if (gRoomControls.origin_y + 0x210 < super->y.HALF.HI) {
         super->subAction = 3;
         super->direction = 0x90;
     }
@@ -200,7 +207,7 @@ void sub_080469CC(GyorgMaleEntity* this) {
 
 void sub_080469F4(GyorgMaleEntity* this) {
     sub_08047E48(this);
-    if (gRoomControls.roomOriginY + 0x290 < super->y.HALF.HI) {
+    if (gRoomControls.origin_y + 0x290 < super->y.HALF.HI) {
         super->subAction = 4;
         super->spriteOrientation.flipY = 2;
         super->spriteRendering.b3 = 2;
@@ -217,7 +224,7 @@ void sub_08046A30(GyorgMaleEntity* this) {
 
 void sub_08046A54(GyorgMaleEntity* this) {
     sub_08047E48(this);
-    if (gRoomControls.roomOriginX + 0x380 < super->x.HALF.HI) {
+    if (gRoomControls.origin_x + 0x380 < super->x.HALF.HI) {
         super->subAction = 6;
     }
 }
@@ -275,8 +282,8 @@ void sub_08046B8C(GyorgMaleEntity* this) {
     if (sub_0806FCB8(super, this->unk_80, this->unk_82, 4)) {
         super->subAction = 3;
         this->unk_76 = super->direction << 8;
-        this->unk_80 = gRoomControls.roomOriginX + 0x200;
-        this->unk_82 = gRoomControls.roomOriginY + 0x210;
+        this->unk_80 = gRoomControls.origin_x + 0x200;
+        this->unk_82 = gRoomControls.origin_y + 0x210;
         sub_08047D88(this);
     } else {
         super->direction = sub_080045DA(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
@@ -337,8 +344,8 @@ void sub_08046D44(GyorgMaleEntity* this) {
     super->subAction = 1;
     super->speed = 0x200;
     tmp = gUnk_080D1B60 + (((Entity*)super->myHeap)->next->animationState >> 5);
-    this->unk_80 = tmp[0] + gRoomControls.roomOriginX;
-    this->unk_82 = tmp[1] + gRoomControls.roomOriginY;
+    this->unk_80 = tmp[0] + gRoomControls.origin_x;
+    this->unk_82 = tmp[1] + gRoomControls.origin_y;
     this->unk_76 = super->direction << 8;
     sub_08047D88(this);
 }
@@ -446,8 +453,8 @@ void sub_08046FE8(GyorgMaleEntity* this) {
     super->subAction = 1;
     super->speed = 0x1c0;
     this->unk_7e = 0x1e;
-    this->unk_80 = gRoomControls.roomOriginX + 0x290;
-    this->unk_82 = gRoomControls.roomOriginY + 0x190;
+    this->unk_80 = gRoomControls.origin_x + 0x290;
+    this->unk_82 = gRoomControls.origin_y + 0x190;
     sub_08047D88(this);
 }
 
@@ -505,7 +512,7 @@ void sub_0804717C(GyorgMaleEntity* this) {
         super->speed += 8;
     }
     sub_08047DF0(this, ((0x100 - super->direction) & 0xFF) << 8);
-    if (gRoomControls.roomOriginX + 0x200 > super->x.HALF.HI) {
+    if (gRoomControls.origin_x + 0x200 > super->x.HALF.HI) {
         super->subAction = 5;
     }
 }
@@ -518,7 +525,7 @@ void sub_080471C8(GyorgMaleEntity* this) {
         super->direction++;
     }
     sub_08047DF0(this, ((0x100 - super->direction) & 0xFF) << 8);
-    if (gRoomControls.roomOriginY + 0x190 <= super->y.HALF.HI)
+    if (gRoomControls.origin_y + 0x190 <= super->y.HALF.HI)
         return;
     if (this->unk_74 > 0x100) {
         if (Random() & 1) {
@@ -558,7 +565,7 @@ void sub_080472BC(GyorgMaleEntity* this) {
         super->speed += 8;
     }
     sub_08047DF0(this, ((0x100 - super->direction) & 0xFF) << 8);
-    if (gRoomControls.roomOriginX + 0x2B0 >= super->x.HALF.HI)
+    if (gRoomControls.origin_x + 0x2B0 >= super->x.HALF.HI)
         return;
     super->subAction = 9;
     this->unk_76 = super->direction << 8;
@@ -597,8 +604,8 @@ void sub_0804736C(GyorgMaleEntity* this) {
 void sub_080473B8(GyorgMaleEntity* this) {
     super->subAction = 1;
     super->speed = 0x120;
-    this->unk_80 = gRoomControls.roomOriginX + 0x200;
-    this->unk_82 = gRoomControls.roomOriginY + 0x1D0;
+    this->unk_80 = gRoomControls.origin_x + 0x200;
+    this->unk_82 = gRoomControls.origin_y + 0x1D0;
     sub_08047D88(this);
 }
 
@@ -651,9 +658,9 @@ void sub_08047484(GyorgMaleEntity* this) {
 }
 
 void sub_08047508(GyorgMaleEntity* this) {
-    if (gRoomControls.roomOriginX + 0x1A0 < super->x.HALF.HI) {
+    if (gRoomControls.origin_x + 0x1A0 < super->x.HALF.HI) {
         if (super->direction == 0) {
-            if (gRoomControls.roomOriginY + 0x208 >= super->y.HALF.HI) {
+            if (gRoomControls.origin_y + 0x208 >= super->y.HALF.HI) {
                 this->unk_74 = -this->unk_74;
                 this->unk_76 += this->unk_74;
                 super->direction = this->unk_76 >> 8;
@@ -679,7 +686,7 @@ void sub_08047508(GyorgMaleEntity* this) {
         }
     }
     sub_08047E48(this);
-    if (gRoomControls.roomOriginX + 0x280 < super->x.HALF.HI) {
+    if (gRoomControls.origin_x + 0x280 < super->x.HALF.HI) {
         super->subAction = 4;
         super->speed = 0x200;
         super->animationState = super->direction;
@@ -706,9 +713,9 @@ void sub_080475F4(GyorgMaleEntity* this) {
 }
 
 void sub_0804763C(GyorgMaleEntity* this) {
-    if (gRoomControls.roomOriginX + 0x1F0 > super->x.HALF.HI) {
+    if (gRoomControls.origin_x + 0x1F0 > super->x.HALF.HI) {
         if (super->direction == 0) {
-            if (gRoomControls.roomOriginY + 0x208 >= super->y.HALF.HI) {
+            if (gRoomControls.origin_y + 0x208 >= super->y.HALF.HI) {
                 this->unk_74 = -this->unk_74;
                 this->unk_76 += this->unk_74;
                 super->direction = this->unk_76 >> 8;
@@ -734,7 +741,7 @@ void sub_0804763C(GyorgMaleEntity* this) {
         }
     }
     sub_08047E48(this);
-    if (gRoomControls.roomOriginX + 0x180 > super->x.HALF.HI) {
+    if (gRoomControls.origin_x + 0x180 > super->x.HALF.HI) {
         super->subAction = 6;
         super->speed = 0x200;
         super->animationState = super->direction;
@@ -771,13 +778,13 @@ void sub_08047778(GyorgMaleEntity* this) {
 void sub_08047798(GyorgMaleEntity* this) {
     super->subAction = 1;
     super->speed = 0x80;
-    if (super->x.HALF.HI - gRoomControls.roomOriginX < 0x1F8) {
+    if (super->x.HALF.HI - gRoomControls.origin_x < 0x1F8) {
         this->unk_80 = 0xa8;
     } else {
         this->unk_80 = 0x348;
     }
-    this->unk_80 += gRoomControls.roomOriginX;
-    this->unk_82 = gRoomControls.roomOriginY + 0x348;
+    this->unk_80 += gRoomControls.origin_x;
+    this->unk_82 = gRoomControls.origin_y + 0x348;
     sub_08047D88(this);
 }
 
@@ -797,7 +804,7 @@ void sub_080477F0(GyorgMaleEntity* this) {
         super->direction = super->animationState;
         return;
     }
-    if (!sub_0806FCB8(super, gRoomControls.roomOriginX + 0x200, gRoomControls.roomOriginY + 0x210, 0x100)) {
+    if (!sub_0806FCB8(super, gRoomControls.origin_x + 0x200, gRoomControls.origin_y + 0x210, 0x100)) {
         super->spriteOrientation.flipY = 3;
         super->spriteRendering.b3 = 3;
     }
@@ -807,7 +814,7 @@ void sub_080477F0(GyorgMaleEntity* this) {
         this->unk_74 = gUnk_080D1BF0[Random() & 1];
         if (((GyorgHeap*)super->myHeap)->boss->unk_6c & 1) {
             ((GyorgHeap*)super->myHeap)->female->unk_79 =
-                gRoomControls.roomOriginX + 0x200 > super->x.HALF.HI ? 0x81 : 0x83;
+                gRoomControls.origin_x + 0x200 > super->x.HALF.HI ? 0x81 : 0x83;
         } else {
             ((GyorgHeap*)super->myHeap)->female->unk_79 = 0x80;
         }
@@ -868,25 +875,25 @@ void sub_08047978(GyorgMaleEntity* this) {
     super->subAction = 4;
     if (super->type == 0) {
         if ((((GyorgHeap*)super->myHeap)->female->base.animationState >> 6) == 1) {
-            this->unk_80 = gRoomControls.roomOriginX + 0x1C0;
-            this->unk_82 = gRoomControls.roomOriginY + 0x250;
+            this->unk_80 = gRoomControls.origin_x + 0x1C0;
+            this->unk_82 = gRoomControls.origin_y + 0x250;
         } else {
-            this->unk_80 = gRoomControls.roomOriginX + 0x240;
-            this->unk_82 = gRoomControls.roomOriginY + 0x250;
+            this->unk_80 = gRoomControls.origin_x + 0x240;
+            this->unk_82 = gRoomControls.origin_y + 0x250;
         }
     } else {
-        if (gRoomControls.roomOriginX + 0x200 < super->x.HALF.HI) {
+        if (gRoomControls.origin_x + 0x200 < super->x.HALF.HI) {
             this->unk_80 = 0x190;
         } else {
             this->unk_80 = 0x270;
         }
-        this->unk_80 += gRoomControls.roomOriginX;
-        if (gRoomControls.roomOriginY + 0x210 < super->y.HALF.HI) {
+        this->unk_80 += gRoomControls.origin_x;
+        if (gRoomControls.origin_y + 0x210 < super->y.HALF.HI) {
             this->unk_82 = 0x1A0;
         } else {
             this->unk_82 = 0x280;
         }
-        this->unk_82 += gRoomControls.roomOriginY;
+        this->unk_82 += gRoomControls.origin_y;
     }
 }
 
@@ -921,7 +928,7 @@ void sub_08047BA4(GyorgMaleEntity* this) {
     super->subAction = 1;
     super->actionDelay = 0x78;
     super->field_0xf = 0;
-    if (gRoomControls.roomOriginX + 0x200 < super->x.HALF.HI) {
+    if (gRoomControls.origin_x + 0x200 < super->x.HALF.HI) {
         this->unk_76 = 0x78;
     } else {
         this->unk_76 = 0x88;
@@ -953,7 +960,7 @@ void sub_08047BF0(GyorgMaleEntity* this) {
         super->direction = this->unk_76;
         super->speed = 0x140;
         sub_08047E48(this);
-        if (super->y.HALF.HI > gRoomControls.roomOriginY + 0x270) {
+        if (super->y.HALF.HI > gRoomControls.origin_y + 0x270) {
             super->subAction = 2;
             this->unk_7e = 0xAA;
             SoundReq(SFX_12D);
@@ -1124,8 +1131,8 @@ void sub_08048004(GyorgMaleEntity* this) {
         if (this->unk_7c & 1) {
             u32 b = super->spriteRendering.b3;
             if (b == 3) {
-                s32 posX = ((gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX) >> 3);
-                s32 posY = ((gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY) >> 3);
+                s32 posX = ((gPlayerEntity.x.HALF.HI - gRoomControls.origin_x) >> 3);
+                s32 posY = ((gPlayerEntity.y.HALF.HI - gRoomControls.origin_y) >> 3);
                 u16* tmp = (u16*)&gUnk_02019EE0;
                 if (tmp[(posY << 7) + posX]) {
                     if (!(this->unk_7c & 2)) {
@@ -1176,6 +1183,6 @@ const u16 gUnk_080D1C60[8] = { 0x200, 0x150, 0x290, 0x210, 0x200, 0x2D0, 0x170, 
 void sub_08048178(GyorgMaleEntity* this, u32 unk1) {
     const u16* tmp = ((((GyorgHeap*)super->myHeap)->female->base.animationState >> 6 & 1) ? gUnk_080D1C60 + unk1
                                                                                           : gUnk_080D1C50 + unk1);
-    this->unk_80 = *tmp + gRoomControls.roomOriginX;
-    this->unk_82 = *(tmp + 1) + gRoomControls.roomOriginY;
+    this->unk_80 = *tmp + gRoomControls.origin_x;
+    this->unk_82 = *(tmp + 1) + gRoomControls.origin_y;
 }

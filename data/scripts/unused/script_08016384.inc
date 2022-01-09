@@ -36,17 +36,17 @@ SCRIPT_START script_08016384
 	CheckPlayerInRegion 0x0000, 0x0000, 0x0000
 	CheckPlayerInRegion2 0x0000
 	CheckEntityInteractType
-	_0807E30C
+	FacePlayerAndCheckDist
 	HasRupees 0x00c8
 	CheckTextboxResult
 	CheckKinstoneFused 0x0001
 	BuyItem 0x006c, 0x0000
 	CheckBottleContaining 0x0020
-	_0807E4CC 0x00000000
-	_0807E4EC 0x00000000
-	_0807E514 0x00000000
+	VariableBitSet 0x00000000
+	VariableOnlyBitSet 0x00000000
+	VariableEqual 0x00000000
 	CheckPlayerFlags 0x00000080
-	_0807E564
+	CheckPlayerMinish
 	EntityHasHeight
 	ComparePlayerAction 0x0001
 	ComparePlayerAnimationState 0x0004
@@ -63,8 +63,8 @@ SCRIPT_START script_08016384
 	WaitForSyncFlag 0x00000001
 	WaitForSyncFlagAndClear 0x00000002
 	WaitPlayerGetItem
-	WaitForPlayerAction0x17
+	WaitForPlayerEnterRoom
 	WaitFor_1
 	WaitForFadeFinish
-	_0807E778 0x0004
+	SetFadeTime 0x0004
 	SetFadeMask 0x0000ffff

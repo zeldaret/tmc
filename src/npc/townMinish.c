@@ -2,14 +2,10 @@
 #include "entity.h"
 #include "npc.h"
 #include "functions.h"
-#include "textbox.h"
-#include "flags.h"
-#include "save.h"
-#include "script.h"
 
-extern u32 sub_080002C0();
+extern u32 sub_080002C0(u32, u32, u32);
 extern void sub_0806ACC4(Entity*);
-extern void sub_0806AEA8();
+extern void sub_0806AEA8(Entity*);
 extern void sub_0806AEE4(Entity*);
 extern void sub_0806AFE8(Entity*, ScriptExecutionContext*);
 extern void sub_08078850(Entity*, u32, u32, u32*);
@@ -18,7 +14,7 @@ extern u8 gUnk_081125F4[12];
 extern SpriteLoadData gUnk_08112674[];
 extern u32 gUnk_081126D4[4];
 extern u8 gUnk_081126E4[4];
-extern void (*gUnk_081126E8[])();
+extern void (*gUnk_081126E8[])(Entity*);
 extern Dialog gUnk_081126F0[0x10];
 extern void (*gUnk_08112BF0[])(Entity*, ScriptExecutionContext*);
 extern u16 gUnk_08112C40[5];
@@ -63,8 +59,6 @@ void sub_0806AC3C(Entity* this) {
         }
 
         if (unk != this->field_0x68.HALF.HI) {
-            s32 temp;
-
             if (((unk - this->field_0x68.HALF.HI) & 0x1f) <= 0xf) {
                 this->field_0x68.HALF.HI--;
             } else {
@@ -174,7 +168,7 @@ void sub_0806AEA8(Entity* this) {
     int old = this->field_0x82.HWORD;
     this->field_0x82.HWORD &= ~0x20;
     if (old & 0x20) {
-        sub_08003FC4(this, 0x4000);
+        GravityUpdate(this, 0x4000);
     }
     HandleEntity0x82Actions(this);
     this->field_0x82.HWORD = old;
@@ -226,7 +220,7 @@ void sub_0806AF70(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_0806AF78(Entity* this, ScriptExecutionContext* context) {
-    sub_08003FC4(this, 0x1800);
+    GravityUpdate(this, 0x1800);
     if (0 <= this->z.WORD && this->zVelocity < 1) {
         this->z.WORD = 0;
         sub_0806AF70(this, context);

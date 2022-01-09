@@ -64,7 +64,7 @@ void sub_0806E65C(Entity* this) {
                 sub_0806E6A8(this);
             }
         } else {
-            sub_080791D0();
+            ResetPlayerAnimationAndAction();
         }
         SoundReq(SFX_VO_CUCCO_CALL);
         this->interactType = 0;

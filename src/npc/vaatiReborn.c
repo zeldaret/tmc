@@ -1,9 +1,5 @@
 #include "global.h"
 #include "npc.h"
-#include "coord.h"
-#include "flags.h"
-#include "audio.h"
-#include "textbox.h"
 #include "functions.h"
 
 void VaatiRebornAction0(Entity* this);

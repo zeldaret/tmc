@@ -13,7 +13,7 @@ SCRIPT_START script_Object6ABrokenSword
 SCRIPT_END
 script_0800D242:
 	DoPostScriptAction 0x0007
-	_0807E930 0x0003
+	SetAnimation 0x0003
 SCRIPT_END
 script_0800D24C:
 	DoPostScriptAction 0x0006

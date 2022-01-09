@@ -51,7 +51,7 @@ _0801708A:
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080170A4
-	bl sub_0807A108
+	bl DeleteClones
 _080170A4:
 	bl sub_08079B24
 	cmp r0, #0
@@ -111,7 +111,7 @@ _08017112:
 	ldrb r0, [r0, #1]
 	cmp r0, #0
 	bne _0801714E
-	ldr r0, _08017168 @ =gScreenTransition
+	ldr r0, _08017168 @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #0x5a
 	bl __modsi3
@@ -150,7 +150,7 @@ _0801714E:
 	.align 2, 0
 _08017160: .4byte gMessage
 _08017164: .4byte gUnk_0200AF00
-_08017168: .4byte gScreenTransition
+_08017168: .4byte gRoomTransition
 _0801716C: .4byte gSave
 _08017170: .4byte 0x0000011F
 _08017174:
