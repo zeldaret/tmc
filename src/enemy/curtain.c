@@ -1,8 +1,8 @@
 #include "enemy.h"
 #include "entity.h"
 
-extern void (*const gUnk_080D1CC8[])(Entity*);
-extern void (*const gUnk_080D1CE0[])(Entity*);
+void (*const gUnk_080D1CC8[])(Entity*);
+void (*const gUnk_080D1CE0[])(Entity*);
 
 void Curtain(Entity* this) {
     EnemyFunctionHandler(this, gUnk_080D1CC8);
@@ -67,3 +67,14 @@ void sub_08048294(Entity* this) {
 
 void nullsub_27() {
 }
+
+void (*const gUnk_080D1CC8[])(Entity*) = {
+    sub_080481D0, sub_080481E8, sub_08001324, sub_0804A7D4, sub_08001242, nullsub_26,
+};
+
+void (*const gUnk_080D1CE0[])(Entity*) = {
+    sub_08048224,
+    sub_08048268,
+    sub_08048294,
+    nullsub_27,
+};

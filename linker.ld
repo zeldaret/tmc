@@ -1101,7 +1101,7 @@ SECTIONS {
         data/const/enemy/gyorgFemale.o(.rodata);
         src/enemy/gyorgMale.o(.rodata);
         data/animations/enemy/gyorgMale.o(.rodata);
-        data/const/enemy/curtain.o(.rodata);
+        src/enemy/curtain.o(.rodata);
         data/animations/enemy/curtain.o(.rodata);
         src/enemy/vaatiWrathEye.o(.rodata);
         data/animations/enemy/vaatiWrathEye.o(.rodata);
