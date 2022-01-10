@@ -75,15 +75,9 @@ void sub_0803350C(BombarossaEntity* this) {
 }
 
 void (*const gUnk_080CEB38[])(Entity*) = {
-	(EntityActionPtr) sub_080333D4,
-	(EntityActionPtr) sub_08033448,
-	sub_08001324,
-	sub_0804A7D4,
-	sub_08001242,
-	nullsub_158,
+    (EntityActionPtr)sub_080333D4, (EntityActionPtr)sub_08033448, sub_08001324, sub_0804A7D4, sub_08001242, nullsub_158,
 };
 
 const s8 gUnk_080CEB50[] = {
-    0, -1, -2, -3, -4, -3, -2, -1,
-    -18, -19, -20, -21, -22, -21, -20, -19,
+    0, -1, -2, -3, -4, -3, -2, -1, -18, -19, -20, -21, -22, -21, -20, -19,
 };
