@@ -20,7 +20,7 @@ typedef struct {
     u8 unk_7;
 } KidHeap;
 
-extern u16 gUnk_0810BDE8[];
+extern u16 gUnk_0810BDE8[][2];
 
 extern Dialog gUnk_0810BE10[];
 
@@ -193,12 +193,11 @@ NONMATCH("asm/non_matching/kid/sub_0806252C.inc", void sub_0806252C(Entity* this
 }
 END_NONMATCH
 
-NONMATCH("asm/non_matching/kid/sub_08062634.inc", void sub_08062634(Entity* this)) {
+void sub_08062634(Entity* this) {
     u32 a = this->type2;
     u32 b = (Random() & 1);
-    MessageNoOverlap(*((u16*)gUnk_0810BDE8 + b + a * 2), this);
+    MessageNoOverlap(gUnk_0810BDE8[a][b], this);
 }
-END_NONMATCH
 
 NONMATCH("asm/non_matching/kid/sub_0806265C.inc", void sub_0806265C(Entity* this, ScriptExecutionContext* context)) {
     if (gSave.global_progress == 0) {
