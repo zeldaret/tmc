@@ -25925,11 +25925,6 @@
     "type": "animation"
   },
   {
-    "path": "bombarossa/gUnk_080CEB50.bin",
-    "start": 846672,
-    "size": 16
-  },
-  {
     "path": "animations/gSpriteAnimations_Wisp_0.bin",
     "start": 846764,
     "size": 17,
