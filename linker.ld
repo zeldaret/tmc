@@ -1031,7 +1031,7 @@ SECTIONS {
         data/animations/enemy/crow.o(.rodata);
         data/const/enemy/mulldozer.o(.rodata);
         data/animations/enemy/mulldozer.o(.rodata);
-        data/const/enemy/bombarossa.o(.rodata);
+        src/enemy/bombarossa.o(.rodata);
         data/animations/enemy/bombarossa.o(.rodata);
         data/const/enemy/wisp.o(.rodata);
         data/animations/enemy/wisp.o(.rodata);
