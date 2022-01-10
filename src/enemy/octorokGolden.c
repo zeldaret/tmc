@@ -2,11 +2,11 @@
 #include "enemy.h"
 #include "functions.h"
 
+void (*const gUnk_080CF46C[])(Entity*);
+void (*const gUnk_080CF484[])(Entity*);
 extern void (*const gUnk_080012C8[])(Entity*);
-extern void (*const gUnk_080CF46C[])(Entity*);
-extern void (*const gUnk_080CF484[])(Entity*);
-extern s8 gUnk_080CF490[];
-extern u8 gUnk_080CF498[];
+const s8 gUnk_080CF490[];
+const u8 gUnk_080CF498[];
 
 extern u16* GetLayerByIndex(u32);
 extern s32 sub_080012DC(Entity*);
@@ -82,7 +82,7 @@ void sub_08037D54(Entity* this) {
         if (this->frame & 0x2) {
             Entity* proj = CreateProjectileWithParent(this, 1, 0);
             if (proj) {
-                s8* ptr;
+                const s8* ptr;
                 s32 dir;
                 proj->direction = this->direction;
                 ptr = gUnk_080CF490 + (this->direction >> 2);
@@ -110,7 +110,7 @@ void sub_08037D54(Entity* this) {
 void sub_08037E14(Entity* this) {
     u32 dir;
     u16* pLayer;
-    s8* ptr;
+    const s8* ptr;
     s32 x, y;
     this->actionDelay = 0x8;
     dir = (GetFacingDirection(this, &gPlayerEntity) + 4) & 0x18;
@@ -144,3 +144,21 @@ bool32 sub_08037E90(Entity* this) {
 
     return 0;
 }
+
+void (*const gUnk_080CF46C[])(Entity*) = {
+    sub_08037C84, sub_08037C9C, sub_08001324, sub_08037CC0, sub_08001242, sub_08037C84,
+};
+
+void (*const gUnk_080CF484[])(Entity*) = {
+    sub_08037CE4,
+    sub_08037D0C,
+    sub_08037D54,
+};
+
+const s8 gUnk_080CF490[] = {
+    0, -3, 4, 0, 0, 2, -4, 0,
+};
+
+const u8 gUnk_080CF498[] = {
+    0, -12, 12, 0, 0, 12, -12, 0,
+};

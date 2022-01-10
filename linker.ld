@@ -1048,7 +1048,7 @@ SECTIONS {
         data/const/enemy/flyingPot.o(.rodata);
         data/const/enemy/gibdo.o(.rodata);
         data/animations/enemy/gibdo.o(.rodata);
-        data/const/enemy/octorokGolden.o(.rodata);
+        src/enemy/octorokGolden.o(.rodata);
         data/const/enemy/tektiteGolden.o(.rodata);
         data/const/enemy/ropeGolden.o(.rodata);
         data/const/enemy/cloudPiranha.o(.rodata);
@@ -1064,7 +1064,7 @@ SECTIONS {
         src/enemy/mazaalBracelet.o(.rodata);
         data/animations/enemy/mazaalBracelet.o(.rodata);
         data/const/enemy/takkuri.o(.rodata);
-        data/const/enemy/bowMoblin.o(.rodata);
+        src/enemy/bowMoblin.o(.rodata);
         data/animations/enemy/bowMoblin.o(.rodata);
         src/enemy/lakitu.o(.rodata);
         data/animations/enemy/lakitu.o(.rodata);
@@ -1402,7 +1402,7 @@ SECTIONS {
         data/animations/object/pressurePlate.o(.rodata);
         data/const/object/bigBarrel.o(.rodata);
         data/animations/object/bigBarrel.o(.rodata);
-        data/const/object/barrelInside.o(.rodata);
+        src/object/barrelInside.o(.rodata);
         data/const/object/pushableStatue.o(.rodata);
         data/animations/object/pushableStatue.o(.rodata);
         data/const/object/ambientClouds.o(.rodata);
@@ -1508,7 +1508,7 @@ SECTIONS {
         data/const/object/macroDecorations.o(.rodata);
         data/const/object/object79.o(.rodata);
         data/animations/object/object79.o(.rodata);
-        data/const/object/steam.o(.rodata);
+        src/object/steam.o(.rodata);
         data/const/object/pushableLever.o(.rodata);
         data/animations/object/pushableLever.o(.rodata);
         data/const/object/macroShoes.o(.rodata);
