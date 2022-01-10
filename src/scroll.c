@@ -30,7 +30,7 @@ void sub_08080910(void) {
     gRoomTransition.type = TRANSITION_CUT;
 }
 
-void sub_0808091C(ScreenTransitionData* param_1, u32 param_2) {
+void sub_0808091C(const ScreenTransitionData* param_1, u32 param_2) {
     DoExitTransition(param_1);
     gRoomTransition.type = param_2;
 }

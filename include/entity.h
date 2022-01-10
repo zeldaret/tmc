@@ -195,7 +195,7 @@ typedef struct Entity_ {
     /*0x60*/ u16 spriteVramOffset;
     /*0x62*/ u8 spriteOffsetX;
     /*0x63*/ s8 spriteOffsetY;
-    /*0x64*/ u32* myHeap; /**< Heap data allocated with #zMalloc. */
+    /*0x64*/ void* myHeap; /**< Heap data allocated with #zMalloc. */
 #ifndef NENT_DEPRECATED
     /*0x68*/ union SplitHWord field_0x68;
     /*0x6a*/ union SplitHWord field_0x6a;
@@ -213,6 +213,24 @@ typedef struct Entity_ {
     /*0x86*/ union SplitHWord field_0x86;
 #endif
 } Entity;
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ union SplitHWord field_0x68;
+    /*0x6a*/ union SplitHWord field_0x6a;
+    /*0x6c*/ union SplitHWord field_0x6c;
+    /*0x6e*/ union SplitHWord field_0x6e;
+    /*0x70*/ union SplitWord field_0x70;
+    /*0x74*/ union SplitHWord field_0x74;
+    /*0x76*/ union SplitHWord field_0x76;
+    /*0x78*/ union SplitHWord field_0x78;
+    /*0x7a*/ union SplitHWord field_0x7a;
+    /*0x7c*/ union SplitWord field_0x7c;
+    /*0x80*/ union SplitHWord field_0x80;
+    /*0x82*/ union SplitHWord field_0x82;
+    /*0x84*/ union SplitHWord cutsceneBeh;
+    /*0x86*/ union SplitHWord field_0x86;
+} GenericEntity;
 
 /**
  * Entity linked list structure.

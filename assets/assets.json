@@ -28603,177 +28603,6 @@
     "size": 22
   },
   {
-    "path": "gyorgFemale/gUnk_080D1A84.bin",
-    "start": 858756,
-    "size": 16
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1A94_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 858164
-    },
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1A94_1_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 856792
-    },
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1A94_2_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 856512
-    },
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1A94_3_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 858772,
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1AAC_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 858188
-    },
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1AAC_1_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 856816
-    },
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1AAC_2_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 856536
-    },
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1AAC_3_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 858796,
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1AC4_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 858212
-    },
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1AC4_1_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 856840
-    },
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1AC4_2_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 856560
-    },
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1AC4_3_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 858820,
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1ADC_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 858236
-    },
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1ADC_1_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 856864
-    },
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1ADC_2_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 856584
-    },
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1ADC_3_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 858844,
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1AF4.bin",
-    "start": 858868,
-    "size": 4
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1AF8.bin",
-    "start": 858872,
-    "size": 4
-  },
-  {
     "path": "animations/gSpriteAnimations_GyorgMale_0.bin",
     "start": 859248,
     "size": 33,
@@ -28960,11 +28789,6 @@
     "type": "animation"
   },
   {
-    "path": "gyorgChild/gUnk_080D1EA0.bin",
-    "start": 859808,
-    "size": 22
-  },
-  {
     "path": "animations/gSpriteAnimations_GyorgFemaleEye_0.bin",
     "start": 860240,
     "size": 20,
@@ -29107,21 +28931,6 @@
     "start": 860772,
     "size": 16,
     "type": "animation"
-  },
-  {
-    "path": "gyorgFemaleEye/gUnk_080D1F90.bin",
-    "start": 860048,
-    "size": 128
-  },
-  {
-    "path": "gyorgFemaleEye/gUnk_080D2010.bin",
-    "start": 860176,
-    "size": 32
-  },
-  {
-    "path": "gyorgFemaleEye/gUnk_080D2030.bin",
-    "start": 860208,
-    "size": 32
   },
   {
     "path": "animations/gSpriteAnimations_Enemy62_0.bin",
@@ -29540,51 +29349,6 @@
     "start": 862543,
     "size": 17,
     "type": "animation"
-  },
-  {
-    "path": "gyorgFemaleMouth/gUnk_080D28CC.bin",
-    "start": 862412,
-    "size": 16
-  },
-  {
-    "path": "gyorgFemaleMouth/gUnk_080D28DC.bin",
-    "start": 862428,
-    "size": 8
-  },
-  {
-    "path": "gyorgFemaleMouth/gUnk_080D28E4.bin",
-    "start": 862436,
-    "size": 8
-  },
-  {
-    "path": "gyorgFemaleMouth/gUnk_080D28EC.bin",
-    "start": 862444,
-    "size": 8
-  },
-  {
-    "path": "gyorgFemaleMouth/gUnk_080D28F4.bin",
-    "start": 862452,
-    "size": 8
-  },
-  {
-    "path": "gyorgFemaleMouth/gUnk_080D28FC.bin",
-    "start": 862460,
-    "size": 8
-  },
-  {
-    "path": "gyorgFemaleMouth/gUnk_080D2904.bin",
-    "start": 862468,
-    "size": 8
-  },
-  {
-    "path": "gyorgFemaleMouth/gUnk_080D290C.bin",
-    "start": 862476,
-    "size": 8
-  },
-  {
-    "path": "gyorgFemaleMouth/gUnk_080D2914.bin",
-    "start": 862484,
-    "size": 8
   },
   {
     "path": "enemy64/gUnk_080D29B8.bin",
@@ -47120,11 +46884,6 @@
     "path": "gyorgBossObject/gUnk_08124FDC.bin",
     "start": 1200092,
     "size": 20
-  },
-  {
-    "path": "gyorgBossObject/gUnk_08124EF8.bin",
-    "start": 1199864,
-    "size": 16
   },
   {
     "path": "windcrest/gUnk_08125010.bin",

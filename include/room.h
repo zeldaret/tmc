@@ -215,6 +215,6 @@ void LoadRoomEntityList(EntityData* listPtr);
 void sub_0804B3C4(void*);
 void sub_0804B0B0(u32 arg0, u32 arg1);
 
-void DoExitTransition(ScreenTransitionData* data);
+void DoExitTransition(const ScreenTransitionData* data);
 
 #endif

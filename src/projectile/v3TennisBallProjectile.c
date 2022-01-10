@@ -77,25 +77,25 @@ void V3TennisBallProjectile_Action2(Entity* this) {
 bool32 sub_080ACB40(Entity* this) {
     Entity* r1_grandparent = this->parent->parent;
     Entity* child = this->child;
-    Entity* tmp = ((Entity*)(r1_grandparent->myHeap[7]))->child;
+    Entity* tmp = ((Entity**)(r1_grandparent->myHeap))[7]->child;
 
     if (tmp != this && child == tmp->child) {
         return 0;
     }
 
-    tmp = ((Entity*)(r1_grandparent->myHeap[8]))->child;
+    tmp = ((Entity**)(r1_grandparent->myHeap))[8]->child;
 
     if (tmp != this && child == tmp->child) {
         return 0;
     }
 
-    tmp = ((Entity*)(r1_grandparent->myHeap[9]))->child;
+    tmp = ((Entity**)(r1_grandparent->myHeap))[9]->child;
 
     if (tmp != this && child == tmp->child) {
         return 0;
     }
 
-    tmp = ((Entity*)(r1_grandparent->myHeap[10]))->child;
+    tmp = ((Entity**)(r1_grandparent->myHeap))[10]->child;
 
     if (tmp != this && child == tmp->child) {
         return 0;
