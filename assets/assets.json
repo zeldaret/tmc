@@ -26940,11 +26940,6 @@
     "type": "animation"
   },
   {
-    "path": "flyingSkull/gUnk_080CFBE4.bin",
-    "start": 850916,
-    "size": 4
-  },
-  {
     "path": "animations/gSpriteAnimations_MazaalBracelet_0.bin",
     "start": 851296,
     "size": 17,
