@@ -235,7 +235,7 @@ void EraseAllEntities(void) {
 extern Entity gUnk_030015A0[0x48];
 extern Entity gUnk_03003BE0;
 
-NONMATCH("./asm/getEmptyEntity.s", Entity* GetEmptyEntity()) {
+NONMATCH("asm/non_matching/GetEmptyEntity.inc", Entity* GetEmptyEntity()) {
     u8 flags_ip;
     Entity* ptr;
     Entity* end;

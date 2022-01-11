@@ -1,11 +1,4 @@
-	.include "asm/macros.inc"
-
-	.include "constants/constants.inc"
-
 	.syntax unified
-
-	.text
-
 	push {r4, lr}
 	bl CheckHeaderValid
 	cmp r0, #0

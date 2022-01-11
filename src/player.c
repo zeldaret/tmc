@@ -324,7 +324,7 @@ extern u16 script_BedAtSimons;
 extern Entity* gPlayerClones[];
 extern ScriptExecutionContext gPlayerScriptExecutionContext;
 
-NONMATCH("asm/non_matching/playerItemPacciCane/sub_080705AC.inc", u32 CheckPlayerInactive(void)) {
+NONMATCH("asm/non_matching/playerItemPacciCane/CheckPlayerInactive.inc", u32 CheckPlayerInactive(void)) {
     if (!((gInput.newKeys & START_BUTTON) == 0 || gFadeControl.active || gUnk_02034490[0] ||
           (gMessage.doTextBox & 0x7F) || gSave.stats.health == 0 || !gSave.fillerD0[34] ||
           gPlayerState.controlMode != 0 || gPriorityHandler.priority_timer != 0)) {
@@ -703,7 +703,7 @@ static void PlayerBounceInit(Entity* this) {
 }
 
 // minor regalloc
-static NONMATCH("asm/non_matching/player/sub_08070DC4.inc", void PlayerBounceUpdate(Entity* this)) {
+static NONMATCH("asm/non_matching/player/PlayerBounceUpdate.inc", void PlayerBounceUpdate(Entity* this)) {
     UpdateAnimationSingleFrame(this);
     sub_080085B0(this);
     UpdatePlayerMovement();

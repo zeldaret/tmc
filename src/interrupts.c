@@ -117,7 +117,7 @@ void sub_08016CA8(BgSettings* bg) {
     }
 }
 
-NONMATCH("asm/non_matching/dispCtrlSet.inc", void DispCtrlSet(void)) {
+NONMATCH("asm/non_matching/DispCtrlSet.inc", void DispCtrlSet(void)) {
     BgControls* controls;
     u16 tmp = gScreen.lcd.displayControl & gScreen.lcd.displayControlMask;
     REG_DISPCNT = tmp;

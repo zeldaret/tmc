@@ -52,7 +52,7 @@ void LoadRoomEntityList(EntityData* listPtr) {
     }
 }
 
-NONMATCH("asm/loadRoomEntity.s", Entity* LoadRoomEntity(EntityData* dat)) {
+NONMATCH("asm/non_matching/LoadRoomEntity.inc", Entity* LoadRoomEntity(EntityData* dat)) {
     int kind;
     Entity* v4;
     Entity* v5;
