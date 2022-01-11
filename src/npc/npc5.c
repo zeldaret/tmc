@@ -556,100 +556,81 @@ NONMATCH("asm/non_matching/npc5/sub_08061358.inc", void sub_08061358(Entity* thi
 }
 END_NONMATCH
 
-NONMATCH("asm/non_matching/npc5/sub_08061464.inc", void sub_08061464(Entity* this, u32 param_a, u32 param_b)) {
-    u8 bVar1;
-    s16 sVar2;
-    s16 sVar3;
-    u16 uVar4;
-    u32 uVar6;
-    u32 uVar7;
-    s32 iVar8;
-    s32 iVar9;
+void sub_08061464(Entity* this, u32 param_a, u32 param_b) {
     s32 iVar10;
-    u16 uVar5;
+    s32 iVar9;
+    u32 bVar1;
 
-    sVar2 = this->x.HALF.HI;
-    iVar10 = (s32)sVar2;
-    sVar3 = this->y.HALF.HI;
-    iVar9 = (s32)sVar3;
-    uVar6 = sub_080045D4(sVar2, sVar3, param_a, param_b);
-    // uVar7 = (uVar6 + 2) & 0x1c;
-    // if (7 < uVar7 >> 2)
-    // goto _08061612;
-    // uVar4 = (u16)param_b;
-    // uVar5 = (u16)param_a;
-    // asm("----");
-    switch (uVar7) {
+    iVar10 = this->x.HALF.HI;
+    iVar9 = this->y.HALF.HI;
+
+    switch (((sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, param_a, param_b) + 2) & 0x1c) >> 2) {
         case 0:
-            this->field_0x6e.HALF.LO = uVar4;
-            if ((s32)param_a < this->x.HALF.HI) {
+            this->field_0x6e.HWORD = param_b;
+            if (this->x.HALF.HI > (s32)param_a) {
                 sub_08061630(this, iVar10, iVar9 + -8, param_a);
                 break;
             }
-            goto _08061504;
-        case 4:
-            this->field_0x6e.HALF.LO = uVar5;
-            iVar8 = sub_08061720(this, iVar10 + 8, iVar9, param_b);
-            if (iVar8 != 0)
-                break;
-            this->field_0x6e.HALF.LO = uVar4;
-        _08061504:
             sub_080616A8(this, iVar10, iVar9 + -8, param_a);
             break;
-        case 8:
-            this->field_0x6e.HALF.LO = uVar5;
-            if ((s32)param_b < this->y.HALF.HI) {
+        case 1:
+            this->field_0x6e.HWORD = param_a;
+            if (sub_08061720(this, iVar10 + 8, iVar9, param_b) != 0)
+                break;
+            this->field_0x6e.HWORD = param_b;
+            sub_080616A8(this, iVar10, iVar9 + -8, param_a);
+            break;
+        case 2:
+            this->field_0x6e.HWORD = param_a;
+            if (this->y.HALF.HI > (s32)param_b) {
                 sub_08061720(this, iVar10 + 8, iVar9, param_b);
             } else {
                 sub_08061798(this, iVar10 + 8, iVar9, param_b);
             }
             break;
-        case 0xc:
-            this->field_0x6e.HALF.LO = uVar5;
-            iVar8 = sub_08061798(this, iVar10 + 8, iVar9, param_b);
-            if (iVar8 != 0)
+        case 3:
+            this->field_0x6e.HWORD = param_a;
+            if (sub_08061798(this, iVar10 + 8, iVar9, param_b) != 0)
                 break;
-            this->field_0x6e.HALF.LO = uVar4;
-            goto _08061574;
-        case 0x10:
-            this->field_0x6e.HALF.LO = uVar4;
-            if ((s32)param_a < this->x.HALF.HI)
-                goto _080615A4;
-        _08061574:
+            this->field_0x6e.HWORD = param_b;
             sub_08061888(this, iVar10, iVar9 + 8, param_a);
             break;
-        case 0x14:
-            this->field_0x6e.HALF.LO = uVar5;
-            iVar8 = sub_08061978(this, iVar10 + -8, iVar9, param_b);
-            if (iVar8 != 0)
+        case 4:
+            this->field_0x6e.HWORD = param_b;
+            if (this->x.HALF.HI > (s32)param_a) {
+                sub_08061810(this, iVar10, iVar9 + 8, param_a);
                 break;
-            this->field_0x6e.HALF.LO = uVar4;
-        _080615A4:
+            }
+            sub_08061888(this, iVar10, iVar9 + 8, param_a);
+            break;
+        case 5:
+            this->field_0x6e.HWORD = param_a;
+            if (sub_08061978(this, iVar10 + -8, iVar9, param_b) != 0)
+                break;
+            this->field_0x6e.HWORD = param_b;
             sub_08061810(this, iVar10, iVar9 + 8, param_a);
             break;
-        case 0x18:
-            this->field_0x6e.HALF.LO = uVar5;
-            if ((s32)param_b < this->y.HALF.HI) {
+        case 6:
+            this->field_0x6e.HWORD = param_a;
+            if (this->y.HALF.HI > (s32)param_b) {
                 sub_08061900(this, iVar10 + -8, iVar9, param_b);
             } else {
                 sub_08061978(this, iVar10 + -8, iVar9, param_b);
             }
             break;
-        case 0x1c:
-            this->field_0x6e.HALF.LO = uVar5;
-            iVar8 = sub_08061900(this, iVar10 + -8, iVar9, param_b);
-            if (iVar8 == 0) {
-                this->field_0x6e.HALF.LO = uVar4;
+        case 7:
+            this->field_0x6e.HWORD = param_a;
+            if (sub_08061900(this, iVar10 + -8, iVar9, param_b) == 0) {
+                this->field_0x6e.HWORD = param_b;
                 sub_08061630(this, iVar10, iVar9 + -8, param_a);
             }
     }
-    bVar1 = ((UnkHeap*)this->myHeap)->unk_0;
-    if ((bVar1 & 8) == 0) {
+    bVar1 = ((UnkHeap*)this->myHeap)->unk_0 & 8;
+    if (bVar1 == 0) {
         this->action = 3;
-        this->subAction = bVar1 & 8;
+        this->subAction = bVar1;
     }
 }
-END_NONMATCH
 
 bool32 sub_08061630(Entity* this, s32 x, s32 y, s32 param) {
     u32 param_y = y;
