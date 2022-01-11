@@ -5,7 +5,7 @@
 #include "room.h"
 #include "asm.h"
 
-extern u8 gUnk_08123484[];
+const u8 gUnk_08123484[];
 
 typedef struct {
     Entity base;
@@ -57,3 +57,7 @@ void Steam(Entity* _this) {
     super->spriteOffsetX = gUnk_08123484[super->field_0xf];
     super->spriteOffsetY = gUnk_08123484[super->field_0xf] + *ptr;
 }
+
+const u8 gUnk_08123484[] = {
+    0xfc, 0xfd, 0xfe, 0xff, 0x0, 0x1, 0x2, 0x3, 0x4, 0x3, 0x2, 0x1, 0x0, 0xff, 0xfe, 0xfd,
+};
