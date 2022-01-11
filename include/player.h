@@ -247,8 +247,7 @@ typedef struct {
     /*0x08*/ u8 filler[2];
     /*0x0a*/ u8 charm;
     /*0x0b*/ u8 unkB;
-    /*0x0c*/ u8 itemOnA;
-    /*0x0d*/ u8 itemOnB;
+    /*0x0c*/ u8 itemButtons[2];
     /*0x0e*/ u8 bottles[4];
     /*0x12*/ u8 effect;
     /*0x13*/ u8 filler3[5];
@@ -259,6 +258,9 @@ typedef struct {
     /*0x20*/ u16 effectTimer;
     /*0x22*/ u8 filler4[4];
 } Stats;
+
+#define itemOnA itemButtons[0]
+#define itemOnB itemButtons[1]
 
 typedef struct {
     /*0x0*/ u8 field_0x0;
