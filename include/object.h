@@ -56,7 +56,7 @@ typedef enum {
     OBJECT_17,
     EVIL_SPIRIT,
     HOUSE_DOOR_EXT,
-    OBJECT_1A,
+    OBJECT_RUPEE,
     GREAT_FAIRY,
     OBJECT_1C,
     OBJECT_1D,
@@ -252,7 +252,7 @@ void FloatingPlatform(Entity*);
 void Object17(Entity*);
 void EvilSpirit(Entity*);
 void HouseDoorExterior(Entity*);
-void Object1A(Entity*);
+void Rupee(Entity*);
 void GreatFairy(Entity*);
 void Object1C(Entity*);
 void Object1D(Entity*);
