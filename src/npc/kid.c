@@ -68,7 +68,7 @@ void sub_08062194(Entity* this) {
     this->interactType = 0;
 }
 
-NONMATCH("asm/non_matching/kid/sub_080621AC.inc", void sub_080621AC(Entity* this)) {
+void sub_080621AC(Entity* this) {
     u32 tmp;
 
     switch (this->action) {
@@ -115,8 +115,8 @@ NONMATCH("asm/non_matching/kid/sub_080621AC.inc", void sub_080621AC(Entity* this
                     }
                 }
                 sub_0806265C(this, *(ScriptExecutionContext**)&this->cutsceneBeh);
+                tmp = this->animIndex;
             }
-            // TODO this needs to be moved up somehow?
             this->field_0x6a.HALF.HI = this->animIndex;
             if (this->animIndex < 8) {
                 InitializeAnimation(this, (this->animIndex & 0xfffffffc) +
@@ -138,7 +138,6 @@ NONMATCH("asm/non_matching/kid/sub_080621AC.inc", void sub_080621AC(Entity* this
             break;
     }
 }
-END_NONMATCH
 
 ASM_FUNC("asm/non_matching/kid/sub_080622F4.inc", void sub_080622F4(Entity* this))
 
