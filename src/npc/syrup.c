@@ -41,20 +41,21 @@ void sub_0806A234(Entity* this) {
 
 extern u8 gUnk_081121DC[];
 
-NONMATCH("asm/non_matching/syrup/sub_0806A26C.inc", void sub_0806A26C(Entity* this)) {
+void sub_0806A26C(Entity* this) {
     u8 unk;
-    u32 uVar2;
+    u8* ptr;
+    u32 uVar2, uVar1;
     Entity* pEVar1;
     pEVar1 = CreateObject(SPECIAL_FX, 0x2f, 0);
     if (pEVar1 != NULL) {
         PositionEntityOnTop(this, pEVar1);
-        if (uVar2 = Random(), uVar2) {
-            unk = -unk; // wtf?!
-        }
-        pEVar1->spriteOffsetX = (u8)gUnk_081121DC[uVar2 & 7];
-        pEVar1->spriteOffsetY = (u8)gUnk_081121DC[(uVar2 / 256) & 7] - 8;
+        uVar2 = uVar1 = Random();
+        ptr = gUnk_081121DC;
+        pEVar1->spriteOffsetX = (u8)ptr[uVar2 & 7];
+        uVar1 /= 256;
+        uVar1 &= 7;
+        pEVar1->spriteOffsetY = (u8)ptr[uVar1] - 8;
     }
 }
-END_NONMATCH
 
 ASM_FUNC("asm/non_matching/syrup/Syrup_Head.inc", void Syrup_Head(Entity* this))
