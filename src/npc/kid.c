@@ -199,14 +199,15 @@ void sub_08062634(Entity* this) {
     MessageNoOverlap(gUnk_0810BDE8[a][b], this);
 }
 
-NONMATCH("asm/non_matching/kid/sub_0806265C.inc", void sub_0806265C(Entity* this, ScriptExecutionContext* context)) {
+void sub_0806265C(Entity* this, ScriptExecutionContext* context) {
     if (gSave.global_progress == 0) {
         MessageNoOverlap(0, this);
     } else {
-        ShowNPCDialogue(this, &gUnk_0810BE10[this->type * 9 + gSave.global_progress]);
+        Dialog* pDialog = &gUnk_0810BE10[this->type * 9];
+        pDialog += gSave.global_progress;
+        ShowNPCDialogue(this, pDialog);
     }
 }
-END_NONMATCH
 
 void sub_08062698(Entity* this) {
     this->speed = (Random() & 0x3f) + 0xc0;
