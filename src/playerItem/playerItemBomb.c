@@ -13,13 +13,13 @@ extern void sub_08079BD8(Entity*);
 
 extern void sub_08008796(Entity*, u32, u32, u32);
 
-NONMATCH("asm/non_matching/playerItemBomb/PlayerItemBomb.inc", void PlayerItemBomb(Entity* this)) {
-    u8 uVar1;
+void PlayerItemBomb(Entity* this) {
+    u8 uVar1, uVar2;
 
     gUnk_080B77C8[this->action](this);
     GetNextFrame(this);
     // TODO regalloc
-    uVar1 = this->action;
+    uVar2 = uVar1 = this->action;
     if (uVar1 != 0x03) {
         if (this->actionDelay != 0) {
             if (this->field_0x68.HALF.LO == 7) {
@@ -52,7 +52,6 @@ NONMATCH("asm/non_matching/playerItemBomb/PlayerItemBomb.inc", void PlayerItemBo
         }
     }
 }
-END_NONMATCH
 
 ASM_FUNC("asm/non_matching/playerItemBomb/sub_0801B250.inc", void sub_0801B250(Entity* this))
 
