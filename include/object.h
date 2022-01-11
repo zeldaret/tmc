@@ -56,7 +56,7 @@ typedef enum {
     OBJECT_17,
     EVIL_SPIRIT,
     HOUSE_DOOR_EXT,
-    OBJECT_RUPEE,
+    RUPEE_OBJECT,
     GREAT_FAIRY,
     OBJECT_1C,
     OBJECT_1D,

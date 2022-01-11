@@ -330,7 +330,7 @@ void sub_0803C0AC(Entity* this) {
     }
 
     for (; index != 0; index--) {
-        Entity* obj = CreateObject(OBJECT_RUPEE, rupeeType, 0);
+        Entity* obj = CreateObject(RUPEE_OBJECT, rupeeType, 0);
 
         if (obj) {
             CopyPosition(ent, obj);
