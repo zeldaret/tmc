@@ -769,7 +769,7 @@ void sub_08034B0C(Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/mazaal/sub_08034B38.inc", void sub_08034B38(Entity* this)) {
+void sub_08034B38(Entity* this) {
     Entity* target;
     const s8* ptr;
 
@@ -779,7 +779,7 @@ NONMATCH("asm/non_matching/mazaal/sub_08034B38.inc", void sub_08034B38(Entity* t
     } else {
         target = CreateProjectile(0xe);
         if (target != NULL) {
-            target->type -= 2;
+            target->type = this->type - 2;
             if (target->type == 0) {
                 target->direction = 0xa8 - this->actionDelay;
             } else {
@@ -790,7 +790,6 @@ NONMATCH("asm/non_matching/mazaal/sub_08034B38.inc", void sub_08034B38(Entity* t
         }
     }
 }
-END_NONMATCH
 
 void sub_08034BA0(Entity* this) {
     GetNextFrame(this);
