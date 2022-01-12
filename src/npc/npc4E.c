@@ -176,8 +176,8 @@ u32 sub_0806DBF4(u32 param_1) {
 }
 
 void sub_0806DC3C(Entity* this) {
-    this->field_0x68.HALF.LO = gSave.stats.itemOnA;
-    this->field_0x68.HALF.HI = gSave.stats.itemOnB;
+    this->field_0x68.HALF.LO = gSave.stats.itemButtons[SLOT_A];
+    this->field_0x68.HALF.HI = gSave.stats.itemButtons[SLOT_B];
 }
 
 void sub_0806DC58(Entity* this) {

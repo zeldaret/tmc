@@ -298,18 +298,16 @@ void sub_0806D514(Entity* this) {
 
 ASM_FUNC("asm/non_matching/bigGoron/sub_0806D520.inc", void sub_0806D520(Entity* this, u32 param))
 
-// TODO itemOnA and itemOnB would need to be in array?
-NONMATCH("asm/non_matching/bigGoron/sub_0806D5D4.inc", void sub_0806D5D4(void)) {
+void sub_0806D5D4(void) {
     u32 itemSlot;
 
     InitBiggoronTimer();
     itemSlot = IsItemEquipped(0xd);
     if (itemSlot != 2) {
-        ((u8*)&gSave.stats.itemOnA)[itemSlot] = 0;
+        gSave.stats.itemButtons[itemSlot] = 0;
     }
     sub_0807CAA0(0xd, 0);
 }
-END_NONMATCH
 
 void sub_0806D600(Entity* this, ScriptExecutionContext* context) {
     context->condition = gSave.timers[2] == 0;
