@@ -259,8 +259,8 @@ typedef struct {
     /*0x22*/ u8 filler4[4];
 } Stats;
 
-#define itemOnA itemButtons[0]
-#define itemOnB itemButtons[1]
+#define SLOT_A 0
+#define SLOT_B 1
 
 typedef struct {
     /*0x0*/ u8 field_0x0;

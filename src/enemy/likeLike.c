@@ -247,12 +247,12 @@ void sub_080281A0(Entity* this) {
 bool32 sub_080281E0(u32 param_1) {
     bool32 ret = FALSE;
     if (GetInventoryValue(param_1) == 1) {
-        if (ItemIsShield(gSave.stats.itemOnA)) {
-            gSave.stats.itemOnA = 0;
+        if (ItemIsShield(gSave.stats.itemButtons[SLOT_A])) {
+            gSave.stats.itemButtons[SLOT_A] = 0;
         }
 
-        if (ItemIsShield(gSave.stats.itemOnB)) {
-            gSave.stats.itemOnB = 0;
+        if (ItemIsShield(gSave.stats.itemButtons[SLOT_B])) {
+            gSave.stats.itemButtons[SLOT_B] = 0;
         }
 
         sub_0807CAA0(param_1, 0);

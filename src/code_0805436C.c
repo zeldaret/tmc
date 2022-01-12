@@ -37,9 +37,9 @@ extern u8 gUnk_080FE1DD[];
 u32 IsItemEquipped(u32 itemID) {
     u32 itemSlot;
 
-    if (itemID == gSave.stats.itemOnA)
+    if (itemID == gSave.stats.itemButtons[SLOT_A])
         itemSlot = 0;
-    else if (itemID == gSave.stats.itemOnB)
+    else if (itemID == gSave.stats.itemButtons[SLOT_B])
         itemSlot = 1;
     else
         itemSlot = 2;
@@ -54,17 +54,17 @@ void PutItemOnSlot(u32 itemID) {
     }
     if (itemID2 - 1 < 0x1f) {
         itemSlot = 2;
-        if (gSave.stats.itemOnA == 0) {
+        if (gSave.stats.itemButtons[SLOT_A] == 0) {
             itemSlot = 0;
-        } else if (gSave.stats.itemOnB == 0) {
+        } else if (gSave.stats.itemButtons[SLOT_B] == 0) {
             itemSlot = 1;
         }
         if (itemSlot == 2) {
             u8 temp = gUnk_080FD5B4[itemID2].unk;
-            if (temp == gUnk_080FD5B4[gSave.stats.itemOnA].unk) {
+            if (temp == gUnk_080FD5B4[gSave.stats.itemButtons[SLOT_A]].unk) {
                 itemSlot = 0;
             } else {
-                if (temp == gUnk_080FD5B4[gSave.stats.itemOnB].unk) {
+                if (temp == gUnk_080FD5B4[gSave.stats.itemButtons[SLOT_B]].unk) {
                     itemSlot = 1;
                 }
             }

@@ -149,10 +149,10 @@ void sub_08068B84(Entity* this) {
 }
 
 void sub_08068BB4(Entity* this) {
-    u32 item = gSave.stats.itemOnA;
+    u32 item = gSave.stats.itemButtons[SLOT_A];
 
     this->field_0x68.HALF.HI = item;
-    item = gSave.stats.itemOnB;
+    item = gSave.stats.itemButtons[SLOT_B];
     *(&this->field_0x68.HALF.HI + 1) = item;
 }
 

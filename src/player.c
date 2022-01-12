@@ -3424,10 +3424,10 @@ void SurfaceAction_14(Entity* this) {
 void SurfaceAction_CloneTile(Entity* this) {
     if (gPlayerState.field_0xa0[0] == 4) {
         u32 item, n, i;
-        if (ItemIsSword(gSave.stats.itemOnA)) {
-            item = gSave.stats.itemOnA;
+        if (ItemIsSword(gSave.stats.itemButtons[SLOT_A])) {
+            item = gSave.stats.itemButtons[SLOT_A];
         } else {
-            item = gSave.stats.itemOnB;
+            item = gSave.stats.itemButtons[SLOT_B];
         }
         switch (item) {
             case 1:
