@@ -228,7 +228,7 @@ u8* const gUnk_08107BE0[] = {
 };
 
 // regalloc in loop
-NONMATCH("asm/non_matching/textbox/TextBoxFunction1.inc", static u32 MsgInit(void)) {
+NONMATCH("asm/non_matching/textbox/MsgInit.inc", static u32 MsgInit(void)) {
     char* dest;
     u32 i;
 
@@ -367,7 +367,7 @@ static void TextDispUpdate(TextRender* this) {
     }
 }
 
-NONMATCH("asm/non_matching/textbox/sub_08056750.inc", static u16 RunTextCommand(TextRender* this)) {
+NONMATCH("asm/non_matching/textbox/RunTextCommand.inc", static u16 RunTextCommand(TextRender* this)) {
     s32 palette;
     u32 chr = this->curToken.extended;
 

@@ -24,7 +24,7 @@ void FlushSprites(void) {
     gOAMControls.updated = 0;
 }
 
-NONMATCH("asm/non_matching/vram/sub_080AD918.inc", void CopyOAM(void)) {
+NONMATCH("asm/non_matching/vram/CopyOAM.inc", void CopyOAM(void)) {
     s32 rem;
     u16* d;
 

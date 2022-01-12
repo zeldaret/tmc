@@ -1,6 +1,3 @@
-
-    .section .text
-
     .syntax unified
 
 	push {r4, r5, r6, r7, lr}

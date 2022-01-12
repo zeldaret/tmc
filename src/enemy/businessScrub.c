@@ -531,7 +531,7 @@ bool32 sub_080291DC(Entity* this) {
     return FALSE;
 }
 
-NONMATCH("asm/non_matching/businessScrub/sub_0802925C.inc", void sub_0802922C(Entity* this)) {
+NONMATCH("asm/non_matching/businessScrub/sub_0802922C.inc", void sub_0802922C(Entity* this)) {
     const struct SalesOffering* offer = (const struct SalesOffering*)this->field_0x7c.WORD;
 
     this->action = 6;
