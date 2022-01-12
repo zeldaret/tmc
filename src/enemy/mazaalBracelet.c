@@ -137,27 +137,28 @@ void sub_0803A170(Entity* this) {
     gUnk_080CFC2C[this->type](this);
 }
 
-NONMATCH("asm/non_matching/mazaal/sub_0803A188.inc", void sub_0803A188(Entity* this)) {
-    Entity* pEVar3;
-    Entity* entity74;
+void sub_0803A188(Entity* this) {
+    Entity* ent;
 
     if (this->type < 2) {
         if (this->action != 0x2b) {
             if ((0 < this->iframes) && ((this->bitfield == 0x95 || (this->bitfield == 0x8e)))) {
                 this->action = 0x28;
                 COLLISION_OFF(this);
-                pEVar3 = this->parent;
-                pEVar3->field_0x7c.BYTES.byte1 = pEVar3->field_0x7c.BYTES.byte1 | (this->type == 0 ? 1 : 2);
-                pEVar3->field_0x80.HALF.LO = (this->type == 0 ? 1 : 2) | pEVar3->field_0x80.HALF.LO;
-                this->child->iframes = this->iframes;
-                entity74 = *(Entity**)&this->field_0x74;
-                entity74->iframes = this->iframes;
+                ent = this->parent;
+                ent->field_0x7c.BYTES.byte1 = ent->field_0x7c.BYTES.byte1 | (this->type == 0 ? 1 : 2);
+                ent->field_0x80.HALF.LO = (this->type == 0 ? 1 : 2) | ent->field_0x80.HALF.LO;
+                ent = this->child;
+                ent->iframes = this->iframes;
+                ent = (*(Entity**)&this->field_0x74);
+                ent->iframes = this->iframes;
                 SoundReq(SFX_BOSS_HIT);
             }
         } else {
-            this->child->iframes = this->iframes;
-            entity74 = *(Entity**)&this->field_0x74;
-            entity74->iframes = this->iframes;
+            ent = this->child;
+            ent->iframes = this->iframes;
+            ent = (*(Entity**)&this->field_0x74);
+            ent->iframes = this->iframes;
             InitializeAnimation(this, 0x18);
             InitAnimationForceUpdate(this->child, 9);
             SoundReq(SFX_BOSS_HIT);
@@ -165,7 +166,6 @@ NONMATCH("asm/non_matching/mazaal/sub_0803A188.inc", void sub_0803A188(Entity* t
     }
     sub_0804AA30(this, gUnk_080CFC14);
 }
-END_NONMATCH
 
 void nullsub_167(Entity* this) {
 }
