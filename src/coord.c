@@ -260,11 +260,10 @@ u32 sub_0806F948(Entity* ent) {
     return ent->animationState;
 }
 
-NONMATCH("asm/non_matching/sub_0806F998.inc", u32 sub_0806F998(Entity* ent)) {
+u32 sub_0806F998(Entity* ent) {
     u8 state = ent->animationState;
     if ((ent->direction & 0x80) == 0) {
-        u8 tmp = ((ent->direction & 0x1c) >> 2);
-        if ((tmp & 0x1) == 0 || ((tmp - state + 1) & 0x4)) {
+        if ((((ent->direction & 0x1c) >> 2) & 0x1) == 0 || ((((ent->direction & 0x1c) >> 2) - state + 1) & 0x4)) {
             u8 dir = ent->direction;
             state = ent->animationState = (dir >> 2) & 0x7e;
             if (ent->animationState <= 4) {
@@ -276,7 +275,6 @@ NONMATCH("asm/non_matching/sub_0806F998.inc", u32 sub_0806F998(Entity* ent)) {
     }
     return state;
 }
-END_NONMATCH
 
 s16 FixedMul(s16 r0, s16 r1) {
     s32 temp = r0 * r1;
