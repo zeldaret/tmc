@@ -1,14 +1,14 @@
 #include "object.h"
 #include "functions.h"
 
-extern void sub_08086A6C(Entity*);
+void sub_08086A6C(Entity*);
 
-extern void (*gUnk_081206C4[99])(Entity*);
+void (*const gUnk_081206C4[])(Entity*);
 
 extern Hitbox gUnk_080FD1A8;
 
 // Main
-void Object1A(Entity* ent) {
+void Rupee(Entity* ent) {
     gUnk_081206C4[ent->action](ent);
 }
 
@@ -55,3 +55,9 @@ void sub_08086A6C(Entity* ent) {
     ent->direction = DirectionNormalize(uVar1 >> 16);
     ent->speed = uVar1 & 480;
 }
+
+void (*const gUnk_081206C4[])(Entity*) = {
+    sub_080869DC,
+    sub_08086A28,
+    sub_08086A5C,
+};

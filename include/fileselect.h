@@ -6,17 +6,17 @@
 #include "save.h"
 
 typedef struct {
-    u8 unk_0x0;
-    u8 filler0[0x4];
-    u8 state;
-    u8 subState;
-    u16 timer;
-    u8 fillerA[0x5];
-    s16 unk_0x10;
-    u16 unk_0x12;
-    u8 fillerB[0xC];
-    u8 unk_0x20;
-    u8 fillerC[0xF];
+    /*0x00*/ u8 unk_0x0;
+    /*0x02*/ u8 filler0[0x4];
+    /*0x06*/ u8 state;
+    /*0x07*/ u8 subState;
+    /*0x08*/ u16 timer;
+    /*0x0a*/ u8 fillerA[0x5];
+    /*0x10*/ s16 unk_0x10;
+    /*0x12*/ u16 unk_0x12;
+    /*0x14*/ u8 fillerB[0xC];
+    /*0x20*/ u8 unk_0x20;
+    /*0x21*/ u8 fillerC[0xF];
 } ChooseFileState;
 static_assert(sizeof(ChooseFileState) == 0x30);
 

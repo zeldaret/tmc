@@ -390,7 +390,7 @@ SECTIONS {
         asm/enemy/stalfos.o(.text);
         src/enemy/flyingSkull.o(.text);
         src/enemy/mazaalBracelet.o(.text);
-        asm/enemy/takkuri.o(.text);
+        src/enemy/takkuri.o(.text);
         src/enemy/bowMoblin.o(.text);
         src/enemy/lakitu.o(.text);
         src/enemy/lakituCloud.o(.text);
@@ -669,7 +669,7 @@ SECTIONS {
         asm/object/object17.o(.text);
         asm/object/evilSpirit.o(.text);
         src/object/houseDoorExterior.o(.text);
-        src/object/object1A.o(.text);
+        src/object/rupee.o(.text);
         src/object/greatFairy.o(.text);
         src/object/object1C.o(.text);
         src/object/object1D.o(.text);
@@ -1063,7 +1063,7 @@ SECTIONS {
         data/animations/enemy/flyingSkull.o(.rodata);
         src/enemy/mazaalBracelet.o(.rodata);
         data/animations/enemy/mazaalBracelet.o(.rodata);
-        data/const/enemy/takkuri.o(.rodata);
+        src/enemy/takkuri.o(.rodata);
         src/enemy/bowMoblin.o(.rodata);
         data/animations/enemy/bowMoblin.o(.rodata);
         src/enemy/lakitu.o(.rodata);
@@ -1384,7 +1384,7 @@ SECTIONS {
         data/const/object/evilSpirit.o(.rodata);
         data/animations/object/evilSpirit.o(.rodata);
         data/const/object/houseDoorExterior.o(.rodata);
-        data/const/object/object1A.o(.rodata);
+        src/object/rupee.o(.rodata);
         src/object/greatFairy.o(.rodata);
         data/animations/npc/greatFairy.o(.rodata);
         data/const/object/object1D.o(.rodata);
