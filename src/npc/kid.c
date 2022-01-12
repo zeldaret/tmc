@@ -223,11 +223,9 @@ void sub_080626C0(Entity* this, ScriptExecutionContext* context) {
     }
 }
 
-NONMATCH("asm/non_matching/kid/sub_080626E0.inc", void sub_080626E0(Entity* this, ScriptExecutionContext* context)) {
+void sub_080626E0(Entity* this, ScriptExecutionContext* context) {
     // TODO second parameter might be anything as this function does not seem to be called?
     s16 sVar1;
-    u8 bVar2;
-    u8 cVar3;
     s32 uVar4;
 
     if (context->unk_18 == 0) {
@@ -235,28 +233,24 @@ NONMATCH("asm/non_matching/kid/sub_080626E0.inc", void sub_080626E0(Entity* this
         context->unk_19 = 10;
         context->postScriptActions |= 2;
         sVar1 = *(s16*)&context->intVariable;
-        context->x.HALF.HI = *((u16*)&context->intVariable + 2) + gRoomControls.origin_x;
+        context->x.HALF.HI = gRoomControls.origin_x + *((u16*)&context->intVariable + 1);
         context->y.HALF.HI = gRoomControls.origin_y + sVar1;
     }
-    bVar2 = context->unk_19 - 1;
-    context->unk_19 = bVar2;
-    if (bVar2 == 0) {
+    if (--context->unk_19 == 0) {
         context->unk_19 = 10;
         uVar4 = sub_080045DA(context->x.HALF.HI - this->x.HALF.HI, context->y.HALF.HI - this->y.HALF.HI);
         this->direction = (u8)uVar4;
         uVar4 = Random();
-        cVar3 = uVar4 % 0xb;
-        this->direction = (this->direction + cVar3) - 5;
+        this->direction = (this->direction + uVar4 % 0xb) - 5;
     }
     sub_0806F62C(this, (s32)this->speed, (u32)this->direction);
-    if ((u32)(s32)this->speed <
-        (u32)((this->x.HALF.HI - context->x.HALF.HI) * 0x100 + ((s32)((u32)(u16)this->speed << 0x10) >> 0x11))) {
-        gActiveScriptInfo.commandSize = 0;
-    } else {
+    if ((u32)((this->x.HALF.HI - context->x.HALF.HI) * 0x100 + ((s32)((u32)(u16)this->speed << 0x10) >> 0x11)) <=
+        (u32)(s32)this->speed) {
         this->x.HALF.HI = context->x.HALF.HI;
+    } else {
+        gActiveScriptInfo.commandSize = 0;
     }
 }
-END_NONMATCH
 
 void sub_08062788(Entity* this, ScriptExecutionContext* context) {
     SetTile(0x4072, 0x60b, 1);
