@@ -535,8 +535,7 @@ void sub_080346C8(Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/mazaal/sub_0803473C.inc", void sub_0803473C(Entity* this)) {
-    u32 direction;
+void sub_0803473C(Entity* this) {
     u32 playerX;
     u32 roomX;
 
@@ -556,7 +555,7 @@ NONMATCH("asm/non_matching/mazaal/sub_0803473C.inc", void sub_0803473C(Entity* t
         if (roomX + 0xe0 < this->x.HALF.HI) {
             return;
         }
-        direction = 8;
+        this->direction = 8;
     } else {
         if (playerX + 4 >= this->x.HALF.HI) {
             return;
@@ -564,12 +563,10 @@ NONMATCH("asm/non_matching/mazaal/sub_0803473C.inc", void sub_0803473C(Entity* t
         if (roomX + 0x90 > this->x.HALF.HI) {
             return;
         }
-        direction = 0x18;
+        this->direction = 0x18;
     }
-    this->direction = direction;
     LinearMoveUpdate(this);
 }
-END_NONMATCH
 
 void sub_080347B4(Entity* this) {
     u32 playerX = gPlayerEntity.x.HALF.HI;
