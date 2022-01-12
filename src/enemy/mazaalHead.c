@@ -619,10 +619,8 @@ void sub_08034830(Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/mazaal/sub_080348A4.inc", u32 sub_080348A4(Entity* this, Entity* hand_, u32 unk)) {
-    u8 bVar1;
-    Entity* pEVar4;
-    u32 temp;
+u32 sub_080348A4(Entity* this, Entity* hand_, u32 unk) {
+    u32 bVar1;
 
     if (hand_->type == 0) {
         bVar1 = 5;
@@ -665,9 +663,10 @@ NONMATCH("asm/non_matching/mazaal/sub_080348A4.inc", u32 sub_080348A4(Entity* th
                 InitializeAnimation(hand_, 5);
                 break;
             case 8:
-                pEVar4 = CreateEnemy(MAZAAL_HEAD, hand_->type + 2);
-                if (pEVar4 != NULL) {
-                    pEVar4->parent = this;
+                bVar1 = hand_->type + 2;
+                hand_ = CreateEnemy(MAZAAL_HEAD, bVar1);
+                if (hand_ != NULL) {
+                    hand_->parent = this;
                 }
                 break;
             default:
@@ -676,7 +675,6 @@ NONMATCH("asm/non_matching/mazaal/sub_080348A4.inc", u32 sub_080348A4(Entity* th
         return 1;
     }
 }
-END_NONMATCH
 
 void sub_0803499C(Entity* this) {
     if (((this->field_0x80.HALF.LO & 0xc) != 0xc) && (this->field_0x80.HALF.HI != 0)) {
