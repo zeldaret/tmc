@@ -473,24 +473,30 @@ bool32 sub_080258C4(Entity* this) {
 }
 
 // regalloc
-NONMATCH("asm/non_matching/puffstool/sub_0802594C.inc", bool32 sub_0802594C(Entity* this, u32 param_2)) {
+bool32 sub_0802594C(Entity* this, u32 param_2) {
     s16 xDiff;
     s16 yDiff;
+    s16 iVar9;
+    u32 uVar1;
     const s8* unk = gUnk_080CC090[param_2];
-    u32 uVar1 = this->collisionLayer;
-    RoomControls* ctrl = &gRoomControls;
-    xDiff = (this->x.HALF.HI - ctrl->origin_x + 8) & -0x10;
-    yDiff = (this->y.HALF.HI - ctrl->origin_y + 8) & -0x10;
+    uVar1 = this->collisionLayer;
+    xDiff = (this->x.HALF.HI - gRoomControls.origin_x + 8) & -0x10;
+    yDiff = (this->y.HALF.HI - gRoomControls.origin_y + 8) & -0x10;
     do {
-        s16 iVar9 = xDiff + unk[0];
-        s16 iVar11 = yDiff + unk[1];
-        u8 bVar4 = sub_080002D4(iVar9 - 0x00, iVar11 - 0x00, uVar1);
-        u8 bVar5 = sub_080002D4(iVar9 - 0x10, iVar11 - 0x00, uVar1);
-        u8 bVar6 = sub_080002D4(iVar9 - 0x00, iVar11 - 0x10, uVar1);
-        u8 bVar7 = sub_080002D4(iVar9 - 0x10, iVar11 - 0x10, uVar1);
-        if ((bVar6 | bVar4 | bVar5 | bVar7) == 0) {
-            this->field_0x7c.HALF.LO = ctrl->origin_x + iVar9;
-            this->field_0x7c.HALF.HI = ctrl->origin_y + iVar11;
+        u8 bVar7;
+        u8 bVar4;
+        s16 iVar11;
+        u8 bVar5;
+        u8 bVar6;
+        iVar9 = xDiff + unk[0];
+        iVar11 = yDiff + unk[1];
+        bVar4 = sub_080002D4(iVar9 - 0x00, iVar11 - 0x00, uVar1);
+        bVar5 = sub_080002D4(iVar9 - 0x10, iVar11 - 0x00, uVar1);
+        bVar6 = sub_080002D4(iVar9 - 0x00, iVar11 - 0x10, uVar1);
+        bVar7 = sub_080002D4(iVar9 - 0x10, iVar11 - 0x10, uVar1);
+        if ((bVar4 | bVar5 | bVar6 | bVar7) == 0) {
+            this->field_0x7c.HALF.LO = gRoomControls.origin_x + iVar9;
+            this->field_0x7c.HALF.HI = gRoomControls.origin_y + iVar11;
             return TRUE;
         }
         unk += 2;
@@ -498,7 +504,6 @@ NONMATCH("asm/non_matching/puffstool/sub_0802594C.inc", bool32 sub_0802594C(Enti
 
     return 0;
 }
-END_NONMATCH
 
 void sub_08025A54(Entity* this) {
     u32 layer = this->collisionLayer;
