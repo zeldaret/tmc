@@ -1081,7 +1081,7 @@ void sub_08043738(Entity* this) {
     deleteThing(this, 3);
 }
 
-NONMATCH("asm/non_matching/vaati/sub_08043770.inc", void sub_08043770(Entity* this)) {
+void sub_08043770(Entity* this) {
     Entity* entity;
 
     if (--this->actionDelay == 0) {
@@ -1090,10 +1090,10 @@ NONMATCH("asm/non_matching/vaati/sub_08043770.inc", void sub_08043770(Entity* th
             entity->subAction = 2;
         }
         if (this->type2 == 0) {
-            ((VaatiArm_HeapStruct*)this->myHeap)->parent = NULL;
+            ((VaatiArm_HeapStruct*)entity->myHeap)->parent = NULL;
             gRoomTransition.field_0x39 &= 0xfe;
         } else {
-            *(u32*)((VaatiArm_HeapStruct*)this->myHeap)->s1 = 0;
+            *(u32*)((VaatiArm_HeapStruct*)entity->myHeap)->s1 = 0;
             gRoomTransition.field_0x39 &= 0xfd;
         }
         ((VaatiArm_HeapStruct*)this->myHeap)->entities[4]->myHeap = NULL;
@@ -1102,7 +1102,6 @@ NONMATCH("asm/non_matching/vaati/sub_08043770.inc", void sub_08043770(Entity* th
         DeleteThisEntity();
     }
 }
-END_NONMATCH
 
 u32 sub_080437DC(Entity* this) {
     u16 temp;
