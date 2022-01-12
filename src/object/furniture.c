@@ -448,15 +448,12 @@ static void sub_08090E4C(FurnitureEntity* this) {
     ChangeObjPalette(super, sPalettes[super->field_0xf]);
 }
 
-static NONMATCH("asm/non_matching/furniture/sub_08090E64.s", void sub_08090E64(FurnitureEntity* this)) {
-    Entity* e = CreateObject(OBJECT_42, 0, 0);
-    u32 tmp = 0x10000 - 2;
-
+void sub_08090E64(FurnitureEntity* this) {
+    Entity* e = CreateObject(OBJECT_2A, 0, 0);
     if (e != NULL) {
-        PositionRelative(super, e, (tmp + super->type2) * 0x10000, 0);
+        PositionRelative(super, e, (s16)((u16)-2 + super->type2) * 0x10000, 0);
         e->z.HALF.HI -= 16;
         e->collisionLayer = 2;
         UpdateSpriteForCollisionLayer(e);
     }
 }
-END_NONMATCH
