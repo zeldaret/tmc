@@ -824,7 +824,7 @@ static void sub_08056FBC(TextRender* ctb) {
     sub_08056FEC(ctb->message.field_0x1c, &ctb->_77[0x9]);
 }
 
-NONMATCH("asm/non_matching/textbox/sub_08056FEC.inc", u32 sub_08056FEC(u32 this, u8* param_2)) {
+u32 sub_08056FEC(u32 this, u8* param_2) {
     u32 uVar1;
     int iVar2;
     int iVar3;
@@ -838,13 +838,12 @@ NONMATCH("asm/non_matching/textbox/sub_08056FEC.inc", u32 sub_08056FEC(u32 this,
         local_1c[iVar4++] = uVar1 & 0xf;
         uVar1 = uVar1 / 16;
     } while (uVar1 != 0);
-    for (iVar3 = 0; --iVar4 >= 0; iVar3++) {
-        param_2[iVar3] = local_1c[iVar4] | 0x30;
+    for (iVar3 = 0, iVar2 = iVar4 - 1; iVar2 >= 0; iVar3++, iVar2--) {
+        param_2[iVar3] = local_1c[iVar2] | 0x30;
     }
     param_2[iVar3] = 0;
     return iVar4;
 }
-END_NONMATCH
 
 void sub_08057044(u32 a1, u32* a2, u32 a3) {
     u32 z[2];
