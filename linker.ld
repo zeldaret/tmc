@@ -370,7 +370,7 @@ SECTIONS {
         src/enemy/acroBandits.o(.text);
         src/enemy/bladeTrap.o(.text);
         src/enemy/keaton.o(.text);
-        asm/enemy/crow.o(.text);
+        src/enemy/crow.o(.text);
         asm/enemy/mulldozer.o(.text);
         src/enemy/bombarossa.o(.text);
         src/enemy/wisp.o(.text);
@@ -1027,7 +1027,7 @@ SECTIONS {
         data/animations/enemy/acroBandits.o(.rodata);
         data/const/enemy/keaton.o(.rodata);
         data/animations/enemy/keaton.o(.rodata);
-        data/const/enemy/crow.o(.rodata);
+        src/enemy/crow.o(.rodata);
         data/animations/enemy/crow.o(.rodata);
         data/const/enemy/mulldozer.o(.rodata);
         data/animations/enemy/mulldozer.o(.rodata);
