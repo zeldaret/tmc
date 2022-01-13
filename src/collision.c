@@ -177,22 +177,19 @@ NONMATCH("asm/non_matching/arm_proxy/sub_08017744.inc", void sub_08017744(Entity
 }
 END_NONMATCH
 
-// regalloc
-NONMATCH("asm/non_matching/arm_proxy/sub_080177A0.inc", bool32 sub_080177A0(Entity* this, Entity* that)) {
+bool32 sub_080177A0(Entity* this, Entity* that) {
     u32 this_d;
     u32 depth;
 
     if ((this->collisionLayer & that->collisionLayer) != 0) {
         Hitbox* bb_this = this->hitbox;
         Hitbox* bb_that = that->hitbox;
-        u32 this_w = bb_this->width;
-        u32 that_w = bb_that->width;
-        u32 sumw = this_w + that_w;
+        u32 this_len = bb_this->width;
+        u32 sumw = this_len + bb_that->width;
         if ((((this->x.HALF.HI - that->x.HALF.HI) + bb_this->offset_x) - bb_that->offset_x) + sumw <= (sumw)*2) {
-            u32 this_h = bb_this->height;
-            u32 that_h = bb_that->height;
-            u32 sumh = this_h + that_h;
-            if ((((this->y.HALF.HI - that->y.HALF.HI) + bb_this->offset_y) - bb_that->offset_y) + sumh <= (sumh)*2) {
+            this_len = bb_this->height;
+            sumw = this_len + bb_that->height;
+            if ((((this->y.HALF.HI - that->y.HALF.HI) + bb_this->offset_y) - bb_that->offset_y) + sumw <= (sumw)*2) {
                 if ((this->field_0x3c & 0x10) != 0)
                     this_d = ((Hitbox3D*)bb_this)->depth;
                 else
@@ -208,7 +205,6 @@ NONMATCH("asm/non_matching/arm_proxy/sub_080177A0.inc", bool32 sub_080177A0(Enti
     }
     return FALSE;
 }
-END_NONMATCH
 
 bool32 sub_08017850(Entity* this) {
     if (sub_08079F8C())
