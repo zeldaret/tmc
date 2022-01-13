@@ -700,14 +700,14 @@ u32 sub_080349D8(Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/mazaal/sub_08034A10.inc", u32 sub_08034A10(Entity* this)) {
+u32 sub_08034A10(Entity* this) {
     if ((this->field_0x7c.BYTES.byte1 & 0x60) != 0x40) {
         if ((this->field_0x7c.BYTES.byte1 & 0x10) != 0) {
             if ((this->field_0x80.HALF.LO & 5) != 0) {
                 this->field_0x7c.BYTES.byte1 |= 0x40;
             }
-            if (((this->field_0x80.HALF.LO & 10) == 0) || ((this->field_0x7c.BYTES.byte1 & 3) != 1)) {
-                return 0;
+            if (((this->field_0x80.HALF.LO & 10) != 0) && ((this->field_0x7c.BYTES.byte1 & 3) == 1)) {
+                return 1;
             }
         } else {
             if ((this->field_0x80.HALF.LO & 10) != 0) {
@@ -716,14 +716,15 @@ NONMATCH("asm/non_matching/mazaal/sub_08034A10.inc", u32 sub_08034A10(Entity* th
             if ((this->field_0x80.HALF.LO & 5) == 0) {
                 return 0;
             }
-            if ((this->field_0x7c.BYTES.byte1 & 3) != 2) {
-                return 0;
+            if ((this->field_0x7c.BYTES.byte1 & 3) == 2) {
+                return 1;
             }
         }
+    } else {
+        return 1;
     }
-    return 1;
+    return 0;
 }
-END_NONMATCH
 
 void sub_08034A84(Entity* this) {
     if (this->parent->next == NULL) {
