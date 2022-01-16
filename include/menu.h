@@ -44,9 +44,14 @@ typedef struct {
     /*0x08*/ u16 transitionTimer;
     /*0x0a*/ u16 field_0xa;
     /*0x0c*/ u8* field_0xc;
-    /*0x10*/ u8 focusCoords[2];
-    /*0x12*/ u8 field_0x12;
-    /*0x13*/ u8 unk13;
+    /*0x10*/ // u8 focusCoords[2];
+    union {
+        s32 i;
+        u16 h[2];
+        u8 a[4];
+    } unk10;
+    /*0x12*/ // u8 field_0x12;
+    /*0x13*/ // u8 unk13;
     /*0x14*/ u8 unk14;
     /*0x15*/ u8 unk15;
     /*0x16*/ u8 unk16;
@@ -54,9 +59,22 @@ typedef struct {
     /*    */ // directly in the code. This happens when you take the address off the field with '&`.
     /*    */ // Perhaps they had a macro to cast this to different sized arrays.
     /*0x17*/ u8 selectMtx;
-    /*0x18*/ u8 filler18[0x12];
+    /*0x18*/ u16 unk18;
+    /*0x1a*/ union SplitHWord unk1a;
+    /*0x1c*/ u8 unk1c;
+    /*0x1s*/ u8 unk1d;
+    /*0x1e*/ u8 unk1e;
+    /*0x1f*/ s8 unk1f;
+    /*0x20*/ u8 unk20;
+    /*0x21*/ u8 unk21;
+    /*0x22*/ u8 filler22[6];
+    /*0x28*/ u8 unk28;
+    /*0x29*/ u8 unk29;
     /*0x2a*/ u8 unk2a;
-    /*0x2c*/ int field_0x2c;
+    /*0x2b*/ u8 unk2b;
+    /*0x2c*/ s8 unk2c;
+    /*0x2d*/ u8 unk2d;
+    /*0x2e*/ union SplitHWord unk2e;
 } Menu;
 static_assert(sizeof(Menu) == 0x30);
 

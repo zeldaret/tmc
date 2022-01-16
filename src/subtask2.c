@@ -11,7 +11,7 @@ u32 sub_080A554C(u32 arg0) {
 
     if (arg0 != 0) {
         for (i = 0; i < 17; i++) {
-            if (arg0 == gMenu.focusCoords[i])
+            if (arg0 == gMenu.unk10.a[i])
                 return i;
         }
     }

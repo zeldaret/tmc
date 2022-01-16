@@ -652,7 +652,7 @@ static void GameOver_Init(void) {
     if (gFadeControl.active)
         return;
     sub_08052010();
-    gMenu.focusCoords[0] = 80;
+    gMenu.unk10.a[0] = 80;
     gMenu.transitionTimer = 60;
     gSave.stats.health = 24;
     gMain.field_0x5 = 60;
@@ -667,8 +667,8 @@ static void GameOver_FadeIn(void) {
         return;
 
     if (gMain.field_0x5 == 0) {
-        if (gMenu.focusCoords[0] >= 38) {
-            gMenu.focusCoords[0]--;
+        if (gMenu.unk10.a[0] >= 38) {
+            gMenu.unk10.a[0]--;
         } else {
             gMenu.transitionTimer--;
             if (gMenu.transitionTimer == 0) {
@@ -839,7 +839,7 @@ static void DrawGameOverText(void) {
     gOamCmd._4 = 0;
     gOamCmd._6 = 0;
     gOamCmd._8 = 0x8600;
-    gOamCmd.y = gMenu.focusCoords[0];
+    gOamCmd.y = gMenu.unk10.a[0];
     for (i = 0; i < 8; ++i) {
         gOamCmd.x = sOffsets[i];
 #ifdef EU

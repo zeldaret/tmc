@@ -48,14 +48,14 @@ void sub_0805FA98(void) {
 
     switch (gInput.newKeys) {
         case DPAD_UP:
-            gMenu.focusCoords[1] -= 1;
+            gMenu.unk10.a[1] -= 1;
             break;
         case DPAD_DOWN:
-            gMenu.focusCoords[1] += 1;
+            gMenu.unk10.a[1] += 1;
             break;
         case L_BUTTON:
-            gMenu.focusCoords[0] ^= 1;
-            if (gMenu.focusCoords[0] == 0) {
+            gMenu.unk10.a[0] ^= 1;
+            if (gMenu.unk10.a[0] == 0) {
                 gScreen.bg0.control = BGCNT_SCREENBASE(31) | BGCNT_CHARBASE(3);
                 gScreen.bg3.control = BGCNT_SCREENBASE(30) | BGCNT_CHARBASE(3) | BGCNT_PRIORITY(3);
             } else {
@@ -82,7 +82,7 @@ void sub_0805FA98(void) {
                     iVar1 = 0;
                     break;
             }
-            switch (gMenu.focusCoords[1]) {
+            switch (gMenu.unk10.a[1]) {
                 case 0:
                     gMenu.unk14 = (gMenu.unk14 + iVar1 + 0x50) % 0x50;
                     break;
@@ -94,7 +94,7 @@ void sub_0805FA98(void) {
                     break;
             }
     }
-    gMenu.focusCoords[1] = (gMenu.focusCoords[1] + 3) % 3;
+    gMenu.unk10.a[1] = (gMenu.unk10.a[1] + 3) % 3;
     gScreen.bg3.updated = 1;
 }
 
