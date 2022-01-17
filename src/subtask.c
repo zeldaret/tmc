@@ -13,6 +13,7 @@
 #include "npc.h"
 #include "enemy.h"
 #include "functions.h"
+#include "structures.h"
 
 extern const u32 gUnk_080CA06C[];
 extern const u8 gGlobalGfxAndPalettes[];
@@ -44,6 +45,14 @@ u32 sub_080A44E0(struct_02036540*, u8*, u32);
 struct_02036540* sub_0805F2C8(void);
 void sub_0805F300(struct_02036540*);
 u32 sub_0805F76C(u8*, struct_02036540*);
+void sub_080A4978(void);
+void sub_080A4B44(void);
+void sub_080A4DA8(u32);
+u32 sub_080A4CBC(u32);
+void sub_080A4BA0(u32, u32);
+void sub_0805F46C(u32, const u16**);
+void sub_080A4DB8(u32);
+void sub_08056250(void);
 
 extern void (*const gUnk_081280C4[])(void);
 extern const u8 gUnk_081280EE[];
@@ -88,6 +97,30 @@ typedef struct {
 
 extern u8 gTextGfxBuffer[];
 extern u8 gUnk_02002AC0[];
+
+extern const struct {
+    u8 filler[7];
+    u8 unk7;
+} gUnk_080FC3E4[];
+
+extern u32 gUnk_02002B0E;
+extern const KeyButtonLayout gUnk_0812813C;
+extern const u16* gUnk_08128190;
+extern u8 gUnk_020344A0[8];
+typedef struct {
+    u8 unk0;
+    u8 unk1;
+    u16 unk2;
+    u16 unk4;
+    u16 unk6;
+} struct_08128AD8;
+extern const struct_08128AD8 gUnk_08128AD8[];
+
+extern const struct {
+    u8 unk0;
+    u8 filler[3];
+    void (*func)(void);
+} gUnk_08128A38[];
 
 void Subtask_KinstoneMenu(void) {
 #if !(defined(DEMO_USA) || defined(DEMO_JP))
@@ -625,4 +658,298 @@ void sub_080A4528(void) {
         entity->spriteSettings.draw = 1;
         entity->hitbox = NULL;
     }
+}
+
+extern void (*const gUnk_0812815C[])(void);
+extern void (*const gUnk_0812814C[])(void);
+
+void Subtask_FigurineMenu(void) {
+#ifndef DEMO
+    FlushSprites();
+    if (gUnk_02032EC0.field_0x3 == 0xff) {
+        gUnk_0812815C[gMenu.menuType]();
+    } else {
+        gUnk_0812814C[gMenu.menuType]();
+    }
+    UpdateEntities();
+    sub_0801C1D4();
+    DrawOAMCmd();
+    DrawEntities();
+    sub_080A4978();
+    CopyOAM();
+    sub_080A4B44();
+#endif
+}
+
+void sub_080A4608(void) {
+    s32 iVar2;
+
+    SetBgmVolume(0x80);
+    sub_080A4DA8(3);
+    SetColor(0, gPaletteBuffer[0xfb]);
+    SetColor(0x15c, gPaletteBuffer[0xd3]);
+    MemClear(&gBG0Buffer, 0x800);
+    MemClear(&gBG3Buffer, 0x1000);
+    gScreen.controls.window0HorizontalDimensions = 0xf0;
+    gScreen.controls.window0VerticalDimensions = 0x7898;
+    gScreen.controls.windowInsideControl = 0x1f;
+    gScreen.controls.windowOutsideControl = 0x1d;
+    gScreen.bg1.updated = 1;
+    for (iVar2 = 0; iVar2 < 0x10; iVar2++) {
+        gMenu.unk10.a[iVar2] = 0xee;
+    }
+    {
+        int r0, r1, r2;
+
+        r1 = gUnk_02032EC0.field_0x3;
+        r0 = gSave.unk6;
+        r2 = 0x88;
+        if (r0 == 0) {
+            r2 = 0x82;
+        }
+        if (r2 < r1) {
+            r1 = 1;
+        }
+        gMenu.unk1c = r1;
+    }
+    SetFade(4, 8);
+}
+
+void sub_080A46C0(void) {
+    SetBgmVolume(0x100);
+    SoundReq(SFX_MENU_CANCEL);
+    ClearRoomFlag(2);
+    Subtask_Exit();
+}
+
+void sub_080A46DC(void) {
+    sub_080A4608();
+    sub_080A7114(1);
+}
+
+void sub_080A46EC(void) {
+    if (gFadeControl.active == 0) {
+        CreateObject(0xa2, gUnk_080FC3E4[gMenu.unk1c].unk7, 0);
+        sub_080A7114(2);
+    }
+}
+
+void sub_080A4720(void) {
+    u32 bVar1;
+    Sound sound;
+
+    if (gMenu.field_0x0 != 0) {
+        gMenu.unk20 += 1;
+        switch (gMenu.unk20) {
+            case 0x40:
+                gMenu.unk21 = WriteBit(&gUnk_02002B0E, gMenu.unk1c);
+                gMenu.column_idx = 1;
+            default:
+                bVar1 = gMenu.unk20 >> 2;
+                if (0x10 < bVar1) {
+                    bVar1 = 0x20 - bVar1;
+                }
+                gScreen.controls.layerBrightness = bVar1;
+                gScreen.controls.layerFXControl = 0xbf;
+                break;
+            case 0x80:
+                gScreen.controls.layerBrightness = 0;
+                gScreen.controls.layerFXControl = 0;
+                gScreen.lcd.displayControl |= 0x2000;
+                sub_080A7114(3);
+                sub_080A70AC((KeyButtonLayout*)&gUnk_0812813C);
+                gMenu.column_idx = 0x15;
+                if (gMenu.unk21 == 0) {
+                    sound = SFX_109;
+                } else {
+                    sound = SFX_MENU_ERROR;
+                }
+                SoundReq(sound);
+                return;
+        }
+    }
+}
+
+void sub_080A47D0(void) {
+    s32 uVar1;
+    s32 t;
+
+    uVar1 = gMenu.unk1f;
+    switch (gInput.unk4) {
+        case 2:
+        case 8:
+            sub_080A46C0();
+            break;
+        case 0x10:
+            uVar1 += 8;
+            break;
+        case 0x20:
+            uVar1 -= 8;
+            break;
+    }
+    t = gMenu.unk1e;
+    if (uVar1 < 0) {
+        uVar1 = 0;
+    }
+    if (t < uVar1) {
+        uVar1 = t;
+    }
+    gMenu.unk1f = uVar1;
+    gScreen.bg1.yOffset = uVar1 - 0x70;
+}
+
+void sub_080A4830(void) {
+    sub_080A4608();
+    gScreen.lcd.displayControl |= 0x2000;
+    sub_080A70AC(&gUnk_0812813C);
+    gMenu.column_idx = 0xff;
+    sub_080A7114(1);
+}
+
+ASM_FUNC("asm/non_matching/subtask/sub_080A4864.inc", void sub_080A4864(Entity* this))
+
+void sub_080A4934(void) {
+    sub_080A7114(1);
+}
+
+void sub_080A4940(void) {
+    sub_080A46C0();
+}
+
+u32 sub_080A4948(s32 param_1) {
+    s32 iVar1;
+    u32 uVar2;
+
+    uVar2 = 0;
+    iVar1 = gSave.unk6 == 0 ? 0x82 : 0x88;
+    if ((0 < param_1) || (iVar1 >= param_1)) {
+        if (ReadBit((u32*)&gSave.stats.filler4[4], param_1)) {
+            uVar2 = 1;
+        }
+    }
+    return uVar2;
+}
+
+ASM_FUNC("asm/non_matching/subtask/sub_080A4978.inc", void sub_080A4978(void))
+
+void sub_080A4B44(void) {
+    u32 uVar1;
+
+    uVar1 = gMenu.unk1c;
+    if ((gMenu.column_idx & 0x10) != 0) {
+        gMenu.unk1e = sub_080A4CBC(uVar1);
+    }
+    if ((gMenu.column_idx & 4) != 0) {
+        sub_080A4BA0(uVar1, 2);
+    }
+    if ((gMenu.column_idx & 8) != 0) {
+        sub_080A4BA0(uVar1 - 2, 0);
+        sub_080A4BA0(uVar1 - 1, 1);
+        sub_080A4BA0(uVar1 + 1, 3);
+        sub_080A4BA0(uVar1 + 2, 4);
+    }
+}
+
+ASM_FUNC("asm/non_matching/subtask/sub_080A4BA0.inc", void sub_080A4BA0(u32 unk1, u32 unk2))
+
+u32 sub_080A4CBC(u32 param_1) {
+    s32 iVar1;
+    const u16* psVar2;
+    u32 uVar3;
+
+    if (gMenu.unk1a.HALF.LO != param_1) {
+        gMenu.unk1a.HALF.LO = param_1;
+        MemClear(&gBG1Buffer, 0x800);
+        MemCopy(&gBG1Buffer, (void*)0x600e000, 0x800);
+        iVar1 = sub_080A4948(param_1);
+        if (iVar1 != 0) {
+            sub_0805F46C(param_1 + 0x900, &gUnk_08128190);
+        }
+        gScreen.bg1.updated = 1;
+    }
+    psVar2 = gUnk_08128190 + 0x80;
+
+    for (uVar3 = 0; uVar3 < 0x14; uVar3++) {
+        if (*psVar2 == 0)
+            break;
+        psVar2 += 0x20;
+    }
+    return uVar3 << 3;
+}
+
+void sub_080A4D34(void) {
+    s32 iVar1;
+
+    LoadGfxGroups();
+    LoadPaletteGroup(0xb5);
+    if (gSave.stats.health <= 8) {
+        iVar1 = 2;
+    } else {
+        s32 missingHealth = gSave.stats.maxHealth - gSave.stats.health;
+        if (missingHealth < 9) {
+            iVar1 = 0;
+        } else {
+            iVar1 = 1;
+        }
+    }
+    LoadGfxGroup(iVar1 + 0x56);
+    gScreen.bg3.xOffset = 0;
+    gScreen.bg3.yOffset = 0;
+    gScreen.bg3.control = 0x1e0b;
+    gScreen.bg3.updated = 1;
+}
+
+void sub_080A4D88(void) {
+    MemClear(gUnk_020344A0, sizeof(gUnk_020344A0));
+    MenuFadeIn(1, 0);
+    SetBgmVolume(0x80);
+}
+
+void sub_080A4DA8(u32 param_1) {
+    sub_080A4D34();
+    sub_080A4DB8(param_1);
+}
+
+void sub_080A4DB8(u32 param_1) {
+    const struct_08128AD8* ptr;
+
+    sub_08056250();
+    MemClear(&gBG0Buffer, 0x800);
+    MemClear(&gBG1Buffer, 0x800);
+    MemClear(&gBG2Buffer, 0x800);
+    MemClear(gUnk_0200AF00.filler25 + 0xf, 0x300);
+    MemClear(&gMenu, sizeof(gMenu));
+    gMenu.unk2e.HWORD = 0xffff;
+    gMenu.field_0x3 = gUnk_02034490.unk2[param_1];
+    ptr = &gUnk_08128AD8[gUnk_08128A38[param_1].unk0];
+    gScreen.lcd.displayControl = ptr->unk2 | 0x1940;
+    gScreen.bg0.xOffset = 0;
+    gScreen.bg0.yOffset = 0;
+    gScreen.bg0.updated = 1;
+    gScreen.bg1.xOffset = 0;
+    gScreen.bg1.yOffset = 0;
+    gScreen.bg1.control = ptr->unk4;
+    gScreen.bg1.updated = 1;
+    gScreen.bg2.xOffset = 0;
+    gScreen.bg2.yOffset = 0;
+    gScreen.bg2.control = ptr->unk6;
+    gScreen.bg2.updated = 1;
+    gScreen.bg3.xOffset = 0;
+    gScreen.bg3.yOffset = 0;
+    gScreen.bg3.control = 0x1e0b;
+    if (ptr->unk0 != 0) {
+        LoadPaletteGroup(ptr->unk0);
+    }
+    if (ptr->unk1 != 0) {
+        LoadGfxGroup(ptr->unk1);
+    }
+}
+
+void sub_080A4E84(u8 param_1) {
+    gUnk_02034490.unk14 = param_1;
+}
+
+void sub_080A4E90(u8 param_1) {
+    gUnk_02034490.unk11 = param_1;
+    gUnk_02034490.unk12 = 0;
 }

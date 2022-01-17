@@ -323,7 +323,7 @@ static void GameMain_ChangeRoom(void) {
     sub_080300C4();
     gMain.substate = GAMEMAIN_UPDATE;
     SetPlayerControl(0);
-    gUnk_02034490[0] = 0;
+    gUnk_02034490.unk0 = 0;
 #if defined(USA) || defined(DEMO_USA)
     if (gArea.inventoryGfxIdx != 0xff) {
         sub_0801855C();
@@ -1233,7 +1233,7 @@ static void InitRoomTransition(void) {
 bool32 CanDispEzloMessage(void) {
     s32 tmp = PL_STATE_WALK;
 
-    if (!(gInput.heldKeys & SELECT_BUTTON) || gPlayerState.controlMode != CONTROL_ENABLED || gUnk_02034490[0] ||
+    if (!(gInput.heldKeys & SELECT_BUTTON) || gPlayerState.controlMode != CONTROL_ENABLED || gUnk_02034490.unk0 ||
         gUnk_0200AF00.filler0[1])
         return 0;
 

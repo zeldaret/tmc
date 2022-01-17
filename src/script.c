@@ -450,11 +450,11 @@ void sub_0807DF28(void) {
 
 void sub_0807DF38(void) {
     gUnk_0200AF00.filler0[1] = 0xff;
-    gUnk_02034490[0] = 0xff;
+    gUnk_02034490.unk0 = 0xff;
 }
 
 void sub_0807DF50(void) {
-    gUnk_02034490[0] = 0;
+    gUnk_02034490.unk0 = 0;
     gUnk_0200AF00.filler0[1] = 0;
     RecoverUI(0);
     ResetPlayerAnimationAndAction();
@@ -1158,7 +1158,7 @@ void ScriptCommand_0807E9F0(Entity* entity, ScriptExecutionContext* context) {
     switch (gFuseInfo._0) {
         case 2:
             gPlayerState.controlMode = CONTROL_DISABLED;
-            gUnk_02034490[0] = tmp;
+            gUnk_02034490.unk0 = tmp;
             context->condition = tmp;
             break;
         case 1:

@@ -198,7 +198,7 @@ void OctorokBoss_Hit_SubAction0(Entity* this) {
     GET_HELPER(this)->fallingStonesTimer = 0;
     if (GET_BOSS_PHASE(this) == 4) {
         this->subAction = 4;
-        gUnk_02034490[0] = 1;
+        gUnk_02034490.unk0 = 1;
         sub_08078B48();
         SoundReq(SFX_BOSS_DIE);
     } else {
@@ -505,7 +505,7 @@ ASM_FUNC("asm/non_matching/octorokBoss/OctorokBoss_Init.inc", void OctorokBoss_I
 
 void OctorokBoss_Intro(Entity* this) {
     sub_08078B48();
-    gUnk_02034490[0] = 1;
+    gUnk_02034490.unk0 = 1;
     sub_08036F60(this);
     OctorokBoss_Intro_SubActions[this->subAction](this);
     sub_0805EC9C(this, this->field_0x76.HWORD, this->field_0x74.HWORD, GET_ANGLE(this));
@@ -579,7 +579,7 @@ void OctorokBoss_Intro_SubAction5(Entity* this) {
             this->subAction = 0;
             gRoomControls.unk5 = gPlayerEntity.animationState;
             OctorokBoss_SetAttackTimer(this);
-            gUnk_02034490[0] = 0;
+            gUnk_02034490.unk0 = 0;
             SoundReq(BGM_BOSS_THEME);
         }
     } else {
