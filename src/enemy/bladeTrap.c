@@ -1,9 +1,16 @@
-#include "global.h"
+/**
+ * @file bladeTrap.c
+ * @ingroup Enemies
+ *
+ * @brief Blade Trap enemy
+ */
+
+#include "sound.h"
 #include "entity.h"
 #include "room.h"
 #include "functions.h"
 
-extern void sub_080A2CC0();
+extern void sub_080A2CC0(Entity*, void*, void*);
 
 void BladeTrap(Entity* this) {
     if (this->action == 0) {
@@ -12,7 +19,7 @@ void BladeTrap(Entity* this) {
         sub_080A2CC0(this, &this->child, &this->field_0x74);
     }
     if (!(this->direction & 0x80)) {
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
     }
 
     if (!(--this->field_0x74.HWORD)) {

@@ -1,6 +1,11 @@
+/**
+ * @file chuchuBoss.c
+ * @ingroup Enemies
+ *
+ * @brief Chuchu Boss enemy
+ */
+
 #include "enemy.h"
-#include "entity.h"
-#include "functions.h"
 
 void sub_08027870(Entity*);
 

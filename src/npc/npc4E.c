@@ -1,12 +1,12 @@
 #include "global.h"
 #include "entity.h"
 #include "functions.h"
-#include "script.h"
-#include "functions.h"
-#include "audio.h"
+#include "sound.h"
 #include "save.h"
 #include "flags.h"
 #include "object.h"
+#include "npc.h"
+#include "game.h"
 
 extern Hitbox gHitbox_2;
 typedef struct {
@@ -16,8 +16,8 @@ typedef struct {
 
 extern void sub_08078850(Entity*, u32, u8 /* TODO this is a s8 in beedle.c*/, gUnk_0810C89C_struct*);
 
-extern void script_08016030; // Cutscene data type?
-extern void script_0801606C; // Cutscene data type?
+extern void script_Object3ELeftStoneOpening;  // Cutscene data type?
+extern void script_Object3ERightStoneOpening; // Cutscene data type?
 
 const Hitbox gUnk_08114154;
 const u8 gUnk_0811415C[];
@@ -141,12 +141,12 @@ void sub_0806DB84(Entity* this, ScriptExecutionContext* context) {
     ent = CreateObject(OBJECT_3E, 4, 0);
     if (ent != NULL) {
         PositionRelative(this, ent, -0x80000, 0);
-        *(ScriptExecutionContext**)&ent->cutsceneBeh = StartCutscene(ent, &script_08016030);
+        *(ScriptExecutionContext**)&ent->cutsceneBeh = StartCutscene(ent, &script_Object3ELeftStoneOpening);
     }
     ent = CreateObject(OBJECT_3E, 5, 0);
     if (ent != NULL) {
         PositionRelative(this, ent, 0x80000, 0);
-        *(ScriptExecutionContext**)&ent->cutsceneBeh = StartCutscene(ent, &script_0801606C);
+        *(ScriptExecutionContext**)&ent->cutsceneBeh = StartCutscene(ent, &script_Object3ERightStoneOpening);
     }
 }
 
@@ -176,8 +176,8 @@ u32 sub_0806DBF4(u32 param_1) {
 }
 
 void sub_0806DC3C(Entity* this) {
-    this->field_0x68.HALF.LO = gSave.stats.itemOnA;
-    this->field_0x68.HALF.HI = gSave.stats.itemOnB;
+    this->field_0x68.HALF.LO = gSave.stats.itemButtons[SLOT_A];
+    this->field_0x68.HALF.HI = gSave.stats.itemButtons[SLOT_B];
 }
 
 void sub_0806DC58(Entity* this) {
@@ -185,7 +185,7 @@ void sub_0806DC58(Entity* this) {
     ForceEquipItem(sub_0806DBF4(this->field_0x68.HALF.HI), 1);
 }
 
-void sub_0806DC7C() {
+void sub_0806DC7C(void) {
     const u16* tiles = gUnk_081141F4;
     while (*tiles != 0) {
         u32 tile = *tiles;
@@ -194,8 +194,7 @@ void sub_0806DC7C() {
     }
 }
 
-void sub_0806DCA0() {
-    u16 uVar1;
+void sub_0806DCA0(void) {
     const u16* tiles = gUnk_081141F4;
     while (*tiles != 0) {
         u32 tile = *tiles;
@@ -204,9 +203,9 @@ void sub_0806DCA0() {
     }
 }
 
-void sub_0806DCC0() {
-    gScreenTransition.field_0x20 = 0x7c8;
-    gScreenTransition.field_0x22 = 0xf8;
+void sub_0806DCC0(void) {
+    gRoomTransition.player_status.overworld_map_x = 0x7c8;
+    gRoomTransition.player_status.overworld_map_y = 0xf8;
 }
 
 void NPC4E_Fusion(Entity* this) {

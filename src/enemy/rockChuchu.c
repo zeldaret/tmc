@@ -1,8 +1,12 @@
+/**
+ * @file rockChuchu.c
+ * @ingroup Enemies
+ *
+ * @brief Rock Chuchu enemy
+ */
+
 #include "enemy.h"
-#include "entity.h"
-#include "random.h"
 #include "functions.h"
-#include "effects.h"
 
 extern void sub_0804A4E4(Entity*, Entity*);
 

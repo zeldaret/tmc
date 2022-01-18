@@ -1,4 +1,0 @@
-SCRIPT_START script_0800D24C
-	DoPostScriptAction 0x0006
-SCRIPT_END
-	.2byte 0x0000

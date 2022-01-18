@@ -1,7 +1,7 @@
+#include "asm.h"
 #include "manager.h"
 #include "room.h"
 #include "flags.h"
-#include "functions.h"
 
 typedef struct {
     u8 field_0x0;

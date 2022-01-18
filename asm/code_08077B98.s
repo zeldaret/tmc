@@ -9,7 +9,7 @@
 	thumb_func_start sub_08077FEC
 sub_08077FEC: @ 0x08077FEC
 	push {lr}
-	ldr r0, _08078000 @ =gUnk_03004020
+	ldr r0, _08078000 @ =gPlayerState + 0xA0
 	ldr r2, _08078004 @ =gUnk_0811BFE8
 	ldrb r1, [r0]
 	lsls r1, r1, #2
@@ -18,7 +18,7 @@ sub_08077FEC: @ 0x08077FEC
 	bl _call_via_r1
 	pop {pc}
 	.align 2, 0
-_08078000: .4byte gUnk_03004020
+_08078000: .4byte gPlayerState + 0xA0
 _08078004: .4byte gUnk_0811BFE8
 
 	thumb_func_start sub_08078008
@@ -221,8 +221,8 @@ _0807815C:
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_08078160
-sub_08078160: @ 0x08078160
+	thumb_func_start ForceSetPlayerState
+ForceSetPlayerState: @ 0x08078160
 	push {lr}
 	ldr r1, _08078178 @ =gPlayerState
 	adds r1, #0xa8
@@ -467,7 +467,7 @@ _0807835C:
 	bne _0807836A
 	b _080784AC
 _0807836A:
-	bl sub_08052B24
+	bl CanDispEzloMessage
 	cmp r0, #0
 	beq _08078374
 	b _080784C4
@@ -482,7 +482,7 @@ _08078376:
 	beq _08078384
 	b _080784AC
 _08078384:
-	bl sub_08052B24
+	bl CanDispEzloMessage
 	cmp r0, #0
 	beq _0807838E
 	b _080784C4
@@ -555,10 +555,10 @@ _08078414: .4byte 0x0000012B
 _08078418:
 	ldr r0, _08078428 @ =0x00000B65
 	movs r1, #0
-	bl sub_08078AA8
+	bl CreateEzloHint
 _08078420:
 	movs r0, #0x13
-	bl sub_08078160
+	bl ForceSetPlayerState
 	b _080784C4
 	.align 2, 0
 _08078428: .4byte 0x00000B65
@@ -599,7 +599,7 @@ _08078484:
 	movs r0, #7
 	strb r0, [r4, #0xc]
 	movs r0, #0x13
-	bl sub_08078160
+	bl ForceSetPlayerState
 _0807848E:
 	adds r1, r6, #0
 	adds r1, #0x39
@@ -741,13 +741,13 @@ _080785B0:
 	ands r0, r1
 	cmp r0, #0
 	bne _080785F0
-	bl sub_08052734
+	bl HasDungeonMap
 	cmp r0, #0
 	beq _080785C4
 	movs r0, #1
 _080785C4:
 	adds r7, r0, #0
-	bl sub_08052764
+	bl HasDungeonCompass
 	cmp r0, #0
 	beq _080785D2
 	movs r0, #2

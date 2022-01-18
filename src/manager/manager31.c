@@ -1,9 +1,8 @@
 
 #include "manager.h"
 #include "flags.h"
-#include "random.h"
+#include "asm.h"
 #include "object.h"
-#include "room.h"
 
 typedef struct {
     Manager manager;
@@ -28,7 +27,7 @@ void Manager31_Main(Manager31* this) {
     s32 count;
 
     if (this->manager.action == 0) {
-        this->manager.action += 1;
+        this->manager.action++;
         if (CheckGlobalFlag(GORON_KAKERA_L) != 0 && CheckGlobalFlag(GORON_KAKERA_M) != 0 &&
             CheckGlobalFlag(GORON_KAKERA_R) != 0) {
             if (CheckGlobalFlag(GORON_KAKERA_LV2) == 0) {
@@ -36,28 +35,22 @@ void Manager31_Main(Manager31* this) {
                     SetGlobalFlag(GORON_KAKERA_LV2);
                     goto clearGlobalFlags;
                 }
-            } else {
-                if (CheckGlobalFlag(GORON_KAKERA_LV3) == 0) {
-                    if (CheckGlobalFlag(LV2_CLEAR) != 0) {
-                        SetGlobalFlag(GORON_KAKERA_LV3);
-                        goto clearGlobalFlags;
-                    }
-                } else {
-                    if (CheckGlobalFlag(GORON_KAKERA_LV4) == 0) {
-                        if (CheckGlobalFlag(LV3_CLEAR) != 0) {
-                            SetGlobalFlag(GORON_KAKERA_LV4);
-                            goto clearGlobalFlags;
-                        }
-                    } else {
-                        if (CheckGlobalFlag(GORON_KAKERA_LV5) == 0 && CheckGlobalFlag(LV4_CLEAR) != 0) {
-                            SetGlobalFlag(GORON_KAKERA_LV5);
-                        clearGlobalFlags:
-                            ClearGlobalFlag(GORON_KAKERA_L);
-                            ClearGlobalFlag(GORON_KAKERA_M);
-                            ClearGlobalFlag(GORON_KAKERA_R);
-                        }
-                    }
+            } else if (CheckGlobalFlag(GORON_KAKERA_LV3) == 0) {
+                if (CheckGlobalFlag(LV2_CLEAR) != 0) {
+                    SetGlobalFlag(GORON_KAKERA_LV3);
+                    goto clearGlobalFlags;
                 }
+            } else if (CheckGlobalFlag(GORON_KAKERA_LV4) == 0) {
+                if (CheckGlobalFlag(LV3_CLEAR) != 0) {
+                    SetGlobalFlag(GORON_KAKERA_LV4);
+                    goto clearGlobalFlags;
+                }
+            } else if (CheckGlobalFlag(GORON_KAKERA_LV5) == 0 && CheckGlobalFlag(LV4_CLEAR) != 0) {
+                SetGlobalFlag(GORON_KAKERA_LV5);
+            clearGlobalFlags:
+                ClearGlobalFlag(GORON_KAKERA_L);
+                ClearGlobalFlag(GORON_KAKERA_M);
+                ClearGlobalFlag(GORON_KAKERA_R);
             }
         }
         this->itemActive[2] = 0;
@@ -72,8 +65,8 @@ void Manager31_Main(Manager31* this) {
                 if (object != NULL) {
                     object->actionDelay = 1;
                     object->field_0xf = count;
-                    object->x.HALF.HI = spawnData->x + gRoomControls.roomOriginX;
-                    object->y.HALF.HI = spawnData->y + gRoomControls.roomOriginY;
+                    object->x.HALF.HI = spawnData->x + gRoomControls.origin_x;
+                    object->y.HALF.HI = spawnData->y + gRoomControls.origin_y;
                     object->field_0x80.HWORD = spawnData->x;
                     object->field_0x82.HWORD = spawnData->y;
                     object->collisionLayer = 1;

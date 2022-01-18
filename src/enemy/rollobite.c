@@ -1,6 +1,11 @@
-#include "entity.h"
+/**
+ * @file rollobite.c
+ * @ingroup Enemies
+ *
+ * @brief Rollobite enemy
+ */
+
 #include "enemy.h"
-#include "random.h"
 #include "functions.h"
 
 extern void (*const gRollobiteFunctions[])(Entity*);
@@ -16,9 +21,9 @@ void sub_08020A7C(Entity*);
 bool32 Rollobite_TryToHoleUp(Entity*);
 bool32 Rollobite_IsRolledUp(Entity*);
 
-extern void sub_080AE58C();
-extern void sub_080AE7E8();
-extern void sub_08078930();
+extern void sub_080AE58C(Entity*, u32, u32);
+extern void sub_080AE7E8(Entity*, u32, u32, u32);
+extern void sub_08078930(Entity*);
 
 void Rollobite(Entity* this) {
     EnemyFunctionHandler(this, gRollobiteFunctions);
@@ -208,7 +213,7 @@ void Rollobite_Unroll(Entity* this) {
 }
 
 void Rollobite_LinedUp(Entity* this) {
-    if (sub_08003FC4(this, 0x1c00) == 0) {
+    if (GravityUpdate(this, 0x1c00) == 0) {
         this->action = 7;
         this->spritePriority.b0 = 7;
     }

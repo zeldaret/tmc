@@ -1,18 +1,12 @@
-#include "global.h"
-#include "entity.h"
-#include "script.h"
-#include "audio.h"
 #include "functions.h"
-#include "random.h"
-#include "flags.h"
-#include "textbox.h"
+#include "npc.h"
 
 extern void sub_0806A8C8(Entity*);
 
 extern void (*gUnk_08112260[])(Entity*);
 extern void (*gUnk_08112278[])(Entity*);
 
-extern void script_08012F0C;
+extern void script_Rem;
 
 extern void sub_08078850(Entity*, u32, u32, u32*);
 extern u32 gUnk_0811229C;
@@ -55,9 +49,9 @@ void sub_0806A3D8(Entity* this) {
 
     this->action = 1;
     this->actionDelay = 0xb4;
-    sub_0805E3A0(this, 2);
+    SetDefaultPriority(this, PRIO_MESSAGE);
     sub_0806A8C8(this);
-    uVar1 = StartCutscene(this, &script_08012F0C);
+    uVar1 = StartCutscene(this, &script_Rem);
     *(ScriptExecutionContext**)&this->cutsceneBeh = uVar1;
     sub_0807DD94(this, NULL);
 }
@@ -137,9 +131,9 @@ void sub_0806A550(Entity* this) {
     } else {
         if (this->frame == 1) {
             this->frame = 0;
-            sub_08080964(8, 2);
-            gActiveScriptInfo.unk_00 |= 0x100;
-            SoundReq(SFX_11B);
+            InitScreenShake(8, 2);
+            gActiveScriptInfo.syncFlags |= 0x100;
+            SoundReq(SFX_CHEST_OPEN);
         }
         if ((this->frame & 0x80) != 0) {
             this->action = 5;
@@ -179,7 +173,7 @@ void sub_0806A630(Entity* this) {
         this->action = 1;
         InitializeAnimation(this, 0x12);
     }
-    if ((gActiveScriptInfo.unk_00 & 0x100) != 0) {
+    if ((gActiveScriptInfo.syncFlags & 0x100) != 0) {
         GetNextFrame(this);
     }
     if (this->frame == 1) {
@@ -196,9 +190,9 @@ void sub_0806A830(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
         InitializeAnimation(this, 0x14);
-        sub_0805E3A0(this, 2);
+        SetDefaultPriority(this, PRIO_MESSAGE);
     }
-    if ((gActiveScriptInfo.unk_00 & 0x200) != 0) {
+    if ((gActiveScriptInfo.syncFlags & 0x200) != 0) {
         DeleteThisEntity();
     }
     GetNextFrame(this);
@@ -215,7 +209,7 @@ void sub_0806A890(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
         InitializeAnimation(this, 0x15);
-        sub_0805E3A0(this, 2);
+        SetDefaultPriority(this, PRIO_MESSAGE);
     }
     GetNextFrame(this);
     if ((this->frame & 0x80) != 0) {
@@ -285,7 +279,7 @@ void sub_0806A9E8(Entity* this) {
     Entity* npc = CreateNPC(0x37, 4, 0);
     if (npc != NULL) {
         CopyPosition(this, npc);
-        sub_0806FAD8(this, npc);
+        ResolveEntityBelow(this, npc);
     }
 }
 
@@ -297,7 +291,7 @@ void sub_0806AA18(Entity* this) {
     u32 index;
     if (this->field_0x6a.HWORD != 0) {
         index = 0x4408;
-    } else if ((gScreenTransition.frameCount & 1U) == 0) {
+    } else if ((gRoomTransition.frameCount & 1U) == 0) {
         index = 0x4407;
     } else {
         index = 0x440d;
@@ -309,8 +303,8 @@ ASM_FUNC("asm/non_matching/rem/sub_0806AA50.inc", void sub_0806AA50(Entity* this
 
 void sub_0806AB74(Entity* this) {
     gRoomVars.field_0x3 = 1;
-    if ((s32)(this->y.HALF.HI - (u32)gRoomControls.roomOriginY) < 0xa8) {
-        this->y.HALF.HI = gRoomControls.roomOriginY + 0xa8;
+    if ((s32)(this->y.HALF.HI - (u32)gRoomControls.origin_y) < 0xa8) {
+        this->y.HALF.HI = gRoomControls.origin_y + 0xa8;
     }
 }
 

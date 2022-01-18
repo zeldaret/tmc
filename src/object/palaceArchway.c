@@ -1,7 +1,4 @@
-#include "global.h"
-#include "entity.h"
-#include "room.h"
-#include "functions.h"
+#include "object.h"
 
 extern void (*const gUnk_081246EC[])(Entity*);
 
@@ -17,5 +14,5 @@ void sub_0809F2A0(Entity* this) {
     SetTile(0x4069, COORD_TO_TILE(this), this->collisionLayer);
 }
 
-void nullsub_537() {
+void nullsub_537(Entity* this) {
 }

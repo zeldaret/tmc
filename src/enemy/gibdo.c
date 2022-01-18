@@ -1,30 +1,35 @@
+/**
+ * @file gibdo.c
+ * @ingroup Enemies
+ *
+ * @brief Gibdo enemy
+ */
+
 #include "global.h"
-#include "entity.h"
-#include "sprite.h"
 #include "enemy.h"
-#include "random.h"
 #include "object.h"
 #include "functions.h"
+
 // Gibudo
-void sub_08037794();
-void sub_08037B10();
-void sub_0803797C();
-void sub_080379BC();
-void sub_08037C0C();
-u32 sub_08037810();
-void sub_080377B0();
-u32 sub_080378B0();
-u32 sub_08037914();
-u32 sub_080379EC();
-void sub_08037A58();
-void sub_08037ACC();
-void sub_08037B48();
-void sub_08037A14();
+void sub_08037794(Entity*);
+void sub_08037B10(Entity*);
+void sub_0803797C(Entity*);
+void sub_080379BC(Entity*);
+void sub_08037C0C(Entity*, Entity*);
+u32 sub_08037810(Entity*);
+void sub_080377B0(Entity*);
+u32 sub_080378B0(Entity*);
+u32 sub_08037914(Entity*);
+u32 sub_080379EC(Entity*);
+void sub_08037A58(Entity*);
+void sub_08037ACC(Entity*);
+void sub_08037B48(Entity*);
+void sub_08037A14(Entity*);
 
 extern void sub_0804A4E4(Entity*, Entity*);
 extern Entity* sub_08049DF4(u32);
 u32 sub_0804A044(Entity*, Entity*, u32);
-extern void sub_0800449C(Entity*, u32);
+extern void SoundReqClipped(Entity*, u32);
 
 extern void (*const gGibdo[6])(Entity*);
 extern void (*const gUnk_080CF2AC[9])(Entity*);
@@ -78,7 +83,7 @@ NONMATCH("asm/non_matching/gibdo/sub_080374A4.inc", void sub_080374A4(Entity* th
 }
 END_NONMATCH
 
-void nullsub_162() {
+void nullsub_162(Entity* this) {
 }
 
 void sub_08037558(Entity* this) {
@@ -158,27 +163,25 @@ void sub_08037690(Entity* this) {
         }
     }
 }
-// Non-matching
-NONMATCH("asm/non_matching/gibdo/sub_080376D0.inc", void sub_080376D0(Entity* this)) {
+
+void sub_080376D0(Entity* this) {
     u8* x;
     if (sub_080379EC(this) == 0) {
         ResetPlayer();
-        gPlayerState.field_0x1a[0] = gPlayerState.field_0x1a[0] | 0x80;
+        gPlayerState.mobility = gPlayerState.mobility | 0x80;
         gPlayerState.field_0xa = gPlayerState.field_0xa | 0x80;
         CopyPositionAndSpriteOffset(&gPlayerEntity, this);
         UpdateAnimationSingleFrame(this);
-        x = &this->frame;
-        if ((*x & 0x1) != 0) {
-            if (!(--this->field_0x7c.BYTES.byte0)) {
+        if ((this->frame & 0x1) != 0) {
+            if (--this->field_0x7c.BYTES.byte0 == 0) {
                 sub_08037A58(this);
+            } else {
+                this->frame ^= 1;
+                sub_08037B10(this);
             }
-        } else {
-            *x = *x ^ 1;
-            sub_08037B10(this);
         }
     }
 }
-END_NONMATCH
 
 void sub_0803773C(Entity* this) {
     UpdateAnimationSingleFrame(this);
@@ -350,8 +353,8 @@ void sub_08037A58(Entity* this) {
 }
 
 void sub_08037ACC(Entity* this) {
-    gPlayerState.flags &= 0xFFFFFEFF;
-    gPlayerEntity.flags |= 0x80;
+    gPlayerState.flags &= ~PL_DISABLE_ITEMS;
+    COLLISION_ON(&gPlayerEntity);
     gPlayerEntity.iframes = 0x1e;
     gPlayerEntity.knockbackDirection = DirectionFromAnimationState(this->animationState);
     gPlayerEntity.knockbackDuration = 4;
@@ -362,18 +365,18 @@ void sub_08037B10(Entity* this) {
     u32 h;
     gPlayerEntity.iframes = 0xc;
     h = ModHealth(-8);
-    sub_0800449C(&gPlayerEntity, 0x7a);
+    SoundReqClipped(&gPlayerEntity, 0x7a);
     if (h == 0) {
         sub_08037A58(this);
         this->field_0x76.HALF.LO = 0xf0;
     }
 }
-NONMATCH("asm/non_matching/gibdo/sub_08037B48.inc", void sub_08037B48(Entity* this)) {
+void sub_08037B48(Entity* this) {
     Entity* E;
     E = CreateObject(OBJECT_2A, 3, 0);
     if (E != 0) {
         E->type2 = this->actionDelay;
-        E->spritePriority.b0 = (E->spritePriority.b0 & 0xf8) | 3;
+        E->spritePriority.b0 = 3;
         E->spriteOffsetX = 0;
         E->spriteOffsetY = 0xfc;
         E->parent = this;
@@ -382,7 +385,7 @@ NONMATCH("asm/non_matching/gibdo/sub_08037B48.inc", void sub_08037B48(Entity* th
     E = CreateObject(OBJECT_2A, 3, 0);
     if (E != 0) {
         E->type2 = this->actionDelay;
-        E->spritePriority.b0 = (E->spritePriority.b0 & 0xf8) | 3;
+        E->spritePriority.b0 = 3;
         E->spriteOffsetX = 0xfd;
         E->spriteOffsetY = 0xf8;
         E->parent = this;
@@ -391,14 +394,13 @@ NONMATCH("asm/non_matching/gibdo/sub_08037B48.inc", void sub_08037B48(Entity* th
     E = CreateObject(OBJECT_2A, 3, 0);
     if (E != 0) {
         E->type2 = this->actionDelay;
-        E->spritePriority.b0 = (E->spritePriority.b0 & 0xf8) | 3;
+        E->spritePriority.b0 = 3;
         E->spriteOffsetX = 0x5;
         E->spriteOffsetY = 0xf5;
         E->parent = this;
     }
     this->child = E;
 }
-END_NONMATCH
 
 NONMATCH("asm/non_matching/gibdo/sub_08037C0C.inc", void sub_08037C0C(Entity* this, Entity* that)) {
     if (this->field_0x80.HWORD != 0) {

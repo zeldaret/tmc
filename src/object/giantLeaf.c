@@ -1,7 +1,4 @@
-#include "global.h"
-#include "entity.h"
-#include "room.h"
-#include "functions.h"
+#include "object.h"
 
 void sub_0808D618(Entity* ent);
 
@@ -25,8 +22,8 @@ void sub_0808D618(Entity* ent) {
     u32 i;
 
     arr = (ent->type != 0) ? gUnk_0812176A : gUnk_08121750;
-    tilePos = (((ent->x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 0x3F) |
-              ((((ent->y.HALF.HI - gRoomControls.roomOriginY) >> 4) & 0x3F) * 64);
+    tilePos = (((ent->x.HALF.HI - gRoomControls.origin_x) >> 4) & 0x3F) |
+              ((((ent->y.HALF.HI - gRoomControls.origin_y) >> 4) & 0x3F) * 64);
 
     for (i = 0; i < 13; i++) {
         SetTile(16500, tilePos + arr[i], 1);

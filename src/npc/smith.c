@@ -1,13 +1,4 @@
-#include "global.h"
-#include "entity.h"
-#include "textbox.h"
-#include "save.h"
-#include "script.h"
-#include "random.h"
 #include "npc.h"
-#include "audio.h"
-#include "functions.h"
-#include "effects.h"
 
 extern void sub_08078850(Entity*, u32, u32, u32*);
 
@@ -73,7 +64,6 @@ void sub_080660EC(Entity* this) {
 
 void sub_08066118(Entity* this) {
     s32 uVar1;
-    u32 iVar2;
 
     uVar1 = sub_0806ED9C(this, 0x28, 0x28);
     if (uVar1 < 0) {
@@ -113,8 +103,6 @@ void sub_080661B0(Entity* this) {
 }
 
 void sub_080661BC(Entity* this) {
-    u32 sVar1;
-
     if (this->animIndex == 0xc) {
         UpdateAnimationSingleFrame(this);
         if (this->frame & 0x80) {
@@ -141,10 +129,10 @@ void sub_08066218(Entity* this) {
 void sub_0806622C(Entity* this) {
     u32 index;
 
-    if (gSave.unk8 - 2 < 0) {
+    if (gSave.global_progress - 2 < 0) {
         index = 0;
     } else {
-        index = gSave.unk8 - 2;
+        index = gSave.global_progress - 2;
     }
     ShowNPCDialogue(this, &gUnk_08110390[index]);
 }

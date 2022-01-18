@@ -1,12 +1,6 @@
-#include "global.h"
-#include "entity.h"
-#include "player.h"
-#include "room.h"
-#include "coord.h"
-#include "random.h"
-#include "utils.h"
 #include "functions.h"
-#include "textbox.h"
+#include "message.h"
+#include "npc.h"
 
 extern void (*const gUnk_0810AC1C[])(Entity*);
 
@@ -86,6 +80,19 @@ void sub_08061AFC(Entity*);
 
 extern u16* gUnk_0810B660[8];
 
+void CreateZeldaFollower(void) {
+    Entity* npc;
+    if (CheckGlobalFlag(0x1c) != 0) {
+        npc = CreateNPC(0x2e, 0, 0);
+        if (npc != NULL) {
+            CopyPosition(&gPlayerEntity, npc);
+            npc->flags |= 0x20;
+            npc->animationState = GetAnimationState(npc);
+        }
+    }
+}
+
+// UNUSED zelda follower, probably because it was too resource heavy
 void NPC5(Entity* this) {
     gUnk_0810AC1C[this->type](this);
 }
@@ -93,7 +100,7 @@ void NPC5(Entity* this) {
 void sub_08060A00(Entity* this) {
     u32 tmp;
 
-    if ((gPlayerState.jumpStatus & 0x80) != 0) {
+    if ((gPlayerState.jump_status & 0x80) != 0) {
         if (this->action != 0) {
             if (((((UnkHeap*)this->myHeap)->unk_0) & 4) == 0) {
                 ((UnkHeap*)this->myHeap)->unk_0 |= 4;
@@ -111,13 +118,13 @@ void sub_08060A00(Entity* this) {
         ((UnkHeap*)this->myHeap)->unk_1 = gPlayerEntity.x.HALF.HI;
         ((UnkHeap*)this->myHeap)->unk_2 = gPlayerEntity.y.HALF.HI;
     }
-    if (this->field_0x74.HWORD != gRoomControls.roomID) {
-        this->field_0x74.HWORD = gRoomControls.roomID;
+    if (this->field_0x74.HWORD != gRoomControls.room) {
+        this->field_0x74.HWORD = gRoomControls.room;
         CopyPosition(&gPlayerEntity, this);
         this->action = 1;
         this->spriteSettings.draw = 1;
         this->speed = 0x120;
-        tmp = gRoomControls.unk_10;
+        tmp = gRoomControls.scroll_direction;
         this->animationState = tmp * 2;
         InitAnimationForceUpdate(this, tmp << 0x19 >> 0x19); // TODO some conversion between u8 and u32?
         this->frameDuration = (Random() & 0x7f) + 0x80;
@@ -166,6 +173,7 @@ void sub_08060B5C(Entity* this) {
 
 void sub_08060BA0(Entity* this) {
     Entity* r5;
+    //! @bug: r5 is uninitialized
 
     if (sub_08061230(this) != 0) {
         return;
@@ -268,9 +276,9 @@ void sub_08060DF4(Entity* this) {
 void sub_08060DFC(Entity* this) {
     u32 uVar1;
 
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     sub_08060E94(this);
-    uVar1 = sub_08003FC4(this, 0x2000);
+    uVar1 = GravityUpdate(this, 0x2000);
     if (uVar1 == 0) {
         this->action = 7;
         this->collisionLayer = 1;
@@ -410,37 +418,39 @@ NONMATCH("asm/non_matching/npc5/sub_08061170.inc", bool32 sub_08061170(Entity* t
 }
 END_NONMATCH
 
-NONMATCH("asm/non_matching/npc5/sub_080611D4.inc", u32 sub_080611D4(Entity* this)) {
-    u8 bVar1;
+u32 sub_080611D4(Entity* this) {
     u32 uVar2;
-    u8* pbVar3;
 
     u32 x;
     s32 a;
     s32 b;
+    s8* ptr;
+    u8* ptr2;
     x = this->animationState & 6;
-    // asm("a");
-    a = gUnk_0810AC4C[x].unk_0;
-    // asm("c");
-    b = gUnk_0810AC4C[x].unk_1;
-    // asm("d");
+    ptr = (s8*)gUnk_0810AC4C;
+    a = ptr[x];
+    b = ptr[x + 1];
     uVar2 = sub_080002B4(this, a, b);
-// asm("b");
-code4:
-    if ((gUnk_0810AC54[0] != uVar2 || (this->animationState != gUnk_0810AC54[1] >> 2))) {
-        // asm ("e");
-        if (gUnk_0810AC54[2] == 0) {
-            this->field_0xf = 0;
+    ptr2 = gUnk_0810AC54;
+
+    do {
+        if (*ptr2 != uVar2 || this->animationState != (ptr2[1] >> 2)) {
+            continue;
+        }
+
+        ++this->field_0xf;
+
+        if (this->field_0xf < 8) {
             return 0xff;
         }
-    }
-    this->field_0xf += 1;
-    if (this->field_0xf < 8) {
-        return 0xff;
-    }
-    return gUnk_0810AC54[3];
+
+        return ptr2[1];
+    } while (ptr2 += 2, *ptr2 != 0);
+
+    this->field_0xf = 0;
+
+    return 0xff;
 }
-END_NONMATCH
 
 u32 sub_08061230(Entity* this) {
     if ((((UnkHeap*)this->myHeap)->unk_0 & 1) == 0) {
@@ -478,7 +488,6 @@ u32 sub_08061230(Entity* this) {
 }
 
 NONMATCH("asm/non_matching/npc5/sub_08061358.inc", void sub_08061358(Entity* this)) {
-    u8 bVar1;
     u32 uVar2;
     s32 iVar3;
     u8 bVar4;
@@ -547,101 +556,81 @@ NONMATCH("asm/non_matching/npc5/sub_08061358.inc", void sub_08061358(Entity* thi
 }
 END_NONMATCH
 
-NONMATCH("asm/non_matching/npc5/sub_08061464.inc", void sub_08061464(Entity* this, u32 param_a, u32 param_b)) {
-    u8 bVar1;
-    s16 sVar2;
-    s16 sVar3;
-    u16 uVar4;
-    u32 uVar6;
-    u32 uVar7;
-    s32 iVar8;
-    s32 iVar9;
+void sub_08061464(Entity* this, u32 param_a, u32 param_b) {
     s32 iVar10;
-    u16 uVar5;
+    s32 iVar9;
+    u32 bVar1;
 
-    sVar2 = this->x.HALF.HI;
-    iVar10 = (s32)sVar2;
-    sVar3 = this->y.HALF.HI;
-    iVar9 = (s32)sVar3;
-    uVar6 = sub_080045D4(sVar2, sVar3, param_a, param_b);
-    // uVar7 = (uVar6 + 2) & 0x1c;
-    // if (7 < uVar7 >> 2)
-    // goto _08061612;
-    // uVar4 = (u16)param_b;
-    // uVar5 = (u16)param_a;
-    // asm("----");
-    switch (uVar7) {
+    iVar10 = this->x.HALF.HI;
+    iVar9 = this->y.HALF.HI;
+
+    switch (((sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, param_a, param_b) + 2) & 0x1c) >> 2) {
         case 0:
-            this->field_0x6e.HALF.LO = uVar4;
-            if ((s32)param_a < this->x.HALF.HI) {
+            this->field_0x6e.HWORD = param_b;
+            if (this->x.HALF.HI > (s32)param_a) {
                 sub_08061630(this, iVar10, iVar9 + -8, param_a);
                 break;
             }
-            goto _08061504;
-        case 4:
-            this->field_0x6e.HALF.LO = uVar5;
-            iVar8 = sub_08061720(this, iVar10 + 8, iVar9, param_b);
-            if (iVar8 != 0)
-                break;
-            this->field_0x6e.HALF.LO = uVar4;
-        _08061504:
             sub_080616A8(this, iVar10, iVar9 + -8, param_a);
             break;
-        case 8:
-            this->field_0x6e.HALF.LO = uVar5;
-            if ((s32)param_b < this->y.HALF.HI) {
+        case 1:
+            this->field_0x6e.HWORD = param_a;
+            if (sub_08061720(this, iVar10 + 8, iVar9, param_b) != 0)
+                break;
+            this->field_0x6e.HWORD = param_b;
+            sub_080616A8(this, iVar10, iVar9 + -8, param_a);
+            break;
+        case 2:
+            this->field_0x6e.HWORD = param_a;
+            if (this->y.HALF.HI > (s32)param_b) {
                 sub_08061720(this, iVar10 + 8, iVar9, param_b);
             } else {
                 sub_08061798(this, iVar10 + 8, iVar9, param_b);
             }
             break;
-        case 0xc:
-            this->field_0x6e.HALF.LO = uVar5;
-            iVar8 = sub_08061798(this, iVar10 + 8, iVar9, param_b);
-            if (iVar8 != 0)
+        case 3:
+            this->field_0x6e.HWORD = param_a;
+            if (sub_08061798(this, iVar10 + 8, iVar9, param_b) != 0)
                 break;
-            this->field_0x6e.HALF.LO = uVar4;
-            goto _08061574;
-        case 0x10:
-            this->field_0x6e.HALF.LO = uVar4;
-            if ((s32)param_a < this->x.HALF.HI)
-                goto _080615A4;
-        _08061574:
+            this->field_0x6e.HWORD = param_b;
             sub_08061888(this, iVar10, iVar9 + 8, param_a);
             break;
-        case 0x14:
-            this->field_0x6e.HALF.LO = uVar5;
-            iVar8 = sub_08061978(this, iVar10 + -8, iVar9, param_b);
-            if (iVar8 != 0)
+        case 4:
+            this->field_0x6e.HWORD = param_b;
+            if (this->x.HALF.HI > (s32)param_a) {
+                sub_08061810(this, iVar10, iVar9 + 8, param_a);
                 break;
-            this->field_0x6e.HALF.LO = uVar4;
-        _080615A4:
+            }
+            sub_08061888(this, iVar10, iVar9 + 8, param_a);
+            break;
+        case 5:
+            this->field_0x6e.HWORD = param_a;
+            if (sub_08061978(this, iVar10 + -8, iVar9, param_b) != 0)
+                break;
+            this->field_0x6e.HWORD = param_b;
             sub_08061810(this, iVar10, iVar9 + 8, param_a);
             break;
-        case 0x18:
-            this->field_0x6e.HALF.LO = uVar5;
-            if ((s32)param_b < this->y.HALF.HI) {
+        case 6:
+            this->field_0x6e.HWORD = param_a;
+            if (this->y.HALF.HI > (s32)param_b) {
                 sub_08061900(this, iVar10 + -8, iVar9, param_b);
             } else {
                 sub_08061978(this, iVar10 + -8, iVar9, param_b);
             }
             break;
-        case 0x1c:
-            this->field_0x6e.HALF.LO = uVar5;
-            iVar8 = sub_08061900(this, iVar10 + -8, iVar9, param_b);
-            if (iVar8 == 0) {
-                this->field_0x6e.HALF.LO = uVar4;
+        case 7:
+            this->field_0x6e.HWORD = param_a;
+            if (sub_08061900(this, iVar10 + -8, iVar9, param_b) == 0) {
+                this->field_0x6e.HWORD = param_b;
                 sub_08061630(this, iVar10, iVar9 + -8, param_a);
             }
     }
-_08061612:
-    bVar1 = ((UnkHeap*)this->myHeap)->unk_0;
-    if ((bVar1 & 8) == 0) {
+    bVar1 = ((UnkHeap*)this->myHeap)->unk_0 & 8;
+    if (bVar1 == 0) {
         this->action = 3;
-        this->subAction = bVar1 & 8;
+        this->subAction = bVar1;
     }
 }
-END_NONMATCH
 
 bool32 sub_08061630(Entity* this, s32 x, s32 y, s32 param) {
     u32 param_y = y;
@@ -819,7 +808,7 @@ bool32 sub_08061A74(Entity* this, s32 x, s32 y, s32 param) {
     return TRUE;
 }
 
-void sub_08061AA0() {
+void sub_08061AA0(void) {
     DeleteThisEntity();
 }
 
@@ -848,7 +837,6 @@ void sub_08061AFC(Entity* this) {
 }
 
 NONMATCH("asm/non_matching/npc5/sub_08061B18.inc", void sub_08061B18(Entity* this)) {
-    u8 bVar1;
     u16* puVar2;
 
     typedef struct {
@@ -878,7 +866,7 @@ void sub_08061B58(Entity* this) {
         this->action = 1;
         InitAnimationForceUpdate(this, 2);
     }
-    if (gScreenTransition.field_0x24[8] == 2) {
+    if (gRoomTransition.player_status.field_0x24[8] == 2) {
         UpdateAnimationSingleFrame(this);
     }
     sub_0806FD3C(this);

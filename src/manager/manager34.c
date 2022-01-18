@@ -1,7 +1,7 @@
 #include "manager.h"
 #include "structures.h"
 #include "functions.h"
-#include "audio.h"
+#include "sound.h"
 
 typedef struct {
     Manager manager;
@@ -22,7 +22,7 @@ void Manager34_Main(Manager34* this) {
 
 void sub_0805DBB4(Manager34* this) {
     this->manager.action = 1;
-    this->field_0x20 = gScreenTransition.field_0x3d * 0x3c;
+    this->field_0x20 = gRoomTransition.field_0x3d * 0x3c;
 }
 
 void sub_0805DBCC(Manager34* this) {
@@ -39,11 +39,11 @@ void sub_0805DBF0(Manager34* this) {
         sub_0805DC70();
     } else {
         if (this->field_0x20 == 0x78) {
-            sub_08080964(0x78, 2);
+            InitScreenShake(0x78, 2);
         } else if (this->field_0x20 == 0xd2) {
-            sub_08080964(0x5a, 1);
+            InitScreenShake(0x5a, 1);
         } else if (this->field_0x20 == 0x12c) {
-            sub_08080964(0x5a, 0);
+            InitScreenShake(0x5a, 0);
         }
 
         if (this->field_0x20 < 0x78) {
@@ -63,6 +63,6 @@ void sub_0805DBF0(Manager34* this) {
 }
 
 void sub_0805DC70(void) {
-    sub_0805E5A8();
+    SetInitializationPriority();
     DoExitTransition(&gUnk_0813AC48);
 }

@@ -1,10 +1,14 @@
-#include "enemy.h"
-#include "entity.h"
-#include "random.h"
-#include "functions.h"
-#include "effects.h"
+/**
+ * @file moldworm.c
+ * @ingroup Enemies
+ *
+ * @brief Moldworm enemy
+ */
 
-extern void sub_0800449C(Entity*, u32);
+#include "enemy.h"
+#include "functions.h"
+
+extern void SoundReqClipped(Entity*, u32);
 extern bool32 sub_08023A38(u32);
 extern void sub_08023990(Entity*, u32, u32);
 extern void sub_08023A88(Entity*, u32);
@@ -17,7 +21,6 @@ void sub_0802390C(Entity*);
 void sub_080239F0(Entity*);
 bool32 sub_08023B38(Entity*);
 
-extern u8 gEntCount;
 extern const u8 gUnk_080B37A0[];
 
 extern void (*const gUnk_080CBC38[])(Entity*);
@@ -87,7 +90,7 @@ void sub_080230E4(Entity* this) {
         gPlayerEntity.zVelocity = 0x18000;
         gPlayerEntity.direction = 0xff;
         gPlayerEntity.iframes = -0x14;
-        gPlayerState.jumpStatus = 0x41;
+        gPlayerState.jump_status = 0x41;
         gPlayerState.flags &= 0xfff7ffff;
     }
 
@@ -139,7 +142,7 @@ void sub_080231BC(Entity* this) {
         this->field_0x78.HWORD = 0x1e;
         this->palette.b.b0 = 5;
         this->direction = Random() & 0x1f;
-        this->animationState = Direction8ToAnimationState(this->direction);
+        this->animationState = Direction8ToAnimationState(Direction8RoundUp(this->direction));
         InitializeAnimation(this, this->animationState);
     }
 }
@@ -221,11 +224,11 @@ void sub_08023398(Entity* this) {
             this->field_0x7c.BYTES.byte0--;
         }
 
-        if ((gScreenTransition.frameCount & 7) == 0) {
+        if ((gRoomTransition.frameCount & 7) == 0) {
             u32 uVar4;
 
             sub_08004596(this, sub_08049F84(this, 1));
-            uVar4 = Direction8ToAnimationState(this->direction);
+            uVar4 = Direction8ToAnimationState(Direction8RoundUp(this->direction));
             if (uVar4 != this->animationState) {
                 this->animationState = uVar4;
                 InitializeAnimation(this, uVar4 + this->field_0x7a.HALF.HI);
@@ -249,7 +252,7 @@ void sub_080234D8(Entity* this) {
         this->action = 2;
         this->palette.b.b0 = 5;
         this->direction = Random() & 0x1f;
-        this->animationState = Direction8ToAnimationState(this->direction);
+        this->animationState = Direction8ToAnimationState(Direction8RoundUp(this->direction));
         sub_08023A88(this, this->animationState);
     }
 }
@@ -266,7 +269,7 @@ void sub_0802351C(Entity* this) {
     if (this->field_0x7c.BYTES.byte3 == 0) {
         if (this->type2 == 0) {
             gPlayerEntity.animationState = this->animationState & 7;
-            gPlayerState.flags |= 0x80000;
+            gPlayerState.flags |= PL_MOLDWORM_CAPTURED;
             PositionRelative(this, &gPlayerEntity, 0, gUnk_080CBC90[this->animationState & 7] << 0x10);
             gPlayerEntity.spriteOffsetY = -gUnk_080CBC90[this->animationState & 7];
         }
@@ -401,14 +404,14 @@ void sub_08023894(Entity* this) {
         this->parent->field_0x7c.BYTES.byte3 = 1;
         InitializeAnimation(this, this->animationState);
         if (this->parent->type2 == 0) {
-            gPlayerState.flags |= 0x200000;
+            gPlayerState.flags |= PL_MOLDWORM_RELEASED;
             gPlayerEntity.x.HALF.HI = this->x.HALF.HI;
             gPlayerEntity.y.HALF.HI = this->y.HALF.HI;
             gPlayerEntity.direction = DirectionRoundUp(GetFacingDirection(*(Entity**)&this->field_0x74, this));
             gPlayerEntity.animationState = gPlayerEntity.direction >> 2;
             gPlayerEntity.iframes = 12;
             ModHealth(-0x10);
-            sub_0800449C(&gPlayerEntity, 0x7a);
+            SoundReqClipped(&gPlayerEntity, 0x7a);
         }
     }
 }
@@ -483,13 +486,13 @@ bool32 sub_08023A38(u32 unk) {
 }
 
 void sub_08023A68(Entity* this) {
-    sub_0801D2B4(this, 5);
+    ChangeObjPalette(this, 5);
     this->spritePriority.b0 = 7;
     InitializeAnimation(this, 0x17);
 }
 
 void sub_08023A88(Entity* this, u32 unk) {
-    sub_0801D2B4(this, 0x22);
+    ChangeObjPalette(this, 0x22);
     this->spritePriority.b0 = 4;
     InitializeAnimation(this, unk);
 }

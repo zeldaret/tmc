@@ -17,8 +17,8 @@ void PlayerItemC(Entity* this) {
 }
 
 void sub_0801B8B0(Entity* this) {
-    if (gPlayerState.field_0x1d[1] != 0) {
-        gPlayerState.field_0x2c = (u8*)this;
+    if (gPlayerState.dash_state != 0) {
+        gPlayerState.item = this;
         this->flags |= 0x20;
         this->action = 0x01;
         this->flags2 = 8;
@@ -31,26 +31,22 @@ void sub_0801B8B0(Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/playerItemC/sub_0801B8FC.inc", void sub_0801B8FC(Entity* this)) {
+void sub_0801B8FC(Entity* this) {
     Entity* pbVar1;
-    u32 tmp;
-
-    pbVar1 = (Entity*)gPlayerState.field_0x2c;
-    if ((Entity*)gPlayerState.field_0x2c != this) {
+    pbVar1 = (Entity*)gPlayerState.item;
+    if ((Entity*)gPlayerState.item != this) {
         DeleteThisEntity();
     } else {
-        if ((u8*)(u32)gPlayerState.field_0x1d[1] == NULL) {
-            gPlayerState.field_0x2c = (u8*)(u32)gPlayerState.field_0x1d[1];
+        if (gPlayerState.dash_state == 0) {
+            gPlayerState.item = NULL;
             DeleteThisEntity();
         } else {
-            // TODO regalloc
-            gPlayerState.field_0x2c[0x10] |= 0x80;
+            pbVar1->flags |= 0x80;
             pbVar1->field_0x3c = 0x21;
             sub_0801B938(pbVar1);
         }
     }
 }
-END_NONMATCH
 
 ASM_FUNC("asm/non_matching/playerItemC/sub_0801B938.inc", void sub_0801B938(Entity* this))
 

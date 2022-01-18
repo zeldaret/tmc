@@ -1,6 +1,5 @@
-#include "global.h"
 #include "entity.h"
-#include "functions.h"
+#include "npc.h"
 
 extern void (*gMilkCartBehaviors[2])(Entity*);
 

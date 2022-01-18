@@ -1,10 +1,12 @@
-#include "global.h"
-#include "entity.h"
+/**
+ * @file slime.c
+ * @ingroup Enemies
+ *
+ * @brief Slime enemy
+ */
+
 #include "enemy.h"
-#include "room.h"
-#include "random.h"
 #include "functions.h"
-#include "effects.h"
 
 typedef struct {
     s8 h, v;
@@ -20,8 +22,6 @@ extern void (*const gUnk_080D16BC[])(Entity*);
 extern void (*const gUnk_080D16A4[])(Entity*);
 extern u8 gUnk_080D16D0[4]; // Entity count per form
 extern PosOffset gUnk_080D16D4[4];
-
-extern u8 gEntCount;
 
 void Slime(Entity* this) {
     EnemyFunctionHandler(this, gUnk_080D16A4);
@@ -44,7 +44,7 @@ void sub_08044F88(Entity* this) {
     }
 }
 
-void nullsub_171() {
+void nullsub_171(Entity* this) {
 }
 
 void sub_08044FC8(Entity* this) {
@@ -95,7 +95,7 @@ void sub_080450A8(Entity* this) {
 
     /* Can we create enough new entities? */
     count = gUnk_080D16D0[this->type];
-    if (72 - count <= gEntCount)
+    if (MAX_ENTITIES + 1 - count <= gEntCount)
         return;
 
     /* Create 2-4 new MiniSlime */
@@ -134,10 +134,10 @@ void sub_08045178(Entity* this, Entity* child, int h, int v) {
         return;
 
     x = child->x.HALF.HI + h;
-    if (0 <= x && x < (gRoomControls.roomOriginX + gRoomControls.width))
+    if (0 <= x && x < (gRoomControls.origin_x + gRoomControls.width))
         child->x.HALF.HI = x;
 
     y = child->y.HALF.HI + v;
-    if (0 <= y && y < (gRoomControls.roomOriginY + gRoomControls.height))
+    if (0 <= y && y < (gRoomControls.origin_y + gRoomControls.height))
         child->y.HALF.HI = y;
 }

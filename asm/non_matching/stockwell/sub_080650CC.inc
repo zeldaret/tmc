@@ -16,12 +16,12 @@
 	adds r0, r5, #0
 	adds r0, #0x84
 	ldr r0, [r0]
-	ldr r1, _080650FC @ =script_080143C0
+	ldr r1, _080650FC @ =script_StockwellDogFood
 	bl InitScriptExecutionContext
 	b _080651A6
 	.align 2, 0
 _080650F8: .4byte gRoomVars
-_080650FC: .4byte script_080143C0
+_080650FC: .4byte script_StockwellDogFood
 _08065100:
 	adds r2, r5, #0
 	adds r2, #0x5a
@@ -65,7 +65,7 @@ _0806513C:
 	adds r0, r5, #0
 	adds r0, #0x84
 	ldr r0, [r0]
-	ldr r1, _08065174 @ =script_08014384
+	ldr r1, _08065174 @ =script_StockwellBuy
 	bl InitScriptExecutionContext
 _0806515E:
 	adds r0, r7, #0
@@ -78,7 +78,7 @@ _0806515E:
 	str r0, [r1, #0x10]
 	b _080651A6
 	.align 2, 0
-_08065174: .4byte script_08014384
+_08065174: .4byte script_StockwellBuy
 _08065178: .4byte gMessage
 _0806517C:
 	ldrb r1, [r2]

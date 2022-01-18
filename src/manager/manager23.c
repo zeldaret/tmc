@@ -4,6 +4,7 @@
 #include "functions.h"
 #include "flags.h"
 #include "object.h"
+#include "game.h"
 
 extern void (*const gUnk_08108CCC[])(Manager*);
 
@@ -80,7 +81,7 @@ void sub_0805BD5C(Manager23* this) {
     } else {
         if (GetTileType(this->field_0x20, this->manager.unk_0b) == 0x76) {
             SetFlag(this->field_0x3e);
-            sub_0805308C(this->manager.unk_0e);
+            ChangeLightLevel(this->manager.unk_0e);
             DeleteThisEntity();
         }
     }
@@ -106,7 +107,7 @@ void sub_0805BDB4(Manager23* this) {
                 return;
             }
             SetFlag(this->field_0x3e);
-            sub_0805308C(this->manager.unk_0e);
+            ChangeLightLevel(this->manager.unk_0e);
             this->manager.action = 2;
             this->field_0x22 = this->field_0x36 * 0x3c;
             return;
@@ -117,7 +118,7 @@ void sub_0805BDB4(Manager23* this) {
                 CreateDustAt(*(s16*)&this->field_0x38, *(s16*)&this->field_0x3a, this->manager.unk_0b);
                 ClearFlag(this->field_0x3e);
                 sub_0807BA8C(this->field_0x20, this->manager.unk_0b);
-                sub_0805308C(-this->manager.unk_0e);
+                ChangeLightLevel(-this->manager.unk_0e);
                 this->manager.action = 1;
             } else {
                 if (CheckFlags(this->field_0x3c) == 0) {
@@ -139,7 +140,7 @@ void sub_0805BE70(Manager23* this, u32 param_2) {
 void sub_0805BE94(Manager23* this) {
     SetTileType(0x76, ((this->field_0x38 << 0x10) >> 0x14 & 0x3fU) | ((this->field_0x3a << 0x10) >> 0x14 & 0x3fU) << 6,
                 this->manager.unk_0b);
-    sub_0805308C(this->manager.unk_0e);
+    ChangeLightLevel(this->manager.unk_0e);
     DeleteThisEntity();
 }
 
@@ -147,8 +148,8 @@ void sub_0805BEC4(Manager23* this) {
     Entity* object = CreateObject(OBJECT_2A, 1, 0);
     if (object != NULL) {
         *(s8*)(&object->flags + 1) = ((*(s8*)(&object->flags + 1)) & (-0x10)) | 3;
-        object->x.HALF.HI = this->field_0x38 + gRoomControls.roomOriginX;
-        object->y.HALF.HI = this->field_0x3a + gRoomControls.roomOriginY;
+        object->x.HALF.HI = this->field_0x38 + gRoomControls.origin_x;
+        object->y.HALF.HI = this->field_0x3a + gRoomControls.origin_y;
         object->collisionLayer = this->manager.unk_0b;
         object->spritePriority.b0 = 2;
     }

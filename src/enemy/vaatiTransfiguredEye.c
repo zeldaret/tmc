@@ -1,7 +1,13 @@
+/**
+ * @file vaatiTransfiguredEye.c
+ * @ingroup Enemies
+ *
+ * @brief Vaati Transfigured Eye enemy
+ */
+
 #include "entity.h"
 #include "enemy.h"
-#include "audio.h"
-#include "textbox.h"
+#include "message.h"
 #include "coord.h"
 #include "functions.h"
 
@@ -228,12 +234,12 @@ void sub_08045A28(Entity* this) {
                 switch (frames) {
                     case 0x20:
                         this->field_0x82.HALF.HI = 1;
-                        sub_0801D2B4(this, 0x13e);
+                        ChangeObjPalette(this, 0x13e);
                         break;
                     case 0x00:
                     case 0x40:
                         this->field_0x82.HALF.HI = 2;
-                        sub_0801D2B4(this, 0x13f);
+                        ChangeObjPalette(this, 0x13f);
                         break;
                     default:
                         break;
@@ -243,11 +249,11 @@ void sub_08045A28(Entity* this) {
                 switch (frames) {
                     case 0x10:
                         this->field_0x82.HALF.HI = type;
-                        sub_0801D2B4(this, 0x13b);
+                        ChangeObjPalette(this, 0x13b);
                         break;
                     case 0:
                         this->field_0x82.HALF.HI = 2;
-                        sub_0801D2B4(this, 0x13f);
+                        ChangeObjPalette(this, 0x13f);
                         break;
                     default:
                         break;
@@ -257,15 +263,15 @@ void sub_08045A28(Entity* this) {
                 switch (frames) {
                     case 0x20:
                         this->field_0x82.HALF.HI = 1;
-                        sub_0801D2B4(this, 0x13e);
+                        ChangeObjPalette(this, 0x13e);
                         break;
                     case 0x10:
                         this->field_0x82.HALF.HI = 0;
-                        sub_0801D2B4(this, 0x13b);
+                        ChangeObjPalette(this, 0x13b);
                         break;
                     case 0x40:
                         this->field_0x82.HALF.HI = 2;
-                        sub_0801D2B4(this, 0x13f);
+                        ChangeObjPalette(this, 0x13f);
                         break;
                     default:
                         break;
@@ -275,7 +281,7 @@ void sub_08045A28(Entity* this) {
                 switch (frames) {
                     case 0:
                         this->field_0x82.HALF.HI = 2;
-                        sub_0801D2B4(this, 0x13f);
+                        ChangeObjPalette(this, 0x13f);
                         break;
                     default:
                         break;
@@ -291,11 +297,11 @@ void sub_08045A28(Entity* this) {
                 switch (this->frame & 0x70) {
                     case 0x10:
                         this->field_0x82.HALF.HI = 2;
-                        sub_0801D2B4(this, 0x13b);
+                        ChangeObjPalette(this, 0x13b);
                         break;
                     case 0x20:
                         this->field_0x82.HALF.HI = 1;
-                        sub_0801D2B4(this, 0x13e);
+                        ChangeObjPalette(this, 0x13e);
                         break;
                     default:
                         break;
@@ -306,11 +312,11 @@ void sub_08045A28(Entity* this) {
                 switch (temp) {
                     case 0:
                         this->field_0x82.HALF.HI = temp;
-                        sub_0801D2B4(this, 0x13f);
+                        ChangeObjPalette(this, 0x13f);
                         break;
                     case 0x10:
                         this->field_0x82.HALF.HI = 2;
-                        sub_0801D2B4(this, 0x13b);
+                        ChangeObjPalette(this, 0x13b);
                         break;
                     default:
                         break;
@@ -320,7 +326,7 @@ void sub_08045A28(Entity* this) {
                 switch (this->frame & 0x70) {
                     case 0:
                         this->field_0x82.HALF.HI = this->frame & 0x70;
-                        sub_0801D2B4(this, 0x13f);
+                        ChangeObjPalette(this, 0x13f);
                         break;
                     default:
                         break;

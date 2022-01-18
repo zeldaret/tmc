@@ -1,6 +1,24 @@
 #ifndef GUARD_GLOBAL_H
 #define GUARD_GLOBAL_H
 
+/**
+ * @defgroup Tasks Tasks
+ * @defgroup Subtasks Subtasks
+ */
+
+/** @defgroup Entities Entities */
+///@{
+/**
+ * @defgroup Player Player
+ * @defgroup Enemies Enemies
+ * @defgroup Projectiles Projectiles
+ * @defgroup Objects Objects
+ * @defgroup NPCs NPCs
+ * @defgroup Items Items
+ * @defgroup Managers Managers
+ */
+///@}
+
 #include "gba/gba.h"
 #include <string.h>
 
@@ -50,6 +68,8 @@
 #define BOOLCAST(x) ((-(x) | (x)) >> 31)
 #define static_assert(cond) extern char assertion[(cond) ? 1 : -1]
 
+#define super (&this->base)
+
 #if NON_MATCHING
 #define ASM_FUNC(path, decl)
 #else
@@ -96,5 +116,10 @@ union SplitHWord {
         u8 LO, HI;
     } PACKED HALF;
 } PACKED;
+
+#define FORCE_WORD_ALIGNED __attribute__((packed, aligned(2)))
+
+/* forward decls */
+struct Entity_;
 
 #endif // GUARD_GLOBAL_H

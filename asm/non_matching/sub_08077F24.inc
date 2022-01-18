@@ -1,11 +1,4 @@
-	.include "asm/macros.inc"
-
-	.include "constants/constants.inc"
-
 	.syntax unified
-
-	.text
-
 	push {lr}
 	ldr r2, _08077F34 @ =gStats
 	ldrb r3, [r0, #1]
@@ -15,7 +8,7 @@
 	movs r2, #1
 	b _08077F42
 	.align 2, 0
-_08077F34: .4byte gStats
+_08077F34: .4byte gSave + 0xa8
 _08077F38:
 	ldrb r0, [r2, #0xd]
 	movs r2, #0

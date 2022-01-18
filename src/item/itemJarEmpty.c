@@ -5,7 +5,6 @@
 extern void (*const gUnk_0811BE28[])(ItemBehavior*, u32);
 
 extern u8 gUnk_02002AC8[];
-extern void sub_08077BB8(ItemBehavior*);
 
 void ItemJarEmpty(ItemBehavior* this, u32 arg1) {
     gUnk_0811BE28[this->stateID](this, arg1);

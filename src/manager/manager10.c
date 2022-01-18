@@ -1,14 +1,14 @@
 #include "global.h"
+#include "asm.h"
 #include "manager.h"
 #include "room.h"
 #include "area.h"
-#include "audio.h"
+#include "sound.h"
 #include "screen.h"
-#include "utils.h"
-#include "fileScreen.h"
+#include "common.h"
+#include "fileselect.h"
 #include "functions.h"
 
-void Manager10_Main(Manager10*);
 void sub_080595E4(Manager10*);
 void sub_08059608(Manager10*);
 void sub_08059690(Manager10*);
@@ -18,7 +18,6 @@ u32 sub_0805986C(void);
 void sub_08059894(const u16*, const u16*, u32);
 u32 sub_080598F8(u32, u32, u32);
 void sub_08059960(const u16*, const u16*, u16*, u8);
-void sub_08059994(void);
 
 const u8 gUnk_08108390[6] = {
     0x0F, 0x1E, 0x2D, 0x3C, 0x01, 0x01,
@@ -44,7 +43,7 @@ void Manager10_Main(Manager10* this) {
             this->unk_22 = 5;
         }
         gRoomVars.unk_10[0] = 0xFF;
-        sub_08052D74(this, sub_080595E4, 0);
+        RegisterTransitionManager(this, sub_080595E4, 0);
     }
     sub_08059608(this);
     sub_08059690(this);
@@ -61,23 +60,23 @@ void sub_080595E4(Manager10* this) {
 void sub_08059608(Manager10* this) {
     if (this->unk_23) {
         if (!--this->unk_23) {
-            gArea.musicIndex = gArea.pMusicIndex;
-            SoundReq(gArea.musicIndex);
+            gArea.bgm = gArea.queued_bgm;
+            SoundReq(gArea.bgm);
         }
         return;
     }
     if (sub_0805986C()) {
-        if (gArea.pMusicIndex != 0x1E) {
-            gArea.pMusicIndex = 0x1E;
+        if (gArea.queued_bgm != 0x1E) {
+            gArea.queued_bgm = 0x1E;
             this->unk_23 = 0x78;
-            SoundReq(0x800d0000);
+            SoundReq(SONG_FADE_OUT_BGM);
         }
         return;
     }
-    if (gArea.pMusicIndex != 0x37) {
-        gArea.pMusicIndex = 0x37;
+    if (gArea.queued_bgm != 0x37) {
+        gArea.queued_bgm = 0x37;
         this->unk_23 = 0x78;
-        SoundReq(0x800d0000);
+        SoundReq(SONG_FADE_OUT_BGM);
     }
 }
 
@@ -96,7 +95,7 @@ void sub_08059690(Manager10* this) {
 }
 
 void sub_080596E0(Manager10* this) {
-    if ((gScreenTransition.frameCount & 7) == 0) {
+    if ((gRoomTransition.frameCount & 7) == 0) {
         gScreen.bg1.xOffset += 8;
         gScreen.bg1.xOffset &= 0x1F;
     }
@@ -149,12 +148,12 @@ void sub_080596E0(Manager10* this) {
     }
 }
 
-u32 sub_08059844() {
-    return gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX > gRoomControls.width >> 1;
+u32 sub_08059844(void) {
+    return gPlayerEntity.x.HALF.HI - gRoomControls.origin_x > gRoomControls.width >> 1;
 }
 
-u32 sub_0805986C() {
-    return gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX > 0x200;
+u32 sub_0805986C(void) {
+    return gPlayerEntity.x.HALF.HI - gRoomControls.origin_x > 0x200;
 }
 
 void sub_08059894(const u16* unk1, const u16* unk2, u32 unk3) {
@@ -208,9 +207,9 @@ void sub_08059960(const u16* unk1, const u16* unk2, u16* unk3, u8 unk4) {
     }
 }
 
-void sub_08059994() {
+void sub_08059994(void) {
     if (sub_0805986C()) {
         LoadPaletteGroup(0x5B);
-        gArea.pMusicIndex = 0x1E;
+        gArea.queued_bgm = 0x1E;
     }
 }

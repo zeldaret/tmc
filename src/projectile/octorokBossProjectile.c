@@ -1,9 +1,7 @@
 #include "entity.h"
 #include "enemy.h"
-#include "random.h"
 #include "functions.h"
-#include "audio.h"
-#include "effects.h"
+#include "projectile.h"
 
 void OctorokBossProjectile_Action2(Entity*);
 extern void sub_080AE58C(Entity*, u32, u32);
@@ -12,6 +10,13 @@ extern u32 sub_0806FC80(Entity*, Entity*, s32);
 extern void (*const OctorokBossProjectile_Functions[])(Entity*);
 extern void (*const OctorokBossProjectile_Actions[])(Entity*);
 extern const u8 gUnk_08129ADC[];
+
+enum OctorokBossProjectileType {
+    TYPE0, // rock
+    TYPE1, // rock fragment
+    TYPE2,
+    TYPE3 // falling stones
+};
 
 void OctorokBossProjectile(Entity* this) {
     OctorokBossProjectile_Functions[GetNextFunction(this)](this);
@@ -132,7 +137,7 @@ void OctorokBossProjectile_Action1(Entity* this) {
                 return;
             }
             for (index = 0; index < 3; ++index) {
-                this->child = CreateProjectileWithParent(this, 0xf, 1);
+                this->child = CreateProjectileWithParent(this, OCTOROK_BOSS_PROJECTILE, 1);
                 if (this->child != NULL) {
                     this->child->parent = this->parent;
                     this->child->direction = this->direction + gUnk_08129ADC[index];
@@ -146,7 +151,7 @@ void OctorokBossProjectile_Action1(Entity* this) {
                 OctorokBossProjectile_Action2(this);
             }
             GetNextFrame(this);
-            if (sub_08003FC4(this, 0x1800) != 0) {
+            if (GravityUpdate(this, 0x1800) != 0) {
                 sub_080AE58C(this, this->direction >> 3, 0);
                 if (this->collisions == 0) {
                     sub_0806F62C(this, (s32)this->speed, (u32)this->direction);
@@ -181,7 +186,7 @@ void OctorokBossProjectile_Action1(Entity* this) {
             DeleteThisEntity();
             break;
         case 3:
-            if (sub_08003FC4(this, 0x1800) != 0) {
+            if (GravityUpdate(this, 0x1800) != 0) {
                 return;
             }
             CreateFx(this, FX_ROCK, 0);

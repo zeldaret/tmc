@@ -1,9 +1,7 @@
 #include "global.h"
 #include "manager.h"
 #include "flags.h"
-#include "entity.h"
 #include "room.h"
-#include "functions.h"
 
 typedef struct {
     Manager manager;
@@ -32,7 +30,7 @@ void Manager20_Main(Manager20* this) {
         tmp->y.HALF.HI = this->unk_3a;
         tmp->collisionLayer = this->unk_37 >> 4;
     }
-    tmp->x.HALF.HI += gRoomControls.roomOriginX;
-    tmp->y.HALF.HI += gRoomControls.roomOriginY;
+    tmp->x.HALF.HI += gRoomControls.origin_x;
+    tmp->y.HALF.HI += gRoomControls.origin_y;
     DeleteManager((Manager*)this);
 }

@@ -4,15 +4,6 @@
 	.section .rodata
 	.align 2
 
-gUnk_0811E750:: @ 0811E750
-	.incbin "data_0811E750/gUnk_0811E750.bin"
-
-gUnk_0811E758:: @ 0811E758
-	.incbin "data_0811E750/gUnk_0811E758.bin"
-
-gUnk_0811E760:: @ 0811E760
-	.incbin "data_0811E750/gUnk_0811E760.bin"
-
 gUnk_0811E768:: @ 0811E768
 	.4byte sub_0807FC64
 	.4byte sub_0807FC7C

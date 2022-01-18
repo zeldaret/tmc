@@ -1,10 +1,9 @@
 #include "entity.h"
 #include "script.h"
 #include "functions.h"
+#include "npc.h"
 
 extern Dialog gUnk_08113158[];
-
-extern void sub_0806F188(Entity*);
 
 extern SpriteLoadData gUnk_08113140[];
 void sub_0806BC58(Entity* this);
@@ -12,7 +11,7 @@ void sub_0806BC58(Entity* this);
 ASM_FUNC("asm/non_matching/farmers/Farmers.inc", void Farmers(Entity* this))
 
 void sub_0806BC58(Entity* this) {
-    sub_0805E3A0(this, 2);
+    SetDefaultPriority(this, PRIO_MESSAGE);
 }
 
 void Farmers_Head(Entity* this) {

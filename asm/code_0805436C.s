@@ -59,11 +59,11 @@ sub_080548E8: @ 0x080548E8
 	bl _call_via_r0
 	bl FlushSprites
 	bl UpdateEntities
-	bl sub_080AD9B0
-	bl sub_080AD918
+	bl DrawEntities
+	bl CopyOAM
 	bl UpdateScroll
 	bl UpdateBgAnim
-	bl sub_08000108
+	bl UpdateScrollVram
 	pop {pc}
 	.align 2, 0
 _08054918: .4byte gUnk_080FE2AC
@@ -75,7 +75,7 @@ sub_08054920: @ 0x08054920
 	bl MessageInitialize
 	bl sub_0806F38C
 	ldr r1, _08054948 @ =gUnk_080C9CBC
-	ldr r0, _0805494C @ =gUnk_02022740
+	ldr r0, _0805494C @ =gFuseInfo
 	ldrb r0, [r0, #3]
 	lsls r0, r0, #3
 	adds r0, r0, r1
@@ -89,7 +89,7 @@ sub_08054920: @ 0x08054920
 	b _08054962
 	.align 2, 0
 _08054948: .4byte gUnk_080C9CBC
-_0805494C: .4byte gUnk_02022740
+_0805494C: .4byte gFuseInfo
 _08054950: .4byte gUnk_02032EC0
 _08054954:
 	ldr r1, _08054964 @ =gUnk_02032EC0
@@ -97,7 +97,7 @@ _08054954:
 	strb r0, [r1]
 	movs r0, #7
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 _08054962:
 	pop {pc}
 	.align 2, 0
@@ -129,16 +129,16 @@ sub_08054974: @ 0x08054974
 	strb r0, [r4, #4]
 	ldrb r0, [r6, #3]
 	strb r0, [r4, #5]
-	bl sub_08053320
+	bl LoadGfxGroups
 	ldrb r0, [r4, #4]
-	bl sub_08052D58
+	bl GetFlagBankOffset
 	ldr r1, _080549B8 @ =gArea
 	strh r0, [r1, #4]
 	cmp r5, #0
 	beq _080549BC
 	ldrb r0, [r6, #2]
 	ldrb r1, [r6, #3]
-	bl sub_08052FD8
+	bl LoadAuxiliaryRoom
 	b _080549CE
 	.align 2, 0
 _080549B0: .4byte gUnk_080FE320
@@ -194,14 +194,14 @@ sub_08054A14: @ 0x08054A14
 	ldrb r0, [r2, #0x11]
 	cmp r0, #0xd
 	bhi _08054A34
-	ldr r1, _08054A3C @ =gUnk_0811E454
+	ldr r1, _08054A3C @ =gLocalFlagBanks
 	lsls r0, r0, #1
 	adds r0, r0, r1
 	ldrh r0, [r0]
 	ldrh r1, [r2, #0x12]
-	bl SetLocalFlagByOffset
+	bl SetLocalFlagByBank
 _08054A34:
 	pop {pc}
 	.align 2, 0
 _08054A38: .4byte gUnk_080FE320
-_08054A3C: .4byte gUnk_0811E454
+_08054A3C: .4byte gLocalFlagBanks

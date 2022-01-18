@@ -5,8 +5,12 @@
 
 	.text
 
-	thumb_func_start sub_08003FC4
-sub_08003FC4: @ 0x08003FC4
+	thumb_func_start GravityUpdate
+GravityUpdate: @ 0x08003FC4
+	@ r0 = Entity*
+	@ r1 = Gravity strength
+	@ returns z pos
+
 	adds r3, r0, #0
 	ldr r0, [r3, #0x34]
 	ldr r2, [r3, #0x20]
@@ -141,8 +145,8 @@ sub_080040A2: @ 0x080040A2
 	lsrs r1, r1, #2
 	bhs _080040D0
 
-	thumb_func_start sub_080040A8
-sub_080040A8: @ 0x080040A8
+	thumb_func_start CheckOnScreen
+CheckOnScreen: @ 0x080040A8
 	ldr r1, _08004368 @ =gRoomControls
 	movs r2, #0x2e
 	ldrsh r2, [r0, r2]
@@ -191,10 +195,10 @@ sub_080040EC: @ 0x080040EC
 	b _080040F2
 _080040F2:
 	push {r2, r3, r4, lr}
-	ldr r4, _08004374 @ =gUnk_03000BF6
+	ldr r4, _08004374 @ =gRoomControls + 6
 	ldrh r4, [r4]
 	subs r2, r2, r4
-	ldr r4, _08004378 @ =gUnk_03000BF8
+	ldr r4, _08004378 @ =gRoomControls + 8
 	ldrh r4, [r4]
 	subs r3, r3, r4
 	ldr r4, _0800437C @ =0x000003F0
@@ -293,8 +297,8 @@ sub_0800419C: @ 0x0800419C
 	push {r5, r6, lr}
 	b _080041B0
 
-	thumb_func_start sub_080041A0
-sub_080041A0: @ 0x080041A0
+	thumb_func_start EntityInRectRadius
+EntityInRectRadius: @ 0x080041A0
 	push {r5, r6, lr}
 	movs r6, #0x38
 	ldrb r5, [r0, r6]
@@ -603,8 +607,8 @@ _08004364: .4byte gUnk_02024048
 _08004368: .4byte gRoomControls
 _0800436C: .4byte 0x0000016E
 _08004370: .4byte 0x0000011E
-_08004374: .4byte gUnk_03000BF6
-_08004378: .4byte gUnk_03000BF8
+_08004374: .4byte gRoomControls + 6
+_08004378: .4byte gRoomControls + 8
 _0800437C: .4byte 0x000003F0
 _08004380: .4byte gUnk_08000248
 _08004384: .4byte 0x000FFFFF

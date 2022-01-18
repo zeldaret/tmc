@@ -1,14 +1,19 @@
+/**
+ * @file businessScrub.c
+ * @ingroup Enemies
+ *
+ * @brief Business Scrub enemy
+ */
+
+#include "asm.h"
 #include "enemy.h"
-#include "entity.h"
-#include "flags.h"
-#include "textbox.h"
+#include "message.h"
 #include "save.h"
-#include "random.h"
 #include "npc.h"
 #include "functions.h"
-#include "effects.h"
+#include "game.h"
+#include "item.h"
 
-extern void LoadObjPalette(Entity*, u32);
 extern Entity* sub_08049DF4(u32);
 extern bool32 sub_08056338(void);
 extern void UnloadOBJPalette(Entity*);
@@ -210,7 +215,7 @@ void sub_08028BC4(Entity* this) {
                 if (iVar1 != NULL) {
                     iVar1->spritePriority.b0 = 3;
                     iVar1->z.HALF.HI -= 12;
-                    sub_0805E3A0(iVar1, 2);
+                    SetDefaultPriority(iVar1, PRIO_MESSAGE);
                 }
                 SetFlag(this->field_0x86.HWORD);
                 sub_0802925C(this);
@@ -251,7 +256,7 @@ void sub_08028CE8(Entity* this) {
             if (sub_080291DC(this)) {
                 /* Bag full. */
                 MessageFromTarget(0x2904);
-                sub_08078A90(0);
+                SetPlayerControl(0);
             } else {
                 ModRupees(-offer->price);
                 switch (offer->field_0x0 >> 2) {
@@ -286,7 +291,7 @@ void sub_08028CE8(Entity* this) {
         } else {
             /* Not enough money. */
             MessageFromTarget(0x2903);
-            sub_08078A90(0);
+            SetPlayerControl(0);
         }
     }
 
@@ -299,7 +304,7 @@ void sub_08028CE8(Entity* this) {
 void sub_08028DE8(Entity* this) {
     if (gPlayerEntity.action == 8) {
         if (this->field_0x80.HALF.HI == 0) {
-            sub_08078A90(1);
+            SetPlayerControl(1);
             this->field_0x80.HALF.HI = 1;
         }
     } else {
@@ -308,7 +313,7 @@ void sub_08028DE8(Entity* this) {
         this->field_0x80.HALF.HI = 0;
         this->actionDelay = 1;
         sub_08028EDC(this);
-        sub_08078A90(0);
+        SetPlayerControl(0);
         sub_0800445C(this);
         GetNextFrame(this);
     }
@@ -324,7 +329,7 @@ void sub_08028E40(Entity* this) {
         if (CheckLocalFlag(offer->field_0xa) == 0) {
             SetLocalFlag(offer->field_0xa);
         }
-        sub_08078A90(0);
+        SetPlayerControl(0);
     }
     sub_0800445C(this);
     GetNextFrame(this);
@@ -381,7 +386,7 @@ void sub_08028F0C(Entity* this) {
                 this->action = 7;
             }
             dialog = offer->field_0x4;
-            sub_08078A90(1);
+            SetPlayerControl(1);
         }
         MessageFromTarget(dialog);
         gMessage.field_0x10 = offer->price;
@@ -390,14 +395,14 @@ void sub_08028F0C(Entity* this) {
 
 bool32 sub_08028F98(Entity* this, u32 param_2) {
     Entity* ent = sub_08049DF4(1);
-    if (ent == NULL || sub_080041A0(this, ent, 0x28, 0x28)) {
+    if (ent == NULL || EntityInRectRadius(this, ent, 0x28, 0x28)) {
         return FALSE;
     }
 
     if (param_2 != 2) {
         u32 distance = param_2 ? 0x58 : 0x50;
 
-        if (!sub_080041A0(this, ent, distance, distance)) {
+        if (!EntityInRectRadius(this, ent, distance, distance)) {
             return FALSE;
         }
     }
@@ -526,7 +531,7 @@ bool32 sub_080291DC(Entity* this) {
     return FALSE;
 }
 
-NONMATCH("asm/non_matching/businessScrub/sub_0802925C.inc", void sub_0802922C(Entity* this)) {
+NONMATCH("asm/non_matching/businessScrub/sub_0802922C.inc", void sub_0802922C(Entity* this)) {
     const struct SalesOffering* offer = (const struct SalesOffering*)this->field_0x7c.WORD;
 
     this->action = 6;

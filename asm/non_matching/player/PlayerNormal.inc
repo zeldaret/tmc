@@ -91,7 +91,7 @@ _08070842:
 	ands r4, r1
 	cmp r4, #0
 	beq _08070852
-	bl sub_08079938
+	bl ResolvePlayerAnimation
 	b _08070BE4
 _08070852:
 	adds r0, r5, #0
@@ -99,7 +99,7 @@ _08070852:
 	adds r0, r5, #0
 	adds r0, #0x40
 	strb r4, [r0]
-	bl sub_08078EFC
+	bl RunQueuedAction
 	cmp r0, #0
 	beq _08070868
 	b _08070BE4
@@ -154,9 +154,9 @@ _080708AC:
 	ands r0, r6
 	cmp r0, #0
 	bne _080708C4
-	bl sub_0807A1B8
+	bl UpdateFloorType
 _080708C4:
-	bl sub_08078EFC
+	bl RunQueuedAction
 	cmp r0, #0
 	beq _080708CE
 	b _08070BE4
@@ -194,8 +194,8 @@ _08070902:
 	beq _0807090C
 	b _08070BE4
 _0807090C:
-	bl sub_0807A1B8
-	bl sub_08078EFC
+	bl UpdateFloorType
+	bl RunQueuedAction
 	b _08070BE4
 	.align 2, 0
 _08070918: .4byte gPlayerState
@@ -211,7 +211,7 @@ _08070924:
 	orrs r1, r0
 	cmp r1, #0
 	bne _080709D8
-	bl sub_08019840
+	bl UpdatePlayerCollision
 	cmp r0, #0xf
 	bls _08070940
 	b _08070BE4
@@ -296,7 +296,7 @@ _080709D8:
 _080709FC:
 	adds r0, r5, #0
 	bl sub_08077698
-	bl sub_08078EFC
+	bl RunQueuedAction
 	cmp r0, #0
 	beq _08070A0C
 	b _08070BE4
@@ -320,8 +320,8 @@ _08070A26:
 	b _08070BE4
 _08070A32:
 	adds r0, r5, #0
-	bl sub_08073904
-	bl sub_08078EFC
+	bl DoJump
+	bl RunQueuedAction
 	cmp r0, #0
 	beq _08070A42
 	b _08070BE4
@@ -357,7 +357,7 @@ _08070A7C:
 	movs r0, #0xff
 	strb r0, [r5, #0x15]
 _08070A80:
-	bl sub_08079E08
+	bl UpdatePlayerMovement
 	adds r0, r5, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -432,7 +432,7 @@ _08070B00:
 _08070B0E:
 	cmp r0, #1
 	bne _08070B18
-	bl sub_08078F60
+	bl ResetPlayerVelocity
 	b _08070B1E
 _08070B18:
 	adds r0, r5, #0
@@ -465,7 +465,7 @@ _08070B1E:
 	lsls r0, r0, #2
 	strb r0, [r5, #0x15]
 _08070B52:
-	bl sub_0807A108
+	bl DeleteClones
 _08070B56:
 	movs r4, #0
 	ldr r3, _08070BB8 @ =gPlayerState
@@ -529,7 +529,7 @@ _08070BC8:
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _08070BE4
-	ldr r0, _08070BE8 @ =gScreenTransition
+	ldr r0, _08070BE8 @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #7
 	ands r0, r1
@@ -540,5 +540,5 @@ _08070BC8:
 _08070BE4:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_08070BE8: .4byte gScreenTransition
+_08070BE8: .4byte gRoomTransition
     .syntax divided

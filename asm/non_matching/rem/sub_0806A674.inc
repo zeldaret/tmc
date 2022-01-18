@@ -89,7 +89,7 @@ _0806A6E4:
 	strb r1, [r0]
 	b _0806A75A
 _0806A724:
-	ldr r0, _0806A780 @ =gScreenTransition
+	ldr r0, _0806A780 @ =gRoomTransition
 	ldr r0, [r0]
 	movs r1, #3
 	ands r0, r1
@@ -137,9 +137,9 @@ _0806A75A:
 	strb r1, [r0]
 	b _0806A82A
 	.align 2, 0
-_0806A780: .4byte gScreenTransition
+_0806A780: .4byte gRoomTransition
 _0806A784:
-	ldr r0, _0806A7C4 @ =gScreenTransition
+	ldr r0, _0806A7C4 @ =gRoomTransition
 	ldr r0, [r0]
 	lsrs r0, r0, #4
 	movs r1, #3
@@ -174,7 +174,7 @@ _0806A7BA:
 	strb r0, [r3]
 	b _0806A82A
 	.align 2, 0
-_0806A7C4: .4byte gScreenTransition
+_0806A7C4: .4byte gRoomTransition
 _0806A7C8:
 	adds r2, r4, #0
 	adds r2, #0x29

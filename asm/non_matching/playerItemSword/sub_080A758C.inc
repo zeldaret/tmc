@@ -135,7 +135,7 @@ _080A7692:
 	bl sub_08079BD8
 	ldr r4, _080A76B4 @ =gUnk_0812906C
 	ldr r0, _080A76B8 @ =gUnk_08129068
-	bl sub_080028F4
+	bl GetRandomByWeight
 	lsls r0, r0, #1
 	adds r0, r0, r4
 	ldrh r0, [r0]

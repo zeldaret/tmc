@@ -1,12 +1,10 @@
 #include "global.h"
-#include "audio.h"
+#include "sound.h"
 #include "entity.h"
 #include "functions.h"
-#include "room.h"
 #include "flags.h"
-#include "script.h"
+#include "npc.h"
 
-extern Entity* DeepFindEntityByID(u32, u32);
 void sub_08068680(Entity*, Entity*);
 void sub_08068694(Entity*, Entity*);
 extern Entity* GetEntityByType(u32, u32);
@@ -23,7 +21,7 @@ void sub_08066CCC(Entity* this) {
     this->action = 1;
     this->spriteSettings.draw = 1;
     PrependEntityToList(this, 7);
-    sub_0805E3A0(this, 2);
+    SetDefaultPriority(this, PRIO_MESSAGE);
     sub_0807DD50(this);
 }
 
@@ -68,7 +66,7 @@ void sub_08066D4C(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_08066D94(Entity* this) {
-    u32 roomID;
+    u32 room;
     Entity* npc;
 
     SetGlobalFlag(ZELDA_CHASE);
@@ -77,14 +75,14 @@ void sub_08066D94(Entity* this) {
         npc->animationState = gPlayerEntity.animationState;
         npc->flags |= 0x20;
         npc->animationState = GetAnimationState(this);
-        roomID = gRoomControls.roomID;
-        npc->field_0x74.HWORD = roomID;
+        room = gRoomControls.room;
+        npc->field_0x74.HWORD = room;
         CopyPosition(this, npc);
     }
     DeleteThisEntity();
 }
 
-void sub_08066DE4(Entity* this) {
+void SetZeldaFollowTarget(Entity* this) {
     Entity* pEVar1;
 
     pEVar1 = DeepFindEntityByID(7, 0x2E);
@@ -136,7 +134,7 @@ void sub_08066E80(Entity* this, ScriptExecutionContext* context) {
             break;
         case 2:
             sub_0806F62C(this, 0x100, 0x80);
-            sub_08003FC4(this, 0x2000);
+            GravityUpdate(this, 0x2000);
             if (!(this->frame & 1)) {
                 UpdateAnimationSingleFrame(this);
             }
@@ -147,7 +145,7 @@ void sub_08066E80(Entity* this, ScriptExecutionContext* context) {
         case 3:
             sub_0806F62C(this, 0x100, 0x80);
             UpdateAnimationSingleFrame(this);
-            if (sub_08003FC4(this, 0x2000) == 0) {
+            if (GravityUpdate(this, 0x2000) == 0) {
                 context->unk_18++;
                 InitAnimationForceUpdate(this, 0x1E);
             }

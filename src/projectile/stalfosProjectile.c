@@ -1,7 +1,6 @@
 #include "entity.h"
 #include "enemy.h"
 #include "functions.h"
-#include "effects.h"
 
 extern void (*const StalfosProjectile_Functions[])(Entity*);
 extern void (*const StalfosProjectile_Actions[])(Entity*);
@@ -120,7 +119,7 @@ void StalfosProjectile_Action3(Entity* this) {
     if (this->zVelocity < 0) {
         this->spriteSettings.flipY = 1;
     }
-    if (sub_08003FC4(this, 0x2000) == 0) {
+    if (GravityUpdate(this, 0x2000) == 0) {
         sub_080A9BA8(this);
     }
 }

@@ -154,7 +154,7 @@ _0802C442:
 _0802C45C: .4byte gRoomControls
 _0802C460:
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	movs r1, #0x36
 	ldrsh r0, [r4, r1]
 	subs r0, r0, r5

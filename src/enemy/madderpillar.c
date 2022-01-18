@@ -1,10 +1,13 @@
-#include "enemy.h"
-#include "entity.h"
-#include "random.h"
-#include "functions.h"
-#include "effects.h"
+/**
+ * @file madderpillar.c
+ * @ingroup Enemies
+ *
+ * @brief Madderpillar enemy
+ */
 
-extern u8 gEntCount;
+#include "enemy.h"
+#include "functions.h"
+
 extern Hitbox gUnk_080FD298;
 extern Hitbox gUnk_080FD2A0;
 
@@ -57,7 +60,7 @@ void sub_080298A4(Entity* this) {
                 this->actionDelay = 0;
                 this->hitType = 0x6b;
                 this->field_0x76.HALF.HI = 0;
-                sub_0801D2B4(this, 0x7f);
+                ChangeObjPalette(this, 0x7f);
                 EnqueueSFX(0xfe);
                 this->child->action = 2;
                 break;
@@ -155,7 +158,7 @@ void sub_08029AE0(Entity* this) {
         this->speed = 0xa0;
         this->field_0x74.HALF.HI = 0;
         sub_08029EEC(this);
-        sub_0801D2B4(this, 0x77);
+        ChangeObjPalette(this, 0x77);
         EnqueueSFX(0x182);
     }
 }
@@ -217,7 +220,7 @@ void sub_08029C08(Entity* this) {
 void sub_08029C2C(Entity* this) {
     if (--this->actionDelay == 0) {
         this->action = 4;
-        sub_0801D2B4(this, 0x7f);
+        ChangeObjPalette(this, 0x7f);
         EnqueueSFX(0x6c);
     }
 }
@@ -234,7 +237,7 @@ void sub_08029C6C(Entity* this) {
     sub_08029BC4(this);
     if (this->parent->action != 3) {
         this->action = 1;
-        sub_0801D2B4(this, 0x77);
+        ChangeObjPalette(this, 0x77);
     } else {
         sub_0802A16C(this);
     }
@@ -271,7 +274,7 @@ void sub_08029D14(Entity* this) {
     if (this->actionDelay) {
         if (--this->actionDelay == 0) {
             InitializeAnimation(this, this->animationState + 0xc);
-            sub_0801D2B4(this, 0x7f);
+            ChangeObjPalette(this, 0x7f);
             EnqueueSFX(0x6c);
         }
     } else {
@@ -313,7 +316,7 @@ void sub_08029DE4(Entity* this) {
     sub_08029CF0(this);
     if (this->parent->action != 3) {
         this->action = 1;
-        sub_0801D2B4(this, 0x77);
+        ChangeObjPalette(this, 0x77);
     } else {
         sub_0802A16C(this);
     }
@@ -486,7 +489,7 @@ bool32 sub_0802A14C(Entity* this) {
 }
 
 void sub_0802A16C(Entity* this) {
-    sub_0801D2B4(this, gUnk_080CCDD4[this->parent->field_0x7a.HWORD >> 2 & 3]);
+    ChangeObjPalette(this, gUnk_080CCDD4[this->parent->field_0x7a.HWORD >> 2 & 3]);
 }
 
 void sub_0802A18C(Entity* this) {

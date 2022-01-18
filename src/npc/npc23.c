@@ -1,10 +1,9 @@
 #include "entity.h"
-#include "script.h"
 #include "player.h"
 #include "structures.h"
 #include "functions.h"
-#include "structures.h"
-#include "textbox.h"
+#include "message.h"
+#include "npc.h"
 
 extern void (*const gUnk_081104C8[])(Entity*);
 
@@ -87,7 +86,7 @@ void sub_0806643C(Entity* this) {
     bool32 tmp = sub_0806650C(this);
     if (tmp == FALSE) {
         this->action = 5;
-        gRoomControls.cameraTarget = NULL;
+        gRoomControls.camera_target = NULL;
         sub_08078AC0(0x40, 0, 0);
         gPlayerEntity.animationState = 0;
         gPlayerEntity.direction = 0;

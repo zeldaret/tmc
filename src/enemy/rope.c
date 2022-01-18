@@ -1,18 +1,21 @@
-#include "global.h"
-#include "entity.h"
+/**
+ * @file rope.c
+ * @ingroup Enemies
+ *
+ * @brief Rope enemy
+ */
+
 #include "enemy.h"
-#include "random.h"
-#include "audio.h"
 #include "functions.h"
 
 extern void (*const gRope[6])(Entity*);
 extern void (*const gUnk_080CE460[4])(Entity*);
 extern void (*const gUnk_080CE470[3])(Entity*);
 extern Entity* gUnk_020000B0;
-extern u32 sub_0804A044();
+extern u32 sub_0804A044(Entity*, Entity*, u32);
 
-void sub_08031600();
-u32 sub_0803163C();
+void sub_08031600(Entity*);
+u32 sub_0803163C(Entity*);
 
 void Rope(Entity* this) {
     EnemyFunctionHandler(this, gRope);
@@ -87,7 +90,7 @@ void sub_08031480(Entity* this) {
             SoundReq(SFX_12D);
         }
     } else {
-        if (sub_08003FC4(this, 0x1800) == 0) {
+        if (GravityUpdate(this, 0x1800) == 0) {
             this->action = 2;
             this->field_0xf = 0xf;
             this->spriteSettings.draw = 1;

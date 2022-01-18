@@ -1,9 +1,5 @@
-#include "entity.h"
-#include "textbox.h"
 #include "npc.h"
 #include "functions.h"
-#include "random.h"
-#include "audio.h"
 
 extern void (*const gUnk_081145D4[])(Entity*);
 
@@ -22,7 +18,7 @@ void sub_0806E730(Entity* this) {
     this->action += 1;
     this->field_0x68.HALF.LO = sub_0801E99C(this);
     sub_080787A8(this, this->field_0x68.HALF.LO);
-    sub_0805E3A0(this, 2);
+    SetDefaultPriority(this, PRIO_MESSAGE);
     this->subAction = 0;
     sub_0806E764(this);
 }
@@ -53,7 +49,7 @@ void sub_0806E824(Entity* this) {
 
 void sub_0806E838(Entity* this) {
     if (this->interactType != 0) {
-        if ((gPlayerState.flags & PL_IS_MINISH) != 0) {
+        if ((gPlayerState.flags & PL_MINISH) != 0) {
             if (this->interactType == 2) {
                 this->action = 3;
                 sub_0806F118(this);
@@ -61,7 +57,7 @@ void sub_0806E838(Entity* this) {
                 sub_0806E884(this);
             }
         } else {
-            sub_080791D0();
+            ResetPlayerAnimationAndAction();
         }
         SoundReq(SFX_VO_CHEEP);
         this->interactType = 0;
@@ -78,7 +74,7 @@ void CuccoChick_Fusion(Entity* this) {
         this->spriteSettings.draw = 1;
         this->frameIndex = 1;
     } else {
-        if (sub_08003FC4(this, 0x3000) == 0) {
+        if (GravityUpdate(this, 0x3000) == 0) {
             this->zVelocity = 0x10000;
         }
     }

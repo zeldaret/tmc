@@ -1,7 +1,6 @@
 #include "manager.h"
-#include "audio.h"
+#include "sound.h"
 #include "script.h"
-#include "functions.h"
 
 typedef struct {
     u16 waitTime;
@@ -32,7 +31,7 @@ void CreateManager36(Entity* entity, ScriptExecutionContext* context) {
         manager->subtype = 0x36;
         manager->unk_0a = context->intVariable;
         AppendEntityToList((Entity*)manager, 6);
-        sub_0805E3A0(manager, 6);
+        SetDefaultPriority((Entity*)manager, PRIO_PLAYER_EVENT);
     }
 }
 

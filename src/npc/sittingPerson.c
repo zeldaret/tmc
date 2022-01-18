@@ -1,9 +1,4 @@
-#include "entity.h"
-#include "script.h"
 #include "npc.h"
-#include "functions.h"
-#include "save.h"
-#include "random.h"
 
 extern void (*gUnk_0810CBD8[])(Entity*);
 
@@ -63,7 +58,7 @@ void sub_08063944(Entity* this, ScriptExecutionContext* context) {
     s32 tmp;
 
     context->condition = 0;
-    tmp = gSave.unk8 - 2;
+    tmp = gSave.global_progress - 2;
     if (tmp < 0) {
         tmp = 0;
     }

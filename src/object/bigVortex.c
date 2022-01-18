@@ -3,7 +3,6 @@
 #include "flags.h"
 #include "object.h"
 #include "functions.h"
-#include "effects.h"
 
 extern void sub_08098E3C(Entity*);
 extern void sub_08098E88(Entity*);
@@ -34,7 +33,7 @@ void sub_08098D1C(Entity* this) {
         this->spriteSettings.draw = TRUE;
         sub_08098E88(this);
     }
-    sub_0805E3A0(this, 6);
+    SetDefaultPriority(this, PRIO_PLAYER_EVENT);
     InitAnimationForceUpdate(this, 0);
 }
 
@@ -67,7 +66,7 @@ void sub_08098DC4(Entity* this) {
         sub_08004542(&gPlayerEntity);
         gPlayerEntity.collisionLayer = 1;
         ResolveEntityOnTop(this, &gPlayerEntity);
-        gPlayerState.playerAction = 0x1f;
+        gPlayerState.queued_action = PLAYER_PARACHUTE;
         gPlayerState.field_0x34[4] = 1;
         gPlayerState.field_0x34[5] = this->type2;
         this->action = 4;

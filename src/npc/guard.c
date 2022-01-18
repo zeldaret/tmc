@@ -2,11 +2,12 @@
 #include "entity.h"
 #include "player.h"
 #include "flags.h"
-#include "textbox.h"
+#include "message.h"
 #include "room.h"
 #include "script.h"
-#include "structures.h"
 #include "functions.h"
+#include "npc.h"
+#include "projectile.h"
 
 typedef struct {
     u32 unk;
@@ -19,9 +20,7 @@ typedef struct {
 } struct_08064050;
 
 extern void sub_08063D24(Entity*);
-extern void sub_0806EE20(Entity*);
 extern void sub_08064428(Entity*);
-extern void sub_0806EE04(Entity*, void*, u32);
 void sub_08063DC8(Entity*);
 void sub_08063F20(Entity*);
 
@@ -29,10 +28,8 @@ extern void (*const gUnk_0810F544[])(Entity*);
 extern void (*const gUnk_0810F550[])(Entity*);
 
 // entity count
-extern u8 gEntCount;
 extern SpriteLoadData gUnk_0810F524[];
 extern void* gUnk_0810F6BC[];
-extern ScreenTransition gScreenTransition;
 
 void Guard(Entity* this) {
     if ((this->flags & 2) != 0) {
@@ -114,7 +111,6 @@ void sub_08063E6C(Entity* this) {
 }
 
 void sub_08063E90(Entity* this) {
-    Entity* ent;
     u32 temp, idx;
     u32 unk;
 
@@ -167,7 +163,6 @@ void sub_08063F78(Entity* this) {
 }
 
 void Guard_Head(Entity* this) {
-    u8 bVar1;
     u32 uVar2;
     u32 pbVar3;
     u32 uVar4;
@@ -204,11 +199,11 @@ void Guard_Head(Entity* this) {
 }
 
 void sub_08064030(Entity* arg0, Entity* arg1) {
-    *(u32*)&arg1->animationState = (-gRoomVars.greatFairyState | gRoomVars.greatFairyState) >> 0x1f;
+    *(u32*)&arg1->animationState = !!gRoomVars.animFlags;
 }
 
 void sub_08064044(void) {
-    gScreenTransition.transitioningOut = 1;
+    gRoomTransition.transitioningOut = 1;
 }
 
 void sub_08064050(Entity* this, ScriptExecutionContext* context) {

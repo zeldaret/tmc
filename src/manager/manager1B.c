@@ -2,6 +2,7 @@
 #include "manager.h"
 #include "functions.h"
 #include "screen.h"
+#include "common.h"
 
 typedef struct {
     Manager manager;
@@ -29,9 +30,9 @@ void Manager1B_Main(Manager1B* this) {
     if (this->manager.action == 0) {
         this->manager.action = 1;
         this->manager.unk_10 |= 0x20;
-        sub_0805E3A0(this, 6);
+        SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
         if (this->manager.unk_0a != 0) {
-            sub_08052D74(this, sub_0805B4B4, NULL);
+            RegisterTransitionManager(this, sub_0805B4B4, NULL);
         }
         iVar3 = 0x100 - (u32)gRoomControls.height;
         if (iVar3 < 0) {
@@ -40,20 +41,20 @@ void Manager1B_Main(Manager1B* this) {
         this->field_0x20 = iVar3 + (s8)tmp[2];
         gUnk_08108C54[tmp[1]](this);
     }
-    if (gRoomControls.unk2 == 0) {
+    if (gRoomControls.reload_flags == 0) {
         gUnk_08108C54[tmp[1]](this);
     }
 }
 
 void sub_0805B448(Manager1B* this) {
-    gScreen.bg3.xOffset = (gRoomControls.roomScrollX - gRoomControls.roomOriginX) >> 2;
-    gScreen.bg3.yOffset = ((gRoomControls.roomScrollY - gRoomControls.roomOriginY) >> 1) + this->field_0x20;
+    gScreen.bg3.xOffset = (gRoomControls.scroll_x - gRoomControls.origin_x) >> 2;
+    gScreen.bg3.yOffset = ((gRoomControls.scroll_y - gRoomControls.origin_y) >> 1) + this->field_0x20;
 }
 
 void sub_0805B474(Manager1B* this) {
-    s32 tmp = ((gRoomControls.roomScrollY - gRoomControls.roomOriginY) * 0x60) / (gRoomControls.height - 0xa0);
-    gScreen.bg3.yOffset = gRoomControls.roomOriginY + tmp;
-    gScreen.bg3.xOffset = gRoomControls.roomScrollX - ((gRoomControls.width - 0x100) / 2);
+    s32 tmp = ((gRoomControls.scroll_y - gRoomControls.origin_y) * 0x60) / (gRoomControls.height - 0xa0);
+    gScreen.bg3.yOffset = gRoomControls.origin_y + tmp;
+    gScreen.bg3.xOffset = gRoomControls.scroll_x - ((gRoomControls.width - 0x100) / 2);
 }
 
 void sub_0805B4B4(Manager1B* this) {
@@ -70,10 +71,10 @@ void sub_0805B4D0(u32 param_1) {
 
     LoadGfxGroup(gUnk_08108C5C[param_1]);
     gScreen.bg3.control = 0x1e07;
-    gScreen.lcd.displayControl |= 0x800;
-    gScreen.bg3.xOffset = (gRoomControls.roomScrollX - gRoomControls.roomOriginX) >> 2;
+    gScreen.lcd.displayControl |= DISPCNT_BG3_ON;
+    gScreen.bg3.xOffset = (gRoomControls.scroll_x - gRoomControls.origin_x) >> 2;
 
-    uVar2 = (gRoomControls.roomScrollY - gRoomControls.roomOriginY) >> 1;
+    uVar2 = (gRoomControls.scroll_y - gRoomControls.origin_y) >> 1;
     iVar1 = 0x100 - gRoomControls.height;
     if (iVar1 < 0) {
         iVar1 = 0;

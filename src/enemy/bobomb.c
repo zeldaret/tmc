@@ -1,6 +1,13 @@
+/**
+ * @file bobomb.c
+ * @ingroup Enemies
+ *
+ * @brief Bobomb enemy
+ */
+
+#include "asm.h"
+#include "sound.h"
 #include "enemy.h"
-#include "random.h"
-#include "createObject.h"
 #include "object.h"
 #include "functions.h"
 

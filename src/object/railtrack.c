@@ -1,4 +1,6 @@
 #include "global.h"
+#include "asm.h"
+#include "sound.h"
 #include "entity.h"
 #include "room.h"
 #include "flags.h"

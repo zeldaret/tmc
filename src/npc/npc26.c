@@ -1,7 +1,6 @@
 #include "global.h"
 #include "entity.h"
-#include "functions.h"
-#include "script.h"
+#include "npc.h"
 
 static void (*const gUnk_081106D4[])(Entity*);
 static void (*const gUnk_081106E0[])(Entity*);

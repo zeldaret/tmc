@@ -1,10 +1,4 @@
-#include "entity.h"
-#include "script.h"
-#include "random.h"
-#include "functions.h"
-#include "save.h"
-#include "textbox.h"
-#include "flags.h"
+#include "npc.h"
 
 extern void sub_08078850(Entity*, u32, u8, u32*);
 extern u32 gUnk_081133B4;
@@ -17,7 +11,7 @@ void DrLeft(Entity* this) {
     if (this->type == 0) {
         if (this->action == 0) {
             this->action += 1;
-            sub_0805E3A0(this, 2);
+            SetDefaultPriority(this, PRIO_MESSAGE);
             sub_0807DD50(this);
         }
         ExecuteScriptForEntity(this, NULL);
@@ -28,7 +22,7 @@ void DrLeft(Entity* this) {
         if (this->action == 0) {
             this->action += 1;
             this->frameIndex = 0;
-            sub_0806FAD8(this, this);
+            ResolveEntityBelow(this, this);
         }
     }
 }
@@ -59,7 +53,7 @@ void sub_0806C028(Entity* this, ScriptExecutionContext* context) {
 void sub_0806C038(Entity* this) {
     s32 index;
 
-    index = gSave.unk8 - 5;
+    index = gSave.global_progress - 5;
     if (index != 0) {
         index = 0;
     }

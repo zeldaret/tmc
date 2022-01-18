@@ -2,14 +2,10 @@
 #include "entity.h"
 #include "functions.h"
 #include "npc.h"
-#include "player.h"
-#include "script.h"
 
 extern void sub_0805FF2C(Entity*, ScriptExecutionContext*);
 
 extern void (*const gUnk_08109BBC[])(Entity*);
-
-extern void HandlePostScriptActions(Entity*, ScriptExecutionContext*);
 
 void Festari(Entity* this) {
     gUnk_08109BBC[this->action](this);
@@ -18,16 +14,13 @@ void Festari(Entity* this) {
 void sub_0805FE10(Entity* this) {
     this->action = 1;
     this->spriteSettings.draw = TRUE;
-    sub_0805E3A0(this, 2);
+    SetDefaultPriority(this, PRIO_MESSAGE);
     this->field_0x68.HALF.LO = sub_0801E99C(this);
     sub_08078784(this, this->field_0x68.HALF.LO);
     sub_0807DD50(this);
 }
 
 void sub_0805FE48(Entity* this) {
-    u8 bVar1;
-    u16 uVar2;
-    u32 uVar3;
     u32 uVar4;
 
     if (this->interactType == 2) {
@@ -113,7 +106,7 @@ void Festari_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action += 1;
         this->spriteSettings.draw = 1;
-        sub_0805E3A0(this, 2);
+        SetDefaultPriority(this, PRIO_MESSAGE);
         InitAnimationForceUpdate(this, 8);
     } else {
         UpdateAnimationSingleFrame(this);

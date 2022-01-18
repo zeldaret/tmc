@@ -2,8 +2,6 @@
 #include "enemy.h"
 #include "player.h"
 #include "functions.h"
-#include "audio.h"
-#include "random.h"
 
 extern void sub_0806F5BC(Entity*, u32, u32);
 extern u32 sub_080041DC(Entity*, u32, u32);
@@ -55,7 +53,7 @@ void V1FireProjectile_Init(Entity* this) {
     y = this->y.HALF.HI + data[1];
     iVar2 = sub_080041DC(this, x, y);
     rnd = Random() & 0x1ff;
-    if ((gScreenTransition.frameCount & 1U) != 0) {
+    if ((gRoomTransition.frameCount & 1U) != 0) {
 
         iVar2 += rnd;
         if (0x400 < iVar2) {
@@ -75,8 +73,8 @@ void V1FireProjectile_Init(Entity* this) {
 
 void V1FireProjectile_Action1(Entity* this) {
     GetNextFrame(this);
-    sub_0806F69C(this);
-    if (sub_08003FC4(this, 0) == 0) {
+    LinearMoveUpdate(this);
+    if (GravityUpdate(this, 0) == 0) {
         this->action = 2;
         this->actionDelay = 0xf;
         InitializeAnimation(this, 0x54);

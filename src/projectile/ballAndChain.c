@@ -1,11 +1,17 @@
 #include "entity.h"
 #include "functions.h"
+#include "projectile.h"
+#include "hitbox.h"
 
-extern u8 gEntCount;
+typedef struct {
+    s8 x;
+    s8 y;
+} PACKED PosOffset;
+
 bool32 sub_080AB12C(Entity* this);
 
 extern void (*const gUnk_0812A494[])(Entity*);
-extern const u8 gUnk_0812A4A8[];
+extern const PosOffset gUnk_0812A4A8[];
 
 void BallAndChain(Entity* this) {
     gUnk_0812A494[this->type](this);
@@ -61,7 +67,58 @@ bool32 sub_080AB12C(Entity* this) {
     return TRUE;
 }
 
-ASM_FUNC("asm/non_matching/ballAndChain/sub_080AB170.inc", void sub_080AB170(Entity* this))
+void sub_080AB170(Entity* this) {
+    s32 val;
+    s32 type;
+    Entity* ent;
+    Entity* parent = this->parent;
+    if (parent->next == NULL) {
+        DeleteThisEntity();
+    }
+
+    if (this->action == 0) {
+        this->action = 1;
+        this->spritePriority.b1 = 0;
+        this->frameIndex = 5;
+        this->spritePriority.b0 = 3;
+        this->hitbox = (Hitbox*)&gHitbox_22;
+    }
+
+    ent = parent->parent;
+    if (this->field_0x7c.BYTES.byte0 != ent->field_0x7c.BYTES.byte0) {
+        this->flags |= 0x80;
+    } else {
+        this->flags &= 0x7f;
+    }
+
+    this->field_0x7c.BYTES.byte0 = ent->field_0x7c.BYTES.byte0;
+
+    if ((ent->frame & 0x20) == 0) {
+        u8 index = ent->frame & 0x1f;
+        PosOffset* pOffset = (PosOffset*)((s8*)gUnk_0812A4A8 + index);
+        sub_0806FA90(ent, this, pOffset->x, pOffset->y);
+    } else {
+        sub_0806FA90(ent, this, 0, -10);
+    }
+
+    val = (parent->x.HALF.HI - this->x.HALF.HI) * this->type;
+    if (val < 0) {
+        val += 3;
+    }
+    this->x.HALF.HI += (val >> 2);
+
+    val = (parent->y.HALF.HI - this->y.HALF.HI) * this->type;
+    if (val < 0) {
+        val += 3;
+    }
+    this->y.HALF.HI += (val >> 2);
+
+    val = (parent->z.HALF.HI - this->z.HALF.HI) * this->type;
+    if (val < 0) {
+        val += 3;
+    }
+    this->z.HALF.HI += (val >> 2);
+}
 
 void sub_080AB26C(Entity* this) {
     if (this->action == 0) {
@@ -82,7 +139,7 @@ void sub_080AB26C(Entity* this) {
 void (*const gUnk_0812A494[])(Entity*) = {
     sub_080AB074, sub_080AB170, sub_080AB170, sub_080AB170, sub_080AB26C,
 };
-const u8 gUnk_0812A4A8[] = {
-    6,   240, 10,  242, 10,  240, 8,   240, 252, 242, 248, 242, 252, 246, 4,   246,
-    250, 242, 248, 240, 246, 242, 248, 244, 4,   242, 8,   242, 4,   246, 252, 246,
+const PosOffset gUnk_0812A4A8[] = {
+    { 6, -16 },  { 10, -14 }, { 10, -16 },  { 8, -16 },  { -4, -14 }, { -8, -14 }, { -4, -10 }, { 4, -10 },
+    { -6, -14 }, { -8, -16 }, { -10, -14 }, { -8, -12 }, { 4, -14 },  { 8, -14 },  { 4, -10 },  { -4, -10 },
 };

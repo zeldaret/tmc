@@ -1,6 +1,6 @@
     .syntax unified
 	push {r4, r5, r6, lr}
-	bl sub_080530C8
+	bl UpdateGlobalProgress
 	movs r0, #0xb
 	bl CheckKinstoneFused
 	cmp r0, #0
@@ -52,7 +52,7 @@ _0804DE5C:
 	movs r0, #0x15
 	strb r0, [r1, #4]
 	strb r2, [r1, #5]
-	bl sub_08052CFC
+	bl InitRoom
 	ldr r0, [r4]
 	movs r1, #0x98
 	lsls r1, r1, #1
@@ -60,7 +60,7 @@ _0804DE5C:
 	strh r5, [r0, #4]
 	ldr r0, [r4]
 	strh r6, [r0, #6]
-	ldr r1, _0804DEC0 @ =gScreenTransition
+	ldr r1, _0804DEC0 @ =gRoomTransition
 	ldr r0, [r4]
 	ldrh r0, [r0]
 	lsrs r0, r0, #1
@@ -86,17 +86,17 @@ _0804DE5C:
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #7
-	bl DoFade
+	bl SetFade
 	b _0804DECC
 	.align 2, 0
 _0804DEB4: .4byte gArea
 _0804DEB8: .4byte 0x0000085C
 _0804DEBC: .4byte gRoomControls
-_0804DEC0: .4byte gScreenTransition
+_0804DEC0: .4byte gRoomTransition
 _0804DEC4:
 	movs r0, #6
 	movs r1, #0x10
-	bl DoFade
+	bl SetFade
 _0804DECC:
 	movs r0, #1
 	pop {r4, r5, r6, pc}

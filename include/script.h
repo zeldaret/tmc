@@ -4,20 +4,30 @@
 #include "entity.h"
 
 typedef struct ScriptExecutionContext {
-    u16* scriptInstructionPointer;
-    u32 intVariable;
-    u32 postScriptActions;
-    u8 unk_0C[0x4]; // unused
-    u16 wait;
-    u16 unk_12;
-    u32 condition;
-    u8 unk_18;
-    u8 unk_19;
-    u8 unk_1A;
-    u8 unk_1B; // unused
-    union SplitWord x;
-    union SplitWord y;
+    /*0x00*/ u16* scriptInstructionPointer;
+    /*0x03*/ u32 intVariable;
+    /*0x08*/ u32 postScriptActions;
+    /*0x0C*/ u8 unk_0C[0x4]; // unused
+    /*0x10*/ u16 wait;
+    /*0x12*/ u16 unk_12;
+    /*0x14*/ u32 condition;
+    /*0x18*/ u8 unk_18;
+    /*0x19*/ u8 unk_19;
+    /*0x1A*/ u8 unk_1A;
+    /*0x1B*/ u8 unk_1B; // unused
+    /*0x1C*/ union SplitWord x;
+    /*0x20*/ union SplitWord y;
 } ScriptExecutionContext;
+
+typedef struct {
+    // Sync flags are used to synchronize scripts running on different entities
+    /*0x0*/ u32 syncFlags;
+    /*0x4*/ u16 commandIndex;
+    /*0x6*/ u8 commandSize;
+    /*0x7*/ u8 flags;
+    /*0x8*/ u8 unk_08;
+} ActiveScriptInfo;
+extern ActiveScriptInfo gActiveScriptInfo;
 
 void ExecuteScript(Entity* entity, ScriptExecutionContext* context);
 

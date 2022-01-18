@@ -1,12 +1,12 @@
-#include "global.h"
-#include "entity.h"
-#include "player.h"
-#include "random.h"
+#include "object.h"
 #include "functions.h"
 
 extern void sub_080A2CC0(Entity*, Entity**, u16*);
 
 extern u16 gUnk_08123318[];
+
+static void sub_08097B24(Entity* this);
+static u32 sub_08097ADC(Entity* this);
 
 void LilypadSmall(Entity* this) {
     u32 rand;
@@ -31,10 +31,10 @@ void LilypadSmall(Entity* this) {
     }
 }
 
-u32 sub_08097ADC(Entity* this) {
-    if ((gPlayerState.flags & PL_IS_MINISH) == 0) {
+static u32 sub_08097ADC(Entity* this) {
+    if ((gPlayerState.flags & PL_MINISH) == 0) {
         return 0;
-    } else if (sub_080041A0(this, &gPlayerEntity, 8, 8) == 0) {
+    } else if (EntityInRectRadius(this, &gPlayerEntity, 8, 8) == 0) {
         return 0;
     } else if (sub_08079F8C() == 0) {
         return 0;
@@ -48,7 +48,7 @@ u32 sub_08097ADC(Entity* this) {
     }
 }
 
-void sub_08097B24(Entity* this) {
+static void sub_08097B24(Entity* this) {
     u32 temp;
     u32 temp2;
     u16* temp3;

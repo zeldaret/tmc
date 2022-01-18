@@ -1,45 +1,39 @@
 #include "entity.h"
 #include "functions.h"
 #include "npc.h"
-#include "textbox.h"
-#include "createObject.h"
-#include "flags.h"
-#include "script.h"
+#include "object.h"
 
 extern u16 gUnk_0810FA54[];
 
 extern SpriteLoadData gUnk_0810FA38;
 
-extern void sub_0806EE04(Entity*, void*, u32);
 extern u32 gUnk_0810FA5A;
 void sub_08064CC0(Entity* this);
 
 extern void (*const gUnk_0810FA44[])(Entity*);
 void sub_08064C9C(Entity* this);
 
-NONMATCH("asm/non_matching/sturgeon/Sturgeon.inc", void Sturgeon(Entity* this)) {
-    u8 uVar2;
-
+void Sturgeon(Entity* this) {
     if ((this->flags & 2) == 0) {
         gUnk_0810FA44[this->action](this);
         sub_0806ED78(this);
     } else {
-        uVar2 = this->action;
-        if (uVar2 == 0) {
+        if (this->action == 0) {
             if (LoadExtraSpriteData(this, &gUnk_0810FA38) != 0) {
                 this->action = 1;
                 this->actionDelay = 0;
                 sub_0807DD50(this);
             }
         } else {
-            if ((uVar2 & 0x80) != 0) {
+            u32 tmp = this->action & 0x80;
+            if (tmp) {
                 if (UpdateFuseInteraction(this) != 0) {
                     this->action = 1;
                 }
             } else {
                 if (this->interactType == 2) {
-                    this->action = 0xff;
-                    this->interactType = uVar2 & 0x80;
+                    this->action = this->action | 0xff;
+                    this->interactType = tmp;
                     InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
                     sub_0806F118(this);
                 } else {
@@ -50,7 +44,6 @@ NONMATCH("asm/non_matching/sturgeon/Sturgeon.inc", void Sturgeon(Entity* this)) 
         }
     }
 }
-END_NONMATCH
 
 void sub_08064B44(Entity* this) {
     if (LoadExtraSpriteData(this, &gUnk_0810FA38) != 0) {
@@ -87,7 +80,7 @@ void Sturgeon_Head(Entity* this) {
 }
 
 void sub_08064C9C(Entity* this) {
-    if ((this->actionDelay != 0) && ((gScreenTransition.frameCount & 3U) == 0)) {
+    if ((this->actionDelay != 0) && ((gRoomTransition.frameCount & 3U) == 0)) {
         CreateDust(this);
     }
 }

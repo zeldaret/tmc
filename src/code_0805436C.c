@@ -3,25 +3,25 @@
 #include "room.h"
 #include "menu.h"
 #include "area.h"
-#include "utils.h"
-#include "structures.h"
+#include "common.h"
 #include "save.h"
+#include "item.h"
+#include "object.h"
+#include "enemy.h"
 
 typedef struct {
     u8 unk;
     u8 filler[7];
 } struct_080FD5B4;
 
-extern SaveFile gSave;
 extern struct_080FD5B4 gUnk_080FD5B4[];
-extern ScreenTransition gScreenTransition;
 
 extern u8 gUnk_0200AF13;
 extern u8 gUnk_0200AF14;
 extern u32 gUnk_080015BC;
 extern u8 gUnk_080FE1C6[];
 extern u32 gUnk_02034398;
-extern void (*const gUnk_080FE2A0[])();
+extern void (*const gUnk_080FE2A0[])(void);
 
 void ForceEquipItem(u32, u8);
 extern void sub_0807CAA0(u32, u32);
@@ -32,37 +32,39 @@ Returns the slot the item is equipped in.
 1: B
 2: Not equipped
 */
+extern u8 gUnk_080FE1DD[];
+
 u32 IsItemEquipped(u32 itemID) {
     u32 itemSlot;
 
-    if (itemID == gSave.stats.itemOnA)
+    if (itemID == gSave.stats.itemButtons[SLOT_A])
         itemSlot = 0;
-    else if (itemID == gSave.stats.itemOnB)
+    else if (itemID == gSave.stats.itemButtons[SLOT_B])
         itemSlot = 1;
     else
         itemSlot = 2;
     return itemSlot;
 }
 
-NONMATCH("asm/non_matching/PutItemOnSlot.inc", void PutItemOnSlot(u32 itemID)) {
-    // reg-alloc
+void PutItemOnSlot(u32 itemID) {
     u32 itemSlot;
-    if (itemID < 0x47) {
+    register u32 itemID2 asm("r5") = itemID;
+    if (itemID2 < 0x47) {
         sub_0807CAA0(0, 1);
     }
-    if (itemID - 1 < 0x1f) {
+    if (itemID2 - 1 < 0x1f) {
         itemSlot = 2;
-        if (gSave.stats.itemOnA == 0) {
+        if (gSave.stats.itemButtons[SLOT_A] == 0) {
             itemSlot = 0;
-        } else if (gSave.stats.itemOnB == 0) {
+        } else if (gSave.stats.itemButtons[SLOT_B] == 0) {
             itemSlot = 1;
         }
         if (itemSlot == 2) {
-            u8 temp = gUnk_080FD5B4[itemID].unk;
-            if (temp == gUnk_080FD5B4[gSave.stats.itemOnA].unk) {
+            u8 temp = gUnk_080FD5B4[itemID2].unk;
+            if (temp == gUnk_080FD5B4[gSave.stats.itemButtons[SLOT_A]].unk) {
                 itemSlot = 0;
             } else {
-                if (temp == gUnk_080FD5B4[gSave.stats.itemOnB].unk) {
+                if (temp == gUnk_080FD5B4[gSave.stats.itemButtons[SLOT_B]].unk) {
                     itemSlot = 1;
                 }
             }
@@ -70,10 +72,9 @@ NONMATCH("asm/non_matching/PutItemOnSlot.inc", void PutItemOnSlot(u32 itemID)) {
                 return;
             }
         }
-        ForceEquipItem(itemID, itemSlot);
+        ForceEquipItem(itemID2, itemSlot);
     }
 }
-END_NONMATCH
 
 ASM_FUNC("asm/non_matching/ForceEquipItem.inc", void ForceEquipItem(u32 itemID, u8 itemSlot))
 
@@ -97,20 +98,20 @@ u32 SetBottleContents(u32 itemID, u32 bottleIndex) {
     return bottleIndex;
 }
 
-u32 ItemIsSword(u32 arg0) {
-    switch (arg0) {
-        case 1:
-        case 2:
-        case 3:
-        case 4:
-        case 6:
-            return 1;
+bool32 ItemIsSword(u32 item) {
+    switch (item) {
+        case ITEM_SMITH_SWORD:
+        case ITEM_GREEN_SWORD:
+        case ITEM_RED_SWORD:
+        case ITEM_BLUE_SWORD:
+        case ITEM_FOURSWORD:
+            return TRUE;
         default:
-            return 0;
+            return FALSE;
     }
 }
 
-u32 ItemIsShield(u32 id) {
+bool32 ItemIsShield(u32 id) {
     switch (id) {
         case 13:
         case 14:
@@ -120,7 +121,7 @@ u32 ItemIsShield(u32 id) {
     }
 }
 
-u32 ItemIsBottle(u32 id) {
+bool32 ItemIsBottle(u32 id) {
     switch (id) {
         case 28:
         case 29:
@@ -152,7 +153,7 @@ NONMATCH("asm/non_matching/sub_08054524.inc", void sub_08054524(void)) {
 
     bVar1 = gArea.locationIndex;
     if (gArea.locationIndex == 0) {
-        bVar1 = gScreenTransition.field_0x24[0xa];
+        bVar1 = gRoomTransition.player_status.field_0x24[0xa];
     }
     if (bVar1 > 0x16) {
         bVar1 = 0;
@@ -176,10 +177,96 @@ ASM_FUNC("asm/non_matching/eu/sub_0805457C.inc", u32 sub_0805457C(u32 arg0, u32 
 ASM_FUNC("asm/non_matching/sub_0805457C.inc", u32 sub_0805457C(u32 arg0, u32 arg1));
 #endif
 
-NONMATCH("asm/non_matching/CreateItemDrop.inc", u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter)) {
-    // TODO see below
+u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
+    u32 prereqID;
+    u32 adjustedParam = itemParameter;
+    u32 uVar1;
+    Entity* itemEntity;
+
+    switch (itemID) {
+        case 0xff:
+            if (!GetInventoryValue(0x1)) {
+                return 0;
+            }
+            break;
+        case 0x5d:
+            if (!GetInventoryValue(0x65)) {
+                return 0;
+            }
+            break;
+        case 0x5e:
+            if (!GetInventoryValue(0x9)) {
+                return 0;
+            }
+            break;
+        case 0x3f: {
+            if (!GetInventoryValue(0x40)) {
+                return 0;
+            }
+            if (itemParameter == 0) {
+                adjustedParam = 1;
+            }
+            break;
+        }
+        case 0x5c:
+        case 0xfc ... 0xfe: {
+            u32 tmp, tmp2;
+            u32 rand;
+            u8* ptr;
+
+            if (GetInventoryValue(0x67) == 0) {
+                return 0;
+            }
+            if (3 < gRoomVars.filler1[0]) {
+                return 0;
+            }
+
+            if (itemID != 0x5c) {
+                adjustedParam = itemID - 0xfc;
+                rand = (Random() & 0x3f);
+                ptr = gUnk_080FE1DD;
+                adjustedParam = gUnk_080FE1DD[(rand + adjustedParam * 0x40)];
+                if (adjustedParam == 0) {
+                    itemID = 0;
+                } else {
+                    itemID = 0x5c;
+                }
+            }
+            break;
+        }
+    }
+    if (itemID != 0) {
+        if (itemID != 0xff) {
+            itemEntity = CreateObject(GROUND_ITEM, itemID, adjustedParam);
+            if (itemEntity != NULL) {
+                if (arg0 == &gPlayerEntity) {
+                    itemEntity->actionDelay = 1;
+                } else {
+                    itemEntity->actionDelay = 0;
+                }
+                if (arg0->kind == 6) {
+                    if (arg0->id == 99) {
+                        arg0->child = itemEntity;
+                    } else if (arg0->id == 0x1e) {
+                        itemEntity->direction = arg0->animationState << 3 | 0x80;
+                        itemEntity->speed = 0xc0;
+                        itemEntity->zVelocity = 0x18000;
+                    }
+                }
+                CopyPosition(arg0, itemEntity);
+            }
+        } else {
+            itemEntity = CreateEnemy(BEETLE, 0);
+            if (itemEntity != NULL) {
+                itemEntity->x.HALF.HI = arg0->x.HALF.HI;
+                itemEntity->y.HALF.HI = arg0->y.HALF.HI;
+                itemEntity->collisionLayer = arg0->collisionLayer;
+                UpdateSpriteForCollisionLayer(itemEntity);
+            }
+        }
+    }
+    return itemID;
 }
-END_NONMATCH
 /*
 extern u8 gUnk_080FE1DD[];
 
@@ -266,7 +353,7 @@ u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
 }
 */
 
-void sub_08054870(void) {
+void Subtask_WorldEvent(void) {
 #if !(defined(DEMO_USA) || defined(DEMO_JP))
     gUnk_080FE2A0[gMenu.menuType]();
 #endif

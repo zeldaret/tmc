@@ -1,22 +1,9 @@
 #include "entity.h"
 #include "functions.h"
 #include "flags.h"
-#include "audio.h"
+#include "sound.h"
 #include "game.h"
 #include "object.h"
-#include "area.h"
-
-typedef struct {
-    Manager manager;
-    u8 field_0x20[0x15];
-    u8 field_0x35;
-    u8 field_0x36;
-    u8 field_0x37;
-    s16 x;
-    u16 y;
-    u16 tile;
-    u16 field_0x3e;
-} Manager24;
 
 extern void (*const gUnk_08108CDC[])(Manager24*);
 
@@ -28,7 +15,6 @@ extern u32 sub_080002C8(u16, u8);
 extern void (*const gUnk_08108CE8[])(u32, u32);
 
 u32 sub_0805C608(void);
-extern u32 sub_08052670(void);
 
 extern u8 gUnk_08108CFC[];
 
@@ -103,15 +89,15 @@ void sub_0805C050(u32 pos, u32 layer) {
     SetTileType(0xb4, pos - 1, layer);
     SetTileType(0xb7, pos + 1, layer);
     if (layer == 1) {
-        if (sub_08052670() != 0) {
+        if (AreaHasEnemies() != 0) {
             Entity* object = CreateObject(ARCHWAY, 0xe, 0);
             if (object != NULL) {
-                object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.roomOriginX;
-                object->y.HALF.HI = ((pos & 0xfc0) >> 2) - 8 + gRoomControls.roomOriginY;
+                object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.origin_x;
+                object->y.HALF.HI = ((pos & 0xfc0) >> 2) - 8 + gRoomControls.origin_y;
             }
             SetTileType(0xb5, pos, 1);
         } else {
-            if (CheckIsDungeon() != 0) {
+            if (AreaIsDungeon() != 0) {
                 SetTileType(0xb5, pos, 1);
             } else {
                 SetTileType(0xb6, pos, 1);
@@ -124,15 +110,15 @@ void sub_0805C050(u32 pos, u32 layer) {
     } else {
         Entity* object;
         SetTileType(0xb5, pos, 2);
-        if (CheckIsDungeon() == 0) {
+        if (AreaIsDungeon() == 0) {
             return;
         }
         object = CreateObject(ARCHWAY, sub_0805C608(), 6);
         if (object == NULL) {
             return;
         }
-        object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.roomOriginX;
-        object->y.HALF.HI = ((pos & 0xfc0) >> 2) - 0x10 + gRoomControls.roomOriginY;
+        object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.origin_x;
+        object->y.HALF.HI = ((pos & 0xfc0) >> 2) - 0x10 + gRoomControls.origin_y;
         object->collisionLayer = 2;
     }
 }
@@ -147,16 +133,16 @@ void sub_0805C178(u32 pos, u32 layer) {
     SetTileType(0xf7, pos + 0x41, layer);
     if (layer == 1) {
 
-        if (sub_08052670() != 0) {
+        if (AreaHasEnemies() != 0) {
 
             object = CreateObject(ARCHWAY, 0xe, 1);
             if (object != NULL) {
-                object->x.HALF.HI = ((pos & 0x3f) << 4) + 0x18 + gRoomControls.roomOriginX;
-                object->y.HALF.HI = ((pos & 0xfc0) >> 2) + 8 + gRoomControls.roomOriginY;
+                object->x.HALF.HI = ((pos & 0x3f) << 4) + 0x18 + gRoomControls.origin_x;
+                object->y.HALF.HI = ((pos & 0xfc0) >> 2) + 8 + gRoomControls.origin_y;
             }
             SetTileType(0xf2, pos, 1);
         } else {
-            if (CheckIsDungeon() != 0) {
+            if (AreaIsDungeon() != 0) {
                 SetTileType(0xf2, pos, 1);
             } else {
                 SetTileType(0xf3, pos, 1);
@@ -167,15 +153,15 @@ void sub_0805C178(u32 pos, u32 layer) {
         SetTileType(0xfa, pos + 0x41, 2);
     } else {
         SetTileType(0xf2, pos, 2);
-        if (CheckIsDungeon() == 0) {
+        if (AreaIsDungeon() == 0) {
             return;
         }
         object = CreateObject(ARCHWAY, sub_0805C608(), 7);
         if (object == NULL) {
             return;
         }
-        object->x.HALF.HI = ((pos & 0x3f) << 4) + 0x20 + gRoomControls.roomOriginX;
-        object->y.HALF.HI = ((pos & 0xfc0) >> 2) + 8 + gRoomControls.roomOriginY;
+        object->x.HALF.HI = ((pos & 0x3f) << 4) + 0x20 + gRoomControls.origin_x;
+        object->y.HALF.HI = ((pos & 0xfc0) >> 2) + 8 + gRoomControls.origin_y;
         object->collisionLayer = 2;
     }
 }
@@ -189,15 +175,15 @@ void sub_0805C294(u32 pos, u32 layer) {
     SetTileType(0xd6, pos + 0x40, layer);
     SetTileType(0xd7, pos + 0x41, layer);
     if (layer == 1) {
-        if (sub_08052670() != 0) {
-            object = CreateObject(0x4f, 0xe, 2);
+        if (AreaHasEnemies() != 0) {
+            object = CreateObject(ARCHWAY, 0xe, 2);
             if (object != NULL) {
-                object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.roomOriginX;
-                object->y.HALF.HI = ((pos & 0xfc0) >> 2) + 0x20 + gRoomControls.roomOriginY;
+                object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.origin_x;
+                object->y.HALF.HI = ((pos & 0xfc0) >> 2) + 0x20 + gRoomControls.origin_y;
             }
             SetTileType(0xd2, pos, 1);
         } else {
-            if (CheckIsDungeon() != 0) {
+            if (AreaIsDungeon() != 0) {
                 SetTileType(0xd2, pos, 1);
             } else {
                 SetTileType(0xd3, pos, 1);
@@ -208,15 +194,15 @@ void sub_0805C294(u32 pos, u32 layer) {
         SetTileType(0xda, pos + 0x41, 2);
     } else {
         SetTileType(0xd2, pos, 2);
-        if (CheckIsDungeon() == 0) {
+        if (AreaIsDungeon() == 0) {
             return;
         }
-        object = CreateObject(0x4f, sub_0805C608(), 8);
+        object = CreateObject(ARCHWAY, sub_0805C608(), 8);
         if (object == NULL) {
             return;
         }
-        object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.roomOriginX;
-        object->y.HALF.HI = ((pos & 0xfc0) >> 2) + 0x20 + gRoomControls.roomOriginY;
+        object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.origin_x;
+        object->y.HALF.HI = ((pos & 0xfc0) >> 2) + 0x20 + gRoomControls.origin_y;
         object->collisionLayer = 2;
     }
 }
@@ -230,15 +216,15 @@ void sub_0805C3B4(u32 pos, u32 layer) {
     SetTileType(0xe3, pos + 0x3f, layer);
     SetTileType(0xe7, pos + 0x40, layer);
     if (layer == 1) {
-        if (sub_08052670() != 0) {
+        if (AreaHasEnemies() != 0) {
             object = CreateObject(ARCHWAY, 0xe, 3);
             if (object != NULL) {
-                object->x.HALF.HI = ((pos & 0x3f) << 4) + -0x10 + gRoomControls.roomOriginX;
-                object->y.HALF.HI = ((pos & 0xfc0) >> 2) + 8 + gRoomControls.roomOriginY;
+                object->x.HALF.HI = ((pos & 0x3f) << 4) + -0x10 + gRoomControls.origin_x;
+                object->y.HALF.HI = ((pos & 0xfc0) >> 2) + 8 + gRoomControls.origin_y;
             }
             SetTileType(0xe5, pos, 1);
         } else {
-            if (CheckIsDungeon() != 0) {
+            if (AreaIsDungeon() != 0) {
                 SetTileType(0xe5, pos, 1);
             } else {
                 SetTileType(0xe6, pos, 1);
@@ -249,7 +235,7 @@ void sub_0805C3B4(u32 pos, u32 layer) {
         SetTileType(0xea, pos + 0x3f, 2);
     } else {
         SetTileType(0xe5, pos, 2);
-        if (CheckIsDungeon() == 0) {
+        if (AreaIsDungeon() == 0) {
             return;
         }
 
@@ -257,8 +243,8 @@ void sub_0805C3B4(u32 pos, u32 layer) {
         if (object == NULL) {
             return;
         }
-        object->x.HALF.HI = ((pos & 0x3f) << 4) + -0x10 + gRoomControls.roomOriginX;
-        object->y.HALF.HI = ((pos & 0xfc0) >> 2) + 8 + gRoomControls.roomOriginY;
+        object->x.HALF.HI = ((pos & 0x3f) << 4) + -0x10 + gRoomControls.origin_x;
+        object->y.HALF.HI = ((pos & 0xfc0) >> 2) + 8 + gRoomControls.origin_y;
         object->collisionLayer = 2;
     }
 }
@@ -272,15 +258,15 @@ void sub_0805C4E0(u32 pos, u32 layer) {
     SetTileType(0xc4, pos - 1, layer);
     SetTileType(0xc7, pos + 1, layer);
     if (layer == 1) {
-        if (sub_08052670() != 0) {
+        if (AreaHasEnemies() != 0) {
             object = CreateObject(ARCHWAY, 0xe, 0);
             if (object != NULL) {
-                object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.roomOriginX;
-                object->y.HALF.HI = ((pos & 0xfc0) >> 2) + -0x10 + gRoomControls.roomOriginY;
+                object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.origin_x;
+                object->y.HALF.HI = ((pos & 0xfc0) >> 2) + -0x10 + gRoomControls.origin_y;
             }
             SetTileType(0xc5, pos, 1);
         } else {
-            if (CheckIsDungeon() != 0) {
+            if (AreaIsDungeon() != 0) {
                 SetTileType(0xc5, pos, 1);
             } else {
                 SetTileType(0xc6, pos, 1);
@@ -291,7 +277,7 @@ void sub_0805C4E0(u32 pos, u32 layer) {
         SetTileType(0xca, pos - 0x3f, 2);
     } else {
         SetTileType(0xc5, pos, 2);
-        if (CheckIsDungeon() == 0) {
+        if (AreaIsDungeon() == 0) {
             return;
         }
 
@@ -299,12 +285,12 @@ void sub_0805C4E0(u32 pos, u32 layer) {
         if (object == NULL) {
             return;
         }
-        object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.roomOriginX;
-        object->y.HALF.HI = ((pos & 0xfc0) >> 2) + -0x10 + gRoomControls.roomOriginY;
+        object->x.HALF.HI = ((pos & 0x3f) << 4) + 8 + gRoomControls.origin_x;
+        object->y.HALF.HI = ((pos & 0xfc0) >> 2) + -0x10 + gRoomControls.origin_y;
         object->collisionLayer = 2;
     }
 }
 
 u32 sub_0805C608(void) {
-    return gUnk_08108CFC[gArea.regret];
+    return gUnk_08108CFC[gArea.dungeon_idx];
 }

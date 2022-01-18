@@ -1,11 +1,13 @@
+/**
+ * @file lakitu.c
+ * @ingroup Enemies
+ *
+ * @brief Lakitu enemy
+ */
+
 #include "global.h"
-#include "entity.h"
 #include "enemy.h"
 #include "functions.h"
-#include "coord.h"
-#include "random.h"
-#include "player.h"
-#include "effects.h"
 
 extern void (*const LakituActionFuncs[])(Entity*);
 
@@ -229,7 +231,7 @@ void Lakitu_LightningDelay(Entity* this) {
 }
 
 void Lakitu_Cloudless(Entity* this) {
-    if (sub_08003FC4(this, 0x1800) == 0 && this->animIndex <= 19) {
+    if (GravityUpdate(this, 0x1800) == 0 && this->animIndex <= 19) {
         InitAnimationForceUpdate(this, this->animationState + 20);
 
         this->spritePriority.b1 = 0;
@@ -241,7 +243,7 @@ void Lakitu_Cloudless(Entity* this) {
 
 bool32 sub_0803CA4C(Entity* this) {
     if (sub_0806FCB8(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x28) == 0) {
-        if (sub_080041A0(this, &gPlayerEntity, 0x70, 0x50)) {
+        if (EntityInRectRadius(this, &gPlayerEntity, 0x70, 0x50)) {
             return 1;
         }
     }

@@ -2,7 +2,7 @@
 #include "entity.h"
 #include "player.h"
 #include "functions.h"
-#include "audio.h"
+#include "sound.h"
 
 extern void sub_08078CD0(Entity*);
 extern void sub_08018FA0(Entity*);
@@ -55,7 +55,7 @@ void sub_08018CBC(Entity* this) {
         this->spriteIndex = 0xa6;
         this->palette.raw = 0x33;
         this->spriteVramOffset = 0;
-        this->type = gPlayerState.field_0x1d[0] - 1;
+        this->type = gPlayerState.field_0x1d - 1;
         this->actionDelay = gUnk_080B3DE0[this->type * 2];
         this->damage = gUnk_080B3DE0[this->type * 2 + 1];
         this->hurtType = 0x1b;

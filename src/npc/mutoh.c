@@ -2,12 +2,8 @@
 #include "entity.h"
 #include "player.h"
 #include "flags.h"
-#include "textbox.h"
+#include "message.h"
 #include "npc.h"
-#include "structures.h"
-#include "functions.h"
-#include "save.h"
-#include "script.h"
 
 extern SpriteLoadData gUnk_08110C00;
 extern u16 gUnk_08110C0C[];
@@ -23,7 +19,7 @@ void Mutoh(Entity* this) {
             if (LoadExtraSpriteData(this, &gUnk_08110C00)) {
                 this->action = 1;
                 this->spriteSettings.draw = TRUE;
-                sub_0805E3A0(this, 2);
+                SetDefaultPriority(this, PRIO_MESSAGE);
                 sub_0807DD50(this);
             }
             break;
@@ -64,7 +60,7 @@ void sub_080670B4(Entity* this) {
 }
 
 void sub_080670E4(Entity* this) {
-    ShowNPCDialogue(this, &gUnk_08110C10[gSave.unk8]);
+    ShowNPCDialogue(this, &gUnk_08110C10[gSave.global_progress]);
 }
 
 void sub_08067100(Entity* this) {

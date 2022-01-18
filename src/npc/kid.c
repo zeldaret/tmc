@@ -1,11 +1,6 @@
-#include "entity.h"
 #include "functions.h"
-#include "textbox.h"
+#include "message.h"
 #include "npc.h"
-#include "script.h"
-#include "utils.h"
-#include "random.h"
-#include "save.h"
 
 extern void (*const gUnk_0810BE0C[])(Entity*);
 void sub_080621AC(Entity*);
@@ -25,13 +20,11 @@ typedef struct {
     u8 unk_7;
 } KidHeap;
 
-extern u16 gUnk_0810BDE8[];
+extern u16 gUnk_0810BDE8[][2];
 
 extern Dialog gUnk_0810BE10[];
 
 extern u8 gUnk_0810C0A0[];
-
-extern SpriteLoadData* gUnk_0810BDC4[];
 
 void Kid(Entity* this) {
     if ((this->flags & 2) != 0) {
@@ -75,7 +68,7 @@ void sub_08062194(Entity* this) {
     this->interactType = 0;
 }
 
-NONMATCH("asm/non_matching/kid/sub_080621AC.inc", void sub_080621AC(Entity* this)) {
+void sub_080621AC(Entity* this) {
     u32 tmp;
 
     switch (this->action) {
@@ -122,8 +115,8 @@ NONMATCH("asm/non_matching/kid/sub_080621AC.inc", void sub_080621AC(Entity* this
                     }
                 }
                 sub_0806265C(this, *(ScriptExecutionContext**)&this->cutsceneBeh);
+                tmp = this->animIndex;
             }
-            // TODO this needs to be moved up somehow?
             this->field_0x6a.HALF.HI = this->animIndex;
             if (this->animIndex < 8) {
                 InitializeAnimation(this, (this->animIndex & 0xfffffffc) +
@@ -145,7 +138,6 @@ NONMATCH("asm/non_matching/kid/sub_080621AC.inc", void sub_080621AC(Entity* this
             break;
     }
 }
-END_NONMATCH
 
 ASM_FUNC("asm/non_matching/kid/sub_080622F4.inc", void sub_080622F4(Entity* this))
 
@@ -173,7 +165,7 @@ NONMATCH("asm/non_matching/kid/sub_0806252C.inc", void sub_0806252C(Entity* this
     s32 iVar10;
     s32 iVar11;
 
-    uVar4 = gPlayerState.field_0xa8;
+    uVar4 = gPlayerState.framestate;
     uVar3 = gPlayerEntity.z.HALF.HI;
     sVar2 = gPlayerEntity.y.HALF.HI;
     sVar1 = gPlayerEntity.x.HALF.HI;
@@ -200,21 +192,21 @@ NONMATCH("asm/non_matching/kid/sub_0806252C.inc", void sub_0806252C(Entity* this
 }
 END_NONMATCH
 
-NONMATCH("asm/non_matching/kid/sub_08062634.inc", void sub_08062634(Entity* this)) {
+void sub_08062634(Entity* this) {
     u32 a = this->type2;
     u32 b = (Random() & 1);
-    MessageNoOverlap(*((u16*)gUnk_0810BDE8 + b + a * 2), this);
+    MessageNoOverlap(gUnk_0810BDE8[a][b], this);
 }
-END_NONMATCH
 
-NONMATCH("asm/non_matching/kid/sub_0806265C.inc", void sub_0806265C(Entity* this, ScriptExecutionContext* context)) {
-    if (gSave.unk8 == 0) {
+void sub_0806265C(Entity* this, ScriptExecutionContext* context) {
+    if (gSave.global_progress == 0) {
         MessageNoOverlap(0, this);
     } else {
-        ShowNPCDialogue(this, &gUnk_0810BE10[this->type * 9 + gSave.unk8]);
+        Dialog* pDialog = &gUnk_0810BE10[this->type * 9];
+        pDialog += gSave.global_progress;
+        ShowNPCDialogue(this, pDialog);
     }
 }
-END_NONMATCH
 
 void sub_08062698(Entity* this) {
     this->speed = (Random() & 0x3f) + 0xc0;
@@ -231,11 +223,9 @@ void sub_080626C0(Entity* this, ScriptExecutionContext* context) {
     }
 }
 
-NONMATCH("asm/non_matching/kid/sub_080626E0.inc", void sub_080626E0(Entity* this, ScriptExecutionContext* context)) {
+void sub_080626E0(Entity* this, ScriptExecutionContext* context) {
     // TODO second parameter might be anything as this function does not seem to be called?
     s16 sVar1;
-    u8 bVar2;
-    u8 cVar3;
     s32 uVar4;
 
     if (context->unk_18 == 0) {
@@ -243,28 +233,24 @@ NONMATCH("asm/non_matching/kid/sub_080626E0.inc", void sub_080626E0(Entity* this
         context->unk_19 = 10;
         context->postScriptActions |= 2;
         sVar1 = *(s16*)&context->intVariable;
-        context->x.HALF.HI = *((u16*)&context->intVariable + 2) + gRoomControls.roomOriginX;
-        context->y.HALF.HI = gRoomControls.roomOriginY + sVar1;
+        context->x.HALF.HI = gRoomControls.origin_x + *((u16*)&context->intVariable + 1);
+        context->y.HALF.HI = gRoomControls.origin_y + sVar1;
     }
-    bVar2 = context->unk_19 - 1;
-    context->unk_19 = bVar2;
-    if (bVar2 == 0) {
+    if (--context->unk_19 == 0) {
         context->unk_19 = 10;
         uVar4 = sub_080045DA(context->x.HALF.HI - this->x.HALF.HI, context->y.HALF.HI - this->y.HALF.HI);
         this->direction = (u8)uVar4;
         uVar4 = Random();
-        cVar3 = uVar4 % 0xb;
-        this->direction = (this->direction + cVar3) - 5;
+        this->direction = (this->direction + uVar4 % 0xb) - 5;
     }
     sub_0806F62C(this, (s32)this->speed, (u32)this->direction);
-    if ((u32)(s32)this->speed <
-        (u32)((this->x.HALF.HI - context->x.HALF.HI) * 0x100 + ((s32)((u32)(u16)this->speed << 0x10) >> 0x11))) {
-        gActiveScriptInfo.commandSize = 0;
-    } else {
+    if ((u32)((this->x.HALF.HI - context->x.HALF.HI) * 0x100 + ((s32)((u32)(u16)this->speed << 0x10) >> 0x11)) <=
+        (u32)(s32)this->speed) {
         this->x.HALF.HI = context->x.HALF.HI;
+    } else {
+        gActiveScriptInfo.commandSize = 0;
     }
 }
-END_NONMATCH
 
 void sub_08062788(Entity* this, ScriptExecutionContext* context) {
     SetTile(0x4072, 0x60b, 1);
@@ -341,7 +327,6 @@ NONMATCH("asm/non_matching/kid/sub_08062948.inc", void sub_08062948(Entity* this
     u16 uVar2;
     u32 uVar3;
     s32 iVar4;
-    s16* psVar5;
 
     if (context->unk_18 == 0) {
         context->unk_18 += 1;

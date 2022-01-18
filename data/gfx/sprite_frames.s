@@ -31,11 +31,11 @@ gSpriteFrames_8:: @ 08116888
 gSpriteFrames_9:: @ 08116A9C
 	.include "sprites/gSpriteFrames_9.s"
 
-gSpriteFrames_Object4:: @ 08116D0C
-	.include "sprites/gSpriteFrames_Object4.s"
+gSpriteFrames_MinishEmoticon:: @ 08116D0C
+	.include "sprites/gSpriteFrames_MinishEmoticon.s"
 
-gSpriteFrames_Object6:: @ 08116DD4
-	.include "sprites/gSpriteFrames_Object6.s"
+gSpriteFrames_EzloCap:: @ 08116DD4
+	.include "sprites/gSpriteFrames_EzloCap.s"
 
 gSpriteFrames_12:: @ 08116F64
 	.include "sprites/gSpriteFrames_12.s"

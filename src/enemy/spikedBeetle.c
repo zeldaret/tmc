@@ -1,6 +1,11 @@
+/**
+ * @file spikedBeetle.c
+ * @ingroup Enemies
+ *
+ * @brief Spiked Beetle enemy
+ */
+
 #include "enemy.h"
-#include "entity.h"
-#include "random.h"
 #include "functions.h"
 
 extern u32 sub_0804A024(Entity*, u32, u32);
@@ -175,7 +180,7 @@ void sub_0802B8E0(Entity* this) {
 }
 
 void sub_0802B948(Entity* this) {
-    if (!sub_08003FC4(this, 0x1800)) {
+    if (!GravityUpdate(this, 0x1800)) {
         this->action = 1;
         this->actionDelay = 1;
     }

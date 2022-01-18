@@ -1,8 +1,11 @@
 #include "save.h"
 #include "gba/eeprom.h"
-#include "audio.h"
+#include "sound.h"
 #include "menu.h"
+#include "main.h"
 #include "functions.h"
+#include "game.h"
+#include "fileselect.h"
 
 typedef struct SaveFileStatus {
     u16 checksum1;
@@ -37,9 +40,6 @@ u32 WriteSaveFileStatus(u32 address, const SaveFileStatus* fileStatus);
 u32 DataRead(u32 address, void* data, u32 size);
 u32 DataWrite(u32 address, const void* data, u32 size);
 u32 DataCompare(u32 address, const void* data, u32 size);
-
-const u16 gUnk_0811E454[] = { 0x0,   0x0,   0x100, 0x200, 0x300, 0x400, 0x500,
-                              0x5C0, 0x680, 0x740, 0x800, 0x8C0, 0x9C0, 0xA80 };
 
 const char gUnk_0811E470[4] = "LINK";
 
@@ -82,7 +82,7 @@ static const SaveFileStatus sSaveDescInit = { 0xffff, 0xffff, 'TINI' };
 // Save file is deleted
 static const SaveFileStatus sSaveDescDeleted = { 0xffff, 0xffff, 'FleD' };
 
-const char gUnk_0811E4B4[8] = "DAMEDAME";
+const char sDummyData[8] = "DAMEDAME";
 const SaveFileEEPROMAddresses gSaveFileEEPROMAddresses[] = { { 0x500, 0x30, 0x1030, 0x80, 0x1080 },
                                                              { 0x500, 0x40, 0x1040, 0x580, 0x1580 },
                                                              { 0x500, 0x50, 0x1050, 0xa80, 0x1a80 },
@@ -91,8 +91,8 @@ const SaveFileEEPROMAddresses gSaveFileEEPROMAddresses[] = { { 0x500, 0x30, 0x10
                                                              { 0x20, 0x60, 0x1060, 0xf80, 0x1f80 },
                                                              { 0x8, 0xfa0, 0x1fa0, 0xfa0, 0x1fa0 } };
 #endif
-void sub_0807CD9C() {
-    sub_080530C8();
+void sub_0807CD9C(void) {
+    UpdateGlobalProgress();
 }
 
 SaveResult HandleSave(u32 arg0) {
@@ -192,7 +192,7 @@ u32 WriteSaveFile(u32 index, SaveFile* saveFile) {
 #endif
 }
 
-u32 Write_02000000(struct_02000000* arg0) {
+u32 Write_02000000(SaveHeader* arg0) {
 #if defined(DEMO_USA) || defined(DEMO_JP)
     return 1;
 #else
@@ -216,7 +216,7 @@ s32 ReadSaveFile(u32 index, SaveFile* saveFile) {
 #endif
 }
 
-u32 Read_02000000(struct_02000000* arg0) {
+u32 Read_02000000(SaveHeader* arg0) {
 #if defined(DEMO_USA) || defined(DEMO_JP)
     return 0;
 #else
@@ -441,7 +441,7 @@ bool32 DataWrite(u32 address, const void* data, u32 size) {
     address /= 8;
     while (size-- > 0) {
         if (EEPROMWrite0_8k_Check(address, data)) {
-            EEPROMWrite0_8k_Check(address, (const u16*)gUnk_0811E4B4);
+            EEPROMWrite0_8k_Check(address, (const u16*)sDummyData);
             return FALSE;
         }
         address++;

@@ -1,4 +1,3 @@
-#include "global.h"
 #include "entity.h"
 
 extern void (*const gUnk_081247F8[])(Entity*);

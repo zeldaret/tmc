@@ -1,6 +1,12 @@
+/**
+ * @file ropeGolden.c
+ * @ingroup Enemies
+ *
+ * @brief Golden Rope enemy
+ */
+
 #include "global.h"
 #include "entity.h"
-#include "sprite.h"
 #include "functions.h"
 #include "enemy.h"
 
@@ -9,8 +15,6 @@ extern void (*const gUnk_080CF4C8[6])(Entity*);
 extern void (*const gUnk_080CF4E0[4])(Entity*);
 
 extern s32 sub_080012DC(Entity*);
-extern void SetGlobalFlag(u32);
-extern u32 CheckGlobalFlag(u32);
 extern u32 sub_0804A044(Entity*, Entity*, u32);
 
 void sub_080383AC(Entity*);

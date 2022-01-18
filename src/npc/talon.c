@@ -1,16 +1,10 @@
-#include "global.h"
-#include "entity.h"
-#include "textbox.h"
-#include "player.h"
-#include "script.h"
 #include "npc.h"
-#include "random.h"
 #include "functions.h"
 
 extern void (*gUnk_0810FEC4[])(Entity* this);
 extern void (*gUnk_0810FEBC[])(Entity* this);
 extern SpriteLoadData gUnk_0810FEB0;
-extern u8 script_0800B41C;
+extern u8 script_TalonGotKey;
 extern u8 gUnk_0810FED8[];
 
 void sub_0806574C(Entity* this);
@@ -59,7 +53,7 @@ void sub_0806559C(Entity* this) {
     sub_0806ED78(this);
     if (this->interactType != 0) {
         this->interactType = 0;
-        sub_080791D0();
+        ResetPlayerAnimationAndAction();
     }
 }
 
@@ -109,7 +103,7 @@ void sub_080656D4(Entity* this) {
     } else {
         if (this->interactType != 0) {
             if (GetInventoryValue(0x37) != 0) { // keyLonLon
-                StartCutscene(this, (u16*)&script_0800B41C);
+                StartCutscene(this, (u16*)&script_TalonGotKey);
                 goto label2;
             } else {
                 this->field_0x68.HALF.HI = this->action;

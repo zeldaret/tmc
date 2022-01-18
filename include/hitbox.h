@@ -88,4 +88,5 @@ extern const Hitbox gUnk_080FD4E0;
 extern const Hitbox gUnk_080FD3F4;
 extern const Hitbox gUnk_080FD3FC;
 extern const Hitbox gUnk_080FD43C;
+extern const Hitbox gPlayerHitbox;
 #endif

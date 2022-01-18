@@ -1,8 +1,5 @@
-#include "global.h"
-#include "audio.h"
-#include "entity.h"
+#include "object.h"
 #include "functions.h"
-#include "room.h"
 
 extern u32 sub_08091DDC(Entity*);
 extern u32 sub_080002B4(Entity*, u32, u32);
@@ -10,18 +7,8 @@ extern u32 sub_08007DD6(u32, u32);
 extern void sub_08017744(Entity*);
 extern void sub_08091C0C(Entity*);
 
-typedef struct {
-    u16 field_0x0;
-    u16 field_0x2;
-    u8 field_0x4;
-    u8 field_0x5;
-    u8 field_0x6;
-    u8 field_0x7;
-} struct_030010EC;
-
 extern void (*const gUnk_081223A8[])(Entity*);
 
-extern struct_030010EC gUnk_030010EC[];
 extern Hitbox gUnk_080FD310;
 
 extern const s8 gUnk_081223C8[];
@@ -33,14 +20,14 @@ void Minecart(Entity* this) {
 }
 
 void sub_080916EC(Entity* this) {
-    struct_030010EC* unk = &gUnk_030010EC[this->actionDelay];
+    struct_030010EC* unk = &gRoomTransition.minecart_data[this->actionDelay];
 
     *(struct_030010EC**)&this->cutsceneBeh.HWORD = unk;
-    if ((gRoomControls.roomID != unk->field_0x4) || (gPlayerState.flags & 0x1000) != 0) {
+    if ((gRoomControls.room != unk->field_0x4) || (gPlayerState.flags & PL_IN_MINECART) != 0) {
         DeleteThisEntity();
     }
-    this->x.HALF.HI = gRoomControls.roomOriginX + ((unk->field_0x0 & 0x3f) << 4) + 8;
-    this->y.HALF.HI = gRoomControls.roomOriginY + ((unk->field_0x0 & 0xfc << 4) >> 2) + 8;
+    this->x.HALF.HI = gRoomControls.origin_x + ((unk->field_0x0 & 0x3f) << 4) + 8;
+    this->y.HALF.HI = gRoomControls.origin_y + ((unk->field_0x0 & 0xfc << 4) >> 2) + 8;
     this->animationState = unk->field_0x5;
     this->type2 = unk->field_0x6;
     this->action = 1;
@@ -58,7 +45,6 @@ void sub_080916EC(Entity* this) {
 }
 
 void sub_080917DC(Entity* this) {
-
     if ((this->bitfield & 0x7f) == 0x1d) {
         this->zVelocity = 0x2a000;
         this->action = 7;
@@ -66,8 +52,8 @@ void sub_080917DC(Entity* this) {
         SoundReq(SFX_13B);
     } else {
         if (sub_0800445C(this) != 0) {
-            if (((gPlayerState.flags & 0x40080) == 0) && (gPlayerState.field_0x1c == 0) &&
-                (gPlayerState.heldObject == 0) && (gPlayerState.jumpStatus == 0)) {
+            if (!((gPlayerState.flags & (PL_MINISH | PL_ROLLING)) || gPlayerState.field_0x1c ||
+                  gPlayerState.heldObject || gPlayerState.jump_status)) {
                 this->actionDelay++;
             } else {
                 this->actionDelay = 0;
@@ -76,15 +62,15 @@ void sub_080917DC(Entity* this) {
             this->actionDelay = 0;
         }
         if (this->type2 == 0) {
-            if (8 < this->actionDelay) {
-                this->action = this->action + 1;
-                gPlayerState.jumpStatus = 0x81;
-                gPlayerState.flags |= 0x4000000;
+            if (this->actionDelay > 8) {
+                this->action++;
+                gPlayerState.jump_status = 0x81;
+                gPlayerState.flags |= PL_ENTER_MINECART;
                 gPlayerEntity.zVelocity = 0x20000;
                 gPlayerEntity.speed = 0x100;
-                gPlayerEntity.flags &= 0x7f;
+                gPlayerEntity.flags &= ~PL_MINISH;
                 ResetPlayer();
-                sub_0807A108();
+                DeleteClones();
                 SoundReq(SFX_PLY_JUMP);
             }
         } else {
@@ -94,18 +80,18 @@ void sub_080917DC(Entity* this) {
 }
 
 void sub_080918A4(Entity* this) {
-    if (sub_080041A0(this, &gPlayerEntity, 2, 2) != 0) {
+    if (EntityInRectRadius(this, &gPlayerEntity, 2, 2) != 0) {
         gPlayerEntity.x.HALF.HI = this->x.HALF.HI;
         gPlayerEntity.y.HALF.HI = this->y.HALF.HI;
         if (gPlayerEntity.z.HALF.HI > -0x10) {
-            if ((s32)gPlayerEntity.zVelocity > -1) {
+            if (gPlayerEntity.zVelocity >= 0) {
                 return;
             }
             gPlayerEntity.animationState = this->animationState << 1;
-            gPlayerState.flags = (gPlayerState.flags ^ 0x4000000) | 0x1000;
+            gPlayerState.flags = (gPlayerState.flags ^ PL_ENTER_MINECART) | PL_IN_MINECART;
             this->action++;
             this->field_0xf = 1;
-            this->flags |= ENT_20;
+            this->flags |= ENT_PERSIST;
             this->hitType = 0x97;
             this->field_0x3c = (gPlayerEntity.field_0x3c + 1) | 0x20;
             this->flags2 = gPlayerEntity.flags2;
@@ -128,7 +114,7 @@ void sub_080919AC(Entity* this) {
     u32 uVar3;
 
     gRoomControls.unk5 = 7;
-    if ((gPlayerState.flags & 0x1000) == 0) {
+    if ((gPlayerState.flags & PL_IN_MINECART) == 0) {
         this->action = 1;
         return;
     }
@@ -144,11 +130,11 @@ void sub_080919AC(Entity* this) {
     } else {
         COLLISION_ON(this);
         gPlayerEntity.speed = 0;
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
         CopyPosition(this, &gPlayerEntity);
         gPlayerEntity.spritePriority.b0 = this->spritePriority.b0 - 1;
         if (!sub_08091DDC(this)) {
-            if ((gScreenTransition.frameCount & 0xf) == 0) {
+            if ((gRoomTransition.frameCount & 0xf) == 0) {
                 SoundReq(SFX_138);
             }
 
@@ -161,25 +147,25 @@ void sub_080919AC(Entity* this) {
                                  gUnk_081223C8[this->animationState * 2 + 1]);
             iVar2 = sub_08007DD6(uVar3, gUnk_081223D8[this->animationState]);
             if (iVar2 == 0) {
-                this->direction = this->direction ^ 0x10;
+                this->direction = DirectionTurnAround(this->direction);
                 this->animationState = this->animationState ^ 2;
             } else {
                 switch (uVar3) {
                     case 0x64:
-                        this->flags &= ~ENT_20;
+                        this->flags &= ~ENT_PERSIST;
                         this->hitType = 1;
                         this->field_0x3c = 0x47;
                         this->hurtType = 0x44;
                         this->flags2 = 0x80;
                         this->action = 6;
                         sub_08017744(this);
-                        gPlayerState.jumpStatus = 0x41;
-                        gPlayerState.flags = (gPlayerState.flags ^ 0x1000) | 0x4000000;
+                        gPlayerState.jump_status = 0x41;
+                        gPlayerState.flags = (gPlayerState.flags ^ PL_IN_MINECART) | PL_ENTER_MINECART;
                         gPlayerEntity.zVelocity = 0x20000;
                         gPlayerEntity.speed = 0x200;
                         gPlayerEntity.animationState = this->animationState << 1;
                         gPlayerEntity.direction = this->direction;
-                        gPlayerEntity.flags |= 0x80;
+                        gPlayerEntity.flags |= PL_MINISH;
                         sub_08004168(this);
                         InitAnimationForceUpdate(this, this->animationState + 0xc);
                         SoundReq(SFX_PLY_VO4);

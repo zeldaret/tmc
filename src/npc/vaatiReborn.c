@@ -1,9 +1,5 @@
 #include "global.h"
 #include "npc.h"
-#include "coord.h"
-#include "flags.h"
-#include "audio.h"
-#include "textbox.h"
 #include "functions.h"
 
 void VaatiRebornAction0(Entity* this);
@@ -136,7 +132,7 @@ void VaatiRebornAction1(Entity* this) {
                 case 1:
                     if (this->frame & 0x80) {
                         this->subAction = 2;
-                        sub_0801D2B4(this, 0x13f);
+                        ChangeObjPalette(this, 0x13f);
                         InitAnimationForceUpdate(this, this->subAction - 1);
                     }
                     break;

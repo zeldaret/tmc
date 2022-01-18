@@ -7,28 +7,52 @@ u32 CheckFlags(u32);
 u32 CheckGlobalFlag(u32);
 u32 CheckGlobalFlags(u32, u32);
 extern u32 CheckLocalFlag(u32);
-extern u32 CheckLocalFlagByOffset(u32, u32);
+extern u32 CheckLocalFlagByBank(u32, u32);
 u32 CheckLocalFlags(u32, u32);
-u32 CheckLocalFlagsByOffset(u32, u32, u32);
+u32 CheckLocalFlagsByBank(u32, u32, u32);
 u32 CheckRoomFlag(u32);
 u32 CheckRoomFlags(u32, u32);
 
 void ClearFlag(u32);
 void ClearGlobalFlag(u32);
 void ClearLocalFlag(u32);
-void ClearLocalFlagByOffset(u32, u32);
+void ClearLocalFlagByBank(u32, u32);
 void ClearRoomFlag(u32);
 
 void SetFlag(u32);
 void SetGlobalFlag(u32);
 void SetLocalFlag(u32);
-void SetLocalFlagByOffset(u32, u32);
+void SetLocalFlagByBank(u32, u32);
 void SetRoomFlag(u32);
+
+extern u32 ReadBit(void*, u32);
+extern u32 CheckBits(void*, u32, u32);
+extern u32 WriteBit(void*, u32);
+extern u32 ClearBit(void*, u32);
 
 extern u32 gGlobalFlags;
 extern u32 gRoomFlags;
 
-typedef enum _Flag {
+extern const u16 gLocalFlagBanks[];
+
+enum LocalFlagOffsets {
+    FLAG_BANK_G = 0,
+    FLAG_BANK_0 = 0,
+    FLAG_BANK_1 = 0x100,
+    FLAG_BANK_2 = 0x200,
+    FLAG_BANK_3 = 0x300,
+    FLAG_BANK_4 = 0x400,
+    FLAG_BANK_5 = 0x500,
+    FLAG_BANK_6 = 0x5C0,
+    FLAG_BANK_7 = 0x680,
+    FLAG_BANK_8 = 0x740,
+    FLAG_BANK_9 = 0x800,
+    FLAG_BANK_10 = 0x8C0,
+    FLAG_BANK_11 = 0x9C0,
+    FLAG_BANK_12 = 0xA80,
+};
+
+typedef enum {
     BEGIN,
     /*0x01*/ LV0_CLEAR,           /*                             */
     /*0x02*/ LV1_CLEAR,           /*                             */
@@ -624,8 +648,8 @@ typedef enum {
     BILL_02_CAP_0,
     MHOUSE_07_CAP_0,
     MHOUSE_07_CAP_1,
-    MHOUSE_10_CAP_0,
-    MHOUSE_15_CAP_0,
+    MHOUSE_10_CAP_0, // links house entrance
+    MHOUSE_15_CAP_0, // links bedroom
     MHOUSE_15_CAP_1,
     SHOP_03_CAP_0,
     MHOUSE_07_CAP_2,

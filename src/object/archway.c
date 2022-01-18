@@ -1,4 +1,3 @@
-#include "global.h"
 #include "entity.h"
 #include "game.h"
 
@@ -9,7 +8,7 @@ void Archway(Entity* this) {
         this->frameIndex = this->type2;
         this->collisionLayer = 2;
         UpdateSpriteForCollisionLayer(this);
-        if (CheckIsDungeon()) {
+        if (AreaIsDungeon()) {
             this->spritePriority.b0 = 1;
         }
     }

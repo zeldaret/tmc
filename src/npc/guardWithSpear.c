@@ -29,7 +29,7 @@ void sub_08064470(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_08064488(void) {
-    if (gPlayerState.field_0xa8 != 2) {
+    if (gPlayerState.framestate != PL_STATE_SWORD) {
         gPlayerState.field_0xab = 0;
     }
 }

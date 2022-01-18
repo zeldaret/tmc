@@ -1,10 +1,9 @@
 #include "global.h"
-#include "audio.h"
+#include "sound.h"
 #include "entity.h"
 #include "flags.h"
 #include "player.h"
 #include "room.h"
-#include "structures.h"
 #include "functions.h"
 #include "effects.h"
 
@@ -36,7 +35,7 @@ void sub_0809E86C(Entity* this) {
 
     if (sub_0800419C(this, &gPlayerEntity, 0x30, 0x30)) {
         if (CheckGlobalFlag(EZERO_1ST)) {
-            if (((gScreenTransition.frameCount & 3) == 0)) {
+            if (((gRoomTransition.frameCount & 3) == 0)) {
                 CreateSparkle(this);
             }
         }
@@ -44,7 +43,7 @@ void sub_0809E86C(Entity* this) {
     if (sub_0809E9A0() == 0x54) {
         this->action = 2;
         this->actionDelay = 0xf;
-        sub_08078A90(1);
+        SetPlayerControl(1);
     }
 }
 
@@ -61,7 +60,7 @@ void sub_0809E8BC(Entity* this) {
 void sub_0809E8EC(Entity* this) {
     if (--this->actionDelay == 0) {
         SetFlag(this->field_0x86.HWORD);
-        sub_08078A90(0);
+        SetPlayerControl(0);
         SoundReq(SFX_SECRET_BIG);
         DeleteThisEntity();
     }

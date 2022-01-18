@@ -31,7 +31,7 @@ _0801919C:
 	strb r0, [r4, #0x18]
 _080191BA:
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	adds r0, r4, #0
 	adds r0, #0x40
 	ldrb r1, [r0]

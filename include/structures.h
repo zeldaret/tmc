@@ -8,15 +8,15 @@
 typedef struct {
     int signature;
     u8 saveFileId;
-    u8 messageSpeed;
-    u8 brightnessPref;
-    u8 gameLanguage;
+    u8 msg_speed;
+    u8 brightness;
+    u8 language;
     u8 name[6];
-    u8 _e;
+    u8 invalid;
     u8 _f;
-} struct_02000000;
-#define gSaveHeader ((struct_02000000*)(0x2000000))
-// extern struct_02000000 gSaveHeader;
+} SaveHeader;
+#define gSaveHeader ((SaveHeader*)(0x2000000))
+// extern SaveHeader gSaveHeader;
 
 typedef struct {
     u8 unk_00;
@@ -32,87 +32,17 @@ typedef struct {
     u8 listenForKeyPresses;
     u8 field_0x6;
     u8 field_0x7;
+    u8 pad[24];
 } struct_02000010;
+static_assert(sizeof(struct_02000010) == 0x20);
 
 extern struct_02000010 gUnk_02000010;
-
-typedef struct {
-    s32 frameCount; // regular frame count? does anything reset it?
-    u8 field_0x4[0x2];
-    u16 field_0x6;
-    bool8 transitioningOut;
-    u8 transitionType; // transition when changing areas
-    u16 field_0xa;     // seems to be a tile type
-    u8 areaID;
-    u8 roomID;
-    u8 playerState;
-    u8 field_0xf;
-    Coords playerStartPos;
-    u8 playerLayer;
-    u8 field_0x13;
-    u8 field_0x14[0xa];
-    u16 field_0x20;
-    u16 field_0x22;
-    u8 field_0x24[0x14];
-    u8 field_0x38;
-    u8 field_0x39;
-    u8 field_0x3a;
-    u8 field_0x3b;
-    u8 field_0x3c;
-    u8 field_0x3d;
-    u16 field_0x3e;
-    u16 hurtType;
-    u16 field_0x42;
-    u16 field_0x44;
-    u16 field_0x46;
-    u16 field_0x48;
-    u16 field_0x4a;
-    u8 field_0x4c[0x60];
-    u16 field_0xac;
-    u16 field_0xae;
-} ScreenTransition;
-
-extern ScreenTransition gScreenTransition;
-
-typedef struct {
-    u16 transitionType;
-    u8 field_0x2[4];
-    s16 playerXPos;
-    s16 playerYPos;
-    u8 field_0xa;
-    u8 areaID;
-    u8 roomID;
-    u8 playerLayer;
-    u8 field_0xe;
-    u8 playerState;
-    u16 transitionSFX;
-} ScreenTransitionData;
-
-typedef struct {
-    u8 active;
-    u8 field_0x1;
-    u8 field_0x2;
-    u8 field_0x3;
-    u32 mask;
-    u16 fadeType;  // fade in or out, are there others?
-    u16 fadeSpeed; // subtracted from duration
-    u16 fadeDuration;
-    u16 field_0xe;
-    s16 field_0x10;
-    s16 field_0x12;
-    s16 field_0x14;
-    u16 field_0x16;
-    u16 field_0x18;
-} FadeControl;
-
-extern FadeControl gFadeControl;
 
 typedef struct {
     u8 unk0;
     u8 unk1;
     u16 unk2;
 } struct_020354C0;
-
 extern struct_020354C0 gUnk_020354C0[0x20];
 
 typedef struct {
@@ -124,24 +54,12 @@ typedef struct {
     u8 ezloNagFuncIndex;
     u8 filler25[0x30F];
 } struct_0200AF00;
-
 extern struct_0200AF00 gUnk_0200AF00;
 
 typedef struct {
     u8 unk0;
 } struct_02024490;
-
 extern struct_02024490 gGFXSlots;
-
-typedef struct {
-    u32 unk_00;
-    u16 commandIndex;
-    u8 commandSize;
-    u8 flags;
-    u8 unk_08;
-} struct_02033280;
-
-extern struct_02033280 gActiveScriptInfo;
 
 typedef struct {
     u16 unk_00;
@@ -159,7 +77,7 @@ typedef struct {
             u16 a;
             u16 b;
         } indices;
-        void (*func)(Entity*);
+        void (*func)(Entity* e);
     } data;
 } Dialog;
 
@@ -168,24 +86,19 @@ extern u16 gBG1Buffer[0x400];
 extern u16 gBG2Buffer[0x400];
 extern u16 gBG3Buffer[0x800];
 
-struct {
-    u8 filler[0x70];
-} extern gUnk_03000B80;
-// TODO extern ItemBehavior gUnk_03000B80[4];
+extern ItemBehavior gUnk_03000B80[4];
 static_assert(sizeof(gUnk_03000B80) == 0x70);
 
 typedef struct {
-    u8 unk0;
-    u8 unk1;
-    u8 unk2;
-    u8 unk3;
-    Entity* unk4;
-    u16 unk_0xc;
-} EntityHandler;
+    u8 sys_priority; // system requested priority
+    u8 ent_priority; // entity requested priority
+    u8 queued_priority;
+    u8 queued_priority_reset;
+    Entity* requester;
+    u16 priority_timer;
+} PriorityHandler;
+extern PriorityHandler gPriorityHandler;
 
-extern EntityHandler gUnk_03003DC0;
-
-extern u8 gUnk_02022740[];
 extern u8 gUnk_02034490[];
 
 typedef struct {
@@ -197,5 +110,28 @@ typedef struct {
     u16 unk6;
     void* unk8;
 } WStruct;
+
+typedef struct {
+    u8 unk0;
+    u8 unk1;
+    u16 unk2;
+    u8 unk4;
+    u8 unk5;
+    u8 unk6;
+    u8 unk7;
+} OAMObj;
+
+typedef struct {
+    u8 field_0x0;
+    u8 field_0x1;
+    u8 spritesOffset;
+    u8 updated;
+    u16 _4;
+    u16 _6;
+    u8 _0[0x18];
+    struct OamData oam[0x80];
+    OAMObj unk[0xA0]; /* todo: affine */
+} OAMControls;
+extern OAMControls gOAMControls;
 
 #endif

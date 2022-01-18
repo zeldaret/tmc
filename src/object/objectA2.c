@@ -1,11 +1,7 @@
-#include "global.h"
 #include "object.h"
 #include "menu.h"
-#include "random.h"
-#include "audio.h"
 #include "structures.h"
 #include "functions.h"
-#include "effects.h"
 
 void sub_0809F318(Entity*);
 void sub_0809F374(Entity*);
@@ -39,14 +35,14 @@ void sub_0809F318(Entity* this) {
     this->z.HALF.HI = 0xFFB0;
     this->spriteOrientation.flipY = 2;
     this->action = 1;
-    sub_0801D2B4(this, gUnk_08124704[this->type]);
-    sub_0805E3A0(this, 7);
+    ChangeObjPalette(this, gUnk_08124704[this->type]);
+    SetDefaultPriority(this, PRIO_HIGHEST);
 }
 
 void sub_0809F374(Entity* this) {
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
 #ifndef EU
-    if (gSaveHeader->gameLanguage < 2) {
+    if (gSaveHeader->language < 2) {
         if (sub_080044EC(this, 0x2000) < 2) {
             this->z.WORD = 0;
             this->action = 2;

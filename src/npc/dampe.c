@@ -3,10 +3,8 @@
 #include "player.h"
 #include "room.h"
 #include "flags.h"
-#include "textbox.h"
+#include "message.h"
 #include "npc.h"
-#include "functions.h"
-#include "script.h"
 
 extern u16 gUnk_08113344[];
 extern u16 gUnk_0811334A[];
@@ -16,7 +14,7 @@ void Dampe(Entity* this) {
         case 0:
             this->action = 1;
             this->spriteSettings.draw = 1;
-            sub_0805E3A0(this, 2);
+            SetDefaultPriority(this, PRIO_MESSAGE);
             sub_0807DD50(this);
             return;
         case 1:
@@ -86,7 +84,7 @@ void sub_0806BEC8(Entity* this, ScriptExecutionContext* context) {
     MessageNoOverlap(gUnk_0811334A[msgIndex], this);
 }
 
-void sub_0806BEFC() {
+void sub_0806BEFC(void) {
     SetTileType(0x17E, 0x58E, 1);
     SetTileType(0x17F, 0x58F, 1);
     SetTileType(0x180, 0x5CE, 1);
@@ -95,8 +93,8 @@ void sub_0806BEFC() {
 
 void sub_0806BF44(Entity* this, ScriptExecutionContext* context) {
     context->condition = 0;
-    if (((this->x.HALF.HI - gRoomControls.roomScrollX) + 0x10U < 0x110) &&
-        ((this->y.HALF.HI - gRoomControls.roomScrollY) + 0x18U < 0xD0)) {
+    if (((this->x.HALF.HI - gRoomControls.scroll_x) + 0x10U < 0x110) &&
+        ((this->y.HALF.HI - gRoomControls.scroll_y) + 0x18U < 0xD0)) {
         context->condition = 1;
     }
 }

@@ -1,10 +1,16 @@
+/**
+ * @file likeLike.c
+ * @ingroup Enemies
+ *
+ * @brief Like Like enemy
+ */
+
 #include "enemy.h"
-#include "entity.h"
-#include "textbox.h"
+#include "message.h"
 #include "save.h"
-#include "random.h"
-#include "createObject.h"
+#include "object.h"
 #include "functions.h"
+#include "item.h"
 
 extern bool32 ItemIsShield(u32);
 
@@ -58,7 +64,7 @@ void sub_08027DA4(Entity* this) {
 
 void sub_08027E40(Entity* this) {
     if (this->actionDelay == 2 && this->field_0x80.HALF.LO != 0xff) {
-        sub_0805E3A0(this, 3);
+        SetDefaultPriority(this, PRIO_NO_BLOCK);
         sub_08028224(this->field_0x80.HALF.LO);
     }
     sub_0804A7D4(this);
@@ -186,7 +192,7 @@ void sub_0802805C(Entity* this) {
         sub_0802810C(this);
     } else {
         ResetPlayer();
-        gPlayerState.field_0x1a[0] |= 0x80;
+        gPlayerState.mobility |= 0x80;
         PositionRelative(this, &gPlayerEntity, 0, 0x10000);
 
         tmp = GetSpriteSubEntryOffsetDataPointer((u16)this->spriteIndex, this->frameIndex);
@@ -205,7 +211,7 @@ void sub_0802805C(Entity* this) {
 }
 
 NONMATCH("asm/non_matching/likeLike/sub_0802810C.inc", void sub_0802810C(Entity* this)) {
-    gPlayerState.jumpStatus = 0x41;
+    gPlayerState.jump_status = 0x41;
     gPlayerState.field_0xa = 0;
     gPlayerState.flags &= 0xffffffef;
     gPlayerEntity.flags |= 0x80;
@@ -241,12 +247,12 @@ void sub_080281A0(Entity* this) {
 bool32 sub_080281E0(u32 param_1) {
     bool32 ret = FALSE;
     if (GetInventoryValue(param_1) == 1) {
-        if (ItemIsShield(gSave.stats.itemOnA)) {
-            gSave.stats.itemOnA = 0;
+        if (ItemIsShield(gSave.stats.itemButtons[SLOT_A])) {
+            gSave.stats.itemButtons[SLOT_A] = 0;
         }
 
-        if (ItemIsShield(gSave.stats.itemOnB)) {
-            gSave.stats.itemOnB = 0;
+        if (ItemIsShield(gSave.stats.itemButtons[SLOT_B])) {
+            gSave.stats.itemButtons[SLOT_B] = 0;
         }
 
         sub_0807CAA0(param_1, 0);

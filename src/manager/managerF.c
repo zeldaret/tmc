@@ -1,17 +1,16 @@
 #include "global.h"
 #include "manager.h"
 #include "flags.h"
-#include "audio.h"
+#include "sound.h"
 #include "room.h"
 #include "player.h"
 #include "functions.h"
 #include "area.h"
-#include "textbox.h"
-#include "script.h"
-#include "utils.h"
+#include "message.h"
+#include "common.h"
 #include "tiles.h"
-
-void sub_08058ECC(ManagerF*);
+#include "object.h"
+#include "item.h"
 
 void sub_08058EE4(ManagerF*);
 void sub_08058FB0(ManagerF*);
@@ -75,16 +74,16 @@ const ManagerF_HelperStruct gUnk_08108354[] = {
 
 const u32 gUnk_08108354_terminator = 0xFFFF; // terminator for the previous array
 
-extern u16 script_0800E600[];
-extern u16 script_0800E62C[];
-extern u16 script_0800E658[];
-extern u16 script_0800E684[];
+extern u16 script_PlayerAtDarkNut1[];
+extern u16 script_PlayerAtDarkNut2[];
+extern u16 script_PlayerAtDarkNut3[];
+extern u16 script_PlayerAtMadderpillar[];
 
 u16* const gUnk_08108380[] = {
-    script_0800E600,
-    script_0800E62C,
-    script_0800E658,
-    script_0800E684,
+    script_PlayerAtDarkNut1,
+    script_PlayerAtDarkNut2,
+    script_PlayerAtDarkNut3,
+    script_PlayerAtMadderpillar,
 };
 
 void sub_08058F44(u32, u32, u32);
@@ -110,7 +109,7 @@ void sub_08058EE4(ManagerF* this) {
     sub_08058F44(0x158, 0x68, this->manager.unk_0b + 2);
     sub_08058F44(0x128, 0x98, this->manager.unk_0b + 3);
     sub_08058F44(0x158, 0x98, this->manager.unk_0b + 4);
-    SoundReq(0x124);
+    SoundReq(SFX_124);
     DeleteThisEntity();
 }
 
@@ -125,11 +124,11 @@ void sub_08058F44(u32 unk0, u32 unk1, u32 unk2) {
 
 void sub_08058F84(u32 unk0, u32 unk1) {
     Entity* tmp;
-    tmp = CreateObject(0x21, 0, 0);
+    tmp = CreateObject(OBJECT_21, 0, 0);
     if (!tmp)
         return;
-    tmp->x.HALF.HI = gRoomControls.roomOriginX + unk0;
-    tmp->y.HALF.HI = gRoomControls.roomOriginY + unk1;
+    tmp->x.HALF.HI = gRoomControls.origin_x + unk0;
+    tmp->y.HALF.HI = gRoomControls.origin_y + unk1;
 }
 
 void sub_08058FB0(ManagerF* this) {
@@ -151,13 +150,13 @@ void sub_08058FB0(ManagerF* this) {
             if (CheckFlags(this->unk_3e)) {
                 this->manager.action = 2;
                 this->manager.unk_0e = 120;
-                sub_0805E4E0((Entity*)this, 0xF0);
+                RequestPriorityDuration((Entity*)this, 0xF0);
                 sub_08059064(this);
             }
             break;
         case 2:
             if (this->manager.unk_0e == 90) {
-                sub_08078A90(2);
+                SetPlayerControl(2);
                 sub_08077B20();
             }
             if (this->manager.unk_0e == 60) {
@@ -170,19 +169,19 @@ void sub_08058FB0(ManagerF* this) {
             break;
         default:
             SetFlag(this->unk_3e);
-            sub_08078A90(1);
+            SetPlayerControl(1);
             DeleteThisEntity();
     }
 }
 
 void sub_08059064(ManagerF* this) {
     Entity* tmp;
-    tmp = CreateObject(0, 0x53, 0);
+    tmp = CreateObject(GROUND_ITEM, ITEM_SMALL_KEY, 0);
     if (!tmp)
         return;
     tmp->actionDelay = 2;
-    tmp->x.HALF.HI = this->unk_38 + gRoomControls.roomOriginX;
-    tmp->y.HALF.HI = this->unk_3a + gRoomControls.roomOriginY;
+    tmp->x.HALF.HI = this->unk_38 + gRoomControls.origin_x;
+    tmp->y.HALF.HI = this->unk_3a + gRoomControls.origin_y;
 }
 
 void sub_08059094(ManagerF* this) {
@@ -209,7 +208,7 @@ void sub_08059094(ManagerF* this) {
 void sub_080590E0(ManagerF* this) {
     if (!this->manager.action) {
         this->manager.action = 1;
-        sub_0805E3A0(this, 6);
+        SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
     }
     if (CheckLocalFlag(0x6c)) {
         if (CheckLocalFlag(0x4b)) {
@@ -228,7 +227,7 @@ void sub_08059124(ManagerF* this) {
             if (!--this->manager.unk_0e) {
                 CreateDustAt(this->unk_38, this->unk_3a, this->manager.unk_0b);
                 sub_0807BA8C(((this->unk_38 >> 4) & 0x3f) | ((this->unk_3a >> 4) & 0x3f) << 6, this->manager.unk_0b);
-                SoundReq(0xcd);
+                SoundReq(SFX_TASK_COMPLETE);
                 DeleteThisEntity();
             }
             break;
@@ -241,7 +240,7 @@ void sub_08059124(ManagerF* this) {
             break;
         case 1:
             if (CheckFlags(this->unk_3e)) {
-                sub_0805E4E0((Entity*)this, 0x4b);
+                RequestPriorityDuration((Entity*)this, 0x4b);
                 this->manager.unk_0e = 0x2d;
                 this->manager.action++;
             }
@@ -253,18 +252,18 @@ void sub_080591CC(ManagerF* this) {
         this->manager.action = 1;
         this->manager.unk_0b = CheckFlags(this->unk_3e);
         if (this->manager.unk_0b) {
-            gRoomVars.field_0xc = this->unk_3a;
+            gRoomVars.lightLevel = this->unk_3a;
         } else {
-            gRoomVars.field_0xc = this->unk_38;
+            gRoomVars.lightLevel = this->unk_38;
         }
     } else {
         u32 tmp = CheckFlags(this->unk_3e);
         if (this->manager.unk_0b != tmp) {
             this->manager.unk_0b = tmp;
             if (tmp) {
-                gRoomVars.field_0xc = this->unk_3a;
+                gRoomVars.lightLevel = this->unk_3a;
             } else {
-                gRoomVars.field_0xc = this->unk_38;
+                gRoomVars.lightLevel = this->unk_38;
             }
         }
     }
@@ -272,20 +271,20 @@ void sub_080591CC(ManagerF* this) {
 
 void sub_08059220(ManagerF* this) {
     const ManagerF_HelperStruct* data;
-    gRoomVars.field_0xc = 0;
+    gRoomVars.lightLevel = 0;
 
     for (data = gUnk_08108354; data->x != 0xFFFF; data++) {
         if (CheckPlayerInRegion(data->x, data->y, data->width, data->height)) {
-            gRoomVars.field_0xc = data->unk_08;
+            gRoomVars.lightLevel = data->unk_08;
         }
     }
     if (!this->manager.action) {
         this->manager.action = 1;
-        gArea.unk_0a = gRoomVars.field_0xc;
+        gArea.unk_0a = gRoomVars.lightLevel;
     }
 }
 
-void sub_08059278() {
+void sub_08059278(void) {
     ManagerF* tmp;
     tmp = (ManagerF*)FindEntityByID(0x9, 0xF, 0x6);
     if (tmp) {
@@ -295,7 +294,7 @@ void sub_08059278() {
 
 void sub_08059290(ManagerF* this) {
     this->manager.action = 1;
-    gRoomControls.cameraTarget = &gPlayerEntity;
+    gRoomControls.camera_target = &gPlayerEntity;
 }
 
 void sub_080592A4(ManagerF* this) {
@@ -310,7 +309,7 @@ void sub_080592A4(ManagerF* this) {
             sub_080592EC(this);
             sub_0805930C(this);
 #ifndef EU
-            SoundReq(0x16E);
+            SoundReq(SFX_16E);
 #endif
             DeleteThisEntity();
         }
@@ -324,14 +323,14 @@ void sub_080592EC(ManagerF* this) {
 void sub_0805930C(ManagerF* this) {
     Entity* tmp;
 #ifdef EU
-    tmp = CreateObject(0xF, 0x43, 0x0);
+    tmp = CreateObject(SPECIAL_FX, FX_BIG_EXPLOSION2, 0x0);
 #else
-    tmp = CreateObject(0xF, 0x43, 0x40);
+    tmp = CreateObject(SPECIAL_FX, FX_BIG_EXPLOSION2, 0x40);
 #endif
     if (!tmp)
         return;
-    tmp->x.HALF.HI = this->unk_38 + gRoomControls.roomOriginX;
-    tmp->y.HALF.HI = this->unk_3a + gRoomControls.roomOriginY;
+    tmp->x.HALF.HI = this->unk_38 + gRoomControls.origin_x;
+    tmp->y.HALF.HI = this->unk_3a + gRoomControls.origin_y;
     tmp->collisionLayer = 1;
 }
 
@@ -352,7 +351,7 @@ void sub_08059368(ManagerF* this) {
 void sub_0805938C(ManagerF* this) {
     if (sub_080593CC(this)) {
         if (++this->manager.unk_0e >= 8) {
-            sub_080806BC(this->unk_38 - gRoomControls.roomOriginX, this->unk_3a - gRoomControls.roomOriginY, 0xFF, 0xA);
+            sub_080806BC(this->unk_38 - gRoomControls.origin_x, this->unk_3a - gRoomControls.origin_y, 0xFF, 0xA);
         }
     } else {
         this->manager.unk_0e = 0;
@@ -360,8 +359,8 @@ void sub_0805938C(ManagerF* this) {
 }
 
 u32 sub_080593CC(ManagerF* this) {
-    if (!(gPlayerState.flags & PL_IS_MINISH) && gPlayerState.swimState != 0 && gPlayerEntity.animationState == 0 &&
-        (gPlayerState.field_0x90.HALF.LO & 0xF00) == 0x400) {
+    if (!(gPlayerState.flags & PL_MINISH) && gPlayerState.swim_state != 0 && gPlayerEntity.animationState == 0 &&
+        (gPlayerState.field_0x90 & 0xF00) == 0x400) {
         return sub_0806FCB8(&gPlayerEntity, this->unk_38, this->unk_3a + 0xC, 6);
     }
     return 0;
@@ -374,23 +373,23 @@ void sub_08059424(ManagerF* this) {
     }
     if (!CheckFlags(this->unk_3c))
         return;
-    tmp = CreateObject(0xF, 0x35, 0);
+    tmp = CreateObject(SPECIAL_FX, FX_BIG_EXPLOSION, 0);
     if (!tmp)
         return;
     tmp->collisionLayer = 2;
-    tmp->x.HALF.HI = this->unk_38 + gRoomControls.roomOriginX;
-    tmp->y.HALF.HI = this->unk_3a + gRoomControls.roomOriginY;
+    tmp->x.HALF.HI = this->unk_38 + gRoomControls.origin_x;
+    tmp->y.HALF.HI = this->unk_3a + gRoomControls.origin_y;
     EnqueueSFX(0x1B0);
     DeleteThisEntity();
 }
 
 void sub_0805947C(ManagerF* this) {
     if (!CheckFlags(this->unk_3e)) {
-        sub_08078A90(3);
-        if (gRoomControls.unk2)
+        SetPlayerControl(3);
+        if (gRoomControls.reload_flags)
             return;
         if (gRoomVars.field_0x0) {
-            StartPlayerScript(gUnk_08108380[gRoomControls.unk_10]);
+            StartPlayerScript(gUnk_08108380[gRoomControls.scroll_direction]);
         } else {
             StartPlayerScript(gUnk_08108380[gPlayerEntity.animationState >> 1]);
         }
@@ -407,17 +406,17 @@ void sub_080594DC(ManagerF* this) {
         case 1:
             if (!GetInventoryValue(6))
                 return;
-            if (CheckLocalFlagByOffset(0x8c0, 0x85))
+            if (CheckLocalFlagByBank(0x8c0, 0x85))
                 return;
             this->manager.action = 2;
             sub_080186C0(0xB0F);
             break;
         case 2:
         default:
-            if (gArea.field_0x28 != 0xFF) {
+            if (gArea.inventoryGfxIdx != 0xFF) {
                 DeleteThisEntity();
             }
-            if (CheckLocalFlagByOffset(0x8c0, 0x85)) {
+            if (CheckLocalFlagByBank(0x8c0, 0x85)) {
                 sub_0801855C();
                 DeleteThisEntity();
             }
@@ -427,7 +426,7 @@ void sub_080594DC(ManagerF* this) {
 
 #if defined(USA) || defined(DEMO_USA) || defined(DEMO_JP)
 void sub_08059548(ManagerF* this) {
-    sub_0805E3A0(this, 6);
+    SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
     if (gPlayerEntity.action == 0x16) {
         DeleteThisEntity();
     }

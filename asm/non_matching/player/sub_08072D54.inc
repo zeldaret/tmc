@@ -11,7 +11,7 @@
 	cmp r0, #0
 	beq _08072D7A
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	b _08072E80
@@ -38,7 +38,7 @@ _08072D9C:
 	beq _08072E30
 	b _08072E6C
 _08072DA6:
-	ldr r1, _08072DC8 @ =gUnk_0811BBD4
+	ldr r1, _08072DC8 @ =sTileTable
 	ldr r0, _08072DCC @ =gPlayerEntity
 	ldrb r0, [r0, #0x14]
 	lsrs r0, r0, #1
@@ -54,10 +54,10 @@ _08072DA6:
 	strb r0, [r4, #0xf]
 	b _08072E6C
 	.align 2, 0
-_08072DC8: .4byte gUnk_0811BBD4
+_08072DC8: .4byte sTileTable
 _08072DCC: .4byte gPlayerEntity
 _08072DD0:
-	ldr r1, _08072DEC @ =gUnk_0811BBD4
+	ldr r1, _08072DEC @ =sTileTable
 	ldr r0, _08072DF0 @ =gPlayerEntity
 	ldrb r0, [r0, #0x14]
 	lsrs r0, r0, #1
@@ -71,7 +71,7 @@ _08072DD0:
 	strb r5, [r4, #0xe]
 	b _08072E6C
 	.align 2, 0
-_08072DEC: .4byte gUnk_0811BBD4
+_08072DEC: .4byte sTileTable
 _08072DF0: .4byte gPlayerEntity
 _08072DF4:
 	movs r0, #2
@@ -82,7 +82,7 @@ _08072DFA:
 	movs r5, #4
 	eors r0, r5
 	strb r0, [r4, #0x14]
-	ldr r1, _08072E28 @ =gUnk_0811BBD4
+	ldr r1, _08072E28 @ =sTileTable
 	ldr r0, _08072E2C @ =gPlayerEntity
 	ldrb r0, [r0, #0x14]
 	lsrs r0, r0, #1
@@ -102,14 +102,14 @@ _08072E22:
 	eors r0, r5
 	b _08072E6A
 	.align 2, 0
-_08072E28: .4byte gUnk_0811BBD4
+_08072E28: .4byte sTileTable
 _08072E2C: .4byte gPlayerEntity
 _08072E30:
 	ldrb r0, [r4, #0x14]
 	movs r1, #4
 	eors r0, r1
 	strb r0, [r4, #0x14]
-	ldr r1, _08072E58 @ =gUnk_0811BBD4
+	ldr r1, _08072E58 @ =sTileTable
 	ldr r0, _08072E5C @ =gPlayerEntity
 	ldrb r0, [r0, #0x14]
 	lsrs r0, r0, #1
@@ -124,7 +124,7 @@ _08072E30:
 	strb r0, [r4, #0xe]
 	b _08072E64
 	.align 2, 0
-_08072E58: .4byte gUnk_0811BBD4
+_08072E58: .4byte sTileTable
 _08072E5C: .4byte gPlayerEntity
 _08072E60:
 	movs r0, #4
@@ -140,10 +140,10 @@ _08072E6C:
 	cmp r0, #0
 	beq _08072E7A
 	adds r0, r4, #0
-	bl sub_0806F69C
+	bl LinearMoveUpdate
 	b _08072E7E
 _08072E7A:
-	bl sub_08079E08
+	bl UpdatePlayerMovement
 _08072E7E:
 	movs r0, #0
 _08072E80:
@@ -151,7 +151,7 @@ _08072E80:
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	cmp r0, #0
 	bne _08072F10
 	ldrb r1, [r4, #0x10]
@@ -164,7 +164,7 @@ _08072E80:
 	cmp r0, #1
 	bne _08072EAA
 	adds r0, r4, #0
-	bl sub_0800455E
+	bl ResetCollisionLayer
 	b _08072EB0
 _08072EAA:
 	adds r0, r4, #0
@@ -187,7 +187,7 @@ _08072EB0:
 	ands r0, r1
 	cmp r0, #0
 	bne _08072F10
-	bl sub_080791BC
+	bl SetPlayerActionNormal
 	b _08072F10
 	.align 2, 0
 _08072EDC: .4byte gPlayerState

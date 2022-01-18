@@ -1,10 +1,6 @@
 #include "global.h"
 #include "entity.h"
 #include "npc.h"
-#include "flags.h"
-#include "textbox.h"
-#include "functions.h"
-#include "script.h"
 
 extern u16 gUnk_08112D48[];
 
@@ -16,7 +12,7 @@ void Librari(Entity* this) {
             this->animationState = this->actionDelay;
             this->field_0x68.HALF.LO = sub_0801E99C(this);
             sub_08078784(this, this->field_0x68.HALF.LO);
-            sub_0805E3A0(this, 2);
+            SetDefaultPriority(this, PRIO_MESSAGE);
             sub_0807DD50(this);
             break;
         case 1:

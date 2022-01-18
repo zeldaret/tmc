@@ -1,7 +1,6 @@
 #include "entity.h"
 #include "functions.h"
-#include "script.h"
-#include "audio.h"
+#include "sound.h"
 
 extern SpriteLoadData gUnk_0810C48C;
 
@@ -12,7 +11,7 @@ void MinishEzlo(Entity* this) {
         }
         this->action += 1;
         this->animationState = this->actionDelay * 2;
-        sub_0805E3A0(this, 2);
+        SetDefaultPriority(this, PRIO_MESSAGE);
         sub_0807DD50(this);
     }
     ExecuteScriptForEntity(this, NULL);

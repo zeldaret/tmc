@@ -2,8 +2,9 @@
 #include "menu.h"
 #include "room.h"
 #include "functions.h"
+#include "screen.h"
 
-extern void (*const gUnk_080FF420[])();
+extern void (*const gUnk_080FF420[])(void);
 extern void sub_0804B0B0(u32, u32);
 extern void sub_08055B70(u32, u32, u32, u32);
 
@@ -14,7 +15,7 @@ struct {
     /*0x1d*/ u8 unk1D;
     /*0x1e*/ u8 unk1E;
     /*0x1f*/ u8 unk1F;
-} gUpdateVisibleTiles = {};
+} gUpdateVisibleTiles;
 
 extern EntityData gUnk_080FF400;
 
@@ -28,7 +29,7 @@ void sub_08055E24(void) {
     sub_0804B0B0(gMenu.field_0xc[2], gMenu.field_0xc[3]);
     LoadRoomEntityList(&gUnk_080FF400);
     sub_08055B70(gMenu.field_0x4, 0, 0, 0);
-    DoFade(4, 0x10);
+    SetFade(4, 0x10);
 }
 
 void nullsub_493(void) {

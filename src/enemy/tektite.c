@@ -1,8 +1,14 @@
-#include "global.h"
-#include "entity.h"
+/**
+ * @file tektite.c
+ * @ingroup Enemies
+ *
+ * @brief Tektite enemy
+ */
+
 #include "enemy.h"
-#include "random.h"
 #include "functions.h"
+
+static void sub_0802F45C(Entity* this);
 
 extern void (*const gUnk_080CDED0[])(Entity*);
 extern void (*const gUnk_080CDEE8[])(Entity*);
@@ -59,7 +65,7 @@ void nullsub_16(Entity* this) {
 void sub_0802F1F0(Entity* this) {
     sub_08001242(this);
     if (this->z.HALF.HI != 0) {
-        sub_08003FC4(this, this->field_0x80.HWORD);
+        GravityUpdate(this, this->field_0x80.HWORD);
     }
 }
 
@@ -178,7 +184,7 @@ void sub_0802F3F4(Entity* this) {
     }
 }
 
-void sub_0802F45C(Entity* this) {
+static void sub_0802F45C(Entity* this) {
     u32 temp;
 
     if (sub_08049FA0(this) == 0) {

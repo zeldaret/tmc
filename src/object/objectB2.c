@@ -23,7 +23,7 @@ void ObjectB2(Entity* this) {
         InitializeAnimation(this, this->type);
     }
     this->speed = this->parent->speed;
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     if (sub_080AE4CC(this->child, this->x.HALF.HI, this->y.HALF.HI, 9) != 0) {
         DeleteThisEntity();
     }

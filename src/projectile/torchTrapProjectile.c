@@ -32,7 +32,7 @@ void TorchTrapProjectile_Action1(Entity* this) {
         this->actionDelay -= 1;
     } else {
         if (sub_080AF090(this) == 0) {
-            sub_0806F69C(this);
+            LinearMoveUpdate(this);
         } else {
             this->action = 2;
         }

@@ -1,8 +1,9 @@
 #include "global.h"
-#include "audio.h"
+#include "sound.h"
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
+#include "common.h"
 
 extern u32 sub_0805C920(Entity*);
 
@@ -18,10 +19,10 @@ const u8 gUnk_08108D20[] = { 0x6F, 0x70, 0x71, 0x72, 0x71, 0x70 };
 void Manager27_Main(Entity* this) {
 
     gUnk_08108D10[this->action](this);
-    if (CheckLocalFlagByOffset(0x300, this->type + 0x67)) {
-        gScreenTransition.field_0xac |= (1 << this->type);
+    if (CheckLocalFlagByBank(0x300, this->type + 0x67)) {
+        gRoomTransition.armos_data.field_0xac |= (1 << this->type);
     } else {
-        gScreenTransition.field_0xac &= ~(1 << this->type);
+        gRoomTransition.armos_data.field_0xac &= ~(1 << this->type);
     }
 }
 
@@ -75,5 +76,5 @@ void sub_0805C908(Entity* this) {
 }
 
 u32 sub_0805C920(Entity* this) {
-    return CheckLocalFlagByOffset(0x300, this->type + 0x67);
+    return CheckLocalFlagByBank(0x300, this->type + 0x67);
 }

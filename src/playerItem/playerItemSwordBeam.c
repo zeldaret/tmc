@@ -2,8 +2,10 @@
 #include "player.h"
 #include "coord.h"
 #include "functions.h"
-#include "audio.h"
+#include "sound.h"
 #include "effects.h"
+#include "common.h"
+#include "asm.h"
 
 extern void (*const gUnk_080B43F4[])(Entity*);
 
@@ -56,7 +58,7 @@ void sub_08019498(Entity* this) {
 
     InitializeAnimation(this, gUnk_080B43FC[this->animationState >> 1]);
     sub_0801766C(this);
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     sub_08019580(this);
     SoundReq(SFX_ITEM_SWORD_BEAM);
 }
@@ -64,7 +66,7 @@ void sub_08019498(Entity* this) {
 void sub_08019580(Entity* this) {
     if (--*(int*)&this->field_0x6c != -1) {
         GetNextFrame(this);
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
         this->actionDelay += 0x01;
         if (this->type2 == 0) {
             sub_0800451C(this);
@@ -99,6 +101,6 @@ void sub_08019644(Entity* this) {
         if (gUnk_080B4400[this->field_0x70.WORD] == 0xff) {
             this->field_0x70.WORD = iVar1;
         }
-        sub_0801D2B4(this, (u32)gUnk_080B4400[this->field_0x70.WORD]);
+        ChangeObjPalette(this, (u32)gUnk_080B4400[this->field_0x70.WORD]);
     }
 }

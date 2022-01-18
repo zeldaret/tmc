@@ -1,12 +1,7 @@
 #include "global.h"
+#include "sound.h"
 #include "entity.h"
 #include "npc.h"
-#include "textbox.h"
-#include "flags.h"
-#include "structures.h"
-#include "functions.h"
-#include "save.h"
-#include "script.h"
 
 extern void sub_0806C7D4(Entity*);
 
@@ -14,7 +9,7 @@ extern void (*const gUnk_08113A7C[])(Entity*);
 extern void (*const gUnk_08113A8C[])(Entity*, ScriptExecutionContext*);
 
 extern SpriteLoadData gUnk_08113A1C[];
-extern u16 script_08014A80;
+extern u16 script_WindTribespeople6;
 extern Dialog gUnk_08113ABC[];
 extern u16 gUnk_08113B0C[];
 
@@ -31,8 +26,6 @@ extern u16 gUnk_08113B1E[];
 extern u16 gUnk_08113B16[];
 
 extern u8 gUnk_08113B38[];
-
-extern SpriteLoadData gUnk_08113A1C[];
 
 void WindTribespeople(Entity* this) {
     gUnk_08113A7C[this->action](this);
@@ -63,7 +56,7 @@ void sub_0806C7D4(Entity* this) {
         sub_0807DD94(this, NULL);
         if ((this->type2 == 3) && (!CheckGlobalFlag(WARP_EVENT_END)) && (CheckLocalFlag(0x63)) && (CheckRoomFlag(0))) {
             this->type2 = 7;
-            sub_0807DD80(this, &script_08014A80);
+            sub_0807DD80(this, &script_WindTribespeople6);
         }
     }
 }
@@ -123,7 +116,7 @@ void sub_0806C90C(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_0806C928(Entity* this) {
-    ShowNPCDialogue(this, &gUnk_08113ABC[gSave.unk8]);
+    ShowNPCDialogue(this, &gUnk_08113ABC[gSave.global_progress]);
 }
 
 void sub_0806C944(Entity* this) {

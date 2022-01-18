@@ -25925,11 +25925,6 @@
     "type": "animation"
   },
   {
-    "path": "bombarossa/gUnk_080CEB50.bin",
-    "start": 846672,
-    "size": 16
-  },
-  {
     "path": "animations/gSpriteAnimations_Wisp_0.bin",
     "start": 846764,
     "size": 17,
@@ -26943,11 +26938,6 @@
     "start": 850920,
     "size": 36,
     "type": "animation"
-  },
-  {
-    "path": "flyingSkull/gUnk_080CFBE4.bin",
-    "start": 850916,
-    "size": 4
   },
   {
     "path": "animations/gSpriteAnimations_MazaalBracelet_0.bin",
@@ -28603,177 +28593,6 @@
     "size": 22
   },
   {
-    "path": "gyorgFemale/gUnk_080D1A84.bin",
-    "start": 858756,
-    "size": 16
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1A94_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 858164
-    },
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1A94_1_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 856792
-    },
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1A94_2_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 856512
-    },
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1A94_3_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 858772,
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1AAC_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 858188
-    },
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1AAC_1_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 856816
-    },
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1AAC_2_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 856536
-    },
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1AAC_3_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 858796,
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1AC4_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 858212
-    },
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1AC4_1_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 856840
-    },
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1AC4_2_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 856560
-    },
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1AC4_3_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 858820,
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1ADC_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 858236
-    },
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1ADC_1_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 856864
-    },
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1ADC_2_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 856584
-    },
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1ADC_3_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 858844,
-    "size": 24
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1AF4.bin",
-    "start": 858868,
-    "size": 4
-  },
-  {
-    "path": "gyorgFemale/gUnk_080D1AF8.bin",
-    "start": 858872,
-    "size": 4
-  },
-  {
     "path": "animations/gSpriteAnimations_GyorgMale_0.bin",
     "start": 859248,
     "size": 33,
@@ -28960,11 +28779,6 @@
     "type": "animation"
   },
   {
-    "path": "gyorgChild/gUnk_080D1EA0.bin",
-    "start": 859808,
-    "size": 22
-  },
-  {
     "path": "animations/gSpriteAnimations_GyorgFemaleEye_0.bin",
     "start": 860240,
     "size": 20,
@@ -29107,21 +28921,6 @@
     "start": 860772,
     "size": 16,
     "type": "animation"
-  },
-  {
-    "path": "gyorgFemaleEye/gUnk_080D1F90.bin",
-    "start": 860048,
-    "size": 128
-  },
-  {
-    "path": "gyorgFemaleEye/gUnk_080D2010.bin",
-    "start": 860176,
-    "size": 32
-  },
-  {
-    "path": "gyorgFemaleEye/gUnk_080D2030.bin",
-    "start": 860208,
-    "size": 32
   },
   {
     "path": "animations/gSpriteAnimations_Enemy62_0.bin",
@@ -29540,51 +29339,6 @@
     "start": 862543,
     "size": 17,
     "type": "animation"
-  },
-  {
-    "path": "gyorgFemaleMouth/gUnk_080D28CC.bin",
-    "start": 862412,
-    "size": 16
-  },
-  {
-    "path": "gyorgFemaleMouth/gUnk_080D28DC.bin",
-    "start": 862428,
-    "size": 8
-  },
-  {
-    "path": "gyorgFemaleMouth/gUnk_080D28E4.bin",
-    "start": 862436,
-    "size": 8
-  },
-  {
-    "path": "gyorgFemaleMouth/gUnk_080D28EC.bin",
-    "start": 862444,
-    "size": 8
-  },
-  {
-    "path": "gyorgFemaleMouth/gUnk_080D28F4.bin",
-    "start": 862452,
-    "size": 8
-  },
-  {
-    "path": "gyorgFemaleMouth/gUnk_080D28FC.bin",
-    "start": 862460,
-    "size": 8
-  },
-  {
-    "path": "gyorgFemaleMouth/gUnk_080D2904.bin",
-    "start": 862468,
-    "size": 8
-  },
-  {
-    "path": "gyorgFemaleMouth/gUnk_080D290C.bin",
-    "start": 862476,
-    "size": 8
-  },
-  {
-    "path": "gyorgFemaleMouth/gUnk_080D2914.bin",
-    "start": 862484,
-    "size": 8
   },
   {
     "path": "enemy64/gUnk_080D29B8.bin",
@@ -31141,7 +30895,7 @@
     "size": 16
   },
   {
-    "path": "data_080FC8A4/gUnk_080FCA20.bin",
+    "path": "data_080FC8A4/sCutsceneData.bin",
     "start": 1034784,
     "size": 80
   },
@@ -31159,21 +30913,6 @@
     "path": "data_080FC8A4/gUnk_080FCAA4.bin",
     "start": 1034916,
     "size": 36
-  },
-  {
-    "path": "data_080FC8A4/gUnk_080FCAC8.bin",
-    "start": 1034952,
-    "size": 14
-  },
-  {
-    "path": "data_080FC8A4/gUnk_080FCAD6.bin",
-    "start": 1034966,
-    "size": 34
-  },
-  {
-    "path": "data_080FC8A4/gUnk_080FCAF8.bin",
-    "start": 1035000,
-    "size": 32
   },
   {
     "path": "data_080FC8A4/gUnk_080FCB38.bin",
@@ -33519,16 +33258,6 @@
     "path": "manager13/gUnk_08108530.bin",
     "start": 1082672,
     "size": 88
-  },
-  {
-    "path": "manager14/gUnk_08108588.bin",
-    "start": 1082760,
-    "size": 18
-  },
-  {
-    "path": "manager14/gUnk_0810859A.bin",
-    "start": 1082778,
-    "size": 10
   },
   {
     "path": "manager15/gUnk_081085B8.bin",
@@ -41626,7 +41355,7 @@
     "size": 8
   },
   {
-    "path": "data_081146D0/gUnk_08114F88.bin",
+    "path": "data_081146D0/gPlayerHitbox.bin",
     "start": 1134472,
     "size": 16
   },
@@ -41685,13 +41414,13 @@
     "type": "sprite_frame"
   },
   {
-    "path": "sprites/gSpriteFrames_Object4.bin",
+    "path": "sprites/gSpriteFrames_MinishEmoticon.bin",
     "start": 1142028,
     "size": 200,
     "type": "sprite_frame"
   },
   {
-    "path": "sprites/gSpriteFrames_Object6.bin",
+    "path": "sprites/gSpriteFrames_EzloCap.bin",
     "start": 1142228,
     "size": 400,
     "type": "sprite_frame"
@@ -42776,16 +42505,6 @@
     }
   },
   {
-    "path": "data_0811E454/gUnk_0811E510.bin",
-    "start": 1172752,
-    "size": 4
-  },
-  {
-    "path": "data_0811E454/gUnk_0811E514.bin",
-    "start": 1172756,
-    "size": 16
-  },
-  {
     "path": "data_0811E750/gUnk_0811E750.bin",
     "start": 1173328,
     "size": 8
@@ -42855,151 +42574,151 @@
     "size": 12
   },
   {
-    "path": "animations/gSpriteAnimations_Object4_2.bin",
+    "path": "animations/gSpriteAnimations_MinishEmoticon_2.bin",
     "start": 1175140,
     "size": 41,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object4_10.bin",
+    "path": "animations/gSpriteAnimations_MinishEmoticon_10.bin",
     "start": 1175181,
     "size": 4,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object4_3.bin",
+    "path": "animations/gSpriteAnimations_MinishEmoticon_3.bin",
     "start": 1175185,
     "size": 41,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object4_11.bin",
+    "path": "animations/gSpriteAnimations_MinishEmoticon_11.bin",
     "start": 1175226,
     "size": 4,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object4_0.bin",
+    "path": "animations/gSpriteAnimations_MinishEmoticon_0.bin",
     "start": 1175230,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object4_8.bin",
+    "path": "animations/gSpriteAnimations_MinishEmoticon_8.bin",
     "start": 1175235,
     "size": 4,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object4_1.bin",
+    "path": "animations/gSpriteAnimations_MinishEmoticon_1.bin",
     "start": 1175239,
     "size": 41,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object4_9.bin",
+    "path": "animations/gSpriteAnimations_MinishEmoticon_9.bin",
     "start": 1175280,
     "size": 4,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object4_12.bin",
+    "path": "animations/gSpriteAnimations_MinishEmoticon_12.bin",
     "start": 1175284,
     "size": 9,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object4_13.bin",
+    "path": "animations/gSpriteAnimations_MinishEmoticon_13.bin",
     "start": 1175293,
     "size": 9,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object4_14.bin",
+    "path": "animations/gSpriteAnimations_MinishEmoticon_14.bin",
     "start": 1175302,
     "size": 9,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object4_19.bin",
+    "path": "animations/gSpriteAnimations_MinishEmoticon_19.bin",
     "start": 1175311,
     "size": 40,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object4_15.bin",
+    "path": "animations/gSpriteAnimations_MinishEmoticon_15.bin",
     "start": 1175351,
     "size": 24,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object4_16.bin",
+    "path": "animations/gSpriteAnimations_MinishEmoticon_16.bin",
     "start": 1175375,
     "size": 24,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object4_17.bin",
+    "path": "animations/gSpriteAnimations_MinishEmoticon_17.bin",
     "start": 1175399,
     "size": 24,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object4_18.bin",
+    "path": "animations/gSpriteAnimations_MinishEmoticon_18.bin",
     "start": 1175423,
     "size": 24,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object4_22.bin",
+    "path": "animations/gSpriteAnimations_MinishEmoticon_22.bin",
     "start": 1175447,
     "size": 9,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object4_23.bin",
+    "path": "animations/gSpriteAnimations_MinishEmoticon_23.bin",
     "start": 1175456,
     "size": 9,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object4_20.bin",
+    "path": "animations/gSpriteAnimations_MinishEmoticon_20.bin",
     "start": 1175465,
     "size": 9,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object4_21.bin",
+    "path": "animations/gSpriteAnimations_MinishEmoticon_21.bin",
     "start": 1175474,
     "size": 9,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object4_24.bin",
+    "path": "animations/gSpriteAnimations_MinishEmoticon_24.bin",
     "start": 1175483,
     "size": 9,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object4_25.bin",
+    "path": "animations/gSpriteAnimations_MinishEmoticon_25.bin",
     "start": 1175492,
     "size": 21,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object4_26.bin",
+    "path": "animations/gSpriteAnimations_MinishEmoticon_26.bin",
     "start": 1175513,
     "size": 21,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object4_27.bin",
+    "path": "animations/gSpriteAnimations_MinishEmoticon_27.bin",
     "start": 1175534,
     "size": 21,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object4_28.bin",
+    "path": "animations/gSpriteAnimations_MinishEmoticon_28.bin",
     "start": 1175555,
     "size": 21,
     "type": "animation"
@@ -43077,233 +42796,233 @@
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_0.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_0.bin",
     "start": 1175952,
     "size": 29,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_1.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_1.bin",
     "start": 1175981,
     "size": 29,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_2.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_2.bin",
     "start": 1176010,
     "size": 29,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_3.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_3.bin",
     "start": 1176039,
     "size": 41,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_8.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_8.bin",
     "start": 1176080,
     "size": 29,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_9.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_9.bin",
     "start": 1176109,
     "size": 29,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_10.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_10.bin",
     "start": 1176138,
     "size": 29,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_11.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_11.bin",
     "start": 1176167,
     "size": 41,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_4.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_4.bin",
     "start": 1176208,
     "size": 29,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_5.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_5.bin",
     "start": 1176237,
     "size": 29,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_6.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_6.bin",
     "start": 1176266,
     "size": 29,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_7.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_7.bin",
     "start": 1176295,
     "size": 41,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_12.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_12.bin",
     "start": 1176336,
     "size": 13,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_13.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_13.bin",
     "start": 1176349,
     "size": 13,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_14.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_14.bin",
     "start": 1176362,
     "size": 13,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_15.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_15.bin",
     "start": 1176375,
     "size": 41,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_16.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_16.bin",
     "start": 1176416,
     "size": 13,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_17.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_17.bin",
     "start": 1176429,
     "size": 13,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_18.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_18.bin",
     "start": 1176442,
     "size": 13,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_19.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_19.bin",
     "start": 1176455,
     "size": 41,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_20.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_20.bin",
     "start": 1176496,
     "size": 13,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_21.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_21.bin",
     "start": 1176509,
     "size": 13,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_22.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_22.bin",
     "start": 1176522,
     "size": 13,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_23.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_23.bin",
     "start": 1176535,
     "size": 41,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_31.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_31.bin",
     "start": 1176576,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_32.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_32.bin",
     "start": 1176581,
     "size": 17,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_33.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_33.bin",
     "start": 1176598,
     "size": 41,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_34.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_34.bin",
     "start": 1176639,
     "size": 41,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_24.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_24.bin",
     "start": 1176680,
     "size": 81,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_25.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_25.bin",
     "start": 1176761,
     "size": 25,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_26.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_26.bin",
     "start": 1176786,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_27.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_27.bin",
     "start": 1176791,
     "size": 116,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_28.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_28.bin",
     "start": 1176907,
     "size": 21,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_29.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_29.bin",
     "start": 1176928,
     "size": 21,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_30.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_30.bin",
     "start": 1176949,
     "size": 21,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object6_35.bin",
+    "path": "animations/gSpriteAnimations_EzloCap_35.bin",
     "start": 1176970,
     "size": 6,
     "type": "animation"
   },
   {
-    "path": "object6/gUnk_0811F16C.bin",
+    "path": "ezloCap/gUnk_0811F16C.bin",
     "start": 1175916,
     "size": 12
   },
   {
-    "path": "object6/gUnk_0811F178.bin",
+    "path": "ezloCap/gUnk_0811F178.bin",
     "start": 1175928,
     "size": 20
   },
   {
-    "path": "object6/gUnk_0811F18C.bin",
+    "path": "ezloCap/gUnk_0811F18C.bin",
     "start": 1175948,
     "size": 4
   },
@@ -44308,37 +44027,37 @@
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object24_0.bin",
+    "path": "animations/gSpriteAnimations_PressurePlate_0.bin",
     "start": 1182705,
     "size": 4,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object24_1.bin",
+    "path": "animations/gSpriteAnimations_PressurePlate_1.bin",
     "start": 1182709,
     "size": 4,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object24_2.bin",
+    "path": "animations/gSpriteAnimations_PressurePlate_2.bin",
     "start": 1182713,
     "size": 4,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object24_3.bin",
+    "path": "animations/gSpriteAnimations_PressurePlate_3.bin",
     "start": 1182717,
     "size": 4,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object24_4.bin",
+    "path": "animations/gSpriteAnimations_PressurePlate_4.bin",
     "start": 1182721,
     "size": 7,
     "type": "animation"
   },
   {
-    "path": "object24/gUnk_08120BEC.bin",
+    "path": "PressurePlate/gUnk_08120BEC.bin",
     "start": 1182700,
     "size": 5
   },
@@ -44395,12 +44114,12 @@
     "size": 8
   },
   {
-    "path": "object26/gUnk_08120C80.bin",
+    "path": "barrelInside/gUnk_08120C80.bin",
     "start": 1182848,
     "size": 18
   },
   {
-    "path": "object26/gUnk_08120C92.bin",
+    "path": "barrelInside/gUnk_08120C92.bin",
     "start": 1182866,
     "size": 6
   },
@@ -44431,13 +44150,13 @@
     "size": 26
   },
   {
-    "path": "animations/gSpriteAnimations_Object29_0.bin",
+    "path": "animations/gSpriteAnimations_AmbientClouds_0.bin",
     "start": 1183136,
     "size": 17,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object29_1.bin",
+    "path": "animations/gSpriteAnimations_AmbientClouds_1.bin",
     "start": 1183153,
     "size": 19,
     "type": "animation"
@@ -46263,12 +45982,12 @@
     "size": 6
   },
   {
-    "path": "object72/gUnk_081232EC.bin",
+    "path": "stoneTablet/gUnk_081232EC.bin",
     "start": 1192684,
     "size": 18
   },
   {
-    "path": "object72/gUnk_081232FE.bin",
+    "path": "stoneTablet/gUnk_081232FE.bin",
     "start": 1192702,
     "size": 26
   },
@@ -46426,7 +46145,7 @@
     "size": 6
   },
   {
-    "path": "object80/gUnk_0812366C.bin",
+    "path": "board/gUnk_0812366C.bin",
     "start": 1193580,
     "size": 8
   },
@@ -46606,7 +46325,7 @@
     "size": 40
   },
   {
-    "path": "object8B/gUnk_08123D68.bin",
+    "path": "doubleBookshelf/gUnk_08123D68.bin",
     "start": 1195368,
     "size": 20
   },
@@ -46637,25 +46356,25 @@
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object93_0_0.bin",
+    "path": "animations/gSpriteAnimations_Lamp_0_0.bin",
     "start": 1195656,
     "size": 20,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object93_0.bin",
+    "path": "animations/gSpriteAnimations_Lamp_0.bin",
     "start": 1195680,
     "size": 4,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object93_1_0.bin",
+    "path": "animations/gSpriteAnimations_Lamp_1_0.bin",
     "start": 1195684,
     "size": 20,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_Object93_1.bin",
+    "path": "animations/gSpriteAnimations_Lamp_1.bin",
     "start": 1195708,
     "size": 4,
     "type": "animation"
@@ -46836,43 +46555,43 @@
     "size": 8
   },
   {
-    "path": "animations/gSpriteAnimations_ObjectA0_1.bin",
+    "path": "animations/gSpriteAnimations_AngryStatue_1.bin",
     "start": 1197708,
     "size": 4,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_ObjectA0_0.bin",
+    "path": "animations/gSpriteAnimations_AngryStatue_0.bin",
     "start": 1197712,
     "size": 4,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_ObjectA0_3.bin",
+    "path": "animations/gSpriteAnimations_AngryStatue_3.bin",
     "start": 1197716,
     "size": 4,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_ObjectA0_5.bin",
+    "path": "animations/gSpriteAnimations_AngryStatue_5.bin",
     "start": 1197720,
     "size": 16,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_ObjectA0_4.bin",
+    "path": "animations/gSpriteAnimations_AngryStatue_4.bin",
     "start": 1197736,
     "size": 16,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_ObjectA0_7.bin",
+    "path": "animations/gSpriteAnimations_AngryStatue_7.bin",
     "start": 1197752,
     "size": 16,
     "type": "animation"
   },
   {
-    "path": "objectA0/gUnk_08124684.bin",
+    "path": "angryStatue/gUnk_08124684.bin",
     "start": 1197700,
     "size": 8
   },
@@ -47117,49 +46836,44 @@
     "size": 4
   },
   {
-    "path": "objectBA/gUnk_08124F08.bin",
+    "path": "gyorgBossObject/gUnk_08124F08.bin",
     "start": 1199880,
     "size": 32
   },
   {
-    "path": "objectBA/gUnk_08124F28.bin",
+    "path": "gyorgBossObject/gUnk_08124F28.bin",
     "start": 1199912,
     "size": 32
   },
   {
-    "path": "objectBA/gUnk_08124F48.bin",
+    "path": "gyorgBossObject/gUnk_08124F48.bin",
     "start": 1199944,
     "size": 32
   },
   {
-    "path": "objectBA/gUnk_08124F68.bin",
+    "path": "gyorgBossObject/gUnk_08124F68.bin",
     "start": 1199976,
     "size": 32
   },
   {
-    "path": "objectBA/gUnk_08124F88.bin",
+    "path": "gyorgBossObject/gUnk_08124F88.bin",
     "start": 1200008,
     "size": 32
   },
   {
-    "path": "objectBA/gUnk_08124FA8.bin",
+    "path": "gyorgBossObject/gUnk_08124FA8.bin",
     "start": 1200040,
     "size": 32
   },
   {
-    "path": "objectBA/gUnk_08124FC8.bin",
+    "path": "gyorgBossObject/gUnk_08124FC8.bin",
     "start": 1200072,
     "size": 20
   },
   {
-    "path": "objectBA/gUnk_08124FDC.bin",
+    "path": "gyorgBossObject/gUnk_08124FDC.bin",
     "start": 1200092,
     "size": 20
-  },
-  {
-    "path": "objectBA/gUnk_08124EF8.bin",
-    "start": 1199864,
-    "size": 16
   },
   {
     "path": "windcrest/gUnk_08125010.bin",

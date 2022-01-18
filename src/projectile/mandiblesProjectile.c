@@ -2,8 +2,6 @@
 #include "enemy.h"
 #include "coord.h"
 #include "functions.h"
-#include "audio.h"
-#include "random.h"
 #include "game.h"
 
 extern Entity* sub_08049DF4(u32);
@@ -83,7 +81,7 @@ void MandiblesProjectile_Init(Entity* this) {
     this->animationState = 0xff;
     this->field_0x82.HALF.LO = 0;
     this->spritePriority.b0 = 4;
-    sub_0806FAD8(this, this->parent);
+    ResolveEntityBelow(this, this->parent);
     sub_080AA270(this);
 }
 
@@ -149,7 +147,7 @@ void MandiblesProjectile_Action3(Entity* this) {
                 this->direction = uVar1 << 2;
                 this->animationState = uVar1 << 0x1a >> 0x1a;
                 this->hitbox = &gHitbox_0;
-                if (CheckIsDungeon() != 0) {
+                if (AreaIsDungeon() != 0) {
                     this->spriteOrientation.flipY = 1;
                 }
                 sub_080AA3E0(this, 0);
@@ -198,11 +196,11 @@ void MandiblesProjectile_Action4(Entity* this) {
             }
         }
     } else {
-        if (sub_080040A8(this) == 0) {
+        if (CheckOnScreen(this) == 0) {
             DeleteThisEntity();
         }
     }
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     UpdateAnimationSingleFrame(this);
 }
 
@@ -277,7 +275,7 @@ bool32 sub_080AA2E0(Entity* this) {
     return TRUE;
 }
 
-NONMATCH("asm/non_matching/mandiblesProjectile/sub_080AA320.inc", void sub_080AA320(Entity* this)) {
+void sub_080AA320(Entity* this) {
     u32 uVar2;
     Entity* parent;
 
@@ -291,13 +289,12 @@ NONMATCH("asm/non_matching/mandiblesProjectile/sub_080AA320.inc", void sub_080AA
     parent->speed = 0;
     parent->direction = sub_08049F84(parent, 0);
     // TODO regalloc
-    uVar2 = parent->direction + 4;
-    this->animationState = Direction8Round(uVar2) >> 2;
+    uVar2 = Direction8Round(parent->direction + 4);
+    this->animationState = uVar2 >> 2;
     parent->animationState = DirectionRound(uVar2) >> 2;
     sub_080AA3E0(parent, 1);
     sub_080AA1D8(this);
 }
-END_NONMATCH
 
 NONMATCH("asm/non_matching/mandiblesProjectile/sub_080AA374.inc", bool32 sub_080AA374(Entity* this)) {
     u32 uVar1;

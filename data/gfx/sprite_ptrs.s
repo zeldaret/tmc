@@ -55,13 +55,13 @@ gSpritePtrs:: @ 080029B4
 	.4byte gSprite_Link
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object4
-	.4byte gSpriteFrames_Object4
+	.4byte gSpriteAnimations_MinishEmoticon
+	.4byte gSpriteFrames_MinishEmoticon
 	.4byte gSprite_Link
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object6
-	.4byte gSpriteFrames_Object6
+	.4byte gSpriteAnimations_EzloCap
+	.4byte gSpriteFrames_EzloCap
 	.4byte gSprite_Link
 	.4byte 00000000
 
@@ -915,7 +915,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object24
+	.4byte gSpriteAnimations_PressurePlate
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
@@ -1000,7 +1000,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object29
+	.4byte gSpriteAnimations_AmbientClouds
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
@@ -1335,7 +1335,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object93_0
+	.4byte gSpriteAnimations_Lamp_0
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
@@ -1375,7 +1375,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object93_1
+	.4byte gSpriteAnimations_Lamp_1
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
@@ -1457,7 +1457,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_ObjectA0
+	.4byte gSpriteAnimations_AngryStatue
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000

@@ -1,6 +1,5 @@
 #include "entity.h"
 #include "script.h"
-#include "functions.h"
 #include "save.h"
 #include "npc.h"
 
@@ -48,7 +47,7 @@ bool32 sub_0806C454(Entity* this) {
     if (LoadExtraSpriteData(this, &gUnk_08113754) == 0) {
         return FALSE;
     } else {
-        sub_0805E3A0(this, 2);
+        SetDefaultPriority(this, PRIO_MESSAGE);
         return TRUE;
     }
 }
@@ -76,7 +75,7 @@ void sub_0806C4A8(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_0806C4DC(Entity* this) {
-    ShowNPCDialogue(this, &gUnk_08113760[gSave.unk8]);
+    ShowNPCDialogue(this, &gUnk_08113760[gSave.global_progress]);
 }
 
 void sub_0806C4F8(Entity* this) {

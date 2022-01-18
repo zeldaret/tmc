@@ -1,11 +1,7 @@
-#include "entity.h"
+#include "object.h"
 #include "functions.h"
-#include "player.h"
-#include "script.h"
-#include "flags.h"
-#include "room.h"
-#include "textbox.h"
-#include "effects.h"
+#include "message.h"
+#include "item.h"
 
 extern void (*const BookActionFuncs[])(Entity*);
 extern s8 const gUnk_08123D94[];
@@ -59,7 +55,7 @@ void sub_0809B3C4(Entity* this) {
             u32 scroll;
             u32 height;
             this->action = 3;
-            scroll = (u16)gRoomControls.roomScrollY - 0x10;
+            scroll = (u16)gRoomControls.scroll_y - 0x10;
             height = (u16)this->y.HALF.HI - scroll;
             this->z.HALF.HI -= height;
             return;
@@ -96,8 +92,8 @@ void sub_0809B4A8(Entity* this) {
         this->direction = 16;
 
         gPlayerState.pushedObject = 0x9e;
-        gPlayerState.playerAction = 5;
-        gPlayerState.flags |= 1;
+        gPlayerState.queued_action = PLAYER_PUSH;
+        gPlayerState.flags |= PL_BUSY;
 
         gPlayerEntity.x.HALF.LO = 0;
         gPlayerEntity.y.HALF.LO = 0;
@@ -121,7 +117,7 @@ void sub_0809B524(Entity* this) {
         }
     }
 
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
 }
 
 void sub_0809B56C(Entity* this) {
@@ -143,7 +139,7 @@ void sub_0809B56C(Entity* this) {
 }
 
 void sub_0809B5B4(Entity* this) {
-    if (gPlayerState.flags & PL_IS_MINISH) {
+    if (gPlayerState.flags & PL_MINISH) {
         sub_0800445C(this);
     } else if (sub_08017850(this)) {
         CreateItemEntity(this->type + 0x39, 0, 0);
@@ -211,7 +207,7 @@ void sub_0809B5EC(Entity* this) {
 u32 sub_0809B688(Entity* this) {
     u32 ret;
 
-    ret = sub_080041A0(this, &gPlayerEntity, 6, 12);
+    ret = EntityInRectRadius(this, &gPlayerEntity, 6, 12);
     if (ret == 1 && gPlayerState.field_0xd != 16) {
         ret = 0;
     }

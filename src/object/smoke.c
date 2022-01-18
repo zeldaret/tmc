@@ -1,8 +1,4 @@
-#include "global.h"
-#include "entity.h"
-#include "random.h"
 #include "object.h"
-#include "functions.h"
 
 extern void (*const gUnk_08121060[])(Entity*);
 extern void (*const gUnk_08121070[])(Entity*);
@@ -47,7 +43,7 @@ void sub_0808A484(Entity* this) {
 
 void sub_0808A4D0(Entity* this) {
     GetNextFrame(this);
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     if (this->frame & 0x80) {
         DeleteEntity(this);
     }

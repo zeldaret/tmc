@@ -1,8 +1,11 @@
-#include "global.h"
-#include "entity.h"
+/**
+ * @file smallPesto.c
+ * @ingroup Enemies
+ *
+ * @brief Small Pesto enemy
+ */
+
 #include "enemy.h"
-#include "coord.h"
-#include "random.h"
 #include "functions.h"
 
 extern void sub_080317F8(Entity*);
@@ -25,7 +28,7 @@ void sub_08031680(Entity* this) {
     gUnk_080CE548[this->action](this);
 }
 
-void nullsub_152() {
+void nullsub_152(Entity* this) {
 }
 
 void sub_0803169C(Entity* this) {
@@ -98,7 +101,7 @@ void sub_08031770(Entity* this) {
 
 void sub_080317B4(Entity* this) {
     this->z.HALF.HI = ((Random() & 0x30) != 0) ? -0xc : -0xd;
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     GetNextFrame(this);
 }
 

@@ -1,7 +1,8 @@
 #include "entity.h"
-#include "random.h"
+#include "asm.h"
 #include "coord.h"
 #include "functions.h"
+#include "projectile.h"
 
 extern u32 sub_080644C8(Entity*);
 extern bool32 sub_080AE4CC(Entity*, u32, u32, u32);
@@ -61,7 +62,7 @@ void GuardLineOfSight(Entity* this) {
         if (--this->actionDelay == 0) {
             DeleteThisEntity();
         }
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
         if (sub_080AE4CC(&gUnk_02027EB4, this->x.HALF.HI, this->y.HALF.HI, 2) != 0) {
             DeleteThisEntity();
         }

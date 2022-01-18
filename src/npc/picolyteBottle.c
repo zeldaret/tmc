@@ -2,7 +2,8 @@
 #include "script.h"
 #include "structures.h"
 #include "functions.h"
-#include "textbox.h"
+#include "message.h"
+#include "object.h"
 
 extern ScreenTransitionData gUnk_0813AD4C;
 
@@ -18,7 +19,7 @@ extern Hitbox gHitbox_0;
 void PicolyteBottle(Entity* this) {
     gUnk_081142BC[this->action](this);
     if (this->type == 0) {
-        gPlayerState.field_0x1a[0] |= 0x80;
+        gPlayerState.mobility |= 0x80;
     }
 }
 
@@ -38,7 +39,7 @@ void sub_0806DF00(Entity* this) {
         npc->parent = this;
         this->field_0x74.HWORD = 0;
         this->field_0x76.HWORD = 10;
-        gScreenTransition.field_0x6 = 10;
+        gRoomTransition.field_0x6 = 10;
         sub_0806E014(this);
         sub_0807DD50(this);
     } else {
@@ -60,7 +61,7 @@ void sub_0806DFB4(Entity* this) {
     } else {
         if (this->actionDelay != 0) {
             this->actionDelay = 0;
-            obj = CreateObject(0x35, 2, this->field_0xf);
+            obj = CreateObject(OBJECT_35, 2, this->field_0xf);
             if (obj != NULL) {
                 obj->parent = this;
                 this->child = obj;
@@ -108,17 +109,17 @@ void sub_0806E1FC(Entity* this) {
 }
 
 void sub_0806E20C(void) {
-    if (gScreenTransition.field_0x6 != 0) {
+    if (gRoomTransition.field_0x6 != 0) {
         MessageFromTarget(0x421f);
-        gMessage.field_0x10 = gScreenTransition.field_0x6;
+        gMessage.field_0x10 = gRoomTransition.field_0x6;
     } else {
         MessageFromTarget(0x4220);
     }
 }
 
 void sub_0806E23C(void) {
-    if (gScreenTransition.field_0x6 != 0) {
-        ModRupees(gScreenTransition.field_0x6);
+    if (gRoomTransition.field_0x6 != 0) {
+        ModRupees(gRoomTransition.field_0x6);
     }
 }
 

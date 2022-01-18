@@ -1,6 +1,6 @@
+#include "asm.h"
 #include "item.h"
-#include "audio.h"
-#include "random.h"
+#include "sound.h"
 #include "functions.h"
 #include "effects.h"
 
@@ -14,7 +14,7 @@ void ItemPegasusBoots(ItemBehavior* this, u32 arg1) {
     u32 uVar4;
 
     if (gPlayerEntity.field_0x7a.HWORD != 0) {
-        gPlayerState.field_0x1d[1] = 0;
+        gPlayerState.dash_state = 0;
         gPlayerState.field_0xe = 0;
         sub_08077E78(this, arg1);
     } else {
@@ -23,8 +23,8 @@ void ItemPegasusBoots(ItemBehavior* this, u32 arg1) {
         if ((bVar1 & 7) == 0) {
             SoundReq(SFX_PLY_LAND);
         }
-        if (((gPlayerState.flags & PL_IS_MINISH) == 0) && ((this->field_0x5[2] & 7) == 0)) {
-            if (gPlayerState.field_0x10[2] == 0x11) {
+        if (((gPlayerState.flags & PL_MINISH) == 0) && ((this->field_0x5[2] & 7) == 0)) {
+            if (gPlayerState.floor_type == SURFACE_SWAMP) {
                 if (gPlayerEntity.spriteOffsetY == 0) {
                     CreateFx(&gPlayerEntity, FX_GREEN_SPLASH, 0);
                 }
@@ -52,21 +52,21 @@ void sub_080768F8(ItemBehavior* this, u32 arg1) {
     u32 bVar1;
     u32 bVar2;
 
-    bVar1 = gPlayerState.field_0x1c | gPlayerState.field_0x3[1] | gPlayerState.heldObject | gPlayerState.jumpStatus;
-    bVar2 = (gPlayerState.flags & 0x1000);
+    bVar1 = gPlayerState.field_0x1c | gPlayerState.field_0x3[1] | gPlayerState.heldObject | gPlayerState.jump_status;
+    bVar2 = (gPlayerState.flags & PL_IN_MINECART);
     bVar1 |= bVar2;
     if (bVar1 == 0) {
-        gPlayerState.field_0x1d[1] = 1;
-        gPlayerState.field_0x1d[4] = bVar1;
-        if ((gPlayerState.flags & PL_IS_MINISH) == 0) {
+        gPlayerState.dash_state = 1;
+        gPlayerState.field_0x1f[2] = bVar1;
+        if ((gPlayerState.flags & PL_MINISH) == 0) {
             this->field_0x5[2] = 0x10;
         } else {
-            gPlayerState.field_0x8 = 0xc14;
+            gPlayerState.animation = 0xc14;
         }
         sub_08077D38(this, arg1);
         sub_08076964(this, arg1);
     } else {
-        gPlayerState.field_0x1d[1] = 0;
+        gPlayerState.dash_state = 0;
         gPlayerState.field_0xe = 0;
         sub_08077E78(this, arg1);
     }

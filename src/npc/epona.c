@@ -1,8 +1,7 @@
 #include "global.h"
-#include "audio.h"
+#include "sound.h"
 #include "entity.h"
-#include "textbox.h"
-#include "player.h"
+#include "message.h"
 #include "npc.h"
 #include "functions.h"
 
@@ -58,7 +57,7 @@ void sub_08065A50(Entity* this) {
 void sub_08065A64(Entity* this) {
     u32 uVar2;
 
-    uVar2 = -(gPlayerState.flags & PL_IS_MINISH) >> 0x1f;
+    uVar2 = -(gPlayerState.flags & PL_MINISH) >> 0x1f;
     if (uVar2 != this->field_0x68.HALF.HI) {
         if (uVar2 == 0) {
             sub_08078778(this);
@@ -71,19 +70,19 @@ void sub_08065A64(Entity* this) {
 
 void sub_08065AA4(Entity* this) {
     if (this->interactType != 0) {
-        if (gPlayerState.flags & PL_IS_MINISH) {
+        if (gPlayerState.flags & PL_MINISH) {
             if (this->interactType == 2) {
                 this->action = 4;
                 sub_0806F118(this);
             } else {
                 this->action = 3;
-                sub_0805E3A0(this, 2);
+                SetDefaultPriority(this, PRIO_MESSAGE);
                 sub_08065A50(this);
             }
             InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
         } else {
             sub_08065A50(this);
-            sub_080791D0();
+            ResetPlayerAnimationAndAction();
         }
         SoundReq(SFX_VO_EPONA);
         this->interactType = 0;

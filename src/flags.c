@@ -3,23 +3,23 @@
 #include "flags.h"
 #include "area.h"
 
-extern u32 ReadBit(u32*, u32);
-extern u32 CheckBits(u32*, u32, u32);
-extern void WriteBit(u32*, u32);
-extern void ClearBit(u32*, u32);
+const u16 gLocalFlagBanks[] = {
+    FLAG_BANK_G, FLAG_BANK_0, FLAG_BANK_1, FLAG_BANK_2, FLAG_BANK_3,  FLAG_BANK_4,  FLAG_BANK_5,
+    FLAG_BANK_6, FLAG_BANK_7, FLAG_BANK_8, FLAG_BANK_9, FLAG_BANK_10, FLAG_BANK_11, FLAG_BANK_12,
+};
 
 u32 CheckLocalFlag(u32 flag) {
-    return CheckLocalFlagByOffset(gArea.localFlagOffset, flag);
+    return CheckLocalFlagByBank(gArea.localFlagOffset, flag);
 }
 
 u32 CheckFlags(u32 flags) {
-    s32 type;
-    s32 index;
-    s32 length;
+    u32 type;
+    u32 index;
+    u32 length;
     index = flags & 0x3ff;
     length = (((flags & (0xf0) << 0x6) >> 0xa) + 1);
     type = (flags & 0xc000) >> 0xe;
-    switch ((u32)type) {
+    switch (type) {
         case 2:
             return CheckRoomFlags(index, length);
         case 0:
@@ -32,48 +32,47 @@ u32 CheckFlags(u32 flags) {
 }
 
 u32 CheckGlobalFlag(u32 flag) {
-    return CheckLocalFlagByOffset(0, flag);
+    return CheckLocalFlagByBank(0, flag);
 }
 
 u32 CheckRoomFlag(u32 flag) {
-    return ReadBit(&gRoomVars.roomFlags, flag);
+    return ReadBit(&gRoomVars.flags, flag);
 }
 
-u32 CheckLocalFlagsByOffset(u32 flag, u32 offset, u32 length) {
-
-    return CheckBits(&gGlobalFlags, flag + offset, length);
+u32 CheckLocalFlagsByBank(u32 offset, u32 flag, u32 length) {
+    return CheckBits(&gGlobalFlags, offset + flag, length);
 }
 
 u32 CheckLocalFlags(u32 flag, u32 length) {
-    return CheckLocalFlagsByOffset(gArea.localFlagOffset, flag, length);
+    return CheckLocalFlagsByBank(gArea.localFlagOffset, flag, length);
 }
 
 u32 CheckGlobalFlags(u32 flag, u32 length) {
-    return CheckLocalFlagsByOffset(0, flag, length);
+    return CheckLocalFlagsByBank(0, flag, length);
 }
 
 u32 CheckRoomFlags(u32 flag, u32 length) {
-    return CheckBits(&gRoomVars.roomFlags, flag, length);
+    return CheckBits(&gRoomVars.flags, flag, length);
 }
 
-void SetLocalFlagByOffset(u32 offset, u32 flag) {
+void SetLocalFlagByBank(u32 offset, u32 flag) {
     if (flag != 0) {
         WriteBit(&gGlobalFlags, offset + flag);
     }
 }
 
 void SetLocalFlag(u32 flag) {
-    SetLocalFlagByOffset(gArea.localFlagOffset, flag);
+    SetLocalFlagByBank(gArea.localFlagOffset, flag);
 }
 
 void SetFlag(u32 flag) {
-    s32 uVar1;
-    s32 index;
+    u32 type;
+    u32 index;
 
     if (flag != 0) {
         index = flag & 0x3ff;
-        uVar1 = (flag & 0xc000) >> 0xe;
-        switch ((u32)uVar1) {
+        type = (flag & 0xc000) >> 0xe;
+        switch (type) {
             case 2:
                 SetRoomFlag(index);
                 return;
@@ -88,28 +87,28 @@ void SetFlag(u32 flag) {
 }
 
 void SetGlobalFlag(u32 flag) {
-    SetLocalFlagByOffset(0, flag);
+    SetLocalFlagByBank(0, flag);
 }
 
 void SetRoomFlag(u32 flag) {
-    WriteBit(&gRoomFlags, flag);
+    WriteBit(&gRoomVars.flags, flag);
 }
 
-void ClearLocalFlagByOffset(u32 offset, u32 flag) {
+void ClearLocalFlagByBank(u32 offset, u32 flag) {
     ClearBit(&gGlobalFlags, offset + flag);
 }
 
 void ClearLocalFlag(u32 flag) {
-    ClearLocalFlagByOffset(gArea.localFlagOffset, flag);
+    ClearLocalFlagByBank(gArea.localFlagOffset, flag);
 }
 
 void ClearFlag(u32 flag) {
-    s32 uVar1;
-    s32 index;
+    u32 type;
+    u32 index;
 
     index = flag & 0x3ff;
-    uVar1 = (flag & 0xc000) >> 0xe;
-    switch ((u32)uVar1) {
+    type = (flag & 0xc000) >> 0xe;
+    switch (type) {
         case 2:
             ClearRoomFlag(index);
             return;
@@ -123,9 +122,9 @@ void ClearFlag(u32 flag) {
 }
 
 void ClearGlobalFlag(u32 flag) {
-    ClearLocalFlagByOffset(0, flag);
+    ClearLocalFlagByBank(0, flag);
 }
 
 void ClearRoomFlag(u32 flag) {
-    ClearBit(&gRoomFlags, flag);
+    ClearBit(&gRoomVars.flags, flag);
 }

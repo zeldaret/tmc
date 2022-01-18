@@ -1,9 +1,7 @@
 #include "entity.h"
-#include "functions.h"
-#include "textbox.h"
+#include "message.h"
 #include "save.h"
 #include "npc.h"
-#include "script.h"
 
 void sub_08063544(Entity*);
 void sub_0806362C(Entity*);
@@ -73,7 +71,7 @@ void sub_0806362C(Entity* this) {
 }
 
 void sub_080636D8(Entity* this) {
-    ShowNPCDialogue(this, &gUnk_0810CAAC[gSave.unk8]);
+    ShowNPCDialogue(this, &gUnk_0810CAAC[gSave.global_progress]);
 }
 
 void sub_080636F4(Entity* this) {

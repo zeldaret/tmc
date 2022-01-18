@@ -1,6 +1,11 @@
-#include "entity.h"
+/**
+ * @file peahat.c
+ * @ingroup Enemies
+ *
+ * @brief Peahat enemy
+ */
+
 #include "enemy.h"
-#include "random.h"
 #include "functions.h"
 
 extern void (*const gPeahatFunctions[])(Entity*);
@@ -197,7 +202,7 @@ void Peahat_ChargeTarget(Entity* this) {
             if (this->actionDelay & 1)
                 this->speed += 4;
 
-            if ((gScreenTransition.frameCount & 3) == 0)
+            if ((gRoomTransition.frameCount & 3) == 0)
                 sub_08004596(this, GetFacingDirection(this, gUnk_020000B0));
         }
         sub_080AEFE0(this);
@@ -240,7 +245,7 @@ void Peahat_Stunned(Entity* this) {
             GetNextFrame(this);
             break;
         case PeahatAnimation_SlicedPropeller:
-            sub_08003FC4(this, 0x1c00);
+            GravityUpdate(this, 0x1c00);
             if (this->z.HALF.HI == 0) {
                 this->action = 7;
                 this->actionDelay = 150;
@@ -318,7 +323,7 @@ void Peahat_Takeoff(Entity* this) {
     } else if (this->frame & 1) {
         sub_0800442E(this);
     } else {
-        sub_08003FC4(this, 0x1c00);
+        GravityUpdate(this, 0x1c00);
         ProcessMovement(this);
     }
 }
@@ -345,7 +350,7 @@ void PeahatPropeller_Fly(Entity* this) {
             this->spriteSettings.draw ^= 1;
 
         this->z.WORD -= 0xc000;
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
         if (--this->field_0xf == 0) {
             this->field_0xf = 40;
             this->direction = (Random() & 0x10) + 8;

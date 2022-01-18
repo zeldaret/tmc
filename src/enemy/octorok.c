@@ -1,14 +1,18 @@
-#include "global.h"
-#include "entity.h"
+/**
+ * @file octorok.c
+ * @ingroup Enemies
+ *
+ * @brief Octorok enemy
+ */
+
 #include "enemy.h"
-#include "random.h"
 #include "functions.h"
 
 extern Entity* sub_08049DF4(u32);
 
-void Octorok_Pause();
-bool32 Octorok_FacesPlayer();
-void Octorok_Turn();
+void Octorok_Pause(Entity*);
+bool32 Octorok_FacesPlayer(Entity*);
+void Octorok_Turn(Entity*);
 
 extern void (*const gOctorok[6])(Entity*);
 extern void (*const gOctorokActions[4])(Entity*);

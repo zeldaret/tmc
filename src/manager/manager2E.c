@@ -3,7 +3,7 @@
 #include "manager.h"
 #include "flags.h"
 #include "functions.h"
-#include "audio.h"
+#include "sound.h"
 
 typedef struct {
     Manager manager;
@@ -42,21 +42,21 @@ void sub_0805D280(Manager2E* this) {
     if (this->manager.unk_0e == 0) {
         this->manager.unk_0e = 0x1e;
     }
-    sub_0805E3A0(this, 6);
+    SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
 }
 
 void sub_0805D2C0(Manager2E* this) {
-    if ((CheckFlags(this->field_0x3e) != 0) && (gUnk_03003DC0.unk_0xc < 2)) {
+    if ((CheckFlags(this->field_0x3e) != 0) && (gPriorityHandler.priority_timer < 2)) {
         this->manager.action = 2;
         if (this->manager.unk_0e == 1) {
             sub_0805D2F4(this);
         }
-        sub_0805E4E0((Entity*)this, this->manager.unk_0e);
+        RequestPriorityDuration((Entity*)this, this->manager.unk_0e);
     }
 }
 
 void sub_0805D2F4(Manager2E* this) {
-    if (gUnk_03003DC0.unk_0xc == 0) {
+    if (gPriorityHandler.priority_timer == 0) {
         if (this->field_0x38 != SFX_NONE) {
             SoundReq(this->field_0x38);
         } else {
@@ -80,7 +80,7 @@ void sub_0805D344(Manager2E* this) {
         this->manager.unk_0e = 0x1e;
     }
     this->manager.unk_0f = this->manager.unk_0e;
-    sub_0805E3A0(this, 6);
+    SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
 }
 
 void sub_0805D36C(Manager2E* this) {

@@ -1,12 +1,5 @@
-#include "global.h"
-#include "entity.h"
-#include "room.h"
-#include "random.h"
-#include "structures.h"
-#include "player.h"
-#include "flags.h"
+#include "object.h"
 #include "functions.h"
-#include "effects.h"
 
 extern void (*MaskActionFuncs[])(Entity*);
 
@@ -27,7 +20,7 @@ void sub_080929A4(Entity* this) {
 
             switch (this->type2 & 0xC0) {
                 case 0x40:
-                    field_0x0a = gScreenTransition.field_0xa;
+                    field_0x0a = gRoomTransition.stairs_idx;
 
                     switch (field_0x0a) {
                         case 0x44D ... 0x44F:

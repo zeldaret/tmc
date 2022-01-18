@@ -1,16 +1,30 @@
-#include "global.h"
-#include "audio.h"
-#include "entity.h"
-#include "room.h"
-#include "screen.h"
-#include "greatFairy.h"
-#include "flags.h"
-#include "save.h"
-#include "random.h"
-#include "script.h"
 #include "object.h"
-#include "structures.h"
+#include "save.h"
+#include "script.h"
 #include "functions.h"
+#include "screen.h"
+
+void GreatFairy_InitializeAnimation(Entity*);
+Entity* GreatFairy_CreateForm(Entity*, u32, u32);
+void sub_080873D0(Entity*);
+extern void (*const GreatFairy_Main[])(Entity*);
+extern void (*const GreatFairy_Behaviors[])(Entity*);
+extern void (*const GreatFairy_WingsBehaviors[])(Entity*);
+extern void (*const GreatFairy_WakeBehaviors[])(Entity*);
+extern void (*const GreatFairy_MiniBehaviors[])(Entity*);
+extern void (*const GreatFairy_MiniAffineBehaviors[])(Entity*);
+extern void (*const GreatFairy_DropletBehaviors[])(Entity*);
+extern void (*const GreatFairy_RippleBehaviors[])(Entity*);
+extern void (*const GreatFairy_BigRippleBehaviors[])(Entity*);
+extern void (*const GreatFairy_EnergyBehaviors[])(Entity*);
+extern void (*const GreatFairy_Form1Behaviors[])(Entity*);
+extern void (*const GreatFairy_Form2Behaviors[])(Entity*);
+extern void (*const gUnk_081207A4[])(Entity*);
+
+extern u32 gUnk_0810C2E4;
+extern const s16 GreatFairy_RippleOffsets[10];
+extern u8 gUnk_0812079C[8];
+extern s8 gUnk_081207AC[];
 
 enum {
     BEHAVIORS,
@@ -38,12 +52,12 @@ void GreatFairy(Entity* this) {
 void GreatFairy_CallBehavior(Entity* this) {
     GreatFairy_Behaviors[this->action](this);
 
-    if ((gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY) < 168) {
+    if ((gPlayerEntity.y.HALF.HI - gRoomControls.origin_y) < 168) {
 
-        gRoomControls.cameraTarget = this;
+        gRoomControls.camera_target = this;
         gRoomControls.unk5 = 2;
     } else {
-        gRoomControls.cameraTarget = &gPlayerEntity;
+        gRoomControls.camera_target = &gPlayerEntity;
         gRoomControls.unk5 = 2;
     }
 }
@@ -101,11 +115,11 @@ void GreatFairy_SpawningUpdate(Entity* this) {
     Entity* mini;
     u32 var;
 
-    if (gRoomVars.greatFairyState & 1) {
+    if (gRoomVars.animFlags & 1) {
         mini = GreatFairy_CreateForm(this, WAKE, 0); //???
         if (mini != NULL) {
             CopyPosition(this, mini);
-            DoFade(6, 4);
+            SetFade(6, 4);
             SoundReq(SFX_145);
             this->action = 4;
             this->actionDelay = 60;
@@ -167,8 +181,8 @@ void GreatFairy_WingsUpdate(Entity* this) {
     if (this->speed == 256) {
         this->action = 2;
         sub_0805EC60(this);
-        gRoomVars.greatFairyState |= 32;
-        gActiveScriptInfo.unk_00 |= 4;
+        gRoomVars.animFlags |= 32;
+        gActiveScriptInfo.syncFlags |= 4;
     } else {
         sub_0805EC9C(this, this->speed, 256, 0);
     }
@@ -232,7 +246,7 @@ void GreatFairy_MiniRisingUpdate(Entity* this) {
 void GreatFairy_MiniRemoveMe(Entity* this) {
     GetNextFrame(this);
     sub_080873D0(this);
-    if (gRoomVars.greatFairyState & 1) {
+    if (gRoomVars.animFlags & 1) {
         DeleteEntity(this);
     }
 }
@@ -266,7 +280,7 @@ void GreatFairy_MiniAffineInit2(Entity* this) {
 // Mini great fairy stretch
 void GreatFairy_MiniAffineUpdate(Entity* this) {
     if (--this->actionDelay == 0) {
-        gRoomVars.greatFairyState |= 1;
+        gRoomVars.animFlags |= 1;
         this->action = 3;
         sub_0805EC60(this);
     } else {
@@ -307,7 +321,7 @@ void GreatFairy_RippleInit(Entity* this) {
 }
 
 void GreatFairy_RippleUpdate(Entity* this) {
-    if (gRoomVars.greatFairyState & 2) {
+    if (gRoomVars.animFlags & 2) {
         DeleteEntity(this);
     } else {
         GetNextFrame(this);
@@ -337,7 +351,7 @@ void GreatFairy_BigRippleUpdate(Entity* this) {
         target = GreatFairy_CreateForm(this, MINI, 0);
         if (target != NULL) {
             PositionRelative(this, target, 0, -0x80000);
-            gRoomVars.greatFairyState |= 2;
+            gRoomVars.animFlags |= 2;
             DeleteEntity(this);
         }
     }
@@ -389,13 +403,13 @@ void sub_080871A8(Entity* this) {
     if (--this->actionDelay == 0) {
         this->action = 3;
         this->actionDelay = 60;
-        gRoomVars.greatFairyState |= 4;
+        gRoomVars.animFlags |= 4;
     }
 }
 
 void sub_080871D0(Entity* this) {
     if (--this->actionDelay == 0) {
-        gRoomVars.greatFairyState |= 8;
+        gRoomVars.animFlags |= 8;
         DeleteEntity(this);
     }
 }
@@ -407,12 +421,12 @@ void sub_080871F8(Entity* this) {
         this->action = 2;
     } else {
         this->direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, temp->x.HALF.HI, temp->y.HALF.HI - 32);
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
     }
 }
 
 void sub_08087240(Entity* this) {
-    if (gRoomVars.greatFairyState & 4) {
+    if (gRoomVars.animFlags & 4) {
         this->action = 3;
         this->actionDelay = 20;
         this->direction = 16;
@@ -422,7 +436,7 @@ void sub_08087240(Entity* this) {
 void sub_08087264(Entity* this) {
     if (this->actionDelay != 0) {
         this->actionDelay--;
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
     }
 }
 
@@ -449,7 +463,7 @@ void sub_080872AC(Entity* this) {
 
 void sub_080872F8(Entity* this) {
     s32 temp;
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     GetNextFrame(this);
     if (((u16)(this->field_0x68.HWORD - this->x.HALF.HI) > 0xc) ||
         ((u16)(this->field_0x6a.HWORD - this->y.HALF.HI) > 0xc)) {
@@ -469,7 +483,7 @@ void GreatFairy_InitializeAnimation(Entity* this) {
     this->type2 = this->type % temp;
     this->collisionLayer = 2;
     InitializeAnimation(this, this->type2);
-    sub_0805E3A0(this, 2);
+    SetDefaultPriority(this, PRIO_MESSAGE);
 }
 
 Entity* GreatFairy_CreateForm(Entity* this, u32 curForm, u32 parameter) {
@@ -501,7 +515,7 @@ void sub_080873FC(void) {
     Entity* ent;
 
     SoundReq(SFX_APPARATE);
-    gRoomControls.cameraTarget = NULL;
+    gRoomControls.camera_target = NULL;
 
     while (ent = FindEntityByID(0x6, 0x1b, 0x6), ent != NULL) {
         DeleteEntity(ent);
@@ -511,12 +525,12 @@ void sub_080873FC(void) {
 void sub_08087424(Entity* this, ScriptExecutionContext* context) {
     Entity* ent;
 
-    sub_080791D0();
+    ResetPlayerAnimationAndAction();
     ent = CreateObject(OBJECT_64, 0, 0);
     if (ent != NULL) {
         ent->parent = &gPlayerEntity;
         CopyPosition(&gPlayerEntity, ent);
-        sub_0805E3A0(ent, 2);
+        SetDefaultPriority(ent, PRIO_MESSAGE);
     }
 
     switch (context->intVariable) {

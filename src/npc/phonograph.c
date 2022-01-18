@@ -1,13 +1,11 @@
 #include "entity.h"
 #include "script.h"
 #include "functions.h"
-#include "fileScreen.h"
+#include "fileselect.h"
 #include "screen.h"
 
 extern void sub_08057044(u32, struct_020227E8*, u32);
 extern u32 gUnk_081146B8;
-
-extern u16 gBG0Settings[];
 
 void Phonograph(Entity* this) {
     if (this->action == 0) {
@@ -30,7 +28,7 @@ ASM_FUNC("asm/non_matching/eu/sub_0806EABC.inc", void sub_0806EABC(Entity* this,
 #else
 void sub_0806EABC(Entity* this, u32 param) {
     sub_08050384();
-    sub_08057044(param, &gUnk_020227E8, 0x202020);
+    sub_08057044(param, &gUnk_020227E8[0], 0x202020);
     sub_0805F46C(0x3302, &gUnk_081146B8);
     gScreen.bg0.updated = 1;
 }

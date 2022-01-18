@@ -1,10 +1,4 @@
-#include "global.h"
-#include "audio.h"
-#include "entity.h"
-#include "coord.h"
-#include "random.h"
 #include "object.h"
-#include "structures.h"
 #include "functions.h"
 
 static void sub_0808F2B0(Entity*);
@@ -58,7 +52,7 @@ void sub_0808F0D0(Entity* this) {
 
 void sub_0808F14C(Entity* this) {
     sub_0808F2B0(this);
-    if (sub_08003FC4(this, 0x2000) == 0) {
+    if (GravityUpdate(this, 0x2000) == 0) {
         this->action++;
         SoundReq(SFX_WATER_SPLASH);
     }
@@ -184,7 +178,7 @@ void sub_0808F3DC(Entity* this) {
         // TODO: This block of code might supposed to be a switch statement.
         if (this->type != 8) {
             if (this->type == 7) {
-                sub_0806FAD8(this->child, this);
+                ResolveEntityBelow(this->child, this);
                 return;
             }
         } else {
@@ -218,7 +212,7 @@ void sub_0808F498(Entity* this) {
 
     if (this->action != 0) {
         if (sub_0806F3E4(this)) {
-            if (gScreenTransition.frameCount % 16 == 0) {
+            if (gRoomTransition.frameCount % 16 == 0) {
                 SoundReq(SFX_EF);
             }
             DeleteThisEntity();
@@ -239,7 +233,7 @@ void sub_0808F498(Entity* this) {
         this->x.HALF.HI += (s32)Random() % (this->parent->hitbox->width * 2);
         this->y.HALF.HI -= this->parent->hitbox->height;
         this->y.HALF.HI += (s32)Random() % (this->parent->hitbox->height * 2);
-        sub_0801D2B4(this, var0);
+        ChangeObjPalette(this, var0);
         InitializeAnimation(this, 4);
     }
 }

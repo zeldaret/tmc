@@ -1,7 +1,4 @@
-#include "global.h"
-#include "entity.h"
-#include "functions.h"
-#include "flags.h"
+#include "npc.h"
 
 extern void (*gUnk_0811423C[])(Entity*);
 

@@ -1,10 +1,13 @@
-#include "global.h"
+/**
+ * @file mazaalBracelet.c
+ * @ingroup Enemies
+ *
+ * @brief Mazaal Bracelet enemy
+ */
+
 #include "enemy.h"
-#include "audio.h"
-#include "random.h"
 #include "object.h"
 #include "functions.h"
-#include "effects.h"
 
 void sub_0803B538(Entity*);
 u32 sub_0803B4E4(Entity*);
@@ -24,7 +27,7 @@ void sub_0803B798(void);
 void sub_0803BA8C(Entity*, u32);
 
 void sub_0803B724(Entity*);
-extern void sub_0800449C(Entity*, u32);
+extern void SoundReqClipped(Entity*, u32);
 
 void sub_0803A170(Entity*);
 void sub_0803A188(Entity*);
@@ -89,7 +92,6 @@ void sub_0803B978(Entity*);
 void sub_0803BA6C(Entity*);
 void sub_0803BA80(Entity*);
 
-extern u8 gEntCount;
 // these are not with the rest of this files constant data
 extern Hitbox gUnk_080FD35C;
 extern Hitbox gUnk_080FD364;
@@ -135,27 +137,28 @@ void sub_0803A170(Entity* this) {
     gUnk_080CFC2C[this->type](this);
 }
 
-NONMATCH("asm/non_matching/mazaal/sub_0803A188.inc", void sub_0803A188(Entity* this)) {
-    Entity* pEVar3;
-    Entity* entity74;
+void sub_0803A188(Entity* this) {
+    Entity* ent;
 
     if (this->type < 2) {
         if (this->action != 0x2b) {
             if ((0 < this->iframes) && ((this->bitfield == 0x95 || (this->bitfield == 0x8e)))) {
                 this->action = 0x28;
                 COLLISION_OFF(this);
-                pEVar3 = this->parent;
-                pEVar3->field_0x7c.BYTES.byte1 = pEVar3->field_0x7c.BYTES.byte1 | (this->type == 0 ? 1 : 2);
-                pEVar3->field_0x80.HALF.LO = (this->type == 0 ? 1 : 2) | pEVar3->field_0x80.HALF.LO;
-                this->child->iframes = this->iframes;
-                entity74 = *(Entity**)&this->field_0x74;
-                entity74->iframes = this->iframes;
+                ent = this->parent;
+                ent->field_0x7c.BYTES.byte1 = ent->field_0x7c.BYTES.byte1 | (this->type == 0 ? 1 : 2);
+                ent->field_0x80.HALF.LO = (this->type == 0 ? 1 : 2) | ent->field_0x80.HALF.LO;
+                ent = this->child;
+                ent->iframes = this->iframes;
+                ent = (*(Entity**)&this->field_0x74);
+                ent->iframes = this->iframes;
                 SoundReq(SFX_BOSS_HIT);
             }
         } else {
-            this->child->iframes = this->iframes;
-            entity74 = *(Entity**)&this->field_0x74;
-            entity74->iframes = this->iframes;
+            ent = this->child;
+            ent->iframes = this->iframes;
+            ent = (*(Entity**)&this->field_0x74);
+            ent->iframes = this->iframes;
             InitializeAnimation(this, 0x18);
             InitAnimationForceUpdate(this->child, 9);
             SoundReq(SFX_BOSS_HIT);
@@ -163,7 +166,6 @@ NONMATCH("asm/non_matching/mazaal/sub_0803A188.inc", void sub_0803A188(Entity* t
     }
     sub_0804AA30(this, gUnk_080CFC14);
 }
-END_NONMATCH
 
 void nullsub_167(Entity* this) {
 }
@@ -201,7 +203,7 @@ void sub_0803A274(Entity* this) {
             this->spriteSettings.flipX = 1;
             PositionRelative(this->parent, this, -0x100000, 0x200000);
         }
-        if (gScreenTransition.field_0x38 != 0) {
+        if (gRoomTransition.field_0x38 != 0) {
             this->action = 3;
             COLLISION_ON(this);
             this->spriteSettings.draw = 1;
@@ -246,7 +248,7 @@ void sub_0803A364(Entity* this) {
             break;
         case 5:
             if (sub_0803B4E4(this) == 0) {
-                sub_0806F69C(this);
+                LinearMoveUpdate(this);
                 return;
             }
             this->type2 = 0;
@@ -329,7 +331,7 @@ void sub_0803A548(Entity* this) {
     index = ((this->parent->field_0xf >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     if (sub_0803B4E4(this) == 0) {
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
     }
 }
 
@@ -343,7 +345,7 @@ void sub_0803A58C(Entity* this) {
     if (sub_0803B4E4(this) != 0) {
         sub_0803B59C(this);
     } else {
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
     }
 }
 
@@ -412,7 +414,7 @@ void sub_0803A6E8(Entity* this) {
         this->actionDelay = 10;
     } else {
         sub_0803B63C(this);
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
         y = this->parent->y.HALF.HI + 8;
         if (y > this->y.HALF.HI) {
             this->y.HALF.HI = y;
@@ -438,7 +440,7 @@ void sub_0803A740(Entity* this) {
         this->actionDelay = 10;
         this->parent->field_0x7c.BYTES.byte1 |= 0x40;
         sub_0803B8E8(this, 0x13);
-        sub_08080964(10, 0);
+        InitScreenShake(10, 0);
         SoundReq(SFX_158);
     }
 }
@@ -472,7 +474,7 @@ void sub_0803A7CC(Entity* this) {
         this->action = 0xd;
         InitAnimationForceUpdate(this->child, 6);
     } else {
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
     }
 }
 
@@ -531,7 +533,7 @@ void sub_0803A90C(Entity* this) {
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     GetNextFrame(this);
     sub_0803B55C(this);
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     this->actionDelay--;
     if (this->actionDelay == 0) {
         this->action = 0x11;
@@ -554,7 +556,7 @@ void sub_0803A978(Entity* this) {
     if ((++this->actionDelay & 3) == 0) {
         sub_08004596(this, 0x10);
     }
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     if (this->direction == 0x10) {
         this->action = 0x12;
         this->actionDelay = 3;
@@ -578,7 +580,7 @@ void sub_0803AA00(Entity* this) {
         if ((++this->actionDelay & 3) == 0) {
             sub_08004596(this, direction);
         }
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
         if ((this->direction == direction) || (this->y.HALF.HI >= gPlayerEntity.y.HALF.HI)) {
             this->action = 0x13;
             this->spriteSettings.draw = 0;
@@ -598,7 +600,7 @@ NONMATCH("asm/non_matching/mazaal/sub_0803AA98.inc", void sub_0803AA98(Entity* t
     index = ((this->parent->field_0xf >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     if (sub_0803B870(this) == 0) {
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
         if (sub_0803B6F4(this) != 0) {
             this->action = 0x14;
             this->speed = 0x40;
@@ -620,7 +622,7 @@ void sub_0803AB10(Entity* this) {
     ptr = gUnk_080CED6C;
     index = ((this->parent->field_0xf >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
     sub_0803B55C(this);
     if ((this->child->frame & 0x80) != 0) {
         this->action = 0x15;
@@ -671,7 +673,7 @@ void sub_0803AC1C(Entity* this) {
     if (sub_0803B4E4(this)) {
         sub_0803B59C(this);
     } else {
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
     }
 }
 
@@ -689,7 +691,7 @@ void sub_0803AC60(Entity* this) {
             this->subAction = 0;
             this->actionDelay = 0x1e;
         } else {
-            sub_0806F69C(this);
+            LinearMoveUpdate(this);
         }
     } else {
         this->actionDelay = this->actionDelay - 1;
@@ -717,7 +719,7 @@ void sub_0803ACC0(Entity* this) {
                 this->z.HALF.HI = 0;
                 this->actionDelay = 0xc;
                 this->subAction = 3;
-                sub_08080964(8, 0);
+                InitScreenShake(8, 0);
                 SoundReq(SFX_158);
                 sub_0803B804(this);
             }
@@ -739,7 +741,7 @@ void sub_0803ACC0(Entity* this) {
                 this->z.HALF.HI = 0;
                 this->action = 0x1a;
                 this->actionDelay = 0x3c;
-                sub_08080964(0x1e, 0);
+                InitScreenShake(0x1e, 0);
                 SoundReq(SFX_158);
                 sub_0803B804(this);
                 return;
@@ -792,7 +794,7 @@ void sub_0803AE48(Entity* this) {
         InitializeAnimation(this, 4);
     } else {
         if (sub_0803B4E4(this) == 0) {
-            sub_0806F69C(this);
+            LinearMoveUpdate(this);
         }
     }
 }
@@ -863,7 +865,7 @@ void sub_0803AFE0(Entity* this) {
         this->actionDelay = 0xf0;
         *(u8*)&this->cutsceneBeh = 3;
         this->z.HALF.HI = 0;
-        sub_08080964(0xa0, 0);
+        InitScreenShake(0xa0, 0);
         SoundReq(SFX_158);
     }
 }
@@ -931,11 +933,11 @@ void sub_0803B100(Entity* this) {
 
 void sub_0803B144(Entity* this) {
     UpdateAnimationSingleFrame(this->child);
-    if (sub_08003FC4(this, 0x2000) == 0) {
+    if (GravityUpdate(this, 0x2000) == 0) {
         this->action = 0x2a;
         InitializeAnimation(this, 0x16);
         sub_0803B8E8(this, 0x14);
-        sub_08080964(8, 0);
+        InitScreenShake(8, 0);
     }
 }
 
@@ -1053,7 +1055,7 @@ void sub_0803B398(Entity* this) {
         InitializeAnimation(this, 4);
         InitAnimationForceUpdate(this->child, 0);
     } else {
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
     }
 }
 
@@ -1215,19 +1217,19 @@ void sub_0803B724(Entity* param_1) {
         pEVar1->type2 = 1;
         random_value = Random();
         temp = gUnk_080CFD1B[param_1->type];
-        pEVar1->x.HALF.HI = (random_value & 0x70) + temp + gRoomControls.roomOriginX;
-        pEVar1->y.HALF.HI = ((random_value >> 0x10) & 7) * 10 + 0x5c + gRoomControls.roomOriginY;
+        pEVar1->x.HALF.HI = (random_value & 0x70) + temp + gRoomControls.origin_x;
+        pEVar1->y.HALF.HI = ((random_value >> 0x10) & 7) * 10 + 0x5c + gRoomControls.origin_y;
         pEVar1->parent = param_1;
-        sub_08016A30(pEVar1);
+        ResolveCollisionLayer(pEVar1);
         param_1->field_0xf++;
         param_1->cutsceneBeh.HALF.LO--;
     }
 }
 
 void sub_0803B798(void) {
-    gPlayerState.jumpStatus = 0x41;
+    gPlayerState.jump_status = 0x41;
     gPlayerState.field_0xa = 0;
-    gPlayerState.flags &= 0xffef;
+    gPlayerState.flags &= ~(0xffff0000 | PL_CAPTURED);
     gPlayerEntity.flags |= 0x80;
     gPlayerEntity.zVelocity = 0x18000;
     gPlayerEntity.z.HALF.HI = -10;
@@ -1242,12 +1244,12 @@ void sub_0803B798(void) {
 void sub_0803B804(Entity* this) {
     gPlayerEntity.iframes = 30;
     ModHealth(-4);
-    sub_0800449C(&gPlayerEntity, 0x7a);
+    SoundReqClipped(&gPlayerEntity, 0x7a);
 }
 
 void sub_0803B824(Entity* this) {
     ResetPlayer();
-    gPlayerState.field_0x1a[0] = gPlayerState.field_0x1a[0] | 0x80;
+    gPlayerState.mobility = gPlayerState.mobility | 0x80;
     sub_0806FA90(this, &gPlayerEntity, gUnk_080CFD1D[this->type], 1);
     gPlayerEntity.spriteOffsetY = -6;
     gPlayerEntity.spritePriority.b1 = 0;
@@ -1257,7 +1259,7 @@ u32 sub_0803B870(Entity* this) {
     Entity* entity;
 
     entity = this->child;
-    if ((entity->bitfield & 0x80) != 0 && (gPlayerState.flags & 0x10) != 0) {
+    if ((entity->bitfield & 0x80) != 0 && (gPlayerState.flags & PL_CAPTURED)) {
         this->action = 0x18;
         this->actionDelay = 0x44;
         this->spriteSettings.draw = 0;
@@ -1287,7 +1289,7 @@ void sub_0803B8F8(Entity* this) {
 }
 
 void sub_0803B910(Entity* this) {
-    if (gScreenTransition.field_0x38 != 0) {
+    if (gRoomTransition.field_0x38 != 0) {
         this->action = 2;
         this->spriteSettings.draw = 1;
         *(u8*)&this->field_0x74 = 0;
@@ -1390,7 +1392,7 @@ void sub_0803BA8C(Entity* this, u32 unk) {
         }
     }
     if (sVar2 != 0) {
-        sub_0801D2B4(this, sVar2);
+        ChangeObjPalette(this, sVar2);
         (*(Entity**)&this->parent->field_0x78)->palette.b.b0 = this->palette.raw << 0x1c >> 0x1c;
         (*(Entity**)&this->parent->field_0x78)->palette.b.b4 = this->palette.b.b0;
         this->parent->child->palette.b.b0 = this->palette.raw << 0x1c >> 0x1c;

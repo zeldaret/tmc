@@ -1,7 +1,12 @@
+/**
+ * @file fallingBoulder.c
+ * @ingroup Enemies
+ *
+ * @brief Falling Boulder enemy
+ */
+
 #include "enemy.h"
-#include "random.h"
 #include "functions.h"
-#include "effects.h"
 
 void sub_0802C4B0(Entity*);
 void sub_0802C62C(Entity*);
@@ -63,7 +68,7 @@ void sub_0802C318(Entity* this) {
 
 NONMATCH("asm/non_matching/fallingBoulder/sub_0802C334.inc", void sub_0802C334(Entity* this)) {
     if ((u16)this->field_0x7c.HALF.LO == 0) {
-        u32 tmp = gRoomControls.roomOriginY;
+        u32 tmp = gRoomControls.origin_y;
         if (&gPlayerEntity == NULL)
             return;
         if (tmp - gPlayerEntity.y.HALF.HI <= 0x38) {
@@ -108,11 +113,11 @@ NONMATCH("asm/non_matching/fallingBoulder/sub_0802C334.inc", void sub_0802C334(E
             }
         }
 
-        y = gRoomControls.roomOriginY + gRoomControls.height - this->y.HALF.HI;
+        y = gRoomControls.origin_y + gRoomControls.height - this->y.HALF.HI;
         if (y >= 5) {
             sub_080AEFB4(this);
         } else {
-            sub_0806F69C(this);
+            LinearMoveUpdate(this);
             if (this->z.HALF.HI - y > 0x38) {
                 sub_0802C62C(this);
                 this->field_0x7a.HWORD = (Random() & 0x7f) | 0x80;

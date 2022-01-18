@@ -1,6 +1,11 @@
+/**
+ * @file cuccoChickAggr.c
+ * @ingroup Enemies
+ *
+ * @brief Cucco Chick Aggr enemy
+ */
+
 #include "enemy.h"
-#include "entity.h"
-#include "random.h"
 #include "functions.h"
 
 extern Entity* sub_08049DF4(u32);
@@ -54,7 +59,7 @@ void sub_08022988(Entity* this) {
         }
 
         ProcessMovement(this);
-        if (sub_08003FC4(this, 0x2000) == 0) {
+        if (GravityUpdate(this, 0x2000) == 0) {
             if (--this->actionDelay == 0) {
                 sub_08022A88(this);
             } else {
@@ -66,7 +71,7 @@ void sub_08022988(Entity* this) {
 }
 
 void sub_080229F8(Entity* this) {
-    if (sub_08003FC4(this, 0x2800) == 0) {
+    if (GravityUpdate(this, 0x2800) == 0) {
         if (--this->actionDelay == 0) {
             this->action = 4;
             this->actionDelay = 6;
@@ -90,7 +95,7 @@ void sub_08022A40(Entity* this) {
     }
 
     ProcessMovement(this);
-    if (sub_08003FC4(this, 0x2000) == 0) {
+    if (GravityUpdate(this, 0x2000) == 0) {
         if (--this->actionDelay == 0) {
             sub_08022A88(this);
         } else {
@@ -134,7 +139,7 @@ u32 sub_08022B20(Entity* this) {
     if (!sub_08049DF4(2))
         return 0;
 
-    return sub_080041A0(this, &gPlayerEntity, 0x24, 0x24);
+    return EntityInRectRadius(this, &gPlayerEntity, 36, 36);
 }
 
 void sub_08022B44(Entity* this) {

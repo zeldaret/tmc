@@ -1,16 +1,6 @@
-#include "global.h"
-#include "entity.h"
-#include "player.h"
-#include "structures.h"
-#include "script.h"
-#include "random.h"
-#include "audio.h"
+#include "npc.h"
 #include "functions.h"
-#include "script.h"
-#include "save.h"
 #include "screen.h"
-#include "utils.h"
-#include "textbox.h"
 
 extern void (*gUnk_081140D4[])(Entity*);
 
@@ -24,7 +14,7 @@ extern u8 gMapDataTopSpecial[];
 
 void sub_0806D138(u8* param_1, u8* param_2);
 
-extern void sub_08053500(void);
+extern void InitBiggoronTimer(void);
 
 extern u32 gUnk_0200B650;
 void sub_0806D110(void);
@@ -44,7 +34,7 @@ void sub_0806CF30(Entity* this) {
         this->action = 1;
         this->subAction = 1;
         this->field_0x68.HWORD = this->x.HALF.HI;
-        sub_0805E3A0(this, 2);
+        SetDefaultPriority(this, PRIO_MESSAGE);
         sub_0806D0B0(this);
         sub_0807DD64(this);
     } else {
@@ -55,7 +45,7 @@ void sub_0806CF30(Entity* this) {
     switch (this->subAction) {
         case 0:
         case 1:
-            if (gScreenTransition.frameCount % 4 == 0) {
+            if (gRoomTransition.frameCount % 4 == 0) {
                 if (gPlayerEntity.x.HALF.HI < this->x.HALF.HI && this->field_0x68.HWORD - 32 < this->x.HALF.HI) {
                     this->x.HALF.HI--;
                 }
@@ -133,7 +123,7 @@ void sub_0806D1D0(Entity* this) {
         this->spriteSettings.draw = 3;
         this->frameIndex = 0;
         this->actionDelay = 0x1e;
-        sub_0805E3A0(this, 2);
+        SetDefaultPriority(this, PRIO_MESSAGE);
     }
 
     switch (this->subAction) {
@@ -174,7 +164,7 @@ void sub_0806D274(Entity* this) {
         this->spritePriority.b0 = 7;
         this->frameIndex = 2;
         this->actionDelay = 8;
-        sub_0805E3A0(this, 2);
+        SetDefaultPriority(this, PRIO_MESSAGE);
         npc = CreateNPC(0x4c, 3, 0);
         if (npc != NULL) {
             npc->child = this;
@@ -221,7 +211,7 @@ void sub_0806D348(Entity* this) {
         this->spritePriority.b0 = 6;
         this->spriteSettings.draw = 0;
         this->frameIndex = 5;
-        sub_0805E3A0(this, 2);
+        SetDefaultPriority(this, PRIO_MESSAGE);
     }
     if (this->child->frameIndex == 4) {
         this->spriteSettings.draw = 3;
@@ -239,7 +229,7 @@ void sub_0806D3C0(Entity* this) {
         }
         this->action = 1;
         this->hitbox = &gHitbox_3;
-        sub_0805E3A0(this, 2);
+        SetDefaultPriority(this, PRIO_MESSAGE);
         sub_0807DD64(this);
     } else {
         this->x.HALF.HI = this->parent->x.HALF.HI;
@@ -262,12 +252,12 @@ void sub_0806D41C(Entity* this) {
         sub_0806D4C0(this, 1);
         sub_0806D4C0(this, 2);
         sub_0806D4C0(this, 3);
-        sub_0805E3A0(this, 2);
+        SetDefaultPriority(this, PRIO_MESSAGE);
     } else {
         ExecuteScriptForEntity(this, NULL);
         HandleEntity0x82Actions(this);
     }
-    if ((gScreenTransition.frameCount & 1) == 0) {
+    if ((gRoomTransition.frameCount & 1) == 0) {
         if (CheckPlayerProximity(this->x.HALF.HI - 0x20, this->y.HALF.HI, 0x40, 0x40) != 0) {
             if (this->spriteOffsetY > -8) {
                 this->spriteOffsetY -= 1;
@@ -286,7 +276,7 @@ void sub_0806D4C0(Entity* this, u32 param) {
         npc->parent = this;
         CopyPosition(this, npc);
         ResolveEntityOnTop(this, npc);
-        sub_0805E3A0(npc, 2);
+        SetDefaultPriority(npc, PRIO_MESSAGE);
     }
 }
 
@@ -308,21 +298,19 @@ void sub_0806D514(Entity* this) {
 
 ASM_FUNC("asm/non_matching/bigGoron/sub_0806D520.inc", void sub_0806D520(Entity* this, u32 param))
 
-// TODO itemOnA and itemOnB would need to be in array?
-NONMATCH("asm/non_matching/bigGoron/sub_0806D5D4.inc", void sub_0806D5D4(void)) {
+void sub_0806D5D4(void) {
     u32 itemSlot;
 
-    sub_08053500();
+    InitBiggoronTimer();
     itemSlot = IsItemEquipped(0xd);
     if (itemSlot != 2) {
-        ((u8*)&gSave.stats.itemOnA)[itemSlot] = 0;
+        gSave.stats.itemButtons[itemSlot] = 0;
     }
     sub_0807CAA0(0xd, 0);
 }
-END_NONMATCH
 
 void sub_0806D600(Entity* this, ScriptExecutionContext* context) {
-    context->condition = gSave.unk494 == 0;
+    context->condition = gSave.timers[2] == 0;
 }
 
 void sub_0806D620(void) {

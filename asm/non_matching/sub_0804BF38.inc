@@ -96,7 +96,7 @@ _0804BFE0:
 _0804BFE8:
 	ldrh r0, [r4, #0xa]
 	ldrh r1, [r4, #0xc]
-	bl sub_08080964
+	bl InitScreenShake
 	ldrh r0, [r4, #0xe]
 	bl SoundReq
 	pop {r3, r4, r5}

@@ -15,7 +15,7 @@
 	ldr r1, _0805791C @ =sub_080582F8
 	adds r0, r4, #0
 	movs r2, #0
-	bl sub_08052D74
+	bl RegisterTransitionManager
 _080578C4:
 	ldr r0, _08057920 @ =gRoomControls
 	ldrh r5, [r0]

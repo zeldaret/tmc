@@ -4,14 +4,14 @@
 	push {r6}
 	mov r8, r0
 	adds r4, r1, #0
-	bl sub_0805E5A8
+	bl SetInitializationPriority
 	ldr r5, _080575E8 @ =gUnk_03004030
 	ldrb r0, [r5, #9]
 	strb r0, [r5, #0xa]
 	ldr r3, _080575EC @ =gRoomControls
 	ldrb r0, [r3, #4]
 	strb r0, [r5, #9]
-	ldr r1, _080575F0 @ =gScreenTransition
+	ldr r1, _080575F0 @ =gRoomTransition
 	ldrb r0, [r4, #4]
 	strb r0, [r1, #0xc]
 	ldrb r0, [r4, #5]
@@ -51,6 +51,6 @@
 	.align 2, 0
 _080575E8: .4byte gUnk_03004030
 _080575EC: .4byte gRoomControls
-_080575F0: .4byte gScreenTransition
+_080575F0: .4byte gRoomTransition
 _080575F4: .4byte gPlayerEntity
 .syntax divided

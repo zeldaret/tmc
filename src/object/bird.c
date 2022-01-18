@@ -1,12 +1,7 @@
-#include "global.h"
-#include "audio.h"
-#include "entity.h"
-#include "flags.h"
 #include "save.h"
-#include "random.h"
 #include "object.h"
 #include "functions.h"
-#include "effects.h"
+#include "item.h"
 
 extern void (*const gUnk_08123EC0[])(Entity*);
 extern void (*const gUnk_08123EEC[])(Entity*);
@@ -35,7 +30,7 @@ void sub_0809CF54(Entity* this) {
     this->speed = 0x280;
     this->direction = 8;
     this->collisionLayer = 2;
-    this->x.HALF.HI = gRoomControls.roomScrollX;
+    this->x.HALF.HI = gRoomControls.scroll_x;
     SoundReq(SFX_123);
     UpdateSpriteForCollisionLayer(this);
     InitAnimationForceUpdate(this, 0);
@@ -49,13 +44,13 @@ void sub_0809CF54(Entity* this) {
 
 void sub_0809CFEC(Entity* this) {
 
-    sub_0806F69C(this);
-    sub_08003FC4(this, *(s16*)&this->field_0x68.HWORD);
+    LinearMoveUpdate(this);
+    GravityUpdate(this, *(s16*)&this->field_0x68.HWORD);
     if (this->actionDelay != 0) {
         if (--this->actionDelay == 0) {
             this->field_0xf = 0;
         }
-    } else if (sub_080040A8(this) == 0) {
+    } else if (CheckOnScreen(this) == 0) {
         DeleteThisEntity();
     }
     UpdateAnimationSingleFrame(this);
@@ -102,7 +97,7 @@ void sub_0809D0AC(Entity* this) {
         SoundReq(SFX_SECRET);
         fx = CreateFx(this, FX_DASH, 0);
         if (fx != NULL) {
-            sub_0806FAD8(this, fx);
+            ResolveEntityBelow(this, fx);
         }
     }
 }
@@ -119,7 +114,7 @@ void sub_0809D10C(Entity* this) {
 }
 
 void sub_0809D130(Entity* this) {
-    if ((gPlayerState.flags & PL_IS_MINISH) != 0) {
+    if ((gPlayerState.flags & PL_MINISH) != 0) {
         sub_0800445C(this);
     } else if (sub_08017850(this) != 0) {
         CreateItemEntity(0x17, 0, 0);

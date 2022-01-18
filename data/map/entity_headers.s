@@ -4,6 +4,13 @@
 	.section .rodata
 	.align 2
 
+#define local_flag(idx)             (idx & 0x3fff) | (0 << 14)
+#define local_flags(idx, length)    (idx & 0x3fff) | (0 << 14) | (((length - 1) & 0xf) << 6)
+#define global_flag(idx)            (idx & 0x3fff) | (1 << 14)
+#define global_flags(idx, length)   (idx & 0x3fff) | (1 << 14) | (((length - 1) & 0xf) << 6)
+#define room_flag(idx)              (idx & 0x3fff) | (2 << 14)
+#define room_flags(idx, length)     (idx & 0x3fff) | (2 << 14) | (((length - 1) & 0xf) << 6)
+
 @ define helper constants
 .ifdef JP
 EU_JP:
@@ -1054,7 +1061,7 @@ Area_MinishRafters:: @ 080D4F20
 	.4byte Room_MinishRafters_Bakery
 
 Area_EzloCutscene:: @ 080D4F30
-	.4byte Area_EzloCutscene_Main
+	.4byte Area_EzloAuxCutscene_Main
 
 Area_WindTribeTower:: @ 080D4F34
 	.4byte Room_WindTribeTower_Entrance
@@ -1673,7 +1680,7 @@ Room_CrenelMinishPaths_CrenelWater:: @ 080D5AA8
 	.4byte sub_StateChange_CrenelMinishPaths_CrenelWater
 
 Entities_CrenelMinishPaths_Rainfall_0:: @ 080D5AC8
-	manager subtype=0xa, x=0x204, y=0x903, unknown=0x0, paramB=0xb1c0000, paramC=0xc1
+	ezlo_hint x=8, y=4, rx=3, ry=9, msg=0xb1c, flag=0xc1
 	entity_list_end
 
 Entities_CrenelMinishPaths_Rainfall_1:: @ 080D5AE8
@@ -1904,10 +1911,10 @@ Room_MinishPaths1_MayorsCabin:: @ 080D61A0
 	.4byte sub_StateChange_MinishPaths1_MayorsCabin
 
 Entities_HouseInteriors1_Mayor_0:: @ 080D61C0
-	npc_raw subtype=0x4b, x=0x88, y=0x60, script=script_0800EA54
+	npc_raw subtype=0x4b, x=0x88, y=0x60, script=script_Mayor
 	object_raw subtype=0x4c, x=0x7c, y=0x48, collision=1
 	object_raw subtype=0x4c, x=0x94, y=0x48, collision=1
-	manager subtype=0xa, x=0x905, y=0x103, unknown=0x0, paramB=0xb550000, paramC=0xc4
+	ezlo_hint x=0xa, y=0x12, rx=0x3, ry=0x1, msg=0xb55, flag=0xc4
 	entity_list_end
 
 Entities_HouseInteriors1_Mayor_080D6210:: @ 080D6210
@@ -1947,11 +1954,11 @@ Room_HouseInteriors1_Mayor:: @ 080D62FC
 	.4byte gUnk_additional_8_HouseInteriors1_Mayor
 
 Entities_HouseInteriors1_PostOffice_0:: @ 080D6320
-	npc_raw subtype=0xa, x=0x48, y=0x38, script=script_08010794
+	npc_raw subtype=0xa, x=0x48, y=0x38, script=script_Stamp
 	entity_list_end
 
 gUnk_080D6340:: @ 080D6340
-	npc_raw subtype=0xc, x=0x68, y=0x38, script=script_08010734
+	npc_raw subtype=0xc, x=0x68, y=0x38, script=script_Marcy
 	entity_list_end
 
 gUnk_080D6360:: @ 080D6360
@@ -2019,7 +2026,7 @@ Room_HouseInteriors1_PostOffice:: @ 080D6518
 	.4byte sub_StateChange_HouseInteriors1_PostOffice
 
 Entities_HouseInteriors1_Library2F_0:: @ 080D6538
-	manager subtype=0xa, x=0x70b, y=0x201, unknown=0x0, paramB=0xb570000, paramC=0xc5
+	ezlo_hint x=0x16, y=0xe, rx=0x1, ry=0x2, msg=0xb57, flag=0xc5
 	entity_list_end
 
 gUnk_080D6558:: @ 080D6558
@@ -2027,7 +2034,7 @@ gUnk_080D6558:: @ 080D6558
 	entity_list_end
 
 gUnk_080D6578:: @ 080D6578
-	npc_raw subtype=0x1a, x=0x38, y=0x40, paramA=0x2, script=script_0800ED5C
+	npc_raw subtype=0x1a, x=0x38, y=0x40, paramA=0x2, script=script_Sturgeon
 	entity_list_end
 
 Entities_HouseInteriors1_Library2F_1:: @ 080D6598
@@ -2078,27 +2085,27 @@ Room_HouseInteriors1_Library2F:: @ 080D66A8
 	.4byte gUnk_additional_a_HouseInteriors1_Library2F
 
 Entities_HouseInteriors1_Library1F_0:: @ 080D66D4
-	npc_raw subtype=0x3d, x=0x128, y=0xa8, script=script_08008B5C
+	npc_raw subtype=0x3d, x=0x128, y=0xa8, script=script_LibrarianRight
 	entity_list_end
 
 gUnk_additional_8_HouseInteriors1_Library1F:: @ 080D66F4
-	npc_raw subtype=0x3d, x=0xa8, y=0xa8, paramA=0x1, script=script_08008B90
+	npc_raw subtype=0x3d, x=0xa8, y=0xa8, paramA=0x1, script=script_LibrarianLeft
 	entity_list_end
 
 gUnk_080D6714:: @ 080D6714
-	npc_raw subtype=0x6, x=0x38, y=0x40, paramB=0x400, script=script_08008D8C
+	npc_raw subtype=0x6, x=0x38, y=0x40, paramB=0x400, script=script_LibraryVisitor
 	entity_list_end
 
 gUnk_additional_9_HouseInteriors1_Library1F:: @ 080D6734
-	npc_raw subtype=0x3d, x=0xa8, y=0xa8, paramA=0x1, script=script_08008BC0
+	npc_raw subtype=0x3d, x=0xa8, y=0xa8, paramA=0x1, script=script_LibrarianLeftWithQuest
 	object_raw subtype=0x8c, x=0x98, y=0x90, collision=1, paramB=0x3
 	object_raw subtype=0x8c, x=0xac, y=0x90, collision=1, paramA=0x1, paramB=0x3
 	object_raw subtype=0x8c, x=0xc0, y=0x90, collision=1, paramA=0x2, paramB=0x3
 	entity_list_end
 
 gUnk_080D6784:: @ 080D6784
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_08008D50
-	npc_raw subtype=0x1a, x=0x68, y=0x18, paramA=0x1, script=script_08008C64
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69AllBooksCollected
+	npc_raw subtype=0x1a, x=0x68, y=0x18, paramA=0x1, script=script_SturgeonAllBooksCollected
 	entity_list_end
 
 Entities_HouseInteriors1_Library1F_1:: @ 080D67B4
@@ -2139,13 +2146,13 @@ Room_HouseInteriors1_Library1F:: @ 080D68CC
 	.4byte gUnk_additional_9_HouseInteriors1_Library1F
 
 Entities_HouseInteriors1_Inn1F_0:: @ 080D68F4
-	npc_raw subtype=0x47, x=0x40, y=0x38, script=script_0800E824
-	npc_raw subtype=0x6, x=0xb8, y=0x48, paramA=0x9, paramB=0x400, script=script_080100FC
+	npc_raw subtype=0x47, x=0x40, y=0x38, script=script_Emma
+	npc_raw subtype=0x6, x=0xb8, y=0x48, paramA=0x9, paramB=0x400, script=script_Townsperson2
 	entity_list_end
 
 gUnk_080D6924:: @ 080D6924
-	npc_raw subtype=0x7, x=0xe8, y=0x38, paramA=0x7, paramB=0x400, script=script_080103B0
-	npc_raw subtype=0x7, x=0xe8, y=0x68, paramA=0x8, paramB=0x400, script=script_080103B0
+	npc_raw subtype=0x7, x=0xe8, y=0x38, paramA=0x7, paramB=0x400, script=script_Kid4
+	npc_raw subtype=0x7, x=0xe8, y=0x68, paramA=0x8, paramB=0x400, script=script_Kid4
 	entity_list_end
 
 Entities_HouseInteriors1_Inn1F_1:: @ 080D6954
@@ -2285,36 +2292,36 @@ Entities_HouseInteriors1_InnWest2F_0:: @ 080D6BE4
 	entity_list_end
 
 UpperInn_Oracles:: @ 080D6BF4
-	npc_raw subtype=0x17, x=0x70, y=0x48, script=script_08011C7C
-	npc_raw subtype=0x18, x=0x88, y=0x48, script=script_08011D28
-	npc_raw subtype=0x19, x=0xa0, y=0x48, script=script_08011DD4
+	npc_raw subtype=0x17, x=0x70, y=0x48, script=script_Din
+	npc_raw subtype=0x18, x=0x88, y=0x48, script=script_Nayru
+	npc_raw subtype=0x19, x=0xa0, y=0x48, script=script_Farore
 	entity_list_end
 
 UpperInn_NoFarore:: @ 080D6C34
-	npc_raw subtype=0x17, x=0x7c, y=0x48, script=script_08011E80
-	npc_raw subtype=0x18, x=0x94, y=0x48, script=script_08011F0C
+	npc_raw subtype=0x17, x=0x7c, y=0x48, script=script_Din2
+	npc_raw subtype=0x18, x=0x94, y=0x48, script=script_Nayru2
 	entity_list_end
 
 UpperInn_NoDin:: @ 080D6C64
-	npc_raw subtype=0x18, x=0x7c, y=0x48, script=script_08011F0C
-	npc_raw subtype=0x19, x=0x94, y=0x48, script=script_08011F98
+	npc_raw subtype=0x18, x=0x7c, y=0x48, script=script_Nayru2
+	npc_raw subtype=0x19, x=0x94, y=0x48, script=script_Farore2
 	entity_list_end
 
 UpperInn_NoNayru:: @ 080D6C94
-	npc_raw subtype=0x17, x=0x7c, y=0x48, script=script_08011E80
-	npc_raw subtype=0x19, x=0x94, y=0x48, script=script_08011F98
+	npc_raw subtype=0x17, x=0x7c, y=0x48, script=script_Din2
+	npc_raw subtype=0x19, x=0x94, y=0x48, script=script_Farore2
 	entity_list_end
 
 UpperInn_Din:: @ 080D6CC4
-	npc_raw subtype=0x17, x=0x88, y=0x48, script=script_080121C8
+	npc_raw subtype=0x17, x=0x88, y=0x48, script=script_DinAlone
 	entity_list_end
 
 UpperInn_Nayru:: @ 080D6CE4
-	npc_raw subtype=0x18, x=0x88, y=0x48, script=script_08012200
+	npc_raw subtype=0x18, x=0x88, y=0x48, script=script_NayruAlone
 	entity_list_end
 
 UpperInn_Farore:: @ 080D6D04
-	npc_raw subtype=0x19, x=0x88, y=0x48, script=script_08012238
+	npc_raw subtype=0x19, x=0x88, y=0x48, script=script_FaroreAlone
 	entity_list_end
 
 Entities_HouseInteriors1_InnWest2F_1:: @ 080D6D24
@@ -2346,14 +2353,14 @@ Entities_HouseInteriors1_InnEast2F_0:: @ 080D6DBC
 	entity_list_end
 
 gUnk_additional_8_HouseInteriors1_InnEast2F:: @ 080D6DDC
-	delayed_entity_raw subtype=0x13, x=0x76, y=0xc0, layer=1, paramA=0x1, paramB=0x2, paramC=script_0800ED04, conditions=0x3f8
-	delayed_entity_raw subtype=0x7, x=0x68, y=0x98, layer=1, paramC=script_080103B0, paramD=0x4, conditions=0x300
-	delayed_entity_raw subtype=0x7, x=0x48, y=0x98, layer=1, paramA=0x6, paramC=script_080103B0, paramD=0x4, conditions=0x300
-	delayed_entity_raw subtype=0x7, x=0x48, y=0x98, layer=1, paramA=0x6, paramC=script_0800D59C, paramD=0x4, conditions=0x10
-	delayed_entity_raw subtype=0x7, x=0x38, y=0xc8, layer=1, paramA=0x7, paramC=script_0800D59C, paramD=0x4, conditions=0x10
-	delayed_entity_raw subtype=0x7, x=0x58, y=0xd8, layer=1, paramA=0x8, paramC=script_0800D59C, paramD=0x4, conditions=0x10
-	delayed_entity_raw subtype=0x6, x=0x58, y=0xa8, layer=1, paramA=0x14, paramC=script_080100FC, paramD=0x4, conditions=0x3c0
-	delayed_entity_raw subtype=0x6, x=0x48, y=0x168, layer=1, paramA=0x10, paramC=script_080100FC, paramD=0x4, conditions=0x300
+	delayed_entity_raw subtype=0x13, x=0x76, y=0xc0, layer=1, paramA=0x1, paramB=0x2, paramC=script_SittingPerson, conditions=0x3f8
+	delayed_entity_raw subtype=0x7, x=0x68, y=0x98, layer=1, paramC=script_Kid4, paramD=0x4, conditions=0x300
+	delayed_entity_raw subtype=0x7, x=0x48, y=0x98, layer=1, paramA=0x6, paramC=script_Kid4, paramD=0x4, conditions=0x300
+	delayed_entity_raw subtype=0x7, x=0x48, y=0x98, layer=1, paramA=0x6, paramC=script_KidInn, paramD=0x4, conditions=0x10
+	delayed_entity_raw subtype=0x7, x=0x38, y=0xc8, layer=1, paramA=0x7, paramC=script_KidInn, paramD=0x4, conditions=0x10
+	delayed_entity_raw subtype=0x7, x=0x58, y=0xd8, layer=1, paramA=0x8, paramC=script_KidInn, paramD=0x4, conditions=0x10
+	delayed_entity_raw subtype=0x6, x=0x58, y=0xa8, layer=1, paramA=0x14, paramC=script_Townsperson2, paramD=0x4, conditions=0x3c0
+	delayed_entity_raw subtype=0x6, x=0x48, y=0x168, layer=1, paramA=0x10, paramC=script_Townsperson2, paramD=0x4, conditions=0x300
 	entity_list_end
 
 Entities_HouseInteriors1_InnEast2F_1:: @ 080D6E6C
@@ -2422,7 +2429,7 @@ Entities_HouseInteriors1_SchoolWest_0:: @ 080D7018
 	entity_list_end
 
 gUnk_080D7038:: @ 080D7038
-	npc_raw subtype=0x48, x=0x78, y=0x78, paramA=0x1, script=script_0800E7F4
+	npc_raw subtype=0x48, x=0x78, y=0x78, paramA=0x1, script=script_Teachers
 	entity_list_end
 
 Entities_HouseInteriors1_SchoolWest_1:: @ 080D7058
@@ -2457,27 +2464,27 @@ Entities_HouseInteriors1_SchoolEast_0:: @ 080D7120
 	entity_list_end
 
 gUnk_080D7140:: @ 080D7140
-	npc_raw subtype=0x7, x=0x48, y=0x40, paramA=0x1, paramB=0x200, script=script_08010644
-	npc_raw subtype=0x7, x=0x48, y=0x70, paramA=0x2, paramB=0x200, script=script_08010644
+	npc_raw subtype=0x7, x=0x48, y=0x40, paramA=0x1, paramB=0x200, script=script_Kid6
+	npc_raw subtype=0x7, x=0x48, y=0x70, paramA=0x2, paramB=0x200, script=script_Kid6
 	entity_list_end
 
 gUnk_080D7170:: @ 080D7170
-	npc_raw subtype=0x7, x=0xa8, y=0x40, paramB=0x200, script=script_0801061C
-	npc_raw subtype=0x7, x=0x78, y=0x40, paramA=0x3, paramB=0x200, script=script_08010650
+	npc_raw subtype=0x7, x=0xa8, y=0x40, paramB=0x200, script=script_Kid5
+	npc_raw subtype=0x7, x=0x78, y=0x40, paramA=0x3, paramB=0x200, script=script_Kid7
 	entity_list_end
 
 gUnk_080D71A0:: @ 080D71A0
-	npc_raw subtype=0x7, x=0x68, y=0x68, paramA=0x1, paramB=0x400, script=script_080103B0
-	npc_raw subtype=0x7, x=0x98, y=0x48, paramA=0x2, paramB=0x400, script=script_080103B0
+	npc_raw subtype=0x7, x=0x68, y=0x68, paramA=0x1, paramB=0x400, script=script_Kid4
+	npc_raw subtype=0x7, x=0x98, y=0x48, paramA=0x2, paramB=0x400, script=script_Kid4
 	entity_list_end
 
 gUnk_080D71D0:: @ 080D71D0
-	npc_raw subtype=0x48, x=0x110, y=0x48, script=script_0800E7F4
+	npc_raw subtype=0x48, x=0x110, y=0x48, script=script_Teachers
 	entity_list_end
 
 gUnk_080D71F0:: @ 080D71F0
-	npc_raw subtype=0x48, x=0xe8, y=0x58, script=script_0800E7F4
-	npc_raw subtype=0x48, x=0x28, y=0x48, paramA=0x1, script=script_0800E7F4
+	npc_raw subtype=0x48, x=0xe8, y=0x58, script=script_Teachers
+	npc_raw subtype=0x48, x=0x28, y=0x48, paramA=0x1, script=script_Teachers
 	entity_list_end
 
 Entities_HouseInteriors1_SchoolEast_1:: @ 080D7220
@@ -2512,8 +2519,8 @@ Room_HouseInteriors1_SchoolEast:: @ 080D72B0
 	.4byte gUnk_additional_9_HouseInteriors1_SchoolEast
 
 Entities_HyruleCastle_0_0:: @ 080D72D8
-	npc_raw subtype=0x15, x=0xb8, y=0x38, script=script_08008DC0
-	npc_raw subtype=0x15, x=0xf8, y=0x38, paramB=0x1, script=script_08008DC0
+	npc_raw subtype=0x15, x=0xb8, y=0x38, script=script_GuardAtEntry
+	npc_raw subtype=0x15, x=0xf8, y=0x38, paramB=0x1, script=script_GuardAtEntry
 	entity_list_end
 
 Entities_HyruleCastle_0_1:: @ 080D7308
@@ -2525,7 +2532,7 @@ gUnk_080D7328:: @ 080D7328
 	entity_list_end
 
 gUnk_080D7348:: @ 080D7348
-	npc_raw subtype=0x4e, script=script_0800A734
+	npc_raw subtype=0x4e, script=script_Npc4EHyruleCastleEntrance
 	entity_list_end
 
 Enemies_HyruleCastle_0:: @ 080D7368
@@ -2558,12 +2565,12 @@ gUnk_080D73E0:: @ 080D73E0
 	entity_list_end
 
 gUnk_080D7410:: @ 080D7410
-	npc_raw subtype=0x4e, script=script_0800A764
-	npc_raw subtype=0x15, x=0xb8, y=0x1a8, paramB=0x28, script=script_0800A7E4
-	npc_raw subtype=0x15, x=0xf8, y=0x1b8, paramB=0x29, script=script_0800A820
-	npc_raw subtype=0x15, x=0x138, y=0x1d8, paramB=0x2a, script=script_0800A85C
-	npc_raw subtype=0x16, x=0xd8, y=0x1c8, script=script_0800A898
-	npc_raw subtype=0x16, x=0x118, y=0x1b8, script=script_0800A8D4
+	npc_raw subtype=0x4e, script=script_Npc4EUnfreezeCastleStaff
+	npc_raw subtype=0x15, x=0xb8, y=0x1a8, paramB=0x28, script=script_GuardStoneOutro1
+	npc_raw subtype=0x15, x=0xf8, y=0x1b8, paramB=0x29, script=script_GuardStoneOutro2
+	npc_raw subtype=0x15, x=0x138, y=0x1d8, paramB=0x2a, script=script_GuardStoneOutro3
+	npc_raw subtype=0x16, x=0xd8, y=0x1c8, script=script_MaidStoneOutro1
+	npc_raw subtype=0x16, x=0x118, y=0x1b8, script=script_MaidStoneOutro2
 	entity_list_end
 
 Enemies_HyruleCastle_1:: @ 080D7480
@@ -2586,34 +2593,34 @@ Entities_HyruleCastle_2_0:: @ 080D74B8
 	entity_list_end
 
 gUnk_080D74C8:: @ 080D74C8
-	npc_raw subtype=0x4e, script=script_08008E08
-	npc_raw subtype=0x15, x=0x78, y=0x98, paramB=0x2, script=script_08008FFC
-	npc_raw subtype=0x15, x=0x78, y=0xb8, paramB=0x3, script=script_08008FFC
-	npc_raw subtype=0x15, x=0x78, y=0xd8, paramB=0x4, script=script_08008FFC
-	npc_raw subtype=0x15, x=0x98, y=0x98, paramB=0x5, script=script_08008FFC
-	npc_raw subtype=0x15, x=0x98, y=0xb8, paramB=0x6, script=script_08008FFC
-	npc_raw subtype=0x15, x=0x98, y=0xd8, paramB=0x7, script=script_08008FFC
-	npc_raw subtype=0x24, x=0x88, y=0x58, script=script_08009080
-	npc_raw subtype=0x25, x=0x68, y=0x58, script=script_0800903C
-	npc_raw subtype=0x22, x=0xb8, y=0x78, script=script_08009198
-	npc_raw subtype=0x28, x=0xb8, y=0x58, script=script_080092F0
+	npc_raw subtype=0x4e, script=script_Npc4EIntroAssembly
+	npc_raw subtype=0x15, x=0x78, y=0x98, paramB=0x2, script=script_GuardAtAssembly
+	npc_raw subtype=0x15, x=0x78, y=0xb8, paramB=0x3, script=script_GuardAtAssembly
+	npc_raw subtype=0x15, x=0x78, y=0xd8, paramB=0x4, script=script_GuardAtAssembly
+	npc_raw subtype=0x15, x=0x98, y=0x98, paramB=0x5, script=script_GuardAtAssembly
+	npc_raw subtype=0x15, x=0x98, y=0xb8, paramB=0x6, script=script_GuardAtAssembly
+	npc_raw subtype=0x15, x=0x98, y=0xd8, paramB=0x7, script=script_GuardAtAssembly
+	npc_raw subtype=0x24, x=0x88, y=0x58, script=script_KingDaltusAtAssembly
+	npc_raw subtype=0x25, x=0x68, y=0x58, script=script_MinisterPothoAtAssembly
+	npc_raw subtype=0x22, x=0xb8, y=0x78, script=script_SmithAtAssembly
+	npc_raw subtype=0x28, x=0xb8, y=0x58, script=script_StoneZelda
 	entity_list_end
 
 gUnk_080D7588:: @ 080D7588
-	npc_raw subtype=0x25, x=0x68, y=0x58, script=script_08009274
-	npc_raw subtype=0x24, x=0x88, y=0x58, script=script_080092D4
-	npc_raw subtype=0x22, x=0xa8, y=0x78, script=script_080092A8
-	npc_raw subtype=0x28, x=0xb8, y=0x58, script=script_080092F0
+	npc_raw subtype=0x25, x=0x68, y=0x58, script=script_MinisterPotho
+	npc_raw subtype=0x24, x=0x88, y=0x58, script=script_KingDaltus
+	npc_raw subtype=0x22, x=0xa8, y=0x78, script=script_SmithAtCastle
+	npc_raw subtype=0x28, x=0xb8, y=0x58, script=script_StoneZelda
 	entity_list_end
 
 gUnk_080D75D8:: @ 080D75D8
-	npc_raw subtype=0x25, x=0x68, y=0x58, script=script_08009274
-	npc_raw subtype=0x24, x=0x88, y=0x58, script=script_080092D4
-	npc_raw subtype=0x28, x=0xb8, y=0x58, script=script_080092F0
+	npc_raw subtype=0x25, x=0x68, y=0x58, script=script_MinisterPotho
+	npc_raw subtype=0x24, x=0x88, y=0x58, script=script_KingDaltus
+	npc_raw subtype=0x28, x=0xb8, y=0x58, script=script_StoneZelda
 	entity_list_end
 
 gUnk_080D7618:: @ 080D7618
-	npc_raw subtype=0x4e, script=script_0800A6D4
+	npc_raw subtype=0x4e, script=script_Npc4EHyruleCastleThrone
 	entity_list_end
 
 Enemies_HyruleCastle_2:: @ 080D7638
@@ -2660,7 +2667,7 @@ Room_HyruleCastle_3:: @ 080D76E8
 	.4byte gUnk_additional_8_HyruleCastle_3
 
 Entities_HyruleCastle_4_0:: @ 080D770C
-	npc_raw subtype=0x16, x=0x58, y=0x50, script=script_0800B8B8
+	npc_raw subtype=0x16, x=0x58, y=0x50, script=script_CastleMaid
 	entity_list_end
 
 Enemies_HyruleCastle_4:: @ 080D772C
@@ -2972,7 +2979,7 @@ Room_GreatFairies_Exit:: @ 080D7D9C
 	.4byte sub_StateChange_GreatFairies_Exit
 
 Entities_Dojos_Grayblade_0:: @ 080D7DBC
-	npc_raw subtype=0x30, x=0x78, y=0x28, paramA=0x2, script=script_080161E8
+	npc_raw subtype=0x30, x=0x78, y=0x28, paramA=0x2, script=script_BladeBrothers
 	object_raw subtype=0x0, x=0x28, y=0x84, collision=1, paramA=0x63, paramB=0x400, paramC=0x800000
 	entity_list_end
 
@@ -3006,7 +3013,7 @@ Room_Dojos_Grayblade:: @ 080D7E9C
 	.4byte sub_StateChange_Dojos_Grayblade
 
 Entities_Dojos_Splitblade_0:: @ 080D7EBC
-	npc_raw subtype=0x30, x=0x78, y=0x28, paramA=0x6, script=script_080161E8
+	npc_raw subtype=0x30, x=0x78, y=0x28, paramA=0x6, script=script_BladeBrothers
 	entity_list_end
 
 Entities_Dojos_Splitblade_1:: @ 080D7EDC
@@ -3037,7 +3044,7 @@ Room_Dojos_Splitblade:: @ 080D7F7C
 	.4byte sub_StateChange_Dojos_Splitblade
 
 Entities_Dojos_Greatblade_0:: @ 080D7F9C
-	npc_raw subtype=0x30, x=0x78, y=0x28, paramA=0x7, script=script_080161E8
+	npc_raw subtype=0x30, x=0x78, y=0x28, paramA=0x7, script=script_BladeBrothers
 	entity_list_end
 
 Entities_Dojos_Greatblade_1:: @ 080D7FBC
@@ -3068,7 +3075,7 @@ Room_Dojos_Greatblade:: @ 080D805C
 	.4byte sub_StateChange_Dojos_Greatblade
 
 Entities_Dojos_Scarblade_0:: @ 080D807C
-	npc_raw subtype=0x30, x=0x78, y=0x28, paramA=0x5, script=script_080161E8
+	npc_raw subtype=0x30, x=0x78, y=0x28, paramA=0x5, script=script_BladeBrothers
 	entity_list_end
 
 Entities_Dojos_Scarblade_1:: @ 080D809C
@@ -3099,7 +3106,7 @@ Room_Dojos_Scarblade:: @ 080D813C
 	.4byte sub_StateChange_Dojos_Scarblade
 
 Entities_Dojos_Swiftblade_0:: @ 080D815C
-	npc_raw subtype=0x30, x=0x78, y=0x28, script=script_080161E8
+	npc_raw subtype=0x30, x=0x78, y=0x28, script=script_BladeBrothers
 	object_raw subtype=0x0, x=0x28, y=0x84, collision=1, paramA=0x63, paramB=0x400, paramC=0x7f0000
 	entity_list_end
 
@@ -3131,7 +3138,7 @@ Room_Dojos_Swiftblade:: @ 080D822C
 	.4byte sub_StateChange_Dojos_Swiftblade
 
 Entities_Dojos_Grimblade_0:: @ 080D824C
-	npc_raw subtype=0x30, x=0x78, y=0x28, paramA=0x4, script=script_080161E8
+	npc_raw subtype=0x30, x=0x78, y=0x28, paramA=0x4, script=script_BladeBrothers
 	object_raw subtype=0x0, x=0x28, y=0x84, collision=1, paramA=0x63, paramB=0x400, paramC=0x830000
 	entity_list_end
 
@@ -3171,7 +3178,7 @@ Room_Dojos_Grimblade:: @ 080D8374
 	.4byte sub_StateChange_Dojos_Grimblade
 
 Entities_Dojos_Waveblade_0:: @ 080D8394
-	npc_raw subtype=0x30, x=0x78, y=0x28, paramA=0x3, script=script_080161E8
+	npc_raw subtype=0x30, x=0x78, y=0x28, paramA=0x3, script=script_BladeBrothers
 	object_raw subtype=0x0, x=0x28, y=0x84, collision=1, paramA=0x63, paramB=0x400, paramC=0x820000
 	entity_list_end
 
@@ -3421,42 +3428,42 @@ Entities_GoronCave_Main_0:: @ 080D89C4
 	entity_list_end
 
 gUnk_080D89E4:: @ 080D89E4
-	npc_raw subtype=0x32, x=0x68, y=0x228, script=script_0800B9B4
+	npc_raw subtype=0x32, x=0x68, y=0x228, script=script_GoronPunching
 	entity_list_end
 
 gUnk_080D8A04:: @ 080D8A04
-	npc_raw subtype=0x32, x=0x48, y=0x178, script=script_0800B9B4
-	npc_raw subtype=0x32, x=0x68, y=0x178, paramA=0x1, script=script_0800B9B4
+	npc_raw subtype=0x32, x=0x48, y=0x178, script=script_GoronPunching
+	npc_raw subtype=0x32, x=0x68, y=0x178, paramA=0x1, script=script_GoronPunching
 	entity_list_end
 
 gUnk_080D8A34:: @ 080D8A34
-	npc_raw subtype=0x32, x=0x48, y=0x178, script=script_0800B9B4
-	npc_raw subtype=0x32, x=0x68, y=0x178, paramA=0x1, script=script_0800B9B4
-	npc_raw subtype=0x32, x=0x88, y=0x178, paramA=0x2, script=script_0800B9B4
+	npc_raw subtype=0x32, x=0x48, y=0x178, script=script_GoronPunching
+	npc_raw subtype=0x32, x=0x68, y=0x178, paramA=0x1, script=script_GoronPunching
+	npc_raw subtype=0x32, x=0x88, y=0x178, paramA=0x2, script=script_GoronPunching
 	entity_list_end
 
 gUnk_080D8A74:: @ 080D8A74
-	npc_raw subtype=0x32, x=0x28, y=0xd8, script=script_0800B9B4
-	npc_raw subtype=0x32, x=0x48, y=0xd8, paramA=0x1, script=script_0800B9B4
-	npc_raw subtype=0x32, x=0x68, y=0xd8, paramA=0x2, script=script_0800B9B4
-	npc_raw subtype=0x32, x=0x88, y=0xd8, paramA=0x3, script=script_0800B9B4
+	npc_raw subtype=0x32, x=0x28, y=0xd8, script=script_GoronPunching
+	npc_raw subtype=0x32, x=0x48, y=0xd8, paramA=0x1, script=script_GoronPunching
+	npc_raw subtype=0x32, x=0x68, y=0xd8, paramA=0x2, script=script_GoronPunching
+	npc_raw subtype=0x32, x=0x88, y=0xd8, paramA=0x3, script=script_GoronPunching
 	entity_list_end
 
 gUnk_080D8AC4:: @ 080D8AC4
-	npc_raw subtype=0x32, x=0x28, y=0xd8, script=script_0800B9B4
-	npc_raw subtype=0x32, x=0x48, y=0xd8, paramA=0x1, script=script_0800B9B4
-	npc_raw subtype=0x32, x=0x68, y=0xd8, paramA=0x2, script=script_0800B9B4
-	npc_raw subtype=0x32, x=0x88, y=0xd8, paramA=0x3, script=script_0800B9B4
-	npc_raw subtype=0x32, x=0xa8, y=0xd8, paramA=0x4, script=script_0800B9B4
+	npc_raw subtype=0x32, x=0x28, y=0xd8, script=script_GoronPunching
+	npc_raw subtype=0x32, x=0x48, y=0xd8, paramA=0x1, script=script_GoronPunching
+	npc_raw subtype=0x32, x=0x68, y=0xd8, paramA=0x2, script=script_GoronPunching
+	npc_raw subtype=0x32, x=0x88, y=0xd8, paramA=0x3, script=script_GoronPunching
+	npc_raw subtype=0x32, x=0xa8, y=0xd8, paramA=0x4, script=script_GoronPunching
 	entity_list_end
 
 gUnk_080D8B24:: @ 080D8B24
-	npc_raw subtype=0x32, x=0x28, y=0x98, script=script_0800B9B4
-	npc_raw subtype=0x32, x=0x48, y=0x98, paramA=0x1, script=script_0800B9B4
-	npc_raw subtype=0x32, x=0x68, y=0x98, paramA=0x2, script=script_0800B9B4
-	npc_raw subtype=0x32, x=0x88, y=0x98, paramA=0x3, script=script_0800B9B4
-	npc_raw subtype=0x32, x=0xa8, y=0x98, paramA=0x4, script=script_0800B9B4
-	npc_raw subtype=0x32, x=0xc8, y=0x98, paramA=0x5, script=script_0800B9B4
+	npc_raw subtype=0x32, x=0x28, y=0x98, script=script_GoronPunching
+	npc_raw subtype=0x32, x=0x48, y=0x98, paramA=0x1, script=script_GoronPunching
+	npc_raw subtype=0x32, x=0x68, y=0x98, paramA=0x2, script=script_GoronPunching
+	npc_raw subtype=0x32, x=0x88, y=0x98, paramA=0x3, script=script_GoronPunching
+	npc_raw subtype=0x32, x=0xa8, y=0x98, paramA=0x4, script=script_GoronPunching
+	npc_raw subtype=0x32, x=0xc8, y=0x98, paramA=0x5, script=script_GoronPunching
 	entity_list_end
 
 Enemies_GoronCave_Main:: @ 080D8B94
@@ -3509,10 +3516,10 @@ Room_GoronCave_Main:: @ 080D8EB0
 	.4byte sub_unk3_GoronCave_Main
 	.4byte sub_StateChange_GoronCave_Main
 
-Entities_EzloCutscene_Main_0:: @ 080D8ED0
+Entities_EzloAuxCutscene_Main_0:: @ 080D8ED0
 	entity_list_end
 
-Entities_EzloCutscene_Main_1:: @ 080D8EE0
+Entities_EzloAuxCutscene_Main_1:: @ 080D8EE0
 	object_raw subtype=0x4d, x=0x34, y=0x28, collision=1, paramA=0x3f
 	object_raw subtype=0x4d, x=0x28, y=0x48, collision=1, paramA=0xc
 	object_raw subtype=0x4d, x=0x80, y=0x24, collision=1, paramA=0x42
@@ -3524,21 +3531,21 @@ Entities_EzloCutscene_Main_1:: @ 080D8EE0
 	object_raw subtype=0x4d, x=0xb8, y=0xd8, collision=1, paramA=0x41
 	entity_list_end
 
-Enemies_EzloCutscene_Main:: @ 080D8F80
+Enemies_EzloAuxCutscene_Main:: @ 080D8F80
 	entity_list_end
 
-TileEntities_EzloCutscene_Main:: @ 080D8F90
+TileEntities_EzloAuxCutscene_Main:: @ 080D8F90
 	tile_entity_list_end
 
-Area_EzloCutscene_Main:: @ 080D8F98
-	.4byte Entities_EzloCutscene_Main_0
-	.4byte Entities_EzloCutscene_Main_1
-	.4byte Enemies_EzloCutscene_Main
-	.4byte TileEntities_EzloCutscene_Main
+Area_EzloAuxCutscene_Main:: @ 080D8F98
+	.4byte Entities_EzloAuxCutscene_Main_0
+	.4byte Entities_EzloAuxCutscene_Main_1
+	.4byte Enemies_EzloAuxCutscene_Main
+	.4byte TileEntities_EzloAuxCutscene_Main
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_EzloCutscene_Main
-	.4byte sub_StateChange_EzloCutscene_Main
+	.4byte sub_unk3_EzloAuxCutscene_Main
+	.4byte sub_StateChange_EzloAuxCutscene_Main
 
 Entities_RoyalValley_Main_0:: @ 080D8FB8
 	manager subtype=0xf, paramA=0x7
@@ -3550,12 +3557,12 @@ Entities_RoyalValley_Main_0:: @ 080D8FB8
 .else
 	manager subtype=0x11, paramC=0x88000056
 .endif
-	object_raw subtype=0x19, x=0x1a0, y=0x1a2, unknown=0x4f, collision=1, paramA=0x1, paramB=0x3, paramC=script_08009698
-	npc_raw subtype=0x21, x=0x88, y=0x118, script=script_08009740
+	object_raw subtype=0x19, x=0x1a0, y=0x1a2, unknown=0x4f, collision=1, paramA=0x1, paramB=0x3, paramC=script_GraveyardHouseDoor
+	npc_raw subtype=0x21, x=0x88, y=0x118, script=script_GhostBrothers
 .ifdef EU_JP
-	manager subtype=0xa, x=0x251c, y=0x401, unknown=0x0, paramB=0xb1d0000, paramC=0x58
+	ezlo_hint x=0x38, y=0x4a, rx=0x1, ry=0x4, msg=0xb1d, flag=0x58
 .else
-	manager subtype=0xa, x=0x251c, y=0x401, unknown=0x0, paramB=0xb1d0000, paramC=0x5a
+	ezlo_hint x=0x38, y=0x4a, rx=0x1, ry=0x4, msg=0xb1d, flag=0x5a
 .endif
 	entity_list_end
 
@@ -3564,14 +3571,14 @@ gUnk_080D9048:: @ 080D9048
 	.incbin "data_080D5360/gUnk_080D9048.bin"
 
 gUnk_080D9098:: @ 080D9098
-	npc_raw subtype=0x40, x=0xd8, y=0x188, paramA=0x1, script=script_0800962C
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_080098D4
+	npc_raw subtype=0x40, x=0xd8, y=0x188, paramA=0x1, script=script_DampeOuside
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69GetKeyBack
 	entity_list_end
 
 gUnk_080D90C8:: @ 080D90C8
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_08009778
-	object_raw subtype=0x97, x=0x1f0, y=0x1a0, unknown=0x4f, paramA=0x4, paramC=script_080097F0
-	object_raw subtype=0x97, x=0x1f0, y=0x1b0, unknown=0x4f, paramA=0x4, paramC=script_08009838
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69CrowStealingKey
+	object_raw subtype=0x97, x=0x1f0, y=0x1a0, unknown=0x4f, paramA=0x4, paramC=script_Object97FirstCrow
+	object_raw subtype=0x97, x=0x1f0, y=0x1b0, unknown=0x4f, paramA=0x4, paramC=script_Object97SecondCrow
 	entity_list_end
 
 gUnk_080D9108:: @ 080D9108
@@ -3699,7 +3706,7 @@ Room_RoyalValleyGraves_HeartPiece:: @ 080D93C0
 	.4byte sub_StateChange_RoyalValleyGraves_HeartPiece
 
 Entities_RoyalValleyGraves_Gina_0:: @ 080D93E0
-	npc_raw subtype=0x43, x=0x78, y=0x58, script=script_0800B91C
+	npc_raw subtype=0x43, x=0x78, y=0x58, script=script_Gina
 	entity_list_end
 
 Enemies_RoyalValleyGraves_Gina:: @ 080D9400
@@ -3720,9 +3727,9 @@ Room_RoyalValleyGraves_Gina:: @ 080D9420
 	.4byte sub_StateChange_RoyalValleyGraves_Gina
 
 Entities_MinishRafters_Cafe_0:: @ 080D9440
-	npc_raw subtype=0x38, x=0xd8, y=0x30, paramA=0x1, paramB=0x202, script=script_0800E734
-	npc_raw subtype=0x38, x=0x38, y=0xa8, paramB=0x103, script=script_0800E6E8
-	npc_raw subtype=0x38, x=0x5c, y=0xdc, paramB=0x104, script=script_0800E6E8
+	npc_raw subtype=0x38, x=0xd8, y=0x30, paramA=0x1, paramB=0x202, script=script_TownMinish2
+	npc_raw subtype=0x38, x=0x38, y=0xa8, paramB=0x103, script=script_TownMinish1
+	npc_raw subtype=0x38, x=0x5c, y=0xdc, paramB=0x104, script=script_TownMinish1
 	npc_raw subtype=0x3, x=0x78, y=0xd6, unknown=0xf, paramB=0x324, script=0x0
 	npc_raw subtype=0x3, x=0x128, y=0xa8, unknown=0xf, paramB=0x125, script=0x0
 	npc_raw subtype=0x3, x=0x158, y=0xb4, unknown=0xf, paramB=0x226, script=0x0
@@ -3811,9 +3818,9 @@ Room_MinishRafters_Stockwell:: @ 080D97A0
 	.4byte sub_StateChange_MinishRafters_Stockwell
 
 Entities_MinishRafters_DrLeft_0:: @ 080D97C0
-	npc_raw subtype=0x38, x=0x98, y=0x90, paramB=0x7, script=script_0800E6E8
-	npc_raw subtype=0x38, x=0x158, y=0x68, paramB=0x208, script=script_0800E760
-	npc_raw subtype=0x38, x=0x38, y=0x58, paramA=0x5, paramB=0x109, script=script_0800E6E8
+	npc_raw subtype=0x38, x=0x98, y=0x90, paramB=0x7, script=script_TownMinish1
+	npc_raw subtype=0x38, x=0x158, y=0x68, paramB=0x208, script=script_TownMinish3
+	npc_raw subtype=0x38, x=0x38, y=0x58, paramA=0x5, paramB=0x109, script=script_TownMinish1
 	entity_list_end
 
 gUnk_080D9800:: @ 080D9800
@@ -3856,10 +3863,10 @@ Room_MinishRafters_DrLeft:: @ 080D9948
 	.4byte sub_StateChange_MinishRafters_DrLeft
 
 Entities_MinishRafters_Bakery_0:: @ 080D9968
-	npc_raw subtype=0x38, x=0x48, y=0x78, paramA=0x5, paramB=0x20e, script=script_0800E6E8
-	npc_raw subtype=0x38, x=0x78, y=0xc8, paramA=0x4, paramB=0x20f, script=script_0800E6E8
-	npc_raw subtype=0x38, x=0xe8, y=0xc8, paramA=0x3, paramB=0x210, script=script_0800E6E8
-	npc_raw subtype=0x38, x=0x158, y=0x98, paramB=0x211, script=script_0800E6E8
+	npc_raw subtype=0x38, x=0x48, y=0x78, paramA=0x5, paramB=0x20e, script=script_TownMinish1
+	npc_raw subtype=0x38, x=0x78, y=0xc8, paramA=0x4, paramB=0x20f, script=script_TownMinish1
+	npc_raw subtype=0x38, x=0xe8, y=0xc8, paramA=0x3, paramB=0x210, script=script_TownMinish1
+	npc_raw subtype=0x38, x=0x158, y=0x98, paramB=0x211, script=script_TownMinish1
 	entity_list_end
 
 Entities_MinishRafters_Bakery_1:: @ 080D99B8
@@ -3901,21 +3908,21 @@ Entities_CastorWilds_Main_0:: @ 080D9AD8
 .ifdef EU_JP
 	manager subtype=0x20, x=0x218, y=0x328, paramB=0x12182e00, paramC=0x161318
 	manager subtype=0x20, x=0x2b8, y=0x398, paramB=0x12a82e00, paramC=0x171398
-	object_raw subtype=0x69, x=0x68, y=0x380, unknown=0x4f, paramC=script_0800B200
-	npc_raw subtype=0x2b, x=0x28, y=0x3a8, paramA=0x1, script=script_0800B308
-	npc_raw subtype=0x2b, x=0x40, y=0x354, script=script_0800B254
-	npc_raw subtype=0x2b, x=0x70, y=0x354, script=script_0800B284
-	npc_raw subtype=0x2b, x=0xa0, y=0x354, script=script_0800B2B4
+	object_raw subtype=0x69, x=0x68, y=0x380, unknown=0x4f, paramC=script_Object69
+	npc_raw subtype=0x2b, x=0x28, y=0x3a8, paramA=0x1, script=script_CastorWildsStatueRock
+	npc_raw subtype=0x2b, x=0x40, y=0x354, script=script_CastorWildsStatueLeft
+	npc_raw subtype=0x2b, x=0x70, y=0x354, script=script_CastorWildsStatueMiddle
+	npc_raw subtype=0x2b, x=0xa0, y=0x354, script=script_CastorWildsStatueRight
 	object_raw subtype=0x71, x=0x38, y=0x2d8, paramA=0x1, paramB=0x1, paramC=0x200000
 	manager subtype=0x4
 	manager subtype=0x20, x=0x2b8, y=0x148, paramB=0x12b82e00, paramC=0x1f1158
 	manager subtype=0xe, unknown=0x1f, paramA=0x10, paramC=0xc0000
-	manager subtype=0xa, x=0x1b39, y=0xa02, unknown=0x0, paramB=0xb2e0000, paramC=0x1b
-	manager subtype=0xa, x=0x153a, y=0x504, unknown=0x0, paramB=0xb2f0000, paramC=0x1d
-	manager subtype=0xa, x=0x2a15, y=0x204, unknown=0x0, paramB=0xb2f0000, paramC=0x1d
-	manager subtype=0xa, x=0x3726, y=0x304, unknown=0x0, paramB=0xb2f0000, paramC=0x1d
+	ezlo_hint x=0x72, y=0x36, rx=0x2, ry=0xa, msg=0xb2e, flag=0x1b
+	ezlo_hint x=0x74, y=0x2a, rx=0x4, ry=0x5, msg=0xb2f, flag=0x1d
+	ezlo_hint x=0x2a, y=0x54, rx=0x4, ry=0x2, msg=0xb2f, flag=0x1d
+	ezlo_hint x=0x4c, y=0x6e, rx=0x4, ry=0x3, msg=0xb2f, flag=0x1d
 .ifndef EU
-	manager subtype=0xa, x=0x918, y=0x403, unknown=0x0, paramB=0xb2f0000, paramC=0x1d
+	ezlo_hint x=0x30, y=0x12, rx=0x3, ry=0x4, msg=0xb2f, flag=0x1d
 .endif
 	object_raw subtype=0x0, x=0x3d8, y=0x268, collision=1, paramA=0x5c, paramB=0x86e, paramC=0x220000
 	object_raw subtype=0x0, x=0x3d8, y=0x288, collision=1, paramA=0x5c, paramB=0x86f, paramC=0x230000
@@ -3923,20 +3930,20 @@ Entities_CastorWilds_Main_0:: @ 080D9AD8
 .else
 	manager subtype=0x20, x=0x218, y=0x328, paramB=0x12182e00, paramC=0x151318
 	manager subtype=0x20, x=0x2b8, y=0x398, paramB=0x12a82e00, paramC=0x161398
-	object_raw subtype=0x69, x=0x68, y=0x380, unknown=0x4f, paramC=script_0800B200
-	npc_raw subtype=0x2b, x=0x28, y=0x3a8, paramA=0x1, script=script_0800B308
-	npc_raw subtype=0x2b, x=0x40, y=0x354, script=script_0800B254
-	npc_raw subtype=0x2b, x=0x70, y=0x354, script=script_0800B284
-	npc_raw subtype=0x2b, x=0xa0, y=0x354, script=script_0800B2B4
+	object_raw subtype=0x69, x=0x68, y=0x380, unknown=0x4f, paramC=script_Object69
+	npc_raw subtype=0x2b, x=0x28, y=0x3a8, paramA=0x1, script=script_CastorWildsStatueRock
+	npc_raw subtype=0x2b, x=0x40, y=0x354, script=script_CastorWildsStatueLeft
+	npc_raw subtype=0x2b, x=0x70, y=0x354, script=script_CastorWildsStatueMiddle
+	npc_raw subtype=0x2b, x=0xa0, y=0x354, script=script_CastorWildsStatueRight
 	object_raw subtype=0x71, x=0x38, y=0x2d8, paramA=0x1, paramB=0x1, paramC=0x1f0000
 	manager subtype=0x4
 	manager subtype=0x20, x=0x2b8, y=0x148, paramB=0x12b82e00, paramC=0x1e1158
 	manager subtype=0xe, unknown=0x1f, paramA=0x10, paramC=0x230000
-	manager subtype=0xa, x=0x1b39, y=0xa02, unknown=0x0, paramB=0xb2e0000, paramC=0x1a
-	manager subtype=0xa, x=0x153a, y=0x504, unknown=0x0, paramB=0xb2f0000, paramC=0x1c
-	manager subtype=0xa, x=0x2a15, y=0x204, unknown=0x0, paramB=0xb2f0000, paramC=0x1c
-	manager subtype=0xa, x=0x3726, y=0x304, unknown=0x0, paramB=0xb2f0000, paramC=0x1c
-	manager subtype=0xa, x=0x918, y=0x403, unknown=0x0, paramB=0xb2f0000, paramC=0x1c
+	ezlo_hint x=0x72, y=0x36, rx=0x2, ry=0xa, msg=0xb2e, flag=0x1a
+	ezlo_hint x=0x74, y=0x2a, rx=0x4, ry=0x5, msg=0xb2f, flag=0x1c
+	ezlo_hint x=0x2a, y=0x54, rx=0x4, ry=0x2, msg=0xb2f, flag=0x1c
+	ezlo_hint x=0x4c, y=0x6e, rx=0x4, ry=0x3, msg=0xb2f, flag=0x1c
+	ezlo_hint x=0x30, y=0x12, rx=0x3, ry=0x4, msg=0xb2f, flag=0x1c
 	object_raw subtype=0x0, x=0x3d8, y=0x268, collision=1, paramA=0x5c, paramB=0x86e, paramC=0x200000
 	object_raw subtype=0x0, x=0x3d8, y=0x288, collision=1, paramA=0x5c, paramB=0x86f, paramC=0x210000
 	object_raw subtype=0x0, x=0x3d8, y=0x2a8, collision=1, paramA=0x5c, paramB=0x870, paramC=0x220000
@@ -3954,9 +3961,9 @@ gUnk_080D9C38:: @ 080D9C38
 
 gUnk_additional_13_CastorWilds_Main:: @ 080D9CA8
 .ifdef EU_JP
-	manager subtype=0xa, x=0x1e38, y=0x705, unknown=0x0, paramB=0xb660000, paramC=0x1c
+	ezlo_hint x=0x70, y=0x3c, rx=0x5, ry=0x7, msg=0xb66, flag=0x1c
 .else
-	manager subtype=0xa, x=0x1e38, y=0x705, unknown=0x0, paramB=0xb660000, paramC=0x1b
+	ezlo_hint x=0x70, y=0x3c, rx=0x5, ry=0x7, msg=0xb66, flag=0x1b
 .endif
 	entity_list_end
 
@@ -3965,7 +3972,7 @@ gUnk_080D9CC8:: @ 080D9CC8
 	entity_list_end
 
 gUnk_080D9CE8:: @ 080D9CE8
-	object_raw subtype=0xbb, x=0x228, y=0x398, unknown=0x4f, paramB=0x5, paramC=script_0800B00C
+	object_raw subtype=0xbb, x=0x228, y=0x398, unknown=0x4f, paramB=0x5, paramC=script_Windcrest
 	entity_list_end
 
 Entities_CastorWilds_Main_1:: @ 080D9D08
@@ -4189,14 +4196,14 @@ Entities_CastorDarknut_Main_0:: @ 080DA210
 	entity_list_end
 
 gUnk_080DA230:: @ 080DA230
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_0800B17C
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69DarknutFight
 	object_raw subtype=0xc, x=0x88, y=0x68, paramA=0x1, paramC=0x390000
 	entity_list_end
 
 gUnk_080DA260:: @ 080DA260
 	object_raw subtype=0x8, x=0x88, y=0xb8, paramA=0x12, paramC=0x39ffff
 	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x398000
-	manager subtype=0xa, y=0x3f3f, unknown=0x0, paramA=0x3, paramB=0xb100000, paramC=0x80000039
+	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb10, flag=0x39, flag2=0x8000
 	entity_list_end
 
 Entities_CastorDarknut_Main_1:: @ 080DA2A0
@@ -4251,7 +4258,7 @@ Room_CastorDarknut_Hall:: @ 080DA384
 	.4byte sub_StateChange_CastorDarknut_Hall
 
 Entities_GreatFairies_Graveyard_0:: @ 080DA3A4
-	object_raw subtype=0x69, x=0x78, y=0x48, unknown=0x4f, paramC=script_0800B614
+	object_raw subtype=0x69, x=0x78, y=0x48, unknown=0x4f, paramC=script_GreatFairyArrows
 	object_raw subtype=0x1b, x=0x78, y=0x48, collision=2, paramA=0x16
 	entity_list_end
 
@@ -4272,7 +4279,7 @@ Room_GreatFairies_Graveyard:: @ 080DA3EC
 	.4byte sub_StateChange_GreatFairies_Graveyard
 
 Entities_GreatFairies_MinishWoods_0:: @ 080DA40C
-	object_raw subtype=0x69, x=0x78, y=0x48, unknown=0x4f, paramC=script_0800B6C8
+	object_raw subtype=0x69, x=0x78, y=0x48, unknown=0x4f, paramC=script_GreatFairyRupees
 	object_raw subtype=0x1b, x=0x78, y=0x48, collision=2, paramA=0xb
 	entity_list_end
 
@@ -4293,7 +4300,7 @@ Room_GreatFairies_MinishWoods:: @ 080DA454
 	.4byte sub_StateChange_GreatFairies_MinishWoods
 
 Entities_GreatFairies_MtCrenel_0:: @ 080DA474
-	object_raw subtype=0x69, x=0x78, y=0x48, unknown=0x4f, paramC=script_0800B730
+	object_raw subtype=0x69, x=0x78, y=0x48, unknown=0x4f, paramC=script_GreatFairyBombs
 	object_raw subtype=0x1b, x=0x78, y=0x48, collision=2
 	entity_list_end
 
@@ -4360,7 +4367,7 @@ Room_GardenFountains_West:: @ 080DA5A4
 	.4byte sub_StateChange_GardenFountains_West
 
 Entities_MinishHouseInteriors_GentariMain_0:: @ 080DA5C4
-	npc_raw subtype=0x1, x=0x78, y=0x30, script=script_0800C774
+	npc_raw subtype=0x1, x=0x78, y=0x30, script=script_Gentari
 	object_raw subtype=0x58, x=0x18, y=0x50, paramC=0x830000
 	entity_list_end
 
@@ -4420,7 +4427,7 @@ Room_MinishHouseInteriors_GentariExit:: @ 080DA6E8
 	.4byte gUnk_additional_9_MinishHouseInteriors_GentariExit
 
 Entities_MinishHouseInteriors_Festari_0:: @ 080DA710
-	npc_raw subtype=0x2, x=0xe8, y=0x48, script=script_0800C634
+	npc_raw subtype=0x2, x=0xe8, y=0x48, script=script_Festari
 	entity_list_end
 
 Entities_MinishHouseInteriors_Festari_1:: @ 080DA730
@@ -4712,7 +4719,7 @@ Entities_MinishHouseInteriors_MelariMinesSouthwest_0:: @ 080DAED8
 	entity_list_end
 
 gUnk_080DAEE8:: @ 080DAEE8
-	npc_raw subtype=0x2f, x=0x58, y=0x58, paramB=0x100, script=script_0800D308
+	npc_raw subtype=0x2f, x=0x58, y=0x58, paramB=0x100, script=script_MelariInRoom
 	entity_list_end
 
 Entities_MinishHouseInteriors_MelariMinesSouthwest_1:: @ 080DAF08
@@ -4740,7 +4747,7 @@ Entities_MinishHouseInteriors_MelariMinesSoutheast_0:: @ 080DAF70
 	entity_list_end
 
 gUnk_080DAF80:: @ 080DAF80
-	npc_raw subtype=0x2d, x=0xa8, y=0x48, paramA=0x4, paramB=0x7, script=script_0800CF50
+	npc_raw subtype=0x2d, x=0xa8, y=0x48, paramA=0x4, paramB=0x7, script=script_MountainMinish1
 	entity_list_end
 
 Entities_MinishHouseInteriors_MelariMinesSoutheast_1:: @ 080DAFA0
@@ -4768,7 +4775,7 @@ Entities_MinishHouseInteriors_MelariMinesEast_0:: @ 080DB008
 	entity_list_end
 
 gUnk_080DB018:: @ 080DB018
-	npc_raw subtype=0x2d, x=0x130, y=0x58, paramA=0x4, paramB=0x8, script=script_0800CF50
+	npc_raw subtype=0x2d, x=0x130, y=0x58, paramA=0x4, paramB=0x8, script=script_MountainMinish1
 	entity_list_end
 
 Entities_MinishHouseInteriors_MelariMinesEast_1:: @ 080DB038
@@ -4870,7 +4877,7 @@ Entities_MinishHouseInteriors_Librari_0:: @ 080DB228
 	entity_list_end
 
 gUnk_080DB238:: @ 080DB238
-	npc_raw subtype=0x39, x=0x78, y=0x48, script=script_08012430
+	npc_raw subtype=0x39, x=0x78, y=0x48, script=script_LibrariLater
 	entity_list_end
 
 Entities_MinishHouseInteriors_Librari_1:: @ 080DB258
@@ -4918,7 +4925,7 @@ Room_MinishHouseInteriors_HyruleFieldExit:: @ 080DB308
 	.4byte sub_StateChange_MinishHouseInteriors_HyruleFieldExit
 
 Entities_MinishHouseInteriors_HyruleTown_0:: @ 080DB328
-	npc_raw subtype=0x38, x=0x78, y=0x48, paramA=0x2, paramB=0x212, script=script_0800E6E8
+	npc_raw subtype=0x38, x=0x78, y=0x48, paramA=0x2, paramB=0x212, script=script_TownMinish1
 	entity_list_end
 
 Entities_MinishHouseInteriors_HyruleTown_1:: @ 080DB348
@@ -4993,13 +5000,13 @@ Entities_TownMinishHoles_MayorsHouse_0:: @ 080DB490
 	entity_list_end
 
 gUnk_080DB4A0:: @ 080DB4A0
-	npc_raw subtype=0x38, x=0x68, y=0x48, paramB=0x205, script=script_0800E6E8
-	npc_raw subtype=0x38, x=0x88, y=0x48, paramA=0x3, paramB=0x206, script=script_0800E6E8
+	npc_raw subtype=0x38, x=0x68, y=0x48, paramB=0x205, script=script_TownMinish1
+	npc_raw subtype=0x38, x=0x88, y=0x48, paramA=0x3, paramB=0x206, script=script_TownMinish1
 	entity_list_end
 
 gUnk_080DB4D0:: @ 080DB4D0
-	npc_raw subtype=0x38, x=0x68, y=0x48, paramB=0x205, script=script_0800ED90
-	npc_raw subtype=0x38, x=0x88, y=0x48, paramA=0x3, paramB=0x206, script=script_0800EE50
+	npc_raw subtype=0x38, x=0x68, y=0x48, paramB=0x205, script=script_TownMinish4
+	npc_raw subtype=0x38, x=0x88, y=0x48, paramA=0x3, paramB=0x206, script=script_TownMinish5
 	entity_list_end
 
 Entities_TownMinishHoles_MayorsHouse_1:: @ 080DB500
@@ -5024,7 +5031,7 @@ Room_TownMinishHoles_MayorsHouse:: @ 080DB548
 	.4byte sub_StateChange_TownMinishHoles_MayorsHouse
 
 Entities_TownMinishHoles_WestOracle_0:: @ 080DB568
-	npc_raw subtype=0x38, x=0x78, y=0x48, paramA=0x2, paramB=0x213, script=script_0800E6E8
+	npc_raw subtype=0x38, x=0x78, y=0x48, paramA=0x2, paramB=0x213, script=script_TownMinish1
 	entity_list_end
 
 Entities_TownMinishHoles_WestOracle_1:: @ 080DB588
@@ -5048,7 +5055,7 @@ Room_TownMinishHoles_WestOracle:: @ 080DB5C0
 	.4byte sub_StateChange_TownMinishHoles_WestOracle
 
 Entities_TownMinishHoles_DrLeft_0:: @ 080DB5E0
-	npc_raw subtype=0x38, x=0x58, y=0x40, paramB=0x20a, script=script_0800EFC0
+	npc_raw subtype=0x38, x=0x58, y=0x40, paramB=0x20a, script=script_TownMinish6
 	entity_list_end
 
 Entities_TownMinishHoles_DrLeft_1:: @ 080DB600
@@ -5073,7 +5080,7 @@ Room_TownMinishHoles_DrLeft:: @ 080DB648
 	.4byte sub_StateChange_TownMinishHoles_DrLeft
 
 Entities_TownMinishHoles_Carpenter_0:: @ 080DB668
-	npc_raw subtype=0x38, x=0x78, y=0x58, paramB=0x10b, script=script_0800E6E8
+	npc_raw subtype=0x38, x=0x78, y=0x58, paramB=0x10b, script=script_TownMinish1
 	entity_list_end
 
 Entities_TownMinishHoles_Carpenter_1:: @ 080DB688
@@ -5098,8 +5105,8 @@ Room_TownMinishHoles_Carpenter:: @ 080DB6D0
 	.4byte sub_StateChange_TownMinishHoles_Carpenter
 
 Entities_TownMinishHoles_Cafe_0:: @ 080DB6F0
-	npc_raw subtype=0x38, x=0x88, y=0x68, paramA=0x5, paramB=0x20c, script=script_0800E6E8
-	npc_raw subtype=0x38, x=0xa8, y=0x48, paramA=0x4, paramB=0x20d, script=script_0800E6E8
+	npc_raw subtype=0x38, x=0x88, y=0x68, paramA=0x5, paramB=0x20c, script=script_TownMinish1
+	npc_raw subtype=0x38, x=0xa8, y=0x48, paramA=0x4, paramB=0x20d, script=script_TownMinish1
 	entity_list_end
 
 Entities_TownMinishHoles_Cafe_1:: @ 080DB720
@@ -5148,11 +5155,11 @@ Room_TownMinishHoles_5:: @ 080DB7E0
 	.4byte sub_StateChange_TownMinishHoles_5
 
 Entities_TownMinishHoles_LibraryBookshelf_0:: @ 080DB800
-	npc_raw subtype=0x38, x=0xc0, y=0xd0, paramB=0x201, script=script_0800E6E8
+	npc_raw subtype=0x38, x=0xc0, y=0xd0, paramB=0x201, script=script_TownMinish1
 	entity_list_end
 
 gUnk_additional_a_TownMinishHoles_LibraryBookshelf:: @ 080DB820
-	npc_raw subtype=0x38, x=0x80, y=0x158, paramA=0x2, paramB=0x200, script=script_0800E6E8
+	npc_raw subtype=0x38, x=0x80, y=0x158, paramA=0x2, paramB=0x200, script=script_TownMinish1
 	entity_list_end
 
 Entities_TownMinishHoles_LibraryBookshelf_1:: @ 080DB840
@@ -5202,11 +5209,11 @@ Room_TownMinishHoles_LibraryBookshelf:: @ 080DB9BC
 	.4byte gUnk_additional_a_TownMinishHoles_LibraryBookshelf
 
 Entities_TownMinishHoles_LibrariBookHouse_0:: @ 080DB9E8
-	npc_raw subtype=0x39, x=0x78, y=0x58, script=script_0800E964
+	npc_raw subtype=0x39, x=0x78, y=0x58, script=script_Librari
 	entity_list_end
 
 gUnk_080DBA08:: @ 080DBA08
-	npc_raw subtype=0x38, x=0x90, y=0x80, paramA=0x2, paramB=0x200, script=script_0800E6E8
+	npc_raw subtype=0x38, x=0x90, y=0x80, paramA=0x2, paramB=0x200, script=script_TownMinish1
 	entity_list_end
 
 Entities_TownMinishHoles_LibrariBookHouse_1:: @ 080DBA28
@@ -5237,15 +5244,15 @@ Entities_TownMinishHoles_RemShoeShop_0:: @ 080DBAA0
 	entity_list_end
 
 gUnk_080DBAD0:: @ 080DBAD0
-	npc_raw subtype=0x38, x=0x68, y=0x88, paramB=0x200, script=script_08013114
-	npc_raw subtype=0x38, x=0x98, y=0xa8, paramB=0x200, script=script_08013114
-	npc_raw subtype=0x38, x=0xd8, y=0x78, paramB=0x200, script=script_08013114
+	npc_raw subtype=0x38, x=0x68, y=0x88, paramB=0x200, script=script_RemTownMinish
+	npc_raw subtype=0x38, x=0x98, y=0xa8, paramB=0x200, script=script_RemTownMinish
+	npc_raw subtype=0x38, x=0xd8, y=0x78, paramB=0x200, script=script_RemTownMinish
 	entity_list_end
 
 gUnk_080DBB10:: @ 080DBB10
-	npc_raw subtype=0x38, x=0x92, y=0xe8, paramB=0x200, script=script_08013114
-	npc_raw subtype=0x38, x=0xb8, y=0xb8, paramB=0x200, script=script_08013114
-	npc_raw subtype=0x38, x=0xee, y=0xd0, paramB=0x200, script=script_08013114
+	npc_raw subtype=0x38, x=0x92, y=0xe8, paramB=0x200, script=script_RemTownMinish
+	npc_raw subtype=0x38, x=0xb8, y=0xb8, paramB=0x200, script=script_RemTownMinish
+	npc_raw subtype=0x38, x=0xee, y=0xd0, paramB=0x200, script=script_RemTownMinish
 	entity_list_end
 
 gUnk_080DBB50:: @ 080DBB50
@@ -5257,7 +5264,7 @@ gUnk_080DBB70:: @ 080DBB70
 	entity_list_end
 
 gUnk_080DBB90:: @ 080DBB90
-	object_raw subtype=0x69, unknown=0x48, paramC=script_08013188
+	object_raw subtype=0x69, unknown=0x48, paramC=script_Object69Rem
 	entity_list_end
 
 Enemies_TownMinishHoles_RemShoeShop:: @ 080DBBB0
@@ -5580,7 +5587,7 @@ gUnk_080DC470:: @ 080DC470
 	entity_list_end
 
 gUnk_080DC4C0:: @ 080DC4C0
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_0800C91C
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69VillageIntro
 	npc_raw subtype=0x3, x=0x208, y=0x2f0, unknown=0xf, collision=1, paramB=0x227, script=0x0
 	npc_raw subtype=0x3, x=0x198, y=0x330, unknown=0xf, collision=1, paramB=0x128, script=0x0
 	npc_raw subtype=0x3, x=0x278, y=0x330, unknown=0xf, collision=1, paramB=0x329, script=0x0
@@ -6179,10 +6186,10 @@ Room_MinishCracks_11:: @ 080DD124
 	.4byte sub_StateChange_MinishCracks_11
 
 Entities_MelarisMine_Main_0:: @ 080DD144
-	npc_raw subtype=0x2d, x=0x168, y=0x48, script=script_0800CF88
-	npc_raw subtype=0x2d, x=0x238, y=0x48, paramB=0x1, script=script_0800CF88
-	npc_raw subtype=0x2d, x=0x268, y=0x138, paramA=0x6, paramB=0x2, script=script_0800CF50
-	npc_raw subtype=0x2d, x=0x128, y=0x1e8, paramA=0x2, paramB=0x3, script=script_0800D414
+	npc_raw subtype=0x2d, x=0x168, y=0x48, script=script_MountainMinish2
+	npc_raw subtype=0x2d, x=0x238, y=0x48, paramB=0x1, script=script_MountainMinish2
+	npc_raw subtype=0x2d, x=0x268, y=0x138, paramA=0x6, paramB=0x2, script=script_MountainMinish1
+	npc_raw subtype=0x2d, x=0x128, y=0x1e8, paramA=0x2, paramB=0x3, script=script_MountainMinish5
 	object_raw subtype=0x0, x=0xe8, y=0xe8, collision=1, paramA=0x5c, paramB=0x771, paramC=0xb90000
 	object_raw subtype=0x0, x=0x1f8, y=0x48, collision=1, paramA=0x56, paramB=0x700, paramC=0xba0000
 	object_raw subtype=0x0, x=0xd8, y=0x48, collision=1, paramA=0x5c, paramB=0x772, paramC=0xbb0000
@@ -6194,19 +6201,19 @@ Entities_MelarisMine_Main_0:: @ 080DD144
 	entity_list_end
 
 gUnk_additional_8_MelarisMine_Main:: @ 080DD214
-	npc_raw subtype=0x2d, x=0x1ba, y=0x138, paramA=0x6, paramB=0x5, script=script_0800D278
-	npc_raw subtype=0x2d, x=0x1ba, y=0x148, paramA=0x6, paramB=0x6, script=script_0800D278
-	npc_raw subtype=0x2f, x=0x190, y=0x140, script=script_0800CFAC
-	object_raw subtype=0x6a, x=0x1a8, y=0x138, unknown=0x4f, paramA=0x8, paramC=script_0800D218
-	object_raw subtype=0x6a, x=0x1a8, y=0x138, unknown=0x4f, paramA=0x9, paramC=script_0800D254
+	npc_raw subtype=0x2d, x=0x1ba, y=0x138, paramA=0x6, paramB=0x5, script=script_MountainMinish3
+	npc_raw subtype=0x2d, x=0x1ba, y=0x148, paramA=0x6, paramB=0x6, script=script_MountainMinish3
+	npc_raw subtype=0x2f, x=0x190, y=0x140, script=script_Melari
+	object_raw subtype=0x6a, x=0x1a8, y=0x138, unknown=0x4f, paramA=0x8, paramC=script_Object6ABrokenSword
+	object_raw subtype=0x6a, x=0x1a8, y=0x138, unknown=0x4f, paramA=0x9, paramC=script_Object6ARepairedSword
 	entity_list_end
 
 gUnk_additional_9_MelarisMine_Main:: @ 080DD274
-	npc_raw subtype=0x2d, x=0x80, y=0x130, paramA=0x2, paramB=0x4, script=script_0800D350
+	npc_raw subtype=0x2d, x=0x80, y=0x130, paramA=0x2, paramB=0x4, script=script_MountainMinish4
 	entity_list_end
 
 gUnk_080DD294:: @ 080DD294
-	npc_raw subtype=0x2d, x=0xa0, y=0x130, paramA=0x4, paramB=0x4, script=script_0800CF50
+	npc_raw subtype=0x2d, x=0xa0, y=0x130, paramA=0x4, paramB=0x4, script=script_MountainMinish1
 	entity_list_end
 
 Entities_MelarisMine_Main_1:: @ 080DD2B4
@@ -6236,14 +6243,14 @@ Room_MelarisMine_Main:: @ 080DD31C
 
 Entities_CloudTops_House_0:: @ 080DD344
 .ifdef EU_JP
-	manager subtype=0xa, x=0x171c, y=0x205, unknown=0x0, paramB=0xb220000, paramC=0xd9
+	ezlo_hint x=0x38, y=0x2e, rx=0x5, ry=0x2, msg=0xb22, flag=0xd9
 .else
-	manager subtype=0xa, x=0x171c, y=0x205, unknown=0x0, paramB=0xb220000, paramC=0xdc
+	ezlo_hint x=0x38, y=0x2e, rx=0x5, ry=0x2, msg=0xb22, flag=0xdc
 .endif
 	entity_list_end
 
 gUnk_080DD364:: @ 080DD364
-	object_raw subtype=0xbb, x=0x1e8, y=0x1a8, unknown=0x4f, paramB=0x2, paramC=script_0800B00C
+	object_raw subtype=0xbb, x=0x1e8, y=0x1a8, unknown=0x4f, paramB=0x2, paramC=script_Windcrest
 	entity_list_end
 
 Entities_CloudTops_House_1:: @ 080DD384
@@ -6278,7 +6285,7 @@ Entities_CloudTops_Middle_0:: @ 080DD40C
 	object_raw subtype=0x0, x=0x28, y=0x388, collision=1, paramA=0x5c, paramB=0x775, paramC=0xe60000
 	object_raw subtype=0x0, x=0x2e8, y=0x388, collision=1, paramA=0x5c, paramB=0x76e, paramC=0xe70000
 	object_raw subtype=0x0, x=0x3a8, y=0x378, collision=1, paramA=0x5c, paramB=0x772, paramC=0xe80000
-	manager subtype=0xa, x=0x1715, y=0x210, unknown=0x0, paramB=0xb220000, paramC=0xda
+	ezlo_hint x=0x2a, y=0x2e, rx=0x10, ry=0x2, msg=0xb22, flag=0xda
 .else
 	object_raw subtype=0x0, x=0x38, y=0x28, collision=1, paramA=0x5c, paramB=0x773, paramC=0xe50000
 	object_raw subtype=0x0, x=0x3c8, y=0x38, collision=1, paramA=0x5c, paramB=0x76f, paramC=0xe60000
@@ -6287,7 +6294,7 @@ Entities_CloudTops_Middle_0:: @ 080DD40C
 	object_raw subtype=0x0, x=0x28, y=0x388, collision=1, paramA=0x5c, paramB=0x775, paramC=0xe90000
 	object_raw subtype=0x0, x=0x2e8, y=0x388, collision=1, paramA=0x5c, paramB=0x76e, paramC=0xea0000
 	object_raw subtype=0x0, x=0x3a8, y=0x378, collision=1, paramA=0x5c, paramB=0x772, paramC=0xeb0000
-	manager subtype=0xa, x=0x1715, y=0x210, unknown=0x0, paramB=0xb220000, paramC=0xdd
+	ezlo_hint x=0x2a, y=0x2e, rx=0x10, ry=0x2, msg=0xb22, flag=0xdd
 .endif
 	entity_list_end
 
@@ -6368,9 +6375,9 @@ gUnk_080DD730:: @ 080DD730
 	entity_list_end
 
 gUnk_080DD750:: @ 080DD750
-	object_raw subtype=0x69, x=0x1e8, y=0x1b8, unknown=0x4f, paramC=script_0800D710
-	npc_raw subtype=0x49, x=0x268, y=0x1d8, paramA=0x1, paramB=0x60b, script=script_0800D7DC
-	npc_raw subtype=0x49, x=0x1a8, y=0x1f8, paramA=0x3, paramB=0x40a, script=script_0800D76C
+	object_raw subtype=0x69, x=0x1e8, y=0x1b8, unknown=0x4f, paramC=script_Object69GreatWhirlwindRevealed
+	npc_raw subtype=0x49, x=0x268, y=0x1d8, paramA=0x1, paramB=0x60b, script=script_WindTribespeopleGreatWhirlwindRevealed2
+	npc_raw subtype=0x49, x=0x1a8, y=0x1f8, paramA=0x3, paramB=0x40a, script=script_WindTribespeopleGreatWhirlwindRevealed1
 	entity_list_end
 
 Entities_CloudTops_Bottom_0:: @ 080DD790
@@ -6378,11 +6385,11 @@ Entities_CloudTops_Bottom_0:: @ 080DD790
 .ifdef EU_JP
 	manager subtype=0x17, x=0x208, y=0x38, paramA=0x5c, paramB=0x10466, paramC=0xf000f1
 	manager subtype=0x17, x=0x238, y=0x2e8, paramA=0x5c, paramB=0x10466, paramC=0xf200f3
-	manager subtype=0xa, x=0x1d18, y=0x302, unknown=0x0, paramB=0xb210000, paramC=0xea
+	ezlo_hint x=0x30, y=0x3a, rx=0x2, ry=0x3, msg=0xb21, flag=0xea
 .else
 	manager subtype=0x17, x=0x208, y=0x38, paramA=0x5c, paramB=0x10466, paramC=0xf300f4
 	manager subtype=0x17, x=0x238, y=0x2e8, paramA=0x5c, paramB=0x10466, paramC=0xf500f6
-	manager subtype=0xa, x=0x1d18, y=0x302, unknown=0x0, paramB=0xb210000, paramC=0xed
+	ezlo_hint x=0x30, y=0x3a, rx=0x2, ry=0x3, msg=0xb21, flag=0xed
 .endif
 	entity_list_end
 
@@ -6438,13 +6445,13 @@ gUnk_additional_8_CloudTops_Bottom:: @ 080DD8F0
 	delayed_entity_raw subtype=0x5e, x=0x338, y=0x2e8, layer=1, paramB=0x1, conditions=0xffff
 	delayed_entity_raw subtype=0x5e, x=0x378, y=0x398, layer=1, paramB=0x1, conditions=0xffff
 	delayed_entity_raw subtype=0x5e, x=0x398, y=0x1a8, layer=1, paramB=0x1, conditions=0xffff
-	delayed_entity_raw subtype=0x5e, x=0x248, y=0x48, layer=1, paramB=0x1, paramC=script_0800D6D0, conditions=0xffff
-	delayed_entity_raw subtype=0x5e, x=0x268, y=0x2d8, layer=1, paramB=0x1, paramC=script_0800D6F0, conditions=0xffff
-	delayed_entity_raw subtype=0x6a, x=0x3a8, y=0x40, layer=1, paramA=0x12, paramB=0x1, paramC=script_0800D6B4, paramD=0x1, conditions=0xffff
-	delayed_entity_raw subtype=0x6a, x=0x138, y=0x2c0, layer=1, paramA=0x12, paramB=0x2, paramC=script_0800D6B4, paramD=0x1, conditions=0xffff
-	delayed_entity_raw subtype=0x6a, x=0x48, y=0x30, layer=1, paramA=0x12, paramB=0x3, paramC=script_0800D6B4, paramD=0x1, conditions=0xffff
-	delayed_entity_raw subtype=0x6a, x=0x2f8, y=0x1d0, layer=1, paramA=0x12, paramB=0x4, paramC=script_0800D6B4, paramD=0x1, conditions=0xffff
-	delayed_entity_raw subtype=0x6a, x=0x3a8, y=0x2d0, layer=1, paramA=0x12, paramB=0x5, paramC=script_0800D6B4, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x248, y=0x48, layer=1, paramB=0x1, paramC=script_HiddenWhirlwind1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x268, y=0x2d8, layer=1, paramB=0x1, paramC=script_HiddenWhirlwind2, conditions=0xffff
+	delayed_entity_raw subtype=0x6a, x=0x3a8, y=0x40, layer=1, paramA=0x12, paramB=0x1, paramC=script_Object6AMysteriousCloud, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x6a, x=0x138, y=0x2c0, layer=1, paramA=0x12, paramB=0x2, paramC=script_Object6AMysteriousCloud, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x6a, x=0x48, y=0x30, layer=1, paramA=0x12, paramB=0x3, paramC=script_Object6AMysteriousCloud, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x6a, x=0x2f8, y=0x1d0, layer=1, paramA=0x12, paramB=0x4, paramC=script_Object6AMysteriousCloud, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x6a, x=0x3a8, y=0x2d0, layer=1, paramA=0x12, paramB=0x5, paramC=script_Object6AMysteriousCloud, paramD=0x1, conditions=0xffff
 	delayed_entity_raw subtype=0xbe, x=0x228, y=0x1a0, layer=2, conditions=0xffff
 	delayed_entity_raw subtype=0xbe, x=0x1c8, y=0x1e0, layer=2, paramB=0x1, conditions=0xffff
 	delayed_entity_raw subtype=0xbe, x=0x1b8, y=0x1a0, layer=2, paramB=0x2, conditions=0xffff
@@ -6462,14 +6469,14 @@ gUnk_additional_8_CloudTops_Bottom:: @ 080DD8F0
 	delayed_entity_raw subtype=0x5e, x=0x338, y=0x2e8, layer=1, paramB=0x1, conditions=0xffff
 	delayed_entity_raw subtype=0x5e, x=0x378, y=0x398, layer=1, paramB=0x1, conditions=0xffff
 	delayed_entity_raw subtype=0x5e, x=0x398, y=0x1a8, layer=1, paramB=0x1, conditions=0xffff
-	delayed_entity_raw subtype=0x5e, x=0x248, y=0x48, layer=1, paramB=0x1, paramC=script_0800D6D0, conditions=0xffff
-	delayed_entity_raw subtype=0x5e, x=0x268, y=0x2d8, layer=1, paramB=0x1, paramC=script_0800D6F0, conditions=0xffff
-	delayed_entity_raw subtype=0x5e, x=0x1e8, y=0x398, layer=1, paramB=0x1, paramC=script_0800D6F0, conditions=0xffff
-	delayed_entity_raw subtype=0x6a, x=0x3a8, y=0x40, layer=1, paramA=0x12, paramB=0x1, paramC=script_0800D6B4, paramD=0x1, conditions=0xffff
-	delayed_entity_raw subtype=0x6a, x=0x138, y=0x2c0, layer=1, paramA=0x12, paramB=0x2, paramC=script_0800D6B4, paramD=0x1, conditions=0xffff
-	delayed_entity_raw subtype=0x6a, x=0x48, y=0x30, layer=1, paramA=0x12, paramB=0x3, paramC=script_0800D6B4, paramD=0x1, conditions=0xffff
-	delayed_entity_raw subtype=0x6a, x=0x2f8, y=0x1d0, layer=1, paramA=0x12, paramB=0x4, paramC=script_0800D6B4, paramD=0x1, conditions=0xffff
-	delayed_entity_raw subtype=0x6a, x=0x3a8, y=0x2d0, layer=1, paramA=0x12, paramB=0x5, paramC=script_0800D6B4, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x248, y=0x48, layer=1, paramB=0x1, paramC=script_HiddenWhirlwind1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x268, y=0x2d8, layer=1, paramB=0x1, paramC=script_HiddenWhirlwind2, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x1e8, y=0x398, layer=1, paramB=0x1, paramC=script_HiddenWhirlwind2, conditions=0xffff
+	delayed_entity_raw subtype=0x6a, x=0x3a8, y=0x40, layer=1, paramA=0x12, paramB=0x1, paramC=script_Object6AMysteriousCloud, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x6a, x=0x138, y=0x2c0, layer=1, paramA=0x12, paramB=0x2, paramC=script_Object6AMysteriousCloud, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x6a, x=0x48, y=0x30, layer=1, paramA=0x12, paramB=0x3, paramC=script_Object6AMysteriousCloud, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x6a, x=0x2f8, y=0x1d0, layer=1, paramA=0x12, paramB=0x4, paramC=script_Object6AMysteriousCloud, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x6a, x=0x3a8, y=0x2d0, layer=1, paramA=0x12, paramB=0x5, paramC=script_Object6AMysteriousCloud, paramD=0x1, conditions=0xffff
 	delayed_entity_raw subtype=0xbe, x=0x228, y=0x1a0, layer=2, conditions=0xffff
 	delayed_entity_raw subtype=0xbe, x=0x1c8, y=0x1e0, layer=2, paramB=0x1, conditions=0xffff
 	delayed_entity_raw subtype=0xbe, x=0x1b8, y=0x1a0, layer=2, paramB=0x2, conditions=0xffff
@@ -6479,13 +6486,13 @@ gUnk_additional_8_CloudTops_Bottom:: @ 080DD8F0
 .endif
 
 gUnk_additional_9_CloudTops_Bottom:: @ 080DDA70
-	delayed_entity_raw subtype=0x4e, x=0x3a8, y=0x48, layer=1, paramA=0x1, paramC=script_0800D60C, conditions=0xffff
-	delayed_entity_raw subtype=0x4e, x=0x138, y=0x2c8, layer=1, paramA=0x2, paramC=script_0800D60C, conditions=0xffff
-	delayed_entity_raw subtype=0x4e, x=0x48, y=0x38, layer=1, paramA=0x3, paramC=script_0800D60C, conditions=0xffff
-	delayed_entity_raw subtype=0x4e, x=0x2f8, y=0x1d8, layer=1, paramA=0x4, paramC=script_0800D60C, conditions=0xffff
-	delayed_entity_raw subtype=0x4e, x=0x3a8, y=0x2d8, layer=1, paramA=0x5, paramC=script_0800D60C, conditions=0xffff
-	delayed_entity_raw subtype=0x49, x=0x2d8, y=0x1d8, layer=1, paramA=0x1, paramB=0xb, paramC=script_08014C94, paramD=0x4, conditions=0xffff
-	delayed_entity_raw subtype=0x49, x=0x1a8, y=0x1f8, layer=1, paramA=0x3, paramB=0xa, paramC=script_08014C94, paramD=0x4, conditions=0xffff
+	delayed_entity_raw subtype=0x4e, x=0x3a8, y=0x48, layer=1, paramA=0x1, paramC=script_Npc4EFirstCloud, conditions=0xffff
+	delayed_entity_raw subtype=0x4e, x=0x138, y=0x2c8, layer=1, paramA=0x2, paramC=script_Npc4EFirstCloud, conditions=0xffff
+	delayed_entity_raw subtype=0x4e, x=0x48, y=0x38, layer=1, paramA=0x3, paramC=script_Npc4EFirstCloud, conditions=0xffff
+	delayed_entity_raw subtype=0x4e, x=0x2f8, y=0x1d8, layer=1, paramA=0x4, paramC=script_Npc4EFirstCloud, conditions=0xffff
+	delayed_entity_raw subtype=0x4e, x=0x3a8, y=0x2d8, layer=1, paramA=0x5, paramC=script_Npc4EFirstCloud, conditions=0xffff
+	delayed_entity_raw subtype=0x49, x=0x2d8, y=0x1d8, layer=1, paramA=0x1, paramB=0xb, paramC=script_WindTribespeople7, paramD=0x4, conditions=0xffff
+	delayed_entity_raw subtype=0x49, x=0x1a8, y=0x1f8, layer=1, paramA=0x3, paramB=0xa, paramC=script_WindTribespeople7, paramD=0x4, conditions=0xffff
 	entity_list_end
 
 Enemies_CloudTops_Bottom:: @ 080DDAF0
@@ -6713,7 +6720,7 @@ Entities_Ruins_FortressEntrance_0:: @ 080DDFE8
 	entity_list_end
 
 gUnk_080DE008:: @ 080DE008
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_0800AF8C
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_EzloTalkFoW
 	entity_list_end
 
 Entities_Ruins_FortressEntrance_1:: @ 080DE028
@@ -6887,7 +6894,7 @@ gUnk_additional_8_DeepwoodShrine_Madderpillar:: @ 080DE4E8
 	enemy_raw subtype=0x18, x=0x98, y=0x88
 	manager subtype=0x2e, x=0x2d, unknown=0x0, paramB=0x100, paramC=0x80000000
 	object_raw subtype=0x8, x=0xe8, y=0x58, paramA=0x5, paramC=0x8000ffff
-	manager subtype=0xa, x=0x404, y=0x70a, unknown=0x0, paramA=0x3, paramB=0xb000000, paramC=0x80000017
+	ezlo_hint type=0x3, x=0x8, y=0x8, rx=0xa, ry=0x7, msg=0xb00, flag=0x17, flag2=0x8000
 	entity_list_end
 
 TileEntities_DeepwoodShrine_Madderpillar:: @ 080DE538
@@ -7011,7 +7018,7 @@ Entities_DeepwoodShrine_PotBridge_0:: @ 080DE8D0
 	manager subtype=0x20, x=0x48, y=0x48, paramB=0x10c80500, paramC=0x261048
 	object_raw subtype=0x3, x=0xc8, y=0x48, paramA=0x1, paramC=0x80000000
 	manager subtype=0x5, x=0xa, y=0x6, paramB=0x12, paramC=0x80000001
-	manager subtype=0xa, x=0x407, y=0x103, unknown=0x0, paramB=0xb360000, paramC=0x25
+	ezlo_hint x=0xe, y=0x8, rx=0x3, ry=0x1, msg=0xb36, flag=0x25
 	manager subtype=0x1e, x=0x70, y=0xb0, paramB=0x100030, paramC=0x510000
 	entity_list_end
 
@@ -7036,7 +7043,7 @@ Room_DeepwoodShrine_PotBridge:: @ 080DE980
 	.4byte sub_StateChange_DeepwoodShrine_PotBridge
 
 Entities_DeepwoodShrine_DoubleStatue_0:: @ 080DE9A0
-	manager subtype=0xa, x=0x503, y=0x10b, unknown=0x0, paramB=0xb330000, paramC=0x50
+	ezlo_hint x=0x6, y=0xa, rx=0xb, ry=0x1, msg=0xb33, flag=0x50
 	object_raw subtype=0x3, x=0x68, y=0x68, paramA=0x1, paramC=0x80000000
 	object_raw subtype=0x3, x=0xa8, y=0x68, paramA=0x1, paramC=0x80010000
 	object_raw subtype=0xc, x=0x88, y=0x58, paramA=0x1, paramC=0x84000000
@@ -7095,7 +7102,7 @@ Entities_DeepwoodShrine_Barrel_0:: @ 080DEB30
 	object_raw subtype=0x8, x=0x1b8, y=0x48, paramA=0x9, paramC=0x2affff
 	object_raw subtype=0x8, x=0xe8, y=0x28, paramC=0x1c
 	object_raw subtype=0x25, x=0xe8, y=0xc8
-	manager subtype=0xa, x=0xc02, y=0x219, unknown=0x0, paramB=0xb340000, paramC=0x2c
+	ezlo_hint x=0x4, y=0x18, rx=0x19, ry=0x2, msg=0xb34, flag=0x2c
 	object_raw subtype=0x3, x=0x28, y=0xb8, paramA=0x1, paramC=0x80000000
 	object_raw subtype=0x3, x=0x28, y=0xd8, paramA=0x1, paramC=0x80010000
 	manager subtype=0x11, paramC=0x84000015
@@ -7230,7 +7237,7 @@ Entities_DeepwoodShrine_Lever_0:: @ 080DEF80
 	object_raw subtype=0x54, x=0x108, y=0x24, paramB=0x200000, paramC=0x80000000
 	manager subtype=0x11, paramC=0x80000032
 	manager subtype=0x5, x=0xf, y=0x8, paramB=0x8b, paramC=0x320001
-	manager subtype=0xa, x=0x30f, y=0x203, unknown=0x0, paramB=0xb320000, paramC=0x33
+	ezlo_hint x=0x1e, y=0x6, rx=0x3, ry=0x2, msg=0xb32, flag=0x33
 	object_raw subtype=0x32, x=0x88, y=0x88
 	object_raw subtype=0x5, x=0x118, y=0xd8, collision=1
 	object_raw subtype=0x5, x=0x38, y=0xc8, collision=1
@@ -7261,7 +7268,7 @@ Room_DeepwoodShrine_Lever:: @ 080DF090
 	.4byte sub_StateChange_DeepwoodShrine_Lever
 
 Entities_DeepwoodShrine_Entrance_0:: @ 080DF0B0
-	manager subtype=0xa, x=0xb03, y=0x30f, unknown=0x0, paramB=0xb120000, paramC=0x37
+	ezlo_hint x=0x6, y=0x16, rx=0xf, ry=0x3, msg=0xb12, flag=0x37
 	projectile_raw subtype=0x15, x=0x48, y=0x68, unknown=0xf, paramC=0x340000
 	projectile_raw subtype=0x15, x=0x108, y=0x68, unknown=0xf, paramC=0x350000
 	object_raw subtype=0x34, x=0x98, y=0x88, paramB=0x148, paramC=0x36014e
@@ -7298,7 +7305,7 @@ Room_DeepwoodShrine_Entrance:: @ 080DF1B0
 
 Entities_DeepwoodShrine_Torch_0:: @ 080DF1D4
 	object_raw subtype=0x8, x=0xa8, y=0x28, paramA=0x8, paramC=0x3c0000
-	manager subtype=0xa, x=0x309, y=0x103, unknown=0x0, paramB=0xb6b0000, paramC=0x55
+	ezlo_hint x=0x12, y=0x6, rx=0x3, ry=0x1, msg=0xb6b, flag=0x55
 	object_raw subtype=0x3, x=0x68, y=0x68, paramC=0x380000
 	object_raw subtype=0x3, x=0x68, y=0xa8, paramC=0x390000
 	object_raw subtype=0x3, x=0xe8, y=0x68, paramC=0x3a0000
@@ -7387,7 +7394,7 @@ Entities_DeepwoodShrine_Compass_0:: @ 080DF48C
 	object_raw subtype=0x14, x=0xa8, y=0x88, paramA=0x1, paramB=0x40
 	manager subtype=0x1e, x=0xf0, y=0xd0, paramB=0x200040, paramC=0x440000
 	.ifdef DEMO_JP
-	manager subtype=0xa, x=0x30a, y=0x403, unknown=0x0, paramB=0xb6f0000, paramC=0x430056
+	ezlo_hint x=0x14, y=0x6, rx=0x3, ry=0x4, msg=0xb6f, flag=0x56, flag2=0x43
 	.endif
 	entity_list_end
 .else
@@ -7404,7 +7411,7 @@ Entities_DeepwoodShrine_Compass_0:: @ 080DF48C
 	object_raw subtype=0xc, x=0x100, y=0x38, paramA=0x4, paramB=0x42
 	object_raw subtype=0x14, x=0xa8, y=0x88, paramA=0x1, paramB=0x40
 	manager subtype=0x1e, x=0xf0, y=0xd0, paramB=0x200040, paramC=0x440000
-	manager subtype=0xa, x=0x30a, y=0x403, unknown=0x0, paramB=0xb6f0000, paramC=0x430056
+	ezlo_hint x=0x14, y=0x6, rx=0x3, ry=0x4, msg=0xb6f, flag=0x56, flag2=0x43
 	entity_list_end
 .endif
 
@@ -7452,7 +7459,7 @@ Room_DeepwoodShrine_13:: @ 080DF62C
 
 Entities_DeepwoodShrine_LilyPadWest_0:: @ 080DF64C
 	object_raw subtype=0x8, x=0x48, y=0x28, paramA=0x8, paramC=0x45ffff
-	manager subtype=0xa, x=0xa0b, y=0x501, unknown=0x0, paramB=0xb370000, paramC=0x46
+	ezlo_hint x=0x16, y=0x14, rx=0x1, ry=0x5, msg=0xb37, flag=0x46
 	object_raw subtype=0x14, x=0x78, y=0xc8, paramA=0xff
 	entity_list_end
 
@@ -7541,7 +7548,7 @@ Entities_DeepwoodShrineBoss_Main_0:: @ 080DF88C
 	object_raw subtype=0x39, x=0x88, y=0xc8, paramA=0x6, paramC=0xffff
 	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x40020000
 	manager subtype=0xe, y=0x3c, paramA=0x9, paramB=0x1, paramC=0x40020000
-	manager subtype=0xa, y=0x3f3f, unknown=0x0, paramA=0x3, paramB=0xb010000, paramC=0x4002
+	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb01, flag=0x4002
 	object_raw subtype=0x5, x=0x38, y=0x38, paramA=0x5f
 	object_raw subtype=0x5, x=0xd8, y=0x38, paramA=0x5f
 	object_raw subtype=0x5, x=0x38, y=0xb8, paramA=0x5f
@@ -7615,7 +7622,7 @@ Entities_DeepwoodShrine_InsideBarrel_0:: @ 080DFA90
 	object_raw subtype=0x26, x=0x78, y=0x50, paramA=0x4
 	object_raw subtype=0x26, x=0xa0, y=0x50, paramA=0x5
 	manager subtype=0x1a, unknown=0x8
-	manager subtype=0xa, x=0x502, y=0x10c, unknown=0x0, paramB=0xb350000, paramC=0x415004e
+	ezlo_hint x=0x4, y=0xa, rx=0xc, ry=0x1, msg=0xb35, flag=0x4e, flag2=0x415
 	entity_list_end
 
 Enemies_DeepwoodShrine_InsideBarrel:: @ 080DFB30
@@ -7638,7 +7645,7 @@ Entities_DeepwoodShrineEntry_Main_0:: @ 080DFB68
 	entity_list_end
 
 gUnk_080DFB78:: @ 080DFB78
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_0800AF44
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_EzloTalkDWS
 	entity_list_end
 
 Enemies_DeepwoodShrineEntry_Main:: @ 080DFB98
@@ -7666,7 +7673,7 @@ Entities_CaveOfFlames_AfterCane_0:: @ 080DFBD0
 	object_raw subtype=0x5, x=0x118, y=0x48, paramA=0x5f
 	object_raw subtype=0x5, x=0x118, y=0x98, paramA=0x5f
 	manager subtype=0x1e, x=0x50, y=0xc0, paramB=0x200070, paramC=0x3b0000
-	manager subtype=0xa, x=0x705, y=0x404, unknown=0x0, paramB=0xb680000, paramC=0x43
+	ezlo_hint x=0xa, y=0xe, rx=0x4, ry=0x4, msg=0xb68, flag=0x43
 	entity_list_end
 
 Entities_CaveOfFlames_AfterCane_1:: @ 080DFC70
@@ -7702,7 +7709,7 @@ Entities_CaveOfFlames_SpinyChus_0:: @ 080DFD14
 	manager subtype=0x1e, x=0x70, y=0x60, paramB=0x300020, paramC=0x80000000
 	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x168000
 	object_raw subtype=0xc, x=0x80, y=0x78, paramA=0x2, paramB=0x19, paramC=0x160000
-	manager subtype=0xa, y=0x3f3f, unknown=0x0, paramA=0x3, paramB=0xb020000, paramC=0x80000016
+	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb02, flag=0x16, flag2=0x8000
 	object_raw subtype=0x8, x=0x38, y=0x78, paramA=0x3, paramC=0x160000
 	entity_list_end
 
@@ -7788,7 +7795,7 @@ Room_CaveOfFlames_CartToSpinyChus:: @ 080E0048
 	.4byte sub_StateChange_CaveOfFlames_CartToSpinyChus
 
 Entities_CaveOfFlames_Entrance_0:: @ 080E0068
-	manager subtype=0xa, x=0x803, y=0x30b, unknown=0x0, paramB=0xb130000, paramC=0x1b
+	ezlo_hint x=0x6, y=0x10, rx=0xb, ry=0x3, msg=0xb13, flag=0x1b
 	object_raw subtype=0x5, x=0x38, y=0xa8, paramA=0x5f
 	object_raw subtype=0x5, x=0x48, y=0xa8, paramA=0x5f
 	object_raw subtype=0x5, x=0xc8, y=0xa8, paramA=0x5f
@@ -7828,7 +7835,7 @@ Entities_CaveOfFlames_MainCart_0:: @ 080E01AC
 	object_raw subtype=0x8, x=0x258, y=0x38, paramA=0x9, paramC=0x1dffff
 	object_raw subtype=0x8, x=0x2a8, y=0x38, paramA=0xb, paramC=0x1dffff
 	object_raw subtype=0x55, x=0x2f8, y=0x68, paramA=0x2, paramB=0x100
-	manager subtype=0xa, x=0x62b, y=0x20a, unknown=0x0, paramB=0xb380000, paramC=0x1e
+	ezlo_hint x=0x56, y=0xc, rx=0xa, ry=0x2, msg=0xb38, flag=0x1e
 	object_raw subtype=0x6c, x=0x28, y=0x38, paramA=0x3
 	object_raw subtype=0x6c, x=0x28, y=0xd8, paramA=0x3
 	object_raw subtype=0x2f, x=0x178, y=0x58, paramC=0x1c0000
@@ -7917,7 +7924,7 @@ Entities_CaveOfFlames_CartWest_0:: @ 080E04D0
 	object_raw subtype=0x6c, x=0x288, y=0x38, paramA=0x1
 	object_raw subtype=0x6c, x=0x288, y=0xd8, paramA=0x1
 	object_raw subtype=0x55, x=0x238, y=0xd8, paramA=0x2, paramB=0x100
-	manager subtype=0xa, x=0xb20, y=0x401, unknown=0x0, paramB=0xb390000, paramC=0x21
+	ezlo_hint x=0x40, y=0x16, rx=0x1, ry=0x4, msg=0xb39, flag=0x21
 	object_raw subtype=0x8, x=0xb8, y=0xf8, paramA=0x2, paramC=0x24ffff
 	object_raw subtype=0x8, x=0xb8, y=0xf8, paramA=0x12, paramC=0xffff
 	object_raw subtype=0x5, x=0x168, y=0xc8
@@ -7977,7 +7984,7 @@ Entities_CaveOfFlames_Helmasaur_0:: @ 080E0790
 	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x220000
 	object_raw subtype=0x74, x=0x78, y=0x88, collision=2, paramC=0x220000
 	manager subtype=0x3, x=0x78, y=0x88, unknown=0x0, paramA=0x3, paramB=0x200
-	manager subtype=0xa, x=0x303, y=0xb09, unknown=0x0, paramB=0xb3b0000, paramC=0x40630023
+	ezlo_hint x=0x6, y=0x6, rx=0x9, ry=0xb, msg=0xb3b, flag=0x23, flag2=0x4063
 	entity_list_end
 
 Entities_CaveOfFlames_Helmasaur_1:: @ 080E07E0
@@ -8065,7 +8072,7 @@ Entities_CaveOfFlames_MinishLava_0:: @ 080E0A44
 	object_raw subtype=0x3, x=0x58, y=0x138, paramC=0x280000
 	object_raw subtype=0x8, x=0x48, y=0x178, paramA=0x3, paramC=0x280000
 	object_raw subtype=0x59, paramB=0x8
-	manager subtype=0xa, x=0x1205, y=0x20f, unknown=0x0, paramB=0xb3a0000, paramC=0x44
+	ezlo_hint x=0xa, y=0x24, rx=0xf, ry=0x2, msg=0xb3a, flag=0x44
 	object_raw subtype=0x5, x=0xe8, y=0x138
 	object_raw subtype=0x5, x=0xf8, y=0x138
 	object_raw subtype=0x5, x=0xe8, y=0x148
@@ -8293,7 +8300,7 @@ Room_CaveOfFlames_PathBossKey2:: @ 080E11F0
 
 Entities_CaveOfFlames_Compass_0:: @ 080E1218
 	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x310000
-	manager subtype=0xa, x=0x503, y=0x209, unknown=0x0, paramB=0xb270000, paramC=0x33
+	ezlo_hint x=0x6, y=0xa, rx=0x9, ry=0x2, msg=0xb27, flag=0x33
 	object_raw subtype=0xc, x=0x78, y=0x68, paramA=0x2, paramB=0x32, paramC=0x310000
 	object_raw subtype=0x8, x=0x28, y=0x58, paramA=0x3, paramC=0x31ffff
 	entity_list_end
@@ -8468,7 +8475,7 @@ Room_CaveOfFlames_18:: @ 080E1784
 Entities_CaveOfFlamesBoss_Main_0:: @ 080E17A4
 	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x40030000
 	manager subtype=0xe, y=0x168, paramA=0x9, paramB=0x1, paramC=0x40030000
-	manager subtype=0xa, y=0x3f3f, unknown=0x0, paramA=0x3, paramB=0xb030000, paramC=0x4003
+	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb03, flag=0x4003
 	entity_list_end
 
 gUnk_additional_9_CaveOfFlamesBoss_Main:: @ 080E17E4
@@ -8588,7 +8595,7 @@ Entities_FortressOfWinds_EastKeyLever_0:: @ 080E1AEC
 	manager subtype=0x11, paramC=0x80020020
 	manager subtype=0xf, x=0xa8, y=0x148, paramA=0x2, paramC=0x200000
 	manager subtype=0x2e, unknown=0x0, paramB=0x1e00, paramC=0x20001f
-	manager subtype=0xa, x=0x1006, y=0x704, unknown=0x0, paramB=0xb3d0000, paramC=0x1f0046
+	ezlo_hint x=0xc, y=0x20, rx=0x4, ry=0x7, msg=0xb3d, flag=0x46, flag2=0x1f
 	enemy_raw subtype=0x43, x=0x1d8, y=0x108
 	enemy_raw subtype=0x43, x=0x1d8, y=0x118
 	enemy_raw subtype=0x43, x=0x218, y=0x108
@@ -8693,7 +8700,7 @@ Entities_FortressOfWinds_WestKeyLever_0:: @ 080E1F74
 	manager subtype=0x11, paramC=0x80000024
 	manager subtype=0xf, x=0x98, y=0x68, paramA=0x1, paramC=0x240000
 	manager subtype=0x2e, unknown=0x0, paramB=0x1e00, paramC=0x240023
-	manager subtype=0xa, x=0x30c, y=0x503, unknown=0x0, paramB=0xb3d0000, paramC=0x230046
+	ezlo_hint x=0x18, y=0x6, rx=0x3, ry=0x5, msg=0xb3d, flag=0x46, flag2=0x23
 	enemy_raw subtype=0x43, x=0x48, y=0x48
 	enemy_raw subtype=0x43, x=0x38, y=0x88
 	enemy_raw subtype=0x43, x=0x48, y=0x88
@@ -8744,7 +8751,7 @@ Entities_FortressOfWinds_Darknut_0:: @ 080E2158
 	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x278000
 	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x270048
 	object_raw subtype=0x34, x=0x88, y=0x68, paramB=0x2158, paramC=0x480186
-	manager subtype=0xa, y=0x3f3f, unknown=0x0, paramA=0x3, paramB=0xb040000, paramC=0x80000027
+	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb04, flag=0x27, flag2=0x8000
 	enemy_raw subtype=0x43, x=0x48, y=0x28
 	enemy_raw subtype=0x43, x=0x38, y=0x38
 	enemy_raw subtype=0x43, x=0xc8, y=0x28
@@ -8830,7 +8837,7 @@ Entities_FortressOfWinds_Pit_0:: @ 080E2444
 	object_raw subtype=0x54, x=0xc8, y=0x17c, paramB=0x200002, paramC=0x80000000
 	manager subtype=0x5, x=0xa, y=0x7, paramB=0x2a, paramC=0x80000001
 	manager subtype=0x5, x=0xb, y=0x7, paramB=0x2a, paramC=0x80000001
-	manager subtype=0xa, x=0x409, y=0x204, unknown=0x0, paramB=0xb3c0000, paramC=0x29
+	ezlo_hint x=0x12, y=0x8, rx=0x4, ry=0x2, msg=0xb3c, flag=0x29
 	object_raw subtype=0xae, x=0x58, y=0x78
 	object_raw subtype=0xae, x=0x78, y=0x78
 	object_raw subtype=0xae, x=0x68, y=0xa8
@@ -9014,7 +9021,7 @@ Entities_FortressOfWinds_Mazaal_0:: @ 080E2AD8
 	manager subtype=0x3, x=0x138, y=0x38, unknown=0x0, paramA=0x3, paramB=0x102
 	object_raw subtype=0x8, x=0xb8, y=0xb8, paramA=0x12, paramC=0x8000ffff
 	object_raw subtype=0x8, x=0xb8, y=0x18, paramC=0x31ffff
-	manager subtype=0xa, y=0x3f3f, unknown=0x0, paramA=0x3, paramB=0xb050000, paramC=0x31
+	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb05, flag=0x31
 	entity_list_end
 
 Enemies_FortressOfWinds_Mazaal:: @ 080E2BA8
@@ -9296,7 +9303,7 @@ Room_FortressOfWinds_EastStairs2F:: @ 080E33DC
 	.4byte sub_StateChange_Dojos_Waveblade5
 
 Entities_FortressOfWinds_WestStairs1F_0:: @ 080E33FC
-	manager subtype=0xa, x=0x802, y=0x308, unknown=0x0, paramB=0xb140000, paramC=0x40
+	ezlo_hint x=0x4, y=0x10, rx=0x8, ry=0x3, msg=0xb14, flag=0x40
 	manager subtype=0x17, x=0x68, y=0x68, paramA=0x53, paramB=0x10400, paramC=0x24003f
 	enemy_raw subtype=0x43, x=0x28, y=0x68, paramB=0x5f
 	enemy_raw subtype=0x43, x=0x28, y=0x78, paramB=0x5f
@@ -9323,7 +9330,7 @@ Room_FortressOfWinds_WestStairs1F:: @ 080E347C
 	.4byte sub_StateChange_Dojos_Waveblade6
 
 Entities_FortressOfWinds_CenterStairs1F_0:: @ 080E349C
-	manager subtype=0xa, x=0x803, y=0x309, unknown=0x0, paramB=0xb140000, paramC=0x40
+	ezlo_hint x=0x6, y=0x10, rx=0x9, ry=0x3, msg=0xb14, flag=0x40
 	object_raw subtype=0x34, x=0x68, y=0x68, paramB=0x1058, paramC=0x80000188
 	object_raw subtype=0x34, x=0x88, y=0x68, paramA=0x1, paramB=0x458, paramC=0x80010199
 	enemy_raw subtype=0x43, x=0x38, y=0xa8, paramB=0x5f
@@ -9348,7 +9355,7 @@ Room_FortressOfWinds_CenterStairs1F:: @ 080E351C
 	.4byte sub_StateChange_Dojos_Waveblade7
 
 Entities_FortressOfWinds_EastStairs1F_0:: @ 080E353C
-	manager subtype=0xa, x=0x803, y=0x308, unknown=0x0, paramB=0xb140000, paramC=0x40
+	ezlo_hint x=0x6, y=0x10, rx=0x8, ry=0x3, msg=0xb14, flag=0x40
 	manager subtype=0x17, x=0x68, y=0x68, paramA=0x53, paramB=0x10400, paramC=0x200041
 	entity_list_end
 
@@ -9429,7 +9436,7 @@ Room_FortressOfWinds_HeartPiece:: @ 080E3728
 	.4byte sub_StateChange_Dojos_70
 
 Entities_InnerMazaal_Main_0:: @ 080E3748
-	manager subtype=0xa, y=0x3f3f, unknown=0x0, paramA=0x3, paramB=0xb050000, paramC=0x31
+	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb05, flag=0x31
 	entity_list_end
 
 Enemies_InnerMazaal_Main:: @ 080E3768
@@ -9450,8 +9457,8 @@ Room_InnerMazaal_Main:: @ 080E3790
 	.4byte sub_StateChange_Dojos_71
 
 Entities_FortressOfWindsTop_Main_0:: @ 080E37B0
-	npc_raw subtype=0x4e, x=0xa0, y=0x58, script=script_0800D874
-	npc_raw subtype=0x4e, x=0xa0, y=0x58, script=script_0800D8E4
+	npc_raw subtype=0x4e, x=0xa0, y=0x58, script=script_Npc4EWindRuinsTextBoard
+	npc_raw subtype=0x4e, x=0xa0, y=0x58, script=script_Npc4EReceiveOcarina
 	object_raw subtype=0x95, x=0xe8, y=0x108, collision=2, paramA=0x3
 	object_raw subtype=0x95, x=0x38, y=0xd8, collision=2, paramA=0x4
 	object_raw subtype=0x95, x=0x108, y=0xd8, collision=2, paramA=0x5
@@ -9574,9 +9581,9 @@ Room_TempleOfDroplets_EastHole:: @ 080E3B40
 	.4byte sub_StateChange_TempleOfDroplets_EastHole
 
 Entities_TempleOfDroplets_Entrance_0:: @ 080E3B60
-	manager subtype=0xa, x=0xd0c, y=0x309, unknown=0x0, paramB=0xb170000, paramC=0x2b
-	manager subtype=0xa, x=0x130a, y=0x501, unknown=0x0, paramB=0xb3e0000, paramC=0x7f
-	manager subtype=0xa, x=0x1316, y=0x501, unknown=0x0, paramB=0xb3e0000, paramC=0x7f
+	ezlo_hint x=0x18, y=0x1a, rx=0x9, ry=0x3, msg=0xb17, flag=0x2b
+	ezlo_hint x=0x14, y=0x26, rx=0x1, ry=0x5, msg=0xb3e, flag=0x7f
+	ezlo_hint x=0x2c, y=0x26, rx=0x1, ry=0x5, msg=0xb3e, flag=0x7f
 	object_raw subtype=0x84, x=0x78, y=0xb8
 	object_raw subtype=0x84, x=0x98, y=0xb8
 	object_raw subtype=0x84, x=0x88, y=0xc8
@@ -9741,12 +9748,12 @@ Room_TempleOfDroplets_WaterfallNortheast:: @ 080E4054
 	.4byte sub_StateChange_TempleOfDroplets_WaterfallNortheast
 
 Entities_TempleOfDroplets_Element_0:: @ 080E4074
-	manager subtype=0xa, x=0xa0a, y=0x20d, unknown=0x0, paramB=0xb410000, paramC=0x80
+	ezlo_hint x=0x14, y=0x14, rx=0xd, ry=0x2, msg=0xb41, flag=0x80
 	manager subtype=0x15, x=0x108, y=0x118, unknown=0x8, paramA=0x4, paramB=0xff78, paramC=0x340000
 	object_raw subtype=0x8f, x=0x108, y=0xd8
 	object_raw subtype=0x83, x=0x58, y=0x58, paramC=0x360000
 	object_raw subtype=0x83, x=0x1b8, y=0x58, paramC=0x340000
-	manager subtype=0xa, x=0x319, y=0x505, unknown=0x0, paramB=0xb420000, paramC=0x80640081
+	ezlo_hint x=0x32, y=0x6, rx=0x5, ry=0x5, msg=0xb42, flag=0x81, flag2=0x8064
 	object_raw subtype=0x85, x=0x160, y=0x120, paramB=0x8, paramC=0x310000
 	object_raw subtype=0x5, x=0xc8, y=0x38
 	object_raw subtype=0x5, x=0x148, y=0x38
@@ -10017,7 +10024,7 @@ Entities_TempleOfDroplets_BigOcto_0:: @ 080E4944
 	object_raw subtype=0x33, x=0x108, y=0x18, paramA=0x4, paramB=0x1, paramC=0x80010000
 	object_raw subtype=0x33, x=0x118, y=0x18, paramA=0x4, paramB=0x1, paramC=0x80010000
 	manager subtype=0xe, y=0x3c, paramA=0x9, paramB=0x1, paramC=0x40050000
-	manager subtype=0xa, y=0x3f3f, unknown=0x0, paramA=0x3, paramB=0xb070000, paramC=0x4005
+	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb07, flag=0x4005
 	entity_list_end
 
 gUnk_additional_9_TempleOfDroplets_BigOcto:: @ 080E49C4
@@ -10191,8 +10198,8 @@ Entities_TempleOfDroplets_NorthSmallKey_0:: @ 080E4E30
 	manager subtype=0x2e, unknown=0x0, paramB=0x1e00, paramC=0x510050
 	manager subtype=0x15, x=0x88, y=0x68, unknown=0x8, paramA=0x2, paramB=0xfff8, paramC=0x5100a3
 	object_raw subtype=0x84, x=0x48, y=0x48, paramA=0x1, paramB=0x8, paramC=0x520000
-	manager subtype=0xa, x=0x30b, y=0x503, unknown=0x0, paramB=0xb400000, paramC=0x500053
-	manager subtype=0xa, x=0x303, y=0x504, unknown=0x0, paramB=0xb3f0000, paramC=0x84
+	ezlo_hint x=0x16, y=0x6, rx=0x3, ry=0x5, msg=0xb40, flag=0x53, flag2=0x50
+	ezlo_hint x=0x6, y=0x6, rx=0x4, ry=0x5, msg=0xb3f, flag=0x84
 	entity_list_end
 
 Enemies_TempleOfDroplets_NorthSmallKey:: @ 080E4EA0
@@ -10485,7 +10492,7 @@ Room_TempleOfDroplets_LilypadIceBlocks:: @ 080E5730
 	.4byte sub_StateChange_TempleOfDroplets_LilypadIceBlocks
 
 Entities_TempleOfDroplets_Pit_0:: @ 080E5750
-	manager subtype=0xa, x=0x502, y=0x302, unknown=0x0, paramB=0xb450000, paramC=0x5c
+	ezlo_hint x=0x4, y=0xa, rx=0x2, ry=0x3, msg=0xb45, flag=0x5c
 	object_raw subtype=0x5, x=0x48, y=0x28
 	object_raw subtype=0x5, x=0x48, y=0x38
 	object_raw subtype=0x5, x=0x48, y=0x88
@@ -11016,8 +11023,8 @@ Entities_RoyalCrypt_KingGustaf_0:: @ 080E67AC
 	entity_list_end
 
 gUnk_080E693C:: @ 080E693C
-	npc_raw subtype=0x42, x=0x118, y=0x48, script=script_0800D954
-	object_raw subtype=0x6a, x=0x118, y=0x28, unknown=0x4f, paramA=0x12, paramB=0x9, paramC=script_0800DA28
+	npc_raw subtype=0x42, x=0x118, y=0x48, script=script_KingGustav
+	object_raw subtype=0x6a, x=0x118, y=0x28, unknown=0x4f, paramA=0x12, paramB=0x9, paramC=script_Object6AKingsGravestone
 	entity_list_end
 
 Enemies_RoyalCrypt_KingGustaf:: @ 080E696C
@@ -11270,7 +11277,7 @@ Room_RoyalCrypt_MushroomPit:: @ 080E714C
 	.4byte sub_StateChange_RoyalCrypt_MushroomPit
 
 Entities_RoyalCrypt_Entrance_0:: @ 080E716C
-	manager subtype=0xa, x=0x707, y=0x103, unknown=0x0, paramB=0xb180000, paramC=0xc0
+	ezlo_hint x=0xe, y=0xe, rx=0x3, ry=0x1, msg=0xb18, flag=0xc0
 	entity_list_end
 
 gUnk_080E718C:: @ 080E718C
@@ -11639,7 +11646,7 @@ Entities_PalaceOfWinds_10_0:: @ 080E7CA4
 	enemy_raw subtype=0x43, x=0xa8, y=0x38, paramB=0x5f
 	enemy_raw subtype=0x43, x=0x58, y=0x38, paramB=0x5f
 	enemy_raw subtype=0x43, x=0x98, y=0x38, paramB=0x5f
-	manager subtype=0xa, x=0x803, y=0x209, unknown=0x0, paramB=0xb6a0000, paramC=0x7f
+	ezlo_hint x=0x6, y=0x10, rx=0x9, ry=0x2, msg=0xb6a, flag=0x7f
 	entity_list_end
 
 Enemies_PalaceOfWinds_10:: @ 080E7D24
@@ -12364,7 +12371,7 @@ Entities_PalaceOfWinds_33_0:: @ 080E9330
 	object_raw subtype=0x29, x=0x80, y=0xe0, paramA=0x8
 	object_raw subtype=0x29, x=0x140, y=0xe0, paramA=0x80
 	manager subtype=0x2c, x=0x80, paramB=0x4011670, paramC=0x500080
-	manager subtype=0xa, x=0x1721, y=0x307, unknown=0x0, paramB=0xb480000, paramC=0x65
+	ezlo_hint x=0x42, y=0x2e, rx=0x7, ry=0x3, msg=0xb48, flag=0x65
 	object_raw subtype=0x16, x=0x60, y=0x180, collision=1, paramA=0x3, paramB=0x8
 	entity_list_end
 
@@ -12432,7 +12439,7 @@ Entities_PalaceOfWinds_34_0:: @ 080E9544
 	object_raw subtype=0x9f, x=0x108, y=0x110, paramA=0x3, paramB=0x3c100f01, paramC=0x67
 	object_raw subtype=0x9f, x=0x108, y=0x1a0, paramA=0x3, paramB=0x3c100f01, paramC=0x67
 	object_raw subtype=0x9f, x=0x108, y=0x1c0, paramA=0x3, paramB=0x3c100f01, paramC=0x67
-	manager subtype=0xa, x=0x1311, y=0x302, unknown=0x0, paramB=0xb490000, paramC=0x68
+	ezlo_hint x=0x22, y=0x26, rx=0x2, ry=0x3, msg=0xb49, flag=0x68
 	entity_list_end
 
 Enemies_PalaceOfWinds_34:: @ 080E9684
@@ -12750,7 +12757,7 @@ Entities_PalaceOfWinds_44_0:: @ 080E9F4C
 	object_raw subtype=0xc, x=0x78, y=0xd8, paramA=0x2, paramB=0x74, paramC=0x700000
 	object_raw subtype=0x29, x=0x140, y=0xe0, paramA=0x8
 	manager subtype=0x2c, x=0x140, paramB=0x4012170, paramC=0xe00140
-	manager subtype=0xa, x=0xd13, y=0x404, unknown=0x0, paramB=0xb470000, paramC=0x75
+	ezlo_hint x=0x26, y=0x1a, rx=0x4, ry=0x4, msg=0xb47, flag=0x75
 .else
 	object_raw subtype=0x29, x=0x140, y=0xe0, paramA=0x8
 	manager subtype=0x2c, x=0x140, paramB=0x4012170, paramC=0xe00140
@@ -12763,7 +12770,7 @@ Entities_PalaceOfWinds_44_0:: @ 080E9F4C
 	object_raw subtype=0x33, x=0x78, y=0x118, paramA=0x5, paramB=0x1, paramC=0x80000000
 	object_raw subtype=0x33, x=0x88, y=0x118, paramA=0x5, paramB=0x1, paramC=0x80000000
 	object_raw subtype=0xc, x=0x78, y=0xd8, paramA=0x2, paramB=0x74, paramC=0x700000
-	manager subtype=0xa, x=0xd13, y=0x404, unknown=0x0, paramB=0xb470000, paramC=0x75
+	ezlo_hint x=0x26, y=0x1a, rx=0x4, ry=0x4, msg=0xb47, flag=0x75
 .endif
 	object_raw subtype=0x5, x=0x168, y=0xb8
 	object_raw subtype=0x5, x=0x178, y=0xb8, paramA=0x5e
@@ -12969,7 +12976,7 @@ Room_PalaceOfWinds_48:: @ 080EA6E8
 	.4byte sub_StateChange_PalaceOfWinds_48
 
 Entities_PalaceOfWinds_49_0:: @ 080EA708
-	manager subtype=0xa, x=0x222, y=0x703, unknown=0x0, paramB=0xb190000, paramC=0x77
+	ezlo_hint x=0x44, y=0x4, rx=0x3, ry=0x7, msg=0xb19, flag=0x77
 	manager subtype=0x1a, unknown=0x8, paramA=0x32
 	object_raw subtype=0x34, x=0x208, y=0x58, paramB=0xc70, paramC=0x840207
 	object_raw subtype=0x34, x=0x1d8, y=0x58, paramA=0x1, paramB=0x1570, paramC=0x860128
@@ -12998,7 +13005,7 @@ Room_PalaceOfWinds_49:: @ 080EA7C8
 	.4byte sub_StateChange_PalaceOfWinds_49
 
 Entities_PalaceOfWinds_50_0:: @ 080EA7E8
-	manager subtype=0xa, x=0xf14, y=0x305, unknown=0x0, paramB=0xb1a0000, paramC=0x78
+	ezlo_hint x=0x28, y=0x1e, rx=0x5, ry=0x3, msg=0xb1a, flag=0x78
 	object_raw subtype=0xa1, x=0x168, y=0x128, paramB=0x1
 	object_raw subtype=0xc, x=0x218, y=0x98, paramA=0x4, paramB=0x79
 	enemy_raw subtype=0x43, x=0x198, y=0xb8, paramB=0x5f
@@ -13049,7 +13056,7 @@ Room_PalaceOfWinds_50:: @ 080EA9E0
 
 Entities_PalaceOfWindsBoss_Main_0:: @ 080EAA00
 	object_raw subtype=0xba
-	manager subtype=0xa, y=0x3f3f, unknown=0x0, paramA=0x3, paramB=0xb090000
+	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb09, flag=0x0
 	entity_list_end
 
 Entities_PalaceOfWindsBoss_Main_1:: @ 080EAA30
@@ -13072,9 +13079,9 @@ Room_PalaceOfWindsBoss_Main:: @ 080EAA58
 	.4byte sub_StateChange_PalaceOfWindsBoss_Main
 
 Entities_Vaati2_Main_0:: @ 080EAA78
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_0800DFE4
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69V2Intro
 	npc_raw subtype=0x3b, x=0xb0, y=0x88, unknown=0xf, script=0x0
-	manager subtype=0xa, y=0x3f3f, unknown=0x0, paramA=0x3, paramB=0xb0c0000, paramC=0x7b
+	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb0c, flag=0x7b
 	entity_list_end
 
 Entities_Vaati2_Main_1:: @ 080EAAB8
@@ -13101,10 +13108,10 @@ Room_Vaati2_Main:: @ 080EAB00
 Entities_Vaati3_Main_0:: @ 080EAB20
 	manager subtype=0x2f, unknown=0x8
 	manager subtype=0x37, paramA=0x1
-	npc_raw subtype=0x4e, script=script_0800A0FC
+	npc_raw subtype=0x4e, script=script_Npc4EV3Defeated
 	object_raw subtype=0x74, x=0xb0, y=0x28, collision=1, paramC=0xffff0000
 	manager subtype=0x3, x=0xb0, y=0x28, unknown=0x0, paramA=0x3, paramB=0x102
-	manager subtype=0xa, y=0x3f3f, unknown=0x0, paramA=0x3, paramB=0xb0d0000, paramC=0x4051
+	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb0d, flag=0x4051
 	entity_list_end
 
 Enemies_Vaati3_Main:: @ 080EAB90
@@ -13124,7 +13131,7 @@ Room_Vaati3_Main:: @ 080EABA8
 	.4byte sub_StateChange_Vaati3_Main
 
 Entities_DarkHyruleCastleBridge_Main_0:: @ 080EABC8
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_0800E4A4
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69BallAndChainSoldierRoom
 	object_raw subtype=0x39, x=0x88, y=0x118, paramA=0x6, paramC=0xffff
 	entity_list_end
 
@@ -13152,7 +13159,7 @@ Room_DarkHyruleCastleBridge_Main:: @ 080EAC40
 Entities_VaatisArms_First_0:: @ 080EAC60
 	enemy_raw subtype=0x25, x=0x98, y=0x68
 .ifdef USA_DEMOS
-	manager subtype=0xa, y=0x3f3f, unknown=0x0, paramA=0x3, paramB=0xb0d0000
+	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb0d, flag=0x0
 .endif
 	entity_list_end
 
@@ -13175,7 +13182,7 @@ Room_VaatisArms_First:: @ 080EACA8
 Entities_VaatisArms_Second_0:: @ 080EACC8
 	enemy_raw subtype=0x25, x=0x98, y=0x68
 .ifdef USA_DEMOS
-	manager subtype=0xa, y=0x3f3f, unknown=0x0, paramA=0x3, paramB=0xb0d0000
+	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb0d, flag=0x0
 .endif
 	entity_list_end
 
@@ -13204,15 +13211,15 @@ Entities_DarkHyruleCastleOutside_ZeldaStatuePlatform_1:: @ 080EAD48
 	entity_list_end
 
 gUnk_080EAD68:: @ 080EAD68
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_0800DA60
-	npc_raw subtype=0x28, x=0x78, y=0x68, script=script_0800DB18
-	npc_raw subtype=0x27, x=0x78, y=0x96, paramA=0x1, script=script_0800DB28
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69VaatiWithZelda
+	npc_raw subtype=0x28, x=0x78, y=0x68, script=script_ZeldaStoneInDHC
+	npc_raw subtype=0x27, x=0x78, y=0x96, paramA=0x1, script=script_VaatiWithZelda
 	object_raw subtype=0xab, x=0x78, y=0x138
 	entity_list_end
 
 gUnk_080EADB8:: @ 080EADB8
-	npc_raw subtype=0x4e, script=script_0800DB78
-	npc_raw subtype=0x28, x=0x78, y=0x68, script=script_0800DCAC
+	npc_raw subtype=0x4e, script=script_Npc4EAfterDefeatingV2
+	npc_raw subtype=0x28, x=0x78, y=0x68, script=script_ZeldaAfterDefeatingV2
 	entity_list_end
 
 Enemies_DarkHyruleCastleOutside_ZeldaStatuePlatform:: @ 080EADE8
@@ -13239,25 +13246,25 @@ Entities_DarkHyruleCastleOutside_Garden_0:: @ 080EAE40
 	entity_list_end
 
 gUnk_080EAE60:: @ 080EAE60
-	npc_raw subtype=0x25, x=0xb8, y=0x138, script=script_0800E0BC
-	npc_raw subtype=0x15, x=0x68, y=0x118, paramB=0x24, script=script_0800E154
-	npc_raw subtype=0x15, x=0x88, y=0x180, paramB=0x25, script=script_0800E200
-	manager subtype=0xa, x=0xf02, y=0x90d, unknown=0x0, paramB=0xb250000, paramC=0x85
+	npc_raw subtype=0x25, x=0xb8, y=0x138, script=script_MinishterPothoStone
+	npc_raw subtype=0x15, x=0x68, y=0x118, paramB=0x24, script=script_GuardStone1
+	npc_raw subtype=0x15, x=0x88, y=0x180, paramB=0x25, script=script_GuardStone2
+	ezlo_hint x=0x4, y=0x1e, rx=0xd, ry=0x9, msg=0xb25, flag=0x85
 .ifndef EU
 	manager subtype=0xf, paramA=0xe
 .endif
 	entity_list_end
 
 gUnk_080EAEC0:: @ 080EAEC0
-	npc_raw subtype=0x4e, script=script_0800A1D8
-	npc_raw subtype=0xf, x=0x88, y=0x68, script=script_0800A340
-	npc_raw subtype=0x28, x=0x58, y=0x88, script=script_0800A3D8
-	npc_raw subtype=0x4d, x=0x88, y=0x88, script=script_0800A590
-	object_raw subtype=0x6a, x=0x88, y=0xa8, unknown=0x4f, paramA=0x1, paramC=script_0800A500
+	npc_raw subtype=0x4e, script=script_Npc4EOutro
+	npc_raw subtype=0xf, x=0x88, y=0x68, script=script_MinishEzloOutro
+	npc_raw subtype=0x28, x=0x58, y=0x88, script=script_ZeldaOutro
+	npc_raw subtype=0x4d, x=0x88, y=0x88, script=script_EzloCapOutro
+	object_raw subtype=0x6a, x=0x88, y=0xa8, unknown=0x4f, paramA=0x1, paramC=script_Object6AMinishCapOutro
 	entity_list_end
 
 gUnk_080EAF20:: @ 080EAF20
-	npc_raw subtype=0x4e, script=script_0800AAD8
+	npc_raw subtype=0x4e, script=script_Npc4ESanctuaryEntrance
 	entity_list_end
 
 Entities_DarkHyruleCastleOutside_Garden_1:: @ 080EAF40
@@ -13496,12 +13503,12 @@ Entities_DarkHyruleCastle_0_0:: @ 080EB594
 	entity_list_end
 
 gUnk_080EB5D4:: @ 080EB5D4
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_0800DE78
-	npc_raw subtype=0x28, x=0xd8, y=0x178, script=script_0800DED4
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69CastleEscape
+	npc_raw subtype=0x28, x=0xd8, y=0x178, script=script_ZeldaCastleEscape
 	entity_list_end
 
 gUnk_080EB604:: @ 080EB604
-	npc_raw subtype=0x4e, script=script_0800A704
+	npc_raw subtype=0x4e, script=script_Npc4EDHCEntrance
 	object_raw subtype=0x6a, x=0x1e8, y=0x1d8, collision=1, paramA=0x5, paramB=0x2
 	object_raw subtype=0x6a, x=0x198, y=0x198, collision=1, paramA=0x5, paramB=0x102
 	object_raw subtype=0x6a, x=0x150, y=0x1c0, collision=1, paramA=0x5, paramB=0x202
@@ -13620,7 +13627,7 @@ Room_DarkHyruleCastle_4:: @ 080EB864
 	.4byte sub_StateChange_Dojos_ToSplitblade0
 
 Entities_DarkHyruleCastle_5_0:: @ 080EB884
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_0800E504
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69KeatonsRoom
 	object_raw subtype=0x3, x=0x78, y=0x48, paramA=0x1, paramC=0x80000001
 	object_raw subtype=0x3, x=0x98, y=0x48, paramA=0x1, paramC=0x80010001
 	object_raw subtype=0x3, x=0xb8, y=0x48, paramA=0x1, paramC=0x80020001
@@ -13660,7 +13667,7 @@ Entities_DarkHyruleCastle_6_0:: @ 080EB9E4
 	entity_list_end
 
 gUnk_080EB9F4:: @ 080EB9F4
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_0800E544
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69DarkNutsRoom
 	manager subtype=0x1e, x=0x30, y=0xa0, paramB=0x2000f0, paramC=0x80000000
 	manager subtype=0x35, x=0xa8, y=0x58, paramB=0x3c1e00, paramC=0x80008001
 	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x80028001
@@ -13675,14 +13682,14 @@ gUnk_080EB9F4:: @ 080EB9F4
 	entity_list_end
 
 gUnk_080EBAA4:: @ 080EBAA4
-	npc_raw subtype=0x27, x=0xa8, y=0x58, paramA=0x1, script=script_0800DF24
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_0800DFB4
+	npc_raw subtype=0x27, x=0xa8, y=0x58, paramA=0x1, script=script_Vaati1Intro
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69V1Defeated
 	object_raw subtype=0x8, x=0xa8, y=0x28, paramC=0xffff
 	object_raw subtype=0x39, x=0xa8, y=0xd8, paramA=0x6, paramC=0xffff
 	entity_list_end
 
 gUnk_080EBAF4:: @ 080EBAF4
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_0800E050
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69V2Defeated
 	object_raw subtype=0x8, x=0xa8, y=0x28, paramC=0x80000000
 	object_raw subtype=0x39, x=0xa8, y=0xd8, paramA=0x6, paramC=0x80000000
 	entity_list_end
@@ -13695,7 +13702,7 @@ Enemies_DarkHyruleCastle_6:: @ 080EBB34
 	object_raw subtype=0x5, x=0x38, y=0xc8, paramA=0x5e
 	object_raw subtype=0x5, x=0x118, y=0xc8, paramA=0x60
 .endif
-	manager subtype=0xa, y=0x3f3f, unknown=0x0, paramA=0x3, paramB=0xb0b0000
+	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb0b, flag=0x0
 	entity_list_end
 
 TileEntities_DarkHyruleCastle_6:: @ 080EBBA4
@@ -13838,8 +13845,8 @@ gUnk_additional_8_DarkHyruleCastle_10:: @ 080EBFD8
 	enemy_raw subtype=0x5, x=0x88, y=0x38, unknown=0x2f, paramA=0x3, paramB=0xe160000, paramC=0x300030
 	object_raw subtype=0x8, x=0x88, y=0xa8, paramA=0x12, paramC=0x86ffff
 	object_raw subtype=0x39, x=0x88, y=0x28, paramA=0x4, paramC=0x86ffff
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_0800E5C4
-	manager subtype=0xa, y=0x3f3f, unknown=0x0, paramA=0x3, paramB=0xb0a0000, paramC=0x86
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69DHC
+	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb0a, flag=0x86
 	entity_list_end
 
 Room_DarkHyruleCastle_10:: @ 080EC038
@@ -13967,7 +13974,7 @@ gUnk_additional_8_DarkHyruleCastle_14:: @ 080EC374
 	enemy_raw subtype=0x5, x=0x88, y=0x68, paramA=0x2
 	object_raw subtype=0x8, x=0x88, y=0xa8, paramA=0x12, paramC=0x4cffff
 	object_raw subtype=0x8, x=0xe8, y=0x68, paramA=0x11, paramC=0x4cffff
-	manager subtype=0xa, y=0x3f3f, unknown=0x0, paramA=0x3, paramB=0xb0f0000, paramC=0x4c
+	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb0f, flag=0x4c
 	entity_list_end
 
 Room_DarkHyruleCastle_14:: @ 080EC3C4
@@ -14038,7 +14045,7 @@ gUnk_additional_8_DarkHyruleCastle_16:: @ 080EC590
 	manager subtype=0x28, unknown=0x3, paramB=0x8
 	object_raw subtype=0x8, x=0x88, y=0xa8, paramA=0x12, paramC=0x4dffff
 	object_raw subtype=0x8, x=0x28, y=0x68, paramA=0x13, paramC=0x4dffff
-	manager subtype=0xa, y=0x3f3f, unknown=0x0, paramA=0x3, paramB=0xb0f0000, paramC=0x4d
+	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb0f, flag=0x4d
 	entity_list_end
 
 Room_DarkHyruleCastle_16:: @ 080EC600
@@ -14140,7 +14147,7 @@ gUnk_additional_8_DarkHyruleCastle_19:: @ 080EC8C8
 	manager subtype=0x28, unknown=0x3, paramB=0x8
 	object_raw subtype=0x8, x=0x88, y=0x28, paramA=0x10, paramC=0x53ffff
 	object_raw subtype=0x8, x=0xe8, y=0x68, paramA=0x11, paramC=0x53ffff
-	manager subtype=0xa, y=0x3f3f, unknown=0x0, paramA=0x3, paramB=0xb0f0000, paramC=0x53
+	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb0f, flag=0x53
 	entity_list_end
 
 Room_DarkHyruleCastle_19:: @ 080EC938
@@ -14211,7 +14218,7 @@ gUnk_additional_8_DarkHyruleCastle_21:: @ 080ECB00
 	enemy_raw subtype=0x5, x=0x88, y=0x68, paramA=0x2
 	object_raw subtype=0x8, x=0x88, y=0x28, paramA=0x10, paramC=0x56ffff
 	object_raw subtype=0x8, x=0x28, y=0x68, paramA=0x13, paramC=0x56ffff
-	manager subtype=0xa, y=0x3f3f, unknown=0x0, paramA=0x3, paramB=0xb0f0000, paramC=0x4c
+	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb0f, flag=0x4c
 	entity_list_end
 
 Room_DarkHyruleCastle_21:: @ 080ECB50
@@ -14387,7 +14394,7 @@ Room_DarkHyruleCastle_27:: @ 080ECF6C
 	.4byte sub_StateChange_Dojos_ToGreatblade8
 
 Entities_DarkHyruleCastle_28_0:: @ 080ECF8C
-	manager subtype=0xa, x=0x300, y=0x811, unknown=0x0, paramB=0xb1b0000, paramC=0x5c
+	ezlo_hint x=0x0, y=0x6, rx=0x11, ry=0x8, msg=0xb1b, flag=0x5c
 	entity_list_end
 
 Enemies_DarkHyruleCastle_28:: @ 080ECFAC
@@ -14490,7 +14497,7 @@ Entities_DarkHyruleCastle_31_0:: @ 080ED194
 	entity_list_end
 
 gUnk_080ED1E4:: @ 080ED1E4
-	npc_raw subtype=0x4e, script=script_0800A6A4
+	npc_raw subtype=0x4e, script=script_Npc4EDHCThrone
 	object_raw subtype=0x6a, x=0xc0, y=0x40, collision=1, paramA=0x5, paramB=0x102
 	object_raw subtype=0x6a, x=0xa0, y=0x80, collision=1, paramA=0x5, paramB=0x202
 	object_raw subtype=0x6a, x=0x50, y=0x60, collision=1, paramA=0x5, paramB=0x302
@@ -14685,7 +14692,7 @@ Entities_DarkHyruleCastle_38_0:: @ 080ED668
 	object_raw subtype=0x33, x=0x88, y=0x58, paramA=0x5, paramC=0x620000
 	object_raw subtype=0x33, x=0x98, y=0x58, paramA=0x5, paramC=0x620000
 	object_raw subtype=0x33, x=0xa8, y=0x58, paramA=0x5, paramC=0x620000
-	manager subtype=0xa, x=0x608, y=0x501, unknown=0x0, paramB=0xb4a0000, paramC=0x63
+	ezlo_hint x=0x10, y=0xc, rx=0x1, ry=0x5, msg=0xb4a, flag=0x63
 	entity_list_end
 
 Enemies_DarkHyruleCastle_38:: @ 080ED6E8
@@ -15246,13 +15253,13 @@ Entities_DarkHyruleCastle_57_0:: @ 080EE68C
 	manager subtype=0x35, x=0xe0, y=0x68, paramB=0x3c1e00, paramC=0x8f0081
 	object_raw subtype=0xb1, x=0x80, y=0x78, paramC=0x810000
 	object_raw subtype=0xb1, x=0x140, y=0x78, paramC=0x810000
-	npc_raw subtype=0x24, x=0x120, y=0x58, script=script_0800E350
+	npc_raw subtype=0x24, x=0x120, y=0x58, script=script_KingDaltusStone
 	entity_list_end
 
 gUnk_080EE71C:: @ 080EE71C
-	npc_raw subtype=0x25, x=0x138, y=0x38, script=script_0800E408
-	npc_raw subtype=0x15, x=0x128, y=0x88, paramB=0x24, script=script_0800E434
-	npc_raw subtype=0x15, x=0x168, y=0x88, paramB=0x25, script=script_0800E46C
+	npc_raw subtype=0x25, x=0x138, y=0x38, script=script_MinisterPothoCell
+	npc_raw subtype=0x15, x=0x128, y=0x88, paramB=0x24, script=script_GuardCellLeft
+	npc_raw subtype=0x15, x=0x168, y=0x88, paramB=0x25, script=script_GuardCellRight
 	entity_list_end
 
 Enemies_DarkHyruleCastle_57:: @ 080EE75C
@@ -15321,18 +15328,18 @@ Entities_HyruleTown_0_0:: @ 080EE80C
 	object_raw subtype=0xb7, x=0x2f8, y=0x278
 	manager subtype=0x1a, unknown=0x8, paramA=0x3c
 	manager subtype=0x16, paramA=0xf
-	npc_raw subtype=0x4, x=0x1f8, y=0x1d8, script=script_08010AE4
+	npc_raw subtype=0x4, x=0x1f8, y=0x1d8, script=script_Postman
 	entity_list_end
 
 gUnk_080EE88C:: @ 080EE88C
-	npc_raw subtype=0x4e, script=script_0800F090
+	npc_raw subtype=0x4e, script=script_Npc4EFirstKinstone
 	entity_list_end
 
 gUnk_080EE8AC:: @ 080EE8AC
-	npc_raw subtype=0x53, x=0x158, y=0x328, script=script_0800F184
-	npc_raw subtype=0x7, x=0x148, y=0x328, paramA=0x6, script=script_0800F39C
-	npc_raw subtype=0x7, x=0x134, y=0x328, paramA=0x7, script=script_0800F430
-	npc_raw subtype=0x7, x=0x120, y=0x328, paramA=0x8, script=script_0800F4C4
+	npc_raw subtype=0x53, x=0x158, y=0x328, script=script_HurdyGurdyManFirstKinstone
+	npc_raw subtype=0x7, x=0x148, y=0x328, paramA=0x6, script=script_KidKinstone1
+	npc_raw subtype=0x7, x=0x134, y=0x328, paramA=0x7, script=script_KidKinstone2
+	npc_raw subtype=0x7, x=0x120, y=0x328, paramA=0x8, script=script_KidKinstone3
 	entity_list_end
 
 gUnk_080EE8FC:: @ 080EE8FC
@@ -15420,17 +15427,17 @@ gUnk_080EEB8C:: @ 080EEB8C
 	entity_list_end
 
 gUnk_080EEBAC:: @ 080EEBAC
-	object_raw subtype=0xbb, x=0x278, y=0x58, unknown=0x4f, paramB=0x3, paramC=script_0800B00C
+	object_raw subtype=0xbb, x=0x278, y=0x58, unknown=0x4f, paramB=0x3, paramC=script_Windcrest
 	entity_list_end
 
 Entities_HyruleTown_1_0:: @ 080EEBCC
 	manager subtype=0x16, paramA=0x9
-	npc_raw subtype=0x4e, script=script_0800F73C
-	npc_raw subtype=0x28, x=0xc8, y=0x3c8, script=script_0800FB44
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_0800FD0C
+	npc_raw subtype=0x4e, script=script_Npc4EIntroTown
+	npc_raw subtype=0x28, x=0xc8, y=0x3c8, script=script_ZeldaIntroTown
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69IntroTown
 	object_raw subtype=0x95, x=0x144, y=0x4c, collision=2, paramA=0x4
 	object_raw subtype=0x95, x=0x178, y=0xa8, collision=2, paramA=0x7
-	object_raw subtype=0xbb, x=0x148, y=0x58, unknown=0x4f, paramB=0x3, paramC=script_0800B00C
+	object_raw subtype=0xbb, x=0x148, y=0x58, unknown=0x4f, paramB=0x3, paramC=script_Windcrest
 	entity_list_end
 
 Entities_HyruleTown_1_1:: @ 080EEC4C
@@ -15598,83 +15605,83 @@ gUnk_additional_2c_HyruleTown_0:: @ 080EF09C
 	.incbin "data_080D5360/gUnk_additional_2c_HyruleTown_0.bin"
 
 gUnk_additional_f_HyruleTown_0:: @ 080EF0B0
-	delayed_entity_raw subtype=0x6, x=0x298, y=0x268, layer=1, paramA=0x8, paramC=script_080100C8, paramD=0x4, conditions=0x1c
-	delayed_entity_raw subtype=0x6, x=0x238, y=0x118, layer=1, paramA=0xa, paramC=script_080100FC, paramD=0x4, conditions=0x1fc
-	delayed_entity_raw subtype=0x6, x=0x1a8, y=0x308, layer=1, paramA=0xb, paramC=script_080100FC, paramD=0x4, conditions=0x1fc
-	delayed_entity_raw subtype=0x6, x=0x2ec, y=0x2a8, layer=1, paramA=0x6, paramC=script_080100C8, paramD=0x2, conditions=0x3c
-	delayed_entity_raw subtype=0x6, x=0x1d8, y=0x228, layer=1, paramA=0x6, paramC=script_080100FC, paramD=0x4, conditions=0xc0
-	delayed_entity_raw subtype=0x6, x=0x328, y=0x168, layer=1, paramA=0x1, paramC=script_080100FC, paramD=0x4, conditions=0xfc
-	delayed_entity_raw subtype=0x6, x=0x1c8, y=0x278, layer=1, paramA=0x2, paramC=script_080100FC, paramD=0x4, conditions=0xfc
-	delayed_entity_raw subtype=0x6, x=0x58, y=0x328, layer=1, paramA=0x11, paramC=script_080100FC, paramD=0x4, conditions=0x1fc
-	delayed_entity_raw subtype=0x6, x=0x88, y=0x1a8, layer=1, paramA=0x12, paramC=script_080100C8, paramD=0x6, conditions=0xfc
-	delayed_entity_raw subtype=0x6, x=0x1e8, y=0x1a8, layer=1, paramA=0x13, paramC=script_080100FC, paramD=0x4, conditions=0x1e0
-	delayed_entity_raw subtype=0x6, x=0x238, y=0x308, layer=1, paramA=0x10, paramC=script_080100FC, paramD=0x2, conditions=0xfc
-	delayed_entity_raw subtype=0x48, x=0x2c8, y=0xac, layer=1, paramA=0x1, paramC=script_0800E7F4, paramD=0x4, conditions=0x3c
-	delayed_entity_raw subtype=0x45, x=0x358, y=0x378, layer=1, paramC=script_08010148, paramD=0x6, conditions=0x3fc
+	delayed_entity_raw subtype=0x6, x=0x298, y=0x268, layer=1, paramA=0x8, paramC=script_Townsperson1, paramD=0x4, conditions=0x1c
+	delayed_entity_raw subtype=0x6, x=0x238, y=0x118, layer=1, paramA=0xa, paramC=script_Townsperson2, paramD=0x4, conditions=0x1fc
+	delayed_entity_raw subtype=0x6, x=0x1a8, y=0x308, layer=1, paramA=0xb, paramC=script_Townsperson2, paramD=0x4, conditions=0x1fc
+	delayed_entity_raw subtype=0x6, x=0x2ec, y=0x2a8, layer=1, paramA=0x6, paramC=script_Townsperson1, paramD=0x2, conditions=0x3c
+	delayed_entity_raw subtype=0x6, x=0x1d8, y=0x228, layer=1, paramA=0x6, paramC=script_Townsperson2, paramD=0x4, conditions=0xc0
+	delayed_entity_raw subtype=0x6, x=0x328, y=0x168, layer=1, paramA=0x1, paramC=script_Townsperson2, paramD=0x4, conditions=0xfc
+	delayed_entity_raw subtype=0x6, x=0x1c8, y=0x278, layer=1, paramA=0x2, paramC=script_Townsperson2, paramD=0x4, conditions=0xfc
+	delayed_entity_raw subtype=0x6, x=0x58, y=0x328, layer=1, paramA=0x11, paramC=script_Townsperson2, paramD=0x4, conditions=0x1fc
+	delayed_entity_raw subtype=0x6, x=0x88, y=0x1a8, layer=1, paramA=0x12, paramC=script_Townsperson1, paramD=0x6, conditions=0xfc
+	delayed_entity_raw subtype=0x6, x=0x1e8, y=0x1a8, layer=1, paramA=0x13, paramC=script_Townsperson2, paramD=0x4, conditions=0x1e0
+	delayed_entity_raw subtype=0x6, x=0x238, y=0x308, layer=1, paramA=0x10, paramC=script_Townsperson2, paramD=0x2, conditions=0xfc
+	delayed_entity_raw subtype=0x48, x=0x2c8, y=0xac, layer=1, paramA=0x1, paramC=script_Teachers, paramD=0x4, conditions=0x3c
+	delayed_entity_raw subtype=0x45, x=0x358, y=0x378, layer=1, paramC=script_Anju, paramD=0x6, conditions=0x3fc
 	delayed_entity_raw subtype=0x2c, x=0x168, y=0x13c, layer=1, paramA=0x1, paramD=0x20, conditions=0x1fc
 	delayed_entity_raw subtype=0x2c, x=0x13c, y=0x158, layer=1, paramA=0x2, paramD=0x20, conditions=0x1fc
 	delayed_entity_raw subtype=0x2c, x=0x1c8, y=0x34e, layer=2, paramA=0x5, paramD=0x60, conditions=0x1fc
-	delayed_entity_raw subtype=0x7, x=0x368, y=0xd8, layer=1, paramA=0x6, paramC=script_08010294, conditions=0xc
-	delayed_entity_raw subtype=0x7, x=0x188, y=0x268, layer=1, paramA=0x6, paramC=script_080102E0, paramD=0x6, conditions=0x20
-	delayed_entity_raw subtype=0x7, x=0x328, y=0x268, layer=1, paramA=0x6, paramC=script_080103B0, paramD=0x4, conditions=0x40
-	delayed_entity_raw subtype=0x7, x=0x158, y=0x78, layer=2, paramA=0x6, paramC=script_080102E0, paramD=0x4, conditions=0x80
-	delayed_entity_raw subtype=0x7, x=0x158, y=0x1b8, layer=1, paramA=0x7, paramC=script_080102E0, conditions=0xc
-	delayed_entity_raw subtype=0x7, x=0x280, y=0x268, layer=1, paramA=0x7, paramC=script_080102E0, conditions=0x20
-	delayed_entity_raw subtype=0x7, x=0x308, y=0x238, layer=1, paramA=0x7, paramC=script_080103B0, paramD=0x4, conditions=0x40
-	delayed_entity_raw subtype=0x7, x=0x168, y=0x78, layer=2, paramA=0x7, paramC=script_080102E0, paramD=0x4, conditions=0x80
-	delayed_entity_raw subtype=0x7, x=0x168, y=0x1b8, layer=1, paramA=0x8, paramC=script_080102E0, conditions=0xc
-	delayed_entity_raw subtype=0x7, x=0x2b0, y=0x268, layer=1, paramA=0x8, paramC=script_080102E0, conditions=0x20
-	delayed_entity_raw subtype=0x7, x=0x2d8, y=0x248, layer=1, paramA=0x8, paramC=script_080103B0, paramD=0x4, conditions=0x40
-	delayed_entity_raw subtype=0x7, x=0x178, y=0x78, layer=2, paramA=0x8, paramC=script_080102E0, paramD=0x4, conditions=0x80
+	delayed_entity_raw subtype=0x7, x=0x368, y=0xd8, layer=1, paramA=0x6, paramC=script_Kid1, conditions=0xc
+	delayed_entity_raw subtype=0x7, x=0x188, y=0x268, layer=1, paramA=0x6, paramC=script_Kid2, paramD=0x6, conditions=0x20
+	delayed_entity_raw subtype=0x7, x=0x328, y=0x268, layer=1, paramA=0x6, paramC=script_Kid4, paramD=0x4, conditions=0x40
+	delayed_entity_raw subtype=0x7, x=0x158, y=0x78, layer=2, paramA=0x6, paramC=script_Kid2, paramD=0x4, conditions=0x80
+	delayed_entity_raw subtype=0x7, x=0x158, y=0x1b8, layer=1, paramA=0x7, paramC=script_Kid2, conditions=0xc
+	delayed_entity_raw subtype=0x7, x=0x280, y=0x268, layer=1, paramA=0x7, paramC=script_Kid2, conditions=0x20
+	delayed_entity_raw subtype=0x7, x=0x308, y=0x238, layer=1, paramA=0x7, paramC=script_Kid4, paramD=0x4, conditions=0x40
+	delayed_entity_raw subtype=0x7, x=0x168, y=0x78, layer=2, paramA=0x7, paramC=script_Kid2, paramD=0x4, conditions=0x80
+	delayed_entity_raw subtype=0x7, x=0x168, y=0x1b8, layer=1, paramA=0x8, paramC=script_Kid2, conditions=0xc
+	delayed_entity_raw subtype=0x7, x=0x2b0, y=0x268, layer=1, paramA=0x8, paramC=script_Kid2, conditions=0x20
+	delayed_entity_raw subtype=0x7, x=0x2d8, y=0x248, layer=1, paramA=0x8, paramC=script_Kid4, paramD=0x4, conditions=0x40
+	delayed_entity_raw subtype=0x7, x=0x178, y=0x78, layer=2, paramA=0x8, paramC=script_Kid2, paramD=0x4, conditions=0x80
 	delayed_entity_raw subtype=0x35, x=0x398, y=0x2c8, layer=1, paramA=0x1, paramB=0x1, conditions=0x1fc
 	delayed_entity_raw subtype=0x35, x=0x78, y=0x220, layer=1, paramA=0x2, paramB=0x2, conditions=0x1fc
-	delayed_entity_raw subtype=0xb, x=0x218, y=0x1c8, layer=1, paramC=script_08010428, conditions=0xfc
-	delayed_entity_raw subtype=0x6, x=0x304, y=0x2a8, layer=1, paramA=0x7, paramC=script_080100C8, paramD=0x6, conditions=0x3c
-	delayed_entity_raw subtype=0x12, x=0x1d0, y=0x1f8, layer=1, paramC=script_08010454, conditions=0x1fc
-	delayed_entity_raw subtype=0x14, x=0x1d0, y=0x248, layer=1, paramC=script_080104A0, conditions=0x1fc
-	delayed_entity_raw subtype=0x7, x=0x318, y=0xa8, layer=1, paramC=script_0801030C, paramD=0x4, conditions=0xc
-	delayed_entity_raw subtype=0x7, x=0x338, y=0x98, layer=1, paramA=0x1, paramC=script_0801030C, paramD=0x4, conditions=0xc
-	delayed_entity_raw subtype=0x7, x=0x358, y=0xa8, layer=1, paramA=0x2, paramC=script_0801030C, paramD=0x4, conditions=0xc
-	delayed_entity_raw subtype=0x7, x=0x378, y=0x88, layer=1, paramA=0x3, paramC=script_0801030C, paramD=0x4, conditions=0xc
-	delayed_entity_raw subtype=0x7, x=0x398, y=0x98, layer=1, paramA=0x4, paramC=script_0801030C, paramD=0x4, conditions=0xc
-	delayed_entity_raw subtype=0x7, x=0x3b8, y=0x88, layer=1, paramA=0x5, paramC=script_0801030C, paramD=0x4, conditions=0xc
-	delayed_entity_raw subtype=0x7, x=0x378, y=0x98, layer=1, paramC=script_080103B0, paramD=0x4, conditions=0x40
-	delayed_entity_raw subtype=0x7, x=0x3a8, y=0x98, layer=1, paramA=0x3, paramC=script_080103B0, paramD=0x4, conditions=0x40
-	delayed_entity_raw subtype=0x7, x=0x308, y=0x98, layer=1, paramA=0x4, paramC=script_080102E0, conditions=0x40
-	delayed_entity_raw subtype=0x7, x=0x318, y=0x98, layer=1, paramA=0x5, paramC=script_080102E0, conditions=0x40
-	delayed_entity_raw subtype=0x7, x=0x348, y=0x98, layer=1, paramA=0x1, paramC=script_080103B0, paramD=0x4, conditions=0x80
-	delayed_entity_raw subtype=0x7, x=0x3a8, y=0x98, layer=1, paramA=0x2, paramC=script_080103B0, paramD=0x4, conditions=0x80
-	delayed_entity_raw subtype=0x7, x=0x368, y=0x58, layer=1, paramA=0x4, paramC=script_080102E0, conditions=0x80
-	delayed_entity_raw subtype=0x7, x=0x378, y=0x58, layer=1, paramA=0x5, paramC=script_080102E0, conditions=0x80
-	delayed_entity_raw subtype=0x8, x=0x3e0, y=0xd8, layer=1, paramB=0x80, paramC=script_0800FF18, paramD=0x1, conditions=0xc
-	delayed_entity_raw subtype=0x8, x=0x18, y=0x108, layer=1, paramB=0x81, paramC=script_0800FF74, paramD=0x1, conditions=0xc
-	delayed_entity_raw subtype=0x8, x=0x68, y=0xf8, layer=1, paramB=0x82, paramC=script_080103D0, conditions=0x30
-	delayed_entity_raw subtype=0x8, x=0x1f8, y=0x98, layer=1, paramB=0x83, paramC=script_080103D0, conditions=0x1f0
-	delayed_entity_raw subtype=0x8, x=0x48, y=0x158, layer=1, paramB=0x84, paramC=script_080103D0, conditions=0x300
-	delayed_entity_raw subtype=0x8, x=0x398, y=0xe8, layer=1, paramB=0x85, paramC=script_080103D0, conditions=0x30
-	delayed_entity_raw subtype=0x8, x=0x398, y=0x128, layer=1, paramB=0x86, paramC=script_080103D0, conditions=0x300
-	delayed_entity_raw subtype=0x8, x=0x48, y=0x2b8, layer=1, paramB=0x87, paramC=script_080103D0, conditions=0x210
-	delayed_entity_raw subtype=0x8, x=0x118, y=0x248, layer=1, paramB=0x88, paramC=script_080103D0, conditions=0x1f0
-	delayed_entity_raw subtype=0x8, x=0x208, y=0x318, layer=1, paramB=0x89, paramC=script_080103D0, conditions=0x3f0
-	delayed_entity_raw subtype=0x8, x=0x388, y=0x2f8, layer=1, paramB=0x8a, paramC=script_080103D0, conditions=0x230
-	delayed_entity_raw subtype=0x8, x=0x1c8, y=0x288, layer=1, paramB=0x8b, paramC=script_080103D0, conditions=0x300
-	delayed_entity_raw subtype=0x8, x=0x1f8, y=0x1b8, layer=1, paramB=0x8c, paramC=script_080103D0, conditions=0x200
-	delayed_entity_raw subtype=0x8, x=0x188, y=0x338, layer=1, paramB=0x8d, paramC=script_080103D0, conditions=0x200
-	delayed_entity_raw subtype=0x8, x=0x238, y=0x118, layer=1, paramB=0x8e, paramC=script_080103D0, conditions=0x200
-	delayed_entity_raw subtype=0x8, x=0x168, y=0xb8, layer=1, paramB=0x8f, paramC=script_080103F8, conditions=0x200
-	delayed_entity_raw subtype=0x8, x=0x1f8, y=0x50, layer=1, paramB=0x90, paramC=script_0800FEBC, paramD=0x1, conditions=0xc
-	delayed_entity_raw subtype=0x8, x=0x48, y=0x2c8, layer=1, paramB=0x91, paramC=script_080103D0, conditions=0x20
-	delayed_entity_raw subtype=0x13, x=0x13b, y=0x2c8, layer=1, paramB=0x3, paramC=script_0800ED04, paramD=0x1, conditions=0x3c0
-	delayed_entity_raw subtype=0x13, x=0x167, y=0x2e2, layer=1, paramA=0x3, paramB=0x4, paramC=script_0800ED04, conditions=0x80
-	delayed_entity_raw subtype=0x4e, x=0x368, y=0x1b6, layer=1, paramC=script_080108D0, conditions=0x6
-	delayed_entity_raw subtype=0x4e, x=0x388, y=0x256, layer=1, paramC=script_080108D0, conditions=0x6
-	delayed_entity_raw subtype=0x4e, x=0x178, y=0x252, layer=1, paramC=script_08010964, conditions=0x1e
-	delayed_entity_raw subtype=0x4e, x=0x178, y=0x292, layer=1, paramC=script_080109A0, conditions=0x3fe
-	delayed_entity_raw subtype=0x52, x=0x50, y=0x398, layer=1, paramC=script_08010B68, conditions=0x1f0
-	delayed_entity_raw subtype=0x52, x=0x188, y=0x1aa, layer=1, paramA=0x1, paramB=0x1, paramC=script_08010B68, conditions=0x1f0
-	delayed_entity_raw subtype=0x52, x=0x3c8, y=0x2f8, layer=1, paramA=0x2, paramB=0x2, paramC=script_08010B68, conditions=0x1f0
-	delayed_entity_raw subtype=0x52, x=0x138, y=0x10a, layer=1, paramA=0x3, paramB=0x3, paramC=script_08010B68, conditions=0x1e0
-	delayed_entity_raw subtype=0x52, x=0x338, y=0x3a, layer=2, paramA=0x4, paramB=0x4, paramC=script_08010B68, conditions=0x1c0
+	delayed_entity_raw subtype=0xb, x=0x218, y=0x1c8, layer=1, paramC=script_MaidTown, conditions=0xfc
+	delayed_entity_raw subtype=0x6, x=0x304, y=0x2a8, layer=1, paramA=0x7, paramC=script_Townsperson1, paramD=0x6, conditions=0x3c
+	delayed_entity_raw subtype=0x12, x=0x1d0, y=0x1f8, layer=1, paramC=script_Brocco, conditions=0x1fc
+	delayed_entity_raw subtype=0x14, x=0x1d0, y=0x248, layer=1, paramC=script_Pina, conditions=0x1fc
+	delayed_entity_raw subtype=0x7, x=0x318, y=0xa8, layer=1, paramC=script_Kid3, paramD=0x4, conditions=0xc
+	delayed_entity_raw subtype=0x7, x=0x338, y=0x98, layer=1, paramA=0x1, paramC=script_Kid3, paramD=0x4, conditions=0xc
+	delayed_entity_raw subtype=0x7, x=0x358, y=0xa8, layer=1, paramA=0x2, paramC=script_Kid3, paramD=0x4, conditions=0xc
+	delayed_entity_raw subtype=0x7, x=0x378, y=0x88, layer=1, paramA=0x3, paramC=script_Kid3, paramD=0x4, conditions=0xc
+	delayed_entity_raw subtype=0x7, x=0x398, y=0x98, layer=1, paramA=0x4, paramC=script_Kid3, paramD=0x4, conditions=0xc
+	delayed_entity_raw subtype=0x7, x=0x3b8, y=0x88, layer=1, paramA=0x5, paramC=script_Kid3, paramD=0x4, conditions=0xc
+	delayed_entity_raw subtype=0x7, x=0x378, y=0x98, layer=1, paramC=script_Kid4, paramD=0x4, conditions=0x40
+	delayed_entity_raw subtype=0x7, x=0x3a8, y=0x98, layer=1, paramA=0x3, paramC=script_Kid4, paramD=0x4, conditions=0x40
+	delayed_entity_raw subtype=0x7, x=0x308, y=0x98, layer=1, paramA=0x4, paramC=script_Kid2, conditions=0x40
+	delayed_entity_raw subtype=0x7, x=0x318, y=0x98, layer=1, paramA=0x5, paramC=script_Kid2, conditions=0x40
+	delayed_entity_raw subtype=0x7, x=0x348, y=0x98, layer=1, paramA=0x1, paramC=script_Kid4, paramD=0x4, conditions=0x80
+	delayed_entity_raw subtype=0x7, x=0x3a8, y=0x98, layer=1, paramA=0x2, paramC=script_Kid4, paramD=0x4, conditions=0x80
+	delayed_entity_raw subtype=0x7, x=0x368, y=0x58, layer=1, paramA=0x4, paramC=script_Kid2, conditions=0x80
+	delayed_entity_raw subtype=0x7, x=0x378, y=0x58, layer=1, paramA=0x5, paramC=script_Kid2, conditions=0x80
+	delayed_entity_raw subtype=0x8, x=0x3e0, y=0xd8, layer=1, paramB=0x80, paramC=script_GuardEast, paramD=0x1, conditions=0xc
+	delayed_entity_raw subtype=0x8, x=0x18, y=0x108, layer=1, paramB=0x81, paramC=script_GuardWest, paramD=0x1, conditions=0xc
+	delayed_entity_raw subtype=0x8, x=0x68, y=0xf8, layer=1, paramB=0x82, paramC=script_GuardPatrolling, conditions=0x30
+	delayed_entity_raw subtype=0x8, x=0x1f8, y=0x98, layer=1, paramB=0x83, paramC=script_GuardPatrolling, conditions=0x1f0
+	delayed_entity_raw subtype=0x8, x=0x48, y=0x158, layer=1, paramB=0x84, paramC=script_GuardPatrolling, conditions=0x300
+	delayed_entity_raw subtype=0x8, x=0x398, y=0xe8, layer=1, paramB=0x85, paramC=script_GuardPatrolling, conditions=0x30
+	delayed_entity_raw subtype=0x8, x=0x398, y=0x128, layer=1, paramB=0x86, paramC=script_GuardPatrolling, conditions=0x300
+	delayed_entity_raw subtype=0x8, x=0x48, y=0x2b8, layer=1, paramB=0x87, paramC=script_GuardPatrolling, conditions=0x210
+	delayed_entity_raw subtype=0x8, x=0x118, y=0x248, layer=1, paramB=0x88, paramC=script_GuardPatrolling, conditions=0x1f0
+	delayed_entity_raw subtype=0x8, x=0x208, y=0x318, layer=1, paramB=0x89, paramC=script_GuardPatrolling, conditions=0x3f0
+	delayed_entity_raw subtype=0x8, x=0x388, y=0x2f8, layer=1, paramB=0x8a, paramC=script_GuardPatrolling, conditions=0x230
+	delayed_entity_raw subtype=0x8, x=0x1c8, y=0x288, layer=1, paramB=0x8b, paramC=script_GuardPatrolling, conditions=0x300
+	delayed_entity_raw subtype=0x8, x=0x1f8, y=0x1b8, layer=1, paramB=0x8c, paramC=script_GuardPatrolling, conditions=0x200
+	delayed_entity_raw subtype=0x8, x=0x188, y=0x338, layer=1, paramB=0x8d, paramC=script_GuardPatrolling, conditions=0x200
+	delayed_entity_raw subtype=0x8, x=0x238, y=0x118, layer=1, paramB=0x8e, paramC=script_GuardPatrolling, conditions=0x200
+	delayed_entity_raw subtype=0x8, x=0x168, y=0xb8, layer=1, paramB=0x8f, paramC=script_GuardLibrary, conditions=0x200
+	delayed_entity_raw subtype=0x8, x=0x1f8, y=0x50, layer=1, paramB=0x90, paramC=script_GuardNorth, paramD=0x1, conditions=0xc
+	delayed_entity_raw subtype=0x8, x=0x48, y=0x2c8, layer=1, paramB=0x91, paramC=script_GuardPatrolling, conditions=0x20
+	delayed_entity_raw subtype=0x13, x=0x13b, y=0x2c8, layer=1, paramB=0x3, paramC=script_SittingPerson, paramD=0x1, conditions=0x3c0
+	delayed_entity_raw subtype=0x13, x=0x167, y=0x2e2, layer=1, paramA=0x3, paramB=0x4, paramC=script_SittingPerson, conditions=0x80
+	delayed_entity_raw subtype=0x4e, x=0x368, y=0x1b6, layer=1, paramC=script_InnDoor, conditions=0x6
+	delayed_entity_raw subtype=0x4e, x=0x388, y=0x256, layer=1, paramC=script_InnDoor, conditions=0x6
+	delayed_entity_raw subtype=0x4e, x=0x178, y=0x252, layer=1, paramC=script_SimonsDoor, conditions=0x1e
+	delayed_entity_raw subtype=0x4e, x=0x178, y=0x292, layer=1, paramC=script_PhonographDoor, conditions=0x3fe
+	delayed_entity_raw subtype=0x52, x=0x50, y=0x398, layer=1, paramC=script_SmallTownMinish, conditions=0x1f0
+	delayed_entity_raw subtype=0x52, x=0x188, y=0x1aa, layer=1, paramA=0x1, paramB=0x1, paramC=script_SmallTownMinish, conditions=0x1f0
+	delayed_entity_raw subtype=0x52, x=0x3c8, y=0x2f8, layer=1, paramA=0x2, paramB=0x2, paramC=script_SmallTownMinish, conditions=0x1f0
+	delayed_entity_raw subtype=0x52, x=0x138, y=0x10a, layer=1, paramA=0x3, paramB=0x3, paramC=script_SmallTownMinish, conditions=0x1e0
+	delayed_entity_raw subtype=0x52, x=0x338, y=0x3a, layer=2, paramA=0x4, paramB=0x4, paramC=script_SmallTownMinish, conditions=0x1c0
 	delayed_entity_raw subtype=0x54, x=0x3c0, y=0x31c, layer=2, conditions=0x1fc
 	delayed_entity_raw subtype=0x55, x=0x11c, y=0x364, layer=1, conditions=0x1fc
 	delayed_entity_raw subtype=0x10, x=0x48, y=0x80, layer=2, conditions=0x3fe
@@ -15682,32 +15689,32 @@ gUnk_additional_f_HyruleTown_0:: @ 080EF0B0
 	delayed_entity_raw subtype=0x0
 
 gUnk_additional_8_HyruleTown_0:: @ 080EF5D0
-	delayed_entity_raw subtype=0x21, x=0x388, y=0x338, layer=1, paramA=0x1, paramC=script_08010264, conditions=0x3fc
+	delayed_entity_raw subtype=0x21, x=0x388, y=0x338, layer=1, paramA=0x1, paramC=script_Ghost, conditions=0x3fc
 	entity_list_end
 
 gUnk_additional_2d_HyruleTown_0:: @ 080EF5F0
-	delayed_entity_raw subtype=0x33, x=0x220, y=0x1f8, layer=1, paramC=script_080107D0, conditions=0x3f0
+	delayed_entity_raw subtype=0x33, x=0x220, y=0x1f8, layer=1, paramC=script_GoronMerchant, conditions=0x3f0
 	entity_list_end
 
 gUnk_additional_2e_HyruleTown_0:: @ 080EF610
-	delayed_entity_raw subtype=0x11, x=0x220, y=0x248, layer=1, paramA=0x1, paramC=script_080104EC, conditions=0x3f0
+	delayed_entity_raw subtype=0x11, x=0x220, y=0x248, layer=1, paramA=0x1, paramC=script_Beedle, conditions=0x3f0
 	delayed_entity_raw subtype=0x50, x=0x220, y=0x250, layer=1, conditions=0x3f0
 	entity_list_end
 
 gUnk_additional_2f_HyruleTown_0:: @ 080EF640
-	delayed_entity_raw subtype=0x34, x=0x2b8, y=0x378, layer=1, paramC=script_0800FDA0, conditions=0x3f0
+	delayed_entity_raw subtype=0x34, x=0x2b8, y=0x378, layer=1, paramC=script_GormanFirstHouse, conditions=0x3f0
 	entity_list_end
 
 gUnk_additional_30_HyruleTown_0:: @ 080EF660
-	delayed_entity_raw subtype=0x34, x=0x68, y=0x1c8, layer=1, paramC=script_0800FDCC, conditions=0x3f0
+	delayed_entity_raw subtype=0x34, x=0x68, y=0x1c8, layer=1, paramC=script_GormanSecondHouse, conditions=0x3f0
 	entity_list_end
 
 gUnk_additional_31_HyruleTown_0:: @ 080EF680
-	delayed_entity_raw subtype=0x34, x=0x138, y=0x108, layer=1, paramC=script_0800FE44, conditions=0x1f0
+	delayed_entity_raw subtype=0x34, x=0x138, y=0x108, layer=1, paramC=script_GormanCats, conditions=0x1f0
 	entity_list_end
 
 gUnk_additional_32_HyruleTown_0:: @ 080EF6A0
-	delayed_entity_raw subtype=0x34, x=0x40, y=0x1d0, layer=1, paramC=script_0800FDA0, conditions=0x3f0
+	delayed_entity_raw subtype=0x34, x=0x40, y=0x1d0, layer=1, paramC=script_GormanFirstHouse, conditions=0x3f0
 	entity_list_end
 
 gUnk_additional_34_HyruleTown_0:: @ 080EF6C0
@@ -15727,46 +15734,46 @@ gUnk_additional_37_HyruleTown_0:: @ 080EF720
 	entity_list_end
 
 gUnk_additional_38_HyruleTown_0:: @ 080EF740
-	delayed_entity_raw subtype=0x2a, x=0x80, y=0x88, layer=1, paramA=0x2, paramC=script_08010A98, conditions=0x3e0
+	delayed_entity_raw subtype=0x2a, x=0x80, y=0x88, layer=1, paramA=0x2, paramC=script_Carpenter, conditions=0x3e0
 	entity_list_end
 
 gUnk_additional_39_HyruleTown_0:: @ 080EF760
-	delayed_entity_raw subtype=0x1e, x=0x1a8, y=0xf8, layer=1, paramA=0x1, paramC=script_08014F30, conditions=0x3f0
+	delayed_entity_raw subtype=0x1e, x=0x1a8, y=0xf8, layer=1, paramA=0x1, paramC=script_MalonHyruleTown, conditions=0x3f0
 	delayed_entity_raw subtype=0x1f, x=0x1c0, y=0xf8, layer=1, conditions=0x3f0
 	delayed_entity_raw subtype=0x20, x=0x1d0, y=0xf8, layer=1, conditions=0x3f0
 	entity_list_end
 
 gUnk_additional_3a_HyruleTown_0:: @ 080EF7A0
-	delayed_entity_raw subtype=0x6, x=0x168, y=0xb8, layer=1, paramC=script_080100C8, paramD=0x4, conditions=0x3c
+	delayed_entity_raw subtype=0x6, x=0x168, y=0xb8, layer=1, paramC=script_Townsperson1, paramD=0x4, conditions=0x3c
 	entity_list_end
 
 gUnk_additional_9_HyruleTown_1:: @ 080EF7C0
-	delayed_entity_raw subtype=0x6, x=0xe8, y=0x2f8, layer=1, paramA=0x8, paramC=script_0800F554, paramD=0x4, conditions=0xffff
-	delayed_entity_raw subtype=0x6, x=0xa0, y=0x248, layer=1, paramA=0x1, paramC=script_0800F554, paramD=0x4, conditions=0xffff
-	delayed_entity_raw subtype=0x7, x=0x90, y=0x258, layer=1, paramA=0x4, paramC=script_0800F584, conditions=0xffff
-	delayed_entity_raw subtype=0x7, x=0xb0, y=0x258, layer=1, paramC=script_0800F584, conditions=0xffff
-	delayed_entity_raw subtype=0x12, x=0xa0, y=0x1f8, layer=1, paramC=script_08010454, conditions=0xffff
-	delayed_entity_raw subtype=0x11, x=0xf0, y=0x1f8, layer=1, paramC=script_0800F5EC, conditions=0xffff
-	delayed_entity_raw subtype=0x14, x=0xf0, y=0x248, layer=1, paramC=script_0800F688, conditions=0xffff
-	delayed_entity_raw subtype=0x7, x=0xbe, y=0x198, layer=1, paramA=0x7, paramC=script_0800F6E0, paramD=0x4, conditions=0xffff
-	delayed_entity_raw subtype=0x7, x=0xd2, y=0x198, layer=1, paramA=0x8, paramC=script_0800F6E0, paramD=0x4, conditions=0xffff
-	delayed_entity_raw subtype=0x6, x=0x78, y=0x198, layer=1, paramC=script_0800F554, paramD=0x4, conditions=0xffff
-	delayed_entity_raw subtype=0x6, x=0x60, y=0x210, layer=1, paramA=0x2, paramC=script_0800F554, paramD=0x2, conditions=0xffff
-	delayed_entity_raw subtype=0x6, x=0x60, y=0x250, layer=1, paramA=0xa, paramC=script_0800F554, paramD=0x2, conditions=0xffff
-	delayed_entity_raw subtype=0x6, x=0x60, y=0x290, layer=1, paramA=0xb, paramC=script_0800F554, paramD=0x2, conditions=0xffff
-	delayed_entity_raw subtype=0x3a, x=0x118, y=0x19a, layer=1, paramB=0x3, paramC=script_0800F650, conditions=0xffff
-	delayed_entity_raw subtype=0x6, x=0x128, y=0x1f0, layer=1, paramA=0x6, paramC=script_0800F554, paramD=0x6, conditions=0xffff
-	delayed_entity_raw subtype=0x49, x=0x104, y=0xd0, layer=1, paramA=0x3, paramB=0x8, paramC=script_0800F628, paramD=0x4, conditions=0xffff
-	delayed_entity_raw subtype=0x49, x=0xf0, y=0xd0, layer=1, paramA=0x1, paramB=0x9, paramC=script_0800F628, paramD=0x4, conditions=0xffff
-	delayed_entity_raw subtype=0x6, x=0x128, y=0x1c8, layer=1, paramA=0x4, paramC=script_0800F554, paramD=0x6, conditions=0xffff
-	delayed_entity_raw subtype=0x8, x=0xe8, y=0xa8, layer=1, paramB=0x23, paramC=script_0800F5B0, paramD=0x1, conditions=0xffff
-	delayed_entity_raw subtype=0x7, x=0x98, y=0xc8, layer=1, paramA=0x6, paramC=script_0800F584, paramD=0x4, conditions=0xffff
-	delayed_entity_raw subtype=0x6, x=0xb0, y=0x220, layer=1, paramA=0x5, paramC=script_0800F554, conditions=0xffff
-	delayed_entity_raw subtype=0x6, x=0xf0, y=0x298, layer=1, paramA=0x7, paramC=script_0800F554, paramD=0x4, conditions=0xffff
-	delayed_entity_raw subtype=0x6, x=0x88, y=0x1e0, layer=1, paramA=0xd, paramC=script_0800F554, paramD=0x4, conditions=0xffff
-	delayed_entity_raw subtype=0x6, x=0x98, y=0x1e0, layer=1, paramA=0xe, paramC=script_0800F554, paramD=0x4, conditions=0xffff
-	delayed_entity_raw subtype=0x7, x=0x98, y=0xe8, layer=1, paramA=0x7, paramC=script_0800F724, conditions=0xffff
-	delayed_entity_raw subtype=0x7, x=0xa8, y=0xe8, layer=1, paramA=0x8, paramC=script_0800F724, conditions=0xffff
+	delayed_entity_raw subtype=0x6, x=0xe8, y=0x2f8, layer=1, paramA=0x8, paramC=script_TownsperonIntro, paramD=0x4, conditions=0xffff
+	delayed_entity_raw subtype=0x6, x=0xa0, y=0x248, layer=1, paramA=0x1, paramC=script_TownsperonIntro, paramD=0x4, conditions=0xffff
+	delayed_entity_raw subtype=0x7, x=0x90, y=0x258, layer=1, paramA=0x4, paramC=script_KidIntro1, conditions=0xffff
+	delayed_entity_raw subtype=0x7, x=0xb0, y=0x258, layer=1, paramC=script_KidIntro1, conditions=0xffff
+	delayed_entity_raw subtype=0x12, x=0xa0, y=0x1f8, layer=1, paramC=script_Brocco, conditions=0xffff
+	delayed_entity_raw subtype=0x11, x=0xf0, y=0x1f8, layer=1, paramC=script_BeedleIntro, conditions=0xffff
+	delayed_entity_raw subtype=0x14, x=0xf0, y=0x248, layer=1, paramC=script_PinaIntro, conditions=0xffff
+	delayed_entity_raw subtype=0x7, x=0xbe, y=0x198, layer=1, paramA=0x7, paramC=script_KidIntro2, paramD=0x4, conditions=0xffff
+	delayed_entity_raw subtype=0x7, x=0xd2, y=0x198, layer=1, paramA=0x8, paramC=script_KidIntro2, paramD=0x4, conditions=0xffff
+	delayed_entity_raw subtype=0x6, x=0x78, y=0x198, layer=1, paramC=script_TownsperonIntro, paramD=0x4, conditions=0xffff
+	delayed_entity_raw subtype=0x6, x=0x60, y=0x210, layer=1, paramA=0x2, paramC=script_TownsperonIntro, paramD=0x2, conditions=0xffff
+	delayed_entity_raw subtype=0x6, x=0x60, y=0x250, layer=1, paramA=0xa, paramC=script_TownsperonIntro, paramD=0x2, conditions=0xffff
+	delayed_entity_raw subtype=0x6, x=0x60, y=0x290, layer=1, paramA=0xb, paramC=script_TownsperonIntro, paramD=0x2, conditions=0xffff
+	delayed_entity_raw subtype=0x3a, x=0x118, y=0x19a, layer=1, paramB=0x3, paramC=script_PercyIntro, conditions=0xffff
+	delayed_entity_raw subtype=0x6, x=0x128, y=0x1f0, layer=1, paramA=0x6, paramC=script_TownsperonIntro, paramD=0x6, conditions=0xffff
+	delayed_entity_raw subtype=0x49, x=0x104, y=0xd0, layer=1, paramA=0x3, paramB=0x8, paramC=script_WindtribespeopleIntro, paramD=0x4, conditions=0xffff
+	delayed_entity_raw subtype=0x49, x=0xf0, y=0xd0, layer=1, paramA=0x1, paramB=0x9, paramC=script_WindtribespeopleIntro, paramD=0x4, conditions=0xffff
+	delayed_entity_raw subtype=0x6, x=0x128, y=0x1c8, layer=1, paramA=0x4, paramC=script_TownsperonIntro, paramD=0x6, conditions=0xffff
+	delayed_entity_raw subtype=0x8, x=0xe8, y=0xa8, layer=1, paramB=0x23, paramC=script_GuardIntro, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x7, x=0x98, y=0xc8, layer=1, paramA=0x6, paramC=script_KidIntro1, paramD=0x4, conditions=0xffff
+	delayed_entity_raw subtype=0x6, x=0xb0, y=0x220, layer=1, paramA=0x5, paramC=script_TownsperonIntro, conditions=0xffff
+	delayed_entity_raw subtype=0x6, x=0xf0, y=0x298, layer=1, paramA=0x7, paramC=script_TownsperonIntro, paramD=0x4, conditions=0xffff
+	delayed_entity_raw subtype=0x6, x=0x88, y=0x1e0, layer=1, paramA=0xd, paramC=script_TownsperonIntro, paramD=0x4, conditions=0xffff
+	delayed_entity_raw subtype=0x6, x=0x98, y=0x1e0, layer=1, paramA=0xe, paramC=script_TownsperonIntro, paramD=0x4, conditions=0xffff
+	delayed_entity_raw subtype=0x7, x=0x98, y=0xe8, layer=1, paramA=0x7, paramC=script_KidIntro3, conditions=0xffff
+	delayed_entity_raw subtype=0x7, x=0xa8, y=0xe8, layer=1, paramA=0x8, paramC=script_KidIntro3, conditions=0xffff
 	entity_list_end
 
 gUnk_additional_9_HyruleTown_0:: @ 080EF970
@@ -15780,9 +15787,9 @@ gUnk_additional_b_HyruleTown_0:: @ 080EF9C0
 
 gUnk_additional_c_HyruleTown_0:: @ 080EF9E4
 	.incbin "data_080D5360/gUnk_additional_c_HyruleTown_0.bin"
-	.4byte script_0800EF40
+	.4byte script_DrLeftDoor
 	.incbin "data_080D5360/gUnk_additional_c_HyruleTown_0_1.bin"
-	.4byte script_0801090C
+	.4byte script_FirstHouseDoor
 	.incbin "data_080D5360/gUnk_additional_c_HyruleTown_0_2.bin"
 
 gUnk_additional_8_HyruleTown_1:: @ 080EFAA4
@@ -15932,7 +15939,7 @@ Room_HyruleTown_8:: @ 080EFCC0
 	.4byte sub_StateChange_HyruleTown_0
 
 Entities_HyruleTownMinishCaves_Entrance_0:: @ 080EFCE0
-	manager subtype=0xa, x=0xe0e, y=0x105, unknown=0x0, paramB=0xb150000, paramC=0xbe
+	ezlo_hint x=0x1c, y=0x1c, rx=0x5, ry=0x1, msg=0xb15, flag=0xbe
 	object_raw subtype=0x5, x=0x48, y=0x78
 	object_raw subtype=0x5, x=0x58, y=0x78
 	object_raw subtype=0x5, x=0x68, y=0x78
@@ -16091,7 +16098,7 @@ Entities_HyruleTownMinishCaves_Flippers_0:: @ 080F0114
 	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x120011
 	object_raw subtype=0xc, x=0xd8, y=0x28, paramA=0x2, paramB=0x14, paramC=0x120000
 .ifndef EU
-	manager subtype=0xa, x=0x509, y=0x409, unknown=0x0, paramB=0xb6d0000, paramC=0x1400c7
+	ezlo_hint x=0x12, y=0xa, rx=0x9, ry=0x4, msg=0xb6d, flag=0xc7, flag2=0x14
 .endif
 	object_raw subtype=0x0, x=0x60, y=0x28, collision=1, paramA=0x57, paramB=0x800, paramC=0x130000
 	entity_list_end
@@ -16123,7 +16130,7 @@ Entities_HyruleTownMinishCaves_Librari_0:: @ 080F01F8
 	entity_list_end
 
 Enemies_HyruleTownMinishCaves_Librari:: @ 080F0208
-	manager subtype=0xa, x=0x20a, y=0x305, unknown=0x0, paramB=0xb160000, paramC=0xbf
+	ezlo_hint x=0x14, y=0x4, rx=0x5, ry=0x3, msg=0xb16, flag=0xbf
 	entity_list_end
 
 TileEntities_HyruleTownMinishCaves_Librari:: @ 080F0228
@@ -16293,60 +16300,60 @@ Room_HyruleTownUnderground_Well:: @ 080F0610
 
 Entities_CastleGarden_Main_0:: @ 080F0630
 .ifdef EU_JP
-	manager subtype=0xa, x=0x31e, y=0x103, unknown=0x0, paramB=0xb580000, paramC=0x14
+	ezlo_hint x=0x3c, y=0x6, rx=0x3, ry=0x1, msg=0xb58, flag=0x14
 .else
-	manager subtype=0xa, x=0x31e, y=0x103, unknown=0x0, paramB=0xb580000, paramC=0x13
+	ezlo_hint x=0x3c, y=0x6, rx=0x3, ry=0x1, msg=0xb58, flag=0x13
 .endif
 	entity_list_end
 
 gUnk_080F0650:: @ 080F0650
-	npc_raw subtype=0x25, x=0x1e8, y=0x40, script=script_08011128
-	npc_raw subtype=0x15, x=0x228, y=0x88, paramB=0x10c, script=script_080119B0
-	npc_raw subtype=0x15, x=0x1c8, y=0xc8, paramB=0x10d, script=script_080119B0
-	npc_raw subtype=0x15, x=0x1d8, y=0x1e8, paramB=0xe, script=script_080119D8
-	npc_raw subtype=0x15, x=0x218, y=0x1e8, paramB=0xf, script=script_080119F0
+	npc_raw subtype=0x25, x=0x1e8, y=0x40, script=script_MinisterPothoIntroCastle
+	npc_raw subtype=0x15, x=0x228, y=0x88, paramB=0x10c, script=script_GuardGarden4
+	npc_raw subtype=0x15, x=0x1c8, y=0xc8, paramB=0x10d, script=script_GuardGarden4
+	npc_raw subtype=0x15, x=0x1d8, y=0x1e8, paramB=0xe, script=script_GardGarden5
+	npc_raw subtype=0x15, x=0x218, y=0x1e8, paramB=0xf, script=script_GuardEntry1
 	entity_list_end
 
 gUnk_080F06B0:: @ 080F06B0
-	npc_raw subtype=0x4e, script=script_08010BEC
-	npc_raw subtype=0x28, x=0x1c8, y=0x88, script=script_080111CC
+	npc_raw subtype=0x4e, script=script_Npc4EIntroCastle
+	npc_raw subtype=0x28, x=0x1c8, y=0x88, script=script_ZeldaIntroCastle
 	entity_list_end
 
 gUnk_080F06E0:: @ 080F06E0
-	npc_raw subtype=0x24, x=0x1f8, y=0x28, script=script_08011640
-	npc_raw subtype=0x15, x=0x1e8, y=0x68, paramB=0x10, script=script_080112C4
-	npc_raw subtype=0x15, x=0x208, y=0x68, paramA=0x1, paramB=0x11, script=script_080112C4
-	npc_raw subtype=0x15, x=0x1e8, y=0x48, paramA=0x2, paramB=0x12, script=script_080112C4
-	npc_raw subtype=0x15, x=0x208, y=0x48, paramA=0x3, paramB=0x13, script=script_080112C4
-	npc_raw subtype=0x15, x=0x1e8, y=0x1e8, paramA=0x4, paramB=0x14, script=script_080115D0
-	npc_raw subtype=0x15, x=0x208, y=0x1e8, paramA=0x5, paramB=0x15, script=script_08011608
-	npc_raw subtype=0x27, x=0x1f8, y=0x230, paramA=0x1, script=script_080116A8
+	npc_raw subtype=0x24, x=0x1f8, y=0x28, script=script_KingDaltusIntroCeremony
+	npc_raw subtype=0x15, x=0x1e8, y=0x68, paramB=0x10, script=script_GuardCarryingChest
+	npc_raw subtype=0x15, x=0x208, y=0x68, paramA=0x1, paramB=0x11, script=script_GuardCarryingChest
+	npc_raw subtype=0x15, x=0x1e8, y=0x48, paramA=0x2, paramB=0x12, script=script_GuardCarryingChest
+	npc_raw subtype=0x15, x=0x208, y=0x48, paramA=0x3, paramB=0x13, script=script_GuardCarryingChest
+	npc_raw subtype=0x15, x=0x1e8, y=0x1e8, paramA=0x4, paramB=0x14, script=script_GuardEntryLeft
+	npc_raw subtype=0x15, x=0x208, y=0x1e8, paramA=0x5, paramB=0x15, script=script_GuardEntryRight
+	npc_raw subtype=0x27, x=0x1f8, y=0x230, paramA=0x1, script=script_VaatiIntroCeremony
 	entity_list_end
 
 gUnk_080F0770:: @ 080F0770
-	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramC=script_08011930
-	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x1001, paramC=script_08011930
-	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x2002, paramC=script_08011930
-	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x3003, paramC=script_08011930
-	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x4004, paramC=script_08011930
-	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x5005, paramC=script_08011930
-	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x6006, paramC=script_08011930
-	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x7007, paramC=script_08011930
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramC=script_Object6AMonsterFromChest
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x1001, paramC=script_Object6AMonsterFromChest
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x2002, paramC=script_Object6AMonsterFromChest
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x3003, paramC=script_Object6AMonsterFromChest
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x4004, paramC=script_Object6AMonsterFromChest
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x5005, paramC=script_Object6AMonsterFromChest
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x6006, paramC=script_Object6AMonsterFromChest
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x7007, paramC=script_Object6AMonsterFromChest
 	entity_list_end
 
 gUnk_080F0800:: @ 080F0800
-	npc_raw subtype=0x15, x=0x188, y=0xa0, paramB=0x16, script=script_0801194C
-	npc_raw subtype=0x15, x=0x128, y=0x19b, paramB=0x17, script=script_08011964
-	npc_raw subtype=0x15, x=0x268, y=0xa0, paramB=0x18, script=script_08011958
-	npc_raw subtype=0x15, x=0x2c8, y=0x19b, paramB=0x19, script=script_08011964
+	npc_raw subtype=0x15, x=0x188, y=0xa0, paramB=0x16, script=script_GuardGarden1
+	npc_raw subtype=0x15, x=0x128, y=0x19b, paramB=0x17, script=script_GuardGarden3
+	npc_raw subtype=0x15, x=0x268, y=0xa0, paramB=0x18, script=script_GuardGarden2
+	npc_raw subtype=0x15, x=0x2c8, y=0x19b, paramB=0x19, script=script_GuardGarden3
 	entity_list_end
 
 gUnk_080F0850:: @ 080F0850
-	npc_raw subtype=0x15, x=0x188, y=0xa0, paramB=0x1c, script=script_08011A64
+	npc_raw subtype=0x15, x=0x188, y=0xa0, paramB=0x1c, script=script_GuardEntry3
 	entity_list_end
 
 gUnk_080F0870:: @ 080F0870
-	npc_raw subtype=0x15, x=0x128, y=0x19b, paramB=0x22, script=script_080119E4
+	npc_raw subtype=0x15, x=0x128, y=0x19b, paramB=0x22, script=script_GuardGarden6
 	entity_list_end
 
 gUnk_080F0890:: @ 080F0890
@@ -16354,16 +16361,16 @@ gUnk_080F0890:: @ 080F0890
 	npc_raw subtype=0x15, x=0x98, y=0xc8, unknown=0xf, collision=1, paramA=0x1, paramB=0x1f, script=0x0
 	npc_raw subtype=0x15, x=0x68, y=0x168, unknown=0xf, collision=1, paramA=0x2, paramB=0x20, script=0x0
 	npc_raw subtype=0x15, x=0x48, y=0x168, unknown=0xf, collision=1, paramA=0x3, paramB=0x21, script=0x0
-	npc_raw subtype=0x4e, script=script_08011AE4
+	npc_raw subtype=0x4e, script=script_GuardGarden7
 	entity_list_end
 
 gUnk_080F08F0:: @ 080F08F0
-	npc_raw subtype=0x15, x=0x1ec, y=0x38, paramB=0x1a, script=script_08011A2C
-	npc_raw subtype=0x15, x=0x204, y=0x38, paramB=0x1b, script=script_08011A2C
+	npc_raw subtype=0x15, x=0x1ec, y=0x38, paramB=0x1a, script=script_GuardEntry2
+	npc_raw subtype=0x15, x=0x204, y=0x38, paramB=0x1b, script=script_GuardEntry2
 	entity_list_end
 
 gUnk_080F0920:: @ 080F0920
-	npc_raw subtype=0x4e, script=script_08011B20
+	npc_raw subtype=0x4e, script=script_GuardGarden8
 	entity_list_end
 
 Entities_CastleGarden_Main_1:: @ 080F0940
@@ -16458,7 +16465,7 @@ Room_CastleGarden_Main:: @ 080F0AE8
 	.4byte gUnk_additional_f_CastleGarden_Main
 
 Entities_SimonsSimulation_Main_0:: @ 080F0B28
-	object_raw subtype=0x69, x=0x98, y=0x88, unknown=0x4f, paramC=script_08011BE4
+	object_raw subtype=0x69, x=0x98, y=0x88, unknown=0x4f, paramC=script_Object69SimonsSimulation
 	entity_list_end
 
 gUnk_080F0B48:: @ 080F0B48
@@ -16609,15 +16616,15 @@ Area_SimonsSimulation_Main:: @ 080F1BEC
 	.4byte gUnk_additional_16_SimonsSimulation_Main
 
 Entities_HouseInteriors2_Stranger_0:: @ 080F1C48
-	npc_raw subtype=0x49, x=0x88, y=0x48, script=script_0800EAF8
+	npc_raw subtype=0x49, x=0x88, y=0x48, script=script_WindTribespeopleVisitor
 	entity_list_end
 
 gUnk_080F1C68:: @ 080F1C68
-	npc_raw subtype=0x52, x=0x7a, y=0x22, paramB=0x5, script=script_08010B68
+	npc_raw subtype=0x52, x=0x7a, y=0x22, paramB=0x5, script=script_SmallTownMinish
 	entity_list_end
 
 gUnk_080F1C88:: @ 080F1C88
-	npc_raw subtype=0x52, x=0x72, y=0x22, paramB=0x6, script=script_08010B68
+	npc_raw subtype=0x52, x=0x72, y=0x22, paramB=0x6, script=script_SmallTownMinish
 	entity_list_end
 
 Entities_HouseInteriors2_Stranger_1:: @ 080F1CA8
@@ -16657,15 +16664,15 @@ Entities_HouseInteriors2_WestOracle_0:: @ 080F1D70
 	entity_list_end
 
 gUnk_080F1D90:: @ 080F1D90
-	npc_raw subtype=0x17, x=0x78, y=0x68, script=script_08012024
+	npc_raw subtype=0x17, x=0x78, y=0x68, script=script_DinMovedIn
 	entity_list_end
 
 gUnk_080F1DB0:: @ 080F1DB0
-	npc_raw subtype=0x18, x=0x78, y=0x68, script=script_080120B0
+	npc_raw subtype=0x18, x=0x78, y=0x68, script=script_NayruMovedIn
 	entity_list_end
 
 gUnk_080F1DD0:: @ 080F1DD0
-	npc_raw subtype=0x19, x=0x78, y=0x68, script=script_0801213C
+	npc_raw subtype=0x19, x=0x78, y=0x68, script=script_FaroreMovedIn
 	entity_list_end
 
 Entities_HouseInteriors2_WestOracle_1:: @ 080F1DF0
@@ -16791,7 +16798,7 @@ Room_HouseInteriors2_3:: @ 080F2108
 	.4byte gUnk_additional_a_HouseInteriors2_3
 
 Entities_HouseInteriors2_DrLeft_0:: @ 080F2134
-	npc_raw subtype=0x41, x=0x78, y=0x68, script=script_0800EAA4
+	npc_raw subtype=0x41, x=0x78, y=0x68, script=script_DrLeft
 	manager subtype=0x26, paramA=0xd, paramB=0x28ff
 	object_raw subtype=0x8d, x=0x48, y=0x48, paramC=0x840000
 	entity_list_end
@@ -16863,20 +16870,20 @@ Room_HouseInteriors2_DrLeft:: @ 080F22F4
 Entities_HouseInteriors2_Romio_0:: @ 080F232C
 	npc_raw subtype=0x35, x=0x48, y=0x68, unknown=0xf, paramA=0x3, paramB=0x3, script=0x0
 	object_raw subtype=0x8d, x=0x98, y=0x28, paramC=0x850000
-	manager subtype=0xa, x=0x50b, y=0x202, unknown=0x0, paramA=0x2, paramB=0xb240000, paramC=0xc3
+	ezlo_hint type=0x2, x=0x16, y=0xa, rx=0x2, ry=0x2, msg=0xb24, flag=0xc3
 	entity_list_end
 
 gUnk_additional_c_HouseInteriors2_Romio:: @ 080F236C
-	npc_raw subtype=0x6, x=0x78, y=0x48, paramA=0xd, paramB=0x400, script=script_0800EB2C
+	npc_raw subtype=0x6, x=0x78, y=0x48, paramA=0xd, paramB=0x400, script=script_TownspersonInDogHouse
 	entity_list_end
 
 gUnk_080F238C:: @ 080F238C
-	npc_raw subtype=0x6, x=0xb8, y=0x74, paramA=0xd, paramB=0x400, script=script_0800EB64
-	npc_raw subtype=0x6, x=0xa4, y=0x74, paramA=0xe, paramB=0x400, script=script_0800EC14
+	npc_raw subtype=0x6, x=0xb8, y=0x74, paramA=0xd, paramB=0x400, script=script_DogPersonInCatHouse
+	npc_raw subtype=0x6, x=0xa4, y=0x74, paramA=0xe, paramB=0x400, script=script_CatPersonTalkingToDogPerson
 	entity_list_end
 
 gUnk_080F23BC:: @ 080F23BC
-	npc_raw subtype=0x7, x=0x88, y=0x48, paramA=0x4, paramB=0x400, script=script_080103B0
+	npc_raw subtype=0x7, x=0x88, y=0x48, paramA=0x4, paramB=0x400, script=script_Kid4
 	entity_list_end
 
 Entities_HouseInteriors2_Romio_1:: @ 080F23DC
@@ -16932,27 +16939,27 @@ Entities_HouseInteriors2_Julietta_0:: @ 080F2510
 	npc_raw subtype=0x2c, x=0x38, y=0x78, unknown=0xf, collision=1, paramA=0x4, paramB=0x4000, script=0x0
 	manager subtype=0x26, paramA=0xa, paramB=0x28ff
 	object_raw subtype=0x8b, x=0x68, y=0x48, collision=1, paramB=0x1, paramC=0x3e0000
-	manager subtype=0xa, x=0x608, y=0x105, unknown=0x0, paramA=0x2, paramB=0xb5a0000, paramC=0xc6
-	manager subtype=0xa, x=0x403, y=0x102, unknown=0x0, paramA=0x2, paramB=0xb5b0000, paramC=0xc7
+	ezlo_hint type=0x2, x=0x10, y=0xc, rx=0x5, ry=0x1, msg=0xb5a, flag=0xc6
+	ezlo_hint type=0x2, x=0x6, y=0x8, rx=0x2, ry=0x1, msg=0xb5b, flag=0xc7
 	entity_list_end
 
 gUnk_080F2570:: @ 080F2570
-	npc_raw subtype=0x6, x=0xb0, y=0x6d, paramA=0xe, paramB=0x400, script=script_0800EC54
+	npc_raw subtype=0x6, x=0xb0, y=0x6d, paramA=0xe, paramB=0x400, script=script_CatPerson
 	entity_list_end
 
 gUnk_080F2590:: @ 080F2590
-	npc_raw subtype=0x6, x=0x78, y=0x68, paramA=0x7, paramB=0x400, script=script_0800EBC0
-	npc_raw subtype=0x6, x=0x48, y=0x78, paramA=0xe, paramB=0x400, script=script_0800EC54
+	npc_raw subtype=0x6, x=0x78, y=0x68, paramA=0x7, paramB=0x400, script=script_OldLadyCatHouse1
+	npc_raw subtype=0x6, x=0x48, y=0x78, paramA=0xe, paramB=0x400, script=script_CatPerson
 	entity_list_end
 
 gUnk_080F25C0:: @ 080F25C0
 	object_raw subtype=0x8c, x=0x6c, y=0x36, collision=1, paramC=0x6c0000
 	object_raw subtype=0x5a, x=0xb0, y=0x80, collision=1, paramA=0x2, paramB=0x1
-	manager subtype=0xa, x=0x402, y=0x406, unknown=0x0, paramB=0xb600000, paramC=0xcc
+	ezlo_hint x=0x4, y=0x8, rx=0x6, ry=0x4, msg=0xb60, flag=0xcc
 	entity_list_end
 
 gUnk_080F2600:: @ 080F2600
-	npc_raw subtype=0x7, x=0x28, y=0x98, paramA=0x3, paramB=0x400, script=script_080103B0
+	npc_raw subtype=0x7, x=0x28, y=0x98, paramA=0x3, paramB=0x400, script=script_Kid4
 	entity_list_end
 
 Entities_HouseInteriors2_Julietta_1:: @ 080F2620
@@ -16998,25 +17005,25 @@ Entities_HouseInteriors2_Percy_0:: @ 080F26F8
 	entity_list_end
 
 gUnk_additional_9_HouseInteriors2_Percy:: @ 080F2718
-	npc_raw subtype=0x6, x=0x78, y=0x58, paramA=0xc, paramB=0x400, script=script_08012270
+	npc_raw subtype=0x6, x=0x78, y=0x58, paramA=0xc, paramB=0x400, script=script_MoblinLadyDisguised
 	manager subtype=0x23, x=0x68, y=0x48, paramA=0x2, paramB=0x4002, paramC=0x80000000
 	manager subtype=0x23, x=0x88, y=0x48, paramA=0x2, paramB=0x4002, paramC=0x80010000
 	entity_list_end
 
 gUnk_additional_a_HouseInteriors2_Percy:: @ 080F2758
-	npc_raw subtype=0x3c, x=0x78, y=0x58, script=script_0801232C
+	npc_raw subtype=0x3c, x=0x78, y=0x58, script=script_MoblinLady
 	manager subtype=0x23, x=0x68, y=0x48, paramB=0x2, paramC=0x430000
 	manager subtype=0x23, x=0x88, y=0x48, paramB=0x2, paramC=0x430000
 	entity_list_end
 
 gUnk_080F2798:: @ 080F2798
-	npc_raw subtype=0x3a, x=0x78, y=0x58, paramB=0x1, script=script_08012E88
+	npc_raw subtype=0x3a, x=0x78, y=0x58, paramB=0x1, script=script_PercyInside
 	manager subtype=0x23, x=0x68, y=0x48, paramB=0x2, paramC=0x430000
 	manager subtype=0x23, x=0x88, y=0x48, paramB=0x2, paramC=0x430000
 	entity_list_end
 
 gUnk_080F27D8:: @ 080F27D8
-	npc_raw subtype=0x3a, x=0x78, y=0x58, paramB=0x4, script=script_08012E88
+	npc_raw subtype=0x3a, x=0x78, y=0x58, paramB=0x4, script=script_PercyInside
 	manager subtype=0x23, x=0x68, y=0x48, paramB=0x2, paramC=0x430000
 	manager subtype=0x23, x=0x88, y=0x48, paramB=0x2, paramC=0x430000
 	entity_list_end
@@ -17057,15 +17064,15 @@ Entities_HouseInteriors2_EastOracle_0:: @ 080F28B4
 	entity_list_end
 
 gUnk_080F28D4:: @ 080F28D4
-	npc_raw subtype=0x17, x=0x78, y=0x48, script=script_08012024
+	npc_raw subtype=0x17, x=0x78, y=0x48, script=script_DinMovedIn
 	entity_list_end
 
 gUnk_080F28F4:: @ 080F28F4
-	npc_raw subtype=0x18, x=0x78, y=0x48, script=script_080120B0
+	npc_raw subtype=0x18, x=0x78, y=0x48, script=script_NayruMovedIn
 	entity_list_end
 
 gUnk_080F2914:: @ 080F2914
-	npc_raw subtype=0x19, x=0x78, y=0x48, script=script_0801213C
+	npc_raw subtype=0x19, x=0x78, y=0x48, script=script_FaroreMovedIn
 	entity_list_end
 
 Entities_HouseInteriors2_EastOracle_1:: @ 080F2934
@@ -17174,7 +17181,7 @@ Entities_HouseInteriors2_Cucco_0:: @ 080F2B9C
 .endif
 	entity_list_end
 
-	npc_raw subtype=0x45, x=0x98, y=0x38, script=script_08010120
+	npc_raw subtype=0x45, x=0x98, y=0x38, script=script_AnjuInside
 	entity_list_end
 
 Entities_HouseInteriors2_Cucco_1:: @ 080F2C7C
@@ -17223,7 +17230,7 @@ Room_HouseInteriors2_Cucco:: @ 080F2D7C
 	.4byte gUnk_additional_b_HouseInteriors2_Cucco
 
 Entities_HouseInteriors2_LinksHouseEntrance_0:: @ 080F2DAC
-	manager subtype=0xa, x=0x706, y=0x103, unknown=0x0, paramB=0xb510000, paramC=0xc8
+	ezlo_hint x=0xc, y=0xe, rx=0x3, ry=0x1, msg=0xb51, flag=0xc8
 	entity_list_end
 
 Entities_HouseInteriors2_LinksHouseEntrance_1:: @ 080F2DCC
@@ -17258,12 +17265,12 @@ Entities_HouseInteriors2_LinksHouseSmith_0:: @ 080F2E84
 	entity_list_end
 
 gUnk_080F2E94:: @ 080F2E94
-	npc_raw subtype=0x22, x=0x80, y=0x50, script=script_08009B78
-	npc_raw subtype=0x28, x=0x60, y=0x50, script=script_08009C68
+	npc_raw subtype=0x22, x=0x80, y=0x50, script=script_SmithIntro2
+	npc_raw subtype=0x28, x=0x60, y=0x50, script=script_ZeldaTalkToSmith
 	entity_list_end
 
 gUnk_080F2EC4:: @ 080F2EC4
-	npc_raw subtype=0x22, x=0xb8, y=0x60, script=script_08009DB0
+	npc_raw subtype=0x22, x=0xb8, y=0x60, script=script_SmithAtLinksHouse
 	entity_list_end
 
 Entities_HouseInteriors2_LinksHouseSmith_1:: @ 080F2EE4
@@ -17299,7 +17306,7 @@ Entities_HouseInteriors2_Dampe_0:: @ 080F2FB4
 	entity_list_end
 
 gUnk_080F2FD4:: @ 080F2FD4
-	npc_raw subtype=0x40, x=0x78, y=0x58, script=script_080095CC
+	npc_raw subtype=0x40, x=0x78, y=0x58, script=script_DampeInside2
 	entity_list_end
 
 Entities_HouseInteriors2_Dampe_1:: @ 080F2FF4
@@ -17329,7 +17336,7 @@ Room_HouseInteriors2_Dampe:: @ 080F307C
 
 Entities_HouseInteriors2_Stockwell_0:: @ 080F309C
 	manager subtype=0x26, paramA=0x8, paramB=0xff
-	npc_raw subtype=0x35, x=0x68, y=0x48, script=script_0800B5C4
+	npc_raw subtype=0x35, x=0x68, y=0x48, script=script_ShopwellsDog
 	entity_list_end
 
 gUnk_080F30CC:: @ 080F30CC
@@ -17365,13 +17372,13 @@ Room_HouseInteriors2_Stockwell:: @ 080F3174
 	.4byte gUnk_additional_8_HouseInteriors2_Stockwell
 
 Entities_HouseInteriors2_LinksHouseBedroom_0:: @ 080F3198
-	manager subtype=0xa, x=0x302, y=0x107, unknown=0x0, paramB=0xb520000, paramC=0xc9
-	manager subtype=0xa, x=0x206, y=0x101, unknown=0x0, paramB=0xb520000, paramC=0xc9
-	manager subtype=0xa, x=0x702, y=0x101, unknown=0x0, paramB=0xb530000, paramC=0xca
+	ezlo_hint x=0x4, y=0x6, rx=0x7, ry=0x1, msg=0xb52, flag=0xc9
+	ezlo_hint x=0xc, y=0x4, rx=0x1, ry=0x1, msg=0xb52, flag=0xc9
+	ezlo_hint x=0x4, y=0xe, rx=0x1, ry=0x1, msg=0xb53, flag=0xca
 	entity_list_end
 
 gUnk_080F31D8:: @ 080F31D8
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_08009DEC
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69LinksHouseBed
 	entity_list_end
 
 Entities_HouseInteriors2_LinksHouseBedroom_1:: @ 080F31F8
@@ -17398,12 +17405,12 @@ Entities_HouseInteriors4_Carpenter_0:: @ 080F3250
 	entity_list_end
 
 gUnk_080F3260:: @ 080F3260
-	npc_raw subtype=0x29, x=0x78, y=0x70, script=script_08009538
-	npc_raw subtype=0x2a, x=0x38, y=0x88, script=script_08009574
-	npc_raw subtype=0x2a, x=0x58, y=0x88, paramA=0x1, script=script_08009574
-	npc_raw subtype=0x2a, x=0x98, y=0x88, paramA=0x3, script=script_08009574
+	npc_raw subtype=0x29, x=0x78, y=0x70, script=script_MutohInMill
+	npc_raw subtype=0x2a, x=0x38, y=0x88, script=script_CarpenterOutsideTown
+	npc_raw subtype=0x2a, x=0x58, y=0x88, paramA=0x1, script=script_CarpenterOutsideTown
+	npc_raw subtype=0x2a, x=0x98, y=0x88, paramA=0x3, script=script_CarpenterOutsideTown
 	entity_list_end
-	npc_raw subtype=0x2a, x=0x60, y=0x58, paramA=0x2, script=script_08009574
+	npc_raw subtype=0x2a, x=0x60, y=0x58, paramA=0x2, script=script_CarpenterOutsideTown
 	entity_list_end
 
 Entities_HouseInteriors4_Carpenter_1:: @ 080F32D0
@@ -17446,7 +17453,7 @@ Room_HouseInteriors4_Carpenter:: @ 080F33C8
 	.4byte gUnk_additional_a_HouseInteriors4_Carpenter
 
 Entities_HouseInteriors4_Swiftblade_0:: @ 080F33F4
-	npc_raw subtype=0x30, x=0x78, y=0x28, paramA=0x1, script=script_080161E8
+	npc_raw subtype=0x30, x=0x78, y=0x28, paramA=0x1, script=script_BladeBrothers
 	entity_list_end
 
 Entities_HouseInteriors4_Swiftblade_1:: @ 080F3414
@@ -17484,7 +17491,7 @@ Entities_HouseInteriors4_RanchHouseWest_0:: @ 080F35E4
 	entity_list_end
 
 gUnk_080F3604:: @ 080F3604
-	npc_raw subtype=0x1e, x=0x68, y=0x58, script=script_08014EF8
+	npc_raw subtype=0x1e, x=0x68, y=0x58, script=scriptMalonInside
 	entity_list_end
 
 Entities_HouseInteriors4_RanchHouseWest_1:: @ 080F3624
@@ -17534,11 +17541,11 @@ Entities_HouseInteriors4_RanchHouseEast_0:: @ 080F3780
 	npc_raw subtype=0x31, x=0xb0, y=0x48, unknown=0xf, paramB=0x101, script=0x0
 	manager subtype=0x26, paramA=0x9, paramB=0xff
 	entity_list_end
-	npc_raw subtype=0x1d, x=0x48, y=0x38, script=script_08014E50
+	npc_raw subtype=0x1d, x=0x48, y=0x38, script=script_TalonInside
 	entity_list_end
 
 gUnk_080F37D0:: @ 080F37D0
-	npc_raw subtype=0x1d, x=0x48, y=0x38, script=script_08014ECC
+	npc_raw subtype=0x1d, x=0x48, y=0x38, script=script_TalonInside2
 	entity_list_end
 
 Entities_HouseInteriors4_RanchHouseEast_1:: @ 080F37F0
@@ -17680,12 +17687,12 @@ Entities_LakeHylia_Main_0:: @ 080F3BF4
 	entity_list_end
 
 gUnk_080F3C44:: @ 080F3C44
-	npc_raw subtype=0x1b, x=0x148, y=0x108, paramA=0x3, script=script_080168F4
+	npc_raw subtype=0x1b, x=0x148, y=0x108, paramA=0x3, script=script_TingleSiblings
 	entity_list_end
 
 gUnk_080F3C64:: @ 080F3C64
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_0800AFB0
-	npc_raw subtype=0x42, x=0x128, y=0x180, script=script_08012360
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69AfterToD
+	npc_raw subtype=0x42, x=0x128, y=0x180, script=script_KingGustafHologram
 	entity_list_end
 
 gUnk_080F3C94:: @ 080F3C94
@@ -17819,7 +17826,7 @@ Room_LakeHylia_Beanstalk:: @ 080F41B8
 	.4byte gUnk_additional_9_LakeHylia_Beanstalk
 
 Entities_LakeWoodsCave_Main_0:: @ 080F41E0
-	npc_raw subtype=0x4e, x=0x308, y=0x178, paramA=0x9, script=script_0800B964
+	npc_raw subtype=0x4e, x=0x308, y=0x178, paramA=0x9, script=script_MysteriousWall
 	manager subtype=0x4
 	object_raw subtype=0x41, x=0x248, y=0x198, paramA=0x1
 	entity_list_end
@@ -17870,7 +17877,7 @@ Room_HyliaDigCaves_Middle:: @ 080F4300
 	.4byte sub_StateChange_Ruins_LadderToTektites3
 
 Entities_HyliaDigCaves_North_0:: @ 080F4320
-	npc_raw subtype=0x4e, x=0x1c8, y=0xc8, paramA=0xa, script=script_0800B964
+	npc_raw subtype=0x4e, x=0x1c8, y=0xc8, paramA=0xa, script=script_MysteriousWall
 	manager subtype=0x4
 	object_raw subtype=0x41, x=0x248, y=0x78, paramA=0x1
 	object_raw subtype=0x41, x=0x308, y=0x78, paramA=0x1
@@ -17956,7 +17963,7 @@ Room_HyruleDigCaves_Main:: @ 080F4540
 	.4byte sub_StateChange_Ruins_LadderToTektites6
 
 Entities_CrenelDigCave_Main_0:: @ 080F4560
-	npc_raw subtype=0x4e, x=0x148, y=0x28, paramA=0x8, script=script_0800B964
+	npc_raw subtype=0x4e, x=0x148, y=0x28, paramA=0x8, script=script_MysteriousWall
 	manager subtype=0x4
 	object_raw subtype=0x0, x=0x78, y=0xa4, collision=1, paramA=0x63, paramB=0x400, paramC=0x450000
 	entity_list_end
@@ -17986,7 +17993,7 @@ Room_CrenelDigCave_Main:: @ 080F4638
 	.4byte sub_StateChange_Ruins_LadderToTektites7
 
 Entities_DigCaves1_HyruleFieldFarm_0:: @ 080F4658
-	npc_raw subtype=0x4e, x=0xf8, y=0x38, paramA=0x7, script=script_0800B964
+	npc_raw subtype=0x4e, x=0xf8, y=0x38, paramA=0x7, script=script_MysteriousWall
 	manager subtype=0x4
 	object_raw subtype=0x0, x=0xd8, y=0x78, collision=1, paramA=0x56, paramB=0x400, paramC=0x460000
 	entity_list_end
@@ -18010,7 +18017,7 @@ Room_DigCaves1_HyruleFieldFarm:: @ 080F46D0
 	.4byte sub_StateChange_Ruins_LadderToTektites8
 
 Entities_DigCaves1_TrilbyHighlands_0:: @ 080F46F0
-	npc_raw subtype=0x4e, x=0xe8, y=0x28, paramA=0x6, script=script_0800B964
+	npc_raw subtype=0x4e, x=0xe8, y=0x28, paramA=0x6, script=script_MysteriousWall
 	manager subtype=0x4
 	object_raw subtype=0x41, x=0x88, y=0x58, paramA=0x1
 	entity_list_end
@@ -18244,13 +18251,13 @@ Entities_MinishWoods_Main_0:: @ 080F4D00
 	entity_list_end
 
 gUnk_080F4D50:: @ 080F4D50
-	npc_raw subtype=0x4e, script=script_08012480
+	npc_raw subtype=0x4e, script=script_Npc4EEzloCutscene
 	entity_list_end
 
 gUnk_080F4D70:: @080F4D70
-	npc_raw subtype=0x4d, x=0x388, y=0x168, script=script_080126FC
-	object_raw subtype=0x6a, x=0x358, y=0x168, unknown=0x4f, paramA=0x13, paramC=script_08012BA8
-	object_raw subtype=0x6a, x=0x3b8, y=0x168, unknown=0x4f, paramA=0x13, paramC=script_08012BF8
+	npc_raw subtype=0x4d, x=0x388, y=0x168, script=script_EzloCap
+	object_raw subtype=0x6a, x=0x358, y=0x168, unknown=0x4f, paramA=0x13, paramC=script_Object6ALeftBullyingOctorok
+	object_raw subtype=0x6a, x=0x3b8, y=0x168, unknown=0x4f, paramA=0x13, paramC=script_Object6ARightBullyingOctorok
 	entity_list_end
 
 gUnk_080F4DB0:: @ 080F4DB0
@@ -18258,7 +18265,7 @@ gUnk_080F4DB0:: @ 080F4DB0
 	entity_list_end
 
 gUnk_080F4DD0:: @ 080F4DD0
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_08012CD8
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_EzloTalkMinishPortal
 	entity_list_end
 
 gUnk_080F4DF0:: @ 080F4DF0
@@ -18266,7 +18273,7 @@ gUnk_080F4DF0:: @ 080F4DF0
 	entity_list_end
 
 gUnk_080F4E10:: @ 080F4E10
-	object_raw subtype=0xbb, x=0x128, y=0x2a8, unknown=0x4f, paramB=0x7, paramC=script_0800B00C
+	object_raw subtype=0xbb, x=0x128, y=0x2a8, unknown=0x4f, paramB=0x7, paramC=script_Windcrest
 	entity_list_end
 
 Entities_MinishWoods_Main_1:: @ 080F4E30
@@ -18280,11 +18287,11 @@ Entities_MinishWoods_Main_1:: @ 080F4E30
 	entity_list_end
 
 gUnk_080F4EB0:: @ 080F4EB0
-	npc_raw subtype=0x4e, script=script_0800A910
-	object_raw subtype=0x6a, x=0x398, y=0x148, unknown=0x4f, paramA=0x13, paramC=script_0800A964
-	object_raw subtype=0x6a, x=0x378, y=0x158, unknown=0x4f, paramA=0x13, paramC=script_0800A988
-	object_raw subtype=0x6a, x=0x3a8, y=0x168, unknown=0x4f, paramA=0x13, paramC=script_0800A9AC
-	object_raw subtype=0x6a, x=0x388, y=0x188, unknown=0x4f, paramA=0x13, paramC=script_0800A9D0
+	npc_raw subtype=0x4e, script=script_Npc4EMinishWoods
+	object_raw subtype=0x6a, x=0x398, y=0x148, unknown=0x4f, paramA=0x13, paramC=script_Object6AOctorok1
+	object_raw subtype=0x6a, x=0x378, y=0x158, unknown=0x4f, paramA=0x13, paramC=script_Object6AOctorok2
+	object_raw subtype=0x6a, x=0x3a8, y=0x168, unknown=0x4f, paramA=0x13, paramC=script_Object6AOctorok3
+	object_raw subtype=0x6a, x=0x388, y=0x188, unknown=0x4f, paramA=0x13, paramC=script_Object6AOctorok4
 	entity_list_end
 
 gUnk_080F4F10:: @ 080F4F10
@@ -18427,7 +18434,7 @@ Entities_SanctuaryEntrance_Main_0:: @ 080F52F8
 	entity_list_end
 
 gUnk_080F5308:: @ 080F5308
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_08012D70
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69SanctuaryEntrance
 	entity_list_end
 
 gUnk_080F5328:: @ 080F5328
@@ -18435,9 +18442,9 @@ gUnk_080F5328:: @ 080F5328
 	entity_list_end
 
 gUnk_080F5348:: @ 080F5348
-	npc_raw subtype=0x4e, script=script_0800AB08
-	npc_raw subtype=0xf, x=0x88, y=0x68, script=script_0800AD74
-	npc_raw subtype=0x28, x=0x68, y=0x88, script=script_0800AEA4
+	npc_raw subtype=0x4e, script=script_Npc4EFixedEverything
+	npc_raw subtype=0xf, x=0x88, y=0x68, script=script_MinishEzloGoodbye
+	npc_raw subtype=0x28, x=0x68, y=0x88, script=script_ZeldaGoodbye
 	object_raw subtype=0x3e, x=0x88, y=0x40, collision=1, paramA=0x1
 	entity_list_end
 
@@ -18484,10 +18491,10 @@ Room_Sanctuary_Hall:: @ 080F5428
 	.4byte sub_StateChange_Sanctuary_Hall
 
 Entities_Sanctuary_Main_0:: @ 080F5448
-	object_raw subtype=0x6a, x=0xe8, y=0x90, unknown=0x4f, paramA=0x17, paramC=script_08013BE8
+	object_raw subtype=0x6a, x=0xe8, y=0x90, unknown=0x4f, paramA=0x17, paramC=script_Object6ATextBoard
 	npc_raw subtype=0x4e, script=script_08013F94
-	npc_raw subtype=0x4e, script=script_08013FE8
-	npc_raw subtype=0x4e, script=script_08013B18
+	npc_raw subtype=0x4e, script=script_NPC4EPreventPlayerLeave
+	npc_raw subtype=0x4e, script=script_Npc4EPreventPlayerLeaving
 	object_raw subtype=0xb0, x=0xe8, y=0x248, paramC=0x80008000
 	object_raw subtype=0x3, x=0xc8, y=0x228, paramA=0x1, paramC=0x80010000
 	object_raw subtype=0x3, x=0x108, y=0x228, paramA=0x1, paramC=0x80020000
@@ -18498,32 +18505,32 @@ Entities_Sanctuary_Main_0:: @ 080F5448
 	entity_list_end
 
 gUnk_080F54E8:: @ 080F54E8
-	npc_raw subtype=0x4e, x=0xe8, y=0x138, script=script_08013CA4
+	npc_raw subtype=0x4e, x=0xe8, y=0x138, script=script_Npc4ESanctuaryIntro
 	entity_list_end
 
 gUnk_080F5508:: @ 080F5508
-	npc_raw subtype=0x4e, x=0xe8, y=0x138, script=script_080134DC
+	npc_raw subtype=0x4e, x=0xe8, y=0x138, script=script_Npc4EPedestal
 	entity_list_end
 
 gUnk_080F5528:: @ 080F5528
-	object_raw subtype=0x6a, x=0xb0, y=0xf8, unknown=0x4f, paramA=0x1c, paramC=script_08013E94
-	object_raw subtype=0x6a, x=0x120, y=0xf8, unknown=0x4f, paramA=0x1c, paramC=script_08013EB0
+	object_raw subtype=0x6a, x=0xb0, y=0xf8, unknown=0x4f, paramA=0x1c, paramC=script_Object6AEarthElement
+	object_raw subtype=0x6a, x=0x120, y=0xf8, unknown=0x4f, paramA=0x1c, paramC=script_Object6AFireElement
 	entity_list_end
 
 gUnk_080F5558:: @ 080F5558
-	npc_raw subtype=0x4e, x=0xe8, y=0x138, script=script_08013720
+	npc_raw subtype=0x4e, x=0xe8, y=0x138, script=script_Npc4ESecondSanctuary
 	entity_list_end
 
 gUnk_080F5578:: @ 080F5578
-	object_raw subtype=0x6a, x=0x120, y=0x168, unknown=0x4f, paramA=0x1c, paramC=script_08013ECC
+	object_raw subtype=0x6a, x=0x120, y=0x168, unknown=0x4f, paramA=0x1c, paramC=script_Object6AWaterElement
 	entity_list_end
 
 gUnk_080F5598:: @ 080F5598
-	npc_raw subtype=0x4e, x=0xe8, y=0x138, script=script_080138B4
+	npc_raw subtype=0x4e, x=0xe8, y=0x138, script=script_Npc4EThirdSanctuary
 	entity_list_end
 
 gUnk_080F55B8:: @ 080F55B8
-	object_raw subtype=0x6a, x=0xb0, y=0x168, unknown=0x4f, paramA=0x1c, paramC=script_08013EE8
+	object_raw subtype=0x6a, x=0xb0, y=0x168, unknown=0x4f, paramA=0x1c, paramC=script_Object6AWindElement
 	entity_list_end
 
 gUnk_080F55D8:: @ 080F55D8
@@ -18548,18 +18555,18 @@ Room_Sanctuary_Main:: @ 080F5610
 
 Entities_Sanctuary_StainedGlass_0:: @ 080F5630
 .ifndef EU
-	npc_raw subtype=0x4e, x=0x98, y=0x38, script=script_08014274
+	npc_raw subtype=0x4e, x=0x98, y=0x38, script=script_Npc4ELookAtPictureAgain
 	manager subtype=0xf, paramA=0xe
 .endif
 	entity_list_end
 
 gUnk_080F5660:: @ 080F5660
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_080131AC
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object3EPictureBackRoom
 	entity_list_end
 
 gUnk_080F5680:: @ 080F5680
-	npc_raw subtype=0x24, x=0x98, y=0x48, script=script_080133C4
-	npc_raw subtype=0x27, x=0x98, y=0xc8, paramA=0x1, script=script_080133F8
+	npc_raw subtype=0x24, x=0x98, y=0x48, script=script_FakeKingDaltus
+	npc_raw subtype=0x27, x=0x98, y=0xc8, paramA=0x1, script=script_VaatiSanctuary
 	entity_list_end
 
 Entities_Sanctuary_StainedGlass_1:: @ 080F56B0
@@ -18661,14 +18668,14 @@ Room_HouseInteriors3_StockwellShop:: @ 080F5934
 	.4byte gUnk_additional_8_HouseInteriors3_StockwellShop
 
 Entities_HouseInteriors3_Cafe_0:: @ 080F5958
-	npc_raw subtype=0x46, x=0x64, y=0x78, script=script_0800E920
-	npc_raw subtype=0x13, x=0x55, y=0xa8, paramA=0x2, script=script_0800ED04
-	npc_raw subtype=0x13, x=0xc6, y=0x6a, paramA=0x4, paramB=0x1, script=script_0800ED04
-	npc_raw subtype=0x6, x=0x98, y=0x98, paramA=0x3, paramB=0x400, script=script_080100FC
-	npc_raw subtype=0x6, x=0x40, y=0x50, paramA=0x5, paramB=0x400, script=script_0800EC8C
-	npc_raw subtype=0x53, x=0x28, y=0x78, script=script_08010BB4
+	npc_raw subtype=0x46, x=0x64, y=0x78, script=script_Mama
+	npc_raw subtype=0x13, x=0x55, y=0xa8, paramA=0x2, script=script_SittingPerson
+	npc_raw subtype=0x13, x=0xc6, y=0x6a, paramA=0x4, paramB=0x1, script=script_SittingPerson
+	npc_raw subtype=0x6, x=0x98, y=0x98, paramA=0x3, paramB=0x400, script=script_Townsperson2
+	npc_raw subtype=0x6, x=0x40, y=0x50, paramA=0x5, paramB=0x400, script=script_CafeGuy
+	npc_raw subtype=0x53, x=0x28, y=0x78, script=script_HurdyGurdyMan
 	manager subtype=0x26, paramA=0xb, paramB=0x28ff
-	manager subtype=0xa, x=0xa0b, y=0x202, unknown=0x0, paramA=0x2, paramB=0xb240000, paramC=0xc3
+	ezlo_hint type=0x2, x=0x16, y=0x14, rx=0x2, ry=0x2, msg=0xb24, flag=0xc3
 	entity_list_end
 
 Entities_HouseInteriors3_Cafe_1:: @ 080F59E8
@@ -18716,12 +18723,12 @@ Room_HouseInteriors3_Cafe:: @ 080F5ADC
 
 Entities_HouseInteriors3_RemShoeShop_0:: @ 080F5B0C
 	npc_raw subtype=0x37, x=0x68, y=0x41, unknown=0xf, script=0x0
-	manager subtype=0xa, x=0x402, y=0x202, unknown=0x0, paramA=0x2, paramB=0xb240000, paramC=0xc3
+	ezlo_hint type=0x2, x=0x4, y=0x8, rx=0x2, ry=0x2, msg=0xb24, flag=0xc3
 	entity_list_end
 
 gUnk_080F5B3C:: @ 080F5B3C
 .ifndef EU
-	manager subtype=0xa, x=0x108, y=0x802, unknown=0x0, paramB=0xb6e0000, paramC=0xce
+	ezlo_hint x=0x10, y=0x2, rx=0x2, ry=0x8, msg=0xb6e, flag=0xce
 	entity_list_end
 .endif
 
@@ -18766,11 +18773,11 @@ Room_HouseInteriors3_RemShoeShop:: @ 080F5BE8
 .endif
 
 Entities_HouseInteriors3_Bakery_0:: @ 080F5C10
-	npc_raw subtype=0xd, x=0xa8, y=0x5c, script=script_08010674
-	npc_raw subtype=0xe, x=0x30, y=0x56, script=script_080106AC
-	manager subtype=0xa, x=0x702, y=0x107, unknown=0x0, paramB=0xb560000, paramC=0xcb
+	npc_raw subtype=0xd, x=0xa8, y=0x5c, script=script_Wheaton
+	npc_raw subtype=0xe, x=0x30, y=0x56, script=script_Pita
+	ezlo_hint x=0x4, y=0xe, rx=0x7, ry=0x1, msg=0xb56, flag=0xcb
 	entity_list_end
-	npc_raw subtype=0x6, x=0x68, y=0x90, paramA=0x7, paramB=0x400, script=script_0800EBDC
+	npc_raw subtype=0x6, x=0x68, y=0x90, paramA=0x7, paramB=0x400, script=script_OldLadyCatHouse2
 	entity_list_end
 
 Entities_HouseInteriors3_Bakery_1:: @ 080F5C70
@@ -18816,11 +18823,11 @@ Room_HouseInteriors3_Bakery:: @ 080F5D84
 	.4byte gUnk_additional_a_HouseInteriors3_Bakery
 
 Entities_HouseInteriors3_Simon_0:: @ 080F5DB0
-	npc_raw subtype=0x44, x=0xb0, y=0x40, script=script_08011B40
+	npc_raw subtype=0x44, x=0xb0, y=0x40, script=script_Simon
 	entity_list_end
 
 gUnk_080F5DD0:: @ 080F5DD0
-	npc_raw subtype=0x7, x=0x88, y=0x48, paramA=0x5, paramB=0x400, script=script_080103B0
+	npc_raw subtype=0x7, x=0x88, y=0x48, paramA=0x5, paramB=0x400, script=script_Kid4
 	entity_list_end
 
 Entities_HouseInteriors3_Simon_1:: @ 080F5DF0
@@ -18854,7 +18861,7 @@ gUnk_080F5E68:: @ 080F5E68
 Entities_HouseInteriors3_FigurineHouse_1:: @ 080F5E88
 	object_raw subtype=0x4f, x=0x8, y=0x58, paramA=0x2, paramB=0x3
 	object_raw subtype=0x4f, x=0xe8, y=0x58, paramA=0x2, paramB=0x1
-	npc_raw subtype=0x57, x=0x78, y=0x20, script=script_0800BA3C
+	npc_raw subtype=0x57, x=0x78, y=0x20, script=script_Phonograph
 	entity_list_end
 
 Enemies_HouseInteriors3_FigurineHouse:: @ 080F5EC8
@@ -18877,19 +18884,19 @@ Room_HouseInteriors3_FigurineHouse:: @ 080F5EF8
 	.4byte sub_StateChange_HouseInteriors3_FigurineHouse
 
 Entities_HouseInteriors3_BorlovEntrance_0:: @ 080F5F18
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_08014548
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object6APreventPlayerLeaveCarlov
 	entity_list_end
 
 gUnk_additional_8_HouseInteriors3_BorlovEntrance:: @ 080F5F38
-	npc_raw subtype=0x6, x=0x38, y=0x78, paramA=0x8, paramB=0x400, script=script_080100C8
+	npc_raw subtype=0x6, x=0x38, y=0x78, paramA=0x8, paramB=0x400, script=script_Townsperson1
 	entity_list_end
 
 gUnk_additional_9_HouseInteriors3_BorlovEntrance:: @ 080F5F58
-	npc_raw subtype=0x3f, x=0x78, y=0x48, paramA=0x1, script=script_08014450
+	npc_raw subtype=0x3f, x=0x78, y=0x48, paramA=0x1, script=script_Carlov
 	entity_list_end
 
 gUnk_additional_a_HouseInteriors3_BorlovEntrance:: @ 080F5F78
-	npc_raw subtype=0x3f, x=0x78, y=0x48, paramA=0x1, script=script_0801450C
+	npc_raw subtype=0x3f, x=0x78, y=0x48, paramA=0x1, script=script_CarlovWon
 	entity_list_end
 
 Entities_HouseInteriors3_BorlovEntrance_1:: @ 080F5F98
@@ -18918,9 +18925,9 @@ Room_HouseInteriors3_BorlovEntrance:: @ 080F5FF0
 	.4byte gUnk_additional_a_HouseInteriors3_BorlovEntrance
 
 Entities_HouseInteriors3_Carlov_0:: @ 080F601C
-	npc_raw subtype=0x3f, x=0x78, y=0x39, script=script_08014628
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_080145B0
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_080145E8
+	npc_raw subtype=0x3f, x=0x78, y=0x39, script=script_Carlov2
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object6ACarlov
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object6ACarlov2
 	object_raw subtype=0x54, x=0xa8, y=0x3e, paramA=0x1, paramB=0x80000, paramC=0x80000000
 	entity_list_end
 
@@ -18947,8 +18954,8 @@ Room_HouseInteriors3_Carlov:: @ 080F60C4
 	.4byte sub_StateChange_HouseInteriors3_Carlov
 
 Entities_HouseInteriors3_Borlov_0:: @ 080F60E4
-	npc_raw subtype=0x3f, x=0xb8, y=0x38, paramA=0x1, script=script_08014804
-	npc_raw subtype=0x51, script=script_080148F0
+	npc_raw subtype=0x3f, x=0xb8, y=0x38, paramA=0x1, script=script_CarlovGame
+	npc_raw subtype=0x51, script=script_CarlovChest
 	entity_list_end
 
 Entities_HouseInteriors3_Borlov_1:: @ 080F6114
@@ -18973,8 +18980,8 @@ Room_HouseInteriors3_Borlov:: @ 080F615C
 	.4byte sub_StateChange_HouseInteriors3_Borlov
 
 Entities_WindTribeTower_Entrance_0:: @ 080F617C
-	npc_raw subtype=0x49, x=0xa8, y=0x58, paramB=0x401, script=script_08014958
-	npc_raw subtype=0x49, x=0x48, y=0x48, paramA=0x1, paramB=0x402, script=script_08014994
+	npc_raw subtype=0x49, x=0xa8, y=0x58, paramB=0x401, script=script_WindTribespeople1
+	npc_raw subtype=0x49, x=0x48, y=0x48, paramA=0x1, paramB=0x402, script=script_WindTribespeople2
 	object_raw subtype=0x8d, x=0xb8, y=0x28, paramC=0xad0000
 	entity_list_end
 
@@ -19011,19 +19018,19 @@ Room_WindTribeTower_Entrance:: @ 080F6284
 	.4byte sub_StateChange_WindTribeTower_Entrance
 
 Entities_WindTribeTower_Floor2_0:: @ 080F62A4
-	npc_raw subtype=0x49, x=0x68, y=0x58, paramA=0x2, paramB=0x403, script=script_08014A54
+	npc_raw subtype=0x49, x=0x68, y=0x58, paramA=0x2, paramB=0x403, script=script_WindTribespeople5
 	object_raw subtype=0x5, x=0x98, y=0x128
 	object_raw subtype=0x5, x=0x88, y=0x128
 	entity_list_end
 
 gUnk_080F62E4:: @ 080F62E4
 	object_raw subtype=0x18, x=0xa0, y=0x28
-	npc_raw subtype=0x4a, x=0xa0, y=0x38, script=script_08014B34
-	npc_raw subtype=0x49, x=0x88, y=0xfc, paramA=0x5, paramB=0x406, script=script_08014A28
+	npc_raw subtype=0x4a, x=0xa0, y=0x38, script=script_GregalSick
+	npc_raw subtype=0x49, x=0x88, y=0xfc, paramA=0x5, paramB=0x406, script=script_WindTribespeople4
 	entity_list_end
 
 gUnk_080F6324:: @ 080F6324
-	npc_raw subtype=0x4a, x=0xa0, y=0x58, paramA=0x3, script=script_08014C2C
+	npc_raw subtype=0x4a, x=0xa0, y=0x58, paramA=0x3, script=script_GregalHealthy
 	entity_list_end
 
 Entities_WindTribeTower_Floor2_1:: @ 080F6344
@@ -19052,7 +19059,7 @@ Room_WindTribeTower_Floor2:: @ 080F63C4
 	.4byte sub_StateChange_WindTribeTower_Floor2
 
 Entities_WindTribeTower_Floor3_0:: @ 080F63E4
-	npc_raw subtype=0x49, x=0x68, y=0xf8, paramA=0x5, paramB=0x406, script=script_08014A28
+	npc_raw subtype=0x49, x=0x68, y=0xf8, paramA=0x5, paramB=0x406, script=script_WindTribespeople4
 	object_raw subtype=0x5, x=0x68, y=0x128
 	object_raw subtype=0x5, x=0x78, y=0x128
 	object_raw subtype=0x5, x=0x88, y=0x128
@@ -19088,7 +19095,7 @@ Room_WindTribeTower_Floor3:: @ 080F64E4
 	.4byte sub_StateChange_WindTribeTower_Floor3
 
 Entities_WindTribeTower_Floor4_0:: @ 080F6504
-	npc_raw subtype=0x49, x=0x78, y=0x28, paramA=0x4, paramB=0x405, script=script_08014AC4
+	npc_raw subtype=0x49, x=0x78, y=0x28, paramA=0x4, paramB=0x405, script=script_Siroc
 	object_raw subtype=0x5, x=0x28, y=0x118
 	object_raw subtype=0x5, x=0x28, y=0x128
 	object_raw subtype=0x5, x=0xc8, y=0x118
@@ -19096,11 +19103,11 @@ Entities_WindTribeTower_Floor4_0:: @ 080F6504
 	entity_list_end
 
 gUnk_080F6564:: @ 080F6564
-	npc_raw subtype=0x49, x=0x88, y=0xf8, paramA=0x3, paramB=0x404, script=script_080149CC
+	npc_raw subtype=0x49, x=0x88, y=0xf8, paramA=0x3, paramB=0x404, script=script_WindTribespeople3
 	entity_list_end
 
 gUnk_080F6584:: @ 080F6584
-	npc_raw subtype=0x49, x=0x68, y=0xf8, paramA=0x3, paramB=0x404, script=script_080149CC
+	npc_raw subtype=0x49, x=0x68, y=0xf8, paramA=0x3, paramB=0x404, script=script_WindTribespeople3
 	entity_list_end
 
 Entities_WindTribeTower_Floor4_1:: @ 080F65A4
@@ -19138,7 +19145,7 @@ Entities_WindTribeTowerRoof_Main_0:: @ 080F664C
 	entity_list_end
 
 gUnk_080F66AC:: @ 080F66AC
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_0800AFE8
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_EzloTalkPoW
 	entity_list_end
 
 Entities_WindTribeTowerRoof_Main_1:: @ 080F66CC
@@ -19529,16 +19536,16 @@ Entities_HyruleField_LinksHouseExterior_0:: @ 080F7018
 	entity_list_end
 
 gUnk_080F7088:: @ 080F7088
-	npc_raw subtype=0x1b, x=0x3b8, y=0x118, script=script_080168F4
+	npc_raw subtype=0x1b, x=0x3b8, y=0x118, script=script_TingleSiblings
 	entity_list_end
 
 gUnk_080F70A8:: @ 080F70A8
-	npc_raw subtype=0x28, x=0x1e8, y=0x180, script=script_08014CDC
-	npc_raw subtype=0x4e, x=0x238, y=0x1a8, script=script_08014DCC
+	npc_raw subtype=0x28, x=0x1e8, y=0x180, script=script_ZeldaOutsideLinksHouse
+	npc_raw subtype=0x4e, x=0x238, y=0x1a8, script=script_Npc4EOutsideLinksHouse
 	entity_list_end
 
 gUnk_080F70D8:: @ 080F70D8
-	object_raw subtype=0xbb, x=0x2c8, y=0x128, unknown=0x4f, paramB=0x6, paramC=script_0800B00C
+	object_raw subtype=0xbb, x=0x2c8, y=0x128, unknown=0x4f, paramB=0x6, paramC=script_Windcrest
 	entity_list_end
 
 Entities_HyruleField_LinksHouseExterior_1:: @ 080F70F8
@@ -19716,8 +19723,8 @@ gUnk_080F7500:: @ 080F7500
 	entity_list_end
 
 gUnk_additional_8_HyruleField_Farmers:: @ 080F7520
-	delayed_entity_raw subtype=0x3e, x=0xb8, y=0xe8, layer=1, paramC=script_0800B0D0, conditions=0xffff
-	delayed_entity_raw subtype=0x3e, x=0x68, y=0x128, layer=1, paramA=0x1, paramC=script_0800B0D0, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x3e, x=0xb8, y=0xe8, layer=1, paramC=script_Farmer, conditions=0xffff
+	delayed_entity_raw subtype=0x3e, x=0x68, y=0x128, layer=1, paramA=0x1, paramC=script_Farmer, paramD=0x1, conditions=0xffff
 	entity_list_end
 
 gUnk_080F7550:: @ 080F7550
@@ -19725,11 +19732,11 @@ gUnk_080F7550:: @ 080F7550
 	entity_list_end
 
 gUnk_additional_9_HyruleField_Farmers:: @ 080F7570
-	delayed_entity_raw subtype=0x29, x=0x148, y=0xf0, layer=1, paramC=script_080094FC, conditions=0xffff
-	delayed_entity_raw subtype=0x2a, x=0x128, y=0xd0, layer=1, paramC=script_08009574, conditions=0xffff
-	delayed_entity_raw subtype=0x2a, x=0x1a8, y=0x100, layer=1, paramA=0x1, paramC=script_08009574, conditions=0xffff
-	delayed_entity_raw subtype=0x2a, x=0x138, y=0x98, layer=1, paramA=0x2, paramC=script_08009574, conditions=0xffff
-	delayed_entity_raw subtype=0x2a, x=0x148, y=0x88, layer=1, paramA=0x3, paramC=script_08009574, conditions=0xffff
+	delayed_entity_raw subtype=0x29, x=0x148, y=0xf0, layer=1, paramC=script_MutohOutsideTown, conditions=0xffff
+	delayed_entity_raw subtype=0x2a, x=0x128, y=0xd0, layer=1, paramC=script_CarpenterOutsideTown, conditions=0xffff
+	delayed_entity_raw subtype=0x2a, x=0x1a8, y=0x100, layer=1, paramA=0x1, paramC=script_CarpenterOutsideTown, conditions=0xffff
+	delayed_entity_raw subtype=0x2a, x=0x138, y=0x98, layer=1, paramA=0x2, paramC=script_CarpenterOutsideTown, conditions=0xffff
+	delayed_entity_raw subtype=0x2a, x=0x148, y=0x88, layer=1, paramA=0x3, paramC=script_CarpenterOutsideTown, conditions=0xffff
 	entity_list_end
 
 Entities_HyruleField_Farmers_1:: @ 080F75D0
@@ -19783,11 +19790,11 @@ Entities_HyruleField_LonLonRanch_0:: @ 080F7720
 .ifdef EU_JP
 	object_raw subtype=0x0, x=0x218, y=0x74, collision=1, paramA=0x63, paramB=0x400, paramC=0x7c0000
 	object_raw subtype=0x0, x=0x138, y=0x108, collision=1, paramA=0x57, paramB=0x700, paramC=0x7d0000
-	manager subtype=0xa, x=0x1b16, y=0x203, unknown=0x0, paramB=0xb590000, paramC=0x7e
+	ezlo_hint x=0x2c, y=0x36, rx=0x3, ry=0x2, msg=0xb59, flag=0x7e
 .else
 	object_raw subtype=0x0, x=0x218, y=0x74, collision=1, paramA=0x63, paramB=0x400, paramC=0x7e0000
 	object_raw subtype=0x0, x=0x138, y=0x108, collision=1, paramA=0x57, paramB=0x700, paramC=0x7f0000
-	manager subtype=0xa, x=0x1b16, y=0x203, unknown=0x0, paramB=0xb590000, paramC=0x80
+	ezlo_hint x=0x2c, y=0x36, rx=0x3, ry=0x2, msg=0xb59, flag=0x80
 .endif
 	entity_list_end
 
@@ -19799,12 +19806,12 @@ gUnk_additional_b_HyruleField_LonLonRanch:: @ 080F7770
 	entity_list_end
 
 gUnk_080F77C0:: @ 080F77C0
-	npc_raw subtype=0x1d, x=0x130, y=0x290, script=script_0800B3A4
-	npc_raw subtype=0x1e, x=0x120, y=0x270, script=script_0800B4AC
+	npc_raw subtype=0x1d, x=0x130, y=0x290, script=script_TalonLostKey
+	npc_raw subtype=0x1e, x=0x120, y=0x270, script=script_MalonLostKey
 	entity_list_end
 
 gUnk_080F77F0:: @ 080F77F0
-	npc_raw subtype=0x1e, x=0x13e, y=0x280, script=script_0800B5EC
+	npc_raw subtype=0x1e, x=0x13e, y=0x280, script=script_MalonAtRanch
 	entity_list_end
 
 gUnk_080F7810:: @ 080F7810
@@ -19812,8 +19819,8 @@ gUnk_080F7810:: @ 080F7810
 	entity_list_end
 
 gUnk_additional_c_HyruleField_LonLonRanch:: @ 080F7830
-	delayed_entity_raw subtype=0x8, x=0xc8, y=0x228, layer=1, paramB=0x8, paramC=script_08014E14, conditions=0xffff
-	delayed_entity_raw subtype=0x8, x=0x38, y=0x218, layer=1, paramB=0x9, paramC=script_08014E14, conditions=0xffff
+	delayed_entity_raw subtype=0x8, x=0xc8, y=0x228, layer=1, paramB=0x8, paramC=script_GuardNorthHyruleField, conditions=0xffff
+	delayed_entity_raw subtype=0x8, x=0x38, y=0x218, layer=1, paramB=0x9, paramC=script_GuardNorthHyruleField, conditions=0xffff
 	entity_list_end
 
 gUnk_080F7860:: @ 080F7860
@@ -19821,7 +19828,7 @@ gUnk_080F7860:: @ 080F7860
 	entity_list_end
 
 gUnk_additional_d_HyruleField_LonLonRanch:: @ 080F7880
-	delayed_entity_raw subtype=0x32, x=0x88, y=0x368, layer=1, paramC=script_0800B9B4, conditions=0xffff
+	delayed_entity_raw subtype=0x32, x=0x88, y=0x368, layer=1, paramC=script_GoronPunching, conditions=0xffff
 	entity_list_end
 
 gUnk_080F78A0:: @ 080F78A0
@@ -19833,7 +19840,7 @@ gUnk_080F78A0:: @ 080F78A0
 	entity_list_end
 
 gUnk_additional_12_HyruleField_LonLonRanch:: @ 080F78C0
-	delayed_entity_raw subtype=0x1b, x=0xb8, y=0x108, layer=1, paramA=0x1, paramC=script_080168F4, conditions=0xfff0
+	delayed_entity_raw subtype=0x1b, x=0xb8, y=0x108, layer=1, paramA=0x1, paramC=script_TingleSiblings, conditions=0xfff0
 	entity_list_end
 
 Entities_HyruleField_LonLonRanch_1:: @ 080F78E0
@@ -19876,7 +19883,7 @@ gUnk_additional_e_HyruleField_LonLonRanch:: @ 080F79D0
 
 gUnk_additional_11_HyruleField_LonLonRanch:: @ 080F7A20
 	.incbin "data_080D5360/gUnk_additional_11_HyruleField_LonLonRanch.bin"
-	.4byte script_0800B574
+	.4byte script_LonLonRanchDoor
 	.incbin "data_080D5360/gUnk_additional_11_HyruleField_LonLonRanch_1.bin"
 
 Enemies_HyruleField_LonLonRanch:: @ 080F7A44
@@ -19971,12 +19978,12 @@ Entities_HyruleField_OutsideCastle_1:: @ 080F7C00
 	entity_list_end
 
 gUnk_080F7C80:: @ 080F7C80
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_08014FBC
-	npc_raw subtype=0x27, x=0x1f8, y=0x108, paramA=0x1, script=script_08015234
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69VaatiAppears
+	npc_raw subtype=0x27, x=0x1f8, y=0x108, paramA=0x1, script=script_VaatiAppearsAgain
 	entity_list_end
 
 gUnk_080F7CB0:: @ 080F7CB0
-	npc_raw subtype=0x4d, x=0x1e8, y=0x148, script=script_08015390
+	npc_raw subtype=0x4d, x=0x1e8, y=0x148, script=script_EzloCapExplainingOriginStory
 	entity_list_end
 
 gUnk_080F7CD0:: @ 080F7CD0
@@ -19984,19 +19991,19 @@ gUnk_080F7CD0:: @ 080F7CD0
 	entity_list_end
 
 gUnk_additional_e_HyruleField_OutsideCastle:: @ 080F7CF0
-	delayed_entity_raw subtype=0x29, x=0x208, y=0x2c8, layer=1, paramC=script_080094FC, conditions=0xffff
-	delayed_entity_raw subtype=0x2a, x=0x1c8, y=0x2f0, layer=1, paramC=script_08009574, conditions=0xffff
-	delayed_entity_raw subtype=0x2a, x=0x258, y=0x2b0, layer=1, paramA=0x1, paramC=script_08009574, conditions=0xffff
-	delayed_entity_raw subtype=0x2a, x=0x228, y=0x2b8, layer=1, paramA=0x2, paramC=script_08009574, conditions=0xffff
-	delayed_entity_raw subtype=0x2a, x=0x208, y=0x2f8, layer=1, paramA=0x3, paramC=script_08009574, conditions=0xffff
-	delayed_entity_raw subtype=0x8, x=0x278, y=0x2c8, layer=1, paramB=0xa, paramC=script_08014E14, conditions=0xffff
-	delayed_entity_raw subtype=0x8, x=0x198, y=0x2b8, layer=1, paramB=0xb, paramC=script_08014E14, conditions=0xffff
+	delayed_entity_raw subtype=0x29, x=0x208, y=0x2c8, layer=1, paramC=script_MutohOutsideTown, conditions=0xffff
+	delayed_entity_raw subtype=0x2a, x=0x1c8, y=0x2f0, layer=1, paramC=script_CarpenterOutsideTown, conditions=0xffff
+	delayed_entity_raw subtype=0x2a, x=0x258, y=0x2b0, layer=1, paramA=0x1, paramC=script_CarpenterOutsideTown, conditions=0xffff
+	delayed_entity_raw subtype=0x2a, x=0x228, y=0x2b8, layer=1, paramA=0x2, paramC=script_CarpenterOutsideTown, conditions=0xffff
+	delayed_entity_raw subtype=0x2a, x=0x208, y=0x2f8, layer=1, paramA=0x3, paramC=script_CarpenterOutsideTown, conditions=0xffff
+	delayed_entity_raw subtype=0x8, x=0x278, y=0x2c8, layer=1, paramB=0xa, paramC=script_GuardNorthHyruleField, conditions=0xffff
+	delayed_entity_raw subtype=0x8, x=0x198, y=0x2b8, layer=1, paramB=0xb, paramC=script_GuardNorthHyruleField, conditions=0xffff
 	entity_list_end
 
 gUnk_080F7D70:: @ 080F7D70
 	object_raw subtype=0x69, unknown=0x4f, paramC=script_080157AC
 	object_raw subtype=0x69, unknown=0x4f, paramC=script_08015B34
-	npc_raw subtype=0x28, x=0x1e8, y=0x168, script=script_08015958
+	npc_raw subtype=0x28, x=0x1e8, y=0x168, script=script_ZeldaIntroBusinessScrub
 	enemy_raw subtype=0x5b, x=0x248, y=0x1eb
 	entity_list_end
 
@@ -20005,7 +20012,7 @@ gUnk_080F7DC0:: @ 080F7DC0
 	entity_list_end
 
 gUnk_additional_d_HyruleField_OutsideCastle:: @ 080F7DE0
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_08015BA8
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69FixBridge
 	manager subtype=0x5, x=0x9, y=0x25, paramB=0x89, paramC=0x80650001
 	manager subtype=0x5, x=0x9, y=0x26, paramB=0x89, paramC=0x80650001
 	entity_list_end
@@ -20098,7 +20105,7 @@ Entities_HyruleField_OutsideCastle_0West:: @ 080F805C
 	entity_list_end
 
 gUnk_080F806C:: @ 080F806C
-	npc_raw subtype=0x1b, x=0xb8, y=0x78, paramA=0x2, script=script_080168F4
+	npc_raw subtype=0x1b, x=0xb8, y=0x78, paramA=0x2, script=script_TingleSiblings
 	entity_list_end
 
 Entities_HyruleField_OutsideCastle_1West:: @ 080F808C
@@ -20195,7 +20202,7 @@ Entities_HyruleField_TrilbyHighlands_0:: @ 080F8210
 .endif
 
 gUnk_080F82E0:: @ 080F82E0
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_08015BE8
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69Takeover
 	entity_list_end
 
 Entities_HyruleField_TrilbyHighlands_1:: @ 080F8300
@@ -20243,7 +20250,7 @@ Entities_HyruleField_PercysHouse_0:: @ 080F8420
 	entity_list_end
 
 gUnk_080F8430:: @ 080F8430
-	npc_raw subtype=0x3a, x=0x68, y=0x58, paramB=0x2, script=script_08012EC0
+	npc_raw subtype=0x3a, x=0x68, y=0x58, paramB=0x2, script=script_PercyOutside
 	entity_list_end
 
 Entities_HyruleField_PercysHouse_1:: @ 080F8450
@@ -20920,7 +20927,7 @@ Entities_VeilFalls_Main_0:: @ 080F9264
 	object_raw subtype=0x0, x=0x178, y=0x278, collision=1, paramA=0x56, paramB=0x400, paramC=0xa40000
 	object_raw subtype=0x0, x=0x148, y=0xb8, collision=1, paramA=0x57, paramB=0x700, paramC=0xa70000
 	object_raw subtype=0x0, x=0x138, y=0x308, collision=1, paramA=0x57, paramB=0x700, paramC=0xf70000
-	manager subtype=0xa, x=0x2002, y=0x303, unknown=0x0, paramB=0xb1e0000, paramC=0xa5
+	ezlo_hint x=0x4, y=0x40, rx=0x3, ry=0x3, msg=0xb1e, flag=0xa5
 	entity_list_end
 .else
 	manager subtype=0x4
@@ -20931,16 +20938,16 @@ Entities_VeilFalls_Main_0:: @ 080F9264
 	object_raw subtype=0x0, x=0x178, y=0x278, collision=1, paramA=0x56, paramB=0x400, paramC=0xa50000
 	object_raw subtype=0x0, x=0x148, y=0xb8, collision=1, paramA=0x57, paramB=0x700, paramC=0xa80000
 	object_raw subtype=0x0, x=0x138, y=0x308, collision=1, paramA=0x57, paramB=0x700, paramC=0xaa0000
-	manager subtype=0xa, x=0x2002, y=0x303, unknown=0x0, paramB=0xb1e0000, paramC=0xa6
+	ezlo_hint x=0x4, y=0x40, rx=0x3, ry=0x3, msg=0xb1e, flag=0xa6
 	entity_list_end
 .endif
 
 gUnk_080F9304:: @ 080F9304
-	object_raw subtype=0xbb, x=0xf8, y=0xf8, unknown=0x4f, paramB=0x1, paramC=script_0800B00C
+	object_raw subtype=0xbb, x=0xf8, y=0xf8, unknown=0x4f, paramB=0x1, paramC=script_Windcrest
 	entity_list_end
 
 Entities_VeilFalls_Main_1:: @ 080F9324
-	npc_raw subtype=0x4e, x=0x38, y=0x1fd, paramA=0xb, script=script_08015FC0
+	npc_raw subtype=0x4e, x=0x38, y=0x1fd, paramA=0xb, script=script_NPC4ESourceOfTheFlow
 	manager subtype=0x6, paramA=0x8
 	entity_list_end
 
@@ -21249,33 +21256,33 @@ Room_VeilFallsCaves_HeartPiece:: @ 080F9B58
 
 Entities_VeilFallsTop_Main_0:: @ 080F9B78
 	object_raw subtype=0x82, x=0x58, y=0x38, paramB=0x1
-	npc_raw subtype=0x4c, x=0x140, y=0x68, script=script_08009318
-	npc_raw subtype=0x4c, x=0xd0, y=0x68, paramA=0x5, script=script_08009340
-	npc_raw subtype=0x4c, x=0x1b0, y=0x68, paramA=0xa, script=script_08009340
-	npc_raw subtype=0x4c, y=0x78, paramA=0x4, script=script_08009348
+	npc_raw subtype=0x4c, x=0x140, y=0x68, script=script_BigGoron1
+	npc_raw subtype=0x4c, x=0xd0, y=0x68, paramA=0x5, script=script_BigGoron2
+	npc_raw subtype=0x4c, x=0x1b0, y=0x68, paramA=0xa, script=script_BigGoron2
+	npc_raw subtype=0x4c, y=0x78, paramA=0x4, script=script_BigGoron3
 	npc_raw subtype=0x4c, x=0x108, y=0x88, unknown=0xf, paramA=0x1, script=0x0
 	npc_raw subtype=0x4c, x=0x108, y=0x88, unknown=0xf, paramA=0x2, script=0x0
 	entity_list_end
 
 gUnk_080F9BF8:: @ 080F9BF8
 .ifdef EU_JP
-	manager subtype=0xa, x=0x307, y=0x202, unknown=0x0, paramB=0xb200000, paramC=0xaa
+	ezlo_hint x=0xe, y=0x6, rx=0x2, ry=0x2, msg=0xb20, flag=0xaa
 	object_raw subtype=0x82, x=0x58, y=0x38, paramB=0x1
-	npc_raw subtype=0x4c, x=0x140, y=0xf8, script=script_08009320
+	npc_raw subtype=0x4c, x=0x140, y=0xf8, script=script_BigGoronHiding
 	entity_list_end
 .else
-	manager subtype=0xa, x=0x307, y=0x202, unknown=0x0, paramB=0xb200000, paramC=0xac
+	ezlo_hint x=0xe, y=0x6, rx=0x2, ry=0x2, msg=0xb20, flag=0xac
 	object_raw subtype=0x82, x=0x58, y=0x38, paramB=0x1
-	npc_raw subtype=0x4c, x=0x140, y=0xf8, script=script_08009320
+	npc_raw subtype=0x4c, x=0x140, y=0xf8, script=script_BigGoronHiding
 	entity_list_end
 .endif
 
 gUnk_080F9C38:: @ 080F9C38
-	object_raw subtype=0x6a, x=0x108, y=0x88, unknown=0x4f, paramA=0x29, paramC=script_080094A4
+	object_raw subtype=0x6a, x=0x108, y=0x88, unknown=0x4f, paramA=0x29, paramC=script_Object6AVeilFallsTop
 	entity_list_end
 
 gUnk_080F9C58:: @ 080F9C58
-	object_raw subtype=0x6a, x=0x118, y=0x88, unknown=0x4f, paramA=0x2a, paramC=script_080094CC
+	object_raw subtype=0x6a, x=0x118, y=0x88, unknown=0x4f, paramA=0x2a, paramC=script_Object6AMirrorShield
 	entity_list_end
 
 Entities_VeilFallsTop_Main_1:: @ 080F9C78
@@ -21409,8 +21416,8 @@ Room_47_4:: @ 080F9F08
 	.4byte sub_StateChange_47_4
 
 Entities_TreeInteriors_WitchHut_0:: @ 080F9F28
-	npc_raw subtype=0x36, x=0x78, y=0x30, script=script_080160A8
-	object_raw subtype=0x69, x=0x58, y=0x48, unknown=0x4f, paramC=script_0801613C
+	npc_raw subtype=0x36, x=0x78, y=0x30, script=script_Syrup
+	object_raw subtype=0x69, x=0x58, y=0x48, unknown=0x4f, paramC=script_Object69PotionBlue
 	entity_list_end
 
 Entities_TreeInteriors_WitchHut_1:: @ 080F9F58
@@ -21424,7 +21431,7 @@ gUnk_080F9F88:: @ 080F9F88
 
 gUnk_080F9FA8:: @ 080F9FA8
 	object_raw subtype=0x4d, x=0x98, y=0x48, collision=1, paramA=0x8
-	object_raw subtype=0x69, x=0x98, y=0x48, unknown=0x4f, paramC=script_08016190
+	object_raw subtype=0x69, x=0x98, y=0x48, unknown=0x4f, paramC=script_Object69PotionRed
 	entity_list_end
 
 Enemies_TreeInteriors_WitchHut:: @ 080F9FD8
@@ -21760,7 +21767,7 @@ Entities_TreeInteriors_PercysTreehouse_0:: @ 080FA5B0
 	entity_list_end
 
 gUnk_080FA5D0:: @ 080FA5D0
-	npc_raw subtype=0x3a, x=0x78, y=0x58, script=script_08012E88
+	npc_raw subtype=0x3a, x=0x78, y=0x58, script=script_PercyInside
 	entity_list_end
 
 Entities_TreeInteriors_PercysTreehouse_1:: @ 080FA5F0
@@ -22126,11 +22133,11 @@ gUnk_080FACB8:: @ 080FACB8
 	entity_list_end
 
 gUnk_080FAD48:: @ 080FAD48
-	npc_raw subtype=0x4e, script=script_0800A9F4
-	object_raw subtype=0x6a, x=0xf8, y=0x38, unknown=0x4f, paramA=0x20, paramC=script_0800AA48
-	object_raw subtype=0x6a, x=0x168, y=0x48, unknown=0x4f, paramA=0x20, paramC=script_0800AA6C
-	object_raw subtype=0x6a, x=0x138, y=0x68, unknown=0x4f, paramA=0x21, paramC=script_0800AA90
-	object_raw subtype=0x6a, x=0xe8, y=0x88, unknown=0x4f, paramA=0x21, paramC=script_0800AAB4
+	npc_raw subtype=0x4e, script=script_Npc4EMtCrenel
+	object_raw subtype=0x6a, x=0xf8, y=0x38, unknown=0x4f, paramA=0x20, paramC=script_Object6ATektite1
+	object_raw subtype=0x6a, x=0x168, y=0x48, unknown=0x4f, paramA=0x20, paramC=script_Object6ATektite2
+	object_raw subtype=0x6a, x=0x138, y=0x68, unknown=0x4f, paramA=0x21, paramC=script_Object6ATektite3
+	object_raw subtype=0x6a, x=0xe8, y=0x88, unknown=0x4f, paramA=0x21, paramC=script_Object6ATektite4
 	entity_list_end
 
 Enemies_MtCrenel_MountainTop:: @ 080FADA8
@@ -22218,11 +22225,11 @@ Entities_MtCrenel_CaveOfFlamesEntrance_0:: @ 080FAFD4
 	entity_list_end
 
 gUnk_080FAFE4:: @ 080FAFE4
-	object_raw subtype=0x69, unknown=0x4f, paramC=script_0800AF68
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_EzloTalkCoF
 	entity_list_end
 
 gUnk_080FB004:: @ 080FB004
-	object_raw subtype=0xbb, x=0x98, y=0xf8, unknown=0x4f, paramC=script_0800B00C
+	object_raw subtype=0xbb, x=0x98, y=0xf8, unknown=0x4f, paramC=script_Windcrest
 	entity_list_end
 
 Entities_MtCrenel_CaveOfFlamesEntrance_1:: @ 080FB024
@@ -22381,9 +22388,9 @@ Entities_MtCrenel_Entrance_0:: @ 080FB480
 	object_raw subtype=0x5e, x=0x178, y=0x178
 	object_raw subtype=0x5e, x=0x128, y=0x160
 	object_raw subtype=0x0, x=0x318, y=0x164, collision=1, paramA=0x56, paramB=0x400, paramC=0x490000
-	manager subtype=0xa, x=0x1316, y=0x204, unknown=0x0, paramB=0xb2a0000, paramC=0x48
-	manager subtype=0xa, x=0xd11, y=0x202, unknown=0x0, paramA=0x2, paramB=0xb230000, paramC=0xf8
-	manager subtype=0xa, x=0xe2e, y=0x202, unknown=0x0, paramA=0x2, paramB=0xb230000, paramC=0xf8
+	ezlo_hint x=0x2c, y=0x26, rx=0x4, ry=0x2, msg=0xb2a, flag=0x48
+	ezlo_hint type=0x2, x=0x22, y=0x1a, rx=0x2, ry=0x2, msg=0xb23, flag=0xf8
+	ezlo_hint type=0x2, x=0x5c, y=0x1c, rx=0x2, ry=0x2, msg=0xb23, flag=0xf8
 	entity_list_end
 .else
 	object_raw subtype=0x6b, x=0x118, y=0x28, paramB=0x4e
@@ -22403,9 +22410,9 @@ Entities_MtCrenel_Entrance_0:: @ 080FB480
 	object_raw subtype=0x5e, x=0x178, y=0x178
 	object_raw subtype=0x5e, x=0x128, y=0x160
 	object_raw subtype=0x0, x=0x318, y=0x164, collision=1, paramA=0x56, paramB=0x400, paramC=0x4b0000
-	manager subtype=0xa, x=0x1316, y=0x204, unknown=0x0, paramB=0xb2a0000, paramC=0x49
-	manager subtype=0xa, x=0xd11, y=0x202, unknown=0x0, paramA=0x2, paramB=0xb230000, paramC=0x4a
-	manager subtype=0xa, x=0xe2e, y=0x202, unknown=0x0, paramA=0x2, paramB=0xb230000, paramC=0x4a
+	ezlo_hint x=0x2c, y=0x26, rx=0x4, ry=0x2, msg=0xb2a, flag=0x49
+	ezlo_hint type=0x2, x=0x22, y=0x1a, rx=0x2, ry=0x2, msg=0xb23, flag=0x4a
+	ezlo_hint type=0x2, x=0x5c, y=0x1c, rx=0x2, ry=0x2, msg=0xb23, flag=0x4a
 	entity_list_end
 .endif
 
@@ -22784,7 +22791,7 @@ Entities_CrenelCaves_HelmasaurHallway_0:: @ 080FBF3C
 	object_raw subtype=0x5, x=0x198, y=0x38, collision=1
 	object_raw subtype=0x5, x=0x208, y=0x48, collision=1
 	object_raw subtype=0x5, x=0x208, y=0x58, collision=1
-	manager subtype=0xa, x=0x404, y=0x508, unknown=0x0, paramB=0xb260000, paramC=0x86
+	ezlo_hint x=0x8, y=0x8, rx=0x8, ry=0x5, msg=0xb26, flag=0x86
 	entity_list_end
 
 Entities_CrenelCaves_HelmasaurHallway_1:: @ 080FBFFC
@@ -22890,7 +22897,7 @@ Room_CrenelCaves_BombBusinessScrub:: @ 080FC234
 	.4byte sub_StateChange_CrenelCaves_BombBusinessScrub
 
 Entities_CrenelCaves_Hermit_0:: @ 080FC254
-	npc_raw subtype=0x6, x=0x78, y=0x38, paramA=0xf, paramB=0x400, script=script_0800B8E4
+	npc_raw subtype=0x6, x=0x78, y=0x38, paramA=0xf, paramB=0x400, script=script_CrenelHermit
 	entity_list_end
 
 Entities_CrenelCaves_Hermit_1:: @ 080FC274

@@ -3,9 +3,10 @@
 #include "flags.h"
 #include "room.h"
 #include "script.h"
-#include "audio.h"
+#include "sound.h"
 #include "object.h"
 #include "functions.h"
+#include "npc.h"
 
 typedef struct {
     /*0x00*/ u16 unk0;
@@ -27,7 +28,7 @@ static bool32 sub_080867CC(u32);
 void sub_0808681C(Entity*);
 static u8 sub_08086954(Entity*);
 
-extern u32 sub_080562CC(u32, u32, u32, u32);
+extern u32 CheckRegionOnScreen(u32, u32, u32, u32);
 extern void sub_08078AC0(u32, u32, u32);
 
 extern void (*const gUnk_081206B4[])(Entity*);
@@ -46,19 +47,19 @@ void sub_080866D8(Entity* this) {
         this->action = 1;
         *((u32*)(&this->field_0x68)) = 0;
         this->field_0x6c.HALF.LO = this->actionDelay;
-        sub_0805E3A0(this, 6);
+        SetDefaultPriority(this, PRIO_PLAYER_EVENT);
     }
 
     prop = GetCurrentRoomProperty(this->field_0x6c.HALF.LO);
     for (i = 0; prop->unk0 != 0xFFFF && i < 32; prop++, i++) {
         int mask = 1 << i;
         if ((*((u32*)(&this->field_0x68)) & mask) == 0 && sub_080867CC(prop->unk5) &&
-            sub_080562CC(prop->unk0, prop->unk2, 32, 32)) {
+            CheckRegionOnScreen(prop->unk0, prop->unk2, 32, 32)) {
             entity = CreateObject(HOUSE_DOOR_EXT, prop->unk7, prop->unk6);
             if (entity) {
                 entity->field_0x6c.HALF.LO = i;
-                entity->x.HALF.HI = gRoomControls.roomOriginX + prop->unk0 + 16;
-                entity->y.HALF.HI = gRoomControls.roomOriginY + prop->unk2 + 32;
+                entity->x.HALF.HI = gRoomControls.origin_x + prop->unk0 + 16;
+                entity->y.HALF.HI = gRoomControls.origin_y + prop->unk2 + 32;
                 entity->parent = this;
                 entity->field_0x68.HWORD = prop->unk0;
                 entity->field_0x6a.HWORD = prop->unk2;
@@ -85,7 +86,7 @@ static bool32 sub_080867CC(u32 arg0) {
 }
 
 void sub_080867E4(Entity* this) {
-    if (!sub_080562CC(this->field_0x68.HWORD, this->field_0x6a.HWORD, 32, 32)) {
+    if (!CheckRegionOnScreen(this->field_0x68.HWORD, this->field_0x6a.HWORD, 32, 32)) {
         *((u32*)(&this->parent->field_0x68)) = *((u32*)(&this->parent->field_0x68)) & ~(1 << this->field_0x6c.HALF.LO);
         DeleteThisEntity();
     }
@@ -167,7 +168,7 @@ void sub_0808692C(Entity* this) {
 static u8 sub_08086954(Entity* this) {
     if (sub_0800445C(this)) {
         if (sub_0806ED9C(this, 6, 20) >= 0 && gPlayerEntity.animationState == 0 &&
-            (u16)gPlayerState.field_0x90.HALF.LO == 0x400 && gPlayerState.jumpStatus == 0) {
+            (u16)gPlayerState.field_0x90 == 0x400 && gPlayerState.jump_status == 0) {
             this->actionDelay--;
         }
     } else {

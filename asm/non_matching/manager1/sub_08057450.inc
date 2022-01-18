@@ -33,7 +33,7 @@ _0805748A:
 	adds r0, r3, #0
 	adds r0, #0x22
 	ldrb r0, [r0]
-	ldr r5, _08057510 @ =gScreenTransition
+	ldr r5, _08057510 @ =gRoomTransition
 	cmp r0, #0
 	bne _080574BE
 	ldr r0, [r5]
@@ -76,11 +76,11 @@ _080574DC:
 	adds r0, r5, #0
 	adds r0, #0x87
 	ldrh r1, [r4]
-	bl sub_0801D79C
+	bl SetColor
 	adds r0, r5, #0
 	adds r0, #0x8c
 	ldrh r1, [r4, #0xa]
-	bl sub_0801D79C
+	bl SetColor
 	adds r4, #2
 	adds r5, #1
 	cmp r5, #3
@@ -96,7 +96,7 @@ _08057502:
 _08057504: .4byte gScreen
 _08057508: .4byte gRoomControls
 _0805750C: .4byte gBG3Buffer
-_08057510: .4byte gScreenTransition
+_08057510: .4byte gRoomTransition
 _08057514: .4byte gUnk_08107C30
 _08057518: .4byte gUnk_085B4180
 	.syntax divided

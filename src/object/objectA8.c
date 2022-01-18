@@ -1,7 +1,7 @@
-#include "global.h"
 #include "entity.h"
 #include "player.h"
 #include "functions.h"
+#include "item.h"
 
 extern void (*gUnk_08124824[])(Entity*);
 

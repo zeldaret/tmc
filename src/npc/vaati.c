@@ -1,8 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "script.h"
-#include "audio.h"
-#include "structures.h"
+#include "sound.h"
 #include "functions.h"
 
 extern void sub_08095CB0(Entity*);
@@ -27,7 +26,7 @@ void VaatiAction0(Entity* this) {
     this->spriteSettings.draw = 1;
     this->field_0x68.HALF.LO = 0;
     this->field_0x68.HALF.HI = 0;
-    sub_0805E3A0(this, 2);
+    SetDefaultPriority(this, PRIO_MESSAGE);
     sub_0807DD64(this);
     VaatiAction1(this);
 }
@@ -35,7 +34,7 @@ void VaatiAction0(Entity* this) {
 void VaatiAction1(Entity* this) {
     ScriptExecutionContext* tmp;
     sub_0807DD94(this, sub_08066B74);
-    if ((*(s8*)&this->field_0x68.HALF.HI != 0) && ((gScreenTransition.frameCount & 3) == 0)) {
+    if ((*(s8*)&this->field_0x68.HALF.HI != 0) && ((gRoomTransition.frameCount & 3) == 0)) {
         sub_08095CB0(this);
     }
 

@@ -1,15 +1,7 @@
-#include "global.h"
-#include "entity.h"
 #include "npc.h"
-#include "textbox.h"
-#include "script.h"
-#include "random.h"
-#include "audio.h"
 #include "functions.h"
-#include "effects.h"
 
 extern void sub_08068780(Entity*);
-extern s32 sub_0806EDD8(Entity*, u32, u32);
 
 extern void (*const gUnk_08111530[])(Entity*);
 
@@ -65,7 +57,7 @@ void sub_08068780(Entity* this) {
             this->action = 1;
             this->spriteSettings.draw = TRUE;
             this->animationState = this->type;
-            sub_0805E3A0(this, 2);
+            SetDefaultPriority(this, PRIO_MESSAGE);
             sub_0807DD50(this);
             break;
         case 1:
@@ -87,7 +79,7 @@ void sub_08068780(Entity* this) {
 
     if (this->frame & 0x40) {
         this->frame &= 0xbf;
-        if (sub_080040A8(this) == 0) {
+        if (CheckOnScreen(this) == 0) {
             SoundReq(gUnk_0811153E[(s32)Random() % 3]);
         } else {
             EnqueueSFX(gUnk_08111538[(s32)Random() % 3]);

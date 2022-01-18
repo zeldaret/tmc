@@ -2,11 +2,9 @@
 #include "enemy.h"
 #include "coord.h"
 #include "player.h"
-#include "audio.h"
 #include "functions.h"
-#include "random.h"
 
-extern void sub_0800449C(Entity*, u32);
+extern void SoundReqClipped(Entity*, u32);
 
 extern void (*const V1DarkMagicProjectile_Functions[])(Entity*);
 extern void (*const V1DarkMagicProjectile_Actions[])(Entity*);
@@ -38,7 +36,7 @@ void sub_080AAC44(Entity* this) {
                     ResolveEntityOnTop(this->parent, this);
                 }
                 ResetPlayer();
-                gPlayerState.field_0x1a[0] |= 0x80;
+                gPlayerState.mobility |= 0x80;
                 gPlayerState.field_0xa |= 0x80;
             }
             if (gPlayerEntity.health == 0) {
@@ -54,7 +52,39 @@ void sub_080AAC44(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/v1DarkMagicProjectile/sub_080AACE0.inc", void sub_080AACE0(Entity* this))
+void sub_080AACE0(Entity* this) {
+    Entity* parent;
+    if (this->type && this->type2) {
+        DeleteThisEntity();
+    }
+
+    if (this->spriteSettings.draw == 1) {
+        this->spriteSettings.draw = 0;
+        this->field_0x86.HALF.LO = 1;
+        CreateFx(this, 2, 0);
+    }
+
+    parent = this->parent;
+    if (this->type2 == 0) {
+        u8* ptr = &(parent->field_0x74.HALF.LO);
+        parent->field_0x74.HALF.LO = 3;
+        parent->field_0x80.HALF.LO += this->field_0x80.HALF.HI >> 1;
+        if (parent->field_0x80.HALF.LO > 8) {
+            parent->field_0x80.HALF.LO = 8;
+        } else if (parent->field_0x80.HALF.LO == 0) {
+            parent->field_0x80.HALF.LO = 1;
+        }
+    } else {
+        parent->cutsceneBeh.HALF.LO = 0;
+        parent->hitType = 0x2b;
+    }
+
+    if (this->field_0x86.HALF.LO == 0) {
+        CreateFx(this, 2, 0);
+    }
+
+    DeleteThisEntity();
+}
 
 void sub_080AAD70(Entity* this) {
     if (sub_0806F520() == 0) {
@@ -124,7 +154,7 @@ void V1DarkMagicProjectile_Action1(Entity* this) {
                 uVar2 = GetFacingDirection(this, &gPlayerEntity);
                 sub_08004596(this, uVar2);
             }
-            sub_0806F69C(this);
+            LinearMoveUpdate(this);
             break;
         case 1:
             if ((this->parent == NULL) || (this->parent->next == NULL)) {
@@ -173,7 +203,7 @@ void sub_080AAF74(Entity* this) {
         this->actionDelay = 0x1e;
         gPlayerEntity.iframes = 8;
         ModHealth(-4);
-        sub_0800449C(&gPlayerEntity, 0x7a);
+        SoundReqClipped(&gPlayerEntity, 0x7a);
         if (gPlayerEntity.health == 0) {
             this->health = 0;
         }
@@ -182,11 +212,11 @@ void sub_080AAF74(Entity* this) {
         this->action = 1;
         this->field_0x80.HALF.LO = 0;
         gPlayerEntity.iframes = 0xf0;
-        gPlayerState.field_0x1a[0] = 0;
+        gPlayerState.mobility = 0;
         this->health = 0;
     } else {
         ResetPlayer();
-        gPlayerState.field_0x1a[0] |= 0x80;
+        gPlayerState.mobility |= 0x80;
         gPlayerState.field_0xa |= 0x80;
         CopyPosition(&gPlayerEntity, this);
         this->z.HALF.HI = gPlayerEntity.z.HALF.HI - 4;
@@ -202,7 +232,7 @@ void sub_080AB034(Entity* this) {
     } else {
         tmp = 0x139;
     }
-    sub_0801D2B4(this, tmp);
+    ChangeObjPalette(this, tmp);
 }
 
 void (*const V1DarkMagicProjectile_Functions[])(Entity*) = {

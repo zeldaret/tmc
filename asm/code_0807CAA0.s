@@ -65,8 +65,8 @@ _0807CB04: .4byte gSave
 _0807CB08: .4byte gArea
 _0807CB0C: .4byte 0x0000047C
 
-	thumb_func_start CheckLocalFlagByOffset
-CheckLocalFlagByOffset: @ 0x0807CB10
+	thumb_func_start CheckLocalFlagByBank
+CheckLocalFlagByBank: @ 0x0807CB10
 	push {lr}
 	adds r2, r0, #0
 	ldr r0, _0807CB20 @ =gGlobalFlags
@@ -114,17 +114,17 @@ _0807CB84:
 	movs r1, #0
 	b _0807CBCA
 _0807CB88:
-	ldr r0, _0807CB9C @ =gUnk_0811E454
+	ldr r0, _0807CB9C @ =gLocalFlagBanks
 	lsls r1, r2, #1
 	adds r1, r1, r0
 	ldrh r0, [r1]
 	adds r1, r3, #0
-	bl CheckLocalFlagByOffset
+	bl CheckLocalFlagByBank
 _0807CB96:
 	adds r1, r0, #0
 	b _0807CBCA
 	.align 2, 0
-_0807CB9C: .4byte gUnk_0811E454
+_0807CB9C: .4byte gLocalFlagBanks
 _0807CBA0:
 	adds r0, r3, #0
 	bl GetInventoryValue

@@ -13,7 +13,7 @@ void Manager1D_Main(Manager* this) {
 void sub_0805B5E0(Manager* this) {
     this->action = 1;
 
-    gScreen.lcd.displayControl |= 0x800;
+    gScreen.lcd.displayControl |= DISPCNT_BG3_ON;
     gScreen.bg3.control = gUnk_08108C88[this->unk_0a];
     gRoomControls.bg3OffsetY.WORD = 0;
     gRoomControls.bg3OffsetX.WORD = 0;
@@ -25,8 +25,8 @@ void sub_0805B5E0(Manager* this) {
             gScreen.bg3.xOffset = 0;
             break;
         case 1:
-            gScreen.bg3.xOffset = gRoomControls.roomScrollX + gRoomControls.bg3OffsetX.HALF.HI;
-            gScreen.bg3.yOffset = gRoomControls.roomScrollY + gRoomControls.bg3OffsetY.HALF.HI;
+            gScreen.bg3.xOffset = gRoomControls.scroll_x + gRoomControls.bg3OffsetX.HALF.HI;
+            gScreen.bg3.yOffset = gRoomControls.scroll_y + gRoomControls.bg3OffsetY.HALF.HI;
             break;
     }
 }
@@ -34,7 +34,7 @@ void sub_0805B5E0(Manager* this) {
 void sub_0805B638(Manager* this) {
     if (this->unk_0a == 1) {
         gRoomControls.bg3OffsetX.WORD = gRoomControls.bg3OffsetX.WORD + 0x2000;
-        gScreen.bg3.xOffset = gRoomControls.roomScrollX + gRoomControls.bg3OffsetX.HALF.HI;
-        gScreen.bg3.yOffset = gRoomControls.roomScrollY + gRoomControls.bg3OffsetY.HALF.HI;
+        gScreen.bg3.xOffset = gRoomControls.scroll_x + gRoomControls.bg3OffsetX.HALF.HI;
+        gScreen.bg3.yOffset = gRoomControls.scroll_y + gRoomControls.bg3OffsetY.HALF.HI;
     }
 }

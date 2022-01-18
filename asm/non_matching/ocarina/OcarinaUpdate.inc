@@ -24,7 +24,7 @@
 	ldr r1, _08076C7C @ =gUnk_02034490
 	strb r4, [r1]
 	bl CreateBird
-	bl UnfreezeTime
+	bl ResetPlayerEventPriority
 	adds r0, r5, #0
 	adds r1, r6, #0
 	bl sub_08077E78

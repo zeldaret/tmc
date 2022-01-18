@@ -1,16 +1,14 @@
 #include "entity.h"
 #include "functions.h"
-#include "textbox.h"
+#include "message.h"
 #include "save.h"
-#include "script.h"
 #include "npc.h"
+#include "object.h"
 
 void sub_08063B68(Entity* this);
 void sub_08063A80(Entity* this);
 
 extern void (*gUnk_0810CDF8[])(Entity*);
-
-extern void CreateSpeechBubbleExclamationMark(Entity*, u32, u32);
 
 extern Dialog gUnk_0810CE04[];
 
@@ -110,7 +108,7 @@ void sub_08063C74(void) {
 }
 
 void sub_08063C90(Entity* this) {
-    ShowNPCDialogue(this, &gUnk_0810CE04[gSave.unk8]);
+    ShowNPCDialogue(this, &gUnk_0810CE04[gSave.global_progress]);
 }
 
 void sub_08063CAC(Entity* this) {

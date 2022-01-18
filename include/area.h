@@ -3,11 +3,27 @@
 
 #include "global.h"
 
+#define MAX_ROOMS 64
+
+typedef struct {
+    u16 pixel_width;
+    u16 pixel_height;
+    u16 map_x;
+    u16 map_y;
+    void* tileset;
+    void* map;
+    void* metatiles;
+    void* bg_anim;
+    void* exits;
+    void** properties;
+} RoomResInfo;
+static_assert(sizeof(RoomResInfo) == 0x20);
+
 typedef struct {
     u8 areaMetadata;
     u8 locationIndex;
     u8 unk;
-    u8 regret;
+    u8 dungeon_idx; /* same index as global flags for dungeons */
     u16 localFlagOffset;
     u8 filler[4];
     u16 unk_0a;
@@ -22,18 +38,184 @@ typedef struct {
     bool8 playShrinkSeq;
     u8 unk1A;
     u8 filler2[13];
-    u8 field_0x28;
-    u8 filler4[0x833];
-    void*** field_0x85c;
-    u32 musicIndex;
-    u32 pMusicIndex;
+    u8 inventoryGfxIdx;
+    u8 filler4[0x13];
+    RoomResInfo roomResInfos[MAX_ROOMS];
+    RoomResInfo currentRoomInfo;
+    RoomResInfo* pCurrentRoomInfo;
+    u32 bgm;
+    u32 queued_bgm;
     u8 filler5[0x20];
-    u32 unk2;
-    u32 unk3;
-    u32 unk4;
+    void* transitionManager;
+    void (*onEnter)();
+    void (*onExit)();
 } Area;
 static_assert(sizeof(Area) == 0x894);
-
 extern Area gArea;
+
+typedef struct {
+    u16 map_x;
+    u16 map_y;
+    u16 pixel_width;
+    u16 pixel_height;
+    u16 tileset_id;
+} FORCE_WORD_ALIGNED RoomHeader;
+static_assert(sizeof(RoomHeader) == 0xa);
+extern RoomHeader* gAreaRoomHeaders[];
+
+typedef struct {
+    u8 flags;
+    u8 location;
+    u8 flag_bank;
+    u8 _3;
+} AreaHeader;
+extern AreaHeader gAreaMetadata[];
+
+typedef enum {
+    AREA_MINISH_WOODS,
+    AREA_MINISH_VILLAGE,
+    AREA_HYRULE_TOWN,
+    AREA_HYRULE_FIELD,
+    AREA_CASTOR_WILDS,
+    AREA_RUINS,
+    AREA_MT_CRENEL,
+    AREA_CASTLE_GARDEN,
+    AREA_CLOUD_TOPS,
+    AREA_ROYAL_VALLEY,
+    AREA_VEIL_FALLS,
+    AREA_LAKE_HYLIA,
+    AREA_LAKE_WOODS_CAVE,
+    AREA_BEANSTALKS,
+    AREA_EMPTY,
+    AREA_HYRULE_DIG_CAVES,
+    AREA_MELARIS_MINE,
+    AREA_MINISH_PATHS_1,
+    AREA_CRENEL_MINISH_PATHS,
+    AREA_DIG_CAVES_1,
+    AREA_CRENEL_DIG_CAVE,
+    AREA_FESTIVAL_TOWN,
+    AREA_VEIL_FALLS_DIG_CAVE,
+    AREA_CASTOR_WILDS_DIG_CAVE,
+    AREA_OUTER_FORTRESS_OF_WINDS,
+    AREA_HYLIA_DIG_CAVES,
+    AREA_VEIL_FALLS_TOP,
+    AREA_NULL_1B,
+    AREA_NULL_1C,
+    AREA_NULL_1D,
+    AREA_NULL_1E,
+    AREA_NULL_1F,
+    AREA_MINISH_HOUSE_INTERIORS,
+    AREA_HOUSE_INTERIORS_1,
+    AREA_HOUSE_INTERIORS_2,
+    AREA_HOUSE_INTERIORS_3,
+    AREA_TREE_INTERIORS,
+    AREA_DOJOS,
+    AREA_CRENEL_CAVES,
+    AREA_MINISH_CRACKS,
+    AREA_HOUSE_INTERIORS_4,
+    AREA_GREAT_FAIRIES,
+    AREA_CASTOR_CAVES,
+    AREA_CASTOR_DARKNUT,
+    AREA_ARMOS_INTERIORS,
+    AREA_TOWN_MINISH_HOLES,
+    AREA_MINISH_RAFTERS,
+    AREA_GORON_CAVE,
+    AREA_WIND_TRIBE_TOWER,
+    AREA_WIND_TRIBE_TOWER_ROOF,
+    AREA_CAVES,
+    AREA_VEIL_FALLS_CAVES,
+    AREA_ROYAL_VALLEY_GRAVES,
+    AREA_MINISH_CAVES,
+    AREA_CASTLE_GARDEN_MINISH_HOLES,
+    AREA_37,
+    AREA_EZLO_CUTSCENE,
+    AREA_NULL_39,
+    AREA_NULL_3A,
+    AREA_NULL_3B,
+    AREA_NULL_3C,
+    AREA_NULL_3D,
+    AREA_NULL_3E,
+    AREA_NULL_3F,
+    AREA_40,
+    AREA_HYRULE_TOWN_UNDERGROUND,
+    AREA_GARDEN_FOUNTAINS,
+    AREA_HYRULE_CASTLE_CELLAR,
+    AREA_SIMONS_SIMULATION,
+    AREA_45,
+    AREA_NULL_46,
+    AREA_47,
+    AREA_DEEPWOOD_SHRINE,
+    AREA_DEEPWOOD_SHRINE_BOSS,
+    AREA_DEEPWOOD_SHRINE_ENTRY,
+    AREA_NULL_4B,
+    AREA_NULL_4C,
+    AREA_4D,
+    AREA_NULL_4E,
+    AREA_NULL_4F,
+    AREA_CAVE_OF_FLAMES,
+    AREA_CAVE_OF_FLAMES_BOSS,
+    AREA_NULL_52,
+    AREA_NULL_53,
+    AREA_NULL_54,
+    AREA_NULL_55,
+    AREA_NULL_56,
+    AREA_57,
+    AREA_FORTRESS_OF_WINDS,
+    AREA_FORTRESS_OF_WINDS_TOP,
+    AREA_INNER_MAZAAL,
+    AREA_NULL_5B,
+    AREA_NULL_5C,
+    AREA_NULL_5D,
+    AREA_NULL_5E,
+    AREA_5F,
+    AREA_TEMPLE_OF_DROPLETS,
+    AREA_NULL_61,
+    AREA_HYRULE_TOWN_MINISH_CAVES,
+    AREA_NULL_63,
+    AREA_NULL_64,
+    AREA_NULL_65,
+    AREA_NULL_66,
+    AREA_67,
+    AREA_ROYAL_CRYPT,
+    AREA_NULL_69,
+    AREA_NULL_6A,
+    AREA_NULL_6B,
+    AREA_NULL_6C,
+    AREA_NULL_6D,
+    AREA_NULL_6E,
+    AREA_6F,
+    AREA_PALACE_OF_WINDS,
+    AREA_PALACE_OF_WINDS_BOSS,
+    AREA_NULL_72,
+    AREA_NULL_73,
+    AREA_NULL_74,
+    AREA_NULL_75,
+    AREA_NULL_76,
+    AREA_77,
+    AREA_SANCTUARY,
+    AREA_NULL_79,
+    AREA_NULL_7A,
+    AREA_NULL_7B,
+    AREA_NULL_7C,
+    AREA_NULL_7D,
+    AREA_NULL_7E,
+    AREA_7F,
+    AREA_HYRULE_CASTLE,
+    AREA_SANCTUARY_ENTRANCE,
+    AREA_NULL_82,
+    AREA_NULL_83,
+    AREA_NULL_84,
+    AREA_NULL_85,
+    AREA_NULL_86,
+    AREA_87,
+    AREA_DARK_HYRULE_CASTLE,
+    AREA_DARK_HYRULE_CASTLE_OUTSIDE,
+    AREA_VAATIS_ARMS,
+    AREA_VAATI_3,
+    AREA_VAATI_2,
+    AREA_DARK_HYRULE_CASTLE_BRIDGE,
+    AREA_NULL_8E,
+    AREA_8F,
+} AreaID;
 
 #endif

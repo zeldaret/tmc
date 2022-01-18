@@ -1,5 +1,5 @@
 #include "entity.h"
-#include "functions.h"
+#include "npc.h"
 
 extern void sub_0806FFBC(Entity*, u32, u32, u32);
 

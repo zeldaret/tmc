@@ -25,7 +25,7 @@ _0805AB68:
 	strb r0, [r1]
 	adds r0, r6, #0
 	movs r1, #6
-	bl sub_0805E3A0
+	bl SetDefaultPriority
 	ldr r2, _0805ABF4 @ =gUnk_02031EC0
 	ldrb r0, [r6, #0xb]
 	mov r3, r8

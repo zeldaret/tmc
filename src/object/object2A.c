@@ -1,4 +1,5 @@
 #include "global.h"
+#include "sound.h"
 #include "entity.h"
 #include "functions.h"
 #include "flags.h"

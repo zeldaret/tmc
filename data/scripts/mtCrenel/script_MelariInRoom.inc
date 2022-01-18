@@ -1,0 +1,24 @@
+@ Mines Melari in his room
+SCRIPT_START script_MelariInRoom
+	BeginBlock
+	Call sub_08068884
+	DoPostScriptAction 0x000a
+	SetAnimationState 0x0004
+	SetAnimation 0x0000
+	EndBlock
+script_0800D31E:
+	EndBlock
+	BeginBlock
+	Call sub_08068910
+	CheckEntityInteractType
+	JumpIfNot script_0800D31E
+	EndBlock
+	SetPlayerIdle
+	FacePlayer
+	SetIntVariable 0x00000000
+	Call sub_0806C028
+	MessageFromTarget 0x1219
+	WaitUntilTextboxCloses
+	Wait 0x000f
+	EnablePlayerControl
+	Jump script_0800D31E

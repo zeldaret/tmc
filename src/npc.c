@@ -82,7 +82,7 @@ void (*const gNPCFunctions[][3])(Entity* ent) = {
     [GREGAL] = { Gregal, NULL, Gregal_Fusion },
     [MAYOR_HAGEN] = { MayorHagen, NULL, MayorHagen_Fusion },
     [BIG_GORON] = { BigGoron, NULL, NULL },
-    [EZLO_CAP] = { EzloCap, NULL, NULL },
+    [EZLO] = { Ezlo, NULL, NULL },
     [NPC_UNK_4E] = { NPC4E, NULL, NPC4E_Fusion },
     [NPC_UNK_4F] = { NPC4F, NULL, NULL },
     [CLOTHES_RACK] = { ClothesRack, NULL, NULL },
@@ -137,7 +137,7 @@ void (*const gNPCFunctions[][3])(Entity* ent) = {
 //clang-format on
 const u8 npc_unk[] = { 0x04, 0x05, 0x06, 0x06 };
 
-extern u8 gUnk_020342F8;
+extern u32 gUnk_020342F8;
 typedef struct {
     u16 unk0;
     u16 unk1;
@@ -147,7 +147,6 @@ typedef struct {
 extern NPCStruct gUnk_02031EC0[100];
 
 void InitNPC(Entity*);
-u32 ReadBit(void*, u32);
 
 // regalloc
 NONMATCH("asm/non_matching/arm_proxy/NPCUpdate.inc", void NPCUpdate(Entity* this)) {
@@ -155,15 +154,15 @@ NONMATCH("asm/non_matching/arm_proxy/NPCUpdate.inc", void NPCUpdate(Entity* this
         DeleteThisEntity();
     if (this->action == 0 && (this->flags & ENT_DID_INIT) == 0)
         InitNPC(this);
-    if (!CheckDontUpdate(this))
+    if (!EntityIsDeleted(this))
         gNPCFunctions[this->id][0](this);
     if (this->next != NULL) {
         if (gNPCFunctions[this->id][1] != NULL)
             gNPCFunctions[this->id][1](this);
         if ((this->health & 0x7f) != 0) {
             u32 temp = this->health & 0x7f;
-            gUnk_02031EC0[temp * 2 - 2].x = this->x.HALF.HI - gRoomControls.roomOriginX;
-            gUnk_02031EC0[temp * 2 - 2].y = this->y.HALF.HI - gRoomControls.roomOriginY;
+            gUnk_02031EC0[temp * 2 - 2].x = this->x.HALF.HI - gRoomControls.origin_x;
+            gUnk_02031EC0[temp * 2 - 2].y = this->y.HALF.HI - gRoomControls.origin_y;
         }
         DrawEntity(this);
     }

@@ -1,15 +1,14 @@
 #include "entity.h"
 #include "script.h"
 #include "functions.h"
-#include "textbox.h"
+#include "message.h"
 #include "flags.h"
+#include "npc.h"
 
 extern SpriteLoadData gUnk_08111358;
 
 extern void (*const gUnk_08111368[])(Entity*);
 void sub_08067EF0(Entity*);
-
-extern SpriteLoadData gUnk_08111358;
 
 extern u16 gUnk_0811130E[];
 

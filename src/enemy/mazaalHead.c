@@ -1,16 +1,16 @@
-#include "global.h"
-#include "entity.h"
+/**
+ * @file mazaalHead.c
+ * @ingroup Enemies
+ *
+ * @brief Mazaal Head enemy
+ */
+
 #include "enemy.h"
-#include "screen.h"
-#include "audio.h"
-#include "random.h"
 #include "object.h"
 #include "functions.h"
-#include "effects.h"
+#include "screen.h"
 
 extern void UnloadOBJPalette(Entity*);
-
-extern u8 gEntCount;
 
 void sub_0803499C(Entity*);
 void sub_08034420(Entity*);
@@ -126,7 +126,7 @@ void sub_08033F3C(Entity* this) {
     Entity* pEVar2;
 
     if (gEntCount < 0x43) {
-        if (gScreenTransition.field_0x38 != 0) {
+        if (gRoomTransition.field_0x38 != 0) {
             sub_08034420(this);
             this->field_0x80.HALF.HI = 1;
         } else {
@@ -140,7 +140,7 @@ void sub_08033F3C(Entity* this) {
         pEVar1->parent = this;
         pEVar2 = CreateObject(OBJECT_7E, 0, 0);
         pEVar2->parent = this;
-        if (gScreenTransition.field_0x39 == 0) {
+        if (gRoomTransition.field_0x39 == 0) {
             this->action = 0xd;
             this->subAction = 0;
             this->actionDelay = 0xfc;
@@ -222,10 +222,10 @@ void sub_08033FFC(Entity* this) {
             break;
         default:
             if (((*(Entity**)&this->field_0x74)->flags & 0x80) != 0) {
-                gRoomControls.cameraTarget = &gPlayerEntity;
+                gRoomControls.camera_target = &gPlayerEntity;
                 sub_08034420(this);
-                gPlayerState.field_0x8b = 1;
-                sub_080791D0();
+                gPlayerState.controlMode = 1;
+                ResetPlayerAnimationAndAction();
                 SoundReq(BGM_BOSS_THEME);
             }
     }
@@ -234,8 +234,8 @@ void sub_08033FFC(Entity* this) {
 void sub_0803414C(Entity* this) {
     u32 x, y;
 
-    x = gRoomControls.roomOriginX + 0xb8;
-    y = gRoomControls.roomOriginY + 0x48;
+    x = gRoomControls.origin_x + 0xb8;
+    y = gRoomControls.origin_y + 0x48;
 
     if (this->x.HALF.HI - x + 1 < 3 && this->y.HALF.HI - y + 1 < 3) {
         if (sub_080349D8(this)) {
@@ -248,7 +248,7 @@ void sub_0803414C(Entity* this) {
         }
     } else {
         this->direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, x, y);
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
     }
 }
 
@@ -320,12 +320,12 @@ void sub_080342C8(Entity* this) {
         this->spriteOffsetX = gUnk_080CECEC[this->actionDelay >> 1 & 7];
     } else {
         this->spriteOffsetX = 0;
-        if (sub_08003FC4(this, 0x2000) == 0) {
+        if (GravityUpdate(this, 0x2000) == 0) {
             this->action = 0xc;
             this->field_0x7c.HALF.HI = 0x708;
             this->field_0x7c.BYTES.byte1 = 0;
             this->field_0x80.HALF.HI = 0;
-            sub_08080964(0x1e, 0);
+            InitScreenShake(0x1e, 0);
             SoundReq(SFX_1A1);
         }
     }
@@ -384,10 +384,10 @@ void sub_0803442C(Entity* this, u32 unk) {
 
 void sub_0803443C(Entity* this) {
     this->field_0x7c.BYTES.byte1 = 0;
-    if (gScreenTransition.field_0x39 < 0x1f) {
+    if (gRoomTransition.field_0x39 < 0x1f) {
         sub_080344BC(this);
     } else {
-        if (gScreenTransition.field_0x39 < 0x3d) {
+        if (gRoomTransition.field_0x39 < 0x3d) {
             sub_08034498(this);
         } else {
             sub_08034474(this);
@@ -535,8 +535,7 @@ void sub_080346C8(Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/mazaal/sub_0803473C.inc", void sub_0803473C(Entity* this)) {
-    u32 direction;
+void sub_0803473C(Entity* this) {
     u32 playerX;
     u32 roomX;
 
@@ -551,12 +550,12 @@ NONMATCH("asm/non_matching/mazaal/sub_0803473C.inc", void sub_0803473C(Entity* t
         }
         playerX = gPlayerEntity.x.HALF.HI + 0x60;
     }
-    roomX = gRoomControls.roomOriginX;
+    roomX = gRoomControls.origin_x;
     if (playerX - 4 > this->x.HALF.HI) {
         if (roomX + 0xe0 < this->x.HALF.HI) {
             return;
         }
-        direction = 8;
+        this->direction = 8;
     } else {
         if (playerX + 4 >= this->x.HALF.HI) {
             return;
@@ -564,22 +563,19 @@ NONMATCH("asm/non_matching/mazaal/sub_0803473C.inc", void sub_0803473C(Entity* t
         if (roomX + 0x90 > this->x.HALF.HI) {
             return;
         }
-        direction = 0x18;
+        this->direction = 0x18;
     }
-    this->direction = direction;
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
 }
-END_NONMATCH
 
-NONMATCH("asm/non_matching/mazaal/sub_080347B4.inc", void sub_080347B4(Entity* this)) {
-    u32 direction;
+void sub_080347B4(Entity* this) {
     u32 playerX = gPlayerEntity.x.HALF.HI;
-    u32 roomX = gRoomControls.roomOriginX;
+    u32 roomX = gRoomControls.origin_x;
     if (playerX - 4 > this->x.HALF.HI) {
         if (roomX + 0xe0 < this->x.HALF.HI) {
             return;
         }
-        direction = 8;
+        this->direction = 8;
     } else {
         if (playerX + 4 >= this->x.HALF.HI) {
             return;
@@ -587,12 +583,10 @@ NONMATCH("asm/non_matching/mazaal/sub_080347B4.inc", void sub_080347B4(Entity* t
         if (roomX + 0x90 > this->x.HALF.HI) {
             return;
         }
-        direction = 0x18;
+        this->direction = 0x18;
     }
-    this->direction = direction;
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
 }
-END_NONMATCH
 
 void sub_080347FC(Entity* this) {
     if ((this->field_0x7c.BYTES.byte1 & 0x10) != 0) {
@@ -625,10 +619,8 @@ void sub_08034830(Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/mazaal/sub_080348A4.inc", u32 sub_080348A4(Entity* this, Entity* hand_, u32 unk)) {
-    u8 bVar1;
-    Entity* pEVar4;
-    u32 temp;
+u32 sub_080348A4(Entity* this, Entity* hand_, u32 unk) {
+    u32 bVar1;
 
     if (hand_->type == 0) {
         bVar1 = 5;
@@ -671,9 +663,10 @@ NONMATCH("asm/non_matching/mazaal/sub_080348A4.inc", u32 sub_080348A4(Entity* th
                 InitializeAnimation(hand_, 5);
                 break;
             case 8:
-                pEVar4 = CreateEnemy(MAZAAL_HEAD, hand_->type + 2);
-                if (pEVar4 != NULL) {
-                    pEVar4->parent = this;
+                bVar1 = hand_->type + 2;
+                hand_ = CreateEnemy(MAZAAL_HEAD, bVar1);
+                if (hand_ != NULL) {
+                    hand_->parent = this;
                 }
                 break;
             default:
@@ -682,7 +675,6 @@ NONMATCH("asm/non_matching/mazaal/sub_080348A4.inc", u32 sub_080348A4(Entity* th
         return 1;
     }
 }
-END_NONMATCH
 
 void sub_0803499C(Entity* this) {
     if (((this->field_0x80.HALF.LO & 0xc) != 0xc) && (this->field_0x80.HALF.HI != 0)) {
@@ -708,14 +700,14 @@ u32 sub_080349D8(Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/mazaal/sub_08034A10.inc", u32 sub_08034A10(Entity* this)) {
+u32 sub_08034A10(Entity* this) {
     if ((this->field_0x7c.BYTES.byte1 & 0x60) != 0x40) {
         if ((this->field_0x7c.BYTES.byte1 & 0x10) != 0) {
             if ((this->field_0x80.HALF.LO & 5) != 0) {
                 this->field_0x7c.BYTES.byte1 |= 0x40;
             }
-            if (((this->field_0x80.HALF.LO & 10) == 0) || ((this->field_0x7c.BYTES.byte1 & 3) != 1)) {
-                return 0;
+            if (((this->field_0x80.HALF.LO & 10) != 0) && ((this->field_0x7c.BYTES.byte1 & 3) == 1)) {
+                return 1;
             }
         } else {
             if ((this->field_0x80.HALF.LO & 10) != 0) {
@@ -724,14 +716,15 @@ NONMATCH("asm/non_matching/mazaal/sub_08034A10.inc", u32 sub_08034A10(Entity* th
             if ((this->field_0x80.HALF.LO & 5) == 0) {
                 return 0;
             }
-            if ((this->field_0x7c.BYTES.byte1 & 3) != 2) {
-                return 0;
+            if ((this->field_0x7c.BYTES.byte1 & 3) == 2) {
+                return 1;
             }
         }
+    } else {
+        return 1;
     }
-    return 1;
+    return 0;
 }
-END_NONMATCH
 
 void sub_08034A84(Entity* this) {
     if (this->parent->next == NULL) {
@@ -772,7 +765,7 @@ void sub_08034B0C(Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/mazaal/sub_08034B38.inc", void sub_08034B38(Entity* this)) {
+void sub_08034B38(Entity* this) {
     Entity* target;
     const s8* ptr;
 
@@ -782,7 +775,7 @@ NONMATCH("asm/non_matching/mazaal/sub_08034B38.inc", void sub_08034B38(Entity* t
     } else {
         target = CreateProjectile(0xe);
         if (target != NULL) {
-            target->type -= 2;
+            target->type = this->type - 2;
             if (target->type == 0) {
                 target->direction = 0xa8 - this->actionDelay;
             } else {
@@ -793,7 +786,6 @@ NONMATCH("asm/non_matching/mazaal/sub_08034B38.inc", void sub_08034B38(Entity* t
         }
     }
 }
-END_NONMATCH
 
 void sub_08034BA0(Entity* this) {
     GetNextFrame(this);
@@ -816,10 +808,10 @@ void sub_08034BC8(Entity* this) {
 }
 
 void sub_08034C00(Entity* this) {
-    if (((gPlayerState.flags & PL_IS_MINISH) != 0) &&
-        CheckPlayerInRegion(this->x.HALF.HI - gRoomControls.roomOriginX,
-                            this->y.HALF.HI - gRoomControls.roomOriginY + 0xd, 3, 3) != 0) {
-        if (gScreenTransition.field_0x39 >= 0x3d) {
+    if (((gPlayerState.flags & PL_MINISH) != 0) &&
+        CheckPlayerInRegion(this->x.HALF.HI - gRoomControls.origin_x, this->y.HALF.HI - gRoomControls.origin_y + 0xd, 3,
+                            3) != 0) {
+        if (gRoomTransition.field_0x39 >= 0x3d) {
             DoExitTransition((ScreenTransitionData*)&gUnk_080CED88);
         } else {
             DoExitTransition((ScreenTransitionData*)&gUnk_080CED9C);

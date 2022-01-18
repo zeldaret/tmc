@@ -4,29 +4,30 @@
 #include "room.h"
 #include "screen.h"
 #include "functions.h"
+#include "common.h"
 
 void sub_0805D470(Manager*);
 
 void Manager2F_Main(Manager* this) {
     if (this == NULL) {
-        if ((void*)gArea.unk3 != sub_0805D470) {
+        if (gArea.onEnter != sub_0805D470) {
             sub_0805D470(NULL);
         }
     } else {
         if (this->action == 0) {
             this->action = 1;
             this->unk_10 |= 0x20;
-            sub_0805E3A0(this, 6);
-            if (gArea.unk3 == 0) {
-                sub_08052D74(this, sub_0805D470, NULL);
+            SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
+            if (gArea.onEnter == NULL) {
+                RegisterTransitionManager(this, sub_0805D470, NULL);
             } else {
                 DeleteThisEntity();
             }
         } else {
             gRoomControls.bg3OffsetX.WORD -= 0x4000;
             gRoomControls.bg3OffsetY.WORD -= 0x2000;
-            gScreen.bg3.xOffset = gRoomControls.roomScrollX + gRoomControls.bg3OffsetX.HALF.HI;
-            gScreen.bg3.yOffset = gRoomControls.roomScrollY + gRoomControls.bg3OffsetY.HALF.HI;
+            gScreen.bg3.xOffset = gRoomControls.scroll_x + gRoomControls.bg3OffsetX.HALF.HI;
+            gScreen.bg3.yOffset = gRoomControls.scroll_y + gRoomControls.bg3OffsetY.HALF.HI;
         }
     }
 }
@@ -34,7 +35,7 @@ void Manager2F_Main(Manager* this) {
 void sub_0805D470(Manager* this) {
     LoadGfxGroup(0x4c);
     gScreen.bg3.control = 0x1e07;
-    gScreen.lcd.displayControl |= 0x800;
-    gScreen.bg3.xOffset = gRoomControls.roomScrollX + gRoomControls.bg3OffsetX.HALF.HI;
-    gScreen.bg3.yOffset = gRoomControls.roomScrollY + gRoomControls.bg3OffsetY.HALF.HI;
+    gScreen.lcd.displayControl |= DISPCNT_BG3_ON;
+    gScreen.bg3.xOffset = gRoomControls.scroll_x + gRoomControls.bg3OffsetX.HALF.HI;
+    gScreen.bg3.yOffset = gRoomControls.scroll_y + gRoomControls.bg3OffsetY.HALF.HI;
 }

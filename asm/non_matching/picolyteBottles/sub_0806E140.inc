@@ -62,7 +62,7 @@ _0806E1AC:
 	ldr r0, _0806E1D4 @ =0x0000421C
 	bl MessageFromTarget
 _0806E1C0:
-	ldr r1, _0806E1D8 @ =gScreenTransition
+	ldr r1, _0806E1D8 @ =gRoomTransition
 	ldrh r0, [r4]
 	strh r0, [r1, #6]
 	ldr r2, _0806E1DC @ =gActiveScriptInfo
@@ -73,6 +73,6 @@ _0806E1C0:
 	pop {r4, r5, pc}
 	.align 2, 0
 _0806E1D4: .4byte 0x0000421C
-_0806E1D8: .4byte gScreenTransition
+_0806E1D8: .4byte gRoomTransition
 _0806E1DC: .4byte gActiveScriptInfo
 	.syntax divided

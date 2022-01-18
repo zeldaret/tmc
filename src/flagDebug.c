@@ -1,13 +1,3 @@
-// #define DEF_FLAGS( name, ... ) \
-//     const char* const name##_flags[] = { \
-//         "BEGIN", \
-//         __VA_ARGS__ \
-//         "END" \
-//     };
-
-// DEF_FLAGS(global, "a",
-// "b");
-
 const char* const globalFlagNames[] = {
     "BEGIN",
     "LV0_CLEAR",

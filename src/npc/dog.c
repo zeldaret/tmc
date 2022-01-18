@@ -1,16 +1,10 @@
 #include "entity.h"
 #include "functions.h"
-#include "script.h"
-#include "flags.h"
-#include "random.h"
 #include "npc.h"
-#include "audio.h"
-#include "save.h"
-#include "textbox.h"
 
 extern void (*gUnk_08111D88[])(Entity*);
 void sub_08069FE8(Entity*);
-u32 sub_08069EF0();
+u32 sub_08069EF0(Entity*);
 
 extern u8 gUnk_08111DA8[];
 u32 sub_08069F90(Entity*);
@@ -66,12 +60,12 @@ void sub_08069B44(Entity* this) {
         this->animationState = 2;
         this->field_0x6a.HALF.LO = 0xff;
         this->field_0x74.HALF.LO = sub_0801E99C(this);
-        sub_0805E3A0(this, 2);
+        SetDefaultPriority(this, PRIO_MESSAGE);
         InitAnimationForceUpdate(this, 10);
         if ((this->flags & 2) != 0) {
             sub_0807DD50(this);
         }
-        if (((this->type == 0) && ((gPlayerState.flags & PL_IS_MINISH) == 0)) && (GetInventoryValue(0x36) != 2)) {
+        if (((this->type == 0) && ((gPlayerState.flags & PL_MINISH) == 0)) && (GetInventoryValue(0x36) != 2)) {
             this->action = 4;
         }
 #if defined(JP) || defined(EU) || defined(DEMO_JP)
@@ -87,7 +81,7 @@ void sub_08069B44(Entity* this) {
 void sub_08069C40(Entity* this) {
     UpdateAnimationSingleFrame(this);
     if (sub_08069F90(this) != 0) {
-        if ((gPlayerState.flags & PL_IS_MINISH) != 0) {
+        if ((gPlayerState.flags & PL_MINISH) != 0) {
             sub_08069CB8(this);
         } else {
             this->animationState = GetAnimationState(this);
@@ -273,19 +267,19 @@ u32 sub_08069F90(Entity* this) {
     if ((this->type == 2) && (CheckLocalFlag(MACHI_02_DOG) == 0)) {
         return 1;
     } else {
-        return sub_080041A0(this, &gPlayerEntity, 0x14, 0x14);
+        return EntityInRectRadius(this, &gPlayerEntity, 0x14, 0x14);
     }
 }
 
 void sub_08069FBC(Entity* this) {
-    u32 tmp = (gPlayerState.flags & PL_IS_MINISH) != 0 ? 0x24 : 0x20;
+    u32 tmp = (gPlayerState.flags & PL_MINISH) != 0 ? 0x24 : 0x20;
     if ((this->animationState == 1) || (this->animationState == 3)) {
         this->field_0x6a.HALF.HI = tmp;
     }
 }
 
 void sub_08069FE8(Entity* this) {
-    u32 tmp = -((s32) - (gPlayerState.flags & PL_IS_MINISH) >> 0x1f);
+    u32 tmp = -((s32) - (gPlayerState.flags & PL_MINISH) >> 0x1f);
     if (tmp != this->field_0x6a.HALF.LO) {
         if (tmp == 0) {
             sub_08078778(this);
@@ -298,7 +292,7 @@ void sub_08069FE8(Entity* this) {
 
 void sub_0806A028(Entity* this) {
     if (this->interactType != 0) {
-        if ((gPlayerState.flags & PL_IS_MINISH) != 0) {
+        if ((gPlayerState.flags & PL_MINISH) != 0) {
             if (this->interactType == 2) {
                 this->action = 6;
                 sub_0806F118(this);
@@ -309,20 +303,20 @@ void sub_0806A028(Entity* this) {
             sub_08069FBC(this);
             sub_0806A080(this);
             SoundReq(SFX_VO_DOG);
-            sub_080791D0();
+            ResetPlayerAnimationAndAction();
         }
         this->interactType = 0;
     }
 }
 
 void sub_0806A080(Entity* this) {
-    ShowNPCDialogue(this, (Dialog*)&gUnk_08111E34 + this->type2 * 10 + gSave.unk8);
+    ShowNPCDialogue(this, (Dialog*)&gUnk_08111E34 + this->type2 * 10 + gSave.global_progress);
 }
 
 void sub_0806A0A4(Entity* this) {
     s32 dialog;
 
-    if (gPlayerState.flags & PL_IS_MINISH) {
+    if (gPlayerState.flags & PL_MINISH) {
         dialog = 4;
         if (CheckLocalFlag(MACHI_02_DOG) == 0) {
             dialog = 3;
@@ -339,12 +333,12 @@ void sub_0806A0A4(Entity* this) {
             }
         }
     }
-    MessageNoOverlap(gUnk_08111F74[(u32)gSave.unk8 * 5 + dialog], this);
+    MessageNoOverlap(gUnk_08111F74[(u32)gSave.global_progress * 5 + dialog], this);
 }
 
 void sub_0806A144(Entity* this) {
     s32 dialog = 4;
-    if (gPlayerState.flags & PL_IS_MINISH) {
+    if (gPlayerState.flags & PL_MINISH) {
         dialog = 3;
         if (GetInventoryValue(0x46) == 0 && CheckGlobalFlag(MIZUKAKI_START)) {
             if (CheckLocalFlag(0x85) == 0) {
@@ -362,7 +356,7 @@ void Dog_Fusion(Entity* this) {
         if (sub_08069EF0(this) != 0) {
             this->action += 1;
             this->spriteSettings.draw = 1;
-            sub_0805E3A0(this, 2);
+            SetDefaultPriority(this, PRIO_MESSAGE);
             InitializeAnimation(this, 0x23);
         }
     } else {

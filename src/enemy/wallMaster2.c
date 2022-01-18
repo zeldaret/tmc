@@ -1,6 +1,12 @@
+/**
+ * @file wallMaster2.c
+ * @ingroup Enemies
+ *
+ * @brief Wall Master 2 enemy
+ */
+
 #include "enemy.h"
 #include "area.h"
-#include "random.h"
 #include "functions.h"
 
 extern void sub_08001328(Entity*);
@@ -93,7 +99,7 @@ void sub_0802CD54(Entity* this) {
         this->actionDelay = 60;
         sub_0802CF64(this);
     }
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
 }
 
 void sub_0802CDE8(Entity* this) {
@@ -102,7 +108,7 @@ void sub_0802CDE8(Entity* this) {
             sub_08004596(this, GetFacingDirection(this, gUnk_020000B0));
             sub_0802CF8C(this);
         }
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
     } else {
         this->action = 1;
         this->actionDelay = 60;
@@ -117,11 +123,11 @@ void sub_0802CE68(Entity* this) {
     u8 frames;
 
     gPlayerState.field_0xa |= 0x80;
-    gPlayerState.field_0x1a[0] |= 0x80;
-    gPlayerState.flags |= 0x100;
+    gPlayerState.mobility |= 0x80;
+    gPlayerState.flags |= PL_DISABLE_ITEMS;
     if (!sub_0806FCB8(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 4)) {
         this->direction = GetFacingDirection(this, &gPlayerEntity);
-        sub_0806F69C(this);
+        LinearMoveUpdate(this);
     }
     sub_0802CFD8(this);
     GetNextFrame(this);
@@ -138,15 +144,15 @@ void sub_0802CE68(Entity* this) {
 void sub_0802CEF4(Entity* this) {
     sub_0802CFD8(this);
     if (--this->actionDelay == 0) {
-        sub_0805E5A8();
-        DoExitTransition(gUnk_0813AB1C[gArea.regret]);
+        SetInitializationPriority();
+        DoExitTransition(gUnk_0813AB1C[gArea.dungeon_idx]);
     } else {
         this->z.WORD -= 0x20000;
         if (this->z.HALF.HI < -0x30) {
             this->spriteSettings.shadow = 1;
         }
         gPlayerState.field_0xa |= 0x80;
-        gPlayerState.field_0x1a[0] |= 0x80;
+        gPlayerState.mobility |= 0x80;
     }
 }
 

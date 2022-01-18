@@ -35,7 +35,7 @@ _0806E7F2:
 	movs r1, #0xc0
 	lsls r1, r1, #6
 	adds r0, r4, #0
-	bl sub_08003FC4
+	bl GravityUpdate
 	cmp r0, #0
 	bne _0806E81C
 	ldrb r0, [r4, #0xe]

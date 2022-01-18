@@ -3,6 +3,7 @@
 #include "room.h"
 #include "screen.h"
 #include "functions.h"
+#include "common.h"
 
 typedef struct {
     Manager manager;
@@ -25,7 +26,7 @@ void Manager9_Main(Manager9* this) {
     if (!this->manager.action) {
         this->manager.action = 1;
         gScreen.bg1.updated = 0;
-        sub_08052D74(this, sub_08058204, NULL);
+        RegisterTransitionManager(this, sub_08058204, NULL);
     }
 }
 
@@ -47,9 +48,9 @@ u32 sub_08058244(int i) {
     s32 tmp2;
     u32 tmp3;
     s32 tmp4;
-    tmp = ((gRoomControls.roomScrollY - gRoomControls.roomOriginY) * 0x20) / (gRoomControls.height - 0xa0);
-    gScreen.bg1.yOffset = gRoomControls.roomOriginY + tmp;
-    tmp = (((gRoomControls.roomScrollX - gRoomControls.roomOriginX) * gUnk_081081EC[i]) / (gRoomControls.width - 0xf0));
+    tmp = ((gRoomControls.scroll_y - gRoomControls.origin_y) * 0x20) / (gRoomControls.height - 0xa0);
+    gScreen.bg1.yOffset = gRoomControls.origin_y + tmp;
+    tmp = (((gRoomControls.scroll_x - gRoomControls.origin_x) * gUnk_081081EC[i]) / (gRoomControls.width - 0xf0));
     gScreen.bg1.xOffset = tmp & 0xf;
     return tmp;
 }
@@ -66,7 +67,7 @@ void sub_080582A0(u32 unk, u32* unk2, u16* unk3) {
 
 extern u8 gMapDataTopSpecial[];
 
-void sub_080582D0() {
+void sub_080582D0(void) {
     u8* tmp = gMapDataTopSpecial;
     u8* tmp2 = tmp + 0x4000;
     sub_080582F8(tmp, tmp2);

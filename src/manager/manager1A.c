@@ -1,10 +1,9 @@
 #include "global.h"
 #include "manager.h"
 #include "flags.h"
-#include "entity.h"
 #include "room.h"
 #include "screen.h"
-#include "utils.h"
+#include "common.h"
 #include "object.h"
 #include "functions.h"
 
@@ -30,8 +29,6 @@ extern u8 gGlobalGfxAndPalettes[];
 void Manager1A_Main(Manager1A* this) {
     gUnk_08108668[this->manager.action](this);
 }
-
-extern void sub_08052D74(void*, void*, void*);
 
 typedef struct struct_08108764 {
     u8 unk_00;
@@ -70,19 +67,19 @@ void sub_0805B328(Manager1A*);
 void sub_0805B048(Manager1A* this) {
     struct_08108764* tmp;
     Entity* obj;
-    sub_0805E3A0(&this->manager, 6);
+    SetDefaultPriority((Entity*)&this->manager, PRIO_PLAYER_EVENT);
     MemClear(&this->unk_20, 0x20);
     this->manager.action = 1;
-    this->unk_3f = gRoomControls.roomID;
+    this->unk_3f = gRoomControls.room;
     tmp = &gUnk_08108764[this->manager.unk_0a];
     if (!tmp->unk_0a) {
-        this->unk_20 = gRoomControls.roomOriginX;
-        this->unk_22 = gRoomControls.roomOriginY;
+        this->unk_20 = gRoomControls.origin_x;
+        this->unk_22 = gRoomControls.origin_y;
         this->unk_24 = gRoomControls.width;
         this->unk_26 = gRoomControls.height;
     } else {
-        this->unk_20 = (tmp->unk_08 << 4) + gRoomControls.roomOriginX;
-        this->unk_22 = (tmp->unk_09 << 4) + gRoomControls.roomOriginY;
+        this->unk_20 = (tmp->unk_08 << 4) + gRoomControls.origin_x;
+        this->unk_22 = (tmp->unk_09 << 4) + gRoomControls.origin_y;
         this->unk_24 = (tmp->unk_0a << 4);
         this->unk_26 = (tmp->unk_0b << 4);
     }
@@ -96,21 +93,21 @@ void sub_0805B048(Manager1A* this) {
         sub_0805BC4C();
         sub_0805B2B0(this);
         sub_0805B328(this);
-        sub_08052D74(this, sub_0805B328, 0);
+        RegisterTransitionManager(this, sub_0805B328, 0);
     }
     if (!tmp->unk_10)
         return;
     obj = CreateObject(OBJECT_28, tmp->unk_10->unk_00, tmp->unk_10->unk_01);
     if (obj) {
-        obj->x.HALF.HI = tmp->unk_10->unk_04 + gRoomControls.roomOriginX;
-        obj->y.HALF.HI = tmp->unk_10->unk_06 + gRoomControls.roomOriginY;
+        obj->x.HALF.HI = tmp->unk_10->unk_04 + gRoomControls.origin_x;
+        obj->y.HALF.HI = tmp->unk_10->unk_06 + gRoomControls.origin_y;
     }
     if (this->manager.unk_0a != 0xa || CheckLocalFlag(0x4B))
         return;
     obj = CreateObject(OBJECT_28, 3, 3);
     if (obj) {
-        obj->x.HALF.HI = tmp->unk_10->unk_04 + gRoomControls.roomOriginX;
-        obj->y.HALF.HI = tmp->unk_10->unk_06 + gRoomControls.roomOriginY;
+        obj->x.HALF.HI = tmp->unk_10->unk_04 + gRoomControls.origin_x;
+        obj->y.HALF.HI = tmp->unk_10->unk_06 + gRoomControls.origin_y;
     }
 }
 
@@ -121,14 +118,14 @@ void sub_0805B168(Manager1A* this) {
         return;
     }
     sub_0805B2B0(this);
-    if (gRoomControls.unk2 == 1) {
+    if (gRoomControls.reload_flags == 1) {
         this->manager.unk_0d = 1;
         return;
     }
     if (!this->manager.unk_0d)
         return;
     this->manager.unk_0d = 0;
-    if (this->unk_3f == gRoomControls.roomID)
+    if (this->unk_3f == gRoomControls.room)
         return;
     if (this->manager.unk_0b) {
         gScreen.lcd.displayControl &= ~0x800;
@@ -139,7 +136,7 @@ void sub_0805B168(Manager1A* this) {
 u32 sub_0805B1CC(Manager1A* this) {
     u32 re = 0;
     if (CheckPlayerProximity(this->unk_20, this->unk_22, this->unk_24, this->unk_26)) {
-        if ((gPlayerState.flags & 0x4) && (gPlayerState.flags & 0x1)) {
+        if ((gPlayerState.flags & PL_DROWNING) && (gPlayerState.flags & PL_BUSY)) {
             gPlayerState.flags |= 0x8000;
         } else if (gPlayerState.flags & 0x8000) {
             re = 1;
@@ -150,31 +147,31 @@ u32 sub_0805B1CC(Manager1A* this) {
 
 void sub_0805B210(Manager1A* this) {
     struct_08108764* tmp;
-    gScreenTransition.transitioningOut = 1;
-    gScreenTransition.transitionType = 1;
-    gScreenTransition.playerState = 4;
+    gRoomTransition.transitioningOut = 1;
+    gRoomTransition.type = TRANSITION_CUT;
+    gRoomTransition.player_status.start_anim = 4;
     tmp = &gUnk_08108764[this->manager.unk_0a];
-    gScreenTransition.areaID = tmp->unk_01;
-    gScreenTransition.roomID = tmp->unk_02;
-    gScreenTransition.playerLayer = tmp->unk_03;
-    if (gPlayerState.flags & PL_IS_MINISH) {
-        gScreenTransition.field_0xf = 6;
+    gRoomTransition.player_status.area_next = tmp->unk_01;
+    gRoomTransition.player_status.room_next = tmp->unk_02;
+    gRoomTransition.player_status.layer = tmp->unk_03;
+    if (gPlayerState.flags & PL_MINISH) {
+        gRoomTransition.player_status.spawn_type = 6;
     } else {
-        gScreenTransition.field_0xf = 2;
+        gRoomTransition.player_status.spawn_type = 2;
     }
     switch (tmp->unk_00) {
         case 0:
-            gScreenTransition.playerStartPos.HALF.x = tmp->unk_04;
-            gScreenTransition.playerStartPos.HALF.y = tmp->unk_06;
+            gRoomTransition.player_status.start_pos_x = tmp->unk_04;
+            gRoomTransition.player_status.start_pos_y = tmp->unk_06;
             break;
         case 1:
-            gScreenTransition.playerStartPos.HALF.x = gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX + tmp->unk_04;
-            gScreenTransition.playerStartPos.HALF.y = gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY + tmp->unk_06;
+            gRoomTransition.player_status.start_pos_x = gPlayerEntity.x.HALF.HI - gRoomControls.origin_x + tmp->unk_04;
+            gRoomTransition.player_status.start_pos_y = gPlayerEntity.y.HALF.HI - gRoomControls.origin_y + tmp->unk_06;
             break;
         case 2:
-            gScreenTransition.playerStartPos.HALF.x = tmp->unk_04;
-            gScreenTransition.playerStartPos.HALF.y = tmp->unk_06;
-            gScreenTransition.field_0xf = 6;
+            gRoomTransition.player_status.start_pos_x = tmp->unk_04;
+            gRoomTransition.player_status.start_pos_y = tmp->unk_06;
+            gRoomTransition.player_status.spawn_type = 6;
             break;
     }
 }
@@ -183,8 +180,8 @@ void sub_0805B2B0(Manager1A* this) {
     s32 tmp, tmp2;
     if (!this->manager.unk_0b)
         return;
-    tmp = (this->unk_30 - gRoomControls.roomScrollX) / 4;
-    tmp2 = (this->unk_32 - gRoomControls.roomScrollY) / 4;
+    tmp = (this->unk_30 - gRoomControls.scroll_x) / 4;
+    tmp2 = (this->unk_32 - gRoomControls.scroll_y) / 4;
     if (tmp < -12) {
         tmp = -12;
     }
@@ -197,11 +194,11 @@ void sub_0805B2B0(Manager1A* this) {
     if (tmp2 > 12) {
         tmp2 = 12;
     }
-    gScreen.lcd.displayControl |= 0x800;
-    gRoomControls.bg3OffsetX.HALF.HI = gRoomControls.roomScrollX + this->unk_34 + tmp;
-    gScreen.bg3.xOffset = gRoomControls.roomScrollX + this->unk_34 + tmp;
-    gRoomControls.bg3OffsetY.HALF.HI = gRoomControls.roomScrollY + this->unk_36 + tmp2;
-    gScreen.bg3.yOffset = gRoomControls.roomScrollY + this->unk_36 + tmp2;
+    gScreen.lcd.displayControl |= DISPCNT_BG3_ON;
+    gRoomControls.bg3OffsetX.HALF.HI = gRoomControls.scroll_x + this->unk_34 + tmp;
+    gScreen.bg3.xOffset = gRoomControls.scroll_x + this->unk_34 + tmp;
+    gRoomControls.bg3OffsetY.HALF.HI = gRoomControls.scroll_y + this->unk_36 + tmp2;
+    gScreen.bg3.yOffset = gRoomControls.scroll_y + this->unk_36 + tmp2;
 }
 
 void sub_0805B328(Manager1A* this) {
@@ -211,7 +208,7 @@ void sub_0805B328(Manager1A* this) {
     tmp = &gUnk_08108764[this->manager.unk_0a];
     LoadResourceAsync(&gGlobalGfxAndPalettes[tmp->unk_0c->unk_00], 0x0600F000, 0x800);
     gScreen.bg3.control = 0x1E07;
-    gScreen.lcd.displayControl |= 0x800;
+    gScreen.lcd.displayControl |= DISPCNT_BG3_ON;
     gScreen.bg3.xOffset = gRoomControls.bg3OffsetX.HALF.HI;
     gScreen.bg3.yOffset = gRoomControls.bg3OffsetY.HALF.HI;
     gScreen.controls.layerFXControl &= ~0x8;

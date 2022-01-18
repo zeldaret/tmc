@@ -1,8 +1,9 @@
 #include "global.h"
+#include "asm.h"
 #include "entity.h"
 #include "room.h"
 #include "flags.h"
-#include "audio.h"
+#include "sound.h"
 #include "functions.h"
 #include "effects.h"
 
@@ -50,7 +51,7 @@ void sub_080A074C(Entity* this) {
     u8 bVar1;
     Entity* ent;
 
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
 
     if (--this->actionDelay == 0) {
         this->action = 3;
@@ -84,7 +85,7 @@ void sub_080A07BC(Entity* this) {
 
 void sub_080A07F0(Entity* this) {
 
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
 
     if (--this->actionDelay == 0) {
         DeleteThisEntity();

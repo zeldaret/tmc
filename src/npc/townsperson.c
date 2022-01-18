@@ -1,15 +1,5 @@
-#include "global.h"
-#include "entity.h"
 #include "npc.h"
-#include "player.h"
-#include "textbox.h"
-#include "flags.h"
-#include "save.h"
-#include "script.h"
-#include "random.h"
-#include "structures.h"
 #include "functions.h"
-#include "effects.h"
 
 typedef struct {
     u8 frame1;
@@ -276,7 +266,7 @@ void sub_08062048(Entity* this) {
     int iVar1;
 
     if (this->id == 6) {
-        iVar1 = gSave.unk8 - 2;
+        iVar1 = gSave.global_progress - 2;
         if (iVar1 < 0) {
             iVar1 = 0;
         }

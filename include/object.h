@@ -2,16 +2,41 @@
 #define OBJECT_H
 
 #include "global.h"
+#include "asm.h"
+#include "common.h"
+
+#include "sound.h"
+#include "flags.h"
+#include "effects.h"
+#include "room.h"
+#include "coord.h"
+
 #include "entity.h"
+#include "player.h"
+
+extern void sub_0807879C(Entity*);
+extern void sub_080787C0(Entity*);
+extern void sub_080787B4(Entity*);
+extern void sub_0808C650(Entity*, u32);
+extern u32 sub_0808C67C(void);
+extern void sub_0808C688(void);
+extern void sub_080A2BE4(Entity*, u32);
+
+void CreateDust(Entity* parent);
+void CreateDustAt(s32, s32, u32);
+void CreateDustSmall(Entity* parent);
+Entity* CreateSpeechBubbleQuestionMark(Entity*, s32, s32);
+Entity* CreateSpeechBubbleExclamationMark(Entity*, s32, s32);
+Entity* CreateSpeechBubbleSleep(Entity*, s32, s32);
 
 typedef enum {
     GROUND_ITEM,
     DEATH_FX,
     SHOP_ITEM,
     BUTTON,
-    OBJECT_4,
+    MINISH_EMOTICON,
     POT,
-    OBJECT_6,
+    EZLO_CAP,
     PUSHED_BLOCK,
     LOCKED_DOOR,
     OBJECT_9,
@@ -31,7 +56,7 @@ typedef enum {
     OBJECT_17,
     EVIL_SPIRIT,
     HOUSE_DOOR_EXT,
-    OBJECT_1A,
+    RUPEE_OBJECT,
     GREAT_FAIRY,
     OBJECT_1C,
     OBJECT_1D,
@@ -41,12 +66,12 @@ typedef enum {
     OBJECT_21,
     FIGURINE_DEVICE,
     EYE_SWITCH,
-    OBJECT_24,
+    PRESSURE_PLATE,
     BIG_BARREL,
-    OBJECT_26,
+    BARREL_INSIDE,
     PUSHABLE_STATUE,
     OBJECT_28,
-    OBJECT_29,
+    AMBIENT_CLOUDS,
     OBJECT_2A,
     OBJECT_2B,
     BEANSTALK,
@@ -86,7 +111,7 @@ typedef enum {
     MINISH_SIZED_ENTRANCE,
     ARCHWAY,
     GIANT_ROCK,
-    OBJECT_51,
+    GIANT_ROCK2,
     OBJECT_52,
     OBJECT_53,
     PULLABLE_LEVER,
@@ -95,7 +120,7 @@ typedef enum {
     HIDDEN_LADDER_DOWN,
     GENTARI_CURTAIN,
     LAVA_PLATFORM,
-    OBJECT_5A,
+    PAPER,
     OBJECT_5B,
     MASK,
     HOUSE_DOOR_INT,
@@ -119,7 +144,7 @@ typedef enum {
     MINISH_SIZED_ARCHWAY,
     OBJECT_70,
     PUSHABLE_GRAVE,
-    OBJECT_72,
+    STONE_TABLET,
     LILYPAD_SMALL,
     OBJECT_74,
     OBJECT_75,
@@ -133,18 +158,18 @@ typedef enum {
     OBJECT_ON_BEETLE,
     OBJECT_7E,
     PICO_BLOOM,
-    OBJECT_80,
+    BOARD,
     OBJECT_81,
     BIG_VORTEX,
     BIG_PUSHABLE_LEVER,
     SMALL_ICE_BLOCK,
     BIG_ICE_BLOCK,
     OBJECT_86,
-    OBJECT_87,
+    OCTOROK_BOSS_OBJECT,
     HUGE_BOOK,
-    OBJECT_89,
-    OBJECT_8A,
-    OBJECT_8B,
+    MAZAAL_BOSS_OBJECT,
+    CABIN_FURNITURE,
+    DOUBLE_BOOKSHELF,
     BOOK,
     FIREPLACE,
     OBJECT_8E,
@@ -152,7 +177,7 @@ typedef enum {
     OBJECT_90,
     OBJECT_91,
     BAKER_OVEN,
-    OBJECT_93,
+    LAMP,
     WIND_TRIBE_FLAG,
     BIRD,
     OBJECT_96,
@@ -163,14 +188,14 @@ typedef enum {
     OBJECT_9B,
     TREE_HIDING_PORTAL,
     LIGHTABLE_SWITCH,
-    OBJECT_9E,
+    TREE_THORNS,
     FAN,
-    OBJECT_A0,
+    ANGRY_STATUE,
     PALACE_ARCHWAY,
     OBJECT_A2,
     CLOUD,
     MINISH_LIGHT,
-    OBJECT_A5,
+    FIREBALL_CHAIN,
     OBJECT_A6,
     OBJECT_A7,
     OBJECT_A8,
@@ -191,7 +216,7 @@ typedef enum {
     WELL,
     WIND_TRIBE_TELEPORTER,
     OBJECT_B9,
-    OBJECT_BA,
+    GYORG_BOSS_OBJECT,
     WINDCREST,
     LIT_AREA,
     OBJECT_BD,
@@ -201,200 +226,200 @@ typedef enum {
     OBJECT_C1,
 } Object;
 
-extern void ItemOnGround(Entity*);
-extern void DeathFx(Entity*);
-extern void ItemForSale(Entity*);
-extern void Button(Entity*);
-extern void Object4(Entity*);
-extern void Pot(Entity*);
-extern void Object6(Entity*);
-extern void BlockPushed(Entity*);
-extern void LockedDoor(Entity*);
-extern void Object9(Entity*);
-extern void ObjectA(Entity*);
-extern void ObjectB(Entity*);
-extern void ChestSpawner(Entity*);
-extern void ObjectD(Entity*);
-extern void ObjectE(Entity*);
-extern void SpecialFx(Entity*);
-extern void Object10(Entity*);
-extern void Object11(Entity*);
-extern void Object12(Entity*);
-extern void Railtrack(Entity*);
-extern void LilypadLarge(Entity*);
-extern void Object15(Entity*);
-extern void FloatingPlatform(Entity*);
-extern void Object17(Entity*);
-extern void EvilSpirit(Entity*);
-extern void HouseDoorExterior(Entity*);
-extern void Object1A(Entity*);
-extern void GreatFairy(Entity*);
-extern void Object1C(Entity*);
-extern void Object1D(Entity*);
-extern void Object1E(Entity*);
-extern void Object1F(Entity*);
-extern void Object20(Entity*);
-extern void Object21(Entity*);
-extern void FigurineDevice(Entity*);
-extern void EyeSwitch(Entity*);
-extern void Object24(Entity*);
-extern void BigBarrel(Entity*);
-extern void Object26(Entity*);
-extern void PushableStatue(Entity*);
-extern void Object28(Entity*);
-extern void Object29(Entity*);
-extern void Object2A(Entity*);
-extern void Object2B(Entity*);
-extern void Beanstalk(Entity*);
-extern void Smoke(Entity*);
-extern void PushableRock(Entity*);
-extern void HittableLever(Entity*);
-extern void Object30(Entity*);
-extern void FrozenFlower(Entity*);
-extern void PullableMushroom(Entity*);
-extern void Bollard(Entity*);
-extern void WarpPoint(Entity*);
-extern void Object35(Entity*);
-extern void Object36(Entity*);
-extern void Object37(Entity*);
-extern void JarPortal(Entity*);
-extern void BossDoor(Entity*);
-extern void Object3A(Entity*);
-extern void MacroMushromStalks(Entity*);
-extern void MacroPlayer(Entity*);
-extern void Object3D(Entity*);
-extern void Object3E(Entity*);
-extern void GiantLeaf(Entity*);
-extern void Fairy(Entity*);
-extern void LadderUp(Entity*);
-extern void Object42(Entity*);
-extern void Object43(Entity*);
-extern void Object44(Entity*);
-extern void Object45(Entity*);
-extern void GiantBookLadder(Entity*);
-extern void HeartContainer(Entity*);
-extern void FileScreenObjects(Entity*);
-extern void Object49(Entity*);
-extern void BackgroundCloud(Entity*);
-extern void Object4B(Entity*);
-extern void PushableFurniture(Entity*);
-extern void Furniture(Entity*);
-extern void MinishSizedEntrance(Entity*);
-extern void Archway(Entity*);
-extern void GiantRock(Entity*);
-extern void Object51(Entity*);
-extern void Object52(Entity*);
-extern void Object53(Entity*);
-extern void PullableLever(Entity*);
-extern void Minecart(Entity*);
-extern void ThoughtBubble(Entity*);
-extern void HiddenLadderDown(Entity*);
-extern void GentariCurtain(Entity*);
-extern void LavaPlatform(Entity*);
-extern void Object5A(Entity*);
-extern void Object5B(Entity*);
-extern void Mask(Entity*);
-extern void HouseDoorInterior(Entity*);
-extern void Whirlwind(Entity*);
-extern void ObjectBlockingStairs(Entity*);
-extern void SwordsmanNewsletter(Entity*);
-extern void Object61(Entity*);
-extern void GiantTwig(Entity*);
-extern void Object63(Entity*);
-extern void Object64(Entity*);
-extern void LadderHoleInBookshelf(Entity*);
-extern void Object66(Entity*);
-extern void Object67(Entity*);
-extern void Object68(Entity*);
-extern void Object69(Entity*);
-extern void Object6A(Entity*);
-extern void CrenalBeanSprout(Entity*);
-extern void MinecartDoor(Entity*);
-extern void ObjectOnPillar(Entity*);
-extern void MineralWaterSource(Entity*);
-extern void MinishSizedArchway(Entity*);
-extern void Object70(Entity*);
-extern void PushableGrave(Entity*);
-extern void Object72(Entity*);
-extern void LilypadSmall(Entity*);
-extern void Object74(Entity*);
-extern void Object75(Entity*);
-extern void Object76(Entity*);
-extern void Bell(Entity*);
-extern void MacroDecoration(Entity*);
-extern void Object79(Entity*);
-extern void Steam(Entity*);
-extern void PushableLever(Entity*);
-extern void MacroShoes(Entity*);
-extern void ObjectOnSpinyBeetle(Entity*);
-extern void Object7E(Entity*);
-extern void PicoBloom(Entity*);
-extern void Object80(Entity*);
-extern void Object81(Entity*);
-extern void BigVortex(Entity*);
-extern void BigPushableLever(Entity*);
-extern void SmallIceBlock(Entity*);
-extern void BigIceBlock(Entity*);
-extern void Object86(Entity*);
-extern void Object87(Entity*);
-extern void MacroBook(Entity*);
-extern void Object89(Entity*);
-extern void Object8A(Entity*);
-extern void Object8B(Entity*);
-extern void Book(Entity*);
-extern void Fireplace(Entity*);
-extern void Object8E(Entity*);
-extern void FrozenWaterElement(Entity*);
-extern void Object90(Entity*);
-extern void Object91(Entity*);
-extern void BakerOven(Entity*);
-extern void Object93(Entity*);
-extern void WindTribeFlag(Entity*);
-extern void Bird(Entity*);
-extern void Object96(Entity*);
-extern void Object97(Entity*);
-extern void Object98(Entity*);
-extern void Object99(Entity*);
-extern void MacroAcorn(Entity*);
-extern void Object9B(Entity*);
-extern void TreeHidingPortal(Entity*);
-extern void LightableSwitch(Entity*);
-extern void Object9E(Entity*);
-extern void Fan(Entity*);
-extern void ObjectA0(Entity*);
-extern void PalaceArchway(Entity*);
-extern void ObjectA2(Entity*);
-extern void Cloud(Entity*);
-extern void MinishLight(Entity*);
-extern void ObjectA5(Entity*);
-extern void ObjectA6(Entity*);
-extern void ObjectA7(Entity*);
-extern void ObjectA8(Entity*);
-extern void ObjectA9(Entity*);
-extern void WaterfallOpening(Entity*);
-extern void ObjectAB(Entity*);
-extern void FourElements(Entity*);
-extern void ObjectAD(Entity*);
-extern void FloatingBlock(Entity*);
-extern void ObjectAF(Entity*);
-extern void MetalDoor(Entity*);
-extern void JailBars(Entity*);
-extern void ObjectB2(Entity*);
-extern void ObjectB3(Entity*);
-extern void ObjectB4(Entity*);
-extern void ObjectB5(Entity*);
-extern void ObjectB6(Entity*);
-extern void Well(Entity*);
-extern void WindTribeTeleporter(Entity*);
-extern void ObjectB9(Entity*);
-extern void ObjectBA(Entity*);
-extern void Windcrest(Entity*);
-extern void LitArea(Entity*);
-extern void ObjectBD(Entity*);
-extern void Pinwheel(Entity*);
-extern void ObjectBF(Entity*);
-extern void EnemyItem(Entity*);
-extern void ObjectC1(Entity*);
+void ItemOnGround(Entity*);
+void DeathFx(Entity*);
+void ItemForSale(Entity*);
+void Button(Entity*);
+void MinishEmoticon(Entity*);
+void Pot(Entity*);
+void EzloCap(Entity*);
+void BlockPushed(Entity*);
+void LockedDoor(Entity*);
+void Object9(Entity*);
+void ObjectA(Entity*);
+void ObjectB(Entity*);
+void ChestSpawner(Entity*);
+void ObjectD(Entity*);
+void ObjectE(Entity*);
+void SpecialFx(Entity*);
+void Object10(Entity*);
+void Object11(Entity*);
+void Object12(Entity*);
+void Railtrack(Entity*);
+void LilypadLarge(Entity*);
+void Object15(Entity*);
+void FloatingPlatform(Entity*);
+void Object17(Entity*);
+void EvilSpirit(Entity*);
+void HouseDoorExterior(Entity*);
+void Rupee(Entity*);
+void GreatFairy(Entity*);
+void Object1C(Entity*);
+void Object1D(Entity*);
+void Object1E(Entity*);
+void Object1F(Entity*);
+void Object20(Entity*);
+void Object21(Entity*);
+void FigurineDevice(Entity*);
+void EyeSwitch(Entity*);
+void PressurePlate(Entity*);
+void BigBarrel(Entity*);
+void BarrelInside(Entity*);
+void PushableStatue(Entity*);
+void Object28(Entity*);
+void AmbientClouds(Entity*);
+void Object2A(Entity*);
+void Object2B(Entity*);
+void Beanstalk(Entity*);
+void Smoke(Entity*);
+void PushableRock(Entity*);
+void HittableLever(Entity*);
+void Object30(Entity*);
+void FrozenFlower(Entity*);
+void PullableMushroom(Entity*);
+void Bollard(Entity*);
+void WarpPoint(Entity*);
+void Object35(Entity*);
+void Object36(Entity*);
+void Object37(Entity*);
+void JarPortal(Entity*);
+void BossDoor(Entity*);
+void Object3A(Entity*);
+void MacroMushromStalks(Entity*);
+void MacroPlayer(Entity*);
+void Object3D(Entity*);
+void Object3E(Entity*);
+void GiantLeaf(Entity*);
+void Fairy(Entity*);
+void LadderUp(Entity*);
+void Object42(Entity*);
+void Object43(Entity*);
+void Object44(Entity*);
+void Object45(Entity*);
+void GiantBookLadder(Entity*);
+void HeartContainer(Entity*);
+void FileScreenObjects(Entity*);
+void Object49(Entity*);
+void BackgroundCloud(Entity*);
+void Object4B(Entity*);
+void PushableFurniture(Entity*);
+void Furniture(Entity*);
+void MinishSizedEntrance(Entity*);
+void Archway(Entity*);
+void GiantRock(Entity*);
+void GiantRock2(Entity*);
+void Object52(Entity*);
+void Object53(Entity*);
+void PullableLever(Entity*);
+void Minecart(Entity*);
+void ThoughtBubble(Entity*);
+void HiddenLadderDown(Entity*);
+void GentariCurtain(Entity*);
+void LavaPlatform(Entity*);
+void Paper(Entity*);
+void Object5B(Entity*);
+void Mask(Entity*);
+void HouseDoorInterior(Entity*);
+void Whirlwind(Entity*);
+void ObjectBlockingStairs(Entity*);
+void SwordsmanNewsletter(Entity*);
+void Object61(Entity*);
+void GiantTwig(Entity*);
+void Object63(Entity*);
+void Object64(Entity*);
+void LadderHoleInBookshelf(Entity*);
+void Object66(Entity*);
+void Object67(Entity*);
+void Object68(Entity*);
+void Object69(Entity*);
+void Object6A(Entity*);
+void CrenalBeanSprout(Entity*);
+void MinecartDoor(Entity*);
+void ObjectOnPillar(Entity*);
+void MineralWaterSource(Entity*);
+void MinishSizedArchway(Entity*);
+void Object70(Entity*);
+void PushableGrave(Entity*);
+void StoneTablet(Entity*);
+void LilypadSmall(Entity*);
+void Object74(Entity*);
+void Object75(Entity*);
+void Object76(Entity*);
+void Bell(Entity*);
+void MacroDecoration(Entity*);
+void Object79(Entity*);
+void Steam(Entity*);
+void PushableLever(Entity*);
+void MacroShoes(Entity*);
+void ObjectOnSpinyBeetle(Entity*);
+void Object7E(Entity*);
+void PicoBloom(Entity*);
+void Board(Entity*);
+void Object81(Entity*);
+void BigVortex(Entity*);
+void BigPushableLever(Entity*);
+void SmallIceBlock(Entity*);
+void BigIceBlock(Entity*);
+void Object86(Entity*);
+void OctorokBossObject(Entity*);
+void MacroBook(Entity*);
+void MazaalBossObject(Entity*);
+void CabinFurniture(Entity*);
+void DoubleBookshelf(Entity*);
+void Book(Entity*);
+void Fireplace(Entity*);
+void Object8E(Entity*);
+void FrozenWaterElement(Entity*);
+void Object90(Entity*);
+void Object91(Entity*);
+void BakerOven(Entity*);
+void Lamp(Entity*);
+void WindTribeFlag(Entity*);
+void Bird(Entity*);
+void Object96(Entity*);
+void Object97(Entity*);
+void Object98(Entity*);
+void Object99(Entity*);
+void MacroAcorn(Entity*);
+void Object9B(Entity*);
+void TreeHidingPortal(Entity*);
+void LightableSwitch(Entity*);
+void TreeThorns(Entity*);
+void Fan(Entity*);
+void AngryStatue(Entity*);
+void PalaceArchway(Entity*);
+void ObjectA2(Entity*);
+void Cloud(Entity*);
+void MinishLight(Entity*);
+void FireballChain(Entity*);
+void ObjectA6(Entity*);
+void ObjectA7(Entity*);
+void ObjectA8(Entity*);
+void ObjectA9(Entity*);
+void WaterfallOpening(Entity*);
+void ObjectAB(Entity*);
+void FourElements(Entity*);
+void ObjectAD(Entity*);
+void FloatingBlock(Entity*);
+void ObjectAF(Entity*);
+void MetalDoor(Entity*);
+void JailBars(Entity*);
+void ObjectB2(Entity*);
+void ObjectB3(Entity*);
+void ObjectB4(Entity*);
+void ObjectB5(Entity*);
+void ObjectB6(Entity*);
+void Well(Entity*);
+void WindTribeTeleporter(Entity*);
+void ObjectB9(Entity*);
+void GyorgBossObject(Entity*);
+void Windcrest(Entity*);
+void LitArea(Entity*);
+void ObjectBD(Entity*);
+void Pinwheel(Entity*);
+void ObjectBF(Entity*);
+void EnemyItem(Entity*);
+void ObjectC1(Entity*);
 
 extern void (*const gObjectFunctions[194])(Entity*);
 

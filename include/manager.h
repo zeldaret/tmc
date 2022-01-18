@@ -63,19 +63,19 @@ typedef struct {
 
 typedef struct {
     Manager manager;
-    u16 unk_20;
-    u16 unk_22;
-    u16 unk_24;
-    u16 unk_26;
-    u8 unk_28[0x0D];
-    u8 unk_35;
-    u16 unk_36;
-    u8 unk_38;
-    u8 unk_39;
-    u8 unk_3a;
-    u8 unk_3b;
-    u16 unk_3c;
-    u16 unk_3e;
+    u16 x;
+    u16 y;
+    u16 rx;
+    u16 ry;
+    u8 unk_28[13];
+    u8 msg_height;
+    u16 msg_idx;
+    u8 x_raw;
+    u8 y_raw;
+    u8 rx_raw;
+    u8 ry_raw;
+    u16 flag1;
+    u16 flag2;
 } ManagerA;
 
 typedef struct {
@@ -130,10 +130,10 @@ typedef struct Manager11 {
 
 typedef struct {
     u16 unk_00;
-    u8 source_roomID;
+    u8 source_room;
     u8 unk_03;
-    u8 target_areaID;
-    u8 target_roomID;
+    u8 target_area;
+    u8 target_room;
     u16 unk_06;
 } DiggingCaveEntrance;
 
@@ -148,6 +148,18 @@ extern struct {
 } gUnk_03004030;
 
 extern DiggingCaveEntrance* diggingCaveEntrances[];
+
+typedef struct {
+    Manager manager;
+    u8 field_0x20[0x15];
+    u8 field_0x35;
+    u8 field_0x36;
+    u8 field_0x37;
+    s16 x;
+    u16 y;
+    u16 tile;
+    u16 field_0x3e;
+} Manager24;
 
 typedef struct {
     u8 unk_00;
@@ -217,5 +229,16 @@ extern void Manager38_Main(Entity*);
 extern void Manager39_Main();
 
 extern void (*const gManagerFunctions[58])();
+
+Manager* GetEmptyManager(void);
+
+/**
+ * @brief Set manager responsible for handling room changes
+ */
+extern void RegisterTransitionManager(void* mgr, void (*onEnter)(), void (*onExit)());
+
+extern u32 sub_0805ACC0(Entity*);
+extern void sub_0801855C(void);
+extern void sub_080186C0(u32);
 
 #endif

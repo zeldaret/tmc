@@ -1,17 +1,21 @@
+/**
+ * @file pesto.c
+ * @ingroup Enemies
+ *
+ * @brief Pesto enemy
+ */
+
 #include "enemy.h"
-#include "entity.h"
-#include "random.h"
-#include "createObject.h"
+#include "object.h"
 #include "game.h"
 #include "functions.h"
 #include "save.h"
 
 extern u32 sub_080002E0(u16, u32);
-extern void sub_0800449C(Entity*, u32);
+extern void SoundReqClipped(Entity*, u32);
 extern u32 sub_08049F1C(Entity*, Entity*, u32);
 extern u32 PlayerInRange(Entity*, u32, u32);
 extern void sub_080AEFB4(Entity*);
-extern Entity* FindNextDuplicateID(Entity* ent, int listIndex);
 
 void sub_080249F4(Entity*);
 void sub_08024940(Entity*);
@@ -151,7 +155,7 @@ void sub_080240B8(Entity* this) {
     }
 
     UpdateSpriteForCollisionLayer(this);
-    if (CheckIsDungeon())
+    if (AreaIsDungeon())
         this->spriteOrientation.flipY = 1;
 
     this->field_0x80.HALF.HI = Random() & 0x40;
@@ -395,15 +399,15 @@ void sub_080244E8(Entity* this) {
                             sub_080249DC(this);
                             this->cutsceneBeh.HALF.HI = gPlayerEntity.spritePriority.b1;
                             gPlayerEntity.flags &= 0x7f;
-                            gPlayerState.flags |= 0x100;
+                            gPlayerState.flags |= PL_DISABLE_ITEMS;
                             gPlayerState.field_0xa |= 0x80;
-                            if (gPlayerState.swimState != 0) {
-                                gPlayerState.swimState = 0;
+                            if (gPlayerState.swim_state != 0) {
+                                gPlayerState.swim_state = 0;
                             }
                         }
                         break;
                     case 1:
-                        if (sub_080041A0(this, this->child, 6, 6)) {
+                        if (EntityInRectRadius(this, this->child, 6, 6)) {
                             Entity* ent;
 
                             this->field_0x80.HALF.LO += 1;
@@ -424,7 +428,7 @@ void sub_080244E8(Entity* this) {
                         }
                         break;
                     case 2:
-                        if (sub_080041A0(this, this->child, 6, 6)) {
+                        if (EntityInRectRadius(this, this->child, 6, 6)) {
                             Entity* ent;
 
                             this->field_0x80.HALF.LO += 1;
@@ -537,7 +541,7 @@ void sub_08024940(Entity* this) {
             this->z.HALF.HI += 2;
     }
 
-    if (this->type2 != 0 || CheckIsDungeon()) {
+    if (this->type2 != 0 || AreaIsDungeon()) {
         if (!sub_08049FA0(this)) {
             this->direction = sub_08049EE4(this);
             sub_080249F4(this);
@@ -560,14 +564,14 @@ void sub_080249DC(Entity* this) {
     InitializeAnimation(this, this->animationState);
 }
 
-NONMATCH("asm/non_matching/pesto/sub_080249F4.inc", void sub_080249F4(Entity* this)) {
-    u8 direction = ((this->direction + 2) & 0x1c) >> 2;
+void sub_080249F4(Entity* this) {
+    u32 direction = ((this->direction + 2) & 0x1f);
+    direction >>= 2;
     if (direction != this->animationState) {
         this->animationState = direction;
         InitializeAnimation(this, this->animationState);
     }
 }
-END_NONMATCH
 
 void sub_08024A14(Entity* this, u32 param_2, u32 param_3) {
     u8 unk = FALSE;
@@ -639,7 +643,7 @@ bool32 sub_08024B38(Entity* this) {
     Entity* ent;
 
     if (gPlayerState.hurtBlinkSpeed != 0) {
-        if (gPlayerState.swimState == 1) {
+        if (gPlayerState.swim_state == 1) {
             if (gPlayerState.hurtBlinkSpeed > 3) {
                 gPlayerState.hurtBlinkSpeed -= 3;
             } else {
@@ -786,16 +790,15 @@ u32 sub_08024E34(void) {
     return gUnk_080CBF20[idx];
 }
 
-NONMATCH("asm/non_matching/pesto/sub_08024E4C.inc", void sub_08024E4C(Entity* this)) {
+void sub_08024E4C(Entity* this) {
     if (this->field_0x82.HALF.HI == 3) {
-        this->field_0xf++;
-        this->field_0xf &= 0xff;
-        this->field_0xf &= 0x1f;
-
+        this->field_0xf = ++this->field_0xf & 0x1f;
         if (sub_0807953C()) {
-            this->cutsceneBeh.HALF.LO += 1 + (Random() & 1);
+            u32 r = Random();
+            this->cutsceneBeh.HALF.LO++;
+            r &= 1;
+            this->cutsceneBeh.HALF.LO += r;
         }
-
         if (gSave.stats.health == 0 || this->field_0x86.HALF.HI == 4) {
             this->cutsceneBeh.HALF.LO = 0x30;
             this->field_0x86.HALF.HI = 0;
@@ -807,11 +810,10 @@ NONMATCH("asm/non_matching/pesto/sub_08024E4C.inc", void sub_08024E4C(Entity* th
             sub_08024A14(this, 0, 8);
         } else {
             Entity* player = &gPlayerEntity;
-
             ResetPlayer();
-            gPlayerState.flags |= 0x100;
+            gPlayerState.flags |= PL_DISABLE_ITEMS;
             gPlayerState.field_0xa |= 0x80;
-            gPlayerState.playerAction = 0xe;
+            gPlayerState.queued_action = PLAYER_0807204C;
             gPlayerState.field_0x38 = 0x14;
             gPlayerState.field_0x39 = 1;
             *(u8*)&gPlayerState.field_0x3a = 0;
@@ -823,19 +825,18 @@ NONMATCH("asm/non_matching/pesto/sub_08024E4C.inc", void sub_08024E4C(Entity* th
                 this->field_0x86.HALF.HI++;
                 player->iframes = 8;
                 ModHealth(-2);
-                sub_0800449C(player, 0x7a);
+                SoundReqClipped(player, 0x7a);
             }
         }
     }
 }
-END_NONMATCH
 
 void sub_08024F50(Entity* this) {
     gPlayerState.field_0xa = 0;
-    gPlayerState.flags &= 0xfffffeff;
+    gPlayerState.flags &= ~PL_DISABLE_ITEMS;
     CopyPosition(this, &gPlayerEntity);
     gPlayerEntity.action = 1;
-    gPlayerEntity.flags |= 0x80;
+    COLLISION_ON(&gPlayerEntity);
     gPlayerEntity.iframes = -0x3c;
     gPlayerEntity.direction = gPlayerEntity.animationState << 2;
     gPlayerEntity.speed = 0;

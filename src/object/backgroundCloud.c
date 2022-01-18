@@ -1,7 +1,4 @@
-#include "global.h"
-#include "entity.h"
-#include "random.h"
-#include "functions.h"
+#include "object.h"
 
 extern void (*const gUnk_08121EA4[])(Entity*);
 extern const u8 gUnk_08121EB0[];
@@ -20,8 +17,8 @@ void sub_0808F658(Entity* this) {
     this->frameIndex = this->type;
     this->direction = 8;
     this->speed = gUnk_08121EB0[this->type];
-    this->field_0x78.HWORD = gRoomControls.roomOriginX - 0x60;
-    this->field_0x7a.HWORD = gRoomControls.roomOriginX + gRoomControls.width + 0x60;
+    this->field_0x78.HWORD = gRoomControls.origin_x - 0x60;
+    this->field_0x7a.HWORD = gRoomControls.origin_x + gRoomControls.width + 0x60;
     this->animationState = 0;
     this->x.HALF.HI += (Random() & 0xf) << 4;
     this->actionDelay = 0;
@@ -29,7 +26,7 @@ void sub_0808F658(Entity* this) {
 }
 
 void sub_0808F6E0(Entity* this) {
-    sub_0806F69C(this);
+    LinearMoveUpdate(this);
 
     if ((s16)this->x.HALF.HI < (s16)this->field_0x78.HWORD || (s16)this->x.HALF.HI > (s16)this->field_0x7a.HWORD)
         this->action = 2;

@@ -1,8 +1,7 @@
 #include "global.h"
-#include "audio.h"
+#include "sound.h"
 #include "entity.h"
 #include "player.h"
-#include "random.h"
 #include "npc.h"
 #include "functions.h"
 
@@ -181,7 +180,7 @@ void Cow_ShowDialogue(Entity* ent) {
 
 void sub_0806920C(Entity* ent) {
     // TODO: figure out what bitfield flag this is
-    u32 var0 = gPlayerState.flags & PL_IS_MINISH;
+    u32 var0 = gPlayerState.flags & PL_MINISH;
     u32 var1 = -var0 >> 0x1F;
 
     if (var1 != ent->field_0x6c.HALF.HI) {
@@ -200,7 +199,7 @@ void sub_0806924C(Entity* ent) {
     s8 itype = ent->interactType;
     if (itype != 0) {
         // TODO: figure out what bitfield flag this is
-        if ((gPlayerState.flags & PL_IS_MINISH) != 0) {
+        if ((gPlayerState.flags & PL_MINISH) != 0) {
             if (itype == 2) {
                 ent->action = 4;
                 sub_0806F118(ent);
@@ -209,7 +208,7 @@ void sub_0806924C(Entity* ent) {
             }
         } else {
             Cow_ShowDialogue(ent);
-            sub_080791D0();
+            ResetPlayerAnimationAndAction();
         }
         SoundReq(SFX_VO_COW);
         ent->interactType = 0;

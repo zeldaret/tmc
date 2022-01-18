@@ -1,8 +1,11 @@
-#include "global.h"
-#include "entity.h"
+/**
+ * @file tektiteGolden.c
+ * @ingroup Enemies
+ *
+ * @brief Golden Tektite enemy
+ */
+
 #include "enemy.h"
-#include "flags.h"
-#include "random.h"
 #include "functions.h"
 
 extern void sub_08038168(Entity*);
@@ -59,7 +62,7 @@ void sub_08037F58(Entity* this) {
 void sub_08037F84(Entity* this) {
     sub_08001242(this);
     if (this->z.HALF.HI != 0) {
-        sub_08003FC4(this, 0x3000);
+        GravityUpdate(this, 0x3000);
     }
 }
 

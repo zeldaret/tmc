@@ -247,7 +247,7 @@
     .include "sounds/sfxItemShieldBounce.s"
     .include "sounds/sfxItemGlovesKnockback.s"
     .include "sounds/sfxEmArmosOn.s"
-    .include "sounds/sfx11B.s"
+    .include "sounds/sfxChestOpen.s"
     .include "sounds/sfx11C.s"
     .include "sounds/sfx11D.s"
     .include "sounds/sfxEmMoblinSpear.s"

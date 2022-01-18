@@ -1,10 +1,10 @@
 #include "global.h"
 #include "entity.h"
-#include "functions.h"
-#include "textbox.h"
-#include "player.h"
+#include "message.h"
 #include "room.h"
 #include "script.h"
+#include "npc.h"
+#include "game.h"
 
 typedef struct {
     u32 unk_00;
@@ -153,12 +153,9 @@ void sub_080634E4(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_080634EC(Entity* this) {
-    gRoomVars.itemForSaleIndex = gUnk_0810C88C[this->type2];
+    gRoomVars.shopItemType = gUnk_0810C88C[this->type2];
 }
 
 void sub_08063504(Entity* this, ScriptExecutionContext* context) {
-    u32 uVar1;
-
-    uVar1 = GetBottleContaining(gUnk_0810C88C[this->type2]);
-    context->condition = BOOLCAST(uVar1);
+    context->condition = !!GetBottleContaining(gUnk_0810C88C[this->type2]);
 }
