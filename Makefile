@@ -82,14 +82,14 @@ LDFLAGS = -Map ../../$(MAP)
 LIB := -L ../../tools/agbcc/lib -lc
 
 SHA1 := $(shell { command -v sha1sum || command -v shasum; } 2>/dev/null) -c
-GFX := tools/gbagfx/gbagfx
-AIF := tools/aif2pcm/aif2pcm
-MID := tools/mid2agb/mid2agb
-SCANINC := tools/scaninc/scaninc
+GFX := tools/bin/gbagfx
+AIF := tools/bin/aif2pcm
+MID := tools/bin/mid2agb
+SCANINC := tools/bin/scaninc
 # TODO: use charmap?
-PREPROC := tools/preproc/preproc
-FIX := tools/gbafix/gbafix
-ASSET_PROCESSOR := tools/asset_processor/asset_processor
+PREPROC := tools/bin/preproc
+FIX := tools/bin/gbafix
+ASSET_PROCESSOR := tools/bin/asset_processor
 
 ASSET_CONFIGS = assets/assets.json assets/gfx.json assets/map.json assets/samples.json assets/sounds.json
 TRANSLATIONS = translations/USA.bin translations/English.bin translations/French.bin translations/German.bin translations/Spanish.bin translations/Italian.bin
@@ -149,11 +149,7 @@ SUBDIRS  := $(sort $(dir $(OBJS)))
 
 $(shell mkdir -p $(SUBDIRS))
 
-TOOLDIRS := $(filter-out tools/agbcc tools/binutils,$(wildcard tools/*))
-TOOLBASE = $(TOOLDIRS:tools/%=%)
-TOOLS = $(foreach tool,$(TOOLBASE),tools/$(tool)/$(tool)$(EXE))
-
-.PHONY: all setup clean-tools mostlyclean clean tidy $(TOOLDIRS) extractassets
+.PHONY: all setup clean-tools mostlyclean clean tidy tools extractassets buildassets custom
 
 MAKEFLAGS += --no-print-directory
 
@@ -166,11 +162,24 @@ all: build/extracted_assets_$(GAME_VERSION)
 target: $(ROM)
 	@$(SHA1) $(BUILD_NAME).sha1
 
+custom: buildassets
+	@$(MAKE) target GAME_VERSION=$(GAME_VERSION)
+
 # kept for backwards compat
 compare: $(ROM)
 	@$(SHA1) $(BUILD_NAME).sha1
 
-setup: $(TOOLDIRS)
+setup: tools
+
+# all tools are build at once
+# FIXME figure out why make builds multiple times when specifying all tools here
+tools: $(GFX)
+
+$(GFX) $(AIF) $(MID) $(SCANINC) $(PREPROC) $(FIX) $(ASSET_PROCESSOR) tools/bin/agb2mid tools/bin/tmc_strings tools/bin/bin2c &:
+	mkdir -p tools/cmake-build
+	unset CC CXX AS LD LDFLAGS && cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=tools -S tools -B tools/cmake-build
+	cmake --build tools/cmake-build -j
+	cmake --install tools/cmake-build
 
 # Automatically extract binary data
 build/extracted_assets_%: $(ASSET_CONFIGS) $(TRANSLATIONS)
@@ -181,8 +190,9 @@ build/extracted_assets_%: $(ASSET_CONFIGS) $(TRANSLATIONS)
 extractassets:
 	$(ASSET_PROCESSOR) convert $(GAME_VERSION) $(ASSET_BUILDDIR)
 
-$(TOOLDIRS):
-	@$(MAKE) -C $@
+# Build the assets from the human readable form
+buildassets:
+	$(ASSET_PROCESSOR) build $(GAME_VERSION) $(ASSET_BUILDDIR)
 
 mostlyclean: tidy
 	rm -f sound/direct_sound_samples/*.bin
@@ -191,7 +201,8 @@ mostlyclean: tidy
 	rm -f $(AUTO_GEN_TARGETS)
 
 clean-tools:
-	@$(foreach tooldir,$(TOOLDIRS),$(MAKE) clean -C $(tooldir);)
+	rm -rf tools/bin
+	rm -rf tools/cmake-build
 
 clean: mostlyclean clean-tools
 
@@ -217,12 +228,12 @@ tidy:
 %.lz: % ; $(GFX) $< $@
 %.rl: % ; $(GFX) $< $@
 	cd $(@D) && ../../$(MID) $(<F)
-translations/USA.bin: translations/USA.json ; tools/tmc_strings/tmc_strings -p --source $< --dest $@ --size 0x499E0
-translations/English.bin: translations/English.json ; tools/tmc_strings/tmc_strings -p --source $< --dest $@ --size 0x488C0
-translations/French.bin: translations/French.json ; tools/tmc_strings/tmc_strings -p --source $< --dest $@ --size 0x47A90
-translations/German.bin: translations/German.json ; tools/tmc_strings/tmc_strings -p --source $< --dest $@ --size 0x42FC0
-translations/Spanish.bin: translations/Spanish.json ; tools/tmc_strings/tmc_strings -p --source $< --dest $@ --size 0x41930
-translations/Italian.bin: translations/Italian.json ; tools/tmc_strings/tmc_strings -p --source $< --dest $@ --size 0x438E0
+translations/USA.bin: translations/USA.json ; tools/bin/tmc_strings -p --source $< --dest $@ --size 0x499E0
+translations/English.bin: translations/English.json ; tools/bin/tmc_strings -p --source $< --dest $@ --size 0x488C0
+translations/French.bin: translations/French.json ; tools/bin/tmc_strings -p --source $< --dest $@ --size 0x47A90
+translations/German.bin: translations/German.json ; tools/bin/tmc_strings -p --source $< --dest $@ --size 0x42FC0
+translations/Spanish.bin: translations/Spanish.json ; tools/bin/tmc_strings -p --source $< --dest $@ --size 0x41930
+translations/Italian.bin: translations/Italian.json ; tools/bin/tmc_strings -p --source $< --dest $@ --size 0x438E0
 
 ifeq ($(NODEP),1)
 $(C_BUILDDIR)/%.o: c_dep :=
