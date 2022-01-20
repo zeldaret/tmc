@@ -63,7 +63,7 @@ typedef enum {
     /*0x21*/ FALLING_BOULDER,
     /*0x22*/ BOBOMB,
     /*0x23*/ WALL_MASTER_2,
-    /*0x24*/ GLEEROCK,
+    /*0x24*/ GLEEROK,
     /*0x25*/ VAATI_EYES_MACRO,
     /*0x26*/ TEKTITE,
     /*0x27*/ WIZZROBE_WIND,
