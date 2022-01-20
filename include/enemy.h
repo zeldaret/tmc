@@ -190,7 +190,7 @@ void SpinyBeetle(Entity*);
 void MazaalHead(Entity*);
 void MazaalMacro(Entity*);
 void MazaalHand(Entity*);
-void OctorokBoss(Entity*);
+void OctorokBoss();
 void FlyingPot(Entity*);
 void Gibdo(Entity*);
 void OctorokGolden(Entity*);
