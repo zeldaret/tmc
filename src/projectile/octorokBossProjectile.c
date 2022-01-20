@@ -5,7 +5,6 @@
 
 void OctorokBossProjectile_Action2(Entity*);
 extern void sub_080AE58C(Entity*, u32, u32);
-extern u32 sub_0806FC80(Entity*, Entity*, s32);
 
 extern void (*const OctorokBossProjectile_Functions[])(Entity*);
 extern void (*const OctorokBossProjectile_Actions[])(Entity*);

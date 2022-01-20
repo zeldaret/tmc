@@ -136,7 +136,6 @@ u32 sub_08081D28(Entity* this) {
     return 1;
 }
 
-extern u32 sub_080002E0(u32, u32);
 extern Entity* gPlayerClones[3];
 u32 sub_08081E0C(Entity*);
 

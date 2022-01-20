@@ -9,12 +9,6 @@
 #include "object.h"
 #include "functions.h"
 
-extern u32 sub_080002E0(u32, u32);
-extern u32 sub_080002C8(u16, u8);
-extern u8 sub_080002D4(u32, u32, u32);
-extern void sub_0804AA1C(Entity*);
-extern Entity* sub_08049DF4(u32);
-
 extern u8 gUnk_080B37A0[];
 extern u8 gUnk_080B3E80[];
 

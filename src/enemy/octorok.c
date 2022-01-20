@@ -8,8 +8,6 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern Entity* sub_08049DF4(u32);
-
 void Octorok_Pause(Entity*);
 bool32 Octorok_FacesPlayer(Entity*);
 void Octorok_Turn(Entity*);

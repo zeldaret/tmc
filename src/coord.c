@@ -22,7 +22,6 @@ extern u8 gUnk_08114F38[];
 extern u8 gUnk_08114F58[];
 
 void sub_080027EA(Entity*, u32, u32);
-void sub_0806F5BC(Entity*, u32, u32);
 u32 sub_0806F58C(Entity*, Entity*);
 u32 sub_0806FCA0(Entity*, Entity*);
 
@@ -214,8 +213,8 @@ u32 sub_0806F804(u32 x, u32 y) {
     return gUnk_02025EB0._4[idx];
 }
 
-void sub_0806F824(Entity* a, Entity* b, s32 x, s32 y) {
-    sub_080045D4(a->x.HALF.HI, a->y.HALF.HI, b->x.HALF.HI + x, b->y.HALF.HI + y);
+u32 sub_0806F824(Entity* a, Entity* b, s32 x, s32 y) {
+    return sub_080045D4(a->x.HALF.HI, a->y.HALF.HI, b->x.HALF.HI + x, b->y.HALF.HI + y);
 }
 
 u32 sub_0806F854(Entity* ent, s32 x, s32 y) {

@@ -8,8 +8,6 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern Entity* sub_08049DF4(u32);
-
 void sub_08022A88(Entity*);
 void sub_08022AA4(Entity*);
 void sub_08022B0C(Entity*);

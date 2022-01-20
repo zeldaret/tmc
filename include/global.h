@@ -99,6 +99,7 @@ typedef union {
 
 union SplitWord {
     s32 WORD;
+    u32 WORD_U;
     struct {
         s16 LO, HI;
     } HALF;

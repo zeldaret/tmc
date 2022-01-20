@@ -8,8 +8,6 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern bool32 PlayerInRange(Entity*, u32, u32);
-extern u32 sub_080002E0(u32, u32);
 extern Entity* gUnk_020000B0;
 extern const ScreenTransitionData gUnk_0813AB94;
 

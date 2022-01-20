@@ -246,7 +246,7 @@ void Object10(Entity*);
 void Object11(Entity*);
 void Object12(Entity*);
 void Railtrack(Entity*);
-void LilypadLarge(Entity*);
+void LilypadLarge();
 void Object15(Entity*);
 void FloatingPlatform(Entity*);
 void Object17(Entity*);

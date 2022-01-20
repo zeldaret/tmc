@@ -40,8 +40,6 @@ enum OctorokBossObjectType {
 };
 #define GET_HELPER(this) (*(HelperStruct**)&(this)->cutsceneBeh)
 
-extern u32 sub_0806FC80(Entity*, Entity*, s32);
-
 void OctorokBossObject(Entity* this) {
     OctorokBossObject_Actions[this->action](this);
 }

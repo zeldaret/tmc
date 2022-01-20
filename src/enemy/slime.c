@@ -16,7 +16,6 @@ void sub_08044FF8(Entity*);
 void sub_08045178(Entity*, Entity*, int, int);
 
 extern void sub_0804A4E4(Entity*, Entity*);
-extern u32 sub_080002CC(Entity*, s32, s32);
 
 extern void (*const gUnk_080D16BC[])(Entity*);
 extern void (*const gUnk_080D16A4[])(Entity*);

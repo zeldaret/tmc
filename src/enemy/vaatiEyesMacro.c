@@ -8,7 +8,6 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern u32 sub_080002E0(u32, u32);
 extern s16 gUnk_080B4488[];
 
 void VaatiEyesMacroFunction0(Entity*);

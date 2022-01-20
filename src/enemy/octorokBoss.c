@@ -13,7 +13,6 @@
 
 extern void sub_08078AC0(u32, u32, u32);
 extern u32 GetRandomByWeight(const u8*);
-extern u32 sub_0806FC80(Entity*, Entity*, s32);
 extern void sub_080792BC(s32, u32, u32);
 
 enum OctorokRotation { ROTATION_CW, ROTATION_CCW, NO_ROTATION = 0xff };

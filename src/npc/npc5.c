@@ -53,7 +53,6 @@ extern struct {
     s8 unk_1;
 } gUnk_0810AC4C[];
 extern u8 gUnk_0810AC54[8];
-extern u32 sub_080002B4(Entity*, u32, u32);
 
 extern u8 gUnk_0810AC5D;
 

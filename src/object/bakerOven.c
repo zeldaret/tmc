@@ -1,7 +1,7 @@
 #include "object.h"
+#include "functions.h"
 
 extern void SoundReqClipped(Entity*, u32);
-extern u32 sub_0806FC80(Entity*, Entity*, s32);
 extern void sub_0809CDF0(Entity*);
 
 extern void (*const gUnk_08123E20[])(Entity*);

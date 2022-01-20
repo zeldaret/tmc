@@ -11,12 +11,6 @@
 #include "functions.h"
 #include "save.h"
 
-extern u32 sub_080002E0(u16, u32);
-extern void SoundReqClipped(Entity*, u32);
-extern u32 sub_08049F1C(Entity*, Entity*, u32);
-extern u32 PlayerInRange(Entity*, u32, u32);
-extern void sub_080AEFB4(Entity*);
-
 void sub_080249F4(Entity*);
 void sub_08024940(Entity*);
 void sub_080249DC(Entity*);
