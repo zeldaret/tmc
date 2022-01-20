@@ -1,5 +1,7 @@
 file(GLOB_RECURSE sources *.c)
 
+set(CMAKE_FIND_FRAMEWORK LAST)
+
 find_package(PNG REQUIRED)
 
 # TODO Makefile had a debug build with -DDEBUG
