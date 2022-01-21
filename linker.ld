@@ -394,7 +394,7 @@ SECTIONS {
         src/enemy/bowMoblin.o(.text);
         src/enemy/lakitu.o(.text);
         src/enemy/lakituCloud.o(.text);
-        asm/enemy/enemy49.o(.text);
+        src/enemy/torchTrap.o(.text);
         src/enemy/vaatiRebornEnemy.o(.text);
         src/enemy/vaatiProjectile.o(.text);
         asm/enemy/ballChainSoldier.o(.text);
@@ -1069,7 +1069,7 @@ SECTIONS {
         src/enemy/lakitu.o(.rodata);
         data/animations/enemy/lakitu.o(.rodata);
         src/enemy/lakituCloud.o(.rodata);
-        data/const/enemy/enemy49.o(.rodata);
+        src/enemy/torchTrap.o(.rodata);
         src/enemy/vaatiRebornEnemy.o(.rodata);
         data/animations/enemy/vaatiRebornEnemy.o(.rodata);
         src/enemy/vaatiProjectile.o(.rodata);

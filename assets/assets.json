@@ -27476,16 +27476,6 @@
     "size": 17
   },
   {
-    "path": "enemy49/gUnk_080D0458.bin",
-    "start": 853080,
-    "size": 16
-  },
-  {
-    "path": "enemy49/gUnk_080D0468.bin",
-    "start": 853096,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_VaatiRebornEnemy_0_0.bin",
     "start": 853207,
     "size": 17,
