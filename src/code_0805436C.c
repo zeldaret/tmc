@@ -48,7 +48,7 @@ u32 IsItemEquipped(u32 itemID) {
 
 void PutItemOnSlot(u32 itemID) {
     u32 itemSlot;
-    register u32 itemID2 asm("r5") = itemID;
+    u32 itemID2 = itemID;
     if (itemID2 < 0x47) {
         sub_0807CAA0(0, 1);
     }
@@ -60,7 +60,7 @@ void PutItemOnSlot(u32 itemID) {
             itemSlot = 1;
         }
         if (itemSlot == 2) {
-            u8 temp = gUnk_080FD5B4[itemID2].unk;
+            u32 temp = gUnk_080FD5B4[itemID2].unk;
             if (temp == gUnk_080FD5B4[gSave.stats.itemButtons[SLOT_A]].unk) {
                 itemSlot = 0;
             } else {
