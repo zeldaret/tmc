@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.13)
 project(tools)
 include(FetchContent)
 
@@ -31,7 +31,26 @@ FetchContent_Declare(
         GIT_REPOSITORY https://github.com/CLIUtils/CLI11
         GIT_TAG v2.1.2
 )
-FetchContent_MakeAvailable(json fmt cli11)
+
+if (${CMAKE_VERSION} VERSION_LESS "3.14")
+FetchContent_GetProperties(json)
+FetchContent_GetProperties(fmt)
+FetchContent_GetProperties(cli11)
+    if (NOT json_POPULATED)
+        FetchContent_Populate(json)
+        add_subdirectory(${json_SOURCE_DIR} ${json_BINARY_DIR})
+    endif()
+    if (NOT fmt_POPULATED)
+        FetchContent_Populate(fmt)
+        add_subdirectory(${fmt_SOURCE_DIR} ${fmt_BINARY_DIR})
+    endif()
+    if (NOT cli11_POPULATED)
+        FetchContent_Populate(cli11)
+        add_subdirectory(${cli11_SOURCE_DIR} ${cli11_BINARY_DIR})
+    endif()
+else()
+    FetchContent_MakeAvailable(json fmt cli11)
+endif()
 
 add_library(filesystem INTERFACE)
 if (${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU")
