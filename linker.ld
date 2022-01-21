@@ -355,6 +355,7 @@ SECTIONS {
         src/enemy/fallingBoulder.o(.text);
         src/enemy/bobomb.o(.text);
         src/enemy/wallMaster2.o(.text);
+        src/enemy/gleerok.o(.text);
         asm/enemy/gleerok.o(.text);
         src/enemy/vaatiEyesMacro.o(.text);
         src/enemy/tektite.o(.text);
@@ -1004,6 +1005,7 @@ SECTIONS {
         src/enemy/bobomb.o(.rodata);
         data/animations/enemy/bobomb.o(.rodata);
         src/enemy/wallMaster2.o(.rodata);
+        src/enemy/gleerok.o(.rodata);
         data/const/enemy/gleerok.o(.rodata);
         data/animations/enemy/gleerok.o(.rodata);
         src/enemy/vaatiEyesMacro.o(.rodata);
