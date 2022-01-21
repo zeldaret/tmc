@@ -1,9 +1,0 @@
-*.gba
-*.bin
-*.hex
-*.diff
-*.json
-*.sav
-*.ss*
-
-tmc_strings
