@@ -24,23 +24,26 @@ void FlushSprites(void) {
     gOAMControls.updated = 0;
 }
 
-NONMATCH("asm/non_matching/vram/CopyOAM.inc", void CopyOAM(void)) {
-    s32 rem;
+void CopyOAM(void) {
     u16* d;
+    s32 rem;
 
-    if (gMain.ticks.HALF.LO == 0) {
-        gOAMControls.unk[0x20].unk0 = gMain.ticks.HALF.LO;
-        gOAMControls.unk[0x48].unk4 = gMain.ticks.HALF.LO;
-        gOAMControls.unk[0x71].unk0 = gMain.ticks.HALF.LO;
-        gOAMControls.unk[0x99].unk4 = gMain.ticks.HALF.LO;
+    if (gMain.pad == 0) {
+        gOAMControls.unk[0x20].unk0 = 0;
+        gOAMControls.unk[0x48].unk4 = 0;
+        gOAMControls.unk[0x71].unk0 = 0;
+        gOAMControls.unk[0x99].unk4 = 0;
     } else {
-        gMain.ticks.HALF.LO--;
+        gMain.pad--;
     }
 
     rem = 0x80 - gOAMControls.updated;
-    for (d = (u16*)&gOAMControls.oam[0x80 + gOAMControls.updated]; rem > 0; rem--) {
-        *d = 0x2A0;
-        (u8*)d += 6;
+    if (rem > 0) {
+        d = (u16*)&gOAMControls.oam[gOAMControls.updated];
+        for (; rem != 0; rem--) {
+            *d = 0x2A0;
+            (u8*)d += 8;
+        }
     }
     if (gOAMControls.unk[0].unk7) {
         gOAMControls.unk[0].unk7 = 0;
@@ -48,7 +51,6 @@ NONMATCH("asm/non_matching/vram/CopyOAM.inc", void CopyOAM(void)) {
     }
     gOAMControls.field_0x0 = 1;
 }
-END_NONMATCH
 
 void DrawEntities(void) {
     void (*fn)(void);

@@ -37,7 +37,7 @@ void sub_0805ECEC(int param_1, u32 param_2, u32 param_3, u32 param_4) {
 
     gOAMControls.unk[0].unk7 = 1;
 
-    temp = &gOAMControls.unk[param_1].unk0;
+    temp = (u16*)&gOAMControls.unk[param_1].unk0;
     temp[0] = param_2;
     temp[1] = param_3;
     temp[2] = param_4;

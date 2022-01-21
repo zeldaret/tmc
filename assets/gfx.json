@@ -16485,6 +16485,116 @@
     "type": "gfx"
   },
   {
+    "path": "gfx/gUnk_086926A0.bin",
+    "start": 6891168,
+    "size": 224
+  },
+  {
+    "path": "gfx/gUnk_08692780.bin",
+    "start": 6891392,
+    "size": 224
+  },
+  {
+    "path": "gfx/gUnk_08692860.bin",
+    "start": 6891616,
+    "size": 224
+  },
+  {
+    "path": "gfx/gUnk_08692940.bin",
+    "start": 6891840,
+    "size": 224
+  },
+  {
+    "path": "gfx/gUnk_08692A20.bin",
+    "start": 6892064,
+    "size": 224
+  },
+  {
+    "path": "gfx/gUnk_08692B00.bin",
+    "start": 6892288,
+    "size": 224
+  },
+  {
+    "path": "gfx/gUnk_08692BE0.bin",
+    "start": 6892512,
+    "size": 224
+  },
+  {
+    "path": "gfx/gUnk_08692CC0.bin",
+    "start": 6892736,
+    "size": 224
+  },
+  {
+    "path": "gfx/gUnk_08692DA0.bin",
+    "start": 6892960,
+    "size": 224
+  },
+  {
+    "path": "gfx/gUnk_08692E80.bin",
+    "start": 6893184,
+    "size": 224
+  },
+  {
+    "path": "gfx/gUnk_08692F60.bin",
+    "start": 6893408,
+    "size": 64
+  },
+  {
+    "path": "gfx/gUnk_08692F60_1.bin",
+    "start": 6893472,
+    "size": 16320
+  },
+  {
+    "path": "gfx/gUnk_08696F60.bin",
+    "start": 6909792,
+    "size": 2432
+  },
+  {
+    "path": "gfx/gUnk_086978E0.bin",
+    "start": 6912224,
+    "size": 8192
+  },
+  {
+    "path": "gfx/gUnk_086998E0.bin",
+    "start": 6920416,
+    "size": 32768
+  },
+  {
+    "path": "gfx/gUnk_086A18E0.bin",
+    "start": 6953184,
+    "size": 4448
+  },
+  {
+    "path": "gfx/gUnk_086A18E0_1.bin",
+    "start": 6957632,
+    "size": 32
+  },
+  {
+    "path": "gfx/gUnk_086A2A60.bin",
+    "start": 6957664,
+    "size": 1152
+  },
+  {
+    "path": "gfx/gUnk_086A2EE0.bin",
+    "start": 6958816,
+    "size": 32768
+  },
+  {
+    "path": "gfx/gUnk_086AAEE0.bin",
+    "start": 6991584,
+    "size": 169344
+  },
+  {
+    "path": "gfx/gUnk_086D4460.bin",
+    "start": 7160928,
+    "size": 81920
+  },
+  {
+    "path": "gfx/gUnk_086E8460.bin",
+    "start": 7242848,
+    "size": 161088
+  },
+  {
     "path": "gfx/gGfx_38_0.4bpp",
     "start": 7403936,
     "size": 2048,
@@ -19326,13 +19436,13 @@
   {
     "path": "gfx/fixedTypeGfx_214.4bpp.lz",
     "start": 10163804,
-    "size": 1024,
+    "size": 628,
     "type": "gfx"
   },
   {
     "path": "assets/gfx_unknown_49.bin",
-    "start": 10164828,
-    "size": 820,
+    "start": 10164432,
+    "size": 1216,
     "type": "unknown"
   }
 ]
