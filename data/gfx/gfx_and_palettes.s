@@ -5487,69 +5487,68 @@ fixedTypeGfx_197::
 fixedTypeGfx_198::
 	.incbin "gfx/fixedTypeGfx_198.4bpp"
 gfx_unknown_20::
-@ TODO move those imports to gfx.json and assets/folder?
 gUnk_086926A0:: @ 086926A0
-	.incbin "data_08132B30/gUnk_086926A0.bin"
+	.incbin "gfx/gUnk_086926A0.bin"
 
 gUnk_08692780:: @ 08692780
-	.incbin "data_08132B30/gUnk_08692780.bin"
+	.incbin "gfx/gUnk_08692780.bin"
 
 gUnk_08692860:: @ 08692860
-	.incbin "data_08132B30/gUnk_08692860.bin"
+	.incbin "gfx/gUnk_08692860.bin"
 
 gUnk_08692940:: @ 08692940
-	.incbin "data_08132B30/gUnk_08692940.bin"
+	.incbin "gfx/gUnk_08692940.bin"
 
 gUnk_08692A20:: @ 08692A20
-	.incbin "data_08132B30/gUnk_08692A20.bin"
+	.incbin "gfx/gUnk_08692A20.bin"
 
 gUnk_08692B00:: @ 08692B00
-	.incbin "data_08132B30/gUnk_08692B00.bin"
+	.incbin "gfx/gUnk_08692B00.bin"
 
 gUnk_08692BE0:: @ 08692BE0
-	.incbin "data_08132B30/gUnk_08692BE0.bin"
+	.incbin "gfx/gUnk_08692BE0.bin"
 
 gUnk_08692CC0:: @ 08692CC0
-	.incbin "data_08132B30/gUnk_08692CC0.bin"
+	.incbin "gfx/gUnk_08692CC0.bin"
 
 gUnk_08692DA0:: @ 08692DA0
-	.incbin "data_08132B30/gUnk_08692DA0.bin"
+	.incbin "gfx/gUnk_08692DA0.bin"
 
 gUnk_08692E80:: @ 08692E80
-	.incbin "data_08132B30/gUnk_08692E80.bin"
+	.incbin "gfx/gUnk_08692E80.bin"
 
 gUnk_08692F60:: @ 08692F60
-	.incbin "data_08132B30/gUnk_08692F60.bin"
+	.incbin "gfx/gUnk_08692F60.bin"
 	@ TODO 08692FA0 to 086A2A3F is .incbin "graphics/font.4bpp"
-	.incbin "data_08132B30/gUnk_08692F60_1.bin"
+	.incbin "gfx/gUnk_08692F60_1.bin"
 gUnk_08696F60:: @ 08696F60
-	.incbin "data_08132B30/gUnk_08696F60.bin"
+	.incbin "gfx/gUnk_08696F60.bin"
 gUnk_086978E0:: @ 086978E0
-	.incbin "data_08132B30/gUnk_086978E0.bin"
+	.incbin "gfx/gUnk_086978E0.bin"
 gUnk_086998E0:: @ 086998E0
-	.incbin "data_08132B30/gUnk_086998E0.bin"
+	.incbin "gfx/gUnk_086998E0.bin"
 gUnk_086A18E0:: @ 086A18E0
-	.incbin "data_08132B30/gUnk_086A18E0.bin"
+	.incbin "gfx/gUnk_086A18E0.bin"
 
-	.incbin "data_08132B30/gUnk_086A18E0_1.bin"
+	.incbin "gfx/gUnk_086A18E0_1.bin"
 gUnk_086A2A60:: @ 086A2A60
-	.incbin "data_08132B30/gUnk_086A2A60.bin"
+	.incbin "gfx/gUnk_086A2A60.bin"
 
 gUnk_086A2EE0:: @ 086A2EE0
-	.incbin "data_08132B30/gUnk_086A2EE0.bin"
+	.incbin "gfx/gUnk_086A2EE0.bin"
 
 gUnk_086AAEE0:: @ 086AAEE0
-	.incbin "data_08132B30/gUnk_086AAEE0.bin"
+	.incbin "gfx/gUnk_086AAEE0.bin"
 
 @ TODO background graphics?
 @ TODO check http://kylehalladay.com/blog/tutorial/gba/2017/04/11/GBA-By-Example-3.html
 @ TODO contains credits images?
 gUnk_086D4460:: @ 086D4460
-	.incbin "data_08132B30/gUnk_086D4460.bin"
+	.incbin "gfx/gUnk_086D4460.bin"
 
-@ TODO 0x800 of this might be backgrond?
+@ TODO 0x800 of this might be background?
 gUnk_086E8460:: @ 086E8460
-	.incbin "data_08132B30/gUnk_086E8460.bin"
+	.incbin "gfx/gUnk_086E8460.bin"
 gGfx_38_0::
 	.incbin "gfx/gGfx_38_0.4bpp"
 gGfx_36_0::
