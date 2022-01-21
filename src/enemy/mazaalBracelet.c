@@ -590,8 +590,7 @@ void sub_0803AA00(Entity* this) {
         }
     }
 }
-
-NONMATCH("asm/non_matching/mazaal/sub_0803AA98.inc", void sub_0803AA98(Entity* this)) {
+void sub_0803AA98(Entity* this) {
     Entity* temp;
     s8* ptr;
     u32 index;
@@ -605,7 +604,8 @@ NONMATCH("asm/non_matching/mazaal/sub_0803AA98.inc", void sub_0803AA98(Entity* t
             this->action = 0x14;
             this->speed = 0x40;
             InitializeAnimation(this, 10);
-            (*(Entity**)&this->field_0x74)->flags |= 0x80;
+            temp = (*(Entity**)&this->field_0x74);
+            temp->flags |= 0x80;
             temp = this->child;
             temp->hitType = 0x13;
             InitAnimationForceUpdate(temp, 5);
@@ -613,7 +613,6 @@ NONMATCH("asm/non_matching/mazaal/sub_0803AA98.inc", void sub_0803AA98(Entity* t
         }
     }
 }
-END_NONMATCH
 
 void sub_0803AB10(Entity* this) {
     s8* ptr;
