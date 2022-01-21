@@ -453,7 +453,6 @@ void sub_0802D77C(GleerokEntity* this) {
 }
 
 void sub_0802D7B4(GleerokEntity* this) {
-    u8 dir;
     if (super->actionDelay == 0) {
         if (gUnk_080CD7F8[super->field_0xf] == 0xff) {
             super->field_0xf = 0;
@@ -688,8 +687,7 @@ void sub_0802DB84(GleerokEntity* this) {
 }
 
 void sub_0802DC1C(GleerokEntity* this) {
-    u32 dir, diff, uVar1;
-    diff = GetFacingDirection(super, &gPlayerEntity);
+    u32 diff = GetFacingDirection(super, &gPlayerEntity);
     diff = (this->unk_84->filler[1] - diff) & 0x1f;
 
     if (diff > 0x10) {
@@ -706,9 +704,7 @@ void sub_0802DC1C(GleerokEntity* this) {
     if (this->unk_78) {
         this->unk_78--;
     } else {
-        u8 actionDelay;
-        ;
-        actionDelay = super->actionDelay;
+        u8 actionDelay = super->actionDelay;
         diff = 0;
         if (actionDelay == 1) {
             diff = 1;
