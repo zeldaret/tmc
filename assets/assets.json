@@ -29336,16 +29336,6 @@
     "size": 8
   },
   {
-    "path": "enemy66/gUnk_080D2ABC.bin",
-    "start": 862908,
-    "size": 88
-  },
-  {
-    "path": "enemy66/gUnk_080D2ABC_1.bin",
-    "start": 863000,
-    "size": 320
-  },
-  {
     "path": "data_080D3D94/gUnk_080D3D94.bin",
     "start": 867732,
     "size": 224

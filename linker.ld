@@ -425,7 +425,7 @@ SECTIONS {
         src/enemy/gyorgFemaleMouth.o(.text);
         asm/enemy/enemy64.o(.text);
         src/enemy/treeItem.o(.text);
-        asm/enemy/enemy66.o(.text);
+        src/enemy/enemy66.o(.text);
         /* END enemies */
         src/code_08049CD4.o(.text); /* enemyUtils.c */
         asm/code_08049D30.o(.text);
@@ -1117,7 +1117,7 @@ SECTIONS {
         data/animations/enemy/gyorgFemaleMouth.o(.rodata);
         data/const/enemy/enemy64.o(.rodata);
         src/enemy/treeItem.o(.rodata);
-        data/const/enemy/enemy66.o(.rodata);
+        src/enemy/enemy66.o(.rodata);
         src/enemy.o(.rodata);
         data/data_080D3D94.o(.rodata);
         data/map/entity_headers.o(.rodata);
