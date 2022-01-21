@@ -8,16 +8,6 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern u32 sub_080002D4(s32, s32, u32);
-extern s32 sub_080012DC(Entity*);
-extern u32 sub_08031E04(Entity*);
-extern void sub_08031E48(Entity*, Entity*);
-extern void sub_08032290(Entity*);
-extern u32 sub_080322A4(Entity*);
-void sub_080322E8(Entity*);
-extern void sub_08032338(Entity*);
-extern Entity* sub_08049DF4(u32);
-
 extern Entity* gUnk_020000B0;
 extern void (*const gUnk_080012C8[])(Entity*);
 extern void (*const gUnk_080CE56C[])(Entity*);

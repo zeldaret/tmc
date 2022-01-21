@@ -106,7 +106,7 @@ void GyorgMale(GyorgMaleEntity* this) {
     }
     gUnk_080D1AFC[super->action](this);
     if (super->action != 7) {
-        sub_0805EC9C(this, 0xaa, 0xaa, this->unk_78);
+        sub_0805EC9C(super, 0xaa, 0xaa, this->unk_78);
     }
     super->animationState = -(this->unk_78 >> 8);
     sub_08048004(this);
@@ -986,7 +986,7 @@ void sub_08047BF0(GyorgMaleEntity* this) {
             }
         }
     }
-    sub_0805EC9C(this, 0xAA, 0xAA, this->unk_78);
+    sub_0805EC9C(super, 0xAA, 0xAA, this->unk_78);
 }
 
 void sub_08047D24(GyorgMaleEntity* this) {
@@ -1005,7 +1005,7 @@ void sub_08047D24(GyorgMaleEntity* this) {
         } else {
             sub_08047E58(this);
         }
-        sub_0805EC9C(this, this->unk_7e, this->unk_7e, this->unk_78);
+        sub_0805EC9C(super, this->unk_7e, this->unk_7e, this->unk_78);
     }
 }
 

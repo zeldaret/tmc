@@ -24,7 +24,7 @@ extern void ItemOcarina(ItemBehavior*, u32);
 extern void ItemTryPickupObject(ItemBehavior*, u32);
 extern void ItemJarEmpty(ItemBehavior*, u32);
 
-enum {
+typedef enum {
     ITEM_NONE,
     ITEM_SMITH_SWORD,
     ITEM_GREEN_SWORD,
@@ -143,6 +143,6 @@ enum {
     ITEM_SKILL_FAST_SPIN,
     ITEM_SKILL_FAST_SPLIT,
     ITEM_SKILL_LONG_SPIN,
-};
+} Item;
 
 #endif

@@ -20,8 +20,6 @@ typedef struct {
 
 static_assert(sizeof(TakkuriEntity) == 0x88);
 
-extern void sub_0803C0AC(Entity*);
-extern Entity* sub_08049DF4(u32);
 extern Entity* gUnk_020000B0;
 
 void (*const gUnk_080CFF3C[])(Entity*);

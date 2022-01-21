@@ -33,8 +33,6 @@ void sub_0803C714(BowMoblinEntity*);
 void sub_0803C634(BowMoblinEntity*);
 u32 sub_0803C6F8(BowMoblinEntity*);
 u32 sub_0803C568(BowMoblinEntity*);
-extern Entity* sub_08049DF4(u32);
-extern u32 sub_0806FC80(Entity*, Entity*, s32);
 void sub_0803C664(BowMoblinEntity*);
 
 void (*const gUnk_080CFF78[])(Entity*);

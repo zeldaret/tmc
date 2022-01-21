@@ -2,7 +2,6 @@
 #include "functions.h"
 
 extern u32 sub_08091DDC(Entity*);
-extern u32 sub_080002B4(Entity*, u32, u32);
 extern u32 sub_08007DD6(u32, u32);
 extern void sub_08017744(Entity*);
 extern void sub_08091C0C(Entity*);

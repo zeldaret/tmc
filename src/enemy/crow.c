@@ -20,8 +20,6 @@ void (*const gUnk_080CE990[])(CrowEntity*);
 void (*const gUnk_080CE9A4[])(CrowEntity*);
 extern Entity* gUnk_020000B0;
 
-extern Entity* sub_08049DF4(u32);
-
 void sub_08032AF4(CrowEntity* this);
 void sub_08032AB0(CrowEntity* this);
 void sub_08032B38(CrowEntity* this);

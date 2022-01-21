@@ -14,10 +14,6 @@
 #include "game.h"
 #include "item.h"
 
-extern Entity* sub_08049DF4(u32);
-extern bool32 sub_08056338(void);
-extern void UnloadOBJPalette(Entity*);
-
 bool32 sub_0802915C(Entity*);
 bool32 sub_080291DC(Entity*);
 void sub_0802922C(Entity*);

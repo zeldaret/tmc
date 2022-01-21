@@ -27,9 +27,7 @@ void sub_08037B48(Entity*);
 void sub_08037A14(Entity*);
 
 extern void sub_0804A4E4(Entity*, Entity*);
-extern Entity* sub_08049DF4(u32);
 u32 sub_0804A044(Entity*, Entity*, u32);
-extern void SoundReqClipped(Entity*, u32);
 
 extern void (*const gGibdo[6])(Entity*);
 extern void (*const gUnk_080CF2AC[9])(Entity*);

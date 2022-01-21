@@ -663,7 +663,7 @@ SECTIONS {
         asm/object/object11.o(.text);
         asm/object/object12.o(.text);
         src/object/railtrack.o(.text);
-        asm/object/lilypadLarge.o(.text);
+        src/object/lilypadLarge.o(.text);
         asm/object/object15.o(.text);
         asm/object/floatingPlatform.o(.text);
         asm/object/object17.o(.text);
