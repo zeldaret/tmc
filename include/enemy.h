@@ -100,7 +100,7 @@ typedef enum {
     /*0x46*/ BOW_MOBLIN,
     /*0x47*/ LAKITU,
     /*0x48*/ LAKITU_CLOUD,
-    /*0x49*/ ENEMY_49,
+    /*0x49*/ TORCH_TRAP,
     /*0x4a*/ VAATI_REBORN_ENEMY,
     /*0x4b*/ VAATI_PROJECTILE,
     /*0x4c*/ BALL_CHAIN_SOLIDER,
@@ -205,7 +205,7 @@ void Takkuri(Entity*);
 void BowMoblin(Entity*);
 void Lakitu(Entity*);
 void LakituCloud(Entity*);
-void Enemy49(Entity*);
+void TorchTrap(Entity*);
 void VaatiRebornEnemy(Entity*);
 void VaatiProjectile(Entity*);
 void BallChainSoldier(Entity*);
