@@ -67,7 +67,7 @@ void sub_08082310(Entity* this) {
         case 0x1D:
             SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
             this->action = 5;
-            this->zVelocity = 0x2A000;
+            this->zVelocity = Q_16_16(2.625);
             this->spriteOffsetY = 0;
             this->spriteSettings.shadow = 1;
             this->spritePriority.b1 = 3;

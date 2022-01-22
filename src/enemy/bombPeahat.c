@@ -381,7 +381,7 @@ void sub_0802ADDC(Entity* this) {
 void sub_0802AE24(Entity* this) {
     this->action = 1;
     this->actionDelay = 0xf0;
-    this->zVelocity = 0x8000;
+    this->zVelocity = Q_16_16(0.5);
     this->hitbox = (Hitbox*)&gUnk_080CD174;
     this->field_0x3c = 3;
     this->field_0x16 = 0;

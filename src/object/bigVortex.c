@@ -65,7 +65,7 @@ void sub_08098DC4(Entity* this) {
         sub_08004542(this);
         sub_08004542(&gPlayerEntity);
         gPlayerEntity.collisionLayer = 1;
-        ResolveEntityOnTop(this, &gPlayerEntity);
+        SortEntityAbove(this, &gPlayerEntity);
         gPlayerState.queued_action = PLAYER_PARACHUTE;
         gPlayerState.field_0x34[4] = 1;
         gPlayerState.field_0x34[5] = this->type2;
@@ -101,12 +101,12 @@ void sub_08098E88(Entity* this) {
 
     ent1 = CreateObject(BIG_VORTEX, 1, 0);
     if (ent1 != NULL) {
-        PositionRelative(this, ent1, 0, -0x10000);
+        PositionRelative(this, ent1, 0, Q_16_16(-1.0));
         ent1->spriteOffsetY = 8;
     }
     ent2 = CreateObject(BIG_VORTEX, 2, 0);
     if (ent2 != NULL) {
-        PositionRelative(this, ent2, 0, -0x20000);
+        PositionRelative(this, ent2, 0, Q_16_16(-2.0));
         ent2->spriteOffsetY = 0x10;
     }
 }

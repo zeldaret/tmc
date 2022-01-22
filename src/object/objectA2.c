@@ -25,14 +25,16 @@ void ObjectA2(Entity* this) {
     GetNextFrame(this);
 }
 
+#define fp(n) ((n) << 8)
+
 void sub_0809F318(Entity* this) {
     InitializeAnimation(this, 0);
     if (Random() & 0x10) {
         this->spriteSettings.flipX = 1;
     }
-    this->x.HALF.HI = 0x28;
-    this->y.HALF.HI = 0x48;
-    this->z.HALF.HI = 0xFFB0;
+    this->x.HALF.HI = Q_8_8(0.16);
+    this->y.HALF.HI = Q_8_8(0.285);
+    this->z.HALF.HI = Q_8_8(-0.315);
     this->spriteOrientation.flipY = 2;
     this->action = 1;
     ChangeObjPalette(this, gUnk_08124704[this->type]);

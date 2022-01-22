@@ -46,7 +46,7 @@ void sub_08039BF8(FlyingSkullEntity* this) {
     if (super->bitfield == 0x9d) {
         super->action = 7;
         COLLISION_OFF(super);
-        super->zVelocity = 0x2A000;
+        super->zVelocity = Q_16_16(2.625);
         super->spritePriority.b1 = 1;
         SetTile(this->unk_0x74, COORD_TO_TILE(super), super->collisionLayer);
     } else if (super->z.HALF.HI) {

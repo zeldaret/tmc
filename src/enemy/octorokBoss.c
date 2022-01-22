@@ -617,7 +617,7 @@ void OctorokBoss_Action1(Entity* this) {
                     this->field_0x74.HWORD += 4;
                 }
             }
-            ResolveEntityBelow(this->parent, this);
+            SortEntityBelow(this->parent, this);
             if (((GET_HELPER(this)->field_0x2 != 0) || (this->parent->action == INTRO)) ||
                 (1 < (u8)(this->parent->subAction - 3))) {
                 if ((s8)this->field_0xf < 0) {
@@ -649,9 +649,9 @@ void OctorokBoss_Action1(Entity* this) {
             if ((GET_HELPER(this)->tailCount - 2) < this->type2) {
                 DeleteThisEntity();
             }
-            ResolveEntityOnTop(this->parent, this);
+            SortEntityAbove(this->parent, this);
             if (GET_HELPER(this)->tailCount - 2 == this->type2) {
-                ResolveEntityOnTop(this->parent, this);
+                SortEntityAbove(this->parent, this);
                 radius = 0x10000 / this->parent->field_0x74.HWORD;
                 radius = radius << 0xd >> 0x8;
                 angle = -this->parent->field_0x7a.HALF.HI;
@@ -693,7 +693,7 @@ void OctorokBoss_Action1(Entity* this) {
             if (this->health == 1) {
                 this->health = 0;
             } else {
-                ResolveEntityBelow(this->parent, this);
+                SortEntityBelow(this->parent, this);
                 if ((this->parent->subAction != 4) && (this->health != 1)) {
                     if (GET_TIMER(this) > 0x1c) {
                         GET_TIMER(this)--;
@@ -939,7 +939,7 @@ void OctorokBoss_ExecuteAttackVacuum(Entity* this) {
             if (sub_0806FC80(this, &gPlayerEntity, 0xf0) != 0) {
                 if ((gPlayerState.flags & PL_FROZEN) == 0) {
                     if ((gPlayerEntity.flags & PL_MINISH) != 0) {
-                        sub_0806F62C(&gPlayerEntity, 0x280, -GET_ANGLE_HI(this));
+                        LinearMoveAngle(&gPlayerEntity, 0x280, -GET_ANGLE_HI(this));
                         if (sub_0806FC80(this, &gPlayerEntity, 0x48) != 0) {
                             this->field_0x80.HALF.LO = 1;
                             GET_TIMER(this) = 2;

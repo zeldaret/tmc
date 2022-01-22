@@ -135,7 +135,7 @@ void VaatiRebornEnemyType0Action0(Entity* this) {
             entity->parent = this;
             entity->spriteSettings.flipX = i;
             ptr = &gUnk_080D04A8[i];
-            PositionRelative(this, entity, ptr->x << 0x10, ptr->y << 0x10);
+            PositionRelative(this, entity, Q_16_16(ptr->x), Q_16_16(ptr->y));
         }
         InitAnimationForceUpdate(this, 0);
     }
@@ -292,7 +292,7 @@ void VaatiRebornEnemyType0Action3(Entity* this) {
             break;
         case 0xff:
             if (this->z.HALF.HI != -4) {
-                this->z.WORD -= 0x2000;
+                this->z.WORD -= Q_16_16(0.125);
             }
             if (this->actionDelay == 2) {
                 this->field_0x74.HALF.LO = 0xfe;
@@ -442,7 +442,7 @@ void VaatiRebornEnemyType0Action6(Entity* this) {
                 SoundReq(SFX_150);
                 target = CreateProjectileWithParent(this, 0x18, 0);
                 if (target != NULL) {
-                    PositionRelative(this, target, 0, -0x100000);
+                    PositionRelative(this, target, 0, Q_16_16(-16.0));
                     target->parent = this;
                 }
             } else if (this->actionDelay == 0x40) {
@@ -500,7 +500,7 @@ void VaatiRebornEnemyType1Action0(Entity* this) {
     this->field_0x74.HALF.HI = 1;
     this->actionDelay = 0;
     this->spriteOffsetY = -1;
-    PositionRelative(this->parent, this, 0, 0x10000);
+    PositionRelative(this->parent, this, 0, Q_16_16(1.0));
     enemy = CreateEnemy(VAATI_REBORN_ENEMY, 2);
     enemy->parent = this;
     enemy->child = this->parent;
@@ -546,7 +546,7 @@ void VaatiRebornEnemyType1Action1(Entity* this) {
     }
     this->spriteSettings.draw = parent->spriteSettings.draw;
     this->spriteOffsetX = parent->spriteOffsetX;
-    PositionRelative(this->parent, this, 0, 0x10000);
+    PositionRelative(this->parent, this, 0, Q_16_16(1.0));
     UpdateAnimationSingleFrame(this);
 }
 
@@ -559,7 +559,7 @@ void VaatiRebornEnemyType2Action0(Entity* this) {
     this->field_0x74.HALF.HI = 0;
     this->spriteOffsetY = -2;
     this->direction = 0xff;
-    PositionRelative(source, this, 0, 0x20000);
+    PositionRelative(source, this, 0, Q_16_16(2.0));
     InitAnimationForceUpdate(this, 2);
 }
 
@@ -595,7 +595,7 @@ void VaatiRebornEnemyType2Action1(Entity* this) {
     }
     this->spriteSettings.draw = parent->spriteSettings.draw;
     this->spriteOffsetX = parent->spriteOffsetX;
-    PositionRelative(parent->parent, this, 0, 0x20000);
+    PositionRelative(parent->parent, this, 0, Q_16_16(2.0));
     UpdateAnimationSingleFrame(this);
 }
 
@@ -637,7 +637,7 @@ void sub_0803DC0C(Entity* this) {
     tmp = &gUnk_080D04C8[this->actionDelay];
     this->spriteSettings.draw = parent->spriteSettings.draw;
     this->spriteOffsetX = parent->spriteOffsetX;
-    PositionRelative(parent, this, tmp->x << 0x10, (tmp->y + 1) * 0x10000);
+    PositionRelative(parent, this, Q_16_16(tmp->x), Q_16_16(tmp->y + 1));
     UpdateAnimationSingleFrame(this);
 }
 

@@ -22,7 +22,7 @@ void DrLeft(Entity* this) {
         if (this->action == 0) {
             this->action += 1;
             this->frameIndex = 0;
-            ResolveEntityBelow(this, this);
+            SortEntityBelow(this, this);
         }
     }
 }

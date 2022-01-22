@@ -216,7 +216,7 @@ void sub_0806AF60(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_0806AF70(Entity* this, ScriptExecutionContext* context) {
-    this->zVelocity = 0x24000;
+    this->zVelocity = Q_16_16(2.25);
 }
 
 void sub_0806AF78(Entity* this, ScriptExecutionContext* context) {
@@ -229,7 +229,7 @@ void sub_0806AF78(Entity* this, ScriptExecutionContext* context) {
 
 void sub_0806AFA0(Entity* this) {
     if (sub_0806ED78(this)) {
-        sub_0806F62C(this, -this->speed, this->direction);
+        LinearMoveAngle(this, -this->speed, this->direction);
     }
 }
 

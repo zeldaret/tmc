@@ -237,7 +237,7 @@ void sub_08094C88(Object6AEntity* this) {
             case 0x41:
             case 0x42:
             case 0x43:
-                ResolveEntityBelow(super, super);
+                SortEntityBelow(super, super);
         }
     }
 
@@ -250,8 +250,8 @@ void sub_08094C88(Object6AEntity* this) {
 void sub_08094CDC(Object6AEntity* this) {
     Entity* e = CreateObject(0x6a, 3, 0x62);
     if (e != NULL) {
-        e->x.HALF.HI = gRoomControls.origin_x + 224;
-        e->y.HALF.HI = gRoomControls.origin_y + 600;
+        e->x.HALF.HI = gRoomControls.origin_x + Q_8_8(7.0 / 8.0);
+        e->y.HALF.HI = gRoomControls.origin_y + Q_8_8(2.345);
         SoundReq(324);
     }
 }
@@ -266,8 +266,8 @@ void sub_08094D10(Object6AEntity* this) {
 void sub_08094D34(Object6AEntity* this) {
     Entity* e = CreateObject(0x6a, 0x15, 0xd);
     if (e != NULL) {
-        e->x.HALF.HI = gRoomControls.origin_x + 256;
-        e->y.HALF.HI = gRoomControls.origin_y + 600;
+        e->x.HALF.HI = gRoomControls.origin_x + Q_8_8(1.0);
+        e->y.HALF.HI = gRoomControls.origin_y + Q_8_8(2.345);
         SoundReq(324);
     }
 }
@@ -299,8 +299,8 @@ void sub_08094D94(Object6AEntity* this) {
 void sub_08094DD8(Object6AEntity* this) {
     Entity* e = CreateObject(0x6a, 0x4, 0);
     if (e != NULL) {
-        e->x.HALF.HI = gRoomControls.origin_x + 240;
-        e->y.HALF.HI = gRoomControls.origin_y + 600;
+        e->x.HALF.HI = gRoomControls.origin_x + Q_8_8(15.0 / 16.0);
+        e->y.HALF.HI = gRoomControls.origin_y + Q_8_8(2.345);
         SoundReq(324);
     }
 }
@@ -338,7 +338,7 @@ void sub_08094E30(Object6AEntity* this) {
                 break;
             case 1:
                 super->z.WORD -= super->zVelocity;
-                super->zVelocity -= 0x2000;
+                super->zVelocity -= Q_8_8(32.0);
                 if (super->z.WORD > 0) {
                     super->action++;
                     super->z.WORD = 0;
@@ -355,7 +355,7 @@ void sub_08094E30(Object6AEntity* this) {
                 break;
             case 3:
                 super->z.WORD -= super->zVelocity;
-                super->zVelocity -= 0x2000;
+                super->zVelocity -= Q_8_8(32.0);
                 if (!CheckOnScreen(super)) {
                     DeleteThisEntity();
                 }
@@ -473,7 +473,7 @@ void sub_08095120(Object6AEntity* this) {
     if (super->action == 0) {
         super->action = 1;
         SetDefaultPriority(super, 3);
-        ResolveEntityBelow(super, super);
+        SortEntityBelow(super, super);
         sub_0807DD64(super);
         InitAnimationForceUpdate(super, 2);
     }
@@ -493,7 +493,7 @@ void sub_08095188(Object6AEntity* this) {
     if (super->action == 0) {
         super->action = 1;
         SetDefaultPriority(super, 3);
-        ResolveEntityBelow(super, super);
+        SortEntityBelow(super, super);
         sub_0807DD64(super);
         InitAnimationForceUpdate(super, 0);
     }
@@ -535,7 +535,7 @@ void sub_08095244(Object6AEntity* this) {
         Entity* e = CreateObject(OBJECT_6A, 0xA, 0);
         if (e != NULL) {
             e->parent = super;
-            PositionRelative(super, e, 0x100000, -0x100000);
+            PositionRelative(super, e, Q_16_16(16.0), -Q_16_16(16.0));
             ((Object6AEntity*)e)->ctx = StartCutscene(e, &script_Object6ASwordInChest);
         }
     }
@@ -583,7 +583,7 @@ void sub_08095330(Object6AEntity* this) {
         e->parent = super;
         CopyPosition(super, e);
         e->z.HALF.HI = -16;
-        ResolveEntityOnTop(e, e);
+        SortEntityAbove(e, e);
     }
 }
 
@@ -597,7 +597,7 @@ void sub_08095364(Object6AEntity* this) {
         e->subAction = 1;
         e->z.HALF.HI = -16;
         e->direction = 7;
-        e->zVelocity = 0x30000;
+        e->zVelocity = Q_16_16(3.0);
         e->speed = 128;
         InitAnimationForceUpdate(e, 1);
     }
@@ -609,7 +609,7 @@ void sub_080953A4(Object6AEntity* this) {
         super->z.HALF.HI = -16;
         SetDefaultPriority(super, 2);
         super->spriteRendering.b3 = gUnk_08114F30[super->spriteRendering.b3];
-        ResolveEntityOnTop(super, super);
+        SortEntityAbove(super, super);
         sub_0807DD64(super);
     }
     ExecuteScriptForEntity(super, 0);
@@ -625,7 +625,7 @@ void sub_080953A4(Object6AEntity* this) {
 void sub_08095420(Object6AEntity* this, ScriptExecutionContext* ctx) {
     Entity* e = CreateObject(OBJECT_6A, 0xC, 0);
     if (e != NULL) {
-        PositionRelative(super, e, 0, -0x100000);
+        PositionRelative(super, e, 0, Q_16_16(-16));
         ((Object6AEntity*)e)->ctx = StartCutscene(e, (u16*)ctx->intVariable);
     }
 }
@@ -637,7 +637,7 @@ void sub_0809545C(Object6AEntity* this, ScriptExecutionContext* ctx) {
     Entity* p = CreateObject(OBJECT_6A, 0xD, 0);
     Entity* e;
     if (p != NULL) {
-        PositionRelative(super, p, 0, -0x100000);
+        PositionRelative(super, p, 0, Q_16_16(-16));
         ((Object6AEntity*)p)->ctx = StartCutscene(p, (u16*)ctx->intVariable);
         e = CreateObject(OBJECT_6A, 2, 0);
         if (e != NULL) {
@@ -692,7 +692,7 @@ void sub_080954DC(Object6AEntity* this) {
             super->y.HALF.HI += this->py;
             break;
         case 3:
-            sub_0806F62C(super, super->speed, super->direction);
+            LinearMoveAngle(super, super->speed, super->direction);
             break;
     }
     this->off += 4;
@@ -764,7 +764,7 @@ void sub_08095754(Object6AEntity* this) {
     if (e != NULL) {
         e->parent = super;
         CopyPosition(super, e);
-        ResolveEntityBelow(super, e);
+        SortEntityBelow(super, e);
     }
 }
 
@@ -784,7 +784,7 @@ void sub_080957B4(Object6AEntity* this) {
     if (e != NULL) {
         e->parent = super;
         CopyPosition(super, e);
-        ResolveEntityBelow(super, e);
+        SortEntityBelow(super, e);
     }
 }
 
@@ -804,7 +804,7 @@ void sub_08095810(Object6AEntity* this) {
     if (e != NULL) {
         e->parent = super;
         CopyPosition(super, e);
-        ResolveEntityOnTop(super, e);
+        SortEntityAbove(super, e);
         ((Object6AEntity*)e)->ctx = StartCutscene(e, &script_ZeldaMagic);
     }
 }
@@ -1084,12 +1084,12 @@ void sub_08095DBC(Object6AEntity* this) {
             super->spriteSettings.draw = 1;
             InitializeAnimation(super, 75);
             super->spriteRendering.b3 = gUnk_08114F30[super->spriteRendering.b3];
-            ResolveEntityOnTop(super, super);
+            SortEntityAbove(super, super);
         }
         if ((super->type2 & 0x80) == 0 && gActiveScriptInfo.syncFlags & 0x20000) {
             super->type2 = -1;
-            super->zVelocity = 0x40000;
-            super->speed = 0xC000;
+            super->zVelocity = Q_16_16(4.0);
+            super->speed = Q_8_8(192);
         }
         GravityUpdate(super, super->speed);
         GetNextFrame(super);
@@ -1128,7 +1128,7 @@ NONMATCH("asm/non_matching/object6A/sub_08095EAC.inc",
 
         x = a - (Random() & b);
         y = a - (Random() & b);
-        PositionRelative(super, e, x << 16, y << 16);
+        PositionRelative(super, e, Q_16_16(x), Q_16_16(y));
         super->zVelocity = vel;
         super->speed = speed;
     }
@@ -1220,7 +1220,7 @@ void sub_080960C4(Object6AEntity* this, ScriptExecutionContext* ctx) {
         e->parent = super;
         CopyPosition(super, e);
         e->spriteRendering.b3 = gUnk_08114F34[super->spriteRendering.b3];
-        ResolveEntityBelow(super, e);
+        SortEntityBelow(super, e);
         ((Object6AEntity*)e)->ctx = StartCutscene(e, (u16*)ctx->intVariable);
     }
     e = CreateObject(OBJECT_6A, 0x24, 0x4A);
@@ -1228,7 +1228,7 @@ void sub_080960C4(Object6AEntity* this, ScriptExecutionContext* ctx) {
         e->parent = super;
         CopyPosition(super, e);
         e->spriteRendering.b3 = gUnk_08114F30[super->spriteRendering.b3];
-        ResolveEntityOnTop(super, e);
+        SortEntityAbove(super, e);
         e->collisionLayer = 2;
         ((Object6AEntity*)e)->ctx = StartCutscene(e, (u16*)ctx->intVariable);
     }
@@ -1241,7 +1241,7 @@ void sub_08096168(Object6AEntity* this) {
         InitializeAnimation(super, 75);
     }
     GetNextFrame(super);
-    sub_0806F62C(super, super->speed, super->direction);
+    LinearMoveAngle(super, super->speed, super->direction);
     if (!CheckOnScreen(super))
         DeleteThisEntity();
 }
@@ -1267,21 +1267,21 @@ void sub_08096208(Object6AEntity* this, u32 x) {
     s8* p = &gUnk_08122B2E[x * 2];
     Entity* e = CreateObject(OBJECT_6A, 0x26, 0);
     if (e != NULL) {
-        PositionRelative(super, e, p[0] << 16, p[1] << 16);
+        PositionRelative(super, e, Q_16_16(p[0]), Q_16_16(p[1]));
     }
 }
 
 void sub_0809623C(Object6AEntity* this) {
     Entity* e = CreateObject(OBJECT_6A, 0x27, 0);
     if (e != NULL) {
-        PositionRelative(super, e, 0, -0x100000);
+        PositionRelative(super, e, 0, Q_16_16(-16.0));
     }
 }
 
 void sub_08096260(Object6AEntity* this) {
     Entity* e = CreateObject(OBJECT_6A, 0x28, 0);
     if (e != NULL) {
-        PositionRelative(super, e, 0, -0x100000);
+        PositionRelative(super, e, 0, Q_16_16(-16.0));
     }
 }
 

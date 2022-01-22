@@ -67,7 +67,7 @@ _080985AC:
 _080985AE:
 	ldr r1, [r4, #0x50]
 	adds r0, r4, #0
-	bl ResolveEntityBelow
+	bl SortEntityBelow
 	adds r0, r4, #0
 	bl sub_08098918
 	pop {r4, r5, pc}
@@ -569,7 +569,7 @@ _0809892E:
 	strb r0, [r2]
 	ldr r1, [r4, #0x50]
 	adds r0, r4, #0
-	bl ResolveEntityBelow
+	bl SortEntityBelow
 _08098968:
 	ldr r2, _0809898C @ =gUnk_08123558
 	adds r0, r6, #0
@@ -606,7 +606,7 @@ _08098990:
 	strb r0, [r2]
 	ldr r1, [r4, #0x50]
 	adds r0, r4, #0
-	bl ResolveEntityBelow
+	bl SortEntityBelow
 _080989B2:
 	strh r5, [r4, #0x36]
 	adds r1, r4, #0

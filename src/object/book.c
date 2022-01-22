@@ -134,7 +134,7 @@ void sub_0809B56C(Entity* this) {
 
     fx = CreateFx(this, FX_DEATH, 0);
     if (fx) {
-        ResolveEntityOnTop(this, fx);
+        SortEntityAbove(this, fx);
     }
 }
 

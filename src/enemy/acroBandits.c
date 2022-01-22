@@ -104,7 +104,7 @@ void sub_080318DC(Entity* this) {
 
 void sub_08031A60(Entity* this) {
     if (this->iframes > 0)
-        GravityUpdate(this, 0x1800);
+        GravityUpdate(this, Q_8_8(24.0));
 
     sub_08001324(this);
 }
@@ -315,7 +315,7 @@ void sub_08031E90(Entity* this) {
 void sub_08031EA8(Entity* this) {
     this->action = 1;
     this->spritePriority.b1 = 1;
-    this->zVelocity = 0x40000;
+    this->zVelocity = Q_16_16(4.0);
     this->z.HALF.HI = (4 - this->type2) * 0xe;
     this->field_0x78.HALF.HI = Random();
     InitializeAnimation(this, 4);
@@ -325,7 +325,7 @@ void sub_08031EE8(Entity* this) {
     int draw;
 
     this->z.WORD -= this->zVelocity;
-    this->zVelocity -= 0x1800;
+    this->zVelocity -= Q_16_16(3.0 / 32.0);
 
     if (this->z.HALF.HI < 1) {
         draw = this->spriteSettings.draw;
@@ -442,7 +442,7 @@ void sub_08032160(Entity* this) {
             this->spriteSettings.flipX = 0;
         }
         this->speed = 0xf0;
-        this->zVelocity = 0x12000;
+        this->zVelocity = Q_16_16(1.125);
         this->spritePriority.b1 = 1;
         InitializeAnimation(this, 12);
     }
@@ -477,7 +477,7 @@ void sub_08032204(Entity* this) {
 }
 
 void sub_08032248(Entity* this) {
-    if (GravityUpdate(this, 0x1800) == 0) {
+    if (GravityUpdate(this, Q_8_8(24.0)) == 0) {
         if (this->frame & 0x80) {
             ((Entity*)this->field_0x7c.WORD)->actionDelay--;
 

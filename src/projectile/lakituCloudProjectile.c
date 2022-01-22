@@ -57,8 +57,8 @@ void LakituCloudProjectile_Init(Entity* this) {
 }
 
 void LakituCloudProjectile_Action1(Entity* this) {
-    PositionRelative(this->parent, this, 0, -0x10000);
-    this->z.HALF.HI = 0xfffe;
+    PositionRelative(this->parent, this, 0, Q_16_16(-1.0));
+    this->z.HALF.HI = -2;
     UpdateAnimationSingleFrame(this);
 }
 

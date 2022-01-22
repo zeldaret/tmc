@@ -453,7 +453,7 @@ void VaatiWrathType0ActionA(Entity* this) {
             this->subAction = 0;
             this->direction = 0;
             this->speed = 0x100;
-            this->zVelocity = 0x12000;
+            this->zVelocity = Q_16_16(1.125);
             ChangeObjPalette(this, 0x16b);
             InitAnimationForceUpdate(this, 5);
             type1 = ((VaatiWrathHeapStruct*)this->myHeap)->type1;

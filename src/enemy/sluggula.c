@@ -124,7 +124,7 @@ void sub_08023CE0(Entity* this) {
                     EnqueueSFX(0x12d);
                     InitializeAnimation(this, 4);
                 }
-            } else if (!GravityUpdate(this, 0x1800)) {
+            } else if (!GravityUpdate(this, Q_8_8(24))) {
                 this->action = 3;
                 this->spriteSettings.draw = 1;
                 EnqueueSFX(0x84);
@@ -169,7 +169,7 @@ void sub_08023E54(Entity* this) {
         ent = CreateEnemy(SLUGGULA, 2);
         if (ent) {
             const s8* ptr = &gUnk_080CBDF7[this->animationState * 2];
-            PositionRelative(this, ent, ptr[0] << 0x10, ptr[1] << 0x10);
+            PositionRelative(this, ent, Q_16_16(ptr[0]), Q_16_16(ptr[1]));
         }
     }
 }
