@@ -2861,7 +2861,7 @@
     "size": 52
   },
   {
-    "path": "sounds/sfx10C.bin",
+    "path": "sounds/sfxButtonPress.bin",
     "start": 14557448,
     "type": "midi",
     "options": {
@@ -3906,7 +3906,7 @@
     "size": 60
   },
   {
-    "path": "sounds/sfx16B.bin",
+    "path": "sounds/sfxPressurePlate.bin",
     "start": 14565100,
     "type": "midi",
     "options": {

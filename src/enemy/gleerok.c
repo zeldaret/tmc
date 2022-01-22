@@ -605,7 +605,7 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D86C.inc", void sub_0802D86C(GleerokE
                     super->parent->subAction = 4;
                     super->parent->type2 = 0;
                     ((GleerokEntity*)super->parent)->unk_7b = 0;
-                    SoundReq(SFX_10C);
+                    SoundReq(SFX_BUTTON_PRESS);
                 }
             } else {
                 if (super->actionDelay != this->unk_84->filler[1]) {

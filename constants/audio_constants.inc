@@ -266,7 +266,7 @@
     .equiv SFX_109, 0x109
     .equiv SFX_10A, 0x10a
     .equiv SFX_10B, 0x10b
-    .equiv SFX_10C, 0x10c
+    .equiv SFX_BUTTON_PRESS, 0x10c
     .equiv SFX_10D, 0x10d
     .equiv SFX_10E, 0x10e
     .equiv SFX_10F, 0x10f

@@ -46,7 +46,7 @@ script_080144C0:
 script_080144C8:
 	ModRupees 0xfff6
 	MessageFromTarget 0x420c
-	PlaySound SFX_10C
+	PlaySound SFX_BUTTON_PRESS
 	Wait 0x0018
 	SetRoomFlag 0x0000
 	SetLocalFlag 0x0092

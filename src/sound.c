@@ -462,7 +462,7 @@ extern const SongHeader sfx108;
 extern const SongHeader sfx109;
 extern const SongHeader sfx10A;
 extern const SongHeader sfx10B;
-extern const SongHeader sfx10C;
+extern const SongHeader sfxButtonPress;
 extern const SongHeader sfx10D;
 extern const SongHeader sfx10E;
 extern const SongHeader sfx10F;
@@ -557,7 +557,7 @@ extern const SongHeader sfx167;
 extern const SongHeader sfx168;
 extern const SongHeader sfx169;
 extern const SongHeader sfx16A;
-extern const SongHeader sfx16B;
+extern const SongHeader sfxPressurePlate;
 extern const SongHeader sfx16C;
 extern const SongHeader sfx16D;
 extern const SongHeader sfx16E;
@@ -1094,7 +1094,7 @@ const Song gSongTable[] = {
     [SFX_109] = { &sfx109, MUSIC_PLAYER_1E, MUSIC_PLAYER_1E },
     [SFX_10A] = { &sfx10A, MUSIC_PLAYER_08, MUSIC_PLAYER_08 },
     [SFX_10B] = { &sfx10B, MUSIC_PLAYER_07, MUSIC_PLAYER_07 },
-    [SFX_10C] = { &sfx10C, MUSIC_PLAYER_06, MUSIC_PLAYER_06 },
+    [SFX_BUTTON_PRESS] = { &sfxButtonPress, MUSIC_PLAYER_06, MUSIC_PLAYER_06 },
     [SFX_10D] = { &sfx10D, MUSIC_PLAYER_05, MUSIC_PLAYER_05 },
     [SFX_10E] = { &sfx10E, MUSIC_PLAYER_04, MUSIC_PLAYER_04 },
     [SFX_10F] = { &sfx10F, MUSIC_PLAYER_03, MUSIC_PLAYER_03 },
@@ -1189,7 +1189,7 @@ const Song gSongTable[] = {
     [SFX_168] = { &sfx168, MUSIC_PLAYER_16, MUSIC_PLAYER_16 },
     [SFX_169] = { &sfx169, MUSIC_PLAYER_15, MUSIC_PLAYER_15 },
     [SFX_16A] = { &sfx16A, MUSIC_PLAYER_14, MUSIC_PLAYER_14 },
-    [SFX_16B] = { &sfx16B, MUSIC_PLAYER_13, MUSIC_PLAYER_13 },
+    [SFX_PRESSURE_PLATE] = { &sfxPressurePlate, MUSIC_PLAYER_13, MUSIC_PLAYER_13 },
     [SFX_16C] = { &sfx16C, MUSIC_PLAYER_03, MUSIC_PLAYER_03 },
     [SFX_16D] = { &sfx16D, MUSIC_PLAYER_12, MUSIC_PLAYER_12 },
     [SFX_16E] = { &sfx16E, MUSIC_PLAYER_11, MUSIC_PLAYER_11 },

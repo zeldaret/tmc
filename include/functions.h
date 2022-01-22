@@ -86,7 +86,7 @@ extern u32 sub_080002B8(Entity*);
 extern u32 sub_08049F84(Entity*, u32);
 extern u32 sub_0800419C(Entity*, Entity*, u32, u32);
 extern void sub_08004542(Entity*);
-extern u32 sub_08017850(Entity*);
+extern u32 IsCollidingPlayer(Entity*);
 extern void sub_080809D4(void);
 extern void sub_08080CB4(Entity*);
 extern void sub_0807B7D8(u32, u32, u32);

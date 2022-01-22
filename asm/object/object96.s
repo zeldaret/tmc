@@ -189,7 +189,7 @@ sub_0809D8C8: @ 0x0809D8C8
 _0809D8E4: .4byte gPlayerState
 _0809D8E8:
 	adds r0, r5, #0
-	bl sub_08017850
+	bl IsCollidingPlayer
 	cmp r0, #0
 	beq _0809D90A
 	ldrb r0, [r6, #0xd]

@@ -144,7 +144,7 @@ _0808A930:
 	asrs r0, r0, #0x18
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
-	bl sub_08017850
+	bl IsCollidingPlayer
 	cmp r0, #0
 	beq _0808A962
 _0808A954:

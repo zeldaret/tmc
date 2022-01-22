@@ -709,7 +709,7 @@ sub_080A11C0: @ 0x080A11C0
 	cmp r0, #0
 	bne _080A11DC
 	adds r0, r1, #0
-	bl sub_08017850
+	bl IsCollidingPlayer
 	b _080A11DE
 	.align 2, 0
 _080A11D8: .4byte gPlayerEntity
