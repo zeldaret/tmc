@@ -177,7 +177,7 @@ NONMATCH("asm/non_matching/arm_proxy/sub_08017744.inc", void sub_08017744(Entity
 }
 END_NONMATCH
 
-bool32 sub_080177A0(Entity* this, Entity* that) {
+bool32 IsColliding(Entity* this, Entity* that) {
     u32 this_d;
     u32 depth;
 
@@ -206,9 +206,9 @@ bool32 sub_080177A0(Entity* this, Entity* that) {
     return FALSE;
 }
 
-bool32 sub_08017850(Entity* this) {
+bool32 IsCollidingPlayer(Entity* this) {
     if (sub_08079F8C())
-        return sub_080177A0(this, &gPlayerEntity);
+        return IsColliding(this, &gPlayerEntity);
     return FALSE;
 }
 

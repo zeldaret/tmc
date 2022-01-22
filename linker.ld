@@ -680,7 +680,7 @@ SECTIONS {
         asm/object/object21.o(.text);
         asm/object/figurineDevice.o(.text);
         asm/object/eyeSwitch.o(.text);
-        asm/object/pressurePlate.o(.text);
+        src/object/pressurePlate.o(.text);
         asm/object/bigBarrel.o(.text);
         src/object/barrelInside.o(.text);
         asm/object/pushableStatue.o(.text);
@@ -1400,8 +1400,7 @@ SECTIONS {
         data/animations/object/figurineDevice.o(.rodata);
         data/const/object/eyeSwitch.o(.rodata);
         data/animations/object/eyeSwitch.o(.rodata);
-        data/const/object/pressurePlate.o(.rodata);
-        data/animations/object/pressurePlate.o(.rodata);
+        src/object/pressurePlate.o(.rodata);
         data/const/object/bigBarrel.o(.rodata);
         data/animations/object/bigBarrel.o(.rodata);
         src/object/barrelInside.o(.rodata);

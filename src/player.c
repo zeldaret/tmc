@@ -321,7 +321,6 @@ extern u8 gUnk_080082DC[];
 extern u16 script_BedInLinksRoom;
 extern u16 script_BedAtSimons;
 
-extern Entity* gPlayerClones[];
 extern ScriptExecutionContext gPlayerScriptExecutionContext;
 
 NONMATCH("asm/non_matching/playerItemPacciCane/CheckPlayerInactive.inc", u32 CheckPlayerInactive(void)) {

@@ -262,7 +262,7 @@ void Object20(Entity*);
 void Object21(Entity*);
 void FigurineDevice(Entity*);
 void EyeSwitch(Entity*);
-void PressurePlate(Entity*);
+void PressurePlate();
 void BigBarrel(Entity*);
 void BarrelInside(Entity*);
 void PushableStatue(Entity*);

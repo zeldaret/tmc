@@ -116,7 +116,7 @@ void sub_0809D10C(Entity* this) {
 void sub_0809D130(Entity* this) {
     if ((gPlayerState.flags & PL_MINISH) != 0) {
         sub_0800445C(this);
-    } else if (sub_08017850(this) != 0) {
+    } else if (IsCollidingPlayer(this) != 0) {
         CreateItemEntity(0x17, 0, 0);
         gSave.windcrests |= 0x10000000;
         DeleteThisEntity();

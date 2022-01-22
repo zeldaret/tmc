@@ -18,7 +18,7 @@ void sub_080813BC(Entity*);
 void sub_080810FC(Entity*);
 bool32 CheckShouldPlayItemGetCutscene(Entity*);
 
-extern u32 sub_080177A0(Entity*, Entity*);
+extern u32 IsColliding(Entity*, Entity*);
 extern void GiveItem(u32, u32);
 
 extern void (*const gUnk_0811E7D4[])(Entity*);
@@ -269,10 +269,10 @@ void sub_080812A8(Entity* this) {
 void sub_080812E8(Entity* this) {
     PlayerState* playerState = &gPlayerState;
 #ifdef EU
-    if ((playerState->swim_state & 0x80) && sub_080177A0(this, &gPlayerEntity)) {
+    if ((playerState->swim_state & 0x80) && IsColliding(this, &gPlayerEntity)) {
 #else
     if ((playerState->swim_state & 0x80) && (playerState->flags & PL_MINISH) == 0 &&
-        sub_080177A0(this, &gPlayerEntity)) {
+        IsColliding(this, &gPlayerEntity)) {
 #endif
         sub_080810FC(this);
     }
@@ -289,7 +289,7 @@ void sub_08081328(Entity* this) {
         CopyPosition(other, this);
         this->z.HALF.HI--;
         other = &gPlayerEntity;
-        if (sub_080177A0(this, other)) {
+        if (IsColliding(this, other)) {
             sub_080810FC(this);
         }
     }
