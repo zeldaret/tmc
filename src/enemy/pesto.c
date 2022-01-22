@@ -811,7 +811,7 @@ void sub_08024E4C(Entity* this) {
             gPlayerState.field_0x38 = 0x14;
             gPlayerState.field_0x39 = 1;
             *(u8*)&gPlayerState.field_0x3a = 0;
-            PositionRelative(this, player, 0, 0x10000);
+            PositionRelative(this, player, 0, Q_16_16(1.0));
             player->spriteOffsetY = 0x1a;
             player->animationState = 4;
             player->spritePriority.b1 = 0;

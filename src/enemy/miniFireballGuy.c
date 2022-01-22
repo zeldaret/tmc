@@ -57,7 +57,7 @@ void sub_08045654(Entity* this) {
 
 void sub_08045678(Entity* this) {
 
-    this->zVelocity = 0x1c000;
+    this->zVelocity = Q_16_16(1.75);
     if (this->actionDelay != 0) {
         this->actionDelay--;
     } else {

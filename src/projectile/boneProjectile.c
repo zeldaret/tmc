@@ -75,7 +75,7 @@ void BoneProjectile_Action3(Entity* this) {
 void BoneProjectile_Action4(Entity* this) {
     GetNextFrame(this);
     LinearMoveUpdate(this);
-    if (GravityUpdate(this, 0x1800) == 0) {
+    if (GravityUpdate(this, Q_8_8(24.0)) == 0) {
         DeleteEntity(this);
     }
 }
@@ -83,7 +83,7 @@ void BoneProjectile_Action4(Entity* this) {
 void sub_080A82D8(Entity* this) {
     this->action = 4;
     COLLISION_OFF(this);
-    this->zVelocity = 0x10000;
+    this->zVelocity = Q_16_16(1.0);
     this->direction ^= 0x10;
     this->speed = 0x80;
 }

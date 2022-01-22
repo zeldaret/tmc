@@ -86,7 +86,7 @@ void sub_08068780(Entity* this) {
         }
         ent = CreateFx(this, FX_STARS2, 0x20);
         if (ent != NULL) {
-            PositionRelative(this, ent, 0x180000, -0xa0000);
+            PositionRelative(this, ent, Q_16_16(24.0), Q_16_16(-10.0));
         }
     }
 }

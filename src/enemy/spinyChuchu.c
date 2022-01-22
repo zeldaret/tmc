@@ -93,7 +93,7 @@ void sub_080225A0(Entity* this) {
 }
 
 void sub_080225BC(Entity* this) {
-    GravityUpdate(this, 0x1800);
+    GravityUpdate(this, Q_8_8(24.0));
     if (this->frame & 1) {
         sub_0804A7D4(this);
     } else {
@@ -132,7 +132,7 @@ void sub_08022654(Entity* this) {
             InitializeAnimation(this, 0);
             /* fallthrough */
         case 1:
-            if (GravityUpdate(this, 0x1800))
+            if (GravityUpdate(this, Q_8_8(24.0)))
                 return;
 
             this->subAction = 2;
@@ -163,7 +163,7 @@ void sub_080226EC(Entity* this) {
 
         if (sub_080228F0(this)) {
             this->action = 6;
-            this->zVelocity = 0x12000;
+            this->zVelocity = Q_16_16(1.125);
             this->speed = 0x140;
             this->direction = GetFacingDirection(this, gUnk_020000B0);
             this->hitType = 0x5a;
@@ -211,7 +211,7 @@ void sub_080227AC(Entity* this) {
 }
 
 void sub_0802281C(Entity* this) {
-    GravityUpdate(this, 0x1800);
+    GravityUpdate(this, Q_8_8(24.0));
     GetNextFrame(this);
     if (this->frame & 0x80) {
         this->action = 2;
@@ -225,7 +225,7 @@ void sub_08022854(Entity* this) {
     GetNextFrame(this);
     if (this->frame & 1) {
         sub_080AEFE0(this);
-        if (GravityUpdate(this, 0x1800) == 0) {
+        if (GravityUpdate(this, Q_8_8(24.0)) == 0) {
             this->action = 7;
             this->hitType = 0x5c;
             InitializeAnimation(this, 5);

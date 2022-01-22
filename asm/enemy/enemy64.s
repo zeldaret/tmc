@@ -1236,7 +1236,7 @@ sub_08049998: @ 0x08049998
 	ldrsh r1, [r5, r0]
 	ldrb r2, [r5, #0x15]
 	adds r0, r5, #0
-	bl sub_0806F62C
+	bl LinearMoveAngle
 	adds r0, r5, #0
 	adds r0, #0x7c
 	ldrb r1, [r0]
@@ -1433,7 +1433,7 @@ sub_08049B20: @ 0x08049B20
 	ldrsh r1, [r4, r0]
 	ldrb r2, [r4, #0x15]
 	adds r0, r4, #0
-	bl sub_0806F62C
+	bl LinearMoveAngle
 	adds r0, r4, #0
 	adds r0, #0x7c
 	ldrb r1, [r0]

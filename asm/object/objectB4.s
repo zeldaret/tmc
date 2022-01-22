@@ -95,7 +95,7 @@ _080A0C08:
 	strh r0, [r4, #0x32]
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl ResolveEntityBelow
+	bl SortEntityBelow
 _080A0C40:
 	ldrb r0, [r5, #0xf]
 	adds r0, #1
@@ -136,7 +136,7 @@ _080A0C6E:
 	strh r0, [r4, #0x32]
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl ResolveEntityBelow
+	bl SortEntityBelow
 _080A0C92:
 	ldrb r0, [r5, #0xf]
 	adds r0, #1
@@ -159,7 +159,7 @@ _080A0CA0:
 	strh r0, [r4, #0x32]
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl ResolveEntityOnTop
+	bl SortEntityAbove
 _080A0CC0:
 	movs r0, #0xb4
 	movs r1, #3
@@ -174,7 +174,7 @@ _080A0CC0:
 	strh r0, [r4, #0x32]
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl ResolveEntityOnTop
+	bl SortEntityAbove
 _080A0CE0:
 	pop {r4, r5, pc}
 	.align 2, 0

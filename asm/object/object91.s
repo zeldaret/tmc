@@ -291,7 +291,7 @@ _0809C5E0: @ jump table
 _0809C600:
 	ldr r0, [r5, #0x50]
 	adds r1, r5, #0
-	bl ResolveEntityBelow
+	bl SortEntityBelow
 	ldr r0, [r5, #0x50]
 	ldrb r0, [r0, #0xd]
 	adds r6, r5, #0
@@ -382,7 +382,7 @@ _0809C6B4: .4byte gUnk_08123E1C
 _0809C6B8:
 	ldr r0, [r5, #0x50]
 	adds r1, r5, #0
-	bl ResolveEntityBelow
+	bl SortEntityBelow
 	ldr r0, [r5, #0x50]
 	ldrb r0, [r0, #0xd]
 	adds r6, r5, #0
@@ -864,7 +864,7 @@ _0809CA30:
 	adds r2, #2
 	ldrb r2, [r2]
 	rsbs r2, r2, #0
-	bl sub_0806F62C
+	bl LinearMoveAngle
 	ldr r1, [r4, #0x54]
 	adds r0, r4, #0
 	movs r2, #0x48

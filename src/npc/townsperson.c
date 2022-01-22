@@ -220,7 +220,7 @@ void sub_08061F94(Entity* this) {
 
     ent = CreateFx(this, FX_BIG_EXPLOSION, 0);
     if (ent != NULL) {
-        ResolveEntityOnTop(this, ent);
+        SortEntityAbove(this, ent);
     }
 }
 

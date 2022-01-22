@@ -22,26 +22,26 @@
 #include "screen.h"
 #include "main.h"
 
-#define GRAVITY_RATE 0x2000
+#define GRAVITY_RATE Q_8_8(32)
 #define SLOPE_SPEED_MODIFIER 0x50
 
-#define WALK_SPEED 0x140
-#define ROLL_SPEED 0x200
-#define SHIELDING_SPEED 0xC0
-#define GUST_JAR_SPEED 0x80
-#define SWORD_CHARGE_SPEED 0xE0
-#define BURNING_SPEED 0x300
+#define WALK_SPEED Q_8_8(1.25)
+#define ROLL_SPEED Q_8_8(2.0)
+#define GUST_JAR_SPEED Q_8_8(0.5)
+#define SHIELDING_SPEED Q_8_8(0.75)
+#define SWORD_CHARGE_SPEED Q_8_8(0.875)
+#define BURNING_SPEED Q_8_8(3)
 
-#define JUMP_SPEED_FWD 0x100
+#define JUMP_SPEED_FWD Q_8_8(1)
 /* Jumping out of a hole */
-#define JUMP_SPEED_HOLE_FWD 0x78
-#define JUMP_SPEED_HOLE_Z 0x1a000
+#define JUMP_SPEED_HOLE_FWD Q_8_8(0.46875)
+#define JUMP_SPEED_HOLE_Z Q_16_16(1.625)
 /* Bouncing off a wall */
-#define BOUNCE_SPEED_FWD 0x100
-#define BOUNCE_SPEED_Z 0x20000
+#define BOUNCE_SPEED_FWD Q_8_8(1.0)
+#define BOUNCE_SPEED_Z Q_16_16(2.0)
 
-#define PULL_SPEED 0x80
-#define PUSH_SPEED 0x80
+#define PULL_SPEED Q_8_8(0.5)
+#define PUSH_SPEED Q_8_8(0.5)
 
 #define PIT_DAMAGE 0x2
 
@@ -724,7 +724,7 @@ static NONMATCH("asm/non_matching/player/PlayerBounceUpdate.inc", void PlayerBou
     }
 
     if (--this->actionDelay != 0xFF) {
-        this->zVelocity = 0x10000;
+        this->zVelocity = Q_16_16(1.0);
         return;
     }
 
@@ -1118,7 +1118,7 @@ static void PortalStandUpdate(Entity* this) {
         if (--this->actionDelay == 0xff) {
             this->direction = gPlayerState.field_0xd;
             this->animationState = Direction8ToAnimationState(this->direction);
-            this->zVelocity = 0x20000;
+            this->zVelocity = Q_16_16(2.0);
             this->speed = JUMP_SPEED_FWD;
             this->action = PLAYER_MINISH;
             this->subAction = 7;
@@ -1531,7 +1531,7 @@ static void sub_08071D04(Entity* this) {
         gPlayerState.field_0x3c[0] = 0;
         this->direction = 0xff;
         this->speed = 0;
-        this->zVelocity = 0x18000;
+        this->zVelocity = Q_16_16(1.5);
         gPlayerState.jump_status = 1;
         gPlayerState.swim_state = 0;
         return;
@@ -1849,7 +1849,7 @@ static void PlayerLavaInit(Entity* this) {
     COLLISION_OFF(this);
     if ((gPlayerState.flags & PL_MINISH) == 0) {
         this->subAction = 1;
-        this->zVelocity = 0x28000;
+        this->zVelocity = Q_16_16(2.5);
         ent = CreateObject(OBJECT_42, 0x80, 0);
         if (ent != NULL) {
             ent->child = this;
@@ -2224,7 +2224,7 @@ static void sub_08072B5C(Entity* this) {
         COLLISION_ON(this);
         this->spritePriority.b0 = 4;
         this->speed = 0x40;
-        this->zVelocity = 0x39000;
+        this->zVelocity = Q_16_16(3.5625);
         this->z.WORD--;
         gPlayerState.jump_status = 0x41;
         sub_0806F854(this, 0, -12);
@@ -2240,7 +2240,7 @@ static void sub_08072B5C(Entity* this) {
     temp -= 4;
     temp <<= 12;
     this->zVelocity = temp;
-    this->speed = 0x100;
+    this->speed = Q_8_8(1.0);
     gPlayerState.animation = 0x810;
     SoundReq(SFX_PLY_JUMP);
 }
@@ -2679,7 +2679,7 @@ static void PlayerParachute(Entity* this) {
 static void sub_08073468(Entity* this) {
     gPlayerState.animation = 1792;
     gPlayerState.jump_status = 0;
-    this->zVelocity = -0x10000;
+    this->zVelocity = Q_16_16(-1.0);
     this->subAction++;
     this->field_0x7c.WORD = 480;
     this->direction = Direction8FromAnimationState(this->animationState);
@@ -2695,7 +2695,7 @@ static void sub_08073468(Entity* this) {
 static void sub_080734D4(Entity* this) {
     GravityUpdate(this, -(GRAVITY_RATE / 2));
     if (this->zVelocity > 0 || gPlayerState.field_0x38 == 1) {
-        this->zVelocity = 0x49000;
+        this->zVelocity = Q_16_16(4.5625);
         this->subAction++;
     }
 }
@@ -2872,7 +2872,7 @@ static void sub_0807380C(Entity* this) {
         if (--this->actionDelay == 0) {
             this->subAction = 7;
             this->actionDelay = 60;
-            this->zVelocity = 0x20000;
+            this->zVelocity = Q_16_16(2.0);
         }
     }
     UpdateAnimationSingleFrame(this);
@@ -2965,7 +2965,7 @@ static void sub_080739EC(Entity* this) {
     }
     if ((gPlayerState.jump_status & 0xC0) == 0) {
         if ((gPlayerState.jump_status & 0x20) && this->zVelocity == 0) {
-            this->zVelocity = 0x28000;
+            this->zVelocity = Q_16_16(2.5);
             this->actionDelay = 10;
             this->direction = 0xff;
             gPlayerState.jump_status += 2;
@@ -3176,7 +3176,7 @@ static void sub_08073F04(Entity* this) {
     this->spritePriority.b1 = 2;
     this->spriteSettings.draw = 0;
     this->subAction++;
-    this->zVelocity = 0x28000;
+    this->zVelocity = Q_16_16(2.5);
     this->speed = 0x100;
     gPlayerState.flags &= ~PL_MINISH;
     ResetPlayer();
@@ -3240,7 +3240,7 @@ static void sub_08074060(Entity* this) {
         this->spriteSettings.shadow = 1;
         this->field_0xf = 0;
         this->subAction++;
-        this->zVelocity = 0x20000;
+        this->zVelocity = Q_16_16(2.0);
         gPlayerState.animation = 2060;
         sub_0805EC60(this);
     } else {

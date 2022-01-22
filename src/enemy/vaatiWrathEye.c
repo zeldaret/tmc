@@ -148,7 +148,7 @@ void VaatiWrathEyeAction6(Entity* this) {
                 if (pEVar3 != NULL) {
                     pEVar3->parent = this;
                     this->child = pEVar3;
-                    PositionRelative(this, pEVar3, 0, 0xc0000);
+                    PositionRelative(this, pEVar3, 0, Q_16_16(12.0));
                 }
             }
         }

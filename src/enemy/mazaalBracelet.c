@@ -189,7 +189,7 @@ void sub_0803A274(Entity* this) {
             pEVar1 = CreateObject(OBJECT_7E, 1, 0);
             pEVar1->parent = this;
             pEVar1->child = this->child;
-            PositionRelative(this->parent, this, 0x100000, 0x200000);
+            PositionRelative(this->parent, this, Q_16_16(16.0), Q_16_16(32.0));
         } else {
             pEVar1 = CreateEnemy(MAZAAL_HAND, 1);
             pEVar1->parent = this;
@@ -201,7 +201,7 @@ void sub_0803A274(Entity* this) {
             pEVar1->parent = this;
             pEVar1->child = this->child;
             this->spriteSettings.flipX = 1;
-            PositionRelative(this->parent, this, -0x100000, 0x200000);
+            PositionRelative(this->parent, this, Q_16_16(-16.0), Q_16_16(32.0));
         }
         if (gRoomTransition.field_0x38 != 0) {
             this->action = 3;
@@ -917,7 +917,7 @@ void sub_0803B100(Entity* this) {
     Entity* temp;
 
     this->action = 0x29;
-    this->zVelocity = 0x14000;
+    this->zVelocity = Q_16_16(1.25);
     if (this->type == 0) {
         this->hitbox = &gUnk_080FD364;
     } else {
@@ -974,7 +974,7 @@ void sub_0803B1B8(Entity* this) {
         if (temp != (Entity*)0x0) {
             temp->actionDelay = 0;
             temp->direction = 0x90;
-            PositionRelative(this, temp, this->hitbox->offset_x << 0x10, this->hitbox->offset_y << 0x10);
+            PositionRelative(this, temp, Q_16_16(this->hitbox->offset_x), Q_16_16(this->hitbox->offset_y));
         }
         temp = *(Entity**)&this->field_0x74;
         temp->field_0x74.HALF.LO = 0x40;
@@ -1086,7 +1086,7 @@ void sub_0803B480(Entity* this) {
     Entity* target;
 
     if (((this->field_0x7c.HALF.HI & 0x1f) == 0) && (target = CreateObject(SMOKE, 1, 0), target != (Entity*)0x0)) {
-        PositionRelative(this, target, gUnk_080CFD08[this->type] << 0x10, 0);
+        PositionRelative(this, target, Q_16_16(gUnk_080CFD08[this->type]), 0);
     }
     if (--this->field_0x7c.HALF.HI == 0) {
         sub_0803B6A4(this);
@@ -1115,8 +1115,8 @@ u32 sub_0803B4E4(Entity* this) {
 }
 
 void sub_0803B538(Entity* this) {
-    PositionRelative(this, this->child, 0, -0x10000);
-    PositionRelative(this, *(Entity**)&this->field_0x74, 0, -0x20000);
+    PositionRelative(this, this->child, 0, Q_16_16(-1.0));
+    PositionRelative(this, *(Entity**)&this->field_0x74, 0, Q_16_16(-2.0));
 }
 
 void sub_0803B55C(Entity* this) {
@@ -1230,7 +1230,7 @@ void sub_0803B798(void) {
     gPlayerState.field_0xa = 0;
     gPlayerState.flags &= ~(0xffff0000 | PL_CAPTURED);
     gPlayerEntity.flags |= 0x80;
-    gPlayerEntity.zVelocity = 0x18000;
+    gPlayerEntity.zVelocity = Q_16_16(1.5);
     gPlayerEntity.z.HALF.HI = -10;
     gPlayerEntity.direction = 0x10;
     gPlayerEntity.animationState = 4;

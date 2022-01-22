@@ -919,7 +919,7 @@ _08085BB4:
 	lsls r1, r1, #1
 	ldrb r2, [r5, #0x15]
 	adds r0, r4, #0
-	bl sub_0806F5BC
+	bl LinearMoveDirection
 _08085BE8:
 	adds r1, r5, #0
 	adds r1, #0x82

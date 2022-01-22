@@ -70,11 +70,11 @@ void sub_080693D0(Entity* this) {
 
         if (this->frame == 1) {
             this->frame = 0;
-            sub_08069428(this, 0xFFF80000, createFx65);
+            sub_08069428(this, Q_16_16(-8.0), createFx65);
         }
         if (this->frame == 2) {
             this->frame = 0;
-            sub_08069428(this, 0x80 << 12, createFx65);
+            sub_08069428(this, Q_16_16(8.0), createFx65);
         }
     }
 }
@@ -82,14 +82,14 @@ void sub_080693D0(Entity* this) {
 void sub_08069428(Entity* this, s32 offsetX, bool32 createFx65) {
     Entity* fx = CreateFx(this, FX_ROCK, 0);
     if (fx) {
-        PositionRelative(this, fx, offsetX, 0xFFF00000);
-        ResolveEntityOnTop(this, fx);
+        PositionRelative(this, fx, offsetX, Q_16_16(-16.0));
+        SortEntityAbove(this, fx);
     }
     if (createFx65 != 0) {
         fx = CreateFx(this, FX_REFLECT4, 0);
         if (fx) {
-            PositionRelative(this, fx, offsetX, 0xFFF00000);
-            ResolveEntityOnTop(this, fx);
+            PositionRelative(this, fx, offsetX, Q_16_16(-16.0));
+            SortEntityAbove(this, fx);
         }
     }
 }
