@@ -47,7 +47,7 @@ void sub_080A0624(Entity* this) {
 
 void sub_080A0640(Entity* this) {
     if (this->type == 0) {
-        PositionRelative(*(((Entity**)this->parent->myHeap) + 4), this, 0, 0x80000);
+        PositionRelative(*(((Entity**)this->parent->myHeap) + 4), this, 0, Q_16_16(8.0));
     } else {
         CopyPosition(this->parent, this);
     }

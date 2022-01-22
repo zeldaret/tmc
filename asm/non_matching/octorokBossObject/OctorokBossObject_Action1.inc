@@ -95,7 +95,7 @@ _0809A25C:
 	ldrsh r1, [r7, r2]
 	ldrb r2, [r7, #0x15]
 	adds r0, r7, #0
-	bl sub_0806F62C
+	bl LinearMoveAngle
 	ldr r1, [r4]
 	ldrb r0, [r7, #0xe]
 	lsls r0, r0, #2
@@ -206,7 +206,7 @@ _0809A33E:
 	lsls r1, r1, #2
 	ldrb r2, [r7, #0x15]
 	adds r0, r7, #0
-	bl sub_0806F62C
+	bl LinearMoveAngle
 	ldr r1, [r7, #0x50]
 	adds r0, r7, #0
 	movs r2, #0x48
@@ -216,7 +216,7 @@ _0809A378:
 	ldrb r2, [r7, #0x15]
 	adds r0, r7, #0
 	movs r1, #0x80
-	bl sub_0806F62C
+	bl LinearMoveAngle
 	adds r0, r7, #0
 	adds r0, #0x5a
 	ldrb r0, [r0]
@@ -335,7 +335,7 @@ _0809A436:
 	ldrh r3, [r3]
 	adds r2, r2, r3
 	adds r0, r7, #0
-	bl sub_0806F62C
+	bl LinearMoveAngle
 	b _0809A632
 	.align 2, 0
 _0809A468: .4byte gUnk_0812388C

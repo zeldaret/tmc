@@ -5798,14 +5798,14 @@ void sub_0804F79C(Entity* parent) {
     fx = CreateFx(parent, FX_BIG_EXPLOSION, 0);
     if (fx != NULL) {
         fx->spriteRendering.b3 = 0;
-        fx->x.HALF.HI = gRoomControls.origin_x + 0x1b8;
-        fx->y.HALF.HI = gRoomControls.origin_y + 0x148;
+        fx->x.HALF.HI = gRoomControls.origin_x + Q_8_8(1.72);
+        fx->y.HALF.HI = gRoomControls.origin_y + Q_8_8(1.285);
     }
     fx = CreateFx(parent, FX_BIG_EXPLOSION, 0);
     if (fx != NULL) {
         fx->spriteRendering.b3 = 0;
-        fx->x.HALF.HI = gRoomControls.origin_x + 0x238;
-        fx->y.HALF.HI = gRoomControls.origin_y + 0x148;
+        fx->x.HALF.HI = gRoomControls.origin_x + Q_8_8(2.22);
+        fx->y.HALF.HI = gRoomControls.origin_y + Q_8_8(1.285);
     }
 }
 

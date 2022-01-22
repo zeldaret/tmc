@@ -149,7 +149,7 @@ void sub_080810A8(Entity* this) {
     }
 
     if (this->zVelocity == 0) {
-        this->zVelocity = 0x1E000;
+        this->zVelocity = Q_16_16(1.875);
     }
 
     if (this->collisionLayer == 2) {
@@ -412,7 +412,7 @@ void sub_0808153C(Entity* this) {
     if (this->field_0x68.HALF.LO == 0) {
         if (!GravityUpdate(this, 0x1000) && !sub_0800442E(this)) {
             this->field_0x68.HALF.LO = 1;
-            this->zVelocity = 0x1E000;
+            this->zVelocity = Q_16_16(1.875);
             sub_0808148C(this->type);
             UpdateSpriteForCollisionLayer(this);
         }
@@ -432,7 +432,7 @@ void sub_08081598(Entity* this) {
     COLLISION_OFF(this);
     this->action = 4;
     this->actionDelay = 14;
-    this->zVelocity = 0x20000;
+    this->zVelocity = Q_16_16(2.0);
     this->spriteSettings.draw = 1;
     this->spritePriority.b1 = 2;
     this->spritePriority.b0 = 3;

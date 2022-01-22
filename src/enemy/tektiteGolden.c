@@ -89,7 +89,7 @@ void sub_08037Fe0(Entity* this) {
             this->action = 2;
             this->actionDelay = 6;
             this->field_0xf = 0;
-            this->zVelocity = 0x38000;
+            this->zVelocity = Q_16_16(3.5);
             sub_08038168(this);
             InitializeAnimation(this, 2);
         }
@@ -145,7 +145,7 @@ void sub_08038110(Entity* this) {
         if (this->field_0x80.HALF.LO < 5) {
             this->action = 2;
             this->actionDelay = 8;
-            this->zVelocity = 0x38000;
+            this->zVelocity = Q_16_16(3.5);
             sub_08038168(this);
             InitializeAnimation(this, 2);
         } else {

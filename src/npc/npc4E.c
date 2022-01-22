@@ -140,12 +140,12 @@ void sub_0806DB84(Entity* this, ScriptExecutionContext* context) {
     this->hitbox = (Hitbox*)&gUnk_08114154;
     ent = CreateObject(OBJECT_3E, 4, 0);
     if (ent != NULL) {
-        PositionRelative(this, ent, -0x80000, 0);
+        PositionRelative(this, ent, Q_16_16(-8.0), 0);
         *(ScriptExecutionContext**)&ent->cutsceneBeh = StartCutscene(ent, &script_Object3ELeftStoneOpening);
     }
     ent = CreateObject(OBJECT_3E, 5, 0);
     if (ent != NULL) {
-        PositionRelative(this, ent, 0x80000, 0);
+        PositionRelative(this, ent, Q_16_16(8.0), 0);
         *(ScriptExecutionContext**)&ent->cutsceneBeh = StartCutscene(ent, &script_Object3ERightStoneOpening);
     }
 }

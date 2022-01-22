@@ -215,7 +215,7 @@ void VaatiTransfiguredEyeFunction0Action4(Entity* this) {
 
 void sub_08045A00(Entity* this) {
     const struct xy* t = &gUnk_080D18B4[this->type2];
-    PositionRelative(this->parent, this, t->x << 0x10, (t->y + 3) * 0x10000);
+    PositionRelative(this->parent, this, Q_16_16(t->x), Q_16_16(t->y + 3));
 }
 
 void sub_08045A28(Entity* this) {
@@ -291,7 +291,7 @@ void sub_08045A28(Entity* this) {
                 break;
         }
     } else {
-        PositionRelative(this->parent, this, 0, -0x10000);
+        PositionRelative(this->parent, this, 0, Q_16_16(-1.0));
         switch (this->field_0x82.HALF.HI) {
             case 0:
                 switch (this->frame & 0x70) {

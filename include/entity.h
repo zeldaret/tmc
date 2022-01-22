@@ -160,14 +160,14 @@ typedef struct Entity_ {
     /*0x1d*/ u8 field_0x1d;
     /*0x1e*/ u8 frameIndex;
     /*0x1f*/ u8 lastFrameIndex;
-    /*0x20*/ s32 zVelocity; /**< Z axis speed. */
+    /*0x20*/ s32 zVelocity; /**< Z axis speed, measured in px/frame */
     /*0x24*/ s16 speed;     /**< Magnitude of speed. */
     /*0x26*/ u8 spriteAnimation[3];
     /*0x29*/ SpritePriority spritePriority;
     /*0x2a*/ u16 collisions;
-    /*0x2c*/ union SplitWord x; /**< X position, fixed point. */
-    /*0x30*/ union SplitWord y; /**< Y position, fixed point. */
-    /*0x34*/ union SplitWord z; /**< Z position, fixed point. */
+    /*0x2c*/ union SplitWord x; /**< X position, fixed point Q16.16. */
+    /*0x30*/ union SplitWord y; /**< Y position, fixed point Q16.16. */
+    /*0x34*/ union SplitWord z; /**< Z position, fixed point Q16.16. */
     /*0x38*/ u8 collisionLayer; /**< Collision layer. */
     /*0x39*/ s8 interactType;
     /*0x3a*/ u8 field_0x3a;

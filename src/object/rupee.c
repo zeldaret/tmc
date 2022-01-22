@@ -51,7 +51,7 @@ void sub_08086A6C(Entity* ent) {
     u32 uVar1;
 
     uVar1 = Random();
-    ent->zVelocity = 163840;
+    ent->zVelocity = Q_16_16(2.5);
     ent->direction = DirectionNormalize(uVar1 >> 16);
     ent->speed = uVar1 & 480;
 }

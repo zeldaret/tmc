@@ -92,8 +92,8 @@ void GreatFairy_DormantUpdate(Entity* this) {
         case 289:
             ripple = GreatFairy_CreateForm(this, RIPPLE, 0);
             if (ripple) {
-                PositionRelative(this, ripple, (s32)GreatFairy_RippleOffsets[this->actionDelay] * 65536,
-                                 (s32)GreatFairy_RippleOffsets[this->actionDelay + 1] * 65536);
+                PositionRelative(this, ripple, Q_16_16(GreatFairy_RippleOffsets[this->actionDelay]),
+                                 Q_16_16(GreatFairy_RippleOffsets[this->actionDelay + 1]));
                 this->actionDelay += 2;
                 break;
             }
@@ -105,7 +105,7 @@ void GreatFairy_CreateBigRipple(Entity* this) {
 
     ripple = GreatFairy_CreateForm(this, BIGRIPPLE, 0);
     if (ripple != NULL) {
-        PositionRelative(this, ripple, 0, 0x80000);
+        PositionRelative(this, ripple, 0, Q_16_16(8.0));
         this->action = 3;
     }
 }
@@ -137,7 +137,7 @@ void GreatFairy_MiniUpdate(Entity* this) {
     } else {
         target = GreatFairy_CreateForm(this, WINGS, 0);
         if (target != NULL) {
-            PositionRelative(this, target, 0, -0x140000);
+            PositionRelative(this, target, 0, Q_16_16(-20.0));
             this->action = 5;
             this->actionDelay = 120;
             this->field_0xf = 0;
@@ -153,7 +153,7 @@ void GreatFairy_FinalUpdate(Entity* this) {
         --this->actionDelay;
     } else {
         if ((this->field_0xf == 0) && (target = GreatFairy_CreateForm(this, FORM9, 0), target != NULL)) {
-            PositionRelative(this, target, 0, -0x4C0000);
+            PositionRelative(this, target, 0, Q_16_16(-76.0));
             target->parent = this;
             this->field_0xf = 1;
         }
@@ -236,7 +236,7 @@ void GreatFairy_MiniRisingUpdate(Entity* this) {
     } else {
         if (((this->z.HALF.HI == -10) && (this->field_0xf == 0)) &&
             (target = GreatFairy_CreateForm(this, DROPLET, 0), target != NULL)) {
-            PositionRelative(this, target, 0, 0x40000);
+            PositionRelative(this, target, 0, Q_16_16(4.0));
             this->field_0xf = 1;
         }
     }
@@ -350,7 +350,7 @@ void GreatFairy_BigRippleUpdate(Entity* this) {
     } else {
         target = GreatFairy_CreateForm(this, MINI, 0);
         if (target != NULL) {
-            PositionRelative(this, target, 0, -0x80000);
+            PositionRelative(this, target, 0, Q_16_16(-8.0));
             gRoomVars.animFlags |= 2;
             DeleteEntity(this);
         }

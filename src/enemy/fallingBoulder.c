@@ -37,7 +37,7 @@ void sub_0802C254(Entity* this) {
 
 void sub_0802C258(Entity* this) {
     sub_0804A720(this);
-    this->zVelocity = 0x20000;
+    this->zVelocity = Q_16_16(2.0);
     this->actionDelay = 2;
     this->field_0x7a.HWORD = Random() & 0x70;
     switch (this->type) {
@@ -195,7 +195,7 @@ void sub_0802C4B0(Entity* this) {
     }
 
     rand = Random() & 7;
-    this->zVelocity = 0x20000;
+    this->zVelocity = Q_16_16(2.0);
     if (rand & 4) {
         if (rand & 3) {
             *(u32*)&this->cutsceneBeh = gUnk_080CD58C[offset | 1];

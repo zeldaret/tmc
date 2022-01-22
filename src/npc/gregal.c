@@ -22,13 +22,13 @@ void sub_0806CAF4(Entity* this) {
         if (npc != NULL) {
             npc->parent = this;
             CopyPosition(this, npc);
-            ResolveEntityBelow(this, npc);
+            SortEntityBelow(this, npc);
         }
         npc = CreateNPC(0x4a, 2, 0);
         if (npc != NULL) {
             npc->parent = this;
             CopyPosition(this, npc);
-            ResolveEntityOnTop(this, npc);
+            SortEntityAbove(this, npc);
         }
         sub_0807DD64(this);
         sub_08078778(this);

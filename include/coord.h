@@ -12,8 +12,8 @@ void PositionEntityOnTop(Entity*, Entity*);
 void PositionRelative(Entity*, Entity*, s32, s32);
 void CopyPositionAndSpriteOffset(Entity* param_1, Entity* param_2);
 void sub_0806FA90(Entity*, Entity*, s32, s32);
-void ResolveEntityOnTop(Entity*, Entity*);
-void ResolveEntityBelow(Entity*, Entity*);
+void SortEntityAbove(Entity*, Entity*);
+void SortEntityBelow(Entity*, Entity*);
 
 u32 sub_0806F5A4(u32 idx);
 u32 sub_0806F3E4(Entity*);

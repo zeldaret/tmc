@@ -275,7 +275,7 @@ void sub_0806D4C0(Entity* this, u32 param) {
     if (npc != NULL) {
         npc->parent = this;
         CopyPosition(this, npc);
-        ResolveEntityOnTop(this, npc);
+        SortEntityAbove(this, npc);
         SetDefaultPriority(npc, PRIO_MESSAGE);
     }
 }

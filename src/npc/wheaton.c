@@ -7,7 +7,7 @@ void Wheaton(Entity* this) {
         this->action++;
 
         SetDefaultPriority(this, PRIO_MESSAGE);
-        ResolveEntityOnTop(this, this);
+        SortEntityAbove(this, this);
         this->hitbox = &gUnk_0810C3C0;
         this->spriteOffsetY = 0xfe;
         sub_0807DD64(this);

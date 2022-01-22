@@ -99,7 +99,7 @@ void sub_080AB844(Entity* this, s32 param_1, s32 param_2) {
         entity->type = 1;
         entity->actionDelay = param_1;
         entity->parent = this->parent;
-        PositionRelative(this, entity, 0, param_2 << 0x10);
+        PositionRelative(this, entity, 0, Q_16_16(param_2));
         if (param_1 != 1) {
             entity->hitbox = (Hitbox*)&gUnk_0812A61C;
         } else {

@@ -54,7 +54,7 @@ _080675EC:
 	strb r0, [r3, #0x19]
 	adds r0, r4, #0
 	adds r1, r3, #0
-	bl ResolveEntityOnTop
+	bl SortEntityAbove
 _08067646:
 	subs r6, #1
 	adds r5, #2
@@ -107,7 +107,7 @@ _08067656:
 	strb r0, [r3, #0x19]
 	adds r0, r4, #0
 	adds r1, r3, #0
-	bl ResolveEntityOnTop
+	bl SortEntityAbove
 _080676B0:
 	subs r6, #1
 	adds r5, #2

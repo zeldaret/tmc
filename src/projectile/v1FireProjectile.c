@@ -39,10 +39,10 @@ void V1FireProjectile_Init(Entity* this) {
     s8* data;
 
     this->action = 1;
-    this->zVelocity = -0x10000;
+    this->zVelocity = Q_16_16(-1.0);
     this->field_0x76.HWORD = TILE(this->x.HALF.HI, this->y.HALF.HI);
     CopyPosition(this->parent, this);
-    sub_0806F5BC(this, 0x1000, this->direction);
+    LinearMoveDirection(this, 0x1000, this->direction);
     this->spritePriority.b0 = 1;
     this->z = this->parent->z;
     InitializeAnimation(this, 0x51);

@@ -235,7 +235,7 @@ _08086428:
 	ldrsh r1, [r6, r0]
 	ldrb r2, [r6, #0x15]
 	adds r0, r6, #0
-	bl sub_0806F62C
+	bl LinearMoveAngle
 	b _0808654A
 _08086440:
 	adds r0, r6, #0
@@ -507,7 +507,7 @@ _0808663A:
 	ldrsh r1, [r7, r0]
 	ldrb r2, [r7, #0x15]
 	adds r0, r7, #0
-	bl sub_0806F62C
+	bl LinearMoveAngle
 	ldrb r0, [r7, #0x15]
 	movs r1, #0x80
 	eors r0, r1

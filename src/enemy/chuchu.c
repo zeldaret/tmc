@@ -722,7 +722,7 @@ u32 sub_0801FBD0(Entity* this) {
 
 void Chuchu_JumpAtPlayer(Entity* this) {
     this->speed = 0x180;
-    this->zVelocity = 0x20000;
+    this->zVelocity = Q_16_16(2.0);
     this->direction = sub_08049F84(this, 1);
     InitializeAnimation(this, 3);
 }

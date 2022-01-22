@@ -24,7 +24,7 @@ void sub_0809CC74(Entity* this) {
             ent = CreateObject(BAKER_OVEN, 1, i);
             if (ent) {
                 ent->parent = this;
-                PositionRelative(this, ent, (((i + 1) / 2) * 0x100000) - 0x80000, -0xe0000);
+                PositionRelative(this, ent, 16 * Q_16_16((i + 1) / 2) - Q_16_16(8.0), Q_16_16(-14.0));
             }
         }
         sub_0809CDF0(this);

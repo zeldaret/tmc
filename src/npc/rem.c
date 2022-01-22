@@ -235,7 +235,7 @@ void sub_0806A914(Entity* this) {
     Entity* npc = CreateNPC(0x37, 1, 0);
     if (npc != NULL) {
         CopyPosition(this, npc);
-        ResolveEntityOnTop(this, npc);
+        SortEntityAbove(this, npc);
     }
 }
 
@@ -279,7 +279,7 @@ void sub_0806A9E8(Entity* this) {
     Entity* npc = CreateNPC(0x37, 4, 0);
     if (npc != NULL) {
         CopyPosition(this, npc);
-        ResolveEntityBelow(this, npc);
+        SortEntityBelow(this, npc);
     }
 }
 
