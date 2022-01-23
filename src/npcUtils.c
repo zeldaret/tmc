@@ -275,7 +275,35 @@ s32 sub_0806F078(Entity* ent, s32 a2) {
     return 0;
 }
 
-ASM_FUNC("asm/non_matching/sub_0806FOA4.inc", void sub_0806F0A4(void));
+void sub_0806F0A4(void) {
+    LinkedList* entityList = gEntityLists + 7;
+    Entity* currentEntity;
+    u32 val;
+
+    for (currentEntity = entityList->first, val = 0; currentEntity != (Entity*)entityList;
+         currentEntity = currentEntity->next) {
+        val++;
+    }
+
+    if (val <= 1)
+        return;
+
+    for (currentEntity = entityList->first; currentEntity != (Entity*)entityList; currentEntity = currentEntity->next) {
+        Entity* nextEnt;
+        if ((currentEntity->flags & 1) == 0)
+            continue;
+        if ((currentEntity->field_0x17 & 1) == 0)
+            continue;
+
+        for (nextEnt = currentEntity->next; nextEnt != (Entity*)entityList; nextEnt = nextEnt->next) {
+            if ((nextEnt->flags & 1) == 0)
+                continue;
+            if ((nextEnt->field_0x17 & 1) == 0)
+                continue;
+            sub_08004484(currentEntity, nextEnt);
+        }
+    }
+}
 
 void sub_0806F118(Entity* ent) {
     u32 idx = sub_08002632(ent);
