@@ -151,7 +151,7 @@ sub_080A02CC: @ 0x080A02CC
 	adds r0, r4, #0
 	bl sub_080A0444
 	adds r0, r4, #0
-	bl sub_08017850
+	bl IsCollidingPlayer
 	cmp r0, #0
 	beq _080A0342
 	ldr r0, [r4, #0x54]

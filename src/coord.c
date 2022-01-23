@@ -108,7 +108,7 @@ u32 sub_0806F3E4(Entity* ent) {
     p = &gUnk_08126EE4[gPlayerEntity.animationState & 0xE];
     tmp_ent.x.HALF.HI = p[0] + gPlayerEntity.x.HALF.HI;
     tmp_ent.y.HALF.HI = p[1] + gPlayerEntity.y.HALF.HI;
-    sub_0806F5BC(ent, ent->field_0x46, GetFacingDirection(ent, &tmp_ent));
+    LinearMoveDirection(ent, ent->field_0x46, GetFacingDirection(ent, &tmp_ent));
     if (sub_0800419C(&tmp_ent, ent, 4, 4)) {
         u32 state = ent->field_0x1c & 0xF;
         if (state == 2) {
@@ -179,7 +179,7 @@ u32 sub_0806F5B0(u32 idx) {
     return gUnk_08114F58[idx];
 }
 
-void sub_0806F5BC(Entity* ent, u32 a, u32 b) {
+void LinearMoveDirection(Entity* ent, u32 a, u32 b) {
     if ((b & 0x80) == 0) {
         u32 m1 = b;
 
@@ -188,15 +188,15 @@ void sub_0806F5BC(Entity* ent, u32 a, u32 b) {
     }
 }
 
-void sub_0806F62C(Entity* ent, u32 a, u32 b) {
+void LinearMoveAngle(Entity* ent, u32 a, u32 b) {
     ent->x.WORD += FixedDiv(FixedMul(gSineTable[(u8)b], a), 256) << 8;
     ent->y.WORD -= FixedDiv(FixedMul(gSineTable[(u8)b + 64], a), 256) << 8;
 }
 
 void LinearMoveUpdate(Entity* ent) {
     if ((ent->direction & 0x80) == 0) {
-        ent->x.WORD += FixedDiv(FixedMul(gSineTable[ent->direction * 8], ent->speed), 256) << 8;
-        ent->y.WORD -= FixedDiv(FixedMul(gSineTable[ent->direction * 8 + 64], ent->speed), 256) << 8;
+        ent->x.WORD += FixedDiv(FixedMul(gSineTable[ent->direction * 8], ent->speed), (1 << 8)) << 8;
+        ent->y.WORD -= FixedDiv(FixedMul(gSineTable[ent->direction * 8 + 64], ent->speed), (1 << 8)) << 8;
     }
 }
 
@@ -323,13 +323,13 @@ s16 FixedDiv(s16 r0, s16 r1) {
         return (r0 * 256) / r1;
 }
 
-void CopyPosition(Entity* param_1, Entity* param_2) {
-    PositionRelative(param_1, param_2, 0, 0);
+void CopyPosition(Entity* source, Entity* target) {
+    PositionRelative(source, target, 0, 0);
 }
 
-void PositionEntityOnTop(Entity* ent, Entity* ent2) {
-    PositionRelative(ent, ent2, 0, 0);
-    ResolveEntityOnTop(ent, ent2);
+void PositionEntityOnTop(Entity* source, Entity* target) {
+    PositionRelative(source, target, 0, 0);
+    SortEntityAbove(source, target);
 }
 
 void PositionRelative(Entity* source, Entity* target, s32 offsetX, s32 offsetY) {
@@ -347,23 +347,23 @@ void PositionRelative(Entity* source, Entity* target, s32 offsetX, s32 offsetY) 
     UpdateSpriteForCollisionLayer(target);
 }
 
-void CopyPositionAndSpriteOffset(Entity* param_1, Entity* param_2) {
-    param_2->spriteOffsetX = param_1->spriteOffsetX;
-    param_2->spriteOffsetY = param_1->spriteOffsetY;
-    PositionRelative(param_1, param_2, 0, 0);
+void CopyPositionAndSpriteOffset(Entity* source, Entity* target) {
+    target->spriteOffsetX = source->spriteOffsetX;
+    target->spriteOffsetY = source->spriteOffsetY;
+    PositionRelative(source, target, 0, 0);
 }
 
-void sub_0806FA90(Entity* param_1, Entity* param_2, s32 offsetX, s32 offsetY) {
-    param_2->spriteOffsetX = param_1->spriteOffsetX;
-    param_2->spriteOffsetY = param_1->spriteOffsetY;
-    PositionRelative(param_1, param_2, offsetX * 64 * 32 * 32, offsetY * 64 * 32 * 32);
+void sub_0806FA90(Entity* source, Entity* target, s32 offsetX, s32 offsetY) {
+    target->spriteOffsetX = source->spriteOffsetX;
+    target->spriteOffsetY = source->spriteOffsetY;
+    PositionRelative(source, target, Q_16_16(offsetX), Q_16_16(offsetY));
 }
 
-void ResolveEntityOnTop(Entity* param_1, Entity* param_2) {
+void SortEntityAbove(Entity* param_1, Entity* param_2) {
     param_2->spritePriority.b0 = gEntityOnTopArray[param_1->spritePriority.b0];
 }
 
-void ResolveEntityBelow(Entity* param_1, Entity* param_2) {
+void SortEntityBelow(Entity* param_1, Entity* param_2) {
     param_2->spritePriority.b0 = gEntityBelowArray[param_1->spritePriority.b0];
 }
 

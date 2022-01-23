@@ -1033,7 +1033,7 @@ void sub_08047DF0(GyorgMaleEntity* this, u32 unk1) {
     sub_08047EA4(this, unk1);
     oldX = super->x.HALF.HI;
     oldY = super->y.HALF.HI;
-    sub_0806F62C(super, super->speed, super->direction);
+    LinearMoveAngle(super, super->speed, super->direction);
     if (this->unk_7c & 1) {
         if (sub_08079F8C()) {
             gPlayerEntity.x.HALF.HI += super->x.HALF.HI - oldX;
@@ -1051,7 +1051,7 @@ void sub_08047E58(GyorgMaleEntity* this) {
     u32 oldX, oldY;
     oldX = super->x.HALF.HI;
     oldY = super->y.HALF.HI;
-    sub_0806F62C(super, super->speed, super->direction);
+    LinearMoveAngle(super, super->speed, super->direction);
     if (this->unk_7c & 1) {
         if (sub_08079F8C()) {
             gPlayerEntity.x.HALF.HI += super->x.HALF.HI - oldX;

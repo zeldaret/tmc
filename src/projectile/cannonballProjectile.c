@@ -5,7 +5,7 @@ extern void CreateItemOnGround(Entity*);
 extern s32 sub_080AF090(Entity*);
 extern void sub_080043A8(Entity*);
 extern void CreateChestSpawner(Entity*);
-extern u32 sub_080177A0(Entity*, Entity*);
+extern u32 IsColliding(Entity*, Entity*);
 
 extern void (*const CannonballProjectile_Functions[])(Entity*);
 extern void (*const CannonballProjectile_Actions[])(Entity*);
@@ -79,7 +79,7 @@ bool32 sub_080AB634(Entity* this) {
     Entity** entities = ((Entity**)&this->parent->zVelocity);
     u32 i;
     for (i = 0; i <= 3; ++i) {
-        if (entities[i] != NULL && (sub_080177A0(this, entities[i]) != 0)) {
+        if (entities[i] != NULL && (IsColliding(this, entities[i]) != 0)) {
             if (entities[i]->action < 3) {
                 entities[i]->action = 3;
                 entities[i]->actionDelay = 0x1e;

@@ -59,7 +59,7 @@ static void sub_0808E714(Entity* this) {
 
 static void sub_0808E764(Entity* this) {
     sub_08080CB4(this);
-    if (!(gPlayerState.flags & PL_MINISH) && sub_08017850(this)) {
+    if (!(gPlayerState.flags & PL_MINISH) && IsCollidingPlayer(this)) {
         SetFlag(this->cutsceneBeh.HWORD);
         CreateItemEntity(0x62, 0, 0);
         DeleteThisEntity();

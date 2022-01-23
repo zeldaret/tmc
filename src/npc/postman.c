@@ -143,7 +143,7 @@ void sub_08060528(Entity* this) {
     if (0 < (s16)this->field_0x6a.HWORD) {
         if ((s16)this->field_0x6a.HWORD > 0x12b) {
             this->field_0x6a.HWORD = 0;
-            this->zVelocity = 0x20000;
+            this->zVelocity = Q_16_16(2.0);
             this->field_0x6c.HALF.HI = 1;
             sub_080788E0(this);
             EnqueueSFX(0x7c);

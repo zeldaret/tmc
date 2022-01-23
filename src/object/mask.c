@@ -39,7 +39,7 @@ void sub_080929A4(Entity* this) {
     }
 
     this->action = 1;
-    this->zVelocity = 0x18000;
+    this->zVelocity = Q_16_16(1.5);
 
     this->field_0x78.HWORD = ((Random() & 7) << 10) | 0x2000;
 

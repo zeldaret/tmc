@@ -167,7 +167,7 @@ static void sub_08068BEC(Entity* this, u32 unused) {
     target = CreateFx(this, FX_WHITE_SPLASH, 0);
     if (target) {
         target->spritePriority.b0 = 1;
-        PositionRelative(this, target, 0, -0x100000);
+        PositionRelative(this, target, 0, Q_16_16(-16.0));
         SoundReq(SFX_FA);
     }
 }

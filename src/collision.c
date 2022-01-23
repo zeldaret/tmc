@@ -177,7 +177,7 @@ NONMATCH("asm/non_matching/arm_proxy/sub_08017744.inc", void sub_08017744(Entity
 }
 END_NONMATCH
 
-bool32 sub_080177A0(Entity* this, Entity* that) {
+bool32 IsColliding(Entity* this, Entity* that) {
     u32 this_d;
     u32 depth;
 
@@ -206,9 +206,9 @@ bool32 sub_080177A0(Entity* this, Entity* that) {
     return FALSE;
 }
 
-bool32 sub_08017850(Entity* this) {
+bool32 IsCollidingPlayer(Entity* this) {
     if (sub_08079F8C())
-        return sub_080177A0(this, &gPlayerEntity);
+        return IsColliding(this, &gPlayerEntity);
     return FALSE;
 }
 
@@ -290,7 +290,7 @@ void sub_080179EC(Entity* a1, Entity* a2) {
     u32 rand = Random();
     Entity* e = CreateFx(a2, p[rand & 3], 0);
     if (e != NULL) {
-        PositionRelative(a2, e, a2->hitbox->offset_x << 16, a2->hitbox->offset_y << 16);
+        PositionRelative(a2, e, Q_16_16(a2->hitbox->offset_x), Q_16_16(a2->hitbox->offset_y));
         e->spritePriority.b0 = 2;
         e->spriteOffsetX = (a1->x.HALF.HI + a1->hitbox->offset_x - (a2->x.HALF.HI + a2->hitbox->offset_x)) >> 1;
         e->spriteOffsetY = (a1->y.HALF.HI + a1->hitbox->offset_y - (a2->y.HALF.HI + a2->hitbox->offset_y)) >> 1;
@@ -541,9 +541,9 @@ s32 sub_08017F40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
                 gPlayerState.jump_status = 0;
                 if (tgt->kind == ENEMY && (tgt->id == GHINI || tgt->id == ENEMY_50)) {
                     org->z.HALF.HI = 0;
-                    PositionRelative(org, tgt, 0, 0x10000);
+                    PositionRelative(org, tgt, 0, Q_16_16(1.0));
                 } else {
-                    PositionRelative(tgt, org, 0, 0x10000);
+                    PositionRelative(tgt, org, 0, Q_16_16(1.0));
                 }
                 COLLISION_OFF(org);
                 org->spriteRendering.b3 = tgt->spriteRendering.b3;

@@ -265,7 +265,7 @@ void Peahat_RepairPropeller(Entity* this) {
         return;
 
     this->action = 9;
-    this->zVelocity = 0x18000;
+    this->zVelocity = Q_16_16(1.5);
     this->direction = Random() & 0x1f;
     sub_0804AA1C(this);
     this->animationState = PeahatAnimation_RepairPropeller;
@@ -291,7 +291,7 @@ void Peahat_Hop(Entity* this) {
     if (--this->actionDelay == 0) {
         if (this->frame & 0x80) {
             this->action = 9;
-            this->zVelocity = 0x18000;
+            this->zVelocity = Q_16_16(1.5);
             this->animationState = PeahatAnimation_NewPropeller;
             InitializeAnimation(this, this->animationState);
         } else {

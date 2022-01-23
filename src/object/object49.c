@@ -178,14 +178,14 @@ void sub_0808F3DC(Entity* this) {
         // TODO: This block of code might supposed to be a switch statement.
         if (this->type != 8) {
             if (this->type == 7) {
-                ResolveEntityBelow(this->child, this);
+                SortEntityBelow(this->child, this);
                 return;
             }
         } else {
             this->hitType = this->child->hitType;
             this->child->hitType = 0x7E;
         }
-        ResolveEntityOnTop(this->child, this);
+        SortEntityAbove(this->child, this);
     } else {
         if (*(u32*)&this->parent->field_0x74 == 0) {
             if (this->type == 8) {

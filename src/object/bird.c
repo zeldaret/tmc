@@ -24,9 +24,9 @@ void sub_0809CF54(Entity* this) {
     this->spriteSettings.draw = TRUE;
     this->actionDelay = 0x31;
     this->field_0xf = 1;
-    this->zVelocity = -0x18000;
-    this->z.WORD = -0x38C000;
-    this->field_0x68.HWORD = -0x800;
+    this->zVelocity = Q_16_16(-1.5);
+    this->z.WORD = Q_16_16(-56.75);
+    this->field_0x68.HWORD = Q_16_16(-0.03125);
     this->speed = 0x280;
     this->direction = 8;
     this->collisionLayer = 2;
@@ -37,8 +37,8 @@ void sub_0809CF54(Entity* this) {
     target = CreateObject(BIRD, 1, 0);
     if (target != NULL) {
         target->parent = this;
-        PositionRelative(this, target, 0, 0x80000);
-        ResolveEntityOnTop(this, target);
+        PositionRelative(this, target, 0, Q_16_16(8.0));
+        SortEntityAbove(this, target);
     }
 }
 
@@ -77,7 +77,7 @@ void sub_0809D084(Entity* this) {
     if (this->parent != NULL) {
         temp = this->parent->field_0xf;
         if (temp != 0) {
-            PositionRelative(this->parent, this, 0, 0x80000);
+            PositionRelative(this->parent, this, 0, Q_16_16(8.0));
         } else {
             this->subAction++;
             this->zVelocity = temp;
@@ -97,7 +97,7 @@ void sub_0809D0AC(Entity* this) {
         SoundReq(SFX_SECRET);
         fx = CreateFx(this, FX_DASH, 0);
         if (fx != NULL) {
-            ResolveEntityBelow(this, fx);
+            SortEntityBelow(this, fx);
         }
     }
 }
@@ -116,7 +116,7 @@ void sub_0809D10C(Entity* this) {
 void sub_0809D130(Entity* this) {
     if ((gPlayerState.flags & PL_MINISH) != 0) {
         sub_0800445C(this);
-    } else if (sub_08017850(this) != 0) {
+    } else if (IsCollidingPlayer(this) != 0) {
         CreateItemEntity(0x17, 0, 0);
         gSave.windcrests |= 0x10000000;
         DeleteThisEntity();

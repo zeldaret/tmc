@@ -741,7 +741,7 @@ void sub_08034A84(Entity* this) {
 }
 
 void sub_08034AC4(Entity* this) {
-    PositionRelative(this->parent, this, 0, 0x10000);
+    PositionRelative(this->parent, this, 0, Q_16_16(1.0));
     gUnk_080CED74[this->action](this);
 }
 
@@ -782,7 +782,7 @@ void sub_08034B38(Entity* this) {
                 target->direction = this->actionDelay + 0x58;
             }
             ptr = &gUnk_080CED84[target->type * 2];
-            PositionRelative(this, target, *(ptr++) << 0x10, *ptr << 0x10);
+            PositionRelative(this, target, Q_16_16(*(ptr++)), Q_16_16(*ptr));
         }
     }
 }

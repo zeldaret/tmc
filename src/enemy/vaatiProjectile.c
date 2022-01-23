@@ -121,7 +121,7 @@ void VaatiProjectileFunction0Action0(Entity* this) {
         this->spriteOrientation.flipY = this->parent->spriteOrientation.flipY;
         this->spriteRendering.b3 = this->parent->spriteRendering.b3;
         this->spritePriority.b1 = 0;
-        PositionRelative(this->parent, this, 0, -0x10000);
+        PositionRelative(this->parent, this, 0, Q_16_16(-1.0));
         InitializeAnimation(this, 1);
     }
 }
@@ -207,7 +207,7 @@ void VaatiProjectileFunction0Action8(Entity* this) {
     if (this->parent->next == NULL) {
         DeleteThisEntity();
     }
-    PositionRelative(this->parent, this, 0, -0x10000);
+    PositionRelative(this->parent, this, 0, Q_16_16(-1.0));
     GetNextFrame(this);
 }
 

@@ -134,7 +134,7 @@ void sub_080675D4(Entity* this) {
             ent->collisionLayer = this->collisionLayer;
             ent->spriteOrientation.flipY = this->spriteOrientation.flipY;
             ent->spriteRendering.b3 = this->spriteRendering.b3;
-            ResolveEntityOnTop(this, ent);
+            SortEntityAbove(this, ent);
         }
     };
     gUnk = gUnk_08110E8A;
@@ -147,7 +147,7 @@ void sub_080675D4(Entity* this) {
             ent->collisionLayer = this->collisionLayer;
             ent->spriteOrientation.flipY = this->spriteOrientation.flipY;
             ent->spriteRendering.b3 = this->spriteRendering.b3;
-            ResolveEntityOnTop(this, ent);
+            SortEntityAbove(this, ent);
         }
     };
     if (this->subAction > 2) {

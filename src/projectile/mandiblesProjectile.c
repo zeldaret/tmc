@@ -77,7 +77,7 @@ void MandiblesProjectile_Init(Entity* this) {
     this->animationState = 0xff;
     this->field_0x82.HALF.LO = 0;
     this->spritePriority.b0 = 4;
-    ResolveEntityBelow(this, this->parent);
+    SortEntityBelow(this, this->parent);
     sub_080AA270(this);
 }
 
@@ -125,9 +125,9 @@ void MandiblesProjectile_Action3(Entity* this) {
     } else {
         tmp = GetSpriteSubEntryOffsetDataPointer((u16)entity->spriteIndex, entity->frameIndex);
         if ((entity->animationState & 4) != 0) {
-            PositionRelative(entity, this, -tmp[0] * 0x10000, tmp[1] << 0x10);
+            PositionRelative(entity, this, Q_16_16(-tmp[0]), Q_16_16(tmp[1]));
         } else {
-            PositionRelative(entity, this, tmp[0] << 0x10, tmp[1] << 0x10);
+            PositionRelative(entity, this, Q_16_16(tmp[0]), Q_16_16(tmp[1]));
         }
     }
     if (entity->field_0x43 == 0) {
@@ -212,9 +212,9 @@ void sub_080AA1D8(Entity* this) {
         if ((parent->frameIndex & 0x20) == 0) {
             tmp = GetSpriteSubEntryOffsetDataPointer((u16)parent->spriteIndex, parent->frameIndex);
             if ((parent->animationState & 4) != 0) {
-                PositionRelative(parent, this, -tmp[0] * 0x10000, tmp[1] << 0x10);
+                PositionRelative(parent, this, Q_16_16(-tmp[0]), Q_16_16(tmp[1]));
             } else {
-                PositionRelative(parent, this, tmp[0] << 0x10, tmp[1] << 0x10);
+                PositionRelative(parent, this, Q_16_16(tmp[0]), Q_16_16(tmp[1]));
             }
             if (parent->field_0x43 != 0) {
                 if ((this->flags & ENT_COLLIDE) != 0) {

@@ -1024,7 +1024,7 @@ _0809E170:
 	ldrsh r1, [r5, r0]
 	ldrb r2, [r5, #0x15]
 	adds r0, r5, #0
-	bl sub_0806F62C
+	bl LinearMoveAngle
 	movs r1, #0x2e
 	ldrsh r0, [r5, r1]
 	mov r2, r8

@@ -951,7 +951,7 @@ void sub_08043490(Entity* this) {
 
     entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[4];
     if (entity->z.HALF.HI < -4) {
-        entity->zVelocity = 0x18000;
+        entity->zVelocity = Q_16_16(1.5);
         this->subAction = 2;
         this->field_0x7c.BYTES.byte2 = 0;
         ((VaatiArm_HeapStruct*)this->myHeap)->parent->subAction = 2;
@@ -976,7 +976,7 @@ void sub_08043520(Entity* this) {
     Entity* entity;
 
     entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[4];
-    GravityUpdate(entity, 0x1a00);
+    GravityUpdate(entity, Q_8_8(26.0));
     if ((entity->zVelocity < 0) && (-6 < entity->z.HALF.HI)) {
         entity->z.HALF.HI = -6;
         this->subAction = 3;

@@ -60,7 +60,7 @@ void sub_0808BF58(Entity* this) {
     GravityUpdate(this, 0x2000);
     switch (this->subAction) {
         case 0:
-            if (this->zVelocity <= 98303) {
+            if (this->zVelocity < Q_16_16(1.5)) {
                 ++this->subAction;
                 InitAnimationForceUpdate(this, 2);
             }
@@ -69,7 +69,7 @@ void sub_0808BF58(Entity* this) {
             UpdateAnimationSingleFrame(this);
             if (!this->z.HALF.HI) {
                 ++this->subAction;
-                this->zVelocity = 0x8000;
+                this->zVelocity = Q_16_16(0.5);
             }
             break;
         case 2:
@@ -128,7 +128,7 @@ void sub_0808C0AC(Entity* this) {
     GravityUpdate(this, 0x2000);
     switch (this->subAction) {
         case 0:
-            if (this->zVelocity <= 98303) {
+            if (this->zVelocity < Q_16_16(1.5)) {
                 this->subAction = 1;
                 InitAnimationForceUpdate(this, 3);
             }
@@ -137,7 +137,7 @@ void sub_0808C0AC(Entity* this) {
             UpdateAnimationSingleFrame(this);
             if (!this->z.HALF.HI) {
                 ++this->subAction;
-                this->zVelocity = 0x8000;
+                this->zVelocity = Q_16_16(0.5);
             }
             break;
         case 2:
@@ -157,7 +157,7 @@ u32 sub_0808C128(Entity* this) {
 
 void sub_0808C13C(Entity* this) {
     this->subAction = 0;
-    this->zVelocity = 163840;
+    this->zVelocity = Q_16_16(2.5);
 }
 
 void sub_0808C148(Entity* this, u32 a2) {

@@ -314,7 +314,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
             if (this->actionDelay != 0) {
                 if (--this->actionDelay == 0) {
                     COLLISION_OFF(this);
-                    this->zVelocity = 0x38000;
+                    this->zVelocity = Q_16_16(3.5);
                     this->field_0xf = 0x10;
                 }
                 break;
@@ -380,12 +380,12 @@ void VaatiTransfiguredType0Action4(Entity* this) {
                 this->field_0x74.HALF.LO = 0;
                 this->actionDelay = 0x80;
                 this->field_0xf = 0;
-                this->zVelocity = 0x24000;
+                this->zVelocity = Q_16_16(2.25);
                 SoundReq(SFX_12B);
             }
             break;
         case 1:
-            if (GravityUpdate(this, 0x2800) != 0)
+            if (GravityUpdate(this, Q_8_8(40)) != 0)
                 break;
             this->field_0x80.HALF.LO += 1;
             switch (this->cutsceneBeh.HALF.LO) {
@@ -1062,7 +1062,7 @@ void sub_080409B0(Entity* this) {
                     this->field_0x80.HALF.HI = 3;
                     COLLISION_OFF(this);
                     this->hitType = 0x36;
-                    this->zVelocity = 0x18000;
+                    this->zVelocity = Q_16_16(1.5);
                     SoundReq(SFX_164);
                 }
             }

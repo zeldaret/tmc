@@ -17,7 +17,7 @@ void Object7E(Entity* this) {
             this->spriteSettings.flipX = TRUE;
         }
     }
-    PositionRelative(this->parent, this, 0, 0x80000);
+    PositionRelative(this->parent, this, 0, Q_16_16(8.0));
     this->z.HALF.HI = 0;
     if (this->type != 0) {
         this->spriteSettings.draw = this->child->spriteSettings.draw;

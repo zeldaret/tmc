@@ -163,7 +163,7 @@ void sub_08085B40(LilypadLargeEntity* this) {
             ResetCollisionLayer(&gPlayerEntity);
             sub_08085CDC(this);
             super->direction = GetFacingDirection(&gPlayerEntity, super);
-            sub_0806F5BC(&gPlayerEntity, 0x100, super->direction);
+            LinearMoveDirection(&gPlayerEntity, 0x100, super->direction);
         }
     }
 

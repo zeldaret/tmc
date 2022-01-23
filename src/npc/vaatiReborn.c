@@ -44,7 +44,7 @@ void VaatiRebornAction0(Entity* this) {
             entity = CreateNPC(VAATI_REBORN, 1, 0);
             entity->parent = this;
             entity->spriteOffsetY = -1;
-            PositionRelative(this, entity, 0, 0x10000);
+            PositionRelative(this, entity, 0, Q_16_16(1.0));
             InitAnimationForceUpdate(this, 0);
             break;
         case 1:
@@ -115,7 +115,7 @@ void VaatiRebornAction1(Entity* this) {
             if (entity == NULL) {
                 DeleteThisEntity();
             }
-            PositionRelative(entity, this, 0, 0x210000);
+            PositionRelative(entity, this, 0, Q_16_16(33.0));
             UpdateAnimationSingleFrame(this);
             break;
         case 2:
@@ -194,7 +194,7 @@ void sub_0806B96C(Entity* this) {
     }
     ptr = &gUnk_08112F80[this->type2];
     this->spriteSettings.draw = entity->spriteSettings.draw;
-    PositionRelative(entity, this, ptr->x << 0x10, (ptr->y + 0x21) << 0x10);
+    PositionRelative(entity, this, Q_16_16(ptr->x), Q_16_16(ptr->y + 0x21));
     UpdateAnimationSingleFrame(this);
 }
 

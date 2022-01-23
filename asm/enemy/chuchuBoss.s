@@ -3676,7 +3676,7 @@ _08027676:
 	mov r0, sl
 	ldrb r2, [r0]
 	adds r0, r5, #0
-	bl sub_0806F62C
+	bl LinearMoveAngle
 	ldrb r0, [r5, #0xa]
 	cmp r0, #1
 	beq _080276D2
@@ -3692,7 +3692,7 @@ _08027676:
 	adds r2, r0, #0
 	adds r2, #0x83
 	ldrb r2, [r2]
-	bl sub_0806F62C
+	bl LinearMoveAngle
 	ldr r0, [r5, #0x68]
 	ldr r1, [r5, #0x54]
 	ldrb r2, [r1, #0xa]
@@ -4033,7 +4033,7 @@ _08027934:
 	adds r0, #0x83
 	ldrb r2, [r0]
 	adds r0, r5, #0
-	bl sub_0806F62C
+	bl LinearMoveAngle
 	ldr r0, [r5, #0x2c]
 	str r0, [r6, #0x2c]
 	ldr r0, [r5, #0x30]
@@ -4044,7 +4044,7 @@ _08027934:
 	adds r0, #0x83
 	ldrb r2, [r0]
 	adds r0, r6, #0
-	bl sub_0806F62C
+	bl LinearMoveAngle
 	ldr r0, [r6, #0x2c]
 	str r0, [r4, #0x2c]
 	ldr r0, [r6, #0x30]
@@ -4055,7 +4055,7 @@ _08027934:
 	adds r0, #0x83
 	ldrb r2, [r0]
 	adds r0, r4, #0
-	bl sub_0806F62C
+	bl LinearMoveAngle
 	adds r0, r7, #0
 	bl sub_08027984
 	pop {r4, r5, r6, r7, pc}

@@ -18,7 +18,7 @@ void sub_080813BC(Entity*);
 void sub_080810FC(Entity*);
 bool32 CheckShouldPlayItemGetCutscene(Entity*);
 
-extern u32 sub_080177A0(Entity*, Entity*);
+extern u32 IsColliding(Entity*, Entity*);
 extern void GiveItem(u32, u32);
 
 extern void (*const gUnk_0811E7D4[])(Entity*);
@@ -149,7 +149,7 @@ void sub_080810A8(Entity* this) {
     }
 
     if (this->zVelocity == 0) {
-        this->zVelocity = 0x1E000;
+        this->zVelocity = Q_16_16(1.875);
     }
 
     if (this->collisionLayer == 2) {
@@ -269,10 +269,10 @@ void sub_080812A8(Entity* this) {
 void sub_080812E8(Entity* this) {
     PlayerState* playerState = &gPlayerState;
 #ifdef EU
-    if ((playerState->swim_state & 0x80) && sub_080177A0(this, &gPlayerEntity)) {
+    if ((playerState->swim_state & 0x80) && IsColliding(this, &gPlayerEntity)) {
 #else
     if ((playerState->swim_state & 0x80) && (playerState->flags & PL_MINISH) == 0 &&
-        sub_080177A0(this, &gPlayerEntity)) {
+        IsColliding(this, &gPlayerEntity)) {
 #endif
         sub_080810FC(this);
     }
@@ -289,7 +289,7 @@ void sub_08081328(Entity* this) {
         CopyPosition(other, this);
         this->z.HALF.HI--;
         other = &gPlayerEntity;
-        if (sub_080177A0(this, other)) {
+        if (IsColliding(this, other)) {
             sub_080810FC(this);
         }
     }
@@ -412,7 +412,7 @@ void sub_0808153C(Entity* this) {
     if (this->field_0x68.HALF.LO == 0) {
         if (!GravityUpdate(this, 0x1000) && !sub_0800442E(this)) {
             this->field_0x68.HALF.LO = 1;
-            this->zVelocity = 0x1E000;
+            this->zVelocity = Q_16_16(1.875);
             sub_0808148C(this->type);
             UpdateSpriteForCollisionLayer(this);
         }
@@ -432,7 +432,7 @@ void sub_08081598(Entity* this) {
     COLLISION_OFF(this);
     this->action = 4;
     this->actionDelay = 14;
-    this->zVelocity = 0x20000;
+    this->zVelocity = Q_16_16(2.0);
     this->spriteSettings.draw = 1;
     this->spritePriority.b1 = 2;
     this->spritePriority.b0 = 3;
