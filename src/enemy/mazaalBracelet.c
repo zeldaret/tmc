@@ -1165,7 +1165,7 @@ void sub_0803B5C0(Entity* this) {
 
 u32 sub_0803B610(Entity* this) {
     return EntityWithinDistance(this, gPlayerEntity.x.HALF.HI + gUnk_080CFD19[this->type],
-                                  gPlayerEntity.y.HALF.HI - 0xc, 8);
+                                gPlayerEntity.y.HALF.HI - 0xc, 8);
 }
 
 // sub_0803B698 was the tail of this function

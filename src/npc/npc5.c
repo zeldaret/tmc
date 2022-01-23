@@ -182,8 +182,7 @@ void sub_08060BA0(Entity* this) {
             this->speed = 0x1e0;
             sub_08061120(this, ((UnkHeap*)this->myHeap)->unk_7, ((UnkHeap*)this->myHeap)->unk_8, 0xc);
             sub_08061170(this);
-            if (EntityWithinDistance(this, ((UnkHeap*)this->myHeap)->unk_7, ((UnkHeap*)this->myHeap)->unk_8, 4) !=
-                0) {
+            if (EntityWithinDistance(this, ((UnkHeap*)this->myHeap)->unk_7, ((UnkHeap*)this->myHeap)->unk_8, 4) != 0) {
                 ((UnkHeap*)this->myHeap)->unk_0 &= 0xf7;
             }
         } else {
@@ -231,7 +230,7 @@ void sub_08060BA0(Entity* this) {
                     sub_08061120(this, ((UnkHeap*)this->myHeap)->unk_3, ((UnkHeap*)this->myHeap)->unk_4, 0xc);
                     sub_08061170(this);
                     if (EntityWithinDistance(this, ((UnkHeap*)this->myHeap)->unk_3, ((UnkHeap*)this->myHeap)->unk_4,
-                                               4) != 0) {
+                                             4) != 0) {
                         ((UnkHeap*)this->myHeap)->unk_0 &= 0xfd;
                     }
                 } else {
