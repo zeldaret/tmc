@@ -1104,7 +1104,7 @@ u32 sub_0803B4E4(Entity* this) {
 
     xoff = this->parent->x.HALF.HI + gUnk_080CFD0A[this->type];
     yoff = this->parent->y.HALF.HI + 0x10;
-    if (sub_0806FCB8(this, xoff, yoff, 2)) {
+    if (isEntityWithinDistance(this, xoff, yoff, 2)) {
         this->x.HALF.HI = xoff;
         this->y.HALF.HI = yoff;
         return 1;
@@ -1164,7 +1164,8 @@ void sub_0803B5C0(Entity* this) {
 }
 
 u32 sub_0803B610(Entity* this) {
-    return sub_0806FCB8(this, gPlayerEntity.x.HALF.HI + gUnk_080CFD19[this->type], gPlayerEntity.y.HALF.HI - 0xc, 8);
+    return isEntityWithinDistance(this, gPlayerEntity.x.HALF.HI + gUnk_080CFD19[this->type],
+                                  gPlayerEntity.y.HALF.HI - 0xc, 8);
 }
 
 // sub_0803B698 was the tail of this function

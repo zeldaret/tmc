@@ -192,10 +192,10 @@ void sub_0808B73C(Entity* this) {
         this->palette.b.b0 = this->parent->palette.b.b0;
         InitializeAnimation(this, 1);
     }
-    if (sub_0806FCB8(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x28)) {
+    if (isEntityWithinDistance(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x28)) {
         this->spriteSettings.draw = 1;
     } else {
-        if (sub_0806FCB8(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x2e)) {
+        if (isEntityWithinDistance(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x2e)) {
             this->spriteSettings.draw ^= 1;
         } else {
             this->spriteSettings.draw = 0;

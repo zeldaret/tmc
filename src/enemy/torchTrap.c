@@ -58,7 +58,7 @@ void sub_0803CF38(TorchTrapEntity* this) {
     if (sub_0803CFF0(this)) {
         sub_0803D0B0(this);
     } else if (sub_08049FDC(super, 0)) {
-        if (sub_0806FCB8(super, gUnk_020000B0->x.HALF.HI, gUnk_020000B0->y.HALF.HI, 0x20) == 0) {
+        if (isEntityWithinDistance(super, gUnk_020000B0->x.HALF.HI, gUnk_020000B0->y.HALF.HI, 0x20) == 0) {
             if (--this->projectileTimer == 0) {
                 TorchTrap_CreateProjectile(this);
                 TorchTrap_Reset(this);

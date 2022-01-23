@@ -63,7 +63,7 @@ void sub_0803827C(Entity* this) {
         this->field_0xf--;
     } else {
         if ((sub_0804A044(this, &gPlayerEntity, 0x8) != 0xff) ||
-            (sub_0806FCB8(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x24) != 0)) {
+            (isEntityWithinDistance(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x24) != 0)) {
             sub_080383E4(this);
             return;
         }

@@ -791,7 +791,7 @@ sub_0803EAD0: @ 0x0803EAD0
 	movs r4, #0x32
 	ldrsh r2, [r2, r4]
 	subs r2, #4
-	bl sub_0806FCB8
+	bl isEntityWithinDistance
 	pop {r4, pc}
 	.align 2, 0
 _0803EAE8: .4byte gUnk_020000B0

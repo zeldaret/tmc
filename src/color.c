@@ -27,7 +27,7 @@ void sub_0801CFD0(u32 a1) {
 
 ASM_FUNC("asm/non_matching/color/sub_0801D000.inc", void sub_0801D000(u32 a1));
 
-ASM_FUNC("asm/non_matching/color/LoadObjPalette.inc", void LoadObjPalette(Entity* entity, u32 a2));
+ASM_FUNC("asm/non_matching/color/LoadObjPalette.inc", u32 LoadObjPalette(Entity* entity, u32 a2));
 
 ASM_FUNC("asm/non_matching/color/FindPalette.inc", s32 FindPalette(u32 a1));
 

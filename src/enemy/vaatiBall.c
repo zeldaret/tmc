@@ -170,7 +170,7 @@ void sub_08044868(Entity* this) {
                         break;
                     case 1:
                         LinearMoveUpdate(this);
-                        if (sub_0806FCB8(this, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10, 0xc)) {
+                        if (isEntityWithinDistance(this, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10, 0xc)) {
                             this->field_0x74.HALF.LO++;
                             this->x.HALF.HI = vaati->x.HALF.HI;
                             this->y.HALF.HI = vaati->y.HALF.HI - 0x10;
@@ -383,7 +383,7 @@ void sub_08044B04(Entity* this) {
                             }
                         }
                         if (this->field_0x78.HALF.HI == 3)
-                            if (sub_0806FCB8(this, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10, 0xc))
+                            if (isEntityWithinDistance(this, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10, 0xc))
                                 vaati->actionDelay++;
                         this->direction = sub_080045B4(this, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10);
                         return;

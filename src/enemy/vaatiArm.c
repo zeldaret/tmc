@@ -671,7 +671,7 @@ void sub_08042EF4(Entity* this) {
     UpdateAnimationSingleFrame(this);
     if (sub_08043C98(this) == 0) {
         if (--this->actionDelay == 0) {
-            if (sub_0806FCB8(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x50)) {
+            if (isEntityWithinDistance(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x50)) {
                 this->subAction = 6;
                 this->actionDelay = 0x28;
             } else {
@@ -686,7 +686,7 @@ void sub_08042EF4(Entity* this) {
         }
         x = this->parent->x.HALF.HI;
         y = this->parent->y.HALF.HI - 0x10;
-        if (sub_0806FCB8(this, x, y, 0x30)) {
+        if (isEntityWithinDistance(this, x, y, 0x30)) {
             temp = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, x, y);
             if ((this->field_0x78.HALF.HI - temp) + 4 < 9) {
                 this->field_0x78.HALF.HI = temp ^ 0x10;

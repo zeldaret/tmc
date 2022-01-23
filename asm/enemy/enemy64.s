@@ -449,7 +449,7 @@ _08049398:
 	asrs r3, r3, #0x10
 	adds r3, #0x10
 	adds r0, r4, #0
-	bl sub_0806FCB8
+	bl isEntityWithinDistance
 	cmp r0, #0
 	beq _080493E0
 	movs r0, #2
@@ -661,7 +661,7 @@ sub_08049538: @ 0x08049538
 	adds r2, #0x80
 	adds r0, r4, #0
 	movs r3, #0x70
-	bl sub_0806FCB8
+	bl isEntityWithinDistance
 	adds r1, r0, #0
 	cmp r1, #0
 	bne _0804956E
@@ -754,7 +754,7 @@ sub_080495F8: @ 0x080495F8
 	adds r2, #0x80
 	adds r0, r4, #0
 	movs r3, #0x28
-	bl sub_0806FCB8
+	bl isEntityWithinDistance
 	cmp r0, #0
 	beq _0804963C
 	movs r0, #2
@@ -1195,7 +1195,7 @@ sub_08049944: @ 0x08049944
 	movs r3, #0x32
 	ldrsh r2, [r5, r3]
 	movs r3, #0x20
-	bl sub_0806FCB8
+	bl isEntityWithinDistance
 	cmp r0, #0
 	beq _0804998C
 	ldr r2, _08049994 @ =gPlayerState
@@ -1292,7 +1292,7 @@ sub_080499F0: @ 0x080499F0
 	ldrsh r2, [r4, r3]
 	adds r0, r5, #0
 	movs r3, #0x24
-	bl sub_0806FCB8
+	bl isEntityWithinDistance
 	cmp r0, #0
 	beq _08049A7E
 	ldrb r1, [r6]
