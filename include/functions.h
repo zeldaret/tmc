@@ -95,7 +95,7 @@ extern u32 sub_080040D8(Entity*, u8*, s32, s32);
 extern u32 sub_0805F8F8(u32);
 extern u32 sub_0805F7A0(u32);
 extern u32* sub_0805F25C(u32);
-u32 isEntityWithinDistance(Entity*, s32, s32, s32);
+u32 EntityWithinDistance(Entity*, s32, s32, s32);
 extern void LinearMoveAngle(Entity*, u32, u32);
 extern void sub_080A1ED0(u32, u32, u32);
 extern u32 sub_0806F5B0(u32);

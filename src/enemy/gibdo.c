@@ -230,7 +230,7 @@ u32 sub_08037810(Entity* this) {
     u32 y;
     if (this->field_0x76.HALF.LO == 0) {
         if (sub_08049FDC(this, 1) != 0) {
-            if (isEntityWithinDistance(this, gUnk_020000B0->x.HALF.HI, gUnk_020000B0->y.HALF.HI, 0x40) != 0) {
+            if (EntityWithinDistance(this, gUnk_020000B0->x.HALF.HI, gUnk_020000B0->y.HALF.HI, 0x40) != 0) {
                 x = GetFacingDirection(this, gUnk_020000B0);
                 if (((x - this->direction + 6) & 0x1f) <= 0xc) {
                     this->action = 3;
@@ -257,7 +257,7 @@ u32 sub_080378B0(Entity* this) {
     if (this->field_0x76.HALF.HI == 0) {
         if (sub_08049DF4(1) != 0) {
             if (sub_0804A044(this, gUnk_020000B0, 0xa) == this->direction)
-                if (isEntityWithinDistance(this, gUnk_020000B0->x.HALF.HI, gUnk_020000B0->y.HALF.HI, 0x18) != 0) {
+                if (EntityWithinDistance(this, gUnk_020000B0->x.HALF.HI, gUnk_020000B0->y.HALF.HI, 0x18) != 0) {
                     this->action = 5;
                     this->speed = 0x100;
                     InitAnimationForceUpdate(this, this->animationState + 8);
@@ -272,13 +272,13 @@ u32 sub_080378B0(Entity* this) {
 
 u32 sub_08037914(Entity* this) {
     if (sub_08049FDC(this, 1) != 0) {
-        if (isEntityWithinDistance(gUnk_020000B0, this->field_0x78.HWORD, this->field_0x7a.HWORD, 0x28) == 0) {
+        if (EntityWithinDistance(gUnk_020000B0, this->field_0x78.HWORD, this->field_0x7a.HWORD, 0x28) == 0) {
             this->field_0x78.HWORD = gUnk_020000B0->x.HALF_U.HI;
             this->field_0x7a.HWORD = gUnk_020000B0->y.HALF_U.HI;
             sub_0803797C(this);
             return 0;
         }
-        if (isEntityWithinDistance(this, this->field_0x78.HWORD, this->field_0x7a.HWORD, 0x8) == 0) {
+        if (EntityWithinDistance(this, this->field_0x78.HWORD, this->field_0x7a.HWORD, 0x8) == 0) {
             return 0;
         }
         this->field_0x76.HALF.LO = 0x3c;

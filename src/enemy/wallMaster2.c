@@ -125,7 +125,7 @@ void sub_0802CE68(Entity* this) {
     gPlayerState.field_0xa |= 0x80;
     gPlayerState.mobility |= 0x80;
     gPlayerState.flags |= PL_DISABLE_ITEMS;
-    if (!isEntityWithinDistance(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 4)) {
+    if (!EntityWithinDistance(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 4)) {
         this->direction = GetFacingDirection(this, &gPlayerEntity);
         LinearMoveUpdate(this);
     }

@@ -297,7 +297,7 @@ _0808BD34:
 	subs r2, #6
 	adds r0, r5, #0
 	movs r3, #0x1c
-	bl isEntityWithinDistance
+	bl EntityWithinDistance
 	cmp r0, #0
 	beq _0808BDAE
 	adds r0, r5, #0

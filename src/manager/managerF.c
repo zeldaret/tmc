@@ -361,7 +361,7 @@ void sub_0805938C(ManagerF* this) {
 u32 sub_080593CC(ManagerF* this) {
     if (!(gPlayerState.flags & PL_MINISH) && gPlayerState.swim_state != 0 && gPlayerEntity.animationState == 0 &&
         (gPlayerState.field_0x90 & 0xF00) == 0x400) {
-        return isEntityWithinDistance(&gPlayerEntity, this->unk_38, this->unk_3a + 0xC, 6);
+        return EntityWithinDistance(&gPlayerEntity, this->unk_38, this->unk_3a + 0xC, 6);
     }
     return 0;
 }

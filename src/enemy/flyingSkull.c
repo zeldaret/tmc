@@ -136,7 +136,7 @@ void sub_08039DD8(FlyingSkullEntity* this) {
     } else {
         if ((gPlayerState.flags & 0x80) == 0) {
             Entity* ent = &gPlayerEntity;
-            if (isEntityWithinDistance(super, ent->x.HALF.HI, ent->y.HALF.HI, 0x30)) {
+            if (EntityWithinDistance(super, ent->x.HALF.HI, ent->y.HALF.HI, 0x30)) {
                 if (super->type == 1) {
                     super->action = 3;
                     super->actionDelay = 0x1e;

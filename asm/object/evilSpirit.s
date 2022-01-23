@@ -555,7 +555,7 @@ _0808663A:
 	adds r0, r7, #0
 	adds r1, r4, #0
 	movs r3, #2
-	bl isEntityWithinDistance
+	bl EntityWithinDistance
 	cmp r0, #0
 	beq _080866B8
 	movs r0, #1

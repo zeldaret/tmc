@@ -7,8 +7,8 @@
 #include "room.h"
 #include "functions.h"
 
-const u8 gEntityOnTopArray[];
-const u8 gEntityBelowArray[];
+const u8 gSpriteSortAboveTable[];
+const u8 gSpriteSortBelowTable[];
 const u8 gUnk_08114F58[];
 const u8 gUnk_08114F38[];
 
@@ -360,11 +360,11 @@ void sub_0806FA90(Entity* source, Entity* target, s32 offsetX, s32 offsetY) {
 }
 
 void SortEntityAbove(Entity* param_1, Entity* param_2) {
-    param_2->spritePriority.b0 = gEntityOnTopArray[param_1->spritePriority.b0];
+    param_2->spritePriority.b0 = gSpriteSortAboveTable[param_1->spritePriority.b0];
 }
 
 void SortEntityBelow(Entity* param_1, Entity* param_2) {
-    param_2->spritePriority.b0 = gEntityBelowArray[param_1->spritePriority.b0];
+    param_2->spritePriority.b0 = gSpriteSortBelowTable[param_1->spritePriority.b0];
 }
 
 void sub_0806FB00(Entity* ent, u32 param_1, u32 param_2, u32 param_3) {
@@ -474,7 +474,7 @@ u32 sub_0806FCAC(Entity* this, Entity* other) {
     return sub_0806F5B0(GetFacingDirection(this, other));
 }
 
-u32 isEntityWithinDistance(Entity* ent, s32 x, s32 y, s32 distance) {
+u32 EntityWithinDistance(Entity* ent, s32 x, s32 y, s32 distance) {
     return PointInsideRadius(ent->x.HALF.HI - x, ent->y.HALF.HI - y, distance);
 }
 
@@ -515,7 +515,7 @@ bool32 sub_0806FD54(Entity* this) {
     if ((gPlayerState.flags & 0x800000) == 0) {
         rv = 0;
     } else {
-        rv = isEntityWithinDistance(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI - 9, 0x48);
+        rv = EntityWithinDistance(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI - 9, 0x48);
     }
 
     return rv;
@@ -722,5 +722,5 @@ const u8 gUnk_08114F58[] = {
     0, 0, 0, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7, 7, 0, 0,
 };
 
-const u8 gEntityOnTopArray[] = { 0, 0, 1, 2, 3, 4, 5, 6 };
-const u8 gEntityBelowArray[] = { 1, 2, 3, 4, 5, 6, 7, 7 };
+const u8 gSpriteSortAboveTable[] = { 0, 0, 1, 2, 3, 4, 5, 6 };
+const u8 gSpriteSortBelowTable[] = { 1, 2, 3, 4, 5, 6, 7, 7 };
