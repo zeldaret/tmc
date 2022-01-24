@@ -33015,21 +33015,6 @@
     }
   },
   {
-    "path": "manager1/gUnk_08107C1C.bin",
-    "start": 1080348,
-    "size": 20
-  },
-  {
-    "path": "manager1/gUnk_08107C30.bin",
-    "start": 1080368,
-    "size": 16
-  },
-  {
-    "path": "manager1/gUnk_08107C40.bin",
-    "start": 1080384,
-    "size": 8
-  },
-  {
     "path": "manager3/gUnk_08107C6C.bin",
     "start": 1080428,
     "size": 4

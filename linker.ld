@@ -1134,7 +1134,8 @@ SECTIONS {
         data/map/metatile_headers.o(.rodata);
         data/map/map_headers.o(.rodata);
         src/message.o(.rodata);
-        data/const/manager/manager1.o(.rodata);
+        . = ALIGN(4);
+        src/manager/manager1.o(.rodata);
         data/const/manager/manager3.o(.rodata);
         data/const/manager/manager4.o(.rodata);
         src/manager/manager5.o(.rodata);
