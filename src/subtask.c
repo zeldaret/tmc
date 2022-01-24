@@ -12,6 +12,8 @@
 #include "main.h"
 #include "npc.h"
 #include "enemy.h"
+#include "item.h"
+#include "itemMenuTable.h"
 #include "functions.h"
 #include "structures.h"
 
@@ -53,6 +55,10 @@ void sub_080A4BA0(u32, u32);
 void sub_0805F46C(u32, const u16**);
 void sub_080A4DB8(u32);
 void sub_08056250(void);
+void sub_080A5128(void);
+u32 sub_080A51F4(void);
+void sub_080A51D4(void);
+void sub_080A5F48(u32, u32);
 
 extern void (*const gUnk_081280C4[])(void);
 extern const u8 gUnk_081280EE[];
@@ -118,9 +124,13 @@ extern const struct_08128AD8 gUnk_08128AD8[];
 
 extern const struct {
     u8 unk0;
-    u8 filler[3];
+    u8 unk1;
+    u8 filler[2];
     void (*func)(void);
 } gUnk_08128A38[];
+
+extern const KeyButtonLayout gUnk_08128B50;
+extern const u8 gUnk_080FD5B4[];
 
 void Subtask_KinstoneMenu(void) {
 #if !(defined(DEMO_USA) || defined(DEMO_JP))
@@ -179,32 +189,29 @@ void sub_080A3BD0(void) {
 NONMATCH("asm/non_matching/subtask/sub_080A3C6C.inc", void sub_080A3C6C(void)) {
     s32 tmp1, tmp2, tmp3, tmp4, tmp5;
     u8* ptr;
+    Menu* menu;
     if (gFadeControl.active) {
         return;
     }
-    gMenu.column_idx = 2;
-    tmp2 = gMenu.unk28 * 0x10000;
-    tmp1 = tmp2 - gMenu.unk10.i;
-    tmp5 = tmp1;
-    if (tmp1 < 0) {
-        tmp5 = -tmp1;
-    }
-    if (tmp5 <= 0x1ffdu) {
-        gMenu.unk10.i = tmp2;
+    menu = &gMenu;
+    menu->column_idx = 2;
+    tmp2 = menu->unk28 * 0x10000;
+    tmp1 = tmp2 - menu->unk10.i;
+    if ((tmp1 < 0 ? -tmp1 : tmp1) <= 0x1ffdu) {
+        menu->unk10.i = tmp2;
     } else {
-        gMenu.column_idx = 1;
+        menu->column_idx = 1;
         tmp2 = sub_08000E44(tmp1);
-        tmp1 /= 0x20000;
-        if (tmp1 < 0) {
+        tmp1 = tmp1 / 0x20000;
+        if (tmp1 < 0)
             tmp1 = -tmp1;
-        }
         if (tmp1 > 5) {
             tmp1 = 5;
         }
-        gMenu.unk10.i += gUnk_081280EE[tmp1] * 0x666 * tmp2;
+        menu->unk10.i += gUnk_081280EE[tmp1] * 0x666 * tmp2;
     }
-    if (gMenu.unk29 != gMenu.unk10.i / 0x10000) {
-        gMenu.unk29 = gMenu.unk10.i / 0x10000;
+    if (menu->unk29 != menu->unk10.i / 0x10000) {
+        menu->unk29 = menu->unk10.i / 0x10000;
         SoundReq(SFX_TEXTBOX_CHOICE);
     }
     if ((gInput.newKeys & 0x20a) != 0) {
@@ -212,7 +219,7 @@ NONMATCH("asm/non_matching/subtask/sub_080A3C6C.inc", void sub_080A3C6C(void)) {
         SoundReq(SFX_MENU_CANCEL);
         return;
     }
-    tmp3 = gMenu.unk28;
+    tmp3 = menu->unk28;
     switch (gInput.unk4) {
         case 0x20:
         case 0x40:
@@ -240,8 +247,8 @@ NONMATCH("asm/non_matching/subtask/sub_080A3C6C.inc", void sub_080A3C6C(void)) {
     if (tmp3 < 0) {
         tmp3 = 0;
     }
-    if (gMenu.unk28 != tmp3) {
-        gMenu.unk28 = tmp3;
+    if (menu->unk28 != tmp3) {
+        menu->unk28 = tmp3;
     }
 }
 END_NONMATCH
@@ -599,8 +606,9 @@ void sub_080A4468(void) {
     sub_0801E798(gMenu.unk2a);
 }
 
-NONMATCH("asm/non_matching/subtask/sub_080A4494.inc", u32 sub_080A4494(void)) {
+u32 sub_080A4494(void) {
     struct_02036540* psVar1;
+    u8* r1;
     u32 ret;
 
     psVar1 = sub_0805F2C8();
@@ -610,13 +618,17 @@ NONMATCH("asm/non_matching/subtask/sub_080A4494.inc", u32 sub_080A4494(void)) {
         psVar1->bgColor = 5;
         psVar1->unk1 = 0;
         sub_080A44E0(psVar1, gUnk_02002AC0, 0x80);
+#if NON_MATCHING
+        ret = sub_080A44E0(psVar1, sub_08002632(gFuseInfo.ent) >> 0x20, 0xa0);
+#else
         sub_08002632(gFuseInfo.ent);
-        ret = sub_080A44E0(psVar1, gUnk_02002AC0, 0xa0);
+        asm("" : "=r"(r1));
+        ret = sub_080A44E0(psVar1, r1, 0xa0);
+#endif
         sub_0805F300(psVar1);
     }
     return ret;
 }
-END_NONMATCH
 
 u32 sub_080A44E0(struct_02036540* param_1, u8* param_2, u32 param_3) {
     u32 uVar1;
@@ -664,7 +676,7 @@ extern void (*const gUnk_0812815C[])(void);
 extern void (*const gUnk_0812814C[])(void);
 
 void Subtask_FigurineMenu(void) {
-#ifndef DEMO
+#if !(defined(DEMO_USA) || defined(DEMO_JP))
     FlushSprites();
     if (gUnk_02032EC0.field_0x3 == 0xff) {
         gUnk_0812815C[gMenu.menuType]();
@@ -806,7 +818,65 @@ void sub_080A4830(void) {
     sub_080A7114(1);
 }
 
-ASM_FUNC("asm/non_matching/subtask/sub_080A4864.inc", void sub_080A4864(Entity* this))
+void sub_080A4864(void) {
+    int r0, r1, r2, r3, r4, r5, r6;
+
+    if (gFadeControl.active)
+        return;
+
+    r5 = gMenu.unk1f;
+    r4 = gMenu.unk1c;
+    r1 = gInput.unk4;
+    switch (gInput.unk4) {
+        case 2:
+        case 8:
+            sub_080A7114(3);
+            break;
+        case 0x200:
+            r4 -= 5;
+            break;
+        case 0x100:
+            r4 += 5;
+            break;
+        case 0x40:
+            r4--;
+            break;
+        case 0x80:
+            r4++;
+            break;
+        case 0x10:
+            r5 += 8;
+            break;
+        case 0x20:
+            r5 -= 8;
+            break;
+        case 1:
+            break;
+    }
+    r1 = (gSave.unk6 == 0) ? 0x82 : 0x88;
+    if (r4 <= 0) {
+        r4 = 1;
+    }
+    if (r1 < r4) {
+        r4 = r1;
+    }
+    r0 = gMenu.unk1c;
+    if (r0 != r4) {
+        gMenu.unk1c = r4;
+        SoundReq(SFX_TEXTBOX_CHOICE);
+        sub_080A7114(2);
+        r5 = 0;
+    }
+    r0 = gMenu.unk1e;
+    if (r5 < 0) {
+        r5 = 0;
+    }
+    if (r0 < r5) {
+        r5 = r0;
+    }
+    gMenu.unk1f = r5;
+    gScreen.bg1.yOffset = r5 - 0x70;
+}
 
 void sub_080A4934(void) {
     sub_080A7114(1);
@@ -830,7 +900,102 @@ u32 sub_080A4948(s32 param_1) {
     return uVar2;
 }
 
-ASM_FUNC("asm/non_matching/subtask/sub_080A4978.inc", void sub_080A4978(void))
+typedef struct {
+    u8* pal;
+    u8* gfx;
+    int size;
+    int zero;
+} Figurine;
+
+extern const Figurine gFigurines[];
+
+#ifdef EU
+#define sub_080A4978_draw_constant 0x1fb
+#else
+#define sub_080A4978_draw_constant 0x1fc
+#endif
+void sub_080A4978(void) {
+    int r0, r2, r4, r6;
+
+    gOamCmd._4 = 0;
+    gOamCmd._6 = 0;
+    gOamCmd._8 = 0x800;
+    gOamCmd.x = 0x9c;
+    gOamCmd.y = 0x48;
+    DrawDirect(sub_080A4978_draw_constant, 0);
+    r2 = (gSave.unk6 == 0) ? 0x82 : 0x88;
+    if ((gMenu.column_idx & 2) != 0) {
+        if (r2 >= (gMenu.unk1c)) {
+            gOamCmd.x = 0xe8;
+            r0 = (0x5000 / r2) * (gMenu.unk1c - 1);
+            if (r0 < 0) {
+                r0 += 0xff;
+            }
+            r0 >>= 8;
+            r0 += 0x20;
+            gOamCmd.y = r0;
+            DrawDirect(sub_080A4978_draw_constant, 1);
+            r0 = gMain.ticks.HWORD & 0x10;
+            r4 = (r0) ? 4 : 2;
+            gOamCmd.x = 0xe8;
+            gOamCmd.y = 0x1a;
+            DrawDirect(sub_080A4978_draw_constant, r4);
+            gOamCmd.x = 0xe8;
+            gOamCmd.y = 0x76;
+            DrawDirect(sub_080A4978_draw_constant, r4 + 1);
+        }
+    }
+    if (gMain.ticks.HWORD & 0x10) {
+        if (gMenu.column_idx & 0x10) {
+            if (gMenu.unk1e) {
+                gOamCmd.y = 0x10;
+                if (gMenu.unk1f > 0) {
+                    gOamCmd.x = 6;
+                    gOamCmd.y = 0x9c;
+                    DrawDirect(sub_080A4978_draw_constant, 6);
+                }
+                if (gMenu.unk1e > gMenu.unk1f) {
+                    gOamCmd.x = 0xea;
+                    gOamCmd.y = 0x9c;
+                    DrawDirect(sub_080A4978_draw_constant, 7);
+                }
+            }
+        }
+    }
+    if (gSaveHeader->language) {
+        if (gMenu.column_idx & 0x4) {
+            gOamCmd.y = 0x10;
+            r4 = gMenu.unk1c;
+            for (r6 = 2; r6 >= 0; r6--) {
+                gOamCmd.x = 0x5d + (r6 * 7);
+                gOamCmd._8 = ((r4 % 10) << 1) | 0x9e0;
+                DrawDirect(0, 9);
+                r4 = r4 / 10;
+            }
+        }
+    }
+    if (gMenu.column_idx & 1) {
+        if (sub_080A4948(gMenu.unk1c)) {
+            gOamCmd.x = 0x2c;
+            gOamCmd.y = 0x48;
+            gOamCmd._8 = 0xd4 << 7;
+            DrawDirect(sub_080A4978_draw_constant - 4, gMenu.unk1c - 1);
+            if (gMenu.unk1d != gMenu.unk1c) {
+                const Figurine* fig;
+                u8* gfx;
+                gMenu.unk1d = gMenu.unk1c;
+                fig = &gFigurines[gMenu.unk1c];
+                LoadPalettes(fig->pal, 0x16, 9);
+                gfx = fig->gfx;
+                if (fig->size < 0) {
+                    LZ77UnCompVram(gfx, (void*)0x6014000);
+                } else {
+                    LoadResourceAsync(gfx, 0x6014000, fig->size);
+                }
+            }
+        }
+    }
+}
 
 void sub_080A4B44(void) {
     u32 uVar1;
@@ -952,4 +1117,468 @@ void sub_080A4E84(u8 param_1) {
 void sub_080A4E90(u8 param_1) {
     gUnk_02034490.unk11 = param_1;
     gUnk_02034490.unk12 = 0;
+}
+
+void Subtask_PauseMenu(void) {
+    extern const void (*const gUnk_08128B30[])(void);
+
+    if (gUnk_02034490.unk11 == 6) {
+        SetBgmVolume(0x100);
+        Subtask_Exit();
+    } else {
+        FlushSprites();
+        gUnk_08128B30[gUnk_02034490.unk11]();
+        sub_080A5128();
+        sub_0801C1D4();
+        DrawOAMCmd();
+        if (gUnk_02034490.unk11 != 4) {
+            gUnk_08128A38[gUnk_02034490.unk1].func();
+        }
+        CopyOAM();
+        {
+            u32 t = gUnk_02034490.unk16;
+            u32 t2 = (t != 0) ? 0xe46 : 0;
+            gScreen.controls.layerFXControl = t2;
+            gScreen.controls.alphaBlend = (t << 8) | (0x10 - t);
+        }
+    }
+}
+
+typedef struct {
+    u8 _0;
+    u8 _1;
+    u8 _2;
+    u8 _3;
+    u8 _4;
+    u16 _6;
+} struct_08127F94;
+struct_08127F94* sub_080A6A80(u32, u32);
+
+extern u8 gUnk_02034492[];
+void sub_0801E8D4(void);
+u32 sub_0801DB94(void);
+s32 sub_080A50A0(s32);
+
+void sub_080A4F28(void) {
+    struct_08127F94* ptr;
+    int r0, r1;
+
+    sub_0801E8D4();
+    sub_080A4D34();
+    r1 = 4;
+    do {
+        gUnk_02034492[r1] = 0;
+        r1++;
+    } while (r1 <= 0xd);
+    ptr = sub_080A6A80((u16)gRoomTransition.player_status.overworld_map_x,
+                       (u16)gRoomTransition.player_status.overworld_map_y);
+    gUnk_02034490.unk2[4] = ptr->_4;
+    gUnk_02034490.unk2[5] = sub_0801DB94();
+    if (IsItemEquipped(ITEM_LANTERN_ON) != 2) {
+        r1 = 0x10;
+    } else {
+        r1 = 0xf;
+    }
+    gUnk_02034490.unk15 = r1;
+    r0 = gUnk_08128A38[gUnk_02034490.unk1].unk1;
+    r0 = sub_080A50A0(r0);
+    gUnk_02034490.unk1 = r0;
+    gUnk_02034490.unk14 = r0;
+    sub_080A4DB8(r0);
+    SetFade(4, 0x20);
+    sub_080A4E90(1);
+}
+
+void sub_080A4FA0(void) {
+    if (gFadeControl.active == 0) {
+        sub_080A4E90(2);
+    }
+}
+
+void sub_080A4FB8(void) {
+    int iVar1;
+    u32 uVar2;
+    int iVar4;
+    s32 bVar5;
+
+    if ((sub_080A51F4() != 0) && (gMenu.field_0xc != NULL)) {
+        iVar1 = -1;
+        switch (gInput.newKeys) {
+            case 8:
+                iVar1 = 0;
+                break;
+            case 0x200:
+                iVar1 = 1;
+                break;
+            case 0x100:
+                iVar1 = 2;
+                break;
+            case 0x2:
+                iVar1 = 3;
+                break;
+        }
+        if (iVar1 >= 0) {
+            switch (bVar5 = gMenu.field_0xc[iVar1]) {
+                case 0:
+                    break;
+                case 4 ... 6:
+                case 0xf:
+                    uVar2 = GetInventoryValue(0x47);
+                    if (uVar2 == 0) {
+                        iVar4 = 1;
+                        if (iVar1 == 1) {
+                            iVar4 = 2;
+                        }
+                        bVar5 = gMenu.field_0xc[iVar4];
+                    }
+                default:
+                    gUnk_02034490.unk14 = bVar5;
+                    SoundReq(SFX_TEXTBOX_OPEN);
+                    gMenu.field_0xc = NULL;
+                    break;
+            }
+        }
+    }
+    bVar5 = sub_080A50A0(gUnk_02034490.unk14);
+    if (gUnk_02034490.unk1 != bVar5) {
+        gUnk_02034490.unk14 = bVar5;
+        sub_080A51D4();
+        if (bVar5 == 0xe) {
+            sub_080A4E90(6);
+        } else {
+            sub_080A4E90(3);
+            MemClear(&gBG0Buffer, 0x800);
+            gScreen.bg0.updated = 1;
+        }
+    }
+}
+
+s32 sub_080A50A0(s32 param_1) {
+    s32 iVar1;
+
+    if (param_1 == 0xf) {
+        iVar1 = AreaHasMap();
+        param_1 = 4;
+        if (iVar1 != 0) {
+            param_1 = 5;
+        }
+    }
+    return param_1;
+}
+
+void sub_080A50B8(void) {
+    s32 iVar1;
+
+    iVar1 = gUnk_02034490.unk16 + 2;
+    if (0x10 < iVar1) {
+        gScreen.lcd.displayControl &= 0xf8ff;
+        sub_080A4E90(4);
+        iVar1 = 0x10;
+    }
+    gUnk_02034490.unk16 = iVar1;
+}
+
+void sub_080A50E8(void) {
+    u32 t;
+    gUnk_02034490.unk16 = 0x10;
+    gUnk_02034490.unk1 = t = gUnk_02034490.unk14;
+    sub_080A4DB8(t);
+    sub_080A4E90(5);
+}
+
+void sub_080A5108(void) {
+    s32 iVar1;
+
+    iVar1 = gUnk_02034490.unk16 - 2;
+    if (iVar1 < 0) {
+        sub_080A4E90(2);
+        iVar1 = 0;
+    }
+    gUnk_02034490.unk16 = iVar1;
+}
+
+void sub_080A5128(void) {
+    int r5, t;
+    struct {
+        int x;
+        int y;
+    } p[3];
+
+    switch (gUnk_02034490.unk1) {
+        case 7:
+        case 8:
+            p[0].x = 0x60;
+            p[0].y = 0x18;
+            p[1].x = -0x10;
+            p[1].y = 0x48;
+            p[2].x = 0x100;
+            p[2].y = 0x48;
+            break;
+        case 9:
+        case 10:
+        case 11:
+            return;
+        default:
+            p[0].x = 0x40;
+            p[0].y = 0x10 - (gUnk_02034490.unk16 << 1);
+            t = (gUnk_02034490.unk16 / 3);
+            p[1].x = 0x10 - t;
+            p[1].y = 0x48;
+            p[2].x = 0xe0 + t;
+            p[2].y = 0x48;
+            break;
+    }
+    gOamCmd._4 = 0;
+    gOamCmd._6 = 0;
+    gOamCmd._8 = 0x400;
+    gOamCmd.x = p[0].x;
+    gOamCmd.y = p[0].y;
+#ifdef EU
+    r5 = 0xfd << 1;
+#else
+    r5 = 0x1fb;
+#endif
+    DrawDirect(r5, 0);
+    gOamCmd.x = p[1].x;
+    gOamCmd.y = p[1].y;
+    DrawDirect(r5, 1);
+    gOamCmd.x = p[2].x;
+    gOamCmd.y = p[2].y;
+    DrawDirect(r5, 2);
+}
+
+void sub_080A51D4(void) {
+    u32 i = gUnk_02034490.unk1;
+    if (i < 0xe) {
+        gUnk_02034490.unk2[i] = gMenu.field_0x3;
+    }
+}
+
+u32 sub_080A51F4(void) {
+    u32 retval = 1;
+    if (gFadeControl.active != 0)
+        retval = 0;
+    if (gUnk_02034490.unk11 != 2)
+        retval = 0;
+    return retval;
+}
+
+void sub_080A5384(void);
+void sub_080A5218(void) {
+    extern void (*const gUnk_08128B48[])(void);
+
+    gUnk_08128B48[gMenu.menuType]();
+    sub_080A5384();
+}
+
+void sub_080A5238(void) {
+    u32 uVar1;
+    u32 uVar2;
+    u32 uVar3;
+
+    gMenu.field_0xc = NULL;
+    sub_080A70AC((KeyButtonLayout*)&gUnk_08128B50);
+    for (uVar3 = 1; uVar3 < 0x20; uVar3++) {
+        uVar1 = GetInventoryValue(uVar3);
+        if ((uVar1 == 1) && (uVar2 = gUnk_080FD5B4[uVar3 * 8], uVar2 < 0x12)) {
+            switch (uVar3) {
+                case 0xf:
+                case 0x10:
+                    uVar3 = gUnk_02034490.unk15;
+                    break;
+                default:
+                    break;
+            }
+            gMenu.unk10.a[uVar2] = uVar3;
+            sub_080A5F48(uVar3, uVar2 * 8 + 0x360);
+        }
+    }
+    sub_080A7114(1);
+}
+
+extern const u8 gUnk_08128BF4[];
+void sub_080A6F6C(u32);
+void sub_080A529C(void) {
+    s32 iVar1;
+    u32 uVar2;
+    u32 uVar3;
+    const ItemMenuTableEntry* entry;
+
+    if (sub_080A51F4()) {
+        gMenu.field_0xc = (u8*)gUnk_08128BF4;
+        uVar3 = gMenu.field_0x3;
+
+        entry = &gItemMenuTable[uVar3];
+        switch (gInput.newKeys) {
+            case 1:
+                if (uVar3 == 0x10) {
+#if defined(DEMO_USA) || defined(DEMO_JP)
+                    SoundReq(SFX_MENU_ERROR);
+#else
+                    sub_080A4E84(0xb);
+                    SoundReq(SFX_TEXTBOX_SELECT);
+#endif
+                    break;
+                }
+            case 2:
+                if (gMenu.unk10.a[uVar3] != 0) {
+                    u32 t = !!(gInput.newKeys ^ 1);
+                    ForceEquipItem(gMenu.unk10.a[uVar3], t);
+                    SoundReq(SFX_TEXTBOX_SELECT);
+                }
+                break;
+            default:
+                switch (gInput.unk4) {
+                    case DPAD_UP:
+                        uVar3 = entry->up;
+                        break;
+                    case DPAD_DOWN:
+                        uVar3 = entry->down;
+                        break;
+                    case DPAD_LEFT:
+                        uVar3 = entry->left;
+                        break;
+                    case DPAD_RIGHT:
+                        uVar3 = entry->right;
+                        break;
+                }
+                break;
+        }
+        if (gMenu.field_0x3 != uVar3) {
+            gMenu.field_0x3 = uVar3;
+            SoundReq(SFX_TEXTBOX_CHOICE);
+        }
+        uVar2 = gMenu.unk10.a[uVar3];
+        switch (uVar3) {
+            case 0xc:
+            case 0xd:
+            case 0xe:
+            case 0xf:
+                if (uVar2 != 0) {
+                    uVar2 = gSave.saved_status.field_0x24[uVar2 - 6];
+                }
+                break;
+            case 0x10:
+                uVar2 = 0x73;
+                break;
+            default:
+                break;
+        }
+        sub_080A6F6C(uVar2 + 0x400);
+    }
+}
+
+u32 sub_080A554C(u32);
+extern u8* gSpriteAnimations_322[];
+#ifdef EU
+#define sub_080A5384_draw_constant0 0x1fa
+#define sub_080A5384_draw_constant1 0x141
+#else
+#define sub_080A5384_draw_constant0 0x1fb
+#define sub_080A5384_draw_constant1 0x142
+#endif
+void sub_080A5384(void) {
+    u32 tmp;
+    u32 uVar3;
+    s32 iVar2;
+    const ItemMenuTableEntry* entry;
+
+    gOamCmd._4 = 0x400;
+    gOamCmd._6 = 0;
+    gOamCmd._8 = 0;
+    for (uVar3 = 0; uVar3 < 0x11; uVar3++) {
+        u32 item;
+        if (gMenu.unk10.a[uVar3] != 0) {
+            entry = &gItemMenuTable[uVar3];
+            gOamCmd.x = entry->x;
+            gOamCmd.y = entry->y;
+            item = gMenu.unk10.a[uVar3];
+            switch (item) {
+                case 0x1c ... 0x1f:
+                    item = gSave.stats.bottles[item - 0x1c];
+                    break;
+            }
+            iVar2 = 3;
+            switch (item) {
+                case 7:
+                case 8:
+                    if (gBombBagSizes[gSave.stats.bombBagType] <= gSave.stats.bombCount) {
+                        iVar2 = 4;
+                    }
+                    break;
+                case 9:
+                case 10:
+                    if (gQuiverSizes[gSave.stats.quiverType] <= gSave.stats.arrowCount) {
+                        iVar2 = 4;
+                    }
+                    break;
+            }
+            gOamCmd._8 = 0x800 | iVar2 << 0xc | ((uVar3 * 8) + 0x360);
+            DrawDirect(sub_080A5384_draw_constant1, *gSpriteAnimations_322[item]);
+        }
+    }
+    gOamCmd._8 = 0x800;
+    {
+        u32 uVar3 = gMenu.field_0x3;
+        if ((uVar3 == 0x10) && (gSaveHeader->language != 0)) {
+            uVar3 = 0x11;
+        }
+        entry = &gItemMenuTable[uVar3];
+    }
+    gOamCmd.x = entry->x;
+    gOamCmd.y = entry->y;
+    tmp = entry->type + ((gMain.ticks.HWORD & 0x10) != 0 ? 3 : 4);
+    DrawDirect(sub_080A5384_draw_constant0, tmp);
+    {
+        u32 uVar3;
+        if (gSaveHeader->language != 0) {
+            uVar3 = 0x10;
+        } else {
+            uVar3 = 0x11;
+        }
+        entry = &gItemMenuTable[uVar3];
+    }
+    gOamCmd.x = entry->x;
+    gOamCmd.y = entry->y;
+    gOamCmd._8 = 0x800;
+    DrawDirect(sub_080A5384_draw_constant0, 0x22);
+    {
+        uVar3 = sub_080A554C(gSave.stats.itemButtons[0]);
+        if (uVar3 < 0x11) {
+            entry = &gItemMenuTable[uVar3];
+            gOamCmd.x = entry->x;
+            gOamCmd.y = entry->y;
+            DrawDirect(sub_080A5384_draw_constant0, 3);
+        }
+    }
+    {
+        uVar3 = sub_080A554C(gSave.stats.itemButtons[1]);
+        if (uVar3 < 0x11) {
+            entry = &gItemMenuTable[uVar3];
+            gOamCmd.x = entry->x;
+            gOamCmd.y = entry->y;
+            DrawDirect(sub_080A5384_draw_constant0, 3);
+        }
+    }
+}
+
+extern void (*const gUnk_08128BF8[])(void);
+
+extern u8 gUnk_02000090;
+
+u32 sub_080A554C(u32 arg0) {
+    u32 i;
+
+    if (arg0 != 0) {
+        for (i = 0; i < 17; i++) {
+            if (arg0 == gMenu.unk10.a[i])
+                return i;
+        }
+    }
+    return 17;
+}
+
+void sub_080A5574(void) {
+    gUnk_08128BF8[gMenu.menuType]();
+    sub_080A57F4();
 }

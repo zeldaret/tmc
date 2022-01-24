@@ -855,8 +855,6 @@ SECTIONS {
         src/sound.o(.text);
         asm/staffroll.o(.text);
         src/subtask.o(.text);
-        asm/subtask.o(.text);
-        src/subtask2.o(.text);
         asm/subtask2.o(.text); /* subtask.c */
         src/playerItem/playerItemSword.o(.text);
         src/playerItemUtils.o(.text);

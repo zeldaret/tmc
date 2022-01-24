@@ -124,8 +124,8 @@ typedef struct {
     /* 0x0e */ s16 dungeon_y;
     /* 0x10 */ u16 dungeon_map_x;
     /* 0x12 */ u16 dungeon_map_y;
-    /* 0x14 */ s16 overworld_map_x;
-    /* 0x16 */ s16 overworld_map_y;
+    /* 0x14 */ u16 overworld_map_x;
+    /* 0x16 */ u16 overworld_map_y;
     /* 0x18 */ u8 field_0x24[0x8];
 } PlayerRoomStatus;
 static_assert(sizeof(PlayerRoomStatus) == 0x20);
