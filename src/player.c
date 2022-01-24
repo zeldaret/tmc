@@ -281,7 +281,6 @@ extern u32 sub_080797C4(void);
 extern void sub_0800892E(Entity*);
 extern void sub_08078F24(void);
 extern void sub_0807B068(Entity*);
-extern u32 sub_080001DA(u32, u32);
 extern u32 sub_0807A2F8(u32);
 extern u32 sub_0806F730(Entity*);
 extern u32 sub_08007DD6(u32, const u16*);
@@ -2155,7 +2154,7 @@ static void PlayerInHoleInit(Entity* this) {
             gPlayerState.animation = 0x950;
         } else {
             gPlayerState.animation = 0x61c;
-            if (sub_080001DA(COORD_TO_TILE(this), this->collisionLayer) == 0x4020) {
+            if (GetTileIndex(COORD_TO_TILE(this), this->collisionLayer) == 0x4020) {
                 this->actionDelay = 1;
             }
         }

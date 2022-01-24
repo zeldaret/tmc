@@ -388,7 +388,7 @@ sub_08099468: @ 0x08099468
 	adds r5, r6, #0
 	adds r5, #0x38
 	ldrb r1, [r5]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r6, #0
 	adds r1, #0x6c
 	strh r0, [r1]

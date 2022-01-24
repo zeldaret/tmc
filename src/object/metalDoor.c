@@ -10,7 +10,6 @@
 extern u32 sub_08083734(Entity*, u32);
 extern void sub_080A080C(Entity*);
 extern void sub_080A0870(Entity*);
-extern u32 sub_080001DA(u32, u32);
 
 extern void (*const gUnk_0812493C[])(Entity*);
 
@@ -93,9 +92,9 @@ void sub_080A07F0(Entity* this) {
 }
 
 void sub_080A080C(Entity* this) {
-    this->field_0x76.HWORD = sub_080001DA(this->field_0x74.HWORD - 1, this->collisionLayer);
-    this->field_0x78.HWORD = sub_080001DA(this->field_0x74.HWORD, this->collisionLayer);
-    this->field_0x7a.HWORD = sub_080001DA(this->field_0x74.HWORD + 1, this->collisionLayer);
+    this->field_0x76.HWORD = GetTileIndex(this->field_0x74.HWORD - 1, this->collisionLayer);
+    this->field_0x78.HWORD = GetTileIndex(this->field_0x74.HWORD, this->collisionLayer);
+    this->field_0x7a.HWORD = GetTileIndex(this->field_0x74.HWORD + 1, this->collisionLayer);
     SetTile(0x4022, this->field_0x74.HWORD - 1, this->collisionLayer);
     SetTile(0x4022, this->field_0x74.HWORD, this->collisionLayer);
     SetTile(0x4022, this->field_0x74.HWORD + 1, this->collisionLayer);

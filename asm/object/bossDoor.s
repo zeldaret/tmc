@@ -432,20 +432,20 @@ _0808C510:
 	adds r5, r4, #0
 	adds r5, #0x38
 	ldrb r1, [r5]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r4, #0
 	adds r1, #0x78
 	strh r0, [r1]
 	ldrh r0, [r6]
 	ldrb r1, [r5]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r4, #0
 	adds r1, #0x7a
 	strh r0, [r1]
 	ldrh r0, [r6]
 	adds r0, #1
 	ldrb r1, [r5]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r4, #0
 	adds r1, #0x7c
 	strh r0, [r1]
@@ -475,20 +475,20 @@ _0808C570:
 	adds r5, r4, #0
 	adds r5, #0x38
 	ldrb r1, [r5]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r4, #0
 	adds r1, #0x78
 	strh r0, [r1]
 	ldrh r0, [r6]
 	ldrb r1, [r5]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r4, #0
 	adds r1, #0x7a
 	strh r0, [r1]
 	ldrh r0, [r6]
 	adds r0, #0x40
 	ldrb r1, [r5]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r4, #0
 	adds r1, #0x7c
 	strh r0, [r1]

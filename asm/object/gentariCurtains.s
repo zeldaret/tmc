@@ -103,13 +103,13 @@ _0809207A:
 	strh r2, [r7]
 	ldrh r0, [r5]
 	movs r1, #1
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r6, #0
 	adds r1, #0x74
 	strh r0, [r1]
 	ldrh r0, [r7]
 	movs r1, #1
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r6, #0
 	adds r1, #0x76
 	strh r0, [r1]

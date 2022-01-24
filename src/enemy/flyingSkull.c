@@ -21,7 +21,6 @@ void (*const gUnk_080CFBD4[])(FlyingSkullEntity*);
 const s8 gUnk_080CFBE4[4];
 
 extern s32 sub_080012DC(Entity*);
-extern u32 sub_080001DA(u32, u32);
 extern void sub_08078930(Entity*);
 
 void sub_0803A100(FlyingSkullEntity* this);
@@ -118,7 +117,7 @@ void sub_08039D74(FlyingSkullEntity* this) {
     super->y.HALF.HI += 3;
 
     tmp = COORD_TO_TILE(super);
-    this->unk_0x74 = sub_080001DA(tmp, super->collisionLayer);
+    this->unk_0x74 = GetTileIndex(tmp, super->collisionLayer);
     SetTile(0x4060, tmp, super->collisionLayer);
     InitializeAnimation(super, 0);
 }
@@ -246,7 +245,7 @@ void sub_0803A0E0(FlyingSkullEntity* this) {
 
 void sub_0803A100(FlyingSkullEntity* this) {
     u32 tile = COORD_TO_TILE(super);
-    if (sub_080001DA(tile, super->collisionLayer) == 0x4067) {
+    if (GetTileIndex(tile, super->collisionLayer) == 0x4067) {
         SetTile(this->unk_0x74, tile, super->collisionLayer);
         DeleteThisEntity();
     }

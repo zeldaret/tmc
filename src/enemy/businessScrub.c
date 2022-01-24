@@ -18,7 +18,6 @@ bool32 sub_0802915C(Entity*);
 bool32 sub_080291DC(Entity*);
 void sub_0802922C(Entity*);
 void sub_08028E9C(Entity*);
-u32 sub_080001DA(u32, u32);
 void sub_08028FFC(Entity*);
 void sub_0802925C(Entity*);
 void sub_080290E0(Entity*, u32);
@@ -90,7 +89,7 @@ void sub_08028994(Entity* this) {
     } else {
         this->actionDelay = 0;
         this->field_0x76.HWORD = COORD_TO_TILE(this);
-        this->field_0x74.HWORD = sub_080001DA(this->field_0x76.HWORD, this->collisionLayer);
+        this->field_0x74.HWORD = GetTileIndex(this->field_0x76.HWORD, this->collisionLayer);
         this->hurtType = 0x41;
         sub_08028FFC(this);
     }

@@ -887,7 +887,7 @@ sub_080307EC: @ 0x080307EC
 	adds r6, #0x38
 	ldrb r1, [r6]
 	adds r0, r4, #0
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r5, #0x78
 	strh r0, [r5]
 	ldr r0, _08030830 @ =0x00004022

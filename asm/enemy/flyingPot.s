@@ -286,7 +286,7 @@ sub_08037220: @ 0x08037220
 	adds r6, #0x38
 	ldrb r1, [r6]
 	adds r0, r4, #0
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r5, #0
 	adds r1, #0x74
 	strh r0, [r1]
@@ -542,7 +542,7 @@ sub_08037418: @ 0x08037418
 	adds r6, #0x38
 	ldrb r1, [r6]
 	adds r0, r4, #0
-	bl sub_080001DA
+	bl GetTileIndex
 	ldr r1, _08037468 @ =0x00004067
 	cmp r0, r1
 	bne _08037460

@@ -769,7 +769,7 @@ SECTIONS {
         asm/object/macroDecorations.o(.text);
         asm/object/object79.o(.text);
         src/object/steam.o(.text);
-        asm/object/pushableLever.o(.text);
+        src/object/pushableLever.o(.text);
         asm/object/macroShoes.o(.text);
         asm/object/objectOnSpinyBeetle.o(.text);
         src/object/object7E.o(.text);
@@ -1511,7 +1511,7 @@ SECTIONS {
         data/const/object/object79.o(.rodata);
         data/animations/object/object79.o(.rodata);
         src/object/steam.o(.rodata);
-        data/const/object/pushableLever.o(.rodata);
+        src/object/pushableLever.o(.rodata);
         data/animations/object/pushableLever.o(.rodata);
         data/const/object/macroShoes.o(.rodata);
         data/const/object/objectOnSpinyBeetle.o(.rodata);

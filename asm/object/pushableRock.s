@@ -212,7 +212,7 @@ sub_0808A644: @ 0x0808A644
 	adds r6, r4, #0
 	adds r6, #0x38
 	ldrb r1, [r6]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r4, #0
 	adds r1, #0x70
 	strh r0, [r1]

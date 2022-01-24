@@ -191,7 +191,7 @@ sub_08033890: @ 0x08033890
 	adds r5, r6, #0
 	adds r5, #0x38
 	ldrb r1, [r5]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r6, #0
 	adds r1, #0x76
 	strh r0, [r1]
@@ -583,7 +583,7 @@ _08033BB2:
 	ldrh r0, [r5]
 	ldr r2, [sp, #8]
 	ldrb r1, [r2]
-	bl sub_080001DA
+	bl GetTileIndex
 	mov r3, sl
 	strh r0, [r3]
 	lsls r0, r0, #0x10

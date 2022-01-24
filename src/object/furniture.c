@@ -5,7 +5,6 @@
 #include "object.h"
 
 extern void sub_080001D0(u32, u32, u32);
-extern u32 sub_080001DA(u32, u32);
 
 enum {
     FURNITURE_INIT,
@@ -374,7 +373,7 @@ static void sub_08090B6C(FurnitureEntity* this) {
 }
 
 static void sub_08090CDC(u32 id, u32 pos, u32 layer) {
-    u16 cur = sub_080001DA(pos, layer);
+    u16 cur = GetTileIndex(pos, layer);
     u32 next = cur;
     u32 id2;
 

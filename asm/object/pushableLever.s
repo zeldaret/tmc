@@ -168,7 +168,7 @@ sub_08098354: @ 0x08098354
 	adds r5, r6, #0
 	adds r5, #0x38
 	ldrb r1, [r5]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r6, #0
 	adds r1, #0x72
 	strh r0, [r1]
@@ -210,7 +210,7 @@ _080983BC:
 	adds r5, r6, #0
 	adds r5, #0x38
 	ldrb r1, [r5]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r6, #0
 	adds r1, #0x72
 	strh r0, [r1]
@@ -237,7 +237,7 @@ sub_08098418: @ 0x08098418
 	adds r5, r4, #0
 	adds r5, #0x38
 	ldrb r1, [r5]
-	bl sub_080001DA
+	bl GetTileIndex
 	ldr r1, _08098448 @ =0x00004054
 	cmp r0, r1
 	bne _0809846C

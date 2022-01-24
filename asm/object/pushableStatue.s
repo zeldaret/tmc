@@ -360,7 +360,7 @@ sub_08089454: @ 0x08089454
 	adds r4, r5, #0
 	adds r4, #0x38
 	ldrb r1, [r4]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r5, #0
 	adds r1, #0x80
 	strh r0, [r1]

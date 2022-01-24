@@ -349,7 +349,7 @@ void Bell(Entity*);
 void MacroDecoration(Entity*);
 void Object79(Entity*);
 void Steam(Entity*);
-void PushableLever(Entity*);
+void PushableLever();
 void MacroShoes(Entity*);
 void ObjectOnSpinyBeetle(Entity*);
 void Object7E(Entity*);

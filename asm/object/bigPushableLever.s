@@ -176,13 +176,13 @@ sub_08098FE0: @ 0x08098FE0
 	adds r4, r6, #0
 	adds r4, #0x38
 	ldrb r1, [r4]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r6, #0
 	adds r1, #0x74
 	strh r0, [r1]
 	ldrh r0, [r7]
 	ldrb r1, [r4]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r6, #0
 	adds r1, #0x76
 	strh r0, [r1]
@@ -233,13 +233,13 @@ _0809906C:
 	adds r4, r6, #0
 	adds r4, #0x38
 	ldrb r1, [r4]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r6, #0
 	adds r1, #0x74
 	strh r0, [r1]
 	ldrh r0, [r7]
 	ldrb r1, [r4]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r6, #0
 	adds r1, #0x76
 	strh r0, [r1]
@@ -271,7 +271,7 @@ sub_080990EC: @ 0x080990EC
 	adds r5, r4, #0
 	adds r5, #0x38
 	ldrb r1, [r5]
-	bl sub_080001DA
+	bl GetTileIndex
 	ldr r1, _0809911C @ =0x00004059
 	cmp r0, r1
 	bne _08099140

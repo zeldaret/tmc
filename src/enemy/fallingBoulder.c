@@ -137,14 +137,13 @@ void nullsub_148(Entity* this) {
     /* ... */
 }
 
-extern u32 sub_080001DA(u32, u32);
 
 void sub_0802C4B0(Entity* this) {
     u32 offset;
     u32 index;
     u32 rand;
 
-    switch (sub_080001DA(this->field_0x7c.HALF_U.HI, this->collisionLayer)) {
+    switch (GetTileIndex(this->field_0x7c.HALF_U.HI, this->collisionLayer)) {
         case 0x1ab ... 0x1af:
             offset = 8;
             break;
