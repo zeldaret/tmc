@@ -357,7 +357,7 @@ void PicoBloom(Entity*);
 void Board(Entity*);
 void Object81(Entity*);
 void BigVortex(Entity*);
-void BigPushableLever(Entity*);
+void BigPushableLever();
 void SmallIceBlock(Entity*);
 void BigIceBlock(Entity*);
 void Object86(Entity*);

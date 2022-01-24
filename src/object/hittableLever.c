@@ -19,7 +19,7 @@ typedef struct {
 } HittableLeverEntity;
 
 extern void (*const HittableLever_Actions[])(HittableLeverEntity*);
-extern const Hitbox gUnk_08121180;
+extern const Hitbox HittableLever_Hitbox;
 
 void HittableLever_UpdateTile(HittableLeverEntity*);
 
@@ -36,7 +36,7 @@ void HittableLever_Init(HittableLeverEntity* this) {
     super->field_0x3c = 7;
     super->hitType = 0x8f;
     super->flags2 = 0xa;
-    super->hitbox = (Hitbox*)&gUnk_08121180;
+    super->hitbox = (Hitbox*)&HittableLever_Hitbox;
     if (super->type == 0) {
         if (CheckFlags(this->hitFlag)) {
             super->type = 1;
@@ -76,4 +76,4 @@ void (*const HittableLever_Actions[])(HittableLeverEntity*) = {
     HittableLever_Init,
     HittableLever_Idle,
 };
-const Hitbox gUnk_08121180 = { 0, 1, { 0, 0, 0, 0 }, 4, 3 };
+const Hitbox HittableLever_Hitbox = { 0, 1, { 0, 0, 0, 0 }, 4, 3 };

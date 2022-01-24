@@ -777,7 +777,7 @@ SECTIONS {
         asm/object/board.o(.text);
         asm/object/object81.o(.text);
         src/object/bigVortex.o(.text);
-        asm/object/bigPushableLever.o(.text);
+        src/object/bigPushableLever.o(.text);
         asm/object/smallIceBlock.o(.text);
         asm/object/bigIceBlock.o(.text);
         src/object/object86.o(.text);
@@ -1521,7 +1521,7 @@ SECTIONS {
         data/const/object/object81.o(.rodata);
         data/const/object/bigVortex.o(.rodata);
         data/animations/object/bigVortex.o(.rodata);
-        data/const/object/bigPushableLever.o(.rodata);
+        src/object/bigPushableLever.o(.rodata);
         data/animations/object/bigPushableLever.o(.rodata);
         data/const/object/smallIceBlock.o(.rodata);
         data/animations/object/smallIceBlock.o(.rodata);
