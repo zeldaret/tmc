@@ -295,7 +295,7 @@ u32 sub_08031E04(Entity* this) {
         return 0;
 
     tmp = &gUnk_080CE5C0[this->frame & 6];
-    return sub_0806FCB8(this, ent->x.HALF.HI + tmp[0], ent->y.HALF.HI + tmp[1], 0x50);
+    return EntityWithinDistance(this, ent->x.HALF.HI + tmp[0], ent->y.HALF.HI + tmp[1], 0x50);
 }
 
 void sub_08031E48(Entity* this, Entity* child) {
@@ -403,7 +403,7 @@ void sub_08032008(Entity* this) {
             ProcessMovement(this);
         } else {
             if (this->field_0x76.HALF.HI == 0) {
-                if (sub_0806FCB8(this, parent->x.HALF.HI, parent->y.HALF.HI, 1) == 0) {
+                if (EntityWithinDistance(this, parent->x.HALF.HI, parent->y.HALF.HI, 1) == 0) {
                     this->field_0x76.HALF.HI = 1;
                     this->direction = GetFacingDirection(this, parent);
                     sub_080322E8(this);

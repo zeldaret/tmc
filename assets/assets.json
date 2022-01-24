@@ -41315,31 +41315,6 @@
     "size": 4
   },
   {
-    "path": "data_081146D0/gUnk_08114F38.bin",
-    "start": 1134392,
-    "size": 32
-  },
-  {
-    "path": "data_081146D0/gUnk_08114F58.bin",
-    "start": 1134424,
-    "size": 32
-  },
-  {
-    "path": "data_081146D0/gUnk_08114F78.bin",
-    "start": 1134456,
-    "size": 8
-  },
-  {
-    "path": "data_081146D0/gUnk_08114F80.bin",
-    "start": 1134464,
-    "size": 8
-  },
-  {
-    "path": "data_081146D0/gPlayerHitbox.bin",
-    "start": 1134472,
-    "size": 16
-  },
-  {
     "path": "sprites/gSpriteFrames_1.bin",
     "start": 1134488,
     "size": 1012,

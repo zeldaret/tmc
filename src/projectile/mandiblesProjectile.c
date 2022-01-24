@@ -303,8 +303,8 @@ NONMATCH("asm/non_matching/mandiblesProjectile/sub_080AA374.inc", bool32 sub_080
         // TODO regalloc
         animationState = this->child->animationState;
         uVar1 = sub_0806F824(this, this->child, gUnk_08129D14[animationState], gUnk_08129D14[animationState + 1]);
-        if (sub_0806FCB8(this, this->child->x.HALF.HI + gUnk_08129D14[animationState],
-                         this->child->y.HALF.HI + gUnk_08129D14[animationState + 1], 8) != 0) {
+        if (EntityWithinDistance(this, this->child->x.HALF.HI + gUnk_08129D14[animationState],
+                                 this->child->y.HALF.HI + gUnk_08129D14[animationState + 1], 8) != 0) {
             result = TRUE;
         } else {
             sub_08004596(this, uVar1);

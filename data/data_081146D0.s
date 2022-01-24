@@ -36,18 +36,3 @@ gUnk_08114F30:: @ 08114F30
 gUnk_08114F34:: @ 08114F34
 	.incbin "data_081146D0/gUnk_08114F34.bin"
 
-gUnk_08114F38:: @ 08114F38
-	.incbin "data_081146D0/gUnk_08114F38.bin"
-
-gUnk_08114F58:: @ 08114F58
-	.incbin "data_081146D0/gUnk_08114F58.bin"
-
-gUnk_08114F78:: @ 08114F78
-	.incbin "data_081146D0/gUnk_08114F78.bin"
-
-gUnk_08114F80:: @ 08114F80
-	.incbin "data_081146D0/gUnk_08114F80.bin"
-
-gPlayerHitbox:: @ 08114F88
-	.incbin "data_081146D0/gPlayerHitbox.bin"
-

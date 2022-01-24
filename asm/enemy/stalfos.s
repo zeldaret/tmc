@@ -671,7 +671,7 @@ _0803976A:
 	ldrsh r2, [r0, r3]
 	adds r0, r4, #0
 	movs r3, #0x24
-	bl sub_0806FCB8
+	bl EntityWithinDistance
 	cmp r0, #0
 	beq _08039818
 	movs r0, #5
@@ -713,7 +713,7 @@ _080397DC:
 	ldrsh r2, [r0, r3]
 	adds r0, r4, #0
 	movs r3, #0x48
-	bl sub_0806FCB8
+	bl EntityWithinDistance
 	cmp r0, #0
 	beq _08039818
 	movs r0, #8
@@ -844,7 +844,7 @@ sub_080398C0: @ 0x080398C0
 	ldrsh r2, [r0, r3]
 	adds r0, r4, #0
 	movs r3, #0x58
-	bl sub_0806FCB8
+	bl EntityWithinDistance
 	cmp r0, #0
 	beq _08039908
 	ldr r1, _08039904 @ =gPlayerEntity

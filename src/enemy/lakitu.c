@@ -242,7 +242,7 @@ void Lakitu_Cloudless(Entity* this) {
 }
 
 bool32 sub_0803CA4C(Entity* this) {
-    if (sub_0806FCB8(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x28) == 0) {
+    if (EntityWithinDistance(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x28) == 0) {
         if (EntityInRectRadius(this, &gPlayerEntity, 0x70, 0x50)) {
             return 1;
         }
@@ -267,7 +267,7 @@ void sub_0803CA84(Entity* this, u32 unkParameter) {
 }
 
 void sub_0803CAD0(Entity* this) {
-    if (sub_0806FCB8(this, this->field_0x74.HWORD, this->field_0x76.HWORD, 1) == 0) {
+    if (EntityWithinDistance(this, this->field_0x74.HWORD, this->field_0x76.HWORD, 1) == 0) {
         this->direction =
             sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, this->field_0x74.HWORD, this->field_0x76.HWORD);
 
@@ -361,7 +361,7 @@ void sub_0803CC08(Entity* this) {
         return;
     }
 
-    if (!sub_0806FCB8(this, cloud->x.HALF.HI, cloud->y.HALF.HI, 6)) {
+    if (!EntityWithinDistance(this, cloud->x.HALF.HI, cloud->y.HALF.HI, 6)) {
         return;
     }
 

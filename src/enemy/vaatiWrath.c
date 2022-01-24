@@ -828,11 +828,11 @@ u32 sub_0804207C(Entity* this) {
     x = this->x.HALF.HI;
     y = this->y.HALF.HI - 0x10;
     arm = ((VaatiWrathHeapStruct*)this->myHeap)->arms[0];
-    if ((arm != NULL) && (arm->action >= 5) && sub_0806FCB8(arm, x, y, 0x30)) {
+    if ((arm != NULL) && (arm->action >= 5) && EntityWithinDistance(arm, x, y, 0x30)) {
         return sub_080045D4(arm->x.HALF.HI, arm->y.HALF.HI, x, y);
     } else {
         arm = ((VaatiWrathHeapStruct*)this->myHeap)->arms[1];
-        if (((arm != NULL) && (arm->action >= 5)) && sub_0806FCB8(arm, x, y, 0x30)) {
+        if (((arm != NULL) && (arm->action >= 5)) && EntityWithinDistance(arm, x, y, 0x30)) {
             return sub_080045D4(arm->x.HALF.HI, arm->y.HALF.HI, x, y);
         } else {
             if (gPlayerEntity.y.HALF.HI < 0x40) {

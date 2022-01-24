@@ -604,7 +604,6 @@ SECTIONS {
         /* END npcs */
         src/npcUtils.o(.text);
         src/coord.o(.text); /* physics? */
-        asm/coord.o(.text);
         src/playerItem/playerItem12.o(.text);
         src/playerItem/playerItemPacciCane.o(.text);
         src/player.o(.text);
@@ -936,7 +935,7 @@ SECTIONS {
         data/data_080B7910.o(.rodata);
         data/const/playerItem/playerItemCellOverwriteSet.o(.rodata);
         data/data_080B7B74.o(.rodata);
-        src/coord.o(.rodata);
+        src/sineTable.o(.rodata);
         data/data_080C93E0.o(.rodata);
         src/enemy/octorok.o(.rodata);
         data/animations/enemy/octorok.o(.rodata);
@@ -1328,6 +1327,8 @@ SECTIONS {
         data/const/npc/npc58.o(.rodata);
         src/npcDefinitions.o(.rodata);
         data/data_081146D0.o(.rodata);
+        src/coord.o(.rodata);
+        src/playerHitbox.o(.rodata);
         data/gfx/sprite_frames.o(.rodata);
         data/const/playerItem/playerItem12.o(.rodata);
         data/const/playerItem/playerItemPacciCane.o(.rodata);

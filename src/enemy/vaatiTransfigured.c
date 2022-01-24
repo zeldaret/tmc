@@ -866,7 +866,7 @@ void sub_080406A0(Entity* this) {
         uVar6 = gRoomControls.origin_x + gUnk_080D0B58[tmp = uVar5 * 2];
         uVar4 = gRoomControls.origin_y + gUnk_080D0B58[tmp + 1];
     }
-    if (sub_0806FCB8(this, uVar6, uVar4, 0x1c)) {
+    if (EntityWithinDistance(this, uVar6, uVar4, 0x1c)) {
         if (uVar5 != 0) {
             uVar5 = 0;
         } else {
@@ -901,7 +901,7 @@ void sub_08040770(Entity* this) {
         tmp5 = gRoomControls.origin_x + gUnk_080D0B64[index = tmp2 * 2];
         tmp6 = gRoomControls.origin_y + gUnk_080D0B64[index + 1];
     }
-    if (sub_0806FCB8(this, tmp5, tmp6, 0x1c)) {
+    if (EntityWithinDistance(this, tmp5, tmp6, 0x1c)) {
         if (this->animationState != 2) {
             if (tmp & 8) {
                 tmp2 += 1;

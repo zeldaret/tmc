@@ -279,7 +279,7 @@ void sub_08046B18(GyorgMaleEntity* this) {
 }
 
 void sub_08046B8C(GyorgMaleEntity* this) {
-    if (sub_0806FCB8(super, this->unk_80, this->unk_82, 4)) {
+    if (EntityWithinDistance(super, this->unk_80, this->unk_82, 4)) {
         super->subAction = 3;
         this->unk_76 = super->direction << 8;
         this->unk_80 = gRoomControls.origin_x + 0x200;
@@ -309,7 +309,7 @@ void sub_08046C04(GyorgMaleEntity* this) {
 }
 
 void sub_08046C88(GyorgMaleEntity* this) {
-    if (sub_0806FCB8(super, this->unk_80, this->unk_82, 4)) {
+    if (EntityWithinDistance(super, this->unk_80, this->unk_82, 4)) {
         super->subAction = 1;
         sub_08048178(this, sub_08048158(this->unk_70));
         sub_08047D88(this);
@@ -367,7 +367,7 @@ void sub_08046D98(GyorgMaleEntity* this) {
 }
 
 void sub_08046E0C(GyorgMaleEntity* this) {
-    if (sub_0806FCB8(super, this->unk_80, this->unk_82, 4)) {
+    if (EntityWithinDistance(super, this->unk_80, this->unk_82, 4)) {
         super->subAction = 3;
         this->unk_76 = super->direction << 8;
         sub_08047D88(this);
@@ -468,7 +468,7 @@ void sub_0804702C(GyorgMaleEntity* this) {
         }
     }
     sub_08047DF0(this, ((0x100 - super->direction) & 0xFF) << 8);
-    if (sub_0806FCB8(super, this->unk_80, this->unk_82, (super->speed >> 0x10) + 0x10)) {
+    if (EntityWithinDistance(super, this->unk_80, this->unk_82, (super->speed >> 0x10) + 0x10)) {
         super->subAction = 2;
         this->unk_76 = super->direction << 8;
         super->speed = 0x280;
@@ -628,7 +628,7 @@ void sub_080473F0(GyorgMaleEntity* this) {
         }
     }
     sub_08047DF0(this, ((0x100 - super->direction) & 0xFF) << 8);
-    if (sub_0806FCB8(super, this->unk_80, this->unk_82, 8)) {
+    if (EntityWithinDistance(super, this->unk_80, this->unk_82, 8)) {
         super->subAction = 2;
         this->unk_76 = super->direction << 8;
         super->speed = 0x180;
@@ -796,7 +796,7 @@ void sub_080477F0(GyorgMaleEntity* this) {
     }
     super->direction = sub_080045DA(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
     sub_08047E48(this);
-    if (!sub_0806FCB8(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x80)) {
+    if (!EntityWithinDistance(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x80)) {
         super->action = 2;
         super->subAction = 0;
         super->spriteOrientation.flipY = 2;
@@ -804,11 +804,11 @@ void sub_080477F0(GyorgMaleEntity* this) {
         super->direction = super->animationState;
         return;
     }
-    if (!sub_0806FCB8(super, gRoomControls.origin_x + 0x200, gRoomControls.origin_y + 0x210, 0x100)) {
+    if (!EntityWithinDistance(super, gRoomControls.origin_x + 0x200, gRoomControls.origin_y + 0x210, 0x100)) {
         super->spriteOrientation.flipY = 3;
         super->spriteRendering.b3 = 3;
     }
-    if (sub_0806FCB8(super, this->unk_80, this->unk_82, 4)) {
+    if (EntityWithinDistance(super, this->unk_80, this->unk_82, 4)) {
         super->subAction = 2;
         this->unk_76 = super->animationState << 8;
         this->unk_74 = gUnk_080D1BF0[Random() & 1];
@@ -861,7 +861,7 @@ void sub_08047978(GyorgMaleEntity* this) {
             tmp->parent = super;
         }
     }
-    if (!sub_0806FCB8(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x80)) {
+    if (!EntityWithinDistance(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x80)) {
         super->action = 2;
         super->subAction = 0;
         super->spriteOrientation.flipY = 2;
@@ -902,7 +902,7 @@ void sub_08047B08(GyorgMaleEntity* this) {
     super->direction = sub_080045DA(this->unk_80 - super->x.HALF.HI, this->unk_82 - super->y.HALF.HI);
     super->speed = 0x200;
     sub_08047E58(this);
-    if (!sub_0806FCB8(super, this->unk_80, this->unk_82, 4))
+    if (!EntityWithinDistance(super, this->unk_80, this->unk_82, 4))
         return;
     if (super->type == 0) {
         super->action = 7;
@@ -1019,7 +1019,7 @@ void sub_08047D88(GyorgMaleEntity* this) {
         return;
     if (super->animIndex == 1)
         return;
-    if (!sub_0806FCB8(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x20))
+    if (!EntityWithinDistance(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x20))
         return;
     gPlayerState.field_0x14 = 1;
     if (gPlayerEntity.z.HALF.HI != 0)
@@ -1149,7 +1149,7 @@ void sub_08048004(GyorgMaleEntity* this) {
         } else {
             u32 b = super->spriteRendering.b3;
             if (b != 3) {
-                if (sub_0806FCB8(&gPlayerEntity, super->x.HALF.HI, super->y.HALF.HI, 0x24)) {
+                if (EntityWithinDistance(&gPlayerEntity, super->x.HALF.HI, super->y.HALF.HI, 0x24)) {
                     if (!(this->unk_7c & 2)) {
                         u32 tmp = sub_080045DA(gPlayerEntity.x.HALF.HI - super->x.HALF.HI,
                                                gPlayerEntity.y.HALF.HI - super->y.HALF.HI);

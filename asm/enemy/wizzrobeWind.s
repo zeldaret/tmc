@@ -789,7 +789,7 @@ sub_0802FA88: @ 0x0802FA88
 	adds r6, #0x7a
 	ldrh r2, [r6]
 	movs r3, #2
-	bl sub_0806FCB8
+	bl EntityWithinDistance
 	cmp r0, #0
 	beq _0802FAF6
 	adds r1, r4, #0
