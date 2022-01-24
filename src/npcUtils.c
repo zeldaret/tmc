@@ -337,4 +337,134 @@ void sub_0806F188(Entity* ent) {
         gSave.unk1C1[idx] = 0xF3;
 }
 
-ASM_FUNC("asm/non_matching/showNPCDialogue.inc", void ShowNPCDialogue(Entity* ent, Dialog* dia));
+void ShowNPCDialogue(Entity* ent, Dialog* dia) {
+    u32 uVar1;
+    s32 temp;
+    u32 uVar2;
+    u32 uVar3;
+    s32 uVar4;
+    int iVar5;
+
+    temp = *(((u16*)dia) + 1);
+    uVar1 = (temp >> 4) & 1;
+    temp &= 0xf;
+    switch (temp) {
+        case 2:
+            uVar3 = (int)*(u32*)dia;
+            temp = (s32)uVar3 >> 0xc & 0xf;
+            uVar3 = uVar3 & 0xfff;
+            iVar5 = 0;
+            switch (temp) {
+                case 0:
+                    iVar5 = CheckRoomFlag(uVar3);
+                _SetRoomFlag:
+                    SetRoomFlag(uVar3);
+                    break;
+                case 1:
+                    iVar5 = CheckLocalFlag(uVar3);
+                _SetLocalFlag:
+                    SetLocalFlag(uVar3);
+                    break;
+                case 2:
+                    iVar5 = CheckGlobalFlag(uVar3);
+                    SetGlobalFlag(uVar3);
+                    break;
+            }
+        _check:
+            if (iVar5 == 0) {
+                uVar2 = dia->data.indices.b;
+            } else {
+                uVar2 = dia->data.indices.a;
+            }
+            break;
+        case 3:
+            uVar3 = (int)*(u32*)dia;
+            uVar4 = (s32)uVar3 >> 0xc & 0xf;
+            uVar3 = uVar3 & 0xfff;
+            iVar5 = 0;
+            switch (uVar4) {
+                case 0:
+                    iVar5 = CheckRoomFlag(uVar3);
+                    if (iVar5 == 0) {
+                        goto _SetRoomFlag;
+                    } else {
+                        ClearRoomFlag(uVar3);
+                    }
+                    break;
+                case 1:
+                    iVar5 = CheckLocalFlag(uVar3);
+                    if (iVar5 == 0) {
+                        goto _SetLocalFlag;
+                    } else {
+                        ClearLocalFlag(uVar3);
+                    }
+                    break;
+                case 2:
+                    iVar5 = CheckGlobalFlag(uVar3);
+                    if (iVar5 == 0) {
+                        SetGlobalFlag(uVar3);
+                    } else {
+                        ClearGlobalFlag(uVar3);
+                    }
+                    break;
+            }
+            goto _check;
+        case 4:
+            uVar3 = (int)*(u32*)dia;
+            uVar4 = (s32)uVar3 >> 0xc & 0xf;
+            uVar3 = uVar3 & 0xfff;
+            iVar5 = 0;
+            {
+                u32 local;
+                switch (uVar4) {
+                    case 0:
+                        local = CheckRoomFlag(uVar3);
+                        break;
+                    case 1:
+                        local = CheckLocalFlag(uVar3);
+                        break;
+                    case 2:
+                        local = CheckGlobalFlag(uVar3);
+                        break;
+                    case 3:
+                        local = CheckKinstoneFused(uVar3);
+                        break;
+                    case 4:
+                        local = GetInventoryValue(uVar3);
+                        if (local != 0) {
+                            local = 1;
+                        }
+                        break;
+                    default:
+                        goto _check;
+                }
+                iVar5 = local;
+            }
+            goto _check;
+        case 5:
+            if (dia->data.func != 0) {
+                dia->data.func(ent);
+                return;
+            }
+        default:
+        case 0:
+            uVar2 = 0;
+            break;
+        case 1:
+            uVar2 = dia->data.indices.b;
+            break;
+        case 6:
+            if ((gPlayerState.flags & 0x80) != 0) {
+                uVar2 = dia->data.indices.b;
+            } else {
+                uVar2 = dia->data.indices.a;
+            }
+            break;
+    }
+
+    if (uVar1 != 0) {
+        MessageNoOverlap(uVar2, ent);
+    } else {
+        MessageFromTarget(uVar2);
+    }
+}
