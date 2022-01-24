@@ -273,7 +273,7 @@ void Object2B(Entity*);
 void Beanstalk(Entity*);
 void Smoke(Entity*);
 void PushableRock(Entity*);
-void HittableLever(Entity*);
+void HittableLever();
 void Object30(Entity*);
 void FrozenFlower(Entity*);
 void PullableMushroom(Entity*);

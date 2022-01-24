@@ -259,8 +259,6 @@ u32 sub_08081F7C(Entity* this, u32 r7) {
     return 1;
 }
 
-extern void sub_080044AE(Entity*, u32, u32);
-
 void sub_08081FF8(Entity* this) {
     u32 direction;
     u32 i;

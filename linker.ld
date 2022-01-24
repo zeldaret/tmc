@@ -691,7 +691,7 @@ SECTIONS {
         asm/object/beanstalk.o(.text);
         src/object/smoke.o(.text);
         asm/object/pushableRock.o(.text);
-        asm/object/hittableLever.o(.text);
+        src/object/hittableLever.o(.text);
         asm/object/object30.o(.text);
         src/object/frozenFlower.o(.text);
         asm/object/pullableMushroom.o(.text);
@@ -1416,7 +1416,7 @@ SECTIONS {
         data/const/object/smoke.o(.rodata);
         data/const/object/pushableRock.o(.rodata);
         data/animations/object/pushableRock.o(.rodata);
-        data/const/object/hittableLever.o(.rodata);
+        src/object/hittableLever.o(.rodata);
         data/const/object/object30.o(.rodata);
         data/const/object/object31.o(.rodata);
         data/const/object/pullableMushroom.o(.rodata);

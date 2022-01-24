@@ -30,8 +30,6 @@ typedef struct {
 
 enum PullableLeverPart { HANDLE, MIDDLE, SOCKET };
 
-extern void sub_080044AE(Entity*, u32, u32);
-
 extern u16 gUnk_02021F00[];
 extern Hitbox gUnk_080FD270;
 extern Hitbox gUnk_080FD278;
