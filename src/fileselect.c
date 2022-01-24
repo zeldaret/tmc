@@ -875,11 +875,11 @@ NONMATCH("asm/non_matching/fileScreen/sub_080610B8.inc", void sub_080610B8(void)
 END_NONMATCH
 
 void sub_08051358(void) {
-    gMenu.unk10.a[2] = gSaveHeader->language == 0 ? 4 : 3;
+    gGenericMenu.unk10.a[2] = gSaveHeader->language == 0 ? 4 : 3;
 
-    if (gMenu.unk10.a[0] != 0x0b || gMenu.unk10.a[1] != 0x5) {
-        gMenu.unk10.a[1] = 0x5;
-        gMenu.unk10.a[0] = 0xb;
+    if (gGenericMenu.unk10.a[0] != 0x0b || gGenericMenu.unk10.a[1] != 0x5) {
+        gGenericMenu.unk10.a[1] = 0x5;
+        gGenericMenu.unk10.a[0] = 0xb;
         SoundReq(SFX_TEXTBOX_NEXT);
     }
 }
@@ -940,7 +940,7 @@ void sub_08051480(u32 c) {
     u32 idx;
 
     result = sub_080514BC(c);
-    idx = gMenu.unk10.a[3];
+    idx = gGenericMenu.unk10.a[3];
 
     if (result == RESULT_INVALID) {
         return;
@@ -955,7 +955,7 @@ void sub_08051480(u32 c) {
         idx = FILENAME_LENGTH - 1;
     }
 
-    gMenu.unk10.a[3] = idx + 1;
+    gGenericMenu.unk10.a[3] = idx + 1;
     gSave.name[idx] = c;
     sub_08051574(SFX_6B);
 }
@@ -976,7 +976,7 @@ u32 sub_080514BC(u32 a1) {
             return 1;
     }
 
-    idx = gMenu.unk10.a[3];
+    idx = gGenericMenu.unk10.a[3];
     if (idx == 0)
         return 0;
 
@@ -1108,7 +1108,7 @@ NONMATCH("asm/non_matching/fileScreen/sub_08051738.inc", void sub_08051738(void)
         } else {
             uVar3++;
         }
-        (&gMenu.selectMtx)[i] = uVar3;
+        (&gGenericMenu.selectMtx)[i] = uVar3;
     }
     if (uVar3 == 0) {
         gMenu.transitionTimer = 0x3c;
@@ -1118,9 +1118,9 @@ NONMATCH("asm/non_matching/fileScreen/sub_08051738.inc", void sub_08051738(void)
         sub_080A7114(1);
     }
     uVar3++;
-    gMenu.unk16 = uVar3;
-    gMenu.unk10.a[3] = 4;
-    gMenu.unk14 = uVar3;
+    gGenericMenu.unk16 = uVar3;
+    gGenericMenu.unk10.a[3] = 4;
+    gGenericMenu.unk14 = uVar3;
 }
 END_NONMATCH
 
@@ -1128,7 +1128,7 @@ s32 sub_080517B4(s32 a1) {
     u32 i = gUnk_02019EE0.unk7;
     if (a1 != 0) {
         for (i = i + a1; i < 5; i += a1) {
-            if (gMenu.unk10.a[i] != 0 && gMenu.unk10.a[i] != 4)
+            if (gGenericMenu.unk10.a[i] != 0 && gGenericMenu.unk10.a[i] != 4)
                 return i;
         }
 

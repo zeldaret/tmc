@@ -44,8 +44,11 @@ typedef struct {
     /*0x08*/ u16 transitionTimer;
     /*0x0a*/ u16 field_0xa;
     /*0x0c*/ u8* field_0xc;
-    /*0x10*/ // u8 focusCoords[2];
-    union {
+} Menu;
+
+typedef struct {
+    /*0x00*/ Menu base;
+    /*0x10*/ union {
         s32 i;
         u16 h[2];
         u8 a[4];
@@ -75,9 +78,15 @@ typedef struct {
     /*0x2c*/ s8 unk2c;
     /*0x2d*/ u8 unk2d;
     /*0x2e*/ union SplitHWord unk2e;
-} Menu;
-static_assert(sizeof(Menu) == 0x30);
+} GenericMenu;
+static_assert(sizeof(GenericMenu) == 0x30);
+
+typedef struct {
+    Menu base;
+} KinstoneMenu;
 
 extern Menu gMenu;
+#define gGenericMenu (*(GenericMenu*)&gMenu)
+#define gKinstoneMenu (*(KinstoneMenu*)&gMenu)
 
 #endif
