@@ -62,13 +62,6 @@ extern struct_02017AA0 gUnk_02017AA0[];
 extern u8 gUnk_03003DE4;
 
 typedef struct {
-    u8 _0[4];
-    u8 evt_type;
-    u8 _5[3];
-} struct_080C9CBC;
-extern struct_080C9CBC gUnk_080C9CBC[];
-
-typedef struct {
     u8 evt_type;
     u8 entity_idx;
     u8 _2[6];

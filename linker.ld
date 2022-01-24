@@ -854,6 +854,8 @@ SECTIONS {
 #endif
         src/sound.o(.text);
         asm/staffroll.o(.text);
+        src/menu/kinstone_menu.o(.text);
+        src/menu/figurine_menu.o(.text);
         src/subtask.o(.text);
         asm/subtask2.o(.text); /* subtask.c */
         src/playerItem/playerItemSword.o(.text);
@@ -1598,6 +1600,9 @@ SECTIONS {
         data/const/demo.o(.rodata);
 #endif
         data/data_08127280.o(.rodata);
+        src/menu/kinstone_menu.o(.rodata);
+        src/menu/figurine_menu.o(.rodata);
+        src/subtask.o(.rodata);
         data/gfx/figurines.o(.rodata);
         data/data_08128A38.o(.rodata);
         src/itemMenuTable.o(.rodata);
