@@ -731,7 +731,7 @@ SECTIONS {
         asm/object/giantRock2.o(.text);
         asm/object/object52.o(.text);
         asm/object/object53.o(.text);
-        asm/object/pullableLever.o(.text);
+        src/object/pullableLever.o(.text);
         src/object/minecart.o(.text);
         asm/object/minecart.o(.text);
         src/object/thoughtBubble.o(.text);
@@ -1465,7 +1465,7 @@ SECTIONS {
         data/animations/object/minishSizedEntrance.o(.rodata);
         data/const/object/giantRock2.o(.rodata);
         data/const/object/object53.o(.rodata);
-        data/const/object/pullableLever.o(.rodata);
+        src/object/pullableLever.o(.rodata);
         data/animations/object/pullableLever.o(.rodata);
         data/const/object/minecart.o(.rodata);
         data/animations/object/minecart.o(.rodata);

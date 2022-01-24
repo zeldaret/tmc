@@ -23,7 +23,7 @@ typedef struct {
 enum PushableLeverAction {
     INIT,
     IDLE,
-    PUSHING
+    PUSHING,
 };
 
 extern void (*const PushableLever_Actions[])(PushableLeverEntity*);

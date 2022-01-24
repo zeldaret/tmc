@@ -310,7 +310,7 @@ void GiantRock(Entity*);
 void GiantRock2(Entity*);
 void Object52(Entity*);
 void Object53(Entity*);
-void PullableLever(Entity*);
+void PullableLever();
 void Minecart(Entity*);
 void ThoughtBubble(Entity*);
 void HiddenLadderDown(Entity*);

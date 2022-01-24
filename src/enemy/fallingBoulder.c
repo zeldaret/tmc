@@ -137,7 +137,6 @@ void nullsub_148(Entity* this) {
     /* ... */
 }
 
-
 void sub_0802C4B0(Entity* this) {
     u32 offset;
     u32 index;
