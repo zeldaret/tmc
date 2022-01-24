@@ -687,14 +687,14 @@ sub_08030F00: @ 0x08030F00
 	adds r6, #0x38
 	ldrb r1, [r6]
 	adds r0, r4, #0
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r5, #0
 	adds r1, #0x80
 	strh r0, [r1]
 	adds r0, r4, #1
 	mov sl, r0
 	ldrb r1, [r6]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r5, #0
 	adds r1, #0x82
 	strh r0, [r1]
@@ -703,7 +703,7 @@ sub_08030F00: @ 0x08030F00
 	mov sb, r3
 	ldrb r1, [r6]
 	mov r0, sb
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r5, #0
 	adds r1, #0x84
 	strh r0, [r1]
@@ -711,7 +711,7 @@ sub_08030F00: @ 0x08030F00
 	adds r0, r0, r4
 	mov r8, r0
 	ldrb r1, [r6]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r5, #0
 	adds r1, #0x86
 	strh r0, [r1]

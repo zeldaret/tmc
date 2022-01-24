@@ -160,4 +160,9 @@ extern void sub_08079BD8(Entity*);
 extern void sub_080AEFB4(Entity*);
 extern void UnloadOBJPalette(Entity*);
 void sub_080322E8(Entity*);
+extern u32 GetTileIndex(u32, u32);
+extern void sub_0806FBB4(Entity*);
+extern u32 sub_080002D4(s32, s32, u32);
+extern void sub_08078930(Entity*);
+extern void sub_080044AE(Entity*, u32, u32);
 #endif

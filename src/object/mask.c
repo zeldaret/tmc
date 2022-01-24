@@ -4,7 +4,6 @@
 extern void (*MaskActionFuncs[])(Entity*);
 
 extern void sub_08000148(u16, u16, u32);
-extern s16 sub_080001DA(u16, u32);
 
 extern void sub_0805457C(Entity*, s32);
 
@@ -48,8 +47,8 @@ void sub_080929A4(Entity* this) {
 
     this->frameIndex = this->type2 & 0x3f;
 
-    this->field_0x7c.HALF.HI = COORD_TO_TILE(this);
-    this->field_0x7c.HALF.LO = sub_080001DA(this->field_0x7c.HALF.HI, 1);
+    this->field_0x7c.HALF_U.HI = COORD_TO_TILE(this);
+    this->field_0x7c.HALF_U.LO = GetTileIndex(this->field_0x7c.HALF_U.HI, 1);
 
     this->field_0x7a.HWORD = sub_080002E0((u16)this->field_0x7c.HALF.HI, 1);
 

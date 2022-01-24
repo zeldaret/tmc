@@ -84,7 +84,7 @@ _08096B12:
 	adds r6, r4, #0
 	adds r6, #0x38
 	ldrb r1, [r6]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r4, #0
 	adds r1, #0x74
 	strh r0, [r1]

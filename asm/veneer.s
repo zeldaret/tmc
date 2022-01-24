@@ -186,8 +186,8 @@ sub_080001D0: @ 0x080001D0
 	strb r0, [r3, r1]
 	bx lr
 
-	non_word_aligned_thumb_func_start sub_080001DA
-sub_080001DA: @ 0x080001DA
+	non_word_aligned_thumb_func_start GetTileIndex
+GetTileIndex: @ 0x080001DA
 	lsls r1, r1, #3
 	ldr r2, _08000224 @ =gUnk_08000228
 	ldr r1, [r2, r1]

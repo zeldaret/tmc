@@ -691,7 +691,7 @@ SECTIONS {
         asm/object/beanstalk.o(.text);
         src/object/smoke.o(.text);
         asm/object/pushableRock.o(.text);
-        asm/object/hittableLever.o(.text);
+        src/object/hittableLever.o(.text);
         asm/object/object30.o(.text);
         src/object/frozenFlower.o(.text);
         asm/object/pullableMushroom.o(.text);
@@ -731,7 +731,7 @@ SECTIONS {
         asm/object/giantRock2.o(.text);
         asm/object/object52.o(.text);
         asm/object/object53.o(.text);
-        asm/object/pullableLever.o(.text);
+        src/object/pullableLever.o(.text);
         src/object/minecart.o(.text);
         asm/object/minecart.o(.text);
         src/object/thoughtBubble.o(.text);
@@ -769,7 +769,7 @@ SECTIONS {
         asm/object/macroDecorations.o(.text);
         asm/object/object79.o(.text);
         src/object/steam.o(.text);
-        asm/object/pushableLever.o(.text);
+        src/object/pushableLever.o(.text);
         asm/object/macroShoes.o(.text);
         asm/object/objectOnSpinyBeetle.o(.text);
         src/object/object7E.o(.text);
@@ -777,7 +777,7 @@ SECTIONS {
         asm/object/board.o(.text);
         asm/object/object81.o(.text);
         src/object/bigVortex.o(.text);
-        asm/object/bigPushableLever.o(.text);
+        src/object/bigPushableLever.o(.text);
         asm/object/smallIceBlock.o(.text);
         asm/object/bigIceBlock.o(.text);
         src/object/object86.o(.text);
@@ -1416,7 +1416,7 @@ SECTIONS {
         data/const/object/smoke.o(.rodata);
         data/const/object/pushableRock.o(.rodata);
         data/animations/object/pushableRock.o(.rodata);
-        data/const/object/hittableLever.o(.rodata);
+        src/object/hittableLever.o(.rodata);
         data/const/object/object30.o(.rodata);
         data/const/object/object31.o(.rodata);
         data/const/object/pullableMushroom.o(.rodata);
@@ -1465,7 +1465,7 @@ SECTIONS {
         data/animations/object/minishSizedEntrance.o(.rodata);
         data/const/object/giantRock2.o(.rodata);
         data/const/object/object53.o(.rodata);
-        data/const/object/pullableLever.o(.rodata);
+        src/object/pullableLever.o(.rodata);
         data/animations/object/pullableLever.o(.rodata);
         data/const/object/minecart.o(.rodata);
         data/animations/object/minecart.o(.rodata);
@@ -1511,7 +1511,7 @@ SECTIONS {
         data/const/object/object79.o(.rodata);
         data/animations/object/object79.o(.rodata);
         src/object/steam.o(.rodata);
-        data/const/object/pushableLever.o(.rodata);
+        src/object/pushableLever.o(.rodata);
         data/animations/object/pushableLever.o(.rodata);
         data/const/object/macroShoes.o(.rodata);
         data/const/object/objectOnSpinyBeetle.o(.rodata);
@@ -1521,7 +1521,7 @@ SECTIONS {
         data/const/object/object81.o(.rodata);
         data/const/object/bigVortex.o(.rodata);
         data/animations/object/bigVortex.o(.rodata);
-        data/const/object/bigPushableLever.o(.rodata);
+        src/object/bigPushableLever.o(.rodata);
         data/animations/object/bigPushableLever.o(.rodata);
         data/const/object/smallIceBlock.o(.rodata);
         data/animations/object/smallIceBlock.o(.rodata);

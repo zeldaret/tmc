@@ -190,7 +190,7 @@ sub_0808B3AC: @ 0x0808B3AC
 	adds r5, r6, #0
 	adds r5, #0x38
 	ldrb r1, [r5]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r6, #0
 	adds r1, #0x72
 	strh r0, [r1]

@@ -46,7 +46,6 @@ u32 sub_08058B08(ManagerC*, u32, u32, const struct_08108228*);
 void sub_08058B5C(ManagerC*, u32);
 
 extern void sub_0805622C(struct BgAffineDstData*, u32, u32);
-extern void sub_080044AE(Entity*, u32, u32);
 
 extern u8 gUnk_03003DE4[0xC];
 

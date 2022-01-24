@@ -291,7 +291,7 @@ sub_0808FB68: @ 0x0808FB68
 	adds r1, r4, #0
 	adds r1, #0x38
 	ldrb r1, [r1]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r0, #0
 	ldr r0, _0808FBAC @ =0x00004031
 	cmp r1, r0
@@ -324,7 +324,7 @@ _0808FBB0:
 	adds r1, r4, #0
 	adds r1, #0x38
 	ldrb r1, [r1]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r0, #0
 	ldr r0, _0808FBF8 @ =0x00004031
 	cmp r1, r0
@@ -364,7 +364,7 @@ sub_0808FBFC: @ 0x0808FBFC
 	adds r1, r4, #0
 	adds r1, #0x38
 	ldrb r1, [r1]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r0, #0
 	ldr r0, _0808FC38 @ =0x0000404A
 	cmp r1, r0
@@ -612,7 +612,7 @@ _0808FDB6:
 	adds r1, r4, #0
 	adds r1, #0x38
 	ldrb r1, [r1]
-	bl sub_080001DA
+	bl GetTileIndex
 	pop {r4, r5, pc}
 	.align 2, 0
 _0808FDE0: .4byte 0x0000010F
@@ -630,7 +630,7 @@ sub_0808FDE8: @ 0x0808FDE8
 	adds r4, r0, #0
 	adds r0, r5, #0
 	movs r1, #1
-	bl sub_080001DA
+	bl GetTileIndex
 	ldr r6, _0808FE28 @ =0x0000402E
 	cmp r0, r6
 	bne _0808FE30
@@ -684,7 +684,7 @@ _0808FE58:
 	adds r4, r0, #0
 	adds r0, r5, #0
 	movs r1, #1
-	bl sub_080001DA
+	bl GetTileIndex
 	ldr r6, _0808FE98 @ =0x0000402F
 	cmp r0, r6
 	bne _0808FEA0
@@ -851,7 +851,7 @@ _0808FF9C:
 	strh r7, [r0]
 	ldrh r0, [r0]
 	movs r1, #1
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r6, #0
 	adds r1, #0x74
 	strh r0, [r1]
@@ -872,7 +872,7 @@ _0808FFC0:
 	strh r7, [r0]
 	ldrh r0, [r0]
 	movs r1, #1
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r6, #0
 	adds r1, #0x74
 	strh r0, [r1]
@@ -893,7 +893,7 @@ _0808FFC0:
 	strh r0, [r5]
 	ldrh r0, [r5]
 	movs r1, #1
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r6, #0
 	adds r1, #0x76
 	strh r0, [r1]
@@ -918,7 +918,7 @@ _0809002C:
 	strh r7, [r0]
 	ldrh r0, [r0]
 	movs r1, #1
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r6, #0
 	adds r1, #0x76
 	strh r0, [r1]
@@ -939,7 +939,7 @@ _0809002C:
 	strh r0, [r4]
 	ldrh r0, [r4]
 	movs r1, #1
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r6, #0
 	adds r1, #0x74
 	strh r0, [r1]
@@ -974,7 +974,7 @@ sub_08090094: @ 0x08090094
 	adds r4, r0, #0
 	adds r0, r7, #0
 	movs r1, #1
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r3, r0, #0
 	movs r0, #0x80
 	lsls r0, r0, #7
