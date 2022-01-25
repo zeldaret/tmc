@@ -29,7 +29,20 @@ ASM_FUNC("asm/non_matching/color/sub_0801D000.inc", void sub_0801D000(u32 a1));
 
 ASM_FUNC("asm/non_matching/color/LoadObjPalette.inc", u32 LoadObjPalette(Entity* entity, u32 a2));
 
-ASM_FUNC("asm/non_matching/color/FindPalette.inc", s32 FindPalette(u32 a1));
+s32 FindPalette(u32 a1) {
+    u32 index;
+    Palette* palette;
+    if (a1 <= 5)
+        return a1;
+
+    for (index = 6, palette = gPaletteList; index < 0x10; index++) {
+        if (a1 == palette[index]._2) {
+            return index;
+        }
+    }
+
+    return -1;
+}
 
 ASM_FUNC("asm/non_matching/color/FindFreeObjPalette.inc", u32 FindFreeObjPalette(u32 a1));
 
