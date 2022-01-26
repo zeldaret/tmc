@@ -25972,16 +25972,6 @@
     "type": "animation"
   },
   {
-    "path": "spinyBeetle/unusedLabel_0CEBDC.bin",
-    "start": 846812,
-    "size": 16
-  },
-  {
-    "path": "spinyBeetle/gUnk_080CEC1C.bin",
-    "start": 846876,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_MazaalHead_0.bin",
     "start": 847280,
     "size": 5,
