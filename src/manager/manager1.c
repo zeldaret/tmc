@@ -209,25 +209,15 @@ void sub_080573AC(Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/manager1/sub_08057450.inc", void sub_08057450(Entity* this)) {
+void sub_08057450(Entity* this) {
     s32 y;
-    // register s32 temp asm("r2");
-    s32 temp;
-    s32 y2;
     gScreen.bg3.xOffset = 0x10;
     y = gRoomControls.scroll_y;
     y -= gRoomControls.origin_y;
     y >>= 2;
 
-    // Removing temp messes with r1/r2 with regards to y
-    temp = 0x3f;
-    gScreen.bg3.yOffset = y & temp;
-
-    if (y < 0) {
-        y += 0x3f;
-    }
-
-    gScreen.bg3.tilemap = &gBG3Buffer[(y >> 6) << 8];
+    gScreen.bg3.yOffset = y & 0x3f;
+    gScreen.bg3.tilemap = &gBG3Buffer[(y / 0x40) << 8];
     if ((void*)this->z.WORD != gScreen.bg3.tilemap) {
         this->z.WORD = (u32)gScreen.bg3.tilemap;
         gScreen.bg3.updated = 1;
@@ -250,7 +240,6 @@ NONMATCH("asm/non_matching/manager1/sub_08057450.inc", void sub_08057450(Entity*
         ZV(this)[3] = (ZV(this)[3] + 1) & 3;
     }
 }
-END_NONMATCH
 
 const u16 gUnk_08107C1C[] = {
     0x1000, 0xF01, 0xE02, 0xD03, 0xC04, 0xB05, 0xA06, 0x907, 0x908, 0x909,
