@@ -1,8 +1,5 @@
 	.syntax unified
-
-	.text
-
-    push {r4, r5, r6, r7, lr}
+	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
 	adds r4, r0, #0
@@ -323,6 +320,4 @@ _0802D648:
 	pop {r3}
 	mov r8, r3
 	pop {r4, r5, r6, r7, pc}
-	.align 2, 0
-
 	.syntax divided

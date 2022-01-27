@@ -171,11 +171,7 @@ void sub_08054570(void) {
     gRoomVars.field_0x2 = 0;
 }
 
-#ifdef EU
-ASM_FUNC("asm/non_matching/eu/sub_0805457C.inc", u32 sub_0805457C(u32 arg0, u32 arg1));
-#else
 ASM_FUNC("asm/non_matching/sub_0805457C.inc", u32 sub_0805457C(u32 arg0, u32 arg1));
-#endif
 
 u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
     u32 prereqID;

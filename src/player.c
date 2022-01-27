@@ -3513,7 +3513,7 @@ void SurfaceAction_SlopeGndWater(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/player/sub_08074678.inc", void SurfaceAction_Swamp(Entity* this));
+ASM_FUNC("asm/non_matching/player/SurfaceAction_Swamp.inc", void SurfaceAction_Swamp(Entity* this));
 
 void SurfaceAction_Water(Entity* this) {
     if (!sub_080741C4()) {

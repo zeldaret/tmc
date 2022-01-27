@@ -1,7 +1,4 @@
 	.syntax unified
-
-	.text
-
 	push {r4, r5, r6, r7, lr}
 	adds r0, #0x84
 	ldr r6, [r0]
@@ -45,5 +42,4 @@ _0802D34A:
 	strb r0, [r3, #0x18]
 	bl DeleteThisEntity
 	pop {r4, r5, r6, r7, pc}
-
 	.syntax divided
