@@ -1047,7 +1047,7 @@ SECTIONS {
         src/enemy/octorokBoss.o(.rodata);
         data/animations/enemy/octorokBoss.o(.rodata);
         data/const/enemy/flyingPot.o(.rodata);
-        data/const/enemy/gibdo.o(.rodata);
+        src/enemy/gibdo.o(.rodata);
         data/animations/enemy/gibdo.o(.rodata);
         src/enemy/octorokGolden.o(.rodata);
         data/const/enemy/tektiteGolden.o(.rodata);
