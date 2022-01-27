@@ -1,11 +1,4 @@
-	.include "asm/macros.inc"
-
-	.include "constants/constants.inc"
-
 	.syntax unified
-
-	.text
-
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}

@@ -502,7 +502,7 @@ const u8 gUnk_08107C0F[] = { 0x8, 0x1e, 0x4, 0x12, 0x0 };
 const u8 gUnk_08107C14[] = { 0x8, 0x1e, 0x8, 0xFE, 0x0 };
 
 #ifdef EU
-ASM_FUNC("asm/non_matching/eu/TextBoxHandlerQuestion.inc", static void TextDispEnquiry(TextRender* ctb))
+ASM_FUNC("asm/non_matching/eu/TextDispEnquiry.inc", static void TextDispEnquiry(TextRender* ctb))
 #else
 
 static void TextDispEnquiry(TextRender* this) {

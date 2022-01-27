@@ -1,11 +1,4 @@
-	.include "asm/macros.inc"
-
-	.include "constants/constants.inc"
-
 	.syntax unified
-
-	.text
-
 	push {lr}
 	adds r2, r0, #0
 	movs r0, #7

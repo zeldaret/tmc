@@ -96,7 +96,7 @@ void sub_080888F4(PressurePlateEntity* this) {
     }
 }
 
-static u32 NONMATCH("asm/non_matching/pressurePlate/sub_08088938.inc", sub_08088938(PressurePlateEntity* this)) {
+static NONMATCH("asm/non_matching/pressurePlate/sub_08088938.inc", u32 sub_08088938(PressurePlateEntity* this)) {
     u16 x, y;
     s32 num;
     u8* tmp;

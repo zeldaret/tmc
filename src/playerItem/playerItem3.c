@@ -27,11 +27,7 @@ void PlayerItem3(Entity* this) {
     }
 }
 
-#ifdef EU
-ASM_FUNC("asm/non_matching/eu/sub_0801B4C8.inc", void sub_0801B4C8(Entity* this))
-#else
 ASM_FUNC("asm/non_matching/playerItem3/sub_0801B4C8.inc", void sub_0801B4C8(Entity* this))
-#endif
 
 ASM_FUNC("asm/non_matching/playerItem3/sub_0801B584.inc", void sub_0801B584(Entity* this))
 

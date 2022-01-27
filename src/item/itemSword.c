@@ -16,11 +16,7 @@ void ItemSword(ItemBehavior* this, u32 arg1) {
     gUnk_0811BD44[this->stateID](this, arg1);
 }
 
-#ifdef EU
-ASM_FUNC("asm/non_matching/eu/sub_08075338.inc", void sub_08075338(ItemBehavior* this, u32 arg1))
-#else
 ASM_FUNC("asm/non_matching/itemSword/sub_08075338.inc", void sub_08075338(ItemBehavior* this, u32 arg1))
-#endif
 
 ASM_FUNC("asm/non_matching/itemSword/sub_080754B8.inc", void sub_080754B8(ItemBehavior* this, u32 arg1))
 
