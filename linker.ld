@@ -375,7 +375,7 @@ SECTIONS {
         asm/enemy/mulldozer.o(.text);
         src/enemy/bombarossa.o(.text);
         src/enemy/wisp.o(.text);
-        asm/enemy/spinyBeetle.o(.text);
+        src/enemy/spinyBeetle.o(.text);
         src/enemy/mazaalHead.o(.text);
         src/enemy/mazaalMacro.o(.text);
         src/enemy/mazaalHand.o(.text);
@@ -1036,7 +1036,7 @@ SECTIONS {
         data/animations/enemy/bombarossa.o(.rodata);
         data/const/enemy/wisp.o(.rodata);
         data/animations/enemy/wisp.o(.rodata);
-        data/const/enemy/spinyBeetle.o(.rodata);
+        src/enemy/spinyBeetle.o(.rodata);
         data/animations/enemy/spinyBeetle.o(.rodata);
         src/enemy/mazaalHead.o(.rodata);
         data/animations/enemy/mazaalHead.o(.rodata);
