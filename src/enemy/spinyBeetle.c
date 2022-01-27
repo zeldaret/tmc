@@ -109,7 +109,6 @@ void SpinyBeetle_Init(SpinyBeetleEntity* this) {
 }
 
 void sub_08033958(SpinyBeetleEntity* this) {
-    s32 r0, r1;
     u32 direction;
     if (sub_08033DF0(this)) {
         sub_08033E1C(this);
@@ -211,7 +210,6 @@ void sub_08033ACC(SpinyBeetleEntity* this) {
 }
 
 void sub_08033B44(SpinyBeetleEntity* this) {
-    u32 unk_80;
     u32 stop;
     if (sub_08033DF0(this)) {
         sub_08033E1C(this);
