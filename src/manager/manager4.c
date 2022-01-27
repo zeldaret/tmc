@@ -91,9 +91,6 @@ u32 sub_0805795C(Manager* this, DiggingCaveEntrance* entr) {
 
 extern void sub_08080930(u32);
 
-#ifdef EU
-ASM_FUNC("asm/non_matching/eu/sub_08057A18.inc", void sub_08057A18(Manager* this, DiggingCaveEntrance* entr))
-#else
 void sub_08057A18(Manager* this, DiggingCaveEntrance* entr) {
     u16 tmp;
     SetInitializationPriority();
@@ -106,6 +103,8 @@ void sub_08057A18(Manager* this, DiggingCaveEntrance* entr) {
     gUnk_03004030.unk_00 = entr;
     gUnk_03004030.unk_04 = gPlayerEntity.x.HALF.HI - gRoomControls.origin_x - ((entr->unk_00 & 0x3F) * 16);
     gUnk_03004030.unk_06 = gPlayerEntity.y.HALF.HI - gRoomControls.origin_y - ((entr->unk_00 & 0xFC0) >> 2);
+
+    #ifndef EU
     tmp = gUnk_03004030.unk_08;
     if (!tmp) {
         if ((entr->target_room | 0x80) != gUnk_03004030.unk_0b) {
@@ -113,10 +112,11 @@ void sub_08057A18(Manager* this, DiggingCaveEntrance* entr) {
         }
         gUnk_03004030.unk_0b = entr->target_room | 0x80;
     }
+    #endif
+    
     sub_08080930(entr->unk_03);
     DeleteManager(this);
 }
-#endif
 
 DiggingCaveEntrance* sub_08057AA8(DiggingCaveEntrance* entr, int room) {
     for (; entr->unk_00 != 0xFFFF; entr++) {
