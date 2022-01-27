@@ -180,10 +180,10 @@ void sub_08057E7C(u32 unk1) {
     u32 tmp;
     const u32* tmp2;
 
-    #ifndef EU
+#ifndef EU
     if (unk1 > 4)
         return;
-    #endif
+#endif
 
     LoadPaletteGroup(gUnk_081081E4[unk1]);
     tmp2 = &gUnk_081080A4[unk1 << 4];

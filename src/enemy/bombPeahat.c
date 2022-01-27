@@ -625,7 +625,7 @@ void sub_0802B1BC(Entity* this) {
     if (ent == 0) {
         this->action = 2;
         this->spriteSettings.draw = 1;
-    } 
+    }
 
     if (ent->field_0x80.HALF.HI) {
         CopyPosition(ent, this);
