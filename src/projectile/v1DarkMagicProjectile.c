@@ -203,7 +203,7 @@ void sub_080AAF74(Entity* this) {
         this->actionDelay = 0x1e;
         gPlayerEntity.iframes = 8;
         ModHealth(-4);
-        SoundReqClipped(&gPlayerEntity, 0x7a);
+        SoundReqClipped(&gPlayerEntity, SFX_PLY_VO6);
         if (gPlayerEntity.health == 0) {
             this->health = 0;
         }

@@ -61,7 +61,7 @@ void sub_080298A4(Entity* this) {
                 this->hitType = 0x6b;
                 this->field_0x76.HALF.HI = 0;
                 ChangeObjPalette(this, 0x7f);
-                EnqueueSFX(0xfe);
+                EnqueueSFX(SFX_HIT);
                 this->child->action = 2;
                 break;
         }
@@ -145,7 +145,7 @@ void sub_08029AA4(Entity* this) {
         this->field_0x7a.HWORD = 0x168;
         this->field_0x74.HALF.HI = 4;
         sub_08029EEC(this);
-        EnqueueSFX(0x19d);
+        EnqueueSFX(SFX_19D);
     }
 }
 
@@ -159,7 +159,7 @@ void sub_08029AE0(Entity* this) {
         this->field_0x74.HALF.HI = 0;
         sub_08029EEC(this);
         ChangeObjPalette(this, 0x77);
-        EnqueueSFX(0x182);
+        EnqueueSFX(SFX_182);
     }
 }
 
@@ -221,7 +221,7 @@ void sub_08029C2C(Entity* this) {
     if (--this->actionDelay == 0) {
         this->action = 4;
         ChangeObjPalette(this, 0x7f);
-        EnqueueSFX(0x6c);
+        EnqueueSFX(SFX_MENU_CANCEL);
     }
 }
 
@@ -275,7 +275,7 @@ void sub_08029D14(Entity* this) {
         if (--this->actionDelay == 0) {
             InitializeAnimation(this, this->animationState + 0xc);
             ChangeObjPalette(this, 0x7f);
-            EnqueueSFX(0x6c);
+            EnqueueSFX(SFX_MENU_CANCEL);
         }
     } else {
         GetNextFrame(this);
@@ -284,7 +284,7 @@ void sub_08029D14(Entity* this) {
             this->actionDelay = 0x78;
             this->hitType = 0x6c;
             this->hitbox = &gUnk_080FD298;
-            EnqueueSFX(0x6b);
+            EnqueueSFX(SFX_6B);
         }
     }
 }
@@ -454,7 +454,7 @@ void sub_0802A098(Entity* this) {
     if (sub_08029F48(this)) {
         sub_08029E0C(this);
         sub_08029EEC(this);
-        EnqueueSFX(0x104);
+        EnqueueSFX(SFX_104);
     }
 
     sub_08029FB4(this, this->x.HALF.HI - uVar1, this->y.HALF.HI - uVar2);
@@ -505,7 +505,7 @@ void sub_0802A18C(Entity* this) {
             case 0x1e:
                 break;
             default:
-                EnqueueSFX(0x12e);
+                EnqueueSFX(SFX_12E);
                 break;
         }
     }

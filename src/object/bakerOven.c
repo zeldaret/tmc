@@ -61,7 +61,7 @@ void sub_0809CD0C(Entity* this) {
             sub_0806FC80(this, &gPlayerEntity, 4)) {
             this->field_0xf++;
             ModHealth(-2);
-            SoundReqClipped(&gPlayerEntity, 0x7a);
+            SoundReqClipped(&gPlayerEntity, SFX_PLY_VO6);
             gPlayerEntity.iframes = 16;
             gPlayerEntity.knockbackDirection = 16;
             gPlayerEntity.knockbackDuration = 12;

@@ -67,7 +67,7 @@ void sub_080A074C(Entity* this) {
             ent->x.HALF.HI -= 0xc;
             ent->y.HALF.HI -= 0xc;
         }
-        EnqueueSFX(0x10b);
+        EnqueueSFX(SFX_10B);
     }
 }
 

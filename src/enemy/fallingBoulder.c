@@ -80,7 +80,7 @@ NONMATCH("asm/non_matching/fallingBoulder/sub_0802C334.inc", void sub_0802C334(E
     GetNextFrame(this);
     this->field_0x7c.HALF.HI = COORD_TO_TILE(this);
     if (sub_080044EC(this, *(u32*)&this->cutsceneBeh) == 1) {
-        EnqueueSFX(0x14c);
+        EnqueueSFX(SFX_14C);
         COLLISION_ON(this);
         this->field_0x7a.HWORD = 0xc;
         sub_0802C4B0(this);

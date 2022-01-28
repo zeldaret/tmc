@@ -24,7 +24,7 @@ void BladeTrap(Entity* this) {
 
     if (!(--this->field_0x74.HWORD)) {
         if (!(this->direction & 0x80)) {
-            EnqueueSFX(0x74);
+            EnqueueSFX(SFX_METAL_CLINK);
         }
         sub_080A2CC0(this, &this->child, &this->field_0x74.HWORD);
     }

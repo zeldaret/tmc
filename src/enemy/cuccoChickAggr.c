@@ -53,7 +53,7 @@ void sub_08022988(Entity* this) {
 
             this->frameIndex = 1;
             this->zVelocity = Q_16_16(1.0);
-            EnqueueSFX(0xd6);
+            EnqueueSFX(SFX_VO_CHEEP);
         }
 
         ProcessMovement(this);
@@ -79,7 +79,7 @@ void sub_080229F8(Entity* this) {
             sub_08022B44(this);
         } else {
             this->zVelocity = Q_16_16(1.0);
-            EnqueueSFX(0xd6);
+            EnqueueSFX(SFX_VO_CHEEP);
         }
     }
 }
@@ -147,7 +147,7 @@ void sub_08022B44(Entity* this) {
     if (this->direction & 0xf)
         this->spriteSettings.flipX = (this->direction >> 4) ^ 1;
 
-    EnqueueSFX(0xd6);
+    EnqueueSFX(SFX_VO_CHEEP);
 }
 
 // clang-format off

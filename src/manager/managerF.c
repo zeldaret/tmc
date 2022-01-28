@@ -379,7 +379,7 @@ void sub_08059424(ManagerF* this) {
     tmp->collisionLayer = 2;
     tmp->x.HALF.HI = this->unk_38 + gRoomControls.origin_x;
     tmp->y.HALF.HI = this->unk_3a + gRoomControls.origin_y;
-    EnqueueSFX(0x1B0);
+    EnqueueSFX(SFX_1B0);
     DeleteThisEntity();
 }
 

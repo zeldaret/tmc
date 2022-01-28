@@ -171,7 +171,7 @@ void MandiblesProjectile_Action4(Entity* this) {
                 if (entity->health == 0) {
                     DeleteThisEntity();
                 }
-                EnqueueSFX(0xf2);
+                EnqueueSFX(SFX_F2);
                 this->action = 1;
                 this->animationState = 0xff;
                 this->field_0x82.HALF.LO = 0;

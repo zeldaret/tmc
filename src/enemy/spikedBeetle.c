@@ -159,7 +159,7 @@ void sub_0802B8B0(Entity* this) {
             this->actionDelay = 0x96;
             /* fallthrough */
         case 1:
-            EnqueueSFX(299);
+            EnqueueSFX(SFX_12B);
             break;
     }
 }
@@ -175,7 +175,7 @@ void sub_0802B8E0(Entity* this) {
         this->speed = 0x60;
         this->hitType = 99;
         InitializeAnimation(this, this->animationState);
-        EnqueueSFX(299);
+        EnqueueSFX(SFX_12B);
     }
 }
 

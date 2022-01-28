@@ -411,7 +411,7 @@ void sub_08023894(Entity* this) {
             gPlayerEntity.animationState = gPlayerEntity.direction >> 2;
             gPlayerEntity.iframes = 12;
             ModHealth(-0x10);
-            SoundReqClipped(&gPlayerEntity, 0x7a);
+            SoundReqClipped(&gPlayerEntity, SFX_PLY_VO6);
         }
     }
 }

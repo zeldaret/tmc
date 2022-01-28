@@ -1244,7 +1244,7 @@ void sub_0803B798(void) {
 void sub_0803B804(Entity* this) {
     gPlayerEntity.iframes = 30;
     ModHealth(-4);
-    SoundReqClipped(&gPlayerEntity, 0x7a);
+    SoundReqClipped(&gPlayerEntity, SFX_PLY_VO6);
 }
 
 void sub_0803B824(Entity* this) {

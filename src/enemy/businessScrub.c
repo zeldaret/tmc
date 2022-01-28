@@ -65,7 +65,7 @@ void sub_08028934(Entity* this) {
         if (pEVar1 != NULL) {
             pEVar1->z.HALF.HI -= 8;
         }
-        EnqueueSFX(0x1bb);
+        EnqueueSFX(SFX_EM_DEKUSCRUB_HIT);
     }
 }
 
