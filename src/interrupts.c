@@ -245,9 +245,6 @@ void PlayerUpdate(Entity* this) {
 }
 
 // Responsible for some life things like low health beep and initiating the death sequence
-#ifdef EU
-ASM_FUNC("asm/non_matching/eu/HandlePlayerLife.inc", void HandlePlayerLife(Entity* this));
-#else
 void HandlePlayerLife(Entity* this) {
     u32 temp;
 
@@ -280,6 +277,19 @@ void HandlePlayerLife(Entity* this) {
     if ((gPlayerState.controlMode != CONTROL_ENABLED) || (gMessage.doTextBox & 0x7f))
         return;
 
+#ifdef EU
+    if ((gUnk_0200AF00.filler0[1] == 0) && gRoomTransition.frameCount % 90 == 0) {
+        temp = gSave.stats.maxHealth / 4;
+        if (temp > 24)
+            temp = 24;
+        if (temp < 8)
+            temp = 8;
+
+        if (gSave.stats.health <= temp) {
+            EnqueueSFX(SFX_LOW_HEALTH);
+        }
+    }
+#else
     gRoomVars.unk2 = gMessage.doTextBox & 0x7f;
     temp = gSave.stats.maxHealth / 4;
     if (temp > 24)
@@ -293,6 +303,7 @@ void HandlePlayerLife(Entity* this) {
             EnqueueSFX(SFX_LOW_HEALTH);
         }
     }
+#endif
 
     if (gSave.stats.charm == 0) {
         gSave.stats.charmTimer = 0;
@@ -318,7 +329,6 @@ void HandlePlayerLife(Entity* this) {
         CreateFx(this, (FX_RED_AURA - 1) + gSave.stats.effect, 0);
     }
 }
-#endif
 
 void sub_080171F0(void) {
     if (gPlayerState.mobility != 0)

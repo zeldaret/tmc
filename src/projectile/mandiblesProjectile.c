@@ -108,9 +108,6 @@ void MandiblesProjectile_Action2(Entity* this) {
     }
 }
 
-#ifdef EU
-ASM_FUNC("asm/non_matching/eu/MandiblesProjectile_Action3.inc", void MandiblesProjectile_Action3(Entity* this))
-#else
 void MandiblesProjectile_Action3(Entity* this) {
     u32 uVar1;
     s8* tmp;
@@ -142,16 +139,20 @@ void MandiblesProjectile_Action3(Entity* this) {
                 uVar1 = entity->animationState;
                 this->direction = uVar1 << 2;
                 this->animationState = uVar1 << 0x1a >> 0x1a;
+#ifdef EU
+                this->spriteOrientation.flipY = 1;
+                this->hitbox = &gHitbox_0;
+#else
                 this->hitbox = &gHitbox_0;
                 if (AreaIsDungeon() != 0) {
                     this->spriteOrientation.flipY = 1;
                 }
+#endif
                 sub_080AA3E0(this, 0);
             }
         }
     }
 }
-#endif
 
 void MandiblesProjectile_Action4(Entity* this) {
     s32 iVar1;

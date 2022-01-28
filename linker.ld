@@ -87,6 +87,7 @@ SECTIONS {
         . = 0x000227F0; gUnk_020227F0 = .;
         . = 0x000227F8; gUnk_020227F8 = .;
         . = 0x00022800; gUnk_02022800 = .;
+        . = 0x0002281D; gTextRenderUpdateDraw = .;
         . = 0x00022830; gUnk_02022830 = .;
         . = 0x00024030; gMessageChoices = .;
         . = 0x00024048; gUnk_02024048 = .;
