@@ -686,7 +686,6 @@ SECTIONS {
         asm/object/object28.o(.text);
         asm/object/ambientClouds.o(.text);
         src/object/object2A.o(.text);
-        asm/object/object2A.o(.text);
         asm/object/object2B.o(.text);
         asm/object/beanstalk.o(.text);
         src/object/smoke.o(.text);
@@ -1410,7 +1409,7 @@ SECTIONS {
         data/animations/object/pushableStatue.o(.rodata);
         data/const/object/ambientClouds.o(.rodata);
         data/animations/object/ambientClouds.o(.rodata);
-        data/const/object/object2A.o(.rodata);
+        src/object/object2A.o(.rodata);
         data/animations/object/object2A.o(.rodata);
         data/const/object/beanstalk.o(.rodata);
         data/animations/object/beanstalk.o(.rodata);
