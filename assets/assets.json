@@ -26628,46 +26628,6 @@
     "type": "animation"
   },
   {
-    "path": "cuccoAggr/gUnk_080CF7BC.bin",
-    "start": 849852,
-    "size": 2
-  },
-  {
-    "path": "cuccoAggr/gUnk_080CF7BE.bin",
-    "start": 849854,
-    "size": 4
-  },
-  {
-    "path": "cuccoAggr/gUnk_080CF7C2.bin",
-    "start": 849858,
-    "size": 2
-  },
-  {
-    "path": "cuccoAggr/gUnk_080CF7C4.bin",
-    "start": 849860,
-    "size": 96
-  },
-  {
-    "path": "cuccoAggr/gUnk_080CF824.bin",
-    "start": 849956,
-    "size": 4
-  },
-  {
-    "path": "cuccoAggr/gUnk_080CF828.bin",
-    "start": 849960,
-    "size": 4
-  },
-  {
-    "path": "cuccoAggr/gUnk_080CF82C.bin",
-    "start": 849964,
-    "size": 2
-  },
-  {
-    "path": "cuccoAggr/gUnk_080CF82E.bin",
-    "start": 849966,
-    "size": 3
-  },
-  {
     "path": "animations/gSpriteAnimations_Stalfos_0.bin",
     "start": 850242,
     "size": 4,
