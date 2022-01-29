@@ -228,7 +228,7 @@ void sub_08085D10(LilypadLargeEntity* this) {
 }
 
 void sub_08085D28(LilypadLargeEntity* this) {
-    if (((gPlayerState.framestate != 0x13) && ((gPlayerState.flags & 2) != 0)) &&
+    if (((gPlayerState.framestate != PL_STATE_TALKEZLO) && ((gPlayerState.flags & 2) != 0)) &&
         (sub_080002B4(super, 0, 0x18) == 0x11)) {
         super->action = 2;
         super->subAction = 0;
@@ -240,7 +240,7 @@ NONMATCH("asm/non_matching/lilypadLarge/sub_08085D60.inc", void sub_08085D60(Lil
     u32 r4; // horizontal direction?
     u32 r6; // vertical direction?
     if ((gPlayerState.flags & 2) != 0) {
-        if (gPlayerState.framestate != 0x12) {
+        if (gPlayerState.framestate != PL_STATE_DIE) {
             if (gPlayerState.jump_status == 0) {
                 if ((super->direction & 7) == 0) { // North or South
                     r4 = super->direction;
