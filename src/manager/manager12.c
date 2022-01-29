@@ -28,7 +28,6 @@ void sub_08059B18(void);
 
 bool32 sub_08059C8C(Manager12*, u32, u8*, u16*);
 
-extern void sub_0807B9B8(s32, s32, s32);
 extern u32 gUnk_086E8460;
 
 typedef struct {

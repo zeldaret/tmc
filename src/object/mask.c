@@ -3,10 +3,6 @@
 
 extern void (*MaskActionFuncs[])(Entity*);
 
-extern void sub_08000148(u16, u16, u32);
-
-extern void sub_0805457C(Entity*, s32);
-
 void Mask(Entity* this) {
     MaskActionFuncs[this->action](this);
 }
@@ -79,7 +75,7 @@ void sub_08092A94(Entity* this) {
     // Presumably, make the mask fall
     SetTile(this->field_0x7c.HALF_U.LO, this->field_0x7c.HALF_U.HI, 1);
 
-    sub_08000148(this->field_0x7a.HWORD, this->field_0x7c.HALF.HI, 1);
+    sub_08000148(this->field_0x7a.HWORD, (u16)this->field_0x7c.HALF.HI, 1);
 
     this->action = 2;
 

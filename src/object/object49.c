@@ -5,7 +5,6 @@ static void sub_0808F2B0(Entity*);
 void sub_0808F14C(Entity*);
 void sub_0808F244(Entity*);
 
-extern void sub_0806FCF4(Entity*, u32, u32, u32);
 extern void sub_0808F5EC(Entity*);
 
 extern void (*const gUnk_08121E5C[])(Entity*);
