@@ -342,7 +342,7 @@ void sub_080171F0(void) {
     if (gPlayerEntity.action != PLAYER_DROWN)
         COPY_FLAG_FROM_TO(gPlayerState.flags, 0x2, 0x10000);
 
-    gPlayerState.flags &= ~2;
+    gPlayerState.flags &= ~PL_FLAGS2;
     sub_080028E0(&gPlayerEntity);
 
     if (gPlayerState.flags & PL_CLONING)

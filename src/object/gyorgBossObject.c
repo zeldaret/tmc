@@ -90,7 +90,7 @@ void sub_080A1704(GyorgBossObjectEntity* this) {
     this->unk_76 = 0xc0;
     this->unk_78 = 0xc0;
     gRoomTransition.field_0x39 = 1;
-    gPlayerState.flags |= 0x20000;
+    gPlayerState.flags |= PL_FLAGS20000;
     gPlayerState.startPosX = gRoomControls.origin_x + 0x200;
     gPlayerState.startPosY = gRoomControls.origin_y + 0x210;
 #ifndef EU
@@ -219,7 +219,7 @@ void sub_080A1B4C(GyorgBossObjectEntity* this) {
             this->unk_6e = 0x1a4;
             super->direction = 0;
             super->speed = 0x60;
-            gPlayerState.flags &= ~0x20000;
+            gPlayerState.flags &= ~PL_FLAGS20000;
             CopyPosition(&gPlayerEntity, super);
             gRoomControls.camera_target = super;
             SetPlayerControl(2);

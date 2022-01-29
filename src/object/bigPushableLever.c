@@ -60,7 +60,7 @@ void BigPushableLever_Idle(BigPushableLeverEntity* this) {
         if (sub_08079F8C()) {
             gPlayerState.pushedObject = 0x98;
             gPlayerState.queued_action = 5;
-            gPlayerState.flags |= 1;
+            gPlayerState.flags |= PL_BUSY;
             gPlayerEntity.x.HALF.LO = 0;
             gPlayerEntity.y.HALF.LO = 0;
             gPlayerEntity.direction = gPlayerEntity.animationState << 2;

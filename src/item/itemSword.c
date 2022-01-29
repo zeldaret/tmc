@@ -21,7 +21,7 @@ void ItemSword(ItemBehavior* this, u32 arg1) {
 
 void sub_08075338(ItemBehavior* this, u32 arg1) {
     u32 temp, temp2;
-    if (gPlayerState.flags & 0x80) {
+    if (gPlayerState.flags & PL_MINISH) {
         this->field_0x5[4] |= 0x80;
         sub_08077D38(this, arg1);
         gPlayerState.animation = 0xc00;
@@ -51,7 +51,7 @@ void sub_08075338(ItemBehavior* this, u32 arg1) {
         return;
     }
 
-    if (gPlayerState.flags & 0x40000) {
+    if (gPlayerState.flags & PL_ROLLING) {
         if ((gPlayerState.field_0xac & 2) == 0) {
             if (gPlayerState.item == NULL)
                 return;
@@ -71,7 +71,7 @@ void sub_08075338(ItemBehavior* this, u32 arg1) {
         this->field_0xf = 6;
         this->field_0x5[4] |= 0x80;
         gPlayerState.field_0xab = 2;
-        gPlayerState.flags |= 0x8000000;
+        gPlayerState.flags |= PL_SWORD_THRUST;
         sub_08077DF4(this, 0x130);
         SoundReq(SFX_PLY_VO3);
         return;

@@ -512,7 +512,7 @@ void sub_0806FD3C(Entity* this) {
 
 bool32 sub_0806FD54(Entity* this) {
     u32 rv;
-    if ((gPlayerState.flags & 0x800000) == 0) {
+    if ((gPlayerState.flags & PL_USE_LANTERN) == 0) {
         rv = 0;
     } else {
         rv = EntityWithinDistance(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI - 9, 0x48);

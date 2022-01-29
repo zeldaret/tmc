@@ -96,7 +96,7 @@ ASM_FUNC("asm/non_matching/lilypadLarge/sub_080855E8.inc", void sub_080855E8(Lil
 
 void sub_08085A1C(LilypadLargeEntity* this) {
     gUnk_0812062C[super->subAction](this);
-    gPlayerState.flags |= 2;
+    gPlayerState.flags |= PL_FLAGS2;
     sub_08078B48();
 }
 
@@ -196,7 +196,7 @@ void sub_08085C5C(LilypadLargeEntity* this) {
         gPlayerEntity.speed = super->speed;
         gPlayerEntity.direction = super->direction;
         LinearMoveUpdate(&gPlayerEntity);
-        gPlayerState.flags |= 2;
+        gPlayerState.flags |= PL_FLAGS2;
         if (super->collisionLayer == 1) {
             ResetCollisionLayer(&gPlayerEntity);
         } else {
@@ -228,7 +228,7 @@ void sub_08085D10(LilypadLargeEntity* this) {
 }
 
 void sub_08085D28(LilypadLargeEntity* this) {
-    if (((gPlayerState.framestate != PL_STATE_TALKEZLO) && ((gPlayerState.flags & 2) != 0)) &&
+    if (((gPlayerState.framestate != PL_STATE_TALKEZLO) && ((gPlayerState.flags & PL_FLAGS2) != 0)) &&
         (sub_080002B4(super, 0, 0x18) == 0x11)) {
         super->action = 2;
         super->subAction = 0;
@@ -239,7 +239,7 @@ void sub_08085D28(LilypadLargeEntity* this) {
 NONMATCH("asm/non_matching/lilypadLarge/sub_08085D60.inc", void sub_08085D60(LilypadLargeEntity* this)) {
     u32 r4; // horizontal direction?
     u32 r6; // vertical direction?
-    if ((gPlayerState.flags & 2) != 0) {
+    if ((gPlayerState.flags & PL_FLAGS2) != 0) {
         if (gPlayerState.framestate != PL_STATE_DIE) {
             if (gPlayerState.jump_status == 0) {
                 if ((super->direction & 7) == 0) { // North or South
@@ -351,7 +351,7 @@ void sub_08085F48(LilypadLargeEntity* this) {
             super->actionDelay = 0;
         }
     } else {
-        if ((gPlayerState.flags & 2) != 0) {
+        if ((gPlayerState.flags & PL_FLAGS2) != 0) {
             if (super->actionDelay != 0) {
                 if (this->unk_78.WORD_U < 0x1200000) {
                     this->unk_78.WORD_U += 0x8000;

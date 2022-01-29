@@ -213,7 +213,7 @@ void sub_0802805C(Entity* this) {
 NONMATCH("asm/non_matching/likeLike/sub_0802810C.inc", void sub_0802810C(Entity* this)) {
     gPlayerState.jump_status = 0x41;
     gPlayerState.field_0xa = 0;
-    gPlayerState.flags &= 0xffffffef;
+    gPlayerState.flags &= PL_CAPTURED;
     gPlayerEntity.flags |= ENT_COLLIDE;
     gPlayerEntity.zVelocity = Q_16_16(1.5);
     gPlayerEntity.iframes = -60;

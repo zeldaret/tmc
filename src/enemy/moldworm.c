@@ -91,7 +91,7 @@ void sub_080230E4(Entity* this) {
         gPlayerEntity.direction = 0xff;
         gPlayerEntity.iframes = -0x14;
         gPlayerState.jump_status = 0x41;
-        gPlayerState.flags &= 0xfff7ffff;
+        gPlayerState.flags &= ~PL_MOLDWORM_CAPTURED;
     }
 
     sub_0804AA30(this, gUnk_080CBC38);

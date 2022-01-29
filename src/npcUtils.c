@@ -454,7 +454,7 @@ void ShowNPCDialogue(Entity* ent, Dialog* dia) {
             uVar2 = dia->data.indices.b;
             break;
         case 6:
-            if ((gPlayerState.flags & 0x80) != 0) {
+            if ((gPlayerState.flags & PL_MINISH) != 0) {
                 uVar2 = dia->data.indices.b;
             } else {
                 uVar2 = dia->data.indices.a;

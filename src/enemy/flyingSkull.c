@@ -133,7 +133,7 @@ void sub_08039DD8(FlyingSkullEntity* this) {
 
         sub_08078930(super);
     } else {
-        if ((gPlayerState.flags & 0x80) == 0) {
+        if ((gPlayerState.flags & PL_MINISH) == 0) {
             Entity* ent = &gPlayerEntity;
             if (EntityWithinDistance(super, ent->x.HALF.HI, ent->y.HALF.HI, 0x30)) {
                 if (super->type == 1) {
