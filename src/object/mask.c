@@ -58,7 +58,7 @@ void sub_080929A4(Entity* this) {
 // Probably related to knocking it down
 void sub_08092A94(Entity* this) {
     // Check for the first frame of bonking animation
-    if (gPlayerEntity.action != 6) {
+    if (gPlayerEntity.action != PLAYER_BOUNCE) {
         return;
     }
 

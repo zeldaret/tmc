@@ -297,7 +297,7 @@ void sub_08028CE8(Entity* this) {
 }
 
 void sub_08028DE8(Entity* this) {
-    if (gPlayerEntity.action == 8) {
+    if (gPlayerEntity.action == PLAYER_ITEMGET) {
         if (this->field_0x80.HALF.HI == 0) {
             SetPlayerControl(1);
             this->field_0x80.HALF.HI = 1;

@@ -427,7 +427,7 @@ void sub_080594DC(ManagerF* this) {
 #if defined(USA) || defined(DEMO_USA) || defined(DEMO_JP)
 void sub_08059548(ManagerF* this) {
     SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
-    if (gPlayerEntity.action == 0x16) {
+    if (gPlayerEntity.action == PLAYER_TALKEZLO) {
         DeleteThisEntity();
     }
     gInput.heldKeys |= 0x4;

@@ -105,7 +105,7 @@ void sub_080652E4(Entity* this) {
     if (this->actionDelay != 0) {
         this->actionDelay -= 1;
     } else {
-        if (gPlayerEntity.action != 8) {
+        if (gPlayerEntity.action != PLAYER_ITEMGET) {
             this->subAction += 1;
             MessageNoOverlap(0x2c19, this);
         }

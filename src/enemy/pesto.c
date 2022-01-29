@@ -182,7 +182,7 @@ void sub_080241C0(Entity* this) {
     switch (this->field_0x80.HALF.LO) {
         case 0:
             if (PlayerInRange(this, 3, (gPlayerState.hurtBlinkSpeed != 0) ? 0xa0 : 0x40) && sub_08049FDC(this, 3) &&
-                gPlayerEntity.action != 0x1e) {
+                gPlayerEntity.action != PLAYER_USEENTRANCE) {
                 this->field_0x80.HALF.LO++;
                 this->speed = 0;
                 sub_08024A14(this, 3, 10);
@@ -829,7 +829,7 @@ void sub_08024F50(Entity* this) {
     gPlayerState.field_0xa = 0;
     gPlayerState.flags &= ~PL_DISABLE_ITEMS;
     CopyPosition(this, &gPlayerEntity);
-    gPlayerEntity.action = 1;
+    gPlayerEntity.action = PLAYER_NORMAL;
     COLLISION_ON(&gPlayerEntity);
     gPlayerEntity.iframes = -0x3c;
     gPlayerEntity.direction = gPlayerEntity.animationState << 2;
