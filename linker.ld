@@ -399,7 +399,7 @@ SECTIONS {
         src/enemy/torchTrap.o(.text);
         src/enemy/vaatiRebornEnemy.o(.text);
         src/enemy/vaatiProjectile.o(.text);
-        asm/enemy/ballChainSoldier.o(.text);
+        src/enemy/ballChainSoldier.o(.text);
         src/enemy/enemy4D.o(.text);
         asm/enemy/enemy4D.o(.text);
         asm/enemy/ghini.o(.text);
@@ -1075,6 +1075,7 @@ SECTIONS {
         data/animations/enemy/vaatiRebornEnemy.o(.rodata);
         src/enemy/vaatiProjectile.o(.rodata);
         data/animations/enemy/vaatiProjectile.o(.rodata);
+        src/enemy/ballChainSoldier.o(.rodata);
         data/const/enemy/ballChainSoldier.o(.rodata);
         data/animations/enemy/ballChainSoldier.o(.rodata);
         data/const/enemy/enemy4D.o(.rodata);
