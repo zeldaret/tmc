@@ -340,9 +340,9 @@ void sub_08085F1C(LilypadLargeEntity* this) {
 void sub_08085F48(LilypadLargeEntity* this) {
     u32 tmp = super->actionDelay & 0x80;
     if (tmp != 0) {
-        if (gPlayerState.floor_type == 0x17) {
+        if (gPlayerState.floor_type == SURFACE_ICE) {
             ResetPlayerVelocity();
-            gPlayerState.floor_type = 0x19;
+            gPlayerState.floor_type = SURFACE_WATER;
         }
         SoundReq(SFX_WATER_WALK);
         if (this->unk_78.WORD_U < 0x1280000) {
