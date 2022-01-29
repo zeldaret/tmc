@@ -283,7 +283,7 @@ void nullsub_510(Entity* this) {
 
 void sub_08081328(Entity* this) {
     Entity* other = this->child;
-    if (!(other->kind == 8 && other->id == 3)) {
+    if (!(other->kind == PLAYER_ITEM && other->id == 3)) {
         sub_08081404(this, 0);
     } else {
         CopyPosition(other, this);

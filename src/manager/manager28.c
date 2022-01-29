@@ -113,7 +113,7 @@ Entity* Manager28_FindMatchingEntity(EntityData* unk1) {
     y = unk1->yPos + gRoomControls.origin_y;
     tmp = &gEntityLists[4];
     for (i = tmp->first; (u32)i != (u32)tmp; i = i->next) {
-        if (x == i->x.HALF.HI && y == i->y.HALF.HI && unk1->id == i->id && 3 == i->kind && unk1->type == i->type) {
+        if (x == i->x.HALF.HI && y == i->y.HALF.HI && unk1->id == i->id && ENEMY == i->kind && unk1->type == i->type) {
             return i;
         }
     }

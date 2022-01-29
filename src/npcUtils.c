@@ -89,7 +89,7 @@ void NPCInit(Entity* this) {
 Entity* CreateNPC(u32 subtype, u32 form, u32 parameter) {
     Entity* entity = GetEmptyEntity();
     if (entity != NULL) {
-        entity->kind = 7;
+        entity->kind = NPC;
         entity->id = subtype;
         entity->type = form;
         entity->type2 = parameter;

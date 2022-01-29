@@ -218,7 +218,7 @@ s32 sub_08017874(Entity* a, Entity* b) {
     s32 v6;
 
     asm("" ::: "r1");
-    if (a->kind == 1) {
+    if (a->kind == PLAYER) {
         newDmg = b->damage;
         switch (gSave.stats.charm) {
             case 47:
@@ -234,7 +234,7 @@ s32 sub_08017874(Entity* a, Entity* b) {
         SoundReqClipped(a, SFX_PLY_VO6);
     } else {
         v6 = b->damage;
-        if (b->kind == 8) {
+        if (b->kind == PLAYER_ITEM) {
             switch (gSave.stats.charm) {
                 case 48:
                     v6 = 3 * v6 / 2;
@@ -245,7 +245,7 @@ s32 sub_08017874(Entity* a, Entity* b) {
             }
         }
         v5 = a->health - v6;
-        if (a->kind == 3) {
+        if (a->kind == ENEMY) {
             if ((a->field_0x6c.HALF.HI & 1) != 0)
                 SoundReqClipped(a, SFX_BOSS_HIT);
             else
@@ -510,7 +510,7 @@ s32 sub_08017EB0(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
         gPlayerEntity.knockbackDuration = 12;
         gPlayerEntity.iframes = 16;
         gPlayerEntity.field_0x46 = 384;
-    } else if (org->kind == 8 && org->id == 5) {
+    } else if (org->kind == PLAYER_ITEM && org->id == 5) {
         org->knockbackDuration = 8;
         org->iframes = -6;
         org->field_0x46 = 384;
@@ -556,7 +556,7 @@ s32 sub_08017F40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
         } else {
             org->health = 0;
         }
-    } else if (tgt->kind == 3 && org == &gPlayerEntity) {
+    } else if (tgt->kind == ENEMY && org == &gPlayerEntity) {
         sub_08004484(tgt, org);
     }
     return 0;
@@ -644,7 +644,7 @@ s32 sub_08018168(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
         } else {
             org->health = 0;
         }
-    } else if ((tgt->kind == 3) && (org == &gPlayerEntity)) {
+    } else if ((tgt->kind == ENEMY) && (org == &gPlayerEntity)) {
         sub_08004484(tgt, &gPlayerEntity);
     }
     return 0;
@@ -690,11 +690,12 @@ s32 sub_080182A8(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 
 s32 sub_08018308(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     u32 temp = 0;
-    if (tgt->field_0x43 && tgt->kind == 3 && org == &gPlayerEntity) {
+    if (tgt->field_0x43 && tgt->kind == ENEMY && org == &gPlayerEntity) {
         sub_08004484(tgt, org);
         temp = 1;
     }
-    if ((org->kind == 8 && org->id == 0x5) && gPlayerEntity.animationState == ((((direction + 4) & 0x18) >> 2) ^ 4)) {
+    if ((org->kind == PLAYER_ITEM && org->id == 0x5) &&
+        gPlayerEntity.animationState == ((((direction + 4) & 0x18) >> 2) ^ 4)) {
         return 0;
     }
     if (!temp) {
@@ -738,7 +739,7 @@ s32 sub_08018308(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
             parent->field_0x4c = org;
         }
     }
-    if (org->kind == 8) {
+    if (org->kind == PLAYER_ITEM) {
         if (org->id == 1) {
             if (settings->_8) {
                 sub_080179EC(org, tgt);
@@ -755,7 +756,7 @@ s32 sub_08018308(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
             gPlayerEntity.iframes = 0x80;
         }
     }
-    if (tgt->kind == 8 && org->id == 5) {
+    if (tgt->kind == PLAYER_ITEM && org->id == 5) {
         gPlayerEntity.iframes = 0x80;
     }
     return 1;
