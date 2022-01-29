@@ -5313,7 +5313,7 @@ void sub_StateChange_HouseInteriors3_Bakery(void) {
 
 u32 sub_unk3_HouseInteriors3_Simon(void) {
     if (CheckGlobalFlag(MAROYA_WAKEUP)) {
-        gRoomTransition.player_status.spawn_type = 5;
+        gRoomTransition.player_status.spawn_type = PL_SPAWN_SPECIAL;
     }
     return 1;
 }

@@ -152,7 +152,7 @@ void sub_0808B684(Entity* this) {
         gRoomTransition.player_status.start_pos_y = ((this->cutsceneBeh.HWORD & 0xfc0) >> 2) + 8;
         gRoomTransition.player_status.layer = 0;
         gRoomTransition.player_status.start_anim = 4;
-        gRoomTransition.player_status.spawn_type = 0;
+        gRoomTransition.player_status.spawn_type = PL_SPAWN_DEFAULT;
         if (this->type == 2) {
             gRoomTransition.type = TRANSITION_FADE_WHITE_SLOW;
         }

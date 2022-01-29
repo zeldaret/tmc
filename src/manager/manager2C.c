@@ -25,7 +25,7 @@ void Manager2C_Main(Manager2C* manager) {
         MemClear(&gRoomTransition.player_status, 0x20);
         gRoomTransition.transitioningOut = 1;
         gRoomTransition.type = TRANSITION_DEFAULT;
-        gRoomTransition.player_status.spawn_type = 0xb;
+        gRoomTransition.player_status.spawn_type = PL_SPAWN_PARACHUTE_UP;
         gRoomTransition.player_status.area_next = manager->manager.unk_0b;
         gRoomTransition.player_status.room_next = manager->manager.unk_0e;
         gRoomTransition.player_status.start_anim = manager->field_0x37;
