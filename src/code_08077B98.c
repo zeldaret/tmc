@@ -68,7 +68,7 @@ void* sub_08077C54(UnkItemStruct* unk) {
     item = sub_0805E744();
     if (item != NULL) {
         item->id = gUnk_0811BE48[unk->field_0x1].unk[3];
-        item->kind = 8;
+        item->kind = PLAYER_ITEM;
         item->flags = 0xa0;
         item->parent = (Entity*)unk;
         item->field_0x68.HALF.LO = unk->field_0x1;
@@ -93,7 +93,7 @@ Entity* CreatePlayerItem(u32 subtype, u32 form, u32 parameter, u32 unk) {
     ent = GetEmptyEntity();
     if (ent != NULL) {
         ent->flags = 0x80;
-        ent->kind = 8;
+        ent->kind = PLAYER_ITEM;
         ent->id = subtype;
         ent->type = form;
         ent->type2 = parameter;
@@ -109,7 +109,7 @@ Entity* sub_08077CF8(u32 subtype, u32 form, u32 parameter, u32 unk) {
     ent = sub_0805E744();
     if (ent != NULL) {
         ent->flags = 0x80;
-        ent->kind = 8;
+        ent->kind = PLAYER_ITEM;
         ent->id = subtype;
         ent->type = form;
         ent->type2 = parameter;

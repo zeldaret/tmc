@@ -322,7 +322,7 @@ static Entity* sub_0808EC80(int form) {
     Entity* entityA = (Entity*)&gEntityLists[6];
     Entity* entityB = entityA->next;
     while (entityB != entityA) {
-        if ((entityB->kind == 0x6 && entityB->id == 0x48) && form == entityB->type) {
+        if ((entityB->kind == OBJECT && entityB->id == 0x48) && form == entityB->type) {
             return entityB;
         }
         entityB = entityB->next;

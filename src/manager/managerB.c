@@ -98,7 +98,7 @@ void ManagerB_LoadFight(Manager* this) {
     if (prop) {
         while (*((u8*)prop) != 0xFF) {
             ent = LoadRoomEntity(prop++);
-            if (ent && (ent->kind == 3)) {
+            if (ent && (ent->kind == ENEMY)) {
                 ent->field_0x6c.HALF.HI |= 0x40;
                 ManagerBHelper_Monitor(monitor, ent, counter++);
             }

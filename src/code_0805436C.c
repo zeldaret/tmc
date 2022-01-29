@@ -240,7 +240,7 @@ u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
                 } else {
                     itemEntity->actionDelay = 0;
                 }
-                if (arg0->kind == 6) {
+                if (arg0->kind == OBJECT) {
                     if (arg0->id == 99) {
                         arg0->child = itemEntity;
                     } else if (arg0->id == 0x1e) {
@@ -332,7 +332,7 @@ u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
                 } else {
                     itemEntity->actionDelay = 0;
                 }
-                if (arg0->kind == 6) {
+                if (arg0->kind == OBJECT) {
                     if (arg0->id == 99) {
                         arg0->child = itemEntity;
                     } else if (arg0->id == 0x1e) {

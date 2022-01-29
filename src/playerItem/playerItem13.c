@@ -20,7 +20,7 @@ ASM_FUNC("asm/non_matching/playerItem13/sub_080AD27C.inc", void sub_080AD27C(Ent
 
 bool32 sub_080AD32C(Entity* this) {
     bool32 result = FALSE;
-    if (((this->field_0x16 & 0xf0) == 0x10) || ((this->kind == 6 && ((this->id == 5 || (this->id == 0x7d)))))) {
+    if (((this->field_0x16 & 0xf0) == 0x10) || ((this->kind == OBJECT && ((this->id == 5 || (this->id == 0x7d)))))) {
         result = TRUE;
     }
     return result;
