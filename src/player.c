@@ -325,7 +325,7 @@ extern ScriptExecutionContext gPlayerScriptExecutionContext;
 NONMATCH("asm/non_matching/playerItemPacciCane/CheckPlayerInactive.inc", u32 CheckPlayerInactive(void)) {
     if (!((gInput.newKeys & START_BUTTON) == 0 || gFadeControl.active || gUnk_02034490[0] ||
           (gMessage.doTextBox & 0x7F) || gSave.stats.health == 0 || !gSave.fillerD0[34] ||
-          gPlayerState.controlMode != 0 || gPriorityHandler.priority_timer != 0)) {
+          gPlayerState.controlMode != CONTROL_ENABLED || gPriorityHandler.priority_timer != 0)) {
         u32 tmp = gPlayerState.framestate ? gPlayerState.framestate : gPlayerState.framestate_last;
         switch (tmp) {
             case PL_STATE_DIE:

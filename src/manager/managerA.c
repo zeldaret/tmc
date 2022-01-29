@@ -135,7 +135,7 @@ static void sub_08058514(ManagerA* this) {
         case 3:
             /* wait for player to finish talking */
             if (gPlayerEntity.action == PLAYER_NORMAL || gPlayerEntity.action == PLAYER_MINISH) {
-                gPlayerState.controlMode = 1;
+                gPlayerState.controlMode = CONTROL_1;
                 ResetPlayerEventPriority();
                 SetFlag(this->flag1);
                 DeleteThisEntity();

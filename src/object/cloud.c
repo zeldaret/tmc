@@ -115,7 +115,7 @@ void sub_0809F69C(Entity* this) {
 void sub_0809F6CC(Entity* this) {
 
     if (((gRoomControls.scroll_flags & 4) == 0) && (--this->actionDelay == 0)) {
-        gPlayerState.controlMode = 1;
+        gPlayerState.controlMode = CONTROL_1;
         DeleteThisEntity();
     }
 }
