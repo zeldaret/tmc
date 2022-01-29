@@ -164,10 +164,18 @@ void sub_080832D8(u32 param_1, BlockPushedEntity* this) {
     }
 }
 
-void (*const gUnk_0811F624[])(BlockPushedEntity*) = {sub_08082EB4, sub_08083094, };
+void (*const gUnk_0811F624[])(BlockPushedEntity*) = {
+    sub_08082EB4,
+    sub_08083094,
+};
 const Hitbox gUnk_0811F62C = { 0, 0, { 0, 0, 0, 0 }, 5, 4 };
 const Hitbox gUnk_0811F634 = { 0, 0, { 0, 0, 0, 0 }, 13, 12 };
 const Hitbox gUnk_0811F63C = { 0, 0, { 0, 0, 0, 0 }, 21, 20 };
 const Hitbox gUnk_0811F644 = { 0, 0, { 0, 0, 0, 0 }, 29, 28 };
 
-const Hitbox* const gUnk_0811F64C[] = {&gUnk_0811F62C, &gUnk_0811F634, &gUnk_0811F63C, &gUnk_0811F644, };
+const Hitbox* const gUnk_0811F64C[] = {
+    &gUnk_0811F62C,
+    &gUnk_0811F634,
+    &gUnk_0811F63C,
+    &gUnk_0811F644,
+};

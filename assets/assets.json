@@ -26176,81 +26176,6 @@
     "type": "animation"
   },
   {
-    "path": "octorokBoss/gUnk_080CF070.bin",
-    "start": 847984,
-    "size": 8
-  },
-  {
-    "path": "octorokBoss/gUnk_080CF08C.bin",
-    "start": 848012,
-    "size": 32
-  },
-  {
-    "path": "octorokBoss/gUnk_080CF0D8.bin",
-    "start": 848088,
-    "size": 4
-  },
-  {
-    "path": "octorokBoss/gUnk_080CF0DC.bin",
-    "start": 848092,
-    "size": 4
-  },
-  {
-    "path": "octorokBoss/gUnk_080CF10C.bin",
-    "start": 848140,
-    "size": 4
-  },
-  {
-    "path": "octorokBoss/gUnk_080CF110.bin",
-    "start": 848144,
-    "size": 4
-  },
-  {
-    "path": "octorokBoss/gUnk_080CF114.bin",
-    "start": 848148,
-    "size": 5
-  },
-  {
-    "path": "octorokBoss/gUnk_080CF119.bin",
-    "start": 848153,
-    "size": 5
-  },
-  {
-    "path": "octorokBoss/gUnk_080CF11E.bin",
-    "start": 848158,
-    "size": 6
-  },
-  {
-    "path": "octorokBoss/gUnk_080CF134.bin",
-    "start": 848180,
-    "size": 4
-  },
-  {
-    "path": "octorokBoss/gUnk_080CF138.bin",
-    "start": 848184,
-    "size": 4
-  },
-  {
-    "path": "octorokBoss/gUnk_080CF13C.bin",
-    "start": 848188,
-    "size": 3
-  },
-  {
-    "path": "octorokBoss/gUnk_080CF13F.bin",
-    "start": 848191,
-    "size": 3
-  },
-  {
-    "path": "octorokBoss/gUnk_080CF142.bin",
-    "start": 848194,
-    "size": 5
-  },
-  {
-    "path": "octorokBoss/gUnk_080CF147.bin",
-    "start": 848199,
-    "size": 5
-  },
-  {
     "path": "flyingPot/gUnk_080CF290.bin",
     "start": 848528,
     "size": 4
@@ -26374,16 +26299,6 @@
     "start": 848900,
     "size": 20,
     "type": "animation"
-  },
-  {
-    "path": "octorokGolden/gUnk_080CF490.bin",
-    "start": 849040,
-    "size": 8
-  },
-  {
-    "path": "octorokGolden/gUnk_080CF498.bin",
-    "start": 849048,
-    "size": 8
   },
   {
     "path": "animations/gSpriteAnimations_CloudPiranha_0.bin",
@@ -27176,26 +27091,6 @@
     "type": "animation"
   },
   {
-    "path": "bowMoblin/gUnk_080CFFA4.bin",
-    "start": 851876,
-    "size": 8
-  },
-  {
-    "path": "bowMoblin/gUnk_080CFFAC.bin",
-    "start": 851884,
-    "size": 16
-  },
-  {
-    "path": "bowMoblin/gUnk_080CFFBC.bin",
-    "start": 851900,
-    "size": 8
-  },
-  {
-    "path": "bowMoblin/gUnk_080CFFC4.bin",
-    "start": 851908,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_Lakitu_0.bin",
     "start": 852316,
     "size": 17,
@@ -27770,16 +27665,6 @@
     "start": 853983,
     "size": 13,
     "type": "animation"
-  },
-  {
-    "path": "ballChainSoldier/gUnk_080D0728.bin",
-    "start": 853800,
-    "size": 8
-  },
-  {
-    "path": "ballChainSoldier/gUnk_080D0730.bin",
-    "start": 853808,
-    "size": 8
   },
   {
     "path": "animations/gSpriteAnimations_BallChainSoldier_3.bin",
@@ -30858,70 +30743,6 @@
     "path": "data_080FC8A4/gUnk_080FC9A0.bin",
     "start": 1034656,
     "size": 16
-  },
-  {
-    "path": "data_080FC8A4/sCutsceneData.bin",
-    "start": 1034784,
-    "size": 80
-  },
-  {
-    "path": "data_080FC8A4/gUnk_080FCA84.bin",
-    "start": 1034884,
-    "size": 8
-  },
-  {
-    "path": "data_080FC8A4/gUnk_080FCA8C.bin",
-    "start": 1034892,
-    "size": 24
-  },
-  {
-    "path": "data_080FC8A4/gUnk_080FCAA4.bin",
-    "start": 1034916,
-    "size": 36
-  },
-  {
-    "path": "data_080FC8A4/gUnk_080FCB38.bin",
-    "start": 1035064,
-    "size": 42
-  },
-  {
-    "path": "data_080FC8A4/gUnk_080FCB62_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 1034258
-    },
-    "size": 50
-  },
-  {
-    "path": "data_080FC8A4/gUnk_080FCB62_1_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 1033030
-    },
-    "size": 50
-  },
-  {
-    "path": "data_080FC8A4/gUnk_080FCB62_2_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1032358
-    },
-    "size": 50
-  },
-  {
-    "path": "data_080FC8A4/gUnk_080FCB62_3_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 1035106,
-    "size": 50
   },
   {
     "path": "data_080FC8A4/gUnk_080FCB94.bin",
@@ -42133,71 +41954,6 @@
     "size": 8
   },
   {
-    "path": "data_0811B9E0/gUnk_0811BABC.bin",
-    "start": 1161916,
-    "size": 8
-  },
-  {
-    "path": "data_0811B9E0/gUnk_0811BAC4.bin",
-    "start": 1161924,
-    "size": 16
-  },
-  {
-    "path": "data_0811B9E0/gUnk_0811BAF0.bin",
-    "start": 1161968,
-    "size": 60
-  },
-  {
-    "path": "data_0811B9E0/gUnk_0811BBBC.bin",
-    "start": 1162172,
-    "size": 6
-  },
-  {
-    "path": "data_0811B9E0/gUnk_0811BBC2.bin",
-    "start": 1162178,
-    "size": 6
-  },
-  {
-    "path": "data_0811B9E0/gUnk_0811BBC8.bin",
-    "start": 1162184,
-    "size": 6
-  },
-  {
-    "path": "data_0811B9E0/gUnk_0811BBCE.bin",
-    "start": 1162190,
-    "size": 6
-  },
-  {
-    "path": "data_0811B9E0/gUnk_0811BBEC.bin",
-    "start": 1162220,
-    "size": 12
-  },
-  {
-    "path": "data_0811B9E0/gUnk_0811BC28.bin",
-    "start": 1162280,
-    "size": 8
-  },
-  {
-    "path": "data_0811B9E0/gUnk_0811BC30.bin",
-    "start": 1162288,
-    "size": 8
-  },
-  {
-    "path": "data_0811B9E0/gUnk_0811BC38.bin",
-    "start": 1162296,
-    "size": 8
-  },
-  {
-    "path": "data_0811B9E0/gUnk_0811BC40.bin",
-    "start": 1162304,
-    "size": 8
-  },
-  {
-    "path": "data_0811B9E0/gUnk_0811BC80.bin",
-    "start": 1162368,
-    "size": 8
-  },
-  {
     "path": "itemBomb/gUnk_0811BDAC.bin",
     "start": 1162668,
     "size": 8
@@ -42428,21 +42184,6 @@
       "DEMO_USA": 2572,
       "DEMO_JP": -2192
     }
-  },
-  {
-    "path": "data_0811E750/gUnk_0811E750.bin",
-    "start": 1173328,
-    "size": 8
-  },
-  {
-    "path": "data_0811E750/gUnk_0811E758.bin",
-    "start": 1173336,
-    "size": 8
-  },
-  {
-    "path": "data_0811E750/gUnk_0811E760.bin",
-    "start": 1173344,
-    "size": 8
   },
   {
     "path": "data_0811E750/gUnk_0811E7BC.bin",
@@ -42950,26 +42691,6 @@
     "path": "ezloCap/gUnk_0811F18C.bin",
     "start": 1175948,
     "size": 4
-  },
-  {
-    "path": "blockPushed/gUnk_0811F62C.bin",
-    "start": 1177132,
-    "size": 8
-  },
-  {
-    "path": "blockPushed/gUnk_0811F634.bin",
-    "start": 1177140,
-    "size": 8
-  },
-  {
-    "path": "blockPushed/gUnk_0811F63C.bin",
-    "start": 1177148,
-    "size": 8
-  },
-  {
-    "path": "blockPushed/gUnk_0811F644.bin",
-    "start": 1177156,
-    "size": 8
   },
   {
     "path": "animations/gSpriteAnimations_Object9_0.bin",
@@ -43952,41 +43673,6 @@
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_PressurePlate_0.bin",
-    "start": 1182705,
-    "size": 4,
-    "type": "animation"
-  },
-  {
-    "path": "animations/gSpriteAnimations_PressurePlate_1.bin",
-    "start": 1182709,
-    "size": 4,
-    "type": "animation"
-  },
-  {
-    "path": "animations/gSpriteAnimations_PressurePlate_2.bin",
-    "start": 1182713,
-    "size": 4,
-    "type": "animation"
-  },
-  {
-    "path": "animations/gSpriteAnimations_PressurePlate_3.bin",
-    "start": 1182717,
-    "size": 4,
-    "type": "animation"
-  },
-  {
-    "path": "animations/gSpriteAnimations_PressurePlate_4.bin",
-    "start": 1182721,
-    "size": 7,
-    "type": "animation"
-  },
-  {
-    "path": "PressurePlate/gUnk_08120BEC.bin",
-    "start": 1182700,
-    "size": 5
-  },
-  {
     "path": "animations/gSpriteAnimations_BigBarrel_0.bin",
     "start": 1182822,
     "size": 9,
@@ -44039,40 +43725,10 @@
     "size": 8
   },
   {
-    "path": "barrelInside/gUnk_08120C80.bin",
-    "start": 1182848,
-    "size": 18
-  },
-  {
-    "path": "barrelInside/gUnk_08120C92.bin",
-    "start": 1182866,
-    "size": 6
-  },
-  {
     "path": "animations/gSpriteAnimations_PushableStatue_0.bin",
     "start": 1183110,
     "size": 6,
     "type": "animation"
-  },
-  {
-    "path": "pushableStatue/gUnk_08120CB4.bin",
-    "start": 1182900,
-    "size": 8
-  },
-  {
-    "path": "pushableStatue/gUnk_08120CBC.bin",
-    "start": 1182908,
-    "size": 16
-  },
-  {
-    "path": "pushableStatue/gUnk_08120CCC.bin",
-    "start": 1182924,
-    "size": 160
-  },
-  {
-    "path": "pushableStatue/gUnk_08120D6C.bin",
-    "start": 1183084,
-    "size": 26
   },
   {
     "path": "animations/gSpriteAnimations_AmbientClouds_0.bin",
@@ -44239,16 +43895,6 @@
     "type": "animation"
   },
   {
-    "path": "pushableRock/gUnk_08121088.bin",
-    "start": 1183880,
-    "size": 8
-  },
-  {
-    "path": "hittableLever/gUnk_08121180.bin",
-    "start": 1184128,
-    "size": 8
-  },
-  {
     "path": "object30/gUnk_08121194.bin",
     "start": 1184148,
     "size": 8
@@ -44330,36 +43976,6 @@
     "start": 1184436,
     "size": 4,
     "type": "animation"
-  },
-  {
-    "path": "pullableMushroom/gUnk_081211CC.bin",
-    "start": 1184204,
-    "size": 16
-  },
-  {
-    "path": "pullableMushroom/gUnk_081211E4.bin",
-    "start": 1184228,
-    "size": 8
-  },
-  {
-    "path": "pullableMushroom/gUnk_081211F4.bin",
-    "start": 1184244,
-    "size": 1
-  },
-  {
-    "path": "pullableMushroom/gUnk_081211F5.bin",
-    "start": 1184245,
-    "size": 7
-  },
-  {
-    "path": "pullableMushroom/gUnk_081211FC.bin",
-    "start": 1184252,
-    "size": 1
-  },
-  {
-    "path": "pullableMushroom/gUnk_081211FD.bin",
-    "start": 1184253,
-    "size": 7
   },
   {
     "path": "animations/gSpriteAnimations_Bollard_0.bin",
@@ -44757,16 +44373,6 @@
     "size": 5
   },
   {
-    "path": "pushableFurniture/gUnk_08121EE4.bin",
-    "start": 1187556,
-    "size": 12
-  },
-  {
-    "path": "pushableFurniture/gUnk_08121EF0.bin",
-    "start": 1187568,
-    "size": 8
-  },
-  {
     "path": "furniture/gUnk_08122128.bin",
     "start": 1188136,
     "size": 112
@@ -44809,11 +44415,6 @@
   {
     "path": "furniture/gUnk_08122208.bin",
     "start": 1188360,
-    "size": 16
-  },
-  {
-    "path": "furniture/gUnk_08122244.bin",
-    "start": 1188420,
     "size": 16
   },
   {
@@ -45010,21 +44611,6 @@
     "start": 1188656,
     "size": 4,
     "type": "animation"
-  },
-  {
-    "path": "pullableLever/gUnk_081222A8.bin",
-    "start": 1188520,
-    "size": 8
-  },
-  {
-    "path": "pullableLever/gUnk_081222B8.bin",
-    "start": 1188536,
-    "size": 8
-  },
-  {
-    "path": "pullableLever/gUnk_081222C0.bin",
-    "start": 1188544,
-    "size": 4
   },
   {
     "path": "minecart/gUnk_081223E8.bin",
@@ -45897,16 +45483,6 @@
     "size": 4
   },
   {
-    "path": "pushableGrave/gUnk_081232C0.bin",
-    "start": 1192640,
-    "size": 30
-  },
-  {
-    "path": "pushableGrave/gUnk_081232DE.bin",
-    "start": 1192670,
-    "size": 6
-  },
-  {
     "path": "stoneTablet/gUnk_081232EC.bin",
     "start": 1192684,
     "size": 18
@@ -45977,11 +45553,6 @@
     "size": 6
   },
   {
-    "path": "steam/gUnk_08123484.bin",
-    "start": 1193092,
-    "size": 16
-  },
-  {
     "path": "animations/gSpriteAnimations_PushableLever_0.bin",
     "start": 1193140,
     "size": 21,
@@ -45992,21 +45563,6 @@
     "start": 1193161,
     "size": 23,
     "type": "animation"
-  },
-  {
-    "path": "pushableLever/gUnk_081234A0.bin",
-    "start": 1193120,
-    "size": 4
-  },
-  {
-    "path": "pushableLever/gUnk_081234A4.bin",
-    "start": 1193124,
-    "size": 8
-  },
-  {
-    "path": "pushableLever/gUnk_081234AC.bin",
-    "start": 1193132,
-    "size": 8
   },
   {
     "path": "macroShoes/gUnk_081234F4.bin",
@@ -46110,21 +45666,6 @@
     "type": "animation"
   },
   {
-    "path": "bigPushableLever/gUnk_081236E8.bin",
-    "start": 1193704,
-    "size": 4
-  },
-  {
-    "path": "bigPushableLever/gUnk_081236EC.bin",
-    "start": 1193708,
-    "size": 8
-  },
-  {
-    "path": "bigPushableLever/gUnk_081236F4.bin",
-    "start": 1193716,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_SmallIceBlock_0.bin",
     "start": 1193834,
     "size": 4,
@@ -46147,16 +45688,6 @@
     "start": 1193846,
     "size": 22,
     "type": "animation"
-  },
-  {
-    "path": "smallIceBlock/gUnk_08123748.bin",
-    "start": 1193800,
-    "size": 8
-  },
-  {
-    "path": "smallIceBlock/gUnk_08123750.bin",
-    "start": 1193808,
-    "size": 26
   },
   {
     "path": "animations/gSpriteAnimations_BigIceBlock_0.bin",
@@ -46189,11 +45720,6 @@
     "type": "animation"
   },
   {
-    "path": "bigIceBlock/gUnk_081237B0.bin",
-    "start": 1193904,
-    "size": 10
-  },
-  {
     "path": "animations/gSpriteAnimations_Object86_0.bin",
     "start": 1193996,
     "size": 20,
@@ -46204,21 +45730,6 @@
     "start": 1194016,
     "size": 20,
     "type": "animation"
-  },
-  {
-    "path": "object87/gUnk_0812384C.bin",
-    "start": 1194060,
-    "size": 64
-  },
-  {
-    "path": "object87/gUnk_0812388C.bin",
-    "start": 1194124,
-    "size": 20
-  },
-  {
-    "path": "object87/gUnk_081238A0.bin",
-    "start": 1194144,
-    "size": 992
   },
   {
     "path": "animations/gSpriteAnimations_MacroBook_0.bin",
@@ -48332,16 +47843,6 @@
     "path": "playerItem13/gUnk_081320E4.bin",
     "start": 1253604,
     "size": 12
-  },
-  {
-    "path": "data_081320FC/_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 1251376
-    },
-    "size": 1280
   },
   {
     "offsets": {
