@@ -168,7 +168,7 @@ void sub_08028488(Entity* this) {
                 this->action = 4;
                 this->speed = 0x180;
                 this->direction = sub_08049F84(this, 1);
-                EnqueueSFX(0x11e);
+                EnqueueSFX(SFX_EM_MOBLIN_SPEAR);
                 break;
             case 2:
                 this->action = 2;
@@ -225,7 +225,7 @@ void sub_08028528(Entity* this) {
             }
 
             if ((this->actionDelay & 7) == 0) {
-                EnqueueSFX(0xf0);
+                EnqueueSFX(SFX_F0);
                 CreateFx(this, FX_DEATH, 0x40);
             }
 

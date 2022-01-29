@@ -24,7 +24,7 @@ extern u16 gUnk_08112C5C[2];
 extern u16 gUnk_08112C60[4];
 
 void TownMinish(Entity* this) {
-    if ((this->flags & 2) == 0) {
+    if ((this->flags & ENT_SCRIPTED) == 0) {
         gUnk_081126E8[this->action](this);
         sub_0806ED78(this);
     } else {
@@ -139,7 +139,7 @@ void sub_0806ADFC(Entity* this) {
 void TownMinish_Head(Entity* this) {
     u32 frames;
 
-    if ((this->flags & 2) == 0) {
+    if ((this->flags & ENT_SCRIPTED) == 0) {
         frames = this->field_0x68.HALF.HI / 2;
         if ((this->frameSpriteSettings & 1)) {
             SetExtraSpriteFrame(this, 0, frames + 0x1c);

@@ -55,7 +55,7 @@ void sub_08085264(Entity* this) {
         this->animationState = (this->animationState + *(u8*)&this->field_0x7c) & 3;
         InitializeAnimation(this, this->animationState);
         sub_0808543C(this);
-        EnqueueSFX(0x151);
+        EnqueueSFX(SFX_151);
     }
 }
 
@@ -67,7 +67,7 @@ void sub_080852B4(Entity* this) {
         this->animationState = (this->animationState + *(u8*)&this->field_0x7c) & 3;
         InitializeAnimation(this, this->animationState);
         sub_08085394(this);
-        EnqueueSFX(0x151);
+        EnqueueSFX(SFX_151);
     }
 }
 
@@ -97,7 +97,7 @@ void sub_08085308(Entity* this) {
             this->animationState = (this->animationState + *(u8*)&this->field_0x7c) & 3;
             InitializeAnimation(this, this->animationState);
             sub_0808543C(this);
-            EnqueueSFX(0x151);
+            EnqueueSFX(SFX_151);
         }
     }
 }

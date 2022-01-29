@@ -95,7 +95,7 @@ void sub_0802BB10(Entity* this) {
     this->action = 3;
     this->speed = 0xc0;
     this->direction = this->direction ^ 0x10;
-    EnqueueSFX(0x74);
+    EnqueueSFX(SFX_METAL_CLINK);
 }
 
 bool32 sub_0802BB2C(Entity* this, u32 param_2) {

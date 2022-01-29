@@ -13,7 +13,7 @@ extern void (*gUnk_0810CDF8[])(Entity*);
 extern Dialog gUnk_0810CE04[];
 
 void Pina(Entity* this) {
-    if ((this->flags & 2) != 0) {
+    if ((this->flags & ENT_SCRIPTED) != 0) {
         sub_08063B68(this);
     } else {
         sub_08063A80(this);

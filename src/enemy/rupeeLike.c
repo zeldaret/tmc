@@ -71,7 +71,7 @@ void sub_08029318(Entity* this) {
             this->field_0x82.HALF.HI = 0x41;
             this->flags2 &= 0xfc;
             this->field_0x80.HALF.LO = gPlayerEntity.spritePriority.b1;
-            EnqueueSFX(0x104);
+            EnqueueSFX(SFX_104);
         } else {
             if (this->field_0x43 != 0) {
                 sub_0804A9FC(this, 0x1c);
@@ -239,7 +239,7 @@ void sub_080296C8(Entity* this) {
 void sub_080296D8(Entity* this) {
     gPlayerState.jump_status = 0x41;
     gPlayerState.flags &= ~PL_CAPTURED;
-    gPlayerEntity.flags |= 0x80;
+    gPlayerEntity.flags |= ENT_COLLIDE;
     gPlayerEntity.zVelocity = Q_16_16(1.5);
     gPlayerEntity.iframes = 0xa6;
     gPlayerEntity.z.HALF.HI = -2;

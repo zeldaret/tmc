@@ -27,7 +27,7 @@ extern Dialog gUnk_0810BE10[];
 extern u8 gUnk_0810C0A0[];
 
 void Kid(Entity* this) {
-    if ((this->flags & 2) != 0) {
+    if ((this->flags & ENT_SCRIPTED) != 0) {
         sub_080621AC(this);
     } else {
         gUnk_0810BE0C[this->action](this);

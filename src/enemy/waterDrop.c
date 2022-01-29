@@ -43,7 +43,7 @@ void sub_0802A2B4(Entity* this) {
     if (!GravityUpdate(this, 0x2800)) {
         this->action = 2;
         this->spritePriority.b0 = 7;
-        EnqueueSFX(0x84);
+        EnqueueSFX(SFX_WATER_SPLASH);
     } else {
         LinearMoveUpdate(this);
     }

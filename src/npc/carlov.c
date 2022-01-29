@@ -12,11 +12,11 @@ void Carlov(Entity* this) {
     }
     if ((this->frame & 0x10) != 0) {
         this->frame = this->frame & 0xef;
-        EnqueueSFX(0x104);
+        EnqueueSFX(SFX_104);
         InitScreenShake(0x10, 0);
     }
     if ((this->frame & 0x20) != 0) {
         this->frame = this->frame & 0xdf;
-        EnqueueSFX(0x7c);
+        EnqueueSFX(SFX_PLY_JUMP);
     }
 }

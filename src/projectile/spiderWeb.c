@@ -149,7 +149,7 @@ void SpiderWeb_SubAction0(Entity* this) {
         if ((this->frame & 1) != 0) {
             entity->x.HALF.HI = gUnk_0812A06C[entity->animationState] + entity->x.HALF.HI;
             entity->y.HALF.HI = gUnk_0812A06C[entity->animationState + 1] + entity->y.HALF.HI;
-            EnqueueSFX(0x100);
+            EnqueueSFX(SFX_100);
         }
     }
 }

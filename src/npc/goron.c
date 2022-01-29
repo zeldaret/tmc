@@ -10,7 +10,7 @@ extern void (*gUnk_08111A8C[])(Entity*);
 extern Dialog gUnk_08111A94[];
 
 void Goron(Entity* this) {
-    if (this->flags & 2) {
+    if (this->flags & ENT_SCRIPTED) {
         gUnk_08111A8C[this->action](this);
     } else {
         gUnk_08111A80[this->action](this);

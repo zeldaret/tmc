@@ -330,7 +330,7 @@ void sub_08031EE8(Entity* this) {
     if (this->z.HALF.HI < 1) {
         draw = this->spriteSettings.draw;
         if (!draw)
-            EnqueueSFX(299);
+            EnqueueSFX(SFX_12B);
 
         this->spriteSettings.draw = 1;
     }

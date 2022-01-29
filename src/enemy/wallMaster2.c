@@ -41,7 +41,7 @@ void sub_0802CC80(Entity* this) {
             this->action = 3;
             COLLISION_OFF(this);
             InitializeAnimation(this, 1);
-            gPlayerEntity.flags &= ~0x80;
+            gPlayerEntity.flags &= ~ENT_COLLIDE;
             break;
     }
     if (this->field_0x43 != 0) {

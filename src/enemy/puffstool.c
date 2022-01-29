@@ -89,7 +89,7 @@ void sub_08025020(Entity* this) {
                     ent->spritePriority.b0 = 3;
                     CopyPosition(this, ent);
                 }
-                EnqueueSFX(0x186);
+                EnqueueSFX(SFX_186);
             }
             break;
     }

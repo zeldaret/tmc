@@ -832,7 +832,7 @@ void OctorokBoss_Action1_Attack(Entity* this) {
 
     if (this->field_0x80.HALF.LO != 0) {
         gPlayerEntity.spriteSettings.draw = 0;
-        gPlayerEntity.flags &= 0x7f;
+        gPlayerEntity.flags &= ~ENT_COLLIDE;
         gPlayerEntity.collisionLayer = 2;
         sub_08078B48();
         sub_08077B20();
@@ -972,7 +972,7 @@ void OctorokBoss_ExecuteAttackVacuum(Entity* this) {
             GET_ANGULAR_VEL(this) = 0x100;
             GET_HELPER(this)->mouthObject->field_0x78.HALF.HI++;
             gPlayerEntity.spriteSettings.draw = 1;
-            gPlayerEntity.flags &= 0x7f;
+            gPlayerEntity.flags &= ~ENT_COLLIDE;
             gPlayerEntity.collisionLayer = 1;
             sub_080792BC(0x400, (u32)(-(GET_ANGLE_HI(this) + 0x80) * 0x1000000) >> 0x1b, 0x30);
             OctorokBoss_SetAttackTimer(this);
@@ -1112,7 +1112,7 @@ void OctorokBoss_Burning_SubAction2(Entity* this) {
 void sub_080368D8(Entity* this) {
     if (this->field_0x80.HALF.LO != 0) {
         gPlayerEntity.spriteSettings.draw = 1;
-        gPlayerEntity.flags |= 0x80;
+        gPlayerEntity.flags |= ENT_COLLIDE;
         gPlayerEntity.collisionLayer = 1;
     }
     this->field_0x76.HWORD = 0xa0;

@@ -13,7 +13,7 @@ void PlayerItemLantern(Entity* this) {
 }
 
 void sub_08054A60(Entity* this) {
-    this->flags |= 0xa0;
+    this->flags |= (ENT_PERSIST | ENT_COLLIDE);
     this->action = 0x01;
     this->actionDelay = 0x04;
     this->frameIndex = -1;

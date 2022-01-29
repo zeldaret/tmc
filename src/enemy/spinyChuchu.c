@@ -75,7 +75,7 @@ void sub_0802244C(Entity* this) {
             if (this->action == 3) {
                 this->action = 4;
                 InitializeAnimation(this, 3);
-                EnqueueSFX(0x194);
+                EnqueueSFX(SFX_194);
             }
         }
     } else {
@@ -138,7 +138,7 @@ void sub_08022654(Entity* this) {
             this->subAction = 2;
             this->spriteSettings.draw = 1;
             InitializeAnimation(this, 5);
-            EnqueueSFX(0x7d);
+            EnqueueSFX(SFX_PLY_LAND);
             UpdateSpriteForCollisionLayer(this);
             /* fallthrough */
         case 2:
@@ -186,7 +186,7 @@ void sub_08022780(Entity* this) {
     if (this->frame & 0x80) {
         this->action = 4;
         InitializeAnimation(this, 3);
-        EnqueueSFX(0x194);
+        EnqueueSFX(SFX_194);
     }
 }
 
@@ -229,7 +229,7 @@ void sub_08022854(Entity* this) {
             this->action = 7;
             this->hitType = 0x5c;
             InitializeAnimation(this, 5);
-            EnqueueSFX(0x7d);
+            EnqueueSFX(SFX_PLY_LAND);
         }
     }
 }

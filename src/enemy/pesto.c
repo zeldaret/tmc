@@ -392,7 +392,7 @@ void sub_080244E8(Entity* this) {
                             this->flags2 &= 0xfc;
                             sub_080249DC(this);
                             this->cutsceneBeh.HALF.HI = gPlayerEntity.spritePriority.b1;
-                            gPlayerEntity.flags &= 0x7f;
+                            gPlayerEntity.flags &= ~ENT_COLLIDE;
                             gPlayerState.flags |= PL_DISABLE_ITEMS;
                             gPlayerState.field_0xa |= 0x80;
                             if (gPlayerState.swim_state != 0) {
@@ -819,7 +819,7 @@ void sub_08024E4C(Entity* this) {
                 this->field_0x86.HALF.HI++;
                 player->iframes = 8;
                 ModHealth(-2);
-                SoundReqClipped(player, 0x7a);
+                SoundReqClipped(player, SFX_PLY_VO6);
             }
         }
     }

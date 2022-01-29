@@ -9,7 +9,7 @@ void sub_08066864(Entity*);
 extern u16 gUnk_08110650[];
 
 void MinisterPotho(Entity* this) {
-    if ((this->flags & 2) != 0) {
+    if ((this->flags & ENT_SCRIPTED) != 0) {
         sub_08066864(this);
     } else {
         gUnk_08110644[this->action](this);

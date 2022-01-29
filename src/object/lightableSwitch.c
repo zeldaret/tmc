@@ -48,7 +48,7 @@ void sub_0809EA80(Entity* this) {
         } else {
             SetFlag(this->field_0x86.HWORD);
         }
-        EnqueueSFX(0x110);
+        EnqueueSFX(SFX_110);
     }
     sub_0809EABC(this);
 }
@@ -121,7 +121,7 @@ void sub_0809EBD8(Entity* this) {
         this->actionDelay = 0x10;
         this->frameIndex = 2;
         SetFlag(this->field_0x86.HWORD);
-        EnqueueSFX(0x110);
+        EnqueueSFX(SFX_110);
     }
 }
 
@@ -135,7 +135,7 @@ void sub_0809EC08(Entity* this) {
             this->action = 1;
             this->frameIndex = 3;
             ClearFlag(this->field_0x86.HWORD);
-            EnqueueSFX(0x110);
+            EnqueueSFX(SFX_110);
         }
     }
 }

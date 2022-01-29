@@ -15,7 +15,7 @@ void sub_080481D0(Entity* this) {
 void sub_080481E8(Entity* this) {
     if (this->field_0x46) {
         this->action = 2;
-        this->flags &= 0x7f;
+        this->flags &= ~ENT_COLLIDE;
         this->spritePriority.b0 = 7;
         this->actionDelay = 3;
     } else {
@@ -36,7 +36,7 @@ void sub_08048224(Entity* this) {
         this->actionDelay = 0;
     } else {
         this->action = 3;
-        this->flags &= 0x7f;
+        this->flags &= ~ENT_COLLIDE;
         this->actionDelay = 1;
     }
 

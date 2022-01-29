@@ -10,7 +10,7 @@ extern void sub_08064EE8(Entity*);
 extern void (*const gUnk_0810FBFC[])(Entity*);
 
 void TingleSiblings(Entity* this) {
-    if ((this->flags & 2) != 0) {
+    if ((this->flags & ENT_SCRIPTED) != 0) {
         sub_08064DE4(this);
     } else {
         sub_08064D78(this);

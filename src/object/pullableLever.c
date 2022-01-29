@@ -124,7 +124,7 @@ void PullableLever_HandleSubAction0(PullableLeverEntity* this) {
         super->field_0xf = 2;
     }
     if (player->animationState >> 1 == super->type2) {
-        if (gPlayerState.framestate == 0x1a) {
+        if (gPlayerState.framestate == PL_STATE_PULL) {
             if (gPlayerState.heldObject & 2) {
                 if (gPlayerEntity.frame & 2) {
                     sub_0809153C(this);

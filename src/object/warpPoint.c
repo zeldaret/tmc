@@ -56,7 +56,7 @@ void sub_0808B474(Entity* this) {
     gPlayerEntity.x.HALF.HI = this->x.HALF.HI;
     gPlayerEntity.y.HALF.HI = this->y.HALF.HI;
     gPlayerEntity.animationState = 4;
-    EnqueueSFX(0x112);
+    EnqueueSFX(SFX_112);
     RequestPriorityDuration(this, this->field_0xf + 0x10);
 }
 
@@ -68,7 +68,7 @@ void sub_0808B530(Entity* this) {
         }
         this->action = 2;
         this->field_0xf = 60;
-        EnqueueSFX(0x112);
+        EnqueueSFX(SFX_112);
     }
 }
 
@@ -91,7 +91,7 @@ void sub_0808B590(Entity* this) {
         gPlayerEntity.x.HALF.HI = this->x.HALF.HI;
         gPlayerEntity.y.HALF.HI = this->y.HALF.HI;
         gPlayerEntity.animationState = 4;
-        gPlayerEntity.flags &= ~0x80;
+        gPlayerEntity.flags &= ~ENT_COLLIDE;
         RequestPriorityDuration(this, this->field_0xf + 0x10);
         SoundReq(SFX_113);
     } else {

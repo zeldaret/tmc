@@ -148,7 +148,7 @@ void sub_080834B4(Entity* this) {
         this->action = 2;
         this->actionDelay = 7;
         SetTile(this->field_0x74.HWORD, this->field_0x76.HWORD, this->collisionLayer);
-        EnqueueSFX(0x10b);
+        EnqueueSFX(SFX_10B);
     }
 }
 
@@ -184,7 +184,7 @@ void sub_08083540(Entity* this) {
             }
         }
         sub_08083814(this, this->field_0x7c.BYTES.byte2);
-        EnqueueSFX(0x10b);
+        EnqueueSFX(SFX_10B);
     }
 }
 

@@ -55,7 +55,7 @@ void sub_0802C688(Entity* this) {
         switch (this->field_0x82.HALF.LO) {
             case 1:
                 sub_0802CB68(this);
-                EnqueueSFX(0x14d);
+                EnqueueSFX(SFX_14D);
                 break;
             case 2:
                 this->action = 3;
@@ -245,7 +245,7 @@ void sub_0802CAF8(Entity* this) {
         sub_0802CBC4(this);
     } else {
         if (this->field_0x80.HALF.HI && sub_080044EC(this, 0x2800) == 1) {
-            EnqueueSFX(0x104);
+            EnqueueSFX(SFX_104);
         }
         sub_0802CC18(this);
         sub_08078930(this);
@@ -300,7 +300,7 @@ void sub_0802CBC4(Entity* this) {
 void sub_0802CC18(Entity* this) {
     if (--this->field_0x80.HALF.LO == 0) {
         this->field_0x80.HALF.LO = 28;
-        EnqueueSFX(0x14d);
+        EnqueueSFX(SFX_14D);
     }
 }
 

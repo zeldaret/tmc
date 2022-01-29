@@ -145,7 +145,7 @@ void DirtBallProjectile_Action2(Entity* this) {
     switch (this->type) {
         case 0:
             InitializeAnimation(this, 1);
-            EnqueueSFX(0x84);
+            EnqueueSFX(SFX_WATER_SPLASH);
             this->action = 3;
             return;
         case 2:

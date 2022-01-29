@@ -10,7 +10,7 @@ extern u8 gUnk_0810FED8[];
 void sub_0806574C(Entity* this);
 
 void Talon(Entity* this) {
-    if (this->flags & 2) {
+    if (this->flags & ENT_SCRIPTED) {
         gUnk_0810FEC4[this->action](this);
     } else {
         gUnk_0810FEBC[this->action](this);

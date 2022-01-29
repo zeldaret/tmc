@@ -97,7 +97,7 @@ void sub_08092B0C(Entity* this) {
         this->actionDelay = 0;
         switch (this->type2 & 0xC0) {
             case 0x80:
-                EnqueueSFX(0x72);
+                EnqueueSFX(SFX_SECRET);
             case 0x40:
                 SetFlag(this->field_0x86.HWORD);
                 break;

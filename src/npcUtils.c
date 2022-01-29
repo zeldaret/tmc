@@ -56,7 +56,7 @@ void NPCInit(Entity* this) {
         const NPCDefinition* definition = GetNPCDefinition(this);
         if (definition->bitfield.type == 0) {
             // No sprite for this NPC
-            this->flags |= 1;
+            this->flags |= ENT_DID_INIT;
         } else {
             tmp = definition->bitfield.gfx;
             switch (definition->bitfield.gfx_type) {
@@ -290,13 +290,13 @@ void sub_0806F0A4(void) {
 
     for (currentEntity = entityList->first; currentEntity != (Entity*)entityList; currentEntity = currentEntity->next) {
         Entity* nextEnt;
-        if ((currentEntity->flags & 1) == 0)
+        if ((currentEntity->flags & ENT_DID_INIT) == 0)
             continue;
         if ((currentEntity->field_0x17 & 1) == 0)
             continue;
 
         for (nextEnt = currentEntity->next; nextEnt != (Entity*)entityList; nextEnt = nextEnt->next) {
-            if ((nextEnt->flags & 1) == 0)
+            if ((nextEnt->flags & ENT_DID_INIT) == 0)
                 continue;
             if ((nextEnt->field_0x17 & 1) == 0)
                 continue;

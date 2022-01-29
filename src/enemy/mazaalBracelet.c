@@ -605,7 +605,7 @@ void sub_0803AA98(Entity* this) {
             this->speed = 0x40;
             InitializeAnimation(this, 10);
             temp = (*(Entity**)&this->field_0x74);
-            temp->flags |= 0x80;
+            temp->flags |= ENT_COLLIDE;
             temp = this->child;
             temp->hitType = 0x13;
             InitAnimationForceUpdate(temp, 5);
@@ -754,7 +754,7 @@ void sub_0803ADAC(Entity* this) {
     if (--this->actionDelay == 0) {
         this->action = 0x16;
         this->spriteSettings.draw = 1;
-        (*(Entity**)&this->field_0x74)->flags |= 0x80;
+        (*(Entity**)&this->field_0x74)->flags |= ENT_COLLIDE;
         InitializeAnimation(this, 0xb);
         InitAnimationForceUpdate(this->child, 6);
         sub_0803B798();
@@ -1230,7 +1230,7 @@ void sub_0803B798(void) {
     gPlayerState.jump_status = 0x41;
     gPlayerState.field_0xa = 0;
     gPlayerState.flags &= ~(0xffff0000 | PL_CAPTURED);
-    gPlayerEntity.flags |= 0x80;
+    gPlayerEntity.flags |= ENT_COLLIDE;
     gPlayerEntity.zVelocity = Q_16_16(1.5);
     gPlayerEntity.z.HALF.HI = -10;
     gPlayerEntity.direction = 0x10;
@@ -1244,7 +1244,7 @@ void sub_0803B798(void) {
 void sub_0803B804(Entity* this) {
     gPlayerEntity.iframes = 30;
     ModHealth(-4);
-    SoundReqClipped(&gPlayerEntity, 0x7a);
+    SoundReqClipped(&gPlayerEntity, SFX_PLY_VO6);
 }
 
 void sub_0803B824(Entity* this) {
@@ -1263,7 +1263,7 @@ u32 sub_0803B870(Entity* this) {
         this->action = 0x18;
         this->actionDelay = 0x44;
         this->spriteSettings.draw = 0;
-        gPlayerEntity.flags = gPlayerEntity.flags & 0x7f;
+        gPlayerEntity.flags &= ~ENT_COLLIDE;
         gPlayerEntity.iframes = -0x10;
         sub_0803B824(this);
         entity->hitType = 0x13;

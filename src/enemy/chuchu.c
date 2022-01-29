@@ -220,7 +220,7 @@ void sub_0801F1B0(Entity* this) {
         if (this->frame & 1) {
             this->frame ^= 1;
             this->hitType = 90;
-            EnqueueSFX(299);
+            EnqueueSFX(SFX_12B);
         }
         sub_080AEFE0(this);
         if (GravityUpdate(this, 0x4000) == 0)
@@ -416,7 +416,7 @@ void sub_0801F584(Entity* this) {
         if (this->frame & 0x1) {
             this->frame ^= 1;
             this->hitType = 91;
-            EnqueueSFX(299);
+            EnqueueSFX(SFX_12B);
         }
         sub_080AEFE0(this);
         if (GravityUpdate(this, 0x4000) == 0)
@@ -564,7 +564,7 @@ void sub_0801F884(Entity* this) {
             ent->type2 = 64;
             this->action = 4;
             this->hitType = 165;
-            EnqueueSFX(0x193);
+            EnqueueSFX(SFX_193);
         }
     }
 }
@@ -593,7 +593,7 @@ void sub_0801F940(Entity* this) {
     if (this->frame & 0x10) {
         if (this->frame & 1) {
             this->frame ^= 1;
-            EnqueueSFX(299);
+            EnqueueSFX(SFX_12B);
         }
         sub_080AEFE0(this);
         if (GravityUpdate(this, 0x4000) == 0)

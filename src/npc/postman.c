@@ -21,7 +21,7 @@ extern void (*const gUnk_0810AA24[])(Entity*);
 extern Dialog gUnk_0810AA30[];
 
 void Postman(Entity* this) {
-    if ((this->flags & 2) != 0) {
+    if ((this->flags & ENT_SCRIPTED) != 0) {
         sub_08060528(this);
     } else {
         gUnk_0810AA24[this->action](this);
