@@ -415,7 +415,7 @@ SECTIONS {
         src/enemy/fireballGuy.o(.text);
         src/enemy/miniFireballGuy.o(.text);
         src/enemy/vaatiTransfiguredEye.o(.text);
-        asm/enemy/businessScrubPrologue.o(.text);
+        src/enemy/businessScrubPrologue.o(.text);
         src/enemy/gyorgFemale.o(.text);
         src/enemy/gyorgMale.o(.text);
         src/enemy/curtain.o(.text);
@@ -1099,7 +1099,7 @@ SECTIONS {
         data/const/enemy/miniFireballGuy.o(.rodata);
         src/enemy/vaatiTransfiguredEye.o(.rodata);
         data/animations/enemy/vaatiTransfiguredEye.o(.rodata);
-        data/const/enemy/businessScrubPrologue.o(.rodata);
+        src/enemy/businessScrubPrologue.o(.rodata);
         src/enemy/gyorgFemale.o(.rodata);
         src/enemy/gyorgMale.o(.rodata);
         data/animations/enemy/gyorgMale.o(.rodata);

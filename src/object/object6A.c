@@ -647,7 +647,7 @@ void sub_0809545C(Object6AEntity* this, ScriptExecutionContext* ctx) {
     }
 }
 
-void sub_080954AC(Object6AEntity* this) {
+void sub_080954AC(Object6AEntity* this, u32 arg2) {
     Entity* e = CreateObject(OBJECT_6A, 0x1A, 0);
     if (e != NULL) {
         CopyPosition(super, e);
@@ -997,12 +997,12 @@ void sub_08095C00(Object6AEntity* this) {
     }
 }
 
-void sub_08095C48(Object6AEntity* this) {
+void sub_08095C48(Entity* this) {
     Entity* e = CreateObject(OBJECT_6A, 0x19, 0);
     if (e != NULL) {
-        super->child = e;
-        e->parent = super;
-        CopyPosition(super, e);
+        this->child = e;
+        e->parent = this;
+        CopyPosition(this, e);
     }
 }
 
