@@ -31,7 +31,7 @@ void ResetPlayer() {
         case 2:
         case 3:
         case 4: {
-            gPlayerState.framestate = 0;
+            gPlayerState.framestate = PL_STATE_IDLE;
             break;
         }
     }
