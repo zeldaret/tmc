@@ -3,7 +3,7 @@
 void sub_080451CC(Entity* this, Entity* other) {
     u8* pThis;
     u8* pOther;
-    other->flags = this->flags & 0xfe;
+    other->flags = this->flags & ~ENT_DID_INIT;
     other->x.WORD = this->x.WORD;
     other->y.WORD = this->y.WORD;
     other->z.WORD = this->z.WORD;

@@ -9,7 +9,7 @@ extern void (*const gUnk_081104E0[])(Entity*);
 extern void (*const gUnk_081104EC[])(Entity*);
 
 void KingDaltus(Entity* this) {
-    if ((this->flags & 2) != 0) {
+    if ((this->flags & ENT_SCRIPTED) != 0) {
         if (this->interactType == 2) {
             this->interactType = 0;
             this->action = 2;

@@ -20,7 +20,7 @@ void (*const gUnk_080D1E6C[])(GyorgChildEntity*) = {
 
 void GyorgChild(Entity* this) {
     if (gRoomTransition.field_0x39 == 0) {
-        this->flags &= ~0x80;
+        this->flags &= ~ENT_COLLIDE;
         this->health = 0;
         this->collisionLayer = 2;
     }
@@ -89,7 +89,7 @@ void sub_080486F4(GyorgChildEntity* this) {
         s32 r;
         InitializeAnimation(super, super->animationState);
         super->action = 1;
-        super->flags |= 0x80;
+        super->flags |= ENT_COLLIDE;
         r = (signed)Random() % 0xB;
         super->direction += r;
         super->direction -= 5;
@@ -143,7 +143,7 @@ void sub_0804877C(GyorgChildEntity* this) {
 void sub_0804882C(GyorgChildEntity* this) {
     if (--super->actionDelay == 0) {
         super->action = 3;
-        super->flags |= 0x80;
+        super->flags |= ENT_COLLIDE;
         Random();
         super->spriteSettings.draw = 1;
         super->spritePriority.b0 = 4;

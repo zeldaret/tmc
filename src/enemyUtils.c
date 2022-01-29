@@ -54,7 +54,7 @@ bool32 EnemyInit(Entity* this) {
                     object->spritePriority.b0 = 3;
                     object->parent = this;
                     CopyPosition(this, object);
-                    this->flags &= 0x7f;
+                    this->flags &= ~ENT_COLLIDE;
                     this->spriteSettings.draw = 0;
                     this->field_0x6c.HALF.HI |= 0x10;
                 }

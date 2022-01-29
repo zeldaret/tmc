@@ -26,7 +26,7 @@ void sub_080ACA68(Entity* this) {
         case 0xc:
         case 0x6: {
             this->action = 2;
-            this->flags &= 0x7f;
+            this->flags &= ~ENT_COLLIDE;
             this->speed += 0x80 * 2;
             this->child = this->field_0x4c;
             if (sub_080ACB40(this)) {

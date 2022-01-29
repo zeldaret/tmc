@@ -7,7 +7,7 @@ extern void (*gUnk_0810FF5C[])(Entity* this);
 extern void (*gUnk_0810FF64[])(Entity* this);
 
 void Malon(Entity* this) {
-    if (this->flags & 0x2) {
+    if (this->flags & ENT_SCRIPTED) {
         gUnk_0810FF64[this->action](this);
     } else {
         gUnk_0810FF5C[this->action](this);

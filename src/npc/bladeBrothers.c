@@ -35,7 +35,7 @@ extern EntityData gUnk_080F3494;
 static void sub_08068BEC(Entity* this, u32 unused);
 
 void BladeBrothers(Entity* this) {
-    if ((this->flags & 2) != 0) {
+    if ((this->flags & ENT_SCRIPTED) != 0) {
         gUnk_081115D0[this->action](this);
     } else {
         gUnk_081115C0[this->action](this);

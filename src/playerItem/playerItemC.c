@@ -19,7 +19,7 @@ void PlayerItemC(Entity* this) {
 void sub_0801B8B0(Entity* this) {
     if (gPlayerState.dash_state != 0) {
         gPlayerState.item = this;
-        this->flags |= 0x20;
+        this->flags |= ENT_PERSIST;
         this->action = 0x01;
         this->flags2 = 8;
         LoadSwapGFX(this, 1, 3);
@@ -41,7 +41,7 @@ void sub_0801B8FC(Entity* this) {
             gPlayerState.item = NULL;
             DeleteThisEntity();
         } else {
-            pbVar1->flags |= 0x80;
+            pbVar1->flags |= ENT_COLLIDE;
             pbVar1->field_0x3c = 0x21;
             sub_0801B938(pbVar1);
         }

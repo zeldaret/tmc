@@ -23,7 +23,7 @@ extern PosOffset gUnk_08110E78[];
 extern PosOffset gUnk_08110E8A[];
 
 void CastorWildsStatue(Entity* this) {
-    if ((this->flags & 2) != 0) {
+    if ((this->flags & ENT_SCRIPTED) != 0) {
         gUnk_08110E5C[this->action](this);
     } else {
         gUnk_08110E4C[this->action](this);

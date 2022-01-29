@@ -26,7 +26,7 @@ void sub_08077BB8(ItemBehavior* beh) {
     UnkItemStruct* unk = (UnkItemStruct*)beh; // @nocheckin
     Entity* temp = sub_08077C54(unk);
     if (temp != NULL) {
-        temp->flags = 0x20;
+        temp->flags = ENT_PERSIST;
     }
     gPlayerState.item = temp;
 }
@@ -92,7 +92,7 @@ Entity* CreatePlayerItem(u32 subtype, u32 form, u32 parameter, u32 unk) {
 
     ent = GetEmptyEntity();
     if (ent != NULL) {
-        ent->flags = 0x80;
+        ent->flags = ENT_COLLIDE;
         ent->kind = 8;
         ent->id = subtype;
         ent->type = form;
@@ -108,7 +108,7 @@ Entity* sub_08077CF8(u32 subtype, u32 form, u32 parameter, u32 unk) {
 
     ent = sub_0805E744();
     if (ent != NULL) {
-        ent->flags = 0x80;
+        ent->flags = ENT_COLLIDE;
         ent->kind = 8;
         ent->id = subtype;
         ent->type = form;

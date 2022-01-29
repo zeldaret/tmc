@@ -80,7 +80,7 @@ void sub_08085504(LilypadLargeEntity* this) {
     super->speed = 0x100;
     super->spritePriority.b0 = 6;
     super->hitbox = &gUnk_08120640;
-    super->flags |= 0x80;
+    super->flags |= ENT_COLLIDE;
     super->field_0x3c = 7;
     super->hitType = 1;
     super->flags2 = 4;
@@ -204,7 +204,7 @@ void sub_08085C5C(LilypadLargeEntity* this) {
         }
     }
     if (gRoomControls.reload_flags == 0) {
-        super->flags &= 0xdf;
+        super->flags &= ~ENT_PERSIST;
         super->action = 1;
         super->updatePriority = super->updatePriorityPrev;
         gRoomControls.camera_target = &gPlayerEntity;
@@ -291,12 +291,12 @@ NONMATCH("asm/non_matching/lilypadLarge/sub_08085D60.inc", void sub_08085D60(Lil
             }
         }
     }
-    super->flags &= 0xdf;
+    super->flags &= ~ENT_PERSIST;
 }
 END_NONMATCH
 
 void sub_08085E74(LilypadLargeEntity* this) {
-    super->flags |= 0x20;
+    super->flags |= ENT_PERSIST;
     super->updatePriority = 6;
     super->action = 3;
     switch (super->direction) {

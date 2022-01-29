@@ -32,7 +32,7 @@ void HittableLever(HittableLeverEntity* this) {
 
 void HittableLever_Init(HittableLeverEntity* this) {
     super->action = 1;
-    super->flags |= 0x80;
+    super->flags |= ENT_COLLIDE;
     super->field_0x3c = 7;
     super->hitType = 0x8f;
     super->flags2 = 0xa;

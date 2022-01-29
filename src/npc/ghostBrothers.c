@@ -23,7 +23,7 @@ void sub_08065C0C(Entity* this);
 static EntityAction* const gUnk_08110164[];
 
 void GhostBrothers(Entity* this) {
-    if (this->flags & 0x2) {
+    if (this->flags & ENT_SCRIPTED) {
         sub_08065C0C(this);
     } else {
         gUnk_08110164[this->type](this);

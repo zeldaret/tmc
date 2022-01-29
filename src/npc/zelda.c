@@ -73,7 +73,7 @@ void sub_08066D94(Entity* this) {
     npc = CreateNPC(0x2E, 0, 0);
     if (npc != NULL) {
         npc->animationState = gPlayerEntity.animationState;
-        npc->flags |= 0x20;
+        npc->flags |= ENT_PERSIST;
         npc->animationState = GetAnimationState(this);
         room = gRoomControls.room;
         npc->field_0x74.HWORD = room;

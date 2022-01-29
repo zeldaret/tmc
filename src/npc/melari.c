@@ -10,7 +10,7 @@ extern u16 gUnk_0811153E[];
 extern u16 gUnk_08111538[];
 
 void Melari(Entity* this) {
-    if ((this->flags & 2) == 0) {
+    if ((this->flags & ENT_SCRIPTED) == 0) {
         gUnk_08111530[this->action](this);
         sub_0806ED78(this);
     } else {

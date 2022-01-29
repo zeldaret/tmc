@@ -43,7 +43,7 @@ void sub_080ABFEC(Entity* this) {
         }
         case 1: {
             this->action = 1;
-            this->flags &= 0x7f;
+            this->flags &= ~ENT_COLLIDE;
             this->cutsceneBeh.HALF.HI = 0x18;
             CopyPositionAndSpriteOffset(this->parent, this);
             this->z.HALF.HI -= 0x14;

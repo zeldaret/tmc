@@ -46,7 +46,7 @@ void sub_08077534(ItemBehavior* this, u32 arg1) {
             sub_08077DF4(this, 0x610);
             break;
     }
-    gPlayerEntity.flags &= 0x7f;
+    gPlayerEntity.flags &= ~ENT_COLLIDE;
 }
 
 void sub_08077618(ItemBehavior* this, u32 arg1) {
@@ -61,7 +61,7 @@ void sub_08077618(ItemBehavior* this, u32 arg1) {
 void sub_08077640(ItemBehavior* this, u32 arg1) {
     UpdateItemAnim(this);
     if ((this->field_0x5[9] & 0x80) != 0) {
-        gPlayerEntity.flags |= 0x80;
+        gPlayerEntity.flags |= ENT_COLLIDE;
         sub_08077E78(this, arg1);
     }
 }
@@ -69,7 +69,7 @@ void sub_08077640(ItemBehavior* this, u32 arg1) {
 void sub_0807766C(ItemBehavior* this, u32 arg1) {
     UpdateItemAnim(this);
     if ((this->field_0x5[9] & 0x80) != 0) {
-        gPlayerEntity.flags |= 0x80;
+        gPlayerEntity.flags |= ENT_COLLIDE;
         sub_08077E78(this, arg1);
     }
 }

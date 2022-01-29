@@ -654,7 +654,7 @@ void VaatiRebornEnemyType1PreAction(Entity* this) {
             if (2 < ++parent->field_0x86.HALF.LO) {
                 COLLISION_OFF(this);
                 parent->action = 7;
-                parent->flags &= 0x7f;
+                parent->flags &= ~ENT_COLLIDE;
                 parent->actionDelay = 0x80;
                 parent->spriteOffsetX = 0;
                 parent->direction = -1;

@@ -17,7 +17,7 @@ extern SpriteLoadData gUnk_0810F874[];
 extern u32 _call_via_r0(u32*);
 
 void Maid(Entity* this) {
-    if ((this->flags & 2) != 0) {
+    if ((this->flags & ENT_SCRIPTED) != 0) {
         sub_08064570(this);
     } else {
         DeleteThisEntity();

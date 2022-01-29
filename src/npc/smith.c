@@ -14,7 +14,7 @@ extern u32 gUnk_081103E0;
 void Smith(Entity* this) {
     u32 index;
 
-    if ((this->flags & 2) != 0) {
+    if ((this->flags & ENT_SCRIPTED) != 0) {
         if (this->interactType == 2) {
             this->action = 4;
             this->interactType = 0;

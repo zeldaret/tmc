@@ -91,7 +91,7 @@ void sub_0808B590(Entity* this) {
         gPlayerEntity.x.HALF.HI = this->x.HALF.HI;
         gPlayerEntity.y.HALF.HI = this->y.HALF.HI;
         gPlayerEntity.animationState = 4;
-        gPlayerEntity.flags &= ~0x80;
+        gPlayerEntity.flags &= ~ENT_COLLIDE;
         RequestPriorityDuration(this, this->field_0xf + 0x10);
         SoundReq(SFX_113);
     } else {

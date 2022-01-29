@@ -26,7 +26,7 @@ extern u16 gUnk_0810B7BA[];
 extern Dialog gUnk_0810B7C0[];
 
 void Townsperson(Entity* this) {
-    if ((this->flags & 2) != 0) {
+    if ((this->flags & ENT_SCRIPTED) != 0) {
         gUnk_0810B77C[this->action](this);
     } else {
         gUnk_0810B774[this->action](this);

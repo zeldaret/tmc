@@ -221,7 +221,7 @@ void sub_08033FFC(Entity* this) {
             }
             break;
         default:
-            if (((*(Entity**)&this->field_0x74)->flags & 0x80) != 0) {
+            if (((*(Entity**)&this->field_0x74)->flags & ENT_COLLIDE) != 0) {
                 gRoomControls.camera_target = &gPlayerEntity;
                 sub_08034420(this);
                 gPlayerState.controlMode = 1;
@@ -659,7 +659,7 @@ u32 sub_080348A4(Entity* this, Entity* hand_, u32 unk) {
                 break;
             case 7:
                 hand_->action = 0x1b;
-                hand_->flags = hand_->flags & 0x7f;
+                hand_->flags = hand_->flags & ~ENT_COLLIDE;
                 InitializeAnimation(hand_, 5);
                 break;
             case 8:
