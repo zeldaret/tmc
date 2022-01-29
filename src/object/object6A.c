@@ -212,7 +212,7 @@ void sub_08094C30(Object6AEntity* this) {
         DeleteThisEntity();
     if (super->action == 0) {
         super->action++;
-        SetDefaultPriority(super, 2);
+        SetDefaultPriority(super, PRIO_MESSAGE);
         super->spriteRendering.b3 = gUnk_08114F30[p->spriteRendering.b3];
         InitAnimationForceUpdate(super, 1);
     }
@@ -231,7 +231,7 @@ void sub_08094C88(Object6AEntity* this) {
     } else {
         super->action++;
         super->spriteSettings.draw = 1;
-        SetDefaultPriority(super, 3);
+        SetDefaultPriority(super, PRIO_NO_BLOCK);
         switch (super->type2) {
             case 0x40:
             case 0x41:
@@ -290,7 +290,7 @@ void sub_08094D94(Object6AEntity* this) {
     } else {
         super->action++;
         super->spriteSettings.draw = 1;
-        SetDefaultPriority(super, 3);
+        SetDefaultPriority(super, PRIO_NO_BLOCK);
         InitAnimationForceUpdate(super, 0);
     }
     UpdateAnimationSingleFrame(super);
@@ -330,7 +330,7 @@ void sub_08094E30(Object6AEntity* this) {
                 super->action++;
                 super->z.WORD = -0xA00000;
                 super->zVelocity = 0;
-                SetDefaultPriority(super, 6);
+                SetDefaultPriority(super, PRIO_PLAYER_EVENT);
                 InitializeAnimation(super, 0);
                 if (sub_080002B8(super) == 13) {
                     super->action = 3;
@@ -472,7 +472,7 @@ void sub_08095088(Object6AEntity* this) {
 void sub_08095120(Object6AEntity* this) {
     if (super->action == 0) {
         super->action = 1;
-        SetDefaultPriority(super, 3);
+        SetDefaultPriority(super, PRIO_NO_BLOCK);
         SortEntityBelow(super, super);
         sub_0807DD64(super);
         InitAnimationForceUpdate(super, 2);
@@ -492,7 +492,7 @@ void sub_08095164(Object6AEntity* this) {
 void sub_08095188(Object6AEntity* this) {
     if (super->action == 0) {
         super->action = 1;
-        SetDefaultPriority(super, 3);
+        SetDefaultPriority(super, PRIO_NO_BLOCK);
         SortEntityBelow(super, super);
         sub_0807DD64(super);
         InitAnimationForceUpdate(super, 0);
@@ -547,7 +547,7 @@ void sub_08095288(Object6AEntity* this) {
     if (super->action == 0) {
         super->action++;
         super->subAction = 0;
-        SetDefaultPriority(super, 3);
+        SetDefaultPriority(super, PRIO_NO_BLOCK);
         InitAnimationForceUpdate(super, 0);
     }
     if (super->subAction != 0) {
@@ -607,7 +607,7 @@ void sub_080953A4(Object6AEntity* this) {
     if (super->action == 0) {
         super->action++;
         super->z.HALF.HI = -16;
-        SetDefaultPriority(super, 2);
+        SetDefaultPriority(super, PRIO_MESSAGE);
         super->spriteRendering.b3 = gUnk_08114F30[super->spriteRendering.b3];
         SortEntityAbove(super, super);
         sub_0807DD64(super);
@@ -847,7 +847,7 @@ void sub_080958D8(Object6AEntity* this) {
 void sub_08095918(Object6AEntity* this) {
     if (super->action == 0) {
         super->action++;
-        SetDefaultPriority(super, 6);
+        SetDefaultPriority(super, PRIO_PLAYER_EVENT);
         sub_0807DD64(super);
         InitializeAnimation(super, 0);
     }
@@ -882,7 +882,7 @@ void sub_080959CC(Object6AEntity* this) {
     if (super->action == 0) {
         super->action++;
         super->spriteSettings.draw = 0;
-        SetDefaultPriority(super, 3);
+        SetDefaultPriority(super, PRIO_NO_BLOCK);
         sub_0807DD64(super);
     }
     ExecuteScriptForEntity(super, 0);
@@ -1038,7 +1038,7 @@ void sub_08095CE0(Object6AEntity* this) {
     if (super->action == 0) {
         super->action++;
         super->spriteSettings.draw = 0;
-        SetDefaultPriority(super, 6);
+        SetDefaultPriority(super, PRIO_PLAYER_EVENT);
         sub_0807DD64(super);
     }
     ExecuteScriptForEntity(super, 0);
