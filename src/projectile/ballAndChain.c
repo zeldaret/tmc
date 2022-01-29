@@ -86,9 +86,9 @@ void sub_080AB170(Entity* this) {
 
     ent = parent->parent;
     if (this->field_0x7c.BYTES.byte0 != ent->field_0x7c.BYTES.byte0) {
-        this->flags |= 0x80;
+        this->flags |= ENT_COLLIDE;
     } else {
-        this->flags &= 0x7f;
+        this->flags &= ~ENT_COLLIDE;
     }
 
     this->field_0x7c.BYTES.byte0 = ent->field_0x7c.BYTES.byte0;

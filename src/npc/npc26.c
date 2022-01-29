@@ -6,7 +6,7 @@ static void (*const gUnk_081106D4[])(Entity*);
 static void (*const gUnk_081106E0[])(Entity*);
 
 void NPC26(Entity* this) {
-    if ((this->flags & 2) != 0) {
+    if ((this->flags & ENT_SCRIPTED) != 0) {
         gUnk_081106E0[this->action](this);
     } else {
         gUnk_081106D4[this->action](this);

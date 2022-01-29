@@ -339,7 +339,7 @@ void sub_0803C0AC(Entity* this) {
 void sub_0803C120(TakkuriEntity* this) {
     super->action = 5;
     super->spriteSettings.draw = 0;
-    super->flags &= 0x7f;
+    super->flags &= ~ENT_COLLIDE;
     super->x.HALF.HI = this->x_0x78;
     super->y.HALF.HI = this->y_0x7a;
     super->z.HALF.HI += 8;

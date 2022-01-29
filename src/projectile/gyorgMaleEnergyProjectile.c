@@ -33,7 +33,7 @@ void sub_080AC8DC(Entity* this) {
         default: {
             if (this->action != 3) {
                 this->action = 3;
-                this->flags &= 0x7f;
+                this->flags &= ~ENT_COLLIDE;
                 this->speed >>= 1;
                 InitializeAnimation(this, 1);
             }

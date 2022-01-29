@@ -239,7 +239,7 @@ void sub_080296C8(Entity* this) {
 void sub_080296D8(Entity* this) {
     gPlayerState.jump_status = 0x41;
     gPlayerState.flags &= ~PL_CAPTURED;
-    gPlayerEntity.flags |= 0x80;
+    gPlayerEntity.flags |= ENT_COLLIDE;
     gPlayerEntity.zVelocity = Q_16_16(1.5);
     gPlayerEntity.iframes = 0xa6;
     gPlayerEntity.z.HALF.HI = -2;

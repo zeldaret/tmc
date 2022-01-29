@@ -471,7 +471,7 @@ void sub_0802A0F8(Entity* this) {
             }
         }
     } else {
-        this->parent->flags &= ~0x80;
+        this->parent->flags &= ~ENT_COLLIDE;
         this->parent->health = 0;
         this->parent->field_0xf = 0x69;
     }

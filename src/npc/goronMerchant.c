@@ -16,7 +16,7 @@ static const u16 sKinstonePrices[];
 extern u32 sub_0801E7D0(u32);
 
 void GoronMerchant(Entity* this) {
-    if ((this->flags & 2) != 0) {
+    if ((this->flags & ENT_SCRIPTED) != 0) {
         gUnk_08111B98[this->action](this);
     } else {
         gUnk_08111B88[this->action](this);

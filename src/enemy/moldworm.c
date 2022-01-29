@@ -85,7 +85,7 @@ void sub_080230E4(Entity* this) {
 
     if (this->health == 0 && this->field_0x7c.BYTES.byte3 == 0 && this->action == 7) {
         CopyPosition(this, &gPlayerEntity);
-        gPlayerEntity.flags = gPlayerEntity.flags | 0x80;
+        gPlayerEntity.flags |= ENT_COLLIDE;
         gPlayerEntity.spriteSettings.draw = 1;
         gPlayerEntity.zVelocity = Q_16_16(1.5);
         gPlayerEntity.direction = 0xff;

@@ -214,7 +214,7 @@ NONMATCH("asm/non_matching/likeLike/sub_0802810C.inc", void sub_0802810C(Entity*
     gPlayerState.jump_status = 0x41;
     gPlayerState.field_0xa = 0;
     gPlayerState.flags &= 0xffffffef;
-    gPlayerEntity.flags |= 0x80;
+    gPlayerEntity.flags |= ENT_COLLIDE;
     gPlayerEntity.zVelocity = Q_16_16(1.5);
     gPlayerEntity.iframes = -60;
     gPlayerEntity.direction = gPlayerEntity.animationState << 2;

@@ -269,15 +269,15 @@ void sub_08042654(Entity* this) {
                 break;
             this->subAction = 5;
             this->actionDelay = 0x5a;
-            ((VaatiArm_HeapStruct*)this->myHeap)->entities[0]->flags |= 0x80;
+            ((VaatiArm_HeapStruct*)this->myHeap)->entities[0]->flags |= ENT_COLLIDE;
             ((VaatiArm_HeapStruct*)this->myHeap)->entities[0]->spritePriority.b0 = 4;
-            ((VaatiArm_HeapStruct*)this->myHeap)->entities[1]->flags |= 0x80;
+            ((VaatiArm_HeapStruct*)this->myHeap)->entities[1]->flags |= ENT_COLLIDE;
             ((VaatiArm_HeapStruct*)this->myHeap)->entities[1]->spritePriority.b0 = 4;
-            ((VaatiArm_HeapStruct*)this->myHeap)->entities[2]->flags |= 0x80;
+            ((VaatiArm_HeapStruct*)this->myHeap)->entities[2]->flags |= ENT_COLLIDE;
             ((VaatiArm_HeapStruct*)this->myHeap)->entities[2]->spritePriority.b0 = 4;
-            ((VaatiArm_HeapStruct*)this->myHeap)->entities[3]->flags |= 0x80;
+            ((VaatiArm_HeapStruct*)this->myHeap)->entities[3]->flags |= ENT_COLLIDE;
             ((VaatiArm_HeapStruct*)this->myHeap)->entities[3]->spritePriority.b0 = 4;
-            ((VaatiArm_HeapStruct*)this->myHeap)->entities[4]->flags |= 0x80;
+            ((VaatiArm_HeapStruct*)this->myHeap)->entities[4]->flags |= ENT_COLLIDE;
             ((VaatiArm_HeapStruct*)this->myHeap)->entities[4]->spritePriority.b0 = 4;
             InitAnimationForceUpdate(this, 7);
             SoundReq(SFX_15E);
@@ -495,7 +495,7 @@ void sub_08042B20(Entity* this) {
                         CopyPosition(((VaatiArm_HeapStruct*)this->myHeap)->entities[4], object);
                     }
                 }
-                entity->flags &= 0x7f;
+                entity->flags &= ~ENT_COLLIDE;
                 entity->spriteSettings.draw = 0;
                 SoundReq(SFX_161);
             }
@@ -599,7 +599,7 @@ void sub_08042D6C(Entity* this) {
         entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[i];
         if (entity->z.HALF.HI < 4) {
             if (i != 2) {
-                entity->flags = entity->flags | 0x80;
+                entity->flags = entity->flags | ENT_COLLIDE;
             }
             if ((entity->spriteSettings.draw == 0u) && (object = CreateObject(OBJECT_AF, 2, 0), object != NULL)) {
                 CopyPosition(entity, object);
@@ -803,7 +803,7 @@ void sub_08043130(Entity* this) {
             for (i = 0; i < 4; i++) {
                 entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[i];
                 if (entity->z.HALF.HI > -4) {
-                    entity->flags = entity->flags & 0x7f;
+                    entity->flags = entity->flags & ~ENT_COLLIDE;
                     if (entity->spriteSettings.draw == 1) {
                         SoundReq(SFX_161);
                     }
@@ -872,7 +872,7 @@ NONMATCH("asm/non_matching/vaati/sub_0804334C.inc", void sub_0804334C(Entity* th
         }
         for (i = 0; i < 5; i++) {
             entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[i];
-            entity->flags = entity->flags | 0x80;
+            entity->flags = entity->flags | ENT_COLLIDE;
             entity->spriteSettings.draw = 1;
         }
     }
@@ -958,15 +958,15 @@ void sub_08043490(Entity* this) {
     } else {
         entity->z.HALF.HI -= 2;
         if (entity->z.HALF.HI < 0) {
-            entity->flags = entity->flags | 0x80;
+            entity->flags = entity->flags | ENT_COLLIDE;
             entity->spriteSettings.draw = 1;
             entity->field_0x3c = entity->field_0x3c & 0xef;
             entity->hitType = 0x3a;
             entity->hitbox = (Hitbox*)&gUnk_080FD450;
             entity2 = ((VaatiArm_HeapStruct*)this->myHeap)->entities[2];
-            entity2->flags = entity2->flags | 0x80;
+            entity2->flags = entity2->flags | ENT_COLLIDE;
             entity3 = ((VaatiArm_HeapStruct*)this->myHeap)->entities[3];
-            entity3->flags = entity3->flags & 0x7f;
+            entity3->flags = entity3->flags & ~ENT_COLLIDE;
         }
     }
     UpdateAnimationSingleFrame(this);
@@ -1000,7 +1000,7 @@ void sub_08043580(Entity* this) {
     for (i = 0; i < 5; i++) {
         entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[i];
         if (-4 < entity->z.HALF.HI) {
-            entity->flags = entity->flags & 0x7f;
+            entity->flags = entity->flags & ~ENT_COLLIDE;
             entity->spriteSettings.draw = 0;
         }
     }
@@ -1052,7 +1052,7 @@ void sub_08043698(Entity* this) {
     this->actionDelay = 0x3c;
     for (i = 0; i < 5; i++) {
         entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[i];
-        entity->flags = entity->flags & 0x7f;
+        entity->flags = entity->flags & ~ENT_COLLIDE;
     }
 }
 
@@ -1325,7 +1325,7 @@ void sub_08043D08(Entity* this) {
     this->subAction = 0;
     InitAnimationForceUpdate(this, 0xd);
     entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[4];
-    entity->flags &= 0x7f;
+    entity->flags &= ~ENT_COLLIDE;
     entity->spriteSettings.draw = 0;
     InitializeAnimation(entity, 0x13);
     sub_0804AA1C(entity);
@@ -1392,17 +1392,17 @@ void sub_08043EB8(Entity* this) {
     this->spritePriority.b0 = 4;
     InitAnimationForceUpdate(this, 0xd);
     pEVar4 = ((VaatiArm_HeapStruct*)this->myHeap)->entities[1];
-    pEVar4->flags = pEVar4->flags | 0x80;
+    pEVar4->flags = pEVar4->flags | ENT_COLLIDE;
     pEVar4->spritePriority.b0 = 4;
     pEVar4 = ((VaatiArm_HeapStruct*)this->myHeap)->entities[2];
-    pEVar4->flags = pEVar4->flags | 0x80;
+    pEVar4->flags = pEVar4->flags | ENT_COLLIDE;
     pEVar4->spritePriority.b0 = 4;
     pEVar4 = ((VaatiArm_HeapStruct*)this->myHeap)->entities[3];
-    pEVar4->flags = pEVar4->flags & 0x7f;
+    pEVar4->flags = pEVar4->flags & ~ENT_COLLIDE;
     pEVar4->spriteSettings.draw = 1;
     pEVar4->spritePriority.b0 = 4;
     pEVar4 = ((VaatiArm_HeapStruct*)this->myHeap)->entities[4];
-    pEVar4->flags = pEVar4->flags | 0x80;
+    pEVar4->flags = pEVar4->flags | ENT_COLLIDE;
     pEVar4->spriteSettings.draw = 1;
     pEVar4->spritePriority.b0 = 4;
     pEVar4->x.HALF.HI = (this->type2 == 0) ? gRoomTransition.field_0x44 : gRoomTransition.field_0x48;
@@ -1432,7 +1432,7 @@ NONMATCH("asm/non_matching/vaati/sub_08044000.inc", void sub_08044000(Entity* th
     ptr2 = &gUnk_080D1400[this->type2 * 5];
     for (i = 0; i < 5; ptr2++, i++) {
         entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[i];
-        entity->flags = entity->flags | 0x80;
+        entity->flags = entity->flags | ENT_COLLIDE;
         entity->spritePriority.b0 = 4;
         ptr = &((VaatiArm_HeapStruct*)this->myHeap)->s1[i];
         ptr->unk00.HWORD = *ptr2;

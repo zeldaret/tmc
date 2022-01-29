@@ -48,7 +48,7 @@ void sub_08067790(Entity* this) {
 void Cat(Entity* ent) {
     gCat[ent->action](ent);
     sub_08067C44(ent);
-    if (((ent->flags & 128) == 0) && (ent->type != 5)) {
+    if (((ent->flags & ENT_COLLIDE) == 0) && (ent->type != 5)) {
         sub_0806ED78(ent);
     }
 }

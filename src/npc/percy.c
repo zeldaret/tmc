@@ -21,7 +21,7 @@ void Percy_Head(Entity* this) {
 }
 
 void Percy(Entity* this) {
-    if ((this->flags & 2) != 0) {
+    if ((this->flags & ENT_SCRIPTED) != 0) {
         sub_0806B41C(this);
     } else {
         sub_0806B3CC(this);

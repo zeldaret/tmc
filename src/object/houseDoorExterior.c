@@ -105,7 +105,7 @@ void sub_0808681C(Entity* this) {
                 this->action = 2;
                 this->frameIndex = 1;
             }
-            if (this->flags & 0x2) {
+            if (this->flags & ENT_SCRIPTED) {
                 this->action = 2;
             }
             break;
@@ -119,7 +119,7 @@ void sub_0808681C(Entity* this) {
             break;
     }
 
-    if (this->flags & 0x2) {
+    if (this->flags & ENT_SCRIPTED) {
         ExecuteScript(this, *(ScriptExecutionContext**)&this->cutsceneBeh);
         sub_080868EC(this, *(void**)&this->cutsceneBeh);
     }
@@ -158,7 +158,7 @@ static void sub_080868EC(Entity* entity, unk_80868EC* arg1) {
 }
 
 void sub_0808692C(Entity* this) {
-    this->flags &= 0xFD;
+    this->flags &= ~ENT_SCRIPTED;
     this->type2 = 2;
     this->action = this->frameIndex == 0 ? 1 : 2;
     this->subAction = 0;

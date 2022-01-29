@@ -85,7 +85,7 @@ void CreateZeldaFollower(void) {
         npc = CreateNPC(0x2e, 0, 0);
         if (npc != NULL) {
             CopyPosition(&gPlayerEntity, npc);
-            npc->flags |= 0x20;
+            npc->flags |= ENT_PERSIST;
             npc->animationState = GetAnimationState(npc);
         }
     }
@@ -820,7 +820,7 @@ void sub_08061AA8(Entity* this) {
 }
 
 void sub_08061ACC(Entity* this) {
-    this->flags = this->flags | 0x20;
+    this->flags = this->flags | ENT_PERSIST;
     this->action = 1;
     this->subAction = 0xff;
     this->actionDelay = 0;

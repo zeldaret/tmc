@@ -13,7 +13,7 @@ extern void (*gStampBehaviors2[2])(Entity*);
 extern Dialog gUnk_0810C2E4[2];
 
 void Stamp(Entity* ent) {
-    if ((ent->flags & 2) != 0) {
+    if ((ent->flags & ENT_SCRIPTED) != 0) {
         gStampBehaviors2[ent->action](ent);
     } else {
         gStampBehaviors1[ent->action](ent);

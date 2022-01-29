@@ -326,7 +326,7 @@ void sub_0803CBAC(Entity* this) {
 
     cloud = this->child;
     if (cloud != NULL) {
-        cloud->flags |= 0x80;
+        cloud->flags |= ENT_COLLIDE;
         cloud->hitType = 0x43;
     }
 

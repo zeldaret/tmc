@@ -125,7 +125,7 @@ void sub_08048B84(GyorgFemaleEyeEntity* this) {
     GetNextFrame(super);
     if (super->frame & 0x80) {
         super->action = 3;
-        super->flags |= 0x80;
+        super->flags |= ENT_COLLIDE;
         super->hitType = 0x1E;
     }
 }
@@ -135,11 +135,11 @@ void sub_08048BB0(GyorgFemaleEyeEntity* this) {
     if (!((parent->unk_78 >> super->type) & 1)) {
         if (parent->base.health != 0) {
             super->action = 4;
-            super->flags &= ~0x80;
+            super->flags &= ~ENT_COLLIDE;
             InitializeAnimation(super, gUnk_080D2030[(super->animationState << 3) + super->type]);
         } else {
             super->action = 1;
-            super->flags &= ~0x80;
+            super->flags &= ~ENT_COLLIDE;
             super->spriteSettings.draw = 0;
             InitializeAnimation(super, gUnk_080D2010[(super->animationState << 3) + super->type]);
             CreateFx(super, 2, 0x40);

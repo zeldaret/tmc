@@ -26,7 +26,7 @@ s32 sub_080633C8(Entity* this);
 void sub_0806346C(Entity* this);
 
 void Beedle(Entity* this) {
-    if (this->flags & 0x2) {
+    if (this->flags & ENT_SCRIPTED) {
         sub_08063410(this);
     } else {
         sub_080632C8(this);

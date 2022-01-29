@@ -21,7 +21,7 @@ void sub_08069888(Entity* this);
 extern u16 gUnk_08111C50[];
 
 void Gorman(Entity* this) {
-    if ((this->flags & 2) != 0) {
+    if ((this->flags & ENT_SCRIPTED) != 0) {
         sub_08069838(this);
     } else {
         sub_080697A4(this);
