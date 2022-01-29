@@ -137,7 +137,7 @@ void sub_08021984(Entity* this) {
         this->z.HALF.HI = -0x80;
         this->spriteRendering.b3 = 1;
         this->spriteOrientation.flipY = 1;
-        EnqueueSFX(0x12d);
+        EnqueueSFX(SFX_12D);
     }
 
     if (GravityUpdate(this, 0x1800) == 0) {
@@ -204,7 +204,7 @@ void sub_08021AD8(Entity* this) {
                 return;
             }
             this->direction = (u8)tmp;
-            EnqueueSFX(0x7c);
+            EnqueueSFX(SFX_PLY_JUMP);
         }
         sub_080AEFE0(this);
         if (!GravityUpdate(this, 0x1800))

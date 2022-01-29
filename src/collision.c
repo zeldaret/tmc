@@ -231,7 +231,7 @@ s32 sub_08017874(Entity* a, Entity* b) {
         if (newDmg <= 0)
             newDmg = 1;
         v5 = ModHealth(-newDmg);
-        SoundReqClipped(a, 122);
+        SoundReqClipped(a, SFX_PLY_VO6);
     } else {
         v6 = b->damage;
         if (b->kind == 8) {
@@ -247,9 +247,9 @@ s32 sub_08017874(Entity* a, Entity* b) {
         v5 = a->health - v6;
         if (a->kind == 3) {
             if ((a->field_0x6c.HALF.HI & 1) != 0)
-                SoundReqClipped(a, 295);
+                SoundReqClipped(a, SFX_BOSS_HIT);
             else
-                SoundReqClipped(a, 254);
+                SoundReqClipped(a, SFX_HIT);
         }
     }
     if (v5 <= 0) {
@@ -749,7 +749,7 @@ s32 sub_08018308(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
             }
         } else if (org->id == 3) {
             if (settings->_9) {
-                SoundReqClipped(tgt, 254);
+                SoundReqClipped(tgt, SFX_HIT);
             }
         } else if (org->id == 5) {
             gPlayerEntity.iframes = 0x80;

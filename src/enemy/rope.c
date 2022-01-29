@@ -95,7 +95,7 @@ void sub_08031480(Entity* this) {
             this->field_0xf = 0xf;
             this->spriteSettings.draw = 1;
             UpdateSpriteForCollisionLayer(this);
-            EnqueueSFX(0x84);
+            EnqueueSFX(SFX_WATER_SPLASH);
         }
     }
 }

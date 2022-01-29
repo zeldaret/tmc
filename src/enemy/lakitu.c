@@ -318,7 +318,7 @@ void Lakitu_SpawnLightning(Entity* this) {
 
     PositionRelative(this, lightning, Q_16_16(offset->x), Q_16_16(offset->y));
 
-    EnqueueSFX(0x193);
+    EnqueueSFX(SFX_193);
 }
 
 void sub_0803CBAC(Entity* this) {

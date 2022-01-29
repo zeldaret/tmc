@@ -89,7 +89,7 @@ void sub_08082310(Entity* this) {
                             this->actionDelay = 64;
                         }
                         SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
-                        EnqueueSFX(0x10F);
+                        EnqueueSFX(SFX_10F);
                         break;
                     case 0x4067:
                         SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);

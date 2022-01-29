@@ -344,7 +344,7 @@ void sub_08094E30(Object6AEntity* this) {
                     super->z.WORD = 0;
                     super->zVelocity = 0;
                     InitializeAnimation(super, 1);
-                    EnqueueSFX(382);
+                    EnqueueSFX(SFX_LAVA_TILE_FLIP);
                 }
                 break;
             case 2:
@@ -871,7 +871,7 @@ void sub_08095954(Object6AEntity* this) {
         PositionRelative(super, e, x, y);
         e->z.HALF.HI = -3;
         ((Object6AEntity*)e)->ctx = StartCutscene(e, &script_08012C48);
-        EnqueueSFX(292);
+        EnqueueSFX(SFX_124);
         super->frame &= ~1;
     } else {
         gActiveScriptInfo.syncFlags |= 0x100;

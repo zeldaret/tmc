@@ -150,7 +150,7 @@ void sub_08048BB0(GyorgFemaleEyeEntity* this) {
                 super->iframes = 0xF4;
                 super->hitType = 0x89;
                 InitializeAnimation(super, (parent->base.animationState >> 6) + 0x14);
-                SoundReq(0x119);
+                SoundReq(SFX_ITEM_GLOVES_KNOCKBACK);
             }
             GetNextFrame(super);
             if (super->frame & 0x80) {

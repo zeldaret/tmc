@@ -103,7 +103,7 @@ void sub_08067534(Entity* this) {
             entity->y.HALF.HI += 0x1c;
         }
     }
-    EnqueueSFX(0x14c);
+    EnqueueSFX(SFX_14C);
     InitScreenShake(0x28, 4);
 }
 

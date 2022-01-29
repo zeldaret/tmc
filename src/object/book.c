@@ -98,7 +98,7 @@ void sub_0809B4A8(Entity* this) {
         gPlayerEntity.x.HALF.LO = 0;
         gPlayerEntity.y.HALF.LO = 0;
         gPlayerEntity.direction = gPlayerEntity.animationState << 2;
-        EnqueueSFX(0x10f);
+        EnqueueSFX(SFX_10F);
     } else {
         this->actionDelay = 0x16;
     }

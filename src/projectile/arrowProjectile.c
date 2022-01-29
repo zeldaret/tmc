@@ -73,7 +73,7 @@ void ArrowProjectile_Action2(Entity* this) {
         COLLISION_OFF(this);
         this->actionDelay = 0x20;
         InitializeAnimation(this, this->animIndex + 2);
-        EnqueueSFX(0x18a);
+        EnqueueSFX(SFX_18A);
         LinearMoveUpdate(this);
     } else if (--this->actionDelay == 0) {
         DeleteThisEntity();

@@ -23,7 +23,7 @@ void PlayerItem3(Entity* this) {
 
     this->field_0xf--;
     if ((this->field_0xf & 0xf) == 0) {
-        EnqueueSFX(0xfb);
+        EnqueueSFX(SFX_FB);
     }
 }
 
