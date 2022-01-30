@@ -80,7 +80,7 @@ static bool32 ShouldSpawnTreeItem(Entity* this) {
     int expectedStateX, expectedStateY;
     int playerState;
 
-    if (gPlayerEntity.action != 0x6) {
+    if (gPlayerEntity.action != PLAYER_BOUNCE) {
         return FALSE;
     }
 

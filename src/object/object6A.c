@@ -413,7 +413,7 @@ void sub_08094FA8(Object6AEntity* this) {
             }
             break;
         case 3:
-            if (gPlayerEntity.action != 12) {
+            if (gPlayerEntity.action != PLAYER_EMPTYBOTTLE) {
                 super->action = 4;
 #ifndef EU
                 if (!CheckGlobalFlag(BIN_DOGFOOD)) {

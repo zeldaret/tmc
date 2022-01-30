@@ -132,7 +132,7 @@ void sub_0806B540(Entity* this) {
             }
             break;
         case 3:
-            if ((gPlayerEntity.action != 8)) {
+            if ((gPlayerEntity.action != PLAYER_ITEMGET)) {
                 context->wait = 0x2d;
                 return;
             }
