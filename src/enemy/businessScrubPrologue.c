@@ -8,11 +8,7 @@ typedef struct {
     u8 filler[0x10];
     u16 unk_78;
     u16 unk_7a;
-    u8 unk_7c;
-    u8 unk_7d;
-    u8 unk_7e;
-    u8 unk_7f;
-    u32 filler2;
+    u8 filler2[8];
     u32 unk_84;
 } BusinessScrubPrologueEntity;
 
