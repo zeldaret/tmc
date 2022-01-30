@@ -708,7 +708,7 @@ void sub_08042FD8(Entity* this) {
     UpdateAnimationSingleFrame(this);
     if (!sub_08043C98(this)) {
         if ((this->frame & 1) != 0) {
-            entity = CreateProjectile(0x20);
+            entity = CreateProjectile(V3_HAND_PROJECTILE);
             if (entity != NULL) {
                 CopyPosition(this, entity);
                 entity->z.HALF.HI -= 0x18;

@@ -139,7 +139,7 @@ void sub_08028A74(Entity* this) {
             unk = 1;
             sub_080290FC(this);
             if (this->frame & 1) {
-                Entity* ent = CreateProjectileWithParent(this, 4, 0);
+                Entity* ent = CreateProjectileWithParent(this, DEKU_SEED_PROJECTILE, 0);
                 if (ent != NULL) {
                     ent->parent = this;
                     ent->direction = this->direction;

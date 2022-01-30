@@ -773,7 +773,7 @@ void sub_08034B38(Entity* this) {
         this->action = 3;
         InitializeAnimation(this, this->type + 3);
     } else {
-        target = CreateProjectile(0xe);
+        target = CreateProjectile(MAZAAL_ENERGY_BEAM);
         if (target != NULL) {
             target->type = this->type - 2;
             if (target->type == 0) {

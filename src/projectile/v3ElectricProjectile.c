@@ -149,7 +149,7 @@ void sub_080AC200(Entity* this) {
         return;
 
     this->actionDelay = 0x10;
-    proj = CreateProjectile(0x21);
+    proj = CreateProjectile(V3_ELECTRIC_PROJECTILE);
 
     if (proj) {
         proj->type = 2;

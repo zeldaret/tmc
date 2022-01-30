@@ -216,7 +216,7 @@ void sub_0803C400(BowMoblinEntity* this) {
         switch (++super->actionDelay) {
             case 1:
                 super->direction = super->animationState << 2;
-                projectile = CreateProjectileWithParent(super, 0xd, super->animationState >> 1);
+                projectile = CreateProjectileWithParent(super, ARROW_PROJECTILE, super->animationState >> 1);
                 if (projectile) {
                     super->child = projectile;
                     projectile->direction = (super->direction + 4) & 0x18;

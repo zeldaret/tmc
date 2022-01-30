@@ -80,7 +80,7 @@ void sub_08037D54(Entity* this) {
         this->frame ^= 2;
 
         if (this->frame & 0x2) {
-            Entity* proj = CreateProjectileWithParent(this, 1, 0);
+            Entity* proj = CreateProjectileWithParent(this, ROCK_PROJECTILE, 0);
             if (proj) {
                 const s8* ptr;
                 s32 dir;

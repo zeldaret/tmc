@@ -144,7 +144,7 @@ void VaatiWrathEyeAction6(Entity* this) {
         } else {
             if (this->frame & 1) {
                 this->frame &= 0xfe;
-                pEVar3 = CreateProjectile(0x24);
+                pEVar3 = CreateProjectile(V3_TENNIS_BALL_PROJECTILE);
                 if (pEVar3 != NULL) {
                     pEVar3->parent = this;
                     this->child = pEVar3;

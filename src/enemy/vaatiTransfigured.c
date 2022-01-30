@@ -413,7 +413,7 @@ void VaatiTransfiguredType0Action4(Entity* this) {
                 this->actionDelay = gUnk_080D0ABF[((u32)this->animationState << 1 | 1)];
             } else {
                 if ((this->actionDelay & 7) == 0) {
-                    CreateProjectileWithParent(this, 0x1f, this->field_0xf);
+                    CreateProjectileWithParent(this, V2_PROJECTILE, this->field_0xf);
                 }
                 if (((this->field_0xf != 0) && (1 < this->animationState)) && (this->actionDelay < 6)) {
                     this->actionDelay = 0x80;
@@ -459,7 +459,7 @@ void VaatiTransfiguredType0Action5(Entity* this) {
             } else {
                 if (this->field_0xf) {
                     if ((this->actionDelay & 7) == 0) {
-                        CreateProjectileWithParent(this, 0x1f, this->field_0xf);
+                        CreateProjectileWithParent(this, V2_PROJECTILE, this->field_0xf);
                     }
                     if (this->actionDelay < 6) {
                         this->actionDelay = 0x40;
@@ -467,7 +467,7 @@ void VaatiTransfiguredType0Action5(Entity* this) {
                     }
                 } else {
                     if ((this->actionDelay & 0xf) == 0) {
-                        entity = CreateProjectileWithParent(this, 0x1f, 2);
+                        entity = CreateProjectileWithParent(this, V2_PROJECTILE, 2);
                         if (entity != NULL) {
                             entity->type2 = 0;
                             if (this->field_0x80.HALF.HI != 0) {
@@ -511,7 +511,7 @@ void VaatiTransfiguredType0Action6(Entity* this) {
             } else {
                 if (this->field_0xf) {
                     if ((this->actionDelay & 7) == 0) {
-                        CreateProjectileWithParent(this, 0x1f, this->field_0xf);
+                        CreateProjectileWithParent(this, V2_PROJECTILE, this->field_0xf);
                     }
                     if (this->actionDelay < 6) {
                         this->actionDelay = 0x80;
@@ -519,7 +519,7 @@ void VaatiTransfiguredType0Action6(Entity* this) {
                     }
                 } else {
                     if ((this->actionDelay & 0x1f) == 0) {
-                        pEVar2 = CreateProjectileWithParent(this, 0x1f, 2);
+                        pEVar2 = CreateProjectileWithParent(this, V2_PROJECTILE, 2);
                         if (pEVar2 != NULL) {
                             pEVar2->type2 = 1;
                             pEVar2->y.HALF.HI += -0x20;

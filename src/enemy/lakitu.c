@@ -306,7 +306,7 @@ void Lakitu_SpawnLightning(Entity* this) {
     Entity* lightning;
     const OffsetCoords* offset;
 
-    lightning = CreateProjectileWithParent(this, 18, 0);
+    lightning = CreateProjectileWithParent(this, LAKITU_LIGHTNING, 0);
 
     if (lightning == NULL) {
         return;

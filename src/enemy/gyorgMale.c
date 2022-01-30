@@ -119,7 +119,7 @@ void GyorgMale(GyorgMaleEntity* this) {
 }
 
 void sub_08046898(GyorgMaleEntity* this) {
-    Entity* tmp = CreateProjectile(0x22);
+    Entity* tmp = CreateProjectile(GYORG_TAIL);
     u32 tmp2;
     if (!tmp)
         return;
@@ -411,7 +411,7 @@ void sub_08046EF4(GyorgMaleEntity* this) {
     if ((--super->field_0xf & 0xFF) == 0) {
         Entity* tmp;
         super->field_0xf = (Random() & 0x38) + 0x78;
-        tmp = CreateProjectile(0x23);
+        tmp = CreateProjectile(GYORG_MALE_ENERGY_PROJECTILE);
         if (tmp) {
             tmp->collisionLayer = 2;
             tmp->parent = super;
@@ -436,7 +436,7 @@ void sub_08046F64(GyorgMaleEntity* this) {
     if (--this->unk_7e == 0) {
         Entity* tmp;
         this->unk_7e = 0x78;
-        tmp = CreateProjectile(0x23);
+        tmp = CreateProjectile(GYORG_MALE_ENERGY_PROJECTILE);
         if (tmp) {
             tmp->collisionLayer = 2;
             tmp->parent = super;

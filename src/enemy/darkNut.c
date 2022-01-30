@@ -229,7 +229,7 @@ void sub_08020F48(Entity* this) {
 
                 this->action = 14;
                 sub_08021218(this, 13, uVar2 >> 3);
-                pEVar3 = CreateProjectileWithParent(this, 0, 1);
+                pEVar3 = CreateProjectileWithParent(this, DARK_NUT_SWORD_SLASH, 1);
                 if (pEVar3) {
                     pEVar3->parent = this;
                     this->child = pEVar3;
@@ -275,7 +275,7 @@ void sub_08021010(Entity* this) {
 
 void sub_08021038(Entity* this) {
     if (this->child == NULL && this->frame) {
-        Entity* pEVar2 = (Entity*)CreateProjectileWithParent(this, 0, 0);
+        Entity* pEVar2 = (Entity*)CreateProjectileWithParent(this, DARK_NUT_SWORD_SLASH, 0);
         if (pEVar2) {
             pEVar2->parent = this;
             this->child = pEVar2;
@@ -314,7 +314,7 @@ void sub_080210E4(Entity* this) {
         Entity* ent;
 
         this->frame &= ~1;
-        ent = CreateProjectileWithParent(this, 0, 2);
+        ent = CreateProjectileWithParent(this, DARK_NUT_SWORD_SLASH, 2);
         if (ent) {
             ent->parent = this;
             this->child = ent;
@@ -573,7 +573,7 @@ void sub_0802159C(Entity* this) {
 
         this->frame = 0;
         this->hitType = 0x51;
-        ent = CreateProjectileWithParent(this, 0, 3);
+        ent = CreateProjectileWithParent(this, DARK_NUT_SWORD_SLASH, 3);
         if (ent) {
             ent->parent = this;
             this->child = ent;
@@ -594,7 +594,7 @@ void sub_08021600(Entity* this) {
 
         this->frame = 0;
         this->hitType = 0x51;
-        ent = CreateProjectileWithParent(this, 0, 4);
+        ent = CreateProjectileWithParent(this, DARK_NUT_SWORD_SLASH, 4);
         if (ent) {
             ent->parent = this;
             this->child = ent;

@@ -236,7 +236,7 @@ void sub_08032794(Entity* this) {
 void sub_080327C8(Entity* this) {
     Entity* child;
 
-    child = CreateProjectileWithParent(this, 11, 0);
+    child = CreateProjectileWithParent(this, KEATON_DAGGER, 0);
     if (child != NULL) {
         child->parent = this;
         this->child = child;
