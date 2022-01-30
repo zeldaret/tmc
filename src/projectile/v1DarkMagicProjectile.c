@@ -61,7 +61,7 @@ void sub_080AACE0(Entity* this) {
     if (this->spriteSettings.draw == 1) {
         this->spriteSettings.draw = 0;
         this->field_0x86.HALF.LO = 1;
-        CreateFx(this, 2, 0);
+        CreateFx(this, FX_DEATH, 0);
     }
 
     parent = this->parent;
@@ -80,7 +80,7 @@ void sub_080AACE0(Entity* this) {
     }
 
     if (this->field_0x86.HALF.LO == 0) {
-        CreateFx(this, 2, 0);
+        CreateFx(this, FX_DEATH, 0);
     }
 
     DeleteThisEntity();
