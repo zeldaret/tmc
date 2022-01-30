@@ -82,7 +82,7 @@ extern u16* gUnk_0810B660[8];
 void CreateZeldaFollower(void) {
     Entity* npc;
     if (CheckGlobalFlag(0x1c) != 0) {
-        npc = CreateNPC(0x2e, 0, 0);
+        npc = CreateNPC(ZELDA_FOLLOWER, 0, 0);
         if (npc != NULL) {
             CopyPosition(&gPlayerEntity, npc);
             npc->flags |= ENT_PERSIST;
@@ -150,7 +150,7 @@ void sub_08060AE0(Entity* this) {
         this->field_0x17 &= 0xfe;
         this->field_0x6c.HALF.LO = 0xff;
         sub_08060E70(this, this->animationState);
-        otherNpc = CreateNPC(5, 2, 0);
+        otherNpc = CreateNPC(NPC_UNK_5, 2, 0);
         if (otherNpc != NULL) {
             otherNpc->parent = this;
             *(Entity**)&this->field_0x78 = otherNpc;

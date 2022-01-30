@@ -28,7 +28,7 @@ static void sub_0806EF4C(Entity*, u16*);
 static u32 sub_0806EF74(Entity*, u32);
 
 void sub_0806EC20(Entity* ent) {
-    Entity* e = CreateNPC(0x58, 0, 0);
+    Entity* e = CreateNPC(NPC_UNK_58, 0, 0);
     if (e != NULL) {
         e->parent = ent;
     }
