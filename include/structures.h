@@ -99,7 +99,7 @@ typedef struct {
 } PriorityHandler;
 extern PriorityHandler gPriorityHandler;
 
-extern struct{
+extern struct {
     u8 unk0;
     u8 unk1;
     u8 unk2[0xf];
@@ -111,7 +111,7 @@ extern struct{
     s8 unk16;
     u8 unk17;
 } gUnk_02034490;
-static_assert(sizeof(gUnk_02034490)==0x18);
+static_assert(sizeof(gUnk_02034490) == 0x18);
 
 typedef struct {
     u8 unk0;
