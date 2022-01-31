@@ -155,9 +155,9 @@ void sub_0805B210(Manager1A* this) {
     gRoomTransition.player_status.room_next = tmp->unk_02;
     gRoomTransition.player_status.layer = tmp->unk_03;
     if (gPlayerState.flags & PL_MINISH) {
-        gRoomTransition.player_status.spawn_type = 6;
+        gRoomTransition.player_status.spawn_type = PL_SPAWN_DROP_MINISH;
     } else {
-        gRoomTransition.player_status.spawn_type = 2;
+        gRoomTransition.player_status.spawn_type = PL_SPAWN_DROP;
     }
     switch (tmp->unk_00) {
         case 0:
@@ -171,7 +171,7 @@ void sub_0805B210(Manager1A* this) {
         case 2:
             gRoomTransition.player_status.start_pos_x = tmp->unk_04;
             gRoomTransition.player_status.start_pos_y = tmp->unk_06;
-            gRoomTransition.player_status.spawn_type = 6;
+            gRoomTransition.player_status.spawn_type = PL_SPAWN_DROP_MINISH;
             break;
     }
 }

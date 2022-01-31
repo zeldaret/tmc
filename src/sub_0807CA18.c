@@ -49,7 +49,7 @@ u32 FinalizeSave(void) {
         gSave.saved_status.area_next = 0x22;
         gSave.saved_status.room_next = 0x15; // links room
         gSave.saved_status.start_anim = 0;
-        gSave.saved_status.spawn_type = 0;
+        gSave.saved_status.spawn_type = PL_SPAWN_DEFAULT;
         gSave.saved_status.layer = 1;
         gSave.saved_status.start_pos_x = 0x90;
         gSave.saved_status.start_pos_y = 0x38;
