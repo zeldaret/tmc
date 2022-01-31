@@ -181,7 +181,7 @@ typedef enum {
     WIND_TRIBE_FLAG,
     BIRD,
     OBJECT_96,
-    OBJECT_97,
+    KEY_STEALING_TAKKURI,
     OBJECT_98,
     OBJECT_99,
     HUGE_ACORN,
@@ -377,7 +377,7 @@ void Lamp(Entity*);
 void WindTribeFlag(Entity*);
 void Bird(Entity*);
 void Object96(Entity*);
-void Object97(Entity*);
+void KeyStealingTakkuri();
 void Object98(Entity*);
 void Object99(Entity*);
 void MacroAcorn(Entity*);

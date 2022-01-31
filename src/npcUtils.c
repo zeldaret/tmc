@@ -20,7 +20,6 @@ typedef struct {
 } NPCData;
 extern NPCData* gUnk_08001A7C[];
 
-u32 sub_080041DC(Entity*, u32, u32);
 u32 sub_0806EF88(Entity*);
 
 static void sub_0806EF14(Entity*);

@@ -3,8 +3,6 @@
 #include "player.h"
 #include "functions.h"
 
-extern u32 sub_080041DC(Entity*, u32, u32);
-
 extern void (*const V1FireProjectile_Functions[])(Entity*);
 extern void (*const V1FireProjectile_Actions[])(Entity*);
 extern const s8 gUnk_0812A4EC[];

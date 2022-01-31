@@ -4,8 +4,6 @@
 #include "player.h"
 #include "functions.h"
 
-extern u32 sub_080041DC(Entity*, u32, u32);
-
 extern void (*const GleerokProjectile_Functions[])(Entity*);
 extern void (*const GleerokProjectile_Actions[])(Entity*);
 extern const s8 gUnk_08129978[];
