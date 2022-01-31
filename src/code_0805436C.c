@@ -48,7 +48,7 @@ u32 IsItemEquipped(u32 itemID) {
 
 void PutItemOnSlot(u32 itemID) {
     u32 itemSlot;
-    register u32 itemID2 asm("r5") = itemID;
+    u32 itemID2 = itemID;
     if (itemID2 < 0x47) {
         sub_0807CAA0(0, 1);
     }
@@ -60,7 +60,7 @@ void PutItemOnSlot(u32 itemID) {
             itemSlot = 1;
         }
         if (itemSlot == 2) {
-            u8 temp = gUnk_080FD5B4[itemID2].unk;
+            u32 temp = gUnk_080FD5B4[itemID2].unk;
             if (temp == gUnk_080FD5B4[gSave.stats.itemButtons[SLOT_A]].unk) {
                 itemSlot = 0;
             } else {
@@ -171,11 +171,7 @@ void sub_08054570(void) {
     gRoomVars.field_0x2 = 0;
 }
 
-#ifdef EU
-ASM_FUNC("asm/non_matching/eu/sub_0805457C.inc", u32 sub_0805457C(u32 arg0, u32 arg1));
-#else
 ASM_FUNC("asm/non_matching/sub_0805457C.inc", u32 sub_0805457C(u32 arg0, u32 arg1));
-#endif
 
 u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
     u32 prereqID;
@@ -244,13 +240,13 @@ u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
                 } else {
                     itemEntity->actionDelay = 0;
                 }
-                if (arg0->kind == 6) {
+                if (arg0->kind == OBJECT) {
                     if (arg0->id == 99) {
                         arg0->child = itemEntity;
                     } else if (arg0->id == 0x1e) {
                         itemEntity->direction = arg0->animationState << 3 | 0x80;
                         itemEntity->speed = 0xc0;
-                        itemEntity->zVelocity = 0x18000;
+                        itemEntity->zVelocity = Q_16_16(1.5);
                     }
                 }
                 CopyPosition(arg0, itemEntity);
@@ -336,7 +332,7 @@ u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
                 } else {
                     itemEntity->actionDelay = 0;
                 }
-                if (arg0->kind == 6) {
+                if (arg0->kind == OBJECT) {
                     if (arg0->id == 99) {
                         arg0->child = itemEntity;
                     } else if (arg0->id == 0x1e) {

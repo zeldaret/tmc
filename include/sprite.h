@@ -22,7 +22,7 @@ typedef struct {
             u8 endOfAnimation : 1;
         } PACKED b;
     } PACKED frameSettings;
-} Frame;
+} PACKED Frame;
 
 typedef struct {
     u8 numGfxTiles;

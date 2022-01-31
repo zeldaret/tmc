@@ -11,12 +11,6 @@
 #include "functions.h"
 #include "save.h"
 
-extern u32 sub_080002E0(u16, u32);
-extern void SoundReqClipped(Entity*, u32);
-extern u32 sub_08049F1C(Entity*, Entity*, u32);
-extern u32 PlayerInRange(Entity*, u32, u32);
-extern void sub_080AEFB4(Entity*);
-
 void sub_080249F4(Entity*);
 void sub_08024940(Entity*);
 void sub_080249DC(Entity*);
@@ -188,7 +182,7 @@ void sub_080241C0(Entity* this) {
     switch (this->field_0x80.HALF.LO) {
         case 0:
             if (PlayerInRange(this, 3, (gPlayerState.hurtBlinkSpeed != 0) ? 0xa0 : 0x40) && sub_08049FDC(this, 3) &&
-                gPlayerEntity.action != 0x1e) {
+                gPlayerEntity.action != PLAYER_USEENTRANCE) {
                 this->field_0x80.HALF.LO++;
                 this->speed = 0;
                 sub_08024A14(this, 3, 10);
@@ -398,7 +392,7 @@ void sub_080244E8(Entity* this) {
                             this->flags2 &= 0xfc;
                             sub_080249DC(this);
                             this->cutsceneBeh.HALF.HI = gPlayerEntity.spritePriority.b1;
-                            gPlayerEntity.flags &= 0x7f;
+                            gPlayerEntity.flags &= ~ENT_COLLIDE;
                             gPlayerState.flags |= PL_DISABLE_ITEMS;
                             gPlayerState.field_0xa |= 0x80;
                             if (gPlayerState.swim_state != 0) {
@@ -817,7 +811,7 @@ void sub_08024E4C(Entity* this) {
             gPlayerState.field_0x38 = 0x14;
             gPlayerState.field_0x39 = 1;
             *(u8*)&gPlayerState.field_0x3a = 0;
-            PositionRelative(this, player, 0, 0x10000);
+            PositionRelative(this, player, 0, Q_16_16(1.0));
             player->spriteOffsetY = 0x1a;
             player->animationState = 4;
             player->spritePriority.b1 = 0;
@@ -825,7 +819,7 @@ void sub_08024E4C(Entity* this) {
                 this->field_0x86.HALF.HI++;
                 player->iframes = 8;
                 ModHealth(-2);
-                SoundReqClipped(player, 0x7a);
+                SoundReqClipped(player, SFX_PLY_VO6);
             }
         }
     }
@@ -835,7 +829,7 @@ void sub_08024F50(Entity* this) {
     gPlayerState.field_0xa = 0;
     gPlayerState.flags &= ~PL_DISABLE_ITEMS;
     CopyPosition(this, &gPlayerEntity);
-    gPlayerEntity.action = 1;
+    gPlayerEntity.action = PLAYER_NORMAL;
     COLLISION_ON(&gPlayerEntity);
     gPlayerEntity.iframes = -0x3c;
     gPlayerEntity.direction = gPlayerEntity.animationState << 2;

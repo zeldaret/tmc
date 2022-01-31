@@ -8,10 +8,6 @@ typedef struct {
     u8 direction;
 } PACKED Struct_0812A074;
 
-extern void sub_0806FBB4(Entity*);
-extern u32 sub_080002D4(s32, s32, u32);
-extern void sub_08078930(Entity*);
-
 extern void (*const SpiderWeb_Functions[])(Entity*);
 extern void (*const SpiderWeb_Actions[])(Entity*);
 extern const u8 gUnk_0812A03C[];
@@ -153,7 +149,7 @@ void SpiderWeb_SubAction0(Entity* this) {
         if ((this->frame & 1) != 0) {
             entity->x.HALF.HI = gUnk_0812A06C[entity->animationState] + entity->x.HALF.HI;
             entity->y.HALF.HI = gUnk_0812A06C[entity->animationState + 1] + entity->y.HALF.HI;
-            EnqueueSFX(0x100);
+            EnqueueSFX(SFX_100);
         }
     }
 }

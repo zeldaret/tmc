@@ -14,7 +14,7 @@ extern void (*const gUnk_0810FA44[])(Entity*);
 void sub_08064C9C(Entity* this);
 
 void Sturgeon(Entity* this) {
-    if ((this->flags & 2) == 0) {
+    if ((this->flags & ENT_SCRIPTED) == 0) {
         gUnk_0810FA44[this->action](this);
         sub_0806ED78(this);
     } else {

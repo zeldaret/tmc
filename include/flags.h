@@ -31,7 +31,6 @@ extern u32 WriteBit(void*, u32);
 extern u32 ClearBit(void*, u32);
 
 extern u32 gGlobalFlags;
-extern u32 gRoomFlags;
 
 extern const u16 gLocalFlagBanks[];
 

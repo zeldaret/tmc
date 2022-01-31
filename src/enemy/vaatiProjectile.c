@@ -8,8 +8,6 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern bool32 PlayerInRange(Entity*, u32, u32);
-extern u32 sub_080002E0(u32, u32);
 extern Entity* gUnk_020000B0;
 extern const ScreenTransitionData gUnk_0813AB94;
 
@@ -67,7 +65,7 @@ void VaatiProjectileFunction1(Entity* this) {
             this->action = 5;
             COLLISION_OFF(this);
             this->spritePriority.b1 = 0;
-            gPlayerEntity.flags &= 0x7f;
+            gPlayerEntity.flags &= ~ENT_COLLIDE;
             gPlayerEntity.spriteOrientation.flipY = this->spriteOrientation.flipY;
             gPlayerEntity.spriteRendering.b3 = this->spriteRendering.b3;
             sub_0803E444(this);
@@ -75,12 +73,12 @@ void VaatiProjectileFunction1(Entity* this) {
             SetPlayerControl(2);
             entity = this->parent;
             if (entity != NULL) {
-                entity->flags = entity->flags & 0x7f;
+                entity->flags = entity->flags & ~ENT_COLLIDE;
             }
         } else {
             gPlayerState.flags &= ~PL_DISABLE_ITEMS;
             entity = &gPlayerEntity;
-            entity->flags = gPlayerEntity.flags | 0x80;
+            entity->flags = gPlayerEntity.flags | ENT_COLLIDE;
         }
 #endif
     }
@@ -123,7 +121,7 @@ void VaatiProjectileFunction0Action0(Entity* this) {
         this->spriteOrientation.flipY = this->parent->spriteOrientation.flipY;
         this->spriteRendering.b3 = this->parent->spriteRendering.b3;
         this->spritePriority.b1 = 0;
-        PositionRelative(this->parent, this, 0, -0x10000);
+        PositionRelative(this->parent, this, 0, Q_16_16(-1.0));
         InitializeAnimation(this, 1);
     }
 }
@@ -209,7 +207,7 @@ void VaatiProjectileFunction0Action8(Entity* this) {
     if (this->parent->next == NULL) {
         DeleteThisEntity();
     }
-    PositionRelative(this->parent, this, 0, -0x10000);
+    PositionRelative(this->parent, this, 0, Q_16_16(-1.0));
     GetNextFrame(this);
 }
 

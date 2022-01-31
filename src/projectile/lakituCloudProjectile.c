@@ -42,7 +42,7 @@ void LakituCloudProjectile_SubAction2(Entity* this) {
     if (sub_0806F3E4(this) != 0) {
         if (this->hitType == 0xa6) {
             ModHealth(-2);
-            SoundReqClipped(&gPlayerEntity, 0x7a);
+            SoundReqClipped(&gPlayerEntity, SFX_PLY_VO6);
             sub_08079D84();
         }
         CreateFx(this, FX_DEATH, 0);
@@ -57,8 +57,8 @@ void LakituCloudProjectile_Init(Entity* this) {
 }
 
 void LakituCloudProjectile_Action1(Entity* this) {
-    PositionRelative(this->parent, this, 0, -0x10000);
-    this->z.HALF.HI = 0xfffe;
+    PositionRelative(this->parent, this, 0, Q_16_16(-1.0));
+    this->z.HALF.HI = -2;
     UpdateAnimationSingleFrame(this);
 }
 

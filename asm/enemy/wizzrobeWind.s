@@ -551,7 +551,7 @@ sub_0802F888: @ 0x0802F888
 	adds r6, r4, #0
 	adds r6, #0x38
 	ldrb r1, [r6]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r4, #0x86
 	strh r0, [r4]
 	ldr r0, _0802F8E0 @ =0x00004071
@@ -643,7 +643,7 @@ _0802F920:
 	mov r2, r8
 	ldrb r1, [r2]
 	adds r0, r4, #0
-	bl sub_080001DA
+	bl GetTileIndex
 	ldr r1, _0802F9C4 @ =0x00004071
 	cmp r0, r1
 	beq _0802F9A2
@@ -789,7 +789,7 @@ sub_0802FA88: @ 0x0802FA88
 	adds r6, #0x7a
 	ldrh r2, [r6]
 	movs r3, #2
-	bl sub_0806FCB8
+	bl EntityWithinDistance
 	cmp r0, #0
 	beq _0802FAF6
 	adds r1, r4, #0

@@ -5,7 +5,6 @@
 #include "object.h"
 
 extern void sub_080001D0(u32, u32, u32);
-extern u32 sub_080001DA(u32, u32);
 
 enum {
     FURNITURE_INIT,
@@ -220,7 +219,7 @@ static void FurnitureInit(FurnitureEntity* this) {
         case SMITH_FORGE:
             e = CreateObject(FURNITURE, FORGE_HELPER, 0);
             if (e != NULL) {
-                PositionRelative(super, e, 0x100000, 0x100000);
+                PositionRelative(super, e, Q_16_16(16.0), Q_16_16(16.0));
                 e->frameIndex = 1;
                 e->updatePriority = PRIO_MESSAGE;
             }
@@ -374,7 +373,7 @@ static void sub_08090B6C(FurnitureEntity* this) {
 }
 
 static void sub_08090CDC(u32 id, u32 pos, u32 layer) {
-    u16 cur = sub_080001DA(pos, layer);
+    u16 cur = GetTileIndex(pos, layer);
     u32 next = cur;
     u32 id2;
 
@@ -451,7 +450,7 @@ static void sub_08090E4C(FurnitureEntity* this) {
 void sub_08090E64(FurnitureEntity* this) {
     Entity* e = CreateObject(OBJECT_2A, 0, 0);
     if (e != NULL) {
-        PositionRelative(super, e, (s16)((u16)-2 + super->type2) * 0x10000, 0);
+        PositionRelative(super, e, Q_16_16((s16)((u16)-2 + super->type2)), 0);
         e->z.HALF.HI -= 16;
         e->collisionLayer = 2;
         UpdateSpriteForCollisionLayer(e);

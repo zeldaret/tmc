@@ -396,7 +396,7 @@ sub_080386B8: @ 0x080386B8
 	cmp r1, #0
 	beq _08038720
 	adds r0, r4, #0
-	bl ResolveEntityOnTop
+	bl SortEntityAbove
 _08038720:
 	pop {r4, pc}
 	.align 2, 0
@@ -507,7 +507,7 @@ _080387D8:
 	cmp r1, #0
 	beq _080387EE
 	adds r0, r4, #0
-	bl ResolveEntityOnTop
+	bl SortEntityAbove
 _080387EE:
 	pop {r4, pc}
 

@@ -221,7 +221,7 @@ void sub_08033FFC(Entity* this) {
             }
             break;
         default:
-            if (((*(Entity**)&this->field_0x74)->flags & 0x80) != 0) {
+            if (((*(Entity**)&this->field_0x74)->flags & ENT_COLLIDE) != 0) {
                 gRoomControls.camera_target = &gPlayerEntity;
                 sub_08034420(this);
                 gPlayerState.controlMode = 1;
@@ -659,7 +659,7 @@ u32 sub_080348A4(Entity* this, Entity* hand_, u32 unk) {
                 break;
             case 7:
                 hand_->action = 0x1b;
-                hand_->flags = hand_->flags & 0x7f;
+                hand_->flags = hand_->flags & ~ENT_COLLIDE;
                 InitializeAnimation(hand_, 5);
                 break;
             case 8:
@@ -741,7 +741,7 @@ void sub_08034A84(Entity* this) {
 }
 
 void sub_08034AC4(Entity* this) {
-    PositionRelative(this->parent, this, 0, 0x10000);
+    PositionRelative(this->parent, this, 0, Q_16_16(1.0));
     gUnk_080CED74[this->action](this);
 }
 
@@ -782,7 +782,7 @@ void sub_08034B38(Entity* this) {
                 target->direction = this->actionDelay + 0x58;
             }
             ptr = &gUnk_080CED84[target->type * 2];
-            PositionRelative(this, target, *(ptr++) << 0x10, *ptr << 0x10);
+            PositionRelative(this, target, Q_16_16(*(ptr++)), Q_16_16(*ptr));
         }
     }
 }

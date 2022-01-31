@@ -193,7 +193,7 @@ void sub_0802805C(Entity* this) {
     } else {
         ResetPlayer();
         gPlayerState.mobility |= 0x80;
-        PositionRelative(this, &gPlayerEntity, 0, 0x10000);
+        PositionRelative(this, &gPlayerEntity, 0, Q_16_16(1.0));
 
         tmp = GetSpriteSubEntryOffsetDataPointer((u16)this->spriteIndex, this->frameIndex);
         gPlayerEntity.spriteOffsetX = tmp[0];
@@ -205,7 +205,7 @@ void sub_0802805C(Entity* this) {
         }
 
         if ((this->actionDelay & 3) == 0) {
-            EnqueueSFX(0x104);
+            EnqueueSFX(SFX_104);
         }
     }
 }
@@ -214,8 +214,8 @@ NONMATCH("asm/non_matching/likeLike/sub_0802810C.inc", void sub_0802810C(Entity*
     gPlayerState.jump_status = 0x41;
     gPlayerState.field_0xa = 0;
     gPlayerState.flags &= 0xffffffef;
-    gPlayerEntity.flags |= 0x80;
-    gPlayerEntity.zVelocity = 0x18000;
+    gPlayerEntity.flags |= ENT_COLLIDE;
+    gPlayerEntity.zVelocity = Q_16_16(1.5);
     gPlayerEntity.iframes = -60;
     gPlayerEntity.direction = gPlayerEntity.animationState << 2;
     gPlayerEntity.spritePriority.b1 = this->field_0x82.HALF.HI;

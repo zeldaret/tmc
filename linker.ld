@@ -87,6 +87,7 @@ SECTIONS {
         . = 0x000227F0; gUnk_020227F0 = .;
         . = 0x000227F8; gUnk_020227F8 = .;
         . = 0x00022800; gUnk_02022800 = .;
+        . = 0x0002281D; gTextRenderUpdateDraw = .;
         . = 0x00022830; gUnk_02022830 = .;
         . = 0x00024030; gMessageChoices = .;
         . = 0x00024048; gUnk_02024048 = .;
@@ -355,6 +356,7 @@ SECTIONS {
         src/enemy/fallingBoulder.o(.text);
         src/enemy/bobomb.o(.text);
         src/enemy/wallMaster2.o(.text);
+        src/enemy/gleerok.o(.text);
         asm/enemy/gleerok.o(.text);
         src/enemy/vaatiEyesMacro.o(.text);
         src/enemy/tektite.o(.text);
@@ -374,7 +376,7 @@ SECTIONS {
         asm/enemy/mulldozer.o(.text);
         src/enemy/bombarossa.o(.text);
         src/enemy/wisp.o(.text);
-        asm/enemy/spinyBeetle.o(.text);
+        src/enemy/spinyBeetle.o(.text);
         src/enemy/mazaalHead.o(.text);
         src/enemy/mazaalMacro.o(.text);
         src/enemy/mazaalHand.o(.text);
@@ -386,7 +388,7 @@ SECTIONS {
         src/enemy/ropeGolden.o(.text);
         asm/enemy/cloudPiranha.o(.text);
         asm/enemy/scissorsBeetle.o(.text);
-        asm/enemy/cuccoAggr.o(.text);
+        src/enemy/cuccoAggr.o(.text);
         asm/enemy/stalfos.o(.text);
         src/enemy/flyingSkull.o(.text);
         src/enemy/mazaalBracelet.o(.text);
@@ -394,10 +396,10 @@ SECTIONS {
         src/enemy/bowMoblin.o(.text);
         src/enemy/lakitu.o(.text);
         src/enemy/lakituCloud.o(.text);
-        asm/enemy/enemy49.o(.text);
+        src/enemy/torchTrap.o(.text);
         src/enemy/vaatiRebornEnemy.o(.text);
         src/enemy/vaatiProjectile.o(.text);
-        asm/enemy/ballChainSoldier.o(.text);
+        src/enemy/ballChainSoldier.o(.text);
         src/enemy/enemy4D.o(.text);
         asm/enemy/enemy4D.o(.text);
         asm/enemy/ghini.o(.text);
@@ -424,7 +426,7 @@ SECTIONS {
         src/enemy/gyorgFemaleMouth.o(.text);
         asm/enemy/enemy64.o(.text);
         src/enemy/treeItem.o(.text);
-        asm/enemy/enemy66.o(.text);
+        src/enemy/enemy66.o(.text);
         /* END enemies */
         src/code_08049CD4.o(.text); /* enemyUtils.c */
         asm/code_08049D30.o(.text);
@@ -603,7 +605,6 @@ SECTIONS {
         /* END npcs */
         src/npcUtils.o(.text);
         src/coord.o(.text); /* physics? */
-        asm/coord.o(.text);
         src/playerItem/playerItem12.o(.text);
         src/playerItem/playerItemPacciCane.o(.text);
         src/player.o(.text);
@@ -663,7 +664,7 @@ SECTIONS {
         asm/object/object11.o(.text);
         asm/object/object12.o(.text);
         src/object/railtrack.o(.text);
-        asm/object/lilypadLarge.o(.text);
+        src/object/lilypadLarge.o(.text);
         asm/object/object15.o(.text);
         asm/object/floatingPlatform.o(.text);
         asm/object/object17.o(.text);
@@ -679,19 +680,18 @@ SECTIONS {
         asm/object/object21.o(.text);
         asm/object/figurineDevice.o(.text);
         asm/object/eyeSwitch.o(.text);
-        asm/object/pressurePlate.o(.text);
+        src/object/pressurePlate.o(.text);
         asm/object/bigBarrel.o(.text);
         src/object/barrelInside.o(.text);
         asm/object/pushableStatue.o(.text);
         asm/object/object28.o(.text);
         asm/object/ambientClouds.o(.text);
         src/object/object2A.o(.text);
-        asm/object/object2A.o(.text);
         asm/object/object2B.o(.text);
         asm/object/beanstalk.o(.text);
         src/object/smoke.o(.text);
         asm/object/pushableRock.o(.text);
-        asm/object/hittableLever.o(.text);
+        src/object/hittableLever.o(.text);
         asm/object/object30.o(.text);
         src/object/frozenFlower.o(.text);
         asm/object/pullableMushroom.o(.text);
@@ -731,7 +731,7 @@ SECTIONS {
         asm/object/giantRock2.o(.text);
         asm/object/object52.o(.text);
         asm/object/object53.o(.text);
-        asm/object/pullableLever.o(.text);
+        src/object/pullableLever.o(.text);
         src/object/minecart.o(.text);
         asm/object/minecart.o(.text);
         src/object/thoughtBubble.o(.text);
@@ -769,7 +769,7 @@ SECTIONS {
         asm/object/macroDecorations.o(.text);
         asm/object/object79.o(.text);
         src/object/steam.o(.text);
-        asm/object/pushableLever.o(.text);
+        src/object/pushableLever.o(.text);
         asm/object/macroShoes.o(.text);
         asm/object/objectOnSpinyBeetle.o(.text);
         src/object/object7E.o(.text);
@@ -777,7 +777,7 @@ SECTIONS {
         asm/object/board.o(.text);
         asm/object/object81.o(.text);
         src/object/bigVortex.o(.text);
-        asm/object/bigPushableLever.o(.text);
+        src/object/bigPushableLever.o(.text);
         asm/object/smallIceBlock.o(.text);
         asm/object/bigIceBlock.o(.text);
         src/object/object86.o(.text);
@@ -935,7 +935,7 @@ SECTIONS {
         data/data_080B7910.o(.rodata);
         data/const/playerItem/playerItemCellOverwriteSet.o(.rodata);
         data/data_080B7B74.o(.rodata);
-        src/coord.o(.rodata);
+        src/sineTable.o(.rodata);
         data/data_080C93E0.o(.rodata);
         src/enemy/octorok.o(.rodata);
         data/animations/enemy/octorok.o(.rodata);
@@ -1004,6 +1004,7 @@ SECTIONS {
         src/enemy/bobomb.o(.rodata);
         data/animations/enemy/bobomb.o(.rodata);
         src/enemy/wallMaster2.o(.rodata);
+        src/enemy/gleerok.o(.rodata);
         data/const/enemy/gleerok.o(.rodata);
         data/animations/enemy/gleerok.o(.rodata);
         src/enemy/vaatiEyesMacro.o(.rodata);
@@ -1035,7 +1036,7 @@ SECTIONS {
         data/animations/enemy/bombarossa.o(.rodata);
         data/const/enemy/wisp.o(.rodata);
         data/animations/enemy/wisp.o(.rodata);
-        data/const/enemy/spinyBeetle.o(.rodata);
+        src/enemy/spinyBeetle.o(.rodata);
         data/animations/enemy/spinyBeetle.o(.rodata);
         src/enemy/mazaalHead.o(.rodata);
         data/animations/enemy/mazaalHead.o(.rodata);
@@ -1046,7 +1047,7 @@ SECTIONS {
         src/enemy/octorokBoss.o(.rodata);
         data/animations/enemy/octorokBoss.o(.rodata);
         data/const/enemy/flyingPot.o(.rodata);
-        data/const/enemy/gibdo.o(.rodata);
+        src/enemy/gibdo.o(.rodata);
         data/animations/enemy/gibdo.o(.rodata);
         src/enemy/octorokGolden.o(.rodata);
         data/const/enemy/tektiteGolden.o(.rodata);
@@ -1055,7 +1056,7 @@ SECTIONS {
         data/animations/enemy/cloudPiranha.o(.rodata);
         data/const/enemy/scissorsBeetle.o(.rodata);
         data/animations/enemy/scissorsBeetle.o(.rodata);
-        data/const/enemy/cuccoAggr.o(.rodata);
+        src/enemy/cuccoAggr.o(.rodata);
         data/animations/enemy/cuccoAggr.o(.rodata);
         data/const/enemy/stalfos.o(.rodata);
         data/animations/enemy/stalfos.o(.rodata);
@@ -1069,11 +1070,12 @@ SECTIONS {
         src/enemy/lakitu.o(.rodata);
         data/animations/enemy/lakitu.o(.rodata);
         src/enemy/lakituCloud.o(.rodata);
-        data/const/enemy/enemy49.o(.rodata);
+        src/enemy/torchTrap.o(.rodata);
         src/enemy/vaatiRebornEnemy.o(.rodata);
         data/animations/enemy/vaatiRebornEnemy.o(.rodata);
         src/enemy/vaatiProjectile.o(.rodata);
         data/animations/enemy/vaatiProjectile.o(.rodata);
+        src/enemy/ballChainSoldier.o(.rodata);
         data/const/enemy/ballChainSoldier.o(.rodata);
         data/animations/enemy/ballChainSoldier.o(.rodata);
         data/const/enemy/enemy4D.o(.rodata);
@@ -1115,7 +1117,7 @@ SECTIONS {
         data/animations/enemy/gyorgFemaleMouth.o(.rodata);
         data/const/enemy/enemy64.o(.rodata);
         src/enemy/treeItem.o(.rodata);
-        data/const/enemy/enemy66.o(.rodata);
+        src/enemy/enemy66.o(.rodata);
         src/enemy.o(.rodata);
         data/data_080D3D94.o(.rodata);
         data/map/entity_headers.o(.rodata);
@@ -1133,7 +1135,8 @@ SECTIONS {
         data/map/metatile_headers.o(.rodata);
         data/map/map_headers.o(.rodata);
         src/message.o(.rodata);
-        data/const/manager/manager1.o(.rodata);
+        . = ALIGN(4);
+        src/manager/manager1.o(.rodata);
         data/const/manager/manager3.o(.rodata);
         data/const/manager/manager4.o(.rodata);
         src/manager/manager5.o(.rodata);
@@ -1326,6 +1329,8 @@ SECTIONS {
         data/const/npc/npc58.o(.rodata);
         src/npcDefinitions.o(.rodata);
         data/data_081146D0.o(.rodata);
+        src/coord.o(.rodata);
+        src/playerHitbox.o(.rodata);
         data/gfx/sprite_frames.o(.rodata);
         data/const/playerItem/playerItem12.o(.rodata);
         data/const/playerItem/playerItemPacciCane.o(.rodata);
@@ -1398,8 +1403,7 @@ SECTIONS {
         data/animations/object/figurineDevice.o(.rodata);
         data/const/object/eyeSwitch.o(.rodata);
         data/animations/object/eyeSwitch.o(.rodata);
-        data/const/object/pressurePlate.o(.rodata);
-        data/animations/object/pressurePlate.o(.rodata);
+        src/object/pressurePlate.o(.rodata);
         data/const/object/bigBarrel.o(.rodata);
         data/animations/object/bigBarrel.o(.rodata);
         src/object/barrelInside.o(.rodata);
@@ -1407,14 +1411,14 @@ SECTIONS {
         data/animations/object/pushableStatue.o(.rodata);
         data/const/object/ambientClouds.o(.rodata);
         data/animations/object/ambientClouds.o(.rodata);
-        data/const/object/object2A.o(.rodata);
+        src/object/object2A.o(.rodata);
         data/animations/object/object2A.o(.rodata);
         data/const/object/beanstalk.o(.rodata);
         data/animations/object/beanstalk.o(.rodata);
         data/const/object/smoke.o(.rodata);
         data/const/object/pushableRock.o(.rodata);
         data/animations/object/pushableRock.o(.rodata);
-        data/const/object/hittableLever.o(.rodata);
+        src/object/hittableLever.o(.rodata);
         data/const/object/object30.o(.rodata);
         data/const/object/object31.o(.rodata);
         data/const/object/pullableMushroom.o(.rodata);
@@ -1463,7 +1467,7 @@ SECTIONS {
         data/animations/object/minishSizedEntrance.o(.rodata);
         data/const/object/giantRock2.o(.rodata);
         data/const/object/object53.o(.rodata);
-        data/const/object/pullableLever.o(.rodata);
+        src/object/pullableLever.o(.rodata);
         data/animations/object/pullableLever.o(.rodata);
         data/const/object/minecart.o(.rodata);
         data/animations/object/minecart.o(.rodata);
@@ -1509,7 +1513,7 @@ SECTIONS {
         data/const/object/object79.o(.rodata);
         data/animations/object/object79.o(.rodata);
         src/object/steam.o(.rodata);
-        data/const/object/pushableLever.o(.rodata);
+        src/object/pushableLever.o(.rodata);
         data/animations/object/pushableLever.o(.rodata);
         data/const/object/macroShoes.o(.rodata);
         data/const/object/objectOnSpinyBeetle.o(.rodata);
@@ -1519,7 +1523,7 @@ SECTIONS {
         data/const/object/object81.o(.rodata);
         data/const/object/bigVortex.o(.rodata);
         data/animations/object/bigVortex.o(.rodata);
-        data/const/object/bigPushableLever.o(.rodata);
+        src/object/bigPushableLever.o(.rodata);
         data/animations/object/bigPushableLever.o(.rodata);
         data/const/object/smallIceBlock.o(.rodata);
         data/animations/object/smallIceBlock.o(.rodata);

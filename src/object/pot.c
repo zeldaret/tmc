@@ -18,7 +18,6 @@ extern void (*const gUnk_0811F0C4[])(Entity*);
 extern Hitbox gHitbox_18;    // TODO: should be const
 extern Hitbox gUnk_080FD340; // TODO: should be const
 
-extern u32 sub_080001DA(u32, u32);
 extern void sub_08078930(Entity*);
 extern void sub_08016A6C(Entity*);
 
@@ -47,7 +46,7 @@ void sub_0808222C(Entity* this) {
         ResolveCollisionLayer(this);
     }
 
-    this->field_0x70.HALF.LO = sub_080001DA(COORD_TO_TILE(this), this->collisionLayer);
+    this->field_0x70.HALF.LO = GetTileIndex(COORD_TO_TILE(this), this->collisionLayer);
     if ((u16)this->field_0x70.HALF.LO == 0x4000) {
         DeleteThisEntity();
     }
@@ -67,7 +66,7 @@ void sub_08082310(Entity* this) {
         case 0x1D:
             SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
             this->action = 5;
-            this->zVelocity = 0x2A000;
+            this->zVelocity = Q_16_16(2.625);
             this->spriteOffsetY = 0;
             this->spriteSettings.shadow = 1;
             this->spritePriority.b1 = 3;
@@ -90,7 +89,7 @@ void sub_08082310(Entity* this) {
                             this->actionDelay = 64;
                         }
                         SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
-                        EnqueueSFX(0x10F);
+                        EnqueueSFX(SFX_10F);
                         break;
                     case 0x4067:
                         SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
@@ -188,7 +187,7 @@ void sub_08082614(Entity* this) {
         this->speed <<= 1;
     }
 
-    this->field_0x70.HALF.LO = sub_080001DA(COORD_TO_TILE(this), this->collisionLayer);
+    this->field_0x70.HALF.LO = GetTileIndex(COORD_TO_TILE(this), this->collisionLayer);
     tileType = GetTileTypeByEntity(this);
     switch (tileType) {
         case 0x71:

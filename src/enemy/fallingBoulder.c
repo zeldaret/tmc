@@ -37,7 +37,7 @@ void sub_0802C254(Entity* this) {
 
 void sub_0802C258(Entity* this) {
     sub_0804A720(this);
-    this->zVelocity = 0x20000;
+    this->zVelocity = Q_16_16(2.0);
     this->actionDelay = 2;
     this->field_0x7a.HWORD = Random() & 0x70;
     switch (this->type) {
@@ -80,7 +80,7 @@ NONMATCH("asm/non_matching/fallingBoulder/sub_0802C334.inc", void sub_0802C334(E
     GetNextFrame(this);
     this->field_0x7c.HALF.HI = COORD_TO_TILE(this);
     if (sub_080044EC(this, *(u32*)&this->cutsceneBeh) == 1) {
-        EnqueueSFX(0x14c);
+        EnqueueSFX(SFX_14C);
         COLLISION_ON(this);
         this->field_0x7a.HWORD = 0xc;
         sub_0802C4B0(this);
@@ -137,14 +137,12 @@ void nullsub_148(Entity* this) {
     /* ... */
 }
 
-extern u32 sub_080001DA(u32, u32);
-
 void sub_0802C4B0(Entity* this) {
     u32 offset;
     u32 index;
     u32 rand;
 
-    switch (sub_080001DA(this->field_0x7c.HALF_U.HI, this->collisionLayer)) {
+    switch (GetTileIndex(this->field_0x7c.HALF_U.HI, this->collisionLayer)) {
         case 0x1ab ... 0x1af:
             offset = 8;
             break;
@@ -195,7 +193,7 @@ void sub_0802C4B0(Entity* this) {
     }
 
     rand = Random() & 7;
-    this->zVelocity = 0x20000;
+    this->zVelocity = Q_16_16(2.0);
     if (rand & 4) {
         if (rand & 3) {
             *(u32*)&this->cutsceneBeh = gUnk_080CD58C[offset | 1];

@@ -48,7 +48,7 @@ void DirtBallProjectile_Init(Entity* this) {
     this->action = 1;
     this->subAction = 0;
     this->spriteSettings.shadow = 1;
-    this->zVelocity = 0x8000;
+    this->zVelocity = Q_16_16(0.5);
     this->hitbox = (Hitbox*)&gUnk_08129764;
     this->field_0x3c |= 0x10;
     switch (this->type) {
@@ -76,13 +76,13 @@ void DirtBallProjectile_Action1(Entity* this) {
     if (parent->next == NULL) {
         this->action = 2;
     }
-    PositionRelative(parent, this, 0, -0x10000);
+    PositionRelative(parent, this, 0, Q_16_16(-1.0));
     switch (this->type) {
         case 0:
-            this->z.HALF.HI += 0x10;
+            this->z.HALF.HI += Q_8_8(1.0 / 16.0);
             break;
         case 1:
-            this->z.HALF.HI += 0xe;
+            this->z.HALF.HI += Q_8_8(1.0 / 16.0 - 1.0 / 128.0);
             sub_08078954(this->child);
             CopyPosition(this, this->child);
             if ((0xf < (u8)(this->actionDelay++ + 1)) && (entity = this->child, entity->actionDelay == 0)) {
@@ -96,7 +96,7 @@ void DirtBallProjectile_Action1(Entity* this) {
             }
             break;
         case 2:
-            this->z.HALF.HI += 0xe;
+            this->z.HALF.HI += Q_8_8(1.0 / 16.0 - 1.0 / 128.0);
             if (EntityInRectRadius(this, &gPlayerEntity, 0xe, 0xe) != 0) {
                 this->action = 2;
                 parent->field_0x82.HALF.HI = 0xc0;
@@ -145,7 +145,7 @@ void DirtBallProjectile_Action2(Entity* this) {
     switch (this->type) {
         case 0:
             InitializeAnimation(this, 1);
-            EnqueueSFX(0x84);
+            EnqueueSFX(SFX_WATER_SPLASH);
             this->action = 3;
             return;
         case 2:

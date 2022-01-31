@@ -4,7 +4,6 @@
 #include "player.h"
 #include "functions.h"
 
-extern void sub_0806F5BC(Entity*, u32, u32);
 extern u32 sub_080041DC(Entity*, u32, u32);
 
 extern void (*const GleerokProjectile_Functions[])(Entity*);
@@ -33,10 +32,10 @@ void GleerokProjectile_Init(Entity* this) {
     s32 iVar2;
 
     this->action = 1;
-    this->zVelocity = -0x10000;
+    this->zVelocity = Q_16_16(-1.0);
     if (this->type != 3) {
         CopyPosition(this->parent, this);
-        sub_0806F5BC(this, 0x1000, this->direction);
+        LinearMoveDirection(this, 0x1000, this->direction);
         this->z.WORD = this->parent->y.WORD - this->child->y.WORD;
         this->y.WORD -= this->z.WORD;
         InitializeAnimation(this, 0x51);

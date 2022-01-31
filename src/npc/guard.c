@@ -32,7 +32,7 @@ extern SpriteLoadData gUnk_0810F524[];
 extern void* gUnk_0810F6BC[];
 
 void Guard(Entity* this) {
-    if ((this->flags & 2) != 0) {
+    if ((this->flags & ENT_SCRIPTED) != 0) {
         gUnk_0810F544[this->action](this);
     } else {
         sub_08063D24(this);

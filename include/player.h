@@ -278,6 +278,7 @@ extern void (*const gPlayerItemFunctions[])(Entity*);
 extern u8 gBombBagSizes[];
 extern u8 gQuiverSizes[];
 extern u16 gWalletSizes[];
+extern Entity* gPlayerClones[];
 
 extern PlayerState gPlayerState;
 extern Entity gPlayerEntity;

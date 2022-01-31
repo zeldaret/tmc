@@ -9,12 +9,6 @@
 #include "object.h"
 #include "functions.h"
 
-extern u32 sub_080002E0(u32, u32);
-extern u32 sub_080002C8(u16, u8);
-extern u8 sub_080002D4(u32, u32, u32);
-extern void sub_0804AA1C(Entity*);
-extern Entity* sub_08049DF4(u32);
-
 extern u8 gUnk_080B37A0[];
 extern u8 gUnk_080B3E80[];
 
@@ -95,7 +89,7 @@ void sub_08025020(Entity* this) {
                     ent->spritePriority.b0 = 3;
                     CopyPosition(this, ent);
                 }
-                EnqueueSFX(0x186);
+                EnqueueSFX(SFX_186);
             }
             break;
     }
@@ -204,7 +198,7 @@ void sub_080252E0(Entity* this) {
         this->action = 3;
         this->actionDelay = 0x1e;
         this->field_0xf = 0;
-        this->zVelocity = 0x18000;
+        this->zVelocity = Q_16_16(1.5);
         InitializeAnimation(this, 1);
     }
 }
@@ -216,8 +210,8 @@ void sub_0802538C(Entity* this) {
         if (this->frame == 0) {
             GetNextFrame(this);
         } else {
-            GravityUpdate(this, 0x2000);
-            if (this->zVelocity < 0x2000) {
+            GravityUpdate(this, Q_16_16(0.125));
+            if (this->zVelocity < Q_16_16(0.125)) {
                 this->action = 4;
                 InitializeAnimation(this, 2);
             }
@@ -246,7 +240,7 @@ void sub_0802541C(Entity* this) {
     if (this->frame & 0x80) {
         this->action = 3;
         this->field_0xf = 1;
-        this->zVelocity = 0x20000;
+        this->zVelocity = Q_16_16(2);
         InitializeAnimation(this, 1);
     }
 }
@@ -263,7 +257,7 @@ void sub_0802544C(Entity* this) {
 }
 
 void sub_0802547C(Entity* this) {
-    GravityUpdate(this, 0x2000);
+    GravityUpdate(this, Q_16_16(0.125));
     GetNextFrame(this);
     if ((this->actionDelay & 7) == 0) {
         sub_08025BD4(this);
@@ -275,7 +269,7 @@ void sub_0802547C(Entity* this) {
 }
 
 void sub_080254B4(Entity* this) {
-    GravityUpdate(this, 0x2000);
+    GravityUpdate(this, Q_16_16(0.125));
     if (this->frame & 0x80) {
         if (this->z.HALF.HI == 0) {
             if (this->cutsceneBeh.HWORD == 0) {
@@ -559,7 +553,7 @@ void sub_08025B18(Entity* this) {
 
         ent = CreateObject(OBJECT_21, 2, 0);
         if (ent) {
-            PositionRelative(this, ent, offset[0] * 0x10000, offset[1] * 0x10000);
+            PositionRelative(this, ent, Q_16_16(offset[0]), Q_16_16(offset[1]));
             ent->x.HALF.HI &= -0x10;
             ent->x.HALF.HI += 8;
             ent->y.HALF.HI &= -0x10;
@@ -573,8 +567,8 @@ void sub_08025BD4(Entity* this) {
     if (this->field_0x82.HALF.LO && (this->frame & 1) == 0) {
         Entity* ent = CreateObject(OBJECT_21, 0, 0);
         if (ent) {
-            PositionRelative(this, ent, gUnk_080CC0BA[this->animationState * 2 + 0] * 0x10000,
-                             gUnk_080CC0BA[this->animationState * 2 + 1] * 0x10000);
+            PositionRelative(this, ent, Q_16_16(gUnk_080CC0BA[this->animationState * 2 + 0]),
+                             Q_16_16(gUnk_080CC0BA[this->animationState * 2 + 1]));
             ent->z.HALF.HI = -10;
         }
     }

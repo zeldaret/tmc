@@ -5,7 +5,6 @@
 
 void OctorokBossProjectile_Action2(Entity*);
 extern void sub_080AE58C(Entity*, u32, u32);
-extern u32 sub_0806FC80(Entity*, Entity*, s32);
 
 extern void (*const OctorokBossProjectile_Functions[])(Entity*);
 extern void (*const OctorokBossProjectile_Actions[])(Entity*);
@@ -34,7 +33,7 @@ void OctorokBossProjectile_Init(Entity* this) {
 
     switch (this->type) {
         case 0:
-            sub_0806F62C(this, 0x4800, this->direction);
+            LinearMoveAngle(this, 0x4800, this->direction);
             this->speed = 0x200;
             this->actionDelay = 0;
             this->field_0xf = this->direction;
@@ -45,11 +44,11 @@ void OctorokBossProjectile_Init(Entity* this) {
             this->spriteRendering.b3 = 3;
             this->spritePriority.b0 = 6;
             this->speed = (Random() & 0x1ff) + 0x200;
-            this->zVelocity = (Random() & 0x1fff) + 0x18000;
+            this->zVelocity = (Random() & 0x1fff) + Q_16_16(1.5);
             uVar1 = (((u8)Random() & 7) - 4);
             this->direction -= uVar1;
             *(u32*)&this->field_0x78 = 600;
-            sub_0806F62C(this, this->speed, this->direction);
+            LinearMoveAngle(this, this->speed, this->direction);
             InitializeAnimation(this, 4);
             break;
         case 2:
@@ -60,7 +59,7 @@ void OctorokBossProjectile_Init(Entity* this) {
             }
             this->speed = 0x200;
             this->actionDelay = 0x30;
-            sub_0806F62C(this, 0x5000, this->direction);
+            LinearMoveAngle(this, 0x5000, this->direction);
             InitializeAnimation(this, 5);
             break;
         case 3:
@@ -114,7 +113,7 @@ void OctorokBossProjectile_Action1(Entity* this) {
             }
             UpdateAnimationSingleFrame(this);
             this->field_0x78.HWORD--;
-            sub_0806F62C(this, this->speed, this->direction);
+            LinearMoveAngle(this, this->speed, this->direction);
             sub_080AE58C(this, this->direction >> 3, 0);
             if ((this->collisions & 0xee00) != 0) {
                 this->direction = -this->direction;
@@ -154,7 +153,7 @@ void OctorokBossProjectile_Action1(Entity* this) {
             if (GravityUpdate(this, 0x1800) != 0) {
                 sub_080AE58C(this, this->direction >> 3, 0);
                 if (this->collisions == 0) {
-                    sub_0806F62C(this, (s32)this->speed, (u32)this->direction);
+                    LinearMoveAngle(this, (s32)this->speed, (u32)this->direction);
                 } else {
                     OctorokBossProjectile_Action2(this);
                 }
@@ -177,7 +176,7 @@ void OctorokBossProjectile_Action1(Entity* this) {
         case 2:
             GetNextFrame(this);
             if (--this->actionDelay != 0xff) {
-                sub_0806F62C(this, this->speed, this->direction);
+                LinearMoveAngle(this, this->speed, this->direction);
                 return;
             }
             if (this->child != NULL) {

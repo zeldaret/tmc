@@ -31,9 +31,9 @@ void sub_080AAC44(Entity* this) {
                 this->action = 2;
                 COLLISION_OFF(this);
                 if (this->type == 0) {
-                    ResolveEntityOnTop(&gPlayerEntity, this);
+                    SortEntityAbove(&gPlayerEntity, this);
                 } else {
-                    ResolveEntityOnTop(this->parent, this);
+                    SortEntityAbove(this->parent, this);
                 }
                 ResetPlayer();
                 gPlayerState.mobility |= 0x80;
@@ -114,7 +114,7 @@ void V1DarkMagicProjectile_Init(Entity* this) {
     } else {
         this->action = 3;
         this->hitType = 0x2c;
-        ResolveEntityOnTop(this->parent, this);
+        SortEntityAbove(this->parent, this);
     }
     if (this->type == 0) {
         this->actionDelay = 0;
@@ -136,7 +136,7 @@ void V1DarkMagicProjectile_Init(Entity* this) {
             entity->parent = this;
         }
     } else {
-        ResolveEntityOnTop(this->parent, this);
+        SortEntityAbove(this->parent, this);
         COLLISION_OFF(this);
         CopyPosition(this->parent, this);
     }
@@ -203,7 +203,7 @@ void sub_080AAF74(Entity* this) {
         this->actionDelay = 0x1e;
         gPlayerEntity.iframes = 8;
         ModHealth(-4);
-        SoundReqClipped(&gPlayerEntity, 0x7a);
+        SoundReqClipped(&gPlayerEntity, SFX_PLY_VO6);
         if (gPlayerEntity.health == 0) {
             this->health = 0;
         }

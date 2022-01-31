@@ -64,60 +64,60 @@ sub_080975A0: @ 0x080975A0
 	adds r7, r4, #0
 	adds r7, #0x38
 	ldrb r1, [r7]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r4, #0
 	adds r1, #0x6a
 	strh r0, [r1]
 	adds r0, r5, #0
 	subs r0, #0x40
 	ldrb r1, [r7]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r4, #0
 	adds r1, #0x6c
 	strh r0, [r1]
 	adds r0, r5, #0
 	subs r0, #0x3f
 	ldrb r1, [r7]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r4, #0
 	adds r1, #0x6e
 	strh r0, [r1]
 	subs r0, r5, #1
 	ldrb r1, [r7]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r4, #0
 	adds r1, #0x70
 	strh r0, [r1]
 	ldrb r1, [r7]
 	adds r0, r5, #0
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r4, #0
 	adds r1, #0x72
 	strh r0, [r1]
 	adds r0, r5, #1
 	ldrb r1, [r7]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r4, #0
 	adds r1, #0x74
 	strh r0, [r1]
 	adds r0, r5, #0
 	adds r0, #0x3f
 	ldrb r1, [r7]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r4, #0
 	adds r1, #0x76
 	strh r0, [r1]
 	adds r0, r5, #0
 	adds r0, #0x40
 	ldrb r1, [r7]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r4, #0
 	adds r1, #0x78
 	strh r0, [r1]
 	adds r0, r5, #0
 	adds r0, #0x41
 	ldrb r1, [r7]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r4, #0
 	adds r1, #0x7a
 	strh r0, [r1]

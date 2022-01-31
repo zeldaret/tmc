@@ -75,7 +75,7 @@ void CuccoChick_Fusion(Entity* this) {
         this->frameIndex = 1;
     } else {
         if (GravityUpdate(this, 0x3000) == 0) {
-            this->zVelocity = 0x10000;
+            this->zVelocity = Q_16_16(1.0);
         }
     }
 }

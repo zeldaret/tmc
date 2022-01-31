@@ -37,7 +37,7 @@ void sub_08061358(Entity*);
 
 void sub_08060E94(Entity*);
 
-u32 sub_0806FCD0(u32, u32, u32);
+u32 PointInsideRadius(s32, s32, s32);
 
 extern Entity gUnk_0200D654;
 extern Entity gUnk_02027EB4;
@@ -53,7 +53,6 @@ extern struct {
     s8 unk_1;
 } gUnk_0810AC4C[];
 extern u8 gUnk_0810AC54[8];
-extern u32 sub_080002B4(Entity*, u32, u32);
 
 extern u8 gUnk_0810AC5D;
 
@@ -86,7 +85,7 @@ void CreateZeldaFollower(void) {
         npc = CreateNPC(0x2e, 0, 0);
         if (npc != NULL) {
             CopyPosition(&gPlayerEntity, npc);
-            npc->flags |= 0x20;
+            npc->flags |= ENT_PERSIST;
             npc->animationState = GetAnimationState(npc);
         }
     }
@@ -183,12 +182,13 @@ void sub_08060BA0(Entity* this) {
             this->speed = 0x1e0;
             sub_08061120(this, ((UnkHeap*)this->myHeap)->unk_7, ((UnkHeap*)this->myHeap)->unk_8, 0xc);
             sub_08061170(this);
-            if (sub_0806FCB8(this, ((UnkHeap*)this->myHeap)->unk_7, ((UnkHeap*)this->myHeap)->unk_8, 4) != 0) {
+            if (EntityWithinDistance(this, ((UnkHeap*)this->myHeap)->unk_7, ((UnkHeap*)this->myHeap)->unk_8, 4) != 0) {
                 ((UnkHeap*)this->myHeap)->unk_0 &= 0xf7;
             }
         } else {
             if (sub_08060FD0(this, ((UnkHeap*)this->myHeap)->unk_5, ((UnkHeap*)this->myHeap)->unk_6) != 0) {
-                if (sub_0806FCB8(this, ((UnkHeap*)this->myHeap)->unk_5, ((UnkHeap*)this->myHeap)->unk_6, 4) != 0) {
+                if (EntityWithinDistance(this, ((UnkHeap*)this->myHeap)->unk_5, ((UnkHeap*)this->myHeap)->unk_6, 4) !=
+                    0) {
                     ((UnkHeap*)this->myHeap)->unk_0 &= 0xfb;
                     this->action = 5;
                     this->direction = r5->direction;
@@ -215,7 +215,8 @@ void sub_08060BA0(Entity* this) {
                 this->speed = 0x1e0;
                 sub_08061120(this, ((UnkHeap*)this->myHeap)->unk_7, ((UnkHeap*)this->myHeap)->unk_8, 0xc);
                 sub_08061170(this);
-                if (sub_0806FCB8(this, ((UnkHeap*)this->myHeap)->unk_7, ((UnkHeap*)this->myHeap)->unk_8, 4) != 0) {
+                if (EntityWithinDistance(this, ((UnkHeap*)this->myHeap)->unk_7, ((UnkHeap*)this->myHeap)->unk_8, 4) !=
+                    0) {
                     ((UnkHeap*)this->myHeap)->unk_0 &= 0xf7;
                 }
             } else {
@@ -228,7 +229,8 @@ void sub_08060BA0(Entity* this) {
                     this->speed = 0x1e0;
                     sub_08061120(this, ((UnkHeap*)this->myHeap)->unk_3, ((UnkHeap*)this->myHeap)->unk_4, 0xc);
                     sub_08061170(this);
-                    if (sub_0806FCB8(this, ((UnkHeap*)this->myHeap)->unk_3, ((UnkHeap*)this->myHeap)->unk_4, 4) != 0) {
+                    if (EntityWithinDistance(this, ((UnkHeap*)this->myHeap)->unk_3, ((UnkHeap*)this->myHeap)->unk_4,
+                                             4) != 0) {
                         ((UnkHeap*)this->myHeap)->unk_0 &= 0xfd;
                     }
                 } else {
@@ -344,8 +346,8 @@ u32 sub_08060F80(Entity* this) {
         return 0;
     }
     ((UnkHeap*)this->myHeap)->unk_0 &= 0xfb;
-    if (sub_0806FCD0(gPlayerEntity.x.HALF.HI - this->x.HALF.HI, gPlayerEntity.y.HALF.HI - this->y.HALF.HI,
-                     ((UnkHeap*)this->myHeap)->unk_0b) != 0) {
+    if (PointInsideRadius(gPlayerEntity.x.HALF.HI - this->x.HALF.HI, gPlayerEntity.y.HALF.HI - this->y.HALF.HI,
+                          ((UnkHeap*)this->myHeap)->unk_0b) != 0) {
         return 1;
     }
     return 0;
@@ -818,7 +820,7 @@ void sub_08061AA8(Entity* this) {
 }
 
 void sub_08061ACC(Entity* this) {
-    this->flags = this->flags | 0x20;
+    this->flags = this->flags | ENT_PERSIST;
     this->action = 1;
     this->subAction = 0xff;
     this->actionDelay = 0;

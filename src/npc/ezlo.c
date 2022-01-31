@@ -54,7 +54,7 @@ void sub_0806D96C(Entity* this) {
     Entity* fx = CreateFx(this, FX_STEAM_EFC, 0);
     if (fx != NULL) {
         fx->spritePriority.b0 = 1;
-        PositionRelative(this, fx, 0, 0xFFE80000);
+        PositionRelative(this, fx, 0, Q_16_16(-24.0));
     }
 }
 

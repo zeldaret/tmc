@@ -8,8 +8,6 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern Entity* sub_08049DF4(u32);
-
 void sub_08022A88(Entity*);
 void sub_08022AA4(Entity*);
 void sub_08022B0C(Entity*);
@@ -54,8 +52,8 @@ void sub_08022988(Entity* this) {
                 return;
 
             this->frameIndex = 1;
-            this->zVelocity = 0x10000;
-            EnqueueSFX(0xd6);
+            this->zVelocity = Q_16_16(1.0);
+            EnqueueSFX(SFX_VO_CHEEP);
         }
 
         ProcessMovement(this);
@@ -80,8 +78,8 @@ void sub_080229F8(Entity* this) {
             this->speed = 0xc0;
             sub_08022B44(this);
         } else {
-            this->zVelocity = 0x10000;
-            EnqueueSFX(0xd6);
+            this->zVelocity = Q_16_16(1.0);
+            EnqueueSFX(SFX_VO_CHEEP);
         }
     }
 }
@@ -143,13 +141,13 @@ u32 sub_08022B20(Entity* this) {
 }
 
 void sub_08022B44(Entity* this) {
-    this->zVelocity = 0xc000;
+    this->zVelocity = Q_16_16(0.75);
     this->direction = GetFacingDirection(this, &gPlayerEntity);
 
     if (this->direction & 0xf)
         this->spriteSettings.flipX = (this->direction >> 4) ^ 1;
 
-    EnqueueSFX(0xd6);
+    EnqueueSFX(SFX_VO_CHEEP);
 }
 
 // clang-format off

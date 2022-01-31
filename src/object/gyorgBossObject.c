@@ -418,7 +418,8 @@ void sub_080A1FF0(GyorgBossObjectEntity* this) {
         }
     }
     if (this->unk_7b) {
-        if (sub_0806FCB8(&gPlayerEntity, gRoomControls.origin_x + 0x200, gRoomControls.origin_y + 0x210, 0x100)) {
+        if (EntityWithinDistance(&gPlayerEntity, gRoomControls.origin_x + 0x200, gRoomControls.origin_y + 0x210,
+                                 0x100)) {
             if (super->actionDelay == 0) {
                 super->actionDelay = 0x78;
             } else {

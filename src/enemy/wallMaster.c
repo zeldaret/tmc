@@ -9,8 +9,6 @@
 #include "area.h"
 #include "functions.h"
 
-extern void sub_08001328(Entity*);
-extern Entity* sub_08049DF4(u32);
 extern ScreenTransitionData* gUnk_0813AB1C[];
 
 void sub_0802A78C(Entity*);
@@ -94,7 +92,7 @@ void sub_0802A5B8(Entity* this) {
     sub_0802A7D0(this);
     if (this->actionDelay) {
         if (--this->actionDelay == 0) {
-            EnqueueSFX(0x12d);
+            EnqueueSFX(SFX_12D);
             InitializeAnimation(this, 0);
         }
     } else {

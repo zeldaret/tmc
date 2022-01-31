@@ -141,7 +141,7 @@ _08070280:
 	adds r4, r5, #0
 	adds r4, #0x38
 	ldrb r1, [r4]
-	bl sub_080001DA
+	bl GetTileIndex
 	str r0, [r5, #0x7c]
 	adds r0, r5, #0
 	movs r1, #0x14

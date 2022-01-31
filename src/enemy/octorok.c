@@ -8,8 +8,6 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern Entity* sub_08049DF4(u32);
-
 void Octorok_Pause(Entity*);
 bool32 Octorok_FacesPlayer(Entity*);
 void Octorok_Turn(Entity*);
@@ -139,7 +137,7 @@ void Octorok_ShootNut(Entity* this) {
             ent->y.HALF.HI += off[1];
             ent->z.HALF.HI = -3;
             this->frame &= 0xfe;
-            EnqueueSFX(0x18d);
+            EnqueueSFX(SFX_18D);
         }
     }
 

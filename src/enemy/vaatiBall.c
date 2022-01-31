@@ -71,7 +71,7 @@ void sub_0804468C(Entity* this) {
             this->field_0x82.HALF.HI = 0;
             this->spriteSettings.draw = 0;
             off = &gUnk_080D1620[this->field_0x78.HALF.HI & 3];
-            PositionRelative(this->parent, this, off->h << 0x10, (off->v - 0x10) * 0x10000);
+            PositionRelative(this->parent, this, Q_16_16(off->h), Q_16_16(off->v - 0x10));
             this->z.HALF.HI = this->parent->z.HALF.HI;
             InitAnimationForceUpdate(this, 0);
             break;
@@ -170,7 +170,7 @@ void sub_08044868(Entity* this) {
                         break;
                     case 1:
                         LinearMoveUpdate(this);
-                        if (sub_0806FCB8(this, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10, 0xc)) {
+                        if (EntityWithinDistance(this, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10, 0xc)) {
                             this->field_0x74.HALF.LO++;
                             this->x.HALF.HI = vaati->x.HALF.HI;
                             this->y.HALF.HI = vaati->y.HALF.HI - 0x10;
@@ -383,7 +383,7 @@ void sub_08044B04(Entity* this) {
                             }
                         }
                         if (this->field_0x78.HALF.HI == 3)
-                            if (sub_0806FCB8(this, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10, 0xc))
+                            if (EntityWithinDistance(this, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10, 0xc))
                                 vaati->actionDelay++;
                         this->direction = sub_080045B4(this, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10);
                         return;
@@ -397,7 +397,7 @@ void sub_08044B04(Entity* this) {
                     this->field_0x74.HALF.LO = 1;
                     this->actionDelay = 80;
                     COLLISION_OFF(this);
-                    PositionRelative(vaati, this, 0, -0x100000);
+                    PositionRelative(vaati, this, 0, Q_16_16(-16.0));
                     if (this->field_0xf)
                         this->spriteSettings.draw = 0;
                     break;
@@ -463,7 +463,7 @@ void sub_08044DEC(Entity* this) {
     this->speed = 0x300;
     off = this->parent->field_0x80.HALF.LO - 1;
     this->direction = gUnk_080D1628[off][this->field_0x78.HALF.HI];
-    PositionRelative(this->parent, this, 0, -0x100000);
+    PositionRelative(this->parent, this, 0, Q_16_16(-16.0));
 }
 
 void sub_08044E74(Entity* this, u32 state) {
@@ -475,7 +475,7 @@ void sub_08044E74(Entity* this, u32 state) {
             this->action = 2;
             this->direction += 0x18;
             this->direction &= 0x1f;
-            PositionRelative(this->parent, this, 0, -0x100000);
+            PositionRelative(this->parent, this, 0, Q_16_16(-16.0));
             this->speed = 12288;
             LinearMoveUpdate(this);
             this->direction += 0x8;
@@ -509,5 +509,5 @@ void sub_08044E74(Entity* this, u32 state) {
     }
     this->actionDelay = 1;
     this->field_0x78.HALF.LO = 0;
-    this->speed = 1280;
+    this->speed = Q_8_8(5);
 }

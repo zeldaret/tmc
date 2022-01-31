@@ -98,7 +98,7 @@ void sub_0809B4A8(Entity* this) {
         gPlayerEntity.x.HALF.LO = 0;
         gPlayerEntity.y.HALF.LO = 0;
         gPlayerEntity.direction = gPlayerEntity.animationState << 2;
-        EnqueueSFX(0x10f);
+        EnqueueSFX(SFX_10F);
     } else {
         this->actionDelay = 0x16;
     }
@@ -134,14 +134,14 @@ void sub_0809B56C(Entity* this) {
 
     fx = CreateFx(this, FX_DEATH, 0);
     if (fx) {
-        ResolveEntityOnTop(this, fx);
+        SortEntityAbove(this, fx);
     }
 }
 
 void sub_0809B5B4(Entity* this) {
     if (gPlayerState.flags & PL_MINISH) {
         sub_0800445C(this);
-    } else if (sub_08017850(this)) {
+    } else if (IsCollidingPlayer(this)) {
         CreateItemEntity(this->type + 0x39, 0, 0);
         DeleteThisEntity();
     }

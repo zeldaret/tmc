@@ -89,14 +89,12 @@ void sub_08080974(u32 arg0, u32 arg1) {
 }
 
 void sub_080809D4(void) {
-    register Entity* target asm("r4");
     int x, y;
     int var1, var0;
     RoomControls* roomControls = &gRoomControls;
     roomControls->scroll_flags &= ~4;
 
-    target = roomControls->camera_target;
-    x = target->x.HALF.HI;
+    x = roomControls->camera_target->x.HALF.HI;
     var0 = roomControls->origin_x;
     if (x <= var0 + 120) {
         roomControls->scroll_x = var0;
@@ -104,13 +102,12 @@ void sub_080809D4(void) {
         var0 += roomControls->width;
         var1 = var0 - 120;
         if (x < var1) {
-            var1 = (u16)target->x.HALF.HI;
+            var1 = (u16)roomControls->camera_target->x.HALF.HI;
         }
         roomControls->scroll_x = var1 - 120;
     }
 
-    target = roomControls->camera_target;
-    y = target->y.HALF.HI;
+    y = roomControls->camera_target->y.HALF.HI;
     var0 = roomControls->origin_y;
     if (y <= var0 + 80) {
         roomControls->scroll_y = var0;
@@ -118,7 +115,7 @@ void sub_080809D4(void) {
         var0 += roomControls->height;
         var1 = var0 - 80;
         if (y < var1) {
-            var1 = (u16)target->y.HALF.HI;
+            var1 = (u16)roomControls->camera_target->y.HALF.HI;
         }
         roomControls->scroll_y = var1 - 80;
     }

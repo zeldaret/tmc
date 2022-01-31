@@ -95,7 +95,7 @@ void sub_0802BCA8(Entity* this) {
 
         this->action = 7;
         this->actionDelay = 0x5a;
-        this->zVelocity = 0x18000;
+        this->zVelocity = Q_16_16(1.5);
         this->hitType = 0x19;
         this->field_0x3a = this->field_0x3a & 0xfb;
         this->field_0x1c = 0x12;
@@ -222,7 +222,7 @@ void sub_0802BEBC(Entity* this) {
     this->direction ^= 0x10;
     sub_080AEFE0(this);
     this->direction ^= 0x10;
-    if (!sub_080044EC(this, 0x2000)) {
+    if (!sub_080044EC(this, Q_16_16(0.125))) {
         sub_0802C1C0(this);
     }
 }
@@ -234,7 +234,7 @@ void sub_0802BEEC(Entity* this) {
             this->direction = this->animationState << 3;
             InitializeAnimation(this, this->animationState + 4);
         }
-    } else if (!GravityUpdate(this, 0x1c00)) {
+    } else if (!GravityUpdate(this, Q_16_16(0.109375))) {
         this->action = 8;
         this->actionDelay = 30;
         this->speed = 0x120;
@@ -356,7 +356,7 @@ void sub_0802C18C(Entity* this) {
     if ((this->field_0x78.HALF.LO & 7) == 0) {
         Entity* ent = CreateObject(SPECIAL_FX, 0x11, 0x40);
         if (ent) {
-            PositionRelative(this, ent, 0, 0x10000);
+            PositionRelative(this, ent, 0, Q_16_16(1.0));
         }
     }
 }
@@ -374,8 +374,8 @@ void sub_0802C1CC(Entity* this) {
 
 void sub_0802C218(Entity* this) {
     this->action = 6;
-    this->speed = 0xe0;
-    this->zVelocity = 0x18000;
+    this->speed = Q_8_8(0.875);
+    this->zVelocity = Q_16_16(1.5);
 }
 
 // clang-format off

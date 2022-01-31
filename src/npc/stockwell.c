@@ -11,8 +11,6 @@ extern void (*const gUnk_0810FDC8[])(Entity*);
 
 extern void (*const gUnk_0810FDA4[])(Entity*);
 
-extern bool32 sub_08056338(void);
-
 extern void sub_08078850(Entity*, u32, u8, u32*);
 extern u32 gUnk_0810FDA0;
 extern u16 script_Stockwell;
@@ -107,7 +105,7 @@ void sub_080652E4(Entity* this) {
     if (this->actionDelay != 0) {
         this->actionDelay -= 1;
     } else {
-        if (gPlayerEntity.action != 8) {
+        if (gPlayerEntity.action != PLAYER_ITEMGET) {
             this->subAction += 1;
             MessageNoOverlap(0x2c19, this);
         }

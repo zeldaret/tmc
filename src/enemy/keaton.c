@@ -229,7 +229,7 @@ void sub_08032794(Entity* this) {
     target = CreateFx(this, FX_DASH, 0x40);
     if (target != NULL) {
         temp = &gUnk_080CE810[this->animationState * 2];
-        PositionRelative(this, target, temp[0] << 0x10, temp[1] << 0x10);
+        PositionRelative(this, target, Q_16_16(temp[0]), Q_16_16(temp[1]));
     }
 }
 

@@ -84,7 +84,7 @@ void nullsub_542(Entity* this) {
 void sub_080ABC90(Entity* this) {
     if (sub_0806F3E4(this) != 0) {
         ModHealth(-2);
-        SoundReqClipped(&gPlayerEntity, 0x7a);
+        SoundReqClipped(&gPlayerEntity, SFX_PLY_VO6);
         sub_08079D84();
         CreateFx(this, FX_DEATH, 0);
         DeleteThisEntity();
@@ -138,7 +138,7 @@ void sub_080ABE04(Entity* this) {
     u32 rand = Random() & 0xff;
     u32 newX;
     this->action = 1;
-    this->zVelocity = 0xffff0000;
+    this->zVelocity = Q_16_16(-1.0);
     this->z.HALF.HI -= 0xa0;
     this->x.HALF.HI = (gRoomControls.origin_x & 0x7ff0) | 0x8;
     this->y.HALF.HI = (gRoomControls.origin_y & 0x7ff0) | 0x8;

@@ -31,7 +31,7 @@ void sub_080A8064(Entity* this) {
 void RockProjectile_Init(Entity* this) {
     this->action = 1;
     this->actionDelay = 0x30;
-    this->zVelocity = 0xa000;
+    this->zVelocity = Q_16_16(0.625);
     InitializeAnimation(this, 0);
 }
 
@@ -86,7 +86,7 @@ void sub_080A8178(Entity* this) {
     this->action = 2;
     COLLISION_OFF(this);
     this->speed = 0x40;
-    this->zVelocity = 0x14000;
+    this->zVelocity = Q_16_16(1.25);
 }
 
 void (*const RockProjectile_Functions[])(Entity*) = {

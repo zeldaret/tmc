@@ -73,7 +73,7 @@ void sub_08066D94(Entity* this) {
     npc = CreateNPC(0x2E, 0, 0);
     if (npc != NULL) {
         npc->animationState = gPlayerEntity.animationState;
-        npc->flags |= 0x20;
+        npc->flags |= ENT_PERSIST;
         npc->animationState = GetAnimationState(this);
         room = gRoomControls.room;
         npc->field_0x74.HWORD = room;
@@ -127,13 +127,13 @@ void sub_08066E80(Entity* this, ScriptExecutionContext* context) {
             UpdateAnimationSingleFrame(this);
             if (this->frame & 1) {
                 context->unk_18++;
-                this->zVelocity = 0x20000;
+                this->zVelocity = Q_16_16(2.0);
                 this->frame &= 0xFE;
                 SoundReq(SFX_PLY_JUMP);
             }
             break;
         case 2:
-            sub_0806F62C(this, 0x100, 0x80);
+            LinearMoveAngle(this, 0x100, 0x80);
             GravityUpdate(this, 0x2000);
             if (!(this->frame & 1)) {
                 UpdateAnimationSingleFrame(this);
@@ -143,7 +143,7 @@ void sub_08066E80(Entity* this, ScriptExecutionContext* context) {
             }
             break;
         case 3:
-            sub_0806F62C(this, 0x100, 0x80);
+            LinearMoveAngle(this, 0x100, 0x80);
             UpdateAnimationSingleFrame(this);
             if (GravityUpdate(this, 0x2000) == 0) {
                 context->unk_18++;

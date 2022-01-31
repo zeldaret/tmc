@@ -9,7 +9,6 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern s16 sub_080001DA(u32, u32); // ?
 extern void sub_08049CF4(Entity*);
 void sub_080221C0(Entity*);
 
@@ -92,7 +91,7 @@ void sub_080220F0(Entity* this) {
                 fx->y.HALF.HI += off->v;
             }
         }
-        EnqueueSFX(260);
+        EnqueueSFX(SFX_104);
     } else if (this->frame & 1) {
         this->damage = 4;
     }
@@ -118,7 +117,7 @@ void sub_08022198(Entity* this) {
 void sub_080221C0(Entity* this) {
     u32 tile = COORD_TO_TILE(this) + gUnk_080B4488[this->type2];
     this->field_0x7c.HALF.HI = tile;
-    this->field_0x7c.HALF.LO = sub_080001DA(tile, this->collisionLayer);
+    this->field_0x7c.HALF.LO = GetTileIndex(tile, this->collisionLayer);
     SetTile(gUnk_080CB79C[this->type2], tile, this->collisionLayer);
 }
 

@@ -14,15 +14,10 @@
 #include "game.h"
 #include "item.h"
 
-extern Entity* sub_08049DF4(u32);
-extern bool32 sub_08056338(void);
-extern void UnloadOBJPalette(Entity*);
-
 bool32 sub_0802915C(Entity*);
 bool32 sub_080291DC(Entity*);
 void sub_0802922C(Entity*);
 void sub_08028E9C(Entity*);
-u32 sub_080001DA(u32, u32);
 void sub_08028FFC(Entity*);
 void sub_0802925C(Entity*);
 void sub_080290E0(Entity*, u32);
@@ -70,7 +65,7 @@ void sub_08028934(Entity* this) {
         if (pEVar1 != NULL) {
             pEVar1->z.HALF.HI -= 8;
         }
-        EnqueueSFX(0x1bb);
+        EnqueueSFX(SFX_EM_DEKUSCRUB_HIT);
     }
 }
 
@@ -94,7 +89,7 @@ void sub_08028994(Entity* this) {
     } else {
         this->actionDelay = 0;
         this->field_0x76.HWORD = COORD_TO_TILE(this);
-        this->field_0x74.HWORD = sub_080001DA(this->field_0x76.HWORD, this->collisionLayer);
+        this->field_0x74.HWORD = GetTileIndex(this->field_0x76.HWORD, this->collisionLayer);
         this->hurtType = 0x41;
         sub_08028FFC(this);
     }
@@ -302,7 +297,7 @@ void sub_08028CE8(Entity* this) {
 }
 
 void sub_08028DE8(Entity* this) {
-    if (gPlayerEntity.action == 8) {
+    if (gPlayerEntity.action == PLAYER_ITEMGET) {
         if (this->field_0x80.HALF.HI == 0) {
             SetPlayerControl(1);
             this->field_0x80.HALF.HI = 1;

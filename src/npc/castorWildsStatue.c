@@ -23,7 +23,7 @@ extern PosOffset gUnk_08110E78[];
 extern PosOffset gUnk_08110E8A[];
 
 void CastorWildsStatue(Entity* this) {
-    if ((this->flags & 2) != 0) {
+    if ((this->flags & ENT_SCRIPTED) != 0) {
         gUnk_08110E5C[this->action](this);
     } else {
         gUnk_08110E4C[this->action](this);
@@ -103,7 +103,7 @@ void sub_08067534(Entity* this) {
             entity->y.HALF.HI += 0x1c;
         }
     }
-    EnqueueSFX(0x14c);
+    EnqueueSFX(SFX_14C);
     InitScreenShake(0x28, 4);
 }
 
@@ -134,7 +134,7 @@ void sub_080675D4(Entity* this) {
             ent->collisionLayer = this->collisionLayer;
             ent->spriteOrientation.flipY = this->spriteOrientation.flipY;
             ent->spriteRendering.b3 = this->spriteRendering.b3;
-            ResolveEntityOnTop(this, ent);
+            SortEntityAbove(this, ent);
         }
     };
     gUnk = gUnk_08110E8A;
@@ -147,7 +147,7 @@ void sub_080675D4(Entity* this) {
             ent->collisionLayer = this->collisionLayer;
             ent->spriteOrientation.flipY = this->spriteOrientation.flipY;
             ent->spriteRendering.b3 = this->spriteRendering.b3;
-            ResolveEntityOnTop(this, ent);
+            SortEntityAbove(this, ent);
         }
     };
     if (this->subAction > 2) {

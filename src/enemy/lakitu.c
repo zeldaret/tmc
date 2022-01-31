@@ -59,7 +59,7 @@ void Lakitu_DoAction(Entity* this) {
 
 void sub_0803C784(Entity* this) {
     if ((this->bitfield & 0x7f) == 0x1d) {
-        this->zVelocity = 0x20000;
+        this->zVelocity = Q_16_16(2.0);
 
         sub_0803CBAC(this);
     } else {
@@ -242,7 +242,7 @@ void Lakitu_Cloudless(Entity* this) {
 }
 
 bool32 sub_0803CA4C(Entity* this) {
-    if (sub_0806FCB8(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x28) == 0) {
+    if (EntityWithinDistance(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x28) == 0) {
         if (EntityInRectRadius(this, &gPlayerEntity, 0x70, 0x50)) {
             return 1;
         }
@@ -267,7 +267,7 @@ void sub_0803CA84(Entity* this, u32 unkParameter) {
 }
 
 void sub_0803CAD0(Entity* this) {
-    if (sub_0806FCB8(this, this->field_0x74.HWORD, this->field_0x76.HWORD, 1) == 0) {
+    if (EntityWithinDistance(this, this->field_0x74.HWORD, this->field_0x76.HWORD, 1) == 0) {
         this->direction =
             sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, this->field_0x74.HWORD, this->field_0x76.HWORD);
 
@@ -316,9 +316,9 @@ void Lakitu_SpawnLightning(Entity* this) {
 
     lightning->direction = this->field_0x78.HALF.LO;
 
-    PositionRelative(this, lightning, offset->x << 16, offset->y << 16);
+    PositionRelative(this, lightning, Q_16_16(offset->x), Q_16_16(offset->y));
 
-    EnqueueSFX(0x193);
+    EnqueueSFX(SFX_193);
 }
 
 void sub_0803CBAC(Entity* this) {
@@ -326,7 +326,7 @@ void sub_0803CBAC(Entity* this) {
 
     cloud = this->child;
     if (cloud != NULL) {
-        cloud->flags |= 0x80;
+        cloud->flags |= ENT_COLLIDE;
         cloud->hitType = 0x43;
     }
 
@@ -346,6 +346,8 @@ void sub_0803CC08(Entity* this) {
     Entity* cloud;
     Entity* fx;
 
+    const s32 diff = Q_8_8(3.0 / 128.0);
+
     cloud = this->child;
     if (cloud == NULL) {
         return;
@@ -359,32 +361,32 @@ void sub_0803CC08(Entity* this) {
         return;
     }
 
-    if (!sub_0806FCB8(this, cloud->x.HALF.HI, cloud->y.HALF.HI, 6)) {
+    if (!EntityWithinDistance(this, cloud->x.HALF.HI, cloud->y.HALF.HI, 6)) {
         return;
     }
 
     fx = CreateFx(this, FX_DEATH, 0);
     if (fx != NULL) {
-        fx->x.HALF.HI += 6;
-        fx->y.HALF.HI += 6;
+        fx->x.HALF.HI += diff;
+        fx->y.HALF.HI += diff;
     }
 
     fx = CreateFx(this, FX_DEATH, 0);
     if (fx != NULL) {
-        fx->x.HALF.HI -= 6;
-        fx->y.HALF.HI += 6;
+        fx->x.HALF.HI -= diff;
+        fx->y.HALF.HI += diff;
     }
 
     fx = CreateFx(this, FX_DEATH, 0);
     if (fx != NULL) {
-        fx->x.HALF.HI += 6;
-        fx->y.HALF.HI -= 6;
+        fx->x.HALF.HI += diff;
+        fx->y.HALF.HI -= diff;
     }
 
     fx = CreateFx(this, FX_DEATH, 0);
     if (fx != NULL) {
-        fx->x.HALF.HI -= 6;
-        fx->y.HALF.HI -= 6;
+        fx->x.HALF.HI -= diff;
+        fx->y.HALF.HI -= diff;
     }
 
     this->child = NULL;

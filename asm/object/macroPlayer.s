@@ -90,7 +90,7 @@ _0808CB70:
 	movs r5, #0
 	str r5, [r4, #0x34]
 	adds r1, r4, #0
-	bl ResolveEntityBelow
+	bl SortEntityBelow
 	ldrb r0, [r4, #0xd]
 	cmp r0, #0
 	beq _0808CB98

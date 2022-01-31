@@ -62,7 +62,7 @@ void sub_08069B44(Entity* this) {
         this->field_0x74.HALF.LO = sub_0801E99C(this);
         SetDefaultPriority(this, PRIO_MESSAGE);
         InitAnimationForceUpdate(this, 10);
-        if ((this->flags & 2) != 0) {
+        if ((this->flags & ENT_SCRIPTED) != 0) {
             sub_0807DD50(this);
         }
         if (((this->type == 0) && ((gPlayerState.flags & PL_MINISH) == 0)) && (GetInventoryValue(0x36) != 2)) {

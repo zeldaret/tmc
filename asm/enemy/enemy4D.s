@@ -39,7 +39,7 @@ _0803EBE4:
 	ldrh r2, [r0]
 	adds r0, r4, #0
 	movs r3, #2
-	bl sub_0806FCB8
+	bl EntityWithinDistance
 	cmp r0, #0
 	bne _0803EC14
 	movs r0, #4
@@ -141,7 +141,7 @@ sub_0803EC94: @ 0x0803EC94
 	ldrh r2, [r6]
 	adds r0, r4, #0
 	movs r3, #1
-	bl sub_0806FCB8
+	bl EntityWithinDistance
 	cmp r0, #0
 	beq _0803ECD8
 	ldrh r0, [r5]
@@ -465,7 +465,7 @@ sub_0803EF04: @ 0x0803EF04
 	movs r4, #0x32
 	ldrsh r2, [r2, r4]
 	subs r2, #4
-	bl sub_0806FCB8
+	bl EntityWithinDistance
 	pop {r4, pc}
 	.align 2, 0
 _0803EF1C: .4byte gUnk_020000B0
@@ -531,7 +531,7 @@ sub_0803EF74: @ 0x0803EF74
 	ldrsh r2, [r4, r0]
 	adds r0, r5, #0
 	movs r3, #0x50
-	bl sub_0806FCB8
+	bl EntityWithinDistance
 	cmp r0, #0
 	beq _0803EFA8
 	adds r0, r4, #0

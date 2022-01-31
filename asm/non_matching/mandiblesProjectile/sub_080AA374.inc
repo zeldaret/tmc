@@ -34,7 +34,7 @@
 	adds r2, r2, r0
 	adds r0, r6, #0
 	movs r3, #8
-	bl sub_0806FCB8
+	bl EntityWithinDistance
 	cmp r0, #0
 	beq _080AA3D0
 	movs r0, #1

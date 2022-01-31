@@ -21,7 +21,7 @@ extern void (*const gUnk_0810AA24[])(Entity*);
 extern Dialog gUnk_0810AA30[];
 
 void Postman(Entity* this) {
-    if ((this->flags & 2) != 0) {
+    if ((this->flags & ENT_SCRIPTED) != 0) {
         sub_08060528(this);
     } else {
         gUnk_0810AA24[this->action](this);
@@ -143,7 +143,7 @@ void sub_08060528(Entity* this) {
     if (0 < (s16)this->field_0x6a.HWORD) {
         if ((s16)this->field_0x6a.HWORD > 0x12b) {
             this->field_0x6a.HWORD = 0;
-            this->zVelocity = 0x20000;
+            this->zVelocity = Q_16_16(2.0);
             this->field_0x6c.HALF.HI = 1;
             sub_080788E0(this);
             EnqueueSFX(0x7c);

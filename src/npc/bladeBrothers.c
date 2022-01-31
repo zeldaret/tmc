@@ -35,7 +35,7 @@ extern EntityData gUnk_080F3494;
 static void sub_08068BEC(Entity* this, u32 unused);
 
 void BladeBrothers(Entity* this) {
-    if ((this->flags & 2) != 0) {
+    if ((this->flags & ENT_SCRIPTED) != 0) {
         gUnk_081115D0[this->action](this);
     } else {
         gUnk_081115C0[this->action](this);
@@ -167,7 +167,7 @@ static void sub_08068BEC(Entity* this, u32 unused) {
     target = CreateFx(this, FX_WHITE_SPLASH, 0);
     if (target) {
         target->spritePriority.b0 = 1;
-        PositionRelative(this, target, 0, -0x100000);
+        PositionRelative(this, target, 0, Q_16_16(-16.0));
         SoundReq(SFX_FA);
     }
 }

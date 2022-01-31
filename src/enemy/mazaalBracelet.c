@@ -189,7 +189,7 @@ void sub_0803A274(Entity* this) {
             pEVar1 = CreateObject(OBJECT_7E, 1, 0);
             pEVar1->parent = this;
             pEVar1->child = this->child;
-            PositionRelative(this->parent, this, 0x100000, 0x200000);
+            PositionRelative(this->parent, this, Q_16_16(16.0), Q_16_16(32.0));
         } else {
             pEVar1 = CreateEnemy(MAZAAL_HAND, 1);
             pEVar1->parent = this;
@@ -201,7 +201,7 @@ void sub_0803A274(Entity* this) {
             pEVar1->parent = this;
             pEVar1->child = this->child;
             this->spriteSettings.flipX = 1;
-            PositionRelative(this->parent, this, -0x100000, 0x200000);
+            PositionRelative(this->parent, this, Q_16_16(-16.0), Q_16_16(32.0));
         }
         if (gRoomTransition.field_0x38 != 0) {
             this->action = 3;
@@ -590,8 +590,7 @@ void sub_0803AA00(Entity* this) {
         }
     }
 }
-
-NONMATCH("asm/non_matching/mazaal/sub_0803AA98.inc", void sub_0803AA98(Entity* this)) {
+void sub_0803AA98(Entity* this) {
     Entity* temp;
     s8* ptr;
     u32 index;
@@ -605,7 +604,8 @@ NONMATCH("asm/non_matching/mazaal/sub_0803AA98.inc", void sub_0803AA98(Entity* t
             this->action = 0x14;
             this->speed = 0x40;
             InitializeAnimation(this, 10);
-            (*(Entity**)&this->field_0x74)->flags |= 0x80;
+            temp = (*(Entity**)&this->field_0x74);
+            temp->flags |= ENT_COLLIDE;
             temp = this->child;
             temp->hitType = 0x13;
             InitAnimationForceUpdate(temp, 5);
@@ -613,7 +613,6 @@ NONMATCH("asm/non_matching/mazaal/sub_0803AA98.inc", void sub_0803AA98(Entity* t
         }
     }
 }
-END_NONMATCH
 
 void sub_0803AB10(Entity* this) {
     s8* ptr;
@@ -755,7 +754,7 @@ void sub_0803ADAC(Entity* this) {
     if (--this->actionDelay == 0) {
         this->action = 0x16;
         this->spriteSettings.draw = 1;
-        (*(Entity**)&this->field_0x74)->flags |= 0x80;
+        (*(Entity**)&this->field_0x74)->flags |= ENT_COLLIDE;
         InitializeAnimation(this, 0xb);
         InitAnimationForceUpdate(this->child, 6);
         sub_0803B798();
@@ -918,7 +917,7 @@ void sub_0803B100(Entity* this) {
     Entity* temp;
 
     this->action = 0x29;
-    this->zVelocity = 0x14000;
+    this->zVelocity = Q_16_16(1.25);
     if (this->type == 0) {
         this->hitbox = &gUnk_080FD364;
     } else {
@@ -975,7 +974,7 @@ void sub_0803B1B8(Entity* this) {
         if (temp != (Entity*)0x0) {
             temp->actionDelay = 0;
             temp->direction = 0x90;
-            PositionRelative(this, temp, this->hitbox->offset_x << 0x10, this->hitbox->offset_y << 0x10);
+            PositionRelative(this, temp, Q_16_16(this->hitbox->offset_x), Q_16_16(this->hitbox->offset_y));
         }
         temp = *(Entity**)&this->field_0x74;
         temp->field_0x74.HALF.LO = 0x40;
@@ -1087,7 +1086,7 @@ void sub_0803B480(Entity* this) {
     Entity* target;
 
     if (((this->field_0x7c.HALF.HI & 0x1f) == 0) && (target = CreateObject(SMOKE, 1, 0), target != (Entity*)0x0)) {
-        PositionRelative(this, target, gUnk_080CFD08[this->type] << 0x10, 0);
+        PositionRelative(this, target, Q_16_16(gUnk_080CFD08[this->type]), 0);
     }
     if (--this->field_0x7c.HALF.HI == 0) {
         sub_0803B6A4(this);
@@ -1105,7 +1104,7 @@ u32 sub_0803B4E4(Entity* this) {
 
     xoff = this->parent->x.HALF.HI + gUnk_080CFD0A[this->type];
     yoff = this->parent->y.HALF.HI + 0x10;
-    if (sub_0806FCB8(this, xoff, yoff, 2)) {
+    if (EntityWithinDistance(this, xoff, yoff, 2)) {
         this->x.HALF.HI = xoff;
         this->y.HALF.HI = yoff;
         return 1;
@@ -1116,8 +1115,8 @@ u32 sub_0803B4E4(Entity* this) {
 }
 
 void sub_0803B538(Entity* this) {
-    PositionRelative(this, this->child, 0, -0x10000);
-    PositionRelative(this, *(Entity**)&this->field_0x74, 0, -0x20000);
+    PositionRelative(this, this->child, 0, Q_16_16(-1.0));
+    PositionRelative(this, *(Entity**)&this->field_0x74, 0, Q_16_16(-2.0));
 }
 
 void sub_0803B55C(Entity* this) {
@@ -1165,7 +1164,8 @@ void sub_0803B5C0(Entity* this) {
 }
 
 u32 sub_0803B610(Entity* this) {
-    return sub_0806FCB8(this, gPlayerEntity.x.HALF.HI + gUnk_080CFD19[this->type], gPlayerEntity.y.HALF.HI - 0xc, 8);
+    return EntityWithinDistance(this, gPlayerEntity.x.HALF.HI + gUnk_080CFD19[this->type],
+                                gPlayerEntity.y.HALF.HI - 0xc, 8);
 }
 
 // sub_0803B698 was the tail of this function
@@ -1230,8 +1230,8 @@ void sub_0803B798(void) {
     gPlayerState.jump_status = 0x41;
     gPlayerState.field_0xa = 0;
     gPlayerState.flags &= ~(0xffff0000 | PL_CAPTURED);
-    gPlayerEntity.flags |= 0x80;
-    gPlayerEntity.zVelocity = 0x18000;
+    gPlayerEntity.flags |= ENT_COLLIDE;
+    gPlayerEntity.zVelocity = Q_16_16(1.5);
     gPlayerEntity.z.HALF.HI = -10;
     gPlayerEntity.direction = 0x10;
     gPlayerEntity.animationState = 4;
@@ -1244,7 +1244,7 @@ void sub_0803B798(void) {
 void sub_0803B804(Entity* this) {
     gPlayerEntity.iframes = 30;
     ModHealth(-4);
-    SoundReqClipped(&gPlayerEntity, 0x7a);
+    SoundReqClipped(&gPlayerEntity, SFX_PLY_VO6);
 }
 
 void sub_0803B824(Entity* this) {
@@ -1263,7 +1263,7 @@ u32 sub_0803B870(Entity* this) {
         this->action = 0x18;
         this->actionDelay = 0x44;
         this->spriteSettings.draw = 0;
-        gPlayerEntity.flags = gPlayerEntity.flags & 0x7f;
+        gPlayerEntity.flags &= ~ENT_COLLIDE;
         gPlayerEntity.iframes = -0x10;
         sub_0803B824(this);
         entity->hitType = 0x13;

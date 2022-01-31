@@ -314,7 +314,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
             if (this->actionDelay != 0) {
                 if (--this->actionDelay == 0) {
                     COLLISION_OFF(this);
-                    this->zVelocity = 0x38000;
+                    this->zVelocity = Q_16_16(3.5);
                     this->field_0xf = 0x10;
                 }
                 break;
@@ -380,12 +380,12 @@ void VaatiTransfiguredType0Action4(Entity* this) {
                 this->field_0x74.HALF.LO = 0;
                 this->actionDelay = 0x80;
                 this->field_0xf = 0;
-                this->zVelocity = 0x24000;
+                this->zVelocity = Q_16_16(2.25);
                 SoundReq(SFX_12B);
             }
             break;
         case 1:
-            if (GravityUpdate(this, 0x2800) != 0)
+            if (GravityUpdate(this, Q_8_8(40)) != 0)
                 break;
             this->field_0x80.HALF.LO += 1;
             switch (this->cutsceneBeh.HALF.LO) {
@@ -866,7 +866,7 @@ void sub_080406A0(Entity* this) {
         uVar6 = gRoomControls.origin_x + gUnk_080D0B58[tmp = uVar5 * 2];
         uVar4 = gRoomControls.origin_y + gUnk_080D0B58[tmp + 1];
     }
-    if (sub_0806FCB8(this, uVar6, uVar4, 0x1c)) {
+    if (EntityWithinDistance(this, uVar6, uVar4, 0x1c)) {
         if (uVar5 != 0) {
             uVar5 = 0;
         } else {
@@ -901,7 +901,7 @@ void sub_08040770(Entity* this) {
         tmp5 = gRoomControls.origin_x + gUnk_080D0B64[index = tmp2 * 2];
         tmp6 = gRoomControls.origin_y + gUnk_080D0B64[index + 1];
     }
-    if (sub_0806FCB8(this, tmp5, tmp6, 0x1c)) {
+    if (EntityWithinDistance(this, tmp5, tmp6, 0x1c)) {
         if (this->animationState != 2) {
             if (tmp & 8) {
                 tmp2 += 1;
@@ -1062,7 +1062,7 @@ void sub_080409B0(Entity* this) {
                     this->field_0x80.HALF.HI = 3;
                     COLLISION_OFF(this);
                     this->hitType = 0x36;
-                    this->zVelocity = 0x18000;
+                    this->zVelocity = Q_16_16(1.5);
                     SoundReq(SFX_164);
                 }
             }

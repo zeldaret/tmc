@@ -41,7 +41,7 @@ void sub_0802CC80(Entity* this) {
             this->action = 3;
             COLLISION_OFF(this);
             InitializeAnimation(this, 1);
-            gPlayerEntity.flags &= ~0x80;
+            gPlayerEntity.flags &= ~ENT_COLLIDE;
             break;
     }
     if (this->field_0x43 != 0) {
@@ -125,7 +125,7 @@ void sub_0802CE68(Entity* this) {
     gPlayerState.field_0xa |= 0x80;
     gPlayerState.mobility |= 0x80;
     gPlayerState.flags |= PL_DISABLE_ITEMS;
-    if (!sub_0806FCB8(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 4)) {
+    if (!EntityWithinDistance(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 4)) {
         this->direction = GetFacingDirection(this, &gPlayerEntity);
         LinearMoveUpdate(this);
     }

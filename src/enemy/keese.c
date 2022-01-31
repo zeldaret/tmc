@@ -98,7 +98,7 @@ void Keese_Sleep(Entity* this) {
     if (this->actionDelay != 0) {
         this->actionDelay--;
     } else {
-        if (sub_0806FCB8(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x70))
+        if (EntityWithinDistance(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x70))
             Keese_StartFly(this);
     }
 }
@@ -116,7 +116,7 @@ void sub_08021F24(Entity* this) {
         this->actionDelay = gKeeseRestDurations[Random() & 0xf];
         InitializeAnimation(this, KeeseAnimation_Rest);
     } else if (!this->field_0x7a.HWORD &&
-               !(sub_0806FCB8(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x70))) {
+               !(EntityWithinDistance(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x70))) {
         this->action = 3;
         this->actionDelay = 30;
         InitializeAnimation(this, KeeseAnimation_Rest);

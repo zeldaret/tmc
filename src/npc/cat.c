@@ -40,8 +40,6 @@ extern u16 gUnk_08111104[];
 
 extern u32 sub_0806FCA0(Entity*, Entity*);
 
-extern Entity* sub_08049DF4(u32);
-
 void sub_08067790(Entity* this) {
     ShowNPCDialogue(this, &gUnk_08110EF8 + this->type * 10 + gSave.global_progress);
 }
@@ -50,7 +48,7 @@ void sub_08067790(Entity* this) {
 void Cat(Entity* ent) {
     gCat[ent->action](ent);
     sub_08067C44(ent);
-    if (((ent->flags & 128) == 0) && (ent->type != 5)) {
+    if (((ent->flags & ENT_COLLIDE) == 0) && (ent->type != 5)) {
         sub_0806ED78(ent);
     }
 }

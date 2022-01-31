@@ -4,8 +4,11 @@
 #include "object.h"
 
 extern void (*const gUnk_0811BD44[])(ItemBehavior*, u32);
+extern void sub_08077B98(ItemBehavior*);
 
 void sub_080759B8(ItemBehavior*, u32);
+void sub_080754B8(ItemBehavior*, u32);
+void sub_08075898(ItemBehavior*, u32);
 
 extern u32 sub_08077EC8(ItemBehavior*);
 
@@ -16,11 +19,79 @@ void ItemSword(ItemBehavior* this, u32 arg1) {
     gUnk_0811BD44[this->stateID](this, arg1);
 }
 
-#ifdef EU
-ASM_FUNC("asm/non_matching/eu/sub_08075338.inc", void sub_08075338(ItemBehavior* this, u32 arg1))
-#else
-ASM_FUNC("asm/non_matching/itemSword/sub_08075338.inc", void sub_08075338(ItemBehavior* this, u32 arg1))
+void sub_08075338(ItemBehavior* this, u32 arg1) {
+    u32 temp, temp2;
+    if (gPlayerState.flags & 0x80) {
+        this->field_0x5[4] |= 0x80;
+        sub_08077D38(this, arg1);
+        gPlayerState.animation = 0xc00;
+        SoundReq(SFX_PLY_VO1);
+        return;
+    }
+
+    if (gPlayerState.jump_status) {
+        if ((gPlayerState.jump_status & 7) != 3) {
+            if ((gPlayerState.jump_status & 0x78) == 0 && (u32)gPlayerEntity.zVelocity <= 0x17fff &&
+                (gPlayerState.field_0xac & 0x40) && gPlayerEntity.z.WORD) {
+                gPlayerState.jump_status |= 0x20;
+                gPlayerState.field_0xab = 7;
+                gPlayerState.field_0x3[1] |= (8 >> arg1) | ((8 >> arg1) << 4);
+                sub_08077B98(this);
+                this->stateID = 6;
+                sub_08075898(this, arg1);
+                return;
+            }
+        }
+#ifndef EU
+        sub_080759B8(this, arg1);
+        return;
+    } else if (gPlayerEntity.z.WORD) {
 #endif
+        sub_080759B8(this, arg1);
+        return;
+    }
+
+    if (gPlayerState.flags & 0x40000) {
+        if ((gPlayerState.field_0xac & 2) == 0) {
+            if (gPlayerState.item == NULL)
+                return;
+            DeleteEntity(gPlayerState.item);
+            gPlayerState.item = NULL;
+            return;
+        }
+
+        sub_08077D38(this, arg1);
+        sub_08077B98(this);
+        temp = (8 >> arg1);
+        gPlayerState.field_0x3[1] |= temp | (temp << 4);
+        gPlayerState.field_0xa |= temp;
+        gPlayerState.keepFacing |= temp;
+        this->stateID = 8;
+        this->field_0x5[2] = 0x14;
+        this->field_0xf = 6;
+        this->field_0x5[4] |= 0x80;
+        gPlayerState.field_0xab = 2;
+        gPlayerState.flags |= 0x8000000;
+        sub_08077DF4(this, 0x130);
+        SoundReq(SFX_PLY_VO3);
+        return;
+    }
+
+    if ((gPlayerState.sword_state & 0x80) == 0) {
+        gPlayerState.sword_state = 0;
+        sub_0806F948(&gPlayerEntity);
+    }
+
+    if (gPlayerState.item) {
+        if (gPlayerState.item->id != 1) {
+            DeleteEntity(gPlayerState.item);
+            gPlayerState.item = NULL;
+        }
+    }
+
+    sub_08077D38(this, arg1);
+    sub_08077B98(this);
+}
 
 ASM_FUNC("asm/non_matching/itemSword/sub_080754B8.inc", void sub_080754B8(ItemBehavior* this, u32 arg1))
 

@@ -1,7 +1,7 @@
 #include "object.h"
+#include "functions.h"
 
 extern void SoundReqClipped(Entity*, u32);
-extern u32 sub_0806FC80(Entity*, Entity*, s32);
 extern void sub_0809CDF0(Entity*);
 
 extern void (*const gUnk_08123E20[])(Entity*);
@@ -24,7 +24,7 @@ void sub_0809CC74(Entity* this) {
             ent = CreateObject(BAKER_OVEN, 1, i);
             if (ent) {
                 ent->parent = this;
-                PositionRelative(this, ent, (((i + 1) / 2) * 0x100000) - 0x80000, -0xe0000);
+                PositionRelative(this, ent, 16 * Q_16_16((i + 1) / 2) - Q_16_16(8.0), Q_16_16(-14.0));
             }
         }
         sub_0809CDF0(this);
@@ -61,7 +61,7 @@ void sub_0809CD0C(Entity* this) {
             sub_0806FC80(this, &gPlayerEntity, 4)) {
             this->field_0xf++;
             ModHealth(-2);
-            SoundReqClipped(&gPlayerEntity, 0x7a);
+            SoundReqClipped(&gPlayerEntity, SFX_PLY_VO6);
             gPlayerEntity.iframes = 16;
             gPlayerEntity.knockbackDirection = 16;
             gPlayerEntity.knockbackDuration = 12;

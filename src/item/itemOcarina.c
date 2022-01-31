@@ -20,7 +20,7 @@ void OcarinaUse(ItemBehavior* this, u32 arg1) {
         this->field_0x5[4] |= 0xf;
         gPlayerEntity.animationState = 0x04;
         gPlayerEntity.spriteSettings.flipX = 0;
-        gPlayerEntity.flags &= 0x7f;
+        gPlayerEntity.flags &= ~ENT_COLLIDE;
         gPlayerEntity.field_0x7a.HWORD = 2;
         gPlayerState.flags |= PL_USE_OCARINA;
         gPlayerState.field_0x27[0] = -1;
@@ -38,7 +38,7 @@ NONMATCH("asm/non_matching/ocarina/OcarinaUpdate.inc", void OcarinaUpdate(ItemBe
     // TODO regalloc
     UpdateItemAnim(this);
     if ((this->field_0x5[9] & 0x80) != 0) {
-        gPlayerEntity.flags |= 0x80;
+        gPlayerEntity.flags |= ENT_COLLIDE;
         gPlayerState.flags &= ~PL_USE_OCARINA;
         gPlayerState.field_0x27[0] = 0;
         gUnk_02034490.unk0 = 0;

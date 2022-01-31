@@ -2,7 +2,6 @@
 #include "functions.h"
 
 extern u32 sub_08091DDC(Entity*);
-extern u32 sub_080002B4(Entity*, u32, u32);
 extern u32 sub_08007DD6(u32, u32);
 extern void sub_08017744(Entity*);
 extern void sub_08091C0C(Entity*);
@@ -46,7 +45,7 @@ void sub_080916EC(Entity* this) {
 
 void sub_080917DC(Entity* this) {
     if ((this->bitfield & 0x7f) == 0x1d) {
-        this->zVelocity = 0x2a000;
+        this->zVelocity = Q_16_16(2.625);
         this->action = 7;
         InitAnimationForceUpdate(this, this->type2 + 4 + this->animationState);
         SoundReq(SFX_13B);
@@ -66,7 +65,7 @@ void sub_080917DC(Entity* this) {
                 this->action++;
                 gPlayerState.jump_status = 0x81;
                 gPlayerState.flags |= PL_ENTER_MINECART;
-                gPlayerEntity.zVelocity = 0x20000;
+                gPlayerEntity.zVelocity = Q_16_16(2.0);
                 gPlayerEntity.speed = 0x100;
                 gPlayerEntity.flags &= ~PL_MINISH;
                 ResetPlayer();
@@ -161,7 +160,7 @@ void sub_080919AC(Entity* this) {
                         sub_08017744(this);
                         gPlayerState.jump_status = 0x41;
                         gPlayerState.flags = (gPlayerState.flags ^ PL_IN_MINECART) | PL_ENTER_MINECART;
-                        gPlayerEntity.zVelocity = 0x20000;
+                        gPlayerEntity.zVelocity = Q_16_16(2.0);
                         gPlayerEntity.speed = 0x200;
                         gPlayerEntity.animationState = this->animationState << 1;
                         gPlayerEntity.direction = this->direction;

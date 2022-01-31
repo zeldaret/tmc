@@ -27,7 +27,7 @@ extern Dialog gUnk_0810BE10[];
 extern u8 gUnk_0810C0A0[];
 
 void Kid(Entity* this) {
-    if ((this->flags & 2) != 0) {
+    if ((this->flags & ENT_SCRIPTED) != 0) {
         sub_080621AC(this);
     } else {
         gUnk_0810BE0C[this->action](this);
@@ -243,7 +243,7 @@ void sub_080626E0(Entity* this, ScriptExecutionContext* context) {
         uVar4 = Random();
         this->direction = (this->direction + uVar4 % 0xb) - 5;
     }
-    sub_0806F62C(this, (s32)this->speed, (u32)this->direction);
+    LinearMoveAngle(this, (s32)this->speed, (u32)this->direction);
     if ((u32)((this->x.HALF.HI - context->x.HALF.HI) * 0x100 + ((s32)((u32)(u16)this->speed << 0x10) >> 0x11)) <=
         (u32)(s32)this->speed) {
         this->x.HALF.HI = context->x.HALF.HI;

@@ -258,7 +258,7 @@ void HandlePostScriptActions(Entity* entity, ScriptExecutionContext* context) {
             case 1 << 0x02:
                 break;
             case 1 << 0x03:
-                entity->zVelocity = 0x18000;
+                entity->zVelocity = Q_16_16(1.5);
                 break;
             case 1 << 0x04:
                 CreateSpeechBubbleExclamationMark(entity, 8, -0x18);
@@ -1396,7 +1396,7 @@ void ScriptCommand_0807EE30(Entity* entity, ScriptExecutionContext* context) {
     }
     tmp = entity->x.HALF.HI - context->x.HALF.HI;
     tmp2 = entity->y.HALF.HI - context->y.HALF.HI;
-    sub_0806F62C(entity, entity->speed, entity->direction);
+    LinearMoveAngle(entity, entity->speed, entity->direction);
     tmp *= entity->x.HALF.HI - context->x.HALF.HI;
     tmp2 *= entity->y.HALF.HI - context->y.HALF.HI;
     if (tmp <= 0 && tmp2 <= 0) {
@@ -1685,7 +1685,7 @@ void sub_0807F36C(Entity* entity, ScriptExecutionContext* context) {
     fx = CreateFx(entity, FX_REFLECT4, 0);
     if (fx != NULL) {
         fx->spritePriority.b0 = 1;
-        PositionRelative(entity, fx, 0, -0x80000);
+        PositionRelative(entity, fx, 0, Q_16_16(-8.0));
         if (Random() & 1)
             fx->spriteSettings.flipX = 1;
         if (Random() & 1)
@@ -1749,7 +1749,7 @@ void sub_0807F464(Entity* entity, ScriptExecutionContext* context) {
             entity->animationState = (entity->animationState & 0x80) | 6;
         }
     }
-    sub_0806F62C(entity, entity->speed, entity->direction);
+    LinearMoveAngle(entity, entity->speed, entity->direction);
     if (((context->x.HALF.HI - entity->x.HALF.HI) ^ ((entity->direction & 0x80) << 24)) < 0)
         entity->x.HALF.HI = context->x.HALF.HI;
     else
@@ -1773,7 +1773,7 @@ void sub_0807F4F8(Entity* entity, ScriptExecutionContext* context) {
             entity->animationState = (entity->animationState & 0x80);
         }
     }
-    sub_0806F62C(entity, entity->speed, entity->direction);
+    LinearMoveAngle(entity, entity->speed, entity->direction);
     if (((context->y.HALF.HI - entity->y.HALF.HI) ^ ((entity->direction & 0x80) << 24)) >= 0)
         entity->y.HALF.HI = context->y.HALF.HI;
     else
@@ -1853,12 +1853,12 @@ void sub_0807F708(Entity* entity, ScriptExecutionContext* context) {
 
 void sub_0807F714(Entity* entity, ScriptExecutionContext* context) {
     entity->spriteRendering.b3 = gUnk_08114F30[entity->spriteRendering.b3];
-    ResolveEntityOnTop(entity, entity);
+    SortEntityAbove(entity, entity);
 }
 
 void sub_0807F738(Entity* entity, ScriptExecutionContext* context) {
     entity->spriteRendering.b3 = gUnk_08114F34[entity->spriteRendering.b3];
-    ResolveEntityBelow(entity, entity);
+    SortEntityBelow(entity, entity);
 }
 
 void SetPlayerPos(Entity* entity, ScriptExecutionContext* context) {
@@ -2121,7 +2121,7 @@ void sub_0807FBCC(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807FBD4(Entity* entity, ScriptExecutionContext* context) {
-    sub_0806F62C(entity, entity->speed, entity->direction);
+    LinearMoveAngle(entity, entity->speed, entity->direction);
     if (CheckOnScreen(entity))
         gActiveScriptInfo.commandSize = 0;
 }

@@ -77,7 +77,7 @@ bool32 IsProjectileOffScreen(Entity* this) {
 Entity* CreateProjectile(u32 id) {
     Entity* entity = GetEmptyEntity();
     if (entity != NULL) {
-        entity->kind = 4;
+        entity->kind = PROJECTILE;
         entity->id = id;
         AppendEntityToList(entity, 5);
     }

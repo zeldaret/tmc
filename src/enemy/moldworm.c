@@ -85,9 +85,9 @@ void sub_080230E4(Entity* this) {
 
     if (this->health == 0 && this->field_0x7c.BYTES.byte3 == 0 && this->action == 7) {
         CopyPosition(this, &gPlayerEntity);
-        gPlayerEntity.flags = gPlayerEntity.flags | 0x80;
+        gPlayerEntity.flags |= ENT_COLLIDE;
         gPlayerEntity.spriteSettings.draw = 1;
-        gPlayerEntity.zVelocity = 0x18000;
+        gPlayerEntity.zVelocity = Q_16_16(1.5);
         gPlayerEntity.direction = 0xff;
         gPlayerEntity.iframes = -0x14;
         gPlayerState.jump_status = 0x41;
@@ -270,7 +270,7 @@ void sub_0802351C(Entity* this) {
         if (this->type2 == 0) {
             gPlayerEntity.animationState = this->animationState & 7;
             gPlayerState.flags |= PL_MOLDWORM_CAPTURED;
-            PositionRelative(this, &gPlayerEntity, 0, gUnk_080CBC90[this->animationState & 7] << 0x10);
+            PositionRelative(this, &gPlayerEntity, 0, Q_16_16(gUnk_080CBC90[this->animationState & 7]));
             gPlayerEntity.spriteOffsetY = -gUnk_080CBC90[this->animationState & 7];
         }
     } else {
@@ -411,7 +411,7 @@ void sub_08023894(Entity* this) {
             gPlayerEntity.animationState = gPlayerEntity.direction >> 2;
             gPlayerEntity.iframes = 12;
             ModHealth(-0x10);
-            SoundReqClipped(&gPlayerEntity, 0x7a);
+            SoundReqClipped(&gPlayerEntity, SFX_PLY_VO6);
         }
     }
 }

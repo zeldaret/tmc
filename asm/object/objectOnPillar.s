@@ -425,7 +425,7 @@ sub_080970F4: @ 0x080970F4
 	adds r5, r6, #0
 	adds r5, #0x38
 	ldrb r1, [r5]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r6, #0
 	adds r1, #0x70
 	strh r0, [r1]

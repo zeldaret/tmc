@@ -90,7 +90,7 @@ void sub_08081C30(Entity* this) {
         this->action = 2;
         ClearFlag(this->field_0x86.HWORD);
         SetTileType(0x77, this->field_0x74.HWORD, this->collisionLayer);
-        SoundReq(SFX_10C);
+        SoundReq(SFX_BUTTON_PRESS);
     }
 }
 
@@ -101,7 +101,6 @@ void sub_08081C98(Entity* this) {
 }
 
 Entity* sub_08081D74(Entity*);
-u32 sub_080001DA(u32, u32);
 
 u32 sub_08081CB0(Entity* this) {
     u16 tmp;
@@ -114,7 +113,7 @@ u32 sub_08081CB0(Entity* this) {
     } else {
         tmp = GetTileType(this->field_0x74.HWORD, this->collisionLayer);
         if (tmp != 0x77 && tmp != 0x79 && tmp != 0x4035) {
-            this->field_0x70.HALF.LO = sub_080001DA(this->field_0x74.HWORD, this->collisionLayer);
+            this->field_0x70.HALF.LO = GetTileIndex(this->field_0x74.HWORD, this->collisionLayer);
             return 1;
         }
     }
@@ -129,14 +128,13 @@ u32 sub_08081D28(Entity* this) {
         if (this->field_0x70.HALF_U.LO == 0xFFFF) {
             return 0;
         }
-        if (sub_080001DA(this->field_0x74.HWORD, this->collisionLayer) != this->field_0x70.HALF_U.LO) {
+        if (GetTileIndex(this->field_0x74.HWORD, this->collisionLayer) != this->field_0x70.HALF_U.LO) {
             return 0;
         }
     }
     return 1;
 }
 
-extern u32 sub_080002E0(u32, u32);
 extern Entity* gPlayerClones[3];
 u32 sub_08081E0C(Entity*);
 
@@ -252,7 +250,7 @@ u32 sub_08081F7C(Entity* this, u32 r7) {
             SetFlag(this->field_0x86.HWORD);
             SetTileType(r7, this->field_0x74.HWORD, this->collisionLayer);
             sub_08081F24(this);
-            SoundReq(SFX_10C);
+            SoundReq(SFX_BUTTON_PRESS);
             if (this->field_0x70.HALF_U.LO != 0xFFFF)
                 SetTile(this->field_0x70.HALF_U.LO, this->field_0x74.HWORD, this->collisionLayer);
             return 0;
@@ -260,8 +258,6 @@ u32 sub_08081F7C(Entity* this, u32 r7) {
     }
     return 1;
 }
-
-extern void sub_080044AE(Entity*, u32, u32);
 
 void sub_08081FF8(Entity* this) {
     u32 direction;

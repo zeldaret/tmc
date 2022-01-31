@@ -30,7 +30,7 @@ void sub_08076488(ItemBehavior* this, u32 arg1) {
             }
             UpdateItemAnim(this);
             if ((this->field_0x5[9] & 0x80) != 0) {
-                gPlayerEntity.flags |= 0x80;
+                gPlayerEntity.flags |= ENT_COLLIDE;
                 gPlayerState.heldObject = 4;
                 bVar1 = ~(8 >> arg1);
                 gPlayerState.keepFacing = bVar1 & gPlayerState.keepFacing;

@@ -109,7 +109,7 @@ void sub_080218CC(Entity* this) {
         this->spriteSettings.draw = 1;
         this->direction = ((sub_08049F84(this, 1) ^ 0x10) + gUnk_080CB5DC[Random() & 7]) & 0x1f;
         this->speed = 0x100;
-        this->zVelocity = 0x12000;
+        this->zVelocity = Q_16_16(1.125);
     }
 
     GetNextFrame(this);
@@ -137,7 +137,7 @@ void sub_08021984(Entity* this) {
         this->z.HALF.HI = -0x80;
         this->spriteRendering.b3 = 1;
         this->spriteOrientation.flipY = 1;
-        EnqueueSFX(0x12d);
+        EnqueueSFX(SFX_12D);
     }
 
     if (GravityUpdate(this, 0x1800) == 0) {
@@ -204,7 +204,7 @@ void sub_08021AD8(Entity* this) {
                 return;
             }
             this->direction = (u8)tmp;
-            EnqueueSFX(0x7c);
+            EnqueueSFX(SFX_PLY_JUMP);
         }
         sub_080AEFE0(this);
         if (!GravityUpdate(this, 0x1800))
@@ -242,7 +242,7 @@ void sub_08021B64(Entity* this) {
 
         if (iVar4 == 0) {
             this->action = 6;
-            this->zVelocity = 0x10000;
+            this->zVelocity = Q_16_16(1.0);
             ((u8*)&this->field_0x86)[1] = 0;
             if (gPlayerEntity.direction != 0xff) {
                 this->direction = 0x10 ^ gPlayerEntity.direction;
@@ -303,7 +303,7 @@ u32 sub_08021D00(Entity* this) {
     } else {
         this->action = 4;
         this->actionDelay = 1;
-        this->zVelocity = 0x18000;
+        this->zVelocity = Q_16_16(1.5);
         InitializeAnimation(this, 4);
         ret = 1;
     }

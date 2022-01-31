@@ -16,7 +16,7 @@ Entity* sub_080A276C(Entity* parent, u32 type, u32 type2) {
     Entity* e = sub_0805E744();
     if (e != NULL) {
         e->id = 0xC1;
-        e->kind = 6;
+        e->kind = OBJECT;
         e->type = type;
         e->type2 = type2;
         e->parent = parent;
@@ -100,7 +100,7 @@ u32 LoadObjectSprite(Entity* this, s32 type, const ObjectDefinition* definition)
 Entity* CreateObject(u32 subtype, u32 form, u32 parameter) {
     Entity* entity = GetEmptyEntity();
     if (entity != NULL) {
-        entity->kind = 6;
+        entity->kind = OBJECT;
         entity->id = subtype;
         entity->type = form;
         entity->type2 = parameter;

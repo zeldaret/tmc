@@ -56,7 +56,7 @@ void NPCInit(Entity* this) {
         const NPCDefinition* definition = GetNPCDefinition(this);
         if (definition->bitfield.type == 0) {
             // No sprite for this NPC
-            this->flags |= 1;
+            this->flags |= ENT_DID_INIT;
         } else {
             tmp = definition->bitfield.gfx;
             switch (definition->bitfield.gfx_type) {
@@ -89,7 +89,7 @@ void NPCInit(Entity* this) {
 Entity* CreateNPC(u32 subtype, u32 form, u32 parameter) {
     Entity* entity = GetEmptyEntity();
     if (entity != NULL) {
-        entity->kind = 7;
+        entity->kind = NPC;
         entity->id = subtype;
         entity->type = form;
         entity->type2 = parameter;
@@ -275,7 +275,35 @@ s32 sub_0806F078(Entity* ent, s32 a2) {
     return 0;
 }
 
-ASM_FUNC("asm/non_matching/sub_0806FOA4.inc", void sub_0806F0A4(void));
+void sub_0806F0A4(void) {
+    LinkedList* entityList = gEntityLists + 7;
+    Entity* currentEntity;
+    u32 val;
+
+    for (currentEntity = entityList->first, val = 0; currentEntity != (Entity*)entityList;
+         currentEntity = currentEntity->next) {
+        val++;
+    }
+
+    if (val <= 1)
+        return;
+
+    for (currentEntity = entityList->first; currentEntity != (Entity*)entityList; currentEntity = currentEntity->next) {
+        Entity* nextEnt;
+        if ((currentEntity->flags & ENT_DID_INIT) == 0)
+            continue;
+        if ((currentEntity->field_0x17 & 1) == 0)
+            continue;
+
+        for (nextEnt = currentEntity->next; nextEnt != (Entity*)entityList; nextEnt = nextEnt->next) {
+            if ((nextEnt->flags & ENT_DID_INIT) == 0)
+                continue;
+            if ((nextEnt->field_0x17 & 1) == 0)
+                continue;
+            sub_08004484(currentEntity, nextEnt);
+        }
+    }
+}
 
 void sub_0806F118(Entity* ent) {
     u32 idx = sub_08002632(ent);
@@ -309,4 +337,134 @@ void sub_0806F188(Entity* ent) {
         gSave.unk1C1[idx] = 0xF3;
 }
 
-ASM_FUNC("asm/non_matching/showNPCDialogue.inc", void ShowNPCDialogue(Entity* ent, Dialog* dia));
+void ShowNPCDialogue(Entity* ent, Dialog* dia) {
+    u32 uVar1;
+    s32 temp;
+    u32 uVar2;
+    u32 uVar3;
+    s32 uVar4;
+    int iVar5;
+
+    temp = *(((u16*)dia) + 1);
+    uVar1 = (temp >> 4) & 1;
+    temp &= 0xf;
+    switch (temp) {
+        case 2:
+            uVar3 = (int)*(u32*)dia;
+            temp = (s32)uVar3 >> 0xc & 0xf;
+            uVar3 = uVar3 & 0xfff;
+            iVar5 = 0;
+            switch (temp) {
+                case 0:
+                    iVar5 = CheckRoomFlag(uVar3);
+                _SetRoomFlag:
+                    SetRoomFlag(uVar3);
+                    break;
+                case 1:
+                    iVar5 = CheckLocalFlag(uVar3);
+                _SetLocalFlag:
+                    SetLocalFlag(uVar3);
+                    break;
+                case 2:
+                    iVar5 = CheckGlobalFlag(uVar3);
+                    SetGlobalFlag(uVar3);
+                    break;
+            }
+        _check:
+            if (iVar5 == 0) {
+                uVar2 = dia->data.indices.b;
+            } else {
+                uVar2 = dia->data.indices.a;
+            }
+            break;
+        case 3:
+            uVar3 = (int)*(u32*)dia;
+            uVar4 = (s32)uVar3 >> 0xc & 0xf;
+            uVar3 = uVar3 & 0xfff;
+            iVar5 = 0;
+            switch (uVar4) {
+                case 0:
+                    iVar5 = CheckRoomFlag(uVar3);
+                    if (iVar5 == 0) {
+                        goto _SetRoomFlag;
+                    } else {
+                        ClearRoomFlag(uVar3);
+                    }
+                    break;
+                case 1:
+                    iVar5 = CheckLocalFlag(uVar3);
+                    if (iVar5 == 0) {
+                        goto _SetLocalFlag;
+                    } else {
+                        ClearLocalFlag(uVar3);
+                    }
+                    break;
+                case 2:
+                    iVar5 = CheckGlobalFlag(uVar3);
+                    if (iVar5 == 0) {
+                        SetGlobalFlag(uVar3);
+                    } else {
+                        ClearGlobalFlag(uVar3);
+                    }
+                    break;
+            }
+            goto _check;
+        case 4:
+            uVar3 = (int)*(u32*)dia;
+            uVar4 = (s32)uVar3 >> 0xc & 0xf;
+            uVar3 = uVar3 & 0xfff;
+            iVar5 = 0;
+            {
+                u32 local;
+                switch (uVar4) {
+                    case 0:
+                        local = CheckRoomFlag(uVar3);
+                        break;
+                    case 1:
+                        local = CheckLocalFlag(uVar3);
+                        break;
+                    case 2:
+                        local = CheckGlobalFlag(uVar3);
+                        break;
+                    case 3:
+                        local = CheckKinstoneFused(uVar3);
+                        break;
+                    case 4:
+                        local = GetInventoryValue(uVar3);
+                        if (local != 0) {
+                            local = 1;
+                        }
+                        break;
+                    default:
+                        goto _check;
+                }
+                iVar5 = local;
+            }
+            goto _check;
+        case 5:
+            if (dia->data.func != 0) {
+                dia->data.func(ent);
+                return;
+            }
+        default:
+        case 0:
+            uVar2 = 0;
+            break;
+        case 1:
+            uVar2 = dia->data.indices.b;
+            break;
+        case 6:
+            if ((gPlayerState.flags & 0x80) != 0) {
+                uVar2 = dia->data.indices.b;
+            } else {
+                uVar2 = dia->data.indices.a;
+            }
+            break;
+    }
+
+    if (uVar1 != 0) {
+        MessageNoOverlap(uVar2, ent);
+    } else {
+        MessageFromTarget(uVar2);
+    }
+}

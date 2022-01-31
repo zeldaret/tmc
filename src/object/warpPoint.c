@@ -56,7 +56,7 @@ void sub_0808B474(Entity* this) {
     gPlayerEntity.x.HALF.HI = this->x.HALF.HI;
     gPlayerEntity.y.HALF.HI = this->y.HALF.HI;
     gPlayerEntity.animationState = 4;
-    EnqueueSFX(0x112);
+    EnqueueSFX(SFX_112);
     RequestPriorityDuration(this, this->field_0xf + 0x10);
 }
 
@@ -68,7 +68,7 @@ void sub_0808B530(Entity* this) {
         }
         this->action = 2;
         this->field_0xf = 60;
-        EnqueueSFX(0x112);
+        EnqueueSFX(SFX_112);
     }
 }
 
@@ -91,7 +91,7 @@ void sub_0808B590(Entity* this) {
         gPlayerEntity.x.HALF.HI = this->x.HALF.HI;
         gPlayerEntity.y.HALF.HI = this->y.HALF.HI;
         gPlayerEntity.animationState = 4;
-        gPlayerEntity.flags &= ~0x80;
+        gPlayerEntity.flags &= ~ENT_COLLIDE;
         RequestPriorityDuration(this, this->field_0xf + 0x10);
         SoundReq(SFX_113);
     } else {
@@ -152,7 +152,7 @@ void sub_0808B684(Entity* this) {
         gRoomTransition.player_status.start_pos_y = ((this->cutsceneBeh.HWORD & 0xfc0) >> 2) + 8;
         gRoomTransition.player_status.layer = 0;
         gRoomTransition.player_status.start_anim = 4;
-        gRoomTransition.player_status.spawn_type = 0;
+        gRoomTransition.player_status.spawn_type = PL_SPAWN_DEFAULT;
         if (this->type == 2) {
             gRoomTransition.type = TRANSITION_FADE_WHITE_SLOW;
         }
@@ -192,10 +192,10 @@ void sub_0808B73C(Entity* this) {
         this->palette.b.b0 = this->parent->palette.b.b0;
         InitializeAnimation(this, 1);
     }
-    if (sub_0806FCB8(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x28)) {
+    if (EntityWithinDistance(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x28)) {
         this->spriteSettings.draw = 1;
     } else {
-        if (sub_0806FCB8(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x2e)) {
+        if (EntityWithinDistance(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x2e)) {
             this->spriteSettings.draw ^= 1;
         } else {
             this->spriteSettings.draw = 0;

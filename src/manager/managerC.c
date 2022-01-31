@@ -46,7 +46,6 @@ u32 sub_08058B08(ManagerC*, u32, u32, const struct_08108228*);
 void sub_08058B5C(ManagerC*, u32);
 
 extern void sub_0805622C(struct BgAffineDstData*, u32, u32);
-extern void sub_080044AE(Entity*, u32, u32);
 
 extern u8 gUnk_03003DE4[0xC];
 
@@ -207,7 +206,7 @@ const u16 gUnk_081082E8[0xC] = { 0xB8, 0x80, 0x0, 0xB8, 0x110, 0x2, 0x118, 0x80,
 void sub_08058B5C(ManagerC* this, u32 unk1) {
     gRoomTransition.transitioningOut = 1;
     gRoomTransition.type = TRANSITION_DEFAULT;
-    gRoomTransition.player_status.spawn_type = 4;
+    gRoomTransition.player_status.spawn_type = PL_SPAWN_STEP_IN;
     gRoomTransition.player_status.area_next = gRoomControls.area;
     gRoomTransition.player_status.room_next = 6;
     gRoomTransition.player_status.start_anim = unk1 & 1 ? 4 : 0;

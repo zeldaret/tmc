@@ -4,8 +4,6 @@
 extern void (*MaskActionFuncs[])(Entity*);
 
 extern void sub_08000148(u16, u16, u32);
-extern s16 sub_080001DA(u16, u32);
-extern u16 sub_080002E0(u16, u32);
 
 extern void sub_0805457C(Entity*, s32);
 
@@ -40,7 +38,7 @@ void sub_080929A4(Entity* this) {
     }
 
     this->action = 1;
-    this->zVelocity = 0x18000;
+    this->zVelocity = Q_16_16(1.5);
 
     this->field_0x78.HWORD = ((Random() & 7) << 10) | 0x2000;
 
@@ -49,10 +47,10 @@ void sub_080929A4(Entity* this) {
 
     this->frameIndex = this->type2 & 0x3f;
 
-    this->field_0x7c.HALF.HI = COORD_TO_TILE(this);
-    this->field_0x7c.HALF.LO = sub_080001DA(this->field_0x7c.HALF.HI, 1);
+    this->field_0x7c.HALF_U.HI = COORD_TO_TILE(this);
+    this->field_0x7c.HALF_U.LO = GetTileIndex(this->field_0x7c.HALF_U.HI, 1);
 
-    this->field_0x7a.HWORD = sub_080002E0(this->field_0x7c.HALF.HI, 1);
+    this->field_0x7a.HWORD = sub_080002E0((u16)this->field_0x7c.HALF.HI, 1);
 
     SetTile(0x4022, this->field_0x7c.HALF_U.HI, 1);
 }
@@ -60,7 +58,7 @@ void sub_080929A4(Entity* this) {
 // Probably related to knocking it down
 void sub_08092A94(Entity* this) {
     // Check for the first frame of bonking animation
-    if (gPlayerEntity.action != 6) {
+    if (gPlayerEntity.action != PLAYER_BOUNCE) {
         return;
     }
 
@@ -99,7 +97,7 @@ void sub_08092B0C(Entity* this) {
         this->actionDelay = 0;
         switch (this->type2 & 0xC0) {
             case 0x80:
-                EnqueueSFX(0x72);
+                EnqueueSFX(SFX_SECRET);
             case 0x40:
                 SetFlag(this->field_0x86.HWORD);
                 break;

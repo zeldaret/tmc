@@ -7,7 +7,7 @@ extern void (*gUnk_0810FF5C[])(Entity* this);
 extern void (*gUnk_0810FF64[])(Entity* this);
 
 void Malon(Entity* this) {
-    if (this->flags & 0x2) {
+    if (this->flags & ENT_SCRIPTED) {
         gUnk_0810FF64[this->action](this);
     } else {
         gUnk_0810FF5C[this->action](this);
@@ -58,12 +58,12 @@ void sub_08065914(Entity* this) {
 
     target = FindEntityByID(7, 0x1F, 7);
     if (target != NULL) {
-        PositionRelative(this, target, 0x180000, -0x10000);
+        PositionRelative(this, target, Q_16_16(24.0), Q_16_16(-1.0));
         target->parent = this;
     }
     target = FindEntityByID(7, 0x20, 7);
     if (target != NULL) {
-        PositionRelative(this, target, 0x280000, 0);
+        PositionRelative(this, target, Q_16_16(40.0), 0);
         target->parent = this;
     }
 }

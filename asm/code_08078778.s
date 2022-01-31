@@ -724,7 +724,7 @@ _08078DE0:
 	strh r0, [r4, #0x32]
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl ResolveEntityOnTop
+	bl SortEntityAbove
 	ldr r0, _08078E34 @ =gPlayerState
 	ldrb r0, [r0, #5]
 	cmp r0, #4

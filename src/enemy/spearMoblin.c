@@ -8,9 +8,6 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern bool32 sub_0806FC80(Entity*, Entity*, u32);
-extern Entity* sub_08049DF4(u32);
-
 void sub_08028604(Entity*);
 void sub_08028754(Entity*);
 void sub_08028784(Entity*);
@@ -171,7 +168,7 @@ void sub_08028488(Entity* this) {
                 this->action = 4;
                 this->speed = 0x180;
                 this->direction = sub_08049F84(this, 1);
-                EnqueueSFX(0x11e);
+                EnqueueSFX(SFX_EM_MOBLIN_SPEAR);
                 break;
             case 2:
                 this->action = 2;
@@ -228,7 +225,7 @@ void sub_08028528(Entity* this) {
             }
 
             if ((this->actionDelay & 7) == 0) {
-                EnqueueSFX(0xf0);
+                EnqueueSFX(SFX_F0);
                 CreateFx(this, FX_DEATH, 0x40);
             }
 

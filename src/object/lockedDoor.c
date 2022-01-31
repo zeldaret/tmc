@@ -37,7 +37,6 @@ void LockedDoor(Entity* this) {
 
 extern Hitbox gHitbox_2;
 
-extern u32 sub_080001DA(u32, u32);
 extern void sub_08078850(Entity*, u32, u32, u32);
 
 typedef struct PACKED {
@@ -102,7 +101,7 @@ void sub_08083338(Entity* this) {
     this->spritePriority.b0 = 5;
     this->frame = this->type & 0xF;
     this->field_0x76.HWORD = TILE(this->x.HALF.HI, this->y.HALF.HI);
-    this->field_0x74.HWORD = sub_080001DA(this->field_0x76.HWORD, this->collisionLayer);
+    this->field_0x74.HWORD = GetTileIndex(this->field_0x76.HWORD, this->collisionLayer);
     switch (this->type2) {
         case 0:
             if (!CheckFlags(this->field_0x86.HWORD)) {
@@ -149,7 +148,7 @@ void sub_080834B4(Entity* this) {
         this->action = 2;
         this->actionDelay = 7;
         SetTile(this->field_0x74.HWORD, this->field_0x76.HWORD, this->collisionLayer);
-        EnqueueSFX(0x10b);
+        EnqueueSFX(SFX_10B);
     }
 }
 
@@ -185,7 +184,7 @@ void sub_08083540(Entity* this) {
             }
         }
         sub_08083814(this, this->field_0x7c.BYTES.byte2);
-        EnqueueSFX(0x10b);
+        EnqueueSFX(SFX_10B);
     }
 }
 

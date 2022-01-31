@@ -1,11 +1,4 @@
-	.include "asm/macros.inc"
-
-	.include "constants/constants.inc"
-
 	.syntax unified
-
-	.text
-
 	push {r4, lr}
 	adds r3, r0, #0
 	ldrb r1, [r3, #0x15]

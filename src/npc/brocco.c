@@ -11,7 +11,7 @@ extern void (*gUnk_0810CAA0[])(Entity*);
 extern Dialog gUnk_0810CAAC[];
 
 void Brocco(Entity* this) {
-    if ((this->flags & 2) != 0) {
+    if ((this->flags & ENT_SCRIPTED) != 0) {
         sub_0806362C(this);
     } else {
         sub_08063544(this);

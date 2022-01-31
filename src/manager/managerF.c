@@ -361,7 +361,7 @@ void sub_0805938C(ManagerF* this) {
 u32 sub_080593CC(ManagerF* this) {
     if (!(gPlayerState.flags & PL_MINISH) && gPlayerState.swim_state != 0 && gPlayerEntity.animationState == 0 &&
         (gPlayerState.field_0x90 & 0xF00) == 0x400) {
-        return sub_0806FCB8(&gPlayerEntity, this->unk_38, this->unk_3a + 0xC, 6);
+        return EntityWithinDistance(&gPlayerEntity, this->unk_38, this->unk_3a + 0xC, 6);
     }
     return 0;
 }
@@ -379,7 +379,7 @@ void sub_08059424(ManagerF* this) {
     tmp->collisionLayer = 2;
     tmp->x.HALF.HI = this->unk_38 + gRoomControls.origin_x;
     tmp->y.HALF.HI = this->unk_3a + gRoomControls.origin_y;
-    EnqueueSFX(0x1B0);
+    EnqueueSFX(SFX_1B0);
     DeleteThisEntity();
 }
 
@@ -427,7 +427,7 @@ void sub_080594DC(ManagerF* this) {
 #if defined(USA) || defined(DEMO_USA) || defined(DEMO_JP)
 void sub_08059548(ManagerF* this) {
     SetDefaultPriority((Entity*)this, PRIO_PLAYER_EVENT);
-    if (gPlayerEntity.action == 0x16) {
+    if (gPlayerEntity.action == PLAYER_TALKEZLO) {
         DeleteThisEntity();
     }
     gInput.heldKeys |= 0x4;

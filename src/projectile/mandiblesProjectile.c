@@ -4,10 +4,6 @@
 #include "functions.h"
 #include "game.h"
 
-extern Entity* sub_08049DF4(u32);
-extern u32 sub_08049F1C(Entity*, Entity*, u32);
-extern s32 sub_080AF090(Entity*);
-extern u32 sub_0806F824(Entity*, Entity*, u32, u32);
 extern Hitbox gHitbox_0;
 
 extern void (*const MandiblesProjectile_Functions[])(Entity*);
@@ -81,7 +77,7 @@ void MandiblesProjectile_Init(Entity* this) {
     this->animationState = 0xff;
     this->field_0x82.HALF.LO = 0;
     this->spritePriority.b0 = 4;
-    ResolveEntityBelow(this, this->parent);
+    SortEntityBelow(this, this->parent);
     sub_080AA270(this);
 }
 
@@ -112,9 +108,6 @@ void MandiblesProjectile_Action2(Entity* this) {
     }
 }
 
-#ifdef EU
-ASM_FUNC("asm/non_matching/eu/MandiblesProjectile_Action3.inc", void MandiblesProjectile_Action3(Entity* this))
-#else
 void MandiblesProjectile_Action3(Entity* this) {
     u32 uVar1;
     s8* tmp;
@@ -129,9 +122,9 @@ void MandiblesProjectile_Action3(Entity* this) {
     } else {
         tmp = GetSpriteSubEntryOffsetDataPointer((u16)entity->spriteIndex, entity->frameIndex);
         if ((entity->animationState & 4) != 0) {
-            PositionRelative(entity, this, -tmp[0] * 0x10000, tmp[1] << 0x10);
+            PositionRelative(entity, this, Q_16_16(-tmp[0]), Q_16_16(tmp[1]));
         } else {
-            PositionRelative(entity, this, tmp[0] << 0x10, tmp[1] << 0x10);
+            PositionRelative(entity, this, Q_16_16(tmp[0]), Q_16_16(tmp[1]));
         }
     }
     if (entity->field_0x43 == 0) {
@@ -146,16 +139,20 @@ void MandiblesProjectile_Action3(Entity* this) {
                 uVar1 = entity->animationState;
                 this->direction = uVar1 << 2;
                 this->animationState = uVar1 << 0x1a >> 0x1a;
+#ifdef EU
+                this->spriteOrientation.flipY = 1;
+                this->hitbox = &gHitbox_0;
+#else
                 this->hitbox = &gHitbox_0;
                 if (AreaIsDungeon() != 0) {
                     this->spriteOrientation.flipY = 1;
                 }
+#endif
                 sub_080AA3E0(this, 0);
             }
         }
     }
 }
-#endif
 
 void MandiblesProjectile_Action4(Entity* this) {
     s32 iVar1;
@@ -174,7 +171,7 @@ void MandiblesProjectile_Action4(Entity* this) {
                 if (entity->health == 0) {
                     DeleteThisEntity();
                 }
-                EnqueueSFX(0xf2);
+                EnqueueSFX(SFX_F2);
                 this->action = 1;
                 this->animationState = 0xff;
                 this->field_0x82.HALF.LO = 0;
@@ -216,9 +213,9 @@ void sub_080AA1D8(Entity* this) {
         if ((parent->frameIndex & 0x20) == 0) {
             tmp = GetSpriteSubEntryOffsetDataPointer((u16)parent->spriteIndex, parent->frameIndex);
             if ((parent->animationState & 4) != 0) {
-                PositionRelative(parent, this, -tmp[0] * 0x10000, tmp[1] << 0x10);
+                PositionRelative(parent, this, Q_16_16(-tmp[0]), Q_16_16(tmp[1]));
             } else {
-                PositionRelative(parent, this, tmp[0] << 0x10, tmp[1] << 0x10);
+                PositionRelative(parent, this, Q_16_16(tmp[0]), Q_16_16(tmp[1]));
             }
             if (parent->field_0x43 != 0) {
                 if ((this->flags & ENT_COLLIDE) != 0) {
@@ -307,8 +304,8 @@ NONMATCH("asm/non_matching/mandiblesProjectile/sub_080AA374.inc", bool32 sub_080
         // TODO regalloc
         animationState = this->child->animationState;
         uVar1 = sub_0806F824(this, this->child, gUnk_08129D14[animationState], gUnk_08129D14[animationState + 1]);
-        if (sub_0806FCB8(this, this->child->x.HALF.HI + gUnk_08129D14[animationState],
-                         this->child->y.HALF.HI + gUnk_08129D14[animationState + 1], 8) != 0) {
+        if (EntityWithinDistance(this, this->child->x.HALF.HI + gUnk_08129D14[animationState],
+                                 this->child->y.HALF.HI + gUnk_08129D14[animationState + 1], 8) != 0) {
             result = TRUE;
         } else {
             sub_08004596(this, uVar1);

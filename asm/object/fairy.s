@@ -392,7 +392,7 @@ _0808D972:
 	strh r0, [r4, #0x36]
 	ldr r1, _0808D994 @ =gPlayerEntity
 	adds r0, r4, #0
-	bl sub_080177A0
+	bl IsColliding
 	cmp r0, #0
 	beq _0808D992
 	adds r0, r4, #0

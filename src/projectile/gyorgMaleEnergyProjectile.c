@@ -33,7 +33,7 @@ void sub_080AC8DC(Entity* this) {
         default: {
             if (this->action != 3) {
                 this->action = 3;
-                this->flags &= 0x7f;
+                this->flags &= ~ENT_COLLIDE;
                 this->speed >>= 1;
                 InitializeAnimation(this, 1);
             }
@@ -60,8 +60,8 @@ void GyorgMaleEnergyProjectile_Action1(Entity* this) {
         DeleteThisEntity();
     }
     animationState = this->parent->animationState;
-    PositionRelative(this->parent, this, gSineTable[animationState] * 0x2800,
-                     gSineTable[animationState + 0x40] * -0x2800);
+    PositionRelative(this->parent, this, gSineTable[animationState] * Q_16_16(5.0 / 32.0),
+                     gSineTable[animationState + 0x40] * Q_16_16(-5.0 / 32.0));
     GetNextFrame(this);
     if (--this->actionDelay == 0) {
         this->action = 2;

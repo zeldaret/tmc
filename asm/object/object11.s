@@ -113,7 +113,7 @@ _08084D7E:
 	lsls r1, r1, #6
 	orrs r0, r1
 	ldrb r1, [r6]
-	bl sub_080001DA
+	bl GetTileIndex
 	adds r1, r7, #0
 	adds r1, #0x70
 	strh r0, [r1]

@@ -40,8 +40,6 @@ enum OctorokBossObjectType {
 };
 #define GET_HELPER(this) (*(HelperStruct**)&(this)->cutsceneBeh)
 
-extern u32 sub_0806FC80(Entity*, Entity*, s32);
-
 void OctorokBossObject(Entity* this) {
     OctorokBossObject_Actions[this->action](this);
 }
@@ -78,14 +76,14 @@ void OctorokBossObject_Init(Entity* this) {
             }
 
             this->speed = 0xf0 - (Random() & 0x3f);
-            sub_0806F62C(this, ((s16)this->speed >> 1) << 8, (u32)this->direction);
-            sub_0806F62C(this, ((s16)this->speed >> 1) << 8, (u32)this->direction);
+            LinearMoveAngle(this, ((s16)this->speed >> 1) << 8, (u32)this->direction);
+            LinearMoveAngle(this, ((s16)this->speed >> 1) << 8, (u32)this->direction);
             InitializeAnimation(this, 5);
             SoundReq(SFX_14C);
             break;
         case 3:
             this->direction = -(this->parent->field_0x7a.HALF.HI + -0x80);
-            sub_0806F62C(this, 0x4800, (u32)this->direction);
+            LinearMoveAngle(this, 0x4800, (u32)this->direction);
             if ((Random() & 1) != 0) {
                 this->direction = (Random() & 0x3f) + this->direction;
             } else {
@@ -94,7 +92,7 @@ void OctorokBossObject_Init(Entity* this) {
             InitializeAnimation(this, 6);
             break;
         case 6:
-            sub_0806F62C(this, (0x30 - (Random() & 0x2f)) * 0x100, Random() & 0xff);
+            LinearMoveAngle(this, (0x30 - (Random() & 0x2f)) * 0x100, Random() & 0xff);
             if ((Random() & 1) != 0) {
                 this->direction = (Random() & 0x3f) + this->direction;
             } else {
@@ -111,10 +109,10 @@ void OctorokBossObject_Init(Entity* this) {
             this->field_0x76.HWORD = 0x400;
             this->field_0x74.HWORD = 0x400;
             this->field_0x7a.HWORD = 0;
-            sub_0806F62C(this,
-                         ((-(u32)this->parent->field_0x7a.HALF.HI << 0x18) >> 0x18) +
-                             (u32)gUnk_0812388C[(u32)this->type2 * 2 + 1],
-                         (u32)gUnk_0812388C[(u32)this->type2 * 2]);
+            LinearMoveAngle(this,
+                            ((-(u32)this->parent->field_0x7a.HALF.HI << 0x18) >> 0x18) +
+                                (u32)gUnk_0812388C[(u32)this->type2 * 2 + 1],
+                            (u32)gUnk_0812388C[(u32)this->type2 * 2]);
             sub_0805EC9C(this, this->field_0x76.HWORD, this->field_0x74.HWORD, this->field_0x7a.HWORD);
             InitializeAnimation(this, 7);
             break;
@@ -172,7 +170,7 @@ NONMATCH("asm/non_matching/octorokBossObject/OctorokBossObject_Action1.inc",
         case 1:
             this->direction = sub_080045DA(GET_HELPER(this)->tailObjects[this->actionDelay]->x.WORD - this->x.WORD,
                                            GET_HELPER(this)->tailObjects[this->actionDelay]->y.WORD - this->y.WORD);
-            sub_0806F62C(this, this->speed, this->direction);
+            LinearMoveAngle(this, this->speed, this->direction);
             if (EntityInRectRadius(this, GET_HELPER(this)->tailObjects[this->actionDelay], 2, 2) == 0) {
                 return;
             }
@@ -197,7 +195,7 @@ NONMATCH("asm/non_matching/octorokBossObject/OctorokBossObject_Action1.inc",
             if (this->parent->type2 == 3) {
                 Entity* object = GET_HELPER(this->parent)->mouthObject;
                 this->direction = sub_080045DA(object->x.WORD - this->x.WORD, object->y.WORD - this->y.WORD);
-                sub_0806F62C(this, 0x280, this->direction);
+                LinearMoveAngle(this, 0x280, this->direction);
                 if (sub_0806FC80(this, this->parent, 0x48) == 0) {
                     return;
                 }
@@ -206,7 +204,7 @@ NONMATCH("asm/non_matching/octorokBossObject/OctorokBossObject_Action1.inc",
             break;
         case 3:
         case 6:
-            sub_0806F62C(this, 0x80, this->direction);
+            LinearMoveAngle(this, 0x80, this->direction);
             if (this->frame != 0) {
                 DeleteThisEntity();
             }
@@ -249,8 +247,9 @@ NONMATCH("asm/non_matching/octorokBossObject/OctorokBossObject_Action1.inc",
                 *(int*)&this->field_0x78 -= 1;
             }
             CopyPosition(this->parent, this);
-            sub_0806F62C(this, (u32)gUnk_0812388C[(u32)this->type2 * 2 + 1],
-                         ((u8) - this->parent->field_0x7a.HALF.HI & 0xff) + (u32)gUnk_0812388C[(u32)this->type2 * 2]);
+            LinearMoveAngle(this, (u32)gUnk_0812388C[(u32)this->type2 * 2 + 1],
+                            ((u8) - this->parent->field_0x7a.HALF.HI & 0xff) +
+                                (u32)gUnk_0812388C[(u32)this->type2 * 2]);
             return;
         case 7:
             if (this->actionDelay == 0) {

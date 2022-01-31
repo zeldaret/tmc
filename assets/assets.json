@@ -25972,16 +25972,6 @@
     "type": "animation"
   },
   {
-    "path": "spinyBeetle/unusedLabel_0CEBDC.bin",
-    "start": 846812,
-    "size": 16
-  },
-  {
-    "path": "spinyBeetle/gUnk_080CEC1C.bin",
-    "start": 846876,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_MazaalHead_0.bin",
     "start": 847280,
     "size": 5,
@@ -26636,46 +26626,6 @@
     "start": 850047,
     "size": 17,
     "type": "animation"
-  },
-  {
-    "path": "cuccoAggr/gUnk_080CF7BC.bin",
-    "start": 849852,
-    "size": 2
-  },
-  {
-    "path": "cuccoAggr/gUnk_080CF7BE.bin",
-    "start": 849854,
-    "size": 4
-  },
-  {
-    "path": "cuccoAggr/gUnk_080CF7C2.bin",
-    "start": 849858,
-    "size": 2
-  },
-  {
-    "path": "cuccoAggr/gUnk_080CF7C4.bin",
-    "start": 849860,
-    "size": 96
-  },
-  {
-    "path": "cuccoAggr/gUnk_080CF824.bin",
-    "start": 849956,
-    "size": 4
-  },
-  {
-    "path": "cuccoAggr/gUnk_080CF828.bin",
-    "start": 849960,
-    "size": 4
-  },
-  {
-    "path": "cuccoAggr/gUnk_080CF82C.bin",
-    "start": 849964,
-    "size": 2
-  },
-  {
-    "path": "cuccoAggr/gUnk_080CF82E.bin",
-    "start": 849966,
-    "size": 3
   },
   {
     "path": "animations/gSpriteAnimations_Stalfos_0.bin",
@@ -27476,16 +27426,6 @@
     "size": 17
   },
   {
-    "path": "enemy49/gUnk_080D0458.bin",
-    "start": 853080,
-    "size": 16
-  },
-  {
-    "path": "enemy49/gUnk_080D0468.bin",
-    "start": 853096,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_VaatiRebornEnemy_0_0.bin",
     "start": 853207,
     "size": 17,
@@ -27790,11 +27730,6 @@
     "start": 853983,
     "size": 13,
     "type": "animation"
-  },
-  {
-    "path": "ballChainSoldier/gUnk_080D0724.bin",
-    "start": 853796,
-    "size": 4
   },
   {
     "path": "ballChainSoldier/gUnk_080D0728.bin",
@@ -29344,16 +29279,6 @@
     "path": "enemy64/gUnk_080D29B8.bin",
     "start": 862648,
     "size": 8
-  },
-  {
-    "path": "enemy66/gUnk_080D2ABC.bin",
-    "start": 862908,
-    "size": 88
-  },
-  {
-    "path": "enemy66/gUnk_080D2ABC_1.bin",
-    "start": 863000,
-    "size": 320
   },
   {
     "path": "data_080D3D94/gUnk_080D3D94.bin",
@@ -33033,21 +32958,6 @@
       "JP": -824,
       "DEMO_JP": -2052
     }
-  },
-  {
-    "path": "manager1/gUnk_08107C1C.bin",
-    "start": 1080348,
-    "size": 20
-  },
-  {
-    "path": "manager1/gUnk_08107C30.bin",
-    "start": 1080368,
-    "size": 16
-  },
-  {
-    "path": "manager1/gUnk_08107C40.bin",
-    "start": 1080384,
-    "size": 8
   },
   {
     "path": "manager3/gUnk_08107C6C.bin",
@@ -41333,31 +41243,6 @@
     "path": "data_081146D0/gUnk_08114F34.bin",
     "start": 1134388,
     "size": 4
-  },
-  {
-    "path": "data_081146D0/gUnk_08114F38.bin",
-    "start": 1134392,
-    "size": 32
-  },
-  {
-    "path": "data_081146D0/gUnk_08114F58.bin",
-    "start": 1134424,
-    "size": 32
-  },
-  {
-    "path": "data_081146D0/gUnk_08114F78.bin",
-    "start": 1134456,
-    "size": 8
-  },
-  {
-    "path": "data_081146D0/gUnk_08114F80.bin",
-    "start": 1134464,
-    "size": 8
-  },
-  {
-    "path": "data_081146D0/gPlayerHitbox.bin",
-    "start": 1134472,
-    "size": 16
   },
   {
     "path": "sprites/gSpriteFrames_1.bin",
@@ -51414,28 +51299,19 @@
     "path": "sprites/gSprite_Link.4bpp",
     "start": 1289748,
     "size": 581216,
-    "type": "gfx",
-    "options": {
-      "width": 4
-    }
+    "type": "gfx"
   },
   {
     "path": "sprites/gSprite_081C8C74.4bpp",
     "start": 1870964,
     "size": 59904,
-    "type": "gfx",
-    "options": {
-      "width": 4
-    }
+    "type": "gfx"
   },
   {
     "path": "sprites/gSprite_081D7674.4bpp",
     "start": 1930868,
     "size": 33216,
-    "type": "gfx",
-    "options": {
-      "width": 4
-    }
+    "type": "gfx"
   },
   {
     "path": "sprites/gSprite_081DF834/unk_0.4bpp",
@@ -51679,18 +51555,18 @@
   {
     "path": "sprites/gSprite_081FF1B4/unk_3_1.4bpp",
     "start": 2243508,
-    "size": 4986,
+    "size": 4960,
     "type": "gfx"
   },
   {
     "path": "sprites/gSprite_081FF1B4/config_1.txt",
-    "start": 2248494,
+    "start": 2248468,
     "size": 1024
   },
   {
     "path": "sprites/gSprite_081FF1B4/unk_3_2.4bpp",
-    "start": 2249518,
-    "size": 4198,
+    "start": 2249492,
+    "size": 4224,
     "type": "gfx"
   },
   {
@@ -52178,116 +52054,6 @@
       "DEMO_JP": -872,
       "JP": -864
     }
-  },
-  {
-    "path": "data_08132B30/gUnk_086926A0.bin",
-    "start": 6891168,
-    "size": 224
-  },
-  {
-    "path": "data_08132B30/gUnk_08692780.bin",
-    "start": 6891392,
-    "size": 224
-  },
-  {
-    "path": "data_08132B30/gUnk_08692860.bin",
-    "start": 6891616,
-    "size": 224
-  },
-  {
-    "path": "data_08132B30/gUnk_08692940.bin",
-    "start": 6891840,
-    "size": 224
-  },
-  {
-    "path": "data_08132B30/gUnk_08692A20.bin",
-    "start": 6892064,
-    "size": 224
-  },
-  {
-    "path": "data_08132B30/gUnk_08692B00.bin",
-    "start": 6892288,
-    "size": 224
-  },
-  {
-    "path": "data_08132B30/gUnk_08692BE0.bin",
-    "start": 6892512,
-    "size": 224
-  },
-  {
-    "path": "data_08132B30/gUnk_08692CC0.bin",
-    "start": 6892736,
-    "size": 224
-  },
-  {
-    "path": "data_08132B30/gUnk_08692DA0.bin",
-    "start": 6892960,
-    "size": 224
-  },
-  {
-    "path": "data_08132B30/gUnk_08692E80.bin",
-    "start": 6893184,
-    "size": 224
-  },
-  {
-    "path": "data_08132B30/gUnk_08692F60.bin",
-    "start": 6893408,
-    "size": 64
-  },
-  {
-    "path": "data_08132B30/gUnk_08692F60_1.bin",
-    "start": 6893472,
-    "size": 16320
-  },
-  {
-    "path": "data_08132B30/gUnk_08696F60.bin",
-    "start": 6909792,
-    "size": 2432
-  },
-  {
-    "path": "data_08132B30/gUnk_086978E0.bin",
-    "start": 6912224,
-    "size": 8192
-  },
-  {
-    "path": "data_08132B30/gUnk_086998E0.bin",
-    "start": 6920416,
-    "size": 32768
-  },
-  {
-    "path": "data_08132B30/gUnk_086A18E0.bin",
-    "start": 6953184,
-    "size": 4448
-  },
-  {
-    "path": "data_08132B30/gUnk_086A18E0_1.bin",
-    "start": 6957632,
-    "size": 32
-  },
-  {
-    "path": "data_08132B30/gUnk_086A2A60.bin",
-    "start": 6957664,
-    "size": 1152
-  },
-  {
-    "path": "data_08132B30/gUnk_086A2EE0.bin",
-    "start": 6958816,
-    "size": 32768
-  },
-  {
-    "path": "data_08132B30/gUnk_086AAEE0.bin",
-    "start": 6991584,
-    "size": 169344
-  },
-  {
-    "path": "data_08132B30/gUnk_086D4460.bin",
-    "start": 7160928,
-    "size": 81920
-  },
-  {
-    "path": "data_08132B30/gUnk_086E8460.bin",
-    "start": 7242848,
-    "size": 161088
   },
   {
     "path": "strings/translation_DEMO_JP.bin",

@@ -68,7 +68,7 @@ void sub_08076758(ItemBehavior* this, u32 arg1) {
                 if ((gPlayerEntity.zVelocity < 1) && ((gPlayerState.jump_status & 0x10) == 0)) {
                     this->stateID = 2;
                     gPlayerEntity.field_0x7a.HWORD = 2;
-                    gPlayerEntity.zVelocity = 0x20000;
+                    gPlayerEntity.zVelocity = Q_16_16(2.0);
                     gPlayerState.jump_status |= 0x10;
                     gPlayerState.animation = 0x288;
                     SoundReq(SFX_172);

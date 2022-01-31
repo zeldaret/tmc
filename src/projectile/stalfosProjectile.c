@@ -32,7 +32,7 @@ void sub_080A9A34(Entity* this) {
     if (this->bitfield == 0x9d) {
         this->action = 3;
         COLLISION_OFF(this);
-        this->zVelocity = 0x2a000;
+        this->zVelocity = Q_16_16(2.625);
         this->spritePriority.b1 = 1;
     }
 }
@@ -76,7 +76,7 @@ void StalfosProjectile_Init(Entity* this) {
             break;
         case 2:
             this->action = 3;
-            this->zVelocity = 0x2a000;
+            this->zVelocity = Q_16_16(2.625);
             this->spritePriority.b1 = 1;
             break;
         default:

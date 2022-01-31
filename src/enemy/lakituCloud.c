@@ -64,7 +64,7 @@ void sub_0803CD40(Entity* this) {
 
     ModHealth(-2);
 
-    SoundReqClipped(&gPlayerEntity, 122);
+    SoundReqClipped(&gPlayerEntity, SFX_PLY_VO6);
     sub_08079D84();
 
     sub_0803CE3C(this);
