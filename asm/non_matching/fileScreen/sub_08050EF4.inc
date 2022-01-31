@@ -106,7 +106,7 @@ _08050FAC:
 	bl SoundReq
 _08050FBA:
 	adds r0, r5, #0
-	bl sub_080A7114
+	bl SetMenuType
 	ldr r0, _08050FCC @ =gUnk_02019EE0
 	ldrb r0, [r0, #6]
 	bl SetActiveSave

@@ -39,7 +39,7 @@ Subtask Subtask_LocalMapHint;
 // todo: separate headers for each subtask?
 
 extern void sub_080A4398(void);
-extern void sub_080A7114(u32);
+extern void SetMenuType(u32);
 extern void sub_080A4D34(void);
 extern void sub_080A4E90(u8);
 extern void sub_080A4E84(u8);

@@ -84,7 +84,7 @@ _080A3CFE:
 	cmp r0, #0
 	beq _080A3D30
 	movs r0, #2
-	bl sub_080A7114
+	bl SetMenuType
 	movs r0, #0x6c
 	bl SoundReq
 	b _080A3DA8
@@ -144,7 +144,7 @@ _080A3D70:
 	adds r0, #0x2a
 	strb r1, [r0]
 	movs r0, #3
-	bl sub_080A7114
+	bl SetMenuType
 _080A3D8A:
 	bl sub_080A3B48
 	cmp r0, r4

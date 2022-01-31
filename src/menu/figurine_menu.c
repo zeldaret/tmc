@@ -55,22 +55,22 @@ typedef struct {
 } struct_08128AD8;
 extern const struct_08128AD8 gUnk_08128AD8[];
 
-void FigurineMenu0_Type0(void);
-void FigurineMenu0_Type1(void);
-void FigurineMenu0_Type2(void);
-void FigurineMenu0_Type3(void);
-void FigurineMenu1_Type0(void);
-void FigurineMenu1_Type1(void);
-void FigurineMenu1_Type2(void);
-void FigurineMenu1_Type3(void);
+Subtask FigurineMenu0_Type0;
+Subtask FigurineMenu0_Type1;
+Subtask FigurineMenu0_Type2;
+Subtask FigurineMenu0_Type3;
+Subtask FigurineMenu1_Type0;
+Subtask FigurineMenu1_Type1;
+Subtask FigurineMenu1_Type2;
+Subtask FigurineMenu1_Type3;
 void Subtask_FigurineMenu(void) {
-    static void (*const figurineMenu1_Types[])(void) = {
+    static Subtask* const figurineMenu1_Types[] = {
         FigurineMenu0_Type0,
         FigurineMenu0_Type1,
         FigurineMenu0_Type2,
         FigurineMenu0_Type3,
     };
-    static void (*const figurineMenu0_Types[])(void) = {
+    static Subtask* const figurineMenu0_Types[] = {
         FigurineMenu1_Type0,
         FigurineMenu1_Type1,
         FigurineMenu1_Type2,
@@ -136,13 +136,13 @@ void FigurineMenu_080A46C0(void) {
 
 void FigurineMenu0_Type0(void) {
     FigurineMenu_080A4608();
-    sub_080A7114(1);
+    SetMenuType(1);
 }
 
 void FigurineMenu0_Type1(void) {
     if (gFadeControl.active == 0) {
         CreateObject(OBJECT_A2, gUnk_080FC3E4[gFigurineMenu.unk1c].unk7, 0);
-        sub_080A7114(2);
+        SetMenuType(2);
     }
 }
 
@@ -168,7 +168,7 @@ void FigurineMenu0_Type2(void) {
                 gScreen.controls.layerBrightness = 0;
                 gScreen.controls.layerFXControl = 0;
                 gScreen.lcd.displayControl |= 0x2000;
-                sub_080A7114(3);
+                SetMenuType(3);
                 sub_080A70AC((KeyButtonLayout*)&gUnk_0812813C);
                 gMenu.column_idx = 0x15;
                 if (gFigurineMenu.unk21 == 0) {
@@ -215,7 +215,7 @@ void FigurineMenu1_Type0(void) {
     gScreen.lcd.displayControl |= 0x2000;
     sub_080A70AC(&gUnk_0812813C);
     gMenu.column_idx = 0xff;
-    sub_080A7114(1);
+    SetMenuType(1);
 }
 
 void FigurineMenu1_Type1(void) {
@@ -229,7 +229,7 @@ void FigurineMenu1_Type1(void) {
     switch (gInput.unk4) {
         case 2:
         case 8:
-            sub_080A7114(3);
+            SetMenuType(3);
             break;
         case 0x200:
             r4 -= 5;
@@ -263,7 +263,7 @@ void FigurineMenu1_Type1(void) {
     if (r0 != r4) {
         gFigurineMenu.unk1c = r4;
         SoundReq(SFX_TEXTBOX_CHOICE);
-        sub_080A7114(2);
+        SetMenuType(2);
         r5 = 0;
     }
     r0 = gFigurineMenu.unk1e;
@@ -278,7 +278,7 @@ void FigurineMenu1_Type1(void) {
 }
 
 void FigurineMenu1_Type2(void) {
-    sub_080A7114(1);
+    SetMenuType(1);
 }
 
 void FigurineMenu1_Type3(void) {
@@ -453,7 +453,7 @@ extern u8 gUnk_020227E8[];
 extern void sub_08057044(u32, u8*, u8*);
 extern void sub_0805F46C(u32, const struct_0812816C*);
 
-NONMATCH("asm/non_matching/subtask/sub_080A4BA0.inc", u32 sub_080A4BA0(u32 unk1, u32 unk2)) {
+NONMATCH("asm/non_matching/menu/figurine_menu/sub_080A4BA0.inc", u32 sub_080A4BA0(u32 unk1, u32 unk2)) {
     int r0, r1, r2, r3, r4, r5, r6;
 
     struct_0812816C s0;

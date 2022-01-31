@@ -114,9 +114,15 @@ typedef struct {
     /*0x2e*/ u16 unk2e;
 } FigurineMenu;
 
+typedef struct {
+    /*0x00*/ Menu base;
+    /*0x10*/ u8 items[17]; // unsure about size
+} PauseMenu;
+
 extern Menu gMenu;
 #define gGenericMenu (*(GenericMenu*)&gMenu)
 #define gKinstoneMenu (*(KinstoneMenu*)&gMenu)
 #define gFigurineMenu (*(FigurineMenu*)&gMenu)
+#define gPauseMenu (*(PauseMenu*)&gMenu)
 
 #endif

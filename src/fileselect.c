@@ -363,7 +363,7 @@ void sub_08050848(void) {
     sub_0805070C();
     gUnk_02019EE0.unk7 = 0;
     sub_08050AFC(gUnk_02019EE0.unk6);
-    sub_080A7114(1);
+    SetMenuType(1);
 }
 
 void sub_0805086C(void) {
@@ -404,7 +404,7 @@ void sub_080508E4(void) {
 void sub_08050910(void) {
     sub_08050384();
     if (++gUnk_02019EE0.unk7 > 2) {
-        sub_080A7114(2);
+        SetMenuType(2);
     } else {
         gChooseFileState.subState = 0;
     }
@@ -630,7 +630,7 @@ void sub_08050C54(void) {
                 SoundReq(SONG_VOL_FADE_OUT);
             }
             gMenu.transitionTimer = 0xf;
-            sub_080A7114(1);
+            SetMenuType(1);
             SoundReq(SFX_TEXTBOX_SELECT);
             break;
         case B_BUTTON:
@@ -686,7 +686,7 @@ void sub_08050DB8(void) {
     MemClear(&gBG2Buffer, sizeof(gBG2Buffer));
     sub_080503A8(0xc);
     gMenu.field_0x4 = gSaveHeader->language;
-    sub_080A7114(1);
+    SetMenuType(1);
 }
 
 void sub_08050DE4(void) {
@@ -707,7 +707,7 @@ void sub_08050DE4(void) {
         case START_BUTTON:
             SoundReq(SFX_TEXTBOX_SELECT);
             if (gMenu.field_0x4 != row_idx) {
-                sub_080A7114(2);
+                SetMenuType(2);
                 CreateDialogBox(8, 0);
             } else {
                 SetFileSelectState(STATE_NONE);
@@ -751,7 +751,7 @@ void sub_08050EB8(void) {
     gUnk_02019EE0.unk5 = save->brightness;
     gMenu.column_idx = 0;
     gMenu.transitionTimer = 0xff;
-    sub_080A7114(1);
+    SetMenuType(1);
 }
 
 NONMATCH("asm/non_matching/fileScreen/sub_08050EF4.inc", void sub_08050EF4(void)) {
@@ -804,7 +804,7 @@ NONMATCH("asm/non_matching/fileScreen/sub_08050EF4.inc", void sub_08050EF4(void)
             gUnk_02019EE0.saves[gUnk_02019EE0.unk6].msg_speed = gUnk_02019EE0.unk4;
             gUnk_02019EE0.saves[gUnk_02019EE0.unk6].brightness = gUnk_02019EE0.unk5;
             SoundReq(SFX_MENU_CANCEL);
-            sub_080A7114(mode);
+            SetMenuType(mode);
             SetActiveSave(gUnk_02019EE0.unk6);
             break;
         case 2:
@@ -812,7 +812,7 @@ NONMATCH("asm/non_matching/fileScreen/sub_08050EF4.inc", void sub_08050EF4(void)
             SoundReq(SFX_TEXTBOX_SELECT);
         default:
         case 1:
-            sub_080A7114(mode);
+            SetMenuType(mode);
             SetActiveSave(gUnk_02019EE0.unk6);
             break;
         case 0:
@@ -836,7 +836,7 @@ void sub_08050FFC(void) {
             sub_0805194C(gUnk_02019EE0.unk6);
             CreateDialogBox(9, 0);
         case SAVE_OK:
-            sub_080A7114(3);
+            SetMenuType(3);
             break;
     }
 }
@@ -867,7 +867,7 @@ void sub_08051090(void) {
     sub_08051458();
     gScreen.bg1.yOffset = 0xff;
     gScreen.bg2.yOffset = 0xff;
-    sub_080A7114(1);
+    SetMenuType(1);
 }
 
 NONMATCH("asm/non_matching/fileScreen/sub_080610B8.inc", void sub_080610B8(void)) {
@@ -897,7 +897,7 @@ void sub_080513C0(void) {
     switch (HandleSave(0)) {
         case 1:
             gUnk_02019EE0.saveStatus[gUnk_02019EE0.unk6] = 1;
-            sub_080A7114(3);
+            SetMenuType(3);
             break;
         case 0:
             break;
@@ -914,7 +914,7 @@ void sub_0805141C(void) {
     switch (gMenu.transitionTimer) {
         case 0:
             if (gInput.newKeys & (A_BUTTON | START_BUTTON)) {
-                sub_080A7114(3);
+                SetMenuType(3);
             }
             break;
         default:
@@ -1039,7 +1039,7 @@ void HandleFileDelete(void) {
 }
 
 void sub_080515c8(void) {
-    sub_080A7114(1);
+    SetMenuType(1);
 }
 
 void sub_080515D4(void) {
@@ -1058,7 +1058,7 @@ void sub_080515D4(void) {
         case START_BUTTON:
             if (column_idx == 1) {
                 CreateDialogBox(4, 0);
-                sub_080A7114(2);
+                SetMenuType(2);
                 SoundReq(SFX_TEXTBOX_SELECT);
             } else {
                 SetFileSelectState(0);
@@ -1113,9 +1113,9 @@ NONMATCH("asm/non_matching/fileScreen/sub_08051738.inc", void sub_08051738(void)
     if (uVar3 == 0) {
         gMenu.transitionTimer = 0x3c;
         CreateDialogBox(1, 0);
-        sub_080A7114(3);
+        SetMenuType(3);
     } else {
-        sub_080A7114(1);
+        SetMenuType(1);
     }
     uVar3++;
     gGenericMenu.unk16 = uVar3;
@@ -1156,7 +1156,7 @@ void sub_080517EC(void) {
         case START_BUTTON:
             if (gUnk_02019EE0.unk7 < 3) {
                 CreateDialogBox(2, 0);
-                sub_080A7114(2);
+                SetMenuType(2);
                 SoundReq(SFX_TEXTBOX_SELECT);
                 break;
             }
@@ -1188,7 +1188,7 @@ void sub_08051874(void) {
             sub_0805194C(gUnk_02019EE0.unk7);
             CreateDialogBox(3, 0);
             gMenu.transitionTimer = 0x1e;
-            sub_080A7114(3);
+            SetMenuType(3);
             break;
     }
 }

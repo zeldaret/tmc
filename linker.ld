@@ -856,8 +856,8 @@ SECTIONS {
         asm/staffroll.o(.text);
         src/menu/kinstone_menu.o(.text);
         src/menu/figurine_menu.o(.text);
-        src/subtask.o(.text);
-        asm/subtask2.o(.text); /* subtask.c */
+        src/menu/pause_menu.o(.text);
+        asm/subtask2.o(.text);
         src/playerItem/playerItemSword.o(.text);
         src/playerItemUtils.o(.text);
         src/projectileUtils.o(.text);
@@ -1602,10 +1602,9 @@ SECTIONS {
         data/data_08127280.o(.rodata);
         src/menu/kinstone_menu.o(.rodata);
         src/menu/figurine_menu.o(.rodata);
-        src/subtask.o(.rodata);
         data/gfx/figurines.o(.rodata);
         data/data_08128A38.o(.rodata);
-        src/itemMenuTable.o(.rodata);
+        src/menu/pause_menu.o(.rodata);
         data/data_08128BF4.o(.rodata);
         data/const/playerItem/playerItemSword.o(.rodata);
         data/projectile_functions.o(.rodata);

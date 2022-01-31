@@ -68,14 +68,14 @@ void KinstoneMenu_080A4080(void);
 u32 KinstoneMenu_080A4494(void);
 void KinstoneMenu_080A4528(void);
 
-void KinstoneMenu_Type0(void);
-void KinstoneMenu_Type1(void);
-void KinstoneMenu_Type2(void);
-void KinstoneMenu_Type3(void);
-void KinstoneMenu_Type4(void);
-void KinstoneMenu_Type5(void);
+Subtask KinstoneMenu_Type0;
+Subtask KinstoneMenu_Type1;
+Subtask KinstoneMenu_Type2;
+Subtask KinstoneMenu_Type3;
+Subtask KinstoneMenu_Type4;
+Subtask KinstoneMenu_Type5;
 void Subtask_KinstoneMenu(void) {
-    static void (*const kinstoneMenuTypes[])(void) = {
+    static Subtask* const kinstoneMenuTypes[] = {
         KinstoneMenu_Type0, KinstoneMenu_Type1, KinstoneMenu_Type2,
         KinstoneMenu_Type3, KinstoneMenu_Type4, KinstoneMenu_Type5,
     };
@@ -130,7 +130,7 @@ void KinstoneMenu_Type0(void) {
     sub_080A4398();
     sub_0801E738(0);
     sub_080A70AC((void*)gUnk_081280DC);
-    sub_080A7114(1);
+    SetMenuType(1);
     SetFade(6, 8);
 }
 
@@ -138,7 +138,7 @@ const u8 gUnk_081280EE[] = {
     0x5u, 0x7u, 0xau, 0xeu, 0x13u, 0x1au,
 };
 
-NONMATCH("asm/non_matching/subtask/KinstoneMenu_Type1.inc", void KinstoneMenu_Type1(void)) {
+NONMATCH("asm/non_matching/menu/kinstone_menu/KinstoneMenu_Type1.inc", void KinstoneMenu_Type1(void)) {
     s32 tmp1, tmp2, tmp3, tmp4, tmp5;
     u8* ptr;
     GenericMenu* menu;
@@ -167,7 +167,7 @@ NONMATCH("asm/non_matching/subtask/KinstoneMenu_Type1.inc", void KinstoneMenu_Ty
         SoundReq(SFX_TEXTBOX_CHOICE);
     }
     if ((gInput.newKeys & 0x20a) != 0) {
-        sub_080A7114(2);
+        SetMenuType(2);
         SoundReq(SFX_MENU_CANCEL);
         return;
     }
@@ -185,7 +185,7 @@ NONMATCH("asm/non_matching/subtask/KinstoneMenu_Type1.inc", void KinstoneMenu_Ty
             if (gMenu.column_idx == 2) {
                 tmp3 = gGenericMenu.unk10.i / 0x10000;
                 gGenericMenu.unk2a = gSave.unk118[tmp3];
-                sub_080A7114(3);
+                SetMenuType(3);
             }
             break;
     }
@@ -221,11 +221,11 @@ void KinstoneMenu_Type2(void) {
     }
 }
 
-void KinstoneMenu_Type3_Overlay0(void);
-void KinstoneMenu_Type3_Overlay1(void);
-void KinstoneMenu_Type3_Overlay2(void);
+Subtask KinstoneMenu_Type3_Overlay0;
+Subtask KinstoneMenu_Type3_Overlay1;
+Subtask KinstoneMenu_Type3_Overlay2;
 void KinstoneMenu_Type3(void) {
-    static void (*const kinstoneMenu_Type3_overlays[])(void) = {
+    static Subtask* const kinstoneMenu_Type3_overlays[] = {
         KinstoneMenu_Type3_Overlay0,
         KinstoneMenu_Type3_Overlay1,
         KinstoneMenu_Type3_Overlay2,
@@ -247,7 +247,7 @@ void KinstoneMenu_Type3_Overlay1(void) {
     u32 temp = gUnk_080C9CBC[gKinstoneMenu.unk2a].unk5;
     if (temp != gUnk_080C9CBC[gFuseInfo._3].unk5) {
         SoundReq(SFX_ITEM_SHIELD_BOUNCE);
-        sub_080A7114(4);
+        SetMenuType(4);
     } else {
         gMenu.overlayType = 2;
         gMenu.transitionTimer = 0x14;
@@ -266,7 +266,7 @@ void KinstoneMenu_Type3_Overlay2(void) {
     if (++gScreen.controls.layerBrightness > 14) {
         gScreen.controls.layerBrightness = 0;
         gScreen.lcd.displayControl &= 0xdfff;
-        sub_080A7114(5);
+        SetMenuType(5);
     }
 }
 
@@ -277,17 +277,17 @@ void KinstoneMenu_Type4(void) {
     if (gKinstoneMenu.unk2c < 0) {
         gKinstoneMenu.unk18 = 0;
         gKinstoneMenu.unk2c = 0;
-        sub_080A7114(1);
+        SetMenuType(1);
         SoundReq(SFX_MENU_ERROR);
     }
 }
 
-void KinstoneMenu_Type5_Overlay0(void);
-void KinstoneMenu_Type5_Overlay1(void);
-void KinstoneMenu_Type5_Overlay2(void);
-void KinstoneMenu_Type5_Overlay3(void);
+Subtask KinstoneMenu_Type5_Overlay0;
+Subtask KinstoneMenu_Type5_Overlay1;
+Subtask KinstoneMenu_Type5_Overlay2;
+Subtask KinstoneMenu_Type5_Overlay3;
 void KinstoneMenu_Type5(void) {
-    static void (*const kinstoneMenu_Type5_Overlays[])(void) = {
+    static Subtask* const kinstoneMenu_Type5_Overlays[] = {
         KinstoneMenu_Type5_Overlay0,
         KinstoneMenu_Type5_Overlay1,
         KinstoneMenu_Type5_Overlay2,
@@ -335,7 +335,7 @@ void KinstoneMenu_Type5_Overlay2(void) {
 void KinstoneMenu_Type5_Overlay3(void) {
     // TODO figure out why in some place s16 is needed and u16 in others
     if (--(s16)gMenu.transitionTimer < 0) {
-        sub_080A7114(2);
+        SetMenuType(2);
     }
 }
 
@@ -414,7 +414,7 @@ void KinstoneMenu_080A4080(void) {
     }
 }
 
-NONMATCH("asm/non_matching/subtask/KinstoneMenu_080A414C.inc", void KinstoneMenu_080A414C(void)) {
+NONMATCH("asm/non_matching/menu/kinstone_menu/KinstoneMenu_080A414C.inc", void KinstoneMenu_080A414C(void)) {
     s32 uVar1;
     s32 iVar2;
     s32 uVar3;

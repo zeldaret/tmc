@@ -45,13 +45,13 @@ _08051774:
 	movs r1, #0
 	bl CreateDialogBox
 	movs r0, #3
-	bl sub_080A7114
+	bl SetMenuType
 	b _080517A2
 	.align 2, 0
 _08051798: .4byte gMenu
 _0805179C:
 	movs r0, #1
-	bl sub_080A7114
+	bl SetMenuType
 _080517A2:
 	adds r4, #1
 	ldr r0, _080517B0 @ =gMenu
