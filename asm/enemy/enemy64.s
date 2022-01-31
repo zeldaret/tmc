@@ -495,7 +495,7 @@ sub_080493E4: @ 0x080493E4
 	adds r2, #0xa8
 	ldrh r3, [r3, #8]
 	adds r3, #0x80
-	bl sub_080045D4
+	bl CalculateDirectionTo
 	adds r0, #2
 	movs r1, #0x1c
 	ands r0, r1

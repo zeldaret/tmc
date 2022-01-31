@@ -642,8 +642,8 @@ void sub_08042E30(Entity* this) {
         this->actionDelay = (Random() & 0x38) + 0x28;
         this->speed = 0x200;
         this->direction = pVVar9->unk00.HALF.HI >> 3;
-        uVar6 = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, gRoomControls.origin_x + 0x110,
-                             gRoomControls.origin_y + 0x60);
+        uVar6 = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, gRoomControls.origin_x + 0x110,
+                                     gRoomControls.origin_y + 0x60);
         this->field_0x78.HALF.HI = (gUnk_080D1304[Random() & 7] + uVar6) & 0x1f;
     }
     pVVar9->unk00.HWORD += pVVar9->unk08;
@@ -687,7 +687,7 @@ void sub_08042EF4(Entity* this) {
         x = this->parent->x.HALF.HI;
         y = this->parent->y.HALF.HI - 0x10;
         if (EntityWithinDistance(this, x, y, 0x30)) {
-            temp = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, x, y);
+            temp = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, x, y);
             if ((this->field_0x78.HALF.HI - temp) + 4 < 9) {
                 this->field_0x78.HALF.HI = temp ^ 0x10;
             }

@@ -37,7 +37,8 @@ void sub_0806D8A0(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_0806D908(Entity* this) {
-    this->direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI);
+    this->direction =
+        CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI);
     this->animationState = (this->animationState & 0x80) | gUnk_08114144[this->direction >> 0x1];
 }
 

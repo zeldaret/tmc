@@ -878,7 +878,7 @@ void sub_080406A0(Entity* this) {
             uVar4 = gRoomControls.origin_y + gUnk_080D0B58[tmp + 1];
         }
     }
-    uVar3 = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, uVar6, uVar4);
+    uVar3 = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, uVar6, uVar4);
     this->direction = uVar3;
     if (uVar2 & 0x20) {
         u32 tmp = this->direction;
@@ -965,7 +965,7 @@ void sub_08040770(Entity* this) {
             tmp6 = gRoomControls.origin_y + gUnk_080D0B64[tmp3 + 1];
         }
     }
-    this->direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, tmp5, tmp6);
+    this->direction = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, tmp5, tmp6);
     if (tmp & 0x20) {
         u32 tmp3 = this->direction;
         if (tmp & 0x10) {

@@ -306,7 +306,7 @@ void sub_0803797C(GibdoEntity* this) {
     super->actionDelay = 0x18;
     super->field_0xf = 8;
     m = super->direction =
-        (sub_080045D4(super->x.HALF.HI, super->y.HALF.HI, this->field_0x78, this->field_0x7a) + 4) & 0x18;
+        (CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, this->field_0x78, this->field_0x7a) + 4) & 0x18;
     ;
     m = m / 8;
     if (m != super->animationState) {

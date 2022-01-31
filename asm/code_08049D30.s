@@ -268,7 +268,7 @@ sub_08049EE4: @ 0x08049EE4
 	ldrsh r0, [r1, r4]
 	movs r5, #0x32
 	ldrsh r1, [r1, r5]
-	bl sub_080045D4
+	bl CalculateDirectionTo
 	pop {r4, r5, pc}
 
 	thumb_func_start sub_08049F1C

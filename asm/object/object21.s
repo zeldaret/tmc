@@ -217,7 +217,7 @@ _08087B1E:
 	ldr r1, [r1]
 	ldr r2, [r4, #0x2c]
 	ldr r3, [r4, #0x30]
-	bl sub_080045D4
+	bl CalculateDirectionTo
 	b _08087B44
 _08087B3C:
 	ldr r0, [r4, #0x4c]

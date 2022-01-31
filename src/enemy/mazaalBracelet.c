@@ -1109,7 +1109,7 @@ u32 sub_0803B4E4(Entity* this) {
         this->y.HALF.HI = yoff;
         return 1;
     } else {
-        this->direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, xoff, yoff);
+        this->direction = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, xoff, yoff);
         return 0;
     }
 }
@@ -1177,9 +1177,9 @@ void sub_0803B63C(Entity* this) {
     x += gUnk_080CFD19[this->type];
     y = gPlayerEntity.y.HALF.HI - 0xc;
     if (this->actionDelay++ >= 0xb5) {
-        this->direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, x, y);
+        this->direction = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, x, y);
     } else {
-        sub_08004596(this, sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, x, y));
+        sub_08004596(this, CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, x, y));
     }
 }
 

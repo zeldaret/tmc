@@ -640,7 +640,7 @@ _08096802:
 	ldrh r3, [r0]
 	adds r0, r2, #0
 	adds r2, r5, #0
-	bl sub_080045D4
+	bl CalculateDirectionTo
 	strb r0, [r4, #0x15]
 	adds r0, r4, #0
 	bl LinearMoveUpdate

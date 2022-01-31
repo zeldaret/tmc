@@ -1076,7 +1076,7 @@ static void PortalJumpOnUpdate(Entity* this) {
     y = gArea.curPortalY;
 
     if ((this->x.HALF.HI != x) || (this->y.HALF.HI != y)) {
-        this->direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, gArea.curPortalX, gArea.curPortalY);
+        this->direction = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, gArea.curPortalX, gArea.curPortalY);
         this->speed = JUMP_SPEED_FWD;
         UpdatePlayerMovement();
     }
@@ -3184,7 +3184,7 @@ static void sub_08073F4C(Entity* this) {
     u32 x = gArea.curPortalX;
     u32 y = gArea.curPortalY;
     if (this->x.HALF.HI != x || this->y.HALF.HI != y) {
-        this->direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, gArea.curPortalX, gArea.curPortalY);
+        this->direction = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, gArea.curPortalX, gArea.curPortalY);
         this->speed = 0x100;
         LinearMoveUpdate(this);
     } else {
@@ -3472,8 +3472,8 @@ void SurfaceAction_16(Entity* this) {
             SoundReq(SFX_PLY_VO6);
             this->iframes = 24;
             this->knockbackDuration = 4;
-            this->knockbackDirection = sub_080045D4((this->x.HALF.HI & 0xFFF0) | 8, (this->y.HALF.HI & 0xFFF0) | 8,
-                                                    this->x.HALF.HI, this->y.HALF.HI);
+            this->knockbackDirection = CalculateDirectionTo(
+                (this->x.HALF.HI & 0xFFF0) | 8, (this->y.HALF.HI & 0xFFF0) | 8, this->x.HALF.HI, this->y.HALF.HI);
         }
         if ((gPlayerState.flags & PL_MINISH) == 0)
             sub_08008790(this, 7);

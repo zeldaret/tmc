@@ -518,7 +518,7 @@ void sub_08021424(Entity* this) {
     if (!(6 < (x - this->x.HALF.HI) + 3U) && !(4 < (y - this->y.HALF.HI) + 2U)) {
         sub_080212B0(this);
     } else {
-        this->direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, x, y);
+        this->direction = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, x, y);
         if (!ProcessMovement(this)) {
             sub_080212B0(this);
         } else {

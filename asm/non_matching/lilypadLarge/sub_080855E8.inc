@@ -176,7 +176,7 @@ _080856FC:
 	movs r2, #0x32
 	ldrsh r1, [r7, r2]
 	adds r2, r5, #0
-	bl sub_080045D4
+	bl CalculateDirectionTo
 	strb r0, [r7, #0x15]
 	ldr r0, _0808575C @ =gPlayerState
 	ldrb r0, [r0, #0x1d]
@@ -297,7 +297,7 @@ _0808581A:
 	ldr r2, [r7, #0x70]
 	adds r3, r1, r2
 	adds r2, r5, #0
-	bl sub_080045D4
+	bl CalculateDirectionTo
 	strb r0, [r7, #0x15]
 	ldr r0, [r7, #0x6c]
 	lsls r0, r0, #8
