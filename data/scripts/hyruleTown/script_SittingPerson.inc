@@ -13,7 +13,7 @@ script_0800ED20:
 	SetPlayerIdle
 	FacePlayer
 	CallWithArg sub_08063850, 0x00000000
-	Call sub_08063944
+	Call SittingPersion_ShowDialogue
 	WaitUntilTextboxCloses
 	JumpIfNot script_0800ED46
 	GiveKinstone 0x0070
