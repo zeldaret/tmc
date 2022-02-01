@@ -25796,21 +25796,6 @@
     "type": "animation"
   },
   {
-    "path": "mulldozer/gUnk_080CEA50.bin",
-    "start": 846416,
-    "size": 4
-  },
-  {
-    "path": "mulldozer/gUnk_080CEA54.bin",
-    "start": 846420,
-    "size": 2
-  },
-  {
-    "path": "mulldozer/gUnk_080CEA56.bin",
-    "start": 846422,
-    "size": 16
-  },
-  {
     "path": "animations/gSpriteAnimations_Bombarossa_0.bin",
     "start": 846688,
     "size": 12,

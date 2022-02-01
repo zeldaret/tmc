@@ -183,7 +183,7 @@ void AcroBandit(Entity*);
 void BladeTrap(Entity*);
 void Keaton(Entity*);
 void Crow(Entity*);
-void Mulldozer(Entity*);
+void Mulldozer();
 void Bombarossa(Entity*);
 void Wisp(Entity*);
 void SpinyBeetle(Entity*);
