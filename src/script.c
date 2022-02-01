@@ -1059,7 +1059,7 @@ void ScriptCommand_SetPlayerIdle(Entity* entity, ScriptExecutionContext* context
 }
 
 void ScriptCommand_EnablePlayerControl(Entity* entity, ScriptExecutionContext* context) {
-    gPlayerState.controlMode = 1;
+    gPlayerState.controlMode = CONTROL_1;
 }
 
 void ScriptCommand_DisablePlayerControl(Entity* entity, ScriptExecutionContext* context) {
@@ -1169,7 +1169,7 @@ void ScriptCommand_0807E9F0(Entity* entity, ScriptExecutionContext* context) {
     }
     if (tmp) {
         sub_0807919C();
-        gPlayerState.controlMode = 1;
+        gPlayerState.controlMode = CONTROL_1;
     } else {
     lbl:
         gActiveScriptInfo.commandSize = 0;

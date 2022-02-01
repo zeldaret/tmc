@@ -309,7 +309,7 @@ void sub_0806F118(Entity* ent) {
     u32 idx = sub_08002632(ent);
     NPCData* data = gUnk_08001A7C[idx];
     sub_0801DFB4(ent, data->_0, data->_2, data->_4);
-    gPlayerState.controlMode = 3;
+    gPlayerState.controlMode = CONTROL_DISABLED;
 }
 
 u32 UpdateFuseInteraction(Entity* ent) {
@@ -321,11 +321,11 @@ u32 UpdateFuseInteraction(Entity* ent) {
             ret = 0;
             break;
         case 2:
-            gPlayerState.controlMode = 3;
+            gPlayerState.controlMode = CONTROL_DISABLED;
             ret = 1;
         case 1:
             sub_0807919C();
-            gPlayerState.controlMode = 1;
+            gPlayerState.controlMode = CONTROL_1;
             break;
     }
     return ret;

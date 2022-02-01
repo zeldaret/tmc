@@ -218,7 +218,7 @@ void VaatiWrathType0Action1(Entity* this) {
             this->actionDelay = 0x1e;
             gRoomTransition.field_0x38 |= 1;
             gRoomControls.camera_target = &gPlayerEntity;
-            gPlayerState.controlMode = 1;
+            gPlayerState.controlMode = CONTROL_1;
             break;
         default:
             sub_08042004(this);

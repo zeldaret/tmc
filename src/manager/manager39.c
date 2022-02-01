@@ -57,7 +57,7 @@ void sub_0805E18C(Manager39* this) {
     if (this->manager.unk_0b) {
         if (!--this->manager.unk_0f) {
             this->manager.unk_0b = 0;
-            gPlayerState.controlMode = 1;
+            gPlayerState.controlMode = CONTROL_1;
             ResetSystemPriority();
         }
     }

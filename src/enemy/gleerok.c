@@ -313,7 +313,7 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D3B8.inc", void sub_0802D3B8(GleerokE
                 heap->filler[0x35] = 0;
             }
 #ifndef EU
-            gPlayerState.controlMode = 3;
+            gPlayerState.controlMode = CONTROL_DISABLED;
 #endif
             InitializeAnimation(super, 0x4c);
             break;
@@ -462,7 +462,7 @@ void sub_0802D7B4(GleerokEntity* this) {
             this->unk_84->ent2->actionDelay = 0x18;
             gRoomControls.camera_target = &gPlayerEntity;
 #ifndef EU
-            gPlayerState.controlMode = 1;
+            gPlayerState.controlMode = CONTROL_1;
 #endif
             gUnk_02034490[0] = 0;
             SoundReq(BGM_BOSS_THEME);
