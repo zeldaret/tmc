@@ -19,7 +19,7 @@ void ResetPlayer() {
     gPlayerState.sword_state = 0;
     gPlayerState.field_0x3[0] = 0;
     gPlayerState.heldObject = 0;
-    gPlayerState.flags &= 0xf7fbffff;
+    gPlayerState.flags &= ~(PL_ROLLING | PL_SWORD_THRUST);
 
     gPlayerEntity.field_0x70.WORD = 0;
 

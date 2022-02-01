@@ -69,5 +69,5 @@ void sub_08099ECC(Entity* this) {
     CopyPosition(this, &gPlayerEntity);
     gPlayerState.queued_action = PLAYER_FALL;
     gPlayerState.field_0x34[4] = 0;
-    gPlayerState.flags |= 0x8000;
+    gPlayerState.flags |= PL_FLAGS8000;
 }

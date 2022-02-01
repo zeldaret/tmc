@@ -473,7 +473,7 @@ static void PlayerNormal(Entity* this) {
         }
     }
     gPlayerState.pushedObject |= 0x80;
-    if ((gPlayerState.flags & (PL_USE_OCARINA | 2)) == 0) {
+    if ((gPlayerState.flags & (PL_USE_OCARINA | PL_FLAGS2)) == 0) {
         UpdateFloorType();
     }
 
@@ -486,14 +486,14 @@ static void PlayerNormal(Entity* this) {
             if (gRoomVars.shopItemType == 0) {
                 ResetPlayer();
             }
-            if ((gPlayerState.flags & (PL_USE_OCARINA | 2)) == 0) {
+            if ((gPlayerState.flags & (PL_USE_OCARINA | PL_FLAGS2)) == 0) {
                 UpdateFloorType();
                 RunQueuedAction();
             }
             return;
         }
-        if (((gPlayerState.flags &
-              (PL_BUSY | PL_DROWNING | PL_USE_PORTAL | 0x10 | PL_FALLING | PL_BURNING | 0x1000 | PL_ROLLING)) |
+        if (((gPlayerState.flags & (PL_BUSY | PL_DROWNING | PL_USE_PORTAL | PL_CAPTURED | PL_FALLING | PL_BURNING |
+                                    PL_IN_MINECART | PL_ROLLING)) |
              gPlayerState.field_0xaa) == 0) {
             switch (UpdatePlayerCollision()) {
                 case 0:
@@ -560,7 +560,7 @@ static void PlayerNormal(Entity* this) {
             gPlayerState.framestate = PL_STATE_SWIM;
             sub_0807ACCC(this);
         } else {
-            if ((gPlayerState.flags & 0x2000000) == 0)
+            if ((gPlayerState.flags & PL_FLAGS2000000) == 0)
                 this->spritePriority.b1 = 1;
             if (gPlayerState.dash_state & 0x40) {
                 sub_08008AA0(this);
@@ -654,11 +654,11 @@ static void PlayerFallInit(Entity* this) {
 static void PlayerFallUpdate(Entity* this) {
     UpdateAnimationSingleFrame(this);
     if (this->frame & 0x80) {
-        if ((gSave.stats.health != 0) && (gPlayerState.flags & 0x8000)) {
+        if ((gSave.stats.health != 0) && (gPlayerState.flags & PL_FLAGS8000)) {
             gPlayerState.flags &= ~(PL_BUSY | PL_DROWNING);
             this->spriteSettings.draw = 0;
         } else {
-            gPlayerState.flags &= ~(PL_DROWNING | 0x8000);
+            gPlayerState.flags &= ~(PL_DROWNING | PL_FLAGS8000);
             RespawnPlayer();
             gPlayerState.field_0xa = 0;
             this->iframes = 32;
@@ -995,7 +995,7 @@ static void PlayerDrownInit(Entity* this) {
         gPlayerState.animation = 0xc19;
         SoundReq(SFX_WATER_SPLASH);
     } else {
-        if ((gPlayerState.flags & 0x10000) == 0)
+        if ((gPlayerState.flags & PL_FLAGS10000) == 0)
             sub_08004168(this);
 
         CreateFx(this, FX_WATER_SPLASH, 0);
@@ -1479,7 +1479,7 @@ static void PlayerMinishDieInit(Entity* this) {
     gPlayerState.animation = temp;
 
     gPlayerState.flags &=
-        ~(PL_PARACHUTE | PL_MOLDWORM_RELEASED | PL_ROLLING | PL_FROZEN | PL_BURNING | 0x100 | PL_BUSY);
+        ~(PL_PARACHUTE | PL_MOLDWORM_RELEASED | PL_ROLLING | PL_FROZEN | PL_BURNING | PL_DISABLE_ITEMS | PL_BUSY);
     this->subAction = 1;
     this->animationState = IdleSouth;
     this->spritePriority.b1 = 1;
@@ -2045,7 +2045,7 @@ static void PlayerRollUpdate(Entity* this) {
         CreateFx(&gPlayerEntity, FX_DASH, 0x40);
         this->actionDelay = 4;
     }
-    if ((gPlayerState.flags & 2) == 0) {
+    if ((gPlayerState.flags & PL_FLAGS2) == 0) {
         UpdateFloorType();
     }
     if (RunQueuedAction()) {
@@ -2126,7 +2126,7 @@ static void PlayerWaitForScroll(Entity* this) {
             COLLISION_ON(this);
         ResetPlayerAnimationAndAction();
     }
-    if ((gPlayerState.flags & 2) == 0) {
+    if ((gPlayerState.flags & PL_FLAGS2) == 0) {
         UpdateFloorType();
     }
 }
@@ -3534,7 +3534,7 @@ void sub_08074808(Entity* this) {
     sub_08077AEC();
     if (GetInventoryValue(ITEM_FLIPPERS) == 1) {
         if (!gPlayerState.swim_state) {
-            if ((gPlayerState.flags & 0x10000) != 0)
+            if ((gPlayerState.flags & PL_FLAGS10000) != 0)
                 gPlayerState.swim_state = 1;
             else
                 gPlayerState.swim_state = 8;
@@ -3714,7 +3714,7 @@ static void conveyer_push(Entity* this) {
     ResetPlayer();
     this->spritePriority.b1 = 0;
     this->speed = WALK_SPEED;
-    gPlayerState.flags |= 0x2000000;
+    gPlayerState.flags |= PL_FLAGS2000000;
     gPlayerState.field_0xa |= 0x80;
     gPlayerState.mobility |= 0x80;
     gPlayerState.field_0x27[0]++;
