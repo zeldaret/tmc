@@ -110,7 +110,7 @@ void sub_08048B2C(GyorgFemaleEyeEntity* this) {
     parent = (GyorgFemaleEntity*)super->parent;
     if (sub_08048D70(parent)) {
         if (!super->spriteSettings.draw) {
-            CreateFx(super, 2, 0x40);
+            CreateFx(super, FX_DEATH, 0x40);
         }
         super->spriteSettings.draw = 1;
     } else {
@@ -142,7 +142,7 @@ void sub_08048BB0(GyorgFemaleEyeEntity* this) {
             super->flags &= ~ENT_COLLIDE;
             super->spriteSettings.draw = 0;
             InitializeAnimation(super, gUnk_080D2010[(super->animationState << 3) + super->type]);
-            CreateFx(super, 2, 0x40);
+            CreateFx(super, FX_DEATH, 0x40);
         }
     } else {
         if ((parent->unk_80 >> super->type) & 1) {

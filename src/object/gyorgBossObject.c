@@ -338,7 +338,7 @@ void sub_080A1DCC(GyorgBossObjectEntity* this) {
 void sub_080A1E54(GyorgBossObjectEntity* this) {
     Entity* fx;
     if ((++super->actionDelay & 0x1F) == 0) {
-        fx = CreateFx(super, 0x51, 0);
+        fx = CreateFx(super, FX_GIANT_EXPLOSION4, 0);
         if (fx) {
             u32 r = Random();
             fx->x.HALF.HI = gRoomControls.origin_x + 0x200 + (r & 0xf0) - 0x78;
@@ -406,7 +406,7 @@ void sub_080A1FF0(GyorgBossObjectEntity* this) {
         super->actionDelay--;
         if (super->actionDelay <= 0x20 && (super->actionDelay & 0xF) == 0) {
             Entity* fx;
-            fx = CreateFx(super, 0x51, 0);
+            fx = CreateFx(super, FX_GIANT_EXPLOSION4, 0);
             if (fx) {
                 u32 r = Random();
                 fx->x.HALF.HI = gRoomControls.origin_x + 0x200 + (r & 0x78) - 0x3C;

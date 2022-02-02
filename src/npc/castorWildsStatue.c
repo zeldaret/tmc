@@ -126,7 +126,7 @@ void sub_080675D4(Entity* this) {
     s32 i;
 
     for (i = 0; i < 9; i++, gUnk++) {
-        Entity* ent = CreateFx(this, 2, 0);
+        Entity* ent = CreateFx(this, FX_DEATH, 0);
         if (ent) {
             ent->x.HALF.HI += gUnk->x;
             ent->y.HALF.HI += gUnk->y;
@@ -139,7 +139,7 @@ void sub_080675D4(Entity* this) {
     };
     gUnk = gUnk_08110E8A;
     for (i = 0; i < 4; i++, gUnk++) {
-        Entity* ent = CreateFx(this, 4, 0);
+        Entity* ent = CreateFx(this, FX_ROCK, 0);
         if (ent) {
             ent->x.HALF.HI = gUnk->x + ent->x.HALF.HI;
             ent->y.HALF.HI = gUnk->y + ent->y.HALF.HI;
