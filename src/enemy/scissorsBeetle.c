@@ -93,7 +93,6 @@ void sub_080389E8(ScissorsBeetleEntity* this) {
     } else if (super->actionDelay) {
         super->actionDelay--;
     } else if (super->collisions) {
-        ;
         super->actionDelay = 0xc;
         if ((child->animationState & 1) == 0) {
             child->animationState += Random() & 0x20 ? 1 : 7;
