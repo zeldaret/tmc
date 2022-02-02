@@ -2,8 +2,6 @@
 #include "object.h"
 #include "game.h"
 
-extern void sub_0807B9B8(s32, s32, s32);
-
 extern void (*const OctorokBossObject_Actions[])(Entity*);
 extern const u16 gUnk_0812384C[];
 extern const u16 gUnk_0812388C[];
