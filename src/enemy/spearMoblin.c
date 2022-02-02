@@ -96,7 +96,7 @@ void sub_08028314(Entity* this) {
         sub_08028604(this);
     }
 
-    pEVar2 = CreateProjectile(3);
+    pEVar2 = CreateProjectile(MOBLIN_SPEAR);
     if (pEVar2 != NULL) {
         pEVar2->parent = this;
         this->child = pEVar2;

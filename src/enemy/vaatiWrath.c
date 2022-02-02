@@ -953,7 +953,7 @@ u32 sub_080422C0(Entity* this, u32 unk1) {
     type1 = ((VaatiWrathHeapStruct*)this->myHeap)->type1;
     GetNextFrame(type1);
     if (unk1 + 1 == (tmp = type1->frame)) {
-        child = CreateProjectile(0x21);
+        child = CreateProjectile(V3_ELECTRIC_PROJECTILE);
         if (child != NULL) {
             child->type = unk1;
             child->parent = this;

@@ -32,7 +32,7 @@ void Winder_Init(Entity* this) {
     }
     InitializeAnimation(this, 0);
     if (this->type < 4) {
-        entity = CreateProjectile(0x1d);
+        entity = CreateProjectile(WINDER);
         entity->type = this->type + 1;
         entity->parent = this->parent;
         entity->child = this;

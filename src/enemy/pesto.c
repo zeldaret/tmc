@@ -168,7 +168,7 @@ void sub_080240B8(Entity* this) {
         Entity* ent;
 
         this->field_0x82.HALF.HI = 0;
-        ent = CreateProjectileWithParent(this, 6, this->field_0x82.HALF.HI);
+        ent = CreateProjectileWithParent(this, DIRT_BALL_PROJECTILE, this->field_0x82.HALF.HI);
         if (ent) {
             this->child = ent;
             ent->parent = this;
@@ -411,7 +411,7 @@ void sub_080244E8(Entity* this) {
                             this->z.HALF.HI -= 0xe;
                             this->field_0x78.HWORD -= 0xe;
 
-                            ent = CreateProjectileWithParent(this, 6, this->field_0x82.HALF.HI);
+                            ent = CreateProjectileWithParent(this, DIRT_BALL_PROJECTILE, this->field_0x82.HALF.HI);
                             if (ent) {
                                 ent->parent = this;
                                 ent->z.HALF.HI += 0xe;
@@ -434,7 +434,7 @@ void sub_080244E8(Entity* this) {
                             this->z.HALF.HI -= 0xe;
                             this->field_0x78.HWORD -= 0xe;
 
-                            ent = CreateProjectileWithParent(this, 6, this->field_0x82.HALF.HI);
+                            ent = CreateProjectileWithParent(this, DIRT_BALL_PROJECTILE, this->field_0x82.HALF.HI);
                             if (ent) {
                                 ent->parent = this;
                                 ent->z.HALF.HI += 0xe;

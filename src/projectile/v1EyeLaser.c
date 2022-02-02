@@ -94,7 +94,7 @@ END_NONMATCH
 void sub_080AB844(Entity* this, s32 param_1, s32 param_2) {
     Entity* entity;
 
-    entity = CreateProjectile(0x1c);
+    entity = CreateProjectile(V1_EYE_LASER);
     if (entity != NULL) {
         entity->type = 1;
         entity->actionDelay = param_1;

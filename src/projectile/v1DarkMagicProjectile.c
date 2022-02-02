@@ -129,7 +129,7 @@ void V1DarkMagicProjectile_Init(Entity* this) {
         this->direction = GetFacingDirection(this, &gPlayerEntity);
         this->field_0x86.HALF.LO = 0;
         this->cutsceneBeh.HWORD = 300;
-        entity = CreateProjectile(0x18);
+        entity = CreateProjectile(V1_DARK_MAGIC_PROJECTILE);
         if (entity != NULL) {
             entity->type = 1;
             entity->type2 = this->type2;

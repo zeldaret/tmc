@@ -191,7 +191,7 @@ void sub_08044868(Entity* this) {
             if (*(u8*)&vaati->field_0x86 > 1) {
                 u8 draw = this->spriteSettings.draw;
                 if (draw == 1 && this->cutsceneBeh.HALF.LO == 0) {
-                    vaati = CreateProjectileWithParent(this, 0x18, 0);
+                    vaati = CreateProjectileWithParent(this, V1_DARK_MAGIC_PROJECTILE, 0);
                     if (vaati) {
                         vaati->type2 = 1;
                         vaati->parent = this;
@@ -281,7 +281,7 @@ void sub_080449F8(Entity* this) {
                 this->field_0x74.HALF.LO++;
                 draw = this->spriteSettings.draw;
                 if (draw) {
-                    vaati = CreateProjectileWithParent(this, 0x1c, 0);
+                    vaati = CreateProjectileWithParent(this, V1_EYE_LASER, 0);
                     if (vaati) {
                         vaati->y.HALF.HI += 4;
                         vaati->parent = this;

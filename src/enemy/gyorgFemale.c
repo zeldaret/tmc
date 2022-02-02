@@ -56,7 +56,7 @@ void sub_0804614C(GyorgFemaleEntity* this) {
     Entity* tmp;
     if (gEntCount > 0x3d)
         return;
-    tmp = CreateProjectile(0x22);
+    tmp = CreateProjectile(GYORG_TAIL);
     tmp->type = 0;
     tmp->parent = super;
     ((GyorgHeap*)super->myHeap)->unk_14 = (GenericEntity*)tmp;

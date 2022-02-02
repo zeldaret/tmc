@@ -33,7 +33,7 @@ void GuardLineOfSight(Entity* this) {
         } else {
             if (sub_080644C8(this) != 0) {
                 if (((this->actionDelay++) & 3) == 0) {
-                    entity = CreateProjectile(0xc);
+                    entity = CreateProjectile(GUARD_LINE_OF_SIGHT);
                     if (entity != NULL) {
                         entity->type = 1;
                         tmp = this->parent->knockbackDirection;
