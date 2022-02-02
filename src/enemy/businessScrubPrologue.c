@@ -1,0 +1,345 @@
+#define NENT_DEPRECATED
+#include "entity.h"
+#include "enemy.h"
+#include "functions.h"
+
+typedef struct {
+    Entity base;
+    u8 filler[0x10];
+    u16 unk_78;
+    u16 unk_7a;
+    u8 filler2[8];
+    u32 unk_84;
+} BusinessScrubPrologueEntity;
+
+extern u16 script_BusinessScrubIntro[];
+
+void (*const gUnk_080D19FC[])(Entity*);
+void (*const gUnk_080D1A14[])(BusinessScrubPrologueEntity*);
+const u8 gUnk_080D1A38[];
+const s8 gUnk_080D1A3E[];
+const u16 gUnk_080D1A4E[];
+
+extern void sub_08095C48(Entity* this);
+extern void sub_080954AC(Entity*, u32);
+
+void sub_08046030(BusinessScrubPrologueEntity*, u32);
+bool32 sub_08045F54(BusinessScrubPrologueEntity*, u32);
+void sub_08045FF0(BusinessScrubPrologueEntity*);
+bool32 sub_08045F98(BusinessScrubPrologueEntity*);
+void sub_0804604C(BusinessScrubPrologueEntity*);
+void sub_08045FA0(BusinessScrubPrologueEntity*);
+
+void BusinessScrubPrologue(Entity* this) {
+    EnemyFunctionHandler(this, gUnk_080D19FC);
+}
+
+void sub_08045B98(BusinessScrubPrologueEntity* this) {
+    super->spriteSettings.draw = 1;
+    gUnk_080D1A14[super->action](this);
+    sub_0800445C(super);
+}
+
+void sub_08045BC8(BusinessScrubPrologueEntity* this) {
+    Entity* ent;
+    if (super->hitType == 1) {
+        if ((super->bitfield & 0x7f) == 0x42) {
+            super->action = 4;
+            super->subAction = 0;
+            super->actionDelay = 0x28;
+            super->flags &= ~ENT_COLLIDE;
+            sub_08046030(this, 4);
+            ent = CreateFx(super, FX_BUSH, 0);
+            if (ent) {
+                ent->z.HALF.HI -= 8;
+            }
+
+            gPlayerState.field_0x27[0] = 0xff;
+            EnqueueSFX(SFX_EM_DEKUSCRUB_HIT);
+            SetDefaultPriority(super, PRIO_MESSAGE);
+        }
+    }
+}
+
+void nullsub_174(BusinessScrubPrologueEntity* this) {
+}
+
+void sub_08045C3C(BusinessScrubPrologueEntity* this) {
+    super->field_0xf = 0;
+    this->unk_78 = super->x.HALF.HI;
+    this->unk_7a = super->y.HALF.HI;
+    super->animationState = 0;
+    super->direction = 0x10;
+    super->action = 5;
+    super->actionDelay = 0x78;
+    super->spritePriority.b1 = 1;
+    super->spriteSettings.draw = 1;
+    sub_08046030(this, 0);
+    sub_08095C48(super);
+    StartCutscene(super, script_BusinessScrubIntro);
+    sub_0807DD50(super);
+}
+
+void sub_08045CA4(BusinessScrubPrologueEntity* this) {
+    super->spriteSettings.draw = 0;
+    if (super->actionDelay) {
+        super->actionDelay--;
+    } else if (sub_08045F54(this, 0)) {
+        sub_08045FF0(this);
+        super->subAction = 0;
+        super->field_0xf = 1;
+    }
+}
+
+void nullsub_24(BusinessScrubPrologueEntity* this) {
+}
+
+void sub_08045CE0(BusinessScrubPrologueEntity* this) {
+    Entity* ent;
+    u32 r6;
+    GetNextFrame(super);
+
+    switch (super->subAction) {
+        case 0:
+            r6 = 1;
+            if (super->frame & 0x80) {
+                super->subAction = 1;
+                super->actionDelay = 0x3c;
+                super->field_0xf = 0x10;
+                sub_08045F98(this);
+                sub_08046030(this, 1);
+            }
+            break;
+        case 1:
+            r6 = 1;
+            if (--super->actionDelay == 0) {
+                super->subAction = 2;
+                super->actionDelay = 0x20;
+                super->field_0xf = 0;
+                sub_08045F98(this);
+                sub_08046030(this, 2);
+            }
+            break;
+        case 2:
+            r6 = 1;
+            sub_0804604C(this);
+            if (super->frame & 1) {
+                ent = CreateProjectileWithParent(super, DEKU_SEED_PROJECTILE, 0);
+                if (ent) {
+                    ent->parent = super;
+                    ent->direction = super->direction;
+                    super->frame &= 0xfe;
+                    super->subAction = 3;
+                }
+            }
+            break;
+        case 3:
+            r6 = 2;
+            if (super->frame & 0x80) {
+                super->subAction = 4;
+                super->actionDelay = 0x50;
+                sub_08046030(this, 1);
+            }
+            break;
+        case 4:
+            r6 = 2;
+            if (--super->actionDelay == 0) {
+                if (sub_08045F54(this, 0)) {
+                    super->subAction = 1;
+                    super->actionDelay = 0x3c;
+                    super->field_0xf = 0x10;
+                    sub_08045F98(this);
+                } else {
+                    sub_08045FA0(this);
+                    super->actionDelay = 0x50;
+                    super->field_0xf = 0;
+                }
+            }
+            break;
+    }
+
+    if (sub_08045F54(this, r6) == 0) {
+        sub_08045FA0(this);
+        super->subAction = 0;
+        super->actionDelay = 0;
+        super->field_0xf = 0;
+    }
+}
+
+void sub_08045E14(BusinessScrubPrologueEntity* this) {
+    Entity* ent;
+    gPlayerState.field_0x27[0] = 0xff;
+    switch (super->subAction) {
+        case 0:
+            if (super->actionDelay == 0) {
+                if (super->frame & 0x80) {
+                    super->subAction = 1;
+                    sub_08045F98(this);
+                    sub_08046030(this, 5);
+                    super->spritePriority.b1 = 1;
+                }
+            } else {
+                super->actionDelay--;
+            }
+            break;
+        case 1:
+            if (super->frame & 0x80) {
+                super->action = 5;
+                super->subAction = 0;
+                sub_08046030(this, 0);
+                ent = sub_0804A9FC(super, 0x1c);
+                if (ent) {
+                    ent->spritePriority.b0 = 3;
+                    ent->z.HALF.HI -= 0xc;
+                    SetDefaultPriority(ent, PRIO_MESSAGE);
+                }
+            }
+            break;
+    }
+
+    GetNextFrame(super);
+    sub_0800445C(super);
+}
+
+void sub_08045EC8(BusinessScrubPrologueEntity* this) {
+    sub_0807DD94(super, 0);
+}
+
+void sub_08045ED4(BusinessScrubPrologueEntity* this) {
+    sub_08045FA0(this);
+}
+
+void sub_08045EDC(BusinessScrubPrologueEntity* this) {
+    if (super->subAction == 0) {
+        super->subAction++;
+        super->actionDelay = 0x20;
+        super->field_0xf = 0;
+        sub_08045F98(this);
+        sub_08046030(this, 2);
+    }
+
+    GetNextFrame(super);
+    sub_0804604C(this);
+    if (super->frame & 1) {
+        super->frame &= 0xfe;
+        sub_080954AC(super, this->unk_84);
+        EnqueueSFX(SFX_18D);
+    } else if (super->frame & 0x80) {
+        super->action = 5;
+        super->subAction = 0;
+        sub_08046030(this, 1);
+    }
+}
+
+void nullsub_25(BusinessScrubPrologueEntity* this) {
+}
+
+bool32 sub_08045F54(BusinessScrubPrologueEntity* this, u32 arg2) {
+    Entity* ent = sub_08049DF4(1);
+    u32 r3;
+    if (ent == NULL)
+        return 0;
+
+    if (EntityInRectRadius(super, ent, 0x20, 0x20))
+        return 0;
+    if (arg2 == 2)
+        return 1;
+    r3 = 0x50;
+    if (arg2) {
+        r3 = 0x58;
+    }
+
+    if (EntityInRectRadius(super, ent, r3, r3))
+        return 1;
+    return 0;
+}
+
+bool32 sub_08045F98(BusinessScrubPrologueEntity* this) {
+    super->direction = 0x10;
+    return 1;
+}
+
+void sub_08045FA0(BusinessScrubPrologueEntity* this) {
+    super->action = 1;
+    COLLISION_OFF(super);
+    super->spriteSettings.draw = 0;
+    super->spritePriority.b1 = 0;
+    super->x.HALF.HI = this->unk_78;
+    super->y.HALF.HI = this->unk_7a;
+    super->spriteOffsetX = 0;
+    super->spriteOffsetY = 0;
+    InitializeAnimation(super, 0);
+}
+
+void sub_08045FF0(BusinessScrubPrologueEntity* this) {
+    super->action = 3;
+    COLLISION_ON(super);
+    super->spriteSettings.draw = 1;
+    super->spritePriority.b1 = 1;
+    sub_08045F98(this);
+    sub_08046030(this, 1);
+}
+
+void sub_08046030(BusinessScrubPrologueEntity* this, u32 arg2) {
+    InitializeAnimation(super, (super->direction >> 3) | gUnk_080D1A38[arg2]);
+}
+
+void sub_0804604C(BusinessScrubPrologueEntity* this) {
+    if (super->actionDelay) {
+        if (--super->actionDelay <= 0xf) {
+            super->spriteOffsetY = gUnk_080D1A3E[super->actionDelay];
+        }
+    }
+}
+
+void sub_08046078(BusinessScrubPrologueEntity* this) {
+    s32 index;
+    Entity* ent;
+    const u16* ptr;
+    gPlayerState.field_0x27[0] = 0;
+    ptr = gUnk_080D1A4E;
+    for (index = 0; index <= 4; index++) {
+        ent = CreateFx(super, FX_DEATH, 0x40);
+
+        if (ent) {
+            ent->x.HALF.HI = gRoomControls.origin_x + *ptr;
+            ptr++;
+            ent->y.HALF.HI = gRoomControls.origin_y + *ptr;
+            ptr++;
+        }
+    }
+
+    EnqueueSFX(SFX_16E);
+    sub_0807BA8C(0x7a2, 1);
+    sub_0807BA8C(0x7a3, 1);
+    sub_0807BA8C(0x7a5, 1);
+    sub_0807BA8C(0x7a6, 1);
+    sub_0807BA8C(0x7a7, 1);
+
+    ent = CreateFx(super, FX_BIG_EXPLOSION2, 0x40);
+    if (ent) {
+        CopyPosition(super, ent);
+        EnqueueSFX(SFX_184);
+    }
+
+    if (super->child) {
+        super->child->action = 0xff;
+    }
+
+    sub_0804AA1C(super);
+}
+
+void (*const gUnk_080D19FC[])(Entity*) = {
+    (EntityActionPtr)sub_08045B98, (EntityActionPtr)sub_08045BC8, sub_08001324, sub_0804A7D4, sub_08001242,
+    (EntityActionPtr)nullsub_174,
+};
+
+void (*const gUnk_080D1A14[])(BusinessScrubPrologueEntity*) = {
+    sub_08045C3C, sub_08045CA4, nullsub_24,   sub_08045CE0, sub_08045E14,
+    sub_08045EC8, sub_08045ED4, sub_08045EDC, nullsub_25,
+};
+
+const u8 gUnk_080D1A38[] = { 0, 4, 8, 12, 16, 20 };
+
+const s8 gUnk_080D1A3E[] = { 0, -1, -2, -3, -4, -5, -6, -7, -7, -6, -5, -4, -3, -2, -1, 0 };
+const u16 gUnk_080D1A4E[] = { 0x228, 0x1e8, 0x238, 0x1e8, 0x258, 0x1e8, 0x268, 0x1e8, 0x278, 0x1e8, 0 };

@@ -28513,21 +28513,6 @@
     "type": "animation"
   },
   {
-    "path": "businessScrubPrologue/gUnk_080D1A38.bin",
-    "start": 858680,
-    "size": 6
-  },
-  {
-    "path": "businessScrubPrologue/gUnk_080D1A3E.bin",
-    "start": 858686,
-    "size": 16
-  },
-  {
-    "path": "businessScrubPrologue/gUnk_080D1A4E.bin",
-    "start": 858702,
-    "size": 22
-  },
-  {
     "path": "animations/gSpriteAnimations_GyorgMale_0.bin",
     "start": 859248,
     "size": 33,
