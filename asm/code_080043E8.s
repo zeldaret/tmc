@@ -280,8 +280,8 @@ GetFacingDirection: @ 0x080045C4
 	ldrsh r0, [r0, r5]
 	pop {r4, r5}
 
-	thumb_func_start sub_080045D4
-sub_080045D4: @ 0x080045D4
+	thumb_func_start CalculateDirectionTo
+CalculateDirectionTo: @ 0x080045D4
 	mov ip, r3
 	ldr r3, _08004694 @ =gUnk_030060F0
 	bx r3

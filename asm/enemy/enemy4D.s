@@ -166,7 +166,7 @@ _0803ECD8:
 	ldrsh r1, [r4, r2]
 	ldrh r2, [r5]
 	ldrh r3, [r6]
-	bl sub_080045D4
+	bl CalculateDirectionTo
 	strb r0, [r4, #0x15]
 	adds r0, r4, #0
 	movs r1, #0x10

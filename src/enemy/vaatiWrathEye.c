@@ -86,7 +86,7 @@ void VaatiWrathEyeAction3(Entity* this) {
         ptr = &gUnk_080D1D98[this->type * 2];
         x = parent->x.HALF.HI + ptr[0];
         y = parent->y.HALF.HI + ptr[1];
-        direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, x, y);
+        direction = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, x, y);
         this->direction = direction;
         LinearMoveUpdate(this);
         this->z.HALF.HI = this->parent->z.HALF.HI;

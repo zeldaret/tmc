@@ -269,7 +269,7 @@ void sub_0803CA84(Entity* this, u32 unkParameter) {
 void sub_0803CAD0(Entity* this) {
     if (EntityWithinDistance(this, this->field_0x74.HWORD, this->field_0x76.HWORD, 1) == 0) {
         this->direction =
-            sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, this->field_0x74.HWORD, this->field_0x76.HWORD);
+            CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, this->field_0x74.HWORD, this->field_0x76.HWORD);
 
         sub_080AEFE0(this);
     }

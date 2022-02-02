@@ -163,7 +163,7 @@ u32 sub_0806F548(Entity* a, Entity* b, u32 x, u32 y) {
 }
 
 u32 sub_0806F564(Entity* ent, u32 b, u32 c) {
-    u32 tmp = sub_080045D4(ent->x.HALF.HI, ent->y.HALF.HI, b, c);
+    u32 tmp = CalculateDirectionTo(ent->x.HALF.HI, ent->y.HALF.HI, b, c);
     return ent->animationState == sub_0806F5A4(tmp);
 }
 
@@ -247,7 +247,7 @@ u32 sub_0806F804(u32 x, u32 y) {
 }
 
 u32 sub_0806F824(Entity* a, Entity* b, s32 x, s32 y) {
-    return sub_080045D4(a->x.HALF.HI, a->y.HALF.HI, b->x.HALF.HI + x, b->y.HALF.HI + y);
+    return CalculateDirectionTo(a->x.HALF.HI, a->y.HALF.HI, b->x.HALF.HI + x, b->y.HALF.HI + y);
 }
 
 u32 sub_0806F854(Entity* ent, s32 x, s32 y) {

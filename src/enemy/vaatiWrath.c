@@ -829,11 +829,11 @@ u32 sub_0804207C(Entity* this) {
     y = this->y.HALF.HI - 0x10;
     arm = ((VaatiWrathHeapStruct*)this->myHeap)->arms[0];
     if ((arm != NULL) && (arm->action >= 5) && EntityWithinDistance(arm, x, y, 0x30)) {
-        return sub_080045D4(arm->x.HALF.HI, arm->y.HALF.HI, x, y);
+        return CalculateDirectionTo(arm->x.HALF.HI, arm->y.HALF.HI, x, y);
     } else {
         arm = ((VaatiWrathHeapStruct*)this->myHeap)->arms[1];
         if (((arm != NULL) && (arm->action >= 5)) && EntityWithinDistance(arm, x, y, 0x30)) {
-            return sub_080045D4(arm->x.HALF.HI, arm->y.HALF.HI, x, y);
+            return CalculateDirectionTo(arm->x.HALF.HI, arm->y.HALF.HI, x, y);
         } else {
             if (gPlayerEntity.y.HALF.HI < 0x40) {
                 tmp = gRoomControls.origin_y + 0x18;
@@ -841,7 +841,7 @@ u32 sub_0804207C(Entity* this) {
             } else {
                 tmp = gPlayerEntity.y.HALF.HI - 0x28;
             }
-            return sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, gPlayerEntity.x.HALF.HI, tmp);
+            return CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, gPlayerEntity.x.HALF.HI, tmp);
         }
     }
 }

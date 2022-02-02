@@ -360,9 +360,9 @@ SECTIONS {
         asm/enemy/gleerok.o(.text);
         src/enemy/vaatiEyesMacro.o(.text);
         src/enemy/tektite.o(.text);
-        asm/enemy/wizzrobeWind.o(.text);
-        asm/enemy/wizzrobeFire.o(.text);
-        asm/enemy/wizzrobeIce.o(.text);
+        src/enemy/wizzrobeWind.o(.text);
+        src/enemy/wizzrobeFire.o(.text);
+        src/enemy/wizzrobeIce.o(.text);
         src/enemy/code_080300AC.o(.text);
         asm/enemy/code_080300AC.o(.text);
         asm/enemy/armos.o(.text);
@@ -1011,11 +1011,11 @@ SECTIONS {
         data/animations/enemy/vaatiEyesMacro.o(.rodata);
         data/const/enemy/tektite.o(.rodata);
         data/animations/enemy/tektite.o(.rodata);
-        data/const/enemy/wizzrobeWind.o(.rodata);
+        src/enemy/wizzrobeWind.o(.rodata);
         data/animations/enemy/wizzrobeWind.o(.rodata);
-        data/const/enemy/wizzrobeFire.o(.rodata);
+        src/enemy/wizzrobeFire.o(.rodata);
         data/animations/enemy/wizzrobeFire.o(.rodata);
-        data/const/enemy/wizzrobeIce.o(.rodata);
+        src/enemy/wizzrobeIce.o(.rodata);
         data/animations/enemy/wizzrobeIce.o(.rodata);
         data/const/enemy/armos.o(.rodata);
         data/animations/enemy/armos.o(.rodata);

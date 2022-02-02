@@ -302,7 +302,7 @@ _08030C1C:
 	ldrsh r2, [r3, r5]
 	movs r5, #0x32
 	ldrsh r3, [r3, r5]
-	bl sub_080045D4
+	bl CalculateDirectionTo
 	adds r0, #4
 	movs r1, #0x18
 	ands r0, r1
@@ -877,7 +877,7 @@ _0803109E:
 	adds r3, r7, #0
 	adds r3, #0x76
 	ldrh r3, [r3]
-	bl sub_080045D4
+	bl CalculateDirectionTo
 	strb r0, [r7, #0x15]
 	adds r0, #4
 	movs r2, #0x18
@@ -1032,7 +1032,7 @@ _080311D8:
 	adds r3, #0x76
 	ldrh r3, [r3]
 _080311E8:
-	bl sub_080045D4
+	bl CalculateDirectionTo
 	strb r0, [r7, #0x15]
 _080311EE:
 	ldrb r0, [r7, #0x15]

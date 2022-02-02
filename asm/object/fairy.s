@@ -312,7 +312,7 @@ _0808D8D4:
 	adds r3, r4, #0
 	adds r3, #0x76
 	ldrh r3, [r3]
-	bl sub_080045D4
+	bl CalculateDirectionTo
 	strb r0, [r4, #0x15]
 _0808D8EE:
 	ldrb r1, [r4, #0x15]

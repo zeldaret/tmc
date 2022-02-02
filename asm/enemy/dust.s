@@ -630,7 +630,7 @@ _08044570:
 	lsls r4, r4, #0x18
 	asrs r4, r4, #0x18
 	adds r3, r3, r4
-	bl sub_080045D4
+	bl CalculateDirectionTo
 	strb r0, [r6, #0x15]
 	adds r0, r6, #0
 	bl LinearMoveUpdate

@@ -178,8 +178,8 @@ void sub_08025230(Entity* this) {
 void sub_080252E0(Entity* this) {
     u32 tile;
 
-    this->direction =
-        sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, (u16)this->field_0x7c.HALF.LO, (u16)this->field_0x7c.HALF.HI);
+    this->direction = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, (u16)this->field_0x7c.HALF.LO,
+                                           (u16)this->field_0x7c.HALF.HI);
 
     sub_08025C44(this);
     GetNextFrame(this);

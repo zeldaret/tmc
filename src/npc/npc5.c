@@ -384,7 +384,7 @@ void sub_08061090(Entity* this, u32 a, u32 b) {
 }
 
 void sub_08061120(Entity* this, u32 param_a, u32 param_b, u32 param_c) {
-    this->direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, param_a, param_b);
+    this->direction = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, param_a, param_b);
     if ((param_c != this->field_0x6c.HALF.LO) || (10 < ((this->direction + this->animationState * -4 + 5) & 0x1f))) {
         this->animationState = DirectionRoundUp(this->direction) >> 2;
         sub_08060E70(this, param_c);
@@ -566,7 +566,7 @@ void sub_08061464(Entity* this, u32 param_a, u32 param_b) {
     iVar10 = this->x.HALF.HI;
     iVar9 = this->y.HALF.HI;
 
-    switch (((sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, param_a, param_b) + 2) & 0x1c) >> 2) {
+    switch (((CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, param_a, param_b) + 2) & 0x1c) >> 2) {
         case 0:
             this->field_0x6e.HWORD = param_b;
             if (this->x.HALF.HI > (s32)param_a) {

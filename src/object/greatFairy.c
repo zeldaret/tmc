@@ -420,7 +420,7 @@ void sub_080871F8(Entity* this) {
     if ((temp->x.HALF.HI == this->x.HALF.HI) && (temp->y.HALF.HI - 32 == this->y.HALF.HI)) {
         this->action = 2;
     } else {
-        this->direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, temp->x.HALF.HI, temp->y.HALF.HI - 32);
+        this->direction = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, temp->x.HALF.HI, temp->y.HALF.HI - 32);
         LinearMoveUpdate(this);
     }
 }
@@ -467,8 +467,8 @@ void sub_080872F8(Entity* this) {
     GetNextFrame(this);
     if (((u16)(this->field_0x68.HWORD - this->x.HALF.HI) > 0xc) ||
         ((u16)(this->field_0x6a.HWORD - this->y.HALF.HI) > 0xc)) {
-        this->direction =
-            sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, (s16)this->field_0x68.HWORD, (s16)this->field_0x6a.HWORD);
+        this->direction = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, (s16)this->field_0x68.HWORD,
+                                               (s16)this->field_0x6a.HWORD);
         this->direction = (this->direction + gUnk_081207AC[Random() & 3]) & 0x1f;
     }
     temp = gSineTable[this->actionDelay + 64];

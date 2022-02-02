@@ -247,7 +247,7 @@ void sub_0803414C(Entity* this) {
             }
         }
     } else {
-        this->direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, x, y);
+        this->direction = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, x, y);
         LinearMoveUpdate(this);
     }
 }
