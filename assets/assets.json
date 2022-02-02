@@ -26498,21 +26498,6 @@
     "type": "animation"
   },
   {
-    "path": "scissorsBeetle/gUnk_080CF62C.bin",
-    "start": 849452,
-    "size": 8
-  },
-  {
-    "path": "scissorsBeetle/gUnk_080CF634.bin",
-    "start": 849460,
-    "size": 8
-  },
-  {
-    "path": "scissorsBeetle/gUnk_080CF63C.bin",
-    "start": 849468,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_CuccoAggr_0.bin",
     "start": 849969,
     "size": 5,
