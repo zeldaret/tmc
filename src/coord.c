@@ -52,7 +52,6 @@ u32 sub_0806F58C(Entity*, Entity*);
 u32 sub_0806FCA0(Entity*, Entity*);
 void UnloadHitbox(Entity*);
 extern u32 sub_08007DD6(u32, const u16*);
-extern u32 sub_080041DC(Entity*, u32, u32);
 u32 PointInsideRadius(s32 x, s32 y, s32 radius);
 extern void sub_0806FEE8(struct_gUnk_020000C0_1*, u32, u32, u32);
 void sub_0806FEFC(struct_gUnk_020000C0_1*, Entity*);

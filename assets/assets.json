@@ -45777,36 +45777,6 @@
     "size": 36
   },
   {
-    "path": "object97/gUnk_08124128.bin",
-    "start": 1196328,
-    "size": 5
-  },
-  {
-    "path": "object97/gUnk_0812412D.bin",
-    "start": 1196333,
-    "size": 5
-  },
-  {
-    "path": "object97/gUnk_08124132.bin",
-    "start": 1196338,
-    "size": 20
-  },
-  {
-    "path": "object97/gUnk_08124146.bin",
-    "start": 1196358,
-    "size": 10
-  },
-  {
-    "path": "object97/gUnk_08124158.bin",
-    "start": 1196376,
-    "size": 32
-  },
-  {
-    "path": "object97/gUnk_08124178.bin",
-    "start": 1196408,
-    "size": 20
-  },
-  {
     "path": "animations/gSpriteAnimations_Object98_0.bin",
     "start": 1196436,
     "size": 72,
