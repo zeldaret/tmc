@@ -10,8 +10,8 @@ gUnk_0810CB78:: @ 0810CB78
 gUnk_0810CBC0:: @ 0810CBC0
 	.incbin "sittingPerson/gUnk_0810CBC0.bin"
 
-gUnk_0810CBD8:: @ 0810CBD8
-	.4byte sub_08063758
+SittingPersion_Actions:: @ 0810CBD8
+	.4byte SittingPersion_Init
 	.4byte sub_080637B8
 	.4byte sub_08063830
 
