@@ -165,7 +165,7 @@ void sub_0806D274(Entity* this) {
         this->frameIndex = 2;
         this->actionDelay = 8;
         SetDefaultPriority(this, PRIO_MESSAGE);
-        npc = CreateNPC(0x4c, 3, 0);
+        npc = CreateNPC(BIG_GORON, 3, 0);
         if (npc != NULL) {
             npc->child = this;
         }
@@ -271,7 +271,7 @@ void sub_0806D41C(Entity* this) {
 }
 
 void sub_0806D4C0(Entity* this, u32 param) {
-    Entity* npc = CreateNPC(0x4c, param + 6, 0);
+    Entity* npc = CreateNPC(BIG_GORON, param + 6, 0);
     if (npc != NULL) {
         npc->parent = this;
         CopyPosition(this, npc);

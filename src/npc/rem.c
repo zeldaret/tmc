@@ -198,7 +198,7 @@ void sub_0806A830(Entity* this) {
     GetNextFrame(this);
     if (this->frame == 1) {
         this->frame = 0;
-        npc = CreateNPC(0x37, 5, 0);
+        npc = CreateNPC(REM, 5, 0);
         if (npc != NULL) {
             PositionEntityOnTop(this, npc);
         }
@@ -219,11 +219,11 @@ void sub_0806A890(Entity* this) {
 
 void sub_0806A8C8(Entity* this) {
     Entity* entity;
-    if ((CheckLocalFlag(SHOP02_KUTSU_00) == 0) && (entity = CreateNPC(0x37, 2, 0), entity != NULL)) {
+    if ((CheckLocalFlag(SHOP02_KUTSU_00) == 0) && (entity = CreateNPC(REM, 2, 0), entity != NULL)) {
         CopyPosition(this, entity);
         entity->parent = this;
     }
-    entity = CreateNPC(0x37, 3, 0);
+    entity = CreateNPC(REM, 3, 0);
     if (entity != NULL) {
         CopyPosition(this, entity);
         entity->y.HALF.HI += 2;
@@ -232,7 +232,7 @@ void sub_0806A8C8(Entity* this) {
 }
 
 void sub_0806A914(Entity* this) {
-    Entity* npc = CreateNPC(0x37, 1, 0);
+    Entity* npc = CreateNPC(REM, 1, 0);
     if (npc != NULL) {
         CopyPosition(this, npc);
         SortEntityAbove(this, npc);
@@ -276,7 +276,7 @@ void sub_0806A9B0(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_0806A9E8(Entity* this) {
-    Entity* npc = CreateNPC(0x37, 4, 0);
+    Entity* npc = CreateNPC(REM, 4, 0);
     if (npc != NULL) {
         CopyPosition(this, npc);
         SortEntityBelow(this, npc);

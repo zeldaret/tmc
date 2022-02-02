@@ -4,6 +4,7 @@
 #include "functions.h"
 #include "message.h"
 #include "object.h"
+#include "npc.h"
 
 extern ScreenTransitionData gUnk_0813AD4C;
 
@@ -28,13 +29,13 @@ void sub_0806DF00(Entity* this) {
 
     if (this->type == 0) {
         this->action = 1;
-        npc = CreateNPC(0x51, 1, 0);
+        npc = CreateNPC(PICOLYTE_BOTTLE, 1, 0);
         *(Entity**)&this->field_0x68 = npc;
         npc->parent = this;
-        npc = CreateNPC(0x51, 1, 1);
+        npc = CreateNPC(PICOLYTE_BOTTLE, 1, 1);
         *(Entity**)&this->field_0x6c = npc;
         npc->parent = this;
-        npc = CreateNPC(0x51, 1, 2);
+        npc = CreateNPC(PICOLYTE_BOTTLE, 1, 2);
         *(Entity**)&this->field_0x70 = npc;
         npc->parent = this;
         this->field_0x74.HWORD = 0;

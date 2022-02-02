@@ -70,7 +70,7 @@ void sub_08066D94(Entity* this) {
     Entity* npc;
 
     SetGlobalFlag(ZELDA_CHASE);
-    npc = CreateNPC(0x2E, 0, 0);
+    npc = CreateNPC(ZELDA_FOLLOWER, 0, 0);
     if (npc != NULL) {
         npc->animationState = gPlayerEntity.animationState;
         npc->flags |= ENT_PERSIST;

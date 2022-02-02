@@ -18,13 +18,13 @@ void sub_0806CAF4(Entity* this) {
     if (this->action == 0) {
         this->action += 1;
         SetDefaultPriority(this, PRIO_MESSAGE);
-        npc = CreateNPC(0x4a, 1, 0);
+        npc = CreateNPC(GREGAL, 1, 0);
         if (npc != NULL) {
             npc->parent = this;
             CopyPosition(this, npc);
             SortEntityBelow(this, npc);
         }
-        npc = CreateNPC(0x4a, 2, 0);
+        npc = CreateNPC(GREGAL, 2, 0);
         if (npc != NULL) {
             npc->parent = this;
             CopyPosition(this, npc);
