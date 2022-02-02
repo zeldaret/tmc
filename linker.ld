@@ -1323,7 +1323,7 @@ SECTIONS {
         data/animations/npc/smallTownMinish.o(.rodata);
         data/const/npc/hurdyGurdyMan.o(.rodata);
         data/animations/npc/hurdyGurdyMan.o(.rodata);
-        data/const/npc/cucco.o(.rodata);
+        src/npc/cucco.o(.rodata);
         data/const/npc/cuccoChick.o(.rodata);
         data/const/npc/phonograph.o(.rodata);
         data/const/npc/npc58.o(.rodata);
