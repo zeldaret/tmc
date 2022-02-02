@@ -134,7 +134,7 @@ _080A5688:
 	movs r0, #1
 	strb r0, [r1, #0x14]
 	strb r0, [r1, #0x15]
-	bl sub_080A7114
+	bl SetMenuType
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _080A5698: .4byte gMenu
@@ -815,7 +815,7 @@ sub_080A59AC: @ 0x080A59AC
 	movs r1, #0
 	bl SetPopupState
 	movs r0, #1
-	bl sub_080A7114
+	bl SetMenuType
 	pop {pc}
 	.align 2, 0
 _080A59C4: .4byte gMenu
@@ -870,13 +870,13 @@ _080A5A10:
 	movs r1, #0
 	bl CreateDialogBox
 	movs r0, #2
-	bl sub_080A7114
+	bl SetMenuType
 	movs r0, #0x6a
 	bl SoundReq
 	b _080A5A52
 _080A5A2E:
 	movs r0, #3
-	bl sub_080A7114
+	bl SetMenuType
 	movs r0, #0x6c
 	bl SoundReq
 	b _080A5A52
@@ -921,7 +921,7 @@ _080A5A76:
 	strh r0, [r1, #8]
 _080A5A84:
 	movs r0, #3
-	bl sub_080A7114
+	bl SetMenuType
 _080A5A8A:
 	pop {pc}
 	.align 2, 0
@@ -1019,7 +1019,7 @@ _080A5B24:
 .endif
 _080A5B28:
 	movs r0, #1
-	bl sub_080A7114
+	bl SetMenuType
 .ifdef EU 
 	pop {pc}
 .else
@@ -1091,7 +1091,7 @@ _080A5B8E:
 	movs r0, #0x3c
 	strh r0, [r6, #8]
 	movs r0, #2
-	bl sub_080A7114
+	bl SetMenuType
 	b _080A5BB6
 _080A5BAA:
 	movs r0, #0x6c
@@ -1182,7 +1182,7 @@ sub_080A5C44: @ 0x080A5C44
 	movs r1, #1
 	bl sub_080A6FB4
 	movs r0, #1
-	bl sub_080A7114
+	bl SetMenuType
 	ldrb r1, [r4, #3]
 	lsls r1, r1, #1
 	ldr r0, _080A5C94 @ =gUnk_08128D43
@@ -1925,7 +1925,7 @@ sub_080A6024: @ 0x080A6024
 	bl sub_0801E738
 	bl sub_080A4398
 	movs r0, #1
-	bl sub_080A7114
+	bl SetMenuType
 	pop {pc}
 	.align 2, 0
 _080A6040: .4byte gUnk_08128D60
@@ -2033,7 +2033,7 @@ sub_080A6108: @ 0x080A6108
 	ldr r0, _080A6128 @ =gUnk_08128DBC
 	bl sub_080A70AC
 	movs r0, #1
-	bl sub_080A7114
+	bl SetMenuType
 	pop {pc}
 	.align 2, 0
 _080A6120: .4byte gMenu
@@ -2893,7 +2893,7 @@ sub_080A6534: @ 0x080A6534
 	movs r0, #0x3c
 	strh r0, [r1, #8]
 	movs r0, #1
-	bl sub_080A7114
+	bl SetMenuType
 	movs r0, #4
 	movs r1, #8
 	bl SetFade
@@ -3000,7 +3000,7 @@ sub_080A6650: @ 0x080A6650
 	bl sub_080A67C4
 	bl sub_080A68D4
 	movs r0, #1
-	bl sub_080A7114
+	bl SetMenuType
 	pop {pc}
 	.align 2, 0
 _080A6670: .4byte gUnk_08128E84
@@ -3917,7 +3917,7 @@ _080A6BD4:
 	movs r0, #0x1e
 	strh r0, [r1, #8]
 	movs r0, #1
-	bl sub_080A7114
+	bl SetMenuType
 	movs r0, #4
 	movs r1, #8
 	bl SetFade
@@ -4020,7 +4020,7 @@ sub_080A6CA8: @ 0x080A6CA8
 	ldr r1, _080A6CD4 @ =gMenu
 	strb r0, [r1, #3]
 	movs r0, #1
-	bl sub_080A7114
+	bl SetMenuType
 	movs r0, #4
 	movs r1, #8
 	bl SetFade
@@ -4083,7 +4083,7 @@ _080A6D34:
 _080A6D38:
 	movs r0, #2
 	strb r0, [r2]
-	bl sub_080A7114
+	bl SetMenuType
 	ldr r0, _080A6D48 @ =0x00000704
 	bl MessageFromTarget
 	b _080A6D54
@@ -4092,7 +4092,7 @@ _080A6D48: .4byte 0x00000704
 _080A6D4C:
 	movs r0, #3
 	strb r0, [r1]
-	bl sub_080A7114
+	bl SetMenuType
 _080A6D54:
 	cmp r4, #0
 	beq _080A6D6E
@@ -4188,7 +4188,7 @@ _080A65DC:
 	cmp r0, #0
 	beq _080A65EA
 	movs r0, #3
-	bl sub_080A7114
+	bl SetMenuType
 _080A65EA:
 	pop {pc}
 	.align 2, 0
@@ -4213,7 +4213,7 @@ _080A6DEC: .4byte gMenu
 _080A6DF0:
 	movs r0, #1
 _080A6DF2:
-	bl sub_080A7114
+	bl SetMenuType
 _080A6DF6:
 	pop {pc}
 .endif
@@ -4226,7 +4226,7 @@ sub_080A6DF8: @ 0x080A6DF8
 	cmp r0, #2
 	bne _080A6E18
 	movs r0, #4
-	bl sub_080A7114
+	bl SetMenuType
 	movs r0, #5
 	movs r1, #8
 	bl SetFade
@@ -4666,8 +4666,8 @@ _080A70FC:
 	.align 2, 0
 _080A7110: .4byte gUnk_0200AF34
 
-	thumb_func_start sub_080A7114
-sub_080A7114: @ 0x080A7114
+	thumb_func_start SetMenuType
+SetMenuType: @ 0x080A7114
 	ldr r1, _080A7120 @ =gMenu
 	movs r2, #0
 	strb r0, [r1, #5]

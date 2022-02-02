@@ -33,7 +33,7 @@ void sub_0809F514(Entity* this) {
     this->spriteSettings.draw = 0;
     this->field_0x68.HALF.LO = 12;
     gRoomControls.camera_target = this;
-    gUnk_02034490[0] = 255;
+    gUnk_02034490.unk0 = 255;
     sub_0809F7BC(this);
 }
 

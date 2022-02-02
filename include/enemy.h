@@ -12,6 +12,7 @@
 #include "entity.h"
 #include "projectile.h"
 
+bool32 EnemyInit(Entity* this);
 extern u32 GetNextFunction(Entity*);
 extern void EnemyFunctionHandler(Entity*, EntityActionArray);
 extern void sub_08001324(Entity*);

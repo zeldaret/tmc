@@ -6,6 +6,7 @@
 #define NUM_BGM 99
 
 void SoundReq(u32 sound);
+void SetBgmVolume(u32 volume);
 extern void EnqueueSFX(u32);
 
 void InitSound(void);

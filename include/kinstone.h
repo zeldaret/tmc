@@ -7,7 +7,7 @@ extern void sub_08018C58(u32);
 
 typedef struct {
     u8 unk[4];
-    u32 unk2;
+    u8* unk2;
     u32 unk4;
 } Unk_struct;
 extern Unk_struct gUnk_03003DF0[];
@@ -26,5 +26,16 @@ typedef struct {
 } FuseInfo;
 static_assert(sizeof(FuseInfo) == 0x10);
 extern FuseInfo gFuseInfo;
+
+typedef struct {
+    u8 unk0;
+    u8 unk1;
+    u8 unk2;
+    u8 unk3;
+    u8 evt_type;
+    u8 unk5;
+    u8 _5[2];
+} struct_080C9CBC;
+extern struct_080C9CBC gUnk_080C9CBC[];
 
 #endif // KINSTONE_H

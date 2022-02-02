@@ -323,7 +323,7 @@ static void GameMain_ChangeRoom(void) {
     sub_080300C4();
     gMain.substate = GAMEMAIN_UPDATE;
     SetPlayerControl(0);
-    gUnk_02034490[0] = 0;
+    gUnk_02034490.unk0 = 0;
 #if defined(USA) || defined(DEMO_USA)
     if (gArea.inventoryGfxIdx != 0xff) {
         sub_0801855C();
@@ -645,14 +645,14 @@ void GameOverTask(void) {
 
 static void switch_state(u32 idx) {
     gMain.state = idx;
-    sub_080A7114(0);
+    SetMenuType(0);
 }
 
 static void GameOver_Init(void) {
     if (gFadeControl.active)
         return;
     sub_08052010();
-    gMenu.focusCoords[0] = 80;
+    gGenericMenu.unk10.a[0] = 80;
     gMenu.transitionTimer = 60;
     gSave.stats.health = 24;
     gMain.field_0x5 = 60;
@@ -667,8 +667,8 @@ static void GameOver_FadeIn(void) {
         return;
 
     if (gMain.field_0x5 == 0) {
-        if (gMenu.focusCoords[0] >= 38) {
-            gMenu.focusCoords[0]--;
+        if (gGenericMenu.unk10.a[0] >= 38) {
+            gGenericMenu.unk10.a[0]--;
         } else {
             gMenu.transitionTimer--;
             if (gMenu.transitionTimer == 0) {
@@ -706,7 +706,7 @@ static void GameOver_TextMove(void) {
         case 0:
             gMenu.transitionTimer = 30;
             gMenu.field_0x3 = 0;
-            sub_080A7114(1);
+            SetMenuType(1);
             SetPopupState(0, 0);
             gFadeControl.mask = 0xffffffff;
             return;
@@ -728,7 +728,7 @@ static void GameOver_TextMove(void) {
                             temp2 = 2;
                         }
                         gMenu.transitionTimer = 60;
-                        sub_080A7114(temp2);
+                        SetMenuType(temp2);
                         SoundReq(SFX_TEXTBOX_SELECT);
                         break;
                 }
@@ -746,12 +746,12 @@ static void GameOver_TextMove(void) {
             gMenu.field_0x0 = temp3;
             switch (temp3) {
                 case 1:
-                    sub_080A7114(4);
+                    SetMenuType(4);
                     break;
                 case -1:
                     gMenu.transitionTimer = 60;
                     CreateDialogBox(9, 0);
-                    sub_080A7114(3);
+                    SetMenuType(3);
                     break;
             }
             return;
@@ -759,7 +759,7 @@ static void GameOver_TextMove(void) {
             if (gMenu.transitionTimer != 0) {
                 gMenu.transitionTimer--;
             } else if (gInput.newKeys & (A_BUTTON | B_BUTTON | START_BUTTON)) {
-                sub_080A7114(0);
+                SetMenuType(0);
             }
             return;
         case 4:
@@ -777,7 +777,7 @@ static void GameOver_Update(void) {
         case 0x0:
             gMenu.transitionTimer = 0x1e;
             gMenu.field_0x3 = 0;
-            sub_080A7114(1);
+            SetMenuType(1);
             SetPopupState(1, 0);
             return;
         case 0x1:
@@ -795,7 +795,7 @@ static void GameOver_Update(void) {
                         temp = 1;
                         break;
                     case A_BUTTON:
-                        sub_080A7114(2);
+                        SetMenuType(2);
                         SoundReq(SFX_TEXTBOX_SELECT);
                         if (temp == 0) {
                             SetFade(5, 8);
@@ -839,7 +839,7 @@ static void DrawGameOverText(void) {
     gOamCmd._4 = 0;
     gOamCmd._6 = 0;
     gOamCmd._8 = 0x8600;
-    gOamCmd.y = gMenu.focusCoords[0];
+    gOamCmd.y = gGenericMenu.unk10.a[0];
     for (i = 0; i < 8; ++i) {
         gOamCmd.x = sOffsets[i];
 #ifdef EU
@@ -1233,7 +1233,7 @@ static void InitRoomTransition(void) {
 bool32 CanDispEzloMessage(void) {
     s32 tmp = PL_STATE_WALK;
 
-    if (!(gInput.heldKeys & SELECT_BUTTON) || gPlayerState.controlMode != CONTROL_ENABLED || gUnk_02034490[0] ||
+    if (!(gInput.heldKeys & SELECT_BUTTON) || gPlayerState.controlMode != CONTROL_ENABLED || gUnk_02034490.unk0 ||
         gUnk_0200AF00.filler0[1])
         return 0;
 

@@ -46629,46 +46629,6 @@
     "size": 160
   },
   {
-    "path": "data_08127280/gUnk_081280DC.bin",
-    "start": 1212636,
-    "size": 18
-  },
-  {
-    "path": "data_08127280/gUnk_081280EE.bin",
-    "start": 1212654,
-    "size": 6
-  },
-  {
-    "path": "data_08127280/gUnk_08128110.bin",
-    "start": 1212688,
-    "size": 16
-  },
-  {
-    "path": "data_08127280/gUnk_08128120.bin",
-    "start": 1212704,
-    "size": 28
-  },
-  {
-    "path": "data_08127280/gUnk_0812813C.bin",
-    "start": 1212732,
-    "size": 16
-  },
-  {
-    "path": "data_08127280/gUnk_0812816C.bin",
-    "start": 1212780,
-    "size": 24
-  },
-  {
-    "path": "data_08127280/gUnk_08128184.bin",
-    "start": 1212804,
-    "size": 12
-  },
-  {
-    "path": "data_08127280/gUnk_08128190.bin",
-    "start": 1212816,
-    "size": 24
-  },
-  {
     "path": "data_08127280/gUnk_08128A38.bin",
     "start": 1215032,
     "size": 4
@@ -46788,16 +46748,6 @@
     ],
     "start": 1215192,
     "size": 88
-  },
-  {
-    "path": "data_08127280/gUnk_08128B50.bin",
-    "start": 1215312,
-    "size": 20
-  },
-  {
-    "path": "data_08127280/gUnk_08128BF4.bin",
-    "start": 1215476,
-    "size": 4
   },
   {
     "path": "data_08127280/gUnk_08128C00.bin",

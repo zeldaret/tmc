@@ -285,37 +285,4 @@ typedef enum {
     GAMEMAIN_SUBTASK,
 } EGameMainState;
 
-/** Subtasks override the game task for short periods */
-typedef enum {
-    SUBTASK_EXIT,
-    SUBTASK_PAUSEMENU,
-    SUBTASK_EXIT2,
-    SUBTASK_MAPHINT,
-    SUBTASK_KINSTONEMENU,
-    SUBTASK_AUXCUTSCENE,    /* cutscene without presence of player */
-    SUBTASK_PORTALCUTSCENE, /* player "falling" down portal cutscene */
-    SUBTASK_FIGURINEMENU,
-    SUBTASK_WORLDEVENT,
-    SUBTASK_FASTTRAVEL,
-    SUBTASK_LOCALMAPHINT,
-} ESubtask;
-
-typedef void(Subtask)(void);
-
-/** @name Subtask entrypoints */
-///@{
-/** Subtask entrypoint. */
-Subtask Subtask_Exit;
-Subtask Subtask_PauseMenu;
-Subtask Subtask_Exit;
-Subtask Subtask_MapHint;
-Subtask Subtask_KinstoneMenu;
-Subtask Subtask_AuxCutscene;
-Subtask Subtask_PortalCutscene;
-Subtask Subtask_FigurineMenu;
-Subtask Subtask_WorldEvent;
-Subtask Subtask_FastTravel;
-Subtask Subtask_LocalMapHint;
-///@}
-
 #endif // GAME_H

@@ -323,7 +323,7 @@ extern u16 script_BedAtSimons;
 extern ScriptExecutionContext gPlayerScriptExecutionContext;
 
 NONMATCH("asm/non_matching/playerItemPacciCane/CheckPlayerInactive.inc", u32 CheckPlayerInactive(void)) {
-    if (!((gInput.newKeys & START_BUTTON) == 0 || gFadeControl.active || gUnk_02034490[0] ||
+    if (!((gInput.newKeys & START_BUTTON) == 0 || gFadeControl.active || gUnk_02034490.unk0 ||
           (gMessage.doTextBox & 0x7F) || gSave.stats.health == 0 || !gSave.fillerD0[34] ||
           gPlayerState.controlMode != CONTROL_ENABLED || gPriorityHandler.priority_timer != 0)) {
         u32 tmp = gPlayerState.framestate ? gPlayerState.framestate : gPlayerState.framestate_last;
@@ -1143,7 +1143,7 @@ static void PortalStandUpdate(Entity* this) {
 
 static void PortalActivateInit(Entity* this) {
     gRoomControls.camera_target = NULL;
-    gUnk_02034490[0] = 1;
+    gUnk_02034490.unk0 = 1;
     this->subAction = 3;
     this->field_0xf = 0x1e;
     gPlayerState.animation = 0x738;
@@ -1226,7 +1226,7 @@ static void sub_080717F8(Entity* this) {
     this->x.HALF.HI = gArea.curPortalX + sOffsets[gArea.curPortalExitDirection * 2];
     this->y.HALF.HI = gArea.curPortalY + sOffsets[gArea.curPortalExitDirection * 2 + 1];
     gArea.unk1A = 0xb4;
-    gUnk_02034490[0] = 0;
+    gUnk_02034490.unk0 = 0;
     this->action = PLAYER_MINISH;
     this->subAction = 0;
     gPlayerState.flags = (gPlayerState.flags & ~PL_USE_PORTAL) | PL_MINISH;

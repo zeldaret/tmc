@@ -34,8 +34,8 @@ void sub_0805FA04(void) {
     gScreen.bg3.updated = 1;
     MessageInitialize();
     MemClear((void*)&gUnk_02032EC0, sizeof(UI));
-    MemClear((void*)&gMenu, sizeof(Menu));
-    gMenu.unk16 = gSaveHeader->language;
+    MemClear((void*)&gGenericMenu, sizeof(GenericMenu));
+    gGenericMenu.unk16 = gSaveHeader->language;
     LoadGfxGroups();
     SetColor(0, 0x1144);
     gMain.state = 1;
@@ -48,14 +48,14 @@ void sub_0805FA98(void) {
 
     switch (gInput.newKeys) {
         case DPAD_UP:
-            gMenu.focusCoords[1] -= 1;
+            gGenericMenu.unk10.a[1] -= 1;
             break;
         case DPAD_DOWN:
-            gMenu.focusCoords[1] += 1;
+            gGenericMenu.unk10.a[1] += 1;
             break;
         case L_BUTTON:
-            gMenu.focusCoords[0] ^= 1;
-            if (gMenu.focusCoords[0] == 0) {
+            gGenericMenu.unk10.a[0] ^= 1;
+            if (gGenericMenu.unk10.a[0] == 0) {
                 gScreen.bg0.control = BGCNT_SCREENBASE(31) | BGCNT_CHARBASE(3);
                 gScreen.bg3.control = BGCNT_SCREENBASE(30) | BGCNT_CHARBASE(3) | BGCNT_PRIORITY(3);
             } else {
@@ -64,8 +64,8 @@ void sub_0805FA98(void) {
             }
             break;
         case R_BUTTON:
-            gSaveHeader->language = gMenu.unk16;
-            MessageFromTarget(gMenu.unk14 * 0x100 + gMenu.unk15);
+            gSaveHeader->language = gGenericMenu.unk16;
+            MessageFromTarget(gGenericMenu.unk14 * 0x100 + gGenericMenu.unk15);
             break;
         case B_BUTTON:
             MessageInitialize();
@@ -82,19 +82,19 @@ void sub_0805FA98(void) {
                     iVar1 = 0;
                     break;
             }
-            switch (gMenu.focusCoords[1]) {
+            switch (gGenericMenu.unk10.a[1]) {
                 case 0:
-                    gMenu.unk14 = (gMenu.unk14 + iVar1 + 0x50) % 0x50;
+                    gGenericMenu.unk14 = (gGenericMenu.unk14 + iVar1 + 0x50) % 0x50;
                     break;
                 case 1:
-                    gMenu.unk15 += iVar1;
+                    gGenericMenu.unk15 += iVar1;
                     break;
                 case 2:
-                    gMenu.unk16 = (gMenu.unk16 + iVar1 + 7) % 7;
+                    gGenericMenu.unk16 = (gGenericMenu.unk16 + iVar1 + 7) % 7;
                     break;
             }
     }
-    gMenu.focusCoords[1] = (gMenu.focusCoords[1] + 3) % 3;
+    gGenericMenu.unk10.a[1] = (gGenericMenu.unk10.a[1] + 3) % 3;
     gScreen.bg3.updated = 1;
 }
 

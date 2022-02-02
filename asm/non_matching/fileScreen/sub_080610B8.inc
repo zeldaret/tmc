@@ -319,7 +319,7 @@ _08051316:
 	movs r0, #0x6a
 	bl sub_08051574
 	adds r0, r7, #0
-	bl sub_080A7114
+	bl SetMenuType
 _08051322:
 	movs r0, #0x80
 	lsls r0, r0, #0x12

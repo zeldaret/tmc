@@ -68,8 +68,8 @@ typedef struct {
 } Screen;
 
 typedef struct {
-    u16 x;
-    u16 y;
+    s16 x;
+    s16 y;
     u16 _4;
     u16 _6;
     u16 _8;
