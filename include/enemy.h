@@ -232,7 +232,7 @@ void GyorgChild();
 void GyorgFemaleEye();
 void Enemy62(Entity*);
 void GyorgFemaleMouth();
-void Enemy64(Entity*);
+void Enemy64();
 void TreeItem(Entity*);
 void Enemy66(Entity*);
 

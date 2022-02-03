@@ -422,9 +422,9 @@ SECTIONS {
         src/enemy/vaatiWrathEye.o(.text);
         src/enemy/gyorgChild.o(.text);
         src/enemy/gyorgFemaleEye.o(.text);
-        asm/enemy/enemy62.o(.text);
+        asm/enemy/enemy62.o(.text); /* TODO gyorgMaleEye? */
         src/enemy/gyorgFemaleMouth.o(.text);
-        asm/enemy/enemy64.o(.text);
+        src/enemy/enemy64.o(.text);
         src/enemy/treeItem.o(.text);
         src/enemy/enemy66.o(.text);
         /* END enemies */
@@ -1115,7 +1115,7 @@ SECTIONS {
         data/animations/enemy/enemy62.o(.rodata);
         src/enemy/gyorgFemaleMouth.o(.rodata);
         data/animations/enemy/gyorgFemaleMouth.o(.rodata);
-        data/const/enemy/enemy64.o(.rodata);
+        src/enemy/enemy64.o(.rodata);
         src/enemy/treeItem.o(.rodata);
         src/enemy/enemy66.o(.rodata);
         src/enemy.o(.rodata);
