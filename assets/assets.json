@@ -26636,46 +26636,6 @@
     "type": "animation"
   },
   {
-    "path": "stalfos/gUnk_080CF8F8.bin",
-    "start": 850168,
-    "size": 8
-  },
-  {
-    "path": "stalfos/gUnk_080CF900.bin",
-    "start": 850176,
-    "size": 16
-  },
-  {
-    "path": "stalfos/gUnk_080CF910.bin",
-    "start": 850192,
-    "size": 8
-  },
-  {
-    "path": "stalfos/gUnk_080CF918.bin",
-    "start": 850200,
-    "size": 16
-  },
-  {
-    "path": "stalfos/gUnk_080CF928.bin",
-    "start": 850216,
-    "size": 4
-  },
-  {
-    "path": "stalfos/gUnk_080CF92C.bin",
-    "start": 850220,
-    "size": 4
-  },
-  {
-    "path": "stalfos/gUnk_080CF930.bin",
-    "start": 850224,
-    "size": 8
-  },
-  {
-    "path": "stalfos/gUnk_080CF938.bin",
-    "start": 850232,
-    "size": 10
-  },
-  {
     "path": "animations/gSpriteAnimations_FlyingSkull_0.bin",
     "start": 850920,
     "size": 36,

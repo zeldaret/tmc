@@ -21,7 +21,6 @@ void sub_08020A7C(Entity*);
 bool32 Rollobite_TryToHoleUp(Entity*);
 bool32 Rollobite_IsRolledUp(Entity*);
 
-extern void sub_080AE58C(Entity*, u32, u32);
 extern void sub_080AE7E8(Entity*, u32, u32, u32);
 extern void sub_08078930(Entity*);
 

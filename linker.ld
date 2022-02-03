@@ -391,7 +391,7 @@ SECTIONS {
         asm/enemy/cloudPiranha.o(.text);
         src/enemy/scissorsBeetle.o(.text);
         src/enemy/cuccoAggr.o(.text);
-        asm/enemy/stalfos.o(.text);
+        src/enemy/stalfos.o(.text);
         src/enemy/flyingSkull.o(.text);
         src/enemy/mazaalBracelet.o(.text);
         src/enemy/takkuri.o(.text);
@@ -1060,7 +1060,7 @@ SECTIONS {
         data/animations/enemy/scissorsBeetle.o(.rodata);
         src/enemy/cuccoAggr.o(.rodata);
         data/animations/enemy/cuccoAggr.o(.rodata);
-        data/const/enemy/stalfos.o(.rodata);
+        src/enemy/stalfos.o(.rodata);
         data/animations/enemy/stalfos.o(.rodata);
         src/enemy/flyingSkull.o(.rodata);
         data/animations/enemy/flyingSkull.o(.rodata);
