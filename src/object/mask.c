@@ -101,7 +101,7 @@ void sub_08092B0C(Entity* this) {
 
         CreateFx(this, FX_POT_SHATTER, 0);
 
-        sub_0805457C(this, 3);
+        CreateRandomItemDrop(this, 3);
     } else {
         sub_080044EC(this, this->field_0x78.HWORD);
 

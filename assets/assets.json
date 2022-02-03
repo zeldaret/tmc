@@ -56,117 +56,14 @@
     "size": 64
   },
   {
-    "path": "code_080011C4/gUnk_0800137C.bin",
-    "start": 4988,
-    "size": 192
-  },
-  {
-    "path": "code_080011C4/gUnk_0800143C.bin",
-    "start": 5180,
-    "size": 384
-  },
-  {
-    "path": "code_080011C4/gUnk_080015BC.bin",
-    "start": 5564,
-    "size": 96
-  },
-  {
-    "path": "code_080011C4/gUnk_0800161C.bin",
-    "start": 5660,
-    "size": 230
-  },
-  {
-    "path": "code_080011C4/gUnk_0800161C_1_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 5962
-    },
-    "size": 20
-  },
-  {
-    "path": "code_080011C4/gUnk_0800161C_2_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 5890,
-    "size": 20
-  },
-  {
-    "path": "code_080011C4/gUnk_0800161C_3.bin",
-    "start": 5910,
-    "size": 398
-  },
-  {
-    "path": "code_080011C4/gUnk_0800161C_4_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 6380
-    },
-    "size": 126
-  },
-  {
-    "path": "code_080011C4/gUnk_0800161C_5_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 6308,
-    "size": 94
-  },
-  {
     "offsets": {
       "EU": 104
     }
   },
   {
-    "path": "code_080011C4/gUnk_0800161C_6.bin",
-    "start": 6402,
-    "size": 26
-  },
-  {
-    "path": "code_080011C4/gUnk_0800191C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 6532
-    },
-    "size": 143
-  },
-  {
-    "path": "code_080011C4/gUnk_0800191C_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 6428,
-    "size": 79
-  },
-  {
     "offsets": {
       "EU": 168
     }
-  },
-  {
-    "path": "code_080011C4/gUnk_0800191C_2.bin",
-    "start": 6507,
-    "size": 177
-  },
-  {
-    "path": "code_080011C4/gUnk_08001A1C.bin",
-    "start": 6684,
-    "size": 96
   },
   {
     "path": "code_080011C4/gUnk_08001C5C.bin",

@@ -168,7 +168,7 @@ extern void sub_080044AE(Entity*, u32, u32);
 extern void sub_0801AF18(u8*, u32, u32);
 extern void sub_0807B9B8(s32, s32, s32);
 extern void sub_08000148(u32, u32, u32);
-extern void sub_0805457C(Entity*, s32);
+extern void CreateRandomItemDrop(Entity*, s32);
 extern Entity* sub_080A2A3C(Entity*, u32, u32, u32);
 extern void sub_0806FCF4(Entity*, s32, s32, s32);
 extern u32 sub_080041DC(Entity*, u32, u32);

@@ -31,7 +31,7 @@ void sub_080A7C18(u32 type, u32 type2, u32 delay) {
 
 Entity* GiveItemWithCutscene(u32 type, u32 type2, u32 delay) {
     Entity* e;
-    if (type == 63 && gSave.stats.filler3[0]) {
+    if (type == 63 && gSave.stats.hasAllFigurines) {
         type = 87;
         type2 = 0;
     }

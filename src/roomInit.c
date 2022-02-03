@@ -5279,7 +5279,7 @@ void sub_StateChange_HouseInteriors3_StockwellShop(void) {
             LoadRoomEntityList(&gUnk_080F5848);
         }
     }
-    if (gSave.stats.filler3[0] == 0) {
+    if (gSave.stats.hasAllFigurines == 0) {
         LoadRoomEntityList(&gUnk_080F5788);
     }
 }

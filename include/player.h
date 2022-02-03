@@ -255,7 +255,8 @@ typedef struct {
     /*0x0c*/ u8 itemButtons[2];
     /*0x0e*/ u8 bottles[4];
     /*0x12*/ u8 effect;
-    /*0x13*/ u8 filler3[5];
+    /*0x13*/ u8 hasAllFigurines;
+    /*0x14*/ u8 filler3[4];
     /*0x18*/ u16 rupees;
     /*0x1a*/ u16 field_0x1a;
     /*0x1c*/ u16 charmTimer;

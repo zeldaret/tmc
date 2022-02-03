@@ -143,6 +143,12 @@ typedef enum {
     ITEM_SKILL_FAST_SPIN,
     ITEM_SKILL_FAST_SPLIT,
     ITEM_SKILL_LONG_SPIN,
+
+    // these are not actually item ids but special values used by item drops for example
+    ITEM_KINSTONE_GREEN = 0xfc,
+    ITEM_KINSTONE_BLUE,
+    ITEM_KINSTONE_RED,
+    ITEM_ENEMY_BEETLE
 } Item;
 
 #endif

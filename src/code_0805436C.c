@@ -8,6 +8,7 @@
 #include "item.h"
 #include "object.h"
 #include "enemy.h"
+#include "droptables.h"
 
 typedef struct {
     u8 unk;
@@ -18,9 +19,8 @@ extern struct_080FD5B4 gUnk_080FD5B4[];
 
 extern u8 gUnk_0200AF13;
 extern u8 gUnk_0200AF14;
-extern u32 gUnk_080015BC;
 extern u8 gUnk_080FE1C6[];
-extern u32 gUnk_02034398;
+extern Droptable gUnk_02034398;
 extern void (*const gUnk_080FE2A0[])(void);
 
 void ForceEquipItem(u32, u8);
@@ -79,7 +79,6 @@ void PutItemOnSlot(u32 itemID) {
 ASM_FUNC("asm/non_matching/ForceEquipItem.inc", void ForceEquipItem(u32 itemID, u8 itemSlot))
 
 u32 SetBottleContents(u32 itemID, u32 bottleIndex) {
-
     if (bottleIndex > 3) {
         bottleIndex = 0;
         if (gSave.stats.bottles[0] != 0x20) {
@@ -159,7 +158,7 @@ NONMATCH("asm/non_matching/sub_08054524.inc", void sub_08054524(void)) {
         bVar1 = 0;
     }
 
-    MemCopy(&gUnk_080015BC + gUnk_080FE1C6[bVar1] * 0x8, &gUnk_02034398, 0x20);
+    MemCopy(&gUnk_080015BC[0] + gUnk_080FE1C6[bVar1] * 0x8, &gUnk_02034398, 0x20);
 }
 END_NONMATCH
 
@@ -171,68 +170,162 @@ void sub_08054570(void) {
     gRoomVars.field_0x2 = 0;
 }
 
-ASM_FUNC("asm/non_matching/sub_0805457C.inc", u32 sub_0805457C(u32 arg0, u32 arg1));
+// BUG?
+extern const Droptable gUnk_080014e4[];
+extern void sub_08000F14(s16*, const s16*, const s16*, const s16*);
+extern u32 sub_08000F2C(s16*, const s16*, const s16*, const s16*);
+u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter);
+u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
+    extern const u8 gUnk_080FE1B4[]/* = {
+        ITEM_NONE,         ITEM_RUPEE1,  ITEM_RUPEE5, ITEM_RUPEE20,        ITEM_HEART,         ITEM_FAIRY,
+        ITEM_BOMBS5,       ITEM_ARROWS5, ITEM_SHELLS, ITEM_KINSTONE_GREEN, ITEM_KINSTONE_BLUE, ITEM_KINSTONE_RED,
+        ITEM_ENEMY_BEETLE, ITEM_NONE,    ITEM_NONE,   ITEM_NONE,           ITEM_NONE,          ITEM_NONE,
+    }*/;
+
+    int r0, r1, r2, r4, r5;
+    u32 r3;
+    const Droptable *ptr2, *ptr3, *ptr4;
+    Droptable s0;
+    r3 = arg1;
+    if (gRoomVars.field_0x2 != 1) {
+        ptr2 = &gUnk_08001A1C[0];
+        ptr4 = 0;
+        switch (r3) {
+            case 1 ... 12:
+                ptr4 = &gUnk_0800137C[r3];
+                break;
+#ifndef EU
+            case 24:
+            case 25:
+                r0 = gRoomVars.unk2;
+                ptr4 = &gUnk_0800191C[0];
+                if (r0) {
+                    ptr4++;
+                }
+                break;
+#endif
+            case 16 ... 23:
+#ifdef EU
+            case 24:
+#endif
+                ptr2 = &gUnk_0800161C[r3];
+            case 15:
+                ptr4 = &gUnk_02034398;
+                break;
+            case 0:
+            default:
+                break;
+        }
+        if (ptr4 != 0) {
+            if ((r1 = gSave.stats.unkB) == 0) {
+                ptr3 = &gUnk_08001A1C[0];
+            } else {
+#ifdef EU
+                ptr3 = &gUnk_0800143C[r1+3];
+#else
+                ptr3 = &gUnk_0800143C[r1];
+#endif
+            }
+            sub_08000F14(s0.a, ptr4->a, ptr2->a, ptr3->a);
+            if (gSave.stats.health <= 8) {
+                s0.s.hearts += 5;
+            }
+            if (gSave.stats.bombCount == 0) {
+                s0.s.bombs += 3;
+            }
+            if (gSave.stats.arrowCount == 0) {
+                s0.s.arrows += 3;
+            }
+            if (gSave.stats.rupees <= 10) {
+                s0.s.rupee5 += 1;
+            }
+            ptr2 = &gUnk_08001A1C[0];
+            r0 = gSave.stats.hasAllFigurines;
+            ptr3 = ptr2;
+            if (r0 != 0) {
+                ptr2++;
+            }
+            if (gSave.fillerD0[0x46] != 0) {
+                ptr3 += 2;
+            }
+            r4 = sub_08000F2C(s0.a, s0.a, ptr2->a, ptr3->a);
+            r2 = Random();
+            r5 = (r2 >> 0x18);
+            r5 &= 0xF;
+            r2 = r2 % r4;
+            {
+                u32 r3;
+                for (r3 = 0, r1 = 0; r3 < 0x10; r3++, r5 = (r5 + 1) & 0xF) {
+                    if ((r1 += s0.a[r5]) > r2) {
+                        break;
+                    }
+                }
+            }
+            r1 = gUnk_080FE1B4[r5];
+            if (r1 != 0) {
+                r2 = 0;
+                return CreateItemDrop(arg0, r1, r2);
+            }
+        }
+    }
+    return 0;
+}
 
 u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
-    u32 prereqID;
     u32 adjustedParam = itemParameter;
-    u32 uVar1;
     Entity* itemEntity;
 
     switch (itemID) {
-        case 0xff:
-            if (!GetInventoryValue(0x1)) {
-                return 0;
+        case ITEM_ENEMY_BEETLE:
+            if (!GetInventoryValue(ITEM_SMITH_SWORD)) {
+                return ITEM_NONE;
             }
             break;
-        case 0x5d:
-            if (!GetInventoryValue(0x65)) {
-                return 0;
+        case ITEM_BOMBS5:
+            if (!GetInventoryValue(ITEM_BOMBBAG)) {
+                return ITEM_NONE;
             }
             break;
-        case 0x5e:
-            if (!GetInventoryValue(0x9)) {
-                return 0;
+        case ITEM_ARROWS5:
+            if (!GetInventoryValue(ITEM_BOW)) {
+                return ITEM_NONE;
             }
             break;
-        case 0x3f: {
-            if (!GetInventoryValue(0x40)) {
-                return 0;
+        case ITEM_SHELLS: {
+            if (!GetInventoryValue(ITEM_EARTH_ELEMENT)) {
+                return ITEM_NONE;
             }
             if (itemParameter == 0) {
                 adjustedParam = 1;
             }
             break;
         }
-        case 0x5c:
-        case 0xfc ... 0xfe: {
-            u32 tmp, tmp2;
+        case ITEM_KINSTONE:
+        case ITEM_KINSTONE_GREEN ... ITEM_KINSTONE_RED: {
             u32 rand;
-            u8* ptr;
 
-            if (GetInventoryValue(0x67) == 0) {
+            if (GetInventoryValue(ITEM_KINSTONE_BAG) == 0) {
                 return 0;
             }
             if (3 < gRoomVars.filler1[0]) {
                 return 0;
             }
 
-            if (itemID != 0x5c) {
-                adjustedParam = itemID - 0xfc;
+            if (itemID != ITEM_KINSTONE) {
+                adjustedParam = itemID - ITEM_KINSTONE_GREEN;
                 rand = (Random() & 0x3f);
-                ptr = gUnk_080FE1DD;
                 adjustedParam = gUnk_080FE1DD[(rand + adjustedParam * 0x40)];
                 if (adjustedParam == 0) {
-                    itemID = 0;
+                    itemID = ITEM_NONE;
                 } else {
-                    itemID = 0x5c;
+                    itemID = ITEM_KINSTONE;
                 }
             }
             break;
         }
     }
-    if (itemID != 0) {
-        if (itemID != 0xff) {
+    if (itemID != ITEM_NONE) {
+        if (itemID != ITEM_ENEMY_BEETLE) {
             itemEntity = CreateObject(GROUND_ITEM, itemID, adjustedParam);
             if (itemEntity != NULL) {
                 if (arg0 == &gPlayerEntity) {
