@@ -1067,6 +1067,7 @@ const Droptable gUnk_0800191C[] = {
     } },
 };
 
+// special treatment for shells and kinstones after finishing figurines/fusions
 const Droptable gUnk_08001A1C[] = {
     // nop
     { {

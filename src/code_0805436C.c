@@ -226,6 +226,7 @@ u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
                 ptr3 = &gUnk_0800143C[r1];
 #endif
             }
+            // vector addition, s0 = ptr4 + ptr2 + ptr3
             sub_08000F14(s0.a, ptr4->a, ptr2->a, ptr3->a);
             if (gSave.stats.health <= 8) {
                 s0.s.hearts += 5;
@@ -242,12 +243,16 @@ u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
             ptr2 = &gUnk_08001A1C[0];
             r0 = gSave.stats.hasAllFigurines;
             ptr3 = ptr2;
+            // don't drop shells anymore
             if (r0 != 0) {
                 ptr2++;
             }
-            if (gSave.fillerD0[0x46] != 0) {
+            // don't drop kinstones anymore
+            if (gSave.didAllFusions != 0) {
                 ptr3 += 2;
             }
+            // vector addition, s0 = s0 + ptr2 + ptr3
+            // returns sum over s0
             r4 = sub_08000F2C(s0.a, s0.a, ptr2->a, ptr3->a);
             r2 = Random();
             r5 = (r2 >> 0x18);
@@ -268,7 +273,7 @@ u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
             }
         }
     }
-    return 0;
+    return ITEM_NONE;
 }
 
 u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
