@@ -176,11 +176,11 @@ extern void sub_08000F14(s16*, const s16*, const s16*, const s16*);
 extern u32 sub_08000F2C(s16*, const s16*, const s16*, const s16*);
 u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter);
 u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
-    extern const u8 gUnk_080FE1B4[]/* = {
-        ITEM_NONE,         ITEM_RUPEE1,  ITEM_RUPEE5, ITEM_RUPEE20,        ITEM_HEART,         ITEM_FAIRY,
-        ITEM_BOMBS5,       ITEM_ARROWS5, ITEM_SHELLS, ITEM_KINSTONE_GREEN, ITEM_KINSTONE_BLUE, ITEM_KINSTONE_RED,
-        ITEM_ENEMY_BEETLE, ITEM_NONE,    ITEM_NONE,   ITEM_NONE,           ITEM_NONE,          ITEM_NONE,
-    }*/;
+    extern const u8 gUnk_080FE1B4[] /* = {
+         ITEM_NONE,         ITEM_RUPEE1,  ITEM_RUPEE5, ITEM_RUPEE20,        ITEM_HEART,         ITEM_FAIRY,
+         ITEM_BOMBS5,       ITEM_ARROWS5, ITEM_SHELLS, ITEM_KINSTONE_GREEN, ITEM_KINSTONE_BLUE, ITEM_KINSTONE_RED,
+         ITEM_ENEMY_BEETLE, ITEM_NONE,    ITEM_NONE,   ITEM_NONE,           ITEM_NONE,          ITEM_NONE,
+     }*/;
 
     int r0, r1, r2, r4, r5;
     u32 r3;
@@ -221,7 +221,7 @@ u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
                 ptr3 = &gUnk_08001A1C[0];
             } else {
 #ifdef EU
-                ptr3 = &gUnk_0800143C[r1+3];
+                ptr3 = &gUnk_0800143C[r1 + 3];
 #else
                 ptr3 = &gUnk_0800143C[r1];
 #endif
@@ -252,6 +252,7 @@ u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
                 ptr3 += 2;
             }
             // vector addition, s0 = s0 + ptr2 + ptr3
+            // resulting values are clamped to be >= 0
             // returns sum over s0
             r4 = sub_08000F2C(s0.a, s0.a, ptr2->a, ptr3->a);
             r2 = Random();
