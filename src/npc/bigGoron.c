@@ -12,7 +12,16 @@ void sub_0806D41C(Entity* this);
 
 extern u8 gMapDataTopSpecial[];
 
-void sub_0806D138(u8* param_1, u8* param_2);
+typedef struct {
+    u8 filler[0x40];
+} unk_0806D138param_1;
+
+typedef struct {
+    u8 filler[0x40];
+    u8 filler2[0xC0];
+} unk_0806D138param_2;
+
+void sub_0806D138(unk_0806D138param_1* param_1, unk_0806D138param_2* param_2);
 
 extern void InitBiggoronTimer(void);
 
@@ -101,13 +110,18 @@ void sub_0806D0F8(void) {
 void sub_0806D110(void) {
     u8* tmp = gMapDataTopSpecial;
     u8* tmp2 = tmp + 0x4000;
-    sub_0806D138(tmp, tmp2);
+    sub_0806D138((unk_0806D138param_1*)tmp, (unk_0806D138param_2*)tmp2);
     tmp += 0x800;
     tmp2 += 0x40;
-    sub_0806D138(tmp, tmp2);
+    sub_0806D138((unk_0806D138param_1*)tmp, (unk_0806D138param_2*)tmp2);
 }
 
-ASM_FUNC("asm/non_matching/bigGoron/sub_0806D138.inc", void sub_0806D138(u8* param_1, u8* param_2))
+void sub_0806D138(unk_0806D138param_1* param_1, unk_0806D138param_2* param_2) {
+    u32 uVar1;
+    for (uVar1 = 0; uVar1 < 0x20; uVar1++, param_1++, param_2++) {
+        DMA_COPY(3, param_1, param_2, sizeof(*param_1), 16);
+    }
+}
 
 ASM_FUNC("asm/non_matching/bigGoron/sub_0806D164.inc", void sub_0806D164(Entity* this))
 
