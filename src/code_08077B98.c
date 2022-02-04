@@ -135,7 +135,7 @@ void sub_08077D38(ItemBehavior* beh, u32 arg2) {
 
     ptr = &gUnk_0811BE48[beh->behaviorID];
     if (ptr->unk4) {
-    if ((gPlayerState.flags & PL_NO_CAP)) {
+        if ((gPlayerState.flags & PL_NO_CAP)) {
             switch (beh->behaviorID) {
                 case 0x1b:
                     r6 = 0x948;
