@@ -1377,7 +1377,7 @@ SECTIONS {
         data/animations/object/chestSpawner.o(.rodata);
         data/const/object/objectD.o(.rodata);
         data/animations/object/objectD.o(.rodata);
-        data/const/object/specialFx.o(.rodata);
+        src/object/specialFx.o(.rodata);
         data/animations/object/specialFx.o(.rodata);
         data/const/object/object10.o(.rodata);
         data/const/object/object11.o(.rodata);
