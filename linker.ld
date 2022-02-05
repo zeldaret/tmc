@@ -1348,7 +1348,7 @@ SECTIONS {
         data/const/item/itemOcarina.o(.rodata);
         data/const/item/itemPacciCane.o(.rodata);
         data/const/item/itemShield.o(.rodata);
-        data/const/item/itemGustJar.o(.rodata);
+        src/item/itemGustJar.o(.rodata);
         data/const/item/itemMoleMitts.o(.rodata);
         data/const/item/itemJarEmpty.o(.rodata);
         data/data_0811BE38.o(.rodata);
