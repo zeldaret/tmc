@@ -11,7 +11,6 @@
 
 extern void sub_08008796(Entity*, u32, u32, u32);
 extern u32 sub_0804A024(Entity*, u32, u32);
-extern bool32 sub_080AE4CC(Entity*, u32, u32, u32);
 
 extern Entity gUnk_0200D654;
 extern Entity gUnk_02027EB4;

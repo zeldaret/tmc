@@ -175,7 +175,7 @@ void Tektite(Entity*);
 void WizzrobeWind();
 void WizzrobeFire();
 void WizzrobeIce();
-void Armos(Entity*);
+void Armos();
 void Eyegore(Entity*);
 void Rope(Entity*);
 void SmallPesto(Entity*);

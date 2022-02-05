@@ -6,9 +6,9 @@
  */
 
 #include "enemy.h"
+#include "functions.h"
 
 extern u32 sub_0804A024(Entity*, u32, u32);
-extern bool32 sub_080AE4CC(Entity*, u32, u32, u32);
 extern bool32 sub_080AF038(Entity*);
 
 extern Entity gUnk_02027EB4;

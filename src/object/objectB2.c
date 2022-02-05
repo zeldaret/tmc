@@ -2,8 +2,6 @@
 #include "entity.h"
 #include "functions.h"
 
-extern u32 sub_080AE4CC(Entity*, u32, u32, u32);
-
 extern void* gUnk_02027EB4;
 extern void* gUnk_0200D654;
 

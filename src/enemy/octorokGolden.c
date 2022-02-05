@@ -10,7 +10,6 @@ const u8 gUnk_080CF498[];
 
 extern u16* GetLayerByIndex(u32);
 extern s32 sub_080012DC(Entity*);
-extern bool32 sub_080AE4CC(Entity*, u32, u32, u32);
 extern u32 sub_0804A044(Entity*, Entity*, u32);
 
 void sub_08037E14(Entity* this);

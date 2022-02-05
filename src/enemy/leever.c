@@ -163,8 +163,6 @@ bool32 Leever_PlayerInRange(Entity* ent, s32 arg2) {
     }
 }
 
-extern u32 sub_0800132C(Entity*, Entity*);
-
 void Leever_Move(Entity* this) {
     if (sub_08049FDC(this, 1) == 0) {
         this->field_0x74.HWORD = 1;
