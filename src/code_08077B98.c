@@ -1,8 +1,11 @@
 #include "functions.h"
 #include "object.h"
+#include "save.h"
 
 typedef struct {
-    u8 unk[12];
+    u8 unk0[4];
+    u16 unk4;
+    u8 unk6[6];
 } struct_0811BE48;
 
 typedef struct {
@@ -32,10 +35,10 @@ void sub_08077BB8(ItemBehavior* beh) {
 }
 
 Entity* sub_08077BD4(ItemBehavior* beh) {
-    if (sub_08077C94(beh, gUnk_0811BE48[beh->behaviorID].unk[3]) != 0) {
+    if (sub_08077C94(beh, gUnk_0811BE48[beh->behaviorID].unk0[3]) != 0) {
         return NULL;
     } else {
-        return CreatePlayerBomb(beh, gUnk_0811BE48[beh->behaviorID].unk[3]);
+        return CreatePlayerBomb(beh, gUnk_0811BE48[beh->behaviorID].unk0[3]);
     }
 }
 
@@ -43,7 +46,7 @@ Entity* sub_08077C0C(ItemBehavior* beh, u32 arg1) {
     u8 bVar1;
     Entity* pEVar3;
 
-    bVar1 = gUnk_0811BE48[arg1].unk[3];
+    bVar1 = gUnk_0811BE48[arg1].unk0[3];
 
     if (sub_08077C94(beh, bVar1) != 0) {
         return NULL;
@@ -67,7 +70,7 @@ void* sub_08077C54(UnkItemStruct* unk) {
 
     item = sub_0805E744();
     if (item != NULL) {
-        item->id = gUnk_0811BE48[unk->field_0x1].unk[3];
+        item->id = gUnk_0811BE48[unk->field_0x1].unk0[3];
         item->kind = PLAYER_ITEM;
         item->flags = 0xa0;
         item->parent = (Entity*)unk;
@@ -80,7 +83,7 @@ void* sub_08077C54(UnkItemStruct* unk) {
 Entity* sub_08077C94(ItemBehavior* arg0, u32 arg1) {
     Entity* iVar1;
 
-    iVar1 = FindEntityByID(8, gUnk_0811BE48[arg1].unk[3], 2);
+    iVar1 = FindEntityByID(8, gUnk_0811BE48[arg1].unk0[3], 2);
     if (iVar1 == NULL) {
         return NULL;
     }
@@ -119,7 +122,42 @@ Entity* sub_08077CF8(u32 subtype, u32 form, u32 parameter, u32 unk) {
     return ent;
 }
 
-ASM_FUNC("asm/non_matching/sub_08077D38.inc", void sub_08077D38(ItemBehavior* beh, u32 arg1));
+void sub_08077D38(ItemBehavior* beh, u32 arg2) {
+    u32 r6;
+    struct_0811BE48* ptr;
+
+    gPlayerState.field_0xa |= 8 >> arg2;
+    gPlayerState.keepFacing |= 8 >> arg2;
+    beh->field_0x5[5] = gPlayerEntity.animationState;
+    if (beh->stateID == 0) {
+        beh->stateID++;
+    }
+
+    ptr = &gUnk_0811BE48[beh->behaviorID];
+    if (ptr->unk4) {
+        if ((gPlayerState.flags & PL_NO_CAP)) {
+            switch (beh->behaviorID) {
+                case 0x1b:
+                    r6 = 0x948;
+                    break;
+                case 1:
+                    r6 = 0x408;
+                    break;
+                case 0xd:
+                    r6 = 0x40c;
+                    break;
+            }
+            sub_08077DF4(beh, r6);
+        } else {
+            sub_08077DF4(beh, ptr->unk4);
+        }
+    }
+
+    beh->field_0xf = ptr->unk6[0];
+    if (ptr->unk6[1]) {
+        gPlayerState.field_0x3[1] |= (8 >> arg2) | ((8 >> arg2) << 4);
+    }
+}
 
 typedef struct {
     u8 b0 : 4;
@@ -201,7 +239,20 @@ bool32 sub_08077F10(ItemBehavior* arg0) {
     return sub_08077F24(arg0, (u16)gPlayerState.field_0x92);
 }
 
-ASM_FUNC("asm/non_matching/sub_08077F24.inc", bool32 sub_08077F24(ItemBehavior* beh, u32 arg1))
+bool32 sub_08077F24(ItemBehavior* beh, u32 arg1) {
+    u32 val;
+    Stats* stats = &gSave.stats;
+    u32 id = beh->behaviorID;
+    if (stats->itemButtons[SLOT_A] == id) {
+        val = 1;
+    } else if (stats->itemButtons[SLOT_B] == id) {
+        val = 2;
+    } else {
+        val = 0;
+    }
+
+    return (val & arg1) ? 1 : 0;
+}
 
 void sub_08077F50(ItemBehavior* beh, u32 arg1) {
     sub_08079184();
