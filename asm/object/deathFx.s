@@ -209,7 +209,7 @@ sub_08081790: @ 0x08081790
 	adds r1, r1, r0
 	ldrb r1, [r1]
 	adds r0, r2, #0
-	bl sub_0805457C
+	bl CreateRandomItemDrop
 	b _080817C6
 	.align 2, 0
 _080817B0: .4byte gUnk_0811EC64
@@ -231,7 +231,7 @@ _080817C8: .4byte gUnk_0811EC24
 sub_080817CC: @ 0x080817CC
 	push {lr}
 	movs r1, #9
-	bl sub_0805457C
+	bl CreateRandomItemDrop
 	pop {pc}
 	.align 2, 0
 
@@ -239,7 +239,7 @@ sub_080817CC: @ 0x080817CC
 sub_080817D8: @ 0x080817D8
 	push {lr}
 	movs r1, #0xd
-	bl sub_0805457C
+	bl CreateRandomItemDrop
 	pop {pc}
 	.align 2, 0
 
@@ -247,7 +247,7 @@ sub_080817D8: @ 0x080817D8
 sub_080817E4: @ 0x080817E4
 	push {lr}
 	movs r1, #0xe
-	bl sub_0805457C
+	bl CreateRandomItemDrop
 	pop {pc}
 	.align 2, 0
 
@@ -255,7 +255,7 @@ sub_080817E4: @ 0x080817E4
 sub_080817F0: @ 0x080817F0
 	push {lr}
 	movs r1, #1
-	bl sub_0805457C
+	bl CreateRandomItemDrop
 	pop {pc}
 	.align 2, 0
 

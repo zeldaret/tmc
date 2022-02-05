@@ -43,7 +43,7 @@ sub_08093D88: @ 0x08093D88
 _08093DAC:
 	adds r0, r4, #0
 	movs r1, #4
-	bl sub_0805457C
+	bl CreateRandomItemDrop
 	cmp r0, #0
 	bne _08093DBC
 	movs r0, #2

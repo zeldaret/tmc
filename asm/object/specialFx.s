@@ -110,7 +110,7 @@ _08084582:
 	beq _08084594
 	ldrb r1, [r4, #1]
 	adds r0, r5, #0
-	bl sub_0805457C
+	bl CreateRandomItemDrop
 _08084594:
 	ldrb r1, [r5, #0xb]
 	movs r0, #0x20

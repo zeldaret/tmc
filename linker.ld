@@ -283,6 +283,8 @@ SECTIONS {
         asm/code_08000F10.o(.text);
         data/data_08000F54.o(.rodata);
         asm/enemy.o(.text);
+        src/droptables.o(.rodata);
+        asm/code_08001A7C.o(.text);
         data/gfx/sprite_ptrs.o(.rodata);
         asm/code_08003FC4.o(.text);
         asm/code_080043E8.o(.text);

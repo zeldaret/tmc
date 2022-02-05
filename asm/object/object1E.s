@@ -214,7 +214,7 @@ sub_08087640: @ 0x08087640
 _08087676:
 	adds r0, r4, #0
 	adds r1, r2, #0
-	bl sub_0805457C
+	bl CreateRandomItemDrop
 	strh r5, [r4, #0x2e]
 	strh r6, [r4, #0x32]
 	pop {r4, r5, r6, pc}
