@@ -40906,16 +40906,6 @@
     "type": "animation"
   },
   {
-    "path": "picolyteBottle/gUnk_081142CC.bin",
-    "start": 1131212,
-    "size": 16
-  },
-  {
-    "path": "picolyteBottle/gUnk_081142DC.bin",
-    "start": 1131228,
-    "size": 32
-  },
-  {
     "path": "animations/gSpriteAnimations_SmallTownMinish_0.bin",
     "start": 1131720,
     "size": 5,
