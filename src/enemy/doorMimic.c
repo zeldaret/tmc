@@ -17,7 +17,7 @@ typedef struct {
     s8 v;
 } PACKED PosOffset;
 
-extern void (*const gUnk_080CB734[])(Entity*);
+extern void (*const DoorMimic_Functions[])(Entity*);
 extern void (*const gUnk_080CB74C[])(Entity*);
 
 extern const s8 gUnk_080CB764[];
@@ -28,19 +28,19 @@ extern const Hitbox* const* const gUnk_080CB8A4[];
 extern s16 gUnk_080B4488[];
 
 void DoorMimic(Entity* this) {
-    gUnk_080CB734[GetNextFunction(this)](this);
+    DoorMimic_Functions[GetNextFunction(this)](this);
     this->hitbox = (Hitbox*)gUnk_080CB8A4[this->type2][this->frameIndex];
 }
 
-void sub_08021FDC(Entity* this) {
+void DoorMimic_OnTick(Entity* this) {
     gUnk_080CB74C[this->action](this);
 }
 
-void sub_08021FF4(Entity* this) {
-    sub_0804AA30(this, gUnk_080CB734);
+void DoorMimic_OnCollision(Entity* this) {
+    EnemyFunctionHandlerAfterCollision(this, DoorMimic_Functions);
 }
 
-void sub_08022004(Entity* this) {
+void DoorMimic_OnDeath(Entity* this) {
     SetTile((u16)this->field_0x7c.HALF.LO, (u16)this->field_0x7c.HALF.HI, this->collisionLayer);
     CreateFx(this, FX_POT_SHATTER, 0);
     sub_08049CF4(this);
@@ -122,13 +122,13 @@ void sub_080221C0(Entity* this) {
 }
 
 // clang-format off
-void (*const gUnk_080CB734[])(Entity*) = {
-    sub_08021FDC,
-    sub_08021FF4,
-    sub_08001324,
-    sub_08022004,
-    sub_08001242,
-    sub_08021FDC,
+void (*const DoorMimic_Functions[])(Entity*) = {
+    DoorMimic_OnTick,
+    DoorMimic_OnCollision,
+    GenericKnockback,
+    DoorMimic_OnDeath,
+    GenericConfused,
+    DoorMimic_OnTick,
 };
 
 void (*const gUnk_080CB74C[])(Entity*) = {

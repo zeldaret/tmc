@@ -1859,8 +1859,8 @@ _080AF188:
 _080AF18A:
 	pop {r4, pc}
 
-	thumb_func_start sub_080AF18C
-sub_080AF18C: @ 0x080AF18C
+	thumb_func_start Knockback1
+Knockback1: @ 0x080AF18C
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r1, r4, #0
@@ -1884,8 +1884,8 @@ sub_080AF18C: @ 0x080AF18C
 	pop {r4, r5, pc}
 	.align 2, 0
 
-	thumb_func_start sub_080AF1BC
-sub_080AF1BC: @ 0x080AF1BC
+	thumb_func_start Knockback2
+Knockback2: @ 0x080AF1BC
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r1, r4, #0

@@ -115,7 +115,7 @@ _08037110:
 _0803711E:
 	ldr r1, _08037128 @ =gUnk_080CF244
 	adds r0, r5, #0
-	bl sub_0804AA30
+	bl EnemyFunctionHandlerAfterCollision
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _08037128: .4byte gUnk_080CF244

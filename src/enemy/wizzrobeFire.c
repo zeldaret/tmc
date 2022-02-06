@@ -23,11 +23,11 @@ void WizzrobeFire_OnTick(WizzrobeEntity* this) {
     WizzrobeFire_Actions[super->action](this);
 }
 
-void sub_0802FB74(WizzrobeEntity* this) {
-    if (super->field_0x43 != 0) {
-        sub_0804A9FC(super, 0x1c);
+void WizzrobeFire_OnCollision(WizzrobeEntity* this) {
+    if (super->confusedTime != 0) {
+        Create0x68FX(super, FX_STARS);
     }
-    sub_0804AA30(super, WizzrobeFire_Functions);
+    EnemyFunctionHandlerAfterCollision(super, WizzrobeFire_Functions);
     if (super->health == 0) {
         SetTile(this->tileIndex, this->tilePosition, super->collisionLayer);
     }
@@ -144,10 +144,10 @@ void WizzrobeFire_Action2(WizzrobeEntity* this) {
 
 void (*const WizzrobeFire_Functions[])(WizzrobeEntity*) = {
     WizzrobeFire_OnTick,
-    sub_0802FB74,
-    (void (*)(WizzrobeEntity*))sub_08001324,
-    (void (*)(WizzrobeEntity*))sub_0804A7D4,
-    (void (*)(WizzrobeEntity*))sub_08001242,
+    WizzrobeFire_OnCollision,
+    (void (*)(WizzrobeEntity*))GenericKnockback,
+    (void (*)(WizzrobeEntity*))GenericDeath,
+    (void (*)(WizzrobeEntity*))GenericConfused,
     WizzrobeFire_OnTick,
 };
 void (*const WizzrobeFire_Actions[])(WizzrobeEntity*) = {

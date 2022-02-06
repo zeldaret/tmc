@@ -54,10 +54,10 @@ void Mulldozer_OnInit(MulldozerEntity* this) {
 }
 
 void sub_08032CAC(MulldozerEntity* this) {
-    if (super->field_0x43 != 0) {
-        sub_0804A9FC(super, 0x1c);
+    if (super->confusedTime != 0) {
+        Create0x68FX(super, 0x1c);
     }
-    sub_0804AA30(super, Mulldozer_Functions);
+    EnemyFunctionHandlerAfterCollision(super, Mulldozer_Functions);
     if ((super->bitfield & 0x80) != 0) {
         switch (super->bitfield & 0x3f) {
             case 2:
@@ -87,7 +87,7 @@ void sub_08032D3C(MulldozerEntity* this) {
         sub_08032F24(this);
         sub_080331E8(this);
     }
-    sub_08001324(super);
+    GenericKnockback(super);
 }
 
 void nullsub_157(MulldozerEntity* this) {
@@ -441,8 +441,8 @@ void (*const Mulldozer_Functions[])(MulldozerEntity*) = {
     Mulldozer_OnInit,
     sub_08032CAC,
     sub_08032D3C,
-    (void (*)(MulldozerEntity*))sub_0804A7D4,
-    (void (*)(MulldozerEntity*))sub_08001242,
+    (void (*)(MulldozerEntity*))GenericDeath,
+    (void (*)(MulldozerEntity*))GenericConfused,
     nullsub_157,
 };
 void (*const Mulldozer_Actions[])(MulldozerEntity*) = {

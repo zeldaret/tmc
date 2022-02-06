@@ -28,24 +28,24 @@ void ScissorsBeetle(Entity* this) {
     SetChildOffset(this, 0, 1, -0x10);
 }
 
-void sub_080388D4(ScissorsBeetleEntity* this) {
+void ScissorsBeetle_OnTick(ScissorsBeetleEntity* this) {
     ScissorsBeetle_Actions[super->action](this);
 }
 
-void sub_080388EC(ScissorsBeetleEntity* this) {
+void ScissorsBeetle_OnCollision(ScissorsBeetleEntity* this) {
     Entity* child;
-    if (super->field_0x43) {
-        sub_0804A9FC(super, 0x1c);
+    if (super->confusedTime) {
+        Create0x68FX(super, FX_STARS);
     }
 
-    sub_0804AA30(super, ScissorsBeetle_Functions);
+    EnemyFunctionHandlerAfterCollision(super, ScissorsBeetle_Functions);
     if ((super->bitfield & 0x80) && super->action != 4) {
         u32 knockbackDir;
         child = super->child;
         child->iframes = super->iframes;
         knockbackDir = super->knockbackDirection;
         child->knockbackDirection = knockbackDir;
-        if (super->field_0x43) {
+        if (super->confusedTime) {
             COLLISION_OFF(child);
         } else if (super->action == 1) {
             child->direction = Direction8Round(knockbackDir + 0x12);
@@ -58,7 +58,7 @@ void sub_080388EC(ScissorsBeetleEntity* this) {
     }
 }
 
-void nullsub_164(ScissorsBeetleEntity* this) {
+void ScissorsBeetle_OnGrabbed(ScissorsBeetleEntity* this) {
 }
 
 void ScissorsBeetle_Init(ScissorsBeetleEntity* this) {
@@ -231,8 +231,12 @@ void sub_08038C84(ScissorsBeetleEntity* this, u32 arg2) {
 }
 
 void (*const ScissorsBeetle_Functions[])(Entity*) = {
-    (EntityActionPtr)sub_080388D4, (EntityActionPtr)sub_080388EC, sub_08001324, sub_0804A7D4, sub_08001242,
-    (EntityActionPtr)nullsub_164,
+    (EntityActionPtr)ScissorsBeetle_OnTick,
+    (EntityActionPtr)ScissorsBeetle_OnCollision,
+    GenericKnockback,
+    GenericDeath,
+    GenericConfused,
+    (EntityActionPtr)ScissorsBeetle_OnGrabbed,
 };
 
 void (*const ScissorsBeetle_Actions[])(ScissorsBeetleEntity*) = {

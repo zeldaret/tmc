@@ -10,7 +10,7 @@
 
 extern void sub_080317F8(Entity*);
 
-extern void (*gUnk_080CE530[])(Entity*);
+extern void (*SmallPesto_Functions[])(Entity*);
 extern void (*gUnk_080CE548[])(Entity*);
 extern void (*gUnk_080CE554[])(Entity*);
 
@@ -21,17 +21,17 @@ void sub_08031840(Entity*);
 extern Hitbox gUnk_080CE560;
 
 void SmallPesto(Entity* this) {
-    gUnk_080CE530[GetNextFunction(this)](this);
+    SmallPesto_Functions[GetNextFunction(this)](this);
 }
 
-void sub_08031680(Entity* this) {
+void SmallPesto_OnTick(Entity* this) {
     gUnk_080CE548[this->action](this);
 }
 
-void nullsub_152(Entity* this) {
+void SmallPesto_OnCollision(Entity* this) {
 }
 
-void sub_0803169C(Entity* this) {
+void SmallPesto_OnGrabbed(Entity* this) {
     s32 iVar1;
 
     GetNextFrame(this);
@@ -58,7 +58,7 @@ void sub_080316E8(Entity* this) {
 
 void sub_080316F0(Entity* this) {
     if (sub_0806F3E4(this)) {
-        sub_0804A7D4(this);
+        GenericDeath(this);
     }
 }
 

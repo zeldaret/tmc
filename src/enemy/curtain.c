@@ -1,18 +1,18 @@
 #include "enemy.h"
 #include "entity.h"
 
-void (*const gUnk_080D1CC8[])(Entity*);
+void (*const Curtain_Functions[])(Entity*);
 void (*const gUnk_080D1CE0[])(Entity*);
 
 void Curtain(Entity* this) {
-    EnemyFunctionHandler(this, gUnk_080D1CC8);
+    EnemyFunctionHandler(this, Curtain_Functions);
 }
 
-void sub_080481D0(Entity* this) {
+void Curtain_OnTick(Entity* this) {
     gUnk_080D1CE0[this->action](this);
 }
 
-void sub_080481E8(Entity* this) {
+void Curtain_OnCollision(Entity* this) {
     if (this->field_0x46) {
         this->action = 2;
         this->flags &= ~ENT_COLLIDE;
@@ -25,7 +25,7 @@ void sub_080481E8(Entity* this) {
     InitializeAnimation(this, this->actionDelay);
 }
 
-void nullsub_26() {
+void Curtain_OnGrabbed() {
 }
 
 void sub_08048224(Entity* this) {
@@ -68,8 +68,8 @@ void sub_08048294(Entity* this) {
 void nullsub_27() {
 }
 
-void (*const gUnk_080D1CC8[])(Entity*) = {
-    sub_080481D0, sub_080481E8, sub_08001324, sub_0804A7D4, sub_08001242, nullsub_26,
+void (*const Curtain_Functions[])(Entity*) = {
+    Curtain_OnTick, Curtain_OnCollision, GenericKnockback, GenericDeath, GenericConfused, Curtain_OnGrabbed,
 };
 
 void (*const gUnk_080D1CE0[])(Entity*) = {

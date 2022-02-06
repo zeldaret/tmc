@@ -16,7 +16,7 @@ extern Entity* gUnk_020000B0;
 bool32 Leever_PlayerInRange(Entity*, s32);
 void Leever_Move(Entity*);
 
-extern void (*const gLeeverFunctions[])(Entity*);
+extern void (*const Leever_Functions[])(Entity*);
 extern void (*const gLeeverActions[])(Entity*);
 extern const s8 gLeeverDrift[];
 extern const u16 gUnk_080CA4CA[];
@@ -33,7 +33,7 @@ enum {
 };
 
 void Leever(Entity* this) {
-    EnemyFunctionHandler(this, gLeeverFunctions);
+    EnemyFunctionHandler(this, Leever_Functions);
     SetChildOffset(this, 0, 1, -0x10);
 }
 
@@ -41,22 +41,22 @@ void Leever_OnTick(Entity* this) {
     gLeeverActions[this->action](this);
 }
 
-void sub_0801FC40(Entity* this) {
+void Leever_OnCollision(Entity* this) {
     if (this->bitfield == 0x80) {
         if (this->action == 3) {
             this->field_0x74.HWORD = 1;
         }
     } else {
-        if (this->field_0x43 != 0) {
-            sub_0804A9FC(this, 0x1c);
+        if (this->confusedTime != 0) {
+            Create0x68FX(this, FX_STARS);
         }
     }
-    sub_0804AA30(this, gLeeverFunctions);
+    EnemyFunctionHandlerAfterCollision(this, Leever_Functions);
 }
 
-void sub_0801FC7C(Entity* this) {
+void Leever_OnDeath(Entity* this) {
     if (this->type == LeeverForm_Red) {
-        sub_0804A7D4(this);
+        GenericDeath(this);
     } else {
         CreateDeathFx(this, 0xf1, 0);
     }
@@ -184,12 +184,12 @@ void Leever_Move(Entity* this) {
 }
 
 // clang-format off
-void (*const gLeeverFunctions[])(Entity*) = {
+void (*const Leever_Functions[])(Entity*) = {
     Leever_OnTick,
-    sub_0801FC40,
-    sub_08001324,
-    sub_0801FC7C,
-    sub_08001242,
+    Leever_OnCollision,
+    GenericKnockback,
+    Leever_OnDeath,
+    GenericConfused,
     Leever_OnTick,
 };
 

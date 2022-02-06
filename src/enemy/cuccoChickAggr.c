@@ -14,22 +14,22 @@ void sub_08022B0C(Entity*);
 u32 sub_08022B20(Entity*);
 void sub_08022B44(Entity*);
 
-extern void (*const gUnk_080CBB64[])(Entity*);
+extern void (*const CuccoChickAggr_Functions[])(Entity*);
 extern void (*const gUnk_080CBB7C[])(Entity*);
 
 void CuccoChickAggr(Entity* this) {
-    gUnk_080CBB64[GetNextFunction(this)](this);
+    CuccoChickAggr_Functions[GetNextFunction(this)](this);
 }
 
-void sub_08022934(Entity* this) {
+void CuccoChickAggr_OnTick(Entity* this) {
     gUnk_080CBB7C[this->action](this);
 }
 
-void sub_0802294C(Entity* this) {
-    sub_0804AA30(this, gUnk_080CBB64);
+void CuccoChickAggr_OnCollision(Entity* this) {
+    EnemyFunctionHandlerAfterCollision(this, CuccoChickAggr_Functions);
 }
 
-void nullsub_132(Entity* this) {
+void CuccoChickAggr_OnGrabbed(Entity* this) {
 }
 
 void sub_08022960(Entity* this) {
@@ -151,13 +151,13 @@ void sub_08022B44(Entity* this) {
 }
 
 // clang-format off
-void (*const gUnk_080CBB64[])(Entity*) = {
-    sub_08022934,
-    sub_0802294C,
-    sub_08001324,
-    sub_0804A7D4,
-    sub_08001242,
-    nullsub_132,
+void (*const CuccoChickAggr_Functions[])(Entity*) = {
+    CuccoChickAggr_OnTick,
+    CuccoChickAggr_OnCollision,
+    GenericKnockback,
+    GenericDeath,
+    GenericConfused,
+    CuccoChickAggr_OnGrabbed,
 };
 
 void (*const gUnk_080CBB7C[])(Entity*) = {

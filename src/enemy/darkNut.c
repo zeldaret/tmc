@@ -37,7 +37,7 @@ void sub_08021424(Entity*);
 
 extern Entity* gUnk_020000B0;
 
-extern void (*const gUnk_080CAA98[])(Entity*);
+extern void (*const DarkNut_Functions[])(Entity*);
 extern void (*const gUnk_080CAAB0[])(Entity*);
 
 extern const s8 gUnk_080CAB00[];
@@ -55,15 +55,15 @@ extern const u8 gUnk_080CAB68[];
 extern void (*const gUnk_080CAB58[])(Entity*);
 
 void DarkNut(Entity* this) {
-    EnemyFunctionHandler(this, gUnk_080CAA98);
+    EnemyFunctionHandler(this, DarkNut_Functions);
     SetChildOffset(this, 0, 1, -22);
 }
 
-void sub_08020BA0(Entity* this) {
+void DarkNut_OnTick(Entity* this) {
     gUnk_080CAAB0[this->action](this);
 }
 
-void sub_08020BB8(Entity* this) {
+void DarkNut_OnCollision(Entity* this) {
     switch (this->bitfield & 0x7f) {
         case 0x1c:
             this->action = 11;
@@ -71,7 +71,7 @@ void sub_08020BB8(Entity* this) {
             this->hitType = 81;
             sub_08021218(this, 8, DirectionToAnimationState(this->knockbackDirection ^ 0x10));
             sub_08021588(this);
-            sub_0804A9FC(this, 0x1c);
+            Create0x68FX(this, FX_STARS);
             break;
         case 0x16:
             this->action = 11;
@@ -79,7 +79,7 @@ void sub_08020BB8(Entity* this) {
             this->hitType = 81;
             sub_08021218(this, 8, DirectionToAnimationState(this->knockbackDirection ^ 0x10));
             sub_08021588(this);
-            sub_0804A9FC(this, 0x1c);
+            Create0x68FX(this, FX_STARS);
             break;
         case 0x4b:
             if (this->action == 13 || this->action == 15 || this->action == 19 || this->action == 18)
@@ -122,10 +122,10 @@ void sub_08020BB8(Entity* this) {
             break;
     }
     this->field_0x78.HALF.LO = this->health;
-    sub_0804AA30(this, gUnk_080CAA98);
+    EnemyFunctionHandlerAfterCollision(this, DarkNut_Functions);
 }
 
-void nullsub_129(Entity* this) {
+void DarkNut_OnGrabbed(Entity* this) {
 }
 
 void sub_08020D70(Entity* this) {
@@ -655,13 +655,13 @@ u32 sub_0802169C(Entity* this, Entity* ent) {
 }
 
 // clang-format off
-void (*const gUnk_080CAA98[])(Entity*) = {
-    sub_08020BA0,
-    sub_08020BB8,
-    sub_08001324,
-    sub_0804A7D4,
-    sub_08001242,
-    nullsub_129,
+void (*const DarkNut_Functions[])(Entity*) = {
+    DarkNut_OnTick,
+    DarkNut_OnCollision,
+    GenericKnockback,
+    GenericDeath,
+    GenericConfused,
+    DarkNut_OnGrabbed,
 };
 void (*const gUnk_080CAAB0[])(Entity*) = {
     sub_08020D70,

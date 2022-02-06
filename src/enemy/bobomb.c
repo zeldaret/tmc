@@ -18,20 +18,20 @@ void sub_0802CB68(Entity*);
 void sub_0802CBC4(Entity*);
 void sub_0802CC18(Entity*);
 
-extern void (*const gUnk_080CD5D4[])(Entity*);
+extern void (*const Bobomb_Functions[])(Entity*);
 extern void (*const gUnk_080CD5EC[])(Entity*);
 extern void (*const gUnk_080CD600[])(Entity*);
 extern void (*const gUnk_080CD618[])(Entity*);
 
 void Bobomb(Entity* this) {
-    EnemyFunctionHandler(this, gUnk_080CD5D4);
+    EnemyFunctionHandler(this, Bobomb_Functions);
 }
 
-void sub_0802C670(Entity* this) {
+void Bobomb_OnTick(Entity* this) {
     gUnk_080CD5EC[this->action](this);
 }
 
-void sub_0802C688(Entity* this) {
+void Bobomb_OnCollision(Entity* this) {
     if (this->bitfield & 0x80) {
         switch (this->bitfield & 0x7f) {
             case 0:
@@ -68,10 +68,10 @@ void sub_0802C688(Entity* this) {
                 break;
         }
     }
-    sub_0804AA30(this, gUnk_080CD5D4);
+    EnemyFunctionHandlerAfterCollision(this, Bobomb_Functions);
 }
 
-void sub_0802C7AC(Entity* this) {
+void Bobomb_OnGrabbed(Entity* this) {
     if (this->subAction < 3 && !sub_0806F520(this)) {
         this->subAction = 0;
         this->field_0xf = 1;
@@ -140,8 +140,8 @@ void sub_0802C8B8(Entity* this) {
     sub_0802CBC4(this);
 }
 
-void sub_0802C8C4(Entity* this) {
-    sub_0804A7D4(this);
+void Bobomb_OnDeath(Entity* this) {
+    GenericDeath(this);
     this->spriteSettings.draw = 0;
 }
 
@@ -305,13 +305,13 @@ void sub_0802CC18(Entity* this) {
 }
 
 // clang-format off
-void (*const gUnk_080CD5D4[])(Entity*) = {
-    sub_0802C670,
-    sub_0802C688,
-    sub_08001324,
-    sub_0802C8C4,
-    sub_08001242,
-    sub_0802C7AC,
+void (*const Bobomb_Functions[])(Entity*) = {
+    Bobomb_OnTick,
+    Bobomb_OnCollision,
+    GenericKnockback,
+    Bobomb_OnDeath,
+    GenericConfused,
+    Bobomb_OnGrabbed,
 };
 
 void (*const gUnk_080CD5EC[])(Entity*) = {

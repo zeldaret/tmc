@@ -107,10 +107,10 @@ NONMATCH("asm/non_matching/stalfos/sub_0803933C.inc", void sub_0803933C(StalfosE
         }
         super->flags2 &= 0xfb;
     }
-    if (super->field_0x43 != 0) {
-        sub_0804A9FC(super, 0x1c);
+    if (super->confusedTime != 0) {
+        Create0x68FX(super, 0x1c);
     }
-    sub_0804AA30(super, Stalfos_Functions);
+    EnemyFunctionHandlerAfterCollision(super, Stalfos_Functions);
 }
 END_NONMATCH
 
@@ -118,7 +118,7 @@ void sub_08039418(StalfosEntity* this) {
     if (super->type == 0) {
         CreateDeathFx(super, 0xf3, 0);
     } else {
-        sub_0804A7D4(super);
+        GenericDeath(super);
     }
 }
 
@@ -451,9 +451,9 @@ ASM_FUNC("asm/non_matching/stalfos/sub_08039B28.inc", u32 sub_08039B28(StalfosEn
 void (*const Stalfos_Functions[])(StalfosEntity*) = {
     Stalfos_OnTick,
     sub_0803933C,
-    (void (*)(StalfosEntity*))sub_08001324,
+    (void (*)(StalfosEntity*))GenericKnockback,
     sub_08039418,
-    (void (*)(StalfosEntity*))sub_08001242,
+    (void (*)(StalfosEntity*))GenericConfused,
     sub_08039438,
 };
 void (*const Stalfos_Actions[])(StalfosEntity*) = {

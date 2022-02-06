@@ -151,7 +151,7 @@ void OctorokBoss(Entity* this) {
     OctorokBoss_Functions[GetNextFunction(this)](this);
 }
 
-void OctorokBoss_OnHealthZero(Entity* this) {
+void OctorokBoss_Death(Entity* this) {
     if (this->type == WHOLE) {
         this->action = HIT;
         this->subAction = 0;
@@ -356,7 +356,7 @@ void OctorokBoss_Hit_SubAction6(Entity* this) {
             GET_HELPER(this)->mouthObject->health = 1;
             SoundReq(SFX_BOSS_DIE);
             // Kill this boss
-            sub_0804A7D4(this);
+            GenericDeath(this);
         }
     } else {
         GET_TIMER(this)--;
@@ -389,7 +389,7 @@ ASM_FUNC("asm/non_matching/octorokBoss/OctorokBoss_Init.inc", void OctorokBoss_I
             GET_HELPER(this) = helper;
             if (helper == NULL) {
                 // Kill this boss
-                sub_0804A7D4(this);
+                GenericDeath(this);
                 return;
             }
             this->myHeap = (u32*)helper;
@@ -1448,7 +1448,7 @@ void sub_08036FE4(Entity* this) {
 }
 
 void (*const OctorokBoss_Functions[])(Entity*) = {
-    OctorokBoss_OnTick, OctorokBoss_OnTick, sub_08001324, OctorokBoss_OnHealthZero, sub_08001242,
+    OctorokBoss_OnTick, OctorokBoss_OnTick, GenericKnockback, OctorokBoss_Death, GenericConfused,
 };
 
 void (*const OctorokBoss_Hit_SubActions[])(Entity*) = {

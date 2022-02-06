@@ -96,7 +96,7 @@ bool32 LoadEnemySprite(Entity* entity, const EnemyDefinition* definition) {
 ASM_FUNC("asm/non_matching/enemyUtils/sub_0804A720.inc", void sub_0804A720(Entity* this))
 
 void CreateDeathFx(GenericEntity* parent, u32 parentId, u32 fixedItem);
-void sub_0804A7D4(Entity* this) {
+void GenericDeath(Entity* this) {
     CreateDeathFx((GenericEntity*)this, this->id, 0);
 }
 
@@ -209,7 +209,7 @@ void SetChildOffset(Entity* entity, s32 xOffset, s32 yOffset, s32 zOffset) {
     }
 }
 
-Entity* sub_0804A9FC(Entity* parent, u32 fxType) {
+Entity* Create0x68FX(Entity* parent, u32 fxType) {
     Entity* fx;
     GenericEntity* this = (GenericEntity*)parent;
 

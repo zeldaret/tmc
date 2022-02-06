@@ -12,21 +12,21 @@
 
 static void sub_08033744(Entity* this);
 
-extern void (*const gUnk_080CEB74[])(Entity*);
+extern void (*const Wisp_Functions[])(Entity*);
 extern void (*const gUnk_080CEB8C[])(Entity*);
 extern void (*const gUnk_080CEB98[])(Entity*);
 
 extern u8 gUnk_080CEBA4[];
 
 void Wisp(Entity* this) {
-    EnemyFunctionHandler(this, gUnk_080CEB74);
+    EnemyFunctionHandler(this, Wisp_Functions);
 }
 
-void sub_0803354C(Entity* this) {
+void Wisp_OnTick(Entity* this) {
     gUnk_080CEB8C[this->action](this);
 }
 
-void sub_08033564(Entity* this) {
+void Wisp_OnCollision(Entity* this) {
     u32 bits;
     Entity* ent;
 
@@ -68,7 +68,7 @@ void sub_08033564(Entity* this) {
     }
 }
 
-void sub_0803362C(Entity* this) {
+void Wisp_OnGrabbed(Entity* this) {
     if (sub_0806F520() != 0) {
         gUnk_080CEB98[this->subAction](this);
     }
@@ -84,7 +84,7 @@ void sub_08033658(Entity* this) {
 
 void sub_08033660(Entity* this) {
     if (sub_0806F3E4(this)) {
-        sub_0804A7D4(this);
+        GenericDeath(this);
     }
 }
 

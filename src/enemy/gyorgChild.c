@@ -5,17 +5,17 @@
 #include "functions.h"
 #include "enemy/gyorg.h"
 
-void sub_08048684(GyorgChildEntity*);
-void sub_0804869C(GyorgChildEntity*);
-void sub_080486AC(GyorgChildEntity*);
+void GyorgChild_OnTick(GyorgChildEntity*);
+void GyorgChild_OnCollision(GyorgChildEntity*);
+void GyorgChild_OnGrabbed(GyorgChildEntity*);
 
-void (*const gUnk_080D1E6C[])(GyorgChildEntity*) = {
-    sub_08048684,
-    sub_0804869C,
-    (void (*)(GyorgChildEntity*))sub_08001324,
-    (void (*)(GyorgChildEntity*))sub_0804A7D4,
-    (void (*)(GyorgChildEntity*))sub_08001242,
-    sub_080486AC,
+void (*const GyorgChild_Functions[])(GyorgChildEntity*) = {
+    GyorgChild_OnTick,
+    GyorgChild_OnCollision,
+    (void (*)(GyorgChildEntity*))GenericKnockback,
+    (void (*)(GyorgChildEntity*))GenericDeath,
+    (void (*)(GyorgChildEntity*))GenericConfused,
+    GyorgChild_OnGrabbed,
 };
 
 void GyorgChild(Entity* this) {
@@ -24,7 +24,7 @@ void GyorgChild(Entity* this) {
         this->health = 0;
         this->collisionLayer = 2;
     }
-    gUnk_080D1E6C[GetNextFunction(this)]((GyorgChildEntity*)this);
+    GyorgChild_Functions[GetNextFunction(this)]((GyorgChildEntity*)this);
 }
 
 void sub_080486F4(GyorgChildEntity*);
@@ -32,7 +32,7 @@ void sub_0804877C(GyorgChildEntity*);
 void sub_0804882C(GyorgChildEntity*);
 void sub_08048904(GyorgChildEntity*);
 
-void sub_08048684(GyorgChildEntity* this) {
+void GyorgChild_OnTick(GyorgChildEntity* this) {
     static void (*const gUnk_080D1E84[])(GyorgChildEntity*) = {
         sub_080486F4,
         sub_0804877C,
@@ -42,15 +42,15 @@ void sub_08048684(GyorgChildEntity* this) {
     gUnk_080D1E84[super->action](this);
 }
 
-void sub_0804869C(GyorgChildEntity* this) {
-    sub_0804AA30(super, gUnk_080D1E6C);
+void GyorgChild_OnCollision(GyorgChildEntity* this) {
+    EnemyFunctionHandlerAfterCollision(super, GyorgChild_Functions);
 }
 
 void sub_080486D0(GyorgChildEntity*);
 void sub_080486D8(GyorgChildEntity*);
 void sub_080486E0(GyorgChildEntity*);
 
-void sub_080486AC(GyorgChildEntity* this) {
+void GyorgChild_OnGrabbed(GyorgChildEntity* this) {
     static void (*const gUnk_080D1E94[])(GyorgChildEntity*) = {
         sub_080486D0,
         sub_080486D8,
@@ -71,7 +71,7 @@ void sub_080486D8(GyorgChildEntity* this) {
 
 void sub_080486E0(GyorgChildEntity* this) {
     if (sub_0806F3E4(super)) {
-        sub_0804A7D4(super);
+        GenericDeath(super);
     }
 }
 

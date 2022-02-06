@@ -19,19 +19,19 @@ void sub_080281A0(Entity*);
 bool32 sub_080281E0(u32);
 void sub_08028224(u32);
 
-extern void (*const gUnk_080CC6FC[])(Entity*);
+extern void (*const LikeLike_Functions[])(Entity*);
 extern void (*const gUnk_080CC714[])(Entity*);
 
 void LikeLike(Entity* this) {
-    EnemyFunctionHandler(this, gUnk_080CC6FC);
+    EnemyFunctionHandler(this, LikeLike_Functions);
     SetChildOffset(this, 0, 1, -0x10);
 }
 
-void sub_08027D8C(Entity* this) {
+void LikeLike_OnTick(Entity* this) {
     gUnk_080CC714[this->action](this);
 }
 
-void sub_08027DA4(Entity* this) {
+void LikeLike_OnCollision(Entity* this) {
     if (this->hitType == 1) {
         this->action = 3;
         COLLISION_OFF(this);
@@ -55,22 +55,22 @@ void sub_08027DA4(Entity* this) {
         this->actionDelay = 0x20;
     }
 
-    if (this->field_0x43) {
-        sub_0804A9FC(this, 0x1c);
+    if (this->confusedTime) {
+        Create0x68FX(this, FX_STARS);
     }
 
-    sub_0804AA30(this, gUnk_080CC6FC);
+    EnemyFunctionHandlerAfterCollision(this, LikeLike_Functions);
 }
 
-void sub_08027E40(Entity* this) {
+void LikeLike_OnDeath(Entity* this) {
     if (this->actionDelay == 2 && this->field_0x80.HALF.LO != 0xff) {
         SetDefaultPriority(this, PRIO_NO_BLOCK);
         sub_08028224(this->field_0x80.HALF.LO);
     }
-    sub_0804A7D4(this);
+    GenericDeath(this);
 }
 
-void nullsub_139(Entity* this) {
+void LikeLike_OnGrabbed(Entity* this) {
     /* ... */
 }
 
@@ -271,8 +271,8 @@ void sub_08028224(u32 param_1) {
     MessageFromTarget(0x579);
 }
 
-void (*const gUnk_080CC6FC[])(Entity*) = {
-    sub_08027D8C, sub_08027DA4, sub_08001324, sub_08027E40, sub_08001242, nullsub_139,
+void (*const LikeLike_Functions[])(Entity*) = {
+    LikeLike_OnTick, LikeLike_OnCollision, GenericKnockback, LikeLike_OnDeath, GenericConfused, LikeLike_OnGrabbed,
 };
 
 void (*const gUnk_080CC714[])(Entity*) = {

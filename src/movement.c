@@ -683,13 +683,13 @@ u32 sub_080AF160(Entity* this) {
     return result;
 }
 
-void sub_080AF18C(Entity* this) {
+void Knockback1(Entity* this) {
     this->knockbackDuration--;
     sub_080AE58C(this, this->knockbackDirection, 2);
     sub_080AE7E8(this, this->field_0x46, this->knockbackDirection, 2);
 }
 
-void sub_080AF1BC(Entity* this) {
+void Knockback2(Entity* this) {
     this->knockbackDuration--;
     sub_080AE58C(this, this->knockbackDirection, 1);
     sub_080AE7E8(this, this->field_0x46, this->knockbackDirection, 1);

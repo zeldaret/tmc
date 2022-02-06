@@ -10,28 +10,28 @@
 
 static void sub_0802F45C(Entity* this);
 
-extern void (*const gUnk_080CDED0[])(Entity*);
+extern void (*const Tektite_Functions[])(Entity*);
 extern void (*const gUnk_080CDEE8[])(Entity*);
 
 void Tektite(Entity* this) {
-    EnemyFunctionHandler(this, gUnk_080CDED0);
+    EnemyFunctionHandler(this, Tektite_Functions);
     SetChildOffset(this, 0, 1, -0x10);
 }
 
-void sub_0802F138(Entity* this) {
+void Tektite_OnTick(Entity* this) {
     gUnk_080CDEE8[this->action](this);
 }
 
 extern u8 gUnk_080CDEF8[];
 
-void sub_0802F150(Entity* this) {
+void Tektite_OnCollision(Entity* this) {
     u32 bVar1;
     u32 uVar2;
 
-    if (this->field_0x43 != 0) {
-        sub_0804A9FC(this, 0x1c);
+    if (this->confusedTime != 0) {
+        Create0x68FX(this, FX_STARS);
     }
-    sub_0804AA30(this, gUnk_080CDED0);
+    EnemyFunctionHandlerAfterCollision(this, Tektite_Functions);
     if ((this->bitfield & 0x80) != 0) {
         switch (this->bitfield & 0x3f) {
             case 0x14:
@@ -59,11 +59,11 @@ void sub_0802F150(Entity* this) {
     }
 }
 
-void nullsub_16(Entity* this) {
+void Tektite_OnGrabbed(Entity* this) {
 }
 
-void sub_0802F1F0(Entity* this) {
-    sub_08001242(this);
+void Tektite_OnConfused(Entity* this) {
+    GenericConfused(this);
     if (this->z.HALF.HI != 0) {
         GravityUpdate(this, this->field_0x80.HWORD);
     }

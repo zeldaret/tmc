@@ -34,7 +34,7 @@ typedef struct {
     Gleerok_HeapStruct* unk_84;
 } GleerokEntity;
 
-extern void (*const gUnk_080CD748[])(Entity*);
+extern void (*const Gleerok_Functions[])(Entity*);
 extern void (*const gUnk_080CD75C[])(GleerokEntity*);
 extern void (*const gUnk_080CD7B8[])(GleerokEntity*);
 extern void (*const gUnk_080CD7E4[])(GleerokEntity*);
@@ -69,10 +69,10 @@ extern bool32 sub_0802EA88(Gleerok_HeapStruct* param_1);
 extern bool32 sub_0802E768(Gleerok_HeapStruct* param_1);
 
 void Gleerok(Entity* this) {
-    gUnk_080CD748[GetNextFunction(this)](this);
+    Gleerok_Functions[GetNextFunction(this)](this);
 }
 
-void sub_0802D034(GleerokEntity* this) {
+void Gleerok_OnDeath(GleerokEntity* this) {
     sub_08078B48();
 
     switch (super->type) {
@@ -107,7 +107,7 @@ void sub_0802D034(GleerokEntity* this) {
             break;
         case 1:
             SoundReq(SFX_BOSS_DIE);
-            sub_0804A7D4(super);
+            GenericDeath(super);
             break;
         case 0:
             gPlayerState.field_0x14 = 1;
@@ -237,7 +237,7 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D33C.inc", void sub_0802D33C(GleerokE
 }
 END_NONMATCH
 
-void sub_0802D394(GleerokEntity* this) {
+void Gleerok_OnTick(GleerokEntity* this) {
     gUnk_080CD7B8[super->action](this);
     super->spriteRendering.b3 = 3;
 }
@@ -273,7 +273,7 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D3B8.inc", void sub_0802D3B8(GleerokE
             heap = this->unk_84;
 
             if (heap == NULL) {
-                sub_0804A7D4(super);
+                GenericDeath(super);
                 DeleteThisEntity();
             }
 

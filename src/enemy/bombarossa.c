@@ -11,7 +11,7 @@ typedef struct {
     u16 unk_0x76;
 } BombarossaEntity;
 
-void (*const gUnk_080CEB38[])(Entity*);
+void (*const Bombarossa_Functions[])(Entity*);
 const s8 gUnk_080CEB50[];
 
 extern void sub_080A2CC0(Entity*, void*, void*);
@@ -19,10 +19,10 @@ extern void sub_080A2CC0(Entity*, void*, void*);
 void sub_0803350C(BombarossaEntity* this);
 
 void Bombarossa(Entity* this) {
-    gUnk_080CEB38[GetNextFunction(this)](this);
+    Bombarossa_Functions[GetNextFunction(this)](this);
 }
 
-void sub_080333D4(BombarossaEntity* this) {
+void Bombarossa_OnTick(BombarossaEntity* this) {
     if (super->action == 0) {
         super->action = 1;
         super->actionDelay = Random() & 0xf;
@@ -41,7 +41,7 @@ void sub_080333D4(BombarossaEntity* this) {
     }
 }
 
-void sub_08033448(BombarossaEntity* this) {
+void Bombarossa_OnCollision(BombarossaEntity* this) {
     Entity* ent;
     switch (super->bitfield & 0x7f) {
         default:
@@ -56,12 +56,12 @@ void sub_08033448(BombarossaEntity* this) {
         case 27:
         case 29:
         case 30:
-            sub_0804AA30(super, gUnk_080CEB38);
+            EnemyFunctionHandlerAfterCollision(super, Bombarossa_Functions);
             break;
     }
 }
 
-void nullsub_158() {
+void Bombarossa_OnGrabbed() {
 }
 
 void sub_0803350C(BombarossaEntity* this) {
@@ -74,8 +74,13 @@ void sub_0803350C(BombarossaEntity* this) {
     }
 }
 
-void (*const gUnk_080CEB38[])(Entity*) = {
-    (EntityActionPtr)sub_080333D4, (EntityActionPtr)sub_08033448, sub_08001324, sub_0804A7D4, sub_08001242, nullsub_158,
+void (*const Bombarossa_Functions[])(Entity*) = {
+    (EntityActionPtr)Bombarossa_OnTick,
+    (EntityActionPtr)Bombarossa_OnCollision,
+    GenericKnockback,
+    GenericDeath,
+    GenericConfused,
+    Bombarossa_OnGrabbed,
 };
 
 const s8 gUnk_080CEB50[] = {

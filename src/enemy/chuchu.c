@@ -35,7 +35,7 @@ u32 sub_0801FBD0(Entity*);
 void Chuchu_JumpAtPlayer(Entity*);
 
 extern void (*const gUnk_080012C8[])(Entity*);
-extern void (*const gUnk_080CA21C[])(Entity*);
+extern void (*const Chuchu_Functions[])(Entity*);
 extern void (*const gUnk_080CA234[])(Entity*);
 extern void (*const gUnk_080CA25C[])(Entity*);
 extern void (*const gUnk_080CA288[])(Entity*);
@@ -77,7 +77,7 @@ void Chuchu(Entity* this) {
             break;
     }
     this->field_0x80.HALF.HI = index;
-    gUnk_080CA21C[GetNextFunction(this)](this);
+    Chuchu_Functions[GetNextFunction(this)](this);
     if (*(char*)(*(int*)&this->field_0x68 + 10) == 0x1c) {
         SetChildOffset(this, 0, 1, -0x10);
     } else if (this->type == 2) {
@@ -101,7 +101,7 @@ void Chuchu_OnTick(Entity* this) {
     }
 }
 
-void sub_0801EF40(Entity* this) {
+void Chuchu_OnCollision(Entity* this) {
     u8 health;
 
     if (this->type == 2) {
@@ -115,7 +115,7 @@ void sub_0801EF40(Entity* this) {
     if (health) {
         if (this->bitfield == 0x94) {
             sub_0801FB68(this);
-            sub_0804A9FC(this, 0x1c);
+            Create0x68FX(this, FX_STARS);
             InitializeAnimation(this, 6);
         } else if (this->field_0x80.HALF.LO != health) {
             sub_0801FB68(this);
@@ -127,12 +127,12 @@ void sub_0801EF40(Entity* this) {
         InitializeAnimation(this, 9);
     }
     this->field_0x80.HALF.LO = this->health;
-    sub_0804AA30(this, gUnk_080CA21C);
+    EnemyFunctionHandlerAfterCollision(this, Chuchu_Functions);
 }
 
-void sub_0801EFD8(Entity* this) {
-    if (sub_0806F520(this) == 0 && this->field_0x43) {
-        sub_0804A9FC(this, 0x1c);
+void Chuchu_OnGrabbed(Entity* this) {
+    if (sub_0806F520(this) == 0 && this->confusedTime) {
+        Create0x68FX(this, FX_STARS);
         InitializeAnimation(this, 6);
     } else {
         if (this->animIndex != 8) {
@@ -144,17 +144,17 @@ void sub_0801EFD8(Entity* this) {
     }
 }
 
-void sub_0801F02C(Entity* this) {
+void Chuchu_OnKnockback(Entity* this) {
     if (this->animIndex == 6)
         GetNextFrame(this);
     sub_08001318(this);
 }
 
-void sub_0801F048(Entity* this) {
+void Chuchu_OnDeath(Entity* this) {
     GravityUpdate(this, 0x1800);
     GetNextFrame(this);
     if (this->type == 0) {
-        sub_0804A7D4(this);
+        GenericDeath(this);
     } else if (this->type == 1) {
         CreateDeathFx(this, 0xf2, 0);
     } else {
@@ -162,10 +162,10 @@ void sub_0801F048(Entity* this) {
     }
 }
 
-void sub_0801F084(Entity* this) {
+void Chuchu_OnConfused(Entity* this) {
     if ((this->frame & 0x80) == 0)
         GetNextFrame(this);
-    sub_08001242(this);
+    GenericConfused(this);
 }
 
 void sub_0801F0A4(Entity* this) {
@@ -559,7 +559,7 @@ void sub_0801F884(Entity* this) {
     if (this->field_0xf) {
         this->field_0xf--;
     } else {
-        Entity* ent = sub_0804A9FC(this, 0x1b);
+        Entity* ent = Create0x68FX(this, FX_LIGHTNING_STRIKE);
         if (ent) {
             ent->type2 = 64;
             this->action = 4;
@@ -728,13 +728,13 @@ void Chuchu_JumpAtPlayer(Entity* this) {
 }
 
 // clang-format off
-void (*const gUnk_080CA21C[])(Entity*) = {
+void (*const Chuchu_Functions[])(Entity*) = {
     Chuchu_OnTick,
-    sub_0801EF40,
-    sub_0801F02C,
-    sub_0801F048,
-    sub_0801F084,
-    sub_0801EFD8,
+    Chuchu_OnCollision,
+    Chuchu_OnKnockback,
+    Chuchu_OnDeath,
+    Chuchu_OnConfused,
+    Chuchu_OnGrabbed,
 };
 
 void (*const gUnk_080CA234[])(Entity*) = {

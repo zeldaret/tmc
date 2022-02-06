@@ -35,7 +35,7 @@ u32 sub_0803C6F8(BowMoblinEntity*);
 u32 sub_0803C568(BowMoblinEntity*);
 void sub_0803C664(BowMoblinEntity*);
 
-void (*const gUnk_080CFF78[])(Entity*);
+void (*const BowMoblin_Functions[])(Entity*);
 void (*const gUnk_080CFF90[])(BowMoblinEntity*);
 
 const s8 gUnk_080CFFA4[8];
@@ -44,21 +44,21 @@ const u16 gUnk_080CFFBC[4];
 const s8 gUnk_080CFFC4[8];
 
 void BowMoblin(Entity* this) {
-    EnemyFunctionHandler(this, gUnk_080CFF78);
+    EnemyFunctionHandler(this, BowMoblin_Functions);
     SetChildOffset(this, 0, 1, -0x18);
 }
 
-void sub_0803C180(BowMoblinEntity* this) {
+void BowMoblin_OnTick(BowMoblinEntity* this) {
     gUnk_080CFF90[super->action](this);
 }
 
-void sub_0803C198(BowMoblinEntity* this) {
+void BowMoblin_OnCollision(BowMoblinEntity* this) {
     Entity* pEVar1;
 
-    if (super->field_0x43 != 0) {
-        sub_0804A9FC(super, 0x1c);
+    if (super->confusedTime != 0) {
+        Create0x68FX(super, FX_STARS);
     }
-    sub_0804AA30(super, (EntityActionArray)gUnk_080CFF78);
+    EnemyFunctionHandlerAfterCollision(super, (EntityActionArray)BowMoblin_Functions);
     if ((super->bitfield & 0x80) != 0) {
         sub_0803C5F0(this);
         pEVar1 = super->child;
@@ -68,7 +68,7 @@ void sub_0803C198(BowMoblinEntity* this) {
     }
 }
 
-void nullsub_168(BowMoblinEntity* this) {
+void BowMoblin_OnGrabbed(BowMoblinEntity* this) {
 }
 
 void sub_0803C1E0(BowMoblinEntity* this) {
@@ -388,9 +388,13 @@ void sub_0803C714(BowMoblinEntity* this) {
     PositionRelative(super, child, offsetX, offsetY);
 }
 
-void (*const gUnk_080CFF78[])(Entity*) = {
-    (EntityActionPtr)sub_0803C180, (EntityActionPtr)sub_0803C198, sub_08001324, sub_0804A7D4, sub_08001242,
-    (EntityActionPtr)nullsub_168,
+void (*const BowMoblin_Functions[])(Entity*) = {
+    (EntityActionPtr)BowMoblin_OnTick,
+    (EntityActionPtr)BowMoblin_OnCollision,
+    GenericKnockback,
+    GenericDeath,
+    GenericConfused,
+    (EntityActionPtr)BowMoblin_OnGrabbed,
 };
 
 void (*const gUnk_080CFF90[])(BowMoblinEntity*) = {

@@ -10,18 +10,18 @@
 
 void sub_08023000(Entity*, int);
 
-extern void (*const gUnk_080CBBC8[])(Entity*);
+extern void (*const EnemyE_Functions[])(Entity*);
 extern void (*const gUnk_080CBBDC[])(Entity*);
 
 void EnemyE(Entity* this) {
-    EnemyFunctionHandler(this, gUnk_080CBBC8);
+    EnemyFunctionHandler(this, EnemyE_Functions);
 }
 
-void sub_08022FB4(Entity* this) {
+void EnemyE_OnTick(Entity* this) {
     gUnk_080CBBDC[this->action](this);
 }
 
-void nullsub_133(Entity* this) {
+void EnemyE_OnCollision(Entity* this) {
 }
 
 void sub_08022FD0(Entity* this) {
@@ -58,12 +58,12 @@ void sub_08023000(Entity* this, int frames) {
 }
 
 // clang-format off
-void (*const gUnk_080CBBC8[])(Entity*) = {
-    sub_08022FB4,
-    nullsub_133,
-    sub_08001324,
-    sub_0804A7D4,
-    sub_08001242,
+void (*const EnemyE_Functions[])(Entity*) = {
+    EnemyE_OnTick,
+    EnemyE_OnCollision,
+    GenericKnockback,
+    GenericDeath,
+    GenericConfused,
 };
 
 void (*const gUnk_080CBBDC[])(Entity*) = {

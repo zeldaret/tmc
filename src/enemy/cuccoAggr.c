@@ -18,7 +18,7 @@ typedef struct {
     u16 y;
 } PosOffset;
 
-void (*const gUnk_080CF778[])(Entity*);
+void (*const CuccoAggr_Functions[])(Entity*);
 void (*const gUnk_080CF790[])(CuccoAggrEntity*);
 void (*const gUnk_080CF7AC[])(CuccoAggrEntity*);
 const u8 gUnk_080CF7BC[];
@@ -46,17 +46,17 @@ void CuccoAggr(Entity* this) {
     if (index) {
         gUnk_080012C8[index](this);
     } else {
-        gUnk_080CF778[GetNextFunction(this)](this);
+        CuccoAggr_Functions[GetNextFunction(this)](this);
         SetChildOffset(this, 0, 1, -0x10);
         sub_080391B4((CuccoAggrEntity*)this);
     }
 }
 
-void sub_08038CF8(CuccoAggrEntity* this) {
+void CuccoAggr_OnTick(CuccoAggrEntity* this) {
     gUnk_080CF790[super->action](this);
 }
 
-void sub_08038D10(CuccoAggrEntity* this) {
+void CuccoAggr_OnCollision(CuccoAggrEntity* this) {
     if (super->type != 2) {
         if (this->unk_7a == 0 && CheckRoomFlag(1) == 0) {
             if (super->health <= 0xbf) {
@@ -70,14 +70,14 @@ void sub_08038D10(CuccoAggrEntity* this) {
         CuccoAggr_CreateFx(this);
     }
 
-    if (super->field_0x43) {
-        sub_0804A9FC(super, 0x1c);
+    if (super->confusedTime) {
+        Create0x68FX(super, FX_STARS);
     }
 
-    sub_0804AA30(super, gUnk_080CF778);
+    EnemyFunctionHandlerAfterCollision(super, CuccoAggr_Functions);
 }
 
-void nullsub_165(CuccoAggrEntity* this) {
+void CuccoAggr_OnGrabbed(CuccoAggrEntity* this) {
 }
 
 void sub_08038D78(CuccoAggrEntity* this) {
@@ -332,9 +332,13 @@ void sub_08039298(CuccoAggrEntity* this) {
     }
 }
 
-void (*const gUnk_080CF778[])(Entity*) = {
-    (EntityActionPtr)sub_08038CF8, (EntityActionPtr)sub_08038D10, sub_08001324, sub_0804A7D4, sub_08001242,
-    (EntityActionPtr)nullsub_165,
+void (*const CuccoAggr_Functions[])(Entity*) = {
+    (EntityActionPtr)CuccoAggr_OnTick,
+    (EntityActionPtr)CuccoAggr_OnCollision,
+    GenericKnockback,
+    GenericDeath,
+    GenericConfused,
+    (EntityActionPtr)CuccoAggr_OnGrabbed,
 };
 
 void (*const gUnk_080CF790[])(CuccoAggrEntity*) = {

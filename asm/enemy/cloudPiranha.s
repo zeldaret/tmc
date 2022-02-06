@@ -46,11 +46,11 @@ sub_08038468: @ 0x08038468
 	beq _0803847C
 	adds r0, r4, #0
 	movs r1, #0x1c
-	bl sub_0804A9FC
+	bl Create0x68FX
 _0803847C:
 	ldr r1, _080384B0 @ =gUnk_080CF4F0
 	adds r0, r4, #0
-	bl sub_0804AA30
+	bl EnemyFunctionHandlerAfterCollision
 	adds r0, r4, #0
 	adds r0, #0x41
 	ldrb r1, [r0]

@@ -4,13 +4,13 @@
 	.section .rodata
     .align 2
 
-gUnk_080D0880:: @ 080D0880
-	.4byte sub_0803EAFC
-	.4byte sub_0803EB14
-	.4byte sub_0803EB24
-	.4byte sub_0803EB34
-	.4byte sub_08001242
-	.4byte nullsub_21
+Enemy4D_Functions:: @ 080D0880
+	.4byte Enemy4D_OnTick
+	.4byte Enemy4D_OnCollision
+	.4byte Enemy4D_OnKnockback
+	.4byte Enemy4D_OnDeath
+	.4byte GenericConfused
+	.4byte Enemy4D_OnGrabbed
 
 gUnk_080D0898:: @ 080D0898
 	.4byte sub_0803EB44

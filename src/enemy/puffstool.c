@@ -26,7 +26,7 @@ bool32 sub_0802594C(Entity*, u32);
 bool32 sub_080257EC(Entity*, u32, u32);
 bool32 sub_08025AB8(u32, u32);
 
-extern void (*const gUnk_080CBF9C[])(Entity*);
+extern void (*const Puffstool_Functions[])(Entity*);
 extern void (*const gUnk_080CBFB4[])(Entity*);
 extern const u8 gUnk_080CBFE8[];
 extern void (*const gUnk_080CBFEC[])(Entity*);
@@ -41,15 +41,15 @@ extern const s8 gUnk_080CC0BA[];
 extern const s8 gUnk_080CC0C2[];
 
 void Puffstool(Entity* this) {
-    EnemyFunctionHandler(this, gUnk_080CBF9C);
+    EnemyFunctionHandler(this, Puffstool_Functions);
     SetChildOffset(this, 0, 1, -0x10);
 }
 
-void sub_08025008(Entity* this) {
+void Puffstool_OnTick(Entity* this) {
     gUnk_080CBFB4[this->action](this);
 }
 
-void sub_08025020(Entity* this) {
+void Puffstool_OnCollide(Entity* this) {
     u8 tmp;
 
     switch (this->bitfield & 0x7f) {
@@ -94,17 +94,17 @@ void sub_08025020(Entity* this) {
             break;
     }
 
-    sub_0804AA30(this, gUnk_080CBF9C);
+    EnemyFunctionHandlerAfterCollision(this, Puffstool_Functions);
 }
 
-void sub_0802511C(Entity* this) {
+void Puffstool_OnDeath(Entity* this) {
     if ((this->field_0x3a & 2) && this->actionDelay == 1 && this->field_0x82.HALF.LO) {
         sub_08025B18(this);
     }
-    sub_0804A7D4(this);
+    GenericDeath(this);
 }
 
-void sub_0802514C(Entity* this) {
+void Puffstool_OnGrabbed(Entity* this) {
     GravityUpdate(this, 0x2000);
     if (sub_0806F520(this)) {
         gUnk_080CBFEC[this->subAction](this);
@@ -278,7 +278,7 @@ void sub_080254B4(Entity* this) {
                 sub_080256B4(this);
             } else {
                 this->action = 0xc;
-                sub_0804A9FC(this, 0x1c);
+                Create0x68FX(this, FX_STARS);
             }
             InitializeAnimation(this, 0);
         }
@@ -597,13 +597,13 @@ u32 sub_08025C60(Entity* this) {
 }
 
 // clang-format off
-void (*const gUnk_080CBF9C[])(Entity*) = {
-    sub_08025008,
-    sub_08025020,
-    sub_08001324,
-    sub_0802511C,
-    sub_08001242,
-    sub_0802514C,
+void (*const Puffstool_Functions[])(Entity*) = {
+    Puffstool_OnTick,
+    Puffstool_OnCollide,
+    GenericKnockback,
+    Puffstool_OnDeath,
+    GenericConfused,
+    Puffstool_OnGrabbed,
 };
 
 void (*const gUnk_080CBFB4[])(Entity*) = {

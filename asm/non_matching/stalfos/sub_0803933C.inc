@@ -100,11 +100,11 @@ _080393F8:
 	beq _0803940A
 	adds r0, r5, #0
 	movs r1, #0x1c
-	bl sub_0804A9FC
+	bl Create0x68FX
 _0803940A:
 	ldr r1, _08039414 @ =Stalfos_Functions
 	adds r0, r5, #0
-	bl sub_0804AA30
+	bl EnemyFunctionHandlerAfterCollision
 	pop {r4, r5, pc}
 	.align 2, 0
 _08039414: .4byte Stalfos_Functions

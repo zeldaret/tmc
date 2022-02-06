@@ -5,12 +5,12 @@
     .align 2
 
 
-gUnk_080CD748:: @ 080CD748
-	.4byte sub_0802D394
-	.4byte sub_0802D394
-	.4byte sub_08001324
-	.4byte sub_0802D034
-	.4byte sub_08001242
+Gleerok_Functions:: @ 080CD748
+	.4byte Gleerok_OnTick
+	.4byte Gleerok_OnTick
+	.4byte GenericKnockback
+	.4byte Gleerok_OnDeath
+	.4byte GenericConfused
 
 gUnk_080CD75C:: @ 080CD75C
 	.4byte sub_0802D158

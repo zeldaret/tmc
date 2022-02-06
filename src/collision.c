@@ -431,7 +431,7 @@ s32 sub_08017CBC(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
     } else {
         tgt->knockbackDuration = 12;
         tgt->iframes = 16;
-        tgt->field_0x43 = -16;
+        tgt->confusedTime = -16;
         tgt->field_0x46 = 768;
         if (org->iframes == 0)
             org->iframes = -1;
@@ -526,7 +526,7 @@ s32 sub_08017F3C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 }
 
 s32 sub_08017F40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
-    if (tgt->field_0x43 == 0) {
+    if (tgt->confusedTime == 0) {
         if (org == &gPlayerEntity) {
             if (sub_08079F8C() &&
 #ifdef EU
@@ -620,7 +620,7 @@ s32 sub_080180E8(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 }
 
 s32 sub_08018168(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
-    if (tgt->field_0x43 == 0) {
+    if (tgt->confusedTime == 0) {
         if (org == &gPlayerEntity) {
             if (sub_08079F8C() &&
 #ifdef EU
@@ -676,7 +676,7 @@ s32 sub_08018288(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 }
 
 s32 sub_080182A8(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
-    if (tgt->field_0x43 == 0) {
+    if (tgt->confusedTime == 0) {
         if (org->iframes == 0)
             org->iframes = -1;
         if (tgt->iframes == 0)
@@ -690,7 +690,7 @@ s32 sub_080182A8(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 
 s32 sub_08018308(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     u32 temp = 0;
-    if (tgt->field_0x43 && tgt->kind == ENEMY && org == &gPlayerEntity) {
+    if (tgt->confusedTime && tgt->kind == ENEMY && org == &gPlayerEntity) {
         sub_08004484(tgt, org);
         temp = 1;
     }
@@ -709,8 +709,8 @@ s32 sub_08018308(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
         tmp2 = 0xFF;
         if (settings->_3 != 0)
             org->health = sub_08017874(org, tgt);
-        if (settings->_4 > org->field_0x43)
-            org->field_0x43 = settings->_4;
+        if (settings->_4 > org->confusedTime)
+            org->confusedTime = settings->_4;
         tgt->field_0x46 = 16 * settings->_5;
         tgt->iframes = settings->_6;
         if (settings->_6 == 0)
@@ -719,8 +719,8 @@ s32 sub_08018308(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
         tmp2 &= org->damage = settings->_8;
         if (tmp2 != 0)
             tgt->health = sub_08017874(tgt, org);
-        if (settings->_9 > tgt->field_0x43)
-            tgt->field_0x43 = settings->_9;
+        if (settings->_9 > tgt->confusedTime)
+            tgt->confusedTime = settings->_9;
     }
     if (settings->_a & 1)
         sub_08017940(org, tgt);
@@ -733,8 +733,8 @@ s32 sub_08018308(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
             parent->iframes = tgt->iframes;
             parent->knockbackDirection = direction;
             parent->knockbackDuration = tgt->knockbackDuration;
-            if (parent->field_0x43 == 0)
-                parent->field_0x43 = tgt->field_0x43;
+            if (parent->confusedTime == 0)
+                parent->confusedTime = tgt->confusedTime;
             parent->field_0x46 = tgt->field_0x46;
             parent->field_0x4c = org;
         }

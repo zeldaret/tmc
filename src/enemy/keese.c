@@ -8,12 +8,12 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern void sub_08001328(Entity*);
+extern void GenericKnockback2(Entity*);
 extern void Keese_StartFly(Entity*);
 extern void sub_080AEFB4(Entity*);
 extern void sub_08021F24(Entity*);
 
-extern void (*const gKeeseFunctions[])(Entity*);
+extern void (*const Keese_Functions[])(Entity*);
 extern void (*const gKeeseActions[])(Entity*);
 extern void (*const gUnk_080CB6C4[])(Entity*);
 
@@ -27,18 +27,18 @@ enum {
 };
 
 void Keese(Entity* this) {
-    gKeeseFunctions[GetNextFunction(this)](this);
+    Keese_Functions[GetNextFunction(this)](this);
 }
 
 void Keese_OnTick(Entity* this) {
     gKeeseActions[this->action](this);
 }
 
-void sub_08021d98(Entity* this) {
-    sub_0804AA30(this, gKeeseFunctions);
+void Keese_OnCollision(Entity* this) {
+    EnemyFunctionHandlerAfterCollision(this, Keese_Functions);
 }
 
-void sub_08021DA8(Entity* this) {
+void Keese_OnGrabbed(Entity* this) {
     if (sub_0806F520(this)) {
         gUnk_080CB6C4[this->subAction](this);
     }
@@ -54,7 +54,7 @@ void sub_08021DD4(Entity* this) {
 
 void sub_08021DDC(Entity* this) {
     if (sub_0806F3E4(this)) {
-        sub_0804A7D4(this);
+        GenericDeath(this);
     }
 }
 
@@ -131,13 +131,13 @@ void sub_08021F24(Entity* this) {
 }
 
 // clang-format off
-void (*const gKeeseFunctions[])(Entity*) = {
+void (*const Keese_Functions[])(Entity*) = {
     Keese_OnTick,
-    sub_08021d98,
-    sub_08001328,
-    sub_0804A7D4,
-    sub_08001242,
-    sub_08021DA8,
+    Keese_OnCollision,
+    GenericKnockback2,
+    GenericDeath,
+    GenericConfused,
+    Keese_OnGrabbed,
 };
 
 void (*const gKeeseActions[])(Entity*) = {

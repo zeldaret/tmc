@@ -7,9 +7,9 @@
 gUnk_080CF4F0:: @ 080CF4F0
 	.4byte sub_08038450
 	.4byte sub_08038468
-	.4byte sub_08001324
-	.4byte sub_0804A7D4
-	.4byte sub_08001242
+	.4byte GenericKnockback
+	.4byte GenericDeath
+	.4byte GenericConfused
 	.4byte nullsub_163
 
 gUnk_080CF508:: @ 080CF508

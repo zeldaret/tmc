@@ -4,13 +4,13 @@
 	.section .rodata
     .align 2
 
-gUnk_080D16A4:: @ 080D16A4
-	.4byte sub_08044F70
-	.4byte sub_08044F88
-	.4byte sub_08001324
-	.4byte sub_0804A7D4
-	.4byte sub_08001242
-	.4byte nullsub_171
+Slime_Functions:: @ 080D16A4
+	.4byte Slime_OnTick
+	.4byte Slime_OnCollision
+	.4byte GenericKnockback
+	.4byte GenericDeath
+	.4byte GenericConfused
+	.4byte Slime_OnGrabbed
 
 gUnk_080D16BC:: @ 080D16BC
 	.4byte sub_08044FC8

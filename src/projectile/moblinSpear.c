@@ -76,7 +76,7 @@ void MoblinSpear_Action1(Entity* this) {
     this->hitbox->offset_y = *a++;
     this->hitbox->width = *a++;
     this->hitbox->height = *a++;
-    if (parent->field_0x43 != 0) {
+    if (parent->confusedTime != 0) {
         if ((this->flags & ENT_COLLIDE) != 0) {
             COLLISION_OFF(this);
         }

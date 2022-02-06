@@ -45,12 +45,12 @@ void sub_08037A14(GibdoEntity*);
 extern void sub_0804A4E4(Entity*, Entity*);
 u32 sub_0804A044(Entity*, Entity*, u32);
 
-void (*const gGibdo[6])(Entity*);
+void (*const Gibdo_Functions[6])(Entity*);
 void (*const gUnk_080CF2AC[9])(GibdoEntity*);
 extern Entity* gUnk_020000B0;
 
 void Gibdo(Entity* this) {
-    EnemyFunctionHandler(this, gGibdo);
+    EnemyFunctionHandler(this, Gibdo_Functions);
     SetChildOffset(this, 0, 1, -0x15);
 }
 
@@ -58,7 +58,7 @@ void Gibdo_OnTick(GibdoEntity* this) {
     gUnk_080CF2AC[super->action](this);
 }
 
-void sub_080374A4(GibdoEntity* this) {
+void Gibdo_OnCollision(GibdoEntity* this) {
     u8 x;
     if (super->bitfield == 0x87) {
         if (super->action == 0x6) {
@@ -88,13 +88,13 @@ void sub_080374A4(GibdoEntity* this) {
             sub_08037A58(this);
         }
     }
-    if (super->field_0x43 != 0) {
-        sub_0804A9FC(super, 0x1c);
+    if (super->confusedTime != 0) {
+        Create0x68FX(super, FX_STARS);
     }
-    sub_0804AA30(super, gGibdo);
+    EnemyFunctionHandlerAfterCollision(super, Gibdo_Functions);
 }
 
-void nullsub_162(GibdoEntity* this) {
+void Gibdo_OnGrabbed(GibdoEntity* this) {
 }
 
 void sub_08037558(GibdoEntity* this) {
@@ -436,9 +436,13 @@ void Gibdo_MoveObjectsToStalfos(GibdoEntity* this, Entity* that) {
     }
 }
 
-void (*const gGibdo[6])(Entity*) = {
-    (EntityActionPtr)Gibdo_OnTick, (EntityActionPtr)sub_080374A4, sub_08001324, sub_0804A7D4, sub_08001242,
-    (EntityActionPtr)nullsub_162,
+void (*const Gibdo_Functions[6])(Entity*) = {
+    (EntityActionPtr)Gibdo_OnTick,
+    (EntityActionPtr)Gibdo_OnCollision,
+    GenericKnockback,
+    GenericDeath,
+    GenericConfused,
+    (EntityActionPtr)Gibdo_OnGrabbed,
 };
 
 void (*const gUnk_080CF2AC[9])(GibdoEntity*) = {

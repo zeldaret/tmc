@@ -4,13 +4,13 @@
 	.section .rodata
     .align 2
 
-gUnk_080CE530:: @ 080CE530
-	.4byte sub_08031680
-	.4byte nullsub_152
-	.4byte sub_08001324
-	.4byte sub_0804A7D4
-	.4byte sub_08001242
-	.4byte sub_0803169C
+SmallPesto_Functions:: @ 080CE530
+	.4byte SmallPesto_OnTick
+	.4byte SmallPesto_OnCollision
+	.4byte GenericKnockback
+	.4byte GenericDeath
+	.4byte GenericConfused
+	.4byte SmallPesto_OnGrabbed
 
 gUnk_080CE548:: @ 080CE548
 	.4byte sub_08031704

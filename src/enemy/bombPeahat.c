@@ -24,7 +24,7 @@ void sub_0802B264(Entity*);
 
 extern void (*const gUnk_080012C8[])(Entity*);
 
-extern void (*const gUnk_080CD0F0[])(Entity*);
+extern void (*const BombPeahat_Functions[])(Entity*);
 extern void (*const gUnk_080CD108[])(Entity*);
 extern void (*const gUnk_080CD120[])(Entity*);
 extern void (*const gUnk_080CD134[])(Entity*);
@@ -41,11 +41,11 @@ void BombPeahat(Entity* this) {
     if ((this->type == 2) && (iVar1 = sub_080012DC(this), iVar1)) {
         gUnk_080012C8[iVar1](this);
     } else {
-        gUnk_080CD0F0[GetNextFunction(this)](this);
+        BombPeahat_Functions[GetNextFunction(this)](this);
     }
 }
 
-void sub_0802A84C(Entity* this) {
+void BombPeahat_OnTick(Entity* this) {
     switch (this->type) {
         default:
             gUnk_080CD108[this->action](this);
@@ -61,14 +61,14 @@ void sub_0802A84C(Entity* this) {
     }
 }
 
-void sub_0802A8AC(Entity* this) {
+void BombPeahat_OnCollision(Entity* this) {
     this->field_0x80.HALF.HI = 0;
     if (this->type < 2) {
         InitializeAnimation(this, 0);
     }
 }
 
-void sub_0802A8C8(Entity* this) {
+void BombPeahat_OnGrabbed(Entity* this) {
     gUnk_080CD140[this->subAction](this);
 }
 
@@ -705,13 +705,13 @@ void sub_0802B264(Entity* this) {
 #endif
 
 // clang-format off
-void (*const gUnk_080CD0F0[])(Entity*) = {
-    sub_0802A84C,
-    sub_0802A8AC,
-    sub_08001324,
-    sub_0804A7D4,
-    sub_08001242,
-    sub_0802A8C8,
+void (*const BombPeahat_Functions[])(Entity*) = {
+    BombPeahat_OnTick,
+    BombPeahat_OnCollision,
+    GenericKnockback,
+    GenericDeath,
+    GenericConfused,
+    BombPeahat_OnGrabbed,
 };
 
 void (*const gUnk_080CD108[])(Entity*) = {

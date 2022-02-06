@@ -18,7 +18,7 @@ void sub_0804A4E4(Entity*, Entity*);
 
 extern void (*const gUnk_080012C8[])(Entity*);
 
-extern void (*const gUnk_080CBDBC[])(Entity*);
+extern void (*const Sluggula_Functions[])(Entity*);
 extern void (*const gUnk_080CBDD4[])(Entity*);
 extern void (*const gUnk_080CBDEC[])(Entity*);
 
@@ -28,7 +28,7 @@ extern const s8 gUnk_080CBDFF[];
 
 void Sluggula(Entity* this) {
     if (this->type == 1) {
-        EnemyFunctionHandler(this, gUnk_080CBDBC);
+        EnemyFunctionHandler(this, Sluggula_Functions);
 
         SetChildOffset(this, 0, 1, -0x10);
     } else if (this->type == 0) {
@@ -47,22 +47,22 @@ void Sluggula(Entity* this) {
     }
 }
 
-void sub_08023C08(Entity* this) {
+void Sluggula_OnTick(Entity* this) {
     gUnk_080CBDEC[this->action](this);
 }
 
-void sub_08023C20(Entity* this) {
-    if (this->field_0x43)
-        sub_0804A9FC(this, 0x1c);
+void Sluggula_OnCollision(Entity* this) {
+    if (this->confusedTime)
+        Create0x68FX(this, FX_STARS);
 
     if (this->type == 1) {
-        sub_0804AA30(this, gUnk_080CBDBC);
+        EnemyFunctionHandlerAfterCollision(this, Sluggula_Functions);
     } else {
-        sub_0804AA30(this, gUnk_080CBDD4);
+        EnemyFunctionHandlerAfterCollision(this, gUnk_080CBDD4);
     }
 }
 
-void nullsub_137(Entity* this) {
+void Sluggula_OnGrabbed(Entity* this) {
     /* ... */
 }
 
@@ -195,22 +195,22 @@ void sub_08023E9C(Entity* this) {
 }
 
 // clang-format off
-void (*const gUnk_080CBDBC[])(Entity*) = {
-    sub_08023C08,
-    sub_08023C20,
-    sub_08001324,
-    sub_0804A7D4,
-    sub_08001242,
-    nullsub_137,
+void (*const Sluggula_Functions[])(Entity*) = {
+    Sluggula_OnTick,
+    Sluggula_OnCollision,
+    GenericKnockback,
+    GenericDeath,
+    GenericConfused,
+    Sluggula_OnGrabbed,
 };
 
 void (*const gUnk_080CBDD4[])(Entity*) = {
     sub_08023CE0,
-    sub_08023C20,
-    sub_08001324,
-    sub_0804A7D4,
-    sub_08001242,
-    nullsub_137,
+    Sluggula_OnCollision,
+    GenericKnockback,
+    GenericDeath,
+    GenericConfused,
+    Sluggula_OnGrabbed,
 };
 
 void (*const gUnk_080CBDEC[])(Entity*) = {

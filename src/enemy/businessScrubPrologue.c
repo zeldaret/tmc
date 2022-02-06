@@ -14,7 +14,7 @@ typedef struct {
 
 extern u16 script_BusinessScrubIntro[];
 
-void (*const gUnk_080D19FC[])(Entity*);
+void (*const BusinessScrubPrologue_Functions[])(Entity*);
 void (*const gUnk_080D1A14[])(BusinessScrubPrologueEntity*);
 const u8 gUnk_080D1A38[];
 const s8 gUnk_080D1A3E[];
@@ -31,16 +31,16 @@ void sub_0804604C(BusinessScrubPrologueEntity*);
 void sub_08045FA0(BusinessScrubPrologueEntity*);
 
 void BusinessScrubPrologue(Entity* this) {
-    EnemyFunctionHandler(this, gUnk_080D19FC);
+    EnemyFunctionHandler(this, BusinessScrubPrologue_Functions);
 }
 
-void sub_08045B98(BusinessScrubPrologueEntity* this) {
+void BusinessScrubPrologue_OnTick(BusinessScrubPrologueEntity* this) {
     super->spriteSettings.draw = 1;
     gUnk_080D1A14[super->action](this);
     sub_0800445C(super);
 }
 
-void sub_08045BC8(BusinessScrubPrologueEntity* this) {
+void BusinessScrubPrologue_OnCollision(BusinessScrubPrologueEntity* this) {
     Entity* ent;
     if (super->hitType == 1) {
         if ((super->bitfield & 0x7f) == 0x42) {
@@ -61,7 +61,7 @@ void sub_08045BC8(BusinessScrubPrologueEntity* this) {
     }
 }
 
-void nullsub_174(BusinessScrubPrologueEntity* this) {
+void BusinessScrubPrologue_OnGrabbed(BusinessScrubPrologueEntity* this) {
 }
 
 void sub_08045C3C(BusinessScrubPrologueEntity* this) {
@@ -187,7 +187,7 @@ void sub_08045E14(BusinessScrubPrologueEntity* this) {
                 super->action = 5;
                 super->subAction = 0;
                 sub_08046030(this, 0);
-                ent = sub_0804A9FC(super, 0x1c);
+                ent = Create0x68FX(super, FX_STARS);
                 if (ent) {
                     ent->spritePriority.b0 = 3;
                     ent->z.HALF.HI -= 0xc;
@@ -329,9 +329,13 @@ void sub_08046078(BusinessScrubPrologueEntity* this) {
     sub_0804AA1C(super);
 }
 
-void (*const gUnk_080D19FC[])(Entity*) = {
-    (EntityActionPtr)sub_08045B98, (EntityActionPtr)sub_08045BC8, sub_08001324, sub_0804A7D4, sub_08001242,
-    (EntityActionPtr)nullsub_174,
+void (*const BusinessScrubPrologue_Functions[])(Entity*) = {
+    (EntityActionPtr)BusinessScrubPrologue_OnTick,
+    (EntityActionPtr)BusinessScrubPrologue_OnCollision,
+    GenericKnockback,
+    GenericDeath,
+    GenericConfused,
+    (EntityActionPtr)BusinessScrubPrologue_OnGrabbed,
 };
 
 void (*const gUnk_080D1A14[])(BusinessScrubPrologueEntity*) = {

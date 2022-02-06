@@ -16,7 +16,7 @@ extern void sub_0804AA1C(Entity*);
 u32 sub_080228CC(Entity*);
 u32 sub_080228F0(Entity*);
 
-extern void (*const gUnk_080CBA28[])(Entity*);
+extern void (*const SpinyChuchu_Functions[])(Entity*);
 extern void (*const gUnk_080CBA40[])(Entity*);
 
 extern const u8 gUnk_080CBA60[];
@@ -27,15 +27,15 @@ extern Hitbox gHitbox_32;
 extern Entity* gUnk_020000B0;
 
 void SpinyChuchu(Entity* this) {
-    EnemyFunctionHandler(this, gUnk_080CBA28);
+    EnemyFunctionHandler(this, SpinyChuchu_Functions);
     SetChildOffset(this, 0, 1, -0x10);
 }
 
-void sub_08022434(Entity* this) {
+void SpinyChuchu_OnTick(Entity* this) {
     gUnk_080CBA40[this->action](this);
 }
 
-void sub_0802244C(Entity* this) {
+void SpinyChuchu_OnCollision(Entity* this) {
     if (this->health) {
         if (this->hitType == 0x65) {
             switch (this->bitfield & 0x7f) {
@@ -56,13 +56,13 @@ void sub_0802244C(Entity* this) {
                 case 0x18:
                 case 0x19:
                 case 0x1a:
-                    sub_0804A9FC(this, 0x1c);
+                    Create0x68FX(this, FX_STARS);
                     this->action = 5;
                     this->hitType = 0x5c;
                     InitializeAnimation(this, 1);
             }
         } else if (this->bitfield == 0x94) {
-            sub_0804A9FC(this, 0x1c);
+            Create0x68FX(this, FX_STARS);
             this->action = 5;
             InitializeAnimation(this, 1);
         }
@@ -83,25 +83,25 @@ void sub_0802244C(Entity* this) {
     }
 
     this->field_0x80.HALF.LO = this->health;
-    sub_0804AA30(this, gUnk_080CBA28);
+    EnemyFunctionHandlerAfterCollision(this, SpinyChuchu_Functions);
 }
 
-void sub_080225A0(Entity* this) {
+void SpinyChuchu_OnKnockback(Entity* this) {
     if (this->animIndex == 1)
         GetNextFrame(this);
     sub_08001318(this);
 }
 
-void sub_080225BC(Entity* this) {
+void SpinyChuchu_OnDeath(Entity* this) {
     GravityUpdate(this, Q_8_8(24.0));
     if (this->frame & 1) {
-        sub_0804A7D4(this);
+        GenericDeath(this);
     } else {
         GetNextFrame(this);
     }
 }
 
-void nullsub_9(Entity* this) {
+void SpinyChuchu_OnGrabbed(Entity* this) {
 }
 
 void sub_080225EC(Entity* this) {
@@ -265,13 +265,13 @@ u32 sub_080228F0(Entity* this) {
 }
 
 // clang-format off
-void (*const gUnk_080CBA28[])(Entity*) = {
-    sub_08022434,
-    sub_0802244C,
-    sub_080225A0,
-    sub_080225BC,
-    sub_08001242,
-    nullsub_9,
+void (*const SpinyChuchu_Functions[])(Entity*) = {
+    SpinyChuchu_OnTick,
+    SpinyChuchu_OnCollision,
+    SpinyChuchu_OnKnockback,
+    SpinyChuchu_OnDeath,
+    GenericConfused,
+    SpinyChuchu_OnGrabbed,
 };
 
 void (*const gUnk_080CBA40[])(Entity*) = {

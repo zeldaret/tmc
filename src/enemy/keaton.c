@@ -10,7 +10,7 @@
 
 extern Entity* gUnk_020000B0;
 
-extern void (*const gUnk_080CE7B0[])(Entity*);
+extern void (*const Keaton_Functions[])(Entity*);
 extern void (*const gUnk_080CE7C8[])(Entity*);
 extern u8 gUnk_080CE7E0[];
 extern u16 gUnk_080CE7F0[];
@@ -29,15 +29,15 @@ void sub_080327C8(Entity* this);
 void sub_080327E0(Entity* this);
 
 void Keaton(Entity* this) {
-    EnemyFunctionHandler(this, gUnk_080CE7B0);
+    EnemyFunctionHandler(this, Keaton_Functions);
     SetChildOffset(this, 0, 1, -18);
 }
 
-void sub_080323DC(Entity* this) {
+void Keaton_OnTick(Entity* this) {
     gUnk_080CE7C8[this->action](this);
 }
 
-void sub_080323F4(Entity* this) {
+void Keaton_OnCollision(Entity* this) {
     u32 var;
 
     if (this->action != 3 && this->action != 4) {
@@ -46,17 +46,17 @@ void sub_080323F4(Entity* this) {
         this->direction = DirectionTurnAround(DirectionRoundUp(this->knockbackDirection));
         InitAnimationForceUpdate(this, this->direction >> 3);
     } else if (this->bitfield == 0xCC) {
-        if (this->field_0x43 == 0) {
+        if (this->confusedTime == 0) {
             sub_0803275C(this);
         }
     }
-    if (this->field_0x43 != 0) {
-        sub_0804A9FC(this, 0x1C);
+    if (this->confusedTime != 0) {
+        Create0x68FX(this, FX_STARS);
     }
-    sub_0804AA30(this, gUnk_080CE7B0);
+    EnemyFunctionHandlerAfterCollision(this, Keaton_Functions);
 }
 
-void nullsub_155(Entity* this) {
+void Keaton_OnGrabbed(Entity* this) {
 }
 
 void sub_08032468(Entity* this) {

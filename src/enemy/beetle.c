@@ -13,7 +13,7 @@ extern u32 PlayerInRange(Entity*, u32, u32);
 u32 sub_08021D00(Entity*);
 void sub_08021D44(Entity* this, u32 direction);
 
-extern void (*const gUnk_080CB590[])(Entity*);
+extern void (*const Beetle_Functions[])(Entity*);
 extern void (*const gUnk_080CB5A8[])(Entity*);
 extern void (*const gUnk_080CB5C8[])(Entity*);
 extern void (*const gUnk_080CB5D4[])(Entity*);
@@ -22,18 +22,18 @@ extern const s8 gUnk_080CB5DC[];
 extern const s8 gUnk_080CB5E4[];
 
 void Beetle(Entity* this) {
-    EnemyFunctionHandler(this, gUnk_080CB590);
+    EnemyFunctionHandler(this, Beetle_Functions);
 }
 
-void sub_08021768(Entity* this) {
+void Beetle_OnTick(Entity* this) {
     gUnk_080CB5A8[this->action](this);
 }
 
-void sub_08021780(Entity* this) {
+void Beetle_OnCollision(Entity* this) {
     switch (this->bitfield) {
         case 0x80:
             if (gPlayerState.framestate == PL_STATE_CLIMB) {
-                sub_08021768(this);
+                Beetle_OnTick(this);
             } else {
                 this->action = 5;
                 this->actionDelay = 0xb4;
@@ -47,19 +47,19 @@ void sub_08021780(Entity* this) {
             }
             break;
         case 0x93:
-            sub_08021768(this);
+            Beetle_OnTick(this);
             break;
     }
 
     if (this->health == 0)
         this->knockbackDuration = 0;
 
-    sub_0804AA30(this, gUnk_080CB590);
+    EnemyFunctionHandlerAfterCollision(this, Beetle_Functions);
 }
 
-void sub_08021818(Entity* this) {
+void Beetle_OnDeath(Entity* this) {
     if (this->type == 0) {
-        sub_0804A7D4(this);
+        GenericDeath(this);
     } else {
         Entity* ent = this->parent;
         if (ent) {
@@ -70,7 +70,7 @@ void sub_08021818(Entity* this) {
     }
 }
 
-void sub_08021848(Entity* this) {
+void Beetle_OnGrabbed(Entity* this) {
     if (sub_0806F520(this)) {
         gUnk_080CB5C8[this->subAction](this);
     } else {
@@ -89,7 +89,7 @@ void nullsub_130(Entity* this) {
 
 void sub_08021888(Entity* this) {
     if (sub_0806F3E4(this))
-        sub_08021818(this);
+        Beetle_OnDeath(this);
 }
 
 void Beetle_Initialize(Entity* this) {
@@ -322,13 +322,13 @@ void sub_08021D44(Entity* this, u32 direction) {
 }
 
 // clang-format off
-void (*const gUnk_080CB590[])(Entity*) = {
-    sub_08021768,
-    sub_08021780,
-    sub_08001324,
-    sub_08021818,
-    sub_08001242,
-    sub_08021848,
+void (*const Beetle_Functions[])(Entity*) = {
+    Beetle_OnTick,
+    Beetle_OnCollision,
+    GenericKnockback,
+    Beetle_OnDeath,
+    GenericConfused,
+    Beetle_OnGrabbed,
 };
 
 void (*const gUnk_080CB5A8[])(Entity*) = {

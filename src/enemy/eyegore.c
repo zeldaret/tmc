@@ -64,9 +64,9 @@ void Eyegore_Action6(EyegoreEntity*);
 void (*const Eyegore_Functions[])(EyegoreEntity*) = {
     Eyegore_OnTick,
     Eyegore_OnCollision,
-    (void (*)(EyegoreEntity*))sub_08001324,
+    (void (*)(EyegoreEntity*))GenericKnockback,
     Eyegore_OnDeath,
-    (void (*)(EyegoreEntity*))sub_08001242,
+    (void (*)(EyegoreEntity*))GenericConfused,
     Eyegore_OnGrabbed,
 };
 
@@ -125,7 +125,7 @@ void Eyegore_OnCollision(EyegoreEntity* this) {
         super->flags &= ~ENT_COLLIDE;
         super->iframes = 0x78;
     }
-    sub_0804AA30(super, Eyegore_Functions);
+    EnemyFunctionHandlerAfterCollision(super, Eyegore_Functions);
 }
 
 void Eyegore_OnDeath(EyegoreEntity* this) {
@@ -136,7 +136,7 @@ void Eyegore_OnDeath(EyegoreEntity* this) {
         if ((super->field_0x3a & 2) == 0) {
             CreateFx(super, FX_GIANT_EXPLOSION4, 0);
         }
-        sub_0804A7D4(super);
+        GenericDeath(super);
     }
 }
 

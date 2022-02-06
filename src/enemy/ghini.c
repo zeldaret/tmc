@@ -55,7 +55,7 @@ void Ghini_OnTick(GhiniEntity* this) {
     sub_0803F694(this);
 }
 
-void sub_0803F028(GhiniEntity* this) {
+void Ghini_OnCollision(GhiniEntity* this) {
     if (super->action == 8 || super->action == 9) {
         super->animationState = 0xff;
         InitializeAnimation(super, (super->knockbackDirection >> 4 ^ 1) + 1);
@@ -69,10 +69,10 @@ void sub_0803F028(GhiniEntity* this) {
         if (super->bitfield == 0x9d) {
             super->zVelocity = 0x18000;
         }
-        if (super->field_0x43 != 0) {
+        if (super->confusedTime != 0) {
             super->animationState = super->knockbackDirection >> 4;
             InitializeAnimation(super, super->animationState + 7);
-            sub_0804A9FC(super, 0x1c);
+            Create0x68FX(super, FX_STARS);
         }
         if (super->health != this->unk_7a) {
             this->unk_7a = super->health;
@@ -82,13 +82,13 @@ void sub_0803F028(GhiniEntity* this) {
             InitializeAnimation(super, (super->knockbackDirection >> 4) + 7);
         }
     }
-    sub_0804AA30(super, Ghini_Functions);
+    EnemyFunctionHandlerAfterCollision(super, Ghini_Functions);
 }
 
-void sub_0803F0F4(GhiniEntity* this) {
+void Ghini_OnKnockback(GhiniEntity* this) {
     GetNextFrame(super);
-    sub_08001328(super);
-    if (((super->knockbackDuration == 0) && (super->health != 0)) && (super->field_0x43 == 0)) {
+    GenericKnockback2(super);
+    if (((super->knockbackDuration == 0) && (super->health != 0)) && (super->confusedTime == 0)) {
         super->animationState = 0xff;
         if (super->animIndex == 7 || super->animIndex == 8) {
             InitializeAnimation(super, ((super->animIndex - 7) ^ 1) + 1);
@@ -96,15 +96,15 @@ void sub_0803F0F4(GhiniEntity* this) {
     }
 }
 
-void sub_0803F148(GhiniEntity* this) {
+void Ghini_OnConfused(GhiniEntity* this) {
     if (super->animIndex != 7 && super->animIndex != 8) {
         InitializeAnimation(super, super->animationState + 7);
     }
-    sub_08001242(super);
+    GenericConfused(super);
     if (super->z.HALF.HI == 0) {
         super->z.HALF.HI = 0xffff;
     }
-    if (super->field_0x43 == 0) {
+    if (super->confusedTime == 0) {
         InitializeAnimation(super, (super->animationState ^ 1) + 1);
         super->direction = 0xff;
         super->animationState = 0xff;
@@ -112,7 +112,7 @@ void sub_0803F148(GhiniEntity* this) {
     }
 }
 
-void sub_0803F1A8(GhiniEntity* this) {
+void Ghini_OnGrabbed(GhiniEntity* this) {
     if (sub_0806F520()) {
         Ghini_SubActions[super->subAction](this);
     } else {
@@ -139,7 +139,7 @@ void Ghini_SubAction2(GhiniEntity* this) {
         if (effect != NULL) {
             effect->spritePriority.b0 = 3;
         }
-        sub_0804A7D4(super);
+        GenericDeath(super);
     }
 }
 
@@ -398,7 +398,8 @@ void sub_0803F738(GhiniEntity* this) {
 }
 
 void (*const Ghini_Functions[])(GhiniEntity*) = {
-    Ghini_OnTick, sub_0803F028, sub_0803F0F4, (void (*)(GhiniEntity*))sub_0804A7D4, sub_0803F148, sub_0803F1A8,
+    Ghini_OnTick,     Ghini_OnCollision, Ghini_OnKnockback, (void (*)(GhiniEntity*))GenericDeath,
+    Ghini_OnConfused, Ghini_OnGrabbed,
 };
 void (*const Ghini_Actions[])(GhiniEntity*) = {
     Ghini_Init,    Ghini_Action1, Ghini_Action2, Ghini_Action3, Ghini_Action4,

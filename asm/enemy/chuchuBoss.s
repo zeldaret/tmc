@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_08025CD4
-sub_08025CD4: @ 0x08025CD4
+	thumb_func_start ChuchuBoss_OnDeath
+ChuchuBoss_OnDeath: @ 0x08025CD4
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	bl sub_08078B48
@@ -90,7 +90,7 @@ _08025D28:
 	lsls r0, r0, #1
 	bl SoundReq
 	adds r0, r4, #0
-	bl sub_0804A7D4
+	bl GenericDeath
 	b _08025D9C
 	.align 2, 0
 _08025D80: .4byte gUnk_02034490
@@ -127,8 +127,8 @@ _08025DBC:
 	pop {r4, r5, pc}
 	.align 2, 0
 
-	thumb_func_start sub_08025DC0
-sub_08025DC0: @ 0x08025DC0
+	thumb_func_start ChuchuBoss_OnTick
+ChuchuBoss_OnTick: @ 0x08025DC0
 	push {lr}
 	ldr r2, _08025DD4 @ =gUnk_080CC1B0
 	ldrb r1, [r0, #0xc]
@@ -246,7 +246,7 @@ _08025E86:
 	bne _08025EAA
 _08025EA2:
 	adds r0, r5, #0
-	bl sub_0804A7D4
+	bl GenericDeath
 	b _0802605E
 _08025EAA:
 	ldr r0, [r4]

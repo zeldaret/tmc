@@ -34,9 +34,9 @@ void sub_0803467C(Entity*);
 u32 sub_080348A4(Entity*, Entity*, u32);
 void sub_08034C00(Entity*);
 
-void sub_08033EF0(Entity* this);
-void sub_08033F08(Entity* this);
-void nullsub_160(Entity* this);
+void MazaalHead_OnTick(Entity* this);
+void MazaalHead_OnCollision(Entity* this);
+void MazaalHead_OnGrabbed(Entity* this);
 void sub_08033F1C(Entity* this);
 void sub_08034A84(Entity* this);
 void sub_08034AC4(Entity* this);
@@ -67,8 +67,8 @@ void sub_08034B0C(Entity* this);
 void sub_08034B38(Entity* this);
 void sub_08034BA0(Entity* this);
 
-void (*const gUnk_080CEC88[])(Entity*) = {
-    sub_08033EF0, sub_08033F08, sub_08001324, sub_0804A7D4, sub_08001242, nullsub_160,
+void (*const MazaalHead_Functions[])(Entity*) = {
+    MazaalHead_OnTick, MazaalHead_OnCollision, GenericKnockback, GenericDeath, GenericConfused, MazaalHead_OnGrabbed,
 };
 void (*const gUnk_080CECA0[])(Entity*) = {
     sub_08033F1C, sub_08034A84, sub_08034AC4, sub_08034AC4, sub_08034BC8,
@@ -102,18 +102,18 @@ const ScreenTransitionData gUnk_080CED88 = { 1, { 0, 0, 0, 0 }, 0x88, 0xf8, 0, 0
 const ScreenTransitionData gUnk_080CED9C = { 1, { 0, 0, 0, 0 }, 0x88, 0xf8, 0, 0x5a, 0, 1, 0, 0, 0 };
 
 void MazaalHead(Entity* this) {
-    gUnk_080CEC88[GetNextFunction(this)](this);
+    MazaalHead_Functions[GetNextFunction(this)](this);
 }
 
-void sub_08033EF0(Entity* this) {
+void MazaalHead_OnTick(Entity* this) {
     gUnk_080CECA0[this->type](this);
 }
 
-void sub_08033F08(Entity* this) {
-    sub_0804AA30(this, gUnk_080CEC88);
+void MazaalHead_OnCollision(Entity* this) {
+    EnemyFunctionHandlerAfterCollision(this, MazaalHead_Functions);
 }
 
-void nullsub_160(Entity* this) {
+void MazaalHead_OnGrabbed(Entity* this) {
 }
 
 void sub_08033F1C(Entity* this) {

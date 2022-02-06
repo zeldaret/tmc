@@ -38,18 +38,18 @@ typedef struct {
 } PACKED OffsetCoords;
 
 // Variables
-extern void (*const gUnk_080D0110[])(Entity*);
+extern void (*const Lakitu_Functions[])(Entity*);
 extern void (*const gUnk_080D0128[])(Entity*);
 extern void (*const gUnk_080D0148[])(Entity*);
 extern const OffsetCoords gUnk_080D0154[];
 
 void Lakitu(Entity* this) {
-    EnemyFunctionHandler(this, gUnk_080D0110);
+    EnemyFunctionHandler(this, Lakitu_Functions);
 
     SetChildOffset(this, 0, 1, -16);
 }
 
-void Lakitu_DoAction(Entity* this) {
+void Lakitu_OnTick(Entity* this) {
     if (this->action != 0 && this->action != 7) {
         sub_0803CAD0(this);
     }
@@ -57,7 +57,7 @@ void Lakitu_DoAction(Entity* this) {
     LakituActionFuncs[this->action](this);
 }
 
-void sub_0803C784(Entity* this) {
+void Lakitu_OnCollision(Entity* this) {
     if ((this->bitfield & 0x7f) == 0x1d) {
         this->zVelocity = Q_16_16(2.0);
 
@@ -87,14 +87,14 @@ void sub_0803C784(Entity* this) {
         }
     }
 
-    if (this->field_0x43) {
-        sub_0804A9FC(this, 0x1c);
+    if (this->confusedTime) {
+        Create0x68FX(this, FX_STARS);
     }
 
-    sub_0804AA30(this, gUnk_080D0110);
+    EnemyFunctionHandlerAfterCollision(this, Lakitu_Functions);
 }
 
-void sub_0803C820(Entity* this) {
+void Lakitu_OnGrabbed(Entity* this) {
     if (sub_0806F520(this)) {
         gUnk_080D0148[this->subAction](this);
     }
@@ -393,8 +393,8 @@ void sub_0803CC08(Entity* this) {
     DeleteEntity(cloud);
 }
 
-void (*const gUnk_080D0110[])(Entity*) = {
-    Lakitu_DoAction, sub_0803C784, sub_08001324, sub_0804A7D4, sub_08001242, sub_0803C820,
+void (*const Lakitu_Functions[])(Entity*) = {
+    Lakitu_OnTick, Lakitu_OnCollision, GenericKnockback, GenericDeath, GenericConfused, Lakitu_OnGrabbed,
 };
 
 void (*const LakituActionFuncs[])(Entity*) = {

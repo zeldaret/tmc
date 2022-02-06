@@ -25,7 +25,7 @@ void MandiblesProjectile(Entity* this) {
     if (entity == NULL) {
         entity = this->parent;
     }
-    if ((entity->field_0x43 == 0) && ((this->flags & ENT_COLLIDE) == 0)) {
+    if ((entity->confusedTime == 0) && ((this->flags & ENT_COLLIDE) == 0)) {
         COLLISION_ON(this);
     }
     MandiblesProjectile_Functions[GetNextFunction(this)](this);
@@ -50,7 +50,7 @@ void sub_080A9EBC(Entity* this) {
                 UpdateAnimationSingleFrame(this);
                 break;
             case 3:
-                if (this->field_0x43 != 0) {
+                if (this->confusedTime != 0) {
                     this->field_0x82.HALF.LO = 2;
                     this->animationState = 0xff;
                     sub_080AA270(this);
@@ -127,7 +127,7 @@ void MandiblesProjectile_Action3(Entity* this) {
             PositionRelative(entity, this, Q_16_16(tmp[0]), Q_16_16(tmp[1]));
         }
     }
-    if (entity->field_0x43 == 0) {
+    if (entity->confusedTime == 0) {
         if (this->field_0xf != 0) {
             this->field_0xf -= 1;
         } else {
@@ -217,7 +217,7 @@ void sub_080AA1D8(Entity* this) {
             } else {
                 PositionRelative(parent, this, Q_16_16(tmp[0]), Q_16_16(tmp[1]));
             }
-            if (parent->field_0x43 != 0) {
+            if (parent->confusedTime != 0) {
                 if ((this->flags & ENT_COLLIDE) != 0) {
                     COLLISION_OFF(this);
                 }

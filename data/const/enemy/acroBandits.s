@@ -4,13 +4,13 @@
 	.section .rodata
     .align 2
 
-gUnk_080CE56C:: @ 080CE56C
-	.4byte sub_080318C4
-	.4byte sub_080318DC
-	.4byte sub_08031A60
-	.4byte sub_0804A7D4
-	.4byte sub_08001242
-	.4byte nullsub_154
+AcroBandit_Functions:: @ 080CE56C
+	.4byte AcroBandit_OnTick
+	.4byte AcroBandit_OnCollision
+	.4byte AcroBandit_OnKnockback
+	.4byte GenericDeath
+	.4byte GenericConfused
+	.4byte AcroBandit_OnGrabbed
 
 gUnk_080CE584:: @ 080CE584
 	.4byte sub_08031A88

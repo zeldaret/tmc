@@ -12,31 +12,31 @@
 
 extern void sub_0803EE8C(Entity*);
 
-extern void (*const gUnk_080D0880[])(Entity*);
+extern void (*const Enemy4D_Functions[])(Entity*);
 extern void (*const gUnk_080D0898[])(Entity*);
 
 void Enemy4D(Entity* this) {
-    EnemyFunctionHandler(this, gUnk_080D0880);
+    EnemyFunctionHandler(this, Enemy4D_Functions);
 }
 
-void sub_0803EAFC(Entity* this) {
+void Enemy4D_OnTick(Entity* this) {
     gUnk_080D0898[this->action](this);
 }
 
-void sub_0803EB14(Entity* this) {
-    sub_0804AA30(this, gUnk_080D0880);
+void Enemy4D_OnCollision(Entity* this) {
+    EnemyFunctionHandlerAfterCollision(this, Enemy4D_Functions);
 }
 
-void sub_0803EB24(Entity* this) {
-    sub_08001324(this);
-    sub_0803EAFC(this);
+void Enemy4D_OnKnockback(Entity* this) {
+    GenericKnockback(this);
+    Enemy4D_OnTick(this);
 }
 
-void sub_0803EB34(Entity* this) {
+void Enemy4D_OnDeath(Entity* this) {
     CreateDeathFx(this, 0xff, 0x57);
 }
 
-void nullsub_21(Entity* this) {
+void Enemy4D_OnGrabbed(Entity* this) {
 }
 
 void sub_0803EB44(Entity* this) {

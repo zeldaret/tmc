@@ -11,7 +11,7 @@
 void sub_0802C4B0(Entity*);
 void sub_0802C62C(Entity*);
 
-extern void (*const gUnk_080CD540[])(Entity*);
+extern void (*const FallingBoulder_Functions[])(Entity*);
 extern void (*const gUnk_080CD558[])(Entity*);
 extern const u16 gUnk_080CD568[];
 extern const u8 gUnk_080CD580[];
@@ -20,18 +20,18 @@ extern const s16 gUnk_080CD58C[];
 extern void sub_080AEFB4(Entity*);
 
 void FallingBoulder(Entity* this) {
-    EnemyFunctionHandler(this, gUnk_080CD540);
+    EnemyFunctionHandler(this, FallingBoulder_Functions);
 }
 
-void sub_0802C238(Entity* this) {
+void FallingBoulder_OnTick(Entity* this) {
     gUnk_080CD558[this->action](this);
 }
 
-void sub_0802C250(Entity* this) {
+void FallingBoulder_OnCollision(Entity* this) {
     /* ... */
 }
 
-void sub_0802C254(Entity* this) {
+void FallingBoulder_OnGrabbed(Entity* this) {
     /* ... */
 }
 
@@ -219,13 +219,13 @@ void sub_0802C62C(Entity* this) {
 }
 
 // clang-format off
-void (*const gUnk_080CD540[])(Entity*) = {
-    sub_0802C238,
-    sub_0802C250,
-    sub_08001324,
-    sub_0804A7D4,
-    sub_08001242,
-    sub_0802C254,
+void (*const FallingBoulder_Functions[])(Entity*) = {
+    FallingBoulder_OnTick,
+    FallingBoulder_OnCollision,
+    GenericKnockback,
+    GenericDeath,
+    GenericConfused,
+    FallingBoulder_OnGrabbed,
 };
 
 void (*const gUnk_080CD558[])(Entity*) = {

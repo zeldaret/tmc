@@ -23,7 +23,7 @@ bool32 sub_0802C06C(Entity*);
 void sub_0802C1CC(Entity*);
 bool32 sub_0802C0E8(Entity*);
 
-extern void (*const gUnk_080CD3E4[])(Entity*);
+extern void (*const Helmasaur_Functions[])(Entity*);
 extern void (*const gUnk_080CD3FC[])(Entity*);
 extern void (*const gUnk_080CD408[])(Entity*);
 extern void (*const gUnk_080CD42C[])(Entity*);
@@ -34,18 +34,18 @@ extern const s8 gUnk_080CD464[];
 
 void Helmasaur(Entity* this) {
     if (this->type == 0) {
-        EnemyFunctionHandler(this, gUnk_080CD3E4);
+        EnemyFunctionHandler(this, Helmasaur_Functions);
         SetChildOffset(this, 0, 1, -0x10);
     } else {
         gUnk_080CD3FC[this->action](this);
     }
 }
 
-void sub_0802BBAC(Entity* this) {
+void Helmasaur_OnTick(Entity* this) {
     gUnk_080CD408[this->action](this);
 }
 
-void sub_0802BBC4(Entity* this) {
+void Helmasaur_OnCollision(Entity* this) {
     if (this->hitType != 0x19) {
         switch (this->bitfield & 0x7f) {
             case 0:
@@ -58,14 +58,14 @@ void sub_0802BBC4(Entity* this) {
                 break;
         }
     }
-    if (this->field_0x43 != 0) {
-        sub_0804A9FC(this, 0x1c);
+    if (this->confusedTime != 0) {
+        Create0x68FX(this, FX_STARS);
     }
 
-    sub_0804AA30(this, gUnk_080CD3E4);
+    EnemyFunctionHandlerAfterCollision(this, Helmasaur_Functions);
 }
 
-void sub_0802BC20(Entity* this) {
+void Helmasaur_OnGrabbed(Entity* this) {
     if (this->hitType != 0x19) {
         if (sub_0806F520(this)) {
             gUnk_080CD42C[this->subAction](this);
@@ -380,13 +380,13 @@ void sub_0802C218(Entity* this) {
 }
 
 // clang-format off
-void (*const gUnk_080CD3E4[])(Entity*) = {
-    sub_0802BBAC,
-    sub_0802BBC4,
-    sub_08001324,
-    sub_0804A7D4,
-    sub_08001242,
-    sub_0802BC20,
+void (*const Helmasaur_Functions[])(Entity*) = {
+    Helmasaur_OnTick,
+    Helmasaur_OnCollision,
+    GenericKnockback,
+    GenericDeath,
+    GenericConfused,
+    Helmasaur_OnGrabbed,
 };
 
 void (*const gUnk_080CD3FC[])(Entity*) = {

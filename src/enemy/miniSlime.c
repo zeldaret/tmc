@@ -13,26 +13,26 @@ void sub_08045374(Entity*);
 extern void sub_080452E4(Entity*);
 extern void ReplaceMonitoredEntity(Entity*, Entity*);
 
-extern void (*const gUnk_080D17C0[])(Entity*);
+extern void (*const MiniSlime_Functions[])(Entity*);
 extern void (*const gUnk_080D17D8[])(Entity*);
 
 void MiniSlime(Entity* this) {
-    EnemyFunctionHandler(this, gUnk_080D17C0);
+    EnemyFunctionHandler(this, MiniSlime_Functions);
     SetChildOffset(this, 0, 1, -8);
 }
 
-void sub_08045220(Entity* this) {
+void MiniSlime_OnTick(Entity* this) {
     gUnk_080D17D8[this->action](this);
 }
 
-void sub_08045238(Entity* this) {
-    if (this->field_0x43)
-        sub_0804A9FC(this, 0x1c);
+void MiniSlime_OnCollision(Entity* this) {
+    if (this->confusedTime)
+        Create0x68FX(this, FX_STARS);
 
-    sub_0804AA30(this, gUnk_080D17C0);
+    EnemyFunctionHandlerAfterCollision(this, MiniSlime_Functions);
 }
 
-void sub_0804525C(Entity* this) {
+void MiniSlime_OnDeath(Entity* this) {
     Entity* parent = this->parent;
     if (this != parent && parent) {
         this->field_0x6c.HALF.LO &= 0x7f;
@@ -41,10 +41,10 @@ void sub_0804525C(Entity* this) {
         if (this->field_0x6c.HALF.HI & 0x40)
             ReplaceMonitoredEntity(this, parent);
     }
-    sub_0804A7D4(this);
+    GenericDeath(this);
 }
 
-void nullsub_22(void) {
+void MiniSlime_OnGrabbed(void) {
 }
 
 void sub_080452A4(Entity* this) {

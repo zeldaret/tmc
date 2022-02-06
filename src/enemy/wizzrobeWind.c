@@ -30,11 +30,11 @@ void WizzrobeWind_OnTick(WizzrobeEntity* this) {
     WizzrobeWind_Actions[super->action](this);
 }
 
-void sub_0802F4E4(WizzrobeEntity* this) {
-    if (super->field_0x43 != 0) {
-        sub_0804A9FC(super, 0x1c);
+void WizzrobeWind_OnCollision(WizzrobeEntity* this) {
+    if (super->confusedTime != 0) {
+        Create0x68FX(super, FX_STARS);
     }
-    sub_0804AA30(super, WizzrobeWind_Functions);
+    EnemyFunctionHandlerAfterCollision(super, WizzrobeWind_Functions);
     if (super->bitfield == 0x87) {
         Entity* obj = CreateObject(OBJECT_2A, 3, 0);
         if (obj != NULL) {
@@ -315,10 +315,10 @@ bool32 sub_0802FA88(WizzrobeEntity* this) {
 
 void (*const WizzrobeWind_Functions[])(WizzrobeEntity*) = {
     WizzrobeWind_OnTick,
-    sub_0802F4E4,
-    (void (*)(WizzrobeEntity*))sub_08001324,
-    (void (*)(WizzrobeEntity*))sub_0804A7D4,
-    (void (*)(WizzrobeEntity*))sub_08001242,
+    WizzrobeWind_OnCollision,
+    (void (*)(WizzrobeEntity*))GenericKnockback,
+    (void (*)(WizzrobeEntity*))GenericDeath,
+    (void (*)(WizzrobeEntity*))GenericConfused,
     WizzrobeWind_OnTick,
 };
 void (*const WizzrobeWind_Actions[])(WizzrobeEntity*) = {

@@ -8,7 +8,7 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern void (*const gRollobiteFunctions[])(Entity*);
+extern void (*const Rollobite_Functions[])(Entity*);
 extern void (*const gRollobiteActions[])(Entity*);
 extern void (*const gUnk_080CA6A4[])(Entity*);
 extern void (*const gUnk_080CA6BC[])(Entity*);
@@ -25,7 +25,7 @@ extern void sub_080AE7E8(Entity*, u32, u32, u32);
 extern void sub_08078930(Entity*);
 
 void Rollobite(Entity* this) {
-    EnemyFunctionHandler(this, gRollobiteFunctions);
+    EnemyFunctionHandler(this, Rollobite_Functions);
 }
 
 void Rollobite_OnTick(Entity* this) {
@@ -33,7 +33,7 @@ void Rollobite_OnTick(Entity* this) {
     gRollobiteActions[this->action](this);
 }
 
-void sub_08020668(Entity* this) {
+void Rollobite_OnCollision(Entity* this) {
     if (this->hitType == 34 && this->health != 0xff) {
         this->action = 4;
         this->zVelocity = Q_16_16(2.0);
@@ -56,7 +56,7 @@ void sub_08020668(Entity* this) {
         Rollobite_OnTick(this);
 }
 
-void sub_080206E0(Entity* this) {
+void Rollobite_OnKnockback(Entity* this) {
     if (Rollobite_TryToHoleUp(this)) {
         this->knockbackDuration = 0;
     } else if (Rollobite_IsRolledUp(this)) {
@@ -64,11 +64,11 @@ void sub_080206E0(Entity* this) {
         sub_080AE58C(this, this->knockbackDirection, 10);
         sub_080AE7E8(this, this->field_0x46, this->knockbackDirection, 10);
     } else {
-        sub_08001324(this);
+        GenericKnockback(this);
     }
 }
 
-void sub_08020734(Entity* this) {
+void Rollobite_OnGrabbed(Entity* this) {
     if (this->subAction < 3 && !sub_0806F520(this)) {
         this->action = 4;
         COLLISION_ON(this);
@@ -285,13 +285,13 @@ bool32 Rollobite_IsRolledUp(Entity* this) {
 }
 
 // clang-format off
-void (*const gRollobiteFunctions[])(Entity*) = {
+void (*const Rollobite_Functions[])(Entity*) = {
     Rollobite_OnTick,
-    sub_08020668,
-    sub_080206E0,
-    sub_0804A7D4,
-    sub_08001242,
-    sub_08020734,
+    Rollobite_OnCollision,
+    Rollobite_OnKnockback,
+    GenericDeath,
+    GenericConfused,
+    Rollobite_OnGrabbed,
 };
 
 void (*const gRollobiteActions[])(Entity*) = {

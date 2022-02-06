@@ -74,8 +74,8 @@ _0800123E:
 	ldr r3, _08001360 @ =CreateItemOnGround
 	bx r3
 
-	non_word_aligned_thumb_func_start sub_08001242
-sub_08001242: @ 0x08001242
+	non_word_aligned_thumb_func_start GenericConfused
+GenericConfused: @ 0x08001242
 	push {lr}
 	movs r1, #0x43
 	ldrb r2, [r0, r1]
@@ -199,18 +199,18 @@ sub_08001318: @ 0x08001318
 	movs r1, #0x36
 	ldrsh r1, [r0, r1]
 	cmp r1, #0
-	bpl sub_08001324
+	bpl GenericKnockback
 	movs r2, #0xff
 	strb r2, [r0, #0x15]
 
-	thumb_func_start sub_08001324
-sub_08001324: @ 0x08001324
-	ldr r3, _08001370 @ =sub_080AF18C
+	thumb_func_start GenericKnockback
+GenericKnockback: @ 0x08001324
+	ldr r3, _08001370 @ =Knockback1
 	bx r3
 
-	thumb_func_start sub_08001328
-sub_08001328: @ 0x08001328
-	ldr r3, _08001374 @ =sub_080AF1BC
+	thumb_func_start GenericKnockback2
+GenericKnockback2: @ 0x08001328
+	ldr r3, _08001374 @ =Knockback2
 	bx r3
 
 	thumb_func_start sub_0800132C
@@ -245,6 +245,6 @@ _08001360: .4byte CreateItemOnGround
 _08001364: .4byte 0x00001800
 _08001368: .4byte gUnk_080012C8
 _0800136C: .4byte gUnk_080012C8
-_08001370: .4byte sub_080AF18C
-_08001374: .4byte sub_080AF1BC
+_08001370: .4byte Knockback1
+_08001374: .4byte Knockback2
 _08001378: .4byte GetFacingDirection
