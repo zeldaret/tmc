@@ -1226,7 +1226,7 @@ SECTIONS {
         data/animations/npc/farore.o(.rodata);
         data/const/npc/sturgeon.o(.rodata);
         data/animations/npc/sturgeon.o(.rodata);
-        data/const/npc/tingleSiblings.o(.rodata);
+        src/npc/tingleSiblings.o(.rodata);
         data/animations/npc/tingleSiblings.o(.rodata);
         data/const/npc/stockwell.o(.rodata);
         data/animations/npc/stockwell.o(.rodata);

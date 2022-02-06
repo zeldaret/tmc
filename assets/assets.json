@@ -37105,16 +37105,6 @@
     "type": "animation"
   },
   {
-    "path": "tingleSiblings/gUnk_0810FC08.bin",
-    "start": 1113096,
-    "size": 72
-  },
-  {
-    "path": "tingleSiblings/gUnk_0810FC50.bin",
-    "start": 1113168,
-    "size": 4
-  },
-  {
     "offsets": {
       "EU": -2224
     }
