@@ -1562,7 +1562,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Enemy62
+	.4byte gSpriteAnimations_GyorgMaleEye
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000

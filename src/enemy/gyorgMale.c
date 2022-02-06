@@ -693,7 +693,7 @@ void sub_08047508(GyorgMaleEntity* this) {
         this->unk_76 = super->direction << 8;
     }
     if (--this->unk_7e == 0) {
-        Entity* tmp = CreateEnemy(ENEMY_62, Random() & 3);
+        Entity* tmp = CreateEnemy(GYORG_MALE_EYE, Random() & 3);
         if (tmp) {
             tmp->parent = super;
         }
@@ -748,7 +748,7 @@ void sub_0804763C(GyorgMaleEntity* this) {
         this->unk_76 = super->direction << 8;
     }
     if (--this->unk_7e == 0) {
-        Entity* tmp = CreateEnemy(ENEMY_62, Random() & 3);
+        Entity* tmp = CreateEnemy(GYORG_MALE_EYE, Random() & 3);
         if (tmp) {
             tmp->parent = super;
         }
@@ -856,7 +856,7 @@ void sub_08047978(GyorgMaleEntity* this) {
     if (--this->unk_7e == 0) {
         Entity* tmp;
         this->unk_7e = 0xF0;
-        tmp = CreateEnemy(ENEMY_62, Random() & 3);
+        tmp = CreateEnemy(GYORG_MALE_EYE, Random() & 3);
         if (tmp) {
             tmp->parent = super;
         }
