@@ -43001,47 +43001,6 @@
     "type": "animation"
   },
   {
-    "path": "specialFx/gUnk_0811F960.bin",
-    "start": 1177952,
-    "size": 155
-  },
-  {
-    "path": "specialFx/gUnk_0811F960_1_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1175875
-    },
-    "size": 197
-  },
-  {
-    "path": "specialFx/gUnk_0811F960_2_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1178107,
-    "size": 197
-  },
-  {
-    "path": "specialFx/gUnk_0811FAC8.bin",
-    "start": 1178312,
-    "size": 4
-  },
-  {
-    "path": "specialFx/gUnk_0811FACC.bin",
-    "start": 1178316,
-    "size": 4
-  },
-  {
-    "path": "specialFx/gUnk_0811FB08.bin",
-    "start": 1178376,
-    "size": 8
-  },
-  {
     "path": "object10/gUnk_0812056C.bin",
     "start": 1181036,
     "size": 8

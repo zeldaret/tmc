@@ -661,7 +661,7 @@ SECTIONS {
         asm/object/chestSpawner.o(.text);
         asm/object/objectD.o(.text);
         asm/object/objectE.o(.text);
-        asm/object/specialFx.o(.text);
+        src/object/specialFx.o(.text);
         asm/object/object10.o(.text);
         asm/object/object11.o(.text);
         asm/object/object12.o(.text);
@@ -1377,7 +1377,7 @@ SECTIONS {
         data/animations/object/chestSpawner.o(.rodata);
         data/const/object/objectD.o(.rodata);
         data/animations/object/objectD.o(.rodata);
-        data/const/object/specialFx.o(.rodata);
+        src/object/specialFx.o(.rodata);
         data/animations/object/specialFx.o(.rodata);
         data/const/object/object10.o(.rodata);
         data/const/object/object11.o(.rodata);
