@@ -20,16 +20,23 @@ extern ScreenTransitionData gUnk_0813AD4C;
 
 void sub_0806E014(PicolyteBottleEntity* this);
 void sub_0806E0DC(PicolyteBottleEntity* this);
-
-void (*const PicolyteBottle_Actions[])(PicolyteBottleEntity*);
-const u8 gUnk_081142CC[];
-const u8 gUnk_081142DC[];
+void PicolyteBottle_Init(PicolyteBottleEntity* this);
+void PicolyteBottle_Action1(PicolyteBottleEntity* this);
+void PicolyteBottle_Action2(PicolyteBottleEntity* this);
+void nullsub_111(PicolyteBottleEntity* this);
 
 extern void sub_08078828(Entity*);
 
 extern Hitbox gHitbox_0;
 
 void PicolyteBottle(Entity* this) {
+    static void (*const PicolyteBottle_Actions[])(PicolyteBottleEntity*) = {
+        PicolyteBottle_Init,
+        PicolyteBottle_Action1,
+        PicolyteBottle_Action2,
+        nullsub_111,
+    };
+
     PicolyteBottle_Actions[this->action]((PicolyteBottleEntity*)this);
     if (this->type == 0) {
         gPlayerState.mobility |= 0x80;
@@ -101,6 +108,9 @@ void nullsub_111(PicolyteBottleEntity* this) {
 }
 
 void sub_0806E014(PicolyteBottleEntity* this) {
+    static const u8 gUnk_081142CC[] = { 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0 };
+    static const u8 gUnk_081142DC[] = { 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0,
+                                        1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0 };
     u32 uVar1;
     int iVar2;
     const u8* ptr;
@@ -211,14 +221,3 @@ void sub_0806E250(PicolyteBottleEntity* this, ScriptExecutionContext* context) {
     }
     gActiveScriptInfo.flags |= 1;
 }
-
-void (*const PicolyteBottle_Actions[])(PicolyteBottleEntity*) = {
-    PicolyteBottle_Init,
-    PicolyteBottle_Action1,
-    PicolyteBottle_Action2,
-    nullsub_111,
-};
-
-const u8 gUnk_081142CC[] = { 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0 };
-const u8 gUnk_081142DC[] = { 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0,
-                             1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0 };
