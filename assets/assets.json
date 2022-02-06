@@ -27587,31 +27587,6 @@
     "type": "animation"
   },
   {
-    "path": "ghini/gUnk_080D0970.bin",
-    "start": 854384,
-    "size": 4
-  },
-  {
-    "path": "ghini/gUnk_080D0974.bin",
-    "start": 854388,
-    "size": 4
-  },
-  {
-    "path": "ghini/gUnk_080D0978.bin",
-    "start": 854392,
-    "size": 8
-  },
-  {
-    "path": "ghini/gUnk_080D0980.bin",
-    "start": 854400,
-    "size": 4
-  },
-  {
-    "path": "ghini/gUnk_080D0984.bin",
-    "start": 854404,
-    "size": 4
-  },
-  {
     "path": "animations/gSpriteAnimations_VaatiTransfigured_0_0.bin",
     "start": 854948,
     "size": 17,

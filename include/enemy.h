@@ -211,7 +211,7 @@ void VaatiRebornEnemy(Entity*);
 void VaatiProjectile(Entity*);
 void BallChainSoldier(Entity*);
 void Enemy4D(Entity*);
-void Ghini(Entity*);
+void Ghini();
 void VaatiTransfigured(Entity*);
 void Enemy50(Entity*);
 void VaatiWrath(Entity*);
