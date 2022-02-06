@@ -190,7 +190,6 @@ u32 sub_08081F00(u32*, u32*);
 
 extern u16 gMapDataTopSpecial[0x2000];
 
-extern u16* GetLayerByIndex(u32);
 extern u16 gUnk_02019EE0[];
 NONMATCH("asm/non_matching/button/sub_08081E6C.inc", void sub_08081E6C(Entity* this)) {
     u32 r4;
@@ -201,7 +200,7 @@ NONMATCH("asm/non_matching/button/sub_08081E6C.inc", void sub_08081E6C(Entity* t
     u32 tile = GetTileType(r6, r5);
     if (tile < 0x4000)
         return;
-    r1 = GetLayerByIndex(r5);
+    r1 = (u16*)GetLayerByIndex(r5);
     r4 = (this->type == 0 ? 0x7a : 0x78);
     tmp = r1 + 0x3802;
     r1 += 0x3002 + r4;

@@ -35,13 +35,6 @@ static_assert(sizeof(struct_gUnk_020000C0) == 0x40);
 extern struct_gUnk_020000C0 gUnk_020000C0[0x30];
 extern u32 gSpritePtrs[];
 
-typedef struct {
-    u32 _0;
-    u16 _4[0x1000];
-    u8 _2004[0x2000];
-} struct_02025EB0;
-extern struct_02025EB0 gUnk_02025EB0;
-
 extern u16 gExtraFrameOffsets[];
 extern s8 gUnk_08126EE4[];
 extern const u16 gUnk_080046A4[];
@@ -233,16 +226,16 @@ u32 sub_0806F798(Entity* ent) {
 }
 
 u32 sub_0806F7D0(Entity* ent) {
-    return gUnk_02025EB0._2004[sub_0806F730(ent)];
+    return gMapBottom._2004[sub_0806F730(ent)];
 }
 
 u32 sub_0806F7EC(Entity* ent) {
-    return gUnk_02025EB0._4[sub_0806F730(ent)];
+    return gMapBottom._4[sub_0806F730(ent)];
 }
 
 u32 sub_0806F804(u32 x, u32 y) {
     u32 idx = ((x >> 4) & 0x3F) + 4 * (y & 0x3F0);
-    return gUnk_02025EB0._4[idx];
+    return gMapBottom._4[idx];
 }
 
 u32 sub_0806F824(Entity* a, Entity* b, s32 x, s32 y) {

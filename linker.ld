@@ -48,7 +48,7 @@ SECTIONS {
         . = 0x0000B240; gUnk_0200B240 = .;
         . = 0x0000B640; gUnk_0200B640 = .;
         . = 0x0000B644; gUsedPalettes = .;
-        . = 0x0000B650; gUnk_0200B650 = .;
+        . = 0x0000B650; gMapTop = .;
         . = 0x0000B654; gMapDataTop = .;
         . = 0x0000D654; gUnk_0200D654 = .;
         . = 0x0000E654; gUnk_0200E654 = .;
@@ -96,7 +96,7 @@ SECTIONS {
         . = 0x00024490; gGFXSlots = .;
         . = 0x00024494; gUnk_02024494 = .;
         . = 0x000246B0; gUnk_020246B0 = .;
-        . = 0x00025EB0; gUnk_02025EB0 = .;
+        . = 0x00025EB0; gMapBottom = .;
         . = 0x00025EB4; gMapDataBottom = .;
         . = 0x00027EB4; gUnk_02027EB4 = .;
         . = 0x00028EB4; gUnk_02028EB4 = .;
@@ -904,7 +904,7 @@ SECTIONS {
         src/affine.o(.text);
         src/playerItem/playerItemGustJar.o(.text);
         asm/vram.o(.text);
-        asm/movement.o(.text);
+        src/movement.o(.text);
         /* library functions */
         asm/lib/m4a_asm.o(.text);
         src/gba/m4a.o(.text);
@@ -1680,7 +1680,7 @@ SECTIONS {
         src/projectile.o(.rodata);
         data/const/playerItem/playerItemGustJar.o(.rodata);
         data/gfx/fixed_type_gfx.o(.rodata);
-        data/data_08132B30.o(.rodata);
+        data/const/movement.o(.rodata);
         data/map/exit_lists.o(.rodata);
         data/gfx_0813AA54.o(.rodata);
         data/gfx/sprite_gfx.o(.rodata);

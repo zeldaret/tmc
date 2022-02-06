@@ -4893,10 +4893,10 @@ Subtask_FadeIn: @ 0x080A7250
 	ldr r0, _080A731C @ =gCurrentRoomProperties
 	ldr r0, [r0]
 	str r0, [r1, #0x10]
-	ldr r0, _080A7320 @ =gUnk_02025EB0
+	ldr r0, _080A7320 @ =gMapBottom
 	ldr r0, [r0]
 	str r0, [r1, #0x14]
-	ldr r0, _080A7324 @ =gUnk_0200B650
+	ldr r0, _080A7324 @ =gMapTop
 	ldr r0, [r0]
 	str r0, [r1, #0x18]
 	movs r0, #1
@@ -4918,8 +4918,8 @@ _080A7310: .4byte gActiveScriptInfo
 _080A7314: .4byte gRoomTransition
 _080A7318: .4byte gPlayerState
 _080A731C: .4byte gCurrentRoomProperties
-_080A7320: .4byte gUnk_02025EB0
-_080A7324: .4byte gUnk_0200B650
+_080A7320: .4byte gMapBottom
+_080A7324: .4byte gMapTop
 
 	thumb_func_start Subtask_Init
 Subtask_Init: @ 0x080A7328
@@ -4991,10 +4991,10 @@ _080A73B4:
 	ldrb r1, [r5, #0xc]
 	adds r0, #0x8b
 	strb r1, [r0]
-	ldr r1, _080A7478 @ =gUnk_02025EB0
+	ldr r1, _080A7478 @ =gMapBottom
 	ldr r0, [r5, #0x14]
 	str r0, [r1]
-	ldr r1, _080A747C @ =gUnk_0200B650
+	ldr r1, _080A747C @ =gMapTop
 	ldr r0, [r5, #0x18]
 	str r0, [r1]
 	movs r1, #0xea
@@ -5061,8 +5061,8 @@ _080A7468: .4byte gFadeControl
 _080A746C: .4byte gCurrentRoomProperties
 _080A7470: .4byte gUnk_02032EC0
 _080A7474: .4byte gPlayerState
-_080A7478: .4byte gUnk_02025EB0
-_080A747C: .4byte gUnk_0200B650
+_080A7478: .4byte gMapBottom
+_080A747C: .4byte gMapTop
 _080A7480: .4byte gActiveScriptInfo
 _080A7484: .4byte gUnk_03000420
 _080A7488: .4byte gPaletteList

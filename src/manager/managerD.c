@@ -34,8 +34,6 @@ typedef struct {
 
 extern void (*const gUnk_08108308[])(ManagerD*);
 
-extern u16* GetLayerByIndex(u32);
-
 void ManagerD_Main(ManagerD* this) {
     gUnk_08108308[this->manager.action](this);
 }
@@ -47,7 +45,7 @@ void sub_08058DE8(ManagerD* this) {
         DeleteThisEntity();
     } else {
         this->manager.action = 1;
-        puVar2 = GetLayerByIndex(this->field_0x3a);
+        puVar2 = (u16*)GetLayerByIndex(this->field_0x3a);
         puVar3 = (this->field_0x38 + 2) + puVar2;
         this->field_0x30 = puVar3;
         this->field_0x28 = *puVar3;

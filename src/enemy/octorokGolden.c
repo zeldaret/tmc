@@ -8,7 +8,6 @@ extern void (*const gUnk_080012C8[])(Entity*);
 const s8 gUnk_080CF490[];
 const u8 gUnk_080CF498[];
 
-extern u16* GetLayerByIndex(u32);
 extern s32 sub_080012DC(Entity*);
 extern u32 sub_0804A044(Entity*, Entity*, u32);
 
@@ -108,16 +107,16 @@ void sub_08037D54(Entity* this) {
 
 void sub_08037E14(Entity* this) {
     u32 dir;
-    u16* pLayer;
+    u8* layer;
     const s8* ptr;
     s32 x, y;
     this->actionDelay = 0x8;
     dir = (GetFacingDirection(this, &gPlayerEntity) + 4) & 0x18;
-    pLayer = GetLayerByIndex(this->collisionLayer) + 0x1002;
+    layer = (u8*)GetLayerByIndex(this->collisionLayer)->_2004;
     ptr = gUnk_080CF498 + (dir >> 2);
     x = this->x.HALF.HI + *ptr;
     y = this->y.HALF.HI + *(ptr + 1);
-    if (sub_080AE4CC((Entity*)pLayer, x, y, 0)) {
+    if (sub_080AE4CC(layer, x, y, 0)) {
         this->direction = Random() & 0x18;
     } else {
         this->direction = dir;

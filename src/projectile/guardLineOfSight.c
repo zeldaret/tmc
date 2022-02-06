@@ -5,7 +5,7 @@
 #include "projectile.h"
 
 extern u32 sub_080644C8(Entity*);
-extern Entity gUnk_02027EB4;
+extern u8 gUnk_02027EB4[];
 extern const Hitbox gUnk_080FD1E4;
 
 extern const u8 gUnk_081299C8[];
@@ -62,7 +62,7 @@ void GuardLineOfSight(Entity* this) {
             DeleteThisEntity();
         }
         LinearMoveUpdate(this);
-        if (sub_080AE4CC(&gUnk_02027EB4, this->x.HALF.HI, this->y.HALF.HI, 2) != 0) {
+        if (sub_080AE4CC(gUnk_02027EB4, this->x.HALF.HI, this->y.HALF.HI, 2) != 0) {
             DeleteThisEntity();
         }
     }

@@ -6,7 +6,6 @@
 
 extern void (*const Winder_Actions[])(Entity*);
 extern s16 gUnk_080B4488[];
-extern u8* GetLayerByIndex(u32);
 static const u8 gUnk_0812A6BC[];
 static const u16 gUnk_0812A6C4[];
 
@@ -87,14 +86,12 @@ void sub_080AB9DC(Entity* this) {
 
 bool32 sub_080AB9FC(Entity* this, u32 dir) {
     u32 val;
-    u8* layer = GetLayerByIndex(this->collisionLayer);
+    LayerStruct* layer = GetLayerByIndex(this->collisionLayer);
     u32 tmp;
     val = (((this->x.HALF.HI - gRoomControls.origin_x) >> 4) & 0x3f) |
           ((((this->y.HALF.HI - gRoomControls.origin_y) >> 4) & 0x3f) << 6);
     val += gUnk_080B4488[dir >> 3];
-    layer += 0x2004;
-    layer += val;
-    tmp = *layer;
+    tmp = layer->_2004[val];
     if (tmp <= 0x1f) {
         return 0;
     }

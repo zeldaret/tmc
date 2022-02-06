@@ -88,7 +88,7 @@ UpdateScrollVram: @ 0x08000108
 	beq _08000136
 	add r4, pc, #0x20
 	ldr r4, [r4, r1]
-	ldr r0, _080001EC @ =gUnk_02025EB0
+	ldr r0, _080001EC @ =gMapBottom
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _08000126
@@ -96,7 +96,7 @@ UpdateScrollVram: @ 0x08000108
 	ldr r1, _080001F4 @ =gUnk_02021F70
 	bl _call_via_r4
 _08000126:
-	ldr r0, _080001F8 @ =gUnk_0200B650
+	ldr r0, _080001F8 @ =gMapTop
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _08000136
@@ -196,10 +196,10 @@ GetTileIndex: @ 0x080001DA
 	bx lr
 	.align 2, 0
 _080001E8: .4byte gUpdateVisibleTiles
-_080001EC: .4byte gUnk_02025EB0
+_080001EC: .4byte gMapBottom
 _080001F0: .4byte gUnk_02019EE0
 _080001F4: .4byte gUnk_02021F70
-_080001F8: .4byte gUnk_0200B650
+_080001F8: .4byte gMapTop
 _080001FC: .4byte gMapDataTopSpecial
 _08000200: .4byte gUnk_020344F0
 _08000204: .4byte gUnk_08000248

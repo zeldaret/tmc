@@ -11,8 +11,8 @@
 
 extern u32 sub_0804A024(Entity*, u32, u32);
 
-extern Entity gUnk_0200D654;
-extern Entity gUnk_02027EB4;
+extern u8 gUnk_0200D654[];
+extern u8 gUnk_02027EB4[];
 
 void sub_0802C18C(Entity*);
 void sub_0802C218(Entity*);
@@ -316,13 +316,13 @@ bool32 sub_0802C06C(Entity* this) {
     u32 xdiff = gUnk_080CD45C[(this->direction >> 2) + 0];
     u32 ydiff = gUnk_080CD45C[(this->direction >> 2) + 1];
 
-    Entity* ent = this->collisionLayer == 2 ? &gUnk_0200D654 : &gUnk_02027EB4;
+    u8* layer = this->collisionLayer == 2 ? gUnk_0200D654 : gUnk_02027EB4;
 
     u32 i;
     for (i = 0; i < 8; i++) {
         x += xdiff;
         y += ydiff;
-        if (sub_080AE4CC(ent, x, y, 0))
+        if (sub_080AE4CC(layer, x, y, 0))
             return FALSE;
     }
 
@@ -339,10 +339,10 @@ bool32 sub_0802C0E8(Entity* this) {
         s32 x = this->x.HALF.HI + this->hitbox->offset_x + ptr[0] * 6;
         s32 y = this->y.HALF.HI + this->hitbox->offset_y + ptr[1] * 6;
 
-        Entity* ent = this->collisionLayer == 2 ? &gUnk_0200D654 : &gUnk_02027EB4;
+        u8* layer = this->collisionLayer == 2 ? gUnk_0200D654 : gUnk_02027EB4;
         u32 ret = FALSE;
         if (!sub_0806FC24(TILE(x, y), 9)) {
-            if (sub_080AE4CC(ent, x, y, 0)) {
+            if (sub_080AE4CC(layer, x, y, 0)) {
                 ret = 1;
             } else {
                 ret = 0;

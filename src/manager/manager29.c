@@ -24,8 +24,6 @@ bool32 sub_0805CF80(Manager29* this);
 void sub_0805CBD0(Manager29* this);
 void sub_0805CC3C(Manager29* this);
 
-extern u16* GetLayerByIndex(u32);
-
 void Manager29_Main(Manager29* this) {
     if (this->manager.action == 0) {
         sub_0805CBD0(this);
@@ -40,15 +38,15 @@ void Manager29_Main(Manager29* this) {
 }
 
 void sub_0805CBD0(Manager29* this) {
-    u16* puVar2;
+    LayerStruct* puVar2;
 
     this->manager.action = 1;
     this->unk_38 = (this->unk_38 >> 4 & 0x3fU) | (((this->unk_3a << 0x10) >> 0x14 & 0x3fU) << 6);
     this->unk_3a = (this->unk_3c >> 4 & 0x3f) | (((this->unk_36 + this->unk_37 * 0x100) >> 4 & 0x3fU) << 6);
     this->unk_3c = GetTileType(this->unk_38, this->unk_34);
     puVar2 = GetLayerByIndex(this->unk_34);
-    this->unk_28 = puVar2 + 0x2802;
-    this->unk_2c = puVar2 + 2 + (s16)this->unk_3a;
+    this->unk_28 = puVar2->_5004;
+    this->unk_2c = &puVar2->_4[(s16)this->unk_3a];
 }
 
 void sub_0805CC3C(Manager29* this) {

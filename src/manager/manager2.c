@@ -16,8 +16,6 @@ extern void sub_0805754C(Manager2*);
 
 extern u8 gMapDataTopSpecial[];
 
-extern u32 gUnk_0200B650;
-
 void Manager2_Main(Manager2* this) {
     if (this->manager.action == 0) {
         this->manager.action = 1;
@@ -52,7 +50,7 @@ void sub_0805754C(Manager2* this) {
 void sub_080575C8(u32 param) {
     s32 bgOffset;
 
-    gUnk_0200B650 = 0;
+    gMapTop.bgControlPtr = 0;
     REG_DISPCNT = 0;
     LoadGfxGroup(param);
     gRoomVars.unk_10[0] = param;

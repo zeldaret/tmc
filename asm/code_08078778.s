@@ -5741,7 +5741,7 @@ SetTileType: @ 0x0807B314
 	ands r0, r1
 	cmp r0, #0
 	beq _0807B36C
-	ldr r0, _0807B3B4 @ =gUnk_02025EB0
+	ldr r0, _0807B3B4 @ =gMapBottom
 	ldr r1, _0807B3AC @ =0x00002004
 	adds r0, r0, r1
 	adds r0, r4, r0
@@ -5778,7 +5778,7 @@ _0807B3A4: .4byte 0x00006004
 _0807B3A8: .4byte gUnk_080B3E80
 _0807B3AC: .4byte 0x00002004
 _0807B3B0: .4byte gRoomControls
-_0807B3B4: .4byte gUnk_02025EB0
+_0807B3B4: .4byte gMapBottom
 _0807B3B8: .4byte 0x0000B004
 _0807B3BC: .4byte gUnk_080B37A0
 _0807B3C0: .4byte gUnk_02019EE0

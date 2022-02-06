@@ -102,11 +102,9 @@ void sub_08058084(u16* unk1, u16* unk2) {
     }
 }
 
-extern u32 gUnk_0200B650;
-
 void sub_080580B0(u32 unk1) {
     s32 tmp;
-    gUnk_0200B650 = 0;
+    gMapTop.bgControlPtr = 0;
     REG_DISPCNT = 0;
     LoadGfxGroup(unk1);
     gRoomVars.unk_10[0] = unk1;
