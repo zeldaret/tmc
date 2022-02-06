@@ -6,9 +6,9 @@
 #include "game.h"
 #include "save.h"
 
-void (*const ItemPegasusBoots_StateFunctions[])(ItemBehavior* beh, u32);
-
 void sub_08076964(ItemBehavior*, u32);
+void sub_080768F8(ItemBehavior*, u32);
+void sub_08076A88(ItemBehavior*, u32);
 extern bool32 sub_0807A158();
 extern Entity* CreatePlayerBomb(ItemBehavior*, u32);
 
@@ -16,6 +16,11 @@ extern u16 gUnk_0800275C[];
 extern u8 gUnk_0811BE38[];
 
 void ItemPegasusBoots(ItemBehavior* this, u32 arg1) {
+    static void (*const ItemPegasusBoots_StateFunctions[])(ItemBehavior * beh, u32) = {
+        sub_080768F8,
+        sub_08076964,
+        sub_08076A88,
+    };
     u32 bVar1;
     Entity* fx;
     u32 uVar4;
@@ -168,9 +173,3 @@ void sub_08076A88(ItemBehavior* this, u32 arg1) {
     gPlayerState.dash_state = 0;
     sub_08077E78(this, arg1);
 }
-
-void (*const ItemPegasusBoots_StateFunctions[])(ItemBehavior* beh, u32) = {
-    sub_080768F8,
-    sub_08076964,
-    sub_08076A88,
-};
