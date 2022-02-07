@@ -1320,7 +1320,7 @@ SECTIONS {
         data/animations/npc/npc4F.o(.rodata);
         data/const/npc/clothesRack.o(.rodata);
         data/animations/npc/clothesRack.o(.rodata);
-        data/const/npc/picolyteBottle.o(.rodata);
+        src/npc/picolyteBottle.o(.rodata);
         data/const/npc/smallTownMinish.o(.rodata);
         data/animations/npc/smallTownMinish.o(.rodata);
         data/const/npc/hurdyGurdyMan.o(.rodata);
