@@ -1,7 +1,7 @@
 #include "global.h"
 #include "droptables.h"
 
-const Droptable gUnk_0800137C[] = {
+const Droptable gDroptablesEnemies[] = {
     { {
         .none = -999,
         .rupee1 = -999,
@@ -331,8 +331,8 @@ const Droptable gUnk_0800143C[] = {
     } },
 };
 // not 100% sure
-const Droptable gUnk_080015BC[] = {
-    { {
+const Droptable gDroptablesAreas[] = {
+    [0] = { {
         .none = 920,
         .rupee1 = 15,
         .rupee5 = 5,
@@ -350,7 +350,7 @@ const Droptable gUnk_080015BC[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    { {
+    [1] = { {
         .none = 900,
         .rupee1 = 0,
         .rupee5 = 0,
@@ -368,7 +368,7 @@ const Droptable gUnk_080015BC[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    { {
+    [2] = { {
         .none = 920,
         .rupee1 = 11,
         .rupee5 = 3,
@@ -386,9 +386,7 @@ const Droptable gUnk_080015BC[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-};
-const Droptable gUnk_0800161C[] = {
-    { {
+    [3] = { {
         .none = 920,
         .rupee1 = 30,
         .rupee5 = 1,
@@ -406,7 +404,7 @@ const Droptable gUnk_0800161C[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    { {
+    [4] = { {
         .none = 920,
         .rupee1 = 6,
         .rupee5 = 1,
@@ -424,7 +422,7 @@ const Droptable gUnk_0800161C[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    { {
+    [5] = { {
         .none = 920,
         .rupee1 = 55,
         .rupee5 = 7,
@@ -442,7 +440,7 @@ const Droptable gUnk_0800161C[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    { {
+    [6] = { {
         .none = 920,
         .rupee1 = 23,
         .rupee5 = 5,
@@ -460,7 +458,7 @@ const Droptable gUnk_0800161C[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    { {
+    [7] = { {
         .none = 920,
         .rupee1 = 20,
         .rupee5 = 3,
@@ -478,7 +476,7 @@ const Droptable gUnk_0800161C[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    { {
+    [8] = { {
         .none = 920,
         .rupee1 = 25,
         .rupee5 = 6,
@@ -496,7 +494,7 @@ const Droptable gUnk_0800161C[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    { {
+    [9] = { {
         .none = 920,
         .rupee1 = 18,
         .rupee5 = 2,
@@ -514,7 +512,7 @@ const Droptable gUnk_0800161C[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    { {
+    [0xa] = { {
         .none = 920,
         .rupee1 = 30,
         .rupee5 = 1,
@@ -536,7 +534,7 @@ const Droptable gUnk_0800161C[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    { {
+    [0xb] = { {
         .none = 900,
         .rupee1 = 16,
         .rupee5 = 4,
@@ -554,7 +552,7 @@ const Droptable gUnk_0800161C[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    { {
+    [0xc] = { {
         .none = 920,
         .rupee1 = 23,
         .rupee5 = 15,
@@ -572,7 +570,7 @@ const Droptable gUnk_0800161C[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    { {
+    [0xd] = { {
         .none = 920,
         .rupee1 = 25,
         .rupee5 = 25,
@@ -590,7 +588,7 @@ const Droptable gUnk_0800161C[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    { {
+    [0xe] = { {
         .none = 920,
         .rupee1 = 25,
         .rupee5 = 1,
@@ -608,7 +606,7 @@ const Droptable gUnk_0800161C[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    { {
+    [0xf] = { {
         .none = 800,
         .rupee1 = 60,
         .rupee5 = 15,
@@ -626,7 +624,7 @@ const Droptable gUnk_0800161C[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    { {
+    [0x10] = { {
         .none = 920,
         .rupee1 = 15,
         .rupee5 = 5,
@@ -644,7 +642,7 @@ const Droptable gUnk_0800161C[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    { {
+    [0x11] = { {
         .none = 920,
         .rupee1 = 15,
         .rupee5 = 5,
@@ -662,7 +660,7 @@ const Droptable gUnk_0800161C[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    { {
+    [0x12] = { {
         .none = 920,
         .rupee1 = 15,
         .rupee5 = 5,
@@ -680,7 +678,9 @@ const Droptable gUnk_0800161C[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    { {
+};
+const Droptable gDroptablesObjects[] = {
+    [0] = { {
         .none = 0,
         .rupee1 = 10,
         .rupee5 = 0,
@@ -698,7 +698,7 @@ const Droptable gUnk_0800161C[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    { {
+    [1] = { {
         .none = 0,
         .rupee1 = 3,
         .rupee5 = 0,
@@ -716,7 +716,7 @@ const Droptable gUnk_0800161C[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    { {
+    [2] = { {
         .none = 0,
         .rupee1 = 100,
         .rupee5 = 20,
@@ -734,7 +734,7 @@ const Droptable gUnk_0800161C[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    { {
+    [3] = { {
         .none = 0,
         .rupee1 = 300,
         .rupee5 = 50,
@@ -752,7 +752,7 @@ const Droptable gUnk_0800161C[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    { {
+    [4] = { {
         .none = 0,
         .rupee1 = -999,
         .rupee5 = -999,
@@ -770,7 +770,7 @@ const Droptable gUnk_0800161C[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    { {
+    [5] = { {
         .none = 0,
         .rupee1 = 2,
         .rupee5 = 2,
@@ -1068,7 +1068,7 @@ const Droptable gUnk_0800191C[] = {
 };
 
 // special treatment for shells and kinstones after finishing figurines/fusions
-const Droptable gUnk_08001A1C[] = {
+const Droptable gDroptablesModifiers[] = {
     // nop
     { {
         .none = 0,

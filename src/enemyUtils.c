@@ -2,6 +2,10 @@
 #include "definitions.h"
 #include "functions.h"
 #include "object.h"
+#include "save.h"
+#include "projectile.h"
+
+extern void sub_08049CF4(Entity*);
 
 extern EnemyDefinition gEnemyDefinitions[];
 
@@ -85,4 +89,137 @@ bool32 LoadEnemySprite(Entity* entity, const EnemyDefinition* definition) {
     }
     LoadObjPalette(entity, definition->paletteIndex);
     return TRUE;
+}
+
+ASM_FUNC("asm/non_matching/enemyUtils/sub_0804A720.inc", void sub_0804A720(Entity* this))
+
+void CreateDeathFx(Entity* param_1, u32 param_2, u32 param_3);
+void sub_0804A7D4(Entity* param_1) {
+    CreateDeathFx(param_1, (u32)param_1->id, 0);
+}
+
+void CreateDeathFx(Entity* param_1, u32 param_2, u32 param_3) {
+    Entity* pEVar2;
+    Entity* pEVar3;
+    u8 bVar3;
+
+    if ((param_1->field_0x6c.HALF.HI & 1) != 0) {
+        if ((param_1->field_0x6c.HALF.HI & 2) != 0) {
+            return;
+        }
+        pEVar2 = CreateObject(DEATH_FX, param_1->id, 0);
+        if (pEVar2 == NULL) {
+            return;
+        }
+        pEVar2->field_0x6c.HALF.LO = 1;
+        PositionRelative(param_1, pEVar2, 0, 1);
+        pEVar2->parent = param_1;
+        param_1->field_0x6c.HALF.HI |= 2;
+        if ((param_1->id == '7') && (gRoomTransition.field_0x39 != 0)) {
+            DeleteThisEntity();
+        }
+        sub_0807CD9C();
+        SoundReq(SONG_STOP_BGM);
+        DeleteThisEntity();
+        return;
+    } else {
+        int tmp = param_1->field_0x3a & 2;
+        if (tmp == 0) {
+            sub_08049CF4(param_1);
+            gSave.unk50 += 1;
+            param_1->field_0x3a |= 2;
+            param_1->actionDelay = 0xff;
+            SetDefaultPriority(param_1, 3);
+            pEVar3 = CreateObject(DEATH_FX, param_1->id, 0);
+            if (pEVar3 != NULL) {
+                pEVar3->field_0x6c.HALF.LO = tmp;
+                pEVar3->field_0x6c.HALF.HI = param_2;
+                pEVar3->field_0x6e.HALF.LO = param_3;
+                pEVar3->parent = param_1;
+                pEVar3->child = param_1;
+                CopyPosition(param_1, pEVar3);
+            }
+            if ((param_1->field_0x6c.HALF.HI & 8) != 0) {
+                pEVar3->field_0x6c.HALF.LO |= 8;
+                DeleteEntity(param_1);
+                return;
+            }
+            if ((param_1->bitfield & 0x7f) == 0x13) {
+                bVar3 = param_1->field_0x1c & 0xf;
+                if (bVar3 != 1) {
+                    if ((bVar3 == 2) && (pEVar3 != NULL)) {
+                        pEVar3->field_0x6c.HALF.LO |= 2;
+                    }
+                } else {
+                    if (pEVar3 != NULL) {
+                        pEVar3->field_0x6c.HALF.LO |= 4;
+                    }
+                }
+                pEVar3->parent = NULL;
+                DeleteThisEntity();
+                return;
+            }
+        }
+
+        if (param_1->actionDelay == 0) {
+            DeleteThisEntity();
+        } else {
+            if (--param_1->actionDelay == 0) {
+                param_1->spriteSettings.draw = 0;
+                SetDefaultPriority(param_1, 0);
+            } else {
+                if (param_1->actionDelay < 9) {
+                    if (param_1->spriteSettings.draw != 0) {
+                        param_1->spriteSettings.draw = 0;
+                    } else {
+                        param_1->spriteSettings.draw = 1;
+                    }
+                }
+            }
+        }
+        return;
+    }
+}
+
+Entity* CreateProjectileWithParent(Entity* parent, u32 projectileId, u32 projectileType) {
+    Entity* projectile;
+
+    projectile = CreateProjectile(projectileId);
+    if (projectile != NULL) {
+        projectile->type = projectileType;
+        CopyPosition(parent, projectile);
+    }
+    return projectile;
+}
+
+void SetChildOffset(Entity* entity, s32 xOffset, s32 yOffset, s32 zOffset) {
+    Entity* other;
+
+    other = *(Entity**)&entity->field_0x68;
+    if (other != NULL) {
+        other->spriteRendering.b3 = entity->spriteRendering.b3;
+        other->spriteOrientation.flipY = entity->spriteOrientation.flipY;
+        other->x.HALF.HI = entity->x.HALF.HI + xOffset;
+        other->y.HALF.HI = entity->y.HALF.HI + yOffset;
+        other->z.HALF.HI = entity->z.HALF.HI + zOffset;
+        other->collisionLayer = entity->collisionLayer;
+    }
+}
+
+Entity* sub_0804A9FC(Entity* parent, u32 fxType) {
+    Entity* fx;
+
+    if ((*(Entity**)&parent->field_0x68 == NULL) && (fx = CreateFx(parent, fxType, 0), fx != NULL)) {
+        *(Entity**)&parent->field_0x68 = fx;
+    } else {
+        fx = NULL;
+    }
+    return fx;
+}
+
+void sub_0804AA1C(Entity* param_1) {
+    if (*(Entity**)&param_1->field_0x68 != NULL) {
+        (*(Entity**)&param_1->field_0x68)->parent = NULL;
+        *(Entity**)&param_1->field_0x68 = NULL;
+    }
 }

@@ -42,7 +42,7 @@ static void LoadLocationTile(TileEntity*);
 typedef struct {
     u8 filler[0x20];
 } VarStruct;
-extern VarStruct gUnk_080015BC[];
+extern VarStruct gDroptablesAreas[];
 
 void LoadRoomEntityList(EntityData* listPtr) {
     if (listPtr != NULL) {
@@ -302,7 +302,7 @@ void LoadRoomTileEntities(TileEntity* list) {
 }
 
 static void LoadGrassDropTile(TileEntity* tile) {
-    MemCopy(&gUnk_080015BC[tile->_1], &gRoomVars.filler4[44], 0x20);
+    MemCopy(&gDroptablesAreas[tile->_1], &gRoomVars.filler4[44], 0x20);
 }
 
 static void LoadLocationTile(TileEntity* tile) {
