@@ -4,7 +4,6 @@
 #include "projectile.h"
 
 void OctorokBossProjectile_Action2(Entity*);
-extern void sub_080AE58C(Entity*, u32, u32);
 
 extern void (*const OctorokBossProjectile_Functions[])(Entity*);
 extern void (*const OctorokBossProjectile_Actions[])(Entity*);

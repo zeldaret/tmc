@@ -1,0 +1,500 @@
+/**
+ * @file stalfos.c
+ * @ingroup Enemies
+ *
+ * @brief Stalfos enemy
+ */
+
+#define NENT_DEPRECATED
+#include "global.h"
+#include "enemy.h"
+#include "functions.h"
+
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unk_68[0x10];
+    /*0x78*/ u16 unk_78;
+    /*0x7a*/ u8 unk_7a;
+    /*0x7b*/ u8 unk_7b;
+    /*0x7c*/ u8 unk_7c;
+    /*0x7d*/ u8 unk_7d;
+} StalfosEntity;
+
+extern Entity* gUnk_020000B0;
+
+extern void (*const Stalfos_Functions[])(StalfosEntity*);
+extern void (*const Stalfos_Actions[])(StalfosEntity*);
+extern void (*const Stalfos_SubActions[])(StalfosEntity*);
+extern const u8 gUnk_080CF8F8[];
+extern const u8 gUnk_080CF900[];
+extern const u16 gUnk_080CF910[];
+extern const u8 gUnk_080CF918[];
+extern const u8 gUnk_080CF928[];
+extern const u8 gUnk_080CF92C[];
+extern const u8 gUnk_080CF930[];
+extern const u16 gUnk_080CF938[];
+
+void sub_0803981C(StalfosEntity*);
+void sub_08039A48(StalfosEntity*);
+void sub_08039A00(StalfosEntity*, u32);
+void sub_0803998C(StalfosEntity*);
+bool32 sub_08039758(StalfosEntity*);
+void sub_08039858(StalfosEntity*);
+void sub_0803992C(StalfosEntity*);
+void sub_080399C4(StalfosEntity*);
+void sub_08039A20(StalfosEntity*);
+void sub_08039A70(StalfosEntity*);
+void sub_08039AD4(StalfosEntity*);
+u32 sub_080398C0(StalfosEntity*);
+u32 sub_08039B28(StalfosEntity*);
+
+void Stalfos(StalfosEntity* this) {
+    EnemyFunctionHandler(super, (EntityActionArray)&Stalfos_Functions);
+    SetChildOffset(super, 0, 1, -0x12);
+}
+
+void Stalfos_OnTick(StalfosEntity* this) {
+    Stalfos_Actions[super->action](this);
+    if (this->unk_7c != 0) {
+        if (--this->unk_7c != 0) {
+            super->hitType = 0x45;
+        } else {
+            super->hitType = this->unk_7d;
+        }
+    }
+    if (super->z.HALF.HI != 0) {
+        if (super->z.HALF.HI < -8) {
+            super->spriteOrientation.flipY = 1;
+            super->spriteRendering.b3 = 1;
+        } else {
+            UpdateSpriteForCollisionLayer(super);
+        }
+    }
+}
+
+NONMATCH("asm/non_matching/stalfos/sub_0803933C.inc", void sub_0803933C(StalfosEntity* this)) {
+    if (super->hitType == 0x44) {
+        if ((super->bitfield & 0x7f) < 7) {
+            if ((super->bitfield & 0x7f) > 3) {
+                if (super->iframes < 1) {
+                    super->action = 4;
+                    super->direction = super->knockbackDirection;
+                    super->animationState = ((((super->direction + 4) & 0x18) ^ 0x10) >> 3);
+                    super->speed = 0x120;
+                    sub_0803981C(this);
+                }
+            }
+        }
+    }
+    if (super->bitfield == 0x9d) {
+        if (super->child == NULL) {
+            if (super->action < 9) {
+                Entity* projectile = CreateProjectileWithParent(super, STALFOS_PROJECTILE, 1);
+                if (projectile != NULL) {
+                    projectile->frameIndex = super->animationState << 1;
+                    projectile->type2 = 2;
+                    EnqueueSFX(SFX_186);
+                }
+                sub_08039A48(this);
+                this->unk_78 += 0x5a;
+            }
+        } else {
+            super->child->bitfield = 0x9d;
+            EnqueueSFX(SFX_186);
+            super->child = NULL;
+            sub_08039A48(this);
+            this->unk_78 += 0x5a;
+        }
+        super->flags2 &= 0xfb;
+    }
+    if (super->field_0x43 != 0) {
+        sub_0804A9FC(super, 0x1c);
+    }
+    sub_0804AA30(super, Stalfos_Functions);
+}
+END_NONMATCH
+
+void sub_08039418(StalfosEntity* this) {
+    if (super->type == 0) {
+        CreateDeathFx(super, 0xf3, 0);
+    } else {
+        sub_0804A7D4(super);
+    }
+}
+
+void sub_08039438(StalfosEntity* this) {
+    if (sub_0806F520()) {
+        Stalfos_SubActions[super->subAction](this);
+    }
+}
+
+void Stalfos_SubAction0(StalfosEntity* this) {
+    super->subAction = 1;
+    super->field_0x1d = 0x5a;
+}
+
+void Stalfos_SubAction1(StalfosEntity* this) {
+    sub_0806F4E8(super);
+}
+
+void Stalfos_SubAction2(StalfosEntity* this) {
+    Entity* projectile = super->child;
+    if (projectile == NULL) {
+        projectile = CreateProjectileWithParent(super, STALFOS_PROJECTILE, 1);
+        if (projectile != NULL) {
+            projectile->frameIndex = super->animationState << 1;
+            projectile->type2 = 1;
+        }
+    } else {
+        COLLISION_ON(projectile);
+    }
+    super->child = NULL;
+    super->field_0x3a &= 0xfb;
+    super->flags2 &= 0xfb;
+    sub_08039A48(this);
+    this->unk_78 += 0x5a;
+}
+
+void Stalfos_Init(StalfosEntity* this) {
+    sub_0804A720(super);
+    super->animationState = Random() & 3;
+    this->unk_7b = 0;
+    this->unk_7c = 0;
+    this->unk_7d = super->hitType;
+    sub_08039A00(this, 0);
+    if (super->type2 == 0) {
+        sub_0803998C(this);
+    } else {
+        super->action = 4;
+        super->direction = 0xff;
+        super->animationState = (((GetFacingDirection(super, &gPlayerEntity) + 4) & 0x18) >> 3);
+        sub_0803981C(this);
+    }
+}
+
+void Stalfos_Action1(StalfosEntity* this) {
+    if (GravityUpdate(super, 0x1800) == 0 && sub_08039758(this) == 0 && --this->unk_78 == 0) {
+        super->action = 2;
+        super->actionDelay = 0xa;
+        sub_08039858(this);
+    }
+}
+
+void Stalfos_Action2(StalfosEntity* this) {
+    if (sub_08039758(this) == 0 && --super->actionDelay == 0) {
+        sub_0803992C(this);
+    }
+}
+
+void Stalfos_Action3(StalfosEntity* this) {
+    if (sub_08039758(this) == 0) {
+        if (ProcessMovement(super)) {
+            UpdateAnimationSingleFrame(super);
+            if (--this->unk_78 == 0) {
+                sub_0803998C(this);
+            }
+        } else {
+            this->unk_7b = this->unk_7b << 1 | 1;
+            sub_0803998C(this);
+        }
+    }
+}
+
+void Stalfos_Action4(StalfosEntity* this) {
+    sub_080AEFE0(super);
+    if (GravityUpdate(super, 0x1800) == 0) {
+        sub_0803998C(this);
+        this->unk_7c = 0x5a;
+        EnqueueSFX(SFX_PLY_LAND);
+    }
+}
+
+void Stalfos_Action5(StalfosEntity* this) {
+    sub_080AEFE0(super);
+    GravityUpdate(super, 0x1800);
+    if (super->zVelocity < 0) {
+        super->action = 6;
+        super->actionDelay = 0x0f;
+    }
+}
+
+void Stalfos_Action6(StalfosEntity* this) {
+    u16 tmp;
+
+    if (super->actionDelay != 0) {
+        super->actionDelay--;
+    } else {
+        tmp = super->z.HALF.HI += 4;
+        if (-1 < (tmp * 0x10000)) {
+            super->action = 7;
+            super->actionDelay = 0xa;
+            super->z.HALF.HI = 0;
+            this->unk_7a = 0x78;
+            this->unk_7c = 0x3c;
+            sub_080399C4(this);
+            EnqueueSFX(SFX_14B);
+        }
+    }
+}
+
+void Stalfos_Action7(StalfosEntity* this) {
+    if (--super->actionDelay == 0) {
+        sub_0803998C(this);
+    }
+}
+
+void Stalfos_Action8(StalfosEntity* this) {
+    UpdateAnimationSingleFrame(super);
+    if (--super->actionDelay == 0) {
+        sub_08039A00(this, 0x3c);
+        sub_0803998C(this);
+    } else if ((super->actionDelay & 0x1f) == 0) {
+        sub_08039A20(this);
+    }
+}
+
+void Stalfos_Action9(StalfosEntity* this) {
+    if (GravityUpdate(super, 0x1800) == 0 && --this->unk_78 == 0) {
+        sub_08039A70(this);
+    }
+}
+
+void Stalfos_Action11(StalfosEntity* this) {
+    sub_080AEFE0(super);
+    UpdateAnimationSingleFrame(super);
+    if (--this->unk_78 == 0) {
+        sub_08039AD4(this);
+    }
+}
+
+void Stalfos_Action12(StalfosEntity* this) {
+    UpdateAnimationSingleFrame(super);
+    if ((super->frame & 0x80) != 0) {
+        if (super->type2 == 1) {
+            sub_0803998C(this);
+            DeleteEntity(super->child);
+            super->child = NULL;
+        } else {
+            sub_08039A48(this);
+        }
+        super->flags2 |= 4;
+        this->unk_78 += 0x3c;
+    }
+}
+
+bool32 sub_08039758(StalfosEntity* this) {
+    if (this->unk_7a != 0) {
+        this->unk_7a--;
+    }
+    if (sub_08049FDC(super, 1) && (this->unk_7a == 0)) {
+        if (super->type == 0) {
+            if (EntityWithinDistance(super, gUnk_020000B0->x.HALF.HI, gUnk_020000B0->y.HALF.HI, 0x24)) {
+                super->action = 5;
+                super->speed = 0x180;
+                super->direction = GetFacingDirection(super, gUnk_020000B0);
+                super->animationState = (((super->direction + 4) & 0x18) >> 3);
+                sub_0803981C(this);
+                super->hitType = 0x46;
+                this->unk_7d = 0x46;
+                super->zVelocity = 0x28000;
+                return TRUE;
+            }
+        } else {
+            if (EntityWithinDistance(super, gUnk_020000B0->x.HALF.HI, gUnk_020000B0->y.HALF.HI, 0x48)) {
+                super->action = 8;
+                super->actionDelay = 0x3c;
+                super->direction = GetFacingDirection(super, gUnk_020000B0);
+                InitAnimationForceUpdate(super, super->animationState + 0xc);
+                return TRUE;
+            }
+        }
+    }
+    return FALSE;
+}
+
+void sub_0803981C(StalfosEntity* this) {
+    super->zVelocity = 0x20000;
+    if (super->iframes == 0) {
+        super->iframes = -0xc;
+    }
+    super->hitType = 0x45;
+    this->unk_7d = 0x45;
+    InitAnimationForceUpdate(super, super->animationState + 8);
+    EnqueueSFX(SFX_12B);
+}
+
+NONMATCH("asm/non_matching/stalfos/sub_08039858.inc", void sub_08039858(StalfosEntity* this)) {
+    s32 iVar1;
+    u32 uVar2;
+    u32 uVar3;
+    u32 tmp;
+
+    iVar1 = sub_080398C0(this);
+    uVar2 = (u32)super->animationState;
+    tmp = uVar2 * 8;
+    if (((iVar1 + 4U) & 0x18) == tmp) {
+        if (this->unk_7b != 3) {
+            return;
+        }
+        this->unk_7b = 0;
+        uVar3 = Random();
+        iVar1 += ((uVar3 & 2) - 1) * 8;
+    }
+    uVar2 = ((iVar1 + uVar2 * -8) & 0x1f) >> 4 ^ 1;
+    InitAnimationForceUpdate(super, gUnk_080CF8F8[(u32)super->animationState * 2 + uVar2]);
+    super->animationState = ((uVar2 * 2 + super->animationState) - 1) & 3;
+}
+END_NONMATCH
+
+u32 sub_080398C0(StalfosEntity* this) {
+    u32 rand = Random();
+    if ((super->type == 0) && sub_08049FDC(super, 1) &&
+        (EntityWithinDistance(super, gUnk_020000B0->x.HALF.HI, gUnk_020000B0->y.HALF.HI, 0x58) != 0)) {
+        return GetFacingDirection(super, &gPlayerEntity);
+    } else {
+        if ((sub_08049FA0(super) == 0) && ((rand & 7) != 0)) {
+            return sub_08049EE4(super);
+        } else {
+            return rand >> 0x10 & 0x18;
+        }
+    }
+}
+
+void sub_0803992C(StalfosEntity* this) {
+    super->action = 3;
+    super->speed = 0xe0;
+    super->direction = super->animationState << 3;
+    this->unk_78 = (u16)gUnk_080CF900[Random() & 0xf];
+    sub_080AE58C(super, super->direction, 0);
+    if ((gUnk_080CF910[super->animationState] & super->collisions) != 0) {
+        InitAnimationForceUpdate(super, super->animationState);
+    } else {
+        InitAnimationForceUpdate(super, super->animationState + 4);
+    }
+}
+
+void sub_0803998C(StalfosEntity* this) {
+    super->action = 1;
+    super->hitType = 0x44;
+    this->unk_7d = 0x44;
+    this->unk_78 = gUnk_080CF918[Random() & 0xf];
+    InitAnimationForceUpdate(super, super->animationState);
+}
+
+void sub_080399C4(StalfosEntity* this) {
+    Entity* effect = CreateFx(super, FX_DASH, 0);
+    if (effect != NULL) {
+        effect->x.HALF.HI -= 4;
+        effect->y.HALF.HI += 2;
+    }
+    effect = CreateFx(super, FX_DASH, 0);
+    if (effect != NULL) {
+        effect->x.HALF.HI += 4;
+        effect->y.HALF.HI += 2;
+    }
+}
+
+void sub_08039A00(StalfosEntity* this, u32 param_2) {
+    this->unk_7a = gUnk_080CF928[Random() & 3] + param_2;
+}
+
+void sub_08039A20(StalfosEntity* this) {
+    Entity* projectile = CreateProjectileWithParent(super, BONE_PROJECTILE, 0);
+    if (projectile != NULL) {
+        projectile->direction = super->direction;
+        this->unk_7c = 0x3c;
+        EnqueueSFX(SFX_FB);
+    }
+}
+
+void sub_08039A48(StalfosEntity* this) {
+    super->action = 9;
+    super->hitType = 0x47;
+    this->unk_7d = 0x47;
+    this->unk_78 = 10;
+    InitAnimationForceUpdate(super, super->animationState + 0x10);
+}
+
+void sub_08039A70(StalfosEntity* this) {
+    u32 rand;
+    super->action = 0xa;
+    super->speed = 0xe0;
+    rand = Random();
+    this->unk_78 = gUnk_080CF92C[rand & 3];
+    rand >>= 0x10;
+    if ((sub_08049FA0(super) == 0) && ((rand & 7) != 0)) {
+        super->direction = (sub_08049EE4(super) + 4) & 0x18;
+    } else {
+        super->direction = rand & 0x18;
+    }
+    super->animationState = super->direction >> 3;
+    InitAnimationForceUpdate(super, super->animationState + 0x14);
+}
+
+void sub_08039AD4(StalfosEntity* this) {
+    u32 position = sub_08039B28(this);
+    if (position != 0xffff) {
+        Entity* projectile = CreateProjectileWithParent(super, STALFOS_PROJECTILE, super->type2);
+        if (projectile != NULL) {
+            projectile->parent = super;
+            super->action = 0xb;
+            super->child = projectile;
+            InitAnimationForceUpdate(super, super->animationState + 0x18);
+            SetTile(0x4067, position, super->collisionLayer);
+            return;
+        }
+    }
+    sub_08039A48(this);
+}
+ASM_FUNC("asm/non_matching/stalfos/sub_08039B28.inc", u32 sub_08039B28(StalfosEntity* this))
+
+void (*const Stalfos_Functions[])(StalfosEntity*) = {
+    Stalfos_OnTick,
+    sub_0803933C,
+    (void (*)(StalfosEntity*))sub_08001324,
+    sub_08039418,
+    (void (*)(StalfosEntity*))sub_08001242,
+    sub_08039438,
+};
+void (*const Stalfos_Actions[])(StalfosEntity*) = {
+    Stalfos_Init,    Stalfos_Action1, Stalfos_Action2, Stalfos_Action3, Stalfos_Action4,  Stalfos_Action5,
+    Stalfos_Action6, Stalfos_Action7, Stalfos_Action8, Stalfos_Action9, Stalfos_Action11, Stalfos_Action12,
+};
+void (*const Stalfos_SubActions[])(StalfosEntity*) = {
+    Stalfos_SubAction0,
+    Stalfos_SubAction1,
+    Stalfos_SubAction2,
+};
+const u8 gUnk_080CF8F8[] = {
+    28, 29, 30, 31, 32, 33, 34, 35,
+};
+const u8 gUnk_080CF900[] = {
+    60, 60, 90, 90, 90, 90, 120, 120, 120, 120, 120, 120, 120, 120, 150, 150,
+};
+const u16 gUnk_080CF910[] = {
+    8,
+    32768,
+    128,
+    2048,
+};
+const u8 gUnk_080CF918[] = {
+    10, 10, 15, 15, 15, 15, 20, 20, 20, 20, 20, 25, 25, 25, 30, 30,
+};
+const u8 gUnk_080CF928[] = {
+    30,
+    60,
+    60,
+    90,
+};
+const u8 gUnk_080CF92C[] = {
+    45,
+    60,
+    75,
+    90,
+};
+const u8 gUnk_080CF930[] = {
+    0, 248, 8, 0, 0, 8, 248, 0,
+};
+const u16 gUnk_080CF938[] = {
+    16384, 0, 16480, 1, 0,
+};

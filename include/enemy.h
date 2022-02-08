@@ -199,7 +199,7 @@ void RopeGolden(Entity*);
 void CloudPiranha(Entity*);
 void ScissorsBeetle(Entity*);
 void CuccoAggr(Entity*);
-void Stalfos(Entity*);
+void Stalfos();
 void FlyingSkull(Entity*);
 void MazaalBracelet(Entity*);
 void Takkuri(Entity*);
