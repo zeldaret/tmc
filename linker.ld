@@ -645,7 +645,7 @@ SECTIONS {
         asm/code_0808091C.o(.text); /* scroll.c */
         /* objects */
         src/object/itemOnGround.o(.text);
-        asm/object/deathFx.o(.text);
+        src/object/deathFx.o(.text);
         asm/object/itemForSale.o(.text);
         src/object/button.o(.text);
         asm/object/minishEmoticon.o(.text);
@@ -1357,7 +1357,7 @@ SECTIONS {
         src/script.o(.rodata);
         data/data_0811E750.o(.rodata);
         data/const/object/itemOnGround.o(.rodata);
-        data/const/object/deathFx.o(.rodata);
+        src/object/deathFx.o(.rodata);
         data/animations/object/deathFx.o(.rodata);
         data/const/object/itemForSale.o(.rodata);
         data/const/object/button.o(.rodata);

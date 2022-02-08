@@ -1,9 +1,11 @@
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "definitions.h"
 #include "functions.h"
 #include "object.h"
 #include "save.h"
 #include "projectile.h"
+#include "object/deathFx.h"
 
 extern void sub_08049CF4(Entity*);
 
@@ -21,45 +23,45 @@ const EnemyDefinition* GetEnemyDefinition(Entity* entity) {
     return definition;
 }
 
-bool32 EnemyInit(Entity* this) {
-    if ((this->flags & ENT_DID_INIT) == 0) {
-        const EnemyDefinition* definition = GetEnemyDefinition(this);
-        if (LoadEnemySprite(this, definition) == FALSE) {
+bool32 EnemyInit(GenericEntity* this) {
+    if ((super->flags & ENT_DID_INIT) == 0) {
+        const EnemyDefinition* definition = GetEnemyDefinition(super);
+        if (LoadEnemySprite(super, definition) == FALSE) {
             return FALSE;
         }
-        this->flags |= ENT_DID_INIT;
+        super->flags |= ENT_DID_INIT;
         if (definition->spriteFlags.collision != 0) {
-            COLLISION_ON(this);
+            COLLISION_ON(super);
         }
-        this->spriteIndex = definition->spriteIndex;
-        if (this->spriteSettings.draw == 0) {
-            this->spriteSettings.draw = definition->spriteFlags.draw;
+        super->spriteIndex = definition->spriteIndex;
+        if (super->spriteSettings.draw == 0) {
+            super->spriteSettings.draw = definition->spriteFlags.draw;
         }
-        this->spritePriority.b1 = definition->spriteFlags.spritePriority;
-        this->spriteSettings.shadow = definition->spriteFlags.shadow;
-        if (this->speed == 0) {
-            this->speed = definition->speed;
+        super->spritePriority.b1 = definition->spriteFlags.spritePriority;
+        super->spriteSettings.shadow = definition->spriteFlags.shadow;
+        if (super->speed == 0) {
+            super->speed = definition->speed;
         }
-        this->flags2 = definition->flags2;
-        this->hitType = definition->damageType;
-        this->hitbox = (Hitbox*)definition->ptr.hitbox;
-        this->health = definition->health;
-        if (this->hurtType == 0) {
-            this->hurtType = 0x41;
+        super->flags2 = definition->flags2;
+        super->hitType = definition->damageType;
+        super->hitbox = (Hitbox*)definition->ptr.hitbox;
+        super->health = definition->health;
+        if (super->hurtType == 0) {
+            super->hurtType = 0x41;
         }
-        UpdateSpriteForCollisionLayer(this);
+        UpdateSpriteForCollisionLayer(super);
         if ((this->field_0x6c.HALF.HI & 0x20) != 0) {
-            u32 uVar4 = gUnk_080D3E74[this->id >> 3] >> ((this->id & 7) << 1) & 3;
+            u32 uVar4 = gUnk_080D3E74[super->id >> 3] >> ((super->id & 7) << 1) & 3;
             if (uVar4 != 0) {
                 Entity* object = CreateObject(OBJECT_A9, uVar4 - 1, 0);
                 if (object != NULL) {
-                    object->actionDelay = this->flags;
-                    object->field_0xf = this->spriteSettings.draw;
+                    object->actionDelay = super->flags;
+                    object->field_0xf = super->spriteSettings.draw;
                     object->spritePriority.b0 = 3;
-                    object->parent = this;
-                    CopyPosition(this, object);
-                    this->flags &= ~ENT_COLLIDE;
-                    this->spriteSettings.draw = 0;
+                    object->parent = super;
+                    CopyPosition(super, object);
+                    super->flags &= ~ENT_COLLIDE;
+                    super->spriteSettings.draw = 0;
                     this->field_0x6c.HALF.HI |= 0x10;
                 }
             }
@@ -93,29 +95,29 @@ bool32 LoadEnemySprite(Entity* entity, const EnemyDefinition* definition) {
 
 ASM_FUNC("asm/non_matching/enemyUtils/sub_0804A720.inc", void sub_0804A720(Entity* this))
 
-void CreateDeathFx(Entity* param_1, u32 param_2, u32 param_3);
-void sub_0804A7D4(Entity* param_1) {
-    CreateDeathFx(param_1, (u32)param_1->id, 0);
+void CreateDeathFx(GenericEntity* parent, u32 parentId, u32 fixedItem);
+void sub_0804A7D4(Entity* this) {
+    CreateDeathFx((GenericEntity*)this, this->id, 0);
 }
 
-void CreateDeathFx(Entity* param_1, u32 param_2, u32 param_3) {
-    Entity* pEVar2;
-    Entity* pEVar3;
+void CreateDeathFx(GenericEntity* parent, u32 parentId, u32 fixedItem) {
+    DeathFxObject* deathFx;
+    DeathFxObject* deathFx2;
     u8 bVar3;
 
-    if ((param_1->field_0x6c.HALF.HI & 1) != 0) {
-        if ((param_1->field_0x6c.HALF.HI & 2) != 0) {
+    if ((parent->field_0x6c.HALF.HI & 1) != 0) {
+        if ((parent->field_0x6c.HALF.HI & 2) != 0) {
             return;
         }
-        pEVar2 = CreateObject(DEATH_FX, param_1->id, 0);
-        if (pEVar2 == NULL) {
+        deathFx = (DeathFxObject*)CreateObject(DEATH_FX, parent->base.id, 0);
+        if (deathFx == NULL) {
             return;
         }
-        pEVar2->field_0x6c.HALF.LO = 1;
-        PositionRelative(param_1, pEVar2, 0, 1);
-        pEVar2->parent = param_1;
-        param_1->field_0x6c.HALF.HI |= 2;
-        if ((param_1->id == '7') && (gRoomTransition.field_0x39 != 0)) {
+        deathFx->unk6c = 1;
+        PositionRelative(&(parent->base), &(deathFx->base), 0, 1);
+        deathFx->base.parent = &(parent->base);
+        parent->field_0x6c.HALF.HI |= 2;
+        if ((parent->base.id == 0x37) && (gRoomTransition.field_0x39 != 0)) {
             DeleteThisEntity();
         }
         sub_0807CD9C();
@@ -123,56 +125,56 @@ void CreateDeathFx(Entity* param_1, u32 param_2, u32 param_3) {
         DeleteThisEntity();
         return;
     } else {
-        int tmp = param_1->field_0x3a & 2;
+        int tmp = parent->base.field_0x3a & 2;
         if (tmp == 0) {
-            sub_08049CF4(param_1);
+            sub_08049CF4(&(parent->base));
             gSave.unk50 += 1;
-            param_1->field_0x3a |= 2;
-            param_1->actionDelay = 0xff;
-            SetDefaultPriority(param_1, 3);
-            pEVar3 = CreateObject(DEATH_FX, param_1->id, 0);
-            if (pEVar3 != NULL) {
-                pEVar3->field_0x6c.HALF.LO = tmp;
-                pEVar3->field_0x6c.HALF.HI = param_2;
-                pEVar3->field_0x6e.HALF.LO = param_3;
-                pEVar3->parent = param_1;
-                pEVar3->child = param_1;
-                CopyPosition(param_1, pEVar3);
+            parent->base.field_0x3a |= 2;
+            parent->base.actionDelay = 0xff;
+            SetDefaultPriority(&(parent->base), 3);
+            deathFx2 = (DeathFxObject*)CreateObject(DEATH_FX, parent->base.id, 0);
+            if (deathFx2 != NULL) {
+                deathFx2->unk6c = tmp;
+                deathFx2->parentId = parentId;
+                deathFx2->item = fixedItem;
+                deathFx2->base.parent = &(parent->base);
+                deathFx2->base.child = &(parent->base);
+                CopyPosition(&(parent->base), &(deathFx2->base));
             }
-            if ((param_1->field_0x6c.HALF.HI & 8) != 0) {
-                pEVar3->field_0x6c.HALF.LO |= 8;
-                DeleteEntity(param_1);
+            if ((parent->field_0x6c.HALF.HI & 8) != 0) {
+                deathFx2->unk6c |= 8;
+                DeleteEntity(&(parent->base));
                 return;
             }
-            if ((param_1->bitfield & 0x7f) == 0x13) {
-                bVar3 = param_1->field_0x1c & 0xf;
+            if ((parent->base.bitfield & 0x7f) == 0x13) {
+                bVar3 = parent->base.field_0x1c & 0xf;
                 if (bVar3 != 1) {
-                    if ((bVar3 == 2) && (pEVar3 != NULL)) {
-                        pEVar3->field_0x6c.HALF.LO |= 2;
+                    if ((bVar3 == 2) && (deathFx2 != NULL)) {
+                        deathFx2->unk6c |= 2;
                     }
                 } else {
-                    if (pEVar3 != NULL) {
-                        pEVar3->field_0x6c.HALF.LO |= 4;
+                    if (deathFx2 != NULL) {
+                        deathFx2->unk6c |= 4;
                     }
                 }
-                pEVar3->parent = NULL;
+                deathFx2->base.parent = NULL;
                 DeleteThisEntity();
                 return;
             }
         }
 
-        if (param_1->actionDelay == 0) {
+        if (parent->base.actionDelay == 0) {
             DeleteThisEntity();
         } else {
-            if (--param_1->actionDelay == 0) {
-                param_1->spriteSettings.draw = 0;
-                SetDefaultPriority(param_1, 0);
+            if (--parent->base.actionDelay == 0) {
+                parent->base.spriteSettings.draw = 0;
+                SetDefaultPriority(&(parent->base), 0);
             } else {
-                if (param_1->actionDelay < 9) {
-                    if (param_1->spriteSettings.draw != 0) {
-                        param_1->spriteSettings.draw = 0;
+                if (parent->base.actionDelay < 9) {
+                    if (parent->base.spriteSettings.draw) {
+                        parent->base.spriteSettings.draw = 0;
                     } else {
-                        param_1->spriteSettings.draw = 1;
+                        parent->base.spriteSettings.draw = 1;
                     }
                 }
             }
@@ -194,32 +196,35 @@ Entity* CreateProjectileWithParent(Entity* parent, u32 projectileId, u32 project
 
 void SetChildOffset(Entity* entity, s32 xOffset, s32 yOffset, s32 zOffset) {
     Entity* other;
+    GenericEntity* this = (GenericEntity*)entity;
 
-    other = *(Entity**)&entity->field_0x68;
+    other = *(Entity**)&this->field_0x68;
     if (other != NULL) {
-        other->spriteRendering.b3 = entity->spriteRendering.b3;
-        other->spriteOrientation.flipY = entity->spriteOrientation.flipY;
-        other->x.HALF.HI = entity->x.HALF.HI + xOffset;
-        other->y.HALF.HI = entity->y.HALF.HI + yOffset;
-        other->z.HALF.HI = entity->z.HALF.HI + zOffset;
-        other->collisionLayer = entity->collisionLayer;
+        other->spriteRendering.b3 = super->spriteRendering.b3;
+        other->spriteOrientation.flipY = super->spriteOrientation.flipY;
+        other->x.HALF.HI = super->x.HALF.HI + xOffset;
+        other->y.HALF.HI = super->y.HALF.HI + yOffset;
+        other->z.HALF.HI = super->z.HALF.HI + zOffset;
+        other->collisionLayer = super->collisionLayer;
     }
 }
 
 Entity* sub_0804A9FC(Entity* parent, u32 fxType) {
     Entity* fx;
+    GenericEntity* this = (GenericEntity*)parent;
 
-    if ((*(Entity**)&parent->field_0x68 == NULL) && (fx = CreateFx(parent, fxType, 0), fx != NULL)) {
-        *(Entity**)&parent->field_0x68 = fx;
+    if ((*(Entity**)&this->field_0x68 == NULL) && (fx = CreateFx(super, fxType, 0), fx != NULL)) {
+        *(Entity**)&this->field_0x68 = fx;
     } else {
         fx = NULL;
     }
     return fx;
 }
 
-void sub_0804AA1C(Entity* param_1) {
-    if (*(Entity**)&param_1->field_0x68 != NULL) {
-        (*(Entity**)&param_1->field_0x68)->parent = NULL;
-        *(Entity**)&param_1->field_0x68 = NULL;
+void sub_0804AA1C(Entity* entity) {
+    GenericEntity* this = (GenericEntity*)entity;
+    if (*(Entity**)&this->field_0x68 != NULL) {
+        (*(Entity**)&this->field_0x68)->parent = NULL;
+        *(Entity**)&this->field_0x68 = NULL;
     }
 }

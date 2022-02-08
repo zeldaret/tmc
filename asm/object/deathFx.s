@@ -21,7 +21,7 @@ DeathFx: @ 0x0808161C
 _08081630: .4byte gUnk_0811EBFC
 
 	thumb_func_start sub_08081634
-sub_08081634: @ 0x08081634
+DeathFx_Action0: @ 0x08081634
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r0, #0x6c
@@ -136,7 +136,7 @@ _08081718: .4byte gUnk_0811EC08
 _0808171C: .4byte gUnk_0811EC20
 
 	thumb_func_start sub_08081720
-sub_08081720: @ 0x08081720
+DeathFx_Action1: @ 0x08081720
 	push {r4, lr}
 	adds r4, r0, #0
 	bl GetNextFrame
@@ -170,7 +170,7 @@ _0808175E:
 	pop {r4, pc}
 
 	thumb_func_start sub_08081760
-sub_08081760: @ 0x08081760
+DeathFx_Action2: @ 0x08081760
 	push {r4, lr}
 	adds r4, r0, #0
 	bl UpdateAnimationSingleFrame
@@ -228,7 +228,7 @@ _080817C6:
 _080817C8: .4byte gUnk_0811EC24
 
 	thumb_func_start sub_080817CC
-sub_080817CC: @ 0x080817CC
+DeathFx_DropRandom9: @ 0x080817CC
 	push {lr}
 	movs r1, #9
 	bl CreateRandomItemDrop
@@ -236,7 +236,7 @@ sub_080817CC: @ 0x080817CC
 	.align 2, 0
 
 	thumb_func_start sub_080817D8
-sub_080817D8: @ 0x080817D8
+DeathFx_DropRandom13: @ 0x080817D8
 	push {lr}
 	movs r1, #0xd
 	bl CreateRandomItemDrop
@@ -244,7 +244,7 @@ sub_080817D8: @ 0x080817D8
 	.align 2, 0
 
 	thumb_func_start sub_080817E4
-sub_080817E4: @ 0x080817E4
+DeathFx_DropRandom14: @ 0x080817E4
 	push {lr}
 	movs r1, #0xe
 	bl CreateRandomItemDrop
@@ -252,7 +252,7 @@ sub_080817E4: @ 0x080817E4
 	.align 2, 0
 
 	thumb_func_start sub_080817F0
-sub_080817F0: @ 0x080817F0
+DeathFx_DropRandom1: @ 0x080817F0
 	push {lr}
 	movs r1, #1
 	bl CreateRandomItemDrop
@@ -260,7 +260,7 @@ sub_080817F0: @ 0x080817F0
 	.align 2, 0
 
 	thumb_func_start sub_080817FC
-sub_080817FC: @ 0x080817FC
+DeathFx_DropFixedItem: @ 0x080817FC
 	push {lr}
 	adds r1, r0, #0
 	adds r1, #0x6e
@@ -270,7 +270,7 @@ sub_080817FC: @ 0x080817FC
 	pop {pc}
 
 	thumb_func_start sub_0808180C
-sub_0808180C: @ 0x0808180C
+DeathFx_Delete: @ 0x0808180C
 	push {lr}
 	bl DeleteThisEntity
 	pop {pc}
