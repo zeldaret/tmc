@@ -27652,16 +27652,6 @@
     "type": "animation"
   },
   {
-    "path": "enemy50/gUnk_080D0E14.bin",
-    "start": 855572,
-    "size": 4
-  },
-  {
-    "path": "enemy50/gUnk_080D0E18.bin",
-    "start": 855576,
-    "size": 4
-  },
-  {
     "path": "animations/gSpriteAnimations_VaatiWrath_0.bin",
     "start": 855760,
     "size": 25,
