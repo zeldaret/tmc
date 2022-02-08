@@ -1344,7 +1344,7 @@ SECTIONS {
         data/const/item/itemBow.o(.rodata);
         data/const/item/itemBomb.o(.rodata);
         data/const/item/itemTryPickupObject.o(.rodata);
-        data/const/item/itemPegasusBoots.o(.rodata);
+        src/item/itemPegasusBoots.o(.rodata);
         data/const/item/itemOcarina.o(.rodata);
         data/const/item/itemPacciCane.o(.rodata);
         data/const/item/itemShield.o(.rodata);
