@@ -375,7 +375,7 @@ SECTIONS {
         src/enemy/bladeTrap.o(.text);
         src/enemy/keaton.o(.text);
         src/enemy/crow.o(.text);
-        asm/enemy/mulldozer.o(.text);
+        src/enemy/mulldozer.o(.text);
         src/enemy/bombarossa.o(.text);
         src/enemy/wisp.o(.text);
         src/enemy/spinyBeetle.o(.text);
@@ -1032,7 +1032,7 @@ SECTIONS {
         data/animations/enemy/keaton.o(.rodata);
         src/enemy/crow.o(.rodata);
         data/animations/enemy/crow.o(.rodata);
-        data/const/enemy/mulldozer.o(.rodata);
+        src/enemy/mulldozer.o(.rodata);
         data/animations/enemy/mulldozer.o(.rodata);
         src/enemy/bombarossa.o(.rodata);
         data/animations/enemy/bombarossa.o(.rodata);
