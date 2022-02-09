@@ -5,46 +5,49 @@
 void sub_08076758(ItemBehavior*, u32);
 extern void sub_08077F84(void);
 
-/*void ItemRocsCape(ItemBehavior* this, u32 arg1) {
+void ItemRocsCape(ItemBehavior* this, u32 arg1) {
     if (this->stateID != 0) {
         sub_08076758(this, arg1);
         return;
     }
     if (gPlayerState.item == NULL) {
-        if (gPlayerState.field_0x0[1] == 0) {
-            if (((u8)(gPlayerState.sword_state | gPlayerState.field_0xa | gPlayerState.field_0x3[1] |
-                        gPlayerState.heldObject | gPlayerState.field_0x1c | gPlayerState.field_0x3c[1]) == 0) &&
-                ((((1 < (u8)(gPlayerState.field_0x10[2] - 0x12) && (gPlayerState.field_0x10[2] != 1)) ||
-                   (gPlayerEntity.z.WORD != 0)) ||
-                  (gPlayerState.field_0x14 != 0)))) {
-                if ((gPlayerState.jump_status != 0) && ((gPlayerState.jump_status & 7) != 3))
-                    goto _08076710;
-                if (-1 < gPlayerEntity.z.WORD) {
-                    gPlayerEntity.zVelocity = 0x20000;
-                    gPlayerState.jump_status = 1;
-                    gPlayerState.item = NULL;
-                    this->stateID += 1;
-                    goto _0807673C;
-                }
-            }
-        } else {
-            if (((gPlayerState.heldObject | gPlayerState.field_0x3[1]) == 0) &&
-                (((gPlayerState.field_0x10[2] != 0x12 && (gPlayerState.field_0x10[2] != 1)) ||
+        if (gPlayerState.field_0x0[1]) {
+            if (((gPlayerState.field_0x3[1] | gPlayerState.heldObject) == 0) &&
+                (((gPlayerState.floor_type != SURFACE_DOOR && (gPlayerState.floor_type != SURFACE_PIT)) ||
                   ((gPlayerEntity.z.WORD != 0 || (gPlayerState.field_0x14 != 0)))))) {
-                if ((gPlayerState.jump_status != 0) && ((gPlayerState.jump_status & 7) != 3)) {
-                _08076710:
+                if ((gPlayerState.jump_status == 0) || ((gPlayerState.jump_status & 7) == 3)) {
+                    if (-1 < gPlayerEntity.z.WORD) {
+                        gPlayerState.field_0x0[1] = 0;
+                        this->stateID += 1;
+                        gPlayerState.keepFacing = 0;
+                        gPlayerState.jump_status = 1;
+                        gPlayerState.field_0xe = -1;
+                        gPlayerState.item = NULL;
+                        gPlayerEntity.zVelocity = 0x20000;
+                        sub_08077F84();
+                        SoundReq(SFX_PLY_VO4);
+                        return;
+                    }
+                } else {
                     sub_08076758(this, arg1);
                     return;
                 }
-                if (-1 < gPlayerEntity.z.WORD) {
-                    gPlayerState.field_0x0[1] = 0;
-                    this->stateID += 1;
-                    gPlayerState.keepFacing = 0;
-                    gPlayerState.jump_status = 1;
-                    gPlayerState.field_0xe = -1;
-                    gPlayerState.item = NULL;
+            }
+        } else {
+            if (((u8)(gPlayerState.sword_state | gPlayerState.field_0xa | gPlayerState.field_0x3[1] |
+                      gPlayerState.heldObject | gPlayerState.field_0x1c | gPlayerState.field_0x3c[1]) == 0) &&
+                ((((gPlayerState.floor_type != SURFACE_DOOR && gPlayerState.floor_type != SURFACE_DOOR_13 &&
+                    gPlayerState.floor_type != SURFACE_PIT) ||
+                   (gPlayerEntity.z.WORD != 0)) ||
+                  (gPlayerState.field_0x14 != 0)))) {
+                if ((gPlayerState.jump_status != 0) && ((gPlayerState.jump_status & 7) != 3)) {
+                    sub_08076758(this, arg1);
+                    return;
+                } else if (-1 < gPlayerEntity.z.WORD) {
                     gPlayerEntity.zVelocity = 0x20000;
-                _0807673C:
+                    gPlayerState.jump_status = 1;
+                    gPlayerState.item = NULL;
+                    this->stateID += 1;
                     sub_08077F84();
                     SoundReq(SFX_PLY_VO4);
                     return;
@@ -54,8 +57,6 @@ extern void sub_08077F84(void);
     }
     sub_08077E78(this, arg1);
 }
-*/
-ASM_FUNC("asm/non_matching/itemRocsCape/ItemRocsCape.inc", void ItemRocsCape(ItemBehavior* this, u32 arg1))
 
 void sub_08076758(ItemBehavior* this, u32 arg1) {
     s32 iVar1;
