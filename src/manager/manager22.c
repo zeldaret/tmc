@@ -84,6 +84,8 @@ void Manager22_Main(Manager22* this) {
     }
 }
 
+#define ABS(x) ((unsigned)(x < 0 ? -(x) : x))
+
 u32 sub_0805BA78() {
     u32 uVar1;
     s32 iVar1;
@@ -91,35 +93,27 @@ u32 sub_0805BA78() {
 
     iVar2 = (short)gArea.lightLevel;
     iVar1 = gRoomVars.lightLevel;
+
     if (iVar1 < 0) {
         iVar1 = 0;
     }
+
     if (0x100 < iVar1) {
         iVar1 = 0x100;
     }
+
     if (iVar2 != iVar1) {
-
-        uVar1 = iVar1 - iVar2;
-        if ((int)uVar1 < 0) {
-            uVar1 = iVar2 - iVar1;
-        } else {
-            if (uVar1 <= 4)
-                goto setval;
-            goto compare;
-        }
-
-        if (uVar1 <= 4) {
-        setval:
+        if (ABS(iVar1 - iVar2) <= 4) {
             iVar2 = iVar1;
         } else {
-        compare:
             if (iVar1 < iVar2) {
                 iVar2 = iVar2 - 4;
-            } else if (iVar1 > iVar2) {
-                iVar2 = iVar2 + 4;
+            } else {
+                if (iVar1 > iVar2) {
+                    iVar2 = iVar2 + 4;
+                }
             }
         }
-
         gArea.lightLevel = iVar2;
     } else {
         return 0;
