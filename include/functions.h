@@ -175,4 +175,5 @@ extern u32 sub_080041DC(Entity*, u32, u32);
 extern void sub_080AE58C(Entity*, u32, u32);
 extern u32 sub_0800132C(Entity*, Entity*);
 extern bool32 sub_080AE4CC(Entity*, u32, u32, u32);
+extern void sub_08008796(Entity*, u32, u32, u32);
 #endif
