@@ -173,4 +173,6 @@ extern Entity* sub_080A2A3C(Entity*, u32, u32, u32);
 extern void sub_0806FCF4(Entity*, s32, s32, s32);
 extern u32 sub_080041DC(Entity*, u32, u32);
 extern void sub_080AE58C(Entity*, u32, u32);
+extern u32 sub_0800132C(Entity*, Entity*);
+extern bool32 sub_080AE4CC(Entity*, u32, u32, u32);
 #endif

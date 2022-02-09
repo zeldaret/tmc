@@ -367,7 +367,7 @@ SECTIONS {
         src/enemy/wizzrobeIce.o(.text);
         src/enemy/code_080300AC.o(.text);
         asm/enemy/code_080300AC.o(.text);
-        asm/enemy/armos.o(.text);
+        src/enemy/armos.o(.text);
         asm/enemy/eyegore.o(.text);
         src/enemy/rope.o(.text);
         src/enemy/smallPesto.o(.text);
@@ -1019,7 +1019,7 @@ SECTIONS {
         data/animations/enemy/wizzrobeFire.o(.rodata);
         src/enemy/wizzrobeIce.o(.rodata);
         data/animations/enemy/wizzrobeIce.o(.rodata);
-        data/const/enemy/armos.o(.rodata);
+        src/enemy/armos.o(.rodata);
         data/animations/enemy/armos.o(.rodata);
         data/const/enemy/eyegore.o(.rodata);
         data/animations/enemy/eyegore.o(.rodata);

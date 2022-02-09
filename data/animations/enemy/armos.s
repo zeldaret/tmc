@@ -4,9 +4,6 @@
 	.section .rodata
     .align 2
 
-gUnk_080CE164:: @ 080CE164
-	.incbin "armos/gUnk_080CE164.bin"
-
 gSpriteAnimations_Armos_0:: @ 080CE16C
 	.include "animations/gSpriteAnimations_Armos_0.s"
 

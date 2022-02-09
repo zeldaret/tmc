@@ -41,7 +41,6 @@ u32 PointInsideRadius(s32, s32, s32);
 
 extern Entity gUnk_0200D654;
 extern Entity gUnk_02027EB4;
-extern bool32 sub_080AE4CC(Entity*, u32, u32, u32);
 
 extern u32 sub_080AF1EC(Entity*);
 u32 sub_080611D4(Entity*);
