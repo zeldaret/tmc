@@ -2,7 +2,7 @@
 #include "droptables.h"
 
 const Droptable gDroptablesEnemies[] = {
-    [0]={ {
+    [0] = { {
         .none = -999,
         .rupee1 = -999,
         .rupee5 = -999,
@@ -20,7 +20,7 @@ const Droptable gDroptablesEnemies[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    [1]={ {
+    [1] = { {
         .none = 300,
         .rupee1 = -999,
         .rupee5 = -999,
@@ -38,7 +38,7 @@ const Droptable gDroptablesEnemies[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    [2]={ {
+    [2] = { {
         .none = -999,
         .rupee1 = -999,
         .rupee5 = -999,
@@ -56,7 +56,7 @@ const Droptable gDroptablesEnemies[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    [3]={ {
+    [3] = { {
         .none = 36,
         .rupee1 = 28,
         .rupee5 = 20,
@@ -74,7 +74,7 @@ const Droptable gDroptablesEnemies[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    [4]={ {
+    [4] = { {
         .none = 74,
         .rupee1 = 10,
         .rupee5 = 5,
@@ -92,7 +92,7 @@ const Droptable gDroptablesEnemies[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    [5]={ {
+    [5] = { {
         .none = 100,
         .rupee1 = 0,
         .rupee5 = 0,
@@ -110,7 +110,7 @@ const Droptable gDroptablesEnemies[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    [6]={ {
+    [6] = { {
         .none = 73,
         .rupee1 = 25,
         .rupee5 = -999,
@@ -128,7 +128,7 @@ const Droptable gDroptablesEnemies[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    [7]={ {
+    [7] = { {
         .none = 55,
         .rupee1 = -999,
         .rupee5 = 70,
@@ -146,7 +146,7 @@ const Droptable gDroptablesEnemies[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    [8]={ {
+    [8] = { {
         .none = 50,
         .rupee1 = -999,
         .rupee5 = 26,
@@ -164,7 +164,7 @@ const Droptable gDroptablesEnemies[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    [9]={ {
+    [9] = { {
         .none = 45,
         .rupee1 = -999,
         .rupee5 = -999,
@@ -182,7 +182,7 @@ const Droptable gDroptablesEnemies[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    [10]={ {
+    [10] = { {
         .none = 300,
         .rupee1 = -999,
         .rupee5 = -999,
@@ -200,7 +200,7 @@ const Droptable gDroptablesEnemies[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    [11]={ {
+    [11] = { {
         .none = 60,
         .rupee1 = 10,
         .rupee5 = -999,
@@ -218,7 +218,7 @@ const Droptable gDroptablesEnemies[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    [12]={ {
+    [12] = { {
         .none = 70,
         .rupee1 = 0,
         .rupee5 = -999,
@@ -236,7 +236,7 @@ const Droptable gDroptablesEnemies[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    [13]={ {
+    [13] = { {
         .none = 63,
         .rupee1 = 10,
         .rupee5 = 20,
@@ -254,7 +254,7 @@ const Droptable gDroptablesEnemies[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    [14]={ {
+    [14] = { {
         .none = 50,
         .rupee1 = 10,
         .rupee5 = 20,
@@ -272,7 +272,7 @@ const Droptable gDroptablesEnemies[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    [15]={ {
+    [15] = { {
         .none = 0,
         .rupee1 = 0,
         .rupee5 = 0,
@@ -290,7 +290,7 @@ const Droptable gDroptablesEnemies[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    [16]={ {
+    [16] = { {
         .none = 0,
         .rupee1 = 0,
         .rupee5 = 0,
@@ -308,7 +308,7 @@ const Droptable gDroptablesEnemies[] = {
         .none4 = 0,
         .none5 = 0,
     } },
-    [17]={ {
+    [17] = { {
         .none = 0,
         .rupee1 = 40,
         .rupee5 = 24,

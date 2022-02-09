@@ -248,7 +248,7 @@ u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
 #ifdef EU
                 ptr3 = &gDroptablesEnemies[r1 + 9];
 #else
-                ptr3 = &gDroptablesEnemies[r1+6];
+                ptr3 = &gDroptablesEnemies[r1 + 6];
 #endif
             }
             // vector addition, s0 = ptr4 + ptr2 + ptr3
