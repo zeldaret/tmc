@@ -280,7 +280,7 @@ void sub_08059220(ManagerF* this) {
     }
     if (!this->manager.action) {
         this->manager.action = 1;
-        gArea.unk_0a = gRoomVars.lightLevel;
+        gArea.lightLevel = gRoomVars.lightLevel;
     }
 }
 

@@ -26,8 +26,10 @@ typedef struct {
     u8 dungeon_idx; /* same index as global flags for dungeons */
     u16 localFlagOffset;
     u8 filler[4];
-    u16 unk_0a;
-    u8 filler3[4];
+    u16 lightLevel;
+    u8 unk_0b;
+    u8 unk_0c;
+    u8 filler3[2];
     u16 field_0x10;
     u16 curPortalX;
     u16 curPortalY;

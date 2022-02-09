@@ -1331,7 +1331,7 @@ void InitRoom(void) {
     gArea.localFlagOffset = gLocalFlagBanks[a_hdr->flag_bank];
     gArea.filler[0] = a_hdr->flag_bank;
     gArea.unk1A = 180;
-    gArea.unk_0a = 256;
+    gArea.lightLevel = 256;
     InitRoomTransition();
     InitAllRoomResInfo();
 }
@@ -1412,7 +1412,7 @@ static void UpdateFakeScroll(void) {
     LinkedList* ll;
     Entity* e;
 
-    if ((gArea.filler3[1] & 1) == 0 || !gRoomVars.field_0x0)
+    if ((gArea.unk_0c & 1) == 0 || !gRoomVars.field_0x0)
         return;
 
     y = 0;

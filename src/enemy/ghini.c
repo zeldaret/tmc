@@ -320,7 +320,7 @@ bool32 sub_0803F5A8(GhiniEntity* this) {
     u32 result;
     if (sub_08049FDC(super, 1) == 0) {
         result = 0;
-    } else if ((s16)gArea.unk_0a < 0x10) {
+    } else if ((s16)gArea.lightLevel < 0x10) {
         result = sub_0806FD54(super);
     } else {
         result = 1;
@@ -334,7 +334,7 @@ bool32 sub_0803F5D4(GhiniEntity* this) {
     } else {
         if ((sub_08049FDC(super, 1)) &&
             ((sub_0806FD54(super) ||
-              ((0xf < (s16)gArea.unk_0a && (EntityInRectRadius(super, gUnk_020000B0, 0x70, 0x48))))))) {
+              ((0xf < (s16)gArea.lightLevel && (EntityInRectRadius(super, gUnk_020000B0, 0x70, 0x48))))))) {
             sub_0803F630(this);
             return TRUE;
         }

@@ -355,7 +355,7 @@ bool32 sub_08041170(Enemy50Entity* this) {
     } else {
         if ((sub_08049FDC(super, 1)) &&
             ((sub_0806FD54(super) ||
-              ((0xf < (s16)gArea.unk_0a && (EntityInRectRadius(super, gUnk_020000B0, 0x70, 0x48))))))) {
+              ((0xf < (s16)gArea.lightLevel && (EntityInRectRadius(super, gUnk_020000B0, 0x70, 0x48))))))) {
             sub_08041134(this);
             return TRUE;
         }
@@ -378,7 +378,7 @@ bool32 sub_080411E8(Enemy50Entity* this) {
                 }
                 return TRUE;
             case 2:
-                if ((s16)gArea.unk_0a < 0x10) {
+                if ((s16)gArea.lightLevel < 0x10) {
                     return FALSE;
                 }
                 return TRUE;
