@@ -113,7 +113,7 @@ void sub_08081790(DeathFxObject* this) {
         DeathFx_DropRandom9, DeathFx_DropRandom9,  DeathFx_DropRandom9, DeathFx_DropRandom9,
         DeathFx_DropRandom9, DeathFx_DropRandom9,  DeathFx_DropRandom9, DeathFx_DropFixedItem,
     };
-    static const u8 gUnk_0811EC64[] = {
+    static const u8 DeathFx_EnemyDroptables[] = {
         [OCTOROK] = 6,
         [CHUCHU] = 6,
         [LEEVER] = 6,
@@ -228,7 +228,7 @@ void sub_08081790(DeathFxObject* this) {
         6,
     };
     if (this->parentId < 0xf0) {
-        CreateRandomItemDrop(super, gUnk_0811EC64[this->parentId]);
+        CreateRandomItemDrop(super, DeathFx_EnemyDroptables[this->parentId]);
     } else {
         DeathFx_DropFunctions[this->parentId - 0xf0](this);
     }

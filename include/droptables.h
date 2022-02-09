@@ -25,7 +25,6 @@ typedef union {
 static_assert(sizeof(Droptable) == 0x20);
 
 extern const Droptable gDroptablesEnemies[];
-extern const Droptable gUnk_0800143C[];
 extern const Droptable gDroptablesAreas[];
 extern const Droptable gDroptablesObjects[];
 extern const Droptable gUnk_0800191C[];

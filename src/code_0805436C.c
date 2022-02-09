@@ -206,14 +206,14 @@ u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
          ITEM_ENEMY_BEETLE, ITEM_NONE,    ITEM_NONE,   ITEM_NONE,           ITEM_NONE,          ITEM_NONE,
      }*/;
 
-    int r0, r1, r2, r4, r5;
+    int r0, r1, rand, summOdds, item;
     u32 r3;
     const Droptable *ptr2, *ptr3, *ptr4;
-    Droptable s0;
+    Droptable droptable;
     r3 = arg1;
     if (gRoomVars.field_0x2 != 1) {
-        ptr2 = &gDroptablesModifiers[0];
-        ptr4 = 0;
+        ptr2 = &gDroptableModifierNone;
+        ptr4 = NULL;
         switch (r3) {
             case 1 ... 12:
                 ptr4 = &gDroptablesEnemies[r3];
@@ -246,24 +246,24 @@ u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
                 ptr3 = &gDroptableModifierNone;
             } else {
 #ifdef EU
-                ptr3 = &gUnk_0800143C[r1 + 3];
+                ptr3 = &gDroptablesEnemies[r1 + 9];
 #else
-                ptr3 = &gUnk_0800143C[r1];
+                ptr3 = &gDroptablesEnemies[r1+6];
 #endif
             }
             // vector addition, s0 = ptr4 + ptr2 + ptr3
-            sub_08000F14(s0.a, ptr4->a, ptr2->a, ptr3->a);
+            sub_08000F14(droptable.a, ptr4->a, ptr2->a, ptr3->a);
             if (gSave.stats.health <= 8) {
-                s0.s.hearts += 5;
+                droptable.s.hearts += 5;
             }
             if (gSave.stats.bombCount == 0) {
-                s0.s.bombs += 3;
+                droptable.s.bombs += 3;
             }
             if (gSave.stats.arrowCount == 0) {
-                s0.s.arrows += 3;
+                droptable.s.arrows += 3;
             }
             if (gSave.stats.rupees <= 10) {
-                s0.s.rupee5 += 1;
+                droptable.s.rupee5 += 1;
             }
             ptr2 = &gDroptableModifierNone;
             r0 = gSave.stats.hasAllFigurines;
@@ -279,20 +279,20 @@ u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
             // vector addition, s0 = s0 + ptr2 + ptr3
             // resulting values are clamped to be >= 0
             // returns sum over s0
-            r4 = sub_08000F2C(s0.a, s0.a, ptr2->a, ptr3->a);
-            r2 = Random();
-            r5 = (r2 >> 0x18);
-            r5 &= 0xF;
-            r2 = r2 % r4;
+            summOdds = sub_08000F2C(droptable.a, droptable.a, ptr2->a, ptr3->a);
+            rand = Random();
+            item = (rand >> 0x18);
+            item &= 0xF;
+            rand = rand % summOdds;
             {
                 u32 r3;
-                for (r3 = 0, r1 = 0; r3 < 0x10; r3++, r5 = (r5 + 1) & 0xF) {
-                    if ((r1 += s0.a[r5]) > r2) {
+                for (r3 = 0, r1 = 0; r3 < 0x10; r3++, item = (item + 1) & 0xF) {
+                    if ((r1 += droptable.a[item]) > rand) {
                         break;
                     }
                 }
             }
-            r1 = gUnk_080FE1B4[r5];
+            r1 = gUnk_080FE1B4[item];
             if (r1 != ITEM_NONE) {
                 return CreateItemDrop(arg0, r1, 0);
             }
