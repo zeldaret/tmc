@@ -931,7 +931,7 @@ SECTIONS {
         data/const/playerItem/playerItemSwordBeam.o(.rodata);
         data/data_080B4410.o(.rodata);
         data/const/playerItem/playerItemBomb.o(.rodata);
-        data/const/playerItem/playerItem3.o(.rodata);
+        src/playerItem/playerItem3.o(.rodata);
         data/const/playerItem/playerItemC.o(.rodata);
         data/const/playerItem/playerItemSwordSpin.o(.rodata);
         data/data_080B7910.o(.rodata);
