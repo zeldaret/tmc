@@ -54,7 +54,7 @@ extern void sub_0805BC4C(void);
 extern void sub_0807BB68(u32*, u32, u32);
 extern void sub_08054570(void);
 extern void sub_08059278(void);
-extern void sub_0804C128(u32);
+extern void sub_0804C128();
 extern void sub_08058324(u32);
 extern void sub_0801AFE4(void);
 extern void sub_0807AABC(Entity*);
