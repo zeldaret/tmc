@@ -127,25 +127,26 @@ void sub_0801B584(Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/playerItem3/sub_0801B680.inc", void sub_0801B680(Entity* this)) {
+void sub_0801B680(Entity* this) {
     u32 uvar1;
     u32 uVar6;
 
     sub_0801B804(this);
     if ((this->field_0x68.HALF.LO == 12) && (this->field_0x80.HALF.LO == 0) && ((gPlayerState.field_0xd & 0x80) == 0)) {
-        ;
         if (((this->field_0x82.HALF.HI - gPlayerState.field_0xd) & 0x1f) > 0x10) {
             this->field_0x82.HWORD += 0x40;
+            this->field_0x82.HALF.HI &= 0x1f;
+            this->direction = this->field_0x82.HALF.HI;
         } else {
             this->field_0x82.HWORD -= 0x40;
+            this->field_0x82.HALF.HI &= 0x1f;
+            this->direction = this->field_0x82.HALF.HI;
         }
-        this->field_0x82.HALF.HI &= 0x1f;
-        this->direction = this->field_0x82.HALF.HI;
     }
     LinearMoveUpdate(this);
     uVar6 = 0;
-    if (sub_0801B864(this) != 0) {
-        uvar1 = (this->field_0x68.HALF.LO);
+    if (sub_0801B864(this)) {
+        uvar1 = this->field_0x68.HALF.LO;
         uvar1 ^= 0xc;
         uVar6 = ((u32)(-uvar1 | uvar1)) >> 0x1f;
     }
@@ -160,10 +161,10 @@ NONMATCH("asm/non_matching/playerItem3/sub_0801B680.inc", void sub_0801B680(Enti
         if (--this->actionDelay < 0xc) {
             this->speed = this->speed + -0x10;
         }
-        if (this->actionDelay == '\0') {
+        if (this->actionDelay == 0) {
             uVar6 = 1;
         }
-        if ((this->bitfield & 0x80) != 0) {
+        if (this->bitfield & 0x80) {
             uVar6 = 1;
         }
         if (uVar6 == 0) {
@@ -178,12 +179,11 @@ NONMATCH("asm/non_matching/playerItem3/sub_0801B680.inc", void sub_0801B680(Enti
         this->actionDelay = 1;
     }
 
-    if (uVar6 != 0) {
-        this->action = this->action + 1;
+    if (uVar6) {
+        this->action++;
         this->speed = 0x1c0;
     }
 }
-END_NONMATCH
 
 void sub_0801B7A8(Entity* this) {
     sub_0801B804(this);
