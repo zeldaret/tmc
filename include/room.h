@@ -3,6 +3,7 @@
 
 #include "global.h"
 #include "entity.h"
+#include "droptables.h"
 
 enum RoomTransition {
     TRANSITION_DEFAULT,
@@ -72,8 +73,8 @@ typedef struct {
     /* 0x10 */ u8 unk_10[4];
     /* 0x14 */ u32 flags;
     /* 0x18 */ u32 unk3;
-    /* 0x1c */ u8 filler4[48];
-    /* 0x4c */ u8 filler5[28];
+    /* 0x1c */ u8 filler4[44];
+    /* 0x48 */ Droptable currentAreaDroptable;
     /* 0x68 */ u32 animFlags;
     /* 0x6c */ void* field_0x6c[8];
     /* 0x8c */ void* field_0x8c[8];

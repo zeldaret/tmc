@@ -39,11 +39,6 @@ static void LoadDestructibleTile(TileEntity*);
 static void LoadGrassDropTile(TileEntity*);
 static void LoadLocationTile(TileEntity*);
 
-typedef struct {
-    u8 filler[0x20];
-} VarStruct;
-extern VarStruct gDroptablesAreas[];
-
 void LoadRoomEntityList(EntityData* listPtr) {
     if (listPtr != NULL) {
         while (listPtr->kind != 0xFF) {
@@ -302,7 +297,7 @@ void LoadRoomTileEntities(TileEntity* list) {
 }
 
 static void LoadGrassDropTile(TileEntity* tile) {
-    MemCopy(&gDroptablesAreas[tile->_1], &gRoomVars.filler4[44], 0x20);
+    MemCopy(&gAreaDroptables[tile->_1], &gRoomVars.currentAreaDroptable, 0x20);
 }
 
 static void LoadLocationTile(TileEntity* tile) {

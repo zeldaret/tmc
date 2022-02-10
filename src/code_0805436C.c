@@ -46,7 +46,6 @@ extern u8 gUnk_080FE1C6[];
 0x8u,
 };
 */
-extern Droptable gCurrentAreaDroptable;
 extern void (*const gUnk_080FE2A0[])(void);
 
 void ForceEquipItem(u32, u8);
@@ -184,7 +183,7 @@ NONMATCH("asm/non_matching/sub_08054524.inc", void sub_08054524(void)) {
         bVar1 = 0;
     }
 
-    MemCopy(&gDroptablesAreas[0] + gUnk_080FE1C6[bVar1] * 0x8, &gCurrentAreaDroptable, 0x20);
+    MemCopy(&gAreaDroptables[0] + gUnk_080FE1C6[bVar1] * 0x8, &gRoomVars.currentAreaDroptable, 0x20);
 }
 END_NONMATCH
 
@@ -212,11 +211,11 @@ u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
     Droptable droptable;
     r3 = arg1;
     if (gRoomVars.field_0x2 != 1) {
-        ptr2 = &gDroptableModifierNone;
+        ptr2 = &gDroptableModifiers[DROPTABLE_NONE];
         ptr4 = NULL;
         switch (r3) {
             case 1 ... 12:
-                ptr4 = &gDroptablesEnemies[r3];
+                ptr4 = &gEnemyDroptables[r3];
                 break;
 #ifndef EU
             case 24:
@@ -232,9 +231,9 @@ u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
 #ifdef EU
             case 24:
 #endif
-                ptr2 = &gDroptablesObjects[r3 - 16];
+                ptr2 = &gObjectDroptables[r3 - 16];
             case 15:
-                ptr4 = &gCurrentAreaDroptable;
+                ptr4 = &gRoomVars.currentAreaDroptable;
                 break;
             case 0:
             default:
@@ -243,12 +242,12 @@ u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
         if (ptr4 != 0) {
             if ((r1 = gSave.stats.unkB) == 0) {
                 // nop
-                ptr3 = &gDroptableModifierNone;
+                ptr3 = &gDroptableModifiers[DROPTABLE_NONE];
             } else {
 #ifdef EU
-                ptr3 = &gDroptablesEnemies[r1 + 9];
+                ptr3 = &gEnemyDroptables[r1 + 9];
 #else
-                ptr3 = &gDroptablesEnemies[r1 + 6];
+                ptr3 = &gEnemyDroptables[r1 + 6];
 #endif
             }
             // vector addition, s0 = ptr4 + ptr2 + ptr3
@@ -265,16 +264,16 @@ u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
             if (gSave.stats.rupees <= 10) {
                 droptable.s.rupee5 += 1;
             }
-            ptr2 = &gDroptableModifierNone;
+            ptr2 = &gDroptableModifiers[DROPTABLE_NONE];
             r0 = gSave.stats.hasAllFigurines;
-            ptr3 = &gDroptableModifierNone;
+            ptr3 = &gDroptableModifiers[DROPTABLE_NONE];
             // don't drop shells anymore
             if (r0 != 0) {
-                ptr2 = &gDroptableModifierNoShells;
+                ptr2 = &gDroptableModifiers[DROPTABLE_NO_SHELLS];
             }
             // don't drop kinstones anymore
             if (gSave.didAllFusions != 0) {
-                ptr3 = &gDroptableModifierNoKinstones;
+                ptr3 = &gDroptableModifiers[DROPTABLE_NO_KINSTONES];
             }
             // vector addition, s0 = s0 + ptr2 + ptr3
             // resulting values are clamped to be >= 0

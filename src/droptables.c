@@ -1,7 +1,7 @@
 #include "global.h"
 #include "droptables.h"
 
-const Droptable gDroptablesEnemies[] = {
+const Droptable gEnemyDroptables[] = {
     [0] = { {
         .none = -999,
         .rupee1 = -999,
@@ -328,7 +328,7 @@ const Droptable gDroptablesEnemies[] = {
     } },
 };
 
-const Droptable gDroptablesAreas[] = {
+const Droptable gAreaDroptables[] = {
     [0] = { {
         .none = 920,
         .rupee1 = 15,
@@ -676,7 +676,7 @@ const Droptable gDroptablesAreas[] = {
         .none5 = 0,
     } },
 };
-const Droptable gDroptablesObjects[] = {
+const Droptable gObjectDroptables[] = {
     [0] = { {
         .none = 0,
         .rupee1 = 10,
@@ -1065,7 +1065,7 @@ const Droptable gUnk_0800191C[] = {
 };
 
 // special treatment for shells and kinstones after finishing figurines/fusions
-const Droptable gDroptablesModifiers[] = {
+const Droptable gDroptableModifiers[] = {
     // nop
     { {
         .none = 0,

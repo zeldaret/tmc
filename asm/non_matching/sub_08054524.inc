@@ -16,9 +16,9 @@ _0805453A:
 	adds r0, r1, r0
 	ldrb r1, [r0]
 	lsls r0, r1, #5
-	ldr r1, _0805455C @ =gDroptablesAreas
+	ldr r1, _0805455C @ =gAreaDroptables
 	adds r0, r0, r1
-	ldr r1, _08054560 @ =gCurrentAreaDroptable
+	ldr r1, _08054560 @ =gRoomVars+0x48
 	movs r2, #0x20
 	bl MemCopy
 	pop {pc}
@@ -26,6 +26,6 @@ _0805453A:
 _08054550: .4byte gArea
 _08054554: .4byte gRoomTransition
 _08054558: .4byte gUnk_080FE1C6
-_0805455C: .4byte gDroptablesAreas
-_08054560: .4byte gCurrentAreaDroptable
+_0805455C: .4byte gAreaDroptables
+_08054560: .4byte gRoomVars+0x48
     .syntax divided

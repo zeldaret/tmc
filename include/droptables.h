@@ -24,14 +24,15 @@ typedef union {
 } Droptable;
 static_assert(sizeof(Droptable) == 0x20);
 
-extern const Droptable gDroptablesEnemies[];
-extern const Droptable gDroptablesAreas[];
-extern const Droptable gDroptablesObjects[];
+extern const Droptable gEnemyDroptables[];
+extern const Droptable gAreaDroptables[];
+extern const Droptable gObjectDroptables[];
 extern const Droptable gUnk_0800191C[];
-extern const Droptable gDroptablesModifiers[];
-
-#define gDroptableModifierNone gDroptablesModifiers[0]
-#define gDroptableModifierNoShells gDroptablesModifiers[1]
-#define gDroptableModifierNoKinstones gDroptablesModifiers[2]
+enum {
+    DROPTABLE_NONE,
+    DROPTABLE_NO_SHELLS,
+    DROPTABLE_NO_KINSTONES,
+};
+extern const Droptable gDroptableModifiers[];
 
 #endif // TMC_DROPTABLES_H
