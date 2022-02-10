@@ -1339,7 +1339,7 @@ GiveItem: @ 0x08053FF0
 	bl GetInventoryValue
 	adds r5, r0, #0
 	lsls r1, r6, #3
-	ldr r0, _08054010 @ =gUnk_080FD5B4
+	ldr r0, _08054010 @ =gItemMetaData
 	adds r4, r1, r0
 	cmp r5, #0
 	bne _08054014
@@ -1347,7 +1347,7 @@ GiveItem: @ 0x08053FF0
 	mov r8, r0
 	b _08054018
 	.align 2, 0
-_08054010: .4byte gUnk_080FD5B4
+_08054010: .4byte gItemMetaData
 _08054014:
 	ldrh r2, [r4, #6]
 	mov r8, r2
@@ -1647,28 +1647,28 @@ _08054284: .4byte gSave
 	thumb_func_start sub_08054288
 sub_08054288: @ 0x08054288
 	push {lr}
-	ldr r1, _08054298 @ =gUnk_080FD5B4
+	ldr r1, _08054298 @ =gItemMetaData
 	lsls r0, r0, #3
 	adds r0, r0, r1
 	ldrh r0, [r0, #6]
 	bl MessageFromTarget
 	pop {pc}
 	.align 2, 0
-_08054298: .4byte gUnk_080FD5B4
+_08054298: .4byte gItemMetaData
 
 	thumb_func_start sub_0805429C
 sub_0805429C: @ 0x0805429C
-	ldr r1, _080542A8 @ =gUnk_080FD5B4
+	ldr r1, _080542A8 @ =gItemMetaData
 	lsls r0, r0, #3
 	adds r0, r0, r1
 	ldrh r0, [r0, #4]
 	bx lr
 	.align 2, 0
-_080542A8: .4byte gUnk_080FD5B4
+_080542A8: .4byte gItemMetaData
 
 	thumb_func_start sub_080542AC
 sub_080542AC: @ 0x080542AC
-	ldr r1, _080542BC @ =gUnk_080FD5B4
+	ldr r1, _080542BC @ =gItemMetaData
 	lsls r0, r0, #3
 	adds r0, r0, r1
 	ldrb r1, [r0, #3]
@@ -1676,7 +1676,7 @@ sub_080542AC: @ 0x080542AC
 	ands r0, r1
 	bx lr
 	.align 2, 0
-_080542BC: .4byte gUnk_080FD5B4
+_080542BC: .4byte gItemMetaData
 
 	thumb_func_start sub_080542C0
 sub_080542C0: @ 0x080542C0

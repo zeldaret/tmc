@@ -1128,6 +1128,8 @@ SECTIONS {
         data/data_080FC8A4.o(.rodata);
         src/game.o(.rodata);
         data/data_080FCAC8.o(.rodata);
+        src/itemMetaData.o(.rodata);
+        data/data_080FD964.o(.rodata);
         data/const/playerItem/playerItemLantern.o(.rodata);
         data/data_080FEEB8.o(.rodata);
         data/gfx/palette_groups.o(.rodata);

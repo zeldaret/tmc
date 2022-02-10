@@ -23,7 +23,7 @@ _080A55AA:
 	bl GetInventoryValue
 	cmp r0, #1
 	bne _080A55EA
-	ldr r1, _080A562C @ =gUnk_080FD5B4
+	ldr r1, _080A562C @ =gItemMetaData
 	lsls r0, r5, #3
 	adds r0, r0, r1
 	ldrb r1, [r0]
@@ -81,7 +81,7 @@ _080A560A:
 _080A5620: .4byte gMenu
 _080A5624: .4byte gUnk_08128C00
 _080A5628: .4byte gUnk_08128C04
-_080A562C: .4byte gUnk_080FD5B4
+_080A562C: .4byte gItemMetaData
 _080A5630: .4byte gUnk_02002B6B
 _080A5634:
 	cmp r5, #0x27
