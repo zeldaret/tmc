@@ -1334,7 +1334,7 @@ SECTIONS {
         src/coord.o(.rodata);
         src/playerHitbox.o(.rodata);
         data/gfx/sprite_frames.o(.rodata);
-        data/const/playerItem/playerItem12.o(.rodata);
+        src/playerItem/playerItem12.o(.rodata);
         data/const/playerItem/playerItemPacciCane.o(.rodata);
         src/player.o(.rodata);
         src/item.o(.rodata);
