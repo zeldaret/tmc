@@ -49,13 +49,19 @@ void Maid_Head(Entity* this) {
 void sub_08064570(Entity* this) {
     u32 tmp;
     u32 tmp2;
+    u32 tmp3;
     SpriteLoadData* data;
 
     switch (this->action) {
         case 0:
             tmp = this->id;
             tmp ^= 0x16;
-            data = &gUnk_0810F874[BOOLCAST(tmp) * 3];
+            if (tmp) {
+                tmp3 = 1;
+            } else {
+                tmp3 = 0;
+            }
+            data = &gUnk_0810F874[tmp3 * 3];
             if (LoadExtraSpriteData(this, data) == 0) {
                 return;
             }

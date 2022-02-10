@@ -342,8 +342,11 @@ bool32 sub_0802C0E8(Entity* this) {
         Entity* ent = this->collisionLayer == 2 ? &gUnk_0200D654 : &gUnk_02027EB4;
         u32 ret = FALSE;
         if (!sub_0806FC24(TILE(x, y), 9)) {
-            u32 tmp = sub_080AE4CC(ent, x, y, 0);
-            ret = BOOLCAST(tmp);
+            if (sub_080AE4CC(ent, x, y, 0)) {
+                ret = 1;
+            } else {
+                ret = 0;
+            }
         }
         return ret;
     }

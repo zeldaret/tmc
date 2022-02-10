@@ -67,7 +67,6 @@ void sub_08068104(Entity* this) {
 ASM_FUNC("asm/non_matching/mountainMinish/sub_0806811C.inc", void sub_0806811C(Entity* this))
 
 NONMATCH("asm/non_matching/mountainMinish/sub_08068190.inc", void sub_08068190(Entity* this)) {
-    u32 uVar1;
     u32 uVar2;
     u32 uVar3;
 
@@ -75,8 +74,11 @@ NONMATCH("asm/non_matching/mountainMinish/sub_08068190.inc", void sub_08068190(E
     if (uVar3 > 8) {
         uVar3 = 8;
     }
-    uVar1 = CheckLocalFlag(0x7e);
-    uVar2 = BOOLCAST(uVar1);
+
+    uVar2 = 0;
+    if (CheckLocalFlag(0x7e)) {
+        uVar2 = 1;
+    }
     if (GetInventoryValue(0x41) != 0) {
         uVar2 = 2;
     }

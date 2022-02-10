@@ -67,8 +67,11 @@ void sub_08063830(Entity* this) {
 }
 
 void sub_08063850(Entity* this, ScriptExecutionContext* context) {
-    InitializeAnimation(this, context->intVariable + (BOOLCAST(this->spriteSettings.flipX) & 4U) +
-                                  (this->animationState >> 1));
+    u32 offset = 0;
+    if (this->spriteSettings.flipX) {
+        offset = 4;
+    }
+    InitializeAnimation(this, context->intVariable + offset + (this->animationState >> 1));
 }
 
 void sub_08063874(Entity* this) {

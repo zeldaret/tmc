@@ -171,7 +171,6 @@ const Defaults sDefaultSettings = {
 
 // single misplaced ldr
 NONMATCH("asm/non_matching/sub_080560B8.inc", static void sub_080560B8(void)) {
-    u32 temp;
     u32 b;
 
     if (!CheckHeaderValid()) {
@@ -188,8 +187,7 @@ NONMATCH("asm/non_matching/sub_080560B8.inc", static void sub_080560B8(void)) {
         }
     }
 
-    temp = gUnk_02000010.signature ^ SIGNATURE;
-    b = BOOLCAST(temp);
+    b = (gUnk_02000010.signature ^ SIGNATURE) != 0;
 
     if ((gUnk_02000010.field_0x4 != 0) && (gUnk_02000010.field_0x4 != 0xc1)) {
         b = TRUE;

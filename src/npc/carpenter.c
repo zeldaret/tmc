@@ -69,8 +69,9 @@ void sub_080672C8(Entity* this) {
     u32 dialog = 0;
     u32 tmp;
     if (GetInventoryValue(0x11) == 0) {
-        tmp = CheckGlobalFlag(TABIDACHI);
-        dialog = BOOLCAST(tmp);
+        if (CheckGlobalFlag(TABIDACHI)) {
+            dialog = 1;
+        }
     }
     MessageNoOverlap(gUnk_08110CE8[(dialog * 2 + this->type * 6) / 2], this);
 }

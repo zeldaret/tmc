@@ -22,8 +22,11 @@ void Farmers_Head(Entity* this) {
 }
 
 void sub_0806BC94(Entity* this, ScriptExecutionContext* context) {
-    InitializeAnimation(this, context->intVariable + (BOOLCAST(this->spriteSettings.flipX) & 8U) +
-                                  (this->animationState >> 1));
+    u32 offset = 0;
+    if (this->spriteSettings.flipX) {
+        offset = 8;
+    }
+    InitializeAnimation(this, context->intVariable + offset + (this->animationState >> 1));
 }
 
 void sub_0806BCB8(Entity* this) {

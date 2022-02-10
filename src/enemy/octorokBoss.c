@@ -805,7 +805,7 @@ void OctorokBoss_Action1_ChargeAttack(Entity* this) {
         ProcessMovement(this);
         knockbackCondition = 0;
         if ((this->direction != 0) && (this->direction != 0x10)) {
-            knockbackCondition = BOOLCAST((u32)this->collisions & 0xee00);
+            knockbackCondition = ((u32)this->collisions & 0xee00) != 0;
         }
         if (((this->direction != 0x18) && (this->direction != 8)) && ((this->collisions & 0xee) != 0)) {
             knockbackCondition = 1;

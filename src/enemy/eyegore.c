@@ -358,8 +358,7 @@ NONMATCH("asm/non_matching/eyegore/sub_08031024.inc", void sub_08031024(EyegoreE
     u32 uVar8;
     u32 tmp, tmp2;
 
-    u32 res = sub_08049FDC(super, 1);
-    boolresult = BOOLCAST(res);
+    boolresult = sub_08049FDC(super, 1) != 0;
     if (this->unk_79 == 0) {
         if (boolresult != 0) {
             super->direction = CalculateDirectionTo(super->x.HALF.HI + super->hitbox->offset_x,

@@ -54,11 +54,11 @@ void sub_0809EA80(Entity* this) {
 }
 
 void sub_0809EABC(Entity* this) {
-    bool32 anySet;
-    u32 f;
+    bool32 anySet = 0;
 
-    f = CheckFlags(this->field_0x86.HWORD);
-    anySet = BOOLCAST(f);
+    if (CheckFlags(this->field_0x86.HWORD)) {
+        anySet = 1;
+    }
     if (this->frameIndex != anySet) {
         this->frameIndex = anySet;
     }
