@@ -1,16 +1,23 @@
 cmake_minimum_required(VERSION 3.13)
-project(tools)
-include(FetchContent)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+# Add project_options v0.15.1
+# https://github.com/cpp-best-practices/project_options
+include(FetchContent)
+FetchContent_Declare(_project_options URL https://github.com/cpp-best-practices/project_options/archive/refs/tags/v0.15.1.zip)
+if (NOT _project_options_POPULATED)
+    FetchContent_Populate(_project_options)
+endif()
+
+project(tools LANGUAGES CXX C)
+
 add_library(project_settings INTERFACE)
 
-# setup compiler warnings
-file(DOWNLOAD https://raw.githubusercontent.com/cpp-best-practices/cpp_starter_project/master/cmake/CompilerWarnings.cmake ${CMAKE_BINARY_DIR}/CompilerWarnings.cmake)
-include(${CMAKE_BINARY_DIR}/CompilerWarnings.cmake)
-set_project_warnings(project_settings)
+# use CompilerWarnings.cmake directly since project_options normally requires cmake 3.16
+include(${_project_options_SOURCE_DIR}/src/CompilerWarnings.cmake)
+set_project_warnings(project_settings ON "" "" "" "")
 
 # nlohmann/json
 # this repo is a mirror, that only holds the release versions of the headers to keep the size small
