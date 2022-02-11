@@ -20,7 +20,32 @@ extern struct_080FD5B4 gUnk_080FD5B4[];
 extern u8 gUnk_0200AF13;
 extern u8 gUnk_0200AF14;
 extern u8 gUnk_080FE1C6[];
-extern Droptable gUnk_02034398;
+/*{
+0u,
+0x1u,
+0x2u,
+0x3u,
+0x4u,
+0x5u,
+0x6u,
+0x7u,
+0x8u,
+0x9u,
+0x8u,
+0x9u,
+0xau,
+0xau,
+0xbu,
+0xcu,
+0xdu,
+0xeu,
+0xfu,
+0x8u,
+0xfu,
+0x1u,
+0x8u,
+};
+*/
 extern void (*const gUnk_080FE2A0[])(void);
 
 void ForceEquipItem(u32, u8);
@@ -158,7 +183,7 @@ NONMATCH("asm/non_matching/sub_08054524.inc", void sub_08054524(void)) {
         bVar1 = 0;
     }
 
-    MemCopy(&gUnk_080015BC[0] + gUnk_080FE1C6[bVar1] * 0x8, &gUnk_02034398, 0x20);
+    MemCopy(&gAreaDroptables[0] + gUnk_080FE1C6[bVar1] * 0x8, &gRoomVars.currentAreaDroptable, 0x20);
 }
 END_NONMATCH
 
@@ -170,8 +195,6 @@ void sub_08054570(void) {
     gRoomVars.field_0x2 = 0;
 }
 
-// BUG?
-extern const Droptable gUnk_080014e4[];
 extern void sub_08000F14(s16*, const s16*, const s16*, const s16*);
 extern u32 sub_08000F2C(s16*, const s16*, const s16*, const s16*);
 u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter);
@@ -182,17 +205,17 @@ u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
          ITEM_ENEMY_BEETLE, ITEM_NONE,    ITEM_NONE,   ITEM_NONE,           ITEM_NONE,          ITEM_NONE,
      }*/;
 
-    int r0, r1, r2, r4, r5;
+    int r0, r1, rand, summOdds, item;
     u32 r3;
     const Droptable *ptr2, *ptr3, *ptr4;
-    Droptable s0;
+    Droptable droptable;
     r3 = arg1;
     if (gRoomVars.field_0x2 != 1) {
-        ptr2 = &gUnk_08001A1C[0];
-        ptr4 = 0;
+        ptr2 = &gDroptableModifiers[DROPTABLE_NONE];
+        ptr4 = NULL;
         switch (r3) {
             case 1 ... 12:
-                ptr4 = &gUnk_0800137C[r3];
+                ptr4 = &gEnemyDroptables[r3];
                 break;
 #ifndef EU
             case 24:
@@ -208,9 +231,9 @@ u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
 #ifdef EU
             case 24:
 #endif
-                ptr2 = &gUnk_0800161C[r3];
+                ptr2 = &gObjectDroptables[r3 - 16];
             case 15:
-                ptr4 = &gUnk_02034398;
+                ptr4 = &gRoomVars.currentAreaDroptable;
                 break;
             case 0:
             default:
@@ -218,59 +241,59 @@ u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
         }
         if (ptr4 != 0) {
             if ((r1 = gSave.stats.unkB) == 0) {
-                ptr3 = &gUnk_08001A1C[0];
+                // nop
+                ptr3 = &gDroptableModifiers[DROPTABLE_NONE];
             } else {
 #ifdef EU
-                ptr3 = &gUnk_0800143C[r1 + 3];
+                ptr3 = &gEnemyDroptables[r1 + 9];
 #else
-                ptr3 = &gUnk_0800143C[r1];
+                ptr3 = &gEnemyDroptables[r1 + 6];
 #endif
             }
             // vector addition, s0 = ptr4 + ptr2 + ptr3
-            sub_08000F14(s0.a, ptr4->a, ptr2->a, ptr3->a);
+            sub_08000F14(droptable.a, ptr4->a, ptr2->a, ptr3->a);
             if (gSave.stats.health <= 8) {
-                s0.s.hearts += 5;
+                droptable.s.hearts += 5;
             }
             if (gSave.stats.bombCount == 0) {
-                s0.s.bombs += 3;
+                droptable.s.bombs += 3;
             }
             if (gSave.stats.arrowCount == 0) {
-                s0.s.arrows += 3;
+                droptable.s.arrows += 3;
             }
             if (gSave.stats.rupees <= 10) {
-                s0.s.rupee5 += 1;
+                droptable.s.rupee5 += 1;
             }
-            ptr2 = &gUnk_08001A1C[0];
+            ptr2 = &gDroptableModifiers[DROPTABLE_NONE];
             r0 = gSave.stats.hasAllFigurines;
-            ptr3 = ptr2;
+            ptr3 = &gDroptableModifiers[DROPTABLE_NONE];
             // don't drop shells anymore
             if (r0 != 0) {
-                ptr2++;
+                ptr2 = &gDroptableModifiers[DROPTABLE_NO_SHELLS];
             }
             // don't drop kinstones anymore
             if (gSave.didAllFusions != 0) {
-                ptr3 += 2;
+                ptr3 = &gDroptableModifiers[DROPTABLE_NO_KINSTONES];
             }
             // vector addition, s0 = s0 + ptr2 + ptr3
             // resulting values are clamped to be >= 0
             // returns sum over s0
-            r4 = sub_08000F2C(s0.a, s0.a, ptr2->a, ptr3->a);
-            r2 = Random();
-            r5 = (r2 >> 0x18);
-            r5 &= 0xF;
-            r2 = r2 % r4;
+            summOdds = sub_08000F2C(droptable.a, droptable.a, ptr2->a, ptr3->a);
+            rand = Random();
+            item = (rand >> 0x18);
+            item &= 0xF;
+            rand = rand % summOdds;
             {
                 u32 r3;
-                for (r3 = 0, r1 = 0; r3 < 0x10; r3++, r5 = (r5 + 1) & 0xF) {
-                    if ((r1 += s0.a[r5]) > r2) {
+                for (r3 = 0, r1 = 0; r3 < 0x10; r3++, item = (item + 1) & 0xF) {
+                    if ((r1 += droptable.a[item]) > rand) {
                         break;
                     }
                 }
             }
-            r1 = gUnk_080FE1B4[r5];
-            if (r1 != 0) {
-                r2 = 0;
-                return CreateItemDrop(arg0, r1, r2);
+            r1 = gUnk_080FE1B4[item];
+            if (r1 != ITEM_NONE) {
+                return CreateItemDrop(arg0, r1, 0);
             }
         }
     }
@@ -311,10 +334,10 @@ u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
             u32 rand;
 
             if (GetInventoryValue(ITEM_KINSTONE_BAG) == 0) {
-                return 0;
+                return ITEM_NONE;
             }
             if (3 < gRoomVars.filler1[0]) {
-                return 0;
+                return ITEM_NONE;
             }
 
             if (itemID != ITEM_KINSTONE) {
@@ -362,91 +385,6 @@ u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
     }
     return itemID;
 }
-/*
-extern u8 gUnk_080FE1DD[];
-
-u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
-    u32 prereqID;
-    u32 adjustedParam;
-    u32 uVar1;
-    Entity* itemEntity;
-
-    adjustedParam = (u8)itemParameter;
-    switch (adjustedParam) {
-        case 0x3f:
-            if (!GetInventoryValue(0x40)) {
-                return 0;
-            }
-            if (itemParameter == 0) {
-                adjustedParam = 1;
-            }
-        case 0x5d:
-            if (!GetInventoryValue(0x65)) {
-                return 0;
-            }
-            break;
-        case 0x5e:
-            if (!GetInventoryValue(0x9)) {
-                return 0;
-            }
-            break;
-        case 0x5c:
-        case 0xfc ... 0xfe:
-            if (GetInventoryValue(0x67) == 0) {
-                return 0;
-            }
-            if (3 < gRoomVars.filler[5]) {
-                return 0;
-            }
-
-            if (itemID != 0x5c) {
-                adjustedParam = gUnk_080FE1DD[(Random() & 0x3f) + (itemID - 0xfc) * 0x40];
-                if (adjustedParam == 0) {
-                    itemID = 0;
-                }
-                else {
-                    itemID = 0x5c;
-                }
-            }
-            break;
-        case 0xff:
-            if (!GetInventoryValue(0x1)) {
-                return 0;
-            }
-    }
-    if (itemID != 0) {
-        if (itemID == 0xff) {
-            itemEntity = CreateEnemy(BEETLE, 0);
-            if (itemEntity != NULL) {
-                itemEntity->x.HALF.HI = arg0->x.HALF.HI;
-                itemEntity->y.HALF.HI = arg0->y.HALF.HI;
-                itemEntity->collisionLayer = arg0->collisionLayer;
-                UpdateSpriteOrderAndFlip(itemEntity);
-            }
-        } else {
-            itemEntity = CreateObject(GROUND_ITEM, itemID, adjustedParam);
-            if (itemEntity != NULL) {
-                if (arg0 == &gPlayerEntity) {
-                    itemEntity->actionDelay = 1;
-                } else {
-                    itemEntity->actionDelay = 0;
-                }
-                if (arg0->kind == OBJECT) {
-                    if (arg0->id == 99) {
-                        arg0->child = itemEntity;
-                    } else if (arg0->id == 0x1e) {
-                        itemEntity->direction = arg0->animationState << 3 | 0x80;
-                        itemEntity->speed = 0xc0;
-                        itementity->zVelocity = 0x18000;
-                    }
-                }
-                CopyPosition(arg0, itemEntity);
-            }
-        }
-    }
-    return itemID;
-}
-*/
 
 void Subtask_WorldEvent(void) {
 #if !(defined(DEMO_USA) || defined(DEMO_JP))

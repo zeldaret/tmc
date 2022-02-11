@@ -116,7 +116,6 @@ SECTIONS {
         . = 0x000342F8; gUnk_020342F8 = .;
         . = 0x00034330; gUnk_02034330 = .;
         . = 0x00034350; gRoomVars = .;
-        . = 0x00034398; gUnk_02034398 = .;
         . = 0x00034480; gUnk_02034480 = .;
         . = 0x00034490; gUnk_02034490 = .;
         . = 0x00034492; gUnk_02034492 = .;
@@ -433,7 +432,6 @@ SECTIONS {
         src/code_08049CD4.o(.text); /* enemyUtils.c */
         asm/code_08049D30.o(.text);
         src/enemyUtils.o(.text);
-        asm/enemyUtils.o(.text);
         src/createEnemy.o(.text);
         src/enterPortalSubtask.o(.text);
         asm/enterPortalSubtask.o(.text);
@@ -646,7 +644,7 @@ SECTIONS {
         asm/code_0808091C.o(.text); /* scroll.c */
         /* objects */
         src/object/itemOnGround.o(.text);
-        asm/object/deathFx.o(.text);
+        src/object/deathFx.o(.text);
         asm/object/itemForSale.o(.text);
         src/object/button.o(.text);
         asm/object/minishEmoticon.o(.text);
@@ -1358,7 +1356,7 @@ SECTIONS {
         src/script.o(.rodata);
         data/data_0811E750.o(.rodata);
         data/const/object/itemOnGround.o(.rodata);
-        data/const/object/deathFx.o(.rodata);
+        src/object/deathFx.o(.rodata);
         data/animations/object/deathFx.o(.rodata);
         data/const/object/itemForSale.o(.rodata);
         data/const/object/button.o(.rodata);
