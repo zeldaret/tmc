@@ -1412,7 +1412,7 @@ static void UpdateFakeScroll(void) {
     LinkedList* ll;
     Entity* e;
 
-    if (gArea.unk_0c.unk0 == 0 || !gRoomVars.field_0x0)
+    if (gArea.unk_0c_0 == 0 || !gRoomVars.field_0x0)
         return;
 
     y = 0;

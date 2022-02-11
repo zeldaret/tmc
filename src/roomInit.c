@@ -1069,7 +1069,7 @@ u32 sub_unk3_RoyalValley_ForestMaze(void) {
 
 void sub_StateChange_RoyalValley_ForestMaze(void) {
     gArea.areaMetadata |= 0x40;
-    gArea.unk_0c.unk0 = 1;
+    gArea.unk_0c_0 = 1;
     sub_0804C128();
 }
 
@@ -1080,36 +1080,36 @@ extern TileEntity gUnk_080D9328[];
 void sub_0804C128() {
     sub_080AF250(0);
     if (gRoomVars.field_0x0 != 0) {
-        if ((gArea.unk_0c.unk1) == 0) {
-            if ((gArea.unk_0c.unk2) == 0) {
-                gArea.unk_0c.unk1 = 1;
+        if ((gArea.unk_0c_1) == 0) {
+            if ((gArea.unk_0c_4) == 0) {
+                gArea.unk_0c_1 = 1;
             }
         } else {
-            if (gRoomControls.scroll_direction == gUnk_080D9338[gArea.unk_0c.unk1]) {
-                gArea.unk_0c.unk1++;
+            if (gRoomControls.scroll_direction == gUnk_080D9338[gArea.unk_0c_1]) {
+                gArea.unk_0c_1++;
             } else {
-                gArea.unk_0c.unk1 = 0;
+                gArea.unk_0c_1 = 0;
             }
         }
 
-        if (gArea.unk_0c.unk1 == 0) {
-            if (gRoomControls.scroll_direction == gUnk_080D9340[gArea.unk_0c.unk2]) {
-                gArea.unk_0c.unk2++;
-                gArea.unk_0c.unk1 = 0;
+        if (gArea.unk_0c_1 == 0) {
+            if (gRoomControls.scroll_direction == gUnk_080D9340[gArea.unk_0c_4]) {
+                gArea.unk_0c_4++;
+                gArea.unk_0c_1 = 0;
             } else {
-                gArea.unk_0c.unk2 = 0;
+                gArea.unk_0c_4 = 0;
             }
         }
 
-        if (gArea.unk_0c.unk1 == 6) {
+        if (gArea.unk_0c_1 == 6) {
             sub_080AF250(1);
             SetGlobalFlag(0x62);
             sub_0804C290();
-            gArea.unk_0c.unk1 = 0;
+            gArea.unk_0c_1 = 0;
             return;
         }
 
-        if (gArea.unk_0c.unk2 == 6) {
+        if (gArea.unk_0c_4 == 6) {
             sub_080AF250(1);
 #if defined(EU) || defined(JP) || defined(DEMO_JP)
             if (CheckLocalFlag(0x5a) == 0) {
@@ -1121,7 +1121,7 @@ void sub_0804C128() {
             LoadRoomTileEntities(gUnk_080D9328);
             SetGlobalFlag(0x62);
             sub_0804C290();
-            gArea.unk_0c.unk2 = 0;
+            gArea.unk_0c_4 = 0;
             return;
         }
     } else {
@@ -1131,10 +1131,10 @@ void sub_0804C128() {
 }
 
 void sub_0804C258(void) {
-    gArea.unk_0c.unk1 = 1;
-    gArea.unk_0c.unk2 = 0;
+    gArea.unk_0c_1 = 1;
+    gArea.unk_0c_4 = 0;
     if (gRoomTransition.player_status.start_anim == 4) {
-        gArea.unk_0c.unk1 = 7;
+        gArea.unk_0c_1 = 7;
         sub_080AF250(1);
     }
 }
@@ -1149,8 +1149,8 @@ extern gUnk_080D9348_struct gUnk_080D9348[];
 void sub_0804C290(void) {
     int iVar1;
 
-    if (gArea.unk_0c.unk1) {
-        iVar1 = gArea.unk_0c.unk1;
+    if (gArea.unk_0c_1) {
+        iVar1 = gArea.unk_0c_1;
         SetTileType((gUnk_080D9348 + iVar1)->unk0, (gUnk_080D9348 + iVar1)->unk2, 1);
     }
 }
