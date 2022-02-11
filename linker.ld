@@ -1210,6 +1210,7 @@ SECTIONS {
         data/animations/npc/mailbox.o(.rodata);
         data/const/npc/beedle.o(.rodata);
         data/animations/npc/beedle.o(.rodata);
+        src/npc/brocco.o(.rodata);
         data/const/npc/brocco.o(.rodata);
         data/animations/npc/brocco.o(.rodata);
         data/const/npc/sittingPerson.o(.rodata);
