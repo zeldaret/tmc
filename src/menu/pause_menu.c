@@ -8,6 +8,7 @@
 #include "game.h"
 #include "main.h"
 #include "save.h"
+#include "itemMetaData.h"
 #include "structures.h"
 #include "functions.h"
 
@@ -17,8 +18,6 @@ void sub_080A5128(void);
 void sub_080A51D4(void);
 u32 sub_080A51F4(void);
 void sub_080A5F48(u32, u32);
-
-extern const u8 gUnk_080FD5B4[];
 
 Subtask PauseMenu_Variant0;
 Subtask PauseMenu_Variant1;
@@ -273,28 +272,6 @@ u32 sub_080A51F4(void) {
     return retval;
 }
 
-typedef enum {
-    MENU_SLOT_SWORD,
-    MENU_SLOT_GUST_JAR,
-    MENU_SLOT_CANE,
-    MENU_SLOT_BOOMERANG,
-    MENU_SLOT_SHIELD,
-    MENU_SLOT_MOLE_MITTS,
-    MENU_SLOT_LANTERN,
-    MENU_SLOT_BOMBS,
-    MENU_SLOT_PEGASUS_BOOTS,
-    MENU_SLOT_ROCS_CAPE,
-    MENU_SLOT_OCARINA,
-    MENU_SLOT_BOW,
-    MENU_SLOT_BOTTLE0,
-    MENU_SLOT_BOTTLE1,
-    MENU_SLOT_BOTTLE2,
-    MENU_SLOT_BOTTLE3,
-    MENU_SLOT_SAVE_BUTTON,
-    MENU_SLOT_SAVE_BUTTON_JP,
-    MENU_SLOT_COUNT = MENU_SLOT_SAVE_BUTTON_JP
-} ItemMenuTableSlot;
-
 typedef struct {
     u8 up;
     u8 down;
@@ -350,7 +327,7 @@ void PauseMenu_ItemMenu_Init(void) {
     sub_080A70AC((KeyButtonLayout*)&gUnk_08128B50);
     for (item = ITEM_SMITH_SWORD; item < ITEM_BOTTLE_EMPTY; item++) {
         uVar1 = GetInventoryValue(item);
-        if ((uVar1 == 1) && (i = gUnk_080FD5B4[item * 8], i <= MENU_SLOT_SAVE_BUTTON_JP)) {
+        if ((uVar1 == 1) && (i = gItemMetaData[item].menuSlot, i <= MENU_SLOT_SAVE_BUTTON_JP)) {
             switch (item) {
                 case ITEM_LANTERN_OFF:
                 case ITEM_LANTERN_ON:

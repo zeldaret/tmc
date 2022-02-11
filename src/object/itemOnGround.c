@@ -4,8 +4,9 @@
 #include "flags.h"
 #include "player.h"
 #include "object.h"
-#include "functions.h"
 #include "item.h"
+#include "itemMetaData.h"
+#include "functions.h"
 
 void sub_08081150(Entity*);
 u8 sub_0808147C(u32);
@@ -26,14 +27,6 @@ extern void (*const gUnk_0811E7E8[])(Entity*);
 extern void (*const gUnk_0811E814[])(Entity*);
 extern void (*const gUnk_0811E840[])(Entity*);
 extern Hitbox gUnk_080FD1A8;
-
-typedef struct {
-    u8 unk0[3];
-    u8 unk3;
-    u8 unk4[4];
-} Unk_080FD5B4;
-
-extern const Unk_080FD5B4 gUnk_080FD5B4[];
 
 typedef struct {
     u8 unk0[2];
@@ -348,11 +341,7 @@ bool32 sub_08081420(Entity* this) {
 }
 
 bool32 CheckShouldPlayItemGetCutscene(Entity* this) {
-    bool32 result = FALSE;
-    if ((gUnk_080FD5B4[this->type].unk0[3] & 0x2) || !GetInventoryValue(this->type)) {
-        result = TRUE;
-    }
-    return result;
+    return ((gItemMetaData[this->type].unk3 & 0x2) || !GetInventoryValue(this->type));
 }
 
 u8 sub_0808147C(u32 arg0) {

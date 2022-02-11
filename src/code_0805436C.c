@@ -9,13 +9,7 @@
 #include "object.h"
 #include "enemy.h"
 #include "droptables.h"
-
-typedef struct {
-    u8 unk;
-    u8 filler[7];
-} struct_080FD5B4;
-
-extern struct_080FD5B4 gUnk_080FD5B4[];
+#include "itemMetaData.h"
 
 extern u8 gUnk_0200AF13;
 extern u8 gUnk_0200AF14;
@@ -85,11 +79,11 @@ void PutItemOnSlot(u32 itemID) {
             itemSlot = 1;
         }
         if (itemSlot == 2) {
-            u32 temp = gUnk_080FD5B4[itemID2].unk;
-            if (temp == gUnk_080FD5B4[gSave.stats.itemButtons[SLOT_A]].unk) {
+            u32 temp = gItemMetaData[itemID2].menuSlot;
+            if (temp == gItemMetaData[gSave.stats.itemButtons[SLOT_A]].menuSlot) {
                 itemSlot = 0;
             } else {
-                if (temp == gUnk_080FD5B4[gSave.stats.itemButtons[SLOT_B]].unk) {
+                if (temp == gItemMetaData[gSave.stats.itemButtons[SLOT_B]].menuSlot) {
                     itemSlot = 1;
                 }
             }

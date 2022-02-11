@@ -127,14 +127,14 @@ _08083C74:
 	bl GetInventoryValue
 	ldrb r1, [r4, #0xa]
 	lsls r1, r1, #3
-	ldr r2, _08083C8C @ =gUnk_080FD5B4
+	ldr r2, _08083C8C @ =gItemMetaData
 	adds r1, r1, r2
 	cmp r0, #0
 	bne _08083C90
 	ldrh r1, [r1, #4]
 	b _08083C92
 	.align 2, 0
-_08083C8C: .4byte gUnk_080FD5B4
+_08083C8C: .4byte gItemMetaData
 _08083C90:
 	ldrh r1, [r1, #6]
 _08083C92:

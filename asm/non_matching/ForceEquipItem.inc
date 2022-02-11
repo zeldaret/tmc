@@ -18,7 +18,7 @@ _0805442A:
 	ldrb r7, [r6]
 	adds r5, r2, r0
 	ldrb r3, [r5]
-	ldr r2, _0805445C @ =gUnk_080FD5B4
+	ldr r2, _0805445C @ =gItemMetaData
 	lsls r1, r3, #3
 	adds r1, r1, r2
 	lsls r0, r4, #3
@@ -39,6 +39,6 @@ _08054456:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _08054458: .4byte gSave
-_0805445C: .4byte gUnk_080FD5B4
+_0805445C: .4byte gItemMetaData
 _08054460: .4byte gUnk_0200AF00
     .syntax divided
