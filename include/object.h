@@ -232,7 +232,7 @@ void ItemForSale(Entity*);
 void Button(Entity*);
 void MinishEmoticon(Entity*);
 void Pot(Entity*);
-void EzloCap(Entity*);
+void EzloCap();
 void BlockPushed();
 void LockedDoor(Entity*);
 void Object9(Entity*);

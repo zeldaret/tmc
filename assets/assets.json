@@ -42325,21 +42325,6 @@
     "type": "animation"
   },
   {
-    "path": "ezloCap/gUnk_0811F16C.bin",
-    "start": 1175916,
-    "size": 12
-  },
-  {
-    "path": "ezloCap/gUnk_0811F178.bin",
-    "start": 1175928,
-    "size": 20
-  },
-  {
-    "path": "ezloCap/gUnk_0811F18C.bin",
-    "start": 1175948,
-    "size": 4
-  },
-  {
     "path": "animations/gSpriteAnimations_Object9_0.bin",
     "start": 1177440,
     "size": 53,
