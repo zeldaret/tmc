@@ -1,20 +1,27 @@
 #include "npc.h"
 #include "functions.h"
 
-extern void (*const gUnk_081145D4[])(Entity*);
-
+void CuccoChick_Init(Entity*);
 void sub_0806E764(Entity*);
+void CuccoChick_Fly(Entity*);
+void sub_0806E824(Entity*);
 
 void sub_0806E838(Entity* this);
 
 void sub_0806E884(Entity* this);
 
 void CuccoChick(Entity* this) {
-    gUnk_081145D4[this->action](this);
+    static void (*const CuccoChick_Actions[])(Entity*) = {
+        CuccoChick_Init,
+        sub_0806E764,
+        CuccoChick_Fly,
+        sub_0806E824,
+    };
+    CuccoChick_Actions[this->action](this);
     sub_0806ED78(this);
 }
 
-void sub_0806E730(Entity* this) {
+void CuccoChick_Init(Entity* this) {
     this->action += 1;
     this->field_0x68.HALF.LO = sub_0801E99C(this);
     sub_080787A8(this, this->field_0x68.HALF.LO);
@@ -33,13 +40,32 @@ void sub_0806E764(Entity* this) {
         this->action = 2;
         this->subAction = 0;
         if ((Random() & 1) != 0) {
-            EnqueueSFX(0xd6);
+            EnqueueSFX(SFX_VO_CHEEP);
         }
     }
     sub_0806E838(this);
 }
 
-ASM_FUNC("asm/non_matching/cuccoChick/sub_0806E7B0.inc", void sub_0806E7B0(Entity* this))
+void CuccoChick_Fly(Entity* this) {
+    if (this->subAction == 0) {
+        this->subAction++;
+        if ((Random() & 1) != 0) {
+            this->spriteSettings.flipX ^= 1;
+        }
+        this->actionDelay = (Random() & 3) + 1;
+        this->zVelocity = 0x10000;
+        this->frameIndex = 1;
+    }
+    if (GravityUpdate(this, 0x3000) == 0) {
+        if (--this->actionDelay == 0) {
+            this->action = 1;
+            this->subAction = 0;
+        } else {
+            this->zVelocity = 0x10000;
+        }
+    }
+    sub_0806E838(this);
+}
 
 void sub_0806E824(Entity* this) {
     if (UpdateFuseInteraction(this) != 0) {
