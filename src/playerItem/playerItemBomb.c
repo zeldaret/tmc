@@ -11,8 +11,6 @@ extern void (*const gUnk_080B77D8[])(Entity*);
 
 extern void sub_08079BD8(Entity*);
 
-extern void sub_08008796(Entity*, u32, u32, u32);
-
 void PlayerItemBomb(Entity* this) {
     u8 uVar1, uVar2;
 

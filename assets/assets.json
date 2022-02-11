@@ -25398,26 +25398,6 @@
     "type": "animation"
   },
   {
-    "path": "eyegore/gUnk_080CE2BC.bin",
-    "start": 844476,
-    "size": 4
-  },
-  {
-    "path": "eyegore/gUnk_080CE2C0.bin",
-    "start": 844480,
-    "size": 52
-  },
-  {
-    "path": "eyegore/gUnk_080CE2F4.bin",
-    "start": 844532,
-    "size": 16
-  },
-  {
-    "path": "eyegore/gUnk_080CE304.bin",
-    "start": 844548,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_Rope_0.bin",
     "start": 844924,
     "size": 17,

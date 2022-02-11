@@ -176,7 +176,7 @@ void WizzrobeWind();
 void WizzrobeFire();
 void WizzrobeIce();
 void Armos();
-void Eyegore(Entity*);
+void Eyegore();
 void Rope(Entity*);
 void SmallPesto(Entity*);
 void AcroBandit(Entity*);

@@ -9,7 +9,6 @@
 #include "object.h"
 #include "functions.h"
 
-extern void sub_08008796(Entity*, u32, u32, u32);
 extern u32 sub_0804A024(Entity*, u32, u32);
 
 extern Entity gUnk_0200D654;
