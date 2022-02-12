@@ -8,7 +8,26 @@ extern Dialog gUnk_08113158[];
 extern SpriteLoadData gUnk_08113140[];
 void sub_0806BC58(Entity* this);
 
-ASM_FUNC("asm/non_matching/farmers/Farmers.inc", void Farmers(Entity* this))
+void Farmers(Entity* this) {
+    if (this->action == 0) {
+        if (LoadExtraSpriteData(this, &gUnk_08113140[this->type * 3]) == 0) {
+            return;
+        }
+        this->action++;
+        this->spriteSettings.flipX = this->actionDelay;
+        if (this->spriteSettings.flipX == 0) {
+            this->animationState = 6;
+        } else {
+            this->animationState = 2;
+        }
+        this->actionDelay = this->animationState;
+        sub_0806BC58(this);
+        sub_0807DD64(this);
+    }
+    ExecuteScriptForEntity(this, 0);
+    HandleEntity0x82Actions(this);
+    GetNextFrame(this);
+}
 
 void sub_0806BC58(Entity* this) {
     SetDefaultPriority(this, PRIO_MESSAGE);
@@ -48,7 +67,6 @@ void sub_0806BCE8(Entity* this) {
 }
 
 void Farmers_Fusion(Entity* this) {
-
     if (this->action == 0) {
         if (LoadExtraSpriteData(this, &gUnk_08113140[this->type * 3]) != 0) {
             this->action = this->action + 1;
