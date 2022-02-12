@@ -1262,7 +1262,7 @@ SECTIONS {
         data/animations/npc/castorWildsStatue.o(.rodata);
         data/const/npc/cat.o(.rodata);
         data/animations/npc/cat.o(.rodata);
-        data/const/npc/mountainMinish.o(.rodata);
+        src/npc/mountainMinish.o(.rodata);
         data/animations/npc/mountainMinish.o(.rodata);
         data/const/npc/melari.o(.rodata);
         data/animations/npc/melari.o(.rodata);
