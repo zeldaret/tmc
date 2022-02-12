@@ -368,7 +368,7 @@ void CabinFurniture(Entity*);
 void DoubleBookshelf(Entity*);
 void Book(Entity*);
 void Fireplace(Entity*);
-void Object8E(Entity*);
+void Object8E();
 void FrozenWaterElement();
 void Object90(Entity*);
 void Object91(Entity*);
