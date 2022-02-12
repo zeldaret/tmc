@@ -5,8 +5,9 @@
 
 void sub_08063544(Entity*);
 void sub_0806362C(Entity*);
-
-extern void (*gUnk_0810CAA0[])(Entity*);
+void sub_0806355C(Entity*);
+void sub_08063584(Entity*);
+void sub_08063608(Entity*);
 
 extern Dialog gUnk_0810CAAC[];
 
@@ -19,7 +20,12 @@ void Brocco(Entity* this) {
 }
 
 void sub_08063544(Entity* this) {
-    gUnk_0810CAA0[this->action](this);
+    static void (*const Brocco_Actions[])(Entity*) = {
+        sub_0806355C,
+        sub_08063584,
+        sub_08063608,
+    };
+    Brocco_Actions[this->action](this);
 }
 
 void sub_0806355C(Entity* this) {
@@ -29,7 +35,30 @@ void sub_0806355C(Entity* this) {
     sub_08078778(this);
 }
 
-ASM_FUNC("asm/non_matching/brocco/sub_08063584.inc", void sub_08063584(Entity* this))
+void sub_08063584(Entity* this) {
+    if (sub_0806ED9C(this, 0x20, 0x20) >= 0) {
+        if (this->field_0xf == 0) {
+            if ((Random() & 0x3f) == 0) {
+                this->field_0xf = 1;
+                InitAnimationForceUpdate(this, 0);
+            }
+        }
+    }
+
+    if (this->field_0xf != 0) {
+        UpdateAnimationSingleFrame(this);
+        if ((this->frame & 0x80) != 0) {
+            this->field_0xf = 0;
+        }
+    }
+
+    if (this->interactType != 0) {
+        this->action = 2;
+        InitAnimationForceUpdate(this, GetAnimationState(this) + 4);
+        MessageFromTarget(this->actionDelay + 0xa01);
+    }
+    sub_0806ED78(this);
+}
 
 void sub_08063608(Entity* this) {
     u8 tmp = gMessage.doTextBox & 0x7f;

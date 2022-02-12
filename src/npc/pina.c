@@ -7,8 +7,9 @@
 
 void sub_08063B68(Entity* this);
 void sub_08063A80(Entity* this);
-
-extern void (*gUnk_0810CDF8[])(Entity*);
+void sub_08063A98(Entity* this);
+void sub_08063AC0(Entity* this);
+void sub_08063B44(Entity* this);
 
 extern Dialog gUnk_0810CE04[];
 
@@ -21,7 +22,12 @@ void Pina(Entity* this) {
 }
 
 void sub_08063A80(Entity* this) {
-    gUnk_0810CDF8[this->action](this);
+    static void (*const Pina_Actions[])(Entity*) = {
+        sub_08063A98,
+        sub_08063AC0,
+        sub_08063B44,
+    };
+    Pina_Actions[this->action](this);
 }
 
 void sub_08063A98(Entity* this) {
@@ -31,7 +37,30 @@ void sub_08063A98(Entity* this) {
     sub_08078778(this);
 }
 
-ASM_FUNC("asm/non_matching/pina/sub_08063AC0.inc", void sub_08063AC0(Entity* this))
+void sub_08063AC0(Entity* this) {
+    if (sub_0806ED9C(this, 0x20, 0x20) >= 0) {
+        if (this->field_0xf == 0) {
+            if ((Random() & 0x3f) == 0) {
+                InitAnimationForceUpdate(this, 0);
+                this->field_0xf = 1;
+            }
+        }
+    }
+
+    if (this->field_0xf != 0) {
+        UpdateAnimationSingleFrame(this);
+        if ((this->frame & 0x80) != 0) {
+            this->field_0xf = 0;
+        }
+    }
+
+    if (this->interactType != 0) {
+        this->action = 2;
+        InitAnimationForceUpdate(this, GetAnimationState(this) + 4);
+        MessageFromTarget(this->actionDelay + 0xa01);
+    }
+    sub_0806ED78(this);
+}
 
 void sub_08063B44(Entity* this) {
     u8 tmp = gMessage.doTextBox & 0x7f;
