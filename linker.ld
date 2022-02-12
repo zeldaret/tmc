@@ -1328,7 +1328,7 @@ SECTIONS {
         data/const/npc/hurdyGurdyMan.o(.rodata);
         data/animations/npc/hurdyGurdyMan.o(.rodata);
         src/npc/cucco.o(.rodata);
-        data/const/npc/cuccoChick.o(.rodata);
+        src/npc/cuccoChick.o(.rodata);
         data/const/npc/phonograph.o(.rodata);
         data/const/npc/npc58.o(.rodata);
         src/npcDefinitions.o(.rodata);
