@@ -249,7 +249,7 @@ void VaatiTransfiguredType0Action1(Entity* this) {
         }
     }
     if (this->field_0x80.HALF.LO != 0xff) {
-        ProcessMovement(this);
+        ProcessMovement0(this);
     }
     UpdateAnimationSingleFrame(this);
 }

@@ -130,7 +130,7 @@ void sub_0806EE04(Entity* ent, void* a2, u32 a3) {
     ent->child = a2;
     ent->field_0x3c = a3;
     ent->hitType = 0;
-    ent->field_0x46 = 0;
+    ent->knockbackSpeed = 0;
     ent->field_0x16 = 0;
 }
 
@@ -141,7 +141,7 @@ u32 sub_0806EE20(Entity* ent) {
         if (ent->child)
             return gUnk_08114EFC[ent->field_0x16](ent);
     } else {
-        ent->field_0x46 = 8;
+        ent->knockbackSpeed = 8;
         v3 = GetFacingDirection(ent, &gPlayerEntity);
         ent->knockbackDirection = sub_0806F5A4(v3);
     }
@@ -154,8 +154,8 @@ u32 sub_0806EE70(Entity* ent) {
     u32 result;
     u16 xy[2];
 
-    if (++ent->field_0x46 > 8) {
-        ent->field_0x46 = 0;
+    if (++ent->knockbackSpeed > 8) {
+        ent->knockbackSpeed = 0;
         sub_0806EF14(ent);
     }
     LinearMoveUpdate(ent);
@@ -172,7 +172,7 @@ u32 sub_0806EE70(Entity* ent) {
 }
 
 u32 sub_0806EED0(Entity* ent) {
-    if (!--ent->field_0x46)
+    if (!--ent->knockbackSpeed)
         return sub_0806EF74(ent, 2);
     return 0;
 }
@@ -214,13 +214,13 @@ u32 sub_0806EFAC(Entity* ent, u16* a2) {
 
 u32 sub_0806EFBC(Entity* ent, u16* a2) {
     ent->field_0x16 = 1;
-    ent->field_0x46 = 8;
+    ent->knockbackSpeed = 8;
     return 0;
 }
 
 u32 sub_0806EFCC(Entity* ent, u16* a2) {
     ent->field_0x16 = 2;
-    ent->field_0x46 = a2[1];
+    ent->knockbackSpeed = a2[1];
     return 0;
 }
 

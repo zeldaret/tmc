@@ -1705,7 +1705,7 @@ _0801A32C:
 	asrs r2, r2, #0x10
 	adds r0, r3, #0
 	adds r3, r6, #0
-	bl sub_080AE4CC
+	bl IsTileCollision
 	cmp r0, #0
 	bne _0801A36C
 	movs r0, #1
@@ -1901,7 +1901,7 @@ _0801A4B0:
 	adds r2, r2, r0
 	adds r0, r3, #0
 	mov r3, r8
-	bl sub_080AE4CC
+	bl IsTileCollision
 	cmp r0, #0
 	bne _0801A4F0
 	ldrb r0, [r5]

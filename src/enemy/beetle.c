@@ -8,8 +8,6 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern u32 PlayerInRange(Entity*, u32, u32);
-
 u32 sub_08021D00(Entity*);
 void sub_08021D44(Entity* this, u32 direction);
 
@@ -114,7 +112,7 @@ void sub_080218CC(Entity* this) {
 
     GetNextFrame(this);
     if (this->frame & 1) {
-        sub_080AEFE0(this);
+        ProcessMovement2(this);
         if (sub_080044EC(this, 0x1c00) == 0)
             this->frameDuration = 1;
     }
@@ -184,7 +182,7 @@ void sub_08021A64(Entity* this) {
             }
             sub_08021D44(this, tmp);
         }
-        ProcessMovement(this);
+        ProcessMovement0(this);
         GetNextFrame(this);
     }
 }
@@ -206,7 +204,7 @@ void sub_08021AD8(Entity* this) {
             this->direction = (u8)tmp;
             EnqueueSFX(SFX_PLY_JUMP);
         }
-        sub_080AEFE0(this);
+        ProcessMovement2(this);
         if (!GravityUpdate(this, 0x1800))
             this->frameDuration = 1;
     }
@@ -265,7 +263,7 @@ void sub_08021B64(Entity* this) {
 void sub_08021C58(Entity* this) {
     GetNextFrame(this);
     if (this->frame & 1) {
-        sub_080AEFE0(this);
+        ProcessMovement2(this);
         if (GravityUpdate(this, 0x1800) == 0)
             this->frameDuration = 1;
     }

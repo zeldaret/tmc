@@ -219,7 +219,7 @@ void sub_08023398(Entity* this) {
     } else {
         int prevX = this->x.WORD;
         int prevY = this->y.WORD;
-        ProcessMovement(this);
+        ProcessMovement0(this);
         if (this->x.WORD == prevX && this->y.WORD == prevY) {
             this->field_0x7c.BYTES.byte0--;
         }

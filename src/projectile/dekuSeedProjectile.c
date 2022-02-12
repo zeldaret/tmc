@@ -2,11 +2,6 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern s32 sub_080AF090(Entity*);
-extern s32 IsProjectileOffScreen(Entity*);
-extern void sub_08016AD2(Entity*);
-extern u32 IsColliding(Entity*, Entity*);
-
 extern void (*const DekuSeedProjectile_Functions[])(Entity*);
 extern void (*const DekuSeedProjectile_Actions[])(Entity*);
 
@@ -54,8 +49,8 @@ void DekuSeedProjectile_Action1(Entity* this) {
     Entity* parent;
 
     GetNextFrame(this);
-    if (sub_080AF090(this) != 0) {
-        if (IsProjectileOffScreen(this) != 0) {
+    if (ProcessMovement3(this) != 0) {
+        if (IsProjectileOffScreen(this)) {
             DeleteThisEntity();
         }
         sub_08016AD2(this);
@@ -75,20 +70,20 @@ void DekuSeedProjectile_Action1(Entity* this) {
             this->knockbackDirection = -this->direction;
             this->bitfield = 0x80;
             this->knockbackDuration = 0xc;
-            this->field_0x46 = 0;
+            this->knockbackSpeed = 0;
             parent->iframes = 0x10;
             parent->knockbackDirection = this->direction;
             parent->bitfield = 0xc2;
             parent->knockbackDuration = 0xc;
-            parent->field_0x46 = 0;
+            parent->knockbackSpeed = 0;
         }
     }
 }
 
 void DekuSeedProjectile_Action2(Entity* this) {
     GetNextFrame(this);
-    if (sub_080AF090(this) != 0) {
-        if (IsProjectileOffScreen(this) != 0) {
+    if (ProcessMovement3(this) != 0) {
+        if (IsProjectileOffScreen(this)) {
             DeleteThisEntity();
         }
         if (--this->actionDelay == 0) {
@@ -112,7 +107,7 @@ void DekuSeedProjectile_Action3(Entity* this) {
 
 void DekuSeedProjectile_Action4(Entity* this) {
     GetNextFrame(this);
-    sub_080AF090(this);
+    ProcessMovement3(this);
     switch (sub_080044EC(this, 0x2800)) {
         case 0:
             DeleteThisEntity();

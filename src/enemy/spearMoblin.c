@@ -235,7 +235,7 @@ void sub_08028528(Entity* this) {
         }
 
         if (0x20 < this->field_0x7a.HALF.HI) {
-            ProcessMovement(this);
+            ProcessMovement0(this);
         }
 
         GetNextFrame(this);
@@ -370,7 +370,7 @@ void sub_08028858(Entity* this) {
         this->speed = 0;
     }
 
-    ProcessMovement(this);
+    ProcessMovement0(this);
     GetNextFrame(this);
 }
 
@@ -383,7 +383,7 @@ void sub_080288C0(Entity* this) {
     if (ent && (ent->bitfield & 0x80)) {
         this->knockbackDirection = ent->knockbackDirection;
         this->iframes = -ent->iframes;
-        this->field_0x46 = ent->field_0x46;
+        this->knockbackSpeed = ent->knockbackSpeed;
         this->knockbackDuration = ent->knockbackDuration;
         ent->knockbackDuration = 0;
     }

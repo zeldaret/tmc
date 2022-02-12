@@ -104,7 +104,7 @@ void sub_08038048(Entity* this) {
     u32 rand;
 
     UpdateAnimationVariableFrames(this, 2);
-    ProcessMovement(this);
+    ProcessMovement0(this);
     temp = this->z.HALF.HI;
     rand = Random() & 0xf;
 

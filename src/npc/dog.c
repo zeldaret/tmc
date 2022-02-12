@@ -136,7 +136,7 @@ void sub_08069D54(Entity* this) {
         this->actionDelay -= 1;
         if (this->actionDelay != 0) {
             UpdateAnimationSingleFrame(this);
-            ProcessMovement(this);
+            ProcessMovement0(this);
             collisions = this->collisions;
 
             if (this->x.HALF.HI < this->field_0x6e.HWORD) {

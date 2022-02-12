@@ -65,7 +65,7 @@ void sub_0809CD0C(Entity* this) {
             gPlayerEntity.iframes = 16;
             gPlayerEntity.knockbackDirection = 16;
             gPlayerEntity.knockbackDuration = 12;
-            gPlayerEntity.field_0x46 = 16;
+            gPlayerEntity.knockbackSpeed = 16;
         }
     }
 }

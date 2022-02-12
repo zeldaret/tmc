@@ -56,7 +56,7 @@ void sub_08022988(Entity* this) {
             EnqueueSFX(SFX_VO_CHEEP);
         }
 
-        ProcessMovement(this);
+        ProcessMovement0(this);
         if (GravityUpdate(this, 0x2000) == 0) {
             if (--this->actionDelay == 0) {
                 sub_08022A88(this);
@@ -92,7 +92,7 @@ void sub_08022A40(Entity* this) {
         this->frameIndex = 1;
     }
 
-    ProcessMovement(this);
+    ProcessMovement0(this);
     if (GravityUpdate(this, 0x2000) == 0) {
         if (--this->actionDelay == 0) {
             sub_08022A88(this);

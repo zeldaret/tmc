@@ -364,7 +364,7 @@ NONMATCH("asm/non_matching/kid/sub_08062948.inc", void sub_08062948(Entity* this
         InitializeAnimation(this, uVar3);
         this->field_0x80.HALF.LO = (u16)this->animIndex;
     }
-    ProcessMovement(this);
+    ProcessMovement0(this);
     iVar4 = this->x.HALF.HI - this->field_0x6c.HALF.LO;
     if (0x10 < iVar4) {
         this->x.HALF.HI = this->field_0x6c.HALF.LO + 0x10;

@@ -21,7 +21,6 @@ void sub_08020A7C(Entity*);
 bool32 Rollobite_TryToHoleUp(Entity*);
 bool32 Rollobite_IsRolledUp(Entity*);
 
-extern void sub_080AE7E8(Entity*, u32, u32, u32);
 extern void sub_08078930(Entity*);
 
 void Rollobite(Entity* this) {
@@ -61,8 +60,8 @@ void Rollobite_OnKnockback(Entity* this) {
         this->knockbackDuration = 0;
     } else if (Rollobite_IsRolledUp(this)) {
         this->knockbackDuration--;
-        sub_080AE58C(this, this->knockbackDirection, 10);
-        sub_080AE7E8(this, this->field_0x46, this->knockbackDirection, 10);
+        CalculateEntityTileCollisions(this, this->knockbackDirection, 10);
+        ProcessMovementInternal(this, this->knockbackSpeed, this->knockbackDirection, 10);
     } else {
         GenericKnockback(this);
     }
@@ -124,7 +123,7 @@ void Rollobite_Walk(Entity* this) {
     GetNextFrame(this);
     if (this->frame & 0x1) {
         this->frame &= ~0x1;
-        if (!ProcessMovement(this))
+        if (!ProcessMovement0(this))
             this->actionDelay = 1;
     }
 
@@ -192,7 +191,7 @@ void Rollobite_RolledUp(Entity* this) {
             EnqueueSFX(SFX_104);
 
         if ((this->direction & 0x80) == 0)
-            sub_080AEFE0(this);
+            ProcessMovement2(this);
     }
 }
 

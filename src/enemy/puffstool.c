@@ -582,7 +582,7 @@ void sub_08025C2C(Entity* this) {
 
 bool32 sub_08025C44(Entity* this) {
     if ((this->frame & 1) == 0) {
-        return ProcessMovement(this);
+        return ProcessMovement0(this);
     } else {
         return FALSE;
     }

@@ -231,7 +231,7 @@ void Ghini_Action6(GhiniEntity* this) {
                 sub_08004596(super, GetFacingDirection(super, gUnk_020000B0));
             }
             sub_0803F66C(this);
-            sub_080AEFB4(super);
+            ProcessMovement1(super);
             GetNextFrame(super);
         } else {
             super->action = 7;
@@ -274,7 +274,7 @@ void Ghini_Action9(GhiniEntity* this) {
         super->animationState = 0xff;
         super->iframes = -0xc;
         super->knockbackDuration = 0x14;
-        super->field_0x46 = 0x180;
+        super->knockbackSpeed = 0x180;
         super->knockbackDirection = gPlayerEntity.animationState << 2 ^ 0x10;
         sub_0803F51C(this);
         sub_0803F6EC(this);
@@ -311,7 +311,7 @@ void sub_0803F58C(GhiniEntity* this) {
     s32 yBefore;
 
     yBefore = super->y.WORD;
-    sub_080AEFB4(super);
+    ProcessMovement1(super);
     yAfter = super->y.WORD;
     super->y.WORD = yAfter - (yAfter - yBefore) / 2;
 }

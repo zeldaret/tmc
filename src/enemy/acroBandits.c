@@ -400,7 +400,7 @@ void sub_08032008(Entity* this) {
             if (this->direction & 0xf)
                 this->spriteSettings.flipX = (this->direction >> 4 ^ 1);
 
-            ProcessMovement(this);
+            ProcessMovement0(this);
         } else {
             if (this->field_0x76.HALF.HI == 0) {
                 if (EntityWithinDistance(this, parent->x.HALF.HI, parent->y.HALF.HI, 1) == 0) {
@@ -457,7 +457,7 @@ void sub_08032160(Entity* this) {
 }
 
 void sub_080321E8(Entity* this) {
-    sub_080AEFE0(this);
+    ProcessMovement2(this);
 
     if (sub_080044EC(this, 0x2000) == 0)
         this->action = 8;

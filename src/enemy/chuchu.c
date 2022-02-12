@@ -9,14 +9,6 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern s32 sub_080012DC(Entity*);
-extern void sub_08001318(Entity*);
-extern void sub_080043A8(Entity*);
-extern u32 sub_08049F1C(Entity*, Entity*, u32);
-extern u32 PlayerInRange(Entity*, u32, u32);
-extern void sub_0804AA1C(Entity*);
-extern void sub_080AF160(Entity*);
-
 extern Entity* gUnk_020000B0;
 
 void sub_0801F328(Entity*);
@@ -200,7 +192,7 @@ void sub_0801F12C(Entity* this) {
         if ((this->field_0xf++ & 7) == 0) {
             this->direction = sub_08049F84(this, 1);
         }
-        ProcessMovement(this);
+        ProcessMovement0(this);
         GetNextFrame(this);
         if (--this->actionDelay == 0) {
             if (PlayerInRange(this, 1, 0x38)) {
@@ -222,7 +214,7 @@ void sub_0801F1B0(Entity* this) {
             this->hitType = 90;
             EnqueueSFX(SFX_12B);
         }
-        sub_080AEFE0(this);
+        ProcessMovement2(this);
         if (GravityUpdate(this, 0x4000) == 0)
             GetNextFrame(this);
     } else {
@@ -257,7 +249,7 @@ void sub_0801F270(Entity* this) {
         this->direction = sub_08049F84(this, 1);
     }
 
-    sub_080AF160(this);
+    ProcessMovement5(this);
     GetNextFrame(this);
     if (sub_0801FBD0(this))
         return;
@@ -405,7 +397,7 @@ void sub_0801F508(Entity* this) {
             if (tmp == 4) {
                 this->direction = sub_08049F84(this, 1);
             }
-            ProcessMovement(this);
+            ProcessMovement0(this);
             GetNextFrame(this);
         }
     }
@@ -418,7 +410,7 @@ void sub_0801F584(Entity* this) {
             this->hitType = 91;
             EnqueueSFX(SFX_12B);
         }
-        sub_080AEFE0(this);
+        ProcessMovement2(this);
         if (GravityUpdate(this, 0x4000) == 0)
             GetNextFrame(this);
 
@@ -464,7 +456,7 @@ void sub_0801F688(Entity* this) {
 
     if (sub_0801FBD0(this) || this->field_0x82.HALF.HI) {
         this->direction = sub_08049F84(this, 1);
-        sub_080AF160(this);
+        ProcessMovement5(this);
         GetNextFrame(this);
     } else {
         sub_0801F748(this);
@@ -583,7 +575,7 @@ void sub_0801F8C0(Entity* this) {
             if (tmp == 4) {
                 this->direction = GetFacingDirection(this, gUnk_020000B0);
             }
-            ProcessMovement(this);
+            ProcessMovement0(this);
             GetNextFrame(this);
         }
     }
@@ -595,7 +587,7 @@ void sub_0801F940(Entity* this) {
             this->frame ^= 1;
             EnqueueSFX(SFX_12B);
         }
-        sub_080AEFE0(this);
+        ProcessMovement2(this);
         if (GravityUpdate(this, 0x4000) == 0)
             GetNextFrame(this);
     } else {
@@ -635,7 +627,7 @@ void sub_0801F9E0(Entity* this) {
 void sub_0801FA30(Entity* this) {
     if (sub_0801FBD0(this)) {
         this->direction = sub_08049F84(this, 1);
-        sub_080AF160(this);
+        ProcessMovement5(this);
         GetNextFrame(this);
     } else if (sub_08049FDC(this, 1) == 0) {
         this->action = 9;

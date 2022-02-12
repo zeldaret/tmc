@@ -180,5 +180,5 @@ u32 sub_0803163C(Entity* this) {
         h = this->field_0x7a.HWORD;
     }
     this->speed = h;
-    return ProcessMovement(this);
+    return ProcessMovement0(this);
 }

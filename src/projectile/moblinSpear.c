@@ -28,7 +28,7 @@ void sub_080A832C(Entity* this) {
     if (this->bitfield == 0x80) {
         this->iframes = 0x10;
         this->knockbackDuration = 0xc;
-        this->field_0x46 = 0x180;
+        this->knockbackSpeed = 0x180;
         this->parent->bitfield = this->bitfield;
     }
     tmp = this->iframes;
@@ -38,7 +38,7 @@ void sub_080A832C(Entity* this) {
         this->parent->iframes = -tmp;
     }
     this->parent->knockbackDuration = this->knockbackDuration;
-    this->parent->field_0x46 = this->field_0x46;
+    this->parent->knockbackSpeed = this->knockbackSpeed;
     this->parent->knockbackDirection = this->knockbackDirection;
     this->knockbackDuration = 0;
 }

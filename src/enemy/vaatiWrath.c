@@ -248,7 +248,7 @@ void VaatiWrathType0Action3(Entity* this) {
 
     sub_08042004(this);
     UpdateAnimationSingleFrame(this);
-    ProcessMovement(this);
+    ProcessMovement0(this);
 
     roomY = gRoomControls.origin_y;
     bound = roomY + 0x90;

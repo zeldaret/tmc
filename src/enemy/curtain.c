@@ -13,7 +13,7 @@ void Curtain_OnTick(Entity* this) {
 }
 
 void Curtain_OnCollision(Entity* this) {
-    if (this->field_0x46) {
+    if (this->knockbackSpeed != 0) {
         this->action = 2;
         this->flags &= ~ENT_COLLIDE;
         this->spritePriority.b0 = 7;

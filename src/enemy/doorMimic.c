@@ -9,7 +9,6 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern void sub_08049CF4(Entity*);
 void sub_080221C0(Entity*);
 
 typedef struct {

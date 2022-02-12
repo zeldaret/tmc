@@ -30,16 +30,16 @@ const u16 gUnk_080CF828[];
 const s8 gCuccoAggrFxHorizontalOffsets[];
 const u8 gCuccoAggrFx[];
 
-extern void sub_080391B4(CuccoAggrEntity* this);
-extern void sub_08039218(CuccoAggrEntity* this);
-extern void CuccoAggr_CreateFx(CuccoAggrEntity* this);
-extern void sub_08039120(CuccoAggrEntity* this);
-extern void sub_08039140(CuccoAggrEntity* this);
-extern void sub_0803901C(CuccoAggrEntity* this);
-extern void sub_08039298(CuccoAggrEntity* this);
-extern void sub_080390F8(CuccoAggrEntity* this);
-extern void sub_080390C0(CuccoAggrEntity* this);
-extern bool32 CuccoAggr_IsOutsideScroll(CuccoAggrEntity* this);
+void sub_080391B4(CuccoAggrEntity* this);
+void sub_08039218(CuccoAggrEntity* this);
+void CuccoAggr_CreateFx(CuccoAggrEntity* this);
+void sub_08039120(CuccoAggrEntity* this);
+void sub_08039140(CuccoAggrEntity* this);
+void sub_0803901C(CuccoAggrEntity* this);
+void sub_08039298(CuccoAggrEntity* this);
+void sub_080390F8(CuccoAggrEntity* this);
+void sub_080390C0(CuccoAggrEntity* this);
+bool32 CuccoAggr_IsOutsideScroll(CuccoAggrEntity* this);
 
 void CuccoAggr(Entity* this) {
     u32 index = sub_080012DC(this);
@@ -122,7 +122,7 @@ void sub_08038E18(CuccoAggrEntity* this) {
             super->spritePriority.b1 = 1;
             super->spritePriority.b0 = 4;
             super->direction = Random() & 0x1f;
-            ProcessMovement(super);
+            ProcessMovement0(super);
             UpdateSpriteForCollisionLayer(super);
         }
     }
@@ -148,7 +148,7 @@ void sub_08038ED0(CuccoAggrEntity* this) {
 }
 
 void sub_08038EE0(CuccoAggrEntity* this) {
-    ProcessMovement(super);
+    ProcessMovement0(super);
     GetNextFrame(super);
     sub_08039298(this);
     if (GravityUpdate(super, 0x1C00) == 0) {
@@ -172,7 +172,7 @@ void sub_08038F20(CuccoAggrEntity* this) {
 void sub_08038F44(CuccoAggrEntity* this) {
     super->direction = GetFacingDirection(&gPlayerEntity, super);
     sub_080390F8(this);
-    ProcessMovement(super);
+    ProcessMovement0(super);
     sub_080044EC(super, 0x1800);
     GetNextFrame(super);
     sub_08039298(this);

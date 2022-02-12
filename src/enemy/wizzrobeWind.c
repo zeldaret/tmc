@@ -261,7 +261,7 @@ void sub_0802F9C8(WizzrobeEntity* this) {
             }
         } else {
             if (super->type2 != 0) {
-                ProcessMovement(super);
+                ProcessMovement0(super);
                 if (super->collisions != 0) {
                     super->flags &= 0x7f;
                     this->timer1 = 0x28;

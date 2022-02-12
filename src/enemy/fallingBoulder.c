@@ -17,8 +17,6 @@ extern const u16 gUnk_080CD568[];
 extern const u8 gUnk_080CD580[];
 extern const s16 gUnk_080CD58C[];
 
-extern void sub_080AEFB4(Entity*);
-
 void FallingBoulder(Entity* this) {
     EnemyFunctionHandler(this, FallingBoulder_Functions);
 }
@@ -115,7 +113,7 @@ NONMATCH("asm/non_matching/fallingBoulder/sub_0802C334.inc", void sub_0802C334(E
 
         y = gRoomControls.origin_y + gRoomControls.height - this->y.HALF.HI;
         if (y >= 5) {
-            sub_080AEFB4(this);
+            ProcessMovement1(this);
         } else {
             LinearMoveUpdate(this);
             if (this->z.HALF.HI - y > 0x38) {

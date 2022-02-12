@@ -120,7 +120,7 @@ void sub_080375A4(GibdoEntity* this) {
                 sub_08037794(this);
             } else {
                 UpdateAnimationSingleFrame(super);
-                if (ProcessMovement(super) == 0) {
+                if (ProcessMovement0(super) == 0) {
                     if (!(--super->field_0xf)) {
                         sub_080379BC(this);
                     }
@@ -148,7 +148,7 @@ void sub_08037624(GibdoEntity* this) {
             } else {
                 UpdateAnimationSingleFrame(super);
                 UpdateAnimationSingleFrame(super);
-                if (ProcessMovement(super) == 0) {
+                if (ProcessMovement0(super) == 0) {
                     if (!(--super->field_0xf)) {
                         sub_080379BC(this);
                     }
@@ -170,7 +170,7 @@ void sub_08037690(GibdoEntity* this) {
     } else {
         if ((super->frame & 1) != 0) {
             super->hitType = 0x27;
-            ProcessMovement(super);
+            ProcessMovement0(super);
         }
     }
 }
@@ -359,7 +359,7 @@ void sub_08037A58(GibdoEntity* this) {
     super->iframes = 0xf4;
     super->knockbackDirection = DirectionFromAnimationState(super->animationState) ^ 0x10;
     super->knockbackDuration = 8;
-    super->field_0x46 = 0x180;
+    super->knockbackSpeed = 0x180;
     this->field_0x76 = 0x3c;
     InitAnimationForceUpdate(super, super->animationState + 0x10);
 }
@@ -370,7 +370,7 @@ void sub_08037ACC(GibdoEntity* this) {
     gPlayerEntity.iframes = 0x1e;
     gPlayerEntity.knockbackDirection = DirectionFromAnimationState(super->animationState);
     gPlayerEntity.knockbackDuration = 4;
-    gPlayerEntity.field_0x46 = 0x180;
+    gPlayerEntity.knockbackSpeed = 0x180;
 }
 
 // Damage player maybe?

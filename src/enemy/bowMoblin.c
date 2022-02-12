@@ -365,7 +365,7 @@ void sub_0803C6DC(BowMoblinEntity* this) {
         super->speed = tmp;
     }
 
-    ProcessMovement(super);
+    ProcessMovement0(super);
     GetNextFrame(super);
 }
 

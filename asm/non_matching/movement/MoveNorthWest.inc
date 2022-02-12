@@ -51,7 +51,7 @@ _080AEEE4:
 	adds r0, r4, #0
 	movs r1, #0x1c
 	mov r2, sb
-	bl sub_080AE58C
+	bl CalculateEntityTileCollisions
 	b _080AEF18
 _080AEEFE:
 	movs r0, #0x80
@@ -65,7 +65,7 @@ _080AEEFE:
 	adds r0, r4, #0
 	movs r1, #0x1c
 	mov r2, sb
-	bl sub_080AE58C
+	bl CalculateEntityTileCollisions
 _080AEF18:
 	ldrh r2, [r4, #0x2a]
 	movs r0, #0xe

@@ -14,18 +14,18 @@
 #include "game.h"
 #include "item.h"
 
+void sub_08028E9C(Entity*);
+void sub_08028EDC(Entity*);
+bool32 sub_08028F98(Entity*, u32);
+bool32 sub_08028FDC(Entity*);
+void sub_08028FFC(Entity*);
+void sub_08029078(Entity*);
+void sub_080290E0(Entity*, u32);
+void sub_080290FC(Entity*);
 bool32 sub_0802915C(Entity*);
 bool32 sub_080291DC(Entity*);
 void sub_0802922C(Entity*);
-void sub_08028E9C(Entity*);
-void sub_08028FFC(Entity*);
 void sub_0802925C(Entity*);
-void sub_080290E0(Entity*, u32);
-bool32 sub_08028F98(Entity*, u32);
-void sub_08029078(Entity*);
-bool32 sub_08028FDC(Entity*);
-void sub_080290FC(Entity*);
-void sub_08028EDC(Entity*);
 
 extern const struct SalesOffering gUnk_080CC954[];
 extern const u8 gUnk_080CC9C0[];

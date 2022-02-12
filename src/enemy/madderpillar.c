@@ -450,7 +450,7 @@ void sub_0802A098(Entity* this) {
     }
     uVar1 = this->x.HALF.HI;
     uVar2 = this->y.HALF.HI;
-    ProcessMovement(this);
+    ProcessMovement0(this);
     if (sub_08029F48(this)) {
         sub_08029E0C(this);
         sub_08029EEC(this);

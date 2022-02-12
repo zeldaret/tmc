@@ -246,7 +246,7 @@ void sub_0802F04C(Entity* this) {
 
     oldX = this->x.HALF.HI;
     oldY = this->y.HALF.HI;
-    if (ProcessMovement(this) == 0) {
+    if (ProcessMovement0(this) == 0) {
         sub_0802EFB8(this);
         return;
     }

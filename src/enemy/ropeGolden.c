@@ -69,7 +69,7 @@ void sub_0803827C(Entity* this) {
         }
     }
     UpdateAnimationVariableFrames(this, 0x2);
-    if (ProcessMovement(this) == 0) {
+    if (ProcessMovement0(this) == 0) {
         sub_080383AC(this);
     } else {
         if (!(--this->actionDelay)) {

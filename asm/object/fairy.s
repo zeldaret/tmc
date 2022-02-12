@@ -334,7 +334,7 @@ _0808D8EE:
 	strb r0, [r4, #0x18]
 _0808D910:
 	adds r0, r4, #0
-	bl sub_080AEFB4
+	bl ProcessMovement1
 	bl AnyPrioritySet
 	cmp r0, #0
 	bne _0808D954

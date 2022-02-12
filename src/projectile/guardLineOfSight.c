@@ -62,7 +62,7 @@ void GuardLineOfSight(Entity* this) {
             DeleteThisEntity();
         }
         LinearMoveUpdate(this);
-        if (sub_080AE4CC(gUnk_02027EB4, this->x.HALF.HI, this->y.HALF.HI, 2) != 0) {
+        if (IsTileCollision(gUnk_02027EB4, this->x.HALF.HI, this->y.HALF.HI, 2)) {
             DeleteThisEntity();
         }
     }

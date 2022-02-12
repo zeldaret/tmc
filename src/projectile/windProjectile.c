@@ -2,10 +2,6 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern s32 sub_080AF090(Entity*);
-extern s32 IsProjectileOffScreen(Entity*);
-extern void sub_08016AD2(Entity*);
-
 extern void (*const WindProjectile_Actions[])(Entity*);
 
 void WindProjectile(Entity* this) {
@@ -58,8 +54,8 @@ void WindProjectile_Action1(Entity* this) {
 
 void WindProjectile_Action2(Entity* this) {
     GetNextFrame(this);
-    if (sub_080AF090(this) != 0) {
-        if (IsProjectileOffScreen(this) != 0) {
+    if (ProcessMovement3(this) != 0) {
+        if (IsProjectileOffScreen(this)) {
             DeleteEntity(this);
         } else {
             sub_08016AD2(this);

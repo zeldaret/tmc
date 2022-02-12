@@ -601,7 +601,7 @@ _08038890:
 	cmp r0, #0
 	bne _080388A8
 	adds r0, r4, #0
-	bl ProcessMovement
+	bl ProcessMovement0
 	b _080388B2
 _080388A8:
 	subs r0, #1

@@ -14,26 +14,23 @@ typedef struct {
 } PACKED stuct_080CAB14;
 
 void sub_08021218(Entity*, u32, u32);
-void sub_08021588(Entity*);
-void sub_080213D0(Entity*, u32);
+void sub_0802124C(Entity*);
+u32 sub_08021274(u32, u32);
 void sub_08021390(Entity*);
-void sub_0802159C(Entity*);
-void sub_0804AA1C(Entity*);
+void sub_080213B0(Entity*);
+void sub_080213D0(Entity*, u32);
 void sub_080213F0(Entity*);
+void sub_08021400(Entity*);
+void sub_08021414(Entity*);
+void sub_08021424(Entity*);
 u32 sub_080214FC(Entity*);
 void sub_08021540(Entity*);
+void sub_08021588(Entity*);
+void sub_0802159C(Entity*);
 void sub_08021600(Entity*);
-void sub_080213B0(Entity*);
-u32 PlayerInRange(Entity*, u32, u32);
-u32 sub_0802169C(Entity*, Entity*);
-void sub_0802124C(Entity*);
 void sub_08021644(Entity*);
-void sub_08021414(Entity*);
-void sub_08021400(Entity*);
-u32 sub_08021274(u32, u32);
 u32 sub_08021664(Entity*, Entity*);
-u32 sub_0804A044(Entity*, Entity*, u32);
-void sub_08021424(Entity*);
+u32 sub_0802169C(Entity*, Entity*);
 
 extern Entity* gUnk_020000B0;
 
@@ -157,7 +154,7 @@ void sub_08020DD4(Entity* this) {
     } else {
         if (--this->actionDelay == 0)
             sub_08021540(this);
-        ProcessMovement(this);
+        ProcessMovement0(this);
         UpdateAnimationSingleFrame(this);
     }
 }
@@ -191,7 +188,7 @@ void sub_08020E98(Entity* this) {
             sub_08021218(this, 7, this->animationState);
         } else {
             this->direction = GetFacingDirection(gUnk_020000B0, this);
-            if (ProcessMovement(this) == 0) {
+            if (ProcessMovement0(this) == 0) {
                 this->action = 8;
                 sub_08021218(this, 7, this->animationState);
             } else {
@@ -205,7 +202,7 @@ void sub_08020E98(Entity* this) {
             sub_08021414(this);
         } else {
             this->direction = GetFacingDirection(this, gUnk_020000B0);
-            ProcessMovement(this);
+            ProcessMovement0(this);
             sub_0802124C(this);
             sub_08021644(this);
         }
@@ -324,7 +321,7 @@ void sub_080210E4(Entity* this) {
     }
 
     sub_08021644(this);
-    if ((this->frame & 0x10) && (!ProcessMovement(this) || (this->child && (this->child->bitfield & 0x80)))) {
+    if ((this->frame & 0x10) && (!ProcessMovement0(this) || (this->child && (this->child->bitfield & 0x80)))) {
         sub_080213D0(this, 0);
     } else {
         if (--this->field_0x76.HWORD == 0)
@@ -519,7 +516,7 @@ void sub_08021424(Entity* this) {
         sub_080212B0(this);
     } else {
         this->direction = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, x, y);
-        if (!ProcessMovement(this)) {
+        if (!ProcessMovement0(this)) {
             sub_080212B0(this);
         } else {
             UpdateAnimationSingleFrame(this);

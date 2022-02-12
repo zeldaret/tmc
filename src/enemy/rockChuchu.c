@@ -87,7 +87,7 @@ void sub_08022390(Entity* this) {
         }
 
         if (this->field_0xf == 0) {
-            ProcessMovement(this);
+            ProcessMovement0(this);
         } else {
             this->field_0xf = this->field_0xf - 1;
         }

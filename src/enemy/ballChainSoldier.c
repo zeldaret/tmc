@@ -23,15 +23,14 @@ const u8 gUnk_080D0724[];
 const u16 gUnk_080D0728[];
 const u16 gUnk_080D0730[];
 
-extern u32 sub_0804A044(Entity*, Entity*, u32);
-extern void sub_0803E86C(BallChainSoldierEntity*);
-extern void sub_0803E9A4(BallChainSoldierEntity*);
-extern bool32 sub_0803E9D4(BallChainSoldierEntity*);
-extern void sub_0803E8CC(BallChainSoldierEntity*);
-extern void sub_0803E92C(BallChainSoldierEntity*);
-extern bool32 sub_0803EA64(BallChainSoldierEntity*);
-extern void sub_0803E94C(BallChainSoldierEntity*, u32);
-extern bool32 sub_0803EAD0(BallChainSoldierEntity*, u32);
+void sub_0803E86C(BallChainSoldierEntity*);
+void sub_0803E9A4(BallChainSoldierEntity*);
+bool32 sub_0803E9D4(BallChainSoldierEntity*);
+void sub_0803E8CC(BallChainSoldierEntity*);
+void sub_0803E92C(BallChainSoldierEntity*);
+bool32 sub_0803EA64(BallChainSoldierEntity*);
+void sub_0803E94C(BallChainSoldierEntity*, u32);
+bool32 sub_0803EAD0(BallChainSoldierEntity*, u32);
 
 void BallChainSoldier(Entity* this) {
     EnemyFunctionHandler(this, (EntityActionArray)BallChainSoldier_Functions);
@@ -92,7 +91,7 @@ void sub_0803E61C(BallChainSoldierEntity* this) {
     sub_0803E9A4(this);
     if (sub_0803E9D4(this) == 0) {
         if (super->knockbackDuration == 0) {
-            if (ProcessMovement(super) == 0) {
+            if (ProcessMovement0(super) == 0) {
                 sub_0803E86C(this);
                 return;
             }

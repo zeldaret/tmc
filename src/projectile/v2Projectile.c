@@ -10,11 +10,6 @@ extern void (*const gUnk_0812A7F8[])(Entity*);
 extern void (*const gUnk_0812A800[])(Entity*);
 extern void (*const gUnk_0812A808[])(Entity*);
 
-extern void SoundReqClipped(Entity*, u32);
-extern void sub_08079D84(void);
-
-extern s32 sub_080AF090(Entity*);
-
 void V2Projectile(Entity* this) {
     V2Projectile_Functions[GetNextFunction(this)](this);
 }
@@ -108,7 +103,7 @@ void sub_080ABD44(Entity* this) {
         this->action = 2;
         InitializeAnimation(this, 1);
     }
-    sub_080AF090(this);
+    ProcessMovement3(this);
     GetNextFrame(this);
 }
 

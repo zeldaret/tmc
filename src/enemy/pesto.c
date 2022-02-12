@@ -548,7 +548,7 @@ void sub_08024940(Entity* this) {
         }
     }
 
-    sub_080AEFB4(this);
+    ProcessMovement1(this);
     GetNextFrame(this);
 }
 

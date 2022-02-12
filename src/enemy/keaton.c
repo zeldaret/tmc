@@ -74,7 +74,7 @@ void sub_0803248C(Entity* this) {
             if (this->actionDelay == 0) {
                 sub_08032650(this);
             }
-            if (ProcessMovement(this) == 0) {
+            if (ProcessMovement0(this) == 0) {
                 this->actionDelay = 1;
             }
             UpdateAnimationSingleFrame(this);
@@ -126,7 +126,7 @@ void sub_08032574(Entity* this) {
         return;
     }
 
-    if (--this->field_0x76.HWORD == 0 || !sub_080AEFE0(this)) {
+    if (--this->field_0x76.HWORD == 0 || !ProcessMovement2(this)) {
         sub_0803275C(this);
         return;
     }

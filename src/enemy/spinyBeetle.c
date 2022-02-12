@@ -325,7 +325,7 @@ void sub_08033D78(SpinyBeetleEntity* this) {
             break;
         default:
             if (sub_080002E0(tile, super->collisionLayer) - 1 > 0x3e)
-                ProcessMovement(super);
+                ProcessMovement0(super);
             break;
     }
 }

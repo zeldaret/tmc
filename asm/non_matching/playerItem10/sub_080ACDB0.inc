@@ -127,7 +127,7 @@ _080ACE90:
 	strh r1, [r4, #0x24]
 _080ACEA4:
 	adds r0, r4, #0
-	bl sub_080AEFB4
+	bl ProcessMovement1
 	b _080ACEB6
 	.align 2, 0
 _080ACEAC: .4byte gUnk_0812AAE8

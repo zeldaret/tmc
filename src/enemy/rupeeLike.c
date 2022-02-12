@@ -145,7 +145,7 @@ void sub_080294D4(Entity* this) {
             sub_08004596(this, GetFacingDirection(this, &gPlayerEntity));
             sub_0802969C(this);
         }
-        ProcessMovement(this);
+        ProcessMovement0(this);
         sub_080296C8(this);
     } else {
         this->action = 6;

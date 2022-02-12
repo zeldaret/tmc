@@ -101,7 +101,7 @@ void sub_08022D40(Entity* this) {
         }
     } else {
         sub_08022F14(this);
-        ProcessMovement(this);
+        ProcessMovement0(this);
 
         if (this->collisions) {
             sub_0800417E(this, this->collisions);

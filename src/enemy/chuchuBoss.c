@@ -6,8 +6,7 @@
  */
 
 #include "enemy.h"
-
-void sub_08027870(Entity*);
+#include "functions.h"
 
 extern void (*const ChuchuBoss_Functions[])(Entity*);
 extern void (*const gUnk_080CC1B0[])(Entity*);

@@ -276,7 +276,7 @@ _0809FC8A:
 	strb r0, [r4, #0x18]
 _0809FCAC:
 	adds r0, r4, #0
-	bl sub_080AEFB4
+	bl ProcessMovement1
 	bl AnyPrioritySet
 	cmp r0, #0
 	bne _0809FCF8

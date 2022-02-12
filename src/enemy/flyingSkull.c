@@ -221,7 +221,7 @@ void sub_0803A080(FlyingSkullEntity* this) {
 
 void sub_0803A09C(FlyingSkullEntity* this) {
     GetNextFrame(super);
-    sub_080AEFE0(super);
+    ProcessMovement2(super);
 
     if (super->collisions) {
         sub_0803A0E0(this);

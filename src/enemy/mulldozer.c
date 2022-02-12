@@ -159,11 +159,11 @@ void Mulldozer_Action5(MulldozerEntity* this) {
         sub_080332A8(this);
     }
     sub_080331E8(this);
-    ProcessMovement(super);
+    ProcessMovement0(super);
 }
 
 void Mulldozer_Action6(MulldozerEntity* this) {
-    ProcessMovement(super);
+    ProcessMovement0(super);
     sub_08032F48(this);
     if (--super->field_0xf == 0) {
         super->field_0xf = 2;
@@ -206,7 +206,7 @@ void sub_08032F64(MulldozerEntity* this) {
         sub_08032F24(this);
     }
     sub_08032F48(this);
-    ProcessMovement(super);
+    ProcessMovement0(super);
 }
 
 void sub_08032F90(MulldozerEntity* this) {

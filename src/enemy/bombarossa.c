@@ -14,8 +14,6 @@ typedef struct {
 void (*const Bombarossa_Functions[])(Entity*);
 const s8 gUnk_080CEB50[];
 
-extern void sub_080A2CC0(Entity*, void*, void*);
-
 void sub_0803350C(BombarossaEntity* this);
 
 void Bombarossa(Entity* this) {

@@ -52,7 +52,7 @@ void sub_080453E8(Entity* this) {
 }
 
 void sub_08045430(Entity* this) {
-    sub_080AEFE0(this);
+    ProcessMovement2(this);
     GetNextFrame(this);
     if (GravityUpdate(this, 0x1800) == 0)
         sub_08045524(this);

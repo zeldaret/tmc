@@ -273,7 +273,7 @@ void Enemy50_Action6(Enemy50Entity* this) {
                 sub_08004596(super, GetFacingDirection(super, gUnk_020000B0));
             }
             sub_0803F66C(this);
-            sub_080AEFB4(super);
+            ProcessMovement1(super);
         } else {
             super->action = 7;
             super->actionDelay = 0x1e;
@@ -316,7 +316,7 @@ void Enemy50_Action9(Enemy50Entity* this) {
         super->animationState = 0xff;
         super->iframes = -0xc;
         super->knockbackDuration = 0x14;
-        super->field_0x46 = 0x180;
+        super->knockbackSpeed = 0x180;
         super->knockbackDirection = gPlayerEntity.animationState << 2 ^ 0x10;
         sub_08041128(this);
         sub_0803F6EC(this);

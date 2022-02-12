@@ -46,7 +46,7 @@ void sub_080A9EBC(Entity* this) {
             case 4:
                 this->field_0xf = 0;
                 ModHealth(-2);
-                sub_080AF090(this);
+                ProcessMovement3(this);
                 UpdateAnimationSingleFrame(this);
                 break;
             case 3:

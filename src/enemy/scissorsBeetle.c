@@ -155,7 +155,7 @@ void sub_08038B08(ScissorsBeetleEntity* this) {
 }
 
 void sub_08038B64(ScissorsBeetleEntity* this) {
-    ProcessMovement(super);
+    ProcessMovement0(super);
     UpdateAnimationSingleFrame(super);
     if (--super->field_0xf == 0) {
         super->field_0xf = 2;
@@ -165,7 +165,7 @@ void sub_08038B64(ScissorsBeetleEntity* this) {
 
 void sub_08038B90(ScissorsBeetleEntity* this) {
     UpdateAnimationSingleFrame(super);
-    ProcessMovement(super);
+    ProcessMovement0(super);
     sub_0800445C(super);
 }
 

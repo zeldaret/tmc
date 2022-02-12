@@ -50,7 +50,7 @@ void Winder_Init(Entity* this) {
 void sub_080AB950(Entity* this) {
     if (this->type == 0) {
         u8 dir;
-        ProcessMovement(this);
+        ProcessMovement0(this);
         dir = this->direction >> 3;
         if (((gUnk_0812A6C4)[dir] & this->collisions) || sub_080AB9FC(this, this->direction)) {
             this->direction = gUnk_0812A6BC[(Random() & 0x1) + (dir << 1)];

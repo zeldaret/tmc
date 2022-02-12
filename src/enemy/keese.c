@@ -10,7 +10,6 @@
 
 extern void GenericKnockback2(Entity*);
 extern void Keese_StartFly(Entity*);
-extern void sub_080AEFB4(Entity*);
 extern void sub_08021F24(Entity*);
 
 extern void (*const Keese_Functions[])(Entity*);
@@ -83,7 +82,7 @@ void Keese_Fly(Entity* this) {
     if (this->frame & 0x80) {
         sub_08021F24(this);
     } else {
-        sub_080AEFB4(this);
+        ProcessMovement1(this);
     }
     this->spriteOffsetY = gKeeseSpriteOffsets[this->frame];
 }

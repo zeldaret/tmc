@@ -476,7 +476,7 @@ _080373C4:
 sub_080373C8: @ 0x080373C8
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080AEFE0
+	bl ProcessMovement2
 	ldrh r0, [r4, #0x2a]
 	cmp r0, #0
 	beq _080373DC

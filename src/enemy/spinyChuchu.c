@@ -175,7 +175,7 @@ void sub_080226EC(Entity* this) {
             this->direction = sub_08049F84(this, 1);
         }
 
-        ProcessMovement(this);
+        ProcessMovement0(this);
     }
 
     GetNextFrame(this);
@@ -224,7 +224,7 @@ void sub_0802281C(Entity* this) {
 void sub_08022854(Entity* this) {
     GetNextFrame(this);
     if (this->frame & 1) {
-        sub_080AEFE0(this);
+        ProcessMovement2(this);
         if (GravityUpdate(this, Q_8_8(24.0)) == 0) {
             this->action = 7;
             this->hitType = 0x5c;

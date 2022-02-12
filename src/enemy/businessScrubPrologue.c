@@ -12,6 +12,7 @@ typedef struct {
     u32 unk_84;
 } BusinessScrubPrologueEntity;
 
+extern void sub_080954AC(Entity*, u32);
 extern u16 script_BusinessScrubIntro[];
 
 void (*const BusinessScrubPrologue_Functions[])(Entity*);
@@ -19,9 +20,6 @@ void (*const gUnk_080D1A14[])(BusinessScrubPrologueEntity*);
 const u8 gUnk_080D1A38[];
 const s8 gUnk_080D1A3E[];
 const u16 gUnk_080D1A4E[];
-
-extern void sub_08095C48(Entity* this);
-extern void sub_080954AC(Entity*, u32);
 
 void sub_08046030(BusinessScrubPrologueEntity*, u32);
 bool32 sub_08045F54(BusinessScrubPrologueEntity*, u32);

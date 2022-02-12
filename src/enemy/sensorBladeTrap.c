@@ -9,7 +9,6 @@
 #include "functions.h"
 
 extern u32 sub_0804A024(Entity*, u32, u32);
-extern bool32 sub_080AF038(Entity*);
 
 extern u8 gUnk_02027EB4[];
 extern u8 gUnk_0200D654[];
@@ -61,7 +60,7 @@ void sub_0802BA18(Entity* this) {
 }
 
 void sub_0802BA8C(Entity* this) {
-    if (!sub_080AF038(this)) {
+    if (!ProcessMovement12(this)) {
         sub_0802BB10(this);
     } else {
         switch (this->direction >> 3) {
@@ -86,7 +85,7 @@ void sub_0802BA8C(Entity* this) {
 }
 
 void sub_0802BAFC(Entity* this) {
-    if (!sub_080AF038(this)) {
+    if (!ProcessMovement12(this)) {
         this->action = 1;
     }
 }
@@ -101,7 +100,7 @@ void sub_0802BB10(Entity* this) {
 bool32 sub_0802BB2C(Entity* this, u32 param_2) {
     u8* layer = this->collisionLayer == 2 ? gUnk_0200D654 : gUnk_02027EB4;
     const s8* ptr = &gUnk_080CD3DC[param_2 >> 2];
-    return sub_080AE4CC(layer, this->x.HALF.HI + ptr[0], this->y.HALF.HI + ptr[1], 0);
+    return IsTileCollision(layer, this->x.HALF.HI + ptr[0], this->y.HALF.HI + ptr[1], 0);
 }
 
 // clang-format off

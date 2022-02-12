@@ -180,7 +180,7 @@ void Leever_Move(Entity* this) {
         }
     }
 
-    ProcessMovement(this);
+    ProcessMovement0(this);
 }
 
 // clang-format off

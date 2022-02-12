@@ -8,12 +8,7 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern s32 sub_080012DC(Entity*);
-extern u32 sub_0804A024(Entity*, u32, u32);
-extern bool32 sub_080AF038(Entity*);
-
 extern void (*const gUnk_080012C8[])(Entity*);
-
 extern void (*const Chaser_Functions[])(Entity*);
 extern void (*const gUnk_080CD298[])(Entity*);
 
@@ -54,7 +49,7 @@ void sub_0802B56C(Entity* this) {
         this->speed = 0x40;
     }
 
-    if (sub_080AF038(this)) {
+    if (ProcessMovement12(this)) {
         if (this->animIndex != 1) {
             InitializeAnimation(this, 1);
         }

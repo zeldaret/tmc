@@ -49,7 +49,7 @@
 	adds r1, r7, #0
 	mov r2, sl
 	adds r3, r4, #0
-	bl sub_080AE4CC
+	bl IsTileCollision
 	adds r6, r0, #0
 	lsls r6, r6, #1
 	mov r2, sl
@@ -57,7 +57,7 @@
 	adds r0, r5, #0
 	adds r1, r7, #0
 	adds r3, r4, #0
-	bl sub_080AE4CC
+	bl IsTileCollision
 	orrs r6, r0
 	lsls r6, r6, #1
 	mov r0, sl
@@ -66,7 +66,7 @@
 	adds r0, r5, #0
 	adds r1, r7, #0
 	adds r3, r4, #0
-	bl sub_080AE4CC
+	bl IsTileCollision
 	orrs r6, r0
 	lsls r6, r6, #6
 	b _080AE6D2
@@ -80,7 +80,7 @@ _080AE628:
 	adds r1, r7, #0
 	mov r2, sl
 	adds r3, r4, #0
-	bl sub_080AE4CC
+	bl IsTileCollision
 	adds r6, r0, #0
 	lsls r6, r6, #1
 	mov r2, sl
@@ -88,7 +88,7 @@ _080AE628:
 	adds r0, r5, #0
 	adds r1, r7, #0
 	adds r3, r4, #0
-	bl sub_080AE4CC
+	bl IsTileCollision
 	orrs r6, r0
 	lsls r6, r6, #1
 	mov r1, sl
@@ -104,7 +104,7 @@ _080AE65C:
 	adds r1, r7, #0
 	mov r2, sl
 	adds r3, r4, #0
-	bl sub_080AE4CC
+	bl IsTileCollision
 	adds r6, r0, #0
 	lsls r6, r6, #1
 	mov r1, sl
@@ -114,7 +114,7 @@ _080AE65C:
 	adds r1, r7, #0
 	ldr r2, [sp, #0x10]
 	adds r3, r4, #0
-	bl sub_080AE4CC
+	bl IsTileCollision
 	orrs r6, r0
 	lsls r6, r6, #1
 	mov r2, sl
@@ -124,7 +124,7 @@ _080AE65C:
 	adds r0, r5, #0
 	adds r1, r7, #0
 	adds r3, r4, #0
-	bl sub_080AE4CC
+	bl IsTileCollision
 	orrs r6, r0
 	lsls r6, r6, #2
 	ldr r1, [sp, #0xc]
@@ -134,14 +134,14 @@ _080AE65C:
 	adds r1, r7, #0
 	mov r2, sl
 	adds r3, r4, #0
-	bl sub_080AE4CC
+	bl IsTileCollision
 	orrs r6, r0
 	lsls r6, r6, #1
 	adds r0, r5, #0
 	adds r1, r7, #0
 	ldr r2, [sp, #0x10]
 	adds r3, r4, #0
-	bl sub_080AE4CC
+	bl IsTileCollision
 	orrs r6, r0
 	lsls r6, r6, #1
 	adds r0, r5, #0
@@ -149,7 +149,7 @@ _080AE65C:
 	mov r2, r8
 _080AE6C8:
 	adds r3, r4, #0
-	bl sub_080AE4CC
+	bl IsTileCollision
 	orrs r6, r0
 	lsls r6, r6, #2
 _080AE6D2:
@@ -174,7 +174,7 @@ _080AE6D2:
 	ldr r1, [sp, #0xc]
 	adds r2, r7, #0
 	adds r3, r4, #0
-	bl sub_080AE4CC
+	bl IsTileCollision
 	orrs r6, r0
 	lsls r6, r6, #1
 	ldr r1, [sp, #0xc]
@@ -182,7 +182,7 @@ _080AE6D2:
 	adds r0, r5, #0
 	adds r2, r7, #0
 	adds r3, r4, #0
-	bl sub_080AE4CC
+	bl IsTileCollision
 	orrs r6, r0
 	lsls r6, r6, #1
 	ldr r0, [sp, #0xc]
@@ -191,7 +191,7 @@ _080AE6D2:
 	adds r0, r5, #0
 	adds r2, r7, #0
 	adds r3, r4, #0
-	bl sub_080AE4CC
+	bl IsTileCollision
 	orrs r6, r0
 	lsls r6, r6, #5
 	b _080AE7D6
@@ -204,7 +204,7 @@ _080AE72C:
 	ldr r1, [sp, #0xc]
 	adds r2, r7, #0
 	adds r3, r4, #0
-	bl sub_080AE4CC
+	bl IsTileCollision
 	orrs r6, r0
 	lsls r6, r6, #1
 	ldr r1, [sp, #0xc]
@@ -212,7 +212,7 @@ _080AE72C:
 	adds r0, r5, #0
 	adds r2, r7, #0
 	adds r3, r4, #0
-	bl sub_080AE4CC
+	bl IsTileCollision
 	orrs r6, r0
 	lsls r6, r6, #1
 	ldr r2, [sp, #0xc]
@@ -227,7 +227,7 @@ _080AE760:
 	ldr r1, [sp, #0xc]
 	adds r2, r7, #0
 	adds r3, r4, #0
-	bl sub_080AE4CC
+	bl IsTileCollision
 	orrs r6, r0
 	lsls r6, r6, #1
 	ldr r1, [sp, #0xc]
@@ -236,7 +236,7 @@ _080AE760:
 	adds r0, r5, #0
 	adds r2, r7, #0
 	adds r3, r4, #0
-	bl sub_080AE4CC
+	bl IsTileCollision
 	orrs r6, r0
 	lsls r6, r6, #1
 	ldr r2, [sp, #0xc]
@@ -247,7 +247,7 @@ _080AE760:
 	mov r1, sb
 	adds r2, r7, #0
 	adds r3, r4, #0
-	bl sub_080AE4CC
+	bl IsTileCollision
 	orrs r6, r0
 	lsls r6, r6, #2
 	mov r1, sl
@@ -257,14 +257,14 @@ _080AE760:
 	ldr r1, [sp, #0xc]
 	adds r2, r7, #0
 	adds r3, r4, #0
-	bl sub_080AE4CC
+	bl IsTileCollision
 	orrs r6, r0
 	lsls r6, r6, #1
 	adds r0, r5, #0
 	ldr r1, [sp, #0x14]
 	adds r2, r7, #0
 	adds r3, r4, #0
-	bl sub_080AE4CC
+	bl IsTileCollision
 	orrs r6, r0
 	lsls r6, r6, #1
 	adds r0, r5, #0
@@ -272,7 +272,7 @@ _080AE760:
 _080AE7CA:
 	adds r2, r7, #0
 	adds r3, r4, #0
-	bl sub_080AE4CC
+	bl IsTileCollision
 	orrs r6, r0
 	lsls r6, r6, #1
 _080AE7D6:

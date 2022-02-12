@@ -11,9 +11,6 @@
 #include "object.h"
 #include "functions.h"
 
-extern void sub_08078930(Entity*);
-extern void sub_08078954(Entity*);
-
 void sub_0802CB68(Entity*);
 void sub_0802CBC4(Entity*);
 void sub_0802CC18(Entity*);
@@ -161,7 +158,7 @@ void sub_0802C8D8(Entity* this) {
 
 void sub_0802C91C(Entity* this) {
     GetNextFrame(this);
-    ProcessMovement(this);
+    ProcessMovement0(this);
     if (this->field_0x82.HALF.LO) {
         if (this->collisions) {
             sub_0800417E(this, this->collisions);

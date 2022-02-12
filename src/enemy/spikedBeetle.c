@@ -94,7 +94,7 @@ void sub_0802B744(Entity* this) {
             this->action = 2;
             this->actionDelay = 0x1e;
         } else {
-            if (!ProcessMovement(this)) {
+            if (!ProcessMovement0(this)) {
                 this->actionDelay = 1;
             }
         }
@@ -127,7 +127,7 @@ void sub_0802B7FC(Entity* this) {
 }
 
 void sub_0802B820(Entity* this) {
-    if (!sub_080AEFE0(this)) {
+    if (!ProcessMovement2(this)) {
         this->actionDelay = 1;
     }
     GetNextFrame(this);
@@ -152,7 +152,7 @@ void sub_0802B880(Entity* this) {
 }
 
 void sub_0802B8B0(Entity* this) {
-    sub_080AEFE0(this);
+    ProcessMovement2(this);
     switch (sub_080044EC(this, 0x1800)) {
         case 0:
             this->action = 7;

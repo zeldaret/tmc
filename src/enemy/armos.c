@@ -331,7 +331,7 @@ void sub_080309E8(ArmosEntity* this) {
 }
 
 void sub_08030A04(ArmosEntity* this) {
-    ProcessMovement(super);
+    ProcessMovement0(super);
     if ((super->frame & 1) != 0) {
         super->frame = super->frame & 0xfe;
         EnqueueSFX(SFX_101);

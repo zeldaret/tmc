@@ -122,7 +122,7 @@ void sub_08027EFC(Entity* this) {
             this->field_0x82.HALF.LO = this->direction;
             this->actionDelay = 8;
         }
-        ProcessMovement(this);
+        ProcessMovement0(this);
         GetNextFrame(this);
     } else {
         this->action = 6;

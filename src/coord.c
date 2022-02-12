@@ -86,21 +86,21 @@ u32 sub_0806F3E4(Entity* ent) {
         return 0;
     switch (gPlayerState.field_0x1d) {
         case 1:
-            ent->field_0x46 += 64;
+            ent->knockbackSpeed += 64;
             break;
         case 2:
-            ent->field_0x46 += 128;
+            ent->knockbackSpeed += 128;
             break;
         case 3:
-            ent->field_0x46 += 192;
+            ent->knockbackSpeed += 192;
             break;
     }
-    if (ent->field_0x46 > 0x500)
-        ent->field_0x46 = 0x500;
+    if (ent->knockbackSpeed > 0x500)
+        ent->knockbackSpeed = 0x500;
     p = &gUnk_08126EE4[gPlayerEntity.animationState & 0xE];
     tmp_ent.x.HALF.HI = p[0] + gPlayerEntity.x.HALF.HI;
     tmp_ent.y.HALF.HI = p[1] + gPlayerEntity.y.HALF.HI;
-    LinearMoveDirection(ent, ent->field_0x46, GetFacingDirection(ent, &tmp_ent));
+    LinearMoveDirection(ent, ent->knockbackSpeed, GetFacingDirection(ent, &tmp_ent));
     if (sub_0800419C(&tmp_ent, ent, 4, 4)) {
         u32 state = ent->field_0x1c & 0xF;
         if (state == 2) {

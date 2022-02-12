@@ -55,7 +55,7 @@ void sub_0802B35C(Entity* this) {
     bool32 is_head;
 
     GetNextFrame(this);
-    ProcessMovement(this);
+    ProcessMovement0(this);
     is_head = this->type == 0;
     if (this->collisions == 0) {
         if (--this->field_0xf == 0) {

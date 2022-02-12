@@ -271,7 +271,7 @@ void sub_0803CAD0(Entity* this) {
         this->direction =
             CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, this->field_0x74.HWORD, this->field_0x76.HWORD);
 
-        sub_080AEFE0(this);
+        ProcessMovement2(this);
     }
 }
 

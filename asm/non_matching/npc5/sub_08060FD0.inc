@@ -64,7 +64,7 @@ _08061040:
 	adds r1, r5, #0
 	adds r2, r4, #0
 	movs r3, #6
-	bl sub_080AE4CC
+	bl IsTileCollision
 	cmp r0, #0
 	beq _08061064
 	movs r0, #0

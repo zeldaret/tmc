@@ -451,7 +451,7 @@ void sub_08031250(EyegoreEntity* this) {
             super->y.HALF.HI = this->unk_76;
             this->unk_79 = tmp2 | this->unk_79;
         }
-        if (((this->unk_79 & 0x80) == 0) && (ProcessMovement(super) == 0)) {
+        if (((this->unk_79 & 0x80) == 0) && (ProcessMovement0(super) == 0)) {
             if ((this->unk_78 & 0x80) != 0) {
                 this->unk_78 = 0x82;
             } else {
@@ -459,7 +459,7 @@ void sub_08031250(EyegoreEntity* this) {
             }
         }
     } else {
-        ProcessMovement(super);
+        ProcessMovement0(super);
     }
 }
 

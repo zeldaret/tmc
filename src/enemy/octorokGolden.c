@@ -64,7 +64,7 @@ void sub_08037D0C(Entity* this) {
     }
 
     UpdateAnimationVariableFrames(this, 2);
-    if (ProcessMovement(this) == 0) {
+    if (ProcessMovement0(this) == 0) {
         sub_08037E14(this);
     } else if (--this->actionDelay == 0) {
         sub_08037E14(this);
@@ -116,7 +116,7 @@ void sub_08037E14(Entity* this) {
     ptr = gUnk_080CF498 + (dir >> 2);
     x = this->x.HALF.HI + *ptr;
     y = this->y.HALF.HI + *(ptr + 1);
-    if (sub_080AE4CC(layer, x, y, 0)) {
+    if (IsTileCollision(layer, x, y, 0)) {
         this->direction = Random() & 0x18;
     } else {
         this->direction = dir;

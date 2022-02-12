@@ -188,7 +188,7 @@ void Stalfos_Action2(StalfosEntity* this) {
 
 void Stalfos_Action3(StalfosEntity* this) {
     if (sub_08039758(this) == 0) {
-        if (ProcessMovement(super)) {
+        if (ProcessMovement0(super)) {
             UpdateAnimationSingleFrame(super);
             if (--this->unk_78 == 0) {
                 sub_0803998C(this);
@@ -201,7 +201,7 @@ void Stalfos_Action3(StalfosEntity* this) {
 }
 
 void Stalfos_Action4(StalfosEntity* this) {
-    sub_080AEFE0(super);
+    ProcessMovement2(super);
     if (GravityUpdate(super, 0x1800) == 0) {
         sub_0803998C(this);
         this->unk_7c = 0x5a;
@@ -210,7 +210,7 @@ void Stalfos_Action4(StalfosEntity* this) {
 }
 
 void Stalfos_Action5(StalfosEntity* this) {
-    sub_080AEFE0(super);
+    ProcessMovement2(super);
     GravityUpdate(super, 0x1800);
     if (super->zVelocity < 0) {
         super->action = 6;
@@ -260,7 +260,7 @@ void Stalfos_Action9(StalfosEntity* this) {
 }
 
 void Stalfos_Action11(StalfosEntity* this) {
-    sub_080AEFE0(super);
+    ProcessMovement2(super);
     UpdateAnimationSingleFrame(super);
     if (--this->unk_78 == 0) {
         sub_08039AD4(this);
@@ -365,7 +365,7 @@ void sub_0803992C(StalfosEntity* this) {
     super->speed = 0xe0;
     super->direction = super->animationState << 3;
     this->unk_78 = (u16)gUnk_080CF900[Random() & 0xf];
-    sub_080AE58C(super, super->direction, 0);
+    CalculateEntityTileCollisions(super, super->direction, 0);
     if ((gUnk_080CF910[super->animationState] & super->collisions) != 0) {
         InitAnimationForceUpdate(super, super->animationState);
     } else {

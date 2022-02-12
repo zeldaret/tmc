@@ -698,7 +698,7 @@ void sub_08042EF4(Entity* this) {
         }
         entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[3];
         entity->direction = this->direction;
-        ProcessMovement(entity);
+        ProcessMovement0(entity);
     }
 }
 

@@ -113,7 +113,7 @@ void Octorok_Idle(Entity* this) {
 }
 
 void Octorok_Move(Entity* this) {
-    ProcessMovement(this);
+    ProcessMovement0(this);
     GetNextFrame(this);
     if (--this->actionDelay == 0) {
         if (Octorok_FacesPlayer(this) && gOctorokSpitChanceModifier[this->type] <= (Random() & 3)) {

@@ -119,10 +119,10 @@ sub_080044AE: @ 0x080044AE
 	push {r0, r1, r2}
 	adds r1, r2, #0
 	movs r2, #2
-	bl sub_080AE58C
+	bl CalculateEntityTileCollisions
 	pop {r0, r1, r2}
 	movs r3, #2
-	bl sub_080AE7E8
+	bl ProcessMovementInternal
 _080044C8:
 	pop {r3}
 	bx r3

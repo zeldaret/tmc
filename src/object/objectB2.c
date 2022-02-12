@@ -22,7 +22,7 @@ void ObjectB2(Entity* this) {
     }
     this->speed = this->parent->speed;
     LinearMoveUpdate(this);
-    if (sub_080AE4CC((u8*)this->child, this->x.HALF.HI, this->y.HALF.HI, 9) != 0) {
+    if (IsTileCollision((u8*)this->child, this->x.HALF.HI, this->y.HALF.HI, 9) != 0) {
         DeleteThisEntity();
     }
     if (this->speed < 0x41) {

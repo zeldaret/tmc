@@ -171,7 +171,7 @@ void Peahat_Fly(Entity* this) {
         }
     }
 
-    sub_080AEFE0(this);
+    ProcessMovement2(this);
     GetNextFrame(this);
 }
 
@@ -205,7 +205,7 @@ void Peahat_ChargeTarget(Entity* this) {
             if ((gRoomTransition.frameCount & 3) == 0)
                 sub_08004596(this, GetFacingDirection(this, gUnk_020000B0));
         }
-        sub_080AEFE0(this);
+        ProcessMovement2(this);
     } else {
         sub_080205F8(this);
     }
@@ -223,7 +223,7 @@ void Peahat_ChargeEnd(Entity* this) {
         if (this->actionDelay & 1)
             this->speed -= 8;
 
-        sub_080AEFE0(this);
+        ProcessMovement2(this);
         UpdateAnimationVariableFrames(this, 4);
     }
 }
@@ -241,7 +241,7 @@ void Peahat_Stunned(Entity* this) {
             if (this->direction == 0xff)
                 this->direction = this->knockbackDirection;
 
-            ProcessMovement(this);
+            ProcessMovement0(this);
             GetNextFrame(this);
             break;
         case PeahatAnimation_SlicedPropeller:
@@ -307,7 +307,7 @@ void Peahat_Hop(Entity* this) {
     if (this->frame & 1) {
         sub_0800442E(this);
     } else {
-        ProcessMovement(this);
+        ProcessMovement0(this);
     }
 }
 
@@ -324,7 +324,7 @@ void Peahat_Takeoff(Entity* this) {
         sub_0800442E(this);
     } else {
         GravityUpdate(this, 0x1c00);
-        ProcessMovement(this);
+        ProcessMovement0(this);
     }
 }
 

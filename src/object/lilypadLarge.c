@@ -114,7 +114,7 @@ void sub_08085A44(LilypadLargeEntity* this) {
         }
     }
     sub_08085EFC(this);
-    sub_080AF134(super);
+    ProcessMovement4(super);
     sub_08085F1C(this);
 }
 
