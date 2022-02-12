@@ -48,12 +48,14 @@ void sub_0806BB7C(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_0806BBB0(Entity* this) {
-    u32 flag;
     u32 tmp;
 
     if (GetInventoryValue(0x46) == 0) {
-        flag = CheckGlobalFlag(0x29);
-        tmp = BOOLCAST(flag);
+        if (CheckGlobalFlag(0x29)) {
+            tmp = 1;
+        } else {
+            tmp = 0;
+        }
     } else {
         tmp = 2;
     }

@@ -48,13 +48,13 @@ void Mutoh_Head(Entity* this) {
 }
 
 void sub_080670B4(Entity* this) {
-    u32 uVar1;
     u32 uVar2;
 
     uVar2 = 0;
     if (GetInventoryValue(0x11) == 0) {
-        uVar1 = CheckGlobalFlag(TABIDACHI);
-        uVar2 = BOOLCAST(uVar1);
+        if (CheckGlobalFlag(TABIDACHI)) {
+            uVar2 = 1;
+        }
     }
     MessageNoOverlap(gUnk_08110C0C[uVar2], this);
 }

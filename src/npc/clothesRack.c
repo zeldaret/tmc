@@ -13,8 +13,10 @@ void sub_0806DD90(Entity* this) {
     u32 y;
 
     this->action = 1;
-    uVar1 = CheckGlobalFlag(DRUG_1);
-    uVar2 = BOOLCAST(uVar1);
+    uVar2 = 0;
+    if (CheckGlobalFlag(DRUG_1)) {
+        uVar2 = 1;
+    }
     if (CheckGlobalFlag(DRUG_2) != 0) {
         uVar2 = 2;
     }

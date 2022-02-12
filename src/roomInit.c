@@ -4691,8 +4691,10 @@ void sub_StateChange_SimonsSimulation_Main(void) {
     u32 r;
     u32 index;
     u32 tmp;
-    tmp = CheckGlobalFlag(LV4_CLEAR);
-    index = BOOLCAST(tmp);
+    index = 0;
+    if (CheckGlobalFlag(LV4_CLEAR)) {
+        index = 1;
+    }
     if (CheckGlobalFlag(LV5_CLEAR)) {
         index = 2;
     }

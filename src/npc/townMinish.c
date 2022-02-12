@@ -282,14 +282,14 @@ void sub_0806B064(Entity* this) {
 }
 
 void sub_0806B098(Entity* this) {
-    u32 f;
     int idx = 2;
 
     if (GetInventoryValue(0x46) == 0) {
         idx = 1;
         if (CheckGlobalFlag(MIZUKAKI_START)) {
-            f = CheckGlobalFlag(MIZUKAKI_HARIFALL);
-            idx = BOOLCAST(f);
+            if (!CheckGlobalFlag(MIZUKAKI_HARIFALL)) {
+                idx = 0;
+            }
         }
     }
     MessageNoOverlap(gUnk_08112C50[(this->type2 - 7) * 3 + idx], this);

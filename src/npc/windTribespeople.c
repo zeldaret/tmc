@@ -137,19 +137,19 @@ void sub_0806C944(Entity* this) {
 }
 
 void sub_0806C978(Entity* this) {
-    u32 flag;
-    u32 flagAsBool;
-    flag = CheckGlobalFlag(0x58);
-    flagAsBool = BOOLCAST(flag);
+    u32 flagAsBool = 0;
+    if (CheckGlobalFlag(0x58)) {
+        flagAsBool = 1;
+    }
     MessageNoOverlap(gUnk_08113B12[flagAsBool], this);
 }
 
 void sub_0806C99C(Entity* this) {
-    s32 flag;
-    u32 flagAsBool;
+    u32 flagAsBool = 0;
 
-    flag = CheckGlobalFlag(0x58);
-    flagAsBool = BOOLCAST(flag) & 2;
+    if (CheckGlobalFlag(0x58)) {
+        flagAsBool = 2;
+    }
     if (CheckLocalFlag(99) != 0) {
         flagAsBool += 1;
     }
@@ -165,10 +165,10 @@ void sub_0806C9D0(Entity* this) {
 }
 
 void sub_0806C9F8(Entity* this) {
-    u32 flag;
-    u32 flagAsBool;
-    flag = CheckGlobalFlag(0x58);
-    flagAsBool = BOOLCAST(flag);
+    u32 flagAsBool = 0;
+    if (CheckGlobalFlag(0x58)) {
+        flagAsBool = 1;
+    }
     MessageNoOverlap(gUnk_08113B22[flagAsBool], this);
 }
 

@@ -46,15 +46,13 @@ void sub_08063D24(Entity* this) {
 
 void sub_08063D44(Entity* this) {
     Entity* ent;
-    u32 temp, idx;
+    u32 idx;
 
     if (gEntCount > 0x46)
         return;
 
-    temp = this->id;
-    temp ^= 0x15;
-    idx = BOOLCAST(temp) * 4;
-    if (!LoadExtraSpriteData(this, &gUnk_0810F524[idx]))
+    idx = (this->id ^ 0x15) ? 1 : 0;
+    if (!LoadExtraSpriteData(this, &gUnk_0810F524[idx * 4]))
         return;
 
     InitializeAnimation(this, 4);
@@ -111,13 +109,11 @@ void sub_08063E6C(Entity* this) {
 }
 
 void sub_08063E90(Entity* this) {
-    u32 temp, idx;
+    u32 idx;
     u32 unk;
 
-    temp = this->id;
-    temp ^= 0x15;
-    idx = BOOLCAST(temp) * 4;
-    if (!LoadExtraSpriteData(this, &gUnk_0810F524[idx]))
+    idx = (this->id ^ 0x15) ? 1 : 0;
+    if (!LoadExtraSpriteData(this, &gUnk_0810F524[idx * 4]))
         return;
 
     this->action++;

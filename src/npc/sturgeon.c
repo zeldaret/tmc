@@ -94,8 +94,11 @@ void sub_08064CD8(Entity* this) {
     u32 flag;
     u32 tmp = 2;
     if (GetInventoryValue(0x46) == 0) {
-        flag = CheckLocalFlag(0x73);
-        tmp = BOOLCAST(flag);
+        if (CheckLocalFlag(0x73)) {
+            tmp = 1;
+        } else {
+            tmp = 0;
+        }
     }
     MessageNoOverlap(gUnk_0810FA54[tmp], this);
 }

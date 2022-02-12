@@ -99,7 +99,6 @@ void sub_080696B0(void) {
 
 static u32 GoronMerchant_GetSalePrice(Entity* this) {
     u32 restockCount;
-    u32 temp;
     u32 kinstoneType;
     s32 itemForSale;
 
@@ -113,8 +112,10 @@ static u32 GoronMerchant_GetSalePrice(Entity* this) {
         kinstoneType = 2;
     }
 
-    temp = CheckGlobalFlag(GORON_KAKERA_LV2);
-    restockCount = BOOLCAST(temp);
+    restockCount = 0;
+    if (CheckGlobalFlag(GORON_KAKERA_LV2)) {
+        restockCount = 1;
+    }
 
     if (CheckGlobalFlag(GORON_KAKERA_LV3)) {
         restockCount = 2;

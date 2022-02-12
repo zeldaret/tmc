@@ -130,14 +130,14 @@ void sub_08060158(Entity* this) {
 }
 
 void sub_080601D4(Entity* this) {
-    u32 temp;
     u32 uVar2;
 
     if (CheckGlobalFlag(LV3_CLEAR) == 0) {
         uVar2 = 2;
+    } else if (CheckKinstoneFused(0x17)) {
+        uVar2 = 1;
     } else {
-        temp = CheckKinstoneFused(0x17);
-        uVar2 = BOOLCAST(temp);
+        uVar2 = 0;
     }
     MessageNoOverlap(gUnk_0810A354[uVar2], this);
 }
@@ -147,12 +147,12 @@ void sub_08060208(Entity* this) {
 }
 
 void sub_0806021C(Entity* this) {
-    u32 uVar1;
-    u32 uVar2;
+    u32 uVar2 = 0;
 
     // jabber nut
-    uVar1 = GetInventoryValue(0x5B);
-    uVar2 = BOOLCAST(uVar1);
+    if (GetInventoryValue(0x5B)) {
+        uVar2 = 1;
+    }
 
     // earth element
     if (GetInventoryValue(0x40)) {
