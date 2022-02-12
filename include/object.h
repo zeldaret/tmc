@@ -369,7 +369,7 @@ void DoubleBookshelf(Entity*);
 void Book(Entity*);
 void Fireplace(Entity*);
 void Object8E(Entity*);
-void FrozenWaterElement(Entity*);
+void FrozenWaterElement();
 void Object90(Entity*);
 void Object91(Entity*);
 void BakerOven(Entity*);
