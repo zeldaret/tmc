@@ -5,7 +5,7 @@
 
 typedef struct ScriptExecutionContext {
     /*0x00*/ u16* scriptInstructionPointer;
-    /*0x03*/ u32 intVariable;
+    /*0x04*/ u32 intVariable;
     /*0x08*/ u32 postScriptActions;
     /*0x0C*/ u8 unk_0C[0x4]; // unused
     /*0x10*/ u16 wait;

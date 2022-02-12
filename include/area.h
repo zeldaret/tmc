@@ -28,7 +28,9 @@ typedef struct {
     u8 filler[4];
     u16 lightLevel;
     u8 unk_0b;
-    u8 unk_0c;
+    u8 unk_0c_0 : 1;
+    u8 unk_0c_1 : 3;
+    u8 unk_0c_4 : 4;
     u8 filler3[2];
     u16 field_0x10;
     u16 curPortalX;

@@ -12,6 +12,7 @@
 #include "game.h"
 #include "npc.h"
 #include "kinstone.h"
+#include "object.h"
 
 extern u32 sub_08060354(void);
 extern void sub_08057E64(void);
@@ -27,6 +28,14 @@ static void sub_0804D0B4(void);
 static void sub_0804D9B0(void);
 static void sub_0804ED18(void);
 static void sub_0804F578(void);
+extern void sub_080AF250(u32);
+extern void sub_0804AFB0(void**);
+extern void sub_0804AF90(void);
+void sub_080AF250();
+void sub_0804C290();
+void sub_0804C258();
+
+extern void** gCurrentRoomProperties;
 
 u32 sub_unk3_ArmosInteriors_RuinsEntranceNorth(u32 arg0) {
     return 1;
@@ -470,8 +479,6 @@ extern EntityData UpperInn_Nayru;
 extern EntityData UpperInn_Din;
 
 void sub_StateChange_HouseInteriors1_InnWest2F(void) {
-    int iVar1;
-
     if (gSave.global_progress < 4)
         return;
 
@@ -966,59 +973,51 @@ void sub_StateChange_GoronCave_Main(void) {
         sub_0807BB68(&gUnk_080D8C68, 0x281, 1);
 }
 
-#if 0
 typedef struct {
-    u32 a;
+    u32* a;
     u16 x, y;
     u16 entCnt;
     u16 shakeTime, shakeMag, sfx;
 } struct_080D8E54;
 
-typedef struct {
-    u32 field_0x0;
-    u32 field_0x4;
-} struct_0804BF38;
-
 extern struct_080D8E54 gUnk_080D8E50[];
 
-void sub_0804BF38(u32 arg0, struct_0804BF38* arg1)
-{
-  u32 numEnts;
-  u32 iVar2;
-  u32 iVar3;
-  Entity *fx;
-  u32 entCnt;
-  u32 xOff;
-  
-  iVar2 = arg1->field_0x4;
-  iVar3 = iVar2 * 0x10;
-  sub_0807BB68(gUnk_080D8E50[iVar2].a, ((gUnk_080D8E50[iVar3].x >> 4) & 0x3f | (gUnk_080D8E50[iVar3].y >> 4) & 0x3f) << 6, 1);
-  numEnts = gUnk_080D8E50[iVar3].entCnt;
-  entCnt = 0;
+void sub_0804BF38(Entity* this, ScriptExecutionContext* context) {
+    u32 numEnts;
+    u32 iVar2;
+    Entity* fx;
+    u32 entCnt;
+    u32 xOff;
+    struct_080D8E54* ptr;
+    u32 xtile, ytile;
+    u32* a;
 
-  if (numEnts != 0) {
-    for (xOff = 0; entCnt < numEnts; xOff += 0x10, entCnt++) {
-      fx = CreateObject(SPECIAL_FX, 0xf, 0);
-      if (fx != NULL) {
-        fx->x.HALF.HI = gUnk_080D8E50[iVar3].x + gRoomControls.origin_x + xOff;
-        fx->y.HALF.HI = gUnk_080D8E50[iVar3].y + gRoomControls.origin_y + (entCnt & 1) * 8;
-      }
-      fx = CreateObject(SPECIAL_FX, 0x54, 0);
-      if (fx != NULL) {
-        fx->x.HALF.HI = gUnk_080D8E50[iVar3].x + gRoomControls.origin_x + xOff;
-        fx->y.HALF.HI = gUnk_080D8E50[iVar3].y + gRoomControls.origin_y + -0xc + (entCnt & 1) * 8;
-        fx->direction = 0;
-        fx->speed = 0x100;
-      }
+    iVar2 = context->intVariable;
+    ptr = &gUnk_080D8E50[iVar2];
+    a = ptr->a;
+    xtile = (ptr->x >> 4) & 0x3f;
+    ytile = ((ptr->y >> 4) & 0x3f) << 6;
+    sub_0807BB68(a, xtile | ytile, 1);
+    numEnts = ptr->entCnt;
+
+    for (entCnt = 0; entCnt < numEnts; entCnt++) {
+        fx = CreateObject(SPECIAL_FX, 0xf, 0);
+        if (fx != NULL) {
+            fx->x.HALF.HI = ptr->x + gRoomControls.origin_x + entCnt * 0x10;
+            fx->y.HALF.HI = ptr->y + gRoomControls.origin_y + (entCnt & 1) * 8;
+        }
+        fx = CreateObject(SPECIAL_FX, 0x54, 0);
+        if (fx != NULL) {
+            fx->x.HALF.HI = ptr->x + gRoomControls.origin_x + entCnt * 0x10;
+            fx->y.HALF.HI = ptr->y + gRoomControls.origin_y + -0xc + (entCnt & 1) * 8;
+            fx->direction = 0;
+            fx->speed = 0x100;
+        }
     }
-  }
 
-  InitScreenShake(gUnk_080D8E50[iVar3].shakeTime, gUnk_080D8E50[iVar3].shakeMag);
-  SoundReq(gUnk_080D8E50[iVar2].sfx);
+    InitScreenShake(ptr->shakeTime, ptr->shakeMag);
+    SoundReq(ptr->sfx);
 }
-#else
-ASM_FUNC("asm/non_matching/sub_0804BF38.inc", void sub_0804BF38(Entity* this, ScriptExecutionContext* context))
-#endif
 
 u32 sub_unk3_EzloAuxCutscene_Main(void) {
     return 1;
@@ -1070,14 +1069,91 @@ u32 sub_unk3_RoyalValley_ForestMaze(void) {
 
 void sub_StateChange_RoyalValley_ForestMaze(void) {
     gArea.areaMetadata |= 0x40;
-    sub_0804C128(gArea.filler[7] |= 1);
+    gArea.unk_0c_0 = 1;
+    sub_0804C128();
 }
 
-ASM_FUNC("asm/non_matching/sub_0804C128.inc", void sub_0804C128(u32 arg0))
+extern u8 gUnk_080D9338[];
+extern u8 gUnk_080D9340[];
+extern TileEntity gUnk_080D9328[];
 
-ASM_FUNC("asm/non_matching/sub_0804C258.inc", void sub_0804C258(void))
+void sub_0804C128() {
+    sub_080AF250(0);
+    if (gRoomVars.field_0x0 != 0) {
+        if ((gArea.unk_0c_1) == 0) {
+            if ((gArea.unk_0c_4) == 0) {
+                gArea.unk_0c_1 = 1;
+            }
+        } else {
+            if (gRoomControls.scroll_direction == gUnk_080D9338[gArea.unk_0c_1]) {
+                gArea.unk_0c_1++;
+            } else {
+                gArea.unk_0c_1 = 0;
+            }
+        }
 
-ASM_FUNC("asm/non_matching/sub_0804C290.inc", void sub_0804C290(void))
+        if (gArea.unk_0c_1 == 0) {
+            if (gRoomControls.scroll_direction == gUnk_080D9340[gArea.unk_0c_4]) {
+                gArea.unk_0c_4++;
+                gArea.unk_0c_1 = 0;
+            } else {
+                gArea.unk_0c_4 = 0;
+            }
+        }
+
+        if (gArea.unk_0c_1 == 6) {
+            sub_080AF250(1);
+            SetGlobalFlag(0x62);
+            sub_0804C290();
+            gArea.unk_0c_1 = 0;
+            return;
+        }
+
+        if (gArea.unk_0c_4 == 6) {
+            sub_080AF250(1);
+#if defined(EU) || defined(JP) || defined(DEMO_JP)
+            if (CheckLocalFlag(0x5a) == 0) {
+#else
+            if (CheckLocalFlag(0x5c) == 0) {
+#endif
+                SetTileType(0x73, 0x107, 1);
+            }
+            LoadRoomTileEntities(gUnk_080D9328);
+            SetGlobalFlag(0x62);
+            sub_0804C290();
+            gArea.unk_0c_4 = 0;
+            return;
+        }
+    } else {
+        sub_0804C258();
+    }
+    sub_0804C290();
+}
+
+void sub_0804C258(void) {
+    gArea.unk_0c_1 = 1;
+    gArea.unk_0c_4 = 0;
+    if (gRoomTransition.player_status.start_anim == 4) {
+        gArea.unk_0c_1 = 7;
+        sub_080AF250(1);
+    }
+}
+
+typedef struct {
+    u16 unk0;
+    u16 unk2;
+} gUnk_080D9348_struct;
+
+extern gUnk_080D9348_struct gUnk_080D9348[];
+
+void sub_0804C290(void) {
+    int iVar1;
+
+    if (gArea.unk_0c_1) {
+        iVar1 = gArea.unk_0c_1;
+        SetTileType((gUnk_080D9348 + iVar1)->unk0, (gUnk_080D9348 + iVar1)->unk2, 1);
+    }
+}
 
 u32 sub_unk3_RoyalValleyGraves_HeartPiece(void) {
     return 1;
@@ -4233,7 +4309,54 @@ u32 sub_unk3_DarkHyruleCastle_58(void) {
 void sub_StateChange_Ruins_Beanstalk4(void) {
 }
 
-ASM_FUNC("asm/non_matching/sub_unk3_HyruleTown_0.inc", u32 sub_unk3_HyruleTown_0(void))
+extern u32 Area_HyruleTown[];
+
+u32 sub_unk3_HyruleTown_0(void) {
+    u32 uVar1;
+    u32 uVar2;
+    int iVar3;
+
+    UpdateGlobalProgress();
+    iVar3 = CheckKinstoneFused(0xb);
+    if (iVar3 != 0) {
+        iVar3 = CheckGlobalFlag(0x19);
+        if (iVar3 == 0) {
+            SetGlobalFlag(0x19);
+        } else {
+            iVar3 = CheckGlobalFlag(0x18);
+            if (iVar3 == 0) {
+                SetGlobalFlag(0x18);
+            }
+        }
+    }
+    sub_0804AFB0((void**)(Area_HyruleTown[gSave.global_progress]));
+    if (gSave.global_progress != 1) {
+        gCurrentRoomProperties = (void**)*Area_HyruleTown;
+    } else {
+        SetGlobalFlag(0x1c);
+        uVar1 = gArea.pCurrentRoomInfo->map_x;
+        uVar2 = gArea.pCurrentRoomInfo->map_y;
+        gRoomControls.area = 0x15;
+        gRoomControls.room = 0;
+        InitRoom();
+        gArea.pCurrentRoomInfo->map_x = uVar1 + 0x130;
+        gArea.pCurrentRoomInfo->map_y = uVar2;
+        gRoomTransition.player_status.start_pos_x = (gArea.pCurrentRoomInfo->pixel_width) >> 1;
+        sub_08052EA0();
+        sub_0804AF90();
+
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
+        if (CheckLocalFlag(0xca) == 0) {
+#else
+        if (CheckLocalFlag(0xcd) == 0) {
+#endif
+            SetFade(7, 0x100);
+        } else {
+            SetFade(6, 0x10);
+        }
+    }
+    return 1;
+}
 
 extern EntityData gUnk_080EEB6C;
 extern EntityData gUnk_080EEB8C;
@@ -4345,7 +4468,44 @@ void sub_unk1_HyruleTown_8(void) {
     }
 }
 
-ASM_FUNC("asm/non_matching/sub_0804E150.inc", void sub_0804E150(void))
+extern u16 gUnk_080EED2C[];
+extern u16 gUnk_080EED7A[];
+extern u16 gUnk_080EED8C[];
+
+void sub_0804E150(void) {
+    u16* pTileData;
+    u32 uVar3;
+
+    pTileData = gUnk_080EED2C;
+    uVar3 = 1 << gSave.global_progress;
+    for (; pTileData[1] != 0; pTileData += 3) {
+        if ((pTileData[0] & uVar3) != 0) {
+            SetTile(pTileData[2], pTileData[1], 1);
+        }
+    }
+#if defined(JP) || defined(DEMO_JP) || defined(EU)
+    if (CheckLocalFlag(0xce) == 0) {
+#else
+    if (CheckLocalFlag(0xd1) == 0) {
+#endif
+        pTileData = gUnk_080EED7A;
+        uVar3 = 1 << gSave.global_progress;
+        for (; pTileData[0] != 0; pTileData += 3) {
+            if ((pTileData[0] & uVar3) != 0) {
+                SetTile(pTileData[2], pTileData[1], 1);
+            }
+        }
+    }
+    if (CheckGlobalFlag(0x29) == 0) {
+        pTileData = gUnk_080EED8C;
+        uVar3 = 1 << gSave.global_progress;
+        for (; pTileData[0] != 0; pTileData += 3) {
+            if ((pTileData[0] & uVar3) != 0) {
+                SetTile(pTileData[2], pTileData[1], 1);
+            }
+        }
+    }
+}
 
 u32 sub_unk3_HyruleTownMinishCaves_Entrance(void) {
     return 1;
