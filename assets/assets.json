@@ -41581,26 +41581,6 @@
     "type": "sprite_frame"
   },
   {
-    "path": "playerItem12/gUnk_0811B9A0.bin",
-    "start": 1161632,
-    "size": 8
-  },
-  {
-    "path": "playerItem12/gUnk_0811B9A8.bin",
-    "start": 1161640,
-    "size": 32
-  },
-  {
-    "path": "playerItem12/gUnk_0811B9C8.bin",
-    "start": 1161672,
-    "size": 8
-  },
-  {
-    "path": "playerItem12/gUnk_0811B9D0.bin",
-    "start": 1161680,
-    "size": 8
-  },
-  {
     "path": "itemBomb/gUnk_0811BDAC.bin",
     "start": 1162668,
     "size": 8
