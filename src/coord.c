@@ -541,8 +541,8 @@ bool32 sub_0806FDA0(Entity* this) {
     return 0;
 }
 
-u32 LoadExtraSpriteData(Entity* ent, SpriteLoadData* data) {
-    SpriteLoadData* ptr;
+u32 LoadExtraSpriteData(Entity* ent, const SpriteLoadData* data) {
+    const SpriteLoadData* ptr;
     u32 index;
     struct_gUnk_020000C0_1* ptr2;
     if (sub_0806FDA0(ent) == 0)

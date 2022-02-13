@@ -38117,36 +38117,6 @@
     "type": "animation"
   },
   {
-    "path": "mountainMinish/gUnk_08111284.bin",
-    "start": 1118852,
-    "size": 128
-  },
-  {
-    "path": "mountainMinish/gUnk_08111304.bin",
-    "start": 1118980,
-    "size": 10
-  },
-  {
-    "path": "mountainMinish/gUnk_0811130E.bin",
-    "start": 1118990,
-    "size": 74
-  },
-  {
-    "path": "mountainMinish/gUnk_08111358.bin",
-    "start": 1119064,
-    "size": 16
-  },
-  {
-    "path": "mountainMinish/gUnk_08111374.bin",
-    "start": 1119092,
-    "size": 6
-  },
-  {
-    "path": "mountainMinish/gUnk_0811137A.bin",
-    "start": 1119098,
-    "size": 6
-  },
-  {
     "path": "animations/gSpriteAnimations_Melari_1.bin",
     "start": 1119556,
     "size": 5,
