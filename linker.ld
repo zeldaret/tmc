@@ -709,7 +709,7 @@ SECTIONS {
         asm/object/code_0808C964.o(.text);
         asm/object/macroPlayer.o(.text);
         asm/object/object3D.o(.text);
-        asm/object/object3E.o(.text);
+        src/object/object3E.o(.text);
         src/object/giantLeaf.o(.text);
         asm/object/fairy.o(.text);
         asm/object/ladderUp.o(.text);
@@ -1445,7 +1445,7 @@ SECTIONS {
         data/const/object/object76.o(.rodata);
         data/const/object/macroPlayer.o(.rodata);
         data/const/object/object3D.o(.rodata);
-        data/const/object/object3E.o(.rodata);
+        src/object/object3E.o(.rodata);
         data/const/object/giantLeaf.o(.rodata);
         data/const/object/fairy.o(.rodata);
         data/const/object/object42.o(.rodata);

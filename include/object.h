@@ -288,7 +288,7 @@ void Object3A(Entity*);
 void MacroMushromStalks(Entity*);
 void MacroPlayer(Entity*);
 void Object3D(Entity*);
-void Object3E(Entity*);
+void Object3E();
 void GiantLeaf(Entity*);
 void Fairy(Entity*);
 void LadderUp(Entity*);
