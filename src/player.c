@@ -700,8 +700,7 @@ static void PlayerBounceInit(Entity* this) {
     ResetPlayerVelocity();
 }
 
-// minor regalloc
-static NONMATCH("asm/non_matching/player/PlayerBounceUpdate.inc", void PlayerBounceUpdate(Entity* this)) {
+static void PlayerBounceUpdate(Entity* this) {
     UpdateAnimationSingleFrame(this);
     sub_080085B0(this);
     UpdatePlayerMovement();
@@ -712,10 +711,10 @@ static NONMATCH("asm/non_matching/player/PlayerBounceUpdate.inc", void PlayerBou
 
     gPlayerState.jump_status = 0;
 
-    if (RunQueuedAction() || sub_08079D48())
+    if (RunQueuedAction())
         return;
 
-    if (gPlayerState.swim_state != 0) {
+    if (sub_08079D48() || gPlayerState.swim_state != 0) {
         gPlayerState.jump_status = 0;
         ResetPlayerAnimationAndAction();
         return;
@@ -742,7 +741,6 @@ static NONMATCH("asm/non_matching/player/PlayerBounceUpdate.inc", void PlayerBou
     if ((gPlayerState.flags & PL_MINISH) == 0)
         gPlayerState.animation = DEFAULT_ANIM;
 }
-END_NONMATCH
 
 static void sub_08070E7C(Entity* this) {
     if (--this->actionDelay == 0) {
