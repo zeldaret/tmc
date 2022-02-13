@@ -757,7 +757,7 @@ SECTIONS {
         src/object/object6A.o(.text);
         asm/object/crenalBeanSprout.o(.text);
         asm/object/minecartDoor.o(.text);
-        asm/object/objectOnPillar.o(.text);
+        src/object/objectOnPillar.o(.text);
         src/object/mineralWaterSource.o(.text);
         src/object/minishSizedArchway.o(.text);
         asm/object/object70.o(.text);
@@ -1504,7 +1504,7 @@ SECTIONS {
         data/const/object/crenalBeanSprout.o(.rodata);
         data/animations/object/crenalBeanSprout.o(.rodata);
         data/const/object/minecartDoor.o(.rodata);
-        data/const/object/objectOnPillar.o(.rodata);
+        src/object/objectOnPillar.o(.rodata);
         data/const/object/mineralWaterSource.o(.rodata);
         data/const/object/object70.o(.rodata);
         src/object/pushableGrave.o(.rodata);

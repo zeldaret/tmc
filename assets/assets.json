@@ -44914,21 +44914,6 @@
     "size": 6
   },
   {
-    "path": "objectOnPillar/gUnk_08123264.bin",
-    "start": 1192548,
-    "size": 8
-  },
-  {
-    "path": "objectOnPillar/gUnk_08123274.bin",
-    "start": 1192564,
-    "size": 8
-  },
-  {
-    "path": "objectOnPillar/gUnk_0812327C.bin",
-    "start": 1192572,
-    "size": 28
-  },
-  {
     "path": "mineralWaterSource/MineralWaterSourceParameters.bin",
     "start": 1192608,
     "size": 4
