@@ -2130,8 +2130,8 @@ void sub_0807FBD4(Entity* entity, ScriptExecutionContext* context) {
 void sub_0807FBFC(Entity* entity, ScriptExecutionContext* context) {
     gSave.stats.charm = 0;
     gSave.stats.charmTimer = 0;
-    gSave.stats.unkB = 0;
-    gSave.stats.unkTimer = 0;
+    gSave.stats.picolyteType = 0;
+    gSave.stats.picolyteTimer = 0;
     gSave.stats.effect = 0;
     gSave.stats.effectTimer = 0;
 }

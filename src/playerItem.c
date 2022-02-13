@@ -15,7 +15,7 @@ PlayerItemFunc PlayerItemGustJar;
 PlayerItemFunc PlayerItemPacciCane;
 PlayerItemFunc PlayerItemC;
 PlayerItemFunc PlayerItemCellOverwriteSet;
-PlayerItemFunc PlayerItemSwordSpin;
+PlayerItemFunc PlayerItemBottle;
 PlayerItemFunc PlayerItemSwordBeam;
 PlayerItemFunc PlayerItem10;
 PlayerItemFunc PlayerItem11;
@@ -52,7 +52,7 @@ PlayerItemFunc* const gPlayerItemFunctions[] = {
     DeleteEntity,
     PlayerItemC,
     PlayerItemCellOverwriteSet,
-    PlayerItemSwordSpin,
+    PlayerItemBottle,
     PlayerItemSwordBeam,
     PlayerItem10,
     PlayerItem11,

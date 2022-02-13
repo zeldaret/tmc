@@ -576,7 +576,7 @@ typedef enum {
     SFX_21D,
     SFX_21E,
     SFX_21F,
-    SFX_220,
+    SFX_PICOLYTE,
     SFX_221,
     // special functions
     SONG_STOP_ALL = 0x80010000,

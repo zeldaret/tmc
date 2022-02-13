@@ -313,7 +313,7 @@ SECTIONS {
         src/playerItem/playerItemBomb.o(.text);
         src/playerItem/playerItem3.o(.text);
         src/playerItem/playerItemC.o(.text);
-        src/playerItem/playerItemSwordSpin.o(.text);
+        src/playerItem/playerItemBottle.o(.text);
         src/playerItem/playerItemCellOverwriteSet.o(.text);
         asm/ui.o(.text);
         src/ui.o(.text);
@@ -931,7 +931,7 @@ SECTIONS {
         data/const/playerItem/playerItemBomb.o(.rodata);
         src/playerItem/playerItem3.o(.rodata);
         src/playerItem/playerItemC.o(.rodata);
-        data/const/playerItem/playerItemSwordSpin.o(.rodata);
+        src/playerItem/playerItemBottle.o(.rodata);
         data/data_080B7910.o(.rodata);
         data/const/playerItem/playerItemCellOverwriteSet.o(.rodata);
         data/data_080B7B74.o(.rodata);

@@ -542,7 +542,7 @@
     .equiv SFX_21D, 0x21d
     .equiv SFX_21E, 0x21e
     .equiv SFX_21F, 0x21f
-    .equiv SFX_220, 0x220
+    .equiv SFX_PICOLYTE, 0x220
     .equiv SFX_221, 0x221
     .equiv SONG_STOP_ALL, 0x80010000
     .equiv SONG_MUTE, 0x80020000

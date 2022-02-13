@@ -312,12 +312,12 @@ void HandlePlayerLife(Entity* this) {
         SoundReq(SFX_ICE_BLOCK_MELT);
     }
 
-    if (gSave.stats.unkB == 0) {
-        gSave.stats.unkTimer = 0;
-    } else if ((gSave.stats.unkTimer == 0) || (--gSave.stats.unkTimer == 0)) {
-        gSave.stats.unkB = 0;
+    if (gSave.stats.picolyteType == 0) {
+        gSave.stats.picolyteTimer = 0;
+    } else if ((gSave.stats.picolyteTimer == 0) || (--gSave.stats.picolyteTimer == 0)) {
+        gSave.stats.picolyteType = 0;
         SoundReq(SFX_140);
-    } else if ((gSave.stats.unkTimer & 0xf) == 0) {
+    } else if ((gSave.stats.picolyteTimer & 0xf) == 0) {
         CreateSparkle(this);
     }
 

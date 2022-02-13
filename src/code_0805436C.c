@@ -234,7 +234,7 @@ u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
                 break;
         }
         if (ptr4 != 0) {
-            if ((r1 = gSave.stats.unkB) == 0) {
+            if ((r1 = gSave.stats.picolyteType) == 0) {
                 // nop
                 ptr3 = &gDroptableModifiers[DROPTABLE_NONE];
             } else {
