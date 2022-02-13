@@ -19,7 +19,6 @@ void sub_080813BC(Entity*);
 void sub_080810FC(Entity*);
 bool32 CheckShouldPlayItemGetCutscene(Entity*);
 
-extern u32 IsColliding(Entity*, Entity*);
 extern void GiveItem(u32, u32);
 
 extern void (*const gUnk_0811E7D4[])(Entity*);

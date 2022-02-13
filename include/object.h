@@ -290,7 +290,7 @@ void MacroPlayer(Entity*);
 void Object3D(Entity*);
 void Object3E();
 void GiantLeaf(Entity*);
-void Fairy(Entity*);
+void Fairy();
 void LadderUp(Entity*);
 void Object42(Entity*);
 void Object43(Entity*);
