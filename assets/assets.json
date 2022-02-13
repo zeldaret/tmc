@@ -42273,51 +42273,6 @@
     "type": "animation"
   },
   {
-    "path": "chestSpawner/gUnk_0811F838.bin",
-    "start": 1177656,
-    "size": 8
-  },
-  {
-    "path": "chestSpawner/gUnk_0811F840.bin",
-    "start": 1177664,
-    "size": 16
-  },
-  {
-    "path": "chestSpawner/gUnk_0811F850.bin",
-    "start": 1177680,
-    "size": 4
-  },
-  {
-    "path": "chestSpawner/gUnk_0811F854.bin",
-    "start": 1177684,
-    "size": 18
-  },
-  {
-    "path": "chestSpawner/gUnk_0811F866.bin",
-    "start": 1177702,
-    "size": 26
-  },
-  {
-    "path": "chestSpawner/gUnk_0811F880.bin",
-    "start": 1177728,
-    "size": 10
-  },
-  {
-    "path": "chestSpawner/gUnk_0811F88A.bin",
-    "start": 1177738,
-    "size": 14
-  },
-  {
-    "path": "chestSpawner/gUnk_0811F8A8.bin",
-    "start": 1177768,
-    "size": 8
-  },
-  {
-    "path": "chestSpawner/gUnk_0811F8B0.bin",
-    "start": 1177776,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_ObjectD_0.bin",
     "start": 1177880,
     "size": 45,

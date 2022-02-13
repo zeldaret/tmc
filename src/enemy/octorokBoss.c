@@ -11,7 +11,6 @@
 #include "projectile.h"
 #include "game.h"
 
-extern void sub_08078AC0(u32, u32, u32);
 extern u32 GetRandomByWeight(const u8*);
 extern void sub_080792BC(s32, u32, u32);
 

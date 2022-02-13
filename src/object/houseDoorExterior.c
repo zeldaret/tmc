@@ -29,7 +29,6 @@ void sub_0808681C(Entity*);
 static u8 sub_08086954(Entity*);
 
 extern u32 CheckRegionOnScreen(u32, u32, u32, u32);
-extern void sub_08078AC0(u32, u32, u32);
 
 extern void (*const gUnk_081206B4[])(Entity*);
 extern Hitbox gUnk_081206AC; // TODO: should be const

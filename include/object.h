@@ -238,7 +238,7 @@ void LockedDoor(Entity*);
 void Object9(Entity*);
 void ObjectA(Entity*);
 void ObjectB(Entity*);
-void ChestSpawner(Entity*);
+void ChestSpawner();
 void ObjectD(Entity*);
 void ObjectE(Entity*);
 void SpecialFx(Entity*);
