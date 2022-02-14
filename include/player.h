@@ -258,7 +258,7 @@ typedef struct {
     /*0x13*/ u8 hasAllFigurines;
     /*0x14*/ u8 filler3[4];
     /*0x18*/ u16 rupees;
-    /*0x1a*/ u16 field_0x1a;
+    /*0x1a*/ u16 shells;
     /*0x1c*/ u16 charmTimer;
     /*0x1e*/ u16 unkTimer;
     /*0x20*/ u16 effectTimer;

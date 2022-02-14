@@ -45,7 +45,8 @@ typedef struct {
     /*0x040*/ u32 windcrests; /**< Windcrest flags. */
     /*0x044*/ u8 filler44[0xC];
     /*0x050*/ u32 unk50;
-    /*0x054*/ u8 filler54[0xC];
+    /*0x054*/ u8 filler54[0x8];
+    /*0x05C*/ u32 unk5C;
     /*0x060*/ u32 areaVisitFlags[8];      /**< Area visit flags. */
     /*0x080*/ char name[FILENAME_LENGTH]; /**< Save file name. */
     /*0x086*/ u8 filler86[0x2];

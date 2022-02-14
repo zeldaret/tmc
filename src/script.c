@@ -823,7 +823,7 @@ void ScriptCommand_HasRupees(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void ScriptCommand_HasShells(Entity* entity, ScriptExecutionContext* context) {
-    context->condition = (context->scriptInstructionPointer[1] <= gSave.stats.field_0x1a);
+    context->condition = (context->scriptInstructionPointer[1] <= gSave.stats.shells);
     gActiveScriptInfo.flags |= 1;
 }
 

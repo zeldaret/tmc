@@ -6,12 +6,16 @@
 #include "npc.h"
 #include "object.h"
 #include "item.h"
+#include "game.h"
 
 extern void (*const gUnk_0810FDC8[])(Entity*);
-
 extern void (*const gUnk_0810FDA4[])(Entity*);
+extern u16 script_StockwellBuy[];
+extern u16 script_StockwellDogFood[];
+extern u8 gUnk_0810FDB8[];
 
 extern void sub_08078850(Entity*, u32, u8, u32*);
+extern void InitScriptExecutionContext(ScriptExecutionContext* context, u16* script);
 extern u32 gUnk_0810FDA0;
 extern u16 script_Stockwell;
 
@@ -36,7 +40,41 @@ void sub_08065080(Entity* this) {
     *(ScriptExecutionContext**)&this->cutsceneBeh = context;
 }
 
-ASM_FUNC("asm/non_matching/stockwell/sub_080650CC.inc", void sub_080650CC(Entity* this))
+void sub_080650CC(Entity* this) {
+    u32 bVar2;
+    u32 confirmMsgId;
+    u32 itemPrice;
+
+    if ((gRoomVars.animFlags & 1)) {
+        this->action = 4;
+        this->subAction = 0;
+        InitScriptExecutionContext(*(ScriptExecutionContext**)&this->cutsceneBeh, script_StockwellDogFood);
+    } else {
+        bVar2 = this->frame & 0x20;
+        if ((bVar2 == 0) && (this->interactType != 0)) {
+            this->interactType = bVar2;
+            this->action = this->action + 1;
+            InitializeAnimation(this, 7);
+            if (gRoomVars.shopItemType == 0) {
+                confirmMsgId = 0x2c01;
+            } else {
+                confirmMsgId = GetSaleItemConfirmMessageID(gRoomVars.shopItemType);
+                itemPrice = GetItemPrice(gRoomVars.shopItemType);
+                this->action = 4;
+                this->subAction = bVar2;
+                InitScriptExecutionContext(*(ScriptExecutionContext**)&this->cutsceneBeh, script_StockwellBuy);
+            }
+            MessageNoOverlap(confirmMsgId, this);
+
+            //! @bug itemPrice (r8) is not initialized if gRoomVars.shopItemType == 0
+            gMessage.field_0x10 = (u16)itemPrice;
+        } else if ((this->frame & 0x40)) {
+            InitializeAnimation(this, gUnk_0810FDB8[Random() & 0xf]);
+        } else {
+            GetNextFrame(this);
+        }
+    }
+}
 
 void sub_080651AC(Entity* this) {
     GetNextFrame(this);
@@ -97,7 +135,7 @@ void sub_080652B0(Entity* this) {
         this->subAction += 1;
         this->actionDelay = 10;
         gRoomVars.animFlags = this->field_0xf;
-        CreateItemEntity(0x36, 0, 0);
+        CreateItemEntity(ITEM_QST_DOGFOOD, 0, 0);
     }
 }
 
@@ -132,8 +170,88 @@ void sub_08065368(Entity* this) {
     GetNextFrame(this);
 }
 
-ASM_FUNC("asm/non_matching/stockwell/sub_08065370.inc",
-         void sub_08065370(Entity* this, ScriptExecutionContext* context))
+void sub_08065370(Entity* this, ScriptExecutionContext* context) {
+    u32 bVar1;
+    u32 shopItemType;
+    u32 itemPrice;
+    u32 messageIndex;
+    int localFlag;
+
+    bVar1 = 1;
+    shopItemType = gRoomVars.shopItemType;
+    localFlag = 0;
+    switch (shopItemType) {
+        case ITEM_ARROWS10:
+        case ITEM_ARROWS30:
+            if (gQuiverSizes[gSave.stats.quiverType] <= gSave.stats.arrowCount) {
+                messageIndex = 0x2c0e;
+                goto showmsg;
+            }
+            break;
+        case ITEM_SHIELD:
+            if (GetInventoryValue(ITEM_SHIELD) || GetInventoryValue(ITEM_MIRROR_SHIELD)) {
+                messageIndex = 0x2c0b;
+                goto showmsg;
+            }
+            break;
+        case ITEM_BOMBS10:
+        case ITEM_BOMBS30:
+            if (gBombBagSizes[gSave.stats.bombBagType] <= gSave.stats.bombCount) {
+                messageIndex = 0x2c0e;
+                goto showmsg;
+            }
+            break;
+        case ITEM_WALLET:
+            localFlag = 0x55;
+            break;
+        case ITEM_LARGE_QUIVER:
+            localFlag = 0x56;
+            break;
+#ifndef EU
+        case ITEM_BOMBBAG:
+            localFlag = SHOP00_BOMBBAG;
+            break;
+#endif
+        case ITEM_SHELLS30:
+            if (999 <= gSave.stats.shells) {
+                MessageNoOverlap(0x2c0e, this);
+                bVar1 = 0;
+            }
+            break;
+    }
+
+    if (bVar1) {
+        itemPrice = GetItemPrice(shopItemType);
+        if (itemPrice <= gSave.stats.rupees) {
+            ModRupees(-itemPrice);
+            sub_080A7C18(shopItemType, gRoomVars.shopItemType2, 2);
+            gRoomVars.shopItemType = 0;
+            gRoomVars.shopItemType2 = 0;
+            context->condition = 1;
+            if (localFlag) {
+                SetLocalFlag(localFlag);
+            }
+            if (gSave.unk5C <= -2) {
+                gSave.unk5C += 1;
+            }
+
+            if (gSave.unk5C >= 10) {
+                context->intVariable = 0x2c11;
+            } else {
+                if (itemPrice >= 100) {
+                    context->intVariable = 0x2c10;
+                } else {
+                    context->intVariable = 0x2c0f;
+                }
+            }
+            return;
+        }
+        messageIndex = 0x2c0d;
+    showmsg:
+        MessageNoOverlap(messageIndex, this);
+    }
+    context->condition = 0;
+}
 
 void sub_080654DC(Entity* this) {
     CreateSpeechBubbleQuestionMark(this, 8, 0xffffffe8);
