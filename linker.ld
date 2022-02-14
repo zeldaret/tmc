@@ -736,7 +736,7 @@ SECTIONS {
         src/object/thoughtBubble.o(.text);
         src/object/hiddenLadderDown.o(.text);
         asm/object/gentariCurtains.o(.text);
-        asm/object/lavaPlatform.o(.text);
+        src/object/lavaPlatform.o(.text);
         asm/object/paper.o(.text);
         asm/object/object5B.o(.text);
         src/object/mask.o(.text);
@@ -1479,7 +1479,7 @@ SECTIONS {
         data/const/object/hiddenLadderDown.o(.rodata);
         data/const/object/gentariCurtains.o(.rodata);
         data/animations/object/gentariCurtains.o(.rodata);
-        data/const/object/lavaPlatform.o(.rodata);
+        src/object/lavaPlatform.o(.rodata);
         data/animations/object/lavaPlatform.o(.rodata);
         data/const/object/paper.o(.rodata);
         data/const/object/object5B.o(.rodata);

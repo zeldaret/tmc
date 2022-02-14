@@ -315,7 +315,7 @@ void Minecart(Entity*);
 void ThoughtBubble(Entity*);
 void HiddenLadderDown(Entity*);
 void GentariCurtain(Entity*);
-void LavaPlatform(Entity*);
+void LavaPlatform();
 void Paper(Entity*);
 void Object5B(Entity*);
 void Mask(Entity*);
