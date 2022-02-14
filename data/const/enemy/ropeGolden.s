@@ -4,12 +4,12 @@
 	.section .rodata
     .align 2
 
-gUnk_080CF4C8:: @ 080CF4C8
+RopeGolden_Functions:: @ 080CF4C8
 	.4byte RopeGolden_OnTick+1
-	.4byte sub_08038210
-	.4byte sub_08001324
-	.4byte sub_08038234
-	.4byte sub_08001242
+	.4byte RopeGolden_OnCollision
+	.4byte GenericKnockback
+	.4byte RopeGolden_OnDeath
+	.4byte GenericConfused
 	.4byte RopeGolden_OnTick+1
 
 gUnk_080CF4E0:: @ 080CF4E0

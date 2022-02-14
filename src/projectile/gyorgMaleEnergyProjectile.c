@@ -2,9 +2,7 @@
 #include "enemy.h"
 #include "coord.h"
 #include "player.h"
-
-extern s32 sub_080AF090(Entity*);
-extern s32 IsProjectileOffScreen(Entity*);
+#include "functions.h"
 
 extern void (*const GyorgMaleEnergyProjectile_Functions[])(Entity*);
 extern void (*const GyorgMaleEnergyProjectile_Actions[])(Entity*);
@@ -72,9 +70,9 @@ void GyorgMaleEnergyProjectile_Action1(Entity* this) {
 }
 
 void GyorgMaleEnergyProjectile_Action2(Entity* this) {
-    sub_080AF090(this);
+    ProcessMovement3(this);
     GetNextFrame(this);
-    if (IsProjectileOffScreen(this) != 0) {
+    if (IsProjectileOffScreen(this)) {
         DeleteThisEntity();
     }
     if (--this->actionDelay == 0) {
@@ -86,7 +84,7 @@ void GyorgMaleEnergyProjectile_Action2(Entity* this) {
 }
 
 void GyorgMaleEnergyProjectile_Action3(Entity* this) {
-    sub_080AF090(this);
+    ProcessMovement3(this);
     GetNextFrame(this);
     if ((this->frame & 0x80) != 0) {
         DeleteThisEntity();

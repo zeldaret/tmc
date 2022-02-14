@@ -14,21 +14,21 @@ extern ScreenTransitionData* gUnk_0813AB1C[];
 void sub_0802A78C(Entity*);
 void sub_0802A7D0(Entity*);
 
-extern void (*const gUnk_080CD07C[])(Entity*);
+extern void (*const WallMaster_Functions[])(Entity*);
 extern void (*const gUnk_080CD094[])(Entity*);
 extern const s8 gUnk_080CD0B0[];
 
 void WallMaster(Entity* this) {
-    gUnk_080CD07C[GetNextFunction(this)](this);
+    WallMaster_Functions[GetNextFunction(this)](this);
     SetChildOffset(this, 0, 1, -0x10);
 }
 
-void sub_0802A434(Entity* this) {
+void WallMaster_OnTick(Entity* this) {
     sub_0802A78C(this);
     gUnk_080CD094[this->action](this);
 }
 
-void sub_0802A454(Entity* this) {
+void WallMaster_OnCollision(Entity* this) {
     if (this->hitType != 0x75 && ((this->bitfield & 0x7f) == 0 || (this->bitfield & 0x7f) == 0x1e)) {
         this->action = 5;
         COLLISION_OFF(this);
@@ -44,14 +44,14 @@ void sub_0802A454(Entity* this) {
         if (this->knockbackDuration > 4)
             this->knockbackDuration -= 4;
 
-    if (this->field_0x43 != 0) {
-        sub_0804A9FC(this, 0x1c);
+    if (this->confusedTime != 0) {
+        Create0x68FX(this, FX_STARS);
     }
 
-    sub_0804AA30(this, gUnk_080CD07C);
+    EnemyFunctionHandlerAfterCollision(this, WallMaster_Functions);
 }
 
-void nullsub_142(Entity* this) {
+void WallMaster_OnGrabbed(Entity* this) {
     /* ... */
 }
 
@@ -196,13 +196,13 @@ void sub_0802A7D0(Entity* this) {
     sub_0805EC9C(this, unk, unk, 0);
 }
 // clang-format off
-void (*const gUnk_080CD07C[])(Entity*) = {
-    sub_0802A434,
-    sub_0802A454,
-    sub_08001328,
-    sub_0804A7D4,
-    sub_08001242,
-    nullsub_142,
+void (*const WallMaster_Functions[])(Entity*) = {
+    WallMaster_OnTick,
+    WallMaster_OnCollision,
+    GenericKnockback2,
+    GenericDeath,
+    GenericConfused,
+    WallMaster_OnGrabbed,
 };
 
 void (*const gUnk_080CD094[])(Entity*) = {

@@ -11,7 +11,7 @@
 #include "enemy.h"
 
 extern void (*const gUnk_080012C8[])(Entity*);
-extern void (*const gUnk_080CF4C8[6])(Entity*);
+extern void (*const RopeGolden_Functions[6])(Entity*);
 extern void (*const gUnk_080CF4E0[4])(Entity*);
 
 extern s32 sub_080012DC(Entity*);
@@ -26,7 +26,7 @@ void RopeGolden(Entity* this) {
     if (x != 0) {
         gUnk_080012C8[x](this);
     } else {
-        gUnk_080CF4C8[GetNextFunction(this)](this);
+        RopeGolden_Functions[GetNextFunction(this)](this);
         SetChildOffset(this, 0, 1, -0x10);
     }
 }
@@ -35,14 +35,14 @@ void RopeGolden_OnTick(Entity* this) {
     gUnk_080CF4E0[this->action](this);
 }
 
-void sub_08038210(Entity* this) {
-    if (this->field_0x43 != 0) {
-        sub_0804A9FC(this, 0x1c);
+void RopeGolden_OnCollision(Entity* this) {
+    if (this->confusedTime != 0) {
+        Create0x68FX(this, FX_STARS);
     }
-    sub_0804AA30(this, gUnk_080CF4C8);
+    EnemyFunctionHandlerAfterCollision(this, RopeGolden_Functions);
 }
 
-void sub_08038234(Entity* this) {
+void RopeGolden_OnDeath(Entity* this) {
     if ((this->field_0x3a & 2) == 0) {
         SetGlobalFlag(this->type2);
     }
@@ -69,7 +69,7 @@ void sub_0803827C(Entity* this) {
         }
     }
     UpdateAnimationVariableFrames(this, 0x2);
-    if (ProcessMovement(this) == 0) {
+    if (ProcessMovement0(this) == 0) {
         sub_080383AC(this);
     } else {
         if (!(--this->actionDelay)) {

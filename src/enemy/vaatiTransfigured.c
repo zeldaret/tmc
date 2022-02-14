@@ -15,7 +15,7 @@ void sub_08040AD4(Entity*);
 void sub_08040670(Entity*);
 void sub_080406A0(Entity*);
 void sub_08040770(Entity*);
-void sub_080AF18C(Entity*);
+extern void Knockback1(Entity*);
 u32 sub_08040934(Entity*);
 void sub_08040648(Entity*, u32, u32);
 
@@ -249,7 +249,7 @@ void VaatiTransfiguredType0Action1(Entity* this) {
         }
     }
     if (this->field_0x80.HALF.LO != 0xff) {
-        ProcessMovement(this);
+        ProcessMovement0(this);
     }
     UpdateAnimationSingleFrame(this);
 }
@@ -562,7 +562,7 @@ void VaatiTransfiguredType0Action7(Entity* this) {
                 this->spriteSettings.draw = 0;
             }
         } else {
-            sub_0804A7D4(this);
+            GenericDeath(this);
         }
         UpdateAnimationSingleFrame(this);
         return;
@@ -1071,7 +1071,7 @@ void sub_080409B0(Entity* this) {
 
     if (this->field_0x80.HALF.HI < 3) {
         if (this->knockbackDuration != 0) {
-            sub_080AF18C(this);
+            Knockback1(this);
         }
     } else {
         if (((this->bitfield & 0x80) != 0) && (0 < this->iframes)) {

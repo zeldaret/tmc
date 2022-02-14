@@ -190,7 +190,7 @@ void sub_08061E90(Entity* this, ScriptExecutionContext* context) {
     if (animIndex != this->animIndex) {
         InitializeAnimation(this, animIndex);
     }
-    ProcessMovement(this);
+    ProcessMovement0(this);
     iVar4 = this->x.HALF.HI - *(s16*)&this->field_0x6a.HWORD;
     if (0x10 < iVar4) {
         this->x.HALF.HI = this->field_0x6a.HWORD + 0x10;

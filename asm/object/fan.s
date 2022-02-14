@@ -212,7 +212,7 @@ _0809EFE6:
 	adds r1, r6, #0
 	adds r2, r5, #0
 	movs r3, #9
-	bl sub_080AE4CC
+	bl IsTileCollision
 	cmp r0, #0
 	beq _0809EFE6
 	subs r0, r7, #1

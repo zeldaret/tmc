@@ -2,10 +2,6 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern s32 sub_080AF090(Entity*);
-extern s32 IsProjectileOffScreen(Entity*);
-extern void sub_08016AD2(Entity*);
-
 extern void (*const RockProjectile_Functions[])(Entity*);
 extern void (*const RockProjectile_Actions[])(Entity*);
 
@@ -37,8 +33,8 @@ void RockProjectile_Init(Entity* this) {
 
 void RockProjectile_Action1(Entity* this) {
     GetNextFrame(this);
-    if (sub_080AF090(this) != 0) {
-        if (IsProjectileOffScreen(this) != 0) {
+    if (ProcessMovement3(this) != 0) {
+        if (IsProjectileOffScreen(this)) {
             DeleteEntity(this);
         } else {
             sub_08016AD2(this);
@@ -63,7 +59,7 @@ void RockProjectile_Action2(Entity* this) {
 
 void RockProjectile_Action3(Entity* this) {
     GetNextFrame(this);
-    sub_080AF090(this);
+    ProcessMovement3(this);
     switch (sub_080044EC(this, 0x2800)) {
         case 0:
             DeleteEntity(this);

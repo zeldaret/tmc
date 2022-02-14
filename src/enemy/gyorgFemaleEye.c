@@ -6,8 +6,8 @@
 #include "functions.h"
 #include "enemy/gyorg.h"
 
-void sub_080489B4(GyorgFemaleEyeEntity*);
-void sub_080489CC(GyorgFemaleEyeEntity*);
+void GyorgFemaleEye_OnTick(GyorgFemaleEyeEntity*);
+void GyorgFemaleEye_OnCollision(GyorgFemaleEyeEntity*);
 
 void sub_08048AF0(GyorgFemaleEyeEntity*);
 void sub_08048B2C(GyorgFemaleEyeEntity*);
@@ -18,23 +18,23 @@ void sub_08048CEC(GyorgFemaleEyeEntity*);
 void sub_08048D20(GyorgFemaleEyeEntity*);
 u32 sub_08048D70(GyorgFemaleEntity*);
 
-void (*const gUnk_080D1F64[])(GyorgFemaleEyeEntity*) = {
-    sub_080489B4,
-    sub_080489CC,
-    (void (*)(GyorgFemaleEyeEntity*))sub_08001324,
-    (void (*)(GyorgFemaleEyeEntity*))sub_0804A7D4,
-    (void (*)(GyorgFemaleEyeEntity*))sub_08001242,
-    sub_080489B4,
+void (*const GyorgFemaleEye_Functions[])(GyorgFemaleEyeEntity*) = {
+    GyorgFemaleEye_OnTick,
+    GyorgFemaleEye_OnCollision,
+    (void (*)(GyorgFemaleEyeEntity*))GenericKnockback,
+    (void (*)(GyorgFemaleEyeEntity*))GenericDeath,
+    (void (*)(GyorgFemaleEyeEntity*))GenericConfused,
+    GyorgFemaleEye_OnTick,
 };
 
 void GyorgFemaleEye(Entity* this) {
     if (this->parent->next == NULL) {
         DeleteThisEntity();
     }
-    gUnk_080D1F64[GetNextFunction(this)]((GyorgFemaleEyeEntity*)this);
+    GyorgFemaleEye_Functions[GetNextFunction(this)]((GyorgFemaleEyeEntity*)this);
 }
 
-void sub_080489B4(GyorgFemaleEyeEntity* this) {
+void GyorgFemaleEye_OnTick(GyorgFemaleEyeEntity* this) {
     static void (*const gUnk_080D1F7C[])(GyorgFemaleEyeEntity*) = {
         sub_08048AF0, sub_08048B2C, sub_08048B84, sub_08048BB0, sub_08048CEC,
     };
@@ -62,7 +62,7 @@ const u8 gUnk_080D2030[] = {
     2, 2, 3, 3, 2, 2, 3, 3, 6, 6, 7, 7, 6, 6, 7, 7, 11, 11, 10, 10, 11, 11, 10, 10, 15, 15, 14, 14, 15, 15, 14, 14,
 };
 
-void sub_080489CC(GyorgFemaleEyeEntity* this) {
+void GyorgFemaleEye_OnCollision(GyorgFemaleEyeEntity* this) {
     GyorgFemaleEntity* parent;
     if (super->health != 0xFF) {
         parent = (GyorgFemaleEntity*)super->parent;
@@ -91,7 +91,7 @@ void sub_080489CC(GyorgFemaleEyeEntity* this) {
 #endif
     }
     super->health = 0xFF;
-    sub_0804AA30(super, (void (*const*)(Entity*))gUnk_080D1F64);
+    EnemyFunctionHandlerAfterCollision(super, (void (*const*)(Entity*))GyorgFemaleEye_Functions);
 }
 
 void sub_08048AF0(GyorgFemaleEyeEntity* this) {

@@ -4,13 +4,13 @@
 	.section .rodata
     .align 2
 
-gUnk_080CDED0:: @ 080CDED0
-	.4byte sub_0802F138
-	.4byte sub_0802F150
-	.4byte sub_08001324
-	.4byte sub_0804A7D4
-	.4byte sub_0802F1F0
-	.4byte nullsub_16
+Tektite_Functions:: @ 080CDED0
+	.4byte Tektite_OnTick
+	.4byte Tektite_OnCollision
+	.4byte GenericKnockback
+	.4byte GenericDeath
+	.4byte Tektite_OnConfused
+	.4byte Tektite_OnGrabbed
 
 gUnk_080CDEE8:: @ 080CDEE8
 	.4byte sub_0802F210

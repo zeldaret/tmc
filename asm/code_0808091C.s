@@ -206,7 +206,7 @@ sub_08080BC4: @ 0x08080BC4
 	adds r0, r0, r2
 	ldr r1, _08080C44 @ =gUnk_080169A4
 	adds r2, r0, r1
-	ldr r4, _08080C48 @ =gUnk_02025EB0
+	ldr r4, _08080C48 @ =gMapBottom
 	ldr r1, [r4]
 	cmp r1, #0
 	beq _08080C16
@@ -220,7 +220,7 @@ sub_08080BC4: @ 0x08080BC4
 	adds r0, r0, r6
 	strh r0, [r1, #4]
 _08080C16:
-	ldr r4, _08080C4C @ =gUnk_0200B650
+	ldr r4, _08080C4C @ =gMapTop
 	ldr r1, [r4]
 	cmp r1, #0
 	beq _08080C30
@@ -245,10 +245,10 @@ _08080C30:
 	.align 2, 0
 _08080C40: .4byte gRoomControls
 _08080C44: .4byte gUnk_080169A4
-_08080C48: .4byte gUnk_02025EB0
-_08080C4C: .4byte gUnk_0200B650
+_08080C48: .4byte gMapBottom
+_08080C4C: .4byte gMapTop
 _08080C50:
-	ldr r0, _08080C78 @ =gUnk_02025EB0
+	ldr r0, _08080C78 @ =gMapBottom
 	ldr r1, [r0]
 	cmp r1, #0
 	beq _08080C5E
@@ -256,7 +256,7 @@ _08080C50:
 	ldr r0, [r0]
 	strh r6, [r0, #4]
 _08080C5E:
-	ldr r0, _08080C7C @ =gUnk_0200B650
+	ldr r0, _08080C7C @ =gMapTop
 	ldr r1, [r0]
 	cmp r1, #0
 	beq _08080C6C
@@ -272,8 +272,8 @@ _08080C6C:
 _08080C76:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_08080C78: .4byte gUnk_02025EB0
-_08080C7C: .4byte gUnk_0200B650
+_08080C78: .4byte gMapBottom
+_08080C7C: .4byte gMapTop
 
 	thumb_func_start sub_08080C80
 sub_08080C80: @ 0x08080C80

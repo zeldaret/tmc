@@ -203,7 +203,7 @@ void sub_080811D8(Entity* this) {
 
 void sub_080811EC(Entity* this) {
     if (this->field_0x68.HALF.HI != 6) {
-        sub_080AEFE0(this);
+        ProcessMovement2(this);
     } else {
         LinearMoveUpdate(this);
     }
@@ -389,7 +389,7 @@ void sub_08081500(Entity* this) {
                 UpdateSpriteForCollisionLayer(this);
             }
 
-            sub_080AEFE0(this);
+            ProcessMovement2(this);
         }
     }
 }

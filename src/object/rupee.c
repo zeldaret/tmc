@@ -37,7 +37,7 @@ void sub_08086A28(Entity* ent) {
         if (iVar1 == 0) {
             ent->action = 2;
         }
-        ProcessMovement(ent);
+        ProcessMovement0(ent);
         CopyPosition(ent, ent->child);
     }
 }

@@ -9,7 +9,7 @@
 	movs r1, #2
 	bl UpdateAnimationVariableFrames
 	adds r0, r4, #0
-	bl ProcessMovement
+	bl ProcessMovement0
 	cmp r0, #0
 	bne _08038334
 	adds r0, r4, #0

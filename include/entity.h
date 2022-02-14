@@ -66,9 +66,13 @@ typedef enum {
 /** Direction. */
 typedef enum {
     DirectionNorth = 0x00, /**< North. */
+    DirectionNorthEast = 0x04, /**< North East. */
     DirectionEast = 0x08,  /**< East. */
+    DirectionSouthEast = 0x0c, /**< South East. */
     DirectionSouth = 0x10, /**< South. */
+    DirectionSouthWest = 0x14, /**< South West. */
     DirectionWest = 0x18,  /**< West. */
+    DirectionNorthWest = 0x1c, /**< North West. */
 } Direction;
 
 typedef struct {
@@ -170,7 +174,7 @@ typedef struct Entity_ {
     /*0x34*/ union SplitWord z; /**< Z position, fixed point Q16.16. */
     /*0x38*/ u8 collisionLayer; /**< Collision layer. */
     /*0x39*/ s8 interactType;
-    /*0x3a*/ u8 field_0x3a;
+    /*0x3a*/ u8 field_0x3a; /**< 4: grabbed by GustJar */
     /*0x3b*/ u8 flags2;
     /*0x3c*/ u8 field_0x3c;
     /*0x3d*/ s8 iframes;            /**< Invulnerability frames. */
@@ -179,10 +183,10 @@ typedef struct Entity_ {
     /*0x40*/ u8 hurtType;           /**< behavior as a collision receiver. */
     /*0x41*/ u8 bitfield;
     /*0x42*/ u8 knockbackDuration; /**< Duration of knockback. */
-    /*0x43*/ u8 field_0x43;
+    /*0x43*/ u8 confusedTime; /**< Frames that this Entity is confused. */
     /*0x44*/ u8 damage; /**< Damage this Entity inflicts. */
     /*0x45*/ u8 health; /**< Health of this Entity. */
-    /*0x46*/ u16 field_0x46;
+    /*0x46*/ u16 knockbackSpeed; /**< How fast this Entity is knocked back. */
     /*0x48*/ Hitbox* hitbox; /**< Hitbox associated with this Entity. */
     /*0x4c*/ struct Entity_* field_0x4c;
     /*0x50*/ struct Entity_* parent; /**< Parent Entity. Sometimes points to associated data. */
@@ -271,7 +275,7 @@ u8* GetSpriteSubEntryOffsetDataPointer(u32, u32);
  */
 u32 GetFacingDirection(Entity* origin, Entity* target);
 
-u32 ProcessMovement(Entity*);
+bool32 ProcessMovement0(Entity*);
 
 /// @{
 /**

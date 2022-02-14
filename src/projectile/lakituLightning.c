@@ -1,8 +1,6 @@
 #include "entity.h"
 #include "enemy.h"
-
-extern s32 sub_080AF090(Entity*);
-extern s32 IsProjectileOffScreen(Entity*);
+#include "functions.h"
 
 extern void (*const LakituLightning_Functions[])(Entity*);
 extern void (*const LakituLightning_Actions[])(Entity*);
@@ -33,12 +31,12 @@ void LakituLightning_Init(Entity* this) {
 
 void LakituLightning_Action1(Entity* this) {
     GetNextFrame(this);
-    sub_080AF090(this);
+    ProcessMovement3(this);
     if ((this->collisions != 0) || (--this->actionDelay == 0)) {
         CreateFx(this, FX_BLUE_EFC, 0);
         DeleteThisEntity();
     }
-    if (IsProjectileOffScreen(this) != 0) {
+    if (IsProjectileOffScreen(this)) {
         DeleteThisEntity();
     }
 }

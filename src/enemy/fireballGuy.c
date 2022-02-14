@@ -15,28 +15,28 @@ typedef struct {
 extern void sub_08045524(Entity*);
 void sub_08045178(Entity*, Entity*, int, int);
 
-extern void (*const gUnk_080D17E8[])(Entity*);
+extern void (*const FireballGuy_Functions[])(Entity*);
 extern void (*const gUnk_080D1800[])(Entity*);
 extern u8 gUnk_080D180C[4]; // Entity count per form
 extern PosOffset gUnk_080D1810[4];
 
 void FireballGuy(Entity* this) {
-    EnemyFunctionHandler(this, gUnk_080D17E8);
+    EnemyFunctionHandler(this, FireballGuy_Functions);
 }
 
-void sub_080453A4(Entity* this) {
+void FireballGuy_OnTick(Entity* this) {
     gUnk_080D1800[this->action](this);
 }
 
-void sub_080453BC(Entity* this) {
+void FireballGuy_OnCollision(Entity* this) {
     if (this->health && this->cutsceneBeh.HALF.LO != this->health) {
         this->action = 2;
     } else {
-        sub_0804AA30(this, gUnk_080D17E8);
+        EnemyFunctionHandlerAfterCollision(this, FireballGuy_Functions);
     }
 }
 
-void nullsub_172(void) {
+void FireballGuy_OnGrabbed(void) {
 }
 
 void sub_080453E8(Entity* this) {
@@ -52,7 +52,7 @@ void sub_080453E8(Entity* this) {
 }
 
 void sub_08045430(Entity* this) {
-    sub_080AEFE0(this);
+    ProcessMovement2(this);
     GetNextFrame(this);
     if (GravityUpdate(this, 0x1800) == 0)
         sub_08045524(this);

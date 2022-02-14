@@ -6,11 +6,6 @@
 #include "flags.h"
 #include "functions.h"
 
-extern void sub_0809EB30(Entity*);
-extern void sub_0809EAD8(Entity*);
-extern void sub_0809EABC(Entity*);
-extern void sub_080A2CC0(Entity*, Entity**, u16*);
-
 extern void (*const gUnk_081243B4[])(Entity*);
 extern void (*const gUnk_081243BC[])(Entity*);
 extern void (*const gUnk_081243C4[])(Entity*);

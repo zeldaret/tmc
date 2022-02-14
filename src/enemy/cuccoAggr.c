@@ -18,7 +18,7 @@ typedef struct {
     u16 y;
 } PosOffset;
 
-void (*const gUnk_080CF778[])(Entity*);
+void (*const CuccoAggr_Functions[])(Entity*);
 void (*const gUnk_080CF790[])(CuccoAggrEntity*);
 void (*const gUnk_080CF7AC[])(CuccoAggrEntity*);
 const u8 gUnk_080CF7BC[];
@@ -30,33 +30,33 @@ const u16 gUnk_080CF828[];
 const s8 gCuccoAggrFxHorizontalOffsets[];
 const u8 gCuccoAggrFx[];
 
-extern void sub_080391B4(CuccoAggrEntity* this);
-extern void sub_08039218(CuccoAggrEntity* this);
-extern void CuccoAggr_CreateFx(CuccoAggrEntity* this);
-extern void sub_08039120(CuccoAggrEntity* this);
-extern void sub_08039140(CuccoAggrEntity* this);
-extern void sub_0803901C(CuccoAggrEntity* this);
-extern void sub_08039298(CuccoAggrEntity* this);
-extern void sub_080390F8(CuccoAggrEntity* this);
-extern void sub_080390C0(CuccoAggrEntity* this);
-extern bool32 CuccoAggr_IsOutsideScroll(CuccoAggrEntity* this);
+void sub_080391B4(CuccoAggrEntity* this);
+void sub_08039218(CuccoAggrEntity* this);
+void CuccoAggr_CreateFx(CuccoAggrEntity* this);
+void sub_08039120(CuccoAggrEntity* this);
+void sub_08039140(CuccoAggrEntity* this);
+void sub_0803901C(CuccoAggrEntity* this);
+void sub_08039298(CuccoAggrEntity* this);
+void sub_080390F8(CuccoAggrEntity* this);
+void sub_080390C0(CuccoAggrEntity* this);
+bool32 CuccoAggr_IsOutsideScroll(CuccoAggrEntity* this);
 
 void CuccoAggr(Entity* this) {
     u32 index = sub_080012DC(this);
     if (index) {
         gUnk_080012C8[index](this);
     } else {
-        gUnk_080CF778[GetNextFunction(this)](this);
+        CuccoAggr_Functions[GetNextFunction(this)](this);
         SetChildOffset(this, 0, 1, -0x10);
         sub_080391B4((CuccoAggrEntity*)this);
     }
 }
 
-void sub_08038CF8(CuccoAggrEntity* this) {
+void CuccoAggr_OnTick(CuccoAggrEntity* this) {
     gUnk_080CF790[super->action](this);
 }
 
-void sub_08038D10(CuccoAggrEntity* this) {
+void CuccoAggr_OnCollision(CuccoAggrEntity* this) {
     if (super->type != 2) {
         if (this->unk_7a == 0 && CheckRoomFlag(1) == 0) {
             if (super->health <= 0xbf) {
@@ -70,14 +70,14 @@ void sub_08038D10(CuccoAggrEntity* this) {
         CuccoAggr_CreateFx(this);
     }
 
-    if (super->field_0x43) {
-        sub_0804A9FC(super, 0x1c);
+    if (super->confusedTime) {
+        Create0x68FX(super, FX_STARS);
     }
 
-    sub_0804AA30(super, gUnk_080CF778);
+    EnemyFunctionHandlerAfterCollision(super, CuccoAggr_Functions);
 }
 
-void nullsub_165(CuccoAggrEntity* this) {
+void CuccoAggr_OnGrabbed(CuccoAggrEntity* this) {
 }
 
 void sub_08038D78(CuccoAggrEntity* this) {
@@ -122,7 +122,7 @@ void sub_08038E18(CuccoAggrEntity* this) {
             super->spritePriority.b1 = 1;
             super->spritePriority.b0 = 4;
             super->direction = Random() & 0x1f;
-            ProcessMovement(super);
+            ProcessMovement0(super);
             UpdateSpriteForCollisionLayer(super);
         }
     }
@@ -148,7 +148,7 @@ void sub_08038ED0(CuccoAggrEntity* this) {
 }
 
 void sub_08038EE0(CuccoAggrEntity* this) {
-    ProcessMovement(super);
+    ProcessMovement0(super);
     GetNextFrame(super);
     sub_08039298(this);
     if (GravityUpdate(super, 0x1C00) == 0) {
@@ -172,7 +172,7 @@ void sub_08038F20(CuccoAggrEntity* this) {
 void sub_08038F44(CuccoAggrEntity* this) {
     super->direction = GetFacingDirection(&gPlayerEntity, super);
     sub_080390F8(this);
-    ProcessMovement(super);
+    ProcessMovement0(super);
     sub_080044EC(super, 0x1800);
     GetNextFrame(super);
     sub_08039298(this);
@@ -332,9 +332,13 @@ void sub_08039298(CuccoAggrEntity* this) {
     }
 }
 
-void (*const gUnk_080CF778[])(Entity*) = {
-    (EntityActionPtr)sub_08038CF8, (EntityActionPtr)sub_08038D10, sub_08001324, sub_0804A7D4, sub_08001242,
-    (EntityActionPtr)nullsub_165,
+void (*const CuccoAggr_Functions[])(Entity*) = {
+    (EntityActionPtr)CuccoAggr_OnTick,
+    (EntityActionPtr)CuccoAggr_OnCollision,
+    GenericKnockback,
+    GenericDeath,
+    GenericConfused,
+    (EntityActionPtr)CuccoAggr_OnGrabbed,
 };
 
 void (*const gUnk_080CF790[])(CuccoAggrEntity*) = {

@@ -49,7 +49,7 @@ _08064306:
 	movs r0, #0x2e
 	ldrsh r4, [r5, r0]
 	adds r0, r5, #0
-	bl ProcessMovement
+	bl ProcessMovement0
 	movs r1, #0x2e
 	ldrsh r0, [r5, r1]
 	adds r6, r5, #0

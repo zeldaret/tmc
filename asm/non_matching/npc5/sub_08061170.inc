@@ -5,7 +5,7 @@
 	adds r4, r0, #0
 	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
-	bl sub_080AF1EC
+	bl ProcessMovement6
 	cmp r0, #0
 	bne _080611CA
 	adds r0, r4, #0

@@ -3,11 +3,10 @@
 #include "structures.h"
 #include "functions.h"
 #include "game.h"
+#include "map.h"
 
 extern void sub_08080BC4(void);
 
-extern u32 gUnk_0200B650;
-extern u32 gUnk_02025EB0;
 extern u8 gUpdateVisibleTiles;
 
 void sub_080808D8(void) {
@@ -43,11 +42,11 @@ void sub_08080930(void) {
     SetInitializationPriority();
 }
 
-u32* GetLayerByIndex(u32 param_1) {
+LayerStruct* GetLayerByIndex(u32 param_1) {
     if (param_1 == 2) {
-        return &gUnk_0200B650;
+        return &gMapTop;
     } else {
-        return &gUnk_02025EB0;
+        return &gMapBottom;
     }
 }
 

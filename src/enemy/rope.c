@@ -8,7 +8,7 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern void (*const gRope[6])(Entity*);
+extern void (*const Rope_Functions[6])(Entity*);
 extern void (*const gUnk_080CE460[4])(Entity*);
 extern void (*const gUnk_080CE470[3])(Entity*);
 extern Entity* gUnk_020000B0;
@@ -18,7 +18,7 @@ void sub_08031600(Entity*);
 u32 sub_0803163C(Entity*);
 
 void Rope(Entity* this) {
-    EnemyFunctionHandler(this, gRope);
+    EnemyFunctionHandler(this, Rope_Functions);
     SetChildOffset(this, 0, 1, -16);
 }
 
@@ -26,19 +26,19 @@ void Rope_OnTick(Entity* this) {
     gUnk_080CE460[this->action](this);
 }
 
-void sub_080313AC(Entity* this) {
+void Rope_OnCollision(Entity* this) {
     if (this->action == 3) {
         this->field_0xf = 0x1e;
         this->field_0x78.HALF.LO = 0x3c;
         sub_08031600(this);
     }
-    if (this->field_0x43) {
-        sub_0804A9FC(this, 0x1c);
+    if (this->confusedTime) {
+        Create0x68FX(this, FX_STARS);
     }
-    sub_0804AA30(this, gRope);
+    EnemyFunctionHandlerAfterCollision(this, Rope_Functions);
 }
 
-void sub_080313E8(Entity* this) {
+void Rope_OnGrabbed(Entity* this) {
     if (sub_0806F520()) {
         gUnk_080CE470[this->subAction](this);
     }
@@ -55,7 +55,7 @@ void sub_08031418(Entity* this) {
 
 void sub_08031420(Entity* this) {
     if (sub_0806F3E4(this)) {
-        sub_0804A7D4(this);
+        GenericDeath(this);
     }
 }
 
@@ -180,5 +180,5 @@ u32 sub_0803163C(Entity* this) {
         h = this->field_0x7a.HWORD;
     }
     this->speed = h;
-    return ProcessMovement(this);
+    return ProcessMovement0(this);
 }

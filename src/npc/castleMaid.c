@@ -155,7 +155,7 @@ void sub_080646A4(Entity* this, ScriptExecutionContext* context) {
     }
 
     context->postScriptActions |= 0x2;
-    ProcessMovement(this);
+    ProcessMovement0(this);
     x = this->x.HALF.HI;
     diff = x - (s16)this->field_0x6c.HWORD;
     if (diff > 0x10) {

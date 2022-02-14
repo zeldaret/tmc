@@ -1,5 +1,6 @@
 #define NENT_DEPRECATED
 #include "entity.h"
+#include "functions.h"
 
 typedef struct {
     Entity base;
@@ -10,8 +11,6 @@ typedef struct {
     u16 unk_0x84;
     u16 speed2;
 } SpikedRollersEntity;
-
-extern s32 sub_080AF090(Entity*);
 
 static void (*const SpikedRollers_Actions[])(SpikedRollersEntity*);
 static const u8 gSpikedRollersOffsets[];
@@ -49,7 +48,7 @@ void sub_080ABA74(SpikedRollersEntity* this) {
 
 void sub_080ABAE0(SpikedRollersEntity* this) {
     s32 diff, unk_0x6c;
-    sub_080AF090(super);
+    ProcessMovement3(super);
 
     if (super->type2 == 0) {
         diff = super->x.HALF.HI - this->x2;

@@ -16,21 +16,21 @@ void sub_0802B9B4(Entity*);
 void sub_0802B7A4(Entity*);
 void sub_0802B960(Entity*);
 
-extern void (*const gUnk_080CD2D8[])(Entity*);
+extern void (*const SpikedBeetle_Functions[])(Entity*);
 extern void (*const gUnk_080CD2F0[])(Entity*);
 extern const u8 gUnk_080CD314[];
 extern const s8 gUnk_080CD318[];
 
 void SpikedBeetle(Entity* this) {
-    EnemyFunctionHandler(this, gUnk_080CD2D8);
+    EnemyFunctionHandler(this, SpikedBeetle_Functions);
     SetChildOffset(this, 0, 1, -0x10);
 }
 
-void sub_0802B610(Entity* this) {
+void SpikedBeetle_OnTick(Entity* this) {
     gUnk_080CD2F0[this->action](this);
 }
 
-void sub_0802B628(Entity* this) {
+void SpikedBeetle_OnCollision(Entity* this) {
     switch (this->bitfield & 0x7f) {
         case 0:
         case 4:
@@ -63,13 +63,13 @@ void sub_0802B628(Entity* this) {
                 InitializeAnimation(this, 9);
             }
     }
-    if (this->field_0x43) {
-        sub_0804A9FC(this, 0x1c);
+    if (this->confusedTime) {
+        Create0x68FX(this, FX_STARS);
     }
-    sub_0804AA30(this, gUnk_080CD2D8);
+    EnemyFunctionHandlerAfterCollision(this, SpikedBeetle_Functions);
 }
 
-void nullsub_144(Entity* this) {
+void SpikedBeetle_OnGrabbed(Entity* this) {
     /* ... */
 }
 
@@ -94,7 +94,7 @@ void sub_0802B744(Entity* this) {
             this->action = 2;
             this->actionDelay = 0x1e;
         } else {
-            if (!ProcessMovement(this)) {
+            if (!ProcessMovement0(this)) {
                 this->actionDelay = 1;
             }
         }
@@ -127,7 +127,7 @@ void sub_0802B7FC(Entity* this) {
 }
 
 void sub_0802B820(Entity* this) {
-    if (!sub_080AEFE0(this)) {
+    if (!ProcessMovement2(this)) {
         this->actionDelay = 1;
     }
     GetNextFrame(this);
@@ -152,7 +152,7 @@ void sub_0802B880(Entity* this) {
 }
 
 void sub_0802B8B0(Entity* this) {
-    sub_080AEFE0(this);
+    ProcessMovement2(this);
     switch (sub_080044EC(this, 0x1800)) {
         case 0:
             this->action = 7;
@@ -210,13 +210,13 @@ void sub_0802B9B4(Entity* this) {
 }
 
 // clang-format off
-void (*const gUnk_080CD2D8[])(Entity*) = {
-    sub_0802B610,
-    sub_0802B628,
-    sub_08001324,
-    sub_0804A7D4,
-    sub_08001242,
-    nullsub_144,
+void (*const SpikedBeetle_Functions[])(Entity*) = {
+    SpikedBeetle_OnTick,
+    SpikedBeetle_OnCollision,
+    GenericKnockback,
+    GenericDeath,
+    GenericConfused,
+    SpikedBeetle_OnGrabbed,
 };
 
 void (*const gUnk_080CD2F0[])(Entity*) = {

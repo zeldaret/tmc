@@ -2,10 +2,6 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern s32 sub_080AF090(Entity*);
-extern s32 IsProjectileOffScreen(Entity*);
-extern void sub_08016AD2(Entity*);
-
 extern void (*const BoneProjectile_Functions[])(Entity*);
 extern void (*const BoneProjectile_Actions[])(Entity*);
 
@@ -36,9 +32,9 @@ void BoneProjectile_Init(Entity* this) {
 
 void BoneProjectile_Action1(Entity* this) {
     GetNextFrame(this);
-    sub_080AF090(this);
+    ProcessMovement3(this);
     if (this->collisions == 0) {
-        if (IsProjectileOffScreen(this) != 0) {
+        if (IsProjectileOffScreen(this)) {
             DeleteEntity(this);
         } else {
             sub_08016AD2(this);
@@ -54,7 +50,7 @@ void BoneProjectile_Action1(Entity* this) {
 
 void BoneProjectile_Action2(Entity* this) {
     GetNextFrame(this);
-    sub_080AF090(this);
+    ProcessMovement3(this);
     if (GravityUpdate(this, 0x1800) == 0) {
         this->action = 3;
         COLLISION_OFF(this);

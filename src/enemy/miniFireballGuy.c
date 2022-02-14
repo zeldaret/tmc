@@ -10,31 +10,31 @@
 
 extern void sub_08045678(Entity*);
 
-extern void (*const gUnk_080D1868[])(Entity*);
+extern void (*const MiniFireballGuy_Functions[])(Entity*);
 extern void (*const gUnk_080D1880[])(Entity*);
 
 void MiniFireballGuy(Entity* this) {
-    EnemyFunctionHandler(this, gUnk_080D1868);
+    EnemyFunctionHandler(this, MiniFireballGuy_Functions);
 }
 
-void sub_080455BC(Entity* this) {
+void MiniFireballGuy_OnTick(Entity* this) {
     gUnk_080D1880[this->action](this);
 }
 
-void sub_080455D4(Entity* this) {
-    sub_0804AA30(this, gUnk_080D1868);
+void MiniFireballGuy_OnCollision(Entity* this) {
+    EnemyFunctionHandlerAfterCollision(this, MiniFireballGuy_Functions);
 }
 
-void sub_080455E4(Entity* this) {
+void MiniFireballGuy_OnDeath(Entity* this) {
     if ((this != this->parent) && (this->parent != NULL)) {
         this->field_0x6c.HALF.LO &= 0x7f;
         this->parent->child = this->child;
         this->child->parent = this->parent;
     }
-    sub_0804A7D4(this);
+    GenericDeath(this);
 }
 
-void nullsub_23(Entity* this) {
+void MiniFireballGuy_OnGrabbed(Entity* this) {
 }
 
 void sub_08045618(Entity* this) {
@@ -48,7 +48,7 @@ void sub_08045618(Entity* this) {
 }
 
 void sub_08045654(Entity* this) {
-    sub_080AEFE0(this);
+    ProcessMovement2(this);
     GetNextFrame(this);
     if (GravityUpdate(this, 0x1800) == 0) {
         sub_08045678(this);

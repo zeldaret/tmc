@@ -9,8 +9,6 @@
 #include "area.h"
 #include "functions.h"
 
-extern void sub_080AEFB4(Entity*);
-
 void VaatiRebornEnemyType0PreAction(Entity*);
 void VaatiRebornEnemyType1PreAction(Entity*);
 void VaatiRebornEnemyType0Action0(Entity*);
@@ -218,7 +216,7 @@ void VaatiRebornEnemyType0Action1(Entity* this) {
                         this->y.HALF.HI--;
                 }
             }
-            sub_080AEFB4(this);
+            ProcessMovement1(this);
         }
     }
     UpdateAnimationSingleFrame(this);
@@ -416,7 +414,7 @@ void VaatiRebornEnemyType0Action5(Entity* this) {
     }
 
     if (this->field_0x86.HALF.HI != 0) {
-        sub_080AEFB4(this);
+        ProcessMovement1(this);
     }
     UpdateAnimationSingleFrame(this);
 }

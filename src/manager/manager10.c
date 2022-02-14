@@ -23,7 +23,6 @@ const u8 gUnk_08108390[6] = {
     0x0F, 0x1E, 0x2D, 0x3C, 0x01, 0x01,
 };
 
-extern void* gUnk_0200B650;
 extern u16 gUnk_020176E0[];
 extern u8 gUnk_02017700[];
 
@@ -37,7 +36,7 @@ void Manager10_Main(Manager10* this) {
         if (sub_0805986C()) {
             this->unk_20 = 1;
             this->unk_22 = 2;
-            gUnk_0200B650 = 0;
+            gMapTop.bgControlPtr = 0;
         } else {
             this->unk_20 = 0x1F;
             this->unk_22 = 5;
@@ -104,7 +103,7 @@ void sub_080596E0(Manager10* this) {
             this->unk_21 = 1;
             this->unk_22 = 3;
             this->manager.unk_0e = gUnk_08108390[3];
-            gUnk_0200B650 = 0;
+            gMapTop.bgControlPtr = 0;
         }
     } else {
         if (this->unk_21 == 0 && this->unk_22 != 5) {
@@ -141,7 +140,7 @@ void sub_080596E0(Manager10* this) {
                 LoadResourceAsync(gBG3Buffer, 0x600e800, 0x800);
                 break;
             case 5:
-                gUnk_0200B650 = &gScreen.bg1.control;
+                gMapTop.bgControlPtr = &gScreen.bg1.control;
                 gScreen.lcd.displayControl |= 0x200;
                 break;
         }

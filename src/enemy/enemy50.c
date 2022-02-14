@@ -95,10 +95,10 @@ void sub_08040B9C(Enemy50Entity* this) {
     if (super->bitfield == 0x9d) {
         super->zVelocity = 0x18000;
     }
-    if (super->field_0x43 != 0) {
+    if (super->confusedTime != 0) {
         super->animationState = super->knockbackDirection >> 4;
         InitializeAnimation(super, super->animationState + 7);
-        sub_0804A9FC(super, 0x1c);
+        Create0x68FX(super, 0x1c);
     }
     if (super->health != this->unk_7a) {
         if (super->type == 0) {
@@ -116,14 +116,14 @@ void sub_08040B9C(Enemy50Entity* this) {
         this->unk_7a = super->health;
     }
 _08040C9C:
-    sub_0804AA30(super, Enemy50_Functions);
+    EnemyFunctionHandlerAfterCollision(super, Enemy50_Functions);
 }
 
 void sub_08040CAC(Enemy50Entity* this) {
     GetNextFrame(super);
-    sub_08001328(super);
+    GenericKnockback2(super);
     if (super->type == 0) {
-        if (((super->knockbackDuration == 0) && (super->health != 0)) && (super->field_0x43 == 0)) {
+        if (((super->knockbackDuration == 0) && (super->health != 0)) && (super->confusedTime == 0)) {
             super->animationState = 0xff;
             if (super->animIndex == 7 || super->animIndex == 8) {
                 InitializeAnimation(super, ((super->animIndex - 7) ^ 1) + 1);
@@ -141,11 +141,11 @@ void sub_08040D30(Enemy50Entity* this) {
     if (super->animIndex != 7 && super->animIndex != 8) {
         InitializeAnimation(super, super->animationState + 7);
     }
-    sub_08001242(super);
+    GenericConfused(super);
     if (super->z.HALF.HI == 0) {
         super->z.HALF.HI = 0xffff;
     }
-    if (super->field_0x43 == 0) {
+    if (super->confusedTime == 0) {
         InitializeAnimation(super, (super->animationState ^ 1) + 1);
         super->direction = 0xff;
         super->animationState = 0xff;
@@ -181,7 +181,7 @@ void Enemy50_SubAction2(Enemy50Entity* this) {
             effect->spritePriority.b0 = 3;
         }
         if (super->type == 0) {
-            sub_0804A7D4(super);
+            GenericDeath(super);
         } else {
             DeleteThisEntity();
         }
@@ -273,7 +273,7 @@ void Enemy50_Action6(Enemy50Entity* this) {
                 sub_08004596(super, GetFacingDirection(super, gUnk_020000B0));
             }
             sub_0803F66C(this);
-            sub_080AEFB4(super);
+            ProcessMovement1(super);
         } else {
             super->action = 7;
             super->actionDelay = 0x1e;
@@ -316,7 +316,7 @@ void Enemy50_Action9(Enemy50Entity* this) {
         super->animationState = 0xff;
         super->iframes = -0xc;
         super->knockbackDuration = 0x14;
-        super->field_0x46 = 0x180;
+        super->knockbackSpeed = 0x180;
         super->knockbackDirection = gPlayerEntity.animationState << 2 ^ 0x10;
         sub_08041128(this);
         sub_0803F6EC(this);
@@ -436,7 +436,7 @@ bool32 sub_08041300(Enemy50Entity* this) {
 #endif
 
 void (*const Enemy50_Functions[])(Enemy50Entity*) = {
-    Enemy50_OnTick, sub_08040B9C, sub_08040CAC, (void (*)(Enemy50Entity*))sub_0804A7D4, sub_08040D30, sub_08040D90,
+    Enemy50_OnTick, sub_08040B9C, sub_08040CAC, (void (*)(Enemy50Entity*))GenericDeath, sub_08040D30, sub_08040D90,
 };
 void (*const Enemy50_Actions[])(Enemy50Entity*) = {
     Enemy50_Init,    Enemy50_Action1, Enemy50_Action2, Enemy50_Action3, Enemy50_Action4,  Enemy50_Action5,

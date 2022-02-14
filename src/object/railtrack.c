@@ -6,7 +6,6 @@
 #include "flags.h"
 #include "functions.h"
 
-extern u32* GetLayerByIndex(u32);
 extern void sub_08085394(Entity*);
 extern void sub_0808543C(Entity*);
 extern u32 sub_080854A8(Entity*);

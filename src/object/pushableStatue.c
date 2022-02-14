@@ -20,7 +20,6 @@ typedef struct {
     /*0x86*/ u16 unk_86;
 } PushableStatueEntity;
 
-extern u8* GetLayerByIndex(u32);
 extern const Hitbox gUnk_080FD1F4;
 extern const s16 gUnk_080B4488[];
 extern const s16 gUnk_080B4468[];

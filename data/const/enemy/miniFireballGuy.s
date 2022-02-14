@@ -4,13 +4,13 @@
 	.section .rodata
     .align 2
 
-gUnk_080D1868:: @ 080D1868
-	.4byte sub_080455BC
-	.4byte sub_080455D4
-	.4byte sub_08001324
-	.4byte sub_080455E4
-	.4byte sub_08001242
-	.4byte nullsub_23
+MiniFireballGuy_Functions:: @ 080D1868
+	.4byte MiniFireballGuy_OnTick
+	.4byte MiniFireballGuy_OnCollision
+	.4byte GenericKnockback
+	.4byte MiniFireballGuy_OnDeath
+	.4byte GenericConfused
+	.4byte MiniFireballGuy_OnGrabbed
 
 gUnk_080D1880:: @ 080D1880
 	.4byte sub_08045618

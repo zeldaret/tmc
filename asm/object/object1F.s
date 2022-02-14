@@ -135,7 +135,7 @@ sub_0808776C: @ 0x0808776C
 _08087784: .4byte gPlayerState
 _08087788:
 	adds r0, r4, #0
-	bl sub_080AEFE0
+	bl ProcessMovement2
 	movs r1, #0xa0
 	lsls r1, r1, #6
 	adds r0, r4, #0

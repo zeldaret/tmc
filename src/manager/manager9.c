@@ -83,10 +83,8 @@ void sub_080582F8(u8* unk, u8* unk2) {
     }
 }
 
-extern u32 gUnk_0200B650;
-
 void sub_08058324(u32 unk) {
-    gUnk_0200B650 = 0;
+    gMapTop.bgControlPtr = 0;
     LoadPaletteGroup(unk + 0x86);
     LoadGfxGroup(unk + 0x36);
     sub_080582D0();

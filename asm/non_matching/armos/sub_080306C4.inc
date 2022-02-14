@@ -93,7 +93,7 @@ _08030758:
 	adds r2, r2, r0
 	mov r0, ip
 	movs r3, #0
-	bl sub_080AE4CC
+	bl IsTileCollision
 	cmp r0, #0
 	beq _0803079E
 	movs r0, #4

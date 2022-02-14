@@ -3,8 +3,6 @@
 #include "functions.h"
 #include "object.h"
 
-extern s32 sub_080AF090(Entity*);
-
 extern void (*const gArrowProjectile[])(Entity*);
 extern void (*const gArrowProjectileActions[])(Entity*);
 
@@ -78,7 +76,7 @@ void ArrowProjectile_Action2(Entity* this) {
     } else if (--this->actionDelay == 0) {
         DeleteThisEntity();
     }
-    sub_080AF090(this);
+    ProcessMovement3(this);
 }
 
 void ArrowProjectile_Action3(Entity* this) {

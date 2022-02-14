@@ -23,7 +23,7 @@ void sub_08029FB4(Entity*, u32, u32);
 void sub_0802A0F8(Entity*);
 
 extern void (*const gUnk_080CCD44[])(Entity*);
-extern void (*const gUnk_080CCD60[])(Entity*);
+extern void (*const Madderpillar_Functions[])(Entity*);
 extern void (*const gUnk_080CCD78[])(Entity*);
 extern void (*const gUnk_080CCD88[])(Entity*);
 extern const u8 gUnk_080CCDA0[];
@@ -36,14 +36,14 @@ void Madderpillar(Entity* this) {
 }
 
 void sub_08029870(Entity* this) {
-    gUnk_080CCD60[GetNextFunction(this)](this);
+    Madderpillar_Functions[GetNextFunction(this)](this);
 }
 
-void sub_0802988C(Entity* this) {
+void Madderpillar_OnTick(Entity* this) {
     gUnk_080CCD78[this->action](this);
 }
 
-void sub_080298A4(Entity* this) {
+void Madderpillar_OnCollision(Entity* this) {
     if (this->action == 1) {
         switch (this->bitfield & 0x7f) {
             case 0:
@@ -67,18 +67,18 @@ void sub_080298A4(Entity* this) {
         }
     }
 
-    sub_0804AA30(this, gUnk_080CCD60);
+    EnemyFunctionHandlerAfterCollision(this, Madderpillar_Functions);
 }
 
-void sub_08029980(Entity* this) {
+void Madderpillar_OnDeath(Entity* this) {
     if (this->field_0xf) {
         this->field_0xf--;
     } else {
-        sub_0804A7D4(this);
+        GenericDeath(this);
     }
 }
 
-void nullsub_14(Entity* this) {
+void Madderpillar_OnGrabbed(Entity* this) {
     /* ... */
 }
 
@@ -450,7 +450,7 @@ void sub_0802A098(Entity* this) {
     }
     uVar1 = this->x.HALF.HI;
     uVar2 = this->y.HALF.HI;
-    ProcessMovement(this);
+    ProcessMovement0(this);
     if (sub_08029F48(this)) {
         sub_08029E0C(this);
         sub_08029EEC(this);
@@ -522,13 +522,13 @@ void (*const gUnk_080CCD44[])(Entity*) = {
     sub_08029C98,
 };
 
-void (*const gUnk_080CCD60[])(Entity*) = {
-    sub_0802988C,
-    sub_080298A4,
-    sub_0802988C,
-    sub_08029980,
-    sub_08001242,
-    nullsub_14,
+void (*const Madderpillar_Functions[])(Entity*) = {
+    Madderpillar_OnTick,
+    Madderpillar_OnCollision,
+    Madderpillar_OnTick,
+    Madderpillar_OnDeath,
+    GenericConfused,
+    Madderpillar_OnGrabbed,
 };
 
 void (*const gUnk_080CCD78[])(Entity*) = {

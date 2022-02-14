@@ -25,7 +25,6 @@ void sub_0806D138(unk_0806D138param_1* param_1, unk_0806D138param_2* param_2);
 
 extern void InitBiggoronTimer(void);
 
-extern u32 gUnk_0200B650;
 void sub_0806D110(void);
 void sub_0806D164(Entity* this);
 
@@ -88,7 +87,7 @@ Entity* sub_0806D00C(Entity* this) {
 ASM_FUNC("asm/non_matching/bigGoron/sub_0806D02C.inc", void sub_0806D02C(Entity* this))
 
 void sub_0806D0B0(Entity* this) {
-    gUnk_0200B650 = 0;
+    gMapTop.bgControlPtr = 0;
     LoadGfxGroup(0x30);
     sub_0806D110();
     MemClear(&gMapDataTopSpecial, 0x2000);

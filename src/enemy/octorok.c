@@ -12,7 +12,7 @@ void Octorok_Pause(Entity*);
 bool32 Octorok_FacesPlayer(Entity*);
 void Octorok_Turn(Entity*);
 
-extern void (*const gOctorok[6])(Entity*);
+extern void (*const Octorok_Functions[6])(Entity*);
 extern void (*const gOctorokActions[4])(Entity*);
 extern void (*const gUnk_080CA158[6])(Entity*);
 
@@ -24,7 +24,7 @@ extern const s8 gUnk_080CA17E[2];
 
 // Main
 void Octorok(Entity* this) {
-    EnemyFunctionHandler(this, gOctorok);
+    EnemyFunctionHandler(this, Octorok_Functions);
     SetChildOffset(this, 0, 1, -16);
 }
 
@@ -34,23 +34,23 @@ void Octorok_OnTick(Entity* this) {
 }
 
 // Touch player
-void sub_0801EAE8(Entity* this) {
-    if (this->field_0x43 != 0) {
-        sub_0804A9FC(this, 28);
+void Octorok_OnCollision(Entity* this) {
+    if (this->confusedTime != 0) {
+        Create0x68FX(this, FX_STARS);
     }
-    sub_0804AA30(this, gOctorok);
+    EnemyFunctionHandlerAfterCollision(this, Octorok_Functions);
 }
 
 // Death
-void sub_0801EB0C(Entity* this) {
+void Octorok_OnDeath(Entity* this) {
     if (this->type == 0) {
-        sub_0804A7D4(this);
+        GenericDeath(this);
     } else {
         CreateDeathFx(this, 241, 0);
     }
 }
 
-void sub_0801EB2C(Entity* this) {
+void Octorok_OnGrabbed(Entity* this) {
     if (this->subAction < 3 && !sub_0806F520(this)) {
         Octorok_Pause(this);
         InitializeAnimation(this, this->animationState);
@@ -113,7 +113,7 @@ void Octorok_Idle(Entity* this) {
 }
 
 void Octorok_Move(Entity* this) {
-    ProcessMovement(this);
+    ProcessMovement0(this);
     GetNextFrame(this);
     if (--this->actionDelay == 0) {
         if (Octorok_FacesPlayer(this) && gOctorokSpitChanceModifier[this->type] <= (Random() & 3)) {
@@ -194,13 +194,13 @@ bool32 Octorok_FacesPlayer(Entity* this) {
 }
 
 // clang-format off
-void (*const gOctorok[])(Entity*) = {
+void (*const Octorok_Functions[])(Entity*) = {
     Octorok_OnTick,
-    sub_0801EAE8,
-    sub_08001324,
-    sub_0801EB0C,
-    sub_08001242,
-    sub_0801EB2C,
+    Octorok_OnCollision,
+    GenericKnockback,
+    Octorok_OnDeath,
+    GenericConfused,
+    Octorok_OnGrabbed,
 };
 
 void (*const gOctorokActions[])(Entity*) = {

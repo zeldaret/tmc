@@ -12,7 +12,7 @@ void sub_08022EAC(Entity*);
 void sub_08022F14(Entity*);
 
 extern void (*const gUnk_080CBB90[])(Entity*);
-extern void (*const gUnk_080CBBA0[])(Entity*);
+extern void (*const Moldorm_Functions[])(Entity*);
 extern void (*const gUnk_080CBBB4[])(Entity*);
 extern void (*const gUnk_080CBBBC[])(Entity*);
 
@@ -26,15 +26,15 @@ void sub_08022BA0(Entity* this) {
     this->field_0x78.HALF.HI++;
     this->field_0x74.HWORD = this->x.HALF.HI;
     this->field_0x76.HWORD = this->y.HALF.HI;
-    EnemyFunctionHandler(this, gUnk_080CBBA0);
+    EnemyFunctionHandler(this, Moldorm_Functions);
     sub_08022EAC(this);
 }
 
-void sub_08022BD4(Entity* this) {
+void Moldorm_OnTick(Entity* this) {
     gUnk_080CBBB4[this->action](this);
 }
 
-void sub_08022BEC(Entity* this) {
+void Moldorm_OnCollision(Entity* this) {
     if (this->field_0x7a.HALF.LO != this->health)
         this->field_0x7a.HALF.HI = 30;
 
@@ -48,7 +48,7 @@ void sub_08022BEC(Entity* this) {
     this->child->iframes = this->iframes;
     (*(Entity**)&this->field_0x7c)->iframes = this->iframes;
     (*(Entity**)&this->field_0x80)->iframes = this->iframes;
-    sub_0804AA30(this, gUnk_080CBBA0);
+    EnemyFunctionHandlerAfterCollision(this, Moldorm_Functions);
 }
 
 void sub_08022C58(Entity* this) {
@@ -101,7 +101,7 @@ void sub_08022D40(Entity* this) {
         }
     } else {
         sub_08022F14(this);
-        ProcessMovement(this);
+        ProcessMovement0(this);
 
         if (this->collisions) {
             sub_0800417E(this, this->collisions);
@@ -189,12 +189,12 @@ void (*const gUnk_080CBB90[])(Entity*) = {
     sub_08022D90,
 };
 
-void (*const gUnk_080CBBA0[])(Entity*) = {
-    sub_08022BD4,
-    sub_08022BEC,
-    sub_08001324,
-    sub_0804A7D4,
-    sub_08001242,
+void (*const Moldorm_Functions[])(Entity*) = {
+    Moldorm_OnTick,
+    Moldorm_OnCollision,
+    GenericKnockback,
+    GenericDeath,
+    GenericConfused,
 };
 
 void (*const gUnk_080CBBB4[])(Entity*) = {

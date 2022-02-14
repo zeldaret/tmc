@@ -10,8 +10,8 @@
 
 extern s16 gUnk_080B4488[];
 
-void VaatiEyesMacroFunction0(Entity*);
-void VaatiEyesMacroFunction1(Entity*);
+void VaatiEyesMacro_OnTick(Entity*);
+void VaatiEyesMacro_OnCollision(Entity*);
 void VaatiEyesMacroFunction0Type0(Entity*);
 void VaatiEyesMacroFunction0Type1(Entity*);
 void VaatiEyesMacroFunction0Type2(Entity*);
@@ -25,8 +25,9 @@ void sub_0802EFB8(Entity*);
 void sub_0802EF58(Entity*);
 void sub_0802F04C(Entity*);
 
-void (*const vaatiEyesMacroFunctions[])(Entity*) = {
-    VaatiEyesMacroFunction0, VaatiEyesMacroFunction1, sub_08001324, sub_0804A7D4, sub_08001242, VaatiEyesMacroFunction0,
+void (*const VaatiEyesMacro_Functions[])(Entity*) = {
+    VaatiEyesMacro_OnTick, VaatiEyesMacro_OnCollision, GenericKnockback, GenericDeath,
+    GenericConfused,       VaatiEyesMacro_OnTick,
 };
 void (*const vaatiEyesMacroFunction0Types[])(Entity*) = {
     VaatiEyesMacroFunction0Type0,
@@ -50,18 +51,18 @@ const s8 gUnk_080CDE90[] = { -2, -3, -4, -5, -6, -5, -4, -3 };
 const u16 gUnk_080CDE98[] = { 0xc0, 0x100, 0x140, 0x180 };
 
 void VaatiEyesMacro(Entity* this) {
-    vaatiEyesMacroFunctions[GetNextFunction(this)](this);
+    VaatiEyesMacro_Functions[GetNextFunction(this)](this);
     SetChildOffset(this, 0, 1, -0x10);
 }
 
-void VaatiEyesMacroFunction0(Entity* this) {
+void VaatiEyesMacro_OnTick(Entity* this) {
     vaatiEyesMacroFunction0Types[this->type](this);
     if (this->type < 2) {
         sub_0802EF90(this);
     }
 }
 
-void VaatiEyesMacroFunction1(Entity* this) {
+void VaatiEyesMacro_OnCollision(Entity* this) {
     if (this->type == 0) {
         if (this->health == 0) {
             gRoomTransition.field_0x39 &= ~(1 << (gRoomTransition.field_0x3c + 2));
@@ -86,10 +87,10 @@ void VaatiEyesMacroFunction1(Entity* this) {
             this->health = 0xff;
         }
     }
-    if (this->field_0x43 != 0) {
-        sub_0804A9FC(this, 0x1c);
+    if (this->confusedTime != 0) {
+        Create0x68FX(this, FX_STARS);
     }
-    sub_0804AA30(this, vaatiEyesMacroFunctions);
+    EnemyFunctionHandlerAfterCollision(this, VaatiEyesMacro_Functions);
 }
 
 void VaatiEyesMacroFunction0Type0(Entity* this) {
@@ -245,7 +246,7 @@ void sub_0802F04C(Entity* this) {
 
     oldX = this->x.HALF.HI;
     oldY = this->y.HALF.HI;
-    if (ProcessMovement(this) == 0) {
+    if (ProcessMovement0(this) == 0) {
         sub_0802EFB8(this);
         return;
     }

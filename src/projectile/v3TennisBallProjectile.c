@@ -1,8 +1,6 @@
 #include "entity.h"
 #include "enemy.h"
-
-extern s32 sub_080AF090(Entity*);
-extern s32 IsProjectileOffScreen(Entity*);
+#include "functions.h"
 
 extern void (*const V3TennisBallProjectile_Functions[])(Entity*);
 extern void (*const V3TennisBallProjectile_Actions[])(Entity*);
@@ -55,21 +53,21 @@ void V3TennisBallProjectile_Init(Entity* this) {
 }
 
 void V3TennisBallProjectile_Action1(Entity* this) {
-    sub_080AF090(this);
+    ProcessMovement3(this);
     GetNextFrame(this);
-    if (IsProjectileOffScreen(this) != 0) {
+    if (IsProjectileOffScreen(this)) {
         DeleteThisEntity();
     }
 }
 
 void V3TennisBallProjectile_Action2(Entity* this) {
-    sub_080AF090(this);
+    ProcessMovement3(this);
     if (this->collisions != 0) {
         DeleteThisEntity();
     }
     GetNextFrame(this);
     sub_080ACB90(this);
-    if (IsProjectileOffScreen(this) != 0) {
+    if (IsProjectileOffScreen(this)) {
         DeleteThisEntity();
     }
 }

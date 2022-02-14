@@ -14,7 +14,7 @@ extern void (*const gUnk_080012C8[])(Entity*);
 extern Hitbox gUnk_080FD340; // TODO should be const
 extern Hitbox gUnk_080FD34C;
 
-void (*const gUnk_080CFB84[])(Entity*);
+void (*const FlyingSkull_Functions[])(Entity*);
 void (*const gUnk_080CFB9C[])(FlyingSkullEntity*);
 void (*const gUnk_080CFBBC[])(FlyingSkullEntity*);
 void (*const gUnk_080CFBD4[])(FlyingSkullEntity*);
@@ -31,15 +31,15 @@ void FlyingSkull(Entity* this) {
     if (index) {
         gUnk_080012C8[index](this);
     } else {
-        gUnk_080CFB84[GetNextFunction(this)](this);
+        FlyingSkull_Functions[GetNextFunction(this)](this);
     }
 }
 
-void sub_08039BE0(FlyingSkullEntity* this) {
+void FlyingSkull_OnTick(FlyingSkullEntity* this) {
     gUnk_080CFB9C[super->action](this);
 }
 
-void sub_08039BF8(FlyingSkullEntity* this) {
+void FlyingSkull_OnCollision(FlyingSkullEntity* this) {
     sub_0803A100(this);
 
     if (super->bitfield == 0x9d) {
@@ -52,10 +52,10 @@ void sub_08039BF8(FlyingSkullEntity* this) {
         sub_0803A0E0(this);
     }
 
-    sub_0804AA30(super, gUnk_080CFB84);
+    EnemyFunctionHandlerAfterCollision(super, FlyingSkull_Functions);
 }
 
-void sub_08039C80(FlyingSkullEntity* this) {
+void FlyingSkull_OnGrabbed(FlyingSkullEntity* this) {
     gUnk_080CFBBC[super->subAction](this);
 }
 
@@ -221,7 +221,7 @@ void sub_0803A080(FlyingSkullEntity* this) {
 
 void sub_0803A09C(FlyingSkullEntity* this) {
     GetNextFrame(super);
-    sub_080AEFE0(super);
+    ProcessMovement2(super);
 
     if (super->collisions) {
         sub_0803A0E0(this);
@@ -251,9 +251,13 @@ void sub_0803A100(FlyingSkullEntity* this) {
     }
 }
 
-void (*const gUnk_080CFB84[])(Entity*) = {
-    (EntityActionPtr)sub_08039BE0, (EntityActionPtr)sub_08039BF8, sub_08001324, sub_0804A7D4, sub_08001242,
-    (EntityActionPtr)sub_08039C80,
+void (*const FlyingSkull_Functions[])(Entity*) = {
+    (EntityActionPtr)FlyingSkull_OnTick,
+    (EntityActionPtr)FlyingSkull_OnCollision,
+    GenericKnockback,
+    GenericDeath,
+    GenericConfused,
+    (EntityActionPtr)FlyingSkull_OnGrabbed,
 };
 
 void (*const gUnk_080CFB9C[])(FlyingSkullEntity*) = {

@@ -21,7 +21,7 @@ extern void sub_080297F0(Entity*);
 extern void sub_080296C8(Entity*);
 extern void sub_0802969C(Entity*);
 
-extern void (*const gUnk_080CCC00[])(Entity*);
+extern void (*const RupeeLike_Functions[])(Entity*);
 extern void (*const gUnk_080CCC18[])(Entity*);
 extern void (*const gUnk_080CCC3C[])(Entity*);
 
@@ -41,7 +41,7 @@ void RupeeLike(Entity* this) {
             }
             sub_08001290(this, uVar1);
         } else {
-            gUnk_080CCC00[GetNextFunction(this)](this);
+            RupeeLike_Functions[GetNextFunction(this)](this);
             SetChildOffset(this, 0, 1, -0x10);
         }
     } else {
@@ -49,11 +49,11 @@ void RupeeLike(Entity* this) {
     }
 }
 
-void sub_08029300(Entity* this) {
+void RupeeLike_OnTick(Entity* this) {
     gUnk_080CCC18[this->action](this);
 }
 
-void sub_08029318(Entity* this) {
+void RupeeLike_OnCollision(Entity* this) {
     if (this->hitType == 0x8e) {
         sub_08029770(this);
     } else {
@@ -73,19 +73,19 @@ void sub_08029318(Entity* this) {
             this->field_0x80.HALF.LO = gPlayerEntity.spritePriority.b1;
             EnqueueSFX(SFX_104);
         } else {
-            if (this->field_0x43 != 0) {
-                sub_0804A9FC(this, 0x1c);
+            if (this->confusedTime != 0) {
+                Create0x68FX(this, FX_STARS);
             }
         }
     }
-    sub_0804AA30(this, gUnk_080CCC00);
+    EnemyFunctionHandlerAfterCollision(this, RupeeLike_Functions);
 }
 
-void sub_080293B4(Entity* this) {
+void RupeeLike_OnDeath(Entity* this) {
     CreateDeathFx(this, 0xff, gUnk_080CCC34[this->cutsceneBeh.HALF.LO * 3 + this->type]);
 }
 
-void nullsub_141(Entity* this) {
+void RupeeLike_OnGrabbed(Entity* this) {
 }
 
 void sub_080293DC(Entity* this) {
@@ -145,7 +145,7 @@ void sub_080294D4(Entity* this) {
             sub_08004596(this, GetFacingDirection(this, &gPlayerEntity));
             sub_0802969C(this);
         }
-        ProcessMovement(this);
+        ProcessMovement0(this);
         sub_080296C8(this);
     } else {
         this->action = 6;
@@ -293,13 +293,13 @@ void sub_080297F0(Entity* this) {
 }
 
 // clang-format off
-void (*const gUnk_080CCC00[])(Entity*) = {
-    sub_08029300,
-    sub_08029318,
-    sub_08001324,
-    sub_080293B4,
-    sub_08001242,
-    nullsub_141,
+void (*const RupeeLike_Functions[])(Entity*) = {
+    RupeeLike_OnTick,
+    RupeeLike_OnCollision,
+    GenericKnockback,
+    RupeeLike_OnDeath,
+    GenericConfused,
+    RupeeLike_OnGrabbed,
 };
 
 void (*const gUnk_080CCC18[])(Entity*) = {

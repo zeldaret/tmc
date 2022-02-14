@@ -39,7 +39,7 @@ _08044148: .4byte gUnk_080D15A0
 sub_0804414C: @ 0x0804414C
 	push {lr}
 	ldr r1, _08044158 @ =gUnk_080D1588
-	bl sub_0804AA30
+	bl EnemyFunctionHandlerAfterCollision
 	pop {pc}
 	.align 2, 0
 _08044158: .4byte gUnk_080D1588
@@ -113,7 +113,7 @@ sub_080441CC: @ 0x080441CC
 	cmp r0, #0
 	beq _080441DE
 	adds r0, r4, #0
-	bl sub_0804A7D4
+	bl GenericDeath
 _080441DE:
 	pop {r4, pc}
 

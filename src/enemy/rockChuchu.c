@@ -10,18 +10,18 @@
 
 extern void sub_0804A4E4(Entity*, Entity*);
 
-extern void (*const gUnk_080CB948[])(Entity*);
+extern void (*const RockChuchu_Functions[])(Entity*);
 extern void (*const gUnk_080CB960[])(Entity*);
 
 void RockChuchu(Entity* this) {
-    EnemyFunctionHandler(this, gUnk_080CB948);
+    EnemyFunctionHandler(this, RockChuchu_Functions);
 }
 
-void sub_0802223C(Entity* this) {
+void RockChuchu_OnTick(Entity* this) {
     gUnk_080CB960[this->action](this);
 }
 
-void sub_08022254(Entity* this) {
+void RockChuchu_OnCollision(Entity* this) {
     Entity* ent;
 
     if (this->health) {
@@ -65,10 +65,10 @@ void sub_08022254(Entity* this) {
             InitializeAnimation(this, 2);
     }
 
-    sub_0804AA30(this, gUnk_080CB948);
+    EnemyFunctionHandlerAfterCollision(this, RockChuchu_Functions);
 }
 
-void nullsub_131(Entity* this) {
+void RockChuchu_OnGrabbed(Entity* this) {
 }
 
 void sub_08022368(Entity* this) {
@@ -87,7 +87,7 @@ void sub_08022390(Entity* this) {
         }
 
         if (this->field_0xf == 0) {
-            ProcessMovement(this);
+            ProcessMovement0(this);
         } else {
             this->field_0xf = this->field_0xf - 1;
         }
@@ -115,13 +115,13 @@ void sub_080223E4(Entity* this) {
 }
 
 // clang-format off
-void (*const gUnk_080CB948[])(Entity*) = {
-    sub_0802223C,
-    sub_08022254,
-    sub_08001324,
-    sub_0804A7D4,
-    sub_08001242,
-    nullsub_131,
+void (*const RockChuchu_Functions[])(Entity*) = {
+    RockChuchu_OnTick,
+    RockChuchu_OnCollision,
+    GenericKnockback,
+    GenericDeath,
+    GenericConfused,
+    RockChuchu_OnGrabbed,
 };
 
 void (*const gUnk_080CB960[])(Entity*) = {

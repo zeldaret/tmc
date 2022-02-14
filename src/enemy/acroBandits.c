@@ -10,7 +10,7 @@
 
 extern Entity* gUnk_020000B0;
 extern void (*const gUnk_080012C8[])(Entity*);
-extern void (*const gUnk_080CE56C[])(Entity*);
+extern void (*const AcroBandit_Functions[])(Entity*);
 extern void (*const gUnk_080CE584[])(Entity*);
 extern void (*const gUnk_080CE58C[])(Entity*);
 extern void (*const gUnk_080CE5C8[])(Entity*);
@@ -31,16 +31,16 @@ void AcroBandit(Entity* this) {
 
         gUnk_080012C8[index](this);
     } else {
-        gUnk_080CE56C[GetNextFunction(this)](this);
+        AcroBandit_Functions[GetNextFunction(this)](this);
         SetChildOffset(this, 0, 1, -0x10);
     }
 }
 
-void sub_080318C4(Entity* this) {
+void AcroBandit_OnTick(Entity* this) {
     gUnk_080CE584[this->type](this);
 }
 
-void sub_080318DC(Entity* this) {
+void AcroBandit_OnCollision(Entity* this) {
     Entity* brother;
 
     if (this->bitfield != 0x80 && this->bitfield != 0x81) {
@@ -96,20 +96,20 @@ void sub_080318DC(Entity* this) {
         }
     }
 
-    if (this->field_0x43)
-        sub_0804A9FC(this, 0x1c);
+    if (this->confusedTime)
+        Create0x68FX(this, FX_STARS);
 
-    sub_0804AA30(this, gUnk_080CE56C);
+    EnemyFunctionHandlerAfterCollision(this, AcroBandit_Functions);
 }
 
-void sub_08031A60(Entity* this) {
+void AcroBandit_OnKnockback(Entity* this) {
     if (this->iframes > 0)
         GravityUpdate(this, Q_8_8(24.0));
 
-    sub_08001324(this);
+    GenericKnockback(this);
 }
 
-void nullsub_154(void) {
+void AcroBandit_OnGrabbed(void) {
     /* ... */
 }
 
@@ -400,7 +400,7 @@ void sub_08032008(Entity* this) {
             if (this->direction & 0xf)
                 this->spriteSettings.flipX = (this->direction >> 4 ^ 1);
 
-            ProcessMovement(this);
+            ProcessMovement0(this);
         } else {
             if (this->field_0x76.HALF.HI == 0) {
                 if (EntityWithinDistance(this, parent->x.HALF.HI, parent->y.HALF.HI, 1) == 0) {
@@ -457,7 +457,7 @@ void sub_08032160(Entity* this) {
 }
 
 void sub_080321E8(Entity* this) {
-    sub_080AEFE0(this);
+    ProcessMovement2(this);
 
     if (sub_080044EC(this, 0x2000) == 0)
         this->action = 8;

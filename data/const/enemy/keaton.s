@@ -4,13 +4,13 @@
 	.section .rodata
     .align 2
 
-gUnk_080CE7B0:: @ 080CE7B0
-	.4byte sub_080323DC
-	.4byte sub_080323F4
-	.4byte sub_08001324
-	.4byte sub_0804A7D4
-	.4byte sub_08001242
-	.4byte nullsub_155
+Keaton_Functions:: @ 080CE7B0
+	.4byte Keaton_OnTick
+	.4byte Keaton_OnCollision
+	.4byte GenericKnockback
+	.4byte GenericDeath
+	.4byte GenericConfused
+	.4byte Keaton_OnGrabbed
 
 gUnk_080CE7C8:: @ 080CE7C8
 	.4byte sub_08032468

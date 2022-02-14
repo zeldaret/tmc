@@ -967,7 +967,7 @@ LoadRoomGfx: @ 0x0807C0DC
 	ldr r0, [r0]
 	ldr r0, [r0, #0xc]
 	bl sub_080197D4
-	ldr r2, _0807C170 @ =gUnk_02025EB0
+	ldr r2, _0807C170 @ =gMapBottom
 	ldrh r1, [r2, #4]
 	ldr r0, _0807C174 @ =0x0000FFFF
 	cmp r1, r0
@@ -994,7 +994,7 @@ _0807C160: .4byte gUnk_02019EE0
 _0807C164: .4byte gMapDataTopSpecial
 _0807C168: .4byte gArea
 _0807C16C: .4byte 0x0000085C
-_0807C170: .4byte gUnk_02025EB0
+_0807C170: .4byte gMapBottom
 _0807C174: .4byte 0x0000FFFF
 _0807C178:
 	adds r0, r2, #4
@@ -1129,10 +1129,10 @@ _0807C280:
 	bl sub_0807C460
 _0807C2A0:
 	bl sub_0807BC84
-	ldr r4, _0807C2D4 @ =gUnk_02025EB0
+	ldr r4, _0807C2D4 @ =gMapBottom
 	adds r0, r4, #0
 	bl sub_08080B60
-	ldr r5, _0807C2D8 @ =gUnk_0200B650
+	ldr r5, _0807C2D8 @ =gMapTop
 	adds r0, r5, #0
 	bl sub_08080B60
 	mov r3, sb
@@ -1148,8 +1148,8 @@ _0807C2A0:
 	.align 2, 0
 _0807C2CC: .4byte gUnk_02027EB4
 _0807C2D0: .4byte gUnk_0200D654
-_0807C2D4: .4byte gUnk_02025EB0
-_0807C2D8: .4byte gUnk_0200B650
+_0807C2D4: .4byte gMapBottom
+_0807C2D8: .4byte gMapTop
 _0807C2DC: .4byte gUnk_02019EE0
 _0807C2E0: .4byte gMapDataTopSpecial
 _0807C2E4:
@@ -1233,7 +1233,7 @@ _0807C358: @ jump table
 	.4byte _0807C400 @ case 23
 	.4byte _0807C3E4 @ case 24
 _0807C3BC:
-	ldr r0, _0807C3D8 @ =gUnk_02025EB0
+	ldr r0, _0807C3D8 @ =gMapBottom
 	ldr r2, [r0]
 	cmp r2, #0
 	beq _0807C3CC
@@ -1249,11 +1249,11 @@ _0807C3CC:
 	strh r0, [r2]
 	b _0807C444
 	.align 2, 0
-_0807C3D8: .4byte gUnk_02025EB0
+_0807C3D8: .4byte gMapBottom
 _0807C3DC: .4byte gScreen
 _0807C3E0: .4byte 0x0000FDFF
 _0807C3E4:
-	ldr r0, _0807C3F8 @ =gUnk_0200B650
+	ldr r0, _0807C3F8 @ =gMapTop
 	ldr r1, [r0]
 	cmp r1, #0
 	beq _0807C3F2
@@ -1264,10 +1264,10 @@ _0807C3F2:
 	bl sub_0807C5B0
 	b _0807C444
 	.align 2, 0
-_0807C3F8: .4byte gUnk_0200B650
+_0807C3F8: .4byte gMapTop
 _0807C3FC: .4byte gUnk_080B77C0
 _0807C400:
-	ldr r0, _0807C44C @ =gUnk_02025EB0
+	ldr r0, _0807C44C @ =gMapBottom
 	ldr r1, [r0]
 	cmp r1, #0
 	beq _0807C40E
@@ -1275,7 +1275,7 @@ _0807C400:
 	ldrh r0, [r0]
 	strh r0, [r1]
 _0807C40E:
-	ldr r0, _0807C454 @ =gUnk_0200B650
+	ldr r0, _0807C454 @ =gMapTop
 	ldr r1, [r0]
 	cmp r1, #0
 	beq _0807C41C
@@ -1309,9 +1309,9 @@ _0807C444:
 	mov sb, r4
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_0807C44C: .4byte gUnk_02025EB0
+_0807C44C: .4byte gMapBottom
 _0807C450: .4byte gUnk_080B77C0
-_0807C454: .4byte gUnk_0200B650
+_0807C454: .4byte gMapTop
 _0807C458: .4byte gScreen
 _0807C45C: .4byte gArea
 

@@ -39,10 +39,9 @@ void sub_08060E94(Entity*);
 
 u32 PointInsideRadius(s32, s32, s32);
 
-extern Entity gUnk_0200D654;
-extern Entity gUnk_02027EB4;
+extern u8 gUnk_0200D654[];
+extern u8 gUnk_02027EB4[];
 
-extern u32 sub_080AF1EC(Entity*);
 u32 sub_080611D4(Entity*);
 extern u32 sub_08079FD4(Entity*, u32);
 extern void sub_08016AD2(Entity*);
@@ -64,13 +63,13 @@ bool32 sub_08061978(Entity*, s32, s32, s32);
 bool32 sub_08061810(Entity*, s32, s32, s32);
 bool32 sub_08061900(Entity*, s32, s32, s32);
 
-bool32 sub_08061A74(Entity*, s32, s32, s32);
+bool32 sub_08061A74(u8*, s32, s32, s32);
 
-bool32 sub_08061A1C(Entity*, s32, s32, s32);
+bool32 sub_08061A1C(u8*, s32, s32, s32);
 
-bool32 sub_080619F0(Entity*, s32, s32, s32);
+bool32 sub_080619F0(u8*, s32, s32, s32);
 
-bool32 sub_08061A48(Entity*, s32, s32, s32);
+bool32 sub_08061A48(u8*, s32, s32, s32);
 
 extern void (*const gUnk_0810AC70[])(Entity*);
 
@@ -395,7 +394,7 @@ NONMATCH("asm/non_matching/npc5/sub_08061170.inc", bool32 sub_08061170(Entity* t
     u32 tmp;
 
     UpdateAnimationSingleFrame(this);
-    if (sub_080AF1EC(this) == 0) {
+    if (ProcessMovement6(this) == 0) {
         direction = sub_080611D4(this);
         if (direction != 0xff) {
             this->action = 6;
@@ -635,9 +634,9 @@ void sub_08061464(Entity* this, u32 param_a, u32 param_b) {
 
 bool32 sub_08061630(Entity* this, s32 x, s32 y, s32 param) {
     u32 param_y = y;
-    Entity* entity = (this->collisionLayer == 2) ? &gUnk_0200D654 : &gUnk_02027EB4;
-    while (!sub_080AE4CC(entity, x, y, 6)) {
-        if (sub_08061A74(entity, x, y, param)) {
+    u8* layer = (this->collisionLayer == 2) ? gUnk_0200D654 : gUnk_02027EB4;
+    while (!IsTileCollision(layer, x, y, 6)) {
+        if (sub_08061A74(layer, x, y, param)) {
             ((UnkHeap*)this->myHeap)->unk_7 = x;
             ((UnkHeap*)this->myHeap)->unk_8 = param_y;
             ((UnkHeap*)this->myHeap)->unk_0 |= 8;
@@ -652,9 +651,9 @@ bool32 sub_08061630(Entity* this, s32 x, s32 y, s32 param) {
 
 bool32 sub_080616A8(Entity* this, s32 x, s32 y, s32 param) {
     u32 param_y = y;
-    Entity* entity = (this->collisionLayer == 2) ? &gUnk_0200D654 : &gUnk_02027EB4;
-    while (!sub_080AE4CC(entity, x, y, 6)) {
-        if (sub_08061A1C(entity, x, y, param)) {
+    u8* layer = (this->collisionLayer == 2) ? gUnk_0200D654 : gUnk_02027EB4;
+    while (!IsTileCollision(layer, x, y, 6)) {
+        if (sub_08061A1C(layer, x, y, param)) {
             ((UnkHeap*)this->myHeap)->unk_7 = x;
             ((UnkHeap*)this->myHeap)->unk_8 = param_y;
             ((UnkHeap*)this->myHeap)->unk_0 |= 8;
@@ -669,9 +668,9 @@ bool32 sub_080616A8(Entity* this, s32 x, s32 y, s32 param) {
 
 bool32 sub_08061720(Entity* this, s32 x, s32 y, s32 param) {
     u32 param_x = x;
-    Entity* entity = (this->collisionLayer == 2) ? &gUnk_0200D654 : &gUnk_02027EB4;
-    while (!sub_080AE4CC(entity, x, y, 6)) {
-        if (sub_080619F0(entity, x, y, param)) {
+    u8* layer = (this->collisionLayer == 2) ? gUnk_0200D654 : gUnk_02027EB4;
+    while (!IsTileCollision(layer, x, y, 6)) {
+        if (sub_080619F0(layer, x, y, param)) {
             ((UnkHeap*)this->myHeap)->unk_7 = param_x;
             ((UnkHeap*)this->myHeap)->unk_8 = y;
             ((UnkHeap*)this->myHeap)->unk_0 |= 8;
@@ -686,9 +685,9 @@ bool32 sub_08061720(Entity* this, s32 x, s32 y, s32 param) {
 
 bool32 sub_08061798(Entity* this, s32 x, s32 y, s32 param) {
     u32 param_x = x;
-    Entity* entity = (this->collisionLayer == 2) ? &gUnk_0200D654 : &gUnk_02027EB4;
-    while (!sub_080AE4CC(entity, x, y, 6)) {
-        if (sub_08061A48(entity, x, y, param)) {
+    u8* layer = (this->collisionLayer == 2) ? gUnk_0200D654 : gUnk_02027EB4;
+    while (!IsTileCollision(layer, x, y, 6)) {
+        if (sub_08061A48(layer, x, y, param)) {
             ((UnkHeap*)this->myHeap)->unk_7 = param_x;
             ((UnkHeap*)this->myHeap)->unk_8 = y;
             ((UnkHeap*)this->myHeap)->unk_0 |= 8;
@@ -703,9 +702,9 @@ bool32 sub_08061798(Entity* this, s32 x, s32 y, s32 param) {
 
 bool32 sub_08061810(Entity* this, s32 x, s32 y, s32 param) {
     u32 param_y = y;
-    Entity* entity = (this->collisionLayer == 2) ? &gUnk_0200D654 : &gUnk_02027EB4;
-    while (!sub_080AE4CC(entity, x, y, 6)) {
-        if (sub_08061A74(entity, x, y, param)) {
+    u8* layer = (this->collisionLayer == 2) ? gUnk_0200D654 : gUnk_02027EB4;
+    while (!IsTileCollision(layer, x, y, 6)) {
+        if (sub_08061A74(layer, x, y, param)) {
             ((UnkHeap*)this->myHeap)->unk_7 = x;
             ((UnkHeap*)this->myHeap)->unk_8 = param_y;
             ((UnkHeap*)this->myHeap)->unk_0 |= 8;
@@ -720,9 +719,9 @@ bool32 sub_08061810(Entity* this, s32 x, s32 y, s32 param) {
 
 bool32 sub_08061888(Entity* this, s32 x, s32 y, s32 param) {
     u32 param_y = y;
-    Entity* entity = (this->collisionLayer == 2) ? &gUnk_0200D654 : &gUnk_02027EB4;
-    while (!sub_080AE4CC(entity, x, y, 6)) {
-        if (sub_08061A1C(entity, x, y, param)) {
+    u8* layer = (this->collisionLayer == 2) ? gUnk_0200D654 : gUnk_02027EB4;
+    while (!IsTileCollision(layer, x, y, 6)) {
+        if (sub_08061A1C(layer, x, y, param)) {
             ((UnkHeap*)this->myHeap)->unk_7 = x;
             ((UnkHeap*)this->myHeap)->unk_8 = param_y;
             ((UnkHeap*)this->myHeap)->unk_0 |= 8;
@@ -737,9 +736,9 @@ bool32 sub_08061888(Entity* this, s32 x, s32 y, s32 param) {
 
 bool32 sub_08061900(Entity* this, s32 x, s32 y, s32 param) {
     u32 param_x = x;
-    Entity* entity = (this->collisionLayer == 2) ? &gUnk_0200D654 : &gUnk_02027EB4;
-    while (!sub_080AE4CC(entity, x, y, 6)) {
-        if (sub_080619F0(entity, x, y, param)) {
+    u8* layer = (this->collisionLayer == 2) ? gUnk_0200D654 : gUnk_02027EB4;
+    while (!IsTileCollision(layer, x, y, 6)) {
+        if (sub_080619F0(layer, x, y, param)) {
             ((UnkHeap*)this->myHeap)->unk_7 = param_x;
             ((UnkHeap*)this->myHeap)->unk_8 = y;
             ((UnkHeap*)this->myHeap)->unk_0 |= 8;
@@ -754,9 +753,9 @@ bool32 sub_08061900(Entity* this, s32 x, s32 y, s32 param) {
 
 bool32 sub_08061978(Entity* this, s32 x, s32 y, s32 param) {
     u32 param_x = x;
-    Entity* entity = (this->collisionLayer == 2) ? &gUnk_0200D654 : &gUnk_02027EB4;
-    while (!sub_080AE4CC(entity, x, y, 6)) {
-        if (sub_08061A48(entity, x, y, param)) {
+    u8* layer = (this->collisionLayer == 2) ? gUnk_0200D654 : gUnk_02027EB4;
+    while (!IsTileCollision(layer, x, y, 6)) {
+        if (sub_08061A48(layer, x, y, param)) {
             ((UnkHeap*)this->myHeap)->unk_7 = param_x;
             ((UnkHeap*)this->myHeap)->unk_8 = y;
             ((UnkHeap*)this->myHeap)->unk_0 |= 8;
@@ -769,9 +768,9 @@ bool32 sub_08061978(Entity* this, s32 x, s32 y, s32 param) {
     return FALSE;
 }
 
-bool32 sub_080619F0(Entity* this, s32 x, s32 y, s32 param) {
+bool32 sub_080619F0(u8* layer, s32 x, s32 y, s32 param) {
     while (param <= y) {
-        if (sub_080AE4CC(this, x, y, 6) != 0) {
+        if (IsTileCollision(layer, x, y, 6) != 0) {
             return FALSE;
         }
         y -= 8;
@@ -779,9 +778,9 @@ bool32 sub_080619F0(Entity* this, s32 x, s32 y, s32 param) {
     return TRUE;
 }
 
-bool32 sub_08061A1C(Entity* this, s32 x, s32 y, s32 param) {
+bool32 sub_08061A1C(u8* layer, s32 x, s32 y, s32 param) {
     while (param >= x) {
-        if (sub_080AE4CC(this, x, y, 6) != 0) {
+        if (IsTileCollision(layer, x, y, 6) != 0) {
             return FALSE;
         }
         x += 8;
@@ -789,9 +788,9 @@ bool32 sub_08061A1C(Entity* this, s32 x, s32 y, s32 param) {
     return TRUE;
 }
 
-bool32 sub_08061A48(Entity* this, s32 x, s32 y, s32 param) {
+bool32 sub_08061A48(u8* layer, s32 x, s32 y, s32 param) {
     while (param >= y) {
-        if (sub_080AE4CC(this, x, y, 6) != 0) {
+        if (IsTileCollision(layer, x, y, 6) != 0) {
             return FALSE;
         }
         y += 8;
@@ -799,9 +798,9 @@ bool32 sub_08061A48(Entity* this, s32 x, s32 y, s32 param) {
     return TRUE;
 }
 
-bool32 sub_08061A74(Entity* this, s32 x, s32 y, s32 param) {
+bool32 sub_08061A74(u8* layer, s32 x, s32 y, s32 param) {
     while (param <= x) {
-        if (sub_080AE4CC(this, x, y, 6) != 0) {
+        if (IsTileCollision(layer, x, y, 6) != 0) {
             return FALSE;
         }
         x -= 8;

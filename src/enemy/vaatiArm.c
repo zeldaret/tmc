@@ -30,8 +30,8 @@ typedef struct VaatiArm_HeapStruct {
 
 u32 sub_080437DC(Entity*);
 u32 sub_08043C98(Entity*);
-void sub_08042570(Entity*);
-void sub_08042588(Entity*);
+void VaatiArm_OnTick(Entity*);
+void VaatiArm_OnCollision(Entity*);
 void sub_080425B4(Entity*);
 void sub_08042818(Entity*);
 void sub_08042870(Entity*);
@@ -40,7 +40,7 @@ void sub_08042C14(Entity*);
 void sub_0804325C(Entity*);
 void sub_08043420(Entity*);
 void sub_08043680(Entity*);
-void nullsub_170(Entity*);
+void VaatiArm_OnGrabbed(Entity*);
 void sub_08042654(Entity*);
 void sub_0804259C(Entity*);
 void sub_08043A10(Entity*);
@@ -94,8 +94,8 @@ void sub_08043700(Entity*);
 void sub_08043738(Entity*);
 void sub_08043770(Entity*);
 
-void (*const gUnk_080D1230[])(Entity*) = {
-    sub_08042570, sub_08042588, sub_08001324, sub_0804A7D4, sub_08001242, nullsub_170,
+void (*const VaatiArm_Functions[])(Entity*) = {
+    VaatiArm_OnTick, VaatiArm_OnCollision, GenericKnockback, GenericDeath, GenericConfused, VaatiArm_OnGrabbed,
 };
 void (*const gUnk_080D1248[])(Entity*) = {
     sub_0804259C, sub_08044078, sub_08044078, sub_08044078, sub_080440CC,
@@ -174,18 +174,18 @@ extern const Hitbox gUnk_080FD450;
 extern const Hitbox gUnk_080FD538;
 
 void VaatiArm(Entity* this) {
-    gUnk_080D1230[GetNextFunction(this)](this);
+    VaatiArm_Functions[GetNextFunction(this)](this);
 }
 
-void sub_08042570(Entity* this) {
+void VaatiArm_OnTick(Entity* this) {
     gUnk_080D1248[this->type](this);
 }
 
-void sub_08042588(Entity* this) {
-    sub_0804AA30(this, gUnk_080D1230);
+void VaatiArm_OnCollision(Entity* this) {
+    EnemyFunctionHandlerAfterCollision(this, VaatiArm_Functions);
 }
 
-void nullsub_170(Entity* this) {
+void VaatiArm_OnGrabbed(Entity* this) {
 }
 
 void sub_0804259C(Entity* this) {
@@ -698,7 +698,7 @@ void sub_08042EF4(Entity* this) {
         }
         entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[3];
         entity->direction = this->direction;
-        ProcessMovement(entity);
+        ProcessMovement0(entity);
     }
 }
 

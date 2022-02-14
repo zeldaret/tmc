@@ -9,18 +9,18 @@
 #include "object.h"
 #include "functions.h"
 
-extern void (*const gUnk_080CD234[])(Entity*);
+extern void (*const Spark_Functions[])(Entity*);
 extern void (*const gUnk_080CD24C[])(Entity*);
 
 void Spark(Entity* this) {
-    gUnk_080CD234[GetNextFunction(this)](this);
+    Spark_Functions[GetNextFunction(this)](this);
 }
 
-void sub_0802B2C8(Entity* this) {
+void Spark_OnTick(Entity* this) {
     gUnk_080CD24C[this->action](this);
 }
 
-void sub_0802B2E0(Entity* this) {
+void Spark_OnCollision(Entity* this) {
     Entity* ent;
 
     if (this->bitfield & 0x80) {
@@ -39,7 +39,7 @@ void sub_0802B2E0(Entity* this) {
     }
 }
 
-void nullsub_15(Entity* this) {
+void Spark_OnGrabbed(Entity* this) {
     /* ... */
 }
 
@@ -55,7 +55,7 @@ void sub_0802B35C(Entity* this) {
     bool32 is_head;
 
     GetNextFrame(this);
-    ProcessMovement(this);
+    ProcessMovement0(this);
     is_head = this->type == 0;
     if (this->collisions == 0) {
         if (--this->field_0xf == 0) {
@@ -130,13 +130,13 @@ void sub_0802B4A8(Entity* this) {
 }
 
 // clang-format off
-void (*const gUnk_080CD234[])(Entity*) = {
-    sub_0802B2C8,
-    sub_0802B2E0,
-    sub_08001324,
-    sub_0804A7D4,
-    sub_08001242,
-    nullsub_15,
+void (*const Spark_Functions[])(Entity*) = {
+    Spark_OnTick,
+    Spark_OnCollision,
+    GenericKnockback,
+    GenericDeath,
+    GenericConfused,
+    Spark_OnGrabbed,
 };
 
 void (*const gUnk_080CD24C[])(Entity*) = {

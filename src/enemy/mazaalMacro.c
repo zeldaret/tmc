@@ -21,9 +21,9 @@ void sub_08034F70(Entity*);
 void sub_08035120(Entity*);
 void sub_08035050(Entity*);
 
-void sub_08034C7C(Entity* this);
-void sub_08034CA4(Entity* this);
-void sub_08034CBC(Entity* this);
+void MazaalMacro_OnTick(Entity* this);
+void MazaalMacro_OnCollision(Entity* this);
+void MazaalMacro_OnDeath(Entity* this);
 void sub_08034CC4(Entity* this);
 void sub_08034D4C(Entity* this);
 void sub_08034DC8(Entity* this);
@@ -34,8 +34,8 @@ void sub_08034ED8(Entity* this);
 void sub_08034EE4(Entity* this);
 void sub_08034F58(Entity* this);
 
-void (*const gUnk_080CEE90[])(Entity*) = {
-    sub_08034C7C, sub_08034CA4, sub_08001324, sub_08034CBC, sub_08001242,
+void (*const MazaalMacro_Functions[])(Entity*) = {
+    MazaalMacro_OnTick, MazaalMacro_OnCollision, GenericKnockback, MazaalMacro_OnDeath, GenericConfused,
 };
 void (*const gUnk_080CEEA4[])(Entity*) = {
     sub_08034CC4,
@@ -54,10 +54,10 @@ const s16 gUnk_080CEED8[] = { -0x82, -0x81, -0x80, -0x7f, -0x7e, -0x42, -0x41, -
 extern const ScreenTransitionData gUnk_0813ABA8;
 
 void MazaalMacro(Entity* this) {
-    gUnk_080CEE90[GetNextFunction(this)](this);
+    MazaalMacro_Functions[GetNextFunction(this)](this);
 }
 
-void sub_08034C7C(Entity* this) {
+void MazaalMacro_OnTick(Entity* this) {
     if (this->type != 2) {
         gUnk_080CEEA4[this->action](this);
     } else {
@@ -65,13 +65,13 @@ void sub_08034C7C(Entity* this) {
     }
 }
 
-void sub_08034CA4(Entity* this) {
+void MazaalMacro_OnCollision(Entity* this) {
     sub_08034FA0(this);
-    sub_0804AA30(this, gUnk_080CEE90);
+    EnemyFunctionHandlerAfterCollision(this, MazaalMacro_Functions);
 }
 
-void sub_08034CBC(Entity* this) {
-    sub_0804A7D4(this);
+void MazaalMacro_OnDeath(Entity* this) {
+    GenericDeath(this);
 }
 
 void sub_08034CC4(Entity* this) {

@@ -76,7 +76,7 @@ void sub_080663D4(Entity* this) {
             InitializeAnimation(this, (this->direction >> 3) + 4);
             this->subAction = this->subAction + 1;
         }
-        ProcessMovement(this);
+        ProcessMovement0(this);
     }
     sub_08078B48();
     GetNextFrame(this);

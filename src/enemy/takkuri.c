@@ -22,7 +22,7 @@ static_assert(sizeof(TakkuriEntity) == 0x88);
 
 extern Entity* gUnk_020000B0;
 
-void (*const gUnk_080CFF3C[])(Entity*);
+void (*const Takkuri_Functions[])(Entity*);
 void (*const gUnk_080CFF54[])(TakkuriEntity*);
 void (*const gUnk_080CFF6C[])(TakkuriEntity*);
 
@@ -33,14 +33,14 @@ void sub_0803BF48(TakkuriEntity* this);
 void sub_0803C120(TakkuriEntity* this);
 
 void Takkuri(Entity* this) {
-    gUnk_080CFF3C[GetNextFunction(this)](this);
+    Takkuri_Functions[GetNextFunction(this)](this);
 }
 
-void sub_0803BB98(TakkuriEntity* this) {
+void Takkuri_OnTick(TakkuriEntity* this) {
     gUnk_080CFF54[super->action](this);
 }
 
-void sub_0803BBB0(TakkuriEntity* this) {
+void Takkuri_OnCollision(TakkuriEntity* this) {
     if (super->bitfield & 0x80) {
         if ((super->bitfield & 0x7f) == 0) {
             u32 direction;
@@ -71,7 +71,7 @@ void sub_0803BBB0(TakkuriEntity* this) {
     GetNextFrame(super);
 }
 
-void sub_0803BC34(TakkuriEntity* this) {
+void Takkuri_OnGrabbed(TakkuriEntity* this) {
     gUnk_080CFF6C[super->subAction](this);
     GetNextFrame(super);
     if (sub_0806F520(super) == 0) {
@@ -95,7 +95,7 @@ void sub_0803BC88(TakkuriEntity* this) {
 
 void sub_0803BC90(TakkuriEntity* this) {
     if (sub_0806F3E4(super)) {
-        sub_0804A7D4(super);
+        GenericDeath(super);
     }
 }
 
@@ -346,9 +346,13 @@ void sub_0803C120(TakkuriEntity* this) {
     super->spritePriority.b1 = 3;
 }
 
-void (*const gUnk_080CFF3C[])(Entity*) = {
-    (EntityActionPtr)sub_0803BB98, (EntityActionPtr)sub_0803BBB0, sub_08001324, sub_0804A7D4, sub_08001242,
-    (EntityActionPtr)sub_0803BC34,
+void (*const Takkuri_Functions[])(Entity*) = {
+    (EntityActionPtr)Takkuri_OnTick,
+    (EntityActionPtr)Takkuri_OnCollision,
+    GenericKnockback,
+    GenericDeath,
+    GenericConfused,
+    (EntityActionPtr)Takkuri_OnGrabbed,
 };
 
 void (*const gUnk_080CFF54[])(TakkuriEntity*) = {

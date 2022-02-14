@@ -205,7 +205,7 @@ bool32 sub_0809953C(SmallIceBlockEntity* this) {
     if (uVar3 != 0) {
         return 0;
     }
-    sub_080AEFE0(super);
+    ProcessMovement2(super);
     sub_0800445C(super);
     if (super->actionDelay != 0) {
         super->speed += 0x10;

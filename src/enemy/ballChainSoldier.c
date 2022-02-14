@@ -17,44 +17,43 @@ typedef struct {
 
 extern Entity* gUnk_020000B0;
 
-void (*const gUnk_080D06E0[])(BallChainSoldierEntity*);
+void (*const BallChainSoldier_Functions[])(BallChainSoldierEntity*);
 void (*const gUnk_080D06F8[])(BallChainSoldierEntity*);
 const u8 gUnk_080D0724[];
 const u16 gUnk_080D0728[];
 const u16 gUnk_080D0730[];
 
-extern u32 sub_0804A044(Entity*, Entity*, u32);
-extern void sub_0803E86C(BallChainSoldierEntity*);
-extern void sub_0803E9A4(BallChainSoldierEntity*);
-extern bool32 sub_0803E9D4(BallChainSoldierEntity*);
-extern void sub_0803E8CC(BallChainSoldierEntity*);
-extern void sub_0803E92C(BallChainSoldierEntity*);
-extern bool32 sub_0803EA64(BallChainSoldierEntity*);
-extern void sub_0803E94C(BallChainSoldierEntity*, u32);
-extern bool32 sub_0803EAD0(BallChainSoldierEntity*, u32);
+void sub_0803E86C(BallChainSoldierEntity*);
+void sub_0803E9A4(BallChainSoldierEntity*);
+bool32 sub_0803E9D4(BallChainSoldierEntity*);
+void sub_0803E8CC(BallChainSoldierEntity*);
+void sub_0803E92C(BallChainSoldierEntity*);
+bool32 sub_0803EA64(BallChainSoldierEntity*);
+void sub_0803E94C(BallChainSoldierEntity*, u32);
+bool32 sub_0803EAD0(BallChainSoldierEntity*, u32);
 
 void BallChainSoldier(Entity* this) {
-    EnemyFunctionHandler(this, (EntityActionArray)gUnk_080D06E0);
+    EnemyFunctionHandler(this, (EntityActionArray)BallChainSoldier_Functions);
 }
 
-void sub_0803E538(BallChainSoldierEntity* this) {
+void BallChainSoldier_OnTick(BallChainSoldierEntity* this) {
     gUnk_080D06F8[super->action](this);
 }
 
-void sub_0803E550(BallChainSoldierEntity* this) {
-    sub_0804AA30(super, gUnk_080D06E0);
+void BallChainSoldier_OnCollision(BallChainSoldierEntity* this) {
+    EnemyFunctionHandlerAfterCollision(super, BallChainSoldier_Functions);
 }
 
-void sub_0803E560(BallChainSoldierEntity* this) {
-    sub_08001324(super);
-    sub_0803E538(this);
+void BallChainSoldier_OnKnockback(BallChainSoldierEntity* this) {
+    GenericKnockback(super);
+    BallChainSoldier_OnTick(this);
 }
 
-void BallChainSoldier_CreateDeathFx(BallChainSoldierEntity* this) {
+void BallChainSoldier_OnDeath(BallChainSoldierEntity* this) {
     CreateDeathFx(super, 0xff, 0x57);
 }
 
-void nullsub_20(BallChainSoldierEntity* this) {
+void BallChainSoldier_OnGrabbed(BallChainSoldierEntity* this) {
 }
 
 void BallChainSoldier_Init(BallChainSoldierEntity* this) {
@@ -92,7 +91,7 @@ void sub_0803E61C(BallChainSoldierEntity* this) {
     sub_0803E9A4(this);
     if (sub_0803E9D4(this) == 0) {
         if (super->knockbackDuration == 0) {
-            if (ProcessMovement(super) == 0) {
+            if (ProcessMovement0(super) == 0) {
                 sub_0803E86C(this);
                 return;
             }
@@ -321,13 +320,13 @@ bool32 sub_0803EAD0(BallChainSoldierEntity* this, u32 distance) {
     return EntityWithinDistance(super, gUnk_020000B0->x.HALF.HI, gUnk_020000B0->y.HALF.HI - 4, distance);
 }
 
-void (*const gUnk_080D06E0[])(BallChainSoldierEntity*) = {
-    sub_0803E538,
-    sub_0803E550,
-    sub_0803E560,
-    BallChainSoldier_CreateDeathFx,
-    (void (*const)(BallChainSoldierEntity*))sub_08001242,
-    nullsub_20,
+void (*const BallChainSoldier_Functions[])(BallChainSoldierEntity*) = {
+    BallChainSoldier_OnTick,
+    BallChainSoldier_OnCollision,
+    BallChainSoldier_OnKnockback,
+    BallChainSoldier_OnDeath,
+    (void (*const)(BallChainSoldierEntity*))GenericConfused,
+    BallChainSoldier_OnGrabbed,
 };
 
 void (*const gUnk_080D06F8[])(BallChainSoldierEntity*) = {

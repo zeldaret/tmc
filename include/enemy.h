@@ -15,14 +15,14 @@
 bool32 EnemyInit(Entity* this);
 extern u32 GetNextFunction(Entity*);
 extern void EnemyFunctionHandler(Entity*, EntityActionArray);
-extern void sub_08001324(Entity*);
+extern void GenericKnockback(Entity*);
 extern Entity* CreateDeathFx(Entity*, u32, u32);
 
-extern Entity* sub_0804A9FC(Entity*, u32);
+extern Entity* Create0x68FX(Entity*, u32);
 extern void SetChildOffset(Entity*, s32, s32, s32);
 extern Entity* CreateProjectileWithParent(Entity*, u8, u8);
 
-extern void sub_0804A7D4(Entity*);
+extern void GenericDeath(Entity*);
 extern void sub_08002724(void*, u8*);
 extern void sub_080026C4(u8*, u8*, u8*, u32);
 extern void sub_080026F2(u8*, void*, u8*, u32);

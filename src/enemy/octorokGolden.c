@@ -2,13 +2,12 @@
 #include "enemy.h"
 #include "functions.h"
 
-void (*const gUnk_080CF46C[])(Entity*);
+void (*const OctorokGolden_Functions[])(Entity*);
 void (*const gUnk_080CF484[])(Entity*);
 extern void (*const gUnk_080012C8[])(Entity*);
 const s8 gUnk_080CF490[];
 const u8 gUnk_080CF498[];
 
-extern u16* GetLayerByIndex(u32);
 extern s32 sub_080012DC(Entity*);
 extern u32 sub_0804A044(Entity*, Entity*, u32);
 
@@ -21,24 +20,24 @@ void OctorokGolden(Entity* this) {
         //! @bug index (r4) is uninitialized
         gUnk_080012C8[index](this);
     } else {
-        gUnk_080CF46C[GetNextFunction(this)](this);
+        OctorokGolden_Functions[GetNextFunction(this)](this);
         SetChildOffset(this, 0, 1, -0x10);
     }
 }
 
-void sub_08037C84(Entity* this) {
+void OctorokGolden_OnTick(Entity* this) {
     gUnk_080CF484[this->action](this);
 }
 
-void sub_08037C9C(Entity* this) {
-    if (this->field_0x43 != 0) {
-        sub_0804A9FC(this, 0x1c);
+void OctorokGolden_OnCollision(Entity* this) {
+    if (this->confusedTime != 0) {
+        Create0x68FX(this, FX_STARS);
     }
 
-    sub_0804AA30(this, gUnk_080CF46C);
+    EnemyFunctionHandlerAfterCollision(this, OctorokGolden_Functions);
 }
 
-void sub_08037CC0(Entity* this) {
+void OctorokGolden_OnDeath(Entity* this) {
     if ((this->field_0x3a & 0x2) == 0) {
         SetGlobalFlag(this->type2);
     }
@@ -65,7 +64,7 @@ void sub_08037D0C(Entity* this) {
     }
 
     UpdateAnimationVariableFrames(this, 2);
-    if (ProcessMovement(this) == 0) {
+    if (ProcessMovement0(this) == 0) {
         sub_08037E14(this);
     } else if (--this->actionDelay == 0) {
         sub_08037E14(this);
@@ -108,16 +107,16 @@ void sub_08037D54(Entity* this) {
 
 void sub_08037E14(Entity* this) {
     u32 dir;
-    u16* pLayer;
+    u8* layer;
     const s8* ptr;
     s32 x, y;
     this->actionDelay = 0x8;
     dir = (GetFacingDirection(this, &gPlayerEntity) + 4) & 0x18;
-    pLayer = GetLayerByIndex(this->collisionLayer) + 0x1002;
+    layer = (u8*)GetLayerByIndex(this->collisionLayer)->_2004;
     ptr = gUnk_080CF498 + (dir >> 2);
     x = this->x.HALF.HI + *ptr;
     y = this->y.HALF.HI + *(ptr + 1);
-    if (sub_080AE4CC((Entity*)pLayer, x, y, 0)) {
+    if (IsTileCollision(layer, x, y, 0)) {
         this->direction = Random() & 0x18;
     } else {
         this->direction = dir;
@@ -144,8 +143,9 @@ bool32 sub_08037E90(Entity* this) {
     return 0;
 }
 
-void (*const gUnk_080CF46C[])(Entity*) = {
-    sub_08037C84, sub_08037C9C, sub_08001324, sub_08037CC0, sub_08001242, sub_08037C84,
+void (*const OctorokGolden_Functions[])(Entity*) = {
+    OctorokGolden_OnTick,  OctorokGolden_OnCollision, GenericKnockback,
+    OctorokGolden_OnDeath, GenericConfused,           OctorokGolden_OnTick,
 };
 
 void (*const gUnk_080CF484[])(Entity*) = {

@@ -18,7 +18,7 @@ typedef struct {
     u16 unk_84;
 } SpinyBeetleEntity;
 
-void (*const gUnk_080CEBEC[])(Entity*);
+void (*const SpinyBeetle_Functions[])(Entity*);
 void (*const gUnk_080CEC04[])(SpinyBeetleEntity*);
 const s8 gUnk_080CEC1C[];
 
@@ -26,25 +26,25 @@ extern void sub_08033E1C(SpinyBeetleEntity*);
 extern void sub_08033D78(SpinyBeetleEntity*);
 extern u32 sub_08033DF0(SpinyBeetleEntity*);
 extern void SpinyBeetle_SetHitType(SpinyBeetleEntity*);
-extern void sub_0804AA30(Entity*, EntityActionArray);
+extern void EnemyFunctionHandlerAfterCollision(Entity*, EntityActionArray);
 extern void sub_0807B9B8(s32, s32, s32);
 extern u32 sub_0804A024(Entity*, u32, u32);
 
 void SpinyBeetle(Entity* this) {
-    EnemyFunctionHandler(this, gUnk_080CEBEC);
+    EnemyFunctionHandler(this, SpinyBeetle_Functions);
     SetChildOffset(this, 0, 1, -0x10);
 }
 
-void sub_080337BC(SpinyBeetleEntity* this) {
+void SpinyBeetle_OnTick(SpinyBeetleEntity* this) {
     gUnk_080CEC04[super->action](this);
 }
 
-void sub_080337D4(SpinyBeetleEntity* this) {
-    if (super->field_0x43) {
-        sub_0804A9FC(super, 0x1c);
+void SpinyBeetle_OnCollision(SpinyBeetleEntity* this) {
+    if (super->confusedTime) {
+        Create0x68FX(super, FX_STARS);
     }
 
-    sub_0804AA30(super, gUnk_080CEBEC);
+    EnemyFunctionHandlerAfterCollision(super, SpinyBeetle_Functions);
     if (super->bitfield & 0x80) {
         if (super->iframes > 0 && super->child) {
             sub_08033E1C(this);
@@ -62,11 +62,11 @@ void sub_080337D4(SpinyBeetleEntity* this) {
     }
 }
 
-void nullsub_159(SpinyBeetleEntity* this) {
+void SpinyBeetle_OnGrabbed(SpinyBeetleEntity* this) {
 }
 
-void sub_08033870(SpinyBeetleEntity* this) {
-    sub_08001242(super);
+void SpinyBeetle_OnConfused(SpinyBeetleEntity* this) {
+    GenericConfused(super);
 
     if (super->action != 5) {
         if (sub_08033DF0(this)) {
@@ -325,7 +325,7 @@ void sub_08033D78(SpinyBeetleEntity* this) {
             break;
         default:
             if (sub_080002E0(tile, super->collisionLayer) - 1 > 0x3e)
-                ProcessMovement(super);
+                ProcessMovement0(super);
             break;
     }
 }
@@ -382,9 +382,9 @@ const u16 unusedLabel_0CEBDC[] = {
     0x3F, 0x1C, 0x50, 0x2A, 0x55, 0x1D, 0x5C, 0x2B,
 };
 
-void (*const gUnk_080CEBEC[])(Entity*) = {
-    (EntityActionPtr)sub_080337BC, (EntityActionPtr)sub_080337D4, sub_08001324, sub_0804A7D4,
-    (EntityActionPtr)sub_08033870, (EntityActionPtr)nullsub_159,
+void (*const SpinyBeetle_Functions[])(Entity*) = {
+    (EntityActionPtr)SpinyBeetle_OnTick,     (EntityActionPtr)SpinyBeetle_OnCollision, GenericKnockback, GenericDeath,
+    (EntityActionPtr)SpinyBeetle_OnConfused, (EntityActionPtr)SpinyBeetle_OnGrabbed,
 };
 
 void (*const gUnk_080CEC04[])(SpinyBeetleEntity*) = {

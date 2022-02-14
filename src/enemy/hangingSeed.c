@@ -9,25 +9,25 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern void (*const gHangingSeedFunctions[])(Entity*);
+extern void (*const HangingSeed_Functions[])(Entity*);
 extern void (*const gUnk_080CB588[])(Entity*);
 
 void HangingSeed(Entity* this) {
-    EnemyFunctionHandler(this, gHangingSeedFunctions);
+    EnemyFunctionHandler(this, HangingSeed_Functions);
 }
 
 void HangingSeed_OnTick(Entity* this) {
     gUnk_080CB588[this->action](this);
 }
 
-void sub_080216FC(Entity* this) {
+void HangingSeed_OnCollision(Entity* this) {
     if (this->bitfield & 0x80) {
         CreateFx(this, FX_BUSH, 0x80);
         DeleteThisEntity();
     }
 }
 
-void nullsub_7(Entity* this) {
+void HangingSeed_OnGrabbed(Entity* this) {
     /* ... */
 }
 
@@ -44,13 +44,13 @@ void HangingSeed_Hang(Entity* this) {
 }
 
 // clang-format off
-void (*const gHangingSeedFunctions[])(Entity*) = {
+void (*const HangingSeed_Functions[])(Entity*) = {
     HangingSeed_OnTick,
-    sub_080216FC,
-    sub_08001324,
-    sub_0804A7D4,
-    sub_08001242,
-    nullsub_7,
+    HangingSeed_OnCollision,
+    GenericKnockback,
+    GenericDeath,
+    GenericConfused,
+    HangingSeed_OnGrabbed,
 };
 
 void (*const gUnk_080CB588[])(Entity*) = {

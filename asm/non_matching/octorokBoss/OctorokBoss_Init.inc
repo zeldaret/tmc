@@ -56,7 +56,7 @@ _08035764:
 	cmp r2, #0
 	bne _0803579E
 	adds r0, r4, #0
-	bl sub_0804A7D4
+	bl GenericDeath
 	b _080359A6
 _0803579E:
 	str r2, [r4, #0x64]

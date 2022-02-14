@@ -10,25 +10,25 @@
 
 extern void sub_08038168(Entity*);
 
-extern void (*const gUnk_080CF4A0)(Entity*);
+extern void (*const TektiteGolden_Functions)(Entity*);
 extern void (*const gUnk_080CF4B8[])(Entity*);
 
 void TektiteGolden(Entity* this) {
-    EnemyFunctionHandler(this, &gUnk_080CF4A0);
+    EnemyFunctionHandler(this, &TektiteGolden_Functions);
     SetChildOffset(this, 0, 1, -0x10);
 }
 
-void sub_08037EE8(Entity* this) {
+void TektiteGolden_OnTick(Entity* this) {
     gUnk_080CF4B8[this->action](this);
 }
 
-void sub_08037F00(Entity* this) {
+void TektiteGolden_OnCollision(Entity* this) {
     u32 uVar1;
 
-    if (this->field_0x43 != 0) {
-        sub_0804A9FC(this, 0x1c);
+    if (this->confusedTime != 0) {
+        Create0x68FX(this, FX_STARS);
     }
-    sub_0804AA30(this, &gUnk_080CF4A0);
+    EnemyFunctionHandlerAfterCollision(this, &TektiteGolden_Functions);
     if (this->bitfield == 0x94) {
         this->action = 1;
         this->subAction = 0;
@@ -45,7 +45,7 @@ void sub_08037F00(Entity* this) {
     }
 }
 
-void sub_08037F58(Entity* this) {
+void TektiteGolden_OnDeath(Entity* this) {
     u32 uVar1;
 
     if ((this->field_0x3a & 2) == 0) {
@@ -59,8 +59,8 @@ void sub_08037F58(Entity* this) {
     CreateDeathFx(this, 0xff, uVar1);
 }
 
-void sub_08037F84(Entity* this) {
-    sub_08001242(this);
+void TektiteGolden_OnConfused(Entity* this) {
+    GenericConfused(this);
     if (this->z.HALF.HI != 0) {
         GravityUpdate(this, 0x3000);
     }
@@ -104,7 +104,7 @@ void sub_08038048(Entity* this) {
     u32 rand;
 
     UpdateAnimationVariableFrames(this, 2);
-    ProcessMovement(this);
+    ProcessMovement0(this);
     temp = this->z.HALF.HI;
     rand = Random() & 0xf;
 

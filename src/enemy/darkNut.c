@@ -14,30 +14,27 @@ typedef struct {
 } PACKED stuct_080CAB14;
 
 void sub_08021218(Entity*, u32, u32);
-void sub_08021588(Entity*);
-void sub_080213D0(Entity*, u32);
+void sub_0802124C(Entity*);
+u32 sub_08021274(u32, u32);
 void sub_08021390(Entity*);
-void sub_0802159C(Entity*);
-void sub_0804AA1C(Entity*);
+void sub_080213B0(Entity*);
+void sub_080213D0(Entity*, u32);
 void sub_080213F0(Entity*);
+void sub_08021400(Entity*);
+void sub_08021414(Entity*);
+void sub_08021424(Entity*);
 u32 sub_080214FC(Entity*);
 void sub_08021540(Entity*);
+void sub_08021588(Entity*);
+void sub_0802159C(Entity*);
 void sub_08021600(Entity*);
-void sub_080213B0(Entity*);
-u32 PlayerInRange(Entity*, u32, u32);
-u32 sub_0802169C(Entity*, Entity*);
-void sub_0802124C(Entity*);
 void sub_08021644(Entity*);
-void sub_08021414(Entity*);
-void sub_08021400(Entity*);
-u32 sub_08021274(u32, u32);
 u32 sub_08021664(Entity*, Entity*);
-u32 sub_0804A044(Entity*, Entity*, u32);
-void sub_08021424(Entity*);
+u32 sub_0802169C(Entity*, Entity*);
 
 extern Entity* gUnk_020000B0;
 
-extern void (*const gUnk_080CAA98[])(Entity*);
+extern void (*const DarkNut_Functions[])(Entity*);
 extern void (*const gUnk_080CAAB0[])(Entity*);
 
 extern const s8 gUnk_080CAB00[];
@@ -55,15 +52,15 @@ extern const u8 gUnk_080CAB68[];
 extern void (*const gUnk_080CAB58[])(Entity*);
 
 void DarkNut(Entity* this) {
-    EnemyFunctionHandler(this, gUnk_080CAA98);
+    EnemyFunctionHandler(this, DarkNut_Functions);
     SetChildOffset(this, 0, 1, -22);
 }
 
-void sub_08020BA0(Entity* this) {
+void DarkNut_OnTick(Entity* this) {
     gUnk_080CAAB0[this->action](this);
 }
 
-void sub_08020BB8(Entity* this) {
+void DarkNut_OnCollision(Entity* this) {
     switch (this->bitfield & 0x7f) {
         case 0x1c:
             this->action = 11;
@@ -71,7 +68,7 @@ void sub_08020BB8(Entity* this) {
             this->hitType = 81;
             sub_08021218(this, 8, DirectionToAnimationState(this->knockbackDirection ^ 0x10));
             sub_08021588(this);
-            sub_0804A9FC(this, 0x1c);
+            Create0x68FX(this, FX_STARS);
             break;
         case 0x16:
             this->action = 11;
@@ -79,7 +76,7 @@ void sub_08020BB8(Entity* this) {
             this->hitType = 81;
             sub_08021218(this, 8, DirectionToAnimationState(this->knockbackDirection ^ 0x10));
             sub_08021588(this);
-            sub_0804A9FC(this, 0x1c);
+            Create0x68FX(this, FX_STARS);
             break;
         case 0x4b:
             if (this->action == 13 || this->action == 15 || this->action == 19 || this->action == 18)
@@ -122,10 +119,10 @@ void sub_08020BB8(Entity* this) {
             break;
     }
     this->field_0x78.HALF.LO = this->health;
-    sub_0804AA30(this, gUnk_080CAA98);
+    EnemyFunctionHandlerAfterCollision(this, DarkNut_Functions);
 }
 
-void nullsub_129(Entity* this) {
+void DarkNut_OnGrabbed(Entity* this) {
 }
 
 void sub_08020D70(Entity* this) {
@@ -157,7 +154,7 @@ void sub_08020DD4(Entity* this) {
     } else {
         if (--this->actionDelay == 0)
             sub_08021540(this);
-        ProcessMovement(this);
+        ProcessMovement0(this);
         UpdateAnimationSingleFrame(this);
     }
 }
@@ -191,7 +188,7 @@ void sub_08020E98(Entity* this) {
             sub_08021218(this, 7, this->animationState);
         } else {
             this->direction = GetFacingDirection(gUnk_020000B0, this);
-            if (ProcessMovement(this) == 0) {
+            if (ProcessMovement0(this) == 0) {
                 this->action = 8;
                 sub_08021218(this, 7, this->animationState);
             } else {
@@ -205,7 +202,7 @@ void sub_08020E98(Entity* this) {
             sub_08021414(this);
         } else {
             this->direction = GetFacingDirection(this, gUnk_020000B0);
-            ProcessMovement(this);
+            ProcessMovement0(this);
             sub_0802124C(this);
             sub_08021644(this);
         }
@@ -324,7 +321,7 @@ void sub_080210E4(Entity* this) {
     }
 
     sub_08021644(this);
-    if ((this->frame & 0x10) && (!ProcessMovement(this) || (this->child && (this->child->bitfield & 0x80)))) {
+    if ((this->frame & 0x10) && (!ProcessMovement0(this) || (this->child && (this->child->bitfield & 0x80)))) {
         sub_080213D0(this, 0);
     } else {
         if (--this->field_0x76.HWORD == 0)
@@ -519,7 +516,7 @@ void sub_08021424(Entity* this) {
         sub_080212B0(this);
     } else {
         this->direction = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, x, y);
-        if (!ProcessMovement(this)) {
+        if (!ProcessMovement0(this)) {
             sub_080212B0(this);
         } else {
             UpdateAnimationSingleFrame(this);
@@ -655,13 +652,13 @@ u32 sub_0802169C(Entity* this, Entity* ent) {
 }
 
 // clang-format off
-void (*const gUnk_080CAA98[])(Entity*) = {
-    sub_08020BA0,
-    sub_08020BB8,
-    sub_08001324,
-    sub_0804A7D4,
-    sub_08001242,
-    nullsub_129,
+void (*const DarkNut_Functions[])(Entity*) = {
+    DarkNut_OnTick,
+    DarkNut_OnCollision,
+    GenericKnockback,
+    GenericDeath,
+    GenericConfused,
+    DarkNut_OnGrabbed,
 };
 void (*const gUnk_080CAAB0[])(Entity*) = {
     sub_08020D70,

@@ -29,9 +29,9 @@ void sub_0803BA8C(Entity*, u32);
 void sub_0803B724(Entity*);
 extern void SoundReqClipped(Entity*, u32);
 
-void sub_0803A170(Entity*);
-void sub_0803A188(Entity*);
-void nullsub_167(Entity*);
+void MazaalBracelet_OnTick(Entity*);
+void MazaalBracelet_OnCollision(Entity*);
+void MazaalBracelet_OnGrabbed(Entity*);
 void sub_0803A254(Entity*);
 void sub_0803B8F8(Entity*);
 
@@ -98,8 +98,9 @@ extern Hitbox gUnk_080FD364;
 extern Hitbox gUnk_080FD36C;
 extern Hitbox gUnk_080FD374;
 
-void (*const gUnk_080CFC14[])(Entity*) = { sub_0803A170, sub_0803A188, sub_08001324,
-                                           sub_0804A7D4, sub_08001242, nullsub_167 };
+void (*const MazaalBracelet_Functions[])(Entity*) = { MazaalBracelet_OnTick, MazaalBracelet_OnCollision,
+                                                      GenericKnockback,      GenericDeath,
+                                                      GenericConfused,       MazaalBracelet_OnGrabbed };
 
 void (*const gUnk_080CFC2C[])(Entity*) = { sub_0803A254, sub_0803A254, sub_0803B8F8, sub_0803B8F8 };
 
@@ -130,14 +131,14 @@ const u16 gUnk_080CFD5C[] = { 0xe7, 0xe8 };
 extern s8 gUnk_080CED6C[8];
 
 void MazaalBracelet(Entity* this) {
-    gUnk_080CFC14[GetNextFunction(this)](this);
+    MazaalBracelet_Functions[GetNextFunction(this)](this);
 }
 
-void sub_0803A170(Entity* this) {
+void MazaalBracelet_OnTick(Entity* this) {
     gUnk_080CFC2C[this->type](this);
 }
 
-void sub_0803A188(Entity* this) {
+void MazaalBracelet_OnCollision(Entity* this) {
     Entity* ent;
 
     if (this->type < 2) {
@@ -164,10 +165,10 @@ void sub_0803A188(Entity* this) {
             SoundReq(SFX_BOSS_HIT);
         }
     }
-    sub_0804AA30(this, gUnk_080CFC14);
+    EnemyFunctionHandlerAfterCollision(this, MazaalBracelet_Functions);
 }
 
-void nullsub_167(Entity* this) {
+void MazaalBracelet_OnGrabbed(Entity* this) {
 }
 
 void sub_0803A254(Entity* this) {

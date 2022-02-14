@@ -40,7 +40,7 @@ void GyorgMaleEye_OnTick(GyorgMaleEyeEntity* this) {
     GyorgMaleEye_Actions[super->action](this);
 }
 
-void sub_08048E1C(GyorgMaleEyeEntity* this) {
+void GyorgMaleEye_OnCollision(GyorgMaleEyeEntity* this) {
     u32 tmp;
     Entity* entity;
 
@@ -66,7 +66,7 @@ void sub_08048E1C(GyorgMaleEyeEntity* this) {
         }
         super->health = 0xff;
     }
-    sub_0804AA30(super, GyorgMaleEye_Functions);
+    EnemyFunctionHandlerAfterCollision(super, GyorgMaleEye_Functions);
 }
 
 void GyorgMaleEye_Init(GyorgMaleEyeEntity* this) {
@@ -114,10 +114,10 @@ void sub_08048F74(GyorgMaleEyeEntity* this) {
 
 void (*const GyorgMaleEye_Functions[])(GyorgMaleEyeEntity*) = {
     GyorgMaleEye_OnTick,
-    sub_08048E1C,
-    (void (*)(GyorgMaleEyeEntity*))sub_08001324,
-    (void (*)(GyorgMaleEyeEntity*))sub_0804A7D4,
-    (void (*)(GyorgMaleEyeEntity*))sub_08001242,
+    GyorgMaleEye_OnCollision,
+    (void (*)(GyorgMaleEyeEntity*))GenericKnockback,
+    (void (*)(GyorgMaleEyeEntity*))GenericDeath,
+    (void (*)(GyorgMaleEyeEntity*))GenericConfused,
     GyorgMaleEye_OnTick,
 };
 void (*const GyorgMaleEye_Actions[])(GyorgMaleEyeEntity*) = {

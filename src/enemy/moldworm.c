@@ -23,7 +23,7 @@ bool32 sub_08023B38(Entity*);
 
 extern const u8 gUnk_080B37A0[];
 
-extern void (*const gUnk_080CBC38[])(Entity*);
+extern void (*const Moldworm_Functions[])(Entity*);
 extern void (*const gUnk_080CBC50[])(Entity*);
 extern const s8 gUnk_080CBC70[];
 extern const s8 gUnk_080CBC90[];
@@ -40,7 +40,7 @@ NONMATCH("asm/non_matching/moldworm/Moldworm.inc", void Moldworm(Entity* this)) 
             sub_0802390C(this);
         }
         this->field_0x7c.BYTES.byte1 = this->field_0x7c.BYTES.byte0;
-        EnemyFunctionHandler(this, gUnk_080CBC38);
+        EnemyFunctionHandler(this, Moldworm_Functions);
     } else {
         if (this->parent->next) {
             if (this->type != 8) {
@@ -61,11 +61,11 @@ NONMATCH("asm/non_matching/moldworm/Moldworm.inc", void Moldworm(Entity* this)) 
 }
 END_NONMATCH
 
-void sub_080230CC(Entity* this) {
+void Moldworm_OnTick(Entity* this) {
     gUnk_080CBC50[this->action](this);
 }
 
-void sub_080230E4(Entity* this) {
+void Moldworm_OnCollision(Entity* this) {
     if (this->subAction == 0xff) {
         this->action = 7;
         this->actionDelay = 1;
@@ -94,15 +94,15 @@ void sub_080230E4(Entity* this) {
         gPlayerState.flags &= ~PL_MOLDWORM_CAPTURED;
     }
 
-    sub_0804AA30(this, gUnk_080CBC38);
+    EnemyFunctionHandlerAfterCollision(this, Moldworm_Functions);
 }
 
-void sub_080231A4(Entity* this) {
+void Moldworm_OnKnockback(Entity* this) {
     this->field_0x7c.BYTES.byte0++;
-    sub_08001324(this);
+    GenericKnockback(this);
 }
 
-void nullsub_135(Entity* this) {
+void Moldworm_OnGrabbed(Entity* this) {
 }
 
 void sub_080231BC(Entity* this) {
@@ -219,7 +219,7 @@ void sub_08023398(Entity* this) {
     } else {
         int prevX = this->x.WORD;
         int prevY = this->y.WORD;
-        ProcessMovement(this);
+        ProcessMovement0(this);
         if (this->x.WORD == prevX && this->y.WORD == prevY) {
             this->field_0x7c.BYTES.byte0--;
         }
@@ -520,13 +520,13 @@ void sub_08023AB0(Entity* this) {
 ASM_FUNC("asm/non_matching/moldworm/sub_08023B38.inc", bool32 sub_08023B38(Entity* this))
 
 // clang-format off
-void (*const gUnk_080CBC38[])(Entity*) = {
-    sub_080230CC,
-    sub_080230E4,
-    sub_080231A4,
-    sub_0804A7D4,
-    sub_08001242,
-    nullsub_135,
+void (*const Moldworm_Functions[])(Entity*) = {
+    Moldworm_OnTick,
+    Moldworm_OnCollision,
+    Moldworm_OnKnockback,
+    GenericDeath,
+    GenericConfused,
+    Moldworm_OnGrabbed,
 };
 
 void (*const gUnk_080CBC50[])(Entity*) = {

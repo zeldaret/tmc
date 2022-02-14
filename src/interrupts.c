@@ -13,8 +13,6 @@
 extern u8 gUnk_03003DE0;
 extern u8 gUnk_03000C30;
 
-extern u16* gUnk_02025EB0;
-extern u16* gUnk_0200B650;
 extern u8 gUpdateVisibleTiles;
 extern u8 gUnk_03003DF0[];
 extern Entity gUnk_03003BE0;
@@ -205,11 +203,11 @@ void WaitForNextFrame(void) {
 
     if (gUpdateVisibleTiles) {
         gUpdateVisibleTiles = 0;
-        if (gUnk_02025EB0 != NULL)
+        if (gMapBottom.bgControlPtr != NULL)
             // sizeof(BGBuffer) = 0x800, what are we omitting?
-            DmaCopy32(3, &gBG1Buffer, VRAM + (*gUnk_02025EB0 & 0x1f00) * 8, 0x5C0);
-        if (gUnk_0200B650 != NULL)
-            DmaCopy32(3, &gBG2Buffer, VRAM + (*gUnk_0200B650 & 0x1f00) * 8, 0x5C0);
+            DmaCopy32(3, &gBG1Buffer, VRAM + (*gMapBottom.bgControlPtr & 0x1f00) * 8, 0x5C0);
+        if (gMapTop.bgControlPtr != NULL)
+            DmaCopy32(3, &gBG2Buffer, VRAM + (*gMapTop.bgControlPtr & 0x1f00) * 8, 0x5C0);
     }
     FadeVBlank();
 }

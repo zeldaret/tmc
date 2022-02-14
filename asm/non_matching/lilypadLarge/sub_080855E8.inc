@@ -389,7 +389,7 @@ _080858E0:
 	adds r0, r7, #0
 	bl sub_08085EFC
 	adds r0, r7, #0
-	bl sub_080AF134
+	bl ProcessMovement4
 	ldr r1, [r7, #0x54]
 	ldr r0, [r7, #0x2c]
 	cmp r1, r0

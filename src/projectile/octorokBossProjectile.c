@@ -103,7 +103,7 @@ void OctorokBossProjectile_Action1(Entity* this) {
                     this->parent->iframes = 0x1e;
                     if (this->parent->field_0x7c.BYTES.byte0 != 0) {
                         this->parent->knockbackDuration = 0x18;
-                        this->parent->field_0x46 = 0x200;
+                        this->parent->knockbackSpeed = 0x200;
                         this->parent->knockbackDirection = this->direction >> 3;
                     }
                     SoundReq(SFX_BOSS_HIT);
@@ -113,7 +113,7 @@ void OctorokBossProjectile_Action1(Entity* this) {
             UpdateAnimationSingleFrame(this);
             this->field_0x78.HWORD--;
             LinearMoveAngle(this, this->speed, this->direction);
-            sub_080AE58C(this, this->direction >> 3, 0);
+            CalculateEntityTileCollisions(this, this->direction >> 3, 0);
             if ((this->collisions & 0xee00) != 0) {
                 this->direction = -this->direction;
             }
@@ -150,7 +150,7 @@ void OctorokBossProjectile_Action1(Entity* this) {
             }
             GetNextFrame(this);
             if (GravityUpdate(this, 0x1800) != 0) {
-                sub_080AE58C(this, this->direction >> 3, 0);
+                CalculateEntityTileCollisions(this, this->direction >> 3, 0);
                 if (this->collisions == 0) {
                     LinearMoveAngle(this, (s32)this->speed, (u32)this->direction);
                 } else {

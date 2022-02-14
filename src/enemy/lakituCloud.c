@@ -13,32 +13,27 @@
 #include "effects.h"
 #include "enemy.h"
 
-extern u32 GetNextFunction(Entity*);
-
-extern void (*const gUnk_080D0418[6])(Entity*);
+extern void (*const LakituCloud_Functions[6])(Entity*);
 extern void (*const gUnk_080D0430[3])(Entity*);
 extern void (*const gUnk_080D043C[3])(Entity*);
 
-extern void SoundReqClipped(Entity*, u32);
-extern void sub_0803CE14(Entity*);
-extern void sub_0803CE3C(Entity*);
-extern void sub_08079D84(void);
-extern void sub_080A2CC0(Entity*, Entity**, u16*);
+void sub_0803CE14(Entity*);
+void sub_0803CE3C(Entity*);
 
 void LakituCloud(Entity* this) {
-    gUnk_080D0418[GetNextFunction(this)](this);
+    LakituCloud_Functions[GetNextFunction(this)](this);
 }
 
-void sub_0803CCD4(Entity* this) {
+void LakituCloud_OnTick(Entity* this) {
     gUnk_080D0430[this->action](this);
 }
 
-void sub_0803CCEC(Entity* this) {
+void LakituCloud_OnKnockback(Entity* this) {
     this->knockbackDuration = 0;
-    sub_0803CCD4(this);
+    LakituCloud_OnTick(this);
 }
 
-void sub_0803CCFC(Entity* this) {
+void LakituCloud_OnGrabbed(Entity* this) {
     if (sub_0806F520(this) == 0) {
         if (this->subAction == 2) {
             sub_0803CE3C(this);
@@ -153,8 +148,9 @@ void sub_0803CE3C(Entity* this) {
     sub_0803CE14(this);
 }
 
-void (*const gUnk_080D0418[])(Entity*) = {
-    sub_0803CCD4, sub_0803CCD4, sub_0803CCEC, sub_0804A7D4, sub_08001242, sub_0803CCFC,
+void (*const LakituCloud_Functions[])(Entity*) = {
+    LakituCloud_OnTick, LakituCloud_OnTick, LakituCloud_OnKnockback,
+    GenericDeath,       GenericConfused,    LakituCloud_OnGrabbed,
 };
 
 void (*const gUnk_080D0430[])(Entity*) = {

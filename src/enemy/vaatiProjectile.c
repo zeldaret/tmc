@@ -12,11 +12,11 @@ extern Entity* gUnk_020000B0;
 extern const ScreenTransitionData gUnk_0813AB94;
 
 bool32 sub_0803E4A0(Entity*);
-void VaatiProjectileFunction0(Entity*);
-void VaatiProjectileFunction1(Entity*);
-void sub_08001328(Entity*);
-void VaatiProjectileFunction3(Entity*);
-void VaatiProjectileNoop(Entity*);
+void VaatiProjectile_OnTick(Entity*);
+void VaatiProjectile_OnCollision(Entity*);
+void GenericKnockback2(Entity*);
+void VaatiProjectile_OnDeath(Entity*);
+void VaatiProjectile_OnGrabbed(Entity*);
 void VaatiProjectileFunction0Action0(Entity*);
 void VaatiProjectileFunction0Action1(Entity*);
 void VaatiProjectileFunction0Action2(Entity*);
@@ -31,9 +31,9 @@ void sub_0803E444(Entity*);
 void sub_0803E480(Entity*);
 void sub_0803E4D8(Entity*);
 
-void (*const vaatiProjectileFunctions[])(Entity*) = {
-    VaatiProjectileFunction0, VaatiProjectileFunction1, sub_08001328, VaatiProjectileFunction3, sub_08001242,
-    VaatiProjectileNoop,
+void (*const VaatiProjectile_Functions[])(Entity*) = {
+    VaatiProjectile_OnTick, VaatiProjectile_OnCollision, GenericKnockback2, VaatiProjectile_OnDeath,
+    GenericConfused,        VaatiProjectile_OnGrabbed,
 };
 void (*const vaatiProjectileFunction0Actions[])(Entity*) = {
     VaatiProjectileFunction0Action0, VaatiProjectileFunction0Action1, VaatiProjectileFunction0Action2,
@@ -48,14 +48,14 @@ void VaatiProjectile(Entity* this) {
         this->health = 0;
         this->parent = NULL;
     }
-    vaatiProjectileFunctions[GetNextFunction(this)](this);
+    VaatiProjectile_Functions[GetNextFunction(this)](this);
 }
 
-void VaatiProjectileFunction0(Entity* this) {
+void VaatiProjectile_OnTick(Entity* this) {
     vaatiProjectileFunction0Actions[this->action](this);
 }
 
-void VaatiProjectileFunction1(Entity* this) {
+void VaatiProjectile_OnCollision(Entity* this) {
     Entity* entity;
 
     if (this->bitfield == 0x80) {
@@ -82,18 +82,18 @@ void VaatiProjectileFunction1(Entity* this) {
         }
 #endif
     }
-    sub_0804AA30(this, vaatiProjectileFunctions);
+    EnemyFunctionHandlerAfterCollision(this, VaatiProjectile_Functions);
 }
 
-void VaatiProjectileFunction3(Entity* this) {
+void VaatiProjectile_OnDeath(Entity* this) {
     if (this->parent != NULL) {
         this->parent->field_0xf--;
         this->parent = NULL;
     }
-    sub_0804A7D4(this);
+    GenericDeath(this);
 }
 
-void VaatiProjectileNoop(Entity* this) {
+void VaatiProjectile_OnGrabbed(Entity* this) {
 }
 
 void VaatiProjectileFunction0Action0(Entity* this) {

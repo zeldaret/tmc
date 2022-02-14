@@ -30,7 +30,7 @@ void sub_08024F50(Entity*);
 
 extern Entity* gUnk_020000B0;
 
-extern void (*const gUnk_080CBEC4[])(Entity*);
+extern void (*const Pesto_Functions[])(Entity*);
 extern void (*const gUnk_080CBEDC[])(Entity*);
 extern void (*const gUnk_080CBEF8[])(Entity*);
 
@@ -39,14 +39,14 @@ extern const u16 gUnk_080CBF18[];
 extern const u8 gUnk_080CBF20[];
 
 void Pesto(Entity* this) {
-    gUnk_080CBEC4[GetNextFunction(this)](this);
+    Pesto_Functions[GetNextFunction(this)](this);
 }
 
-void sub_08023F44(Entity* this) {
+void Pesto_OnTick(Entity* this) {
     gUnk_080CBEDC[this->action](this);
 }
 
-void sub_08023F5C(Entity* this) {
+void Pesto_OnCollision(Entity* this) {
     if (this->hitType != 0x6e) {
         if (this->bitfield == 0x80) {
             this->field_0x86.HALF.LO = 0x30;
@@ -69,15 +69,15 @@ void sub_08023F5C(Entity* this) {
         this->health = 0;
     }
 
-    sub_0804AA30(this, gUnk_080CBEC4);
+    EnemyFunctionHandlerAfterCollision(this, Pesto_Functions);
 }
 
-void sub_08023FE0(Entity* this) {
-    sub_08001324(this);
+void Pesto_OnKnockback(Entity* this) {
+    GenericKnockback(this);
     GetNextFrame(this);
 }
 
-void sub_08023FF0(Entity* this) {
+void Pesto_OnGrabbed(Entity* this) {
     if (this->subAction < 3 && !sub_0806F520(this)) {
         this->action = 1;
         this->subAction = 0;
@@ -548,7 +548,7 @@ void sub_08024940(Entity* this) {
         }
     }
 
-    sub_080AEFB4(this);
+    ProcessMovement1(this);
     GetNextFrame(this);
 }
 
@@ -845,13 +845,13 @@ void sub_08024F50(Entity* this) {
 }
 
 // clang-format off
-void (*const gUnk_080CBEC4[])(Entity*) = {
-    sub_08023F44,
-    sub_08023F5C,
-    sub_08023FE0,
-    sub_0804A7D4,
-    sub_08001242,
-    sub_08023FF0,
+void (*const Pesto_Functions[])(Entity*) = {
+    Pesto_OnTick,
+    Pesto_OnCollision,
+    Pesto_OnKnockback,
+    GenericDeath,
+    GenericConfused,
+    Pesto_OnGrabbed,
 };
 
 void (*const gUnk_080CBEDC[])(Entity*) = {

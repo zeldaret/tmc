@@ -32,7 +32,7 @@ _080305E4:
 	cmp r0, #0
 	bne _08030608
 	adds r0, r4, #0
-	bl ProcessMovement
+	bl ProcessMovement0
 	cmp r0, #0
 	bne _0803064A
 	ldrb r0, [r4, #0x15]
@@ -59,7 +59,7 @@ _0803061E:
 	cmp r3, #0
 	bne _08030638
 	adds r0, r4, #0
-	bl ProcessMovement
+	bl ProcessMovement0
 	cmp r0, #0
 	bne _0803064A
 	ldrb r0, [r4, #0x15]

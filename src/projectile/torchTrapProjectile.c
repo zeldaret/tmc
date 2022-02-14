@@ -2,9 +2,6 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern s32 sub_080AF090(Entity*);
-extern s32 IsProjectileOffScreen(Entity*);
-
 extern void (*const TorchTrapProjectile_Functions[])(Entity*);
 extern void (*const TorchTrapProjectile_Actions[])(Entity*);
 
@@ -31,7 +28,7 @@ void TorchTrapProjectile_Action1(Entity* this) {
     if (this->actionDelay != 0) {
         this->actionDelay -= 1;
     } else {
-        if (sub_080AF090(this) == 0) {
+        if (ProcessMovement3(this) == 0) {
             LinearMoveUpdate(this);
         } else {
             this->action = 2;
@@ -41,11 +38,11 @@ void TorchTrapProjectile_Action1(Entity* this) {
 
 void TorchTrapProjectile_Action2(Entity* this) {
     GetNextFrame(this);
-    sub_080AF090(this);
+    ProcessMovement3(this);
     if (this->collisions != 0) {
         DeleteThisEntity();
     }
-    if (IsProjectileOffScreen(this) != 0) {
+    if (IsProjectileOffScreen(this)) {
         DeleteThisEntity();
     }
 }

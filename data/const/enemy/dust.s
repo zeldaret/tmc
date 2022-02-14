@@ -7,9 +7,9 @@
 gUnk_080D1588:: @ 080D1588
 	.4byte sub_08044134
 	.4byte sub_0804414C
-	.4byte sub_08001324
-	.4byte sub_0804A7D4
-	.4byte sub_08001242
+	.4byte GenericKnockback
+	.4byte GenericDeath
+	.4byte GenericConfused
 	.4byte sub_0804415C
 
 gUnk_080D15A0:: @ 080D15A0

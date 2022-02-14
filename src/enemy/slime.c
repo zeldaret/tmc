@@ -18,32 +18,32 @@ void sub_08045178(Entity*, Entity*, int, int);
 extern void sub_0804A4E4(Entity*, Entity*);
 
 extern void (*const gUnk_080D16BC[])(Entity*);
-extern void (*const gUnk_080D16A4[])(Entity*);
+extern void (*const Slime_Functions[])(Entity*);
 extern u8 gUnk_080D16D0[4]; // Entity count per form
 extern PosOffset gUnk_080D16D4[4];
 
 void Slime(Entity* this) {
-    EnemyFunctionHandler(this, gUnk_080D16A4);
+    EnemyFunctionHandler(this, Slime_Functions);
     SetChildOffset(this, 0, 1, -12);
 }
 
-void sub_08044F70(Entity* this) {
+void Slime_OnTick(Entity* this) {
     gUnk_080D16BC[this->action](this);
 }
 
-void sub_08044F88(Entity* this) {
+void Slime_OnCollision(Entity* this) {
     if ((this->health != 0) && (this->cutsceneBeh.HALF.LO != this->health)) {
         this->action = 4;
     } else {
-        sub_0804AA30(this, gUnk_080D16A4);
+        EnemyFunctionHandlerAfterCollision(this, Slime_Functions);
     }
 
-    if (this->field_0x43 != 0) {
-        sub_0804A9FC(this, 28);
+    if (this->confusedTime != 0) {
+        Create0x68FX(this, FX_STARS);
     }
 }
 
-void nullsub_171(Entity* this) {
+void Slime_OnGrabbed(Entity* this) {
 }
 
 void sub_08044FC8(Entity* this) {
@@ -78,7 +78,7 @@ void sub_08045018(Entity* this) {
 }
 
 void sub_08045088(Entity* this) {
-    ProcessMovement(this);
+    ProcessMovement0(this);
     GetNextFrame(this);
     if (--this->actionDelay == 0) {
         this->action = 1;

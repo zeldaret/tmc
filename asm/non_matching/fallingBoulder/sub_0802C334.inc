@@ -148,7 +148,7 @@ _0802C442:
 	cmp r5, #4
 	ble _0802C460
 	adds r0, r4, #0
-	bl sub_080AEFB4
+	bl ProcessMovement1
 	b _0802C48C
 	.align 2, 0
 _0802C45C: .4byte gRoomControls

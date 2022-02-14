@@ -1,9 +1,7 @@
 #include "entity.h"
 #include "enemy.h"
 #include "player.h"
-
-extern s32 sub_080AF090(Entity*);
-extern s32 IsProjectileOffScreen(Entity*);
+#include "functions.h"
 
 extern void (*const V3HandProjectile_Functions[])(Entity*);
 
@@ -21,12 +19,12 @@ void V3HandProjectile_OnTick(Entity* this) {
     if (this->z.HALF.HI < -6) {
         this->z.HALF.HI += 2;
     }
-    sub_080AF090(this);
+    ProcessMovement3(this);
     if (this->collisions != 0) {
         DeleteThisEntity();
     }
     GetNextFrame(this);
-    if (IsProjectileOffScreen(this) != 0) {
+    if (IsProjectileOffScreen(this)) {
         DeleteThisEntity();
     }
 }

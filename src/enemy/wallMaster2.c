@@ -9,7 +9,7 @@
 #include "area.h"
 #include "functions.h"
 
-extern void sub_08001328(Entity*);
+extern void GenericKnockback2(Entity*);
 
 extern Entity* gUnk_020000B0;
 extern ScreenTransitionData* gUnk_0813AB1C[];
@@ -18,22 +18,22 @@ void sub_0802CF64(Entity*);
 void sub_0802CF8C(Entity*);
 void sub_0802CFD8(Entity*);
 
-extern void (*const gUnk_080CD6FC[])(Entity*);
+extern void (*const WallMaster2_Functions[])(Entity*);
 extern void (*const gUnk_080CD714[])(Entity*);
 extern const u16 gUnk_080CD728[];
 extern const u16 gUnk_080CD730[];
 extern const s8 gUnk_080CD740[];
 
 void WallMaster2(Entity* this) {
-    gUnk_080CD6FC[GetNextFunction(this)](this);
+    WallMaster2_Functions[GetNextFunction(this)](this);
     SetChildOffset(this, 0, 1, -0x10);
 }
 
-void sub_0802CC68(Entity* this) {
+void WallMaster2_OnTick(Entity* this) {
     gUnk_080CD714[this->action](this);
 }
 
-void sub_0802CC80(Entity* this) {
+void WallMaster2_OnCollision(Entity* this) {
     u8 bVar1 = this->bitfield & 0x7f;
     switch (this->bitfield & 0x7f) {
         case 0 ... 1:
@@ -44,13 +44,13 @@ void sub_0802CC80(Entity* this) {
             gPlayerEntity.flags &= ~ENT_COLLIDE;
             break;
     }
-    if (this->field_0x43 != 0) {
-        sub_0804A9FC(this, 0x1c);
+    if (this->confusedTime != 0) {
+        Create0x68FX(this, FX_STARS);
     }
-    sub_0804AA30(this, gUnk_080CD6FC);
+    EnemyFunctionHandlerAfterCollision(this, WallMaster2_Functions);
 }
 
-void nullsub_151(Entity* this) {
+void WallMaster2_OnGrabbed(Entity* this) {
     /* ... */
 }
 
@@ -173,13 +173,13 @@ void sub_0802CFD8(Entity* this) {
 }
 
 // clang-format off
-void (*const gUnk_080CD6FC[])(Entity*) = {
-    sub_0802CC68,
-    sub_0802CC80,
-    sub_08001328,
-    sub_0804A7D4,
-    sub_08001242,
-    nullsub_151,
+void (*const WallMaster2_Functions[])(Entity*) = {
+    WallMaster2_OnTick,
+    WallMaster2_OnCollision,
+    GenericKnockback2,
+    GenericDeath,
+    GenericConfused,
+    WallMaster2_OnGrabbed,
 };
 
 void (*const gUnk_080CD714[])(Entity*) = {

@@ -2536,12 +2536,10 @@ u32 sub_unk3_CaveOfFlamesBoss_Main(void) {
 
 extern EntityData gUnk_additional_a_CaveOfFlamesBoss_Main;
 
-extern u32 gUnk_0200B650;
-
 void sub_StateChange_CaveOfFlamesBoss_Main(void) {
 
     if (CheckGlobalFlag(LV2_CLEAR)) {
-        gUnk_0200B650 = 0;
+        gMapTop.bgControlPtr = 0;
         gScreen.lcd.displayControl &= ~DISPCNT_BG1_ON;
         sub_0807AABC(&gPlayerEntity);
         LoadRoomEntityList(&gUnk_additional_a_CaveOfFlamesBoss_Main);

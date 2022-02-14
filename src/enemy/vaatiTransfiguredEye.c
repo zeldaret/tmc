@@ -14,22 +14,22 @@
 void sub_08045A00(Entity*);
 void sub_08045A28(Entity*);
 
-void VaatiTransfiguredEyeFunction0(Entity*);
-void VaatiTransfiguredEyeFunction1(Entity*);
-void VaatiTransfiguredEyeNoop(Entity*);
+void VaatiTransfiguredEye_OnTick(Entity*);
+void VaatiTransfiguredEye_OnCollision(Entity*);
+void VaatiTransfiguredEye_OnDragged(Entity*);
 void VaatiTransfiguredEyeFunction0Action0(Entity*);
 void VaatiTransfiguredEyeFunction0Action1(Entity*);
 void VaatiTransfiguredEyeFunction0Action2(Entity*);
 void VaatiTransfiguredEyeFunction0Action3(Entity*);
 void VaatiTransfiguredEyeFunction0Action4(Entity*);
 
-void (*const vaatiTransfiguredEyeFunctions[])(Entity*) = {
-    VaatiTransfiguredEyeFunction0,
-    VaatiTransfiguredEyeFunction1,
-    VaatiTransfiguredEyeFunction0,
-    sub_0804A7D4,
-    sub_08001242,
-    VaatiTransfiguredEyeNoop,
+void (*const VaatiTransfiguredEye_Functions[])(Entity*) = {
+    VaatiTransfiguredEye_OnTick,
+    VaatiTransfiguredEye_OnCollision,
+    VaatiTransfiguredEye_OnTick,
+    GenericDeath,
+    GenericConfused,
+    VaatiTransfiguredEye_OnDragged,
 };
 
 void (*const vaatiTransfiguredEyeFunction0Actions[])(Entity*) = {
@@ -46,14 +46,14 @@ const struct xy gUnk_080D18B4[] = { { 0xe8, 0xf6 }, { 0xf6, 0xe8 }, { 0x0a, 0xe8
                                     { 0x18, 0x0a }, { 0x0a, 0x18 }, { 0xf6, 0x18 }, { 0xe8, 0x0a } };
 
 void VaatiTransfiguredEye(Entity* this) {
-    EnemyFunctionHandler(this, vaatiTransfiguredEyeFunctions);
+    EnemyFunctionHandler(this, VaatiTransfiguredEye_Functions);
 }
 
-void VaatiTransfiguredEyeFunction0(Entity* this) {
+void VaatiTransfiguredEye_OnTick(Entity* this) {
     vaatiTransfiguredEyeFunction0Actions[this->action](this);
 }
 
-void VaatiTransfiguredEyeFunction1(Entity* this) {
+void VaatiTransfiguredEye_OnCollision(Entity* this) {
     u8 bVar1;
     Entity* pEVar4;
 
@@ -89,10 +89,10 @@ void VaatiTransfiguredEyeFunction1(Entity* this) {
             }
         }
     }
-    sub_0804AA30(this, vaatiTransfiguredEyeFunctions);
+    EnemyFunctionHandlerAfterCollision(this, VaatiTransfiguredEye_Functions);
 }
 
-void VaatiTransfiguredEyeNoop(Entity* this) {
+void VaatiTransfiguredEye_OnDragged(Entity* this) {
 }
 
 void VaatiTransfiguredEyeFunction0Action0(Entity* this) {

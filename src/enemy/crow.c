@@ -15,7 +15,7 @@ typedef struct {
     u8 unk_84;
 } CrowEntity;
 
-void (*const gUnk_080CE978[])(Entity*);
+void (*const Crow_Functions[])(Entity*);
 void (*const gUnk_080CE990[])(CrowEntity*);
 void (*const gUnk_080CE9A4[])(CrowEntity*);
 extern Entity* gUnk_020000B0;
@@ -26,10 +26,10 @@ void sub_08032B38(CrowEntity* this);
 void sub_08032B10(CrowEntity* this);
 
 void Crow(Entity* this) {
-    gUnk_080CE978[GetNextFunction(this)](this);
+    Crow_Functions[GetNextFunction(this)](this);
 }
 
-void sub_08032810(CrowEntity* this) {
+void Crow_OnTick(CrowEntity* this) {
     gUnk_080CE990[super->action](this);
     if (super->field_0xf) {
         if (--super->field_0xf == 0) {
@@ -38,7 +38,7 @@ void sub_08032810(CrowEntity* this) {
     }
 }
 
-void sub_08032844(CrowEntity* this) {
+void Crow_OnCollision(CrowEntity* this) {
     if (super->bitfield & 0x80) {
         if ((super->bitfield & 0x3f) == 0) {
             COLLISION_OFF(super);
@@ -64,7 +64,7 @@ void sub_08032844(CrowEntity* this) {
     GetNextFrame(super);
 }
 
-void sub_080328B8(CrowEntity* this) {
+void Crow_OnGrabbed(CrowEntity* this) {
     gUnk_080CE9A4[super->subAction](this);
     GetNextFrame(super);
 
@@ -90,7 +90,7 @@ void sub_0803290C(CrowEntity* this) {
 
 void sub_08032914(CrowEntity* this) {
     if (sub_0806F3E4(super)) {
-        sub_0804A7D4(super);
+        GenericDeath(super);
     }
 }
 
@@ -266,9 +266,9 @@ void sub_08032B38(CrowEntity* this) {
     GetNextFrame(super);
 }
 
-void (*const gUnk_080CE978[])(Entity*) = {
-    (EntityActionPtr)sub_08032810, (EntityActionPtr)sub_08032844, sub_08001324, sub_0804A7D4, sub_08001242,
-    (EntityActionPtr)sub_080328B8,
+void (*const Crow_Functions[])(Entity*) = {
+    (EntityActionPtr)Crow_OnTick,    (EntityActionPtr)Crow_OnCollision, GenericKnockback, GenericDeath, GenericConfused,
+    (EntityActionPtr)Crow_OnGrabbed,
 };
 
 void (*const gUnk_080CE990[])(CrowEntity*) = {

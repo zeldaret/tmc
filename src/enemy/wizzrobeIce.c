@@ -24,11 +24,11 @@ void WizzrobeIce_OnTick(WizzrobeEntity* this) {
     WizzrobeIce_Actions[super->action](this);
 }
 
-void sub_0802FE18(WizzrobeEntity* this) {
-    if (super->field_0x43 != 0) {
-        sub_0804A9FC(super, 0x1c);
+void WizzrobeIce_OnCollision(WizzrobeEntity* this) {
+    if (super->confusedTime != 0) {
+        Create0x68FX(super, FX_STARS);
     }
-    sub_0804AA30(super, WizzrobeIce_Functions);
+    EnemyFunctionHandlerAfterCollision(super, WizzrobeIce_Functions);
     if (super->bitfield == 0x87) {
         Entity* obj = CreateObject(OBJECT_2A, 3, 0);
         if (obj != NULL) {
@@ -150,10 +150,10 @@ void WizzrobeIce_Action2(WizzrobeEntity* this) {
 
 void (*const WizzrobeIce_Functions[])(WizzrobeEntity*) = {
     WizzrobeIce_OnTick,
-    sub_0802FE18,
-    (void (*)(WizzrobeEntity*))sub_08001324,
-    (void (*)(WizzrobeEntity*))sub_0804A7D4,
-    (void (*)(WizzrobeEntity*))sub_08001242,
+    WizzrobeIce_OnCollision,
+    (void (*)(WizzrobeEntity*))GenericKnockback,
+    (void (*)(WizzrobeEntity*))GenericDeath,
+    (void (*)(WizzrobeEntity*))GenericConfused,
     WizzrobeIce_OnTick,
 };
 void (*const WizzrobeIce_Actions[])(WizzrobeEntity*) = {

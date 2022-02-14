@@ -66,7 +66,7 @@ _080AD0B4:
 	cmp r0, #0x26
 	beq _080AD0C8
 	adds r0, r4, #0
-	bl sub_080AF00C
+	bl ProcessMovement10
 _080AD0C8:
 	movs r1, #0x80
 	lsls r1, r1, #6

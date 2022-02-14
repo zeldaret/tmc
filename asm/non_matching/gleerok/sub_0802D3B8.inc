@@ -76,7 +76,7 @@ _0802D420:
 	cmp r5, #0
 	bne _0802D470
 	adds r0, r4, #0
-	bl sub_0804A7D4
+	bl GenericDeath
 	bl DeleteThisEntity
 _0802D470:
 	ldr r0, [r7]

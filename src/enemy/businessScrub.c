@@ -14,22 +14,22 @@
 #include "game.h"
 #include "item.h"
 
+void sub_08028E9C(Entity*);
+void sub_08028EDC(Entity*);
+bool32 sub_08028F98(Entity*, u32);
+bool32 sub_08028FDC(Entity*);
+void sub_08028FFC(Entity*);
+void sub_08029078(Entity*);
+void sub_080290E0(Entity*, u32);
+void sub_080290FC(Entity*);
 bool32 sub_0802915C(Entity*);
 bool32 sub_080291DC(Entity*);
 void sub_0802922C(Entity*);
-void sub_08028E9C(Entity*);
-void sub_08028FFC(Entity*);
 void sub_0802925C(Entity*);
-void sub_080290E0(Entity*, u32);
-bool32 sub_08028F98(Entity*, u32);
-void sub_08029078(Entity*);
-bool32 sub_08028FDC(Entity*);
-void sub_080290FC(Entity*);
-void sub_08028EDC(Entity*);
 
 extern const struct SalesOffering gUnk_080CC954[];
 extern const u8 gUnk_080CC9C0[];
-extern void (*const gUnk_080CC9C8[])(Entity*);
+extern void (*const BusinessScrub_Functions[])(Entity*);
 extern void (*const gUnk_080CC9E0[])(Entity*);
 extern const u8 gUnk_080CCA04[];
 
@@ -45,14 +45,14 @@ struct SalesOffering {
 };
 
 void BusinessScrub(Entity* this) {
-    EnemyFunctionHandler(this, gUnk_080CC9C8);
+    EnemyFunctionHandler(this, BusinessScrub_Functions);
 }
 
-void sub_0802891C(Entity* this) {
+void BusinessScrub_OnTick(Entity* this) {
     gUnk_080CC9E0[this->action](this);
 }
 
-void sub_08028934(Entity* this) {
+void BusinessScrub_OnCollision(Entity* this) {
     Entity* pEVar1;
 
     if (this->hitType == 1 && (this->bitfield & 0x7f) == 0x42) {
@@ -69,7 +69,7 @@ void sub_08028934(Entity* this) {
     }
 }
 
-void nullsub_140(Entity* this) {
+void BusinessScrub_OnGrabbed(Entity* this) {
     /* ... */
 }
 
@@ -206,7 +206,7 @@ void sub_08028BC4(Entity* this) {
                 this->actionDelay = 0x1e;
                 this->field_0xf = 5;
                 sub_080290E0(this, 0);
-                iVar1 = sub_0804A9FC(this, 0x1c);
+                iVar1 = Create0x68FX(this, FX_STARS);
                 if (iVar1 != NULL) {
                     iVar1->spritePriority.b0 = 3;
                     iVar1->z.HALF.HI -= 12;
@@ -585,13 +585,13 @@ const u8 gUnk_080CC9C0[] = {
 
 };
 
-void (*const gUnk_080CC9C8[])(Entity*) = {
-    sub_0802891C,
-    sub_08028934,
-    sub_08001324,
-    sub_0804A7D4,
-    sub_08001242,
-    nullsub_140,
+void (*const BusinessScrub_Functions[])(Entity*) = {
+    BusinessScrub_OnTick,
+    BusinessScrub_OnCollision,
+    GenericKnockback,
+    GenericDeath,
+    GenericConfused,
+    BusinessScrub_OnGrabbed,
 };
 
 void (*const gUnk_080CC9E0[])(Entity*) = {

@@ -6,10 +6,9 @@
  */
 
 #include "enemy.h"
+#include "functions.h"
 
-void sub_08027870(Entity*);
-
-extern void (*const gUnk_080CC19C[])(Entity*);
+extern void (*const ChuchuBoss_Functions[])(Entity*);
 extern void (*const gUnk_080CC1B0[])(Entity*);
 extern const u8 gUnk_080CC1B8[];
 extern void (*const gUnk_080CC1C8[])(Entity*);
@@ -27,18 +26,18 @@ extern const u16 gUnk_080CC2BC[];
 extern const s8 gUnk_080CC2DC[];
 
 void ChuchuBoss(Entity* this) {
-    gUnk_080CC19C[GetNextFunction(this)]((Entity*)this);
+    ChuchuBoss_Functions[GetNextFunction(this)]((Entity*)this);
 }
 
-void sub_08025CBC(Entity* this) {
-    sub_08001324(this);
+void ChuchuBoss_OnKnockback(Entity* this) {
+    GenericKnockback(this);
     if (this->type == 0) {
         sub_08027870(this);
     }
 }
 
-void sub_08025DC0(Entity*);
-void sub_08025CD4(Entity*);
+void ChuchuBoss_OnTick(Entity*);
+void ChuchuBoss_OnDeath(Entity*);
 void sub_08025DD8(Entity*);
 void sub_08026060(Entity*);
 void sub_08026110(Entity*);
@@ -77,12 +76,12 @@ void sub_080269CC(Entity*);
 void sub_08026BE8(Entity*);
 
 // clang-format off
-void (*const gUnk_080CC19C[])(Entity*) = {
-    sub_08025DC0,
-    sub_08025DC0,
-    sub_08025CBC,
-    sub_08025CD4,
-    sub_08001242,
+void (*const ChuchuBoss_Functions[])(Entity*) = {
+    ChuchuBoss_OnTick,
+    ChuchuBoss_OnTick,
+    ChuchuBoss_OnKnockback,
+    ChuchuBoss_OnDeath,
+    GenericConfused,
 };
 
 void (*const gUnk_080CC1B0[])(Entity*) = {

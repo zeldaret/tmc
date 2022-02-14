@@ -11,8 +11,8 @@
 
 extern u32 sub_0804A024(Entity*, u32, u32);
 
-extern Entity gUnk_0200D654;
-extern Entity gUnk_02027EB4;
+extern u8 gUnk_0200D654[];
+extern u8 gUnk_02027EB4[];
 
 void sub_0802C18C(Entity*);
 void sub_0802C218(Entity*);
@@ -23,7 +23,7 @@ bool32 sub_0802C06C(Entity*);
 void sub_0802C1CC(Entity*);
 bool32 sub_0802C0E8(Entity*);
 
-extern void (*const gUnk_080CD3E4[])(Entity*);
+extern void (*const Helmasaur_Functions[])(Entity*);
 extern void (*const gUnk_080CD3FC[])(Entity*);
 extern void (*const gUnk_080CD408[])(Entity*);
 extern void (*const gUnk_080CD42C[])(Entity*);
@@ -34,18 +34,18 @@ extern const s8 gUnk_080CD464[];
 
 void Helmasaur(Entity* this) {
     if (this->type == 0) {
-        EnemyFunctionHandler(this, gUnk_080CD3E4);
+        EnemyFunctionHandler(this, Helmasaur_Functions);
         SetChildOffset(this, 0, 1, -0x10);
     } else {
         gUnk_080CD3FC[this->action](this);
     }
 }
 
-void sub_0802BBAC(Entity* this) {
+void Helmasaur_OnTick(Entity* this) {
     gUnk_080CD408[this->action](this);
 }
 
-void sub_0802BBC4(Entity* this) {
+void Helmasaur_OnCollision(Entity* this) {
     if (this->hitType != 0x19) {
         switch (this->bitfield & 0x7f) {
             case 0:
@@ -58,14 +58,14 @@ void sub_0802BBC4(Entity* this) {
                 break;
         }
     }
-    if (this->field_0x43 != 0) {
-        sub_0804A9FC(this, 0x1c);
+    if (this->confusedTime != 0) {
+        Create0x68FX(this, FX_STARS);
     }
 
-    sub_0804AA30(this, gUnk_080CD3E4);
+    EnemyFunctionHandlerAfterCollision(this, Helmasaur_Functions);
 }
 
-void sub_0802BC20(Entity* this) {
+void Helmasaur_OnGrabbed(Entity* this) {
     if (this->hitType != 0x19) {
         if (sub_0806F520(this)) {
             gUnk_080CD42C[this->subAction](this);
@@ -189,7 +189,7 @@ void sub_0802BE18(Entity* this) {
 }
 
 void sub_0802BE48(Entity* this) {
-    if (!sub_080AEFE0(this)) {
+    if (!ProcessMovement2(this)) {
         sub_0802C218(this);
         InitScreenShake(8, 0);
     } else {
@@ -208,7 +208,7 @@ void sub_0802BE80(Entity* this) {
     }
 
     if (this->speed > 0) {
-        sub_080AEFE0(this);
+        ProcessMovement2(this);
         sub_0802C18C(this);
     } else {
         sub_0802C1C0(this);
@@ -218,7 +218,7 @@ void sub_0802BE80(Entity* this) {
 
 void sub_0802BEBC(Entity* this) {
     this->direction ^= 0x10;
-    sub_080AEFE0(this);
+    ProcessMovement2(this);
     this->direction ^= 0x10;
     if (!sub_080044EC(this, Q_16_16(0.125))) {
         sub_0802C1C0(this);
@@ -240,7 +240,7 @@ void sub_0802BEEC(Entity* this) {
 }
 
 void sub_0802BF3C(Entity* this) {
-    ProcessMovement(this);
+    ProcessMovement0(this);
     GetNextFrame(this);
     if (--this->actionDelay == 0) {
         u32 sprite;
@@ -316,13 +316,13 @@ bool32 sub_0802C06C(Entity* this) {
     u32 xdiff = gUnk_080CD45C[(this->direction >> 2) + 0];
     u32 ydiff = gUnk_080CD45C[(this->direction >> 2) + 1];
 
-    Entity* ent = this->collisionLayer == 2 ? &gUnk_0200D654 : &gUnk_02027EB4;
+    u8* layer = this->collisionLayer == 2 ? gUnk_0200D654 : gUnk_02027EB4;
 
     u32 i;
     for (i = 0; i < 8; i++) {
         x += xdiff;
         y += ydiff;
-        if (sub_080AE4CC(ent, x, y, 0))
+        if (IsTileCollision(layer, x, y, 0))
             return FALSE;
     }
 
@@ -339,10 +339,10 @@ bool32 sub_0802C0E8(Entity* this) {
         s32 x = this->x.HALF.HI + this->hitbox->offset_x + ptr[0] * 6;
         s32 y = this->y.HALF.HI + this->hitbox->offset_y + ptr[1] * 6;
 
-        Entity* ent = this->collisionLayer == 2 ? &gUnk_0200D654 : &gUnk_02027EB4;
+        u8* layer = this->collisionLayer == 2 ? gUnk_0200D654 : gUnk_02027EB4;
         u32 ret = FALSE;
         if (!sub_0806FC24(TILE(x, y), 9)) {
-            if (sub_080AE4CC(ent, x, y, 0)) {
+            if (IsTileCollision(layer, x, y, 0)) {
                 ret = 1;
             } else {
                 ret = 0;
@@ -380,13 +380,13 @@ void sub_0802C218(Entity* this) {
 }
 
 // clang-format off
-void (*const gUnk_080CD3E4[])(Entity*) = {
-    sub_0802BBAC,
-    sub_0802BBC4,
-    sub_08001324,
-    sub_0804A7D4,
-    sub_08001242,
-    sub_0802BC20,
+void (*const Helmasaur_Functions[])(Entity*) = {
+    Helmasaur_OnTick,
+    Helmasaur_OnCollision,
+    GenericKnockback,
+    GenericDeath,
+    GenericConfused,
+    Helmasaur_OnGrabbed,
 };
 
 void (*const gUnk_080CD3FC[])(Entity*) = {

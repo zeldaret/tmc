@@ -20,7 +20,7 @@ void sub_080288C0(Entity*);
 bool32 sub_08028828(u32, u32);
 void sub_080287B4(Entity*);
 
-extern void (*const gUnk_080CC790[])(Entity*);
+extern void (*const SpearMoblin_Functions[])(Entity*);
 extern void (*const gUnk_080CC7A8[])(Entity*);
 extern const u8 gUnk_080CC7BC[];
 extern const s8 gUnk_080CC7C0[];
@@ -30,22 +30,22 @@ extern const u16 gUnk_080CC7D8[];
 extern const Hitbox* const gUnk_080CC944[];
 
 void SpearMoblin(Entity* this) {
-    EnemyFunctionHandler(this, gUnk_080CC790);
+    EnemyFunctionHandler(this, SpearMoblin_Functions);
     SetChildOffset(this, 0, 1, -0x20);
     if (this->child && this->child->next) {
         CopyPosition(this, this->child);
     }
 }
 
-void sub_0802826C(Entity* this) {
+void SpearMoblin_OnTick(Entity* this) {
     gUnk_080CC7A8[this->action](this);
 }
 
-void sub_08028284(Entity* this) {
-    if (this->field_0x43 != 0)
-        sub_0804A9FC(this, 0x1c);
+void SpearMoblin_OnCollision(Entity* this) {
+    if (this->confusedTime != 0)
+        Create0x68FX(this, FX_STARS);
 
-    sub_0804AA30(this, gUnk_080CC790);
+    EnemyFunctionHandlerAfterCollision(this, SpearMoblin_Functions);
     if (this->bitfield & 0x80) {
         if (this->action != 4) {
             sub_08028754(this);
@@ -68,7 +68,7 @@ void sub_08028284(Entity* this) {
     }
 }
 
-void nullsub_13(Entity* this) {
+void SpearMoblin_OnGrabbed(Entity* this) {
     /* ... */
 }
 
@@ -235,7 +235,7 @@ void sub_08028528(Entity* this) {
         }
 
         if (0x20 < this->field_0x7a.HALF.HI) {
-            ProcessMovement(this);
+            ProcessMovement0(this);
         }
 
         GetNextFrame(this);
@@ -370,7 +370,7 @@ void sub_08028858(Entity* this) {
         this->speed = 0;
     }
 
-    ProcessMovement(this);
+    ProcessMovement0(this);
     GetNextFrame(this);
 }
 
@@ -383,20 +383,20 @@ void sub_080288C0(Entity* this) {
     if (ent && (ent->bitfield & 0x80)) {
         this->knockbackDirection = ent->knockbackDirection;
         this->iframes = -ent->iframes;
-        this->field_0x46 = ent->field_0x46;
+        this->knockbackSpeed = ent->knockbackSpeed;
         this->knockbackDuration = ent->knockbackDuration;
         ent->knockbackDuration = 0;
     }
 }
 
 // clang-format off
-void (*const gUnk_080CC790[])(Entity*) = {
-    sub_0802826C,
-    sub_08028284,
-    sub_08001324,
-    sub_0804A7D4,
-    sub_08001242,
-    nullsub_13,
+void (*const SpearMoblin_Functions[])(Entity*) = {
+    SpearMoblin_OnTick,
+    SpearMoblin_OnCollision,
+    GenericKnockback,
+    GenericDeath,
+    GenericConfused,
+    SpearMoblin_OnGrabbed,
 };
 
 void (*const gUnk_080CC7A8[])(Entity*) = {

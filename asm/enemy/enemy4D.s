@@ -172,7 +172,7 @@ _0803ECD8:
 	movs r1, #0x10
 	bl sub_0803E94C
 	adds r0, r4, #0
-	bl ProcessMovement
+	bl ProcessMovement0
 _0803ED02:
 	pop {r4, r5, r6, pc}
 

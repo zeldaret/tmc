@@ -4,13 +4,13 @@
 	.section .rodata
     .align 2
 
-gUnk_080CEB74:: @ 080CEB74
-	.4byte sub_0803354C
-	.4byte sub_08033564
-	.4byte sub_08001324
-	.4byte sub_0804A7D4
-	.4byte sub_08001242
-	.4byte sub_0803362C
+Wisp_Functions:: @ 080CEB74
+	.4byte Wisp_OnTick
+	.4byte Wisp_OnCollision
+	.4byte GenericKnockback
+	.4byte GenericDeath
+	.4byte GenericConfused
+	.4byte Wisp_OnGrabbed
 
 gUnk_080CEB8C:: @ 080CEB8C
 	.4byte sub_08033674

@@ -68,11 +68,11 @@ void sub_080301D4(ArmosEntity* this) {
         sub_080309C8(this, 6);
         sub_080309E8(this);
     }
-    if (super->field_0x43 != 0) {
-        sub_0804A9FC(super, 0x1c);
+    if (super->confusedTime != 0) {
+        Create0x68FX(super, 0x1c);
     }
     this->unk_81 = super->health;
-    sub_0804AA30(super, gUnk_080CE124);
+    EnemyFunctionHandlerAfterCollision(super, gUnk_080CE124);
 }
 
 void sub_08030240(ArmosEntity* this) {
@@ -81,7 +81,7 @@ void sub_08030240(ArmosEntity* this) {
             GetNextFrame(super);
         }
     }
-    sub_08001242(super);
+    GenericConfused(super);
 }
 
 void nullsub_17(ArmosEntity* this) {
@@ -331,7 +331,7 @@ void sub_080309E8(ArmosEntity* this) {
 }
 
 void sub_08030A04(ArmosEntity* this) {
-    ProcessMovement(super);
+    ProcessMovement0(super);
     if ((super->frame & 1) != 0) {
         super->frame = super->frame & 0xfe;
         EnqueueSFX(SFX_101);
@@ -339,7 +339,7 @@ void sub_08030A04(ArmosEntity* this) {
 }
 
 void (*const gUnk_080CE124[])(ArmosEntity*) = {
-    sub_080301BC, sub_080301D4, (void (*)(ArmosEntity*))sub_08001324, (void (*)(ArmosEntity*))sub_0804A7D4,
+    sub_080301BC, sub_080301D4, (void (*)(ArmosEntity*))GenericKnockback, (void (*)(ArmosEntity*))GenericDeath,
     sub_08030240, nullsub_17,
 };
 void (*const gUnk_080CE13C[])(ArmosEntity*) = {

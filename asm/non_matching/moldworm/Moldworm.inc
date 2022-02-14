@@ -23,12 +23,12 @@ _08023052:
 	adds r1, r4, #0
 	adds r1, #0x7d
 	strb r0, [r1]
-	ldr r1, _08023068 @ =gUnk_080CBC38
+	ldr r1, _08023068 @ =Moldworm_Functions
 	adds r0, r4, #0
 	bl EnemyFunctionHandler
 	b _08023090
 	.align 2, 0
-_08023068: .4byte gUnk_080CBC38
+_08023068: .4byte Moldworm_Functions
 _0802306C:
 	ldr r0, [r4, #0x50]
 	ldr r0, [r0, #4]

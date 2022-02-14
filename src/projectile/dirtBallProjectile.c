@@ -28,7 +28,7 @@ void DirtBallProjectile_OnTick(Entity* this) {
 }
 
 void sub_080A881C(Entity* this) {
-    this->field_0x46 = 0;
+    this->knockbackSpeed = 0;
     if (this->type == 0) {
         this->parent->child = NULL;
         if (this->bitfield == 0x80) {

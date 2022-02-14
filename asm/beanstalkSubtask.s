@@ -154,23 +154,23 @@ sub_080197A0: @ 0x080197A0
 
 	thumb_func_start SetBGDefaults
 SetBGDefaults: @ 0x080197AC
-	ldr r0, _080197C4 @ =gUnk_02025EB0
+	ldr r0, _080197C4 @ =gMapBottom
 	ldr r1, _080197C8 @ =gBGAffSettings
 	str r1, [r0]
 	ldr r2, _080197CC @ =gUnk_080B77C0
 	ldrh r0, [r2]
 	strh r0, [r1]
-	ldr r0, _080197D0 @ =gUnk_0200B650
+	ldr r0, _080197D0 @ =gMapTop
 	subs r1, #0xc
 	str r1, [r0]
 	ldrh r0, [r2, #2]
 	strh r0, [r1]
 	bx lr
 	.align 2, 0
-_080197C4: .4byte gUnk_02025EB0
+_080197C4: .4byte gMapBottom
 _080197C8: .4byte gScreen + 0x20
 _080197CC: .4byte gUnk_080B77C0
-_080197D0: .4byte gUnk_0200B650
+_080197D0: .4byte gMapTop
 
 	thumb_func_start sub_080197D4
 sub_080197D4: @ 0x080197D4
@@ -1061,7 +1061,7 @@ _08019E54:
 	lsls r1, r7, #1
 	cmp r0, #3
 	bne _08019E84
-	ldr r0, _08019E7C @ =gUnk_0200B650
+	ldr r0, _08019E7C @ =gMapTop
 	adds r0, #4
 	adds r2, r1, r0
 	ldrh r0, [r2]
@@ -1075,7 +1075,7 @@ _08019E54:
 	mov sb, r5
 	b _08019E98
 	.align 2, 0
-_08019E7C: .4byte gUnk_0200B650
+_08019E7C: .4byte gMapTop
 _08019E80: .4byte 0x0000400C
 _08019E84:
 	mov r0, r8
@@ -1705,7 +1705,7 @@ _0801A32C:
 	asrs r2, r2, #0x10
 	adds r0, r3, #0
 	adds r3, r6, #0
-	bl sub_080AE4CC
+	bl IsTileCollision
 	cmp r0, #0
 	bne _0801A36C
 	movs r0, #1
@@ -1901,7 +1901,7 @@ _0801A4B0:
 	adds r2, r2, r0
 	adds r0, r3, #0
 	mov r3, r8
-	bl sub_080AE4CC
+	bl IsTileCollision
 	cmp r0, #0
 	bne _0801A4F0
 	ldrb r0, [r5]
@@ -2741,7 +2741,7 @@ sub_0801AB08: @ 0x0801AB08
 	sub sp, #8
 	adds r5, r0, #0
 	mov r8, r1
-	ldr r0, _0801AB4C @ =gUnk_02025EB0
+	ldr r0, _0801AB4C @ =gMapBottom
 	movs r1, #2
 	cmp r8, r0
 	bne _0801AB22
@@ -2770,7 +2770,7 @@ _0801AB40:
 	lsls r0, r0, #2
 	b _0801AB64
 	.align 2, 0
-_0801AB4C: .4byte gUnk_02025EB0
+_0801AB4C: .4byte gMapBottom
 _0801AB50: .4byte 0x00003004
 _0801AB54: .4byte 0x00003FFF
 _0801AB58:
@@ -3228,14 +3228,14 @@ _0801AEB6:
 	ands r0, r1
 	cmp r0, #0
 	bne _0801AF0C
-	ldr r1, _0801AEFC @ =gUnk_02025EB0
+	ldr r1, _0801AEFC @ =gMapBottom
 	ldr r0, [r1]
 	cmp r0, #0
 	beq _0801AED0
 	ldr r0, _0801AF00 @ =gUnk_02019EE0
 	bl sub_0801AB08
 _0801AED0:
-	ldr r1, _0801AF04 @ =gUnk_0200B650
+	ldr r1, _0801AF04 @ =gMapTop
 	ldr r0, [r1]
 	cmp r0, #0
 	beq _0801AF10
@@ -3250,9 +3250,9 @@ _0801AEEC: .4byte 0x0600F000
 _0801AEF0: .4byte gUnk_03004030
 _0801AEF4: .4byte 0x0000088C
 _0801AEF8: .4byte 0x00000888
-_0801AEFC: .4byte gUnk_02025EB0
+_0801AEFC: .4byte gMapBottom
 _0801AF00: .4byte gUnk_02019EE0
-_0801AF04: .4byte gUnk_0200B650
+_0801AF04: .4byte gMapTop
 _0801AF08: .4byte gMapDataTopSpecial
 _0801AF0C:
 	bl sub_0807C4F8

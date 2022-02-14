@@ -8,13 +8,8 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern s32 sub_080012DC(Entity*);
-extern u32 sub_0804A024(Entity*, u32, u32);
-extern bool32 sub_080AF038(Entity*);
-
 extern void (*const gUnk_080012C8[])(Entity*);
-
-extern void (*const gUnk_080CD27C[])(Entity*);
+extern void (*const Chaser_Functions[])(Entity*);
 extern void (*const gUnk_080CD298[])(Entity*);
 
 void Chaser(Entity* this) {
@@ -22,11 +17,11 @@ void Chaser(Entity* this) {
     if (idx) {
         gUnk_080012C8[idx](this);
     } else {
-        gUnk_080CD27C[GetNextFunction(this)](this);
+        Chaser_Functions[GetNextFunction(this)](this);
     }
 }
 
-void sub_0802B518(Entity* this) {
+void Chaser_OnTick(Entity* this) {
     gUnk_080CD298[this->action](this);
 }
 
@@ -54,7 +49,7 @@ void sub_0802B56C(Entity* this) {
         this->speed = 0x40;
     }
 
-    if (sub_080AF038(this)) {
+    if (ProcessMovement12(this)) {
         if (this->animIndex != 1) {
             InitializeAnimation(this, 1);
         }
@@ -77,14 +72,14 @@ void sub_0802B5C8(Entity* this) {
 }
 
 // clang-format off
-void (*const gUnk_080CD27C[])(Entity*) = {
-    sub_0802B518,
-    sub_0802B518,
-    sub_08001324,
-    sub_0804A7D4,
-    sub_08001242,
-    sub_0802B518,
-    sub_0802B518,
+void (*const Chaser_Functions[])(Entity*) = {
+    Chaser_OnTick,
+    Chaser_OnTick,
+    GenericKnockback,
+    GenericDeath,
+    GenericConfused,
+    Chaser_OnTick,
+    Chaser_OnTick,
 };
 
 void (*const gUnk_080CD298[])(Entity*) = {

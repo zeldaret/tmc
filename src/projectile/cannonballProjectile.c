@@ -1,11 +1,6 @@
 #include "entity.h"
 #include "enemy.h"
-
-extern void CreateItemOnGround(Entity*);
-extern s32 sub_080AF090(Entity*);
-extern void sub_080043A8(Entity*);
-extern void CreateChestSpawner(Entity*);
-extern u32 IsColliding(Entity*, Entity*);
+#include "functions.h"
 
 extern void (*const CannonballProjectile_Functions[])(Entity*);
 extern void (*const CannonballProjectile_Actions[])(Entity*);
@@ -44,7 +39,7 @@ void CannonballProjectile_Init(Entity* this) {
 
 void CannonballProjectile_Action1(Entity* this) {
     GetNextFrame(this);
-    if (sub_080AF090(this) == 0) {
+    if (ProcessMovement3(this) == 0) {
         CreateFx(this, FX_DEATH, 0);
         DeleteThisEntity();
     }
@@ -53,7 +48,7 @@ void CannonballProjectile_Action1(Entity* this) {
 
 void CannonballProjectile_Action2(Entity* this) {
     GetNextFrame(this);
-    sub_080AF090(this);
+    ProcessMovement3(this);
     if ((sub_080AB634(this) == 0) && (this->collisions != 0)) {
         CreateFx(this, FX_DEATH, 0);
         DeleteThisEntity();

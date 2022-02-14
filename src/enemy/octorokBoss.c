@@ -151,7 +151,7 @@ void OctorokBoss(Entity* this) {
     OctorokBoss_Functions[GetNextFunction(this)](this);
 }
 
-void OctorokBoss_OnHealthZero(Entity* this) {
+void OctorokBoss_Death(Entity* this) {
     if (this->type == WHOLE) {
         this->action = HIT;
         this->subAction = 0;
@@ -239,7 +239,7 @@ void OctorokBoss_Hit_SubAction1(Entity* this) {
                               3;
 #endif
             this->speed = 0x100;
-            ProcessMovement(this);
+            ProcessMovement0(this);
         } else {
             // Freeze
             if (this->type2 == 0) {
@@ -356,7 +356,7 @@ void OctorokBoss_Hit_SubAction6(Entity* this) {
             GET_HELPER(this)->mouthObject->health = 1;
             SoundReq(SFX_BOSS_DIE);
             // Kill this boss
-            sub_0804A7D4(this);
+            GenericDeath(this);
         }
     } else {
         GET_TIMER(this)--;
@@ -389,7 +389,7 @@ ASM_FUNC("asm/non_matching/octorokBoss/OctorokBoss_Init.inc", void OctorokBoss_I
             GET_HELPER(this) = helper;
             if (helper == NULL) {
                 // Kill this boss
-                sub_0804A7D4(this);
+                GenericDeath(this);
                 return;
             }
             this->myHeap = (u32*)helper;
@@ -784,7 +784,7 @@ void OctorokBoss_Action1_WaitForTurn(Entity* this) {
         GET_ATTACK_WAIT_TURNS(this)--;
         OctorokBoss_ResetToSubAction0(this);
     } else {
-        if (ProcessMovement(this) == 0) {
+        if (ProcessMovement0(this) == 0) {
             GET_TIMER(this) = 0;
         }
     }
@@ -802,7 +802,7 @@ void OctorokBoss_Action1_ChargeAttack(Entity* this) {
     bool32 knockbackCondition;
 
     if (GET_TIMER(this) == 0) {
-        ProcessMovement(this);
+        ProcessMovement0(this);
         knockbackCondition = 0;
         if ((this->direction != 0) && (this->direction != 0x10)) {
             knockbackCondition = ((u32)this->collisions & 0xee00) != 0;
@@ -812,7 +812,7 @@ void OctorokBoss_Action1_ChargeAttack(Entity* this) {
         }
         if (knockbackCondition != 0) {
             this->knockbackDuration = 0x20;
-            this->field_0x46 = 0x200;
+            this->knockbackSpeed = 0x200;
             this->knockbackDirection = this->direction ^ 0x10;
             GET_HELPER(this)->fallingStonesTimer += 0x3c;
             OctorokBoss_SetAttackTimer(this);
@@ -1068,7 +1068,7 @@ void OctorokBoss_Burning_SubAction0(Entity* this) {
 }
 
 void OctorokBoss_Burning_SubAction1(Entity* this) {
-    ProcessMovement(this);
+    ProcessMovement0(this);
     if (this->collisions != 0) {
         this->subAction = 2;
         GET_HELPER(this)->targetAngle = GET_ANGLE_HI(this);
@@ -1079,7 +1079,7 @@ void OctorokBoss_Burning_SubAction1(Entity* this) {
             GET_HELPER(this)->targetAngle = -GET_HELPER(this)->targetAngle ^ 0x80;
         }
         this->knockbackDuration = 0x18;
-        this->field_0x46 = 0x200;
+        this->knockbackSpeed = 0x200;
         this->knockbackDirection = this->direction ^ 0x10;
         GET_HELPER(this)->fallingStonesTimer += 0x1e;
         InitScreenShake(0x1e, 0);
@@ -1099,7 +1099,7 @@ void OctorokBoss_Burning_SubAction2(Entity* this) {
         this->subAction = 1;
         this->direction = ((u8)-GET_ANGLE_HI(this) ^ 0x80) >> 3;
         this->collisions = 0;
-        ProcessMovement(this);
+        ProcessMovement0(this);
     } else {
         if ((u8)(GET_HELPER(this)->targetAngle - GET_ANGLE_HI(this)) >= 0x81) {
             GET_ANGLE(this) -= GET_ANGULAR_VEL(this);
@@ -1448,7 +1448,7 @@ void sub_08036FE4(Entity* this) {
 }
 
 void (*const OctorokBoss_Functions[])(Entity*) = {
-    OctorokBoss_OnTick, OctorokBoss_OnTick, sub_08001324, OctorokBoss_OnHealthZero, sub_08001242,
+    OctorokBoss_OnTick, OctorokBoss_OnTick, GenericKnockback, OctorokBoss_Death, GenericConfused,
 };
 
 void (*const OctorokBoss_Hit_SubActions[])(Entity*) = {
