@@ -25240,11 +25240,6 @@
     "type": "animation"
   },
   {
-    "path": "armos/gUnk_080CE164.bin",
-    "start": 844132,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_Armos_0.bin",
     "start": 844140,
     "size": 25,
@@ -25291,11 +25286,6 @@
     "start": 844382,
     "size": 6,
     "type": "animation"
-  },
-  {
-    "path": "armos/gUnk_080CE160.bin",
-    "start": 844128,
-    "size": 4
   },
   {
     "path": "animations/gSpriteAnimations_Eyegore_2.bin",
@@ -31335,11 +31325,6 @@
     "path": "data_080FC8A4/gUnk_080FD5A8.bin",
     "start": 1037736,
     "size": 12
-  },
-  {
-    "path": "data_080FC8A4/gItemMetaData.bin",
-    "start": 1037748,
-    "size": 944
   },
   {
     "path": "data_080FC8A4/gUnk_080FD964_EU.bin",
@@ -41807,21 +41792,6 @@
     "type": "animation"
   },
   {
-    "path": "deathFx/gUnk_0811EC08.bin",
-    "start": 1174536,
-    "size": 24
-  },
-  {
-    "path": "deathFx/gUnk_0811EC20.bin",
-    "start": 1174560,
-    "size": 4
-  },
-  {
-    "path": "deathFx/gUnk_0811EC64.bin",
-    "start": 1174628,
-    "size": 112
-  },
-  {
     "path": "button/gUnk_0811EE50.bin",
     "start": 1175120,
     "size": 12
@@ -45310,11 +45280,6 @@
     "path": "doubleBookshelf/gUnk_08123D68.bin",
     "start": 1195368,
     "size": 20
-  },
-  {
-    "path": "frozenWaterElement/gUnk_08123DC0.bin",
-    "start": 1195456,
-    "size": 12
   },
   {
     "path": "object91/gUnk_08123DDC.bin",
