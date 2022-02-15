@@ -21,7 +21,7 @@ void sub_080A4DA8(u32);
 void sub_080A4B44(void);
 void FigurineMenu_080A4978(void);
 u32 sub_080A4CBC(u32);
-u32 sub_080A4BA0(u32, u32);
+void sub_080A4BA0(u32, u32);
 void sub_080A4DB8(u32);
 
 const KeyButtonLayout gUnk_0812813C = {
@@ -453,31 +453,30 @@ extern u8 gUnk_020227E8[];
 extern void sub_08057044(u32, u8*, u8*);
 extern void sub_0805F46C(u32, const struct_0812816C*);
 
-NONMATCH("asm/non_matching/menu/figurine_menu/sub_080A4BA0.inc", u32 sub_080A4BA0(u32 unk1, u32 unk2)) {
-    int r0, r1, r2, r3, r4, r5, r6;
+void sub_080A4BA0(u32 arg1, u32 arg2) {
+    int r0, r5, r6;
+    int tmp;
 
     struct_0812816C s0;
     u8 buffer[0x30];
     struct_08128184 s2;
 
-    r5 = unk1;
-    r6 = unk2;
+    r5 = arg1;
+    r6 = arg2;
     MemClear(buffer, sizeof(buffer));
     MemCopy(&gUnk_0812816C, &s0, sizeof(gUnk_0812816C));
     MemCopy(&gUnk_08128184, &s2, sizeof(gUnk_08128184));
-    r1 = r6 << 1;
-    r1 += r6;
-    r2 = r1 << 9;
-    s0.unk4 += r2;
-    s0.unk10 += r1 << 4;
-    r1 = r6 << 7;
-    s0.unk0 += r1;
-    if (r6 == 2) {
-        s0.unk14 = r6;
+    s0.unk4 += (arg2 * 3) << 9;
+    s0.unk10 += (arg2 * 3) << 4;
+    s0.unk0 += arg2 << 6;
+    if (arg2 == 2) {
+        s0.unk14 = arg2;
     }
-    r1 = (gSave.unk6 == 0) ? 0x82 : 0x88;
-    if (r5 <= 0 || r1 < r5) {
-        r0 = -1;
+
+    tmp = (gSave.unk6 == 0) ? 0x82 : 0x88;
+
+    if (r5 <= 0 || tmp < r5) {
+        r5 = -1;
     } else {
         sub_08057044(r5, gUnk_020227E8, (void*)0x303030);
         if (sub_080A4948(r5) == 0) {
@@ -486,32 +485,33 @@ NONMATCH("asm/non_matching/menu/figurine_menu/sub_080A4BA0.inc", u32 sub_080A4BA
             r5 += 0x800;
         }
     }
-    if ((r0 = gFigurineMenu.unk10.h[r6]) == r5)
-        return r0;
-    gFigurineMenu.unk10.h[r6] = r5;
-    r0 = (r6 != 2) ? 0xf00b : 7;
-    MemFill16(r0, s0.unk0, 0x80);
-    if (r5 > 0) {
-        if (r5 > 0x7fff) {
-            r5 = 0x889;
+
+    if (gFigurineMenu.unk10.h[r6] != r5) {
+        gFigurineMenu.unk10.h[r6] = r5;
+        r0 = 0xf00b;
+        if (r6 == 2)
+            r0 -= 7;
+        MemFill16(r0, s0.unk0, 0x80);
+        if (r5 > 0) {
+            if (r5 > 0x7fff) {
+                r5 = 0x889;
+            }
+            r0 = r5;
+            if (r5 < 0) {
+                r0 += 0xff;
+            }
+            s2.unk8 = r0 >> 8;
+            s2.unk9 = r5;
+            s0.unk0 += 0xb;
+            if (gSaveHeader->language == 0) {
+                sub_0805F46C((u32)&s2, &s0);
+            } else {
+                sub_0805F46C(r5, &s0);
+            }
         }
-        r0 = r5;
-        if (r5 < 0) {
-            r0 += 0xff;
-        }
-        s2.unk8 = r0 >> 8;
-        s2.unk9 = r5;
-        s0.unk0 += 0x16;
-        if (gSaveHeader->language == 0) {
-            sub_0805F46C((u32)&s2, &s0);
-        } else {
-            sub_0805F46C(r5, &s0);
-        }
+        gScreen.bg3.updated = 1;
     }
-    gScreen.bg3.updated = 1;
-    return 1;
 }
-END_NONMATCH
 
 const struct_0812816C gUnk_08128190 = {
     (u16*)0x02021f72,
