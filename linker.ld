@@ -1188,7 +1188,7 @@ SECTIONS {
         data/animations/npc/forestMinish.o(.rodata);
         data/const/npc/postman.o(.rodata);
         data/animations/npc/postman.o(.rodata);
-        data/const/npc/npc5.o(.rodata);
+        src/npc/npc5.o(.rodata);
         data/animations/npc/npc5.o(.rodata);
         data/const/npc/townsperson.o(.rodata);
         data/animations/npc/townsperson.o(.rodata);

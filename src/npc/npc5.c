@@ -2,10 +2,6 @@
 #include "message.h"
 #include "npc.h"
 
-extern void (*const gUnk_0810AC1C[])(Entity*);
-
-extern void (*const gUnk_0810AC2C[])(Entity*);
-
 typedef struct {
     u8 unk_0;  // u8
     u8 unk_0b; // u8
@@ -34,8 +30,21 @@ void sub_08061120(Entity*, u32, u32, u32);
 bool32 sub_08061170(Entity*);
 
 void sub_08061358(Entity*);
-
 void sub_08060E94(Entity*);
+void sub_08060A00(Entity*);
+void sub_08061AA0(Entity*);
+void sub_08061AA8(Entity*);
+void sub_08061B58(Entity*);
+void sub_08060AE0(Entity*);
+void sub_08060B5C(Entity*);
+void sub_08060BA0(Entity*);
+void sub_08060D78(Entity*);
+void sub_08060DD0(Entity*);
+void sub_08060DF4(Entity*);
+void sub_08060DFC(Entity*);
+void sub_08060E34(Entity*);
+void sub_08061ACC(Entity*);
+void sub_08061B18(Entity*);
 
 u32 PointInsideRadius(s32, s32, s32);
 
@@ -45,14 +54,6 @@ extern u8 gUnk_02027EB4[];
 u32 sub_080611D4(Entity*);
 extern u32 sub_08079FD4(Entity*, u32);
 extern void sub_08016AD2(Entity*);
-
-extern struct {
-    s8 unk_0;
-    s8 unk_1;
-} gUnk_0810AC4C[];
-extern u8 gUnk_0810AC54[8];
-
-extern u8 gUnk_0810AC5D;
 
 bool32 sub_08061630(Entity*, s32, s32, s32);
 bool32 sub_08061720(Entity*, s32, s32, s32);
@@ -70,8 +71,6 @@ bool32 sub_08061A1C(u8*, s32, s32, s32);
 bool32 sub_080619F0(u8*, s32, s32, s32);
 
 bool32 sub_08061A48(u8*, s32, s32, s32);
-
-extern void (*const gUnk_0810AC70[])(Entity*);
 
 void sub_08061AFC(Entity*);
 
@@ -91,10 +90,19 @@ void CreateZeldaFollower(void) {
 
 // UNUSED zelda follower, probably because it was too resource heavy
 void NPC5(Entity* this) {
+    static void (*const gUnk_0810AC1C[])(Entity*) = {
+        sub_08060A00,
+        sub_08061AA0,
+        sub_08061AA8,
+        sub_08061B58,
+    };
     gUnk_0810AC1C[this->type](this);
 }
 
 void sub_08060A00(Entity* this) {
+    static void (*const Npc5_Actions[])(Entity*) = {
+        sub_08060AE0, sub_08060B5C, sub_08060BA0, sub_08060D78, sub_08060DD0, sub_08060DF4, sub_08060DFC, sub_08060E34,
+    };
     u32 tmp;
 
     if ((gPlayerState.jump_status & 0x80) != 0) {
@@ -108,7 +116,7 @@ void sub_08060A00(Entity* this) {
     }
 
     if ((this->action == 0) || (this->spriteSettings.draw != 0)) {
-        gUnk_0810AC2C[this->action](this);
+        Npc5_Actions[this->action](this);
     }
 
     if (this->action != 0) {
@@ -351,7 +359,40 @@ u32 sub_08060F80(Entity* this) {
     return 0;
 }
 
-ASM_FUNC("asm/non_matching/npc5/sub_08060FD0.inc", bool32 sub_08060FD0(Entity* this, u32 a, u32 b))
+bool32 sub_08060FD0(Entity* this, u32 a, u32 b) {
+    s32 sVar1;
+    s32 sVar2;
+    int iVar3;
+    int x;
+    int y;
+    u8* puVar8;
+
+    x = this->x.HALF.HI;
+    y = this->y.HALF.HI;
+    iVar3 = sub_080045DA(a - x, b - y);
+    x <<= 8;
+    y <<= 8;
+    sVar1 = gSineTable[iVar3] * 6;
+    sVar2 = gSineTable[(iVar3 + 0x40)] * 6;
+
+    if (this->collisionLayer != 2) {
+        puVar8 = gUnk_02027EB4;
+    } else {
+        puVar8 = gUnk_0200D654;
+    }
+
+    while (1) {
+        if (IsTileCollision(puVar8, x / 0x100, y / 0x100, 6)) {
+            return 0;
+        }
+        if (((a - (x / 0x100)) + 6 >= 0xd) || ((b - (y / 0x100)) + 6 >= 0xd)) {
+            x += sVar1;
+            y -= sVar2;
+            continue;
+        }
+        return 1;
+    }
+}
 
 void sub_08061090(Entity* this, u32 a, u32 b) {
     s32 xDist;
@@ -389,7 +430,7 @@ void sub_08061120(Entity* this, u32 param_a, u32 param_b, u32 param_c) {
     }
 }
 
-NONMATCH("asm/non_matching/npc5/sub_08061170.inc", bool32 sub_08061170(Entity* this)) {
+bool32 sub_08061170(Entity* this) {
     u32 direction;
     u32 tmp;
 
@@ -398,8 +439,10 @@ NONMATCH("asm/non_matching/npc5/sub_08061170.inc", bool32 sub_08061170(Entity* t
         direction = sub_080611D4(this);
         if (direction != 0xff) {
             this->action = 6;
-            tmp = (sub_08079FD4(this, 1) * 0x10 - 4);
-            // tmp <<= 0xc;
+            tmp = (sub_08079FD4(this, 1));
+            tmp <<= 4;
+            tmp -= 4;
+            tmp = tmp << 0xc;
             this->zVelocity = tmp;
             this->speed = 0x100;
             this->direction = direction;
@@ -416,16 +459,28 @@ NONMATCH("asm/non_matching/npc5/sub_08061170.inc", bool32 sub_08061170(Entity* t
         return TRUE;
     }
 }
-END_NONMATCH
 
 u32 sub_080611D4(Entity* this) {
-    u32 uVar2;
+    static const struct {
+        s8 unk_0;
+        s8 unk_1;
+    } PACKED gUnk_0810AC4C[] = {
+        { 0, -8 },
+        { 8, 0 },
+        { 0, 3 },
+        { -8, 0 },
+    };
 
+    static const u8 gUnk_0810AC54[] = {
+        0x2b, 0x10, 0x2a, 0x0, 0x2d, 0x8, 0x2c, 0x18, 0x0,
+    };
+
+    u32 uVar2;
     u32 x;
     s32 a;
     s32 b;
     s8* ptr;
-    u8* ptr2;
+    const u8* ptr2;
     x = this->animationState & 6;
     ptr = (s8*)gUnk_0810AC4C;
     a = ptr[x];
@@ -487,13 +542,12 @@ u32 sub_08061230(Entity* this) {
     return 0;
 }
 
-NONMATCH("asm/non_matching/npc5/sub_08061358.inc", void sub_08061358(Entity* this)) {
+void sub_08061358(Entity* this) {
+    static const u8 gUnk_0810AC5D[] = {
+        0x30, 0x31, 0x38, 0x39, 0x32, 0x33, 0x3a, 0x3b, 0x34, 0x35, 0x3c, 0x3d, 0x36, 0x37, 0x3e, 0x3f, 0x0, 0x0, 0x0,
+    };
     u32 uVar2;
-    s32 iVar3;
-    u8 bVar4;
-    u32 unaff_r6;
-
-    bVar4 = (u8)unaff_r6;
+    u32 bVar4;
 
     switch (this->subAction) {
         case 0:
@@ -504,57 +558,54 @@ NONMATCH("asm/non_matching/npc5/sub_08061358.inc", void sub_08061358(Entity* thi
             this->subAction = 1;
             this->actionDelay = 0xf;
             sub_08060E70(this, 0);
-            return;
+            break;
         case 1:
             this->actionDelay -= 1;
-            asm("x");
             if (this->actionDelay != 0) {
                 return;
             }
             uVar2 = Random();
-            // bVar4 = (u8)uVar2;
-            if ((uVar2 & 1) == 0)
-                goto _080613FA;
+            bVar4 = uVar2;
+            if ((uVar2 & 1) == 0) {
+                this->subAction = 3;
+                this->actionDelay = (bVar4 & 0x18) + 0x1e;
+                sub_08060E70(this, 4);
+                return;
+            }
             this->subAction = 2;
-            iVar3 = (u32)this->animationState * 2 + (uVar2 >> 4 & 3);
-            InitAnimationForceUpdate(this, (u32)(u8)(&gUnk_0810AC5D)[iVar3 + 1]);
+            InitAnimationForceUpdate(this, gUnk_0810AC5D[(u32)this->animationState * 2 + ((uVar2 >> 4) & 3)]);
             break;
         case 2:
             UpdateAnimationSingleFrame(this);
             if ((this->frame & 0x80) == 0) {
                 return;
             }
-            this->animationState = (u8)(((u8)this->frame & 0x18) >> 2);
-            uVar2 = Random();
-            if ((uVar2 & 1) == 0) {
-                this->subAction = 0;
-                sub_08060E70(this, 0x10);
+            this->animationState = ((this->frame & 0x18) >> 2);
+            if ((Random() & 1)) {
+                this->subAction = 3;
+                this->actionDelay = (bVar4 & 0x18) + 0x1e;
+                sub_08060E70(this, 4);
                 return;
             }
-        _080613FA:
-            this->subAction = 3;
-            this->actionDelay = (bVar4 & 0x18) + 0x1e;
-            sub_08060E70(this, 4);
-            return;
+            this->subAction = 0;
+            sub_08060E70(this, 0x10);
+            break;
         case 3:
-            iVar3 = sub_08061170(this);
-            if (iVar3 != 0) {
-                this->subAction = this->actionDelay - 1;
-                this->actionDelay = this->subAction;
-                if (this->subAction != 0) {
-                    return;
-                }
-                this->subAction = 0;
-                sub_08060E70(this, 0x10);
+            if (sub_08061170(this) == 0) {
+                this->subAction = 2;
+
+                //! @bug bVar4 (r6) is uninitialized.
+                InitAnimationForceUpdate(this, gUnk_0810AC5D[this->animationState * 2 + (bVar4 >> 4 & 3)]);
                 return;
             }
-            this->subAction = 2;
-            iVar3 = (u32)this->animationState * 2 + (unaff_r6 >> 4 & 3);
-            InitAnimationForceUpdate(this, (u32)(u8)(&gUnk_0810AC5D)[iVar3 + 1]);
+            if (--this->actionDelay != 0) {
+                return;
+            }
+            this->subAction = 0;
+            sub_08060E70(this, 0x10);
             break;
     }
 }
-END_NONMATCH
 
 void sub_08061464(Entity* this, u32 param_a, u32 param_b) {
     s32 iVar10;
@@ -808,11 +859,15 @@ bool32 sub_08061A74(u8* layer, s32 x, s32 y, s32 param) {
     return TRUE;
 }
 
-void sub_08061AA0(void) {
+void sub_08061AA0(Entity* this) {
     DeleteThisEntity();
 }
 
 void sub_08061AA8(Entity* this) {
+    static void (*const gUnk_0810AC70[])(Entity*) = {
+        sub_08061ACC,
+        sub_08061B18,
+    };
     gUnk_0810AC70[this->action](this);
     CopyPosition(this->parent, this);
 }
@@ -836,13 +891,8 @@ void sub_08061AFC(Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/npc5/sub_08061B18.inc", void sub_08061B18(Entity* this)) {
+void sub_08061B18(Entity* this) {
     u16* puVar2;
-
-    typedef struct {
-        u16 unk_0;
-        u16 unk_2;
-    } Tmp;
 
     switch (this->interactType) {
         case 0:
@@ -850,16 +900,15 @@ NONMATCH("asm/non_matching/npc5/sub_08061B18.inc", void sub_08061B18(Entity* thi
         case 1:
             this->interactType = 0;
             sub_08061AFC(this);
-            // puVar2 = (u16*)(*(int*)&this->field_0x68 + (((u32)this->actionDelay << 0x18) >> 0x17));
-            // if puVar2[1] == 0
-            if ((((Tmp**)&this->field_0x68))[++this->actionDelay]->unk_2 == 0) {
+            puVar2 = *(u16**)&this->field_0x68;
+            puVar2 += (this->actionDelay++);
+            if (puVar2[1] == 0) {
                 this->actionDelay = 0;
             }
-            MessageNoOverlap((u32)*puVar2, this);
+            MessageNoOverlap(puVar2[0], this);
             break;
     }
 }
-END_NONMATCH
 
 void sub_08061B58(Entity* this) {
     if (this->action == 0) {

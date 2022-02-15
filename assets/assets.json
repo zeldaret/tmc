@@ -35493,21 +35493,6 @@
     "size": 2
   },
   {
-    "path": "npc5/gUnk_0810AC4C.bin",
-    "start": 1092684,
-    "size": 8
-  },
-  {
-    "path": "npc5/gUnk_0810AC54.bin",
-    "start": 1092692,
-    "size": 9
-  },
-  {
-    "path": "npc5/gUnk_0810AC5D.bin",
-    "start": 1092701,
-    "size": 19
-  },
-  {
     "path": "animations/gSpriteAnimations_Townsperson_0.bin",
     "start": 1096960,
     "size": 5,
