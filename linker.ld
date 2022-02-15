@@ -649,7 +649,7 @@ SECTIONS {
         src/object/button.o(.text);
         asm/object/minishEmoticon.o(.text);
         src/object/pot.o(.text);
-        asm/object/ezloCap.o(.text);
+        src/object/ezloCap.o(.text);
         src/object/blockPushed.o(.text);
         src/object/lockedDoor.o(.text);
         asm/object/object9.o(.text);
@@ -1368,7 +1368,7 @@ SECTIONS {
         data/animations/object/minishEmoticon.o(.rodata);
         data/const/object/pot.o(.rodata);
         data/animations/object/pot.o(.rodata);
-        data/const/object/ezloCap.o(.rodata);
+        src/object/ezloCap.o(.rodata);
         data/animations/object/ezloCap.o(.rodata);
         src/object/blockPushed.o(.rodata);
         src/object/lockedDoor.o(.rodata);
