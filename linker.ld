@@ -788,7 +788,7 @@ SECTIONS {
         asm/object/doubleBookshelf.o(.text);
         src/object/book.o(.text);
         src/object/fireplace.o(.text);
-        asm/object/object8E.o(.text);
+        src/object/object8E.o(.text);
         src/object/frozenWaterElement.o(.text);
         asm/object/object90.o(.text);
         asm/object/object91.o(.text);
@@ -1543,7 +1543,7 @@ SECTIONS {
         data/const/object/doubleBookshelf.o(.rodata);
         src/object/book.o(.rodata);
         data/const/object/fireplace.o(.rodata);
-        data/const/object/object8E.o(.rodata);
+        src/object/object8E.o(.rodata);
         src/object/frozenWaterElement.o(.rodata);
         data/const/object/object90.o(.rodata);
         data/const/object/object91.o(.rodata);
