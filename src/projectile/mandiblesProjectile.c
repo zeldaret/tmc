@@ -293,19 +293,18 @@ void sub_080AA320(Entity* this) {
     sub_080AA1D8(this);
 }
 
-NONMATCH("asm/non_matching/mandiblesProjectile/sub_080AA374.inc", bool32 sub_080AA374(Entity* this)) {
+bool32 sub_080AA374(Entity* this) {
     u32 uVar1;
-    u32 animationState;
-    Entity* entity;
+    Entity* child;
     bool32 result;
+    const s8* ptr;
 
     result = FALSE;
-    if ((this->child != NULL) && (this->child->next != NULL)) {
-        // TODO regalloc
-        animationState = this->child->animationState;
-        uVar1 = sub_0806F824(this, this->child, gUnk_08129D14[animationState], gUnk_08129D14[animationState + 1]);
-        if (EntityWithinDistance(this, this->child->x.HALF.HI + gUnk_08129D14[animationState],
-                                 this->child->y.HALF.HI + gUnk_08129D14[animationState + 1], 8) != 0) {
+    child = this->child;
+    if ((child != NULL) && (child->next != NULL)) {
+        ptr = &gUnk_08129D14[child->animationState];
+        uVar1 = sub_0806F824(this, child, ptr[0], ptr[1]);
+        if (EntityWithinDistance(this, child->x.HALF.HI + ptr[0], child->y.HALF.HI + ptr[1], 8) != 0) {
             result = TRUE;
         } else {
             sub_08004596(this, uVar1);
@@ -313,7 +312,6 @@ NONMATCH("asm/non_matching/mandiblesProjectile/sub_080AA374.inc", bool32 sub_080
     }
     return result;
 }
-END_NONMATCH
 
 void sub_080AA3E0(Entity* this, u32 param) {
     u32 tmp;
