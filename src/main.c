@@ -11,7 +11,7 @@ extern u32 gRand;
 
 static void InitOverlays(void);
 static bool32 SoftResetKeysPressed(void);
-static u32 CheckHeaderValid(void);
+/*static*/ u32 CheckHeaderValid(void);
 
 void (*const sTaskHandlers[])(void) = {
     [TASK_TITLE] = TitleTask,
@@ -25,7 +25,7 @@ void (*const sTaskHandlers[])(void) = {
     [TASK_STAFFROLL] = StaffrollTask, [TASK_DEBUG] = DebugTask,
 };
 
-static void sub_080560B8(void);
+/*static*/ void sub_080560B8(void);
 
 void AgbMain(void) {
     InitOverlays();
@@ -170,7 +170,7 @@ const Defaults sDefaultSettings = {
 };
 
 // single misplaced ldr
-NONMATCH("asm/non_matching/sub_080560B8.inc", static void sub_080560B8(void)) {
+NONMATCH("asm/non_matching/sub_080560B8.inc", /*static*/ void sub_080560B8(void)) {
     u32 b;
 
     if (!CheckHeaderValid()) {
@@ -199,7 +199,7 @@ NONMATCH("asm/non_matching/sub_080560B8.inc", static void sub_080560B8(void)) {
 }
 END_NONMATCH
 
-static u32 CheckHeaderValid(void) {
+/*static*/ u32 CheckHeaderValid(void) {
     if ((gSaveHeader->signature != SIGNATURE) || (gSaveHeader->saveFileId >= NUM_SAVE_SLOTS) ||
         (gSaveHeader->msg_speed >= MAX_MSG_SPEED) || (gSaveHeader->brightness >= MAX_BRIGHTNESS)
 #ifdef EU

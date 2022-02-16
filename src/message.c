@@ -45,8 +45,8 @@ u32 GetFontStrWith(u8*, u32);
 
 static void StatusUpdate(u32 status);
 
-static u16 RunTextCommand(TextRender* this);
-static void PaletteChange(TextRender* this, u32 id);
+/*static*/ u16 RunTextCommand(TextRender* this);
+/*static*/ void PaletteChange(TextRender* this, u32 id);
 static void SwitchChoice(u32 to, u32 from);
 
 static void MsgChangeLine(u32 lineNo);
@@ -64,9 +64,9 @@ static void sub_08056FBC(TextRender*);
 
 typedef u32 (*MessageFunction)(void);
 static u32 MsgIdle(void);
-static u32 MsgInit(void);
+/*static*/ u32 MsgInit(void);
 static u32 MsgUpdate(void);
-static u32 MsgOpen(void);
+/*static*/ u32 MsgOpen(void);
 static u32 MsgClose(void);
 static u32 MsgDie(void);
 typedef enum {
@@ -84,7 +84,7 @@ static void TextDispUpdate(TextRender* this);
 static void TextDispDie(TextRender* this);
 static void TextDispWait(TextRender* this);
 static void TextDispRoll(TextRender* this);
-static void TextDispEnquiry(TextRender* this);
+/*static*/ void TextDispEnquiry(TextRender* this);
 typedef enum {
     RENDER_INIT,
     RENDER_UPDATE,
@@ -228,7 +228,7 @@ u8* const gUnk_08107BE0[] = {
 };
 
 // regalloc in loop
-NONMATCH("asm/non_matching/textbox/MsgInit.inc", static u32 MsgInit(void)) {
+NONMATCH("asm/non_matching/textbox/MsgInit.inc", /*static*/ u32 MsgInit(void)) {
     char* dest;
     u32 i;
 
@@ -266,7 +266,7 @@ NONMATCH("asm/non_matching/textbox/MsgInit.inc", static u32 MsgInit(void)) {
 }
 END_NONMATCH
 
-static u32 MsgOpen(void) {
+/*static*/ u32 MsgOpen(void) {
     if (gTextRender.renderStatus == RENDER_INIT) {
         gTextRender.renderStatus = RENDER_UPDATE;
         gTextRender._98.bytes.b1 = 1;
@@ -367,7 +367,7 @@ static void TextDispUpdate(TextRender* this) {
     }
 }
 
-NONMATCH("asm/non_matching/textbox/RunTextCommand.inc", static u16 RunTextCommand(TextRender* this)) {
+NONMATCH("asm/non_matching/textbox/RunTextCommand.inc", /*static*/ u16 RunTextCommand(TextRender* this)) {
     s32 palette;
     u32 chr = this->curToken.extended;
 
@@ -492,7 +492,7 @@ NONMATCH("asm/non_matching/textbox/RunTextCommand.inc", static u16 RunTextComman
 }
 END_NONMATCH
 
-static void PaletteChange(TextRender* this, u32 id) {
+/*static*/ void PaletteChange(TextRender* this, u32 id) {
     u32 temp = id % 8;
     this->_8f = temp;
     this->_50.unk2 = temp;
@@ -502,10 +502,10 @@ const u8 gUnk_08107C0F[] = { 0x8, 0x1e, 0x4, 0x12, 0x0 };
 const u8 gUnk_08107C14[] = { 0x8, 0x1e, 0x8, 0xFE, 0x0 };
 
 #ifdef EU
-ASM_FUNC("asm/non_matching/eu/TextDispEnquiry.inc", static void TextDispEnquiry(TextRender* ctb))
+ASM_FUNC("asm/non_matching/eu/TextDispEnquiry.inc", /*static*/ void TextDispEnquiry(TextRender* ctb))
 #else
 
-static void TextDispEnquiry(TextRender* this) {
+/*static*/ void TextDispEnquiry(TextRender* this) {
     s32 nextTextIdx, choiceIdx, lastChoice;
     u32 doSwitch;
     const u8* src;
