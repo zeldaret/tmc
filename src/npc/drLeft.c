@@ -1,6 +1,5 @@
 #include "npc.h"
-
-extern void sub_08078850(Entity*, u32, u8, u32*);
+#include "functions.h"
 extern u32 gUnk_081133B4;
 
 void sub_0806BFD8(Entity* this);

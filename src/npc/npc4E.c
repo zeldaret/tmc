@@ -14,8 +14,6 @@ typedef struct {
     s8 unk_04;
 } gUnk_0810C89C_struct;
 
-extern void sub_08078850(Entity*, u32, u8 /* TODO this is a s8 in beedle.c*/, gUnk_0810C89C_struct*);
-
 extern void script_Object3ELeftStoneOpening;  // Cutscene data type?
 extern void script_Object3ERightStoneOpening; // Cutscene data type?
 
@@ -46,7 +44,7 @@ void sub_0806DA04(Entity* this, ScriptExecutionContext* context) {
     // TODO gUnk_0811415C should be a gUnk_0810C89C_struct[], but then a lot of bytes everywhere are wrong?
     gUnk_0810C89C_struct* a = (gUnk_0810C89C_struct*)&(
         (gUnk_0810C89C_struct*)gUnk_0811415C)[context->intVariable]; // cast necessary to no longer make it a const* ?
-    sub_08078850(this, 1, a->unk_04, a);
+    sub_08078850(this, 1, (u8)a->unk_04, a);
 }
 
 void sub_0806DA1C(Entity* this, ScriptExecutionContext* context) {

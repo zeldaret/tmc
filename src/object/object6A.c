@@ -103,11 +103,6 @@ Object6ATypeAction sub_080961F4;
 Object6ATypeAction sub_08096284;
 Object6ATypeAction sub_08096290;
 
-extern void sub_08080CB4(Entity*);
-extern u32 sub_080002B8(Entity*);
-extern u32 CheckOnScreen(Entity*);
-extern void sub_08078850(Entity*, u32, u32, u8*);
-
 void sub_08095754(Object6AEntity*);
 void sub_080957B4(Object6AEntity*);
 void sub_08095954(Object6AEntity*);

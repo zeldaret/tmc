@@ -29,7 +29,7 @@ void Object3E_Type8_Action2(Object3EEntity*);
 
 void Object3E(Object3EEntity* this) {
     static void (*const Object3E_Types[])(Object3EEntity*) = {
-        Object3E_Type0, Object3E_Type1, Object3E_Type1, Object3E_Type3,  Object3E_Type4,
+        Object3E_Type0, Object3E_Type1, Object3E_Type1, Object3E_Type3, Object3E_Type4,
         Object3E_Type5, Object3E_Type6, Object3E_Type7, Object3E_Type8, Object3E_Type1,
     };
     Object3E_Types[super->type](this);

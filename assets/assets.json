@@ -43545,21 +43545,6 @@
     "type": "animation"
   },
   {
-    "path": "bossDoor/gUnk_081214F4.bin",
-    "start": 1185012,
-    "size": 8
-  },
-  {
-    "path": "bossDoor/gUnk_081214FC.bin",
-    "start": 1185020,
-    "size": 16
-  },
-  {
-    "path": "bossDoor/gUnk_0812150C.bin",
-    "start": 1185036,
-    "size": 8
-  },
-  {
     "path": "object3A/gUnk_081215E8.bin",
     "start": 1185256,
     "size": 80
@@ -47274,61 +47259,6 @@
     "offsets": {
       "EU": -2484
     }
-  },
-  {
-    "path": "data_08132B30/gUnk_08133918.bin",
-    "start": 1259800,
-    "size": 32
-  },
-  {
-    "path": "data_08132B30/gUnk_08133938.bin",
-    "start": 1259832,
-    "size": 32
-  },
-  {
-    "path": "data_08132B30/gUnk_08133958.bin",
-    "start": 1259864,
-    "size": 32
-  },
-  {
-    "path": "data_08132B30/gUnk_08133978.bin",
-    "start": 1259896,
-    "size": 32
-  },
-  {
-    "path": "data_08132B30/gUnk_08133998.bin",
-    "start": 1259928,
-    "size": 32
-  },
-  {
-    "path": "data_08132B30/gUnk_081339B8.bin",
-    "start": 1259960,
-    "size": 32
-  },
-  {
-    "path": "data_08132B30/gUnk_081339D8.bin",
-    "start": 1259992,
-    "size": 32
-  },
-  {
-    "path": "data_08132B30/gUnk_081339F8.bin",
-    "start": 1260024,
-    "size": 32
-  },
-  {
-    "path": "data_08132B30/gUnk_08133A40.bin",
-    "start": 1260096,
-    "size": 26
-  },
-  {
-    "path": "data_08132B30/gUnk_08133A5A.bin",
-    "start": 1260122,
-    "size": 13
-  },
-  {
-    "path": "data_08132B30/gUnk_08133A67.bin",
-    "start": 1260135,
-    "size": 1249
   },
   {
     "path": "exit_lists/gExitList_NoExitList.bin",

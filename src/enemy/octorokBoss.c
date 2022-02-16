@@ -11,9 +11,6 @@
 #include "projectile.h"
 #include "game.h"
 
-extern u32 GetRandomByWeight(const u8*);
-extern void sub_080792BC(s32, u32, u32);
-
 enum OctorokRotation { ROTATION_CW, ROTATION_CCW, NO_ROTATION = 0xff };
 
 typedef struct HelperStruct {

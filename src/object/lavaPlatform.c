@@ -14,7 +14,7 @@ typedef struct {
     /*0x00*/ Entity base;
     /*0x68*/ u8 unk_68[8];
     /*0x70*/ u16 timer;
-    /*0x72*/ u16 wobbleTime; /**< Time the player can stand on the platform. */
+    /*0x72*/ u16 wobbleTime;  /**< Time the player can stand on the platform. */
     /*0x74*/ u16 respawnTime; /**< Time until the platform respawns after it has sunk. */
     /*0x76*/ u16 unk_76;
     /*0x78*/ Entity* unk_78; // Typed same as second argument of sub_080A2CC0

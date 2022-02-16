@@ -700,7 +700,7 @@ SECTIONS {
         asm/object/object36.o(.text);
         asm/object/object37.o(.text);
         src/object/jarPortal.o(.text);
-        asm/object/bossDoor.o(.text);
+        src/object/bossDoor.o(.text);
         asm/object/object3A.o(.text);
         asm/object/macroMushroomStalks.o(.text);
         asm/object/object75.o(.text); /* 75 and 76 are mislocated in object table */
@@ -1436,7 +1436,7 @@ SECTIONS {
         data/const/object/object37.o(.rodata);
         data/const/object/jarPortal.o(.rodata);
         data/animations/object/jarPortal.o(.rodata);
-        data/const/object/bossDoor.o(.rodata);
+        src/object/bossDoor.o(.rodata);
         data/animations/object/bossDoor.o(.rodata);
         data/const/object/object3A.o(.rodata);
         data/const/object/macroMushroomStalks.o(.rodata);

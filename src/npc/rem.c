@@ -8,7 +8,6 @@ extern void (*gUnk_08112278[])(Entity*);
 
 extern void script_Rem;
 
-extern void sub_08078850(Entity*, u32, u32, u32*);
 extern u32 gUnk_0811229C;
 
 extern void sub_0807F950(Entity* this, ScriptExecutionContext* context);

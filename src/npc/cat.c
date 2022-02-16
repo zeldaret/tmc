@@ -34,7 +34,6 @@ extern void sub_08067DCC(Entity*, u32);
 
 extern u8 gUnk_0811110C[2];
 extern u32 gUnk_0811110F;
-extern void sub_08078850(Entity*, u32, u8, u32*);
 
 extern u16 gUnk_08111104[];
 
