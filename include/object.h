@@ -324,7 +324,7 @@ void Whirlwind(Entity*);
 void ObjectBlockingStairs(Entity*);
 void SwordsmanNewsletter(Entity*);
 void Object61(Entity*);
-void GiantTwig(Entity*);
+void GiantTwig();
 void Object63(Entity*);
 void Object64(Entity*);
 void LadderHoleInBookshelf(Entity*);
