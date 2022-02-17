@@ -365,7 +365,7 @@ void OctorokBossObject(Entity*);
 void MacroBook(Entity*);
 void MazaalBossObject(Entity*);
 void CabinFurniture(Entity*);
-void DoubleBookshelf(Entity*);
+void DoubleBookshelf();
 void Book(Entity*);
 void Fireplace(Entity*);
 void Object8E();
