@@ -84,15 +84,17 @@ void ItemUpdate(Entity* this) {
     DrawEntity(this);
 }
 
-// tiny regalloc
-NONMATCH("asm/non_matching/arm_proxy/ItemInit.inc", void ItemInit(Entity* this)) {
+void ItemInit(Entity* this) {
+    u32 tmp2, tmp3;
     const PlayerItemDefinition* definition = &gPlayerItemDefinitions[this->id];
     if (definition->bitfield == 0xff) {
         u32 tmp = definition->firstItemIndex;
         definition = gAdditionalPlayerItemDefinitions[definition->index];
         definition = &definition[this->field_0x68.HALF.LO - tmp];
     }
-    this->palette.raw = (definition->bitfield & 0xf) | (definition->bitfield << 4);
+    tmp3 = definition->bitfield;
+    tmp2 = tmp3 & 0xf;
+    this->palette.raw = (tmp3 << 4) | (tmp2);
     this->damage = definition->index;
     this->hurtType = definition->hurtType;
     this->hitType = definition->hitType;
@@ -113,4 +115,3 @@ NONMATCH("asm/non_matching/arm_proxy/ItemInit.inc", void ItemInit(Entity* this))
     this->health = 1;
     this->flags |= ENT_DID_INIT;
 }
-END_NONMATCH
