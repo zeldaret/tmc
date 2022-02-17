@@ -817,7 +817,6 @@ SECTIONS {
         asm/object/objectA6.o(.text);
         asm/object/objectA7.o(.text);
         src/object/objectA8.o(.text);
-        asm/object/objectA8.o(.text);
         asm/object/objectA9.o(.text);
         asm/object/waterfallOpening.o(.text);
         asm/object/objectAB.o(.text);
@@ -1571,7 +1570,7 @@ SECTIONS {
         data/const/object/minishLight.o(.rodata);
         data/const/object/objectA6.o(.rodata);
         data/animations/object/objectA6.o(.rodata);
-        data/const/object/objectA8.o(.rodata);
+        src/object/objectA8.o(.rodata);
         data/const/object/objectA9.o(.rodata);
         data/const/object/waterfallOpening.o(.rodata);
         data/const/object/objectAB.o(.rodata);

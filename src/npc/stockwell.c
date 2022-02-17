@@ -14,6 +14,7 @@ extern u16 script_StockwellBuy[];
 extern u16 script_StockwellDogFood[];
 extern u8 gUnk_0810FDB8[];
 
+extern void InitScriptExecutionContext(ScriptExecutionContext* context, u16* script);
 extern u32 gUnk_0810FDA0;
 extern u16 script_Stockwell;
 

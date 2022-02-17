@@ -394,7 +394,7 @@ void MinishLight(Entity*);
 void FireballChain(Entity*);
 void ObjectA6(Entity*);
 void ObjectA7(Entity*);
-void ObjectA8(Entity*);
+void ObjectA8();
 void ObjectA9(Entity*);
 void WaterfallOpening(Entity*);
 void ObjectAB(Entity*);

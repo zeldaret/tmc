@@ -1,13 +1,47 @@
-#include "entity.h"
-#include "player.h"
+/**
+ * @file objectA8.c
+ * @ingroup Objects
+ *
+ * @brief ObjectA8 object
+ */
+
+#define NENT_DEPRECATED
+#include "global.h"
+#include "object.h"
 #include "functions.h"
 #include "item.h"
 
-extern void (*gUnk_08124824[])(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unk_68[0xc];
+    /*0x74*/ u16 unk_74;
+    /*0x76*/ u16 unk_76;
+    /*0x78*/ u8 unk_78[0xf];
+    /*0x87*/ u8 unk_87;
+} ObjectA8Entity;
 
-void ObjectA8(Entity* this) {
-    if ((this->bitfield & 0x80) != 0) {
-        switch (this->bitfield & 0x7f) {
+extern Hitbox gUnk_080FD1A8;
+
+void sub_0809FECC(ObjectA8Entity*);
+bool32 sub_0809FE9C(ObjectA8Entity*);
+void ObjectA8_Init(ObjectA8Entity*);
+void ObjectA8_Action1(ObjectA8Entity*);
+void ObjectA8_Action2(ObjectA8Entity*);
+void ObjectA8_Action3(ObjectA8Entity*);
+void ObjectA8_Action4(ObjectA8Entity*);
+void ObjectA8_Action5(ObjectA8Entity*);
+void ObjectA8_Action6(ObjectA8Entity*);
+void ObjectA8_Action2Subaction0(ObjectA8Entity*);
+void ObjectA8_Action2Subaction1(ObjectA8Entity*);
+void ObjectA8_Action2Subaction2(ObjectA8Entity*);
+
+void ObjectA8(ObjectA8Entity* this) {
+    static void (*const ObjectA8_Actions[])(ObjectA8Entity*) = {
+        ObjectA8_Init,    ObjectA8_Action1, ObjectA8_Action2, ObjectA8_Action3,
+        ObjectA8_Action4, ObjectA8_Action5, ObjectA8_Action6,
+    };
+    if ((super->bitfield & 0x80) != 0) {
+        switch (super->bitfield & 0x7f) {
             case 0:
             case 1:
             case 4:
@@ -20,12 +54,192 @@ void ObjectA8(Entity* this) {
             case 0xc:
             case 0x1e:
             case 0x1f:
-                this->action = 5;
-                this->child = &gPlayerEntity;
-                CreateItemEntity(this->type, 0, 0);
+                super->action = 5;
+                super->child = &gPlayerEntity;
+                CreateItemEntity(super->type, 0, 0);
                 DeleteThisEntity();
         }
     }
-    gUnk_08124824[this->action](this);
-    sub_08080CB4(this);
+    ObjectA8_Actions[super->action](this);
+    sub_08080CB4(super);
+}
+void ObjectA8_Init(ObjectA8Entity* this) {
+    super->action = 1;
+    switch (super->type2) {
+        case 0:
+            super->zVelocity = 0x1e000;
+            super->z.HALF.HI += 8;
+            break;
+        case 2:
+            sub_0809FECC(this);
+            return;
+    }
+    super->collisionLayer = 3;
+    super->field_0x3c = 0x17;
+    super->hurtType = 0x48;
+    super->hitType = 7;
+    super->flags2 = 0x17;
+    super->hitbox = (Hitbox*)&gUnk_080FD1A8;
+    super->field_0x1c = 1;
+    this->unk_74 = super->x.HALF.HI;
+    this->unk_76 = super->y.HALF.HI;
+    SetDefaultPriority(super, 3);
+    EnqueueSFX(SFX_136);
+}
+
+void ObjectA8_Action1(ObjectA8Entity* this) {
+    super->z.WORD -= 0xe000;
+    if (super->frame != 0) {
+        if (super->actionDelay != 0) {
+            super->actionDelay *= 0x1e;
+        } else {
+            super->actionDelay = 0xf0;
+        }
+        super->action = 3;
+        super->field_0xf = 1;
+        super->speed = 0x80;
+    }
+}
+
+void ObjectA8_Action2(ObjectA8Entity* this) {
+    static void (*const ObjectA8_Action2Subactions[])(ObjectA8Entity*) = {
+        ObjectA8_Action2Subaction0,
+        ObjectA8_Action2Subaction1,
+        ObjectA8_Action2Subaction2,
+    };
+    ObjectA8_Action2Subactions[super->subAction](this);
+}
+
+void ObjectA8_Action2Subaction0(ObjectA8Entity* this) {
+    super->subAction = 1;
+    super->field_0x1d = 1;
+    super->spriteSettings.draw = 1;
+}
+
+void ObjectA8_Action2Subaction1(ObjectA8Entity* this) {
+    if ((gPlayerState.field_0x1c & 0xf) != 1 || (super->bitfield & 0x7f) != 0x13) {
+        super->action = 3;
+    } else {
+        sub_0806F4E8(super);
+    }
+}
+
+void ObjectA8_Action2Subaction2(ObjectA8Entity* this) {
+    if ((gPlayerState.field_0x1c & 0xf) != 1 || (super->bitfield & 0x7f) != 0x13) {
+        super->action = 3;
+    } else {
+        if (sub_0806F3E4(super)) {
+            super->flags &= ~ENT_COLLIDE;
+            super->action = 5;
+            super->child = &gPlayerEntity;
+            GiveItem(super->type, 0);
+        }
+    }
+}
+
+void ObjectA8_Action3(ObjectA8Entity* this) {
+    static const u8 gUnk_0812484C[] = {
+        128,
+        96,
+        0,
+        0,
+    };
+    if (--super->field_0xf == 0) {
+        u32 rand = Random();
+        super->flags |= ENT_COLLIDE;
+        super->field_0xf = 0x20;
+        super->speed = gUnk_0812484C[rand >> 8 & 1];
+        if (sub_0809FE9C(this)) {
+            super->direction = rand & 0x1f;
+        } else {
+            super->direction = CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, this->unk_74, this->unk_76);
+        }
+        if ((super->direction & 0xf) != 0) {
+            super->spriteSettings.flipX = ((super->direction ^ 0x10) >> 4);
+        }
+    }
+    ProcessMovement1(super);
+    if ((AnyPrioritySet() == 0) && (super->type == 0)) {
+        if (((gRoomTransition.frameCount & 1) != 0) && (--super->actionDelay == 0)) {
+            sub_08081404(super, 0);
+        }
+        if (super->actionDelay < 0x3c) {
+            super->spriteSettings.draw ^= 1;
+        }
+    }
+}
+
+void ObjectA8_Action4(ObjectA8Entity* this) {
+    if (*(u16*)&super->child->kind != 0xb08) {
+        sub_08081404(super, 0);
+    } else {
+        CopyPosition(super->child, super);
+        super->z.HALF.HI--;
+        if (IsColliding(super, &gPlayerEntity)) {
+            sub_0809FECC(this);
+            GiveItem(super->type, 0);
+        }
+    }
+}
+
+void ObjectA8_Action5(ObjectA8Entity* this) {
+    super->action = 6;
+    super->actionDelay = 0x80;
+    super->field_0xf = 6;
+    super->flags &= ~ENT_COLLIDE;
+    super->spriteSettings.draw = 1;
+    super->spritePriority.b1 = 2;
+    super->spriteOffsetY = -5;
+    CopyPosition(super->child, super);
+}
+
+void ObjectA8_Action6(ObjectA8Entity* this) {
+    s32 tmp;
+    Entity* child = super->child;
+    tmp = gSineTable[super->actionDelay] * 0xa00;
+    if (tmp < 0) {
+        tmp += 0xffff;
+    }
+    super->x.HALF.HI = (s16)(tmp >> 0x10) + child->x.HALF.HI;
+    tmp = gSineTable[super->actionDelay + 0x40] * 0x500;
+    if (tmp < 0) {
+        tmp += 0xffff;
+    }
+    super->y.HALF.HI = super->child->y.HALF.HI - (tmp >> 0x10);
+    super->actionDelay += 8;
+    super->z.HALF.HI = super->child->z.HALF.HI;
+    super->spriteOrientation.flipY = super->child->spriteOrientation.flipY;
+    super->spriteRendering.b3 = super->child->spriteRendering.b3;
+    if ((u8)(super->actionDelay - 0x41) < 0x7f) {
+        super->spritePriority.b0 = 3;
+    } else {
+        super->spritePriority.b0 = 5;
+    }
+    if (--super->field_0xf == 0) {
+        super->field_0xf = 6;
+        if (((--super->spriteOffsetY) * 0x1000000) >> 0x18 < -0x16) {
+            sub_08081404(super, 1);
+        }
+    }
+    if (super->spriteOffsetY < -0x11) {
+        super->spriteSettings.draw ^= 1;
+    }
+    if (this->unk_87 > 10) {
+        this->unk_87 = 0xa;
+    }
+}
+
+bool32 sub_0809FE9C(ObjectA8Entity* this) {
+    if (((super->x.HALF.HI - (u32)this->unk_74) + 0x48 < 0x91) &&
+        ((super->y.HALF.HI - (u32)this->unk_76) + 0x30 < 0x61)) {
+        return TRUE;
+    } else {
+        return FALSE;
+    }
+}
+
+void sub_0809FECC(ObjectA8Entity* this) {
+    super->child = &gPlayerEntity;
+    super->action = 5;
+    super->subAction = 0;
 }
