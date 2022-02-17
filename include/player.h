@@ -251,7 +251,7 @@ typedef struct {
     /*0x07*/ u8 quiverType;
     /*0x08*/ u8 filler[2];
     /*0x0a*/ u8 charm;
-    /*0x0b*/ u8 unkB;
+    /*0x0b*/ u8 picolyteType;
     /*0x0c*/ u8 itemButtons[2];
     /*0x0e*/ u8 bottles[4];
     /*0x12*/ u8 effect;
@@ -260,7 +260,7 @@ typedef struct {
     /*0x18*/ u16 rupees;
     /*0x1a*/ u16 field_0x1a;
     /*0x1c*/ u16 charmTimer;
-    /*0x1e*/ u16 unkTimer;
+    /*0x1e*/ u16 picolyteTimer;
     /*0x20*/ u16 effectTimer;
     /*0x22*/ u8 filler4[4];
 } Stats;

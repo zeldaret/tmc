@@ -23,7 +23,7 @@ void MinishEzlo(Entity* this) {
     }
     if ((this->frameSpriteSettings & 0x20) != 0) {
         this->frameSpriteSettings &= 0xdf;
-        EnqueueSFX(SFX_220);
+        EnqueueSFX(SFX_PICOLYTE);
     }
 }
 
