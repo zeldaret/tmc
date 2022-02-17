@@ -351,7 +351,7 @@ void Object79(Entity*);
 void Steam(Entity*);
 void PushableLever();
 void MacroShoes(Entity*);
-void ObjectOnSpinyBeetle(Entity*);
+void ObjectOnSpinyBeetle();
 void Object7E(Entity*);
 void PicoBloom(Entity*);
 void Board(Entity*);
