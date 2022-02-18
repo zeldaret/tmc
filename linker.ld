@@ -1593,7 +1593,6 @@ SECTIONS {
         data/const/object/windTribeTeleporter.o(.rodata);
         data/const/object/objectB9.o(.rodata);
         src/object/gyorgBossObject.o(.rodata);
-        data/animations/object/gyorgBossObject.o(.rodata);
         data/const/object/windcrest.o(.rodata);
         data/const/object/objectBD.o(.rodata);
         data/const/object/pinwheel.o(.rodata);

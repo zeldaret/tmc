@@ -91,9 +91,9 @@ void sub_08047DF0(GyorgMaleEntity*, u32);
 void sub_08047E48(GyorgMaleEntity*); //
 void sub_08047E58(GyorgMaleEntity*); //
 void sub_08047EA4(GyorgMaleEntity*, u32);
-u32 sub_08047F68(GyorgMaleEntity*);  // distance this to player?
-void sub_08048004(GyorgMaleEntity*); //
-void sub_0804813C(GyorgMaleEntity*); //
+u32 sub_08047F68(GyorgMaleEntity*);                  // distance this to player?
+void sub_08048004(GyorgMaleEntity*);                 //
+void GyorgMale_SpawnChildren(GyorgMaleEntity* this); //
 u32 sub_08048158(u32);
 void sub_08048178(GyorgMaleEntity*, u32);
 
@@ -847,7 +847,7 @@ void sub_08047978(GyorgMaleEntity* this) {
             }
         } else {
             if (this->unk_70 == 0xF0) {
-                sub_0804813C(this);
+                GyorgMale_SpawnChildren(this);
             }
         }
     } else {
@@ -1165,9 +1165,9 @@ void sub_08048004(GyorgMaleEntity* this) {
     }
 }
 
-void sub_0804813C(GyorgMaleEntity* this) {
+void GyorgMale_SpawnChildren(GyorgMaleEntity* this) {
     u32 rand = Random();
-    sub_080A1ED0(rand & 7, 1, (rand >> 8) & 3);
+    GyorgBossObject_SpawnChildren(rand & 7, TRUE, (rand >> 8) & 3);
 }
 
 const u8 gUnk_080D1C44[0xC] = { 0, 2, 6, 0, 2, 4, 2, 4, 6, 0, 4, 6 };

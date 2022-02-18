@@ -27,55 +27,55 @@ void GyorgChild(Entity* this) {
     GyorgChild_Functions[GetNextFunction(this)]((GyorgChildEntity*)this);
 }
 
-void sub_080486F4(GyorgChildEntity*);
-void sub_0804877C(GyorgChildEntity*);
-void sub_0804882C(GyorgChildEntity*);
-void sub_08048904(GyorgChildEntity*);
+void GyorgChild_Action0(GyorgChildEntity* this);
+void GyorgChild_Action1(GyorgChildEntity* this);
+void GyorgChild_Action2(GyorgChildEntity* this);
+void GyorgChild_Action3(GyorgChildEntity* this);
 
 void GyorgChild_OnTick(GyorgChildEntity* this) {
-    static void (*const gUnk_080D1E84[])(GyorgChildEntity*) = {
-        sub_080486F4,
-        sub_0804877C,
-        sub_0804882C,
-        sub_08048904,
+    static void (*const GyorgChild_Actions[])(GyorgChildEntity*) = {
+        GyorgChild_Action0,
+        GyorgChild_Action1,
+        GyorgChild_Action2,
+        GyorgChild_Action3,
     };
-    gUnk_080D1E84[super->action](this);
+    GyorgChild_Actions[super->action](this);
 }
 
 void GyorgChild_OnCollision(GyorgChildEntity* this) {
     EnemyFunctionHandlerAfterCollision(super, GyorgChild_Functions);
 }
 
-void sub_080486D0(GyorgChildEntity*);
-void sub_080486D8(GyorgChildEntity*);
-void sub_080486E0(GyorgChildEntity*);
+void GyordChild_OnGrabbed_Action0(GyorgChildEntity* this);
+void GyorgChild_OnGrabbed_Action1(GyorgChildEntity* this);
+void GyorgChild_OnGrabbed_Action3(GyorgChildEntity* this);
 
 void GyorgChild_OnGrabbed(GyorgChildEntity* this) {
-    static void (*const gUnk_080D1E94[])(GyorgChildEntity*) = {
-        sub_080486D0,
-        sub_080486D8,
-        sub_080486E0,
+    static void (*const GyorgChild_OnGrabbed_Actions[])(GyorgChildEntity*) = {
+        GyordChild_OnGrabbed_Action0,
+        GyorgChild_OnGrabbed_Action1,
+        GyorgChild_OnGrabbed_Action3,
     };
     if (sub_0806F520()) {
-        gUnk_080D1E94[super->subAction](this);
+        GyorgChild_OnGrabbed_Actions[super->subAction](this);
     }
 }
 
-void sub_080486D0(GyorgChildEntity* this) {
+void GyordChild_OnGrabbed_Action0(GyorgChildEntity* this) {
     super->subAction = 2;
 }
 
-void sub_080486D8(GyorgChildEntity* this) {
+void GyorgChild_OnGrabbed_Action1(GyorgChildEntity* this) {
     sub_0806F4E8(super);
 }
 
-void sub_080486E0(GyorgChildEntity* this) {
+void GyorgChild_OnGrabbed_Action3(GyorgChildEntity* this) {
     if (sub_0806F3E4(super)) {
         GenericDeath(super);
     }
 }
 
-void sub_080486F4(GyorgChildEntity* this) {
+void GyorgChild_Action0(GyorgChildEntity* this) {
     static const s8 gUnk_080D1EA0[] = {
         0x50, 0x1,  0x40, 0x1,  0x30, 0x1,  0x20, 0x1,  0x10, 0x1,  0,
         0,    0x10, -0x1, 0x20, -0x1, 0x30, -0x1, 0x40, -0x1, 0x50, -0x1,
@@ -84,13 +84,13 @@ void sub_080486F4(GyorgChildEntity* this) {
     super->spriteOrientation.flipY = 3;
     super->spriteRendering.b3 = 3;
     super->spritePriority.b0 = 7;
-    super->animationState = super->direction >> 2;
+    super->animationState = Direction8ToAnimationState(super->direction);
     if (super->type == 0) {
         s32 r;
         InitializeAnimation(super, super->animationState);
         super->action = 1;
         super->flags |= ENT_COLLIDE;
-        r = (signed)Random() % 0xB;
+        r = (signed)Random() % 11;
         super->direction += r;
         super->direction -= 5;
         super->direction &= 0x1F;
@@ -105,7 +105,7 @@ void sub_080486F4(GyorgChildEntity* this) {
     }
 }
 
-void sub_0804877C(GyorgChildEntity* this) {
+void GyorgChild_Action1(GyorgChildEntity* this) {
     LinearMoveUpdate(super);
     if (super->actionDelay != 0) {
         if ((--super->actionDelay & 0xF) == 0) {
@@ -140,29 +140,29 @@ void sub_0804877C(GyorgChildEntity* this) {
     super->spriteSettings.draw = 0;
 }
 
-void sub_0804882C(GyorgChildEntity* this) {
+void GyorgChild_Action2(GyorgChildEntity* this) {
     if (--super->actionDelay == 0) {
         super->action = 3;
         super->flags |= ENT_COLLIDE;
         Random();
         super->spriteSettings.draw = 1;
         super->spritePriority.b0 = 4;
-        super->speed = this->unk_78;
+        super->speed = this->attackSpeed;
         super->collisionLayer = 2;
         UpdateSpriteForCollisionLayer(super);
-        super->direction = this->unk_7a;
+        super->direction = this->attackDirection;
         super->animationState = super->direction >> 2;
         InitializeAnimation(super, super->animationState);
         switch (super->animationState >> 1) {
             case 0:
             case 2:
-                super->x.HALF.HI = gPlayerEntity.x.HALF.HI + this->unk_74;
-                super->y.HALF.HI = gRoomControls.scroll_y + this->unk_76;
+                super->x.HALF.HI = gPlayerEntity.x.HALF.HI + this->attackOffsetX;
+                super->y.HALF.HI = gRoomControls.scroll_y + this->attackOffsetY;
                 break;
             case 1:
             default:
-                super->x.HALF.HI = gRoomControls.scroll_x + this->unk_74;
-                super->y.HALF.HI = gPlayerEntity.y.HALF.HI + this->unk_76;
+                super->x.HALF.HI = gRoomControls.scroll_x + this->attackOffsetX;
+                super->y.HALF.HI = gPlayerEntity.y.HALF.HI + this->attackOffsetY;
                 break;
         }
         if (super->type2 == 0) {
@@ -171,7 +171,7 @@ void sub_0804882C(GyorgChildEntity* this) {
     }
 }
 
-void sub_08048904(GyorgChildEntity* this) {
+void GyorgChild_Action3(GyorgChildEntity* this) {
     LinearMoveUpdate(super);
     GetNextFrame(super);
     switch (super->animationState >> 1) {

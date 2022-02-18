@@ -181,7 +181,6 @@ extern void sub_0808091C(const ScreenTransitionData*, u32);
 extern void sub_080809D4(void);
 extern void sub_08080CB4(Entity*);
 extern u32 sub_0808288C(Entity*, u32, u32, u32);
-extern void sub_080A1ED0(u32, u32, u32);
 extern Entity* sub_080A2A3C(Entity*, u32, u32, u32);
 extern Entity* sub_080A2AD4(Entity*);
 extern void sub_080A2AF4(Entity*, u32, u32);

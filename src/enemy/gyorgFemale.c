@@ -20,10 +20,10 @@ extern void RegisterTransitionManager(void*, void (*)(), void (*)());
 void sub_08046498();
 void sub_0804660C(GyorgFemaleEntity*, u32);
 void sub_080464C0(GyorgFemaleEntity*);
-void sub_08046634(GyorgFemaleEntity*, u32);
+void GyorgFemale_SpawnChildren(GyorgFemaleEntity* this, bool32 unlimit_tmp);
 void sub_080465C8(void);
-void sub_080466A8(GyorgFemaleEntity*);
-void sub_08046668(GyorgFemaleEntity*);
+void GyorgFemale_ProcessEyeHit(GyorgFemaleEntity* this);
+void GyorgFemale_ChooseEyePattern(GyorgFemaleEntity* this);
 void sub_08046518(void);
 void sub_080467DC(GyorgFemaleEntity*);
 
@@ -37,32 +37,32 @@ extern const u8 gUnk_080D1AAC[];
 extern const u8 gUnk_080D1AC4[];
 extern const u8 gUnk_080D1ADC[];
 
-void sub_0804614C(GyorgFemaleEntity*);
-void sub_0804625C(GyorgFemaleEntity*);
-void sub_0804632C(GyorgFemaleEntity*);
-void sub_080463E4(GyorgFemaleEntity*);
+void GyorgFemale_Setup(GyorgFemaleEntity* this);
+void GyorgFemale_Action1(GyorgFemaleEntity* this);
+void GyorgFemale_Action2(GyorgFemaleEntity* this);
+void GyorgFemale_Action3(GyorgFemaleEntity* this);
 
 void GyorgFemale(Entity* this) {
-    static void (*const gUnk_080D1A64[])(GyorgFemaleEntity*) = {
-        sub_0804614C,
-        sub_0804625C,
-        sub_0804632C,
-        sub_080463E4,
+    static void (*const GyorgFemale_Actions[])(GyorgFemaleEntity*) = {
+        GyorgFemale_Setup,
+        GyorgFemale_Action1,
+        GyorgFemale_Action2,
+        GyorgFemale_Action3,
     };
-    gUnk_080D1A64[this->action]((GyorgFemaleEntity*)this);
+    GyorgFemale_Actions[this->action]((GyorgFemaleEntity*)this);
 }
 
-void sub_0804614C(GyorgFemaleEntity* this) {
+void GyorgFemale_Setup(GyorgFemaleEntity* this) {
     Entity* tmp;
     if (gEntCount > 0x3d)
         return;
     tmp = CreateProjectile(GYORG_TAIL);
     tmp->type = 0;
     tmp->parent = super;
-    ((GyorgHeap*)super->myHeap)->unk_14 = (GenericEntity*)tmp;
+    ((GyorgHeap*)super->myHeap)->tail = (GenericEntity*)tmp;
     tmp = CreateEnemy(GYORG_FEMALE_MOUTH, 0);
     tmp->parent = super;
-    ((GyorgHeap*)super->myHeap)->unk_10 = (GyorgFemaleMouthEntity*)tmp;
+    ((GyorgHeap*)super->myHeap)->mouth = (GyorgFemaleMouthEntity*)tmp;
     tmp = CreateEnemy(GYORG_FEMALE_EYE, 0);
     tmp->parent = super;
     tmp = CreateEnemy(GYORG_FEMALE_EYE, 1);
@@ -83,9 +83,9 @@ void sub_0804614C(GyorgFemaleEntity* this) {
     super->spriteOrientation.flipY = 2;
     super->spriteRendering.b3 = 2;
     super->collisionLayer = 2;
-    this->unk_78 = 0;
+    this->eyesVulnerable = 0;
     this->unk_79 = 0;
-    this->unk_70 = 0x3C;
+    this->childrenSpawnTimer = 0x3C;
     MemClear(&gUnk_02019EE0, 0x8000);
     MemClear(&gMapDataTopSpecial, 0x8000);
     sub_0804660C(this, 0);
@@ -99,7 +99,7 @@ void sub_0804614C(GyorgFemaleEntity* this) {
 #endif
 }
 
-void sub_0804625C(GyorgFemaleEntity* this) {
+void GyorgFemale_Action1(GyorgFemaleEntity* this) {
     if (this->unk_79 & 0x80) {
         this->unk_79 &= ~0x80;
         this->unk_79 |= 0x40;
@@ -114,86 +114,86 @@ void sub_0804625C(GyorgFemaleEntity* this) {
     if (((GyorgHeap*)super->myHeap)->boss->unk_6c & 0x38) {
         super->action = 2;
         super->actionDelay = 0;
-        this->unk_7a = 0;
-        this->unk_7c = 0;
-        this->unk_7d = 0;
-        this->unk_70 = 0x3c;
+        this->eyeTimer = 0;
+        this->eyesHitFrame = 0;
+        this->eyesHit = 0;
+        this->childrenSpawnTimer = 0x3c;
         this->unk_80 = 0;
         return;
     }
     if (((GyorgHeap*)super->myHeap)->boss->unk_6c & 0x40) {
         super->action = 3;
-        this->unk_70 = 0x3c;
+        this->childrenSpawnTimer = 0x3c;
         super->actionDelay = 0;
-        this->unk_7a = 0;
-        this->unk_7c = 0;
-        this->unk_7d = 0;
+        this->eyeTimer = 0;
+        this->eyesHitFrame = 0;
+        this->eyesHit = 0;
         this->unk_80 = 0;
         return;
     }
     if (((GyorgHeap*)super->myHeap)->boss->unk_6c & 0x100) {
-        if (--this->unk_70 == 0) {
-            this->unk_70 = 0x168;
-            sub_08046634(this, 1);
+        if (--this->childrenSpawnTimer == 0) {
+            this->childrenSpawnTimer = 0x168;
+            GyorgFemale_SpawnChildren(this, TRUE);
         }
     }
 }
 
-void sub_0804632C(GyorgFemaleEntity* this) {
+void GyorgFemale_Action2(GyorgFemaleEntity* this) {
     sub_080465C8();
-    sub_080466A8(this);
-    if (++this->unk_7a > 0x59f) {
-        this->unk_7a = 0;
-        this->unk_7c = 0;
-        this->unk_7d = 0;
+    GyorgFemale_ProcessEyeHit(this);
+    if (++this->eyeTimer >= 1440) {
+        this->eyeTimer = 0;
+        this->eyesHitFrame = 0;
+        this->eyesHit = 0;
         this->unk_80 = 0;
     } else {
-        if (this->unk_7a == 0x78) {
-            sub_08046668(this);
+        if (this->eyeTimer == 120) {
+            GyorgFemale_ChooseEyePattern(this);
         } else {
-            if (this->unk_7a == 0x528) {
-                this->unk_78 = 0;
+            if (this->eyeTimer == 1320) {
+                this->eyesVulnerable = 0;
 #ifndef EU
-                this->unk_7d = 0;
+                this->eyesHit = 0;
                 this->unk_7f = 0;
 #endif
             }
         }
     }
-    if (((GyorgHeap*)super->myHeap)->boss->unk_6c & 0x80 && --this->unk_70 == 0) {
-        this->unk_70 = 0x168;
-        sub_08046634(this, 0);
+    if (((GyorgHeap*)super->myHeap)->boss->unk_6c & 0x80 && --this->childrenSpawnTimer == 0) {
+        this->childrenSpawnTimer = 0x168;
+        GyorgFemale_SpawnChildren(this, 0);
     }
     if ((((GyorgHeap*)super->myHeap)->boss->unk_6c & 0x38) == 0) {
         super->action = 1;
-        this->unk_70 = 0x3c;
+        this->childrenSpawnTimer = 0x3c;
 #ifndef EU
-        this->unk_78 = 0;
+        this->eyesVulnerable = 0;
 #endif
         this->unk_80 = 0;
     }
 }
 
-void sub_080463E4(GyorgFemaleEntity* this) {
+void GyorgFemale_Action3(GyorgFemaleEntity* this) {
     sub_080465C8();
-    if (--this->unk_70 == 0) {
-        this->unk_70 = 0x168;
-        sub_08046634(this, 1);
+    if (--this->childrenSpawnTimer == 0) {
+        this->childrenSpawnTimer = 0x168;
+        GyorgFemale_SpawnChildren(this, 1);
     }
-    sub_080466A8(this);
-    if (++this->unk_7a > 0x59f) {
-        this->unk_7a = 0;
-        this->unk_7c = 0;
-        this->unk_7d = 0;
+    GyorgFemale_ProcessEyeHit(this);
+    if (++this->eyeTimer >= 1440) {
+        this->eyeTimer = 0;
+        this->eyesHitFrame = 0;
+        this->eyesHit = 0;
         this->unk_80 = 0;
     } else {
-        if (this->unk_7a == 0x78) {
-            sub_08046668(this);
+        if (this->eyeTimer == 120) {
+            GyorgFemale_ChooseEyePattern(this);
         } else {
-            if (this->unk_7a == 0x528) {
-                this->unk_78 = 0;
+            if (this->eyeTimer == 1320) {
+                this->eyesVulnerable = 0;
 #ifndef EU
-                this->unk_7d = 0;
+                this->eyesHit = 0;
                 this->unk_7f = 0;
 #endif
             }
@@ -202,11 +202,11 @@ void sub_080463E4(GyorgFemaleEntity* this) {
     if (super->health == 0) {
         super->action = 1;
 #ifdef EU
-        this->unk_78 = 0;
+        this->eyesVulnerable = 0;
 #endif
-        this->unk_70 = 0x3c;
+        this->childrenSpawnTimer = 0x3c;
 #ifndef EU
-        this->unk_78 = 0;
+        this->eyesVulnerable = 0;
 #endif
         this->unk_80 = 0;
         SoundReq(SFX_BOSS_DIE);
@@ -364,70 +364,70 @@ const u8 gUnk_080D1ADC[] = {
     0xDE, 0x22, 0x00, 0x54, 0xB6, 0x00, 0x02, 0x80, 0x1F, 0x00, 0x80,
 };
 
-void sub_08046634(GyorgFemaleEntity* this, u32 unk1) {
+void GyorgFemale_SpawnChildren(GyorgFemaleEntity* this, bool32 unlimit_tmp) {
     static const u8 gUnk_080D1AF4[] = { 2, 3, 6, 7 };
     u32 tmp;
-    if (unk1 == 0) {
+    if (unlimit_tmp == 0) {
         tmp = gUnk_080D1AF4[Random() & 3];
     } else {
         tmp = Random() & 7;
     }
-    sub_080A1ED0(tmp, 0, super->animationState >> 3);
+    GyorgBossObject_SpawnChildren(tmp, FALSE, super->animationState >> 3);
 }
 
-void sub_08046668(GyorgFemaleEntity* this) {
+void GyorgFemale_ChooseEyePattern(GyorgFemaleEntity* this) {
     static const u8 gUnk_080D1AF8[] = { 0x16, 0x92, 0x94, 0x86 };
     if (super->health == 0) {
         return;
     }
 #ifndef EU
-    if (this->unk_78 == 0xFF) {
+    if (this->eyesVulnerable == 0xFF) {
         return;
     }
 #endif
-    this->unk_78 = gUnk_080D1AF8[Random() & 3];
+    this->eyesVulnerable = gUnk_080D1AF8[Random() & 3];
     this->unk_7f = 0;
-    this->unk_82 = 0;
+    this->damageTakenCycle = 0;
     sub_080467DC(this);
 }
 
-void sub_080466A8(GyorgFemaleEntity* this) {
-    if (this->unk_7c != 0) {
-        this->unk_7d |= this->unk_7c;
-        if (super->actionDelay == 0 && this->unk_78 != 0xFF) {
+void GyorgFemale_ProcessEyeHit(GyorgFemaleEntity* this) {
+    if (this->eyesHitFrame != 0) {
+        this->eyesHit |= this->eyesHitFrame;
+        if (super->actionDelay == 0 && this->eyesVulnerable != 0xFF) {
 #ifndef EU
             super->actionDelay = 4;
 #else
             super->actionDelay = 3;
 #endif
         }
-        if (sub_08000E62(this->unk_7d) > 2) {
+        if (sub_08000E62(this->eyesHit) > 2) {
             super->actionDelay = 0;
-            this->unk_7d = 0;
-            this->unk_78 = 0xFF;
+            this->eyesHit = 0;
+            this->eyesVulnerable = 0xFF;
             SoundReq(SFX_BOSS_HIT);
             if (super->health != 0) {
                 InitScreenShake(8, 0);
-                if (++this->unk_82 <= 0xC) {
+                if (++this->damageTakenCycle <= 12) {
                     super->health--;
                 }
                 if (super->health == 0) {
-                    this->unk_78 = 0;
-                    this->unk_7a = 0x528;
+                    this->eyesVulnerable = 0;
+                    this->eyeTimer = 1320;
                 } else {
                     if (this->unk_7f == 0) {
                         this->unk_7f = 1;
-                        this->unk_7a = 0x438;
+                        this->eyeTimer = 1080;
                     }
                 }
             }
             sub_080467DC(this);
         }
     }
-    if (super->actionDelay != 0 && this->unk_78 != 0xFF && --super->actionDelay == 0) {
+    if (super->actionDelay != 0 && this->eyesVulnerable != 0xFF && --super->actionDelay == 0) {
         Entity* tmp;
-        this->unk_80 |= this->unk_7d;
-        this->unk_7d = 0;
+        this->unk_80 |= this->eyesHit;
+        this->eyesHit = 0;
         sub_080467DC(this);
 #ifndef EU
         if (((GyorgHeap*)super->myHeap)->unk_3c != 0xFF) {
@@ -436,10 +436,10 @@ void sub_080466A8(GyorgFemaleEntity* this) {
             tmp->knockbackDirection = ((GyorgHeap*)super->myHeap)->unk_3c;
             tmp->iframes = 0xF4;
             tmp->knockbackDuration = 0xA;
-            tmp = CreateFx(super, 0x2C, 0);
+            tmp = CreateFx(super, FX_REFECT3, 0);
             if (tmp) {
-                tmp->x.HALF.HI = ((GyorgHeap*)super->myHeap)->unk_38;
-                tmp->y.HALF.HI = ((GyorgHeap*)super->myHeap)->unk_3a;
+                tmp->x.HALF.HI = ((GyorgHeap*)super->myHeap)->reflectFxPos.HALF.x;
+                tmp->y.HALF.HI = ((GyorgHeap*)super->myHeap)->reflectFxPos.HALF.y;
                 tmp->collisionLayer = 1;
                 UpdateSpriteForCollisionLayer(tmp);
             }
@@ -447,7 +447,7 @@ void sub_080466A8(GyorgFemaleEntity* this) {
         }
 #endif
     }
-    this->unk_7c = 0;
+    this->eyesHitFrame = 0;
 }
 
 void sub_080467DC(GyorgFemaleEntity* this) {

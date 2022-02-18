@@ -15645,7 +15645,12 @@
     "start": 6589216,
     "size": 2848,
     "type": "gfx",
-    "TODO": "if not EU"
+    "variants": [
+      "USA",
+      "JP",
+      "DEMO_USA",
+      "DEMO_JP"
+    ]
   },
   {
     "path": "gfx/fixedTypeGfx_501.4bpp",
