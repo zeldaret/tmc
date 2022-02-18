@@ -352,13 +352,17 @@ void sub_08030FB4(EyegoreEntity* this) {
     SetTile(this->unk_86, position + 0x41, super->collisionLayer);
 }
 
-NONMATCH("asm/non_matching/eyegore/sub_08031024.inc", void sub_08031024(EyegoreEntity* this)) {
+void sub_08031024(EyegoreEntity* this) {
     u32 uVar5;
     bool32 boolresult;
     u32 uVar8;
     u32 tmp, tmp2;
 
-    boolresult = sub_08049FDC(super, 1) != 0;
+    if (sub_08049FDC(super, 1)) {
+        boolresult = 1;
+    } else {
+        boolresult = 0;
+    }
     if (this->unk_79 == 0) {
         if (boolresult != 0) {
             super->direction = CalculateDirectionTo(super->x.HALF.HI + super->hitbox->offset_x,
@@ -392,18 +396,18 @@ NONMATCH("asm/non_matching/eyegore/sub_08031024.inc", void sub_08031024(EyegoreE
                 if (tmp != 0) {
                     tmp >>= 0x19;
                     this->unk_78 = tmp | (this->unk_78 & 0x8f);
-                    if ((tmp & 0x10) != 0) {
+                    if (((this->unk_78) & 0x10) != 0) {
                         super->direction = this->unk_7b;
                         this->unk_78 = 0;
                     }
                 } else {
                     tmp2 = this->unk_7b >> 1;
-                    uVar5 = GetTileTypeByPos(super->x.HALF.HI + gUnk_080CE2C0[tmp2 + 0],
+                    uVar5 = GetTileTypeByPos(super->x.HALF.HI + gUnk_080CE2C0[tmp2],
                                              super->y.HALF.HI + gUnk_080CE2C0[tmp2 + 1], super->collisionLayer);
-                    uVar8 = GetTileTypeByPos(super->x.HALF.HI + ((s8*)gUnk_080CE2C0)[tmp2 + 2],
-                                             super->y.HALF.HI + ((s8*)gUnk_080CE2C0)[tmp2 + 3], super->collisionLayer);
+                    uVar8 = GetTileTypeByPos(super->x.HALF.HI + gUnk_080CE2C0[tmp2 + 2],
+                                             super->y.HALF.HI + gUnk_080CE2C0[tmp2 + 3], super->collisionLayer);
                     if (!(((gUnk_080B3E80[uVar5] == 0) && (gUnk_080B3E80[uVar8] == 0)) ||
-                          ((this->unk_7b | 1) & 1) == 0)) { // TODO || false, here something is missing?
+                          ((this->unk_7b | 1) & 1) == 0)) {
                         if (super->direction >> 3 == super->animationState) {
                             this->unk_78 |= 0x20;
                         } else {
@@ -434,7 +438,6 @@ NONMATCH("asm/non_matching/eyegore/sub_08031024.inc", void sub_08031024(EyegoreE
     super->x.HALF.LO = 0;
     super->y.HALF.LO = 0;
 }
-END_NONMATCH
 
 void sub_08031250(EyegoreEntity* this) {
     u32 tmp2;
