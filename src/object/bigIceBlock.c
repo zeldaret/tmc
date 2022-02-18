@@ -100,13 +100,12 @@ void BigIceBlock_Action2(BigIceBlockEntity* this) {
     super->flags &= 0x7f;
 }
 
-NONMATCH("asm/non_matching/bigIceBlock/sub_08099880.inc", void sub_08099880(BigIceBlockEntity* this)) {
+void sub_08099880(BigIceBlockEntity* this) {
     Entity* obj;
     s32 rand;
     u8 uVar3;
     u32 uVar4;
     s32 x;
-    s32 y;
 
     if (--super->actionDelay == 0) {
         DeleteThisEntity();
@@ -121,13 +120,12 @@ NONMATCH("asm/non_matching/bigIceBlock/sub_08099880.inc", void sub_08099880(BigI
         if (obj != NULL) {
             rand = Random();
             x = ((rand >> 0x10) % 0x21) - 0x10;
-            y = (rand & 0xf) - 4;
+            rand = (rand & 0xf) - 4;
             obj->spritePriority.b0 = 3;
-            PositionRelative(super, obj, x * 0x10000, y * 0x10000);
+            PositionRelative(super, obj, x * 0x10000, rand * 0x10000);
         }
     }
 }
-END_NONMATCH
 
 void sub_08099910(BigIceBlockEntity* this) {
     u32 uVar2;
