@@ -309,7 +309,7 @@ void sub_0806AB74(Entity* this) {
 }
 
 void sub_0806AB9C(Entity* this, ScriptExecutionContext* context) {
-    Entity* entity = FindEntity(7, 0x37, 7, 1, 0);
+    Entity* entity = FindEntity(NPC, REM, 7, 1, 0);
     if (entity != NULL) {
         DeleteEntity(entity);
     }

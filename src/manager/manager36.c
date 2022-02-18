@@ -36,7 +36,7 @@ void CreateManager36(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void DeleteManager36(Entity* entity, ScriptExecutionContext* context) {
-    Entity* manager = FindEntity(9, 0x36, 6, context->intVariable, 0);
+    Entity* manager = FindEntity(MANAGER, 0x36, 6, context->intVariable, 0);
     if (manager != NULL) {
         DeleteEntityAny(manager);
     }

@@ -1,6 +1,7 @@
 #include "npc.h"
 #include "object.h"
 #include "functions.h"
+#include "playeritem.h"
 
 extern void sub_080600F0(Entity*);
 extern void sub_08060158(Entity*);
@@ -215,7 +216,7 @@ void sub_08060318(void) {
     int i;
 
     for (i = 2; i >= 0; i--) {
-        ent = FindEntityByID(8, 2, 2);
+        ent = FindEntityByID(PLAYER_ITEM, PLAYER_ITEM_BOMB, 2);
         if (ent != NULL) {
             CreateDust(ent);
             DeleteEntity(ent);

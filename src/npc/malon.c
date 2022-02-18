@@ -56,12 +56,12 @@ void sub_08065900(Entity* this) {
 void sub_08065914(Entity* this) {
     Entity* target;
 
-    target = FindEntityByID(7, 0x1F, 7);
+    target = FindEntityByID(NPC, EPONA, 7);
     if (target != NULL) {
         PositionRelative(this, target, Q_16_16(24.0), Q_16_16(-1.0));
         target->parent = this;
     }
-    target = FindEntityByID(7, 0x20, 7);
+    target = FindEntityByID(NPC, MILK_CART, 7);
     if (target != NULL) {
         PositionRelative(this, target, Q_16_16(40.0), 0);
         target->parent = this;
