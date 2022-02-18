@@ -77,7 +77,7 @@ void sub_0806CF30(Entity* this) {
 }
 
 Entity* sub_0806D00C(Entity* this) {
-    Entity* entity = FindEntity(7, 76, 7, 0, 0);
+    Entity* entity = FindEntity(NPC, BIG_GORON, 7, 0, 0);
     if (entity != NULL) {
         this->parent = entity;
     }
@@ -100,7 +100,7 @@ void sub_0806D0B0(Entity* this) {
 }
 
 void sub_0806D0F8(void) {
-    Entity* entity = FindEntityByID(7, 0x4c, 7);
+    Entity* entity = FindEntityByID(NPC, BIG_GORON, 7);
     if (entity != NULL) {
         sub_0806D0B0(entity);
     }
@@ -359,22 +359,22 @@ void sub_0806D66C(Entity* this) {
 ASM_FUNC("asm/non_matching/bigGoron/sub_0806D67C.inc", void sub_0806D67C(Entity* this))
 
 void sub_0806D6D0(void) {
-    Entity* entity = FindEntity(7, 0x4c, 7, 2, 0);
+    Entity* entity = FindEntity(NPC, BIG_GORON, 7, 2, 0);
     if (entity != NULL) {
         entity->subAction = 2;
     }
-    entity = FindEntity(7, 0x4c, 7, 1, 0);
+    entity = FindEntity(NPC, BIG_GORON, 7, 1, 0);
     if (entity != NULL) {
         entity->subAction = 1;
     }
 }
 
 void sub_0806D70C(void) {
-    Entity* entity = FindEntity(7, 0x4c, 7, 2, 0);
+    Entity* entity = FindEntity(NPC, BIG_GORON, 7, 2, 0);
     if (entity != NULL) {
         entity->subAction = 0;
     }
-    entity = FindEntity(7, 0x4c, 7, 1, 0);
+    entity = FindEntity(NPC, BIG_GORON, 7, 1, 0);
     if (entity != NULL) {
         entity->subAction = 0;
         entity->spriteSettings.draw = 3;
@@ -382,22 +382,22 @@ void sub_0806D70C(void) {
 }
 
 void sub_0806D74C(void) {
-    Entity* entity = FindEntity(7, 0x4c, 7, 2, 0);
+    Entity* entity = FindEntity(NPC, BIG_GORON, 7, 2, 0);
     if (entity != NULL) {
         entity->subAction = 3;
     }
-    entity = FindEntity(7, 0x4c, 7, 1, 0);
+    entity = FindEntity(NPC, BIG_GORON, 7, 1, 0);
     if (entity != NULL) {
         entity->subAction = 2;
     }
 }
 
 void sub_0806D788(void) {
-    Entity* entity = FindEntity(7, 0x4c, 7, 2, 0);
+    Entity* entity = FindEntity(NPC, BIG_GORON, 7, 2, 0);
     if (entity != NULL) {
         entity->subAction = 4;
     }
-    entity = FindEntity(7, 0x4c, 7, 1, 0);
+    entity = FindEntity(NPC, BIG_GORON, 7, 1, 0);
     if (entity != NULL) {
         entity->subAction = 1;
     }
@@ -408,14 +408,14 @@ void sub_0806D7C4(Entity* this, ScriptExecutionContext* context) {
 
     this->x.HALF.HI = gPlayerEntity.x.HALF.HI;
     this->y.HALF.HI = gPlayerEntity.y.HALF.HI - 0x18;
-    entity = FindEntity(7, 0x4c, 7, 2, 0);
+    entity = FindEntity(NPC, BIG_GORON, 7, 2, 0);
     if (entity != NULL) {
         sub_0807DEDC(this, context, entity->x.HALF.HI, entity->y.HALF.HI);
     }
 }
 
 void sub_0806D804(Entity* this, ScriptExecutionContext* context) {
-    Entity* entity = FindEntity(7, 0x4c, 7, 2, 0);
+    Entity* entity = FindEntity(NPC, BIG_GORON, 7, 2, 0);
     if (entity != NULL) {
         this->x.HALF.HI = entity->x.HALF.HI;
         this->y.HALF.HI = entity->y.HALF.HI - 0x10;

@@ -517,7 +517,7 @@ void sub_080873FC(void) {
     SoundReq(SFX_APPARATE);
     gRoomControls.camera_target = NULL;
 
-    while (ent = FindEntityByID(0x6, 0x1b, 0x6), ent != NULL) {
+    while (ent = FindEntityByID(OBJECT, GREAT_FAIRY, 0x6), ent != NULL) {
         DeleteEntity(ent);
     }
 }
@@ -546,7 +546,7 @@ void sub_08087424(Entity* this, ScriptExecutionContext* context) {
 void sub_0808747C(Entity* this, ScriptExecutionContext* context) {
     u32 iVar1 = 0;
 
-    iVar1 = (u32)FindEntity(0x6, 0xf, 0x6, 0xb, 0x0);
+    iVar1 = (u32)FindEntity(OBJECT, SPECIAL_FX, 0x6, 0xb, 0x0);
     if (iVar1 != 0) {
         iVar1 = 1;
     }

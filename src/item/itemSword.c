@@ -112,7 +112,7 @@ void sub_080754B8(ItemBehavior* this, u32 arg1) {
 
         if (gPlayerEntity.frameSpriteSettings & 1) {
             iVar1 = sub_0807B014();
-            if (iVar1 && FindEntityByID(PLAYER_ITEM, 15, 2) == 0) {
+            if (iVar1 && FindEntityByID(PLAYER_ITEM, PLAYER_ITEM_SWORD_BEAM1, 2) == 0) {
                 CreatePlayerBomb(this, 0xf);
                 if (iVar1 == 0xf) {
                     gPlayerState.field_0xab = 5;

@@ -195,7 +195,7 @@ void sub_08094B94(Object6AEntity* this) {
 }
 
 void sub_08094BE0(Entity* this) {
-    Entity* e = FindEntity(6, OBJECT_6A, 6, 0x22, 0);
+    Entity* e = FindEntity(OBJECT, OBJECT_6A, 6, 0x22, 0);
     if (e != NULL) {
         CopyPosition(&gPlayerEntity, e);
         e->z.HALF.HI = -12;
@@ -257,14 +257,14 @@ void sub_08094CDC(Object6AEntity* this) {
 }
 
 void sub_08094D10(Object6AEntity* this) {
-    Entity* e = FindEntity(6, 0x6a, 6, 3, 98);
+    Entity* e = FindEntity(OBJECT, OBJECT_6A, 6, 3, 98);
     if (e != NULL) {
         e->action = 0xFF;
     }
 }
 
 void sub_08094D34(Object6AEntity* this) {
-    Entity* e = CreateObject(0x6a, 0x15, 0xd);
+    Entity* e = CreateObject(OBJECT_6A, 0x15, 0xd);
     if (e != NULL) {
         e->x.HALF.HI = gRoomControls.origin_x + Q_8_8(1.0);
         e->y.HALF.HI = gRoomControls.origin_y + Q_8_8(2.345);
@@ -273,7 +273,7 @@ void sub_08094D34(Object6AEntity* this) {
 }
 
 void sub_08094D70(Object6AEntity* this) {
-    Entity* e = FindEntity(6, 0x6a, 6, 0x15, 0xd);
+    Entity* e = FindEntity(OBJECT, OBJECT_6A, 6, 0x15, 0xd);
     if (e != NULL) {
         e->action = 0xFF;
     }
@@ -306,7 +306,7 @@ void sub_08094DD8(Object6AEntity* this) {
 }
 
 void sub_08094E0C(Object6AEntity* this) {
-    Entity* e = FindEntity(6, 0x6a, 6, 4, 0);
+    Entity* e = FindEntity(OBJECT, OBJECT_6A, 6, 4, 0);
     if (e != NULL) {
         e->action = 0xFF;
     }
@@ -483,7 +483,7 @@ void sub_08095120(Object6AEntity* this) {
 }
 
 void sub_08095164(Object6AEntity* this) {
-    Entity* e = FindEntity(6, 0x6A, 6, 8, 0);
+    Entity* e = FindEntity(OBJECT, OBJECT_6A, 6, 8, 0);
     if (e != NULL) {
         InitAnimationForceUpdate(e, 3);
     }

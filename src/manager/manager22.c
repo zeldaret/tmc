@@ -159,7 +159,7 @@ void sub_0805BB74(s32 lightLevel) {
     }
     gArea.lightLevel = lightLevel;
     gRoomVars.lightLevel = gArea.lightLevel;
-    manager = (Manager22*)DeepFindEntityByID(9, 0x22);
+    manager = (Manager22*)DeepFindEntityByID(MANAGER, 0x22);
     if (manager) {
         Manager22_Main(manager);
         gScreen.lcd.displayControl |= DISPCNT_BG3_ON;

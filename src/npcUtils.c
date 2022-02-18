@@ -34,7 +34,7 @@ void sub_0806EC20(Entity* ent) {
 }
 
 void sub_0806EC38(void) {
-    Entity* e = FindEntityByID(7, 0x58, 7);
+    Entity* e = FindEntityByID(NPC, NPC_UNK_58, 7);
     if (e != NULL)
         DeleteEntity(e);
 }

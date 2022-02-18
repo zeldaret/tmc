@@ -102,35 +102,35 @@ void sub_08063B68(Entity* this) {
 }
 
 void sub_08063C14(void) {
-    Entity* entity = DeepFindEntityByID(7, 0x14);
+    Entity* entity = DeepFindEntityByID(NPC, PINA);
     if (entity != NULL) {
         InitAnimationForceUpdate(entity, 8);
     }
 }
 
 void sub_08063C2C(void) {
-    Entity* entity = DeepFindEntityByID(7, 0x14);
+    Entity* entity = DeepFindEntityByID(NPC, PINA);
     if (entity != NULL) {
         InitAnimationForceUpdate(entity, 4);
     }
 }
 
 void sub_08063C44(void) {
-    Entity* entity = DeepFindEntityByID(7, 0x14);
+    Entity* entity = DeepFindEntityByID(NPC, PINA);
     if (entity != NULL) {
         InitAnimationForceUpdate(entity, 0);
     }
 }
 
 void sub_08063C5C(void) {
-    Entity* entity = DeepFindEntityByID(7, 0x14);
+    Entity* entity = DeepFindEntityByID(NPC, PINA);
     if (entity != NULL) {
         InitAnimationForceUpdate(entity, 9);
     }
 }
 
 void sub_08063C74(void) {
-    Entity* entity = DeepFindEntityByID(7, 0x14);
+    Entity* entity = DeepFindEntityByID(NPC, PINA);
     if (entity != NULL) {
         CreateSpeechBubbleExclamationMark(entity, 8, 0xffffffe8);
     }

@@ -10,6 +10,7 @@
 #include "game.h"
 #include "functions.h"
 #include "save.h"
+#include "playeritem.h"
 
 void sub_080249F4(Entity*);
 void sub_08024940(Entity*);
@@ -659,7 +660,7 @@ bool32 sub_08024B38(Entity* this) {
         }
     }
 
-    ent = FindEntityByID(8, 2, 2);
+    ent = FindEntityByID(PLAYER_ITEM, PLAYER_ITEM_BOMB, 2);
     if (ent) {
         do {
             if (ent->action != 2 && ent->z.HALF.HI == 0 && sub_08049F1C(this, ent, 0xa0)) {
@@ -676,7 +677,7 @@ bool32 sub_08024B38(Entity* this) {
         return iVar4;
     }
 
-    ent = FindEntityByID(6, 5, 6);
+    ent = FindEntityByID(OBJECT, POT, 6);
     if (ent) {
         do {
             if (ent->action == 1 && sub_08049F1C(this, ent, 0xa0)) {

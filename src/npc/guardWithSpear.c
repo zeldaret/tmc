@@ -1,12 +1,13 @@
 #include "entity.h"
 #include "script.h"
 #include "player.h"
+#include "npc.h"
 
 ASM_FUNC("asm/non_matching/guardWithSpear/sub_0806407C.inc",
          void sub_0806407C(Entity* this, ScriptExecutionContext* context))
 
 void sub_08064180(void) {
-    Entity* entity = FindEntityByID(7, 0x15, 7);
+    Entity* entity = FindEntityByID(NPC, GUARD_1, 7);
     if (entity != NULL) {
         DeleteEntity(entity);
     }

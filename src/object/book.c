@@ -2,6 +2,7 @@
 #include "functions.h"
 #include "message.h"
 #include "item.h"
+#include "npc.h"
 
 extern void (*const BookActionFuncs[])(Entity*);
 extern s8 const gUnk_08123D94[];
@@ -152,7 +153,7 @@ void sub_0809B5EC(Entity* this) {
         switch (this->subAction) {
             case 0: {
                 Entity* parent;
-                parent = FindEntityByID(7, 26, 7);
+                parent = FindEntityByID(NPC, STURGEON, 7);
                 if (!parent) {
                     return;
                 }

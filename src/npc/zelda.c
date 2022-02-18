@@ -30,7 +30,7 @@ void sub_08066CF8(Entity* this) {
 }
 
 void sub_08066D04(Entity* this) {
-    this->parent = DeepFindEntityByID(7, 0x2E);
+    this->parent = DeepFindEntityByID(NPC, ZELDA_FOLLOWER);
 }
 
 void sub_08066D14(Entity* this, ScriptExecutionContext* context) {
@@ -85,7 +85,7 @@ void sub_08066D94(Entity* this) {
 void SetZeldaFollowTarget(Entity* this) {
     Entity* pEVar1;
 
-    pEVar1 = DeepFindEntityByID(7, 0x2E);
+    pEVar1 = DeepFindEntityByID(NPC, ZELDA_FOLLOWER);
     if (pEVar1 != NULL) {
         CopyPosition(this, pEVar1);
         sub_080686C4(this, pEVar1);
