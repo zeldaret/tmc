@@ -96,29 +96,25 @@ void sub_080888F4(PressurePlateEntity* this) {
     }
 }
 
-static NONMATCH("asm/non_matching/pressurePlate/sub_08088938.inc", u32 sub_08088938(PressurePlateEntity* this)) {
+static u32 sub_08088938(PressurePlateEntity* this) {
     u16 x, y;
     s32 num;
-    u8* tmp;
     u32 i;
 
     num = 0;
     x = super->x.HALF.HI - 8;
     y = super->y.HALF.HI - 8;
-
-    tmp = &this->dir;
     for (i = 0; i < 8; ++i) {
-        Entity* e = gRoomVars.field_0x8c[8 + i];
+        Entity* e = gRoomVars.field_0xac[i];
         if (e != NULL) {
             if ((u16)(e->x.HALF.HI - x) < 0x11 && ((u16)(e->y.HALF_U.HI - y) < 0x11)) {
-                e->spriteOffsetY = sSpriteOffsets[*tmp];
+                e->spriteOffsetY = sSpriteOffsets[this->dir];
                 num++;
             }
         }
     }
     return num;
 }
-END_NONMATCH
 
 static u32 get_standing_count(PressurePlateEntity* this) {
     u32 num;
