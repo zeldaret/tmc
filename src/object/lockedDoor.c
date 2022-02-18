@@ -37,8 +37,6 @@ void LockedDoor(Entity* this) {
 
 extern Hitbox gHitbox_2;
 
-extern void sub_08078850(Entity*, u32, u32, u32);
-
 typedef struct PACKED {
     s8 x;
     s8 y;

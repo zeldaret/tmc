@@ -1,31 +1,317 @@
+/**
+ * @file chestSpawner.c
+ * @ingroup Objects
+ *
+ * @brief Chest Spawner object
+ */
+
+#define NENT_DEPRECATED
 #include "global.h"
-#include "entity.h"
+#include "object.h"
+#include "functions.h"
+#include "screen.h"
+#include "structures.h"
+#include "item.h"
 
-extern void sub_080842D8(Entity*);
-extern void sub_08078828(Entity*);
-extern void sub_08083E20(Entity*);
+typedef struct {
+    /*0x00*/ Entity base;
+    /*0x68*/ u8 unk_68[8];
+    /*0x70*/ u16 tilePosition;
+    /*0x72*/ u16 unk_72;
+    /*0x74*/ u8 unk_74[0x12];
+    /*0x86*/ u16 unk_86;
+} ChestSpawnerEntity;
 
-extern void (*const gUnk_0811F7E8[])(Entity*);
-extern void (*const gUnk_0811F808[])(Entity*);
-extern void (*const gUnk_0811F818[])(Entity*);
+extern const Hitbox gUnk_0811F8A8;
+extern const Hitbox gUnk_0811F8B0;
 
-extern u32 gUnk_0811F8B0;
-void ChestSpawner(Entity* this) {
-    gUnk_0811F7E8[this->type](this);
+void sub_080842D8(ChestSpawnerEntity*);
+void sub_08078828(ChestSpawnerEntity*);
+void sub_08083E20(ChestSpawnerEntity*);
+void sub_08084074(u32);
+void sub_080840A8(s32, s32);
+void ChestSpawner_Type0(ChestSpawnerEntity*);
+void ChestSpawner_Type2(ChestSpawnerEntity*);
+void ChestSpawner_Type0Init(ChestSpawnerEntity*);
+void ChestSpawner_Type0Action1(ChestSpawnerEntity*);
+void ChestSpawner_Type0Action2(ChestSpawnerEntity*);
+void ChestSpawner_Type0Action3(ChestSpawnerEntity*);
+void ChestSpawner_Type2Init(ChestSpawnerEntity*);
+void ChestSpawner_Type2Action1(ChestSpawnerEntity*);
+void ChestSpawner_Type2Action2(ChestSpawnerEntity*);
+void ChestSpawner_Type2Action3(ChestSpawnerEntity*);
+void ChestSpawner_Type2Action4(ChestSpawnerEntity*);
+void ChestSpawner_Type2Action5(ChestSpawnerEntity*);
+void ChestSpawner_Type2Action6(ChestSpawnerEntity*);
+void ChestSpawner_Type2Action7(ChestSpawnerEntity*);
+
+void ChestSpawner(ChestSpawnerEntity* this) {
+    static void (*const ChestSpawner_Types[])(ChestSpawnerEntity*) = {
+        ChestSpawner_Type0, ChestSpawner_Type0, ChestSpawner_Type2, ChestSpawner_Type2,
+        ChestSpawner_Type2, ChestSpawner_Type2, ChestSpawner_Type0, ChestSpawner_Type0,
+    };
+    ChestSpawner_Types[super->type](this);
 }
 
-void sub_08083DF0(Entity* this) {
-    gUnk_0811F808[this->action](this);
+void ChestSpawner_Type0(ChestSpawnerEntity* this) {
+    static void (*const ChestSpawner_Type0Actions[])(ChestSpawnerEntity*) = {
+        ChestSpawner_Type0Init,
+        ChestSpawner_Type0Action1,
+        ChestSpawner_Type0Action2,
+        ChestSpawner_Type0Action3,
+    };
+    ChestSpawner_Type0Actions[super->action](this);
 }
 
-void sub_08083E08(Entity* this) {
-    gUnk_0811F818[this->action](this);
+void ChestSpawner_Type2(ChestSpawnerEntity* this) {
+    static void (*const ChestSpawner_Type2Actions[])(ChestSpawnerEntity*) = {
+        ChestSpawner_Type2Init,    ChestSpawner_Type2Action1, ChestSpawner_Type2Action2, ChestSpawner_Type2Action3,
+        ChestSpawner_Type2Action4, ChestSpawner_Type2Action5, ChestSpawner_Type2Action6, ChestSpawner_Type2Action7,
+    };
+    ChestSpawner_Type2Actions[super->action](this);
 }
 
-void sub_08083E20(Entity* this) {
-    this->action = 3;
-    this->spriteSettings.draw = 1;
-    this->spriteRendering.alphaBlend = 0;
+void sub_08083E20(ChestSpawnerEntity* this) {
+    super->action = 3;
+    super->spriteSettings.draw = 1;
+    super->spriteRendering.alphaBlend = 0;
     sub_080842D8(this);
     sub_08078828(this);
 }
+void ChestSpawner_Type2Init(ChestSpawnerEntity* this) {
+    super->hitbox = (Hitbox*)&gUnk_0811F8B0;
+    if (CheckLocalFlag(super->type2)) {
+        super->spriteSettings.draw = 1;
+        super->action = 5;
+        sub_080842D8(this);
+        InitializeAnimation(super, 1);
+    } else {
+        if (CheckFlags(this->unk_86) || super->type == 4) {
+            sub_08083E20(this);
+        } else {
+            super->action = 1;
+        }
+        InitializeAnimation(super, 0);
+    }
+}
+
+void ChestSpawner_Type2Action1(ChestSpawnerEntity* this) {
+    if (CheckFlags(this->unk_86)) {
+        gScreen.controls.layerFXControl = 0xf40;
+        gScreen.controls.alphaBlend = 0x1000;
+        gUnk_02034490.unk0 = 1;
+        super->action = 2;
+        super->subAction = 0;
+        super->field_0xf = 0x1e;
+        super->spriteSettings.draw = 1;
+        super->spriteRendering.alphaBlend = 1;
+        RequestPriorityDuration(super, 0x1e);
+        sub_0805BC4C();
+    }
+}
+
+void ChestSpawner_Type2Action2(ChestSpawnerEntity* this) {
+    u32 tmp;
+
+    SetPriorityTimer(0x1e);
+    switch (super->subAction) {
+        case 0:
+            if (EntityInRectRadius(super, &gPlayerEntity, 0x10, 8)) {
+                sub_08078AC0(0x10, 0, 0);
+                gPlayerEntity.direction = 0x10;
+            }
+            super->subAction = 1;
+            break;
+        case 1:
+            if ((super->type == 5) || (gPlayerEntity.action == 1)) {
+                super->subAction = 2;
+                super->actionDelay = 8;
+                super->field_0xf = 0;
+                SoundReq(SFX_14A);
+            }
+            break;
+        default:
+            sub_0800445C(super);
+            CreateMagicSparkles(super->x.HALF.HI, super->y.HALF.HI, 2);
+            if (--super->actionDelay == 0) {
+                super->actionDelay = 8;
+                tmp = ++super->field_0xf;
+                gScreen.controls.alphaBlend = (((0x10 - tmp) * 0x100) & 0xff00) | tmp;
+                if (gScreen.controls.alphaBlend == 0x10) {
+                    gUnk_02034490.unk0 = 0;
+                    gScreen.controls.layerFXControl = 0;
+                    sub_08083E20(this);
+                    SoundReq(SFX_SECRET_BIG);
+                }
+            }
+            break;
+    }
+}
+
+void ChestSpawner_Type2Action3(ChestSpawnerEntity* this) {
+    sub_0800445C(super);
+    if (super->interactType != 0) {
+        super->action = 4;
+        super->field_0xf = 0x1e;
+        sub_080788E0(super);
+        RequestPriorityDuration(super, 0x3c);
+        SoundReq(SFX_CHEST_OPEN);
+    }
+}
+
+void ChestSpawner_Type2Action4(ChestSpawnerEntity* this) {
+    sub_0800445C(super);
+    GetNextFrame(super);
+    if ((super->frame & 0x80) != 0) {
+        if (--super->field_0xf == 0) {
+            if (super->actionDelay == 0x18) {
+                super->action = 6;
+                super->actionDelay = 8;
+                super->field_0xf = 0x10;
+            } else {
+                super->action = 5;
+                sub_08084074(super->type2);
+            }
+        }
+        SetLocalFlag(super->type2);
+    }
+}
+
+void sub_08084074(u32 param_1) {
+    u8* arr = (u8*)GetCurrentRoomProperty(3);
+    if (arr != NULL) {
+        for (; arr[0] != 0; arr += 8) {
+            if ((arr[0] == 3) && (param_1 == arr[1])) {
+                CreateItemEntity(arr[2], arr[3], 0);
+                return;
+            }
+        }
+    }
+}
+
+void sub_080840A8(s32 param_1, s32 param_2) {
+    static const u8 gUnk_0811F838[] = { 84, 84, 84, 84, 85, 85, 85, 86 };
+    static const s32 gUnk_0811F840[] = { 393216, 458752, 524288, 589824 };
+    static const s8 gUnk_0811F850[] = { -6, 0, 0, 6 };
+    Entity* obj = CreateObject(GROUND_ITEM, gUnk_0811F838[Random() & 7], 0);
+    if (obj != NULL) {
+        obj->actionDelay = 6;
+        obj->direction = ((Random() & 7) + 0xc) | 0x80;
+        obj->speed = (Random() & 0xf) * 2 + 0x20;
+        obj->zVelocity = gUnk_0811F840[Random() & 3];
+        obj->x.HALF.HI = gUnk_0811F850[Random() & 3] + param_1;
+        obj->y.HALF.HI = param_2 + 1;
+        obj->z.HALF.HI = 0xfff8;
+        ResolveCollisionLayer(obj);
+        obj = CreateFx(obj, FX_DASH, 0);
+        if (obj != NULL) {
+            SoundReq(SFX_124);
+        }
+    }
+}
+
+void ChestSpawner_Type2Action6(ChestSpawnerEntity* this) {
+    if (--super->actionDelay == 0) {
+        super->actionDelay = 8;
+        if (--super->field_0xf != 0) {
+            sub_080840A8(super->x.HALF.HI, super->y.HALF.HI);
+        } else {
+            super->action = 5;
+        }
+    }
+}
+
+void ChestSpawner_Type2Action5(ChestSpawnerEntity* this) {
+    sub_0800445C(super);
+}
+
+void ChestSpawner_Type2Action7(ChestSpawnerEntity* this) {
+}
+
+void ChestSpawner_Type0Init(ChestSpawnerEntity* this) {
+    super->action++;
+    this->tilePosition = COORD_TO_TILE(super);
+    super->hitbox = (Hitbox*)&gUnk_0811F8A8;
+    if (GetTileTypeByEntity(super) == 0x74) {
+        DeleteThisEntity();
+    }
+    if (CheckFlags(this->unk_86)) {
+        super->action = 3;
+        sub_0807B7D8(0x73, this->tilePosition, super->collisionLayer);
+        if ((super->type & 1) == 0) {
+            DeleteThisEntity();
+        }
+    }
+}
+
+void ChestSpawner_Type0Action1(ChestSpawnerEntity* this) {
+    if (CheckFlags(this->unk_86)) {
+        super->action = 2;
+    }
+}
+
+void ChestSpawner_Type0Action2(ChestSpawnerEntity* this) {
+    sub_0807B7D8(0x73, this->tilePosition, super->collisionLayer);
+    switch (super->type) {
+        case 6:
+        case 7:
+            SoundReq(SFX_215);
+            break;
+        default:
+            SoundReq(SFX_SECRET);
+            CreateDust(super);
+            break;
+    }
+    super->action = 3;
+    this->unk_72 = super->actionDelay * 0x3c;
+    if ((super->type & 1) == 0) {
+        DeleteThisEntity();
+    }
+}
+
+void ChestSpawner_Type0Action3(ChestSpawnerEntity* this) {
+    if ((super->type == 1) || (super->type == 7)) {
+        if (GetTileTypeByEntity(super) == 0x74) {
+            DeleteEntity(super);
+        } else {
+            if (!CheckFlags(this->unk_86)) {
+                if (this->unk_72 != 0) {
+                    this->unk_72--;
+                } else {
+                    super->action = 1;
+                    sub_0807BA8C(this->tilePosition, super->collisionLayer);
+                    CreateDust(super);
+                }
+            }
+        }
+    }
+}
+
+void sub_080842D8(ChestSpawnerEntity* this) {
+    static const u8 gUnk_0811F854[] = {
+        35, 64, 191, 255, 35, 64, 192, 255, 38, 64, 255, 255, 38, 64, 0, 0, 255, 255,
+    };
+    static const u8 gUnk_0811F866[] = {
+        39, 64, 191, 255, 35, 64, 192, 255, 40, 64, 193, 255, 41, 64, 255, 255, 38, 64, 0, 0, 42, 64, 1, 0, 255, 255,
+    };
+    static const u8 gUnk_0811F880[] = {
+        34, 64, 255, 255, 34, 64, 0, 0, 255, 255,
+    };
+    static const u8 gUnk_0811F88A[] = {
+        36, 64, 255, 255, 34, 64, 0, 0, 37, 64, 1, 0, 255, 255,
+    };
+    static const u8* const gUnk_0811F898[] = {
+        gUnk_0811F854,
+        gUnk_0811F866,
+        gUnk_0811F880,
+        gUnk_0811F88A,
+    };
+    s32 index = -(-(super->x.HALF.HI & 8) >> 0x1f);
+    if ((super->y.HALF.HI & 8) != 0) {
+        index += 2;
+    }
+    sub_0801AF18((u8*)gUnk_0811F898[index], COORD_TO_TILE(super), super->collisionLayer);
+}
+
+const Hitbox gUnk_0811F8A8 = { 0, -3, { 0, 0, 0, 0 }, 6, 6 };
+const Hitbox gUnk_0811F8B0 = { 0, -3, { 0, 0, 0, 0 }, 12, 6 };

@@ -5,7 +5,6 @@
 
 extern void (*gUnk_08113D8C[])(Entity*);
 
-extern void sub_08078850(Entity*, u32, u8, u32*);
 extern u32 gUnk_08113D84[];
 
 void Gregal(Entity* this) {
@@ -32,7 +31,7 @@ void sub_0806CAF4(Entity* this) {
         }
         sub_0807DD64(this);
         sub_08078778(this);
-        sub_08078850(this, 1, gUnk_08113D84[1], gUnk_08113D84);
+        sub_08078850(this, 1, (u8)gUnk_08113D84[1], gUnk_08113D84);
     }
     ExecuteScriptForEntity(this, NULL);
     HandleEntity0x82Actions(this);

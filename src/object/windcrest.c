@@ -4,8 +4,7 @@
 #include "save.h"
 #include "script.h"
 #include "effects.h"
-
-extern void sub_08078850(Entity*, u32, u32, u8*);
+#include "functions.h"
 
 extern u8 gUnk_08125010;
 

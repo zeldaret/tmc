@@ -8,7 +8,6 @@
 extern void (*const gUnk_081104C8[])(Entity*);
 
 bool32 sub_0806650C(Entity*);
-extern void sub_08078AC0(u32, u32, u32);
 
 void sub_08066490(Entity*, Entity*);
 

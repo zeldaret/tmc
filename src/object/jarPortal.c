@@ -5,7 +5,6 @@
 extern void (*gUnk_08121488[])(Entity*);
 
 extern u32 sub_08057810(void);
-extern void CreateMagicSparkles(u32, u32, u32);
 
 u32 sub_0808C128(Entity*);
 void sub_0808C13C(Entity*);

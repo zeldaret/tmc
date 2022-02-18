@@ -42273,51 +42273,6 @@
     "type": "animation"
   },
   {
-    "path": "chestSpawner/gUnk_0811F838.bin",
-    "start": 1177656,
-    "size": 8
-  },
-  {
-    "path": "chestSpawner/gUnk_0811F840.bin",
-    "start": 1177664,
-    "size": 16
-  },
-  {
-    "path": "chestSpawner/gUnk_0811F850.bin",
-    "start": 1177680,
-    "size": 4
-  },
-  {
-    "path": "chestSpawner/gUnk_0811F854.bin",
-    "start": 1177684,
-    "size": 18
-  },
-  {
-    "path": "chestSpawner/gUnk_0811F866.bin",
-    "start": 1177702,
-    "size": 26
-  },
-  {
-    "path": "chestSpawner/gUnk_0811F880.bin",
-    "start": 1177728,
-    "size": 10
-  },
-  {
-    "path": "chestSpawner/gUnk_0811F88A.bin",
-    "start": 1177738,
-    "size": 14
-  },
-  {
-    "path": "chestSpawner/gUnk_0811F8A8.bin",
-    "start": 1177768,
-    "size": 8
-  },
-  {
-    "path": "chestSpawner/gUnk_0811F8B0.bin",
-    "start": 1177776,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_ObjectD_0.bin",
     "start": 1177880,
     "size": 45,
@@ -43590,21 +43545,6 @@
     "type": "animation"
   },
   {
-    "path": "bossDoor/gUnk_081214F4.bin",
-    "start": 1185012,
-    "size": 8
-  },
-  {
-    "path": "bossDoor/gUnk_081214FC.bin",
-    "start": 1185020,
-    "size": 16
-  },
-  {
-    "path": "bossDoor/gUnk_0812150C.bin",
-    "start": 1185036,
-    "size": 8
-  },
-  {
     "path": "object3A/gUnk_081215E8.bin",
     "start": 1185256,
     "size": 80
@@ -43641,21 +43581,6 @@
     "size": 20
   },
   {
-    "path": "object3E/gUnk_08121704.bin",
-    "start": 1185540,
-    "size": 28
-  },
-  {
-    "path": "object3E/gUnk_08121720.bin",
-    "start": 1185568,
-    "size": 12
-  },
-  {
-    "path": "object3E/gUnk_08121738.bin",
-    "start": 1185592,
-    "size": 24
-  },
-  {
     "path": "giantLeaf/gUnk_08121750.bin",
     "start": 1185616,
     "size": 26
@@ -43664,11 +43589,6 @@
     "path": "giantLeaf/gUnk_0812176A.bin",
     "start": 1185642,
     "size": 26
-  },
-  {
-    "path": "fairy/gUnk_081217A4.bin",
-    "start": 1185700,
-    "size": 4
   },
   {
     "path": "object42/gUnk_081217B8.bin",
@@ -44929,21 +44849,6 @@
     "size": 6
   },
   {
-    "path": "objectOnPillar/gUnk_08123264.bin",
-    "start": 1192548,
-    "size": 8
-  },
-  {
-    "path": "objectOnPillar/gUnk_08123274.bin",
-    "start": 1192564,
-    "size": 8
-  },
-  {
-    "path": "objectOnPillar/gUnk_0812327C.bin",
-    "start": 1192572,
-    "size": 28
-  },
-  {
     "path": "mineralWaterSource/MineralWaterSourceParameters.bin",
     "start": 1192608,
     "size": 4
@@ -45039,11 +44944,6 @@
     "path": "macroShoes/gUnk_081234FC.bin",
     "start": 1193212,
     "size": 8
-  },
-  {
-    "path": "objectOnSpinyBeetle/gUnk_08123558.bin",
-    "start": 1193304,
-    "size": 16
   },
   {
     "path": "animations/gSpriteAnimations_PicoBloom_0.bin",
@@ -45225,11 +45125,6 @@
     "path": "macroBook/gUnk_08123C90.bin",
     "start": 1195152,
     "size": 40
-  },
-  {
-    "path": "doubleBookshelf/gUnk_08123D68.bin",
-    "start": 1195368,
-    "size": 20
   },
   {
     "path": "object91/gUnk_08123DDC.bin",
@@ -45500,11 +45395,6 @@
     "start": 1198088,
     "size": 20,
     "type": "animation"
-  },
-  {
-    "path": "objectA8/gUnk_0812484C.bin",
-    "start": 1198156,
-    "size": 4
   },
   {
     "path": "objectA9/gUnk_0812485C.bin",
@@ -47349,61 +47239,6 @@
     "offsets": {
       "EU": -2484
     }
-  },
-  {
-    "path": "data_08132B30/gUnk_08133918.bin",
-    "start": 1259800,
-    "size": 32
-  },
-  {
-    "path": "data_08132B30/gUnk_08133938.bin",
-    "start": 1259832,
-    "size": 32
-  },
-  {
-    "path": "data_08132B30/gUnk_08133958.bin",
-    "start": 1259864,
-    "size": 32
-  },
-  {
-    "path": "data_08132B30/gUnk_08133978.bin",
-    "start": 1259896,
-    "size": 32
-  },
-  {
-    "path": "data_08132B30/gUnk_08133998.bin",
-    "start": 1259928,
-    "size": 32
-  },
-  {
-    "path": "data_08132B30/gUnk_081339B8.bin",
-    "start": 1259960,
-    "size": 32
-  },
-  {
-    "path": "data_08132B30/gUnk_081339D8.bin",
-    "start": 1259992,
-    "size": 32
-  },
-  {
-    "path": "data_08132B30/gUnk_081339F8.bin",
-    "start": 1260024,
-    "size": 32
-  },
-  {
-    "path": "data_08132B30/gUnk_08133A40.bin",
-    "start": 1260096,
-    "size": 26
-  },
-  {
-    "path": "data_08132B30/gUnk_08133A5A.bin",
-    "start": 1260122,
-    "size": 13
-  },
-  {
-    "path": "data_08132B30/gUnk_08133A67.bin",
-    "start": 1260135,
-    "size": 1249
   },
   {
     "path": "exit_lists/gExitList_NoExitList.bin",

@@ -5,13 +5,12 @@
 #include "script.h"
 #include "npc.h"
 #include "game.h"
+#include "functions.h"
 
 typedef struct {
     u32 unk_00;
     s8 unk_04;
 } gUnk_0810C89C_struct;
-
-extern void sub_08078850(Entity*, u32, s8, gUnk_0810C89C_struct*);
 
 extern u8 gUnk_0810C88C[];
 extern Hitbox gUnk_0810C894;

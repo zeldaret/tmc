@@ -8,7 +8,6 @@ extern void sub_0806ACC4(Entity*);
 extern void sub_0806AEA8(Entity*);
 extern void sub_0806AEE4(Entity*);
 extern void sub_0806AFE8(Entity*, ScriptExecutionContext*);
-extern void sub_08078850(Entity*, u32, u32, u32*);
 
 extern u8 gUnk_081125F4[12];
 extern SpriteLoadData gUnk_08112674[];

@@ -65,13 +65,13 @@ s32 sub_08078828(Entity* ent) {
     return iVar1;
 }
 
-void sub_08078850(u32 arg0, u32 arg1, u32 arg2, u32 arg3) {
+void sub_08078850(Entity* arg0, u32 arg1, u32 arg2, void* arg3) {
     s32 iVar1;
 
     iVar1 = sub_08078904();
     if (iVar1 >= 0) {
         gUnk_03003DF0[iVar1].unk[8] = arg1;
         gUnk_03003DF0[iVar1].unk[10] = arg2;
-        *(&gUnk_03003DF0[iVar1].unk4 + 1) = arg3;
+        *(&gUnk_03003DF0[iVar1].unk4 + 1) = (u32)arg3;
     }
 }

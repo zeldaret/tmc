@@ -7,6 +7,7 @@
 #include "player.h"
 #include "sound.h"
 #include "object.h"
+#include "functions.h"
 
 // Facilitates the usage of minish portals.
 
@@ -27,7 +28,6 @@ typedef struct {
 extern s8 gUnk_08107C6C[];
 extern u32 sub_08057810(void);
 extern u32 sub_080002C0(u16, u16, u8);
-extern void CreateMagicSparkles(u32, u32, u32);
 
 void Manager3_Main(Manager3* this) {
     s8 tmp;

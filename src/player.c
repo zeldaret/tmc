@@ -113,8 +113,8 @@ static EntityAction PortalStandUpdate;
 static EntityAction PortalActivateInit;
 static EntityAction PortalActivateUpdate;
 static EntityAction PortalShrinkInit;
-static EntityAction PortalShrinkUpdate;
-static EntityAction PortalEnterUpdate;
+/*static*/ EntityAction PortalShrinkUpdate;
+/*static*/ EntityAction PortalEnterUpdate;
 static EntityAction PortalUnknownUpdate;
 
 // PLAYER_TALKEZLO
@@ -187,8 +187,8 @@ static EntityAction sub_08072C48;
 // PLAYER_08072C9C
 static EntityAction sub_08072CC0;
 static EntityAction sub_08072CFC;
-static EntityAction sub_08072D54;
-static EntityAction sub_08072F14;
+/*static*/ EntityAction sub_08072D54;
+/*static*/ EntityAction sub_08072F14;
 
 // PLAYER_CLIMB
 static EntityAction sub_08072F94;
@@ -204,8 +204,8 @@ static EntityAction sub_080733BC;
 static EntityAction sub_08073468;
 static EntityAction sub_080734D4;
 static EntityAction sub_08073504;
-static EntityAction sub_08073584;
-static EntityAction sub_0807379C;
+/*static*/ EntityAction sub_08073584;
+/*static*/ EntityAction sub_0807379C;
 static EntityAction sub_080737BC;
 static EntityAction sub_0807380C;
 static EntityAction sub_08073884;
@@ -226,7 +226,7 @@ static EntityAction sub_08073F4C;
 static EntityAction sub_08073FD0;
 static EntityAction sub_08074018;
 static EntityAction sub_08074060;
-static EntityAction sub_080740D8;
+/*static*/ EntityAction sub_080740D8;
 
 // PLAYER_08074C44
 static EntityAction sub_08074C68;
@@ -1178,9 +1178,9 @@ static const u8 gUnk_0811BABC[] = {
 };
 
 // horrible
-static ASM_FUNC("asm/non_matching/player/PortalShrinkUpdate.inc", void PortalShrinkUpdate(Entity* this));
+/*static*/ ASM_FUNC("asm/non_matching/player/PortalShrinkUpdate.inc", void PortalShrinkUpdate(Entity* this));
 
-static void PortalEnterUpdate(Entity* this) {
+/*static*/ void PortalEnterUpdate(Entity* this) {
     if (this->actionDelay == 0) {
         if (GravityUpdate(this, GRAVITY_RATE))
             return;
@@ -2311,7 +2311,7 @@ static const u16* const sTileTable[] = {
     sTiles + 9,
 };
 
-static NONMATCH("asm/non_matching/player/sub_08072D54.inc", void sub_08072D54(Entity* this)) {
+/*static*/ NONMATCH("asm/non_matching/player/sub_08072D54.inc", void sub_08072D54(Entity* this)) {
     u32 bVar1;
     u32 uVar2;
 
@@ -2398,7 +2398,7 @@ static NONMATCH("asm/non_matching/player/sub_08072D54.inc", void sub_08072D54(En
 }
 END_NONMATCH
 
-static void sub_08072F14(Entity* this) {
+/*static*/ void sub_08072F14(Entity* this) {
     if (--this->actionDelay != 0xff) {
         sub_0807921C();
     } else {
@@ -2729,7 +2729,7 @@ static const u16 gUnk_0811BC30[] = {
     0x0720,
 };
 
-static NONMATCH("asm/non_matching/player/sub_08073584.inc", void sub_08073584(Entity* this)) {
+/*static*/ NONMATCH("asm/non_matching/player/sub_08073584.inc", void sub_08073584(Entity* this)) {
     u32 state, dir, tmp, tmp2, idx;
 
     if ((gPlayerState.field_0x92 & 0x80) || this->iframes > 0 || gPlayerState.field_0x3c[0] ||
@@ -2821,7 +2821,7 @@ static NONMATCH("asm/non_matching/player/sub_08073584.inc", void sub_08073584(En
 }
 END_NONMATCH
 
-static void sub_0807379C(Entity* this) {
+/*static*/ void sub_0807379C(Entity* this) {
     if (this->z.HALF.HI > -32) {
         this->z.HALF.HI--;
     } else {
@@ -3244,7 +3244,7 @@ static void sub_08074060(Entity* this) {
     }
 }
 
-static NONMATCH("asm/non_matching/player/sub_080740D8.inc", void sub_080740D8(Entity* this)) {
+/*static*/ NONMATCH("asm/non_matching/player/sub_080740D8.inc", void sub_080740D8(Entity* this)) {
     int v1;          // r5
     int v2;          // r6
     unsigned int v4; // r0

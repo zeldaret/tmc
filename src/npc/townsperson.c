@@ -13,7 +13,6 @@ extern void (*const gUnk_0810B77C[])(Entity*);
 extern void sub_08061CB4(Entity*, u32);
 extern void sub_08061D64(Entity*);
 extern void sub_08062048(Entity*);
-extern void sub_08078850(Entity*, u32, u8, u32*);
 
 extern SpriteLoadData* gUnk_0810B6EC[];
 extern u8 gUnk_0810B78C[];
