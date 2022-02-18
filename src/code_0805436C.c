@@ -165,8 +165,7 @@ u32 GetBottleContaining(u32 id) {
     }
 }
 
-NONMATCH("asm/non_matching/sub_08054524.inc", void sub_08054524(void)) {
-    // reg-alloc
+void sub_08054524(void) {
     u32 bVar1;
 
     bVar1 = gArea.locationIndex;
@@ -177,9 +176,9 @@ NONMATCH("asm/non_matching/sub_08054524.inc", void sub_08054524(void)) {
         bVar1 = 0;
     }
 
-    MemCopy(&gAreaDroptables[0] + gUnk_080FE1C6[bVar1] * 0x8, &gRoomVars.currentAreaDroptable, 0x20);
+    bVar1 = gUnk_080FE1C6[bVar1];
+    MemCopy(&gAreaDroptables[bVar1], &gRoomVars.currentAreaDroptable, 0x20);
 }
-END_NONMATCH
 
 void sub_08054564(void) {
     gRoomVars.field_0x2 = 1;
