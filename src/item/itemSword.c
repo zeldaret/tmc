@@ -2,13 +2,19 @@
 #include "functions.h"
 #include "sound.h"
 #include "object.h"
+#include "playeritem.h"
 
 extern void (*const gUnk_0811BD44[])(ItemBehavior*, u32);
 extern void sub_08077B98(ItemBehavior*);
+extern void UpdatePlayerMovement(void);
+extern u32 sub_0807B014();
+extern Entity* CreatePlayerBomb(ItemBehavior*, u32);
+extern bool32 sub_08077F10(ItemBehavior*);
 
 void sub_080759B8(ItemBehavior*, u32);
 void sub_080754B8(ItemBehavior*, u32);
 void sub_08075898(ItemBehavior*, u32);
+void sub_08075580(ItemBehavior*, u32);
 
 extern u32 sub_08077EC8(ItemBehavior*);
 
@@ -93,7 +99,40 @@ void sub_08075338(ItemBehavior* this, u32 arg1) {
     sub_08077B98(this);
 }
 
-ASM_FUNC("asm/non_matching/itemSword/sub_080754B8.inc", void sub_080754B8(ItemBehavior* this, u32 arg1))
+void sub_080754B8(ItemBehavior* this, u32 arg1) {
+    u32 iVar1;
+
+    if ((gPlayerState.sword_state & 0x80) != 0) {
+        sub_08075694(this, arg1);
+    } else if (gPlayerState.field_0x3[1] != 0) {
+        UpdateItemAnim(this);
+        if (this->field_0x5[9] != 0) {
+            this->field_0x5[4] = this->field_0x5[4] & 0x7f;
+        }
+
+        if (gPlayerEntity.frameSpriteSettings & 1) {
+            iVar1 = sub_0807B014();
+            if (iVar1 && FindEntityByID(PLAYER_ITEM, 15, 2) == 0) {
+                CreatePlayerBomb(this, 0xf);
+                if (iVar1 == 0xf) {
+                    gPlayerState.field_0xab = 5;
+                } else {
+                    gPlayerState.field_0xab = 8;
+                }
+            }
+        }
+
+        if ((this->field_0x5[9] & 0x80) != 0) {
+            if (((gPlayerState.flags & 0x80) != 0) || ((gPlayerState.field_0xac & 1) == 0)) {
+                sub_080759B8(this, arg1);
+            } else {
+                sub_08075580(this, arg1);
+            }
+        }
+    } else {
+        sub_080759B8(this, arg1);
+    }
+}
 
 void sub_08075580(ItemBehavior* this, u32 arg1) {
     if ((sub_08077EFC(this) != 0) && (gPlayerState.jump_status == 0)) {
@@ -165,7 +204,59 @@ void sub_08075694(ItemBehavior* this, u32 arg1) {
     SoundReq(SFX_PLY_VO2);
 }
 
-ASM_FUNC("asm/non_matching/itemSword/sub_08075738.inc", void sub_08075738(ItemBehavior* this, u32 arg1))
+void sub_08075738(ItemBehavior* this, u32 arg1) {
+    u32 bVar6;
+
+    if (gPlayerState.field_0x3[1] == 0) {
+        sub_080759B8(this, arg1);
+    } else {
+        UpdateItemAnim(this);
+        if (sub_08077F10(this)) {
+            this->field_0x5[2] = 2;
+        }
+
+        if ((gPlayerState.sword_state & 0x10) != 0) {
+            if ((gPlayerState.field_0xd & 0x80) == 0) {
+                this->field_0x5[6] = gPlayerState.field_0xd;
+            }
+            gPlayerEntity.direction = this->field_0x5[6];
+            gPlayerEntity.speed = 0x180;
+            if ((this->field_0x5[9] & 0x80) != 0) {
+                bVar6 = 10;
+                if ((gPlayerState.field_0xac & 0x800) != 0) {
+                    bVar6 = 0xf;
+                }
+
+                if ((bVar6 <= ++this->field_0x5[3]) || (--this->field_0x5[2] == 0)) {
+                    sub_080759B8(this, arg1);
+                }
+            }
+        } else {
+            if (((((gPlayerEntity.frameSpriteSettings & 1) != 0) && ((gPlayerState.sword_state & 0x80) == 0)) &&
+                 ((gPlayerState.field_0xac & 0x100) != 0))) {
+                Entity* bombEnt = CreatePlayerBomb(this, 0x14);
+                if (bombEnt) {
+                    bombEnt->animationState = (gPlayerEntity.animationState & 6) | 0x80;
+                }
+            }
+
+            if ((((gPlayerEntity.frameSpriteSettings & 2) != 0) && ((gPlayerState.sword_state & 0x80) == 0)) &&
+                (((gPlayerState.field_0xac & 0x20) != 0 && (--this->field_0x5[2] != 0)))) {
+                gPlayerState.sword_state |= 0x10;
+                gPlayerState.field_0xab = 6;
+                this->field_0x5[6] = gPlayerEntity.animationState << 2;
+                this->field_0x5[2] = 1;
+                this->field_0x5[3] = 1;
+                gPlayerState.field_0xa = gPlayerState.field_0xa & ~(8 >> arg1);
+                sub_08077DF4(this, 0x128);
+            }
+
+            if ((this->field_0x5[9] & 0x80) != 0) {
+                sub_080759B8(this, arg1);
+            }
+        }
+    }
+}
 
 void sub_08075898(ItemBehavior* this, u32 arg1) {
     if (gPlayerState.field_0x3[1] == 0) {
@@ -190,7 +281,36 @@ void sub_080758B0(ItemBehavior* this, u32 arg1) {
     }
 }
 
-ASM_FUNC("asm/non_matching/itemSword/sub_08075900.inc", void sub_08075900(ItemBehavior* this, u32 arg1))
+void sub_08075900(ItemBehavior* this, u32 arg1) {
+    if (gPlayerState.floor_type == SURFACE_SWAMP) {
+        gPlayerState.flags &= ~PL_ROLLING;
+        sub_080759B8(this, arg1);
+    } else {
+        UpdateItemAnim(this);
+        if ((gPlayerState.sword_state & 0x80) != 0) {
+            gPlayerState.sword_state = 0xa0;
+            sub_0807564C(this, arg1);
+
+        } else {
+            if (this->field_0x5[2] != 0) {
+                if (--this->field_0x5[2] == 0) {
+                    sub_08077DF4(this, 0x134);
+                }
+                gPlayerEntity.direction = (gPlayerEntity.animationState >> 1) << 3;
+                gPlayerEntity.speed = 0x300;
+                UpdatePlayerMovement();
+                if ((gRoomTransition.frameCount & 3) == 0) {
+                    CreateFx(&gPlayerEntity, FX_DASH, 0x40);
+                }
+            } else {
+                if ((this->field_0x5[9] & 0x80) != 0) {
+                    gPlayerState.flags &= ~PL_ROLLING;
+                    sub_080759B8(this, arg1);
+                }
+            }
+        }
+    }
+}
 
 void sub_080759B8(ItemBehavior* this, u32 arg1) {
     if ((gPlayerState.flags & PL_MINISH) == 0) {
