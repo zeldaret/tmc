@@ -6,33 +6,13 @@
 #include "sound.h"
 #include "room.h"
 #include "functions.h"
+#include "color.h"
 
 const u8 gSpriteSortAboveTable[];
 const u8 gSpriteSortBelowTable[];
 const u8 gUnk_08114F58[];
 const u8 gUnk_08114F38[];
 
-typedef struct {
-    struct {
-        u8 unk0 : 1;
-        u8 unk1 : 1;
-        u8 unk2 : 1;
-        u8 unk3 : 1;
-        u8 unk4 : 4;
-    } PACKED unk_00;
-    u8 unk_01;
-    u16 unk_02;
-    union SplitWord unk_04;
-    union SplitWord unk_08;
-    union SplitWord unk_0C;
-} struct_gUnk_020000C0_1;
-typedef struct {
-    struct_gUnk_020000C0_1 unk_00[4];
-} struct_gUnk_020000C0;
-
-static_assert(sizeof(struct_gUnk_020000C0) == 0x40);
-
-extern struct_gUnk_020000C0 gUnk_020000C0[0x30];
 extern u32 gSpritePtrs[];
 
 extern u16 gExtraFrameOffsets[];
