@@ -6,23 +6,56 @@
 #include "save.h"
 #include "structures.h"
 
-extern void (*const gUnk_0811B9D8[])(Entity*);
-
-void sub_080704FC(Entity*);
+void PlayerItemPacciCane_Action1(Entity*);
+void PlayerItemPacciCane_Init(Entity* this);
 
 void PlayerItemPacciCane(Entity* this) {
-    gUnk_0811B9D8[this->action](this);
+    static void (*const PlayerItemPacciCane_Actions[])(Entity*) = {
+        PlayerItemPacciCane_Init,
+        PlayerItemPacciCane_Action1,
+    };
+    PlayerItemPacciCane_Actions[this->action](this);
 }
 
-void sub_080704D4(Entity* this) {
+void PlayerItemPacciCane_Init(Entity* this) {
     this->action = 1;
     this->frameIndex = -1;
     LoadSwapGFX(this, 1, 3);
     SoundReq(SFX_10E);
-    sub_080704FC(this);
+    PlayerItemPacciCane_Action1(this);
 }
 
-ASM_FUNC("asm/non_matching/playerItemPacciCane/sub_080704FC.inc", void sub_080704FC(Entity* this))
+void PlayerItemPacciCane_Action1(Entity* this) {
+    u32 playerFrame;
+    u32 frameIndex;
+    u32 flipX;
+    if (((gPlayerEntity.frame & 0x80) != 0) || (this != gPlayerState.item)) {
+        if (this == gPlayerState.item) {
+            gPlayerState.item = NULL;
+        }
+        DeleteEntity(this);
+    } else {
+        playerFrame = gPlayerEntity.frame & 0xf;
+        if (playerFrame != 0xf) {
+            frameIndex = gPlayerEntity.frameIndex;
+            playerFrame += 0x91;
+            if (frameIndex - playerFrame != this->frameIndex) {
+                this->frameIndex = frameIndex + 0x6f;
+                sub_080042D0(this, this->frameIndex, this->spriteIndex);
+            }
+            sub_08078E84(this, &gPlayerEntity);
+        } else {
+            this->frameIndex = -1;
+        }
+    }
+
+    if ((gPlayerEntity.animationState & 2)) {
+        flipX = gPlayerEntity.spriteSettings.flipX ^ 1;
+    } else {
+        flipX = gPlayerEntity.spriteSettings.flipX;
+    }
+    this->spriteSettings.flipX = flipX;
+}
 
 // TODO This name sounds like this does not belong in this file
 void ClearMenuSavestate(void) {
