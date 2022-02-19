@@ -3313,55 +3313,42 @@ static void sub_08074060(Entity* this) {
     }
 }
 
-/*static*/ NONMATCH("asm/non_matching/player/sub_080740D8.inc", void sub_080740D8(Entity* this)) {
-    int v1;          // r5
-    int v2;          // r6
-    unsigned int v4; // r0
-    Hitbox* v5;      // r2
-    int v6;          // r0
+void sub_080740D8(Entity* this) {
+    int y;
+    int x;
+    u32 dir;
 
     UpdateAnimationSingleFrame(this);
     if (!this->field_0xf)
-        v4 = this->direction;
+        dir = this->direction;
     else
-        v4 = this->direction ^ 0x10;
-    switch (v4) {
+        dir = DirectionTurnAround(this->direction);
+    switch (dir) {
         case 24:
-            v5 = this->hitbox;
-            v2 = this->x.HALF.HI - v5->unk2[0] + v5->offset_x - gRoomControls.origin_x;
-            v6 = this->y.HALF.HI;
-            v1 = v6 + v5->offset_y - gRoomControls.origin_y;
+            x = this->x.HALF.HI - this->hitbox->unk2[0] + this->hitbox->offset_x - gRoomControls.origin_x;
+            y = this->y.HALF.HI + this->hitbox->offset_y - gRoomControls.origin_y;
             break;
         case 8:
-            v5 = this->hitbox;
-            v2 = this->x.HALF.HI + v5->unk2[0] + v5->offset_x - gRoomControls.origin_x;
-            v6 = this->y.HALF.HI;
-            v1 = v6 + v5->offset_y - gRoomControls.origin_y;
+            x = this->x.HALF.HI + this->hitbox->unk2[0] + this->hitbox->offset_x - gRoomControls.origin_x;
+            y = this->y.HALF.HI + this->hitbox->offset_y - gRoomControls.origin_y;
             break;
         case 16:
-            v5 = this->hitbox;
-            v2 = this->x.HALF.HI + v5->offset_x - gRoomControls.origin_x;
-            v6 = this->y.HALF.HI + v5->unk2[3];
-            v1 = v6 + v5->offset_y - gRoomControls.origin_y;
+            x = this->x.HALF.HI + this->hitbox->offset_x - gRoomControls.origin_x;
+            y = this->y.HALF.HI + this->hitbox->unk2[3] + this->hitbox->offset_y - gRoomControls.origin_y;
             break;
         case 0:
-            v5 = this->hitbox;
-            v2 = this->x.HALF.HI + v5->unk2[0] + v5->offset_x - gRoomControls.origin_x;
-            v6 = this->y.HALF.HI;
-            v1 = v6 + v5->offset_y - gRoomControls.origin_y;
-            break;
-        default:
+            x = this->x.HALF.HI + this->hitbox->offset_x - gRoomControls.origin_x;
+            y = this->y.HALF.HI - this->hitbox->unk2[3] + this->hitbox->offset_y - gRoomControls.origin_y;
             break;
     }
 
-    if (sub_080086B4(v2, v1, gUnk_080082DC))
+    if (sub_080086B4(x, y, gUnk_080082DC))
         LinearMoveUpdate(this);
     else
         this->field_0xf = 1;
     if (!GravityUpdate(this, GRAVITY_RATE))
         sub_0807921C();
 }
-END_NONMATCH
 
 u32 sub_080741C4(void) {
     if ((gPlayerState.jump_status && (gPlayerState.jump_status & 7) != 3) || gPlayerEntity.z.WORD != 0) {
