@@ -1174,11 +1174,10 @@ static void PortalShrinkInit(Entity* this) {
     SoundReq(SFX_PLY_SHRINKING);
 }
 
-static const u8 gUnk_0811BABC[] = {
-    1, 1, 1, 1, 2, 4, 8, 16,
-};
-
 void PortalShrinkUpdate(Entity* this) {
+    static const u8 gUnk_0811BABC[] = {
+        1, 1, 1, 1, 2, 4, 8, 16,
+    };
     int iVar3;
     u32 uVar5;
     u32 uVar7;
