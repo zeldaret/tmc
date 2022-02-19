@@ -322,25 +322,26 @@ extern u16 script_BedAtSimons;
 
 extern ScriptExecutionContext gPlayerScriptExecutionContext;
 
-NONMATCH("asm/non_matching/playerItemPacciCane/CheckPlayerInactive.inc", u32 CheckPlayerInactive(void)) {
-    if (!((gInput.newKeys & START_BUTTON) == 0 || gFadeControl.active || gUnk_02034490.unk0 ||
-          (gMessage.doTextBox & 0x7F) || gSave.stats.health == 0 || !gSave.fillerD0[34] ||
-          gPlayerState.controlMode != CONTROL_ENABLED || gPriorityHandler.priority_timer != 0)) {
-        u32 tmp = gPlayerState.framestate ? gPlayerState.framestate : gPlayerState.framestate_last;
-        switch (tmp) {
-            case PL_STATE_DIE:
-            case PL_STATE_TALKEZLO:
-            case PL_STATE_ITEMGET:
-            case PL_STATE_DROWN:
-            case PL_STATE_STAIRS:
-                return 0;
-        }
-        sub_080A4D88();
-        return 1;
+u32 CheckPlayerInactive(void) {
+    u32 framestate;
+    if (((gInput.newKeys & START_BUTTON) == 0 || gFadeControl.active || gUnk_02034490.unk0 ||
+         (gMessage.doTextBox & 0x7F) || gSave.stats.health == 0 || !gSave.fillerD0[34] ||
+         gPlayerState.controlMode != 0 || gPriorityHandler.priority_timer != 0)) {
+        return 0;
     }
-    return 0;
+
+    framestate = gPlayerState.framestate == 0 ? gPlayerState.framestate_last : gPlayerState.framestate;
+    switch (framestate) {
+        case PL_STATE_DIE:
+        case PL_STATE_TALKEZLO:
+        case PL_STATE_ITEMGET:
+        case PL_STATE_DROWN:
+        case PL_STATE_STAIRS:
+            return 0;
+    }
+    sub_080A4D88();
+    return 1;
 }
-END_NONMATCH
 
 void DoPlayerAction(Entity* this) {
     static void (*const sPlayerActions[])(Entity*) = {
@@ -1177,8 +1178,77 @@ static const u8 gUnk_0811BABC[] = {
     1, 1, 1, 1, 2, 4, 8, 16,
 };
 
-// horrible
-/*static*/ ASM_FUNC("asm/non_matching/player/PortalShrinkUpdate.inc", void PortalShrinkUpdate(Entity* this));
+void PortalShrinkUpdate(Entity* this) {
+    int iVar3;
+    u32 uVar5;
+    u32 uVar7;
+    u32 uVar8;
+
+    if (this->field_0x80.HALF.HI) {
+        uVar7 = (u32)((*(int*)&this->field_0x80 + 0x80) * 0x100000) >> 0x17;
+    } else {
+        uVar7 = (0x10 / (((this->field_0x80.HALF.LO >> 6) ^ 3) + 1)) >> 1;
+    }
+    uVar5 = *(u32*)&this->cutsceneBeh;
+    if (uVar5 >= 0x101) {
+        uVar5 = (uVar5 + 0x80) * 0x100000 >> 0x17;
+    } else {
+        if (uVar5 == 0x100) {
+            uVar5 = 0x10;
+        } else {
+            uVar5 = gUnk_0811BABC[uVar5 >> 5];
+        }
+    }
+    iVar3 = 0x10000;
+
+    switch (this->frame) {
+        case 1:
+            this->spritePriority.b1 = 0;
+            if (0x80 < *(u32*)&this->field_0x80) {
+                *(u32*)&this->field_0x80 -= uVar7;
+            }
+            *(u32*)&this->cutsceneBeh += uVar5 * 2;
+            this->y.WORD += iVar3 * 2;
+            break;
+        case 2:
+            *(u32*)&this->field_0x80 += uVar7;
+            uVar8 = *(u32*)&this->cutsceneBeh;
+            if (uVar8 >= 0x101) {
+
+                if (uVar8 < 0x180) {
+                    uVar5 = uVar5 >> 1;
+                }
+                if (uVar8 - uVar5 < 0x100) {
+                    *(u32*)&this->cutsceneBeh = 0x100;
+                } else {
+                    *(u32*)&this->cutsceneBeh = uVar8 - uVar5;
+                }
+            } else {
+                if (0x80 < uVar8) {
+                    *(u32*)&this->cutsceneBeh = uVar8 - uVar5;
+                }
+            }
+            this->z.WORD = this->z.WORD - iVar3;
+
+            break;
+        case 3:
+            if (*(u32*)&this->field_0x80 < 0x340) {
+                *(u32*)&this->field_0x80 += uVar7;
+            }
+            if (*(u32*)&this->cutsceneBeh >= 0x340) {
+                this->actionDelay = 8;
+                this->field_0xf = 0x1e;
+                this->subAction = 6;
+            } else {
+                *(u32*)&this->cutsceneBeh += uVar5 * 2;
+            }
+            this->z.WORD = this->z.WORD - iVar3 * 2;
+            break;
+    }
+
+    sub_0805EC9C(this, *(u32*)&this->field_0x80, *(u32*)&this->cutsceneBeh, 0);
+    UpdateAnimationSingleFrame(this);
+}
 
 /*static*/ void PortalEnterUpdate(Entity* this) {
     if (this->actionDelay == 0) {
@@ -2311,17 +2381,16 @@ static const u16* const sTileTable[] = {
     sTiles + 9,
 };
 
-/*static*/ NONMATCH("asm/non_matching/player/sub_08072D54.inc", void sub_08072D54(Entity* this)) {
-    u32 bVar1;
+void sub_08072D54(Entity* this) {
     u32 uVar2;
 
     UpdateAnimationSingleFrame(this);
     sub_0806F854(this, 0, -12);
     if (this->actionDelay != 0) {
         LinearMoveUpdate(this);
+        this->actionDelay--;
     } else {
-        uVar2 = sub_0806F730(this);
-        uVar2 = GetTileType(uVar2, this->collisionLayer);
+        uVar2 = GetTileType(sub_0806F730(this), this->collisionLayer);
         switch (this->field_0xf) {
             case 0:
                 if (sub_08007DD6(uVar2, sTileTable[gPlayerEntity.animationState >> 1])) {
@@ -2332,14 +2401,8 @@ static const u16* const sTileTable[] = {
             case 1:
                 if (sub_08007DD6(uVar2, sTileTable[gPlayerEntity.animationState >> 1])) {
                     this->actionDelay = 1;
-                    this->field_0xf = 1;
-                }
-                break;
-            case 3:
-                if (this->actionDelay == 0) {
-                    UpdatePlayerMovement();
                 } else {
-                    LinearMoveUpdate(this);
+                    this->field_0xf = 2;
                 }
                 break;
             case 2:
@@ -2348,14 +2411,16 @@ static const u16* const sTileTable[] = {
                     this->actionDelay = 1;
                     this->field_0xf = 3;
                 }
+                this->animationState ^= 4;
                 break;
-            default:
+            case 3:
                 this->animationState ^= 4;
                 if (sub_08007DD6(uVar2, sTileTable[gPlayerEntity.animationState >> 1])) {
-                    this->field_0xf = 4;
-                } else {
                     this->actionDelay = 1;
+                } else {
+                    this->field_0xf = 4;
                 }
+                this->animationState ^= 4;
                 break;
         }
 
@@ -2367,7 +2432,6 @@ static const u16* const sTileTable[] = {
         this->actionDelay = 0;
     }
 
-    this->actionDelay = bVar1;
     if (!GravityUpdate(this, GRAVITY_RATE)) {
         COLLISION_ON(this);
         if (this->collisionLayer == 1) {
@@ -2377,7 +2441,7 @@ static const u16* const sTileTable[] = {
         }
         sub_08008790(this, 7);
         if (gPlayerState.field_0x14 != 0) {
-            if (sub_08008B22() == 0) {
+            if (sub_08008B22()) {
                 gPlayerState.field_0x11 = 7;
                 if (!(gPlayerState.flags & PL_MINISH)) {
                     SetPlayerActionNormal();
@@ -2396,7 +2460,6 @@ static const u16* const sTileTable[] = {
         }
     }
 }
-END_NONMATCH
 
 /*static*/ void sub_08072F14(Entity* this) {
     if (--this->actionDelay != 0xff) {
