@@ -3567,7 +3567,53 @@ void SurfaceAction_SlopeGndWater(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/player/SurfaceAction_Swamp.inc", void SurfaceAction_Swamp(Entity* this));
+void SurfaceAction_Swamp(Entity* this) {
+    if (sub_080741C4()) {
+        gPlayerState.field_0x11 = 0;
+        gPlayerState.field_0x37 = 0;
+        return;
+    }
+
+    if (this->health) {
+        if (sub_08079C30(this) == 0) {
+            gPlayerState.field_0x11 = 0;
+            gPlayerState.field_0x37 = 0;
+            return;
+        }
+        if ((gPlayerState.flags & 0x80) == 0) {
+            if (gPlayerState.dash_state) {
+                if ((gPlayerState.dash_state & 0x40) != 0) {
+                    gPlayerState.field_0x11 = 0;
+                    gPlayerState.field_0x37 = 0;
+                    return;
+                }
+            } else {
+                sub_08077B20();
+            }
+
+            if (gPlayerState.field_0x37 == 1) {
+                CreateObjectWithParent(this, OBJECT_70, 0, 0);
+                CreateFx(this, FX_GREEN_SPLASH, 0);
+                SoundReq(SFX_161);
+            } else if ((gPlayerState.field_0x92 & 0xf00) != 0) {
+                SoundReq(SFX_161);
+            } else if ((gRoomTransition.frameCount & 0xf) == 0) {
+                SoundReq(SFX_161);
+            }
+            gPlayerState.speed_modifier -= 0xf0;
+            gPlayerState.framestate = 0x1b;
+            if (gPlayerState.field_0x37 < 0xf0) {
+                gPlayerState.field_0x3f = gPlayerState.field_0x3f + 4 + (gPlayerState.field_0x37 >> 5);
+                return;
+            }
+        }
+    }
+    gPlayerState.flags &= ~PL_ROLLING;
+    CreateFx(this, FX_GREEN_SPLASH, 0);
+    this->iframes = 0x20;
+    ModHealth(-4);
+    RespawnPlayer();
+}
 
 void SurfaceAction_Water(Entity* this) {
     if (!sub_080741C4()) {
