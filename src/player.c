@@ -2792,8 +2792,8 @@ static const u16 gUnk_0811BC30[] = {
     0x0720,
 };
 
-/*static*/ NONMATCH("asm/non_matching/player/sub_08073584.inc", void sub_08073584(Entity* this)) {
-    u32 state, dir, tmp, tmp2, idx;
+void sub_08073584(Entity* this) {
+    u32 state, dir, idx;
 
     if ((gPlayerState.field_0x92 & 0x80) || this->iframes > 0 || gPlayerState.field_0x3c[0] ||
         (gPlayerState.flags & PL_PARACHUTE) == 0) {
@@ -2803,6 +2803,7 @@ static const u16 gUnk_0811BC30[] = {
         gPlayerState.animation = 1840;
         return;
     }
+
     gUnk_0200AF00.filler25[10] = 1;
     if (sub_0807A2F8(0)) {
         this->subAction++;
@@ -2810,16 +2811,18 @@ static const u16 gUnk_0811BC30[] = {
         COLLISION_OFF(this);
         return;
     }
+
     if (gArea.locationIndex == 16)
-        this->speed = 256;
+        this->speed = 0x100;
     else
-        this->speed = 128;
+        this->speed = 0x80;
+
     if ((gPlayerState.field_0xd & 0x80) == 0) {
         if (this->direction != gPlayerState.field_0xd) {
-            if (((this->direction - gPlayerState.field_0xd) & 0x1F) <= 0xF)
-                *(u32*)&this->field_0x80 -= 32;
+            if (((this->direction - gPlayerState.field_0xd) & 0x1F) < 0x10)
+                *(u32*)&this->field_0x80 -= 0x20;
             else
-                *(u32*)&this->field_0x80 += 32;
+                *(u32*)&this->field_0x80 += 0x20;
         }
     }
     this->direction = (*(u32*)&this->field_0x80 >> 8) & 0x1F;
@@ -2830,26 +2833,30 @@ static const u16 gUnk_0811BC30[] = {
         state = (state + 8) & 0x1F;
         dir = (dir + 8) & 0x1F;
     }
+
     if (state - 7 > dir) {
-        tmp = (this->animationState - 2) & 7;
+        state = (this->animationState - 2) & 7;
     } else if (state + 7 < dir) {
-        tmp = (this->animationState + 2) & 7;
+        state = (this->animationState + 2) & 7;
     } else {
-        tmp = this->animationState;
+        state = this->animationState;
     }
-    if (tmp != this->animationState) {
+
+    if (state != this->animationState) {
         this->field_0x86.HALF.HI = 20;
     }
-    this->animationState = tmp;
+
+    this->animationState = state;
     idx = 0;
-    tmp2 = gPlayerState.field_0xd >> 2;
-    if (!this->field_0x86.HALF.HI || ((gPlayerState.field_0xd & 0x80) == 0 && this->animationState != tmp2)) {
+    state = gPlayerState.field_0xd >> 2;
+    if (!this->field_0x86.HALF.HI || ((gPlayerState.field_0xd & 0x80) == 0 && this->animationState != state)) {
         if ((gPlayerState.field_0xd & 0x80) == 0) {
-            if (this->animationState != tmp2) {
-                if (this->animationState == (tmp2 ^ 4)) {
+            if (this->animationState != state) {
+                if (this->animationState == (state ^ 4)) {
                     idx = 2;
                 } else {
-                    if (this->animationState == (((tmp2 & 6) + 2) & 7)) {
+
+                    if (this->animationState == (((state & 6) + 2) & 7)) {
                         idx = 1;
                     } else {
                         idx = 3;
@@ -2857,6 +2864,7 @@ static const u16 gUnk_0811BC30[] = {
                 }
             }
         }
+
         if (gUnk_0811BC28[idx] == gPlayerState.animation) {
             if (gArea.locationIndex == 16)
                 sub_080042BA(this, 2);
@@ -2867,13 +2875,13 @@ static const u16 gUnk_0811BC30[] = {
         }
         this->field_0x86.HALF.LO = idx;
     } else {
-
         this->field_0x86.HALF.HI--;
         if (gUnk_0811BC30[this->field_0x86.HALF.LO] == gPlayerState.animation)
             UpdateAnimationSingleFrame(this);
         else
             gPlayerState.animation = gUnk_0811BC30[this->field_0x86.HALF.LO];
     }
+
     if (--this->field_0x7c.WORD == -1) {
         gPlayerState.jump_status |= 0x40;
         sub_0807921C();
@@ -2882,7 +2890,6 @@ static const u16 gUnk_0811BC30[] = {
         this->z.HALF.HI = -8 - di;
     }
 }
-END_NONMATCH
 
 /*static*/ void sub_0807379C(Entity* this) {
     if (this->z.HALF.HI > -32) {
