@@ -322,25 +322,26 @@ extern u16 script_BedAtSimons;
 
 extern ScriptExecutionContext gPlayerScriptExecutionContext;
 
-NONMATCH("asm/non_matching/playerItemPacciCane/CheckPlayerInactive.inc", u32 CheckPlayerInactive(void)) {
-    if (!((gInput.newKeys & START_BUTTON) == 0 || gFadeControl.active || gUnk_02034490.unk0 ||
-          (gMessage.doTextBox & 0x7F) || gSave.stats.health == 0 || !gSave.fillerD0[34] ||
-          gPlayerState.controlMode != CONTROL_ENABLED || gPriorityHandler.priority_timer != 0)) {
-        u32 tmp = gPlayerState.framestate ? gPlayerState.framestate : gPlayerState.framestate_last;
-        switch (tmp) {
-            case PL_STATE_DIE:
-            case PL_STATE_TALKEZLO:
-            case PL_STATE_ITEMGET:
-            case PL_STATE_DROWN:
-            case PL_STATE_STAIRS:
-                return 0;
-        }
-        sub_080A4D88();
-        return 1;
+u32 CheckPlayerInactive(void) {
+    u32 framestate;
+    if (((gInput.newKeys & START_BUTTON) == 0 || gFadeControl.active || gUnk_02034490.unk0 ||
+         (gMessage.doTextBox & 0x7F) || gSave.stats.health == 0 || !gSave.fillerD0[34] ||
+         gPlayerState.controlMode != 0 || gPriorityHandler.priority_timer != 0)) {
+        return 0;
     }
-    return 0;
+
+    framestate = gPlayerState.framestate == 0 ? gPlayerState.framestate_last : gPlayerState.framestate;
+    switch (framestate) {
+        case PL_STATE_DIE:
+        case PL_STATE_TALKEZLO:
+        case PL_STATE_ITEMGET:
+        case PL_STATE_DROWN:
+        case PL_STATE_STAIRS:
+            return 0;
+    }
+    sub_080A4D88();
+    return 1;
 }
-END_NONMATCH
 
 void DoPlayerAction(Entity* this) {
     static void (*const sPlayerActions[])(Entity*) = {
@@ -1173,12 +1174,80 @@ static void PortalShrinkInit(Entity* this) {
     SoundReq(SFX_PLY_SHRINKING);
 }
 
-static const u8 gUnk_0811BABC[] = {
-    1, 1, 1, 1, 2, 4, 8, 16,
-};
+void PortalShrinkUpdate(Entity* this) {
+    static const u8 gUnk_0811BABC[] = {
+        1, 1, 1, 1, 2, 4, 8, 16,
+    };
+    int iVar3;
+    u32 uVar5;
+    u32 uVar7;
+    u32 uVar8;
 
-// horrible
-/*static*/ ASM_FUNC("asm/non_matching/player/PortalShrinkUpdate.inc", void PortalShrinkUpdate(Entity* this));
+    if (this->field_0x80.HALF.HI) {
+        uVar7 = (u32)((*(int*)&this->field_0x80 + 0x80) * 0x100000) >> 0x17;
+    } else {
+        uVar7 = (0x10 / (((this->field_0x80.HALF.LO >> 6) ^ 3) + 1)) >> 1;
+    }
+    uVar5 = *(u32*)&this->cutsceneBeh;
+    if (uVar5 >= 0x101) {
+        uVar5 = (uVar5 + 0x80) * 0x100000 >> 0x17;
+    } else {
+        if (uVar5 == 0x100) {
+            uVar5 = 0x10;
+        } else {
+            uVar5 = gUnk_0811BABC[uVar5 >> 5];
+        }
+    }
+    iVar3 = 0x10000;
+
+    switch (this->frame) {
+        case 1:
+            this->spritePriority.b1 = 0;
+            if (0x80 < *(u32*)&this->field_0x80) {
+                *(u32*)&this->field_0x80 -= uVar7;
+            }
+            *(u32*)&this->cutsceneBeh += uVar5 * 2;
+            this->y.WORD += iVar3 * 2;
+            break;
+        case 2:
+            *(u32*)&this->field_0x80 += uVar7;
+            uVar8 = *(u32*)&this->cutsceneBeh;
+            if (uVar8 >= 0x101) {
+
+                if (uVar8 < 0x180) {
+                    uVar5 = uVar5 >> 1;
+                }
+                if (uVar8 - uVar5 < 0x100) {
+                    *(u32*)&this->cutsceneBeh = 0x100;
+                } else {
+                    *(u32*)&this->cutsceneBeh = uVar8 - uVar5;
+                }
+            } else {
+                if (0x80 < uVar8) {
+                    *(u32*)&this->cutsceneBeh = uVar8 - uVar5;
+                }
+            }
+            this->z.WORD = this->z.WORD - iVar3;
+
+            break;
+        case 3:
+            if (*(u32*)&this->field_0x80 < 0x340) {
+                *(u32*)&this->field_0x80 += uVar7;
+            }
+            if (*(u32*)&this->cutsceneBeh >= 0x340) {
+                this->actionDelay = 8;
+                this->field_0xf = 0x1e;
+                this->subAction = 6;
+            } else {
+                *(u32*)&this->cutsceneBeh += uVar5 * 2;
+            }
+            this->z.WORD = this->z.WORD - iVar3 * 2;
+            break;
+    }
+
+    sub_0805EC9C(this, *(u32*)&this->field_0x80, *(u32*)&this->cutsceneBeh, 0);
+    UpdateAnimationSingleFrame(this);
+}
 
 /*static*/ void PortalEnterUpdate(Entity* this) {
     if (this->actionDelay == 0) {
@@ -2311,17 +2380,16 @@ static const u16* const sTileTable[] = {
     sTiles + 9,
 };
 
-/*static*/ NONMATCH("asm/non_matching/player/sub_08072D54.inc", void sub_08072D54(Entity* this)) {
-    u32 bVar1;
+void sub_08072D54(Entity* this) {
     u32 uVar2;
 
     UpdateAnimationSingleFrame(this);
     sub_0806F854(this, 0, -12);
     if (this->actionDelay != 0) {
         LinearMoveUpdate(this);
+        this->actionDelay--;
     } else {
-        uVar2 = sub_0806F730(this);
-        uVar2 = GetTileType(uVar2, this->collisionLayer);
+        uVar2 = GetTileType(sub_0806F730(this), this->collisionLayer);
         switch (this->field_0xf) {
             case 0:
                 if (sub_08007DD6(uVar2, sTileTable[gPlayerEntity.animationState >> 1])) {
@@ -2332,14 +2400,8 @@ static const u16* const sTileTable[] = {
             case 1:
                 if (sub_08007DD6(uVar2, sTileTable[gPlayerEntity.animationState >> 1])) {
                     this->actionDelay = 1;
-                    this->field_0xf = 1;
-                }
-                break;
-            case 3:
-                if (this->actionDelay == 0) {
-                    UpdatePlayerMovement();
                 } else {
-                    LinearMoveUpdate(this);
+                    this->field_0xf = 2;
                 }
                 break;
             case 2:
@@ -2348,14 +2410,16 @@ static const u16* const sTileTable[] = {
                     this->actionDelay = 1;
                     this->field_0xf = 3;
                 }
+                this->animationState ^= 4;
                 break;
-            default:
+            case 3:
                 this->animationState ^= 4;
                 if (sub_08007DD6(uVar2, sTileTable[gPlayerEntity.animationState >> 1])) {
-                    this->field_0xf = 4;
-                } else {
                     this->actionDelay = 1;
+                } else {
+                    this->field_0xf = 4;
                 }
+                this->animationState ^= 4;
                 break;
         }
 
@@ -2367,7 +2431,6 @@ static const u16* const sTileTable[] = {
         this->actionDelay = 0;
     }
 
-    this->actionDelay = bVar1;
     if (!GravityUpdate(this, GRAVITY_RATE)) {
         COLLISION_ON(this);
         if (this->collisionLayer == 1) {
@@ -2377,7 +2440,7 @@ static const u16* const sTileTable[] = {
         }
         sub_08008790(this, 7);
         if (gPlayerState.field_0x14 != 0) {
-            if (sub_08008B22() == 0) {
+            if (sub_08008B22()) {
                 gPlayerState.field_0x11 = 7;
                 if (!(gPlayerState.flags & PL_MINISH)) {
                     SetPlayerActionNormal();
@@ -2396,7 +2459,6 @@ static const u16* const sTileTable[] = {
         }
     }
 }
-END_NONMATCH
 
 /*static*/ void sub_08072F14(Entity* this) {
     if (--this->actionDelay != 0xff) {
@@ -2729,8 +2791,8 @@ static const u16 gUnk_0811BC30[] = {
     0x0720,
 };
 
-/*static*/ NONMATCH("asm/non_matching/player/sub_08073584.inc", void sub_08073584(Entity* this)) {
-    u32 state, dir, tmp, tmp2, idx;
+void sub_08073584(Entity* this) {
+    u32 state, dir, idx;
 
     if ((gPlayerState.field_0x92 & 0x80) || this->iframes > 0 || gPlayerState.field_0x3c[0] ||
         (gPlayerState.flags & PL_PARACHUTE) == 0) {
@@ -2740,6 +2802,7 @@ static const u16 gUnk_0811BC30[] = {
         gPlayerState.animation = 1840;
         return;
     }
+
     gUnk_0200AF00.filler25[10] = 1;
     if (sub_0807A2F8(0)) {
         this->subAction++;
@@ -2747,16 +2810,18 @@ static const u16 gUnk_0811BC30[] = {
         COLLISION_OFF(this);
         return;
     }
+
     if (gArea.locationIndex == 16)
-        this->speed = 256;
+        this->speed = 0x100;
     else
-        this->speed = 128;
+        this->speed = 0x80;
+
     if ((gPlayerState.field_0xd & 0x80) == 0) {
         if (this->direction != gPlayerState.field_0xd) {
-            if (((this->direction - gPlayerState.field_0xd) & 0x1F) <= 0xF)
-                *(u32*)&this->field_0x80 -= 32;
+            if (((this->direction - gPlayerState.field_0xd) & 0x1F) < 0x10)
+                *(u32*)&this->field_0x80 -= 0x20;
             else
-                *(u32*)&this->field_0x80 += 32;
+                *(u32*)&this->field_0x80 += 0x20;
         }
     }
     this->direction = (*(u32*)&this->field_0x80 >> 8) & 0x1F;
@@ -2767,26 +2832,30 @@ static const u16 gUnk_0811BC30[] = {
         state = (state + 8) & 0x1F;
         dir = (dir + 8) & 0x1F;
     }
+
     if (state - 7 > dir) {
-        tmp = (this->animationState - 2) & 7;
+        state = (this->animationState - 2) & 7;
     } else if (state + 7 < dir) {
-        tmp = (this->animationState + 2) & 7;
+        state = (this->animationState + 2) & 7;
     } else {
-        tmp = this->animationState;
+        state = this->animationState;
     }
-    if (tmp != this->animationState) {
+
+    if (state != this->animationState) {
         this->field_0x86.HALF.HI = 20;
     }
-    this->animationState = tmp;
+
+    this->animationState = state;
     idx = 0;
-    tmp2 = gPlayerState.field_0xd >> 2;
-    if (!this->field_0x86.HALF.HI || ((gPlayerState.field_0xd & 0x80) == 0 && this->animationState != tmp2)) {
+    state = gPlayerState.field_0xd >> 2;
+    if (!this->field_0x86.HALF.HI || ((gPlayerState.field_0xd & 0x80) == 0 && this->animationState != state)) {
         if ((gPlayerState.field_0xd & 0x80) == 0) {
-            if (this->animationState != tmp2) {
-                if (this->animationState == (tmp2 ^ 4)) {
+            if (this->animationState != state) {
+                if (this->animationState == (state ^ 4)) {
                     idx = 2;
                 } else {
-                    if (this->animationState == (((tmp2 & 6) + 2) & 7)) {
+
+                    if (this->animationState == (((state & 6) + 2) & 7)) {
                         idx = 1;
                     } else {
                         idx = 3;
@@ -2794,6 +2863,7 @@ static const u16 gUnk_0811BC30[] = {
                 }
             }
         }
+
         if (gUnk_0811BC28[idx] == gPlayerState.animation) {
             if (gArea.locationIndex == 16)
                 sub_080042BA(this, 2);
@@ -2804,13 +2874,13 @@ static const u16 gUnk_0811BC30[] = {
         }
         this->field_0x86.HALF.LO = idx;
     } else {
-
         this->field_0x86.HALF.HI--;
         if (gUnk_0811BC30[this->field_0x86.HALF.LO] == gPlayerState.animation)
             UpdateAnimationSingleFrame(this);
         else
             gPlayerState.animation = gUnk_0811BC30[this->field_0x86.HALF.LO];
     }
+
     if (--this->field_0x7c.WORD == -1) {
         gPlayerState.jump_status |= 0x40;
         sub_0807921C();
@@ -2819,7 +2889,6 @@ static const u16 gUnk_0811BC30[] = {
         this->z.HALF.HI = -8 - di;
     }
 }
-END_NONMATCH
 
 /*static*/ void sub_0807379C(Entity* this) {
     if (this->z.HALF.HI > -32) {
@@ -3244,55 +3313,42 @@ static void sub_08074060(Entity* this) {
     }
 }
 
-/*static*/ NONMATCH("asm/non_matching/player/sub_080740D8.inc", void sub_080740D8(Entity* this)) {
-    int v1;          // r5
-    int v2;          // r6
-    unsigned int v4; // r0
-    Hitbox* v5;      // r2
-    int v6;          // r0
+void sub_080740D8(Entity* this) {
+    int y;
+    int x;
+    u32 dir;
 
     UpdateAnimationSingleFrame(this);
     if (!this->field_0xf)
-        v4 = this->direction;
+        dir = this->direction;
     else
-        v4 = this->direction ^ 0x10;
-    switch (v4) {
+        dir = DirectionTurnAround(this->direction);
+    switch (dir) {
         case 24:
-            v5 = this->hitbox;
-            v2 = this->x.HALF.HI - v5->unk2[0] + v5->offset_x - gRoomControls.origin_x;
-            v6 = this->y.HALF.HI;
-            v1 = v6 + v5->offset_y - gRoomControls.origin_y;
+            x = this->x.HALF.HI - this->hitbox->unk2[0] + this->hitbox->offset_x - gRoomControls.origin_x;
+            y = this->y.HALF.HI + this->hitbox->offset_y - gRoomControls.origin_y;
             break;
         case 8:
-            v5 = this->hitbox;
-            v2 = this->x.HALF.HI + v5->unk2[0] + v5->offset_x - gRoomControls.origin_x;
-            v6 = this->y.HALF.HI;
-            v1 = v6 + v5->offset_y - gRoomControls.origin_y;
+            x = this->x.HALF.HI + this->hitbox->unk2[0] + this->hitbox->offset_x - gRoomControls.origin_x;
+            y = this->y.HALF.HI + this->hitbox->offset_y - gRoomControls.origin_y;
             break;
         case 16:
-            v5 = this->hitbox;
-            v2 = this->x.HALF.HI + v5->offset_x - gRoomControls.origin_x;
-            v6 = this->y.HALF.HI + v5->unk2[3];
-            v1 = v6 + v5->offset_y - gRoomControls.origin_y;
+            x = this->x.HALF.HI + this->hitbox->offset_x - gRoomControls.origin_x;
+            y = this->y.HALF.HI + this->hitbox->unk2[3] + this->hitbox->offset_y - gRoomControls.origin_y;
             break;
         case 0:
-            v5 = this->hitbox;
-            v2 = this->x.HALF.HI + v5->unk2[0] + v5->offset_x - gRoomControls.origin_x;
-            v6 = this->y.HALF.HI;
-            v1 = v6 + v5->offset_y - gRoomControls.origin_y;
-            break;
-        default:
+            x = this->x.HALF.HI + this->hitbox->offset_x - gRoomControls.origin_x;
+            y = this->y.HALF.HI - this->hitbox->unk2[3] + this->hitbox->offset_y - gRoomControls.origin_y;
             break;
     }
 
-    if (sub_080086B4(v2, v1, gUnk_080082DC))
+    if (sub_080086B4(x, y, gUnk_080082DC))
         LinearMoveUpdate(this);
     else
         this->field_0xf = 1;
     if (!GravityUpdate(this, GRAVITY_RATE))
         sub_0807921C();
 }
-END_NONMATCH
 
 u32 sub_080741C4(void) {
     if ((gPlayerState.jump_status && (gPlayerState.jump_status & 7) != 3) || gPlayerEntity.z.WORD != 0) {
@@ -3511,7 +3567,53 @@ void SurfaceAction_SlopeGndWater(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/player/SurfaceAction_Swamp.inc", void SurfaceAction_Swamp(Entity* this));
+void SurfaceAction_Swamp(Entity* this) {
+    if (sub_080741C4()) {
+        gPlayerState.field_0x11 = 0;
+        gPlayerState.field_0x37 = 0;
+        return;
+    }
+
+    if (this->health) {
+        if (sub_08079C30(this) == 0) {
+            gPlayerState.field_0x11 = 0;
+            gPlayerState.field_0x37 = 0;
+            return;
+        }
+        if ((gPlayerState.flags & 0x80) == 0) {
+            if (gPlayerState.dash_state) {
+                if ((gPlayerState.dash_state & 0x40) != 0) {
+                    gPlayerState.field_0x11 = 0;
+                    gPlayerState.field_0x37 = 0;
+                    return;
+                }
+            } else {
+                sub_08077B20();
+            }
+
+            if (gPlayerState.field_0x37 == 1) {
+                CreateObjectWithParent(this, OBJECT_70, 0, 0);
+                CreateFx(this, FX_GREEN_SPLASH, 0);
+                SoundReq(SFX_161);
+            } else if ((gPlayerState.field_0x92 & 0xf00) != 0) {
+                SoundReq(SFX_161);
+            } else if ((gRoomTransition.frameCount & 0xf) == 0) {
+                SoundReq(SFX_161);
+            }
+            gPlayerState.speed_modifier -= 0xf0;
+            gPlayerState.framestate = 0x1b;
+            if (gPlayerState.field_0x37 < 0xf0) {
+                gPlayerState.field_0x3f = gPlayerState.field_0x3f + 4 + (gPlayerState.field_0x37 >> 5);
+                return;
+            }
+        }
+    }
+    gPlayerState.flags &= ~PL_ROLLING;
+    CreateFx(this, FX_GREEN_SPLASH, 0);
+    this->iframes = 0x20;
+    ModHealth(-4);
+    RespawnPlayer();
+}
 
 void SurfaceAction_Water(Entity* this) {
     if (!sub_080741C4()) {
@@ -3988,9 +4090,7 @@ void sub_080751B4(Entity* this) {
     }
 }
 
-// regalloc
-NONMATCH("asm/non_matching/player/sub_080751E8.inc", void sub_080751E8(u32 a1, u32 a2, void* script)) {
-    void* tmp;
+void sub_080751E8(u32 a1, u32 a2, void* script) {
     Entity* e;
     Entity* e2;
 
@@ -4009,15 +4109,15 @@ NONMATCH("asm/non_matching/player/sub_080751E8.inc", void sub_080751E8(u32 a1, u
     gPlayerState.flags |= PL_NO_CAP;
     if (!a1) {
         gPlayerState.field_0x39 = 0;
-        tmp = &script_BedInLinksRoom;
+        script = &script_BedInLinksRoom;
     } else {
         gPlayerState.field_0x39 = 1;
-        tmp = &script_BedAtSimons;
+        script = &script_BedAtSimons;
     }
     e = CreateObject(OBJECT_5B, !gPlayerState.field_0x39 ? 2 : 0, 0);
     if (e != NULL) {
         CopyPosition(&gPlayerEntity, e);
-        StartCutscene(e, tmp);
+        StartCutscene(e, script);
     }
     e2 = CreateSpeechBubbleSleep(&gPlayerEntity, -14, -28);
     *(Entity**)&gPlayerEntity.field_0x6c.HWORD = e2;
@@ -4025,7 +4125,6 @@ NONMATCH("asm/non_matching/player/sub_080751E8.inc", void sub_080751E8(u32 a1, u
         SetDefaultPriority(e2, PRIO_NO_BLOCK);
     }
 }
-END_NONMATCH
 
 void sub_0807529C(Entity* this) {
     CreateSpeechBubbleQuestionMark(this, 8, -32);
