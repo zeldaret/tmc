@@ -4058,9 +4058,7 @@ void sub_080751B4(Entity* this) {
     }
 }
 
-// regalloc
-NONMATCH("asm/non_matching/player/sub_080751E8.inc", void sub_080751E8(u32 a1, u32 a2, void* script)) {
-    void* tmp;
+void sub_080751E8(u32 a1, u32 a2, void* script) {
     Entity* e;
     Entity* e2;
 
@@ -4079,15 +4077,15 @@ NONMATCH("asm/non_matching/player/sub_080751E8.inc", void sub_080751E8(u32 a1, u
     gPlayerState.flags |= PL_NO_CAP;
     if (!a1) {
         gPlayerState.field_0x39 = 0;
-        tmp = &script_BedInLinksRoom;
+        script = &script_BedInLinksRoom;
     } else {
         gPlayerState.field_0x39 = 1;
-        tmp = &script_BedAtSimons;
+        script = &script_BedAtSimons;
     }
     e = CreateObject(OBJECT_5B, !gPlayerState.field_0x39 ? 2 : 0, 0);
     if (e != NULL) {
         CopyPosition(&gPlayerEntity, e);
-        StartCutscene(e, tmp);
+        StartCutscene(e, script);
     }
     e2 = CreateSpeechBubbleSleep(&gPlayerEntity, -14, -28);
     *(Entity**)&gPlayerEntity.field_0x6c.HWORD = e2;
@@ -4095,7 +4093,6 @@ NONMATCH("asm/non_matching/player/sub_080751E8.inc", void sub_080751E8(u32 a1, u
         SetDefaultPriority(e2, PRIO_NO_BLOCK);
     }
 }
-END_NONMATCH
 
 void sub_0807529C(Entity* this) {
     CreateSpeechBubbleQuestionMark(this, 8, -32);
