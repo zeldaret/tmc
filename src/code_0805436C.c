@@ -42,7 +42,7 @@ extern u8 gUnk_080FE1C6[];
 */
 extern void (*const gUnk_080FE2A0[])(void);
 
-void ForceEquipItem(u32, u8);
+void ForceEquipItem(u32, u32);
 extern void sub_0807CAA0(u32, u32);
 
 /*
@@ -95,7 +95,24 @@ void PutItemOnSlot(u32 itemID) {
     }
 }
 
-ASM_FUNC("asm/non_matching/ForceEquipItem.inc", void ForceEquipItem(u32 itemID, u8 itemSlot))
+void ForceEquipItem(u32 itemID, u32 itemSlot) {
+    u32 otherItem;
+    u32 otherItemIndex;
+    u32 replacedItem;
+
+    if ((itemID - 1 < 0x1f) && (itemSlot < 2)) {
+        otherItemIndex = itemSlot == 0;
+        replacedItem = gSave.stats.itemButtons[itemSlot];
+        otherItem = gSave.stats.itemButtons[otherItemIndex];
+        if (gItemMetaData[otherItem].menuSlot == gItemMetaData[itemID].menuSlot) {
+            otherItem = replacedItem;
+        }
+        gSave.stats.itemButtons[itemSlot] = itemID;
+        gSave.stats.itemButtons[otherItemIndex] = otherItem;
+        gUnk_0200AF00.filler0[0x13] = 0x7f;
+        gUnk_0200AF00.filler0[0x14] = 0x7f;
+    }
+}
 
 u32 SetBottleContents(u32 itemID, u32 bottleIndex) {
     if (bottleIndex > 3) {
