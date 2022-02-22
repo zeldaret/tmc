@@ -23,27 +23,36 @@ typedef struct {
 extern const Hitbox gUnk_080FD224;
 extern const u8 gUnk_08126EE4[];
 
-extern void (*const gUnk_081211A4[])(PullableMushroomEntity*);
-extern void (*const gUnk_081211B4[])(PullableMushroomEntity*);
-extern void (*const gUnk_081211C0[])(PullableMushroomEntity*);
-extern const u16 gUnk_081211CC[];
-extern void (*const gUnk_081211DC[])(PullableMushroomEntity*);
-extern const u16 gUnk_081211E4[];
-extern void (*const gUnk_081211EC[])(PullableMushroomEntity*);
-extern const u8 gUnk_081211F4[];
-extern const u8 gUnk_081211FC[];
-
-void sub_0808AB68(PullableMushroomEntity*);
+void PullableMushroom_Init(PullableMushroomEntity*);
+void PullableMushroom_Action1(PullableMushroomEntity*);
+void PullableMushroom_Action2(PullableMushroomEntity*);
+void PullableMushroom_Action3(PullableMushroomEntity*);
+void PullableMushroom_Action1_Type0(PullableMushroomEntity*);
+void PullableMushroom_Action1_Type1(PullableMushroomEntity*);
+void sub_0808ABC4(PullableMushroomEntity*);
+void sub_0808ACEC(PullableMushroomEntity*);
+void sub_0808ADA0(PullableMushroomEntity*);
+void sub_0808ADF0(PullableMushroomEntity*);
+void sub_0808AEB0(PullableMushroomEntity*);
+void sub_0808AFD4(PullableMushroomEntity*);
+void sub_0808B05C(PullableMushroomEntity*);
+void sub_0808B0BC(PullableMushroomEntity*);
 void sub_0808B168(PullableMushroomEntity*, u32);
 u32 sub_0808B1F0(PullableMushroomEntity*, Entity*);
 bool32 sub_0808B21C(PullableMushroomEntity*, u32);
 
 void PullableMushroom(PullableMushroomEntity* this) {
-    gUnk_081211A4[super->action](this);
+    static void (*const PullableMushroom_Actions[])(PullableMushroomEntity*) = {
+        PullableMushroom_Init,
+        PullableMushroom_Action1,
+        PullableMushroom_Action2,
+        PullableMushroom_Action3,
+    };
+    PullableMushroom_Actions[super->action](this);
     super->bitfield = 0;
 }
 
-void sub_0808AA1C(PullableMushroomEntity* this) {
+void PullableMushroom_Init(PullableMushroomEntity* this) {
     super->action = 1;
     if (AreaIsDungeon() == 0) {
         ChangeObjPalette(super, 0);
@@ -88,18 +97,28 @@ void sub_0808AA1C(PullableMushroomEntity* this) {
             }
             break;
     }
-    sub_0808AB68(this);
+    PullableMushroom_Action1(this);
 }
 
-void sub_0808AB68(PullableMushroomEntity* this) {
-    gUnk_081211B4[super->type](this);
+void PullableMushroom_Action1(PullableMushroomEntity* this) {
+    static void (*const funcs[])(PullableMushroomEntity*) = {
+        PullableMushroom_Action1_Type0,
+        PullableMushroom_Action1_Type1,
+        sub_0808ABC4,
+    };
+    funcs[super->type](this);
 }
 
-void sub_0808AB80(PullableMushroomEntity* this) {
-    gUnk_081211C0[super->subAction](this);
+void PullableMushroom_Action1_Type0(PullableMushroomEntity* this) {
+    static void (*const funcs[])(PullableMushroomEntity*) = {
+        sub_0808ACEC,
+        sub_0808ADA0,
+        sub_0808ADF0,
+    };
+    funcs[super->subAction](this);
 }
 
-void sub_0808AB98(PullableMushroomEntity* this) {
+void PullableMushroom_Action1_Type1(PullableMushroomEntity* this) {
     if (*(u16*)&super->parent->action == 0x201) {
         super->parent->child = NULL;
         DeleteThisEntity();
@@ -108,9 +127,45 @@ void sub_0808AB98(PullableMushroomEntity* this) {
     }
 }
 
+const u16 gUnk_081211CC[] = { 32768, 64000, 0, 64517, 0, 0, 32768, 64763 };
 ASM_FUNC("asm/non_matching/pullableMushroom/sub_0808ABC4.inc", void sub_0808ABC4(PullableMushroomEntity* this))
 
-ASM_FUNC("asm/non_matching/pullableMushroom/sub_0808ACEC.inc", void sub_0808ACEC(PullableMushroomEntity* this))
+void sub_0808ACEC(PullableMushroomEntity* this) {
+    if (super->animIndex != 0) {
+        InitializeAnimation(super, 0);
+    }
+
+    switch (super->bitfield & 0x7f) {
+        case 0x4:
+        case 0x5:
+        case 0x6:
+        case 0x8:
+        case 0x9:
+        case 0xa:
+        case 0xb:
+        case 0xc:
+        case 0xd:
+        case 0x10:
+        case 0x11:
+        case 0x12:
+        case 0x14:
+        case 0x16:
+            COLLISION_OFF(super);
+            super->animationState = sub_0806F5A4(super->knockbackDirection);
+            super->subAction = 2;
+            super->actionDelay = 2;
+            break;
+        case 0x13:
+            super->action = 3;
+            super->subAction = 0;
+            break;
+        default:
+            super->field_0xf = 0;
+            super->actionDelay = 0;
+            sub_08078930(super);
+            break;
+    }
+}
 
 void sub_0808ADA0(PullableMushroomEntity* this) {
     if ((sub_0808B1F0(this, super->child) < 8) || (super->child == NULL)) {
@@ -151,14 +206,19 @@ void sub_0808ADF0(PullableMushroomEntity* this) {
     }
 }
 
-void sub_0808AE84(PullableMushroomEntity* this) {
+void PullableMushroom_Action2(PullableMushroomEntity* this) {
+    static void (*const funcs[])(PullableMushroomEntity*) = {
+        sub_0808AEB0,
+        sub_0808AFD4,
+    };
     if (gPlayerState.heldObject == 0) {
         super->subAction = 6;
     }
-    gUnk_081211DC[super->subAction - 5](this);
+    funcs[super->subAction - 5](this);
 }
 
 void sub_0808AEB0(PullableMushroomEntity* this) {
+    static const u16 gUnk_081211E4[] = { 1024, 256, 2048, 512 };
     u32 uVar1;
     if (super->actionDelay != 0) {
         uVar1 = sub_0808B1F0(this, super->child);
@@ -208,8 +268,13 @@ void sub_0808AFD4(PullableMushroomEntity* this) {
     SoundReq(SFX_130);
 }
 
-void sub_0808AFF0(PullableMushroomEntity* this) {
-    gUnk_081211EC[super->subAction](this);
+void PullableMushroom_Action3(PullableMushroomEntity* this) {
+    static void (*const funcs[])(PullableMushroomEntity*) = {
+        sub_0808B05C,
+        sub_0808B0BC,
+    };
+
+    funcs[super->subAction](this);
     if ((((gPlayerState.field_0x1c & 0xf) != 1) || ((super->bitfield & 0x7f) != 0x13)) && (super->type == 1)) {
         (super->parent)->action = 1;
         (super->parent)->subAction = 1;
@@ -235,10 +300,73 @@ void sub_0808B05C(PullableMushroomEntity* this) {
     super->subAction++;
 }
 
-ASM_FUNC("asm/non_matching/pullableMushroom/sub_0808B0BC.inc", void sub_0808B0BC(PullableMushroomEntity* this))
+void sub_0808B0BC(PullableMushroomEntity* this) {
+    u32 uVar2;
+    const s8* ptr;
+    GenericEntity ent;
 
-ASM_FUNC("asm/non_matching/pullableMushroom/sub_0808B168.inc",
-         void sub_0808B168(PullableMushroomEntity* this, u32 param_2))
+    uVar2 = sub_0808B1F0(this, super->parent);
+    switch (super->type) {
+        case 0:
+            GetNextFrame(super);
+            break;
+        case 1:
+            ptr = &gUnk_08126EE4[gPlayerEntity.animationState & 0xe];
+            ent.base.x.HALF.HI = ptr[0] + gPlayerEntity.x.HALF.HI;
+            ent.base.y.HALF.HI = ptr[1] + gPlayerEntity.y.HALF.HI;
+            if (sub_0800419C(&ent.base, super, 7, 7)) {
+                if ((gPlayerEntity.action != 1) || (gPlayerState.swim_state != 0))
+                    return;
+                gPlayerState.queued_action = 0x1b;
+                gPlayerState.field_0x38 = uVar2;
+                gPlayerState.field_0x39 = super->direction ^ 0x10;
+                gPlayerState.field_0x3a = sub_0808B1F0((PullableMushroomEntity*)super->parent, &gPlayerEntity);
+            } else {
+                super->speed = 0x40;
+                if (uVar2 < 0x40) {
+                    LinearMoveUpdate(super);
+                }
+            }
+            break;
+    }
+}
+
+void sub_0808B168(PullableMushroomEntity* this, u32 param_2) {
+    static const s8 gUnk_081211F4[] = {
+        0, 8, -8, -4, 0, -8, 8, -4,
+    };
+    static const s8 gUnk_081211FC[] = {
+        0, 3, -8, -4, 0, -12, 8, -4,
+    };
+    s32 iVar2;
+    const s8* pcVar3;
+    u32 uVar4;
+    const s8* pcVar5;
+    Entity* pEVar5;
+    Entity* pEVar6;
+
+    if (param_2 != 0) {
+        iVar2 = (super->animationState ^ 2) * 2;
+        pcVar5 = (gUnk_081211F4 + iVar2);
+        pcVar3 = pcVar5 + 1;
+        pEVar5 = super->parent;
+        pEVar6 = pEVar5;
+    } else {
+        if ((super->animationState & 1) != 0) {
+            pEVar6 = &gPlayerEntity;
+            pEVar5 = super->parent;
+            pcVar5 = (gUnk_081211FC + super->animationState * 2);
+            pcVar3 = (gUnk_081211F4 + 1 + (super->animationState ^ 2) * 2);
+        } else {
+            pEVar6 = super->parent;
+            pEVar5 = &gPlayerEntity;
+            pcVar5 = (gUnk_081211F4 + (super->animationState ^ 2) * 2);
+            pcVar3 = (gUnk_081211FC + 1 + super->animationState * 2);
+        }
+    }
+    super->x.HALF.HI = *pcVar5 + pEVar6->x.HALF.HI;
+    super->y.HALF.HI = *pcVar3 + pEVar5->y.HALF.HI;
+}
 
 u32 sub_0808B1F0(PullableMushroomEntity* this, Entity* other) {
     s32 sVar1;
@@ -281,36 +409,3 @@ bool32 sub_0808B21C(PullableMushroomEntity* this, u32 param_2) {
     }
     return FALSE;
 }
-
-void (*const gUnk_081211A4[])(PullableMushroomEntity*) = {
-    sub_0808AA1C,
-    sub_0808AB68,
-    sub_0808AE84,
-    sub_0808AFF0,
-};
-void (*const gUnk_081211B4[])(PullableMushroomEntity*) = {
-    sub_0808AB80,
-    sub_0808AB98,
-    sub_0808ABC4,
-};
-void (*const gUnk_081211C0[])(PullableMushroomEntity*) = {
-    sub_0808ACEC,
-    sub_0808ADA0,
-    sub_0808ADF0,
-};
-const u16 gUnk_081211CC[] = { 32768, 64000, 0, 64517, 0, 0, 32768, 64763 };
-void (*const gUnk_081211DC[])(PullableMushroomEntity*) = {
-    sub_0808AEB0,
-    sub_0808AFD4,
-};
-const u16 gUnk_081211E4[] = { 1024, 256, 2048, 512 };
-void (*const gUnk_081211EC[])(PullableMushroomEntity*) = {
-    sub_0808B05C,
-    sub_0808B0BC,
-};
-const u8 gUnk_081211F4[] = {
-    0, 8, 248, 252, 0, 248, 8, 252,
-};
-const u8 gUnk_081211FC[] = {
-    0, 3, 248, 252, 0, 244, 8, 252,
-};
