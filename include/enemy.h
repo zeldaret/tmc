@@ -210,7 +210,7 @@ void TorchTrap(Entity*);
 void VaatiRebornEnemy(Entity*);
 void VaatiProjectile(Entity*);
 void BallChainSoldier(Entity*);
-void Enemy4D(Entity*);
+void Enemy4D();
 void Ghini();
 void VaatiTransfigured(Entity*);
 void Enemy50();

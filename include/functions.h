@@ -25,7 +25,7 @@ extern void DrawDirect(u32, u32); // trampoline to sub_080B27F4
 extern void DrawEntities(void);
 extern void DrawOAMCmd(void);
 extern void EnemyFunctionHandlerAfterCollision(Entity*, void (*const[])());
-extern u32 EntityWithinDistance(Entity*, s32, s32, s32);
+extern bool32 EntityWithinDistance(Entity*, s32, s32, s32);
 extern void FlushSprites(void);
 extern void GenericKnockback2(Entity*);
 extern LayerStruct* GetLayerByIndex(u32);

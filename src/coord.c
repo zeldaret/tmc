@@ -446,7 +446,7 @@ u32 sub_0806FCAC(Entity* this, Entity* other) {
     return sub_0806F5B0(GetFacingDirection(this, other));
 }
 
-u32 EntityWithinDistance(Entity* ent, s32 x, s32 y, s32 distance) {
+bool32 EntityWithinDistance(Entity* ent, s32 x, s32 y, s32 distance) {
     return PointInsideRadius(ent->x.HALF.HI - x, ent->y.HALF.HI - y, distance);
 }
 
