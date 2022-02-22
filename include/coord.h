@@ -19,8 +19,8 @@ u32 sub_0806F5A4(u32 idx);
 u32 sub_0806F3E4(Entity*);
 void LinearMoveUpdate(Entity*);
 bool32 sub_0806FD54(Entity*);
+u32 sub_0806FCAC(Entity*, Entity*);
 
 extern const s16 gSineTable[64];
 extern const s16 gCosineTable[256];
-
 #endif
