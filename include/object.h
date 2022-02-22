@@ -334,7 +334,7 @@ void Object68(Entity*);
 void Object69(Entity*);
 void Object6A(Entity*);
 void CrenelBeanSprout();
-void MinecartDoor(Entity*);
+void MinecartDoor();
 void ObjectOnPillar();
 void MineralWaterSource(Entity*);
 void MinishSizedArchway(Entity*);
