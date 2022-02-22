@@ -293,7 +293,7 @@ void GiantLeaf(Entity*);
 void Fairy();
 void LadderUp(Entity*);
 void Object42(Entity*);
-void Object43(Entity*);
+void Object43();
 void Object44(Entity*);
 void Object45(Entity*);
 void GiantBookLadder(Entity*);

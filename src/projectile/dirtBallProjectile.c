@@ -5,8 +5,6 @@
 #include "coord.h"
 #include "functions.h"
 
-extern void sub_08078954(Entity*);
-
 extern void (*const DirtBallProjectile_Functions[])(Entity*);
 extern void (*const DirtBallProjectile_Actions[])(Entity*);
 extern const Hitbox3D gUnk_08129764;

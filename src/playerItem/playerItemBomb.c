@@ -3,13 +3,10 @@
 #include "functions.h"
 
 extern void (*const gUnk_080B77C8[])(Entity*);
-extern void sub_08078954(Entity*);
 void sub_0801B418(Entity*);
 void sub_0801B3A4(Entity*);
 
 extern void (*const gUnk_080B77D8[])(Entity*);
-
-extern void sub_08079BD8(Entity*);
 
 void PlayerItemBomb(Entity* this) {
     u8 uVar1, uVar2;
