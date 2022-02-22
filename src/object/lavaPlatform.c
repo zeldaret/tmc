@@ -32,8 +32,6 @@ typedef struct {
     /*0x0e*/ u8 unk_e[2];
 } LavaPlatformEntry;
 
-extern void sub_080A2CC0(Entity*, Entity**, u16*);
-
 void sub_08092278(LavaPlatformEntity*);
 void sub_08092344(LavaPlatformEntity*);
 void LavaPlatform_SpawnPlatforms(LavaPlatformEntity*);
@@ -248,7 +246,7 @@ void LavaPlatform_SpawnPlatforms(LavaPlatformEntity* this) {
             platform->respawnTime = entry->respawnTime;
             platform->unk_78 = entry->unk_78;
             UpdateSpriteForCollisionLayer((Entity*)platform);
-            sub_080A2CC0(&platform->base, &platform->unk_78, &platform->unk_76);
+            sub_080A2CC0(&platform->base, (u16**)&platform->unk_78, &platform->unk_76);
         }
         entry++;
     }
@@ -302,6 +300,6 @@ void sub_080926E4(LavaPlatformEntity* this) {
         (super->parent)->y.HALF.HI = super->y.HALF.HI;
     }
     if (--this->unk_76 == 0) {
-        sub_080A2CC0(super, &this->unk_78, &this->unk_76);
+        sub_080A2CC0(super, (u16**)&this->unk_78, &this->unk_76);
     }
 }

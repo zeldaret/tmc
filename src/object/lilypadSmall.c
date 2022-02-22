@@ -1,8 +1,6 @@
 #include "object.h"
 #include "functions.h"
 
-extern void sub_080A2CC0(Entity*, Entity**, u16*);
-
 extern u16 gUnk_08123318[];
 
 static void sub_08097B24(Entity* this);
@@ -21,13 +19,13 @@ void LilypadSmall(Entity* this) {
         this->spriteSettings.draw = TRUE;
         this->spritePriority.b0 = 7;
         this->child = GetCurrentRoomProperty(this->type2);
-        sub_080A2CC0(this, &this->child, &this->field_0x70.HALF.LO);
+        sub_080A2CC0(this, (u16**)&this->child, &this->field_0x70.HALF.LO);
     }
     sub_080A2BE4(this, sub_08097ADC(this));
     sub_08097B24(this);
     psVar4 = (u16*)&this->field_0x70;
     if (--*psVar4 == 0) {
-        sub_080A2CC0(this, &this->child, psVar4);
+        sub_080A2CC0(this, (u16**)&this->child, psVar4);
     }
 }
 

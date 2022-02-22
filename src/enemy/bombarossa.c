@@ -27,7 +27,7 @@ void Bombarossa_OnTick(BombarossaEntity* this) {
         InitializeAnimation(super, 0);
         if (super->type != 0) {
             super->child = GetCurrentRoomProperty(super->type);
-            sub_080A2CC0(super, &super->child, &this->unk_0x76);
+            sub_080A2CC0(super, (u16**)&super->child, &this->unk_0x76);
         }
     }
 
@@ -68,7 +68,7 @@ void sub_0803350C(BombarossaEntity* this) {
     }
 
     if (--this->unk_0x76 == 0) {
-        sub_080A2CC0(super, &super->child, &this->unk_0x76);
+        sub_080A2CC0(super, (u16**)&super->child, &this->unk_0x76);
     }
 }
 

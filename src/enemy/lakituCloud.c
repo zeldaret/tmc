@@ -118,7 +118,7 @@ void sub_0803CDD8(Entity* this) {
 void sub_0803CE14(Entity* this) {
     u8 direction;
 
-    sub_080A2CC0(this, &this->child, &this->field_0x74.HWORD);
+    sub_080A2CC0(this, (u16**)&this->child, &this->field_0x74.HWORD);
 
     direction = this->direction;
     if (direction & 0x80) {
