@@ -1095,7 +1095,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_CrenalBeanSprout
+	.4byte gSpriteAnimations_CrenelBeanSprout
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000

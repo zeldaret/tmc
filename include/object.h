@@ -137,7 +137,7 @@ typedef enum {
     OBJECT_68,
     OBJECT_69,
     OBJECT_6A,
-    CRENAL_BEAN_SPROUT,
+    CRENEL_BEAN_SPROUT,
     MINECART_DOOR,
     OBJECT_ON_PILLAR,
     MINERAL_WATER_SOURCE,
@@ -333,7 +333,7 @@ void Object67(Entity*);
 void Object68(Entity*);
 void Object69(Entity*);
 void Object6A(Entity*);
-void CrenalBeanSprout(Entity*);
+void CrenelBeanSprout();
 void MinecartDoor(Entity*);
 void ObjectOnPillar();
 void MineralWaterSource(Entity*);

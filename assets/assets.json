@@ -44782,71 +44782,46 @@
     "size": 16
   },
   {
-    "path": "animations/gSpriteAnimations_CrenalBeanSprout_0.bin",
+    "path": "animations/gSpriteAnimations_CrenelBeanSprout_0.bin",
     "start": 1192378,
     "size": 5,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_CrenalBeanSprout_3.bin",
+    "path": "animations/gSpriteAnimations_CrenelBeanSprout_3.bin",
     "start": 1192383,
     "size": 13,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_CrenalBeanSprout_6.bin",
+    "path": "animations/gSpriteAnimations_CrenelBeanSprout_6.bin",
     "start": 1192396,
     "size": 9,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_CrenalBeanSprout_8.bin",
+    "path": "animations/gSpriteAnimations_CrenelBeanSprout_8.bin",
     "start": 1192405,
     "size": 17,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_CrenalBeanSprout_10.bin",
+    "path": "animations/gSpriteAnimations_CrenelBeanSprout_10.bin",
     "start": 1192422,
     "size": 21,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_CrenalBeanSprout_1.bin",
+    "path": "animations/gSpriteAnimations_CrenelBeanSprout_1.bin",
     "start": 1192443,
     "size": 9,
     "type": "animation"
   },
   {
-    "path": "animations/gSpriteAnimations_CrenalBeanSprout_12.bin",
+    "path": "animations/gSpriteAnimations_CrenelBeanSprout_12.bin",
     "start": 1192452,
     "size": 4,
     "type": "animation"
-  },
-  {
-    "path": "crenalBeanSprout/gUnk_08123184.bin",
-    "start": 1192324,
-    "size": 8
-  },
-  {
-    "path": "crenalBeanSprout/gUnk_0812319C.bin",
-    "start": 1192348,
-    "size": 4
-  },
-  {
-    "path": "crenalBeanSprout/gUnk_081231AC.bin",
-    "start": 1192364,
-    "size": 2
-  },
-  {
-    "path": "crenalBeanSprout/gUnk_081231AE.bin",
-    "start": 1192366,
-    "size": 6
-  },
-  {
-    "path": "crenalBeanSprout/gUnk_081231B4.bin",
-    "start": 1192372,
-    "size": 6
   },
   {
     "path": "mineralWaterSource/MineralWaterSourceParameters.bin",
@@ -45591,46 +45566,6 @@
     "path": "objectB9/gUnk_08124ECC.bin",
     "start": 1199820,
     "size": 4
-  },
-  {
-    "path": "gyorgBossObject/gUnk_08124F08.bin",
-    "start": 1199880,
-    "size": 32
-  },
-  {
-    "path": "gyorgBossObject/gUnk_08124F28.bin",
-    "start": 1199912,
-    "size": 32
-  },
-  {
-    "path": "gyorgBossObject/gUnk_08124F48.bin",
-    "start": 1199944,
-    "size": 32
-  },
-  {
-    "path": "gyorgBossObject/gUnk_08124F68.bin",
-    "start": 1199976,
-    "size": 32
-  },
-  {
-    "path": "gyorgBossObject/gUnk_08124F88.bin",
-    "start": 1200008,
-    "size": 32
-  },
-  {
-    "path": "gyorgBossObject/gUnk_08124FA8.bin",
-    "start": 1200040,
-    "size": 32
-  },
-  {
-    "path": "gyorgBossObject/gUnk_08124FC8.bin",
-    "start": 1200072,
-    "size": 20
-  },
-  {
-    "path": "gyorgBossObject/gUnk_08124FDC.bin",
-    "start": 1200092,
-    "size": 20
   },
   {
     "path": "windcrest/gUnk_08125010.bin",
