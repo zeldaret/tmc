@@ -45353,11 +45353,6 @@
     "type": "animation"
   },
   {
-    "path": "angryStatue/gUnk_08124684.bin",
-    "start": 1197700,
-    "size": 8
-  },
-  {
     "path": "animation/gSpriteAnimations_ObjectA2_0.bin",
     "start": 1197842,
     "size": 49,

@@ -808,7 +808,7 @@ SECTIONS {
         src/object/treeThorns.o(.text);
         src/object/fan.o(.text);
         asm/object/fan.o(.text);
-        asm/object/angryStatue.o(.text);
+        src/object/angryStatue.o(.text);
         src/object/palaceArchway.o(.text);
         src/object/objectA2.o(.text);
         src/object/cloud.o(.text);
@@ -1561,7 +1561,7 @@ SECTIONS {
         data/const/object/lightableSwitch.o(.rodata);
         data/const/object/fan.o(.rodata);
         data/animations/object/fan.o(.rodata);
-        data/const/object/angryStatue.o(.rodata);
+        src/object/angryStatue.o(.rodata);
         data/animations/object/angryStatue.o(.rodata);
         data/const/object/palaceArchway.o(.rodata);
         src/object/objectA2.o(.rodata);
