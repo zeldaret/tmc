@@ -27402,11 +27402,6 @@
     "type": "animation"
   },
   {
-    "path": "enemy4D/gUnk_080D08C4.bin",
-    "start": 854212,
-    "size": 4
-  },
-  {
     "path": "animations/gSpriteAnimations_Ghini_0.bin",
     "start": 854408,
     "size": 28,
@@ -45591,46 +45586,6 @@
     "path": "objectB9/gUnk_08124ECC.bin",
     "start": 1199820,
     "size": 4
-  },
-  {
-    "path": "gyorgBossObject/gUnk_08124F08.bin",
-    "start": 1199880,
-    "size": 32
-  },
-  {
-    "path": "gyorgBossObject/gUnk_08124F28.bin",
-    "start": 1199912,
-    "size": 32
-  },
-  {
-    "path": "gyorgBossObject/gUnk_08124F48.bin",
-    "start": 1199944,
-    "size": 32
-  },
-  {
-    "path": "gyorgBossObject/gUnk_08124F68.bin",
-    "start": 1199976,
-    "size": 32
-  },
-  {
-    "path": "gyorgBossObject/gUnk_08124F88.bin",
-    "start": 1200008,
-    "size": 32
-  },
-  {
-    "path": "gyorgBossObject/gUnk_08124FA8.bin",
-    "start": 1200040,
-    "size": 32
-  },
-  {
-    "path": "gyorgBossObject/gUnk_08124FC8.bin",
-    "start": 1200072,
-    "size": 20
-  },
-  {
-    "path": "gyorgBossObject/gUnk_08124FDC.bin",
-    "start": 1200092,
-    "size": 20
   },
   {
     "path": "windcrest/gUnk_08125010.bin",

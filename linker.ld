@@ -402,7 +402,6 @@ SECTIONS {
         src/enemy/vaatiProjectile.o(.text);
         src/enemy/ballChainSoldier.o(.text);
         src/enemy/enemy4D.o(.text);
-        asm/enemy/enemy4D.o(.text);
         src/enemy/ghini.o(.text);
         src/enemy/vaatiTransfigured.o(.text);
         src/enemy/enemy50.o(.text);
@@ -1076,7 +1075,7 @@ SECTIONS {
         src/enemy/ballChainSoldier.o(.rodata);
         data/const/enemy/ballChainSoldier.o(.rodata);
         data/animations/enemy/ballChainSoldier.o(.rodata);
-        data/const/enemy/enemy4D.o(.rodata);
+        src/enemy/enemy4D.o(.rodata);
         src/enemy/ghini.o(.rodata);
         data/animations/enemy/ghini.o(.rodata);
         src/enemy/vaatiTransfigured.o(.rodata);
