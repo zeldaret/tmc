@@ -7,35 +7,35 @@
 
 extern Hitbox gUnk_080FD178;
 
-void sub_0809F144(Entity*);
-void sub_0809F194(Entity*);
-void sub_0809F1B0(Entity*);
-void sub_0809F220(Entity*);
-void sub_0809F254(Entity*);
+void AngryStatue_Init(Entity*);
+void AngryStatue_Action1(Entity*);
+void AngryStatue_Action2(Entity*);
+void AngryStatue_Action3(Entity*);
+void AngryStatue_Action4(Entity*);
 
 void AngryStatue(Entity* this) {
     static void (*const AngryStatue_Actions[])(Entity*) = {
-        sub_0809F144, sub_0809F194, sub_0809F1B0, sub_0809F220, sub_0809F254,
+        AngryStatue_Init, AngryStatue_Action1, AngryStatue_Action2, AngryStatue_Action3, AngryStatue_Action4,
     };
 
     AngryStatue_Actions[this->action](this);
 }
 
-void sub_0809F144(Entity* this) {
+void AngryStatue_Init(Entity* this) {
     this->action = 1;
     this->hitbox = &gUnk_080FD178;
     SetTile(0x4022, COORD_TO_TILE(this), this->collisionLayer);
     InitializeAnimation(this, this->type);
 }
 
-void sub_0809F194(Entity* this) {
+void AngryStatue_Action1(Entity* this) {
     if (this->parent->field_0xf == 1) {
         this->action = 2;
         InitializeAnimation(this, this->type + 4);
     }
 }
 
-void sub_0809F1B0(Entity* this) {
+void AngryStatue_Action2(Entity* this) {
     static const s8 gUnk_08124684[] = {
         0, 12, 12, 2, 0, 12, -12, 2,
     };
@@ -61,7 +61,7 @@ void sub_0809F1B0(Entity* this) {
     }
 }
 
-void sub_0809F220(Entity* this) {
+void AngryStatue_Action3(Entity* this) {
     if (--this->actionDelay == 0) {
         this->action = 4;
         this->actionDelay = 15;
@@ -71,7 +71,7 @@ void sub_0809F220(Entity* this) {
     }
 }
 
-void sub_0809F254(Entity* this) {
+void AngryStatue_Action4(Entity* this) {
     this->spriteSettings.draw ^= 1;
     if (--this->actionDelay == 0) {
         this->action = 1;
