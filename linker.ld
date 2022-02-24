@@ -683,7 +683,7 @@ SECTIONS {
         src/object/barrelInside.o(.text);
         src/object/pushableStatue.o(.text);
         asm/object/object28.o(.text);
-        asm/object/ambientClouds.o(.text);
+        src/object/ambientClouds.o(.text);
         src/object/object2A.o(.text);
         asm/object/object2B.o(.text);
         asm/object/beanstalk.o(.text);
@@ -1410,7 +1410,7 @@ SECTIONS {
         src/object/barrelInside.o(.rodata);
         src/object/pushableStatue.o(.rodata);
         data/animations/object/pushableStatue.o(.rodata);
-        data/const/object/ambientClouds.o(.rodata);
+        src/object/ambientClouds.o(.rodata);
         data/animations/object/ambientClouds.o(.rodata);
         src/object/object2A.o(.rodata);
         data/animations/object/object2A.o(.rodata);
