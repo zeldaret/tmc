@@ -26185,11 +26185,6 @@
     "type": "animation"
   },
   {
-    "path": "cloudPiranha/gUnk_080CF520.bin",
-    "start": 849184,
-    "size": 16
-  },
-  {
     "path": "animations/gSpriteAnimations_ScissorsBeetle_0.bin",
     "start": 849476,
     "size": 5,

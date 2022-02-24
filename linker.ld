@@ -387,7 +387,7 @@ SECTIONS {
         src/enemy/octorokGolden.o(.text);
         src/enemy/tektiteGolden.o(.text);
         src/enemy/ropeGolden.o(.text);
-        asm/enemy/cloudPiranha.o(.text);
+        src/enemy/cloudPiranha.o(.text);
         src/enemy/scissorsBeetle.o(.text);
         src/enemy/cuccoAggr.o(.text);
         src/enemy/stalfos.o(.text);
@@ -1049,7 +1049,7 @@ SECTIONS {
         src/enemy/octorokGolden.o(.rodata);
         data/const/enemy/tektiteGolden.o(.rodata);
         data/const/enemy/ropeGolden.o(.rodata);
-        data/const/enemy/cloudPiranha.o(.rodata);
+        src/enemy/cloudPiranha.o(.rodata);
         data/animations/enemy/cloudPiranha.o(.rodata);
         src/enemy/scissorsBeetle.o(.rodata);
         data/animations/enemy/scissorsBeetle.o(.rodata);

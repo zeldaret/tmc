@@ -196,7 +196,7 @@ void Gibdo(Entity*);
 void OctorokGolden(Entity*);
 void TektiteGolden(Entity*);
 void RopeGolden(Entity*);
-void CloudPiranha(Entity*);
+void CloudPiranha();
 void ScissorsBeetle(Entity*);
 void CuccoAggr(Entity*);
 void Stalfos();
