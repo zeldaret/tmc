@@ -710,7 +710,7 @@ SECTIONS {
         src/object/object3E.o(.text);
         src/object/giantLeaf.o(.text);
         src/object/fairy.o(.text);
-        asm/object/ladderUp.o(.text);
+        src/object/ladderUp.o(.text);
         asm/object/object42.o(.text);
         asm/object/object43.o(.text);
         asm/object/object44.o(.text);
