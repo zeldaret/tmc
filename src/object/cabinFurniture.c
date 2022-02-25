@@ -74,10 +74,12 @@ void CabinFurniture_Init(CabinFurnitureEntity* this) {
     }
 }
 
-void nullsub_535(CabinFurnitureEntity* this) {}
+void nullsub_535(CabinFurnitureEntity* this) {
+}
 
 void nullsub_2a(CabinFurnitureEntity* this) {
     nullsub_2(this);
 }
 
-void nullsub_2(CabinFurnitureEntity* this) {}
+void nullsub_2(CabinFurnitureEntity* this) {
+}
