@@ -352,7 +352,7 @@ void sub_0806FB00(Entity* ent, u32 param_1, u32 param_2, u32 param_3) {
     ent->field_0x86.HWORD = param_2;
 }
 
-bool32 sub_0806FB38(Entity* ent, u32 param_1, u32 param_2, u32 param_3) {
+bool32 sub_0806FB38(Entity* ent) {
     s32 val;
     u32 rv;
     if (ent->field_0x7c.BYTES.byte2 < ent->field_0x7c.BYTES.byte3) {
