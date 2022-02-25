@@ -693,7 +693,7 @@ SECTIONS {
         asm/object/object30.o(.text);
         src/object/frozenFlower.o(.text);
         src/object/pullableMushroom.o(.text);
-        asm/object/bollard.o(.text);
+        src/object/bollard.o(.text);
         src/object/warpPoint.o(.text);
         asm/object/object35.o(.text);
         asm/object/object36.o(.text);
@@ -1424,7 +1424,7 @@ SECTIONS {
         data/const/object/object31.o(.rodata);
         src/object/pullableMushroom.o(.rodata);
         data/animations/object/pullableMushroom.o(.rodata);
-        data/const/object/bollard.o(.rodata);
+        src/object/bollard.o(.rodata);
         data/animations/object/bollard.o(.rodata);
         src/object/warpPoint.o(.rodata);
         data/animations/object/warpPoint.o(.rodata);
