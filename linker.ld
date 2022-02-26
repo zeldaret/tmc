@@ -686,7 +686,7 @@ SECTIONS {
         asm/object/ambientClouds.o(.text);
         src/object/object2A.o(.text);
         asm/object/object2B.o(.text);
-        asm/object/beanstalk.o(.text);
+        src/object/beanstalk.o(.text);
         src/object/smoke.o(.text);
         src/object/pushableRock.o(.text);
         src/object/hittableLever.o(.text);
@@ -1414,7 +1414,7 @@ SECTIONS {
         data/animations/object/ambientClouds.o(.rodata);
         src/object/object2A.o(.rodata);
         data/animations/object/object2A.o(.rodata);
-        data/const/object/beanstalk.o(.rodata);
+        src/object/beanstalk.o(.rodata);
         data/animations/object/beanstalk.o(.rodata);
         data/const/object/smoke.o(.rodata);
         src/object/pushableRock.o(.rodata);

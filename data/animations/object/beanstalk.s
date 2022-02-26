@@ -4,6 +4,12 @@
 	.section .rodata
 @    .align 2
 
+gSpriteAnimations_Beanstalk_0_0:: @ 08120E8C
+	.include "animations/gSpriteAnimations_Beanstalk_0_0.s"
+
+gSpriteAnimations_Beanstalk_0_1:: @ 08120ED1
+	.include "animations/gSpriteAnimations_Beanstalk_0_1.s"
+
 gSpriteAnimations_Beanstalk_1_0:: @ 08120EF9
 	.include "animations/gSpriteAnimations_Beanstalk_1_0.s"
 

@@ -43248,21 +43248,6 @@
     "type": "animation"
   },
   {
-    "path": "beanstalk/gUnk_08120DFC.bin",
-    "start": 1183228,
-    "size": 24
-  },
-  {
-    "path": "beanstalk/gUnk_08120E14.bin",
-    "start": 1183252,
-    "size": 40
-  },
-  {
-    "path": "beanstalk/gUnk_08120E3C.bin",
-    "start": 1183292,
-    "size": 20
-  },
-  {
     "path": "animations/gSpriteAnimations_Beanstalk_0_0.bin",
     "start": 1183372,
     "size": 69,

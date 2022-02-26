@@ -58,6 +58,7 @@ extern void UpdateItemAnim(ItemBehavior*);
 
 // Unidentified
 extern void sub_08000148(u32, u32, u32);
+extern u32 sub_0800029C(Entity*, s32, s32);
 extern u32 sub_080002A8(u32, u32, u32);
 extern u32 sub_080002B4(Entity*, u32, u32);
 extern u32 sub_080002B8(Entity*);
