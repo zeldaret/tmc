@@ -449,8 +449,7 @@ const struct_08128184 gUnk_08128184 = {
     0xffu,
 };
 
-extern u8 gUnk_020227E8[];
-extern void sub_08057044(u32, u8*, u8*);
+extern struct_020227E8 gUnk_020227E8[];
 extern void sub_0805F46C(u32, const struct_0812816C*);
 
 void sub_080A4BA0(u32 arg1, u32 arg2) {
@@ -478,7 +477,7 @@ void sub_080A4BA0(u32 arg1, u32 arg2) {
     if (r5 <= 0 || tmp < r5) {
         r5 = -1;
     } else {
-        sub_08057044(r5, gUnk_020227E8, (void*)0x303030);
+        sub_08057044(r5, gUnk_020227E8, 0x303030);
         if (sub_080A4948(r5) == 0) {
             r5 += 0x8000;
         } else {

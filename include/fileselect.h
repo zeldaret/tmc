@@ -39,11 +39,6 @@ typedef struct {
     u8 filler12[0x6];
 } struct_080FC844;
 
-typedef struct {
-    union SplitWord _0;
-    union SplitWord _4;
-} struct_020227E8;
-
 extern struct_020227E8 gUnk_020227E8[];
 
 typedef struct {

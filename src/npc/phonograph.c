@@ -12,7 +12,6 @@ void sub_0806EABC(Entity* this);
 void sub_0806EABC(Entity* this, u32 param);
 #endif
 
-extern void sub_08057044(u32, struct_020227E8*, u32);
 extern u32 gUnk_081146B8;
 extern s8 gUnk_081145E4[];
 

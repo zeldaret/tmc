@@ -3,15 +3,15 @@
 
 #include "global.h"
 
-u32 CheckFlags(u32);
-u32 CheckGlobalFlag(u32);
-u32 CheckGlobalFlags(u32, u32);
-extern u32 CheckLocalFlag(u32);
-extern u32 CheckLocalFlagByBank(u32, u32);
-u32 CheckLocalFlags(u32, u32);
-u32 CheckLocalFlagsByBank(u32, u32, u32);
-u32 CheckRoomFlag(u32);
-u32 CheckRoomFlags(u32, u32);
+bool32 CheckFlags(u32);
+bool32 CheckGlobalFlag(u32);
+bool32 CheckGlobalFlags(u32, u32);
+extern bool32 CheckLocalFlag(u32);
+extern bool32 CheckLocalFlagByBank(u32, u32);
+bool32 CheckLocalFlags(u32, u32);
+bool32 CheckLocalFlagsByBank(u32, u32, u32);
+bool32 CheckRoomFlag(u32);
+bool32 CheckRoomFlags(u32, u32);
 
 void ClearFlag(u32);
 void ClearGlobalFlag(u32);

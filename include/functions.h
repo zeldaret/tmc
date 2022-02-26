@@ -114,6 +114,7 @@ extern u32 sub_080542AC(u32);
 extern void sub_08054564();
 extern void sub_08054570(void);
 extern s32 sub_08056338(void);
+extern void sub_08057044(u32, struct_020227E8*, u32);
 extern void sub_080575C8(u32);
 extern void sub_08057688(void);
 extern void sub_080580B0(u32);
