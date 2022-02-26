@@ -838,9 +838,9 @@ SECTIONS {
         asm/object/litArea.o(.text);
         asm/object/objectBD.o(.text);
         src/object/pinwheel.o(.text);
-        asm/object/objectBF.o(.text);
+        src/object/objectBF.o(.text);
         src/object/enemyItem.o(.text);
-        asm/object/objectC1.o(.text);
+        src/object/objectC1.o(.text);
         /* END objects */
         src/objectUtils.o(.text);
         asm/objectUtils.o(.text);
@@ -1594,7 +1594,7 @@ SECTIONS {
         data/const/object/objectBD.o(.rodata);
         data/const/object/pinwheel.o(.rodata);
         data/animations/object/pinwheel.o(.rodata);
-        data/const/object/objectC1.o(.rodata);
+        src/object/objectC1.o(.rodata);
         src/objectDefinitions.o(.rodata);
         src/playerItemDefinitions.o(.rodata);
         data/data_08125104.o(.rodata);

@@ -419,7 +419,7 @@ void ObjectBD(Entity*);
 void Pinwheel(Entity*);
 void ObjectBF(Entity*);
 void EnemyItem();
-void ObjectC1(Entity*);
+void ObjectC1();
 
 extern void (*const gObjectFunctions[194])(Entity*);
 
