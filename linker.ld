@@ -839,7 +839,7 @@ SECTIONS {
         asm/object/objectBD.o(.text);
         src/object/pinwheel.o(.text);
         asm/object/objectBF.o(.text);
-        asm/object/enemyItem.o(.text);
+        src/object/enemyItem.o(.text);
         asm/object/objectC1.o(.text);
         /* END objects */
         src/objectUtils.o(.text);

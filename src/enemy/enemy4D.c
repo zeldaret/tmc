@@ -297,7 +297,7 @@ bool32 sub_0803EF20(Enemy4DEntity* this) {
         sub_0803EF70, sub_0803EFAC, sub_0803EFAC, sub_0803EFAC, sub_0803EF70, sub_0803EF70, sub_0803EFAC,
     };
     Entity* it;
-    LinkedList* list = ((LinkedList*)&gEntityLists + 2);
+    LinkedList* list = &gEntityLists[2];
 
     for (it = list->first; it != (Entity*)list; it = it->next) {
         if ((it->kind == 8) && gUnk_080D08C8[it->id](super, it)) {

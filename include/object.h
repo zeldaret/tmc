@@ -418,7 +418,7 @@ void LitArea(Entity*);
 void ObjectBD(Entity*);
 void Pinwheel(Entity*);
 void ObjectBF(Entity*);
-void EnemyItem(Entity*);
+void EnemyItem();
 void ObjectC1(Entity*);
 
 extern void (*const gObjectFunctions[194])(Entity*);
