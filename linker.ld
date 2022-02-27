@@ -764,7 +764,7 @@ SECTIONS {
         src/object/lilypadSmall.o(.text);
         asm/object/object74.o(.text);
         src/object/bell.o(.text);
-        asm/object/macroDecorations.o(.text);
+        src/object/macroDecorations.o(.text);
         asm/object/object79.o(.text);
         src/object/steam.o(.text);
         src/object/pushableLever.o(.text);
@@ -1510,7 +1510,7 @@ SECTIONS {
         data/const/object/object74.o(.rodata);
         data/const/object/bell.o(.rodata);
         data/animations/object/bell.o(.rodata);
-        data/const/object/macroDecorations.o(.rodata);
+        src/object/macroDecorations.o(.rodata);
         data/const/object/object79.o(.rodata);
         data/animations/object/object79.o(.rodata);
         src/object/steam.o(.rodata);

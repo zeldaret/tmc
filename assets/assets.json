@@ -44856,11 +44856,6 @@
     "type": "animation"
   },
   {
-    "path": "macroDecorations/gUnk_081233C0.bin",
-    "start": 1192896,
-    "size": 80
-  },
-  {
     "path": "animations/gSpriteAnimations_Object79_0.bin",
     "start": 1192994,
     "size": 25,
