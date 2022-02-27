@@ -330,7 +330,7 @@ void Object64(Entity*);
 void LadderHoleInBookshelf(Entity*);
 void Object66(Entity*);
 void Object67(Entity*);
-void Object68(Entity*);
+void Object68();
 void Object69(Entity*);
 void Object6A(Entity*);
 void CrenelBeanSprout();

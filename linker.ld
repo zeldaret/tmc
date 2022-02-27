@@ -750,7 +750,7 @@ SECTIONS {
         asm/object/ladderHoleInBookshelf.o(.text);
         asm/object/object66.o(.text);
         asm/object/object67.o(.text);
-        asm/object/object68.o(.text);
+        src/object/object68.o(.text);
         src/object/object69.o(.text);
         src/object/object6A.o(.text);
         src/object/crenelBeanSprout.o(.text);
@@ -1494,7 +1494,7 @@ SECTIONS {
         data/animations/object/object64.o(.rodata);
         data/const/object/ladderHoleInBookshelf.o(.rodata);
         data/const/object/object67.o(.rodata);
-        data/const/object/object68.o(.rodata);
+        src/object/object68.o(.rodata);
         src/object/object6A.o(.rodata);
         data/const/object/object6A.o(.rodata);
         data/animations/object/object6A.o(.rodata);

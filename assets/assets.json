@@ -44294,21 +44294,6 @@
     "size": 32
   },
   {
-    "path": "object68/gUnk_08122A18.bin",
-    "start": 1190424,
-    "size": 8
-  },
-  {
-    "path": "object68/gUnk_08122A20.bin",
-    "start": 1190432,
-    "size": 4
-  },
-  {
-    "path": "object68/gUnk_08122A28.bin",
-    "start": 1190440,
-    "size": 12
-  },
-  {
     "path": "animations/gSpriteAnimations_Object6A_10_0.bin",
     "start": 1190732,
     "size": 9,

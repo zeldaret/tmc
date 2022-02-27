@@ -196,6 +196,7 @@ extern void sub_0809EABC(Entity*);
 extern void sub_0809EAD8(Entity*);
 extern void sub_0809EB30(Entity*);
 extern void sub_080A1ED0(u32, u32, u32);
+extern Entity* sub_080A2A20(Entity*, u32, u32);
 extern Entity* sub_080A2A3C(Entity*, u32, u32, u32);
 extern Entity* sub_080A2AD4(Entity*);
 extern void sub_080A2AF4(Entity*, u32, u32);
