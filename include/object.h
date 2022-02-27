@@ -279,7 +279,7 @@ void FrozenFlower(Entity*);
 void PullableMushroom();
 void Bollard(Entity*);
 void WarpPoint(Entity*);
-void Object35(Entity*);
+void Object35();
 void Object36(Entity*);
 void Object37(Entity*);
 void JarPortal(Entity*);

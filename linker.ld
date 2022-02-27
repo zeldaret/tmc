@@ -695,7 +695,7 @@ SECTIONS {
         src/object/pullableMushroom.o(.text);
         asm/object/bollard.o(.text);
         src/object/warpPoint.o(.text);
-        asm/object/object35.o(.text);
+        src/object/object35.o(.text);
         asm/object/object36.o(.text);
         asm/object/object37.o(.text);
         src/object/jarPortal.o(.text);
@@ -1428,7 +1428,7 @@ SECTIONS {
         data/animations/object/bollard.o(.rodata);
         src/object/warpPoint.o(.rodata);
         data/animations/object/warpPoint.o(.rodata);
-        data/const/object/object35.o(.rodata);
+        src/object/object35.o(.rodata);
         data/animations/object/object35.o(.rodata);
         data/const/object/object36.o(.rodata);
         data/const/object/object37.o(.rodata);
