@@ -44896,16 +44896,6 @@
     "type": "animation"
   },
   {
-    "path": "macroShoes/gUnk_081234F4.bin",
-    "start": 1193204,
-    "size": 8
-  },
-  {
-    "path": "macroShoes/gUnk_081234FC.bin",
-    "start": 1193212,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_PicoBloom_0.bin",
     "start": 1193338,
     "size": 25,

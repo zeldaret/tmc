@@ -768,7 +768,7 @@ SECTIONS {
         asm/object/object79.o(.text);
         src/object/steam.o(.text);
         src/object/pushableLever.o(.text);
-        asm/object/macroShoes.o(.text);
+        src/object/macroShoes.o(.text);
         src/object/objectOnSpinyBeetle.o(.text);
         src/object/object7E.o(.text);
         asm/object/picoBloom.o(.text);
@@ -1516,7 +1516,7 @@ SECTIONS {
         src/object/steam.o(.rodata);
         src/object/pushableLever.o(.rodata);
         data/animations/object/pushableLever.o(.rodata);
-        data/const/object/macroShoes.o(.rodata);
+        src/object/macroShoes.o(.rodata);
         src/object/objectOnSpinyBeetle.o(.rodata);
         data/const/object/picoBloom.o(.rodata);
         data/animations/object/picoBloom.o(.rodata);
