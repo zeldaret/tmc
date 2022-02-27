@@ -9,6 +9,7 @@
 #include "global.h"
 #include "object.h"
 #include "functions.h"
+#include "new_player.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -19,15 +20,6 @@ typedef struct {
     /*0x74*/ u16 unk_74;
     /*0x76*/ u16 unk_76;
 } Object61Entity;
-
-typedef struct {
-    /*0x00*/ Entity base;
-    /*0x68*/ u8 unk_68[0x14];
-    /*0x7c*/ u32 unk_7c;
-    /*0x80*/ u8 unk_80[8];
-} PlayerEntity;
-
-#define gNewPlayerEntity (*(PlayerEntity*)&gPlayerEntity)
 
 void Object61_Init(Object61Entity*);
 void Object61_Action1(Object61Entity*);

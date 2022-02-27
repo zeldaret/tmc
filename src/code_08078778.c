@@ -72,6 +72,6 @@ void sub_08078850(Entity* arg0, u32 arg1, u32 arg2, void* arg3) {
     if (iVar1 >= 0) {
         gUnk_03003DF0[iVar1].unk[8] = arg1;
         gUnk_03003DF0[iVar1].unk[10] = arg2;
-        *(&gUnk_03003DF0[iVar1].unk4 + 1) = (u32)arg3;
+        *((u32*)&gUnk_03003DF0[iVar1].unk4 + 1) = (u32)arg3;
     }
 }

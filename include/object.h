@@ -228,7 +228,7 @@ typedef enum {
 
 void ItemOnGround(Entity*);
 void DeathFx(Entity*);
-void ItemForSale(Entity*);
+void ItemForSale();
 void Button(Entity*);
 void MinishEmoticon(Entity*);
 void Pot(Entity*);

@@ -644,7 +644,7 @@ SECTIONS {
         /* objects */
         src/object/itemOnGround.o(.text);
         src/object/deathFx.o(.text);
-        asm/object/itemForSale.o(.text);
+        src/object/itemForSale.o(.text);
         src/object/button.o(.text);
         asm/object/minishEmoticon.o(.text);
         src/object/pot.o(.text);
@@ -1359,7 +1359,7 @@ SECTIONS {
         data/const/object/itemOnGround.o(.rodata);
         src/object/deathFx.o(.rodata);
         data/animations/object/deathFx.o(.rodata);
-        data/const/object/itemForSale.o(.rodata);
+        src/object/itemForSale.o(.rodata);
         data/const/object/button.o(.rodata);
         data/const/object/minishEmoticon.o(.rodata);
         data/animations/object/minishEmoticon.o(.rodata);

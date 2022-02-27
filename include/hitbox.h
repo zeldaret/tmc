@@ -71,6 +71,7 @@ extern const Hitbox gUnk_080FD2F0;
 extern const Hitbox gUnk_080FD308;
 extern const Hitbox gUnk_080FD310;
 extern const Hitbox gUnk_080FD320;
+extern const Hitbox gUnk_080FD328;
 extern const Hitbox gUnk_080FD330;
 extern const Hitbox gUnk_080FD340;
 extern const Hitbox gUnk_080FD340;
