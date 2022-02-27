@@ -845,10 +845,10 @@ u32 sub_08056FEC(u32 this, u8* param_2) {
     return iVar4;
 }
 
-void sub_08057044(u32 a1, u32* a2, u32 a3) {
+void sub_08057044(u32 a1, struct_020227E8* a2, u32 a3) {
     u32 z[2];
     u32 tmp = sub_08056FEC(a1, (u8*)z);
     u32 first = z[0];
     first <<= 8 * (3 - tmp);
-    *a2 = first | a3;
+    a2->_0.WORD = first | a3;
 }

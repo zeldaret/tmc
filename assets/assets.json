@@ -42989,63 +42989,6 @@
     "type": "animation"
   },
   {
-    "path": "figurineDevice/gUnk_08120AA8.bin",
-    "start": 1182376,
-    "size": 4
-  },
-  {
-    "path": "figurineDevice/gUnk_08120AAC.bin",
-    "start": 1182380,
-    "size": 8
-  },
-  {
-    "path": "figurineDevice/gUnk_08120AB4_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1180156
-    },
-    "size": 24
-  },
-  {
-    "path": "figurineDevice/gUnk_08120AB4_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1182388,
-    "size": 24
-  },
-  {
-    "path": "figurineDevice/gUnk_08120ACC_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1180180
-    },
-    "size": 24
-  },
-  {
-    "path": "figurineDevice/gUnk_08120ACC_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1182412,
-    "size": 24
-  },
-  {
-    "path": "figurineDevice/gUnk_08120AE4.bin",
-    "start": 1182436,
-    "size": 4
-  },
-  {
     "path": "animations/gSpriteAnimations_EyeSwitch_0.bin",
     "start": 1182516,
     "size": 17,

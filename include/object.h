@@ -260,7 +260,7 @@ void Object1E(Entity*);
 void Object1F(Entity*);
 void Object20(Entity*);
 void Object21(Entity*);
-void FigurineDevice(Entity*);
+void FigurineDevice();
 void EyeSwitch(Entity*);
 void PressurePlate();
 void BigBarrel(Entity*);

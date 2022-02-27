@@ -146,4 +146,9 @@ typedef struct {
 } OAMControls;
 extern OAMControls gOAMControls;
 
+typedef struct {
+    union SplitWord _0;
+    union SplitWord _4;
+} struct_020227E8;
+
 #endif
