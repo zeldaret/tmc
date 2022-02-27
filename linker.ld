@@ -751,7 +751,7 @@ SECTIONS {
         asm/object/object66.o(.text);
         asm/object/object67.o(.text);
         asm/object/object68.o(.text);
-        asm/object/object69.o(.text);
+        src/object/object69.o(.text);
         src/object/object6A.o(.text);
         src/object/crenelBeanSprout.o(.text);
         src/object/minecartDoor.o(.text);
