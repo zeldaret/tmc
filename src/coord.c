@@ -556,12 +556,12 @@ void sub_0806FE84(Entity* ent) {
     }
 }
 
-void sub_0806FEBC(Entity* ent, u32 param_2, u32 param_3) {
+void sub_0806FEBC(Entity* ent, u32 param_2, Entity* param_3) {
     struct_gUnk_020000C0_1* ptr = &gUnk_020000C0[ent->spriteAnimation[2]].unk_00[param_2];
     *((u32*)ptr) = 0;
     ptr->unk_04.WORD = 0;
     ptr->unk_08.WORD = 0;
-    ptr->unk_0C.WORD = param_3;
+    ptr->unk_0C = (u32)param_3;
     ptr->unk_00.unk0 = 1;
     ptr->unk_00.unk1 = 1;
 }
@@ -669,7 +669,7 @@ bool32 sub_0807007C(struct_gUnk_020000C0* this, u32 param_2) {
 
     ptr3 = &ptr2[ptr1->unk_01 * 4];
     ptr1->unk_08.BYTES.byte1 = *ptr3;
-    ptr1->unk_0C.WORD = spritePtr[2] + ((*(u16*)&ptr3[2]) << 5);
+    ptr1->unk_0C = spritePtr[2] + ((*(u16*)&ptr3[2]) << 5);
     return 1;
 }
 

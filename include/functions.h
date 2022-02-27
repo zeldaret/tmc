@@ -140,6 +140,7 @@ extern bool32 sub_0806FC80(Entity*, Entity*, s32);
 extern void sub_0806FCF4(Entity*, s32, s32, s32);
 extern void sub_0806FD3C(Entity*);
 extern bool32 sub_0806FDA0(Entity*);
+extern void sub_0806FEBC(Entity*, u32, Entity*);
 extern void sub_080751E8(u32, u32, void*);
 extern void sub_08077BB8(ItemBehavior*);
 extern Entity* sub_08077C0C(ItemBehavior*, u32);

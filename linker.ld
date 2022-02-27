@@ -743,7 +743,7 @@ SECTIONS {
         asm/object/whirlwind.o(.text);
         asm/object/objectBlockingStairs.o(.text);
         src/object/swordsmanNewsletter.o(.text);
-        asm/object/object61.o(.text);
+        src/object/object61.o(.text);
         src/object/giantTwig.o(.text);
         asm/object/object63.o(.text);
         asm/object/object64.o(.text);
@@ -1487,7 +1487,7 @@ SECTIONS {
         data/animations/object/whirlwind.o(.rodata);
         data/const/object/objectBlockingStairs.o(.rodata);
         data/const/object/swordsmanNewsletter.o(.rodata);
-        data/const/object/object61.o(.rodata);
+        src/object/object61.o(.rodata);
         src/object/giantTwig.o(.rodata);
         data/const/object/object63.o(.rodata);
         data/const/object/object64.o(.rodata);
