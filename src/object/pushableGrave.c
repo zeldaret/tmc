@@ -9,6 +9,7 @@
 #include "global.h"
 #include "object.h"
 #include "functions.h"
+#include "hitbox.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -26,8 +27,7 @@ typedef struct {
     /*0x86*/ u16 pushedFlag;
 } PushableGraveEntity;
 
-extern const Hitbox gUnk_080FD578;
-extern const Hitbox gUnk_080FD570;
+
 
 extern void (*const gUnk_081232AC[])(PushableGraveEntity*);
 extern const u8 gUnk_081232C0[];

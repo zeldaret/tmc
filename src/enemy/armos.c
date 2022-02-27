@@ -9,6 +9,7 @@
 #include "global.h"
 #include "enemy.h"
 #include "functions.h"
+#include "hitbox.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -23,8 +24,6 @@ typedef struct {
     /*0x84*/ u32 unk_84;
 } ArmosEntity;
 
-extern Hitbox gUnk_080FD2F0;
-extern Hitbox gHitbox_15;
 extern Entity* gUnk_020000B0;
 extern Entity gUnk_02027EB4;
 extern Entity gUnk_0200D654;

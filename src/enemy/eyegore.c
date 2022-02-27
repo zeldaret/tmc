@@ -11,6 +11,7 @@
 #include "functions.h"
 #include "fade.h"
 #include "object.h"
+#include "hitbox.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -35,7 +36,6 @@ typedef struct {
 extern Entity* sub_08017A90(Entity*, Entity*);
 
 extern Entity* gUnk_020000B0;
-extern Hitbox gUnk_080FD308;
 extern const u8 gUnk_080B3E80[];
 
 void sub_08031344(EyegoreEntity*);

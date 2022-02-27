@@ -7,6 +7,7 @@
 #include "item.h"
 #include "itemMetaData.h"
 #include "functions.h"
+#include "hitbox.h"
 
 void sub_08081150(Entity*);
 u8 sub_0808147C(u32);
@@ -23,7 +24,6 @@ extern void (*const gUnk_0811E7D4[])(Entity*);
 extern void (*const gUnk_0811E7E8[])(Entity*);
 extern void (*const gUnk_0811E814[])(Entity*);
 extern void (*const gUnk_0811E840[])(Entity*);
-extern Hitbox gUnk_080FD1A8;
 
 typedef struct {
     u8 unk0[2];
@@ -86,7 +86,7 @@ void sub_08080F20(Entity* this) {
         this->field_0x3c = 0x47;
         this->hurtType = 0x44;
         this->health = 0xFF;
-        this->hitbox = &gUnk_080FD1A8;
+        this->hitbox = (Hitbox*)&gUnk_080FD1A8;
         switch (this->type) {
             case ITEM_SHELLS:
             case ITEM_RUPEE1:

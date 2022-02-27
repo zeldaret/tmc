@@ -1,6 +1,7 @@
 #include "npc.h"
 #include "functions.h"
 #include "screen.h"
+#include "hitbox.h"
 
 extern void (*gUnk_081140D4[])(Entity*);
 
@@ -28,7 +29,6 @@ extern void InitBiggoronTimer(void);
 void sub_0806D110(void);
 void sub_0806D164(Entity* this);
 
-extern Hitbox gHitbox_3;
 Entity* sub_0806D00C(Entity* this);
 
 void sub_0806D4C0(Entity*, u32);
@@ -241,7 +241,7 @@ void sub_0806D3C0(Entity* this) {
             DeleteThisEntity();
         }
         this->action = 1;
-        this->hitbox = &gHitbox_3;
+        this->hitbox = (Hitbox*)&gHitbox_3;
         SetDefaultPriority(this, PRIO_MESSAGE);
         sub_0807DD64(this);
     } else {

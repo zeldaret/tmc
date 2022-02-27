@@ -5,8 +5,7 @@
 #include "object.h"
 #include "functions.h"
 #include "game.h"
-
-extern Hitbox gHitbox_2;
+#include "hitbox.h"
 
 extern u8 gUpdateVisibleTiles;
 
@@ -15,7 +14,7 @@ void ObjectA(Entity* this) {
 
     if (this->action == 0) {
         this->action = 1;
-        this->hitbox = &gHitbox_2;
+        this->hitbox = (Hitbox*)&gHitbox_2;
         if (this->collisionLayer == 1) {
             uVar2 = 0x26;
         } else {

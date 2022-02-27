@@ -9,6 +9,7 @@
 #include "global.h"
 #include "object.h"
 #include "functions.h"
+#include "hitbox.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -32,7 +33,6 @@ typedef struct {
 } LavaPlatformEntry;
 
 extern void sub_080A2CC0(Entity*, Entity**, u16*);
-extern Hitbox gUnk_080FD280;
 
 void sub_08092278(LavaPlatformEntity*);
 void sub_08092344(LavaPlatformEntity*);

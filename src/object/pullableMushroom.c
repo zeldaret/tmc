@@ -10,6 +10,7 @@
 #include "object.h"
 #include "functions.h"
 #include "game.h"
+#include "hitbox.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -20,7 +21,6 @@ typedef struct {
     /*0x7c*/ u32 unk_7c;
 } PullableMushroomEntity;
 
-extern const Hitbox gUnk_080FD224;
 extern const u8 gUnk_08126EE4[];
 
 void PullableMushroom_Init(PullableMushroomEntity*);

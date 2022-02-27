@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "enemy.h"
 #include "functions.h"
+#include "hitbox.h"
 
 typedef struct {
     Entity base;
@@ -11,8 +12,6 @@ typedef struct {
 } FlyingSkullEntity;
 
 extern void (*const gUnk_080012C8[])(Entity*);
-extern Hitbox gUnk_080FD340; // TODO should be const
-extern Hitbox gUnk_080FD34C;
 
 void (*const FlyingSkull_Functions[])(Entity*);
 void (*const gUnk_080CFB9C[])(FlyingSkullEntity*);
@@ -161,7 +160,7 @@ void sub_08039EE4(FlyingSkullEntity* this) {
     super->subAction = 1;
     COLLISION_OFF(super);
     super->collisions = 0;
-    super->hitbox = &gUnk_080FD340;
+    super->hitbox = (Hitbox*)&gUnk_080FD340;
     gPlayerEntity.animationState;
     this->unk_0x76 = gPlayerEntity.animationState;
     SetTile(this->unk_0x74, COORD_TO_TILE(super), super->collisionLayer);
@@ -196,7 +195,7 @@ void sub_08039FAC(FlyingSkullEntity* this) {
         super->spriteOffsetX = 0;
         super->hitType = 0xa0;
         super->flags2 = 0xf;
-        super->hitbox = &gUnk_080FD34C;
+        super->hitbox = (Hitbox*)&gUnk_080FD34C;
         SetTile(this->unk_0x74, COORD_TO_TILE(super), super->collisionLayer);
     }
 }

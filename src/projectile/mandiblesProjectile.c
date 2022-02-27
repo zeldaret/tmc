@@ -3,8 +3,7 @@
 #include "coord.h"
 #include "functions.h"
 #include "game.h"
-
-extern Hitbox gHitbox_0;
+#include "hitbox.h"
 
 extern void (*const MandiblesProjectile_Functions[])(Entity*);
 extern void (*const MandiblesProjectile_Actions[])(Entity*);
@@ -141,9 +140,9 @@ void MandiblesProjectile_Action3(Entity* this) {
                 this->animationState = uVar1 << 0x1a >> 0x1a;
 #ifdef EU
                 this->spriteOrientation.flipY = 1;
-                this->hitbox = &gHitbox_0;
+                this->hitbox = (Hitbox*)&gHitbox_0;
 #else
-                this->hitbox = &gHitbox_0;
+                this->hitbox = (Hitbox*)&gHitbox_0;
                 if (AreaIsDungeon() != 0) {
                     this->spriteOrientation.flipY = 1;
                 }

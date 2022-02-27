@@ -7,6 +7,7 @@
 
 #include "enemy.h"
 #include "functions.h"
+#include "hitbox.h"
 
 extern void sub_08001318(Entity*);
 extern u32 PlayerInRange(Entity*, u32, u32);
@@ -20,9 +21,6 @@ extern void (*const SpinyChuchu_Functions[])(Entity*);
 extern void (*const gUnk_080CBA40[])(Entity*);
 
 extern const u8 gUnk_080CBA60[];
-
-extern Hitbox gHitbox_23;
-extern Hitbox gHitbox_32;
 
 extern Entity* gUnk_020000B0;
 
@@ -44,7 +42,7 @@ void SpinyChuchu_OnCollision(Entity* this) {
                     this->action = 2;
                     this->field_0xf = 0x3c;
                     this->hitType = 0x5c;
-                    this->hitbox = &gHitbox_23;
+                    this->hitbox = (Hitbox*)&gHitbox_23;
                     InitializeAnimation(this, 0);
                     break;
                 case 8:
@@ -193,9 +191,9 @@ void sub_08022780(Entity* this) {
 void sub_080227AC(Entity* this) {
     GetNextFrame(this);
     if (this->frame & 1) {
-        this->hitbox = &gHitbox_32;
+        this->hitbox = (Hitbox*)&gHitbox_32;
     } else {
-        this->hitbox = &gHitbox_23;
+        this->hitbox = (Hitbox*)&gHitbox_23;
     }
 
     if (this->frame & 2) {

@@ -7,6 +7,7 @@
 #include "effects.h"
 #include "game.h"
 #include "common.h"
+#include "hitbox.h"
 
 void sub_08083338(Entity*);
 void sub_080834B4(Entity*);
@@ -34,8 +35,6 @@ void (*const gUnk_0811F65C[])(Entity*) = {
 void LockedDoor(Entity* this) {
     gUnk_0811F65C[this->action](this);
 }
-
-extern Hitbox gHitbox_2;
 
 typedef struct PACKED {
     s8 x;
@@ -95,7 +94,7 @@ void sub_08083338(Entity* this) {
     this->field_0x70.HALF.LO = this->x.HALF.HI;
     this->field_0x70.HALF.HI = this->y.HALF.HI;
     this->field_0x7c.BYTES.byte2 = this->type & 3;
-    this->hitbox = &gHitbox_2;
+    this->hitbox = (Hitbox*)&gHitbox_2;
     this->spritePriority.b0 = 5;
     this->frame = this->type & 0xF;
     this->field_0x76.HWORD = TILE(this->x.HALF.HI, this->y.HALF.HI);

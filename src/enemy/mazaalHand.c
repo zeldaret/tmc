@@ -6,16 +6,9 @@
  */
 
 #include "entity.h"
+#include "hitbox.h"
 
 void sub_08035194(Entity*);
-
-extern const Hitbox gUnk_080FD394;
-extern const Hitbox gUnk_080FD39C;
-extern const Hitbox gUnk_080FD3A4;
-extern const Hitbox gUnk_080FD3AC;
-extern const Hitbox gUnk_080FD3B4;
-extern const Hitbox gUnk_080FD3BC;
-extern const Hitbox gUnk_080FD3C4;
 
 const Hitbox* const gUnk_080CEF34[] = {
     &gUnk_080FD394, &gUnk_080FD394, &gUnk_080FD394, &gUnk_080FD39C, &gUnk_080FD3A4,

@@ -6,6 +6,7 @@
 #include "message.h"
 #include "object.h"
 #include "npc.h"
+#include "hitbox.h"
 
 typedef struct {
     Entity base;
@@ -26,8 +27,6 @@ void PicolyteBottle_Action2(PicolyteBottleEntity* this);
 void nullsub_111(PicolyteBottleEntity* this);
 
 extern void sub_08078828(Entity*);
-
-extern Hitbox gHitbox_0;
 
 void PicolyteBottle(Entity* this) {
     static void (*const PicolyteBottle_Actions[])(PicolyteBottleEntity*) = {
@@ -63,7 +62,7 @@ void PicolyteBottle_Init(PicolyteBottleEntity* this) {
         sub_0806E014(this);
         sub_0807DD50(super);
     } else {
-        super->hitbox = &gHitbox_0;
+        super->hitbox = (Hitbox*)&gHitbox_0;
         super->collisionLayer = 1;
         sub_0806E0DC(this);
     }

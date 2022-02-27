@@ -1,6 +1,7 @@
 #include "functions.h"
 #include "message.h"
 #include "npc.h"
+#include "hitbox.h"
 
 typedef struct {
     u8 unk_0;  // u8
@@ -14,8 +15,6 @@ typedef struct {
     u16 unk_7; // u16
     u16 unk_8; // u16
 } UnkHeap;
-
-extern Hitbox gHitbox_0;
 
 void sub_08060E70(Entity*, u32);
 
@@ -152,7 +151,7 @@ void sub_08060AE0(Entity* this) {
         this->hurtType = 0x48;
         this->hitType = 0x49;
         this->flags2 = 3;
-        this->hitbox = &gHitbox_0;
+        this->hitbox = (Hitbox*)&gHitbox_0;
         this->field_0x17 &= 0xfe;
         this->field_0x6c.HALF.LO = 0xff;
         sub_08060E70(this, this->animationState);

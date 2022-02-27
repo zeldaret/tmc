@@ -3,10 +3,10 @@
 #include "coord.h"
 #include "functions.h"
 #include "projectile.h"
+#include "hitbox.h"
 
 extern u32 sub_080644C8(Entity*);
 extern u8 gUnk_02027EB4[];
-extern const Hitbox gUnk_080FD1E4;
 
 extern const u8 gUnk_081299C8[];
 

@@ -3133,8 +3133,6 @@ static void PlayerMinish(Entity* this) {
     sPlayerMinishStates[this->subAction](this);
 }
 
-extern Hitbox gUnk_0811BC80;
-
 static void sub_08073C80(Entity* this) {
     static const Hitbox sMinishHitbox = { 0, -1, { 3, 2, 2, 3 }, 2, 2 };
 

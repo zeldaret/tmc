@@ -6,14 +6,13 @@
 #include "sound.h"
 #include "functions.h"
 #include "effects.h"
+#include "hitbox.h"
 
 extern u32 sub_08083734(Entity*, u32);
 extern void sub_080A080C(Entity*);
 extern void sub_080A0870(Entity*);
 
 extern void (*const gUnk_0812493C[])(Entity*);
-
-extern Hitbox gHitbox_3;
 
 void MetalDoor(Entity* this) {
     gUnk_0812493C[this->action](this);
@@ -28,7 +27,7 @@ void sub_080A0684(Entity* this) {
     this->spriteSettings.draw = 0;
     this->frameIndex = 0;
     this->spriteSettings.flipY = 1;
-    this->hitbox = &gHitbox_3;
+    this->hitbox = (Hitbox*)&gHitbox_3;
     this->spritePriority.b0 = 5;
     this->field_0x70.HALF.LO = this->x.HALF.HI;
     this->field_0x70.HALF.HI = this->y.HALF.HI;

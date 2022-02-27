@@ -1,5 +1,6 @@
 #include "object.h"
 #include "functions.h"
+#include "hitbox.h"
 
 extern u32 sub_08091DDC(Entity*);
 extern u32 sub_08007DD6(u32, u32);
@@ -8,7 +9,6 @@ extern void sub_08091C0C(Entity*);
 
 extern void (*const gUnk_081223A8[])(Entity*);
 
-extern Hitbox gUnk_080FD310;
 
 extern const s8 gUnk_081223C8[];
 extern const u32 gUnk_081223D8[];
@@ -30,7 +30,7 @@ void sub_080916EC(Entity* this) {
     this->animationState = unk->field_0x5;
     this->type2 = unk->field_0x6;
     this->action = 1;
-    this->hitbox = &gUnk_080FD310;
+    this->hitbox = (Hitbox*)&gUnk_080FD310;
     COLLISION_ON(this);
     this->hitType = 1;
     this->field_0x3c = 0x47;
