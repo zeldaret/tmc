@@ -21,7 +21,6 @@ typedef struct {
     /*0x87*/ u8 unk_87;
 } ObjectA8Entity;
 
-
 void sub_0809FECC(ObjectA8Entity*);
 bool32 sub_0809FE9C(ObjectA8Entity*);
 void ObjectA8_Init(ObjectA8Entity*);

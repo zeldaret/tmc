@@ -27,8 +27,6 @@ typedef struct {
     /*0x86*/ u16 pushedFlag;
 } PushableGraveEntity;
 
-
-
 extern void (*const gUnk_081232AC[])(PushableGraveEntity*);
 extern const u8 gUnk_081232C0[];
 extern const u16 PushableGrave_Tiles[];

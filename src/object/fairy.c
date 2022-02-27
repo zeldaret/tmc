@@ -22,8 +22,6 @@ typedef struct {
     /*0x87*/ u8 unk_87;
 } FairyEntity;
 
-
-
 void sub_0808D76C(FairyEntity*);
 void sub_0808DAD0(FairyEntity*);
 void sub_0808DB2C(FairyEntity*);

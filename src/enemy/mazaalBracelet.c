@@ -93,7 +93,6 @@ void sub_0803B978(Entity*);
 void sub_0803BA6C(Entity*);
 void sub_0803BA80(Entity*);
 
-
 void (*const MazaalBracelet_Functions[])(Entity*) = { MazaalBracelet_OnTick, MazaalBracelet_OnCollision,
                                                       GenericKnockback,      GenericDeath,
                                                       GenericConfused,       MazaalBracelet_OnGrabbed };

@@ -11,7 +11,6 @@ extern void (*const gUnk_081243B4[])(Entity*);
 extern void (*const gUnk_081243BC[])(Entity*);
 extern void (*const gUnk_081243C4[])(Entity*);
 
-
 void LightableSwitch(Entity* this) {
     gUnk_081243B4[this->type](this);
     sub_0809EB30(this);

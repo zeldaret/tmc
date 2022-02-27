@@ -171,7 +171,6 @@ const u16 gUnk_080D140E[] = { -0x6000, -0x5000, -0x4000 };
 const u8 gUnk_080D1414[] = { 0, 0xc, 0xe, 0x10, 0x1c };
 const u8 gUnk_080D1419[] = { 0, 0xa, 0xa, 0xa, 0x1c };
 
-
 void VaatiArm(Entity* this) {
     VaatiArm_Functions[GetNextFunction(this)](this);
 }

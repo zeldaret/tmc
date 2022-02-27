@@ -9,7 +9,6 @@ extern void sub_08091C0C(Entity*);
 
 extern void (*const gUnk_081223A8[])(Entity*);
 
-
 extern const s8 gUnk_081223C8[];
 extern const u32 gUnk_081223D8[];
 

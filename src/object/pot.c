@@ -16,7 +16,6 @@ extern void (*const gUnk_0811F090[])(Entity*);
 extern void (*const gUnk_0811F0A8[])(Entity*);
 extern void (*const gUnk_0811F0C4[])(Entity*);
 
-
 extern void sub_08078930(Entity*);
 extern void sub_08016A6C(Entity*);
 

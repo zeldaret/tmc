@@ -20,7 +20,6 @@ typedef struct {
     /*0x86*/ u16 unk_86;
 } BigIceBlockEntity;
 
-
 extern void (*const BigIceBlock_Actions[])(BigIceBlockEntity*);
 extern const u16 gUnk_081237B0[];
 

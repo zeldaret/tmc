@@ -6,7 +6,6 @@ void sub_08086A6C(Entity*);
 
 void (*const gUnk_081206C4[])(Entity*);
 
-
 // Main
 void Rupee(Entity* ent) {
     gUnk_081206C4[ent->action](ent);

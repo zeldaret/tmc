@@ -21,7 +21,6 @@ typedef struct {
     /*0x86*/ u16 unk_86;
 } PushableStatueEntity;
 
-
 extern const s16 gUnk_080B4488[];
 extern const s16 gUnk_080B4468[];
 
