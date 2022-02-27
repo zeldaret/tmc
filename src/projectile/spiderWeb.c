@@ -167,50 +167,36 @@ void SpiderWeb_Action3(Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/spiderWeb/sub_080AA9E0.inc", void sub_080AA9E0(Entity* this)) {
-    s32 coord1, coord2, diff;
-    Struct_0812A074* ptr;
-    SpritePriority* priorityPtr;
-    SpritePriority prio;
-    u8 val1, val2;
-    if (this->type & 0x1) {
-        coord2 = gPlayerEntity.x.HALF.HI;
-        coord1 = this->x.HALF.HI;
-    } else {
-        coord2 = gPlayerEntity.y.HALF.HI;
-        coord1 = this->y.HALF.HI;
-    }
+void sub_080AA9E0(Entity* this) {
+    s32 diff;
+    const Struct_0812A074* ptr;
 
-    diff = coord2 - coord1;
-    ptr = (Struct_0812A074*)gUnk_0812A074 + (this->type << 1);
+    diff =
+        (this->type & 0x1) ? (gPlayerEntity.x.HALF.HI - this->x.HALF.HI) : (gPlayerEntity.y.HALF.HI - this->y.HALF.HI);
+    ptr = gUnk_0812A074 + (this->type << 1);
     switch (this->type) {
-        case 3:
-        case 0: {
+        case 0:
+        case 3: {
             if (diff > 4) {
-                ptr++;
+                ptr += 1;
             }
             break;
         }
         case 1:
         case 2: {
             if (diff < -4) {
-                ptr++;
+                ptr += 1;
             }
             break;
         }
     }
 
-    val1 = ptr->b0;
-    priorityPtr = (SpritePriority*)&this->spritePriority;
-    priorityPtr->b0 = val1 & 0x7;
-    // instruction order problems
-    // this->spritePriority.b0 = ptr->b0 & 0x7;
+    this->spritePriority.b0 = ptr->b0;
     this->direction = ptr->direction;
-    if (val1 == 5) {
+    if (ptr->b0 == 5) {
         sub_08078930(this);
     }
 }
-END_NONMATCH
 
 void sub_080AAA68(Entity* this) {
     SetTile(gUnk_0812A084[this->type], TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
