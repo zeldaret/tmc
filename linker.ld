@@ -701,7 +701,7 @@ SECTIONS {
         src/object/jarPortal.o(.text);
         src/object/bossDoor.o(.text);
         asm/object/object3A.o(.text);
-        asm/object/macroMushroomStalks.o(.text);
+        src/object/macroMushroomStalks.o(.text);
         asm/object/object75.o(.text); /* 75 and 76 are mislocated in object table */
         asm/object/object76.o(.text);
         asm/object/code_0808C964.o(.text);
@@ -1437,7 +1437,7 @@ SECTIONS {
         src/object/bossDoor.o(.rodata);
         data/animations/object/bossDoor.o(.rodata);
         data/const/object/object3A.o(.rodata);
-        data/const/object/macroMushroomStalks.o(.rodata);
+        src/object/macroMushroomStalks.o(.rodata);
         data/const/object/object75.o(.rodata);
         data/const/object/object76.o(.rodata);
         data/const/object/macroPlayer.o(.rodata);
