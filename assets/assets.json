@@ -43692,11 +43692,6 @@
     "type": "animation"
   },
   {
-    "path": "giantBookLadder/gUnk_08121C40.bin",
-    "start": 1186880,
-    "size": 8
-  },
-  {
     "path": "heartContainer/gUnk_08121C58.bin",
     "start": 1186904,
     "size": 12
