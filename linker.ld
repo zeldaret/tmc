@@ -693,7 +693,7 @@ SECTIONS {
         asm/object/object30.o(.text);
         src/object/frozenFlower.o(.text);
         src/object/pullableMushroom.o(.text);
-        asm/object/bollard.o(.text);
+        src/object/bollard.o(.text);
         src/object/warpPoint.o(.text);
         asm/object/object35.o(.text);
         asm/object/object36.o(.text);
@@ -710,7 +710,7 @@ SECTIONS {
         src/object/object3E.o(.text);
         src/object/giantLeaf.o(.text);
         src/object/fairy.o(.text);
-        asm/object/ladderUp.o(.text);
+        src/object/ladderUp.o(.text);
         asm/object/object42.o(.text);
         asm/object/object43.o(.text);
         asm/object/object44.o(.text);
@@ -734,7 +734,7 @@ SECTIONS {
         asm/object/minecart.o(.text);
         src/object/thoughtBubble.o(.text);
         src/object/hiddenLadderDown.o(.text);
-        asm/object/gentariCurtains.o(.text);
+        src/object/gentariCurtains.o(.text);
         src/object/lavaPlatform.o(.text);
         asm/object/paper.o(.text);
         asm/object/object5B.o(.text);
@@ -772,7 +772,7 @@ SECTIONS {
         src/object/objectOnSpinyBeetle.o(.text);
         src/object/object7E.o(.text);
         asm/object/picoBloom.o(.text);
-        asm/object/board.o(.text);
+        src/object/board.o(.text);
         asm/object/object81.o(.text);
         src/object/bigVortex.o(.text);
         src/object/bigPushableLever.o(.text);
@@ -782,7 +782,7 @@ SECTIONS {
         src/object/octorokBossObject.o(.text);
         asm/object/macroBook.o(.text);
         asm/object/mazaalBossObject.o(.text);
-        asm/object/cabinFurniture.o(.text);
+        src/object/cabinFurniture.o(.text);
         src/object/doubleBookshelf.o(.text);
         src/object/book.o(.text);
         src/object/fireplace.o(.text);
@@ -1424,7 +1424,7 @@ SECTIONS {
         data/const/object/object31.o(.rodata);
         src/object/pullableMushroom.o(.rodata);
         data/animations/object/pullableMushroom.o(.rodata);
-        data/const/object/bollard.o(.rodata);
+        src/object/bollard.o(.rodata);
         data/animations/object/bollard.o(.rodata);
         src/object/warpPoint.o(.rodata);
         data/animations/object/warpPoint.o(.rodata);
@@ -1475,7 +1475,7 @@ SECTIONS {
         data/const/object/thoughtBubble.o(.rodata);
         data/animations/object/thoughtBubble.o(.rodata);
         data/const/object/hiddenLadderDown.o(.rodata);
-        data/const/object/gentariCurtains.o(.rodata);
+        src/object/gentariCurtains.o(.rodata);
         data/animations/object/gentariCurtains.o(.rodata);
         src/object/lavaPlatform.o(.rodata);
         data/animations/object/lavaPlatform.o(.rodata);
@@ -1520,7 +1520,7 @@ SECTIONS {
         src/object/objectOnSpinyBeetle.o(.rodata);
         data/const/object/picoBloom.o(.rodata);
         data/animations/object/picoBloom.o(.rodata);
-        data/const/object/board.o(.rodata);
+        src/object/board.o(.rodata);
         data/const/object/object81.o(.rodata);
         data/const/object/bigVortex.o(.rodata);
         data/animations/object/bigVortex.o(.rodata);
@@ -1536,7 +1536,7 @@ SECTIONS {
         data/const/object/macroBook.o(.rodata);
         data/animations/object/macroBook.o(.rodata);
         data/const/object/mazaalBossObject.o(.rodata);
-        data/const/object/cabinFurniture.o(.rodata);
+        src/object/cabinFurniture.o(.rodata);
         src/object/doubleBookshelf.o(.rodata);
         src/object/book.o(.rodata);
         data/const/object/fireplace.o(.rodata);
