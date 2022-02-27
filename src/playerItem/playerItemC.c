@@ -3,7 +3,6 @@
 #include "player.h"
 #include "functions.h"
 
-extern void sub_08079BD8(Entity*);
 extern Entity* sub_08008782(Entity*, u32, s32, s32);
 
 void sub_0801B8FC(Entity*);

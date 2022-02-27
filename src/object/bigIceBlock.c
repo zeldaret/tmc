@@ -9,6 +9,7 @@
 #include "global.h"
 #include "object.h"
 #include "functions.h"
+#include "hitbox.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -18,8 +19,6 @@ typedef struct {
     /*0x70*/ u8 unk_70[0x16];
     /*0x86*/ u16 unk_86;
 } BigIceBlockEntity;
-
-extern const Hitbox gUnk_080FD190;
 
 extern void (*const BigIceBlock_Actions[])(BigIceBlockEntity*);
 extern const u16 gUnk_081237B0[];

@@ -2,8 +2,7 @@
 #include "object.h"
 #include "game.h"
 #include "functions.h"
-
-extern Hitbox gHitbox_1;
+#include "hitbox.h"
 
 extern void sub_0807CAC8(u32);
 extern u32 sub_0807CAEC(u32);
@@ -39,7 +38,7 @@ void sub_0808B474(Entity* this) {
     tmp = gUnk_08121380[this->type];
     this->palette.b.b0 = tmp;
     this->spritePriority.b0 = 6;
-    this->hitbox = &gHitbox_1;
+    this->hitbox = (Hitbox*)&gHitbox_1;
     this->updatePriority = PRIO_NO_BLOCK;
     InitializeAnimation(this, 0);
     if (CheckFlags(this->field_0x86.HWORD)) {

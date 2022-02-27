@@ -9,6 +9,7 @@
 #include "global.h"
 #include "object.h"
 #include "functions.h"
+#include "hitbox.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -29,7 +30,6 @@ typedef struct {
 
 extern bool32 sub_080896B0(void); // pushableStatue
 
-extern Hitbox gUnk_080FD1F4;
 extern s16 gUnk_080B4488[];
 
 typedef struct {

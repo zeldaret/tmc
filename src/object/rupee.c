@@ -1,11 +1,10 @@
 #include "object.h"
 #include "functions.h"
+#include "hitbox.h"
 
 void sub_08086A6C(Entity*);
 
 void (*const gUnk_081206C4[])(Entity*);
-
-extern Hitbox gUnk_080FD1A8;
 
 // Main
 void Rupee(Entity* ent) {
@@ -17,7 +16,7 @@ void sub_080869DC(Entity* ent) {
 
     ent->action = 1;
     ent->spriteSettings.draw = 0;
-    ent->hitbox = &gUnk_080FD1A8;
+    ent->hitbox = (Hitbox*)&gUnk_080FD1A8;
     ent->field_0x3c |= 16;
     itemEntity = CreateObject(GROUND_ITEM, ent->type, 0);
     if (itemEntity != NULL) {

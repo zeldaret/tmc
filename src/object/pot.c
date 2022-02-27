@@ -6,6 +6,7 @@
 #include "room.h"
 #include "object.h"
 #include "functions.h"
+#include "hitbox.h"
 
 void sub_08082824(Entity*);
 static void sub_08082850(Entity*, Entity*);
@@ -14,9 +15,6 @@ void sub_08082608(Entity*);
 extern void (*const gUnk_0811F090[])(Entity*);
 extern void (*const gUnk_0811F0A8[])(Entity*);
 extern void (*const gUnk_0811F0C4[])(Entity*);
-
-extern Hitbox gHitbox_18;    // TODO: should be const
-extern Hitbox gUnk_080FD340; // TODO: should be const
 
 extern void sub_08078930(Entity*);
 extern void sub_08016A6C(Entity*);
@@ -32,7 +30,7 @@ void sub_0808222C(Entity* this) {
     }
 
     this->action = 1;
-    this->hitbox = &gHitbox_18;
+    this->hitbox = (Hitbox*)&gHitbox_18;
     this->speed = 0x80;
     this->y.HALF.HI += 3;
     this->field_0x16 = 0;
@@ -118,7 +116,7 @@ void sub_080824F8(Entity* this) {
 
 void sub_08082510(Entity* this) {
     COLLISION_ON(this);
-    this->hitbox = &gUnk_080FD340;
+    this->hitbox = (Hitbox*)&gUnk_080FD340;
     this->field_0x3c = 7;
     this->hitType = 1;
     this->flags2 = gPlayerEntity.flags2;

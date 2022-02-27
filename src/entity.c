@@ -16,7 +16,6 @@ void ClearAllDeletedEntities(void);
 void DeleteAllEntities(void);
 void sub_0805E98C(void);
 extern void sub_0806FE84(Entity*);
-extern void sub_08078954(Entity*);
 extern void sub_08017744(Entity*);
 extern void UnloadHitbox(Entity*);
 extern void sub_0804AA1C(Entity*);

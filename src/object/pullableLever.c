@@ -10,6 +10,7 @@
 #include "object.h"
 #include "functions.h"
 #include "sound.h"
+#include "hitbox.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -31,8 +32,6 @@ typedef struct {
 enum PullableLeverPart { HANDLE, MIDDLE, SOCKET };
 
 extern u16 gUnk_02021F00[];
-extern Hitbox gUnk_080FD270;
-extern Hitbox gUnk_080FD278;
 
 extern void (*const PullableLever_HandleActions[])(PullableLeverEntity*);
 extern void (*const PullableLever_MiddleActions[])(PullableLeverEntity*);
@@ -76,9 +75,9 @@ void PullableLever_HandleInit(PullableLeverEntity* this) {
         super->spriteSettings.draw = 1;
         super->speed = 0x60;
         if ((super->type2 & 1)) {
-            super->hitbox = &gUnk_080FD278;
+            super->hitbox = (Hitbox*)&gUnk_080FD278;
         } else {
-            super->hitbox = &gUnk_080FD270;
+            super->hitbox = (Hitbox*)&gUnk_080FD270;
         }
         super->field_0x16 = 1;
         super->x.HALF.HI += PullableLever_InitialOffsets[super->type2 * 2];

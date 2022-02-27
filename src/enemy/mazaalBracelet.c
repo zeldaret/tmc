@@ -8,6 +8,7 @@
 #include "enemy.h"
 #include "object.h"
 #include "functions.h"
+#include "hitbox.h"
 
 void sub_0803B538(Entity*);
 u32 sub_0803B4E4(Entity*);
@@ -91,12 +92,6 @@ void sub_0803B910(Entity*);
 void sub_0803B978(Entity*);
 void sub_0803BA6C(Entity*);
 void sub_0803BA80(Entity*);
-
-// these are not with the rest of this files constant data
-extern Hitbox gUnk_080FD35C;
-extern Hitbox gUnk_080FD364;
-extern Hitbox gUnk_080FD36C;
-extern Hitbox gUnk_080FD374;
 
 void (*const MazaalBracelet_Functions[])(Entity*) = { MazaalBracelet_OnTick, MazaalBracelet_OnCollision,
                                                       GenericKnockback,      GenericDeath,
@@ -920,9 +915,9 @@ void sub_0803B100(Entity* this) {
     this->action = 0x29;
     this->zVelocity = Q_16_16(1.25);
     if (this->type == 0) {
-        this->hitbox = &gUnk_080FD364;
+        this->hitbox = (Hitbox*)&gUnk_080FD364;
     } else {
-        this->hitbox = &gUnk_080FD374;
+        this->hitbox = (Hitbox*)&gUnk_080FD374;
     }
     temp = *(Entity**)&this->field_0x74;
     temp->action = 3;
@@ -1074,7 +1069,7 @@ void sub_0803B3F4(Entity* this) {
         if (this->type == 0) {
             this->hitbox = (Hitbox*)&gUnk_080FD35C;
         } else {
-            this->hitbox = &gUnk_080FD36C;
+            this->hitbox = (Hitbox*)&gUnk_080FD36C;
         }
         temp = this->parent;
         value = (this->type == 0) ? 1 : 2;

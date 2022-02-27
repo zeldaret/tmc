@@ -10,6 +10,7 @@
 #include "object.h"
 #include "functions.h"
 #include "item.h"
+#include "hitbox.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -19,8 +20,6 @@ typedef struct {
     /*0x78*/ u8 unk_78[0xf];
     /*0x87*/ u8 unk_87;
 } ObjectA8Entity;
-
-extern Hitbox gUnk_080FD1A8;
 
 void sub_0809FECC(ObjectA8Entity*);
 bool32 sub_0809FE9C(ObjectA8Entity*);

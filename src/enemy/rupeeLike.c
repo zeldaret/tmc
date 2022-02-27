@@ -13,6 +13,7 @@
 #include "object.h"
 #include "functions.h"
 #include "save.h"
+#include "hitbox.h"
 
 extern void sub_080293DC(Entity*);
 extern void sub_080296D8(Entity*);
@@ -28,7 +29,6 @@ extern void (*const gUnk_080CCC3C[])(Entity*);
 extern const u8 gUnk_080CCC34[];
 extern const s8 gUnk_080CCC44[];
 extern const u8 gUnk_080CCC47[];
-extern Hitbox gUnk_080FD260;
 
 void RupeeLike(Entity* this) {
     u32 uVar1;
@@ -265,7 +265,7 @@ void sub_08029770(Entity* this) {
         temp = this->field_0x82.HALF.LO;
         this->palette.b.b0 = temp;
         this->hitType = 0x8d;
-        this->hitbox = &gUnk_080FD260;
+        this->hitbox = (Hitbox*)&gUnk_080FD260;
         InitializeAnimation(this, 2);
         this->child->spriteSettings.draw = TRUE;
         InitializeAnimation(this->child, 6);

@@ -2,6 +2,7 @@
 #include "enemy.h"
 #include "functions.h"
 #include "object.h"
+#include "hitbox.h"
 
 typedef struct {
     u8 b0;
@@ -234,10 +235,7 @@ void (*const SpiderWeb_Actions[])(Entity*) = {
 const u8 gUnk_0812A03C[] = {
     248, 252, 6, 1, 4, 245, 253, 3, 249, 253, 6, 4, 252, 245, 3, 3,
 };
-extern const Hitbox gUnk_080FD41C;
-extern const Hitbox gUnk_080FD424;
-extern const Hitbox gUnk_080FD42C;
-extern const Hitbox gUnk_080FD434;
+
 const Hitbox* const gUnk_0812A04C[] = {
     &gUnk_080FD41C,
     &gUnk_080FD424,

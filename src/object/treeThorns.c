@@ -3,8 +3,7 @@
 #include "coord.h"
 #include "room.h"
 #include "object.h"
-
-extern Hitbox gHitbox_1;
+#include "hitbox.h"
 
 void TreeThorns(Entity* this) {
     Entity* ent;
@@ -23,7 +22,7 @@ void TreeThorns(Entity* this) {
             this->hurtType = 0x48;
             this->hitType = 0x7a;
             this->flags2 = 1;
-            this->hitbox = &gHitbox_1;
+            this->hitbox = (Hitbox*)&gHitbox_1;
             tilePos = COORD_TO_TILE(this);
             SetTile(0x4066, tilePos - 1, *layer);
             SetTile(0x4065, tilePos, *layer);

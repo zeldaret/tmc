@@ -9,6 +9,7 @@
 #include "global.h"
 #include "object.h"
 #include "functions.h"
+#include "hitbox.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -18,8 +19,6 @@ typedef struct {
 } CrenelBeanSproutEntity;
 
 extern u32 sub_080002BC(s32, s32, u32);
-
-extern Hitbox gUnk_080FD2A8;
 
 void sub_080969A4(CrenelBeanSproutEntity*);
 void sub_08096A78(CrenelBeanSproutEntity*);

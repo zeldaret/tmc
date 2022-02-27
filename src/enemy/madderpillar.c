@@ -7,9 +7,7 @@
 
 #include "enemy.h"
 #include "functions.h"
-
-extern Hitbox gUnk_080FD298;
-extern Hitbox gUnk_080FD2A0;
+#include "hitbox.h"
 
 void sub_08029E0C(Entity*);
 void sub_08029EEC(Entity*);
@@ -283,7 +281,7 @@ void sub_08029D14(Entity* this) {
             this->action = 4;
             this->actionDelay = 0x78;
             this->hitType = 0x6c;
-            this->hitbox = &gUnk_080FD298;
+            this->hitbox = (Hitbox*)&gUnk_080FD298;
             EnqueueSFX(SFX_6B);
         }
     }

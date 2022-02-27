@@ -1,8 +1,7 @@
 #define NENT_DEPRECATED
 #include "object.h"
 #include "functions.h"
-
-u32 IsColliding(Entity*, Entity*);
+#include "hitbox.h"
 
 typedef struct {
     Entity base;
@@ -21,8 +20,6 @@ typedef void(PressurePlateAction)(PressurePlateEntity*);
 PressurePlateAction sub_08088840;
 PressurePlateAction sub_0808886C;
 PressurePlateAction sub_080888F4;
-
-extern Hitbox gUnk_080FD1D4;
 
 static u32 sub_08088938(PressurePlateEntity*);
 static u32 get_standing_count(PressurePlateEntity*);
@@ -50,7 +47,7 @@ void sub_08088840(PressurePlateEntity* this) {
     super->action = 1;
     super->spriteSettings.draw = 1;
     super->spritePriority.b0 = 7;
-    super->hitbox = &gUnk_080FD1D4;
+    super->hitbox = (Hitbox*)&gUnk_080FD1D4;
     this->dir = super->animationState;
 }
 
