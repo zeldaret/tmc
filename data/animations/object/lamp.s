@@ -4,10 +4,6 @@
 	.section .rodata
     .align 2
 
-gUnk_08123E80:: @ 08123E80
-	.4byte sub_0809CEA8
-	.4byte sub_0809CEC0
-
 gSpriteAnimations_Lamp_0_0:: @ 08123E88
 	.include "animations/gSpriteAnimations_Lamp_0_0.s"
 

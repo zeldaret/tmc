@@ -791,7 +791,7 @@ SECTIONS {
         asm/object/object90.o(.text);
         asm/object/object91.o(.text);
         src/object/bakerOven.o(.text);
-        asm/object/lamp.o(.text);
+        src/object/lamp.o(.text);
         src/object/windTribeFlag.o(.text);
         src/object/bird.o(.text);
         asm/object/bird.o(.text);
@@ -1546,6 +1546,7 @@ SECTIONS {
         data/const/object/object91.o(.rodata);
         data/const/object/bakerOven.o(.rodata);
         data/animations/object/bakerOven.o(.rodata);
+        src/object/lamp.o(.rodata);
         data/animations/object/lamp.o(.rodata);
         data/const/object/bird.o(.rodata);
         data/animations/object/bird.o(.rodata);
