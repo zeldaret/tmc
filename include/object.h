@@ -410,7 +410,7 @@ void ObjectB4(Entity*);
 void ObjectB5(Entity*);
 void ObjectB6(Entity*);
 void Well(Entity*);
-void WindTribeTeleporter(Entity*);
+void WindTribeTeleporter();
 void ObjectB9(Entity*);
 void GyorgBossObject(Entity*);
 void Windcrest(Entity*);
