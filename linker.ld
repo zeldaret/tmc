@@ -799,7 +799,7 @@ SECTIONS {
         src/object/keyStealingTakkuri.o(.text);
         asm/object/object98.o(.text);
         asm/object/object99.o(.text);
-        asm/object/macroAcorn.o(.text);
+        src/object/macroAcorn.o(.text);
         asm/object/object9B.o(.text);
         src/object/treeHidingPortal.o(.text);
         asm/object/treeHidingPortal.o(.text);
@@ -1553,7 +1553,7 @@ SECTIONS {
         src/object/keyStealingTakkuri.o(.rodata);
         data/const/object/object98.o(.rodata);
         data/animations/object/object98.o(.rodata);
-        data/const/object/macroAcorn.o(.rodata);
+        src/object/macroAcorn.o(.rodata);
         data/const/object/object9B.o(.rodata);
         data/animations/object/object9B.o(.rodata);
         data/const/object/treeHidingPortal.o(.rodata);
