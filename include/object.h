@@ -270,7 +270,7 @@ void Object28(Entity*);
 void AmbientClouds(Entity*);
 void Object2A(Entity*);
 void Object2B(Entity*);
-void Beanstalk(Entity*);
+void Beanstalk();
 void Smoke(Entity*);
 void PushableRock();
 void HittableLever();
