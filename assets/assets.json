@@ -45363,11 +45363,6 @@
     "type": "animation"
   },
   {
-    "path": "fourElements/gUnk_081248B4.bin",
-    "start": 1198260,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_ObjectAF_0.bin",
     "start": 1198288,
     "size": 17,

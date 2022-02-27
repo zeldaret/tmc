@@ -398,7 +398,7 @@ void ObjectA8();
 void ObjectA9(Entity*);
 void WaterfallOpening(Entity*);
 void ObjectAB(Entity*);
-void FourElements(Entity*);
+void FourElements();
 void ObjectAD(Entity*);
 void FloatingBlock(Entity*);
 void ObjectAF(Entity*);
