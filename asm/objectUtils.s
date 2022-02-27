@@ -5,66 +5,7 @@
 
 	.text
 
-	thumb_func_start sub_080A2A84
-sub_080A2A84: @ 0x080A2A84
-	push {r4, r5, r6, r7, lr}
-	adds r5, r1, #0
-	bl CreateWaterTrace
-	adds r6, r0, #0
-	cmp r6, #0
-	beq _080A2AD2
-	bl Random
-	adds r4, r0, #0
-	adds r5, #1
-	adds r1, r5, #0
-	bl __modsi3
-	adds r1, r0, #0
-	lsrs r4, r4, #8
-	movs r7, #1
-	adds r0, r4, #0
-	ands r0, r7
-	cmp r0, #0
-	beq _080A2AB0
-	rsbs r1, r1, #0
-_080A2AB0:
-	ldrh r0, [r6, #0x2e]
-	adds r0, r0, r1
-	strh r0, [r6, #0x2e]
-	lsrs r4, r4, #8
-	adds r0, r4, #0
-	adds r1, r5, #0
-	bl __modsi3
-	adds r1, r0, #0
-	lsrs r4, r4, #8
-	ands r4, r7
-	cmp r4, #0
-	beq _080A2ACC
-	rsbs r1, r1, #0
-_080A2ACC:
-	ldrh r0, [r6, #0x32]
-	adds r0, r0, r1
-	strh r0, [r6, #0x32]
-_080A2AD2:
-	pop {r4, r5, r6, r7, pc}
 
-	thumb_func_start sub_080A2AD4
-sub_080A2AD4: @ 0x080A2AD4
-	push {lr}
-	movs r1, #0x21
-	movs r2, #0
-	bl CreateFx
-	adds r2, r0, #0
-	cmp r2, #0
-	beq _080A2AF0
-	adds r3, r2, #0
-	adds r3, #0x29
-	ldrb r0, [r3]
-	movs r1, #7
-	orrs r0, r1
-	strb r0, [r3]
-_080A2AF0:
-	adds r0, r2, #0
-	pop {pc}
 
 	thumb_func_start sub_080A2AF4
 sub_080A2AF4: @ 0x080A2AF4
@@ -73,7 +14,7 @@ sub_080A2AF4: @ 0x080A2AF4
 	push {r7}
 	adds r5, r1, #0
 	adds r4, r2, #0
-	bl sub_080A2AD4
+	bl CreateLargeWaterTrace
 	adds r6, r0, #0
 	cmp r6, #0
 	beq _080A2B74

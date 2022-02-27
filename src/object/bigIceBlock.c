@@ -91,7 +91,7 @@ void BigIceBlock_Action2(BigIceBlockEntity* this) {
         if (super->type != 2) {
             SetFlag(this->unk_86);
         } else {
-            sub_080A2A3C(super, 0x53, 0, this->unk_86);
+            CreateGroundItemWithFlags(super, 0x53, 0, this->unk_86);
         }
     }
     super->action = 3;

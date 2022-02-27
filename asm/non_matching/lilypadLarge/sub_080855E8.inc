@@ -288,7 +288,7 @@ _08085808:
 	cmp r0, #0
 	bne _0808581A
 	adds r0, r7, #0
-	bl sub_080A2AD4
+	bl CreateLargeWaterTrace
 _0808581A:
 	ldr r0, [r7, #0x2c]
 	ldr r1, [r7, #0x6c]

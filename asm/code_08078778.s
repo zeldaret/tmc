@@ -5113,7 +5113,7 @@ _0807AEA8:
 	bne _0807AEDE
 	adds r0, r4, #0
 	movs r1, #4
-	bl sub_080A2A84
+	bl CreateRandomWaterTrace
 	b _0807AEDE
 	.align 2, 0
 _0807AEC8: .4byte gRoomTransition

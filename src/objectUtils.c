@@ -97,20 +97,20 @@ u32 LoadObjectSprite(Entity* this, s32 type, const ObjectDefinition* definition)
     return 2;
 }
 
-Entity* CreateObject(u32 subtype, u32 form, u32 parameter) {
+Entity* CreateObject(u32 subtype, u32 form, u32 type2) {
     Entity* entity = GetEmptyEntity();
     if (entity != NULL) {
         entity->kind = OBJECT;
         entity->id = subtype;
         entity->type = form;
-        entity->type2 = parameter;
+        entity->type2 = type2;
         AppendEntityToList(entity, 6);
     }
     return entity;
 }
 
-Entity* CreateObjectWithParent(Entity* parent, u32 subtype, u32 form, u32 parameter) {
-    Entity* entity = CreateObject(subtype, form, parameter);
+Entity* CreateObjectWithParent(Entity* parent, u32 subtype, u32 form, u32 type2) {
+    Entity* entity = CreateObject(subtype, form, type2);
     if (entity != NULL) {
         entity->parent = parent;
         CopyPosition(parent, entity);
@@ -150,23 +150,23 @@ void CreateWaterSplash(Entity* parent) {
     CreateFx(parent, FX_WATER_SPLASH, 0);
 }
 
-Entity* sub_080A2A20(Entity* parent, u32 form, u32 parameter) {
+Entity* CreateGroundItem(Entity* parent, u32 form, u32 subtype) {
     Entity* ent;
 
-    ent = CreateObjectWithParent(parent, GROUND_ITEM, form, parameter);
+    ent = CreateObjectWithParent(parent, GROUND_ITEM, form, subtype);
     if (ent != NULL) {
         ent->actionDelay = 5;
     }
     return ent;
 }
 
-Entity* sub_080A2A3C(Entity* parent, u32 form, u32 subtype, u32 param_4) {
+Entity* CreateGroundItemWithFlags(Entity* parent, u32 form, u32 subtype, u32 flags) {
     Entity* ent;
 
     ent = CreateObjectWithParent(parent, GROUND_ITEM, form, subtype);
     if (ent != NULL) {
         ent->actionDelay = 5;
-        ent->field_0x86.HWORD = param_4;
+        ent->field_0x86.HWORD = flags;
     }
     return ent;
 }
@@ -175,6 +175,40 @@ Entity* CreateWaterTrace(Entity* parent) {
     Entity* ent;
 
     ent = CreateFx(parent, FX_RIPPLE, 0);
+    if (ent != NULL) {
+        ent->spritePriority.b0 = 7;
+    }
+    return ent;
+}
+
+void CreateRandomWaterTrace(Entity* parent, int range) {
+    s32 sVar1, sVar2, sVar3;
+    Entity* ent;
+    u32 uVar3;
+
+    ent = CreateWaterTrace(parent);
+    if (ent != NULL) {
+        uVar3 = Random();
+        sVar1 = (int)uVar3 % (++range);
+        uVar3 >>= 8;
+        if ((uVar3 & 1) != 0) {
+            sVar1 = -sVar1;
+        }
+        ent->x.HALF.HI += sVar1;
+        uVar3 >>= 8;
+        sVar2 = (int)uVar3 % range;
+        uVar3 >>= 8;
+        if ((uVar3 & 1) != 0) {
+            sVar2 = -sVar2;
+        }
+        ent->y.HALF.HI += sVar2;
+    }
+}
+
+Entity* CreateLargeWaterTrace(Entity* parent) {
+    Entity* ent;
+
+    ent = CreateFx(parent, FX_RIPPLE_LARGE, 0);
     if (ent != NULL) {
         ent->spritePriority.b0 = 7;
     }
