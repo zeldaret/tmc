@@ -284,7 +284,7 @@ void Object36(Entity*);
 void Object37(Entity*);
 void JarPortal(Entity*);
 void BossDoor();
-void Object3A(Entity*);
+void Object3A();
 void MacroMushromStalks(Entity*);
 void MacroPlayer(Entity*);
 void Object3D(Entity*);

@@ -43383,6 +43383,11 @@
     "size": 32
   },
   {
+    "path": "macroPlayer/gUnk_081216B4.bin",
+    "start": 1185460,
+    "size": 8
+  },
+  {
     "path": "object3D/gUnk_081216C8_EU.bin",
     "variants": [
       "EU"
