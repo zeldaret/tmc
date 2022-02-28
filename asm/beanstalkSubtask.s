@@ -3261,8 +3261,8 @@ _0801AF10:
 	pop {r4, pc}
 	.align 2, 0
 
-	thumb_func_start sub_0801AF18
-sub_0801AF18: @ 0x0801AF18
+	thumb_func_start SetMultipleTiles
+SetMultipleTiles: @ 0x0801AF18
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
 	adds r6, r1, #0

@@ -740,7 +740,7 @@ SECTIONS {
         src/object/pushableGrave.o(.text);
         src/object/stoneTablet.o(.text);
         src/object/lilypadSmall.o(.text);
-        asm/object/object74.o(.text);
+        src/object/object74.o(.text);
         src/object/bell.o(.text);
         src/object/macroDecorations.o(.text);
         asm/object/object79.o(.text);
@@ -1483,7 +1483,7 @@ SECTIONS {
         src/object/pushableGrave.o(.rodata);
         src/object/stoneTablet.o(.rodata);
         data/const/object/lilypadSmall.o(.rodata);
-        data/const/object/object74.o(.rodata);
+        src/object/object74.o(.rodata);
         data/const/object/bell.o(.rodata);
         data/animations/object/bell.o(.rodata);
         src/object/macroDecorations.o(.rodata);

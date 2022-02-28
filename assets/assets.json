@@ -43358,21 +43358,6 @@
     "type": "animation"
   },
   {
-    "path": "object3A/gUnk_081215E8.bin",
-    "start": 1185256,
-    "size": 80
-  },
-  {
-    "path": "object3A/gUnk_08121648.bin",
-    "start": 1185352,
-    "size": 32
-  },
-  {
-    "path": "macroPlayer/gUnk_081216B4.bin",
-    "start": 1185460,
-    "size": 8
-  },
-  {
     "path": "object3D/gUnk_081216C8_EU.bin",
     "variants": [
       "EU"
@@ -44600,21 +44585,6 @@
     "path": "lilypadSmall/gUnk_08123318.bin",
     "start": 1192728,
     "size": 16
-  },
-  {
-    "path": "object74/gUnk_08123328.bin",
-    "start": 1192744,
-    "size": 8
-  },
-  {
-    "path": "object74/gUnk_08123344.bin",
-    "start": 1192772,
-    "size": 38
-  },
-  {
-    "path": "object74/gUnk_0812336A.bin",
-    "start": 1192810,
-    "size": 26
   },
   {
     "path": "animations/gSpriteAnimations_Bell_0.bin",

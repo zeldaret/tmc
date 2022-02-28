@@ -64,6 +64,14 @@ extern bool32 ProcessMovementInternal(Entity*, s32, s32, u32);
 extern void SetDirtTile(u32);
 /** @see Item */
 extern void SetInventoryValue(u32, u32);
+/**
+ * @brief Sets multiple tiles at once
+ *
+ * @param tileData [u16 tileIndex, s16 positionOffset], ends with 0xffff
+ * @param basePosition the position the offsets in tileData are based on
+ * @param layer the tile layer
+ */
+extern void SetMultipleTiles(u16* tileData, u32 basePosition, u32 layer);
 extern void SoundReqClipped(Entity*, u32);
 extern void TryLoadPrologueHyruleTown(void);
 extern void UnloadGFXSlots(Entity*);

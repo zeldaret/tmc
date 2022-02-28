@@ -310,7 +310,7 @@ void sub_080842D8(ChestSpawnerEntity* this) {
     if ((super->y.HALF.HI & 8) != 0) {
         index += 2;
     }
-    sub_0801AF18((u8*)gUnk_0811F898[index], COORD_TO_TILE(super), super->collisionLayer);
+    SetMultipleTiles((u16*)gUnk_0811F898[index], COORD_TO_TILE(super), super->collisionLayer);
 }
 
 const Hitbox gUnk_0811F8A8 = { 0, -3, { 0, 0, 0, 0 }, 6, 6 };

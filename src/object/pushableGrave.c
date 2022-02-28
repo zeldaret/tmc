@@ -78,7 +78,7 @@ void PushableGrave_Init(PushableGraveEntity* this) {
             super->hitbox = (Hitbox*)&gUnk_080FD570;
             SetTile(tileIndex, tilePosition, super->collisionLayer);
             if (super->type2 == 2) {
-                sub_0801AF18((u8*)gUnk_081232C0, tilePosition, super->collisionLayer);
+                SetMultipleTiles((u16*)gUnk_081232C0, tilePosition, super->collisionLayer);
             }
         }
     }
