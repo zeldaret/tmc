@@ -42676,16 +42676,6 @@
     "size": 8
   },
   {
-    "path": "object11/gUnk_08120588.bin",
-    "start": 1181064,
-    "size": 20
-  },
-  {
-    "path": "object11/gUnk_081205B4.bin",
-    "start": 1181108,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_Railtrack_0.bin",
     "start": 1181156,
     "size": 4,

@@ -243,7 +243,7 @@ void ObjectD(Entity*);
 void ObjectE(Entity*);
 void SpecialFx(Entity*);
 void Object10(Entity*);
-void Object11(Entity*);
+void Object11();
 void Object12(Entity*);
 void Railtrack(Entity*);
 void LilypadLarge();

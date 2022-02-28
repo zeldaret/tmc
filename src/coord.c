@@ -55,7 +55,7 @@ u32 sub_0806F39C(Entity* ent) {
     return 0;
 }
 
-u32 sub_0806F3E4(Entity* ent) {
+bool32 sub_0806F3E4(Entity* ent) {
     Entity tmp_ent;
     s8* p;
 
@@ -95,9 +95,9 @@ u32 sub_0806F3E4(Entity* ent) {
             gPlayerState.item->type = 1;
             SoundReq(SFX_EF);
         }
-        return 1;
+        return TRUE;
     }
-    return 0;
+    return FALSE;
 }
 
 void sub_0806F4E8(Entity* ent) {
