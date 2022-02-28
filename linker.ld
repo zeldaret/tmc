@@ -705,7 +705,7 @@ SECTIONS {
         asm/object/object75.o(.text); /* 75 and 76 are mislocated in object table */
         asm/object/object76.o(.text);
         asm/object/code_0808C964.o(.text);
-        asm/object/macroPlayer.o(.text);
+        src/object/macroPlayer.o(.text);
         asm/object/object3D.o(.text);
         src/object/object3E.o(.text);
         src/object/giantLeaf.o(.text);
@@ -1440,7 +1440,7 @@ SECTIONS {
         src/object/macroMushroomStalks.o(.rodata);
         data/const/object/object75.o(.rodata);
         data/const/object/object76.o(.rodata);
-        data/const/object/macroPlayer.o(.rodata);
+        src/object/macroPlayer.o(.rodata);
         data/const/object/object3D.o(.rodata);
         src/object/object3E.o(.rodata);
         data/const/object/giantLeaf.o(.rodata);
