@@ -631,7 +631,7 @@ SECTIONS {
         src/object/lockedDoor.o(.text);
         asm/object/object9.o(.text);
         src/object/objectA.o(.text);
-        asm/object/objectB.o(.text);
+        src/object/objectB.o(.text);
         src/object/chestSpawner.o(.text);
         asm/object/objectD.o(.text);
         asm/object/objectE.o(.text);
@@ -1347,7 +1347,7 @@ SECTIONS {
         src/object/lockedDoor.o(.rodata);
         data/const/object/object9.o(.rodata);
         data/animations/object/object9.o(.rodata);
-        data/const/object/objectB.o(.rodata);
+        src/object/objectB.o(.rodata);
         src/object/chestSpawner.o(.rodata);
         data/animations/object/chestSpawner.o(.rodata);
         data/const/object/objectD.o(.rodata);

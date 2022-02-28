@@ -38,7 +38,7 @@ extern void GenericKnockback2(Entity*);
 extern LayerStruct* GetLayerByIndex(u32);
 extern u32 GetRandomByWeight(const u8*);
 extern u32 GetTileIndex(u32, u32);
-extern void GiveItem(u32, u32);
+extern u32 GiveItem(u32, u32);
 extern void HandlePlayerLife(Entity*);
 extern bool32 HasSwordEquipped();
 extern bool32 IsColliding(Entity*, Entity*);

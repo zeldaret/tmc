@@ -237,7 +237,7 @@ void BlockPushed();
 void LockedDoor(Entity*);
 void Object9(Entity*);
 void ObjectA(Entity*);
-void ObjectB(Entity*);
+void ObjectB();
 void ChestSpawner();
 void ObjectD(Entity*);
 void ObjectE(Entity*);
