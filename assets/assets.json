@@ -42906,21 +42906,6 @@
     "size": 12
   },
   {
-    "path": "object21/gUnk_08120A78.bin",
-    "start": 1182328,
-    "size": 2
-  },
-  {
-    "path": "object21/gUnk_08120A7A.bin",
-    "start": 1182330,
-    "size": 6
-  },
-  {
-    "path": "object21/gUnk_08120A8C.bin",
-    "start": 1182348,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_FigurineDevice_0.bin",
     "start": 1182440,
     "size": 5,

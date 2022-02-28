@@ -259,7 +259,7 @@ void Object1D(Entity*);
 void Object1E(Entity*);
 void Object1F(Entity*);
 void Object20(Entity*);
-void Object21(Entity*);
+void Object21();
 void FigurineDevice();
 void EyeSwitch(Entity*);
 void PressurePlate();
