@@ -43433,11 +43433,6 @@
     "size": 32
   },
   {
-    "path": "macroPlayer/gUnk_081216B4.bin",
-    "start": 1185460,
-    "size": 8
-  },
-  {
     "path": "object3D/gUnk_081216C8_EU.bin",
     "variants": [
       "EU"
@@ -44719,11 +44714,6 @@
     "type": "animation"
   },
   {
-    "path": "macroDecorations/gUnk_081233C0.bin",
-    "start": 1192896,
-    "size": 80
-  },
-  {
     "path": "animations/gSpriteAnimations_Object79_0.bin",
     "start": 1192994,
     "size": 25,
@@ -44757,16 +44747,6 @@
     "start": 1193161,
     "size": 23,
     "type": "animation"
-  },
-  {
-    "path": "macroShoes/gUnk_081234F4.bin",
-    "start": 1193204,
-    "size": 8
-  },
-  {
-    "path": "macroShoes/gUnk_081234FC.bin",
-    "start": 1193212,
-    "size": 8
   },
   {
     "path": "animations/gSpriteAnimations_PicoBloom_0.bin",
@@ -44938,11 +44918,6 @@
     "start": 1195243,
     "size": 41,
     "type": "animation"
-  },
-  {
-    "path": "macroBook/gUnk_08123C90.bin",
-    "start": 1195152,
-    "size": 40
   },
   {
     "path": "object91/gUnk_08123DDC.bin",

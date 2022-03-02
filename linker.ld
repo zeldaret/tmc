@@ -701,11 +701,11 @@ SECTIONS {
         src/object/jarPortal.o(.text);
         src/object/bossDoor.o(.text);
         asm/object/object3A.o(.text);
-        asm/object/macroMushroomStalks.o(.text);
+        src/object/macroMushroomStalks.o(.text);
         asm/object/object75.o(.text); /* 75 and 76 are mislocated in object table */
         asm/object/object76.o(.text);
         asm/object/code_0808C964.o(.text);
-        asm/object/macroPlayer.o(.text);
+        src/object/macroPlayer.o(.text);
         asm/object/object3D.o(.text);
         src/object/object3E.o(.text);
         src/object/giantLeaf.o(.text);
@@ -764,11 +764,11 @@ SECTIONS {
         src/object/lilypadSmall.o(.text);
         asm/object/object74.o(.text);
         src/object/bell.o(.text);
-        asm/object/macroDecorations.o(.text);
+        src/object/macroDecorations.o(.text);
         asm/object/object79.o(.text);
         src/object/steam.o(.text);
         src/object/pushableLever.o(.text);
-        asm/object/macroShoes.o(.text);
+        src/object/macroShoes.o(.text);
         src/object/objectOnSpinyBeetle.o(.text);
         src/object/object7E.o(.text);
         asm/object/picoBloom.o(.text);
@@ -780,7 +780,7 @@ SECTIONS {
         src/object/bigIceBlock.o(.text);
         src/object/object86.o(.text);
         src/object/octorokBossObject.o(.text);
-        asm/object/macroBook.o(.text);
+        src/object/macroBook.o(.text);
         asm/object/mazaalBossObject.o(.text);
         src/object/cabinFurniture.o(.text);
         src/object/doubleBookshelf.o(.text);
@@ -799,7 +799,7 @@ SECTIONS {
         src/object/keyStealingTakkuri.o(.text);
         asm/object/object98.o(.text);
         asm/object/object99.o(.text);
-        asm/object/macroAcorn.o(.text);
+        src/object/macroAcorn.o(.text);
         asm/object/object9B.o(.text);
         src/object/treeHidingPortal.o(.text);
         asm/object/treeHidingPortal.o(.text);
@@ -1437,10 +1437,10 @@ SECTIONS {
         src/object/bossDoor.o(.rodata);
         data/animations/object/bossDoor.o(.rodata);
         data/const/object/object3A.o(.rodata);
-        data/const/object/macroMushroomStalks.o(.rodata);
+        src/object/macroMushroomStalks.o(.rodata);
         data/const/object/object75.o(.rodata);
         data/const/object/object76.o(.rodata);
-        data/const/object/macroPlayer.o(.rodata);
+        src/object/macroPlayer.o(.rodata);
         data/const/object/object3D.o(.rodata);
         src/object/object3E.o(.rodata);
         data/const/object/giantLeaf.o(.rodata);
@@ -1510,13 +1510,13 @@ SECTIONS {
         data/const/object/object74.o(.rodata);
         data/const/object/bell.o(.rodata);
         data/animations/object/bell.o(.rodata);
-        data/const/object/macroDecorations.o(.rodata);
+        src/object/macroDecorations.o(.rodata);
         data/const/object/object79.o(.rodata);
         data/animations/object/object79.o(.rodata);
         src/object/steam.o(.rodata);
         src/object/pushableLever.o(.rodata);
         data/animations/object/pushableLever.o(.rodata);
-        data/const/object/macroShoes.o(.rodata);
+        src/object/macroShoes.o(.rodata);
         src/object/objectOnSpinyBeetle.o(.rodata);
         data/const/object/picoBloom.o(.rodata);
         data/animations/object/picoBloom.o(.rodata);
@@ -1533,7 +1533,7 @@ SECTIONS {
         data/const/object/object86.o(.rodata);
         data/animations/object/object86.o(.rodata);
         src/object/octorokBossObject.o(.rodata);
-        data/const/object/macroBook.o(.rodata);
+        src/object/macroBook.o(.rodata);
         data/animations/object/macroBook.o(.rodata);
         data/const/object/mazaalBossObject.o(.rodata);
         src/object/cabinFurniture.o(.rodata);
@@ -1554,7 +1554,7 @@ SECTIONS {
         src/object/keyStealingTakkuri.o(.rodata);
         data/const/object/object98.o(.rodata);
         data/animations/object/object98.o(.rodata);
-        data/const/object/macroAcorn.o(.rodata);
+        src/object/macroAcorn.o(.rodata);
         data/const/object/object9B.o(.rodata);
         data/animations/object/object9B.o(.rodata);
         data/const/object/treeHidingPortal.o(.rodata);
