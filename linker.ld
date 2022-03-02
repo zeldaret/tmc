@@ -1675,6 +1675,7 @@ SECTIONS {
         data/const/playerItem/playerItem13.o(.rodata);
         src/title.o(.rodata);
         src/projectile.o(.rodata);
+        src/playerItem/playerItemGustJar.o(.rodata);
         data/const/playerItem/playerItemGustJar.o(.rodata);
         data/gfx/fixed_type_gfx.o(.rodata);
         data/const/movement.o(.rodata);
