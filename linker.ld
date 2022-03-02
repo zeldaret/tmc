@@ -725,8 +725,8 @@ SECTIONS {
         src/object/furniture.o(.text);
         src/object/minishSizedEntrance.o(.text);
         src/object/archway.o(.text);
-        asm/object/giantRock.o(.text);
-        asm/object/giantRock2.o(.text);
+        src/object/giantRock.o(.text);
+        src/object/giantRock2.o(.text);
         asm/object/object52.o(.text);
         asm/object/object53.o(.text);
         src/object/pullableLever.o(.text);
@@ -1466,7 +1466,7 @@ SECTIONS {
         src/object/furniture.o(.rodata);
         data/const/object/minishSizedEntrance.o(.rodata);
         data/animations/object/minishSizedEntrance.o(.rodata);
-        data/const/object/giantRock2.o(.rodata);
+        src/object/giantRock2.o(.rodata);
         data/const/object/object53.o(.rodata);
         src/object/pullableLever.o(.rodata);
         data/animations/object/pullableLever.o(.rodata);
