@@ -666,7 +666,7 @@ SECTIONS {
         asm/object/object15.o(.text);
         asm/object/floatingPlatform.o(.text);
         asm/object/object17.o(.text);
-        asm/object/evilSpirit.o(.text);
+        src/object/evilSpirit.o(.text);
         src/object/houseDoorExterior.o(.text);
         src/object/rupee.o(.text);
         src/object/greatFairy.o(.text);
@@ -1387,7 +1387,7 @@ SECTIONS {
         data/const/object/object15.o(.rodata);
         data/const/object/floatingPlatform.o(.rodata);
         data/const/object/object17.o(.rodata);
-        data/const/object/evilSpirit.o(.rodata);
+        src/object/evilSpirit.o(.rodata);
         data/animations/object/evilSpirit.o(.rodata);
         data/const/object/houseDoorExterior.o(.rodata);
         src/object/rupee.o(.rodata);
