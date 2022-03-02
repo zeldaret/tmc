@@ -26,7 +26,7 @@ _080A2FFC:
 	bgt _080A3052
 	cmp r0, #0x20
 	bne _080A3052
-	ldr r1, _080A301C @ =gChooseFileState
+	ldr r1, _080A301C @ =gMenu
 	ldrb r0, [r1]
 	cmp r0, #0
 	bne _080A3052
@@ -36,9 +36,9 @@ _080A2FFC:
 	movs r0, #0xfc
 	b _080A302E
 	.align 2, 0
-_080A301C: .4byte gChooseFileState
+_080A301C: .4byte gMenu
 _080A3020:
-	ldr r1, _080A3038 @ =gChooseFileState
+	ldr r1, _080A3038 @ =gMenu
 	ldrb r0, [r1]
 	cmp r0, #0
 	bne _080A3052
@@ -51,9 +51,9 @@ _080A302E:
 	bl SoundReq
 	b _080A3052
 	.align 2, 0
-_080A3038: .4byte gChooseFileState
+_080A3038: .4byte gMenu
 _080A303C:
-	ldr r0, _080A3090 @ =gChooseFileState
+	ldr r0, _080A3090 @ =gMenu
 	ldrb r2, [r0]
 	cmp r2, #0
 	bne _080A3052
@@ -72,7 +72,7 @@ _080A3052:
 	movs r1, #3
 	bl __modsi3
 	strb r0, [r4, #4]
-	ldr r5, _080A3090 @ =gChooseFileState
+	ldr r5, _080A3090 @ =gMenu
 	movs r0, #0x10
 	ldrsh r2, [r5, r0]
 	ldrb r1, [r4, #4]
@@ -94,7 +94,7 @@ _080A3052:
 	movs r0, #1
 	b _080A309A
 	.align 2, 0
-_080A3090: .4byte gChooseFileState
+_080A3090: .4byte gMenu
 _080A3094: .4byte gMain
 _080A3098:
 	movs r0, #0

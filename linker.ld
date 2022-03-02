@@ -850,7 +850,7 @@ SECTIONS {
         src/menu/kinstone_menu.o(.text);
         src/menu/figurine_menu.o(.text);
         src/menu/pause_menu.o(.text);
-        asm/subtask2.o(.text);
+        src/subtask2.o(.text);
         src/playerItem/playerItemSword.o(.text);
         src/playerItemUtils.o(.text);
         src/projectileUtils.o(.text);
