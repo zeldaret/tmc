@@ -63,7 +63,7 @@ sub_0808BE2C: @ 0x0808BE2C
 	adds r0, r2, #0
 	movs r1, #0x58
 	movs r2, #0
-	bl sub_080A2A20
+	bl CreateGroundItem
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0808BE6C

@@ -66,7 +66,7 @@ void sub_08094774(Object68Entity* this) {
             }
             break;
         case 2:
-            child = sub_080A2A20(&gPlayerEntity, 0x60, 0);
+            child = CreateGroundItem(&gPlayerEntity, 0x60, 0);
             super->child = child;
             if (child != NULL) {
                 child->actionDelay = 1;

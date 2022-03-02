@@ -138,10 +138,10 @@ void SmallIceBlock_Action3(SmallIceBlockEntity* this) {
     }
     sub_0805EC9C(super, 0x100, gUnk_08123748[super->actionDelay >> 5], 0);
     if (super->type == 1) {
-        sub_080A2A3C(super, 0x53, 0, this->unk_86);
+        CreateGroundItemWithFlags(super, 0x53, 0, this->unk_86);
         SoundReq(SFX_SECRET);
     } else if (super->type == 2) {
-        sub_080A2A3C(super, 0x52, 0, this->unk_86);
+        CreateGroundItemWithFlags(super, 0x52, 0, this->unk_86);
         SoundReq(SFX_SECRET);
     }
     super->action = 4;
