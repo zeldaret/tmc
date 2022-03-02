@@ -442,7 +442,7 @@ SECTIONS {
         src/code_0805436C.o(.text);
         asm/code_0805436C.o(.text); /* game.c */
         src/playerItem/playerItemLantern.o(.text);
-        asm/code_08054C04.o(.text); /* subtask */
+        src/subtask.o(.text);
         src/sub_08055E08.o(.text);
         src/main.o(.text);
         src/message.o(.text);
