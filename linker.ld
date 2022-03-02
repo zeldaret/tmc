@@ -747,7 +747,7 @@ SECTIONS {
         src/object/giantTwig.o(.text);
         asm/object/object63.o(.text);
         asm/object/object64.o(.text);
-        asm/object/ladderHoleInBookshelf.o(.text);
+        src/object/ladderHoleInBookshelf.o(.text);
         asm/object/object66.o(.text);
         asm/object/object67.o(.text);
         src/object/object68.o(.text);
@@ -1492,7 +1492,7 @@ SECTIONS {
         data/const/object/object63.o(.rodata);
         data/const/object/object64.o(.rodata);
         data/animations/object/object64.o(.rodata);
-        data/const/object/ladderHoleInBookshelf.o(.rodata);
+        src/object/ladderHoleInBookshelf.o(.rodata);
         data/const/object/object67.o(.rodata);
         src/object/object68.o(.rodata);
         src/object/object6A.o(.rodata);
