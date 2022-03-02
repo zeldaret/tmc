@@ -634,9 +634,7 @@ SECTIONS {
         src/save.o(.text);
         src/screenTilemap.o(.text);
         src/script.o(.text);
-        asm/scroll.o(.text);
         src/scroll.o(.text);
-        asm/code_0808091C.o(.text); /* scroll.c */
         /* objects */
         src/object/itemOnGround.o(.text);
         src/object/deathFx.o(.text);
