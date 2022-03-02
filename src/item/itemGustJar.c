@@ -2,7 +2,6 @@
 #include "entity.h"
 #include "item.h"
 #include "functions.h"
-#include "playeritem.h"
 
 void (*const ItemGustJar_StateFunctions[])(ItemBehavior* beh, u32);
 extern u32 sub_0807A894(Entity*);
@@ -103,7 +102,7 @@ void sub_08076F64(ItemBehavior* this, u32 arg1) {
                     gPlayerState.field_0xa &= ~(8 >> arg1);
                     this->stateID = 2;
                     sub_08077DF4(this, 0x504);
-                    item = CreatePlayerItem(PLAYER_ITEM_10, 0, 0, 0);
+                    item = CreatePlayerItem(0x10, 0, 0, 0);
                     if (item) {
                         item->parent = player;
                     }
@@ -141,7 +140,7 @@ void sub_08076F64(ItemBehavior* this, u32 arg1) {
                 gPlayerState.field_0x1c = 5;
                 gPlayerEntity.field_0x70.WORD = 0;
                 if (gPlayerState.field_0x1d) {
-                    CreatePlayerItem(PLAYER_ITEM_11, 0, 0, 0);
+                    CreatePlayerItem(0x11, 0, 0, 0);
                 }
             }
 
