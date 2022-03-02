@@ -151,4 +151,41 @@ typedef struct {
     union SplitWord _4;
 } struct_020227E8;
 
+typedef struct {
+    /*0x00*/ u8 unk_0;
+    /*0x01*/ u8 unk_1;
+    /*0x02*/ u8 unk_2;
+    /*0x03*/ u8 unk_3;
+    /*0x04*/ u8* unk_4;
+    /*0x08*/ Entity* entity;
+} struct_03003DF8;
+
+typedef struct {
+    /*0x00*/ u8 unk_0;
+    /*0x01*/ u8 unk_1;
+    /*0x02*/ u8 unk_2;
+    /*0x03*/ u8 unk_3;
+    /*0x04*/ u8* unk_4;
+    /*0x08*/ struct_03003DF8 array[0x20];
+} struct_03003DF0;
+
+static_assert(sizeof(struct_03003DF0) == 0x188);
+
+extern struct_03003DF0 gUnk_03003DF0;
+
+typedef struct {
+    u8 numTiles;
+    u8 unk_1;
+    u16 firstTileIndex;
+} SpriteFrame;
+
+typedef struct {
+    void* animations;
+    SpriteFrame* frames;
+    void* ptr;
+    u32 pad;
+} SpritePtr;
+
+extern SpritePtr gSpritePtrs[];
+
 #endif

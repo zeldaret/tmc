@@ -1,5 +1,7 @@
 #include "npc.h"
 #include "functions.h"
+#include "item.h"
+
 extern u32 gUnk_081133B4;
 
 void sub_0806BFD8(Entity* this);
@@ -56,8 +58,8 @@ void sub_0806C038(Entity* this) {
     if (index != 0) {
         index = 0;
     }
-    if (GetInventoryValue(0x46) == 0) {
-        if (GetInventoryValue(0x3a) == 0) {
+    if (GetInventoryValue(ITEM_FLIPPERS) == 0) {
+        if (GetInventoryValue(ITEM_QST_BOOK2) == 0) {
             index = 6;
             if (CheckLocalFlag(LEFT_TALK) == 0) {
                 index = 5;
@@ -65,7 +67,7 @@ void sub_0806C038(Entity* this) {
             }
         } else {
             index = 7;
-            if (GetInventoryValue(0x3a) > 1) {
+            if (GetInventoryValue(ITEM_QST_BOOK2) > 1) {
                 index = 0;
             }
         }

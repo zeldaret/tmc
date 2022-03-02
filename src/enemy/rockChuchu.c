@@ -41,7 +41,7 @@ void RockChuchu_OnCollision(Entity* this) {
             case 0x18:
             case 0x19:
             case 0x1a:
-                if ((gPlayerState.field_0xac & 8) == 0)
+                if ((gPlayerState.skills & SKILL_ROCK_BREAKER) == 0)
                     break;
             case 0x16:
             case 0x1c:

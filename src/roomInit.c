@@ -169,7 +169,7 @@ u32 sub_unk3_CrenelMinishPaths_MelarisMine(void) {
 void sub_StateChange_CrenelMinishPaths_MelarisMine(void) {
     sub_080580B0(0x22);
     // white sword
-    if (GetInventoryValue(0x2))
+    if (GetInventoryValue(ITEM_GREEN_SWORD))
         SetGlobalFlag(WHITE_SWORD_END);
 }
 
@@ -341,8 +341,7 @@ extern EntityData gUnk_080D6558;
 extern EntityData gUnk_080D6618;
 
 void sub_StateChange_HouseInteriors1_Library2F(void) {
-    // flippers
-    if (GetInventoryValue(0x46) == 0) {
+    if (GetInventoryValue(ITEM_FLIPPERS) == 0) {
         LoadRoomEntityList(&gUnk_080D6578);
         if (CheckLocalFlag(MIZUKAKI_BOOK_ALLBACK) == 0) {
             LoadRoomEntityList(&gUnk_080D6638);
@@ -366,8 +365,7 @@ void sub_StateChange_HouseInteriors1_Library1F(void) {
     if (gSave.global_progress > 4) {
         LoadRoomEntityList(&gUnk_080D6714);
     }
-    // flippers
-    if (!GetInventoryValue(0x46) && CheckGlobalFlag(MIZUKAKI_START) && CheckLocalFlag(MIZUKAKI_KOBITO)) {
+    if (!GetInventoryValue(ITEM_FLIPPERS) && CheckGlobalFlag(MIZUKAKI_START) && CheckLocalFlag(MIZUKAKI_KOBITO)) {
         LoadRoomEntityList(&gUnk_additional_9_HouseInteriors1_Library1F);
     } else {
         LoadRoomEntityList(&gUnk_additional_8_HouseInteriors1_Library1F);
@@ -807,8 +805,7 @@ u32 sub_unk3_GreatFairies_Exit(void) {
 extern EntityData gUnk_080D7D34;
 
 void sub_StateChange_GreatFairies_Exit(void) {
-    // four sword
-    if (GetInventoryValue(0x6)) {
+    if (GetInventoryValue(ITEM_FOURSWORD)) {
         SetTile(0x4072, 0x14d, 1);
         SetTile(0x4072, 0x10c, 1);
         SetTile(0x4090, 0x14c, 1);
@@ -942,9 +939,9 @@ extern EntityData gUnk_080D8A34;
 extern EntityData gUnk_080D8A04;
 extern EntityData gUnk_080D89E4;
 
-extern u32 gUnk_080D8BBC;
-extern u32 gUnk_080D8BFA;
-extern u32 gUnk_080D8C68;
+extern u16 gUnk_080D8BBC;
+extern u16 gUnk_080D8BFA;
+extern u16 gUnk_080D8C68;
 
 void sub_StateChange_GoronCave_Main(void) {
     if (!CheckLocalFlag(GORON_DOUKUTU_APPEAR))
@@ -974,7 +971,7 @@ void sub_StateChange_GoronCave_Main(void) {
 }
 
 typedef struct {
-    u32* a;
+    u16* a;
     u16 x, y;
     u16 entCnt;
     u16 shakeTime, shakeMag, sfx;
@@ -990,7 +987,7 @@ void sub_0804BF38(Entity* this, ScriptExecutionContext* context) {
     u32 xOff;
     struct_080D8E54* ptr;
     u32 xtile, ytile;
-    u32* a;
+    u16* a;
 
     iVar2 = context->intVariable;
     ptr = &gUnk_080D8E50[iVar2];
@@ -4822,7 +4819,7 @@ void sub_StateChange_HouseInteriors2_Julietta(void) {
                     LoadRoomEntityList(&gUnk_080F2570);
                     break;
                 }
-                if (!GetInventoryValue(0x39)) {
+                if (!GetInventoryValue(ITEM_QST_BOOK1)) {
                     LoadRoomEntityList(&gUnk_080F25C0);
                 }
             } else {
@@ -5412,7 +5409,7 @@ extern EntityData gUnk_080F5788;
 
 void sub_StateChange_HouseInteriors3_StockwellShop(void) {
     LoadRoomEntityList(&gUnk_080F5758);
-    if (!GetInventoryValue(0x36) && CheckLocalFlagByBank(0x200, 0x8f)) {
+    if (!GetInventoryValue(ITEM_QST_DOGFOOD) && CheckLocalFlagByBank(0x200, 0x8f)) {
         LoadRoomEntityList(&gUnk_080F57E8);
     }
     if (!CheckLocalFlag(0x55)) {
@@ -5459,7 +5456,7 @@ extern EntityData gUnk_080F5B3C;
 
 void sub_StateChange_HouseInteriors3_RemShoeShop(void) {
 #ifndef EU
-    if (GetInventoryValue(0x38) == 1) {
+    if (GetInventoryValue(ITEM_QST_MUSHROOM) == 1) {
         LoadRoomEntityList(&gUnk_080F5B3C);
     }
 #endif
@@ -5828,14 +5825,14 @@ extern u32 gUnk_080F7C80;
 extern void sub_0804F4E4(void);
 
 u32 sub_unk3_HyruleField_OutsideCastle(void) {
-    if (CheckGlobalFlag(TABIDACHI) && !GetInventoryValue(0x11)) {
+    if (CheckGlobalFlag(TABIDACHI) && !GetInventoryValue(ITEM_GUST_JAR)) {
         gRoomVars.field_0x6c[0] = &gUnk_080F7CD0;
         gRoomVars.field_0x6c[7] = sub_0804F5E8;
     }
 #if defined(JP) || defined(EU) || defined(DEMO_JP)
-    if (CheckGlobalFlag(LV2_CLEAR) && GetInventoryValue(0x3) && !CheckLocalFlag(0x8a)) {
+    if (CheckGlobalFlag(LV2_CLEAR) && GetInventoryValue(ITEM_RED_SWORD) && !CheckLocalFlag(0x8a)) {
 #else
-    if (CheckGlobalFlag(LV2_CLEAR) && GetInventoryValue(0x3) && !CheckLocalFlag(0x8c)) {
+    if (CheckGlobalFlag(LV2_CLEAR) && GetInventoryValue(ITEM_RED_SWORD) && !CheckLocalFlag(0x8c)) {
 #endif
         gRoomVars.field_0x6c[0] = &gUnk_080F7C80;
         gRoomVars.field_0x6c[7] = sub_0804F4E4;
@@ -6087,7 +6084,7 @@ void sub_StateChange_Caves_Boomerang(void) {
     } else {
         LoadRoomEntityList(&gUnk_080F85F8);
     }
-    if (!GetInventoryValue(0xc)) {
+    if (!GetInventoryValue(ITEM_MAGIC_BOOMERANG)) {
         ClearLocalFlag(8);
     }
 }
@@ -6682,7 +6679,7 @@ void sub_StateChange_MtCrenel_CaveOfFlamesEntrance(void) {
     if ((gSave.windcrests & 0x1000000) == 0) {
         LoadRoomEntityList(&gUnk_080FB004);
     }
-    if (GetInventoryValue(0x2)) {
+    if (GetInventoryValue(ITEM_GREEN_SWORD)) {
         SetGlobalFlag(WHITE_SWORD_END);
     }
 }

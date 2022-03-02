@@ -2,10 +2,7 @@
 #include "object.h"
 #include "functions.h"
 #include "playeritem.h"
-
-extern void sub_080600F0(Entity*);
-extern void sub_08060158(Entity*);
-extern void ModBombs(s32);
+#include "item.h"
 
 extern SpriteLoadData gUnk_0810A348;
 extern u8* gUnk_08109D18[];
@@ -150,18 +147,15 @@ void sub_08060208(Entity* this) {
 void sub_0806021C(Entity* this) {
     u32 uVar2 = 0;
 
-    // jabber nut
-    if (GetInventoryValue(0x5B)) {
+    if (GetInventoryValue(ITEM_JABBERNUT)) {
         uVar2 = 1;
     }
 
-    // earth element
-    if (GetInventoryValue(0x40)) {
+    if (GetInventoryValue(ITEM_EARTH_ELEMENT)) {
         uVar2 = 2;
     }
 
-    // mole mitts
-    if (GetInventoryValue(0x13)) {
+    if (GetInventoryValue(ITEM_MOLE_MITTS)) {
         uVar2 = 3;
     }
     ShowNPCDialogue(this, gUnk_08109DC8 + this->type2 * 0x4 + uVar2);
@@ -174,8 +168,7 @@ void sub_0806025C(Entity* this) {
 void sub_08060270(Entity* this) {
     u32 index;
 
-    // flippers
-    if (GetInventoryValue(0x46) == 0) {
+    if (GetInventoryValue(ITEM_FLIPPERS) == 0) {
         index = 1;
         if (CheckGlobalFlag(MIZUKAKI_START) == 0) {
             index = 0;
@@ -194,8 +187,7 @@ void sub_08060270(Entity* this) {
 void sub_080602BC(Entity* this) {
     u32 index;
 
-    // spin attack
-    if (GetInventoryValue(0x48) != 0) {
+    if (GetInventoryValue(ITEM_SKILL_SPIN_ATTACK) != 0) {
         index = (Random() & 1) + 2;
     } else {
         if (gSave.stats.bombCount < gBombBagSizes[gSave.stats.bombBagType]) {

@@ -52,9 +52,9 @@ script_080134F8:
 	Wait 0x003c
 	StartPlayerScript script_PlayerPickUpSword
 	SetSyncFlag 0x00000080
-	_0807F078 0x0003, 0x0001
-	Call sub_0806DC3C
-	Call sub_0806DC58
+	SetInventoryValue 0x0003, 0x0001
+	Call NPC4E_SaveEquippedItems
+	Call NPC4E_RestoreEquippedItems
 	Call WaitForPlayerFrameHiBit
 	Wait 0x003c
 	SetFadeTime 0x0004

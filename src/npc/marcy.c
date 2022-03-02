@@ -2,6 +2,7 @@
 #include "functions.h"
 #include "flags.h"
 #include "message.h"
+#include "item.h"
 
 extern u16 gUnk_0810C34C[];
 
@@ -16,25 +17,25 @@ void Marcy(Entity* this) {
 
 void sub_08062D18(Entity* this, ScriptExecutionContext* context) {
     u8 tmp = 0;
-    if ((GetInventoryValue(0x4f) != 0) && (CheckLocalFlag(0x26) == 0)) {
+    if ((GetInventoryValue(ITEM_SKILL_PERIL_BEAM) != 0) && (CheckLocalFlag(0x26) == 0)) {
         tmp = 7;
     }
-    if ((GetInventoryValue(0x4e) != 0) && (CheckLocalFlag(0x25) == 0)) {
+    if ((GetInventoryValue(ITEM_SKILL_DOWN_THRUST) != 0) && (CheckLocalFlag(0x25) == 0)) {
         tmp = 6;
     }
-    if ((GetInventoryValue(0x4d) != 0) && (CheckLocalFlag(0x24) == 0)) {
+    if ((GetInventoryValue(ITEM_SKILL_GREAT_SPIN) != 0) && (CheckLocalFlag(0x24) == 0)) {
         tmp = 5;
     }
-    if ((GetInventoryValue(0x4c) != 0) && (CheckLocalFlag(0x23) == 0)) {
+    if ((GetInventoryValue(ITEM_SKILL_SWORD_BEAM) != 0) && (CheckLocalFlag(0x23) == 0)) {
         tmp = 4;
     }
-    if ((GetInventoryValue(0x4b) != 0) && (CheckLocalFlag(0x22) == 0)) {
+    if ((GetInventoryValue(ITEM_SKILL_ROCK_BREAKER) != 0) && (CheckLocalFlag(0x22) == 0)) {
         tmp = 3;
     }
-    if ((GetInventoryValue(0x4a) != 0) && (CheckLocalFlag(0x21) == 0)) {
+    if ((GetInventoryValue(ITEM_SKILL_DASH_ATTACK) != 0) && (CheckLocalFlag(0x21) == 0)) {
         tmp = 2;
     }
-    if ((GetInventoryValue(0x49) != 0) && (CheckLocalFlag(0x20) == 0)) {
+    if ((GetInventoryValue(ITEM_SKILL_ROLL_ATTACK) != 0) && (CheckLocalFlag(0x20) == 0)) {
         tmp = 1;
     }
     this->type2 = tmp;

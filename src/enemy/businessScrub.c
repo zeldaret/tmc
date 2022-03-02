@@ -39,7 +39,7 @@ struct SalesOffering {
     u16 price;
     u16 field_0x4;
     u16 field_0x6;
-    u8 field_0x8;
+    u8 offeredItem; /**< @see Item */
     u8 field_0x9;
     u16 field_0xa;
 };
@@ -261,7 +261,7 @@ void sub_08028CE8(Entity* this) {
                             subtype = gUnk_080CC9C0[Random() & 7];
                         }
 
-                        CreateItemEntity(offer->field_0x8, subtype, 0);
+                        CreateItemEntity(offer->offeredItem, subtype, 0);
 
                         this->action = 6;
                         this->actionDelay = 4;
@@ -272,12 +272,12 @@ void sub_08028CE8(Entity* this) {
 #endif
                         return;
                     case 1:
-                        CreateItemEntity(offer->field_0x8, offer->field_0x9, 0);
+                        CreateItemEntity(offer->offeredItem, offer->field_0x9, 0);
                         this->actionDelay = 4;
                         sub_0802922C(this);
                         return;
                     case 2:
-                        CreateItemEntity(offer->field_0x8, offer->field_0x9, 0);
+                        CreateItemEntity(offer->offeredItem, offer->field_0x9, 0);
                         this->actionDelay = 8;
                         sub_0802922C(this);
                         return;
@@ -466,18 +466,18 @@ void sub_080290FC(Entity* this) {
 bool32 sub_0802915C(Entity* this) {
     const struct SalesOffering* offer = (const struct SalesOffering*)this->field_0x7c.WORD;
 
-    switch (offer->field_0x8) {
-        case 0x44:
-            if (GetInventoryValue(0x44) == 0)
+    switch (offer->offeredItem) {
+        case ITEM_GRIP_RING:
+            if (GetInventoryValue(ITEM_GRIP_RING) == 0)
                 return TRUE;
             break;
-        case 0x1c:
+        case ITEM_BOTTLE1:
             if (CheckGlobalFlag(AKINDO_BOTTLE_SELL) == 0)
                 return TRUE;
             break;
-        case 0x5c:
-        case 0x6c:
-        case 0x6f:
+        case ITEM_KINSTONE:
+        case ITEM_BOMBS10:
+        case ITEM_ARROWS30:
             return TRUE;
     }
     return FALSE;
@@ -487,13 +487,13 @@ bool32 sub_08029198(const struct SalesOffering* offer) {
     u32 tmp;
 
     if ((offer->field_0x0 & 0xfc) != 0xc) {
-        switch (offer->field_0x8) {
-            case 0x1c:
+        switch (offer->offeredItem) {
+            case ITEM_BOTTLE1:
                 tmp = CheckGlobalFlag(AKINDO_BOTTLE_SELL);
                 break;
-            case 0x9:
-            case 0x44:
-                tmp = GetInventoryValue(offer->field_0x8);
+            case ITEM_BOW:
+            case ITEM_GRIP_RING:
+                tmp = GetInventoryValue(offer->offeredItem);
                 break;
             default:
                 return 0;
@@ -512,12 +512,12 @@ bool32 sub_08029198(const struct SalesOffering* offer) {
 bool32 sub_080291DC(Entity* this) {
     const struct SalesOffering* offer = (const struct SalesOffering*)this->field_0x7c.WORD;
 
-    switch (offer->field_0x8) {
-        case 0x6c:
+    switch (offer->offeredItem) {
+        case ITEM_BOMBS10:
             if (gBombBagSizes[gSave.stats.bombBagType] <= gSave.stats.bombCount)
                 return TRUE;
             break;
-        case 0x6f:
+        case ITEM_ARROWS30:
             if (gQuiverSizes[gSave.stats.quiverType] <= gSave.stats.arrowCount)
                 return TRUE;
             break;
@@ -532,8 +532,8 @@ NONMATCH("asm/non_matching/businessScrub/sub_0802922C.inc", void sub_0802922C(En
     this->action = 6;
     this->field_0x80.HALF.HI = 0;
 
-    switch (offer->field_0x8) {
-        case 0x1c:
+    switch (offer->offeredItem) {
+        case ITEM_BOTTLE1:
             SetGlobalFlag(AKINDO_BOTTLE_SELL);
             break;
     }

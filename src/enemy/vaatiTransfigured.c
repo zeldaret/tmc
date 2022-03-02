@@ -1078,7 +1078,7 @@ void sub_080409B0(Entity* this) {
             InitScreenShake(0xc, 1);
             SoundReq(SFX_BOSS_HIT);
         }
-        if ((this->bitfield == 0x8a) && (gPlayerState.field_0xa0[0] == 5)) {
+        if ((this->bitfield == 0x8a) && (gPlayerState.chargeState.action == 5)) {
             this->health = 0xc0;
         }
     }

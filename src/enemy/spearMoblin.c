@@ -252,7 +252,7 @@ NONMATCH("asm/non_matching/spearMoblin/sub_08028604.inc", void sub_08028604(Enti
         } else {
             u32 iVar3 = sub_08049EE4(this);
             u32 uVar1;
-            if (this->field_0x82.HALF.HI == '\0') {
+            if (this->field_0x82.HALF.HI == 0) {
                 uVar1 = gUnk_080CC7C0[Random() & 0xf];
             } else {
                 uVar1 = gUnk_080CC7C0[Random() & 7];

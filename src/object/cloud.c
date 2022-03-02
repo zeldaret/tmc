@@ -13,7 +13,7 @@ extern void (*gUnk_081247AC[])(Entity*);
 extern void* gUnk_080DD750;
 extern u8 gUnk_081247C0[];
 extern u16 gUnk_081247C8[];
-extern u32 gUnk_081247D0;
+extern u16 gUnk_081247D0;
 
 void Cloud(Entity* this) {
     gUnk_08124798[this->type](this);

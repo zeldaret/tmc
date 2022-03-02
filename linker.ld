@@ -39,7 +39,6 @@ SECTIONS {
         . = 0x00002C01; gUnk_02002C01 = .;
         . = 0x00002C81; gUnk_02002C81 = .;
         . = 0x00002C8E; gUnk_02002C8E = .;
-        . = 0x00002C9C; gGlobalFlags = .;
         . = 0x00002F00; gMapDataTopSpecial = .;
         . = 0x00006F00; gUnk_02006F00 = .;
         . = 0x0000AF00; gUnk_0200AF00 = .;
@@ -364,8 +363,6 @@ SECTIONS {
         src/enemy/wizzrobeWind.o(.text);
         src/enemy/wizzrobeFire.o(.text);
         src/enemy/wizzrobeIce.o(.text);
-        src/enemy/code_080300AC.o(.text);
-        asm/enemy/code_080300AC.o(.text);
         src/enemy/armos.o(.text);
         src/enemy/eyegore.o(.text);
         src/enemy/rope.o(.text);
@@ -507,8 +504,7 @@ SECTIONS {
         src/manager/manager38.o(.text);
         src/manager/manager39.o(.text);
         src/entity.o(.text);
-        src/code_0805EC04.o(.text);
-        asm/code_0805EC04.o(.text); /* objaffine? */
+        src/code_0805EC04.o(.text); /* objaffine? */
         asm/text.o(.text);
         src/text.o(.text);
         src/debug.o(.text);

@@ -431,7 +431,7 @@ void sub_0801DFB4(Entity* entity, u32 a2, u32 a3, u32 a4) {
     gFuseInfo._8 = a3;
     gFuseInfo._a = a4;
     gFuseInfo.ent = entity;
-    gFuseInfo._3 = gUnk_03003DF0[0].unk[2];
+    gFuseInfo._3 = gUnk_03003DF0.unk_2;
     if (entity != NULL) {
         gFuseInfo._4 = entity->updatePriority;
         entity->updatePriority = 2;

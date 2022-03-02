@@ -2,6 +2,7 @@
 #include "functions.h"
 #include "screen.h"
 #include "hitbox.h"
+#include "item.h"
 
 extern void (*gUnk_081140D4[])(Entity*);
 
@@ -315,11 +316,11 @@ void sub_0806D5D4(void) {
     u32 itemSlot;
 
     InitBiggoronTimer();
-    itemSlot = IsItemEquipped(0xd);
+    itemSlot = IsItemEquipped(ITEM_SHIELD);
     if (itemSlot != 2) {
         gSave.stats.itemButtons[itemSlot] = 0;
     }
-    sub_0807CAA0(0xd, 0);
+    SetInventoryValue(ITEM_SHIELD, 0);
 }
 
 void sub_0806D600(Entity* this, ScriptExecutionContext* context) {
@@ -327,8 +328,8 @@ void sub_0806D600(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_0806D620(void) {
-    sub_0807CAA0(0xd, 0);
-    sub_080A7C18(0xe, 0, 0);
+    SetInventoryValue(ITEM_SHIELD, 0);
+    sub_080A7C18(ITEM_MIRROR_SHIELD, 0, 0);
 }
 
 void sub_0806D638(Entity* this) {

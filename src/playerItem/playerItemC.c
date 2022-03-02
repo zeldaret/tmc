@@ -78,7 +78,7 @@ void sub_0801B938(Entity* this) {
 
     this->hitbox = (Hitbox*)&gUnk_080B7850[this->animationState >> 1];
     ptr = &gUnk_080B7848[(this->animationState >> 1) * 2];
-    sub_08008782(this, -(gPlayerState.field_0xac & 8) != 0, ptr[0], ptr[1]);
+    sub_08008782(this, -(gPlayerState.skills & SKILL_ROCK_BREAKER) != 0, ptr[0], ptr[1]);
     sub_08078E84(this, &gPlayerEntity);
 }
 

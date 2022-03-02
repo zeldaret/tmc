@@ -13,14 +13,11 @@ const u8 gSpriteSortBelowTable[];
 const u8 gUnk_08114F58[];
 const u8 gUnk_08114F38[];
 
-extern u32 gSpritePtrs[];
-
 extern u16 gExtraFrameOffsets[];
 extern s8 gUnk_08126EE4[];
 extern const u16 gUnk_080046A4[];
 extern const u16 gUnk_080047F6[];
 
-void sub_080027EA(Entity*, u32, u32);
 u32 sub_0806F58C(Entity*, Entity*);
 u32 sub_0806FCA0(Entity*, Entity*);
 void UnloadHitbox(Entity*);
@@ -662,7 +659,7 @@ bool32 sub_0807007C(struct_gUnk_020000C0* this, u32 param_2) {
     if (ptr1->unk_01 == 0xff)
         return 0;
 
-    spritePtr = &gSpritePtrs[ptr1->unk_02 * 4];
+    spritePtr = &((u32*)gSpritePtrs)[ptr1->unk_02 * 4];
     ptr2 = (u8*)(spritePtr[1]);
     if (ptr2 == 0)
         return 0;

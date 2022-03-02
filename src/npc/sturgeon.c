@@ -2,6 +2,7 @@
 #include "functions.h"
 #include "npc.h"
 #include "object.h"
+#include "item.h"
 
 extern u16 gUnk_0810FA54[];
 
@@ -93,7 +94,7 @@ void sub_08064CC0(Entity* this) {
 void sub_08064CD8(Entity* this) {
     u32 flag;
     u32 tmp = 2;
-    if (GetInventoryValue(0x46) == 0) {
+    if (GetInventoryValue(ITEM_FLIPPERS) == 0) {
         if (CheckLocalFlag(0x73)) {
             tmp = 1;
         } else {

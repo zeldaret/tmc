@@ -4,6 +4,7 @@
 #include "flags.h"
 #include "message.h"
 #include "sound.h"
+#include "item.h"
 
 extern u16 gUnk_08113078[];
 
@@ -15,33 +16,32 @@ ASM_FUNC("asm/non_matching/librarians/sub_0806BA34.inc",
          void sub_0806BA34(Entity* this, ScriptExecutionContext* context))
 
 void sub_0806BB1C(Entity* this, ScriptExecutionContext* context) {
-    s32 tmp;
-
-    tmp = 0xffffffff;
-    if (GetInventoryValue(0x39) == 1) {
-        tmp = 0x39;
-    } else if (GetInventoryValue(0x3a) == 1) {
-        tmp = 0x3a;
+    s32 item = 0xffffffff;
+    if (GetInventoryValue(ITEM_QST_BOOK1) == 1) {
+        item = ITEM_QST_BOOK1;
+    } else if (GetInventoryValue(ITEM_QST_BOOK2) == 1) {
+        item = ITEM_QST_BOOK2;
     } else {
-        if (GetInventoryValue(0x3b) == 1) {
-            tmp = 0x3b;
+        if (GetInventoryValue(ITEM_QST_BOOK3) == 1) {
+            item = ITEM_QST_BOOK3;
         }
-        if (tmp < 1) {
+        if (item < 1) {
             return;
         }
     }
     if (context->intVariable == 0) {
-        sub_08095BE0(this, tmp);
+        sub_08095BE0(this, item);
         InitializeAnimation(this, 0xc);
         SoundReq(SFX_TASK_COMPLETE);
     } else {
-        sub_0807CAA0(tmp, 2);
+        SetInventoryValue(item, 2);
     }
 }
 
 void sub_0806BB7C(Entity* this, ScriptExecutionContext* context) {
     context->condition = 0;
-    if ((GetInventoryValue(0x39) == 2) && (GetInventoryValue(0x3a) == 2) && (GetInventoryValue(0x3b) == 2)) {
+    if ((GetInventoryValue(ITEM_QST_BOOK1) == 2) && (GetInventoryValue(ITEM_QST_BOOK2) == 2) &&
+        (GetInventoryValue(ITEM_QST_BOOK3) == 2)) {
         SetLocalFlag(0x73);
         context->condition = 1;
     }
@@ -50,7 +50,7 @@ void sub_0806BB7C(Entity* this, ScriptExecutionContext* context) {
 void sub_0806BBB0(Entity* this) {
     u32 tmp;
 
-    if (GetInventoryValue(0x46) == 0) {
+    if (GetInventoryValue(ITEM_FLIPPERS) == 0) {
         if (CheckGlobalFlag(0x29)) {
             tmp = 1;
         } else {

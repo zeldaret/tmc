@@ -1,6 +1,7 @@
 #include "entity.h"
 #include "functions.h"
 #include "npc.h"
+#include "item.h"
 
 extern void (*gUnk_08111D88[])(Entity*);
 void sub_08069FE8(Entity*);
@@ -65,7 +66,8 @@ void sub_08069B44(Entity* this) {
         if ((this->flags & ENT_SCRIPTED) != 0) {
             sub_0807DD50(this);
         }
-        if (((this->type == 0) && ((gPlayerState.flags & PL_MINISH) == 0)) && (GetInventoryValue(0x36) != 2)) {
+        if (((this->type == 0) && ((gPlayerState.flags & PL_MINISH) == 0)) &&
+            (GetInventoryValue(ITEM_QST_DOGFOOD) != 2)) {
             this->action = 4;
         }
 #if defined(JP) || defined(EU) || defined(DEMO_JP)
@@ -204,7 +206,7 @@ void sub_08069E50(Entity* this) {
     if (this->animIndex != this->field_0x6a.HALF.HI + this->animationState) {
         InitAnimationForceUpdate(this, this->field_0x6a.HALF.HI + this->animationState);
     }
-    if (GetInventoryValue(0x36) == 2) {
+    if (GetInventoryValue(ITEM_QST_DOGFOOD) == 2) {
         this->action = 7;
         InitAnimationForceUpdate(this, 0x29);
         sub_080788E0(this);
@@ -216,7 +218,7 @@ void sub_08069E50(Entity* this) {
 void sub_08069ECC(Entity* this) {
     if (UpdateFuseInteraction(this) != 0) {
 #ifdef EU
-        if (GetInventoryValue(0x36) != 2) {
+        if (GetInventoryValue(ITEM_QST_DOGFOOD) != 2) {
             this->action = 5;
         } else {
             this->action = 1;
@@ -340,7 +342,7 @@ void sub_0806A144(Entity* this) {
     s32 dialog = 4;
     if (gPlayerState.flags & PL_MINISH) {
         dialog = 3;
-        if (GetInventoryValue(0x46) == 0 && CheckGlobalFlag(MIZUKAKI_START)) {
+        if (GetInventoryValue(ITEM_FLIPPERS) == 0 && CheckGlobalFlag(MIZUKAKI_START)) {
             if (CheckLocalFlag(0x85) == 0) {
                 dialog = 1;
             } else {

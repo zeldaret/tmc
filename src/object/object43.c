@@ -51,7 +51,7 @@ void Object43_Init(Object43Entity* this) {
         super->actionDelay = 0x28;
     } else {
         super->spriteSettings.draw = 1;
-        if ((gPlayerState.field_0xac & 0x200) != 0) {
+        if ((gPlayerState.skills & SKILL_FAST_SPIN) != 0) {
             super->actionDelay = 0x28;
         } else {
             super->actionDelay = 0x50;
@@ -102,7 +102,7 @@ void Object43_Action1(Object43Entity* this) {
         if (super->actionDelay != 0) {
             super->actionDelay--;
             tmp2 = 3;
-            if ((super->type2 == 0) && ((gPlayerState.field_0xac & 0x200) == 0)) {
+            if ((super->type2 == 0) && ((gPlayerState.skills & SKILL_FAST_SPIN) == 0)) {
                 tmp2 = 7;
             }
             if ((super->actionDelay & tmp2) == 0) {

@@ -159,7 +159,7 @@ SCRIPT_START script_Npc4EIntroTown
 	@ Give the shield to the player
 	GivePlayerItem 0x000d
 	WaitPlayerGetItem
-	Call sub_0806DC3C
+	Call NPC4E_SaveEquippedItems
 	Call SetPlayerActionNormal
 	CallWithArg EquipItem, 0x0000000d
 	SetIntVariable 0x000000ff
@@ -172,7 +172,7 @@ SCRIPT_START script_Npc4EIntroTown
 	WaitUntilTextboxCloses
 	@ Give control back to the player
 	CallWithArg sub_0807F29C, 0x00000000
-	Call sub_0806DC58
+	Call NPC4E_RestoreEquippedItems
 	_0807F0B4 0x0004
 	CameraTargetPlayer
 	Wait 0x000a

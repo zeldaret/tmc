@@ -2,6 +2,7 @@
 #include "script.h"
 #include "functions.h"
 #include "npc.h"
+#include "item.h"
 
 extern u16 gUnk_081104F8[];
 
@@ -81,9 +82,9 @@ void sub_0806673C(Entity* this) {
     u32 index;
     if (CheckGlobalFlag(2) == 0) {
         index = 0;
-    } else if (GetInventoryValue(2) == 0) {
+    } else if (GetInventoryValue(ITEM_GREEN_SWORD) == 0) {
         index = 1;
-    } else if (GetInventoryValue(3) == 0) {
+    } else if (GetInventoryValue(ITEM_RED_SWORD) == 0) {
         index = 2;
     } else {
         index = 3;

@@ -4,6 +4,7 @@
 #include "flags.h"
 #include "npc.h"
 #include "functions.h"
+#include "item.h"
 
 extern u32 gUnk_08113F44;
 extern Dialog gUnk_08113F48[];
@@ -50,8 +51,7 @@ void sub_0806CE80(Entity* this) {
     u32 v2;
     v = gSave.global_progress;
     if (v == 5) {
-        // flippers
-        if (GetInventoryValue(0x46) == 0) {
+        if (GetInventoryValue(ITEM_FLIPPERS) == 0) {
             if (CheckLocalFlag(0x70) != 0) {
                 v2 = CheckLocalFlag(MIZUKAKI_HINT3_MAYOR);
                 if (v2 == 0) {

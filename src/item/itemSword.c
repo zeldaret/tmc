@@ -5,18 +5,11 @@
 #include "playeritem.h"
 
 extern void (*const gUnk_0811BD44[])(ItemBehavior*, u32);
-extern void sub_08077B98(ItemBehavior*);
-extern void UpdatePlayerMovement(void);
-extern u32 sub_0807B014();
-extern Entity* CreatePlayerBomb(ItemBehavior*, u32);
-extern bool32 sub_08077F10(ItemBehavior*);
 
 void sub_080759B8(ItemBehavior*, u32);
 void sub_080754B8(ItemBehavior*, u32);
 void sub_08075898(ItemBehavior*, u32);
 void sub_08075580(ItemBehavior*, u32);
-
-extern u32 sub_08077EC8(ItemBehavior*);
 
 void sub_08075694(ItemBehavior* this, u32 arg1);
 
@@ -38,7 +31,7 @@ void sub_08075338(ItemBehavior* this, u32 arg1) {
     if (gPlayerState.jump_status) {
         if ((gPlayerState.jump_status & 7) != 3) {
             if ((gPlayerState.jump_status & 0x78) == 0 && (u32)gPlayerEntity.zVelocity <= 0x17fff &&
-                (gPlayerState.field_0xac & 0x40) && gPlayerEntity.z.WORD) {
+                (gPlayerState.skills & SKILL_DOWN_THRUST) && gPlayerEntity.z.WORD) {
                 gPlayerState.jump_status |= 0x20;
                 gPlayerState.field_0xab = 7;
                 gPlayerState.field_0x3[1] |= (8 >> arg1) | ((8 >> arg1) << 4);
@@ -58,13 +51,14 @@ void sub_08075338(ItemBehavior* this, u32 arg1) {
     }
 
     if (gPlayerState.flags & PL_ROLLING) {
-        if ((gPlayerState.field_0xac & 2) == 0) {
+        if ((gPlayerState.skills & SKILL_ROLL_ATTACK) == 0) {
             if (gPlayerState.item == NULL)
                 return;
             DeleteEntity(gPlayerState.item);
             gPlayerState.item = NULL;
             return;
         }
+        // Do the roll attack.
 
         sub_08077D38(this, arg1);
         sub_08077B98(this);
@@ -123,7 +117,7 @@ void sub_080754B8(ItemBehavior* this, u32 arg1) {
         }
 
         if ((this->field_0x5[9] & 0x80) != 0) {
-            if (((gPlayerState.flags & 0x80) != 0) || ((gPlayerState.field_0xac & 1) == 0)) {
+            if (((gPlayerState.flags & 0x80) != 0) || ((gPlayerState.skills & SKILL_SPIN_ATTACK) == 0)) {
                 sub_080759B8(this, arg1);
             } else {
                 sub_08075580(this, arg1);
@@ -141,8 +135,8 @@ void sub_08075580(ItemBehavior* this, u32 arg1) {
         gPlayerState.item->hurtType = 0xd;
         this->field_0xf = 0;
         this->stateID = 2;
-        if ((gPlayerState.field_0xac & 0x200) != 0) {
-            this->field_0x5[2] = 0x28;
+        if ((gPlayerState.skills & SKILL_FAST_SPIN) != 0) {
+            this->field_0x5[2] = 0x28; // TODO spin speed?
         } else {
             this->field_0x5[2] = 0x50;
         }
@@ -197,8 +191,8 @@ void sub_08075694(ItemBehavior* this, u32 arg1) {
     gPlayerEntity.hurtType = 0x1e;
     gPlayerState.sword_state |= 0x40;
     gPlayerState.sword_state &= 0xdf;
-    if ((gPlayerState.field_0xa0[0] == 0x04) && ((gPlayerState.flags & PL_CLONING) == 0)) {
-        gPlayerState.field_0xa0[0] = 0x01;
+    if ((gPlayerState.chargeState.action == 4) && ((gPlayerState.flags & PL_CLONING) == 0)) {
+        gPlayerState.chargeState.action = 1;
         DeleteClones();
     }
     SoundReq(SFX_PLY_VO2);
@@ -223,7 +217,7 @@ void sub_08075738(ItemBehavior* this, u32 arg1) {
             gPlayerEntity.speed = 0x180;
             if ((this->field_0x5[9] & 0x80) != 0) {
                 bVar6 = 10;
-                if ((gPlayerState.field_0xac & 0x800) != 0) {
+                if ((gPlayerState.skills & SKILL_LONG_SPIN) != 0) {
                     bVar6 = 0xf;
                 }
 
@@ -233,7 +227,7 @@ void sub_08075738(ItemBehavior* this, u32 arg1) {
             }
         } else {
             if (((((gPlayerEntity.frameSpriteSettings & 1) != 0) && ((gPlayerState.sword_state & 0x80) == 0)) &&
-                 ((gPlayerState.field_0xac & 0x100) != 0))) {
+                 ((gPlayerState.skills & SKILL_FOURSWORD) != 0))) {
                 Entity* bombEnt = CreatePlayerBomb(this, 0x14);
                 if (bombEnt) {
                     bombEnt->animationState = (gPlayerEntity.animationState & 6) | 0x80;
@@ -241,7 +235,7 @@ void sub_08075738(ItemBehavior* this, u32 arg1) {
             }
 
             if ((((gPlayerEntity.frameSpriteSettings & 2) != 0) && ((gPlayerState.sword_state & 0x80) == 0)) &&
-                (((gPlayerState.field_0xac & 0x20) != 0 && (--this->field_0x5[2] != 0)))) {
+                (((gPlayerState.skills & SKILL_GREAT_SPIN) != 0 && (--this->field_0x5[2] != 0)))) {
                 gPlayerState.sword_state |= 0x10;
                 gPlayerState.field_0xab = 6;
                 this->field_0x5[6] = gPlayerEntity.animationState << 2;

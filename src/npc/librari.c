@@ -1,6 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "npc.h"
+#include "item.h"
 
 extern u16 gUnk_08112D48[];
 
@@ -37,8 +38,7 @@ void sub_0806B260(Entity* this, ScriptExecutionContext* context) {
     u32 index;
 
     context->condition = 0;
-    // flippers
-    if (!GetInventoryValue(0x46)) {
+    if (!GetInventoryValue(ITEM_FLIPPERS)) {
         if (CheckGlobalFlag(MIZUKAKI_START)) {
             index = 2;
             context->condition = 1;

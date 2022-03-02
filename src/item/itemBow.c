@@ -4,8 +4,6 @@
 
 extern void (*const gUnk_0811BD80[])(ItemBehavior*, u32);
 
-extern void sub_08077E3C(ItemBehavior*, u32);
-
 void ItemBow(ItemBehavior* this, u32 arg1) {
     gUnk_0811BD80[this->stateID](this, arg1);
 }
@@ -78,7 +76,7 @@ void sub_08075F38(ItemBehavior* this, u32 arg1) {
 
 void sub_08075F84(ItemBehavior* this, u32 arg1) {
     if (((gPlayerState.field_0x3[1] & 0x80) == 0) && (gPlayerState.field_0x1f[2] != 0)) {
-        if (GetInventoryValue(0x70) == 1) {
+        if (GetInventoryValue(ITEM_ARROW_BUTTERFLY) == 1) {
             sub_08077E3C(this, 5);
         } else {
             UpdateItemAnim(this);

@@ -21,8 +21,8 @@ SCRIPT_START script_BigGoronMirrorShield
 .endif
 	Call sub_0806D620
 	Wait 0x003c
-	WaitPlayerGetItem 
-	FaceAwayFromPlayer 
+	WaitPlayerGetItem
+	FaceAwayFromPlayer
 	MessageNoOverlap 0x1d0c
 	WaitUntilTextboxCloses
 	Wait 0x000a

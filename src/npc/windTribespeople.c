@@ -50,7 +50,7 @@ void sub_0806C7D4(Entity* this) {
 
     if (this->interactType == '\x02') {
         this->action = 3;
-        this->interactType = '\0';
+        this->interactType = 0;
         sub_0806F118(this);
     } else {
         sub_0807DD94(this, NULL);

@@ -1,14 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "item.h"
-
-// TODO include correct headers?
-extern void UpdateItemAnim(ItemBehavior*);
-extern void CreatePlayerBomb(ItemBehavior*, u32);
-extern void sub_08077E78(ItemBehavior*, u32);
-extern void sub_08077BB8(ItemBehavior*);
-extern void sub_0806F948(Entity*);
-extern void sub_08077D38(ItemBehavior*, u32);
+#include "functions.h"
 
 extern void (*const gUnk_0811BDE0[])(ItemBehavior* beh, u32);
 

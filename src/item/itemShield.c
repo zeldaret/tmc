@@ -2,15 +2,7 @@
 #include "entity.h"
 #include "item.h"
 #include "sound.h"
-
-// TODO include correct headers?
-extern void sub_08077E78(ItemBehavior*, u32);
-extern void SoundReq(u32);
-extern void UpdateItemAnim(ItemBehavior*);
-extern u32 sub_08077EFC(ItemBehavior*);
-extern void sub_08077BB8(ItemBehavior*);
-extern void sub_08077D38(ItemBehavior*, u32);
-extern void sub_0806F948(Entity*);
+#include "functions.h"
 
 extern void (*const gUnk_0811BDE8[])(ItemBehavior* beh, u32);
 

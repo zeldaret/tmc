@@ -9,6 +9,7 @@
 #include "npc.h"
 #include "functions.h"
 #include "game.h"
+#include "item.h"
 
 extern void (*gUnk_081115C0[])(Entity*);
 extern void (*gUnk_081115D0[])(Entity*);
@@ -123,7 +124,7 @@ void sub_08068b2c(Entity* this) {
 
     if (this->interactType == '\x02') {
         this->action = 2;
-        this->interactType = '\0';
+        this->interactType = 0;
         uVar1 = sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity));
         InitAnimationForceUpdate(this, uVar1);
         sub_0806F118(this);
@@ -175,11 +176,11 @@ static void sub_08068BEC(Entity* this, u32 unused) {
 void sub_08068C28(Entity* this) {
     this->actionDelay = gUnk_08111623[this->type];
     if (this->type == 1) {
-        if (GetInventoryValue(0x48)) {      // spin attack
-            if (!GetInventoryValue(0x4b)) { // rock breaker
+        if (GetInventoryValue(ITEM_SKILL_SPIN_ATTACK)) {
+            if (!GetInventoryValue(ITEM_SKILL_ROCK_BREAKER)) {
                 this->actionDelay = 1;
             } else {
-                if (!GetInventoryValue(0x4a)) { // dash attack
+                if (!GetInventoryValue(ITEM_SKILL_DASH_ATTACK)) {
                     this->actionDelay = 2;
                 } else {
                     this->actionDelay = 3;
@@ -205,19 +206,19 @@ void sub_08068CA0(Entity* this, ScriptExecutionContext* context) {
     bVar1 = this->type;
     if (bVar1 == 1) {
         context->condition = bVar1;
-        uVar2 = GetInventoryValue(0x48); // spin attack
+        uVar2 = GetInventoryValue(ITEM_SKILL_SPIN_ATTACK);
         if (uVar2 == 0) {
             context->condition = 0;
         }
-        uVar2 = GetInventoryValue(0x4b); // rock breaker
+        uVar2 = GetInventoryValue(ITEM_SKILL_ROCK_BREAKER);
         if (uVar2 == 0) {
             context->condition = 0;
         }
-        uVar2 = GetInventoryValue(0x4a); // dash attack
+        uVar2 = GetInventoryValue(ITEM_SKILL_DASH_ATTACK);
         if (uVar2 == 0) {
             context->condition = 0;
         }
-        uVar2 = GetInventoryValue(0x4e); // down thrust
+        uVar2 = GetInventoryValue(ITEM_SKILL_DOWN_THRUST);
         if (uVar2 != 0) {
             return;
         }
@@ -262,34 +263,28 @@ void sub_08068CFC(Entity* this, ScriptExecutionContext* context) {
                 return;
             goto switchD_08068d12_caseD_0;
         case 7:
-            uVar2 = GetInventoryValue(0x48); // spin attack
-            if (uVar2 == 0) {
+            if (GetInventoryValue(ITEM_SKILL_SPIN_ATTACK) == 0) {
                 return;
             }
-            uVar2 = GetInventoryValue(0x49); // roll attack
-            if (uVar2 == 0) {
+            if (GetInventoryValue(ITEM_SKILL_ROLL_ATTACK) == 0) {
                 return;
             }
-            uVar2 = GetInventoryValue(0x4a); // dash attack
-            if (uVar2 == 0) {
+            if (GetInventoryValue(ITEM_SKILL_DASH_ATTACK) == 0) {
                 return;
             }
-            uVar2 = GetInventoryValue(0x4b); // rock breaker
-            if (uVar2 == 0) {
+            if (GetInventoryValue(ITEM_SKILL_ROCK_BREAKER) == 0) {
                 return;
             }
-            uVar2 = GetInventoryValue(0x4c); // sword beam
-            if (uVar2 == 0) {
+            if (GetInventoryValue(ITEM_SKILL_SWORD_BEAM) == 0) {
                 return;
             }
-            uVar2 = GetInventoryValue(0x4e); // down thrust
-            if (uVar2 == 0) {
+            if (GetInventoryValue(ITEM_SKILL_DOWN_THRUST) == 0) {
                 return;
             }
-            itemID = 0x4f; // peril beam
+            itemID = ITEM_SKILL_PERIL_BEAM;
             break;
         case 10:
-            itemID = 0x4d; // great spin
+            itemID = ITEM_SKILL_GREAT_SPIN;
     }
     uVar2 = GetInventoryValue(itemID);
 LABEL1:
@@ -341,8 +336,9 @@ void sub_08068E78(Entity* this) {
 }
 
 void sub_08068E90(Entity* this) {
+    // Learn a skill.
     PlayerState* s = &gPlayerState;
-    *(u16*)&s->field_0xac = (1 << (gUnk_08111740[this->actionDelay] - 1)) | *(u16*)&s->field_0xac;
+    *(u16*)&s->skills = (1 << (gUnk_08111740[this->actionDelay] - 1)) | *(u16*)&s->skills;
 }
 
 void sub_08068EB4(void) {

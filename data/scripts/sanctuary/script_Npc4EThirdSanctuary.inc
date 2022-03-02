@@ -59,10 +59,10 @@ script_080138D0:
 	Wait 0x003c
 	StartPlayerScript script_PlayerPickUpFinalSword
 	SetSyncFlag 0x00000080
-	_0807F078 0x0006, 0x0001
+	SetInventoryValue 0x0006, 0x0001
 	Call UpdatePlayerSkills
-	Call sub_0806DC3C
-	Call sub_0806DC58
+	Call NPC4E_SaveEquippedItems
+	Call NPC4E_RestoreEquippedItems
 	Call WaitForPlayerFrameHiBit
 	Wait 0x003c
 	SetFadeTime 0x0004
@@ -83,12 +83,12 @@ script_080138D0:
 	SetEntityPositionRelative 0x00e8, 0x00d8
 	CameraTargetEntity
 .endif
-	Call sub_0806DC3C
+	Call NPC4E_SaveEquippedItems
 	CallWithArg EquipItem, 0x00010001
 	CallWithArg sub_0807F29C, gUnk_080049FE
 	Wait 0x00c8
 	CallWithArg sub_0807F29C, 0x00000000
-	Call sub_0806DC58
+	Call NPC4E_RestoreEquippedItems
 script_08013A8E:
 .ifndef EU
 	CheckRoomFlag 0x0004

@@ -6,13 +6,6 @@
 extern void sub_08018C58(u32);
 
 typedef struct {
-    u8 unk[4];
-    u8* unk2;
-    u8 unk4[4];
-} Unk_struct;
-extern Unk_struct gUnk_03003DF0[];
-
-typedef struct {
     u8 _0;
     u8 action;
     u8 _2;

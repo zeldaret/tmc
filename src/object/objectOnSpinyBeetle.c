@@ -107,7 +107,7 @@ void ObjectOnSpinyBeetle_Action1(ObjectOnSpinyBeetleEntity* this) {
                 case 0x18:
                 case 0x19:
                 case 0x1a:
-                    if (super->type == 0 || (gPlayerState.field_0xac & 8) != 0) {
+                    if (super->type == 0 || (gPlayerState.skills & SKILL_ROCK_BREAKER) != 0) {
                         sub_080989C0(this);
                     }
                     break;

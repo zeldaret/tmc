@@ -30,8 +30,6 @@ extern u32 CheckBits(void*, u32, u32);
 extern u32 WriteBit(void*, u32);
 extern u32 ClearBit(void*, u32);
 
-extern u32 gGlobalFlags;
-
 extern const u16 gLocalFlagBanks[];
 
 enum LocalFlagOffsets {

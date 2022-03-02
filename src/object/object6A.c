@@ -402,7 +402,7 @@ void sub_08094FA8(Object6AEntity* this) {
             }
             break;
         case 2:
-            if (GetInventoryValue(54) == 2) {
+            if (GetInventoryValue(ITEM_QST_DOGFOOD) == 2) {
                 super->action = 3;
                 super->spriteSettings.draw = 1;
             }
@@ -437,7 +437,7 @@ void sub_08095088(Object6AEntity* this) {
 
     switch (super->action) {
         case 0:
-            if (GetInventoryValue(91))
+            if (GetInventoryValue(ITEM_JABBERNUT))
                 DeleteThisEntity();
             super->action = 1;
             super->spritePriority.b0 = 7;

@@ -3,12 +3,11 @@
 #include "screen.h"
 #include "area.h"
 #include "game.h"
-
 #include "object.h"
 #include "npc.h"
 #include "kinstone.h"
-
 #include "functions.h"
+#include "item.h"
 
 void InitScriptForEntity(Entity*, ScriptExecutionContext*, u16*);
 void InitScriptExecutionContext(ScriptExecutionContext* context, u16* script);
@@ -146,7 +145,7 @@ void ScriptCommand_IncreaseMaxHealth(Entity* entity, ScriptExecutionContext* con
 void ScriptCommand_GivePlayerItem(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_GiveKinstone(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_GetInventoryValue(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807F078(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_SetInventoryValue(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807F088(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CameraTargetEntity(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CameraTargetPlayer(Entity* entity, ScriptExecutionContext* context);
@@ -596,7 +595,7 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
         ScriptCommand_GivePlayerItem,
         ScriptCommand_GiveKinstone,
         ScriptCommand_GetInventoryValue,
-        ScriptCommand_0807F078,
+        ScriptCommand_SetInventoryValue,
         ScriptCommand_0807F088,
         ScriptCommand_CameraTargetEntity,
         ScriptCommand_CameraTargetPlayer,
@@ -1502,8 +1501,8 @@ void ScriptCommand_GetInventoryValue(Entity* entity, ScriptExecutionContext* con
     context->condition = context->intVariable != 0;
 }
 
-void ScriptCommand_0807F078(Entity* entity, ScriptExecutionContext* context) {
-    sub_0807CAA0(context->scriptInstructionPointer[1], context->scriptInstructionPointer[2]);
+void ScriptCommand_SetInventoryValue(Entity* entity, ScriptExecutionContext* context) {
+    SetInventoryValue(context->scriptInstructionPointer[1], context->scriptInstructionPointer[2]);
 }
 
 void ScriptCommand_0807F088(Entity* entity, ScriptExecutionContext* context) {
@@ -1615,21 +1614,21 @@ void EquipItem(Entity* entity, ScriptExecutionContext* context) {
     slot = context->intVariable >> 0x10;
     item &= 0xFFFF;
     switch (item) {
-        case 1:
-        case 2:
-        case 3:
-        case 4:
-        case 6:
+        case ITEM_SMITH_SWORD:
+        case ITEM_GREEN_SWORD:
+        case ITEM_RED_SWORD:
+        case ITEM_BLUE_SWORD:
+        case ITEM_FOURSWORD:
             // Pick greatest sword unlocked
-            item = 1;
-            if (GetInventoryValue(2))
-                item = 2;
-            if (GetInventoryValue(3))
-                item = 3;
-            if (GetInventoryValue(4))
-                item = 4;
-            if (GetInventoryValue(6))
-                item = 6;
+            item = ITEM_SMITH_SWORD;
+            if (GetInventoryValue(ITEM_GREEN_SWORD))
+                item = ITEM_GREEN_SWORD;
+            if (GetInventoryValue(ITEM_RED_SWORD))
+                item = ITEM_RED_SWORD;
+            if (GetInventoryValue(ITEM_BLUE_SWORD))
+                item = ITEM_BLUE_SWORD;
+            if (GetInventoryValue(ITEM_FOURSWORD))
+                item = ITEM_FOURSWORD;
             break;
     }
     ForceEquipItem(item, slot);

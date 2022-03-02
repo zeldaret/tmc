@@ -24,9 +24,9 @@ void sub_08075A0C(ItemBehavior* this, u32 arg1) {
     itemSlot = IsItemEquipped(this->behaviorID);
     if (gPlayerState.heldObject != 0 || gPlayerState.queued_action == PLAYER_ROLL || gPlayerState.jump_status != 0 ||
         gPlayerState.item != NULL || (gPlayerState.flags & PL_MINISH) != 0) {
-        ForceEquipItem(0xf, itemSlot);
+        ForceEquipItem(ITEM_LANTERN_OFF, itemSlot);
         gPlayerState.flags &= ~PL_USE_LANTERN;
-        ForceEquipItem(0xf, itemSlot);
+        ForceEquipItem(ITEM_LANTERN_OFF, itemSlot);
         sub_08077E78(this, arg1);
     } else {
         this->field_0x5[4] |= 0x80;
@@ -77,7 +77,7 @@ void sub_08075B54(ItemBehavior* this, u32 arg1) {
     if ((gPlayerState.flags & (PL_CAPTURED | PL_DISABLE_ITEMS)) == 0) {
         itemSlot = IsItemEquipped(this->behaviorID);
         if (!(((sub_08077F10(this) == 0) && (itemSlot < 2)) || (gPlayerState.jump_status != 0))) {
-            ForceEquipItem(0xf, itemSlot);
+            ForceEquipItem(ITEM_LANTERN_OFF, itemSlot);
             gPlayerState.flags &= ~PL_USE_LANTERN;
             sub_08077E78(this, arg1);
             SoundReq(SFX_ITEM_LANTERN_OFF);

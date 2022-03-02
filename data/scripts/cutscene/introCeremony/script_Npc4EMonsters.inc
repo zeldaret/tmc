@@ -27,7 +27,7 @@ SCRIPT_START script_Npc4EMonsters
 	WaitForFadeFinish
 	CallWithArg DeleteManager36, 0x00000002
 	_0807F0C8 0x0000, 0x0000
-	Call sub_0806DC3C
+	Call NPC4E_SaveEquippedItems
 	Call SetPlayerActionNormal
 	CallWithArg EquipItem, 0x0000000d
 	CallWithArg sub_0807F29C, gUnk_080049F6
@@ -42,7 +42,7 @@ SCRIPT_START script_Npc4EMonsters
 	SetSyncFlag 0x20000000
 	Wait 0x0078
 	CallWithArg sub_0807F29C, 0x00000000
-	Call sub_0806DC58
+	Call NPC4E_RestoreEquippedItems
 	SetSyncFlag 0x40000000
 	SetSyncFlag 0x00000010
 	SetSyncFlag 0x00000100

@@ -1,6 +1,6 @@
 @ Intro Assembly Player gets Sword
 SCRIPT_START script_PlayerGetSword
-	_0807F078 0x0001, 0x0001
+	SetInventoryValue 0x0001, 0x0001
 	CallWithArg PutItemAnySlot, 0x00000001
 	PlaySound SFX_109
 	CallWithArg SetPlayerAnimation2, 0x0000045f

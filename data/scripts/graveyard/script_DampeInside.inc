@@ -13,7 +13,7 @@ SCRIPT_START script_DampeInside
 	MessageFromTarget 0x053c
 	WaitPlayerGetItem 
 	WaitUntilTextboxCloses
-	_0807F078 0x003c, 0x0001
+	SetInventoryValue 0x003c, 0x0001
 script_08009622:
 	EnablePlayerControl
 	DoPostScriptAction 0x0000

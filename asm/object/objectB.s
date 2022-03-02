@@ -296,7 +296,7 @@ _08083DC4: .4byte gSave
 _08083DC8:
 	ldrb r0, [r4, #0xa]
 	movs r1, #2
-	bl sub_0807CAA0
+	bl SetInventoryValue
 _08083DD0:
 	bl DeleteThisEntity
 _08083DD4:

@@ -1,4 +1,5 @@
 #include "object.h"
+#include "item.h"
 
 void sub_08099ECC(Entity*);
 extern void sub_0805B390(u32);
@@ -14,7 +15,7 @@ void sub_08099DD0(Entity* this) {
     this->spriteRendering.b3 = 3;
     this->spritePriority.b0 = 7;
     this->subAction = 0;
-    if (GetInventoryValue(0x46)) {
+    if (GetInventoryValue(ITEM_FLIPPERS)) {
         this->action = 4;
         this->frameIndex = 0;
     } else {
@@ -68,6 +69,6 @@ void sub_08099ECC(Entity* this) {
     this->subAction = 1;
     CopyPosition(this, &gPlayerEntity);
     gPlayerState.queued_action = PLAYER_FALL;
-    gPlayerState.field_0x34[4] = 0;
+    gPlayerState.field_0x38 = 0;
     gPlayerState.flags |= PL_FLAGS8000;
 }

@@ -371,7 +371,7 @@ void sub_08033E1C(SpinyBeetleEntity* this) {
 }
 
 void SpinyBeetle_SetHitType(SpinyBeetleEntity* this) {
-    if ((gPlayerState.field_0xac & 8)) {
+    if ((gPlayerState.skills & SKILL_ROCK_BREAKER)) {
         super->hitType = 0x95;
     } else {
         super->hitType = 0x63;

@@ -4,8 +4,6 @@
 #include "functions.h"
 
 void (*const ItemGustJar_StateFunctions[])(ItemBehavior* beh, u32);
-extern u32 sub_0807A894(Entity*);
-extern void UpdatePlayerMovement(void);
 
 void ItemGustJar(ItemBehavior* this, u32 arg1) {
     gPlayerState.framestate = PL_STATE_GUSTJAR;

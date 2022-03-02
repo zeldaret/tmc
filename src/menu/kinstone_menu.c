@@ -587,8 +587,8 @@ u32 sub_080A4418(u32 param_1, u32 param_2) {
 }
 
 void KinstoneMenu_080A4468(void) {
-    gUnk_03003DF0[0].unk[2] = 0;
-    gUnk_03003DF0[0].unk2[3] = 0;
+    gUnk_03003DF0.unk_2 = 0;
+    gUnk_03003DF0.unk_4[3] = 0;
     sub_0801E6C8(gFuseInfo._3);
     sub_0801E798(gKinstoneMenu.unk2a);
 }

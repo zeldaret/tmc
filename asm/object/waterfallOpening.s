@@ -118,7 +118,7 @@ _0809F88C:
 	bne _0809F8AE
 	movs r0, #3
 	strb r0, [r4, #0xd]
-	ldr r1, _0809F8B8 @ =gChooseFileState
+	ldr r1, _0809F8B8 @ =gMenu
 	ldrb r0, [r1, #6]
 	adds r0, #1
 	strb r0, [r1, #6]
@@ -129,7 +129,7 @@ _0809F8AE:
 	bl sub_080A00B0
 	b _0809F8FE
 	.align 2, 0
-_0809F8B8: .4byte gChooseFileState
+_0809F8B8: .4byte gMenu
 _0809F8BC:
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0

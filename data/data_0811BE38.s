@@ -29,7 +29,7 @@ gUnk_0811BFC8:: @ 0811BFC8
 gUnk_0811BFE0:: @ 0811BFE0
 	.incbin "data_0811BE38/gUnk_0811BFE0.bin"
 
-gUnk_0811BFE8:: @ 0811BFE8
+gPlayerChargeActions:: @ 0811BFE8
 	.4byte sub_08078008
 	.4byte sub_08078124
 	.4byte sub_08078140

@@ -9,8 +9,6 @@
 void sub_08076964(ItemBehavior*, u32);
 void sub_080768F8(ItemBehavior*, u32);
 void sub_08076A88(ItemBehavior*, u32);
-extern bool32 sub_0807A158();
-extern Entity* CreatePlayerBomb(ItemBehavior*, u32);
 
 extern u16 gUnk_0800275C[];
 extern u8 gUnk_0811BE38[];
@@ -103,7 +101,8 @@ void sub_08076964(ItemBehavior* this, u32 arg1) {
             gPlayerState.dash_state = 0x40;
             gPlayerState.field_0xa &= ~(8 >> arg1);
             this->stateID++;
-            if (sub_0807A158() && (gPlayerState.flags & PL_MINISH) == 0 && (gPlayerState.field_0xac & 4) != 0) {
+            if (HasSwordEquipped() && (gPlayerState.flags & PL_MINISH) == 0 &&
+                (gPlayerState.skills & SKILL_DASH_ATTACK) != 0) {
                 gPlayerState.field_0xab = 3;
                 sub_08077DF4(this, 0x298);
                 bombEntity = CreatePlayerBomb(this, 0xc);
@@ -145,7 +144,7 @@ void sub_08076A88(ItemBehavior* this, u32 arg1) {
         uVar2 = gUnk_0800275C[(gPlayerEntity.animationState & 0xe) * 4];
         if (uVar2 == (gPlayerEntity.collisions & uVar2)) {
             if (this->field_0x5[3] != 0) {
-                gPlayerEntity.action = 6;
+                gPlayerEntity.action = PLAYER_BOUNCE;
                 gPlayerEntity.subAction = 0;
                 COLLISION_OFF(&gPlayerEntity);
                 gPlayerState.field_0x38 = 0;

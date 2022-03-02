@@ -10,6 +10,8 @@
 #include "enemy.h"
 #include "functions.h"
 #include "hitbox.h"
+#include "common.h"
+#include "flags.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -47,6 +49,41 @@ void sub_08030A04(ArmosEntity*);
 bool32 sub_080305BC(ArmosEntity*);
 void sub_080307D4(ArmosEntity*);
 void sub_08030590(ArmosEntity*);
+
+void ClearArmosData(void) {
+    MemClear(&gRoomTransition.armos_data, sizeof(gRoomTransition.armos_data));
+    gRoomTransition.armos_data.field_0xae = 0xff;
+}
+
+void sub_080300C4(void) {
+    if (gRoomTransition.armos_data.field_0xae == 0xff) {
+        gRoomTransition.armos_data.field_0xac = 0;
+        MemClear(&gRoomTransition.armos_data.data, sizeof(gRoomTransition.armos_data.data));
+    }
+}
+void sub_080300E8(void) {
+    if (gRoomTransition.armos_data.field_0xae != 0xff) {
+        const u16* ptr = &gRoomTransition.armos_data.data[gRoomTransition.armos_data.field_0xae * 2];
+        gPlayerEntity.x.HALF.HI = ptr[0];
+        gPlayerEntity.y.HALF.HI = ptr[1] + 0xc;
+        gRoomTransition.armos_data.field_0xae = 0xff;
+    }
+}
+
+void sub_08030118(u32 param_1) {
+    if (((s32)(u32)gRoomTransition.armos_data.field_0xac >> (param_1)&1) != 0) {
+        SetLocalFlagByBank(0x300, param_1 + 0x67);
+    } else {
+        ClearLocalFlagByBank(0x300, param_1 + 0x67);
+    }
+}
+
+void sub_08030150(ArmosEntity* this) {
+    gRoomTransition.armos_data.field_0xac =
+        (gRoomTransition.armos_data.field_0xac & ~(1 << this->unk_80)) | (this->unk_84 << this->unk_80);
+    gRoomTransition.armos_data.data[(u32)this->unk_80 * 2] = super->x.HALF.HI;
+    gRoomTransition.armos_data.data[(u32)this->unk_80 * 2 + 1] = super->y.HALF.HI;
+}
 
 void Armos(ArmosEntity* this) {
     EnemyFunctionHandler(super, (EntityActionArray)&gUnk_080CE124);

@@ -1,5 +1,6 @@
 #include "npc.h"
 #include "functions.h"
+#include "item.h"
 
 typedef struct {
     u8 frame1;
@@ -252,7 +253,7 @@ void sub_0806200C(Entity* this) {
     if ((CheckGlobalFlag(MIZUKAKI_START) != 0) && (CheckLocalFlag(0x6b))) {
 
         // hyrule bestiary
-        if (GetInventoryValue(0x39) == 2) {
+        if (GetInventoryValue(ITEM_QST_BOOK1) == 2) {
             index = 2;
         } else {
             index = 1;
