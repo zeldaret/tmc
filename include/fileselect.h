@@ -54,6 +54,7 @@ typedef struct {
     /*0x0b*/ SaveFile saves[3];
 } struct_02019EE0;
 extern struct_02019EE0 gUnk_02019EE0;
+// TODO size: 0x8000 from ClearTilemaps?
 
 extern void sub_08056FEC(u32, struct_020227E8*);
 extern void sub_0805F46C(u32, void*);

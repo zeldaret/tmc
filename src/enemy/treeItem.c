@@ -8,6 +8,7 @@
 #include "global.h"
 #include "enemy.h"
 #include "object.h"
+#include "item.h"
 
 static bool32 ShouldSpawnTreeItem(Entity*);
 
@@ -42,7 +43,7 @@ void TreeItem(Entity* this) {
         if (this->field_0x68.HALF.LO > FAIRY_INDEX) {
             DeleteThisEntity();
         }
-        if (this->field_0x68.HALF.LO < FAIRY_INDEX && GetInventoryValue(0x67 /*KinstoneBag*/) == 0) {
+        if (this->field_0x68.HALF.LO < FAIRY_INDEX && GetInventoryValue(ITEM_KINSTONE_BAG) == 0) {
             this->field_0x68.HALF.LO = FAIRY_INDEX;
         }
     }

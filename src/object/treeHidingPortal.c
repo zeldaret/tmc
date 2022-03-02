@@ -7,12 +7,6 @@
 #include "functions.h"
 #include "effects.h"
 
-extern void sub_0809E96C(Entity*);
-extern void CreateSparkle(Entity*);
-extern u32 sub_0809E9A0(void);
-extern void sub_0809E918(Entity*);
-extern void CreateMinishEntrance(u32 tile);
-
 extern void (*const gUnk_08124354[])(Entity*);
 
 extern s16 gUnk_08124364[];

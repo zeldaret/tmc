@@ -13,7 +13,7 @@
 	strh r0, [r4, #8]
 	movs r0, #0x40
 	strh r0, [r4, #2]
-	ldr r0, _080A318C @ =gChooseFileState
+	ldr r0, _080A318C @ =gMenu
 	movs r1, #0x10
 	ldrsh r6, [r0, r1]
 	ldr r1, _080A3190 @ =0xFFFFFED8
@@ -101,7 +101,7 @@
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _080A3188: .4byte gOamCmd
-_080A318C: .4byte gChooseFileState
+_080A318C: .4byte gMenu
 _080A3190: .4byte 0xFFFFFED8
 _080A3194: .4byte gUnk_08A068BF
 	.syntax divided

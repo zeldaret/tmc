@@ -5,6 +5,7 @@
 #include "flags.h"
 #include "message.h"
 #include "npc.h"
+#include "item.h"
 
 extern u16 gUnk_08113344[];
 extern u16 gUnk_0811334A[];
@@ -61,7 +62,7 @@ void sub_0806BE84(Entity* this, ScriptExecutionContext* context) {
         context->condition = 1;
     }
     // Graveyard key
-    if (GetInventoryValue(0x3C) >= 2) {
+    if (GetInventoryValue(ITEM_QST_GRAVEYARD_KEY) >= 2) {
         msgIndex = 2;
     }
     MessageNoOverlap(gUnk_08113344[msgIndex], this);
@@ -73,7 +74,7 @@ void sub_0806BEC8(Entity* this, ScriptExecutionContext* context) {
 
     msgIndex = 0;
     context->condition = 0;
-    hasGraveyardKey = GetInventoryValue(0x3C);
+    hasGraveyardKey = GetInventoryValue(ITEM_QST_GRAVEYARD_KEY);
     if (hasGraveyardKey == 1) {
         msgIndex = 1;
         context->condition = 1;

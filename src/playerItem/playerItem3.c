@@ -2,6 +2,7 @@
 #include "sound.h"
 #include "functions.h"
 #include "asm.h"
+#include "item.h"
 
 void sub_0801B804(Entity*);
 Entity* sub_0801B864(Entity*);
@@ -206,7 +207,7 @@ void sub_0801B804(Entity* this) {
     u32 itemSlot;
     u32 uVar1;
 
-    itemSlot = IsItemEquipped(0xc);
+    itemSlot = IsItemEquipped(ITEM_MAGIC_BOOMERANG);
     switch (itemSlot) {
         case 0:
             uVar1 = 1;

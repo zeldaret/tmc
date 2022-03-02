@@ -174,6 +174,31 @@ enum SurfaceType {
     SURFACE_2C,
 };
 
+typedef enum {
+    SKILL_NONE = 0,
+    SKILL_SPIN_ATTACK = 1,
+    SKILL_ROLL_ATTACK = 2,
+    SKILL_DASH_ATTACK = 4,
+    SKILL_ROCK_BREAKER = 8,
+    SKILL_SWORD_BEAM = 0x10,
+    SKILL_GREAT_SPIN = 0x20,
+    SKILL_DOWN_THRUST = 0x40,
+    SKILL_PERIL_BEAM = 0x80,
+    SKILL_FOURSWORD = 0x100,
+    SKILL_FAST_SPIN = 0x200,
+    SKILL_FAST_SPLIT = 0x400,
+    SKILL_LONG_SPIN = 0x800
+} PlayerSkill;
+
+typedef struct {
+    /*0x00*/ u8 action;
+    /*0x01*/ s8 preChargeTimer;
+    /*0x02*/ u8 swordType;
+    /*0x03*/ u8 unk_3;
+    /*0x04*/ s16 chargeTimer;
+    /*0x06*/ u8 unk_6[2];
+} ChargeState;
+
 typedef struct {
     /*0x00*/ u8 field_0x0[2];
     /*0x02*/ u8 jump_status;
@@ -207,7 +232,8 @@ typedef struct {
     /*0x27*/ u8 field_0x27[5];
     /*0x2c*/ Entity* item;
     /*0x30*/ u32 flags;
-    /*0x34*/ u8 field_0x34[2];
+    /*0x34*/ u8 field_0x34;
+    /*0x35*/ u8 field_0x35;
     /*0x36*/ u8 field_0x36;
     /*0x37*/ u8 field_0x37;
     /*0x38*/ u8 field_0x38;
@@ -231,12 +257,12 @@ typedef struct {
     /*0x98*/ u16 field_0x98;
     /*0x9a*/ u16 field_0x9a;
     /*0x9c*/ u32 field_0x9c;
-    /*0xa0*/ u8 field_0xa0[8];
+    /*0xa0*/ ChargeState chargeState;
     /*0xa8*/ u8 framestate;
     /*0xa9*/ u8 framestate_last;
     /*0xaa*/ u8 field_0xaa;
     /*0xab*/ u8 field_0xab;
-    /*0xac*/ u16 field_0xac;
+    /*0xac*/ u16 skills; /**< Bitfield of skills @see PlayerSkill */
     /*0xae*/ u16 field_0xae;
 } PlayerState;
 
@@ -275,7 +301,8 @@ typedef struct {
     /*0x4*/ u8 stateID;
     /*0x5*/ u8 field_0x5[10];
     /*0xf*/ u8 field_0xf;
-    /*0x10*/ u8 field_0x10[8];
+    /*0x10*/ u16 field_0x10;
+    /*0x12*/ u8 field_0x12[6];
     /*0x18*/ u32 field_0x18;
 } ItemBehavior;
 
@@ -304,7 +331,9 @@ void RegisterPlayerHitbox(void);
 void UpdateFloorType(void);
 void CreateEzloHint(u32, u32);
 
+/** @see Item */
 u32 IsItemEquipped(u32);
+/** @see Item */
 u32 GetInventoryValue(u32);
 s32 ModHealth(s32 delta);
 void ModRupees(s32 delta);

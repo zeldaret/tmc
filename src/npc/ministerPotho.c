@@ -2,6 +2,7 @@
 #include "flags.h"
 #include "message.h"
 #include "npc.h"
+#include "item.h"
 
 extern void (*const gUnk_08110644[])(Entity*);
 void sub_08066864(Entity*);
@@ -83,9 +84,9 @@ void sub_08066904(Entity* this) {
     u32 index;
     if (CheckGlobalFlag(2) == 0) {
         index = 0;
-    } else if (GetInventoryValue(2) == 0) {
+    } else if (GetInventoryValue(ITEM_GREEN_SWORD) == 0) {
         index = 1;
-    } else if (GetInventoryValue(3) == 0) {
+    } else if (GetInventoryValue(ITEM_RED_SWORD) == 0) {
         index = 2;
     } else {
         index = 3;

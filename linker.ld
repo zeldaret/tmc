@@ -39,7 +39,6 @@ SECTIONS {
         . = 0x00002C01; gUnk_02002C01 = .;
         . = 0x00002C81; gUnk_02002C81 = .;
         . = 0x00002C8E; gUnk_02002C8E = .;
-        . = 0x00002C9C; gGlobalFlags = .;
         . = 0x00002F00; gMapDataTopSpecial = .;
         . = 0x00006F00; gUnk_02006F00 = .;
         . = 0x0000AF00; gUnk_0200AF00 = .;
@@ -364,8 +363,6 @@ SECTIONS {
         src/enemy/wizzrobeWind.o(.text);
         src/enemy/wizzrobeFire.o(.text);
         src/enemy/wizzrobeIce.o(.text);
-        src/enemy/code_080300AC.o(.text);
-        asm/enemy/code_080300AC.o(.text);
         src/enemy/armos.o(.text);
         src/enemy/eyegore.o(.text);
         src/enemy/rope.o(.text);
@@ -439,13 +436,8 @@ SECTIONS {
         src/fade.o(.text);
         src/fileselect.o(.text);
         src/game.o(.text);
-        asm/code_080526F8.o(.text);
-        asm/modBombs.o(.text);
-        asm/modArrows.o(.text);
-        src/code_0805436C.o(.text);
-        asm/code_0805436C.o(.text); /* game.c */
         src/playerItem/playerItemLantern.o(.text);
-        asm/code_08054C04.o(.text); /* subtask */
+        src/subtask.o(.text);
         src/sub_08055E08.o(.text);
         src/main.o(.text);
         src/message.o(.text);
@@ -507,8 +499,7 @@ SECTIONS {
         src/manager/manager38.o(.text);
         src/manager/manager39.o(.text);
         src/entity.o(.text);
-        src/code_0805EC04.o(.text);
-        asm/code_0805EC04.o(.text); /* objaffine? */
+        src/code_0805EC04.o(.text); /* objaffine? */
         asm/text.o(.text);
         src/text.o(.text);
         src/debug.o(.text);
@@ -623,24 +614,12 @@ SECTIONS {
         src/item/itemGustJar.o(.text);
         src/item/itemMoleMitts.o(.text);
         src/item/itemJarEmpty.o(.text);
-        asm/playerUtils.o(.text);
-        src/respawnPlayer.o(.text);
-        src/code_08077B98.o(.text);
-        asm/code_08077B98.o(.text);
-        src/code_08078778.o(.text);
-        asm/code_08078778.o(.text);
-        src/sub_0807B820.o(.text);
-        asm/code_0807B9B8.o(.text);
-        src/sub_0807CA18.o(.text);
-        asm/getInventoryValue.o(.text);
-        asm/code_0807CAA0.o(.text); /* playerUtils.c */
+        src/playerUtils.o(.text);
         src/flags.o(.text);
         src/save.o(.text);
         src/screenTilemap.o(.text);
         src/script.o(.text);
-        asm/scroll.o(.text);
         src/scroll.o(.text);
-        asm/code_0808091C.o(.text); /* scroll.c */
         /* objects */
         src/object/itemOnGround.o(.text);
         src/object/deathFx.o(.text);
@@ -854,7 +833,7 @@ SECTIONS {
         src/menu/kinstone_menu.o(.text);
         src/menu/figurine_menu.o(.text);
         src/menu/pause_menu.o(.text);
-        asm/subtask2.o(.text);
+        src/subtask2.o(.text);
         src/playerItem/playerItemSword.o(.text);
         src/playerItemUtils.o(.text);
         src/projectileUtils.o(.text);

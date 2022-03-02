@@ -4,6 +4,7 @@
 #include "flags.h"
 #include "message.h"
 #include "npc.h"
+#include "item.h"
 
 extern SpriteLoadData gUnk_08110C00;
 extern u16 gUnk_08110C0C[];
@@ -51,7 +52,7 @@ void sub_080670B4(Entity* this) {
     u32 uVar2;
 
     uVar2 = 0;
-    if (GetInventoryValue(0x11) == 0) {
+    if (GetInventoryValue(ITEM_GUST_JAR) == 0) {
         if (CheckGlobalFlag(TABIDACHI)) {
             uVar2 = 1;
         }

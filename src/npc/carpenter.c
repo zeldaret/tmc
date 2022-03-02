@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "player.h"
 #include "npc.h"
+#include "item.h"
 
 extern SpriteLoadData gUnk_08110CA8[];
 
@@ -68,7 +69,7 @@ void sub_080672B0(Entity* this, ScriptExecutionContext* context) {
 void sub_080672C8(Entity* this) {
     u32 dialog = 0;
     u32 tmp;
-    if (GetInventoryValue(0x11) == 0) {
+    if (GetInventoryValue(ITEM_GUST_JAR) == 0) {
         if (CheckGlobalFlag(TABIDACHI)) {
             dialog = 1;
         }

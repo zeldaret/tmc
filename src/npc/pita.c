@@ -1,5 +1,6 @@
 #include "functions.h"
 #include "npc.h"
+#include "item.h"
 
 extern Hitbox gUnk_0810C428;
 
@@ -23,11 +24,12 @@ void Pita(Entity* this) {
     }
 }
 
+/** Reset the players baked goods? */
 void sub_08062EB8(void) {
-    sub_0807CAA0(0x68, 0);
-    sub_0807CAA0(0x69, 0);
-    sub_0807CAA0(0x6a, 0);
-    sub_0807CAA0(0x6b, 0);
+    SetInventoryValue(ITEM_BRIOCHE, 0);
+    SetInventoryValue(ITEM_CROISSANT, 0);
+    SetInventoryValue(ITEM_PIE, 0);
+    SetInventoryValue(ITEM_CAKE, 0);
 }
 
 bool32 sub_08062EDC(Entity* this, ScriptExecutionContext* context) {
@@ -35,16 +37,16 @@ bool32 sub_08062EDC(Entity* this, ScriptExecutionContext* context) {
     u32 tmp2;
 
     //! @bug: tmp is uninitialized, in practice player must have an item here
-    if (GetInventoryValue(0x68) != 0) {
+    if (GetInventoryValue(ITEM_BRIOCHE) != 0) {
         tmp = 0;
     }
-    if (GetInventoryValue(0x69) != 0) {
+    if (GetInventoryValue(ITEM_CROISSANT) != 0) {
         tmp = 1;
     }
-    if (GetInventoryValue(0x6a) != 0) {
+    if (GetInventoryValue(ITEM_PIE) != 0) {
         tmp = 2;
     }
-    if (GetInventoryValue(0x6b) != 0) {
+    if (GetInventoryValue(ITEM_CAKE) != 0) {
         tmp = 3;
     }
     if (CheckLocalFlag(SHOP03_PAN_1ST) == 0) {

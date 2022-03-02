@@ -705,7 +705,7 @@
 	.2byte \s
 .endm
 
-.macro _0807F078 a:req, b:req
+.macro SetInventoryValue a:req, b:req
 	.2byte 0x0c85
 	.2byte \a
 	.2byte \b

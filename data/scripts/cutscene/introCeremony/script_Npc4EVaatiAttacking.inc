@@ -7,7 +7,7 @@ SCRIPT_START script_Npc4EVaatiAttacking
 	WaitForSyncFlagAndClear 0x00000400
 	MessageFromTargetPos 0x1047, 0x0000
 	WaitUntilTextboxCloses
-	Call sub_0806DC3C
+	Call NPC4E_SaveEquippedItems
 	Call SetPlayerActionNormal
 	CallWithArg EquipItem, 0x0000000d
 	CallWithArg sub_0807F29C, gUnk_080049F6
@@ -15,7 +15,7 @@ SCRIPT_START script_Npc4EVaatiAttacking
 	SetSyncFlag 0x00000100
 	WaitForSyncFlagAndClear 0x00000200
 	CallWithArg sub_0807F29C, 0x00000000
-	Call sub_0806DC58
+	Call NPC4E_RestoreEquippedItems
 	Wait 0x003c
 	SetSyncFlag 0x08000000
 	PlaySound SFX_125

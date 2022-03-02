@@ -14,6 +14,7 @@
 #include "object.h"
 #include "functions.h"
 #include "subtask.h"
+#include "item.h"
 
 // copy, erase, start
 #define NUM_FILE_OPERATIONS 3
@@ -485,7 +486,7 @@ void sub_08050A64(u32 idx) {
     gOamCmd._8 = 0x400;
 
     // Draw the save file's obtained elements.
-    if (GetInventoryValue(0x40)) {
+    if (GetInventoryValue(ITEM_EARTH_ELEMENT)) {
         gOamCmd.x = 0xA2;
         gOamCmd.y = 0x36;
 #ifdef EU
@@ -494,7 +495,7 @@ void sub_08050A64(u32 idx) {
         DrawDirect(0x145, 0x24);
 #endif
     }
-    if (GetInventoryValue(0x41)) {
+    if (GetInventoryValue(ITEM_FIRE_ELEMENT)) {
         gOamCmd.x = 0x96;
         gOamCmd.y = 0x3D;
 #ifdef EU
@@ -503,7 +504,7 @@ void sub_08050A64(u32 idx) {
         DrawDirect(0x145, 0x22);
 #endif
     }
-    if (GetInventoryValue(0x42)) {
+    if (GetInventoryValue(ITEM_WATER_ELEMENT)) {
         gOamCmd.x = 0xAE;
         gOamCmd.y = 0x3D;
 #ifdef EU
@@ -512,7 +513,7 @@ void sub_08050A64(u32 idx) {
         DrawDirect(0x145, 0x23);
 #endif
     }
-    if (GetInventoryValue(0x43)) {
+    if (GetInventoryValue(ITEM_WIND_ELEMENT)) {
         gOamCmd.x = 0xA2;
         gOamCmd.y = 0x44;
 #ifdef EU

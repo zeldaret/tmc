@@ -17,7 +17,7 @@ SCRIPT_START script_Object69CrowStealingKey
 	WaitForSyncFlagAndClear 0x00000010
 	SetSyncFlag 0x00000020
 	WaitForSyncFlagAndClear 0x00000040
-	_0807F078 0x003c, 0x0000
+	SetInventoryValue 0x003c, 0x0000
 	SetGlobalFlag 0x0020
 	_0807E8E4_3
 	Wait 0x001e

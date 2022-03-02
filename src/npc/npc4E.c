@@ -8,6 +8,7 @@
 #include "npc.h"
 #include "game.h"
 #include "hitbox.h"
+#include "item.h"
 
 typedef struct {
     u32 unk_00;
@@ -155,30 +156,30 @@ u32 sub_0806DBF4(u32 param_1) {
         case 3:
         case 4:
         case 6:
-            param_1 = 1;
-            if (GetInventoryValue(2) != 0) {
-                param_1 = 2;
+            param_1 = ITEM_SMITH_SWORD;
+            if (GetInventoryValue(ITEM_GREEN_SWORD) != 0) {
+                param_1 = ITEM_GREEN_SWORD;
             }
-            if (GetInventoryValue(3) != 0) {
-                param_1 = 3;
+            if (GetInventoryValue(ITEM_RED_SWORD) != 0) {
+                param_1 = ITEM_RED_SWORD;
             }
-            if (GetInventoryValue(4) != 0) {
-                param_1 = 4;
+            if (GetInventoryValue(ITEM_BLUE_SWORD) != 0) {
+                param_1 = ITEM_BLUE_SWORD;
             }
-            if (GetInventoryValue(6) != 0) {
-                param_1 = 6;
+            if (GetInventoryValue(ITEM_FOURSWORD) != 0) {
+                param_1 = ITEM_FOURSWORD;
             }
             break;
     }
     return param_1;
 }
 
-void sub_0806DC3C(Entity* this) {
+void NPC4E_SaveEquippedItems(Entity* this) {
     this->field_0x68.HALF.LO = gSave.stats.itemButtons[SLOT_A];
     this->field_0x68.HALF.HI = gSave.stats.itemButtons[SLOT_B];
 }
 
-void sub_0806DC58(Entity* this) {
+void NPC4E_RestoreEquippedItems(Entity* this) {
     ForceEquipItem(sub_0806DBF4(this->field_0x68.HALF.LO), 0);
     ForceEquipItem(sub_0806DBF4(this->field_0x68.HALF.HI), 1);
 }

@@ -5,7 +5,7 @@ SCRIPT_START script_Npc4EIntroCastle
 	Call sub_0807DF28
 	StartPlayerScript script_PlayerIntroCastle
 	WaitForSyncFlagAndClear 0x00000400
-	_0807F078 0x0034, 0x0002
+	SetInventoryValue 0x0034, 0x0002
 	MessageFromTargetPos 0x1036, 0x000c
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00000010

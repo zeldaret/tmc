@@ -1,5 +1,6 @@
 #include "npc.h"
 #include "functions.h"
+#include "item.h"
 
 extern void (*gUnk_0810FEC4[])(Entity* this);
 extern void (*gUnk_0810FEBC[])(Entity* this);
@@ -102,7 +103,7 @@ void sub_080656D4(Entity* this) {
         goto label;
     } else {
         if (this->interactType != 0) {
-            if (GetInventoryValue(0x37) != 0) { // keyLonLon
+            if (GetInventoryValue(ITEM_QST_LONLON_KEY) != 0) {
                 StartCutscene(this, (u16*)&script_TalonGotKey);
                 goto label2;
             } else {

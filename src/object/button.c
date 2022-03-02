@@ -65,7 +65,7 @@ void sub_08081BE0(Entity* this) {
     if (!sub_08081D28(this)) {
         this->action = 4;
         this->field_0xf = 1;
-        if ((gPlayerState.heldObject == 2) || (!(gPlayerState.field_0x34[1] & 0x80))) {
+        if ((gPlayerState.heldObject == 2) || (!(gPlayerState.field_0x35 & 0x80))) {
             this->actionDelay = 0x18;
         } else {
             this->actionDelay = 0x8;

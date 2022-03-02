@@ -159,7 +159,7 @@ void sub_080819B4(ItemForSaleEntity* this) {
 void sub_08081A5C(ItemForSaleEntity* this) {
     u32 tmp = sub_080787D8(super);
     if (super->actionDelay == 1) {
-        gUnk_03003DF0[tmp].unk4[2] = 0;
+        gUnk_03003DF0.array[tmp].unk_2 = 0;
     }
 }
 

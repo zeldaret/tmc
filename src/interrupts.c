@@ -14,28 +14,9 @@ extern u8 gUnk_03003DE0;
 extern u8 gUnk_03000C30;
 
 extern u8 gUpdateVisibleTiles;
-extern u8 gUnk_03003DF0[];
 extern Entity gUnk_03003BE0;
 extern Entity* gPlayerClones[3];
 extern u16 gUnk_080B2CD8[];
-
-extern void sub_080ADD70(void);
-extern void sub_0801C25C(void);
-extern void UpdateDisplayControls(void);
-extern void LoadResources(void);
-extern void HandlePlayerLife(Entity*);
-extern void DoPlayerAction(Entity*);
-extern void sub_080171F0(void);
-extern void sub_08078FB0(Entity*);
-extern void sub_0807A050(void);
-extern u32 sub_08079B24(void);
-extern void sub_08079708(Entity*);
-extern void CreateSparkle(Entity*);
-extern void sub_080028E0(Entity*);
-extern void sub_08078180(void);
-extern void sub_0807B0C8(void);
-extern void sub_0807A8D8(Entity*);
-extern void sub_08077FEC(u32);
 
 void gIntrMain(void);
 
@@ -256,12 +237,12 @@ void HandlePlayerLife(Entity* this) {
     gPlayerState.flags &= ~(0x2000000 | PL_FALLING);
     if (gPlayerState.flags & PL_BURNING)
         ResetPlayer();
-    if ((gPlayerState.flags & PL_CLONING) && !gPlayerState.field_0xa0[0])
+    if ((gPlayerState.flags & PL_CLONING) && gPlayerState.chargeState.action == 0)
         DeleteClones();
     if (sub_08079B24() == 0)
         sub_08079708(this);
 
-    gUnk_03003DF0[0] = 0;
+    gUnk_03003DF0.unk_0 = 0;
     if (gPlayerState.field_0x27[0] != 0)
         gPlayerState.field_0x27[0]--;
 

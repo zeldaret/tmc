@@ -17,7 +17,7 @@ void Book(Entity* this) {
 void sub_0809B3C4(Entity* this) {
     u32 obtained;
 
-    obtained = GetInventoryValue(this->type + 0x39);
+    obtained = GetInventoryValue(this->type + ITEM_QST_BOOK1);
     if (this->type2 != 3) {
         if (obtained) {
             DeleteThisEntity();
@@ -188,7 +188,7 @@ void sub_0809B5EC(Entity* this) {
                 break;
             }
             case 0: {
-                if (GetInventoryValue(this->type + 0x39) == 2) {
+                if (GetInventoryValue(this->type + ITEM_QST_BOOK1) == 2) {
                     this->subAction = 1;
                 }
                 break;

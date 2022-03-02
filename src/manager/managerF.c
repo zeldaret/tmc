@@ -404,7 +404,7 @@ void sub_080594DC(ManagerF* this) {
             this->manager.action = 1;
             // fall through
         case 1:
-            if (!GetInventoryValue(6))
+            if (!GetInventoryValue(ITEM_FOURSWORD))
                 return;
             if (CheckLocalFlagByBank(0x8c0, 0x85))
                 return;

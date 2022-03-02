@@ -1,6 +1,8 @@
 #include "entity.h"
 #include "player.h"
 #include "structures.h"
+#include "room.h"
+#include "common.h"
 
 bool32 sub_0805EC04(Entity* this) {
     u32 i = 1;
@@ -47,4 +49,42 @@ void sub_0805ED14(u32 param_1) {
     gPlayerState.field_0x9c = param_1;
     gPlayerState.field_0x98 = 0;
     gPlayerState.field_0x9a = 0;
+}
+
+ASM_FUNC("asm/non_matching/code_0805EC04/sub_0805ED30.inc", void sub_0805ED30())
+
+u32 sub_0805EE04(u32 param_1) {
+    u32 result = (s32) - (param_1 & 0x200) >> 0x1f & 0x1000;
+    if ((param_1 & 0x100) != 0) {
+        result |= 0x20;
+        result |= 0x8000;
+        result |= 0x80;
+    }
+    if ((param_1 & 1) != 0) {
+        result |= 0x8;
+        result |= 0x41;
+    }
+    if ((param_1 & 2) != 0) {
+        result |= 0x10;
+        result |= 0x2;
+    }
+    if ((param_1 & 0x10) != 0) {
+        result |= 0x100;
+    }
+    if ((param_1 & 0x20) != 0) {
+        result |= 0x200;
+    }
+    if ((param_1 & 0x40) != 0) {
+        result |= 0x400;
+    }
+    if ((param_1 & 0x80) != 0) {
+        result |= 0x800;
+    }
+    return result;
+}
+
+void sub_0805EE88(void) {
+    if ((gRoomTransition.field_0x2c[3] != 0) && ((gRoomTransition.frameCount & 3) == 0)) {
+        LoadPaletteGroup((((u32)gRoomTransition.frameCount & 0xc) >> 2) + 0x2f);
+    }
 }

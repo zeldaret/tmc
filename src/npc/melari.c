@@ -1,5 +1,6 @@
 #include "npc.h"
 #include "functions.h"
+#include "item.h"
 
 extern void sub_08068780(Entity*);
 
@@ -134,8 +135,8 @@ void sub_08068910(Entity* this) {
 }
 
 void sub_08068964(Entity* this) {
-    sub_080A7C18(53, 0, 3);
-    sub_0807CAA0(53, 2);
+    sub_080A7C18(ITEM_QST_BROKEN_SWORD, 0, 3);
+    SetInventoryValue(ITEM_QST_BROKEN_SWORD, 2);
 }
 
 void Melari_Fusion(Entity* this) {

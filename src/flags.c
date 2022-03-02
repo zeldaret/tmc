@@ -2,6 +2,7 @@
 #include "room.h"
 #include "flags.h"
 #include "area.h"
+#include "save.h"
 
 const u16 gLocalFlagBanks[] = {
     FLAG_BANK_G, FLAG_BANK_0, FLAG_BANK_1, FLAG_BANK_2, FLAG_BANK_3,  FLAG_BANK_4,  FLAG_BANK_5,
@@ -40,7 +41,7 @@ u32 CheckRoomFlag(u32 flag) {
 }
 
 u32 CheckLocalFlagsByBank(u32 offset, u32 flag, u32 length) {
-    return CheckBits(&gGlobalFlags, offset + flag, length);
+    return CheckBits(gSave.flags, offset + flag, length);
 }
 
 u32 CheckLocalFlags(u32 flag, u32 length) {
@@ -57,7 +58,7 @@ u32 CheckRoomFlags(u32 flag, u32 length) {
 
 void SetLocalFlagByBank(u32 offset, u32 flag) {
     if (flag != 0) {
-        WriteBit(&gGlobalFlags, offset + flag);
+        WriteBit(gSave.flags, offset + flag);
     }
 }
 
@@ -95,7 +96,7 @@ void SetRoomFlag(u32 flag) {
 }
 
 void ClearLocalFlagByBank(u32 offset, u32 flag) {
-    ClearBit(&gGlobalFlags, offset + flag);
+    ClearBit(gSave.flags, offset + flag);
 }
 
 void ClearLocalFlag(u32 flag) {

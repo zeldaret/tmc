@@ -28,7 +28,7 @@ script_08009660:
 	JumpIfNot script_0800968E
 	PlaySound SFX_111
 	PlaySound SFX_SECRET
-	_0807F078 0x003c, 0x0002
+	SetInventoryValue 0x003c, 0x0002
 	Call sub_0806BEFC
 script_0800968E:
 	EnablePlayerControl

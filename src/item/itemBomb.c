@@ -3,12 +3,11 @@
 #include "sound.h"
 #include "functions.h"
 #include "playeritem.h"
+#include "functions.h"
 
 extern void (*const gUnk_0811BD98[])(ItemBehavior*, u32);
 
-extern Entity* CreatePlayerBomb();
 extern s8 gUnk_0811BDAC[];
-extern void ModBombs(s32);
 
 void ItemBomb(ItemBehavior* this, u32 arg1) {
     gUnk_0811BD98[this->stateID](this, arg1);

@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "npc.h"
 #include "functions.h"
+#include "item.h"
 
 extern u32 sub_080002C0(u32, u32, u32);
 extern void sub_0806ACC4(Entity*);
@@ -250,7 +251,7 @@ void sub_0806B004(Entity* this, ScriptExecutionContext* context) {
 
     if (CheckGlobalFlag(MIZUKAKI_START)) {
         if (CheckLocalFlag(0x73)) {
-            if (GetInventoryValue(0x46) == 0) {
+            if (GetInventoryValue(ITEM_FLIPPERS) == 0) {
                 idx = 3;
                 if (CheckLocalFlag(KHOUSE51_00) == 0) {
                     idx = 2;
@@ -283,7 +284,7 @@ void sub_0806B064(Entity* this) {
 void sub_0806B098(Entity* this) {
     int idx = 2;
 
-    if (GetInventoryValue(0x46) == 0) {
+    if (GetInventoryValue(ITEM_FLIPPERS) == 0) {
         idx = 1;
         if (CheckGlobalFlag(MIZUKAKI_START)) {
             if (!CheckGlobalFlag(MIZUKAKI_HARIFALL)) {
@@ -308,7 +309,7 @@ void sub_0806B0E0(Entity* this) {
 void sub_0806B134(Entity* this) {
     int idx;
 
-    if (GetInventoryValue(0x45)) {
+    if (GetInventoryValue(ITEM_POWER_BRACELETS)) {
         idx = 2;
         if (CheckLocalFlag(KHOUSE42_00) == 0) {
             idx = 1;

@@ -247,14 +247,14 @@ NONMATCH("asm/non_matching/textbox/MsgInit.inc", /*static*/ u32 MsgInit(void)) {
 
     for (i = 0; i < FILENAME_LENGTH; ++i) {
         char c = gSave.name[i];
-        if (c == '\0')
+        if (c == 0)
             break;
         *dest++ = c;
     }
 
     dest[0] = 2;
     dest[1] = 0xf; // White text color
-    dest[2] = '\0';
+    dest[2] = 0;
     sub_08056FBC(&gTextRender);
     gTextRender.curToken._c = &gUnk_08107BE0;
     gTextRender._50.unk8 = gTextGfxBuffer;
@@ -477,7 +477,7 @@ NONMATCH("asm/non_matching/textbox/RunTextCommand.inc", /*static*/ u16 RunTextCo
     if (gMessage.unk == 0) {
         gMessage.unk = 0x80;
     }
-    this->curToken.extended = '\0';
+    this->curToken.extended = 0;
     if (chr >> 8 == 7) {
         this->_90 = this->_8f | 0x80;
         PaletteChange(this, 0);

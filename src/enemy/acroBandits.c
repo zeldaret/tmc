@@ -254,7 +254,7 @@ void sub_08031C58(Entity* this) {
 
 void sub_08031D70(Entity* this) {
     GetNextFrame(this);
-    if (--this->actionDelay == '\0') {
+    if (--this->actionDelay == 0) {
         this->action = 7;
         COLLISION_OFF(this);
         this->actionDelay = 5;

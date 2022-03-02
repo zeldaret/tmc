@@ -4,6 +4,7 @@
 #include "message.h"
 #include "flags.h"
 #include "npc.h"
+#include "item.h"
 
 const u8 gUnk_08111284[][0x20] = {
     { 0x8, 0x1,  0x9, 0x1,  0xa, 0x1,  0xb, 0x83, 0xc, 0x83, 0xd, 0x83, 0xe, 0x83, 0xf, 0x80,
@@ -226,10 +227,10 @@ void sub_08068190(Entity* this) {
     if (CheckLocalFlag(0x7e)) {
         uVar2 = 1;
     }
-    if (GetInventoryValue(0x41) != 0) {
+    if (GetInventoryValue(ITEM_FIRE_ELEMENT) != 0) {
         uVar2 = 2;
     }
-    if (GetInventoryValue(2) != 0) {
+    if (GetInventoryValue(ITEM_GREEN_SWORD) != 0) {
         uVar2 = 3;
     }
 

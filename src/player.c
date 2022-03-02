@@ -271,7 +271,6 @@ extern void sub_08079258(void);
 extern void EnablePlayerDraw(Entity*);
 extern u32 sub_08079B24(void);
 extern void sub_08079708(Entity*);
-extern Entity* CreatePlayerBomb(Entity*, u32);
 extern u32 sub_0806F854(Entity*, s32, s32);
 extern u32 UpdatePlayerCollision(void);
 extern void sub_08079744(Entity*);
@@ -1640,7 +1639,7 @@ static void sub_08071DD0(Entity* this) {
 }
 
 static void sub_08071E04(Entity* this) {
-    if ((this->z.WORD != 0) && (gPlayerState.field_0x14 == '\0')) {
+    if ((this->z.WORD != 0) && (gPlayerState.field_0x14 == 0)) {
         UpdateFloorType();
         if (gPlayerState.floor_type == SURFACE_PIT) {
             gPlayerState.field_0x11 = 7;
@@ -1689,7 +1688,7 @@ static void PlayerEmptyBottleInit(Entity* this) {
     Entity* ent;
 
     ResetPlayer();
-    ent = CreatePlayerBomb(this, 0xe);
+    ent = CreatePlayerBomb((ItemBehavior*)this, 0xe);
     if (ent != NULL) {
         ent->field_0x68.HALF.LO = gPlayerState.field_0x38;
         this->subAction++;
@@ -1702,7 +1701,7 @@ static void PlayerEmptyBottleInit(Entity* this) {
                 break;
             default:
                 gPlayerState.animation = 0x610;
-                sub_0807CAA0(gPlayerState.field_0x38, 2);
+                SetInventoryValue(gPlayerState.field_0x38, 2);
                 break;
         }
     }
@@ -3472,7 +3471,7 @@ void SurfaceAction_14(Entity* this) {
 }
 
 void SurfaceAction_CloneTile(Entity* this) {
-    if (gPlayerState.field_0xa0[0] == 4) {
+    if (gPlayerState.chargeState.action == 4) {
         u32 item, n, i;
         if (ItemIsSword(gSave.stats.itemButtons[SLOT_A])) {
             item = gSave.stats.itemButtons[SLOT_A];
@@ -3533,7 +3532,7 @@ void SurfaceAction_16(Entity* this) {
 }
 
 void SurfaceAction_Ice(Entity* this) {
-    if (!sub_080741C4() && ((gPlayerState.field_0x34[1] & 0x80) == 0 || this->knockbackDuration != 0)) {
+    if (!sub_080741C4() && ((gPlayerState.field_0x35 & 0x80) == 0 || this->knockbackDuration != 0)) {
         ResetPlayerVelocity();
     }
 }

@@ -233,20 +233,21 @@ END_NONMATCH
 
 void sub_080281A0(Entity* this) {
     this->field_0xf = 0x19;
-    if (sub_080281E0(0xe)) {
-        this->field_0x80.HALF.LO = 0xe;
+    if (sub_080281E0(ITEM_MIRROR_SHIELD)) {
+        this->field_0x80.HALF.LO = ITEM_MIRROR_SHIELD;
         MessageFromTarget(0x578);
-    } else if (sub_080281E0(0xd)) {
-        this->field_0x80.HALF.LO = 0xd;
+    } else if (sub_080281E0(ITEM_SHIELD)) {
+        this->field_0x80.HALF.LO = ITEM_SHIELD;
         MessageFromTarget(0x578);
     } else {
         ModHealth(-1);
     }
 }
 
-bool32 sub_080281E0(u32 param_1) {
+/** Can steal item */
+bool32 sub_080281E0(u32 item) {
     bool32 ret = FALSE;
-    if (GetInventoryValue(param_1) == 1) {
+    if (GetInventoryValue(item) == 1) {
         if (ItemIsShield(gSave.stats.itemButtons[SLOT_A])) {
             gSave.stats.itemButtons[SLOT_A] = 0;
         }
@@ -255,18 +256,19 @@ bool32 sub_080281E0(u32 param_1) {
             gSave.stats.itemButtons[SLOT_B] = 0;
         }
 
-        sub_0807CAA0(param_1, 0);
+        SetInventoryValue(item, 0);
         ret = TRUE;
     }
 
     return ret;
 }
 
-void sub_08028224(u32 param_1) {
+/** Return stolen item */
+void sub_08028224(u32 item) {
 #ifdef EU
-    CreateItemEntity(param_1, 0, 1);
+    CreateItemEntity(item, 0, 1);
 #else
-    sub_080A7C18(param_1, 0, 1);
+    sub_080A7C18(item, 0, 1);
 #endif
     MessageFromTarget(0x579);
 }
