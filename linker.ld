@@ -436,11 +436,6 @@ SECTIONS {
         src/fade.o(.text);
         src/fileselect.o(.text);
         src/game.o(.text);
-        asm/code_080526F8.o(.text);
-        asm/modBombs.o(.text);
-        asm/modArrows.o(.text);
-        src/code_0805436C.o(.text);
-        asm/code_0805436C.o(.text); /* game.c */
         src/playerItem/playerItemLantern.o(.text);
         src/subtask.o(.text);
         src/sub_08055E08.o(.text);
@@ -619,17 +614,7 @@ SECTIONS {
         src/item/itemGustJar.o(.text);
         src/item/itemMoleMitts.o(.text);
         src/item/itemJarEmpty.o(.text);
-        asm/playerUtils.o(.text);
-        src/respawnPlayer.o(.text);
-        src/code_08077B98.o(.text);
-        asm/code_08077B98.o(.text);
-        src/code_08078778.o(.text);
-        asm/code_08078778.o(.text);
-        src/sub_0807B820.o(.text);
-        asm/code_0807B9B8.o(.text);
-        src/sub_0807CA18.o(.text);
-        asm/getInventoryValue.o(.text);
-        asm/code_0807CAA0.o(.text); /* playerUtils.c */
+        src/playerUtils.o(.text);
         src/flags.o(.text);
         src/save.o(.text);
         src/screenTilemap.o(.text);

@@ -15,7 +15,7 @@ _08087CC6:
 	adds r0, #0x81
 	ldrb r0, [r0]
 	rsbs r0, r0, #0
-	bl sub_080542C0
+	bl ModShells
 	bl Random
 	movs r1, #0x7f
 	ands r1, r0
@@ -141,7 +141,7 @@ _08088332:
 	adds r0, #0x81
 	ldrb r0, [r0]
 	rsbs r0, r0, #0
-	bl sub_080542C0
+	bl ModShells
 	bl Random
 	movs r1, #0x7f
 	ands r1, r0

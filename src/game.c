@@ -6,24 +6,30 @@
  */
 
 #include "global.h"
-#include "asm.h"
-#include "sound.h"
-#include "screen.h"
-#include "entity.h"
-#include "player.h"
-#include "room.h"
-#include "main.h"
-#include "flags.h"
-#include "save.h"
-#include "common.h"
-#include "fileselect.h"
-#include "menu.h"
-#include "functions.h"
 #include "area.h"
-#include "message.h"
+#include "asm.h"
+#include "common.h"
+#include "droptables.h"
+#include "enemy.h"
+#include "entity.h"
+#include "fileselect.h"
+#include "flags.h"
+#include "functions.h"
 #include "game.h"
 #include "item.h"
+#include "itemMetaData.h"
+#include "main.h"
+#include "menu.h"
+#include "message.h"
+#include "object.h"
+#include "player.h"
+#include "room.h"
+#include "save.h"
+#include "screen.h"
+#include "sound.h"
 #include "subtask.h"
+#include "itemMetaData.h"
+#include "player.h"
 
 // Game task
 
@@ -196,6 +202,68 @@ typedef struct {
     u16 y;
 } CutsceneData;
 static const CutsceneData sCutsceneData[];
+
+extern u8 gUnk_0200AF13;
+extern u8 gUnk_0200AF14;
+extern u8 gUnk_080FE1C6[];
+extern void (*const gUnk_080FE2AC[])(void);
+
+/** @see Item */
+void ForceEquipItem(u32, u32);
+extern void SetInventoryValue(u32, u32);
+
+extern u8 gUnk_080FE1DD[];
+
+extern void (*const gUnk_080FE2A0[])(void);
+
+extern void (*const gUnk_080FCBB4[])(void);
+
+extern const EntityData gUnk_080FCB94[];
+
+void sub_08052004(void);
+
+extern void (*const gUnk_080FCCFC[])(void);
+
+extern void (*const gUnk_080FCD38[])(void);
+
+extern const EntityData gUnk_080FCC54[];
+
+void sub_08051FF0(void);
+
+extern void (*const gUnk_080FCD40[])(void);
+
+extern const EntityData gUnk_080FCBC4[];
+void sub_08051F78(void);
+
+extern const EntityData gUnk_080FCC14[];
+
+extern void DeleteAllEntities(void);
+
+extern void (*const gUnk_080FCDD4[])(void);
+
+extern const EntityData gUnk_080FCD84[];
+
+extern void (*const gUnk_080FCEB0[])(void);
+
+extern const EntityData gUnk_080FCDE0[];
+
+extern void (*const gUnk_080FCEEC[])(void);
+
+extern const EntityData gUnk_080FCEBC[];
+
+extern void (*const gUnk_080FCEF8[])(void);
+
+extern void (*const gUnk_080FCFA4[])(void);
+
+extern void* GetRoomProperty(u32, u32, u32);
+
+extern void (*const gUnk_080FD108[])(void);
+
+extern const EntityData* gUnk_080FCFB8[];
+
+extern void (*const gUnk_080FD138[])(void);
+
+extern const u16 gUnk_080FD964[];
 
 void GameTask(void) {
     static GameState* const sStates[] = {
@@ -586,7 +654,7 @@ static void AuxCutscene_Exit(void) {
     }
 }
 
-void sub_08051F78(u32 a1, u32 a2, u32 a3, u32 a4) {
+void sub_08051F78(void) {
     u32 idx = gUnk_02032EC0.field_0x3;
     const CutsceneData* p = &sCutsceneData[idx];
     sub_08051F9C(p->area, p->room, p->x, p->y);
@@ -931,24 +999,24 @@ static void InitializePlayer(void) {
             pl->z.HALF.HI = -0xc0;
             break;
         case PL_SPAWN_STEP_IN:
-            gPlayerState.field_0x34[4] = 16;
+            gPlayerState.field_0x38 = 16;
             pl->direction = Direction8FromAnimationState(gRoomTransition.player_status.start_anim);
         case PL_SPAWN_WALKING:
             pl->speed = 224;
             break;
         case PL_SPAWN_STAIRS_ASCEND:
         case PL_SPAWN_STAIRS_DESCEND:
-            gPlayerState.field_0x34[4] = 1;
-            gPlayerState.field_0x34[5] = gRoomTransition.player_status.spawn_type;
+            gPlayerState.field_0x38 = 1;
+            gPlayerState.field_0x39 = gRoomTransition.player_status.spawn_type;
             break;
         case PL_SPAWN_PARACHUTE_FORWARD:
-            gPlayerState.field_0x34[4] = 1;
+            gPlayerState.field_0x38 = 1;
             break;
         case PL_SPAWN_PARACHUTE_UP:
-            gPlayerState.field_0x34[4] = 3;
+            gPlayerState.field_0x38 = 3;
             break;
         case PL_SPAWN_FAST_TRAVEL:
-            gPlayerState.field_0x34[4] = 4;
+            gPlayerState.field_0x38 = 4;
     }
 
     pl->kind = PLAYER;
@@ -1716,11 +1784,11 @@ static void ResetTmpFlags(void) {
 
     if (!CheckGlobalFlag(WATERBEAN_PUT))
         ClearGlobalFlag(WATERBEAN_OUT);
-    if (!GetInventoryValue(0x40u))
+    if (!GetInventoryValue(ITEM_EARTH_ELEMENT))
         ClearGlobalFlag(LV1_CLEAR);
-    if (!GetInventoryValue(0x41u))
+    if (!GetInventoryValue(ITEM_FIRE_ELEMENT))
         ClearGlobalFlag(LV2_CLEAR);
-    if (!GetInventoryValue(0x42u))
+    if (!GetInventoryValue(ITEM_WATER_ELEMENT))
         ClearGlobalFlag(LV4_CLEAR);
 }
 
@@ -1730,3 +1798,811 @@ static void ClearFlagArray(const u16* p) {
     for (i = p; i[0] != 0xFFFF; i += 2)
         ClearLocalFlagByBank(i[0], i[1]);
 }
+
+void CutsceneMain_Init(void) {
+    gUnk_080FCBB4[gMenu.overlayType]();
+}
+
+void sub_080535AC(void) {
+    gMenu.overlayType = 1;
+    gMenu.transitionTimer = 0x78;
+    gUnk_02032EC0.field_0x6 = 1;
+    gUpdateVisibleTiles = 1;
+    gScreen.lcd.displayControl &= 0xfeff;
+    LoadRoomEntityList((EntityData*)gUnk_080FCB94);
+    SetFade(6, 8);
+}
+
+void sub_080535F4(void) {
+    if (gFadeControl.active == 0) {
+        ResetSystemPriority();
+        gMenu.overlayType = 2;
+    }
+}
+
+void nullsub_481(void) {
+}
+
+void sub_08053618(void) {
+    gMenu.transitionTimer--;
+    if (gMenu.transitionTimer == 0) {
+        sub_08052004();
+    }
+}
+
+void sub_08053634(void) {
+    gUnk_02032EC0.nextToLoad = 3;
+    MessageInitialize();
+}
+
+void sub_08053648(void) {
+    Entity* obj = CreateObject(SMOKE, 0, 0);
+    if (obj != NULL) {
+        obj->x.HALF.HI = gRoomControls.origin_x + 0x2d0;
+        obj->y.HALF.HI = gRoomControls.origin_y + 0x148;
+    }
+}
+
+void sub_0805367C(void) {
+    gMenu.overlayType++;
+}
+
+void sub_0805368C(void) {
+    Entity* entity = FindEntityByID(OBJECT, HOUSE_DOOR_INT, 6);
+    if (entity != NULL) {
+        DeleteEntity(entity);
+        SoundReq(SFX_F0);
+    }
+}
+
+void sub_080536A8(void) {
+    sub_080A71C4(5, 5, 4, 0x10);
+}
+
+void sub_080536B8(void) {
+    sub_080A71C4(5, 3, 4, 4);
+    SetFade(5, 0x100);
+}
+
+void sub_080536D4(void) {
+    gUnk_080FCCFC[gMenu.overlayType]();
+}
+
+void sub_080536F0(void) {
+    gUnk_080FCD38[gMenu.overlayType]();
+}
+
+void sub_0805370C(void) {
+    gMenu.overlayType++;
+    gUpdateVisibleTiles = 1;
+    sub_08051FF0();
+    LoadRoomEntityList((EntityData*)gUnk_080FCC54);
+    SetFade(4, 0x10);
+}
+
+void sub_0805373C(void) {
+    gUnk_080FCD40[gMenu.overlayType]();
+}
+
+ASM_FUNC("asm/non_matching/game/sub_08053758.inc", void sub_08053758())
+
+ASM_FUNC("asm/non_matching/game/sub_08053800.inc", void sub_08053800())
+
+ASM_FUNC("asm/non_matching/game/sub_08053894.inc", void sub_08053894())
+
+ASM_FUNC("asm/non_matching/game/sub_08053904.inc", void sub_08053904())
+
+void sub_08053974(void) {
+    if (gFadeControl.active == 0) {
+        InitFade();
+        DispReset(1);
+        SetBGDefaults();
+        sub_08051F78();
+        LoadRoomEntityList((EntityData*)&gUnk_080FCBC4);
+        SetFade(5, 0x100);
+        gMenu.overlayType++;
+    }
+}
+
+void nullsub_482(void) {
+}
+
+void sub_080539BC(void) {
+    SetBGDefaults();
+    DeleteAllEntities();
+    sub_08051F9C(0x22, 0x11, 0, 0);
+    sub_0804B0B0(0x22, 0x11);
+    LoadRoomEntityList((EntityData*)&gUnk_080FCC14);
+    gMenu.overlayType++;
+}
+
+void sub_080539F4(void) {
+    if (gFadeControl.active == 0) {
+        DispReset(1);
+        gMenu.overlayType++;
+        gMenu.transitionTimer = 0x3c;
+    }
+}
+
+void sub_08053A1C(void) {
+    gMenu.transitionTimer--;
+    if (gMenu.transitionTimer == 0) {
+        gMenu.overlayType++;
+        gMenu.transitionTimer = 8;
+        MessageFromTarget(0xf07);
+        gMessage.textWindowPosX = 1;
+        gMessage.textWindowPosY = 8;
+        SetFade(4, 8);
+    }
+}
+
+void sub_08053A5C(void) {
+    if (((gMessage.doTextBox & 0x7f) == 0) && --gMenu.transitionTimer == 0) {
+        gMenu.overlayType++;
+        SetFade(5, 8);
+    }
+}
+
+void sub_08053A90(void) {
+    if (gFadeControl.active == 0) {
+        gUnk_02032EC0.nextToLoad = 3;
+        SetBGDefaults();
+    }
+}
+
+void sub_08053AB0(void) {
+    gUnk_080FCDD4[gMenu.overlayType]();
+}
+
+void sub_08053ACC(void) {
+    gMenu.overlayType++;
+    gUpdateVisibleTiles = 1;
+    sub_08051FF0();
+    LoadRoomEntityList((EntityData*)&gUnk_080FCD84);
+    SetFade(5, 0x100);
+}
+
+void sub_08053B00(void) {
+    gMenu.overlayType++;
+}
+
+void sub_08053B10(void) {
+    if (CheckRoomFlag(1)) {
+        gMenu.menuType++;
+        DispReset(1);
+        SetFade(4, 0x100);
+    }
+}
+
+void sub_08053B3C(void) {
+    sub_080A71C4(5, 4, 5, 0x100);
+    SetFade(5, 0x100);
+}
+
+void sub_08053B58(void) {
+    gUnk_080FCEB0[gMenu.overlayType]();
+}
+
+void sub_08053B74(void) {
+    gMenu.overlayType++;
+    gUpdateVisibleTiles = 1;
+    LoadRoomEntityList((EntityData*)&gUnk_080FCDE0);
+    ResetSystemPriority();
+    ResetEntityPriority();
+    SetFade(5, 0x100);
+}
+
+void sub_08053BAC(void) {
+    gMenu.overlayType++;
+}
+
+void sub_08053BBC(void) {
+    if (CheckRoomFlag(0)) {
+        gMenu.menuType++;
+        DispReset(1);
+        SetFade(4, 0x100);
+    }
+}
+
+void sub_08053BE8(void) {
+    sub_080A71C4(5, 2, 5, 0x100);
+    SetFade(5, 0x100);
+}
+
+void sub_08053C04(void) {
+    gUnk_080FCEEC[gMenu.overlayType]();
+}
+
+void sub_08053C20(void) {
+    gMenu.overlayType = 1;
+    gMenu.transitionTimer = 0x78;
+    gUpdateVisibleTiles = 1;
+    sub_08051FF0();
+    sub_0805B4D0(4);
+    LoadRoomEntityList((EntityData*)&gUnk_080FCEBC);
+    SetFade(4, 0x10);
+    SoundReq(BGM_FIGHT_THEME2);
+}
+
+void nullsub_483(void) {
+}
+
+void sub_08053C60(void) {
+    SetFade(5, 2);
+    SoundReq(SFX_SUMMON);
+    SoundReq(SONG_STOP_BGM);
+    SetTask(3);
+}
+
+void sub_08053C84(void) {
+    gMenu.overlayType = 2;
+}
+
+void CutsceneMain_Exit(void) {
+    gUnk_080FCEF8[gMenu.field_0x3]();
+}
+
+void sub_08053CAC(void) {
+    gUnk_080FCFA4[gMenu.overlayType]();
+}
+
+ASM_FUNC("asm/non_matching/game/sub_08053CC8.inc", void sub_08053CC8())
+
+void sub_08053D34(void) {
+    if (gMenu.field_0xa != 0) {
+        gMenu.field_0xa = 0;
+        if (CheckLocalFlagByBank(0x680, 0x3d)) {
+            SetTileType(0x74, 0xc4, 1);
+        }
+        if (CheckLocalFlagByBank(0x680, 0x3e)) {
+            SetTileType(0x74, 0xcc, 1);
+        }
+    }
+    if (gFadeControl.active == 0) {
+        gMenu.transitionTimer = 0x78;
+        gMenu.overlayType++;
+    }
+}
+
+void sub_08053D90(void) {
+    gMenu.transitionTimer--;
+    if (gMenu.transitionTimer == 0) {
+        gMenu.overlayType++;
+        SetFadeInverted(0x10);
+    }
+}
+
+void sub_08053DB4(void) {
+    if (gFadeControl.active == 0) {
+        u8* ptr = gMenu.field_0xc;
+        sub_08052FF4(gMenu.field_0xc[4], gMenu.field_0xc[5]);
+        sub_0807C740();
+        gUpdateVisibleTiles = 1;
+        gRoomControls.scroll_x = (s8)ptr[6] + gRoomControls.scroll_x;
+        gRoomControls.scroll_y = (s8)ptr[7] + gRoomControls.scroll_y;
+        LoadRoomEntityList(*(EntityData**)ptr);
+        LoadRoomEntityList((EntityData*)GetRoomProperty(ptr[4], ptr[5], 1));
+        LoadRoomEntityList((EntityData*)GetRoomProperty(ptr[4], ptr[5], 2));
+        gMenu.transitionTimer = 0x78;
+        gMenu.overlayType++;
+        SetFadeInverted(0x10);
+    }
+}
+
+void sub_08053E30(void) {
+    if ((gFadeControl.active == 0) && --gMenu.transitionTimer == 0) {
+        gMenu.menuType++;
+    }
+}
+
+void sub_08053E58(void) {
+    gUnk_080FD108[gMenu.overlayType]();
+}
+
+void sub_08053E74(void) {
+    const EntityData** ptr = gUnk_080FCFB8;
+    gMenu.field_0xc = (u8*)ptr;
+    LoadRoomEntityList((EntityData*)ptr[0]);
+    gMenu.transitionTimer = 0x78;
+    gMenu.field_0xa = 0x3c;
+    gMenu.overlayType++;
+    gScreen.lcd.displayControl &= 0xfeff;
+    gUpdateVisibleTiles = 1;
+    SetMinPriority(1);
+    SetFade(4, 8);
+}
+
+void sub_08053EC4(void) {
+    EntityData** data;
+    if ((gFadeControl.active == 0) && (--gMenu.field_0xa == 0)) {
+        data = (EntityData**)(gMenu.field_0xc + 4);
+        gMenu.field_0xc += 0xc;
+        LoadRoomEntityList(*data);
+        gMenu.overlayType++;
+    }
+}
+
+void sub_08053EFC(void) {
+    if (--gMenu.transitionTimer == 0) {
+        gMenu.overlayType++;
+        SetFadeInverted(8);
+    }
+}
+
+void sub_08053F20(void) {
+    u8* ptr;
+    if (gFadeControl.active == 0) {
+        DeleteAllEntities();
+        ptr = gMenu.field_0xc;
+        sub_08052FF4(gMenu.field_0xc[8], gMenu.field_0xc[9]);
+        sub_0807C740();
+        gUpdateVisibleTiles = 1;
+        gRoomControls.scroll_x = (s8)ptr[10] + gRoomControls.scroll_x;
+        gRoomControls.scroll_y = (s8)ptr[0xb] + gRoomControls.scroll_y;
+        LoadRoomEntityList(*(EntityData**)ptr);
+        gMenu.transitionTimer = 0x78;
+        gMenu.field_0xa = 0x3c;
+        gMenu.overlayType++;
+        SetFadeInverted(8);
+    }
+}
+
+void sub_08053F88(void) {
+    if ((gFadeControl.active == 0) && --gMenu.transitionTimer == 0) {
+        gMenu.menuType++;
+        ResetEntityPriority();
+    }
+}
+
+void CutsceneMain_Update(void) {
+    gUnk_080FD138[gMenu.field_0x3]();
+}
+
+u32 GetSaleItemConfirmMessageID(u32 item) {
+    const u16* ptr = &gUnk_080FD964[item * 4];
+    return ptr[2];
+}
+
+s32 GetItemPrice(u32 item) {
+    const u16* ptr = &gUnk_080FD964[item * 4];
+    return ptr[0];
+}
+
+ASM_FUNC("asm/non_matching/game/GiveItem.inc", void GiveItem(u32 a, u32 b))
+
+// TODO Adapt ItemMetaData struct
+void sub_08054288(s32 param_1) {
+    const ItemMetaData* ptr1 = gItemMetaData;
+    u16* ptr = (u16*)&((ptr1)[param_1]);
+    MessageFromTarget(ptr[3]);
+}
+
+u32 sub_0805429C(s32 param_1) {
+    const ItemMetaData* ptr1 = gItemMetaData;
+    u16* ptr = (u16*)&((ptr1)[param_1]);
+    return ptr[2];
+}
+
+u32 sub_080542AC(u32 param_1) {
+    const ItemMetaData* ptr1 = gItemMetaData;
+    u8* ptr = (u8*)&((ptr1)[param_1]);
+    return ptr[3] & 1;
+}
+
+void ModShells(s32 shells) {
+    if (shells == 0) {
+        shells = 1;
+    }
+    shells += gSave.stats.shells;
+    if (shells < 0) {
+        shells = 0;
+    } else if (999 < shells) {
+        shells = 999;
+    }
+    gSave.stats.shells = shells;
+}
+
+void ModBombs(s32 bombs) {
+    s32 bombCount = bombs;
+    s32 bagSize;
+    bombCount += gSave.stats.bombCount;
+    bagSize = gBombBagSizes[gSave.stats.bombBagType];
+    if (bombCount < 0) {
+        bombCount = 0;
+    } else if (bagSize < bombCount) {
+        bombCount = bagSize;
+    }
+    gSave.stats.bombCount = bombCount;
+}
+
+void ModArrows(s32 arrows) {
+    s32 quiverSize;
+    s32 arrowCount = arrows;
+    arrowCount += gSave.stats.arrowCount;
+    quiverSize = gQuiverSizes[gSave.stats.quiverType];
+    if (arrowCount < 0) {
+        arrowCount = 0;
+    } else if (quiverSize < arrowCount) {
+        arrowCount = quiverSize;
+    }
+    gSave.stats.arrowCount = arrowCount;
+}
+
+/**
+ * @brief Returns the slot the item is equipped in.
+ *
+ * 0: A
+ * 1: B
+ * 2: Not equipped
+ */
+u32 IsItemEquipped(u32 itemID) {
+    u32 itemSlot;
+
+    if (itemID == gSave.stats.itemButtons[SLOT_A])
+        itemSlot = 0;
+    else if (itemID == gSave.stats.itemButtons[SLOT_B])
+        itemSlot = 1;
+    else
+        itemSlot = 2;
+    return itemSlot;
+}
+
+void PutItemOnSlot(u32 itemID) {
+    u32 itemSlot;
+    u32 itemID2 = itemID;
+    if (itemID2 < 0x47) {
+        SetInventoryValue(0, 1);
+    }
+    if (itemID2 - 1 < 0x1f) {
+        itemSlot = 2;
+        if (gSave.stats.itemButtons[SLOT_A] == 0) {
+            itemSlot = 0;
+        } else if (gSave.stats.itemButtons[SLOT_B] == 0) {
+            itemSlot = 1;
+        }
+        if (itemSlot == 2) {
+            u32 temp = gItemMetaData[itemID2].menuSlot;
+            if (temp == gItemMetaData[gSave.stats.itemButtons[SLOT_A]].menuSlot) {
+                itemSlot = 0;
+            } else {
+                if (temp == gItemMetaData[gSave.stats.itemButtons[SLOT_B]].menuSlot) {
+                    itemSlot = 1;
+                }
+            }
+            if (itemSlot == 2) {
+                return;
+            }
+        }
+        ForceEquipItem(itemID2, itemSlot);
+    }
+}
+
+void ForceEquipItem(u32 itemID, u32 itemSlot) {
+    u32 otherItem;
+    u32 otherItemIndex;
+    u32 replacedItem;
+
+    if ((itemID - 1 < 0x1f) && (itemSlot < 2)) {
+        otherItemIndex = itemSlot == 0;
+        replacedItem = gSave.stats.itemButtons[itemSlot];
+        otherItem = gSave.stats.itemButtons[otherItemIndex];
+        if (gItemMetaData[otherItem].menuSlot == gItemMetaData[itemID].menuSlot) {
+            otherItem = replacedItem;
+        }
+        gSave.stats.itemButtons[itemSlot] = itemID;
+        gSave.stats.itemButtons[otherItemIndex] = otherItem;
+        gUnk_0200AF00.filler0[0x13] = 0x7f;
+        gUnk_0200AF00.filler0[0x14] = 0x7f;
+    }
+}
+
+u32 SetBottleContents(u32 itemID, u32 bottleIndex) {
+    if (bottleIndex > 3) {
+        bottleIndex = 0;
+        if (gSave.stats.bottles[0] != 0x20) {
+            do {
+                bottleIndex++;
+                if (bottleIndex > 3) {
+                    return bottleIndex;
+                }
+            } while (gSave.stats.bottles[bottleIndex] != 0x20);
+        }
+        if (bottleIndex > 3) {
+            return bottleIndex;
+        }
+    }
+    gSave.stats.bottles[bottleIndex] = itemID;
+    return bottleIndex;
+}
+
+bool32 ItemIsSword(u32 item) {
+    switch (item) {
+        case ITEM_SMITH_SWORD:
+        case ITEM_GREEN_SWORD:
+        case ITEM_RED_SWORD:
+        case ITEM_BLUE_SWORD:
+        case ITEM_FOURSWORD:
+            return TRUE;
+        default:
+            return FALSE;
+    }
+}
+
+bool32 ItemIsShield(u32 id) {
+    switch (id) {
+        case 13:
+        case 14:
+            return 1;
+        default:
+            return 0;
+    }
+}
+
+bool32 ItemIsBottle(u32 id) {
+    switch (id) {
+        case 28:
+        case 29:
+        case 30:
+        case 31:
+            return 1;
+        default:
+            return 0;
+    }
+}
+
+u32 GetBottleContaining(u32 id) {
+    if (id == gSave.stats.bottles[0]) {
+        return 1;
+    } else if (id == gSave.stats.bottles[1]) {
+        return 2;
+    } else if (id == gSave.stats.bottles[2]) {
+        return 3;
+    } else if (id == gSave.stats.bottles[3]) {
+        return 4;
+    } else {
+        return 0;
+    }
+}
+
+void sub_08054524(void) {
+    u32 bVar1;
+
+    bVar1 = gArea.locationIndex;
+    if (gArea.locationIndex == 0) {
+        bVar1 = gRoomTransition.player_status.field_0x24[0xa];
+    }
+    if (bVar1 > 0x16) {
+        bVar1 = 0;
+    }
+
+    bVar1 = gUnk_080FE1C6[bVar1];
+    MemCopy(&gAreaDroptables[bVar1], &gRoomVars.currentAreaDroptable, 0x20);
+}
+
+void sub_08054564(void) {
+    gRoomVars.field_0x2 = 1;
+}
+
+void sub_08054570(void) {
+    gRoomVars.field_0x2 = 0;
+}
+
+extern void sub_08000F14(s16*, const s16*, const s16*, const s16*);
+extern u32 sub_08000F2C(s16*, const s16*, const s16*, const s16*);
+u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter);
+u32 CreateRandomItemDrop(Entity* arg0, u32 arg1) {
+    extern const u8 gUnk_080FE1B4[] /* = {
+         ITEM_NONE,         ITEM_RUPEE1,  ITEM_RUPEE5, ITEM_RUPEE20,        ITEM_HEART,         ITEM_FAIRY,
+         ITEM_BOMBS5,       ITEM_ARROWS5, ITEM_SHELLS, ITEM_KINSTONE_GREEN, ITEM_KINSTONE_BLUE, ITEM_KINSTONE_RED,
+         ITEM_ENEMY_BEETLE, ITEM_NONE,    ITEM_NONE,   ITEM_NONE,           ITEM_NONE,          ITEM_NONE,
+     }*/;
+
+    int r0, r1, rand, summOdds, item;
+    u32 r3;
+    const Droptable *ptr2, *ptr3, *ptr4;
+    Droptable droptable;
+    r3 = arg1;
+    if (gRoomVars.field_0x2 != 1) {
+        ptr2 = &gDroptableModifiers[DROPTABLE_NONE];
+        ptr4 = NULL;
+        switch (r3) {
+            case 1 ... 12:
+                ptr4 = &gEnemyDroptables[r3];
+                break;
+#ifndef EU
+            case 24:
+            case 25:
+                r0 = gRoomVars.unk2;
+                ptr4 = &gUnk_0800191C[0];
+                if (r0) {
+                    ptr4++;
+                }
+                break;
+#endif
+            case 16 ... 23:
+#ifdef EU
+            case 24:
+#endif
+                ptr2 = &gObjectDroptables[r3 - 16];
+            case 15:
+                ptr4 = &gRoomVars.currentAreaDroptable;
+                break;
+            case 0:
+            default:
+                break;
+        }
+        if (ptr4 != 0) {
+            if ((r1 = gSave.stats.picolyteType) == 0) {
+                // nop
+                ptr3 = &gDroptableModifiers[DROPTABLE_NONE];
+            } else {
+#ifdef EU
+                ptr3 = &gEnemyDroptables[r1 + 9];
+#else
+                ptr3 = &gEnemyDroptables[r1 + 6];
+#endif
+            }
+            // vector addition, s0 = ptr4 + ptr2 + ptr3
+            sub_08000F14(droptable.a, ptr4->a, ptr2->a, ptr3->a);
+            if (gSave.stats.health <= 8) {
+                droptable.s.hearts += 5;
+            }
+            if (gSave.stats.bombCount == 0) {
+                droptable.s.bombs += 3;
+            }
+            if (gSave.stats.arrowCount == 0) {
+                droptable.s.arrows += 3;
+            }
+            if (gSave.stats.rupees <= 10) {
+                droptable.s.rupee5 += 1;
+            }
+            ptr2 = &gDroptableModifiers[DROPTABLE_NONE];
+            r0 = gSave.stats.hasAllFigurines;
+            ptr3 = &gDroptableModifiers[DROPTABLE_NONE];
+            // don't drop shells anymore
+            if (r0 != 0) {
+                ptr2 = &gDroptableModifiers[DROPTABLE_NO_SHELLS];
+            }
+            // don't drop kinstones anymore
+            if (gSave.didAllFusions != 0) {
+                ptr3 = &gDroptableModifiers[DROPTABLE_NO_KINSTONES];
+            }
+            // vector addition, s0 = s0 + ptr2 + ptr3
+            // resulting values are clamped to be >= 0
+            // returns sum over s0
+            summOdds = sub_08000F2C(droptable.a, droptable.a, ptr2->a, ptr3->a);
+            rand = Random();
+            item = (rand >> 0x18);
+            item &= 0xF;
+            rand = rand % summOdds;
+            {
+                u32 r3;
+                for (r3 = 0, r1 = 0; r3 < 0x10; r3++, item = (item + 1) & 0xF) {
+                    if ((r1 += droptable.a[item]) > rand) {
+                        break;
+                    }
+                }
+            }
+            r1 = gUnk_080FE1B4[item];
+            if (r1 != ITEM_NONE) {
+                return CreateItemDrop(arg0, r1, 0);
+            }
+        }
+    }
+    return ITEM_NONE;
+}
+
+u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
+    u32 adjustedParam = itemParameter;
+    Entity* itemEntity;
+
+    switch (itemID) {
+        case ITEM_ENEMY_BEETLE:
+            if (!GetInventoryValue(ITEM_SMITH_SWORD)) {
+                return ITEM_NONE;
+            }
+            break;
+        case ITEM_BOMBS5:
+            if (!GetInventoryValue(ITEM_BOMBBAG)) {
+                return ITEM_NONE;
+            }
+            break;
+        case ITEM_ARROWS5:
+            if (!GetInventoryValue(ITEM_BOW)) {
+                return ITEM_NONE;
+            }
+            break;
+        case ITEM_SHELLS: {
+            if (!GetInventoryValue(ITEM_EARTH_ELEMENT)) {
+                return ITEM_NONE;
+            }
+            if (itemParameter == 0) {
+                adjustedParam = 1;
+            }
+            break;
+        }
+        case ITEM_KINSTONE:
+        case ITEM_KINSTONE_GREEN ... ITEM_KINSTONE_RED: {
+            u32 rand;
+
+            if (GetInventoryValue(ITEM_KINSTONE_BAG) == 0) {
+                return ITEM_NONE;
+            }
+            if (3 < gRoomVars.filler1[0]) {
+                return ITEM_NONE;
+            }
+
+            if (itemID != ITEM_KINSTONE) {
+                adjustedParam = itemID - ITEM_KINSTONE_GREEN;
+                rand = (Random() & 0x3f);
+                adjustedParam = gUnk_080FE1DD[(rand + adjustedParam * 0x40)];
+                if (adjustedParam == 0) {
+                    itemID = ITEM_NONE;
+                } else {
+                    itemID = ITEM_KINSTONE;
+                }
+            }
+            break;
+        }
+    }
+    if (itemID != ITEM_NONE) {
+        if (itemID != ITEM_ENEMY_BEETLE) {
+            itemEntity = CreateObject(GROUND_ITEM, itemID, adjustedParam);
+            if (itemEntity != NULL) {
+                if (arg0 == &gPlayerEntity) {
+                    itemEntity->actionDelay = 1;
+                } else {
+                    itemEntity->actionDelay = 0;
+                }
+                if (arg0->kind == OBJECT) {
+                    if (arg0->id == 99) {
+                        arg0->child = itemEntity;
+                    } else if (arg0->id == 0x1e) {
+                        itemEntity->direction = arg0->animationState << 3 | 0x80;
+                        itemEntity->speed = 0xc0;
+                        itemEntity->zVelocity = Q_16_16(1.5);
+                    }
+                }
+                CopyPosition(arg0, itemEntity);
+            }
+        } else {
+            itemEntity = CreateEnemy(BEETLE, 0);
+            if (itemEntity != NULL) {
+                itemEntity->x.HALF.HI = arg0->x.HALF.HI;
+                itemEntity->y.HALF.HI = arg0->y.HALF.HI;
+                itemEntity->collisionLayer = arg0->collisionLayer;
+                UpdateSpriteForCollisionLayer(itemEntity);
+            }
+        }
+    }
+    return itemID;
+}
+
+void Subtask_WorldEvent(void) {
+#if !(defined(DEMO_USA) || defined(DEMO_JP))
+    gUnk_080FE2A0[gMenu.menuType]();
+#endif
+}
+
+ASM_FUNC("asm/non_matching/game/sub_0805488C.inc", void sub_0805488C())
+
+void sub_080548E8(void) {
+    gUnk_080FE2AC[gMenu.field_0x0]();
+    FlushSprites();
+    UpdateEntities();
+    DrawEntities();
+    CopyOAM();
+    UpdateScroll();
+    UpdateBgAnim();
+    UpdateScrollVram();
+}
+
+ASM_FUNC("asm/non_matching/game/sub_08054920.inc", void sub_08054920())
+
+void sub_08054968(void) {
+    gMenu.menuType = 2;
+}
+
+ASM_FUNC("asm/non_matching/game/sub_08054974.inc", void sub_08054974())
+
+ASM_FUNC("asm/non_matching/game/sub_08054A14.inc", void sub_08054A14())

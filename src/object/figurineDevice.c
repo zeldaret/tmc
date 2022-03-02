@@ -40,7 +40,7 @@ typedef struct {
 #endif
 } FigurineDeviceEntity;
 
-extern void sub_080542C0(s32);
+extern void ModShells(s32);
 extern u8 gUnk_020227F0;
 typedef struct {
     u32 unk_0;
