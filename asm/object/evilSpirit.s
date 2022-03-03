@@ -5,7 +5,11 @@
 	.syntax unified
 
 	.text
-
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@
+@  Please leave this file as a tutorial.
+@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 	thumb_func_start EvilSpirit
 EvilSpirit: @ 0x08086284
