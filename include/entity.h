@@ -195,7 +195,7 @@ typedef struct Entity_ {
     /*0x59*/ u8 frameDuration;
     /*0x5a*/ u8 frame;
     /*0x5b*/ u8 frameSpriteSettings;
-    /*0x5c*/ Frame* animPtr;
+    /*0x5c*/ void* animPtr;
     /*0x60*/ u16 spriteVramOffset;
     /*0x62*/ u8 spriteOffsetX;
     /*0x63*/ s8 spriteOffsetY;

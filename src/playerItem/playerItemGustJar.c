@@ -1,23 +1,32 @@
 #include "entity.h"
 #include "player.h"
 #include "functions.h"
-
-extern void (*const gUnk_08132700[])(Entity*);
+#include "sound.h"
 
 extern Hitbox gUnk_08132B28;
 void sub_080ADC84(Entity*);
-
+void PlayerItemGustJar_Init(Entity*);
+void PlayerItemGustJar_Action1(Entity*);
+void PlayerItemGustJar_Action2(Entity*);
+void PlayerItemGustJar_Action3(Entity*);
+void PlayerItemGustJar_Action4(Entity*);
+void sub_080ADCDC(Entity*, u32);
 void sub_080ADCA0(Entity*, u32);
 
 void PlayerItemGustJar(Entity* this) {
+    static void (*const actionFuncs[])(Entity*) = {
+        PlayerItemGustJar_Init,    PlayerItemGustJar_Action1, PlayerItemGustJar_Action2,
+        PlayerItemGustJar_Action3, PlayerItemGustJar_Action4,
+    };
+
     if (((Entity*)gPlayerState.item != this) || (gPlayerState.field_0x1c == 0)) {
         DeleteThisEntity();
     }
-    gUnk_08132700[this->action](this);
+    actionFuncs[this->action](this);
     sub_08078E84(this, &gPlayerEntity);
 }
 
-void sub_080ADA6C(Entity* this) {
+void PlayerItemGustJar_Init(Entity* this) {
     this->action = 1;
     this->field_0xf = 0xf;
     this->hitbox = &gUnk_08132B28;
@@ -30,7 +39,7 @@ void sub_080ADA6C(Entity* this) {
     InitAnimationForceUpdate(this, this->animationState >> 1);
 }
 
-void sub_080ADAA8(Entity* this) {
+void PlayerItemGustJar_Action1(Entity* this) {
     sub_080ADC84(this);
     if ((this->frame & 0x80) != 0) {
         this->action = 2;
@@ -40,9 +49,73 @@ void sub_080ADAA8(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/playerItemGustJar/sub_080ADAD4.inc", void sub_080ADAD4(Entity* this))
+void PlayerItemGustJar_Action2(Entity* this) {
+    u32 in_r2;
+    int windSound;
 
-void sub_080ADC14(Entity* this) {
+    if (gPlayerState.field_0x1c == 3) {
+        this->action++;
+        InitAnimationForceUpdate(this, (gPlayerEntity.animationState >> 1) + 8);
+    } else if (gPlayerState.field_0x1c == 6) {
+        this->action = 4;
+        InitAnimationForceUpdate(this, (gPlayerEntity.animationState >> 1) + 4);
+    } else {
+        windSound = 0;
+        if (this->type != 0) {
+            if (this->type == 1) {
+                sub_080ADCA0(this, 4);
+                this->actionDelay = 24;
+                this->type = 2;
+            } else {
+                sub_080ADCDC(this, 1);
+                if (--this->actionDelay == 0xff) {
+                    sub_080ADCA0(this, 0);
+                    this->type = 0;
+                }
+            }
+        } else {
+            if ((gPlayerState.field_0x1c & 0xf) == 7) {
+                this->frameDuration = 0x7f;
+            }
+
+            switch (gPlayerState.field_0x1d) {
+                case 3:
+                    sub_080ADCDC(this, 3);
+                    this->palette.b.b0 = 0;
+                    in_r2 = 3;
+                    windSound = SFX_WIND3;
+                    break;
+                case 2:
+                    sub_080ADCDC(this, 2);
+                    this->palette.b.b0 = 4;
+                    in_r2 = 2;
+                    windSound = SFX_WIND2;
+                    break;
+                case 1:
+                    sub_080ADCDC(this, 1);
+                    this->palette.b.b0 = 1;
+                    in_r2 = 1;
+                    windSound = SFX_WIND1;
+                    break;
+            }
+
+            if ((gPlayerState.field_0x1c & 0xf) == 7) {
+                windSound = SFX_EE;
+                in_r2 = 1;
+            }
+            this->field_0xf = this->field_0xf - in_r2;
+        }
+        if ((s8)this->field_0xf < 0) {
+            if (windSound) {
+                SoundReq(windSound);
+            }
+            this->field_0xf = 15;
+        }
+        this->frameIndex = gPlayerEntity.frameIndex - (gPlayerEntity.frame & 0x7f);
+    }
+}
+
+void PlayerItemGustJar_Action3(Entity* this) {
     switch (gPlayerState.field_0x1c & 0xf) {
         case 6:
             this->action += 1;
@@ -58,7 +131,7 @@ void sub_080ADC14(Entity* this) {
     }
 }
 
-void sub_080ADC60(Entity* this) {
+void PlayerItemGustJar_Action4(Entity* this) {
     if ((this->frame & 0x80) != 0) {
         this->spriteSettings.draw = 0;
     } else {
@@ -70,6 +143,37 @@ void sub_080ADC84(Entity* this) {
     this->spriteSettings.flipX = gPlayerEntity.spriteSettings.flipX;
 }
 
-ASM_FUNC("asm/non_matching/playerItemGustJar/sub_080ADCA0.inc", void sub_080ADCA0(Entity* this, u32 param_1))
+extern const u8* gUnk_08132714[];
 
-ASM_FUNC("asm/non_matching/playerItemGustJar/sub_080ADCDC.inc", void sub_080ADCDC(Entity* this))
+void sub_080ADCA0(Entity* this, u32 param_2) {
+    const u8* pFVar1 = gUnk_08132714[(param_2 + (gPlayerEntity.animationState >> 1))];
+    const u8* pFVar2;
+
+    this->animPtr = (void*)pFVar1;
+    this->animIndex = *pFVar1;
+    pFVar2 = pFVar1 + 1;
+    this->animPtr = (void*)pFVar2;
+    this->frameDuration = *pFVar2;
+    this->animPtr = (void*)++pFVar2;
+    sub_080042D0(this, this->animIndex, this->spriteIndex);
+}
+
+void sub_080ADCDC(Entity* this, u32 param_2) {
+    u32 bVar1;
+    u8* pFVar3;
+
+    bVar1 = this->frameDuration;
+    this->frameDuration = (u8)(bVar1 - param_2);
+    if ((int)((bVar1 - param_2) * 0x1000000) < 1) {
+        if (*(u8*)this->animPtr == 0xff) {
+            this->animPtr = (u8*)this->animPtr + 1;
+            this->animPtr = (u8*)this->animPtr - *(u8*)this->animPtr;
+        }
+        pFVar3 = this->animPtr;
+        this->animIndex = *pFVar3;
+        this->animPtr = ++pFVar3;
+        this->frameDuration += *pFVar3;
+        this->animPtr = ++pFVar3;
+        sub_080042D0(this, this->animIndex, this->spriteIndex);
+    }
+}
