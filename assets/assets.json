@@ -39029,36 +39029,6 @@
     "type": "animation"
   },
   {
-    "path": "rem/gUnk_08112294.bin",
-    "start": 1122964,
-    "size": 8
-  },
-  {
-    "path": "rem/gUnk_0811229C.bin",
-    "start": 1122972,
-    "size": 4
-  },
-  {
-    "path": "rem/gUnk_081122A0.bin",
-    "start": 1122976,
-    "size": 8
-  },
-  {
-    "path": "rem/gUnk_081122A8.bin",
-    "start": 1122984,
-    "size": 8
-  },
-  {
-    "path": "rem/gUnk_081122B0.bin",
-    "start": 1122992,
-    "size": 8
-  },
-  {
-    "path": "rem/gUnk_081122B8.bin",
-    "start": 1123000,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_TownMinish_0.bin",
     "start": 1125480,
     "size": 5,
