@@ -36,7 +36,7 @@ void sub_0806355C(Entity* this) {
 }
 
 void sub_08063584(Entity* this) {
-    if (sub_0806ED9C(this, 0x20, 0x20) >= 0) {
+    if (GetAnimationStateInRectRadius(this, 0x20, 0x20) >= 0) {
         if (this->field_0xf == 0) {
             if ((Random() & 0x3f) == 0) {
                 this->field_0xf = 1;

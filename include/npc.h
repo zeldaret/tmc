@@ -22,9 +22,9 @@
 void sub_0806EC20(Entity* ent);
 void sub_0806EC38(void);
 u32 sub_0806ED78(Entity* ent);
-s32 sub_0806ED9C(Entity*, u32, u32);
+s32 GetAnimationStateInRectRadius(Entity*, u32, u32);
 u32 GetAnimationState(Entity* ent);
-s32 sub_0806EDD8(Entity* ent, u32 x, u32 y);
+s32 GetFacingDirectionInRectRadius(Entity* ent, u32 x, u32 y);
 void sub_0806EE04(Entity* ent, void* a2, u32 a3);
 u32 sub_0806EE20(Entity* ent);
 s32 sub_0806F078(Entity* ent, s32 a2);

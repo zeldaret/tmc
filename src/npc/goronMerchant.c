@@ -38,7 +38,7 @@ void sub_080695AC(Entity* this) {
 
     if (++this->field_0xf > 0x10) {
         this->field_0xf = 0;
-        iVar2 = sub_0806ED9C(this, 0x28, 0x28);
+        iVar2 = GetAnimationStateInRectRadius(this, 0x28, 0x28);
         if (iVar2 > -1) {
             this->animationState = iVar2;
         }

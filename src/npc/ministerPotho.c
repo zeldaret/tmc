@@ -26,7 +26,7 @@ void sub_080667E4(Entity* this) {
 }
 
 void sub_08066808(Entity* this) {
-    s32 tmp = sub_0806ED9C(this, 0x28, 0x28);
+    s32 tmp = GetAnimationStateInRectRadius(this, 0x28, 0x28);
     if (tmp < 0) {
         tmp = 2;
     } else {
