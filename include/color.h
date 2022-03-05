@@ -25,6 +25,7 @@ typedef struct {
     union SplitWord unk_08;
     u32 unk_0C;
 } struct_gUnk_020000C0_1;
+
 typedef struct {
     struct_gUnk_020000C0_1 unk_00[4];
 } struct_gUnk_020000C0;

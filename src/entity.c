@@ -341,7 +341,7 @@ void DeleteEntityAny(Entity* ent) {
 
 void DeleteEntity(Entity* ent) {
     if (ent->next) {
-        sub_080AE068(ent);
+        UnloadGFXSlots(ent);
         UnloadOBJPalette(ent);
         sub_0806FE84(ent);
         sub_080788E0(ent);

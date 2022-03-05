@@ -879,7 +879,7 @@ SECTIONS {
         src/title.o(.text);
         src/affine.o(.text);
         src/playerItem/playerItemGustJar.o(.text);
-        asm/vram.o(.text);
+        src/vram.o(.text);
         src/movement.o(.text);
         /* library functions */
         asm/lib/m4a_asm.o(.text);

@@ -280,7 +280,7 @@ void sub_080297F0(Entity* this) {
     COLLISION_ON(this);
     this->spriteSettings.draw = TRUE;
     this->hitType = 0x8e;
-    sub_080AE068(this);
+    UnloadGFXSlots(this);
 #ifdef EU
     this->spriteIndex = 0x142;
 #else

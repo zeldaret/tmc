@@ -574,7 +574,7 @@ void sub_08041BE8(Entity* this) {
 
         entity = ((VaatiWrathHeapStruct*)this->myHeap)->type2;
         entity->updatePriority = PRIO_NO_BLOCK;
-        sub_080AE068(entity);
+        UnloadGFXSlots(entity);
         LoadFixedGFX(entity, 0x1f5);
         ChangeObjPalette(entity, 0x16b);
         InitializeAnimation(entity, 0x1a);

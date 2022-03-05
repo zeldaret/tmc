@@ -30,7 +30,7 @@ void sub_08082EB4(BlockPushedEntity* this) {
     u32 pos;
 
     if (gRoomControls.area == 0x11) {
-        sub_080AE068(super);
+        UnloadGFXSlots(super);
         if (LoadFixedGFX(super, 0x1c1) == 0) {
             super->spriteSettings.draw = 0;
             return;

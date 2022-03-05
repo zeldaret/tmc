@@ -263,7 +263,7 @@ void OctorokBoss_Hit_SubAction1(Entity* this) {
     if (GET_TIMER(this) == 0) {
         this->subAction = 2;
         GET_BOSS_PHASE(this)++;
-        sub_080AE068(this);
+        UnloadGFXSlots(this);
         if (IS_FROZEN(this) == FALSE) {
             this->hitType = 0x5f;
             LoadFixedGFX(this, 0x108);

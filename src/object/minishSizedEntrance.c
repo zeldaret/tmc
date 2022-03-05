@@ -16,7 +16,7 @@ void sub_08090EC0(Entity* this) {
     this->frameIndex = this->type2;
     if (AreaIsDungeon()) {
         this->frameIndex += 4;
-        sub_080AE068(this);
+        UnloadGFXSlots(this);
         LoadFixedGFX(this, 0x184);
     }
 }
