@@ -448,13 +448,13 @@ void sub_0807DF28(void) {
 }
 
 void sub_0807DF38(void) {
-    gUnk_0200AF00.filler0[1] = 0xff;
+    gUnk_0200AF00.unk_1 = 0xff;
     gUnk_02034490.unk0 = 0xff;
 }
 
 void sub_0807DF50(void) {
     gUnk_02034490.unk0 = 0;
-    gUnk_0200AF00.filler0[1] = 0;
+    gUnk_0200AF00.unk_1 = 0;
     RecoverUI(0);
     ResetPlayerAnimationAndAction();
     sub_08079184();

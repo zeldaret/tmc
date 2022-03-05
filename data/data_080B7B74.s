@@ -6,14 +6,8 @@
 
 gCollisionMtx:: @ 080B7B74
 	.incbin "data_080B7B74/gCollisionMtx.bin"
-
-gUnk_080B802E:: @ 080B802E
 	.incbin "data_080B7B74/gUnk_080B802E.bin"
-
-gUnk_080BA2C0:: @ 080BA2C0
 	.incbin "data_080B7B74/gUnk_080BA2C0.bin"
-
-gUnk_080BB2A0:: @ 080BB2A0
 .ifdef EU
 	.incbin "data_080B7B74/gUnk_080B7B74_1_EU.bin"
 .else
@@ -39,13 +33,15 @@ gUnk_080BB2A0:: @ 080BB2A0
 .endif
 	.incbin "data_080B7B74/gUnk_080B7B74_9.bin"
 
+@ ui.c const
+
 gUnk_080C8F2C:: @ 080C8F2C
 	.incbin "data_080B7B74/gUnk_080C8F2C.bin"
 
 gUnk_080C8F54:: @ 080C8F54
 	.incbin "data_080B7B74/gUnk_080C8F54.bin"
 
-@ TODO this data is accessed using DMA in sub_0801C85C
+@ TODO this data is accessed using DMA in DrawChargeBar
 gUnk_080C8F7C:: @ 080C8F7C
 	.4byte gUnk_data0_085C4DA0
 	.4byte gUnk_data1_085C4E60
@@ -53,97 +49,97 @@ gUnk_080C8F7C:: @ 080C8F7C
 	.4byte gUnk_data3_085C4FE0
 
 
-gUnk_080C8F8C:: @ 080C8F8C
+gUIElementDefinitions:: @ 080C8F8C
 .ifdef EU
     @ TODO only small differences
-	.incbin "data_080B7B74/gUnk_080C8F8C_EU.bin"
+	.incbin "data_080B7B74/gUIElementDefinitions_EU.bin"
 .else
-	.incbin "data_080B7B74/gUnk_080C8F8C_1_USA-JP-DEMO_USA-DEMO_JP.bin"
+	.incbin "data_080B7B74/gUIElementDefinitions_1_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
-	.4byte sub_0801CB78
+	.4byte ButtonUIElement
 .ifdef EU
     @ TODO only small differences
-	.incbin "data_080B7B74/gUnk_080C8F8C_2_EU.bin"
+	.incbin "data_080B7B74/gUIElementDefinitions_2_EU.bin"
 .else
-	.incbin "data_080B7B74/gUnk_080C8F8C_3_USA-JP-DEMO_USA-DEMO_JP.bin"
+	.incbin "data_080B7B74/gUIElementDefinitions_3_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
-	.4byte sub_0801CB78
+	.4byte ButtonUIElement
 .ifdef EU
     @ TODO only small differences
-	.incbin "data_080B7B74/gUnk_080C8F8C_4_EU.bin"
+	.incbin "data_080B7B74/gUIElementDefinitions_4_EU.bin"
 .else
-	.incbin "data_080B7B74/gUnk_080C8F8C_5_USA-JP-DEMO_USA-DEMO_JP.bin"
+	.incbin "data_080B7B74/gUIElementDefinitions_5_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
-	.4byte sub_0801CB78
+	.4byte ButtonUIElement
 .ifdef EU
     @ TODO only small differences
-	.incbin "data_080B7B74/gUnk_080C8F8C_6_EU.bin"
+	.incbin "data_080B7B74/gUIElementDefinitions_6_EU.bin"
 .else
-	.incbin "data_080B7B74/gUnk_080C8F8C_7_USA-JP-DEMO_USA-DEMO_JP.bin"
+	.incbin "data_080B7B74/gUIElementDefinitions_7_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
-	.4byte sub_0801CCB0
+	.4byte ItemUIElement
 .ifdef EU
     @ TODO only small differences
-	.incbin "data_080B7B74/gUnk_080C8F8C_8_EU.bin"
+	.incbin "data_080B7B74/gUIElementDefinitions_8_EU.bin"
 .else
-	.incbin "data_080B7B74/gUnk_080C8F8C_9_USA-JP-DEMO_USA-DEMO_JP.bin"
+	.incbin "data_080B7B74/gUIElementDefinitions_9_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
-	.4byte sub_0801CCB0
+	.4byte ItemUIElement
 .ifdef EU
     @ TODO only small differences
-	.incbin "data_080B7B74/gUnk_080C8F8C_10_EU.bin"
+	.incbin "data_080B7B74/gUIElementDefinitions_10_EU.bin"
 .else
-	.incbin "data_080B7B74/gUnk_080C8F8C_11_USA-JP-DEMO_USA-DEMO_JP.bin"
+	.incbin "data_080B7B74/gUIElementDefinitions_11_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
-	.4byte sub_0801CD94
+	.4byte TextUIElement
 .ifdef EU
     @ TODO only small differences
-	.incbin "data_080B7B74/gUnk_080C8F8C_12_EU.bin"
+	.incbin "data_080B7B74/gUIElementDefinitions_12_EU.bin"
 .else
-	.incbin "data_080B7B74/gUnk_080C8F8C_13_USA-JP-DEMO_USA-DEMO_JP.bin"
+	.incbin "data_080B7B74/gUIElementDefinitions_13_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
-	.4byte sub_0801CE58
+	.4byte HeartUIElement
 .ifdef EU
     @ TODO only small differences
-	.incbin "data_080B7B74/gUnk_080C8F8C_14_EU.bin"
+	.incbin "data_080B7B74/gUIElementDefinitions_14_EU.bin"
 .else
-	.incbin "data_080B7B74/gUnk_080C8F8C_15_USA-JP-DEMO_USA-DEMO_JP.bin"
+	.incbin "data_080B7B74/gUIElementDefinitions_15_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
-	.4byte EzloNag
+	.4byte EzloNagUIElement
 .ifdef EU
     @ TODO only small differences
-	.incbin "data_080B7B74/gUnk_080C8F8C_16_EU.bin"
+	.incbin "data_080B7B74/gUIElementDefinitions_16_EU.bin"
 .else
-	.incbin "data_080B7B74/gUnk_080C8F8C_17_USA-JP-DEMO_USA-DEMO_JP.bin"
+	.incbin "data_080B7B74/gUIElementDefinitions_17_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
-	.4byte EzloNag
+	.4byte EzloNagUIElement
 .ifdef EU
     @ TODO only small differences
-	.incbin "data_080B7B74/gUnk_080C8F8C_18_EU.bin"
+	.incbin "data_080B7B74/gUIElementDefinitions_18_EU.bin"
 .else
-	.incbin "data_080B7B74/gUnk_080C8F8C_19_USA-JP-DEMO_USA-DEMO_JP.bin"
+	.incbin "data_080B7B74/gUIElementDefinitions_19_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
-	.4byte sub_0801CD94
+	.4byte TextUIElement
 .ifdef EU
     @ TODO only small differences
-	.incbin "data_080B7B74/gUnk_080C8F8C_20_EU.bin"
+	.incbin "data_080B7B74/gUIElementDefinitions_20_EU.bin"
 .else
-	.incbin "data_080B7B74/gUnk_080C8F8C_21_USA-JP-DEMO_USA-DEMO_JP.bin"
+	.incbin "data_080B7B74/gUIElementDefinitions_21_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
-	.4byte sub_0801CD94
-	.incbin "data_080B7B74/gUnk_080C8F8C_22.bin"
+	.4byte TextUIElement
+	.incbin "data_080B7B74/gUIElementDefinitions_22.bin"
 
-gUnk_080C903C:: @ 080C903C
-	.4byte sub_0801CB90
-	.4byte sub_0801CBC8
+ButtonUIElement_Actions:: @ 080C903C
+	.4byte ButtonUIElement_Action0
+	.4byte ButtonUIElement_Action1
 
 gUnk_080C9044:: @ 080C9044
 	.incbin "data_080B7B74/gUnk_080C9044.bin"
 
-gUnk_080C904C:: @ 080C904C
-	.4byte sub_0801CED8
-	.4byte sub_0801CF18
-	.4byte sub_0801CF60
+EzloNagUIElement_Actions:: @ 080C904C
+	.4byte EzloNagUIElement_Action0
+	.4byte EzloNagUIElement_Action1
+	.4byte EzloNagUIElement_Action2
 
 gUnk_080C9058:: @ 080C9058
 	.incbin "data_080B7B74/gUnk_080C9058.bin"

@@ -84,8 +84,8 @@ void Subtask_FigurineMenu(void) {
         figurineMenu1_Types[gMenu.menuType]();
     }
     UpdateEntities();
-    sub_0801C1D4();
-    DrawOAMCmd();
+    UpdateUIElements();
+    DrawUIElements();
     DrawEntities();
     FigurineMenu_080A4978();
     CopyOAM();
@@ -598,7 +598,7 @@ void sub_080A4DB8(u32 param_1) {
     MemClear(&gBG0Buffer, 0x800);
     MemClear(&gBG1Buffer, 0x800);
     MemClear(&gBG2Buffer, 0x800);
-    MemClear(gUnk_0200AF00.filler25 + 0xf, 0x300);
+    MemClear(gUnk_0200AF00.elements, sizeof(gUnk_0200AF00.elements));
     MemClear(&gFigurineMenu, sizeof(gFigurineMenu));
     gFigurineMenu.unk2e = 0xffff;
     gMenu.field_0x3 = gUnk_02034490.unk2[param_1];

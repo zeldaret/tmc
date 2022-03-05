@@ -85,8 +85,8 @@ void Subtask_KinstoneMenu(void) {
     kinstoneMenuTypes[gMenu.menuType]();
     sub_080A3B74();
     KinstoneMenu_080A4054();
-    sub_0801C1D4();
-    DrawOAMCmd();
+    UpdateUIElements();
+    DrawUIElements();
     UpdateEntities();
     DrawEntities();
     CopyOAM();

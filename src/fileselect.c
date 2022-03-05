@@ -185,8 +185,8 @@ void FileSelectTask(void) {
     gMapDataBottomSpecial.isTransitioning = FALSE;
     UpdateEntities();
     sub_0805066C();
-    sub_0801C1D4();
-    DrawOAMCmd();
+    UpdateUIElements();
+    DrawUIElements();
     DrawEntities();
     CopyOAM();
     if (gMapDataBottomSpecial.unk3 != gSaveHeader->language) {
@@ -346,13 +346,13 @@ void sub_08050790(void) {
 }
 
 static void HideButtonR(void) {
-    gUnk_0200AF00.rButtonX = 0x140;
-    gUnk_0200AF00.rButtonY = 0x24;
+    gUnk_0200AF00.buttonX[2] = 0x140;
+    gUnk_0200AF00.buttonY[2] = 0x24;
 }
 
 static void ShowButtonR(void) {
-    gUnk_0200AF00.rButtonX = 0xD0;
-    gUnk_0200AF00.rButtonY = 0x24;
+    gUnk_0200AF00.buttonX[2] = 0xD0;
+    gUnk_0200AF00.buttonY[2] = 0x24;
 }
 
 static void HandleFileSelect(void) {

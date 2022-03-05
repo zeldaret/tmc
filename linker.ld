@@ -244,10 +244,10 @@ SECTIONS {
         . = 0x00005FBC; ram_sub_080B2248 = .;
         . = 0x00005FF0; ram_sub_080B227C = .;
         . = 0x000060F0; ram_CalcCollisionDirection = .;
-        . = 0x00006164; ram_sub_080B23F0 = .;
+        . = 0x00006164; ram_DrawEntities = .;
 #if defined(EU) || defined(DEMO_JP)
-        . = 0x000065AC; ram_sub_080B280C = .;
-        . = 0x000065C8; ram_sub_080B2828 = .;
+        . = 0x000065AC; ram_DrawDirect = .;
+        . = 0x000065C8; ram_sub_080ADA04 = .;
         . = 0x0000689C; ram_sub_080B2088 = .;
         . = 0x000068F0; ram_sub_080B20DC = .;
         . = 0x00006954; ram_sub_080B2140 = .;
@@ -257,8 +257,8 @@ SECTIONS {
         . = 0x00006B24; ram_0x80b2be8 = .; /* 0x80b2be8 */
         . = 0x00006C14; gUnk_03006C14 = .;
 #else
-        . = 0x00006580; ram_sub_080B280C = .;
-        . = 0x0000659C; ram_sub_080B2828 = .;
+        . = 0x00006580; ram_DrawDirect = .;
+        . = 0x0000659C; ram_sub_080ADA04 = .;
         . = 0x000067E4; ram_gUnk_080B2A70 = .;
         . = 0x000068CC; ram_0x80b2b58 = .; /* TODO 0x80b2b58 in unusedLabel_080B2AA8*/
         . = 0x0000694C; ram_0x80b2bd8 = .; /* 0x80b2bd8 */
@@ -314,7 +314,6 @@ SECTIONS {
         src/playerItem/playerItemC.o(.text);
         src/playerItem/playerItemBottle.o(.text);
         src/playerItem/playerItemCellOverwriteSet.o(.text);
-        asm/ui.o(.text);
         src/ui.o(.text);
         src/color.o(.text);
         src/common.o(.text);
