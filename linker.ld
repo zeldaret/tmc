@@ -430,7 +430,6 @@ SECTIONS {
         src/enemyUtils.o(.text);
         src/createEnemy.o(.text);
         src/enterPortalSubtask.o(.text);
-        asm/enterPortalSubtask.o(.text);
         src/room.o(.text);
         src/roomInit.o(.text);
         src/fade.o(.text);

@@ -7,18 +7,36 @@
 #include "object.h"
 #include "functions.h"
 #include "game.h"
+#include "fileselect.h"
 
 typedef struct {
     u8 filler[18];
-    u32 unk;
+    Entity* unk_14;
+    u8 unk_18;
+    u8 unk_19;
+    u8 unk_1a;
+    u8 unk_1b;
 } struct_02018EB0;
+
+extern void ClearArmosData(void);
+extern void sub_080300C4(void);
+
+extern struct_02018EB0 gUnk_02018EB0;
+extern u16 gUnk_020178E0[];
+extern u8 gUnk_02017700[];
 
 extern void (*const gUnk_080D4120[])(void);
 extern void (*const gUnk_080D412C[])(void);
+extern const u16 gUnk_080D4140[];
+extern const u8 gUnk_080D4138[];
+extern const EntityData* gUnk_080D4110[];
 
-extern struct_02018EB0 gUnk_02018EB0;
+bool32 sub_0804AD18(void);
+void sub_0804AD6C(RoomControls*);
+void sub_080A71F4(ScreenTransitionData*);
+bool32 sub_0804ACA8(void);
 
-u32 IsEnterPortal(void) {
+bool32 IsEnterPortal(void) {
     if (gArea.playShrinkSeq) {
         gMain.substate = GAMEMAIN_MINISHPORTAL;
         gArea.filler[8] = 0;
@@ -39,7 +57,7 @@ void GameMain_MinishPortal(void) {
 
 void sub_0804AAD4(void) {
     MemClear(&gUnk_02018EB0, 0x28);
-    gUnk_02018EB0.unk = 0;
+    gUnk_02018EB0.unk_14 = NULL;
     EraseAllEntities();
     CreateObject(OBJECT_3D, gArea.curPortalType, 0);
     gArea.filler[8]++;
@@ -66,4 +84,121 @@ void sub_0804AB24(void) {
 
 void Subtask_PortalCutscene(void) {
     gUnk_080D412C[gArea.filler[8]]();
+}
+void sub_0804AB70(void) {
+    const u8* ptr;
+    RoomControls* controls;
+    u32 portalId;
+
+    DispReset(0);
+    gScreen.lcd.displayControl = 0x1240;
+    gScreen.bg1.control = 0x9e83;
+    controls = &gRoomControls;
+    gScreen.bg1.xOffset = 0;
+    controls->scroll_x = 0;
+    gScreen.bg1.yOffset = 0;
+    controls->scroll_y = 0;
+    portalId = gArea.curPortalType;
+    if ((portalId == 2) && (gUI.unk_1c.area != 2)) {
+        portalId = 3;
+    }
+    ptr = &gUnk_080D4138[portalId * 2];
+    LoadPaletteGroup(ptr[0]);
+    LoadGfxGroup(ptr[1]);
+    MemCopy(&gUnk_02017700, gUnk_02017700 + 0x240, 0x20);
+    gUsedPalettes |= 0x200000;
+    EraseAllEntities();
+    LoadRoomEntityList((EntityData*)gUnk_080D4110[portalId]);
+    ResetSystemPriority();
+    gArea.filler3[0]++;
+    SetFade(4, 8);
+}
+
+void sub_0804AC1C(void) {
+    s32 tmp;
+
+    UpdateEntities();
+    if (gUnk_02018EB0.unk_14 != NULL) {
+        tmp = gRoomControls.scroll_y + 0x50 - gUnk_02018EB0.unk_14->y.HALF.HI - gUnk_02018EB0.unk_14->z.HALF.HI;
+        if (tmp != 0) {
+            tmp = gRoomControls.scroll_y = gRoomControls.scroll_y - tmp;
+            if (tmp * 0x10000 < 0) {
+                gRoomControls.scroll_y = 0;
+            }
+            if (0x9f < gRoomControls.scroll_y) {
+                gRoomControls.scroll_y = 0x9f;
+            }
+        }
+    }
+    gScreen.bg1.xOffset = gRoomControls.scroll_x;
+    gScreen.bg1.yOffset = gRoomControls.scroll_y;
+    FlushSprites();
+    DrawEntities();
+    CopyOAM();
+    if ((gUnk_02018EB0.unk_1b != 0) || sub_0804ACA8()) {
+        gArea.filler3[0]++;
+        SetFade(7, 0x10);
+    }
+}
+
+bool32 sub_0804ACA8(void) {
+    if ((gInput.newKeys & (R_BUTTON | B_BUTTON)) == 0) {
+        return 0;
+    } else {
+        return sub_0804AD18();
+    }
+}
+
+void sub_0804ACC8(void) {
+    if (gFadeControl.active == 0) {
+        SetGlobalFlag(gArea.curPortalType + ENTRANCE_0);
+        sub_0804AD6C((RoomControls*)&gUI.unk_1c);
+        sub_080A71F4(0);
+    }
+}
+
+void RespawnAsMinish(void) {
+    if (sub_0804AD18()) {
+        sub_0804AD6C(&gRoomControls);
+        SetInitializationPriority();
+        SoundReq(SFX_F8);
+    }
+}
+
+bool32 sub_0804AD18(void) {
+    switch (gArea.curPortalType) {
+        case 0:
+        case 1:
+        case 2:
+            if (!CheckGlobalFlag(ENTRANCE_0 + gArea.curPortalType)) {
+                return FALSE;
+            }
+            // else: return TRUE implicitely, because it's stored in r0. But does not match if returning explicitely.
+            break;
+        case 6:
+            return FALSE;
+        case 3:
+        case 4:
+        case 5:
+        default:
+            return FALSE;
+    }
+}
+
+void sub_0804AD6C(RoomControls* controls) {
+    Area* area;
+    gRoomTransition.transitioningOut = 1;
+    gRoomTransition.type = 0;
+    area = &gArea;
+    gRoomTransition.player_status.start_pos_x =
+        (area->curPortalX + gUnk_080D4140[area->curPortalExitDirection * 2]) - controls->origin_x;
+    gRoomTransition.player_status.start_pos_y =
+        (area->curPortalY + gUnk_080D4140[area->curPortalExitDirection * 2 + 1]) - controls->origin_y;
+    gRoomTransition.player_status.start_anim = area->curPortalExitDirection << 1;
+    gRoomTransition.player_status.spawn_type = 1;
+    gRoomTransition.player_status.area_next = controls->area;
+    gRoomTransition.player_status.room_next = controls->room;
+    gRoomTransition.player_status.layer = 0;
+    ClearArmosData();
+    sub_080300C4();
 }
