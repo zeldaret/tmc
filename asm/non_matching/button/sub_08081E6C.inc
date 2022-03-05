@@ -30,7 +30,7 @@ _08081E9A:
 	ldrh r0, [r1]
 	lsl r0, r0, #3
 	add r3, r3, r0
-	ldr r2, _08081EF8 @ =gUnk_02019EE0
+	ldr r2, _08081EF8 @ =gMapDataBottomSpecial
 	cmp r5, #2
 	bne _08081EB4
 	ldr r2, _08081EFC @ =gMapDataTopSpecial
@@ -64,5 +64,5 @@ _08081EE8:
 _08081EEC: .4byte 0x00003FFF
 _08081EF0: .4byte 0x00007004
 _08081EF4: .4byte 0x00006004
-_08081EF8: .4byte gUnk_02019EE0
+_08081EF8: .4byte gMapDataBottomSpecial
 _08081EFC: .4byte gMapDataTopSpecial

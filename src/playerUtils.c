@@ -32,10 +32,6 @@ typedef struct {
     u8 unk6[6];
 } struct_0811BE48;
 
-extern void gMapDataBottom; // 0x2000
-extern void gMapDataTop;    // 0x2000
-extern u16 gMetatilesBottom[];
-extern u16 gMetatilesTop[];
 extern u8 gMapData;
 extern const u8 gUnk_020176E0[];
 extern const ScreenTransitionData gUnk_0813AD88[];
@@ -72,6 +68,19 @@ extern const u8 gUnk_0811C118[];
 extern void (*const gUnk_0811C120[])(Entity*);
 extern u16 gUnk_0811C268[];
 extern ItemBehavior* (*const gUnk_0811BFC8[])(u32);
+
+extern void DeleteLoadedTileEntity(u32, u32);
+
+extern const u8 gUnk_080B3E80[]; // collisionData for tileType?
+extern const u8 gUnk_080B37A0[]; // unkData3 for tileType?
+
+extern u8 gUpdateVisibleTiles;
+extern u16 gMapDataTopSpecial[];
+extern u16 gMapDataBottomSpecial[];
+
+bool32 sub_0807BF88(u32, u32, RoomResInfo*);
+
+void sub_0807BFD0(void);
 
 void sub_08077698(PlayerEntity* this) {
     ItemBehavior* puVar2;
@@ -1587,7 +1596,46 @@ void sub_0807B2F8(PlayerEntity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/SetTileType.inc", void SetTileType(u32 a, u32 b, u32 c))
+void SetTileType(u32 tileType, u32 position, u32 layer) {
+    u8 collisionData;
+    u16 metatile;
+    LayerStruct* data;
+    u16* src;
+    u16* dest;
+
+    if (tileType < 0x800) {
+        DeleteLoadedTileEntity(position, layer);
+        data = GetLayerByIndex(layer);
+        metatile = data->unkData2[tileType];
+        data->mapData[position] = metatile;
+        collisionData = gUnk_080B3E80[tileType];
+        data->collisionData[position] = collisionData;
+        if ((gRoomControls.scroll_flags & 2) != 0) {
+            gMapBottom.collisionData[position] = collisionData;
+        }
+        data->unkData3[position] = gUnk_080B37A0[tileType];
+        if ((gRoomControls.scroll_flags & 1) == 0) {
+            u32 offset = (position & 0x3f) * 2 + (position & 0xfc0) * 4;
+            if (layer != 2) {
+                dest = gMapDataBottomSpecial + offset;
+            } else {
+                dest = gMapDataTopSpecial + offset;
+            }
+            src = data->metatiles + metatile * 4;
+            *dest = *src;
+            dest[1] = src[1];
+            dest[0x80] = src[2];
+            dest[0x81] = src[3];
+            if (gRoomControls.reload_flags != 1) {
+                gUpdateVisibleTiles = 1;
+            }
+        }
+    } else if (tileType >= 0x4000) { // The tile type actually directly is a tileIndex
+        SetTile(tileType, position, layer);
+    } else {
+        sub_0807BA8C(position, layer);
+    }
+}
 
 bool32 sub_0807B434(u32 position, u32 layer) {
     switch (GetTileType(position, layer)) {
@@ -1626,49 +1674,106 @@ void sub_0807B7D8(u32 param_1, u32 param_2, u32 param_3) {
     }
 }
 
-void sub_0807B820(u32 param_1) {
-    SetTileType(620, param_1 - 65, 1);
-    SetTileType(627, param_1 - 65, 2);
-    SetTileType(621, param_1 - 64, 1);
-    SetTileType(628, param_1 - 64, 2);
-    SetTileType(622, param_1 - 63, 1);
-    SetTileType(629, param_1 - 63, 2);
-    SetTileType(623, param_1 - 1, 1);
-    SetTileType(624, param_1, 1);
-    SetTileType(626, param_1 + 1, 1);
+void sub_0807B820(u32 position) {
+    SetTileType(0x26c, position + TILE_POS(-1, -1), 1);
+    SetTileType(0x273, position + TILE_POS(-1, -1), 2);
+    SetTileType(0x26d, position + TILE_POS(0, -1), 1);
+    SetTileType(0x274, position + TILE_POS(0, -1), 2);
+    SetTileType(0x26e, position + TILE_POS(1, -1), 1);
+    SetTileType(0x275, position + TILE_POS(1, -1), 2);
+    SetTileType(0x26f, position + TILE_POS(-1, 0), 1);
+    SetTileType(0x270, position, 1);
+    SetTileType(0x272, position + TILE_POS(1, 0), 1);
 }
 
-void sub_0807B8A8(u32 param_1) {
-    SetTileType(636, param_1 - 65, 1);
-    SetTileType(643, param_1 - 65, 2);
-    SetTileType(637, param_1 - 64, 1);
-    SetTileType(644, param_1 - 64, 2);
-    SetTileType(638, param_1 - 63, 1);
-    SetTileType(645, param_1 - 63, 2);
-    SetTileType(639, param_1 - 1, 1);
-    SetTileType(640, param_1, 1);
-    SetTileType(642, param_1 + 1, 1);
+void sub_0807B8A8(u32 position) {
+    SetTileType(0x27c, position + TILE_POS(-1, -1), 1);
+    SetTileType(0x283, position + TILE_POS(-1, -1), 2);
+    SetTileType(0x27d, position + TILE_POS(0, -1), 1);
+    SetTileType(0x284, position + TILE_POS(0, -1), 2);
+    SetTileType(0x27e, position + TILE_POS(1, -1), 1);
+    SetTileType(0x285, position + TILE_POS(1, -1), 2);
+    SetTileType(0x27f, position + TILE_POS(-1, 0), 1);
+    SetTileType(0x280, position, 1);
+    SetTileType(0x282, position + TILE_POS(1, 0), 1);
 }
 
-void sub_0807B930(int param_1) {
-    SetTileType(652, param_1 - 65, 1);
-    SetTileType(659, param_1 - 65, 2);
-    SetTileType(653, param_1 - 64, 1);
-    SetTileType(660, param_1 - 64, 2);
-    SetTileType(654, param_1 - 63, 1);
-    SetTileType(661, param_1 - 63, 2);
-    SetTileType(655, param_1 - 1, 1);
-    SetTileType(656, param_1, 1);
-    SetTileType(658, param_1 + 1, 1);
+void sub_0807B930(u32 position) {
+    SetTileType(0x28c, position + TILE_POS(-1, -1), 1);
+    SetTileType(0x293, position + TILE_POS(-1, -1), 2);
+    SetTileType(0x28d, position + TILE_POS(0, -1), 1);
+    SetTileType(0x294, position + TILE_POS(0, -1), 2);
+    SetTileType(0x28e, position + TILE_POS(1, -1), 1);
+    SetTileType(0x295, position + TILE_POS(1, -1), 2);
+    SetTileType(0x28f, position + TILE_POS(-1, 0), 1);
+    SetTileType(0x290, position, 1);
+    SetTileType(0x292, position + TILE_POS(1, 0), 1);
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807B9B8.inc", void sub_0807B9B8(s32 a, s32 b, s32 c))
+void sub_0807B9B8(u32 tileIndex, u32 position, u32 layer) {
+    LayerStruct* data;
+    u16* src;
+    u16* dest;
+    u16 tileType;
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807BA8C.inc", void sub_0807BA8C(u32 a, u32 b))
+    DeleteLoadedTileEntity(position, layer);
+    data = GetLayerByIndex(layer);
+    data->mapData[position] = tileIndex;
+    tileType = data->metatileTypes[tileIndex];
+    data->collisionData[position] = gUnk_080B3E80[tileType];
+    data->unkData3[position] = gUnk_080B37A0[tileType];
+    if ((gRoomControls.scroll_flags & 1) == 0) {
+        u32 offset = (position & 0x3f) * 2 + (position & 0xfc0) * 4;
+        if (layer != 2) {
+            dest = gMapDataBottomSpecial + offset;
+        } else {
+            dest = gMapDataTopSpecial + offset;
+        }
+        src = data->metatiles + tileIndex * 4;
+        *dest = *src;
+        dest[1] = src[1];
+        dest[0x80] = src[2];
+        dest[0x81] = src[3];
+        if (gRoomControls.reload_flags != 1) {
+            gUpdateVisibleTiles = 1;
+        }
+    }
+}
 
-void sub_0807BB68(s16* param_1, u32 param_2, u32 param_3) {
+void sub_0807BA8C(u32 position, u32 layer) {
+    u32 tileIndex;
+    u32 tileType;
+    LayerStruct* data;
+    u16* dest;
+    u16* src;
+
+    DeleteLoadedTileEntity(position, layer);
+    data = GetLayerByIndex(layer);
+    data->mapData[position] = tileIndex = data->mapDataClone[position];
+    tileType = data->metatileTypes[tileIndex];
+    data->collisionData[position] = gUnk_080B3E80[tileType];
+    data->unkData3[position] = gUnk_080B37A0[tileType];
+    if ((gRoomControls.scroll_flags & 1) == 0) {
+        u32 offset = (position & 0x3f) * 2 + (position & 0xfc0) * 4;
+        if (layer != 2) {
+            dest = gMapDataBottomSpecial + offset;
+        } else {
+            dest = gMapDataTopSpecial + offset;
+        }
+        src = &data->metatiles[tileIndex * 4];
+        dest[0] = src[0];
+        dest[1] = src[1];
+        dest[0x80] = src[2];
+        dest[0x81] = src[3];
+        if (gRoomControls.reload_flags != 1) {
+            gUpdateVisibleTiles = 1;
+        }
+    }
+}
+
+void sub_0807BB68(s16* param_1, u32 basePosition, u32 layer) {
     while (param_1[0] != -1) {
-        SetTileType((u16)param_1[0], param_2 + param_1[1], param_3);
+        SetTileType((u16)param_1[0], basePosition + param_1[1], layer);
         param_1 += 2;
     }
 }
@@ -1686,15 +1791,157 @@ void sub_0807BB98(s32 basePosition, u32 layer, u32 width, u32 height) {
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_0807BBE4.inc", void sub_0807BBE4())
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807BC84.inc", void sub_0807BC84())
+void sub_0807BC84(void) {
+    s32 height;
+    u32 width;
+    u8* puVar3;
+    u8* puVar4;
+    u8* puVar5;
+    u8* puVar6;
+    u32 index;
+
+    width = (u32)(gRoomControls.width >> 4);
+    if (width == 0x40) {
+        width = 0x3f;
+    }
+    puVar4 = gMapBottom.collisionData + width;
+    puVar6 = gMapBottom.collisionData + 0x3f;
+    puVar3 = gMapTop.collisionData + width;
+    puVar5 = gMapTop.collisionData + 0x3f;
+    index = 0;
+    while (index < 0x40) {
+        *puVar4 = 0xff;
+        *puVar6 = 0xff;
+        *puVar3 = 0xff;
+        *puVar5 = 0xff;
+        puVar4 += 0x40;
+        puVar6 += 0x40;
+        puVar3 += 0x40;
+        puVar5 += 0x40;
+        index++;
+    }
+    height = (gRoomControls.height & 0xfff0) * 4;
+    puVar4 = gMapBottom.collisionData + height;
+    puVar6 = gMapBottom.collisionData + 0xfc0;
+    puVar3 = gMapTop.collisionData + height;
+    puVar5 = gMapTop.collisionData + 0xfc0;
+    index = 0;
+    while (index < 0x40) {
+        *puVar4 = 0xff;
+        puVar4++;
+        *puVar6 = 0xff;
+        puVar6++;
+        *puVar3 = 0xff;
+        puVar3++;
+        *puVar5 = 0xff;
+        puVar5++;
+        index++;
+    }
+}
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_0807BD14.inc", bool32 sub_0807BD14(Entity* a, u32 b))
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807BDB8.inc", void sub_0807BDB8())
+u32 sub_0807BDB8(Entity* this, u32 param_2) {
+    u32 result = 0xff;
+    switch (param_2 & 7) {
+        case 0:
+            if (this->y.HALF.HI - (u32)gRoomControls.origin_y < 10) {
+                result = 0;
+            }
+            break;
+        case 1:
+            if (this->y.HALF.HI - (u32)gRoomControls.origin_y < 10) {
+                result = 0;
+            }
+            if (gRoomControls.width - 10 < this->x.HALF.HI - (u32)gRoomControls.origin_x) {
+                result = 1;
+            }
+            break;
+        case 2:
+            if (gRoomControls.width - 10 < this->x.HALF.HI - (u32)gRoomControls.origin_x) {
+                result = 1;
+            }
+            break;
+        case 3:
+            if (gRoomControls.height - 10 < this->y.HALF.HI - (u32)gRoomControls.origin_y) {
+                result = 2;
+            }
+            if (gRoomControls.width - 10 < this->x.HALF.HI - (u32)gRoomControls.origin_x) {
+                result = 1;
+            }
+            break;
+        case 4:
+            if (gRoomControls.height - 10 < this->y.HALF.HI - (u32)gRoomControls.origin_y) {
+                result = 2;
+            }
+            break;
+        case 5:
+            if (gRoomControls.height - 10 < this->y.HALF.HI - (u32)gRoomControls.origin_y) {
+                result = 2;
+            }
+            if (this->x.HALF.HI - (u32)gRoomControls.origin_x < 10) {
+                result = 3;
+            }
+            break;
+        case 6:
+            if (this->x.HALF.HI - (u32)gRoomControls.origin_x < 10) {
+                result = 3;
+            }
+            break;
+        case 7:
+            if (this->y.HALF.HI - (u32)gRoomControls.origin_y < 10) {
+                result = 0;
+            }
+            if (this->x.HALF.HI - (u32)gRoomControls.origin_x < 10) {
+                result = 3;
+            }
+    }
+    return result;
+}
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807BEEC.inc", void sub_0807BEEC())
+u32 sub_0807BEEC(u32 param_1, u32 param_2, u32 param_3) {
+    u32 index;
+    RoomResInfo* ptr;
+    if ((gArea.filler3[-1] & 1) != 0) {
+        return gRoomControls.room;
+    }
+    switch (param_3) {
+        case 0:
+            param_2 = gRoomControls.origin_y - 0x10;
+            break;
+        case 1:
+            param_1 = gRoomControls.origin_x + gRoomControls.width + 0x10;
+            break;
+        case 2:
+            param_2 = gRoomControls.origin_y + gRoomControls.height + 0x10;
+            break;
+        case 3:
+            param_1 = gRoomControls.origin_x - 0x10;
+            break;
+        default:
+            return 0xff;
+    }
+    ptr = gArea.roomResInfos;
+    index = 0;
+    while (index < 0x40) {
+        if (sub_0807BF88(param_1, param_2, ptr)) {
+            return index;
+        }
+        index++;
+        ptr++;
+    }
+    return 0xff;
+}
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807BF88.inc", void sub_0807BF88())
+bool32 sub_0807BF88(u32 param_1, u32 param_2, RoomResInfo* info) {
+    u32 width = param_1 - info->map_x;
+    u32 height = param_2 - info->map_y;
+    bool32 result = FALSE;
+    if (width < info->pixel_width && height < info->pixel_height) {
+        result = TRUE;
+    }
+    return result;
+}
 
 void sub_0807BFA8(void) {
     gRoomControls.origin_x = (gArea.pCurrentRoomInfo)->map_x;
@@ -1707,7 +1954,32 @@ ASM_FUNC("asm/non_matching/playerUtils/sub_0807BFD0.inc", void sub_0807BFD0())
 
 ASM_FUNC("asm/non_matching/playerUtils/LoadRoomGfx.inc", void LoadRoomGfx())
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807C460.inc", void sub_0807C460())
+void sub_0807C460(void) {
+    u32 x;
+    u32 y;
+    u16* mapBottom = gMapBottom.mapData;
+    u16* mapTop = gMapTop.mapData;
+    u32 width = gRoomControls.width >> 4;
+    u32 height = gRoomControls.height >> 4;
+    u32 position = 0;
+
+    for (y = 0; y < height; y++) {
+        for (x = 0; x < width; x++) {
+            if (*mapBottom > 0x3fff) {
+                SetTile(*mapBottom, position, 1);
+            }
+            if (*mapTop > 0x3fff) {
+                SetTile(*mapTop, position, 2);
+            }
+            mapBottom++;
+            mapTop++;
+            position++;
+        }
+        mapBottom += 0x40 - width;
+        mapTop += 0x40 - width;
+        position += 0x40 - width;
+    }
+}
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_0807C4F8.inc", void sub_0807C4F8())
 
@@ -1719,12 +1991,24 @@ ASM_FUNC("asm/non_matching/playerUtils/sub_0807C69C.inc", void sub_0807C69C())
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_0807C740.inc", void sub_0807C740())
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807C810.inc", void sub_0807C810())
+void sub_0807C810(void) {
+    struct_03004030* ptr;
+    Entity* player;
+    RoomControls* ctrls;
+    sub_0807BFD0();
+    ptr = &gUnk_03004030;
+    player = &gPlayerEntity;
+    ctrls = &gRoomControls;
+    player->x.HALF.HI = ((ptr->unk_00)->unk_06 & 0x3f) * 0x10 + ctrls->origin_x + ptr->unk_04;
+    player->y.HALF.HI = (((ptr->unk_00)->unk_06 & 0xfc0) >> 2) + ctrls->origin_y + ptr->unk_06;
+    sub_080809D4();
+    gUpdateVisibleTiles = 0;
+}
 
-void sub_0807C860(void) {
+void CloneMapData(void) {
     gRoomTransition.field_0x2c[1] = 1;
-    MemCopy(&gMapDataBottom, &gMapDataBottom + 0x3000, 0x2000);
-    MemCopy(&gMapDataTop, &gMapDataTop + 0x3000, 0x2000);
+    MemCopy(&gMapBottom.mapData, &gMapBottom.mapDataClone, 0x2000);
+    MemCopy(&gMapTop.mapData, &gMapTop.mapDataClone, 0x2000);
 }
 
 void sub_0807C898(void) {
@@ -1749,10 +2033,10 @@ void LoadCompressedMapData(void* dest, u32 offset) {
 }
 
 void sub_0807C998(u32* a1) {
-    LoadCompressedMapData(gMetatilesBottom, a1[0]);
-    LoadCompressedMapData(gMetatilesBottom - 0x1000, a1[1]);
-    LoadCompressedMapData(gMetatilesTop, a1[2]);
-    LoadCompressedMapData(gMetatilesTop - 0x1000, a1[3]);
+    LoadCompressedMapData(&gMapBottom.metatiles, a1[0]);
+    LoadCompressedMapData(&gMapBottom.metatileTypes, a1[1]);
+    LoadCompressedMapData(&gMapTop.metatiles, a1[2]);
+    LoadCompressedMapData(&gMapTop.metatileTypes, a1[3]);
 }
 
 void sub_0807C9D8(u32* a1) {

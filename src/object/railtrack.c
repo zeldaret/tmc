@@ -40,7 +40,7 @@ void sub_080851AC(Entity* this) {
         }
     }
     InitializeAnimation(this, this->animationState);
-    this->field_0x70.WORD = (u32)GetLayerByIndex(this->collisionLayer) + 4 + (COORD_TO_TILE(this) * 2);
+    this->field_0x70.WORD = (u32)&GetLayerByIndex(this->collisionLayer)->mapData[COORD_TO_TILE(this)];
     sub_08085394(this);
 }
 

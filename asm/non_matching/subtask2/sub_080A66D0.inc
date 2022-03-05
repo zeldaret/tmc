@@ -74,7 +74,7 @@ _080A5F30:
 	ands r0, r1
 	lsls r0, r0, #0x18
 	lsrs r6, r0, #0x18
-	ldr r4, _080A5F80 @ =gUnk_02019EE0
+	ldr r4, _080A5F80 @ =gMapDataBottomSpecial
 	ldrh r0, [r4, #2]
 	cmp r0, #0
 	beq _080A5FAE
@@ -92,7 +92,7 @@ _080A5F66:
 _080A5F74: .4byte gOamCmd
 _080A5F78: .4byte gMenu
 _080A5F7C: .4byte gUnk_08128E94
-_080A5F80: .4byte gUnk_02019EE0
+_080A5F80: .4byte gMapDataBottomSpecial
 _080A5F84:
 	cmp r6, #0
 	bne _080A5F8A
@@ -195,7 +195,7 @@ _080A6738:
 	ands r0, r1
 	lsls r0, r0, #0x18
 	lsrs r6, r0, #0x18
-	ldr r4, _080A678C @ =gUnk_02019EE0
+	ldr r4, _080A678C @ =gMapDataBottomSpecial
 	ldrh r0, [r4, #2]
 	cmp r0, #0
 	beq _080A67BA
@@ -214,7 +214,7 @@ _080A677C: .4byte gOamCmd
 _080A6780: .4byte gMenu
 _080A6784: .4byte gUnk_08128E94
 _080A6788: .4byte 0x000001FB
-_080A678C: .4byte gUnk_02019EE0
+_080A678C: .4byte gMapDataBottomSpecial
 _080A6790:
 	cmp r6, #0
 	bne _080A6796

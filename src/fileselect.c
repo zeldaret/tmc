@@ -15,6 +15,7 @@
 #include "functions.h"
 #include "subtask.h"
 #include "item.h"
+#include "game.h"
 
 // copy, erase, start
 #define NUM_FILE_OPERATIONS 3
@@ -30,7 +31,7 @@ typedef enum {
     STATE_START,
 } FileSelectState;
 
-// todo: does this belong with gUnk_02019EE0?
+// todo: does this belong with gMapDataBottomSpecial?
 typedef enum {
     SAVE_EMPTY = 0,
     SAVE_VALID = 1,
@@ -132,7 +133,7 @@ void sub_080503A8(u32 gfxGroup) {
 }
 
 void SetFileSelectState(FileSelectState mode) {
-    gUnk_02032EC0.state = mode;
+    gUI.state = mode;
     MemClear(&gBG0Buffer, sizeof(gBG0Buffer));
     MemClear(&gBG1Buffer, sizeof(gBG1Buffer));
 }
@@ -146,7 +147,7 @@ void LoadOptionsFromSave(u32 idx) {
         msg_speed = 1;
         brightness = 1;
     } else {
-        SaveFile* saveFile = &gUnk_02019EE0.saves[idx];
+        SaveFile* saveFile = &gMapDataBottomSpecial.saves[idx];
         msg_speed = saveFile->msg_speed;
         brightness = saveFile->brightness;
     }
@@ -159,7 +160,7 @@ void LoadOptionsFromSave(u32 idx) {
 void SetActiveSave(u32 idx) {
     if (idx < NUM_SAVE_SLOTS) {
         gSaveHeader->saveFileId = idx;
-        MemCopy(&gUnk_02019EE0.saves[idx], &gSave, sizeof(gUnk_02019EE0.saves[idx]));
+        MemCopy(&gMapDataBottomSpecial.saves[idx], &gSave, sizeof(gMapDataBottomSpecial.saves[idx]));
     }
     LoadOptionsFromSave(idx);
 }
@@ -167,8 +168,8 @@ void SetActiveSave(u32 idx) {
 void FileSelectTask(void) {
     FlushSprites();
     sTaskHandlers[gMain.state]();
-    if (gUnk_02032EC0.lastState != gUnk_02032EC0.state) {
-        gUnk_02032EC0.lastState = gUnk_02032EC0.state;
+    if (gUI.lastState != gUI.state) {
+        gUI.lastState = gUI.state;
         gScreen.bg0.xOffset = 0;
         gScreen.bg0.yOffset = 0;
         gScreen.bg1.xOffset = 0;
@@ -179,17 +180,17 @@ void FileSelectTask(void) {
     }
 
     HideButtonR();
-    sFileScreenSubHandlers[gUnk_02032EC0.lastState]();
+    sFileScreenSubHandlers[gUI.lastState]();
 
-    gUnk_02019EE0.isTransitioning = FALSE;
+    gMapDataBottomSpecial.isTransitioning = FALSE;
     UpdateEntities();
     sub_0805066C();
     sub_0801C1D4();
     DrawOAMCmd();
     DrawEntities();
     CopyOAM();
-    if (gUnk_02019EE0.unk3 != gSaveHeader->language) {
-        gUnk_02019EE0.unk3 = gSaveHeader->language;
+    if (gMapDataBottomSpecial.unk3 != gSaveHeader->language) {
+        gMapDataBottomSpecial.unk3 = gSaveHeader->language;
         sub_080503A8(0x6);
         sub_080503A8(0xF);
     }
@@ -207,11 +208,11 @@ static void HandleFileScreenEnter(void) {
     ResetPalettes();
     ResetPaletteTable(0);
     MemClear(&gUnk_0200AF00, sizeof(gUnk_0200AF00));
-    MemClear(&gUnk_02019EE0, sizeof(gUnk_02019EE0));
-    gUnk_02019EE0.unk3 = 7;
-    gUnk_02019EE0.unk6 = gSaveHeader->language > LANGUAGE_EN ? 3 : 0;
-    MemClear(&gUnk_02032EC0, sizeof(gUnk_02032EC0));
-    gUnk_02032EC0.lastState = 8;
+    MemClear(&gMapDataBottomSpecial, sizeof(gMapDataBottomSpecial));
+    gMapDataBottomSpecial.unk3 = 7;
+    gMapDataBottomSpecial.unk6 = gSaveHeader->language > LANGUAGE_EN ? 3 : 0;
+    MemClear(&gUI, sizeof(gUI));
+    gUI.lastState = 8;
     SetFileSelectState(STATE_NONE);
     InitDMA();
     sub_08050624(0);
@@ -231,7 +232,7 @@ static void HandleFileScreenEnter(void) {
     gScreen.controls.layerFXControl = BLDCNT_TGT1_BG2 | BLDCNT_TGT2_BG3 | BLDCNT_EFFECT_BLEND;
     gScreen.controls.alphaBlend = BLDALPHA_BLEND(15, 10);
     gGFXSlots.unk0 = 1;
-    gMain.state = 1;
+    gMain.state = GAMETASK_INIT;
     SoundReq(BGM_FILE_SELECT);
     SetFade(4, 8);
 }
@@ -246,7 +247,7 @@ static void HandleFileScreenExit(void) {
 }
 
 static void sub_08050624(u32 idx) {
-    SaveFile* saveFile = &gUnk_02019EE0.saves[idx];
+    SaveFile* saveFile = &gMapDataBottomSpecial.saves[idx];
     int status = ReadSaveFile(idx, saveFile);
     switch (status) {
         case SAVE_DELETED:
@@ -256,7 +257,7 @@ static void sub_08050624(u32 idx) {
             sub_0805194C(idx);
             break;
     }
-    gUnk_02019EE0.saveStatus[idx] = status;
+    gMapDataBottomSpecial.saveStatus[idx] = status;
 }
 
 static void sub_0805066C(void) {
@@ -264,20 +265,20 @@ static void sub_0805066C(void) {
     const u8* paletteOffset;
 
     loadNewPalette = FALSE;
-    if (--gUnk_02019EE0.unk1 == 0) {
-        gUnk_02019EE0.unk1 = 16;
-        gUnk_02019EE0.unk2 = (gUnk_02019EE0.unk2 + 1) % 15;
+    if (--gMapDataBottomSpecial.unk1 == 0) {
+        gMapDataBottomSpecial.unk1 = 16;
+        gMapDataBottomSpecial.unk2 = (gMapDataBottomSpecial.unk2 + 1) % 15;
         loadNewPalette = TRUE;
     }
 
-    if (gUnk_02019EE0.unk2 == 0) {
-        gUnk_02019EE0.unk2 = 1;
-        gUnk_02019EE0.unk1 = (Random() & 0x7) * 16 + 8;
+    if (gMapDataBottomSpecial.unk2 == 0) {
+        gMapDataBottomSpecial.unk2 = 1;
+        gMapDataBottomSpecial.unk1 = (Random() & 0x7) * 16 + 8;
         loadNewPalette = TRUE;
     }
 
     if (loadNewPalette) {
-        paletteOffset = &gGlobalGfxAndPalettes[gUnk_080FC8DE[gUnk_02019EE0.unk2]];
+        paletteOffset = &gGlobalGfxAndPalettes[gUnk_080FC8DE[gMapDataBottomSpecial.unk2]];
 #ifdef EU
         LoadPalettes(&paletteOffset[0x11A60], 11, 1);
         LoadPalettes(&paletteOffset[0x11B60], 12, 1);
@@ -308,7 +309,7 @@ void sub_0805070C(void) {
         for (i = 0; i < NUM_SAVE_SLOTS; i++) {
             var0->unk6 = 0;
             MemClear(var0->unk8, 0x200);
-            name = &gUnk_02019EE0.saves[i].name[0];
+            name = &gMapDataBottomSpecial.saves[i].name[0];
             for (j = 0; j < FILENAME_LENGTH; j++) {
                 sub_0805F7DC(name[j], var0);
             }
@@ -356,14 +357,14 @@ static void ShowButtonR(void) {
 
 static void HandleFileSelect(void) {
     sFileSelectDefaultHandlers[gChooseFileState.state]();
-    sub_08050A64(gUnk_02019EE0.unk6);
+    sub_08050A64(gMapDataBottomSpecial.unk6);
 }
 
 void sub_08050848(void) {
     sub_080503A8(0x7);
     sub_0805070C();
-    gUnk_02019EE0.unk7 = 0;
-    sub_08050AFC(gUnk_02019EE0.unk6);
+    gMapDataBottomSpecial.unk7 = 0;
+    sub_08050AFC(gMapDataBottomSpecial.unk6);
     SetMenuType(1);
 }
 
@@ -374,17 +375,17 @@ void sub_0805086C(void) {
 // transitioning away from submenu
 void sub_08050888(void) {
     if (!gFadeControl.active) {
-        switch (gUnk_02019EE0.saveStatus[gUnk_02019EE0.unk7]) {
+        switch (gMapDataBottomSpecial.saveStatus[gMapDataBottomSpecial.unk7]) {
             case SAVE_EMPTY:
-                sub_0805194C(gUnk_02019EE0.unk7);
+                sub_0805194C(gMapDataBottomSpecial.unk7);
                 gChooseFileState.subState = 2;
                 break;
             case SAVE_VALID:
                 gChooseFileState.subState = 2;
                 break;
             default:
-                sub_0805194C(gUnk_02019EE0.unk7);
-                CreateDialogBox(0, gUnk_02019EE0.unk7 + 1);
+                sub_0805194C(gMapDataBottomSpecial.unk7);
+                CreateDialogBox(0, gMapDataBottomSpecial.unk7 + 1);
                 gChooseFileState.timer = 30;
                 gChooseFileState.subState = 1;
                 break;
@@ -404,7 +405,7 @@ void sub_080508E4(void) {
 
 void sub_08050910(void) {
     sub_08050384();
-    if (++gUnk_02019EE0.unk7 > 2) {
+    if (++gMapDataBottomSpecial.unk7 > 2) {
         SetMenuType(2);
     } else {
         gChooseFileState.subState = 0;
@@ -417,18 +418,18 @@ void sub_08050940(void) {
     int num_rows;
     FileSelectState mode;
 
-    if (gUnk_02019EE0.isTransitioning) {
+    if (gMapDataBottomSpecial.isTransitioning) {
         return;
     }
 
-    row_idx = gUnk_02019EE0.unk6;
+    row_idx = gMapDataBottomSpecial.unk6;
     keys = gInput.newKeys;
-    if ((gInput.heldKeys & L_BUTTON) && gUnk_02019EE0.saveStatus[row_idx] == SAVE_VALID) {
+    if ((gInput.heldKeys & L_BUTTON) && gMapDataBottomSpecial.saveStatus[row_idx] == SAVE_VALID) {
         keys &= ~(DPAD_UP | DPAD_DOWN);
     }
 
     num_rows = gSaveHeader->language > 1 ? NUM_SAVE_SLOTS + 1 : NUM_SAVE_SLOTS;
-    mode = gUnk_02032EC0.lastState;
+    mode = gUI.lastState;
     switch (keys) {
         case DPAD_UP:
             if (row_idx > 0)
@@ -439,7 +440,7 @@ void sub_08050940(void) {
                 row_idx++;
             break;
         case R_BUTTON:
-            if (gUnk_02019EE0.saveStatus[row_idx] == SAVE_VALID)
+            if (gMapDataBottomSpecial.saveStatus[row_idx] == SAVE_VALID)
                 mode = STATE_OPTIONS;
             break;
         case A_BUTTON:
@@ -448,7 +449,7 @@ void sub_08050940(void) {
             if (row_idx == 3)
                 mode = STATE_CHOOSE_LANG;
             else
-                switch (gUnk_02019EE0.saveStatus[row_idx]) {
+                switch (gMapDataBottomSpecial.saveStatus[row_idx]) {
                     case SAVE_EMPTY:
                         mode = STATE_NEW;
                         break;
@@ -459,25 +460,25 @@ void sub_08050940(void) {
             break;
     }
 
-    if (gUnk_02032EC0.lastState != mode) {
+    if (gUI.lastState != mode) {
         SetFileSelectState(mode);
         SoundReq(SFX_TEXTBOX_SELECT);
     }
 
     row_idx = (row_idx + num_rows) % num_rows;
-    if (gUnk_02019EE0.unk6 != row_idx) {
-        gUnk_02019EE0.unk6 = row_idx;
+    if (gMapDataBottomSpecial.unk6 != row_idx) {
+        gMapDataBottomSpecial.unk6 = row_idx;
         sub_08050AFC(row_idx);
         SoundReq(SFX_TEXTBOX_CHOICE);
     }
 
-    if (gUnk_02019EE0.saveStatus[gUnk_02019EE0.unk6] == SAVE_VALID) {
+    if (gMapDataBottomSpecial.saveStatus[gMapDataBottomSpecial.unk6] == SAVE_VALID) {
         ShowButtonR();
     }
 }
 
 void sub_08050A64(u32 idx) {
-    if (gUnk_02019EE0.saveStatus[idx] != SAVE_VALID) {
+    if (gMapDataBottomSpecial.saveStatus[idx] != SAVE_VALID) {
         return;
     }
 
@@ -529,7 +530,7 @@ void sub_08050B3C(u16*);
 void sub_08050AFC(u32 idx) {
     SetActiveSave(idx);
     MemClear(&gBG1Buffer, sizeof(gBG1Buffer));
-    if (gUnk_02019EE0.saveStatus[idx] == SAVE_VALID) {
+    if (gMapDataBottomSpecial.saveStatus[idx] == SAVE_VALID) {
         sub_08050B3C(&gBG1Buffer[0x14E]);
     }
     gScreen.bg1.updated = 1;
@@ -614,13 +615,13 @@ END_NONMATCH
 
 void HandleFileView(void) {
     gUnk_080FC93C[gMenu.menuType]();
-    sub_08050A64(gUnk_02019EE0.unk6);
+    sub_08050A64(gMapDataBottomSpecial.unk6);
 }
 
 void sub_08050C54(void) {
     s32 column_idx;
 
-    if (gUnk_02019EE0.isTransitioning)
+    if (gMapDataBottomSpecial.isTransitioning)
         return;
 
     column_idx = gMenu.column_idx;
@@ -693,7 +694,7 @@ void sub_08050DB8(void) {
 void sub_08050DE4(void) {
     s32 row_idx;
 
-    if (gUnk_02019EE0.isTransitioning)
+    if (gMapDataBottomSpecial.isTransitioning)
         return;
 
     row_idx = gSaveHeader->language;
@@ -747,9 +748,9 @@ void HandleFileOptions(void) {
 void sub_08050EB8(void) {
     SaveFile* save;
     sub_080503A8(0xe);
-    save = &gUnk_02019EE0.saves[gUnk_02019EE0.unk6];
-    gUnk_02019EE0.unk4 = save->msg_speed;
-    gUnk_02019EE0.unk5 = save->brightness;
+    save = &gMapDataBottomSpecial.saves[gMapDataBottomSpecial.unk6];
+    gMapDataBottomSpecial.unk4 = save->msg_speed;
+    gMapDataBottomSpecial.unk5 = save->brightness;
     gMenu.column_idx = 0;
     gMenu.transitionTimer = 0xff;
     SetMenuType(1);
@@ -761,12 +762,12 @@ NONMATCH("asm/non_matching/fileScreen/sub_08050EF4.inc", void sub_08050EF4(void)
     char column_idx;
     int mode;
 
-    if (gUnk_02019EE0.isTransitioning)
+    if (gMapDataBottomSpecial.isTransitioning)
         return;
 
-    p_option = &gUnk_02019EE0.saves[gUnk_02019EE0.unk6].brightness;
+    p_option = &gMapDataBottomSpecial.saves[gMapDataBottomSpecial.unk6].brightness;
     if (gMenu.column_idx == 0) {
-        p_option = &gUnk_02019EE0.saves[gUnk_02019EE0.unk6].msg_speed;
+        p_option = &gMapDataBottomSpecial.saves[gMapDataBottomSpecial.unk6].msg_speed;
     }
 
     mode = 0;
@@ -792,7 +793,8 @@ NONMATCH("asm/non_matching/fileScreen/sub_08050EF4.inc", void sub_08050EF4(void)
         case A_BUTTON:
         case START_BUTTON:
             mode = 2;
-            if (*(u16*)&gUnk_02019EE0.unk4 != *(u16*)&gUnk_02019EE0.saves[gUnk_02019EE0.unk6].msg_speed)
+            if (*(u16*)&gMapDataBottomSpecial.unk4 !=
+                *(u16*)&gMapDataBottomSpecial.saves[gMapDataBottomSpecial.unk6].msg_speed)
                 mode = 3;
             break;
         case B_BUTTON:
@@ -802,11 +804,11 @@ NONMATCH("asm/non_matching/fileScreen/sub_08050EF4.inc", void sub_08050EF4(void)
 
     switch (mode) {
         case 3:
-            gUnk_02019EE0.saves[gUnk_02019EE0.unk6].msg_speed = gUnk_02019EE0.unk4;
-            gUnk_02019EE0.saves[gUnk_02019EE0.unk6].brightness = gUnk_02019EE0.unk5;
+            gMapDataBottomSpecial.saves[gMapDataBottomSpecial.unk6].msg_speed = gMapDataBottomSpecial.unk4;
+            gMapDataBottomSpecial.saves[gMapDataBottomSpecial.unk6].brightness = gMapDataBottomSpecial.unk5;
             SoundReq(SFX_MENU_CANCEL);
             SetMenuType(mode);
-            SetActiveSave(gUnk_02019EE0.unk6);
+            SetActiveSave(gMapDataBottomSpecial.unk6);
             break;
         case 2:
             CreateDialogBox(8, 0);
@@ -814,7 +816,7 @@ NONMATCH("asm/non_matching/fileScreen/sub_08050EF4.inc", void sub_08050EF4(void)
         default:
         case 1:
             SetMenuType(mode);
-            SetActiveSave(gUnk_02019EE0.unk6);
+            SetActiveSave(gMapDataBottomSpecial.unk6);
             break;
         case 0:
             if (gMenu.column_idx != column_idx) {
@@ -822,7 +824,7 @@ NONMATCH("asm/non_matching/fileScreen/sub_08050EF4.inc", void sub_08050EF4(void)
                 SoundReq(SFX_TEXTBOX_CHOICE);
             } else if (option != *p_option) {
                 *p_option = option;
-                LoadOptionsFromSave(gUnk_02019EE0.unk6);
+                LoadOptionsFromSave(gMapDataBottomSpecial.unk6);
                 SoundReq(SFX_TEXTBOX_CHOICE);
             }
             break;
@@ -834,7 +836,7 @@ void sub_08050FFC(void) {
     switch (HandleSave(0)) {
         case SAVE_ERROR:
             gMenu.transitionTimer = 0x1e;
-            sub_0805194C(gUnk_02019EE0.unk6);
+            sub_0805194C(gMapDataBottomSpecial.unk6);
             CreateDialogBox(9, 0);
         case SAVE_OK:
             SetMenuType(3);
@@ -897,13 +899,13 @@ void sub_080513A8(void) {
 void sub_080513C0(void) {
     switch (HandleSave(0)) {
         case 1:
-            gUnk_02019EE0.saveStatus[gUnk_02019EE0.unk6] = 1;
+            gMapDataBottomSpecial.saveStatus[gMapDataBottomSpecial.unk6] = 1;
             SetMenuType(3);
             break;
         case 0:
             break;
         case -1:
-            sub_0805194C(gUnk_02019EE0.unk6);
+            sub_0805194C(gMapDataBottomSpecial.unk6);
             CreateDialogBox(6, 0);
             gMenu.transitionTimer = 0x1e;
             gMenu.overlayType = 2;
@@ -1030,13 +1032,14 @@ u32 sub_080514BC(u32 a1) {
 
 void sub_08051574(u32 sfx) {
     SoundReq(sfx);
-    MemCopy(&gSave, &gUnk_02019EE0.saves[gUnk_02019EE0.unk6], sizeof(gUnk_02019EE0.saves[gUnk_02019EE0.unk6]));
+    MemCopy(&gSave, &gMapDataBottomSpecial.saves[gMapDataBottomSpecial.unk6],
+            sizeof(gMapDataBottomSpecial.saves[gMapDataBottomSpecial.unk6]));
     sub_0805070C();
 }
 
 void HandleFileDelete(void) {
     gUnk_080FC9BC[gMenu.menuType]();
-    sub_08050A64(gUnk_02019EE0.unk6);
+    sub_08050A64(gMapDataBottomSpecial.unk6);
 }
 
 void sub_080515c8(void) {
@@ -1046,7 +1049,7 @@ void sub_080515c8(void) {
 void sub_080515D4(void) {
     u32 column_idx;
 
-    if (gUnk_02019EE0.isTransitioning)
+    if (gMapDataBottomSpecial.isTransitioning)
         return;
 
     gMenu.transitionTimer = 4;
@@ -1082,8 +1085,8 @@ void sub_080515D4(void) {
 
 void sub_080516E0(void) {
     if (HandleSave(1)) {
-        sub_0805194C(gUnk_02019EE0.unk6);
-        sub_08050AFC(gUnk_02019EE0.unk6);
+        sub_0805194C(gMapDataBottomSpecial.unk6);
+        sub_08050AFC(gMapDataBottomSpecial.unk6);
         gMenu.transitionTimer = 2;
         SetFileSelectState(0);
     }
@@ -1091,7 +1094,7 @@ void sub_080516E0(void) {
 
 void HandleFileCopy(void) {
     gUnk_080FC9C8[gMenu.menuType]();
-    sub_08050A64(gUnk_02019EE0.unk6);
+    sub_08050A64(gMapDataBottomSpecial.unk6);
 }
 
 // regalloc
@@ -1100,11 +1103,11 @@ NONMATCH("asm/non_matching/fileScreen/sub_08051738.inc", void sub_08051738(void)
     u32 i;
     s32 uVar3;
 
-    gUnk_02019EE0.unk7 = 4;
+    gMapDataBottomSpecial.unk7 = 4;
     uVar3 = 0;
     for (i = 0; i < 3; i++) {
-        if (gUnk_02019EE0.saveStatus[i] == 1) {
-            temp = gUnk_02019EE0.unk6 ^ i;
+        if (gMapDataBottomSpecial.saveStatus[i] == 1) {
+            temp = gMapDataBottomSpecial.unk6 ^ i;
             uVar3 = !!temp & 4;
         } else {
             uVar3++;
@@ -1126,14 +1129,14 @@ NONMATCH("asm/non_matching/fileScreen/sub_08051738.inc", void sub_08051738(void)
 END_NONMATCH
 
 s32 sub_080517B4(s32 a1) {
-    u32 i = gUnk_02019EE0.unk7;
+    u32 i = gMapDataBottomSpecial.unk7;
     if (a1 != 0) {
         for (i = i + a1; i < 5; i += a1) {
             if (gGenericMenu.unk10.a[i] != 0 && gGenericMenu.unk10.a[i] != 4)
                 return i;
         }
 
-        i = gUnk_02019EE0.unk7;
+        i = gMapDataBottomSpecial.unk7;
     }
     return i;
 }
@@ -1142,7 +1145,7 @@ void sub_080517EC(void) {
     u32 temp;
     s32 delta;
 
-    if (gUnk_02019EE0.isTransitioning)
+    if (gMapDataBottomSpecial.isTransitioning)
         return;
 
     delta = 0;
@@ -1155,7 +1158,7 @@ void sub_080517EC(void) {
             break;
         case A_BUTTON:
         case START_BUTTON:
-            if (gUnk_02019EE0.unk7 < 3) {
+            if (gMapDataBottomSpecial.unk7 < 3) {
                 CreateDialogBox(2, 0);
                 SetMenuType(2);
                 SoundReq(SFX_TEXTBOX_SELECT);
@@ -1163,30 +1166,31 @@ void sub_080517EC(void) {
             }
             // fallthrough
         case B_BUTTON:
-            gUnk_02019EE0.unk7 = 4;
+            gMapDataBottomSpecial.unk7 = 4;
             SoundReq(SFX_MENU_CANCEL);
             SetFileSelectState(0);
             break;
     }
     temp = sub_080517B4(delta);
-    if (temp != gUnk_02019EE0.unk7) {
-        gUnk_02019EE0.unk7 = temp;
+    if (temp != gMapDataBottomSpecial.unk7) {
+        gMapDataBottomSpecial.unk7 = temp;
         SoundReq(SFX_TEXTBOX_CHOICE);
     }
 }
 
 void sub_08051874(void) {
     s32 temp;
-    gSaveHeader->saveFileId = gUnk_02019EE0.unk7;
+    gSaveHeader->saveFileId = gMapDataBottomSpecial.unk7;
     temp = HandleSave(0);
-    gUnk_02019EE0.saveStatus[gUnk_02019EE0.unk7] = temp;
+    gMapDataBottomSpecial.saveStatus[gMapDataBottomSpecial.unk7] = temp;
     switch (temp) {
         case 1:
-            MemCopy(&gSave, &gUnk_02019EE0.saves[gUnk_02019EE0.unk7], sizeof(gUnk_02019EE0.saves[gUnk_02019EE0.unk7]));
+            MemCopy(&gSave, &gMapDataBottomSpecial.saves[gMapDataBottomSpecial.unk7],
+                    sizeof(gMapDataBottomSpecial.saves[gMapDataBottomSpecial.unk7]));
             SetFileSelectState(0);
             break;
         case -1:
-            sub_0805194C(gUnk_02019EE0.unk7);
+            sub_0805194C(gMapDataBottomSpecial.unk7);
             CreateDialogBox(3, 0);
             gMenu.transitionTimer = 0x1e;
             SetMenuType(3);
@@ -1212,7 +1216,7 @@ void HandleFileStart(void) {
         gMenu.menuType = 1;
         gSaveHeader->msg_speed = gSave.msg_speed;
         gSaveHeader->brightness = gSave.brightness;
-        gMain.state = 2;
+        gMain.state = GAMETASK_MAIN;
         SetFade(5, 8);
     }
 }
@@ -1220,8 +1224,8 @@ void HandleFileStart(void) {
 void sub_0805194C(u32 save_idx) {
     SaveFile* save;
 
-    gUnk_02019EE0.saveStatus[save_idx] = 0;
-    save = &gUnk_02019EE0.saves[save_idx];
+    gMapDataBottomSpecial.saveStatus[save_idx] = 0;
+    save = &gMapDataBottomSpecial.saves[save_idx];
     MemClear(save, sizeof(*save));
     save->msg_speed = 1;
     save->brightness = 1;

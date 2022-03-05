@@ -2364,7 +2364,7 @@ u32 sub_unk3_DeepwoodShrine_InsideBarrel(void) {
 void sub_StateChange_DeepwoodShrine_InsideBarrel(void) {
     sub_08058D34();
     gArea.areaMetadata |= 0x40;
-    gMain.substate = 5;
+    gMain.substate = GAMEMAIN_BARRELUPDATE;
 }
 
 u32 sub_unk3_DeepwoodShrineEntry_Main(void) {

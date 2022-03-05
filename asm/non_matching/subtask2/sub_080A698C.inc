@@ -10,7 +10,7 @@
 	adds r2, #0x2d
 	ldrb r0, [r2]
 	lsls r0, r0, #3
-	ldr r3, _080A69DC @ =gUnk_02019EE0
+	ldr r3, _080A69DC @ =gMapDataBottomSpecial
 	adds r0, r0, r3
 	lsrs r1, r5, #8
 	strb r1, [r0]
@@ -38,5 +38,5 @@ _080A69D4:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _080A69D8: .4byte gMenu
-_080A69DC: .4byte gUnk_02019EE0
+_080A69DC: .4byte gMapDataBottomSpecial
 	.syntax divided

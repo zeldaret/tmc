@@ -91,7 +91,7 @@ bool32 sub_080AB9FC(Entity* this, u32 dir) {
     val = (((this->x.HALF.HI - gRoomControls.origin_x) >> 4) & 0x3f) |
           ((((this->y.HALF.HI - gRoomControls.origin_y) >> 4) & 0x3f) << 6);
     val += gUnk_080B4488[dir >> 3];
-    tmp = layer->_2004[val];
+    tmp = layer->collisionData[val];
     if (tmp <= 0x1f) {
         return 0;
     }

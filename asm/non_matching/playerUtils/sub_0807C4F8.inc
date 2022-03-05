@@ -4,7 +4,7 @@
 	ldrb r0, [r0, #4]
 	cmp r0, #0x71
 	beq _0807C592
-	ldr r0, _0807C598 @ =gUnk_02019EE0
+	ldr r0, _0807C598 @ =gMapDataBottomSpecial
 	movs r4, #0x80
 	lsls r4, r4, #8
 	adds r1, r4, #0
@@ -22,7 +22,7 @@
 _0807C524:
 	adds r4, #0xc
 	ldr r1, [r4, #4]
-	ldr r0, _0807C598 @ =gUnk_02019EE0
+	ldr r0, _0807C598 @ =gMapDataBottomSpecial
 	cmp r1, r0
 	beq _0807C534
 	ldr r0, _0807C59C @ =gMapDataTopSpecial
@@ -43,7 +43,7 @@ _0807C54A:
 	ldr r0, [r4]
 	cmp r0, #0
 	blt _0807C524
-	ldr r4, _0807C598 @ =gUnk_02019EE0
+	ldr r4, _0807C598 @ =gMapDataBottomSpecial
 	movs r0, #0x80
 	lsls r0, r0, #7
 	adds r5, r4, r0
@@ -74,7 +74,7 @@ _0807C592:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _0807C594: .4byte gRoomControls
-_0807C598: .4byte gUnk_02019EE0
+_0807C598: .4byte gMapDataBottomSpecial
 _0807C59C: .4byte gMapDataTopSpecial
 _0807C5A0: .4byte gUnk_02022830
 _0807C5A4: .4byte gArea

@@ -27,7 +27,6 @@ extern void sub_08033D78(SpinyBeetleEntity*);
 extern u32 sub_08033DF0(SpinyBeetleEntity*);
 extern void SpinyBeetle_SetHitType(SpinyBeetleEntity*);
 extern void EnemyFunctionHandlerAfterCollision(Entity*, EntityActionArray);
-extern void sub_0807B9B8(s32, s32, s32);
 extern u32 sub_0804A024(Entity*, u32, u32);
 
 void SpinyBeetle(Entity* this) {

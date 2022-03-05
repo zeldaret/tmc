@@ -135,7 +135,7 @@ void ClearTilemaps(void) {
     gRoomControls.filler3 = 0xffff;
     gUnk_03004030.unk_0a = 0xff;
     gUnk_02034480.unk_00 = 0;
-    MemClear(&gUnk_02019EE0, 0x8000);
+    MemClear(&gMapDataBottomSpecial, 0x8000);
     MemClear(&gMapDataTopSpecial, 0x8000);
 }
 

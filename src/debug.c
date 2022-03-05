@@ -33,12 +33,12 @@ void sub_0805FA04(void) {
     gScreen.bg3.control = BGCNT_SCREENBASE(30) | BGCNT_PRIORITY(3) | BGCNT_CHARBASE(3);
     gScreen.bg3.updated = 1;
     MessageInitialize();
-    MemClear((void*)&gUnk_02032EC0, sizeof(UI));
+    MemClear((void*)&gUI, sizeof(UI));
     MemClear((void*)&gGenericMenu, sizeof(GenericMenu));
     gGenericMenu.unk16 = gSaveHeader->language;
     LoadGfxGroups();
     SetColor(0, 0x1144);
-    gMain.state = 1;
+    gMain.state = GAMETASK_INIT;
     InitSoundPlayingInfo();
     ResetFadeMask();
 }

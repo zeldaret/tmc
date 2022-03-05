@@ -16,6 +16,7 @@
 #include "save.h"
 #include "area.h"
 #include "item.h"
+#include "game.h"
 
 typedef struct {
     u8 filler0[0x4];
@@ -123,8 +124,8 @@ static const u8 unk[] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 
 #endif
 
 static u32 AdvanceIntroSequence(u32 transition) {
-    gUnk_02032EC0.lastState = transition;
-    gMain.state = 2;
+    gUI.lastState = transition;
+    gMain.state = GAMETASK_MAIN;
     MemClear(&gIntroState, sizeof(gIntroState));
     SetFade(7, 8);
 }
@@ -134,18 +135,18 @@ void TitleTask(void) {
     switch (gMain.state) {
         case 0:
             MessageInitialize();
-            MemClear(&gUnk_02032EC0, sizeof(gUnk_02032EC0));
+            MemClear(&gUI, sizeof(gUI));
             AdvanceIntroSequence(0);
             break;
         case 1:
-            sIntroSequenceHandlers[gUnk_02032EC0.lastState]();
+            sIntroSequenceHandlers[gUI.lastState]();
             break;
         case 2:
             if (gFadeControl.active) {
                 return;
             }
             DispReset(1);
-            gMain.state = 1;
+            gMain.state = GAMETASK_INIT;
             break;
     }
     CopyOAM();

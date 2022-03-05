@@ -68,7 +68,7 @@ SECTIONS {
         . = 0x00018EA0; gUnk_02018EA0 = .;
         . = 0x00018EB0; gUnk_02018EB0 = .;
         . = 0x00018EE0; gUnk_02018EE0 = .;
-        . = 0x00019EE0; gUnk_02019EE0 = .;
+        . = 0x00019EE0; gMapDataBottomSpecial = .;
         . = 0x0001AEE0; gUnk_0201AEE0 = .;
         . = 0x00021EE0; gSoundPlayingInfo = .;
         . = 0x00021F00; gUnk_02021F00 = .;
@@ -104,7 +104,7 @@ SECTIONS {
         . = 0x0002CEB4; gMetatilesBottom = .;
         . = 0x00030EB4; gUnk_02030EB4 = .;
         . = 0x00031EC0; gUnk_02031EC0 = .;
-        . = 0x00032EC0; gUnk_02032EC0 = .;
+        . = 0x00032EC0; gUI = .;
         . = 0x00032EDC; gUnk_02032EDC = .;
         . = 0x00032F14; gUnk_02032F14 = .;
         . = 0x00033280; gActiveScriptInfo = .;

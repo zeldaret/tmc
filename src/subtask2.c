@@ -125,7 +125,7 @@ ASM_FUNC("asm/non_matching/subtask2/sub_080A5C9C.inc", void sub_080A5C9C())
 void sub_080A5CFC(u32 menuType, void* param_2, u32 param_3) {
     DrawDungeonFeatures(menuType, param_2, param_3);
     LoadDungeonMap();
-    DrawDungeonMap(menuType, &gUnk_02019EE0, 0x400);
+    DrawDungeonMap(menuType, &gMapDataBottomSpecial, 0x400);
 }
 
 ASM_FUNC("asm/non_matching/subtask2/sub_080A5D1C.inc", void sub_080A5D1C())
@@ -297,46 +297,46 @@ void SetMenuType(u32 menuType) {
 }
 
 void ResetUI(void) {
-    MemClear(&gUnk_02032EC0, 0x3b4);
+    MemClear(&gUI, 0x3b4);
 }
 
 void MenuFadeIn(u32 param_1, u32 param_2) {
-    if (gUnk_02032EC0.nextToLoad == 0) {
-        MemClear(&gUnk_02032EC0, 0x3b4);
-        gUnk_02032EC0.lastState = param_1;
-        gUnk_02032EC0.field_0x3 = param_2;
-        gUnk_02032EC0.pauseFadeIn = gMain.substate;
+    if (gUI.nextToLoad == 0) {
+        MemClear(&gUI, 0x3b4);
+        gUI.lastState = param_1;
+        gUI.field_0x3 = param_2;
+        gUI.pauseFadeIn = gMain.substate;
     } else {
-        gUnk_02032EC0.state = param_1;
-        gUnk_02032EC0.field_0x5 = param_2;
-        gUnk_02032EC0.nextToLoad = 1;
+        gUI.state = param_1;
+        gUI.field_0x5 = param_2;
+        gUI.nextToLoad = 1;
     }
-    gUnk_02032EC0.field_0x6 = 0;
-    gUnk_02032EC0.isLoading = 0xffff;
-    gUnk_02032EC0.fadeInTime = 0x20;
-    gMain.substate = 7;
+    gUI.field_0x6 = 0;
+    gUI.isLoading = 0xffff;
+    gUI.fadeInTime = 0x20;
+    gMain.substate = GAMEMAIN_SUBTASK;
     SetFade(5, 0x20);
     gUnk_02018EB0[0] = 0;
     gUnk_02018EB0[1] = 0;
 }
 
 void sub_080A71A4(u32 param_1, u32 param_2, u32 param_3) {
-    if (gUnk_02032EC0.nextToLoad == 0) {
-        gUnk_02032EC0.fillerC[2] = param_3;
+    if (gUI.nextToLoad == 0) {
+        gUI.fillerC[2] = param_3;
     } else {
-        gUnk_02032EC0.fillerC[3] = param_3;
+        gUI.fillerC[3] = param_3;
     }
     MenuFadeIn(param_1, param_2);
 }
 
 void sub_080A71C4(u32 param_1, u32 param_2, u32 param_3, u32 param_4) {
     MenuFadeIn(param_1, param_2);
-    gUnk_02032EC0.isLoading = param_3;
-    gUnk_02032EC0.fadeInTime = param_4;
+    gUI.isLoading = param_3;
+    gUI.fadeInTime = param_4;
 }
 
 void Subtask_Exit(void) {
-    gUnk_02032EC0.nextToLoad = 3;
+    gUI.nextToLoad = 3;
     SetFade(5, 0x20);
 }
 
@@ -347,19 +347,19 @@ void sub_080A71F4(ScreenTransitionData* exitTransition) {
     DeleteAllEntities();
     sub_0805E974();
     DeleteAllEntities();
-    gMain.state = 1;
-    gMain.substate = 0;
+    gMain.state = GAMETASK_INIT;
+    gMain.substate = GAMEMAIN_INITROOM;
 }
 
 void GameMain_Subtask(void) {
-    if (gUnk_02032EC0.nextToLoad < 3) {
-        if (gUnk_02032EC0.state != 0) {
-            gUnk_02032EC0.field_0x3 = gUnk_02032EC0.field_0x5;
-            gUnk_02032EC0.lastState = gUnk_02032EC0.state;
-            gUnk_02032EC0.state = 0;
+    if (gUI.nextToLoad < 3) {
+        if (gUI.state != 0) {
+            gUI.field_0x3 = gUI.field_0x5;
+            gUI.lastState = gUI.state;
+            gUI.state = 0;
         }
     }
-    gUnk_0812901C[gUnk_02032EC0.nextToLoad]();
+    gUnk_0812901C[gUI.nextToLoad]();
 }
 
 ASM_FUNC("asm/non_matching/subtask2/Subtask_FadeIn.inc", void Subtask_FadeIn())
@@ -377,7 +377,7 @@ void Subtask_Init(void) {
         ResetPalettes();
         ResetPaletteTable(0);
         gGFXSlots.unk0 = 1;
-        gUnk_02032EC0.nextToLoad = 2;
+        gUI.nextToLoad = 2;
         gRoomTransition.field_0x2c[4] = 1;
     }
 }
@@ -387,9 +387,9 @@ ASM_FUNC("asm/non_matching/subtask2/Subtask_FadeOut.inc", void Subtask_FadeOut()
 void Subtask_Die(void) {
     sub_080A74F4();
     if (gFadeControl.active == 0) {
-        gMain.substate = gUnk_02032EC0.pauseFadeIn;
-        gUnk_02032EC0.nextToLoad = gFadeControl.active;
-        gUnk_02032EC0.lastState = gFadeControl.active;
+        gMain.substate = gUI.pauseFadeIn;
+        gUI.nextToLoad = gFadeControl.active;
+        gUI.lastState = gFadeControl.active;
         ResetSystemPriority();
     }
 }
@@ -408,5 +408,5 @@ void sub_080A74F4(void) {
 }
 
 void Subtask_Update(void) {
-    gSubtasks[gUnk_02032EC0.lastState]();
+    gSubtasks[gUI.lastState]();
 }

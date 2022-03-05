@@ -175,7 +175,7 @@ _080A5658:
 	cmp r5, r1
 	blo _080A5658
 _080A5672:
-	ldr r5, _080A56B0 @ =gUnk_02019EE0
+	ldr r5, _080A56B0 @ =gMapDataBottomSpecial
 	ldrb r0, [r5]
 	cmp r0, #0
 	beq _080A570E
@@ -199,7 +199,7 @@ _080A56A0: .4byte gMenu
 _080A56A4: .4byte gMain
 _080A56A8: .4byte gSpriteAnimations_322
 _080A56ACEU: .4byte 0x00000143
-_080A56B0: .4byte gUnk_02019EE0
+_080A56B0: .4byte gMapDataBottomSpecial
 _080A56B4: .4byte gScreen
 _080A56B8:
 	cmp r0, #3
@@ -428,7 +428,7 @@ _080A5E64:
 	cmp r5, r1
 	blo _080A5E64
 _080A5E7C:
-	ldr r5, _080A5EB8 @ =gUnk_02019EE0
+	ldr r5, _080A5EB8 @ =gMapDataBottomSpecial
 	ldrb r0, [r5]
 	cmp r0, #0
 	beq _080A5F14
@@ -452,7 +452,7 @@ _080A5EA8: .4byte gMenu
 _080A5EAC: .4byte gMain
 _080A5EB0: .4byte 0x000001FB
 _080A5EB4: .4byte gSpriteAnimations_322
-_080A5EB8: .4byte gUnk_02019EE0
+_080A5EB8: .4byte gMapDataBottomSpecial
 _080A5EBC: .4byte gScreen
 _080A5EC0:
 	cmp r0, #3

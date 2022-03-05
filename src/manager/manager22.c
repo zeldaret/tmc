@@ -8,6 +8,7 @@
 #include "coord.h"
 #include "functions.h"
 #include "common.h"
+#include "game.h"
 
 typedef struct {
     Manager manager;
@@ -40,7 +41,7 @@ void Manager22_Main(Manager22* this) {
         sub_0801E120();
         sub_0801E154(this->manager.unk_0e);
     }
-    if (gMain.substate == 2) {
+    if (gMain.substate == GAMEMAIN_UPDATE) {
         gScreen.lcd.displayControl |= DISPCNT_BG3_ON;
         sub_0805BA78();
         sub_0805BAD4();

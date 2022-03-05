@@ -78,7 +78,7 @@ void Subtask_FigurineMenu(void) {
     };
 #if !(defined(DEMO_USA) || defined(DEMO_JP))
     FlushSprites();
-    if (gUnk_02032EC0.field_0x3 == 0xff) {
+    if (gUI.field_0x3 == 0xff) {
         figurineMenu0_Types[gMenu.menuType]();
     } else {
         figurineMenu1_Types[gMenu.menuType]();
@@ -113,7 +113,7 @@ void FigurineMenu_080A4608(void) {
     {
         int r0, r1, r2;
 
-        r1 = gUnk_02032EC0.field_0x3;
+        r1 = gUI.field_0x3;
         r0 = gSave.unk6;
         r2 = 0x88;
         if (r0 == 0) {

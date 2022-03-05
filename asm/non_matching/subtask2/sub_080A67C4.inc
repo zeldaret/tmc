@@ -31,7 +31,7 @@ _080A67F4:
 	movs r5, #0x71
 	b _080A6822
 _080A6802:
-	ldr r1, _080A68AC @ =gUnk_02032EC0
+	ldr r1, _080A68AC @ =gUI
 	adds r0, r1, #0
 	adds r0, #0x20
 	ldrb r0, [r0]
@@ -113,13 +113,13 @@ _080A6886:
 	ldrb r0, [r4, #2]
 	lsrs r0, r0, #1
 	strh r0, [r1, #0xa]
-	ldr r0, _080A68D0 @ =gUnk_02019EE0
+	ldr r0, _080A68D0 @ =gMapDataBottomSpecial
 	movs r1, #0x80
 	lsls r1, r1, #3
 	bl MemClear
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080A68AC: .4byte gUnk_02032EC0
+_080A68AC: .4byte gUI
 _080A68B0: .4byte gUnk_08128E94
 _080A68B4: .4byte gUnk_03003DE4
 _080A68B8: .4byte gUnk_02017AA0
@@ -128,5 +128,5 @@ _080A68C0: .4byte 0x00001E0B
 _080A68C4: .4byte 0x0400000E
 _080A68C8: .4byte 0xA2600001
 _080A68CC: .4byte gMenu
-_080A68D0: .4byte gUnk_02019EE0
+_080A68D0: .4byte gMapDataBottomSpecial
 	.syntax divided

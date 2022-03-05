@@ -20,7 +20,7 @@ _0801DDB8:
 	lsls r0, r4, #2
 	adds r0, r0, r1
 	ldr r4, [r0]
-	ldr r0, _0801DDE0 @ =gUnk_02019EE0
+	ldr r0, _0801DDE0 @ =gMapDataBottomSpecial
 	movs r1, #0x80
 	lsls r1, r1, #8
 	bl MemClear
@@ -28,7 +28,7 @@ _0801DDB8:
 	.align 2, 0
 _0801DDD8: .4byte gUnk_080C9C50
 _0801DDDC: .4byte gArea
-_0801DDE0: .4byte gUnk_02019EE0
+_0801DDE0: .4byte gMapDataBottomSpecial
 _0801DDE4:
 	ldrb r0, [r4]
 	ldrb r1, [r4, #1]
@@ -41,7 +41,7 @@ _0801DDE4:
 	movs r0, #0
 	str r0, [sp, #0xc]
 	ldrh r2, [r4]
-	ldr r0, _0801DE14 @ =gUnk_02032EC0
+	ldr r0, _0801DE14 @ =gUI
 	ldrh r3, [r0, #0x20]
 	ldr r1, _0801DE18 @ =0x0000FFFF
 	ands r1, r2
@@ -52,7 +52,7 @@ _0801DDE4:
 	movs r3, #8
 	b _0801DE36
 	.align 2, 0
-_0801DE14: .4byte gUnk_02032EC0
+_0801DE14: .4byte gUI
 _0801DE18: .4byte 0x0000FFFF
 _0801DE1C:
 	bl HasDungeonSmallKey
@@ -89,7 +89,7 @@ _0801DE46:
 	ldr r1, _0801DEFC @ =gMapData
 	adds r0, r0, r1
 	str r0, [r2]
-	ldr r0, _0801DF00 @ =gUnk_02019EE0
+	ldr r0, _0801DF00 @ =gMapDataBottomSpecial
 	str r0, [r2, #4]
 	ldr r0, _0801DF04 @ =0x84000100
 	str r0, [r2, #8]
@@ -127,7 +127,7 @@ _0801DEA0:
 	ldr r3, [sp, #8]
 	adds r1, r6, #0
 	muls r1, r3, r1
-	ldr r0, _0801DF00 @ =gUnk_02019EE0
+	ldr r0, _0801DF00 @ =gMapDataBottomSpecial
 	adds r1, r1, r0
 	mov r8, r1
 	movs r5, #0
@@ -172,7 +172,7 @@ _0801DEEA:
 	.align 2, 0
 _0801DEF8: .4byte 0x040000D4
 _0801DEFC: .4byte gMapData
-_0801DF00: .4byte gUnk_02019EE0
+_0801DF00: .4byte gMapDataBottomSpecial
 _0801DF04: .4byte 0x84000100
 _0801DF08: .4byte gAreaRoomHeaders
 _0801DF0C: .4byte 0x000007FF
