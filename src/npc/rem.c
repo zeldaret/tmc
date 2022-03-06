@@ -1,57 +1,66 @@
 #include "functions.h"
 #include "npc.h"
+#include "item.h"
 
 extern void sub_0806A8C8(Entity*);
 
-extern void (*gUnk_08112260[])(Entity*);
-extern void (*gUnk_08112278[])(Entity*);
-
 extern void script_Rem;
-
-extern u32 gUnk_0811229C;
 
 extern void sub_0807F950(Entity* this, ScriptExecutionContext* context);
 
-extern u8 gUnk_081122A0[];
-
 void sub_0806A9B0(Entity*, ScriptExecutionContext*);
-
 void sub_0806A914(Entity* this);
 
+void sub_0806a370(Entity* this);
+void sub_0806A5E8(Entity* this);
+void sub_0806A630(Entity* this);
+void sub_0806A674(Entity* this);
+void sub_0806A830(Entity* this);
+void sub_0806A890(Entity* this);
+
+void sub_0806A3D8(Entity* this);
+void sub_0806A410(Entity* this);
+void sub_0806A458(Entity* this);
+void sub_0806A4CC(Entity* this);
+void sub_0806A550(Entity* this);
+void nullsub_503(Entity* this);
+void sub_0806A5C0(Entity* this);
+
 void Rem(Entity* this) {
-    gUnk_08112260[this->type](this);
+    static void (*const typeFuncs[])(Entity*) = {
+        sub_0806a370, sub_0806A5E8, sub_0806A630, sub_0806A674, sub_0806A830, sub_0806A890,
+    };
+    typeFuncs[this->type](this);
 }
 
 void sub_0806a370(Entity* this) {
-    u8* pbVar1;
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_0806A3D8, sub_0806A410, sub_0806A458, sub_0806A4CC, sub_0806A550, nullsub_503, sub_0806A5C0,
+    };
 
-    gUnk_08112278[this->action](this);
+    actionFuncs[this->action](this);
     ExecuteScriptForEntity(this, NULL);
     HandleEntity0x82Actions(this);
     UpdateAnimationSingleFrame(this);
     sub_0806ED78(this);
     if (this->animIndex == 0xf) {
-        pbVar1 = &this->frame;
-        if (*pbVar1 == 1) {
-            *pbVar1 = 0;
+        if (this->frame == 1) {
+            this->frame = 0;
             SoundReq(SFX_218);
         }
-        if (*pbVar1 == 2) {
-            *pbVar1 = 0;
+        if (this->frame == 2) {
+            this->frame = 0;
             SoundReq(SFX_219);
         }
     }
 }
 
 void sub_0806A3D8(Entity* this) {
-    ScriptExecutionContext* uVar1;
-
     this->action = 1;
     this->actionDelay = 0xb4;
     SetDefaultPriority(this, PRIO_MESSAGE);
     sub_0806A8C8(this);
-    uVar1 = StartCutscene(this, &script_Rem);
-    *(ScriptExecutionContext**)&this->cutsceneBeh = uVar1;
+    *(ScriptExecutionContext**)&this->cutsceneBeh = StartCutscene(this, &script_Rem);
     sub_0807DD94(this, NULL);
 }
 
@@ -59,7 +68,7 @@ void sub_0806A410(Entity* this) {
     switch (this->subAction) {
         case 0:
             if (--this->actionDelay == 0) {
-                this->subAction = this->subAction + 1;
+                this->subAction++;
                 InitializeAnimation(this, 8);
             }
             break;
@@ -143,7 +152,7 @@ void sub_0806A550(Entity* this) {
     }
 }
 
-void nullsub_503(void) {
+void nullsub_503(Entity* this) {
 }
 
 void sub_0806A5C0(Entity* this) {
@@ -181,7 +190,88 @@ void sub_0806A630(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/rem/sub_0806A674.inc", void sub_0806A674(Entity* this))
+void sub_0806A674(Entity* this) {
+    static const u8 gUnk_08112294[] = { 0, -1, 0, 1, 0, -1, 0, 1 };
+    u32 rand;
+    u8 auStack16[8];
+
+    memcpy(auStack16, &gUnk_08112294, 8);
+    switch (this->action) {
+        case 0:
+            this->action = 1;
+            this->spritePriority.b0 = 6;
+            InitializeAnimation(this, 0x13);
+            break;
+        case 1:
+            if ((gActiveScriptInfo.syncFlags & 0x100) != 0) {
+                this->action = 2;
+                this->spriteOffsetY = 0;
+                this->spriteOffsetX = 0;
+            } else {
+                if (this->parent->animIndex == 9) {
+                    this->spritePriority.b0 = 3;
+
+                    if (this->actionDelay == 0) {
+                        rand = Random();
+                        this->actionDelay = rand & 7;
+                        this->field_0x68.HALF.LO = auStack16[rand >> 8 & 7];
+                    } else if ((gRoomTransition.frameCount & 3U) == 0) {
+                        this->actionDelay--;
+                        if ((s8)this->spriteOffsetX < 1) {
+                            this->field_0x68.HALF.LO = 1;
+                        }
+
+                        if (0xf < (s8)this->spriteOffsetX) {
+                            this->field_0x68.HALF.LO = -1;
+                        }
+                        this->spriteOffsetX += this->field_0x68.HALF.LO;
+                    }
+
+                    if (this->field_0xf == 0) {
+                        rand = Random();
+                        this->field_0xf = rand & 7;
+                        this->field_0x68.HALF.HI = auStack16[rand >> 8 & 7];
+                    } else if (((u32)gRoomTransition.frameCount >> 4 & 3) == 0) {
+                        this->field_0xf--;
+                        if (-1 < this->spriteOffsetY) {
+                            this->field_0x68.HALF.HI = -1;
+                        }
+
+                        if (this->spriteOffsetY <= -8) {
+                            this->field_0x68.HALF.HI = 1;
+                        }
+                        this->spriteOffsetY += this->field_0x68.HALF.HI;
+                    }
+                } else {
+                    this->spritePriority.b0 = 6;
+                    if ((s8)this->spriteOffsetX != 0) {
+                        if (0 < (s8)this->spriteOffsetX) {
+                            this->spriteOffsetX--;
+                        }
+
+                        if ((s8)this->spriteOffsetX < 0) {
+                            this->spriteOffsetX++;
+                        }
+                    }
+
+                    if (this->spriteOffsetY != 0) {
+                        if (0 < this->spriteOffsetY) {
+                            this->spriteOffsetY--;
+                        }
+
+                        if (this->spriteOffsetY < 0) {
+                            this->spriteOffsetY++;
+                        }
+                    }
+                }
+            }
+
+            break;
+        case 2:
+            GetNextFrame(this);
+            break;
+    }
+}
 
 void sub_0806A830(Entity* this) {
     Entity* npc;
@@ -239,6 +329,7 @@ void sub_0806A914(Entity* this) {
 }
 
 void sub_0806A93C(Entity* this) {
+    static const u8 gUnk_0811229C[] = { 0, 6, 10, 16 };
     sub_08078778(this);
     sub_08078850(this, 0, 0, &gUnk_0811229C);
 }
@@ -266,6 +357,7 @@ void sub_0806A96C(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_0806A9B0(Entity* this, ScriptExecutionContext* context) {
+    static const u8 gUnk_081122A0[] = { 60, 100, 200, 60, 100, 200, 80, 80 };
     this->action = 2;
     this->subAction = 0;
     this->actionDelay = gUnk_081122A0[Random() & 7];
@@ -290,7 +382,7 @@ void sub_0806AA18(Entity* this) {
     u32 index;
     if (this->field_0x6a.HWORD != 0) {
         index = 0x4408;
-    } else if ((gRoomTransition.frameCount & 1U) == 0) {
+    } else if ((gRoomTransition.frameCount & 1) == 0) {
         index = 0x4407;
     } else {
         index = 0x440d;
@@ -298,7 +390,68 @@ void sub_0806AA18(Entity* this) {
     MessageNoOverlap(index, this);
 }
 
-ASM_FUNC("asm/non_matching/rem/sub_0806AA50.inc", void sub_0806AA50(Entity* this, ScriptExecutionContext* context))
+void sub_0806AA50(Entity* this, ScriptExecutionContext* context) {
+    static const u16 gUnk_081122A8[] = { 0x441c, 0x441d, 0x441e, 0 };
+    static const u16 gUnk_081122B0[] = { 0x441f, 0x4420, 0x4421, 0 };
+    static const u16 gUnk_081122B8[] = { 0x4410, 0x4411, 0x4412, 0 };
+    s32 messageIndex;
+    Entity* pEnt;
+
+    switch (context->unk_18) {
+        case 0:
+            context->condition = 0;
+            if (CheckLocalFlag(0x8f) == 0) {
+                messageIndex = gUnk_081122A8[gRoomVars.animFlags];
+            } else if (GetInventoryValue(ITEM_PEGASUS_BOOTS) == 0) {
+                messageIndex = gUnk_081122B0[gRoomVars.animFlags];
+            } else {
+                messageIndex = gUnk_081122B8[gRoomVars.animFlags];
+            }
+
+            if (++gRoomVars.animFlags > 2) {
+                gRoomVars.animFlags = 0;
+            }
+            MessageNoOverlap(messageIndex, this);
+            switch (context->intVariable) {
+                case 0:
+                    gRoomVars.field_0xac[0] = this;
+                    PrependEntityToList(this, NPC);
+                    this->zVelocity = 0x18000;
+                    break;
+                case 1:
+                    pEnt = FindNextDuplicateID(gRoomVars.field_0xac[0], NPC);
+                    gRoomVars.field_0xac[1] = pEnt;
+                    pEnt->zVelocity = 0x18000;
+                    break;
+                case 2:
+                    pEnt = FindNextDuplicateID(gRoomVars.field_0xac[1], NPC);
+                    gRoomVars.field_0xac[2] = pEnt;
+                    pEnt->zVelocity = 0x18000;
+                    break;
+            }
+            if (messageIndex == 0x441e) {
+                SetLocalFlag(0x8f);
+                context->condition = 1;
+            }
+            context->unk_18 = 1;
+            break;
+        case 1:
+            pEnt = ((Entity*)gRoomVars.field_0xac[context->intVariable]);
+            if (pEnt->z.HALF.HI < 0) {
+                break;
+            }
+            pEnt->zVelocity = 0x18000;
+            context->unk_18 = 2;
+            break;
+        case 2:
+            if (this->z.HALF.HI >= 0) {
+                return;
+            }
+            break;
+    }
+
+    gActiveScriptInfo.commandSize = 0;
+}
 
 void sub_0806AB74(Entity* this) {
     gRoomVars.field_0x3 = 1;
@@ -308,7 +461,7 @@ void sub_0806AB74(Entity* this) {
 }
 
 void sub_0806AB9C(Entity* this, ScriptExecutionContext* context) {
-    Entity* entity = FindEntity(NPC, REM, 7, 1, 0);
+    Entity* entity = FindEntity(NPC, REM, NPC, 1, 0);
     if (entity != NULL) {
         DeleteEntity(entity);
     }
