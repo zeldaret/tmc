@@ -56,10 +56,45 @@ typedef struct {
 } struct_0200AF00;
 extern struct_0200AF00 gUnk_0200AF00;
 
+#define MAX_GFX_SLOTS 44
+
+typedef enum {
+    GFX_SLOT_FREE,
+    GFX_SLOT_UNLOADED, // some sort of free? no longer in use?
+    GFX_SLOT_STATUS2,  // some sort of free?
+    GFX_SLOT_FOLLOWER, // Set by SetGFXSlotStatus for the following slots
+    GFX_SLOT_RESERVED, // maybe ready to be loaded?
+    GFX_SLOT_GFX,
+    GFX_SLOT_PALETTE
+} GfxSlotStatus;
+
+typedef enum {
+    GFX_VRAM_0,
+    GFX_VRAM_1, // uploaded to vram?
+    GFX_VRAM_2,
+    GFX_VRAM_3, // not yet uploaded to vram?
+} GfxSlotVramStatus;
+
+typedef struct {
+    u8 status : 4;
+    u8 vramStatus : 4; // Whether the gfx was uploaded to the vram?
+    u8 slotCount;
+    u8 referenceCount; /**< How many entities use this gfx slot */
+    u8 unk_3;
+    u16 gfxIndex;
+    u16 paletteIndex;
+    const void* palettePointer;
+} GfxSlot;
 typedef struct {
     u8 unk0;
-} struct_02024490;
-extern struct_02024490 gGFXSlots;
+    u8 unk_1;
+    u8 unk_2;
+    u8 unk_3;
+    GfxSlot slots[MAX_GFX_SLOTS];
+} GfxSlotList;
+extern GfxSlotList gGFXSlots;
+
+static_assert(sizeof(GfxSlotList) == 0x214);
 
 typedef struct {
     u16 unk_00;

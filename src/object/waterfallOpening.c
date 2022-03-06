@@ -36,7 +36,7 @@ void WaterfallOpening(Entity* this) {
                         this->field_0xf = 0;
                         this->subAction = 1;
                         this->type = 1;
-                        sub_080AE068(this);
+                        UnloadGFXSlots(this);
                         LoadFixedGFX(this, 0x18c);
 #ifndef EU
                         SoundReq(SFX_EVAPORATE);
@@ -49,7 +49,7 @@ void WaterfallOpening(Entity* this) {
                         this->actionDelay = 1;
                         this->subAction = 2;
                         this->type = 2;
-                        sub_080AE068(this);
+                        UnloadGFXSlots(this);
                         LoadFixedGFX(this, 0x18d);
                     }
                     break;

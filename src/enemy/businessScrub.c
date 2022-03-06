@@ -419,7 +419,7 @@ void sub_08028FFC(Entity* this) {
     this->action = 1;
     COLLISION_OFF(this);
     this->spritePriority.b1 = 0;
-    sub_080AE068(this);
+    UnloadGFXSlots(this);
     UnloadOBJPalette(this);
     this->spriteVramOffset = 0xe8;
     this->palette.b.b0 = 2;
