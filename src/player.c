@@ -2006,7 +2006,7 @@ static void PlayerRoomTransition(Entity* this) {
 static void sub_080724DC(Entity* this) {
     this->knockbackDuration = 0;
     DeleteClones();
-    if (sub_080002B8(this) != 0x29) {
+    if (sub_080B1AA8(this) != 0x29) {
         if ((gPlayerState.field_0x82[7] == 0) && (gPlayerState.swim_state != 0)) {
             sub_0807AE20(this);
         }
@@ -2648,7 +2648,7 @@ static void sub_080731D8(Entity* this) {
 
 static void sub_080732D0(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (sub_080002B8(this) != 40) {
+    if (sub_080B1AA8(this) != 40) {
         this->direction = DirectionNorth;
         LinearMoveUpdate(this);
     } else {
@@ -2910,7 +2910,7 @@ static void sub_080737BC(Entity* this) {
         pos = this->y.HALF.HI;
     tmp = 0xf;
     tmp &= pos;
-    if (tmp == 8 && !sub_080002D0(this)) {
+    if (tmp == 8 && !sub_080B1B0C(this)) {
         gPlayerState.jump_status |= 0x40;
         sub_0807921C();
     }
@@ -4130,7 +4130,7 @@ void sub_0807529C(Entity* this) {
 void sub_080752AC(Entity* this, ScriptExecutionContext* ctx) {
     LinearMoveUpdate(this);
     if (!ctx->unk_18) {
-        if (sub_080002B8(this) != 41) {
+        if (sub_080B1AA8(this) != 41) {
             ctx->unk_18 = 1;
             ctx->unk_19 = 6;
         }

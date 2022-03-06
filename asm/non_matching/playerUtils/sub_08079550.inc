@@ -140,7 +140,7 @@ _0807965E:
 	mov r5, r8
 	adds r5, #0x38
 	ldrb r1, [r5]
-	bl sub_080002C8
+	bl sub_080B1AE0
 	adds r3, r0, #0
 	ldr r6, _080796F0 @ =gUnk_0811C1E8
 	mov r1, r8
@@ -156,7 +156,7 @@ _0807965E:
 	beq _080796FC
 	adds r0, r4, #0
 	ldrb r1, [r5]
-	bl sub_080002C8
+	bl sub_080B1AE0
 	adds r3, r0, #0
 	mov r5, r8
 	ldrb r0, [r5, #0x14]

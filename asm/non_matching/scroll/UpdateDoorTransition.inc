@@ -83,14 +83,14 @@ _08080AFA:
 	orrs r0, r1
 	adds r3, #0x38
 	ldrb r1, [r3]
-	bl sub_080002C8
+	bl sub_080B1AE0
 	adds r4, r0, #0
 	ldr r0, [r7, #0x30]
 	adds r0, #0x38
 	ldrb r2, [r0]
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl sub_080002A8
+	bl sub_080B1A48
 	ldr r1, _08080B48 @ =gRoomTransition
 	strh r0, [r1, #0xa]
 	cmp r4, #0x3f

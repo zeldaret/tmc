@@ -21,8 +21,8 @@ extern void UnloadHitbox(Entity*);
 extern void sub_0804AA1C(Entity*);
 
 void ClearDeletedEntity(Entity*);
-extern void _ClearAndUpdateEntities(void);
-extern void UpdateEntities_arm(u32);
+extern void ram_ClearAndUpdateEntities(void);
+extern void ram_UpdateEntities(u32);
 
 static void UpdatePriorityTimer(void);
 static void ReleaseTransitionManager(void*);
@@ -205,7 +205,7 @@ void UpdateEntities(void) {
     UpdatePriority();
     ClearHitboxList();
     sub_0806F0A4();
-    f = UpdateEntities_arm;
+    f = ram_UpdateEntities;
     f(0);
     ClearAllDeletedEntities();
     sub_0805EE88();
@@ -213,7 +213,7 @@ void UpdateEntities(void) {
 
 void UpdateManagers(void) {
     void (*f)(u32);
-    f = UpdateEntities_arm;
+    f = ram_UpdateEntities;
     f(1);
     ClearAllDeletedEntities();
 }
@@ -323,7 +323,7 @@ void* GetEmptyEntityByKind(u32 kind) {
 void DeleteThisEntity(void) {
     void (*f)(void);
     DeleteEntityAny(gUpdateContext.current_entity);
-    f = _ClearAndUpdateEntities;
+    f = ram_ClearAndUpdateEntities;
     f();
 }
 

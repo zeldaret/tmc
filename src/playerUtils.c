@@ -23,7 +23,7 @@ extern Entity* sub_0805E744();
 extern void sub_0809D738(Entity*);
 extern s32 Mod(s32, s32);
 extern void sub_08003FDE(Entity*, u32, u32, u32);
-extern u32 sub_080002EC(u32, u32);
+extern u32 sub_080B1B84(u32, u32);
 extern u32 sub_08007DD6(u32, const u16*);
 
 typedef struct {
@@ -1187,7 +1187,7 @@ bool32 sub_08079D48(void) {
         return TRUE;
     } else {
         if (!sub_08008B22()) {
-            if (!sub_08007DD6((u16)sub_080002B8(&gPlayerEntity), gUnk_0811C268)) {
+            if (!sub_08007DD6((u16)sub_080B1AA8(&gPlayerEntity), gUnk_0811C268)) {
                 return TRUE;
             }
         }
@@ -1349,20 +1349,20 @@ NONMATCH("asm/non_matching/playerUtils/sub_0807A8D8.inc", void sub_0807A8D8(Enti
     u32 tmp;
 
     if ((gPlayerState.flags & PL_MINISH) == 0) {
-        tmp = sub_080002EC(COORD_TO_TILE_OFFSET(this, 0, 1), gPlayerEntity.collisionLayer) & 0x20;
+        tmp = sub_080B1B84(COORD_TO_TILE_OFFSET(this, 0, 1), gPlayerEntity.collisionLayer) & 0x20;
         if (tmp != 0) {
             sub_0807AAF8(this, COORD_TO_TILE_OFFSET(this, 0, 1));
         }
-        tmp = sub_080002EC(COORD_TO_TILE_OFFSET(this, -2, 0), gPlayerEntity.collisionLayer) & 0x20;
+        tmp = sub_080B1B84(COORD_TO_TILE_OFFSET(this, -2, 0), gPlayerEntity.collisionLayer) & 0x20;
         if (tmp != 0) {
             sub_0807AAF8(this, COORD_TO_TILE_OFFSET(this, -2, 0));
         }
-        tmp = sub_080002EC(COORD_TO_TILE_OFFSET(this, 2, 0), gPlayerEntity.collisionLayer) & 0x20;
+        tmp = sub_080B1B84(COORD_TO_TILE_OFFSET(this, 2, 0), gPlayerEntity.collisionLayer) & 0x20;
         if (tmp != 0) {
             sub_0807AAF8(this, COORD_TO_TILE_OFFSET(this, 2, 0));
         }
     }
-    tmp = sub_080002EC(COORD_TO_TILE(this), gPlayerEntity.collisionLayer);
+    tmp = sub_080B1B84(COORD_TO_TILE(this), gPlayerEntity.collisionLayer);
     if ((tmp & 0x20) != 0) {
         sub_0807AAF8(this, COORD_TO_TILE(this));
     }
@@ -1643,12 +1643,12 @@ bool32 sub_0807B434(u32 position, u32 layer) {
         case 0x37:
             return FALSE;
         default:
-            return sub_080002C8(position, layer) != 0xd;
+            return sub_080B1AE0(position, layer) != 0xd;
     }
 }
 
 bool32 sub_0807B464(u32 param_1, u32 param_2) {
-    return sub_080002C8(param_1, param_2) == 0x56;
+    return sub_080B1AE0(param_1, param_2) == 0x56;
 }
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_0807B480.inc", void sub_0807B480())

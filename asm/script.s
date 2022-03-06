@@ -84,7 +84,7 @@ ResolveCollisionLayer: @ 0x08016A30
 	movs r3, #1
 	cmp r0, #0
 	beq _08016A62
-	bl sub_080002E4
+	bl sub_080B1B54
 	movs r3, #2
 	add r1, pc, #0x40
 _08016A54:
@@ -106,7 +106,7 @@ _08016A64:
 sub_08016A6C: @ 0x08016A6C
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_080002B8
+	bl sub_080B1AA8
 	add r1, pc, #0x38
 _08016A76:
 	adds r1, #4

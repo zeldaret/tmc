@@ -280,7 +280,7 @@ _08084A40: .4byte gPlayerClones
 _08084A44: .4byte gPlayerEntity
 _08084A48:
 	adds r0, r4, #0
-	bl sub_080002B8
+	bl sub_080B1AA8
 	adds r0, r4, #0
 	bl sub_08084B1C
 	adds r0, r4, #0
@@ -625,7 +625,7 @@ sub_08084CAC: @ 0x08084CAC
 	adds r1, #0x38
 	ldrb r1, [r1]
 	bl GetTileType
-	bl sub_080002E4
+	bl sub_080B1B54
 	cmp r0, #0x72
 	bne _08084D24
 	ldr r2, [r6]

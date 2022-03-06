@@ -36,7 +36,7 @@
 	adds r4, #0x38
 	ldrb r1, [r4]
 	adds r0, r6, #0
-	bl sub_080002E0
+	bl sub_080B1B44
 	cmp r0, #0x16
 	bhi _080774F6
 	cmp r0, #0xe
@@ -51,7 +51,7 @@ _08077504: .4byte gRoomControls
 _08077508:
 	adds r0, r6, #0
 	ldrb r1, [r4]
-	bl sub_080002C8
+	bl sub_080B1AE0
 	cmp r0, #0x56
 	bne _08077518
 	movs r0, #0x56

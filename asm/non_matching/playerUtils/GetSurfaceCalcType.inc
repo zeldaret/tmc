@@ -73,7 +73,7 @@ _0807A26A:
 	adds r0, r5, #0
 	adds r1, r6, #0
 	mov r2, r8
-	bl sub_080002B4
+	bl sub_080B1A8C
 	adds r2, r0, #0
 	ldr r1, _0807A294 @ =gUnk_08007CAC
 	bl sub_08007DD6

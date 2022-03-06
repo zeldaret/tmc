@@ -336,7 +336,7 @@ void sub_080244E8(Entity* this) {
     switch (this->field_0x80.HALF.LO) {
         case 0:
             if (--this->actionDelay == 0) {
-                if (sub_080002E0(COORD_TO_TILE(this), 1) == 0) {
+                if (sub_080B1B44(COORD_TO_TILE(this), 1) == 0) {
                     this->field_0x80.HALF.LO += 1;
                     this->field_0x82.HALF.LO += 1;
                     this->field_0xf = 0;

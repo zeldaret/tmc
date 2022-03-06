@@ -6,7 +6,7 @@
 	lsls r0, r5, #0x10
 	lsrs r0, r0, #0x10
 	movs r1, #1
-	bl sub_080002C8
+	bl sub_080B1AE0
 	cmp r0, #0x56
 	beq _0807B61A
 	movs r0, #0
@@ -84,7 +84,7 @@ _0807B69C:
 	bl SetTileType
 	adds r0, r6, #0
 	movs r1, #1
-	bl sub_080002E0
+	bl sub_080B1B44
 	cmp r0, #3
 	bne _0807B6CA
 	movs r0, #0xbd
@@ -96,7 +96,7 @@ _0807B6CA:
 	adds r0, r5, #0
 	adds r0, #0x40
 	movs r1, #1
-	bl sub_080002E0
+	bl sub_080B1B44
 	cmp r0, #3
 	bne _0807B6F8
 	movs r0, #0xbd

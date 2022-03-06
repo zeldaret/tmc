@@ -327,7 +327,7 @@ void sub_08094E30(Object6AEntity* this) {
                 super->zVelocity = 0;
                 SetDefaultPriority(super, PRIO_PLAYER_EVENT);
                 InitializeAnimation(super, 0);
-                if (sub_080002B8(super) == 13) {
+                if (sub_080B1AA8(super) == 13) {
                     super->action = 3;
                 }
                 break;

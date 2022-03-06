@@ -5,7 +5,7 @@
 	adds r7, r2, #0
 	adds r0, r7, #0
 	movs r1, #1
-	bl sub_080002E0
+	bl sub_080B1B44
 	adds r4, r0, #0
 	adds r0, r7, #0
 	movs r1, #1

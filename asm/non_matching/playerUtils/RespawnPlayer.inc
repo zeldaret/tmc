@@ -79,7 +79,7 @@ _080794F4:
 	ldr r1, [r4]
 	ldrh r0, [r4]
 	lsrs r1, r1, #0x1e
-	bl sub_080002E0
+	bl sub_080B1B44
 	cmp r0, #0xf
 	bne _080794A0
 	adds r4, #4

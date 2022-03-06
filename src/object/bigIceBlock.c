@@ -145,27 +145,27 @@ void sub_08099910(BigIceBlockEntity* this) {
             SetTile(0x4022, position, super->collisionLayer);
             break;
         case 1:
-            iVar1 = sub_080002C8(position - 0x41, super->collisionLayer);
+            iVar1 = sub_080B1AE0(position - 0x41, super->collisionLayer);
             uVar3 = 0x4024;
             if (iVar1 == 0x12) {
                 uVar3 = 0x4079;
             }
             SetTile(uVar3, position - 0x41, super->collisionLayer);
             SetTile(0x4022, position - 0x40, super->collisionLayer);
-            iVar1 = sub_080002C8(position - 0x3f, super->collisionLayer);
+            iVar1 = sub_080B1AE0(position - 0x3f, super->collisionLayer);
             uVar3 = 0x4025;
             if (iVar1 == 0x12) {
                 uVar3 = 0x407b;
             }
             SetTile(uVar3, position - 0x3f, super->collisionLayer);
-            iVar1 = sub_080002C8(position - 1, super->collisionLayer);
+            iVar1 = sub_080B1AE0(position - 1, super->collisionLayer);
             uVar3 = 0x4024;
             if (iVar1 == 0x12) {
                 uVar3 = 0x4079;
             }
             SetTile(uVar3, position - 1, super->collisionLayer);
             SetTile(0x4022, position, super->collisionLayer);
-            iVar1 = sub_080002C8(position + 1, super->collisionLayer);
+            iVar1 = sub_080B1AE0(position + 1, super->collisionLayer);
             uVar3 = 0x4025;
             if (iVar1 == 0x12) {
                 uVar3 = 0x407b;
@@ -174,13 +174,13 @@ void sub_08099910(BigIceBlockEntity* this) {
             return;
             break;
         case 2:
-            iVar1 = sub_080002C8(position - 0x41, super->collisionLayer);
+            iVar1 = sub_080B1AE0(position - 0x41, super->collisionLayer);
             uVar3 = 0x4023;
             if (iVar1 == 0x12) {
                 uVar3 = 0x4077;
             }
             SetTile(uVar3, position - 0x41, super->collisionLayer);
-            iVar1 = sub_080002C8(position - 0x40, super->collisionLayer);
+            iVar1 = sub_080B1AE0(position - 0x40, super->collisionLayer);
             uVar3 = 0x4023;
             if (iVar1 == 0x12) {
                 uVar3 = 0x4077;
@@ -188,13 +188,13 @@ void sub_08099910(BigIceBlockEntity* this) {
             SetTile(uVar3, position - 0x40, super->collisionLayer);
             SetTile(0x4022, position - 1, super->collisionLayer);
             SetTile(0x4022, position, super->collisionLayer);
-            iVar1 = sub_080002C8(position + 0x3f, super->collisionLayer);
+            iVar1 = sub_080B1AE0(position + 0x3f, super->collisionLayer);
             uVar3 = 0x4026;
             if (iVar1 == 0x12) {
                 uVar3 = 0x407c;
             }
             SetTile(uVar3, position + 0x3f, super->collisionLayer);
-            iVar1 = sub_080002C8(position + 0x40, super->collisionLayer);
+            iVar1 = sub_080B1AE0(position + 0x40, super->collisionLayer);
             uVar3 = 0x4026;
             if (iVar1 == 0x12) {
                 uVar3 = 0x407c;
@@ -202,50 +202,50 @@ void sub_08099910(BigIceBlockEntity* this) {
             SetTile(uVar3, position + 0x40, super->collisionLayer);
             break;
         case 3:
-            iVar1 = sub_080002C8(position - 0x41, super->collisionLayer);
+            iVar1 = sub_080B1AE0(position - 0x41, super->collisionLayer);
             uVar3 = 0x4027;
             if (iVar1 == 0x12) {
                 uVar3 = 0x4075;
             }
             SetTile(uVar3, position - 0x41, super->collisionLayer);
-            iVar1 = sub_080002C8(position - 0x40, super->collisionLayer);
+            iVar1 = sub_080B1AE0(position - 0x40, super->collisionLayer);
             uVar3 = 0x4023;
             if (iVar1 == 0x12) {
                 uVar3 = 0x4077;
             }
             SetTile(uVar3, position - 0x40, super->collisionLayer);
-            iVar1 = sub_080002C8(position - 0x3f, super->collisionLayer);
+            iVar1 = sub_080B1AE0(position - 0x3f, super->collisionLayer);
             uVar3 = 0x4028;
             if (iVar1 == 0x12) {
                 uVar3 = 0x4076;
             }
             SetTile(uVar3, position - 0x3f, super->collisionLayer);
-            iVar1 = sub_080002C8(position - 1, super->collisionLayer);
+            iVar1 = sub_080B1AE0(position - 1, super->collisionLayer);
             uVar3 = 0x4024;
             if (iVar1 == 0x12) {
                 uVar3 = 0x4079;
             }
             SetTile(uVar3, position - 1, super->collisionLayer);
             SetTile(0x4022, position, super->collisionLayer);
-            iVar1 = sub_080002C8(position + 1, super->collisionLayer);
+            iVar1 = sub_080B1AE0(position + 1, super->collisionLayer);
             uVar3 = 0x4025;
             if (iVar1 == 0x12) {
                 uVar3 = 0x407b;
             }
             SetTile(uVar3, position + 1, super->collisionLayer);
-            iVar1 = sub_080002C8(position + 0x3f, super->collisionLayer);
+            iVar1 = sub_080B1AE0(position + 0x3f, super->collisionLayer);
             uVar3 = 0x4029;
             if (iVar1 == 0x12) {
                 uVar3 = 0x4078;
             }
             SetTile(uVar3, position + 0x3f, super->collisionLayer);
-            iVar1 = sub_080002C8(position + 0x40, super->collisionLayer);
+            iVar1 = sub_080B1AE0(position + 0x40, super->collisionLayer);
             uVar3 = 0x4026;
             if (iVar1 == 0x12) {
                 uVar3 = 0x407c;
             }
             SetTile(uVar3, position + 0x40, super->collisionLayer);
-            iVar1 = sub_080002C8(position + 0x41, super->collisionLayer);
+            iVar1 = sub_080B1AE0(position + 0x41, super->collisionLayer);
             uVar3 = 0x402a;
             if (iVar1 == 0x12) {
                 uVar3 = 0x407a;

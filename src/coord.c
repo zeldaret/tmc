@@ -223,7 +223,7 @@ u32 sub_0806F824(Entity* a, Entity* b, s32 x, s32 y) {
 u32 sub_0806F854(Entity* ent, s32 x, s32 y) {
     if (ent->z.WORD == 0 || (ent->collisionLayer & 2))
         return 0;
-    if (!sub_080002F0(TILE(ent->x.HALF.HI + x, ent->y.HALF.HI + y), 2, 8)) {
+    if (!sub_080B1BA4(TILE(ent->x.HALF.HI + x, ent->y.HALF.HI + y), 2, 8)) {
         ent->spriteRendering.b3 = 1;
         ent->spriteOrientation.flipY = 1;
         return 0;

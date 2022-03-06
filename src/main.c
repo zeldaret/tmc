@@ -84,7 +84,7 @@ void AgbMain(void) {
 
 // Interrupt handlers that are loaded into RAM.
 extern u8 sub_080B197C[];
-extern u8 gUnk_030056F0[];
+extern u8 ram_sub_080B197C[];
 extern u8 gUnk_02038560[];
 extern u8 gUnk_080B2CD8[];
 extern u8 gUnk_080B2CD8_2[];
@@ -102,7 +102,7 @@ static void InitOverlays(void) {
     MemClear(gUnk_02000030, size);
     size = (u32)gUnk_080B2CD8 - (u32)sub_080B197C;
     if (size != 0) {
-        MemCopy(sub_080B197C, gUnk_030056F0, size);
+        MemCopy(sub_080B197C, ram_sub_080B197C, size);
     }
 
     size = (u32)gUnk_080B2CD8_2 - (u32)gUnk_080B2CD8_3;

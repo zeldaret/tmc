@@ -51,7 +51,7 @@ _08079EDE:
 	adds r0, r7, #0
 	mov r1, r8
 	adds r2, r6, #0
-	bl sub_080002CC
+	bl sub_080B1AF0
 	adds r1, r0, #0
 	mov r0, sb
 	bl sub_08079F48
@@ -77,7 +77,7 @@ _08079F18:
 	asrs r1, r1, #0x10
 	lsls r2, r4, #0x10
 	asrs r2, r2, #0x10
-	bl sub_080002CC
+	bl sub_080B1AF0
 	adds r1, r0, #0
 	mov r0, sb
 	bl sub_08079F48

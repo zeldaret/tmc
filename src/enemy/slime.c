@@ -129,7 +129,7 @@ void sub_08045178(Entity* this, Entity* child, int h, int v) {
         return;
 
     sub_0804A4E4(this, child);
-    if (sub_080002CC(child, h, v))
+    if (sub_080B1AF0(child, h, v))
         return;
 
     x = child->x.HALF.HI + h;

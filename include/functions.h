@@ -73,14 +73,14 @@ extern void UpdatePlayerMovement(void);
 
 // Unidentified
 extern void sub_08000148(u32, u32, u32);
-extern u32 sub_0800029C(Entity*, s32, s32);
-extern u32 sub_080002A8(u32, u32, u32);
-extern u32 sub_080002B4(Entity*, u32, u32);
-extern u32 sub_080002B8(Entity*);
-extern u32 sub_080002C8(u16, u8);
-extern u32 sub_080002CC(Entity*, s32, s32);
-extern u32 sub_080002D4(s32, s32, u32);
-extern u32 sub_080002E0(u32, u32);
+extern u32 sub_080B1A0C(Entity*, s32, s32);
+extern u32 sub_080B1A48(u32, u32, u32);
+extern u32 sub_080B1A8C(Entity*, u32, u32);
+extern u32 sub_080B1AA8(Entity*);
+extern u32 sub_080B1AE0(u16, u8);
+extern u32 sub_080B1AF0(Entity*, s32, s32);
+extern u32 sub_080B1B18(s32, s32, u32);
+extern u32 sub_080B1B44(u32, u32);
 extern s32 sub_080012DC(Entity*);
 extern void sub_08001318(Entity*);
 extern u32 sub_0800132C(Entity*, Entity*);

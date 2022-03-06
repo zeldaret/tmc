@@ -8,8 +8,8 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern u32 sub_080002D4(s32, s32, u32);
-extern u32 sub_080002BC(s32, s32, u32);
+extern u32 sub_080B1B18(s32, s32, u32);
+extern u32 sub_080B1AB4(s32, s32, u32);
 
 extern Entity* gUnk_020000B0;
 
@@ -124,10 +124,10 @@ u32 sub_0801FDE4(Entity* ent, s32 x, s32 y) {
     u32 uVar3;
     const u16* puVar4;
 
-    if (sub_080002D4(x, y, gUnk_020000B0->collisionLayer) != 0) {
+    if (sub_080B1B18(x, y, gUnk_020000B0->collisionLayer) != 0) {
         return 0;
     } else {
-        uVar3 = sub_080002BC(x, y, gUnk_020000B0->collisionLayer);
+        uVar3 = sub_080B1AB4(x, y, gUnk_020000B0->collisionLayer);
         for (puVar4 = gUnk_080CA4CA; *puVar4 != (u16)-1;) {
             if (*puVar4++ == uVar3) {
                 ent->x.HALF.HI = (x & 0xfff0) + 8;

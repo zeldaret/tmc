@@ -137,7 +137,7 @@ void sub_0802F300(Entity* this) {
         return;
     } else if (this->collisions != 0) {
         sub_0800417E(this, this->collisions);
-    } else if ((sub_080002B8(this) & 0xf0) == 0x50) {
+    } else if ((sub_080B1AA8(this) & 0xf0) == 0x50) {
         this->direction = (this->direction + 0x10) & 0x1f;
     }
 

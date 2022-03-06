@@ -6,7 +6,7 @@
 	lsrs r0, r0, #0x10
 	lsls r1, r6, #0x18
 	lsrs r1, r1, #0x18
-	bl sub_080002C8
+	bl sub_080B1AE0
 	cmp r0, #0xd
 	bne _0807B7D0
 	adds r0, r5, #0

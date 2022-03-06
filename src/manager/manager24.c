@@ -10,7 +10,7 @@ extern void (*const gUnk_08108CDC[])(Manager24*);
 u32 sub_0805BFC4(u32, u32);
 void sub_0805C02C(Manager24*);
 
-extern u32 sub_080002C8(u16, u8);
+extern u32 sub_080B1AE0(u16, u8);
 
 extern void (*const gUnk_08108CE8[])(u32, u32);
 
@@ -33,7 +33,7 @@ void sub_0805BF30(Manager24* manager) {
 }
 
 void sub_0805BF78(Manager24* this) {
-    if (sub_080002C8(this->tile, this->field_0x35) != 0x2e) {
+    if (sub_080B1AE0(this->tile, this->field_0x35) != 0x2e) {
         this->manager.action = 2;
         this->manager.unk_0e = 0x5a;
         sub_0805C02C(this);

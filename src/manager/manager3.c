@@ -27,7 +27,7 @@ typedef struct {
 
 extern s8 gUnk_08107C6C[];
 extern u32 sub_08057810(void);
-extern u32 sub_080002C0(u16, u16, u8);
+extern u32 sub_080B1AC8(u16, u16, u8);
 
 void Manager3_Main(Manager3* this) {
     s8 tmp;
@@ -53,7 +53,7 @@ void Manager3_Main(Manager3* this) {
                     gArea.field_0x18 = 3;
                 }
             }
-            if (sub_080002C0(this->unk_38, this->unk_3a, this->manager.unk_0e) == 0x3d) {
+            if (sub_080B1AC8(this->unk_38, this->unk_3a, this->manager.unk_0e) == 0x3d) {
                 CreateMagicSparkles(this->unk_38 + gRoomControls.origin_x, this->unk_3a + gRoomControls.origin_y,
                                     this->manager.unk_0e);
                 if (!this->manager.unk_0f) {

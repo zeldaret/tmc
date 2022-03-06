@@ -213,7 +213,7 @@ bool32 sub_080895C0(PushableStatueEntity* this) {
     LinearMoveUpdate(super);
     if ((--this->unk_86 == 0) && (sub_0800442E(super) == 0)) {
         super->spriteOffsetY = 0;
-        if (!sub_080002D0(super)) {
+        if (!sub_080B1B0C(super)) {
             sub_08089454(this);
             return TRUE;
         }

@@ -153,7 +153,7 @@ _080877A0:
 sub_080877A4: @ 0x080877A4
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080002D0
+	bl sub_080B1B0C
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	adds r1, r0, #0

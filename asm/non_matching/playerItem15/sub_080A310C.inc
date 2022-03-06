@@ -56,7 +56,7 @@ _080A315C:
 	adds r1, #0x38
 	ldrb r1, [r1]
 	movs r2, #0x80
-	bl sub_080002F0
+	bl sub_080B1BA4
 	cmp r0, #0
 	bne _080A31AE
 	ldr r1, _080A31F8 @ =gUnk_08003E44

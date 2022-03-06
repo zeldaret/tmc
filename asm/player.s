@@ -743,7 +743,7 @@ sub_08008B02: @ 0x08008B02
 	push {r0, r1, lr}
 	movs r1, #0
 	movs r2, #0
-	bl sub_080002B4
+	bl sub_080B1A8C
 	ldr r1, _08008B50 @ =0x00004000
 	tst r0, r1
 	bne _08008B1E

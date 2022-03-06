@@ -40,7 +40,7 @@ _08079410:
 	adds r1, #0x38
 	ldrb r1, [r1]
 	adds r2, r5, #0
-	bl sub_080002F0
+	bl sub_080B1BA4
 	cmp r0, #0
 	beq _08079454
 _08079442:

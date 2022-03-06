@@ -114,7 +114,7 @@ void PullableLever_HandleSubAction0(PullableLeverEntity* this) {
         if (-player->animationState + super->type2 * 2 == 0) {
             x = gUnk_081222B8[super->type2 * 2] + super->x.HALF_U.HI;
             y = gUnk_081222B8[super->type2 * 2 + 1] + super->y.HALF_U.HI;
-            if (0x10 < sub_080002D4(x, y, player->collisionLayer) - 0xf) {
+            if (0x10 < sub_080B1B18(x, y, player->collisionLayer) - 0xf) {
                 player->x.HALF.HI = x;
                 player->y.HALF.HI = y;
             }

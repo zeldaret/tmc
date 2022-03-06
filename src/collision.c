@@ -29,7 +29,7 @@ typedef struct {
 
 extern ColSettings gCollisionMtx[173 * 34];
 
-extern void gDoCollision(void);
+extern void ram_CollideAll(void);
 u32 sub_08081420(Entity*);
 extern void SoundReqClipped(Entity*, u32);
 s32 sub_08018308(Entity*, Entity*, u32, ColSettings*);
@@ -64,7 +64,7 @@ void CollisionMain(void) {
     if (prio)
         return;
 
-    doCollision = &gDoCollision;
+    doCollision = &ram_CollideAll;
     // Check to see if we should disable collision this frame
     if (gPlayerState.controlMode != CONTROL_ENABLED) {
         u32 flags = gPlayerEntity.flags;

@@ -54,53 +54,59 @@ _080B19C4: .4byte 0x80000020
 _080B19C8: .4byte 0x040000D4
 
 @ r0 = entity*
-	arm_func_start _GetTileAtEntityPos
-_GetTileAtEntityPos: @ 0x080B19CC
+	arm_func_start arm_GetTileAtEntityPos
+arm_GetTileAtEntityPos: @ 0x080B19CC
 	ldrb r2, [r0, #0x38] @ obj layer
 	ldrh r1, [r0, #0x32] @ obj y
 	ldrh r0, [r0, #0x2e] @ obj x
 	ldr ip, _080B1C10 @ =gRoomControls
+arm_sub_080B19D8:
 	ldrh r3, [ip, #6]
 	sub r0, r0, r3 @ obj x - room x
 	ldrh r3, [ip, #8]
 	sub r1, r1, r3 @ obj y - room y
+arm_sub_080B19EC:
 	lsl r0, r0, #0x16
 	lsr r0, r0, #0x1a
 	lsl r1, r1, #0x16
 	lsr r1, r1, #0x1a
+arm_sub_080B19FC:
 	add r0, r0, r1, lsl #6
 	mov r1, r2
+arm_sub_080B1A04:
 	ldr r2, _080B1C14 @ =gUnk_08000258
 	b _080B1A64
 
-	arm_func_start sub_080B1A0C
-sub_080B1A0C: @ 0x080B1A0C
+	arm_func_start arm_sub_080B1A0C
+arm_sub_080B1A0C: @ 0x080B1A0C
 	ldrh r3, [r0, #0x2e]
 	add r3, r3, r1
 	ldrh r1, [r0, #0x32]
 	add r1, r1, r2
 	ldrb r2, [r0, #0x38]
 	mov r0, r3
-	b _080B1A34
-_080B1A28:
+	b arm_GetTileTypeByPos
+arm_GetTileTypeByEntity:
 	ldrb r2, [r0, #0x38]
 	ldrh r1, [r0, #0x32]
 	ldrh r0, [r0, #0x2e]
-_080B1A34:
+arm_GetTileTypeByPos:
 	ldr ip, _080B1C18 @ =gRoomControls
 	ldrh r3, [ip, #6]
 	sub r0, r0, r3
 	ldrh r3, [ip, #8]
 	sub r1, r1, r3
+arm_sub_080B1A48:
 	lsl r0, r0, #0x16
 	lsr r0, r0, #0x1a
 	lsl r1, r1, #0x16
 	lsr r1, r1, #0x1a
+arm_sub_080B1A58:
 	add r0, r0, r1, lsl #6
 	mov r1, r2
 
-	arm_func_start _GetTileType
-_GetTileType: @ 0x080B1A60
+	arm_func_start arm_GetTileType
+arm_GetTileType: @ 0x080B1A60
 	ldr r2, _080B1C1C @ =gUnk_08000228
 _080B1A64:
 	add r2, r2, r1, lsl #3
@@ -114,76 +120,82 @@ _080B1A64:
 	ldrh r0, [r1, r0]
 	bx lr
 
-	arm_func_start sub_080B1A8C
-sub_080B1A8C: @ 0x080B1A8C
+	arm_func_start arm_sub_080B1A8C
+arm_sub_080B1A8C: @ 0x080B1A8C
 	ldrh r3, [r0, #0x2e]
 	add r3, r3, r1
 	ldrh r1, [r0, #0x32]
 	add r1, r1, r2
 	ldrb r2, [r0, #0x38]
 	mov r0, r3
-	b _080B1AB4
-_080B1AA8:
+	b arm_sub_080B1AB4
+arm_sub_080B1AA8:
 	ldrb r2, [r0, #0x38]
 	ldrh r1, [r0, #0x32]
 	ldrh r0, [r0, #0x2e]
-_080B1AB4:
+arm_sub_080B1AB4:
 	ldr ip, _080B1C20 @ =gRoomControls
 	ldrh r3, [ip, #6]
 	sub r0, r0, r3
 	ldrh r3, [ip, #8]
 	sub r1, r1, r3
+arm_sub_080B1AC8:
 	lsl r0, r0, #0x16
 	lsr r0, r0, #0x1a
 	lsl r1, r1, #0x16
 	lsr r1, r1, #0x1a
+arm_sub_080B1AD8:
 	add r0, r0, r1, lsl #6
 	mov r1, r2
+arm_sub_080B1AE0:
 	ldr r2, _080B1C24 @ =gUnk_08000278
 	ldr r2, [r2, r1, lsl #2]
 	ldrb r0, [r2, r0]
 	bx lr
 
-	arm_func_start sub_080B1AF0
-sub_080B1AF0: @ 0x080B1AF0
+	arm_func_start arm_sub_080B1AF0
+arm_sub_080B1AF0: @ 0x080B1AF0
 	ldrh r3, [r0, #0x2e]
 	add r3, r3, r1
 	ldrh r1, [r0, #0x32]
 	add r1, r1, r2
 	ldrb r2, [r0, #0x38]
 	mov r0, r3
-	b _080B1B18
-_080B1B0C:
+	b arm_sub_080B1B18
+arm_sub_080B1B0C:
 	ldrb r2, [r0, #0x38]
 	ldrh r1, [r0, #0x32]
 	ldrh r0, [r0, #0x2e]
-_080B1B18:
+arm_sub_080B1B18:
 	ldr ip, _080B1C28 @ =gRoomControls
 	ldrh r3, [ip, #6]
 	sub r0, r0, r3
 	ldrh r3, [ip, #8]
 	sub r1, r1, r3
+arm_sub_080B1B2C:
 	lsl r0, r0, #0x16
 	lsr r0, r0, #0x1a
 	lsl r1, r1, #0x16
 	lsr r1, r1, #0x1a
+arm_sub_080B1B3C:
 	add r0, r0, r1, lsl #6
 	mov r1, r2
+arm_sub_080B1B44:
 	ldr r2, _080B1C2C @ =gUnk_08000248
 	ldr r1, [r2, r1, lsl #2]
 	ldrb r0, [r1, r0]
 	bx lr
 
-	arm_func_start sub_080B1B54
-sub_080B1B54: @ 0x080B1B54
+	arm_func_start arm_sub_080B1B54
+arm_sub_080B1B54: @ 0x080B1B54
 	lsls r0, r0, #0x12
 	ldrlo r1, _080B1C30 @ =gUnk_080B37A0
 	ldrhs r1, _080B1C34 @ =gUnk_080B7910
 	ldrb r0, [r1, r0, lsr #18]
 	bx lr
 
-	arm_func_start sub_080B1B68
-sub_080B1B68: @ 0x080B1B68
+	arm_func_start arm_sub_080B1B68
+arm_sub_080B1B68: @ 0x080B1B68
 	lsrs r2, r0, #0xe
 	bxne lr
 	ldr r2, _080B1C38 @ =gUnk_0800022C
@@ -192,10 +204,10 @@ sub_080B1B68: @ 0x080B1B68
 	ldrh r0, [r1, r0]
 	bx lr
 
-	arm_func_start sub_080B1B84
-sub_080B1B84: @ 0x080B1B84
+	arm_func_start arm_sub_080B1B84
+arm_sub_080B1B84: @ 0x080B1B84
 	mov ip, lr
-	bl _GetTileType
+	bl arm_GetTileType
 	lsls r0, r0, #0x12
 	ldrlo r1, _080B1C3C @ =gUnk_08000360
 	ldrhs r1, _080B1C40 @ =gUnk_080B7A3E
@@ -203,11 +215,11 @@ sub_080B1B84: @ 0x080B1B84
 	ldrh r0, [r1, r0]
 	bx ip
 
-	arm_func_start sub_080B1BA4
-sub_080B1BA4: @ 0x080B1BA4
+	arm_func_start arm_sub_080B1BA4
+arm_sub_080B1BA4: @ 0x080B1BA4
 	mov ip, lr
 	mov r3, r2
-	bl _GetTileType
+	bl arm_GetTileType
 	lsls r0, r0, #0x12
 	ldrlo r1, _080B1C44 @ =gUnk_08000360
 	ldrhs r1, _080B1C48 @ =gUnk_080B7A3E
@@ -523,15 +535,16 @@ _080B1FB4:
 	arm_func_start sub_080B1FE4
 sub_080B1FE4: @ 0x080B1FE4
 	ldrb r6, [r4, #0x15]
+_080B1FE8:
 	bx lr
-_080B1FEC: .4byte gUnk_03005D5C
-_080B1FF0: .4byte gUnk_03005CA4
-_080B1FF4: .4byte gUnk_03005CD0
-_080B1FF8: .4byte gUnk_03005CFC
-_080B1FFC: .4byte gUnk_03005D5C
-_080B2000: .4byte gUnk_03005D24
-_080B2004: .4byte gUnk_03005D18
-_080B2008: .4byte gUnk_03005D58
+_080B1FEC: .4byte ram_sub_080B1FE8
+_080B1FF0: .4byte ram_sub_080B1F30
+_080B1FF4: .4byte ram_sub_080B1F5C
+_080B1FF8: .4byte ram_sub_080B1F88
+_080B1FFC: .4byte ram_sub_080B1FE8
+_080B2000: .4byte ram_sub_080B1FB0
+_080B2004: .4byte ram_sub_080B1FA4
+_080B2008: .4byte ram_sub_080B1FE4
 _080B200C: .4byte gCollidableList
 _080B2010: .4byte gCollidableCount
 _080B2014: .4byte gCollisionMtx
@@ -571,7 +584,7 @@ _080B2074:
 	bic r3, r3, #0xdf
 	orr r3, r3, #0x1f
 	msr cpsr_fc, r3
-	ldr r1, _080B20E8 @ =gUnk_030067E4
+	ldr r1, _080B20E8 @ =ram_gUnk_080B2A70
 	ldr r0, [r1, ip]
 	stmdb sp!, {lr}
 	mov lr, pc
@@ -597,10 +610,10 @@ _080B20E0:
 	b _080B20E0
 	.align 2, 0
 _080B20E4: .4byte 0x0000208C
-_080B20E8: .4byte gUnk_030067E4
+_080B20E8: .4byte ram_gUnk_080B2A70
 
-	arm_func_start sub_080B20EC
-sub_080B20EC: @ 0x080B20EC
+	arm_func_start arm_CheckBits
+arm_CheckBits: @ 0x080B20EC
 	add r3, r0, r1, lsr #3
 	and r1, r1, #7
 	ldr r0, _080B21A4 @ =0x01010101
@@ -657,6 +670,7 @@ _080B21A4: .4byte 0x01010101
 _080B21A8: .4byte 0x02000000 + 6 @ brightness preference
 _080B21AC: .4byte gUnk_08000F54
 
+_ClearAndUpdateEntities:
 	ldr r11, _080B2270 @ =gUpdateContext
 	ldr r1, [r11]
 	ldm r1, {r7, r8, r9, r10}
@@ -672,8 +686,8 @@ _080B21AC: .4byte gUnk_08000F54
 @	void* restore_sp;
 @ }
 
-	arm_func_start UpdateEntities_arm
-UpdateEntities_arm: @ 0x080B21B0
+	arm_func_start _UpdateEntities
+_UpdateEntities: @ 0x080B21B0   @ 
 @ UpdateEntities starts here
     @ arg0 (r0) : 0 = entities, 1 = managers
 	ldr r1, _080B2274 @ =gUnk_080026A4
@@ -1100,13 +1114,13 @@ _080B1B64:
 	eor r2, r2, r3
 	and r2, r2, #6
 _080B1B74:
-	ldr r3, _080B2A48 @ =gUnk_030068CC
+	ldr r3, _080B2A48 @ =ram_0x80b2b58
 	add r2, r1, r2, lsl #1
 	ldr sl, [r3, r2]
 	push {r4, r8, sb}
 	mov r8, #0
 	and sb, sb, #0xc00
-	bl _080B2874
+	bl sub_080B2874
 	pop {r4, r8, sb, lr}
 	b _080B2718
 _080B1B98:
@@ -1169,7 +1183,7 @@ _080B1C5C:
 	ldrsh r0, [r4]
 	asr r6, r0, #6
 	and r1, r0, #7
-	ldr sl, _080B2A54 @ =gUnk_0300694C
+	ldr sl, _080B2A54 @ =ram_0x80b2bd8
 	ldr sl, [sl, r1, lsl #2]
 	ldrsh r0, [r4, #2]
 	asr r7, r0, #6
@@ -1177,7 +1191,7 @@ _080B1C5C:
 	lsl sb, r1, #0xa
 	mov r8, #0
 	push {r4, r5}
-	bl _080B2874
+	bl sub_080B2874
 	pop {r4, r5}
 	add r4, r4, #4
 	subs r5, r5, #1
@@ -1231,13 +1245,13 @@ _080B1B64:
 	eor r2, r2, r3
 	and r2, r2, #6
 _080B1B74:
-	ldr r3, _080B2A48 @ =gUnk_030068CC
+	ldr r3, _080B2A48 @ =ram_0x80b2b58
 	add r2, r1, r2, lsl #1
 	ldr sl, [r3, r2]
 	push {r4, r8, sb}
 	mov r8, #0
 	and sb, sb, #0xc00
-	bl _080B2874
+	bl sub_080B2874
 	pop {r4, r8, sb, lr}
 	b _080B2718
 _080B1B98:
@@ -1300,7 +1314,7 @@ _080B1C5C:
 	ldrsh r0, [r4]
 	asr r6, r0, #6
 	and r1, r0, #7
-	ldr sl, _080B2A54 @ =gUnk_0300694C
+	ldr sl, _080B2A54 @ =ram_0x80b2bd8
 	ldr sl, [sl, r1, lsl #2]
 	ldrsh r0, [r4, #2]
 	asr r7, r0, #6
@@ -1308,7 +1322,7 @@ _080B1C5C:
 	lsl sb, r1, #0xa
 	mov r8, #0
 	push {r4, r5}
-	bl _080B2874
+	bl sub_080B2874
 	pop {r4, r5}
 	add r4, r4, #4
 	subs r5, r5, #1
@@ -1354,13 +1368,13 @@ _080B25D8:
 	eor r2, r2, r3
 	and r2, r2, #6
 _080B25E8:
-	ldr r3, _080B2A48 @ =gUnk_030068CC
+	ldr r3, _080B2A48 @ =ram_0x80b2b58
 	add r2, r1, r2, lsl #1
 	ldr sl, [r3, r2]
 	push {r4, r8, sb}
 	mov r8, #0
 	and sb, sb, #0xc00
-	bl _080B2874
+	bl sub_080B2874
 	pop {r4, r8, sb, lr}
 	b _080B2718
 _080B260C:
@@ -1423,7 +1437,7 @@ _080B26D0:
 	ldrsh r0, [r4]
 	asr r6, r0, #6
 	and r1, r0, #7
-	ldr sl, _080B2A54 @ =gUnk_0300694C
+	ldr sl, _080B2A54 @ =ram_0x80b2bd8
 	ldr sl, [sl, r1, lsl #2]
 	ldrsh r0, [r4, #2]
 	asr r7, r0, #6
@@ -1431,7 +1445,7 @@ _080B26D0:
 	lsl sb, r1, #0xa
 	mov r8, #0
 	push {r4, r5}
-	bl _080B2874
+	bl sub_080B2874
 	pop {r4, r5}
 	add r4, r4, #4
 	subs r5, r5, #1
@@ -1449,7 +1463,7 @@ _080B2718:
 	beq _080B27E4
 	bpl _080B2730
 	ldr sl, [r4, #0x64]
-	b _080B2874
+	b sub_080B2874
 _080B2730:
 	ldr r4, _080B2A58 @ =gUnk_020000C0
 	add r4, r4, r0, lsl #6
@@ -1512,7 +1526,7 @@ sub_080B27F4: @ 0x080B27F4
 	add r2, r2, sl
 	ldr r0, [r2, r0, lsl #2]
 	add sl, sl, r0
-	b _080B2874
+	b sub_080B2874
 
 	arm_func_start sub_080B280C
 sub_080B280C: @ 0x080B280C
@@ -1523,6 +1537,7 @@ sub_080B280C: @ 0x080B280C
 	add r1, r1, r2, lsl #2
 	ldr r1, [r3, r1]
 	add r1, r1, r3
+_080B2828:
 	ldrb r2, [r1]
 	cmp r2, #0
 	bxeq lr
@@ -1539,11 +1554,13 @@ sub_080B280C: @ 0x080B280C
 	add r3, pc, #0x8 @ =_080B286C
 	str r3, [fp, #0x18]
 	str sp, [fp, #0x14]
-	bl _080B2874
+	bl sub_080B2874
 _080B286C:
 	pop {r4, r5, r6, r7, r8, sb, sl, fp, lr}
 	bx lr
-_080B2874:
+
+	arm_func_start sub_080B2874
+sub_080B2874: @ 0x080B2874
 	ldrb r0, [sl], #1
 	lsls r0, r0, #0x18
 	bxeq lr
@@ -1559,7 +1576,7 @@ _080B289C:
 	lsr r0, r0, #0x18
 	add r0, r0, r0, lsl #1
 _080B28A8:
-	ldr r5, _080B2A68 @ =gUnk_0300695C
+	ldr r5, _080B2A68 @ =ram_0x80b2be8
 	add r5, r5, r0
 	ldrb r0, [fp, #3]
 	orr sb, sb, r0, lsl #16
@@ -1678,7 +1695,7 @@ _080B1FBC:
 	sub r1, r1, r3
 	mov r2, #0
 	mov r3, #0
-	bl sub_080B20ECEU
+	bl arm_CheckBitsEU
 	mov r5, #0
 	ldr r4, _080B2194 @ =0x03003DF8
 _080B1FECEU:
@@ -1717,7 +1734,7 @@ _080B202C:
 	add r0, r0, r6
 	add r1, r1, r7
 	mov r2, #0
-	bl sub_080B20ECEU
+	bl arm_CheckBitsEU
 _080B2074EU:
 	add r4, r4, #0xc
 	add r5, r5, #1
@@ -1746,15 +1763,15 @@ sub_080B2088: @ 0x080B2088
 	add r1, r7, r1
 	add r1, r1, r2
 	mov r2, sb
-	b sub_080B20ECEU
+	b arm_CheckBitsEU
 _080B20DC:
 	mov r0, r6
 	mov r1, r7
 	mov r2, r9
 	mov r3, #0x0
 
-	arm_func_start sub_080B20ECEU
-sub_080B20ECEU: @ 0x080B20EC
+	arm_func_start arm_CheckBitsEU
+arm_CheckBitsEU: @ 0x080B20EC
 	add ip, r1, #7
 	cmp ip, #0xa8
 	bxhs lr
@@ -1778,9 +1795,9 @@ sub_080B20ECEU: @ 0x080B20EC
 	strb r3, [fp, #3]
 	bx lr
 _080B2144:
-	.4byte gUnk_03006954
-	.4byte gUnk_030068F0
-	.4byte gUnk_0300689C
+	.4byte ram_sub_080B2140
+	.4byte ram_sub_080B20DC
+	.4byte ram_sub_080B2088
 .endif
 .ifdef DEMO_JP @ TODO deduplicate same as EU
 _080B1FBC:
@@ -1793,7 +1810,7 @@ _080B1FBC:
 	sub r1, r1, r3
 	mov r2, #0
 	mov r3, #0
-	bl sub_080B20ECEU
+	bl arm_CheckBitsEU
 	mov r5, #0
 	ldr r4, _080B2194 @ =0x03003DF8
 _080B1FECEU:
@@ -1832,7 +1849,7 @@ _080B202C:
 	add r0, r0, r6
 	add r1, r1, r7
 	mov r2, #0
-	bl sub_080B20ECEU
+	bl arm_CheckBitsEU
 _080B2074EU:
 	add r4, r4, #0xc
 	add r5, r5, #1
@@ -1861,15 +1878,15 @@ sub_080B2088: @ 0x080B2088
 	add r1, r7, r1
 	add r1, r1, r2
 	mov r2, sb
-	b sub_080B20ECEU
+	b arm_CheckBitsEU
 _080B20DC:
 	mov r0, r6
 	mov r1, r7
 	mov r2, r9
 	mov r3, #0x0
 
-	arm_func_start sub_080B20ECEU
-sub_080B20ECEU: @ 0x080B20EC
+	arm_func_start arm_CheckBitsEU
+arm_CheckBitsEU: @ 0x080B20EC
 	add ip, r1, #7
 	cmp ip, #0xa8
 	bxhs lr
@@ -1893,9 +1910,9 @@ sub_080B20ECEU: @ 0x080B20EC
 	strb r3, [fp, #3]
 	bx lr
 _080B2144:
-	.4byte gUnk_03006954
-	.4byte gUnk_030068F0
-	.4byte gUnk_0300689C
+	.4byte ram_sub_080B2140
+	.4byte ram_sub_080B20DC
+	.4byte ram_sub_080B2088
 .endif
 	
 _080B2A30: .4byte gOAMControls
@@ -1910,15 +1927,15 @@ _080B2A38: .4byte gUnk_081326EC
 _080B2A3C: .4byte gUnk_081326EC
 _080B2A40: .4byte gUnk_081326EC
 _080B2A44: .4byte gUnk_081326EC
-_080B2A48: .4byte gUnk_030068CC
+_080B2A48: .4byte ram_0x80b2b58
 _080B2A4C: .4byte gUnk_081326EC
 _080B2A50: .4byte gUnk_081326EC
-_080B2A54: .4byte gUnk_0300694C
+_080B2A54: .4byte ram_0x80b2bd8
 _080B2A58: .4byte gUnk_020000C0
 _080B2A5C: .4byte gFrameObjLists
 _080B2A60: .4byte gFrameObjLists
 _080B2A64: .4byte gOAMControls
-_080B2A68: .4byte gUnk_0300695C
+_080B2A68: .4byte ram_0x80b2be8
 _080B2A6C: .4byte 0x3E003F00
 .ifdef EU
 _080B2194: .4byte 0x03003DF8 @TODO pointer?

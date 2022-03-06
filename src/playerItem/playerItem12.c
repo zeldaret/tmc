@@ -107,9 +107,9 @@ void sub_080701F8(Entity* this) {
         if (this->type == 0) {
             sub_0800451C(this);
         }
-        if (sub_080002F0(COORD_TO_TILE(this), gPlayerEntity.collisionLayer, 0x80) == 0) {
+        if (sub_080B1BA4(COORD_TO_TILE(this), gPlayerEntity.collisionLayer, 0x80) == 0) {
             if (sub_080040D8(this, &gUnk_08003E44, this->x.HALF.HI, this->y.HALF.HI) == 0) {
-                if (sub_080002B8(this) == 0x19) {
+                if (sub_080B1AA8(this) == 0x19) {
                     this->action = 4;
                     COLLISION_OFF(this);
                     this->x.HALF.HI = (this->x.HALF.HI & 0xfff0) | 8;

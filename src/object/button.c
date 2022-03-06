@@ -140,7 +140,7 @@ u32 sub_08081E0C(Entity*);
 
 Entity* sub_08081D74(Entity* this) {
     Entity* ent;
-    if (sub_080002E0(this->field_0x74.HWORD, this->collisionLayer) == 0xF) {
+    if (sub_080B1B44(this->field_0x74.HWORD, this->collisionLayer) == 0xF) {
         return 0;
     }
     ent = 0;
