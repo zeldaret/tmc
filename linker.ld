@@ -1195,7 +1195,7 @@ SECTIONS {
         data/const/npc/pina.o(.rodata);
         data/animations/npc/pina.o(.rodata);
         data/const/npc/guard.o(.rodata);
-        data/const/npc/guardWithSpear.o(.rodata);
+        src/npc/guardWithSpear.o(.rodata);
         data/animations/npc/guardWithSpear.o(.rodata);
         data/const/npc/maid.o(.rodata);
         data/animations/npc/maid.o(.rodata);

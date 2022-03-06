@@ -36689,11 +36689,6 @@
     "type": "animation"
   },
   {
-    "path": "guardWithSpear/gUnk_0810F6D4.bin",
-    "start": 1111764,
-    "size": 16
-  },
-  {
     "path": "animations/gSpriteAnimations_Maid_0.bin",
     "start": 1112292,
     "size": 5,
