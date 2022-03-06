@@ -123,7 +123,7 @@ extern void sub_08054524(void);
 extern void sub_080186D4(void);
 extern void sub_0806F364(void);
 extern void sub_08052FF4(u32 area, u32 room);
-extern void sub_0807C860(void);
+extern void CloneMapData(void);
 extern void sub_0807C740(void);
 extern void SetBGDefaults(void);
 extern void LoadItemGfx(void);
@@ -141,8 +141,8 @@ static void sub_08052C3C(void);
 static void sub_0805340C(void);
 static void sub_08051D98(void);
 static void sub_08051DCC(void);
-static u32 CheckGameOver(void);
-static u32 CheckRoomExit(void);
+static bool32 CheckGameOver(void);
+static bool32 CheckRoomExit(void);
 static void UpdatePlayerRoomStatus(void);
 static void sub_0805329C(void);
 static void InitializePlayer(void);
@@ -306,14 +306,14 @@ static void GameTask_Transition(void) {
     ResetTmpFlags();
 
     gMain.state = GAMETASK_INIT;
-    gMain.substate = 0;
+    gMain.substate = GAMEMAIN_INITROOM;
 }
 
 static void GameTask_Init(void) {
     DispReset(1);
     gFadeControl.mask = 0xffffffff;
     MemClear(&gOAMControls, 0xB74);
-    MemClear(&gUnk_02032EC0, sizeof(gUnk_02032EC0));
+    MemClear(&gUI, sizeof(gUI));
     EraseAllEntities();
     SetBGDefaults();
     ClearTilemaps();
@@ -495,7 +495,7 @@ static void GameMain_ChangeArea(void) {
     if (!gFadeControl.active) {
         DispReset(1);
         gMain.state = GAMETASK_INIT;
-        gMain.substate = 0;
+        gMain.substate = GAMEMAIN_INITROOM;
         gRoomTransition.transitioningOut = 1;
     }
 }
@@ -594,7 +594,7 @@ void Subtask_AuxCutscene(void) {
 }
 
 static void AuxCutscene_Init(void) {
-    const CutsceneData* p = &sCutsceneData[gUnk_02032EC0.field_0x3];
+    const CutsceneData* p = &sCutsceneData[gUI.field_0x3];
     gRoomControls.area = p->area;
     gRoomControls.room = p->room;
     LoadGfxGroups();
@@ -644,18 +644,18 @@ static const CutsceneData sCutsceneData[] = {
 };
 
 static void AuxCutscene_Exit(void) {
-    u32 flag = sCutsceneData[gUnk_02032EC0.field_0x3]._3;
+    u32 flag = sCutsceneData[gUI.field_0x3]._3;
     if (flag & 0xF0) {
         MenuFadeIn(2, flag >> 4);
     } else {
-        gUnk_02032EC0.nextToLoad = 3;
+        gUI.nextToLoad = 3;
         SetFadeInverted(0x10);
         MessageInitialize();
     }
 }
 
 void sub_08051F78(void) {
-    u32 idx = gUnk_02032EC0.field_0x3;
+    u32 idx = gUI.field_0x3;
     const CutsceneData* p = &sCutsceneData[idx];
     sub_08051F9C(p->area, p->room, p->x, p->y);
 }
@@ -704,7 +704,7 @@ void GameOverTask(void) {
     };
 
     sStates[gMain.state]();
-    if (gMain.state != 0) {
+    if (gMain.state != GAMETASK_TRANSITION) {
         FlushSprites();
         DrawGameOverText();
         CopyOAM();
@@ -727,7 +727,7 @@ static void GameOver_Init(void) {
     SoundReq(BGM_GAMEOVER);
     SetFadeInverted(4);
     gFadeControl.mask = 0xFFFF0001;
-    switch_state(1);
+    switch_state(GAMETASK_INIT);
 }
 
 static void GameOver_FadeIn(void) {
@@ -740,7 +740,7 @@ static void GameOver_FadeIn(void) {
         } else {
             gMenu.transitionTimer--;
             if (gMenu.transitionTimer == 0) {
-                switch_state(2);
+                switch_state(GAMETASK_MAIN);
 #if defined(DEMO_USA) || defined(DEMO_JP)
                 SoundReq(SONG_VOL_FADE_OUT);
                 SetFade(7, 4);
@@ -834,7 +834,7 @@ static void GameOver_TextMove(void) {
         default:
             gScreen.lcd.displayControl &= ~DISPCNT_BG1_ON;
             sub_08050384();
-            switch_state(3);
+            switch_state(GAMETASK_EXIT);
             return;
     }
 }
@@ -1175,16 +1175,16 @@ static void sub_0805289C(void) {
 }
 #endif
 
-static u32 CheckGameOver(void) {
+static bool32 CheckGameOver(void) {
     if (gRoomTransition.field_0x4[1]) {
         InitFade();
-        gMain.state = 3;
-        gMain.substate = 0;
+        gMain.state = GAMETASK_EXIT;
+        gMain.substate = GAMEMAIN_INITROOM;
         SetFade(5, 8);
         SoundReq(SONG_STOP_BGM);
-        return 1;
+        return TRUE;
     }
-    return 0;
+    return FALSE;
 }
 
 void RoomExitCallback(void) {
@@ -1192,11 +1192,11 @@ void RoomExitCallback(void) {
         gArea.onExit(gArea.transitionManager);
 }
 
-static u32 CheckRoomExit(void) {
+static bool32 CheckRoomExit(void) {
     if (gRoomTransition.transitioningOut && gSave.stats.health != 0 && gPlayerState.framestate != PL_STATE_DIE) {
         if (StairsAreValid()) {
             gRoomTransition.transitioningOut = 0;
-            return 0;
+            return FALSE;
         }
 
         switch (gRoomTransition.type) {
@@ -1227,11 +1227,11 @@ static u32 CheckRoomExit(void) {
                 break;
         }
         RoomExitCallback();
-        gMain.substate = 3;
+        gMain.substate = GAMEMAIN_CHANGEAREA;
         *(&gMain.pauseInterval + 1) = 1;
-        return 1;
+        return TRUE;
     }
-    return 0;
+    return FALSE;
 }
 
 static u32 StairsAreValid(void) {
@@ -1410,7 +1410,7 @@ u32 GetFlagBankOffset(u32 idx) {
 }
 
 void RegisterTransitionManager(void* mgr, void (*onEnter)(), void (*onExit)()) {
-    if (gMain.substate != 7) {
+    if (gMain.substate != GAMEMAIN_SUBTASK) {
         gArea.transitionManager = mgr;
         gArea.onEnter = onEnter;
         gArea.onExit = onExit;
@@ -1519,7 +1519,7 @@ static void UpdateFakeScroll(void) {
 void LoadAuxiliaryRoom(u32 area, u32 room) {
     sub_08052FF4(area, room);
     gRoomControls.camera_target = NULL;
-    sub_0807C860();
+    CloneMapData();
     sub_0807C740();
 }
 
@@ -1806,7 +1806,7 @@ void CutsceneMain_Init(void) {
 void sub_080535AC(void) {
     gMenu.overlayType = 1;
     gMenu.transitionTimer = 0x78;
-    gUnk_02032EC0.field_0x6 = 1;
+    gUI.field_0x6 = 1;
     gUpdateVisibleTiles = 1;
     gScreen.lcd.displayControl &= 0xfeff;
     LoadRoomEntityList((EntityData*)gUnk_080FCB94);
@@ -1831,7 +1831,7 @@ void sub_08053618(void) {
 }
 
 void sub_08053634(void) {
-    gUnk_02032EC0.nextToLoad = 3;
+    gUI.nextToLoad = 3;
     MessageInitialize();
 }
 
@@ -1945,7 +1945,7 @@ void sub_08053A5C(void) {
 
 void sub_08053A90(void) {
     if (gFadeControl.active == 0) {
-        gUnk_02032EC0.nextToLoad = 3;
+        gUI.nextToLoad = 3;
         SetBGDefaults();
     }
 }

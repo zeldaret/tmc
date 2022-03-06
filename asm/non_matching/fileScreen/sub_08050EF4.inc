@@ -2,7 +2,7 @@
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
-	ldr r0, _08050F40 @ =gUnk_02019EE0
+	ldr r0, _08050F40 @ =gMapDataBottomSpecial
 	ldrb r1, [r0]
 	adds r6, r0, #0
 	cmp r1, #0
@@ -38,7 +38,7 @@ _08050F1E:
 	beq _08050F82
 	b _08050F8E
 	.align 2, 0
-_08050F40: .4byte gUnk_02019EE0
+_08050F40: .4byte gMapDataBottomSpecial
 _08050F44: .4byte 0x000004B4
 _08050F48: .4byte gMenu
 _08050F4C: .4byte gInput
@@ -107,12 +107,12 @@ _08050FAC:
 _08050FBA:
 	adds r0, r5, #0
 	bl SetMenuType
-	ldr r0, _08050FCC @ =gUnk_02019EE0
+	ldr r0, _08050FCC @ =gMapDataBottomSpecial
 	ldrb r0, [r0, #6]
 	bl SetActiveSave
 	b _08050FF4
 	.align 2, 0
-_08050FCC: .4byte gUnk_02019EE0
+_08050FCC: .4byte gMapDataBottomSpecial
 _08050FD0:
 	mov r1, ip
 	ldrb r0, [r1, #1]

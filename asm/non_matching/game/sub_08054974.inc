@@ -57,7 +57,7 @@ _080549CE:
 	bne _080549F4
 	bl TryLoadPrologueHyruleTown
 _080549F4:
-	ldr r0, _08054A10 @ =gUnk_02032EC0
+	ldr r0, _08054A10 @ =gUI
 	ldrb r0, [r0, #3]
 	bl sub_08018710
 	pop {r4, r5, r6, pc}
@@ -66,5 +66,5 @@ _08054A00: .4byte gUpdateVisibleTiles
 _08054A04: .4byte gScreen
 _08054A08: .4byte 0x00001FFF
 _08054A0C: .4byte gRoomControls
-_08054A10: .4byte gUnk_02032EC0
+_08054A10: .4byte gUI
 	.syntax divided

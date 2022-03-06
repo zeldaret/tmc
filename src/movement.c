@@ -1654,7 +1654,7 @@ ASM_FUNC("asm/non_matching/movement/CalculateEntityTileCollisions.inc",
     u32 hitboxUnkX;
     u32 hitboxUnkY;
 
-    layer = GetLayerByIndex(this->collisionLayer)->_2004;
+    layer = GetLayerByIndex(this->collisionLayer)->collisionData;
     xMin = this->x.HALF.HI + this->hitbox->offset_x;
     yMin = this->y.HALF.HI + this->hitbox->offset_y;
     hitboxUnkX = this->hitbox->unk2[0];

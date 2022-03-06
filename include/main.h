@@ -82,8 +82,8 @@ typedef struct {
 } UI;
 static_assert(sizeof(UI) == 0x3b4);
 
-extern Main gMain;       /**< Main instance. */
-extern UI gUnk_02032EC0; /**< UI instance. */
+extern Main gMain; /**< Main instance. */
+extern UI gUI;     /**< UI instance. */
 
 /**
  * Program entry point.

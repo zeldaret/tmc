@@ -190,7 +190,7 @@ u32 sub_08081F00(u32*, u32*);
 
 extern u16 gMapDataTopSpecial[0x2000];
 
-extern u16 gUnk_02019EE0[];
+extern u16 gMapDataBottomSpecial[];
 NONMATCH("asm/non_matching/button/sub_08081E6C.inc", void sub_08081E6C(Entity* this)) {
     u32 r4;
     u16 *tmp, *r1;
@@ -205,7 +205,7 @@ NONMATCH("asm/non_matching/button/sub_08081E6C.inc", void sub_08081E6C(Entity* t
     tmp = r1 + 0x3802;
     r1 += 0x3002 + r4;
     tmp = tmp + (*r1 << 2);
-    tmp2 = (r5 == 2 ? gMapDataTopSpecial : gUnk_02019EE0);
+    tmp2 = (r5 == 2 ? gMapDataTopSpecial : gMapDataBottomSpecial);
     tmp2 += (((0x3f & r6) << 1) + ((0xfc0 & r6) << 2)) << 1;
     if (sub_08081F00((u32*)tmp2, (u32*)tmp))
         return;

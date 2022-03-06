@@ -9,7 +9,7 @@ _080A73B4:
 	bl DeleteAllEntities
 	bl sub_0805E974
 	ldr r1, _080A746C @ =gCurrentRoomProperties
-	ldr r5, _080A7470 @ =gUnk_02032EC0
+	ldr r5, _080A7470 @ =gUI
 	ldr r0, [r5, #0x10]
 	str r0, [r1]
 	ldr r0, _080A7474 @ =gPlayerState
@@ -84,7 +84,7 @@ _080A73B4:
 	.align 2, 0
 _080A7468: .4byte gFadeControl
 _080A746C: .4byte gCurrentRoomProperties
-_080A7470: .4byte gUnk_02032EC0
+_080A7470: .4byte gUI
 _080A7474: .4byte gPlayerState
 _080A7478: .4byte gMapBottom
 _080A747C: .4byte gMapTop
@@ -102,7 +102,7 @@ _080A74A8:
 	ldrh r0, [r5, #0xa]
 	bl SetFadeInverted
 _080A74AE:
-	ldr r1, _080A74C0 @ =gUnk_02032EC0
+	ldr r1, _080A74C0 @ =gUI
 	movs r2, #0
 	movs r0, #4
 	strb r0, [r1]
@@ -112,6 +112,6 @@ _080A74AE:
 _080A74BC:
 	pop {r4, r5, pc}
 	.align 2, 0
-_080A74C0: .4byte gUnk_02032EC0
+_080A74C0: .4byte gUI
 _080A74C4: .4byte gRoomTransition
 	.syntax divided

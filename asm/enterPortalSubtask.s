@@ -26,7 +26,7 @@ sub_0804AB70: @ 0x0804AB70
 	ldrb r5, [r0, #0x17]
 	cmp r5, #2
 	bne _0804ABA4
-	ldr r0, _0804AC08 @ =gUnk_02032EC0
+	ldr r0, _0804AC08 @ =gUI
 	adds r0, #0x20
 	ldrb r0, [r0]
 	cmp r0, #2
@@ -72,7 +72,7 @@ _0804ABF8: .4byte gScreen
 _0804ABFC: .4byte 0x00009E83
 _0804AC00: .4byte gRoomControls
 _0804AC04: .4byte gArea
-_0804AC08: .4byte gUnk_02032EC0
+_0804AC08: .4byte gUI
 _0804AC0C: .4byte gUnk_080D4138
 _0804AC10: .4byte gUnk_02017700
 _0804AC14: .4byte gUsedPalettes

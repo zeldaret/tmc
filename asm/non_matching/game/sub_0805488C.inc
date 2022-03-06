@@ -1,6 +1,6 @@
 	.syntax unified
 	push {r4, lr}
-	ldr r4, _080548DC @ =gUnk_02032EC0
+	ldr r4, _080548DC @ =gUI
 	ldrb r1, [r4, #3]
 	lsls r0, r1, #2
 	adds r0, r0, r1
@@ -34,7 +34,7 @@
 	bl sub_080548E8
 	pop {r4, pc}
 	.align 2, 0
-_080548DC: .4byte gUnk_02032EC0
+_080548DC: .4byte gUI
 _080548E0: .4byte gUnk_080FE320
 _080548E4: .4byte gMenu
 	.syntax divided

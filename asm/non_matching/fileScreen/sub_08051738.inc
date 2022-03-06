@@ -1,6 +1,6 @@
     .syntax unified
 	push {r4, r5, r6, r7, lr}
-	ldr r1, _08051768 @ =gUnk_02019EE0
+	ldr r1, _08051768 @ =gMapDataBottomSpecial
 	movs r0, #4
 	strb r0, [r1, #7]
 	movs r4, #0
@@ -25,7 +25,7 @@ _0805174C:
 	ands r2, r0
 	b _08051774
 	.align 2, 0
-_08051768: .4byte gUnk_02019EE0
+_08051768: .4byte gMapDataBottomSpecial
 _0805176C: .4byte gUnk_02000090
 _08051770:
 	adds r4, #1

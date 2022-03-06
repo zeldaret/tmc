@@ -174,6 +174,7 @@ void sub_0806F704(Entity* ent, u32 a2) {
     ent->y.HALF.HI = (((a2 >> 2) & 0x3F0) | 8) + gRoomControls.origin_y;
 }
 
+/** Calculates the tile position of the player but modifies it by the hitbox depending on the animation state. */
 u32 sub_0806F730(Entity* ent) {
     u32 tmp = 0x3F;
     u32 x = ent->x.HALF.HI + ent->hitbox->offset_x - gRoomControls.origin_x;
@@ -203,16 +204,16 @@ u32 sub_0806F798(Entity* ent) {
 }
 
 u32 sub_0806F7D0(Entity* ent) {
-    return gMapBottom._2004[sub_0806F730(ent)];
+    return gMapBottom.collisionData[sub_0806F730(ent)];
 }
 
 u32 sub_0806F7EC(Entity* ent) {
-    return gMapBottom._4[sub_0806F730(ent)];
+    return gMapBottom.mapData[sub_0806F730(ent)];
 }
 
 u32 sub_0806F804(u32 x, u32 y) {
     u32 idx = ((x >> 4) & 0x3F) + 4 * (y & 0x3F0);
-    return gMapBottom._4[idx];
+    return gMapBottom.mapData[idx];
 }
 
 u32 sub_0806F824(Entity* a, Entity* b, s32 x, s32 y) {

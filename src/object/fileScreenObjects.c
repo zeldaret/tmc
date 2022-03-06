@@ -74,8 +74,8 @@ void sub_0808E818(Entity* this) {
         return;
     }
 
-    if (this->type2 != gUnk_02019EE0.unk6) {
-        this->type2 = gUnk_02019EE0.unk6;
+    if (this->type2 != gMapDataBottomSpecial.unk6) {
+        this->type2 = gMapDataBottomSpecial.unk6;
         this->field_0x68.HWORD = CheckGlobalFlag(EZERO_1ST) == 0 ? 0x400 : 0x100;
         this->field_0x70.BYTES.byte0 = 4;
         this->animationState = 2;
@@ -83,7 +83,7 @@ void sub_0808E818(Entity* this) {
         LoadPalettes(&gGlobalGfxAndPalettes[var1], 31, 1);
     }
 
-    if (gUnk_02032EC0.lastState == 0) {
+    if (gUI.lastState == 0) {
         if (gInput.heldKeys & L_BUTTON) {
             switch (gInput.newKeys) {
                 case DPAD_UP:
@@ -118,13 +118,13 @@ void sub_0808E818(Entity* this) {
 
 static bool32 sub_0808E950(void) {
     bool32 result = FALSE;
-    switch (gUnk_02032EC0.lastState) {
+    switch (gUI.lastState) {
         case 0:
         case 4:
         case 5:
         case 6:
         case 7:
-            result = gUnk_02019EE0.saveStatus[gUnk_02019EE0.unk6] == 1;
+            result = gMapDataBottomSpecial.saveStatus[gMapDataBottomSpecial.unk6] == 1;
             break;
     }
     return result;
@@ -182,11 +182,11 @@ void sub_0808EA28(Entity* this) {
         }
     }
 
-    if (this->type == gUnk_02019EE0.unk6) {
+    if (this->type == gMapDataBottomSpecial.unk6) {
         var0 = 12;
         var1 = 1;
     } else {
-        if (gUnk_02032EC0.lastState == 5 && this->type == gUnk_02019EE0.unk7) {
+        if (gUI.lastState == 5 && this->type == gMapDataBottomSpecial.unk7) {
             var0 = 13;
             var1 = 2;
         } else {
@@ -198,14 +198,14 @@ void sub_0808EA28(Entity* this) {
     this->palette.b.b0 = var0;
     this->spriteRendering.b3 = var1;
     sub_0808EABC(this);
-    gUnk_02019EE0.isTransitioning |= sub_0808EF6C(this);
+    gMapDataBottomSpecial.isTransitioning |= sub_0808EF6C(this);
 }
 
 void sub_0808EABC(Entity* this) {
     int var0 = -72;
     int var1 = this->type * 32 + 40;
-    int var2 = gUnk_02019EE0.unk6 == this->type;
-    switch (gUnk_02032EC0.lastState) {
+    int var2 = gMapDataBottomSpecial.unk6 == this->type;
+    switch (gUI.lastState) {
         case 0:
             var0 = 24;
             break;
@@ -251,7 +251,7 @@ void sub_0808EABC(Entity* this) {
 }
 
 void sub_0808EB74(Entity* this) {
-    Entity* entity = sub_0808EC80(gUnk_02019EE0.unk6);
+    Entity* entity = sub_0808EC80(gMapDataBottomSpecial.unk6);
     if (entity) {
         this->x.WORD = entity->x.WORD;
         this->y.WORD = entity->y.WORD;
@@ -268,7 +268,7 @@ void sub_0808EBB8(Entity* this) {
     u32 x, y;
     Entity* entity;
 
-    switch (gUnk_02032EC0.lastState) {
+    switch (gUI.lastState) {
         case 4:
             var0 = gMenu.column_idx + 4;
             break;
@@ -298,7 +298,7 @@ void sub_0808EBB8(Entity* this) {
             x = 112;
             break;
         case 2:
-            var0 = gUnk_02019EE0.unk7;
+            var0 = gMapDataBottomSpecial.unk7;
             if (var0 == 4) {
                 var0 = 7;
             }
@@ -337,12 +337,12 @@ void sub_0808ECBC(Entity* this) {
     const struct_08121CD4* var3;
 
     var0 = gMenu.column_idx;
-    switch (gUnk_02032EC0.lastState) {
+    switch (gUI.lastState) {
         case 4:
             var1 = 1;
             break;
         case 5:
-            var0 = gUnk_02019EE0.unk7;
+            var0 = gMapDataBottomSpecial.unk7;
             var1 = 2;
             break;
         case 6:
@@ -366,12 +366,12 @@ void sub_0808ECBC(Entity* this) {
         this->palette.b.b0 = 14;
     }
 
-    gUnk_02019EE0.isTransitioning |= sub_0808EF6C(this);
+    gMapDataBottomSpecial.isTransitioning |= sub_0808EF6C(this);
 }
 
 void sub_0808ED64(Entity* this) {
     int y = 255;
-    if (gUnk_02032EC0.lastState == 1 && gGenericMenu.unk10.a[1] != 5) {
+    if (gUI.lastState == 1 && gGenericMenu.unk10.a[1] != 5) {
         this->x.HALF.HI = gGenericMenu.unk10.a[0] * 16 + 28;
         y = gGenericMenu.unk10.a[1] * 16 + 58;
     }
@@ -380,7 +380,7 @@ void sub_0808ED64(Entity* this) {
 
 void sub_0808ED98(Entity* this) {
     int y;
-    if (gUnk_02032EC0.lastState != 1) {
+    if (gUI.lastState != 1) {
         this->field_0x68.HWORD = 27;
         y = -10;
     } else {
@@ -408,7 +408,7 @@ void sub_0808EE00(Entity* this) {
     this->x.HALF.HI = gUnk_08121D18[var0][var1];
     this->field_0x68.HWORD = gUnk_08121D18[var0][var1];
     var1 -= var0;
-    if (gUnk_02032EC0.lastState != 1) {
+    if (gUI.lastState != 1) {
         var1 = 128;
         var2 = 176;
     } else {
@@ -417,14 +417,14 @@ void sub_0808EE00(Entity* this) {
 
     this->field_0x6a.HWORD = var2;
     this->palette.b.b0 = gGenericMenu.unk10.a[1] == 5 && var1 == gGenericMenu.unk10.a[2] ? 11 : 9;
-    gUnk_02019EE0.isTransitioning |= sub_0808EF6C(this);
+    gMapDataBottomSpecial.isTransitioning |= sub_0808EF6C(this);
 }
 
 void nullsub_522(Entity* this) {
 }
 
 void sub_0808EE98(Entity* this) {
-    this->actionDelay = gUnk_02032EC0.lastState;
+    this->actionDelay = gUI.lastState;
     this->frameIndex = gUnk_08121D48[this->actionDelay];
     if (this->actionDelay != 2) {
         this->field_0x68.HWORD = 96;
@@ -436,7 +436,7 @@ void sub_0808EE98(Entity* this) {
 
 void sub_0808EED8(Entity* this) {
     int var0;
-    if (gUnk_02032EC0.lastState != 3) {
+    if (gUI.lastState != 3) {
         this->spriteSettings.draw = 0;
     } else {
         this->spriteSettings.draw = 2;
@@ -447,7 +447,7 @@ void sub_0808EED8(Entity* this) {
 
 void sub_0808EF24(Entity* this) {
     int var0;
-    if (gUnk_02032EC0.lastState != 3) {
+    if (gUI.lastState != 3) {
         this->spriteSettings.draw = 0;
     } else {
         this->spriteSettings.draw = 2;

@@ -10,7 +10,7 @@
 extern u8 gEntCount;
 extern u8 gMapDataTopSpecial[];
 
-extern u16 gUnk_02019EE0[];
+extern u16 gMapDataBottomSpecial[];
 
 extern void sub_080197D4(const void*);
 
@@ -86,7 +86,7 @@ void GyorgFemale_Setup(GyorgFemaleEntity* this) {
     this->eyesVulnerable = 0;
     this->unk_79 = 0;
     this->childrenSpawnTimer = 0x3C;
-    MemClear(&gUnk_02019EE0, 0x8000);
+    MemClear(&gMapDataBottomSpecial, 0x8000);
     MemClear(&gMapDataTopSpecial, 0x8000);
     sub_0804660C(this, 0);
     sub_080464C0(this);
@@ -215,7 +215,7 @@ void GyorgFemale_Action3(GyorgFemaleEntity* this) {
 
 #ifndef EU
 void sub_08046498(GyorgFemaleEntity* this) {
-    MemClear(&gUnk_02019EE0, 0x8000);
+    MemClear(&gMapDataBottomSpecial, 0x8000);
     MemClear(&gMapDataTopSpecial, 0x8000);
     sub_080464C0(this);
 }
@@ -233,12 +233,12 @@ void sub_080464C0(GyorgFemaleEntity* this) {
     u8* dst;
     sub_080197D4(gUnk_080D1A74[super->animationState >> 6]);
     sub_08046518();
-    for (i = 0x20, src = ((u8*)&gUnk_02019EE0), dst = ((u8*)&gUnk_02019EE0) + 0x3260; i != 0; i--) {
+    for (i = 0x20, src = ((u8*)&gMapDataBottomSpecial), dst = ((u8*)&gMapDataBottomSpecial) + 0x3260; i != 0; i--) {
         MemCopy(src, dst, 0x40);
         dst += 0x100;
         src += 0x40;
     }
-    MemClear(&gUnk_02019EE0, 0x800);
+    MemClear(&gMapDataBottomSpecial, 0x800);
     gUpdateVisibleTiles = 1;
 }
 
@@ -271,7 +271,7 @@ void sub_080465C8(void) {
     s32 x, y;
     x = (gPlayerEntity.x.HALF.HI - gRoomControls.origin_x) >> 3;
     y = (gPlayerEntity.y.HALF.HI - gRoomControls.origin_y) >> 3;
-    if (gUnk_02019EE0[(y << 7) + x]) {
+    if (gMapDataBottomSpecial[(y << 7) + x]) {
         gPlayerState.field_0x14 = 1;
     }
 }

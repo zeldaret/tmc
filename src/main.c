@@ -6,6 +6,7 @@
 #include "save.h"
 #include "message.h"
 #include "interrupts.h"
+#include "game.h"
 
 extern u32 gRand;
 
@@ -121,8 +122,8 @@ static bool32 SoftResetKeysPressed(void) {
 
 void SetTask(u32 task) {
     gMain.task = task;
-    gMain.state = 0;
-    gMain.substate = 0;
+    gMain.state = GAMETASK_TRANSITION;
+    gMain.substate = GAMEMAIN_INITROOM;
 }
 
 void DisableInterruptsAndDMA(void) {

@@ -16,7 +16,7 @@
 	movs r0, #0
 	bl SetColor
 	ldr r1, _080A659C @ =gUnk_08128F4C
-	ldr r0, _080A65A0 @ =gUnk_02032EC0
+	ldr r0, _080A65A0 @ =gUI
 	ldrb r0, [r0, #3]
 	lsls r0, r0, #1
 	adds r0, r0, r1
@@ -44,7 +44,7 @@ _080A6590: .4byte gScreen
 _080A6594: .4byte 0x0000F7FF
 _080A6598: .4byte gPaletteBuffer
 _080A659C: .4byte gUnk_08128F4C
-_080A65A0: .4byte gUnk_02032EC0
+_080A65A0: .4byte gUI
 _080A65A4: .4byte gSave
 _080A65A8: .4byte gMenu
 	.syntax divided

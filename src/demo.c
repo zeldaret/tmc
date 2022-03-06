@@ -46,7 +46,7 @@ void sub_080A2E40(void) {
     EraseAllEntities();
     ResetPalettes();
     ResetPaletteTable(0);
-    MemClear(&gUnk_02032EC0, sizeof gUnk_02032EC0);
+    MemClear(&gUI, sizeof gUI);
     MemClear(&gChooseFileState, sizeof gChooseFileState);
     MemClear(&gBG0Buffer, sizeof gBG0Buffer);
     LoadGfxGroups();
@@ -73,7 +73,7 @@ void sub_080A2E40(void) {
         *(u8*)(addr + 4) = 0;
     }
     sub_080A3198(0, 0);
-    gMain.state = 1;
+    gMain.state = GAMETASK_INIT;
     SoundReq(BGM_FILE_SELECT);
     SetFade(4, 8);
 }
@@ -81,18 +81,18 @@ void sub_080A2E40(void) {
 void sub_080A2F8C(void) {
     if (gFadeControl.active == 0) {
         switch (gMain.substate) {
-            case 0:
-                gMain.substate = 1;
+            case GAMEMAIN_INITROOM:
+                gMain.substate = GAMEMAIN_CHANGEROOM;
                 {
                     // TODO write to 0x2000005
                     u32 addr = (0x80 << 0x12);
                     *(u8*)(addr + 5) = 1;
                     *(u8*)(addr + 6) = 1;
                 }
-                gMain.state = 2;
+                gMain.state = GAMETASK_MAIN;
                 SetFade(5, 8);
                 break;
-            case 1:
+            case GAMEMAIN_CHANGEROOM:
                 SetTask(TASK_GAME);
                 break;
         }

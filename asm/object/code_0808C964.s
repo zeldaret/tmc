@@ -16,7 +16,7 @@ sub_0808C964: @ 0x0808C964
 	ldrb r0, [r4, #9]
 	cmp r0, #0x76
 	bne _0808C982
-	ldr r0, _0808CA08 @ =gUnk_02032EC0
+	ldr r0, _0808CA08 @ =gUI
 	adds r0, #0x20
 	ldrb r0, [r0]
 	cmp r0, #2
@@ -93,7 +93,7 @@ _0808C9FA:
 _0808CA04:
 	pop {r4, pc}
 	.align 2, 0
-_0808CA08: .4byte gUnk_02032EC0
+_0808CA08: .4byte gUI
 _0808CA0C: .4byte gArea
 
 	thumb_func_start sub_0808CA10

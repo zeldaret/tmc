@@ -10,7 +10,7 @@
 	movs r0, #0x1e
 	strh r0, [r1, #0xa]
 	strb r4, [r1, #0x10]
-	ldr r0, _080537E0 @ =gUnk_02032EC0
+	ldr r0, _080537E0 @ =gUI
 	strb r3, [r0, #6]
 	ldr r0, _080537E4 @ =gMapBottom
 	str r2, [r0]
@@ -61,7 +61,7 @@
 	pop {r4, pc}
 	.align 2, 0
 _080537DC: .4byte gMenu
-_080537E0: .4byte gUnk_02032EC0
+_080537E0: .4byte gUI
 _080537E4: .4byte gMapBottom
 _080537E8: .4byte gMapTop
 _080537EC: .4byte gRoomControls

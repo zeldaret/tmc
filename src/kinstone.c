@@ -1,6 +1,5 @@
 #include "global.h"
-
-extern u32 SetTileType(u32 tileID, u32 tilePos, u32 layerID);
+#include "room.h"
 
 void CreateMinishEntrance(u32 tilePos) {
     u32 x, y;

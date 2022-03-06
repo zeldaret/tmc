@@ -1133,7 +1133,7 @@ void sub_08048004(GyorgMaleEntity* this) {
             if (b == 3) {
                 s32 posX = ((gPlayerEntity.x.HALF.HI - gRoomControls.origin_x) >> 3);
                 s32 posY = ((gPlayerEntity.y.HALF.HI - gRoomControls.origin_y) >> 3);
-                u16* tmp = (u16*)&gUnk_02019EE0;
+                u16* tmp = (u16*)&gMapDataBottomSpecial;
                 if (tmp[(posY << 7) + posX]) {
                     if (!(this->unk_7c & 2)) {
                         this->unk_7c |= 0x80;

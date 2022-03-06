@@ -24,7 +24,7 @@ _08019694: .4byte gMenu
 	thumb_func_start sub_08019698
 sub_08019698: @ 0x08019698
 	push {r4, r5, lr}
-	ldr r0, _08019724 @ =gUnk_02032EC0
+	ldr r0, _08019724 @ =gUI
 	ldrb r1, [r0, #3]
 	lsls r0, r1, #3
 	subs r0, r0, r1
@@ -86,7 +86,7 @@ _08019700:
 	strb r0, [r1]
 	pop {r4, r5, pc}
 	.align 2, 0
-_08019724: .4byte gUnk_02032EC0
+_08019724: .4byte gUI
 _08019728: .4byte gUnk_080B4410
 _0801972C: .4byte gRoomControls
 _08019730: .4byte gUpdateVisibleTiles
@@ -3232,7 +3232,7 @@ _0801AEB6:
 	ldr r0, [r1]
 	cmp r0, #0
 	beq _0801AED0
-	ldr r0, _0801AF00 @ =gUnk_02019EE0
+	ldr r0, _0801AF00 @ =gMapDataBottomSpecial
 	bl sub_0801AB08
 _0801AED0:
 	ldr r1, _0801AF04 @ =gMapTop
@@ -3251,7 +3251,7 @@ _0801AEF0: .4byte gUnk_03004030
 _0801AEF4: .4byte 0x0000088C
 _0801AEF8: .4byte 0x00000888
 _0801AEFC: .4byte gMapBottom
-_0801AF00: .4byte gUnk_02019EE0
+_0801AF00: .4byte gMapDataBottomSpecial
 _0801AF04: .4byte gMapTop
 _0801AF08: .4byte gMapDataTopSpecial
 _0801AF0C:

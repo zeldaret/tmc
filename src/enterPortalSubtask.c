@@ -6,6 +6,7 @@
 #include "screen.h"
 #include "object.h"
 #include "functions.h"
+#include "game.h"
 
 typedef struct {
     u8 filler[18];
@@ -19,7 +20,7 @@ extern struct_02018EB0 gUnk_02018EB0;
 
 u32 IsEnterPortal(void) {
     if (gArea.playShrinkSeq) {
-        gMain.substate = 4;
+        gMain.substate = GAMEMAIN_MINISHPORTAL;
         gArea.filler[8] = 0;
         gArea.filler[9] = 0;
         *(u16*)&gArea.filler[10] = 0;

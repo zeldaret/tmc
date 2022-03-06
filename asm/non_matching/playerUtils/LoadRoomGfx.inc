@@ -19,7 +19,7 @@
 	movs r1, #0x80
 	lsls r1, r1, #5
 	bl MemClear
-	ldr r0, _0807C160 @ =gUnk_02019EE0
+	ldr r0, _0807C160 @ =gMapDataBottomSpecial
 	movs r4, #0x80
 	lsls r4, r4, #8
 	adds r1, r4, #0
@@ -56,7 +56,7 @@
 	.align 2, 0
 _0807C158: .4byte gRoomControls
 _0807C15C: .4byte gMapDataTop
-_0807C160: .4byte gUnk_02019EE0
+_0807C160: .4byte gMapDataBottomSpecial
 _0807C164: .4byte gMapDataTopSpecial
 _0807C168: .4byte gArea
 _0807C16C: .4byte 0x0000085C
@@ -204,7 +204,7 @@ _0807C2A0:
 	mov r3, sb
 	cmp r3, #0
 	bne _0807C2E4
-	ldr r0, _0807C2DC @ =gUnk_02019EE0
+	ldr r0, _0807C2DC @ =gMapDataBottomSpecial
 	adds r1, r4, #0
 	bl sub_0801AB08
 	ldr r0, _0807C2E0 @ =gMapDataTopSpecial
@@ -216,10 +216,10 @@ _0807C2CC: .4byte gUnk_02027EB4
 _0807C2D0: .4byte gUnk_0200D654
 _0807C2D4: .4byte gMapBottom
 _0807C2D8: .4byte gMapTop
-_0807C2DC: .4byte gUnk_02019EE0
+_0807C2DC: .4byte gMapDataBottomSpecial
 _0807C2E0: .4byte gMapDataTopSpecial
 _0807C2E4:
-	ldr r4, _0807C34C @ =gUnk_02019EE0
+	ldr r4, _0807C34C @ =gMapDataBottomSpecial
 	movs r0, #0x80
 	lsls r0, r0, #7
 	adds r5, r4, r0
@@ -269,7 +269,7 @@ _0807C33A:
 	ldr r0, [r0]
 	mov pc, r0
 	.align 2, 0
-_0807C34C: .4byte gUnk_02019EE0
+_0807C34C: .4byte gMapDataBottomSpecial
 _0807C350: .4byte gMapDataTopSpecial
 _0807C354: .4byte _0807C358
 _0807C358: @ jump table

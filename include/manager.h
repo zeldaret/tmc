@@ -137,7 +137,7 @@ typedef struct {
     u16 unk_06;
 } DiggingCaveEntrance;
 
-extern struct {
+typedef struct {
     DiggingCaveEntrance* unk_00;
     u16 unk_04;
     u16 unk_06;
@@ -145,7 +145,8 @@ extern struct {
     u8 unk_09;
     u8 unk_0a;
     u8 unk_0b;
-} gUnk_03004030;
+} struct_03004030;
+extern struct_03004030 gUnk_03004030;
 
 extern DiggingCaveEntrance* diggingCaveEntrances[];
 

@@ -345,7 +345,7 @@ typedef struct {
     u8 unk_01;
     u8 unk_02[2];
 } struct_02019EE0;
-extern struct_02019EE0 gUnk_02019EE0[16];
+extern struct_02019EE0 gMapDataBottomSpecial[16];
 
 void KinstoneMenu_080A4054(void) {
     u32 uVar2;
@@ -353,8 +353,8 @@ void KinstoneMenu_080A4054(void) {
     KinstoneMenu_080A414C();
     KinstoneMenu_080A4080();
     for (uVar2 = 0; uVar2 < 0x10; uVar2++) {
-        if (gUnk_02019EE0[uVar2].unk_01 != 0) {
-            gUnk_02019EE0[uVar2].unk_01 -= 1;
+        if (gMapDataBottomSpecial[uVar2].unk_01 != 0) {
+            gMapDataBottomSpecial[uVar2].unk_01 -= 1;
         }
     }
 }
@@ -505,8 +505,8 @@ void sub_080A42E0(u32 param_1, u32 param_2) {
     iVar4 = sub_080A43A8(uVar1);
     if ((param_2 != 0) && (param_2 != 0xff)) {
         int index = iVar4 * 4;
-        if (param_2 != gUnk_02019EE0[iVar4].unk_02[0]) {
-            gUnk_02019EE0[iVar4].unk_02[0] = param_2;
+        if (param_2 != gMapDataBottomSpecial[iVar4].unk_02[0]) {
+            gMapDataBottomSpecial[iVar4].unk_02[0] = param_2;
             sub_0801C2F0(iVar4 * 2 + 0x2e0, param_2);
         }
         gOamCmd._8 = (s16)(iVar4 * 2) + 0x3ae0;
@@ -535,7 +535,7 @@ void sub_080A42E0(u32 param_1, u32 param_2) {
 }
 
 void sub_080A4398(void) {
-    MemClear(&gUnk_02019EE0, sizeof(gUnk_02019EE0));
+    MemClear(&gMapDataBottomSpecial, sizeof(gMapDataBottomSpecial));
 }
 
 u32 sub_080A43A8(u32 param_1) {
@@ -547,20 +547,20 @@ u32 sub_080A43A8(u32 param_1) {
         sub_080A4418(param_1, uVar1 * 0x10 + 0x300);
     }
     { int index = uVar1 * 4; }
-    gUnk_02019EE0[uVar1].unk_00[0] = param_1;
-    gUnk_02019EE0[uVar1].unk_01 = 2;
+    gMapDataBottomSpecial[uVar1].unk_00[0] = param_1;
+    gMapDataBottomSpecial[uVar1].unk_01 = 2;
     return uVar1;
 }
 
 u32 sub_080A43DC(u32 unk1) {
     u32 i;
     for (i = 0; i < 16; i++) {
-        if (unk1 == gUnk_02019EE0[i].unk_00[0]) {
+        if (unk1 == gMapDataBottomSpecial[i].unk_00[0]) {
             return i;
         }
     }
     for (i = 0; i < 16; i++) {
-        if (gUnk_02019EE0[i].unk_01 == 0) {
+        if (gMapDataBottomSpecial[i].unk_01 == 0) {
             return i + 0x10;
         }
     }

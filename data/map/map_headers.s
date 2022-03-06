@@ -544,108 +544,108 @@ gAreaRoomMaps_CrenelMinishPaths:: @ 08103D24
 
 gAreaRoomMap_MinishHouseInteriors_0:: @ 08103D34
 	map_bottom offset_gAreaRoomMap_TownMinishHoles_8_0, 0x2000, 1
-	map_unknown offset_gAreaRoomMap_MinishHouseInteriors_0_1, 0x96, 1
-	map_unknown_2 offset_gAreaRoomMap_MinishHouseInteriors_0_2, 0x800, 1, 1
+	collision_bottom offset_gAreaRoomMap_MinishHouseInteriors_0_1, 0x96, 1
+	map_bottom_special offset_gAreaRoomMap_MinishHouseInteriors_0_2, 0x800, 1, 1
 
 gAreaRoomMap_MinishHouseInteriors_1:: @ 08103D58
 	map_bottom offset_gAreaRoomMap_TownMinishHoles_8_0, 0x2000, 1
-	map_unknown offset_gAreaRoomMap_MinishHouseInteriors_1_1, 0x96, 1
-	map_unknown_2 offset_gAreaRoomMap_MinishHouseInteriors_1_2, 0x800, 1, 1
+	collision_bottom offset_gAreaRoomMap_MinishHouseInteriors_1_1, 0x96, 1
+	map_bottom_special offset_gAreaRoomMap_MinishHouseInteriors_1_2, 0x800, 1, 1
 
 gAreaRoomMap_MinishHouseInteriors_2:: @ 08103D7C
 	map_bottom offset_gAreaRoomMap_TownMinishHoles_8_0, 0x2000, 1
-	map_unknown offset_gAreaRoomMap_MinishHouseInteriors_2_1, 0x1D0, 1
-	map_unknown_2 offset_gAreaRoomMap_MinishHouseInteriors_2_2, 0x1000, 1, 1
+	collision_bottom offset_gAreaRoomMap_MinishHouseInteriors_2_1, 0x1D0, 1
+	map_bottom_special offset_gAreaRoomMap_MinishHouseInteriors_2_2, 0x1000, 1, 1
 
 gAreaRoomMap_MinishHouseInteriors_3:: @ 08103DA0
 	map_bottom offset_gAreaRoomMap_TownMinishHoles_8_0, 0x2000, 1
-	map_unknown offset_gAreaRoomMap_MinishHouseInteriors_3_1, 0xA0, 1
-	map_unknown_2 offset_gAreaRoomMap_MinishHouseInteriors_3_2, 0x800, 1, 1
+	collision_bottom offset_gAreaRoomMap_MinishHouseInteriors_3_1, 0xA0, 1
+	map_bottom_special offset_gAreaRoomMap_MinishHouseInteriors_3_2, 0x800, 1, 1
 
 gAreaRoomMap_MinishHouseInteriors_4:: @ 08103DC4
 	map_bottom offset_gAreaRoomMap_TownMinishHoles_8_0, 0x2000, 1
-	map_unknown offset_gAreaRoomMap_MinishHouseInteriors_4_1, 0xA0, 1
-	map_unknown_2 offset_gAreaRoomMap_MinishHouseInteriors_4_2, 0x800, 1, 1
+	collision_bottom offset_gAreaRoomMap_MinishHouseInteriors_4_1, 0xA0, 1
+	map_bottom_special offset_gAreaRoomMap_MinishHouseInteriors_4_2, 0x800, 1, 1
 
 gAreaRoomMap_MinishHouseInteriors_5:: @ 08103DE8
 	map_bottom offset_gAreaRoomMap_TownMinishHoles_8_0, 0x2000, 1
-	map_unknown offset_gAreaRoomMap_MinishHouseInteriors_5_1, 0xA0, 1
-	map_unknown_2 offset_gAreaRoomMap_MinishHouseInteriors_5_2, 0x800, 1, 1
+	collision_bottom offset_gAreaRoomMap_MinishHouseInteriors_5_1, 0xA0, 1
+	map_bottom_special offset_gAreaRoomMap_MinishHouseInteriors_5_2, 0x800, 1, 1
 
 gAreaRoomMap_MinishHouseInteriors_6:: @ 08103E0C
 	map_bottom offset_gAreaRoomMap_TownMinishHoles_8_0, 0x2000, 1
-	map_unknown offset_gAreaRoomMap_MinishHouseInteriors_6_1, 0xA0, 1
-	map_unknown_2 offset_gAreaRoomMap_MinishHouseInteriors_6_2, 0x800, 1, 1
+	collision_bottom offset_gAreaRoomMap_MinishHouseInteriors_6_1, 0xA0, 1
+	map_bottom_special offset_gAreaRoomMap_MinishHouseInteriors_6_2, 0x800, 1, 1
 
 gAreaRoomMap_MinishHouseInteriors_8:: @ 08103E30
 	map_bottom offset_gAreaRoomMap_TownMinishHoles_8_0, 0x2000, 1
-	map_unknown offset_gAreaRoomMap_MinishHouseInteriors_8_1, 0xE1, 1
-	map_unknown_2 offset_gAreaRoomMap_MinishHouseInteriors_8_2, 0x800, 1, 1
+	collision_bottom offset_gAreaRoomMap_MinishHouseInteriors_8_1, 0xE1, 1
+	map_bottom_special offset_gAreaRoomMap_MinishHouseInteriors_8_2, 0x800, 1, 1
 
 gAreaRoomMap_MinishHouseInteriors_7:: @ 08103E54
 	map_bottom offset_gAreaRoomMap_TownMinishHoles_8_0, 0x2000, 1
-	map_unknown offset_gAreaRoomMap_MinishHouseInteriors_7_1, 0x96, 1
-	map_unknown_2 offset_gAreaRoomMap_MinishHouseInteriors_7_2, 0x800, 1, 1
+	collision_bottom offset_gAreaRoomMap_MinishHouseInteriors_7_1, 0x96, 1
+	map_bottom_special offset_gAreaRoomMap_MinishHouseInteriors_7_2, 0x800, 1, 1
 
 gAreaRoomMap_MinishHouseInteriors_9:: @ 08103E78
 	map_bottom offset_gAreaRoomMap_TownMinishHoles_8_0, 0x2000, 1
-	map_unknown offset_gAreaRoomMap_MinishHouseInteriors_9_1, 0x159, 1
-	map_unknown_2 offset_gAreaRoomMap_MinishHouseInteriors_9_2, 0x1000, 1, 1
+	collision_bottom offset_gAreaRoomMap_MinishHouseInteriors_9_1, 0x159, 1
+	map_bottom_special offset_gAreaRoomMap_MinishHouseInteriors_9_2, 0x1000, 1, 1
 
 gAreaRoomMap_MinishHouseInteriors_10:: @ 08103E9C
 	map_bottom offset_gAreaRoomMap_TownMinishHoles_8_0, 0x2000, 1
-	map_unknown offset_gAreaRoomMap_MinishHouseInteriors_10_1, 0x96, 1
-	map_unknown_2 offset_gAreaRoomMap_MinishHouseInteriors_10_2, 0x800, 1, 1
+	collision_bottom offset_gAreaRoomMap_MinishHouseInteriors_10_1, 0x96, 1
+	map_bottom_special offset_gAreaRoomMap_MinishHouseInteriors_10_2, 0x800, 1, 1
 
 gAreaRoomMap_MinishHouseInteriors_11:: @ 08103EC0
 	map_bottom offset_gAreaRoomMap_TownMinishHoles_8_0, 0x2000, 1
-	map_unknown offset_gAreaRoomMap_MinishHouseInteriors_11_1, 0x96, 1
-	map_unknown_2 offset_gAreaRoomMap_MinishHouseInteriors_11_2, 0x800, 1, 1
+	collision_bottom offset_gAreaRoomMap_MinishHouseInteriors_11_1, 0x96, 1
+	map_bottom_special offset_gAreaRoomMap_MinishHouseInteriors_11_2, 0x800, 1, 1
 
 gAreaRoomMap_MinishHouseInteriors_12:: @ 08103EE4
 	map_bottom offset_gAreaRoomMap_TownMinishHoles_8_0, 0x2000, 1
-	map_unknown offset_gAreaRoomMap_MinishHouseInteriors_12_1, 0xDC, 1
-	map_unknown_2 offset_gAreaRoomMap_MinishHouseInteriors_12_2, 0x1000, 1, 1
+	collision_bottom offset_gAreaRoomMap_MinishHouseInteriors_12_1, 0xDC, 1
+	map_bottom_special offset_gAreaRoomMap_MinishHouseInteriors_12_2, 0x1000, 1, 1
 
 gAreaRoomMap_MinishHouseInteriors_13:: @ 08103F08
 	map_bottom offset_gAreaRoomMap_TownMinishHoles_8_0, 0x2000, 1
-	map_unknown offset_gAreaRoomMap_MinishHouseInteriors_13_1, 0x96, 1
-	map_unknown_2 offset_gAreaRoomMap_MinishHouseInteriors_13_2, 0x800, 1, 1
+	collision_bottom offset_gAreaRoomMap_MinishHouseInteriors_13_1, 0x96, 1
+	map_bottom_special offset_gAreaRoomMap_MinishHouseInteriors_13_2, 0x800, 1, 1
 
 gAreaRoomMap_MinishHouseInteriors_14:: @ 08103F2C
 	map_bottom offset_gAreaRoomMap_TownMinishHoles_8_0, 0x2000, 1
-	map_unknown offset_gAreaRoomMap_MinishHouseInteriors_14_1, 0x96, 1
-	map_unknown_2 offset_gAreaRoomMap_MinishHouseInteriors_14_2, 0x800, 1, 1
+	collision_bottom offset_gAreaRoomMap_MinishHouseInteriors_14_1, 0x96, 1
+	map_bottom_special offset_gAreaRoomMap_MinishHouseInteriors_14_2, 0x800, 1, 1
 
 gAreaRoomMap_MinishHouseInteriors_15:: @ 08103F50
 	map_bottom offset_gAreaRoomMap_TownMinishHoles_8_0, 0x2000, 1
-	map_unknown offset_gAreaRoomMap_MinishHouseInteriors_15_1, 0x96, 1
-	map_unknown_2 offset_gAreaRoomMap_MinishHouseInteriors_15_2, 0x800, 1, 1
+	collision_bottom offset_gAreaRoomMap_MinishHouseInteriors_15_1, 0x96, 1
+	map_bottom_special offset_gAreaRoomMap_MinishHouseInteriors_15_2, 0x800, 1, 1
 
 gAreaRoomMap_MinishHouseInteriors_16:: @ 08103F74
 	map_bottom offset_gAreaRoomMap_TownMinishHoles_8_0, 0x2000, 1
-	map_unknown offset_gAreaRoomMap_MinishHouseInteriors_16_1, 0x96, 1
-	map_unknown_2 offset_gAreaRoomMap_MinishHouseInteriors_16_2, 0x800, 1, 1
+	collision_bottom offset_gAreaRoomMap_MinishHouseInteriors_16_1, 0x96, 1
+	map_bottom_special offset_gAreaRoomMap_MinishHouseInteriors_16_2, 0x800, 1, 1
 
 gAreaRoomMap_MinishHouseInteriors_17:: @ 08103F98
 	map_bottom offset_gAreaRoomMap_TownMinishHoles_8_0, 0x2000, 1
-	map_unknown offset_gAreaRoomMap_MinishHouseInteriors_17_1, 0x96, 1
-	map_unknown_2 offset_gAreaRoomMap_MinishHouseInteriors_17_2, 0x800, 1, 1
+	collision_bottom offset_gAreaRoomMap_MinishHouseInteriors_17_1, 0x96, 1
+	map_bottom_special offset_gAreaRoomMap_MinishHouseInteriors_17_2, 0x800, 1, 1
 
 gAreaRoomMap_MinishHouseInteriors_18:: @ 08103FBC
 	map_bottom offset_gAreaRoomMap_TownMinishHoles_8_0, 0x2000, 1
-	map_unknown offset_gAreaRoomMap_MinishHouseInteriors_18_1, 0x96, 1
-	map_unknown_2 offset_gAreaRoomMap_MinishHouseInteriors_18_2, 0x800, 1, 1
+	collision_bottom offset_gAreaRoomMap_MinishHouseInteriors_18_1, 0x96, 1
+	map_bottom_special offset_gAreaRoomMap_MinishHouseInteriors_18_2, 0x800, 1, 1
 
 gAreaRoomMap_MinishHouseInteriors_19:: @ 08103FE0
 	map_bottom offset_gAreaRoomMap_TownMinishHoles_8_0, 0x2000, 1
-	map_unknown offset_gAreaRoomMap_MinishHouseInteriors_19_1, 0x96, 1
-	map_unknown_2 offset_gAreaRoomMap_MinishHouseInteriors_19_2, 0x800, 1, 1
+	collision_bottom offset_gAreaRoomMap_MinishHouseInteriors_19_1, 0x96, 1
+	map_bottom_special offset_gAreaRoomMap_MinishHouseInteriors_19_2, 0x800, 1, 1
 
 gAreaRoomMap_MinishHouseInteriors_20:: @ 08104004
 	map_bottom offset_gAreaRoomMap_TownMinishHoles_8_0, 0x2000, 1
-	map_unknown offset_gAreaRoomMap_MinishHouseInteriors_20_1, 0x96, 1
-	map_unknown_2 offset_gAreaRoomMap_MinishHouseInteriors_20_2, 0x800, 1, 1
+	collision_bottom offset_gAreaRoomMap_MinishHouseInteriors_20_1, 0x96, 1
+	map_bottom_special offset_gAreaRoomMap_MinishHouseInteriors_20_2, 0x800, 1, 1
 
 gAreaRoomMaps_MinishHouseInteriors:: @ 08104028
 	.4byte gAreaRoomMap_MinishHouseInteriors_0
@@ -691,48 +691,48 @@ gAreaRoomMaps_MinishHouseInteriors:: @ 08104028
 
 gAreaRoomMap_TownMinishHoles_0:: @ 081040C8
 	map_bottom offset_gAreaRoomMap_TownMinishHoles_8_0, 0x2000, 1
-	map_unknown offset_gAreaRoomMap_TownMinishHoles_0_1, 0x96, 1
-	map_unknown_2 offset_gAreaRoomMap_TownMinishHoles_0_2, 0x800, 1, 1
+	collision_bottom offset_gAreaRoomMap_TownMinishHoles_0_1, 0x96, 1
+	map_bottom_special offset_gAreaRoomMap_TownMinishHoles_0_2, 0x800, 1, 1
 
 gAreaRoomMap_TownMinishHoles_1:: @ 081040EC
 	map_bottom offset_gAreaRoomMap_TownMinishHoles_8_0, 0x2000, 1
-	map_unknown offset_gAreaRoomMap_TownMinishHoles_1_1, 0x96, 1
-	map_unknown_2 offset_gAreaRoomMap_TownMinishHoles_1_2, 0x800, 1, 1
+	collision_bottom offset_gAreaRoomMap_TownMinishHoles_1_1, 0x96, 1
+	map_bottom_special offset_gAreaRoomMap_TownMinishHoles_1_2, 0x800, 1, 1
 
 gAreaRoomMap_TownMinishHoles_2:: @ 08104110
 	map_bottom offset_gAreaRoomMap_TownMinishHoles_8_0, 0x2000, 1
-	map_unknown offset_gAreaRoomMap_TownMinishHoles_2_1, 0x96, 1
-	map_unknown_2 offset_gAreaRoomMap_TownMinishHoles_2_2, 0x800, 1, 1
+	collision_bottom offset_gAreaRoomMap_TownMinishHoles_2_1, 0x96, 1
+	map_bottom_special offset_gAreaRoomMap_TownMinishHoles_2_2, 0x800, 1, 1
 
 gAreaRoomMap_TownMinishHoles_3:: @ 08104134
 	map_bottom offset_gAreaRoomMap_TownMinishHoles_8_0, 0x2000, 1
-	map_unknown offset_gAreaRoomMap_TownMinishHoles_3_1, 0x96, 1
-	map_unknown_2 offset_gAreaRoomMap_TownMinishHoles_3_2, 0x800, 1, 1
+	collision_bottom offset_gAreaRoomMap_TownMinishHoles_3_1, 0x96, 1
+	map_bottom_special offset_gAreaRoomMap_TownMinishHoles_3_2, 0x800, 1, 1
 
 gAreaRoomMap_TownMinishHoles_4:: @ 08104158
 	map_bottom offset_gAreaRoomMap_TownMinishHoles_8_0, 0x2000, 1
-	map_unknown offset_gAreaRoomMap_TownMinishHoles_4_1, 0x96, 1
-	map_unknown_2 offset_gAreaRoomMap_TownMinishHoles_4_2, 0x800, 1, 1
+	collision_bottom offset_gAreaRoomMap_TownMinishHoles_4_1, 0x96, 1
+	map_bottom_special offset_gAreaRoomMap_TownMinishHoles_4_2, 0x800, 1, 1
 
 gAreaRoomMap_TownMinishHoles_5:: @ 0810417C
 	map_bottom offset_gAreaRoomMap_TownMinishHoles_8_0, 0x2000, 1
-	map_unknown offset_gAreaRoomMap_TownMinishHoles_5_1, 0x96, 1
-	map_unknown_2 offset_gAreaRoomMap_TownMinishHoles_5_2, 0x800, 1, 1
+	collision_bottom offset_gAreaRoomMap_TownMinishHoles_5_1, 0x96, 1
+	map_bottom_special offset_gAreaRoomMap_TownMinishHoles_5_2, 0x800, 1, 1
 
 gAreaRoomMap_TownMinishHoles_6:: @ 081041A0
 	map_bottom offset_gAreaRoomMap_TownMinishHoles_8_0, 0x2000, 1
-	map_unknown offset_gAreaRoomMap_TownMinishHoles_6_1, 0x24C, 1
-	map_unknown_2 offset_gAreaRoomMap_TownMinishHoles_6_2, 0x2000, 1, 1
+	collision_bottom offset_gAreaRoomMap_TownMinishHoles_6_1, 0x24C, 1
+	map_bottom_special offset_gAreaRoomMap_TownMinishHoles_6_2, 0x2000, 1, 1
 
 gAreaRoomMap_TownMinishHoles_7:: @ 081041C4
 	map_bottom offset_gAreaRoomMap_TownMinishHoles_8_0, 0x2000, 1
-	map_unknown offset_gAreaRoomMap_TownMinishHoles_7_1, 0xE1, 1
-	map_unknown_2 offset_gAreaRoomMap_TownMinishHoles_7_2, 0x800, 1, 1
+	collision_bottom offset_gAreaRoomMap_TownMinishHoles_7_1, 0xE1, 1
+	map_bottom_special offset_gAreaRoomMap_TownMinishHoles_7_2, 0x800, 1, 1
 
 gAreaRoomMap_TownMinishHoles_8:: @ 081041E8
 	map_bottom offset_gAreaRoomMap_TownMinishHoles_8_0, 0x2000, 1
-	map_unknown offset_gAreaRoomMap_TownMinishHoles_8_1, 0x190, 1
-	map_unknown_2 offset_gAreaRoomMap_TownMinishHoles_8_2, 0x2000, 1, 1
+	collision_bottom offset_gAreaRoomMap_TownMinishHoles_8_1, 0x190, 1
+	map_bottom_special offset_gAreaRoomMap_TownMinishHoles_8_2, 0x2000, 1, 1
 
 gAreaRoomMaps_TownMinishHoles:: @ 0810420C
 	.4byte gAreaRoomMap_TownMinishHoles_0

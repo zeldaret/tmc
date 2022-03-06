@@ -2689,7 +2689,7 @@ static void sub_0807332C(Entity* this) {
         gRoomControls.camera_target = this;
         SetPlayerActionNormal();
     } else {
-        gMain.substate = 3;
+        gMain.substate = GAMEMAIN_CHANGEAREA;
         *(&gMain.pauseInterval + 1) = 1;
         SetFade(5, 8);
     }

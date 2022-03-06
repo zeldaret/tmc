@@ -10,7 +10,7 @@
 	ldrb r0, [r0, #7]
 	cmp r0, #0
 	beq _08054954
-	ldr r0, _08054950 @ =gUnk_02032EC0
+	ldr r0, _08054950 @ =gUI
 	ldrb r1, [r0, #3]
 	movs r0, #0xa
 	bl MenuFadeIn
@@ -18,9 +18,9 @@
 	.align 2, 0
 _08054948: .4byte gUnk_080C9CBC
 _0805494C: .4byte gFuseInfo
-_08054950: .4byte gUnk_02032EC0
+_08054950: .4byte gUI
 _08054954:
-	ldr r1, _08054964 @ =gUnk_02032EC0
+	ldr r1, _08054964 @ =gUI
 	movs r0, #3
 	strb r0, [r1]
 	movs r0, #7
@@ -29,5 +29,5 @@ _08054954:
 _08054962:
 	pop {pc}
 	.align 2, 0
-_08054964: .4byte gUnk_02032EC0
+_08054964: .4byte gUI
 	.syntax divided

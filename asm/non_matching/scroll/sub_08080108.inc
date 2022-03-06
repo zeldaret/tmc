@@ -37,7 +37,7 @@
 	bl sub_0807BBE4
 	bl sub_0807BC84
 	bl sub_0805E248
-	ldr r0, _08080190 @ =gUnk_02019EE0
+	ldr r0, _08080190 @ =gMapDataBottomSpecial
 	adds r1, r5, #0
 	bl sub_0801AB08
 	ldr r0, _08080194 @ =gMapDataTopSpecial
@@ -51,6 +51,6 @@ _08080180: .4byte gUnk_02034480
 _08080184: .4byte gUnk_0200B640
 _08080188: .4byte gUnk_02022830
 _0808018C: .4byte gUnk_020246B0
-_08080190: .4byte gUnk_02019EE0
+_08080190: .4byte gMapDataBottomSpecial
 _08080194: .4byte gMapDataTopSpecial
 	.syntax divided
