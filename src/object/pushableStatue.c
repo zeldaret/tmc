@@ -175,8 +175,8 @@ void sub_08089454(PushableStatueEntity* this) {
 void sub_080894C8(PushableStatueEntity* this) {
     u32 index;
     for (index = 0; index < 8; index++) {
-        if (gRoomVars.field_0xac[index] == NULL) {
-            gRoomVars.field_0xac[index] = this;
+        if (gRoomVars.entities[index] == NULL) {
+            gRoomVars.entities[index] = super;
             break;
         }
     }
@@ -185,8 +185,8 @@ void sub_080894C8(PushableStatueEntity* this) {
 void sub_080894FC(PushableStatueEntity* this) {
     u32 index;
     for (index = 0; index <= 7; index++) {
-        if (this == (PushableStatueEntity*)gRoomVars.field_0xac[index]) {
-            gRoomVars.field_0xac[index] = NULL;
+        if (super == gRoomVars.entities[index]) {
+            gRoomVars.entities[index] = NULL;
             break;
         }
     }
