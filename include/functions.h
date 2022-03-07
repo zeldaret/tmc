@@ -41,7 +41,7 @@ extern bool32 HasSwordEquipped();
 extern bool32 IsColliding(Entity*, Entity*);
 extern bool32 IsCollidingPlayer(Entity*);
 extern bool32 IsProjectileOffScreen(Entity*);
-extern bool32 IsTileCollision(u8*, s32, s32, u32);
+extern bool32 IsTileCollision(const u8*, s32, s32, u32);
 extern void LinearMoveAngle(Entity*, u32, u32);
 extern void LinearMoveDirection(Entity*, u32, u32);
 extern bool32 LoadFixedGFX(Entity*, u32);

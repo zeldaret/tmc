@@ -45065,16 +45065,6 @@
     "type": "animation"
   },
   {
-    "path": "fan/gUnk_081243E4.bin",
-    "start": 1197028,
-    "size": 8
-  },
-  {
-    "path": "fan/gUnk_081243EC.bin",
-    "start": 1197036,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_AngryStatue_1.bin",
     "start": 1197708,
     "size": 4,
