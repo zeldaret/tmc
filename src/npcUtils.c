@@ -107,7 +107,7 @@ u32 sub_0806ED78(Entity* ent) {
     return result;
 }
 
-s32 sub_0806ED9C(Entity* ent, u32 x, u32 y) {
+s32 GetAnimationStateInRectRadius(Entity* ent, u32 x, u32 y) {
     s32 anim = -1;
     if (EntityInRectRadius(ent, &gPlayerEntity, x, y))
         anim = GetAnimationState(ent);
@@ -119,11 +119,11 @@ u32 GetAnimationState(Entity* ent) {
     return sub_0806F5A4(direction);
 }
 
-s32 sub_0806EDD8(Entity* ent, u32 x, u32 y) {
-    s32 anim = -1;
+s32 GetFacingDirectionInRectRadius(Entity* ent, u32 x, u32 y) {
+    s32 dir = -1;
     if (EntityInRectRadius(ent, &gPlayerEntity, x, y))
-        anim = GetFacingDirection(ent, &gPlayerEntity);
-    return anim;
+        dir = GetFacingDirection(ent, &gPlayerEntity);
+    return dir;
 }
 
 void sub_0806EE04(Entity* ent, void* a2, u32 a3) {

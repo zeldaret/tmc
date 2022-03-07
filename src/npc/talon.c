@@ -35,7 +35,7 @@ void sub_0806559C(Entity* this) {
     this->actionDelay++;
     if (this->actionDelay >= 9) {
         this->actionDelay = 0;
-        result = sub_0806ED9C(this, 0x20, 0x20);
+        result = GetAnimationStateInRectRadius(this, 0x20, 0x20);
         if (result < 0) {
             offset = this->animationState + 4;
         } else {

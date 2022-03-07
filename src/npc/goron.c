@@ -29,7 +29,7 @@ void sub_08069328(Entity* this) {
         int action;
 
         this->field_0xf = 0;
-        action = sub_0806ED9C(this, 40, 40);
+        action = GetAnimationStateInRectRadius(this, 40, 40);
         if (action >= 0) {
             this->animationState = action;
         }

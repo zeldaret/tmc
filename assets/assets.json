@@ -44047,21 +44047,6 @@
     "type": "animation"
   },
   {
-    "path": "houseDoorInterior/gUnk_081227B4.bin",
-    "start": 1189812,
-    "size": 12
-  },
-  {
-    "path": "houseDoorInterior/gUnk_081227CC.bin",
-    "start": 1189836,
-    "size": 32
-  },
-  {
-    "path": "houseDoorInterior/gUnk_081227EC.bin",
-    "start": 1189868,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_Whirlwind_0.bin",
     "start": 1189888,
     "size": 25,

@@ -62,7 +62,7 @@ void sub_0806045C(Entity* this) {
                 this->animationState = bVar1;
                 InitAnimationForceUpdate(this, 4 + bVar1);
             }
-            temp = sub_0806ED9C(this, 0x18, 0x18);
+            temp = GetAnimationStateInRectRadius(this, 0x18, 0x18);
             if ((temp > -1) && (temp == this->animationState)) {
                 bVar3 = 1;
             } else {

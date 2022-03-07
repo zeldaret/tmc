@@ -104,7 +104,7 @@ void sub_08060158(Entity* this) {
         this->actionDelay--;
     } else {
         this->actionDelay = 2;
-        index = sub_0806EDD8(this, 0x20, 0x20);
+        index = GetFacingDirectionInRectRadius(this, 0x20, 0x20);
         if (index < 0) {
             int state = this->field_0x68.HALF.HI;
             this->animationState = state;

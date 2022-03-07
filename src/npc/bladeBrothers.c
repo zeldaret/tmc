@@ -70,7 +70,7 @@ void sub_08068A4C(Entity* this) {
     s32 uVar1;
     s32 iVar2;
 
-    uVar1 = sub_0806ED9C(this, 0x28, 0x28);
+    uVar1 = GetAnimationStateInRectRadius(this, 0x28, 0x28);
     if (uVar1 < 0) {
         uVar1 = 2;
     } else {

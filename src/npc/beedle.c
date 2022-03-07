@@ -78,7 +78,7 @@ void sub_08063390(Entity* this) {
 s32 sub_080633C8(Entity* this) {
     s32 uVar1;
 
-    uVar1 = sub_0806ED9C(this, 0x20, 0x20);
+    uVar1 = GetAnimationStateInRectRadius(this, 0x20, 0x20);
     if (uVar1 < 0) {
         uVar1 = this->animIndex;
     }

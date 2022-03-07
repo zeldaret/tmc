@@ -44,7 +44,7 @@ void sub_080697C4(Entity* this) {
 void sub_080697EC(Entity* this) {
     s32 tmp;
 
-    tmp = sub_0806ED9C(this, 0x20, 0x20);
+    tmp = GetAnimationStateInRectRadius(this, 0x20, 0x20);
     if (tmp >= 0) {
         if (this->field_0xf == 0) {
             this->field_0xf = 0x10;

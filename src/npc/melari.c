@@ -30,7 +30,7 @@ void sub_08068708(Entity* this) {
 void sub_08068730(Entity* this) {
     s32 animIndex;
 
-    animIndex = sub_0806ED9C(this, 0x20, 0x20);
+    animIndex = GetAnimationStateInRectRadius(this, 0x20, 0x20);
     if (-1 < animIndex) {
         if (this->field_0xf == 0) {
             this->field_0xf = 0x10;
@@ -123,7 +123,7 @@ void sub_08068910(Entity* this) {
     } else {
         this->actionDelay = 0x10;
         if ((this->frame & 0x20) != 0) {
-            iVar1 = sub_0806EDD8(this, 0x30, 0x30);
+            iVar1 = GetFacingDirectionInRectRadius(this, 0x30, 0x30);
             if (iVar1 < 0) {
                 iVar1 = 0x10;
             } else {

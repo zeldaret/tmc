@@ -45,7 +45,7 @@ void sub_08061BC8(Entity* this) {
 void sub_08061C00(Entity* this) {
     s32 uVar1;
 
-    uVar1 = sub_0806ED9C(this, 0x20, 0x20);
+    uVar1 = GetAnimationStateInRectRadius(this, 0x20, 0x20);
     if (uVar1 < 0) {
         uVar1 = this->animationState + 4;
     } else {

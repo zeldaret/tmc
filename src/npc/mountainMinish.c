@@ -65,7 +65,7 @@ void sub_08067E60(Entity* this) {
 void sub_08067E88(Entity* this) {
     s32 tmp;
 
-    tmp = sub_0806ED9C(this, 0x28, 0x28);
+    tmp = GetAnimationStateInRectRadius(this, 0x28, 0x28);
     if (tmp < 0) {
         tmp = 2;
     } else {
@@ -195,7 +195,7 @@ void sub_0806811C(Entity* this) {
         this->actionDelay--;
     } else {
         this->actionDelay = 2;
-        iVar4 = sub_0806EDD8(this, 0x20, 0x20);
+        iVar4 = GetFacingDirectionInRectRadius(this, 0x20, 0x20);
         if (iVar4 < 0) {
             type = this->type;
             this->animationState = type;
