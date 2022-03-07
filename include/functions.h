@@ -101,7 +101,7 @@ extern void sub_08008796(Entity*, u32, u32, u32);
 extern void sub_08016AD2(Entity*);
 extern void sub_080171F0(void);
 extern u32 sub_0801766C(Entity*);
-extern void sub_0801AF18(u8*, u32, u32);
+extern void sub_0801AF18(const u8*, u32, u32);
 extern void sub_0801AFE4(void);
 extern void sub_0801C1D4(void);
 extern void sub_0801C25C(void);
