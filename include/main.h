@@ -2,6 +2,7 @@
 #define MAIN_H
 
 #include "global.h"
+#include "room.h" // just to get the type of screenTransitionData
 
 /** File signature */
 #define SIGNATURE 'MCZ3'
@@ -78,7 +79,9 @@ typedef struct {
     /*0x07*/ u8 pauseFadeIn;
     /*0x08*/ u16 isLoading;
     /*0x0A*/ u16 fadeInTime;
-    /*0x0C*/ u8 fillerC[0x3A8];
+    /*0x0C*/ u8 fillerC[0x10];
+    /*0x1c*/ RoomControls unk_1c;
+    /*0x2e*/ u8 unk_2e[0x364];
 } UI;
 static_assert(sizeof(UI) == 0x3b4);
 

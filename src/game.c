@@ -98,7 +98,7 @@ extern void DeleteSleepingEntities(void);
 extern u32 UpdateLightLevel(void);
 extern void sub_080185F8(void);
 extern void UpdateDoorTransition(void);
-extern u32 IsEnterPortal(void);
+extern bool32 IsEnterPortal(void);
 extern void UpdateCarriedObject(void);
 extern void DrawUI(void);
 extern u32 CheckPlayerInactive(void);
