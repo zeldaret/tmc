@@ -12,6 +12,10 @@ u32 LoadObjectSprite(Entity* this, s32 type, const ObjectDefinition* definition)
 extern const ObjectDefinition gObjectDefinitions[];
 extern Entity* sub_0805E744(void);
 
+Entity* CreateWaterTrace(Entity*);
+
+Entity* CreateSpeechBubble(Entity*, u32, s32, s32);
+
 Entity* sub_080A276C(Entity* parent, u32 type, u32 type2) {
     Entity* e = sub_0805E744();
     if (e != NULL) {
@@ -206,11 +210,145 @@ void CreateRandomWaterTrace(Entity* parent, int range) {
 }
 
 Entity* CreateLargeWaterTrace(Entity* parent) {
-    Entity* ent;
-
-    ent = CreateFx(parent, FX_RIPPLE_LARGE, 0);
+    Entity* ent = CreateFx(parent, FX_RIPPLE_LARGE, 0);
     if (ent != NULL) {
         ent->spritePriority.b0 = 7;
     }
     return ent;
+}
+
+NONMATCH("asm/non_matching/objectUtils/sub_080A2AF4.inc", void sub_080A2AF4(Entity* parent, s32 param_2, s32 param_3)) {
+    Entity* entity;
+    s32 rand;
+    s32 radius;
+    u32 angle;
+    s32 tmp;
+
+    entity = CreateLargeWaterTrace(parent);
+    if (entity != NULL) {
+        rand = Random();
+        radius = (rand % (param_3 - param_2 + 1)) + param_2;
+        angle = rand >> 0x10 & 0xff;
+        radius *= 0x100;
+        tmp = FixedMul(gSineTable[angle], radius);
+        tmp = FixedDiv(tmp, 0x100);
+        entity->x.WORD += ((tmp << 0x10) >> 8);
+        tmp = FixedMul(gSineTable[angle + 0x40], radius);
+        tmp = FixedDiv(tmp, 0x100);
+        entity->y.WORD -= ((tmp << 0x10) >> 8);
+    }
+}
+END_NONMATCH
+
+void CreateSparkle(Entity* entity) {
+    Entity* sparkle;
+    u32 rand;
+    s32 y;
+    s32 x;
+
+    sparkle = CreateObject(SPECIAL_FX, 0x26, 0);
+    if (sparkle != NULL) {
+        rand = Random();
+        x = rand & 0xf;
+        if ((rand & 0x80) != 0) {
+            x = -x;
+        }
+        y = rand >> 8 & 0xf;
+        if (4 < y) {
+            y = -y;
+        }
+        PositionRelative(entity, sparkle, x << 0x10, y << 0x10);
+        SortEntityAbove(entity, sparkle);
+        sparkle->spriteOffsetX = entity->spriteOffsetX;
+        sparkle->spriteOffsetY = entity->spriteOffsetY;
+    }
+}
+
+NONMATCH("asm/non_matching/objectUtils/sub_080A2BE4.inc", void sub_080A2BE4(Entity* this, u32 param_2)) {
+    s16 oldValue;
+    s32 diff;
+    u16 newValue;
+
+    if ((this->direction & 0x80) == 0) {
+        switch (this->direction >> 3) {
+            case 0:
+                oldValue = this->y.HALF_U.HI;
+                LinearMoveUpdate(this);
+                newValue = this->y.HALF_U.HI;
+                diff = ((oldValue - newValue) << 0x10) >> 0x10;
+                if ((diff != 0) && (param_2 != 0)) {
+                    sub_080044AE(&gPlayerEntity, diff << 8, 0);
+                }
+                break;
+            case 1:
+                oldValue = this->x.HALF_U.HI;
+                LinearMoveUpdate(this);
+                diff = ((this->x.HALF_U.HI - oldValue) * 0x10000) >> 0x10;
+                if ((diff != 0) && (param_2 != 0)) {
+                    sub_080044AE(&gPlayerEntity, diff << 8, 8);
+                }
+                break;
+            case 2:
+                oldValue = this->y.HALF_U.HI;
+                LinearMoveUpdate(this);
+                diff = ((this->y.HALF_U.HI - oldValue) * 0x10000) >> 0x10;
+                if ((diff != 0) && (param_2 != 0)) {
+                    sub_080044AE(&gPlayerEntity, diff << 8, 0x10);
+                }
+                break;
+            case 3:
+                oldValue = this->x.HALF_U.HI;
+                LinearMoveUpdate(this);
+                newValue = this->x.HALF_U.HI;
+                diff = ((oldValue - newValue) << 0x10) >> 0x10;
+                if ((diff != 0) && (param_2 != 0)) {
+                    sub_080044AE(&gPlayerEntity, diff << 8, 0x18);
+                }
+                break;
+        }
+    }
+}
+END_NONMATCH
+
+void sub_080A2CC0(Entity* this, u16** param_2, u16* param_3) {
+    u16* ptr = *param_2;
+    if (ptr != NULL) {
+        if (*ptr == 0xfe) {
+            ptr = ptr + (u32)ptr[1] * -3;
+        }
+        if (*ptr == 0xff) {
+            this->direction = 0xff;
+            this->speed = 0;
+        } else {
+            this->direction = (u8)*ptr;
+            this->speed = ptr[2];
+        }
+        *param_3 = ptr[1];
+        *param_2 = ptr + 3;
+    }
+}
+
+Entity* CreateSpeechBubbleExclamationMark(Entity* parent, s32 offsetX, s32 offsetY) {
+    return CreateSpeechBubble(parent, 0, offsetX, offsetY);
+}
+
+Entity* CreateSpeechBubbleQuestionMark(Entity* parent, s32 offsetX, s32 offsetY) {
+    return CreateSpeechBubble(parent, 1, offsetX, offsetY);
+}
+
+Entity* CreateSpeechBubbleSleep(Entity* parent, s32 offsetX, s32 offsetY) {
+    return CreateSpeechBubble(parent, 2, offsetX, offsetY);
+}
+
+Entity* CreateSpeechBubble(Entity* parent, u32 type2, s32 xOffset, s32 yOffset) {
+    Entity* obj = CreateObject(THOUGHT_BUBBLE, 0, type2);
+    if (obj != NULL) {
+        CopyPosition(parent, obj);
+        SortEntityAbove(parent, obj);
+        obj->parent = parent;
+        obj->spriteOffsetX = xOffset;
+        obj->spriteOffsetY = yOffset;
+        SetDefaultPriority(obj, parent->updatePriority);
+    }
+    return obj;
 }

@@ -821,7 +821,6 @@ SECTIONS {
         src/object/objectC1.o(.text);
         /* END objects */
         src/objectUtils.o(.text);
-        asm/objectUtils.o(.text);
         src/playerItem/playerItemShield.o(.text);
         src/playerItem/playerItem15.o(.text);
 #ifdef DEMO_USA
