@@ -813,7 +813,7 @@ SECTIONS {
         asm/object/objectB9.o(.text);
         src/object/gyorgBossObject.o(.text);
         src/object/windcrest.o(.text);
-        asm/object/litArea.o(.text);
+        src/object/litArea.o(.text);
         asm/object/objectBD.o(.text);
         src/object/pinwheel.o(.text);
         src/object/objectBF.o(.text);
