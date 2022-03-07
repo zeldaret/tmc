@@ -414,18 +414,18 @@ void sub_0806AA50(Entity* this, ScriptExecutionContext* context) {
             MessageNoOverlap(messageIndex, this);
             switch (context->intVariable) {
                 case 0:
-                    gRoomVars.field_0xac[0] = this;
+                    gRoomVars.entities[0] = this;
                     PrependEntityToList(this, NPC);
                     this->zVelocity = 0x18000;
                     break;
                 case 1:
-                    pEnt = FindNextDuplicateID(gRoomVars.field_0xac[0], NPC);
-                    gRoomVars.field_0xac[1] = pEnt;
+                    pEnt = FindNextDuplicateID(gRoomVars.entities[0], NPC);
+                    gRoomVars.entities[1] = pEnt;
                     pEnt->zVelocity = 0x18000;
                     break;
                 case 2:
-                    pEnt = FindNextDuplicateID(gRoomVars.field_0xac[1], NPC);
-                    gRoomVars.field_0xac[2] = pEnt;
+                    pEnt = FindNextDuplicateID(gRoomVars.entities[1], NPC);
+                    gRoomVars.entities[2] = pEnt;
                     pEnt->zVelocity = 0x18000;
                     break;
             }
@@ -436,7 +436,7 @@ void sub_0806AA50(Entity* this, ScriptExecutionContext* context) {
             context->unk_18 = 1;
             break;
         case 1:
-            pEnt = ((Entity*)gRoomVars.field_0xac[context->intVariable]);
+            pEnt = gRoomVars.entities[context->intVariable];
             if (pEnt->z.HALF.HI < 0) {
                 break;
             }

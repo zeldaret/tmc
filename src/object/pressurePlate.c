@@ -102,7 +102,7 @@ static u32 sub_08088938(PressurePlateEntity* this) {
     x = super->x.HALF.HI - 8;
     y = super->y.HALF.HI - 8;
     for (i = 0; i < 8; ++i) {
-        Entity* e = gRoomVars.field_0xac[i];
+        Entity* e = gRoomVars.entities[i];
         if (e != NULL) {
             if ((u16)(e->x.HALF.HI - x) < 0x11 && ((u16)(e->y.HALF_U.HI - y) < 0x11)) {
                 e->spriteOffsetY = sSpriteOffsets[this->dir];
