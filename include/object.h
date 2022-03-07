@@ -175,7 +175,7 @@ typedef enum {
     OBJECT_8E,
     FROZEN_WATER_ELEMENT,
     OBJECT_90,
-    OBJECT_91,
+    FROZEN_OCTOROK,
     BAKER_OVEN,
     LAMP,
     WIND_TRIBE_FLAG,
@@ -371,7 +371,7 @@ void Fireplace(Entity*);
 void Object8E();
 void FrozenWaterElement();
 void Object90(Entity*);
-void Object91(Entity*);
+void FrozenOctorok();
 void BakerOven(Entity*);
 void Lamp(Entity*);
 void WindTribeFlag(Entity*);

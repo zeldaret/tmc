@@ -335,7 +335,7 @@ void OctorokBoss_Intro_SubAction0(OctorokBossEntity* this) {
     if (this->timer-- == 0) {
         super->subAction = 1;
         this->angularSpeed.HWORD = 0x100;
-        this->heap->field_0x0 = 2;
+        this->heap->unk_0 = 2;
     }
 }
 
@@ -344,7 +344,7 @@ void OctorokBoss_Intro_SubAction1(OctorokBossEntity* this) {
     if (this->angle.HALF.HI == 0x80) {
         this->timer = 0x3c;
         super->subAction = 2;
-        this->heap->field_0x0 = 0;
+        this->heap->unk_0 = 0;
         // Octorok scream
         SoundReq(SFX_159);
     } else {
@@ -457,9 +457,9 @@ void OctorokBoss_Action1(OctorokBossEntity* this) {
             if (((this->heap->field_0x2 != 0) || (super->parent->action == INTRO)) ||
                 (1 < (u8)(super->parent->subAction - 3))) {
                 if ((s8)super->field_0xf < 0) {
-                    super->field_0xf = -this->heap->field_0x0;
+                    super->field_0xf = -this->heap->unk_0;
                 } else {
-                    super->field_0xf = this->heap->field_0x0;
+                    super->field_0xf = this->heap->unk_0;
                 }
                 sub_08036998(this);
             }
@@ -915,7 +915,7 @@ void OctorokBoss_Burning_SubAction0(OctorokBossEntity* this) {
     super->direction = (u8)(-this->angle.HALF.HI ^ 0x80U) >> 3;
     this->timer = 0x78;
     this->angularSpeed.HWORD = 0x180;
-    this->heap->field_0x0 = 4;
+    this->heap->unk_0 = 4;
     sub_080368D8(this);
     OctorokBoss_Burning_SubAction1(this);
 }
@@ -1085,7 +1085,7 @@ void OctorokBoss_SetAttackTimer(OctorokBossEntity* this) {
 
 void OctorokBoss_ResetToSubAction0(OctorokBossEntity* this) {
     this->angularSpeed.HWORD = 0x100;
-    this->heap->field_0x0 = 2;
+    this->heap->unk_0 = 2;
     this->heap->rotation = NO_ROTATION;
     super->subAction = ACTION1_AIMTOWARDSPLAYER;
 }
@@ -1105,7 +1105,7 @@ void OctorokBoss_WaitAnotherTurn(OctorokBossEntity* this) {
     };
     super->subAction = ACTION1_WAITFORTURN;
     super->speed = 0xc0;
-    this->heap->field_0x0 = 1;
+    this->heap->unk_0 = 1;
     this->timer = OctorokBoss_TurnTimeValues[GetRandomByWeight(OctorokBoss_TurnTimeWeights)];
 }
 
@@ -1162,7 +1162,7 @@ void OctorokBoss_StartRegularAttack(OctorokBossEntity* this) {
             super->speed = 0x200;
             this->timer = 0x3c;
             super->collisions = 0;
-            this->heap->field_0x0 = 4;
+            this->heap->unk_0 = 4;
             SoundReq(SFX_159);
             return;
         }

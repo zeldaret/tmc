@@ -5,17 +5,17 @@
 
 typedef struct OctorokBossEntity OctorokBossEntity;
 typedef struct {
-    u8 field_0x0; // [0,1,2,4]  is later stored in super->field_0xf
-    u8 tailCount;
-    u8 field_0x2;               // [0,1]
-    u8 targetAngle;             // relates to this->field_0x7a.HALF.HI
-    u8 rotation;                // [0,1,0xff]
-    u8 phase4PrevAttackPattern; // [0-4], sets this->phase4AttackPattern
-    u8 fallingStonesTimer;
-    u8 field_0x7; // some sort of counter that is only set when hit for the first time?
-    OctorokBossEntity* mouthObject;
-    OctorokBossEntity* tailObjects[5];
-    OctorokBossEntity* legObjects[4];
+    /*0x00*/ u8 unk_0; // [0,1,2,4]  is later stored in super->field_0xf
+    /*0x01*/ u8 tailCount;
+    /*0x02*/ u8 field_0x2;               // [0,1]
+    /*0x03*/ u8 targetAngle;             // relates to this->field_0x7a.HALF.HI
+    /*0x04*/ u8 rotation;                // [0,1,0xff]
+    /*0x05*/ u8 phase4PrevAttackPattern; // [0-4], sets this->phase4AttackPattern
+    /*0x06*/ u8 fallingStonesTimer;
+    /*0x07*/ u8 field_0x7; // some sort of counter that is only set when hit for the first time?
+    /*0x08*/ OctorokBossEntity* mouthObject;
+    /*0x0c*/ OctorokBossEntity* tailObjects[5];
+    /*0x20*/ OctorokBossEntity* legObjects[4];
 } OctorokBossHeap;
 static_assert(sizeof(OctorokBossHeap) == 0x30);
 

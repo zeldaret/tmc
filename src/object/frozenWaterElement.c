@@ -39,7 +39,7 @@ void sub_0809BECC(FrozenWaterElementEntity* this) {
     if (CheckFlags(0x9b)) {
         DeleteThisEntity();
     }
-    obj = CreateObject(OBJECT_91, 0, 0);
+    obj = CreateObject(FROZEN_OCTOROK, 0, 0);
     super->child = obj;
     if (obj != NULL) {
         super->action = 1;
