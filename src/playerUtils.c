@@ -1254,8 +1254,10 @@ bool32 sub_08079F48(u32 param_1, u32 param_2) {
 }
 
 bool32 sub_08079F8C(void) {
-    if ((gPlayerState.flags & 0x22189b75) != 0 || gPlayerState.field_0x3c[0] != 0 || gPlayerEntity.action == 3 ||
-        gPlayerEntity.action == 0xb) {
+    if ((gPlayerState.flags &
+         (PL_BUSY | PL_DROWNING | PL_CAPTURED | PL_USE_PORTAL | PL_HIDDEN | PL_FROZEN | PL_FALLING | PL_DISABLE_ITEMS |
+          PL_FLAGS8000 | PL_IN_MINECART | PL_MOLDWORM_CAPTURED | PL_IN_HOLE | PL_FLAGS2000000 | PL_CLIMBING)) != 0 ||
+        gPlayerState.field_0x3c[0] != 0 || gPlayerEntity.action == 3 || gPlayerEntity.action == 0xb) {
         return FALSE;
     } else {
         return TRUE;
