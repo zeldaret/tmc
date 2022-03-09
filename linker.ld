@@ -624,7 +624,7 @@ SECTIONS {
         src/object/deathFx.o(.text);
         src/object/itemForSale.o(.text);
         src/object/button.o(.text);
-        asm/object/minishEmoticon.o(.text);
+        src/object/minishEmoticon.o(.text);
         src/object/pot.o(.text);
         src/object/ezloCap.o(.text);
         src/object/blockPushed.o(.text);
@@ -1337,7 +1337,7 @@ SECTIONS {
         data/animations/object/deathFx.o(.rodata);
         src/object/itemForSale.o(.rodata);
         data/const/object/button.o(.rodata);
-        data/const/object/minishEmoticon.o(.rodata);
+        src/object/minishEmoticon.o(.rodata);
         data/animations/object/minishEmoticon.o(.rodata);
         data/const/object/pot.o(.rodata);
         data/animations/object/pot.o(.rodata);
