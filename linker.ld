@@ -663,7 +663,7 @@ SECTIONS {
         asm/object/object28.o(.text);
         src/object/ambientClouds.o(.text);
         src/object/object2A.o(.text);
-        asm/object/object2B.o(.text);
+        src/object/object2B.o(.text);
         src/object/beanstalk.o(.text);
         src/object/smoke.o(.text);
         src/object/pushableRock.o(.text);
