@@ -343,6 +343,7 @@ void sub_08077728();
 extern void sub_08077B20();
 extern u32 sub_08008B22();
 extern u32* sub_08008790(Entity*, u32);
+extern void sub_08079E58(s32 speed, u32 direction);
 
 #define COPY_FLAG_FROM_TO(base, src, dest) (base) = ((base) & ~(dest)) | (((dest) * ((base) & (src))) / src)
 

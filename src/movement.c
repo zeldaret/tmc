@@ -35,7 +35,7 @@ extern u8 gUnk_08134FBC[];
 extern u8 gUnk_08135048[];
 extern u8 gUnk_0813A76C[];
 
-bool32 IsTileCollision(u8*, s32, s32, u32);
+bool32 IsTileCollision(const u8*, s32, s32, u32);
 void CalculateEntityTileCollisions(Entity*, u32, u32);
 bool32 ProcessMovementInternal(Entity*, s32, s32, u32);
 bool32 sub_080AF0C8(Entity*);
@@ -306,7 +306,7 @@ bool32 TileCollisionFunction9(s32 x, s32 y) {
     return gUnk_081339F8[y & 0xf] >> (x & 0xf) & 1;
 }
 
-bool32 IsTileCollision(u8* layer, s32 x, s32 y, u32 collisionType) {
+bool32 IsTileCollision(const u8* layer, s32 x, s32 y, u32 collisionType) {
     static bool32 (*const tileCollisionFunctions[])(s32, s32) = {
         TileCollisionFunction0, TileCollisionFunction1, TileCollisionFunction2, TileCollisionFunction3,
         TileCollisionFunction4, TileCollisionFunction5, TileCollisionFunction6, TileCollisionFunction7,
