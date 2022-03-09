@@ -766,8 +766,8 @@ SECTIONS {
         src/object/fireplace.o(.text);
         src/object/object8E.o(.text);
         src/object/frozenWaterElement.o(.text);
-        asm/object/object90.o(.text);
-        asm/object/object91.o(.text);
+        src/object/object90.o(.text);
+        src/object/frozenOctorok.o(.text);
         src/object/bakerOven.o(.text);
         src/object/lamp.o(.text);
         src/object/windTribeFlag.o(.text);
@@ -1518,8 +1518,8 @@ SECTIONS {
         data/const/object/fireplace.o(.rodata);
         src/object/object8E.o(.rodata);
         src/object/frozenWaterElement.o(.rodata);
-        data/const/object/object90.o(.rodata);
-        data/const/object/object91.o(.rodata);
+        src/object/object90.o(.rodata);
+        src/object/frozenOctorok.o(.rodata);
         data/const/object/bakerOven.o(.rodata);
         data/animations/object/bakerOven.o(.rodata);
         src/object/lamp.o(.rodata);

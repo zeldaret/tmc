@@ -44860,21 +44860,6 @@
     "type": "animation"
   },
   {
-    "path": "object91/gUnk_08123DDC.bin",
-    "start": 1195484,
-    "size": 28
-  },
-  {
-    "path": "object91/gUnk_08123E18.bin",
-    "start": 1195544,
-    "size": 4
-  },
-  {
-    "path": "object91/gUnk_08123E1C.bin",
-    "start": 1195548,
-    "size": 4
-  },
-  {
     "path": "animations/gSpriteAnimations_BakerOven_0.bin",
     "start": 1195564,
     "size": 76,
