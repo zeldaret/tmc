@@ -20,7 +20,7 @@ gUnk_080B2A70:: @ 080B2A70
 	.4byte DummyIntr
 	.4byte DummyIntr
 
-unusedLabel_0B21D0::
+unusedLabel_080B2AA8::
 @ TODO contains some pointers to iwram
 .ifdef EU
 	.incbin "data_080B2A70/unusedLabel_0B21D0_EU.bin"

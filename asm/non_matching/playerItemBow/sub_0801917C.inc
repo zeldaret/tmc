@@ -99,7 +99,7 @@ _0801921A:
 	adds r1, #0x38
 	ldrb r1, [r1]
 	movs r2, #0x80
-	bl sub_080002F0
+	bl sub_080B1BA4
 	cmp r0, #0
 	bne _080192D0
 	cmp r7, #0

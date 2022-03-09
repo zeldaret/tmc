@@ -705,7 +705,7 @@ void sub_0801FB68(Entity* this) {
 }
 
 u32 sub_0801FBD0(Entity* this) {
-    if (sub_080002B8(this) == 0x10) {
+    if (sub_080B1AA8(this) == 0x10) {
         return 1;
     } else {
         return 0;

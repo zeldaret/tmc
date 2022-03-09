@@ -273,7 +273,7 @@ void PlayerItemBottle_UseEmptyBottle(Entity* this) {
             if (this->spriteSettings.flipX != 0) {
                 iVar2 = -iVar2;
             }
-            if (sub_080002B4(this, iVar2, (s8)ptr2[1]) == 0x10) {
+            if (sub_080B1A8C(this, iVar2, (s8)ptr2[1]) == 0x10) {
                 this->type2 = ITEM_BOTTLE_WATER;
             }
         }

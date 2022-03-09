@@ -138,7 +138,7 @@ void sub_08031AC8(Entity* this)
             rand = Random();
             x = this->field_0x74.HWORD + ((s32)rand % 5) * 0x10 - 0x20;
             y = this->field_0x76.HWORD + ((s32)(rand >> 4) % 5) * 0x10 - 0x20;
-            if (sub_080002D4(x, y, this->collisionLayer) == 0) {
+            if (sub_080B1B18(x, y, this->collisionLayer) == 0) {
                 this->action = 2;
                 this->spriteSettings.draw = 1;
                 this->x.HALF.HI = x;

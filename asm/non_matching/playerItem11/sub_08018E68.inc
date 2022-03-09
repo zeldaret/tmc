@@ -89,7 +89,7 @@ _08018F0C:
 	adds r0, r4, #0
 	adds r1, r6, #0
 	adds r2, r5, #0
-	bl sub_0800029C
+	bl sub_080B1A0C
 	ldr r1, _08018F64 @ =gUnk_080B3DF4
 	bl sub_08007DD6
 	cmp r0, #0
@@ -97,7 +97,7 @@ _08018F0C:
 	adds r0, r4, #0
 	adds r1, r6, #0
 	adds r2, r5, #0
-	bl sub_080002B4
+	bl sub_080B1A8C
 	cmp r0, #0x74
 	beq _08018F62
 	ldr r1, _08018F68 @ =gUnk_08003E44

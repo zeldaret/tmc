@@ -159,7 +159,7 @@ _0808790A:
 	adds r0, r4, #0
 	ldr r2, [sp, #8]
 	lsrs r1, r2, #0x18
-	bl sub_080002C8
+	bl sub_080B1AE0
 	cmp r0, #0x2e
 	bne _08087970
 	adds r0, r4, #0

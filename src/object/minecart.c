@@ -141,7 +141,7 @@ void sub_080919AC(Entity* this) {
                 this->field_0xf = 0x3c;
             }
 
-            uVar3 = sub_080002B4(this, gUnk_081223C8[this->animationState * 2],
+            uVar3 = sub_080B1A8C(this, gUnk_081223C8[this->animationState * 2],
                                  gUnk_081223C8[this->animationState * 2 + 1]);
             iVar2 = sub_08007DD6(uVar3, gUnk_081223D8[this->animationState]);
             if (iVar2 == 0) {
@@ -177,7 +177,7 @@ void sub_080919AC(Entity* this) {
                     case 0x6d:
                     case 0x6e:
                     case 0x6f:
-                        if (uVar3 == sub_080002B8(this)) {
+                        if (uVar3 == sub_080B1AA8(this)) {
                             sub_08091C0C(this);
                             gPlayerEntity.animationState = this->animationState << 1;
                             return;

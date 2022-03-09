@@ -13,7 +13,7 @@ extern u16 gPaletteBuffer[];
 extern u16 gUnk_080FC3C4[];
 
 // function pointer to overlay (0x03005e98) in ram calls rom function MakeFadeBuff256
-extern u32 gMakeFadeBuff256;
+extern u32 ram_MakeFadeBuff256;
 typedef void (*fptrMakeFadeBuff256)(u8*, u8*, u16, u8);
 
 void SetBrightness(u32 brightness) {
@@ -32,7 +32,7 @@ void FadeVBlank(void) {
 
     while (usedPalettesTmp != 0) {
         if ((usedPalettesTmp & 1) == 1) {
-            func = (fptrMakeFadeBuff256)&gMakeFadeBuff256;
+            func = (fptrMakeFadeBuff256)&ram_MakeFadeBuff256;
             func(&((u8*)gPaletteBuffer)[palIdx], &PAL_RAM[palIdx], ptrUnk->unk2, ptrUnk->unk1);
         }
         palIdx += 0x20;

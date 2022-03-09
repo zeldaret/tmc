@@ -4,7 +4,7 @@
 #include "functions.h"
 #include "item.h"
 
-extern u32 sub_080002C0(u32, u32, u32);
+extern u32 sub_080B1AC8(u32, u32, u32);
 extern void sub_0806ACC4(Entity*);
 extern void sub_0806AEA8(Entity*);
 extern void sub_0806AEE4(Entity*);
@@ -298,8 +298,8 @@ void sub_0806B098(Entity* this) {
 void sub_0806B0E0(Entity* this) {
     int idx = 0;
 
-    if (sub_080002C0(0x38, 0xb8, 1) == 0x57 && sub_080002C0(0x48, 0xb8, 1) == 0x57 &&
-        sub_080002C0(0x38, 200, 1) == 0x57 && sub_080002C0(0x48, 200, 1) == 0x57) {
+    if (sub_080B1AC8(0x38, 0xb8, 1) == 0x57 && sub_080B1AC8(0x48, 0xb8, 1) == 0x57 &&
+        sub_080B1AC8(0x38, 200, 1) == 0x57 && sub_080B1AC8(0x48, 200, 1) == 0x57) {
         idx = 1;
     }
 

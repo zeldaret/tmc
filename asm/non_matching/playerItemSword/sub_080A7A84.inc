@@ -83,7 +83,7 @@ _080A7AEC:
 	adds r0, r4, #0
 	adds r1, r6, #0
 	adds r2, r5, #0
-	bl sub_080002B4
+	bl sub_080B1A8C
 	cmp r0, #0x2e
 	bne _080A7B4C
 	ldr r0, _080A7B44 @ =gPlayerEntity

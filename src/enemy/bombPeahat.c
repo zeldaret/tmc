@@ -203,7 +203,7 @@ void sub_0802AAC0(Entity* this) {
             this->child = NULL;
 #ifdef EU
         } else if (ent->actionDelay == 0) {
-            if (sub_080002E0(COORD_TO_TILE(this), 1) == 0) {
+            if (sub_080B1B44(COORD_TO_TILE(this), 1) == 0) {
                 if (EntityInRectRadius(this, &gPlayerEntity, 0x10, 0x10) && ent->field_0xf <= 0x50) {
                     this->field_0x80.HALF.HI = 0;
                 }

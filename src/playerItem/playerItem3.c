@@ -152,7 +152,7 @@ void sub_0801B680(Entity* this) {
         uVar6 = ((u32)(-uvar1 | uvar1)) >> 0x1f;
     }
 
-    if (sub_080002F0(COORD_TO_TILE(this), gPlayerEntity.collisionLayer, 0x80) == 0) {
+    if (sub_080B1BA4(COORD_TO_TILE(this), gPlayerEntity.collisionLayer, 0x80) == 0) {
         if (uVar6 == 0) {
             uVar6 = sub_080040E2(this, &gUnk_08003E44);
         }

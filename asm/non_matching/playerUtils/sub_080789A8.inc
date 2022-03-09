@@ -18,7 +18,7 @@ _080789C0:
 	cmp r0, #0
 	bne _08078A56
 	ldr r0, _08078A60 @ =gPlayerEntity
-	bl sub_080002D0
+	bl sub_080B1B0C
 	adds r4, r0, #0
 	cmp r4, #0xf
 	bls _080789E6
@@ -79,7 +79,7 @@ _08078A2E:
 	ldrb r2, [r2, #1]
 	lsls r2, r2, #0x18
 	asrs r2, r2, #0x18
-	bl sub_0800029C
+	bl sub_080B1A0C
 	ldr r4, _08078A68 @ =gUnk_03003BE0
 	strh r0, [r4, #4]
 	movs r1, #6

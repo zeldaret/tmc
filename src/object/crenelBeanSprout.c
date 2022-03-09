@@ -18,7 +18,7 @@ typedef struct {
     /*0x72*/ u16 unk_72;
 } CrenelBeanSproutEntity;
 
-extern u32 sub_080002BC(s32, s32, u32);
+extern u32 sub_080B1AB4(s32, s32, u32);
 
 void sub_080969A4(CrenelBeanSproutEntity*);
 void sub_08096A78(CrenelBeanSproutEntity*);
@@ -171,13 +171,13 @@ void CrenelBeanSprout_Action1(CrenelBeanSproutEntity* this) {
         tmp = gPlayerEntity.animationState & 6;
         this->unk_70 = ((super->x.HALF.HI + (s8)gUnk_08123184[tmp]) & -0x10) | 8;
         this->unk_72 = ((super->y.HALF.HI + (s8)gUnk_08123184[(tmp) + 1]) & -0x10) | 8;
-        if (sub_080002BC(this->unk_70, this->unk_72, super->collisionLayer) == 0x19) {
+        if (sub_080B1AB4(this->unk_70, this->unk_72, super->collisionLayer) == 0x19) {
             gUnk_0200AF00.filler25[10] = 3;
         } else {
             gUnk_0200AF00.filler25[10] = 0;
         }
         PositionRelative(&gPlayerEntity, super, 0, 0x10000);
-        if (sub_080002B8(super) == 0x19) {
+        if (sub_080B1AA8(super) == 0x19) {
             sub_0807BA8C(0xdc, super->collisionLayer);
             sub_08096A78(this);
         }

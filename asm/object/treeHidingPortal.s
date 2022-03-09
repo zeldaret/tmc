@@ -46,7 +46,7 @@ _0809E9B4:
 	lsls r1, r1, #6
 	orrs r0, r1
 	movs r1, #1
-	bl sub_080002C8
+	bl sub_080B1AE0
 _0809E9F0:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

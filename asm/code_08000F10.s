@@ -7,7 +7,7 @@
 
 	thumb_func_start CheckBits
 CheckBits: @ 0x08000F10
-	ldr r3, _08000F50 @ =gUnk_03005E60
+	ldr r3, _08000F50 @ =ram_CheckBits
 	bx r3
 
 	thumb_func_start sub_08000F14
@@ -48,4 +48,4 @@ _08000F40:
 	pop {r4, r5, r6, r7}
 	bx lr
 	.align 2, 0
-_08000F50: .4byte gUnk_03005E60
+_08000F50: .4byte ram_CheckBits

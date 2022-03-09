@@ -15,7 +15,7 @@ sub_08091C0C: @ 0x08091C0C
 	adds r0, r4, #0
 	bl CopyPosition
 	adds r0, r4, #0
-	bl sub_080002B8
+	bl sub_080B1AA8
 	cmp r0, #0x68
 	beq _08091C46
 	cmp r0, #0x68
@@ -269,7 +269,7 @@ sub_08091DDC: @ 0x08091DDC
 	movs r2, #0
 	ldrsb r2, [r0, r2]
 	adds r0, r4, #0
-	bl sub_080002CC
+	bl sub_080B1AF0
 	cmp r0, #0xff
 	bne _08091E5C
 	ldr r0, _08091E34 @ =gPlayerEntity

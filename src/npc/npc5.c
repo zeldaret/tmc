@@ -484,7 +484,7 @@ u32 sub_080611D4(Entity* this) {
     ptr = (s8*)gUnk_0810AC4C;
     a = ptr[x];
     b = ptr[x + 1];
-    uVar2 = sub_080002B4(this, a, b);
+    uVar2 = sub_080B1A8C(this, a, b);
     ptr2 = gUnk_0810AC54;
 
     do {

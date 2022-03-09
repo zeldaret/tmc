@@ -46,7 +46,7 @@ void sub_080929A4(Entity* this) {
     this->field_0x7c.HALF_U.HI = COORD_TO_TILE(this);
     this->field_0x7c.HALF_U.LO = GetTileIndex(this->field_0x7c.HALF_U.HI, 1);
 
-    this->field_0x7a.HWORD = sub_080002E0((u16)this->field_0x7c.HALF.HI, 1);
+    this->field_0x7a.HWORD = sub_080B1B44((u16)this->field_0x7c.HALF.HI, 1);
 
     SetTile(0x4022, this->field_0x7c.HALF_U.HI, 1);
 }

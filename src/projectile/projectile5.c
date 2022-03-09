@@ -4,7 +4,7 @@
 #include "room.h"
 #include "coord.h"
 
-extern u32 sub_080002E0(u32, u32);
+extern u32 sub_080B1B44(u32, u32);
 
 extern void (*const Projectile5_Functions[])(Entity*);
 extern void (*const Projectile5_Actions[])(Entity*);
@@ -28,7 +28,7 @@ void sub_080A86F0(Entity* this) {
         pbVar2 = &this->parent->field_0x82.HALF.HI;
         if ((this->parent->field_0x82.HALF.HI & 0x3f) == 3) {
             if (gPlayerState.hurtBlinkSpeed != 0) {
-                if (sub_080002E0(TILE(this->x.HALF.HI, this->y.HALF.HI), gPlayerEntity.collisionLayer) == 0) {
+                if (sub_080B1B44(TILE(this->x.HALF.HI, this->y.HALF.HI), gPlayerEntity.collisionLayer) == 0) {
                     if (this->bitfield == 0x80) {
                         *pbVar2 = *pbVar2 & 0x7f;
                         DeleteThisEntity();

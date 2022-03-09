@@ -116,7 +116,7 @@ void sub_08058EE4(ManagerF* this) {
 void sub_08058F44(u32 unk0, u32 unk1, u32 unk2) {
     if (CheckRoomFlag(unk2))
         return;
-    if (sub_080002A8(unk0, unk1, 1) != 0x61)
+    if (sub_080B1A48(unk0, unk1, 1) != 0x61)
         return;
     SetTileType(0x26, ((unk0 >> 4) & 0x3F) | (((unk1 >> 4) & 0x3F) << 6), 1);
     sub_08058F84(unk0, unk1);

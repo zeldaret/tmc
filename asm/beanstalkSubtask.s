@@ -331,7 +331,7 @@ _0801989E:
 	mov r1, sb
 	adds r1, #0x38
 	ldrb r1, [r1]
-	bl sub_080002E0
+	bl sub_080B1B44
 	cmp r0, #0xff
 	bne _0801997C
 	ldr r0, [r7, #0x30]
@@ -429,7 +429,7 @@ _0801997C:
 	cmp r6, r0
 	bhi _080199EC
 	adds r0, r6, #0
-	bl sub_080002E4
+	bl sub_080B1B54
 	adds r4, r0, #0
 	b _080199EE
 	.align 2, 0
@@ -724,7 +724,7 @@ _08019BE6:
 	adds r0, #0x38
 	ldrb r1, [r0]
 	adds r0, r7, #0
-	bl sub_080002E0
+	bl sub_080B1B44
 	cmp r0, #0xf
 	beq _08019BF8
 	b _0801A2A4
@@ -1660,7 +1660,7 @@ sub_0801A2B0: @ 0x0801A2B0
 	ldrb r1, [r0]
 	adds r0, r4, #0
 	bl GetTileType
-	bl sub_080002E4
+	bl sub_080B1B54
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	adds r1, r0, #0
@@ -1780,7 +1780,7 @@ _0801A3D6:
 	ldrb r1, [r0]
 	adds r0, r4, #0
 	bl GetTileType
-	bl sub_080002E4
+	bl sub_080B1B54
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	cmp r0, #0x52
@@ -1864,7 +1864,7 @@ sub_0801A458: @ 0x0801A458
 	ldrb r1, [r0]
 	adds r0, r4, #0
 	bl GetTileType
-	bl sub_080002E4
+	bl sub_080B1B54
 	cmp r0, #0x52
 	beq _0801A4F0
 	cmp r0, #0x52
@@ -2576,7 +2576,7 @@ sub_0801A980: @ 0x0801A980
 	cmp r1, r0
 	bhi _0801A9DC
 	adds r0, r1, #0
-	bl sub_080002E4
+	bl sub_080B1B54
 _0801A9DC:
 	movs r0, #0
 	pop {r4, r5, r6, r7, pc}

@@ -65,7 +65,7 @@ _08029E72:
 	adds r1, r5, #0
 	adds r1, #0x38
 	ldrb r1, [r1]
-	bl sub_080002E0
+	bl sub_080B1B44
 	adds r6, r5, #0
 	adds r6, #0x74
 	cmp r0, #0

@@ -54,7 +54,7 @@
 	adds r5, r6, #0
 	adds r5, #0x38
 	ldrb r1, [r5]
-	bl sub_080002C8
+	bl sub_080B1AE0
 	adds r1, r0, #0
 	subs r0, #0x26
 	cmp r0, #1

@@ -855,12 +855,12 @@ gUnk_080026A4::
 	.4byte gUnk_020000B0 @ enemy target? (player)
 	.4byte gEntityLists - 8 @ first linked list
 	.4byte gEntityLists + 64 @ last linked list
-	.4byte gUnk_03005FBC @ entity table
+	.4byte ram_sub_080B2248 @ entity table
 @ managers
 	.4byte gUnk_020000B0
 	.4byte gEntityLists + 56
 	.4byte gCollidableCount
-	.4byte gUnk_03005FBC
+	.4byte ram_sub_080B2248
 
 	thumb_func_start sub_080026C4
 sub_080026C4: @ 0x080026C4

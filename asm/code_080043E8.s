@@ -82,7 +82,7 @@ _08004482:
 
 	thumb_func_start sub_08004484
 sub_08004484: @ 0x08004484
-	ldr r2, _080044DC @ =gUnk_03005FF0
+	ldr r2, _080044DC @ =ram_sub_080B227C
 	bx r2
 
 	thumb_func_start EnqueueSFX
@@ -133,7 +133,7 @@ _080044CC:
 	b _080044C8
 	.align 2, 0
 _080044D8: .4byte gPlayerEntity
-_080044DC: .4byte gUnk_03005FF0
+_080044DC: .4byte ram_sub_080B227C
 _080044E0: .4byte gUnk_02024048
 _080044E4: .4byte gUnk_02021F20
 _080044E8: .4byte gPlayerEntity
@@ -170,7 +170,7 @@ _08004516:
 	thumb_func_start sub_0800451C
 sub_0800451C: @ 0x0800451C
 	push {r0, lr}
-	bl sub_080002B8
+	bl sub_080B1AA8
 	adds r1, r0, #0
 	pop {r0, r3}
 	mov lr, r3
@@ -266,7 +266,7 @@ sub_080045B4: @ 0x080045B4
 	ldrsh r1, [r0, r3]
 	movs r3, #0x2e
 	ldrsh r0, [r0, r3]
-	ldr r3, _08004690 @ =gUnk_030060F0
+	ldr r3, _08004690 @ =ram_CalcCollisionDirection
 	bx r3
 
 	thumb_func_start GetFacingDirection
@@ -283,7 +283,7 @@ GetFacingDirection: @ 0x080045C4
 	thumb_func_start CalculateDirectionTo
 CalculateDirectionTo: @ 0x080045D4
 	mov ip, r3
-	ldr r3, _08004694 @ =gUnk_030060F0
+	ldr r3, _08004694 @ =ram_CalcCollisionDirection
 	bx r3
 
 	non_word_aligned_thumb_func_start sub_080045DA
@@ -362,8 +362,8 @@ gUnk_0800464E::
 	.byte 0x1E, 0x1D, 0x1C, 0x00, 0x00, 0x00, 0x18, 0x19, 0x1A, 0x1B, 0x1C, 0x00, 0x00, 0x00, 0x10, 0x11
 	.byte 0x12, 0x13, 0x14, 0x00, 0x00, 0x00, 0x18, 0x17, 0x16, 0x15, 0x14, 0x00, 0x00, 0x00, 0x00, 0x00
 
-_08004690: .4byte gUnk_030060F0
-_08004694: .4byte gUnk_030060F0
+_08004690: .4byte ram_CalcCollisionDirection
+_08004694: .4byte ram_CalcCollisionDirection
 _08004698: .4byte gUnk_080C93E0
 _0800469C: .4byte 0x00000106
 _080046A0: .4byte 0x00000280

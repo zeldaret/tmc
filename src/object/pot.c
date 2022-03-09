@@ -94,7 +94,7 @@ void sub_08082310(Entity* this) {
                         DeleteThisEntity();
                         break;
                     default:
-                        if (sub_080002B8(this) == 13) {
+                        if (sub_080B1AA8(this) == 13) {
                             CreateFx(this, FX_FALL_DOWN, 0);
                         } else if (tileType == 0x4005) {
                             gPlayerState.field_0xab = 4;

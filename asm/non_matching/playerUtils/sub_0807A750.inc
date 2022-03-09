@@ -35,7 +35,7 @@ _0807A77C:
 	ldr r1, _0807A7A8 @ =gPlayerEntity
 	adds r1, #0x38
 	ldrb r1, [r1]
-	bl sub_080002E0
+	bl sub_080B1B44
 	adds r1, r0, #0
 	cmp r1, #0xf
 	bls _0807A7AE

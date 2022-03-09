@@ -87,7 +87,7 @@ void sub_08075B54(ItemBehavior* this, u32 arg1) {
                 tmp = &gUnk_08126EEC[gPlayerEntity.animationState & 6];
 
                 if ((gPlayerState.jump_status == 0) &&
-                    (sub_080002F0(TILE(gPlayerEntity.x.HALF.HI + tmp[0], gPlayerEntity.y.HALF.HI + tmp[1]),
+                    (sub_080B1BA4(TILE(gPlayerEntity.x.HALF.HI + tmp[0], gPlayerEntity.y.HALF.HI + tmp[1]),
                                   gPlayerEntity.collisionLayer, 0x40) != 0)) {
                     this->field_0xf = 0xf;
                     this->stateID += 1;

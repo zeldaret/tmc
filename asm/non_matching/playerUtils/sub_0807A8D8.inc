@@ -33,7 +33,7 @@ _0807A8F0:
 	adds r1, #0x38
 	mov sb, r1
 	ldrb r1, [r1]
-	bl sub_080002EC
+	bl sub_080B1B84
 	adds r4, r0, #0
 	movs r0, #0x20
 	mov r8, r0
@@ -75,7 +75,7 @@ _0807A94E:
 	orrs r0, r1
 	mov r2, sb
 	ldrb r1, [r2]
-	bl sub_080002EC
+	bl sub_080B1B84
 	adds r4, r0, #0
 	mov r0, r8
 	ands r4, r0
@@ -116,7 +116,7 @@ _0807A9A2:
 	orrs r0, r1
 	mov r2, sb
 	ldrb r1, [r2]
-	bl sub_080002EC
+	bl sub_080B1B84
 	adds r4, r0, #0
 	mov r0, r8
 	ands r4, r0
@@ -159,7 +159,7 @@ _0807A9F6:
 	ldr r1, _0807AA64 @ =gPlayerEntity
 	adds r1, #0x38
 	ldrb r1, [r1]
-	bl sub_080002EC
+	bl sub_080B1B84
 	adds r4, r0, #0
 	movs r0, #0x20
 	ands r0, r4

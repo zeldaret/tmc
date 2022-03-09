@@ -152,7 +152,7 @@ bool32 sub_0808FC5C(PushableFurnitureEntity* this) {
         } else {
             super->spriteOffsetY = 0;
         }
-        if (sub_080002D0(super)) {
+        if (sub_080B1B0C(super)) {
             return 0;
         }
         if (super->field_0xf == 0) {
@@ -239,27 +239,27 @@ void sub_0808FDE8(PushableFurnitureEntity* this) {
     u32 uVar3;
 
     uVar3 = (u32)this->unk_70;
-    uVar1 = sub_080002E0(uVar3 - 1, 1);
+    uVar1 = sub_080B1B44(uVar3 - 1, 1);
     iVar2 = GetTileIndex(uVar3, 1);
     if (iVar2 == 0x402e) {
         if ((((uVar1 & 0xf0) != 0) && ((uVar1 & 0xf0) != 0x50)) || ((uVar1 & 5) == 0)) {
             SetTile(0x402c, uVar3, 1);
         }
     } else {
-        iVar2 = sub_080002E0(uVar3, 1);
+        iVar2 = sub_080B1B44(uVar3, 1);
         if ((iVar2 == 5) && ((((uVar1 & 0xf0) == 0 || ((uVar1 & 0xf0) == 0x50)) && ((uVar1 & 5) != 0)))) {
             SetTile(0x402e, uVar3, 1);
         }
     }
     uVar3 = (u32)this->unk_72;
-    uVar1 = sub_080002E0(uVar3 + 1, 1);
+    uVar1 = sub_080B1B44(uVar3 + 1, 1);
     iVar2 = GetTileIndex(uVar3, 1);
     if (iVar2 == 0x402f) {
         if ((((uVar1 & 0xf0) != 0) && ((uVar1 & 0xf0) != 0x50)) || ((uVar1 & 10) == 0)) {
             SetTile(0x402d, uVar3, 1);
         }
     } else {
-        iVar2 = sub_080002E0(uVar3, 1);
+        iVar2 = sub_080B1B44(uVar3, 1);
         if (((iVar2 == 10) && (((uVar1 & 0xf0) == 0 || ((uVar1 & 0xf0) == 0x50)))) && ((uVar1 & 10) != 0)) {
             SetTile(0x402f, uVar3, 1);
         }

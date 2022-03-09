@@ -70,7 +70,7 @@ _08079CE8:
 	rsbs r2, r2, #0
 	adds r0, r6, #0
 	movs r1, #0
-	bl sub_080002B4
+	bl sub_080B1A8C
 	ldr r5, _08079D3C @ =gUnk_08007CAC
 	adds r1, r5, #0
 	bl sub_08007DD6
@@ -81,7 +81,7 @@ _08079CE8:
 	adds r0, r6, #0
 	movs r1, #2
 	movs r2, #0
-	bl sub_080002B4
+	bl sub_080B1A8C
 	adds r1, r5, #0
 	bl sub_08007DD6
 	cmp r4, r0
@@ -91,7 +91,7 @@ _08079CE8:
 	rsbs r1, r1, #0
 	adds r0, r6, #0
 	movs r2, #0
-	bl sub_080002B4
+	bl sub_080B1A8C
 	adds r1, r5, #0
 	bl sub_08007DD6
 	cmp r4, r0

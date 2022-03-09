@@ -61,7 +61,7 @@ _08085DB8:
 	adds r0, r5, #0
 	adds r1, r7, #0
 	mov r2, r8
-	bl sub_080002CC
+	bl sub_080B1AF0
 	cmp r0, #0xff
 	bne _08085E20
 	movs r1, #0x2e
@@ -110,7 +110,7 @@ _08085E28:
 	movs r2, #0
 	ldrsb r2, [r0, r2]
 	adds r0, r5, #0
-	bl sub_080002CC
+	bl sub_080B1AF0
 	cmp r0, #0xff
 	bne _08085E6C
 	ldr r0, _08085E60 @ =gPlayerEntity

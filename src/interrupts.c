@@ -18,7 +18,7 @@ extern Entity gUnk_03003BE0;
 extern Entity* gPlayerClones[3];
 extern u16 gUnk_080B2CD8[];
 
-void gIntrMain(void);
+void ram_IntrMain(void);
 
 struct {
     u8 ready;
@@ -36,7 +36,7 @@ void DummyIntr(void) {
 }
 
 void EnableVBlankIntr(void) {
-    INTR_VECTOR = gIntrMain;
+    INTR_VECTOR = ram_IntrMain;
     REG_DISPSTAT = DISPSTAT_VCOUNT_INTR | DISPSTAT_VBLANK_INTR | (80 << 8);
     REG_IE = INTR_FLAG_VBLANK | INTR_FLAG_VCOUNT | INTR_FLAG_GAMEPAK;
     REG_IME = 1;

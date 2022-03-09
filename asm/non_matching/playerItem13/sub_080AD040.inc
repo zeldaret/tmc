@@ -50,7 +50,7 @@ _080AD088:
 	movs r2, #0
 	ldrsb r2, [r0, r2]
 	adds r0, r4, #0
-	bl sub_080002B4
+	bl sub_080B1A8C
 	cmp r0, #0x74
 	bne _080AD0B4
 	adds r0, r4, #0
@@ -60,7 +60,7 @@ _080AD088:
 _080AD0B0: .4byte gUnk_081320C4
 _080AD0B4:
 	adds r0, r4, #0
-	bl sub_080002D0
+	bl sub_080B1B0C
 	cmp r0, #0x24
 	beq _080AD0C8
 	cmp r0, #0x26
@@ -85,7 +85,7 @@ _080AD0D8:
 	ldr r0, [r4, #0x34]
 	str r0, [r5, #0x34]
 	adds r0, r4, #0
-	bl sub_080002B8
+	bl sub_080B1AA8
 	cmp r0, #0x11
 	bhi _080AD0FC
 	cmp r0, #0x10

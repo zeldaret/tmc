@@ -16,7 +16,7 @@ typedef struct {
     /*0x68*/ u8 unk_68;
 } Object68Entity;
 
-extern u32 sub_0800029C(Entity*, s32, s32);
+extern u32 sub_080B1A0C(Entity*, s32, s32);
 
 void sub_08094774(Object68Entity*);
 void sub_080948D0(Object68Entity*);
@@ -117,7 +117,7 @@ void sub_08094980(Object68Entity* this, u32 searchTileIndex, u32 replaceTileInde
     while (index < 10) {
         xOffset = gUnk_08122A28[index];
         yOffset = gUnk_08122A28[index + 1];
-        if (searchTileIndex == sub_0800029C(super, xOffset, yOffset)) {
+        if (searchTileIndex == sub_080B1A0C(super, xOffset, yOffset)) {
             SetTile(replaceTileIndex, TILE(super->x.HALF.HI + xOffset, super->y.HALF.HI + yOffset),
                     super->collisionLayer);
         }

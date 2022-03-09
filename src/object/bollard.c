@@ -89,7 +89,7 @@ void sub_0808B3AC(BollardEntity* this) {
     super->spritePriority.b0 = 4;
     this->tile = COORD_TO_TILE(super);
     this->tileIndex = GetTileIndex(this->tile, super->collisionLayer);
-    this->unk74 = sub_080002E0(this->tile, super->collisionLayer);
+    this->unk74 = sub_080B1B44(this->tile, super->collisionLayer);
     SetTile(0x400b, this->tile, super->collisionLayer);
 }
 

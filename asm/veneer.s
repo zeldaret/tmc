@@ -106,7 +106,7 @@ _08000126:
 _08000136:
 	pop {r4, pc}
 _08000138:
-_08000138: .4byte gUnk_030056F1
+_08000138: .4byte ram_sub_080B197C + 1
 _0800013C: .4byte sub_0807D280 @ layer 1, 2, 3?
 _08000140: .4byte sub_0807D46C
 _08000144: .4byte sub_0807D6D8
@@ -246,48 +246,48 @@ gUnk_08000278::
 @ Unused? Doesn't seem to be called by anything in Ghidra.
 	thumb_func_start GetTileAtEntityPos
 GetTileAtEntityPos: @ 0x08000288
-	ldr r3, _080002F4 @ =gUnk_03005740
+	ldr r3, _080002F4 @ =ram_GetTileAtEntityPos
 	bx r3
 
 @ call 0x80B19D8
 @ ========
 @ Unused? Doesn't seem to be called by anything in Ghidra.
-	thumb_func_start sub_0800028C
-sub_0800028C: @ 0x0800028C
-	ldr r3, _080002F8 @ =gUnk_0300574C
+	thumb_func_start sub_080B19D8
+sub_080B19D8: @ 0x0800028C
+	ldr r3, _080002F8 @ =ram_sub_080B19D8
 	bx r3
 
 @ call 0x80B19EC
 @ ========
 @ Unused? Doesn't seem to be called by anything in Ghidra.
-	thumb_func_start sub_08000290
-sub_08000290: @ 0x08000290
-	ldr r3, _080002FC @ =gUnk_03005760
+	thumb_func_start sub_080B19EC
+sub_080B19EC: @ 0x08000290
+	ldr r3, _080002FC @ =ram_sub_080B19EC
 	bx r3
 
 @ call 0x80B19FC
 @ ========
 @ Unused? Doesn't seem to be called by anything in Ghidra.
-	thumb_func_start sub_08000294
-sub_08000294: @ 0x08000294
-	ldr r3, _08000300 @ =gUnk_03005770
+	thumb_func_start sub_080B19FC
+sub_080B19FC: @ 0x08000294
+	ldr r3, _08000300 @ =ram_sub_080B19FC
 	bx r3
 
 @ call 0x80B1A04
 @ ========
 @ Unused? Doesn't seem to be called by anything in Ghidra.
-	thumb_func_start sub_08000298
-sub_08000298: @ 0x08000298
-	ldr r3, _08000304 @ =gUnk_03005778
+	thumb_func_start sub_080B1A04
+sub_080B1A04: @ 0x08000298
+	ldr r3, _08000304 @ =ram_sub_080B1A04
 	bx r3
 
 @ call 0x80B1A0C
 @ r0: entity*
 @ r1: s32
 @ r2: s32
-	thumb_func_start sub_0800029C
-sub_0800029C: @ 0x0800029C
-	ldr r3, _08000308 @ =gUnk_03005780
+	thumb_func_start sub_080B1A0C
+sub_080B1A0C: @ 0x0800029C
+	ldr r3, _08000308 @ =ram_sub_080B1A0C
 	bx r3
 
 @ call 0x080B1A28
@@ -295,7 +295,7 @@ sub_0800029C: @ 0x0800029C
 @ return: u32 (tileType)
 	thumb_func_start GetTileTypeByEntity
 GetTileTypeByEntity: @ 0x080002A0
-	ldr r3, _0800030C @ =gUnk_0300579C
+	ldr r3, _0800030C @ =ram_GetTileTypeByEntity
 	bx r3
 
 @ call 0x080B1A34
@@ -305,25 +305,25 @@ GetTileTypeByEntity: @ 0x080002A0
 @ return: u32 (tileType)
 	thumb_func_start GetTileTypeByPos
 GetTileTypeByPos: @ 0x080002A4
-	ldr r3, _08000310 @ =gUnk_030057A8
+	ldr r3, _08000310 @ =ram_GetTileTypeByPos
 	bx r3
 
 @ call 0x080B1A48
 @ r0: s32 (xPos)
 @ r1: s32 (yPos)
 @ r2: u32 (layer)
-	thumb_func_start sub_080002A8
-sub_080002A8: @ 0x080002A8
-	ldr r3, _08000314 @ =gUnk_030057BC
+	thumb_func_start sub_080B1A48
+sub_080B1A48: @ 0x080002A8
+	ldr r3, _08000314 @ =ram_sub_080B1A48
 	bx r3
 
 @ call 0x080B1A58
 @ r0: s32 (xPos)
 @ r1: s32 (yPos)
 @ r2: u32 (layer)
-	thumb_func_start sub_080002AC
-sub_080002AC: @ 0x080002AC
-	ldr r3, _08000318 @ =gUnk_030057CC
+	thumb_func_start sub_080B1A58
+sub_080B1A58: @ 0x080002AC
+	ldr r3, _08000318 @ =ram_sub_080B1A58
 	bx r3
 
 @ call 0x080B1A60
@@ -332,16 +332,16 @@ sub_080002AC: @ 0x080002AC
 @ return: u32 (tileType)
 	thumb_func_start GetTileType
 GetTileType: @ 0x080002B0
-	ldr r3, _0800031C @ =gUnk_030057D4
+	ldr r3, _0800031C @ =ram_GetTileType
 	bx r3
 
 @ call 0x080B1A8C
 @ r0: Entity*
 @ r1: u32
 @ r2: u32
-	thumb_func_start sub_080002B4
-sub_080002B4: @ 0x080002B4
-	ldr r3, _08000320 @ =gUnk_03005800
+	thumb_func_start sub_080B1A8C
+sub_080B1A8C: @ 0x080002B4
+	ldr r3, _08000320 @ =ram_sub_080B1A8C
 	bx r3
 
 @ call 0x080B1AA8
@@ -351,18 +351,18 @@ sub_080002B4: @ 0x080002B4
 @ return: 
 @ ========
 @ Called every frame a pot is thrown, every frame the screen is sliding in a transition, and once when entering stairs.
-	thumb_func_start sub_080002B8
-sub_080002B8: @ 0x080002B8
-	ldr r3, _08000324 @ =gUnk_0300581C
+	thumb_func_start sub_080B1AA8
+sub_080B1AA8: @ 0x080002B8
+	ldr r3, _08000324 @ =ram_sub_080B1AA8
 	bx r3
 
 @ call 0x080B1AB4
 @ r0: s32 (xPos)
 @ r1: s32 (yPos)
 @ r2: u32 (layer)
-	thumb_func_start sub_080002BC
-sub_080002BC: @ 0x080002BC
-	ldr r3, _08000328 @ =gUnk_03005828
+	thumb_func_start sub_080B1AB4
+sub_080B1AB4: @ 0x080002BC
+	ldr r3, _08000328 @ =ram_sub_080B1AB4
 	bx r3
 
 @ call 0x080B1AC8
@@ -370,9 +370,9 @@ sub_080002BC: @ 0x080002BC
 @ r1: u32
 @ r2: u32
 @ return: ???
-	thumb_func_start sub_080002C0
-sub_080002C0: @ 0x080002C0
-	ldr r3, _0800032C @ =gUnk_0300583C
+	thumb_func_start sub_080B1AC8
+sub_080B1AC8: @ 0x080002C0
+	ldr r3, _0800032C @ =ram_sub_080B1AC8
 	bx r3
 
 @ call 0x080B1AD8
@@ -381,124 +381,124 @@ sub_080002C0: @ 0x080002C0
 @ r2: s32 (yOffset)
 @ ========
 @ Unused? Doesn't seem to be called by anything in Ghidra.
-	thumb_func_start sub_080002C4
-sub_080002C4: @ 0x080002C4
-	ldr r3, _08000330 @ =gUnk_0300584C
+	thumb_func_start sub_080B1AD8
+sub_080B1AD8: @ 0x080002C4
+	ldr r3, _08000330 @ =ram_sub_080B1AD8
 	bx r3
 
 @ call 0x080B1AE0
 @ r0: u32 (tileIndex)
 @ r1: u32 (layer)
-	thumb_func_start sub_080002C8
-sub_080002C8: @ 0x080002C8
-	ldr r3, _08000334 @ =gUnk_03005854
+	thumb_func_start sub_080B1AE0
+sub_080B1AE0: @ 0x080002C8
+	ldr r3, _08000334 @ =ram_sub_080B1AE0
 	bx r3
 
 @ call 0x080B1AF0
 @ r0: Entity*
 @ r1: ???
 @ r2: ???
-	thumb_func_start sub_080002CC
-sub_080002CC: @ 0x080002CC
-	ldr r3, _08000338 @ =gUnk_03005864
+	thumb_func_start sub_080B1AF0
+sub_080B1AF0: @ 0x080002CC
+	ldr r3, _08000338 @ =ram_sub_080B1AF0
 	bx r3
 
 @ call 0x080B1B0C
 @ r0: Entity*
-	thumb_func_start sub_080002D0
-sub_080002D0: @ 0x080002D0
-	ldr r3, _0800033C @ =gUnk_03005880
+	thumb_func_start sub_080B1B0C
+sub_080B1B0C: @ 0x080002D0
+	ldr r3, _0800033C @ =ram_sub_080B1B0C
 	bx r3
 
 @ call 0x080B1B18
 @ r0: s32 (xPos)
 @ r1: s32 (yPos)
 @ r2: u32 (layer)
-	thumb_func_start sub_080002D4
-sub_080002D4: @ 0x080002D4
-	ldr r3, _08000340 @ =gUnk_0300588C
+	thumb_func_start sub_080B1B18
+sub_080B1B18: @ 0x080002D4
+	ldr r3, _08000340 @ =ram_sub_080B1B18
 	bx r3
 
 @ call 0x080B1B2C
 @ ========
 @ Unused? Doesn't seem to be called by anything in Ghidra.
-	thumb_func_start sub_080002D8
-sub_080002D8: @ 0x080002D8
-	ldr r3, _08000344 @ =gUnk_030058A0
+	thumb_func_start sub_080B1B2C
+sub_080B1B2C: @ 0x080002D8
+	ldr r3, _08000344 @ =ram_sub_080B1B2C
 	bx r3
 
 @ call 0x080B1B3C
 @ ========
 @ Unused? Doesn't seem to be called by anything in Ghidra.
-	thumb_func_start sub_080002DC
-sub_080002DC: @ 0x080002DC
-	ldr r3, _08000348 @ =gUnk_030058B0
+	thumb_func_start sub_080B1B3C
+sub_080B1B3C: @ 0x080002DC
+	ldr r3, _08000348 @ =ram_sub_080B1B3C
 	bx r3
 
 @ call 0x080B1B44
 @ ========
 @ Unused? Doesn't seem to be called by anything in Ghidra.
-	thumb_func_start sub_080002E0
-sub_080002E0: @ 0x080002E0
-	ldr r3, _0800034C @ =gUnk_030058B8
+	thumb_func_start sub_080B1B44
+sub_080B1B44: @ 0x080002E0
+	ldr r3, _0800034C @ =ram_sub_080B1B44
 	bx r3
 
 @ call 0x080B1B54
 @ r0: u32 (tileIndex)
-	thumb_func_start sub_080002E4
-sub_080002E4: @ 0x080002E4
-	ldr r3, _08000350 @ =gUnk_030058C8
+	thumb_func_start sub_080B1B54
+sub_080B1B54: @ 0x080002E4
+	ldr r3, _08000350 @ =ram_sub_080B1B54
 	bx r3
 
 @ call 0x080B1B68
 @ ========
 @ Unused? Doesn't seem to be called by anything in Ghidra.
-	thumb_func_start sub_080002E8
-sub_080002E8: @ 0x080002E8
-	ldr r3, _08000354 @ =gUnk_030058DC
+	thumb_func_start sub_080B1B68
+sub_080B1B68: @ 0x080002E8
+	ldr r3, _08000354 @ =ram_sub_080B1B68
 	bx r3
 
 @ call 0x080B1B84
 @ r0: u32 (tileIndex)
 @ r1: u32 (layer)
-	thumb_func_start sub_080002EC
-sub_080002EC: @ 0x080002EC
-	ldr r3, _08000358 @ =gUnk_030058F8
+	thumb_func_start sub_080B1B84
+sub_080B1B84: @ 0x080002EC
+	ldr r3, _08000358 @ =ram_sub_080B1B84
 	bx r3
 
 @ call 0x080B1BA4
 @ r0: u32 (tileIndex)
 @ r1: u32 (layer)
 @ r2: ???
-	thumb_func_start sub_080002F0
-sub_080002F0: @ 0x080002F0
-	ldr r3, _0800035C @ =gUnk_03005918
+	thumb_func_start sub_080B1BA4
+sub_080B1BA4: @ 0x080002F0
+	ldr r3, _0800035C @ =ram_sub_080B1BA4
 	bx r3
 
-_080002F4: .4byte gUnk_03005740
-_080002F8: .4byte gUnk_0300574C
-_080002FC: .4byte gUnk_03005760
-_08000300: .4byte gUnk_03005770
-_08000304: .4byte gUnk_03005778
-_08000308: .4byte gUnk_03005780
-_0800030C: .4byte gUnk_0300579C
-_08000310: .4byte gUnk_030057A8
-_08000314: .4byte gUnk_030057BC
-_08000318: .4byte gUnk_030057CC
-_0800031C: .4byte gUnk_030057D4
-_08000320: .4byte gUnk_03005800
-_08000324: .4byte gUnk_0300581C
-_08000328: .4byte gUnk_03005828
-_0800032C: .4byte gUnk_0300583C
-_08000330: .4byte gUnk_0300584C
-_08000334: .4byte gUnk_03005854
-_08000338: .4byte gUnk_03005864
-_0800033C: .4byte gUnk_03005880
-_08000340: .4byte gUnk_0300588C
-_08000344: .4byte gUnk_030058A0
-_08000348: .4byte gUnk_030058B0
-_0800034C: .4byte gUnk_030058B8
-_08000350: .4byte gUnk_030058C8
-_08000354: .4byte gUnk_030058DC
-_08000358: .4byte gUnk_030058F8
-_0800035C: .4byte gUnk_03005918
+_080002F4: .4byte ram_GetTileAtEntityPos
+_080002F8: .4byte ram_sub_080B19D8
+_080002FC: .4byte ram_sub_080B19EC
+_08000300: .4byte ram_sub_080B19FC
+_08000304: .4byte ram_sub_080B1A04
+_08000308: .4byte ram_sub_080B1A0C
+_0800030C: .4byte ram_GetTileTypeByEntity
+_08000310: .4byte ram_GetTileTypeByPos
+_08000314: .4byte ram_sub_080B1A48
+_08000318: .4byte ram_sub_080B1A58
+_0800031C: .4byte ram_GetTileType
+_08000320: .4byte ram_sub_080B1A8C
+_08000324: .4byte ram_sub_080B1AA8
+_08000328: .4byte ram_sub_080B1AB4
+_0800032C: .4byte ram_sub_080B1AC8
+_08000330: .4byte ram_sub_080B1AD8
+_08000334: .4byte ram_sub_080B1AE0
+_08000338: .4byte ram_sub_080B1AF0
+_0800033C: .4byte ram_sub_080B1B0C
+_08000340: .4byte ram_sub_080B1B18
+_08000344: .4byte ram_sub_080B1B2C
+_08000348: .4byte ram_sub_080B1B3C
+_0800034C: .4byte ram_sub_080B1B44
+_08000350: .4byte ram_sub_080B1B54
+_08000354: .4byte ram_sub_080B1B68
+_08000358: .4byte ram_sub_080B1B84
+_0800035C: .4byte ram_sub_080B1BA4

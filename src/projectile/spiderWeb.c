@@ -135,7 +135,7 @@ void SpiderWeb_SubAction0(Entity* this) {
         if (tmp * 2 - entity->animationState == 0) {
             x = gUnk_0812A064[tmp * 2] + this->x.HALF.HI;
             y = gUnk_0812A064[tmp * 2 + 1] + this->y.HALF.HI;
-            if (sub_080002D4(x, y, entity->collisionLayer) == 0) {
+            if (sub_080B1B18(x, y, entity->collisionLayer) == 0) {
                 entity->x.HALF.HI = x;
                 entity->y.HALF.HI = y;
             }

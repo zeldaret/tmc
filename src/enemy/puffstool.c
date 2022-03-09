@@ -416,22 +416,22 @@ bool32 sub_0802571C(Entity* this) {
 bool32 sub_080257EC(Entity* this, u32 x, u32 y) {
     u16 tmp;
 
-    tmp = sub_080002A8(x - 0x00, y - 0x00, this->collisionLayer);
+    tmp = sub_080B1A48(x - 0x00, y - 0x00, this->collisionLayer);
     if (tmp != 0x312 && gUnk_080B37A0[tmp] != 0x16 && gUnk_080B3E80[tmp] == 0) {
         return TRUE;
     }
 
-    tmp = sub_080002A8(x - 0x10, y - 0x00, this->collisionLayer);
+    tmp = sub_080B1A48(x - 0x10, y - 0x00, this->collisionLayer);
     if (tmp != 0x312 && gUnk_080B37A0[tmp] != 0x16 && gUnk_080B3E80[tmp] == 0) {
         return TRUE;
     }
 
-    tmp = sub_080002A8(x - 0x00, y - 0x10, this->collisionLayer);
+    tmp = sub_080B1A48(x - 0x00, y - 0x10, this->collisionLayer);
     if (tmp != 0x312 && gUnk_080B37A0[tmp] != 0x16 && gUnk_080B3E80[tmp] == 0) {
         return TRUE;
     }
 
-    tmp = sub_080002A8(x - 0x10, y - 0x10, this->collisionLayer);
+    tmp = sub_080B1A48(x - 0x10, y - 0x10, this->collisionLayer);
     if (tmp != 0x312 && gUnk_080B37A0[tmp] != 0x16 && gUnk_080B3E80[tmp] == 0) {
         return TRUE;
     }
@@ -484,10 +484,10 @@ bool32 sub_0802594C(Entity* this, u32 param_2) {
         u8 bVar6;
         iVar9 = xDiff + unk[0];
         iVar11 = yDiff + unk[1];
-        bVar4 = sub_080002D4(iVar9 - 0x00, iVar11 - 0x00, uVar1);
-        bVar5 = sub_080002D4(iVar9 - 0x10, iVar11 - 0x00, uVar1);
-        bVar6 = sub_080002D4(iVar9 - 0x00, iVar11 - 0x10, uVar1);
-        bVar7 = sub_080002D4(iVar9 - 0x10, iVar11 - 0x10, uVar1);
+        bVar4 = sub_080B1B18(iVar9 - 0x00, iVar11 - 0x00, uVar1);
+        bVar5 = sub_080B1B18(iVar9 - 0x10, iVar11 - 0x00, uVar1);
+        bVar6 = sub_080B1B18(iVar9 - 0x00, iVar11 - 0x10, uVar1);
+        bVar7 = sub_080B1B18(iVar9 - 0x10, iVar11 - 0x10, uVar1);
         if ((bVar4 | bVar5 | bVar6 | bVar7) == 0) {
             this->field_0x7c.HALF.LO = gRoomControls.origin_x + iVar9;
             this->field_0x7c.HALF.HI = gRoomControls.origin_y + iVar11;
@@ -513,10 +513,10 @@ void sub_08025A54(Entity* this) {
 }
 
 bool32 sub_08025AB8(u32 tile, u32 layer) {
-    if (sub_080002E0(tile, layer))
+    if (sub_080B1B44(tile, layer))
         return FALSE;
 
-    if (sub_080002C8(tile, layer) == 10) {
+    if (sub_080B1AE0(tile, layer) == 10) {
         sub_0807B7D8(0x61, tile, layer);
         return TRUE;
     }

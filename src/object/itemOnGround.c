@@ -247,7 +247,7 @@ void sub_080812A0(Entity* this) {
 }
 
 void sub_080812A8(Entity* this) {
-    if (sub_080002D0(this) != 0xF && this->field_0x6e.HWORD != GetTileTypeByEntity(this)) {
+    if (sub_080B1B0C(this) != 0xF && this->field_0x6e.HWORD != GetTileTypeByEntity(this)) {
         this->direction = 0;
         this->speed = 0;
         this->spriteSettings.draw = 1;
