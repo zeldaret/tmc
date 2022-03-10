@@ -698,7 +698,7 @@ SECTIONS {
         src/object/fileScreenObjects.o(.text);
         src/object/object49.o(.text);
         src/object/backgroundCloud.o(.text);
-        asm/object/object4B.o(.text);
+        src/object/object4B.o(.text);
         src/object/pushableFurniture.o(.text);
         src/object/furniture.o(.text);
         src/object/minishSizedEntrance.o(.text);
@@ -1435,7 +1435,7 @@ SECTIONS {
         data/animations/object/fileScreenObjects.o(.rodata);
         data/const/object/object49.o(.rodata);
         data/const/object/backgroundCloud.o(.rodata);
-        data/const/object/object4B.o(.rodata);
+        src/object/object4B.o(.rodata);
         src/object/pushableFurniture.o(.rodata);
         data/const/object/furniture.o(.rodata);
         data/animations/object/furniture.o(.rodata);
