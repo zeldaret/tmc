@@ -19,14 +19,17 @@ typedef struct {
     /*0x68*/ u16 unk_68;
 } Object3DEntity;
 
-
 void Object3D_Init(Object3DEntity*);
 void Object3D_Action1(Object3DEntity*);
 void Object3D_Action2(Object3DEntity*);
 void sub_0808D030(void);
 
 void Object3D(Object3DEntity* this) {
-    static void (*const Object3D_Actions[])(Object3DEntity*) = {Object3D_Init, Object3D_Action1, Object3D_Action2, };
+    static void (*const Object3D_Actions[])(Object3DEntity*) = {
+        Object3D_Init,
+        Object3D_Action1,
+        Object3D_Action2,
+    };
     Object3D_Actions[super->action](this);
 }
 
@@ -37,15 +40,14 @@ void Object3D_Init(Object3DEntity* this) {
     this->unk_68 = 0x80;
     super->updatePriority = 6;
     sub_0801E1B8(0x1f17, 0);
-    sub_0801E1EC(super->x.HALF.HI, super->y.HALF.HI,
-                 this->unk_68);
+    sub_0801E1EC(super->x.HALF.HI, super->y.HALF.HI, this->unk_68);
 }
 
 void Object3D_Action1(Object3DEntity* this) {
 #ifdef EU
-    static const u16 gUnk_081216C8[] = { 206, 19, 333, 208, 16, 333, 207, 1, 333, 0};
+    static const u16 gUnk_081216C8[] = { 206, 19, 333, 208, 16, 333, 207, 1, 333, 0 };
 #else
-    static const u16 gUnk_081216C8[] = { 206, 19, 334, 208, 16, 334, 207, 1, 334, 0};
+    static const u16 gUnk_081216C8[] = { 206, 19, 334, 208, 16, 334, 207, 1, 334, 0 };
 #endif
     const u16* ptr;
     this->unk_68 -= 2;
@@ -57,7 +59,7 @@ void Object3D_Action1(Object3DEntity* this) {
         ResetPaletteTable(0);
         ResetPalettes();
         gGFXSlots.unk0 = 1;
-        ptr = &gUnk_081216C8[super->type* 3];
+        ptr = &gUnk_081216C8[super->type * 3];
         LoadFixedGFX(super, ptr[0]);
         LoadObjPalette(super, ptr[1]);
         super->spriteIndex = ptr[2];
@@ -68,7 +70,7 @@ void Object3D_Action1(Object3DEntity* this) {
         super->spriteSettings.draw = 2;
         super->spriteOrientation.flipY = 0;
         super->spriteRendering.b3 = 0;
-        super->spritePriority. b0 = 0;
+        super->spritePriority.b0 = 0;
         super->actionDelay = 0x1e;
         super->field_0xf = 0xff;
         super->spriteRendering.b0 = 3;
@@ -104,7 +106,7 @@ void Object3D_Action2(Object3DEntity* this) {
         }
         sub_0801E1EC(super->x.HALF.HI, super->y.HALF.HI, this->unk_68);
         if (0x80 < super->field_0xf) {
-            super->field_0xf-= 8;
+            super->field_0xf -= 8;
         }
         sub_0805EC9C(super, super->field_0xf, super->field_0xf, 0);
     } else {

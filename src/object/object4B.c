@@ -26,7 +26,8 @@ void Object4B_Action7(Object4BEntity*);
 
 void Object4B(Object4BEntity* this) {
     static void (*const Object4B_Actions[])(Object4BEntity*) = {
-        Object4B_Init, Object4B_Action1, Object4B_Action2, Object4B_Action3, Object4B_Action4, Object4B_Action5, Object4B_Action6, Object4B_Action7,
+        Object4B_Init,    Object4B_Action1, Object4B_Action2, Object4B_Action3,
+        Object4B_Action4, Object4B_Action5, Object4B_Action6, Object4B_Action7,
     };
     Object4B_Actions[super->action](this);
 }

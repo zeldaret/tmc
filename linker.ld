@@ -638,7 +638,7 @@ SECTIONS {
         src/object/specialFx.o(.text);
         asm/object/object10.o(.text);
         src/object/object11.o(.text);
-        asm/object/object12.o(.text);
+        src/object/object12.o(.text);
         src/object/railtrack.o(.text);
         src/object/lilypadLarge.o(.text);
         asm/object/object15.o(.text);
@@ -1356,7 +1356,7 @@ SECTIONS {
         data/animations/object/specialFx.o(.rodata);
         data/const/object/object10.o(.rodata);
         src/object/object11.o(.rodata);
-        data/const/object/object12.o(.rodata);
+        src/object/object12.o(.rodata);
         data/const/object/railtrack.o(.rodata);
         data/animations/object/railtrack.o(.rodata);
         data/const/object/lilypadLarge.o(.rodata);
