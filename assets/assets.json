@@ -43358,27 +43358,6 @@
     "type": "animation"
   },
   {
-    "path": "object3D/gUnk_081216C8_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1183248
-    },
-    "size": 20
-  },
-  {
-    "path": "object3D/gUnk_081216C8_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1185480,
-    "size": 20
-  },
-  {
     "path": "giantLeaf/gUnk_08121750.bin",
     "start": 1185616,
     "size": 26

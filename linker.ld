@@ -684,7 +684,7 @@ SECTIONS {
         asm/object/object76.o(.text);
         asm/object/code_0808C964.o(.text);
         src/object/macroPlayer.o(.text);
-        asm/object/object3D.o(.text);
+        src/object/object3D.o(.text);
         src/object/object3E.o(.text);
         src/object/giantLeaf.o(.text);
         src/object/fairy.o(.text);
@@ -1417,7 +1417,7 @@ SECTIONS {
         data/const/object/object75.o(.rodata);
         data/const/object/object76.o(.rodata);
         src/object/macroPlayer.o(.rodata);
-        data/const/object/object3D.o(.rodata);
+        src/object/object3D.o(.rodata);
         src/object/object3E.o(.rodata);
         data/const/object/giantLeaf.o(.rodata);
         src/object/fairy.o(.rodata);
