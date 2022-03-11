@@ -633,7 +633,7 @@ SECTIONS {
         src/object/objectA.o(.text);
         src/object/objectB.o(.text);
         src/object/chestSpawner.o(.text);
-        asm/object/objectD.o(.text);
+        src/object/objectD.o(.text);
         asm/object/objectE.o(.text);
         src/object/specialFx.o(.text);
         asm/object/object10.o(.text);
@@ -1350,7 +1350,7 @@ SECTIONS {
         src/object/objectB.o(.rodata);
         src/object/chestSpawner.o(.rodata);
         data/animations/object/chestSpawner.o(.rodata);
-        data/const/object/objectD.o(.rodata);
+        src/object/objectD.o(.rodata);
         data/animations/object/objectD.o(.rodata);
         src/object/specialFx.o(.rodata);
         data/animations/object/specialFx.o(.rodata);
