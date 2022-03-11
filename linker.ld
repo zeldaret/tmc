@@ -634,7 +634,7 @@ SECTIONS {
         src/object/objectB.o(.text);
         src/object/chestSpawner.o(.text);
         src/object/objectD.o(.text);
-        asm/object/objectE.o(.text);
+        src/object/objectE.o(.text);
         src/object/specialFx.o(.text);
         asm/object/object10.o(.text);
         src/object/object11.o(.text);
