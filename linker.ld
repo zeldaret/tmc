@@ -715,7 +715,7 @@ SECTIONS {
         src/object/gentariCurtains.o(.text);
         src/object/lavaPlatform.o(.text);
         src/object/paper.o(.text);
-        asm/object/object5B.o(.text);
+        src/object/object5B.o(.text);
         src/object/mask.o(.text);
         src/object/houseDoorInterior.o(.text);
         src/object/whirlwind.o(.text);
@@ -1455,7 +1455,7 @@ SECTIONS {
         src/object/lavaPlatform.o(.rodata);
         data/animations/object/lavaPlatform.o(.rodata);
         src/object/paper.o(.rodata);
-        data/const/object/object5B.o(.rodata);
+        src/object/object5B.o(.rodata);
         data/const/object/mask.o(.rodata);
         src/object/houseDoorInterior.o(.rodata);
         src/object/whirlwind.o(.rodata);
