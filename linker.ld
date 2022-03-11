@@ -689,7 +689,7 @@ SECTIONS {
         src/object/giantLeaf.o(.text);
         src/object/fairy.o(.text);
         src/object/ladderUp.o(.text);
-        asm/object/object42.o(.text);
+        src/object/object42.o(.text);
         src/object/object43.o(.text);
         asm/object/object44.o(.text);
         asm/object/object45.o(.text);
@@ -1420,7 +1420,7 @@ SECTIONS {
         src/object/object3E.o(.rodata);
         data/const/object/giantLeaf.o(.rodata);
         src/object/fairy.o(.rodata);
-        data/const/object/object42.o(.rodata);
+        src/object/object42.o(.rodata);
         src/object/object43.o(.rodata);
         data/animations/object/object43.o(.rodata);
         data/const/object/object44.o(.rodata);
