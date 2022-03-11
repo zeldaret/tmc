@@ -736,7 +736,7 @@ SECTIONS {
         src/object/objectOnPillar.o(.text);
         src/object/mineralWaterSource.o(.text);
         src/object/minishSizedArchway.o(.text);
-        asm/object/object70.o(.text);
+        src/object/object70.o(.text);
         src/object/pushableGrave.o(.text);
         src/object/stoneTablet.o(.text);
         src/object/lilypadSmall.o(.text);
@@ -1478,7 +1478,7 @@ SECTIONS {
         src/object/minecartDoor.o(.rodata);
         src/object/objectOnPillar.o(.rodata);
         data/const/object/mineralWaterSource.o(.rodata);
-        data/const/object/object70.o(.rodata);
+        src/object/object70.o(.rodata);
         src/object/pushableGrave.o(.rodata);
         src/object/stoneTablet.o(.rodata);
         data/const/object/lilypadSmall.o(.rodata);
