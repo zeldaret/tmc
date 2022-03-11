@@ -803,7 +803,7 @@ SECTIONS {
         src/object/metalDoor.o(.text);
         src/object/jailBars.o(.text);
         src/object/objectB2.o(.text);
-        asm/object/objectB3.o(.text);
+        src/object/objectB3.o(.text);
         asm/object/objectB4.o(.text);
         src/object/objectB5.o(.text);
         asm/object/objectB6.o(.text);
@@ -1558,7 +1558,7 @@ SECTIONS {
         data/const/object/jailBars.o(.rodata);
         data/animations/object/jailBars.o(.rodata);
         data/animations/object/objectB2.o(.rodata);
-        data/const/object/objectB3.o(.rodata);
+        src/object/objectB3.o(.rodata);
         data/animations/object/objectB3.o(.rodata);
         data/const/object/objectB4.o(.rodata);
         data/animations/object/objectB4.o(.rodata);
