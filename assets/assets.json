@@ -43119,11 +43119,6 @@
     "type": "animation"
   },
   {
-    "path": "object30/gUnk_08121194.bin",
-    "start": 1184148,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_PullableMushroom_0.bin",
     "start": 1184260,
     "size": 4,
