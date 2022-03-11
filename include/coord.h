@@ -16,7 +16,7 @@ void SortEntityAbove(Entity*, Entity*);
 void SortEntityBelow(Entity*, Entity*);
 
 u32 sub_0806F5A4(u32 idx);
-u32 sub_0806F3E4(Entity*);
+bool32 sub_0806F3E4(Entity*);
 void LinearMoveUpdate(Entity*);
 bool32 sub_0806FD54(Entity*);
 u32 sub_0806FCAC(Entity*, Entity*);

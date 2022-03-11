@@ -2168,7 +2168,7 @@ s32 GetItemPrice(u32 item) {
     return ptr[0];
 }
 
-ASM_FUNC("asm/non_matching/game/GiveItem.inc", void GiveItem(u32 a, u32 b))
+ASM_FUNC("asm/non_matching/game/GiveItem.inc", u32 GiveItem(u32 a, u32 b))
 
 // TODO Adapt ItemMetaData struct
 void sub_08054288(s32 param_1) {
