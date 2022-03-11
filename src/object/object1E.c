@@ -11,13 +11,15 @@
 #include "functions.h"
 #include "area.h"
 
-
 void sub_08087528(Entity*);
 void sub_080875F4(Entity*);
 void sub_08087640(Entity*);
 
 void Object1E(Entity* this) {
-    static void (*const gUnk_081208B8[])(Entity*) = {sub_08087528, sub_080875F4, };
+    static void (*const gUnk_081208B8[])(Entity*) = {
+        sub_08087528,
+        sub_080875F4,
+    };
     if (!EntityIsDeleted(this)) {
         gUnk_081208B8[this->action](this);
     }
@@ -60,7 +62,7 @@ NONMATCH("asm/non_matching/object1E/sub_08087528.inc", void sub_08087528(Entity*
                 if (this->type == 0x40) {
                     this->spriteSettings.flipX = 1;
                 }
-            break;
+                break;
         }
     }
     SetDefaultPriority(this, 3);
@@ -74,7 +76,7 @@ void sub_080875F4(Entity* this) {
         DeleteThisEntity();
     }
     if (this->type2 != 0) {
-        this->spritePriority.b0 =gPlayerEntity.spritePriority.b0 + 1 - this->frame;
+        this->spritePriority.b0 = gPlayerEntity.spritePriority.b0 + 1 - this->frame;
     }
 }
 
