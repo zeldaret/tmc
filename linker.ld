@@ -813,7 +813,7 @@ SECTIONS {
         src/object/gyorgBossObject.o(.text);
         src/object/windcrest.o(.text);
         src/object/litArea.o(.text);
-        asm/object/objectBD.o(.text);
+        src/object/objectBD.o(.text);
         src/object/pinwheel.o(.text);
         src/object/objectBF.o(.text);
         src/object/enemyItem.o(.text);
@@ -1567,7 +1567,7 @@ SECTIONS {
         data/const/object/objectB9.o(.rodata);
         src/object/gyorgBossObject.o(.rodata);
         data/const/object/windcrest.o(.rodata);
-        data/const/object/objectBD.o(.rodata);
+        src/object/objectBD.o(.rodata);
         data/const/object/pinwheel.o(.rodata);
         data/animations/object/pinwheel.o(.rodata);
         src/object/objectC1.o(.rodata);
