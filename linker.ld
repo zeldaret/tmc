@@ -641,7 +641,7 @@ SECTIONS {
         src/object/object12.o(.text);
         src/object/railtrack.o(.text);
         src/object/lilypadLarge.o(.text);
-        asm/object/object15.o(.text);
+        src/object/object15.o(.text);
         src/object/floatingPlatform.o(.text);
         asm/object/object17.o(.text);
         asm/object/evilSpirit.o(.text);
@@ -1360,7 +1360,7 @@ SECTIONS {
         data/const/object/railtrack.o(.rodata);
         data/animations/object/railtrack.o(.rodata);
         data/const/object/lilypadLarge.o(.rodata);
-        data/const/object/object15.o(.rodata);
+        src/object/object15.o(.rodata);
         src/object/floatingPlatform.o(.rodata);
         data/const/object/object17.o(.rodata);
         data/const/object/evilSpirit.o(.rodata);
