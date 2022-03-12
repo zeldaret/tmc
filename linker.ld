@@ -643,7 +643,7 @@ SECTIONS {
         src/object/lilypadLarge.o(.text);
         src/object/object15.o(.text);
         src/object/floatingPlatform.o(.text);
-        asm/object/object17.o(.text);
+        src/object/object17.o(.text);
         asm/object/evilSpirit.o(.text);
         src/object/houseDoorExterior.o(.text);
         src/object/rupee.o(.text);
@@ -1362,7 +1362,7 @@ SECTIONS {
         data/const/object/lilypadLarge.o(.rodata);
         src/object/object15.o(.rodata);
         src/object/floatingPlatform.o(.rodata);
-        data/const/object/object17.o(.rodata);
+        src/object/object17.o(.rodata);
         data/const/object/evilSpirit.o(.rodata);
         data/animations/object/evilSpirit.o(.rodata);
         data/const/object/houseDoorExterior.o(.rodata);
