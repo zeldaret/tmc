@@ -255,4 +255,5 @@ extern void sub_080ADD70(void);
 extern bool32 sub_080AE4CC(Entity*, u32, u32, u32);
 extern void sub_080AE58C(Entity*, u32, u32);
 extern void sub_080AF284(void);
+extern bool32 sub_080B1B54(u32);
 #endif

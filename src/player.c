@@ -3501,7 +3501,7 @@ void SurfaceAction_CloneTile(Entity* this) {
                 break;
         }
         if (n > i) {
-            Entity* e = CreateObjectWithParent(this, OBJECT_10, i, 0);
+            Entity* e = CreateObjectWithParent(this, PLAYER_CLONE, i, 0);
             gPlayerClones[i] = e;
             if (e != NULL) {
                 CopyPosition(this, e);

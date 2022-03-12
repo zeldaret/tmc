@@ -636,7 +636,7 @@ SECTIONS {
         src/object/objectD.o(.text);
         src/object/objectE.o(.text);
         src/object/specialFx.o(.text);
-        asm/object/object10.o(.text);
+        src/object/playerClone.o(.text);
         src/object/object11.o(.text);
         src/object/object12.o(.text);
         src/object/railtrack.o(.text);
@@ -1354,7 +1354,7 @@ SECTIONS {
         data/animations/object/objectD.o(.rodata);
         src/object/specialFx.o(.rodata);
         data/animations/object/specialFx.o(.rodata);
-        data/const/object/object10.o(.rodata);
+        src/object/playerClone.o(.rodata);
         src/object/object11.o(.rodata);
         src/object/object12.o(.rodata);
         data/const/object/railtrack.o(.rodata);
