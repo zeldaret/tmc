@@ -43996,16 +43996,6 @@
     "type": "animation"
   },
   {
-    "path": "object67/gUnk_081229D0.bin",
-    "start": 1190352,
-    "size": 32
-  },
-  {
-    "path": "object67/gUnk_081229F0.bin",
-    "start": 1190384,
-    "size": 32
-  },
-  {
     "path": "animations/gSpriteAnimations_Object6A_10_0.bin",
     "start": 1190732,
     "size": 9,
