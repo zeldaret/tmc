@@ -660,7 +660,7 @@ SECTIONS {
         src/object/bigBarrel.o(.text);
         src/object/barrelInside.o(.text);
         src/object/pushableStatue.o(.text);
-        asm/object/object28.o(.text);
+        src/object/object28.o(.text);
         src/object/ambientClouds.o(.text);
         src/object/object2A.o(.text);
         src/object/object2B.o(.text);
