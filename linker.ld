@@ -706,7 +706,7 @@ SECTIONS {
         src/object/giantRock.o(.text);
         src/object/giantRock2.o(.text);
         src/object/object52.o(.text);
-        asm/object/object53.o(.text);
+        src/object/object53.o(.text);
         src/object/pullableLever.o(.text);
         src/object/minecart.o(.text);
         asm/object/minecart.o(.text);
@@ -1442,7 +1442,7 @@ SECTIONS {
         data/const/object/minishSizedEntrance.o(.rodata);
         data/animations/object/minishSizedEntrance.o(.rodata);
         src/object/giantRock2.o(.rodata);
-        data/const/object/object53.o(.rodata);
+        src/object/object53.o(.rodata);
         src/object/pullableLever.o(.rodata);
         data/animations/object/pullableLever.o(.rodata);
         data/const/object/minecart.o(.rodata);
