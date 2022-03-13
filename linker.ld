@@ -723,7 +723,7 @@ SECTIONS {
         src/object/swordsmanNewsletter.o(.text);
         src/object/object61.o(.text);
         src/object/giantTwig.o(.text);
-        asm/object/object63.o(.text);
+        src/object/object63.o(.text);
         src/object/object64.o(.text);
         src/object/ladderHoleInBookshelf.o(.text);
         asm/object/object66.o(.text);
@@ -1464,7 +1464,7 @@ SECTIONS {
         data/const/object/swordsmanNewsletter.o(.rodata);
         src/object/object61.o(.rodata);
         src/object/giantTwig.o(.rodata);
-        data/const/object/object63.o(.rodata);
+        src/object/object63.o(.rodata);
         src/object/object64.o(.rodata);
         data/animations/object/object64.o(.rodata);
         src/object/ladderHoleInBookshelf.o(.rodata);
