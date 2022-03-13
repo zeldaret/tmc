@@ -726,7 +726,7 @@ SECTIONS {
         src/object/object63.o(.text);
         src/object/object64.o(.text);
         src/object/ladderHoleInBookshelf.o(.text);
-        asm/object/object66.o(.text);
+        src/object/object66.o(.text);
         asm/object/object67.o(.text);
         src/object/object68.o(.text);
         src/object/object69.o(.text);
