@@ -705,7 +705,7 @@ SECTIONS {
         src/object/archway.o(.text);
         src/object/giantRock.o(.text);
         src/object/giantRock2.o(.text);
-        asm/object/object52.o(.text);
+        src/object/object52.o(.text);
         asm/object/object53.o(.text);
         src/object/pullableLever.o(.text);
         src/object/minecart.o(.text);
