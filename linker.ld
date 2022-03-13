@@ -691,7 +691,7 @@ SECTIONS {
         src/object/ladderUp.o(.text);
         src/object/object42.o(.text);
         src/object/object43.o(.text);
-        asm/object/object44.o(.text);
+        src/object/object44.o(.text);
         asm/object/object45.o(.text);
         src/object/giantBookLadder.o(.text);
         src/object/heartContainer.o(.text);
@@ -1423,7 +1423,7 @@ SECTIONS {
         src/object/object42.o(.rodata);
         src/object/object43.o(.rodata);
         data/animations/object/object43.o(.rodata);
-        data/const/object/object44.o(.rodata);
+        src/object/object44.o(.rodata);
         data/animations/object/object44.o(.rodata);
         data/const/object/object45.o(.rodata);
         data/animations/object/object45.o(.rodata);
