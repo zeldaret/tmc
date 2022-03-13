@@ -2211,20 +2211,22 @@ u32 sub_unk3_DeepwoodShrine_Barrel(void) {
 }
 
 void sub_StateChange_DeepwoodShrine_Barrel(void) {
-    if (gSave.unk7 == 0) {
-        goto a;
+    switch (gSave.unk7) {
+        case 0:
+        default:
+            SetTileType(0x90, 0x20b, 1);
+            SetTileType(0x90, 0x411, 1);
+            break;
+        case 2:
+            SetTileType(0x90, 0x211, 1);
+            SetTileType(0x90, 0x40b, 1);
+            break;
     }
-    if (gSave.unk7 != 2) {
-    a:
-        SetTileType(0x90, 0x20b, 1);
-        SetTileType(0x90, 0x411, 1);
-    } else {
-        SetTileType(0x90, 0x211, 1);
-        SetTileType(0x90, 0x40b, 1);
-    }
+
     if (CheckLocalFlag(0x15)) {
         SetTileType(0x76, 0x304, 2);
     }
+
     if (CheckLocalFlag(0x16)) {
         SetTileType(0x76, 0x318, 2);
     }

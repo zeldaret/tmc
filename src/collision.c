@@ -564,22 +564,22 @@ s32 sub_08017F40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 
 s32 sub_0801802C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     int kind;
-    ColSettings* p;
     u32 x;
 
     kind = org->kind;
     if (kind == 1) {
         if (sub_08079F8C()) {
             if (((((direction ^ 0x10) - 4 * tgt->animationState + 5) & 0x1F)) > 0xA) {
-                goto _08018090;
+                x = 0x11aa;
+                return sub_08018308(org, tgt, direction, &gCollisionMtx[x + org->hurtType]);
             } else {
-                goto _0801807A;
+                sub_080180BC(org, tgt);
+                return 1;
             }
         }
     } else if (kind == 8) {
         if ((((org->direction ^ 0x10) - 4 * tgt->animationState + 5) & 0x1F) <= 0xA) {
             org->health = 0;
-        _0801807A:
             sub_080180BC(org, tgt);
             return 1;
         }
@@ -587,7 +587,7 @@ s32 sub_0801802C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
         org->health = 0;
         return 0;
     }
-_08018090:
+
     x = 0x11aa;
     return sub_08018308(org, tgt, direction, &gCollisionMtx[x + org->hurtType]);
 }

@@ -814,41 +814,40 @@ void sub_0802DDD8(GleerokEntity* this) {
             break;
         case 1:
         case 2:
-            if (super->type2 == 1)
-                goto code13;
-            if (this->unk_76 == 0) {
-                r2 = 1;
-                r8 = 2;
-                r4 = 1;
-            } else {
-                r2 = 2;
-                r8 = 6;
-                r4 = 0;
-            }
-
-            if (this->unk_84->ent2->field_0xf == 1) {
-                super->child = CreateProjectileWithParent(super, GLEEROK_PROJECTILE, r2);
-                if (super->child) {
-                    super->child->direction = this->unk_84->filler[0x15];
-                    super->child->type2 = this->unk_84->ent2->frame & 0xf;
-                    super->child->parent = this->unk_84->ent2;
-                    super->child->child = this->unk_84->entities[0];
+            if (super->type2 != 1) {
+                if (this->unk_76 == 0) {
+                    r2 = 1;
+                    r8 = 2;
+                    r4 = 1;
+                } else {
+                    r2 = 2;
+                    r8 = 6;
+                    r4 = 0;
                 }
-            }
 
-            if (this->unk_74 == 0) {
-                this->unk_74 = r4;
-                this->unk_84->entities[super->field_0xf]->field_0xf = r8;
-
-                if (++super->field_0xf > 5) {
-                    super->field_0xf = 0;
+                if (this->unk_84->ent2->field_0xf == 1) {
+                    super->child = CreateProjectileWithParent(super, GLEEROK_PROJECTILE, r2);
+                    if (super->child) {
+                        super->child->direction = this->unk_84->filler[0x15];
+                        super->child->type2 = this->unk_84->ent2->frame & 0xf;
+                        super->child->parent = this->unk_84->ent2;
+                        super->child->child = this->unk_84->entities[0];
+                    }
                 }
-            } else {
-                this->unk_74--;
+
+                if (this->unk_74 == 0) {
+                    this->unk_74 = r4;
+                    this->unk_84->entities[super->field_0xf]->field_0xf = r8;
+
+                    if (++super->field_0xf > 5) {
+                        super->field_0xf = 0;
+                    }
+                } else {
+                    this->unk_74--;
+                }
             }
 
             if (super->type2 == 1) {
-            code13:
                 sub_0802EA48(this->unk_84, 5, 0x40, super->direction);
             } else {
                 if (this->unk_76 == 0) {

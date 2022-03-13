@@ -68,19 +68,15 @@ void sub_08031704(Entity* this) {
 }
 
 void sub_08031714(Entity* this) {
-    u8 newDirection;
     sub_080317B4(this);
     if (--this->field_0xf == 0) {
         this->field_0xf = (Random() & 0xf) + 0x10;
-        if (sub_08049FA0(this) == 0) {
-            if ((this->field_0xf & 1) != 0) {
-                this->direction = sub_08049EE4(this);
-                goto _08031766;
-            }
+        if (sub_08049FA0(this) == 0 && (this->field_0xf & 1) != 0) {
+            this->direction = sub_08049EE4(this);
+        } else {
+            this->direction += 0x18;
+            this->direction = ((Random() & 0xe) + this->direction) & 0x1f;
         }
-        this->direction += 0x18;
-        this->direction = ((Random() & 0xe) + this->direction) & 0x1f;
-    _08031766:
         sub_080317E0(this);
     }
 }

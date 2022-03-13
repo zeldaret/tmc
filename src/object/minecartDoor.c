@@ -105,7 +105,7 @@ void MinecartDoor_Action3(MinecartDoorEntity* this) {
             if (sub_08083734(super, super->type) == 0) {
                 return;
             }
-            goto label;
+            bVar3 = FALSE;
         } else {
             bVar3 = --super->actionDelay * 0x1000000;
         }
@@ -113,7 +113,6 @@ void MinecartDoor_Action3(MinecartDoorEntity* this) {
         bVar3 = sub_08096D84(this);
     }
     if (bVar3 == FALSE) {
-    label:
         super->action = 4;
         sub_080836DC(super, super->type, this->unk_76);
     }

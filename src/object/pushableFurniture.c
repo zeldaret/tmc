@@ -161,18 +161,20 @@ bool32 sub_0808FC5C(PushableFurnitureEntity* this) {
         }
         bVar2 = FALSE;
         if (*(u16*)&super->type == 0x101) {
-            if (super->y.HALF.HI != this->unk_7e)
-                goto _0808FCC8;
+            if (super->y.HALF.HI == this->unk_7e) {
+                bVar2 = TRUE;
+            }
         } else {
             if (super->x.HALF.HI == this->unk_7e) {
                 bVar2 = TRUE;
             }
-        _0808FCC8:
-            if (!bVar2) {
-                sub_0808FF50(this);
-                return TRUE;
-            }
         }
+
+        if (!bVar2) {
+            sub_0808FF50(this);
+            return TRUE;
+        }
+
         this->unk_81 = 1;
         if (super->parent == NULL) {
             SetFlag((u32)this->unk_86);
