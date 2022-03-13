@@ -10,6 +10,7 @@
 #include "global.h"
 #include "object.h"
 #include "functions.h"
+#include "item.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -66,7 +67,7 @@ void sub_08094774(Object68Entity* this) {
             }
             break;
         case 2:
-            child = CreateGroundItem(&gPlayerEntity, 0x60, 0);
+            child = CreateGroundItem(&gPlayerEntity, ITEM_FAIRY, 0);
             super->child = child;
             if (child != NULL) {
                 child->actionDelay = 1;
