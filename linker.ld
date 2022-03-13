@@ -674,7 +674,7 @@ SECTIONS {
         src/object/bollard.o(.text);
         src/object/warpPoint.o(.text);
         src/object/object35.o(.text);
-        asm/object/object36.o(.text);
+        src/object/object36.o(.text);
         asm/object/object37.o(.text);
         src/object/jarPortal.o(.text);
         src/object/bossDoor.o(.text);
@@ -1405,7 +1405,7 @@ SECTIONS {
         data/animations/object/warpPoint.o(.rodata);
         src/object/object35.o(.rodata);
         data/animations/object/object35.o(.rodata);
-        data/const/object/object36.o(.rodata);
+        src/object/object36.o(.rodata);
         data/const/object/object37.o(.rodata);
         data/const/object/jarPortal.o(.rodata);
         data/animations/object/jarPortal.o(.rodata);
