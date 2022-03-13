@@ -42866,16 +42866,6 @@
     "type": "animation"
   },
   {
-    "path": "object1F/gUnk_08120A18.bin",
-    "start": 1182232,
-    "size": 8
-  },
-  {
-    "path": "object1F/gUnk_08120A20.bin",
-    "start": 1182240,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_FigurineDevice_0.bin",
     "start": 1182440,
     "size": 5,

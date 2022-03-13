@@ -651,7 +651,7 @@ SECTIONS {
         src/object/object1C.o(.text);
         src/object/object1D.o(.text);
         src/object/object1E.o(.text);
-        asm/object/object1F.o(.text);
+        src/object/object1F.o(.text);
         src/object/object20.o(.text);
         src/object/object21.o(.text);
         src/object/figurineDevice.o(.text);
@@ -1372,7 +1372,7 @@ SECTIONS {
         data/const/object/object1D.o(.rodata);
         src/object/object1E.o(.rodata);
         data/animations/object/object1E.o(.rodata);
-        data/const/object/object1F.o(.rodata);
+        src/object/object1F.o(.rodata);
         src/object/object20.o(.rodata);
         src/object/object21.o(.rodata);
         src/object/figurineDevice.o(.rodata);
