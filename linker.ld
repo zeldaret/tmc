@@ -743,7 +743,7 @@ SECTIONS {
         src/object/object74.o(.text);
         src/object/bell.o(.text);
         src/object/macroDecorations.o(.text);
-        asm/object/object79.o(.text);
+        src/object/object79.o(.text);
         src/object/steam.o(.text);
         src/object/pushableLever.o(.text);
         src/object/macroShoes.o(.text);
@@ -1486,7 +1486,7 @@ SECTIONS {
         data/const/object/bell.o(.rodata);
         data/animations/object/bell.o(.rodata);
         src/object/macroDecorations.o(.rodata);
-        data/const/object/object79.o(.rodata);
+        src/object/object79.o(.rodata);
         data/animations/object/object79.o(.rodata);
         src/object/steam.o(.rodata);
         src/object/pushableLever.o(.rodata);

@@ -44526,11 +44526,6 @@
     "type": "animation"
   },
   {
-    "path": "object79/gUnk_0812341C.bin",
-    "start": 1192988,
-    "size": 6
-  },
-  {
     "path": "animations/gSpriteAnimations_PushableLever_0.bin",
     "start": 1193140,
     "size": 21,
