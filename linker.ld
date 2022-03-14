@@ -791,7 +791,7 @@ SECTIONS {
         src/object/minishLight.o(.text);
         asm/object/fireballChain.o(.text);
         asm/object/objectA6.o(.text);
-        asm/object/objectA7.o(.text);
+        src/object/objectA7.o(.text);
         src/object/objectA8.o(.text);
         asm/object/objectA9.o(.text);
         src/object/waterfallOpening.o(.text);
