@@ -7,12 +7,21 @@
 #include "functions.h"
 #include "effects.h"
 
-extern void (*const gUnk_08124354[])(Entity*);
+extern const s16 gUnk_080B4468[];
 
-extern s16 gUnk_08124364[];
+void sub_0809E83C(Entity* this);
+void sub_0809E86C(Entity* this);
+void sub_0809E8BC(Entity* this);
+void sub_0809E8EC(Entity* this);
 
 void TreeHidingPortal(Entity* this) {
-    gUnk_08124354[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_0809E83C,
+        sub_0809E86C,
+        sub_0809E8BC,
+        sub_0809E8EC,
+    };
+    actionFuncs[this->action](this);
 }
 
 void sub_0809E83C(Entity* this) {
@@ -61,8 +70,12 @@ void sub_0809E8EC(Entity* this) {
 }
 
 void sub_0809E918(Entity* this) {
+    static const s16 gUnk_08124364[] = {
+        0, -4, 8,  -4,  16, -4, 22, -4,  -8, -4,  -16, -4,  -22, -4,  0,  -12, 0,   4,   8,     -12,
+        8, 4,  -8, -12, -8, 4,  8,  -16, -8, -16, 12,  -16, -12, -16, 16, -14, -16, -14, -1000, 0,
+    };
     Entity* fx;
-    s16* i = gUnk_08124364;
+    const s16* i = gUnk_08124364;
     while (*i != -1000) {
         fx = CreateFx(this, FX_BUSH, 0);
         if (fx != NULL) {
@@ -77,4 +90,18 @@ void sub_0809E918(Entity* this) {
 
 void sub_0809E96C(Entity* this) {
     CreateMinishEntrance(COORD_TO_TILE_OFFSET(this, 0x20, 0x8));
+}
+
+u32 sub_0809E9A0(void) {
+    u32 rv;
+    const s16* ptr;
+
+    if (gPlayerEntity.action != PLAYER_BOUNCE) {
+        rv = 0;
+    } else {
+        ptr = &gUnk_080B4468[gPlayerEntity.animationState & 6];
+        rv = sub_080B1AE0(COORD_TO_TILE_OFFSET(&gPlayerEntity, -ptr[0], -ptr[1]), 1);
+    }
+
+    return rv;
 }
