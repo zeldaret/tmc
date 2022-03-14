@@ -751,7 +751,7 @@ SECTIONS {
         src/object/object7E.o(.text);
         asm/object/picoBloom.o(.text);
         src/object/board.o(.text);
-        asm/object/object81.o(.text);
+        src/object/object81.o(.text);
         src/object/bigVortex.o(.text);
         src/object/bigPushableLever.o(.text);
         src/object/smallIceBlock.o(.text);
@@ -1496,7 +1496,7 @@ SECTIONS {
         data/const/object/picoBloom.o(.rodata);
         data/animations/object/picoBloom.o(.rodata);
         src/object/board.o(.rodata);
-        data/const/object/object81.o(.rodata);
+        src/object/object81.o(.rodata);
         data/const/object/bigVortex.o(.rodata);
         data/animations/object/bigVortex.o(.rodata);
         src/object/bigPushableLever.o(.rodata);
