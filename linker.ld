@@ -681,7 +681,7 @@ SECTIONS {
         src/object/object3A.o(.text);
         src/object/macroMushroomStalks.o(.text);
         src/object/object75.o(.text); /* 75 and 76 are mislocated in object table */
-        asm/object/object76.o(.text);
+        src/object/object76.o(.text);
         asm/object/code_0808C964.o(.text);
         src/object/macroPlayer.o(.text);
         src/object/object3D.o(.text);
@@ -1414,7 +1414,7 @@ SECTIONS {
         src/object/object3A.o(.rodata);
         src/object/macroMushroomStalks.o(.rodata);
         src/object/object75.o(.rodata);
-        data/const/object/object76.o(.rodata);
+        src/object/object76.o(.rodata);
         src/object/macroPlayer.o(.rodata);
         src/object/object3D.o(.rodata);
         src/object/object3E.o(.rodata);
