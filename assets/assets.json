@@ -42177,27 +42177,6 @@
     "type": "animation"
   },
   {
-    "path": "object9/gUnk_0811F744_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1175180
-    },
-    "size": 16
-  },
-  {
-    "path": "object9/gUnk_0811F744_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1177412,
-    "size": 16
-  },
-  {
     "path": "animations/gSpriteAnimations_ChestSpawner_0.bin",
     "start": 1177784,
     "size": 17,

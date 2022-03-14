@@ -629,7 +629,7 @@ SECTIONS {
         src/object/ezloCap.o(.text);
         src/object/blockPushed.o(.text);
         src/object/lockedDoor.o(.text);
-        asm/object/object9.o(.text);
+        src/object/object9.o(.text);
         src/object/objectA.o(.text);
         src/object/objectB.o(.text);
         src/object/chestSpawner.o(.text);
@@ -1345,7 +1345,7 @@ SECTIONS {
         data/animations/object/ezloCap.o(.rodata);
         src/object/blockPushed.o(.rodata);
         src/object/lockedDoor.o(.rodata);
-        data/const/object/object9.o(.rodata);
+        src/object/object9.o(.rodata);
         data/animations/object/object9.o(.rodata);
         src/object/objectB.o(.rodata);
         src/object/chestSpawner.o(.rodata);
