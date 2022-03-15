@@ -1406,7 +1406,6 @@ SECTIONS {
         data/animations/object/object35.o(.rodata);
         src/object/object36.o(.rodata);
         src/object/object37.o(.rodata);
-        data/const/object/object37.o(.rodata);
         data/const/object/jarPortal.o(.rodata);
         data/animations/object/jarPortal.o(.rodata);
         src/object/bossDoor.o(.rodata);
