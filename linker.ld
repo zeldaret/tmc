@@ -778,7 +778,7 @@ SECTIONS {
         asm/object/object98.o(.text);
         asm/object/object99.o(.text);
         src/object/macroAcorn.o(.text);
-        asm/object/object9B.o(.text);
+        src/object/object9B.o(.text);
         src/object/treeHidingPortal.o(.text);
         src/object/lightableSwitch.o(.text);
         src/object/treeThorns.o(.text);
@@ -1529,7 +1529,7 @@ SECTIONS {
         data/const/object/object98.o(.rodata);
         data/animations/object/object98.o(.rodata);
         src/object/macroAcorn.o(.rodata);
-        data/const/object/object9B.o(.rodata);
+        src/object/object9B.o(.rodata);
         data/animations/object/object9B.o(.rodata);
         src/object/treeHidingPortal.o(.rodata);
         data/const/object/lightableSwitch.o(.rodata);
