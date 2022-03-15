@@ -43251,16 +43251,6 @@
     "type": "animation"
   },
   {
-    "path": "object36/gUnk_0812144C.bin",
-    "start": 1184844,
-    "size": 40
-  },
-  {
-    "path": "object36/gUnk_08121474.bin",
-    "start": 1184884,
-    "size": 12
-  },
-  {
     "path": "animations/gSpriteAnimations_JarPortal_0.bin",
     "start": 1184924,
     "size": 4,
