@@ -10,6 +10,7 @@
 #include "object.h"
 #include "functions.h"
 #include "hitbox.h"
+#include "item.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -91,7 +92,7 @@ void BigIceBlock_Action2(BigIceBlockEntity* this) {
         if (super->type != 2) {
             SetFlag(this->unk_86);
         } else {
-            CreateGroundItemWithFlags(super, 0x53, 0, this->unk_86);
+            CreateGroundItemWithFlags(super, ITEM_SMALL_KEY, 0, this->unk_86);
         }
     }
     super->action = 3;

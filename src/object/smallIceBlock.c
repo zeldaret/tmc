@@ -10,6 +10,7 @@
 #include "object.h"
 #include "functions.h"
 #include "hitbox.h"
+#include "item.h"
 
 typedef struct {
     /*0x00*/ Entity base;
@@ -138,10 +139,10 @@ void SmallIceBlock_Action3(SmallIceBlockEntity* this) {
     }
     sub_0805EC9C(super, 0x100, gUnk_08123748[super->actionDelay >> 5], 0);
     if (super->type == 1) {
-        CreateGroundItemWithFlags(super, 0x53, 0, this->unk_86);
+        CreateGroundItemWithFlags(super, ITEM_SMALL_KEY, 0, this->unk_86);
         SoundReq(SFX_SECRET);
     } else if (super->type == 2) {
-        CreateGroundItemWithFlags(super, 0x52, 0, this->unk_86);
+        CreateGroundItemWithFlags(super, ITEM_BIG_KEY, 0, this->unk_86);
         SoundReq(SFX_SECRET);
     }
     super->action = 4;

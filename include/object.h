@@ -46,7 +46,7 @@ typedef enum {
     OBJECT_D,
     OBJECT_E,
     SPECIAL_FX,
-    OBJECT_10,
+    PLAYER_CLONE,
     OBJECT_11,
     OBJECT_12,
     RAILTRACK,
@@ -242,7 +242,7 @@ void ChestSpawner();
 void ObjectD();
 void ObjectE();
 void SpecialFx();
-void Object10();
+void PlayerClone();
 void Object11();
 void Object12();
 void Railtrack();

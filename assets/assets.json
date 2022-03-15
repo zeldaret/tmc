@@ -42177,27 +42177,6 @@
     "type": "animation"
   },
   {
-    "path": "object9/gUnk_0811F744_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1175180
-    },
-    "size": 16
-  },
-  {
-    "path": "object9/gUnk_0811F744_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1177412,
-    "size": 16
-  },
-  {
     "path": "animations/gSpriteAnimations_ChestSpawner_0.bin",
     "start": 1177784,
     "size": 17,
@@ -42666,16 +42645,6 @@
     "type": "animation"
   },
   {
-    "path": "object10/gUnk_0812056C.bin",
-    "start": 1181036,
-    "size": 8
-  },
-  {
-    "path": "object10/gUnk_08120574.bin",
-    "start": 1181044,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_Railtrack_0.bin",
     "start": 1181156,
     "size": 4,
@@ -42874,16 +42843,6 @@
     "start": 1182140,
     "size": 44,
     "type": "animation"
-  },
-  {
-    "path": "object1F/gUnk_08120A18.bin",
-    "start": 1182232,
-    "size": 8
-  },
-  {
-    "path": "object1F/gUnk_08120A20.bin",
-    "start": 1182240,
-    "size": 8
   },
   {
     "path": "animations/gSpriteAnimations_FigurineDevice_0.bin",
@@ -43558,11 +43517,6 @@
     "size": 8
   },
   {
-    "path": "object53/gUnk_08122288.bin",
-    "start": 1188488,
-    "size": 12
-  },
-  {
     "path": "animations/gSpriteAnimations_PullableLever_0.bin",
     "start": 1188548,
     "size": 4,
@@ -44009,16 +43963,6 @@
     "start": 1190280,
     "size": 28,
     "type": "animation"
-  },
-  {
-    "path": "object67/gUnk_081229D0.bin",
-    "start": 1190352,
-    "size": 32
-  },
-  {
-    "path": "object67/gUnk_081229F0.bin",
-    "start": 1190384,
-    "size": 32
   },
   {
     "path": "animations/gSpriteAnimations_Object6A_10_0.bin",
@@ -44551,11 +44495,6 @@
     "type": "animation"
   },
   {
-    "path": "object79/gUnk_0812341C.bin",
-    "start": 1192988,
-    "size": 6
-  },
-  {
     "path": "animations/gSpriteAnimations_PushableLever_0.bin",
     "start": 1193140,
     "size": 21,
@@ -44844,16 +44783,6 @@
     "start": 1196832,
     "size": 40,
     "type": "animation"
-  },
-  {
-    "path": "object9B/gUnk_081242D8.bin",
-    "start": 1196760,
-    "size": 16
-  },
-  {
-    "path": "treeHidingPortal/gUnk_08124364.bin",
-    "start": 1196900,
-    "size": 80
   },
   {
     "path": "animations/gSpriteAnimations_Fan_0.bin",
