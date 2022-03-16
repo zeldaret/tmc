@@ -100,24 +100,21 @@ void sub_080656D4(Entity* this) {
         this->action = 4;
         this->interactType = 0;
         sub_0806F118(this);
-        goto label;
+        sub_0806574C(this);
     } else {
         if (this->interactType != 0) {
             if (GetInventoryValue(ITEM_QST_LONLON_KEY) != 0) {
                 StartCutscene(this, (u16*)&script_TalonGotKey);
-                goto label2;
             } else {
                 this->field_0x68.HALF.HI = this->action;
                 this->action = 3;
                 this->interactType = 0;
                 MessageNoOverlap(*(u32*)(*(u32*)&this->cutsceneBeh.HWORD + 4), this);
-            label:
                 sub_0806574C(this);
+                return;
             }
-        } else {
-        label2:
-            sub_0807DD94(this, NULL);
         }
+        sub_0807DD94(this, NULL);
     }
 }
 

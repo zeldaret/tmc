@@ -234,7 +234,6 @@ void sub_08068CA0(Entity* this, ScriptExecutionContext* context) {
 void sub_08068CFC(Entity* this, ScriptExecutionContext* context) {
     u8 bVar1;
     u8 itemID;
-    u32 uVar2;
 
     context->condition = 0;
     bVar1 = this->actionDelay;
@@ -244,7 +243,8 @@ void sub_08068CFC(Entity* this, ScriptExecutionContext* context) {
     switch (bVar1) {
         case 0:
         default:
-            goto switchD_08068d12_caseD_0;
+            context->condition = 1;
+            return;
         case 1:
             itemID = 0x2;
             break;
@@ -255,13 +255,16 @@ void sub_08068CFC(Entity* this, ScriptExecutionContext* context) {
             itemID = 0x14;
             break;
         case 5:
-            uVar2 = CheckLocalFlag(3);
-            goto LABEL1;
-            break;
+            if (CheckLocalFlag(3) == 0) {
+                return;
+            }
+            context->condition = 1;
+            return;
         case 6:
             if (gSave.stats.maxHealth < 0x50)
                 return;
-            goto switchD_08068d12_caseD_0;
+            context->condition = 1;
+            return;
         case 7:
             if (GetInventoryValue(ITEM_SKILL_SPIN_ATTACK) == 0) {
                 return;
@@ -285,13 +288,12 @@ void sub_08068CFC(Entity* this, ScriptExecutionContext* context) {
             break;
         case 10:
             itemID = ITEM_SKILL_GREAT_SPIN;
+            break;
     }
-    uVar2 = GetInventoryValue(itemID);
-LABEL1:
-    if (uVar2 == 0) {
+
+    if (GetInventoryValue(itemID) == 0) {
         return;
     }
-switchD_08068d12_caseD_0:
     context->condition = 1;
 }
 

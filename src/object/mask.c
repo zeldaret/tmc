@@ -20,16 +20,16 @@ void sub_080929A4(Entity* this) {
                         case 0x44D ... 0x44F:
                         case 0x182:
                             DeleteThisEntity();
-                            goto switchEnd;
+                            break;
+                        default:
+                            ClearFlag(this->field_0x86.HWORD);
                     }
 
-                    ClearFlag(this->field_0x86.HWORD);
                     break;
                 case 0x80:
                     DeleteThisEntity();
                     break;
             }
-        switchEnd:
         }
     }
 
