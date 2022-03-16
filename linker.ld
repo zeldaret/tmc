@@ -791,7 +791,7 @@ SECTIONS {
         src/object/cloud.o(.text);
         src/object/minishLight.o(.text);
         asm/object/fireballChain.o(.text);
-        asm/object/objectA6.o(.text);
+        src/object/objectA6.o(.text);
         src/object/objectA7.o(.text);
         src/object/objectA8.o(.text);
         asm/object/objectA9.o(.text);
@@ -1544,7 +1544,7 @@ SECTIONS {
         data/animations/object/objectA2.o(.rodata);
         data/const/object/cloud.o(.rodata);
         data/const/object/minishLight.o(.rodata);
-        data/const/object/objectA6.o(.rodata);
+        src/object/objectA6.o(.rodata);
         data/animations/object/objectA6.o(.rodata);
         src/object/objectA8.o(.rodata);
         data/const/object/objectA9.o(.rodata);
