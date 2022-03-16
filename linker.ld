@@ -775,7 +775,7 @@ SECTIONS {
         src/object/windTribeFlag.o(.text);
         src/object/bird.o(.text);
         asm/object/bird.o(.text);
-        asm/object/object96.o(.text);
+        src/object/object96.o(.text);
         src/object/keyStealingTakkuri.o(.text);
         asm/object/object98.o(.text);
         asm/object/object99.o(.text);
@@ -1526,7 +1526,7 @@ SECTIONS {
         data/animations/object/lamp.o(.rodata);
         data/const/object/bird.o(.rodata);
         data/animations/object/bird.o(.rodata);
-        data/const/object/object96.o(.rodata);
+        src/object/object96.o(.rodata);
         src/object/keyStealingTakkuri.o(.rodata);
         data/const/object/object98.o(.rodata);
         data/animations/object/object98.o(.rodata);
