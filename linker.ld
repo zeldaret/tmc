@@ -794,7 +794,7 @@ SECTIONS {
         src/object/objectA6.o(.text);
         src/object/objectA7.o(.text);
         src/object/objectA8.o(.text);
-        asm/object/objectA9.o(.text);
+        src/object/objectA9.o(.text);
         src/object/waterfallOpening.o(.text);
         asm/object/objectAB.o(.text);
         src/object/fourElements.o(.text);
@@ -1547,7 +1547,7 @@ SECTIONS {
         src/object/objectA6.o(.rodata);
         data/animations/object/objectA6.o(.rodata);
         src/object/objectA8.o(.rodata);
-        data/const/object/objectA9.o(.rodata);
+        src/object/objectA9.o(.rodata);
         src/object/waterfallOpening.o(.rodata);
         data/const/object/objectAB.o(.rodata);
         data/animations/object/objectAB.o(.rodata);
