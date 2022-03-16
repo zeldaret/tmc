@@ -805,7 +805,7 @@ SECTIONS {
         src/object/jailBars.o(.text);
         src/object/objectB2.o(.text);
         src/object/objectB3.o(.text);
-        asm/object/objectB4.o(.text);
+        src/object/objectB4.o(.text);
         src/object/objectB5.o(.text);
         src/object/objectB6.o(.text);
         src/object/well.o(.text);
@@ -1561,7 +1561,7 @@ SECTIONS {
         data/animations/object/objectB2.o(.rodata);
         src/object/objectB3.o(.rodata);
         data/animations/object/objectB3.o(.rodata);
-        data/const/object/objectB4.o(.rodata);
+        src/object/objectB4.o(.rodata);
         data/animations/object/objectB4.o(.rodata);
         data/const/object/well.o(.rodata);
         src/object/windTribeTeleporter.o(.rodata);
