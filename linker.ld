@@ -778,7 +778,7 @@ SECTIONS {
         src/object/object96.o(.text);
         src/object/keyStealingTakkuri.o(.text);
         src/object/object98.o(.text);
-        asm/object/object99.o(.text);
+        src/object/object99.o(.text);
         src/object/macroAcorn.o(.text);
         src/object/object9B.o(.text);
         src/object/treeHidingPortal.o(.text);
