@@ -5,77 +5,48 @@
 
 	.text
 
-.ifdef EU
-	thumb_func_start sub_08000118
-sub_08000118: @ 0x08000118
-	add r0, pc, #0x28
+.ifndef USA
+.ifndef DEMO_USA
+.ifndef JP
+	thumb_func_start fill_rq_stack
+fill_rq_stack: // fill iqr and user stack with 'MCZ3'
+	adr r0, 1f
 	ldm r0!, {r1, r2, r3}
-_0800011C:
+0:
 	subs r2, #4
 	str r1, [r2]
 	cmp r2, r3
-	bgt _0800011C
+	bgt 0b
 	bx lr
 
-	non_word_aligned_thumb_func_start sub_08000126
-sub_08000126: @ 0x08000126
-	add r0, pc, #0x1C
+// unused
+// returns the maximum values reached by irq stack (r0) and usr stack (r1)
+check_stack_threshold:
+	adr r0, 1f
 	ldm r0!, {r1, r2, r3}
-_0800012A:
+0:
 	ldr r0, [r3]
 	adds r3, #4
-	cmp r0, r1
-	beq _0800012A
+	cmp r0, r1 // cmp against magic
+	beq 0b
+
 	subs r2, #0xa0
-_08000134:
+0:
 	ldr r0, [r2]
 	adds r2, #4
-	cmp r0, r1
-	beq _08000134
+	cmp r0, r1  // cmp against magic
+	beq 0b
+
 	subs r1, r2, #4
 	subs r0, r3, #4
 	bx lr
-	.align 2, 0
-_08000144EU:
-	.byte 0x33, 0x5A, 0x43, 0x4D
-	.4byte gUnk_03007FA0
-	.4byte gUnk_03006C14
-.else
-.ifdef DEMO_JP @ TODO deduplicate
-	thumb_func_start sub_08000118
-sub_08000118: @ 0x08000118
-	add r0, pc, #0x28
-	ldm r0!, {r1, r2, r3}
-_0800011C:
-	subs r2, #4
-	str r1, [r2]
-	cmp r2, r3
-	bgt _0800011C
-	bx lr
 
-	non_word_aligned_thumb_func_start sub_08000126
-sub_08000126: @ 0x08000126
-	add r0, pc, #0x1C
-	ldm r0!, {r1, r2, r3}
-_0800012A:
-	ldr r0, [r3]
-	adds r3, #4
-	cmp r0, r1
-	beq _0800012A
-	subs r2, #0xa0
-_08000134:
-	ldr r0, [r2]
-	adds r2, #4
-	cmp r0, r1
-	beq _08000134
-	subs r1, r2, #4
-	subs r0, r3, #4
-	bx lr
 	.align 2, 0
-_08000144EU:
-	.byte 0x33, 0x5A, 0x43, 0x4D
-	.4byte gUnk_03007FA0
-	.4byte gUnk_03006C14
+1:
+	.byte '3, 'Z, 'C, 'M 	// r1
+	.4byte irq_stack_begin // r2
+	.4byte usr_stack_top 	// r3
+.endif
 .endif
 .endif
 

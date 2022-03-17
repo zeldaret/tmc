@@ -36,14 +36,14 @@ start_vector:
 	bx r1
 _080000F0:
 	b start_vector
-sp_irq: .4byte gUnk_03007FA0
-sp_usr: .4byte gUnk_03007F00
+sp_irq: .4byte irq_stack_begin
+sp_usr: .4byte usr_stack_begin
 INTR_VECTOR_BUF: .4byte 0x03007FFC
 intr_main: .4byte ram_IntrMain
 .ifdef EU
-unk_function: .4byte sub_08000118
+unk_function: .4byte fill_rq_stack
 .else
 .ifdef DEMO_JP
-unk_function: .4byte sub_08000118
+unk_function: .4byte fill_rq_stack
 .endif
 .endif

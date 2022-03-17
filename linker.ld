@@ -255,7 +255,7 @@ SECTIONS {
         . = 0x00006A94; ram_0x80b2b58 = .; /* TODO 0x80b2b58 in unusedLabel_080B2AA8*/
         . = 0x00006B14; ram_0x80b2bd8 = .; /* 0x80b2bd8 */
         . = 0x00006B24; ram_0x80b2be8 = .; /* 0x80b2be8 */
-        . = 0x00006C14; gUnk_03006C14 = .;
+        . = 0x00006C14; usr_stack_top = .;
 #else
         . = 0x00006580; ram_DrawDirect = .;
         . = 0x0000659C; ram_sub_080ADA04 = .;
@@ -264,8 +264,8 @@ SECTIONS {
         . = 0x0000694C; ram_0x80b2bd8 = .; /* 0x80b2bd8 */
         . = 0x0000695C; ram_0x80b2be8 = .; /* 0x80b2be8 */
 #endif
-        . = 0x00007F00; gUnk_03007F00 = .;
-        . = 0x00007FA0; gUnk_03007FA0 = .;
+        . = 0x00007F00; usr_stack_begin = .;
+        . = 0x00007FA0; irq_stack_begin = .;
         . = 0x00007FFA; gUnk_03007FFA = .;
         . = 0x00008000;
     } >iwram
@@ -273,27 +273,27 @@ SECTIONS {
     rom : ALIGN(2) {
 
         /* handwritten assembly */
-        asm/crt0.o(.text);
-        asm/veneer.o(.text);
+        asm/src/crt0.o(.text);
+        asm/src/veneer.o(.text);
         data/data_08000360.o(.rodata);
-        asm/code_08000E44.o(.text);
+        asm/src/code_08000E44.o(.text);
         asm/lib/libgcc.o(.text);
-        asm/code_08000F10.o(.text);
+        asm/src/code_08000F10.o(.text);
         data/data_08000F54.o(.rodata);
-        asm/enemy.o(.text);
+        asm/src/enemy.o(.text);
         src/droptables.o(.rodata);
-        asm/code_08001A7C.o(.text);
+        asm/src/code_08001A7C.o(.text);
         data/gfx/sprite_ptrs.o(.rodata);
-        asm/code_08003FC4.o(.text);
-        asm/code_080043E8.o(.text);
+        asm/src/code_08003FC4.o(.text);
+        asm/src/code_080043E8.o(.text);
         data/gfx/link_animations.o(.rodata);
-        asm/code_08007CAC.o(.text);
+        asm/src/code_08007CAC.o(.text);
         data/data_08007DF4.o(.rodata);
-        asm/player.o(.text);
+        asm/src/player.o(.text);
         /* scripts */
         data/scripts.o(.text);
-        asm/script.o(.text);
-        asm/projectileUpdate.o(.text);
+        asm/src/script.o(.text);
+        asm/src/projectileUpdate.o(.text);
 
         /* C source compiled with interworking */
         src/interrupts.o(.text);
@@ -883,7 +883,7 @@ SECTIONS {
         src/eeprom.o(.text);
         *libc.a:memcpy.o(.text);
         /* handwritten assembly in arm mode */
-        asm/intr.o(.text);
+        asm/src/intr.o(.text);
 
         /* data */
         data/data_080B2A70.o(.rodata);

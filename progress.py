@@ -48,7 +48,10 @@ def parse_map(non_matching_funcs):
                     if dir == 'src':
                         src += size
                     elif dir == 'asm':
-                        asm += size
+                        if filepath.find("asm/src/") != -1 or filepath.find("asm/lib/") != -1:
+                            src += size
+                        else:
+                            asm += size
                     elif dir == 'data':
                         # scripts
                         src_data += size
