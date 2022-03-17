@@ -280,8 +280,8 @@ UpdateCollision: @ 0x080B1C54
 	strb r1, [r3]
 	bx lr
 
-	arm_func_start CollideAll
-CollideAll: @ 0x080B1C7C
+	arm_func_start arm_CollideAll
+arm_CollideAll: @ 0x080B1C7C
 	push {r4, r5, r6, r7, r8, sb, sl, lr}
 	add r0, pc, #0x104 @ =_080B1D8C
 	ldm r0, {r8, sb, sl}
@@ -326,7 +326,7 @@ _080B1CC8:
 	orrs r0, r0, r2
 	bne _080B1CC8
 _080B1D20:
-	bl CalcCollision
+	bl arm_CalcCollision
 	cmp r0, #0
 	beq _080B1CC8
 	ldrb r3, [r4, #0x3c]
@@ -360,8 +360,8 @@ _080B1D8C: .4byte gUnk_02018EA0
 _080B1D90: .4byte gCollidableList
 _080B1D94: .4byte gCollidableCount
 
-	arm_func_start CalcCollision
-CalcCollision: @ 0x080B1D98
+	arm_func_start arm_CalcCollision
+arm_CalcCollision: @ 0x080B1D98
 	@ r6 = this, r7 = other
 
 	push {r2, r3, r6, r7, r8, sb, ip, lr}
@@ -422,7 +422,7 @@ CalcCollision: @ 0x080B1D98
 _080B1E74:
 	mov r2, #0
 	mov ip, #0
-	bl CalcCollisionDirection
+	bl arm_CalcCollisionDirection
 	mov r6, r0
 	ldrb r1, [r5, #0x3f]
 	mov r0, #0x22
@@ -473,8 +473,8 @@ _080B1F28:
 	mov r0, #0
 	b _080B1F20
 
-	arm_func_start sub_080B1F30
-sub_080B1F30: @ 0x080B1F30
+	arm_func_start arm_sub_080B1F30
+arm_sub_080B1F30: @ 0x080B1F30
 	ldrh r0, [r4, #0x2e]
 	ldrh r1, [r5, #0x2e]
 	sub r0, r0, r1
@@ -487,8 +487,8 @@ sub_080B1F30: @ 0x080B1F30
 	sub r1, r1, r2
 	bx lr
 
-	arm_func_start sub_080B1F5C
-sub_080B1F5C: @ 0x080B1F5C
+	arm_func_start arm_sub_080B1F5C
+arm_sub_080B1F5C: @ 0x080B1F5C
 	ldrh r0, [r4, #0x2e]
 	ldrh r1, [r5, #0x2e]
 	sub r0, r0, r1
@@ -501,8 +501,8 @@ sub_080B1F5C: @ 0x080B1F5C
 	add r1, r1, r2
 	bx lr
 
-	arm_func_start sub_080B1F88
-sub_080B1F88: @ 0x080B1F88
+	arm_func_start arm_sub_080B1F88
+arm_sub_080B1F88: @ 0x080B1F88
 	ldrh r0, [r4, #0x2e]
 	ldrh r1, [r5, #0x2e]
 	sub r0, r0, r1
@@ -511,8 +511,8 @@ sub_080B1F88: @ 0x080B1F88
 	sub r1, r1, r2
 	bx lr
 
-	arm_func_start sub_080B1FA4
-sub_080B1FA4: @ 0x080B1FA4
+	arm_func_start arm_sub_080B1FA4
+arm_sub_080B1FA4: @ 0x080B1FA4
 	ldrb r0, [r5, #0x15]
 	eor r0, r0, #0x10
 	b _080B1FB4
@@ -532,8 +532,8 @@ _080B1FB4:
 	and r6, r6, #0x1f
 	bx lr
 
-	arm_func_start sub_080B1FE4
-sub_080B1FE4: @ 0x080B1FE4
+	arm_func_start arm_sub_080B1FE4
+arm_sub_080B1FE4: @ 0x080B1FE4
 	ldrb r6, [r4, #0x15]
 _080B1FE8:
 	bx lr
@@ -630,8 +630,8 @@ _080B20FC:
 	mov r0, #1
 	bx lr
 
-	arm_func_start MakeFadeBuff256
-MakeFadeBuff256: @ 0x080B2124
+	arm_func_start arm_MakeFadeBuff256
+arm_MakeFadeBuff256: @ 0x080B2124
 	push {r4, r5, r6, r7, r8, sb, sl, fp}
 	mul r3, r2, r3
 	mov r4, #0x400
@@ -670,7 +670,7 @@ _080B21A4: .4byte 0x01010101
 _080B21A8: .4byte 0x02000000 + 6 @ brightness preference
 _080B21AC: .4byte gUnk_08000F54
 
-_ClearAndUpdateEntities:
+arm_ClearAndUpdateEntities:
 	ldr r11, _080B2270 @ =gUpdateContext
 	ldr r1, [r11]
 	ldm r1, {r7, r8, r9, r10}
@@ -686,8 +686,8 @@ _ClearAndUpdateEntities:
 @	void* restore_sp;
 @ }
 
-	arm_func_start _UpdateEntities
-_UpdateEntities: @ 0x080B21B0   @ 
+	arm_func_start arm_UpdateEntities
+arm_UpdateEntities: @ 0x080B21B0   @ 
 @ UpdateEntities starts here
     @ arg0 (r0) : 0 = entities, 1 = managers
 	ldr r1, _080B2274 @ =gUnk_080026A4
@@ -742,8 +742,8 @@ _080B2270: .4byte gUpdateContext
 _080B2274: .4byte gUnk_080026A4
 _080B2278: .4byte gUpdateContext
 
-	arm_func_start sub_080B227C
-sub_080B227C: @ 0x080B227C
+	arm_func_start arm_sub_080B227C
+arm_sub_080B227C: @ 0x080B227C
 	push {r4, r5, r6, r7, r8, lr}
 	ldr r2, [r0, #0x48]
 	cmp r2, #0
@@ -812,8 +812,8 @@ _080B236C:
 	.align 2, 0
 _080B2378: .4byte sub_080044AE
 
-	arm_func_start CalcCollisionDirection
-CalcCollisionDirection: @ 0x080B237C
+	arm_func_start arm_CalcCollisionDirection
+arm_CalcCollisionDirection: @ 0x080B237C
 	subs r2, r2, r0
 	movpl r0, #0
 	movmi r0, #0x20
@@ -845,8 +845,8 @@ CalcCollisionDirection: @ 0x080B237C
 	.align 2, 0
 _080B23EC: .4byte gUnk_0800464E
 
-	arm_func_start sub_080B23F0
-sub_080B23F0: @ 0x080B23F0
+	arm_func_start arm_DrawEntities
+arm_DrawEntities: @ 0x080B23F0
 .ifdef EU
 	push {r4, r5, r6, r7, r8, sb, sl, fp, lr}
 	ldr fp, _080B2A30 @ =gOAMControls
@@ -1528,8 +1528,8 @@ sub_080B27F4: @ 0x080B27F4
 	add sl, sl, r0
 	b sub_080B2874
 
-	arm_func_start sub_080B280C
-sub_080B280C: @ 0x080B280C
+	arm_func_start arm_DrawDirect
+arm_DrawDirect: @ 0x080B280C
 	cmp r2, #0xff
 	bxeq lr
 	ldr r3, _080B2A60 @ =gFrameObjLists
@@ -1537,7 +1537,7 @@ sub_080B280C: @ 0x080B280C
 	add r1, r1, r2, lsl #2
 	ldr r1, [r3, r1]
 	add r1, r1, r3
-_080B2828:
+arm_sub_080ADA04:
 	ldrb r2, [r1]
 	cmp r2, #0
 	bxeq lr
@@ -1741,8 +1741,9 @@ _080B2074EU:
 	cmp r5, #0x1f
 	bls _080B1FECEU
 	bx sl
-	arm_func_start sub_080B2088
-sub_080B2088: @ 0x080B2088
+
+	arm_func_start arm_sub_080B2088
+arm_sub_080B2088: @ 0x080B2088
 	ldr r5, [r4, #0x48]
 	cmp r5, #0
 	bxeq lr
@@ -1856,6 +1857,7 @@ _080B2074EU:
 	cmp r5, #0x1f
 	bls _080B1FECEU
 	bx sl
+
 	arm_func_start sub_080B2088
 sub_080B2088: @ 0x080B2088
 	ldr r5, [r4, #0x48]

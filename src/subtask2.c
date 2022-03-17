@@ -401,7 +401,7 @@ void sub_080A74F4(void) {
     UpdateEntities();
     UpdateManagers();
     DrawUI();
-    DrawOAMCmd();
+    DrawUIElements();
     UpdateCarriedObject();
     DrawEntities();
     CopyOAM();

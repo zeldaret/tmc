@@ -172,9 +172,9 @@ void CrenelBeanSprout_Action1(CrenelBeanSproutEntity* this) {
         this->unk_70 = ((super->x.HALF.HI + (s8)gUnk_08123184[tmp]) & -0x10) | 8;
         this->unk_72 = ((super->y.HALF.HI + (s8)gUnk_08123184[(tmp) + 1]) & -0x10) | 8;
         if (sub_080B1AB4(this->unk_70, this->unk_72, super->collisionLayer) == 0x19) {
-            gUnk_0200AF00.filler25[10] = 3;
+            gUnk_0200AF00.unk_2f = 3;
         } else {
-            gUnk_0200AF00.filler25[10] = 0;
+            gUnk_0200AF00.unk_2f = 0;
         }
         PositionRelative(&gPlayerEntity, super, 0, 0x10000);
         if (sub_080B1AA8(super) == 0x19) {
@@ -184,7 +184,7 @@ void CrenelBeanSprout_Action1(CrenelBeanSproutEntity* this) {
         if ((gPlayerState.field_0x92 & 0xc0) == 0) {
             return;
         }
-        if (gUnk_0200AF00.filler25[10] != 3) {
+        if (gUnk_0200AF00.unk_2f != 3) {
             return;
         }
         gPlayerState.heldObject = 0;

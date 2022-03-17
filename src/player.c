@@ -1862,7 +1862,7 @@ static void PlayerPull(Entity* this) {
 
     gPlayerState.framestate = PL_STATE_PULL;
     sPlayerPullStates[this->subAction](this);
-    gUnk_0200AF00.filler25[9] = 8;
+    gUnk_0200AF00.unk_2e = 8;
 }
 
 static void sub_08072214(Entity* this) {
@@ -2802,7 +2802,7 @@ void sub_08073584(Entity* this) {
         return;
     }
 
-    gUnk_0200AF00.filler25[10] = 1;
+    gUnk_0200AF00.unk_2f = 1;
     if (sub_0807A2F8(0)) {
         this->subAction++;
         this->direction = 4 * (this->animationState & 6);

@@ -41,7 +41,7 @@
 _080A70FC:
 	ldrb r0, [r5]
 	ldrb r1, [r5, #1]
-	bl sub_0801CA6C
+	bl CreateUIElement
 	adds r5, #2
 	movs r0, #0
 	ldrsb r0, [r5, r0]

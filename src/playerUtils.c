@@ -143,7 +143,7 @@ NONMATCH("asm/non_matching/playerUtils/sub_080777A0.inc", bool32 sub_080777A0(vo
                         RequestPriorityDuration(&gPlayerEntity, 0xb4);
                         return TRUE;
                     }
-                } else if ((((gUnk_0200AF00.filler25[7] == 0xc) && (gPlayerState.field_0x1c == 0)) &&
+                } else if ((((gUnk_0200AF00.unk_2c == 0xc) && (gPlayerState.field_0x1c == 0)) &&
                             (gPlayerState.floor_type != 0x11)) &&
                            ((((gPlayerState.field_0x90 & 0xf00) != 0 &&
                               ((gPlayerState.flags & (PL_BURNING | PL_ROLLING)) == 0)) &&

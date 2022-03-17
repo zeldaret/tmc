@@ -38,8 +38,8 @@ void Subtask_PauseMenu(void) {
         FlushSprites();
         pauseMenu_Variants[gUnk_02034490.unk11]();
         sub_080A5128();
-        sub_0801C1D4();
-        DrawOAMCmd();
+        UpdateUIElements();
+        DrawUIElements();
         if (gUnk_02034490.unk11 != 4) {
             gUnk_08128A38[gUnk_02034490.unk1].func();
         }

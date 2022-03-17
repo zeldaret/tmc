@@ -113,7 +113,7 @@ extern void UpdateScroll(void);
 extern void UpdateBgAnim(void);
 extern void CleanUpGFXSlots(void);
 extern void sub_080ADE24(void);
-extern void InitUI(u32);
+extern void InitUI(bool32);
 extern void sub_0801AE44(u32);
 extern void GenerateAreaHint(void);
 extern void ForceSetPlayerState(u32);
@@ -350,7 +350,7 @@ static void GameMain_InitRoom(void) {
     gRoomTransition.field_0x4[1] = 0;
     MessageInitialize();
     InitRoom();
-    InitUI(0);
+    InitUI(FALSE);
     InitializeEntities();
 #ifndef EU
     sub_0801855C();
@@ -366,7 +366,7 @@ static void GameMain_ChangeRoom(void) {
     DrawUI();
     UpdateManagers();
     FlushSprites();
-    DrawOAMCmd();
+    DrawUIElements();
     UpdateCarriedObject();
     DrawEntities();
     CopyOAM();
@@ -443,7 +443,7 @@ static void GameMain_Update(void) {
     sub_08052C3C();
     DrawUI();
     UpdateManagers();
-    DrawOAMCmd();
+    DrawUIElements();
     UpdateCarriedObject();
     DrawEntities();
     CheckRoomExit();
@@ -476,7 +476,7 @@ static void GameMain_BarrelUpdate(void) {
     DrawUI();
     UpdateManagers();
     FlushSprites();
-    DrawOAMCmd();
+    DrawUIElements();
     UpdateCarriedObject();
     DrawEntities();
     CheckRoomExit();
@@ -488,7 +488,7 @@ static void GameMain_BarrelUpdate(void) {
 
 static void GameMain_ChangeArea(void) {
     FlushSprites();
-    DrawOAMCmd();
+    DrawUIElements();
     DrawEntities();
     gMain.pad = 1;
     CopyOAM();
@@ -1151,7 +1151,7 @@ void RestoreGameTask(u32 a1) {
     CleanUpGFXSlots();
 #endif
     sub_080ADE24();
-    InitUI(1);
+    InitUI(TRUE);
     sub_0801AE44(a1);
     MemCopy(gUnk_02024090, gPaletteBuffer, 1024);
     gUsedPalettes = 0xffffffff;
@@ -1302,7 +1302,7 @@ bool32 CanDispEzloMessage(void) {
     s32 tmp = PL_STATE_WALK;
 
     if (!(gInput.heldKeys & SELECT_BUTTON) || gPlayerState.controlMode != CONTROL_ENABLED || gUnk_02034490.unk0 ||
-        gUnk_0200AF00.filler0[1])
+        gUnk_0200AF00.unk_1)
         return 0;
 
     if ((gPlayerState.flags & (PL_NO_CAP | 0x110)) || (gPlayerState.framestate_last > tmp) || gPlayerState.item ||
@@ -2291,8 +2291,8 @@ void ForceEquipItem(u32 itemID, u32 itemSlot) {
         }
         gSave.stats.itemButtons[itemSlot] = itemID;
         gSave.stats.itemButtons[otherItemIndex] = otherItem;
-        gUnk_0200AF00.filler0[0x13] = 0x7f;
-        gUnk_0200AF00.filler0[0x14] = 0x7f;
+        gUnk_0200AF00.unk_13 = 0x7f;
+        gUnk_0200AF00.unk_14 = 0x7f;
     }
 }
 

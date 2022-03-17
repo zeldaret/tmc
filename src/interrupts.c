@@ -227,9 +227,9 @@ void PlayerUpdate(Entity* this) {
 void HandlePlayerLife(Entity* this) {
     u32 temp;
 
-    gUnk_0200AF00.filler25[10] = 0;
-    gUnk_0200AF00.filler25[8] = 0;
-    gUnk_0200AF00.filler25[9] = 0;
+    gUnk_0200AF00.unk_2f = 0;
+    gUnk_0200AF00.unk_2d = 0;
+    gUnk_0200AF00.unk_2e = 0;
 
     if ((gPlayerEntity.bitfield & 0x80) && (gPlayerEntity.iframes > 0))
         SoundReq(SFX_86);
@@ -257,7 +257,7 @@ void HandlePlayerLife(Entity* this) {
         return;
 
 #ifdef EU
-    if ((gUnk_0200AF00.filler0[1] == 0) && gRoomTransition.frameCount % 90 == 0) {
+    if ((gUnk_0200AF00.unk_1 == 0) && gRoomTransition.frameCount % 90 == 0) {
         temp = gSave.stats.maxHealth / 4;
         if (temp > 24)
             temp = 24;
@@ -278,7 +278,7 @@ void HandlePlayerLife(Entity* this) {
 
     if (gSave.stats.health <= temp) {
         gRoomVars.unk2 = 1;
-        if ((gUnk_0200AF00.filler0[1] == 0) && gRoomTransition.frameCount % 90 == 0) {
+        if ((gUnk_0200AF00.unk_1 == 0) && gRoomTransition.frameCount % 90 == 0) {
             EnqueueSFX(SFX_LOW_HEALTH);
         }
     }
@@ -325,7 +325,7 @@ void sub_080171F0(void) {
     sub_080028E0(&gPlayerEntity);
 
     if (gPlayerState.flags & PL_CLONING)
-        gUnk_0200AF00.filler25[10] = 1;
+        gUnk_0200AF00.unk_2f = 1;
 
     sub_08078180();
     gPlayerState.field_0x7 &= ~0x80;

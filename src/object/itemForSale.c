@@ -85,7 +85,7 @@ void ItemForSale_Init(ItemForSaleEntity* this) {
 void ItemForSale_Action1(ItemForSaleEntity* this) {
     if (super->subAction != 0) {
         super->action = 2;
-        gUnk_0200AF00.filler25[10] = 2;
+        gUnk_0200AF00.unk_2f = 2;
     } else {
         if (super->type == 0x36) {
             if (super->interactType != 0) {
@@ -102,7 +102,7 @@ void ItemForSale_Action1(ItemForSaleEntity* this) {
                 ResetPlayer();
                 gPlayerState.heldObject = 4;
                 gNewPlayerEntity.unk_74 = super;
-                gUnk_0200AF00.filler25[10] = 2;
+                gUnk_0200AF00.unk_2f = 2;
                 MessageClose();
             }
         }
@@ -112,14 +112,14 @@ void ItemForSale_Action1(ItemForSaleEntity* this) {
 void ItemForSale_Action2(ItemForSaleEntity* this) {
     void* ptr;
 
-    gUnk_0200AF00.filler25[10] = 2;
+    gUnk_0200AF00.unk_2f = 2;
     super->spriteSettings.draw = gPlayerEntity.spriteSettings.draw;
     if ((gPlayerState.heldObject == 0) || (super != gNewPlayerEntity.unk_74)) {
         sub_080819B4(this);
     } else {
         ptr = sub_080784E4();
         if (((*(int*)(ptr + 8) == 0) ||
-             ((*(u8*)(ptr + 1) != 1 || (gUnk_0200AF00.filler25[10] = 7, (gPlayerState.field_0x92 & 0x88) == 0)))) &&
+             ((*(u8*)(ptr + 1) != 1 || (gUnk_0200AF00.unk_2f = 7, (gPlayerState.field_0x92 & 0x88) == 0)))) &&
             ((gPlayerState.field_0x92 & 0x98) != 0)) {
             sub_080819B4(this);
         }
@@ -141,8 +141,8 @@ void sub_080819B4(ItemForSaleEntity* this) {
     gNewPlayerEntity.unk_74 = 0;
     ptr = &gUnk_0200AF00;
     gRoomVars.shopItemType = 0;
-    ptr->filler25[7] = 0;
-    ptr->filler25[10] = 0;
+    ptr->unk_2c = 0;
+    ptr->unk_2f = 0;
     gRoomVars.shopItemType2 = 0;
     super->x.HALF.HI = this->unk_80 + gRoomControls.origin_x;
     super->y.HALF.HI = this->unk_82 + gRoomControls.origin_y;

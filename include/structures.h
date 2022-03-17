@@ -45,14 +45,87 @@ typedef struct {
 } struct_020354C0;
 extern struct_020354C0 gUnk_020354C0[0x20];
 
+#define MAX_UI_ELEMENTS 24
+
+typedef enum {
+    UI_ELEMENT_BUTTON_A,
+    UI_ELEMENT_BUTTON_B,
+    UI_ELEMENT_BUTTON_R,
+    UI_ELEMENT_ITEM_A,
+    UI_ELEMENT_ITEM_B,
+    UI_ELEMENT_TEXT_R,
+    UI_ELEMENT_HEART,
+    UI_ELEMENT_EZLONAGSTART,
+    UI_ELEMENT_EZLONAGACTIVE,
+    UI_ELEMENT_TEXT_A,
+    UI_ELEMENT_TEXT_B
+} UIElementType;
+
+/**
+ * @brief Floating UI element
+ */
 typedef struct {
-    u8 filler0[0x1A];
-    u16 rButtonX;
-    u8 filler1C[0x4];
-    u16 rButtonY;
+    u8 used : 1;
+    u8 unk_0_1 : 1;
+    u8 unk_0_2 : 2; // Load data into VRAM? 0: do not load, 1: ready to load 2: loaded
+    u8 unk_0_4 : 4;
+    u8 type;            /**< @see UIElementType */
+    u8 type2;           // Subtype
+    u8 buttonElementId; /**< Id of the button UI element this text is attached to */
+    u8 action;
+    u8 unk_5;
+    u8 unk_6;
+    u8 unk_7;
+    u8 unk_8;
+    u8 unk_9[3];
+    u16 x;
+    u16 y;
+    u8 frameIndex;
+    u8 duration;
+    u8 spriteSettings;
+    u8 frameSettings;
+    Frame* framePtr;
+    u8 unk_18;
+    u8 numTiles;
+    u16 unk_1a; // TODO oam id? VRAM target (element->unk_1a * 0x20 + 0x6010000)
+    u32* firstTile;
+} UIElement;
+
+typedef struct {
+    u8 unk_0;
+    u8 unk_1;
+    u8 unk_2;
+    u8 health;
+    u8 maxHealth;
+    u8 unk_5;
+    u8 unk_6;
+    u8 unk_7;
+    u8 unk_8;
+    u8 unk_9;
+    u8 unk_a;
+    u8 unk_b;
+    u8 unk_c;
+    u8 unk_d;
+    u16 rupees;
+    u8 unk_10;
+    u8 unk_11;
+    u8 unk_12;
+    s8 unk_13;
+    s8 unk_14;
+    u8 unk_15;
+    u16 buttonX[3]; /**< X coordinates for the button UI elements */
+    u16 buttonY[3]; /**< Y coordinates for the button UI elements */
     u8 filler22[0x2];
     u8 ezloNagFuncIndex;
-    u8 filler25[0x30F];
+    u8 filler25[7];
+    u8 unk_2c;
+    u8 unk_2d;
+    u8 unk_2e;
+    u8 unk_2f;
+    u8 unk_30[2];
+    u8 unk_32;
+    u8 unk_33;
+    UIElement elements[MAX_UI_ELEMENTS];
 } struct_0200AF00;
 extern struct_0200AF00 gUnk_0200AF00;
 

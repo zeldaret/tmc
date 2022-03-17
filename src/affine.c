@@ -6,9 +6,9 @@
 
 extern u32 gFrameObjLists[];
 
-extern void ram_sub_080B23F0(void);
-extern void ram_sub_080B2828(OAMCommand*, void*);
-extern void ram_sub_080B280C(OAMCommand*, u32, u32);
+extern void ram_DrawEntities(void);
+extern void ram_sub_080ADA04(OAMCommand*, void*);
+extern void ram_DrawDirect(OAMCommand*, u32, u32);
 
 // regalloc
 NONMATCH("asm/non_matching/vram/sub_080AD8F0.inc", void* sub_080AD8F0(u32 sprite, u32 frame)) {
@@ -59,16 +59,17 @@ void DrawEntities(void) {
     gOAMControls._4 = gRoomControls.aff_x + gRoomControls.scroll_x;
     gOAMControls._6 = gRoomControls.aff_y + gRoomControls.scroll_y;
     gOAMControls.field_0x1++;
-    fn = &ram_sub_080B23F0;
+    fn = &ram_DrawEntities;
     fn();
 }
 
+// TODO second parameter is a frame obj entry from gFrameObjLists
 void sub_080ADA04(OAMCommand* cmd, void* dst) {
-    void (*fn)(OAMCommand*, void*) = ram_sub_080B2828;
+    void (*fn)(OAMCommand*, void*) = ram_sub_080ADA04;
     fn(cmd, dst);
 }
 
-void DrawDirect(u32 a1, u32 a2) {
-    void (*fn)(OAMCommand*, u32, u32) = ram_sub_080B280C;
-    fn(&gOamCmd, a1, a2);
+void DrawDirect(u32 spriteIndex, u32 frameIndex) {
+    void (*fn)(OAMCommand*, u32, u32) = ram_DrawDirect;
+    fn(&gOamCmd, spriteIndex, frameIndex);
 }
