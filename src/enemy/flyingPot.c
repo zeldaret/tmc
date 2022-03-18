@@ -19,37 +19,56 @@ typedef struct {
     /* 0x74 */ u16 tileIndex;
 } FlyingPotEntity;
 
-// Knockback
-void sub_0803708C(FlyingPotEntity*);
-void sub_080370A4(FlyingPotEntity*);
-void sub_0803712C(FlyingPotEntity*);
+enum FlyingPotActions {
+    /* 0 */ FLYING_POT_ACTION_0,
+    /* 1 */ FLYING_POT_ACTION_1,
+    /* 2 */ FLYING_POT_ACTION_2,
+    /* 3 */ FLYING_POT_ACTION_3,
+    /* 4 */ FLYING_POT_ACTION_4,
+    /* 5 */ FLYING_POT_ACTION_5,
+    /* 6 */ FLYING_POT_ACTION_6,
+};
+
+enum FlyingPotSubActions {
+    /* 0 */ FLYING_POT_SUBACTION_0,
+    /* 1 */ FLYING_POT_SUBACTION_1,
+    /* 2 */ FLYING_POT_SUBACTION_2,
+    /* 3 */ FLYING_POT_SUBACTION_3,
+    /* 4 */ FLYING_POT_SUBACTION_4,
+    /* 5 */ FLYING_POT_SUBACTION_5,
+};
+
+// Functions
+void FlyingPot_OnTick(FlyingPotEntity*); // 0803708C
+void sub_080370A4(FlyingPotEntity*); // 080370A4
+void sub_0803712C(FlyingPotEntity*); // 0803712C
 
 // Subactions?
-void sub_08037144(FlyingPotEntity*);
-void sub_0803715C(FlyingPotEntity*);
-void sub_0803718C(FlyingPotEntity*);
-void sub_080371F8(FlyingPotEntity*);
-void nullsub_161(FlyingPotEntity*);
-void sub_08037218(FlyingPotEntity*);
+void FlyingPot_SubAction0(FlyingPotEntity*); // 08037144
+void FlyingPot_SubAction1(FlyingPotEntity*); // 0803715C
+void FlyingPot_SubAction2(FlyingPotEntity*); // 0803718C
+void FlyingPot_SubAction3(FlyingPotEntity*); // 080371F8
+void FlyingPot_SubActionDoNothing(FlyingPotEntity*);
+void FlyingPot_SubAction5(FlyingPotEntity*); // 08037218
 
 // Actions
-void sub_08037220(FlyingPotEntity*);
-void sub_08037280(FlyingPotEntity*);
-void sub_080372E8(FlyingPotEntity*);
-void sub_0803737C(FlyingPotEntity*);
-void sub_080373B0(FlyingPotEntity*);
-void sub_080373C8(FlyingPotEntity*);
-void sub_080373E0(FlyingPotEntity*);
+void FlyingPot_Init(FlyingPotEntity*); // ? // 08037220
+void FlyingPot_Action1(FlyingPotEntity*); // 08037280
+void FlyingPot_Action2(FlyingPotEntity*); // 080372E8
+void FlyingPot_Action3(FlyingPotEntity*); // 0803737C
+void FlyingPot_Action4(FlyingPotEntity*); // 080373B0
+void FlyingPot_Action5(FlyingPotEntity*); // 080373C8
+void FlyingPot_Action6(FlyingPotEntity*); // 080373E0
 
 void sub_08037408(FlyingPotEntity*);
 void sub_08037418(FlyingPotEntity*);
 
-extern void (*const gUnk_080CF244[])(Entity*);
-extern void (*const gUnk_080CF25C[])(FlyingPotEntity*);
-extern void (*const gUnk_080CF278[])(FlyingPotEntity*);
+// extern void (*const FlyingPot_Functions[])(Entity*);
+// extern void (*const FlyingPot_Actions[])(FlyingPotEntity*);
+// extern void (*const FlyingPot_SubActions[])(FlyingPotEntity*);
 
-void (*const gUnk_080CF244[])(Entity*) = {
-    (EntityActionPtr)sub_0803708C, (EntityActionPtr)sub_080370A4, GenericKnockback, GenericDeath, GenericConfused,
+void (*const FlyingPot_Functions[])(Entity*) = {
+    (EntityActionPtr)FlyingPot_OnTick, (EntityActionPtr)sub_080370A4, GenericKnockback, GenericDeath, GenericConfused,
     (EntityActionPtr)sub_0803712C,
 };
 
@@ -59,23 +78,29 @@ void FlyingPot(Entity* thisx) {
     if (index != 0) {
         gUnk_080012C8[index](thisx);
     } else {
-        gUnk_080CF244[GetNextFunction(thisx)](thisx);
+        FlyingPot_Functions[GetNextFunction(thisx)](thisx);
     }
 }
 
-void sub_0803708C(FlyingPotEntity* this) {
-    static void (*const gUnk_080CF25C[])(FlyingPotEntity*) = {
-        sub_08037220, sub_08037280, sub_080372E8, sub_0803737C, sub_080373B0, sub_080373C8, sub_080373E0,
+void FlyingPot_OnTick(FlyingPotEntity* this) {
+    static void (*const FlyingPot_Actions[])(FlyingPotEntity*) = {
+        FlyingPot_Init,
+        FlyingPot_Action1,
+        FlyingPot_Action2,
+        FlyingPot_Action3,
+        FlyingPot_Action4,
+        FlyingPot_Action5,
+        FlyingPot_Action6,
     };
 
-    gUnk_080CF25C[super->action](this);
+    FlyingPot_Actions[super->action](this);
 }
 
 void sub_080370A4(FlyingPotEntity* this) {
     sub_08037418(this);
 
     if (super->bitfield == 0x9D) {
-        super->action = 6;
+        super->action = FLYING_POT_ACTION_6;
         super->flags &= ~0x80;
         super->zVelocity = 0x2A000;
         super->spritePriority.b1 = 1;
@@ -85,26 +110,26 @@ void sub_080370A4(FlyingPotEntity* this) {
         sub_08037408(this);
     }
 
-    EnemyFunctionHandlerAfterCollision(super, gUnk_080CF244);
+    EnemyFunctionHandlerAfterCollision(super, FlyingPot_Functions);
 }
 
 void sub_0803712C(FlyingPotEntity* this) {
-    static void (*const gUnk_080CF278[])(FlyingPotEntity*) = {
-        sub_08037144, sub_0803715C, sub_0803718C, sub_080371F8, nullsub_161, sub_08037218,
+    static void (*const FlyingPot_SubActions[])(FlyingPotEntity*) = {
+        FlyingPot_SubAction0, FlyingPot_SubAction1, FlyingPot_SubAction2, FlyingPot_SubAction3, FlyingPot_SubActionDoNothing, FlyingPot_SubAction5,
     };
 
-    gUnk_080CF278[super->subAction](this);
+    FlyingPot_SubActions[super->subAction](this);
 }
 
-void sub_08037144(FlyingPotEntity* this) {
+void FlyingPot_SubAction0(FlyingPotEntity* this) {
     sub_08037418(this);
 
-    super->subAction = 1;
+    super->subAction = FLYING_POT_SUBACTION_1;
     super->actionDelay = 0;
     super->field_0x1d = 0x30;
 }
 
-void sub_0803715C(FlyingPotEntity* this) {
+void FlyingPot_SubAction1(FlyingPotEntity* this) {
     sub_08037418(this);
 
     if (sub_0806F520(super)) {
@@ -118,7 +143,7 @@ void sub_0803715C(FlyingPotEntity* this) {
     }
 }
 
-void sub_0803718C(FlyingPotEntity* this) {
+void FlyingPot_SubAction2(FlyingPotEntity* this) {
     if (super->actionDelay == 0) {
         sub_08037418(this);
         super->actionDelay = 1;
@@ -135,23 +160,23 @@ void sub_0803718C(FlyingPotEntity* this) {
     }
 }
 
-void sub_080371F8(FlyingPotEntity* this) {
+void FlyingPot_SubAction3(FlyingPotEntity* this) {
     if (!(gPlayerState.field_0x1c & 0xF)) {
         sub_08037408(this);
     }
 }
 
-void nullsub_161(FlyingPotEntity* this) {
+void FlyingPot_SubActionDoNothing(FlyingPotEntity* this) {
 }
 
-void sub_08037218(FlyingPotEntity* this) {
+void FlyingPot_SubAction5(FlyingPotEntity* this) {
     sub_08037408(this);
 }
 
-void sub_08037220(FlyingPotEntity* this) {
+void FlyingPot_Init(FlyingPotEntity* this) {
     u32 tile;
 
-    super->action = 1;
+    super->action = FLYING_POT_ACTION_1;
     super->field_0x1c = 2;
     super->y.HALF.HI += 3;
 
@@ -161,7 +186,7 @@ void sub_08037220(FlyingPotEntity* this) {
     InitializeAnimation(super, 5);
 }
 
-void sub_08037280(FlyingPotEntity* this) {
+void FlyingPot_Action1(FlyingPotEntity* this) {
     sub_08037418(this);
 
     if (GetTileTypeByEntity(super) != 0x4000) {
@@ -170,20 +195,20 @@ void sub_08037280(FlyingPotEntity* this) {
     }
 
     if (PlayerInRange(super, 1, 0x40)) {
-        super->action = 2;
+        super->action = FLYING_POT_ACTION_2;
         super->actionDelay = 30;
     }
 }
 
-void sub_080372E8(FlyingPotEntity* this) {
-    static const u8 gUnk_080CF290[] = { -1, 1, 1, -1 };
+void FlyingPot_Action2(FlyingPotEntity* this) {
+    static const u8 offsets[] = { -1, 1, 1, -1 };
 
     sub_08037418(this);
 
-    super->spriteOffsetX += gUnk_080CF290[super->actionDelay & 3];
+    super->spriteOffsetX += offsets[super->actionDelay & 3];
 
     if (--super->actionDelay == 0) {
-        super->action = 3;
+        super->action = FLYING_POT_ACTION_3;
         super->spritePriority.b1 = 1;
         super->spriteOffsetX = 0;
         super->hitType = 0xA0;
@@ -194,23 +219,23 @@ void sub_080372E8(FlyingPotEntity* this) {
     }
 }
 
-void sub_0803737C(FlyingPotEntity* this) {
+void FlyingPot_Action3(FlyingPotEntity* this) {
     super->z.WORD -= 0x10000;
 
     if (super->z.HALF.HI <= -6) {
-        super->action = 4;
+        super->action = FLYING_POT_ACTION_4;
         super->actionDelay = 10;
         super->direction = GetFacingDirection(super, &gPlayerEntity);
     }
 }
 
-void sub_080373B0(FlyingPotEntity* this) {
+void FlyingPot_Action4(FlyingPotEntity* this) {
     if (--super->actionDelay == 0) {
-        super->action = 5;
+        super->action = FLYING_POT_ACTION_5;
     }
 }
 
-void sub_080373C8(FlyingPotEntity* this) {
+void FlyingPot_Action5(FlyingPotEntity* this) {
     ProcessMovement2(super);
 
     if (super->collisions != 0) {
@@ -218,7 +243,7 @@ void sub_080373C8(FlyingPotEntity* this) {
     }
 }
 
-void sub_080373E0(FlyingPotEntity* this) {
+void FlyingPot_Action6(FlyingPotEntity* this) {
     if (super->zVelocity < 0) {
         super->spriteSettings.flipY = 1;
     }
@@ -229,7 +254,7 @@ void sub_080373E0(FlyingPotEntity* this) {
 }
 
 void sub_08037408(FlyingPotEntity* this) {
-    CreateFx(super, 5, 0);
+    CreateFx(super, FX_POT_SHATTER, 0);
     DeleteThisEntity();
 }
 
