@@ -95,7 +95,7 @@ void LavaPlatform_Type0Action2(LavaPlatformEntity* this) {
         (super->child)->spriteOffsetY = 0;
         InitializeAnimation(super->child, super->child->animationState);
         CreateFx(super, FX_LAVA_SPLASH_HUGE, 0);
-    } else if ((super->zVelocity < 0x18000) && ((super->frame & 0x80) == 0)) {
+    } else if ((super->zVelocity < 0x18000) && ((super->frame & ANIM_DONE) == 0)) {
         UpdateAnimationSingleFrame(super);
     }
 }
@@ -169,7 +169,7 @@ void LavaPlatform_Type1Action4(LavaPlatformEntity* this) {
     }
     if (this->timer < 0x8d) {
         GetNextFrame(super);
-        tmp = super->frame & 0x80;
+        tmp = super->frame & ANIM_DONE;
         if (tmp) {
             // Platform sank
             super->action = 5;
@@ -216,7 +216,7 @@ void LavaPlatform_Type1Action6(LavaPlatformEntity* this) {
         super->flags |= ENT_COLLIDE;
         super->hitType = 0xac;
     } else {
-        if ((super->frame & 0x80) != 0) {
+        if ((super->frame & ANIM_DONE) != 0) {
             sub_0809264C(this);
             if (tmp) {
                 gPlayerState.field_0x3f = 0xfd;

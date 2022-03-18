@@ -90,7 +90,7 @@ void sub_08037D54(Entity* this) {
                 EnqueueSFX(SFX_124);
             }
         }
-    } else if (this->frame & 0x80) {
+    } else if (this->frame & ANIM_DONE) {
         if (--this->actionDelay == 0) {
             this->action = 1;
             this->field_0xf = 0x3c;

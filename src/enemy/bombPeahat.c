@@ -289,7 +289,7 @@ void sub_0802AB40(Entity* this) {
 #endif
 
 void sub_0802AC08(Entity* this) {
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 2;
         this->subAction = 0;
         this->actionDelay = 0x40;
@@ -470,7 +470,7 @@ void sub_0802AED4(Entity* this) {
         }
     } else {
         if (!sub_0800442E(this)) {
-            sub_08078930(this);
+            RegisterCarryEntity(this);
         }
     }
     if (this->type2 != 0 && this->field_0x80.HALF.HI) {
@@ -535,7 +535,7 @@ NONMATCH("asm/non_matching/bombPeahat/sub_0802AFC8.inc", void sub_0802AFC8(Entit
             this->field_0x82.HWORD ^= 0x8000;
         }
         tmp = 0x130 - (this->field_0x82.HWORD & 0xf0);
-        sub_0805EC9C(this, tmp, tmp, 0);
+        SetAffineInfo(this, tmp, tmp, 0);
     }
     if (this->field_0xf & flag) {
         this->palette.b.b0 = this->palette.b.b4;
@@ -572,7 +572,7 @@ void sub_0802B048(Entity* this) {
                 this->field_0xf = 0x50;
                 this->field_0x82.HWORD = 0;
                 this->spriteRendering.b0 = 3;
-                sub_0805EC9C(this, 0x100, 0x100, 0);
+                SetAffineInfo(this, 0x100, 0x100, 0);
             }
         } else {
             if (this->field_0xf) {
@@ -587,7 +587,7 @@ void sub_0802B048(Entity* this) {
                     this->spriteSettings.draw = 0;
                     COLLISION_ON(this);
                     this->field_0x7a.HALF.HI = 0;
-                    sub_08078954(this);
+                    FreeCarryEntity(this);
                     if (this->parent->next) {
                         this->parent->field_0x80.HALF.HI = 0;
                     }

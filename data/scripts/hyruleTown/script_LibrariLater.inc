@@ -10,7 +10,7 @@ script_08012440:
 	JumpIfNot script_08012440
 	SetPlayerIdle
 	SetAnimation 0x0008
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	SetAnimation 0x0009
 	Call sub_0806B2B4
 	WaitUntilTextboxCloses

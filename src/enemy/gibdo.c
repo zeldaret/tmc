@@ -164,7 +164,7 @@ void sub_08037624(GibdoEntity* this) {
 
 void sub_08037690(GibdoEntity* this) {
     UpdateAnimationSingleFrame(super);
-    if ((super->frame & 0x80) != 0) {
+    if ((super->frame & ANIM_DONE) != 0) {
         this->field_0x77 = 0x14;
         sub_08037794(this);
     } else {
@@ -196,7 +196,7 @@ void sub_080376D0(GibdoEntity* this) {
 
 void sub_0803773C(GibdoEntity* this) {
     UpdateAnimationSingleFrame(super);
-    if ((super->frame & 0x80) != 0) {
+    if ((super->frame & ANIM_DONE) != 0) {
         sub_08037794(this);
     }
 }

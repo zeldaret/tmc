@@ -174,7 +174,7 @@ void sub_08031600(Entity* this) {
 
 u32 sub_0803163C(Entity* this) {
     u32 h;
-    if (sub_080B1AA8(this) == 0x13) {
+    if (GetTileUnderEntity(this) == 0x13) {
         h = this->field_0x7a.HWORD / 2;
     } else {
         h = this->field_0x7a.HWORD;

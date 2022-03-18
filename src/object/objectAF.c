@@ -40,7 +40,7 @@ void sub_080A05F4(Entity* this) {
 
 void sub_080A0624(Entity* this) {
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         DeleteThisEntity();
     }
 }

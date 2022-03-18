@@ -32,7 +32,7 @@ void CastorWildsStatue(Entity* this) {
 }
 
 void sub_080673C0(Entity* this) {
-    if (gRoomTransition.player_status.field_0x24[8] != 0) {
+    if (gRoomTransition.entity_update_type != 0) {
         this->action = 3;
     } else {
         this->action = 1;

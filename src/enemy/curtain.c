@@ -49,7 +49,7 @@ void sub_08048268(Entity* this) {
     }
 
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->actionDelay = 0;
         InitializeAnimation(this, 0);
     }
@@ -58,7 +58,7 @@ void sub_08048268(Entity* this) {
 void sub_08048294(Entity* this) {
     GetNextFrame(this);
 
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 3;
         SetLocalFlag(0x72);
         InitializeAnimation(this, 1);

@@ -200,7 +200,7 @@ _08093040:
 	cmp r0, #0
 	beq _080930E6
 	adds r0, r6, #0
-	bl sub_08078930
+	bl RegisterCarryEntity
 	adds r3, r7, #0
 	ldrb r2, [r3]
 	movs r0, #0x80

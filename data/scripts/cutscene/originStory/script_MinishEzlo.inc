@@ -34,7 +34,7 @@ SCRIPT_START script_MinishEzlo
 	SetSyncFlag 0x00010000
 	WaitForSyncFlagAndClear 0x00008000
 	SetAnimation 0x000d
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	SetSyncFlag 0x00010000
 	Wait 0x003c
 	DoPostScriptAction 0x0005

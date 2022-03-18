@@ -106,7 +106,7 @@ typedef struct {
 } Hitbox3D;
 
 typedef struct {
-    u8 b0 : 3; // 1-4
+    u8 b0 : 3; // 1-4 /**< set to is 4 in entity init (default/lowest?)
     u8 b1 : 3; // 8
     u8 b2 : 1; // 0x40
     u8 b3 : 1; // 0x80
@@ -504,6 +504,8 @@ extern u8 gManagerCount;
 #define COLLISION_OFF(entity) ((entity)->flags &= ~ENT_COLLIDE)
 #define COLLISION_ON(entity) ((entity)->flags |= ENT_COLLIDE)
 
+#define ANIM_DONE (1 << 7) /* invalid frame index */
+
 /** @name Tile Macros */ /// @{
 #define TILE(x, y) (((((x)-gRoomControls.origin_x) >> 4) & 0x3F) | ((((y)-gRoomControls.origin_y) >> 4) & 0x3F) << 6)
 #define TILE_POS(x, y) (x + (y << 6))
@@ -512,7 +514,8 @@ extern u8 gManagerCount;
 /// @}
 
 /** @name Animation State Macros */ ///@{
-#define AnimationStateTurnAround(expr) ((expr) ^ 0x4)
+#define AnimationStateFlip90(expr) ((expr) ^ 0x2)
+#define AnimationStateFlip180(expr) ((expr) ^ 0x4)
 #define AnimationStateIdle(expr) ((expr)&0x6)
 #define AnimationStateWalk(expr) ((expr)&0xe)
 ///@}

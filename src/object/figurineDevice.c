@@ -197,7 +197,7 @@ void FigurineDevice_Action3(FigurineDeviceEntity* this) {
     GetNextFrame(super);
     switch (this->unk_7a) {
         case 0:
-            if ((super->frame & 0x80) != 0) {
+            if ((super->frame & ANIM_DONE) != 0) {
                 this->unk_7a = 1;
                 super->actionDelay = 0x28;
                 ChangeObjPalette(super, gUnk_08120AA8[super->type2]);
@@ -207,7 +207,7 @@ void FigurineDevice_Action3(FigurineDeviceEntity* this) {
             break;
 
         case 1:
-            if (((super->frame & 0x80) != 0) && (--super->actionDelay == 0)) {
+            if (((super->frame & ANIM_DONE) != 0) && (--super->actionDelay == 0)) {
                 this->unk_7a = 2;
                 SetRoomFlag(2);
                 MenuFadeIn(7, super->field_0xf);

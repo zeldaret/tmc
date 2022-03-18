@@ -25,7 +25,7 @@ void GoronMerchant(Entity* this) {
 }
 
 void sub_08069584(Entity* this) {
-    if (gRoomTransition.player_status.field_0x24[8] != 0) {
+    if (gRoomTransition.entity_update_type != 0) {
         this->action = 3;
     } else {
         this->action = 1;
@@ -59,7 +59,7 @@ void sub_080695E8(Entity* this) {
 }
 
 void sub_0806961C(Entity* this) {
-    if (gRoomTransition.player_status.field_0x24[8] == 2) {
+    if (gRoomTransition.entity_update_type == 2) {
         UpdateAnimationSingleFrame(this);
     }
     sub_0806FD3C(this);

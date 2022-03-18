@@ -125,7 +125,7 @@ void sub_08048B2C(GyorgFemaleEyeEntity* this) {
 
 void sub_08048B84(GyorgFemaleEyeEntity* this) {
     GetNextFrame(super);
-    if (super->frame & 0x80) {
+    if (super->frame & ANIM_DONE) {
         super->action = 3;
         super->flags |= ENT_COLLIDE;
         super->hitType = 0x1E;
@@ -155,7 +155,7 @@ void sub_08048BB0(GyorgFemaleEyeEntity* this) {
                 SoundReq(SFX_ITEM_GLOVES_KNOCKBACK);
             }
             GetNextFrame(super);
-            if (super->frame & 0x80) {
+            if (super->frame & ANIM_DONE) {
                 super->hitType = 0x1E;
                 InitializeAnimation(super, gUnk_080D2010[(super->animationState << 3) + super->type]);
                 UpdateAnimationVariableFrames(super, 7);
@@ -176,7 +176,7 @@ void sub_08048BB0(GyorgFemaleEyeEntity* this) {
 
 void sub_08048CEC(GyorgFemaleEyeEntity* this) {
     GetNextFrame(super);
-    if (super->frame & 0x80) {
+    if (super->frame & ANIM_DONE) {
         super->action = 1;
         InitializeAnimation(super, gUnk_080D2010[(super->animationState << 3) + super->type]);
     }

@@ -29,7 +29,7 @@ void sub_08075FF8(ItemBehavior* this, u32 arg1) {
         }
         maxBombs = this->behaviorID == 7 ? 3 : 1;
         if (maxBombs > bombCount) {
-            entity = CreatePlayerBomb(this, 2);
+            entity = CreatePlayerItemWithParent(this, 2);
             if (entity != NULL) {
                 tmp = &gUnk_0811BDAC[gPlayerEntity.animationState & 6];
                 // TODO fix array access
@@ -41,8 +41,8 @@ void sub_08075FF8(ItemBehavior* this, u32 arg1) {
             }
         }
     }
-    sub_08077E78(this, arg1);
+    DeletePlayerItem(this, arg1);
 }
 
-// TODO arg1 type not yet known, called by sub_080761C0 and sub_080762D8
+// TODO arg1 type not yet known, called by ItemPickupCheck and sub_080762D8
 ASM_FUNC("asm/non_matching/itemBomb/sub_08076088.inc", void sub_08076088(ItemBehavior* this, void* arg1))

@@ -13,37 +13,25 @@ header:
 start_vector:
 	mov r0, #0x12
 	msr cpsr_fc, r0
-	ldr sp, sp_irq
+	ldr sp, =irq_stack_begin
 	mov r0, #0x1f
 	msr cpsr_fc, r0
-	ldr sp, sp_usr
-	ldr r1, INTR_VECTOR_BUF
-	ldr r0, intr_main
+	ldr sp, =usr_stack_begin
+	ldr r1, =0x03007FFC
+	ldr r0, =ram_IntrMain
 	str r0, [r1]
-.ifdef EU
-	ldr r1, unk_function
-	mov lr, pc
-	bx r1
-.else
-.ifdef DEMO_JP
-	ldr r1, unk_function
+
+.ifndef USA
+.ifndef DEMO_USA
+.ifndef JP
+	ldr r1, =fill_rq_stack
 	mov lr, pc
 	bx r1
 .endif
 .endif
+.endif
+
 	ldr r1, =AgbMain
 	mov lr, pc
 	bx r1
-_080000F0:
 	b start_vector
-sp_irq: .4byte irq_stack_begin
-sp_usr: .4byte usr_stack_begin
-INTR_VECTOR_BUF: .4byte 0x03007FFC
-intr_main: .4byte ram_IntrMain
-.ifdef EU
-unk_function: .4byte fill_rq_stack
-.else
-.ifdef DEMO_JP
-unk_function: .4byte fill_rq_stack
-.endif
-.endif

@@ -109,7 +109,7 @@ void sub_080701F8(Entity* this) {
         }
         if (sub_080B1BA4(COORD_TO_TILE(this), gPlayerEntity.collisionLayer, 0x80) == 0) {
             if (sub_080040D8(this, &gUnk_08003E44, this->x.HALF.HI, this->y.HALF.HI) == 0) {
-                if (sub_080B1AA8(this) == 0x19) {
+                if (GetTileUnderEntity(this) == 0x19) {
                     this->action = 4;
                     COLLISION_OFF(this);
                     this->x.HALF.HI = (this->x.HALF.HI & 0xfff0) | 8;
@@ -132,7 +132,7 @@ void sub_080701F8(Entity* this) {
 
 void sub_0807037C(Entity* this) {
     GetNextFrame(this);
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         DeleteThisEntity();
     }
 }

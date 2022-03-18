@@ -252,7 +252,7 @@ _0809C7C4:
 	adds r0, #6
 	ldrh r3, [r0]
 	adds r0, r5, #0
-	bl sub_0805EC9C
+	bl SetAffineInfo
 	b _0809C7DE
 _0809C7D2:
 	ldr r0, _0809C7E0 @ =gRoomControls

@@ -30,7 +30,7 @@ void sub_08076D34(ItemBehavior* beh, u32 arg1) {
         }
     } else {
         gPlayerState.field_0x3[0] = 0;
-        sub_08077E78(beh, arg1);
+        DeletePlayerItem(beh, arg1);
     }
 }
 
@@ -40,6 +40,6 @@ void sub_08076D94(ItemBehavior* beh, u32 arg1) {
         UpdateItemAnim(beh);
     } else {
         gPlayerState.field_0x3[0] = 0;
-        sub_08077E78(beh, arg1);
+        DeletePlayerItem(beh, arg1);
     }
 }

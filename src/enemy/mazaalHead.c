@@ -757,7 +757,7 @@ void sub_08034B0C(Entity* this) {
         this->actionDelay--;
     } else {
         GetNextFrame(this);
-        if ((this->frame & 0x80) == 0) {
+        if ((this->frame & ANIM_DONE) == 0) {
             return;
         }
         this->action = 2;
@@ -789,7 +789,7 @@ void sub_08034B38(Entity* this) {
 
 void sub_08034BA0(Entity* this) {
     GetNextFrame(this);
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         this->parent->field_0x7c.HALF.HI = 0xff;
         DeleteEntity(this);
     }

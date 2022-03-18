@@ -85,7 +85,7 @@ void V1FireProjectile_Action1(Entity* this) {
 
 void V1FireProjectile_Action2(Entity* this) {
     GetNextFrame(this);
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         this->action = 3;
         COLLISION_OFF(this);
         InitializeAnimation(this, 0x53);
@@ -94,7 +94,7 @@ void V1FireProjectile_Action2(Entity* this) {
 
 void V1FireProjectile_Action3(Entity* this) {
     GetNextFrame(this);
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         DeleteThisEntity();
     }
 }

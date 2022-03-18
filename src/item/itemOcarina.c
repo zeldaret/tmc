@@ -15,7 +15,7 @@ void ItemOcarina(ItemBehavior* this, u32 arg1) {
 
 void OcarinaUse(ItemBehavior* this, u32 arg1) {
     if (gPlayerState.queued_action == PLAYER_ROLL) {
-        sub_08077E78(this, arg1);
+        DeletePlayerItem(this, arg1);
     } else {
         this->field_0x5[4] |= 0xf;
         gPlayerEntity.animationState = 0x04;
@@ -44,7 +44,7 @@ NONMATCH("asm/non_matching/ocarina/OcarinaUpdate.inc", void OcarinaUpdate(ItemBe
         gUnk_02034490.unk0 = 0;
         CreateBird();
         ResetPlayerEventPriority();
-        sub_08077E78(this, arg1);
+        DeletePlayerItem(this, arg1);
     }
 }
 END_NONMATCH

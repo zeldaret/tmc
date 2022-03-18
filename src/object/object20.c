@@ -48,7 +48,7 @@ void sub_08087824(Entity* this) {
 
 void sub_08087888(Entity* this) {
     GetNextFrame(this);
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         DeleteThisEntity();
     } else {
         if (this->frame < 5) {

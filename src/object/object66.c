@@ -27,7 +27,7 @@ void Object66(Entity* this) {
             iVar2 = 0x100 - 2 * (parent->z.HALF.HI + 0x40);
             iVar4 = 0x200 - 4 * (parent->z.HALF.HI + 0x40);
         }
-        sub_0805EC9C(this, iVar2, iVar4, 0);
+        SetAffineInfo(this, iVar2, iVar4, 0);
     } else {
         DeleteThisEntity();
     }

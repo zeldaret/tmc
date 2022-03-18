@@ -5,22 +5,22 @@
 
 	.text
 
+@ r0 = Entity*
+@ r1 = Gravity strength
+@ returns z pos
 	thumb_func_start GravityUpdate
 GravityUpdate: @ 0x08003FC4
-	@ r0 = Entity*
-	@ r1 = Gravity strength
-	@ returns z pos
 
 	adds r3, r0, #0
 	ldr r0, [r3, #0x34]
 	ldr r2, [r3, #0x20]
 	subs r0, r0, r2
-	bpl _08003FD6
+	bpl hitground
 	subs r2, r2, r1
 	str r0, [r3, #0x34]
 	str r2, [r3, #0x20]
 	bx lr
-_08003FD6:
+hitground:
 	movs r0, #0
 	str r0, [r3, #0x34]
 	str r0, [r3, #0x20]
@@ -29,7 +29,7 @@ _08003FD6:
 	non_word_aligned_thumb_func_start sub_08003FDE
 sub_08003FDE: @ 0x08003FDE
 	push {r0, lr}
-	bl sub_08003FF2
+	bl CheckEntityPickup
 	cmp r0, #0
 	pop {r2}
 	beq _08003FF0
@@ -38,8 +38,8 @@ sub_08003FDE: @ 0x08003FDE
 _08003FF0:
 	pop {pc}
 
-	non_word_aligned_thumb_func_start sub_08003FF2
-sub_08003FF2: @ 0x08003FF2
+	non_word_aligned_thumb_func_start CheckEntityPickup
+CheckEntityPickup: @ 0x08003FF2
 	push {r4, r5, r6, r7, lr}
 	ldr r4, [r1, #0x48]
 	ldrb r5, [r4, #6]

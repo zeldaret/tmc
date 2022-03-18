@@ -41,7 +41,7 @@ void PlayerItemGustJar_Init(Entity* this) {
 
 void PlayerItemGustJar_Action1(Entity* this) {
     sub_080ADC84(this);
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         this->action = 2;
         sub_080ADCA0(this, 0);
     } else {
@@ -78,7 +78,7 @@ void PlayerItemGustJar_Action2(Entity* this) {
                 this->frameDuration = 0x7f;
             }
 
-            switch (gPlayerState.field_0x1d) {
+            switch (gPlayerState.gustJarSpeed) {
                 case 3:
                     sub_080ADCDC(this, 3);
                     this->palette.b.b0 = 0;
@@ -132,7 +132,7 @@ void PlayerItemGustJar_Action3(Entity* this) {
 }
 
 void PlayerItemGustJar_Action4(Entity* this) {
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         this->spriteSettings.draw = 0;
     } else {
         UpdateAnimationSingleFrame(this);

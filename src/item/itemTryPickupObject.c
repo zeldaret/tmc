@@ -9,7 +9,7 @@ void ItemTryPickupObject(ItemBehavior* this, u32 arg1) {
     gUnk_0811BDB4[this->stateID](this, arg1);
 }
 
-ASM_FUNC("asm/non_matching/itemTryPickupObject/sub_080761C0.inc", void sub_080761C0(ItemBehavior* this, u32 arg1))
+ASM_FUNC("asm/non_matching/itemTryPickupObject/ItemPickupCheck.inc", void ItemPickupCheck(ItemBehavior* this, u32 arg1))
 
 void sub_080762C4(ItemBehavior* this, u32 arg1, u8 arg2, u32 arg3) {
     this->field_0x18 = arg1;
@@ -61,6 +61,6 @@ void sub_0807660C(ItemBehavior* this, u32 arg1) {
     UpdateItemAnim(this);
     if ((--this->field_0x5[2] == 0xff) || (gPlayerState.field_0x0[1] == 0)) {
         gPlayerState.field_0x0[1] = 0;
-        sub_08077E78(this, arg1);
+        DeletePlayerItem(this, arg1);
     }
 }

@@ -124,7 +124,7 @@ void sub_08085A98(LilypadLargeEntity* this) {
     sub_08085F1C(this);
     if (0x7fffff < (u32)this->unk_78.WORD) {
         this->unk_78.WORD -= 0x20000;
-        sub_0805EC9C(super, this->unk_78.HALF_U.HI, this->unk_78.HALF_U.HI, this->unk_7c.HALF_U.HI);
+        SetAffineInfo(super, this->unk_78.HALF_U.HI, this->unk_78.HALF_U.HI, this->unk_7c.HALF_U.HI);
     }
     if (sub_080B1A8C(super, 0, 0x18) != 0x11) {
         super->subAction = 2;
@@ -148,7 +148,7 @@ void sub_08085B40(LilypadLargeEntity* this) {
         if (GravityUpdate(super, 0x2000) != 0) {
             if ((u32)this->unk_78.WORD < 0x1200000) {
                 this->unk_78.WORD += 0x100000;
-                sub_0805EC9C(super, this->unk_78.HALF_U.HI, this->unk_78.HALF_U.HI, this->unk_7c.HALF_U.HI);
+                SetAffineInfo(super, this->unk_78.HALF_U.HI, this->unk_78.HALF_U.HI, this->unk_7c.HALF_U.HI);
             }
             gPlayerEntity.y.HALF.HI = (super->y.HALF.HI + super->z.HALF.HI) - this->unk_74;
             if (gArea.locationIndex == 0x1b) {
@@ -159,7 +159,7 @@ void sub_08085B40(LilypadLargeEntity* this) {
         }
     } else {
         ResetCollisionLayer(super);
-        if (sub_080B1AA8(super) == 0xd) {
+        if (GetTileUnderEntity(super) == 0xd) {
             ResetCollisionLayer(&gPlayerEntity);
             sub_08085CDC(this);
             super->direction = GetFacingDirection(&gPlayerEntity, super);
@@ -181,7 +181,7 @@ void sub_08085B40(LilypadLargeEntity* this) {
             super->actionDelay |= 0x80;
             this->unk_70 = 0;
             this->unk_6c = 0;
-            if (sub_080B1AA8(super) == 0xd) {
+            if (GetTileUnderEntity(super) == 0xd) {
                 super->action = 4;
             }
         }
@@ -214,7 +214,7 @@ void sub_08085C5C(LilypadLargeEntity* this) {
 void sub_08085CDC(LilypadLargeEntity* this) {
     this->unk_78.WORD += 0x100000;
     if (this->unk_78.WORD_U < 0x4000000) {
-        sub_0805EC9C(super, this->unk_78.HALF_U.HI, this->unk_78.HALF_U.HI, this->unk_7c.HALF_U.HI);
+        SetAffineInfo(super, this->unk_78.HALF_U.HI, this->unk_78.HALF_U.HI, this->unk_7c.HALF_U.HI);
     } else {
         DeleteThisEntity();
     }
@@ -381,5 +381,5 @@ void sub_08085F48(LilypadLargeEntity* this) {
             }
         }
     }
-    sub_0805EC9C(super, this->unk_78.HALF_U.HI, this->unk_78.HALF_U.HI, this->unk_7c.HALF_U.HI);
+    SetAffineInfo(super, this->unk_78.HALF_U.HI, this->unk_78.HALF_U.HI, this->unk_7c.HALF_U.HI);
 }

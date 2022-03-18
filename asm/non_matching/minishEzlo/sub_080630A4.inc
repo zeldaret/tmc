@@ -132,7 +132,7 @@ _08063186:
 	adds r0, r4, #0
 	adds r1, r2, #0
 	movs r3, #0
-	bl sub_0805EC9C
+	bl SetAffineInfo
 	adds r0, r4, #0
 	movs r1, #0x11
 	bl InitAnimationForceUpdate
@@ -163,7 +163,7 @@ _080631CA:
 	ldr r2, [r4, #0x70]
 	adds r0, r4, #0
 	movs r3, #0
-	bl sub_0805EC9C
+	bl SetAffineInfo
 	ldr r1, _080631E4 @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]

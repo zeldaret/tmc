@@ -111,7 +111,7 @@ void sub_0808F244(Entity* this) {
 }
 
 static void sub_0808F2B0(Entity* this) {
-    sub_0805EC9C(this, *(u32*)&this->field_0x74, *(u32*)&this->field_0x78, this->field_0x70.WORD);
+    SetAffineInfo(this, *(u32*)&this->field_0x74, *(u32*)&this->field_0x78, this->field_0x70.WORD);
 }
 
 void sub_0808F2C0(Entity* this) {

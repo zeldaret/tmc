@@ -91,7 +91,7 @@ void sub_08098E3C(Entity* this) {
         InitAnimationForceUpdate(this, this->type);
     }
     temp = &gUnk_08123690[this->type & 2];
-    sub_0805EC9C(this, temp[0], temp[1], 0);
+    SetAffineInfo(this, temp[0], temp[1], 0);
     UpdateAnimationSingleFrame(this);
 }
 

@@ -25,7 +25,7 @@ SCRIPT_START script_Vaati1Intro
 	PlayBgm BGM_VAATI_REBORN
 	DoPostScriptAction 0x0019
 	PlaySound SFX_198
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	SetRoomFlag 0x0000
 	DoPostScriptAction 0x0008
 	Wait 0x0080

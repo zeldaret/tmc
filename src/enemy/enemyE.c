@@ -54,7 +54,7 @@ void sub_08023000(Entity* this, int frames) {
         tmp *= -1;
 
     this->spriteRendering.b0 = 3;
-    sub_0805EC9C(this, tmp, 0x80, 0);
+    SetAffineInfo(this, tmp, 0x80, 0);
 }
 
 // clang-format off

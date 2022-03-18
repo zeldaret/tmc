@@ -4,7 +4,6 @@
 
 extern void (*const gUnk_080FEEA8[])(Entity*);
 
-extern bool32 AllocMutableHitbox(Entity*);
 void sub_08054AC8(Entity*);
 
 void PlayerItemLantern(Entity* this) {
@@ -22,7 +21,7 @@ void sub_08054A60(Entity* this) {
     this->field_0x3c = 7;
     this->flags2 = -0x80;
     this->animationState = gPlayerEntity.animationState & 0xe;
-    if (AllocMutableHitbox(this) == FALSE) {
+    if (AllocMutableHitbox(this) == NULL) {
         DeleteThisEntity();
     }
     sub_0801766C(this);

@@ -47,7 +47,7 @@ static void sub_0808E714(Entity* this) {
     int var0 = 0x400 - this->field_0xf * 8;
     if (var0 > 0x100) {
         this->field_0xf++;
-        sub_0805EC9C(this, var0, var0, 0);
+        SetAffineInfo(this, var0, var0, 0);
     } else {
         this->action = 3;
         this->field_0x3c |= 0x10;

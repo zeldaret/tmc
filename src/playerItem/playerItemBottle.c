@@ -14,7 +14,6 @@ void PlayerItemBottle_UseOther(Entity*);
 void PlayerItemBottle_Init(Entity*);
 
 extern u32 SetBottleContents(u32 itemID, u32 bottleIndex);
-extern bool32 AllocMutableHitbox(Entity*);
 extern void sub_0801B9F0(Entity* this);
 
 void PlayerItemBottle(Entity* this) {
@@ -37,7 +36,7 @@ void PlayerItemBottle_Init(Entity* this) {
     this->field_0x6e.HALF.HI = bottleType;
     switch (bottleType) {
         case ITEM_BOTTLE_EMPTY:
-            if (AllocMutableHitbox(this) == 0) {
+            if (AllocMutableHitbox(this) == NULL) {
                 return;
             }
             COLLISION_ON(this);

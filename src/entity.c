@@ -9,15 +9,14 @@ extern u8 gUnk_081091F8[];
 extern u8 gUnk_081091EE[];
 extern u8 gUpdateVisibleTiles;
 extern Manager gUnk_02033290;
-void sub_0805ED30(void);
+void UpdatePlayerInput(void);
 void ClearHitboxList(void);
 void sub_0805EE88(void);
 void ClearAllDeletedEntities(void);
 void DeleteAllEntities(void);
 void sub_0805E98C(void);
-extern void sub_0806FE84(Entity*);
+extern void UnloadOBJPalette2(Entity*);
 extern void sub_08017744(Entity*);
-extern void UnloadHitbox(Entity*);
 extern void sub_0804AA1C(Entity*);
 
 void ClearDeletedEntity(Entity*);
@@ -64,8 +63,8 @@ void sub_0805E248(void) {
     gUpdateVisibleTiles = 0;
 }
 
-void sub_0805E374(Entity* e) {
-    u8 r3 = gRoomTransition.player_status.field_0x24[8];
+void SetDefaultPriorityForKind(Entity* e) {
+    u8 r3 = gRoomTransition.entity_update_type;
     u8* array = gUnk_081091F8;
 
     if (r3 != 2) {
@@ -201,7 +200,7 @@ void UpdateEntities(void) {
 
     gRoomVars.filler1[0] = gRoomVars.field_0x4;
     gRoomVars.field_0x4 = 0;
-    sub_0805ED30();
+    UpdatePlayerInput();
     UpdatePriority();
     ClearHitboxList();
     sub_0806F0A4();
@@ -232,7 +231,7 @@ void EraseAllEntities(void) {
 }
 
 extern Entity gUnk_030015A0[0x48];
-extern Entity gUnk_03003BE0;
+extern Entity gCarryEntities;
 
 NONMATCH("asm/non_matching/GetEmptyEntity.inc", Entity* GetEmptyEntity()) {
     u8 flags_ip;
@@ -263,7 +262,7 @@ NONMATCH("asm/non_matching/GetEmptyEntity.inc", Entity* GetEmptyEntity()) {
             ClearDeletedEntity(ptr);
             return ptr;
         }
-    } while (++ptr < &gUnk_03003BE0);
+    } while (++ptr < &gCarryEntities);
 
     flags_ip = 0;
     rv = NULL;
@@ -343,9 +342,9 @@ void DeleteEntity(Entity* ent) {
     if (ent->next) {
         UnloadGFXSlots(ent);
         UnloadOBJPalette(ent);
-        sub_0806FE84(ent);
+        UnloadOBJPalette2(ent);
         sub_080788E0(ent);
-        sub_08078954(ent);
+        FreeCarryEntity(ent);
         sub_0805EC60(ent);
         sub_08017744(ent);
         ReleaseTransitionManager(ent);
@@ -437,15 +436,15 @@ void ReleaseTransitionManager(void* mgr) {
     }
 }
 
-extern Entity gUnk_020369F0;
+extern LinkedList gEntityListsBackup;
 
 void sub_0805E958(void) {
-    MemCopy(&gEntityLists, &gUnk_020369F0, 0x48);
+    MemCopy(&gEntityLists, &gEntityListsBackup, 0x48);
     sub_0805E98C();
 }
 
 void sub_0805E974(void) {
-    MemCopy(&gUnk_020369F0, &gEntityLists, 0x48);
+    MemCopy(&gEntityListsBackup, &gEntityLists, 0x48);
 }
 
 void sub_0805E98C(void) {
@@ -479,7 +478,7 @@ void DeleteSleepingEntities(void) {
 
     list = &gEntityLists[0];
     do {
-        for (ent = list->first; (u32)ent != (u32)list; ent = next) {
+        for (ent = list->first; (intptr_t)ent != (intptr_t)list; ent = next) {
             next = ent->next;
             if (ent->flags & ENT_DELETED)
                 DeleteEntityAny(ent);
@@ -501,7 +500,7 @@ void AppendEntityToList(Entity* entity, u32 listIndex) {
     } else {
         gManagerCount++;
     }
-    sub_0805E374(entity);
+    SetDefaultPriorityForKind(entity);
 }
 
 void PrependEntityToList(Entity* entity, u32 listIndex) {

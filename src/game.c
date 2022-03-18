@@ -407,7 +407,7 @@ static void GameMain_ChangeRoom(void) {
         sub_0801855C();
     }
 #elif defined(DEMO_JP)
-    if (gRoomTransition.field_0x2c[5])
+    if (gRoomTransition.field_0x2c[4])
         CheckAreaDiscovery();
     if (gArea.inventoryGfxIdx != 0xff) {
         sub_0801855C();

@@ -93,7 +93,7 @@ void BossDoor_Action1(BossDoorEntity* this) {
 }
 
 void BossDoor_Action2(BossDoorEntity* this) {
-    if ((super->frame & 0x80) == 0) {
+    if ((super->frame & ANIM_DONE) == 0) {
         if ((gRoomTransition.frameCount & 3) == 0) {
             SoundReq(SFX_185);
         }

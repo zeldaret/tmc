@@ -150,6 +150,6 @@ _0808ACDE:
 	ldr r2, [r4, #0x78]
 	ldr r3, [r4, #0x70]
 	adds r0, r4, #0
-	bl sub_0805EC9C
+	bl SetAffineInfo
 	pop {r4, r5, pc}
 	.syntax divided

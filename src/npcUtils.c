@@ -178,7 +178,7 @@ u32 sub_0806EED0(Entity* ent) {
 }
 
 u32 sub_0806EEF4(Entity* ent) {
-    if (ent->frame & 0x80)
+    if (ent->frame & ANIM_DONE)
         return sub_0806EF74(ent, 1);
     return 0;
 }

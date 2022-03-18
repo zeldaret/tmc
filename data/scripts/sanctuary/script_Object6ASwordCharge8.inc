@@ -7,12 +7,12 @@ SCRIPT_START script_Object6ASwordCharge8
 	EndBlock
 	WaitForSyncFlagAndClear 0x00001000
 	SetAnimation 0x000b
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	SetAnimation 0x000f
 	SetSyncFlag 0x00010000
 	WaitForSyncFlag 0x00000020
 	SetAnimation 0x0013
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	DoPostScriptAction 0x0006
 SCRIPT_END
 	.2byte 0x0000

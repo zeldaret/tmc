@@ -18,7 +18,7 @@ script_0800DCD0:
 	StopBgm
 	Call sub_08066E50
 	PlaySound SFX_1C9
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	PlaySound SFX_1CA
 	Wait 0x003c
 	DoPostScriptAction 0x0004

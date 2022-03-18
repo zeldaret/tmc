@@ -33,7 +33,7 @@ SCRIPT_START script_ZeldaIntroBusinessScrub
 	SetEntitySpeed 0x0200
 	WalkSouth 0x0008
 	SetAnimation 0x0040
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	SetAnimationState 0x0006
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000002

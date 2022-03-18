@@ -45,7 +45,7 @@ void sub_0805FE48(Entity* this) {
         }
         UpdateAnimationSingleFrame(this);
 
-        if (this->frame & 0x80) {
+        if (this->frame & ANIM_DONE) {
             switch (this->animIndex) {
                 case 8:
                 case 10:

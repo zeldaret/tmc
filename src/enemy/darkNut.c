@@ -141,7 +141,7 @@ void sub_08020D9C(Entity* this) {
 
 void sub_08020DB4(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (this->frame & 0x80)
+    if (this->frame & ANIM_DONE)
         sub_08021390(this);
 }
 
@@ -161,7 +161,7 @@ void sub_08020DD4(Entity* this) {
 
 void sub_08020E28(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (this->frame & 0x80)
+    if (this->frame & ANIM_DONE)
         sub_080213B0(this);
 }
 
@@ -170,14 +170,14 @@ void sub_08020E48(Entity* this) {
         sub_080213F0(this);
     } else {
         UpdateAnimationSingleFrame(this);
-        if (this->frame & 0x80)
+        if (this->frame & ANIM_DONE)
             sub_080213B0(this);
     }
 }
 
 void sub_08020E78(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (this->frame & 0x80)
+    if (this->frame & ANIM_DONE)
         sub_08021390(this);
 }
 
@@ -211,7 +211,7 @@ void sub_08020E98(Entity* this) {
 
 void sub_08020F28(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (this->frame & 0x80)
+    if (this->frame & ANIM_DONE)
         sub_08021400(this);
 }
 
@@ -241,7 +241,7 @@ void sub_08020F48(Entity* this) {
 }
 
 void sub_08020FAC(Entity* this) {
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         if (this->field_0x7a.HALF.LO) {
             this->field_0x7a.HALF.LO--;
         } else {
@@ -264,7 +264,7 @@ void sub_08020FE4(Entity* this) {
 
 void sub_08021010(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->hitType = 0x56;
         sub_080213F0(this);
     }
@@ -280,7 +280,7 @@ void sub_08021038(Entity* this) {
         EnqueueSFX(SFX_10E);
     }
 
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         sub_08021588(this);
         if (this->field_0x7c.BYTES.byte0) {
             this->field_0x7c.BYTES.byte0--;
@@ -300,7 +300,7 @@ void sub_080210A8(Entity* this) {
         this->frame = 0;
         sub_08021588(this);
         EnqueueSFX(SFX_15D);
-    } else if (this->frame & 0x80) {
+    } else if (this->frame & ANIM_DONE) {
         sub_08021390(this);
     }
 }
@@ -330,7 +330,7 @@ void sub_080210E4(Entity* this) {
 }
 
 void sub_08021170(Entity* this) {
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         if (this->field_0x7a.HALF.HI) {
             this->field_0x7a.HALF.HI--;
         } else {
@@ -346,7 +346,7 @@ void sub_080211A0(Entity* this) {
         sub_08021390(this);
     } else {
         UpdateAnimationSingleFrame(this);
-        if (this->frame & 0x80)
+        if (this->frame & ANIM_DONE)
             sub_080213B0(this);
     }
 }
@@ -357,7 +357,7 @@ void sub_080211D0(Entity* this)
     UpdateAnimationSingleFrame(this);
     sub_0802159C(this);
 
-    if (this->frame & 0x80)
+    if (this->frame & ANIM_DONE)
         sub_08021390(this);
 }
 
@@ -365,7 +365,7 @@ void sub_080211F4(Entity* this) {
     UpdateAnimationSingleFrame(this);
     sub_08021600(this);
 
-    if (this->frame & 0x80)
+    if (this->frame & ANIM_DONE)
         sub_08021390(this);
 }
 

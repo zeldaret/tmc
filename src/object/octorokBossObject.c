@@ -111,7 +111,7 @@ void OctorokBossObject_Init(Entity* this) {
                             ((-(u32)this->parent->field_0x7a.HALF.HI << 0x18) >> 0x18) +
                                 (u32)gUnk_0812388C[(u32)this->type2 * 2 + 1],
                             (u32)gUnk_0812388C[(u32)this->type2 * 2]);
-            sub_0805EC9C(this, this->field_0x76.HWORD, this->field_0x74.HWORD, this->field_0x7a.HWORD);
+            SetAffineInfo(this, this->field_0x76.HWORD, this->field_0x74.HWORD, this->field_0x7a.HWORD);
             InitializeAnimation(this, 7);
             break;
         case 7:
@@ -239,8 +239,8 @@ NONMATCH("asm/non_matching/octorokBossObject/OctorokBossObject_Action1.inc",
                     this->field_0x76.HWORD -= 0x20;
                     this->field_0x74.HWORD -= 0x20;
                 }
-                sub_0805EC9C(this, (u32)this->field_0x76.HWORD, (u32)(u16)this->field_0x74.HWORD,
-                             (u32)(u16)this->field_0x7a.HWORD);
+                SetAffineInfo(this, (u32)this->field_0x76.HWORD, (u32)(u16)this->field_0x74.HWORD,
+                              (u32)(u16)this->field_0x7a.HWORD);
             } else {
                 *(int*)&this->field_0x78 -= 1;
             }

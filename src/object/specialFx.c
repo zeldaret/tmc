@@ -187,7 +187,7 @@ void sub_080845B8(SpecialFxObject* this) {
 
 void sub_080845DC(SpecialFxObject* this) {
     GetNextFrame(super);
-    if (super->frame & 0x80) {
+    if (super->frame & ANIM_DONE) {
         DeleteThisEntity();
     }
 }
@@ -202,7 +202,7 @@ void sub_080845F8(SpecialFxObject* this) {
 
 void sub_08084630(SpecialFxObject* this) {
     GetNextFrame(super);
-    if (super->frame & 0x80) {
+    if (super->frame & ANIM_DONE) {
         if ((super->type2 & 1) && (super->child != 0)) {
             ((GenericEntity*)super->child)->field_0x6a.HWORD--;
             if (this->unk_68 != 0) {
@@ -254,7 +254,7 @@ void sub_080846B0(SpecialFxObject* this) {
 void sub_0808471C(SpecialFxObject* this) {
     static const s8 gUnk_0811FB08[] = { -8, -8, 8, -8, -8, 8, 8, 8 };
     GetNextFrame(super);
-    if (super->frame & 0x80) {
+    if (super->frame & ANIM_DONE) {
         u32 i;
         for (i = 0; i < 4; i++) {
             Entity* fx = CreateFx(super, 0x24, 0);
@@ -280,7 +280,7 @@ void sub_08084784(SpecialFxObject* this) {
 
 void sub_08084798(SpecialFxObject* this) {
     GetNextFrame(super);
-    if ((super->frame & 0x80) || !super->child->next) {
+    if ((super->frame & ANIM_DONE) || !super->child->next) {
         DeleteThisEntity();
     }
 }

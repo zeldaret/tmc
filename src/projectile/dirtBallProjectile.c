@@ -81,7 +81,7 @@ void DirtBallProjectile_Action1(Entity* this) {
             break;
         case 1:
             this->z.HALF.HI += Q_8_8(1.0 / 16.0 - 1.0 / 128.0);
-            sub_08078954(this->child);
+            FreeCarryEntity(this->child);
             CopyPosition(this, this->child);
             if ((0xf < (u8)(this->actionDelay++ + 1)) && (entity = this->child, entity->actionDelay == 0)) {
                 if ((this->actionDelay & 2) != 0) {
@@ -117,7 +117,7 @@ void DirtBallProjectile_Action2(Entity* this) {
         if (entity->next == NULL) {
             DeleteThisEntity();
         }
-        sub_08078954(entity);
+        FreeCarryEntity(entity);
         CopyPosition(this, entity);
     }
     if (sub_080044EC(this, 0x2800) != 1) {
@@ -159,7 +159,7 @@ void DirtBallProjectile_Action2(Entity* this) {
 
 void DirtBallProjectile_Action3(Entity* this) {
     GetNextFrame(this);
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         DeleteEntity(this);
     }
 }

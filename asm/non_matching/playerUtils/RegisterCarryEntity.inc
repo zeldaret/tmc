@@ -1,7 +1,7 @@
 	.syntax unified
 	push {lr}
 	adds r3, r0, #0
-	ldr r2, _08078950 @ =gUnk_03003BE0
+	ldr r2, _08078950 @ =gCarryEntities
 	ldrb r0, [r2, #2]
 	cmp r0, #0x1f
 	bhi _0807894C
@@ -16,5 +16,5 @@
 _0807894C:
 	pop {pc}
 	.align 2, 0
-_08078950: .4byte gUnk_03003BE0
+_08078950: .4byte gCarryEntities
 	.syntax divided

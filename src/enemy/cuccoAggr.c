@@ -164,7 +164,7 @@ void sub_08038F20(CuccoAggrEntity* this) {
     sub_08039298(this);
     GetNextFrame(super);
 
-    if (super->frame & 0x80) {
+    if (super->frame & ANIM_DONE) {
         sub_0803901C(this);
     }
 }
@@ -328,7 +328,7 @@ void CuccoAggr_CreateFx(CuccoAggrEntity* this) {
 
 void sub_08039298(CuccoAggrEntity* this) {
     if (super->type2 == 0) {
-        sub_08078930(super);
+        RegisterCarryEntity(super);
     }
 }
 

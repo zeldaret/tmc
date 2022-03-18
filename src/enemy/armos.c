@@ -113,7 +113,7 @@ void sub_080301D4(ArmosEntity* this) {
 
 void sub_08030240(ArmosEntity* this) {
     if (super->animIndex == 6) {
-        if ((super->frame & 0x80) == 0) {
+        if ((super->frame & ANIM_DONE) == 0) {
             GetNextFrame(super);
         }
     }
@@ -188,8 +188,8 @@ void sub_08030338(ArmosEntity* this) {
             EnqueueSFX(SFX_12A);
             return;
         }
-        bVar2 = super->frame & 0x80;
-        if ((super->frame & 0x80) != 0) {
+        bVar2 = super->frame & ANIM_DONE;
+        if ((super->frame & ANIM_DONE) != 0) {
             if (this->unk_80 != 2) {
                 super->action = 3;
                 super->animationState = 0xff;
@@ -244,7 +244,7 @@ NONMATCH("asm/non_matching/armos/sub_080304BC.inc", void sub_080304BC(ArmosEntit
     u32 tmp;
 
     sub_080309A8(this);
-    tmp = super->frame & 0x80;
+    tmp = super->frame & ANIM_DONE;
     if (tmp != 0) {
         sub_08030580(this);
     } else {
@@ -267,7 +267,7 @@ void sub_080304F4(ArmosEntity* this) {
 }
 
 void sub_08030524(ArmosEntity* this) {
-    if ((super->frame & 0x80) == 0) {
+    if ((super->frame & ANIM_DONE) == 0) {
         sub_080309A8(this);
     } else if (super->frame == 1) {
         super->frame = 0;
@@ -277,7 +277,7 @@ void sub_08030524(ArmosEntity* this) {
 
 void sub_08030554(ArmosEntity* this) {
     sub_080309A8(this);
-    if ((super->frame & 0x80) != 0) {
+    if ((super->frame & ANIM_DONE) != 0) {
         super->action = 3;
         sub_080309C8(this, (u32)super->animationState);
         sub_080306C4(this);

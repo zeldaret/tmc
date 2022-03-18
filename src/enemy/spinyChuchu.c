@@ -181,7 +181,7 @@ void sub_080226EC(Entity* this) {
 
 void sub_08022780(Entity* this) {
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 4;
         InitializeAnimation(this, 3);
         EnqueueSFX(SFX_194);
@@ -201,7 +201,7 @@ void sub_080227AC(Entity* this) {
         this->hitType = 0x5c;
     }
 
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 2;
         this->field_0xf = gUnk_080CBA60[Random() & 3];
         InitializeAnimation(this, 0);
@@ -211,7 +211,7 @@ void sub_080227AC(Entity* this) {
 void sub_0802281C(Entity* this) {
     GravityUpdate(this, Q_8_8(24.0));
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 2;
         this->speed = 0x20;
         InitializeAnimation(this, 0);
@@ -234,7 +234,7 @@ void sub_08022854(Entity* this) {
 
 void sub_0802289C(Entity* this) {
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 2;
         this->speed = 0x20;
         this->field_0x80.HALF.HI = 0x78;

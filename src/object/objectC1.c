@@ -101,7 +101,7 @@ void ObjectC1_Action8(ObjectC1Entity* this) {
             if ((gMessage.doTextBox & 0x7f) != 0) {
                 return;
             }
-            if ((super->frame & 0x80) != 0) {
+            if ((super->frame & ANIM_DONE) != 0) {
                 super->action = 1;
                 gPlayerEntity.flags = this->unk_69;
                 gPlayerEntity.spriteSettings.draw = this->unk_68;

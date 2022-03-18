@@ -49,7 +49,7 @@ _0802B00C:
 	adds r0, r4, #0
 	adds r1, r2, #0
 	movs r3, #0
-	bl sub_0805EC9C
+	bl SetAffineInfo
 _0802B022:
 	ldrb r0, [r4, #0xf]
 	ands r0, r7

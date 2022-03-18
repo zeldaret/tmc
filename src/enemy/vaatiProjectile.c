@@ -153,7 +153,7 @@ void VaatiProjectileFunction0Action2(Entity* this) {
 }
 
 void VaatiProjectileFunction0Action3(Entity* this) {
-    if (this->child->frame & 0x80) {
+    if (this->child->frame & ANIM_DONE) {
         if (--this->z.HALF.HI <= -0x18) {
             this->action = 4;
             this->actionDelay = (Random() & 0xf) + 0xf;

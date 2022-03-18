@@ -79,7 +79,7 @@ void sub_0802BC74(Entity* this) {
     sub_0802C1C0(this);
     this->subAction = 1;
     this->field_0x1d = 60;
-    this->animationState = (gPlayerEntity.animationState >> 1) ^ 2;
+    this->animationState = AnimationStateFlip90(gPlayerEntity.animationState >> 1);
     InitializeAnimation(this, this->animationState);
 }
 
@@ -92,7 +92,7 @@ void sub_0802BCA8(Entity* this) {
         Entity* ent;
 
         this->action = 7;
-        this->actionDelay = 0x5a;
+        this->actionDelay = 90;
         this->zVelocity = Q_16_16(1.5);
         this->hitType = 0x19;
         this->field_0x3a = this->field_0x3a & 0xfb;

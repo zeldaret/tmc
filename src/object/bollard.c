@@ -59,7 +59,7 @@ void sub_0808B2CC(BollardEntity* this) {
 
 void sub_0808B324(BollardEntity* this) {
     GetNextFrame(super);
-    if (super->frame & 0x80) {
+    if (super->frame & ANIM_DONE) {
         sub_0808B42C(this);
     }
 }
@@ -80,7 +80,7 @@ void sub_0808B344(BollardEntity* this) {
 
 void sub_0808B38C(BollardEntity* this) {
     GetNextFrame(super);
-    if (super->frame & 0x80) {
+    if (super->frame & ANIM_DONE) {
         sub_0808B41C(this);
     }
 }

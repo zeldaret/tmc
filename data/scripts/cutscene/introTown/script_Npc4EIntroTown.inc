@@ -164,14 +164,14 @@ SCRIPT_START script_Npc4EIntroTown
 	CallWithArg EquipItem, 0x0000000d
 	SetIntVariable 0x000000ff
 	Call sub_0807F5B0
-	CallWithArg sub_0807F29C, gUnk_080049D6
+	CallWithArg SetInputMacro, gUnk_080049D6
 	Wait 0x00b7
 	SetIntVariable 0x00000000
 	Call sub_0807F5B0
 	MessageFromTargetPos 0x102c, 0x0000
 	WaitUntilTextboxCloses
 	@ Give control back to the player
-	CallWithArg sub_0807F29C, 0x00000000
+	CallWithArg SetInputMacro, 0x00000000
 	Call NPC4E_RestoreEquippedItems
 	_0807F0B4 0x0004
 	CameraTargetPlayer

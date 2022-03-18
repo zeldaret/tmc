@@ -112,7 +112,7 @@ void sub_08028A74(Entity* this) {
     switch (this->subAction) {
         case 0:
             unk = 1;
-            if (this->frame & 0x80) {
+            if (this->frame & ANIM_DONE) {
                 this->subAction = 1;
                 this->actionDelay = 0x3c;
                 this->field_0xf = 0x10;
@@ -150,7 +150,7 @@ void sub_08028A74(Entity* this) {
             break;
         case 3:
             unk = 2;
-            if (this->frame & 0x80) {
+            if (this->frame & ANIM_DONE) {
                 this->subAction = 4;
                 this->actionDelay = 0x50;
                 sub_080290E0(this, 1);
@@ -189,7 +189,7 @@ void sub_08028BC4(Entity* this) {
     switch (this->subAction) {
         case 0:
             if (this->actionDelay == 0) {
-                if (this->frame & 0x80) {
+                if (this->frame & ANIM_DONE) {
                     this->subAction = 1;
                     sub_08028FDC(this);
                     sub_080290E0(this, 5);
@@ -200,7 +200,7 @@ void sub_08028BC4(Entity* this) {
             }
             break;
         case 1:
-            if (this->frame & 0x80) {
+            if (this->frame & ANIM_DONE) {
                 this->action = 4;
                 this->subAction = 0;
                 this->actionDelay = 0x1e;

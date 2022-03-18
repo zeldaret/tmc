@@ -67,7 +67,7 @@ void sub_0806336C(Entity* this) {
 
 void sub_08063390(Entity* this) {
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 1;
         InitializeAnimation(this, GetAnimationState(this));
         sub_08078778(this);

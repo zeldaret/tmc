@@ -133,7 +133,7 @@ void CrenelBeanSprout_Action1(CrenelBeanSproutEntity* this) {
     u32 tmp;
     if ((super->type & 1) != 0) {
         if (super->type == 3) {
-            sub_08078930(super);
+            RegisterCarryEntity(super);
             sub_0800445C(super);
         } else {
             PositionRelative(super->parent, super, -0x1c0000, -0x280000);
@@ -159,7 +159,7 @@ void CrenelBeanSprout_Action1(CrenelBeanSproutEntity* this) {
             super->spriteRendering.b3 = parent->spriteRendering.b3;
             super->spriteOrientation.flipY = parent->spriteOrientation.flipY;
         }
-        sub_0805EC9C(super, 0xcc, 0xcc, 0);
+        SetAffineInfo(super, 0xcc, 0xcc, 0);
     } else {
         gPlayerState.mobility |= 0x80;
         gPlayerState.heldObject = 5;
@@ -177,7 +177,7 @@ void CrenelBeanSprout_Action1(CrenelBeanSproutEntity* this) {
             gUnk_0200AF00.unk_2f = 0;
         }
         PositionRelative(&gPlayerEntity, super, 0, 0x10000);
-        if (sub_080B1AA8(super) == 0x19) {
+        if (GetTileUnderEntity(super) == 0x19) {
             sub_0807BA8C(0xdc, super->collisionLayer);
             sub_08096A78(this);
         }
@@ -228,7 +228,7 @@ void CrenelBeanSprout_Action2SubAction3(CrenelBeanSproutEntity* this) {
 
 void CrenelBeanSprout_Action3(CrenelBeanSproutEntity* this) {
     UpdateAnimationSingleFrame(super);
-    if ((super->frame & 0x80) != 0) {
+    if ((super->frame & ANIM_DONE) != 0) {
         super->action++;
         InitializeAnimation(super, 10);
     }

@@ -14,7 +14,7 @@ SCRIPT_START script_VaatiTakeover
 	Wait 0x0014
 	SetAnimationState 0x0000
 	DoPostScriptAction 0x001c
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000020
 	WaitForSyncFlagAndClear 0x00000010

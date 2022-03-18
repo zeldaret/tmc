@@ -27,7 +27,7 @@ void sub_08075A0C(ItemBehavior* this, u32 arg1) {
         ForceEquipItem(ITEM_LANTERN_OFF, itemSlot);
         gPlayerState.flags &= ~PL_USE_LANTERN;
         ForceEquipItem(ITEM_LANTERN_OFF, itemSlot);
-        sub_08077E78(this, arg1);
+        DeletePlayerItem(this, arg1);
     } else {
         this->field_0x5[4] |= 0x80;
         sub_08077D38(this, arg1);
@@ -79,7 +79,7 @@ void sub_08075B54(ItemBehavior* this, u32 arg1) {
         if (!(((sub_08077F10(this) == 0) && (itemSlot < 2)) || (gPlayerState.jump_status != 0))) {
             ForceEquipItem(ITEM_LANTERN_OFF, itemSlot);
             gPlayerState.flags &= ~PL_USE_LANTERN;
-            sub_08077E78(this, arg1);
+            DeletePlayerItem(this, arg1);
             SoundReq(SFX_ITEM_LANTERN_OFF);
         } else {
             if (((gPlayerState.queued_action != PLAYER_ROLL) && (gPlayerEntity.frameIndex < 0x37)) &&
@@ -100,8 +100,8 @@ void sub_08075B54(ItemBehavior* this, u32 arg1) {
                     }
                     sub_08077DF4(this, 0x60c);
                     bVar1 = (8 >> (arg1));
-                    gPlayerState.field_0xa = bVar1 | gPlayerState.field_0xa;
-                    gPlayerState.keepFacing = bVar1 | gPlayerState.keepFacing;
+                    gPlayerState.field_0xa |= bVar1;
+                    gPlayerState.keepFacing |= bVar1;
                 }
             }
         }

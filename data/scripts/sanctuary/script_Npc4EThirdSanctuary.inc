@@ -85,9 +85,9 @@ script_080138D0:
 .endif
 	Call NPC4E_SaveEquippedItems
 	CallWithArg EquipItem, 0x00010001
-	CallWithArg sub_0807F29C, gUnk_080049FE
+	CallWithArg SetInputMacro, gUnk_080049FE
 	Wait 0x00c8
-	CallWithArg sub_0807F29C, 0x00000000
+	CallWithArg SetInputMacro, 0x00000000
 	Call NPC4E_RestoreEquippedItems
 script_08013A8E:
 .ifndef EU

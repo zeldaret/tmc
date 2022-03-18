@@ -129,7 +129,7 @@ void VaatiTransfiguredEyeFunction0Action0(Entity* this) {
 void VaatiTransfiguredEyeFunction0Action1(Entity* this) {
     sub_08045A28(this);
     if (this->field_0x82.HALF.LO == 0) {
-        if ((this->frame & 0x80) != 0) {
+        if ((this->frame & ANIM_DONE) != 0) {
             if (this->type != 0) {
                 COLLISION_ON(this);
             }
@@ -169,7 +169,7 @@ void VaatiTransfiguredEyeFunction0Action2(Entity* this) {
 
 void VaatiTransfiguredEyeFunction0Action3(Entity* this) {
     sub_08045A28(this);
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         this->action = 2;
         if (this->type != 0) {
             if (this->actionDelay == 0) {
@@ -187,7 +187,7 @@ void VaatiTransfiguredEyeFunction0Action4(Entity* this) {
 
     sub_08045A28(this);
     if (this->field_0xf == 0) {
-        if ((this->frame & 0x80) != 0) {
+        if ((this->frame & ANIM_DONE) != 0) {
             this->field_0xf = 0x20;
         }
     } else {

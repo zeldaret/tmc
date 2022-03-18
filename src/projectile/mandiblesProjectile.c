@@ -131,7 +131,7 @@ void MandiblesProjectile_Action3(Entity* this) {
             this->field_0xf -= 1;
         } else {
             UpdateAnimationSingleFrame(this);
-            if ((this->frame & 0x80) != 0) {
+            if ((this->frame & ANIM_DONE) != 0) {
                 this->action = 4;
                 this->field_0x82.HALF.LO = 3;
                 this->field_0xf = 0x40;

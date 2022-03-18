@@ -235,7 +235,7 @@ void VaatiRebornEnemyType0Action2(Entity* this) {
             }
             break;
         case 1:
-            if ((this->frame & 0x80) != 0) {
+            if ((this->frame & ANIM_DONE) != 0) {
                 this->field_0x74.HALF.LO = 2;
                 this->spriteSettings.draw = 0;
                 this->actionDelay = 0x10;
@@ -260,7 +260,7 @@ void VaatiRebornEnemyType0Action2(Entity* this) {
             }
             break;
         case 3:
-            if ((this->frame & 0x80) != 0) {
+            if ((this->frame & ANIM_DONE) != 0) {
                 this->spriteSettings.draw = 1;
                 if (4 < this->field_0x80.HALF.HI) {
                     this->x.HALF.HI = gPlayerEntity.x.HALF.HI;
@@ -318,7 +318,7 @@ void VaatiRebornEnemyType0Action3(Entity* this) {
             }
             break;
         case 2:
-            if ((this->frame & 0x80) != 0) {
+            if ((this->frame & ANIM_DONE) != 0) {
                 this->field_0x74.HALF.LO = 3;
                 InitAnimationForceUpdate(this, 0);
             }

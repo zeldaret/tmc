@@ -152,7 +152,7 @@ void Lakitu_Hide(Entity* this) {
 void Lakitu_EndHide(Entity* this) {
     UpdateAnimationSingleFrame(this);
 
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = IDLE;
         this->actionDelay = 0x3c;
 
@@ -180,7 +180,7 @@ void Lakitu_Idle(Entity* this) {
 void Lakitu_BeginHide(Entity* this) {
     UpdateAnimationSingleFrame(this);
 
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 1;
         this->spriteSettings.draw = 0;
 
@@ -191,7 +191,7 @@ void Lakitu_BeginHide(Entity* this) {
 void Lakitu_Lightning(Entity* this) {
     UpdateAnimationSingleFrame(this);
 
-    if (!(this->frame & 0x80)) {
+    if (!(this->frame & ANIM_DONE)) {
         return;
     }
 

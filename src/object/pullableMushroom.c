@@ -162,7 +162,7 @@ void sub_0808ACEC(PullableMushroomEntity* this) {
         default:
             super->field_0xf = 0;
             super->actionDelay = 0;
-            sub_08078930(super);
+            RegisterCarryEntity(super);
             break;
     }
 }
@@ -171,7 +171,7 @@ void sub_0808ADA0(PullableMushroomEntity* this) {
     if ((sub_0808B1F0(this, super->child) < 8) || (super->child == NULL)) {
         super->subAction += 1;
         super->actionDelay = 2;
-        super->flags |= 0x80;
+        super->flags |= ENT_COLLIDE;
         super->animationState ^= 2;
         super->spritePriority.b0 = 4;
     } else {
@@ -182,9 +182,9 @@ void sub_0808ADA0(PullableMushroomEntity* this) {
 
 void sub_0808ADF0(PullableMushroomEntity* this) {
     if (super->animationState + 0xd == super->animIndex) {
-        if ((super->frame & 0x80) != 0) {
+        if ((super->frame & ANIM_DONE) != 0) {
             super->subAction = 0;
-            super->flags |= 0x80;
+            super->flags |= ENT_COLLIDE;
         } else {
             GetNextFrame(super);
         }
@@ -199,7 +199,7 @@ void sub_0808ADF0(PullableMushroomEntity* this) {
             SoundReq(SFX_12E);
         } else {
             GetNextFrame(super);
-            if (((super->frame & 0x80) != 0) && (--super->actionDelay == 0xff)) {
+            if (((super->frame & ANIM_DONE) != 0) && (--super->actionDelay == 0xff)) {
                 InitializeAnimation(super, super->animationState + 0xd);
             }
         }
@@ -245,7 +245,7 @@ void sub_0808AEB0(PullableMushroomEntity* this) {
     } else {
         super->actionDelay = 1;
         this->unk_7c = 1;
-        super->animationState = gPlayerEntity.animationState >> 1 ^ 2;
+        super->animationState = AnimationStateFlip90(gPlayerEntity.animationState >> 1);
         super->direction = (super->animationState << 3);
         super->flags &= 0x7f;
         super->spriteSettings.flipX = gPlayerEntity.spriteSettings.flipX;
@@ -264,7 +264,7 @@ void sub_0808AEB0(PullableMushroomEntity* this) {
 void sub_0808AFD4(PullableMushroomEntity* this) {
     super->action = 1;
     super->subAction = 1;
-    (super->child)->direction = super->direction ^ 0x10;
+    (super->child)->direction = DirectionTurnAround(super->direction);
     SoundReq(SFX_130);
 }
 
@@ -278,9 +278,9 @@ void PullableMushroom_Action3(PullableMushroomEntity* this) {
     if ((((gPlayerState.field_0x1c & 0xf) != 1) || ((super->bitfield & 0x7f) != 0x13)) && (super->type == 1)) {
         (super->parent)->action = 1;
         (super->parent)->subAction = 1;
-        super->direction = super->parent->direction ^ 0x10;
-        super->parent->flags &= 0x7f;
-        super->flags &= 0x7f;
+        super->direction = DirectionTurnAround(super->parent->direction);
+        super->parent->flags &= ~ENT_COLLIDE;
+        super->flags &= ~ENT_COLLIDE;
         super->action = 1;
         SoundReq(SFX_130);
     }
@@ -288,7 +288,7 @@ void PullableMushroom_Action3(PullableMushroomEntity* this) {
 
 void sub_0808B05C(PullableMushroomEntity* this) {
     if (super->type == 0) {
-        super->animationState = gPlayerEntity.animationState >> 1 ^ 2;
+        super->animationState = AnimationStateFlip90(gPlayerEntity.animationState >> 1);
         super->direction = super->animationState << 3;
         super->spriteSettings.flipX = gPlayerEntity.spriteSettings.flipX;
         super->flags &= 0x7f;
@@ -346,7 +346,7 @@ void sub_0808B168(PullableMushroomEntity* this, u32 param_2) {
     Entity* pEVar6;
 
     if (param_2 != 0) {
-        iVar2 = (super->animationState ^ 2) * 2;
+        iVar2 = AnimationStateFlip90(super->animationState) * 2;
         pcVar5 = (gUnk_081211F4 + iVar2);
         pcVar3 = pcVar5 + 1;
         pEVar5 = super->parent;
@@ -356,11 +356,11 @@ void sub_0808B168(PullableMushroomEntity* this, u32 param_2) {
             pEVar6 = &gPlayerEntity;
             pEVar5 = super->parent;
             pcVar5 = (gUnk_081211FC + super->animationState * 2);
-            pcVar3 = (gUnk_081211F4 + 1 + (super->animationState ^ 2) * 2);
+            pcVar3 = (gUnk_081211F4 + 1 + AnimationStateFlip90(super->animationState) * 2);
         } else {
             pEVar6 = super->parent;
             pEVar5 = &gPlayerEntity;
-            pcVar5 = (gUnk_081211F4 + (super->animationState ^ 2) * 2);
+            pcVar5 = (gUnk_081211F4 + AnimationStateFlip90(super->animationState) * 2);
             pcVar3 = (gUnk_081211FC + 1 + super->animationState * 2);
         }
     }

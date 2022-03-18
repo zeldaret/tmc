@@ -48,7 +48,7 @@ void Object4B_Action1(Object4BEntity* this) {
 
 void Object4B_Action2(Object4BEntity* this) {
     GetNextFrame(super);
-    if ((super->frame & 0x80) != 0) {
+    if ((super->frame & ANIM_DONE) != 0) {
         super->action++;
         super->spritePriority.b1 = 3;
         InitializeAnimation(super, 2);
@@ -80,12 +80,12 @@ void Object4B_Action4(Object4BEntity* this) {
     }
     if ((super->y.HALF.HI - gRoomControls.origin_y) < 0x231) {
         super->y.HALF.HI = gRoomControls.origin_y + 0x230;
-        if ((super->frame & 0x80) != 0) {
+        if ((super->frame & ANIM_DONE) != 0) {
             super->action++;
             super->actionDelay = 0x78;
             InitializeAnimation(super, 2);
         }
-    } else if ((super->frame & 0x80) != 0) {
+    } else if ((super->frame & ANIM_DONE) != 0) {
         super->zVelocity = 0x20000;
         InitializeAnimation(super, 3);
         SoundReq(SFX_12B);
@@ -102,7 +102,7 @@ void Object4B_Action5(Object4BEntity* this) {
 
 void Object4B_Action6(Object4BEntity* this) {
     GetNextFrame(super);
-    if ((super->frame & 0x80) != 0) {
+    if ((super->frame & ANIM_DONE) != 0) {
         super->action++;
         super->actionDelay = 0x3c;
         InitializeAnimation(super, 1);

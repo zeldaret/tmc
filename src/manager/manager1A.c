@@ -137,8 +137,8 @@ u32 sub_0805B1CC(Manager1A* this) {
     u32 re = 0;
     if (CheckPlayerProximity(this->unk_20, this->unk_22, this->unk_24, this->unk_26)) {
         if ((gPlayerState.flags & PL_DROWNING) && (gPlayerState.flags & PL_BUSY)) {
-            gPlayerState.flags |= PL_FLAGS8000;
-        } else if (gPlayerState.flags & PL_FLAGS8000) {
+            gPlayerState.flags |= PL_PIT_IS_EXIT;
+        } else if (gPlayerState.flags & PL_PIT_IS_EXIT) {
             re = 1;
         }
     }

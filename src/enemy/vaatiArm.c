@@ -713,7 +713,7 @@ void sub_08042FD8(Entity* this) {
                 this->frame = 0;
             }
         } else {
-            if (this->frame & 0x80) {
+            if (this->frame & ANIM_DONE) {
                 if (--this->field_0xf == 0) {
                     this->subAction = 8;
                     this->actionDelay = 0x3c;

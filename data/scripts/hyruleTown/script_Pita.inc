@@ -11,7 +11,7 @@ script_080106BE:
 	JumpIfNot script_080106BE
 	SetPlayerIdle
 	FacePlayer
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	DoPostScriptAction 0x0000
 	HasRoomItemForSale
 	JumpIf script_080106E0

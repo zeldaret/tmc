@@ -75,13 +75,13 @@ void PushableRock_Action2(PushableRockEntity* this) {
     super->speed = PushableRock_Speeds[super->frame & 0xf];
     LinearMoveUpdate(super);
     GetNextFrame(super);
-    if (super->frame & 0x80) {
+    if (super->frame & ANIM_DONE) {
         super->action = 0;
     }
 }
 
 void PushableRock_Action3(PushableRockEntity* this) {
-    if ((super->frame & 0x80) == 0) {
+    if ((super->frame & ANIM_DONE) == 0) {
         GetNextFrame(super);
     } else {
         super->spritePriority.b0 = 7;

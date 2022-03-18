@@ -152,7 +152,7 @@ void EzloCap_Type1Action1(EzloCapEntity* this) {
                 }
             }
         }
-    } else if ((super->frame & 0x80) != 0) {
+    } else if ((super->frame & ANIM_DONE) != 0) {
         super->actionDelay = Random() & 3;
         if (super->actionDelay != 0) {
             super->spriteSettings.flipX = Random() & 1;
@@ -203,7 +203,7 @@ void sub_08082C5C(EzloCapEntity* this) {
             }
             break;
         case 2:
-            if ((super->frame & 0x80) != 0) {
+            if ((super->frame & ANIM_DONE) != 0) {
                 InitAnimationForceUpdate(super, gUnk_0811F18C[Random() & 3] + (Random() & 3));
                 return;
             }
@@ -292,7 +292,7 @@ void EzloCap_ScriptedAction2(EzloCapEntity* this) {
 
 void EzloCap_ScriptedAction3(EzloCapEntity* this) {
     UpdateAnimationSingleFrame(super);
-    if ((super->frame & 0x80) != 0) {
+    if ((super->frame & ANIM_DONE) != 0) {
         super->action = 1;
         super->subAction = 0;
         super->spriteOffsetX = 0;

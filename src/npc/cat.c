@@ -102,7 +102,7 @@ void sub_080678AC(Entity* this) {
             sub_08067AAC(this);
         } else {
             UpdateAnimationSingleFrame(this);
-            if ((this->frame & 0x80) != 0) {
+            if ((this->frame & ANIM_DONE) != 0) {
                 sub_08067B34(this);
             }
         }
@@ -137,7 +137,7 @@ void sub_08067904(Entity* this) {
 
 void sub_0806797C(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         sub_08067B08(this);
     }
 }
@@ -166,7 +166,7 @@ void sub_08067A0C(Entity* this) {
     u8 tmp;
 
     UpdateAnimationSingleFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         if (sub_08067D20(this) != 0) {
             sub_08067B80(this, 5);
             this->actionDelay = this->actionDelay + 0x14;
@@ -186,7 +186,7 @@ void sub_08067A0C(Entity* this) {
 
 void sub_08067A78(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         sub_08067AAC(this);
     }
 }

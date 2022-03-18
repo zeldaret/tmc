@@ -27,7 +27,7 @@
 	bl ResetPlayerEventPriority
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl sub_08077E78
+	bl DeletePlayerItem
 _08076C6E:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

@@ -56,7 +56,7 @@ void VaatiWrathEyeAction0(Entity* this) {
 void VaatiWrathEyeAction1(Entity* this) {
     sub_080485D8(this);
     GetNextFrame(this);
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         this->action = 2;
         InitializeAnimation(this, 1);
     }
@@ -105,7 +105,7 @@ void VaatiWrathEyeAction4(Entity* this) {
         }
     } else {
         GetNextFrame(this);
-        if ((this->frame & 0x80) != 0) {
+        if ((this->frame & ANIM_DONE) != 0) {
             this->action = 5;
             this->actionDelay = 0;
         }
@@ -137,7 +137,7 @@ void VaatiWrathEyeAction6(Entity* this) {
             InitializeAnimation(this, 6);
         }
     } else {
-        if (this->frame & 0x80) {
+        if (this->frame & ANIM_DONE) {
             this->action = 7;
             this->actionDelay = 120;
             this->field_0xf = 0;
@@ -193,7 +193,7 @@ void VaatiWrathEyeAction8(Entity* this) {
 void VaatiWrathEyeAction9(Entity* this) {
     sub_080485FC(this);
     GetNextFrame(this);
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         this->action = 4;
         this->actionDelay = 1;
         this->parent->field_0x7a.HALF.HI = (this->parent->field_0x7a.HALF.HI & 0xf) | (1 << this->type);

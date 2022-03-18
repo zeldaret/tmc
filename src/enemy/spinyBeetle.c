@@ -171,7 +171,7 @@ void sub_08033A7C(SpinyBeetleEntity* this) {
     }
 
     GetNextFrame(super);
-    if ((super->frame & 0x80) == 0)
+    if ((super->frame & ANIM_DONE) == 0)
         return;
 
     super->action = 3;

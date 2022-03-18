@@ -70,7 +70,7 @@ void sub_0806AC3C(Entity* this) {
 
         if (!(this->field_0x68.HALF.HI & 7)) {
             this->animationState = sub_0806F5B0(this->field_0x68.HALF.HI);
-            InitializeAnimation(this, (this->animationState / 2) ^ 2);
+            InitializeAnimation(this, AnimationStateFlip90(this->animationState / 2));
         }
     }
 

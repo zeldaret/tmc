@@ -62,7 +62,7 @@ void sub_08077640(ItemBehavior* this, u32 arg1) {
     UpdateItemAnim(this);
     if ((this->field_0x5[9] & 0x80) != 0) {
         gPlayerEntity.flags |= ENT_COLLIDE;
-        sub_08077E78(this, arg1);
+        DeletePlayerItem(this, arg1);
     }
 }
 
@@ -70,6 +70,6 @@ void sub_0807766C(ItemBehavior* this, u32 arg1) {
     UpdateItemAnim(this);
     if ((this->field_0x5[9] & 0x80) != 0) {
         gPlayerEntity.flags |= ENT_COLLIDE;
-        sub_08077E78(this, arg1);
+        DeletePlayerItem(this, arg1);
     }
 }
