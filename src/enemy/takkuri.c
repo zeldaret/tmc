@@ -74,7 +74,7 @@ void Takkuri_OnCollision(TakkuriEntity* this) {
 void Takkuri_OnGrabbed(TakkuriEntity* this) {
     gUnk_080CFF6C[super->subAction](this);
     GetNextFrame(super);
-    if (sub_0806F520(super) == 0) {
+    if (!sub_0806F520(super)) {
         super->action = 2;
         super->subAction = 0;
         this->unk_0x84 = 2;

@@ -24,7 +24,7 @@ void nullsub_539(Entity* this) {
 }
 
 void sub_080A9CF0(Entity* this) {
-    if (sub_0806F520() == 0) {
+    if (!sub_0806F520(this)) {
         CreateFx(this, FX_DEATH, 0);
         DeleteThisEntity();
     }

@@ -69,7 +69,7 @@ void Wisp_OnCollision(Entity* this) {
 }
 
 void Wisp_OnGrabbed(Entity* this) {
-    if (sub_0806F520() != 0) {
+    if (sub_0806F520(this)) {
         gUnk_080CEB98[this->subAction](this);
     }
 }

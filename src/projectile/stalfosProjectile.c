@@ -38,7 +38,7 @@ void sub_080A9A34(Entity* this) {
 }
 
 void sub_080A9A64(Entity* this) {
-    if ((this->subAction < 3) && (sub_0806F520(this) == 0)) {
+    if ((this->subAction < 3) && !sub_0806F520(this)) {
         sub_080A9BA8(this);
     }
     StalfosProjectile_SubActions[this->subAction](this);

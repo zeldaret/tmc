@@ -123,7 +123,7 @@ void sub_08039418(StalfosEntity* this) {
 }
 
 void sub_08039438(StalfosEntity* this) {
-    if (sub_0806F520()) {
+    if (sub_0806F520(super)) {
         Stalfos_SubActions[super->subAction](this);
     }
 }

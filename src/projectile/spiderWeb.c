@@ -79,7 +79,7 @@ void sub_080AA78C(Entity* this) {
         this->subAction = 1;
         InitAnimationForceUpdate(this, animationState + 8);
     }
-    if (sub_0806F520(this) != 0) {
+    if (sub_0806F520(this)) {
         UpdateAnimationSingleFrame(this);
         if ((this->frame & 0x10) != 0) {
             this->frame &= 0xef;
