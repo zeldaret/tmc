@@ -215,7 +215,7 @@ typedef enum {
     OBJECT_B6,
     WELL,
     WIND_TRIBE_TELEPORTER,
-    OBJECT_B9,
+    CUCCO_MINIGAME,
     GYORG_BOSS_OBJECT,
     WINDCREST,
     LIT_AREA,

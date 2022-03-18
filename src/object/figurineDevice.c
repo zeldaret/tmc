@@ -303,7 +303,7 @@ void FigurineDevice_Action4(FigurineDeviceEntity* this) {
             gMessage.textWindowPosX = 1;
             gMessage.textWindowPosY = 0xc;
 #endif
-            gMessage.field_0x10 = this->unk_81;
+            gMessage.rupees = this->unk_81;
             break;
     }
 }
@@ -477,7 +477,7 @@ void sub_08088478(void) {
     gMessage.textWindowPosX = 1;
     gMessage.textWindowPosY = 0xc;
     if (set0x10) {
-        gMessage.field_0x10 = 5;
+        gMessage.rupees = 5;
     }
 #ifndef EU
     gPlayerEntity.animationState = 6;

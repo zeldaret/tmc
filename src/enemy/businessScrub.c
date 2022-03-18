@@ -384,7 +384,7 @@ void sub_08028F0C(Entity* this) {
             SetPlayerControl(1);
         }
         MessageFromTarget(dialog);
-        gMessage.field_0x10 = offer->price;
+        gMessage.rupees = offer->price;
     }
 }
 

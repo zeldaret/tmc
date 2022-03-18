@@ -175,7 +175,7 @@ void sub_0806E140(PicolyteBottleEntity* this, ScriptExecutionContext* context) {
             MessageFromTarget(0x421b);
         } else {
             MessageFromTarget(0x4218);
-            gMessage.field_0x10 = this->unk76;
+            gMessage.rupees = this->unk76;
         }
     } else {
         context->condition = 0;
@@ -201,7 +201,7 @@ void sub_0806E1FC(PicolyteBottleEntity* this) {
 void sub_0806E20C(void) {
     if (gRoomTransition.field_0x6 != 0) {
         MessageFromTarget(0x421f);
-        gMessage.field_0x10 = gRoomTransition.field_0x6;
+        gMessage.rupees = gRoomTransition.field_0x6;
     } else {
         MessageFromTarget(0x4220);
     }
