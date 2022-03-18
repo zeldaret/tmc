@@ -43,7 +43,7 @@ void FlyingPot_OnTick(FlyingPotEntity*); // 0803708C
 void sub_080370A4(FlyingPotEntity*); // 080370A4
 void sub_0803712C(FlyingPotEntity*); // 0803712C
 
-// Subactions?
+// Subactions
 void FlyingPot_SubAction0(FlyingPotEntity*); // 08037144
 void FlyingPot_SubAction1(FlyingPotEntity*); // 0803715C
 void FlyingPot_SubAction2(FlyingPotEntity*); // 0803718C
@@ -62,10 +62,6 @@ void FlyingPot_Action6(FlyingPotEntity*); // 080373E0
 
 void sub_08037408(FlyingPotEntity*);
 void sub_08037418(FlyingPotEntity*);
-
-// extern void (*const FlyingPot_Functions[])(Entity*);
-// extern void (*const FlyingPot_Actions[])(FlyingPotEntity*);
-// extern void (*const FlyingPot_SubActions[])(FlyingPotEntity*);
 
 void (*const FlyingPot_Functions[])(Entity*) = {
     (EntityActionPtr)FlyingPot_OnTick, (EntityActionPtr)sub_080370A4, GenericKnockback, GenericDeath, GenericConfused,
