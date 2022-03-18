@@ -818,7 +818,7 @@ void sub_08056F88(u32 unk_1, u32 unk_2) {
 }
 
 static void sub_08056FBC(TextRender* ctb) {
-    sub_08056FEC(ctb->message.field_0x10, &ctb->_66[0x2]);
+    sub_08056FEC(ctb->message.rupees, &ctb->_66[0x2]);
     sub_08056FEC(ctb->message.field_0x14, &ctb->_66[0xa]);
     sub_08056FEC(ctb->message.field_0x18, &ctb->_77[0x1]);
     sub_08056FEC(ctb->message.field_0x1c, &ctb->_77[0x9]);

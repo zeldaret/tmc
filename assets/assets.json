@@ -45044,31 +45044,6 @@
     "type": "animation"
   },
   {
-    "path": "objectB9/gUnk_08124C20.bin",
-    "start": 1199136,
-    "size": 40
-  },
-  {
-    "path": "objectB9/gUnk_08124C48.bin",
-    "start": 1199176,
-    "size": 600
-  },
-  {
-    "path": "objectB9/gUnk_08124EA0.bin",
-    "start": 1199776,
-    "size": 40
-  },
-  {
-    "path": "objectB9/gUnk_08124EC8.bin",
-    "start": 1199816,
-    "size": 4
-  },
-  {
-    "path": "objectB9/gUnk_08124ECC.bin",
-    "start": 1199820,
-    "size": 4
-  },
-  {
     "path": "windcrest/gUnk_08125010.bin",
     "start": 1200144,
     "size": 4

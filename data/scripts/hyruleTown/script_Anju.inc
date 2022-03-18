@@ -19,7 +19,7 @@ script_0801015A:
 	Call sub_080A1608
 	WaitUntilTextboxCloses
 	EnablePlayerControl
-	CallWithArg sub_080A1550, script_080101AC
+	CallWithArg CuccoMinigame_Init, script_080101AC
 	JumpIfNot script_0801015A
 	PlayBgm BGM_CUCCO_MINIGAME
 	SetRoomFlag 0x0001
@@ -49,7 +49,7 @@ script_080101AC:
 	Call sub_0807FB74
 	_0807E8E4_1
 	Call SetPlayerCollisionLayer1
-	Call sub_080A1388
+	Call CuccoMinigame_Cleanup
 	Call sub_0806EC38
 	BeginBlock
 	MoveEntityToPlayer

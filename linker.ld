@@ -810,7 +810,7 @@ SECTIONS {
         src/object/objectB6.o(.text);
         src/object/well.o(.text);
         src/object/windTribeTeleporter.o(.text);
-        asm/object/objectB9.o(.text);
+        src/object/cuccoMinigame.o(.text);
         src/object/gyorgBossObject.o(.text);
         src/object/windcrest.o(.text);
         src/object/litArea.o(.text);
@@ -1565,7 +1565,7 @@ SECTIONS {
         data/animations/object/objectB4.o(.rodata);
         data/const/object/well.o(.rodata);
         src/object/windTribeTeleporter.o(.rodata);
-        data/const/object/objectB9.o(.rodata);
+        src/object/cuccoMinigame.o(.rodata);
         src/object/gyorgBossObject.o(.rodata);
         data/const/object/windcrest.o(.rodata);
         src/object/objectBD.o(.rodata);

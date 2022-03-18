@@ -17,7 +17,7 @@ typedef struct {
     u16 textIndex;
     u16 unk2; // HI?
     u32 field_0xc;
-    u32 field_0x10;
+    u32 rupees;
     u32 field_0x14;
     u32 field_0x18;
     u32 field_0x1c;

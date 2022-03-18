@@ -1884,7 +1884,7 @@ void sub_0807F78C(Entity* entity, ScriptExecutionContext* context) {
     msg = GetSaleItemConfirmMessageID(item);
     price = GetItemPrice(item);
     MessageNoOverlap(msg, entity);
-    gMessage.field_0x10 = (u16)price;
+    gMessage.rupees = (u16)price;
 }
 
 void sub_0807F7C4(Entity* entity, ScriptExecutionContext* context) {
@@ -1929,7 +1929,7 @@ void sub_0807F854(Entity* entity, ScriptExecutionContext* context) {
     switch (idx) {
         case 0:
         case 1:
-            gMessage.field_0x10 = value;
+            gMessage.rupees = value;
             break;
         case 2:
             gMessage.field_0x14 = value;

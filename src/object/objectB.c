@@ -124,7 +124,7 @@ void ObjectB_Action2(ObjectBEntity* this) {
                             break;
                     }
                     MessageFromTarget(messageIndex);
-                    gMessage.field_0x10 = super->type2;
+                    gMessage.rupees = super->type2;
                 }
         }
     }
