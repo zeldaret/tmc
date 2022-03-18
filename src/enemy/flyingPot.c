@@ -40,8 +40,8 @@ enum FlyingPotSubActions {
 
 // Functions
 void FlyingPot_OnTick(FlyingPotEntity*); // 0803708C
-void sub_080370A4(FlyingPotEntity*); // 080370A4
-void sub_0803712C(FlyingPotEntity*); // 0803712C
+void sub_080370A4(FlyingPotEntity*);     // 080370A4
+void sub_0803712C(FlyingPotEntity*);     // 0803712C
 
 // Subactions
 void FlyingPot_SubAction0(FlyingPotEntity*); // 08037144
@@ -52,7 +52,7 @@ void FlyingPot_SubActionDoNothing(FlyingPotEntity*);
 void FlyingPot_SubAction5(FlyingPotEntity*); // 08037218
 
 // Actions
-void FlyingPot_Init(FlyingPotEntity*); // ? // 08037220
+void FlyingPot_Init(FlyingPotEntity*);    // ? // 08037220
 void FlyingPot_Action1(FlyingPotEntity*); // 08037280
 void FlyingPot_Action2(FlyingPotEntity*); // 080372E8
 void FlyingPot_Action3(FlyingPotEntity*); // 0803737C
@@ -80,13 +80,8 @@ void FlyingPot(Entity* thisx) {
 
 void FlyingPot_OnTick(FlyingPotEntity* this) {
     static void (*const FlyingPot_Actions[])(FlyingPotEntity*) = {
-        FlyingPot_Init,
-        FlyingPot_Action1,
-        FlyingPot_Action2,
-        FlyingPot_Action3,
-        FlyingPot_Action4,
-        FlyingPot_Action5,
-        FlyingPot_Action6,
+        FlyingPot_Init,    FlyingPot_Action1, FlyingPot_Action2, FlyingPot_Action3,
+        FlyingPot_Action4, FlyingPot_Action5, FlyingPot_Action6,
     };
 
     FlyingPot_Actions[super->action](this);
@@ -111,7 +106,8 @@ void sub_080370A4(FlyingPotEntity* this) {
 
 void sub_0803712C(FlyingPotEntity* this) {
     static void (*const FlyingPot_SubActions[])(FlyingPotEntity*) = {
-        FlyingPot_SubAction0, FlyingPot_SubAction1, FlyingPot_SubAction2, FlyingPot_SubAction3, FlyingPot_SubActionDoNothing, FlyingPot_SubAction5,
+        FlyingPot_SubAction0, FlyingPot_SubAction1,         FlyingPot_SubAction2,
+        FlyingPot_SubAction3, FlyingPot_SubActionDoNothing, FlyingPot_SubAction5,
     };
 
     FlyingPot_SubActions[super->subAction](this);
