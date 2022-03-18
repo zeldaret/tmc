@@ -59,5 +59,5 @@ static void sub_08097B24(Entity* this) {
     temp2 = ++this->field_0xf;
 
     temp = temp3[(temp2 >> 5) & 7];
-    sub_0805EC9C(this, temp, temp, 0);
+    SetAffineInfo(this, temp, temp, 0);
 }

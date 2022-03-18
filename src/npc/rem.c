@@ -73,7 +73,7 @@ void sub_0806A410(Entity* this) {
             }
             break;
         case 1:
-            if (((this->frame & 0x80) != 0)) {
+            if (((this->frame & ANIM_DONE) != 0)) {
                 sub_0806A9B0(this, *(ScriptExecutionContext**)&this->cutsceneBeh);
             }
             break;
@@ -88,14 +88,14 @@ void sub_0806A458(Entity* this) {
             }
             break;
         case 1:
-            if ((this->frame & 0x80) != 0) {
+            if ((this->frame & ANIM_DONE) != 0) {
                 this->subAction = 2;
                 InitializeAnimation(this, 10);
                 ClearLocalFlag(0x62);
             }
             break;
         case 2:
-            if (((this->frame & 0x80) != 0)) {
+            if (((this->frame & ANIM_DONE) != 0)) {
                 this->action = 1;
                 this->subAction = 0;
                 this->actionDelay = 0x3c;
@@ -108,7 +108,7 @@ void sub_0806A458(Entity* this) {
 void sub_0806A4CC(Entity* this) {
     switch (this->subAction) {
         case 0:
-            if ((this->frame & 0x80) != 0) {
+            if ((this->frame & ANIM_DONE) != 0) {
                 if ((u8)(this->animIndex - 8) < 2) {
                     this->subAction = 1;
                     this->field_0x6a.HWORD = 1;
@@ -120,7 +120,7 @@ void sub_0806A4CC(Entity* this) {
                 }
                 break;
                 case 1:
-                    if ((this->frame & 0x80) != 0) {
+                    if ((this->frame & ANIM_DONE) != 0) {
                         this->subAction = 2;
                         InitializeAnimation(this, GetAnimationState(this));
                     }
@@ -143,7 +143,7 @@ void sub_0806A550(Entity* this) {
             gActiveScriptInfo.syncFlags |= 0x100;
             SoundReq(SFX_CHEST_OPEN);
         }
-        if ((this->frame & 0x80) != 0) {
+        if ((this->frame & ANIM_DONE) != 0) {
             this->action = 5;
             this->subAction = 0;
             InitializeAnimation(this, 0xd);
@@ -157,7 +157,7 @@ void nullsub_503(Entity* this) {
 
 void sub_0806A5C0(Entity* this) {
     GetNextFrame(this);
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         InitializeAnimation(this, (Random() & 3) + 4);
     }
 }
@@ -301,7 +301,7 @@ void sub_0806A890(Entity* this) {
         SetDefaultPriority(this, PRIO_MESSAGE);
     }
     GetNextFrame(this);
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         DeleteThisEntity();
     }
 }

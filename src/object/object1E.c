@@ -72,7 +72,7 @@ END_NONMATCH
 
 void sub_080875F4(Entity* this) {
     GetNextFrame(this);
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         DeleteThisEntity();
     }
     if (this->type2 != 0) {

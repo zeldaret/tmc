@@ -34,7 +34,7 @@ void PlayerItem3(Entity* this) {
         } else {
             this->field_0x86.HWORD -= 0x2000;
         }
-        sub_0805EC9C(this, 0x100, 0x100, this->field_0x86.HWORD);
+        SetAffineInfo(this, 0x100, 0x100, this->field_0x86.HWORD);
     }
 
     this->field_0xf--;

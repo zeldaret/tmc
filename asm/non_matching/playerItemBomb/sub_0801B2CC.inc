@@ -5,7 +5,7 @@
 	cmp r0, #0
 	bne _0801B2DE
 	adds r0, r4, #0
-	bl sub_08078930
+	bl RegisterCarryEntity
 _0801B2DE:
 	movs r0, #8
 	bl IsItemEquipped

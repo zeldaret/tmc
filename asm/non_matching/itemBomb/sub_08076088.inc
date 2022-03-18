@@ -98,7 +98,7 @@ _08076138:
 _0807614A:
 	adds r0, r4, #0
 	movs r1, #0x13
-	bl CreatePlayerBomb
+	bl CreatePlayerItemWithParent
 	adds r3, r0, #0
 	cmp r3, #0
 	bne _08076162

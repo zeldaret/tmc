@@ -238,7 +238,7 @@ void sub_0803A364(Entity* this) {
             break;
         case 4:
             GetNextFrame(this);
-            if ((this->frame & 0x80) != 0) {
+            if ((this->frame & ANIM_DONE) != 0) {
                 this->subAction = 5;
             }
             break;
@@ -261,7 +261,7 @@ void sub_0803A364(Entity* this) {
             break;
         case 7:
             GetNextFrame(this);
-            if ((this->frame & 0x80) != 0) {
+            if ((this->frame & ANIM_DONE) != 0) {
                 this->subAction = 8;
                 this->spriteSettings.draw = 0;
                 InitAnimationForceUpdate(this->child, 8);
@@ -270,7 +270,7 @@ void sub_0803A364(Entity* this) {
             break;
         case 8:
             sub_0803B55C(this);
-            if ((this->child->frame & 0x80) == 0) {
+            if ((this->child->frame & ANIM_DONE) == 0) {
                 return;
             }
             uVar1 = 9;
@@ -286,7 +286,7 @@ void sub_0803A364(Entity* this) {
             break;
         case 10:
             sub_0803B55C(this);
-            if ((this->child->frame & 0x80) != 0) {
+            if ((this->child->frame & ANIM_DONE) != 0) {
                 this->subAction = 0xb;
                 this->spriteSettings.draw = 1;
                 InitializeAnimation(this, 4);
@@ -294,7 +294,7 @@ void sub_0803A364(Entity* this) {
             break;
         case 0xb:
             GetNextFrame(this);
-            if ((this->frame & 0x80) == 0) {
+            if ((this->frame & ANIM_DONE) == 0) {
                 return;
             }
             if (this->type2 != 0) {
@@ -365,7 +365,7 @@ void sub_0803A60C(Entity* this) {
     index = ((this->parent->field_0xf >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     GetNextFrame(this);
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         this->action = 6;
         this->spriteSettings.draw = 0;
         InitAnimationForceUpdate(this->child, 8);
@@ -482,7 +482,7 @@ void sub_0803A814(Entity* this) {
     index = ((this->parent->field_0xf >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     sub_0803B55C(this);
-    if ((this->child->frame & 0x80) != 0) {
+    if ((this->child->frame & ANIM_DONE) != 0) {
         this->action = 0xe;
         this->spriteSettings.draw = 1;
         InitializeAnimation(this, 4);
@@ -497,7 +497,7 @@ void sub_0803A86C(Entity* this) {
     index = ((this->parent->field_0xf >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     GetNextFrame(this);
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         COLLISION_ON(this);
         sub_0803B59C(this);
     }
@@ -619,7 +619,7 @@ void sub_0803AB10(Entity* this) {
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     LinearMoveUpdate(this);
     sub_0803B55C(this);
-    if ((this->child->frame & 0x80) != 0) {
+    if ((this->child->frame & ANIM_DONE) != 0) {
         this->action = 0x15;
         this->actionDelay = 0xf;
     }
@@ -649,7 +649,7 @@ void sub_0803ABB4(Entity* this) {
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     GetNextFrame(this);
     sub_0803B55C(this);
-    if ((this->child->frame & 0x80) != 0) {
+    if ((this->child->frame & ANIM_DONE) != 0) {
         this->action = 0x17;
         COLLISION_ON(this);
         this->speed = 0x180;
@@ -768,7 +768,7 @@ void sub_0803ADF4(Entity* this) {
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     UpdateAnimationSingleFrame(this);
     GetNextFrame(this);
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         this->action = 0x1c;
         this->actionDelay = 0x1e;
         this->spriteSettings.draw = 0;
@@ -803,7 +803,7 @@ void sub_0803AEC4(Entity* this) {
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     UpdateAnimationSingleFrame(this);
     GetNextFrame(this);
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         COLLISION_ON(this);
         sub_0803B59C(this);
     }
@@ -818,7 +818,7 @@ void sub_0803AF18(Entity* this) {
 
 void sub_0803AF50(Entity* this) {
     GetNextFrame(this);
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         this->action = 0x20;
         this->spriteSettings.draw = 0;
         InitAnimationForceUpdate(this->child, 8);
@@ -827,7 +827,7 @@ void sub_0803AF50(Entity* this) {
 
 void sub_0803AF7C(Entity* this) {
     sub_0803B55C(this);
-    if ((this->child->frame & 0x80) != 0) {
+    if ((this->child->frame & ANIM_DONE) != 0) {
         this->action = 0x21;
         this->actionDelay = 0xf;
     }
@@ -892,7 +892,7 @@ void sub_0803B074(Entity* this) {
     index = ((this->parent->field_0xf >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     sub_0803B55C(this);
-    if ((this->child->frame & 0x80) != 0) {
+    if ((this->child->frame & ANIM_DONE) != 0) {
         this->action = 0x27;
         this->spriteSettings.draw = 1;
         InitializeAnimation(this, 4);
@@ -903,7 +903,7 @@ void sub_0803B074(Entity* this) {
 void sub_0803B0D4(Entity* this) {
     UpdateAnimationSingleFrame(this);
     GetNextFrame(this);
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         COLLISION_ON(this);
         sub_0803B59C(this);
     }
@@ -938,7 +938,7 @@ void sub_0803B144(Entity* this) {
 
 void sub_0803B17C(Entity* this) {
     GetNextFrame(this);
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         this->action = 0x2b;
         COLLISION_ON(this);
         this->hitType = 0x18;
@@ -951,7 +951,7 @@ void sub_0803B1B8(Entity* this) {
     Entity* temp;
     u16 val;
 
-    if ((this->frame & 0x80) == 0) {
+    if ((this->frame & ANIM_DONE) == 0) {
         GetNextFrame(this);
         UpdateAnimationSingleFrame(this->child);
     }
@@ -994,7 +994,7 @@ void sub_0803B2D0(Entity* this) {
     Entity* entity;
 
     GetNextFrame(this);
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         this->action = 0x2d;
         this->spriteSettings.draw = 0;
         entity = *(Entity**)&this->field_0x74;
@@ -1009,7 +1009,7 @@ void sub_0803B30C(Entity* this) {
     Entity* entity;
 
     entity = *(Entity**)&this->field_0x74;
-    if ((entity->frame & 0x80) != 0) {
+    if ((entity->frame & ANIM_DONE) != 0) {
         this->action = 0x2e;
         sub_0803B8E8(this, 0x13);
         InitializeAnimation(entity, 0);
@@ -1064,7 +1064,7 @@ void sub_0803B3F4(Entity* this) {
     index = ((this->parent->field_0xf >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     GetNextFrame(this);
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         this->hitType = 0x17;
         if (this->type == 0) {
             this->hitbox = (Hitbox*)&gUnk_080FD35C;

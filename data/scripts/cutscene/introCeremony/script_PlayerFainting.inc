@@ -11,7 +11,7 @@ SCRIPT_START script_PlayerFainting
 	Call sub_0807F1E8
 	DoPostScriptAction 0x0011
 	EndBlock
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	WaitForSyncFlag 0x80000000
 	Call SetPlayerActionNormal
 SCRIPT_END

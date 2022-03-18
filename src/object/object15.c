@@ -34,7 +34,7 @@ void Object15_Action1(Entity* this) {
                 DeleteThisEntity();
             }
         } else {
-            if ((this->frame & 0x80) != 0) {
+            if ((this->frame & ANIM_DONE) != 0) {
                 DeleteThisEntity();
             }
         }

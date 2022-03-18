@@ -277,7 +277,7 @@ void sub_08029D14(Entity* this) {
         }
     } else {
         GetNextFrame(this);
-        if (this->frame & 0x80) {
+        if (this->frame & ANIM_DONE) {
             this->action = 4;
             this->actionDelay = 0x78;
             this->hitType = 0x6c;
@@ -299,7 +299,7 @@ void sub_08029D78(Entity* this) {
 
 void sub_08029DAC(Entity* this) {
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 6;
         this->parent->field_0x76.HALF.HI = 1;
         InitializeAnimation(this, this->animationState + 8);

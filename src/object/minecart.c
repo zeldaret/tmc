@@ -146,7 +146,7 @@ void sub_080919AC(Entity* this) {
             iVar2 = sub_08007DD6(uVar3, gUnk_081223D8[this->animationState]);
             if (iVar2 == 0) {
                 this->direction = DirectionTurnAround(this->direction);
-                this->animationState = this->animationState ^ 2;
+                this->animationState = AnimationStateFlip90(this->animationState);
             } else {
                 switch (uVar3) {
                     case 0x64:
@@ -177,7 +177,7 @@ void sub_080919AC(Entity* this) {
                     case 0x6d:
                     case 0x6e:
                     case 0x6f:
-                        if (uVar3 == sub_080B1AA8(this)) {
+                        if (uVar3 == GetTileUnderEntity(this)) {
                             sub_08091C0C(this);
                             gPlayerEntity.animationState = this->animationState << 1;
                             return;

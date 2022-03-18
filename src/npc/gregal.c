@@ -97,7 +97,7 @@ void sub_0806CC08(Entity* this) {
 }
 
 void sub_0806CCB4(Entity* this, ScriptExecutionContext* context) {
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         context->condition = 1;
     } else {
         context->condition = 0;

@@ -16,13 +16,13 @@ script_08008BD2:
 	SetGlobalFlag 0x0061
 .endif
 	SetAnimation 0x0004
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	WaitUntilTextboxCloses
 	Call sub_0806BA34
 	JumpIfNot script_08008C54
 	WaitUntilTextboxCloses
 	CallWithArg sub_0806BB1C, 0x00000000
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	CallWithArg sub_0806BB1C, 0x00000001
 	Call sub_0806BB7C
 	JumpIfNot script_08008C5C
@@ -34,11 +34,11 @@ script_08008BD2:
 	Wait 0x000f
 	PlaySound SFX_SECRET
 	SetAnimation 0x0004
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	MessageNoOverlap 0x4913
 	WaitUntilTextboxCloses
 	SetAnimation 0x0008
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	Jump script_08008C5C
 script_08008C54:
 	SetAnimation 0x0008

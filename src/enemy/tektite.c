@@ -97,7 +97,7 @@ void sub_0802F284(Entity* this) {
     if (this->actionDelay != 0) {
         this->actionDelay--;
     } else if (this->field_0xf != 0) {
-        if (this->frame & 0x80) {
+        if (this->frame & ANIM_DONE) {
             this->action = 2;
             this->actionDelay = 0x10;
             this->field_0xf = this->type;
@@ -105,7 +105,7 @@ void sub_0802F284(Entity* this) {
             sub_0802F45C(this);
             InitializeAnimation(this, 2);
         }
-    } else if (this->frame & 0x80) {
+    } else if (this->frame & ANIM_DONE) {
         this->field_0xf = 0x40;
         InitializeAnimation(this, 1);
     }
@@ -137,7 +137,7 @@ void sub_0802F300(Entity* this) {
         return;
     } else if (this->collisions != 0) {
         sub_0800417E(this, this->collisions);
-    } else if ((sub_080B1AA8(this) & 0xf0) == 0x50) {
+    } else if ((GetTileUnderEntity(this) & 0xf0) == 0x50) {
         this->direction = (this->direction + 0x10) & 0x1f;
     }
 
@@ -167,7 +167,7 @@ void sub_0802F3F4(Entity* this) {
 
     GetNextFrame(this);
 
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         if ((*(u8*)&this->field_0x7c.HALF.LO < 2) && ((this->type % 2) != 0)) {
             this->action = 2;
             this->actionDelay = 0x10;

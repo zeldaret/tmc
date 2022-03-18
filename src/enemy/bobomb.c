@@ -245,7 +245,7 @@ void sub_0802CAF8(Entity* this) {
             EnqueueSFX(SFX_104);
         }
         sub_0802CC18(this);
-        sub_08078930(this);
+        RegisterCarryEntity(this);
         if (this->field_0xf && this->z.HALF.HI == 0) {
             this->field_0xf = 0;
             COLLISION_ON(this);
@@ -286,7 +286,7 @@ void sub_0802CBC4(Entity* this) {
     if (this->field_0x82.HALF.HI) {
         sub_08079184();
     }
-    sub_08078954(this);
+    FreeCarryEntity(this);
 
     ent = CreateObjectWithParent(this, OBJECT_20, 0, 0);
     if (ent) {

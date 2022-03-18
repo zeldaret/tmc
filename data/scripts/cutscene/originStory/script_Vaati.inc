@@ -23,7 +23,7 @@ SCRIPT_START script_Vaati
 	SetSyncFlag 0x00001000
 	WaitForSyncFlagAndClear 0x00000800
 	DoPostScriptAction 0x0018
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00001000

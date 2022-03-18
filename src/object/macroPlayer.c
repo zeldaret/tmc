@@ -111,7 +111,7 @@ void MacroPlayer_Type0_Init(MacroPlayerEntity* this) {
     super->z.HALF.HI = 0xff50;
     this->unk6a = 4;
     super->spriteRendering.b0 = 3;
-    sub_0805EC9C(super, 4, 4, 0);
+    SetAffineInfo(super, 4, 4, 0);
     ptr = gUnk_02018EB0;
     *(Entity**)&ptr[0x14] = super;
     ChangeObjPalette(super, sub_0807A094(0));
@@ -125,7 +125,7 @@ void MacroPlayer_Type0_Init(MacroPlayerEntity* this) {
 void sub_0808CC88(MacroPlayerEntity* this) {
     if (this->unk6a < 0x400) {
         this->unk6a += 4;
-        sub_0805EC9C(super, this->unk6a, this->unk6a, 0);
+        SetAffineInfo(super, this->unk6a, this->unk6a, 0);
         sub_0806FCF4(super, this->unk6a, 8, 2);
     }
 }

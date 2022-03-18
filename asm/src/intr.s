@@ -129,7 +129,7 @@ arm_sub_080B1A8C: @ 0x080B1A8C
 	ldrb r2, [r0, #0x38]
 	mov r0, r3
 	b arm_sub_080B1AB4
-arm_sub_080B1AA8:
+arm_GetTileUnderEntity:
 	ldrb r2, [r0, #0x38]
 	ldrh r1, [r0, #0x32]
 	ldrh r0, [r0, #0x2e]

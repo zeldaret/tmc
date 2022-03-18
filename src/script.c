@@ -1634,8 +1634,8 @@ void EquipItem(Entity* entity, ScriptExecutionContext* context) {
     ForceEquipItem(item, slot);
 }
 
-void sub_0807F29C(Entity* entity, ScriptExecutionContext* context) {
-    sub_0805ED14((void*)context->intVariable);
+void SetInputMacro(Entity* entity, ScriptExecutionContext* context) {
+    InitPlayerMacro((void*)context->intVariable);
 }
 
 void sub_0807F2A8(Entity* entity, ScriptExecutionContext* context) {
@@ -1646,8 +1646,8 @@ void sub_0807F2A8(Entity* entity, ScriptExecutionContext* context) {
     }
 }
 
-void WaitForFrameHiBit(Entity* entity, ScriptExecutionContext* context) {
-    if ((entity->frame & 0x80) != 0) {
+void WaitForAnimDone(Entity* entity, ScriptExecutionContext* context) {
+    if ((entity->frame & ANIM_DONE) != 0) {
         gActiveScriptInfo.flags |= 1;
     } else {
         gActiveScriptInfo.commandSize = 0;
@@ -1655,7 +1655,7 @@ void WaitForFrameHiBit(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void WaitForPlayerFrameHiBit(Entity* entity, ScriptExecutionContext* context) {
-    if ((gPlayerEntity.frame & 0x80) != 0) {
+    if ((gPlayerEntity.frame & ANIM_DONE) != 0) {
         gActiveScriptInfo.flags |= 1;
     } else {
         gActiveScriptInfo.commandSize = 0;

@@ -75,7 +75,7 @@ void sub_080A0AF0(Entity* this) {
     ExecuteScriptForEntity(this, NULL);
     GetNextFrame(this);
     if (this->animIndex == 5) {
-        if ((this->frame & 0x80) != 0) {
+        if ((this->frame & ANIM_DONE) != 0) {
             DeleteThisEntity();
         }
     }

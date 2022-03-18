@@ -34,7 +34,7 @@ void sub_0806305C(Entity* this) {
     this->spriteRendering.b0 = 3;
     *(u32*)&this->field_0x6c = 0x100;
     this->field_0x70.WORD = 0x100;
-    sub_0805EC9C(this, 0x100, 0x100, 0x0);
+    SetAffineInfo(this, 0x100, 0x100, 0x0);
     InitAnimationForceUpdate(this, 0x10);
     this->field_0x80.HWORD = 0x10;
     SoundReq(SFX_PLY_SHRINKING);

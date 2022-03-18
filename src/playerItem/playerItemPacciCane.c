@@ -29,7 +29,7 @@ void PlayerItemPacciCane_Action1(Entity* this) {
     u32 playerFrame;
     u32 frameIndex;
     u32 flipX;
-    if (((gPlayerEntity.frame & 0x80) != 0) || (this != gPlayerState.item)) {
+    if (((gPlayerEntity.frame & ANIM_DONE) != 0) || (this != gPlayerState.item)) {
         if (this == gPlayerState.item) {
             gPlayerState.item = NULL;
         }

@@ -26,7 +26,7 @@ void ItemPegasusBoots(ItemBehavior* this, u32 arg1) {
     if (gPlayerEntity.field_0x7a.HWORD != 0) {
         gPlayerState.dash_state = 0;
         gPlayerState.field_0xe = 0;
-        sub_08077E78(this, arg1);
+        DeletePlayerItem(this, arg1);
     } else {
         bVar1 = this->field_0x5[2] - 1;
         this->field_0x5[2] = bVar1;
@@ -78,7 +78,7 @@ void sub_080768F8(ItemBehavior* this, u32 arg1) {
     } else {
         gPlayerState.dash_state = 0;
         gPlayerState.field_0xe = 0;
-        sub_08077E78(this, arg1);
+        DeletePlayerItem(this, arg1);
     }
 }
 
@@ -95,7 +95,7 @@ void sub_08076964(ItemBehavior* this, u32 arg1) {
         if ((++gPlayerState.dash_state) == 0x1e) {
             if ((gPlayerState.flags & PL_FLAGS2) != 0) {
                 gPlayerState.dash_state = 0;
-                sub_08077E78(this, arg1);
+                DeletePlayerItem(this, arg1);
                 return;
             }
             gPlayerState.dash_state = 0x40;
@@ -105,7 +105,7 @@ void sub_08076964(ItemBehavior* this, u32 arg1) {
                 (gPlayerState.skills & SKILL_DASH_ATTACK) != 0) {
                 gPlayerState.field_0xab = 3;
                 sub_08077DF4(this, 0x298);
-                bombEntity = CreatePlayerBomb(this, 0xc);
+                bombEntity = CreatePlayerItemWithParent(this, 0xc);
                 if (bombEntity != NULL) {
                     if (ItemIsSword(gSave.stats.itemButtons[SLOT_A]) != 0) {
                         uVar3 = gSave.stats.itemButtons[SLOT_A];
@@ -127,7 +127,7 @@ void sub_08076964(ItemBehavior* this, u32 arg1) {
         }
     }
     gPlayerState.dash_state = 0;
-    sub_08077E78(this, arg1);
+    DeletePlayerItem(this, arg1);
 }
 
 void sub_08076A88(ItemBehavior* this, u32 arg1) {
@@ -170,5 +170,5 @@ void sub_08076A88(ItemBehavior* this, u32 arg1) {
         }
     }
     gPlayerState.dash_state = 0;
-    sub_08077E78(this, arg1);
+    DeletePlayerItem(this, arg1);
 }

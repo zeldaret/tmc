@@ -112,7 +112,7 @@ void sub_0802A610(Entity* this) {
 
     GetNextFrame(this);
     sub_0802A7D0(this);
-    flags = this->frame & 0x80;
+    flags = this->frame & ANIM_DONE;
     if (flags) {
         this->action = 4;
         this->actionDelay = 0x1e;
@@ -154,7 +154,7 @@ void sub_0802A69C(Entity* this) {
 
     /* sigh... */
     GetNextFrame(this);
-    flags = this->frame & 0x80;
+    flags = this->frame & ANIM_DONE;
     if (flags) {
         this->action = 6;
         this->actionDelay = 0x1e;
@@ -193,7 +193,7 @@ void sub_0802A78C(Entity* this) {
 
 void sub_0802A7D0(Entity* this) {
     u32 unk = gUnk_080CD0B0[(this->field_0x7c.BYTES.byte1++ >> 3) & 7] + 0x100;
-    sub_0805EC9C(this, unk, unk, 0);
+    SetAffineInfo(this, unk, unk, 0);
 }
 // clang-format off
 void (*const WallMaster_Functions[])(Entity*) = {

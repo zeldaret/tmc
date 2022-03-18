@@ -5,51 +5,6 @@
 
 	.text
 
-.ifndef USA
-.ifndef DEMO_USA
-.ifndef JP
-	thumb_func_start fill_rq_stack
-fill_rq_stack: // fill iqr and user stack with 'MCZ3'
-	adr r0, 1f
-	ldm r0!, {r1, r2, r3}
-0:
-	subs r2, #4
-	str r1, [r2]
-	cmp r2, r3
-	bgt 0b
-	bx lr
-
-// unused
-// returns the maximum values reached by irq stack (r0) and usr stack (r1)
-check_stack_threshold:
-	adr r0, 1f
-	ldm r0!, {r1, r2, r3}
-0:
-	ldr r0, [r3]
-	adds r3, #4
-	cmp r0, r1 // cmp against magic
-	beq 0b
-
-	subs r2, #0xa0
-0:
-	ldr r0, [r2]
-	adds r2, #4
-	cmp r0, r1  // cmp against magic
-	beq 0b
-
-	subs r1, r2, #4
-	subs r0, r3, #4
-	bx lr
-
-	.align 2, 0
-1:
-	.byte '3, 'Z, 'C, 'M 	// r1
-	.4byte irq_stack_begin // r2
-	.4byte usr_stack_top 	// r3
-.endif
-.endif
-.endif
-
 	thumb_func_start UpdateScrollVram
 UpdateScrollVram: @ 0x08000108
 	push {r4, lr}
@@ -322,9 +277,9 @@ sub_080B1A8C: @ 0x080002B4
 @ return: 
 @ ========
 @ Called every frame a pot is thrown, every frame the screen is sliding in a transition, and once when entering stairs.
-	thumb_func_start sub_080B1AA8
-sub_080B1AA8: @ 0x080002B8
-	ldr r3, _08000324 @ =ram_sub_080B1AA8
+	thumb_func_start GetTileUnderEntity
+GetTileUnderEntity: @ 0x080002B8
+	ldr r3, _08000324 @ =ram_GetTileUnderEntity
 	bx r3
 
 @ call 0x080B1AB4
@@ -458,7 +413,7 @@ _08000314: .4byte ram_sub_080B1A48
 _08000318: .4byte ram_sub_080B1A58
 _0800031C: .4byte ram_GetTileType
 _08000320: .4byte ram_sub_080B1A8C
-_08000324: .4byte ram_sub_080B1AA8
+_08000324: .4byte ram_GetTileUnderEntity
 _08000328: .4byte ram_sub_080B1AB4
 _0800032C: .4byte ram_sub_080B1AC8
 _08000330: .4byte ram_sub_080B1AD8

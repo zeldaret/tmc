@@ -55,7 +55,7 @@ void ItemRocsCape(ItemBehavior* this, u32 arg1) {
             }
         }
     }
-    sub_08077E78(this, arg1);
+    DeletePlayerItem(this, arg1);
 }
 
 void sub_08076758(ItemBehavior* this, u32 arg1) {
@@ -84,6 +84,6 @@ void sub_08076758(ItemBehavior* this, u32 arg1) {
             }
         }
     } else {
-        sub_08077E78(this, arg1);
+        DeletePlayerItem(this, arg1);
     }
 }

@@ -33,7 +33,7 @@ EvilSpirit: @ 0x08086284
 	ldrh r2, [r0]
 	adds r0, r4, #0
 	movs r3, #0
-	bl sub_0805EC9C
+	bl SetAffineInfo
 	pop {r4, pc}
 	.align 2, 0
 _080862B4: .4byte gUnk_08120668

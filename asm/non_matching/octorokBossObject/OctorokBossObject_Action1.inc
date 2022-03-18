@@ -308,7 +308,7 @@ _0809A420:
 	adds r0, #0x7a
 	ldrh r3, [r0]
 	adds r0, r7, #0
-	bl sub_0805EC9C
+	bl SetAffineInfo
 	b _0809A436
 _0809A432:
 	subs r0, #1

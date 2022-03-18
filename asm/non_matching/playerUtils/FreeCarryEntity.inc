@@ -2,7 +2,7 @@
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	movs r4, #0
-	ldr r0, _08078970 @ =gUnk_03003BE0
+	ldr r0, _08078970 @ =gCarryEntities
 	ldrb r1, [r0, #2]
 	adds r2, r0, #0
 	cmp r4, r1
@@ -13,7 +13,7 @@
 	subs r0, r1, #1
 	b _0807898C
 	.align 2, 0
-_08078970: .4byte gUnk_03003BE0
+_08078970: .4byte gCarryEntities
 _08078974:
 	adds r4, #1
 	ldrb r3, [r2, #2]

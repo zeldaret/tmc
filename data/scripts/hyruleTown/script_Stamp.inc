@@ -11,7 +11,7 @@ script_080107AA:
 	CheckEntityInteractType
 	JumpIfNot script_080107AA
 	SetPlayerIdle
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	DoPostScriptAction 0x0001
 	Call sub_08062CBC
 	WaitUntilTextboxCloses

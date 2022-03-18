@@ -11,7 +11,7 @@ SCRIPT_START script_VaatiWithZelda
 	Wait 0x003c
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x001c
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	DoPostScriptAction 0x0000
 	Wait 0x003c
 	SetSyncFlag 0x00000002

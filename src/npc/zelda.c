@@ -152,7 +152,7 @@ void sub_08066E80(Entity* this, ScriptExecutionContext* context) {
             break;
         case 4:
             UpdateAnimationSingleFrame(this);
-            if (this->frame & 0x80) {
+            if (this->frame & ANIM_DONE) {
                 gActiveScriptInfo.flags |= 1;
                 return;
             }

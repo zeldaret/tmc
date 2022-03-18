@@ -94,7 +94,7 @@ void sub_0801EB9C(Entity* this) {
 void Octorok_Initialize(Entity* this) {
     sub_0804A720(this);
     if (this->type == 2) {
-        this->animationState = this->type;
+        this->animationState = 2;
     } else {
         this->animationState = Random() & 3;
     }
@@ -141,13 +141,13 @@ void Octorok_ShootNut(Entity* this) {
         }
     }
 
-    if (this->frame & 0x80)
+    if (this->frame & ANIM_DONE)
         Octorok_Pause(this);
 }
 
 void Octorok_Pause(Entity* this) {
     this->action = 1;
-    this->actionDelay = (Random() & 0x38) + 0x18;
+    this->actionDelay = (Random() & 0x38) + 24;
 }
 
 void Octorok_Turn(Entity* this) {

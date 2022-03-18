@@ -27,7 +27,7 @@ void sub_080921F0(GentariCurtainEntity* this);
 void sub_08092214(GentariCurtainEntity* this);
 
 extern Entity gUnk_030011E8[7];
-extern Entity gUnk_03003BE0;
+extern Entity gCarryEntities;
 
 void GentariCurtain(Entity* this) {
     static void (*const actionFuncs[])(GentariCurtainEntity*) = {
@@ -76,7 +76,7 @@ void sub_0809214C(GentariCurtainEntity* this) {
 
 void sub_08092164(GentariCurtainEntity* this) {
     UpdateAnimationSingleFrame(super);
-    if ((super->frame & 0x80) != 0) {
+    if ((super->frame & ANIM_DONE) != 0) {
         super->action = 3;
         SetTile(this->tileIndex, this->tile, 1);
         SetTile(this->tileIndex2, this->tile2, 1);

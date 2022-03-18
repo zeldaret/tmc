@@ -56,7 +56,7 @@ void sub_08088718(EyeSwitchEntity* this) {
 
 void sub_08088760(EyeSwitchEntity* this) {
     GetNextFrame(super);
-    if ((super->frame & 0x80) != 0) {
+    if ((super->frame & ANIM_DONE) != 0) {
         super->action = 3;
         this->unk70 = super->actionDelay << 1;
         InitializeAnimation(super, super->animationState + 4);
@@ -78,7 +78,7 @@ void sub_08088790(EyeSwitchEntity* this) {
 
 void sub_080887D8(EyeSwitchEntity* this) {
     GetNextFrame(super);
-    if ((super->frame & 0x80) != 0) {
+    if ((super->frame & ANIM_DONE) != 0) {
         super->action = 1;
         COLLISION_ON(super);
         InitializeAnimation(super, super->animationState);

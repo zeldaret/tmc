@@ -85,7 +85,7 @@ void sub_08037Fe0(Entity* this) {
     if (this->actionDelay != 0) {
         this->actionDelay--;
     } else if (this->field_0xf != 0) {
-        if (this->frame & 0x80) {
+        if (this->frame & ANIM_DONE) {
             this->action = 2;
             this->actionDelay = 6;
             this->field_0xf = 0;
@@ -93,7 +93,7 @@ void sub_08037Fe0(Entity* this) {
             sub_08038168(this);
             InitializeAnimation(this, 2);
         }
-    } else if (this->frame & 0x80) {
+    } else if (this->frame & ANIM_DONE) {
         this->field_0xf = 0x40;
         InitializeAnimation(this, 1);
     }
@@ -116,7 +116,7 @@ void sub_08038048(Entity* this) {
         return;
     } else if (this->collisions != 0) {
         sub_0800417E(this, this->collisions);
-    } else if ((sub_080B1AA8(this) & 0xf0) == 0x50) {
+    } else if ((GetTileUnderEntity(this) & 0xf0) == 0x50) {
         this->direction = (this->direction + 0x10) & 0x1f;
     }
 
@@ -141,7 +141,7 @@ void sub_08038048(Entity* this) {
 
 void sub_08038110(Entity* this) {
     UpdateAnimationVariableFrames(this, 2);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         if (this->field_0x80.HALF.LO < 5) {
             this->action = 2;
             this->actionDelay = 8;

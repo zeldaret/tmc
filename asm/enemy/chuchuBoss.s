@@ -488,7 +488,7 @@ sub_08026060: @ 0x08026060
 	adds r0, #4
 	ldrh r3, [r0]
 	adds r0, r4, #0
-	bl sub_0805EC9C
+	bl SetAffineInfo
 	pop {r4, pc}
 	.align 2, 0
 _0802608C: .4byte gUnk_080CC1C8

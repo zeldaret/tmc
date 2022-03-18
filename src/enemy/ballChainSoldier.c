@@ -150,7 +150,7 @@ void sub_0803E71C(BallChainSoldierEntity* this) {
 }
 
 void sub_0803E75C(BallChainSoldierEntity* this) {
-    if ((super->frame & 0x80) == 0) {
+    if ((super->frame & ANIM_DONE) == 0) {
         UpdateAnimationSingleFrame(super);
     } else {
         if (--super->actionDelay == 0) {

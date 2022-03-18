@@ -20,7 +20,6 @@ extern const u16 gUnk_080047F6[];
 
 u32 sub_0806F58C(Entity*, Entity*);
 u32 sub_0806FCA0(Entity*, Entity*);
-void UnloadHitbox(Entity*);
 extern u32 sub_08007DD6(u32, const u16*);
 u32 PointInsideRadius(s32 x, s32 y, s32 radius);
 extern void sub_0806FEE8(struct_gUnk_020000C0_1*, u32, u32, u32);
@@ -61,7 +60,7 @@ bool32 sub_0806F3E4(Entity* ent) {
 
     if ((gPlayerState.field_0x1c & 0x7F) != 1)
         return 0;
-    switch (gPlayerState.field_0x1d) {
+    switch (gPlayerState.gustJarSpeed) {
         case 1:
             ent->knockbackSpeed += 64;
             break;
@@ -329,12 +328,12 @@ void sub_0806FA90(Entity* source, Entity* target, s32 offsetX, s32 offsetY) {
     PositionRelative(source, target, Q_16_16(offsetX), Q_16_16(offsetY));
 }
 
-void SortEntityAbove(Entity* param_1, Entity* param_2) {
-    param_2->spritePriority.b0 = gSpriteSortAboveTable[param_1->spritePriority.b0];
+void SortEntityAbove(Entity* below_ent, Entity* above_ent) {
+    above_ent->spritePriority.b0 = gSpriteSortAboveTable[below_ent->spritePriority.b0];
 }
 
-void SortEntityBelow(Entity* param_1, Entity* param_2) {
-    param_2->spritePriority.b0 = gSpriteSortBelowTable[param_1->spritePriority.b0];
+void SortEntityBelow(Entity* above_ent, Entity* below_ent) {
+    below_ent->spritePriority.b0 = gSpriteSortBelowTable[above_ent->spritePriority.b0];
 }
 
 void sub_0806FB00(Entity* ent, u32 param_1, u32 param_2, u32 param_3) {
@@ -380,9 +379,10 @@ void sub_0806FBB4(Entity* ent) {
     }
 }
 
-void AllocMutableHitbox(Entity* ent) {
+void* AllocMutableHitbox(Entity* ent) {
     UnloadHitbox(ent);
     ent->hitbox = zMalloc(sizeof(Hitbox3D));
+    return ent->hitbox;
 }
 
 void UnloadHitbox(Entity* ent) {
@@ -538,7 +538,7 @@ u32 LoadExtraSpriteData(Entity* ent, const SpriteLoadData* data) {
     return 1;
 }
 
-void sub_0806FE84(Entity* ent) {
+void UnloadOBJPalette2(Entity* ent) {
     u32 index;
     u32 spriteAnimation = ent->spriteAnimation[2];
     ent->spriteAnimation[2] = 0;

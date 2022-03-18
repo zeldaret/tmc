@@ -136,7 +136,7 @@ SECTIONS {
         . = 0x00035542; gUnk_02035542 = .;
         . = 0x00036540; gUnk_02036540 = .;
         . = 0x00036570; gScriptExecutionContextArray = .;
-        . = 0x000369F0; gUnk_020369F0 = .;
+        . = 0x000369F0; gEntityListsBackup = .;
         . = 0x00036A38; gCurrentWindow = .;
         . = 0x00036A40; gNewWindow = .;
 #if defined(DEMO_USA) || defined(DEMO_JP)
@@ -177,7 +177,7 @@ SECTIONS {
         . = 0x00001160; gPlayerEntity = .;
         . = 0x000011E8; gUnk_030011E8 = .;
         . = 0x000015A0; gUnk_030015A0 = .;
-        . = 0x00003BE0; gUnk_03003BE0 = .;
+        . = 0x00003BE0; gCarryEntities = .;
         . = 0x00003C70; gUnk_03003C70 = .;
         . = 0x00003D70; gEntityLists = .;
         . = 0x00003DB8; gCollidableCount = .;
@@ -213,7 +213,7 @@ SECTIONS {
         . = 0x000057CC; ram_sub_080B1A58 = .;
         . = 0x000057D4; ram_GetTileType = .;
         . = 0x00005800; ram_sub_080B1A8C = .;
-        . = 0x0000581C; ram_sub_080B1AA8 = .;
+        . = 0x0000581C; ram_GetTileUnderEntity = .;
         . = 0x00005828; ram_sub_080B1AB4 = .;
         . = 0x0000583C; ram_sub_080B1AC8 = .;
         . = 0x0000584C; ram_sub_080B1AD8 = .;
@@ -274,6 +274,9 @@ SECTIONS {
 
         /* handwritten assembly */
         asm/src/crt0.o(.text);
+#if defined(EU) || defined(DEMO_JP)
+        asm/src/stack_check.o(.text);
+#endif
         asm/src/veneer.o(.text);
         data/data_08000360.o(.rodata);
         asm/src/code_08000E44.o(.text);

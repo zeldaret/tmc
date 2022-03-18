@@ -18,12 +18,12 @@ void sub_08076DF4(ItemBehavior* this, u32 arg1) {
         this->field_0x5[5] = gPlayerEntity.animationState;
         this->field_0x5[4] |= 0x80;
         this->field_0x5[4]++;
-        gPlayerState.field_0x1d = 1;
+        gPlayerState.gustJarSpeed = 1;
         *(u32*)&gPlayerEntity.field_0x74 = 0;
         gPlayerState.field_0x1c = 1;
         sub_08077BB8(this);
     } else {
-        sub_08077E78(this, arg1);
+        DeletePlayerItem(this, arg1);
     }
 }
 
@@ -31,7 +31,7 @@ void sub_08076E60(ItemBehavior* this, u32 arg1) {
     Entity* playerItem;
 
     if ((gPlayerState.field_0x1c & 0xf) == 0) {
-        sub_08077E78(this, arg1);
+        DeletePlayerItem(this, arg1);
     }
     if ((this->field_0x5[9] & 0x80) != 0) {
         this->stateID = 2;
@@ -48,18 +48,18 @@ void sub_08076E60(ItemBehavior* this, u32 arg1) {
 
 void sub_08076EC8(ItemBehavior* this, u32 arg1) {
     if ((gPlayerState.field_0x1c & 0xf) == 0) {
-        sub_08077E78(this, arg1);
+        DeletePlayerItem(this, arg1);
         return;
     }
 
     if (sub_08077EFC(this)) {
         u32 val;
         if (this->field_0x5[2] > 0xef) {
-            gPlayerState.field_0x1d = 3;
+            gPlayerState.gustJarSpeed = 3;
         } else if (++this->field_0x5[2] > 0x77) {
-            gPlayerState.field_0x1d = 2;
+            gPlayerState.gustJarSpeed = 2;
         } else {
-            gPlayerState.field_0x1d = 1;
+            gPlayerState.gustJarSpeed = 1;
         }
 
         if (gPlayerEntity.subAction == 0x1b) {
@@ -93,7 +93,7 @@ void sub_08076F64(ItemBehavior* this, u32 arg1) {
                 if (this->field_0x5[3]) {
                     this->field_0x5[3] = 0;
                     this->field_0x5[2] = 0;
-                    gPlayerState.field_0x1d = 1;
+                    gPlayerState.gustJarSpeed = 1;
                     player = &gPlayerEntity;
                     *(u32*)&player->field_0x74 = 0;
                     gPlayerState.field_0x1c = 1;
@@ -137,7 +137,7 @@ void sub_08076F64(ItemBehavior* this, u32 arg1) {
             if (this->field_0x5[9] & 1) {
                 gPlayerState.field_0x1c = 5;
                 gPlayerEntity.field_0x70.WORD = 0;
-                if (gPlayerState.field_0x1d) {
+                if (gPlayerState.gustJarSpeed) {
                     CreatePlayerItem(0x11, 0, 0, 0);
                 }
             }
@@ -157,7 +157,7 @@ void sub_08076F64(ItemBehavior* this, u32 arg1) {
         case 7:
             sub_08077DF4(this, 0x514);
             gPlayerState.field_0x1c = 3;
-            gPlayerState.field_0x1d = 0;
+            gPlayerState.gustJarSpeed = 0;
             break;
         case 1:
         case 2:
@@ -169,7 +169,7 @@ void sub_08076F64(ItemBehavior* this, u32 arg1) {
         case0:
             gPlayerState.field_0x1c = 0;
             gPlayerEntity.field_0x70.WORD = 0;
-            sub_08077E78(this, arg1);
+            DeletePlayerItem(this, arg1);
             break;
     }
 }

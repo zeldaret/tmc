@@ -1,9 +1,9 @@
 @ Sanctuary Player faint from Vaati attack
 SCRIPT_START script_PlayerFaintAgain
 	Call sub_0807F1C4
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	Call sub_0807F1E8
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	SetSyncFlag 0x00000002
 	WaitForSyncFlagAndClear 0x00000004
 	PlaySound SFX_PLY_JUMP

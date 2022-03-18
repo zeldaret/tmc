@@ -70,7 +70,7 @@ void BigPushableLever_Idle(BigPushableLeverEntity* this) {
 
 void BigPushableLever_Pushing(BigPushableLeverEntity* this) {
     GetNextFrame(super);
-    if ((super->frame & 0x80) != 0) {
+    if ((super->frame & ANIM_DONE) != 0) {
         if (super->type2 == 0) {
             SetFlag(this->pushedFlag);
         } else {

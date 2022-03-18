@@ -134,7 +134,7 @@ void sub_08023CE0(Entity* this) {
         default:
             GetNextFrame(this);
             if (this->frame) {
-                if (this->frame & 0x80) {
+                if (this->frame & ANIM_DONE) {
                     Entity* ent = CreateEnemy(SLUGGULA, 1);
                     if (ent) {
                         sub_0804A4E4(this, ent);
@@ -157,7 +157,7 @@ void sub_08023E10(Entity* this) {
     }
 
     GetNextFrame(this);
-    if (this->frame & 0x80)
+    if (this->frame & ANIM_DONE)
         DeleteEntity(this);
 }
 

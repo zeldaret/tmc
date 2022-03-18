@@ -89,7 +89,7 @@ _0808C9FA:
 	adds r0, r4, #0
 	adds r1, r2, #0
 	movs r3, #0
-	bl sub_0805EC9C
+	bl SetAffineInfo
 _0808CA04:
 	pop {r4, pc}
 	.align 2, 0
@@ -205,7 +205,7 @@ _0808CAD6:
 	adds r0, r4, #0
 	adds r1, r3, #0
 	movs r3, #0
-	bl sub_0805EC9C
+	bl SetAffineInfo
 _0808CAE0:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

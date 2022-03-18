@@ -76,7 +76,7 @@ _080A04F8:
 	adds r1, r4, #0
 	adds r2, r4, #0
 	movs r3, #0
-	bl sub_0805EC9C
+	bl SetAffineInfo
 	movs r1, #0xe0
 	lsls r1, r1, #1
 	subs r1, r1, r4

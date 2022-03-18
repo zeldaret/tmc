@@ -99,7 +99,7 @@ void ObjectOnPillar_Action1(ObjectOnPillarEntity* this) {
         if (sub_08097008(this)) {
             super->action = 3;
         } else {
-            sub_08078930(super);
+            RegisterCarryEntity(super);
         }
     }
 }
@@ -211,7 +211,7 @@ void sub_080970F4(ObjectOnPillarEntity* this) {
 bool32 sub_08097144(ObjectOnPillarEntity* this) {
     LinearMoveUpdate(super);
     sub_0800445C(super);
-    if (sub_080B1AA8(super) == 0x19) {
+    if (GetTileUnderEntity(super) == 0x19) {
         super->spriteOffsetY = 2;
     }
     if ((--this->unk_76 == 0) && sub_08097194(this) == FALSE) {

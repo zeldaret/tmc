@@ -17,6 +17,6 @@ void Object2B(Entity* object) {
         DeleteThisEntity();
     } else {
         int position = 0x120 - parent->z.HALF.HI;
-        sub_0805EC9C(object, position, position, parent->field_0x7c.HALF_U.HI);
+        SetAffineInfo(object, position, position, parent->field_0x7c.HALF_U.HI);
     }
 }

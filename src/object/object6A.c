@@ -327,7 +327,7 @@ void sub_08094E30(Object6AEntity* this) {
                 super->zVelocity = 0;
                 SetDefaultPriority(super, PRIO_PLAYER_EVENT);
                 InitializeAnimation(super, 0);
-                if (sub_080B1AA8(super) == 13) {
+                if (GetTileUnderEntity(super) == 13) {
                     super->action = 3;
                 }
                 break;
@@ -344,7 +344,7 @@ void sub_08094E30(Object6AEntity* this) {
                 break;
             case 2:
                 GetNextFrame(super);
-                if (super->frame & 0x80) {
+                if (super->frame & ANIM_DONE) {
                     DeleteThisEntity();
                 }
                 break;
@@ -548,9 +548,9 @@ void sub_08095288(Object6AEntity* this) {
     if (super->subAction != 0) {
         if ((u32)sub_080044EC(super, 0x1800) <= 1) {
             super->subAction = 0;
-            sub_0805EC9C(super, 0x100, 0x100, 0xC000);
+            SetAffineInfo(super, 0x100, 0x100, 0xC000);
         } else {
-            sub_0805EC9C(super, 0x100, 0x100, super->actionDelay << 8);
+            SetAffineInfo(super, 0x100, 0x100, super->actionDelay << 8);
             super->actionDelay += 10;
             LinearMoveUpdate(super);
         }
@@ -770,7 +770,7 @@ void sub_0809577C(Object6AEntity* this) {
         InitializeAnimation(super, 1);
     }
     GetNextFrame(super);
-    if (super->frame & 0x80)
+    if (super->frame & ANIM_DONE)
         DeleteThisEntity();
 }
 
@@ -951,7 +951,7 @@ void sub_08095B48(Object6AEntity* this) {
     p = super->parent;
     if (p != NULL) {
         if ((p->frame & 0x40) == 0) {
-            if (p->frame & 0x80) {
+            if (p->frame & ANIM_DONE) {
                 DeleteThisEntity();
                 return;
             }

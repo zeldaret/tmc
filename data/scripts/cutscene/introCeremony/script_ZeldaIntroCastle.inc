@@ -48,7 +48,7 @@ script_08011206:
 	Call sub_08066E20
 	Wait 0x0014
 	DoPostScriptAction 0x0010
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	PlaySound SFX_1CA
 	SetSyncFlag 0x00000020
 	WaitForSyncFlagAndClear 0x00000010

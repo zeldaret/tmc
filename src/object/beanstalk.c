@@ -169,7 +169,7 @@ void Beanstalk_Action1Type0(BeanstalkEntity* this) {
 
 void Beanstalk_Action1Type0SubAction0(BeanstalkEntity* this) {
     UpdateAnimationSingleFrame(super);
-    if ((super->frame & 0x80) != 0) {
+    if ((super->frame & ANIM_DONE) != 0) {
         if (super->actionDelay < 2) {
             super->actionDelay++;
         } else {
@@ -186,7 +186,7 @@ void Beanstalk_Action1Type0SubAction1(BeanstalkEntity* this) {
         SoundReq(SFX_198);
     }
     UpdateAnimationSingleFrame(super);
-    if ((super->frame & 0x80) != 0) {
+    if ((super->frame & ANIM_DONE) != 0) {
         Entity* entity = CreateObject(BEANSTALK, 1, 0);
         super->child = entity;
         if (entity != NULL) {
@@ -228,7 +228,7 @@ void Beanstalk_Action1Type2(BeanstalkEntity* this) {
             super->actionDelay = 0;
         }
     }
-    if ((super->frame & 0x80) != 0) {
+    if ((super->frame & ANIM_DONE) != 0) {
         super->child = CreateObject(BEANSTALK, 3, 0);
         if (super->child != NULL) {
             super->child->x.HALF.HI = super->x.HALF.HI;
@@ -242,7 +242,7 @@ void Beanstalk_Action1Type2(BeanstalkEntity* this) {
 }
 
 void Beanstalk_Action1Type4(BeanstalkEntity* this) {
-    if ((super->frame & 0x80) == 0) {
+    if ((super->frame & ANIM_DONE) == 0) {
         GetNextFrame(super);
     }
 }
@@ -290,7 +290,7 @@ void Beanstalk_Action1Type7(BeanstalkEntity* this) {
                 super->actionDelay = 0;
             }
             GetNextFrame(super);
-            if ((super->frame & 0x80) != 0) {
+            if ((super->frame & ANIM_DONE) != 0) {
                 InitializeAnimation(super, (super->type2 - 1) * 3 + 1);
             }
             break;

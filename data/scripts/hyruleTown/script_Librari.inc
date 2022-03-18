@@ -10,7 +10,7 @@ script_0800E974:
 	JumpIfNot script_0800E974
 	SetPlayerIdle
 	SetAnimation 0x0008
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	SetAnimation 0x0009
 	Call sub_0806B260
 	JumpIfNot script_0800E9E4

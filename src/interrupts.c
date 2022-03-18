@@ -14,7 +14,7 @@ extern u8 gUnk_03003DE0;
 extern u8 gUnk_03000C30;
 
 extern u8 gUpdateVisibleTiles;
-extern Entity gUnk_03003BE0;
+extern Entity gCarryEntities;
 extern Entity* gPlayerClones[3];
 extern u16 gUnk_080B2CD8[];
 
@@ -334,7 +334,7 @@ void sub_080171F0(void) {
     gPlayerState.mobility = 0;
     gPlayerState.speed_modifier = 0;
     gPlayerState.field_0xaa = 0;
-    MemClear(&gUnk_03003BE0, 0x8c);
+    MemClear(&gCarryEntities, 0x8c);
     gPlayerEntity.spriteOffsetY = gPlayerState.field_0x3f;
     gPlayerState.field_0x3f = 0;
     sub_0807B0C8();

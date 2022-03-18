@@ -124,7 +124,7 @@ void Object61_Action1Type0(Object61Entity* this) {
     super->spriteOrientation.flipY = gPlayerEntity.spriteOrientation.flipY;
     super->spriteRendering.b3 = gPlayerEntity.spriteRendering.b3;
     sub_0806FCF4(super, this->unk_72, 10, 2);
-    sub_0805EC9C(super, this->unk_6e, this->unk_72, 0);
+    SetAffineInfo(super, this->unk_6e, this->unk_72, 0);
     sub_0806FEBC(&gPlayerEntity, 1, super);
 }
 

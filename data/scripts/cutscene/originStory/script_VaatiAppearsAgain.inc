@@ -16,7 +16,7 @@ SCRIPT_START script_VaatiAppearsAgain
 	Wait 0x0014
 	SetAnimationState 0x0000
 	DoPostScriptAction 0x001c
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000002

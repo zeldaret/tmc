@@ -124,7 +124,7 @@ void sub_080ABD70(Entity* this) {
             SetTileType(0x6d, this->field_0x74.HWORD, 2);
         }
     }
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         DeleteThisEntity();
     }
 }

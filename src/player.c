@@ -653,12 +653,14 @@ static void PlayerFallInit(Entity* this) {
 
 static void PlayerFallUpdate(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (this->frame & 0x80) {
-        if ((gSave.stats.health != 0) && (gPlayerState.flags & PL_FLAGS8000)) {
+    if (this->frame & ANIM_DONE) {
+        if ((gSave.stats.health != 0) && (gPlayerState.flags & PL_PIT_IS_EXIT)) {
+            // pit leads to another room
             gPlayerState.flags &= ~(PL_BUSY | PL_DROWNING);
             this->spriteSettings.draw = 0;
         } else {
-            gPlayerState.flags &= ~(PL_DROWNING | PL_FLAGS8000);
+            // stay in this room
+            gPlayerState.flags &= ~(PL_DROWNING | PL_PIT_IS_EXIT);
             RespawnPlayer();
             gPlayerState.field_0xa = 0;
             this->iframes = 32;
@@ -850,7 +852,7 @@ static void sub_08071038(Entity* this) {
     if (RunQueuedAction() || (gMessage.doTextBox & 0x7f))
         return;
 
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->child = NULL;
         this->knockbackDuration = 0;
         this->iframes = 248;
@@ -1016,7 +1018,7 @@ static void sub_080712F0(Entity* this) {
     if ((gPlayerState.flags & PL_MINISH) != 0) {
         if (--this->actionDelay == 0)
             temp = TRUE;
-    } else if ((this->frame & 0x80) != 0) {
+    } else if ((this->frame & ANIM_DONE) != 0) {
         if (this->animIndex != 0xce)
             gPlayerState.animation = 0x2ce;
         else
@@ -1167,7 +1169,7 @@ static void PortalShrinkInit(Entity* this) {
     this->spriteRendering.b0 = 3;
     *(u32*)&this->field_0x80.HWORD = 0x100;
     *(u32*)&this->cutsceneBeh = 0x100;
-    sub_0805EC9C(this, 0x100, 0x100, 0);
+    SetAffineInfo(this, 0x100, 0x100, 0);
     gPlayerState.animation = 0x2c3;
     gPlayerState.flags |= PL_MINISH;
     SoundReq(SFX_PLY_SHRINKING);
@@ -1244,7 +1246,7 @@ void PortalShrinkUpdate(Entity* this) {
             break;
     }
 
-    sub_0805EC9C(this, *(u32*)&this->field_0x80, *(u32*)&this->cutsceneBeh, 0);
+    SetAffineInfo(this, *(u32*)&this->field_0x80, *(u32*)&this->cutsceneBeh, 0);
     UpdateAnimationSingleFrame(this);
 }
 
@@ -1352,7 +1354,7 @@ static void sub_0807193C(Entity* this) {
     Entity* child;
 
     UpdateAnimationSingleFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->subAction++;
         child = CreateObjectWithParent(this, EZLO_CAP, 0, 0);
         this->child = child;
@@ -1407,7 +1409,7 @@ static void sub_08071990(Entity* this) {
 
 static void sub_08071A4C(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         reset_priority();
         sub_0807921C();
     }
@@ -1495,6 +1497,7 @@ static void sub_08071B60(Entity* this) {
     this->type = 0;
     this->knockbackDuration = 0;
     PlayerWaitForScroll(this);
+    // Final push?
     this->field_0xf = 6;
     if ((gPlayerState.flags & PL_MINISH) == 0) {
         gPlayerState.animation = 0x104;
@@ -1559,7 +1562,7 @@ static void PlayerMinishDieInit(Entity* this) {
 
 static void sub_08071CAC(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         u32 temp;
         if ((gPlayerState.flags & PL_MINISH) == 0)
             temp = (gPlayerState.flags & PL_NO_CAP) ? 0x45a : 0x2bd;
@@ -1688,7 +1691,7 @@ static void PlayerEmptyBottleInit(Entity* this) {
     Entity* ent;
 
     ResetPlayer();
-    ent = CreatePlayerBomb((ItemBehavior*)this, 0xe);
+    ent = CreatePlayerItemWithParent((ItemBehavior*)this, 0xe);
     if (ent != NULL) {
         ent->field_0x68.HALF.LO = gPlayerState.field_0x38;
         this->subAction++;
@@ -1709,7 +1712,7 @@ static void PlayerEmptyBottleInit(Entity* this) {
 
 static void PlayerEmptyBottleUpdate(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         gPlayerState.item = NULL;
         sub_0807921C();
     }
@@ -1796,7 +1799,7 @@ static void sub_08072098(Entity* this) {
             return;
         else
             ;
-    else if ((this->frame & 0x80) == 0)
+    else if ((this->frame & ANIM_DONE) == 0)
         return;
 
     if (this->health != 0)
@@ -1869,7 +1872,7 @@ static void sub_08072214(Entity* this) {
     this->subAction = 1;
     this->speed = PULL_SPEED;
     this->actionDelay = gPlayerState.field_0x38;
-    this->direction = Direction8FromAnimationState(AnimationStateTurnAround(this->animationState));
+    this->direction = Direction8FromAnimationState(AnimationStateFlip180(this->animationState));
     if ((gPlayerState.flags & PL_NO_CAP) == 0) {
         gPlayerState.animation = 0x34c;
     } else {
@@ -2006,7 +2009,7 @@ static void PlayerRoomTransition(Entity* this) {
 static void sub_080724DC(Entity* this) {
     this->knockbackDuration = 0;
     DeleteClones();
-    if (sub_080B1AA8(this) != 0x29) {
+    if (GetTileUnderEntity(this) != 0x29) {
         if ((gPlayerState.field_0x82[7] == 0) && (gPlayerState.swim_state != 0)) {
             sub_0807AE20(this);
         }
@@ -2164,10 +2167,10 @@ static void PlayerRollUpdate(Entity* this) {
     if (this->frame & 0x40) {
         sub_08077698(this);
     }
-    if ((this->frame & 0x80) || (gPlayerState.field_0x3[1] != 0)) {
+    if ((this->frame & ANIM_DONE) || (gPlayerState.field_0x3[1] != 0)) {
         ResetPlayerAnimationAndAction();
     }
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         gPlayerState.flags &= ~(PL_MOLDWORM_RELEASED | PL_ROLLING);
     }
     UpdateAnimationSingleFrame(this);
@@ -2232,7 +2235,7 @@ static void PlayerInHoleInit(Entity* this) {
 }
 
 static void PlayerInHoleUpdate(Entity* this) {
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         if (this->actionDelay == 1) {
             this->subAction = 3;
             this->actionDelay = 0x28;
@@ -2648,7 +2651,7 @@ static void sub_080731D8(Entity* this) {
 
 static void sub_080732D0(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (sub_080B1AA8(this) != 40) {
+    if (GetTileUnderEntity(this) != 40) {
         this->direction = DirectionNorth;
         LinearMoveUpdate(this);
     } else {
@@ -3043,7 +3046,7 @@ static void sub_080739EC(Entity* this) {
 }
 
 void sub_08073A94(Entity* this) {
-    if ((this->frame & 0x80) || this->knockbackDuration != 0) {
+    if ((this->frame & ANIM_DONE) || this->knockbackDuration != 0) {
         sub_08073B60(this);
     }
     if (gPlayerEntity.z.WORD != 0) {
@@ -3288,7 +3291,7 @@ static void sub_08074018(Entity* this) {
         *(u32*)&this->cutsceneBeh -= 32;
     else
         this->subAction++;
-    sub_0805EC9C(this, *(u32*)&this->field_0x80, *(u32*)&this->cutsceneBeh, 0);
+    SetAffineInfo(this, *(u32*)&this->field_0x80, *(u32*)&this->cutsceneBeh, 0);
     UpdateAnimationSingleFrame(this);
 }
 
@@ -3976,7 +3979,7 @@ void sub_08074F8C(Entity* this) {
         this->frame = 0;
         gActiveScriptInfo.syncFlags |= 4;
     }
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->field_0x68.HALF.LO++;
         this->actionDelay = 8;
         this->animationState = IdleSouth;
@@ -4064,7 +4067,7 @@ void sub_0807513C(Entity* this) {
         SoundReq(SFX_14B);
         SoundReq(SFX_PLY_VO6);
     }
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->field_0x68.HALF.LO++;
         this->actionDelay = 60;
     }
@@ -4079,7 +4082,7 @@ void sub_0807518C(Entity* this) {
 
 void sub_080751B4(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->animationState = IdleSouth;
         this->subAction = 1;
         this->field_0x68.HALF.LO = 0;
@@ -4130,7 +4133,7 @@ void sub_0807529C(Entity* this) {
 void sub_080752AC(Entity* this, ScriptExecutionContext* ctx) {
     LinearMoveUpdate(this);
     if (!ctx->unk_18) {
-        if (sub_080B1AA8(this) != 41) {
+        if (GetTileUnderEntity(this) != 41) {
             ctx->unk_18 = 1;
             ctx->unk_19 = 6;
         }

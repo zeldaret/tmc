@@ -38,7 +38,7 @@ void Object21(Object21Entity* this) {
     } else {
         if (super->animIndex == 0xa) {
             InitializeAnimation(super, 0xd);
-        } else if ((super->frame & 0x80) != 0) {
+        } else if ((super->frame & ANIM_DONE) != 0) {
             DeleteThisEntity();
         }
     }

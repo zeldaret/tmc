@@ -11,7 +11,7 @@ script_0800B0E8:
 script_0800B0F6:
 	SetPlayerIdle
 	Call sub_0807DF28
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	FacePlayer
 	CallWithArg sub_0806BC94, 0x00000004
 	Call sub_0806BCE8
@@ -24,7 +24,7 @@ script_0800B0F6:
 script_0800B134:
 	SetPlayerIdle
 	Call sub_0807DF28
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	FacePlayer
 	CallWithArg sub_0806BC94, 0x00000004
 	Call sub_0807F650

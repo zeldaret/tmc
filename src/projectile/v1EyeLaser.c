@@ -34,7 +34,7 @@ void V1EyeLaser_Init(Entity* this) {
 
 void V1EyeLaser_Action1(Entity* this) {
     GetNextFrame(this);
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         this->action = 2;
         InitializeAnimation(this, 1);
         sub_080AB758(this);

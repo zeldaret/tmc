@@ -120,7 +120,7 @@ void ObjectOnSpinyBeetle_Action1(ObjectOnSpinyBeetleEntity* this) {
             }
         } else {
             sub_08098918(this);
-            sub_08078930(super);
+            RegisterCarryEntity(super);
         }
     } else {
         sub_080989C0(this);

@@ -128,7 +128,7 @@ typedef struct {
     /* 0x12 */ u16 dungeon_map_y;
     /* 0x14 */ u16 overworld_map_x;
     /* 0x16 */ u16 overworld_map_y;
-    /* 0x18 */ u8 field_0x24[0x8];
+    /* 0x18 */ u8 field_0x24[8];
 } PlayerRoomStatus;
 static_assert(sizeof(PlayerRoomStatus) == 0x20);
 
@@ -140,7 +140,8 @@ typedef struct {
     /* 0x09 */ u8 type;        // transition when changing areas
     /* 0x0a */ u16 stairs_idx; // seems to be a tile type
     /* 0x0c */ PlayerRoomStatus player_status;
-    /* 0x2c */ u8 field_0x2c[0x9];
+    /* 0x2c */ u8 entity_update_type; // differentiates entity priority on kinstone menu?
+    /* 0x2d */ u8 field_0x2c[0x8];
     /* 0x35 */ u8 hint_height;
     /* 0x36 */ u16 hint_idx;
     /* 0x38 */ u8 field_0x38;

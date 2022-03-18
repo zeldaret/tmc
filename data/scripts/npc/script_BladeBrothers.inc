@@ -36,7 +36,7 @@ script_08016262:
 	Call sub_08068E00
 	WaitUntilTextboxCloses
 	DoPostScriptAction 0x0001
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	Call sub_08068E90
 	Call sub_08068C8C
 	JumpIf script_0801631C

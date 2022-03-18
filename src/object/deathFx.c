@@ -49,7 +49,7 @@ void DeathFx_Action0(DeathFxObject* this) {
             tmp = super->actionDelay;
             super->actionDelay = 0;
         }
-        sub_0805EC9C(super, tmp, tmp, 0);
+        SetAffineInfo(super, tmp, tmp, 0);
         LoadSwapGFX(super, 4, 0);
         InitAnimationForceUpdate(super, 0);
         SoundReq(SFX_BOSS_EXPLODE);
@@ -80,7 +80,7 @@ void DeathFx_Action0(DeathFxObject* this) {
 
 void DeathFx_Action1(DeathFxObject* this) {
     GetNextFrame(super);
-    if (super->frame & 0x80) {
+    if (super->frame & ANIM_DONE) {
         sub_08081790(this);
         DeathFx_Delete(this);
     } else {
@@ -92,7 +92,7 @@ void DeathFx_Action1(DeathFxObject* this) {
 
 void DeathFx_Action2(DeathFxObject* this) {
     UpdateAnimationSingleFrame(super);
-    if (super->frame & 0x80) {
+    if (super->frame & ANIM_DONE) {
         DeathFx_Delete(this);
     } else {
         if ((super->frame & 1) != 0) {

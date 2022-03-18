@@ -81,7 +81,7 @@ void Fan_Action2(FanEntity* this) {
 void Fan_Action3(FanEntity* this) {
     sub_0809F08C(this);
     sub_0809EE44(this);
-    if (super->frame & 0x80) {
+    if (super->frame & ANIM_DONE) {
         sub_0809EE34(this);
     }
 }

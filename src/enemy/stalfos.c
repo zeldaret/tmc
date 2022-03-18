@@ -269,7 +269,7 @@ void Stalfos_Action11(StalfosEntity* this) {
 
 void Stalfos_Action12(StalfosEntity* this) {
     UpdateAnimationSingleFrame(super);
-    if ((super->frame & 0x80) != 0) {
+    if ((super->frame & ANIM_DONE) != 0) {
         if (super->type2 == 1) {
             sub_0803998C(this);
             DeleteEntity(super->child);

@@ -83,7 +83,7 @@ void PushableStatue_Action1(PushableStatueEntity* this) {
                     break;
             }
         } else {
-            sub_08078930(super);
+            RegisterCarryEntity(super);
         }
     }
 }

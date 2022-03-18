@@ -16,7 +16,7 @@ void sub_08075DF4(ItemBehavior* this, u32 arg1) {
         sub_08077D38(this, arg1);
         gPlayerState.field_0x1f[2] = 1;
     } else {
-        sub_08077E78(this, arg1);
+        DeletePlayerItem(this, arg1);
     }
 }
 
@@ -39,7 +39,7 @@ void sub_08075E40(ItemBehavior* this, u32 arg1) {
         }
     }
     gPlayerState.field_0x1f[2] = 0;
-    sub_08077E78(this, arg1);
+    DeletePlayerItem(this, arg1);
 }
 
 void sub_08075EC0(ItemBehavior* this, u32 arg1) {
@@ -51,7 +51,7 @@ void sub_08075EC0(ItemBehavior* this, u32 arg1) {
     if (iVar2 != 0 && arrowCount != 0) {
         if (((gPlayerState.field_0x3[1] & 0x80) != 0) || (gPlayerState.field_0x1f[2] == 0)) {
             gPlayerState.field_0x1f[2] = 0;
-            sub_08077E78(this, arg1);
+            DeletePlayerItem(this, arg1);
         }
     } else {
         gPlayerState.field_0xa = (8 >> arg1) | gPlayerState.field_0xa;
@@ -70,7 +70,7 @@ void sub_08075F38(ItemBehavior* this, u32 arg1) {
         }
     } else {
         gPlayerState.field_0x1f[2] = 0;
-        sub_08077E78(this, arg1);
+        DeletePlayerItem(this, arg1);
     }
 }
 
@@ -86,5 +86,5 @@ void sub_08075F84(ItemBehavior* this, u32 arg1) {
         }
     }
     gPlayerState.field_0x1f[2] = 0;
-    sub_08077E78(this, arg1);
+    DeletePlayerItem(this, arg1);
 }

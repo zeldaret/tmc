@@ -289,7 +289,7 @@ void Peahat_Recover(Entity* this) {
 void Peahat_Hop(Entity* this) {
     GetNextFrame(this);
     if (--this->actionDelay == 0) {
-        if (this->frame & 0x80) {
+        if (this->frame & ANIM_DONE) {
             this->action = 9;
             this->zVelocity = Q_16_16(1.5);
             this->animationState = PeahatAnimation_NewPropeller;
@@ -313,7 +313,7 @@ void Peahat_Hop(Entity* this) {
 
 void Peahat_Takeoff(Entity* this) {
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 1;
         this->hitType = 0x70;
         this->field_0x82.HALF.LO = 1;

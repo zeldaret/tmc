@@ -79,7 +79,7 @@ _0805EDB4:
 	strb r0, [r2]
 	ldr r0, _0805EDF8 @ =gInput
 	ldrh r0, [r0]
-	bl sub_0805EE04
+	bl ConvInputToState
 	adds r1, r4, #0
 	adds r1, #0x90
 	strh r0, [r1]
@@ -88,7 +88,7 @@ _0805EDC6:
 	ldrh r1, [r0]
 _0805EDCA:
 	adds r0, r1, #0
-	bl sub_0805EE04
+	bl ConvInputToState
 	ldr r3, _0805EDFC @ =gPlayerState
 	adds r1, r3, #0
 	adds r1, #0x90

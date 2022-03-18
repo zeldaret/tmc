@@ -173,7 +173,7 @@ void GreatFairy_WingsInit(Entity* this) {
     gScreen.controls.layerFXControl = 0xF40;
     gScreen.controls.alphaBlend = BLDALPHA_BLEND(9, 8);
     this->speed = 1024;
-    sub_0805EC9C(this, 1024, 256, 0);
+    SetAffineInfo(this, 1024, 256, 0);
 }
 
 void GreatFairy_WingsUpdate(Entity* this) {
@@ -184,7 +184,7 @@ void GreatFairy_WingsUpdate(Entity* this) {
         gRoomVars.animFlags |= 32;
         gActiveScriptInfo.syncFlags |= 4;
     } else {
-        sub_0805EC9C(this, this->speed, 256, 0);
+        SetAffineInfo(this, this->speed, 256, 0);
     }
 }
 
@@ -273,7 +273,7 @@ void GreatFairy_MiniAffineInit2(Entity* this) {
         this->actionDelay = 90;
         this->speed = 4096;
         this->spriteRendering.b0 = 3;
-        sub_0805EC9C(this, 256, 256, 0);
+        SetAffineInfo(this, 256, 256, 0);
     }
 }
 
@@ -285,7 +285,7 @@ void GreatFairy_MiniAffineUpdate(Entity* this) {
         sub_0805EC60(this);
     } else {
         this->speed -= 24;
-        sub_0805EC9C(this, 256, this->speed >> 4, 0);
+        SetAffineInfo(this, 256, this->speed >> 4, 0);
     }
 }
 
@@ -304,7 +304,7 @@ void GreatFairy_DropletInit(Entity* this) {
 
 void GreatFairy_DropletUpdate(Entity* this) {
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         DeleteEntity(this);
     }
 }
@@ -370,7 +370,7 @@ void GreatFairy_EnergyInit(Entity* this) {
 
 void GreatFairy_EnergyUpdate(Entity* this) {
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         DeleteEntity(this);
     }
 }

@@ -16,7 +16,7 @@ extern void (*const gUnk_0811F090[])(Entity*);
 extern void (*const gUnk_0811F0A8[])(Entity*);
 extern void (*const gUnk_0811F0C4[])(Entity*);
 
-extern void sub_08078930(Entity*);
+extern void RegisterCarryEntity(Entity*);
 extern void sub_08016A6C(Entity*);
 
 void Pot(Entity* this) {
@@ -94,7 +94,7 @@ void sub_08082310(Entity* this) {
                         DeleteThisEntity();
                         break;
                     default:
-                        if (sub_080B1AA8(this) == 13) {
+                        if (GetTileUnderEntity(this) == 13) {
                             CreateFx(this, FX_FALL_DOWN, 0);
                         } else if (tileType == 0x4005) {
                             gPlayerState.field_0xab = 4;
@@ -104,7 +104,7 @@ void sub_08082310(Entity* this) {
                         break;
                 }
             } else {
-                sub_08078930(this);
+                RegisterCarryEntity(this);
             }
             break;
     }
@@ -194,7 +194,7 @@ void sub_08082614(Entity* this) {
             break;
         default:
             SetTile(0x4000, COORD_TO_TILE(this), this->collisionLayer);
-            sub_08078930(this);
+            RegisterCarryEntity(this);
             break;
     }
 }

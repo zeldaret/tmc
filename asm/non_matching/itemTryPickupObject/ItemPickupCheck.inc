@@ -33,7 +33,7 @@ _080761DE:
 	blo _0807626E
 	cmp r3, #2
 	bne _080762C0
-	ldr r0, _0807622C @ =gUnk_03003BE0
+	ldr r0, _0807622C @ =gCarryEntities
 	ldr r2, [r0, #8]
 	ldrb r1, [r2, #0x16]
 	movs r0, #0xf
@@ -49,7 +49,7 @@ _080761DE:
 _08076220: .4byte gPlayerState
 _08076224: .4byte 0x00001201
 _08076228: .4byte gPlayerEntity
-_0807622C: .4byte gUnk_03003BE0
+_0807622C: .4byte gCarryEntities
 _08076230:
 	str r2, [r4, #0x18]
 	strb r3, [r2, #0xc]

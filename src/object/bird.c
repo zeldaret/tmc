@@ -131,7 +131,7 @@ void sub_0809D178(Entity* this) {
         UpdateSpriteForCollisionLayer(this);
         this->frame = 0x80;
     }
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         InitializeAnimation(this, Random() & 3);
         this->frameDuration = (Random() & 0xf) + 0x10;
         this->spriteSettings.flipX = FALSE;

@@ -40,7 +40,7 @@ void sub_08063220(Entity* this) {
 
 void sub_08063254(Entity* this, u32 unused) {
     sub_08063280(this, unused);
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         this->action = 3;
         MessageFromTarget(0);
     }

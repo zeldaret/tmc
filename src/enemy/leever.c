@@ -85,7 +85,7 @@ void Leever_Idle(Entity* this) {
 void Leever_DigUp(Entity* this) {
     GetNextFrame(this);
 
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 3;
         if (this->type == LeeverForm_Red) {
             this->field_0x74.HWORD = 180;
@@ -113,7 +113,7 @@ void Leever_Attack(Entity* this) {
 void Leever_DigDown(Entity* this) {
     Leever_Move(this);
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 1;
         this->actionDelay = 0xf0;
         this->spriteSettings.draw = FALSE;

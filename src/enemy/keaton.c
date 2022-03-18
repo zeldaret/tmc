@@ -85,7 +85,7 @@ void sub_0803248C(Entity* this) {
 void sub_080324CC(Entity* this) {
     if (sub_080325E8(this) == 0) {
         UpdateAnimationSingleFrame(this);
-        if (this->frame & 0x80) {
+        if (this->frame & ANIM_DONE) {
             sub_080326FC(this);
             sub_08032740(this);
         }

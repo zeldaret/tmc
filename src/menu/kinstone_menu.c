@@ -80,7 +80,7 @@ void Subtask_KinstoneMenu(void) {
         KinstoneMenu_Type3, KinstoneMenu_Type4, KinstoneMenu_Type5,
     };
 #if !(defined(DEMO_USA) || defined(DEMO_JP))
-    gRoomTransition.player_status.field_0x24[8] = 2;
+    gRoomTransition.entity_update_type = 2;
     FlushSprites();
     kinstoneMenuTypes[gMenu.menuType]();
     sub_080A3B74();
@@ -90,7 +90,7 @@ void Subtask_KinstoneMenu(void) {
     UpdateEntities();
     DrawEntities();
     CopyOAM();
-    gRoomTransition.player_status.field_0x24[8] = 0;
+    gRoomTransition.entity_update_type = 0;
 #endif
 }
 
