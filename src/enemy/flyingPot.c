@@ -4,6 +4,7 @@
  *
  * @brief Flying pot enemy
  */
+#define NENT_DEPRECATED
 #include "functions.h"
 #include "enemy.h"
 #include "player.h"
@@ -12,214 +13,231 @@
 extern void (*const gUnk_080012C8[])(Entity*);
 extern Hitbox gUnk_080FD34C;
 
-void sub_0803708C(Entity*);
-void sub_080370A4(Entity*);
-void sub_0803712C(Entity*);
-void sub_08037144(Entity*);
-void sub_0803715C(Entity*);
-void sub_0803718C(Entity*);
-void sub_080371F8(Entity*);
-void nullsub_161(Entity*);
-void sub_08037218(Entity*);
-void sub_08037220(Entity*);
-void sub_08037280(Entity*);
-void sub_080372E8(Entity*);
-void sub_0803737C(Entity*);
-void sub_080373B0(Entity*);
-void sub_080373C8(Entity*);
-void sub_080373E0(Entity*);
-void sub_08037408(Entity*);
-void sub_08037418(Entity*);
+typedef struct {
+    /* 0x00 */ Entity base;
+    /* 0x68 */ u8 filler[0xC];
+    /* 0x74 */ u16 tileIndex;
+} FlyingPotEntity;
+
+// Knockback
+void sub_0803708C(FlyingPotEntity*);
+void sub_080370A4(FlyingPotEntity*);
+void sub_0803712C(FlyingPotEntity*);
+
+// Subactions?
+void sub_08037144(FlyingPotEntity*);
+void sub_0803715C(FlyingPotEntity*);
+void sub_0803718C(FlyingPotEntity*);
+void sub_080371F8(FlyingPotEntity*);
+void nullsub_161(FlyingPotEntity*);
+void sub_08037218(FlyingPotEntity*);
+
+// Actions
+void sub_08037220(FlyingPotEntity*);
+void sub_08037280(FlyingPotEntity*);
+void sub_080372E8(FlyingPotEntity*);
+void sub_0803737C(FlyingPotEntity*);
+void sub_080373B0(FlyingPotEntity*);
+void sub_080373C8(FlyingPotEntity*);
+void sub_080373E0(FlyingPotEntity*);
+
+void sub_08037408(FlyingPotEntity*);
+void sub_08037418(FlyingPotEntity*);
+
+extern void (*const gUnk_080CF244[])(Entity*);
+extern void (*const gUnk_080CF25C[])(FlyingPotEntity*);
+extern void (*const gUnk_080CF278[])(FlyingPotEntity*);
 
 void (*const gUnk_080CF244[])(Entity*) = {
-    sub_0803708C, sub_080370A4, GenericKnockback, GenericDeath, GenericConfused, sub_0803712C,
+    (EntityActionPtr)sub_0803708C, (EntityActionPtr)sub_080370A4, GenericKnockback, GenericDeath, GenericConfused,
+    (EntityActionPtr)sub_0803712C,
 };
 
-void FlyingPot(Entity* this) {
-    s32 index = sub_080012DC(this);
+void FlyingPot(Entity* thisx) {
+    s32 index = sub_080012DC(thisx);
 
     if (index != 0) {
-        gUnk_080012C8[index](this);
+        gUnk_080012C8[index](thisx);
     } else {
-        gUnk_080CF244[GetNextFunction(this)](this);
+        gUnk_080CF244[GetNextFunction(thisx)](thisx);
     }
 }
 
-
-void sub_0803708C(Entity* this) {
-    static void (*const gUnk_080CF25C[])(Entity*) = {
+void sub_0803708C(FlyingPotEntity* this) {
+    static void (*const gUnk_080CF25C[])(FlyingPotEntity*) = {
         sub_08037220, sub_08037280, sub_080372E8, sub_0803737C, sub_080373B0, sub_080373C8, sub_080373E0,
     };
 
-    gUnk_080CF25C[this->action](this);
+    gUnk_080CF25C[super->action](this);
 }
 
-void sub_080370A4(Entity* this) {
+void sub_080370A4(FlyingPotEntity* this) {
     sub_08037418(this);
 
-    if (this->bitfield == 0x9D) {
-        this->action = 6;
-        this->flags &= 0x7F;
-        this->zVelocity = 0x2A000;
-        this->spritePriority.b1 = 1;
+    if (super->bitfield == 0x9D) {
+        super->action = 6;
+        super->flags &= ~0x80;
+        super->zVelocity = 0x2A000;
+        super->spritePriority.b1 = 1;
 
-        SetTile(this->field_0x74.HWORD, TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
-    } else if (this->z.HALF.HI != 0) {
+        SetTile(this->tileIndex, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
+    } else if (super->z.HALF.HI != 0) {
         sub_08037408(this);
     }
 
-    EnemyFunctionHandlerAfterCollision(this, gUnk_080CF244);
+    EnemyFunctionHandlerAfterCollision(super, gUnk_080CF244);
 }
 
-void sub_0803712C(Entity* this) {
-    static void (*const gUnk_080CF278[])(Entity*) = {
+void sub_0803712C(FlyingPotEntity* this) {
+    static void (*const gUnk_080CF278[])(FlyingPotEntity*) = {
         sub_08037144, sub_0803715C, sub_0803718C, sub_080371F8, nullsub_161, sub_08037218,
     };
 
-    gUnk_080CF278[this->subAction](this);
+    gUnk_080CF278[super->subAction](this);
 }
 
-void sub_08037144(Entity* this) {
+void sub_08037144(FlyingPotEntity* this) {
     sub_08037418(this);
 
-    this->subAction = 1;
-    this->actionDelay = 0;
-    this->field_0x1d = 0x30;
+    super->subAction = 1;
+    super->actionDelay = 0;
+    super->field_0x1d = 0x30;
 }
 
-void sub_0803715C(Entity* this) {
+void sub_0803715C(FlyingPotEntity* this) {
     sub_08037418(this);
 
-    if (sub_0806F520(this)) {
-        sub_0806F4E8(this);
+    if (sub_0806F520(super)) {
+        sub_0806F4E8(super);
     } else {
-        this->spriteOffsetX = 0;
+        super->spriteOffsetX = 0;
 
-        if (this->z.HALF.HI != 0) {
+        if (super->z.HALF.HI != 0) {
             sub_08037408(this);
         }
     }
 }
 
-void sub_0803718C(Entity* this) {
-    if (this->actionDelay == 0) {
+void sub_0803718C(FlyingPotEntity* this) {
+    if (super->actionDelay == 0) {
         sub_08037418(this);
-        this->actionDelay = 1;
-        this->flags &= 0x7F;
-        this->spriteOffsetX = 0;
+        super->actionDelay = 1;
+        super->flags &= ~0x80;
+        super->spriteOffsetX = 0;
 
-        SetTile(this->field_0x74.HWORD, TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
+        SetTile(this->tileIndex, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
     }
 
-    if (sub_0806F520(this)) {
-        sub_0806F3E4(this);
+    if (sub_0806F520(super)) {
+        sub_0806F3E4(super);
     } else {
         sub_08037408(this);
     }
 }
 
-void sub_080371F8(Entity* this) {
+void sub_080371F8(FlyingPotEntity* this) {
     if (!(gPlayerState.field_0x1c & 0xF)) {
         sub_08037408(this);
     }
 }
 
-void nullsub_161(Entity* this) {
+void nullsub_161(FlyingPotEntity* this) {
 }
 
-void sub_08037218(Entity* this) {
+void sub_08037218(FlyingPotEntity* this) {
     sub_08037408(this);
 }
 
-void sub_08037220(Entity* this) {
+void sub_08037220(FlyingPotEntity* this) {
     u32 tile;
-    this->action = 1;
-    this->field_0x1c = 2;
-    this->y.HALF.HI += 3;
 
-    tile = TILE(this->x.HALF.HI, this->y.HALF.HI);
-    this->field_0x74.HWORD = GetTileIndex(tile, this->collisionLayer);
-    SetTile(0x4000, tile, this->collisionLayer);
-    InitializeAnimation(this, 5);
+    super->action = 1;
+    super->field_0x1c = 2;
+    super->y.HALF.HI += 3;
+
+    tile = TILE(super->x.HALF.HI, super->y.HALF.HI);
+    this->tileIndex = GetTileIndex(tile, super->collisionLayer);
+    SetTile(0x4000, tile, super->collisionLayer);
+    InitializeAnimation(super, 5);
 }
 
-void sub_08037280(Entity* this) {
+void sub_08037280(FlyingPotEntity* this) {
     sub_08037418(this);
 
-    if (GetTileTypeByEntity(this) != 0x4000) {
-        SetTile(this->field_0x74.HWORD, TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
+    if (GetTileTypeByEntity(super) != 0x4000) {
+        SetTile(this->tileIndex, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
         sub_08037408(this);
     }
 
-    if (PlayerInRange(this, 1, 0x40)) {
-        this->action = 2;
-        this->actionDelay = 30;
+    if (PlayerInRange(super, 1, 0x40)) {
+        super->action = 2;
+        super->actionDelay = 30;
     }
 }
 
-void sub_080372E8(Entity* this) {
+void sub_080372E8(FlyingPotEntity* this) {
     static const u8 gUnk_080CF290[] = { -1, 1, 1, -1 };
 
     sub_08037418(this);
 
-    this->spriteOffsetX += gUnk_080CF290[this->actionDelay & 3];
+    super->spriteOffsetX += gUnk_080CF290[super->actionDelay & 3];
 
-    if (--this->actionDelay == 0) {
-        this->action = 3;
-        this->spritePriority.b1 = 1;
-        this->spriteOffsetX = 0;
-        this->hitType = 0xA0;
-        this->flags2 = 0xF;
-        this->hitbox = &gUnk_080FD34C;
+    if (--super->actionDelay == 0) {
+        super->action = 3;
+        super->spritePriority.b1 = 1;
+        super->spriteOffsetX = 0;
+        super->hitType = 0xA0;
+        super->flags2 = 0xF;
+        super->hitbox = &gUnk_080FD34C;
 
-        SetTile(this->field_0x74.HWORD, TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
+        SetTile(this->tileIndex, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
     }
 }
 
-void sub_0803737C(Entity* this) {
-    this->z.WORD -= 0x10000;
+void sub_0803737C(FlyingPotEntity* this) {
+    super->z.WORD -= 0x10000;
 
-    if (this->z.HALF.HI <= -6) {
-        this->action = 4;
-        this->actionDelay = 10;
-        this->direction = GetFacingDirection(this, &gPlayerEntity);
+    if (super->z.HALF.HI <= -6) {
+        super->action = 4;
+        super->actionDelay = 10;
+        super->direction = GetFacingDirection(super, &gPlayerEntity);
     }
 }
 
-void sub_080373B0(Entity* this) {
-    if (--this->actionDelay == 0) {
-        this->action = 5;
+void sub_080373B0(FlyingPotEntity* this) {
+    if (--super->actionDelay == 0) {
+        super->action = 5;
     }
 }
 
-void sub_080373C8(Entity* this) {
-    ProcessMovement2(this);
+void sub_080373C8(FlyingPotEntity* this) {
+    ProcessMovement2(super);
 
-    if (this->collisions != 0) {
+    if (super->collisions != 0) {
         sub_08037408(this);
     }
 }
 
-void sub_080373E0(Entity* this) {
-    if (this->zVelocity < 0) {
-        this->spriteSettings.flipY = 1;
+void sub_080373E0(FlyingPotEntity* this) {
+    if (super->zVelocity < 0) {
+        super->spriteSettings.flipY = 1;
     }
 
-    if (GravityUpdate(this, 0x2000) == 0) {
+    if (!GravityUpdate(super, 0x2000)) {
         sub_08037408(this);
     }
 }
 
-void sub_08037408(Entity* this) {
-    CreateFx(this, 5, 0);
+void sub_08037408(FlyingPotEntity* this) {
+    CreateFx(super, 5, 0);
     DeleteThisEntity();
 }
 
-void sub_08037418(Entity* this) {
-    u32 tile = COORD_TO_TILE(this);
+void sub_08037418(FlyingPotEntity* this) {
+    u32 tile = COORD_TO_TILE(super);
 
-    if (GetTileIndex(tile, this->collisionLayer) == 0x4067) {
-        SetTile(this->field_0x74.HWORD, tile, this->collisionLayer);
+    if (GetTileIndex(tile, super->collisionLayer) == 0x4067) {
+        SetTile(this->tileIndex, tile, super->collisionLayer);
         DeleteThisEntity();
     }
 }
