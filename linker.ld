@@ -381,7 +381,7 @@ SECTIONS {
         src/enemy/mazaalMacro.o(.text);
         src/enemy/mazaalHand.o(.text);
         src/enemy/octorokBoss.o(.text);
-        asm/enemy/flyingPot.o(.text);
+        src/enemy/flyingPot.o(.text);
         src/enemy/gibdo.o(.text);
         src/enemy/octorokGolden.o(.text);
         src/enemy/tektiteGolden.o(.text);
@@ -1020,7 +1020,7 @@ SECTIONS {
         data/animations/enemy/mazaalHand.o(.rodata);
         src/enemy/octorokBoss.o(.rodata);
         data/animations/enemy/octorokBoss.o(.rodata);
-        data/const/enemy/flyingPot.o(.rodata);
+        src/enemy/flyingPot.o(.rodata);
         src/enemy/gibdo.o(.rodata);
         data/animations/enemy/gibdo.o(.rodata);
         src/enemy/octorokGolden.o(.rodata);
