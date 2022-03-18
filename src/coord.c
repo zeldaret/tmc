@@ -60,7 +60,7 @@ bool32 sub_0806F3E4(Entity* ent) {
     GenericEntity tmp_ent;
     s8* p;
 
-    if ((gPlayerState.field_0x1c & ~0x80) != 1)
+    if ((gPlayerState.field_0x1c & 0x7F) != 1)
         return 0;
     switch (gPlayerState.gustJarSpeed) {
         case 1:
