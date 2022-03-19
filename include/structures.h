@@ -296,4 +296,22 @@ typedef struct {
 
 extern SpritePtr gSpritePtrs[];
 
+typedef struct {
+    u16* dest;
+    void* gfx_dest;
+    void* buffer_loc;
+    u32 _c;
+    u16 gfx_src;
+    u8 width;
+    u8 right_align : 1;
+    u8 sm_border : 1;
+    u8 unused : 1;
+    u8 draw_border : 1;
+    u8 border_type : 4;
+    u8 fill_type;
+    u8 _15;
+    u8 _16;
+    u8 stylized;
+} Font;
+
 #endif

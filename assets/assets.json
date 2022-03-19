@@ -25988,11 +25988,6 @@
     "type": "animation"
   },
   {
-    "path": "flyingPot/gUnk_080CF290.bin",
-    "start": 848528,
-    "size": 4
-  },
-  {
     "path": "animations/gSpriteAnimations_Gibdo_0.bin",
     "start": 848592,
     "size": 4,
@@ -45338,26 +45333,6 @@
     "offsets": {
       "DEMO_USA": 2640
     }
-  },
-  {
-    "path": "data_08127280/gUnk_08127280.bin",
-    "start": 1208960,
-    "size": 24
-  },
-  {
-    "path": "data_08127280/gUnk_08127298.bin",
-    "start": 1208984,
-    "size": 24
-  },
-  {
-    "path": "data_08127280/gUnk_081272B0.bin",
-    "start": 1209008,
-    "size": 24
-  },
-  {
-    "path": "data_08127280/gUnk_081272C8.bin",
-    "start": 1209032,
-    "size": 24
   },
   {
     "path": "data_08127280/gUnk_081272F0.bin",

@@ -827,7 +827,7 @@ SECTIONS {
         src/demo.o(.text);
 #endif
         src/sound.o(.text);
-        asm/staffroll.o(.text);
+        src/staffroll.o(.text);
         src/menu/kinstone_menu.o(.text);
         src/menu/figurine_menu.o(.text);
         src/menu/pause_menu.o(.text);
@@ -1580,6 +1580,7 @@ SECTIONS {
 #ifdef DEMO_USA
         data/const/demo.o(.rodata);
 #endif
+        src/staffroll.o(.rodata);
         data/data_08127280.o(.rodata);
         src/menu/kinstone_menu.o(.rodata);
         src/menu/figurine_menu.o(.rodata);

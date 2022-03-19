@@ -417,9 +417,9 @@ void sub_080882A8(FigurineDeviceEntity* this) {
     sub_08057044(this->unk_83, &gUnk_020227E8[1], 0x202020);
     ptr = (u8*)0x02000000;
     if (ptr[7] == 0) {
-        sub_0805F46C((u32)gUnk_08120AE4[super->type2], &gUnk_08120AB4);
+        sub_0805F46C((u32)gUnk_08120AE4[super->type2], (Font*)&gUnk_08120AB4); // TODO convert data
     } else {
-        sub_0805F46C((u32)gUnk_08120AE4[super->type2], &gUnk_08120ACC);
+        sub_0805F46C((u32)gUnk_08120AE4[super->type2], (Font*)&gUnk_08120ACC); // TODO convert data
     }
     gScreen.bg0.updated = 1;
 }

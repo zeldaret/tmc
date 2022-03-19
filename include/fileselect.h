@@ -33,12 +33,6 @@ typedef struct {
     u8* unk8;
 } struct_02036540;
 
-typedef struct {
-    u8 filler0[0x10];
-    u16 unk10;
-    u8 filler12[0x6];
-} struct_080FC844;
-
 extern struct_020227E8 gUnk_020227E8[];
 
 typedef struct {
@@ -57,7 +51,7 @@ extern struct_02019EE0 gMapDataBottomSpecial;
 // TODO size: 0x8000 from ClearTilemaps?
 
 extern void sub_08056FEC(u32, struct_020227E8*);
-extern void sub_0805F46C(u32, void*);
+extern void sub_0805F46C(u32, Font*);
 extern void RecoverUI(u32 bottomPt, u32 topPt);
 extern void ClearTilemaps(void);
 extern void sub_0805194C(u32);
@@ -67,8 +61,9 @@ extern void sub_0805F300(struct_02036540*);
 extern void sub_08050A64(u32);
 extern void sub_08050AFC(u32);
 extern void sub_08050384();
+extern void CreateDialogBox(u32, u32);
 
-extern const struct_080FC844 gUnk_080FC844;
+extern const Font gUnk_080FC844;
 extern const u16 gUnk_080FC85C[][3];
 extern void (*const gUnk_080FC908[])(void);
 extern const u8 gGlobalGfxAndPalettes[];
