@@ -74,6 +74,13 @@ Subtask KinstoneMenu_Type2;
 Subtask KinstoneMenu_Type3;
 Subtask KinstoneMenu_Type4;
 Subtask KinstoneMenu_Type5;
+
+ASM_FUNC("asm/non_matching/menu/kinstone_menu/sub_080A3B48.inc", s32 sub_080A3B48(void))
+
+void sub_080A3B74(void) {
+    gKinstoneMenu.unk2f = 0;
+}
+
 void Subtask_KinstoneMenu(void) {
     static Subtask* const kinstoneMenuTypes[] = {
         KinstoneMenu_Type0, KinstoneMenu_Type1, KinstoneMenu_Type2,

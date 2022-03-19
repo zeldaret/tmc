@@ -1,0 +1,326 @@
+#include "global.h"
+#include "room.h"
+#include "main.h"
+#include "save.h"
+#include "flags.h"
+#include "fileselect.h"
+#include "screen.h"
+#include "common.h"
+#include "menu.h"
+#include "game.h"
+#include "subtask.h"
+
+typedef struct {
+    /*0x00*/ Menu base;
+    s16 unk_10;
+    u16 unk_12;
+    u16 unk_14;
+    u8 unk_16;
+    u8 unk_17;
+    u8 unk_18;
+    u8 unk_19;
+    u8 bgmMusicStarted;
+    u8 unk_1b[0x14];
+    u8 unk_2f;
+} StaffrollMenu;
+#define gStaffrollMenu (*(StaffrollMenu*)&gMenu)
+
+const Font gUnk_08127280 = {
+    (u16*)0x02021f72, (void*)0x0600c400, gTextGfxBuffer, 0, 61472, 240, 0, 0, 0, 0, 0, 5, 0, 1, 0
+};
+const Font gUnk_08127298 = {
+    (u16*)0x02021f90, (void*)0x0600c400, gTextGfxBuffer, 0, 61472, 240, 0, 0, 0, 0, 0, 5, 0, 1, 0
+};
+const Font gUnk_081272B0 = {
+    (u16*)0x0202204e, (void*)0x0600c400, gTextGfxBuffer, 0, 61472, 240, 1, 0, 0, 0, 0, 5, 0, 1, 0
+};
+const Font gUnk_081272C8 = {
+    (u16*)0x020222ce, (void*)0x0600c400, gTextGfxBuffer, 0, 61472, 240, 1, 0, 0, 0, 0, 5, 0, 1, 0
+};
+
+const Font* const gUnk_081272E0[] = {
+    &gUnk_08127280,
+    &gUnk_08127298,
+    &gUnk_081272B0,
+    &gUnk_081272C8,
+};
+
+// TODO figure out structure of gStaffrollMenu.base.field_0xc
+extern u8 gUnk_081272F0[];
+extern u8 gUnk_08127644[];
+extern u8 gUnk_08127998[];
+extern const u8 gUnk_08127CEC[];
+extern void (*const gUnk_08127D00[])(void);
+extern void (*const gUnk_08127D10[])(void);
+
+void sub_080A3954(void);
+
+void StaffrollTask(void) {
+    gRoomTransition.frameCount += 1;
+    gUnk_08127D00[gMain.state]();
+}
+
+void StaffrollTask_State0(void) {
+    gSave.unk6 = 1;
+    SetGlobalFlag(GAMECLEAR);
+    gMain.state = 1;
+    gStaffrollMenu.base.menuType = 0;
+    gStaffrollMenu.base.transitionTimer = 0xb4;
+    gStaffrollMenu.unk_16 = 5;
+    gStaffrollMenu.unk_17 = 4;
+    gStaffrollMenu.bgmMusicStarted = 0;
+    if (gSaveHeader->language >= 2) {
+        gStaffrollMenu.base.field_0xc = gUnk_08127998;
+    } else {
+        if (gSaveHeader->language == 1) {
+            gStaffrollMenu.base.field_0xc = gUnk_08127644;
+        } else {
+            gStaffrollMenu.base.field_0xc = gUnk_081272F0;
+        }
+    }
+    DispReset(0);
+    LoadPaletteGroup(0xb);
+    LoadPaletteGroup(0xc);
+    SetColor(0, 0);
+    gScreen.lcd.displayControl = 0x640;
+    gScreen.controls.layerFXControl = 0x2442;
+    gScreen.controls.alphaBlend = 0x1000;
+    gScreen.bg1.control = 0x1e4d;
+    gScreen.bg2.control = 0x1dc3;
+    InitSoundPlayingInfo();
+    ResetSystemPriority();
+    SetFade(5, 0x100);
+}
+
+void StaffrollTask_State1(void) {
+    gUnk_08127D10[gMenu.menuType]();
+}
+
+void StaffrollTask_State1MenuType0(void) {
+    gMenu.transitionTimer -= 1;
+    if (gMenu.transitionTimer == 0) {
+        sub_080A3954();
+    }
+}
+
+void StaffrollTask_State1MenuType1(void) {
+    if (gFadeControl.active == 0) {
+        const u8* ptr = &gUnk_08127CEC[gStaffrollMenu.unk_10 * 2];
+        LoadPaletteGroup(ptr[0]);
+        LoadGfxGroup(ptr[1]);
+        MemClear(&gBG1Buffer, 0x800);
+        gScreen.bg1.updated = 1;
+        gScreen.bg2.xOffset = gStaffrollMenu.unk_12;
+        gScreen.controls.alphaBlend = 0x1000;
+        gStaffrollMenu.base.menuType = 0;
+        if (gStaffrollMenu.bgmMusicStarted == 0) {
+            gStaffrollMenu.bgmMusicStarted = 1;
+            SoundReq(BGM_CREDITS);
+        }
+        SetFade(4, 8);
+    }
+}
+
+void StaffrollTask_State1MenuType2(void) {
+    u8 tmp;
+    switch (gStaffrollMenu.base.overlayType) {
+        case 0:
+            MemClear(&gBG1Buffer, 0x800);
+            sub_0805F46C(gStaffrollMenu.unk_10, (Font*)gUnk_081272E0[gStaffrollMenu.unk_19]);
+            gScreen.bg1.updated = 1;
+            gStaffrollMenu.base.overlayType++;
+            gStaffrollMenu.unk_18 = 0;
+            break;
+        case 1:
+            if (gFadeControl.active != 0) {
+                return;
+            }
+            if ((gRoomTransition.frameCount & 1) != 0) {
+                return;
+            }
+            tmp = ++gStaffrollMenu.unk_18;
+            gScreen.controls.alphaBlend = (0x10 - tmp) * 0x100 | tmp;
+            if (gStaffrollMenu.unk_18 >= 0x10) {
+                gStaffrollMenu.base.overlayType++;
+            }
+            break;
+        case 2:
+            gStaffrollMenu.base.transitionTimer--;
+            if (gStaffrollMenu.base.transitionTimer == 0) {
+                gStaffrollMenu.base.overlayType++;
+            }
+            break;
+        case 3:
+            if ((gRoomTransition.frameCount & 1) != 0) {
+                return;
+            }
+            tmp = --gStaffrollMenu.unk_18;
+            gScreen.controls.alphaBlend = (0x10 - tmp) * 0x100 | tmp;
+            if (gStaffrollMenu.unk_18 == 0) {
+                gStaffrollMenu.base.overlayType++;
+            }
+            break;
+        default:
+            if (gFadeControl.active == 0) {
+                gFadeControl.mask = 0xffffffff;
+                sub_080A3954();
+            }
+            break;
+    }
+}
+
+void StaffrollTask_State1MenuType3(void) {
+    gMenu.transitionTimer--;
+    if (gMenu.transitionTimer == 0) {
+        sub_080A3954();
+        SetFade(5, 8);
+    }
+}
+
+void StaffrollTask_State1MenuType4(void) {
+    gFadeControl.mask = 0xffff7fff;
+    SetFade(5, 4);
+    SetFadeProgress(gMenu.transitionTimer);
+    sub_080A3954();
+}
+
+void StaffrollTask_State1MenuType5(void) {
+    SetFade(4, 4);
+    SetFadeProgress(gMenu.transitionTimer);
+    sub_080A3954();
+}
+
+void StaffrollTask_State1MenuType6(void) {
+    if (gFadeControl.active == 0) {
+        MemClear(&gBG1Buffer, 0x800);
+        gScreen.bg1.updated = 1;
+        MemClear(&gBG2Buffer, 0x800);
+        gScreen.bg2.updated = 1;
+        gScreen.controls.alphaBlend = 0x1000;
+        gMenu.menuType = 0;
+        SetFade(4, 8);
+    }
+}
+
+void StaffrollTask_State1MenuType7(void) {
+    if (gFadeControl.active == 0) {
+        SetFade(7, 8);
+        gMain.state = 2;
+    }
+}
+
+void sub_080A3954(void) {
+    u16* puVar1;
+    u16* puVar2;
+    u16* puVar3;
+    u8* pbVar4;
+
+    puVar1 = (u16*)(gStaffrollMenu.base.field_0xc + 6);
+    puVar2 = (u16*)(gStaffrollMenu.base.field_0xc + 8);
+    puVar3 = (u16*)(gStaffrollMenu.base.field_0xc + 10);
+    pbVar4 = gStaffrollMenu.base.field_0xc + 1;
+    gStaffrollMenu.base.menuType = *gStaffrollMenu.base.field_0xc;
+    gStaffrollMenu.base.overlayType = 0;
+    gStaffrollMenu.unk_10 = *puVar1;
+    gStaffrollMenu.base.transitionTimer = *(u16*)(gStaffrollMenu.base.field_0xc + 4);
+    gStaffrollMenu.unk_12 = *puVar2;
+    gStaffrollMenu.unk_14 = *puVar3;
+    gStaffrollMenu.unk_19 = *pbVar4;
+    gStaffrollMenu.base.field_0xc += 0xc;
+}
+
+void StaffrollTask_State3(void) {
+    if (gFadeControl.active == 0) {
+        DoSoftReset();
+    }
+}
+
+void StaffrollTask_State2(void) {
+    SaveResult saveResult;
+    u32 choice;
+    u32 tmp;
+    switch (gStaffrollMenu.base.overlayType) {
+        case 0:
+            gStaffrollMenu.base.overlayType = 1;
+            gStaffrollMenu.base.transitionTimer = 0x1e;
+            gStaffrollMenu.base.field_0x3 = 0;
+            DispReset(1);
+            InitSoundPlayingInfo();
+            sub_080A4D34();
+            LoadPaletteGroup(10);
+            SetColor(0, 0);
+            LoadGfxGroup(4);
+            MemClear((void*)VRAM, 0x20);
+            SetPopupState(0, 0);
+            gScreen.lcd.displayControl |= 0x600;
+            gScreen.bg1.control = 0x1c01;
+            gScreen.bg2.control = 0x1d05;
+            gScreen.bg2.updated = 1;
+            SetFade(4, 8);
+            break;
+        case 1:
+            if (gFadeControl.active == 0) {
+                if (gStaffrollMenu.base.transitionTimer != 0) {
+                    gStaffrollMenu.base.transitionTimer--;
+                } else {
+                    choice = gStaffrollMenu.base.field_0x3;
+                    switch (gInput.newKeys) {
+                        case 0x40:
+                            choice = 0;
+                            break;
+                        case 0x80:
+                            choice = 1;
+                            break;
+                        case 1:
+                            if (choice != 0) {
+                                tmp = 4;
+                            } else {
+                                CreateDialogBox(8, 0);
+                                tmp = 2;
+                            }
+                            gStaffrollMenu.base.overlayType = tmp;
+                            gStaffrollMenu.base.transitionTimer = 0x3c;
+                            SoundReq(SFX_TEXTBOX_SELECT);
+                            break;
+                    }
+                    if (gStaffrollMenu.base.field_0x3 != choice) {
+                        gStaffrollMenu.base.field_0x3 = choice;
+                        SetPopupState(0, choice);
+                        SoundReq(SFX_TEXTBOX_CHOICE);
+                    }
+                }
+            }
+            break;
+        case 2:
+            saveResult = HandleSave(0);
+            gStaffrollMenu.base.field_0x0 = saveResult;
+            switch (saveResult) {
+                case SAVE_OK:
+                    gStaffrollMenu.base.overlayType = 4;
+                    break;
+                case SAVE_ERROR:
+                    gStaffrollMenu.base.transitionTimer = 0x3c;
+                    CreateDialogBox(9, 0);
+                    gStaffrollMenu.base.overlayType = 3;
+                    break;
+            }
+            break;
+        case 3:
+            if (gStaffrollMenu.base.transitionTimer != 0) {
+                gStaffrollMenu.base.transitionTimer--;
+            } else {
+                if ((gInput.newKeys & 0xb) != 0) {
+                    gStaffrollMenu.base.overlayType = 1;
+                }
+            }
+            break;
+        case 4:
+        default:
+            gScreen.lcd.displayControl &= 0xfdff;
+            sub_08050384();
+            SetFade(7, 8);
+            gMain.state = 3;
+            gStaffrollMenu.base.overlayType = 0;
+            break;
+    }
+}
