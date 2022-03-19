@@ -721,7 +721,7 @@ SECTIONS {
         src/object/mask.o(.text);
         src/object/houseDoorInterior.o(.text);
         src/object/whirlwind.o(.text);
-        asm/object/objectBlockingStairs.o(.text);
+        src/object/objectBlockingStairs.o(.text);
         src/object/swordsmanNewsletter.o(.text);
         src/object/object61.o(.text);
         src/object/giantTwig.o(.text);
@@ -1461,7 +1461,7 @@ SECTIONS {
         src/object/houseDoorInterior.o(.rodata);
         src/object/whirlwind.o(.rodata);
         data/animations/object/whirlwind.o(.rodata);
-        data/const/object/objectBlockingStairs.o(.rodata);
+        src/object/objectBlockingStairs.o(.rodata);
         data/const/object/swordsmanNewsletter.o(.rodata);
         src/object/object61.o(.rodata);
         src/object/giantTwig.o(.rodata);
