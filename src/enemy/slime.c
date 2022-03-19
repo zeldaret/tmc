@@ -15,8 +15,6 @@ typedef struct {
 void sub_08044FF8(Entity*);
 void sub_08045178(Entity*, Entity*, int, int);
 
-extern void sub_0804A4E4(Entity*, Entity*);
-
 extern void (*const gUnk_080D16BC[])(Entity*);
 extern void (*const Slime_Functions[])(Entity*);
 extern u8 gUnk_080D16D0[4]; // Entity count per form

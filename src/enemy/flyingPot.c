@@ -34,14 +34,14 @@ enum FlyingPotSubActions {
     /* 1 */ FLYING_POT_SUBACTION_1,
     /* 2 */ FLYING_POT_SUBACTION_2,
     /* 3 */ FLYING_POT_SUBACTION_3,
-    /* 4 */ FLYING_POT_SUBACTION_4,
+    /* 4 */ FLYING_POT_SUBACTION_DO_NOTHING,
     /* 5 */ FLYING_POT_SUBACTION_5,
 };
 
 // Functions
-void FlyingPot_OnTick(FlyingPotEntity*); // 0803708C
-void sub_080370A4(FlyingPotEntity*);     // 080370A4
-void sub_0803712C(FlyingPotEntity*);     // 0803712C
+void FlyingPot_OnTick(FlyingPotEntity*);      // 0803708C
+void FlyingPot_OnCollision(FlyingPotEntity*); // 080370A4
+void FlyingPot_OnGrabbed(FlyingPotEntity*);   // 0803712C
 
 // Subactions
 void FlyingPot_SubAction0(FlyingPotEntity*); // 08037144
@@ -64,8 +64,12 @@ void sub_08037408(FlyingPotEntity*);
 void sub_08037418(FlyingPotEntity*);
 
 void (*const FlyingPot_Functions[])(Entity*) = {
-    (EntityActionPtr)FlyingPot_OnTick, (EntityActionPtr)sub_080370A4, GenericKnockback, GenericDeath, GenericConfused,
-    (EntityActionPtr)sub_0803712C,
+    (EntityActionPtr)FlyingPot_OnTick,
+    (EntityActionPtr)FlyingPot_OnCollision,
+    GenericKnockback,
+    GenericDeath,
+    GenericConfused,
+    (EntityActionPtr)FlyingPot_OnGrabbed,
 };
 
 void FlyingPot(Entity* thisx) {
@@ -87,7 +91,7 @@ void FlyingPot_OnTick(FlyingPotEntity* this) {
     FlyingPot_Actions[super->action](this);
 }
 
-void sub_080370A4(FlyingPotEntity* this) {
+void FlyingPot_OnCollision(FlyingPotEntity* this) {
     sub_08037418(this);
 
     if (super->bitfield == 0x9D) {
@@ -104,7 +108,7 @@ void sub_080370A4(FlyingPotEntity* this) {
     EnemyFunctionHandlerAfterCollision(super, FlyingPot_Functions);
 }
 
-void sub_0803712C(FlyingPotEntity* this) {
+void FlyingPot_OnGrabbed(FlyingPotEntity* this) {
     static void (*const FlyingPot_SubActions[])(FlyingPotEntity*) = {
         FlyingPot_SubAction0, FlyingPot_SubAction1,         FlyingPot_SubAction2,
         FlyingPot_SubAction3, FlyingPot_SubActionDoNothing, FlyingPot_SubAction5,
