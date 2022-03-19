@@ -39,7 +39,7 @@ void Rope_OnCollision(Entity* this) {
 }
 
 void Rope_OnGrabbed(Entity* this) {
-    if (sub_0806F520()) {
+    if (sub_0806F520(this)) {
         gUnk_080CE470[this->subAction](this);
     }
 }

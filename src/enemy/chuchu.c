@@ -123,7 +123,7 @@ void Chuchu_OnCollision(Entity* this) {
 }
 
 void Chuchu_OnGrabbed(Entity* this) {
-    if (sub_0806F520(this) == 0 && this->confusedTime) {
+    if (!sub_0806F520(this) && this->confusedTime) {
         Create0x68FX(this, FX_STARS);
         InitializeAnimation(this, 6);
     } else {

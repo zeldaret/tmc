@@ -154,7 +154,7 @@ void sub_08040D30(Enemy50Entity* this) {
 }
 
 void sub_08040D90(Enemy50Entity* this) {
-    if (sub_0806F520()) {
+    if (sub_0806F520(super)) {
         Enemy50_SubActions[super->subAction](this);
     } else {
         sub_08041128(this);
