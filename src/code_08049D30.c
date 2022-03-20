@@ -182,11 +182,158 @@ u32 sub_0804A024(Entity* ent, u32 arg1, u32 arg2) {
     }
 }
 
-ASM_FUNC("asm/non_matching/code_08048D30/sub_0804A044.s", u32 sub_0804A044(Entity* entA, Entity* entB, u32 arg2));
+u32 sub_0804A168(Entity*, Entity*, LayerStruct*);
+u32 sub_0804A318(Entity*, Entity*, LayerStruct*);
 
-ASM_FUNC("asm/non_matching/code_08048D30/sub_0804A168.s", void sub_0804A168(void)); // ?
+u32 sub_0804A044(Entity* entA, Entity* entB, u32 arg2) {
+    LayerStruct* layer;
+    s32 ret;
+    s32 yDiff;
+    s32 xDiff;
+    s32 flags;
 
-ASM_FUNC("asm/non_matching/code_08048D30/sub_0804A318.s", void sub_0804A318(void)); // ?
+    if ((entB->collisionLayer & entA->collisionLayer) != 0) {
+        flags = 0;
+        xDiff = entB->x.HALF.HI + entB->hitbox->offset_x - entA->x.HALF.HI - entA->hitbox->offset_x;
+
+        if (arg2 >= xDiff + (arg2 >> 1)) {
+            flags |= 1;
+        }
+        if (arg2 << 1 >= xDiff + arg2) {
+            flags |= 2;
+        }
+
+        yDiff = entB->y.HALF.HI + entB->hitbox->offset_y - entA->y.HALF.HI - entA->hitbox->offset_y;
+        if (arg2 >= yDiff + (arg2 >> 1)) {
+            flags |= 4;
+        }
+        if (arg2 << 1 >= yDiff + arg2) {
+            flags |= 8;
+        }
+
+        if (flags && ((flags & 5) != 0xA)) {
+            layer = GetLayerByIndex(entA->collisionLayer);
+            if (xDiff < 0) {
+                xDiff = -xDiff;
+            }
+            if (yDiff < 0) {
+                yDiff = -yDiff;
+            }
+            if (xDiff < yDiff) {
+                if (flags & 1) {
+                    ret = sub_0804A168(entA, entB, layer);
+                    if (ret != 0xFF) {
+                        return ret;
+                    }
+                }
+                if (!(flags & 4)) {
+                    return 0xFF;
+                }
+                ret = sub_0804A318(entA, entB, layer);
+            } else {
+                if (flags & 4) {
+                    ret = sub_0804A318(entA, entB, layer);
+                    if (ret != 0xFF) {
+                        return ret;
+                    }
+                }
+                if (!(flags & 1)) {
+                    return 0xFF;
+                }
+                ret = sub_0804A168(entA, entB, layer);
+            }
+            if (ret != 0xFF) {
+                return ret;
+            }
+        }
+    }
+    return 0xFF;
+}
+
+bool32 sub_0804A4BC(u8* arg0, u8* arg1, s32 arg2, u32 arg3);
+
+u32 sub_0804A168(Entity* entA, Entity* entB, LayerStruct* layer) {
+    u32 uVar2;
+    u32 uVar3;
+    u32 tile1;
+    u32 tile2;
+
+    if (entB->y.HALF.HI > entA->y.HALF.HI) {
+        uVar2 = entA->x.HALF.HI - 4;
+        uVar3 = ((uVar2 & 0xF) < 8) ? 10 : 5;
+        tile1 = TILE(uVar2, entA->y.HALF.HI + 10);
+        tile2 = TILE(uVar2, entB->y.HALF.HI);
+
+        if (sub_0804A4BC(layer->collisionData + tile1, layer->collisionData + tile2, 0x40, uVar3)) {
+            uVar2 = entA->x.HALF.HI + 4;
+            uVar3 ^= 0xF;
+            tile1 = TILE(uVar2, entA->y.HALF.HI + 10);
+            tile2 = TILE(uVar2, entB->y.HALF.HI);
+
+            if (sub_0804A4BC(layer->collisionData + tile1, layer->collisionData + tile2, 0x40, uVar3)) {
+                return 0x10;
+            }
+        }
+    } else {
+        uVar2 = entA->x.HALF.HI - 4;
+        uVar3 = ((uVar2 & 0xF) < 8) ? 10 : 5;
+        tile1 = TILE(uVar2, entA->y.HALF.HI - 10);
+        tile2 = TILE(uVar2, entB->y.HALF.HI);
+
+        if (sub_0804A4BC(layer->collisionData + tile1, layer->collisionData + tile2, -0x40, uVar3)) {
+            uVar2 = entA->x.HALF.HI + 4;
+            uVar3 ^= 0xF;
+            tile1 = TILE(uVar2, entA->y.HALF.HI - 10);
+            tile2 = TILE(uVar2, entB->y.HALF.HI);
+
+            if (sub_0804A4BC(layer->collisionData + tile1, layer->collisionData + tile2, -0x40, uVar3)) {
+                return 0;
+            }
+        }
+    }
+    return 0xFF;
+}
+
+u32 sub_0804A318(Entity* entA, Entity* entB, LayerStruct* layer) {
+    u32 uVar2;
+    u32 uVar3;
+    u32 tile1;
+    u32 tile2;
+
+    if (entB->x.HALF.HI > entA->x.HALF.HI) {
+        uVar2 = entA->y.HALF.HI - 4;
+        uVar3 = ((uVar2 & 0xF) < 8) ? 0xC : 3;
+        tile1 = TILE(entA->x.HALF.HI + 10, uVar2);
+        tile2 = TILE(entB->x.HALF.HI, uVar2);
+
+        if (sub_0804A4BC(layer->collisionData + tile1, layer->collisionData + tile2, 1, uVar3)) {
+            uVar2 = entA->y.HALF.HI + 4;
+            uVar3 ^= 0xF;
+            tile1 = TILE(entA->x.HALF.HI + 10, uVar2);
+            tile2 = TILE(entB->x.HALF.HI, uVar2);
+
+            if (sub_0804A4BC(layer->collisionData + tile1, layer->collisionData + tile2, 1, uVar3)) {
+                return 8;
+            }
+        }
+    } else {
+        uVar2 = entA->y.HALF.HI - 4;
+        uVar3 = ((uVar2 & 0xF) < 8) ? 0xC : 3;
+        tile1 = TILE(entA->x.HALF.HI - 10, uVar2);
+        tile2 = TILE(entB->x.HALF.HI, uVar2);
+
+        if (sub_0804A4BC(layer->collisionData + tile1, layer->collisionData + tile2, -1, uVar3)) {
+            uVar2 = entA->y.HALF.HI + 4;
+            uVar3 ^= 0xF;
+            tile1 = TILE(entA->x.HALF.HI - 10, uVar2);
+            tile2 = TILE(entB->x.HALF.HI, uVar2);
+            if (sub_0804A4BC(layer->collisionData + tile1, layer->collisionData + tile2, -1, uVar3)) {
+                return 0x18;
+            }
+        }
+    }
+    return 0xFF;
+}
 
 bool32 sub_0804A4BC(u8* arg0, u8* arg1, s32 arg2, u32 arg3) {
     while (arg0 != arg1) {
@@ -194,7 +341,7 @@ bool32 sub_0804A4BC(u8* arg0, u8* arg1, s32 arg2, u32 arg3) {
 
         if (r0 != 0) {
             if (r0 > 0xF) {
-                return 0;
+                return FALSE;
             }
 
             r0 &= arg3;
