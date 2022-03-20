@@ -53,7 +53,6 @@ Entity* sub_08049EB0(void) {
 
 u32 sub_08049EE4(Entity* ent) {
     GenericEntity* genEnt = (GenericEntity*)ent;
-
     u16 tempLO = genEnt->field_0x70.HALF.LO + 4 * genEnt->field_0x6e.HALF.LO;
     u16 tempHI = genEnt->field_0x70.HALF.HI + 4 * genEnt->field_0x6e.HALF.HI;
 

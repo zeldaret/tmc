@@ -26,7 +26,6 @@ u32 sub_08049D1C(u32 arg0) {
     return output;
 }
 
-
 void UpdateRoomTracker(void) {
     gUnk_020354B0 = gRoomMemory;
 
@@ -42,25 +41,25 @@ void UpdateRoomTracker(void) {
 }
 
 RoomMemory* sub_08049D88(void) {
-    RoomMemory* r4 = gRoomMemory;
-    RoomMemory* r1 = r4 + 1;
+    RoomMemory* rm = gRoomMemory;
+    RoomMemory* r1 = rm + 1;
 
     do {
-        if (r1->unk_02 > r4->unk_02) {
-            r4 = r1;
+        if (r1->unk_02 > rm->unk_02) {
+            rm = r1;
         }
         r1++;
     } while (r1 < gRoomMemory + 8);
 
-    r4->area = gRoomControls.area;
-    r4->room = gRoomControls.room;
+    rm->area = gRoomControls.area;
+    rm->room = gRoomControls.room;
 
-    r4->unk_02 = 0xFFFF;
-    r4->unk_04 = 0;
+    rm->unk_02 = 0xFFFF;
+    rm->unk_04 = 0;
 
-    sub_08049DCC(r4);
+    sub_08049DCC(rm);
 
-    return r4;
+    return rm;
 }
 
 void sub_08049DCC(RoomMemory* rm) {
