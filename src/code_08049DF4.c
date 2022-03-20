@@ -10,58 +10,6 @@ extern Entity* (*const gUnk_080D3BE8[])(void);
 
 extern void ReplaceMonitoredEntity(Entity*, Entity*);
 
-void sub_08049DCC(RoomMemory*);
-RoomMemory* sub_08049D88(void);
-
-void UpdateRoomTracker(void) {
-    gUnk_020354B0 = gRoomMemory;
-
-    do {
-        if (gUnk_020354B0->area == gRoomControls.area && gUnk_020354B0->room == gRoomControls.room) {
-            sub_08049DCC(gUnk_020354B0);
-            return;
-        }
-        gUnk_020354B0++;
-
-    } while (gUnk_020354B0 < gRoomMemory + 8);
-    gUnk_020354B0 = sub_08049D88();
-}
-
-RoomMemory* sub_08049D88(void) {
-    RoomMemory* r4 = gRoomMemory;
-    RoomMemory* r1 = r4 + 1;
-
-    do {
-        if (r1->unk_02 > r4->unk_02) {
-            r4 = r1;
-        }
-        r1++;
-    } while (r1 < gRoomMemory + 8);
-
-    r4->area = gRoomControls.area;
-    r4->room = gRoomControls.room;
-
-    r4->unk_02 = 0xFFFF;
-    r4->unk_04 = 0;
-
-    sub_08049DCC(r4);
-
-    return r4;
-}
-
-void sub_08049DCC(RoomMemory* rm) {
-    RoomMemory* r1 = gRoomMemory;
-
-    do {
-        if (r1->unk_02 < rm->unk_02) {
-            r1->unk_02++;
-        }
-        r1++;
-    } while (r1 < gRoomMemory + 8);
-
-    rm->unk_02 = 0;
-}
-
 Entity* sub_08049DF4(u32 arg0) {
     if (gUnk_020000B0 != NULL) {
         return gUnk_020000B0;
