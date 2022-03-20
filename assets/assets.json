@@ -43796,16 +43796,6 @@
     "type": "animation"
   },
   {
-    "path": "minecart/gUnk_081223C8.bin",
-    "start": 1188808,
-    "size": 8
-  },
-  {
-    "path": "minecart/gUnk_081223D0.bin",
-    "start": 1188816,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_ThoughtBubble_0.bin",
     "start": 1189280,
     "size": 28,

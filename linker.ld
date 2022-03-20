@@ -711,7 +711,6 @@ SECTIONS {
         src/object/object53.o(.text);
         src/object/pullableLever.o(.text);
         src/object/minecart.o(.text);
-        asm/object/minecart.o(.text);
         src/object/thoughtBubble.o(.text);
         src/object/hiddenLadderDown.o(.text);
         src/object/gentariCurtains.o(.text);
@@ -1446,7 +1445,7 @@ SECTIONS {
         src/object/object53.o(.rodata);
         src/object/pullableLever.o(.rodata);
         data/animations/object/pullableLever.o(.rodata);
-        data/const/object/minecart.o(.rodata);
+        src/object/minecart.o(.rodata);
         data/animations/object/minecart.o(.rodata);
         data/const/object/thoughtBubble.o(.rodata);
         data/animations/object/thoughtBubble.o(.rodata);
