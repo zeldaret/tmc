@@ -159,6 +159,7 @@ u32 sub_0804A044(Entity* entA, Entity* entB, u32 arg2) {
             flags |= 8;
         }
 
+        //! @bug flags & 5 can never equal 0xA
         if (flags && ((flags & 5) != 0xA)) {
             layer = GetLayerByIndex(entA->collisionLayer);
             if (xDiff < 0) {
