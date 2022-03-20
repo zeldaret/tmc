@@ -751,7 +751,7 @@ SECTIONS {
         src/object/macroShoes.o(.text);
         src/object/objectOnSpinyBeetle.o(.text);
         src/object/object7E.o(.text);
-        asm/object/picoBloom.o(.text);
+        src/object/picoBloom.o(.text);
         src/object/board.o(.text);
         src/object/object81.o(.text);
         src/object/bigVortex.o(.text);
@@ -1494,7 +1494,7 @@ SECTIONS {
         data/animations/object/pushableLever.o(.rodata);
         src/object/macroShoes.o(.rodata);
         src/object/objectOnSpinyBeetle.o(.rodata);
-        data/const/object/picoBloom.o(.rodata);
+        src/object/picoBloom.o(.rodata);
         data/animations/object/picoBloom.o(.rodata);
         src/object/board.o(.rodata);
         src/object/object81.o(.rodata);
