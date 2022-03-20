@@ -1,6 +1,5 @@
 #define NENT_DEPRECATED
 #include "global.h"
-#include "entity.h"
 #include "room.h"
 
 extern void MemFill32(u32, void*, u32);
