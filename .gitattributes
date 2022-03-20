@@ -19,3 +19,4 @@ Makefile text eol=lf
 
 *.h linguist-language=C
 *.inc linguist-language=Assembly
+data/* linguist-language=data
