@@ -1,6 +1,8 @@
 #define NENT_DEPRECATED
+#include "asm.h"
 #include "global.h"
 #include "entity.h"
+#include "functions.h"
 #include "map.h"
 #include "player.h"
 #include "room.h"
@@ -213,13 +215,13 @@ u32 sub_0804A168(Entity* entA, Entity* entB, LayerStruct* layer) {
         tile1 = TILE(uVar2, entA->y.HALF.HI + 10);
         tile2 = TILE(uVar2, entB->y.HALF.HI);
 
-        if (sub_0804A4BC(layer->collisionData + tile1, layer->collisionData + tile2, 0x40, uVar3)) {
+        if (sub_0804A4BC(&layer->collisionData[tile1], &layer->collisionData[tile2], 0x40, uVar3)) {
             uVar2 = entA->x.HALF.HI + 4;
             uVar3 ^= 0xF;
             tile1 = TILE(uVar2, entA->y.HALF.HI + 10);
             tile2 = TILE(uVar2, entB->y.HALF.HI);
 
-            if (sub_0804A4BC(layer->collisionData + tile1, layer->collisionData + tile2, 0x40, uVar3)) {
+            if (sub_0804A4BC(&layer->collisionData[tile1], &layer->collisionData[tile2], 0x40, uVar3)) {
                 return 0x10;
             }
         }
@@ -229,13 +231,13 @@ u32 sub_0804A168(Entity* entA, Entity* entB, LayerStruct* layer) {
         tile1 = TILE(uVar2, entA->y.HALF.HI - 10);
         tile2 = TILE(uVar2, entB->y.HALF.HI);
 
-        if (sub_0804A4BC(layer->collisionData + tile1, layer->collisionData + tile2, -0x40, uVar3)) {
+        if (sub_0804A4BC(&layer->collisionData[tile1], &layer->collisionData[tile2], -0x40, uVar3)) {
             uVar2 = entA->x.HALF.HI + 4;
             uVar3 ^= 0xF;
             tile1 = TILE(uVar2, entA->y.HALF.HI - 10);
             tile2 = TILE(uVar2, entB->y.HALF.HI);
 
-            if (sub_0804A4BC(layer->collisionData + tile1, layer->collisionData + tile2, -0x40, uVar3)) {
+            if (sub_0804A4BC(&layer->collisionData[tile1], &layer->collisionData[tile2], -0x40, uVar3)) {
                 return 0;
             }
         }
@@ -255,13 +257,13 @@ u32 sub_0804A318(Entity* entA, Entity* entB, LayerStruct* layer) {
         tile1 = TILE(entA->x.HALF.HI + 10, uVar2);
         tile2 = TILE(entB->x.HALF.HI, uVar2);
 
-        if (sub_0804A4BC(layer->collisionData + tile1, layer->collisionData + tile2, 1, uVar3)) {
+        if (sub_0804A4BC(&layer->collisionData[tile1], &layer->collisionData[tile2], 1, uVar3)) {
             uVar2 = entA->y.HALF.HI + 4;
             uVar3 ^= 0xF;
             tile1 = TILE(entA->x.HALF.HI + 10, uVar2);
             tile2 = TILE(entB->x.HALF.HI, uVar2);
 
-            if (sub_0804A4BC(layer->collisionData + tile1, layer->collisionData + tile2, 1, uVar3)) {
+            if (sub_0804A4BC(&layer->collisionData[tile1], &layer->collisionData[tile2], 1, uVar3)) {
                 return 8;
             }
         }
@@ -271,12 +273,12 @@ u32 sub_0804A318(Entity* entA, Entity* entB, LayerStruct* layer) {
         tile1 = TILE(entA->x.HALF.HI - 10, uVar2);
         tile2 = TILE(entB->x.HALF.HI, uVar2);
 
-        if (sub_0804A4BC(layer->collisionData + tile1, layer->collisionData + tile2, -1, uVar3)) {
+        if (sub_0804A4BC(&layer->collisionData[tile1], &layer->collisionData[tile2], -1, uVar3)) {
             uVar2 = entA->y.HALF.HI + 4;
             uVar3 ^= 0xF;
             tile1 = TILE(entA->x.HALF.HI - 10, uVar2);
             tile2 = TILE(entB->x.HALF.HI, uVar2);
-            if (sub_0804A4BC(layer->collisionData + tile1, layer->collisionData + tile2, -1, uVar3)) {
+            if (sub_0804A4BC(&layer->collisionData[tile1], &layer->collisionData[tile2], -1, uVar3)) {
                 return 0x18;
             }
         }
