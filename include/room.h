@@ -96,10 +96,10 @@ typedef struct {
 } EntityData;
 
 typedef struct {
-    u16 field_0x0;
+    u16 tilePos;
     u16 field_0x2;
-    u8 field_0x4;
-    u8 field_0x5;
+    u8 room;
+    u8 animationState;
     u8 field_0x6;
     u8 field_0x7;
 } struct_030010EC;
