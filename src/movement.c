@@ -6,6 +6,7 @@
 #include "asm.h"
 #include "item.h"
 #include "coord.h"
+#include "transitions.h"
 #include "functions.h"
 
 /** Collisions. */
@@ -28,12 +29,6 @@ typedef enum {
     COL_EAST_FULL = 0x6000,
     COL_EAST_ANY = 0xe000,
 } Collisions;
-
-extern u8 gExitList_RoyalValley_ForestMaze[];
-extern u8 gUnk_08135190[];
-extern u8 gUnk_08134FBC[];
-extern u8 gUnk_08135048[];
-extern u8 gUnk_0813A76C[];
 
 bool32 IsTileCollision(const u8*, s32, s32, u32);
 void CalculateEntityTileCollisions(Entity*, u32, u32);
@@ -2269,28 +2264,27 @@ void ProcessMovementInternal2(Entity* this, u32 direction, u32 speed) {
 void sub_080AF250(s32 param_1) {
     gArea.pCurrentRoomInfo = GetCurrentRoomInfo();
     if (param_1 != 0) {
-        (gArea.pCurrentRoomInfo)->exits = gUnk_08135190;
+        gArea.pCurrentRoomInfo->exits = gUnk_08135190;
     } else {
-        (gArea.pCurrentRoomInfo)->exits = gExitList_RoyalValley_ForestMaze;
+        gArea.pCurrentRoomInfo->exits = gExitList_RoyalValley_ForestMaze;
     }
 }
 
 void sub_080AF284(void) {
     if (CheckPlayerInRegion(0x78, gRoomControls.height - 0x50, 0x78, 0x50)) {
         gArea.pCurrentRoomInfo = GetCurrentRoomInfo();
-        (gArea.pCurrentRoomInfo)->exits = gUnk_08135048;
+        gArea.pCurrentRoomInfo->exits = gUnk_08135048;
     } else {
-        if (GetInventoryValue(ITEM_FOURSWORD) == 0) {
-            return;
+        if (GetInventoryValue(ITEM_FOURSWORD) != 0) {
+            gArea.pCurrentRoomInfo = GetCurrentRoomInfo();
+            gArea.pCurrentRoomInfo->exits = gUnk_08134FBC;
         }
-        gArea.pCurrentRoomInfo = GetCurrentRoomInfo();
-        (gArea.pCurrentRoomInfo)->exits = gUnk_08134FBC;
     }
 }
 
 void sub_080AF2E4(void) {
     if (GetInventoryValue(ITEM_FOURSWORD)) {
         gArea.pCurrentRoomInfo = GetCurrentRoomInfo();
-        (gArea.pCurrentRoomInfo)->exits = gUnk_0813A76C;
+        gArea.pCurrentRoomInfo->exits = gUnk_0813A76C;
     }
 }

@@ -2,6 +2,7 @@
 #define AREA_H
 
 #include "global.h"
+#include "transitions.h"
 
 #define MAX_ROOMS 64
 
@@ -14,7 +15,7 @@ typedef struct {
     void* map;
     void* metatiles;
     void* bg_anim;
-    void* exits;
+    const Transition* exits;
     void** properties;
 } RoomResInfo;
 static_assert(sizeof(RoomResInfo) == 0x20);

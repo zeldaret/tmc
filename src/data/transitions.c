@@ -1,24 +1,5 @@
-#include "global.h"
+#include "transitions.h"
 #include "area.h"
-
-typedef struct Transition {
-    u8 warp_type;
-    u8 subtype;
-    u16 startX;
-    u16 startY;
-    u16 endX;
-    u16 endY;
-    u8 shape;
-    u8 area;
-    u8 room;
-    u8 height;
-    u8 transition_type;
-    u8 facing_direction;
-    u8 unk0;
-    u8 unk1;
-    u8 unk2;
-    u8 unk3;
-} Transition;
 
 // this terminates a list of Transitions
 #define TransitionListEnd \
@@ -420,7 +401,6 @@ const Transition gExitList_RoyalValley_Main[] = {
     { 0x1, 0x0, 0x78, 0x328, 0x78, 0x98, 0x0, AREA_ROYAL_VALLEY, 0x1, 0x1, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0 },
     TransitionListEnd,
 };
-
 const Transition gExitList_RoyalValley_ForestMaze[] = {
     { 0x0, 0x0, 0x0, 0x0, 0x78, 0x338, 0x30, AREA_ROYAL_VALLEY, 0x0, 0x1, 0x0, 0x4, 0x0, 0x0, 0x0, 0x0 },
     TransitionListEnd,

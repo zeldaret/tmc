@@ -30,6 +30,7 @@
 #include "subtask.h"
 #include "itemMetaData.h"
 #include "player.h"
+#include "transitions.h"
 
 // Game task
 
@@ -82,7 +83,6 @@ extern void** gAreaTilesets[];
 extern void** gAreaRoomMaps[];
 extern void* gAreaMetatiles[];
 extern void* gUnk_080B755C[];
-extern void** gExitLists[];
 extern void** gAreaTable[];
 
 extern void CreateDialogBox(u32, u32);
@@ -1438,7 +1438,7 @@ static void InitRoomResInfo(RoomResInfo* info, RoomHeader* r_hdr, u32 area, u32 
     info->map = *(gAreaRoomMaps[area] + room);
     info->metatiles = gAreaMetatiles[area];
     info->bg_anim = gUnk_080B755C[area];
-    info->exits = *(gExitLists[area] + room);
+    info->exits = gExitLists[area][room];
     if (gAreaTable[area] != NULL) {
         info->properties = *(gAreaTable[area] + room);
     }
