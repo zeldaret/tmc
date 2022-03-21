@@ -760,7 +760,7 @@ SECTIONS {
         src/object/object86.o(.text);
         src/object/octorokBossObject.o(.text);
         src/object/macroBook.o(.text);
-        asm/object/mazaalBossObject.o(.text);
+        src/object/mazaalBossObject.o(.text);
         src/object/cabinFurniture.o(.text);
         src/object/doubleBookshelf.o(.text);
         src/object/book.o(.text);
@@ -1509,7 +1509,7 @@ SECTIONS {
         src/object/octorokBossObject.o(.rodata);
         src/object/macroBook.o(.rodata);
         data/animations/object/macroBook.o(.rodata);
-        data/const/object/mazaalBossObject.o(.rodata);
+        src/object/mazaalBossObject.o(.rodata);
         src/object/cabinFurniture.o(.rodata);
         src/object/doubleBookshelf.o(.rodata);
         src/object/book.o(.rodata);
