@@ -40,13 +40,14 @@ void MazaalBossObject_Action5(MazaalBossObjectEntity* this); // 0809AC3C
 void MazaalBossObject_Action6(MazaalBossObjectEntity* this); // 0809ACA0
 void MazaalBossObject_Action7(MazaalBossObjectEntity* this); // 0809ACCC
 void MazaalBossObject_Action8(MazaalBossObjectEntity* this); // 0809ACE8
-void sub_0809AD68(MazaalBossObjectEntity* this); // 0809AD68
-void sub_0809AD8C(MazaalBossObjectEntity* this); // 0809AD8C
+void sub_0809AD68(MazaalBossObjectEntity* this);             // 0809AD68
+void sub_0809AD8C(MazaalBossObjectEntity* this);             // 0809AD8C
 
 void MazaalBossObject(Entity* thisx) {
     static void (*const MazaalBossObject_Actions[])(MazaalBossObjectEntity*) = {
-        MazaalBossObject_Action0, MazaalBossObject_Action1, MazaalBossObject_Action2, MazaalBossObject_Action3, MazaalBossObject_Action4,
-        MazaalBossObject_Action5, MazaalBossObject_Action6, MazaalBossObject_Action7, MazaalBossObject_Action8,
+        MazaalBossObject_Action0, MazaalBossObject_Action1, MazaalBossObject_Action2,
+        MazaalBossObject_Action3, MazaalBossObject_Action4, MazaalBossObject_Action5,
+        MazaalBossObject_Action6, MazaalBossObject_Action7, MazaalBossObject_Action8,
     };
 
     MazaalBossObject_Actions[thisx->action]((MazaalBossObjectEntity*)thisx);
@@ -115,11 +116,11 @@ void MazaalBossObject_Action4(MazaalBossObjectEntity* this) {
             super->action = MAZAAL_BOSS_OBJECT_ACTION_5;
             super->actionDelay = 8;
             super->field_0xf = 0;
-            super->spriteRendering.alphaBlend = 1;
+            super->spriteRendering.alphaBlend = BLDALPHA_BLEND(1, 0);
 
             gScreen.controls.layerFXControl =
                 BLDCNT_TGT2_BG3 | BLDCNT_TGT2_BG2 | BLDCNT_TGT2_BG1 | BLDCNT_TGT2_BG0 | BLDCNT_EFFECT_BLEND;
-            gScreen.controls.alphaBlend = 0x10;
+            gScreen.controls.alphaBlend = BLDALPHA_BLEND(0x10, 0);
         }
     }
 }
@@ -135,7 +136,7 @@ void MazaalBossObject_Action5(MazaalBossObjectEntity* this) {
         gScreen.controls.alphaBlend = BLDALPHA_BLEND((0x10 - tmp) & 0xFF, tmp);
 
         if (super->field_0xf > 15) {
-            super->spriteRendering.alphaBlend = 4;
+            super->spriteRendering.alphaBlend = BLDALPHA_BLEND(4, 0);
             gScreen.controls.layerFXControl = 0;
             super->action = MAZAAL_BOSS_OBJECT_ACTION_6;
             super->actionDelay = 15;
