@@ -31,6 +31,7 @@
 #include "itemMetaData.h"
 #include "player.h"
 #include "transitions.h"
+#include "roomid.h"
 
 // Game task
 
@@ -195,7 +196,7 @@ typedef struct {
 
 typedef struct {
     u8 area;
-    u8 room;
+    RoomID room : 8;
     u8 _2;
     u8 _3;
     u16 x;

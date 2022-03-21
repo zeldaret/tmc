@@ -1,6 +1,7 @@
 #ifndef TMC_TRANSITIONS_H
 #define TMC_TRANSITIONS_H
 #include "global.h"
+#include "roomid.h"
 
 typedef struct Transition {
     u8 warp_type;
@@ -11,7 +12,7 @@ typedef struct Transition {
     u16 endY;
     u8 shape;
     u8 area;
-    u8 room;
+    RoomID room : 8;
     u8 height;
     u8 transition_type;
     u8 facing_direction;
