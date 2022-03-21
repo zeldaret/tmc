@@ -2876,13 +2876,13 @@
     "type": "map_layer1"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishPaths1_2_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_MinishPaths_2_0.4bpp.lz",
     "start": 4258544,
     "size": 7044,
     "type": "tileset"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishPaths1_2_1.4bpp.lz",
+    "path": "tilesets/gAreaTileset_MinishPaths_2_1.4bpp.lz",
     "start": 4265588,
     "size": 6917,
     "type": "tileset"
@@ -2900,31 +2900,31 @@
     "type": "metatiles_tile_types2"
   },
   {
-    "path": "assets/gAreaRoomMap_MinishPaths1_0_0.bin",
+    "path": "assets/gAreaRoomMap_MinishPaths_0_0.bin",
     "start": 4276028,
     "size": 446,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_MinishPaths1_1_0.bin",
+    "path": "assets/gAreaRoomMap_MinishPaths_1_0.bin",
     "start": 4276476,
     "size": 534,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_MinishPaths1_2_0.bin",
+    "path": "assets/gAreaRoomMap_MinishPaths_2_0.bin",
     "start": 4277012,
     "size": 554,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_MinishPaths1_3_0.bin",
+    "path": "assets/gAreaRoomMap_MinishPaths_3_0.bin",
     "start": 4277568,
     "size": 520,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_MinishPaths1_4_0.bin",
+    "path": "assets/gAreaRoomMap_MinishPaths_4_0.bin",
     "start": 4278088,
     "size": 413,
     "type": "map_layer2"

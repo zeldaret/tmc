@@ -177,69 +177,69 @@ void sub_unk1_CrenelMinishPaths_MelarisMine(void) {
     sub_080580B0(34);
 }
 
-u32 sub_unk3_MinishPaths1_ToMinishVillage(void) {
+u32 sub_unk3_MinishPaths_ToMinishVillage(void) {
     return 1;
 }
 
-void sub_StateChange_MinishPaths1_ToMinishVillage(void) {
+void sub_StateChange_MinishPaths_ToMinishVillage(void) {
     sub_080575C8(30);
 }
 
-void sub_unk1_MinishPaths1_ToMinishVillage(void) {
+void sub_unk1_MinishPaths_ToMinishVillage(void) {
     sub_080575C8(30);
 }
 
-u32 sub_unk3_MinishPaths1_CastorWilds(void) {
+u32 sub_unk3_MinishPaths_CastorWilds(void) {
     return 1;
 }
 
-void sub_StateChange_MinishPaths1_CastorWilds(void) {
+void sub_StateChange_MinishPaths_CastorWilds(void) {
     sub_080575C8(33);
 }
 
-void sub_unk1_MinishPaths1_CastorWilds(void) {
+void sub_unk1_MinishPaths_CastorWilds(void) {
     sub_080575C8(33);
 }
 
-u32 sub_unk3_MinishPaths1_HyruleTown(void) {
+u32 sub_unk3_MinishPaths_HyruleTown(void) {
     return 1;
 }
 
-void sub_StateChange_MinishPaths1_HyruleTown(void) {
+void sub_StateChange_MinishPaths_HyruleTown(void) {
     sub_080575C8(31);
 }
 
-void sub_unk1_MinishPaths1_HyruleTown(void) {
+void sub_unk1_MinishPaths_HyruleTown(void) {
     sub_080575C8(31);
 }
 
-u32 sub_unk3_MinishPaths1_LonLonRanch(void) {
+u32 sub_unk3_MinishPaths_LonLonRanch(void) {
     return 1;
 }
 
-void sub_StateChange_MinishPaths1_LonLonRanch(void) {
+void sub_StateChange_MinishPaths_LonLonRanch(void) {
     sub_080575C8(32);
 }
 
-void sub_unk1_MinishPaths1_LonLonRanch(void) {
+void sub_unk1_MinishPaths_LonLonRanch(void) {
     sub_080575C8(32);
 }
 
-u32 sub_unk3_MinishPaths1_MayorsCabin(void) {
+u32 sub_unk3_MinishPaths_MayorsCabin(void) {
     return 1;
 }
 
-extern EntityData Entities_MinishPaths1_MayorsCabin_gUnk_080D6138;
+extern EntityData Entities_MinishPaths_MayorsCabin_gUnk_080D6138;
 
-void sub_StateChange_MinishPaths1_MayorsCabin(void) {
+void sub_StateChange_MinishPaths_MayorsCabin(void) {
 
     sub_080575C8(0x20);
 
     if (gPlayerEntity.y.HALF.HI - gRoomControls.origin_y > 0x40)
-        LoadRoomEntityList(&Entities_MinishPaths1_MayorsCabin_gUnk_080D6138);
+        LoadRoomEntityList(&Entities_MinishPaths_MayorsCabin_gUnk_080D6138);
 }
 
-void sub_unk1_MinishPaths1_MayorsCabin(void) {
+void sub_unk1_MinishPaths_MayorsCabin(void) {
     sub_080575C8(32);
 }
 
@@ -5703,7 +5703,7 @@ void sub_StateChange_HyruleField_WesternWoodSouth(void) {
     Manager18_Main(0);
 }
 
-u32 sub_unk3_HyruleField_LinksHouseExterior(void) {
+u32 sub_unk3_HyruleField_SouthHyruleField(void) {
 #if defined(JP) || defined(EU) || defined(DEMO_JP)
     if (!CheckLocalFlag(0x6b)) {
 #else
@@ -5719,7 +5719,7 @@ extern EntityData gUnk_080F70A8;
 extern EntityData gUnk_080F70D8;
 extern EntityData gUnk_080F7088;
 
-void sub_StateChange_HyruleField_LinksHouseExterior(void) {
+void sub_StateChange_HyruleField_SouthHyruleField(void) {
     Manager18_Main(NULL);
 #if defined(JP) || defined(EU) || defined(DEMO_JP)
     if (!CheckLocalFlag(0x6b)) {
@@ -5740,31 +5740,31 @@ void sub_StateChange_HyruleField_LinksHouseExterior(void) {
     }
 }
 
-void sub_unk1_HyruleField_LinksHouseExterior(void) {
+void sub_unk1_HyruleField_SouthHyruleField(void) {
     if ((gSave.windcrests & 0x40000000) == 0) {
         LoadRoomEntityList(&gUnk_080F70D8);
     }
 }
 
-u32 sub_unk3_HyruleField_FromMinishWoods(void) {
+u32 sub_unk3_HyruleField_EasternHillsSouth(void) {
     return 1;
 }
 
-void sub_StateChange_HyruleField_FromMinishWoods(void) {
+void sub_StateChange_HyruleField_EasternHillsSouth(void) {
     Manager18_Main(NULL);
 }
 
-u32 sub_unk3_HyruleField_FromMinishWoodsNorth(void) {
+u32 sub_unk3_HyruleField_EasternHillsCenter(void) {
     return 1;
 }
 
-void sub_StateChange_HyruleField_FromMinishWoodsNorth(void) {
+void sub_StateChange_HyruleField_EasternHillsCenter(void) {
     Manager18_Main(NULL);
 }
 
 extern u32 gUnk_080F7680;
 
-u32 sub_unk3_HyruleField_Farmers(void) {
+u32 sub_unk3_HyruleField_EasternHillsNorth(void) {
     if (GetInventoryValue(ITEM_GUST_JAR) && !GetInventoryValue(ITEM_PACCI_CANE)) {
         gRoomVars.field_0x6c[2] = &gUnk_080F7680;
     }
@@ -5774,7 +5774,7 @@ u32 sub_unk3_HyruleField_Farmers(void) {
 extern EntityData gUnk_080F7500;
 extern EntityData gUnk_080F7550;
 
-void sub_StateChange_HyruleField_Farmers(void) {
+void sub_StateChange_HyruleField_EasternHillsNorth(void) {
     Manager18_Main(NULL);
     if (gSave.global_progress > 3) {
         LoadRoomEntityList(&gUnk_080F7500);
@@ -6030,26 +6030,26 @@ void sub_0804F9C8(void) {
     sub_0807BA8C(0x4d9, 1);
 }
 
-u32 sub_unk3_HyruleField_OutsideCastleWest(void) {
+u32 sub_unk3_HyruleField_TrilbyHighlands(void) {
     return 1;
 }
 
 extern EntityData gUnk_080F806C;
 
-void sub_StateChange_HyruleField_OutsideCastleWest(void) {
+void sub_StateChange_HyruleField_TrilbyHighlands(void) {
     Manager18_Main(NULL);
     if ((gSave.global_progress > 3) && CheckGlobalFlag(TINGLE_TALK1ST)) {
         LoadRoomEntityList(&gUnk_080F806C);
     }
 }
 
-u32 sub_unk3_HyruleField_TrilbyHighlands(void) {
+u32 sub_unk3_HyruleField_WesternWoodsNorth(void) {
     return 1;
 }
 
 extern EntityData gUnk_080F82E0;
 
-void sub_StateChange_HyruleField_TrilbyHighlands(void) {
+void sub_StateChange_HyruleField_WesternWoodsNorth(void) {
     Manager18_Main(NULL);
 #if defined(JP) || defined(EU) || defined(DEMO_JP)
     if (CheckGlobalFlag(LV2_CLEAR) && GetInventoryValue(ITEM_RED_SWORD) && !CheckLocalFlag(0x9b)) {
@@ -6060,13 +6060,13 @@ void sub_StateChange_HyruleField_TrilbyHighlands(void) {
     }
 }
 
-u32 sub_unk3_HyruleField_PercysHouse(void) {
+u32 sub_unk3_HyruleField_WesternWoodsCenter(void) {
     return 1;
 }
 
 extern EntityData gUnk_080F8430;
 
-void sub_StateChange_HyruleField_PercysHouse(void) {
+void sub_StateChange_HyruleField_WesternWoodsCenter(void) {
     Manager18_Main(NULL);
     if (CheckKinstoneFused(0x21) && !CheckLocalFlagByBank(0x200, 0x42)) {
         LoadRoomEntityList(&gUnk_080F8430);

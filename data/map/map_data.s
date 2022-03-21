@@ -1275,29 +1275,29 @@ gAreaRoomMap_MelarisMine_0_0::
 gAreaRoomMap_MelarisMine_0_1::
 	.incbin "assets/gAreaRoomMap_MelarisMine_0_1.bin"
 	.align 2
-gAreaTileset_MinishPaths1_2_0::
-	.incbin "tilesets/gAreaTileset_MinishPaths1_2_0.4bpp.lz"
-gAreaTileset_MinishPaths1_2_1::
-	.incbin "tilesets/gAreaTileset_MinishPaths1_2_1.4bpp.lz"
+gAreaTileset_MinishPaths_2_0::
+	.incbin "tilesets/gAreaTileset_MinishPaths_2_0.4bpp.lz"
+gAreaTileset_MinishPaths_2_1::
+	.incbin "tilesets/gAreaTileset_MinishPaths_2_1.4bpp.lz"
 	.align 2
 gAreaMetatiles_MnishPaths1_0::
 	.incbin "assets/gAreaMetatiles_MnishPaths1_0.bin"
 	.align 2
 gAreaMetatiles_MnishPaths1_1::
 	.incbin "assets/gAreaMetatiles_MnishPaths1_1.bin"
-gAreaRoomMap_MinishPaths1_0_0::
-	.incbin "assets/gAreaRoomMap_MinishPaths1_0_0.bin"
+gAreaRoomMap_MinishPaths_0_0::
+	.incbin "assets/gAreaRoomMap_MinishPaths_0_0.bin"
 	.align 2
-gAreaRoomMap_MinishPaths1_1_0::
-	.incbin "assets/gAreaRoomMap_MinishPaths1_1_0.bin"
+gAreaRoomMap_MinishPaths_1_0::
+	.incbin "assets/gAreaRoomMap_MinishPaths_1_0.bin"
 	.align 2
-gAreaRoomMap_MinishPaths1_2_0::
-	.incbin "assets/gAreaRoomMap_MinishPaths1_2_0.bin"
+gAreaRoomMap_MinishPaths_2_0::
+	.incbin "assets/gAreaRoomMap_MinishPaths_2_0.bin"
 	.align 2
-gAreaRoomMap_MinishPaths1_3_0::
-	.incbin "assets/gAreaRoomMap_MinishPaths1_3_0.bin"
-gAreaRoomMap_MinishPaths1_4_0::
-	.incbin "assets/gAreaRoomMap_MinishPaths1_4_0.bin"
+gAreaRoomMap_MinishPaths_3_0::
+	.incbin "assets/gAreaRoomMap_MinishPaths_3_0.bin"
+gAreaRoomMap_MinishPaths_4_0::
+	.incbin "assets/gAreaRoomMap_MinishPaths_4_0.bin"
 	.align 2
 gAreaTileset_CrenelMinishPaths_0_0::
 	.incbin "tilesets/gAreaTileset_CrenelMinishPaths_0_0.4bpp.lz"

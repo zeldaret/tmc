@@ -119,7 +119,7 @@ gAreaRoomHeaders_MelarisMine:: @ 0811C6F6
 	room_header 0x00, 0x00, 0x2d0, 0x270, 0
 	.2byte 0xFFFF
 
-gAreaRoomHeaders_MinishPaths1:: @ 0811C702
+gAreaRoomHeaders_MinishPaths:: @ 0811C702
 	room_header 0x02, 0x04, 0xf0, 0x320, 0
 	room_header 0x16, 0x04, 0xf0, 0x320, 1
 	room_header 0x2a, 0x04, 0xf0, 0x320, 2
@@ -1040,7 +1040,7 @@ gAreaRoomHeaders:: @ 0811E214
 	.4byte gAreaRoomHeaders_Empty                   @ 0xE
 	.4byte gAreaRoomHeaders_HyruleDigCaves          @ 0xF
 	.4byte gAreaRoomHeaders_MelarisMine             @ 0x10
-	.4byte gAreaRoomHeaders_MinishPaths1            @ 0x11
+	.4byte gAreaRoomHeaders_MinishPaths            @ 0x11
 	.4byte gAreaRoomHeaders_CrenelMinishPaths       @ 0x12
 	.4byte gAreaRoomHeaders_DigCaves1               @ 0x13
 	.4byte gAreaRoomHeaders_CrenelDigCave           @ 0x14

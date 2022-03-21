@@ -3,8 +3,14 @@
 #include "global.h"
 #include "roomid.h"
 
+typedef enum {
+    WARP_TYPE_0,
+    WARP_TYPE_1,
+    WARP_TYPE_END_OF_LIST = -1,
+} WarpType;
+
 typedef struct Transition {
-    u8 warp_type;
+    WarpType warp_type : 8;
     u8 subtype;
     u16 startX;
     u16 startY;

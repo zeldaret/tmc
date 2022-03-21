@@ -502,27 +502,27 @@ gAreaRoomMap_MelarisMine_0:: @ 08103C88
 gAreaRoomMaps_MelarisMine:: @ 08103CA0
 	.4byte gAreaRoomMap_MelarisMine_0
 
-gAreaRoomMap_MinishPaths1_0:: @ 08103CA4
-	map_bottom offset_gAreaRoomMap_MinishPaths1_0_0, 0x5DC, 1, 1
+gAreaRoomMap_MinishPaths_0:: @ 08103CA4
+	map_bottom offset_gAreaRoomMap_MinishPaths_0_0, 0x5DC, 1, 1
 
-gAreaRoomMap_MinishPaths1_1:: @ 08103CB0
-	map_bottom offset_gAreaRoomMap_MinishPaths1_1_0, 0x5DC, 1, 1
+gAreaRoomMap_MinishPaths_1:: @ 08103CB0
+	map_bottom offset_gAreaRoomMap_MinishPaths_1_0, 0x5DC, 1, 1
 
-gAreaRoomMap_MinishPaths1_2:: @ 08103CBC
-	map_bottom offset_gAreaRoomMap_MinishPaths1_2_0, 0x5DC, 1, 1
+gAreaRoomMap_MinishPaths_2:: @ 08103CBC
+	map_bottom offset_gAreaRoomMap_MinishPaths_2_0, 0x5DC, 1, 1
 
-gAreaRoomMap_MinishPaths1_3:: @ 08103CC8
-	map_bottom offset_gAreaRoomMap_MinishPaths1_3_0, 0x5DC, 1, 1
+gAreaRoomMap_MinishPaths_3:: @ 08103CC8
+	map_bottom offset_gAreaRoomMap_MinishPaths_3_0, 0x5DC, 1, 1
 
-gAreaRoomMap_MinishPaths1_4:: @ 08103CD4
-	map_bottom offset_gAreaRoomMap_MinishPaths1_4_0, 0x5DC, 1, 1
+gAreaRoomMap_MinishPaths_4:: @ 08103CD4
+	map_bottom offset_gAreaRoomMap_MinishPaths_4_0, 0x5DC, 1, 1
 
-gAreaRoomMaps_MinishPaths1:: @ 08103CE0
-	.4byte gAreaRoomMap_MinishPaths1_0
-	.4byte gAreaRoomMap_MinishPaths1_1
-	.4byte gAreaRoomMap_MinishPaths1_2
-	.4byte gAreaRoomMap_MinishPaths1_3
-	.4byte gAreaRoomMap_MinishPaths1_4
+gAreaRoomMaps_MinishPaths:: @ 08103CE0
+	.4byte gAreaRoomMap_MinishPaths_0
+	.4byte gAreaRoomMap_MinishPaths_1
+	.4byte gAreaRoomMap_MinishPaths_2
+	.4byte gAreaRoomMap_MinishPaths_3
+	.4byte gAreaRoomMap_MinishPaths_4
 
 gAreaRoomMap_CrenelMinishPaths_0:: @ 08103CF4
 	map_bottom offset_gAreaRoomMap_CrenelMinishPaths_0_0, 0x5DC, 1, 1
@@ -3472,7 +3472,7 @@ gAreaRoomMaps:: @ 08107988
 	.4byte gAreaRoomMaps_Empty                   @ 0xE
 	.4byte gAreaRoomMaps_HyruleDigCaves          @ 0xF
 	.4byte gAreaRoomMaps_MelarisMine             @ 0x10
-	.4byte gAreaRoomMaps_MinishPaths1            @ 0x11
+	.4byte gAreaRoomMaps_MinishPaths            @ 0x11
 	.4byte gAreaRoomMaps_CrenelMinishPaths       @ 0x12
 	.4byte gAreaRoomMaps_DigCaves1               @ 0x13
 	.4byte gAreaRoomMaps_CrenelDigCave           @ 0x14

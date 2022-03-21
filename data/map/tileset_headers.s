@@ -311,25 +311,25 @@ gAreaTileset_MelarisMine_0:: @ 08101430
 gAreaTilesets_MelarisMine:: @ 08101460
 	.4byte gAreaTileset_MelarisMine_0
 
-gAreaTileset_MinishPaths1_0:: @ 08101464
-	tileset_tiles offset_gAreaTileset_MinishPaths1_2_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_MinishPaths1_2_1, 0x6004000, 0x4000, 1
+gAreaTileset_MinishPaths_0:: @ 08101464
+	tileset_tiles offset_gAreaTileset_MinishPaths_2_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MinishPaths_2_1, 0x6004000, 0x4000, 1
 	tileset_palette_set 18, 1
 
-gAreaTileset_MinishPaths1_1:: @ 08101488
-	tileset_tiles offset_gAreaTileset_MinishPaths1_2_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_MinishPaths1_2_1, 0x6004000, 0x4000, 1
+gAreaTileset_MinishPaths_1:: @ 08101488
+	tileset_tiles offset_gAreaTileset_MinishPaths_2_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MinishPaths_2_1, 0x6004000, 0x4000, 1
 	tileset_palette_set 63, 1
 
-gAreaTileset_MinishPaths1_2:: @ 081014AC
-	tileset_tiles offset_gAreaTileset_MinishPaths1_2_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_MinishPaths1_2_1, 0x6004000, 0x4000, 1
+gAreaTileset_MinishPaths_2:: @ 081014AC
+	tileset_tiles offset_gAreaTileset_MinishPaths_2_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MinishPaths_2_1, 0x6004000, 0x4000, 1
 	tileset_palette_set 64, 1
 
-gAreaTilesets_MinishPaths1:: @ 081014D0
-	.4byte gAreaTileset_MinishPaths1_0
-	.4byte gAreaTileset_MinishPaths1_1
-	.4byte gAreaTileset_MinishPaths1_2
+gAreaTilesets_MinishPaths:: @ 081014D0
+	.4byte gAreaTileset_MinishPaths_0
+	.4byte gAreaTileset_MinishPaths_1
+	.4byte gAreaTileset_MinishPaths_2
 
 gAreaTileset_CrenelMinishPaths_0:: @ 081014DC
 	tileset_tiles offset_gAreaTileset_CrenelMinishPaths_0_0, 0x6000000, 0x4000, 1
@@ -1021,7 +1021,7 @@ gAreaTilesets:: @ 0810246C
 	.4byte gAreaTilesets_MinishWoods             @ 0xE
 	.4byte gAreaTilesets_HyruleDigCaves          @ 0xF
 	.4byte gAreaTilesets_MelarisMine             @ 0x10
-	.4byte gAreaTilesets_MinishPaths1            @ 0x11
+	.4byte gAreaTilesets_MinishPaths            @ 0x11
 	.4byte gAreaTilesets_CrenelMinishPaths       @ 0x12
 	.4byte gAreaTilesets_DigCaves1               @ 0x13
 	.4byte gAreaTilesets_CrenelDigCave           @ 0x14

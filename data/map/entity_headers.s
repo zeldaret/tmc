@@ -58,12 +58,12 @@ Area_MinishVillage:: @ 080D4170
 	.4byte 0x0
 	.4byte 0x0
 
-Area_MinishPaths1:: @ 080D41B0
-	.4byte Room_MinishPaths1_ToMinishVillage
-	.4byte Room_MinishPaths1_CastorWilds
-	.4byte Room_MinishPaths1_HyruleTown
-	.4byte Room_MinishPaths1_LonLonRanch
-	.4byte Room_MinishPaths1_MayorsCabin
+Area_MinishPaths:: @ 080D41B0
+	.4byte Room_MinishPaths_ToMinishVillage
+	.4byte Room_MinishPaths_CastorWilds
+	.4byte Room_MinishPaths_HyruleTown
+	.4byte Room_MinishPaths_LonLonRanch
+	.4byte Room_MinishPaths_MayorsCabin
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
@@ -149,15 +149,15 @@ Area_HyruleTownMinishCaves:: @ 080D4284
 
 Area_HyruleField:: @ 080D42DC
 	.4byte Room_HyruleField_WesternWoodSouth
-	.4byte Room_HyruleField_LinksHouseExterior
-	.4byte Room_HyruleField_FromMinishWoods
-	.4byte Room_HyruleField_FromMinishWoodsNorth
-	.4byte Room_HyruleField_Farmers
+	.4byte Room_HyruleField_SouthHyruleField
+	.4byte Room_HyruleField_EasternHillsSouth
+	.4byte Room_HyruleField_EasternHillsCenter
+	.4byte Room_HyruleField_EasternHillsNorth
 	.4byte Room_HyruleField_LonLonRanch
 	.4byte Room_HyruleField_OutsideCastle
-	.4byte Room_HyruleField_OutsideCastleWest
 	.4byte Room_HyruleField_TrilbyHighlands
-	.4byte Room_HyruleField_PercysHouse
+	.4byte Room_HyruleField_WesternWoodsNorth
+	.4byte Room_HyruleField_WesternWoodsCenter
 
 Area_CastorWilds:: @ 080D4304
 	.4byte Room_CastorWilds_Main
@@ -1231,7 +1231,7 @@ gAreaTable:: @ 080D50FC
 	.4byte Area_Empty                   @ 0xE
 	.4byte Area_HyruleDigCaves          @ 0xF
 	.4byte Area_MelarisMine             @ 0x10
-	.4byte Area_MinishPaths1            @ 0x11
+	.4byte Area_MinishPaths            @ 0x11
 	.4byte Area_CrenelMinishPaths       @ 0x12
 	.4byte Area_DigCaves1               @ 0x13
 	.4byte Area_CrenelDigCave           @ 0x14
@@ -1738,10 +1738,10 @@ Room_CrenelMinishPaths_MelarisMine:: @ 080D5C38
 	.4byte sub_unk3_CrenelMinishPaths_MelarisMine
 	.4byte sub_StateChange_CrenelMinishPaths_MelarisMine
 
-Entities_MinishPaths1_ToMinishVillage_0:: @ 080D5C58
+Entities_MinishPaths_ToMinishVillage_0:: @ 080D5C58
 	entity_list_end
 
-Entities_MinishPaths1_ToMinishVillage_1:: @ 080D5C68
+Entities_MinishPaths_ToMinishVillage_1:: @ 080D5C68
 	object_raw subtype=0x9a, x=0x50, y=0x70, collision=1, paramA=0x2
 	object_raw subtype=0x9a, x=0x90, y=0x160, collision=1
 	object_raw subtype=0x9a, x=0xa0, y=0x230, collision=1, paramA=0x3
@@ -1752,57 +1752,57 @@ Entities_MinishPaths1_ToMinishVillage_1:: @ 080D5C68
 	manager subtype=0x2, unknown=0x18
 	entity_list_end
 
-Enemies_MinishPaths1_ToMinishVillage:: @ 080D5CF8
+Enemies_MinishPaths_ToMinishVillage:: @ 080D5CF8
 	entity_list_end
 
-TileEntities_MinishPaths1_ToMinishVillage:: @ 080D5D08
+TileEntities_MinishPaths_ToMinishVillage:: @ 080D5D08
 	tile_entity type=0x7, paramB=0x1d00
 	tile_entity_list_end
 
-Room_MinishPaths1_ToMinishVillage:: @ 080D5D18
-	.4byte Entities_MinishPaths1_ToMinishVillage_0
-	.4byte Entities_MinishPaths1_ToMinishVillage_1
-	.4byte Enemies_MinishPaths1_ToMinishVillage
-	.4byte TileEntities_MinishPaths1_ToMinishVillage
-	.4byte sub_unk1_MinishPaths1_ToMinishVillage
+Room_MinishPaths_ToMinishVillage:: @ 080D5D18
+	.4byte Entities_MinishPaths_ToMinishVillage_0
+	.4byte Entities_MinishPaths_ToMinishVillage_1
+	.4byte Enemies_MinishPaths_ToMinishVillage
+	.4byte TileEntities_MinishPaths_ToMinishVillage
+	.4byte sub_unk1_MinishPaths_ToMinishVillage
 	.4byte 0x00000000
-	.4byte sub_unk3_MinishPaths1_ToMinishVillage
-	.4byte sub_StateChange_MinishPaths1_ToMinishVillage
+	.4byte sub_unk3_MinishPaths_ToMinishVillage
+	.4byte sub_StateChange_MinishPaths_ToMinishVillage
 
-Entities_MinishPaths1_CastorWilds_0:: @ 080D5D38
+Entities_MinishPaths_CastorWilds_0:: @ 080D5D38
 	object_raw subtype=0x14, x=0x78, y=0x48, paramB=0x100
 	object_raw subtype=0x14, x=0x78, y=0x2d8, paramB=0x100
 	entity_list_end
 
-Entities_MinishPaths1_CastorWilds_1:: @ 080D5D68
+Entities_MinishPaths_CastorWilds_1:: @ 080D5D68
 	object_raw subtype=0x78, x=0xa0, y=0x90, collision=1, paramB=0x1
 	object_raw subtype=0x78, x=0x70, y=0x190, collision=1
 	object_raw subtype=0x78, x=0xa0, y=0x220, collision=1, paramB=0x2
 	manager subtype=0x2, unknown=0x18
 	entity_list_end
 
-Enemies_MinishPaths1_CastorWilds:: @ 080D5DB8
+Enemies_MinishPaths_CastorWilds:: @ 080D5DB8
 	entity_list_end
 
-TileEntities_MinishPaths1_CastorWilds:: @ 080D5DC8
+TileEntities_MinishPaths_CastorWilds:: @ 080D5DC8
 	tile_entity type=0x7, paramB=0x1f00
 	tile_entity_list_end
 
-Room_MinishPaths1_CastorWilds:: @ 080D5DD8
-	.4byte Entities_MinishPaths1_CastorWilds_0
-	.4byte Entities_MinishPaths1_CastorWilds_1
-	.4byte Enemies_MinishPaths1_CastorWilds
-	.4byte TileEntities_MinishPaths1_CastorWilds
-	.4byte sub_unk1_MinishPaths1_CastorWilds
+Room_MinishPaths_CastorWilds:: @ 080D5DD8
+	.4byte Entities_MinishPaths_CastorWilds_0
+	.4byte Entities_MinishPaths_CastorWilds_1
+	.4byte Enemies_MinishPaths_CastorWilds
+	.4byte TileEntities_MinishPaths_CastorWilds
+	.4byte sub_unk1_MinishPaths_CastorWilds
 	.4byte 0x00000000
-	.4byte sub_unk3_MinishPaths1_CastorWilds
-	.4byte sub_StateChange_MinishPaths1_CastorWilds
+	.4byte sub_unk3_MinishPaths_CastorWilds
+	.4byte sub_StateChange_MinishPaths_CastorWilds
 
-Entities_MinishPaths1_HyruleTown_0:: @ 080D5DF8
+Entities_MinishPaths_HyruleTown_0:: @ 080D5DF8
 	object_raw subtype=0x0, x=0x58, y=0x44, collision=1, paramA=0x63, paramB=0x400, paramC=0x7e0000
 	entity_list_end
 
-Entities_MinishPaths1_HyruleTown_1:: @ 080D5E18
+Entities_MinishPaths_HyruleTown_1:: @ 080D5E18
 	object_raw subtype=0x78, x=0x40, y=0x60, collision=1, paramA=0x1, paramB=0x3
 	object_raw subtype=0x78, x=0x18, y=0x68, collision=2, paramA=0x1, paramB=0x1
 	object_raw subtype=0x78, x=0xd0, y=0x98, collision=2, paramA=0x1, paramB=0x4
@@ -1821,32 +1821,32 @@ Entities_MinishPaths1_HyruleTown_1:: @ 080D5E18
 	manager subtype=0x2, unknown=0x18
 	entity_list_end
 
-Enemies_MinishPaths1_HyruleTown:: @ 080D5F28
+Enemies_MinishPaths_HyruleTown:: @ 080D5F28
 	enemy_raw subtype=0x40, x=0x80, y=0x1f0, paramB=0x40140000, paramC=0x1000020
 	entity_list_end
 
-TileEntities_MinishPaths1_HyruleTown:: @ 080D5F48
+TileEntities_MinishPaths_HyruleTown:: @ 080D5F48
 	tile_entity type=0x2, paramA=0x7f, paramB=0x6f5c, paramC=0x83
 	tile_entity type=0x2, paramA=0x80, paramB=0x705c, paramC=0x8a
 	tile_entity type=0x2, paramA=0x81, paramB=0x6f5c, paramC=0x14b
 	tile_entity type=0x7, paramB=0x2000
 	tile_entity_list_end
 
-Room_MinishPaths1_HyruleTown:: @ 080D5F70
-	.4byte Entities_MinishPaths1_HyruleTown_0
-	.4byte Entities_MinishPaths1_HyruleTown_1
-	.4byte Enemies_MinishPaths1_HyruleTown
-	.4byte TileEntities_MinishPaths1_HyruleTown
-	.4byte sub_unk1_MinishPaths1_HyruleTown
+Room_MinishPaths_HyruleTown:: @ 080D5F70
+	.4byte Entities_MinishPaths_HyruleTown_0
+	.4byte Entities_MinishPaths_HyruleTown_1
+	.4byte Enemies_MinishPaths_HyruleTown
+	.4byte TileEntities_MinishPaths_HyruleTown
+	.4byte sub_unk1_MinishPaths_HyruleTown
 	.4byte 0x00000000
-	.4byte sub_unk3_MinishPaths1_HyruleTown
-	.4byte sub_StateChange_MinishPaths1_HyruleTown
+	.4byte sub_unk3_MinishPaths_HyruleTown
+	.4byte sub_StateChange_MinishPaths_HyruleTown
 
-Entities_MinishPaths1_LonLonRanch_0:: @ 080D5F90
+Entities_MinishPaths_LonLonRanch_0:: @ 080D5F90
 	object_raw subtype=0x0, x=0x78, y=0x54, collision=1, paramA=0x63, paramB=0x400, paramC=0xba0000
 	entity_list_end
 
-Entities_MinishPaths1_LonLonRanch_1:: @ 080D5FB0
+Entities_MinishPaths_LonLonRanch_1:: @ 080D5FB0
 	object_raw subtype=0x78, x=0x10, y=0x78, collision=2, paramA=0x2
 	object_raw subtype=0x78, x=0xe0, y=0x128, collision=2, paramA=0x2, paramB=0x3
 	object_raw subtype=0x78, x=0x10, y=0x1e8, collision=2, paramA=0x2, paramB=0x1
@@ -1854,7 +1854,7 @@ Entities_MinishPaths1_LonLonRanch_1:: @ 080D5FB0
 	manager subtype=0x2, unknown=0x18
 	entity_list_end
 
-Enemies_MinishPaths1_LonLonRanch:: @ 080D6010
+Enemies_MinishPaths_LonLonRanch:: @ 080D6010
 	enemy_raw subtype=0xf, x=0x88, y=0x118, paramB=0x2c160000, paramC=0x200020
 	enemy_raw subtype=0xf, x=0x68, y=0x298, paramB=0x2c160000, paramC=0x1900020
 	enemy_raw subtype=0x11, x=0xa8, y=0x1d8, collision=1, paramA=0x1
@@ -1862,25 +1862,25 @@ Enemies_MinishPaths1_LonLonRanch:: @ 080D6010
 	enemy_raw subtype=0x11, x=0x98, y=0x48, collision=1, paramA=0x1
 	entity_list_end
 
-TileEntities_MinishPaths1_LonLonRanch:: @ 080D6070
+TileEntities_MinishPaths_LonLonRanch:: @ 080D6070
 	tile_entity_list_end
 
-Room_MinishPaths1_LonLonRanch:: @ 080D6078
-	.4byte Entities_MinishPaths1_LonLonRanch_0
-	.4byte Entities_MinishPaths1_LonLonRanch_1
-	.4byte Enemies_MinishPaths1_LonLonRanch
-	.4byte TileEntities_MinishPaths1_LonLonRanch
-	.4byte sub_unk1_MinishPaths1_LonLonRanch
+Room_MinishPaths_LonLonRanch:: @ 080D6078
+	.4byte Entities_MinishPaths_LonLonRanch_0
+	.4byte Entities_MinishPaths_LonLonRanch_1
+	.4byte Enemies_MinishPaths_LonLonRanch
+	.4byte TileEntities_MinishPaths_LonLonRanch
+	.4byte sub_unk1_MinishPaths_LonLonRanch
 	.4byte 0x00000000
-	.4byte sub_unk3_MinishPaths1_LonLonRanch
-	.4byte sub_StateChange_MinishPaths1_LonLonRanch
+	.4byte sub_unk3_MinishPaths_LonLonRanch
+	.4byte sub_StateChange_MinishPaths_LonLonRanch
 
-Entities_MinishPaths1_MayorsCabin_0:: @ 080D6098
+Entities_MinishPaths_MayorsCabin_0:: @ 080D6098
 	object_raw subtype=0x14, x=0x78, y=0x58, paramB=0x100
 	object_raw subtype=0x14, x=0x78, y=0x2b8, paramB=0x100
 	entity_list_end
 
-Entities_MinishPaths1_MayorsCabin_1:: @ 080D60C8
+Entities_MinishPaths_MayorsCabin_1:: @ 080D60C8
 	object_raw subtype=0x78, x=0x28, y=0x90, collision=2, paramA=0x3
 	object_raw subtype=0x78, x=0xe8, y=0x88, collision=2, paramA=0x3, paramB=0x2
 	object_raw subtype=0x78, x=0x28, y=0x148, collision=2, paramA=0x3, paramB=0x3
@@ -1889,7 +1889,7 @@ Entities_MinishPaths1_MayorsCabin_1:: @ 080D60C8
 	manager subtype=0x2, unknown=0x18
 	entity_list_end
 
-Entities_MinishPaths1_MayorsCabin_gUnk_080D6138:: @ 080D6138
+Entities_MinishPaths_MayorsCabin_gUnk_080D6138:: @ 080D6138
 	enemy_raw subtype=0x11, x=0x48, y=0x148
 	enemy_raw subtype=0x11, x=0xa8, y=0x148
 	enemy_raw subtype=0x11, x=0x78, y=0x158
@@ -1897,18 +1897,18 @@ Entities_MinishPaths1_MayorsCabin_gUnk_080D6138:: @ 080D6138
 	enemy_raw subtype=0x11, x=0x58, y=0x198
 	entity_list_end
 
-TileEntities_MinishPaths1_MayorsCabin:: @ 080D6198
+TileEntities_MinishPaths_MayorsCabin:: @ 080D6198
 	tile_entity_list_end
 
-Room_MinishPaths1_MayorsCabin:: @ 080D61A0
-	.4byte Entities_MinishPaths1_MayorsCabin_0
-	.4byte Entities_MinishPaths1_MayorsCabin_1
+Room_MinishPaths_MayorsCabin:: @ 080D61A0
+	.4byte Entities_MinishPaths_MayorsCabin_0
+	.4byte Entities_MinishPaths_MayorsCabin_1
 	.4byte 0x00000000
-	.4byte TileEntities_MinishPaths1_MayorsCabin
-	.4byte sub_unk1_MinishPaths1_MayorsCabin
+	.4byte TileEntities_MinishPaths_MayorsCabin
+	.4byte sub_unk1_MinishPaths_MayorsCabin
 	.4byte 0x00000000
-	.4byte sub_unk3_MinishPaths1_MayorsCabin
-	.4byte sub_StateChange_MinishPaths1_MayorsCabin
+	.4byte sub_unk3_MinishPaths_MayorsCabin
+	.4byte sub_StateChange_MinishPaths_MayorsCabin
 
 Entities_HouseInteriors1_Mayor_0:: @ 080D61C0
 	npc_raw subtype=0x4b, x=0x88, y=0x60, script=script_Mayor
@@ -19526,7 +19526,7 @@ Room_HyruleField_WesternWoodSouth:: @ 080F6FF0
 	.4byte gUnk_additional_8_HyruleField_WesternWoodSouth
 	.4byte gUnk_additional_9_HyruleField_WesternWoodSouth
 
-Entities_HyruleField_LinksHouseExterior_0:: @ 080F7018
+Entities_HyruleField_SouthHyruleField_0:: @ 080F7018
 	object_raw subtype=0x0, x=0x278, y=0x188, paramA=0x56, paramB=0x700
 	object_raw subtype=0x0, x=0x288, y=0x188, paramA=0x56, paramB=0x700
 	object_raw subtype=0x0, x=0x298, y=0x188, paramA=0x56, paramB=0x700
@@ -19548,7 +19548,7 @@ gUnk_080F70D8:: @ 080F70D8
 	object_raw subtype=0xbb, x=0x2c8, y=0x128, unknown=0x4f, paramB=0x6, paramC=script_Windcrest
 	entity_list_end
 
-Entities_HyruleField_LinksHouseExterior_1:: @ 080F70F8
+Entities_HyruleField_SouthHyruleField_1:: @ 080F70F8
 	object_raw subtype=0x19, x=0x290, y=0x193, collision=1, paramA=0x3, paramB=0x2
 .ifdef EU_JP
 	object_raw subtype=0x9c, x=0x58, y=0x210, paramC=0x6a0000
@@ -19560,7 +19560,7 @@ Entities_HyruleField_LinksHouseExterior_1:: @ 080F70F8
 	object_raw subtype=0x2d, x=0x2d0, y=0x148
 	entity_list_end
 
-Enemies_HyruleField_LinksHouseExterior:: @ 080F7158
+Enemies_HyruleField_SouthHyruleField:: @ 080F7158
 	enemy_raw subtype=0x0, x=0x318, y=0x58, paramB=0xa280000, paramC=0x400280
 	enemy_raw subtype=0x0, x=0x378, y=0x88, paramB=0xa280000, paramC=0x400280
 	enemy_raw subtype=0x0, x=0x3a8, y=0x1b8, paramB=0xa0e0000, paramC=0x1800350
@@ -19574,7 +19574,7 @@ Enemies_HyruleField_LinksHouseExterior:: @ 080F7158
 	enemy_raw subtype=0x0, x=0x208, y=0x108, paramB=0x120e0000, paramC=0xa001c0
 	entity_list_end
 
-TileEntities_HyruleField_LinksHouseExterior:: @ 080F7218
+TileEntities_HyruleField_SouthHyruleField:: @ 080F7218
 	tile_entity type=0xc, paramA=0xb
 .ifdef EU_JP
 	tile_entity type=0x4, paramA=0x69, paramB=0x1, paramC=0x118, paramD=0xa8
@@ -19610,41 +19610,41 @@ TileEntities_HyruleField_LinksHouseExterior:: @ 080F7218
 	tile_entity type=0x5, paramB=0x700, paramC=0x15c, paramD=0x607
 	tile_entity_list_end
 
-gUnk_additional_8_HyruleField_LinksHouseExterior:: @ 080F72A0
-	.incbin "data_080D5360/gUnk_additional_8_HyruleField_LinksHouseExterior.bin"
+gUnk_additional_8_HyruleField_SouthHyruleField:: @ 080F72A0
+	.incbin "data_080D5360/gUnk_additional_8_HyruleField_SouthHyruleField.bin"
 
-gUnk_additional_9_HyruleField_LinksHouseExterior:: @ 080F72B0
-	.incbin "data_080D5360/gUnk_additional_9_HyruleField_LinksHouseExterior.bin"
+gUnk_additional_9_HyruleField_SouthHyruleField:: @ 080F72B0
+	.incbin "data_080D5360/gUnk_additional_9_HyruleField_SouthHyruleField.bin"
 
-Room_HyruleField_LinksHouseExterior:: @ 080F72C4
-	.4byte Entities_HyruleField_LinksHouseExterior_0
-	.4byte Entities_HyruleField_LinksHouseExterior_1
-	.4byte Enemies_HyruleField_LinksHouseExterior
-	.4byte TileEntities_HyruleField_LinksHouseExterior
-	.4byte sub_unk1_HyruleField_LinksHouseExterior
+Room_HyruleField_SouthHyruleField:: @ 080F72C4
+	.4byte Entities_HyruleField_SouthHyruleField_0
+	.4byte Entities_HyruleField_SouthHyruleField_1
+	.4byte Enemies_HyruleField_SouthHyruleField
+	.4byte TileEntities_HyruleField_SouthHyruleField
+	.4byte sub_unk1_HyruleField_SouthHyruleField
 	.4byte 0x00000000
-	.4byte sub_unk3_HyruleField_LinksHouseExterior
-	.4byte sub_StateChange_HyruleField_LinksHouseExterior
-	.4byte gUnk_additional_8_HyruleField_LinksHouseExterior
-	.4byte gUnk_additional_9_HyruleField_LinksHouseExterior
+	.4byte sub_unk3_HyruleField_SouthHyruleField
+	.4byte sub_StateChange_HyruleField_SouthHyruleField
+	.4byte gUnk_additional_8_HyruleField_SouthHyruleField
+	.4byte gUnk_additional_9_HyruleField_SouthHyruleField
 
-Entities_HyruleField_FromMinishWoods_0:: @ 080F72EC
+Entities_HyruleField_EasternHillsSouth_0:: @ 080F72EC
 	object_raw subtype=0x32, x=0xb8, y=0xa8
 	object_raw subtype=0x32, x=0x138, y=0x98
 	entity_list_end
 
-Entities_HyruleField_FromMinishWoods_1:: @ 080F731C
+Entities_HyruleField_EasternHillsSouth_1:: @ 080F731C
 	manager subtype=0x3, x=0x48, y=0x80, unknown=0x0, paramB=0x102
 	manager subtype=0x18
 	entity_list_end
 
-Enemies_HyruleField_FromMinishWoods:: @ 080F734C
+Enemies_HyruleField_EasternHillsSouth:: @ 080F734C
 	enemy_raw subtype=0x35, x=0x188, y=0x58, paramB=0xb0d0000, paramC=0x480148
 	enemy_raw subtype=0x35, x=0x128, y=0x28, paramB=0x70f0000, paramC=0x180128
 	manager subtype=0x28, unknown=0x3, paramB=0x2
 	entity_list_end
 
-TileEntities_HyruleField_FromMinishWoods:: @ 080F738C
+TileEntities_HyruleField_EasternHillsSouth:: @ 080F738C
 	tile_entity type=0xc, paramA=0xf
 .ifdef EU_JP
 	tile_entity type=0xa, paramA=0x1, paramB=0x6c, paramC=0x149, paramD=0x1d
@@ -19655,20 +19655,20 @@ TileEntities_HyruleField_FromMinishWoods:: @ 080F738C
 .endif
 	tile_entity_list_end
 
-Room_HyruleField_FromMinishWoods:: @ 080F73AC
-	.4byte Entities_HyruleField_FromMinishWoods_0
-	.4byte Entities_HyruleField_FromMinishWoods_1
-	.4byte Enemies_HyruleField_FromMinishWoods
-	.4byte TileEntities_HyruleField_FromMinishWoods
+Room_HyruleField_EasternHillsSouth:: @ 080F73AC
+	.4byte Entities_HyruleField_EasternHillsSouth_0
+	.4byte Entities_HyruleField_EasternHillsSouth_1
+	.4byte Enemies_HyruleField_EasternHillsSouth
+	.4byte TileEntities_HyruleField_EasternHillsSouth
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_HyruleField_FromMinishWoods
-	.4byte sub_StateChange_HyruleField_FromMinishWoods
+	.4byte sub_unk3_HyruleField_EasternHillsSouth
+	.4byte sub_StateChange_HyruleField_EasternHillsSouth
 
-Entities_HyruleField_FromMinishWoodsNorth_0:: @ 080F73CC
+Entities_HyruleField_EasternHillsCenter_0:: @ 080F73CC
 	entity_list_end
 
-Entities_HyruleField_FromMinishWoodsNorth_1:: @ 080F73DC
+Entities_HyruleField_EasternHillsCenter_1:: @ 080F73DC
 .ifdef EU_JP
 	object_raw subtype=0x2c, x=0x48, y=0x38, paramA=0x7, paramB=0xb000
 .else
@@ -19678,7 +19678,7 @@ Entities_HyruleField_FromMinishWoodsNorth_1:: @ 080F73DC
 	manager subtype=0x6, paramA=0x8
 	entity_list_end
 
-Enemies_HyruleField_FromMinishWoodsNorth:: @ 080F741C
+Enemies_HyruleField_EasternHillsCenter:: @ 080F741C
 	enemy_raw subtype=0x35, x=0x28, y=0xb8, paramB=0x4140000, paramC=0xa00020
 	enemy_raw subtype=0x35, x=0x198, y=0xb8, paramB=0x6100000, paramC=0xa00130
 	enemy_raw subtype=0x35, x=0x178, y=0x58, paramB=0xa160000, paramC=0x2000d0
@@ -19687,7 +19687,7 @@ Enemies_HyruleField_FromMinishWoodsNorth:: @ 080F741C
 	enemy_raw subtype=0x3, x=0x128, y=0x58, paramB=0xa260000, paramC=0x200060
 	entity_list_end
 
-TileEntities_HyruleField_FromMinishWoodsNorth:: @ 080F748C
+TileEntities_HyruleField_EasternHillsCenter:: @ 080F748C
 	tile_entity type=0xc, paramA=0xf
 .ifdef EU_JP
 	tile_entity type=0x4, paramA=0x6e, paramB=0x1, paramC=0xa8, paramD=0x98
@@ -19696,33 +19696,33 @@ TileEntities_HyruleField_FromMinishWoodsNorth:: @ 080F748C
 .endif
 	tile_entity_list_end
 
-gUnk_additional_8_HyruleField_FromMinishWoodsNorth:: @ 080F74A4
+gUnk_additional_8_HyruleField_EasternHillsCenter:: @ 080F74A4
 	exit_region_raw centerX=0x48, centerY=0xc, halfWidth=0x8, halfHeight=0x4, exitIndex=0x9, bitfield=0x11
 	exit_region_list_end
 
-gUnk_additional_9_HyruleField_FromMinishWoodsNorth:: @ 080F74B4
+gUnk_additional_9_HyruleField_EasternHillsCenter:: @ 080F74B4
 	exit_raw transition=0x1, destX=0x78, destY=0x98, destArea=0xd, destRoom=0x13, unknownA=0x1
 
-Room_HyruleField_FromMinishWoodsNorth:: @ 080F74C8
-	.4byte Entities_HyruleField_FromMinishWoodsNorth_0
-	.4byte Entities_HyruleField_FromMinishWoodsNorth_1
-	.4byte Enemies_HyruleField_FromMinishWoodsNorth
-	.4byte TileEntities_HyruleField_FromMinishWoodsNorth
+Room_HyruleField_EasternHillsCenter:: @ 080F74C8
+	.4byte Entities_HyruleField_EasternHillsCenter_0
+	.4byte Entities_HyruleField_EasternHillsCenter_1
+	.4byte Enemies_HyruleField_EasternHillsCenter
+	.4byte TileEntities_HyruleField_EasternHillsCenter
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_HyruleField_FromMinishWoodsNorth
-	.4byte sub_StateChange_HyruleField_FromMinishWoodsNorth
-	.4byte gUnk_additional_8_HyruleField_FromMinishWoodsNorth
-	.4byte gUnk_additional_9_HyruleField_FromMinishWoodsNorth
+	.4byte sub_unk3_HyruleField_EasternHillsCenter
+	.4byte sub_StateChange_HyruleField_EasternHillsCenter
+	.4byte gUnk_additional_8_HyruleField_EasternHillsCenter
+	.4byte gUnk_additional_9_HyruleField_EasternHillsCenter
 
-Entities_HyruleField_Farmers_0:: @ 080F74F0
+Entities_HyruleField_EasternHillsNorth_0:: @ 080F74F0
 	entity_list_end
 
 gUnk_080F7500:: @ 080F7500
 	manager subtype=0x16, paramA=0x8
 	entity_list_end
 
-gUnk_additional_8_HyruleField_Farmers:: @ 080F7520
+gUnk_additional_8_HyruleField_EasternHillsNorth:: @ 080F7520
 	delayed_entity_raw subtype=0x3e, x=0xb8, y=0xe8, layer=1, paramC=script_Farmer, conditions=0xffff
 	delayed_entity_raw subtype=0x3e, x=0x68, y=0x128, layer=1, paramA=0x1, paramC=script_Farmer, paramD=0x1, conditions=0xffff
 	entity_list_end
@@ -19731,7 +19731,7 @@ gUnk_080F7550:: @ 080F7550
 	manager subtype=0x16, paramA=0x9, paramB=0x3
 	entity_list_end
 
-gUnk_additional_9_HyruleField_Farmers:: @ 080F7570
+gUnk_additional_9_HyruleField_EasternHillsNorth:: @ 080F7570
 	delayed_entity_raw subtype=0x29, x=0x148, y=0xf0, layer=1, paramC=script_MutohOutsideTown, conditions=0xffff
 	delayed_entity_raw subtype=0x2a, x=0x128, y=0xd0, layer=1, paramC=script_CarpenterOutsideTown, conditions=0xffff
 	delayed_entity_raw subtype=0x2a, x=0x1a8, y=0x100, layer=1, paramA=0x1, paramC=script_CarpenterOutsideTown, conditions=0xffff
@@ -19739,13 +19739,13 @@ gUnk_additional_9_HyruleField_Farmers:: @ 080F7570
 	delayed_entity_raw subtype=0x2a, x=0x148, y=0x88, layer=1, paramA=0x3, paramC=script_CarpenterOutsideTown, conditions=0xffff
 	entity_list_end
 
-Entities_HyruleField_Farmers_1:: @ 080F75D0
+Entities_HyruleField_EasternHillsNorth_1:: @ 080F75D0
 	manager subtype=0x4
 	manager subtype=0x18
 	object_raw subtype=0x19, x=0x40, y=0x52, collision=1, paramA=0x4, paramB=0x2
 	entity_list_end
 
-Enemies_HyruleField_Farmers:: @ 080F7610
+Enemies_HyruleField_EasternHillsNorth:: @ 080F7610
 	enemy_raw subtype=0x0, x=0x178, y=0xe8, paramB=0x6160000, paramC=0xc000f0
 	enemy_raw subtype=0x0, x=0x118, y=0xf8, paramB=0x6160000, paramC=0xc000f0
 	enemy_raw subtype=0x2e, x=0x138, y=0x158, paramB=0x16060000, paramC=0x1200120
@@ -19757,7 +19757,7 @@ Enemies_HyruleField_Farmers:: @ 080F7610
 gUnk_080F7680:: @ 080F7680
 	.incbin "data_080D5360/gUnk_080F7680.bin"
 
-TileEntities_HyruleField_Farmers:: @ 080F76C0
+TileEntities_HyruleField_EasternHillsNorth:: @ 080F76C0
 	tile_entity type=0xc, paramA=0xf
 .ifdef EU_JP
 	tile_entity type=0xa, paramA=0x1, paramB=0x6f, paramC=0x6d0, paramD=0x1d
@@ -19773,17 +19773,17 @@ TileEntities_HyruleField_Farmers:: @ 080F76C0
 	tile_entity type=0x5, paramB=0x200, paramC=0x617, paramD=0x602
 	tile_entity_list_end
 
-Room_HyruleField_Farmers:: @ 080F76F8
-	.4byte Entities_HyruleField_Farmers_0
-	.4byte Entities_HyruleField_Farmers_1
-	.4byte Enemies_HyruleField_Farmers
-	.4byte TileEntities_HyruleField_Farmers
+Room_HyruleField_EasternHillsNorth:: @ 080F76F8
+	.4byte Entities_HyruleField_EasternHillsNorth_0
+	.4byte Entities_HyruleField_EasternHillsNorth_1
+	.4byte Enemies_HyruleField_EasternHillsNorth
+	.4byte TileEntities_HyruleField_EasternHillsNorth
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_HyruleField_Farmers
-	.4byte sub_StateChange_HyruleField_Farmers
-	.4byte gUnk_additional_8_HyruleField_Farmers
-	.4byte gUnk_additional_9_HyruleField_Farmers
+	.4byte sub_unk3_HyruleField_EasternHillsNorth
+	.4byte sub_StateChange_HyruleField_EasternHillsNorth
+	.4byte gUnk_additional_8_HyruleField_EasternHillsNorth
+	.4byte gUnk_additional_9_HyruleField_EasternHillsNorth
 
 Entities_HyruleField_LonLonRanch_0:: @ 080F7720
 	manager subtype=0x16, paramA=0xb
@@ -20125,7 +20125,7 @@ Entities_HyruleField_OutsideCastle_1West:: @ 080F808C
 	entity_list_end
 .endif
 
-Enemies_HyruleField_OutsideCastleWest:: @ 080F80EC
+Enemies_HyruleField_TrilbyHighlands:: @ 080F80EC
 	enemy_raw subtype=0x0, x=0x168, y=0x78, paramB=0x80c0000, paramC=0x400130
 	enemy_raw subtype=0x30, x=0x178, y=0x208, paramB=0x10120000, paramC=0x1900120
 	enemy_raw subtype=0x0, x=0xd8, y=0x148, paramB=0x4160000, paramC=0x1400080
@@ -20138,7 +20138,7 @@ Enemies_HyruleField_OutsideCastleWest:: @ 080F80EC
 	enemy_raw subtype=0x65, x=0x160, y=0x250, paramA=0x2
 	entity_list_end
 
-TileEntities_HyruleField_OutsideCastleWest:: @ 080F819C
+TileEntities_HyruleField_TrilbyHighlands:: @ 080F819C
 .ifdef EU_JP
 	tile_entity type=0xc, paramA=0x6
 	tile_entity type=0x4, paramA=0x8e, paramB=0x1, paramC=0x88, paramD=0x228
@@ -20153,26 +20153,26 @@ TileEntities_HyruleField_OutsideCastleWest:: @ 080F819C
 	tile_entity_list_end
 .endif
 
-gUnk_additional_8_HyruleField_OutsideCastleWest:: @ 080F81C4
+gUnk_additional_8_HyruleField_TrilbyHighlands:: @ 080F81C4
 	exit_region_raw centerX=0x28, centerY=0x52, halfWidth=0x4, halfHeight=0x2, exitIndex=0x9, bitfield=0x1
 	exit_region_list_end
 
-gUnk_additional_9_HyruleField_OutsideCastleWest:: @ 080F81D4
+gUnk_additional_9_HyruleField_TrilbyHighlands:: @ 080F81D4
 	exit_raw transition=0x1, destX=0x78, destY=0x78, destArea=0x20, destRoom=0x22, unknownA=0x1
 
-Room_HyruleField_OutsideCastleWest:: @ 080F81E8
+Room_HyruleField_TrilbyHighlands:: @ 080F81E8
 	.4byte Entities_HyruleField_OutsideCastle_0West
 	.4byte Entities_HyruleField_OutsideCastle_1West
-	.4byte Enemies_HyruleField_OutsideCastleWest
-	.4byte TileEntities_HyruleField_OutsideCastleWest
+	.4byte Enemies_HyruleField_TrilbyHighlands
+	.4byte TileEntities_HyruleField_TrilbyHighlands
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_HyruleField_OutsideCastleWest
-	.4byte sub_StateChange_HyruleField_OutsideCastleWest
-	.4byte gUnk_additional_8_HyruleField_OutsideCastleWest
-	.4byte gUnk_additional_9_HyruleField_OutsideCastleWest
+	.4byte sub_unk3_HyruleField_TrilbyHighlands
+	.4byte sub_StateChange_HyruleField_TrilbyHighlands
+	.4byte gUnk_additional_8_HyruleField_TrilbyHighlands
+	.4byte gUnk_additional_9_HyruleField_TrilbyHighlands
 
-Entities_HyruleField_TrilbyHighlands_0:: @ 080F8210
+Entities_HyruleField_WesternWoodsNorth_0:: @ 080F8210
 .ifdef EU_JP
 	manager subtype=0x20, x=0x198, y=0x1a8, paramB=0x11a82e00, paramC=0x9211a8
 	object_raw subtype=0x0, x=0xb8, y=0x28, collision=1, paramA=0x57, paramB=0x700, paramC=0x930000
@@ -20205,11 +20205,11 @@ gUnk_080F82E0:: @ 080F82E0
 	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69Takeover
 	entity_list_end
 
-Entities_HyruleField_TrilbyHighlands_1:: @ 080F8300
+Entities_HyruleField_WesternWoodsNorth_1:: @ 080F8300
 	manager subtype=0x18
 	entity_list_end
 
-Enemies_HyruleField_TrilbyHighlands:: @ 080F8320
+Enemies_HyruleField_WesternWoodsNorth:: @ 080F8320
 	enemy_raw subtype=0x31, x=0x118, y=0x78, paramB=0x20300000, paramC=0x600060
 	enemy_raw subtype=0x31, x=0x118, y=0xb8, paramB=0x20300000, paramC=0x600060
 	enemy_raw subtype=0x31, x=0x198, y=0x168, paramB=0x20300000, paramC=0x600080
@@ -20223,7 +20223,7 @@ Enemies_HyruleField_TrilbyHighlands:: @ 080F8320
 	enemy_raw subtype=0x65, x=0x1a0, y=0x170, paramA=0x1
 	entity_list_end
 
-TileEntities_HyruleField_TrilbyHighlands:: @ 080F83E0
+TileEntities_HyruleField_WesternWoodsNorth:: @ 080F83E0
 .ifdef EU_JP
 	tile_entity type=0xc, paramA=0x7
 	tile_entity type=0x2, paramA=0x9c, paramB=0x643f, paramC=0x3ce
@@ -20236,29 +20236,29 @@ TileEntities_HyruleField_TrilbyHighlands:: @ 080F83E0
 	tile_entity_list_end
 .endif
 
-Room_HyruleField_TrilbyHighlands:: @ 080F8400
-	.4byte Entities_HyruleField_TrilbyHighlands_0
-	.4byte Entities_HyruleField_TrilbyHighlands_1
-	.4byte Enemies_HyruleField_TrilbyHighlands
-	.4byte TileEntities_HyruleField_TrilbyHighlands
+Room_HyruleField_WesternWoodsNorth:: @ 080F8400
+	.4byte Entities_HyruleField_WesternWoodsNorth_0
+	.4byte Entities_HyruleField_WesternWoodsNorth_1
+	.4byte Enemies_HyruleField_WesternWoodsNorth
+	.4byte TileEntities_HyruleField_WesternWoodsNorth
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_HyruleField_TrilbyHighlands
-	.4byte sub_StateChange_HyruleField_TrilbyHighlands
+	.4byte sub_unk3_HyruleField_WesternWoodsNorth
+	.4byte sub_StateChange_HyruleField_WesternWoodsNorth
 
-Entities_HyruleField_PercysHouse_0:: @ 080F8420
+Entities_HyruleField_WesternWoodsCenter_0:: @ 080F8420
 	entity_list_end
 
 gUnk_080F8430:: @ 080F8430
 	npc_raw subtype=0x3a, x=0x68, y=0x58, paramB=0x2, script=script_PercyOutside
 	entity_list_end
 
-Entities_HyruleField_PercysHouse_1:: @ 080F8450
+Entities_HyruleField_WesternWoodsCenter_1:: @ 080F8450
 	object_raw subtype=0x19, x=0x90, y=0x53, collision=1, paramA=0x2, paramB=0x2
 	manager subtype=0x18
 	entity_list_end
 
-Enemies_HyruleField_PercysHouse:: @ 080F8480
+Enemies_HyruleField_WesternWoodsCenter:: @ 080F8480
 .ifdef EU
 	enemy_raw subtype=0x15, x=0x108, y=0x68, paramB=0xc180000, paramC=0x2000f0
 	enemy_raw subtype=0x46, x=0x1a8, y=0x78, paramB=0xc180000, paramC=0x2000f0
@@ -20269,20 +20269,20 @@ Enemies_HyruleField_PercysHouse:: @ 080F8480
 	entity_list_end
 .endif
 
-TileEntities_HyruleField_PercysHouse:: @ 080F84B0
+TileEntities_HyruleField_WesternWoodsCenter:: @ 080F84B0
 	tile_entity type=0xc, paramA=0x7
 	tile_entity type=0x5, paramB=0x1400, paramC=0x147, paramD=0x614
 	tile_entity_list_end
 
-Room_HyruleField_PercysHouse:: @ 080F84C8
-	.4byte Entities_HyruleField_PercysHouse_0
-	.4byte Entities_HyruleField_PercysHouse_1
-	.4byte Enemies_HyruleField_PercysHouse
-	.4byte TileEntities_HyruleField_PercysHouse
+Room_HyruleField_WesternWoodsCenter:: @ 080F84C8
+	.4byte Entities_HyruleField_WesternWoodsCenter_0
+	.4byte Entities_HyruleField_WesternWoodsCenter_1
+	.4byte Enemies_HyruleField_WesternWoodsCenter
+	.4byte TileEntities_HyruleField_WesternWoodsCenter
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_HyruleField_PercysHouse
-	.4byte sub_StateChange_HyruleField_PercysHouse
+	.4byte sub_unk3_HyruleField_WesternWoodsCenter
+	.4byte sub_StateChange_HyruleField_WesternWoodsCenter
 
 Entities_Caves_Boomerang_0:: @ 080F84E8
 	object_raw subtype=0x41, x=0x48, y=0x78, paramA=0x1
