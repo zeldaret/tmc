@@ -428,7 +428,7 @@ SECTIONS {
         src/enemy/enemy66.o(.text);
         /* END enemies */
         src/code_08049CD4.o(.text); /* enemyUtils.c */
-        asm/code_08049D30.o(.text);
+        src/code_08049DF4.o(.text);
         src/enemyUtils.o(.text);
         src/createEnemy.o(.text);
         src/enterPortalSubtask.o(.text);

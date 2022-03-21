@@ -610,8 +610,6 @@ void sub_08021644(Entity* this) {
     }
 }
 
-extern u32 sub_08049F1C(Entity*, Entity*, u32);
-
 u32 sub_08021664(Entity* this, Entity* ent) {
     switch (this->animationState) {
         case 0:

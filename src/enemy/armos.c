@@ -306,12 +306,12 @@ bool32 sub_08030650(ArmosEntity* this) {
             return 1;
         }
     } else if (this->unk_80 != 2) {
-        if ((sub_08049FDC(super, 1) == 0) || (0x20 < (gUnk_020000B0->x.HALF.HI - super->x.HALF.HI) + 0x10U)) {
+        if (!sub_08049FDC(super, 1) || (0x20 < (gUnk_020000B0->x.HALF.HI - super->x.HALF.HI) + 0x10U)) {
             return FALSE;
         }
         return TRUE;
     } else {
-        if (sub_08049FDC(super, 1) == 0) {
+        if (!sub_08049FDC(super, 1)) {
             return FALSE;
         }
         if (gUnk_020000B0->x.HALF.HI >= (s32)(gRoomControls.origin_x + 0xa8)) {
