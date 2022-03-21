@@ -501,7 +501,6 @@ SECTIONS {
         src/manager/manager39.o(.text);
         src/entity.o(.text);
         src/code_0805EC04.o(.text); /* objaffine? */
-        asm/text.o(.text);
         src/text.o(.text);
         src/debug.o(.text);
         src/playerItem/playerItem14.o(.text);
