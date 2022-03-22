@@ -96,7 +96,7 @@ void FlyingPot_OnCollision(FlyingPotEntity* this) {
 
     if (super->bitfield == 0x9D) {
         super->action = FLYING_POT_ACTION_6;
-        super->flags &= ~0x80;
+        COLLISION_OFF(super);
         super->zVelocity = 0x2A000;
         super->spritePriority.b1 = 1;
 
@@ -143,7 +143,7 @@ void FlyingPot_SubAction2(FlyingPotEntity* this) {
     if (super->actionDelay == 0) {
         sub_08037418(this);
         super->actionDelay = 1;
-        super->flags &= ~0x80;
+        COLLISION_OFF(super);
         super->spriteOffsetX = 0;
 
         SetTile(this->tileIndex, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
