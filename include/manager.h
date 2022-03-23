@@ -141,7 +141,7 @@ typedef struct {
     DiggingCaveEntrance* unk_00;
     u16 unk_04;
     u16 unk_06;
-    u8 unk_08;
+    u8 isDiggingCave;
     u8 unk_09;
     u8 unk_0a;
     u8 unk_0b;

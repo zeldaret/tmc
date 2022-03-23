@@ -3181,7 +3181,7 @@ sub_0801AE44: @ 0x0801AE44
 	bl LoadRoomGfx
 _0801AE5A:
 	bl sub_080809D4
-	bl sub_080805F8
+	bl UpdateIsDiggingCave
 	ldr r0, _0801AEE4 @ =gRoomTransition
 	adds r0, #0x2d
 	ldrb r0, [r0]
