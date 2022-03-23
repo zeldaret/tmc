@@ -296,7 +296,7 @@ static void sub_0805066C(void) {
 void sub_0805070C(void) {
     u32 i;
     int j;
-    struct_02036540* var0;
+    WStruct* var0;
     char* name;
 
     var0 = sub_0805F2C8();
@@ -322,7 +322,7 @@ void sub_0805070C(void) {
 
 void sub_08050790(void) {
     u32 i, j;
-    struct_02036540* var0;
+    WStruct* var0;
     u32 var1;
 
     var0 = sub_0805F2C8();

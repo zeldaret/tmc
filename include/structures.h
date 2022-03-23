@@ -222,14 +222,18 @@ extern struct {
 static_assert(sizeof(gUnk_02034490) == 0x18);
 
 typedef struct {
-    u8 unk0;
+    u8 unk00 : 1;
+    u8 unk01 : 3;
+    u8 unk04 : 4;
     u8 unk1;
-    u8 unk2;
-    u8 unk3;
+    u8 charColor;
+    u8 bgColor;
     u16 unk4;
     u16 unk6;
     void* unk8;
 } WStruct;
+
+static_assert(sizeof(WStruct) == 12);
 
 typedef struct {
     u8 unk0;

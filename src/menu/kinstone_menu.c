@@ -15,16 +15,6 @@
 #include "enemy.h"
 #include "functions.h"
 
-typedef struct {
-    u8 filler0[0x1];
-    u8 unk1;
-    u8 charColor;
-    u8 bgColor;
-    u16 unk4;
-    u16 unk6;
-    u8* unk8;
-} struct_02036540;
-
 extern u32 sub_08000E44(u32);
 extern void sub_080A3B74(void);
 extern s32 sub_080A3B48(void);
@@ -32,9 +22,9 @@ extern void sub_0805ECEC(u32, u32, u32, u32);
 extern void sub_0801C2F0(u32, u32);
 extern void sub_0801E6C8(u32);
 extern void sub_0801E798(u32);
-extern struct_02036540* sub_0805F2C8(void);
-extern void sub_0805F300(struct_02036540*);
-extern u32 sub_0805F76C(u8*, struct_02036540*);
+extern WStruct* sub_0805F2C8(void);
+extern void sub_0805F300(WStruct*);
+extern u32 sub_0805F76C(u8*, WStruct*);
 
 typedef struct {
     void* sourceAddress;
@@ -55,7 +45,7 @@ extern const u8 gGlobalGfxAndPalettes[];
 extern u8 gTextGfxBuffer[];
 extern u8 gUnk_02002AC0[];
 
-u32 sub_080A44E0(struct_02036540*, u8*, u32);
+u32 sub_080A44E0(WStruct*, u8*, u32);
 u32 sub_080A4418(u32, u32);
 u32 sub_080A43DC(u32);
 u32 sub_080A43A8(u32);
@@ -601,7 +591,7 @@ void KinstoneMenu_080A4468(void) {
 }
 
 u32 KinstoneMenu_080A4494(void) {
-    struct_02036540* psVar1;
+    WStruct* psVar1;
     u8* r1;
     u32 ret;
 
@@ -624,7 +614,7 @@ u32 KinstoneMenu_080A4494(void) {
     return ret;
 }
 
-u32 sub_080A44E0(struct_02036540* param_1, u8* param_2, u32 param_3) {
+u32 sub_080A44E0(WStruct* param_1, u8* param_2, u32 param_3) {
     u32 uVar1;
     u32 size;
 

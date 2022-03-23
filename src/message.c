@@ -31,17 +31,17 @@ enum {
 };
 
 extern void WriteBit(u32*, u32);
-extern void sub_0805EF40(Token* tok, const u8*);
+extern bool32 sub_0805EF40(Token* tok, const u8*);
 extern void RecoverUI(u32 bottomPt, u32 topPt);
 extern void RefreshUI(void);
-extern void sub_0805F918(u32, u32, u32);
+extern void sub_0805F918(u32, u32, void*);
 extern u32 DecToHex(u32, u8*, u32);
 
 u32 sub_08056FEC(u32, u8*);
 u32 GetCharacter(Token* tok);
 extern void sub_0805EEB4(Token* tok, u32 textIdx);
-u16 sub_0805F7DC(u32, u8*);
-u32 GetFontStrWith(u8*, u32);
+u32 sub_0805F7DC(u32, WStruct*);
+u32 GetFontStrWith(Token*, u32);
 
 static void StatusUpdate(u32 status);
 
@@ -270,7 +270,7 @@ END_NONMATCH
     if (gTextRender.renderStatus == RENDER_INIT) {
         gTextRender.renderStatus = RENDER_UPDATE;
         gTextRender._98.bytes.b1 = 1;
-        sub_08056F88(gTextRender.message.unk3, gTextRender._50.unk3);
+        sub_08056F88(gTextRender.message.unk3, gTextRender._50.bgColor);
         SoundReq(SFX_TEXTBOX_OPEN);
     }
 
@@ -315,7 +315,7 @@ static u32 MsgUpdate(void) {
 }
 
 static void TextDispInit(TextRender* this) {
-    if ((gTextRender.curToken.flags & 1) == 0) {
+    if (gTextRender.curToken.unk00 == 0) {
         if (gTextRender._98.bytes.b1 == 0) {
             StatusUpdate(MSG_DIE);
         }
@@ -398,7 +398,7 @@ NONMATCH("asm/non_matching/textbox/RunTextCommand.inc", /*static*/ u16 RunTextCo
                 StatusUpdate(MSG_CLOSE);
                 break;
             case 4:
-                this->_50.unk6 += (this->_50.unk4 - this->_50.unk6 - GetFontStrWith(&this->curToken.flags, 0)) / 2;
+                this->_50.unk6 += (this->_50.unk4 - this->_50.unk6 - GetFontStrWith(&this->curToken, 0)) / 2;
                 break;
             case 5:
                 gMessage.unk = this->curToken.param;
@@ -427,7 +427,7 @@ NONMATCH("asm/non_matching/textbox/RunTextCommand.inc", /*static*/ u16 RunTextCo
                 break;
             case 9:
                 gTextRender.message.unk3 = this->curToken.param;
-                sub_08056F88(this->curToken.param, this->_50.unk3);
+                sub_08056F88(this->curToken.param, this->_50.bgColor);
                 break;
             case 10:
                 this->message.textWindowPosY = this->curToken.param;
@@ -488,14 +488,14 @@ NONMATCH("asm/non_matching/textbox/RunTextCommand.inc", /*static*/ u16 RunTextCo
             PaletteChange(this, palette);
         }
     }
-    return sub_0805F7DC(chr, &this->_50.unk0);
+    return sub_0805F7DC(chr, &this->_50);
 }
 END_NONMATCH
 
 /*static*/ void PaletteChange(TextRender* this, u32 id) {
     u32 temp = id % 8;
     this->_8f = temp;
-    this->_50.unk2 = temp;
+    this->_50.charColor = temp;
 }
 
 const u8 gUnk_08107C0F[] = { 0x8, 0x1e, 0x4, 0x12, 0x0 };
@@ -813,7 +813,7 @@ void sub_08056F88(u32 unk_1, u32 unk_2) {
     uVar1 = unk_1 << 4 | unk_2;
     if (gTextRender._9c != uVar1) {
         gTextRender._9c = uVar1;
-        sub_0805F918(unk_1, unk_2, 0x0600CF60);
+        sub_0805F918(unk_1, unk_2, (void*)0x0600CF60);
     }
 }
 
