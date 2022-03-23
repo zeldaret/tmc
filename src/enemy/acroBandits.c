@@ -155,7 +155,7 @@ void sub_08031B48(Entity* this) {
         this->frame = 0;
         COLLISION_ON(this);
     } else {
-        if (this->frame & 0x80) {
+        if (this->frame & ANIM_DONE) {
             this->action = 0x3;
             this->actionDelay = gUnk_080CE5B0[Random() & 7];
             InitializeAnimation(this, 1);
@@ -188,7 +188,7 @@ void sub_08031B98(Entity* this) {
 
 void sub_08031C1C(Entity* this) {
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = '\x01';
         this->actionDelay = gUnk_080CE5B8[Random() & 7];
         this->spriteSettings.draw = 0;
@@ -199,7 +199,7 @@ void sub_08031C58(Entity* this) {
     Entity *a, *b;
 
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         if (gEntCount < 0x43) {
             u32 tmp = Random();
             tmp &= 3;
@@ -274,7 +274,7 @@ void sub_08031DA0(Entity* this) {
 }
 
 void sub_08031DC4(Entity* this) {
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 1;
         this->actionDelay = 0xb4;
         this->spriteSettings.draw = 0;
@@ -360,7 +360,7 @@ void sub_08031F54(Entity* this) {
 
 void sub_08031FB0(Entity* this) {
     GetNextFrame(this);
-    if ((this->frame & 0x80) && (this->parent || --this->actionDelay == 0)) {
+    if ((this->frame & ANIM_DONE) && (this->parent || --this->actionDelay == 0)) {
         this->action = 4;
         this->direction = sub_08049F84(this, 1);
         *(u8*)&this->field_0x76 = 0;
@@ -469,7 +469,7 @@ void sub_08032204(Entity* this) {
         this->frame = 0;
         this->frameDuration = (Random() & 0x30) + 30;
     } else {
-        if (this->frame & 0x80) {
+        if (this->frame & ANIM_DONE) {
             this->action = 9;
             InitializeAnimation(this, 13);
         }
@@ -478,7 +478,7 @@ void sub_08032204(Entity* this) {
 
 void sub_08032248(Entity* this) {
     if (GravityUpdate(this, Q_8_8(24.0)) == 0) {
-        if (this->frame & 0x80) {
+        if (this->frame & ANIM_DONE) {
             ((Entity*)this->field_0x7c.WORD)->actionDelay--;
 
             DeleteEntity(this);

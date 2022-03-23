@@ -5,7 +5,7 @@
 #include "sound.h"
 #include "functions.h"
 
-extern void sub_080A0960(Entity*, u32);
+static void SetJailBarTiles(Entity*, u32);
 
 extern void (*const gUnk_08124950[])(Entity*);
 extern u16 gUnk_08124960[];
@@ -18,11 +18,11 @@ void JailBars(Entity* this) {
 void sub_080A08C4(Entity* this) {
     if (CheckFlags(this->field_0x86.HWORD) == 0) {
         this->action = 1;
-        sub_080A0960(this, 0);
+        SetJailBarTiles(this, 0);
     } else {
         this->action = 3;
         InitializeAnimation(this, 1);
-        sub_080A0960(this, 1);
+        SetJailBarTiles(this, 1);
     }
     this->spriteSettings.draw = 3; // ???
     this->collisionLayer = 1;
@@ -32,14 +32,14 @@ void sub_080A08C4(Entity* this) {
 void sub_080A0910(Entity* this) {
     if (CheckFlags(this->field_0x86.HWORD) != 0) {
         this->action = 2;
-        sub_080A0960(this, 1);
+        SetJailBarTiles(this, 1);
         SoundReq(SFX_10B);
     }
 }
 
 void sub_080A0938(Entity* this) {
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 3;
         InitializeAnimation(this, 1);
     }
@@ -48,7 +48,7 @@ void sub_080A0938(Entity* this) {
 void nullsub_127(Entity* this) {
 }
 
-void sub_080A0960(Entity* this, u32 arg1) {
+static void SetJailBarTiles(Entity* this, u32 arg1) {
     u16* puVar1;
 
     puVar1 = gUnk_08124960;

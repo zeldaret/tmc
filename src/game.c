@@ -86,7 +86,6 @@ extern void* gAreaMetatiles[];
 extern void* gUnk_080B755C[];
 extern void** gAreaTable[];
 
-extern void CreateDialogBox(u32, u32);
 extern void FinalizeSave(void);
 extern void ClearArmosData(void);
 extern void ClearRoomMemory(void);
@@ -168,24 +167,6 @@ typedef struct {
     u16 _6;
 } struct_08127F94;
 extern struct_08127F94 gUnk_08127F94[];
-
-typedef struct {
-    u16* dest;
-    void* gfx_dest;
-    void* buffer_loc;
-    u32 _c;
-    u16 gfx_src;
-    u8 width;
-    u8 right_align : 1;
-    u8 sm_border : 1;
-    u8 unused : 1;
-    u8 draw_border : 1;
-    u8 border_type : 4;
-    u8 fill_type;
-    u8 _15;
-    u8 _16;
-    u8 stylized;
-} Font;
 
 typedef struct {
     u8 dest_off[8];
@@ -408,7 +389,7 @@ static void GameMain_ChangeRoom(void) {
         sub_0801855C();
     }
 #elif defined(DEMO_JP)
-    if (gRoomTransition.field_0x2c[5])
+    if (gRoomTransition.field_0x2c[4])
         CheckAreaDiscovery();
     if (gArea.inventoryGfxIdx != 0xff) {
         sub_0801855C();

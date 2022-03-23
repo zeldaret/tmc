@@ -10,7 +10,7 @@ script_08008B6E:
 	TriggerInteract
 	SetPlayerIdle
 	SetAnimation 0x0004
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	Call sub_0806BBB0
 	WaitUntilTextboxCloses
 	SetAnimation 0x0008

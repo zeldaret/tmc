@@ -124,7 +124,7 @@ _08078278:
 	ldrb r0, [r0]
 	cmp r0, #0xe
 	beq _080782BC
-	ldr r1, _080782A0 @ =gUnk_03003BE0
+	ldr r1, _080782A0 @ =gCarryEntities
 	ldrb r0, [r1, #1]
 	movs r4, #9
 	cmp r0, #2
@@ -136,7 +136,7 @@ _08078278:
 	movs r4, #8
 	b _080782B6
 	.align 2, 0
-_080782A0: .4byte gUnk_03003BE0
+_080782A0: .4byte gCarryEntities
 _080782A4:
 	adds r0, r5, #0
 	adds r0, #0xa8

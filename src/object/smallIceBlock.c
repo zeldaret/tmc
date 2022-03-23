@@ -137,7 +137,7 @@ void SmallIceBlock_Action3(SmallIceBlockEntity* this) {
     } else {
         super->actionDelay++;
     }
-    sub_0805EC9C(super, 0x100, gUnk_08123748[super->actionDelay >> 5], 0);
+    SetAffineInfo(super, 0x100, gUnk_08123748[super->actionDelay >> 5], 0);
     if (super->type == 1) {
         CreateGroundItemWithFlags(super, ITEM_SMALL_KEY, 0, this->unk_86);
         SoundReq(SFX_SECRET);
@@ -162,7 +162,7 @@ void SmallIceBlock_Action4(SmallIceBlockEntity* this) {
         if (super->actionDelay == 0x30) {
             SetTile(this->unk_6c, this->unk_70, super->collisionLayer);
         }
-        sub_0805EC9C(super, 0x100, (0x3c - super->actionDelay) * 0x20 + 0x100, 0);
+        SetAffineInfo(super, 0x100, (0x3c - super->actionDelay) * 0x20 + 0x100, 0);
         if ((super->actionDelay & 1) != 0) {
             obj = CreateObject(SPECIAL_FX, 0x11, 0x40);
             if (obj != NULL) {

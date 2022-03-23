@@ -196,7 +196,7 @@ void Eyegore_Action3(EyegoreEntity* this) {
         super->spriteOffsetX = gUnk_080CE2BC[--super->actionDelay & 3];
     } else {
         GetNextFrame(super);
-        if ((super->frame & 0x80) != 0) {
+        if ((super->frame & ANIM_DONE) != 0) {
             super->flags |= ENT_COLLIDE;
             super->animationState = 2;
             sub_08030E58(this);
@@ -214,7 +214,7 @@ void Eyegore_Action4(EyegoreEntity* this) {
             sub_08030E3C(this);
             break;
         case 2:
-            if ((super->frame & 0x80) != 0) {
+            if ((super->frame & ANIM_DONE) != 0) {
                 super->animationState = this->unk_7f;
                 InitializeAnimation(super, super->animationState + 4);
             }
@@ -227,7 +227,7 @@ void Eyegore_Action4(EyegoreEntity* this) {
 
             break;
         default:
-            if ((super->frame & 0x80) != 0) {
+            if ((super->frame & ANIM_DONE) != 0) {
                 InitializeAnimation(super, super->animationState);
                 if ((this->unk_79 & 0x80) != 0) {
                     super->action = 5;
@@ -252,7 +252,7 @@ void Eyegore_Action5(EyegoreEntity* this) {
             sub_08030E3C(this);
             break;
         case 2:
-            if ((super->frame & 0x80) != 0) {
+            if ((super->frame & ANIM_DONE) != 0) {
                 super->animationState = this->unk_7f;
                 InitializeAnimation(super, super->animationState + 4);
             }
@@ -261,7 +261,7 @@ void Eyegore_Action5(EyegoreEntity* this) {
             }
             break;
         default:
-            if ((super->frame & 0x80) != 0) {
+            if ((super->frame & ANIM_DONE) != 0) {
                 InitializeAnimation(super, super->animationState);
                 if (sub_08049FDC(super, 1)) {
                     sub_08030E58(this);
@@ -280,7 +280,7 @@ void Eyegore_Action5(EyegoreEntity* this) {
 
 void Eyegore_Action6(EyegoreEntity* this) {
     GetNextFrame(super);
-    if ((super->frame & 0x80) != 0) {
+    if ((super->frame & ANIM_DONE) != 0) {
         super->action = 2;
     }
 }

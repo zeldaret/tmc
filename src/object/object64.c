@@ -67,7 +67,7 @@ void sub_08093EAC(Object64Entity* this) {
 
 void sub_08093ED0(Object64Entity* this) {
     GetNextFrame(super);
-    if ((super->frame & 0x80) != 0) {
+    if ((super->frame & ANIM_DONE) != 0) {
         DeleteEntity(super);
     }
 }
@@ -80,7 +80,7 @@ void sub_08093EF0(Object64Entity* this) {
                 return;
             }
             GetNextFrame(super);
-            if ((super->frame & 0x80) == 0) {
+            if ((super->frame & ANIM_DONE) == 0) {
                 return;
             }
             object = CreateObject(OBJECT_64, 1, 0);
@@ -100,7 +100,7 @@ void sub_08093EF0(Object64Entity* this) {
                     CopyPosition(super, object);
                 }
             }
-            if ((super->frame & 0x80) == 0) {
+            if ((super->frame & ANIM_DONE) == 0) {
                 return;
             }
             if (super->parent == &gPlayerEntity) {
@@ -111,7 +111,7 @@ void sub_08093EF0(Object64Entity* this) {
             break;
         case 2:
             GetNextFrame(super);
-            if ((super->frame & 0x80) == 0) {
+            if ((super->frame & ANIM_DONE) == 0) {
                 return;
             }
             DeleteThisEntity();

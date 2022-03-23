@@ -12,7 +12,7 @@ void sub_0806EABC(Entity* this);
 void sub_0806EABC(Entity* this, u32 param);
 #endif
 
-extern u32 gUnk_081146B8;
+extern Font gUnk_081146B8;
 extern s8 gUnk_081145E4[];
 
 void Phonograph(Entity* this) {

@@ -75,7 +75,7 @@ void sub_080220D8(Entity* this) {
 
 void sub_080220F0(Entity* this) {
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         const PosOffset* off;
         u32 i;
 
@@ -107,7 +107,7 @@ void sub_08022174(Entity* this) {
 void sub_08022198(Entity* this) {
     sub_0800445C(this);
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 1;
         this->actionDelay = 0x5a;
     }

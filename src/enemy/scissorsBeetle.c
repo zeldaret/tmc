@@ -142,7 +142,7 @@ void sub_08038B08(ScissorsBeetleEntity* this) {
     }
 
     UpdateAnimationSingleFrame(super);
-    if (super->frame & 0x80) {
+    if (super->frame & ANIM_DONE) {
         super->action = 4;
         this->unk_82 = 3;
         super->actionDelay = 0x32;

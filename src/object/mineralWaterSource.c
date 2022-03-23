@@ -1,5 +1,4 @@
-#include "global.h"
-#include "entity.h"
+#include "object.h"
 
 extern void (*MineralWaterSourceActionFuncs[])(Entity*);
 
@@ -12,8 +11,6 @@ typedef struct {
 
 extern UnkStruct_MineralWater MineralWaterSourceParameters[];
 
-extern bool32 AllocMutableHitbox(Entity*);
-
 void MineralWaterSource(Entity* this) {
     MineralWaterSourceActionFuncs[this->action](this);
 }
@@ -21,7 +18,7 @@ void MineralWaterSource(Entity* this) {
 void MineralWaterSource_Init(Entity* this) {
     UnkStruct_MineralWater* unknownParameters;
 
-    if (!AllocMutableHitbox(this)) {
+    if (AllocMutableHitbox(this) == NULL) {
         return;
     }
 

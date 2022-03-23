@@ -119,7 +119,7 @@ void sub_08069D00(Entity* this) {
     this->field_0x6a.HALF.HI = 8;
     sub_0806A028(this);
     if (0x1f < this->animIndex) {
-        if ((this->frame & 0x80) == 0) {
+        if ((this->frame & ANIM_DONE) == 0) {
             return;
         }
         this->field_0x6a.HALF.HI = 8;
@@ -197,7 +197,7 @@ void sub_08069E50(Entity* this) {
     sub_0806A028(this);
     UpdateAnimationSingleFrame(this);
     if (this->animIndex > 0x1f) {
-        if ((this->frame & 0x80) == 0) {
+        if ((this->frame & ANIM_DONE) == 0) {
             return;
         }
         this->field_0x6a.HALF.HI = 8;

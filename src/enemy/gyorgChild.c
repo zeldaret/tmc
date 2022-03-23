@@ -56,7 +56,7 @@ void GyorgChild_OnGrabbed(GyorgChildEntity* this) {
         GyorgChild_OnGrabbed_Action1,
         GyorgChild_OnGrabbed_Action3,
     };
-    if (sub_0806F520()) {
+    if (sub_0806F520(super)) {
         GyorgChild_OnGrabbed_Actions[super->subAction](this);
     }
 }

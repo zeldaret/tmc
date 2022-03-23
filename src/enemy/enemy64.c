@@ -54,7 +54,7 @@ void Enemy64(Enemy64Entity* this) {
         super->subAction = 0;
     }
     Enemy64_Actions[super->action](this);
-    sub_0805EC9C(super, 0xaa, 0xaa, this->unk_78);
+    SetAffineInfo(super, 0xaa, 0xaa, this->unk_78);
     super->animationState = -(this->unk_78 >> 8);
     sub_080499F0(this);
     this->unk_7d = super->spriteSettings.draw;

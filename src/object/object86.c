@@ -31,7 +31,7 @@ void sub_08099E10(Entity* this) {
             this->frame = 0;
             sub_08099ECC(this);
         }
-        if (this->frame & 0x80) {
+        if (this->frame & ANIM_DONE) {
             this->action = 2;
             InitializeAnimation(this, 1);
         }
@@ -40,7 +40,7 @@ void sub_08099E10(Entity* this) {
 
 void sub_08099E58(Entity* this) {
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->frame &= ~0x80;
         this->actionDelay++;
         if (this->actionDelay == 3) {
@@ -70,5 +70,5 @@ void sub_08099ECC(Entity* this) {
     CopyPosition(this, &gPlayerEntity);
     gPlayerState.queued_action = PLAYER_FALL;
     gPlayerState.field_0x38 = 0;
-    gPlayerState.flags |= PL_FLAGS8000;
+    gPlayerState.flags |= PL_PIT_IS_EXIT;
 }

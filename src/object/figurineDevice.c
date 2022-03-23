@@ -197,7 +197,7 @@ void FigurineDevice_Action3(FigurineDeviceEntity* this) {
     GetNextFrame(super);
     switch (this->unk_7a) {
         case 0:
-            if ((super->frame & 0x80) != 0) {
+            if ((super->frame & ANIM_DONE) != 0) {
                 this->unk_7a = 1;
                 super->actionDelay = 0x28;
                 ChangeObjPalette(super, gUnk_08120AA8[super->type2]);
@@ -207,7 +207,7 @@ void FigurineDevice_Action3(FigurineDeviceEntity* this) {
             break;
 
         case 1:
-            if (((super->frame & 0x80) != 0) && (--super->actionDelay == 0)) {
+            if (((super->frame & ANIM_DONE) != 0) && (--super->actionDelay == 0)) {
                 this->unk_7a = 2;
                 SetRoomFlag(2);
                 MenuFadeIn(7, super->field_0xf);
@@ -303,7 +303,7 @@ void FigurineDevice_Action4(FigurineDeviceEntity* this) {
             gMessage.textWindowPosX = 1;
             gMessage.textWindowPosY = 0xc;
 #endif
-            gMessage.field_0x10 = this->unk_81;
+            gMessage.rupees = this->unk_81;
             break;
     }
 }
@@ -417,9 +417,9 @@ void sub_080882A8(FigurineDeviceEntity* this) {
     sub_08057044(this->unk_83, &gUnk_020227E8[1], 0x202020);
     ptr = (u8*)0x02000000;
     if (ptr[7] == 0) {
-        sub_0805F46C((u32)gUnk_08120AE4[super->type2], &gUnk_08120AB4);
+        sub_0805F46C((u32)gUnk_08120AE4[super->type2], (Font*)&gUnk_08120AB4); // TODO convert data
     } else {
-        sub_0805F46C((u32)gUnk_08120AE4[super->type2], &gUnk_08120ACC);
+        sub_0805F46C((u32)gUnk_08120AE4[super->type2], (Font*)&gUnk_08120ACC); // TODO convert data
     }
     gScreen.bg0.updated = 1;
 }
@@ -477,7 +477,7 @@ void sub_08088478(void) {
     gMessage.textWindowPosX = 1;
     gMessage.textWindowPosY = 0xc;
     if (set0x10) {
-        gMessage.field_0x10 = 5;
+        gMessage.rupees = 5;
     }
 #ifndef EU
     gPlayerEntity.animationState = 6;

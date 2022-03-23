@@ -117,7 +117,7 @@ void sub_080218CC(Entity* this) {
             this->frameDuration = 1;
     }
 
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 2;
         this->actionDelay = (Random() & 0x38) + 8;
         this->field_0xf = 1;
@@ -209,7 +209,7 @@ void sub_08021AD8(Entity* this) {
             this->frameDuration = 1;
     }
 
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 2;
         this->actionDelay = 20;
         ((u8*)&this->field_0x86)[0] = 60;
@@ -268,7 +268,7 @@ void sub_08021C58(Entity* this) {
             this->frameDuration = 1;
     }
 
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 2;
         this->actionDelay = 60;
         this->field_0xf = 1;
@@ -280,7 +280,7 @@ void sub_08021C58(Entity* this) {
 }
 
 void sub_08021CD0(Entity* this) {
-    if ((this->frame & 0x80) == 0)
+    if ((this->frame & ANIM_DONE) == 0)
         GetNextFrame(this);
 
     if (sub_08049F84(this, 1) == 0xff)

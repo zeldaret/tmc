@@ -69,7 +69,7 @@ sub_08086284: @ 0x08086284
 	ldrh r2, [r0]
 	adds r0, r4, #0
 	movs r3, #0
-	bl sub_0805EC9C
+	bl SetAffineInfo
 	pop {r4, pc}
 	.align 2, 0
 _080862B4: .4byte gUnk_08120668
@@ -119,10 +119,10 @@ Then, start translating the code to `src/evilSpirit.c`, bit by bit:
         ldrh    r2, [r0]
         add     r0, r4, #0
         mov     r3, #0
-        bl      sub_0805EC9C
+        bl      SetAffineInfo
 ```
 ```c
-	sub_0805EC9C(r0, *(u16 *)(r0 + 0x76), *(u16 *)(r0 + 0x7a), 0);
+	SetAffineInfo(r0, *(u16 *)(r0 + 0x76), *(u16 *)(r0 + 0x7a), 0);
 ```
 ---
 ```asm
@@ -151,7 +151,7 @@ Putting it all together, we get:
 void sub_08086284(u8 *r0) {
     gUnk_08120668[*(u8 *)(r0 + 0xc)](r0);
     *(u8 *)(r0 + 0x41) = 0;
-    sub_0805EC9C(r0, *(u16 *)(r0 + 0x76), *(u16 *)(r0 + 0x7a), 0);
+    SetAffineInfo(r0, *(u16 *)(r0 + 0x76), *(u16 *)(r0 + 0x7a), 0);
     return;
 }
 ```
@@ -217,7 +217,7 @@ Much better.
 void sub_08086284(Entity *r0) {
     gUnk_08120668[r0->action](r0);
     r0->bitfield = 0;
-    sub_0805EC9C(r0, r0->field_0x76.HWORD, r0->field_0x7a.HWORD, 0);
+    SetAffineInfo(r0, r0->field_0x76.HWORD, r0->field_0x7a.HWORD, 0);
     return;
 }
 ```
@@ -235,18 +235,18 @@ src/evilSpirit.c: In function `sub_08086284':
 src/evilSpirit.c:4: syntax error before `*'
 src/evilSpirit.c:5: `gUnk_08120668' undeclared (first use in this function)
 src/evilSpirit.c:5: (Each undeclared identifier is reported only once for each function it appears in.)
-src/evilSpirit.c:7: warning: implicit declaration of function `sub_0805EC9C'
+src/evilSpirit.c:7: warning: implicit declaration of function `SetAffineInfo'
 ```
 
-We got some errors. We need to tell the compiler what `gUnk_08120668`, `Entity`, and `sub_0805EC9C` are.
+We got some errors. We need to tell the compiler what `gUnk_08120668`, `Entity`, and `SetAffineInfo` are.
 
 We know `r0` is an `Entity`, which is from `entity.h`. We can declare this above the function:
 ```c
 #include "entity.h"
 ```
-What about `gUnk_08120668` and `sub_0805EC9C`?
+What about `gUnk_08120668` and `SetAffineInfo`?
 ```c
-extern void sub_0805EC9C();
+extern void SetAffineInfo();
 extern void (*gUnk_08120668[])(Entity *);
 ```
 Now the compiler will look outside of this file for both of these. We don't have to set the size of `gUnk_08120668`, a function array, since it's size is irrelevant for now.
@@ -258,13 +258,13 @@ Now our file looks like this:
 #include "global.h"
 #include "entity.h"
 
-extern void sub_0805EC9C();
+extern void SetAffineInfo();
 extern void (*gUnk_08120668[])(Entity *);
 
 void sub_08086284(Entity *r0) {
     gUnk_08120668[r0->action](r0);
     r0->bitfield = 0;
-    sub_0805EC9C(r0, r0->field_0x76.HWORD, r0->field_0x7a.HWORD, 0);
+    SetAffineInfo(r0, r0->field_0x76.HWORD, r0->field_0x7a.HWORD, 0);
     return;
 }
 ```

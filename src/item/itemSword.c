@@ -107,7 +107,7 @@ void sub_080754B8(ItemBehavior* this, u32 arg1) {
         if (gPlayerEntity.frameSpriteSettings & 1) {
             iVar1 = sub_0807B014();
             if (iVar1 && FindEntityByID(PLAYER_ITEM, PLAYER_ITEM_SWORD_BEAM1, 2) == 0) {
-                CreatePlayerBomb(this, 0xf);
+                CreatePlayerItemWithParent(this, 0xf);
                 if (iVar1 == 0xf) {
                     gPlayerState.field_0xab = 5;
                 } else {
@@ -228,7 +228,7 @@ void sub_08075738(ItemBehavior* this, u32 arg1) {
         } else {
             if (((((gPlayerEntity.frameSpriteSettings & 1) != 0) && ((gPlayerState.sword_state & 0x80) == 0)) &&
                  ((gPlayerState.skills & SKILL_FOURSWORD) != 0))) {
-                Entity* bombEnt = CreatePlayerBomb(this, 0x14);
+                Entity* bombEnt = CreatePlayerItemWithParent(this, 0x14);
                 if (bombEnt) {
                     bombEnt->animationState = (gPlayerEntity.animationState & 6) | 0x80;
                 }
@@ -313,5 +313,5 @@ void sub_080759B8(ItemBehavior* this, u32 arg1) {
     gPlayerState.flags &= ~PL_SWORD_THRUST;
     gPlayerState.sword_state = 0;
     gPlayerState.item = NULL;
-    sub_08077E78(this, arg1);
+    DeletePlayerItem(this, arg1);
 }

@@ -27,8 +27,6 @@ void sub_08094570(Object67Entity*);
 void sub_08094660(Object67Entity*);
 void sub_08094708(Object67Entity*, u32, u32);
 
-extern bool32 AllocMutableHitbox(Entity*);
-
 void Object67(Entity* this) {
     static void (*const actionFuncs[])(Object67Entity*) = {
         sub_08094148, sub_08094398, sub_08094424, sub_08094540, sub_08094570,
@@ -135,7 +133,7 @@ void sub_08094148(Object67Entity* this) {
                         this->unk84.HALF.HI = 0x100;
                     }
 
-                    if (AllocMutableHitbox(super)) {
+                    if (AllocMutableHitbox(super) != NULL) {
                         super->hitbox->offset_x = gUnk_080FD2E8.offset_x;
                         super->hitbox->offset_y = gUnk_080FD2E8.offset_y;
                         super->hitbox->unk2[0] = gUnk_080FD2E8.unk2[0];
@@ -181,7 +179,7 @@ void sub_08094398(Object67Entity* this) {
                     this->unk7c = 600;
                     super->action = 2;
                 }
-                sub_0805EC9C(super, this->unk80.HALF_U.HI, this->unk84.HALF_U.HI, 0);
+                SetAffineInfo(super, this->unk80.HALF_U.HI, this->unk84.HALF_U.HI, 0);
             } else {
                 if ((((GenericEntity*)super->child)->field_0x78.HALF.HI & 0x80) == 0) {
                     DeleteThisEntity();
@@ -224,7 +222,7 @@ void sub_08094424(Object67Entity* this) {
     } else {
         sub_0806FCF4(super, this->unk80.HALF.HI, 0x20, super->actionDelay);
         sub_0806FCF4(super, this->unk84.HALF.HI, 0x20, super->field_0xf);
-        sub_0805EC9C(super, this->unk80.HALF_U.HI, this->unk84.HALF_U.HI, 0);
+        SetAffineInfo(super, this->unk80.HALF_U.HI, this->unk84.HALF_U.HI, 0);
     }
 
     if (super->hitbox != NULL) {
@@ -241,7 +239,7 @@ void sub_08094540(Object67Entity* this) {
         super->action = 4;
         this->unk7c = 2;
     }
-    sub_0805EC9C(super, this->unk80.HALF_U.HI, this->unk84.HALF_U.HI, 0);
+    SetAffineInfo(super, this->unk80.HALF_U.HI, this->unk84.HALF_U.HI, 0);
 }
 
 void sub_08094570(Object67Entity* this) {
@@ -275,7 +273,7 @@ void sub_08094570(Object67Entity* this) {
         }
         sub_0806FCF4(super, this->unk80.HALF.HI, 0x20, super->actionDelay);
         sub_0806FCF4(super, this->unk84.HALF.HI, 0x20, super->field_0xf);
-        sub_0805EC9C(super, this->unk80.HALF_U.HI, this->unk84.HALF_U.HI, 0);
+        SetAffineInfo(super, this->unk80.HALF_U.HI, this->unk84.HALF_U.HI, 0);
     }
 
     if (super->hitbox != NULL) {

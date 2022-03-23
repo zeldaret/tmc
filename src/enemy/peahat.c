@@ -19,9 +19,6 @@ extern const s8 gUnk_080CA5D4[];
 void sub_080205F8(Entity*);
 void sub_08020604(Entity*);
 
-extern u32 sub_08049F1C(Entity*, Entity*, u32);
-extern void sub_0804AA1C(Entity*);
-
 extern Entity* gUnk_020000B0;
 
 enum {
@@ -289,7 +286,7 @@ void Peahat_Recover(Entity* this) {
 void Peahat_Hop(Entity* this) {
     GetNextFrame(this);
     if (--this->actionDelay == 0) {
-        if (this->frame & 0x80) {
+        if (this->frame & ANIM_DONE) {
             this->action = 9;
             this->zVelocity = Q_16_16(1.5);
             this->animationState = PeahatAnimation_NewPropeller;
@@ -313,7 +310,7 @@ void Peahat_Hop(Entity* this) {
 
 void Peahat_Takeoff(Entity* this) {
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 1;
         this->hitType = 0x70;
         this->field_0x82.HALF.LO = 1;

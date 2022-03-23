@@ -87,7 +87,7 @@ void BigIceBlock_Action2(BigIceBlockEntity* this) {
         super->actionDelay += 1;
     }
     tmp = gUnk_081237B0[super->actionDelay >> 5];
-    sub_0805EC9C(super, 0x100, tmp, 0);
+    SetAffineInfo(super, 0x100, tmp, 0);
     if (super->type != 1) {
         if (super->type != 2) {
             SetFlag(this->unk_86);
@@ -114,7 +114,7 @@ void sub_08099880(BigIceBlockEntity* this) {
             sub_08099C18(this);
         }
         uVar4 = (0x3c - super->actionDelay) * 0x20 + 0x100;
-        sub_0805EC9C(super, 0x100, uVar4, 0);
+        SetAffineInfo(super, 0x100, uVar4, 0);
         sub_0806FCF4(super, uVar4, 2, 0);
         obj = CreateObject(SPECIAL_FX, 0x11, 0x40);
         if (obj != NULL) {

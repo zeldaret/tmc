@@ -130,7 +130,7 @@ void VaatiRebornAction1(Entity* this) {
                     }
                     break;
                 case 1:
-                    if (this->frame & 0x80) {
+                    if (this->frame & ANIM_DONE) {
                         this->subAction = 2;
                         ChangeObjPalette(this, 0x13f);
                         InitAnimationForceUpdate(this, this->subAction - 1);
@@ -153,7 +153,7 @@ void VaatiRebornAction1(Entity* this) {
                     }
                     break;
                 case 3:
-                    if (this->frame & 0x80) {
+                    if (this->frame & ANIM_DONE) {
                         SetRoomFlag(0);
                         DeleteThisEntity();
                     }

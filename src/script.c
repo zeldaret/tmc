@@ -1634,8 +1634,8 @@ void EquipItem(Entity* entity, ScriptExecutionContext* context) {
     ForceEquipItem(item, slot);
 }
 
-void sub_0807F29C(Entity* entity, ScriptExecutionContext* context) {
-    sub_0805ED14((void*)context->intVariable);
+void SetInputMacro(Entity* entity, ScriptExecutionContext* context) {
+    InitPlayerMacro((void*)context->intVariable);
 }
 
 void sub_0807F2A8(Entity* entity, ScriptExecutionContext* context) {
@@ -1646,8 +1646,8 @@ void sub_0807F2A8(Entity* entity, ScriptExecutionContext* context) {
     }
 }
 
-void WaitForFrameHiBit(Entity* entity, ScriptExecutionContext* context) {
-    if ((entity->frame & 0x80) != 0) {
+void WaitForAnimDone(Entity* entity, ScriptExecutionContext* context) {
+    if ((entity->frame & ANIM_DONE) != 0) {
         gActiveScriptInfo.flags |= 1;
     } else {
         gActiveScriptInfo.commandSize = 0;
@@ -1655,7 +1655,7 @@ void WaitForFrameHiBit(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void WaitForPlayerFrameHiBit(Entity* entity, ScriptExecutionContext* context) {
-    if ((gPlayerEntity.frame & 0x80) != 0) {
+    if ((gPlayerEntity.frame & ANIM_DONE) != 0) {
         gActiveScriptInfo.flags |= 1;
     } else {
         gActiveScriptInfo.commandSize = 0;
@@ -1884,7 +1884,7 @@ void sub_0807F78C(Entity* entity, ScriptExecutionContext* context) {
     msg = GetSaleItemConfirmMessageID(item);
     price = GetItemPrice(item);
     MessageNoOverlap(msg, entity);
-    gMessage.field_0x10 = (u16)price;
+    gMessage.rupees = (u16)price;
 }
 
 void sub_0807F7C4(Entity* entity, ScriptExecutionContext* context) {
@@ -1929,7 +1929,7 @@ void sub_0807F854(Entity* entity, ScriptExecutionContext* context) {
     switch (idx) {
         case 0:
         case 1:
-            gMessage.field_0x10 = value;
+            gMessage.rupees = value;
             break;
         case 2:
             gMessage.field_0x14 = value;

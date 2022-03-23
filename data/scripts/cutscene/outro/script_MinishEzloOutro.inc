@@ -10,20 +10,20 @@ SCRIPT_START script_MinishEzloOutro
 	WaitForSyncFlagAndClear 0x00000002
 	SetAnimation 0x000e
 	DoPostScriptAction 0x0007
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	DoPostScriptAction 0x0004
 	SetSyncFlag 0x00000040
 	WaitForSyncFlagAndClear 0x00000002
 	SetAnimation 0x000c
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	SetSyncFlag 0x00000040
 	WaitForSyncFlagAndClear 0x00000002
 	SetAnimation 0x000f
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	SetSyncFlag 0x00000040
 	WaitForSyncFlagAndClear 0x00000002
 	SetAnimation 0x000c
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	SetSyncFlag 0x00000040
 	WaitForSyncFlagAndClear 0x00000002
 	CallWithArg sub_080960C4, script_EzloZeldaMagic

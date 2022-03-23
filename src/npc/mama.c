@@ -61,7 +61,7 @@ void Mama_Head(Entity* this) {
 
 void sub_0806C4A8(Entity* this, ScriptExecutionContext* context) {
     s32 tmp;
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         tmp = GetAnimationState(this);
         if (tmp < 0) {
             tmp = 3;

@@ -86,7 +86,7 @@ void GyorgMaleEnergyProjectile_Action2(Entity* this) {
 void GyorgMaleEnergyProjectile_Action3(Entity* this) {
     ProcessMovement3(this);
     GetNextFrame(this);
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         DeleteThisEntity();
     }
 }

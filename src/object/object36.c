@@ -69,7 +69,7 @@ void sub_0808BBE0(Object36Entity* this) {
         diff /= 0x10;
         super->spriteOffsetY = gUnk_08121474[diff];
         ptr = &gUnk_0812144C[diff * 2];
-        sub_0805EC9C(super, ptr[0], ptr[1], 0);
+        SetAffineInfo(super, ptr[0], ptr[1], 0);
     } else {
         super->bitfield &= 0x7f;
     }
@@ -119,7 +119,7 @@ void sub_0808BD14(Object36Entity* this) {
 
     if (super->field_0xf != 0) {
         super->field_0xf -= 8;
-        sub_0805EC9C(super, 0x200 - super->field_0xf, 0x200 - super->field_0xf, 0);
+        SetAffineInfo(super, 0x200 - super->field_0xf, 0x200 - super->field_0xf, 0);
     }
     if (super->bitfield == 0x93) {
         super->direction = GetFacingDirection(super, &gPlayerEntity);

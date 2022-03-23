@@ -675,7 +675,7 @@ void VaatiTransfiguredType2Action1(Entity* this) {
                     }
                     break;
                 case 1:
-                    if ((this->frame & 0x80) != 0) {
+                    if ((this->frame & ANIM_DONE) != 0) {
                         this->field_0x74.HALF.LO = 0;
                         this->field_0xf = (Random() & 0x7f) + 0x17;
                         InitAnimationForceUpdate(this, 0);
@@ -790,7 +790,7 @@ void VaatiTransfiguredType5Action1(Entity* this) {
                 this->field_0x80.HALF.LO = 0;
                 this->spriteSettings.draw = 0;
             } else {
-                if (this->frame & 0x80) {
+                if (this->frame & ANIM_DONE) {
                     this->frame &= ~0x80;
                     if (gEntCount < 0x47) {
                         sub_08040648(this, this->type, 1);
@@ -814,13 +814,13 @@ void VaatiTransfiguredType5Action2(Entity* this) {
     }
     if (this->field_0x80.HALF.LO == 0) {
         if (this->parent->parent->action != 6) {
-            if ((this->frame & 0x80) != 0) {
+            if ((this->frame & ANIM_DONE) != 0) {
                 this->field_0x80.HALF.LO += 1;
                 InitializeAnimation(this, 3);
             }
         }
     } else {
-        if ((this->frame & 0x80) != 0) {
+        if ((this->frame & ANIM_DONE) != 0) {
             DeleteThisEntity();
         }
     }

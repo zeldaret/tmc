@@ -122,7 +122,7 @@ void sub_08029474(Entity* this) {
     u32 bVar1;
 
     sub_080296C8(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 3;
         this->actionDelay = 8;
         bVar1 = GetFacingDirection(this, &gPlayerEntity);
@@ -196,7 +196,7 @@ void sub_08029610(Entity* this) {
 
 void sub_08029630(Entity* this) {
     sub_080296C8(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->field_0x80.HALF.HI = 1;
         this->child->spriteSettings.draw = FALSE;
         sub_080297F0(this);

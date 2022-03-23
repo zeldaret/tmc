@@ -162,7 +162,7 @@ void ChestSpawner_Type2Action3(ChestSpawnerEntity* this) {
 void ChestSpawner_Type2Action4(ChestSpawnerEntity* this) {
     sub_0800445C(super);
     GetNextFrame(super);
-    if ((super->frame & 0x80) != 0) {
+    if ((super->frame & ANIM_DONE) != 0) {
         if (--super->field_0xf == 0) {
             if (super->actionDelay == 0x18) {
                 super->action = 6;

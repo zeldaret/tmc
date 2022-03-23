@@ -1,7 +1,7 @@
 #include "entity.h"
 #include "enemy.h"
+#include "coord.h"
 
-extern bool32 AllocMutableHitbox(Entity*);
 typedef struct {
     s8 offsetX;
     s8 offsetY;
@@ -44,7 +44,7 @@ void sub_080A832C(Entity* this) {
 }
 
 void MoblinSpear_Init(Entity* this) {
-    if (AllocMutableHitbox(this) != 0) {
+    if (AllocMutableHitbox(this) != NULL) {
         this->action = 1;
     }
 }

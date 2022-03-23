@@ -100,7 +100,7 @@ void sub_08045CE0(BusinessScrubPrologueEntity* this) {
     switch (super->subAction) {
         case 0:
             r6 = 1;
-            if (super->frame & 0x80) {
+            if (super->frame & ANIM_DONE) {
                 super->subAction = 1;
                 super->actionDelay = 0x3c;
                 super->field_0xf = 0x10;
@@ -133,7 +133,7 @@ void sub_08045CE0(BusinessScrubPrologueEntity* this) {
             break;
         case 3:
             r6 = 2;
-            if (super->frame & 0x80) {
+            if (super->frame & ANIM_DONE) {
                 super->subAction = 4;
                 super->actionDelay = 0x50;
                 sub_08046030(this, 1);
@@ -170,7 +170,7 @@ void sub_08045E14(BusinessScrubPrologueEntity* this) {
     switch (super->subAction) {
         case 0:
             if (super->actionDelay == 0) {
-                if (super->frame & 0x80) {
+                if (super->frame & ANIM_DONE) {
                     super->subAction = 1;
                     sub_08045F98(this);
                     sub_08046030(this, 5);
@@ -181,7 +181,7 @@ void sub_08045E14(BusinessScrubPrologueEntity* this) {
             }
             break;
         case 1:
-            if (super->frame & 0x80) {
+            if (super->frame & ANIM_DONE) {
                 super->action = 5;
                 super->subAction = 0;
                 sub_08046030(this, 0);
@@ -222,7 +222,7 @@ void sub_08045EDC(BusinessScrubPrologueEntity* this) {
         super->frame &= 0xfe;
         sub_080954AC(super, this->unk_84);
         EnqueueSFX(SFX_18D);
-    } else if (super->frame & 0x80) {
+    } else if (super->frame & ANIM_DONE) {
         super->action = 5;
         super->subAction = 0;
         sub_08046030(this, 1);

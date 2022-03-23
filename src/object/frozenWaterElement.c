@@ -47,12 +47,12 @@ void sub_0809BECC(FrozenWaterElementEntity* this) {
         super->frameIndex = 0;
         super->spriteRendering.b0 = 3;
         sub_0809C0A8(this);
-        sub_0805EC9C(super, 0xcc, 0xcc, 0);
+        SetAffineInfo(super, 0xcc, 0xcc, 0);
     }
 }
 
 void sub_0809BF1C(FrozenWaterElementEntity* this) {
-    sub_0805EC9C(super, 0xcc, 0xcc, 0);
+    SetAffineInfo(super, 0xcc, 0xcc, 0);
     if (CheckFlags(OUGONTEKI_G)) {
         Entity* obj = CreateObject(OBJECT_90, 0, 0);
         if (obj != NULL) {
@@ -88,7 +88,7 @@ void sub_0809BF74(FrozenWaterElementEntity* this) {
         if (this->unk_74 < 0x78) {
             tmp2 = ((0x78 - this->unk_74) << 5);
             tmp2 += 0xcc;
-            sub_0805EC9C(super, ((0x78 - this->unk_74) << 4) + 0xcc, tmp2, 0);
+            SetAffineInfo(super, ((0x78 - this->unk_74) << 4) + 0xcc, tmp2, 0);
             sub_0806FCF4(super, tmp2, 8, 0);
             super->spriteOffsetY += 8;
         }

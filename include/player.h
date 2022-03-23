@@ -109,7 +109,7 @@ enum PlayerFlags {
     PL_FROZEN = 0x800,
     PL_IN_MINECART = 0x1000,
     PL_DRUGGED = 0x4000,
-    PL_FLAGS8000 = 0x8000,
+    PL_PIT_IS_EXIT = 0x8000,
     PL_FLAGS10000 = 0x10000,
     PL_FLAGS20000 = 0x20000,
     PL_ROLLING = 0x40000,
@@ -204,7 +204,7 @@ typedef struct {
     /*0x02*/ u8 jump_status;
     /*0x03*/ u8 field_0x3[2];
     /*0x05*/ u8 heldObject;
-    /*0x06*/ u8 pushedObject;
+    /*0x06*/ u8 pushedObject; // hi bit is special, rest is used as a timer
     /*0x07*/ u8 field_0x7;
     /*0x08*/ u16 animation;
     /*0x0a*/ u8 field_0xa;
@@ -224,7 +224,7 @@ typedef struct {
     /*0x1a*/ u8 mobility;
     /*0x1b*/ u8 sword_state;
     /*0x1c*/ u8 field_0x1c;
-    /*0x1d*/ u8 field_0x1d;
+    /*0x1d*/ u8 gustJarSpeed;
     /*0x1e*/ u8 dash_state;
     /*0x1f*/ u8 field_0x1f[3];
     /*0x22*/ u16 field_0x22[2];

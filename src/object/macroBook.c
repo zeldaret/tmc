@@ -44,7 +44,7 @@ void MacroBook_Init(MacroBookEntity* this) {
     super->spriteOffsetY = -4;
     super->spritePriority.b0 = 7;
     super->spriteRendering.b3 = 3;
-    sub_0805EC9C(super, this->unk80, this->unk80, 0);
+    SetAffineInfo(super, this->unk80, this->unk80, 0);
     UpdateSpriteForCollisionLayer(super);
     InitAnimationForceUpdate(super, super->field_0xf);
     sub_0809A958(this);
@@ -56,7 +56,7 @@ void MacroBook_Action1(MacroBookEntity* this) {
     if (super->actionDelay) {
         super->actionDelay--;
     } else {
-        if ((super->frame & 0x80) != 0) {
+        if ((super->frame & ANIM_DONE) != 0) {
             if (super->field_0xf == 3) {
                 super->action = 2;
                 super->actionDelay = 90;
@@ -83,7 +83,7 @@ void MacroBook_Action2(MacroBookEntity* this) {
         super->action = 1;
         super->actionDelay = 0;
     } else {
-        if ((super->frame & 0x80) == 0) {
+        if ((super->frame & ANIM_DONE) == 0) {
             return;
         }
         super->action = 3;
@@ -117,7 +117,7 @@ void MacroBook_Action3(MacroBookEntity* this) {
     if (super->actionDelay) {
         this->unk80 += 8;
         super->x.WORD += 0x400;
-        sub_0805EC9C(super, this->unk80, this->unk80, 0);
+        SetAffineInfo(super, this->unk80, this->unk80, 0);
     } else {
         sub_0809AA9C(this, super->child, 0);
         sub_0809AA9C(this, &gPlayerEntity, 1);

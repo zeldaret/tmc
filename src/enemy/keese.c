@@ -79,7 +79,7 @@ void Keese_Fly(Entity* this) {
         this->field_0x7a.HWORD--;
     }
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         sub_08021F24(this);
     } else {
         ProcessMovement1(this);

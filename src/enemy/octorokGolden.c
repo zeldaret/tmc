@@ -8,9 +8,6 @@ extern void (*const gUnk_080012C8[])(Entity*);
 const s8 gUnk_080CF490[];
 const u8 gUnk_080CF498[];
 
-extern s32 sub_080012DC(Entity*);
-extern u32 sub_0804A044(Entity*, Entity*, u32);
-
 void sub_08037E14(Entity* this);
 bool32 sub_08037E90(Entity* this);
 
@@ -90,7 +87,7 @@ void sub_08037D54(Entity* this) {
                 EnqueueSFX(SFX_124);
             }
         }
-    } else if (this->frame & 0x80) {
+    } else if (this->frame & ANIM_DONE) {
         if (--this->actionDelay == 0) {
             this->action = 1;
             this->field_0xf = 0x3c;

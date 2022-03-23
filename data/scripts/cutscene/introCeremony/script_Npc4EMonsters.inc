@@ -30,7 +30,7 @@ SCRIPT_START script_Npc4EMonsters
 	Call NPC4E_SaveEquippedItems
 	Call SetPlayerActionNormal
 	CallWithArg EquipItem, 0x0000000d
-	CallWithArg sub_0807F29C, gUnk_080049F6
+	CallWithArg SetInputMacro, gUnk_080049F6
 	_0807F0B4 0x0001
 	SetEntityPositionRelative 0x01f8, 0x0068
 	SetSyncFlag 0x00000004
@@ -41,7 +41,7 @@ SCRIPT_START script_Npc4EMonsters
 	PlaySound SFX_1C3
 	SetSyncFlag 0x20000000
 	Wait 0x0078
-	CallWithArg sub_0807F29C, 0x00000000
+	CallWithArg SetInputMacro, 0x00000000
 	Call NPC4E_RestoreEquippedItems
 	SetSyncFlag 0x40000000
 	SetSyncFlag 0x00000010

@@ -74,7 +74,7 @@ void sub_0809F374(Entity* this) {
 }
 
 void sub_0809F3E8(Entity* this) {
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 3;
         InitializeAnimation(this, 2);
     }

@@ -13,21 +13,21 @@ SCRIPT_START script_VaatiIntroCeremony
 	WaitForSyncFlagAndClear 0x00000100
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x001c
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000200
 	WaitForSyncFlagAndClear 0x00000100
 	SetAnimationState 0x0000
 	DoPostScriptAction 0x001c
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	SetAnimationState 0x0000
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000200
 	WaitForSyncFlagAndClear 0x00000100
 	SetAnimationState 0x0000
 	DoPostScriptAction 0x001a
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000200
 	WaitForSyncFlagAndClear 0x00000100
@@ -71,7 +71,7 @@ SCRIPT_START script_VaatiIntroCeremony
 	Wait 0x005a
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x001c
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	Wait 0x001e

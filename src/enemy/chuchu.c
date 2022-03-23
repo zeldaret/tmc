@@ -123,7 +123,7 @@ void Chuchu_OnCollision(Entity* this) {
 }
 
 void Chuchu_OnGrabbed(Entity* this) {
-    if (sub_0806F520(this) == 0 && this->confusedTime) {
+    if (!sub_0806F520(this) && this->confusedTime) {
         Create0x68FX(this, FX_STARS);
         InitializeAnimation(this, 6);
     } else {
@@ -155,7 +155,7 @@ void Chuchu_OnDeath(Entity* this) {
 }
 
 void Chuchu_OnConfused(Entity* this) {
-    if ((this->frame & 0x80) == 0)
+    if ((this->frame & ANIM_DONE) == 0)
         GetNextFrame(this);
     GenericConfused(this);
 }
@@ -173,7 +173,7 @@ void nullsub_4(Entity* this) {
 
 void sub_0801F0C8(Entity* this) {
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 3;
         this->actionDelay = (Random() & 3) + 0xc;
         this->field_0xf = Random();
@@ -221,7 +221,7 @@ void sub_0801F1B0(Entity* this) {
         GetNextFrame(this);
     }
 
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         if (sub_0801FBD0(this)) {
             sub_0801F328(this);
         } else {
@@ -240,7 +240,7 @@ void sub_0801F228(Entity* this) {
 
 void sub_0801F250(Entity* this) {
     GetNextFrame(this);
-    if (this->frame & 0x80)
+    if (this->frame & ANIM_DONE)
         sub_0801F360(this);
 }
 
@@ -267,7 +267,7 @@ void sub_0801F270(Entity* this) {
 
 void sub_0801F2CC(Entity* this) {
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 1;
         this->spriteSettings.draw = 0;
         InitializeAnimation(this, 4);
@@ -277,7 +277,7 @@ void sub_0801F2CC(Entity* this) {
 void sub_0801F2F8(Entity* this) {
     GravityUpdate(this, 0x1800);
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         sub_0801F340(this);
         sub_0804AA1C(this);
     }
@@ -362,7 +362,7 @@ void sub_0801F48C(Entity* this) {
 
 void sub_0801F494(Entity* this) {
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 3;
         this->field_0xf = 30;
         this->direction = sub_08049F84(this, 1);
@@ -418,7 +418,7 @@ void sub_0801F584(Entity* this) {
         GetNextFrame(this);
     }
 
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         if (sub_0801FBD0(this)) {
             this->field_0x82.HALF.HI = 0;
             sub_0801F730(this);
@@ -440,7 +440,7 @@ void sub_0801F61C(Entity* this) {
 
 void sub_0801F638(Entity* this) {
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 8;
         this->field_0xf = 30;
         this->direction = sub_08049F84(this, 1);
@@ -465,7 +465,7 @@ void sub_0801F688(Entity* this) {
 
 void sub_0801F6CC(Entity* this) {
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 1;
         this->spriteSettings.draw = 0;
         InitializeAnimation(this, 4);
@@ -475,7 +475,7 @@ void sub_0801F6CC(Entity* this) {
 void sub_0801F6F8(Entity* this) {
     GravityUpdate(this, 0x1800);
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 4;
         this->speed = 0x20;
         sub_0804AA1C(this);
@@ -538,7 +538,7 @@ void sub_0801F7FC(Entity* this) {
 
 void sub_0801F840(Entity* this) {
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         sub_0801FB14(this);
         COLLISION_ON(this);
         this->spritePriority.b0 = 4;
@@ -594,7 +594,7 @@ void sub_0801F940(Entity* this) {
         GetNextFrame(this);
     }
 
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         if (sub_0801FBD0(this)) {
             sub_0801FAE0(this);
         } else {
@@ -614,7 +614,7 @@ void sub_0801F9C4(Entity* this) {
 
 void sub_0801F9E0(Entity* this) {
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 8;
         this->field_0xf = 30;
         this->direction = sub_08049F84(this, 1);
@@ -639,7 +639,7 @@ void sub_0801FA30(Entity* this) {
 
 void sub_0801FA78(Entity* this) {
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 1;
         this->spriteSettings.draw = 0;
         InitializeAnimation(this, 4);
@@ -650,7 +650,7 @@ void sub_0801FA78(Entity* this) {
 void sub_0801FAAC(Entity* this) {
     GravityUpdate(this, 0x1800);
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         sub_0801FB14(this);
         this->speed = 0x20;
         sub_0804AA1C(this);
@@ -705,7 +705,7 @@ void sub_0801FB68(Entity* this) {
 }
 
 u32 sub_0801FBD0(Entity* this) {
-    if (sub_080B1AA8(this) == 0x10) {
+    if (GetTileUnderEntity(this) == 0x10) {
         return 1;
     } else {
         return 0;

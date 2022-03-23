@@ -79,7 +79,7 @@ void GyorgMaleEye_Init(GyorgMaleEyeEntity* this) {
 void GyorgMaleEye_Action1(GyorgMaleEyeEntity* this) {
     sub_08048F50(this);
     GetNextFrame(super);
-    if ((super->frame & 0x80) != 0) {
+    if ((super->frame & ANIM_DONE) != 0) {
         super->action = 2;
         super->flags |= 0x80;
         super->actionDelay = 0x2d;
@@ -98,7 +98,7 @@ void GyorgMaleEye_Action2(GyorgMaleEyeEntity* this) {
 void GyorgMaleEye_Action3(GyorgMaleEyeEntity* this) {
     sub_08048F50(this);
     GetNextFrame(super);
-    if ((super->frame & 0x80) != 0) {
+    if ((super->frame & ANIM_DONE) != 0) {
         DeleteThisEntity();
     }
 }

@@ -78,7 +78,7 @@ void Cucco_Idle(Entity* this) {
         InitAnimationForceUpdate(this, (Random() & 1) + 2);
     }
 
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 1;
         this->subAction = 0;
     }

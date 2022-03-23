@@ -154,7 +154,7 @@ void sub_08040D30(Enemy50Entity* this) {
 }
 
 void sub_08040D90(Enemy50Entity* this) {
-    if (sub_0806F520()) {
+    if (sub_0806F520(super)) {
         Enemy50_SubActions[super->subAction](this);
     } else {
         sub_08041128(this);
@@ -223,7 +223,7 @@ void Enemy50_Action2(Enemy50Entity* this) {
 
 void Enemy50_Action3(Enemy50Entity* this) {
     GetNextFrame(super);
-    if ((super->frame & 0x80) != 0) {
+    if ((super->frame & ANIM_DONE) != 0) {
         super->flags |= 0x80;
         this->unk_7c = this->unk_80 * ((Random() & 0x30) + 0x3c) + 0x78;
         sub_08041128(this);
@@ -292,7 +292,7 @@ void Enemy50_Action7(Enemy50Entity* this) {
 void Enemy50_Action8(Enemy50Entity* this) {
     sub_0803F738(this);
     GetNextFrame(super);
-    if ((super->frame & 0x80) != 0) {
+    if ((super->frame & ANIM_DONE) != 0) {
         super->action = 9;
         this->unk_78 = 0;
         InitializeAnimation(super, 4);

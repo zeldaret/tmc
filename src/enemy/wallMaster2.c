@@ -131,7 +131,7 @@ void sub_0802CE68(Entity* this) {
     }
     sub_0802CFD8(this);
     GetNextFrame(this);
-    frames = this->frame & 0x80;
+    frames = this->frame & ANIM_DONE;
     if (frames) {
         this->action = 4;
         this->actionDelay = 30;
@@ -169,7 +169,7 @@ ASM_FUNC("asm/non_matching/wallMaster2/sub_0802CF8C.inc", void sub_0802CF8C(Enti
 
 void sub_0802CFD8(Entity* this) {
     u32 unk = gUnk_080CD740[(this->field_0x7a.HALF.LO++ >> 3) & 7];
-    sub_0805EC9C(this, (s16)this->field_0x74.HWORD + unk, 0x100 + unk, this->field_0x76.HWORD);
+    SetAffineInfo(this, (s16)this->field_0x74.HWORD + unk, 0x100 + unk, this->field_0x76.HWORD);
 }
 
 // clang-format off

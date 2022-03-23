@@ -2,14 +2,14 @@
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
-	ldr r1, _080789BC @ =gUnk_03003BE0
+	ldr r1, _080789BC @ =gCarryEntities
 	ldrb r0, [r1]
 	cmp r0, #0
 	beq _080789C0
 	ldrb r0, [r1, #1]
 	b _08078A88
 	.align 2, 0
-_080789BC: .4byte gUnk_03003BE0
+_080789BC: .4byte gCarryEntities
 _080789C0:
 	ldr r0, _08078A5C @ =gPlayerState
 	ldr r0, [r0, #0x30]
@@ -34,7 +34,7 @@ _080789E6:
 	ldrb r0, [r0, #0x12]
 	cmp r0, #0x12
 	beq _08078A56
-	ldr r3, _08078A68 @ =gUnk_03003BE0
+	ldr r3, _08078A68 @ =gCarryEntities
 	movs r0, #1
 	strb r0, [r3]
 	ldrb r4, [r3, #2]
@@ -80,7 +80,7 @@ _08078A2E:
 	lsls r2, r2, #0x18
 	asrs r2, r2, #0x18
 	bl sub_080B1A0C
-	ldr r4, _08078A68 @ =gUnk_03003BE0
+	ldr r4, _08078A68 @ =gCarryEntities
 	strh r0, [r4, #4]
 	movs r1, #6
 	bl sub_0806FC24
@@ -93,7 +93,7 @@ _08078A56:
 _08078A5C: .4byte gPlayerState
 _08078A60: .4byte gPlayerEntity
 _08078A64: .4byte gUnk_080084BC
-_08078A68: .4byte gUnk_03003BE0
+_08078A68: .4byte gCarryEntities
 _08078A6C: .4byte gUnk_0811BFE0
 _08078A70: .4byte gUnk_08007DF4
 _08078A74:

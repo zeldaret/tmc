@@ -549,7 +549,7 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D86C.inc", void sub_0802D86C(GleerokE
 
             UpdateAnimationSingleFrame(super);
 
-            if ((super->frame & 0x80) == 0)
+            if ((super->frame & ANIM_DONE) == 0)
                 return;
 
             enemy = CreateEnemy(GLEEROK, 6);
@@ -569,7 +569,7 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D86C.inc", void sub_0802D86C(GleerokE
 
             GetNextFrame(super);
 
-            if ((super->frame & 0x80) == 0)
+            if ((super->frame & ANIM_DONE) == 0)
                 return;
 
             enemy = CreateEnemy(GLEEROK, 3);
@@ -998,7 +998,7 @@ void sub_0802E0B8(GleerokEntity* this) {
 
 void sub_0802E1D0(GleerokEntity* this) {
     Gleerok_HeapStruct* heap = this->unk_84;
-    if (!(super->frame & 0x80)) {
+    if (!(super->frame & ANIM_DONE)) {
         GetNextFrame(super);
     }
     if (super->frame & 0x3f) {
@@ -1144,7 +1144,7 @@ void sub_0802E448(GleerokEntity* this) {
 void sub_0802E4C0(GleerokEntity* this) {
     GetNextFrame(super);
 
-    if (super->frame & 0x80) {
+    if (super->frame & ANIM_DONE) {
         if (super->action != 2) {
             this->unk_74 = 0;
             this->unk_75 = 8;
@@ -1220,7 +1220,7 @@ NONMATCH("asm/non_matching/gleerok/sub_0802E518.inc", void sub_0802E518(GleerokE
             r7 += heap->ent2->actionDelay;
         } else {
             if (super->iframes == 0) {
-                if ((super->animIndex != (heap->filler[0x15] >> 3) + 0x2f) || (super->frame & 0x80) != 0) {
+                if ((super->animIndex != (heap->filler[0x15] >> 3) + 0x2f) || (super->frame & ANIM_DONE) != 0) {
                     r7 = (heap->filler[0x15] >> 3) + 0x28;
                 }
             } else {

@@ -69,7 +69,7 @@ void WindProjectile_Action2(Entity* this) {
 
 void WindProjectile_Action3(Entity* this) {
     GetNextFrame(this);
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         DeleteEntity(this);
     }
 }

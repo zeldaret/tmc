@@ -125,7 +125,7 @@ void OctorokBoss_Hit(OctorokBossEntity* this) {
         sub_08078B48();
     }
     sub_0800445C(super);
-    sub_0805EC9C(super, this->unk_76, this->unk_74, this->angle.HWORD);
+    SetAffineInfo(super, this->unk_76, this->unk_74, this->angle.HWORD);
 }
 
 void OctorokBoss_Hit_SubAction0(OctorokBossEntity* this) {
@@ -327,7 +327,7 @@ void OctorokBoss_Intro(OctorokBossEntity* this) {
     gUnk_02034490.unk0 = 1;
     sub_08036F60(this);
     OctorokBoss_Intro_SubActions[super->subAction](this);
-    sub_0805EC9C(super, this->unk_76, this->unk_74, this->angle.HWORD);
+    SetAffineInfo(super, this->unk_76, this->unk_74, this->angle.HWORD);
 }
 
 void OctorokBoss_Intro_SubAction0(OctorokBossEntity* this) {
@@ -475,7 +475,7 @@ void OctorokBoss_Action1(OctorokBossEntity* this) {
             sub_08036914(super, angle, radius);
             this->angle.HALF.HI = ((OctorokBossEntity*)super->parent)->angle.HALF.HI +
                                   OctorokBoss_LegAngleOffset2[super->type - 1] + this->timer;
-            sub_0805EC9C(super, this->unk_76, this->unk_74, this->angle.HWORD);
+            SetAffineInfo(super, this->unk_76, this->unk_74, this->angle.HWORD);
             break;
 
         case TAIL:
@@ -522,7 +522,7 @@ void OctorokBoss_Action1(OctorokBossEntity* this) {
                 sub_080369D0(this, GET_TAIL_RADIUS(this), 4);
             }
             super->bitfield = 0;
-            sub_0805EC9C(super, this->unk_76, this->unk_74, -this->angle.HWORD ^ 0x8000);
+            SetAffineInfo(super, this->unk_76, this->unk_74, -this->angle.HWORD ^ 0x8000);
             break;
 
         case MOUTH:
@@ -546,7 +546,7 @@ void OctorokBoss_Action1(OctorokBossEntity* this) {
                 sub_08036914(super, angle, radius);
 
                 this->angle.HALF.HI = ((OctorokBossEntity*)super->parent)->angle.HALF.HI;
-                sub_0805EC9C(super, this->unk_76, this->unk_74, this->angle.HWORD);
+                SetAffineInfo(super, this->unk_76, this->unk_74, this->angle.HWORD);
                 sub_0800445C(super);
             }
             break;
@@ -562,7 +562,7 @@ void OctorokBoss_Action1(OctorokBossEntity* this) {
                 }
             }
             OctorokBoss_Action1_SubActions[super->subAction](this);
-            sub_0805EC9C(super, this->unk_76, this->unk_74, this->angle.HWORD);
+            SetAffineInfo(super, this->unk_76, this->unk_74, this->angle.HWORD);
             break;
     }
 }
@@ -905,7 +905,7 @@ void OctorokBoss_Burning(OctorokBossEntity* this) {
             CreateProjectileWithParent(super, OCTOROK_BOSS_PROJECTILE, 3);
         }
     }
-    sub_0805EC9C(super, this->unk_76, this->unk_74, this->angle.HWORD);
+    SetAffineInfo(super, this->unk_76, this->unk_74, this->angle.HWORD);
 }
 
 void OctorokBoss_Burning_SubAction0(OctorokBossEntity* this) {

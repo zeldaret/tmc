@@ -25,17 +25,17 @@ SCRIPT_START script_MinishEzloGoodbye
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000002
 	SetAnimation 0x000c
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	Call sub_08094B94
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000002
 	SetAnimation 0x000f
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	SetSyncFlag 0x00000004
 	WaitForSyncFlagAndClear 0x00000002
 	CallWithArg sub_080960C4, script_Object6AEzloFinalMagic
 	SetAnimation 0x0012
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	Wait 0x001e
 	SetSyncFlag 0x00000020
 	StopBgm

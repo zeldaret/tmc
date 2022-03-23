@@ -120,7 +120,7 @@ void GleerokProjectile_Action2(Entity* this) {
             sub_080A90D8(this);
         }
     } else {
-        if ((this->frame & 0x80) != 0) {
+        if ((this->frame & ANIM_DONE) != 0) {
             this->action = 3;
             COLLISION_OFF(this);
             InitializeAnimation(this, 0x53);
@@ -130,7 +130,7 @@ void GleerokProjectile_Action2(Entity* this) {
 
 void GleerokProjectile_Action3(Entity* this) {
     GetNextFrame(this);
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         DeleteThisEntity();
     }
 }

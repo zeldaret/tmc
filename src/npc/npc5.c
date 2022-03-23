@@ -270,7 +270,7 @@ void sub_08060D78(Entity* this) {
 
 void sub_08060DD0(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         this->action = 1;
         sub_08060E70(this, 0);
     }
@@ -296,7 +296,7 @@ void sub_08060DFC(Entity* this) {
 
 void sub_08060E34(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if ((this->frame & 0x80) != 0) {
+    if ((this->frame & ANIM_DONE) != 0) {
         this->action = 2;
         this->animationState = DirectionToAnimationState(GetFacingDirection(this, &gPlayerEntity)) * 2;
         sub_08060E70(this, 8);
@@ -323,7 +323,7 @@ void sub_08060E94(Entity* this) {
 void sub_08060EDC(Entity* this) {
     s32 tmp;
 
-    if (((u32)this->animIndex - 0x20 < 0x10) && ((this->frame & 0x80) == 0)) {
+    if (((u32)this->animIndex - 0x20 < 0x10) && ((this->frame & ANIM_DONE) == 0)) {
         UpdateAnimationSingleFrame(this);
     } else {
         tmp = GetFacingDirection(this, &gPlayerEntity) + this->animationState * -4;
@@ -337,7 +337,7 @@ void sub_08060EDC(Entity* this) {
             }
         } else {
             if ((this->animationState & 1) == 0) {
-                if (((this->frame & 0x80) != 0) && (0xf >= (u32)this->animIndex - 0x20)) {
+                if (((this->frame & ANIM_DONE) != 0) && (0xf >= (u32)this->animIndex - 0x20)) {
                     sub_08060E70(this, 0);
                 } else {
                     sub_08060E94(this);
@@ -528,7 +528,7 @@ u32 sub_08061230(Entity* this) {
         }
     } else {
         UpdateAnimationSingleFrame(this);
-        if ((this->frame & 0x80) == 0) {
+        if ((this->frame & ANIM_DONE) == 0) {
             return 1;
         }
         ((UnkHeap*)this->myHeap)->unk_0 &= 0xfe;
@@ -551,7 +551,7 @@ void sub_08061358(Entity* this) {
     switch (this->subAction) {
         case 0:
             UpdateAnimationSingleFrame(this);
-            if ((this->frame & 0x80) == 0) {
+            if ((this->frame & ANIM_DONE) == 0) {
                 return;
             }
             this->subAction = 1;
@@ -576,7 +576,7 @@ void sub_08061358(Entity* this) {
             break;
         case 2:
             UpdateAnimationSingleFrame(this);
-            if ((this->frame & 0x80) == 0) {
+            if ((this->frame & ANIM_DONE) == 0) {
                 return;
             }
             this->animationState = ((this->frame & 0x18) >> 2);
@@ -914,7 +914,7 @@ void sub_08061B58(Entity* this) {
         this->action = 1;
         InitAnimationForceUpdate(this, 2);
     }
-    if (gRoomTransition.player_status.field_0x24[8] == 2) {
+    if (gRoomTransition.entity_update_type == 2) {
         UpdateAnimationSingleFrame(this);
     }
     sub_0806FD3C(this);

@@ -170,7 +170,7 @@ void sub_08023288(Entity* this) {
 
 void sub_08023330(Entity* this) {
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 4;
         this->actionDelay = 0x19;
         COLLISION_ON(this);

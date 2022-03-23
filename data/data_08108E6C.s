@@ -390,7 +390,7 @@ gUnk_081091F8:: @ 081091F8
 gUnk_08109202:: @ 08109202
 	.incbin "data_08108E6C/gUnk_08109202.bin"
 
-gUnk_08109214:: @ 08109214
+gTranslations:: @ 08109214
 	.4byte translation
 	.4byte translation
 	.4byte translation

@@ -21,7 +21,7 @@ void sub_08020A7C(Entity*);
 bool32 Rollobite_TryToHoleUp(Entity*);
 bool32 Rollobite_IsRolledUp(Entity*);
 
-extern void sub_08078930(Entity*);
+extern void RegisterCarryEntity(Entity*);
 
 void Rollobite(Entity* this) {
     EnemyFunctionHandler(this, Rollobite_Functions);
@@ -175,7 +175,7 @@ void Rollobite_Turn(Entity* this) {
 void Rollobite_RolledUp(Entity* this) {
     u32 unk;
 
-    if ((this->frame & 0x80) == 0)
+    if ((this->frame & ANIM_DONE) == 0)
         GetNextFrame(this);
 
     unk = sub_080044EC(this, 0x2800);
@@ -185,7 +185,7 @@ void Rollobite_RolledUp(Entity* this) {
             this->action = 5;
             InitializeAnimation(this, this->animationState + 12);
         }
-        sub_08078930(this);
+        RegisterCarryEntity(this);
     } else {
         if (unk == 1)
             EnqueueSFX(SFX_104);
@@ -197,7 +197,7 @@ void Rollobite_RolledUp(Entity* this) {
 
 void Rollobite_Unroll(Entity* this) {
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         COLLISION_ON(this);
         this->speed = 0x100;
         this->hitType = 34;
@@ -206,7 +206,7 @@ void Rollobite_Unroll(Entity* this) {
         InitializeAnimation(this, this->animationState);
     } else {
         if ((this->frame & 1) == 0)
-            sub_08078930(this);
+            RegisterCarryEntity(this);
     }
 }
 

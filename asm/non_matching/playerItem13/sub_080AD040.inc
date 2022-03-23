@@ -85,7 +85,7 @@ _080AD0D8:
 	ldr r0, [r4, #0x34]
 	str r0, [r5, #0x34]
 	adds r0, r4, #0
-	bl sub_080B1AA8
+	bl GetTileUnderEntity
 	cmp r0, #0x11
 	bhi _080AD0FC
 	cmp r0, #0x10

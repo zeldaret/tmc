@@ -106,12 +106,12 @@ void sub_08051458(void);
 
 void CreateDialogBox(u32 arg0, u32 arg1) {
     u32 sfx;
-    struct_080FC844 var0;
+    Font var0;
 
     sub_08050384();
     MemCopy(&gUnk_080FC844, &var0, sizeof(gUnk_080FC844));
     sub_08056FEC(arg1, gUnk_020227E8);
-    var0.unk10 |= gUnk_080FC85C[arg0][0] << 0xC;
+    var0.gfx_src |= gUnk_080FC85C[arg0][0] << 0xC;
     sub_0805F46C(gUnk_080FC85C[arg0][1], &var0);
     sfx = gUnk_080FC85C[arg0][2];
     if (sfx) {
@@ -296,7 +296,7 @@ static void sub_0805066C(void) {
 void sub_0805070C(void) {
     u32 i;
     int j;
-    struct_02036540* var0;
+    WStruct* var0;
     char* name;
 
     var0 = sub_0805F2C8();
@@ -322,7 +322,7 @@ void sub_0805070C(void) {
 
 void sub_08050790(void) {
     u32 i, j;
-    struct_02036540* var0;
+    WStruct* var0;
     u32 var1;
 
     var0 = sub_0805F2C8();

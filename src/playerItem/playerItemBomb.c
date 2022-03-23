@@ -24,7 +24,7 @@ void PlayerItemBomb(Entity* this) {
                 this->field_0xf = 0x50;
                 *(u32*)&this->field_0x68 = 0;
                 this->spriteRendering.b0 = 3;
-                sub_0805EC9C(this, 0x100, 0x100, 0);
+                SetAffineInfo(this, 0x100, 0x100, 0);
             }
         } else {
             if (this->field_0xf != 0) {
@@ -37,7 +37,7 @@ void PlayerItemBomb(Entity* this) {
                     this->actionDelay = 0x0f;
                     this->spriteSettings.draw = 0;
                     sub_0805EC60(this);
-                    sub_08078954(this);
+                    FreeCarryEntity(this);
                     CreateObjectWithParent(this, 0x20, 0, 0);
                     sub_0801B418(this);
                 } else {

@@ -113,7 +113,7 @@ void Ghini_OnConfused(GhiniEntity* this) {
 }
 
 void Ghini_OnGrabbed(GhiniEntity* this) {
-    if (sub_0806F520()) {
+    if (sub_0806F520(super)) {
         Ghini_SubActions[super->subAction](this);
     } else {
         sub_0803F51C(this);
@@ -250,7 +250,7 @@ void Ghini_Action7(GhiniEntity* this) {
 void Ghini_Action8(GhiniEntity* this) {
     sub_0803F738(this);
     GetNextFrame(super);
-    if ((super->frame & 0x80) != 0) {
+    if ((super->frame & ANIM_DONE) != 0) {
         super->action = 9;
         super->flags |= 0x80;
         this->unk_78 = 0;

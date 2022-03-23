@@ -69,7 +69,7 @@ void sub_080AA78C(Entity* this) {
         animationState = (gPlayerEntity.animationState >> 1);
         if (animationState != this->type) {
             this->field_0x3a &= 0xfb;
-            if ((animationState ^ 2) != this->type) {
+            if (AnimationStateFlip90(animationState) != this->type) {
                 return;
             }
             this->iframes = 0xe2;
@@ -79,13 +79,13 @@ void sub_080AA78C(Entity* this) {
         this->subAction = 1;
         InitAnimationForceUpdate(this, animationState + 8);
     }
-    if (sub_0806F520(this) != 0) {
+    if (sub_0806F520(this)) {
         UpdateAnimationSingleFrame(this);
         if ((this->frame & 0x10) != 0) {
             this->frame &= 0xef;
             EnqueueSFX(SFX_100);
         }
-        if ((this->frame & 0x80) != 0) {
+        if ((this->frame & ANIM_DONE) != 0) {
             sub_080AAAA8(this);
         }
     } else {
@@ -111,7 +111,7 @@ void SpiderWeb_Init(Entity* this) {
 }
 
 void SpiderWeb_Action1(Entity* this) {
-    if ((this->frame & 0x80) == 0) {
+    if ((this->frame & ANIM_DONE) == 0) {
         UpdateAnimationSingleFrame(this);
     }
     sub_080AA9E0(this);
@@ -145,7 +145,7 @@ void SpiderWeb_SubAction0(Entity* this) {
         InitAnimationForceUpdate(this, this->type + 4);
     }
     if ((entity->animationState >> 1 == this->type) && (gPlayerState.framestate == PL_STATE_PULL) &&
-        ((gPlayerState.heldObject & 2) != 0) && ((gPlayerEntity.frame & 2) != 0) && ((this->frame & 0x80) == 0)) {
+        ((gPlayerState.heldObject & 2) != 0) && ((gPlayerEntity.frame & 2) != 0) && ((this->frame & ANIM_DONE) == 0)) {
         UpdateAnimationSingleFrame(this);
         if ((this->frame & 1) != 0) {
             entity->x.HALF.HI = gUnk_0812A06C[entity->animationState] + entity->x.HALF.HI;
@@ -195,7 +195,7 @@ void sub_080AA9E0(Entity* this) {
     this->spritePriority.b0 = ptr->b0;
     this->direction = ptr->direction;
     if (ptr->b0 == 5) {
-        sub_08078930(this);
+        RegisterCarryEntity(this);
     }
 }
 

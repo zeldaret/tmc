@@ -8,7 +8,7 @@ SCRIPT_START script_Object6ASwordCharge9
 	EndBlock
 	WaitForSyncFlag 0x00000020
 	Wait 0x0078
-	Call WaitForFrameHiBit
+	Call WaitForAnimDone
 	DoPostScriptAction 0x0006
 SCRIPT_END
 	.2byte 0x0000

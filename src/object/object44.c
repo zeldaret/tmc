@@ -51,7 +51,7 @@ void sub_0808E298(Entity* this) {
 
 void sub_0808E318(Entity* this) {
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         sub_0808E354(this, 0x343);
         DeleteThisEntity();
     } else {

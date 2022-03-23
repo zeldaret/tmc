@@ -92,7 +92,7 @@ void PullableLever_HandleInit(PullableLeverEntity* this) {
 }
 
 void PullableLever_HandleAction1(PullableLeverEntity* this) {
-    sub_08078930(super);
+    RegisterCarryEntity(super);
     if (this->pullLength != 0) {
         super->direction = super->type2 << 3;
         LinearMoveUpdate(super);

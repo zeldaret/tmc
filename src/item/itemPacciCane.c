@@ -18,10 +18,10 @@ void sub_08076C98(ItemBehavior* beh, u32 arg1) {
 
 void sub_08076CBC(ItemBehavior* beh, u32 arg1) {
     if ((beh->field_0x5[9] & 0x80) != 0) {
-        sub_08077E78(beh, arg1);
+        DeletePlayerItem(beh, arg1);
     } else {
         if ((beh->field_0x5[9] & 0x40) != 0) {
-            CreatePlayerBomb(beh, 0x12);
+            CreatePlayerItemWithParent(beh, 0x12);
         }
         UpdateItemAnim(beh);
     }

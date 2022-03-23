@@ -191,7 +191,7 @@ void Object3E_Type7(Object3EEntity* this) {
         super->spritePriority.b0 = 7;
         super->spriteRendering.alphaBlend = 1;
         super->frameIndex = super->type2;
-        sub_0805EC9C(super, (1 - super->type2) * 0x200 + 0x100, 0xffffff40, 0);
+        SetAffineInfo(super, (1 - super->type2) * 0x200 + 0x100, 0xffffff40, 0);
     }
 }
 

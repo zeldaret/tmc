@@ -49,7 +49,7 @@ void sub_08063AC0(Entity* this) {
 
     if (this->field_0xf != 0) {
         UpdateAnimationSingleFrame(this);
-        if ((this->frame & 0x80) != 0) {
+        if ((this->frame & ANIM_DONE) != 0) {
             this->field_0xf = 0;
         }
     }

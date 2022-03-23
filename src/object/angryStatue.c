@@ -55,7 +55,7 @@ void AngryStatue_Action2(Entity* this) {
             EnqueueSFX(SFX_EC);
         }
 
-    } else if ((this->frame & 0x80) != 0) {
+    } else if ((this->frame & ANIM_DONE) != 0) {
         this->action = 1;
         InitializeAnimation(this, this->type);
     }

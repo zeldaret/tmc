@@ -162,7 +162,7 @@ void sub_08044868(Entity* this) {
             if (this->field_0x82.HALF.HI) {
                 switch (this->field_0x74.HALF.LO) {
                     case 0:
-                        if (this->frame & 0x80) {
+                        if (this->frame & ANIM_DONE) {
                             this->field_0x74.HALF.LO = 1;
                             this->direction = sub_080045B4(this, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10);
                             this->speed = 0x180;

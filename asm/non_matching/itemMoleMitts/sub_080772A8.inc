@@ -99,7 +99,7 @@ _08077370: .4byte gUnk_0811BE16
 _08077374:
 	adds r0, r4, #0
 	adds r1, r6, #0
-	bl sub_08077E78
+	bl DeletePlayerItem
 	ldr r0, _08077388 @ =gPlayerState
 	adds r0, #0x3d
 	movs r1, #0

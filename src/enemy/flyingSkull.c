@@ -20,7 +20,7 @@ void (*const gUnk_080CFBD4[])(FlyingSkullEntity*);
 const s8 gUnk_080CFBE4[4];
 
 extern s32 sub_080012DC(Entity*);
-extern void sub_08078930(Entity*);
+extern void RegisterCarryEntity(Entity*);
 
 void sub_0803A100(FlyingSkullEntity* this);
 void sub_0803A0E0(FlyingSkullEntity* this);
@@ -130,7 +130,7 @@ void sub_08039DD8(FlyingSkullEntity* this) {
             sub_0803A0E0(this);
         }
 
-        sub_08078930(super);
+        RegisterCarryEntity(super);
     } else {
         if ((gPlayerState.flags & PL_MINISH) == 0) {
             Entity* ent = &gPlayerEntity;

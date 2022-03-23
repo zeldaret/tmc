@@ -44,7 +44,7 @@ void sub_0808A484(Entity* this) {
 void sub_0808A4D0(Entity* this) {
     GetNextFrame(this);
     LinearMoveUpdate(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         DeleteEntity(this);
     }
 }

@@ -365,7 +365,7 @@ void VaatiWrathType0Action6(Entity* this) {
                     type1->frame &= 0xfd;
                 }
             } else {
-                if ((type1->frame & 0x80) != 0) {
+                if ((type1->frame & ANIM_DONE) != 0) {
                     sub_0804235C(this);
                 }
             }
@@ -546,7 +546,7 @@ void VaatiWrathType0ActionC(Entity* this) {
                 entity->frame &= 0xfe;
                 InitAnimationForceUpdate(this, 9);
             } else {
-                if (entity->frame & 0x80) {
+                if (entity->frame & ANIM_DONE) {
                     sub_0804235C(this);
                 }
             }
@@ -617,7 +617,7 @@ void sub_08041BE8(Entity* this) {
 
 void sub_08041CD0(Entity* this) {
     GetNextFrame(((VaatiWrathHeapStruct*)this->myHeap)->type2);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         if (this->actionDelay != 0) {
             this->actionDelay--;
         } else {
@@ -964,7 +964,7 @@ u32 sub_080422C0(Entity* this, u32 unk1) {
             type1->frame &= 0xfb;
             InitAnimationForceUpdate(this, 3);
         } else {
-            if (type1->frame & 0x80) {
+            if (type1->frame & ANIM_DONE) {
                 InitAnimationForceUpdate(this, 0);
                 type1->subAction = 0;
                 InitializeAnimation(type1, 0xc);

@@ -32,7 +32,7 @@ void sub_0805EC60(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/sub_0805EC9C.inc", bool32 sub_0805EC9C(Entity* ent, u32 param_2, u32 param_3, u32 param_4))
+ASM_FUNC("asm/non_matching/SetAffineInfo.inc", bool32 SetAffineInfo(Entity* ent, u32 param_2, u32 param_3, u32 param_4))
 
 void sub_0805ECEC(int param_1, u32 param_2, u32 param_3, u32 param_4) {
     u16* temp;
@@ -45,46 +45,46 @@ void sub_0805ECEC(int param_1, u32 param_2, u32 param_3, u32 param_4) {
     temp[2] = param_4;
 }
 
-void sub_0805ED14(u32 param_1) {
+void InitPlayerMacro(u32 param_1) {
     gPlayerState.field_0x9c = param_1;
     gPlayerState.field_0x98 = 0;
     gPlayerState.field_0x9a = 0;
 }
 
-ASM_FUNC("asm/non_matching/code_0805EC04/sub_0805ED30.inc", void sub_0805ED30())
+ASM_FUNC("asm/non_matching/code_0805EC04/UpdatePlayerInput.inc", void UpdatePlayerInput())
 
-u32 sub_0805EE04(u32 param_1) {
-    u32 result = (s32) - (param_1 & 0x200) >> 0x1f & 0x1000;
-    if ((param_1 & 0x100) != 0) {
+u32 ConvInputToState(u32 keys) {
+    u32 result = (s32) - (keys & 0x200) >> 0x1f & 0x1000;
+    if (keys & R_BUTTON) {
         result |= 0x20;
         result |= 0x8000;
         result |= 0x80;
     }
-    if ((param_1 & 1) != 0) {
+    if (keys & A_BUTTON) {
         result |= 0x8;
         result |= 0x41;
     }
-    if ((param_1 & 2) != 0) {
+    if (keys & B_BUTTON) {
         result |= 0x10;
         result |= 0x2;
     }
-    if ((param_1 & 0x10) != 0) {
+    if (keys & DPAD_RIGHT) {
         result |= 0x100;
     }
-    if ((param_1 & 0x20) != 0) {
+    if (keys & DPAD_LEFT) {
         result |= 0x200;
     }
-    if ((param_1 & 0x40) != 0) {
+    if (keys & DPAD_UP) {
         result |= 0x400;
     }
-    if ((param_1 & 0x80) != 0) {
+    if (keys & DPAD_DOWN) {
         result |= 0x800;
     }
     return result;
 }
 
 void sub_0805EE88(void) {
-    if ((gRoomTransition.field_0x2c[3] != 0) && ((gRoomTransition.frameCount & 3) == 0)) {
+    if ((gRoomTransition.field_0x2c[2] != 0) && ((gRoomTransition.frameCount & 3) == 0)) {
         LoadPaletteGroup((((u32)gRoomTransition.frameCount & 0xc) >> 2) + 0x2f);
     }
 }

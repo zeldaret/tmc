@@ -15,7 +15,7 @@ void sub_08075D2C(ItemBehavior* this, u32 arg1) {
         sub_08077D38(this, arg1);
         gPlayerState.field_0x3[1] |= 8;
     } else {
-        sub_08077E78(this, arg1);
+        DeletePlayerItem(this, arg1);
     }
 }
 
@@ -30,5 +30,5 @@ void sub_08075D88(ItemBehavior* this, u32 arg1) {
             return;
         }
     }
-    sub_08077E78(this, arg1);
+    DeletePlayerItem(this, arg1);
 }

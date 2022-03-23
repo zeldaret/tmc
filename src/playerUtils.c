@@ -17,7 +17,7 @@
 
 extern void sub_080752E8(ItemBehavior* behavior, u32 arg1); // item.c
 extern void sub_0800857C(Entity*);
-extern void sub_0805E374(Entity*);
+extern void SetDefaultPriorityForKind(Entity*);
 extern void DoPlayerAction(Entity*);
 extern Entity* sub_0805E744();
 extern void sub_0809D738(Entity*);
@@ -44,7 +44,7 @@ bool32 sub_080778CC();
 ItemBehavior* sub_0807794C(u32);
 u32 sub_080789A8(void);
 ItemBehavior* sub_080779EC(u32);
-void sub_08077E78(ItemBehavior*, u32);
+void DeletePlayerItem(ItemBehavior*, u32);
 void sub_08077AEC(void);
 bool32 sub_08079E90(u32);
 void sub_08079258(void);
@@ -251,7 +251,7 @@ ItemBehavior* sub_08077A48(s32 param_1) {
         u32 tmp = gPlayerState.jump_status & 0x20;
         if ((((gPlayerState.jump_status & 0x20) == 0)) &&
             (gUnk_0811BE48[param_1].unk0[1] >= gUnk_03000B80[0].field_0x5[4])) {
-            sub_08077E78(gUnk_03000B80, 0);
+            DeletePlayerItem(gUnk_03000B80, 0);
             gPlayerState.field_0x0[1] = tmp;
             gPlayerState.field_0x1c = tmp;
             gPlayerState.sword_state = tmp;
@@ -288,7 +288,7 @@ ItemBehavior* sub_08077AC8(void) {
 void sub_08077AEC(void) {
     u32 slot;
 
-    sub_08077E78(gUnk_03000B80 + 3, 3);
+    DeletePlayerItem(gUnk_03000B80 + 3, 3);
     gPlayerState.flags &= ~PL_USE_LANTERN;
     slot = IsItemEquipped(ITEM_LANTERN_ON);
     if (slot != 2) {
@@ -305,7 +305,7 @@ void ResetPlayer() {
     u32 index = 0;
     ItemBehavior* ptr = gUnk_03000B80;
     do {
-        sub_08077E78(ptr, index);
+        DeletePlayerItem(ptr, index);
         ptr++;
         index++;
     } while (index <= 2);
@@ -355,7 +355,7 @@ Entity* sub_08077BD4(ItemBehavior* beh) {
     if (sub_08077C94(beh, gUnk_0811BE48[beh->behaviorID].unk0[3]) != 0) {
         return NULL;
     } else {
-        return CreatePlayerBomb(beh, gUnk_0811BE48[beh->behaviorID].unk0[3]);
+        return CreatePlayerItemWithParent(beh, gUnk_0811BE48[beh->behaviorID].unk0[3]);
     }
 }
 
@@ -368,11 +368,11 @@ Entity* sub_08077C0C(ItemBehavior* beh, u32 arg1) {
     if (sub_08077C94(beh, bVar1) != 0) {
         return NULL;
     } else {
-        return CreatePlayerBomb(beh, bVar1);
+        return CreatePlayerItemWithParent(beh, bVar1);
     }
 }
 
-Entity* CreatePlayerBomb(ItemBehavior* beh, u32 subtype) {
+Entity* CreatePlayerItemWithParent(ItemBehavior* beh, u32 subtype) {
     Entity* pEVar1;
 
     pEVar1 = CreatePlayerItem(subtype, 0, 0, beh->behaviorID);
@@ -512,7 +512,7 @@ void sub_08077E54(ItemBehavior* beh) {
     beh->field_0x5[9] = gPlayerEntity.frame;
 }
 
-void sub_08077E78(ItemBehavior* arg0, u32 bits) {
+void DeletePlayerItem(ItemBehavior* arg0, u32 bits) {
     u32 not ;
 
     if (bits == 0) {
@@ -569,7 +569,7 @@ bool32 sub_08077F24(ItemBehavior* beh, u32 arg1) {
 
 void sub_08077F50(ItemBehavior* beh, u32 arg1) {
     sub_08079184();
-    sub_08077E78(beh, arg1);
+    DeletePlayerItem(beh, arg1);
 }
 
 u32 sub_08077F64(ItemBehavior* arg0, u32 unk) {
@@ -586,15 +586,17 @@ u32 sub_08077F64(ItemBehavior* arg0, u32 unk) {
 void sub_08077F84(void) {
     Entity* obj;
 
-    if (((gPlayerEntity.collisionLayer & 2) == 0) &&
-        GetTileTypeByPos(gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI - 0xc, 2) - 0x343U < 4) {
-        sub_0807AA80(&gPlayerEntity);
-        gPlayerState.jump_status |= 8;
-        obj = CreateObject(OBJECT_44, 0, 0);
-        if (obj != NULL) {
-            obj->x = gPlayerEntity.x;
-            obj->y.HALF.HI = gPlayerEntity.y.HALF.HI - 0xc;
-            gPlayerEntity.y.HALF.HI -= 0xc;
+    if ((gPlayerEntity.collisionLayer & 2) == 0) {
+        u32 tile = GetTileTypeByPos(gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI - 12, 2);
+        if (tile == 0x343 || tile == 0x344 || tile == 0x345 || tile == 0x346) {
+            sub_0807AA80(&gPlayerEntity);
+            gPlayerState.jump_status |= 8;
+            obj = CreateObject(OBJECT_44, 0, 0);
+            if (obj != NULL) {
+                obj->x = gPlayerEntity.x;
+                obj->y.HALF.HI = gPlayerEntity.y.HALF.HI - 0xc;
+                gPlayerEntity.y.HALF.HI -= 0xc;
+            }
         }
     }
 }
@@ -615,11 +617,11 @@ NONMATCH("asm/non_matching/playerUtils/sub_08078008.inc", bool32 sub_08078008(Ch
     } else {
         swordType = gSave.stats.itemButtons[0];
     }
-    if (swordType - 1 < 2) {
+    if (swordType == 1 || swordType == 2) {
         swordType = 0;
     }
     if ((swordType != 0) && ((gPlayerState.sword_state & 0x20) != 0)) {
-        if (++state->preChargeTimer > 0x14) {
+        if (++state->preChargeTimer > 20) {
             state->preChargeTimer = 10;
             state->action = 3;
             state->swordType = swordType;
@@ -634,7 +636,7 @@ END_NONMATCH
 bool32 sub_08078070(ChargeState* state) {
     if ((gPlayerState.sword_state & 0x20) != 0) {
         if ((gPlayerState.skills & SKILL_FAST_SPLIT) != SKILL_NONE) {
-            state->chargeTimer += 0xc;
+            state->chargeTimer += 12;
         } else {
             state->chargeTimer += 6;
         }
@@ -643,7 +645,7 @@ bool32 sub_08078070(ChargeState* state) {
             state->action = 4;
             SoundReq(SFX_ITEM_SWORD_CHARGE_FINISH);
         } else {
-            if (Mod(state->chargeTimer, 0x14) == 0) {
+            if (Mod(state->chargeTimer, 20) == 0) {
                 SoundReq(SFX_ITEM_SWORD_CHARGE);
             }
         }
@@ -665,7 +667,8 @@ bool32 sub_080780E0(ChargeState* state) {
 }
 
 bool32 sub_08078108(ChargeState* state) {
-    if (--state->chargeTimer * 0x10000 < 0) {
+    state->chargeTimer -= 1;
+    if (state->chargeTimer < 0) {
         state->chargeTimer = 0;
         state->action = 2;
     }
@@ -673,7 +676,8 @@ bool32 sub_08078108(ChargeState* state) {
 }
 
 bool32 sub_08078124(ChargeState* state) {
-    if ((state->chargeTimer -= 0x10) * 0x10000 < 0) {
+    state->chargeTimer -= 0x10;
+    if (state->chargeTimer < 0) {
         state->chargeTimer = 0;
         state->action = 2;
     }
@@ -681,7 +685,8 @@ bool32 sub_08078124(ChargeState* state) {
 }
 
 bool32 sub_08078140(ChargeState* info) {
-    if (--info->preChargeTimer * 0x1000000 < 0) {
+    info->preChargeTimer -= 1;
+    if (info->preChargeTimer < 0) {
         info->preChargeTimer = 0;
         info->action = 0;
         return TRUE;
@@ -819,9 +824,9 @@ s32 sub_08078904(Entity* entity) {
     return -1;
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_08078930.inc", void sub_08078930(Entity* a))
+ASM_FUNC("asm/non_matching/playerUtils/RegisterCarryEntity.inc", void RegisterCarryEntity(Entity* a))
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_08078954.inc", void sub_08078954(Entity* a))
+ASM_FUNC("asm/non_matching/playerUtils/FreeCarryEntity.inc", void FreeCarryEntity(Entity* a))
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_080789A8.inc", u32 sub_080789A8())
 
@@ -836,7 +841,7 @@ void CreateEzloHint(u32 hintId, u32 hintHeight) {
     gRoomTransition.hint_idx = hintId;
 #if defined(EU) || defined(JP)
     // TODO what fields of the room transition are switched in these variants?
-    gRoomTransition.field_0x2c[8] = hintHeight;
+    gRoomTransition.field_0x2c[7] = hintHeight;
 #else
     gRoomTransition.hint_height = hintHeight;
 #endif
@@ -889,7 +894,7 @@ void sub_08078B48(void) {
     gPlayerState.field_0x82[8] = 2;
 }
 
-void sub_08078C24(void) {
+void ClearPlayerState(void) {
     gPlayerState.field_0x0[0] = 0;
     gPlayerState.field_0x0[1] = 0;
     gPlayerState.jump_status = 0;
@@ -1080,7 +1085,7 @@ void sub_0807921C(void) {
                             PL_MOLDWORM_RELEASED | PL_PARACHUTE);
     ResolvePlayerAnimation();
     SetPlayerActionNormal();
-    sub_0805E374(&gPlayerEntity);
+    SetDefaultPriorityForKind(&gPlayerEntity);
 }
 
 void sub_08079258(void) {
@@ -1096,7 +1101,7 @@ void sub_08079258(void) {
         ~(PL_BUSY | PL_DROWNING | PL_DISABLE_ITEMS | PL_IN_HOLE | PL_MOLDWORM_RELEASED | PL_PARACHUTE);
     gPlayerState.swim_state = 0;
     gPlayerState.queued_action = 0;
-    sub_0805E374(&gPlayerEntity);
+    SetDefaultPriorityForKind(&gPlayerEntity);
 }
 
 void sub_080792BC(s32 speed, u32 direction, u32 field_0x38) {
@@ -1187,7 +1192,7 @@ bool32 sub_08079D48(void) {
         return TRUE;
     } else {
         if (!sub_08008B22()) {
-            if (!sub_08007DD6((u16)sub_080B1AA8(&gPlayerEntity), gUnk_0811C268)) {
+            if (!sub_08007DD6((u16)GetTileUnderEntity(&gPlayerEntity), gUnk_0811C268)) {
                 return TRUE;
             }
         }
@@ -1256,7 +1261,7 @@ bool32 sub_08079F48(u32 param_1, u32 param_2) {
 bool32 sub_08079F8C(void) {
     if ((gPlayerState.flags &
          (PL_BUSY | PL_DROWNING | PL_CAPTURED | PL_USE_PORTAL | PL_HIDDEN | PL_FROZEN | PL_FALLING | PL_DISABLE_ITEMS |
-          PL_FLAGS8000 | PL_IN_MINECART | PL_MOLDWORM_CAPTURED | PL_IN_HOLE | PL_FLAGS2000000 | PL_CLIMBING)) != 0 ||
+          PL_PIT_IS_EXIT | PL_IN_MINECART | PL_MOLDWORM_CAPTURED | PL_IN_HOLE | PL_FLAGS2000000 | PL_CLIMBING)) != 0 ||
         gPlayerState.field_0x3c[0] != 0 || gPlayerEntity.action == 3 || gPlayerEntity.action == 0xb) {
         return FALSE;
     } else {
@@ -2008,15 +2013,15 @@ void sub_0807C810(void) {
 }
 
 void CloneMapData(void) {
-    gRoomTransition.field_0x2c[1] = 1;
+    gRoomTransition.field_0x2c[0] = 1;
     MemCopy(&gMapBottom.mapData, &gMapBottom.mapDataClone, 0x2000);
     MemCopy(&gMapTop.mapData, &gMapTop.mapDataClone, 0x2000);
 }
 
 void sub_0807C898(void) {
-    gRoomTransition.field_0x2c[1] = 2;
+    gRoomTransition.field_0x2c[0] = 2;
     LoadRoomGfx();
-    gRoomTransition.field_0x2c[1] = 0;
+    gRoomTransition.field_0x2c[0] = 0;
 }
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_0807C8B0.inc", void sub_0807C8B0())

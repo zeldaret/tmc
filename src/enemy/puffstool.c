@@ -237,7 +237,7 @@ void sub_080253D4(Entity* this) {
 
 void sub_0802541C(Entity* this) {
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         this->action = 3;
         this->field_0xf = 1;
         this->zVelocity = Q_16_16(2);
@@ -270,7 +270,7 @@ void sub_0802547C(Entity* this) {
 
 void sub_080254B4(Entity* this) {
     GravityUpdate(this, Q_16_16(0.125));
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         if (this->z.HALF.HI == 0) {
             if (this->cutsceneBeh.HWORD == 0) {
                 this->hitType = 0x82;

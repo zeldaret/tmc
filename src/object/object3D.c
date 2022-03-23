@@ -74,7 +74,7 @@ void Object3D_Action1(Object3DEntity* this) {
         super->actionDelay = 0x1e;
         super->field_0xf = 0xff;
         super->spriteRendering.b0 = 3;
-        sub_0805EC9C(super, 0x100, 0x100, 0);
+        SetAffineInfo(super, 0x100, 0x100, 0);
         gArea.field_0x10 = 1;
         SetFade(5, 8);
     }
@@ -108,7 +108,7 @@ void Object3D_Action2(Object3DEntity* this) {
         if (0x80 < super->field_0xf) {
             super->field_0xf -= 8;
         }
-        sub_0805EC9C(super, super->field_0xf, super->field_0xf, 0);
+        SetAffineInfo(super, super->field_0xf, super->field_0xf, 0);
     } else {
         gArea.filler3[0]++;
         gArea.field_0x10 = 0;

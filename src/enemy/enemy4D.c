@@ -207,7 +207,7 @@ void Enemy4D_Action6(Enemy4DEntity* this) {
 }
 
 void Enemy4D_Action7(Enemy4DEntity* this) {
-    if ((super->frame & 0x80) == 0) {
+    if ((super->frame & ANIM_DONE) == 0) {
         UpdateAnimationSingleFrame(super);
     } else {
         if (--super->actionDelay == 0) {

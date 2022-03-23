@@ -170,7 +170,7 @@ _08004516:
 	thumb_func_start sub_0800451C
 sub_0800451C: @ 0x0800451C
 	push {r0, lr}
-	bl sub_080B1AA8
+	bl GetTileUnderEntity
 	adds r1, r0, #0
 	pop {r0, r3}
 	mov lr, r3

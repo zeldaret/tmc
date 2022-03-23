@@ -56,7 +56,7 @@ void sub_0802A2B4(Entity* this) {
 
 void sub_0802A2FC(Entity* this) {
     GetNextFrame(this);
-    if (this->frame & 0x80) {
+    if (this->frame & ANIM_DONE) {
         DeleteEntity(this);
     } else if (this->frame & 1) {
         COLLISION_OFF(this);

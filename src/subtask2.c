@@ -11,8 +11,6 @@
 #include "main.h"
 #include "message.h"
 
-extern void CreateDialogBox(u32, u32);
-
 extern u8 gUnk_08128D38[];
 extern u8 gUnk_08128D43[];
 
@@ -378,7 +376,7 @@ void Subtask_Init(void) {
         ResetPaletteTable(0);
         gGFXSlots.unk0 = 1;
         gUI.nextToLoad = 2;
-        gRoomTransition.field_0x2c[4] = 1;
+        gRoomTransition.field_0x2c[3] = 1;
     }
 }
 
