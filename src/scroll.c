@@ -333,7 +333,7 @@ void UpdateIsDiggingCave(void) {
     switch (gRoomControls.area) {
         case AREA_LAKE_WOODS_CAVE:
         case AREA_HYRULE_DIG_CAVES:
-        case AREA_DIG_CAVES_1:
+        case AREA_DIG_CAVES:
         case AREA_CRENEL_DIG_CAVE:
         case AREA_VEIL_FALLS_DIG_CAVE:
         case AREA_CASTOR_WILDS_DIG_CAVE:
