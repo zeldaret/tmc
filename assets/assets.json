@@ -29593,32 +29593,32 @@
     }
   },
   {
-    "path": "data_080D5360/gUnk_additional_9_DarkHyruleCastle_11.bin",
+    "path": "data_080D5360/gUnk_additional_9_DarkHyruleCastle_2FTopRightCornerGhini.bin",
     "start": 966876,
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional_8_DarkHyruleCastle_17.bin",
+    "path": "data_080D5360/gUnk_additional_8_DarkHyruleCastle_2FLeft.bin",
     "start": 968492,
     "size": 80
   },
   {
-    "path": "data_080D5360/gUnk_additional_9_DarkHyruleCastle_26.bin",
+    "path": "data_080D5360/gUnk_additional_9_DarkHyruleCastle_2FBottomLeftGhini.bin",
     "start": 970500,
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional_8_DarkHyruleCastle_38.bin",
+    "path": "data_080D5360/gUnk_additional_8_DarkHyruleCastle_1FLoopLeft.bin",
     "start": 972552,
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional_8_DarkHyruleCastle_39.bin",
+    "path": "data_080D5360/gUnk_additional_8_DarkHyruleCastle_1FLoopRight.bin",
     "start": 972780,
     "size": 224
   },
   {
-    "path": "data_080D5360/gUnk_additional_8_DarkHyruleCastle_52.bin",
+    "path": "data_080D5360/gUnk_additional_8_DarkHyruleCastle_B1Cannons.bin",
     "start": 975432,
     "size": 24
   },
@@ -30095,7 +30095,7 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional_8_HouseInteriors2_Stockwell.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors2_StockwellLakeHouse.bin",
     "start": 995684,
     "size": 16
   },
@@ -30145,12 +30145,12 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional_a_HouseInteriors4_Mayor.bin",
+    "path": "data_080D5360/gUnk_additional_a_HouseInteriors4_MayorLakeCabin.bin",
     "start": 998244,
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional_b_HouseInteriors4_Mayor.bin",
+    "path": "data_080D5360/gUnk_additional_b_HouseInteriors4_MayorLakeCabin.bin",
     "start": 998260,
     "size": 80
   },

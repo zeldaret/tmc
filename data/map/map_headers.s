@@ -2701,307 +2701,307 @@ gAreaRoomMap_SanctuaryEntrance_0:: @ 08106A00
 gAreaRoomMaps_SanctuaryEntrance:: @ 08106A18
 	.4byte gAreaRoomMap_SanctuaryEntrance_0
 
-gAreaRoomMap_DarkHyruleCastle_0:: @ 08106A1C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_0_0, 0xE58, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_0_1, 0xE58, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FEntrance:: @ 08106A1C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FEntrance_0, 0xE58, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FEntrance_1, 0xE58, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_1:: @ 08106A34
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_1_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_3FTopLeftTower:: @ 08106A34
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_3FTopLeftTower_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_3FTopLeftTower_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_2:: @ 08106A4C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_2_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_3FTopRightTower:: @ 08106A4C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_3FTopRightTower_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_3FTopRightTower_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_3:: @ 08106A64
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_3_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_3_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_3FBottomLeftTower:: @ 08106A64
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_3FBottomLeftTower_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_3FBottomLeftTower_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_4:: @ 08106A7C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_4_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_4_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_3FBottomRightTower:: @ 08106A7C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_3FBottomRightTower_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_3FBottomRightTower_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_5:: @ 08106A94
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_5_0, 0x444, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_5_1, 0x444, 1, 1
+gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati:: @ 08106A94
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati_0, 0x444, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati_1, 0x444, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_6:: @ 08106AAC
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_6_0, 0x2A0, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_6_1, 0x2A0, 1, 1
+gAreaRoomMap_DarkHyruleCastle_3FTripleDarknut:: @ 08106AAC
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_3FTripleDarknut_0, 0x2A0, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_3FTripleDarknut_1, 0x2A0, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_7:: @ 08106AC4
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_7_0, 0x374, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_7_1, 0x374, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FTopLeftTower:: @ 08106AC4
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FTopLeftTower_0, 0x374, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FTopLeftTower_1, 0x374, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_8:: @ 08106ADC
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_8_0, 0x374, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_8_1, 0x374, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FTopLeftCorner:: @ 08106ADC
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FTopLeftCorner_0, 0x374, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FTopLeftCorner_1, 0x374, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_9:: @ 08106AF4
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_9_0, 0x1FE, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_9_1, 0x1FE, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FBossKey:: @ 08106AF4
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FBossKey_0, 0x1FE, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FBossKey_1, 0x1FE, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_10:: @ 08106B0C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_10_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_10_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FBlueWarp:: @ 08106B0C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FBlueWarp_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FBlueWarp_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_11:: @ 08106B24
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_11_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_11_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerGhini:: @ 08106B24
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerGhini_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerGhini_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_12:: @ 08106B3C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_12_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_12_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerTorches:: @ 08106B3C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerTorches_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerTorches_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_13:: @ 08106B54
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_13_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_13_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FTopRightTower:: @ 08106B54
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FTopRightTower_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FTopRightTower_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_14:: @ 08106B6C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_14_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_14_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FTopLeftDarknut:: @ 08106B6C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FTopLeftDarknut_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FTopLeftDarknut_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_15:: @ 08106B84
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_15_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_15_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FSparks:: @ 08106B84
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FSparks_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FSparks_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_16:: @ 08106B9C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_16_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_16_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FTopRightDarknuts:: @ 08106B9C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FTopRightDarknuts_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FTopRightDarknuts_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_17:: @ 08106BB4
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_17_0, 0x2A8, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_17_1, 0x2A8, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FLeft:: @ 08106BB4
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FLeft_0, 0x2A8, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FLeft_1, 0x2A8, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_18:: @ 08106BCC
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_18_0, 0x2A8, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_18_1, 0x2A8, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FRight:: @ 08106BCC
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FRight_0, 0x2A8, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FRight_1, 0x2A8, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_19:: @ 08106BE4
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_19_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_19_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FBottomLeftDarknuts:: @ 08106BE4
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FBottomLeftDarknuts_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FBottomLeftDarknuts_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_20:: @ 08106BFC
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_20_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_20_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FBossDoor:: @ 08106BFC
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FBossDoor_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FBossDoor_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_21:: @ 08106C14
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_21_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_21_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FBottomRightDarknut:: @ 08106C14
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FBottomRightDarknut_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FBottomRightDarknut_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_22:: @ 08106C2C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_22_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_22_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCornerPuzzle:: @ 08106C2C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCornerPuzzle_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCornerPuzzle_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_23:: @ 08106C44
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_23_0, 0x374, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_23_1, 0x374, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FEntrance:: @ 08106C44
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FEntrance_0, 0x374, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FEntrance_1, 0x374, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_24:: @ 08106C5C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_24_0, 0x374, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_24_1, 0x374, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCorner:: @ 08106C5C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCorner_0, 0x374, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCorner_1, 0x374, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_25:: @ 08106C74
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_25_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_25_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FBottomLeftTower:: @ 08106C74
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FBottomLeftTower_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FBottomLeftTower_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_26:: @ 08106C8C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_26_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_26_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FBottomLeftGhini:: @ 08106C8C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FBottomLeftGhini_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FBottomLeftGhini_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_27:: @ 08106CA4
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_27_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_27_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_3FTopRightTower7:: @ 08106CA4
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_3FTopRightTower7_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_3FTopRightTower7_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_28:: @ 08106CBC
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_28_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_28_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_B1Entrance:: @ 08106CBC
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_B1Entrance_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_B1Entrance_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_29:: @ 08106CD4
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_29_0, 0x374, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_29_1, 0x374, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FBottomRightTower:: @ 08106CD4
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FBottomRightTower_0, 0x374, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FBottomRightTower_1, 0x374, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_30:: @ 08106CEC
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_30_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_30_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FTopLeftTower:: @ 08106CEC
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FTopLeftTower_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FTopLeftTower_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_31:: @ 08106D04
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_31_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_31_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FThroneRoom:: @ 08106D04
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FThroneRoom_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FThroneRoom_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_32:: @ 08106D1C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_32_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_32_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FCompass:: @ 08106D1C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FCompass_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FCompass_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_33:: @ 08106D34
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_33_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_33_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FTopRightTower:: @ 08106D34
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FTopRightTower_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FTopRightTower_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_34:: @ 08106D4C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_34_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_34_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FBeforeThrone:: @ 08106D4C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FBeforeThrone_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FBeforeThrone_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_35:: @ 08106D64
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_35_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_35_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FLoopTopLeft:: @ 08106D64
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FLoopTopLeft_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FLoopTopLeft_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_36:: @ 08106D7C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_36_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_36_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FLoopTop:: @ 08106D7C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FLoopTop_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FLoopTop_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_37:: @ 08106D94
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_37_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_37_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FLoopTopRight:: @ 08106D94
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FLoopTopRight_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FLoopTopRight_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_38:: @ 08106DAC
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_38_0, 0x2A8, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_38_1, 0x2A8, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FLoopLeft:: @ 08106DAC
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FLoopLeft_0, 0x2A8, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FLoopLeft_1, 0x2A8, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_39:: @ 08106DC4
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_39_0, 0x2A8, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_39_1, 0x2A8, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FLoopRight:: @ 08106DC4
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FLoopRight_0, 0x2A8, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FLoopRight_1, 0x2A8, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_40:: @ 08106DDC
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_40_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_40_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FLoopBottomLeft:: @ 08106DDC
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FLoopBottomLeft_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FLoopBottomLeft_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_41:: @ 08106DF4
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_41_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_41_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FLoopBottom:: @ 08106DF4
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FLoopBottom_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FLoopBottom_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_42:: @ 08106E0C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_42_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_42_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FLoopBottomRight:: @ 08106E0C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FLoopBottomRight_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FLoopBottomRight_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_43:: @ 08106E24
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_43_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_43_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FBottomLeftTower:: @ 08106E24
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FBottomLeftTower_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FBottomLeftTower_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_44:: @ 08106E3C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_44_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_44_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FBottomRightTower:: @ 08106E3C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FBottomRightTower_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FBottomRightTower_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_45:: @ 08106E54
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_45_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_45_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_B1BelowThrone:: @ 08106E54
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_B1BelowThrone_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_B1BelowThrone_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_46:: @ 08106E6C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_46_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_46_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_B1BelowCompass:: @ 08106E6C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_B1BelowCompass_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_B1BelowCompass_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_47:: @ 08106E84
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_47_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_47_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_B1BeforeThrone:: @ 08106E84
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_B1BeforeThrone_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_B1BeforeThrone_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_48:: @ 08106E9C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_48_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_48_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_B1ToPrison:: @ 08106E9C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_B1ToPrison_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_B1ToPrison_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_49:: @ 08106EB4
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_49_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_49_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_B1BombWall:: @ 08106EB4
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_B1BombWall_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_B1BombWall_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_50:: @ 08106ECC
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_50_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_50_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_B1Keatons:: @ 08106ECC
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_B1Keatons_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_B1Keatons_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_51:: @ 08106EE4
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_51_0, 0x2A8, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_51_1, 0x2A8, 1, 1
+gAreaRoomMap_DarkHyruleCastle_B1ToPrisonFirebar:: @ 08106EE4
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_B1ToPrisonFirebar_0, 0x2A8, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_B1ToPrisonFirebar_1, 0x2A8, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_52:: @ 08106EFC
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_52_0, 0x2A8, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_52_1, 0x2A8, 1, 1
+gAreaRoomMap_DarkHyruleCastle_B1Cannons:: @ 08106EFC
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_B1Cannons_0, 0x2A8, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_B1Cannons_1, 0x2A8, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_53:: @ 08106F14
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_53_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_53_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_B1Left:: @ 08106F14
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_B1Left_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_B1Left_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_54:: @ 08106F2C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_54_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_54_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_B1Right:: @ 08106F2C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_B1Right_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_B1Right_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_55:: @ 08106F44
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_55_0, 0xA5C, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_55_1, 0xA5C, 1, 1
+gAreaRoomMap_DarkHyruleCastle_B1Map:: @ 08106F44
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_B1Map_0, 0xA5C, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_B1Map_1, 0xA5C, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_56:: @ 08106F5C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_56_0, 0x1FE, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_56_1, 0x1FE, 1, 1
+gAreaRoomMap_DarkHyruleCastle_B2ToPrison:: @ 08106F5C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_B2ToPrison_0, 0x1FE, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_B2ToPrison_1, 0x1FE, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_57:: @ 08106F74
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_57_0, 0x3FC, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_57_1, 0x3FC, 1, 1
+gAreaRoomMap_DarkHyruleCastle_B2Prison:: @ 08106F74
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_B2Prison_0, 0x3FC, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_B2Prison_1, 0x3FC, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_58:: @ 08106F8C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_58_0, 0x264, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_58_1, 0x264, 1, 1
+gAreaRoomMap_DarkHyruleCastle_B2Dropdown:: @ 08106F8C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_B2Dropdown_0, 0x264, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_B2Dropdown_1, 0x264, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_59:: @ 08106FA4
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_59_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_59_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati9:: @ 08106FA4
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati9_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati9_1, 0x1BA, 1, 1
 
 gAreaRoomMaps_DarkHyruleCastle:: @ 08106FBC
-	.4byte gAreaRoomMap_DarkHyruleCastle_0
-	.4byte gAreaRoomMap_DarkHyruleCastle_1
-	.4byte gAreaRoomMap_DarkHyruleCastle_2
-	.4byte gAreaRoomMap_DarkHyruleCastle_3
-	.4byte gAreaRoomMap_DarkHyruleCastle_4
-	.4byte gAreaRoomMap_DarkHyruleCastle_5
-	.4byte gAreaRoomMap_DarkHyruleCastle_6
-	.4byte gAreaRoomMap_DarkHyruleCastle_7
-	.4byte gAreaRoomMap_DarkHyruleCastle_8
-	.4byte gAreaRoomMap_DarkHyruleCastle_9
-	.4byte gAreaRoomMap_DarkHyruleCastle_10
-	.4byte gAreaRoomMap_DarkHyruleCastle_11
-	.4byte gAreaRoomMap_DarkHyruleCastle_12
-	.4byte gAreaRoomMap_DarkHyruleCastle_13
-	.4byte gAreaRoomMap_DarkHyruleCastle_14
-	.4byte gAreaRoomMap_DarkHyruleCastle_15
-	.4byte gAreaRoomMap_DarkHyruleCastle_16
-	.4byte gAreaRoomMap_DarkHyruleCastle_17
-	.4byte gAreaRoomMap_DarkHyruleCastle_18
-	.4byte gAreaRoomMap_DarkHyruleCastle_19
-	.4byte gAreaRoomMap_DarkHyruleCastle_20
-	.4byte gAreaRoomMap_DarkHyruleCastle_21
-	.4byte gAreaRoomMap_DarkHyruleCastle_22
-	.4byte gAreaRoomMap_DarkHyruleCastle_23
-	.4byte gAreaRoomMap_DarkHyruleCastle_24
-	.4byte gAreaRoomMap_DarkHyruleCastle_25
-	.4byte gAreaRoomMap_DarkHyruleCastle_26
-	.4byte gAreaRoomMap_DarkHyruleCastle_27
-	.4byte gAreaRoomMap_DarkHyruleCastle_28
-	.4byte gAreaRoomMap_DarkHyruleCastle_29
-	.4byte gAreaRoomMap_DarkHyruleCastle_30
-	.4byte gAreaRoomMap_DarkHyruleCastle_31
-	.4byte gAreaRoomMap_DarkHyruleCastle_32
-	.4byte gAreaRoomMap_DarkHyruleCastle_33
-	.4byte gAreaRoomMap_DarkHyruleCastle_34
-	.4byte gAreaRoomMap_DarkHyruleCastle_35
-	.4byte gAreaRoomMap_DarkHyruleCastle_36
-	.4byte gAreaRoomMap_DarkHyruleCastle_37
-	.4byte gAreaRoomMap_DarkHyruleCastle_38
-	.4byte gAreaRoomMap_DarkHyruleCastle_39
-	.4byte gAreaRoomMap_DarkHyruleCastle_40
-	.4byte gAreaRoomMap_DarkHyruleCastle_41
-	.4byte gAreaRoomMap_DarkHyruleCastle_42
-	.4byte gAreaRoomMap_DarkHyruleCastle_43
-	.4byte gAreaRoomMap_DarkHyruleCastle_44
-	.4byte gAreaRoomMap_DarkHyruleCastle_45
-	.4byte gAreaRoomMap_DarkHyruleCastle_46
-	.4byte gAreaRoomMap_DarkHyruleCastle_47
-	.4byte gAreaRoomMap_DarkHyruleCastle_48
-	.4byte gAreaRoomMap_DarkHyruleCastle_49
-	.4byte gAreaRoomMap_DarkHyruleCastle_50
-	.4byte gAreaRoomMap_DarkHyruleCastle_51
-	.4byte gAreaRoomMap_DarkHyruleCastle_52
-	.4byte gAreaRoomMap_DarkHyruleCastle_53
-	.4byte gAreaRoomMap_DarkHyruleCastle_54
-	.4byte gAreaRoomMap_DarkHyruleCastle_55
-	.4byte gAreaRoomMap_DarkHyruleCastle_56
-	.4byte gAreaRoomMap_DarkHyruleCastle_57
-	.4byte gAreaRoomMap_DarkHyruleCastle_58
-	.4byte gAreaRoomMap_DarkHyruleCastle_59
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FEntrance
+	.4byte gAreaRoomMap_DarkHyruleCastle_3FTopLeftTower
+	.4byte gAreaRoomMap_DarkHyruleCastle_3FTopRightTower
+	.4byte gAreaRoomMap_DarkHyruleCastle_3FBottomLeftTower
+	.4byte gAreaRoomMap_DarkHyruleCastle_3FBottomRightTower
+	.4byte gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati
+	.4byte gAreaRoomMap_DarkHyruleCastle_3FTripleDarknut
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FTopLeftTower
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FTopLeftCorner
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FBossKey
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FBlueWarp
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerGhini
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerTorches
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FTopRightTower
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FTopLeftDarknut
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FSparks
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FTopRightDarknuts
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FLeft
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FRight
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FBottomLeftDarknuts
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FBossDoor
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FBottomRightDarknut
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCornerPuzzle
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FEntrance
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCorner
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FBottomLeftTower
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FBottomLeftGhini
+	.4byte gAreaRoomMap_DarkHyruleCastle_3FTopRightTower7
+	.4byte gAreaRoomMap_DarkHyruleCastle_B1Entrance
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FBottomRightTower
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FTopLeftTower
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FThroneRoom
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FCompass
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FTopRightTower
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FBeforeThrone
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FLoopTopLeft
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FLoopTop
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FLoopTopRight
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FLoopLeft
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FLoopRight
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FLoopBottomLeft
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FLoopBottom
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FLoopBottomRight
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FBottomLeftTower
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FBottomRightTower
+	.4byte gAreaRoomMap_DarkHyruleCastle_B1BelowThrone
+	.4byte gAreaRoomMap_DarkHyruleCastle_B1BelowCompass
+	.4byte gAreaRoomMap_DarkHyruleCastle_B1BeforeThrone
+	.4byte gAreaRoomMap_DarkHyruleCastle_B1ToPrison
+	.4byte gAreaRoomMap_DarkHyruleCastle_B1BombWall
+	.4byte gAreaRoomMap_DarkHyruleCastle_B1Keatons
+	.4byte gAreaRoomMap_DarkHyruleCastle_B1ToPrisonFirebar
+	.4byte gAreaRoomMap_DarkHyruleCastle_B1Cannons
+	.4byte gAreaRoomMap_DarkHyruleCastle_B1Left
+	.4byte gAreaRoomMap_DarkHyruleCastle_B1Right
+	.4byte gAreaRoomMap_DarkHyruleCastle_B1Map
+	.4byte gAreaRoomMap_DarkHyruleCastle_B2ToPrison
+	.4byte gAreaRoomMap_DarkHyruleCastle_B2Prison
+	.4byte gAreaRoomMap_DarkHyruleCastle_B2Dropdown
+	.4byte gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati9
 
 gAreaRoomMap_DarkHyruleCastleOutside_0:: @ 081070AC
 	map_bottom offset_gAreaRoomMap_DarkHyruleCastleOutside_0_0, 0x2EE, 1

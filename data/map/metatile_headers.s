@@ -293,10 +293,10 @@ gAreaMetatiles_SanctuaryEntrance:: @ 08102F4C
 	metatile_types_top offset_gAreaMetatiles_SanctuaryEntrance_3, 0x3FC, 1, 1
 
 gAreaMetatiles_DarkHyruleCastle:: @ 08102F7C
-	metatiles_bottom offset_gAreaMetatiles_DarkHyruleCastle_0, 0x3FD8, 1
-	metatiles_top offset_gAreaMetatiles_DarkHyruleCastle_1, 0x37C0, 1
-	metatile_types_bottom offset_gAreaMetatiles_DarkHyruleCastle_2, 0xFF6, 1
-	metatile_types_top offset_gAreaMetatiles_DarkHyruleCastle_3, 0xDF0, 1, 1
+	metatiles_bottom offset_gAreaMetatiles_DarkHyruleCastle_1FEntrance, 0x3FD8, 1
+	metatiles_top offset_gAreaMetatiles_DarkHyruleCastle_3FTopLeftTower, 0x37C0, 1
+	metatile_types_bottom offset_gAreaMetatiles_DarkHyruleCastle_3FTopRightTower, 0xFF6, 1
+	metatile_types_top offset_gAreaMetatiles_DarkHyruleCastle_3FBottomLeftTower, 0xDF0, 1, 1
 
 gAreaMetatiles_DarkHyruleCastleOutside:: @ 08102FAC
 	metatiles_bottom offset_gAreaMetatiles_DarkHyruleCastleOutside_0, 0x3340, 1

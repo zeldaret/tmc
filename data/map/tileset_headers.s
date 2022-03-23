@@ -903,14 +903,14 @@ gAreaTileset_SanctuaryEntrance_0:: @ 081021F0
 gAreaTilesets_SanctuaryEntrance:: @ 08102220
 	.4byte gAreaTileset_SanctuaryEntrance_0
 
-gAreaTileset_DarkHyruleCastle_0:: @ 08102224
-	tileset_tiles offset_gAreaTileset_DarkHyruleCastle_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_DarkHyruleCastle_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_DarkHyruleCastle_0_2, 0x6008000, 0x4000, 1
+gAreaTileset_DarkHyruleCastle_1FEntrance:: @ 08102224
+	tileset_tiles offset_gAreaTileset_DarkHyruleCastle_1FEntrance_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_DarkHyruleCastle_1FEntrance_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_DarkHyruleCastle_1FEntrance_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 59, 1
 
 gAreaTilesets_DarkHyruleCastle:: @ 08102254
-	.4byte gAreaTileset_DarkHyruleCastle_0
+	.4byte gAreaTileset_DarkHyruleCastle_1FEntrance
 
 gAreaTileset_DarkHyruleCastleOutside_0:: @ 08102258
 	tileset_tiles offset_gAreaTileset_DarkHyruleCastleOutside_0_0, 0x6000000, 0x4000, 1

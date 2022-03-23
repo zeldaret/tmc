@@ -9337,43 +9337,43 @@
     "type": "map_layer1"
   },
   {
-    "path": "tilesets/gAreaTileset_DarkHyruleCastle_0_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_DarkHyruleCastle_1FEntrance_0.4bpp.lz",
     "start": 5685200,
     "size": 8657,
     "type": "tileset"
   },
   {
-    "path": "tilesets/gAreaTileset_DarkHyruleCastle_0_1.4bpp.lz",
+    "path": "tilesets/gAreaTileset_DarkHyruleCastle_1FEntrance_1.4bpp.lz",
     "start": 5693860,
     "size": 8806,
     "type": "tileset"
   },
   {
-    "path": "tilesets/gAreaTileset_DarkHyruleCastle_0_2.4bpp.lz",
+    "path": "tilesets/gAreaTileset_DarkHyruleCastle_1FEntrance_2.4bpp.lz",
     "start": 5702668,
     "size": 8098,
     "type": "tileset"
   },
   {
-    "path": "assets/gAreaMetatiles_DarkHyruleCastle_0.bin",
+    "path": "assets/gAreaMetatiles_DarkHyruleCastle_1FEntrance.bin",
     "start": 5710768,
     "size": 11581,
     "type": "metatiles_tileset2"
   },
   {
-    "path": "assets/gAreaMetatiles_DarkHyruleCastle_1.bin",
+    "path": "assets/gAreaMetatiles_DarkHyruleCastle_3FTopLeftTower.bin",
     "start": 5722352,
     "size": 7796,
     "type": "metatiles_tileset1"
   },
   {
-    "path": "assets/gAreaMetatiles_DarkHyruleCastle_2.bin",
+    "path": "assets/gAreaMetatiles_DarkHyruleCastle_3FTopRightTower.bin",
     "start": 5730148,
     "size": 1413,
     "type": "metatiles_tile_types2"
   },
   {
-    "path": "assets/gAreaMetatiles_DarkHyruleCastle_3.bin",
+    "path": "assets/gAreaMetatiles_DarkHyruleCastle_3FBottomLeftTower.bin",
     "start": 5731564,
     "size": 1263,
     "type": "metatiles_tile_types1"
@@ -9547,13 +9547,13 @@
     "type": "metatiles_tile_types1"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_0_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FEntrance_0.bin",
     "start": 5806552,
     "size": 1154,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_0_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FEntrance_1.bin",
     "start": 5807708,
     "size": 634,
     "type": "map_layer1"
@@ -9565,13 +9565,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FTopLeftTower_0.bin",
     "start": 5808812,
     "size": 217,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FTopLeftTower_1.bin",
     "start": 5809032,
     "size": 123,
     "type": "map_layer1"
@@ -9583,13 +9583,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FTopRightTower_0.bin",
     "start": 5809224,
     "size": 221,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FTopRightTower_1.bin",
     "start": 5809448,
     "size": 142,
     "type": "map_layer1"
@@ -9601,13 +9601,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_3_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FBottomLeftTower_0.bin",
     "start": 5809660,
     "size": 239,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_3_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FBottomLeftTower_1.bin",
     "start": 5809900,
     "size": 135,
     "type": "map_layer1"
@@ -9619,13 +9619,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_4_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FBottomRightTower_0.bin",
     "start": 5810104,
     "size": 244,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_4_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FBottomRightTower_1.bin",
     "start": 5810348,
     "size": 138,
     "type": "map_layer1"
@@ -9637,13 +9637,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_5_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati_0.bin",
     "start": 5810556,
     "size": 546,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_5_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati_1.bin",
     "start": 5811104,
     "size": 177,
     "type": "map_layer1"
@@ -9655,13 +9655,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_6_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FTripleDarknut_0.bin",
     "start": 5811440,
     "size": 404,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_6_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FTripleDarknut_1.bin",
     "start": 5811844,
     "size": 157,
     "type": "map_layer1"
@@ -9673,13 +9673,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_7_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopLeftTower_0.bin",
     "start": 5812100,
     "size": 329,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_7_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopLeftTower_1.bin",
     "start": 5812432,
     "size": 192,
     "type": "map_layer1"
@@ -9691,13 +9691,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_8_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopLeftCorner_0.bin",
     "start": 5812756,
     "size": 477,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_8_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopLeftCorner_1.bin",
     "start": 5813236,
     "size": 176,
     "type": "map_layer1"
@@ -9709,13 +9709,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_9_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBossKey_0.bin",
     "start": 5813544,
     "size": 339,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_9_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBossKey_1.bin",
     "start": 5813884,
     "size": 146,
     "type": "map_layer1"
@@ -9727,13 +9727,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_10_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBlueWarp_0.bin",
     "start": 5814108,
     "size": 297,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_10_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBlueWarp_1.bin",
     "start": 5814408,
     "size": 133,
     "type": "map_layer1"
@@ -9745,13 +9745,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_11_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerGhini_0.bin",
     "start": 5814612,
     "size": 265,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_11_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerGhini_1.bin",
     "start": 5814880,
     "size": 91,
     "type": "map_layer1"
@@ -9763,13 +9763,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_12_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerTorches_0.bin",
     "start": 5815040,
     "size": 271,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_12_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerTorches_1.bin",
     "start": 5815312,
     "size": 107,
     "type": "map_layer1"
@@ -9781,13 +9781,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_13_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopRightTower_0.bin",
     "start": 5815488,
     "size": 267,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_13_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopRightTower_1.bin",
     "start": 5815756,
     "size": 135,
     "type": "map_layer1"
@@ -9799,13 +9799,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_14_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopLeftDarknut_0.bin",
     "start": 5815960,
     "size": 315,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_14_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopLeftDarknut_1.bin",
     "start": 5816276,
     "size": 158,
     "type": "map_layer1"
@@ -9817,13 +9817,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_15_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FSparks_0.bin",
     "start": 5816504,
     "size": 292,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_15_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FSparks_1.bin",
     "start": 5816796,
     "size": 125,
     "type": "map_layer1"
@@ -9835,13 +9835,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_16_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopRightDarknuts_0.bin",
     "start": 5816992,
     "size": 306,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_16_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FTopRightDarknuts_1.bin",
     "start": 5817300,
     "size": 155,
     "type": "map_layer1"
@@ -9853,13 +9853,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_17_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FLeft_0.bin",
     "start": 5817524,
     "size": 414,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_17_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FLeft_1.bin",
     "start": 5817940,
     "size": 195,
     "type": "map_layer1"
@@ -9871,13 +9871,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_18_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FRight_0.bin",
     "start": 5818236,
     "size": 360,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_18_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FRight_1.bin",
     "start": 5818596,
     "size": 228,
     "type": "map_layer1"
@@ -9889,13 +9889,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_19_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftDarknuts_0.bin",
     "start": 5818924,
     "size": 309,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_19_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftDarknuts_1.bin",
     "start": 5819236,
     "size": 163,
     "type": "map_layer1"
@@ -9907,13 +9907,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_20_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBossDoor_0.bin",
     "start": 5819468,
     "size": 350,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_20_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBossDoor_1.bin",
     "start": 5819820,
     "size": 152,
     "type": "map_layer1"
@@ -9925,13 +9925,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_21_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomRightDarknut_0.bin",
     "start": 5820040,
     "size": 296,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_21_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomRightDarknut_1.bin",
     "start": 5820336,
     "size": 151,
     "type": "map_layer1"
@@ -9943,13 +9943,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_22_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCornerPuzzle_0.bin",
     "start": 5820556,
     "size": 263,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_22_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCornerPuzzle_1.bin",
     "start": 5820820,
     "size": 118,
     "type": "map_layer1"
@@ -9961,13 +9961,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_23_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FEntrance_0.bin",
     "start": 5821008,
     "size": 450,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_23_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FEntrance_1.bin",
     "start": 5821460,
     "size": 228,
     "type": "map_layer1"
@@ -9979,13 +9979,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_24_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCorner_0.bin",
     "start": 5821820,
     "size": 401,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_24_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCorner_1.bin",
     "start": 5822224,
     "size": 161,
     "type": "map_layer1"
@@ -9997,13 +9997,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_25_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftTower_0.bin",
     "start": 5822520,
     "size": 232,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_25_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftTower_1.bin",
     "start": 5822752,
     "size": 137,
     "type": "map_layer1"
@@ -10015,13 +10015,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_26_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftGhini_0.bin",
     "start": 5822960,
     "size": 258,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_26_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomLeftGhini_1.bin",
     "start": 5823220,
     "size": 88,
     "type": "map_layer1"
@@ -10033,13 +10033,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_27_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FTopRightTower7_0.bin",
     "start": 5823376,
     "size": 60,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_27_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FTopRightTower7_1.bin",
     "start": 5823436,
     "size": 60,
     "type": "map_layer1"
@@ -10051,13 +10051,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_28_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1Entrance_0.bin",
     "start": 5823564,
     "size": 294,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_28_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1Entrance_1.bin",
     "start": 5823860,
     "size": 152,
     "type": "map_layer1"
@@ -10069,13 +10069,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_29_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomRightTower_0.bin",
     "start": 5824080,
     "size": 323,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_29_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_2FBottomRightTower_1.bin",
     "start": 5824404,
     "size": 188,
     "type": "map_layer1"
@@ -10087,13 +10087,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_30_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FTopLeftTower_0.bin",
     "start": 5824724,
     "size": 228,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_30_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FTopLeftTower_1.bin",
     "start": 5824952,
     "size": 124,
     "type": "map_layer1"
@@ -10105,13 +10105,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_31_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FThroneRoom_0.bin",
     "start": 5825144,
     "size": 335,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_31_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FThroneRoom_1.bin",
     "start": 5825480,
     "size": 147,
     "type": "map_layer1"
@@ -10123,13 +10123,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_32_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FCompass_0.bin",
     "start": 5825696,
     "size": 305,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_32_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FCompass_1.bin",
     "start": 5826004,
     "size": 161,
     "type": "map_layer1"
@@ -10141,13 +10141,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_33_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FTopRightTower_0.bin",
     "start": 5826236,
     "size": 261,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_33_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FTopRightTower_1.bin",
     "start": 5826500,
     "size": 144,
     "type": "map_layer1"
@@ -10159,13 +10159,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_34_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FBeforeThrone_0.bin",
     "start": 5826712,
     "size": 282,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_34_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FBeforeThrone_1.bin",
     "start": 5826996,
     "size": 149,
     "type": "map_layer1"
@@ -10177,13 +10177,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_35_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopTopLeft_0.bin",
     "start": 5827216,
     "size": 60,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_35_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopTopLeft_1.bin",
     "start": 5827276,
     "size": 316,
     "type": "map_layer1"
@@ -10195,13 +10195,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_36_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopTop_0.bin",
     "start": 5827660,
     "size": 60,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_36_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopTop_1.bin",
     "start": 5827720,
     "size": 272,
     "type": "map_layer1"
@@ -10213,13 +10213,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_37_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopTopRight_0.bin",
     "start": 5828060,
     "size": 60,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_37_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopTopRight_1.bin",
     "start": 5828120,
     "size": 295,
     "type": "map_layer1"
@@ -10231,13 +10231,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_38_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopLeft_0.bin",
     "start": 5828484,
     "size": 300,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_38_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopLeft_1.bin",
     "start": 5828784,
     "size": 217,
     "type": "map_layer1"
@@ -10249,13 +10249,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_39_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopRight_0.bin",
     "start": 5829104,
     "size": 175,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_39_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopRight_1.bin",
     "start": 5829280,
     "size": 288,
     "type": "map_layer1"
@@ -10267,13 +10267,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_40_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopBottomLeft_0.bin",
     "start": 5829668,
     "size": 226,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_40_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopBottomLeft_1.bin",
     "start": 5829896,
     "size": 144,
     "type": "map_layer1"
@@ -10285,13 +10285,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_41_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopBottom_0.bin",
     "start": 5830108,
     "size": 187,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_41_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopBottom_1.bin",
     "start": 5830296,
     "size": 127,
     "type": "map_layer1"
@@ -10303,13 +10303,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_42_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopBottomRight_0.bin",
     "start": 5830492,
     "size": 202,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_42_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FLoopBottomRight_1.bin",
     "start": 5830696,
     "size": 141,
     "type": "map_layer1"
@@ -10321,13 +10321,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_43_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FBottomLeftTower_0.bin",
     "start": 5830908,
     "size": 223,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_43_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FBottomLeftTower_1.bin",
     "start": 5831132,
     "size": 128,
     "type": "map_layer1"
@@ -10339,13 +10339,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_44_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FBottomRightTower_0.bin",
     "start": 5831328,
     "size": 216,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_44_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_1FBottomRightTower_1.bin",
     "start": 5831544,
     "size": 129,
     "type": "map_layer1"
@@ -10357,13 +10357,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_45_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1BelowThrone_0.bin",
     "start": 5831744,
     "size": 244,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_45_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1BelowThrone_1.bin",
     "start": 5831988,
     "size": 93,
     "type": "map_layer1"
@@ -10375,13 +10375,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_46_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1BelowCompass_0.bin",
     "start": 5832152,
     "size": 275,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_46_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1BelowCompass_1.bin",
     "start": 5832428,
     "size": 110,
     "type": "map_layer1"
@@ -10393,13 +10393,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_47_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1BeforeThrone_0.bin",
     "start": 5832608,
     "size": 60,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_47_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1BeforeThrone_1.bin",
     "start": 5832668,
     "size": 284,
     "type": "map_layer1"
@@ -10411,13 +10411,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_48_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1ToPrison_0.bin",
     "start": 5833020,
     "size": 60,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_48_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1ToPrison_1.bin",
     "start": 5833080,
     "size": 276,
     "type": "map_layer1"
@@ -10429,13 +10429,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_49_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1BombWall_0.bin",
     "start": 5833424,
     "size": 60,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_49_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1BombWall_1.bin",
     "start": 5833484,
     "size": 277,
     "type": "map_layer1"
@@ -10447,13 +10447,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_50_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1Keatons_0.bin",
     "start": 5833832,
     "size": 60,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_50_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1Keatons_1.bin",
     "start": 5833892,
     "size": 302,
     "type": "map_layer1"
@@ -10465,13 +10465,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_51_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1ToPrisonFirebar_0.bin",
     "start": 5834264,
     "size": 87,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_51_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1ToPrisonFirebar_1.bin",
     "start": 5834352,
     "size": 408,
     "type": "map_layer1"
@@ -10483,13 +10483,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_52_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1Cannons_0.bin",
     "start": 5834860,
     "size": 87,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_52_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1Cannons_1.bin",
     "start": 5834948,
     "size": 368,
     "type": "map_layer1"
@@ -10501,13 +10501,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_53_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1Left_0.bin",
     "start": 5835416,
     "size": 171,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_53_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1Left_1.bin",
     "start": 5835588,
     "size": 235,
     "type": "map_layer1"
@@ -10519,13 +10519,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_54_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1Right_0.bin",
     "start": 5835892,
     "size": 170,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_54_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1Right_1.bin",
     "start": 5836064,
     "size": 236,
     "type": "map_layer1"
@@ -10537,13 +10537,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_55_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1Map_0.bin",
     "start": 5836368,
     "size": 522,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_55_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_B1Map_1.bin",
     "start": 5836892,
     "size": 1102,
     "type": "map_layer1"
@@ -10555,13 +10555,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_56_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_B2ToPrison_0.bin",
     "start": 5838336,
     "size": 310,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_56_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_B2ToPrison_1.bin",
     "start": 5838648,
     "size": 116,
     "type": "map_layer1"
@@ -10573,13 +10573,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_57_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_B2Prison_0.bin",
     "start": 5838840,
     "size": 381,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_57_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_B2Prison_1.bin",
     "start": 5839224,
     "size": 180,
     "type": "map_layer1"
@@ -10591,13 +10591,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_58_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_B2Dropdown_0.bin",
     "start": 5839540,
     "size": 243,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_58_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_B2Dropdown_1.bin",
     "start": 5839784,
     "size": 113,
     "type": "map_layer1"
@@ -10609,13 +10609,13 @@
     "type": "unknown"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_59_0.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati9_0.bin",
     "start": 5839992,
     "size": 60,
     "type": "map_layer2"
   },
   {
-    "path": "assets/gAreaRoomMap_DarkHyruleCastle_59_1.bin",
+    "path": "assets/gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati9_1.bin",
     "start": 5840052,
     "size": 60,
     "type": "map_layer1"
