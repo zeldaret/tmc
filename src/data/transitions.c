@@ -3172,185 +3172,185 @@ const Transition* const gExitLists_RoyalCrypt[] = {
     [ROOM_ROYAL_CRYPT_ENTRANCE] = gExitList_RoyalCrypt_Entrance,
 };
 
-const Transition gExitList_PalaceOfWinds_0[] = {
-    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x18, 0x30, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_3, 0x1, 0x0, 0x4, 0x0,
+const Transition gExitList_PalaceOfWinds_GyorgTornado[] = {
+    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x18, 0x30, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_GYORG_BOSS_DOOR, 0x1, 0x0, 0x4, 0x0,
       0x0, 0x0, 0x0 },
     TransitionListEnd,
 };
-const Transition gExitList_PalaceOfWinds_3[] = {
-    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x1c8, 0x3, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_0, 0x1, 0x0, 0x0, 0x0,
+const Transition gExitList_PalaceOfWinds_GyorgBossDoor[] = {
+    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x1c8, 0x3, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_GYORG_TORNADO, 0x1, 0x0, 0x0, 0x0,
       0x0, 0x0, 0x0 },
     TransitionListEnd,
 };
-const Transition gExitList_PalaceOfWinds_8[] = {
-    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x18, 0x30, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_a, 0x1, 0x0, 0x4, 0x0,
+const Transition gExitList_PalaceOfWinds_BallAndChainSoldiers[] = {
+    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x18, 0x30, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_HOLE_TO_DARKNUT, 0x1, 0x0, 0x4, 0x0,
       0x0, 0x0, 0x0 },
     TransitionListEnd,
 };
-const Transition gExitList_PalaceOfWinds_9[] = {
-    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x18, 0x30, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_b, 0x1, 0x0, 0x4, 0x0,
+const Transition gExitList_PalaceOfWinds_BombarossaPath[] = {
+    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x18, 0x30, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_TO_BOMBAROSSA_PATH, 0x1, 0x0, 0x4, 0x0,
       0x0, 0x0, 0x0 },
     TransitionListEnd,
 };
-const Transition gExitList_PalaceOfWinds_10[] = {
-    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x128, 0x3, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_8, 0x1, 0x0, 0x0, 0x0,
+const Transition gExitList_PalaceOfWinds_HoleToDarknut[] = {
+    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x128, 0x3, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_BALL_AND_CHAIN_SOLDIERS, 0x1, 0x0, 0x0, 0x0,
       0x0, 0x0, 0x0 },
     TransitionListEnd,
 };
-const Transition gExitList_PalaceOfWinds_11[] = {
-    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x88, 0x3, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_9, 0x1, 0x0, 0x0, 0x0,
+const Transition gExitList_PalaceOfWinds_ToBombarossaPath[] = {
+    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x88, 0x3, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_BOMBAROSSA_PATH, 0x1, 0x0, 0x0, 0x0,
       0x0, 0x0, 0x0 },
-    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0x18, 0xfff, 0xc, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_e, 0x1, 0x0, 0x2, 0x0,
-      0x0, 0x0, 0x0 },
-    TransitionListEnd,
-};
-const Transition gExitList_PalaceOfWinds_13[] = {
-    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0x18, 0xfff, 0xc, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_e, 0x1, 0x0, 0x2, 0x0,
-      0x0, 0x0, 0x0 },
-    { WARP_TYPE_1, 0x0, 0x38, 0x38, 0x218, 0xe8, 0x0, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_15, 0x1, 0x0, 0x4, 0x0,
+    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0x18, 0xfff, 0xc, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_BOMB_WALL_OUTSIDE, 0x1, 0x0, 0x2, 0x0,
       0x0, 0x0, 0x0 },
     TransitionListEnd,
 };
-const Transition gExitList_PalaceOfWinds_14[] = {
-    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xc8, 0xfff, 0x40, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_b, 0x1, 0x0, 0x6, 0x0,
+const Transition gExitList_PalaceOfWinds_BombWallInside[] = {
+    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0x18, 0xfff, 0xc, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_BOMB_WALL_OUTSIDE, 0x1, 0x0, 0x2, 0x0,
       0x0, 0x0, 0x0 },
-    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xc8, 0xfff, 0x80, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_d, 0x1, 0x0, 0x6, 0x0,
-      0x0, 0x0, 0x0 },
-    TransitionListEnd,
-};
-const Transition gExitList_PalaceOfWinds_16[] = {
-    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x18, 0x30, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_15, 0x1, 0x0, 0x4, 0x0,
+    { WARP_TYPE_1, 0x0, 0x38, 0x38, 0x218, 0xe8, 0x0, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_RED_WARP_HALL, 0x1, 0x0, 0x4, 0x0,
       0x0, 0x0, 0x0 },
     TransitionListEnd,
 };
-const Transition gExitList_PalaceOfWinds_18[] = {
-    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x18, 0x30, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_15, 0x1, 0x0, 0x4, 0x0,
+const Transition gExitList_PalaceOfWinds_BombWallOutside[] = {
+    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xc8, 0xfff, 0x40, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_TO_BOMBAROSSA_PATH, 0x1, 0x0, 0x6, 0x0,
+      0x0, 0x0, 0x0 },
+    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xc8, 0xfff, 0x80, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_BOMB_WALL_INSIDE, 0x1, 0x0, 0x6, 0x0,
       0x0, 0x0, 0x0 },
     TransitionListEnd,
 };
-const Transition gExitList_PalaceOfWinds_21[] = {
-    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x88, 0x1, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_12, 0x1, 0x0, 0x0, 0x0,
-      0x0, 0x0, 0x0 },
-    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x1c8, 0x2, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_10, 0x1, 0x0, 0x0, 0x0,
-      0x0, 0x0, 0x0 },
-    { WARP_TYPE_1, 0x0, 0xb8, 0xd8, 0xb8, 0x48, 0x0, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_1e, 0x1, 0x0, 0x4, 0x0,
-      0x0, 0x0, 0x0 },
-    { WARP_TYPE_1, 0x0, 0x218, 0xd8, 0x38, 0x48, 0x0, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_d, 0x1, 0x0, 0x4, 0x0,
+const Transition gExitList_PalaceOfWinds_BlockMazeToBossDoor[] = {
+    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x18, 0x30, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_RED_WARP_HALL, 0x1, 0x0, 0x4, 0x0,
       0x0, 0x0, 0x0 },
     TransitionListEnd,
 };
-const Transition gExitList_PalaceOfWinds_23[] = {
-    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xd8, 0xfff, 0xc0, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_20, 0x1, 0x0, 0x6, 0x0,
+const Transition gExitList_PalaceOfWinds_HeartPieceBridge[] = {
+    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x18, 0x30, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_RED_WARP_HALL, 0x1, 0x0, 0x4, 0x0,
       0x0, 0x0, 0x0 },
     TransitionListEnd,
 };
-const Transition gExitList_PalaceOfWinds_26[] = {
-    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x78, 0x1, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_20, 0x1, 0x1, 0x0, 0x0,
+const Transition gExitList_PalaceOfWinds_RedWarpHall[] = {
+    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x88, 0x1, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_HEART_PIECE_BRIDGE, 0x1, 0x0, 0x0, 0x0,
+      0x0, 0x0, 0x0 },
+    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x1c8, 0x2, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_BLOCK_MAZE_TO_BOSS_DOOR, 0x1, 0x0, 0x0, 0x0,
+      0x0, 0x0, 0x0 },
+    { WARP_TYPE_1, 0x0, 0xb8, 0xd8, 0xb8, 0x48, 0x0, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_STAIRS_AFTER_FLOORMASTER, 0x1, 0x0, 0x4, 0x0,
+      0x0, 0x0, 0x0 },
+    { WARP_TYPE_1, 0x0, 0x218, 0xd8, 0x38, 0x48, 0x0, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_BOMB_WALL_INSIDE, 0x1, 0x0, 0x4, 0x0,
       0x0, 0x0, 0x0 },
     TransitionListEnd,
 };
-const Transition gExitList_PalaceOfWinds_30[] = {
-    { WARP_TYPE_1, 0x0, 0xb8, 0x38, 0xb8, 0xe8, 0x0, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_15, 0x1, 0x0, 0x4, 0x0,
+const Transition gExitList_PalaceOfWinds_PitCornerAfterKey[] = {
+    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xd8, 0xfff, 0xc0, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_KEY_ARROW_BUTTON, 0x1, 0x0, 0x6, 0x0,
       0x0, 0x0, 0x0 },
     TransitionListEnd,
 };
-const Transition gExitList_PalaceOfWinds_32[] = {
-    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0x10, 0xfff, 0xc, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_17, 0x1, 0x0, 0x2, 0x0,
-      0x0, 0x0, 0x0 },
-    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x28, 0x30, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_1a, 0x1, 0x1, 0x4, 0x0,
-      0x0, 0x0, 0x0 },
-    { WARP_TYPE_1, 0x0, 0x38, 0x38, 0x38, 0x48, 0x0, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_2a, 0x1, 0x0, 0x4, 0x0,
+const Transition gExitList_PalaceOfWinds_PotPush[] = {
+    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x78, 0x1, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_KEY_ARROW_BUTTON, 0x1, 0x1, 0x0, 0x0,
       0x0, 0x0, 0x0 },
     TransitionListEnd,
 };
-const Transition gExitList_PalaceOfWinds_35[] = {
-    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x88, 0x3, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_28, 0x1, 0x0, 0x0, 0x0,
+const Transition gExitList_PalaceOfWinds_StairsAfterFloormaster[] = {
+    { WARP_TYPE_1, 0x0, 0xb8, 0x38, 0xb8, 0xe8, 0x0, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_RED_WARP_HALL, 0x1, 0x0, 0x4, 0x0,
       0x0, 0x0, 0x0 },
     TransitionListEnd,
 };
-const Transition gExitList_PalaceOfWinds_36[] = {
-    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x88, 0x3, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_2a, 0x1, 0x0, 0x0, 0x0,
+const Transition gExitList_PalaceOfWinds_KeyArrowButton[] = {
+    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0x10, 0xfff, 0xc, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_PIT_CORNER_AFTER_KEY, 0x1, 0x0, 0x2, 0x0,
+      0x0, 0x0, 0x0 },
+    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x28, 0x30, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_POT_PUSH, 0x1, 0x1, 0x4, 0x0,
+      0x0, 0x0, 0x0 },
+    { WARP_TYPE_1, 0x0, 0x38, 0x38, 0x38, 0x48, 0x0, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_GIBDO_STAIRS, 0x1, 0x0, 0x4, 0x0,
       0x0, 0x0, 0x0 },
     TransitionListEnd,
 };
-const Transition gExitList_PalaceOfWinds_40[] = {
-    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x18, 0x30, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_23, 0x1, 0x0, 0x4, 0x0,
-      0x0, 0x0, 0x0 },
-    { WARP_TYPE_1, 0x0, 0xb8, 0x38, 0xb8, 0xe8, 0x0, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_32, 0x1, 0x0, 0x4, 0x0,
+const Transition gExitList_PalaceOfWinds_PeahatSwitch[] = {
+    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x88, 0x3, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_TO_PEAHAT_SWITCH, 0x1, 0x0, 0x0, 0x0,
       0x0, 0x0, 0x0 },
     TransitionListEnd,
 };
-const Transition gExitList_PalaceOfWinds_42[] = {
-    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x18, 0x30, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_24, 0x1, 0x0, 0x4, 0x0,
-      0x0, 0x0, 0x0 },
-    { WARP_TYPE_1, 0x0, 0x38, 0x38, 0x38, 0x48, 0x0, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_20, 0x1, 0x0, 0x4, 0x0,
+const Transition gExitList_PalaceOfWinds_WhirlwindBombarossa[] = {
+    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x88, 0x3, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_GIBDO_STAIRS, 0x1, 0x0, 0x0, 0x0,
       0x0, 0x0, 0x0 },
     TransitionListEnd,
 };
-const Transition gExitList_PalaceOfWinds_47[] = {
-    { WARP_TYPE_1, 0x0, 0x78, 0x18, 0x168, 0x118, 0x0, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_32, 0x1, 0x0, 0x0,
+const Transition gExitList_PalaceOfWinds_ToPeahatSwitch[] = {
+    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x18, 0x30, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_PEAHAT_SWITCH, 0x1, 0x0, 0x4, 0x0,
+      0x0, 0x0, 0x0 },
+    { WARP_TYPE_1, 0x0, 0xb8, 0x38, 0xb8, 0xe8, 0x0, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_DARK_COMPASS_HALL, 0x1, 0x0, 0x4, 0x0,
+      0x0, 0x0, 0x0 },
+    TransitionListEnd,
+};
+const Transition gExitList_PalaceOfWinds_GibdoStairs[] = {
+    { WARP_TYPE_0, 0x0, 0x0, 0x0, 0xfff, 0x18, 0x30, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_WHIRLWIND_BOMBAROSSA, 0x1, 0x0, 0x4, 0x0,
+      0x0, 0x0, 0x0 },
+    { WARP_TYPE_1, 0x0, 0x38, 0x38, 0x38, 0x48, 0x0, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_KEY_ARROW_BUTTON, 0x1, 0x0, 0x4, 0x0,
+      0x0, 0x0, 0x0 },
+    TransitionListEnd,
+};
+const Transition gExitList_PalaceOfWinds_BridgeAfterDarknut[] = {
+    { WARP_TYPE_1, 0x0, 0x78, 0x18, 0x168, 0x118, 0x0, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_DARK_COMPASS_HALL, 0x1, 0x0, 0x0,
       0x0, 0x0, 0x0, 0x0 },
     TransitionListEnd,
 };
-const Transition gExitList_PalaceOfWinds_50[] = {
-    { WARP_TYPE_1, 0x0, 0x168, 0x130, 0x78, 0x28, 0x0, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_2f, 0x1, 0x0, 0x4,
+const Transition gExitList_PalaceOfWinds_DarkCompassHall[] = {
+    { WARP_TYPE_1, 0x0, 0x168, 0x130, 0x78, 0x28, 0x0, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_BRIDGE_AFTER_DARKNUT, 0x1, 0x0, 0x4,
       0x0, 0x0, 0x0, 0x0 },
-    { WARP_TYPE_1, 0x0, 0xb8, 0xd8, 0xb8, 0x48, 0x0, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_28, 0x1, 0x0, 0x4, 0x0,
+    { WARP_TYPE_1, 0x0, 0xb8, 0xd8, 0xb8, 0x48, 0x0, AREA_PALACE_OF_WINDS, ROOM_PALACE_OF_WINDS_TO_PEAHAT_SWITCH, 0x1, 0x0, 0x4, 0x0,
       0x0, 0x0, 0x0 },
     TransitionListEnd,
 };
 const Transition* const gExitLists_PalaceOfWinds[] = {
-    [ROOM_PALACE_OF_WINDS_0] = gExitList_PalaceOfWinds_0,
-    [ROOM_PALACE_OF_WINDS_1] = gExitList_NoExitList,
-    [ROOM_PALACE_OF_WINDS_2] = gExitList_NoExitList,
-    [ROOM_PALACE_OF_WINDS_3] = gExitList_PalaceOfWinds_3,
-    [ROOM_PALACE_OF_WINDS_4] = gExitList_NoExitList,
-    [ROOM_PALACE_OF_WINDS_5] = gExitList_NoExitList,
-    [ROOM_PALACE_OF_WINDS_6] = gExitList_NoExitList,
-    [ROOM_PALACE_OF_WINDS_7] = gExitList_NoExitList,
-    [ROOM_PALACE_OF_WINDS_8] = gExitList_PalaceOfWinds_8,
-    [ROOM_PALACE_OF_WINDS_9] = gExitList_PalaceOfWinds_9,
-    [ROOM_PALACE_OF_WINDS_a] = gExitList_PalaceOfWinds_10,
-    [ROOM_PALACE_OF_WINDS_b] = gExitList_PalaceOfWinds_11,
-    [ROOM_PALACE_OF_WINDS_c] = gExitList_NoExitList,
-    [ROOM_PALACE_OF_WINDS_d] = gExitList_PalaceOfWinds_13,
-    [ROOM_PALACE_OF_WINDS_e] = gExitList_PalaceOfWinds_14,
-    [ROOM_PALACE_OF_WINDS_f] = gExitList_NoExitList,
-    [ROOM_PALACE_OF_WINDS_10] = gExitList_PalaceOfWinds_16,
-    [ROOM_PALACE_OF_WINDS_11] = gExitList_NoExitList,
-    [ROOM_PALACE_OF_WINDS_12] = gExitList_PalaceOfWinds_18,
-    [ROOM_PALACE_OF_WINDS_13] = gExitList_NoExitList,
-    [ROOM_PALACE_OF_WINDS_14] = gExitList_NoExitList,
-    [ROOM_PALACE_OF_WINDS_15] = gExitList_PalaceOfWinds_21,
-    [ROOM_PALACE_OF_WINDS_16] = gExitList_NoExitList,
-    [ROOM_PALACE_OF_WINDS_17] = gExitList_PalaceOfWinds_23,
-    [ROOM_PALACE_OF_WINDS_18] = gExitList_NoExitList,
-    [ROOM_PALACE_OF_WINDS_19] = gExitList_NoExitList,
-    [ROOM_PALACE_OF_WINDS_1a] = gExitList_PalaceOfWinds_26,
-    [ROOM_PALACE_OF_WINDS_1b] = gExitList_NoExitList,
-    [ROOM_PALACE_OF_WINDS_1c] = gExitList_NoExitList,
-    [ROOM_PALACE_OF_WINDS_1d] = gExitList_NoExitList,
-    [ROOM_PALACE_OF_WINDS_1e] = gExitList_PalaceOfWinds_30,
-    [ROOM_PALACE_OF_WINDS_1f] = gExitList_NoExitList,
-    [ROOM_PALACE_OF_WINDS_20] = gExitList_PalaceOfWinds_32,
-    [ROOM_PALACE_OF_WINDS_21] = gExitList_NoExitList,
-    [ROOM_PALACE_OF_WINDS_22] = gExitList_NoExitList,
-    [ROOM_PALACE_OF_WINDS_23] = gExitList_PalaceOfWinds_35,
-    [ROOM_PALACE_OF_WINDS_24] = gExitList_PalaceOfWinds_36,
-    [ROOM_PALACE_OF_WINDS_25] = gExitList_NoExitList,
-    [ROOM_PALACE_OF_WINDS_26] = gExitList_NoExitList,
-    [ROOM_PALACE_OF_WINDS_27] = gExitList_NoExitList,
-    [ROOM_PALACE_OF_WINDS_28] = gExitList_PalaceOfWinds_40,
-    [ROOM_PALACE_OF_WINDS_29] = gExitList_NoExitList,
-    [ROOM_PALACE_OF_WINDS_2a] = gExitList_PalaceOfWinds_42,
-    [ROOM_PALACE_OF_WINDS_2b] = gExitList_NoExitList,
-    [ROOM_PALACE_OF_WINDS_2c] = gExitList_NoExitList,
-    [ROOM_PALACE_OF_WINDS_2d] = gExitList_NoExitList,
-    [ROOM_PALACE_OF_WINDS_2e] = gExitList_NoExitList,
-    [ROOM_PALACE_OF_WINDS_2f] = gExitList_PalaceOfWinds_47,
-    [ROOM_PALACE_OF_WINDS_30] = gExitList_NoExitList,
-    [ROOM_PALACE_OF_WINDS_31] = gExitList_NoExitList,
-    [ROOM_PALACE_OF_WINDS_32] = gExitList_PalaceOfWinds_50,
+    [ROOM_PALACE_OF_WINDS_GYORG_TORNADO] = gExitList_PalaceOfWinds_GyorgTornado,
+    [ROOM_PALACE_OF_WINDS_BOSS_KEY] = gExitList_NoExitList,
+    [ROOM_PALACE_OF_WINDS_BEFORE_BALL_AND_CHAIN_SOLDIERS] = gExitList_NoExitList,
+    [ROOM_PALACE_OF_WINDS_GYORG_BOSS_DOOR] = gExitList_PalaceOfWinds_GyorgBossDoor,
+    [ROOM_PALACE_OF_WINDS_EAST_CHEST_FROM_GYORG_BOSS_DOOR] = gExitList_NoExitList,
+    [ROOM_PALACE_OF_WINDS_MOBLIN_AND_WIZZROBE_FIGHT] = gExitList_NoExitList,
+    [ROOM_PALACE_OF_WINDS_FOUR_BUTTON_STALFOS] = gExitList_NoExitList,
+    [ROOM_PALACE_OF_WINDS_FAN_AND_KEY_TO_BOSS_KEY] = gExitList_NoExitList,
+    [ROOM_PALACE_OF_WINDS_BALL_AND_CHAIN_SOLDIERS] = gExitList_PalaceOfWinds_BallAndChainSoldiers,
+    [ROOM_PALACE_OF_WINDS_BOMBAROSSA_PATH] = gExitList_PalaceOfWinds_BombarossaPath,
+    [ROOM_PALACE_OF_WINDS_HOLE_TO_DARKNUT] = gExitList_PalaceOfWinds_HoleToDarknut,
+    [ROOM_PALACE_OF_WINDS_TO_BOMBAROSSA_PATH] = gExitList_PalaceOfWinds_ToBombarossaPath,
+    [ROOM_PALACE_OF_WINDS_DARKNUT_MINIBOSS] = gExitList_NoExitList,
+    [ROOM_PALACE_OF_WINDS_BOMB_WALL_INSIDE] = gExitList_PalaceOfWinds_BombWallInside,
+    [ROOM_PALACE_OF_WINDS_BOMB_WALL_OUTSIDE] = gExitList_PalaceOfWinds_BombWallOutside,
+    [ROOM_PALACE_OF_WINDS_CLOUD_JUMPS] = gExitList_NoExitList,
+    [ROOM_PALACE_OF_WINDS_BLOCK_MAZE_TO_BOSS_DOOR] = gExitList_PalaceOfWinds_BlockMazeToBossDoor,
+    [ROOM_PALACE_OF_WINDS_CRACKED_FLOOR_LAKITU] = gExitList_NoExitList,
+    [ROOM_PALACE_OF_WINDS_HEART_PIECE_BRIDGE] = gExitList_PalaceOfWinds_HeartPieceBridge,
+    [ROOM_PALACE_OF_WINDS_FAN_BRIDGE] = gExitList_NoExitList,
+    [ROOM_PALACE_OF_WINDS_TO_FAN_BRIDGE] = gExitList_NoExitList,
+    [ROOM_PALACE_OF_WINDS_RED_WARP_HALL] = gExitList_PalaceOfWinds_RedWarpHall,
+    [ROOM_PALACE_OF_WINDS_PLATFORM_CLONE_RIDE] = gExitList_NoExitList,
+    [ROOM_PALACE_OF_WINDS_PIT_CORNER_AFTER_KEY] = gExitList_PalaceOfWinds_PitCornerAfterKey,
+    [ROOM_PALACE_OF_WINDS_PLATFORM_CROW_RIDE] = gExitList_NoExitList,
+    [ROOM_PALACE_OF_WINDS_GRATE_PLATFORM_RIDE] = gExitList_NoExitList,
+    [ROOM_PALACE_OF_WINDS_POT_PUSH] = gExitList_PalaceOfWinds_PotPush,
+    [ROOM_PALACE_OF_WINDS_FLOORMASTER_LEVER] = gExitList_NoExitList,
+    [ROOM_PALACE_OF_WINDS_MAP] = gExitList_NoExitList,
+    [ROOM_PALACE_OF_WINDS_CORNER_TO_MAP] = gExitList_NoExitList,
+    [ROOM_PALACE_OF_WINDS_STAIRS_AFTER_FLOORMASTER] = gExitList_PalaceOfWinds_StairsAfterFloormaster,
+    [ROOM_PALACE_OF_WINDS_HOLE_TO_KINSTONE_WIZZROBE] = gExitList_NoExitList,
+    [ROOM_PALACE_OF_WINDS_KEY_ARROW_BUTTON] = gExitList_PalaceOfWinds_KeyArrowButton,
+    [ROOM_PALACE_OF_WINDS_GRATES_TO_3F] = gExitList_NoExitList,
+    [ROOM_PALACE_OF_WINDS_SPINY_FIGHT] = gExitList_NoExitList,
+    [ROOM_PALACE_OF_WINDS_PEAHAT_SWITCH] = gExitList_PalaceOfWinds_PeahatSwitch,
+    [ROOM_PALACE_OF_WINDS_WHIRLWIND_BOMBAROSSA] = gExitList_PalaceOfWinds_WhirlwindBombarossa,
+    [ROOM_PALACE_OF_WINDS_DOOR_TO_STALFOS_FIREBAR] = gExitList_NoExitList,
+    [ROOM_PALACE_OF_WINDS_STALFOS_FIREBAR_HOLE] = gExitList_NoExitList,
+    [ROOM_PALACE_OF_WINDS_SHORTCUT_DOOR_BUTTONS] = gExitList_NoExitList,
+    [ROOM_PALACE_OF_WINDS_TO_PEAHAT_SWITCH] = gExitList_PalaceOfWinds_ToPeahatSwitch,
+    [ROOM_PALACE_OF_WINDS_KINSTONE_WIZZROBE_FIGHT] = gExitList_NoExitList,
+    [ROOM_PALACE_OF_WINDS_GIBDO_STAIRS] = gExitList_PalaceOfWinds_GibdoStairs,
+    [ROOM_PALACE_OF_WINDS_SPIKE_BAR_SMALL_KEY] = gExitList_NoExitList,
+    [ROOM_PALACE_OF_WINDS_ROC_CAPE] = gExitList_NoExitList,
+    [ROOM_PALACE_OF_WINDS_FIRE_BAR_GRATES] = gExitList_NoExitList,
+    [ROOM_PALACE_OF_WINDS_PLATFORM_RIDE_BOMBAROSSAS] = gExitList_NoExitList,
+    [ROOM_PALACE_OF_WINDS_BRIDGE_AFTER_DARKNUT] = gExitList_PalaceOfWinds_BridgeAfterDarknut,
+    [ROOM_PALACE_OF_WINDS_BRIDGE_SWITCHES_CLONE_BLOCK] = gExitList_NoExitList,
+    [ROOM_PALACE_OF_WINDS_ENTRANCE_ROOM] = gExitList_NoExitList,
+    [ROOM_PALACE_OF_WINDS_DARK_COMPASS_HALL] = gExitList_PalaceOfWinds_DarkCompassHall,
     [ROOM_PALACE_OF_WINDS_33] = gExitList_NoExitList,
 };
 

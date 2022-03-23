@@ -3526,26 +3526,26 @@ gAreaRoomMap_RoyalCrypt_8_0::
 gAreaRoomMap_RoyalCrypt_8_1::
 	.incbin "assets/gAreaRoomMap_RoyalCrypt_8_1.bin"
 	.align 2
-gAreaTileset_PalaceOfWinds_0_0::
-	.incbin "tilesets/gAreaTileset_PalaceOfWinds_0_0.4bpp.lz"
-gAreaTileset_PalaceOfWinds_0_1::
-	.incbin "tilesets/gAreaTileset_PalaceOfWinds_0_1.4bpp.lz"
+gAreaTileset_PalaceOfWinds_GyorgTornado_0::
+	.incbin "tilesets/gAreaTileset_PalaceOfWinds_GyorgTornado_0.4bpp.lz"
+gAreaTileset_PalaceOfWinds_GyorgTornado_1::
+	.incbin "tilesets/gAreaTileset_PalaceOfWinds_GyorgTornado_1.4bpp.lz"
 	.align 2
-gAreaTileset_PalaceOfWinds_0_2::
-	.incbin "tilesets/gAreaTileset_PalaceOfWinds_0_2.4bpp.lz"
+gAreaTileset_PalaceOfWinds_GyorgTornado_2::
+	.incbin "tilesets/gAreaTileset_PalaceOfWinds_GyorgTornado_2.4bpp.lz"
 	.align 2
-gAreaMetatiles_PalaceOfWinds_0::
-	.incbin "assets/gAreaMetatiles_PalaceOfWinds_0.bin"
+gAreaMetatiles_PalaceOfWinds_GyorgTornado::
+	.incbin "assets/gAreaMetatiles_PalaceOfWinds_GyorgTornado.bin"
 	.align 2
-gAreaMetatiles_PalaceOfWinds_1::
-	.incbin "assets/gAreaMetatiles_PalaceOfWinds_1.bin"
-gAreaMetatiles_PalaceOfWinds_2::
-	.incbin "assets/gAreaMetatiles_PalaceOfWinds_2.bin"
-gAreaMetatiles_PalaceOfWinds_3::
-	.incbin "assets/gAreaMetatiles_PalaceOfWinds_3.bin"
+gAreaMetatiles_PalaceOfWinds_BossKey::
+	.incbin "assets/gAreaMetatiles_PalaceOfWinds_BossKey.bin"
+gAreaMetatiles_PalaceOfWinds_BeforeBallAndChainSoldiers::
+	.incbin "assets/gAreaMetatiles_PalaceOfWinds_BeforeBallAndChainSoldiers.bin"
+gAreaMetatiles_PalaceOfWinds_GyorgBossDoor::
+	.incbin "assets/gAreaMetatiles_PalaceOfWinds_GyorgBossDoor.bin"
 	.align 2
-gAreaTileset_PalaceOfWinds_0_3::
-	.incbin "assets/gAreaTileset_PalaceOfWinds_0_3.bin"
+gAreaTileset_PalaceOfWinds_GyorgTornado_3::
+	.incbin "assets/gAreaTileset_PalaceOfWinds_GyorgTornado_3.bin"
 gAreaTileset_PalaceOfWindsBoss_0_0::
 	.incbin "tilesets/gAreaTileset_PalaceOfWindsBoss_0_0.4bpp.lz"
 	.align 2
@@ -3562,403 +3562,403 @@ unknown_134::
 	.incbin "assets/unknown_134.bin"
 gAreaTileset_PalaceOfWindsBoss_0_2::
 	.incbin "assets/gAreaTileset_PalaceOfWindsBoss_0_2.bin"
-gAreaRoomMap_PalaceOfWinds_0_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_0_0.bin"
+gAreaRoomMap_PalaceOfWinds_GyorgTornado_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_GyorgTornado_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_0_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_0_1.bin"
+gAreaRoomMap_PalaceOfWinds_GyorgTornado_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_GyorgTornado_1.bin"
 	.align 2
 unknown_135::
 	.incbin "assets/unknown_135.bin"
-gAreaRoomMap_PalaceOfWinds_1_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_1_0.bin"
+gAreaRoomMap_PalaceOfWinds_BossKey_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BossKey_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_1_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_1_1.bin"
+gAreaRoomMap_PalaceOfWinds_BossKey_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BossKey_1.bin"
 	.align 2
 unknown_136::
 	.incbin "assets/unknown_136.bin"
-gAreaRoomMap_PalaceOfWinds_2_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_2_0.bin"
-gAreaRoomMap_PalaceOfWinds_2_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_2_1.bin"
+gAreaRoomMap_PalaceOfWinds_BeforeBallAndChainSoldiers_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BeforeBallAndChainSoldiers_0.bin"
+gAreaRoomMap_PalaceOfWinds_BeforeBallAndChainSoldiers_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BeforeBallAndChainSoldiers_1.bin"
 	.align 2
 unknown_137::
 	.incbin "assets/unknown_137.bin"
-gAreaRoomMap_PalaceOfWinds_3_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_3_0.bin"
+gAreaRoomMap_PalaceOfWinds_GyorgBossDoor_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_GyorgBossDoor_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_3_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_3_1.bin"
+gAreaRoomMap_PalaceOfWinds_GyorgBossDoor_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_GyorgBossDoor_1.bin"
 	.align 2
 unknown_138::
 	.incbin "assets/unknown_138.bin"
-gAreaRoomMap_PalaceOfWinds_4_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_4_0.bin"
+gAreaRoomMap_PalaceOfWinds_EastChestFromGyorgBossDoor_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_EastChestFromGyorgBossDoor_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_4_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_4_1.bin"
+gAreaRoomMap_PalaceOfWinds_EastChestFromGyorgBossDoor_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_EastChestFromGyorgBossDoor_1.bin"
 	.align 2
 unknown_139::
 	.incbin "assets/unknown_139.bin"
-gAreaRoomMap_PalaceOfWinds_5_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_5_0.bin"
+gAreaRoomMap_PalaceOfWinds_MoblinAndWizzrobeFight_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_MoblinAndWizzrobeFight_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_5_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_5_1.bin"
+gAreaRoomMap_PalaceOfWinds_MoblinAndWizzrobeFight_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_MoblinAndWizzrobeFight_1.bin"
 	.align 2
 unknown_140::
 	.incbin "assets/unknown_140.bin"
-gAreaRoomMap_PalaceOfWinds_6_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_6_0.bin"
+gAreaRoomMap_PalaceOfWinds_FourButtonStalfos_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_FourButtonStalfos_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_6_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_6_1.bin"
+gAreaRoomMap_PalaceOfWinds_FourButtonStalfos_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_FourButtonStalfos_1.bin"
 	.align 2
 unknown_141::
 	.incbin "assets/unknown_141.bin"
-gAreaRoomMap_PalaceOfWinds_7_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_7_0.bin"
+gAreaRoomMap_PalaceOfWinds_FanAndKeyToBossKey_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_FanAndKeyToBossKey_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_7_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_7_1.bin"
+gAreaRoomMap_PalaceOfWinds_FanAndKeyToBossKey_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_FanAndKeyToBossKey_1.bin"
 	.align 2
 unknown_142::
 	.incbin "assets/unknown_142.bin"
-gAreaRoomMap_PalaceOfWinds_8_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_8_0.bin"
+gAreaRoomMap_PalaceOfWinds_BallAndChainSoldiers_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BallAndChainSoldiers_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_8_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_8_1.bin"
+gAreaRoomMap_PalaceOfWinds_BallAndChainSoldiers_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BallAndChainSoldiers_1.bin"
 	.align 2
 unknown_143::
 	.incbin "assets/unknown_143.bin"
-gAreaRoomMap_PalaceOfWinds_9_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_9_0.bin"
+gAreaRoomMap_PalaceOfWinds_BombarossaPath_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BombarossaPath_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_9_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_9_1.bin"
+gAreaRoomMap_PalaceOfWinds_BombarossaPath_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BombarossaPath_1.bin"
 	.align 2
 unknown_144::
 	.incbin "assets/unknown_144.bin"
-gAreaRoomMap_PalaceOfWinds_10_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_10_0.bin"
+gAreaRoomMap_PalaceOfWinds_HoleToDarknut_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_HoleToDarknut_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_10_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_10_1.bin"
+gAreaRoomMap_PalaceOfWinds_HoleToDarknut_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_HoleToDarknut_1.bin"
 	.align 2
 unknown_145::
 	.incbin "assets/unknown_145.bin"
-gAreaRoomMap_PalaceOfWinds_11_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_11_0.bin"
+gAreaRoomMap_PalaceOfWinds_ToBombarossaPath_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_ToBombarossaPath_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_11_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_11_1.bin"
+gAreaRoomMap_PalaceOfWinds_ToBombarossaPath_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_ToBombarossaPath_1.bin"
 	.align 2
 unknown_146::
 	.incbin "assets/unknown_146.bin"
-gAreaRoomMap_PalaceOfWinds_12_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_12_0.bin"
+gAreaRoomMap_PalaceOfWinds_DarknutMiniboss_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_DarknutMiniboss_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_12_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_12_1.bin"
+gAreaRoomMap_PalaceOfWinds_DarknutMiniboss_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_DarknutMiniboss_1.bin"
 	.align 2
 unknown_147::
 	.incbin "assets/unknown_147.bin"
-gAreaRoomMap_PalaceOfWinds_13_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_13_0.bin"
+gAreaRoomMap_PalaceOfWinds_BombWallInside_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BombWallInside_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_13_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_13_1.bin"
+gAreaRoomMap_PalaceOfWinds_BombWallInside_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BombWallInside_1.bin"
 	.align 2
 unknown_148::
 	.incbin "assets/unknown_148.bin"
-gAreaRoomMap_PalaceOfWinds_14_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_14_0.bin"
-gAreaRoomMap_PalaceOfWinds_14_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_14_1.bin"
+gAreaRoomMap_PalaceOfWinds_BombWallOutside_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BombWallOutside_0.bin"
+gAreaRoomMap_PalaceOfWinds_BombWallOutside_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BombWallOutside_1.bin"
 	.align 2
 unknown_149::
 	.incbin "assets/unknown_149.bin"
-gAreaRoomMap_PalaceOfWinds_15_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_15_0.bin"
+gAreaRoomMap_PalaceOfWinds_CloudJumps_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_CloudJumps_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_15_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_15_1.bin"
+gAreaRoomMap_PalaceOfWinds_CloudJumps_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_CloudJumps_1.bin"
 	.align 2
 unknown_150::
 	.incbin "assets/unknown_150.bin"
-gAreaRoomMap_PalaceOfWinds_16_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_16_0.bin"
+gAreaRoomMap_PalaceOfWinds_BlockMazeToBossDoor_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BlockMazeToBossDoor_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_16_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_16_1.bin"
+gAreaRoomMap_PalaceOfWinds_BlockMazeToBossDoor_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BlockMazeToBossDoor_1.bin"
 	.align 2
 unknown_151::
 	.incbin "assets/unknown_151.bin"
-gAreaRoomMap_PalaceOfWinds_17_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_17_0.bin"
+gAreaRoomMap_PalaceOfWinds_CrackedFloorLakitu_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_CrackedFloorLakitu_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_17_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_17_1.bin"
+gAreaRoomMap_PalaceOfWinds_CrackedFloorLakitu_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_CrackedFloorLakitu_1.bin"
 	.align 2
 unknown_152::
 	.incbin "assets/unknown_152.bin"
-gAreaRoomMap_PalaceOfWinds_18_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_18_0.bin"
+gAreaRoomMap_PalaceOfWinds_HeartPieceBridge_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_HeartPieceBridge_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_18_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_18_1.bin"
+gAreaRoomMap_PalaceOfWinds_HeartPieceBridge_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_HeartPieceBridge_1.bin"
 	.align 2
 unknown_153::
 	.incbin "assets/unknown_153.bin"
-gAreaRoomMap_PalaceOfWinds_19_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_19_0.bin"
+gAreaRoomMap_PalaceOfWinds_FanBridge_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_FanBridge_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_19_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_19_1.bin"
+gAreaRoomMap_PalaceOfWinds_FanBridge_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_FanBridge_1.bin"
 	.align 2
 unknown_154::
 	.incbin "assets/unknown_154.bin"
-gAreaRoomMap_PalaceOfWinds_20_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_20_0.bin"
+gAreaRoomMap_PalaceOfWinds_ToFanBridge_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_ToFanBridge_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_20_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_20_1.bin"
+gAreaRoomMap_PalaceOfWinds_ToFanBridge_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_ToFanBridge_1.bin"
 	.align 2
 unknown_155::
 	.incbin "assets/unknown_155.bin"
-gAreaRoomMap_PalaceOfWinds_21_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_21_0.bin"
+gAreaRoomMap_PalaceOfWinds_RedWarpHall_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_RedWarpHall_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_21_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_21_1.bin"
+gAreaRoomMap_PalaceOfWinds_RedWarpHall_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_RedWarpHall_1.bin"
 	.align 2
 unknown_156::
 	.incbin "assets/unknown_156.bin"
-gAreaRoomMap_PalaceOfWinds_22_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_22_0.bin"
-gAreaRoomMap_PalaceOfWinds_22_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_22_1.bin"
+gAreaRoomMap_PalaceOfWinds_PlatformCloneRide_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_PlatformCloneRide_0.bin"
+gAreaRoomMap_PalaceOfWinds_PlatformCloneRide_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_PlatformCloneRide_1.bin"
 	.align 2
 unknown_157::
 	.incbin "assets/unknown_157.bin"
-gAreaRoomMap_PalaceOfWinds_23_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_23_0.bin"
+gAreaRoomMap_PalaceOfWinds_PitCornerAfterKey_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_PitCornerAfterKey_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_23_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_23_1.bin"
+gAreaRoomMap_PalaceOfWinds_PitCornerAfterKey_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_PitCornerAfterKey_1.bin"
 	.align 2
 unknown_158::
 	.incbin "assets/unknown_158.bin"
-gAreaRoomMap_PalaceOfWinds_24_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_24_0.bin"
+gAreaRoomMap_PalaceOfWinds_CrowRide_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_CrowRide_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_24_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_24_1.bin"
+gAreaRoomMap_PalaceOfWinds_CrowRide_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_CrowRide_1.bin"
 	.align 2
 unknown_159::
 	.incbin "assets/unknown_159.bin"
-gAreaRoomMap_PalaceOfWinds_25_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_25_0.bin"
+gAreaRoomMap_PalaceOfWinds_GratePlatformRide_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_GratePlatformRide_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_25_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_25_1.bin"
+gAreaRoomMap_PalaceOfWinds_GratePlatformRide_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_GratePlatformRide_1.bin"
 	.align 2
 unknown_160::
 	.incbin "assets/unknown_160.bin"
-gAreaRoomMap_PalaceOfWinds_26_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_26_0.bin"
-gAreaRoomMap_PalaceOfWinds_26_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_26_1.bin"
+gAreaRoomMap_PalaceOfWinds_PotPush_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_PotPush_0.bin"
+gAreaRoomMap_PalaceOfWinds_PotPush_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_PotPush_1.bin"
 	.align 2
 unknown_161::
 	.incbin "assets/unknown_161.bin"
-gAreaRoomMap_PalaceOfWinds_27_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_27_0.bin"
+gAreaRoomMap_PalaceOfWinds_FloormasterLever_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_FloormasterLever_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_27_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_27_1.bin"
+gAreaRoomMap_PalaceOfWinds_FloormasterLever_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_FloormasterLever_1.bin"
 	.align 2
 unknown_162::
 	.incbin "assets/unknown_162.bin"
-gAreaRoomMap_PalaceOfWinds_28_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_28_0.bin"
-gAreaRoomMap_PalaceOfWinds_28_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_28_1.bin"
+gAreaRoomMap_PalaceOfWinds_Map_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_Map_0.bin"
+gAreaRoomMap_PalaceOfWinds_Map_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_Map_1.bin"
 	.align 2
 unknown_163::
 	.incbin "assets/unknown_163.bin"
-gAreaRoomMap_PalaceOfWinds_29_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_29_0.bin"
+gAreaRoomMap_PalaceOfWinds_CornerToMap_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_CornerToMap_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_29_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_29_1.bin"
+gAreaRoomMap_PalaceOfWinds_CornerToMap_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_CornerToMap_1.bin"
 	.align 2
 unknown_164::
 	.incbin "assets/unknown_164.bin"
-gAreaRoomMap_PalaceOfWinds_30_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_30_0.bin"
+gAreaRoomMap_PalaceOfWinds_StairsAfterFloormaster_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_StairsAfterFloormaster_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_30_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_30_1.bin"
+gAreaRoomMap_PalaceOfWinds_StairsAfterFloormaster_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_StairsAfterFloormaster_1.bin"
 	.align 2
 unknown_165::
 	.incbin "assets/unknown_165.bin"
-gAreaRoomMap_PalaceOfWinds_31_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_31_0.bin"
+gAreaRoomMap_PalaceOfWinds_HoleToKinstoneWizzrobe_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_HoleToKinstoneWizzrobe_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_31_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_31_1.bin"
+gAreaRoomMap_PalaceOfWinds_HoleToKinstoneWizzrobe_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_HoleToKinstoneWizzrobe_1.bin"
 	.align 2
 unknown_166::
 	.incbin "assets/unknown_166.bin"
-gAreaRoomMap_PalaceOfWinds_32_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_32_0.bin"
+gAreaRoomMap_PalaceOfWinds_KeyArrowButton_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_KeyArrowButton_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_32_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_32_1.bin"
+gAreaRoomMap_PalaceOfWinds_KeyArrowButton_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_KeyArrowButton_1.bin"
 	.align 2
 unknown_167::
 	.incbin "assets/unknown_167.bin"
-gAreaRoomMap_PalaceOfWinds_33_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_33_0.bin"
-gAreaRoomMap_PalaceOfWinds_33_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_33_1.bin"
+gAreaRoomMap_PalaceOfWinds_GratesTo3F_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_GratesTo3F_0.bin"
+gAreaRoomMap_PalaceOfWinds_GratesTo3F_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_GratesTo3F_1.bin"
 	.align 2
 unknown_168::
 	.incbin "assets/unknown_168.bin"
-gAreaRoomMap_PalaceOfWinds_34_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_34_0.bin"
+gAreaRoomMap_PalaceOfWinds_SpinyFight_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_SpinyFight_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_34_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_34_1.bin"
+gAreaRoomMap_PalaceOfWinds_SpinyFight_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_SpinyFight_1.bin"
 	.align 2
 unknown_169::
 	.incbin "assets/unknown_169.bin"
-gAreaRoomMap_PalaceOfWinds_35_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_35_0.bin"
+gAreaRoomMap_PalaceOfWinds_PeahatSwitch_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_PeahatSwitch_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_35_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_35_1.bin"
+gAreaRoomMap_PalaceOfWinds_PeahatSwitch_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_PeahatSwitch_1.bin"
 	.align 2
 unknown_170::
 	.incbin "assets/unknown_170.bin"
-gAreaRoomMap_PalaceOfWinds_36_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_36_0.bin"
+gAreaRoomMap_PalaceOfWinds_WhirlwindBombarossa_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_WhirlwindBombarossa_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_36_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_36_1.bin"
+gAreaRoomMap_PalaceOfWinds_WhirlwindBombarossa_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_WhirlwindBombarossa_1.bin"
 	.align 2
 unknown_171::
 	.incbin "assets/unknown_171.bin"
-gAreaRoomMap_PalaceOfWinds_37_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_37_0.bin"
+gAreaRoomMap_PalaceOfWinds_DoorToStalfosFirebar_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_DoorToStalfosFirebar_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_37_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_37_1.bin"
+gAreaRoomMap_PalaceOfWinds_DoorToStalfosFirebar_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_DoorToStalfosFirebar_1.bin"
 	.align 2
 unknown_172::
 	.incbin "assets/unknown_172.bin"
-gAreaRoomMap_PalaceOfWinds_38_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_38_0.bin"
+gAreaRoomMap_PalaceOfWinds_StalfosFireborHole_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_StalfosFireborHole_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_38_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_38_1.bin"
+gAreaRoomMap_PalaceOfWinds_StalfosFireborHole_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_StalfosFireborHole_1.bin"
 	.align 2
 unknown_173::
 	.incbin "assets/unknown_173.bin"
-gAreaRoomMap_PalaceOfWinds_39_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_39_0.bin"
-gAreaRoomMap_PalaceOfWinds_39_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_39_1.bin"
+gAreaRoomMap_PalaceOfWinds_ShortcutDoorButtons_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_ShortcutDoorButtons_0.bin"
+gAreaRoomMap_PalaceOfWinds_ShortcutDoorButtons_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_ShortcutDoorButtons_1.bin"
 	.align 2
 unknown_174::
 	.incbin "assets/unknown_174.bin"
-gAreaRoomMap_PalaceOfWinds_40_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_40_0.bin"
+gAreaRoomMap_PalaceOfWinds_ToPeahatSwitch_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_ToPeahatSwitch_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_40_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_40_1.bin"
+gAreaRoomMap_PalaceOfWinds_ToPeahatSwitch_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_ToPeahatSwitch_1.bin"
 	.align 2
 unknown_175::
 	.incbin "assets/unknown_175.bin"
-gAreaRoomMap_PalaceOfWinds_41_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_41_0.bin"
+gAreaRoomMap_PalaceOfWinds_KinstoneWizzrobeFight_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_KinstoneWizzrobeFight_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_41_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_41_1.bin"
+gAreaRoomMap_PalaceOfWinds_KinstoneWizzrobeFight_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_KinstoneWizzrobeFight_1.bin"
 	.align 2
 unknown_176::
 	.incbin "assets/unknown_176.bin"
-gAreaRoomMap_PalaceOfWinds_42_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_42_0.bin"
+gAreaRoomMap_PalaceOfWinds_GibdoStairs_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_GibdoStairs_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_42_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_42_1.bin"
+gAreaRoomMap_PalaceOfWinds_GibdoStairs_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_GibdoStairs_1.bin"
 	.align 2
 unknown_177::
 	.incbin "assets/unknown_177.bin"
-gAreaRoomMap_PalaceOfWinds_43_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_43_0.bin"
+gAreaRoomMap_PalaceOfWinds_SpikeBarSmallKey_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_SpikeBarSmallKey_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_43_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_43_1.bin"
+gAreaRoomMap_PalaceOfWinds_SpikeBarSmallKey_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_SpikeBarSmallKey_1.bin"
 	.align 2
 unknown_178::
 	.incbin "assets/unknown_178.bin"
-gAreaRoomMap_PalaceOfWinds_44_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_44_0.bin"
+gAreaRoomMap_PalaceOfWinds_RocCape_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_RocCape_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_44_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_44_1.bin"
+gAreaRoomMap_PalaceOfWinds_RocCape_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_RocCape_1.bin"
 	.align 2
 unknown_179::
 	.incbin "assets/unknown_179.bin"
-gAreaRoomMap_PalaceOfWinds_45_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_45_0.bin"
+gAreaRoomMap_PalaceOfWinds_FireBarGrates_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_FireBarGrates_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_45_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_45_1.bin"
+gAreaRoomMap_PalaceOfWinds_FireBarGrates_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_FireBarGrates_1.bin"
 	.align 2
 unknown_180::
 	.incbin "assets/unknown_180.bin"
-gAreaRoomMap_PalaceOfWinds_46_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_46_0.bin"
+gAreaRoomMap_PalaceOfWinds_PlatformRideBombarossas_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_PlatformRideBombarossas_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_46_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_46_1.bin"
+gAreaRoomMap_PalaceOfWinds_PlatformRideBombarossas_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_PlatformRideBombarossas_1.bin"
 	.align 2
 unknown_181::
 	.incbin "assets/unknown_181.bin"
-gAreaRoomMap_PalaceOfWinds_47_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_47_0.bin"
+gAreaRoomMap_PalaceOfWinds_BridgeAfterDarknut_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BridgeAfterDarknut_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_47_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_47_1.bin"
+gAreaRoomMap_PalaceOfWinds_BridgeAfterDarknut_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BridgeAfterDarknut_1.bin"
 	.align 2
 unknown_182::
 	.incbin "assets/unknown_182.bin"
-gAreaRoomMap_PalaceOfWinds_48_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_48_0.bin"
-gAreaRoomMap_PalaceOfWinds_48_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_48_1.bin"
+gAreaRoomMap_PalaceOfWinds_BridgeSwitchesCloneBlock_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BridgeSwitchesCloneBlock_0.bin"
+gAreaRoomMap_PalaceOfWinds_BridgeSwitchesCloneBlock_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_BridgeSwitchesCloneBlock_1.bin"
 	.align 2
 unknown_183::
 	.incbin "assets/unknown_183.bin"
-gAreaRoomMap_PalaceOfWinds_49_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_49_0.bin"
+gAreaRoomMap_PalaceOfWinds_EntranceRoom_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_EntranceRoom_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_49_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_49_1.bin"
+gAreaRoomMap_PalaceOfWinds_EntranceRoom_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_EntranceRoom_1.bin"
 	.align 2
 unknown_184::
 	.incbin "assets/unknown_184.bin"
-gAreaRoomMap_PalaceOfWinds_50_0::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_50_0.bin"
+gAreaRoomMap_PalaceOfWinds_DarkCompassHall_0::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_DarkCompassHall_0.bin"
 	.align 2
-gAreaRoomMap_PalaceOfWinds_50_1::
-	.incbin "assets/gAreaRoomMap_PalaceOfWinds_50_1.bin"
+gAreaRoomMap_PalaceOfWinds_DarkCompassHall_1::
+	.incbin "assets/gAreaRoomMap_PalaceOfWinds_DarkCompassHall_1.bin"
 	.align 2
 unknown_185::
 	.incbin "assets/unknown_185.bin"

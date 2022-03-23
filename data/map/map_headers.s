@@ -2364,262 +2364,262 @@ gAreaRoomMaps_RoyalCrypt:: @ 081062CC
 	.4byte 0x0
 	.4byte 0x0
 
-gAreaRoomMap_PalaceOfWinds_0:: @ 0810630C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_0_0, 0xA8C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_0_1, 0xA8C, 1, 1
+gAreaRoomMap_PalaceOfWinds_GyorgTornado:: @ 0810630C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_GyorgTornado_0, 0xA8C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_GyorgTornado_1, 0xA8C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_1:: @ 08106324
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_1_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_1_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_BossKey:: @ 08106324
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_BossKey_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_BossKey_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_2:: @ 0810633C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_2_0, 0x1A4, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_2_1, 0x1A4, 1, 1
+gAreaRoomMap_PalaceOfWinds_BeforeBallAndChainSoldiers:: @ 0810633C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_BeforeBallAndChainSoldiers_0, 0x1A4, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_BeforeBallAndChainSoldiers_1, 0x1A4, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_3:: @ 08106354
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_3_0, 0x384, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_3_1, 0x384, 1, 1
+gAreaRoomMap_PalaceOfWinds_GyorgBossDoor:: @ 08106354
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_GyorgBossDoor_0, 0x384, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_GyorgBossDoor_1, 0x384, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_4:: @ 0810636C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_4_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_4_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_EastChestFromGyorgBossDoor:: @ 0810636C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_EastChestFromGyorgBossDoor_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_EastChestFromGyorgBossDoor_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_5:: @ 08106384
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_5_0, 0x384, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_5_1, 0x384, 1, 1
+gAreaRoomMap_PalaceOfWinds_MoblinAndWizzrobeFight:: @ 08106384
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_MoblinAndWizzrobeFight_0, 0x384, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_MoblinAndWizzrobeFight_1, 0x384, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_6:: @ 0810639C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_6_0, 0x384, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_6_1, 0x384, 1, 1
+gAreaRoomMap_PalaceOfWinds_FourButtonStalfos:: @ 0810639C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_FourButtonStalfos_0, 0x384, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_FourButtonStalfos_1, 0x384, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_7:: @ 081063B4
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_7_0, 0x384, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_7_1, 0x384, 1, 1
+gAreaRoomMap_PalaceOfWinds_FanAndKeyToBossKey:: @ 081063B4
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_FanAndKeyToBossKey_0, 0x384, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_FanAndKeyToBossKey_1, 0x384, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_8:: @ 081063CC
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_8_0, 0x258, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_8_1, 0x258, 1, 1
+gAreaRoomMap_PalaceOfWinds_BallAndChainSoldiers:: @ 081063CC
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_BallAndChainSoldiers_0, 0x258, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_BallAndChainSoldiers_1, 0x258, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_9:: @ 081063E4
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_9_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_9_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_BombarossaPath:: @ 081063E4
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_BombarossaPath_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_BombarossaPath_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_10:: @ 081063FC
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_10_0, 0x186, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_10_1, 0x186, 1, 1
+gAreaRoomMap_PalaceOfWinds_HoleToDarknut:: @ 081063FC
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_HoleToDarknut_0, 0x186, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_HoleToDarknut_1, 0x186, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_11:: @ 08106414
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_11_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_11_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_ToBombarossaPath:: @ 08106414
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_ToBombarossaPath_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_ToBombarossaPath_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_12:: @ 0810642C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_12_0, 0x1E0, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_12_1, 0x1E0, 1, 1
+gAreaRoomMap_PalaceOfWinds_DarknutMiniboss:: @ 0810642C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_DarknutMiniboss_0, 0x1E0, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_DarknutMiniboss_1, 0x1E0, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_13:: @ 08106444
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_13_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_13_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_BombWallInside:: @ 08106444
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_BombWallInside_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_BombWallInside_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_14:: @ 0810645C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_14_0, 0x258, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_14_1, 0x258, 1, 1
+gAreaRoomMap_PalaceOfWinds_BombWallOutside:: @ 0810645C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_BombWallOutside_0, 0x258, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_BombWallOutside_1, 0x258, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_15:: @ 08106474
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_15_0, 0x708, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_15_1, 0x708, 1, 1
+gAreaRoomMap_PalaceOfWinds_CloudJumps:: @ 08106474
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_CloudJumps_0, 0x708, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_CloudJumps_1, 0x708, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_16:: @ 0810648C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_16_0, 0xA8C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_16_1, 0xA8C, 1, 1
+gAreaRoomMap_PalaceOfWinds_BlockMazeToBossDoor:: @ 0810648C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_BlockMazeToBossDoor_0, 0xA8C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_BlockMazeToBossDoor_1, 0xA8C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_17:: @ 081064A4
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_17_0, 0x384, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_17_1, 0x384, 1, 1
+gAreaRoomMap_PalaceOfWinds_CrackedFloorLakitu:: @ 081064A4
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_CrackedFloorLakitu_0, 0x384, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_CrackedFloorLakitu_1, 0x384, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_18:: @ 081064BC
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_18_0, 0x258, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_18_1, 0x258, 1, 1
+gAreaRoomMap_PalaceOfWinds_HeartPieceBridge:: @ 081064BC
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_HeartPieceBridge_0, 0x258, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_HeartPieceBridge_1, 0x258, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_19:: @ 081064D4
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_19_0, 0x4B0, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_19_1, 0x4B0, 1, 1
+gAreaRoomMap_PalaceOfWinds_FanBridge:: @ 081064D4
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_FanBridge_0, 0x4B0, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_FanBridge_1, 0x4B0, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_20:: @ 081064EC
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_20_0, 0x258, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_20_1, 0x258, 1, 1
+gAreaRoomMap_PalaceOfWinds_ToFanBridge:: @ 081064EC
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_ToFanBridge_0, 0x258, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_ToFanBridge_1, 0x258, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_21:: @ 08106504
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_21_0, 0x708, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_21_1, 0x708, 1, 1
+gAreaRoomMap_PalaceOfWinds_RedWarpHall:: @ 08106504
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_RedWarpHall_0, 0x708, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_RedWarpHall_1, 0x708, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_22:: @ 0810651C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_22_0, 0x4B0, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_22_1, 0x4B0, 1, 1
+gAreaRoomMap_PalaceOfWinds_PlatformCloneRide:: @ 0810651C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_PlatformCloneRide_0, 0x4B0, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_PlatformCloneRide_1, 0x4B0, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_23:: @ 08106534
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_23_0, 0x258, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_23_1, 0x258, 1, 1
+gAreaRoomMap_PalaceOfWinds_PitCornerAfterKey:: @ 08106534
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_PitCornerAfterKey_0, 0x258, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_PitCornerAfterKey_1, 0x258, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_24:: @ 0810654C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_24_0, 0x4B0, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_24_1, 0x4B0, 1, 1
+gAreaRoomMap_PalaceOfWinds_CrowRide:: @ 0810654C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_CrowRide_0, 0x4B0, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_CrowRide_1, 0x4B0, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_25:: @ 08106564
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_25_0, 0x4B0, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_25_1, 0x4B0, 1, 1
+gAreaRoomMap_PalaceOfWinds_GratePlatformRide:: @ 08106564
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_GratePlatformRide_0, 0x4B0, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_GratePlatformRide_1, 0x4B0, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_26:: @ 0810657C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_26_0, 0x4B0, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_26_1, 0x4B0, 1, 1
+gAreaRoomMap_PalaceOfWinds_PotPush:: @ 0810657C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_PotPush_0, 0x4B0, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_PotPush_1, 0x4B0, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_27:: @ 08106594
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_27_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_27_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_FloormasterLever:: @ 08106594
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_FloormasterLever_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_FloormasterLever_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_28:: @ 081065AC
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_28_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_28_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_Map:: @ 081065AC
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_Map_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_Map_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_29:: @ 081065C4
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_29_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_29_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_CornerToMap:: @ 081065C4
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_CornerToMap_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_CornerToMap_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_30:: @ 081065DC
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_30_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_30_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_StairsAfterFloormaster:: @ 081065DC
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_StairsAfterFloormaster_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_StairsAfterFloormaster_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_31:: @ 081065F4
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_31_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_31_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_HoleToKinstoneWizzrobe:: @ 081065F4
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_HoleToKinstoneWizzrobe_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_HoleToKinstoneWizzrobe_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_32:: @ 0810660C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_32_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_32_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_KeyArrowButton:: @ 0810660C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_KeyArrowButton_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_KeyArrowButton_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_33:: @ 08106624
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_33_0, 0xA8C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_33_1, 0xA8C, 1, 1
+gAreaRoomMap_PalaceOfWinds_GratesTo3F:: @ 08106624
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_GratesTo3F_0, 0xA8C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_GratesTo3F_1, 0xA8C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_34:: @ 0810663C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_34_0, 0x708, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_34_1, 0x708, 1, 1
+gAreaRoomMap_PalaceOfWinds_SpinyFight:: @ 0810663C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_SpinyFight_0, 0x708, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_SpinyFight_1, 0x708, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_35:: @ 08106654
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_35_0, 0x258, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_35_1, 0x258, 1, 1
+gAreaRoomMap_PalaceOfWinds_PeahatSwitch:: @ 08106654
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_PeahatSwitch_0, 0x258, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_PeahatSwitch_1, 0x258, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_36:: @ 0810666C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_36_0, 0x4B0, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_36_1, 0x4B0, 1, 1
+gAreaRoomMap_PalaceOfWinds_WhirlwindBombarossa:: @ 0810666C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_WhirlwindBombarossa_0, 0x4B0, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_WhirlwindBombarossa_1, 0x4B0, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_37:: @ 08106684
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_37_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_37_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_DoorToStalfosFirebar:: @ 08106684
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_DoorToStalfosFirebar_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_DoorToStalfosFirebar_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_38:: @ 0810669C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_38_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_38_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_StalfosFireborHole:: @ 0810669C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_StalfosFireborHole_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_StalfosFireborHole_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_39:: @ 081066B4
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_39_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_39_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_ShortcutDoorButtons:: @ 081066B4
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_ShortcutDoorButtons_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_ShortcutDoorButtons_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_40:: @ 081066CC
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_40_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_40_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_ToPeahatSwitch:: @ 081066CC
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_ToPeahatSwitch_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_ToPeahatSwitch_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_41:: @ 081066E4
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_41_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_41_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_KinstoneWizzrobeFight:: @ 081066E4
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_KinstoneWizzrobeFight_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_KinstoneWizzrobeFight_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_42:: @ 081066FC
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_42_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_42_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_GibdoStairs:: @ 081066FC
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_GibdoStairs_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_GibdoStairs_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_43:: @ 08106714
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_43_0, 0x258, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_43_1, 0x258, 1, 1
+gAreaRoomMap_PalaceOfWinds_SpikeBarSmallKey:: @ 08106714
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_SpikeBarSmallKey_0, 0x258, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_SpikeBarSmallKey_1, 0x258, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_44:: @ 0810672C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_44_0, 0x708, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_44_1, 0x708, 1, 1
+gAreaRoomMap_PalaceOfWinds_RocCape:: @ 0810672C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_RocCape_0, 0x708, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_RocCape_1, 0x708, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_45:: @ 08106744
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_45_0, 0x708, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_45_1, 0x708, 1, 1
+gAreaRoomMap_PalaceOfWinds_FireBarGrates:: @ 08106744
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_FireBarGrates_0, 0x708, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_FireBarGrates_1, 0x708, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_46:: @ 0810675C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_46_0, 0x550, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_46_1, 0x550, 1, 1
+gAreaRoomMap_PalaceOfWinds_PlatformRideBombarossas:: @ 0810675C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_PlatformRideBombarossas_0, 0x550, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_PlatformRideBombarossas_1, 0x550, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_47:: @ 08106774
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_47_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_47_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_BridgeAfterDarknut:: @ 08106774
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_BridgeAfterDarknut_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_BridgeAfterDarknut_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_48:: @ 0810678C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_48_0, 0x500, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_48_1, 0x500, 1, 1
+gAreaRoomMap_PalaceOfWinds_BridgeSwitchesCloneBlock:: @ 0810678C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_BridgeSwitchesCloneBlock_0, 0x500, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_BridgeSwitchesCloneBlock_1, 0x500, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_49:: @ 081067A4
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_49_0, 0x3DE, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_49_1, 0x3DE, 1, 1
+gAreaRoomMap_PalaceOfWinds_EntranceRoom:: @ 081067A4
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_EntranceRoom_0, 0x3DE, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_EntranceRoom_1, 0x3DE, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_50:: @ 081067BC
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_50_0, 0x708, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_50_1, 0x708, 1, 1
+gAreaRoomMap_PalaceOfWinds_DarkCompassHall:: @ 081067BC
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_DarkCompassHall_0, 0x708, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_DarkCompassHall_1, 0x708, 1, 1
 
 gAreaRoomMaps_PalaceOfWinds:: @ 081067D4
-	.4byte gAreaRoomMap_PalaceOfWinds_0
-	.4byte gAreaRoomMap_PalaceOfWinds_1
-	.4byte gAreaRoomMap_PalaceOfWinds_2
-	.4byte gAreaRoomMap_PalaceOfWinds_3
-	.4byte gAreaRoomMap_PalaceOfWinds_4
-	.4byte gAreaRoomMap_PalaceOfWinds_5
-	.4byte gAreaRoomMap_PalaceOfWinds_6
-	.4byte gAreaRoomMap_PalaceOfWinds_7
-	.4byte gAreaRoomMap_PalaceOfWinds_8
-	.4byte gAreaRoomMap_PalaceOfWinds_9
-	.4byte gAreaRoomMap_PalaceOfWinds_10
-	.4byte gAreaRoomMap_PalaceOfWinds_11
-	.4byte gAreaRoomMap_PalaceOfWinds_12
-	.4byte gAreaRoomMap_PalaceOfWinds_13
-	.4byte gAreaRoomMap_PalaceOfWinds_14
-	.4byte gAreaRoomMap_PalaceOfWinds_15
-	.4byte gAreaRoomMap_PalaceOfWinds_16
-	.4byte gAreaRoomMap_PalaceOfWinds_17
-	.4byte gAreaRoomMap_PalaceOfWinds_18
-	.4byte gAreaRoomMap_PalaceOfWinds_19
-	.4byte gAreaRoomMap_PalaceOfWinds_20
-	.4byte gAreaRoomMap_PalaceOfWinds_21
-	.4byte gAreaRoomMap_PalaceOfWinds_22
-	.4byte gAreaRoomMap_PalaceOfWinds_23
-	.4byte gAreaRoomMap_PalaceOfWinds_24
-	.4byte gAreaRoomMap_PalaceOfWinds_25
-	.4byte gAreaRoomMap_PalaceOfWinds_26
-	.4byte gAreaRoomMap_PalaceOfWinds_27
-	.4byte gAreaRoomMap_PalaceOfWinds_28
-	.4byte gAreaRoomMap_PalaceOfWinds_29
-	.4byte gAreaRoomMap_PalaceOfWinds_30
-	.4byte gAreaRoomMap_PalaceOfWinds_31
-	.4byte gAreaRoomMap_PalaceOfWinds_32
-	.4byte gAreaRoomMap_PalaceOfWinds_33
-	.4byte gAreaRoomMap_PalaceOfWinds_34
-	.4byte gAreaRoomMap_PalaceOfWinds_35
-	.4byte gAreaRoomMap_PalaceOfWinds_36
-	.4byte gAreaRoomMap_PalaceOfWinds_37
-	.4byte gAreaRoomMap_PalaceOfWinds_38
-	.4byte gAreaRoomMap_PalaceOfWinds_39
-	.4byte gAreaRoomMap_PalaceOfWinds_40
-	.4byte gAreaRoomMap_PalaceOfWinds_41
-	.4byte gAreaRoomMap_PalaceOfWinds_42
-	.4byte gAreaRoomMap_PalaceOfWinds_43
-	.4byte gAreaRoomMap_PalaceOfWinds_44
-	.4byte gAreaRoomMap_PalaceOfWinds_45
-	.4byte gAreaRoomMap_PalaceOfWinds_46
-	.4byte gAreaRoomMap_PalaceOfWinds_47
-	.4byte gAreaRoomMap_PalaceOfWinds_48
-	.4byte gAreaRoomMap_PalaceOfWinds_49
-	.4byte gAreaRoomMap_PalaceOfWinds_50
+	.4byte gAreaRoomMap_PalaceOfWinds_GyorgTornado
+	.4byte gAreaRoomMap_PalaceOfWinds_BossKey
+	.4byte gAreaRoomMap_PalaceOfWinds_BeforeBallAndChainSoldiers
+	.4byte gAreaRoomMap_PalaceOfWinds_GyorgBossDoor
+	.4byte gAreaRoomMap_PalaceOfWinds_EastChestFromGyorgBossDoor
+	.4byte gAreaRoomMap_PalaceOfWinds_MoblinAndWizzrobeFight
+	.4byte gAreaRoomMap_PalaceOfWinds_FourButtonStalfos
+	.4byte gAreaRoomMap_PalaceOfWinds_FanAndKeyToBossKey
+	.4byte gAreaRoomMap_PalaceOfWinds_BallAndChainSoldiers
+	.4byte gAreaRoomMap_PalaceOfWinds_BombarossaPath
+	.4byte gAreaRoomMap_PalaceOfWinds_HoleToDarknut
+	.4byte gAreaRoomMap_PalaceOfWinds_ToBombarossaPath
+	.4byte gAreaRoomMap_PalaceOfWinds_DarknutMiniboss
+	.4byte gAreaRoomMap_PalaceOfWinds_BombWallInside
+	.4byte gAreaRoomMap_PalaceOfWinds_BombWallOutside
+	.4byte gAreaRoomMap_PalaceOfWinds_CloudJumps
+	.4byte gAreaRoomMap_PalaceOfWinds_BlockMazeToBossDoor
+	.4byte gAreaRoomMap_PalaceOfWinds_CrackedFloorLakitu
+	.4byte gAreaRoomMap_PalaceOfWinds_HeartPieceBridge
+	.4byte gAreaRoomMap_PalaceOfWinds_FanBridge
+	.4byte gAreaRoomMap_PalaceOfWinds_ToFanBridge
+	.4byte gAreaRoomMap_PalaceOfWinds_RedWarpHall
+	.4byte gAreaRoomMap_PalaceOfWinds_PlatformCloneRide
+	.4byte gAreaRoomMap_PalaceOfWinds_PitCornerAfterKey
+	.4byte gAreaRoomMap_PalaceOfWinds_CrowRide
+	.4byte gAreaRoomMap_PalaceOfWinds_GratePlatformRide
+	.4byte gAreaRoomMap_PalaceOfWinds_PotPush
+	.4byte gAreaRoomMap_PalaceOfWinds_FloormasterLever
+	.4byte gAreaRoomMap_PalaceOfWinds_Map
+	.4byte gAreaRoomMap_PalaceOfWinds_CornerToMap
+	.4byte gAreaRoomMap_PalaceOfWinds_StairsAfterFloormaster
+	.4byte gAreaRoomMap_PalaceOfWinds_HoleToKinstoneWizzrobe
+	.4byte gAreaRoomMap_PalaceOfWinds_KeyArrowButton
+	.4byte gAreaRoomMap_PalaceOfWinds_GratesTo3F
+	.4byte gAreaRoomMap_PalaceOfWinds_SpinyFight
+	.4byte gAreaRoomMap_PalaceOfWinds_PeahatSwitch
+	.4byte gAreaRoomMap_PalaceOfWinds_WhirlwindBombarossa
+	.4byte gAreaRoomMap_PalaceOfWinds_DoorToStalfosFirebar
+	.4byte gAreaRoomMap_PalaceOfWinds_StalfosFireborHole
+	.4byte gAreaRoomMap_PalaceOfWinds_ShortcutDoorButtons
+	.4byte gAreaRoomMap_PalaceOfWinds_ToPeahatSwitch
+	.4byte gAreaRoomMap_PalaceOfWinds_KinstoneWizzrobeFight
+	.4byte gAreaRoomMap_PalaceOfWinds_GibdoStairs
+	.4byte gAreaRoomMap_PalaceOfWinds_SpikeBarSmallKey
+	.4byte gAreaRoomMap_PalaceOfWinds_RocCape
+	.4byte gAreaRoomMap_PalaceOfWinds_FireBarGrates
+	.4byte gAreaRoomMap_PalaceOfWinds_PlatformRideBombarossas
+	.4byte gAreaRoomMap_PalaceOfWinds_BridgeAfterDarknut
+	.4byte gAreaRoomMap_PalaceOfWinds_BridgeSwitchesCloneBlock
+	.4byte gAreaRoomMap_PalaceOfWinds_EntranceRoom
+	.4byte gAreaRoomMap_PalaceOfWinds_DarkCompassHall
 
 gAreaRoomMap_PalaceOfWindsBoss_0:: @ 081068A0
 	map_top offset_gAreaRoomMap_PalaceOfWindsBoss_0_0, 0x1F80, 1, 1

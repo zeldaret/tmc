@@ -857,15 +857,15 @@ gAreaTileset_RoyalCrypt_0:: @ 081020E0
 gAreaTilesets_RoyalCrypt:: @ 08102110
 	.4byte gAreaTileset_RoyalCrypt_0
 
-gAreaTileset_PalaceOfWinds_0:: @ 08102114
-	tileset_tiles offset_gAreaTileset_PalaceOfWinds_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_PalaceOfWinds_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_PalaceOfWinds_0_2, 0x6008000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_PalaceOfWinds_0_3, 0x600F000, 0x800, 1
+gAreaTileset_PalaceOfWinds_GyorgTornado:: @ 08102114
+	tileset_tiles offset_gAreaTileset_PalaceOfWinds_GyorgTornado_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_PalaceOfWinds_GyorgTornado_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_PalaceOfWinds_GyorgTornado_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_PalaceOfWinds_GyorgTornado_3, 0x600F000, 0x800, 1
 	tileset_palette_set 56, 1
 
 gAreaTilesets_PalaceOfWinds:: @ 08102150
-	.4byte gAreaTileset_PalaceOfWinds_0
+	.4byte gAreaTileset_PalaceOfWinds_GyorgTornado
 
 gAreaTileset_PalaceOfWindsBoss_0:: @ 08102154
 	tileset_tiles offset_gAreaTileset_PalaceOfWindsBoss_0_0, 0x6000000, 0x4000, 1

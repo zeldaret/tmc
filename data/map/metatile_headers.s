@@ -265,10 +265,10 @@ gAreaMetatiles_RoyalCrypt:: @ 08102E74
 	metatile_types_top offset_gAreaMetatiles_RoyalCrypt_3, 0xD84, 1, 1
 
 gAreaMetatiles_PalaceOfWinds:: @ 08102EA4
-	metatiles_bottom offset_gAreaMetatiles_PalaceOfWinds_0, 0x3620, 1
-	metatiles_top offset_gAreaMetatiles_PalaceOfWinds_1, 0x3620, 1
-	metatile_types_bottom offset_gAreaMetatiles_PalaceOfWinds_2, 0xD88, 1
-	metatile_types_top offset_gAreaMetatiles_PalaceOfWinds_3, 0xD88, 1, 1
+	metatiles_bottom offset_gAreaMetatiles_PalaceOfWinds_GyorgTornado, 0x3620, 1
+	metatiles_top offset_gAreaMetatiles_PalaceOfWinds_BossKey, 0x3620, 1
+	metatile_types_bottom offset_gAreaMetatiles_PalaceOfWinds_BeforeBallAndChainSoldiers, 0xD88, 1
+	metatile_types_top offset_gAreaMetatiles_PalaceOfWinds_GyorgBossDoor, 0xD88, 1, 1
 
 gAreaMetatiles_PalaceOfWindsBoss:: @ 08102ED4
 	metatiles_top offset_gAreaMetatiles_PalaceOfWindsBoss_0, 0x108, 1

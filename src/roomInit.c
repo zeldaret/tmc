@@ -3174,18 +3174,18 @@ void sub_StateChange_RoyalCrypt_Entrance(void) {
     }
 }
 
-u32 sub_unk3_PalaceOfWinds_0(void) {
+u32 sub_unk3_PalaceOfWinds_GyorgTornado(void) {
     return 1;
 }
 
-extern EntityData gUnk_additional_9_PalaceOfWinds_0;
+extern EntityData gUnk_additional_9_PalaceOfWinds_GyorgTornado;
 extern EntityData gUnk_080E72C4;
-extern EntityData gUnk_additional_8_PalaceOfWinds_0;
+extern EntityData gUnk_additional_8_PalaceOfWinds_GyorgTornado;
 
-void sub_StateChange_PalaceOfWinds_0(void) {
+void sub_StateChange_PalaceOfWinds_GyorgTornado(void) {
     Manager19_Main(NULL);
     if (CheckGlobalFlag(LV5_CLEAR)) {
-        LoadRoomEntityList(&gUnk_additional_9_PalaceOfWinds_0);
+        LoadRoomEntityList(&gUnk_additional_9_PalaceOfWinds_GyorgTornado);
     }
     if (!CheckLocalFlag(0x7b)) {
         LoadRoomEntityList(&gUnk_080E72C4);
@@ -3193,402 +3193,402 @@ void sub_StateChange_PalaceOfWinds_0(void) {
         SetGlobalFlag(LV5_CLEAR);
         if (!GetInventoryValue(ITEM_WIND_ELEMENT)) {
             SetPlayerControl(3);
-            LoadRoomEntityList(&gUnk_additional_8_PalaceOfWinds_0);
+            LoadRoomEntityList(&gUnk_additional_8_PalaceOfWinds_GyorgTornado);
             gArea.bgm = gArea.queued_bgm;
             SoundReq(SONG_STOP_BGM);
         }
     }
 }
 
-u32 sub_unk3_PalaceOfWinds_1(void) {
+u32 sub_unk3_PalaceOfWinds_BossKey(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_1(void) {
+void sub_StateChange_PalaceOfWinds_BossKey(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_2(void) {
+u32 sub_unk3_PalaceOfWinds_BeforeBallAndChainSoldiers(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_2(void) {
+void sub_StateChange_PalaceOfWinds_BeforeBallAndChainSoldiers(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_3(void) {
+u32 sub_unk3_PalaceOfWinds_GyorgBossDoor(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_3(void) {
+void sub_StateChange_PalaceOfWinds_GyorgBossDoor(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_4(void) {
+u32 sub_unk3_PalaceOfWinds_EastChestFromGyorgBossDoor(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_4(void) {
+void sub_StateChange_PalaceOfWinds_EastChestFromGyorgBossDoor(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_5(void) {
+u32 sub_unk3_PalaceOfWinds_MoblinAndWizzrobeFight(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_5(void) {
+void sub_StateChange_PalaceOfWinds_MoblinAndWizzrobeFight(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_6(void) {
+u32 sub_unk3_PalaceOfWinds_FourButtonStalfos(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_6(void) {
+void sub_StateChange_PalaceOfWinds_FourButtonStalfos(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_7(void) {
+u32 sub_unk3_PalaceOfWinds_FanAndKeyToBossKey(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_7(void) {
+void sub_StateChange_PalaceOfWinds_FanAndKeyToBossKey(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_8(void) {
+u32 sub_unk3_PalaceOfWinds_BallAndChainSoldiers(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_8(void) {
+void sub_StateChange_PalaceOfWinds_BallAndChainSoldiers(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_9(void) {
+u32 sub_unk3_PalaceOfWinds_BombarossaPath(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_9(void) {
+void sub_StateChange_PalaceOfWinds_BombarossaPath(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_10(void) {
+u32 sub_unk3_PalaceOfWinds_HoleToDarknut(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_10(void) {
+void sub_StateChange_PalaceOfWinds_HoleToDarknut(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_11(void) {
+u32 sub_unk3_PalaceOfWinds_ToBombarossaPath(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_11(void) {
+void sub_StateChange_PalaceOfWinds_ToBombarossaPath(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_12(void) {
+u32 sub_unk3_PalaceOfWinds_DarknutMiniboss(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_12(void) {
+void sub_StateChange_PalaceOfWinds_DarknutMiniboss(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_13(void) {
+u32 sub_unk3_PalaceOfWinds_BombWallInside(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_13(void) {
+void sub_StateChange_PalaceOfWinds_BombWallInside(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_14(void) {
+u32 sub_unk3_PalaceOfWinds_BombWallOutside(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_14(void) {
+void sub_StateChange_PalaceOfWinds_BombWallOutside(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_15(void) {
+u32 sub_unk3_PalaceOfWinds_CloudJumps(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_15(void) {
+void sub_StateChange_PalaceOfWinds_CloudJumps(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_16(void) {
+u32 sub_unk3_PalaceOfWinds_BlockMazeToBossDoor(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_16(void) {
+void sub_StateChange_PalaceOfWinds_BlockMazeToBossDoor(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_17(void) {
+u32 sub_unk3_PalaceOfWinds_CrackedFloorLakitu(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_17(void) {
+void sub_StateChange_PalaceOfWinds_CrackedFloorLakitu(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_18(void) {
+u32 sub_unk3_PalaceOfWinds_HeartPieceBridge(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_18(void) {
+void sub_StateChange_PalaceOfWinds_HeartPieceBridge(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_19(void) {
+u32 sub_unk3_PalaceOfWinds_FanBridge(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_19(void) {
+void sub_StateChange_PalaceOfWinds_FanBridge(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_20(void) {
+u32 sub_unk3_PalaceOfWinds_ToFanBridge(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_20(void) {
+void sub_StateChange_PalaceOfWinds_ToFanBridge(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_21(void) {
+u32 sub_unk3_PalaceOfWinds_RedWarpHall(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_21(void) {
+void sub_StateChange_PalaceOfWinds_RedWarpHall(void) {
 }
 
-u32 sub_unk3_PalaceOfWinds_22(void) {
+u32 sub_unk3_PalaceOfWinds_PlatformCloneRide(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_22(void) {
+void sub_StateChange_PalaceOfWinds_PlatformCloneRide(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_23(void) {
+u32 sub_unk3_PalaceOfWinds_PitCornerAfterKey(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_23(void) {
+void sub_StateChange_PalaceOfWinds_PitCornerAfterKey(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_24(void) {
+u32 sub_unk3_PalaceOfWinds_CrowRide(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_24(void) {
+void sub_StateChange_PalaceOfWinds_CrowRide(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_25(void) {
+u32 sub_unk3_PalaceOfWinds_GratePlatformRide(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_25(void) {
+void sub_StateChange_PalaceOfWinds_GratePlatformRide(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_26(void) {
+u32 sub_unk3_PalaceOfWinds_PotPush(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_26(void) {
+void sub_StateChange_PalaceOfWinds_PotPush(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_27(void) {
+u32 sub_unk3_PalaceOfWinds_FloormasterLever(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_27(void) {
+void sub_StateChange_PalaceOfWinds_FloormasterLever(void) {
 }
 
-u32 sub_unk3_PalaceOfWinds_28(void) {
+u32 sub_unk3_PalaceOfWinds_Map(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_28(void) {
+void sub_StateChange_PalaceOfWinds_Map(void) {
 }
 
-u32 sub_unk3_PalaceOfWinds_29(void) {
+u32 sub_unk3_PalaceOfWinds_CornerToMap(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_29(void) {
+void sub_StateChange_PalaceOfWinds_CornerToMap(void) {
 }
 
-u32 sub_unk3_PalaceOfWinds_30(void) {
+u32 sub_unk3_PalaceOfWinds_StairsAfterFloormaster(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_30(void) {
+void sub_StateChange_PalaceOfWinds_StairsAfterFloormaster(void) {
 }
 
-u32 sub_unk3_PalaceOfWinds_31(void) {
+u32 sub_unk3_PalaceOfWinds_HoleToKinstoneWizzrobe(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_31(void) {
+void sub_StateChange_PalaceOfWinds_HoleToKinstoneWizzrobe(void) {
 }
 
-u32 sub_unk3_PalaceOfWinds_32(void) {
+u32 sub_unk3_PalaceOfWinds_KeyArrowButton(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_32(void) {
+void sub_StateChange_PalaceOfWinds_KeyArrowButton(void) {
 }
 
-u32 sub_unk3_PalaceOfWinds_33(void) {
+u32 sub_unk3_PalaceOfWinds_GratesTo3F(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_33(void) {
+void sub_StateChange_PalaceOfWinds_GratesTo3F(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_34(void) {
+u32 sub_unk3_PalaceOfWinds_SpinyFight(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_34(void) {
+void sub_StateChange_PalaceOfWinds_SpinyFight(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_35(void) {
+u32 sub_unk3_PalaceOfWinds_PeahatSwitch(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_35(void) {
+void sub_StateChange_PalaceOfWinds_PeahatSwitch(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_36(void) {
+u32 sub_unk3_PalaceOfWinds_WhirlwindBombarossa(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_36(void) {
+void sub_StateChange_PalaceOfWinds_WhirlwindBombarossa(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_37(void) {
+u32 sub_unk3_PalaceOfWinds_DoorToStalfosFirebar(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_37(void) {
+void sub_StateChange_PalaceOfWinds_DoorToStalfosFirebar(void) {
 }
 
-u32 sub_unk3_PalaceOfWinds_38(void) {
+u32 sub_unk3_PalaceOfWinds_StalfosFireborHole(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_38(void) {
+void sub_StateChange_PalaceOfWinds_StalfosFireborHole(void) {
 }
 
-u32 sub_unk3_PalaceOfWinds_39(void) {
+u32 sub_unk3_PalaceOfWinds_ShortcutDoorButtons(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_39(void) {
+void sub_StateChange_PalaceOfWinds_ShortcutDoorButtons(void) {
 }
 
-u32 sub_unk3_PalaceOfWinds_40(void) {
+u32 sub_unk3_PalaceOfWinds_ToPeahatSwitch(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_40(void) {
+void sub_StateChange_PalaceOfWinds_ToPeahatSwitch(void) {
 }
 
-u32 sub_unk3_PalaceOfWinds_41(void) {
+u32 sub_unk3_PalaceOfWinds_KinstoneWizzrobeFight(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_41(void) {
+void sub_StateChange_PalaceOfWinds_KinstoneWizzrobeFight(void) {
 }
 
-u32 sub_unk3_PalaceOfWinds_42(void) {
+u32 sub_unk3_PalaceOfWinds_GibdoStairs(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_42(void) {
+void sub_StateChange_PalaceOfWinds_GibdoStairs(void) {
 }
 
-u32 sub_unk3_PalaceOfWinds_43(void) {
+u32 sub_unk3_PalaceOfWinds_SpikeBarSmallKey(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_43(void) {
+void sub_StateChange_PalaceOfWinds_SpikeBarSmallKey(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_44(void) {
+u32 sub_unk3_PalaceOfWinds_RocCape(void) {
     return 1;
 }
 
 extern EntityData gUnk_080EA09C;
 
-void sub_StateChange_PalaceOfWinds_44(void) {
+void sub_StateChange_PalaceOfWinds_RocCape(void) {
     Manager19_Main(NULL);
     if (!CheckLocalFlag(0x70)) {
         LoadRoomEntityList(&gUnk_080EA09C);
     }
 }
 
-u32 sub_unk3_PalaceOfWinds_45(void) {
+u32 sub_unk3_PalaceOfWinds_FireBarGrates(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_45(void) {
+void sub_StateChange_PalaceOfWinds_FireBarGrates(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_46(void) {
+u32 sub_unk3_PalaceOfWinds_PlatformRideBombarossas(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_46(void) {
+void sub_StateChange_PalaceOfWinds_PlatformRideBombarossas(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_47(void) {
+u32 sub_unk3_PalaceOfWinds_BridgeAfterDarknut(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_47(void) {
+void sub_StateChange_PalaceOfWinds_BridgeAfterDarknut(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_48(void) {
+u32 sub_unk3_PalaceOfWinds_BridgeSwitchesCloneBlock(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_48(void) {
+void sub_StateChange_PalaceOfWinds_BridgeSwitchesCloneBlock(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_49(void) {
+u32 sub_unk3_PalaceOfWinds_EntranceRoom(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_49(void) {
+void sub_StateChange_PalaceOfWinds_EntranceRoom(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_50(void) {
+u32 sub_unk3_PalaceOfWinds_DarkCompassHall(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_50(void) {
+void sub_StateChange_PalaceOfWinds_DarkCompassHall(void) {
 }
 
 u32 sub_unk3_PalaceOfWindsBoss_Main(void) {

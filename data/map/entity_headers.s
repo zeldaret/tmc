@@ -534,57 +534,57 @@ Area_RoyalCrypt:: @ 080D47D0
 	.4byte Room_RoyalCrypt_Entrance
 
 Area_PalaceOfWinds:: @ 080D47F4
-	.4byte Room_PalaceOfWinds_0
-	.4byte Room_PalaceOfWinds_1
-	.4byte Room_PalaceOfWinds_2
-	.4byte Room_PalaceOfWinds_3
-	.4byte Room_PalaceOfWinds_4
-	.4byte Room_PalaceOfWinds_5
-	.4byte Room_PalaceOfWinds_6
-	.4byte Room_PalaceOfWinds_7
-	.4byte Room_PalaceOfWinds_8
-	.4byte Room_PalaceOfWinds_9
-	.4byte Room_PalaceOfWinds_10
-	.4byte Room_PalaceOfWinds_11
-	.4byte Room_PalaceOfWinds_12
-	.4byte Room_PalaceOfWinds_13
-	.4byte Room_PalaceOfWinds_14
-	.4byte Room_PalaceOfWinds_15
-	.4byte Room_PalaceOfWinds_16
-	.4byte Room_PalaceOfWinds_17
-	.4byte Room_PalaceOfWinds_18
-	.4byte Room_PalaceOfWinds_19
-	.4byte Room_PalaceOfWinds_20
-	.4byte Room_PalaceOfWinds_21
-	.4byte Room_PalaceOfWinds_22
-	.4byte Room_PalaceOfWinds_23
-	.4byte Room_PalaceOfWinds_24
-	.4byte Room_PalaceOfWinds_25
-	.4byte Room_PalaceOfWinds_26
-	.4byte Room_PalaceOfWinds_27
-	.4byte Room_PalaceOfWinds_28
-	.4byte Room_PalaceOfWinds_29
-	.4byte Room_PalaceOfWinds_30
-	.4byte Room_PalaceOfWinds_31
-	.4byte Room_PalaceOfWinds_32
-	.4byte Room_PalaceOfWinds_33
-	.4byte Room_PalaceOfWinds_34
-	.4byte Room_PalaceOfWinds_35
-	.4byte Room_PalaceOfWinds_36
-	.4byte Room_PalaceOfWinds_37
-	.4byte Room_PalaceOfWinds_38
-	.4byte Room_PalaceOfWinds_39
-	.4byte Room_PalaceOfWinds_40
-	.4byte Room_PalaceOfWinds_41
-	.4byte Room_PalaceOfWinds_42
-	.4byte Room_PalaceOfWinds_43
-	.4byte Room_PalaceOfWinds_44
-	.4byte Room_PalaceOfWinds_45
-	.4byte Room_PalaceOfWinds_46
-	.4byte Room_PalaceOfWinds_47
-	.4byte Room_PalaceOfWinds_48
-	.4byte Room_PalaceOfWinds_49
-	.4byte Room_PalaceOfWinds_50
+	.4byte Room_PalaceOfWinds_GyorgTornado
+	.4byte Room_PalaceOfWinds_BossKey
+	.4byte Room_PalaceOfWinds_BeforeBallAndChainSoldiers
+	.4byte Room_PalaceOfWinds_GyorgBossDoor
+	.4byte Room_PalaceOfWinds_EastChestFromGyorgBossDoor
+	.4byte Room_PalaceOfWinds_MoblinAndWizzrobeFight
+	.4byte Room_PalaceOfWinds_FourButtonStalfos
+	.4byte Room_PalaceOfWinds_FanAndKeyToBossKey
+	.4byte Room_PalaceOfWinds_BallAndChainSoldiers
+	.4byte Room_PalaceOfWinds_BombarossaPath
+	.4byte Room_PalaceOfWinds_HoleToDarknut
+	.4byte Room_PalaceOfWinds_ToBombarossaPath
+	.4byte Room_PalaceOfWinds_DarknutMiniboss
+	.4byte Room_PalaceOfWinds_BombWallInside
+	.4byte Room_PalaceOfWinds_BombWallOutside
+	.4byte Room_PalaceOfWinds_CloudJumps
+	.4byte Room_PalaceOfWinds_BlockMazeToBossDoor
+	.4byte Room_PalaceOfWinds_CrackedFloorLakitu
+	.4byte Room_PalaceOfWinds_HeartPieceBridge
+	.4byte Room_PalaceOfWinds_FanBridge
+	.4byte Room_PalaceOfWinds_ToFanBridge
+	.4byte Room_PalaceOfWinds_RedWarpHall
+	.4byte Room_PalaceOfWinds_PlatformCloneRide
+	.4byte Room_PalaceOfWinds_PitCornerAfterKey
+	.4byte Room_PalaceOfWinds_CrowRide
+	.4byte Room_PalaceOfWinds_GratePlatformRide
+	.4byte Room_PalaceOfWinds_PotPush
+	.4byte Room_PalaceOfWinds_FloormasterLever
+	.4byte Room_PalaceOfWinds_Map
+	.4byte Room_PalaceOfWinds_CornerToMap
+	.4byte Room_PalaceOfWinds_StairsAfterFloormaster
+	.4byte Room_PalaceOfWinds_HoleToKinstoneWizzrobe
+	.4byte Room_PalaceOfWinds_KeyArrowButton
+	.4byte Room_PalaceOfWinds_GratesTo3F
+	.4byte Room_PalaceOfWinds_SpinyFight
+	.4byte Room_PalaceOfWinds_PeahatSwitch
+	.4byte Room_PalaceOfWinds_WhirlwindBombarossa
+	.4byte Room_PalaceOfWinds_DoorToStalfosFirebar
+	.4byte Room_PalaceOfWinds_StalfosFireborHole
+	.4byte Room_PalaceOfWinds_ShortcutDoorButtons
+	.4byte Room_PalaceOfWinds_ToPeahatSwitch
+	.4byte Room_PalaceOfWinds_KinstoneWizzrobeFight
+	.4byte Room_PalaceOfWinds_GibdoStairs
+	.4byte Room_PalaceOfWinds_SpikeBarSmallKey
+	.4byte Room_PalaceOfWinds_RocCape
+	.4byte Room_PalaceOfWinds_FireBarGrates
+	.4byte Room_PalaceOfWinds_PlatformRideBombarossas
+	.4byte Room_PalaceOfWinds_BridgeAfterDarknut
+	.4byte Room_PalaceOfWinds_BridgeSwitchesCloneBlock
+	.4byte Room_PalaceOfWinds_EntranceRoom
+	.4byte Room_PalaceOfWinds_DarkCompassHall
 
 Area_PalaceOfWindsBoss:: @ 080D48C0
 	.4byte Room_PalaceOfWindsBoss_Main
@@ -11306,7 +11306,7 @@ Room_RoyalCrypt_Entrance:: @ 080E7204
 	.4byte sub_unk3_RoyalCrypt_Entrance
 	.4byte sub_StateChange_RoyalCrypt_Entrance
 
-Entities_PalaceOfWinds_0_0:: @ 080E7224
+Entities_PalaceOfWinds_GyorgTornado_0:: @ 080E7224
 	manager subtype=0x19, unknown=0x8
 	enemy_raw subtype=0x43, x=0x198, y=0x108
 	enemy_raw subtype=0x43, x=0x218, y=0x108
@@ -11322,59 +11322,59 @@ gUnk_080E72C4:: @ 080E72C4
 	object_raw subtype=0x82, x=0x1d8, y=0xc8, paramB=0x4
 	entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_0:: @ 080E72E4
+gUnk_additional_8_PalaceOfWinds_GyorgTornado:: @ 080E72E4
 	object_raw subtype=0xac, x=0x1d8, y=0xc8, paramA=0x43
 	manager subtype=0xe, y=0x3c, unknown=0x1f, paramA=0x9, paramC=0x80000000
 	entity_list_end
 
-gUnk_additional_9_PalaceOfWinds_0:: @ 080E7314
+gUnk_additional_9_PalaceOfWinds_GyorgTornado:: @ 080E7314
 	object_raw subtype=0x34, x=0x1b8, y=0x108, paramA=0x2, paramB=0x31, paramC=0x400601c7
 	object_raw subtype=0x47, x=0x1f8, y=0x108, paramC=0x4006007d
 	entity_list_end
 
-Enemies_PalaceOfWinds_0:: @ 080E7344
+Enemies_PalaceOfWinds_GyorgTornado:: @ 080E7344
 	entity_list_end
 
-TileEntities_PalaceOfWinds_0:: @ 080E7354
+TileEntities_PalaceOfWinds_GyorgTornado:: @ 080E7354
 	tile_entity type=0x1, paramA=0x1
 	tile_entity_list_end
 
-Room_PalaceOfWinds_0:: @ 080E7364
-	.4byte Entities_PalaceOfWinds_0_0
+Room_PalaceOfWinds_GyorgTornado:: @ 080E7364
+	.4byte Entities_PalaceOfWinds_GyorgTornado_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_0
-	.4byte TileEntities_PalaceOfWinds_0
+	.4byte Enemies_PalaceOfWinds_GyorgTornado
+	.4byte TileEntities_PalaceOfWinds_GyorgTornado
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_0
-	.4byte sub_StateChange_PalaceOfWinds_0
-	.4byte gUnk_additional_8_PalaceOfWinds_0
-	.4byte gUnk_additional_9_PalaceOfWinds_0
+	.4byte sub_unk3_PalaceOfWinds_GyorgTornado
+	.4byte sub_StateChange_PalaceOfWinds_GyorgTornado
+	.4byte gUnk_additional_8_PalaceOfWinds_GyorgTornado
+	.4byte gUnk_additional_9_PalaceOfWinds_GyorgTornado
 
-Entities_PalaceOfWinds_1_0:: @ 080E738C
+Entities_PalaceOfWinds_BossKey_0:: @ 080E738C
 	manager subtype=0x19, unknown=0x8
 	entity_list_end
 
-Enemies_PalaceOfWinds_1:: @ 080E73AC
+Enemies_PalaceOfWinds_BossKey:: @ 080E73AC
 	object_raw subtype=0xc, x=0x78, y=0x48, paramA=0x4, paramB=0x34
 	entity_list_end
 
-TileEntities_PalaceOfWinds_1:: @ 080E73CC
+TileEntities_PalaceOfWinds_BossKey:: @ 080E73CC
 	tile_entity type=0x3, paramA=0x34, paramB=0x52, paramC=0x78, paramD=0x48
 	tile_entity type=0x1, paramA=0x2
 	tile_entity_list_end
 
-Room_PalaceOfWinds_1:: @ 080E73E4
-	.4byte Entities_PalaceOfWinds_1_0
+Room_PalaceOfWinds_BossKey:: @ 080E73E4
+	.4byte Entities_PalaceOfWinds_BossKey_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_1
-	.4byte TileEntities_PalaceOfWinds_1
+	.4byte Enemies_PalaceOfWinds_BossKey
+	.4byte TileEntities_PalaceOfWinds_BossKey
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_1
-	.4byte sub_StateChange_PalaceOfWinds_1
+	.4byte sub_unk3_PalaceOfWinds_BossKey
+	.4byte sub_StateChange_PalaceOfWinds_BossKey
 
-Entities_PalaceOfWinds_2_0:: @ 080E7404
+Entities_PalaceOfWinds_BeforeBallAndChainSoldiers_0:: @ 080E7404
 	manager subtype=0x19, unknown=0x8
 	manager subtype=0x1a, unknown=0x8, paramA=0x20
 	object_raw subtype=0x29, x=0xa0, y=0x50, paramA=0x80
@@ -11386,24 +11386,24 @@ Entities_PalaceOfWinds_2_0:: @ 080E7404
 	enemy_raw subtype=0x43, x=0x98, y=0x98
 	entity_list_end
 
-Enemies_PalaceOfWinds_2:: @ 080E74A4
+Enemies_PalaceOfWinds_BeforeBallAndChainSoldiers:: @ 080E74A4
 	entity_list_end
 
-TileEntities_PalaceOfWinds_2:: @ 080E74B4
+TileEntities_PalaceOfWinds_BeforeBallAndChainSoldiers:: @ 080E74B4
 	tile_entity type=0x1, paramA=0x3
 	tile_entity_list_end
 
-Room_PalaceOfWinds_2:: @ 080E74C4
-	.4byte Entities_PalaceOfWinds_2_0
+Room_PalaceOfWinds_BeforeBallAndChainSoldiers:: @ 080E74C4
+	.4byte Entities_PalaceOfWinds_BeforeBallAndChainSoldiers_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_2
-	.4byte TileEntities_PalaceOfWinds_2
+	.4byte Enemies_PalaceOfWinds_BeforeBallAndChainSoldiers
+	.4byte TileEntities_PalaceOfWinds_BeforeBallAndChainSoldiers
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_2
-	.4byte sub_StateChange_PalaceOfWinds_2
+	.4byte sub_unk3_PalaceOfWinds_BeforeBallAndChainSoldiers
+	.4byte sub_StateChange_PalaceOfWinds_BeforeBallAndChainSoldiers
 
-Entities_PalaceOfWinds_3_0:: @ 080E74E4
+Entities_PalaceOfWinds_GyorgBossDoor_0:: @ 080E74E4
 	manager subtype=0x19, unknown=0x8
 	manager subtype=0x1a, unknown=0x8, paramA=0x21
 	manager subtype=0x1a, unknown=0x8, paramA=0x22
@@ -11424,47 +11424,47 @@ Entities_PalaceOfWinds_3_0:: @ 080E74E4
 	enemy_raw subtype=0x43, x=0x108, y=0x48, paramB=0x5f
 	entity_list_end
 
-Enemies_PalaceOfWinds_3:: @ 080E7614
+Enemies_PalaceOfWinds_GyorgBossDoor:: @ 080E7614
 	entity_list_end
 
-TileEntities_PalaceOfWinds_3:: @ 080E7624
+TileEntities_PalaceOfWinds_GyorgBossDoor:: @ 080E7624
 	tile_entity type=0x2, paramA=0x35, paramB=0x53, paramC=0x47
 	tile_entity type=0x1, paramA=0x4
 	tile_entity_list_end
 
-Room_PalaceOfWinds_3:: @ 080E763C
-	.4byte Entities_PalaceOfWinds_3_0
+Room_PalaceOfWinds_GyorgBossDoor:: @ 080E763C
+	.4byte Entities_PalaceOfWinds_GyorgBossDoor_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_3
-	.4byte TileEntities_PalaceOfWinds_3
+	.4byte Enemies_PalaceOfWinds_GyorgBossDoor
+	.4byte TileEntities_PalaceOfWinds_GyorgBossDoor
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_3
-	.4byte sub_StateChange_PalaceOfWinds_3
+	.4byte sub_unk3_PalaceOfWinds_GyorgBossDoor
+	.4byte sub_StateChange_PalaceOfWinds_GyorgBossDoor
 
-Entities_PalaceOfWinds_4_0:: @ 080E765C
+Entities_PalaceOfWinds_EastChestFromGyorgBossDoor_0:: @ 080E765C
 	manager subtype=0x19, unknown=0x8
 	entity_list_end
 
-Enemies_PalaceOfWinds_4:: @ 080E767C
+Enemies_PalaceOfWinds_EastChestFromGyorgBossDoor:: @ 080E767C
 	entity_list_end
 
-TileEntities_PalaceOfWinds_4:: @ 080E768C
+TileEntities_PalaceOfWinds_EastChestFromGyorgBossDoor:: @ 080E768C
 	tile_entity type=0x2, paramA=0x37, paramB=0x6e5c, paramC=0x107
 	tile_entity type=0x1, paramA=0x5
 	tile_entity_list_end
 
-Room_PalaceOfWinds_4:: @ 080E76A4
-	.4byte Entities_PalaceOfWinds_4_0
+Room_PalaceOfWinds_EastChestFromGyorgBossDoor:: @ 080E76A4
+	.4byte Entities_PalaceOfWinds_EastChestFromGyorgBossDoor_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_4
-	.4byte TileEntities_PalaceOfWinds_4
+	.4byte Enemies_PalaceOfWinds_EastChestFromGyorgBossDoor
+	.4byte TileEntities_PalaceOfWinds_EastChestFromGyorgBossDoor
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_4
-	.4byte sub_StateChange_PalaceOfWinds_4
+	.4byte sub_unk3_PalaceOfWinds_EastChestFromGyorgBossDoor
+	.4byte sub_StateChange_PalaceOfWinds_EastChestFromGyorgBossDoor
 
-Entities_PalaceOfWinds_5_0:: @ 080E76C4
+Entities_PalaceOfWinds_MoblinAndWizzrobeFight_0:: @ 080E76C4
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x3, x=0x48, y=0x38, paramC=0x380001
 	object_raw subtype=0x9f, x=0x80, y=0x68, paramB=0xc0000, paramC=0x38
@@ -11475,14 +11475,14 @@ Entities_PalaceOfWinds_5_0:: @ 080E76C4
 	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x3a0081
 	entity_list_end
 
-Enemies_PalaceOfWinds_5:: @ 080E7754
+Enemies_PalaceOfWinds_MoblinAndWizzrobeFight:: @ 080E7754
 	entity_list_end
 
-TileEntities_PalaceOfWinds_5:: @ 080E7764
+TileEntities_PalaceOfWinds_MoblinAndWizzrobeFight:: @ 080E7764
 	tile_entity type=0x1, paramA=0x6
 	tile_entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_5:: @ 080E7774
+gUnk_additional_8_PalaceOfWinds_MoblinAndWizzrobeFight:: @ 080E7774
 	enemy_raw subtype=0x29, x=0x78, y=0x158, paramB=0xe140000, paramC=0x1500030
 	enemy_raw subtype=0x29, x=0x78, y=0x1b8, paramB=0xe140000, paramC=0x1500030
 	enemy_raw subtype=0x15, x=0x48, y=0x188, unknown=0x2f, paramB=0xe140000, paramC=0x1500030
@@ -11490,18 +11490,18 @@ gUnk_additional_8_PalaceOfWinds_5:: @ 080E7774
 	object_raw subtype=0x8, x=0xd8, y=0x198, paramA=0x11, paramC=0x810000
 	entity_list_end
 
-Room_PalaceOfWinds_5:: @ 080E77D4
-	.4byte Entities_PalaceOfWinds_5_0
+Room_PalaceOfWinds_MoblinAndWizzrobeFight:: @ 080E77D4
+	.4byte Entities_PalaceOfWinds_MoblinAndWizzrobeFight_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_5
-	.4byte TileEntities_PalaceOfWinds_5
+	.4byte Enemies_PalaceOfWinds_MoblinAndWizzrobeFight
+	.4byte TileEntities_PalaceOfWinds_MoblinAndWizzrobeFight
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_5
-	.4byte sub_StateChange_PalaceOfWinds_5
-	.4byte gUnk_additional_8_PalaceOfWinds_5
+	.4byte sub_unk3_PalaceOfWinds_MoblinAndWizzrobeFight
+	.4byte sub_StateChange_PalaceOfWinds_MoblinAndWizzrobeFight
+	.4byte gUnk_additional_8_PalaceOfWinds_MoblinAndWizzrobeFight
 
-Entities_PalaceOfWinds_6_0:: @ 080E77F8
+Entities_PalaceOfWinds_FourButtonStalfos_0:: @ 080E77F8
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x3, x=0x48, y=0x48, paramA=0x1, paramC=0x80000001
 	object_raw subtype=0x3, x=0x68, y=0x48, paramA=0x1, paramC=0x80010001
@@ -11519,27 +11519,27 @@ Entities_PalaceOfWinds_6_0:: @ 080E77F8
 	object_raw subtype=0x5, x=0xc8, y=0x98
 	entity_list_end
 
-Enemies_PalaceOfWinds_6:: @ 080E78F8
+Enemies_PalaceOfWinds_FourButtonStalfos:: @ 080E78F8
 	enemy_raw subtype=0x42, x=0x88, y=0x58, paramB=0xe140000, paramC=0x300030
 	enemy_raw subtype=0x42, x=0xa8, y=0x178, paramA=0x1, paramB=0xe140000, paramC=0x1500030
 	enemy_raw subtype=0x42, x=0xb8, y=0x1a8, paramA=0x1, paramB=0xe140000, paramC=0x1500030
 	entity_list_end
 
-TileEntities_PalaceOfWinds_6:: @ 080E7938
+TileEntities_PalaceOfWinds_FourButtonStalfos:: @ 080E7938
 	tile_entity type=0x1, paramA=0x7
 	tile_entity_list_end
 
-Room_PalaceOfWinds_6:: @ 080E7948
-	.4byte Entities_PalaceOfWinds_6_0
+Room_PalaceOfWinds_FourButtonStalfos:: @ 080E7948
+	.4byte Entities_PalaceOfWinds_FourButtonStalfos_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_6
-	.4byte TileEntities_PalaceOfWinds_6
+	.4byte Enemies_PalaceOfWinds_FourButtonStalfos
+	.4byte TileEntities_PalaceOfWinds_FourButtonStalfos
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_6
-	.4byte sub_StateChange_PalaceOfWinds_6
+	.4byte sub_unk3_PalaceOfWinds_FourButtonStalfos
+	.4byte sub_StateChange_PalaceOfWinds_FourButtonStalfos
 
-Entities_PalaceOfWinds_7_0:: @ 080E7968
+Entities_PalaceOfWinds_FanAndKeyToBossKey_0:: @ 080E7968
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x8, x=0x78, y=0x28, paramA=0x8, paramC=0x3cffff
 	object_raw subtype=0x3, x=0xb8, y=0x1b8, paramC=0x3d0001
@@ -11548,28 +11548,28 @@ Entities_PalaceOfWinds_7_0:: @ 080E7968
 	object_raw subtype=0x5, x=0x48, y=0x1b8
 	entity_list_end
 
-Enemies_PalaceOfWinds_7:: @ 080E79D8
+Enemies_PalaceOfWinds_FanAndKeyToBossKey:: @ 080E79D8
 	enemy_raw subtype=0x42, x=0x68, y=0x58, paramB=0xe140000, paramC=0x300030
 	enemy_raw subtype=0x42, x=0x98, y=0x58, paramB=0xe140000, paramC=0x300030
 	enemy_raw subtype=0x1c, x=0x58, y=0x38, paramB=0x800
 	entity_list_end
 
-TileEntities_PalaceOfWinds_7:: @ 080E7A18
+TileEntities_PalaceOfWinds_FanAndKeyToBossKey:: @ 080E7A18
 	tile_entity type=0x2, paramA=0x3e, paramB=0x53, paramC=0x1c5
 	tile_entity type=0x1, paramA=0x8
 	tile_entity_list_end
 
-Room_PalaceOfWinds_7:: @ 080E7A30
-	.4byte Entities_PalaceOfWinds_7_0
+Room_PalaceOfWinds_FanAndKeyToBossKey:: @ 080E7A30
+	.4byte Entities_PalaceOfWinds_FanAndKeyToBossKey_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_7
-	.4byte TileEntities_PalaceOfWinds_7
+	.4byte Enemies_PalaceOfWinds_FanAndKeyToBossKey
+	.4byte TileEntities_PalaceOfWinds_FanAndKeyToBossKey
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_7
-	.4byte sub_StateChange_PalaceOfWinds_7
+	.4byte sub_unk3_PalaceOfWinds_FanAndKeyToBossKey
+	.4byte sub_StateChange_PalaceOfWinds_FanAndKeyToBossKey
 
-Entities_PalaceOfWinds_8_0:: @ 080E7A50
+Entities_PalaceOfWinds_BallAndChainSoldiers_0:: @ 080E7A50
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x39, x=0x78, y=0x118, paramA=0x2, paramC=0x42ffff
 	object_raw subtype=0x8, x=0x28, y=0x58, paramA=0xb, paramC=0x3fffff
@@ -11578,36 +11578,36 @@ Entities_PalaceOfWinds_8_0:: @ 080E7A50
 	manager subtype=0x17, x=0x78, y=0xa8, paramA=0x53, paramB=0x10200, paramC=0x820041
 	entity_list_end
 
-Enemies_PalaceOfWinds_8:: @ 080E7AC0
+Enemies_PalaceOfWinds_BallAndChainSoldiers:: @ 080E7AC0
 	entity_list_end
 
-TileEntities_PalaceOfWinds_8:: @ 080E7AD0
+TileEntities_PalaceOfWinds_BallAndChainSoldiers:: @ 080E7AD0
 	tile_entity type=0x1, paramA=0x9
 	tile_entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_8:: @ 080E7AE0
+gUnk_additional_8_PalaceOfWinds_BallAndChainSoldiers:: @ 080E7AE0
 	enemy_raw subtype=0x4c, x=0x58, y=0xa8, paramB=0x1c120000, paramC=0x300030
 	enemy_raw subtype=0x4c, x=0x98, y=0xa8, paramB=0x1c120000, paramC=0x300038
 	entity_list_end
 
-Room_PalaceOfWinds_8:: @ 080E7B10
-	.4byte Entities_PalaceOfWinds_8_0
+Room_PalaceOfWinds_BallAndChainSoldiers:: @ 080E7B10
+	.4byte Entities_PalaceOfWinds_BallAndChainSoldiers_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_8
-	.4byte TileEntities_PalaceOfWinds_8
+	.4byte Enemies_PalaceOfWinds_BallAndChainSoldiers
+	.4byte TileEntities_PalaceOfWinds_BallAndChainSoldiers
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_8
-	.4byte sub_StateChange_PalaceOfWinds_8
-	.4byte gUnk_additional_8_PalaceOfWinds_8
+	.4byte sub_unk3_PalaceOfWinds_BallAndChainSoldiers
+	.4byte sub_StateChange_PalaceOfWinds_BallAndChainSoldiers
+	.4byte gUnk_additional_8_PalaceOfWinds_BallAndChainSoldiers
 
-Entities_PalaceOfWinds_9_0:: @ 080E7B34
+Entities_PalaceOfWinds_BombarossaPath_0:: @ 080E7B34
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x9d, x=0x78, y=0x58, paramA=0x1, paramC=0x80008000
 	object_raw subtype=0x8, x=0x38, y=0x18, paramA=0x4, paramC=0x8000ffff
 	entity_list_end
 
-Enemies_PalaceOfWinds_9:: @ 080E7B74
+Enemies_PalaceOfWinds_BombarossaPath:: @ 080E7B74
 	enemy_raw subtype=0x33, x=0x38, y=0x48
 	enemy_raw subtype=0x33, x=0x38, y=0x68
 	enemy_raw subtype=0x33, x=0x48, y=0x68
@@ -11625,21 +11625,21 @@ Enemies_PalaceOfWinds_9:: @ 080E7B74
 	enemy_raw subtype=0x33, x=0xb8, y=0x58
 	entity_list_end
 
-TileEntities_PalaceOfWinds_9:: @ 080E7C74
+TileEntities_PalaceOfWinds_BombarossaPath:: @ 080E7C74
 	tile_entity type=0x1, paramA=0xa
 	tile_entity_list_end
 
-Room_PalaceOfWinds_9:: @ 080E7C84
-	.4byte Entities_PalaceOfWinds_9_0
+Room_PalaceOfWinds_BombarossaPath:: @ 080E7C84
+	.4byte Entities_PalaceOfWinds_BombarossaPath_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_9
-	.4byte TileEntities_PalaceOfWinds_9
+	.4byte Enemies_PalaceOfWinds_BombarossaPath
+	.4byte TileEntities_PalaceOfWinds_BombarossaPath
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_9
-	.4byte sub_StateChange_PalaceOfWinds_9
+	.4byte sub_unk3_PalaceOfWinds_BombarossaPath
+	.4byte sub_StateChange_PalaceOfWinds_BombarossaPath
 
-Entities_PalaceOfWinds_10_0:: @ 080E7CA4
+Entities_PalaceOfWinds_HoleToDarknut_0:: @ 080E7CA4
 	manager subtype=0x19, unknown=0x8
 	manager subtype=0x1a, unknown=0x8, paramA=0x23
 	enemy_raw subtype=0x43, x=0x48, y=0x38, paramB=0x5f
@@ -11649,51 +11649,51 @@ Entities_PalaceOfWinds_10_0:: @ 080E7CA4
 	ezlo_hint x=0x6, y=0x10, rx=0x9, ry=0x2, msg=0xb6a, flag=0x7f
 	entity_list_end
 
-Enemies_PalaceOfWinds_10:: @ 080E7D24
+Enemies_PalaceOfWinds_HoleToDarknut:: @ 080E7D24
 	entity_list_end
 
-TileEntities_PalaceOfWinds_10:: @ 080E7D34
+TileEntities_PalaceOfWinds_HoleToDarknut:: @ 080E7D34
 	tile_entity type=0x1, paramA=0xb
 	tile_entity_list_end
 
-Room_PalaceOfWinds_10:: @ 080E7D44
-	.4byte Entities_PalaceOfWinds_10_0
+Room_PalaceOfWinds_HoleToDarknut:: @ 080E7D44
+	.4byte Entities_PalaceOfWinds_HoleToDarknut_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_10
-	.4byte TileEntities_PalaceOfWinds_10
+	.4byte Enemies_PalaceOfWinds_HoleToDarknut
+	.4byte TileEntities_PalaceOfWinds_HoleToDarknut
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_10
-	.4byte sub_StateChange_PalaceOfWinds_10
+	.4byte sub_unk3_PalaceOfWinds_HoleToDarknut
+	.4byte sub_StateChange_PalaceOfWinds_HoleToDarknut
 
-Entities_PalaceOfWinds_11_0:: @ 080E7D64
+Entities_PalaceOfWinds_ToBombarossaPath_0:: @ 080E7D64
 	manager subtype=0x19, unknown=0x8
 	manager subtype=0x1a, unknown=0x8, paramA=0x24
 	enemy_raw subtype=0x43, x=0x98, y=0x78
 	enemy_raw subtype=0x43, x=0xa8, y=0x78, paramB=0x5d
 	entity_list_end
 
-Enemies_PalaceOfWinds_11:: @ 080E7DB4
+Enemies_PalaceOfWinds_ToBombarossaPath:: @ 080E7DB4
 	entity_list_end
 
-TileEntities_PalaceOfWinds_11:: @ 080E7DC4
+TileEntities_PalaceOfWinds_ToBombarossaPath:: @ 080E7DC4
 	tile_entity type=0x4, paramA=0x46, paramB=0x1, paramC=0xd8, paramD=0x58
 	tile_entity type=0xa, paramA=0x1, paramB=0x43, paramC=0xc7, paramD=0x26
 	tile_entity type=0xa, paramA=0x1, paramB=0x44, paramC=0x107, paramD=0x26
 	tile_entity type=0x1, paramA=0xc
 	tile_entity_list_end
 
-Room_PalaceOfWinds_11:: @ 080E7DEC
-	.4byte Entities_PalaceOfWinds_11_0
+Room_PalaceOfWinds_ToBombarossaPath:: @ 080E7DEC
+	.4byte Entities_PalaceOfWinds_ToBombarossaPath_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_11
-	.4byte TileEntities_PalaceOfWinds_11
+	.4byte Enemies_PalaceOfWinds_ToBombarossaPath
+	.4byte TileEntities_PalaceOfWinds_ToBombarossaPath
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_11
-	.4byte sub_StateChange_PalaceOfWinds_11
+	.4byte sub_unk3_PalaceOfWinds_ToBombarossaPath
+	.4byte sub_StateChange_PalaceOfWinds_ToBombarossaPath
 
-Entities_PalaceOfWinds_12_0:: @ 080E7E0C
+Entities_PalaceOfWinds_DarknutMiniboss_0:: @ 080E7E0C
 	manager subtype=0x1e, x=0x20, y=0x60, paramB=0x2000b0, paramC=0x80000000
 	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x7e8000
 	manager subtype=0x35, x=0x78, y=0x48, paramB=0x781e00, paramC=0x7e0084
@@ -11702,54 +11702,54 @@ Entities_PalaceOfWinds_12_0:: @ 080E7E0C
 	manager subtype=0x19, unknown=0x8
 	entity_list_end
 
-Enemies_PalaceOfWinds_12:: @ 080E7E7C
+Enemies_PalaceOfWinds_DarknutMiniboss:: @ 080E7E7C
 	entity_list_end
 
-TileEntities_PalaceOfWinds_12:: @ 080E7E8C
+TileEntities_PalaceOfWinds_DarknutMiniboss:: @ 080E7E8C
 	tile_entity type=0xd, paramB=0x2d00
 	tile_entity type=0x1, paramA=0xd
 	tile_entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_12:: @ 080E7EA4
+gUnk_additional_8_PalaceOfWinds_DarknutMiniboss:: @ 080E7EA4
 	enemy_raw subtype=0x5, x=0x78, y=0x58, unknown=0x2f, paramA=0x2
 	entity_list_end
 
-Room_PalaceOfWinds_12:: @ 080E7EC4
-	.4byte Entities_PalaceOfWinds_12_0
+Room_PalaceOfWinds_DarknutMiniboss:: @ 080E7EC4
+	.4byte Entities_PalaceOfWinds_DarknutMiniboss_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_12
-	.4byte TileEntities_PalaceOfWinds_12
+	.4byte Enemies_PalaceOfWinds_DarknutMiniboss
+	.4byte TileEntities_PalaceOfWinds_DarknutMiniboss
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_12
-	.4byte sub_StateChange_PalaceOfWinds_12
-	.4byte gUnk_additional_8_PalaceOfWinds_12
+	.4byte sub_unk3_PalaceOfWinds_DarknutMiniboss
+	.4byte sub_StateChange_PalaceOfWinds_DarknutMiniboss
+	.4byte gUnk_additional_8_PalaceOfWinds_DarknutMiniboss
 
-Entities_PalaceOfWinds_13_0:: @ 080E7EE8
+Entities_PalaceOfWinds_BombWallInside_0:: @ 080E7EE8
 	manager subtype=0x19, unknown=0x8
 	entity_list_end
 
-Enemies_PalaceOfWinds_13:: @ 080E7F08
+Enemies_PalaceOfWinds_BombWallInside:: @ 080E7F08
 	enemy_raw subtype=0x3b, x=0x78, y=0x58, paramB=0xe140000, paramC=0x100010
 	enemy_raw subtype=0x3b, x=0xa8, y=0x58, paramB=0xe140000, paramC=0x100010
 	entity_list_end
 
-TileEntities_PalaceOfWinds_13:: @ 080E7F38
+TileEntities_PalaceOfWinds_BombWallInside:: @ 080E7F38
 	tile_entity type=0x4, paramA=0x45, paramB=0x1, paramC=0xd8, paramD=0x38
 	tile_entity type=0x1, paramA=0xe
 	tile_entity_list_end
 
-Room_PalaceOfWinds_13:: @ 080E7F50
-	.4byte Entities_PalaceOfWinds_13_0
+Room_PalaceOfWinds_BombWallInside:: @ 080E7F50
+	.4byte Entities_PalaceOfWinds_BombWallInside_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_13
-	.4byte TileEntities_PalaceOfWinds_13
+	.4byte Enemies_PalaceOfWinds_BombWallInside
+	.4byte TileEntities_PalaceOfWinds_BombWallInside
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_13
-	.4byte sub_StateChange_PalaceOfWinds_13
+	.4byte sub_unk3_PalaceOfWinds_BombWallInside
+	.4byte sub_StateChange_PalaceOfWinds_BombWallInside
 
-Entities_PalaceOfWinds_14_0:: @ 080E7F70
+Entities_PalaceOfWinds_BombWallOutside_0:: @ 080E7F70
 	manager subtype=0x19, unknown=0x8
 	enemy_raw subtype=0x43, x=0x28, y=0x58, paramA=0x2
 	enemy_raw subtype=0x43, x=0x68, y=0x78, paramA=0x2
@@ -11759,27 +11759,27 @@ Entities_PalaceOfWinds_14_0:: @ 080E7F70
 	enemy_raw subtype=0x43, x=0x58, y=0xe8
 	entity_list_end
 
-Enemies_PalaceOfWinds_14:: @ 080E7FF0
+Enemies_PalaceOfWinds_BombWallOutside:: @ 080E7FF0
 	enemy_raw subtype=0x28, x=0x58, y=0x98, paramB=0x18160000, paramC=0x400020
 	enemy_raw subtype=0x28, x=0xb8, y=0x88, paramB=0x18160000, paramC=0x400020
 	entity_list_end
 
-TileEntities_PalaceOfWinds_14:: @ 080E8020
+TileEntities_PalaceOfWinds_BombWallOutside:: @ 080E8020
 	tile_entity type=0x4, paramA=0x46, paramB=0x1, paramC=0x18, paramD=0x58
 	tile_entity type=0x1, paramA=0xf
 	tile_entity_list_end
 
-Room_PalaceOfWinds_14:: @ 080E8038
-	.4byte Entities_PalaceOfWinds_14_0
+Room_PalaceOfWinds_BombWallOutside:: @ 080E8038
+	.4byte Entities_PalaceOfWinds_BombWallOutside_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_14
-	.4byte TileEntities_PalaceOfWinds_14
+	.4byte Enemies_PalaceOfWinds_BombWallOutside
+	.4byte TileEntities_PalaceOfWinds_BombWallOutside
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_14
-	.4byte sub_StateChange_PalaceOfWinds_14
+	.4byte sub_unk3_PalaceOfWinds_BombWallOutside
+	.4byte sub_StateChange_PalaceOfWinds_BombWallOutside
 
-Entities_PalaceOfWinds_15_0:: @ 080E8058
+Entities_PalaceOfWinds_CloudJumps_0:: @ 080E8058
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x29, x=0x30, y=0x90, paramA=0x3
 	object_raw subtype=0x29, x=0x190, y=0xc0, paramA=0x4
@@ -11788,27 +11788,27 @@ Entities_PalaceOfWinds_15_0:: @ 080E8058
 	object_raw subtype=0x0, x=0x1a8, y=0x114, collision=1, paramA=0x63, paramB=0x400, paramC=0x800000
 	entity_list_end
 
-Enemies_PalaceOfWinds_15:: @ 080E80C8
+Enemies_PalaceOfWinds_CloudJumps:: @ 080E80C8
 	enemy_raw subtype=0x46, x=0x148, y=0x118, paramB=0x61e0000, paramC=0x1000130
 	enemy_raw subtype=0x46, x=0x1e8, y=0x128, paramB=0x61e0000, paramC=0x1000130
 	entity_list_end
 
-TileEntities_PalaceOfWinds_15:: @ 080E80F8
+TileEntities_PalaceOfWinds_CloudJumps:: @ 080E80F8
 	tile_entity type=0x2, paramA=0x47, paramB=0x715c, paramC=0x424, paramD=0x1
 	tile_entity type=0x1, paramA=0x10
 	tile_entity_list_end
 
-Room_PalaceOfWinds_15:: @ 080E8110
-	.4byte Entities_PalaceOfWinds_15_0
+Room_PalaceOfWinds_CloudJumps:: @ 080E8110
+	.4byte Entities_PalaceOfWinds_CloudJumps_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_15
-	.4byte TileEntities_PalaceOfWinds_15
+	.4byte Enemies_PalaceOfWinds_CloudJumps
+	.4byte TileEntities_PalaceOfWinds_CloudJumps
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_15
-	.4byte sub_StateChange_PalaceOfWinds_15
+	.4byte sub_unk3_PalaceOfWinds_CloudJumps
+	.4byte sub_StateChange_PalaceOfWinds_CloudJumps
 
-Entities_PalaceOfWinds_16_0:: @ 080E8130
+Entities_PalaceOfWinds_BlockMazeToBossDoor_0:: @ 080E8130
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x29, x=0x168, y=0x100, paramA=0x8
 	object_raw subtype=0x29, x=0x228, y=0x100, paramA=0x8
@@ -11832,7 +11832,7 @@ Entities_PalaceOfWinds_16_0:: @ 080E8130
 	enemy_raw subtype=0x43, x=0x128, y=0xf8
 	entity_list_end
 
-Enemies_PalaceOfWinds_16:: @ 080E8290
+Enemies_PalaceOfWinds_BlockMazeToBossDoor:: @ 080E8290
 	enemy_raw subtype=0x43, x=0x28, y=0x138, paramA=0x3
 	enemy_raw subtype=0x43, x=0xf8, y=0x158, paramA=0x3
 	enemy_raw subtype=0x43, x=0x108, y=0x158, paramA=0x3
@@ -11844,67 +11844,67 @@ Enemies_PalaceOfWinds_16:: @ 080E8290
 	enemy_raw subtype=0x15, x=0x160, y=0x158, paramB=0x22320000, paramC=0xb00020
 	entity_list_end
 
-TileEntities_PalaceOfWinds_16:: @ 080E8330
+TileEntities_PalaceOfWinds_BlockMazeToBossDoor:: @ 080E8330
 	tile_entity type=0x2, paramA=0x49, paramB=0x725c, paramC=0x44e
 	tile_entity type=0x1, paramA=0x11
 	tile_entity_list_end
 
-Room_PalaceOfWinds_16:: @ 080E8348
-	.4byte Entities_PalaceOfWinds_16_0
+Room_PalaceOfWinds_BlockMazeToBossDoor:: @ 080E8348
+	.4byte Entities_PalaceOfWinds_BlockMazeToBossDoor_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_16
-	.4byte TileEntities_PalaceOfWinds_16
+	.4byte Enemies_PalaceOfWinds_BlockMazeToBossDoor
+	.4byte TileEntities_PalaceOfWinds_BlockMazeToBossDoor
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_16
-	.4byte sub_StateChange_PalaceOfWinds_16
+	.4byte sub_unk3_PalaceOfWinds_BlockMazeToBossDoor
+	.4byte sub_StateChange_PalaceOfWinds_BlockMazeToBossDoor
 
-Entities_PalaceOfWinds_17_0:: @ 080E8368
+Entities_PalaceOfWinds_CrackedFloorLakitu_0:: @ 080E8368
 	manager subtype=0x19, unknown=0x8
 	entity_list_end
 
-Enemies_PalaceOfWinds_17:: @ 080E8388
+Enemies_PalaceOfWinds_CrackedFloorLakitu:: @ 080E8388
 	enemy_raw subtype=0x47, x=0x18, y=0xa8
 	enemy_raw subtype=0x47, x=0xa8, y=0xb8
 	enemy_raw subtype=0x47, x=0x48, y=0x140
 	entity_list_end
 
-TileEntities_PalaceOfWinds_17:: @ 080E83C8
+TileEntities_PalaceOfWinds_CrackedFloorLakitu:: @ 080E83C8
 	tile_entity type=0x1, paramA=0x12
 	tile_entity_list_end
 
-Room_PalaceOfWinds_17:: @ 080E83D8
-	.4byte Entities_PalaceOfWinds_17_0
+Room_PalaceOfWinds_CrackedFloorLakitu:: @ 080E83D8
+	.4byte Entities_PalaceOfWinds_CrackedFloorLakitu_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_17
-	.4byte TileEntities_PalaceOfWinds_17
+	.4byte Enemies_PalaceOfWinds_CrackedFloorLakitu
+	.4byte TileEntities_PalaceOfWinds_CrackedFloorLakitu
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_17
-	.4byte sub_StateChange_PalaceOfWinds_17
+	.4byte sub_unk3_PalaceOfWinds_CrackedFloorLakitu
+	.4byte sub_StateChange_PalaceOfWinds_CrackedFloorLakitu
 
-Entities_PalaceOfWinds_18_0:: @ 080E83F8
+Entities_PalaceOfWinds_HeartPieceBridge_0:: @ 080E83F8
 	manager subtype=0x19, unknown=0x8
 	entity_list_end
 
-Enemies_PalaceOfWinds_18:: @ 080E8418
+Enemies_PalaceOfWinds_HeartPieceBridge:: @ 080E8418
 	entity_list_end
 
-TileEntities_PalaceOfWinds_18:: @ 080E8428
+TileEntities_PalaceOfWinds_HeartPieceBridge:: @ 080E8428
 	tile_entity type=0x1, paramA=0x13
 	tile_entity_list_end
 
-Room_PalaceOfWinds_18:: @ 080E8438
-	.4byte Entities_PalaceOfWinds_18_0
+Room_PalaceOfWinds_HeartPieceBridge:: @ 080E8438
+	.4byte Entities_PalaceOfWinds_HeartPieceBridge_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_18
-	.4byte TileEntities_PalaceOfWinds_18
+	.4byte Enemies_PalaceOfWinds_HeartPieceBridge
+	.4byte TileEntities_PalaceOfWinds_HeartPieceBridge
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_18
-	.4byte sub_StateChange_PalaceOfWinds_18
+	.4byte sub_unk3_PalaceOfWinds_HeartPieceBridge
+	.4byte sub_StateChange_PalaceOfWinds_HeartPieceBridge
 
-Entities_PalaceOfWinds_19_0:: @ 080E8458
+Entities_PalaceOfWinds_FanBridge_0:: @ 080E8458
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x9f, x=0x100, y=0x18, paramB=0x1e101e01
 	object_raw subtype=0x9f, x=0x120, y=0x78, paramA=0x2, paramB=0x1e100f01
@@ -11913,26 +11913,26 @@ Entities_PalaceOfWinds_19_0:: @ 080E8458
 	object_raw subtype=0x9f, x=0x1b8, y=0x100, paramA=0x1, paramB=0x1e180f01
 	entity_list_end
 
-Enemies_PalaceOfWinds_19:: @ 080E84C8
+Enemies_PalaceOfWinds_FanBridge:: @ 080E84C8
 	enemy_raw subtype=0x1, x=0x128, y=0xa8, paramA=0x2
 	enemy_raw subtype=0x1, x=0x188, y=0xa8, paramA=0x2
 	entity_list_end
 
-TileEntities_PalaceOfWinds_19:: @ 080E84F8
+TileEntities_PalaceOfWinds_FanBridge:: @ 080E84F8
 	tile_entity type=0x1, paramA=0x14
 	tile_entity_list_end
 
-Room_PalaceOfWinds_19:: @ 080E8508
-	.4byte Entities_PalaceOfWinds_19_0
+Room_PalaceOfWinds_FanBridge:: @ 080E8508
+	.4byte Entities_PalaceOfWinds_FanBridge_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_19
-	.4byte TileEntities_PalaceOfWinds_19
+	.4byte Enemies_PalaceOfWinds_FanBridge
+	.4byte TileEntities_PalaceOfWinds_FanBridge
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_19
-	.4byte sub_StateChange_PalaceOfWinds_19
+	.4byte sub_unk3_PalaceOfWinds_FanBridge
+	.4byte sub_StateChange_PalaceOfWinds_FanBridge
 
-Entities_PalaceOfWinds_20_0:: @ 080E8528
+Entities_PalaceOfWinds_ToFanBridge_0:: @ 080E8528
 	manager subtype=0x19, unknown=0x8
 	manager subtype=0x1a, unknown=0x8, paramA=0x25
 	object_raw subtype=0x29, x=0x70, y=0xa0, paramA=0x80
@@ -11944,26 +11944,26 @@ Entities_PalaceOfWinds_20_0:: @ 080E8528
 	enemy_raw subtype=0x43, x=0x68, y=0xe8
 	entity_list_end
 
-Enemies_PalaceOfWinds_20:: @ 080E85C8
+Enemies_PalaceOfWinds_ToFanBridge:: @ 080E85C8
 	enemy_raw subtype=0x15, x=0x48, y=0x48, paramB=0x1a120000, paramC=0x200020
 	enemy_raw subtype=0x15, x=0x88, y=0x48, paramB=0x1a120000, paramC=0x200020
 	entity_list_end
 
-TileEntities_PalaceOfWinds_20:: @ 080E85F8
+TileEntities_PalaceOfWinds_ToFanBridge:: @ 080E85F8
 	tile_entity type=0x1, paramA=0x15
 	tile_entity_list_end
 
-Room_PalaceOfWinds_20:: @ 080E8608
-	.4byte Entities_PalaceOfWinds_20_0
+Room_PalaceOfWinds_ToFanBridge:: @ 080E8608
+	.4byte Entities_PalaceOfWinds_ToFanBridge_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_20
-	.4byte TileEntities_PalaceOfWinds_20
+	.4byte Enemies_PalaceOfWinds_ToFanBridge
+	.4byte TileEntities_PalaceOfWinds_ToFanBridge
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_20
-	.4byte sub_StateChange_PalaceOfWinds_20
+	.4byte sub_unk3_PalaceOfWinds_ToFanBridge
+	.4byte sub_StateChange_PalaceOfWinds_ToFanBridge
 
-Entities_PalaceOfWinds_21_0:: @ 080E8628
+Entities_PalaceOfWinds_RedWarpHall_0:: @ 080E8628
 	manager subtype=0x1a, unknown=0x8, paramA=0x26
 	manager subtype=0x1a, unknown=0x8, paramA=0x27
 	manager subtype=0x1a, unknown=0x8, paramA=0x28
@@ -11985,7 +11985,7 @@ Entities_PalaceOfWinds_21_0:: @ 080E8628
 	enemy_raw subtype=0x43, x=0x278, y=0xd8
 	entity_list_end
 
-Enemies_PalaceOfWinds_21:: @ 080E8768
+Enemies_PalaceOfWinds_RedWarpHall:: @ 080E8768
 	enemy_raw subtype=0x42, x=0x118, y=0xa8, paramA=0x1, paramB=0x20220000, paramC=0x200020
 	enemy_raw subtype=0x3b, x=0x48, y=0x78, paramB=0x20220000, paramC=0x200020
 	enemy_raw subtype=0x3b, x=0x58, y=0xa8, paramB=0x20220000, paramC=0x200020
@@ -11994,28 +11994,28 @@ Enemies_PalaceOfWinds_21:: @ 080E8768
 	enemy_raw subtype=0x33, x=0x148, y=0xe8, paramA=0x8
 	entity_list_end
 
-TileEntities_PalaceOfWinds_21:: @ 080E87D8
+TileEntities_PalaceOfWinds_RedWarpHall:: @ 080E87D8
 	tile_entity type=0x2, paramA=0x4f, paramB=0x59, paramC=0xdd
 	tile_entity type=0xa, paramA=0x1, paramB=0x50, paramC=0x3d9, paramD=0x26
 	tile_entity type=0xa, paramA=0x1, paramB=0x51, paramC=0x419, paramD=0x26
 	tile_entity type=0x1, paramA=0x16
 	tile_entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_21:: @ 080E8800
-	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_21.bin"
+gUnk_additional_8_PalaceOfWinds_RedWarpHall:: @ 080E8800
+	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_RedWarpHall.bin"
 
-Room_PalaceOfWinds_21:: @ 080E8824
-	.4byte Entities_PalaceOfWinds_21_0
+Room_PalaceOfWinds_RedWarpHall:: @ 080E8824
+	.4byte Entities_PalaceOfWinds_RedWarpHall_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_21
-	.4byte TileEntities_PalaceOfWinds_21
+	.4byte Enemies_PalaceOfWinds_RedWarpHall
+	.4byte TileEntities_PalaceOfWinds_RedWarpHall
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_21
-	.4byte sub_StateChange_PalaceOfWinds_21
-	.4byte gUnk_additional_8_PalaceOfWinds_21
+	.4byte sub_unk3_PalaceOfWinds_RedWarpHall
+	.4byte sub_StateChange_PalaceOfWinds_RedWarpHall
+	.4byte gUnk_additional_8_PalaceOfWinds_RedWarpHall
 
-Entities_PalaceOfWinds_22_0:: @ 080E8848
+Entities_PalaceOfWinds_PlatformCloneRide_0:: @ 080E8848
 	manager subtype=0x19, unknown=0x8
 	manager subtype=0x1a, unknown=0x8, paramA=0x29
 	object_raw subtype=0x29, x=0x80, y=0x50, paramA=0x80
@@ -12030,50 +12030,50 @@ Entities_PalaceOfWinds_22_0:: @ 080E8848
 	enemy_raw subtype=0x43, x=0xa8, y=0x128, paramB=0x5f
 	entity_list_end
 
-Enemies_PalaceOfWinds_22:: @ 080E8918
+Enemies_PalaceOfWinds_PlatformCloneRide:: @ 080E8918
 	entity_list_end
 
-TileEntities_PalaceOfWinds_22:: @ 080E8928
+TileEntities_PalaceOfWinds_PlatformCloneRide:: @ 080E8928
 	tile_entity type=0x1, paramA=0x17
 	tile_entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_22:: @ 080E8938
-	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_22.bin"
+gUnk_additional_8_PalaceOfWinds_PlatformCloneRide:: @ 080E8938
+	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_PlatformCloneRide.bin"
 
-Room_PalaceOfWinds_22:: @ 080E8988
-	.4byte Entities_PalaceOfWinds_22_0
+Room_PalaceOfWinds_PlatformCloneRide:: @ 080E8988
+	.4byte Entities_PalaceOfWinds_PlatformCloneRide_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_22
-	.4byte TileEntities_PalaceOfWinds_22
+	.4byte Enemies_PalaceOfWinds_PlatformCloneRide
+	.4byte TileEntities_PalaceOfWinds_PlatformCloneRide
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_22
-	.4byte sub_StateChange_PalaceOfWinds_22
-	.4byte gUnk_additional_8_PalaceOfWinds_22
+	.4byte sub_unk3_PalaceOfWinds_PlatformCloneRide
+	.4byte sub_StateChange_PalaceOfWinds_PlatformCloneRide
+	.4byte gUnk_additional_8_PalaceOfWinds_PlatformCloneRide
 
-Entities_PalaceOfWinds_23_0:: @ 080E89AC
+Entities_PalaceOfWinds_PitCornerAfterKey_0:: @ 080E89AC
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x8, x=0x18, y=0xd8, paramA=0x3, paramC=0x58ffff
 	entity_list_end
 
-Enemies_PalaceOfWinds_23:: @ 080E89DC
+Enemies_PalaceOfWinds_PitCornerAfterKey:: @ 080E89DC
 	entity_list_end
 
-TileEntities_PalaceOfWinds_23:: @ 080E89EC
+TileEntities_PalaceOfWinds_PitCornerAfterKey:: @ 080E89EC
 	tile_entity type=0x1, paramA=0x18
 	tile_entity_list_end
 
-Room_PalaceOfWinds_23:: @ 080E89FC
-	.4byte Entities_PalaceOfWinds_23_0
+Room_PalaceOfWinds_PitCornerAfterKey:: @ 080E89FC
+	.4byte Entities_PalaceOfWinds_PitCornerAfterKey_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_23
-	.4byte TileEntities_PalaceOfWinds_23
+	.4byte Enemies_PalaceOfWinds_PitCornerAfterKey
+	.4byte TileEntities_PalaceOfWinds_PitCornerAfterKey
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_23
-	.4byte sub_StateChange_PalaceOfWinds_23
+	.4byte sub_unk3_PalaceOfWinds_PitCornerAfterKey
+	.4byte sub_StateChange_PalaceOfWinds_PitCornerAfterKey
 
-Entities_PalaceOfWinds_24_0:: @ 080E8A1C
+Entities_PalaceOfWinds_CrowRide_0:: @ 080E8A1C
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0xae, x=0x88, y=0xc8, paramA=0x3
 	object_raw subtype=0xae, x=0xb8, y=0xc8, paramA=0x3
@@ -12085,7 +12085,7 @@ Entities_PalaceOfWinds_24_0:: @ 080E8A1C
 	manager subtype=0x38, paramA=0xa
 	entity_list_end
 
-Enemies_PalaceOfWinds_24:: @ 080E8ABC
+Enemies_PalaceOfWinds_CrowRide:: @ 080E8ABC
 	enemy_raw subtype=0x31, x=0xe8, y=0x38
 	enemy_raw subtype=0x31, x=0xe8, y=0x58
 	enemy_raw subtype=0x31, x=0xe8, y=0x78
@@ -12094,37 +12094,37 @@ Enemies_PalaceOfWinds_24:: @ 080E8ABC
 	enemy_raw subtype=0x31, x=0x38, y=0x188
 	entity_list_end
 
-TileEntities_PalaceOfWinds_24:: @ 080E8B2C
+TileEntities_PalaceOfWinds_CrowRide:: @ 080E8B2C
 	tile_entity type=0x1, paramA=0x19
 	tile_entity_list_end
 
-gUnk_additional_9_PalaceOfWinds_24:: @ 080E8B3C
+gUnk_additional_9_PalaceOfWinds_CrowRide:: @ 080E8B3C
 	object_raw subtype=0x16, x=0x58, y=0x108, paramA=0x3, paramB=0x8
 	object_raw subtype=0x16, x=0x58, y=0x138, paramA=0x3, paramB=0x8
 	entity_list_end
 
-gUnk_additional_a_PalaceOfWinds_24:: @ 080E8B6C
+gUnk_additional_a_PalaceOfWinds_CrowRide:: @ 080E8B6C
 	object_raw subtype=0x16, x=0xb8, y=0x108, paramA=0x3, paramB=0x8
 	object_raw subtype=0x16, x=0xb8, y=0x138, paramA=0x3, paramB=0x8
 	entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_24:: @ 080E8B9C
-	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_24.bin"
+gUnk_additional_8_PalaceOfWinds_CrowRide:: @ 080E8B9C
+	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_CrowRide.bin"
 
-Room_PalaceOfWinds_24:: @ 080E8BC0
-	.4byte Entities_PalaceOfWinds_24_0
+Room_PalaceOfWinds_CrowRide:: @ 080E8BC0
+	.4byte Entities_PalaceOfWinds_CrowRide_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_24
-	.4byte TileEntities_PalaceOfWinds_24
+	.4byte Enemies_PalaceOfWinds_CrowRide
+	.4byte TileEntities_PalaceOfWinds_CrowRide
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_24
-	.4byte sub_StateChange_PalaceOfWinds_24
-	.4byte gUnk_additional_8_PalaceOfWinds_24
-	.4byte gUnk_additional_9_PalaceOfWinds_24
-	.4byte gUnk_additional_a_PalaceOfWinds_24
+	.4byte sub_unk3_PalaceOfWinds_CrowRide
+	.4byte sub_StateChange_PalaceOfWinds_CrowRide
+	.4byte gUnk_additional_8_PalaceOfWinds_CrowRide
+	.4byte gUnk_additional_9_PalaceOfWinds_CrowRide
+	.4byte gUnk_additional_a_PalaceOfWinds_CrowRide
 
-Entities_PalaceOfWinds_25_0:: @ 080E8BEC
+Entities_PalaceOfWinds_GratePlatformRide_0:: @ 080E8BEC
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x29, x=0x160, y=0x98, paramA=0x7
 	manager subtype=0x2c, x=0x160, paramB=0x4011470, paramC=0xa00070
@@ -12134,28 +12134,28 @@ Entities_PalaceOfWinds_25_0:: @ 080E8BEC
 	object_raw subtype=0xae, x=0x100, y=0x118, paramA=0x1
 	entity_list_end
 
-Enemies_PalaceOfWinds_25:: @ 080E8C6C
+Enemies_PalaceOfWinds_GratePlatformRide:: @ 080E8C6C
 	entity_list_end
 
-TileEntities_PalaceOfWinds_25:: @ 080E8C7C
+TileEntities_PalaceOfWinds_GratePlatformRide:: @ 080E8C7C
 	tile_entity type=0x1, paramA=0x1a
 	tile_entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_25:: @ 080E8C8C
-	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_25.bin"
+gUnk_additional_8_PalaceOfWinds_GratePlatformRide:: @ 080E8C8C
+	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_GratePlatformRide.bin"
 
-Room_PalaceOfWinds_25:: @ 080E8CB0
-	.4byte Entities_PalaceOfWinds_25_0
+Room_PalaceOfWinds_GratePlatformRide:: @ 080E8CB0
+	.4byte Entities_PalaceOfWinds_GratePlatformRide_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_25
-	.4byte TileEntities_PalaceOfWinds_25
+	.4byte Enemies_PalaceOfWinds_GratePlatformRide
+	.4byte TileEntities_PalaceOfWinds_GratePlatformRide
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_25
-	.4byte sub_StateChange_PalaceOfWinds_25
-	.4byte gUnk_additional_8_PalaceOfWinds_25
+	.4byte sub_unk3_PalaceOfWinds_GratePlatformRide
+	.4byte sub_StateChange_PalaceOfWinds_GratePlatformRide
+	.4byte gUnk_additional_8_PalaceOfWinds_GratePlatformRide
 
-Entities_PalaceOfWinds_26_0:: @ 080E8CD4
+Entities_PalaceOfWinds_PotPush_0:: @ 080E8CD4
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x8, x=0x18, y=0x48, paramA=0xb, paramC=0x53ffff
 	object_raw subtype=0x9d, x=0x118, y=0x28, paramA=0x1, paramC=0x80000052
@@ -12187,130 +12187,130 @@ Entities_PalaceOfWinds_26_0:: @ 080E8CD4
 	object_raw subtype=0x5, x=0x1a8, y=0xe8
 	entity_list_end
 
-Enemies_PalaceOfWinds_26:: @ 080E8EB4
+Enemies_PalaceOfWinds_PotPush:: @ 080E8EB4
 	projectile_raw subtype=0x1e, x=0x88, y=0x20, unknown=0x3, paramA=0x4, paramC=0x80ff9f
 	entity_list_end
 
-TileEntities_PalaceOfWinds_26:: @ 080E8ED4
+TileEntities_PalaceOfWinds_PotPush:: @ 080E8ED4
 	tile_entity type=0x1, paramA=0x1b
 	tile_entity_list_end
 
-Room_PalaceOfWinds_26:: @ 080E8EE4
-	.4byte Entities_PalaceOfWinds_26_0
+Room_PalaceOfWinds_PotPush:: @ 080E8EE4
+	.4byte Entities_PalaceOfWinds_PotPush_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_26
-	.4byte TileEntities_PalaceOfWinds_26
+	.4byte Enemies_PalaceOfWinds_PotPush
+	.4byte TileEntities_PalaceOfWinds_PotPush
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_26
-	.4byte sub_StateChange_PalaceOfWinds_26
+	.4byte sub_unk3_PalaceOfWinds_PotPush
+	.4byte sub_StateChange_PalaceOfWinds_PotPush
 
-Entities_PalaceOfWinds_27_0:: @ 080E8F04
+Entities_PalaceOfWinds_FloormasterLever_0:: @ 080E8F04
 	object_raw subtype=0x54, x=0x78, y=0x14, paramB=0x200000, paramC=0x80000000
 	manager subtype=0x11, paramC=0x80000054
 	object_raw subtype=0x8, x=0x48, y=0x78, paramA=0x2, paramC=0x54ffff
 	entity_list_end
 
-Enemies_PalaceOfWinds_27:: @ 080E8F44
+Enemies_PalaceOfWinds_FloormasterLever:: @ 080E8F44
 	enemy_raw subtype=0x23, x=0x48, y=0x38, paramB=0xa160000, paramC=0x100010
 	enemy_raw subtype=0x23, x=0x98, y=0x68, paramB=0xa160000, paramC=0x100010
 	entity_list_end
 
-TileEntities_PalaceOfWinds_27:: @ 080E8F74
+TileEntities_PalaceOfWinds_FloormasterLever:: @ 080E8F74
 	tile_entity type=0x1, paramA=0x1c
 	tile_entity_list_end
 
-Room_PalaceOfWinds_27:: @ 080E8F84
-	.4byte Entities_PalaceOfWinds_27_0
+Room_PalaceOfWinds_FloormasterLever:: @ 080E8F84
+	.4byte Entities_PalaceOfWinds_FloormasterLever_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_27
-	.4byte TileEntities_PalaceOfWinds_27
+	.4byte Enemies_PalaceOfWinds_FloormasterLever
+	.4byte TileEntities_PalaceOfWinds_FloormasterLever
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_27
-	.4byte sub_StateChange_PalaceOfWinds_27
+	.4byte sub_unk3_PalaceOfWinds_FloormasterLever
+	.4byte sub_StateChange_PalaceOfWinds_FloormasterLever
 
-Entities_PalaceOfWinds_28_0:: @ 080E8FA4
+Entities_PalaceOfWinds_Map_0:: @ 080E8FA4
 	manager subtype=0x1a, unknown=0x8, paramA=0x2a
 	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x560000
 	object_raw subtype=0xc, x=0x78, y=0x28, paramA=0x2, paramB=0x57, paramC=0x560000
 	entity_list_end
 
-Enemies_PalaceOfWinds_28:: @ 080E8FE4
+Enemies_PalaceOfWinds_Map:: @ 080E8FE4
 	entity_list_end
 
-TileEntities_PalaceOfWinds_28:: @ 080E8FF4
+TileEntities_PalaceOfWinds_Map:: @ 080E8FF4
 	tile_entity type=0x3, paramA=0x57, paramB=0x50, paramC=0x78, paramD=0x28
 	tile_entity type=0x1, paramA=0x1d
 	tile_entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_28:: @ 080E900C
+gUnk_additional_8_PalaceOfWinds_Map:: @ 080E900C
 	enemy_raw subtype=0x28, x=0x78, y=0x28, paramB=0xe160000, paramC=0x200020
 	enemy_raw subtype=0x28, x=0x58, y=0x48, paramB=0xe160000, paramC=0x200020
 	enemy_raw subtype=0x28, x=0x98, y=0x48, paramB=0xe160000, paramC=0x200020
 	entity_list_end
 
-Room_PalaceOfWinds_28:: @ 080E904C
-	.4byte Entities_PalaceOfWinds_28_0
+Room_PalaceOfWinds_Map:: @ 080E904C
+	.4byte Entities_PalaceOfWinds_Map_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_28
-	.4byte TileEntities_PalaceOfWinds_28
+	.4byte Enemies_PalaceOfWinds_Map
+	.4byte TileEntities_PalaceOfWinds_Map
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_28
-	.4byte sub_StateChange_PalaceOfWinds_28
-	.4byte gUnk_additional_8_PalaceOfWinds_28
+	.4byte sub_unk3_PalaceOfWinds_Map
+	.4byte sub_StateChange_PalaceOfWinds_Map
+	.4byte gUnk_additional_8_PalaceOfWinds_Map
 
-Entities_PalaceOfWinds_29_0:: @ 080E9070
+Entities_PalaceOfWinds_CornerToMap_0:: @ 080E9070
 	object_raw subtype=0x74, x=0xb8, y=0x78, collision=1, paramC=0xffff0000
 	manager subtype=0x3, x=0xb8, y=0x78, unknown=0x0, paramA=0x3, paramB=0x103
 	entity_list_end
 
-Enemies_PalaceOfWinds_29:: @ 080E90A0
+Enemies_PalaceOfWinds_CornerToMap:: @ 080E90A0
 	enemy_raw subtype=0x1, x=0x58, y=0x38, paramA=0x2
 	enemy_raw subtype=0x1, x=0x98, y=0x48, paramA=0x2
 	entity_list_end
 
-TileEntities_PalaceOfWinds_29:: @ 080E90D0
+TileEntities_PalaceOfWinds_CornerToMap:: @ 080E90D0
 	tile_entity type=0x1, paramA=0x1e
 	tile_entity_list_end
 
-Room_PalaceOfWinds_29:: @ 080E90E0
-	.4byte Entities_PalaceOfWinds_29_0
+Room_PalaceOfWinds_CornerToMap:: @ 080E90E0
+	.4byte Entities_PalaceOfWinds_CornerToMap_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_29
-	.4byte TileEntities_PalaceOfWinds_29
+	.4byte Enemies_PalaceOfWinds_CornerToMap
+	.4byte TileEntities_PalaceOfWinds_CornerToMap
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_29
-	.4byte sub_StateChange_PalaceOfWinds_29
+	.4byte sub_unk3_PalaceOfWinds_CornerToMap
+	.4byte sub_StateChange_PalaceOfWinds_CornerToMap
 
-Entities_PalaceOfWinds_30_0:: @ 080E9100
+Entities_PalaceOfWinds_StairsAfterFloormaster_0:: @ 080E9100
 	enemy_raw subtype=0x43, x=0x28, y=0x28
 	enemy_raw subtype=0x43, x=0x68, y=0x28, paramB=0x5e
 	entity_list_end
 
-Enemies_PalaceOfWinds_30:: @ 080E9130
+Enemies_PalaceOfWinds_StairsAfterFloormaster:: @ 080E9130
 	projectile_raw subtype=0x1d, x=0x28, y=0x58, unknown=0x3
 	enemy_raw subtype=0x42, x=0x58, y=0x48, paramB=0xc160000, paramC=0x200020
 	enemy_raw subtype=0x42, x=0x78, y=0x68, paramB=0xc160000, paramC=0x200020
 	entity_list_end
 
-TileEntities_PalaceOfWinds_30:: @ 080E9170
+TileEntities_PalaceOfWinds_StairsAfterFloormaster:: @ 080E9170
 	tile_entity type=0x1, paramA=0x1f
 	tile_entity_list_end
 
-Room_PalaceOfWinds_30:: @ 080E9180
-	.4byte Entities_PalaceOfWinds_30_0
+Room_PalaceOfWinds_StairsAfterFloormaster:: @ 080E9180
+	.4byte Entities_PalaceOfWinds_StairsAfterFloormaster_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_30
-	.4byte TileEntities_PalaceOfWinds_30
+	.4byte Enemies_PalaceOfWinds_StairsAfterFloormaster
+	.4byte TileEntities_PalaceOfWinds_StairsAfterFloormaster
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_30
-	.4byte sub_StateChange_PalaceOfWinds_30
+	.4byte sub_unk3_PalaceOfWinds_StairsAfterFloormaster
+	.4byte sub_StateChange_PalaceOfWinds_StairsAfterFloormaster
 
-Entities_PalaceOfWinds_31_0:: @ 080E91A0
+Entities_PalaceOfWinds_HoleToKinstoneWizzrobe_0:: @ 080E91A0
 	manager subtype=0x1a, unknown=0x8, paramA=0x2b
 	object_raw subtype=0x5, x=0x48, y=0x48
 	object_raw subtype=0x5, x=0x58, y=0x48
@@ -12318,24 +12318,24 @@ Entities_PalaceOfWinds_31_0:: @ 080E91A0
 	object_raw subtype=0x5, x=0xa8, y=0x48
 	entity_list_end
 
-Enemies_PalaceOfWinds_31:: @ 080E9200
+Enemies_PalaceOfWinds_HoleToKinstoneWizzrobe:: @ 080E9200
 	entity_list_end
 
-TileEntities_PalaceOfWinds_31:: @ 080E9210
+TileEntities_PalaceOfWinds_HoleToKinstoneWizzrobe:: @ 080E9210
 	tile_entity type=0x1, paramA=0x20
 	tile_entity_list_end
 
-Room_PalaceOfWinds_31:: @ 080E9220
-	.4byte Entities_PalaceOfWinds_31_0
+Room_PalaceOfWinds_HoleToKinstoneWizzrobe:: @ 080E9220
+	.4byte Entities_PalaceOfWinds_HoleToKinstoneWizzrobe_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_31
-	.4byte TileEntities_PalaceOfWinds_31
+	.4byte Enemies_PalaceOfWinds_HoleToKinstoneWizzrobe
+	.4byte TileEntities_PalaceOfWinds_HoleToKinstoneWizzrobe
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_31
-	.4byte sub_StateChange_PalaceOfWinds_31
+	.4byte sub_unk3_PalaceOfWinds_HoleToKinstoneWizzrobe
+	.4byte sub_StateChange_PalaceOfWinds_HoleToKinstoneWizzrobe
 
-Entities_PalaceOfWinds_32_0:: @ 080E9240
+Entities_PalaceOfWinds_KeyArrowButton_0:: @ 080E9240
 	object_raw subtype=0x9d, x=0x68, y=0x48, paramA=0x1, paramC=0x580058
 	manager subtype=0x2e, unknown=0x0, paramB=0x1e00, paramC=0x580087
 	object_raw subtype=0x8, x=0xd8, y=0x38, paramA=0x1, paramC=0x87ffff
@@ -12346,26 +12346,26 @@ Entities_PalaceOfWinds_32_0:: @ 080E9240
 	enemy_raw subtype=0x43, x=0x48, y=0x78, paramB=0x5e
 	entity_list_end
 
-Enemies_PalaceOfWinds_32:: @ 080E92D0
+Enemies_PalaceOfWinds_KeyArrowButton:: @ 080E92D0
 	enemy_raw subtype=0x8, x=0x28, y=0x68
 	enemy_raw subtype=0x8, x=0x78, y=0x58
 	entity_list_end
 
-TileEntities_PalaceOfWinds_32:: @ 080E9300
+TileEntities_PalaceOfWinds_KeyArrowButton:: @ 080E9300
 	tile_entity type=0x1, paramA=0x21
 	tile_entity_list_end
 
-Room_PalaceOfWinds_32:: @ 080E9310
-	.4byte Entities_PalaceOfWinds_32_0
+Room_PalaceOfWinds_KeyArrowButton:: @ 080E9310
+	.4byte Entities_PalaceOfWinds_KeyArrowButton_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_32
-	.4byte TileEntities_PalaceOfWinds_32
+	.4byte Enemies_PalaceOfWinds_KeyArrowButton
+	.4byte TileEntities_PalaceOfWinds_KeyArrowButton
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_32
-	.4byte sub_StateChange_PalaceOfWinds_32
+	.4byte sub_unk3_PalaceOfWinds_KeyArrowButton
+	.4byte sub_StateChange_PalaceOfWinds_KeyArrowButton
 
-Entities_PalaceOfWinds_33_0:: @ 080E9330
+Entities_PalaceOfWinds_GratesTo3F_0:: @ 080E9330
 	manager subtype=0x19, unknown=0x8
 	manager subtype=0x1a, unknown=0x8, paramA=0x2c
 	object_raw subtype=0x29, x=0x80, y=0xe0, paramA=0x8
@@ -12375,7 +12375,7 @@ Entities_PalaceOfWinds_33_0:: @ 080E9330
 	object_raw subtype=0x16, x=0x60, y=0x180, collision=1, paramA=0x3, paramB=0x8
 	entity_list_end
 
-Enemies_PalaceOfWinds_33:: @ 080E93B0
+Enemies_PalaceOfWinds_GratesTo3F:: @ 080E93B0
 	enemy_raw subtype=0x1, x=0x178, y=0xb8, paramA=0x2
 	enemy_raw subtype=0x1, x=0x178, y=0x108, paramA=0x2
 	enemy_raw subtype=0x31, x=0xc8, y=0xc8
@@ -12394,33 +12394,33 @@ Enemies_PalaceOfWinds_33:: @ 080E93B0
 	enemy_raw subtype=0x43, x=0x38, y=0xe8
 	entity_list_end
 
-TileEntities_PalaceOfWinds_33:: @ 080E94C0
+TileEntities_PalaceOfWinds_GratesTo3F:: @ 080E94C0
 	tile_entity type=0x1, paramA=0x22
 	tile_entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_33:: @ 080E94D0
-	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_33.bin"
+gUnk_additional_8_PalaceOfWinds_GratesTo3F:: @ 080E94D0
+	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_GratesTo3F.bin"
 
-gUnk_additional_9_PalaceOfWinds_33:: @ 080E94EE
-	.incbin "data_080D5360/gUnk_additional_9_PalaceOfWinds_33.bin"
+gUnk_additional_9_PalaceOfWinds_GratesTo3F:: @ 080E94EE
+	.incbin "data_080D5360/gUnk_additional_9_PalaceOfWinds_GratesTo3F.bin"
 
-gUnk_additional_a_PalaceOfWinds_33:: @ 080E9500
-	.incbin "data_080D5360/gUnk_additional_a_PalaceOfWinds_33.bin"
+gUnk_additional_a_PalaceOfWinds_GratesTo3F:: @ 080E9500
+	.incbin "data_080D5360/gUnk_additional_a_PalaceOfWinds_GratesTo3F.bin"
 
-Room_PalaceOfWinds_33:: @ 080E9518
-	.4byte Entities_PalaceOfWinds_33_0
+Room_PalaceOfWinds_GratesTo3F:: @ 080E9518
+	.4byte Entities_PalaceOfWinds_GratesTo3F_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_33
-	.4byte TileEntities_PalaceOfWinds_33
+	.4byte Enemies_PalaceOfWinds_GratesTo3F
+	.4byte TileEntities_PalaceOfWinds_GratesTo3F
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_33
-	.4byte sub_StateChange_PalaceOfWinds_33
-	.4byte gUnk_additional_8_PalaceOfWinds_33
-	.4byte gUnk_additional_9_PalaceOfWinds_33
-	.4byte gUnk_additional_a_PalaceOfWinds_33
+	.4byte sub_unk3_PalaceOfWinds_GratesTo3F
+	.4byte sub_StateChange_PalaceOfWinds_GratesTo3F
+	.4byte gUnk_additional_8_PalaceOfWinds_GratesTo3F
+	.4byte gUnk_additional_9_PalaceOfWinds_GratesTo3F
+	.4byte gUnk_additional_a_PalaceOfWinds_GratesTo3F
 
-Entities_PalaceOfWinds_34_0:: @ 080E9544
+Entities_PalaceOfWinds_SpinyFight_0:: @ 080E9544
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x9d, x=0x38, y=0x158, paramA=0x1, paramC=0x80008004
 	object_raw subtype=0x9d, x=0x58, y=0x158, paramA=0x1, paramC=0x80018004
@@ -12442,30 +12442,30 @@ Entities_PalaceOfWinds_34_0:: @ 080E9544
 	ezlo_hint x=0x22, y=0x26, rx=0x2, ry=0x3, msg=0xb49, flag=0x68
 	entity_list_end
 
-Enemies_PalaceOfWinds_34:: @ 080E9684
+Enemies_PalaceOfWinds_SpinyFight:: @ 080E9684
 	entity_list_end
 
-TileEntities_PalaceOfWinds_34:: @ 080E9694
+TileEntities_PalaceOfWinds_SpinyFight:: @ 080E9694
 	tile_entity type=0x1, paramA=0x23
 	tile_entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_34:: @ 080E96A4
+gUnk_additional_8_PalaceOfWinds_SpinyFight:: @ 080E96A4
 	enemy_raw subtype=0x1e, x=0x38, y=0x118, unknown=0x2f
 	enemy_raw subtype=0x1e, x=0xb8, y=0x118, unknown=0x2f
 	entity_list_end
 
-Room_PalaceOfWinds_34:: @ 080E96D4
-	.4byte Entities_PalaceOfWinds_34_0
+Room_PalaceOfWinds_SpinyFight:: @ 080E96D4
+	.4byte Entities_PalaceOfWinds_SpinyFight_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_34
-	.4byte TileEntities_PalaceOfWinds_34
+	.4byte Enemies_PalaceOfWinds_SpinyFight
+	.4byte TileEntities_PalaceOfWinds_SpinyFight
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_34
-	.4byte sub_StateChange_PalaceOfWinds_34
-	.4byte gUnk_additional_8_PalaceOfWinds_34
+	.4byte sub_unk3_PalaceOfWinds_SpinyFight
+	.4byte sub_StateChange_PalaceOfWinds_SpinyFight
+	.4byte gUnk_additional_8_PalaceOfWinds_SpinyFight
 
-Entities_PalaceOfWinds_35_0:: @ 080E96F8
+Entities_PalaceOfWinds_PeahatSwitch_0:: @ 080E96F8
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x8, x=0xd8, y=0x48, paramA=0x9, paramC=0x6affff
 	object_raw subtype=0x9d, x=0x38, y=0xd8, paramA=0x1, paramC=0x80000069
@@ -12481,27 +12481,27 @@ Entities_PalaceOfWinds_35_0:: @ 080E96F8
 	object_raw subtype=0x5, x=0xc8, y=0x28
 	entity_list_end
 
-Enemies_PalaceOfWinds_35:: @ 080E97D8
+Enemies_PalaceOfWinds_PeahatSwitch:: @ 080E97D8
 	enemy_raw subtype=0x3, x=0x68, y=0x88, paramB=0x1e140000, paramC=0x300030
 	enemy_raw subtype=0x3, x=0x88, y=0x98, paramB=0x1e140000, paramC=0x300030
 	enemy_raw subtype=0x3, x=0xa8, y=0x78, paramB=0x1e140000, paramC=0x300030
 	entity_list_end
 
-TileEntities_PalaceOfWinds_35:: @ 080E9818
+TileEntities_PalaceOfWinds_PeahatSwitch:: @ 080E9818
 	tile_entity type=0x1, paramA=0x24
 	tile_entity_list_end
 
-Room_PalaceOfWinds_35:: @ 080E9828
-	.4byte Entities_PalaceOfWinds_35_0
+Room_PalaceOfWinds_PeahatSwitch:: @ 080E9828
+	.4byte Entities_PalaceOfWinds_PeahatSwitch_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_35
-	.4byte TileEntities_PalaceOfWinds_35
+	.4byte Enemies_PalaceOfWinds_PeahatSwitch
+	.4byte TileEntities_PalaceOfWinds_PeahatSwitch
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_35
-	.4byte sub_StateChange_PalaceOfWinds_35
+	.4byte sub_unk3_PalaceOfWinds_PeahatSwitch
+	.4byte sub_StateChange_PalaceOfWinds_PeahatSwitch
 
-Entities_PalaceOfWinds_36_0:: @ 080E9848
+Entities_PalaceOfWinds_WhirlwindBombarossa_0:: @ 080E9848
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x8, x=0x28, y=0x48, paramA=0xb, paramC=0x6affff
 	object_raw subtype=0x5e, x=0x58, y=0xd0
@@ -12516,44 +12516,44 @@ Entities_PalaceOfWinds_36_0:: @ 080E9848
 	enemy_raw subtype=0x33, x=0x138, y=0x68, paramA=0xb, paramB=0x1
 	entity_list_end
 
-Enemies_PalaceOfWinds_36:: @ 080E9918
+Enemies_PalaceOfWinds_WhirlwindBombarossa:: @ 080E9918
 	entity_list_end
 
-TileEntities_PalaceOfWinds_36:: @ 080E9928
+TileEntities_PalaceOfWinds_WhirlwindBombarossa:: @ 080E9928
 	tile_entity type=0x1, paramA=0x25
 	tile_entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_36:: @ 080E9938
-	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_36.bin"
+gUnk_additional_8_PalaceOfWinds_WhirlwindBombarossa:: @ 080E9938
+	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_WhirlwindBombarossa.bin"
 
-gUnk_additional_9_PalaceOfWinds_36:: @ 080E996E
-	.incbin "data_080D5360/gUnk_additional_9_PalaceOfWinds_36.bin"
+gUnk_additional_9_PalaceOfWinds_WhirlwindBombarossa:: @ 080E996E
+	.incbin "data_080D5360/gUnk_additional_9_PalaceOfWinds_WhirlwindBombarossa.bin"
 
-gUnk_additional_a_PalaceOfWinds_36:: @ 080E99A4
-	.incbin "data_080D5360/gUnk_additional_a_PalaceOfWinds_36.bin"
+gUnk_additional_a_PalaceOfWinds_WhirlwindBombarossa:: @ 080E99A4
+	.incbin "data_080D5360/gUnk_additional_a_PalaceOfWinds_WhirlwindBombarossa.bin"
 
-gUnk_additional_b_PalaceOfWinds_36:: @ 080E99DA
-	.incbin "data_080D5360/gUnk_additional_b_PalaceOfWinds_36.bin"
+gUnk_additional_b_PalaceOfWinds_WhirlwindBombarossa:: @ 080E99DA
+	.incbin "data_080D5360/gUnk_additional_b_PalaceOfWinds_WhirlwindBombarossa.bin"
 
-Room_PalaceOfWinds_36:: @ 080E9A10
-	.4byte Entities_PalaceOfWinds_36_0
+Room_PalaceOfWinds_WhirlwindBombarossa:: @ 080E9A10
+	.4byte Entities_PalaceOfWinds_WhirlwindBombarossa_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_36
-	.4byte TileEntities_PalaceOfWinds_36
+	.4byte Enemies_PalaceOfWinds_WhirlwindBombarossa
+	.4byte TileEntities_PalaceOfWinds_WhirlwindBombarossa
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_36
-	.4byte sub_StateChange_PalaceOfWinds_36
-	.4byte gUnk_additional_8_PalaceOfWinds_36
-	.4byte gUnk_additional_9_PalaceOfWinds_36
-	.4byte gUnk_additional_a_PalaceOfWinds_36
-	.4byte gUnk_additional_b_PalaceOfWinds_36
+	.4byte sub_unk3_PalaceOfWinds_WhirlwindBombarossa
+	.4byte sub_StateChange_PalaceOfWinds_WhirlwindBombarossa
+	.4byte gUnk_additional_8_PalaceOfWinds_WhirlwindBombarossa
+	.4byte gUnk_additional_9_PalaceOfWinds_WhirlwindBombarossa
+	.4byte gUnk_additional_a_PalaceOfWinds_WhirlwindBombarossa
+	.4byte gUnk_additional_b_PalaceOfWinds_WhirlwindBombarossa
 
-Entities_PalaceOfWinds_37_0:: @ 080E9A40
+Entities_PalaceOfWinds_DoorToStalfosFirebar_0:: @ 080E9A40
 	manager subtype=0x1a, unknown=0x8, paramA=0x2d
 	entity_list_end
 
-Enemies_PalaceOfWinds_37:: @ 080E9A60
+Enemies_PalaceOfWinds_DoorToStalfosFirebar:: @ 080E9A60
 	enemy_raw subtype=0x43, x=0x38, y=0x58
 	enemy_raw subtype=0x43, x=0x48, y=0x58, paramA=0x2
 	enemy_raw subtype=0x43, x=0x58, y=0x58
@@ -12561,47 +12561,47 @@ Enemies_PalaceOfWinds_37:: @ 080E9A60
 	enemy_raw subtype=0x43, x=0x88, y=0x48
 	entity_list_end
 
-TileEntities_PalaceOfWinds_37:: @ 080E9AC0
+TileEntities_PalaceOfWinds_DoorToStalfosFirebar:: @ 080E9AC0
 	tile_entity type=0x1, paramA=0x26
 	tile_entity_list_end
 
-Room_PalaceOfWinds_37:: @ 080E9AD0
-	.4byte Entities_PalaceOfWinds_37_0
+Room_PalaceOfWinds_DoorToStalfosFirebar:: @ 080E9AD0
+	.4byte Entities_PalaceOfWinds_DoorToStalfosFirebar_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_37
-	.4byte TileEntities_PalaceOfWinds_37
+	.4byte Enemies_PalaceOfWinds_DoorToStalfosFirebar
+	.4byte TileEntities_PalaceOfWinds_DoorToStalfosFirebar
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_37
-	.4byte sub_StateChange_PalaceOfWinds_37
+	.4byte sub_unk3_PalaceOfWinds_DoorToStalfosFirebar
+	.4byte sub_StateChange_PalaceOfWinds_DoorToStalfosFirebar
 
-Entities_PalaceOfWinds_38_0:: @ 080E9AF0
+Entities_PalaceOfWinds_StalfosFireborHole_0:: @ 080E9AF0
 	manager subtype=0x1a, unknown=0x8, paramA=0x2f
 	manager subtype=0x1a, unknown=0x8, paramA=0x2e
 	object_raw subtype=0x8, x=0xd8, y=0x48, paramA=0x1, paramC=0x6bffff
 	entity_list_end
 
-Enemies_PalaceOfWinds_38:: @ 080E9B30
+Enemies_PalaceOfWinds_StalfosFireborHole:: @ 080E9B30
 	enemy_raw subtype=0x42, x=0x58, y=0x48, paramA=0x1, paramB=0xc160000, paramC=0x200020
 	enemy_raw subtype=0x42, x=0xa8, y=0x48, paramA=0x1, paramB=0xc160000, paramC=0x200020
 	projectile_raw subtype=0x1d, x=0x68, y=0x28, unknown=0x3
 	entity_list_end
 
-TileEntities_PalaceOfWinds_38:: @ 080E9B70
+TileEntities_PalaceOfWinds_StalfosFireborHole:: @ 080E9B70
 	tile_entity type=0x1, paramA=0x27
 	tile_entity_list_end
 
-Room_PalaceOfWinds_38:: @ 080E9B80
-	.4byte Entities_PalaceOfWinds_38_0
+Room_PalaceOfWinds_StalfosFireborHole:: @ 080E9B80
+	.4byte Entities_PalaceOfWinds_StalfosFireborHole_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_38
-	.4byte TileEntities_PalaceOfWinds_38
+	.4byte Enemies_PalaceOfWinds_StalfosFireborHole
+	.4byte TileEntities_PalaceOfWinds_StalfosFireborHole
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_38
-	.4byte sub_StateChange_PalaceOfWinds_38
+	.4byte sub_unk3_PalaceOfWinds_StalfosFireborHole
+	.4byte sub_StateChange_PalaceOfWinds_StalfosFireborHole
 
-Entities_PalaceOfWinds_39_0:: @ 080E9BA0
+Entities_PalaceOfWinds_ShortcutDoorButtons_0:: @ 080E9BA0
 	manager subtype=0x1a, unknown=0x8, paramA=0x30
 	object_raw subtype=0x9d, x=0x48, y=0x28, paramA=0x1, paramC=0x8000006b
 	object_raw subtype=0x9d, x=0x78, y=0x28, paramA=0x1, paramC=0x8001006b
@@ -12609,50 +12609,50 @@ Entities_PalaceOfWinds_39_0:: @ 080E9BA0
 	object_raw subtype=0x8, x=0x28, y=0x48, paramA=0x3, paramC=0x6bffff
 	entity_list_end
 
-Enemies_PalaceOfWinds_39:: @ 080E9C00
+Enemies_PalaceOfWinds_ShortcutDoorButtons:: @ 080E9C00
 	enemy_raw subtype=0x8, x=0xb8, y=0x48
 	enemy_raw subtype=0x8, x=0xc8, y=0x58
 	entity_list_end
 
-TileEntities_PalaceOfWinds_39:: @ 080E9C30
+TileEntities_PalaceOfWinds_ShortcutDoorButtons:: @ 080E9C30
 	tile_entity type=0x1, paramA=0x28
 	tile_entity_list_end
 
-Room_PalaceOfWinds_39:: @ 080E9C40
-	.4byte Entities_PalaceOfWinds_39_0
+Room_PalaceOfWinds_ShortcutDoorButtons:: @ 080E9C40
+	.4byte Entities_PalaceOfWinds_ShortcutDoorButtons_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_39
-	.4byte TileEntities_PalaceOfWinds_39
+	.4byte Enemies_PalaceOfWinds_ShortcutDoorButtons
+	.4byte TileEntities_PalaceOfWinds_ShortcutDoorButtons
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_39
-	.4byte sub_StateChange_PalaceOfWinds_39
+	.4byte sub_unk3_PalaceOfWinds_ShortcutDoorButtons
+	.4byte sub_StateChange_PalaceOfWinds_ShortcutDoorButtons
 
-Entities_PalaceOfWinds_40_0:: @ 080E9C60
+Entities_PalaceOfWinds_ToPeahatSwitch_0:: @ 080E9C60
 	manager subtype=0x1a, unknown=0x8, paramA=0x31
 	object_raw subtype=0x8, x=0xd8, y=0x68, paramA=0x1, paramC=0x6dffff
 	entity_list_end
 
-Enemies_PalaceOfWinds_40:: @ 080E9C90
+Enemies_PalaceOfWinds_ToPeahatSwitch:: @ 080E9C90
 	enemy_raw subtype=0x1, x=0x58, y=0x68, paramA=0x2
 	enemy_raw subtype=0x1, x=0xa8, y=0x78, paramA=0x2
 	entity_list_end
 
-TileEntities_PalaceOfWinds_40:: @ 080E9CC0
+TileEntities_PalaceOfWinds_ToPeahatSwitch:: @ 080E9CC0
 	tile_entity type=0x1, paramA=0x29
 	tile_entity_list_end
 
-Room_PalaceOfWinds_40:: @ 080E9CD0
-	.4byte Entities_PalaceOfWinds_40_0
+Room_PalaceOfWinds_ToPeahatSwitch:: @ 080E9CD0
+	.4byte Entities_PalaceOfWinds_ToPeahatSwitch_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_40
-	.4byte TileEntities_PalaceOfWinds_40
+	.4byte Enemies_PalaceOfWinds_ToPeahatSwitch
+	.4byte TileEntities_PalaceOfWinds_ToPeahatSwitch
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_40
-	.4byte sub_StateChange_PalaceOfWinds_40
+	.4byte sub_unk3_PalaceOfWinds_ToPeahatSwitch
+	.4byte sub_StateChange_PalaceOfWinds_ToPeahatSwitch
 
-Entities_PalaceOfWinds_41_0:: @ 080E9CF0
+Entities_PalaceOfWinds_KinstoneWizzrobeFight_0:: @ 080E9CF0
 	manager subtype=0x1e, x=0x60, y=0x30, paramB=0x300030, paramC=0x80000000
 	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x6d8000
 	object_raw subtype=0xc, x=0x78, y=0x38, paramA=0x1, paramC=0x6d0000
@@ -12660,91 +12660,91 @@ Entities_PalaceOfWinds_41_0:: @ 080E9CF0
 	object_raw subtype=0x8, x=0xc8, y=0x68, paramA=0x1, paramC=0x6dffff
 	entity_list_end
 
-Enemies_PalaceOfWinds_41:: @ 080E9D50
+Enemies_PalaceOfWinds_KinstoneWizzrobeFight:: @ 080E9D50
 	entity_list_end
 
-TileEntities_PalaceOfWinds_41:: @ 080E9D60
+TileEntities_PalaceOfWinds_KinstoneWizzrobeFight:: @ 080E9D60
 	tile_entity type=0x2, paramA=0x6e, paramB=0x6f5c, paramC=0xc7
 	tile_entity type=0x1, paramA=0x2a
 	tile_entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_41:: @ 080E9D78
+gUnk_additional_8_PalaceOfWinds_KinstoneWizzrobeFight:: @ 080E9D78
 	enemy_raw subtype=0x27, x=0x38, y=0x48, paramB=0xa120000, paramC=0x300030
 	enemy_raw subtype=0x29, x=0xb8, y=0x48, paramB=0xa120000, paramC=0x300030
 	entity_list_end
 
-Room_PalaceOfWinds_41:: @ 080E9DA8
-	.4byte Entities_PalaceOfWinds_41_0
+Room_PalaceOfWinds_KinstoneWizzrobeFight:: @ 080E9DA8
+	.4byte Entities_PalaceOfWinds_KinstoneWizzrobeFight_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_41
-	.4byte TileEntities_PalaceOfWinds_41
+	.4byte Enemies_PalaceOfWinds_KinstoneWizzrobeFight
+	.4byte TileEntities_PalaceOfWinds_KinstoneWizzrobeFight
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_41
-	.4byte sub_StateChange_PalaceOfWinds_41
-	.4byte gUnk_additional_8_PalaceOfWinds_41
+	.4byte sub_unk3_PalaceOfWinds_KinstoneWizzrobeFight
+	.4byte sub_StateChange_PalaceOfWinds_KinstoneWizzrobeFight
+	.4byte gUnk_additional_8_PalaceOfWinds_KinstoneWizzrobeFight
 
-Entities_PalaceOfWinds_42_0:: @ 080E9DCC
+Entities_PalaceOfWinds_GibdoStairs_0:: @ 080E9DCC
 	object_raw subtype=0x8, x=0x18, y=0x68, paramA=0x3, paramC=0x6dffff
 	entity_list_end
 
-Enemies_PalaceOfWinds_42:: @ 080E9DEC
+Enemies_PalaceOfWinds_GibdoStairs:: @ 080E9DEC
 	enemy_raw subtype=0x3b, x=0x68, y=0x48, paramB=0xe160000, paramC=0x100020
 	enemy_raw subtype=0x3b, x=0xb8, y=0x48, paramB=0xe160000, paramC=0x100020
 	entity_list_end
 
-TileEntities_PalaceOfWinds_42:: @ 080E9E1C
+TileEntities_PalaceOfWinds_GibdoStairs:: @ 080E9E1C
 	tile_entity type=0x1, paramA=0x2b
 	tile_entity_list_end
 
-Room_PalaceOfWinds_42:: @ 080E9E2C
-	.4byte Entities_PalaceOfWinds_42_0
+Room_PalaceOfWinds_GibdoStairs:: @ 080E9E2C
+	.4byte Entities_PalaceOfWinds_GibdoStairs_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_42
-	.4byte TileEntities_PalaceOfWinds_42
+	.4byte Enemies_PalaceOfWinds_GibdoStairs
+	.4byte TileEntities_PalaceOfWinds_GibdoStairs
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_42
-	.4byte sub_StateChange_PalaceOfWinds_42
+	.4byte sub_unk3_PalaceOfWinds_GibdoStairs
+	.4byte sub_StateChange_PalaceOfWinds_GibdoStairs
 
-Entities_PalaceOfWinds_43_0:: @ 080E9E4C
+Entities_PalaceOfWinds_SpikeBarSmallKey_0:: @ 080E9E4C
 	manager subtype=0x19, unknown=0x8
 	entity_list_end
 
-Enemies_PalaceOfWinds_43:: @ 080E9E6C
+Enemies_PalaceOfWinds_SpikeBarSmallKey:: @ 080E9E6C
 	projectile_raw subtype=0x1e, x=0x38, y=0xa0, unknown=0x3, paramA=0x2, paramC=0x800090
 	projectile_raw subtype=0x1e, x=0x78, y=0x60, unknown=0x3, paramA=0x2, paramC=0x80ffc0
 	projectile_raw subtype=0x1e, x=0x88, y=0x60, unknown=0x3, paramA=0x2, paramC=0x800040
 	entity_list_end
 
-TileEntities_PalaceOfWinds_43:: @ 080E9EAC
+TileEntities_PalaceOfWinds_SpikeBarSmallKey:: @ 080E9EAC
 	tile_entity type=0x2, paramA=0x6f, paramB=0x53, paramC=0x46, paramD=0x1
 	tile_entity type=0x1, paramA=0x2c
 	tile_entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_43:: @ 080E9EC4
-	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_43.bin"
+gUnk_additional_8_PalaceOfWinds_SpikeBarSmallKey:: @ 080E9EC4
+	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_SpikeBarSmallKey.bin"
 
-gUnk_additional_9_PalaceOfWinds_43:: @ 080E9EE2
-	.incbin "data_080D5360/gUnk_additional_9_PalaceOfWinds_43.bin"
+gUnk_additional_9_PalaceOfWinds_SpikeBarSmallKey:: @ 080E9EE2
+	.incbin "data_080D5360/gUnk_additional_9_PalaceOfWinds_SpikeBarSmallKey.bin"
 
-gUnk_additional_a_PalaceOfWinds_43:: @ 080E9F00
-	.incbin "data_080D5360/gUnk_additional_a_PalaceOfWinds_43.bin"
+gUnk_additional_a_PalaceOfWinds_SpikeBarSmallKey:: @ 080E9F00
+	.incbin "data_080D5360/gUnk_additional_a_PalaceOfWinds_SpikeBarSmallKey.bin"
 
-Room_PalaceOfWinds_43:: @ 080E9F20
-	.4byte Entities_PalaceOfWinds_43_0
+Room_PalaceOfWinds_SpikeBarSmallKey:: @ 080E9F20
+	.4byte Entities_PalaceOfWinds_SpikeBarSmallKey_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_43
-	.4byte TileEntities_PalaceOfWinds_43
+	.4byte Enemies_PalaceOfWinds_SpikeBarSmallKey
+	.4byte TileEntities_PalaceOfWinds_SpikeBarSmallKey
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_43
-	.4byte sub_StateChange_PalaceOfWinds_43
-	.4byte gUnk_additional_8_PalaceOfWinds_43
-	.4byte gUnk_additional_9_PalaceOfWinds_43
-	.4byte gUnk_additional_a_PalaceOfWinds_43
+	.4byte sub_unk3_PalaceOfWinds_SpikeBarSmallKey
+	.4byte sub_StateChange_PalaceOfWinds_SpikeBarSmallKey
+	.4byte gUnk_additional_8_PalaceOfWinds_SpikeBarSmallKey
+	.4byte gUnk_additional_9_PalaceOfWinds_SpikeBarSmallKey
+	.4byte gUnk_additional_a_PalaceOfWinds_SpikeBarSmallKey
 
-Entities_PalaceOfWinds_44_0:: @ 080E9F4C
+Entities_PalaceOfWinds_RocCape_0:: @ 080E9F4C
 .ifdef EU
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x9d, x=0x128, y=0x168, paramC=0x800a0000
@@ -12789,28 +12789,28 @@ gUnk_080EA09C:: @ 080EA09C
 	manager subtype=0xb, unknown=0x0, paramB=0xa, paramC=0x708002
 	entity_list_end
 
-Enemies_PalaceOfWinds_44:: @ 080EA0EC
+Enemies_PalaceOfWinds_RocCape:: @ 080EA0EC
 	projectile_raw subtype=0x1e, x=0x118, y=0x180, unknown=0x3, paramA=0x2, paramC=0x800080
 	entity_list_end
 
-TileEntities_PalaceOfWinds_44:: @ 080EA10C
+TileEntities_PalaceOfWinds_RocCape:: @ 080EA10C
 	tile_entity type=0x3, paramA=0x74, paramB=0x14, paramC=0x78, paramD=0xd8
 	tile_entity type=0x1, paramA=0x2d
 	tile_entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_44:: @ 080EA124
+gUnk_additional_8_PalaceOfWinds_RocCape:: @ 080EA124
 	enemy_raw subtype=0x27, x=0x38, y=0xd8, paramB=0xe120000, paramC=0xa00030
 	enemy_raw subtype=0x27, x=0xb8, y=0xd8, paramB=0xe120000, paramC=0xa00030
 	entity_list_end
 
-gUnk_additional_9_PalaceOfWinds_44:: @ 080EA154
+gUnk_additional_9_PalaceOfWinds_RocCape:: @ 080EA154
 	enemy_raw subtype=0x27, x=0x38, y=0xd8, paramB=0xe120000, paramC=0xa00030
 	enemy_raw subtype=0x27, x=0xb8, y=0xd8, paramB=0xe120000, paramC=0xa00030
 	enemy_raw subtype=0x27, x=0x78, y=0xb8, paramB=0xe120000, paramC=0xa00030
 	enemy_raw subtype=0x27, x=0x78, y=0xf8, paramB=0xe120000, paramC=0xa00030
 	entity_list_end
 
-gUnk_additional_a_PalaceOfWinds_44:: @ 080EA1A4
+gUnk_additional_a_PalaceOfWinds_RocCape:: @ 080EA1A4
 	enemy_raw subtype=0x27, x=0x38, y=0xd8, paramB=0xe120000, paramC=0xa00030
 	enemy_raw subtype=0x27, x=0xb8, y=0xd8, paramB=0xe120000, paramC=0xa00030
 	enemy_raw subtype=0x27, x=0x68, y=0xb8, paramB=0xe120000, paramC=0xa00030
@@ -12819,24 +12819,24 @@ gUnk_additional_a_PalaceOfWinds_44:: @ 080EA1A4
 	enemy_raw subtype=0x27, x=0x88, y=0xf8, paramB=0xe120000, paramC=0xa00030
 	entity_list_end
 
-Room_PalaceOfWinds_44:: @ 080EA214
-	.4byte Entities_PalaceOfWinds_44_0
+Room_PalaceOfWinds_RocCape:: @ 080EA214
+	.4byte Entities_PalaceOfWinds_RocCape_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_44
-	.4byte TileEntities_PalaceOfWinds_44
+	.4byte Enemies_PalaceOfWinds_RocCape
+	.4byte TileEntities_PalaceOfWinds_RocCape
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_44
-	.4byte sub_StateChange_PalaceOfWinds_44
-	.4byte gUnk_additional_8_PalaceOfWinds_44
-	.4byte gUnk_additional_9_PalaceOfWinds_44
-	.4byte gUnk_additional_a_PalaceOfWinds_44
+	.4byte sub_unk3_PalaceOfWinds_RocCape
+	.4byte sub_StateChange_PalaceOfWinds_RocCape
+	.4byte gUnk_additional_8_PalaceOfWinds_RocCape
+	.4byte gUnk_additional_9_PalaceOfWinds_RocCape
+	.4byte gUnk_additional_a_PalaceOfWinds_RocCape
 
-Entities_PalaceOfWinds_45_0:: @ 080EA240
+Entities_PalaceOfWinds_FireBarGrates_0:: @ 080EA240
 	manager subtype=0x19, unknown=0x8
 	entity_list_end
 
-Enemies_PalaceOfWinds_45:: @ 080EA260
+Enemies_PalaceOfWinds_FireBarGrates:: @ 080EA260
 	enemy_raw subtype=0x42, x=0x168, y=0x148, paramB=0x80c0000, paramC=0x1300140
 	enemy_raw subtype=0x22, x=0x58, y=0xe8
 	enemy_raw subtype=0x22, x=0x68, y=0x148
@@ -12846,22 +12846,22 @@ Enemies_PalaceOfWinds_45:: @ 080EA260
 	projectile_raw subtype=0x1d, x=0xb8, y=0xd8, unknown=0x3
 	entity_list_end
 
-TileEntities_PalaceOfWinds_45:: @ 080EA2E0
+TileEntities_PalaceOfWinds_FireBarGrates:: @ 080EA2E0
 	tile_entity type=0x2, paramA=0x76, paramB=0x705c, paramC=0x149
 	tile_entity type=0x1, paramA=0x2e
 	tile_entity_list_end
 
-Room_PalaceOfWinds_45:: @ 080EA2F8
-	.4byte Entities_PalaceOfWinds_45_0
+Room_PalaceOfWinds_FireBarGrates:: @ 080EA2F8
+	.4byte Entities_PalaceOfWinds_FireBarGrates_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_45
-	.4byte TileEntities_PalaceOfWinds_45
+	.4byte Enemies_PalaceOfWinds_FireBarGrates
+	.4byte TileEntities_PalaceOfWinds_FireBarGrates
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_45
-	.4byte sub_StateChange_PalaceOfWinds_45
+	.4byte sub_unk3_PalaceOfWinds_FireBarGrates
+	.4byte sub_StateChange_PalaceOfWinds_FireBarGrates
 
-Entities_PalaceOfWinds_46_0:: @ 080EA318
+Entities_PalaceOfWinds_PlatformRideBombarossas_0:: @ 080EA318
 	manager subtype=0x19, unknown=0x8
 	manager subtype=0x38, paramA=0x8
 	object_raw subtype=0xae, x=0x68, y=0xc8, paramA=0x3
@@ -12878,62 +12878,62 @@ Entities_PalaceOfWinds_46_0:: @ 080EA318
 	enemy_raw subtype=0x33, x=0x88, y=0x1c8
 	entity_list_end
 
-Enemies_PalaceOfWinds_46:: @ 080EA408
+Enemies_PalaceOfWinds_PlatformRideBombarossas:: @ 080EA408
 	entity_list_end
 
-TileEntities_PalaceOfWinds_46:: @ 080EA418
+TileEntities_PalaceOfWinds_PlatformRideBombarossas:: @ 080EA418
 	tile_entity type=0x1, paramA=0x2f
 	tile_entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_46:: @ 080EA428
+gUnk_additional_8_PalaceOfWinds_PlatformRideBombarossas:: @ 080EA428
 	object_raw subtype=0x16, x=0x68, y=0x1b8, paramA=0x3, paramB=0xa
 	object_raw subtype=0x16, x=0x90, y=0x1b0, paramA=0x2, paramB=0xa
 	object_raw subtype=0x16, x=0x60, y=0x1e0, paramA=0x2, paramB=0xa
 	object_raw subtype=0x16, x=0x88, y=0x1d8, paramA=0x3, paramB=0xa
 	entity_list_end
 
-gUnk_additional_9_PalaceOfWinds_46:: @ 080EA478
-	.incbin "data_080D5360/gUnk_additional_9_PalaceOfWinds_46.bin"
+gUnk_additional_9_PalaceOfWinds_PlatformRideBombarossas:: @ 080EA478
+	.incbin "data_080D5360/gUnk_additional_9_PalaceOfWinds_PlatformRideBombarossas.bin"
 
-gUnk_additional_a_PalaceOfWinds_46:: @ 080EA496
-	.incbin "data_080D5360/gUnk_additional_a_PalaceOfWinds_46.bin"
+gUnk_additional_a_PalaceOfWinds_PlatformRideBombarossas:: @ 080EA496
+	.incbin "data_080D5360/gUnk_additional_a_PalaceOfWinds_PlatformRideBombarossas.bin"
 
-Room_PalaceOfWinds_46:: @ 080EA4BC
-	.4byte Entities_PalaceOfWinds_46_0
+Room_PalaceOfWinds_PlatformRideBombarossas:: @ 080EA4BC
+	.4byte Entities_PalaceOfWinds_PlatformRideBombarossas_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_46
-	.4byte TileEntities_PalaceOfWinds_46
+	.4byte Enemies_PalaceOfWinds_PlatformRideBombarossas
+	.4byte TileEntities_PalaceOfWinds_PlatformRideBombarossas
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_46
-	.4byte sub_StateChange_PalaceOfWinds_46
-	.4byte gUnk_additional_8_PalaceOfWinds_46
-	.4byte gUnk_additional_9_PalaceOfWinds_46
-	.4byte gUnk_additional_a_PalaceOfWinds_46
+	.4byte sub_unk3_PalaceOfWinds_PlatformRideBombarossas
+	.4byte sub_StateChange_PalaceOfWinds_PlatformRideBombarossas
+	.4byte gUnk_additional_8_PalaceOfWinds_PlatformRideBombarossas
+	.4byte gUnk_additional_9_PalaceOfWinds_PlatformRideBombarossas
+	.4byte gUnk_additional_a_PalaceOfWinds_PlatformRideBombarossas
 
-Entities_PalaceOfWinds_47_0:: @ 080EA4E8
+Entities_PalaceOfWinds_BridgeAfterDarknut_0:: @ 080EA4E8
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0xa1, x=0x78, y=0x18
 	entity_list_end
 
-Enemies_PalaceOfWinds_47:: @ 080EA518
+Enemies_PalaceOfWinds_BridgeAfterDarknut:: @ 080EA518
 	entity_list_end
 
-TileEntities_PalaceOfWinds_47:: @ 080EA528
+TileEntities_PalaceOfWinds_BridgeAfterDarknut:: @ 080EA528
 	tile_entity type=0x1, paramA=0x30
 	tile_entity_list_end
 
-Room_PalaceOfWinds_47:: @ 080EA538
-	.4byte Entities_PalaceOfWinds_47_0
+Room_PalaceOfWinds_BridgeAfterDarknut:: @ 080EA538
+	.4byte Entities_PalaceOfWinds_BridgeAfterDarknut_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_47
-	.4byte TileEntities_PalaceOfWinds_47
+	.4byte Enemies_PalaceOfWinds_BridgeAfterDarknut
+	.4byte TileEntities_PalaceOfWinds_BridgeAfterDarknut
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_47
-	.4byte sub_StateChange_PalaceOfWinds_47
+	.4byte sub_unk3_PalaceOfWinds_BridgeAfterDarknut
+	.4byte sub_StateChange_PalaceOfWinds_BridgeAfterDarknut
 
-Entities_PalaceOfWinds_48_0:: @ 080EA558
+Entities_PalaceOfWinds_BridgeSwitchesCloneBlock_0:: @ 080EA558
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x9d, x=0x48, y=0xa8, paramC=0x80000000
 	object_raw subtype=0x9d, x=0xf8, y=0x118, paramC=0x80000000
@@ -12951,7 +12951,7 @@ Entities_PalaceOfWinds_48_0:: @ 080EA558
 	enemy_raw subtype=0x43, x=0x88, y=0x28, paramB=0x5e
 	entity_list_end
 
-Enemies_PalaceOfWinds_48:: @ 080EA658
+Enemies_PalaceOfWinds_BridgeSwitchesCloneBlock:: @ 080EA658
 	enemy_raw subtype=0x42, x=0x118, y=0x48, paramB=0x81a0000, paramC=0x2000e0
 	enemy_raw subtype=0x42, x=0x138, y=0x48, paramB=0x81a0000, paramC=0x2000e0
 	enemy_raw subtype=0x3, x=0x68, y=0x98, paramB=0x24160000, paramC=0x200010
@@ -12961,21 +12961,21 @@ Enemies_PalaceOfWinds_48:: @ 080EA658
 	enemy_raw subtype=0x3, x=0x178, y=0xd8, paramB=0x16220000, paramC=0x9000d0
 	entity_list_end
 
-TileEntities_PalaceOfWinds_48:: @ 080EA6D8
+TileEntities_PalaceOfWinds_BridgeSwitchesCloneBlock:: @ 080EA6D8
 	tile_entity type=0x1, paramA=0x31
 	tile_entity_list_end
 
-Room_PalaceOfWinds_48:: @ 080EA6E8
-	.4byte Entities_PalaceOfWinds_48_0
+Room_PalaceOfWinds_BridgeSwitchesCloneBlock:: @ 080EA6E8
+	.4byte Entities_PalaceOfWinds_BridgeSwitchesCloneBlock_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_48
-	.4byte TileEntities_PalaceOfWinds_48
+	.4byte Enemies_PalaceOfWinds_BridgeSwitchesCloneBlock
+	.4byte TileEntities_PalaceOfWinds_BridgeSwitchesCloneBlock
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_48
-	.4byte sub_StateChange_PalaceOfWinds_48
+	.4byte sub_unk3_PalaceOfWinds_BridgeSwitchesCloneBlock
+	.4byte sub_StateChange_PalaceOfWinds_BridgeSwitchesCloneBlock
 
-Entities_PalaceOfWinds_49_0:: @ 080EA708
+Entities_PalaceOfWinds_EntranceRoom_0:: @ 080EA708
 	ezlo_hint x=0x44, y=0x4, rx=0x3, ry=0x7, msg=0xb19, flag=0x77
 	manager subtype=0x1a, unknown=0x8, paramA=0x32
 	object_raw subtype=0x34, x=0x208, y=0x58, paramB=0xc70, paramC=0x840207
@@ -12987,24 +12987,24 @@ Entities_PalaceOfWinds_49_0:: @ 080EA708
 	manager subtype=0x19, unknown=0x8
 	entity_list_end
 
-Enemies_PalaceOfWinds_49:: @ 080EA7A8
+Enemies_PalaceOfWinds_EntranceRoom:: @ 080EA7A8
 	entity_list_end
 
-TileEntities_PalaceOfWinds_49:: @ 080EA7B8
+TileEntities_PalaceOfWinds_EntranceRoom:: @ 080EA7B8
 	tile_entity type=0x1, paramA=0x32
 	tile_entity_list_end
 
-Room_PalaceOfWinds_49:: @ 080EA7C8
-	.4byte Entities_PalaceOfWinds_49_0
+Room_PalaceOfWinds_EntranceRoom:: @ 080EA7C8
+	.4byte Entities_PalaceOfWinds_EntranceRoom_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_49
-	.4byte TileEntities_PalaceOfWinds_49
+	.4byte Enemies_PalaceOfWinds_EntranceRoom
+	.4byte TileEntities_PalaceOfWinds_EntranceRoom
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_49
-	.4byte sub_StateChange_PalaceOfWinds_49
+	.4byte sub_unk3_PalaceOfWinds_EntranceRoom
+	.4byte sub_StateChange_PalaceOfWinds_EntranceRoom
 
-Entities_PalaceOfWinds_50_0:: @ 080EA7E8
+Entities_PalaceOfWinds_DarkCompassHall_0:: @ 080EA7E8
 	ezlo_hint x=0x28, y=0x1e, rx=0x5, ry=0x3, msg=0xb1a, flag=0x78
 	object_raw subtype=0xa1, x=0x168, y=0x128, paramB=0x1
 	object_raw subtype=0xc, x=0x218, y=0x98, paramA=0x4, paramB=0x79
@@ -13030,29 +13030,29 @@ Entities_PalaceOfWinds_50_0:: @ 080EA7E8
 	object_raw subtype=0xbc, x=0x238, y=0xb8
 	entity_list_end
 
-Enemies_PalaceOfWinds_50:: @ 080EA968
+Enemies_PalaceOfWinds_DarkCompassHall:: @ 080EA968
 	enemy_raw subtype=0x42, x=0x38, y=0xe8, paramA=0x1, paramB=0x34520000, paramC=0x200020
 	enemy_raw subtype=0x42, x=0x298, y=0x78, paramA=0x1, paramB=0x34520000, paramC=0x200020
 	enemy_raw subtype=0x3b, x=0x108, y=0x38, paramB=0x34520000, paramC=0x200020
 	enemy_raw subtype=0x3b, x=0x208, y=0x38, paramB=0x34520000, paramC=0x200020
 	entity_list_end
 
-TileEntities_PalaceOfWinds_50:: @ 080EA9B8
+TileEntities_PalaceOfWinds_DarkCompassHall:: @ 080EA9B8
 	tile_entity type=0x3, paramA=0x79, paramB=0x51, paramC=0x218, paramD=0x98
 	tile_entity type=0x2, paramA=0x7a, paramB=0x53, paramC=0x96, paramD=0x1
 	tile_entity type=0x9
 	tile_entity type=0x1, paramA=0x33
 	tile_entity_list_end
 
-Room_PalaceOfWinds_50:: @ 080EA9E0
-	.4byte Entities_PalaceOfWinds_50_0
+Room_PalaceOfWinds_DarkCompassHall:: @ 080EA9E0
+	.4byte Entities_PalaceOfWinds_DarkCompassHall_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_50
-	.4byte TileEntities_PalaceOfWinds_50
+	.4byte Enemies_PalaceOfWinds_DarkCompassHall
+	.4byte TileEntities_PalaceOfWinds_DarkCompassHall
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_50
-	.4byte sub_StateChange_PalaceOfWinds_50
+	.4byte sub_unk3_PalaceOfWinds_DarkCompassHall
+	.4byte sub_StateChange_PalaceOfWinds_DarkCompassHall
 
 Entities_PalaceOfWindsBoss_Main_0:: @ 080EAA00
 	object_raw subtype=0xba
