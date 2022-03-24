@@ -9,16 +9,23 @@ typedef struct {
     u8 height;
 } HitboxChange;
 
-extern void (*const MoblinSpear_Functions[])(Entity*);
-extern void (*const MoblinSpear_Actions[])(Entity*);
-
-extern const HitboxChange gUnk_0812966C[];
+void MoblinSpear_OnTick(Entity* this);
+void sub_080A832C(Entity* this);
+void MoblinSpear_Init(Entity* this);
+void MoblinSpear_Action1(Entity* this);
 
 void MoblinSpear(Entity* this) {
+    static void (*const MoblinSpear_Functions[])(Entity*) = {
+        MoblinSpear_OnTick, sub_080A832C, DeleteEntity, DeleteEntity, DeleteEntity,
+    };
     MoblinSpear_Functions[GetNextFunction(this)](this);
 }
 
 void MoblinSpear_OnTick(Entity* this) {
+    static void (*const MoblinSpear_Actions[])(Entity*) = {
+        MoblinSpear_Init,
+        MoblinSpear_Action1,
+    };
     MoblinSpear_Actions[this->action](this);
 }
 
@@ -50,6 +57,16 @@ void MoblinSpear_Init(Entity* this) {
 }
 
 void MoblinSpear_Action1(Entity* this) {
+    static const HitboxChange gUnk_0812966C[] = {
+        { 6, 11, 2, 4 },   { -12, 2, 3, 3 },   { -13, -15, 1, 2 }, { 5, 12, 1, 3 },   { 7, 10, 1, 2 },
+        { 8, 9, 1, 3 },    { 7, 10, 1, 2 },    { -22, 1, 4, 2 },   { -12, 1, 3, 2 },  { -6, 2, 4, 2 },
+        { -12, 1, 3, 2 },  { -1, -19, 1, 1 },  { -4, -19, 1, 1 },  { -4, -20, 1, 1 }, { -4, -19, 1, 1 },
+        { 6, 9, 1, 2 },    { 6, 10, 1, 2 },    { 6, 9, 1, 2 },     { 6, 10, 1, 2 },   { -29, -11, 3, 2 },
+        { -29, -9, 3, 2 }, { -29, -11, 3, 2 }, { -29, -9, 3, 2 },  { -5, -25, 1, 2 }, { -5, -24, 1, 2 },
+        { -5, -25, 1, 2 }, { -5, -24, 1, 2 },  { 7, 12, 1, 2 },    { 7, 11, 1, 2 },   { -12, 3, 3, 1 },
+        { -12, 2, 3, 1 },  { -13, -16, 1, 2 }, { -13, -15, 1, 2 },
+    };
+
     u8 frames;
     Entity* parent;
     u32 tmp;
@@ -86,20 +103,3 @@ void MoblinSpear_Action1(Entity* this) {
         }
     }
 }
-
-void (*const MoblinSpear_Functions[])(Entity*) = {
-    MoblinSpear_OnTick, sub_080A832C, DeleteEntity, DeleteEntity, DeleteEntity,
-};
-void (*const MoblinSpear_Actions[])(Entity*) = {
-    MoblinSpear_Init,
-    MoblinSpear_Action1,
-};
-
-const HitboxChange gUnk_0812966C[] = {
-    { 6, 11, 2, 4 },   { -12, 2, 3, 3 },   { -13, -15, 1, 2 }, { 5, 12, 1, 3 },    { 7, 10, 1, 2 },   { 8, 9, 1, 3 },
-    { 7, 10, 1, 2 },   { -22, 1, 4, 2 },   { -12, 1, 3, 2 },   { -6, 2, 4, 2 },    { -12, 1, 3, 2 },  { -1, -19, 1, 1 },
-    { -4, -19, 1, 1 }, { -4, -20, 1, 1 },  { -4, -19, 1, 1 },  { 6, 9, 1, 2 },     { 6, 10, 1, 2 },   { 6, 9, 1, 2 },
-    { 6, 10, 1, 2 },   { -29, -11, 3, 2 }, { -29, -9, 3, 2 },  { -29, -11, 3, 2 }, { -29, -9, 3, 2 }, { -5, -25, 1, 2 },
-    { -5, -24, 1, 2 }, { -5, -25, 1, 2 },  { -5, -24, 1, 2 },  { 7, 12, 1, 2 },    { 7, 11, 1, 2 },   { -12, 3, 3, 1 },
-    { -12, 2, 3, 1 },  { -13, -16, 1, 2 }, { -13, -15, 1, 2 },
-};
