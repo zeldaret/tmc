@@ -1,4 +1,5 @@
 #define NENT_DEPRECATED
+#include "collision.h"
 #include "entity.h"
 #include "asm.h"
 #include "functions.h"
@@ -6,14 +7,7 @@
 #include "projectile.h"
 #include "projectile/winder.h"
 
-// #define WINDER_NUM_SEGMENTS 8
-
 extern s16 gUnk_080B4488[];
-
-// typedef struct {
-//     Entity base;
-//     u16 positions[2 * WINDER_NUM_SEGMENTS];
-// } WinderEntity;
 
 typedef enum {
     /* 0 */ WINDER_TYPE_HEAD,
@@ -24,7 +18,7 @@ void Winder_Init(WinderEntity* this);
 void sub_080AB950(WinderEntity* this);
 
 void Winder_SetPositions(WinderEntity*);
-bool32 sub_080AB9FC(WinderEntity* this, u32 dir);
+bool32 Winder_CheckNextTileCollision(WinderEntity* this, u32 dir);
 
 void Winder(Entity* thisx) {
     static void (*const Winder_Actions[])(WinderEntity*) = {
@@ -72,7 +66,7 @@ void sub_080AB950(WinderEntity* this) {
         { DirectionEast, DirectionWest },
         { DirectionNorth, DirectionSouth },
     };
-    static const u16 gUnk_0812A6C4[] = { 0x000E, 0xE000, 0x00E0, 0x0E00 };
+    static const u16 collisionChecks[] = { COL_NORTH_ANY, COL_EAST_ANY, COL_SOUTH_ANY, COL_WEST_ANY };
 
     if (super->type == 0) {
         u8 dir;
@@ -80,7 +74,7 @@ void sub_080AB950(WinderEntity* this) {
         ProcessMovement0(super);
 
         dir = super->direction >> 3;
-        if ((gUnk_0812A6C4[dir] & super->collisions) || sub_080AB9FC(this, super->direction)) {
+        if ((collisionChecks[dir] & super->collisions) || Winder_CheckNextTileCollision(this, super->direction)) {
             super->direction = nextDirections[dir][Random() & 0x1];
         }
     } else {
@@ -117,21 +111,21 @@ void Winder_SetPositions(WinderEntity* this) {
     this->positions[2 * (WINDER_NUM_SEGMENTS - 1) + 1] = super->y.HALF.HI;
 }
 
-bool32 sub_080AB9FC(WinderEntity* this, u32 dir) {
+bool32 Winder_CheckNextTileCollision(WinderEntity* this, u32 dir) {
+    u32 tile;
     u32 val;
     LayerStruct* layer = GetLayerByIndex(super->collisionLayer);
-    u32 tmp;
+    u32 collisionData;
 
-    val = (((super->x.HALF.HI - gRoomControls.origin_x) >> 4) & 0x3F) |
-          ((((super->y.HALF.HI - gRoomControls.origin_y) >> 4) & 0x3F) << 6);
-    val += gUnk_080B4488[dir >> 3];
-    tmp = layer->collisionData[val];
+    tile = TILE(super->x.HALF.HI, super->y.HALF.HI);
+    tile += gUnk_080B4488[dir >> 3];
+    collisionData = layer->collisionData[tile];
 
-    if (tmp <= 0x1F) {
+    if (collisionData <= 0x1F) {
         return FALSE;
     }
 
-    if (tmp > 0x3F) {
+    if (collisionData > 0x3F) {
         return FALSE;
     }
 
