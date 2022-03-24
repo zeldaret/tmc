@@ -995,7 +995,7 @@ SECTIONS {
         data/const/enemy/rope.o(.rodata);
         data/animations/enemy/rope.o(.rodata);
         data/const/enemy/smallPesto.o(.rodata);
-        data/const/enemy/acroBandits.o(.rodata);
+        src/enemy/acroBandits.o(.rodata);
         data/animations/enemy/acroBandits.o(.rodata);
         data/const/enemy/keaton.o(.rodata);
         data/animations/enemy/keaton.o(.rodata);
