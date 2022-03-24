@@ -1,7 +1,6 @@
 #include "main.h"
 #include "assets/aif.h"
 #include "assets/animation.h"
-#include "assets/exitlist.h"
 #include "assets/frameobjlists.h"
 #include "assets/gfx.h"
 #include "assets/midi.h"
@@ -267,8 +266,6 @@ std::unique_ptr<BaseAsset> getAssetHandlerByType(const std::filesystem::path& pa
         assetHandler = std::make_unique<AnimationAsset>(path, start, size, asset);
     } else if (type == "sprite_frame") {
         assetHandler = std::make_unique<SpriteFrameAsset>(path, start, size, asset);
-    } else if (type == "exit_list") {
-        assetHandler = std::make_unique<ExitListAsset>(path, start, size, asset);
     } else if (type == "frame_obj_lists") {
         assetHandler = std::make_unique<FrameObjListsAsset>(path, start, size, asset);
     } else if (type == "midi") {

@@ -311,25 +311,25 @@ gAreaTileset_MelarisMine_0:: @ 08101430
 gAreaTilesets_MelarisMine:: @ 08101460
 	.4byte gAreaTileset_MelarisMine_0
 
-gAreaTileset_MinishPaths1_0:: @ 08101464
-	tileset_tiles offset_gAreaTileset_MinishPaths1_2_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_MinishPaths1_2_1, 0x6004000, 0x4000, 1
+gAreaTileset_MinishPaths_0:: @ 08101464
+	tileset_tiles offset_gAreaTileset_MinishPaths_2_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MinishPaths_2_1, 0x6004000, 0x4000, 1
 	tileset_palette_set 18, 1
 
-gAreaTileset_MinishPaths1_1:: @ 08101488
-	tileset_tiles offset_gAreaTileset_MinishPaths1_2_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_MinishPaths1_2_1, 0x6004000, 0x4000, 1
+gAreaTileset_MinishPaths_1:: @ 08101488
+	tileset_tiles offset_gAreaTileset_MinishPaths_2_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MinishPaths_2_1, 0x6004000, 0x4000, 1
 	tileset_palette_set 63, 1
 
-gAreaTileset_MinishPaths1_2:: @ 081014AC
-	tileset_tiles offset_gAreaTileset_MinishPaths1_2_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_MinishPaths1_2_1, 0x6004000, 0x4000, 1
+gAreaTileset_MinishPaths_2:: @ 081014AC
+	tileset_tiles offset_gAreaTileset_MinishPaths_2_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_MinishPaths_2_1, 0x6004000, 0x4000, 1
 	tileset_palette_set 64, 1
 
-gAreaTilesets_MinishPaths1:: @ 081014D0
-	.4byte gAreaTileset_MinishPaths1_0
-	.4byte gAreaTileset_MinishPaths1_1
-	.4byte gAreaTileset_MinishPaths1_2
+gAreaTilesets_MinishPaths:: @ 081014D0
+	.4byte gAreaTileset_MinishPaths_0
+	.4byte gAreaTileset_MinishPaths_1
+	.4byte gAreaTileset_MinishPaths_2
 
 gAreaTileset_CrenelMinishPaths_0:: @ 081014DC
 	tileset_tiles offset_gAreaTileset_CrenelMinishPaths_0_0, 0x6000000, 0x4000, 1
@@ -857,15 +857,15 @@ gAreaTileset_RoyalCrypt_0:: @ 081020E0
 gAreaTilesets_RoyalCrypt:: @ 08102110
 	.4byte gAreaTileset_RoyalCrypt_0
 
-gAreaTileset_PalaceOfWinds_0:: @ 08102114
-	tileset_tiles offset_gAreaTileset_PalaceOfWinds_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_PalaceOfWinds_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_PalaceOfWinds_0_2, 0x6008000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_PalaceOfWinds_0_3, 0x600F000, 0x800, 1
+gAreaTileset_PalaceOfWinds_GyorgTornado:: @ 08102114
+	tileset_tiles offset_gAreaTileset_PalaceOfWinds_GyorgTornado_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_PalaceOfWinds_GyorgTornado_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_PalaceOfWinds_GyorgTornado_2, 0x6008000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_PalaceOfWinds_GyorgTornado_3, 0x600F000, 0x800, 1
 	tileset_palette_set 56, 1
 
 gAreaTilesets_PalaceOfWinds:: @ 08102150
-	.4byte gAreaTileset_PalaceOfWinds_0
+	.4byte gAreaTileset_PalaceOfWinds_GyorgTornado
 
 gAreaTileset_PalaceOfWindsBoss_0:: @ 08102154
 	tileset_tiles offset_gAreaTileset_PalaceOfWindsBoss_0_0, 0x6000000, 0x4000, 1
@@ -903,14 +903,14 @@ gAreaTileset_SanctuaryEntrance_0:: @ 081021F0
 gAreaTilesets_SanctuaryEntrance:: @ 08102220
 	.4byte gAreaTileset_SanctuaryEntrance_0
 
-gAreaTileset_DarkHyruleCastle_0:: @ 08102224
-	tileset_tiles offset_gAreaTileset_DarkHyruleCastle_0_0, 0x6000000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_DarkHyruleCastle_0_1, 0x6004000, 0x4000, 1
-	tileset_tiles offset_gAreaTileset_DarkHyruleCastle_0_2, 0x6008000, 0x4000, 1
+gAreaTileset_DarkHyruleCastle_1FEntrance:: @ 08102224
+	tileset_tiles offset_gAreaTileset_DarkHyruleCastle_1FEntrance_0, 0x6000000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_DarkHyruleCastle_1FEntrance_1, 0x6004000, 0x4000, 1
+	tileset_tiles offset_gAreaTileset_DarkHyruleCastle_1FEntrance_2, 0x6008000, 0x4000, 1
 	tileset_palette_set 59, 1
 
 gAreaTilesets_DarkHyruleCastle:: @ 08102254
-	.4byte gAreaTileset_DarkHyruleCastle_0
+	.4byte gAreaTileset_DarkHyruleCastle_1FEntrance
 
 gAreaTileset_DarkHyruleCastleOutside_0:: @ 08102258
 	tileset_tiles offset_gAreaTileset_DarkHyruleCastleOutside_0_0, 0x6000000, 0x4000, 1
@@ -1021,7 +1021,7 @@ gAreaTilesets:: @ 0810246C
 	.4byte gAreaTilesets_MinishWoods             @ 0xE
 	.4byte gAreaTilesets_HyruleDigCaves          @ 0xF
 	.4byte gAreaTilesets_MelarisMine             @ 0x10
-	.4byte gAreaTilesets_MinishPaths1            @ 0x11
+	.4byte gAreaTilesets_MinishPaths            @ 0x11
 	.4byte gAreaTilesets_CrenelMinishPaths       @ 0x12
 	.4byte gAreaTilesets_DigCaves1               @ 0x13
 	.4byte gAreaTilesets_CrenelDigCave           @ 0x14

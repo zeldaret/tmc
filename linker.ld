@@ -1655,7 +1655,7 @@ SECTIONS {
         data/gfx/fixed_type_gfx.o(.rodata);
         data/const/movement.o(.rodata);
         src/movement.o(.rodata);
-        data/map/exit_lists.o(.rodata);
+        src/data/transitions.o(.rodata);
         data/gfx_0813AA54.o(.rodata);
         data/gfx/sprite_gfx.o(.rodata);
         data/gfx/frame_obj_lists.o(.rodata);

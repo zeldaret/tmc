@@ -265,10 +265,10 @@ gAreaMetatiles_RoyalCrypt:: @ 08102E74
 	metatile_types_top offset_gAreaMetatiles_RoyalCrypt_3, 0xD84, 1, 1
 
 gAreaMetatiles_PalaceOfWinds:: @ 08102EA4
-	metatiles_bottom offset_gAreaMetatiles_PalaceOfWinds_0, 0x3620, 1
-	metatiles_top offset_gAreaMetatiles_PalaceOfWinds_1, 0x3620, 1
-	metatile_types_bottom offset_gAreaMetatiles_PalaceOfWinds_2, 0xD88, 1
-	metatile_types_top offset_gAreaMetatiles_PalaceOfWinds_3, 0xD88, 1, 1
+	metatiles_bottom offset_gAreaMetatiles_PalaceOfWinds_GyorgTornado, 0x3620, 1
+	metatiles_top offset_gAreaMetatiles_PalaceOfWinds_BossKey, 0x3620, 1
+	metatile_types_bottom offset_gAreaMetatiles_PalaceOfWinds_BeforeBallAndChainSoldiers, 0xD88, 1
+	metatile_types_top offset_gAreaMetatiles_PalaceOfWinds_GyorgBossDoor, 0xD88, 1, 1
 
 gAreaMetatiles_PalaceOfWindsBoss:: @ 08102ED4
 	metatiles_top offset_gAreaMetatiles_PalaceOfWindsBoss_0, 0x108, 1
@@ -293,10 +293,10 @@ gAreaMetatiles_SanctuaryEntrance:: @ 08102F4C
 	metatile_types_top offset_gAreaMetatiles_SanctuaryEntrance_3, 0x3FC, 1, 1
 
 gAreaMetatiles_DarkHyruleCastle:: @ 08102F7C
-	metatiles_bottom offset_gAreaMetatiles_DarkHyruleCastle_0, 0x3FD8, 1
-	metatiles_top offset_gAreaMetatiles_DarkHyruleCastle_1, 0x37C0, 1
-	metatile_types_bottom offset_gAreaMetatiles_DarkHyruleCastle_2, 0xFF6, 1
-	metatile_types_top offset_gAreaMetatiles_DarkHyruleCastle_3, 0xDF0, 1, 1
+	metatiles_bottom offset_gAreaMetatiles_DarkHyruleCastle_1FEntrance, 0x3FD8, 1
+	metatiles_top offset_gAreaMetatiles_DarkHyruleCastle_3FTopLeftTower, 0x37C0, 1
+	metatile_types_bottom offset_gAreaMetatiles_DarkHyruleCastle_3FTopRightTower, 0xFF6, 1
+	metatile_types_top offset_gAreaMetatiles_DarkHyruleCastle_3FBottomLeftTower, 0xDF0, 1, 1
 
 gAreaMetatiles_DarkHyruleCastleOutside:: @ 08102FAC
 	metatiles_bottom offset_gAreaMetatiles_DarkHyruleCastleOutside_0, 0x3340, 1

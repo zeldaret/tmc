@@ -177,69 +177,69 @@ void sub_unk1_CrenelMinishPaths_MelarisMine(void) {
     sub_080580B0(34);
 }
 
-u32 sub_unk3_MinishPaths1_ToMinishVillage(void) {
+u32 sub_unk3_MinishPaths_ToMinishVillage(void) {
     return 1;
 }
 
-void sub_StateChange_MinishPaths1_ToMinishVillage(void) {
+void sub_StateChange_MinishPaths_ToMinishVillage(void) {
     sub_080575C8(30);
 }
 
-void sub_unk1_MinishPaths1_ToMinishVillage(void) {
+void sub_unk1_MinishPaths_ToMinishVillage(void) {
     sub_080575C8(30);
 }
 
-u32 sub_unk3_MinishPaths1_CastorWilds(void) {
+u32 sub_unk3_MinishPaths_CastorWilds(void) {
     return 1;
 }
 
-void sub_StateChange_MinishPaths1_CastorWilds(void) {
+void sub_StateChange_MinishPaths_CastorWilds(void) {
     sub_080575C8(33);
 }
 
-void sub_unk1_MinishPaths1_CastorWilds(void) {
+void sub_unk1_MinishPaths_CastorWilds(void) {
     sub_080575C8(33);
 }
 
-u32 sub_unk3_MinishPaths1_HyruleTown(void) {
+u32 sub_unk3_MinishPaths_HyruleTown(void) {
     return 1;
 }
 
-void sub_StateChange_MinishPaths1_HyruleTown(void) {
+void sub_StateChange_MinishPaths_HyruleTown(void) {
     sub_080575C8(31);
 }
 
-void sub_unk1_MinishPaths1_HyruleTown(void) {
+void sub_unk1_MinishPaths_HyruleTown(void) {
     sub_080575C8(31);
 }
 
-u32 sub_unk3_MinishPaths1_LonLonRanch(void) {
+u32 sub_unk3_MinishPaths_LonLonRanch(void) {
     return 1;
 }
 
-void sub_StateChange_MinishPaths1_LonLonRanch(void) {
+void sub_StateChange_MinishPaths_LonLonRanch(void) {
     sub_080575C8(32);
 }
 
-void sub_unk1_MinishPaths1_LonLonRanch(void) {
+void sub_unk1_MinishPaths_LonLonRanch(void) {
     sub_080575C8(32);
 }
 
-u32 sub_unk3_MinishPaths1_MayorsCabin(void) {
+u32 sub_unk3_MinishPaths_MayorsCabin(void) {
     return 1;
 }
 
-extern EntityData Entities_MinishPaths1_MayorsCabin_gUnk_080D6138;
+extern EntityData Entities_MinishPaths_MayorsCabin_gUnk_080D6138;
 
-void sub_StateChange_MinishPaths1_MayorsCabin(void) {
+void sub_StateChange_MinishPaths_MayorsCabin(void) {
 
     sub_080575C8(0x20);
 
     if (gPlayerEntity.y.HALF.HI - gRoomControls.origin_y > 0x40)
-        LoadRoomEntityList(&Entities_MinishPaths1_MayorsCabin_gUnk_080D6138);
+        LoadRoomEntityList(&Entities_MinishPaths_MayorsCabin_gUnk_080D6138);
 }
 
-void sub_unk1_MinishPaths1_MayorsCabin(void) {
+void sub_unk1_MinishPaths_MayorsCabin(void) {
     sub_080575C8(32);
 }
 
@@ -921,11 +921,11 @@ u32 sub_unk3_Dojos_ToScarblade(void) {
 void sub_StateChange_Dojos_ToScarblade(void) {
 }
 
-u32 sub_unk3_GoronCave_StairsToCave(void) {
+u32 sub_unk3_GoronCave_Stairs(void) {
     return 1;
 }
 
-void sub_StateChange_GoronCave_StairsToCave(void) {
+void sub_StateChange_GoronCave_Stairs(void) {
 }
 
 u32 sub_unk3_GoronCave_Main(void) {
@@ -1515,11 +1515,11 @@ void sub_StateChange_MinishHouseInteriors_HyruleFieldSouthwest(void) {
     sub_0801AFE4();
 }
 
-u32 sub_unk3_MinishHouseInteriors_HyruleFieldOutsideLinksHouse(void) {
+u32 sub_unk3_MinishHouseInteriors_SouthHyruleField(void) {
     return 1;
 }
 
-void sub_StateChange_MinishHouseInteriors_HyruleFieldOutsideLinksHouse(void) {
+void sub_StateChange_MinishHouseInteriors_SouthHyruleField(void) {
     sub_0801AFE4();
 }
 
@@ -1891,13 +1891,13 @@ u32 sub_unk3_MinishCracks_5(void) {
 void sub_StateChange_MinishCracks_5(void) {
 }
 
-u32 sub_unk3_MinishCracks_CastleWildsBowHole(void) {
+u32 sub_unk3_MinishCracks_CastorWildsBow(void) {
     return 1;
 }
 
 extern EntityData gUnk_080DCB10;
 
-void sub_StateChange_MinishCracks_CastleWildsBowHole(void) {
+void sub_StateChange_MinishCracks_CastorWildsBow(void) {
     if (!GetInventoryValue(ITEM_BOW)) {
         LoadRoomEntityList(&gUnk_080DCB10);
     }
@@ -3174,18 +3174,18 @@ void sub_StateChange_RoyalCrypt_Entrance(void) {
     }
 }
 
-u32 sub_unk3_PalaceOfWinds_0(void) {
+u32 sub_unk3_PalaceOfWinds_GyorgTornado(void) {
     return 1;
 }
 
-extern EntityData gUnk_additional_9_PalaceOfWinds_0;
+extern EntityData gUnk_additional_9_PalaceOfWinds_GyorgTornado;
 extern EntityData gUnk_080E72C4;
-extern EntityData gUnk_additional_8_PalaceOfWinds_0;
+extern EntityData gUnk_additional_8_PalaceOfWinds_GyorgTornado;
 
-void sub_StateChange_PalaceOfWinds_0(void) {
+void sub_StateChange_PalaceOfWinds_GyorgTornado(void) {
     Manager19_Main(NULL);
     if (CheckGlobalFlag(LV5_CLEAR)) {
-        LoadRoomEntityList(&gUnk_additional_9_PalaceOfWinds_0);
+        LoadRoomEntityList(&gUnk_additional_9_PalaceOfWinds_GyorgTornado);
     }
     if (!CheckLocalFlag(0x7b)) {
         LoadRoomEntityList(&gUnk_080E72C4);
@@ -3193,402 +3193,402 @@ void sub_StateChange_PalaceOfWinds_0(void) {
         SetGlobalFlag(LV5_CLEAR);
         if (!GetInventoryValue(ITEM_WIND_ELEMENT)) {
             SetPlayerControl(3);
-            LoadRoomEntityList(&gUnk_additional_8_PalaceOfWinds_0);
+            LoadRoomEntityList(&gUnk_additional_8_PalaceOfWinds_GyorgTornado);
             gArea.bgm = gArea.queued_bgm;
             SoundReq(SONG_STOP_BGM);
         }
     }
 }
 
-u32 sub_unk3_PalaceOfWinds_1(void) {
+u32 sub_unk3_PalaceOfWinds_BossKey(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_1(void) {
+void sub_StateChange_PalaceOfWinds_BossKey(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_2(void) {
+u32 sub_unk3_PalaceOfWinds_BeforeBallAndChainSoldiers(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_2(void) {
+void sub_StateChange_PalaceOfWinds_BeforeBallAndChainSoldiers(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_3(void) {
+u32 sub_unk3_PalaceOfWinds_GyorgBossDoor(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_3(void) {
+void sub_StateChange_PalaceOfWinds_GyorgBossDoor(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_4(void) {
+u32 sub_unk3_PalaceOfWinds_EastChestFromGyorgBossDoor(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_4(void) {
+void sub_StateChange_PalaceOfWinds_EastChestFromGyorgBossDoor(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_5(void) {
+u32 sub_unk3_PalaceOfWinds_MoblinAndWizzrobeFight(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_5(void) {
+void sub_StateChange_PalaceOfWinds_MoblinAndWizzrobeFight(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_6(void) {
+u32 sub_unk3_PalaceOfWinds_FourButtonStalfos(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_6(void) {
+void sub_StateChange_PalaceOfWinds_FourButtonStalfos(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_7(void) {
+u32 sub_unk3_PalaceOfWinds_FanAndKeyToBossKey(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_7(void) {
+void sub_StateChange_PalaceOfWinds_FanAndKeyToBossKey(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_8(void) {
+u32 sub_unk3_PalaceOfWinds_BallAndChainSoldiers(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_8(void) {
+void sub_StateChange_PalaceOfWinds_BallAndChainSoldiers(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_9(void) {
+u32 sub_unk3_PalaceOfWinds_BombarossaPath(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_9(void) {
+void sub_StateChange_PalaceOfWinds_BombarossaPath(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_10(void) {
+u32 sub_unk3_PalaceOfWinds_HoleToDarknut(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_10(void) {
+void sub_StateChange_PalaceOfWinds_HoleToDarknut(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_11(void) {
+u32 sub_unk3_PalaceOfWinds_ToBombarossaPath(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_11(void) {
+void sub_StateChange_PalaceOfWinds_ToBombarossaPath(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_12(void) {
+u32 sub_unk3_PalaceOfWinds_DarknutMiniboss(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_12(void) {
+void sub_StateChange_PalaceOfWinds_DarknutMiniboss(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_13(void) {
+u32 sub_unk3_PalaceOfWinds_BombWallInside(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_13(void) {
+void sub_StateChange_PalaceOfWinds_BombWallInside(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_14(void) {
+u32 sub_unk3_PalaceOfWinds_BombWallOutside(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_14(void) {
+void sub_StateChange_PalaceOfWinds_BombWallOutside(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_15(void) {
+u32 sub_unk3_PalaceOfWinds_CloudJumps(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_15(void) {
+void sub_StateChange_PalaceOfWinds_CloudJumps(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_16(void) {
+u32 sub_unk3_PalaceOfWinds_BlockMazeToBossDoor(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_16(void) {
+void sub_StateChange_PalaceOfWinds_BlockMazeToBossDoor(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_17(void) {
+u32 sub_unk3_PalaceOfWinds_CrackedFloorLakitu(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_17(void) {
+void sub_StateChange_PalaceOfWinds_CrackedFloorLakitu(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_18(void) {
+u32 sub_unk3_PalaceOfWinds_HeartPieceBridge(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_18(void) {
+void sub_StateChange_PalaceOfWinds_HeartPieceBridge(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_19(void) {
+u32 sub_unk3_PalaceOfWinds_FanBridge(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_19(void) {
+void sub_StateChange_PalaceOfWinds_FanBridge(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_20(void) {
+u32 sub_unk3_PalaceOfWinds_ToFanBridge(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_20(void) {
+void sub_StateChange_PalaceOfWinds_ToFanBridge(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_21(void) {
+u32 sub_unk3_PalaceOfWinds_RedWarpHall(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_21(void) {
+void sub_StateChange_PalaceOfWinds_RedWarpHall(void) {
 }
 
-u32 sub_unk3_PalaceOfWinds_22(void) {
+u32 sub_unk3_PalaceOfWinds_PlatformCloneRide(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_22(void) {
+void sub_StateChange_PalaceOfWinds_PlatformCloneRide(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_23(void) {
+u32 sub_unk3_PalaceOfWinds_PitCornerAfterKey(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_23(void) {
+void sub_StateChange_PalaceOfWinds_PitCornerAfterKey(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_24(void) {
+u32 sub_unk3_PalaceOfWinds_CrowRide(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_24(void) {
+void sub_StateChange_PalaceOfWinds_CrowRide(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_25(void) {
+u32 sub_unk3_PalaceOfWinds_GratePlatformRide(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_25(void) {
+void sub_StateChange_PalaceOfWinds_GratePlatformRide(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_26(void) {
+u32 sub_unk3_PalaceOfWinds_PotPush(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_26(void) {
+void sub_StateChange_PalaceOfWinds_PotPush(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_27(void) {
+u32 sub_unk3_PalaceOfWinds_FloormasterLever(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_27(void) {
+void sub_StateChange_PalaceOfWinds_FloormasterLever(void) {
 }
 
-u32 sub_unk3_PalaceOfWinds_28(void) {
+u32 sub_unk3_PalaceOfWinds_Map(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_28(void) {
+void sub_StateChange_PalaceOfWinds_Map(void) {
 }
 
-u32 sub_unk3_PalaceOfWinds_29(void) {
+u32 sub_unk3_PalaceOfWinds_CornerToMap(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_29(void) {
+void sub_StateChange_PalaceOfWinds_CornerToMap(void) {
 }
 
-u32 sub_unk3_PalaceOfWinds_30(void) {
+u32 sub_unk3_PalaceOfWinds_StairsAfterFloormaster(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_30(void) {
+void sub_StateChange_PalaceOfWinds_StairsAfterFloormaster(void) {
 }
 
-u32 sub_unk3_PalaceOfWinds_31(void) {
+u32 sub_unk3_PalaceOfWinds_HoleToKinstoneWizzrobe(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_31(void) {
+void sub_StateChange_PalaceOfWinds_HoleToKinstoneWizzrobe(void) {
 }
 
-u32 sub_unk3_PalaceOfWinds_32(void) {
+u32 sub_unk3_PalaceOfWinds_KeyArrowButton(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_32(void) {
+void sub_StateChange_PalaceOfWinds_KeyArrowButton(void) {
 }
 
-u32 sub_unk3_PalaceOfWinds_33(void) {
+u32 sub_unk3_PalaceOfWinds_GratesTo3F(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_33(void) {
+void sub_StateChange_PalaceOfWinds_GratesTo3F(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_34(void) {
+u32 sub_unk3_PalaceOfWinds_SpinyFight(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_34(void) {
+void sub_StateChange_PalaceOfWinds_SpinyFight(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_35(void) {
+u32 sub_unk3_PalaceOfWinds_PeahatSwitch(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_35(void) {
+void sub_StateChange_PalaceOfWinds_PeahatSwitch(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_36(void) {
+u32 sub_unk3_PalaceOfWinds_WhirlwindBombarossa(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_36(void) {
+void sub_StateChange_PalaceOfWinds_WhirlwindBombarossa(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_37(void) {
+u32 sub_unk3_PalaceOfWinds_DoorToStalfosFirebar(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_37(void) {
+void sub_StateChange_PalaceOfWinds_DoorToStalfosFirebar(void) {
 }
 
-u32 sub_unk3_PalaceOfWinds_38(void) {
+u32 sub_unk3_PalaceOfWinds_StalfosFireborHole(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_38(void) {
+void sub_StateChange_PalaceOfWinds_StalfosFireborHole(void) {
 }
 
-u32 sub_unk3_PalaceOfWinds_39(void) {
+u32 sub_unk3_PalaceOfWinds_ShortcutDoorButtons(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_39(void) {
+void sub_StateChange_PalaceOfWinds_ShortcutDoorButtons(void) {
 }
 
-u32 sub_unk3_PalaceOfWinds_40(void) {
+u32 sub_unk3_PalaceOfWinds_ToPeahatSwitch(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_40(void) {
+void sub_StateChange_PalaceOfWinds_ToPeahatSwitch(void) {
 }
 
-u32 sub_unk3_PalaceOfWinds_41(void) {
+u32 sub_unk3_PalaceOfWinds_KinstoneWizzrobeFight(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_41(void) {
+void sub_StateChange_PalaceOfWinds_KinstoneWizzrobeFight(void) {
 }
 
-u32 sub_unk3_PalaceOfWinds_42(void) {
+u32 sub_unk3_PalaceOfWinds_GibdoStairs(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_42(void) {
+void sub_StateChange_PalaceOfWinds_GibdoStairs(void) {
 }
 
-u32 sub_unk3_PalaceOfWinds_43(void) {
+u32 sub_unk3_PalaceOfWinds_SpikeBarSmallKey(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_43(void) {
+void sub_StateChange_PalaceOfWinds_SpikeBarSmallKey(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_44(void) {
+u32 sub_unk3_PalaceOfWinds_RocCape(void) {
     return 1;
 }
 
 extern EntityData gUnk_080EA09C;
 
-void sub_StateChange_PalaceOfWinds_44(void) {
+void sub_StateChange_PalaceOfWinds_RocCape(void) {
     Manager19_Main(NULL);
     if (!CheckLocalFlag(0x70)) {
         LoadRoomEntityList(&gUnk_080EA09C);
     }
 }
 
-u32 sub_unk3_PalaceOfWinds_45(void) {
+u32 sub_unk3_PalaceOfWinds_FireBarGrates(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_45(void) {
+void sub_StateChange_PalaceOfWinds_FireBarGrates(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_46(void) {
+u32 sub_unk3_PalaceOfWinds_PlatformRideBombarossas(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_46(void) {
+void sub_StateChange_PalaceOfWinds_PlatformRideBombarossas(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_47(void) {
+u32 sub_unk3_PalaceOfWinds_BridgeAfterDarknut(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_47(void) {
+void sub_StateChange_PalaceOfWinds_BridgeAfterDarknut(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_48(void) {
+u32 sub_unk3_PalaceOfWinds_BridgeSwitchesCloneBlock(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_48(void) {
+void sub_StateChange_PalaceOfWinds_BridgeSwitchesCloneBlock(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_49(void) {
+u32 sub_unk3_PalaceOfWinds_EntranceRoom(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_49(void) {
+void sub_StateChange_PalaceOfWinds_EntranceRoom(void) {
     Manager19_Main(NULL);
 }
 
-u32 sub_unk3_PalaceOfWinds_50(void) {
+u32 sub_unk3_PalaceOfWinds_DarkCompassHall(void) {
     return 1;
 }
 
-void sub_StateChange_PalaceOfWinds_50(void) {
+void sub_StateChange_PalaceOfWinds_DarkCompassHall(void) {
 }
 
 u32 sub_unk3_PalaceOfWindsBoss_Main(void) {
@@ -3779,7 +3779,7 @@ void sub_StateChange_Dojos_ToGrimblade6(void) {
 extern u32 gUnk_080EB604;
 extern u32 gUnk_080EB5D4;
 
-u32 sub_unk3_DarkHyruleCastle_0(void) {
+u32 sub_unk3_DarkHyruleCastle_1FEntrance(void) {
     if (CheckGlobalFlag(ENDING)) {
         gRoomVars.field_0x6c[0] = &gUnk_080EB604;
         gRoomVars.field_0x6c[2] = 0;
@@ -3796,7 +3796,7 @@ u32 sub_unk3_DarkHyruleCastle_0(void) {
     return 1;
 }
 
-void sub_StateChange_DarkHyruleCastle_0(void) {
+void sub_StateChange_DarkHyruleCastle_1FEntrance(void) {
     if (CheckGlobalFlag(ENDING)) {
         gArea.queued_bgm = gArea.bgm;
     }
@@ -3816,42 +3816,42 @@ static void sub_0804D9B0(void) {
     gArea.queued_bgm = gArea.bgm;
 }
 
-u32 sub_unk3_DarkHyruleCastle_1(void) {
+u32 sub_unk3_DarkHyruleCastle_3FTopLeftTower(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToGrimblade7(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_2(void) {
+u32 sub_unk3_DarkHyruleCastle_3FTopRightTower(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToGrimblade8(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_3(void) {
+u32 sub_unk3_DarkHyruleCastle_3FBottomLeftTower(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToGrimblade9(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_4(void) {
+u32 sub_unk3_DarkHyruleCastle_3FBottomRightTower(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToSplitblade0(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_5(void) {
+u32 sub_unk3_DarkHyruleCastle_3FKeatonHallToVaati(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToSplitblade1(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_6(void) {
+u32 sub_unk3_DarkHyruleCastle_3FTripleDarknut(void) {
     if (!CheckLocalFlag(0x77)) {
         gRoomVars.field_0x6c[0] = 0;
         gRoomVars.field_0x6c[2] = 0;
@@ -3863,7 +3863,7 @@ extern EntityData gUnk_080EB9F4;
 extern EntityData gUnk_080EBAA4;
 extern EntityData gUnk_080EBAF4;
 
-void sub_StateChange_DarkHyruleCastle_6(void) {
+void sub_StateChange_DarkHyruleCastle_3FTripleDarknut(void) {
     if (!CheckLocalFlag(0x77)) {
         LoadRoomEntityList(&gUnk_080EB9F4);
     } else {
@@ -3878,173 +3878,173 @@ void sub_StateChange_DarkHyruleCastle_6(void) {
     }
 }
 
-u32 sub_unk3_DarkHyruleCastle_7(void) {
+u32 sub_unk3_DarkHyruleCastle_2FTopLeftTower(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToSplitblade2(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_8(void) {
+u32 sub_unk3_DarkHyruleCastle_2FTopLeftCorner(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToSplitblade3(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_9(void) {
+u32 sub_unk3_DarkHyruleCastle_2FBossKey(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToSplitblade4(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_10(void) {
+u32 sub_unk3_DarkHyruleCastle_2FBlueWarp(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToSplitblade5(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_11(void) {
+u32 sub_unk3_DarkHyruleCastle_2FTopRightCornerGhini(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToSplitblade6(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_12(void) {
+u32 sub_unk3_DarkHyruleCastle_2FTopRightCornerTorches(void) {
     return 1;
 }
 void sub_StateChange_Dojos_ToSplitblade7(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_13(void) {
+u32 sub_unk3_DarkHyruleCastle_2FTopRightTower(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToSplitblade8(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_14(void) {
+u32 sub_unk3_DarkHyruleCastle_2FTopLeftDarknut(void) {
     return 1;
 }
 
 extern EntityData gUnk_080EC2CC;
 
-void sub_StateChange_DarkHyruleCastle_14(void) {
+void sub_StateChange_DarkHyruleCastle_2FTopLeftDarknut(void) {
     if (CheckLocalFlag(0x86) && !CheckLocalFlag(0x4c)) {
         LoadRoomEntityList(&gUnk_080EC2CC);
     }
 }
 
-u32 sub_unk3_DarkHyruleCastle_15(void) {
+u32 sub_unk3_DarkHyruleCastle_2FSparks(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToSplitblade9(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_16(void) {
+u32 sub_unk3_DarkHyruleCastle_2FTopRightDarknuts(void) {
     return 1;
 }
 
 extern EntityData gUnk_080EC4E8;
 
-void sub_StateChange_DarkHyruleCastle_16(void) {
+void sub_StateChange_DarkHyruleCastle_2FTopRightDarknuts(void) {
     if (CheckLocalFlag(0x86) && !CheckLocalFlag(0x4d)) {
         LoadRoomEntityList(&gUnk_080EC4E8);
     }
 }
 
-u32 sub_unk3_DarkHyruleCastle_17(void) {
+u32 sub_unk3_DarkHyruleCastle_2FLeft(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToGreatblade0(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_18(void) {
+u32 sub_unk3_DarkHyruleCastle_2FRight(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToGreatblade1(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_19(void) {
+u32 sub_unk3_DarkHyruleCastle_2FBottomLeftDarknuts(void) {
     return 1;
 }
 
 extern EntityData gUnk_080EC820;
 
-void sub_StateChange_DarkHyruleCastle_19(void) {
+void sub_StateChange_DarkHyruleCastle_2FBottomLeftDarknuts(void) {
     if (CheckLocalFlag(0x86) && !CheckLocalFlag(0x53)) {
         LoadRoomEntityList(&gUnk_080EC820);
     }
 }
 
-u32 sub_unk3_DarkHyruleCastle_20(void) {
+u32 sub_unk3_DarkHyruleCastle_2FBossDoor(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToGreatblade2(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_21(void) {
+u32 sub_unk3_DarkHyruleCastle_2FBottomRightDarknut(void) {
     return 1;
 }
 
 extern EntityData gUnk_080ECA60;
 
-void sub_StateChange_DarkHyruleCastle_21(void) {
+void sub_StateChange_DarkHyruleCastle_2FBottomRightDarknut(void) {
     if (CheckLocalFlag(0x86) && !CheckLocalFlag(0x56)) {
         LoadRoomEntityList(&gUnk_080ECA60);
     }
 }
 
-u32 sub_unk3_DarkHyruleCastle_22(void) {
+u32 sub_unk3_DarkHyruleCastle_2FBottomLeftCornerPuzzle(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToGreatblade3(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_23(void) {
+u32 sub_unk3_DarkHyruleCastle_2FEntrance(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToGreatblade4(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_24(void) {
+u32 sub_unk3_DarkHyruleCastle_2FBottomLeftCorner(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToGreatblade5(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_25(void) {
+u32 sub_unk3_DarkHyruleCastle_2FBottomLeftTower(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToGreatblade6(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_26(void) {
+u32 sub_unk3_DarkHyruleCastle_2FBottomLeftGhini(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToGreatblade7(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_27(void) {
+u32 sub_unk3_DarkHyruleCastle_3FTopRightTower7(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToGreatblade8(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_28(void) {
+u32 sub_unk3_DarkHyruleCastle_B1Entrance(void) {
     if (CheckLocalFlag(0x79)) {
         gRoomVars.field_0x6c[2] = 0;
     }
@@ -4053,7 +4053,7 @@ u32 sub_unk3_DarkHyruleCastle_28(void) {
 
 extern EntityData gUnk_080ECFCC;
 
-void sub_StateChange_DarkHyruleCastle_28(void) {
+void sub_StateChange_DarkHyruleCastle_B1Entrance(void) {
     if (CheckLocalFlag(0x79)) {
         sub_0807BB98(0x90, 1, 1, 5);
         LoadRoomEntityList(&gUnk_080ECFCC);
@@ -4061,14 +4061,14 @@ void sub_StateChange_DarkHyruleCastle_28(void) {
     }
 }
 
-u32 sub_unk3_DarkHyruleCastle_29(void) {
+u32 sub_unk3_DarkHyruleCastle_2FBottomRightTower(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToGreatblade9(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_30(void) {
+u32 sub_unk3_DarkHyruleCastle_1FTopLeftTower(void) {
     return 1;
 }
 
@@ -4077,7 +4077,7 @@ void sub_StateChange_Dojos_ToScarblade0(void) {
 
 extern u32 gUnk_080ED1E4;
 
-u32 sub_unk3_DarkHyruleCastle_31(void) {
+u32 sub_unk3_DarkHyruleCastle_1FThroneRoom(void) {
     if (CheckGlobalFlag(ENDING)) {
         gRoomVars.field_0x6c[0] = &gUnk_080ED1E4;
         gRoomVars.field_0x6c[2] = 0;
@@ -4085,160 +4085,160 @@ u32 sub_unk3_DarkHyruleCastle_31(void) {
     return 1;
 }
 
-void sub_StateChange_DarkHyruleCastle_31(void) {
+void sub_StateChange_DarkHyruleCastle_1FThroneRoom(void) {
     if (CheckGlobalFlag(ENDING)) {
         gArea.queued_bgm = gArea.bgm;
     }
 }
 
-u32 sub_unk3_DarkHyruleCastle_32(void) {
+u32 sub_unk3_DarkHyruleCastle_1FCompass(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToScarblade1(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_33(void) {
+u32 sub_unk3_DarkHyruleCastle_1FTopRightTower(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToScarblade2(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_34(void) {
+u32 sub_unk3_DarkHyruleCastle_1FBeforeThrone(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToScarblade3(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_35(void) {
+u32 sub_unk3_DarkHyruleCastle_1FLoopTopLeft(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToScarblade4(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_36(void) {
+u32 sub_unk3_DarkHyruleCastle_1FLoopTop(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToScarblade5(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_37(void) {
+u32 sub_unk3_DarkHyruleCastle_1FLoopTopRight(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToScarblade6(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_38(void) {
+u32 sub_unk3_DarkHyruleCastle_1FLoopLeft(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToScarblade7(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_39(void) {
+u32 sub_unk3_DarkHyruleCastle_1FLoopRight(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToScarblade8(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_40(void) {
+u32 sub_unk3_DarkHyruleCastle_1FLoopBottomLeft(void) {
     return 1;
 }
 
 void sub_StateChange_Dojos_ToScarblade9(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_41(void) {
+u32 sub_unk3_DarkHyruleCastle_1FLoopBottom(void) {
     return 1;
 }
 
-void sub_StateChange_GoronCave_StairsToCave0(void) {
+void sub_StateChange_GoronCave_Stairs0(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_42(void) {
+u32 sub_unk3_DarkHyruleCastle_1FLoopBottomRight(void) {
     return 1;
 }
 
-void sub_StateChange_GoronCave_StairsToCave1(void) {
+void sub_StateChange_GoronCave_Stairs1(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_43(void) {
+u32 sub_unk3_DarkHyruleCastle_1FBottomLeftTower(void) {
     return 1;
 }
 
-void sub_StateChange_GoronCave_StairsToCave2(void) {
+void sub_StateChange_GoronCave_Stairs2(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_44(void) {
+u32 sub_unk3_DarkHyruleCastle_1FBottomRightTower(void) {
     return 1;
 }
 
-void sub_StateChange_GoronCave_StairsToCave3(void) {
+void sub_StateChange_GoronCave_Stairs3(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_45(void) {
+u32 sub_unk3_DarkHyruleCastle_B1BelowThrone(void) {
     return 1;
 }
 
-void sub_StateChange_GoronCave_StairsToCave4(void) {
+void sub_StateChange_GoronCave_Stairs4(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_46(void) {
+u32 sub_unk3_DarkHyruleCastle_B1BelowCompass(void) {
     return 1;
 }
 
-void sub_StateChange_GoronCave_StairsToCave5(void) {
+void sub_StateChange_GoronCave_Stairs5(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_47(void) {
+u32 sub_unk3_DarkHyruleCastle_B1BeforeThrone(void) {
     return 1;
 }
 
-void sub_StateChange_GoronCave_StairsToCave6(void) {
+void sub_StateChange_GoronCave_Stairs6(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_48(void) {
+u32 sub_unk3_DarkHyruleCastle_B1ToPrison(void) {
     return 1;
 }
 
-void sub_StateChange_GoronCave_StairsToCave7(void) {
+void sub_StateChange_GoronCave_Stairs7(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_49(void) {
+u32 sub_unk3_DarkHyruleCastle_B1BombWall(void) {
     return 1;
 }
 
-void sub_StateChange_GoronCave_StairsToCave8(void) {
+void sub_StateChange_GoronCave_Stairs8(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_50(void) {
+u32 sub_unk3_DarkHyruleCastle_B1Keatons(void) {
     return 1;
 }
 
-void sub_StateChange_GoronCave_StairsToCave9(void) {
+void sub_StateChange_GoronCave_Stairs9(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_51(void) {
+u32 sub_unk3_DarkHyruleCastle_B1ToPrisonFirebar(void) {
     return 1;
 }
 
 void sub_StateChange_Ruins_Beanstalk0(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_52(void) {
+u32 sub_unk3_DarkHyruleCastle_B1Cannons(void) {
     return 1;
 }
 
 void sub_StateChange_Ruins_Beanstalk1(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_53(void) {
+u32 sub_unk3_DarkHyruleCastle_B1Left(void) {
     if (CheckLocalFlag(0x79)) {
         gRoomVars.field_0x6c[2] = 0;
         gRoomVars.field_0x6c[0] = 0;
@@ -4248,7 +4248,7 @@ u32 sub_unk3_DarkHyruleCastle_53(void) {
 
 extern EntityData gUnk_080EE314;
 
-void sub_StateChange_DarkHyruleCastle_53(void) {
+void sub_StateChange_DarkHyruleCastle_B1Left(void) {
     if (CheckLocalFlag(0x79)) {
         sub_0807BB98(3, 2, 5, 1);
         LoadRoomEntityList(&gUnk_080EE314);
@@ -4256,14 +4256,14 @@ void sub_StateChange_DarkHyruleCastle_53(void) {
     }
 }
 
-u32 sub_unk3_DarkHyruleCastle_54(void) {
+u32 sub_unk3_DarkHyruleCastle_B1Right(void) {
     return 1;
 }
 
 void sub_StateChange_Ruins_Beanstalk2(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_55(void) {
+u32 sub_unk3_DarkHyruleCastle_B1Map(void) {
     if (CheckLocalFlag(0x79)) {
         gRoomVars.field_0x6c[2] = 0;
     }
@@ -4272,7 +4272,7 @@ u32 sub_unk3_DarkHyruleCastle_55(void) {
 
 extern EntityData gUnk_080EE5DC;
 
-void sub_StateChange_DarkHyruleCastle_55(void) {
+void sub_StateChange_DarkHyruleCastle_B1Map(void) {
     if (CheckLocalFlag(0x79)) {
         sub_0807BB98(0x392, 2, 2, 5);
         LoadRoomEntityList(&gUnk_080EE5DC);
@@ -4280,26 +4280,26 @@ void sub_StateChange_DarkHyruleCastle_55(void) {
     }
 }
 
-u32 sub_unk3_DarkHyruleCastle_56(void) {
+u32 sub_unk3_DarkHyruleCastle_B2ToPrison(void) {
     return 1;
 }
 
 void sub_StateChange_Ruins_Beanstalk3(void) {
 }
 
-u32 sub_unk3_DarkHyruleCastle_57(void) {
+u32 sub_unk3_DarkHyruleCastle_B2Prison(void) {
     return 1;
 }
 
 extern EntityData gUnk_080EE71C;
 
-void sub_StateChange_DarkHyruleCastle_57(void) {
+void sub_StateChange_DarkHyruleCastle_B2Prison(void) {
     if (CheckLocalFlag(1)) {
         LoadRoomEntityList(&gUnk_080EE71C);
     }
 }
 
-u32 sub_unk3_DarkHyruleCastle_58(void) {
+u32 sub_unk3_DarkHyruleCastle_B2Dropdown(void) {
     return 1;
 }
 
@@ -4950,13 +4950,13 @@ void sub_StateChange_HouseInteriors2_Dampe(void) {
     }
 }
 
-u32 sub_unk3_HouseInteriors2_Stockwell(void) {
+u32 sub_unk3_HouseInteriors2_StockwellLakeHouse(void) {
     return 1;
 }
 
 extern EntityData gUnk_080F30CC;
 
-void sub_StateChange_HouseInteriors2_Stockwell(void) {
+void sub_StateChange_HouseInteriors2_StockwellLakeHouse(void) {
     if ((GetInventoryValue(ITEM_QST_DOGFOOD) == 1) && !CheckGlobalFlag(BIN_DOGFOOD) &&
         (gPlayerState.flags & PL_MINISH) == 0) {
         LoadRoomEntityList(&gUnk_080F30CC);
@@ -5053,13 +5053,13 @@ u32 sub_unk3_HouseInteriors4_FarmHouse(void) {
 void sub_StateChange_Ruins_LadderToTektites0(void) {
 }
 
-u32 sub_unk3_HouseInteriors4_Mayor(void) {
+u32 sub_unk3_HouseInteriors4_MayorLakeCabin(void) {
     return 1;
 }
 
 extern EntityData gUnk_080F3A48;
 
-void sub_StateChange_HouseInteriors4_Mayor(void) {
+void sub_StateChange_HouseInteriors4_MayorLakeCabin(void) {
     if (!GetInventoryValue(ITEM_FLIPPERS) && CheckGlobalFlag(MIZUKAKI_START) && !GetInventoryValue(ITEM_QST_BOOK3)) {
         LoadRoomEntityList(&gUnk_080F3A48);
     }
@@ -5703,7 +5703,7 @@ void sub_StateChange_HyruleField_WesternWoodSouth(void) {
     Manager18_Main(0);
 }
 
-u32 sub_unk3_HyruleField_LinksHouseExterior(void) {
+u32 sub_unk3_HyruleField_SouthHyruleField(void) {
 #if defined(JP) || defined(EU) || defined(DEMO_JP)
     if (!CheckLocalFlag(0x6b)) {
 #else
@@ -5719,7 +5719,7 @@ extern EntityData gUnk_080F70A8;
 extern EntityData gUnk_080F70D8;
 extern EntityData gUnk_080F7088;
 
-void sub_StateChange_HyruleField_LinksHouseExterior(void) {
+void sub_StateChange_HyruleField_SouthHyruleField(void) {
     Manager18_Main(NULL);
 #if defined(JP) || defined(EU) || defined(DEMO_JP)
     if (!CheckLocalFlag(0x6b)) {
@@ -5740,31 +5740,31 @@ void sub_StateChange_HyruleField_LinksHouseExterior(void) {
     }
 }
 
-void sub_unk1_HyruleField_LinksHouseExterior(void) {
+void sub_unk1_HyruleField_SouthHyruleField(void) {
     if ((gSave.windcrests & 0x40000000) == 0) {
         LoadRoomEntityList(&gUnk_080F70D8);
     }
 }
 
-u32 sub_unk3_HyruleField_FromMinishWoods(void) {
+u32 sub_unk3_HyruleField_EasternHillsSouth(void) {
     return 1;
 }
 
-void sub_StateChange_HyruleField_FromMinishWoods(void) {
+void sub_StateChange_HyruleField_EasternHillsSouth(void) {
     Manager18_Main(NULL);
 }
 
-u32 sub_unk3_HyruleField_FromMinishWoodsNorth(void) {
+u32 sub_unk3_HyruleField_EasternHillsCenter(void) {
     return 1;
 }
 
-void sub_StateChange_HyruleField_FromMinishWoodsNorth(void) {
+void sub_StateChange_HyruleField_EasternHillsCenter(void) {
     Manager18_Main(NULL);
 }
 
 extern u32 gUnk_080F7680;
 
-u32 sub_unk3_HyruleField_Farmers(void) {
+u32 sub_unk3_HyruleField_EasternHillsNorth(void) {
     if (GetInventoryValue(ITEM_GUST_JAR) && !GetInventoryValue(ITEM_PACCI_CANE)) {
         gRoomVars.field_0x6c[2] = &gUnk_080F7680;
     }
@@ -5774,7 +5774,7 @@ u32 sub_unk3_HyruleField_Farmers(void) {
 extern EntityData gUnk_080F7500;
 extern EntityData gUnk_080F7550;
 
-void sub_StateChange_HyruleField_Farmers(void) {
+void sub_StateChange_HyruleField_EasternHillsNorth(void) {
     Manager18_Main(NULL);
     if (gSave.global_progress > 3) {
         LoadRoomEntityList(&gUnk_080F7500);
@@ -6030,26 +6030,26 @@ void sub_0804F9C8(void) {
     sub_0807BA8C(0x4d9, 1);
 }
 
-u32 sub_unk3_HyruleField_OutsideCastleWest(void) {
+u32 sub_unk3_HyruleField_TrilbyHighlands(void) {
     return 1;
 }
 
 extern EntityData gUnk_080F806C;
 
-void sub_StateChange_HyruleField_OutsideCastleWest(void) {
+void sub_StateChange_HyruleField_TrilbyHighlands(void) {
     Manager18_Main(NULL);
     if ((gSave.global_progress > 3) && CheckGlobalFlag(TINGLE_TALK1ST)) {
         LoadRoomEntityList(&gUnk_080F806C);
     }
 }
 
-u32 sub_unk3_HyruleField_TrilbyHighlands(void) {
+u32 sub_unk3_HyruleField_WesternWoodsNorth(void) {
     return 1;
 }
 
 extern EntityData gUnk_080F82E0;
 
-void sub_StateChange_HyruleField_TrilbyHighlands(void) {
+void sub_StateChange_HyruleField_WesternWoodsNorth(void) {
     Manager18_Main(NULL);
 #if defined(JP) || defined(EU) || defined(DEMO_JP)
     if (CheckGlobalFlag(LV2_CLEAR) && GetInventoryValue(ITEM_RED_SWORD) && !CheckLocalFlag(0x9b)) {
@@ -6060,13 +6060,13 @@ void sub_StateChange_HyruleField_TrilbyHighlands(void) {
     }
 }
 
-u32 sub_unk3_HyruleField_PercysHouse(void) {
+u32 sub_unk3_HyruleField_WesternWoodsCenter(void) {
     return 1;
 }
 
 extern EntityData gUnk_080F8430;
 
-void sub_StateChange_HyruleField_PercysHouse(void) {
+void sub_StateChange_HyruleField_WesternWoodsCenter(void) {
     Manager18_Main(NULL);
     if (CheckKinstoneFused(0x21) && !CheckLocalFlagByBank(0x200, 0x42)) {
         LoadRoomEntityList(&gUnk_080F8430);
@@ -6133,25 +6133,25 @@ u32 sub_unk3_Caves_6(void) {
 void sub_StateChange_Caves_6(void) {
 }
 
-u32 sub_unk3_Caves_KeeseChest(void) {
+u32 sub_unk3_Caves_TrilbyKeeseChest(void) {
     return 1;
 }
 
-void sub_StateChange_Caves_KeeseChest(void) {
+void sub_StateChange_Caves_TrilbyKeeseChest(void) {
 }
 
-u32 sub_unk3_Caves_FairyFountainTrilbyHighlands(void) {
+u32 sub_unk3_Caves_TrilbyFairyFountain(void) {
     return 1;
 }
 
-void sub_StateChange_Caves_FairyFountainTrilbyHighlands(void) {
+void sub_StateChange_Caves_TrilbyFairyFountain(void) {
 }
 
-u32 sub_unk3_Caves_FairyFountainLinksHouse(void) {
+u32 sub_unk3_Caves_SouthHyruleFieldFairyFountain(void) {
     return 1;
 }
 
-void sub_StateChange_Caves_FairyFountainLinksHouse(void) {
+void sub_StateChange_Caves_SouthHyruleFieldFairyFountain(void) {
 }
 
 u32 sub_unk3_Caves_A(void) {
@@ -6204,31 +6204,31 @@ u32 sub_unk3_Caves_LonLonRanchWallet(void) {
 void sub_StateChange_Caves_LonLonRanchWallet(void) {
 }
 
-u32 sub_unk3_Caves_RupeeLinksHouse(void) {
+u32 sub_unk3_Caves_SouthHyruleFieldRupee(void) {
     return 1;
 }
 
-void sub_StateChange_Caves_RupeeLinksHouse(void) {
+void sub_StateChange_Caves_SouthHyruleFieldRupee(void) {
 }
 
-u32 sub_unk3_Caves_RupeeTrilbyHighlands(void) {
+u32 sub_unk3_Caves_TrilbyRupee(void) {
     return 1;
 }
 
-void sub_StateChange_Caves_RupeeTrilbyHighlands(void) {
+void sub_StateChange_Caves_TrilbyRupee(void) {
 }
 
-u32 sub_unk3_Caves_FairyFountainMoleMitts(void) {
+u32 sub_unk3_Caves_TrilbyMittsFairyFountain(void) {
     return 1;
 }
 
-void sub_StateChange_Caves_FairyFountainMoleMitts(void) {
+void sub_StateChange_Caves_TrilbyMittsFairyFountain(void) {
 }
 
-u32 sub_unk3_Caves_KeeseChestSoutheastHyrule(void) {
+u32 sub_unk3_Caves_HillsKeeseChest(void) {
     return 1;
 }
-void sub_StateChange_Caves_KeeseChestSoutheastHyrule(void) {
+void sub_StateChange_Caves_HillsKeeseChest(void) {
 }
 
 u32 sub_unk3_Caves_BottleBusinessScrub(void) {
@@ -6245,11 +6245,11 @@ u32 sub_unk3_Caves_HeartPieceHallway(void) {
 void sub_StateChange_Caves_HeartPieceHallway(void) {
 }
 
-u32 sub_unk3_Caves_FairyFountainBoomerang(void) {
+u32 sub_unk3_Caves_NorthHyruleFieldFairyFountain(void) {
     return 1;
 }
 
-void sub_StateChange_Caves_FairyFountainBoomerang(void) {
+void sub_StateChange_Caves_NorthHyruleFieldFairyFountain(void) {
 }
 
 u32 sub_unk3_Caves_KinstoneBusinessScrub(void) {
@@ -6542,11 +6542,11 @@ u32 sub_unk3_TreeInteriors_HeartPiece(void) {
 void sub_StateChange_TreeInteriors_HeartPiece(void) {
 }
 
-u32 sub_unk3_TreeInteriors_StairsToBladeBrother(void) {
+u32 sub_unk3_TreeInteriors_Waveblade(void) {
     return 1;
 }
 
-void sub_StateChange_TreeInteriors_StairsToBladeBrother(void) {
+void sub_StateChange_TreeInteriors_Waveblade(void) {
 }
 
 u32 sub_unk3_TreeInteriors_14(void) {
@@ -6584,25 +6584,25 @@ u32 sub_unk3_TreeInteriors_BoomerangSoutheast(void) {
 void sub_StateChange_TreeInteriors_BoomerangSoutheast(void) {
 }
 
-u32 sub_unk3_TreeInteriors_HeartPieceSouthwestField(void) {
+u32 sub_unk3_TreeInteriors_WesternWoodsHeartPiece(void) {
     return 1;
 }
 
-void sub_StateChange_TreeInteriors_HeartPieceSouthwestField(void) {
+void sub_StateChange_TreeInteriors_WesternWoodsHeartPiece(void) {
 }
 
-u32 sub_unk3_TreeInteriors_StairsToFairyFountain(void) {
+u32 sub_unk3_TreeInteriors_NorthHyruleFieldFairyFountain(void) {
     return 1;
 }
 
-void sub_StateChange_TreeInteriors_StairsToFairyFountain(void) {
+void sub_StateChange_TreeInteriors_NorthHyruleFieldFairyFountain(void) {
 }
 
-u32 sub_unk3_TreeInteriors_StairsToWalletFairy(void) {
+u32 sub_unk3_TreeInteriors_MinishWoodsGreatFairy(void) {
     return 1;
 }
 
-void sub_StateChange_TreeInteriors_StairsToWalletFairy(void) {
+void sub_StateChange_TreeInteriors_MinishWoodsGreatFairy(void) {
 }
 
 u32 sub_unk3_TreeInteriors_1C(void) {
@@ -6612,11 +6612,11 @@ u32 sub_unk3_TreeInteriors_1C(void) {
 void sub_StateChange_TreeInteriors_1C(void) {
 }
 
-u32 sub_unk3_TreeInteriors_StairsToBusinessScrub(void) {
+u32 sub_unk3_TreeInteriors_MinishWoodsBusinessScrub(void) {
     return 1;
 }
 
-void sub_StateChange_TreeInteriors_StairsToBusinessScrub(void) {
+void sub_StateChange_TreeInteriors_MinishWoodsBusinessScrub(void) {
 }
 
 u32 sub_unk3_TreeInteriors_1E(void) {
@@ -6626,11 +6626,11 @@ u32 sub_unk3_TreeInteriors_1E(void) {
 void sub_StateChange_TreeInteriors_1E(void) {
 }
 
-u32 sub_unk3_TreeInteriors_1F(void) {
+u32 sub_unk3_TreeInteriors_UnusedHeartContainer(void) {
     return 1;
 }
 
-void sub_StateChange_TreeInteriors_1F(void) {
+void sub_StateChange_TreeInteriors_UnusedHeartContainer(void) {
 }
 
 extern u32 gUnk_080FAD48;
@@ -6793,11 +6793,11 @@ u32 sub_unk3_CrenelCaves_MushroomKeese(void) {
 void sub_StateChange_CrenelCaves_MushroomKeese(void) {
 }
 
-u32 sub_unk3_CrenelCaves_LadderToGreenWater(void) {
+u32 sub_unk3_CrenelCaves_LadderToSpringWater(void) {
     return 1;
 }
 
-void sub_StateChange_CrenelCaves_LadderToGreenWater(void) {
+void sub_StateChange_CrenelCaves_LadderToSpringWater(void) {
 }
 
 u32 sub_unk3_CrenelCaves_BombBusinessScrub(void) {

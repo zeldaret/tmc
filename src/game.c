@@ -30,6 +30,8 @@
 #include "subtask.h"
 #include "itemMetaData.h"
 #include "player.h"
+#include "transitions.h"
+#include "roomid.h"
 
 // Game task
 
@@ -82,7 +84,6 @@ extern void** gAreaTilesets[];
 extern void** gAreaRoomMaps[];
 extern void* gAreaMetatiles[];
 extern void* gUnk_080B755C[];
-extern void** gExitLists[];
 extern void** gAreaTable[];
 
 extern void FinalizeSave(void);
@@ -176,7 +177,7 @@ typedef struct {
 
 typedef struct {
     u8 area;
-    u8 room;
+    RoomID room : 8;
     u8 _2;
     u8 _3;
     u16 x;
@@ -1419,7 +1420,7 @@ static void InitRoomResInfo(RoomResInfo* info, RoomHeader* r_hdr, u32 area, u32 
     info->map = *(gAreaRoomMaps[area] + room);
     info->metatiles = gAreaMetatiles[area];
     info->bg_anim = gUnk_080B755C[area];
-    info->exits = *(gExitLists[area] + room);
+    info->exits = gExitLists[area][room];
     if (gAreaTable[area] != NULL) {
         info->properties = *(gAreaTable[area] + room);
     }

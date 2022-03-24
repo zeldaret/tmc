@@ -58,12 +58,12 @@ Area_MinishVillage:: @ 080D4170
 	.4byte 0x0
 	.4byte 0x0
 
-Area_MinishPaths1:: @ 080D41B0
-	.4byte Room_MinishPaths1_ToMinishVillage
-	.4byte Room_MinishPaths1_CastorWilds
-	.4byte Room_MinishPaths1_HyruleTown
-	.4byte Room_MinishPaths1_LonLonRanch
-	.4byte Room_MinishPaths1_MayorsCabin
+Area_MinishPaths:: @ 080D41B0
+	.4byte Room_MinishPaths_ToMinishVillage
+	.4byte Room_MinishPaths_CastorWilds
+	.4byte Room_MinishPaths_HyruleTown
+	.4byte Room_MinishPaths_LonLonRanch
+	.4byte Room_MinishPaths_MayorsCabin
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
@@ -149,15 +149,15 @@ Area_HyruleTownMinishCaves:: @ 080D4284
 
 Area_HyruleField:: @ 080D42DC
 	.4byte Room_HyruleField_WesternWoodSouth
-	.4byte Room_HyruleField_LinksHouseExterior
-	.4byte Room_HyruleField_FromMinishWoods
-	.4byte Room_HyruleField_FromMinishWoodsNorth
-	.4byte Room_HyruleField_Farmers
+	.4byte Room_HyruleField_SouthHyruleField
+	.4byte Room_HyruleField_EasternHillsSouth
+	.4byte Room_HyruleField_EasternHillsCenter
+	.4byte Room_HyruleField_EasternHillsNorth
 	.4byte Room_HyruleField_LonLonRanch
 	.4byte Room_HyruleField_OutsideCastle
-	.4byte Room_HyruleField_OutsideCastleWest
 	.4byte Room_HyruleField_TrilbyHighlands
-	.4byte Room_HyruleField_PercysHouse
+	.4byte Room_HyruleField_WesternWoodsNorth
+	.4byte Room_HyruleField_WesternWoodsCenter
 
 Area_CastorWilds:: @ 080D4304
 	.4byte Room_CastorWilds_Main
@@ -534,57 +534,57 @@ Area_RoyalCrypt:: @ 080D47D0
 	.4byte Room_RoyalCrypt_Entrance
 
 Area_PalaceOfWinds:: @ 080D47F4
-	.4byte Room_PalaceOfWinds_0
-	.4byte Room_PalaceOfWinds_1
-	.4byte Room_PalaceOfWinds_2
-	.4byte Room_PalaceOfWinds_3
-	.4byte Room_PalaceOfWinds_4
-	.4byte Room_PalaceOfWinds_5
-	.4byte Room_PalaceOfWinds_6
-	.4byte Room_PalaceOfWinds_7
-	.4byte Room_PalaceOfWinds_8
-	.4byte Room_PalaceOfWinds_9
-	.4byte Room_PalaceOfWinds_10
-	.4byte Room_PalaceOfWinds_11
-	.4byte Room_PalaceOfWinds_12
-	.4byte Room_PalaceOfWinds_13
-	.4byte Room_PalaceOfWinds_14
-	.4byte Room_PalaceOfWinds_15
-	.4byte Room_PalaceOfWinds_16
-	.4byte Room_PalaceOfWinds_17
-	.4byte Room_PalaceOfWinds_18
-	.4byte Room_PalaceOfWinds_19
-	.4byte Room_PalaceOfWinds_20
-	.4byte Room_PalaceOfWinds_21
-	.4byte Room_PalaceOfWinds_22
-	.4byte Room_PalaceOfWinds_23
-	.4byte Room_PalaceOfWinds_24
-	.4byte Room_PalaceOfWinds_25
-	.4byte Room_PalaceOfWinds_26
-	.4byte Room_PalaceOfWinds_27
-	.4byte Room_PalaceOfWinds_28
-	.4byte Room_PalaceOfWinds_29
-	.4byte Room_PalaceOfWinds_30
-	.4byte Room_PalaceOfWinds_31
-	.4byte Room_PalaceOfWinds_32
-	.4byte Room_PalaceOfWinds_33
-	.4byte Room_PalaceOfWinds_34
-	.4byte Room_PalaceOfWinds_35
-	.4byte Room_PalaceOfWinds_36
-	.4byte Room_PalaceOfWinds_37
-	.4byte Room_PalaceOfWinds_38
-	.4byte Room_PalaceOfWinds_39
-	.4byte Room_PalaceOfWinds_40
-	.4byte Room_PalaceOfWinds_41
-	.4byte Room_PalaceOfWinds_42
-	.4byte Room_PalaceOfWinds_43
-	.4byte Room_PalaceOfWinds_44
-	.4byte Room_PalaceOfWinds_45
-	.4byte Room_PalaceOfWinds_46
-	.4byte Room_PalaceOfWinds_47
-	.4byte Room_PalaceOfWinds_48
-	.4byte Room_PalaceOfWinds_49
-	.4byte Room_PalaceOfWinds_50
+	.4byte Room_PalaceOfWinds_GyorgTornado
+	.4byte Room_PalaceOfWinds_BossKey
+	.4byte Room_PalaceOfWinds_BeforeBallAndChainSoldiers
+	.4byte Room_PalaceOfWinds_GyorgBossDoor
+	.4byte Room_PalaceOfWinds_EastChestFromGyorgBossDoor
+	.4byte Room_PalaceOfWinds_MoblinAndWizzrobeFight
+	.4byte Room_PalaceOfWinds_FourButtonStalfos
+	.4byte Room_PalaceOfWinds_FanAndKeyToBossKey
+	.4byte Room_PalaceOfWinds_BallAndChainSoldiers
+	.4byte Room_PalaceOfWinds_BombarossaPath
+	.4byte Room_PalaceOfWinds_HoleToDarknut
+	.4byte Room_PalaceOfWinds_ToBombarossaPath
+	.4byte Room_PalaceOfWinds_DarknutMiniboss
+	.4byte Room_PalaceOfWinds_BombWallInside
+	.4byte Room_PalaceOfWinds_BombWallOutside
+	.4byte Room_PalaceOfWinds_CloudJumps
+	.4byte Room_PalaceOfWinds_BlockMazeToBossDoor
+	.4byte Room_PalaceOfWinds_CrackedFloorLakitu
+	.4byte Room_PalaceOfWinds_HeartPieceBridge
+	.4byte Room_PalaceOfWinds_FanBridge
+	.4byte Room_PalaceOfWinds_ToFanBridge
+	.4byte Room_PalaceOfWinds_RedWarpHall
+	.4byte Room_PalaceOfWinds_PlatformCloneRide
+	.4byte Room_PalaceOfWinds_PitCornerAfterKey
+	.4byte Room_PalaceOfWinds_CrowRide
+	.4byte Room_PalaceOfWinds_GratePlatformRide
+	.4byte Room_PalaceOfWinds_PotPush
+	.4byte Room_PalaceOfWinds_FloormasterLever
+	.4byte Room_PalaceOfWinds_Map
+	.4byte Room_PalaceOfWinds_CornerToMap
+	.4byte Room_PalaceOfWinds_StairsAfterFloormaster
+	.4byte Room_PalaceOfWinds_HoleToKinstoneWizzrobe
+	.4byte Room_PalaceOfWinds_KeyArrowButton
+	.4byte Room_PalaceOfWinds_GratesTo3F
+	.4byte Room_PalaceOfWinds_SpinyFight
+	.4byte Room_PalaceOfWinds_PeahatSwitch
+	.4byte Room_PalaceOfWinds_WhirlwindBombarossa
+	.4byte Room_PalaceOfWinds_DoorToStalfosFirebar
+	.4byte Room_PalaceOfWinds_StalfosFireborHole
+	.4byte Room_PalaceOfWinds_ShortcutDoorButtons
+	.4byte Room_PalaceOfWinds_ToPeahatSwitch
+	.4byte Room_PalaceOfWinds_KinstoneWizzrobeFight
+	.4byte Room_PalaceOfWinds_GibdoStairs
+	.4byte Room_PalaceOfWinds_SpikeBarSmallKey
+	.4byte Room_PalaceOfWinds_RocCape
+	.4byte Room_PalaceOfWinds_FireBarGrates
+	.4byte Room_PalaceOfWinds_PlatformRideBombarossas
+	.4byte Room_PalaceOfWinds_BridgeAfterDarknut
+	.4byte Room_PalaceOfWinds_BridgeSwitchesCloneBlock
+	.4byte Room_PalaceOfWinds_EntranceRoom
+	.4byte Room_PalaceOfWinds_DarkCompassHall
 
 Area_PalaceOfWindsBoss:: @ 080D48C0
 	.4byte Room_PalaceOfWindsBoss_Main
@@ -608,65 +608,65 @@ Area_SanctuaryEntrance:: @ 080D48F0
 	.4byte Room_SanctuaryEntrance_Main
 
 Area_DarkHyruleCastle:: @ 080D48F4
-	.4byte Room_DarkHyruleCastle_0
-	.4byte Room_DarkHyruleCastle_1
-	.4byte Room_DarkHyruleCastle_2
-	.4byte Room_DarkHyruleCastle_3
-	.4byte Room_DarkHyruleCastle_4
-	.4byte Room_DarkHyruleCastle_5
-	.4byte Room_DarkHyruleCastle_6
-	.4byte Room_DarkHyruleCastle_7
-	.4byte Room_DarkHyruleCastle_8
-	.4byte Room_DarkHyruleCastle_9
-	.4byte Room_DarkHyruleCastle_10
-	.4byte Room_DarkHyruleCastle_11
-	.4byte Room_DarkHyruleCastle_12
-	.4byte Room_DarkHyruleCastle_13
-	.4byte Room_DarkHyruleCastle_14
-	.4byte Room_DarkHyruleCastle_15
-	.4byte Room_DarkHyruleCastle_16
-	.4byte Room_DarkHyruleCastle_17
-	.4byte Room_DarkHyruleCastle_18
-	.4byte Room_DarkHyruleCastle_19
-	.4byte Room_DarkHyruleCastle_20
-	.4byte Room_DarkHyruleCastle_21
-	.4byte Room_DarkHyruleCastle_22
-	.4byte Room_DarkHyruleCastle_23
-	.4byte Room_DarkHyruleCastle_24
-	.4byte Room_DarkHyruleCastle_25
-	.4byte Room_DarkHyruleCastle_26
-	.4byte Room_DarkHyruleCastle_27
-	.4byte Room_DarkHyruleCastle_28
-	.4byte Room_DarkHyruleCastle_29
-	.4byte Room_DarkHyruleCastle_30
-	.4byte Room_DarkHyruleCastle_31
-	.4byte Room_DarkHyruleCastle_32
-	.4byte Room_DarkHyruleCastle_33
-	.4byte Room_DarkHyruleCastle_34
-	.4byte Room_DarkHyruleCastle_35
-	.4byte Room_DarkHyruleCastle_36
-	.4byte Room_DarkHyruleCastle_37
-	.4byte Room_DarkHyruleCastle_38
-	.4byte Room_DarkHyruleCastle_39
-	.4byte Room_DarkHyruleCastle_40
-	.4byte Room_DarkHyruleCastle_41
-	.4byte Room_DarkHyruleCastle_42
-	.4byte Room_DarkHyruleCastle_43
-	.4byte Room_DarkHyruleCastle_44
-	.4byte Room_DarkHyruleCastle_45
-	.4byte Room_DarkHyruleCastle_46
-	.4byte Room_DarkHyruleCastle_47
-	.4byte Room_DarkHyruleCastle_48
-	.4byte Room_DarkHyruleCastle_49
-	.4byte Room_DarkHyruleCastle_50
-	.4byte Room_DarkHyruleCastle_51
-	.4byte Room_DarkHyruleCastle_52
-	.4byte Room_DarkHyruleCastle_53
-	.4byte Room_DarkHyruleCastle_54
-	.4byte Room_DarkHyruleCastle_55
-	.4byte Room_DarkHyruleCastle_56
-	.4byte Room_DarkHyruleCastle_57
-	.4byte Room_DarkHyruleCastle_58
+	.4byte Room_DarkHyruleCastle_1FEntrance
+	.4byte Room_DarkHyruleCastle_3FTopLeftTower
+	.4byte Room_DarkHyruleCastle_3FTopRightTower
+	.4byte Room_DarkHyruleCastle_3FBottomLeftTower
+	.4byte Room_DarkHyruleCastle_3FBottomRightTower
+	.4byte Room_DarkHyruleCastle_3FKeatonHallToVaati
+	.4byte Room_DarkHyruleCastle_3FTripleDarknut
+	.4byte Room_DarkHyruleCastle_2FTopLeftTower
+	.4byte Room_DarkHyruleCastle_2FTopLeftCorner
+	.4byte Room_DarkHyruleCastle_2FBossKey
+	.4byte Room_DarkHyruleCastle_2FBlueWarp
+	.4byte Room_DarkHyruleCastle_2FTopRightCornerGhini
+	.4byte Room_DarkHyruleCastle_2FTopRightCornerTorches
+	.4byte Room_DarkHyruleCastle_2FTopRightTower
+	.4byte Room_DarkHyruleCastle_2FTopLeftDarknut
+	.4byte Room_DarkHyruleCastle_2FSparks
+	.4byte Room_DarkHyruleCastle_2FTopRightDarknuts
+	.4byte Room_DarkHyruleCastle_2FLeft
+	.4byte Room_DarkHyruleCastle_2FRight
+	.4byte Room_DarkHyruleCastle_2FBottomLeftDarknuts
+	.4byte Room_DarkHyruleCastle_2FBossDoor
+	.4byte Room_DarkHyruleCastle_2FBottomRightDarknut
+	.4byte Room_DarkHyruleCastle_2FBottomLeftCornerPuzzle
+	.4byte Room_DarkHyruleCastle_2FEntrance
+	.4byte Room_DarkHyruleCastle_2FBottomLeftCorner
+	.4byte Room_DarkHyruleCastle_2FBottomLeftTower
+	.4byte Room_DarkHyruleCastle_2FBottomLeftGhini
+	.4byte Room_DarkHyruleCastle_3FTopRightTower7
+	.4byte Room_DarkHyruleCastle_B1Entrance
+	.4byte Room_DarkHyruleCastle_2FBottomRightTower
+	.4byte Room_DarkHyruleCastle_1FTopLeftTower
+	.4byte Room_DarkHyruleCastle_1FThroneRoom
+	.4byte Room_DarkHyruleCastle_1FCompass
+	.4byte Room_DarkHyruleCastle_1FTopRightTower
+	.4byte Room_DarkHyruleCastle_1FBeforeThrone
+	.4byte Room_DarkHyruleCastle_1FLoopTopLeft
+	.4byte Room_DarkHyruleCastle_1FLoopTop
+	.4byte Room_DarkHyruleCastle_1FLoopTopRight
+	.4byte Room_DarkHyruleCastle_1FLoopLeft
+	.4byte Room_DarkHyruleCastle_1FLoopRight
+	.4byte Room_DarkHyruleCastle_1FLoopBottomLeft
+	.4byte Room_DarkHyruleCastle_1FLoopBottom
+	.4byte Room_DarkHyruleCastle_1FLoopBottomRight
+	.4byte Room_DarkHyruleCastle_1FBottomLeftTower
+	.4byte Room_DarkHyruleCastle_1FBottomRightTower
+	.4byte Room_DarkHyruleCastle_B1BelowThrone
+	.4byte Room_DarkHyruleCastle_B1BelowCompass
+	.4byte Room_DarkHyruleCastle_B1BeforeThrone
+	.4byte Room_DarkHyruleCastle_B1ToPrison
+	.4byte Room_DarkHyruleCastle_B1BombWall
+	.4byte Room_DarkHyruleCastle_B1Keatons
+	.4byte Room_DarkHyruleCastle_B1ToPrisonFirebar
+	.4byte Room_DarkHyruleCastle_B1Cannons
+	.4byte Room_DarkHyruleCastle_B1Left
+	.4byte Room_DarkHyruleCastle_B1Right
+	.4byte Room_DarkHyruleCastle_B1Map
+	.4byte Room_DarkHyruleCastle_B2ToPrison
+	.4byte Room_DarkHyruleCastle_B2Prison
+	.4byte Room_DarkHyruleCastle_B2Dropdown
 
 Area_VaatisArms:: @ 080D49E0
 	.4byte Room_VaatisArms_First
@@ -787,7 +787,7 @@ Area_MinishHouseInteriors:: @ 080D4ABC
 	.4byte 0x0
 	.4byte 0x0
 	.4byte Room_MinishHouseInteriors_HyruleFieldSouthwest
-	.4byte Room_MinishHouseInteriors_HyruleFieldOutsideLinksHouse
+	.4byte Room_MinishHouseInteriors_SouthHyruleField
 	.4byte Room_MinishHouseInteriors_NextToKnuckle
 	.4byte Room_MinishHouseInteriors_Librari
 	.4byte Room_MinishHouseInteriors_HyruleFieldExit
@@ -910,7 +910,7 @@ Area_HouseInteriors2:: @ 080D4CBC
 	.4byte Room_HouseInteriors2_LinksHouseSmith
 	.4byte Room_HouseInteriors2_Dampe
 	.4byte 0x0
-	.4byte Room_HouseInteriors2_Stockwell
+	.4byte Room_HouseInteriors2_StockwellLakeHouse
 	.4byte Room_HouseInteriors2_LinksHouseBedroom
 	.4byte 0x0
 	.4byte 0x0
@@ -945,7 +945,7 @@ Area_HouseInteriors4:: @ 080D4D7C
 	.4byte Room_HouseInteriors4_RanchHouseWest
 	.4byte Room_HouseInteriors4_RanchHouseEast
 	.4byte Room_HouseInteriors4_FarmHouse
-	.4byte Room_HouseInteriors4_Mayor
+	.4byte Room_HouseInteriors4_MayorLakeCabin
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
@@ -977,19 +977,19 @@ Area_TreeInteriors:: @ 080D4DBC
 	.4byte Room_TreeInteriors_StairsToCarlov
 	.4byte Room_TreeInteriors_PercysTreehouse
 	.4byte Room_TreeInteriors_HeartPiece
-	.4byte Room_TreeInteriors_StairsToBladeBrother
+	.4byte Room_TreeInteriors_Waveblade
 	.4byte Room_TreeInteriors_14
 	.4byte Room_TreeInteriors_BoomerangNorthwest
 	.4byte Room_TreeInteriors_BoomerangNortheast
 	.4byte Room_TreeInteriors_BoomerangSouthwest
 	.4byte Room_TreeInteriors_BoomerangSoutheast
-	.4byte Room_TreeInteriors_HeartPieceSouthwestField
-	.4byte Room_TreeInteriors_StairsToFairyFountain
-	.4byte Room_TreeInteriors_StairsToWalletFairy
+	.4byte Room_TreeInteriors_WesternWoodsHeartPiece
+	.4byte Room_TreeInteriors_NorthHyruleFieldFairyFountain
+	.4byte Room_TreeInteriors_MinishWoodsGreatFairy
 	.4byte Room_TreeInteriors_1C
-	.4byte Room_TreeInteriors_StairsToBusinessScrub
+	.4byte Room_TreeInteriors_MinishWoodsBusinessScrub
 	.4byte Room_TreeInteriors_1E
-	.4byte Room_TreeInteriors_1F
+	.4byte Room_TreeInteriors_UnusedHeartContainer
 
 Area_Dojos:: @ 080D4E3C
 	.4byte Room_Dojos_Grayblade
@@ -1022,7 +1022,7 @@ Area_CrenelCaves:: @ 080D4E7C
 	.4byte Room_CrenelCaves_RupeeFairyFountain
 	.4byte Room_CrenelCaves_HelmasaurHallway
 	.4byte Room_CrenelCaves_MushroomKeese
-	.4byte Room_CrenelCaves_LadderToGreenWater
+	.4byte Room_CrenelCaves_LadderToSpringWater
 	.4byte Room_CrenelCaves_BombBusinessScrub
 	.4byte Room_CrenelCaves_Hermit
 	.4byte Room_CrenelCaves_HintScrub
@@ -1035,7 +1035,7 @@ Area_MinishCracks:: @ 080D4EC0
 	.4byte Room_MinishCracks_MtCrenel
 	.4byte Room_MinishCracks_EastHyruleCastle
 	.4byte Room_MinishCracks_5
-	.4byte Room_MinishCracks_CastleWildsBowHole
+	.4byte Room_MinishCracks_CastorWildsBow
 	.4byte Room_MinishCracks_RuinsEntrance
 	.4byte Room_MinishCracks_MinishWoodsSouth
 	.4byte Room_MinishCracks_CastorWildsNorth
@@ -1073,7 +1073,7 @@ Area_WindTribeTowerRoof:: @ 080D4F44
 	.4byte Area_WindTribeTowerRoof_Main
 
 Area_GoronCave:: @ 080D4F48
-	.4byte Room_GoronCave_StairsToCave
+	.4byte Room_GoronCave_Stairs
 	.4byte Room_GoronCave_Main
 
 Area_Caves:: @ 080D4F50
@@ -1084,22 +1084,22 @@ Area_Caves:: @ 080D4F50
 	.4byte Room_Caves_4
 	.4byte Room_Caves_5
 	.4byte Room_Caves_6
-	.4byte Room_Caves_KeeseChest
-	.4byte Room_Caves_FairyFountainTrilbyHighlands
-	.4byte Room_Caves_FairyFountainLinksHouse
+	.4byte Room_Caves_TrilbyKeeseChest
+	.4byte Room_Caves_TrilbyFairyFountain
+	.4byte Room_Caves_SouthHyruleFieldFairyFountain
 	.4byte Room_Caves_A
 	.4byte Room_Caves_HyruleTownWaterfall
 	.4byte Room_Caves_LonLonRanch
 	.4byte Room_Caves_LonLonRanchSecret
 	.4byte Room_Caves_TrilbyHighlands
 	.4byte Room_Caves_LonLonRanchWallet
-	.4byte Room_Caves_RupeeLinksHouse
-	.4byte Room_Caves_RupeeTrilbyHighlands
-	.4byte Room_Caves_FairyFountainMoleMitts
-	.4byte Room_Caves_KeeseChestSoutheastHyrule
+	.4byte Room_Caves_SouthHyruleFieldRupee
+	.4byte Room_Caves_TrilbyRupee
+	.4byte Room_Caves_TrilbyMittsFairyFountain
+	.4byte Room_Caves_HillsKeeseChest
 	.4byte Room_Caves_BottleBusinessScrub
 	.4byte Room_Caves_HeartPieceHallway
-	.4byte Room_Caves_FairyFountainBoomerang
+	.4byte Room_Caves_NorthHyruleFieldFairyFountain
 	.4byte Room_Caves_KinstoneBusinessScrub
 
 Area_VeilFallsCaves:: @ 080D4FB0
@@ -1231,7 +1231,7 @@ gAreaTable:: @ 080D50FC
 	.4byte Area_Empty                   @ 0xE
 	.4byte Area_HyruleDigCaves          @ 0xF
 	.4byte Area_MelarisMine             @ 0x10
-	.4byte Area_MinishPaths1            @ 0x11
+	.4byte Area_MinishPaths            @ 0x11
 	.4byte Area_CrenelMinishPaths       @ 0x12
 	.4byte Area_DigCaves1               @ 0x13
 	.4byte Area_CrenelDigCave           @ 0x14
@@ -1738,10 +1738,10 @@ Room_CrenelMinishPaths_MelarisMine:: @ 080D5C38
 	.4byte sub_unk3_CrenelMinishPaths_MelarisMine
 	.4byte sub_StateChange_CrenelMinishPaths_MelarisMine
 
-Entities_MinishPaths1_ToMinishVillage_0:: @ 080D5C58
+Entities_MinishPaths_ToMinishVillage_0:: @ 080D5C58
 	entity_list_end
 
-Entities_MinishPaths1_ToMinishVillage_1:: @ 080D5C68
+Entities_MinishPaths_ToMinishVillage_1:: @ 080D5C68
 	object_raw subtype=0x9a, x=0x50, y=0x70, collision=1, paramA=0x2
 	object_raw subtype=0x9a, x=0x90, y=0x160, collision=1
 	object_raw subtype=0x9a, x=0xa0, y=0x230, collision=1, paramA=0x3
@@ -1752,57 +1752,57 @@ Entities_MinishPaths1_ToMinishVillage_1:: @ 080D5C68
 	manager subtype=0x2, unknown=0x18
 	entity_list_end
 
-Enemies_MinishPaths1_ToMinishVillage:: @ 080D5CF8
+Enemies_MinishPaths_ToMinishVillage:: @ 080D5CF8
 	entity_list_end
 
-TileEntities_MinishPaths1_ToMinishVillage:: @ 080D5D08
+TileEntities_MinishPaths_ToMinishVillage:: @ 080D5D08
 	tile_entity type=0x7, paramB=0x1d00
 	tile_entity_list_end
 
-Room_MinishPaths1_ToMinishVillage:: @ 080D5D18
-	.4byte Entities_MinishPaths1_ToMinishVillage_0
-	.4byte Entities_MinishPaths1_ToMinishVillage_1
-	.4byte Enemies_MinishPaths1_ToMinishVillage
-	.4byte TileEntities_MinishPaths1_ToMinishVillage
-	.4byte sub_unk1_MinishPaths1_ToMinishVillage
+Room_MinishPaths_ToMinishVillage:: @ 080D5D18
+	.4byte Entities_MinishPaths_ToMinishVillage_0
+	.4byte Entities_MinishPaths_ToMinishVillage_1
+	.4byte Enemies_MinishPaths_ToMinishVillage
+	.4byte TileEntities_MinishPaths_ToMinishVillage
+	.4byte sub_unk1_MinishPaths_ToMinishVillage
 	.4byte 0x00000000
-	.4byte sub_unk3_MinishPaths1_ToMinishVillage
-	.4byte sub_StateChange_MinishPaths1_ToMinishVillage
+	.4byte sub_unk3_MinishPaths_ToMinishVillage
+	.4byte sub_StateChange_MinishPaths_ToMinishVillage
 
-Entities_MinishPaths1_CastorWilds_0:: @ 080D5D38
+Entities_MinishPaths_CastorWilds_0:: @ 080D5D38
 	object_raw subtype=0x14, x=0x78, y=0x48, paramB=0x100
 	object_raw subtype=0x14, x=0x78, y=0x2d8, paramB=0x100
 	entity_list_end
 
-Entities_MinishPaths1_CastorWilds_1:: @ 080D5D68
+Entities_MinishPaths_CastorWilds_1:: @ 080D5D68
 	object_raw subtype=0x78, x=0xa0, y=0x90, collision=1, paramB=0x1
 	object_raw subtype=0x78, x=0x70, y=0x190, collision=1
 	object_raw subtype=0x78, x=0xa0, y=0x220, collision=1, paramB=0x2
 	manager subtype=0x2, unknown=0x18
 	entity_list_end
 
-Enemies_MinishPaths1_CastorWilds:: @ 080D5DB8
+Enemies_MinishPaths_CastorWilds:: @ 080D5DB8
 	entity_list_end
 
-TileEntities_MinishPaths1_CastorWilds:: @ 080D5DC8
+TileEntities_MinishPaths_CastorWilds:: @ 080D5DC8
 	tile_entity type=0x7, paramB=0x1f00
 	tile_entity_list_end
 
-Room_MinishPaths1_CastorWilds:: @ 080D5DD8
-	.4byte Entities_MinishPaths1_CastorWilds_0
-	.4byte Entities_MinishPaths1_CastorWilds_1
-	.4byte Enemies_MinishPaths1_CastorWilds
-	.4byte TileEntities_MinishPaths1_CastorWilds
-	.4byte sub_unk1_MinishPaths1_CastorWilds
+Room_MinishPaths_CastorWilds:: @ 080D5DD8
+	.4byte Entities_MinishPaths_CastorWilds_0
+	.4byte Entities_MinishPaths_CastorWilds_1
+	.4byte Enemies_MinishPaths_CastorWilds
+	.4byte TileEntities_MinishPaths_CastorWilds
+	.4byte sub_unk1_MinishPaths_CastorWilds
 	.4byte 0x00000000
-	.4byte sub_unk3_MinishPaths1_CastorWilds
-	.4byte sub_StateChange_MinishPaths1_CastorWilds
+	.4byte sub_unk3_MinishPaths_CastorWilds
+	.4byte sub_StateChange_MinishPaths_CastorWilds
 
-Entities_MinishPaths1_HyruleTown_0:: @ 080D5DF8
+Entities_MinishPaths_HyruleTown_0:: @ 080D5DF8
 	object_raw subtype=0x0, x=0x58, y=0x44, collision=1, paramA=0x63, paramB=0x400, paramC=0x7e0000
 	entity_list_end
 
-Entities_MinishPaths1_HyruleTown_1:: @ 080D5E18
+Entities_MinishPaths_HyruleTown_1:: @ 080D5E18
 	object_raw subtype=0x78, x=0x40, y=0x60, collision=1, paramA=0x1, paramB=0x3
 	object_raw subtype=0x78, x=0x18, y=0x68, collision=2, paramA=0x1, paramB=0x1
 	object_raw subtype=0x78, x=0xd0, y=0x98, collision=2, paramA=0x1, paramB=0x4
@@ -1821,32 +1821,32 @@ Entities_MinishPaths1_HyruleTown_1:: @ 080D5E18
 	manager subtype=0x2, unknown=0x18
 	entity_list_end
 
-Enemies_MinishPaths1_HyruleTown:: @ 080D5F28
+Enemies_MinishPaths_HyruleTown:: @ 080D5F28
 	enemy_raw subtype=0x40, x=0x80, y=0x1f0, paramB=0x40140000, paramC=0x1000020
 	entity_list_end
 
-TileEntities_MinishPaths1_HyruleTown:: @ 080D5F48
+TileEntities_MinishPaths_HyruleTown:: @ 080D5F48
 	tile_entity type=0x2, paramA=0x7f, paramB=0x6f5c, paramC=0x83
 	tile_entity type=0x2, paramA=0x80, paramB=0x705c, paramC=0x8a
 	tile_entity type=0x2, paramA=0x81, paramB=0x6f5c, paramC=0x14b
 	tile_entity type=0x7, paramB=0x2000
 	tile_entity_list_end
 
-Room_MinishPaths1_HyruleTown:: @ 080D5F70
-	.4byte Entities_MinishPaths1_HyruleTown_0
-	.4byte Entities_MinishPaths1_HyruleTown_1
-	.4byte Enemies_MinishPaths1_HyruleTown
-	.4byte TileEntities_MinishPaths1_HyruleTown
-	.4byte sub_unk1_MinishPaths1_HyruleTown
+Room_MinishPaths_HyruleTown:: @ 080D5F70
+	.4byte Entities_MinishPaths_HyruleTown_0
+	.4byte Entities_MinishPaths_HyruleTown_1
+	.4byte Enemies_MinishPaths_HyruleTown
+	.4byte TileEntities_MinishPaths_HyruleTown
+	.4byte sub_unk1_MinishPaths_HyruleTown
 	.4byte 0x00000000
-	.4byte sub_unk3_MinishPaths1_HyruleTown
-	.4byte sub_StateChange_MinishPaths1_HyruleTown
+	.4byte sub_unk3_MinishPaths_HyruleTown
+	.4byte sub_StateChange_MinishPaths_HyruleTown
 
-Entities_MinishPaths1_LonLonRanch_0:: @ 080D5F90
+Entities_MinishPaths_LonLonRanch_0:: @ 080D5F90
 	object_raw subtype=0x0, x=0x78, y=0x54, collision=1, paramA=0x63, paramB=0x400, paramC=0xba0000
 	entity_list_end
 
-Entities_MinishPaths1_LonLonRanch_1:: @ 080D5FB0
+Entities_MinishPaths_LonLonRanch_1:: @ 080D5FB0
 	object_raw subtype=0x78, x=0x10, y=0x78, collision=2, paramA=0x2
 	object_raw subtype=0x78, x=0xe0, y=0x128, collision=2, paramA=0x2, paramB=0x3
 	object_raw subtype=0x78, x=0x10, y=0x1e8, collision=2, paramA=0x2, paramB=0x1
@@ -1854,7 +1854,7 @@ Entities_MinishPaths1_LonLonRanch_1:: @ 080D5FB0
 	manager subtype=0x2, unknown=0x18
 	entity_list_end
 
-Enemies_MinishPaths1_LonLonRanch:: @ 080D6010
+Enemies_MinishPaths_LonLonRanch:: @ 080D6010
 	enemy_raw subtype=0xf, x=0x88, y=0x118, paramB=0x2c160000, paramC=0x200020
 	enemy_raw subtype=0xf, x=0x68, y=0x298, paramB=0x2c160000, paramC=0x1900020
 	enemy_raw subtype=0x11, x=0xa8, y=0x1d8, collision=1, paramA=0x1
@@ -1862,25 +1862,25 @@ Enemies_MinishPaths1_LonLonRanch:: @ 080D6010
 	enemy_raw subtype=0x11, x=0x98, y=0x48, collision=1, paramA=0x1
 	entity_list_end
 
-TileEntities_MinishPaths1_LonLonRanch:: @ 080D6070
+TileEntities_MinishPaths_LonLonRanch:: @ 080D6070
 	tile_entity_list_end
 
-Room_MinishPaths1_LonLonRanch:: @ 080D6078
-	.4byte Entities_MinishPaths1_LonLonRanch_0
-	.4byte Entities_MinishPaths1_LonLonRanch_1
-	.4byte Enemies_MinishPaths1_LonLonRanch
-	.4byte TileEntities_MinishPaths1_LonLonRanch
-	.4byte sub_unk1_MinishPaths1_LonLonRanch
+Room_MinishPaths_LonLonRanch:: @ 080D6078
+	.4byte Entities_MinishPaths_LonLonRanch_0
+	.4byte Entities_MinishPaths_LonLonRanch_1
+	.4byte Enemies_MinishPaths_LonLonRanch
+	.4byte TileEntities_MinishPaths_LonLonRanch
+	.4byte sub_unk1_MinishPaths_LonLonRanch
 	.4byte 0x00000000
-	.4byte sub_unk3_MinishPaths1_LonLonRanch
-	.4byte sub_StateChange_MinishPaths1_LonLonRanch
+	.4byte sub_unk3_MinishPaths_LonLonRanch
+	.4byte sub_StateChange_MinishPaths_LonLonRanch
 
-Entities_MinishPaths1_MayorsCabin_0:: @ 080D6098
+Entities_MinishPaths_MayorsCabin_0:: @ 080D6098
 	object_raw subtype=0x14, x=0x78, y=0x58, paramB=0x100
 	object_raw subtype=0x14, x=0x78, y=0x2b8, paramB=0x100
 	entity_list_end
 
-Entities_MinishPaths1_MayorsCabin_1:: @ 080D60C8
+Entities_MinishPaths_MayorsCabin_1:: @ 080D60C8
 	object_raw subtype=0x78, x=0x28, y=0x90, collision=2, paramA=0x3
 	object_raw subtype=0x78, x=0xe8, y=0x88, collision=2, paramA=0x3, paramB=0x2
 	object_raw subtype=0x78, x=0x28, y=0x148, collision=2, paramA=0x3, paramB=0x3
@@ -1889,7 +1889,7 @@ Entities_MinishPaths1_MayorsCabin_1:: @ 080D60C8
 	manager subtype=0x2, unknown=0x18
 	entity_list_end
 
-Entities_MinishPaths1_MayorsCabin_gUnk_080D6138:: @ 080D6138
+Entities_MinishPaths_MayorsCabin_gUnk_080D6138:: @ 080D6138
 	enemy_raw subtype=0x11, x=0x48, y=0x148
 	enemy_raw subtype=0x11, x=0xa8, y=0x148
 	enemy_raw subtype=0x11, x=0x78, y=0x158
@@ -1897,18 +1897,18 @@ Entities_MinishPaths1_MayorsCabin_gUnk_080D6138:: @ 080D6138
 	enemy_raw subtype=0x11, x=0x58, y=0x198
 	entity_list_end
 
-TileEntities_MinishPaths1_MayorsCabin:: @ 080D6198
+TileEntities_MinishPaths_MayorsCabin:: @ 080D6198
 	tile_entity_list_end
 
-Room_MinishPaths1_MayorsCabin:: @ 080D61A0
-	.4byte Entities_MinishPaths1_MayorsCabin_0
-	.4byte Entities_MinishPaths1_MayorsCabin_1
+Room_MinishPaths_MayorsCabin:: @ 080D61A0
+	.4byte Entities_MinishPaths_MayorsCabin_0
+	.4byte Entities_MinishPaths_MayorsCabin_1
 	.4byte 0x00000000
-	.4byte TileEntities_MinishPaths1_MayorsCabin
-	.4byte sub_unk1_MinishPaths1_MayorsCabin
+	.4byte TileEntities_MinishPaths_MayorsCabin
+	.4byte sub_unk1_MinishPaths_MayorsCabin
 	.4byte 0x00000000
-	.4byte sub_unk3_MinishPaths1_MayorsCabin
-	.4byte sub_StateChange_MinishPaths1_MayorsCabin
+	.4byte sub_unk3_MinishPaths_MayorsCabin
+	.4byte sub_StateChange_MinishPaths_MayorsCabin
 
 Entities_HouseInteriors1_Mayor_0:: @ 080D61C0
 	npc_raw subtype=0x4b, x=0x88, y=0x60, script=script_Mayor
@@ -3404,24 +3404,24 @@ Room_Dojos_ToScarblade:: @ 080D895C
 	.4byte sub_unk3_Dojos_ToScarblade
 	.4byte sub_StateChange_Dojos_ToScarblade
 
-Entities_GoronCave_StairsToCave_0:: @ 080D897C
+Entities_GoronCave_Stairs_0:: @ 080D897C
 	entity_list_end
 
-Enemies_GoronCave_StairsToCave:: @ 080D898C
+Enemies_GoronCave_Stairs:: @ 080D898C
 	entity_list_end
 
-TileEntities_GoronCave_StairsToCave:: @ 080D899C
+TileEntities_GoronCave_Stairs:: @ 080D899C
 	tile_entity_list_end
 
-Room_GoronCave_StairsToCave:: @ 080D89A4
-	.4byte Entities_GoronCave_StairsToCave_0
+Room_GoronCave_Stairs:: @ 080D89A4
+	.4byte Entities_GoronCave_Stairs_0
 	.4byte 0x00000000
-	.4byte Enemies_GoronCave_StairsToCave
-	.4byte TileEntities_GoronCave_StairsToCave
+	.4byte Enemies_GoronCave_Stairs
+	.4byte TileEntities_GoronCave_Stairs
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_GoronCave_StairsToCave
-	.4byte sub_StateChange_GoronCave_StairsToCave
+	.4byte sub_unk3_GoronCave_Stairs
+	.4byte sub_StateChange_GoronCave_Stairs
 
 Entities_GoronCave_Main_0:: @ 080D89C4
 	object_raw subtype=0xc, x=0x78, y=0x28, paramA=0x4, paramB=0x76
@@ -4825,29 +4825,29 @@ Room_MinishHouseInteriors_HyruleFieldSouthwest:: @ 080DB118
 	.4byte sub_unk3_MinishHouseInteriors_HyruleFieldSouthwest
 	.4byte sub_StateChange_MinishHouseInteriors_HyruleFieldSouthwest
 
-Entities_MinishHouseInteriors_HyruleFieldOutsideLinksHouse_0:: @ 080DB138
+Entities_MinishHouseInteriors_SouthHyruleField_0:: @ 080DB138
 	npc_raw subtype=0x3, x=0x78, y=0x48, unknown=0xf, paramB=0x20d, script=0x0
 	entity_list_end
 
-Entities_MinishHouseInteriors_HyruleFieldOutsideLinksHouse_1:: @ 080DB158
+Entities_MinishHouseInteriors_SouthHyruleField_1:: @ 080DB158
 	object_raw subtype=0x6f, x=0x78, y=0x90
 	entity_list_end
 
-Enemies_MinishHouseInteriors_HyruleFieldOutsideLinksHouse:: @ 080DB178
+Enemies_MinishHouseInteriors_SouthHyruleField:: @ 080DB178
 	entity_list_end
 
-TileEntities_MinishHouseInteriors_HyruleFieldOutsideLinksHouse:: @ 080DB188
+TileEntities_MinishHouseInteriors_SouthHyruleField:: @ 080DB188
 	tile_entity_list_end
 
-Room_MinishHouseInteriors_HyruleFieldOutsideLinksHouse:: @ 080DB190
-	.4byte Entities_MinishHouseInteriors_HyruleFieldOutsideLinksHouse_0
-	.4byte Entities_MinishHouseInteriors_HyruleFieldOutsideLinksHouse_1
-	.4byte Enemies_MinishHouseInteriors_HyruleFieldOutsideLinksHouse
-	.4byte TileEntities_MinishHouseInteriors_HyruleFieldOutsideLinksHouse
+Room_MinishHouseInteriors_SouthHyruleField:: @ 080DB190
+	.4byte Entities_MinishHouseInteriors_SouthHyruleField_0
+	.4byte Entities_MinishHouseInteriors_SouthHyruleField_1
+	.4byte Enemies_MinishHouseInteriors_SouthHyruleField
+	.4byte TileEntities_MinishHouseInteriors_SouthHyruleField
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_MinishHouseInteriors_HyruleFieldOutsideLinksHouse
-	.4byte sub_StateChange_MinishHouseInteriors_HyruleFieldOutsideLinksHouse
+	.4byte sub_unk3_MinishHouseInteriors_SouthHyruleField
+	.4byte sub_StateChange_MinishHouseInteriors_SouthHyruleField
 
 Entities_MinishHouseInteriors_NextToKnuckle_0:: @ 080DB1B0
 	npc_raw subtype=0x3, x=0x78, y=0x48, unknown=0xf, paramB=0x20e, script=0x0
@@ -5876,7 +5876,7 @@ Room_MinishCracks_5:: @ 080DCAD0
 	.4byte sub_unk3_MinishCracks_5
 	.4byte sub_StateChange_MinishCracks_5
 
-Entities_MinishCracks_CastleWildsBowHole_0:: @ 080DCAF0
+Entities_MinishCracks_CastorWildsBow_0:: @ 080DCAF0
 	object_raw subtype=0xc, x=0x78, y=0x48, paramA=0x2, paramB=0x10, paramC=0x80000000
 	entity_list_end
 
@@ -5885,11 +5885,11 @@ gUnk_080DCB10:: @ 080DCB10
 	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x80008001
 	entity_list_end
 
-Entities_MinishCracks_CastleWildsBowHole_1:: @ 080DCB40
+Entities_MinishCracks_CastorWildsBow_1:: @ 080DCB40
 	object_raw subtype=0x4d, x=0x98, y=0x28, collision=1, paramA=0xb
 	entity_list_end
 
-gUnk_additional_8_MinishCracks_CastleWildsBowHole:: @ 080DCB60
+gUnk_additional_8_MinishCracks_CastorWildsBow:: @ 080DCB60
 	enemy_raw subtype=0x32, x=0x78, y=0x48, collision=1, paramA=0x1
 	enemy_raw subtype=0x32, x=0x78, y=0x48, collision=1, paramA=0x1
 	enemy_raw subtype=0x32, x=0x78, y=0x48, collision=1, paramA=0x1
@@ -5897,21 +5897,21 @@ gUnk_additional_8_MinishCracks_CastleWildsBowHole:: @ 080DCB60
 	enemy_raw subtype=0x32, x=0x78, y=0x48, collision=1, paramA=0x1
 	entity_list_end
 
-TileEntities_MinishCracks_CastleWildsBowHole:: @ 080DCBC0
+TileEntities_MinishCracks_CastorWildsBow:: @ 080DCBC0
 	tile_entity type=0x3, paramA=0x10, paramB=0x9, paramC=0x78, paramD=0x48
 	tile_entity type=0x7, paramB=0x1700
 	tile_entity_list_end
 
-Room_MinishCracks_CastleWildsBowHole:: @ 080DCBD8
-	.4byte Entities_MinishCracks_CastleWildsBowHole_0
-	.4byte Entities_MinishCracks_CastleWildsBowHole_1
+Room_MinishCracks_CastorWildsBow:: @ 080DCBD8
+	.4byte Entities_MinishCracks_CastorWildsBow_0
+	.4byte Entities_MinishCracks_CastorWildsBow_1
 	.4byte 0x00000000
-	.4byte TileEntities_MinishCracks_CastleWildsBowHole
+	.4byte TileEntities_MinishCracks_CastorWildsBow
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_MinishCracks_CastleWildsBowHole
-	.4byte sub_StateChange_MinishCracks_CastleWildsBowHole
-	.4byte gUnk_additional_8_MinishCracks_CastleWildsBowHole
+	.4byte sub_unk3_MinishCracks_CastorWildsBow
+	.4byte sub_StateChange_MinishCracks_CastorWildsBow
+	.4byte gUnk_additional_8_MinishCracks_CastorWildsBow
 
 Entities_MinishCracks_RuinsEntrance_0:: @ 080DCBFC
 	npc_raw subtype=0x3, x=0xa8, y=0x48, unknown=0xf, paramB=0x215, script=0x0
@@ -11306,7 +11306,7 @@ Room_RoyalCrypt_Entrance:: @ 080E7204
 	.4byte sub_unk3_RoyalCrypt_Entrance
 	.4byte sub_StateChange_RoyalCrypt_Entrance
 
-Entities_PalaceOfWinds_0_0:: @ 080E7224
+Entities_PalaceOfWinds_GyorgTornado_0:: @ 080E7224
 	manager subtype=0x19, unknown=0x8
 	enemy_raw subtype=0x43, x=0x198, y=0x108
 	enemy_raw subtype=0x43, x=0x218, y=0x108
@@ -11322,59 +11322,59 @@ gUnk_080E72C4:: @ 080E72C4
 	object_raw subtype=0x82, x=0x1d8, y=0xc8, paramB=0x4
 	entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_0:: @ 080E72E4
+gUnk_additional_8_PalaceOfWinds_GyorgTornado:: @ 080E72E4
 	object_raw subtype=0xac, x=0x1d8, y=0xc8, paramA=0x43
 	manager subtype=0xe, y=0x3c, unknown=0x1f, paramA=0x9, paramC=0x80000000
 	entity_list_end
 
-gUnk_additional_9_PalaceOfWinds_0:: @ 080E7314
+gUnk_additional_9_PalaceOfWinds_GyorgTornado:: @ 080E7314
 	object_raw subtype=0x34, x=0x1b8, y=0x108, paramA=0x2, paramB=0x31, paramC=0x400601c7
 	object_raw subtype=0x47, x=0x1f8, y=0x108, paramC=0x4006007d
 	entity_list_end
 
-Enemies_PalaceOfWinds_0:: @ 080E7344
+Enemies_PalaceOfWinds_GyorgTornado:: @ 080E7344
 	entity_list_end
 
-TileEntities_PalaceOfWinds_0:: @ 080E7354
+TileEntities_PalaceOfWinds_GyorgTornado:: @ 080E7354
 	tile_entity type=0x1, paramA=0x1
 	tile_entity_list_end
 
-Room_PalaceOfWinds_0:: @ 080E7364
-	.4byte Entities_PalaceOfWinds_0_0
+Room_PalaceOfWinds_GyorgTornado:: @ 080E7364
+	.4byte Entities_PalaceOfWinds_GyorgTornado_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_0
-	.4byte TileEntities_PalaceOfWinds_0
+	.4byte Enemies_PalaceOfWinds_GyorgTornado
+	.4byte TileEntities_PalaceOfWinds_GyorgTornado
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_0
-	.4byte sub_StateChange_PalaceOfWinds_0
-	.4byte gUnk_additional_8_PalaceOfWinds_0
-	.4byte gUnk_additional_9_PalaceOfWinds_0
+	.4byte sub_unk3_PalaceOfWinds_GyorgTornado
+	.4byte sub_StateChange_PalaceOfWinds_GyorgTornado
+	.4byte gUnk_additional_8_PalaceOfWinds_GyorgTornado
+	.4byte gUnk_additional_9_PalaceOfWinds_GyorgTornado
 
-Entities_PalaceOfWinds_1_0:: @ 080E738C
+Entities_PalaceOfWinds_BossKey_0:: @ 080E738C
 	manager subtype=0x19, unknown=0x8
 	entity_list_end
 
-Enemies_PalaceOfWinds_1:: @ 080E73AC
+Enemies_PalaceOfWinds_BossKey:: @ 080E73AC
 	object_raw subtype=0xc, x=0x78, y=0x48, paramA=0x4, paramB=0x34
 	entity_list_end
 
-TileEntities_PalaceOfWinds_1:: @ 080E73CC
+TileEntities_PalaceOfWinds_BossKey:: @ 080E73CC
 	tile_entity type=0x3, paramA=0x34, paramB=0x52, paramC=0x78, paramD=0x48
 	tile_entity type=0x1, paramA=0x2
 	tile_entity_list_end
 
-Room_PalaceOfWinds_1:: @ 080E73E4
-	.4byte Entities_PalaceOfWinds_1_0
+Room_PalaceOfWinds_BossKey:: @ 080E73E4
+	.4byte Entities_PalaceOfWinds_BossKey_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_1
-	.4byte TileEntities_PalaceOfWinds_1
+	.4byte Enemies_PalaceOfWinds_BossKey
+	.4byte TileEntities_PalaceOfWinds_BossKey
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_1
-	.4byte sub_StateChange_PalaceOfWinds_1
+	.4byte sub_unk3_PalaceOfWinds_BossKey
+	.4byte sub_StateChange_PalaceOfWinds_BossKey
 
-Entities_PalaceOfWinds_2_0:: @ 080E7404
+Entities_PalaceOfWinds_BeforeBallAndChainSoldiers_0:: @ 080E7404
 	manager subtype=0x19, unknown=0x8
 	manager subtype=0x1a, unknown=0x8, paramA=0x20
 	object_raw subtype=0x29, x=0xa0, y=0x50, paramA=0x80
@@ -11386,24 +11386,24 @@ Entities_PalaceOfWinds_2_0:: @ 080E7404
 	enemy_raw subtype=0x43, x=0x98, y=0x98
 	entity_list_end
 
-Enemies_PalaceOfWinds_2:: @ 080E74A4
+Enemies_PalaceOfWinds_BeforeBallAndChainSoldiers:: @ 080E74A4
 	entity_list_end
 
-TileEntities_PalaceOfWinds_2:: @ 080E74B4
+TileEntities_PalaceOfWinds_BeforeBallAndChainSoldiers:: @ 080E74B4
 	tile_entity type=0x1, paramA=0x3
 	tile_entity_list_end
 
-Room_PalaceOfWinds_2:: @ 080E74C4
-	.4byte Entities_PalaceOfWinds_2_0
+Room_PalaceOfWinds_BeforeBallAndChainSoldiers:: @ 080E74C4
+	.4byte Entities_PalaceOfWinds_BeforeBallAndChainSoldiers_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_2
-	.4byte TileEntities_PalaceOfWinds_2
+	.4byte Enemies_PalaceOfWinds_BeforeBallAndChainSoldiers
+	.4byte TileEntities_PalaceOfWinds_BeforeBallAndChainSoldiers
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_2
-	.4byte sub_StateChange_PalaceOfWinds_2
+	.4byte sub_unk3_PalaceOfWinds_BeforeBallAndChainSoldiers
+	.4byte sub_StateChange_PalaceOfWinds_BeforeBallAndChainSoldiers
 
-Entities_PalaceOfWinds_3_0:: @ 080E74E4
+Entities_PalaceOfWinds_GyorgBossDoor_0:: @ 080E74E4
 	manager subtype=0x19, unknown=0x8
 	manager subtype=0x1a, unknown=0x8, paramA=0x21
 	manager subtype=0x1a, unknown=0x8, paramA=0x22
@@ -11424,47 +11424,47 @@ Entities_PalaceOfWinds_3_0:: @ 080E74E4
 	enemy_raw subtype=0x43, x=0x108, y=0x48, paramB=0x5f
 	entity_list_end
 
-Enemies_PalaceOfWinds_3:: @ 080E7614
+Enemies_PalaceOfWinds_GyorgBossDoor:: @ 080E7614
 	entity_list_end
 
-TileEntities_PalaceOfWinds_3:: @ 080E7624
+TileEntities_PalaceOfWinds_GyorgBossDoor:: @ 080E7624
 	tile_entity type=0x2, paramA=0x35, paramB=0x53, paramC=0x47
 	tile_entity type=0x1, paramA=0x4
 	tile_entity_list_end
 
-Room_PalaceOfWinds_3:: @ 080E763C
-	.4byte Entities_PalaceOfWinds_3_0
+Room_PalaceOfWinds_GyorgBossDoor:: @ 080E763C
+	.4byte Entities_PalaceOfWinds_GyorgBossDoor_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_3
-	.4byte TileEntities_PalaceOfWinds_3
+	.4byte Enemies_PalaceOfWinds_GyorgBossDoor
+	.4byte TileEntities_PalaceOfWinds_GyorgBossDoor
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_3
-	.4byte sub_StateChange_PalaceOfWinds_3
+	.4byte sub_unk3_PalaceOfWinds_GyorgBossDoor
+	.4byte sub_StateChange_PalaceOfWinds_GyorgBossDoor
 
-Entities_PalaceOfWinds_4_0:: @ 080E765C
+Entities_PalaceOfWinds_EastChestFromGyorgBossDoor_0:: @ 080E765C
 	manager subtype=0x19, unknown=0x8
 	entity_list_end
 
-Enemies_PalaceOfWinds_4:: @ 080E767C
+Enemies_PalaceOfWinds_EastChestFromGyorgBossDoor:: @ 080E767C
 	entity_list_end
 
-TileEntities_PalaceOfWinds_4:: @ 080E768C
+TileEntities_PalaceOfWinds_EastChestFromGyorgBossDoor:: @ 080E768C
 	tile_entity type=0x2, paramA=0x37, paramB=0x6e5c, paramC=0x107
 	tile_entity type=0x1, paramA=0x5
 	tile_entity_list_end
 
-Room_PalaceOfWinds_4:: @ 080E76A4
-	.4byte Entities_PalaceOfWinds_4_0
+Room_PalaceOfWinds_EastChestFromGyorgBossDoor:: @ 080E76A4
+	.4byte Entities_PalaceOfWinds_EastChestFromGyorgBossDoor_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_4
-	.4byte TileEntities_PalaceOfWinds_4
+	.4byte Enemies_PalaceOfWinds_EastChestFromGyorgBossDoor
+	.4byte TileEntities_PalaceOfWinds_EastChestFromGyorgBossDoor
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_4
-	.4byte sub_StateChange_PalaceOfWinds_4
+	.4byte sub_unk3_PalaceOfWinds_EastChestFromGyorgBossDoor
+	.4byte sub_StateChange_PalaceOfWinds_EastChestFromGyorgBossDoor
 
-Entities_PalaceOfWinds_5_0:: @ 080E76C4
+Entities_PalaceOfWinds_MoblinAndWizzrobeFight_0:: @ 080E76C4
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x3, x=0x48, y=0x38, paramC=0x380001
 	object_raw subtype=0x9f, x=0x80, y=0x68, paramB=0xc0000, paramC=0x38
@@ -11475,14 +11475,14 @@ Entities_PalaceOfWinds_5_0:: @ 080E76C4
 	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x3a0081
 	entity_list_end
 
-Enemies_PalaceOfWinds_5:: @ 080E7754
+Enemies_PalaceOfWinds_MoblinAndWizzrobeFight:: @ 080E7754
 	entity_list_end
 
-TileEntities_PalaceOfWinds_5:: @ 080E7764
+TileEntities_PalaceOfWinds_MoblinAndWizzrobeFight:: @ 080E7764
 	tile_entity type=0x1, paramA=0x6
 	tile_entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_5:: @ 080E7774
+gUnk_additional_8_PalaceOfWinds_MoblinAndWizzrobeFight:: @ 080E7774
 	enemy_raw subtype=0x29, x=0x78, y=0x158, paramB=0xe140000, paramC=0x1500030
 	enemy_raw subtype=0x29, x=0x78, y=0x1b8, paramB=0xe140000, paramC=0x1500030
 	enemy_raw subtype=0x15, x=0x48, y=0x188, unknown=0x2f, paramB=0xe140000, paramC=0x1500030
@@ -11490,18 +11490,18 @@ gUnk_additional_8_PalaceOfWinds_5:: @ 080E7774
 	object_raw subtype=0x8, x=0xd8, y=0x198, paramA=0x11, paramC=0x810000
 	entity_list_end
 
-Room_PalaceOfWinds_5:: @ 080E77D4
-	.4byte Entities_PalaceOfWinds_5_0
+Room_PalaceOfWinds_MoblinAndWizzrobeFight:: @ 080E77D4
+	.4byte Entities_PalaceOfWinds_MoblinAndWizzrobeFight_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_5
-	.4byte TileEntities_PalaceOfWinds_5
+	.4byte Enemies_PalaceOfWinds_MoblinAndWizzrobeFight
+	.4byte TileEntities_PalaceOfWinds_MoblinAndWizzrobeFight
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_5
-	.4byte sub_StateChange_PalaceOfWinds_5
-	.4byte gUnk_additional_8_PalaceOfWinds_5
+	.4byte sub_unk3_PalaceOfWinds_MoblinAndWizzrobeFight
+	.4byte sub_StateChange_PalaceOfWinds_MoblinAndWizzrobeFight
+	.4byte gUnk_additional_8_PalaceOfWinds_MoblinAndWizzrobeFight
 
-Entities_PalaceOfWinds_6_0:: @ 080E77F8
+Entities_PalaceOfWinds_FourButtonStalfos_0:: @ 080E77F8
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x3, x=0x48, y=0x48, paramA=0x1, paramC=0x80000001
 	object_raw subtype=0x3, x=0x68, y=0x48, paramA=0x1, paramC=0x80010001
@@ -11519,27 +11519,27 @@ Entities_PalaceOfWinds_6_0:: @ 080E77F8
 	object_raw subtype=0x5, x=0xc8, y=0x98
 	entity_list_end
 
-Enemies_PalaceOfWinds_6:: @ 080E78F8
+Enemies_PalaceOfWinds_FourButtonStalfos:: @ 080E78F8
 	enemy_raw subtype=0x42, x=0x88, y=0x58, paramB=0xe140000, paramC=0x300030
 	enemy_raw subtype=0x42, x=0xa8, y=0x178, paramA=0x1, paramB=0xe140000, paramC=0x1500030
 	enemy_raw subtype=0x42, x=0xb8, y=0x1a8, paramA=0x1, paramB=0xe140000, paramC=0x1500030
 	entity_list_end
 
-TileEntities_PalaceOfWinds_6:: @ 080E7938
+TileEntities_PalaceOfWinds_FourButtonStalfos:: @ 080E7938
 	tile_entity type=0x1, paramA=0x7
 	tile_entity_list_end
 
-Room_PalaceOfWinds_6:: @ 080E7948
-	.4byte Entities_PalaceOfWinds_6_0
+Room_PalaceOfWinds_FourButtonStalfos:: @ 080E7948
+	.4byte Entities_PalaceOfWinds_FourButtonStalfos_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_6
-	.4byte TileEntities_PalaceOfWinds_6
+	.4byte Enemies_PalaceOfWinds_FourButtonStalfos
+	.4byte TileEntities_PalaceOfWinds_FourButtonStalfos
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_6
-	.4byte sub_StateChange_PalaceOfWinds_6
+	.4byte sub_unk3_PalaceOfWinds_FourButtonStalfos
+	.4byte sub_StateChange_PalaceOfWinds_FourButtonStalfos
 
-Entities_PalaceOfWinds_7_0:: @ 080E7968
+Entities_PalaceOfWinds_FanAndKeyToBossKey_0:: @ 080E7968
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x8, x=0x78, y=0x28, paramA=0x8, paramC=0x3cffff
 	object_raw subtype=0x3, x=0xb8, y=0x1b8, paramC=0x3d0001
@@ -11548,28 +11548,28 @@ Entities_PalaceOfWinds_7_0:: @ 080E7968
 	object_raw subtype=0x5, x=0x48, y=0x1b8
 	entity_list_end
 
-Enemies_PalaceOfWinds_7:: @ 080E79D8
+Enemies_PalaceOfWinds_FanAndKeyToBossKey:: @ 080E79D8
 	enemy_raw subtype=0x42, x=0x68, y=0x58, paramB=0xe140000, paramC=0x300030
 	enemy_raw subtype=0x42, x=0x98, y=0x58, paramB=0xe140000, paramC=0x300030
 	enemy_raw subtype=0x1c, x=0x58, y=0x38, paramB=0x800
 	entity_list_end
 
-TileEntities_PalaceOfWinds_7:: @ 080E7A18
+TileEntities_PalaceOfWinds_FanAndKeyToBossKey:: @ 080E7A18
 	tile_entity type=0x2, paramA=0x3e, paramB=0x53, paramC=0x1c5
 	tile_entity type=0x1, paramA=0x8
 	tile_entity_list_end
 
-Room_PalaceOfWinds_7:: @ 080E7A30
-	.4byte Entities_PalaceOfWinds_7_0
+Room_PalaceOfWinds_FanAndKeyToBossKey:: @ 080E7A30
+	.4byte Entities_PalaceOfWinds_FanAndKeyToBossKey_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_7
-	.4byte TileEntities_PalaceOfWinds_7
+	.4byte Enemies_PalaceOfWinds_FanAndKeyToBossKey
+	.4byte TileEntities_PalaceOfWinds_FanAndKeyToBossKey
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_7
-	.4byte sub_StateChange_PalaceOfWinds_7
+	.4byte sub_unk3_PalaceOfWinds_FanAndKeyToBossKey
+	.4byte sub_StateChange_PalaceOfWinds_FanAndKeyToBossKey
 
-Entities_PalaceOfWinds_8_0:: @ 080E7A50
+Entities_PalaceOfWinds_BallAndChainSoldiers_0:: @ 080E7A50
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x39, x=0x78, y=0x118, paramA=0x2, paramC=0x42ffff
 	object_raw subtype=0x8, x=0x28, y=0x58, paramA=0xb, paramC=0x3fffff
@@ -11578,36 +11578,36 @@ Entities_PalaceOfWinds_8_0:: @ 080E7A50
 	manager subtype=0x17, x=0x78, y=0xa8, paramA=0x53, paramB=0x10200, paramC=0x820041
 	entity_list_end
 
-Enemies_PalaceOfWinds_8:: @ 080E7AC0
+Enemies_PalaceOfWinds_BallAndChainSoldiers:: @ 080E7AC0
 	entity_list_end
 
-TileEntities_PalaceOfWinds_8:: @ 080E7AD0
+TileEntities_PalaceOfWinds_BallAndChainSoldiers:: @ 080E7AD0
 	tile_entity type=0x1, paramA=0x9
 	tile_entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_8:: @ 080E7AE0
+gUnk_additional_8_PalaceOfWinds_BallAndChainSoldiers:: @ 080E7AE0
 	enemy_raw subtype=0x4c, x=0x58, y=0xa8, paramB=0x1c120000, paramC=0x300030
 	enemy_raw subtype=0x4c, x=0x98, y=0xa8, paramB=0x1c120000, paramC=0x300038
 	entity_list_end
 
-Room_PalaceOfWinds_8:: @ 080E7B10
-	.4byte Entities_PalaceOfWinds_8_0
+Room_PalaceOfWinds_BallAndChainSoldiers:: @ 080E7B10
+	.4byte Entities_PalaceOfWinds_BallAndChainSoldiers_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_8
-	.4byte TileEntities_PalaceOfWinds_8
+	.4byte Enemies_PalaceOfWinds_BallAndChainSoldiers
+	.4byte TileEntities_PalaceOfWinds_BallAndChainSoldiers
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_8
-	.4byte sub_StateChange_PalaceOfWinds_8
-	.4byte gUnk_additional_8_PalaceOfWinds_8
+	.4byte sub_unk3_PalaceOfWinds_BallAndChainSoldiers
+	.4byte sub_StateChange_PalaceOfWinds_BallAndChainSoldiers
+	.4byte gUnk_additional_8_PalaceOfWinds_BallAndChainSoldiers
 
-Entities_PalaceOfWinds_9_0:: @ 080E7B34
+Entities_PalaceOfWinds_BombarossaPath_0:: @ 080E7B34
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x9d, x=0x78, y=0x58, paramA=0x1, paramC=0x80008000
 	object_raw subtype=0x8, x=0x38, y=0x18, paramA=0x4, paramC=0x8000ffff
 	entity_list_end
 
-Enemies_PalaceOfWinds_9:: @ 080E7B74
+Enemies_PalaceOfWinds_BombarossaPath:: @ 080E7B74
 	enemy_raw subtype=0x33, x=0x38, y=0x48
 	enemy_raw subtype=0x33, x=0x38, y=0x68
 	enemy_raw subtype=0x33, x=0x48, y=0x68
@@ -11625,21 +11625,21 @@ Enemies_PalaceOfWinds_9:: @ 080E7B74
 	enemy_raw subtype=0x33, x=0xb8, y=0x58
 	entity_list_end
 
-TileEntities_PalaceOfWinds_9:: @ 080E7C74
+TileEntities_PalaceOfWinds_BombarossaPath:: @ 080E7C74
 	tile_entity type=0x1, paramA=0xa
 	tile_entity_list_end
 
-Room_PalaceOfWinds_9:: @ 080E7C84
-	.4byte Entities_PalaceOfWinds_9_0
+Room_PalaceOfWinds_BombarossaPath:: @ 080E7C84
+	.4byte Entities_PalaceOfWinds_BombarossaPath_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_9
-	.4byte TileEntities_PalaceOfWinds_9
+	.4byte Enemies_PalaceOfWinds_BombarossaPath
+	.4byte TileEntities_PalaceOfWinds_BombarossaPath
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_9
-	.4byte sub_StateChange_PalaceOfWinds_9
+	.4byte sub_unk3_PalaceOfWinds_BombarossaPath
+	.4byte sub_StateChange_PalaceOfWinds_BombarossaPath
 
-Entities_PalaceOfWinds_10_0:: @ 080E7CA4
+Entities_PalaceOfWinds_HoleToDarknut_0:: @ 080E7CA4
 	manager subtype=0x19, unknown=0x8
 	manager subtype=0x1a, unknown=0x8, paramA=0x23
 	enemy_raw subtype=0x43, x=0x48, y=0x38, paramB=0x5f
@@ -11649,51 +11649,51 @@ Entities_PalaceOfWinds_10_0:: @ 080E7CA4
 	ezlo_hint x=0x6, y=0x10, rx=0x9, ry=0x2, msg=0xb6a, flag=0x7f
 	entity_list_end
 
-Enemies_PalaceOfWinds_10:: @ 080E7D24
+Enemies_PalaceOfWinds_HoleToDarknut:: @ 080E7D24
 	entity_list_end
 
-TileEntities_PalaceOfWinds_10:: @ 080E7D34
+TileEntities_PalaceOfWinds_HoleToDarknut:: @ 080E7D34
 	tile_entity type=0x1, paramA=0xb
 	tile_entity_list_end
 
-Room_PalaceOfWinds_10:: @ 080E7D44
-	.4byte Entities_PalaceOfWinds_10_0
+Room_PalaceOfWinds_HoleToDarknut:: @ 080E7D44
+	.4byte Entities_PalaceOfWinds_HoleToDarknut_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_10
-	.4byte TileEntities_PalaceOfWinds_10
+	.4byte Enemies_PalaceOfWinds_HoleToDarknut
+	.4byte TileEntities_PalaceOfWinds_HoleToDarknut
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_10
-	.4byte sub_StateChange_PalaceOfWinds_10
+	.4byte sub_unk3_PalaceOfWinds_HoleToDarknut
+	.4byte sub_StateChange_PalaceOfWinds_HoleToDarknut
 
-Entities_PalaceOfWinds_11_0:: @ 080E7D64
+Entities_PalaceOfWinds_ToBombarossaPath_0:: @ 080E7D64
 	manager subtype=0x19, unknown=0x8
 	manager subtype=0x1a, unknown=0x8, paramA=0x24
 	enemy_raw subtype=0x43, x=0x98, y=0x78
 	enemy_raw subtype=0x43, x=0xa8, y=0x78, paramB=0x5d
 	entity_list_end
 
-Enemies_PalaceOfWinds_11:: @ 080E7DB4
+Enemies_PalaceOfWinds_ToBombarossaPath:: @ 080E7DB4
 	entity_list_end
 
-TileEntities_PalaceOfWinds_11:: @ 080E7DC4
+TileEntities_PalaceOfWinds_ToBombarossaPath:: @ 080E7DC4
 	tile_entity type=0x4, paramA=0x46, paramB=0x1, paramC=0xd8, paramD=0x58
 	tile_entity type=0xa, paramA=0x1, paramB=0x43, paramC=0xc7, paramD=0x26
 	tile_entity type=0xa, paramA=0x1, paramB=0x44, paramC=0x107, paramD=0x26
 	tile_entity type=0x1, paramA=0xc
 	tile_entity_list_end
 
-Room_PalaceOfWinds_11:: @ 080E7DEC
-	.4byte Entities_PalaceOfWinds_11_0
+Room_PalaceOfWinds_ToBombarossaPath:: @ 080E7DEC
+	.4byte Entities_PalaceOfWinds_ToBombarossaPath_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_11
-	.4byte TileEntities_PalaceOfWinds_11
+	.4byte Enemies_PalaceOfWinds_ToBombarossaPath
+	.4byte TileEntities_PalaceOfWinds_ToBombarossaPath
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_11
-	.4byte sub_StateChange_PalaceOfWinds_11
+	.4byte sub_unk3_PalaceOfWinds_ToBombarossaPath
+	.4byte sub_StateChange_PalaceOfWinds_ToBombarossaPath
 
-Entities_PalaceOfWinds_12_0:: @ 080E7E0C
+Entities_PalaceOfWinds_DarknutMiniboss_0:: @ 080E7E0C
 	manager subtype=0x1e, x=0x20, y=0x60, paramB=0x2000b0, paramC=0x80000000
 	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x7e8000
 	manager subtype=0x35, x=0x78, y=0x48, paramB=0x781e00, paramC=0x7e0084
@@ -11702,54 +11702,54 @@ Entities_PalaceOfWinds_12_0:: @ 080E7E0C
 	manager subtype=0x19, unknown=0x8
 	entity_list_end
 
-Enemies_PalaceOfWinds_12:: @ 080E7E7C
+Enemies_PalaceOfWinds_DarknutMiniboss:: @ 080E7E7C
 	entity_list_end
 
-TileEntities_PalaceOfWinds_12:: @ 080E7E8C
+TileEntities_PalaceOfWinds_DarknutMiniboss:: @ 080E7E8C
 	tile_entity type=0xd, paramB=0x2d00
 	tile_entity type=0x1, paramA=0xd
 	tile_entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_12:: @ 080E7EA4
+gUnk_additional_8_PalaceOfWinds_DarknutMiniboss:: @ 080E7EA4
 	enemy_raw subtype=0x5, x=0x78, y=0x58, unknown=0x2f, paramA=0x2
 	entity_list_end
 
-Room_PalaceOfWinds_12:: @ 080E7EC4
-	.4byte Entities_PalaceOfWinds_12_0
+Room_PalaceOfWinds_DarknutMiniboss:: @ 080E7EC4
+	.4byte Entities_PalaceOfWinds_DarknutMiniboss_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_12
-	.4byte TileEntities_PalaceOfWinds_12
+	.4byte Enemies_PalaceOfWinds_DarknutMiniboss
+	.4byte TileEntities_PalaceOfWinds_DarknutMiniboss
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_12
-	.4byte sub_StateChange_PalaceOfWinds_12
-	.4byte gUnk_additional_8_PalaceOfWinds_12
+	.4byte sub_unk3_PalaceOfWinds_DarknutMiniboss
+	.4byte sub_StateChange_PalaceOfWinds_DarknutMiniboss
+	.4byte gUnk_additional_8_PalaceOfWinds_DarknutMiniboss
 
-Entities_PalaceOfWinds_13_0:: @ 080E7EE8
+Entities_PalaceOfWinds_BombWallInside_0:: @ 080E7EE8
 	manager subtype=0x19, unknown=0x8
 	entity_list_end
 
-Enemies_PalaceOfWinds_13:: @ 080E7F08
+Enemies_PalaceOfWinds_BombWallInside:: @ 080E7F08
 	enemy_raw subtype=0x3b, x=0x78, y=0x58, paramB=0xe140000, paramC=0x100010
 	enemy_raw subtype=0x3b, x=0xa8, y=0x58, paramB=0xe140000, paramC=0x100010
 	entity_list_end
 
-TileEntities_PalaceOfWinds_13:: @ 080E7F38
+TileEntities_PalaceOfWinds_BombWallInside:: @ 080E7F38
 	tile_entity type=0x4, paramA=0x45, paramB=0x1, paramC=0xd8, paramD=0x38
 	tile_entity type=0x1, paramA=0xe
 	tile_entity_list_end
 
-Room_PalaceOfWinds_13:: @ 080E7F50
-	.4byte Entities_PalaceOfWinds_13_0
+Room_PalaceOfWinds_BombWallInside:: @ 080E7F50
+	.4byte Entities_PalaceOfWinds_BombWallInside_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_13
-	.4byte TileEntities_PalaceOfWinds_13
+	.4byte Enemies_PalaceOfWinds_BombWallInside
+	.4byte TileEntities_PalaceOfWinds_BombWallInside
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_13
-	.4byte sub_StateChange_PalaceOfWinds_13
+	.4byte sub_unk3_PalaceOfWinds_BombWallInside
+	.4byte sub_StateChange_PalaceOfWinds_BombWallInside
 
-Entities_PalaceOfWinds_14_0:: @ 080E7F70
+Entities_PalaceOfWinds_BombWallOutside_0:: @ 080E7F70
 	manager subtype=0x19, unknown=0x8
 	enemy_raw subtype=0x43, x=0x28, y=0x58, paramA=0x2
 	enemy_raw subtype=0x43, x=0x68, y=0x78, paramA=0x2
@@ -11759,27 +11759,27 @@ Entities_PalaceOfWinds_14_0:: @ 080E7F70
 	enemy_raw subtype=0x43, x=0x58, y=0xe8
 	entity_list_end
 
-Enemies_PalaceOfWinds_14:: @ 080E7FF0
+Enemies_PalaceOfWinds_BombWallOutside:: @ 080E7FF0
 	enemy_raw subtype=0x28, x=0x58, y=0x98, paramB=0x18160000, paramC=0x400020
 	enemy_raw subtype=0x28, x=0xb8, y=0x88, paramB=0x18160000, paramC=0x400020
 	entity_list_end
 
-TileEntities_PalaceOfWinds_14:: @ 080E8020
+TileEntities_PalaceOfWinds_BombWallOutside:: @ 080E8020
 	tile_entity type=0x4, paramA=0x46, paramB=0x1, paramC=0x18, paramD=0x58
 	tile_entity type=0x1, paramA=0xf
 	tile_entity_list_end
 
-Room_PalaceOfWinds_14:: @ 080E8038
-	.4byte Entities_PalaceOfWinds_14_0
+Room_PalaceOfWinds_BombWallOutside:: @ 080E8038
+	.4byte Entities_PalaceOfWinds_BombWallOutside_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_14
-	.4byte TileEntities_PalaceOfWinds_14
+	.4byte Enemies_PalaceOfWinds_BombWallOutside
+	.4byte TileEntities_PalaceOfWinds_BombWallOutside
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_14
-	.4byte sub_StateChange_PalaceOfWinds_14
+	.4byte sub_unk3_PalaceOfWinds_BombWallOutside
+	.4byte sub_StateChange_PalaceOfWinds_BombWallOutside
 
-Entities_PalaceOfWinds_15_0:: @ 080E8058
+Entities_PalaceOfWinds_CloudJumps_0:: @ 080E8058
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x29, x=0x30, y=0x90, paramA=0x3
 	object_raw subtype=0x29, x=0x190, y=0xc0, paramA=0x4
@@ -11788,27 +11788,27 @@ Entities_PalaceOfWinds_15_0:: @ 080E8058
 	object_raw subtype=0x0, x=0x1a8, y=0x114, collision=1, paramA=0x63, paramB=0x400, paramC=0x800000
 	entity_list_end
 
-Enemies_PalaceOfWinds_15:: @ 080E80C8
+Enemies_PalaceOfWinds_CloudJumps:: @ 080E80C8
 	enemy_raw subtype=0x46, x=0x148, y=0x118, paramB=0x61e0000, paramC=0x1000130
 	enemy_raw subtype=0x46, x=0x1e8, y=0x128, paramB=0x61e0000, paramC=0x1000130
 	entity_list_end
 
-TileEntities_PalaceOfWinds_15:: @ 080E80F8
+TileEntities_PalaceOfWinds_CloudJumps:: @ 080E80F8
 	tile_entity type=0x2, paramA=0x47, paramB=0x715c, paramC=0x424, paramD=0x1
 	tile_entity type=0x1, paramA=0x10
 	tile_entity_list_end
 
-Room_PalaceOfWinds_15:: @ 080E8110
-	.4byte Entities_PalaceOfWinds_15_0
+Room_PalaceOfWinds_CloudJumps:: @ 080E8110
+	.4byte Entities_PalaceOfWinds_CloudJumps_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_15
-	.4byte TileEntities_PalaceOfWinds_15
+	.4byte Enemies_PalaceOfWinds_CloudJumps
+	.4byte TileEntities_PalaceOfWinds_CloudJumps
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_15
-	.4byte sub_StateChange_PalaceOfWinds_15
+	.4byte sub_unk3_PalaceOfWinds_CloudJumps
+	.4byte sub_StateChange_PalaceOfWinds_CloudJumps
 
-Entities_PalaceOfWinds_16_0:: @ 080E8130
+Entities_PalaceOfWinds_BlockMazeToBossDoor_0:: @ 080E8130
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x29, x=0x168, y=0x100, paramA=0x8
 	object_raw subtype=0x29, x=0x228, y=0x100, paramA=0x8
@@ -11832,7 +11832,7 @@ Entities_PalaceOfWinds_16_0:: @ 080E8130
 	enemy_raw subtype=0x43, x=0x128, y=0xf8
 	entity_list_end
 
-Enemies_PalaceOfWinds_16:: @ 080E8290
+Enemies_PalaceOfWinds_BlockMazeToBossDoor:: @ 080E8290
 	enemy_raw subtype=0x43, x=0x28, y=0x138, paramA=0x3
 	enemy_raw subtype=0x43, x=0xf8, y=0x158, paramA=0x3
 	enemy_raw subtype=0x43, x=0x108, y=0x158, paramA=0x3
@@ -11844,67 +11844,67 @@ Enemies_PalaceOfWinds_16:: @ 080E8290
 	enemy_raw subtype=0x15, x=0x160, y=0x158, paramB=0x22320000, paramC=0xb00020
 	entity_list_end
 
-TileEntities_PalaceOfWinds_16:: @ 080E8330
+TileEntities_PalaceOfWinds_BlockMazeToBossDoor:: @ 080E8330
 	tile_entity type=0x2, paramA=0x49, paramB=0x725c, paramC=0x44e
 	tile_entity type=0x1, paramA=0x11
 	tile_entity_list_end
 
-Room_PalaceOfWinds_16:: @ 080E8348
-	.4byte Entities_PalaceOfWinds_16_0
+Room_PalaceOfWinds_BlockMazeToBossDoor:: @ 080E8348
+	.4byte Entities_PalaceOfWinds_BlockMazeToBossDoor_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_16
-	.4byte TileEntities_PalaceOfWinds_16
+	.4byte Enemies_PalaceOfWinds_BlockMazeToBossDoor
+	.4byte TileEntities_PalaceOfWinds_BlockMazeToBossDoor
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_16
-	.4byte sub_StateChange_PalaceOfWinds_16
+	.4byte sub_unk3_PalaceOfWinds_BlockMazeToBossDoor
+	.4byte sub_StateChange_PalaceOfWinds_BlockMazeToBossDoor
 
-Entities_PalaceOfWinds_17_0:: @ 080E8368
+Entities_PalaceOfWinds_CrackedFloorLakitu_0:: @ 080E8368
 	manager subtype=0x19, unknown=0x8
 	entity_list_end
 
-Enemies_PalaceOfWinds_17:: @ 080E8388
+Enemies_PalaceOfWinds_CrackedFloorLakitu:: @ 080E8388
 	enemy_raw subtype=0x47, x=0x18, y=0xa8
 	enemy_raw subtype=0x47, x=0xa8, y=0xb8
 	enemy_raw subtype=0x47, x=0x48, y=0x140
 	entity_list_end
 
-TileEntities_PalaceOfWinds_17:: @ 080E83C8
+TileEntities_PalaceOfWinds_CrackedFloorLakitu:: @ 080E83C8
 	tile_entity type=0x1, paramA=0x12
 	tile_entity_list_end
 
-Room_PalaceOfWinds_17:: @ 080E83D8
-	.4byte Entities_PalaceOfWinds_17_0
+Room_PalaceOfWinds_CrackedFloorLakitu:: @ 080E83D8
+	.4byte Entities_PalaceOfWinds_CrackedFloorLakitu_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_17
-	.4byte TileEntities_PalaceOfWinds_17
+	.4byte Enemies_PalaceOfWinds_CrackedFloorLakitu
+	.4byte TileEntities_PalaceOfWinds_CrackedFloorLakitu
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_17
-	.4byte sub_StateChange_PalaceOfWinds_17
+	.4byte sub_unk3_PalaceOfWinds_CrackedFloorLakitu
+	.4byte sub_StateChange_PalaceOfWinds_CrackedFloorLakitu
 
-Entities_PalaceOfWinds_18_0:: @ 080E83F8
+Entities_PalaceOfWinds_HeartPieceBridge_0:: @ 080E83F8
 	manager subtype=0x19, unknown=0x8
 	entity_list_end
 
-Enemies_PalaceOfWinds_18:: @ 080E8418
+Enemies_PalaceOfWinds_HeartPieceBridge:: @ 080E8418
 	entity_list_end
 
-TileEntities_PalaceOfWinds_18:: @ 080E8428
+TileEntities_PalaceOfWinds_HeartPieceBridge:: @ 080E8428
 	tile_entity type=0x1, paramA=0x13
 	tile_entity_list_end
 
-Room_PalaceOfWinds_18:: @ 080E8438
-	.4byte Entities_PalaceOfWinds_18_0
+Room_PalaceOfWinds_HeartPieceBridge:: @ 080E8438
+	.4byte Entities_PalaceOfWinds_HeartPieceBridge_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_18
-	.4byte TileEntities_PalaceOfWinds_18
+	.4byte Enemies_PalaceOfWinds_HeartPieceBridge
+	.4byte TileEntities_PalaceOfWinds_HeartPieceBridge
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_18
-	.4byte sub_StateChange_PalaceOfWinds_18
+	.4byte sub_unk3_PalaceOfWinds_HeartPieceBridge
+	.4byte sub_StateChange_PalaceOfWinds_HeartPieceBridge
 
-Entities_PalaceOfWinds_19_0:: @ 080E8458
+Entities_PalaceOfWinds_FanBridge_0:: @ 080E8458
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x9f, x=0x100, y=0x18, paramB=0x1e101e01
 	object_raw subtype=0x9f, x=0x120, y=0x78, paramA=0x2, paramB=0x1e100f01
@@ -11913,26 +11913,26 @@ Entities_PalaceOfWinds_19_0:: @ 080E8458
 	object_raw subtype=0x9f, x=0x1b8, y=0x100, paramA=0x1, paramB=0x1e180f01
 	entity_list_end
 
-Enemies_PalaceOfWinds_19:: @ 080E84C8
+Enemies_PalaceOfWinds_FanBridge:: @ 080E84C8
 	enemy_raw subtype=0x1, x=0x128, y=0xa8, paramA=0x2
 	enemy_raw subtype=0x1, x=0x188, y=0xa8, paramA=0x2
 	entity_list_end
 
-TileEntities_PalaceOfWinds_19:: @ 080E84F8
+TileEntities_PalaceOfWinds_FanBridge:: @ 080E84F8
 	tile_entity type=0x1, paramA=0x14
 	tile_entity_list_end
 
-Room_PalaceOfWinds_19:: @ 080E8508
-	.4byte Entities_PalaceOfWinds_19_0
+Room_PalaceOfWinds_FanBridge:: @ 080E8508
+	.4byte Entities_PalaceOfWinds_FanBridge_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_19
-	.4byte TileEntities_PalaceOfWinds_19
+	.4byte Enemies_PalaceOfWinds_FanBridge
+	.4byte TileEntities_PalaceOfWinds_FanBridge
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_19
-	.4byte sub_StateChange_PalaceOfWinds_19
+	.4byte sub_unk3_PalaceOfWinds_FanBridge
+	.4byte sub_StateChange_PalaceOfWinds_FanBridge
 
-Entities_PalaceOfWinds_20_0:: @ 080E8528
+Entities_PalaceOfWinds_ToFanBridge_0:: @ 080E8528
 	manager subtype=0x19, unknown=0x8
 	manager subtype=0x1a, unknown=0x8, paramA=0x25
 	object_raw subtype=0x29, x=0x70, y=0xa0, paramA=0x80
@@ -11944,26 +11944,26 @@ Entities_PalaceOfWinds_20_0:: @ 080E8528
 	enemy_raw subtype=0x43, x=0x68, y=0xe8
 	entity_list_end
 
-Enemies_PalaceOfWinds_20:: @ 080E85C8
+Enemies_PalaceOfWinds_ToFanBridge:: @ 080E85C8
 	enemy_raw subtype=0x15, x=0x48, y=0x48, paramB=0x1a120000, paramC=0x200020
 	enemy_raw subtype=0x15, x=0x88, y=0x48, paramB=0x1a120000, paramC=0x200020
 	entity_list_end
 
-TileEntities_PalaceOfWinds_20:: @ 080E85F8
+TileEntities_PalaceOfWinds_ToFanBridge:: @ 080E85F8
 	tile_entity type=0x1, paramA=0x15
 	tile_entity_list_end
 
-Room_PalaceOfWinds_20:: @ 080E8608
-	.4byte Entities_PalaceOfWinds_20_0
+Room_PalaceOfWinds_ToFanBridge:: @ 080E8608
+	.4byte Entities_PalaceOfWinds_ToFanBridge_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_20
-	.4byte TileEntities_PalaceOfWinds_20
+	.4byte Enemies_PalaceOfWinds_ToFanBridge
+	.4byte TileEntities_PalaceOfWinds_ToFanBridge
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_20
-	.4byte sub_StateChange_PalaceOfWinds_20
+	.4byte sub_unk3_PalaceOfWinds_ToFanBridge
+	.4byte sub_StateChange_PalaceOfWinds_ToFanBridge
 
-Entities_PalaceOfWinds_21_0:: @ 080E8628
+Entities_PalaceOfWinds_RedWarpHall_0:: @ 080E8628
 	manager subtype=0x1a, unknown=0x8, paramA=0x26
 	manager subtype=0x1a, unknown=0x8, paramA=0x27
 	manager subtype=0x1a, unknown=0x8, paramA=0x28
@@ -11985,7 +11985,7 @@ Entities_PalaceOfWinds_21_0:: @ 080E8628
 	enemy_raw subtype=0x43, x=0x278, y=0xd8
 	entity_list_end
 
-Enemies_PalaceOfWinds_21:: @ 080E8768
+Enemies_PalaceOfWinds_RedWarpHall:: @ 080E8768
 	enemy_raw subtype=0x42, x=0x118, y=0xa8, paramA=0x1, paramB=0x20220000, paramC=0x200020
 	enemy_raw subtype=0x3b, x=0x48, y=0x78, paramB=0x20220000, paramC=0x200020
 	enemy_raw subtype=0x3b, x=0x58, y=0xa8, paramB=0x20220000, paramC=0x200020
@@ -11994,28 +11994,28 @@ Enemies_PalaceOfWinds_21:: @ 080E8768
 	enemy_raw subtype=0x33, x=0x148, y=0xe8, paramA=0x8
 	entity_list_end
 
-TileEntities_PalaceOfWinds_21:: @ 080E87D8
+TileEntities_PalaceOfWinds_RedWarpHall:: @ 080E87D8
 	tile_entity type=0x2, paramA=0x4f, paramB=0x59, paramC=0xdd
 	tile_entity type=0xa, paramA=0x1, paramB=0x50, paramC=0x3d9, paramD=0x26
 	tile_entity type=0xa, paramA=0x1, paramB=0x51, paramC=0x419, paramD=0x26
 	tile_entity type=0x1, paramA=0x16
 	tile_entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_21:: @ 080E8800
-	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_21.bin"
+gUnk_additional_8_PalaceOfWinds_RedWarpHall:: @ 080E8800
+	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_RedWarpHall.bin"
 
-Room_PalaceOfWinds_21:: @ 080E8824
-	.4byte Entities_PalaceOfWinds_21_0
+Room_PalaceOfWinds_RedWarpHall:: @ 080E8824
+	.4byte Entities_PalaceOfWinds_RedWarpHall_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_21
-	.4byte TileEntities_PalaceOfWinds_21
+	.4byte Enemies_PalaceOfWinds_RedWarpHall
+	.4byte TileEntities_PalaceOfWinds_RedWarpHall
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_21
-	.4byte sub_StateChange_PalaceOfWinds_21
-	.4byte gUnk_additional_8_PalaceOfWinds_21
+	.4byte sub_unk3_PalaceOfWinds_RedWarpHall
+	.4byte sub_StateChange_PalaceOfWinds_RedWarpHall
+	.4byte gUnk_additional_8_PalaceOfWinds_RedWarpHall
 
-Entities_PalaceOfWinds_22_0:: @ 080E8848
+Entities_PalaceOfWinds_PlatformCloneRide_0:: @ 080E8848
 	manager subtype=0x19, unknown=0x8
 	manager subtype=0x1a, unknown=0x8, paramA=0x29
 	object_raw subtype=0x29, x=0x80, y=0x50, paramA=0x80
@@ -12030,50 +12030,50 @@ Entities_PalaceOfWinds_22_0:: @ 080E8848
 	enemy_raw subtype=0x43, x=0xa8, y=0x128, paramB=0x5f
 	entity_list_end
 
-Enemies_PalaceOfWinds_22:: @ 080E8918
+Enemies_PalaceOfWinds_PlatformCloneRide:: @ 080E8918
 	entity_list_end
 
-TileEntities_PalaceOfWinds_22:: @ 080E8928
+TileEntities_PalaceOfWinds_PlatformCloneRide:: @ 080E8928
 	tile_entity type=0x1, paramA=0x17
 	tile_entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_22:: @ 080E8938
-	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_22.bin"
+gUnk_additional_8_PalaceOfWinds_PlatformCloneRide:: @ 080E8938
+	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_PlatformCloneRide.bin"
 
-Room_PalaceOfWinds_22:: @ 080E8988
-	.4byte Entities_PalaceOfWinds_22_0
+Room_PalaceOfWinds_PlatformCloneRide:: @ 080E8988
+	.4byte Entities_PalaceOfWinds_PlatformCloneRide_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_22
-	.4byte TileEntities_PalaceOfWinds_22
+	.4byte Enemies_PalaceOfWinds_PlatformCloneRide
+	.4byte TileEntities_PalaceOfWinds_PlatformCloneRide
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_22
-	.4byte sub_StateChange_PalaceOfWinds_22
-	.4byte gUnk_additional_8_PalaceOfWinds_22
+	.4byte sub_unk3_PalaceOfWinds_PlatformCloneRide
+	.4byte sub_StateChange_PalaceOfWinds_PlatformCloneRide
+	.4byte gUnk_additional_8_PalaceOfWinds_PlatformCloneRide
 
-Entities_PalaceOfWinds_23_0:: @ 080E89AC
+Entities_PalaceOfWinds_PitCornerAfterKey_0:: @ 080E89AC
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x8, x=0x18, y=0xd8, paramA=0x3, paramC=0x58ffff
 	entity_list_end
 
-Enemies_PalaceOfWinds_23:: @ 080E89DC
+Enemies_PalaceOfWinds_PitCornerAfterKey:: @ 080E89DC
 	entity_list_end
 
-TileEntities_PalaceOfWinds_23:: @ 080E89EC
+TileEntities_PalaceOfWinds_PitCornerAfterKey:: @ 080E89EC
 	tile_entity type=0x1, paramA=0x18
 	tile_entity_list_end
 
-Room_PalaceOfWinds_23:: @ 080E89FC
-	.4byte Entities_PalaceOfWinds_23_0
+Room_PalaceOfWinds_PitCornerAfterKey:: @ 080E89FC
+	.4byte Entities_PalaceOfWinds_PitCornerAfterKey_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_23
-	.4byte TileEntities_PalaceOfWinds_23
+	.4byte Enemies_PalaceOfWinds_PitCornerAfterKey
+	.4byte TileEntities_PalaceOfWinds_PitCornerAfterKey
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_23
-	.4byte sub_StateChange_PalaceOfWinds_23
+	.4byte sub_unk3_PalaceOfWinds_PitCornerAfterKey
+	.4byte sub_StateChange_PalaceOfWinds_PitCornerAfterKey
 
-Entities_PalaceOfWinds_24_0:: @ 080E8A1C
+Entities_PalaceOfWinds_CrowRide_0:: @ 080E8A1C
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0xae, x=0x88, y=0xc8, paramA=0x3
 	object_raw subtype=0xae, x=0xb8, y=0xc8, paramA=0x3
@@ -12085,7 +12085,7 @@ Entities_PalaceOfWinds_24_0:: @ 080E8A1C
 	manager subtype=0x38, paramA=0xa
 	entity_list_end
 
-Enemies_PalaceOfWinds_24:: @ 080E8ABC
+Enemies_PalaceOfWinds_CrowRide:: @ 080E8ABC
 	enemy_raw subtype=0x31, x=0xe8, y=0x38
 	enemy_raw subtype=0x31, x=0xe8, y=0x58
 	enemy_raw subtype=0x31, x=0xe8, y=0x78
@@ -12094,37 +12094,37 @@ Enemies_PalaceOfWinds_24:: @ 080E8ABC
 	enemy_raw subtype=0x31, x=0x38, y=0x188
 	entity_list_end
 
-TileEntities_PalaceOfWinds_24:: @ 080E8B2C
+TileEntities_PalaceOfWinds_CrowRide:: @ 080E8B2C
 	tile_entity type=0x1, paramA=0x19
 	tile_entity_list_end
 
-gUnk_additional_9_PalaceOfWinds_24:: @ 080E8B3C
+gUnk_additional_9_PalaceOfWinds_CrowRide:: @ 080E8B3C
 	object_raw subtype=0x16, x=0x58, y=0x108, paramA=0x3, paramB=0x8
 	object_raw subtype=0x16, x=0x58, y=0x138, paramA=0x3, paramB=0x8
 	entity_list_end
 
-gUnk_additional_a_PalaceOfWinds_24:: @ 080E8B6C
+gUnk_additional_a_PalaceOfWinds_CrowRide:: @ 080E8B6C
 	object_raw subtype=0x16, x=0xb8, y=0x108, paramA=0x3, paramB=0x8
 	object_raw subtype=0x16, x=0xb8, y=0x138, paramA=0x3, paramB=0x8
 	entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_24:: @ 080E8B9C
-	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_24.bin"
+gUnk_additional_8_PalaceOfWinds_CrowRide:: @ 080E8B9C
+	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_CrowRide.bin"
 
-Room_PalaceOfWinds_24:: @ 080E8BC0
-	.4byte Entities_PalaceOfWinds_24_0
+Room_PalaceOfWinds_CrowRide:: @ 080E8BC0
+	.4byte Entities_PalaceOfWinds_CrowRide_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_24
-	.4byte TileEntities_PalaceOfWinds_24
+	.4byte Enemies_PalaceOfWinds_CrowRide
+	.4byte TileEntities_PalaceOfWinds_CrowRide
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_24
-	.4byte sub_StateChange_PalaceOfWinds_24
-	.4byte gUnk_additional_8_PalaceOfWinds_24
-	.4byte gUnk_additional_9_PalaceOfWinds_24
-	.4byte gUnk_additional_a_PalaceOfWinds_24
+	.4byte sub_unk3_PalaceOfWinds_CrowRide
+	.4byte sub_StateChange_PalaceOfWinds_CrowRide
+	.4byte gUnk_additional_8_PalaceOfWinds_CrowRide
+	.4byte gUnk_additional_9_PalaceOfWinds_CrowRide
+	.4byte gUnk_additional_a_PalaceOfWinds_CrowRide
 
-Entities_PalaceOfWinds_25_0:: @ 080E8BEC
+Entities_PalaceOfWinds_GratePlatformRide_0:: @ 080E8BEC
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x29, x=0x160, y=0x98, paramA=0x7
 	manager subtype=0x2c, x=0x160, paramB=0x4011470, paramC=0xa00070
@@ -12134,28 +12134,28 @@ Entities_PalaceOfWinds_25_0:: @ 080E8BEC
 	object_raw subtype=0xae, x=0x100, y=0x118, paramA=0x1
 	entity_list_end
 
-Enemies_PalaceOfWinds_25:: @ 080E8C6C
+Enemies_PalaceOfWinds_GratePlatformRide:: @ 080E8C6C
 	entity_list_end
 
-TileEntities_PalaceOfWinds_25:: @ 080E8C7C
+TileEntities_PalaceOfWinds_GratePlatformRide:: @ 080E8C7C
 	tile_entity type=0x1, paramA=0x1a
 	tile_entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_25:: @ 080E8C8C
-	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_25.bin"
+gUnk_additional_8_PalaceOfWinds_GratePlatformRide:: @ 080E8C8C
+	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_GratePlatformRide.bin"
 
-Room_PalaceOfWinds_25:: @ 080E8CB0
-	.4byte Entities_PalaceOfWinds_25_0
+Room_PalaceOfWinds_GratePlatformRide:: @ 080E8CB0
+	.4byte Entities_PalaceOfWinds_GratePlatformRide_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_25
-	.4byte TileEntities_PalaceOfWinds_25
+	.4byte Enemies_PalaceOfWinds_GratePlatformRide
+	.4byte TileEntities_PalaceOfWinds_GratePlatformRide
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_25
-	.4byte sub_StateChange_PalaceOfWinds_25
-	.4byte gUnk_additional_8_PalaceOfWinds_25
+	.4byte sub_unk3_PalaceOfWinds_GratePlatformRide
+	.4byte sub_StateChange_PalaceOfWinds_GratePlatformRide
+	.4byte gUnk_additional_8_PalaceOfWinds_GratePlatformRide
 
-Entities_PalaceOfWinds_26_0:: @ 080E8CD4
+Entities_PalaceOfWinds_PotPush_0:: @ 080E8CD4
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x8, x=0x18, y=0x48, paramA=0xb, paramC=0x53ffff
 	object_raw subtype=0x9d, x=0x118, y=0x28, paramA=0x1, paramC=0x80000052
@@ -12187,130 +12187,130 @@ Entities_PalaceOfWinds_26_0:: @ 080E8CD4
 	object_raw subtype=0x5, x=0x1a8, y=0xe8
 	entity_list_end
 
-Enemies_PalaceOfWinds_26:: @ 080E8EB4
+Enemies_PalaceOfWinds_PotPush:: @ 080E8EB4
 	projectile_raw subtype=0x1e, x=0x88, y=0x20, unknown=0x3, paramA=0x4, paramC=0x80ff9f
 	entity_list_end
 
-TileEntities_PalaceOfWinds_26:: @ 080E8ED4
+TileEntities_PalaceOfWinds_PotPush:: @ 080E8ED4
 	tile_entity type=0x1, paramA=0x1b
 	tile_entity_list_end
 
-Room_PalaceOfWinds_26:: @ 080E8EE4
-	.4byte Entities_PalaceOfWinds_26_0
+Room_PalaceOfWinds_PotPush:: @ 080E8EE4
+	.4byte Entities_PalaceOfWinds_PotPush_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_26
-	.4byte TileEntities_PalaceOfWinds_26
+	.4byte Enemies_PalaceOfWinds_PotPush
+	.4byte TileEntities_PalaceOfWinds_PotPush
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_26
-	.4byte sub_StateChange_PalaceOfWinds_26
+	.4byte sub_unk3_PalaceOfWinds_PotPush
+	.4byte sub_StateChange_PalaceOfWinds_PotPush
 
-Entities_PalaceOfWinds_27_0:: @ 080E8F04
+Entities_PalaceOfWinds_FloormasterLever_0:: @ 080E8F04
 	object_raw subtype=0x54, x=0x78, y=0x14, paramB=0x200000, paramC=0x80000000
 	manager subtype=0x11, paramC=0x80000054
 	object_raw subtype=0x8, x=0x48, y=0x78, paramA=0x2, paramC=0x54ffff
 	entity_list_end
 
-Enemies_PalaceOfWinds_27:: @ 080E8F44
+Enemies_PalaceOfWinds_FloormasterLever:: @ 080E8F44
 	enemy_raw subtype=0x23, x=0x48, y=0x38, paramB=0xa160000, paramC=0x100010
 	enemy_raw subtype=0x23, x=0x98, y=0x68, paramB=0xa160000, paramC=0x100010
 	entity_list_end
 
-TileEntities_PalaceOfWinds_27:: @ 080E8F74
+TileEntities_PalaceOfWinds_FloormasterLever:: @ 080E8F74
 	tile_entity type=0x1, paramA=0x1c
 	tile_entity_list_end
 
-Room_PalaceOfWinds_27:: @ 080E8F84
-	.4byte Entities_PalaceOfWinds_27_0
+Room_PalaceOfWinds_FloormasterLever:: @ 080E8F84
+	.4byte Entities_PalaceOfWinds_FloormasterLever_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_27
-	.4byte TileEntities_PalaceOfWinds_27
+	.4byte Enemies_PalaceOfWinds_FloormasterLever
+	.4byte TileEntities_PalaceOfWinds_FloormasterLever
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_27
-	.4byte sub_StateChange_PalaceOfWinds_27
+	.4byte sub_unk3_PalaceOfWinds_FloormasterLever
+	.4byte sub_StateChange_PalaceOfWinds_FloormasterLever
 
-Entities_PalaceOfWinds_28_0:: @ 080E8FA4
+Entities_PalaceOfWinds_Map_0:: @ 080E8FA4
 	manager subtype=0x1a, unknown=0x8, paramA=0x2a
 	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x560000
 	object_raw subtype=0xc, x=0x78, y=0x28, paramA=0x2, paramB=0x57, paramC=0x560000
 	entity_list_end
 
-Enemies_PalaceOfWinds_28:: @ 080E8FE4
+Enemies_PalaceOfWinds_Map:: @ 080E8FE4
 	entity_list_end
 
-TileEntities_PalaceOfWinds_28:: @ 080E8FF4
+TileEntities_PalaceOfWinds_Map:: @ 080E8FF4
 	tile_entity type=0x3, paramA=0x57, paramB=0x50, paramC=0x78, paramD=0x28
 	tile_entity type=0x1, paramA=0x1d
 	tile_entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_28:: @ 080E900C
+gUnk_additional_8_PalaceOfWinds_Map:: @ 080E900C
 	enemy_raw subtype=0x28, x=0x78, y=0x28, paramB=0xe160000, paramC=0x200020
 	enemy_raw subtype=0x28, x=0x58, y=0x48, paramB=0xe160000, paramC=0x200020
 	enemy_raw subtype=0x28, x=0x98, y=0x48, paramB=0xe160000, paramC=0x200020
 	entity_list_end
 
-Room_PalaceOfWinds_28:: @ 080E904C
-	.4byte Entities_PalaceOfWinds_28_0
+Room_PalaceOfWinds_Map:: @ 080E904C
+	.4byte Entities_PalaceOfWinds_Map_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_28
-	.4byte TileEntities_PalaceOfWinds_28
+	.4byte Enemies_PalaceOfWinds_Map
+	.4byte TileEntities_PalaceOfWinds_Map
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_28
-	.4byte sub_StateChange_PalaceOfWinds_28
-	.4byte gUnk_additional_8_PalaceOfWinds_28
+	.4byte sub_unk3_PalaceOfWinds_Map
+	.4byte sub_StateChange_PalaceOfWinds_Map
+	.4byte gUnk_additional_8_PalaceOfWinds_Map
 
-Entities_PalaceOfWinds_29_0:: @ 080E9070
+Entities_PalaceOfWinds_CornerToMap_0:: @ 080E9070
 	object_raw subtype=0x74, x=0xb8, y=0x78, collision=1, paramC=0xffff0000
 	manager subtype=0x3, x=0xb8, y=0x78, unknown=0x0, paramA=0x3, paramB=0x103
 	entity_list_end
 
-Enemies_PalaceOfWinds_29:: @ 080E90A0
+Enemies_PalaceOfWinds_CornerToMap:: @ 080E90A0
 	enemy_raw subtype=0x1, x=0x58, y=0x38, paramA=0x2
 	enemy_raw subtype=0x1, x=0x98, y=0x48, paramA=0x2
 	entity_list_end
 
-TileEntities_PalaceOfWinds_29:: @ 080E90D0
+TileEntities_PalaceOfWinds_CornerToMap:: @ 080E90D0
 	tile_entity type=0x1, paramA=0x1e
 	tile_entity_list_end
 
-Room_PalaceOfWinds_29:: @ 080E90E0
-	.4byte Entities_PalaceOfWinds_29_0
+Room_PalaceOfWinds_CornerToMap:: @ 080E90E0
+	.4byte Entities_PalaceOfWinds_CornerToMap_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_29
-	.4byte TileEntities_PalaceOfWinds_29
+	.4byte Enemies_PalaceOfWinds_CornerToMap
+	.4byte TileEntities_PalaceOfWinds_CornerToMap
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_29
-	.4byte sub_StateChange_PalaceOfWinds_29
+	.4byte sub_unk3_PalaceOfWinds_CornerToMap
+	.4byte sub_StateChange_PalaceOfWinds_CornerToMap
 
-Entities_PalaceOfWinds_30_0:: @ 080E9100
+Entities_PalaceOfWinds_StairsAfterFloormaster_0:: @ 080E9100
 	enemy_raw subtype=0x43, x=0x28, y=0x28
 	enemy_raw subtype=0x43, x=0x68, y=0x28, paramB=0x5e
 	entity_list_end
 
-Enemies_PalaceOfWinds_30:: @ 080E9130
+Enemies_PalaceOfWinds_StairsAfterFloormaster:: @ 080E9130
 	projectile_raw subtype=0x1d, x=0x28, y=0x58, unknown=0x3
 	enemy_raw subtype=0x42, x=0x58, y=0x48, paramB=0xc160000, paramC=0x200020
 	enemy_raw subtype=0x42, x=0x78, y=0x68, paramB=0xc160000, paramC=0x200020
 	entity_list_end
 
-TileEntities_PalaceOfWinds_30:: @ 080E9170
+TileEntities_PalaceOfWinds_StairsAfterFloormaster:: @ 080E9170
 	tile_entity type=0x1, paramA=0x1f
 	tile_entity_list_end
 
-Room_PalaceOfWinds_30:: @ 080E9180
-	.4byte Entities_PalaceOfWinds_30_0
+Room_PalaceOfWinds_StairsAfterFloormaster:: @ 080E9180
+	.4byte Entities_PalaceOfWinds_StairsAfterFloormaster_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_30
-	.4byte TileEntities_PalaceOfWinds_30
+	.4byte Enemies_PalaceOfWinds_StairsAfterFloormaster
+	.4byte TileEntities_PalaceOfWinds_StairsAfterFloormaster
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_30
-	.4byte sub_StateChange_PalaceOfWinds_30
+	.4byte sub_unk3_PalaceOfWinds_StairsAfterFloormaster
+	.4byte sub_StateChange_PalaceOfWinds_StairsAfterFloormaster
 
-Entities_PalaceOfWinds_31_0:: @ 080E91A0
+Entities_PalaceOfWinds_HoleToKinstoneWizzrobe_0:: @ 080E91A0
 	manager subtype=0x1a, unknown=0x8, paramA=0x2b
 	object_raw subtype=0x5, x=0x48, y=0x48
 	object_raw subtype=0x5, x=0x58, y=0x48
@@ -12318,24 +12318,24 @@ Entities_PalaceOfWinds_31_0:: @ 080E91A0
 	object_raw subtype=0x5, x=0xa8, y=0x48
 	entity_list_end
 
-Enemies_PalaceOfWinds_31:: @ 080E9200
+Enemies_PalaceOfWinds_HoleToKinstoneWizzrobe:: @ 080E9200
 	entity_list_end
 
-TileEntities_PalaceOfWinds_31:: @ 080E9210
+TileEntities_PalaceOfWinds_HoleToKinstoneWizzrobe:: @ 080E9210
 	tile_entity type=0x1, paramA=0x20
 	tile_entity_list_end
 
-Room_PalaceOfWinds_31:: @ 080E9220
-	.4byte Entities_PalaceOfWinds_31_0
+Room_PalaceOfWinds_HoleToKinstoneWizzrobe:: @ 080E9220
+	.4byte Entities_PalaceOfWinds_HoleToKinstoneWizzrobe_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_31
-	.4byte TileEntities_PalaceOfWinds_31
+	.4byte Enemies_PalaceOfWinds_HoleToKinstoneWizzrobe
+	.4byte TileEntities_PalaceOfWinds_HoleToKinstoneWizzrobe
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_31
-	.4byte sub_StateChange_PalaceOfWinds_31
+	.4byte sub_unk3_PalaceOfWinds_HoleToKinstoneWizzrobe
+	.4byte sub_StateChange_PalaceOfWinds_HoleToKinstoneWizzrobe
 
-Entities_PalaceOfWinds_32_0:: @ 080E9240
+Entities_PalaceOfWinds_KeyArrowButton_0:: @ 080E9240
 	object_raw subtype=0x9d, x=0x68, y=0x48, paramA=0x1, paramC=0x580058
 	manager subtype=0x2e, unknown=0x0, paramB=0x1e00, paramC=0x580087
 	object_raw subtype=0x8, x=0xd8, y=0x38, paramA=0x1, paramC=0x87ffff
@@ -12346,26 +12346,26 @@ Entities_PalaceOfWinds_32_0:: @ 080E9240
 	enemy_raw subtype=0x43, x=0x48, y=0x78, paramB=0x5e
 	entity_list_end
 
-Enemies_PalaceOfWinds_32:: @ 080E92D0
+Enemies_PalaceOfWinds_KeyArrowButton:: @ 080E92D0
 	enemy_raw subtype=0x8, x=0x28, y=0x68
 	enemy_raw subtype=0x8, x=0x78, y=0x58
 	entity_list_end
 
-TileEntities_PalaceOfWinds_32:: @ 080E9300
+TileEntities_PalaceOfWinds_KeyArrowButton:: @ 080E9300
 	tile_entity type=0x1, paramA=0x21
 	tile_entity_list_end
 
-Room_PalaceOfWinds_32:: @ 080E9310
-	.4byte Entities_PalaceOfWinds_32_0
+Room_PalaceOfWinds_KeyArrowButton:: @ 080E9310
+	.4byte Entities_PalaceOfWinds_KeyArrowButton_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_32
-	.4byte TileEntities_PalaceOfWinds_32
+	.4byte Enemies_PalaceOfWinds_KeyArrowButton
+	.4byte TileEntities_PalaceOfWinds_KeyArrowButton
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_32
-	.4byte sub_StateChange_PalaceOfWinds_32
+	.4byte sub_unk3_PalaceOfWinds_KeyArrowButton
+	.4byte sub_StateChange_PalaceOfWinds_KeyArrowButton
 
-Entities_PalaceOfWinds_33_0:: @ 080E9330
+Entities_PalaceOfWinds_GratesTo3F_0:: @ 080E9330
 	manager subtype=0x19, unknown=0x8
 	manager subtype=0x1a, unknown=0x8, paramA=0x2c
 	object_raw subtype=0x29, x=0x80, y=0xe0, paramA=0x8
@@ -12375,7 +12375,7 @@ Entities_PalaceOfWinds_33_0:: @ 080E9330
 	object_raw subtype=0x16, x=0x60, y=0x180, collision=1, paramA=0x3, paramB=0x8
 	entity_list_end
 
-Enemies_PalaceOfWinds_33:: @ 080E93B0
+Enemies_PalaceOfWinds_GratesTo3F:: @ 080E93B0
 	enemy_raw subtype=0x1, x=0x178, y=0xb8, paramA=0x2
 	enemy_raw subtype=0x1, x=0x178, y=0x108, paramA=0x2
 	enemy_raw subtype=0x31, x=0xc8, y=0xc8
@@ -12394,33 +12394,33 @@ Enemies_PalaceOfWinds_33:: @ 080E93B0
 	enemy_raw subtype=0x43, x=0x38, y=0xe8
 	entity_list_end
 
-TileEntities_PalaceOfWinds_33:: @ 080E94C0
+TileEntities_PalaceOfWinds_GratesTo3F:: @ 080E94C0
 	tile_entity type=0x1, paramA=0x22
 	tile_entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_33:: @ 080E94D0
-	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_33.bin"
+gUnk_additional_8_PalaceOfWinds_GratesTo3F:: @ 080E94D0
+	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_GratesTo3F.bin"
 
-gUnk_additional_9_PalaceOfWinds_33:: @ 080E94EE
-	.incbin "data_080D5360/gUnk_additional_9_PalaceOfWinds_33.bin"
+gUnk_additional_9_PalaceOfWinds_GratesTo3F:: @ 080E94EE
+	.incbin "data_080D5360/gUnk_additional_9_PalaceOfWinds_GratesTo3F.bin"
 
-gUnk_additional_a_PalaceOfWinds_33:: @ 080E9500
-	.incbin "data_080D5360/gUnk_additional_a_PalaceOfWinds_33.bin"
+gUnk_additional_a_PalaceOfWinds_GratesTo3F:: @ 080E9500
+	.incbin "data_080D5360/gUnk_additional_a_PalaceOfWinds_GratesTo3F.bin"
 
-Room_PalaceOfWinds_33:: @ 080E9518
-	.4byte Entities_PalaceOfWinds_33_0
+Room_PalaceOfWinds_GratesTo3F:: @ 080E9518
+	.4byte Entities_PalaceOfWinds_GratesTo3F_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_33
-	.4byte TileEntities_PalaceOfWinds_33
+	.4byte Enemies_PalaceOfWinds_GratesTo3F
+	.4byte TileEntities_PalaceOfWinds_GratesTo3F
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_33
-	.4byte sub_StateChange_PalaceOfWinds_33
-	.4byte gUnk_additional_8_PalaceOfWinds_33
-	.4byte gUnk_additional_9_PalaceOfWinds_33
-	.4byte gUnk_additional_a_PalaceOfWinds_33
+	.4byte sub_unk3_PalaceOfWinds_GratesTo3F
+	.4byte sub_StateChange_PalaceOfWinds_GratesTo3F
+	.4byte gUnk_additional_8_PalaceOfWinds_GratesTo3F
+	.4byte gUnk_additional_9_PalaceOfWinds_GratesTo3F
+	.4byte gUnk_additional_a_PalaceOfWinds_GratesTo3F
 
-Entities_PalaceOfWinds_34_0:: @ 080E9544
+Entities_PalaceOfWinds_SpinyFight_0:: @ 080E9544
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x9d, x=0x38, y=0x158, paramA=0x1, paramC=0x80008004
 	object_raw subtype=0x9d, x=0x58, y=0x158, paramA=0x1, paramC=0x80018004
@@ -12442,30 +12442,30 @@ Entities_PalaceOfWinds_34_0:: @ 080E9544
 	ezlo_hint x=0x22, y=0x26, rx=0x2, ry=0x3, msg=0xb49, flag=0x68
 	entity_list_end
 
-Enemies_PalaceOfWinds_34:: @ 080E9684
+Enemies_PalaceOfWinds_SpinyFight:: @ 080E9684
 	entity_list_end
 
-TileEntities_PalaceOfWinds_34:: @ 080E9694
+TileEntities_PalaceOfWinds_SpinyFight:: @ 080E9694
 	tile_entity type=0x1, paramA=0x23
 	tile_entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_34:: @ 080E96A4
+gUnk_additional_8_PalaceOfWinds_SpinyFight:: @ 080E96A4
 	enemy_raw subtype=0x1e, x=0x38, y=0x118, unknown=0x2f
 	enemy_raw subtype=0x1e, x=0xb8, y=0x118, unknown=0x2f
 	entity_list_end
 
-Room_PalaceOfWinds_34:: @ 080E96D4
-	.4byte Entities_PalaceOfWinds_34_0
+Room_PalaceOfWinds_SpinyFight:: @ 080E96D4
+	.4byte Entities_PalaceOfWinds_SpinyFight_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_34
-	.4byte TileEntities_PalaceOfWinds_34
+	.4byte Enemies_PalaceOfWinds_SpinyFight
+	.4byte TileEntities_PalaceOfWinds_SpinyFight
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_34
-	.4byte sub_StateChange_PalaceOfWinds_34
-	.4byte gUnk_additional_8_PalaceOfWinds_34
+	.4byte sub_unk3_PalaceOfWinds_SpinyFight
+	.4byte sub_StateChange_PalaceOfWinds_SpinyFight
+	.4byte gUnk_additional_8_PalaceOfWinds_SpinyFight
 
-Entities_PalaceOfWinds_35_0:: @ 080E96F8
+Entities_PalaceOfWinds_PeahatSwitch_0:: @ 080E96F8
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x8, x=0xd8, y=0x48, paramA=0x9, paramC=0x6affff
 	object_raw subtype=0x9d, x=0x38, y=0xd8, paramA=0x1, paramC=0x80000069
@@ -12481,27 +12481,27 @@ Entities_PalaceOfWinds_35_0:: @ 080E96F8
 	object_raw subtype=0x5, x=0xc8, y=0x28
 	entity_list_end
 
-Enemies_PalaceOfWinds_35:: @ 080E97D8
+Enemies_PalaceOfWinds_PeahatSwitch:: @ 080E97D8
 	enemy_raw subtype=0x3, x=0x68, y=0x88, paramB=0x1e140000, paramC=0x300030
 	enemy_raw subtype=0x3, x=0x88, y=0x98, paramB=0x1e140000, paramC=0x300030
 	enemy_raw subtype=0x3, x=0xa8, y=0x78, paramB=0x1e140000, paramC=0x300030
 	entity_list_end
 
-TileEntities_PalaceOfWinds_35:: @ 080E9818
+TileEntities_PalaceOfWinds_PeahatSwitch:: @ 080E9818
 	tile_entity type=0x1, paramA=0x24
 	tile_entity_list_end
 
-Room_PalaceOfWinds_35:: @ 080E9828
-	.4byte Entities_PalaceOfWinds_35_0
+Room_PalaceOfWinds_PeahatSwitch:: @ 080E9828
+	.4byte Entities_PalaceOfWinds_PeahatSwitch_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_35
-	.4byte TileEntities_PalaceOfWinds_35
+	.4byte Enemies_PalaceOfWinds_PeahatSwitch
+	.4byte TileEntities_PalaceOfWinds_PeahatSwitch
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_35
-	.4byte sub_StateChange_PalaceOfWinds_35
+	.4byte sub_unk3_PalaceOfWinds_PeahatSwitch
+	.4byte sub_StateChange_PalaceOfWinds_PeahatSwitch
 
-Entities_PalaceOfWinds_36_0:: @ 080E9848
+Entities_PalaceOfWinds_WhirlwindBombarossa_0:: @ 080E9848
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x8, x=0x28, y=0x48, paramA=0xb, paramC=0x6affff
 	object_raw subtype=0x5e, x=0x58, y=0xd0
@@ -12516,44 +12516,44 @@ Entities_PalaceOfWinds_36_0:: @ 080E9848
 	enemy_raw subtype=0x33, x=0x138, y=0x68, paramA=0xb, paramB=0x1
 	entity_list_end
 
-Enemies_PalaceOfWinds_36:: @ 080E9918
+Enemies_PalaceOfWinds_WhirlwindBombarossa:: @ 080E9918
 	entity_list_end
 
-TileEntities_PalaceOfWinds_36:: @ 080E9928
+TileEntities_PalaceOfWinds_WhirlwindBombarossa:: @ 080E9928
 	tile_entity type=0x1, paramA=0x25
 	tile_entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_36:: @ 080E9938
-	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_36.bin"
+gUnk_additional_8_PalaceOfWinds_WhirlwindBombarossa:: @ 080E9938
+	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_WhirlwindBombarossa.bin"
 
-gUnk_additional_9_PalaceOfWinds_36:: @ 080E996E
-	.incbin "data_080D5360/gUnk_additional_9_PalaceOfWinds_36.bin"
+gUnk_additional_9_PalaceOfWinds_WhirlwindBombarossa:: @ 080E996E
+	.incbin "data_080D5360/gUnk_additional_9_PalaceOfWinds_WhirlwindBombarossa.bin"
 
-gUnk_additional_a_PalaceOfWinds_36:: @ 080E99A4
-	.incbin "data_080D5360/gUnk_additional_a_PalaceOfWinds_36.bin"
+gUnk_additional_a_PalaceOfWinds_WhirlwindBombarossa:: @ 080E99A4
+	.incbin "data_080D5360/gUnk_additional_a_PalaceOfWinds_WhirlwindBombarossa.bin"
 
-gUnk_additional_b_PalaceOfWinds_36:: @ 080E99DA
-	.incbin "data_080D5360/gUnk_additional_b_PalaceOfWinds_36.bin"
+gUnk_additional_b_PalaceOfWinds_WhirlwindBombarossa:: @ 080E99DA
+	.incbin "data_080D5360/gUnk_additional_b_PalaceOfWinds_WhirlwindBombarossa.bin"
 
-Room_PalaceOfWinds_36:: @ 080E9A10
-	.4byte Entities_PalaceOfWinds_36_0
+Room_PalaceOfWinds_WhirlwindBombarossa:: @ 080E9A10
+	.4byte Entities_PalaceOfWinds_WhirlwindBombarossa_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_36
-	.4byte TileEntities_PalaceOfWinds_36
+	.4byte Enemies_PalaceOfWinds_WhirlwindBombarossa
+	.4byte TileEntities_PalaceOfWinds_WhirlwindBombarossa
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_36
-	.4byte sub_StateChange_PalaceOfWinds_36
-	.4byte gUnk_additional_8_PalaceOfWinds_36
-	.4byte gUnk_additional_9_PalaceOfWinds_36
-	.4byte gUnk_additional_a_PalaceOfWinds_36
-	.4byte gUnk_additional_b_PalaceOfWinds_36
+	.4byte sub_unk3_PalaceOfWinds_WhirlwindBombarossa
+	.4byte sub_StateChange_PalaceOfWinds_WhirlwindBombarossa
+	.4byte gUnk_additional_8_PalaceOfWinds_WhirlwindBombarossa
+	.4byte gUnk_additional_9_PalaceOfWinds_WhirlwindBombarossa
+	.4byte gUnk_additional_a_PalaceOfWinds_WhirlwindBombarossa
+	.4byte gUnk_additional_b_PalaceOfWinds_WhirlwindBombarossa
 
-Entities_PalaceOfWinds_37_0:: @ 080E9A40
+Entities_PalaceOfWinds_DoorToStalfosFirebar_0:: @ 080E9A40
 	manager subtype=0x1a, unknown=0x8, paramA=0x2d
 	entity_list_end
 
-Enemies_PalaceOfWinds_37:: @ 080E9A60
+Enemies_PalaceOfWinds_DoorToStalfosFirebar:: @ 080E9A60
 	enemy_raw subtype=0x43, x=0x38, y=0x58
 	enemy_raw subtype=0x43, x=0x48, y=0x58, paramA=0x2
 	enemy_raw subtype=0x43, x=0x58, y=0x58
@@ -12561,47 +12561,47 @@ Enemies_PalaceOfWinds_37:: @ 080E9A60
 	enemy_raw subtype=0x43, x=0x88, y=0x48
 	entity_list_end
 
-TileEntities_PalaceOfWinds_37:: @ 080E9AC0
+TileEntities_PalaceOfWinds_DoorToStalfosFirebar:: @ 080E9AC0
 	tile_entity type=0x1, paramA=0x26
 	tile_entity_list_end
 
-Room_PalaceOfWinds_37:: @ 080E9AD0
-	.4byte Entities_PalaceOfWinds_37_0
+Room_PalaceOfWinds_DoorToStalfosFirebar:: @ 080E9AD0
+	.4byte Entities_PalaceOfWinds_DoorToStalfosFirebar_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_37
-	.4byte TileEntities_PalaceOfWinds_37
+	.4byte Enemies_PalaceOfWinds_DoorToStalfosFirebar
+	.4byte TileEntities_PalaceOfWinds_DoorToStalfosFirebar
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_37
-	.4byte sub_StateChange_PalaceOfWinds_37
+	.4byte sub_unk3_PalaceOfWinds_DoorToStalfosFirebar
+	.4byte sub_StateChange_PalaceOfWinds_DoorToStalfosFirebar
 
-Entities_PalaceOfWinds_38_0:: @ 080E9AF0
+Entities_PalaceOfWinds_StalfosFireborHole_0:: @ 080E9AF0
 	manager subtype=0x1a, unknown=0x8, paramA=0x2f
 	manager subtype=0x1a, unknown=0x8, paramA=0x2e
 	object_raw subtype=0x8, x=0xd8, y=0x48, paramA=0x1, paramC=0x6bffff
 	entity_list_end
 
-Enemies_PalaceOfWinds_38:: @ 080E9B30
+Enemies_PalaceOfWinds_StalfosFireborHole:: @ 080E9B30
 	enemy_raw subtype=0x42, x=0x58, y=0x48, paramA=0x1, paramB=0xc160000, paramC=0x200020
 	enemy_raw subtype=0x42, x=0xa8, y=0x48, paramA=0x1, paramB=0xc160000, paramC=0x200020
 	projectile_raw subtype=0x1d, x=0x68, y=0x28, unknown=0x3
 	entity_list_end
 
-TileEntities_PalaceOfWinds_38:: @ 080E9B70
+TileEntities_PalaceOfWinds_StalfosFireborHole:: @ 080E9B70
 	tile_entity type=0x1, paramA=0x27
 	tile_entity_list_end
 
-Room_PalaceOfWinds_38:: @ 080E9B80
-	.4byte Entities_PalaceOfWinds_38_0
+Room_PalaceOfWinds_StalfosFireborHole:: @ 080E9B80
+	.4byte Entities_PalaceOfWinds_StalfosFireborHole_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_38
-	.4byte TileEntities_PalaceOfWinds_38
+	.4byte Enemies_PalaceOfWinds_StalfosFireborHole
+	.4byte TileEntities_PalaceOfWinds_StalfosFireborHole
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_38
-	.4byte sub_StateChange_PalaceOfWinds_38
+	.4byte sub_unk3_PalaceOfWinds_StalfosFireborHole
+	.4byte sub_StateChange_PalaceOfWinds_StalfosFireborHole
 
-Entities_PalaceOfWinds_39_0:: @ 080E9BA0
+Entities_PalaceOfWinds_ShortcutDoorButtons_0:: @ 080E9BA0
 	manager subtype=0x1a, unknown=0x8, paramA=0x30
 	object_raw subtype=0x9d, x=0x48, y=0x28, paramA=0x1, paramC=0x8000006b
 	object_raw subtype=0x9d, x=0x78, y=0x28, paramA=0x1, paramC=0x8001006b
@@ -12609,50 +12609,50 @@ Entities_PalaceOfWinds_39_0:: @ 080E9BA0
 	object_raw subtype=0x8, x=0x28, y=0x48, paramA=0x3, paramC=0x6bffff
 	entity_list_end
 
-Enemies_PalaceOfWinds_39:: @ 080E9C00
+Enemies_PalaceOfWinds_ShortcutDoorButtons:: @ 080E9C00
 	enemy_raw subtype=0x8, x=0xb8, y=0x48
 	enemy_raw subtype=0x8, x=0xc8, y=0x58
 	entity_list_end
 
-TileEntities_PalaceOfWinds_39:: @ 080E9C30
+TileEntities_PalaceOfWinds_ShortcutDoorButtons:: @ 080E9C30
 	tile_entity type=0x1, paramA=0x28
 	tile_entity_list_end
 
-Room_PalaceOfWinds_39:: @ 080E9C40
-	.4byte Entities_PalaceOfWinds_39_0
+Room_PalaceOfWinds_ShortcutDoorButtons:: @ 080E9C40
+	.4byte Entities_PalaceOfWinds_ShortcutDoorButtons_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_39
-	.4byte TileEntities_PalaceOfWinds_39
+	.4byte Enemies_PalaceOfWinds_ShortcutDoorButtons
+	.4byte TileEntities_PalaceOfWinds_ShortcutDoorButtons
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_39
-	.4byte sub_StateChange_PalaceOfWinds_39
+	.4byte sub_unk3_PalaceOfWinds_ShortcutDoorButtons
+	.4byte sub_StateChange_PalaceOfWinds_ShortcutDoorButtons
 
-Entities_PalaceOfWinds_40_0:: @ 080E9C60
+Entities_PalaceOfWinds_ToPeahatSwitch_0:: @ 080E9C60
 	manager subtype=0x1a, unknown=0x8, paramA=0x31
 	object_raw subtype=0x8, x=0xd8, y=0x68, paramA=0x1, paramC=0x6dffff
 	entity_list_end
 
-Enemies_PalaceOfWinds_40:: @ 080E9C90
+Enemies_PalaceOfWinds_ToPeahatSwitch:: @ 080E9C90
 	enemy_raw subtype=0x1, x=0x58, y=0x68, paramA=0x2
 	enemy_raw subtype=0x1, x=0xa8, y=0x78, paramA=0x2
 	entity_list_end
 
-TileEntities_PalaceOfWinds_40:: @ 080E9CC0
+TileEntities_PalaceOfWinds_ToPeahatSwitch:: @ 080E9CC0
 	tile_entity type=0x1, paramA=0x29
 	tile_entity_list_end
 
-Room_PalaceOfWinds_40:: @ 080E9CD0
-	.4byte Entities_PalaceOfWinds_40_0
+Room_PalaceOfWinds_ToPeahatSwitch:: @ 080E9CD0
+	.4byte Entities_PalaceOfWinds_ToPeahatSwitch_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_40
-	.4byte TileEntities_PalaceOfWinds_40
+	.4byte Enemies_PalaceOfWinds_ToPeahatSwitch
+	.4byte TileEntities_PalaceOfWinds_ToPeahatSwitch
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_40
-	.4byte sub_StateChange_PalaceOfWinds_40
+	.4byte sub_unk3_PalaceOfWinds_ToPeahatSwitch
+	.4byte sub_StateChange_PalaceOfWinds_ToPeahatSwitch
 
-Entities_PalaceOfWinds_41_0:: @ 080E9CF0
+Entities_PalaceOfWinds_KinstoneWizzrobeFight_0:: @ 080E9CF0
 	manager subtype=0x1e, x=0x60, y=0x30, paramB=0x300030, paramC=0x80000000
 	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x6d8000
 	object_raw subtype=0xc, x=0x78, y=0x38, paramA=0x1, paramC=0x6d0000
@@ -12660,91 +12660,91 @@ Entities_PalaceOfWinds_41_0:: @ 080E9CF0
 	object_raw subtype=0x8, x=0xc8, y=0x68, paramA=0x1, paramC=0x6dffff
 	entity_list_end
 
-Enemies_PalaceOfWinds_41:: @ 080E9D50
+Enemies_PalaceOfWinds_KinstoneWizzrobeFight:: @ 080E9D50
 	entity_list_end
 
-TileEntities_PalaceOfWinds_41:: @ 080E9D60
+TileEntities_PalaceOfWinds_KinstoneWizzrobeFight:: @ 080E9D60
 	tile_entity type=0x2, paramA=0x6e, paramB=0x6f5c, paramC=0xc7
 	tile_entity type=0x1, paramA=0x2a
 	tile_entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_41:: @ 080E9D78
+gUnk_additional_8_PalaceOfWinds_KinstoneWizzrobeFight:: @ 080E9D78
 	enemy_raw subtype=0x27, x=0x38, y=0x48, paramB=0xa120000, paramC=0x300030
 	enemy_raw subtype=0x29, x=0xb8, y=0x48, paramB=0xa120000, paramC=0x300030
 	entity_list_end
 
-Room_PalaceOfWinds_41:: @ 080E9DA8
-	.4byte Entities_PalaceOfWinds_41_0
+Room_PalaceOfWinds_KinstoneWizzrobeFight:: @ 080E9DA8
+	.4byte Entities_PalaceOfWinds_KinstoneWizzrobeFight_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_41
-	.4byte TileEntities_PalaceOfWinds_41
+	.4byte Enemies_PalaceOfWinds_KinstoneWizzrobeFight
+	.4byte TileEntities_PalaceOfWinds_KinstoneWizzrobeFight
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_41
-	.4byte sub_StateChange_PalaceOfWinds_41
-	.4byte gUnk_additional_8_PalaceOfWinds_41
+	.4byte sub_unk3_PalaceOfWinds_KinstoneWizzrobeFight
+	.4byte sub_StateChange_PalaceOfWinds_KinstoneWizzrobeFight
+	.4byte gUnk_additional_8_PalaceOfWinds_KinstoneWizzrobeFight
 
-Entities_PalaceOfWinds_42_0:: @ 080E9DCC
+Entities_PalaceOfWinds_GibdoStairs_0:: @ 080E9DCC
 	object_raw subtype=0x8, x=0x18, y=0x68, paramA=0x3, paramC=0x6dffff
 	entity_list_end
 
-Enemies_PalaceOfWinds_42:: @ 080E9DEC
+Enemies_PalaceOfWinds_GibdoStairs:: @ 080E9DEC
 	enemy_raw subtype=0x3b, x=0x68, y=0x48, paramB=0xe160000, paramC=0x100020
 	enemy_raw subtype=0x3b, x=0xb8, y=0x48, paramB=0xe160000, paramC=0x100020
 	entity_list_end
 
-TileEntities_PalaceOfWinds_42:: @ 080E9E1C
+TileEntities_PalaceOfWinds_GibdoStairs:: @ 080E9E1C
 	tile_entity type=0x1, paramA=0x2b
 	tile_entity_list_end
 
-Room_PalaceOfWinds_42:: @ 080E9E2C
-	.4byte Entities_PalaceOfWinds_42_0
+Room_PalaceOfWinds_GibdoStairs:: @ 080E9E2C
+	.4byte Entities_PalaceOfWinds_GibdoStairs_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_42
-	.4byte TileEntities_PalaceOfWinds_42
+	.4byte Enemies_PalaceOfWinds_GibdoStairs
+	.4byte TileEntities_PalaceOfWinds_GibdoStairs
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_42
-	.4byte sub_StateChange_PalaceOfWinds_42
+	.4byte sub_unk3_PalaceOfWinds_GibdoStairs
+	.4byte sub_StateChange_PalaceOfWinds_GibdoStairs
 
-Entities_PalaceOfWinds_43_0:: @ 080E9E4C
+Entities_PalaceOfWinds_SpikeBarSmallKey_0:: @ 080E9E4C
 	manager subtype=0x19, unknown=0x8
 	entity_list_end
 
-Enemies_PalaceOfWinds_43:: @ 080E9E6C
+Enemies_PalaceOfWinds_SpikeBarSmallKey:: @ 080E9E6C
 	projectile_raw subtype=0x1e, x=0x38, y=0xa0, unknown=0x3, paramA=0x2, paramC=0x800090
 	projectile_raw subtype=0x1e, x=0x78, y=0x60, unknown=0x3, paramA=0x2, paramC=0x80ffc0
 	projectile_raw subtype=0x1e, x=0x88, y=0x60, unknown=0x3, paramA=0x2, paramC=0x800040
 	entity_list_end
 
-TileEntities_PalaceOfWinds_43:: @ 080E9EAC
+TileEntities_PalaceOfWinds_SpikeBarSmallKey:: @ 080E9EAC
 	tile_entity type=0x2, paramA=0x6f, paramB=0x53, paramC=0x46, paramD=0x1
 	tile_entity type=0x1, paramA=0x2c
 	tile_entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_43:: @ 080E9EC4
-	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_43.bin"
+gUnk_additional_8_PalaceOfWinds_SpikeBarSmallKey:: @ 080E9EC4
+	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_SpikeBarSmallKey.bin"
 
-gUnk_additional_9_PalaceOfWinds_43:: @ 080E9EE2
-	.incbin "data_080D5360/gUnk_additional_9_PalaceOfWinds_43.bin"
+gUnk_additional_9_PalaceOfWinds_SpikeBarSmallKey:: @ 080E9EE2
+	.incbin "data_080D5360/gUnk_additional_9_PalaceOfWinds_SpikeBarSmallKey.bin"
 
-gUnk_additional_a_PalaceOfWinds_43:: @ 080E9F00
-	.incbin "data_080D5360/gUnk_additional_a_PalaceOfWinds_43.bin"
+gUnk_additional_a_PalaceOfWinds_SpikeBarSmallKey:: @ 080E9F00
+	.incbin "data_080D5360/gUnk_additional_a_PalaceOfWinds_SpikeBarSmallKey.bin"
 
-Room_PalaceOfWinds_43:: @ 080E9F20
-	.4byte Entities_PalaceOfWinds_43_0
+Room_PalaceOfWinds_SpikeBarSmallKey:: @ 080E9F20
+	.4byte Entities_PalaceOfWinds_SpikeBarSmallKey_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_43
-	.4byte TileEntities_PalaceOfWinds_43
+	.4byte Enemies_PalaceOfWinds_SpikeBarSmallKey
+	.4byte TileEntities_PalaceOfWinds_SpikeBarSmallKey
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_43
-	.4byte sub_StateChange_PalaceOfWinds_43
-	.4byte gUnk_additional_8_PalaceOfWinds_43
-	.4byte gUnk_additional_9_PalaceOfWinds_43
-	.4byte gUnk_additional_a_PalaceOfWinds_43
+	.4byte sub_unk3_PalaceOfWinds_SpikeBarSmallKey
+	.4byte sub_StateChange_PalaceOfWinds_SpikeBarSmallKey
+	.4byte gUnk_additional_8_PalaceOfWinds_SpikeBarSmallKey
+	.4byte gUnk_additional_9_PalaceOfWinds_SpikeBarSmallKey
+	.4byte gUnk_additional_a_PalaceOfWinds_SpikeBarSmallKey
 
-Entities_PalaceOfWinds_44_0:: @ 080E9F4C
+Entities_PalaceOfWinds_RocCape_0:: @ 080E9F4C
 .ifdef EU
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x9d, x=0x128, y=0x168, paramC=0x800a0000
@@ -12789,28 +12789,28 @@ gUnk_080EA09C:: @ 080EA09C
 	manager subtype=0xb, unknown=0x0, paramB=0xa, paramC=0x708002
 	entity_list_end
 
-Enemies_PalaceOfWinds_44:: @ 080EA0EC
+Enemies_PalaceOfWinds_RocCape:: @ 080EA0EC
 	projectile_raw subtype=0x1e, x=0x118, y=0x180, unknown=0x3, paramA=0x2, paramC=0x800080
 	entity_list_end
 
-TileEntities_PalaceOfWinds_44:: @ 080EA10C
+TileEntities_PalaceOfWinds_RocCape:: @ 080EA10C
 	tile_entity type=0x3, paramA=0x74, paramB=0x14, paramC=0x78, paramD=0xd8
 	tile_entity type=0x1, paramA=0x2d
 	tile_entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_44:: @ 080EA124
+gUnk_additional_8_PalaceOfWinds_RocCape:: @ 080EA124
 	enemy_raw subtype=0x27, x=0x38, y=0xd8, paramB=0xe120000, paramC=0xa00030
 	enemy_raw subtype=0x27, x=0xb8, y=0xd8, paramB=0xe120000, paramC=0xa00030
 	entity_list_end
 
-gUnk_additional_9_PalaceOfWinds_44:: @ 080EA154
+gUnk_additional_9_PalaceOfWinds_RocCape:: @ 080EA154
 	enemy_raw subtype=0x27, x=0x38, y=0xd8, paramB=0xe120000, paramC=0xa00030
 	enemy_raw subtype=0x27, x=0xb8, y=0xd8, paramB=0xe120000, paramC=0xa00030
 	enemy_raw subtype=0x27, x=0x78, y=0xb8, paramB=0xe120000, paramC=0xa00030
 	enemy_raw subtype=0x27, x=0x78, y=0xf8, paramB=0xe120000, paramC=0xa00030
 	entity_list_end
 
-gUnk_additional_a_PalaceOfWinds_44:: @ 080EA1A4
+gUnk_additional_a_PalaceOfWinds_RocCape:: @ 080EA1A4
 	enemy_raw subtype=0x27, x=0x38, y=0xd8, paramB=0xe120000, paramC=0xa00030
 	enemy_raw subtype=0x27, x=0xb8, y=0xd8, paramB=0xe120000, paramC=0xa00030
 	enemy_raw subtype=0x27, x=0x68, y=0xb8, paramB=0xe120000, paramC=0xa00030
@@ -12819,24 +12819,24 @@ gUnk_additional_a_PalaceOfWinds_44:: @ 080EA1A4
 	enemy_raw subtype=0x27, x=0x88, y=0xf8, paramB=0xe120000, paramC=0xa00030
 	entity_list_end
 
-Room_PalaceOfWinds_44:: @ 080EA214
-	.4byte Entities_PalaceOfWinds_44_0
+Room_PalaceOfWinds_RocCape:: @ 080EA214
+	.4byte Entities_PalaceOfWinds_RocCape_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_44
-	.4byte TileEntities_PalaceOfWinds_44
+	.4byte Enemies_PalaceOfWinds_RocCape
+	.4byte TileEntities_PalaceOfWinds_RocCape
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_44
-	.4byte sub_StateChange_PalaceOfWinds_44
-	.4byte gUnk_additional_8_PalaceOfWinds_44
-	.4byte gUnk_additional_9_PalaceOfWinds_44
-	.4byte gUnk_additional_a_PalaceOfWinds_44
+	.4byte sub_unk3_PalaceOfWinds_RocCape
+	.4byte sub_StateChange_PalaceOfWinds_RocCape
+	.4byte gUnk_additional_8_PalaceOfWinds_RocCape
+	.4byte gUnk_additional_9_PalaceOfWinds_RocCape
+	.4byte gUnk_additional_a_PalaceOfWinds_RocCape
 
-Entities_PalaceOfWinds_45_0:: @ 080EA240
+Entities_PalaceOfWinds_FireBarGrates_0:: @ 080EA240
 	manager subtype=0x19, unknown=0x8
 	entity_list_end
 
-Enemies_PalaceOfWinds_45:: @ 080EA260
+Enemies_PalaceOfWinds_FireBarGrates:: @ 080EA260
 	enemy_raw subtype=0x42, x=0x168, y=0x148, paramB=0x80c0000, paramC=0x1300140
 	enemy_raw subtype=0x22, x=0x58, y=0xe8
 	enemy_raw subtype=0x22, x=0x68, y=0x148
@@ -12846,22 +12846,22 @@ Enemies_PalaceOfWinds_45:: @ 080EA260
 	projectile_raw subtype=0x1d, x=0xb8, y=0xd8, unknown=0x3
 	entity_list_end
 
-TileEntities_PalaceOfWinds_45:: @ 080EA2E0
+TileEntities_PalaceOfWinds_FireBarGrates:: @ 080EA2E0
 	tile_entity type=0x2, paramA=0x76, paramB=0x705c, paramC=0x149
 	tile_entity type=0x1, paramA=0x2e
 	tile_entity_list_end
 
-Room_PalaceOfWinds_45:: @ 080EA2F8
-	.4byte Entities_PalaceOfWinds_45_0
+Room_PalaceOfWinds_FireBarGrates:: @ 080EA2F8
+	.4byte Entities_PalaceOfWinds_FireBarGrates_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_45
-	.4byte TileEntities_PalaceOfWinds_45
+	.4byte Enemies_PalaceOfWinds_FireBarGrates
+	.4byte TileEntities_PalaceOfWinds_FireBarGrates
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_45
-	.4byte sub_StateChange_PalaceOfWinds_45
+	.4byte sub_unk3_PalaceOfWinds_FireBarGrates
+	.4byte sub_StateChange_PalaceOfWinds_FireBarGrates
 
-Entities_PalaceOfWinds_46_0:: @ 080EA318
+Entities_PalaceOfWinds_PlatformRideBombarossas_0:: @ 080EA318
 	manager subtype=0x19, unknown=0x8
 	manager subtype=0x38, paramA=0x8
 	object_raw subtype=0xae, x=0x68, y=0xc8, paramA=0x3
@@ -12878,62 +12878,62 @@ Entities_PalaceOfWinds_46_0:: @ 080EA318
 	enemy_raw subtype=0x33, x=0x88, y=0x1c8
 	entity_list_end
 
-Enemies_PalaceOfWinds_46:: @ 080EA408
+Enemies_PalaceOfWinds_PlatformRideBombarossas:: @ 080EA408
 	entity_list_end
 
-TileEntities_PalaceOfWinds_46:: @ 080EA418
+TileEntities_PalaceOfWinds_PlatformRideBombarossas:: @ 080EA418
 	tile_entity type=0x1, paramA=0x2f
 	tile_entity_list_end
 
-gUnk_additional_8_PalaceOfWinds_46:: @ 080EA428
+gUnk_additional_8_PalaceOfWinds_PlatformRideBombarossas:: @ 080EA428
 	object_raw subtype=0x16, x=0x68, y=0x1b8, paramA=0x3, paramB=0xa
 	object_raw subtype=0x16, x=0x90, y=0x1b0, paramA=0x2, paramB=0xa
 	object_raw subtype=0x16, x=0x60, y=0x1e0, paramA=0x2, paramB=0xa
 	object_raw subtype=0x16, x=0x88, y=0x1d8, paramA=0x3, paramB=0xa
 	entity_list_end
 
-gUnk_additional_9_PalaceOfWinds_46:: @ 080EA478
-	.incbin "data_080D5360/gUnk_additional_9_PalaceOfWinds_46.bin"
+gUnk_additional_9_PalaceOfWinds_PlatformRideBombarossas:: @ 080EA478
+	.incbin "data_080D5360/gUnk_additional_9_PalaceOfWinds_PlatformRideBombarossas.bin"
 
-gUnk_additional_a_PalaceOfWinds_46:: @ 080EA496
-	.incbin "data_080D5360/gUnk_additional_a_PalaceOfWinds_46.bin"
+gUnk_additional_a_PalaceOfWinds_PlatformRideBombarossas:: @ 080EA496
+	.incbin "data_080D5360/gUnk_additional_a_PalaceOfWinds_PlatformRideBombarossas.bin"
 
-Room_PalaceOfWinds_46:: @ 080EA4BC
-	.4byte Entities_PalaceOfWinds_46_0
+Room_PalaceOfWinds_PlatformRideBombarossas:: @ 080EA4BC
+	.4byte Entities_PalaceOfWinds_PlatformRideBombarossas_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_46
-	.4byte TileEntities_PalaceOfWinds_46
+	.4byte Enemies_PalaceOfWinds_PlatformRideBombarossas
+	.4byte TileEntities_PalaceOfWinds_PlatformRideBombarossas
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_46
-	.4byte sub_StateChange_PalaceOfWinds_46
-	.4byte gUnk_additional_8_PalaceOfWinds_46
-	.4byte gUnk_additional_9_PalaceOfWinds_46
-	.4byte gUnk_additional_a_PalaceOfWinds_46
+	.4byte sub_unk3_PalaceOfWinds_PlatformRideBombarossas
+	.4byte sub_StateChange_PalaceOfWinds_PlatformRideBombarossas
+	.4byte gUnk_additional_8_PalaceOfWinds_PlatformRideBombarossas
+	.4byte gUnk_additional_9_PalaceOfWinds_PlatformRideBombarossas
+	.4byte gUnk_additional_a_PalaceOfWinds_PlatformRideBombarossas
 
-Entities_PalaceOfWinds_47_0:: @ 080EA4E8
+Entities_PalaceOfWinds_BridgeAfterDarknut_0:: @ 080EA4E8
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0xa1, x=0x78, y=0x18
 	entity_list_end
 
-Enemies_PalaceOfWinds_47:: @ 080EA518
+Enemies_PalaceOfWinds_BridgeAfterDarknut:: @ 080EA518
 	entity_list_end
 
-TileEntities_PalaceOfWinds_47:: @ 080EA528
+TileEntities_PalaceOfWinds_BridgeAfterDarknut:: @ 080EA528
 	tile_entity type=0x1, paramA=0x30
 	tile_entity_list_end
 
-Room_PalaceOfWinds_47:: @ 080EA538
-	.4byte Entities_PalaceOfWinds_47_0
+Room_PalaceOfWinds_BridgeAfterDarknut:: @ 080EA538
+	.4byte Entities_PalaceOfWinds_BridgeAfterDarknut_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_47
-	.4byte TileEntities_PalaceOfWinds_47
+	.4byte Enemies_PalaceOfWinds_BridgeAfterDarknut
+	.4byte TileEntities_PalaceOfWinds_BridgeAfterDarknut
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_47
-	.4byte sub_StateChange_PalaceOfWinds_47
+	.4byte sub_unk3_PalaceOfWinds_BridgeAfterDarknut
+	.4byte sub_StateChange_PalaceOfWinds_BridgeAfterDarknut
 
-Entities_PalaceOfWinds_48_0:: @ 080EA558
+Entities_PalaceOfWinds_BridgeSwitchesCloneBlock_0:: @ 080EA558
 	manager subtype=0x19, unknown=0x8
 	object_raw subtype=0x9d, x=0x48, y=0xa8, paramC=0x80000000
 	object_raw subtype=0x9d, x=0xf8, y=0x118, paramC=0x80000000
@@ -12951,7 +12951,7 @@ Entities_PalaceOfWinds_48_0:: @ 080EA558
 	enemy_raw subtype=0x43, x=0x88, y=0x28, paramB=0x5e
 	entity_list_end
 
-Enemies_PalaceOfWinds_48:: @ 080EA658
+Enemies_PalaceOfWinds_BridgeSwitchesCloneBlock:: @ 080EA658
 	enemy_raw subtype=0x42, x=0x118, y=0x48, paramB=0x81a0000, paramC=0x2000e0
 	enemy_raw subtype=0x42, x=0x138, y=0x48, paramB=0x81a0000, paramC=0x2000e0
 	enemy_raw subtype=0x3, x=0x68, y=0x98, paramB=0x24160000, paramC=0x200010
@@ -12961,21 +12961,21 @@ Enemies_PalaceOfWinds_48:: @ 080EA658
 	enemy_raw subtype=0x3, x=0x178, y=0xd8, paramB=0x16220000, paramC=0x9000d0
 	entity_list_end
 
-TileEntities_PalaceOfWinds_48:: @ 080EA6D8
+TileEntities_PalaceOfWinds_BridgeSwitchesCloneBlock:: @ 080EA6D8
 	tile_entity type=0x1, paramA=0x31
 	tile_entity_list_end
 
-Room_PalaceOfWinds_48:: @ 080EA6E8
-	.4byte Entities_PalaceOfWinds_48_0
+Room_PalaceOfWinds_BridgeSwitchesCloneBlock:: @ 080EA6E8
+	.4byte Entities_PalaceOfWinds_BridgeSwitchesCloneBlock_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_48
-	.4byte TileEntities_PalaceOfWinds_48
+	.4byte Enemies_PalaceOfWinds_BridgeSwitchesCloneBlock
+	.4byte TileEntities_PalaceOfWinds_BridgeSwitchesCloneBlock
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_48
-	.4byte sub_StateChange_PalaceOfWinds_48
+	.4byte sub_unk3_PalaceOfWinds_BridgeSwitchesCloneBlock
+	.4byte sub_StateChange_PalaceOfWinds_BridgeSwitchesCloneBlock
 
-Entities_PalaceOfWinds_49_0:: @ 080EA708
+Entities_PalaceOfWinds_EntranceRoom_0:: @ 080EA708
 	ezlo_hint x=0x44, y=0x4, rx=0x3, ry=0x7, msg=0xb19, flag=0x77
 	manager subtype=0x1a, unknown=0x8, paramA=0x32
 	object_raw subtype=0x34, x=0x208, y=0x58, paramB=0xc70, paramC=0x840207
@@ -12987,24 +12987,24 @@ Entities_PalaceOfWinds_49_0:: @ 080EA708
 	manager subtype=0x19, unknown=0x8
 	entity_list_end
 
-Enemies_PalaceOfWinds_49:: @ 080EA7A8
+Enemies_PalaceOfWinds_EntranceRoom:: @ 080EA7A8
 	entity_list_end
 
-TileEntities_PalaceOfWinds_49:: @ 080EA7B8
+TileEntities_PalaceOfWinds_EntranceRoom:: @ 080EA7B8
 	tile_entity type=0x1, paramA=0x32
 	tile_entity_list_end
 
-Room_PalaceOfWinds_49:: @ 080EA7C8
-	.4byte Entities_PalaceOfWinds_49_0
+Room_PalaceOfWinds_EntranceRoom:: @ 080EA7C8
+	.4byte Entities_PalaceOfWinds_EntranceRoom_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_49
-	.4byte TileEntities_PalaceOfWinds_49
+	.4byte Enemies_PalaceOfWinds_EntranceRoom
+	.4byte TileEntities_PalaceOfWinds_EntranceRoom
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_49
-	.4byte sub_StateChange_PalaceOfWinds_49
+	.4byte sub_unk3_PalaceOfWinds_EntranceRoom
+	.4byte sub_StateChange_PalaceOfWinds_EntranceRoom
 
-Entities_PalaceOfWinds_50_0:: @ 080EA7E8
+Entities_PalaceOfWinds_DarkCompassHall_0:: @ 080EA7E8
 	ezlo_hint x=0x28, y=0x1e, rx=0x5, ry=0x3, msg=0xb1a, flag=0x78
 	object_raw subtype=0xa1, x=0x168, y=0x128, paramB=0x1
 	object_raw subtype=0xc, x=0x218, y=0x98, paramA=0x4, paramB=0x79
@@ -13030,29 +13030,29 @@ Entities_PalaceOfWinds_50_0:: @ 080EA7E8
 	object_raw subtype=0xbc, x=0x238, y=0xb8
 	entity_list_end
 
-Enemies_PalaceOfWinds_50:: @ 080EA968
+Enemies_PalaceOfWinds_DarkCompassHall:: @ 080EA968
 	enemy_raw subtype=0x42, x=0x38, y=0xe8, paramA=0x1, paramB=0x34520000, paramC=0x200020
 	enemy_raw subtype=0x42, x=0x298, y=0x78, paramA=0x1, paramB=0x34520000, paramC=0x200020
 	enemy_raw subtype=0x3b, x=0x108, y=0x38, paramB=0x34520000, paramC=0x200020
 	enemy_raw subtype=0x3b, x=0x208, y=0x38, paramB=0x34520000, paramC=0x200020
 	entity_list_end
 
-TileEntities_PalaceOfWinds_50:: @ 080EA9B8
+TileEntities_PalaceOfWinds_DarkCompassHall:: @ 080EA9B8
 	tile_entity type=0x3, paramA=0x79, paramB=0x51, paramC=0x218, paramD=0x98
 	tile_entity type=0x2, paramA=0x7a, paramB=0x53, paramC=0x96, paramD=0x1
 	tile_entity type=0x9
 	tile_entity type=0x1, paramA=0x33
 	tile_entity_list_end
 
-Room_PalaceOfWinds_50:: @ 080EA9E0
-	.4byte Entities_PalaceOfWinds_50_0
+Room_PalaceOfWinds_DarkCompassHall:: @ 080EA9E0
+	.4byte Entities_PalaceOfWinds_DarkCompassHall_0
 	.4byte 0x00000000
-	.4byte Enemies_PalaceOfWinds_50
-	.4byte TileEntities_PalaceOfWinds_50
+	.4byte Enemies_PalaceOfWinds_DarkCompassHall
+	.4byte TileEntities_PalaceOfWinds_DarkCompassHall
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_PalaceOfWinds_50
-	.4byte sub_StateChange_PalaceOfWinds_50
+	.4byte sub_unk3_PalaceOfWinds_DarkCompassHall
+	.4byte sub_StateChange_PalaceOfWinds_DarkCompassHall
 
 Entities_PalaceOfWindsBoss_Main_0:: @ 080EAA00
 	object_raw subtype=0xba
@@ -13496,7 +13496,7 @@ Room_DarkHyruleCastleOutside_8:: @ 080EB568
 	.4byte gUnk_additional_9_DarkHyruleCastleOutside_8
 	.4byte gUnk_additional_a_DarkHyruleCastleOutside_8
 
-Entities_DarkHyruleCastle_0_0:: @ 080EB594
+Entities_DarkHyruleCastle_1FEntrance_0:: @ 080EB594
 	object_raw subtype=0x8, x=0x228, y=0xd8, paramA=0x8, paramC=0x3dffff
 	object_raw subtype=0x34, x=0x1c8, y=0x1c8, paramA=0x1, paramB=0x1488, paramC=0x8b0188
 	object_raw subtype=0x34, x=0x168, y=0x1c8, paramB=0xa88, paramC=0x480188
@@ -13515,10 +13515,10 @@ gUnk_080EB604:: @ 080EB604
 	object_raw subtype=0x6a, x=0x1d8, y=0x198, collision=1, paramA=0x5, paramB=0x302
 	entity_list_end
 
-Enemies_DarkHyruleCastle_0:: @ 080EB664
+Enemies_DarkHyruleCastle_1FEntrance:: @ 080EB664
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_0:: @ 080EB674
+TileEntities_DarkHyruleCastle_1FEntrance:: @ 080EB674
 	tile_entity type=0x1, paramA=0x1
 	tile_entity_list_end
 
@@ -13532,101 +13532,101 @@ gUnk_080EB684:: @ 080EB684
 	object_raw subtype=0x6a, x=0x200, y=0x158, collision=1, paramA=0x5, paramB=0x102
 	entity_list_end
 
-Room_DarkHyruleCastle_0:: @ 080EB704
-	.4byte Entities_DarkHyruleCastle_0_0
+Room_DarkHyruleCastle_1FEntrance:: @ 080EB704
+	.4byte Entities_DarkHyruleCastle_1FEntrance_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_0
-	.4byte TileEntities_DarkHyruleCastle_0
+	.4byte Enemies_DarkHyruleCastle_1FEntrance
+	.4byte TileEntities_DarkHyruleCastle_1FEntrance
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_0
-	.4byte sub_StateChange_DarkHyruleCastle_0
+	.4byte sub_unk3_DarkHyruleCastle_1FEntrance
+	.4byte sub_StateChange_DarkHyruleCastle_1FEntrance
 
-Entities_DarkHyruleCastle_1_0:: @ 080EB724
+Entities_DarkHyruleCastle_3FTopLeftTower_0:: @ 080EB724
 	entity_list_end
 
-Enemies_DarkHyruleCastle_1:: @ 080EB734
+Enemies_DarkHyruleCastle_3FTopLeftTower:: @ 080EB734
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_1:: @ 080EB744
+TileEntities_DarkHyruleCastle_3FTopLeftTower:: @ 080EB744
 	tile_entity type=0x2, paramA=0x3e, paramB=0x53, paramC=0x1c8
 	tile_entity type=0x1, paramA=0x2
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_1:: @ 080EB75C
-	.4byte Entities_DarkHyruleCastle_1_0
+Room_DarkHyruleCastle_3FTopLeftTower:: @ 080EB75C
+	.4byte Entities_DarkHyruleCastle_3FTopLeftTower_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_1
-	.4byte TileEntities_DarkHyruleCastle_1
+	.4byte Enemies_DarkHyruleCastle_3FTopLeftTower
+	.4byte TileEntities_DarkHyruleCastle_3FTopLeftTower
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_1
+	.4byte sub_unk3_DarkHyruleCastle_3FTopLeftTower
 	.4byte sub_StateChange_Dojos_ToGrimblade7
 
-Entities_DarkHyruleCastle_2_0:: @ 080EB77C
+Entities_DarkHyruleCastle_3FTopRightTower_0:: @ 080EB77C
 	entity_list_end
 
-Enemies_DarkHyruleCastle_2:: @ 080EB78C
+Enemies_DarkHyruleCastle_3FTopRightTower:: @ 080EB78C
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_2:: @ 080EB79C
+TileEntities_DarkHyruleCastle_3FTopRightTower:: @ 080EB79C
 	tile_entity type=0x2, paramA=0x3f, paramB=0x53, paramC=0x1c8
 	tile_entity type=0x1, paramA=0x3
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_2:: @ 080EB7B4
-	.4byte Entities_DarkHyruleCastle_2_0
+Room_DarkHyruleCastle_3FTopRightTower:: @ 080EB7B4
+	.4byte Entities_DarkHyruleCastle_3FTopRightTower_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_2
-	.4byte TileEntities_DarkHyruleCastle_2
+	.4byte Enemies_DarkHyruleCastle_3FTopRightTower
+	.4byte TileEntities_DarkHyruleCastle_3FTopRightTower
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_2
+	.4byte sub_unk3_DarkHyruleCastle_3FTopRightTower
 	.4byte sub_StateChange_Dojos_ToGrimblade8
 
-Entities_DarkHyruleCastle_3_0:: @ 080EB7D4
+Entities_DarkHyruleCastle_3FBottomLeftTower_0:: @ 080EB7D4
 	entity_list_end
 
-Enemies_DarkHyruleCastle_3:: @ 080EB7E4
+Enemies_DarkHyruleCastle_3FBottomLeftTower:: @ 080EB7E4
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_3:: @ 080EB7F4
+TileEntities_DarkHyruleCastle_3FBottomLeftTower:: @ 080EB7F4
 	tile_entity type=0x2, paramA=0x40, paramB=0x53, paramC=0x1c8
 	tile_entity type=0x1, paramA=0x4
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_3:: @ 080EB80C
-	.4byte Entities_DarkHyruleCastle_3_0
+Room_DarkHyruleCastle_3FBottomLeftTower:: @ 080EB80C
+	.4byte Entities_DarkHyruleCastle_3FBottomLeftTower_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_3
-	.4byte TileEntities_DarkHyruleCastle_3
+	.4byte Enemies_DarkHyruleCastle_3FBottomLeftTower
+	.4byte TileEntities_DarkHyruleCastle_3FBottomLeftTower
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_3
+	.4byte sub_unk3_DarkHyruleCastle_3FBottomLeftTower
 	.4byte sub_StateChange_Dojos_ToGrimblade9
 
-Entities_DarkHyruleCastle_4_0:: @ 080EB82C
+Entities_DarkHyruleCastle_3FBottomRightTower_0:: @ 080EB82C
 	entity_list_end
 
-Enemies_DarkHyruleCastle_4:: @ 080EB83C
+Enemies_DarkHyruleCastle_3FBottomRightTower:: @ 080EB83C
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_4:: @ 080EB84C
+TileEntities_DarkHyruleCastle_3FBottomRightTower:: @ 080EB84C
 	tile_entity type=0x2, paramA=0x41, paramB=0x53, paramC=0x1c8
 	tile_entity type=0x1, paramA=0x5
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_4:: @ 080EB864
-	.4byte Entities_DarkHyruleCastle_4_0
+Room_DarkHyruleCastle_3FBottomRightTower:: @ 080EB864
+	.4byte Entities_DarkHyruleCastle_3FBottomRightTower_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_4
-	.4byte TileEntities_DarkHyruleCastle_4
+	.4byte Enemies_DarkHyruleCastle_3FBottomRightTower
+	.4byte TileEntities_DarkHyruleCastle_3FBottomRightTower
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_4
+	.4byte sub_unk3_DarkHyruleCastle_3FBottomRightTower
 	.4byte sub_StateChange_Dojos_ToSplitblade0
 
-Entities_DarkHyruleCastle_5_0:: @ 080EB884
+Entities_DarkHyruleCastle_3FKeatonHallToVaati_0:: @ 080EB884
 	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69KeatonsRoom
 	object_raw subtype=0x3, x=0x78, y=0x48, paramA=0x1, paramC=0x80000001
 	object_raw subtype=0x3, x=0x98, y=0x48, paramA=0x1, paramC=0x80010001
@@ -13636,7 +13636,7 @@ Entities_DarkHyruleCastle_5_0:: @ 080EB884
 	object_raw subtype=0x8, x=0xa8, y=0x188, paramA=0x12, paramC=0xffff
 	entity_list_end
 
-Enemies_DarkHyruleCastle_5:: @ 080EB904
+Enemies_DarkHyruleCastle_3FKeatonHallToVaati:: @ 080EB904
 	enemy_raw subtype=0x30, x=0x98, y=0x58, paramA=0x1, paramB=0x1c0e0000, paramC=0x300070
 	enemy_raw subtype=0x30, x=0xb8, y=0x58, paramA=0x1, paramB=0x1c0e0000, paramC=0x300070
 	enemy_raw subtype=0x30, x=0x88, y=0x88, paramA=0x1, paramB=0x1c0e0000, paramC=0x300070
@@ -13649,21 +13649,21 @@ Enemies_DarkHyruleCastle_5:: @ 080EB904
 	enemy_raw subtype=0x30, x=0xb8, y=0xe8, paramA=0x1, paramB=0x1c0e0000, paramC=0x300070
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_5:: @ 080EB9B4
+TileEntities_DarkHyruleCastle_3FKeatonHallToVaati:: @ 080EB9B4
 	tile_entity type=0x1, paramA=0x6
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_5:: @ 080EB9C4
-	.4byte Entities_DarkHyruleCastle_5_0
+Room_DarkHyruleCastle_3FKeatonHallToVaati:: @ 080EB9C4
+	.4byte Entities_DarkHyruleCastle_3FKeatonHallToVaati_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_5
-	.4byte TileEntities_DarkHyruleCastle_5
+	.4byte Enemies_DarkHyruleCastle_3FKeatonHallToVaati
+	.4byte TileEntities_DarkHyruleCastle_3FKeatonHallToVaati
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_5
+	.4byte sub_unk3_DarkHyruleCastle_3FKeatonHallToVaati
 	.4byte sub_StateChange_Dojos_ToSplitblade1
 
-Entities_DarkHyruleCastle_6_0:: @ 080EB9E4
+Entities_DarkHyruleCastle_3FTripleDarknut_0:: @ 080EB9E4
 	entity_list_end
 
 gUnk_080EB9F4:: @ 080EB9F4
@@ -13694,7 +13694,7 @@ gUnk_080EBAF4:: @ 080EBAF4
 	object_raw subtype=0x39, x=0xa8, y=0xd8, paramA=0x6, paramC=0x80000000
 	entity_list_end
 
-Enemies_DarkHyruleCastle_6:: @ 080EBB34
+Enemies_DarkHyruleCastle_3FTripleDarknut:: @ 080EBB34
 	enemy_raw subtype=0x4a, x=0xa8, y=0x58, paramB=0x10120000, paramC=0x380050
 .ifndef EU
 	object_raw subtype=0x5, x=0x38, y=0x38, paramA=0x5f
@@ -13705,11 +13705,11 @@ Enemies_DarkHyruleCastle_6:: @ 080EBB34
 	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb0b, flag=0x0
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_6:: @ 080EBBA4
+TileEntities_DarkHyruleCastle_3FTripleDarknut:: @ 080EBBA4
 	tile_entity type=0x1, paramA=0x7
 	tile_entity_list_end
 
-gUnk_additional_8_DarkHyruleCastle_6:: @ 080EBBB4
+gUnk_additional_8_DarkHyruleCastle_3FTripleDarknut:: @ 080EBBB4
 	enemy_raw subtype=0x5, x=0x88, y=0x58, unknown=0x2f, paramA=0x2
 	enemy_raw subtype=0x5, x=0xa8, y=0x58, unknown=0x2f, paramA=0x3
 	enemy_raw subtype=0x5, x=0xc8, y=0x58, unknown=0x2f, paramA=0x2
@@ -13717,41 +13717,41 @@ gUnk_additional_8_DarkHyruleCastle_6:: @ 080EBBB4
 	object_raw subtype=0x39, x=0xa8, y=0xd8, paramA=0x6, paramC=0xffff
 	entity_list_end
 
-Room_DarkHyruleCastle_6:: @ 080EBC14
-	.4byte Entities_DarkHyruleCastle_6_0
+Room_DarkHyruleCastle_3FTripleDarknut:: @ 080EBC14
+	.4byte Entities_DarkHyruleCastle_3FTripleDarknut_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_6
-	.4byte TileEntities_DarkHyruleCastle_6
+	.4byte Enemies_DarkHyruleCastle_3FTripleDarknut
+	.4byte TileEntities_DarkHyruleCastle_3FTripleDarknut
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_6
-	.4byte sub_StateChange_DarkHyruleCastle_6
-	.4byte gUnk_additional_8_DarkHyruleCastle_6
+	.4byte sub_unk3_DarkHyruleCastle_3FTripleDarknut
+	.4byte sub_StateChange_DarkHyruleCastle_3FTripleDarknut
+	.4byte gUnk_additional_8_DarkHyruleCastle_3FTripleDarknut
 
-Entities_DarkHyruleCastle_7_0:: @ 080EBC38
+Entities_DarkHyruleCastle_2FTopLeftTower_0:: @ 080EBC38
 	manager subtype=0x1a, unknown=0x8, paramA=0x34
 	object_raw subtype=0x3, x=0x58, y=0x78, paramC=0x420001
 	object_raw subtype=0x8, x=0x88, y=0xb8, paramA=0x2, paramC=0x42ffff
 	entity_list_end
 
-Enemies_DarkHyruleCastle_7:: @ 080EBC78
+Enemies_DarkHyruleCastle_2FTopLeftTower:: @ 080EBC78
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_7:: @ 080EBC88
+TileEntities_DarkHyruleCastle_2FTopLeftTower:: @ 080EBC88
 	tile_entity type=0x1, paramA=0x8
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_7:: @ 080EBC98
-	.4byte Entities_DarkHyruleCastle_7_0
+Room_DarkHyruleCastle_2FTopLeftTower:: @ 080EBC98
+	.4byte Entities_DarkHyruleCastle_2FTopLeftTower_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_7
-	.4byte TileEntities_DarkHyruleCastle_7
+	.4byte Enemies_DarkHyruleCastle_2FTopLeftTower
+	.4byte TileEntities_DarkHyruleCastle_2FTopLeftTower
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_7
+	.4byte sub_unk3_DarkHyruleCastle_2FTopLeftTower
 	.4byte sub_StateChange_Dojos_ToSplitblade2
 
-Entities_DarkHyruleCastle_8_0:: @ 080EBCB8
+Entities_DarkHyruleCastle_2FTopLeftCorner_0:: @ 080EBCB8
 	object_raw subtype=0x23, x=0x58, y=0x28, paramB=0xaa00, paramC=0x80000080
 	object_raw subtype=0x23, x=0x78, y=0x28, paramB=0xaa00, paramC=0x80010080
 	object_raw subtype=0x23, x=0x98, y=0x28, paramB=0xaa00, paramC=0x80020080
@@ -13769,7 +13769,7 @@ Entities_DarkHyruleCastle_8_0:: @ 080EBCB8
 	object_raw subtype=0x5, x=0xd8, y=0x158, paramA=0x5e
 	entity_list_end
 
-Enemies_DarkHyruleCastle_8:: @ 080EBDB8
+Enemies_DarkHyruleCastle_2FTopLeftCorner:: @ 080EBDB8
 	enemy_raw subtype=0x42, x=0x78, y=0x108, paramA=0x1
 	enemy_raw subtype=0x42, x=0x98, y=0x108, paramA=0x1
 	enemy_raw subtype=0x42, x=0x78, y=0x128, paramA=0x1
@@ -13778,21 +13778,21 @@ Enemies_DarkHyruleCastle_8:: @ 080EBDB8
 	enemy_raw subtype=0x1a, paramB=0x20160302, paramC=0x500030
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_8:: @ 080EBE28
+TileEntities_DarkHyruleCastle_2FTopLeftCorner:: @ 080EBE28
 	tile_entity type=0x1, paramA=0x9
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_8:: @ 080EBE38
-	.4byte Entities_DarkHyruleCastle_8_0
+Room_DarkHyruleCastle_2FTopLeftCorner:: @ 080EBE38
+	.4byte Entities_DarkHyruleCastle_2FTopLeftCorner_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_8
-	.4byte TileEntities_DarkHyruleCastle_8
+	.4byte Enemies_DarkHyruleCastle_2FTopLeftCorner
+	.4byte TileEntities_DarkHyruleCastle_2FTopLeftCorner
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_8
+	.4byte sub_unk3_DarkHyruleCastle_2FTopLeftCorner
 	.4byte sub_StateChange_Dojos_ToSplitblade3
 
-Entities_DarkHyruleCastle_9_0:: @ 080EBE58
+Entities_DarkHyruleCastle_2FBossKey_0:: @ 080EBE58
 	object_raw subtype=0xc, x=0x88, y=0x28, paramA=0x4, paramB=0x43
 	object_raw subtype=0x5, x=0x38, y=0x28
 	object_raw subtype=0x5, x=0x38, y=0x38
@@ -13804,10 +13804,10 @@ Entities_DarkHyruleCastle_9_0:: @ 080EBE58
 	object_raw subtype=0x5, x=0xd8, y=0x58
 	entity_list_end
 
-Enemies_DarkHyruleCastle_9:: @ 080EBEF8
+Enemies_DarkHyruleCastle_2FBossKey:: @ 080EBEF8
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_9:: @ 080EBF08
+TileEntities_DarkHyruleCastle_2FBossKey:: @ 080EBF08
 	tile_entity type=0x3, paramA=0x43, paramB=0x52, paramC=0x88, paramD=0x28
 	tile_entity type=0xa, paramA=0x1, paramB=0x44, paramC=0x186, paramD=0x26
 	tile_entity type=0xa, paramA=0x1, paramB=0x45, paramC=0x1c6, paramD=0x26
@@ -13816,32 +13816,32 @@ TileEntities_DarkHyruleCastle_9:: @ 080EBF08
 	tile_entity type=0x1, paramA=0xa
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_9:: @ 080EBF40
-	.4byte Entities_DarkHyruleCastle_9_0
+Room_DarkHyruleCastle_2FBossKey:: @ 080EBF40
+	.4byte Entities_DarkHyruleCastle_2FBossKey_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_9
-	.4byte TileEntities_DarkHyruleCastle_9
+	.4byte Enemies_DarkHyruleCastle_2FBossKey
+	.4byte TileEntities_DarkHyruleCastle_2FBossKey
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_9
+	.4byte sub_unk3_DarkHyruleCastle_2FBossKey
 	.4byte sub_StateChange_Dojos_ToSplitblade4
 
-Entities_DarkHyruleCastle_10_0:: @ 080EBF60
+Entities_DarkHyruleCastle_2FBlueWarp_0:: @ 080EBF60
 	manager subtype=0x1e, x=0x30, y=0x50, paramB=0x2000b0, paramC=0x80000000
 	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x488000
 	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x480086
 	object_raw subtype=0x34, x=0x88, y=0x68, paramB=0x88, paramC=0x480716
 	entity_list_end
 
-Enemies_DarkHyruleCastle_10:: @ 080EBFB0
+Enemies_DarkHyruleCastle_2FBlueWarp:: @ 080EBFB0
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_10:: @ 080EBFC0
+TileEntities_DarkHyruleCastle_2FBlueWarp:: @ 080EBFC0
 	tile_entity type=0xd, paramB=0x2e00
 	tile_entity type=0x1, paramA=0xb
 	tile_entity_list_end
 
-gUnk_additional_8_DarkHyruleCastle_10:: @ 080EBFD8
+gUnk_additional_8_DarkHyruleCastle_2FBlueWarp:: @ 080EBFD8
 	enemy_raw subtype=0x5, x=0x88, y=0x38, unknown=0x2f, paramA=0x3, paramB=0xe160000, paramC=0x300030
 	object_raw subtype=0x8, x=0x88, y=0xa8, paramA=0x12, paramC=0x86ffff
 	object_raw subtype=0x39, x=0x88, y=0x28, paramA=0x4, paramC=0x86ffff
@@ -13849,50 +13849,50 @@ gUnk_additional_8_DarkHyruleCastle_10:: @ 080EBFD8
 	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb0a, flag=0x86
 	entity_list_end
 
-Room_DarkHyruleCastle_10:: @ 080EC038
-	.4byte Entities_DarkHyruleCastle_10_0
+Room_DarkHyruleCastle_2FBlueWarp:: @ 080EC038
+	.4byte Entities_DarkHyruleCastle_2FBlueWarp_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_10
-	.4byte TileEntities_DarkHyruleCastle_10
+	.4byte Enemies_DarkHyruleCastle_2FBlueWarp
+	.4byte TileEntities_DarkHyruleCastle_2FBlueWarp
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_10
+	.4byte sub_unk3_DarkHyruleCastle_2FBlueWarp
 	.4byte sub_StateChange_Dojos_ToSplitblade5
-	.4byte gUnk_additional_8_DarkHyruleCastle_10
+	.4byte gUnk_additional_8_DarkHyruleCastle_2FBlueWarp
 
-Entities_DarkHyruleCastle_11_0:: @ 080EC05C
+Entities_DarkHyruleCastle_2FTopRightCornerGhini_0:: @ 080EC05C
 	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x490000
 	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x490087
 	object_raw subtype=0x8, x=0xe8, y=0x58, paramA=0x1, paramC=0x87ffff
 	entity_list_end
 
-Enemies_DarkHyruleCastle_11:: @ 080EC09C
+Enemies_DarkHyruleCastle_2FTopRightCornerGhini:: @ 080EC09C
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_11:: @ 080EC0AC
+TileEntities_DarkHyruleCastle_2FTopRightCornerGhini:: @ 080EC0AC
 	tile_entity type=0x1, paramA=0xc
 	tile_entity_list_end
 
-gUnk_additional_8_DarkHyruleCastle_11:: @ 080EC0BC
+gUnk_additional_8_DarkHyruleCastle_2FTopRightCornerGhini:: @ 080EC0BC
 	enemy_raw subtype=0x50, paramB=0xe160900, paramC=0x300030
 	entity_list_end
 
-gUnk_additional_9_DarkHyruleCastle_11:: @ 080EC0DC
-	.incbin "data_080D5360/gUnk_additional_9_DarkHyruleCastle_11.bin"
+gUnk_additional_9_DarkHyruleCastle_2FTopRightCornerGhini:: @ 080EC0DC
+	.incbin "data_080D5360/gUnk_additional_9_DarkHyruleCastle_2FTopRightCornerGhini.bin"
 
-Room_DarkHyruleCastle_11:: @ 080EC0EC
-	.4byte Entities_DarkHyruleCastle_11_0
+Room_DarkHyruleCastle_2FTopRightCornerGhini:: @ 080EC0EC
+	.4byte Entities_DarkHyruleCastle_2FTopRightCornerGhini_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_11
-	.4byte TileEntities_DarkHyruleCastle_11
+	.4byte Enemies_DarkHyruleCastle_2FTopRightCornerGhini
+	.4byte TileEntities_DarkHyruleCastle_2FTopRightCornerGhini
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_11
+	.4byte sub_unk3_DarkHyruleCastle_2FTopRightCornerGhini
 	.4byte sub_StateChange_Dojos_ToSplitblade6
-	.4byte gUnk_additional_8_DarkHyruleCastle_11
-	.4byte gUnk_additional_9_DarkHyruleCastle_11
+	.4byte gUnk_additional_8_DarkHyruleCastle_2FTopRightCornerGhini
+	.4byte gUnk_additional_9_DarkHyruleCastle_2FTopRightCornerGhini
 
-Entities_DarkHyruleCastle_12_0:: @ 080EC114
+Entities_DarkHyruleCastle_2FTopRightCornerTorches_0:: @ 080EC114
 	object_raw subtype=0x8, x=0x88, y=0x28, paramC=0x4bffff
 	manager subtype=0x23, x=0x58, y=0x38, paramA=0x3, paramB=0x71001, paramC=0x8000004a
 	manager subtype=0x23, x=0x48, y=0x58, paramA=0x3, paramB=0x71001, paramC=0x8001004a
@@ -13908,47 +13908,47 @@ Entities_DarkHyruleCastle_12_0:: @ 080EC114
 	object_raw subtype=0x98, x=0x88, y=0x68, unknown=0x3, paramB=0x30402
 	entity_list_end
 
-Enemies_DarkHyruleCastle_12:: @ 080EC1F4
+Enemies_DarkHyruleCastle_2FTopRightCornerTorches:: @ 080EC1F4
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_12:: @ 080EC204
+TileEntities_DarkHyruleCastle_2FTopRightCornerTorches:: @ 080EC204
 	tile_entity type=0x9, paramB=0x8000
 	tile_entity type=0x1, paramA=0xd
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_12:: @ 080EC21C
-	.4byte Entities_DarkHyruleCastle_12_0
+Room_DarkHyruleCastle_2FTopRightCornerTorches:: @ 080EC21C
+	.4byte Entities_DarkHyruleCastle_2FTopRightCornerTorches_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_12
-	.4byte TileEntities_DarkHyruleCastle_12
+	.4byte Enemies_DarkHyruleCastle_2FTopRightCornerTorches
+	.4byte TileEntities_DarkHyruleCastle_2FTopRightCornerTorches
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_12
+	.4byte sub_unk3_DarkHyruleCastle_2FTopRightCornerTorches
 	.4byte sub_StateChange_Dojos_ToSplitblade7
 
-Entities_DarkHyruleCastle_13_0:: @ 080EC23C
+Entities_DarkHyruleCastle_2FTopRightTower_0:: @ 080EC23C
 	entity_list_end
 
-Enemies_DarkHyruleCastle_13:: @ 080EC24C
+Enemies_DarkHyruleCastle_2FTopRightTower:: @ 080EC24C
 	object_raw subtype=0x8, x=0x18, y=0x58, paramA=0x3, paramC=0x4bffff
 	enemy_raw subtype=0x1c, x=0xb8, y=0x78, paramB=0x810
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_13:: @ 080EC27C
+TileEntities_DarkHyruleCastle_2FTopRightTower:: @ 080EC27C
 	tile_entity type=0x1, paramA=0xe
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_13:: @ 080EC28C
-	.4byte Entities_DarkHyruleCastle_13_0
+Room_DarkHyruleCastle_2FTopRightTower:: @ 080EC28C
+	.4byte Entities_DarkHyruleCastle_2FTopRightTower_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_13
-	.4byte TileEntities_DarkHyruleCastle_13
+	.4byte Enemies_DarkHyruleCastle_2FTopRightTower
+	.4byte TileEntities_DarkHyruleCastle_2FTopRightTower
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_13
+	.4byte sub_unk3_DarkHyruleCastle_2FTopRightTower
 	.4byte sub_StateChange_Dojos_ToSplitblade8
 
-Entities_DarkHyruleCastle_14_0:: @ 080EC2AC
+Entities_DarkHyruleCastle_2FTopLeftDarknut_0:: @ 080EC2AC
 	object_raw subtype=0x39, x=0x88, y=0x28, paramA=0x4, paramC=0x88ffff
 	entity_list_end
 
@@ -13962,40 +13962,40 @@ gUnk_080EC2CC:: @ 080EC2CC
 	manager subtype=0x35, x=0x88, y=0x28, paramB=0x3c1e00, paramC=0x4c0088
 	entity_list_end
 
-Enemies_DarkHyruleCastle_14:: @ 080EC34C
+Enemies_DarkHyruleCastle_2FTopLeftDarknut:: @ 080EC34C
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_14:: @ 080EC35C
+TileEntities_DarkHyruleCastle_2FTopLeftDarknut:: @ 080EC35C
 	tile_entity type=0xd, paramB=0x2d00
 	tile_entity type=0x1, paramA=0xf
 	tile_entity_list_end
 
-gUnk_additional_8_DarkHyruleCastle_14:: @ 080EC374
+gUnk_additional_8_DarkHyruleCastle_2FTopLeftDarknut:: @ 080EC374
 	enemy_raw subtype=0x5, x=0x88, y=0x68, paramA=0x2
 	object_raw subtype=0x8, x=0x88, y=0xa8, paramA=0x12, paramC=0x4cffff
 	object_raw subtype=0x8, x=0xe8, y=0x68, paramA=0x11, paramC=0x4cffff
 	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb0f, flag=0x4c
 	entity_list_end
 
-Room_DarkHyruleCastle_14:: @ 080EC3C4
-	.4byte Entities_DarkHyruleCastle_14_0
+Room_DarkHyruleCastle_2FTopLeftDarknut:: @ 080EC3C4
+	.4byte Entities_DarkHyruleCastle_2FTopLeftDarknut_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_14
-	.4byte TileEntities_DarkHyruleCastle_14
+	.4byte Enemies_DarkHyruleCastle_2FTopLeftDarknut
+	.4byte TileEntities_DarkHyruleCastle_2FTopLeftDarknut
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_14
-	.4byte sub_StateChange_DarkHyruleCastle_14
-	.4byte gUnk_additional_8_DarkHyruleCastle_14
+	.4byte sub_unk3_DarkHyruleCastle_2FTopLeftDarknut
+	.4byte sub_StateChange_DarkHyruleCastle_2FTopLeftDarknut
+	.4byte gUnk_additional_8_DarkHyruleCastle_2FTopLeftDarknut
 
-Entities_DarkHyruleCastle_15_0:: @ 080EC3E8
+Entities_DarkHyruleCastle_2FSparks_0:: @ 080EC3E8
 	object_raw subtype=0x5, x=0x38, y=0x98
 	object_raw subtype=0x5, x=0x48, y=0x98
 	object_raw subtype=0x5, x=0xc8, y=0x98
 	object_raw subtype=0x5, x=0xd8, y=0x98
 	entity_list_end
 
-Enemies_DarkHyruleCastle_15:: @ 080EC438
+Enemies_DarkHyruleCastle_2FSparks:: @ 080EC438
 	enemy_raw subtype=0x1c, x=0x68, y=0x78, paramB=0x810
 	enemy_raw subtype=0x1c, x=0x78, y=0x78, paramB=0x810
 	enemy_raw subtype=0x1c, x=0x88, y=0x78, paramB=0x810
@@ -14003,21 +14003,21 @@ Enemies_DarkHyruleCastle_15:: @ 080EC438
 	enemy_raw subtype=0x1c, x=0xa8, y=0x78, paramB=0x810
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_15:: @ 080EC498
+TileEntities_DarkHyruleCastle_2FSparks:: @ 080EC498
 	tile_entity type=0x1, paramA=0x10
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_15:: @ 080EC4A8
-	.4byte Entities_DarkHyruleCastle_15_0
+Room_DarkHyruleCastle_2FSparks:: @ 080EC4A8
+	.4byte Entities_DarkHyruleCastle_2FSparks_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_15
-	.4byte TileEntities_DarkHyruleCastle_15
+	.4byte Enemies_DarkHyruleCastle_2FSparks
+	.4byte TileEntities_DarkHyruleCastle_2FSparks
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_15
+	.4byte sub_unk3_DarkHyruleCastle_2FSparks
 	.4byte sub_StateChange_Dojos_ToSplitblade9
 
-Entities_DarkHyruleCastle_16_0:: @ 080EC4C8
+Entities_DarkHyruleCastle_2FTopRightDarknuts_0:: @ 080EC4C8
 	object_raw subtype=0x39, x=0x88, y=0x28, paramA=0x4, paramC=0x89ffff
 	entity_list_end
 
@@ -14031,15 +14031,15 @@ gUnk_080EC4E8:: @ 080EC4E8
 	manager subtype=0x35, x=0x88, y=0x28, paramB=0x3c1e00, paramC=0x4d0089
 	entity_list_end
 
-Enemies_DarkHyruleCastle_16:: @ 080EC568
+Enemies_DarkHyruleCastle_2FTopRightDarknuts:: @ 080EC568
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_16:: @ 080EC578
+TileEntities_DarkHyruleCastle_2FTopRightDarknuts:: @ 080EC578
 	tile_entity type=0xd, paramB=0x2d00
 	tile_entity type=0x1, paramA=0x11
 	tile_entity_list_end
 
-gUnk_additional_8_DarkHyruleCastle_16:: @ 080EC590
+gUnk_additional_8_DarkHyruleCastle_2FTopRightDarknuts:: @ 080EC590
 	enemy_raw subtype=0x5, x=0x70, y=0x68, paramA=0x1
 	enemy_raw subtype=0x5, x=0xa0, y=0x68
 	manager subtype=0x28, unknown=0x3, paramB=0x8
@@ -14048,18 +14048,18 @@ gUnk_additional_8_DarkHyruleCastle_16:: @ 080EC590
 	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb0f, flag=0x4d
 	entity_list_end
 
-Room_DarkHyruleCastle_16:: @ 080EC600
-	.4byte Entities_DarkHyruleCastle_16_0
+Room_DarkHyruleCastle_2FTopRightDarknuts:: @ 080EC600
+	.4byte Entities_DarkHyruleCastle_2FTopRightDarknuts_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_16
-	.4byte TileEntities_DarkHyruleCastle_16
+	.4byte Enemies_DarkHyruleCastle_2FTopRightDarknuts
+	.4byte TileEntities_DarkHyruleCastle_2FTopRightDarknuts
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_16
-	.4byte sub_StateChange_DarkHyruleCastle_16
-	.4byte gUnk_additional_8_DarkHyruleCastle_16
+	.4byte sub_unk3_DarkHyruleCastle_2FTopRightDarknuts
+	.4byte sub_StateChange_DarkHyruleCastle_2FTopRightDarknuts
+	.4byte gUnk_additional_8_DarkHyruleCastle_2FTopRightDarknuts
 
-Entities_DarkHyruleCastle_17_0:: @ 080EC624
+Entities_DarkHyruleCastle_2FLeft_0:: @ 080EC624
 	object_raw subtype=0x9d, x=0x40, y=0x20, paramA=0x1, paramC=0x8000004e
 	object_raw subtype=0x9d, x=0xd0, y=0x20, paramA=0x1, paramC=0x8001004f
 	manager subtype=0x11, paramC=0x8000004e
@@ -14074,52 +14074,52 @@ Entities_DarkHyruleCastle_17_0:: @ 080EC624
 	object_raw subtype=0x5, x=0x98, y=0x38, paramA=0x5e
 	entity_list_end
 
-Enemies_DarkHyruleCastle_17:: @ 080EC6F4
+Enemies_DarkHyruleCastle_2FLeft:: @ 080EC6F4
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_17:: @ 080EC704
+TileEntities_DarkHyruleCastle_2FLeft:: @ 080EC704
 	tile_entity type=0xa, paramA=0x1, paramB=0x50, paramC=0x287, paramD=0x26
 	tile_entity type=0xa, paramA=0x1, paramB=0x51, paramC=0x288, paramD=0x26
 	tile_entity type=0xa, paramA=0x1, paramB=0x52, paramC=0x289, paramD=0x26
 	tile_entity type=0x1, paramA=0x13
 	tile_entity_list_end
 
-gUnk_additional_8_DarkHyruleCastle_17:: @ 080EC72C
-	.incbin "data_080D5360/gUnk_additional_8_DarkHyruleCastle_17.bin"
+gUnk_additional_8_DarkHyruleCastle_2FLeft:: @ 080EC72C
+	.incbin "data_080D5360/gUnk_additional_8_DarkHyruleCastle_2FLeft.bin"
 
-Room_DarkHyruleCastle_17:: @ 080EC77C
-	.4byte Entities_DarkHyruleCastle_17_0
+Room_DarkHyruleCastle_2FLeft:: @ 080EC77C
+	.4byte Entities_DarkHyruleCastle_2FLeft_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_17
-	.4byte TileEntities_DarkHyruleCastle_17
+	.4byte Enemies_DarkHyruleCastle_2FLeft
+	.4byte TileEntities_DarkHyruleCastle_2FLeft
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_17
+	.4byte sub_unk3_DarkHyruleCastle_2FLeft
 	.4byte sub_StateChange_Dojos_ToGreatblade0
-	.4byte gUnk_additional_8_DarkHyruleCastle_17
+	.4byte gUnk_additional_8_DarkHyruleCastle_2FLeft
 
-Entities_DarkHyruleCastle_18_0:: @ 080EC7A0
+Entities_DarkHyruleCastle_2FRight_0:: @ 080EC7A0
 	object_raw subtype=0x98, x=0x78, y=0x88, unknown=0x3, paramB=0x10302
 	entity_list_end
 
-Enemies_DarkHyruleCastle_18:: @ 080EC7C0
+Enemies_DarkHyruleCastle_2FRight:: @ 080EC7C0
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_18:: @ 080EC7D0
+TileEntities_DarkHyruleCastle_2FRight:: @ 080EC7D0
 	tile_entity type=0x1, paramA=0x13
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_18:: @ 080EC7E0
-	.4byte Entities_DarkHyruleCastle_18_0
+Room_DarkHyruleCastle_2FRight:: @ 080EC7E0
+	.4byte Entities_DarkHyruleCastle_2FRight_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_18
-	.4byte TileEntities_DarkHyruleCastle_18
+	.4byte Enemies_DarkHyruleCastle_2FRight
+	.4byte TileEntities_DarkHyruleCastle_2FRight
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_18
+	.4byte sub_unk3_DarkHyruleCastle_2FRight
 	.4byte sub_StateChange_Dojos_ToGreatblade1
 
-Entities_DarkHyruleCastle_19_0:: @ 080EC800
+Entities_DarkHyruleCastle_2FBottomLeftDarknuts_0:: @ 080EC800
 	object_raw subtype=0x39, x=0x88, y=0xa8, paramA=0x6, paramC=0x8affff
 	entity_list_end
 
@@ -14133,15 +14133,15 @@ gUnk_080EC820:: @ 080EC820
 	manager subtype=0x35, x=0x88, y=0xa8, paramB=0x3c1e00, paramC=0x53008a
 	entity_list_end
 
-Enemies_DarkHyruleCastle_19:: @ 080EC8A0
+Enemies_DarkHyruleCastle_2FBottomLeftDarknuts:: @ 080EC8A0
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_19:: @ 080EC8B0
+TileEntities_DarkHyruleCastle_2FBottomLeftDarknuts:: @ 080EC8B0
 	tile_entity type=0xd, paramB=0x2d00
 	tile_entity type=0x1, paramA=0x14
 	tile_entity_list_end
 
-gUnk_additional_8_DarkHyruleCastle_19:: @ 080EC8C8
+gUnk_additional_8_DarkHyruleCastle_2FBottomLeftDarknuts:: @ 080EC8C8
 	enemy_raw subtype=0x5, x=0x70, y=0x68
 	enemy_raw subtype=0x5, x=0xa0, y=0x68, paramA=0x1
 	manager subtype=0x28, unknown=0x3, paramB=0x8
@@ -14150,18 +14150,18 @@ gUnk_additional_8_DarkHyruleCastle_19:: @ 080EC8C8
 	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb0f, flag=0x53
 	entity_list_end
 
-Room_DarkHyruleCastle_19:: @ 080EC938
-	.4byte Entities_DarkHyruleCastle_19_0
+Room_DarkHyruleCastle_2FBottomLeftDarknuts:: @ 080EC938
+	.4byte Entities_DarkHyruleCastle_2FBottomLeftDarknuts_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_19
-	.4byte TileEntities_DarkHyruleCastle_19
+	.4byte Enemies_DarkHyruleCastle_2FBottomLeftDarknuts
+	.4byte TileEntities_DarkHyruleCastle_2FBottomLeftDarknuts
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_19
-	.4byte sub_StateChange_DarkHyruleCastle_19
-	.4byte gUnk_additional_8_DarkHyruleCastle_19
+	.4byte sub_unk3_DarkHyruleCastle_2FBottomLeftDarknuts
+	.4byte sub_StateChange_DarkHyruleCastle_2FBottomLeftDarknuts
+	.4byte gUnk_additional_8_DarkHyruleCastle_2FBottomLeftDarknuts
 
-Entities_DarkHyruleCastle_20_0:: @ 080EC95C
+Entities_DarkHyruleCastle_2FBossDoor_0:: @ 080EC95C
 	object_raw subtype=0x39, x=0x88, y=0x28, paramC=0x55ffff
 	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x540000
 	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x54008b
@@ -14170,30 +14170,30 @@ Entities_DarkHyruleCastle_20_0:: @ 080EC95C
 	object_raw subtype=0x34, x=0x88, y=0x68, paramA=0x1, paramB=0x88, paramC=0x8b071c
 	entity_list_end
 
-Enemies_DarkHyruleCastle_20:: @ 080EC9CC
+Enemies_DarkHyruleCastle_2FBossDoor:: @ 080EC9CC
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_20:: @ 080EC9DC
+TileEntities_DarkHyruleCastle_2FBossDoor:: @ 080EC9DC
 	tile_entity type=0x1, paramA=0x15
 	tile_entity_list_end
 
-gUnk_additional_8_DarkHyruleCastle_20:: @ 080EC9EC
+gUnk_additional_8_DarkHyruleCastle_2FBossDoor:: @ 080EC9EC
 	enemy_raw subtype=0x4c, x=0x78, y=0x58, paramB=0xa120000, paramC=0x400040
 	enemy_raw subtype=0x4c, x=0x98, y=0x58, paramB=0xa120000, paramC=0x400040
 	entity_list_end
 
-Room_DarkHyruleCastle_20:: @ 080ECA1C
-	.4byte Entities_DarkHyruleCastle_20_0
+Room_DarkHyruleCastle_2FBossDoor:: @ 080ECA1C
+	.4byte Entities_DarkHyruleCastle_2FBossDoor_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_20
-	.4byte TileEntities_DarkHyruleCastle_20
+	.4byte Enemies_DarkHyruleCastle_2FBossDoor
+	.4byte TileEntities_DarkHyruleCastle_2FBossDoor
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_20
+	.4byte sub_unk3_DarkHyruleCastle_2FBossDoor
 	.4byte sub_StateChange_Dojos_ToGreatblade2
-	.4byte gUnk_additional_8_DarkHyruleCastle_20
+	.4byte gUnk_additional_8_DarkHyruleCastle_2FBossDoor
 
-Entities_DarkHyruleCastle_21_0:: @ 080ECA40
+Entities_DarkHyruleCastle_2FBottomRightDarknut_0:: @ 080ECA40
 	object_raw subtype=0x39, x=0x88, y=0xa8, paramA=0x6, paramC=0x8cffff
 	entity_list_end
 
@@ -14207,32 +14207,32 @@ gUnk_080ECA60:: @ 080ECA60
 	manager subtype=0x35, x=0x88, y=0xa8, paramB=0x3c1e00, paramC=0x56008c
 	entity_list_end
 
-Enemies_DarkHyruleCastle_21:: @ 080ECAE0
+Enemies_DarkHyruleCastle_2FBottomRightDarknut:: @ 080ECAE0
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_21:: @ 080ECAF0
+TileEntities_DarkHyruleCastle_2FBottomRightDarknut:: @ 080ECAF0
 	tile_entity type=0x1, paramA=0x16
 	tile_entity_list_end
 
-gUnk_additional_8_DarkHyruleCastle_21:: @ 080ECB00
+gUnk_additional_8_DarkHyruleCastle_2FBottomRightDarknut:: @ 080ECB00
 	enemy_raw subtype=0x5, x=0x88, y=0x68, paramA=0x2
 	object_raw subtype=0x8, x=0x88, y=0x28, paramA=0x10, paramC=0x56ffff
 	object_raw subtype=0x8, x=0x28, y=0x68, paramA=0x13, paramC=0x56ffff
 	ezlo_hint type=0x3, x=0x0, y=0x0, rx=0x3f, ry=0x3f, msg=0xb0f, flag=0x4c
 	entity_list_end
 
-Room_DarkHyruleCastle_21:: @ 080ECB50
-	.4byte Entities_DarkHyruleCastle_21_0
+Room_DarkHyruleCastle_2FBottomRightDarknut:: @ 080ECB50
+	.4byte Entities_DarkHyruleCastle_2FBottomRightDarknut_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_21
-	.4byte TileEntities_DarkHyruleCastle_21
+	.4byte Enemies_DarkHyruleCastle_2FBottomRightDarknut
+	.4byte TileEntities_DarkHyruleCastle_2FBottomRightDarknut
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_21
-	.4byte sub_StateChange_DarkHyruleCastle_21
-	.4byte gUnk_additional_8_DarkHyruleCastle_21
+	.4byte sub_unk3_DarkHyruleCastle_2FBottomRightDarknut
+	.4byte sub_StateChange_DarkHyruleCastle_2FBottomRightDarknut
+	.4byte gUnk_additional_8_DarkHyruleCastle_2FBottomRightDarknut
 
-Entities_DarkHyruleCastle_22_0:: @ 080ECB74
+Entities_DarkHyruleCastle_2FBottomLeftCornerPuzzle_0:: @ 080ECB74
 	manager subtype=0x30, x=0x38, y=0x58, paramB=0x6082101, paramC=0x80018000
 	manager subtype=0x11, paramC=0x80000057
 	object_raw subtype=0x3, x=0x38, y=0x38, paramA=0x1, paramC=0x80010001
@@ -14245,24 +14245,24 @@ Entities_DarkHyruleCastle_22_0:: @ 080ECB74
 	object_raw subtype=0x5, x=0xd8, y=0x68, paramA=0x5f
 	entity_list_end
 
-Enemies_DarkHyruleCastle_22:: @ 080ECC24
+Enemies_DarkHyruleCastle_2FBottomLeftCornerPuzzle:: @ 080ECC24
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_22:: @ 080ECC34
+TileEntities_DarkHyruleCastle_2FBottomLeftCornerPuzzle:: @ 080ECC34
 	tile_entity type=0x1, paramA=0x17
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_22:: @ 080ECC44
-	.4byte Entities_DarkHyruleCastle_22_0
+Room_DarkHyruleCastle_2FBottomLeftCornerPuzzle:: @ 080ECC44
+	.4byte Entities_DarkHyruleCastle_2FBottomLeftCornerPuzzle_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_22
-	.4byte TileEntities_DarkHyruleCastle_22
+	.4byte Enemies_DarkHyruleCastle_2FBottomLeftCornerPuzzle
+	.4byte TileEntities_DarkHyruleCastle_2FBottomLeftCornerPuzzle
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_22
+	.4byte sub_unk3_DarkHyruleCastle_2FBottomLeftCornerPuzzle
 	.4byte sub_StateChange_Dojos_ToGreatblade3
 
-Entities_DarkHyruleCastle_23_0:: @ 080ECC64
+Entities_DarkHyruleCastle_2FEntrance_0:: @ 080ECC64
 	object_raw subtype=0x9d, x=0x78, y=0x58, paramA=0x1, paramC=0x80000058
 	object_raw subtype=0x9d, x=0x98, y=0x58, paramA=0x1, paramC=0x80010058
 	object_raw subtype=0x9d, x=0x68, y=0x88, paramA=0x1, paramC=0x80020058
@@ -14273,24 +14273,24 @@ Entities_DarkHyruleCastle_23_0:: @ 080ECC64
 	object_raw subtype=0x39, x=0x88, y=0x38, paramA=0x4, paramC=0x59ffff
 	entity_list_end
 
-Enemies_DarkHyruleCastle_23:: @ 080ECCF4
+Enemies_DarkHyruleCastle_2FEntrance:: @ 080ECCF4
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_23:: @ 080ECD04
+TileEntities_DarkHyruleCastle_2FEntrance:: @ 080ECD04
 	tile_entity type=0x1, paramA=0x18
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_23:: @ 080ECD14
-	.4byte Entities_DarkHyruleCastle_23_0
+Room_DarkHyruleCastle_2FEntrance:: @ 080ECD14
+	.4byte Entities_DarkHyruleCastle_2FEntrance_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_23
-	.4byte TileEntities_DarkHyruleCastle_23
+	.4byte Enemies_DarkHyruleCastle_2FEntrance
+	.4byte TileEntities_DarkHyruleCastle_2FEntrance
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_23
+	.4byte sub_unk3_DarkHyruleCastle_2FEntrance
 	.4byte sub_StateChange_Dojos_ToGreatblade4
 
-Entities_DarkHyruleCastle_24_0:: @ 080ECD34
+Entities_DarkHyruleCastle_2FBottomLeftCorner_0:: @ 080ECD34
 	object_raw subtype=0x9d, x=0x68, y=0x128, paramA=0x1, paramC=0x8000005a
 	object_raw subtype=0x9d, x=0x88, y=0x108, paramA=0x1, paramC=0x8001005a
 	object_raw subtype=0x9d, x=0x88, y=0x148, paramA=0x1, paramC=0x8002005a
@@ -14304,103 +14304,103 @@ Entities_DarkHyruleCastle_24_0:: @ 080ECD34
 	object_raw subtype=0x98, x=0xb8, y=0xa8, unknown=0x3, paramB=0x10302
 	entity_list_end
 
-Enemies_DarkHyruleCastle_24:: @ 080ECDF4
+Enemies_DarkHyruleCastle_2FBottomLeftCorner:: @ 080ECDF4
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_24:: @ 080ECE04
+TileEntities_DarkHyruleCastle_2FBottomLeftCorner:: @ 080ECE04
 	tile_entity type=0x1, paramA=0x19
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_24:: @ 080ECE14
-	.4byte Entities_DarkHyruleCastle_24_0
+Room_DarkHyruleCastle_2FBottomLeftCorner:: @ 080ECE14
+	.4byte Entities_DarkHyruleCastle_2FBottomLeftCorner_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_24
-	.4byte TileEntities_DarkHyruleCastle_24
+	.4byte Enemies_DarkHyruleCastle_2FBottomLeftCorner
+	.4byte TileEntities_DarkHyruleCastle_2FBottomLeftCorner
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_24
+	.4byte sub_unk3_DarkHyruleCastle_2FBottomLeftCorner
 	.4byte sub_StateChange_Dojos_ToGreatblade5
 
-Entities_DarkHyruleCastle_25_0:: @ 080ECE34
+Entities_DarkHyruleCastle_2FBottomLeftTower_0:: @ 080ECE34
 	entity_list_end
 
-Enemies_DarkHyruleCastle_25:: @ 080ECE44
+Enemies_DarkHyruleCastle_2FBottomLeftTower:: @ 080ECE44
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_25:: @ 080ECE54
+TileEntities_DarkHyruleCastle_2FBottomLeftTower:: @ 080ECE54
 	tile_entity type=0x1, paramA=0x1a
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_25:: @ 080ECE64
-	.4byte Entities_DarkHyruleCastle_25_0
+Room_DarkHyruleCastle_2FBottomLeftTower:: @ 080ECE64
+	.4byte Entities_DarkHyruleCastle_2FBottomLeftTower_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_25
-	.4byte TileEntities_DarkHyruleCastle_25
+	.4byte Enemies_DarkHyruleCastle_2FBottomLeftTower
+	.4byte TileEntities_DarkHyruleCastle_2FBottomLeftTower
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_25
+	.4byte sub_unk3_DarkHyruleCastle_2FBottomLeftTower
 	.4byte sub_StateChange_Dojos_ToGreatblade6
 
-Entities_DarkHyruleCastle_26_0:: @ 080ECE84
+Entities_DarkHyruleCastle_2FBottomLeftGhini_0:: @ 080ECE84
 	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x5b0000
 	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x5b008d
 	object_raw subtype=0x8, x=0x88, y=0xa8, paramA=0x2, paramC=0x8dffff
 	entity_list_end
 
-Enemies_DarkHyruleCastle_26:: @ 080ECEC4
+Enemies_DarkHyruleCastle_2FBottomLeftGhini:: @ 080ECEC4
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_26:: @ 080ECED4
+TileEntities_DarkHyruleCastle_2FBottomLeftGhini:: @ 080ECED4
 	tile_entity type=0x1, paramA=0x1b
 	tile_entity_list_end
 
-gUnk_additional_8_DarkHyruleCastle_26:: @ 080ECEE4
+gUnk_additional_8_DarkHyruleCastle_2FBottomLeftGhini:: @ 080ECEE4
 	enemy_raw subtype=0x50, paramB=0xa160900, paramC=0x300030
 	entity_list_end
 
-gUnk_additional_9_DarkHyruleCastle_26:: @ 080ECF04
-	.incbin "data_080D5360/gUnk_additional_9_DarkHyruleCastle_26.bin"
+gUnk_additional_9_DarkHyruleCastle_2FBottomLeftGhini:: @ 080ECF04
+	.incbin "data_080D5360/gUnk_additional_9_DarkHyruleCastle_2FBottomLeftGhini.bin"
 
-Room_DarkHyruleCastle_26:: @ 080ECF14
-	.4byte Entities_DarkHyruleCastle_26_0
+Room_DarkHyruleCastle_2FBottomLeftGhini:: @ 080ECF14
+	.4byte Entities_DarkHyruleCastle_2FBottomLeftGhini_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_26
-	.4byte TileEntities_DarkHyruleCastle_26
+	.4byte Enemies_DarkHyruleCastle_2FBottomLeftGhini
+	.4byte TileEntities_DarkHyruleCastle_2FBottomLeftGhini
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_26
+	.4byte sub_unk3_DarkHyruleCastle_2FBottomLeftGhini
 	.4byte sub_StateChange_Dojos_ToGreatblade7
-	.4byte gUnk_additional_8_DarkHyruleCastle_26
-	.4byte gUnk_additional_9_DarkHyruleCastle_26
+	.4byte gUnk_additional_8_DarkHyruleCastle_2FBottomLeftGhini
+	.4byte gUnk_additional_9_DarkHyruleCastle_2FBottomLeftGhini
 
-Entities_DarkHyruleCastle_27_0:: @ 080ECF3C
+Entities_DarkHyruleCastle_3FTopRightTower7_0:: @ 080ECF3C
 	entity_list_end
 
-Enemies_DarkHyruleCastle_27:: @ 080ECF4C
+Enemies_DarkHyruleCastle_3FTopRightTower7:: @ 080ECF4C
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_27:: @ 080ECF5C
+TileEntities_DarkHyruleCastle_3FTopRightTower7:: @ 080ECF5C
 	tile_entity type=0x1, paramA=0x1c
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_27:: @ 080ECF6C
-	.4byte Entities_DarkHyruleCastle_27_0
+Room_DarkHyruleCastle_3FTopRightTower7:: @ 080ECF6C
+	.4byte Entities_DarkHyruleCastle_3FTopRightTower7_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_27
-	.4byte TileEntities_DarkHyruleCastle_27
+	.4byte Enemies_DarkHyruleCastle_3FTopRightTower7
+	.4byte TileEntities_DarkHyruleCastle_3FTopRightTower7
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_27
+	.4byte sub_unk3_DarkHyruleCastle_3FTopRightTower7
 	.4byte sub_StateChange_Dojos_ToGreatblade8
 
-Entities_DarkHyruleCastle_28_0:: @ 080ECF8C
+Entities_DarkHyruleCastle_B1Entrance_0:: @ 080ECF8C
 	ezlo_hint x=0x0, y=0x6, rx=0x11, ry=0x8, msg=0xb1b, flag=0x5c
 	entity_list_end
 
-Enemies_DarkHyruleCastle_28:: @ 080ECFAC
+Enemies_DarkHyruleCastle_B1Entrance:: @ 080ECFAC
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_28:: @ 080ECFBC
+TileEntities_DarkHyruleCastle_B1Entrance:: @ 080ECFBC
 	tile_entity type=0x1, paramA=0x1d
 	tile_entity_list_end
 
@@ -14410,17 +14410,17 @@ gUnk_080ECFCC:: @ 080ECFCC
 	object_raw subtype=0x6a, x=0x108, y=0x70, collision=1, paramA=0x5, paramB=0x102
 	entity_list_end
 
-Room_DarkHyruleCastle_28:: @ 080ED00C
-	.4byte Entities_DarkHyruleCastle_28_0
+Room_DarkHyruleCastle_B1Entrance:: @ 080ED00C
+	.4byte Entities_DarkHyruleCastle_B1Entrance_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_28
-	.4byte TileEntities_DarkHyruleCastle_28
+	.4byte Enemies_DarkHyruleCastle_B1Entrance
+	.4byte TileEntities_DarkHyruleCastle_B1Entrance
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_28
-	.4byte sub_StateChange_DarkHyruleCastle_28
+	.4byte sub_unk3_DarkHyruleCastle_B1Entrance
+	.4byte sub_StateChange_DarkHyruleCastle_B1Entrance
 
-Entities_DarkHyruleCastle_29_0:: @ 080ED02C
+Entities_DarkHyruleCastle_2FBottomRightTower_0:: @ 080ED02C
 	object_raw subtype=0x8, x=0x68, y=0x108, paramC=0x5dffff
 	object_raw subtype=0x3, x=0xb8, y=0x148, paramC=0x5d0001
 	object_raw subtype=0x5, x=0x58, y=0x168
@@ -14430,12 +14430,12 @@ Entities_DarkHyruleCastle_29_0:: @ 080ED02C
 	manager subtype=0x1a, unknown=0x8, paramA=0x35
 	entity_list_end
 
-Enemies_DarkHyruleCastle_29:: @ 080ED0AC
+Enemies_DarkHyruleCastle_2FBottomRightTower:: @ 080ED0AC
 	enemy_raw subtype=0x28, x=0x68, y=0x128, paramB=0x60e0000, paramC=0x1100050
 	enemy_raw subtype=0x28, x=0xa8, y=0x128, paramB=0x60e0000, paramC=0x1100050
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_29:: @ 080ED0DC
+TileEntities_DarkHyruleCastle_2FBottomRightTower:: @ 080ED0DC
 	tile_entity type=0x1, paramA=0x1e
 	tile_entity_list_end@ unaccounted bytes
 	.byte 255
@@ -14456,40 +14456,40 @@ TileEntities_DarkHyruleCastle_29:: @ 080ED0DC
 	.byte 0
 
 
-Room_DarkHyruleCastle_29:: @ 080ED0FC
-	.4byte Entities_DarkHyruleCastle_29_0
+Room_DarkHyruleCastle_2FBottomRightTower:: @ 080ED0FC
+	.4byte Entities_DarkHyruleCastle_2FBottomRightTower_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_29
-	.4byte TileEntities_DarkHyruleCastle_29
+	.4byte Enemies_DarkHyruleCastle_2FBottomRightTower
+	.4byte TileEntities_DarkHyruleCastle_2FBottomRightTower
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_29
+	.4byte sub_unk3_DarkHyruleCastle_2FBottomRightTower
 	.4byte sub_StateChange_Dojos_ToGreatblade9
 
-Entities_DarkHyruleCastle_30_0:: @ 080ED11C
+Entities_DarkHyruleCastle_1FTopLeftTower_0:: @ 080ED11C
 	entity_list_end
 
-Enemies_DarkHyruleCastle_30:: @ 080ED12C
+Enemies_DarkHyruleCastle_1FTopLeftTower:: @ 080ED12C
 	enemy_raw subtype=0x3b, x=0x58, y=0x68
 	enemy_raw subtype=0x3b, x=0xb8, y=0x68
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_30:: @ 080ED15C
+TileEntities_DarkHyruleCastle_1FTopLeftTower:: @ 080ED15C
 	tile_entity type=0x9, paramB=0x8000
 	tile_entity type=0x1, paramA=0x1f
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_30:: @ 080ED174
-	.4byte Entities_DarkHyruleCastle_30_0
+Room_DarkHyruleCastle_1FTopLeftTower:: @ 080ED174
+	.4byte Entities_DarkHyruleCastle_1FTopLeftTower_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_30
-	.4byte TileEntities_DarkHyruleCastle_30
+	.4byte Enemies_DarkHyruleCastle_1FTopLeftTower
+	.4byte TileEntities_DarkHyruleCastle_1FTopLeftTower
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_30
+	.4byte sub_unk3_DarkHyruleCastle_1FTopLeftTower
 	.4byte sub_StateChange_Dojos_ToScarblade0
 
-Entities_DarkHyruleCastle_31_0:: @ 080ED194
+Entities_DarkHyruleCastle_1FThroneRoom_0:: @ 080ED194
 	manager subtype=0x1e, x=0x20, y=0x70, paramB=0x2000d0, paramC=0x80000000
 	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x5e8000
 	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x5e008e
@@ -14503,99 +14503,99 @@ gUnk_080ED1E4:: @ 080ED1E4
 	object_raw subtype=0x6a, x=0x50, y=0x60, collision=1, paramA=0x5, paramB=0x302
 	entity_list_end
 
-Entities_DarkHyruleCastle_31_1:: @ 080ED234
+Entities_DarkHyruleCastle_1FThroneRoom_1:: @ 080ED234
 	object_raw subtype=0x5f, x=0x88, y=0x48, paramA=0x1, paramC=0x5e0000
 	entity_list_end
 
-Enemies_DarkHyruleCastle_31:: @ 080ED254
+Enemies_DarkHyruleCastle_1FThroneRoom:: @ 080ED254
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_31:: @ 080ED264
+TileEntities_DarkHyruleCastle_1FThroneRoom:: @ 080ED264
 	tile_entity type=0xd, paramB=0x2d00
 	tile_entity type=0x1, paramA=0x20
 	tile_entity_list_end
 
-gUnk_additional_8_DarkHyruleCastle_31:: @ 080ED27C
+gUnk_additional_8_DarkHyruleCastle_1FThroneRoom:: @ 080ED27C
 	enemy_raw subtype=0x5, x=0x88, y=0x68, unknown=0x2f, paramA=0x2
 	object_raw subtype=0x39, x=0x88, y=0xa8, paramA=0x6, paramC=0x8effff
 	entity_list_end
 
-Room_DarkHyruleCastle_31:: @ 080ED2AC
-	.4byte Entities_DarkHyruleCastle_31_0
-	.4byte Entities_DarkHyruleCastle_31_1
-	.4byte Enemies_DarkHyruleCastle_31
-	.4byte TileEntities_DarkHyruleCastle_31
+Room_DarkHyruleCastle_1FThroneRoom:: @ 080ED2AC
+	.4byte Entities_DarkHyruleCastle_1FThroneRoom_0
+	.4byte Entities_DarkHyruleCastle_1FThroneRoom_1
+	.4byte Enemies_DarkHyruleCastle_1FThroneRoom
+	.4byte TileEntities_DarkHyruleCastle_1FThroneRoom
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_31
-	.4byte sub_StateChange_DarkHyruleCastle_31
-	.4byte gUnk_additional_8_DarkHyruleCastle_31
+	.4byte sub_unk3_DarkHyruleCastle_1FThroneRoom
+	.4byte sub_StateChange_DarkHyruleCastle_1FThroneRoom
+	.4byte gUnk_additional_8_DarkHyruleCastle_1FThroneRoom
 
-Entities_DarkHyruleCastle_32_0:: @ 080ED2D0
+Entities_DarkHyruleCastle_1FCompass_0:: @ 080ED2D0
 	object_raw subtype=0xc, x=0x50, y=0x28, collision=1, paramA=0x4, paramB=0x5f
 	entity_list_end
 
-Enemies_DarkHyruleCastle_32:: @ 080ED2F0
+Enemies_DarkHyruleCastle_1FCompass:: @ 080ED2F0
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_32:: @ 080ED300
+TileEntities_DarkHyruleCastle_1FCompass:: @ 080ED300
 	tile_entity type=0x3, paramA=0x5f, paramB=0x51, paramC=0x50, paramD=0x28
 	tile_entity type=0x1, paramA=0x21
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_32:: @ 080ED318
-	.4byte Entities_DarkHyruleCastle_32_0
+Room_DarkHyruleCastle_1FCompass:: @ 080ED318
+	.4byte Entities_DarkHyruleCastle_1FCompass_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_32
-	.4byte TileEntities_DarkHyruleCastle_32
+	.4byte Enemies_DarkHyruleCastle_1FCompass
+	.4byte TileEntities_DarkHyruleCastle_1FCompass
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_32
+	.4byte sub_unk3_DarkHyruleCastle_1FCompass
 	.4byte sub_StateChange_Dojos_ToScarblade1
 
-Entities_DarkHyruleCastle_33_0:: @ 080ED338
+Entities_DarkHyruleCastle_1FTopRightTower_0:: @ 080ED338
 	entity_list_end
 
-Enemies_DarkHyruleCastle_33:: @ 080ED348
+Enemies_DarkHyruleCastle_1FTopRightTower:: @ 080ED348
 	enemy_raw subtype=0xd, x=0x68, y=0x78
 	enemy_raw subtype=0xd, x=0xa8, y=0x78
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_33:: @ 080ED378
+TileEntities_DarkHyruleCastle_1FTopRightTower:: @ 080ED378
 	tile_entity type=0x1, paramA=0x22
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_33:: @ 080ED388
-	.4byte Entities_DarkHyruleCastle_33_0
+Room_DarkHyruleCastle_1FTopRightTower:: @ 080ED388
+	.4byte Entities_DarkHyruleCastle_1FTopRightTower_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_33
-	.4byte TileEntities_DarkHyruleCastle_33
+	.4byte Enemies_DarkHyruleCastle_1FTopRightTower
+	.4byte TileEntities_DarkHyruleCastle_1FTopRightTower
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_33
+	.4byte sub_unk3_DarkHyruleCastle_1FTopRightTower
 	.4byte sub_StateChange_Dojos_ToScarblade2
 
-Entities_DarkHyruleCastle_34_0:: @ 080ED3A8
+Entities_DarkHyruleCastle_1FBeforeThrone_0:: @ 080ED3A8
 	entity_list_end
 
-Enemies_DarkHyruleCastle_34:: @ 080ED3B8
+Enemies_DarkHyruleCastle_1FBeforeThrone:: @ 080ED3B8
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_34:: @ 080ED3C8
+TileEntities_DarkHyruleCastle_1FBeforeThrone:: @ 080ED3C8
 	tile_entity type=0x1, paramA=0x23
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_34:: @ 080ED3D8
-	.4byte Entities_DarkHyruleCastle_34_0
+Room_DarkHyruleCastle_1FBeforeThrone:: @ 080ED3D8
+	.4byte Entities_DarkHyruleCastle_1FBeforeThrone_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_34
-	.4byte TileEntities_DarkHyruleCastle_34
+	.4byte Enemies_DarkHyruleCastle_1FBeforeThrone
+	.4byte TileEntities_DarkHyruleCastle_1FBeforeThrone
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_34
+	.4byte sub_unk3_DarkHyruleCastle_1FBeforeThrone
 	.4byte sub_StateChange_Dojos_ToScarblade3
 
-Entities_DarkHyruleCastle_35_0:: @ 080ED3F8
+Entities_DarkHyruleCastle_1FLoopTopLeft_0:: @ 080ED3F8
 	enemy_raw subtype=0x3a, x=0x38, y=0x38
 	enemy_raw subtype=0x3a, x=0x38, y=0x48
 	enemy_raw subtype=0x3a, x=0x38, y=0x58
@@ -14604,66 +14604,66 @@ Entities_DarkHyruleCastle_35_0:: @ 080ED3F8
 	enemy_raw subtype=0x3a, x=0x38, y=0x88
 	entity_list_end
 
-Entities_DarkHyruleCastle_35_1:: @ 080ED468
+Entities_DarkHyruleCastle_1FLoopTopLeft_1:: @ 080ED468
 	object_raw subtype=0x4f, x=0x100, y=0x48, paramA=0x21, paramB=0x1
 	entity_list_end
 
-Enemies_DarkHyruleCastle_35:: @ 080ED488
+Enemies_DarkHyruleCastle_1FLoopTopLeft:: @ 080ED488
 	enemy_raw subtype=0x23, x=0x58, y=0x38, paramB=0xc160000, paramC=0x300030
 	enemy_raw subtype=0x23, x=0xc8, y=0x88, paramB=0xc160000, paramC=0x400080
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_35:: @ 080ED4B8
+TileEntities_DarkHyruleCastle_1FLoopTopLeft:: @ 080ED4B8
 	tile_entity type=0x1, paramA=0x24
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_35:: @ 080ED4C8
-	.4byte Entities_DarkHyruleCastle_35_0
-	.4byte Entities_DarkHyruleCastle_35_1
-	.4byte Enemies_DarkHyruleCastle_35
-	.4byte TileEntities_DarkHyruleCastle_35
+Room_DarkHyruleCastle_1FLoopTopLeft:: @ 080ED4C8
+	.4byte Entities_DarkHyruleCastle_1FLoopTopLeft_0
+	.4byte Entities_DarkHyruleCastle_1FLoopTopLeft_1
+	.4byte Enemies_DarkHyruleCastle_1FLoopTopLeft
+	.4byte TileEntities_DarkHyruleCastle_1FLoopTopLeft
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_35
+	.4byte sub_unk3_DarkHyruleCastle_1FLoopTopLeft
 	.4byte sub_StateChange_Dojos_ToScarblade4
 
-Entities_DarkHyruleCastle_36_0:: @ 080ED4E8
+Entities_DarkHyruleCastle_1FLoopTop_0:: @ 080ED4E8
 	manager subtype=0x30, x=0x78, y=0x38, paramB=0x6051702, paramC=0x80018000
 	manager subtype=0x11, paramC=0x80000060
 	object_raw subtype=0x3, x=0x48, y=0x78, paramA=0x1, paramC=0x80010002
 	object_raw subtype=0x8, x=0xe8, y=0x58, paramA=0x1, paramC=0x60ffff
 	entity_list_end
 
-Entities_DarkHyruleCastle_36_1:: @ 080ED538
+Entities_DarkHyruleCastle_1FLoopTop_1:: @ 080ED538
 	object_raw subtype=0x4f, x=0x10, y=0x48, paramA=0x21, paramB=0x3
 	object_raw subtype=0x4f, x=0x100, y=0x58, paramA=0x21, paramB=0x1
 	entity_list_end
 
-Enemies_DarkHyruleCastle_36:: @ 080ED568
+Enemies_DarkHyruleCastle_1FLoopTop:: @ 080ED568
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_36:: @ 080ED578
+TileEntities_DarkHyruleCastle_1FLoopTop:: @ 080ED578
 	tile_entity type=0x1, paramA=0x25
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_36:: @ 080ED588
-	.4byte Entities_DarkHyruleCastle_36_0
-	.4byte Entities_DarkHyruleCastle_36_1
-	.4byte Enemies_DarkHyruleCastle_36
-	.4byte TileEntities_DarkHyruleCastle_36
+Room_DarkHyruleCastle_1FLoopTop:: @ 080ED588
+	.4byte Entities_DarkHyruleCastle_1FLoopTop_0
+	.4byte Entities_DarkHyruleCastle_1FLoopTop_1
+	.4byte Enemies_DarkHyruleCastle_1FLoopTop
+	.4byte TileEntities_DarkHyruleCastle_1FLoopTop
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_36
+	.4byte sub_unk3_DarkHyruleCastle_1FLoopTop
 	.4byte sub_StateChange_Dojos_ToScarblade5
 
-Entities_DarkHyruleCastle_37_0:: @ 080ED5A8
+Entities_DarkHyruleCastle_1FLoopTopRight_0:: @ 080ED5A8
 	entity_list_end
 
-Entities_DarkHyruleCastle_37_1:: @ 080ED5B8
+Entities_DarkHyruleCastle_1FLoopTopRight_1:: @ 080ED5B8
 	object_raw subtype=0x4f, x=0x10, y=0x58, paramA=0x21, paramB=0x3
 	entity_list_end
 
-Enemies_DarkHyruleCastle_37:: @ 080ED5D8
+Enemies_DarkHyruleCastle_1FLoopTopRight:: @ 080ED5D8
 	enemy_raw subtype=0x15, x=0x88, y=0x78, paramA=0x1
 	enemy_raw subtype=0x15, x=0xa8, y=0x48, paramA=0x1
 	enemy_raw subtype=0x8, x=0x58, y=0x18, paramB=0x14140000, paramC=0x100030
@@ -14671,21 +14671,21 @@ Enemies_DarkHyruleCastle_37:: @ 080ED5D8
 	enemy_raw subtype=0x8, x=0x98, y=0x18, paramB=0x14140000, paramC=0x100030
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_37:: @ 080ED638
+TileEntities_DarkHyruleCastle_1FLoopTopRight:: @ 080ED638
 	tile_entity type=0x1, paramA=0x26
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_37:: @ 080ED648
-	.4byte Entities_DarkHyruleCastle_37_0
-	.4byte Entities_DarkHyruleCastle_37_1
-	.4byte Enemies_DarkHyruleCastle_37
-	.4byte TileEntities_DarkHyruleCastle_37
+Room_DarkHyruleCastle_1FLoopTopRight:: @ 080ED648
+	.4byte Entities_DarkHyruleCastle_1FLoopTopRight_0
+	.4byte Entities_DarkHyruleCastle_1FLoopTopRight_1
+	.4byte Enemies_DarkHyruleCastle_1FLoopTopRight
+	.4byte TileEntities_DarkHyruleCastle_1FLoopTopRight
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_37
+	.4byte sub_unk3_DarkHyruleCastle_1FLoopTopRight
 	.4byte sub_StateChange_Dojos_ToScarblade6
 
-Entities_DarkHyruleCastle_38_0:: @ 080ED668
+Entities_DarkHyruleCastle_1FLoopLeft_0:: @ 080ED668
 	manager subtype=0x2b, paramA=0x8, paramC=0x610000
 	manager subtype=0x35, x=0x90, y=0x58, paramB=0x3c1e00, paramC=0x610062
 	object_raw subtype=0x33, x=0x78, y=0x58, paramA=0x5, paramC=0x620000
@@ -14695,28 +14695,28 @@ Entities_DarkHyruleCastle_38_0:: @ 080ED668
 	ezlo_hint x=0x10, y=0xc, rx=0x1, ry=0x5, msg=0xb4a, flag=0x63
 	entity_list_end
 
-Enemies_DarkHyruleCastle_38:: @ 080ED6E8
+Enemies_DarkHyruleCastle_1FLoopLeft:: @ 080ED6E8
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_38:: @ 080ED6F8
+TileEntities_DarkHyruleCastle_1FLoopLeft:: @ 080ED6F8
 	tile_entity type=0x1, paramA=0x27
 	tile_entity_list_end
 
-gUnk_additional_8_DarkHyruleCastle_38:: @ 080ED708
-	.incbin "data_080D5360/gUnk_additional_8_DarkHyruleCastle_38.bin"
+gUnk_additional_8_DarkHyruleCastle_1FLoopLeft:: @ 080ED708
+	.incbin "data_080D5360/gUnk_additional_8_DarkHyruleCastle_1FLoopLeft.bin"
 
-Room_DarkHyruleCastle_38:: @ 080ED720
-	.4byte Entities_DarkHyruleCastle_38_0
+Room_DarkHyruleCastle_1FLoopLeft:: @ 080ED720
+	.4byte Entities_DarkHyruleCastle_1FLoopLeft_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_38
-	.4byte TileEntities_DarkHyruleCastle_38
+	.4byte Enemies_DarkHyruleCastle_1FLoopLeft
+	.4byte TileEntities_DarkHyruleCastle_1FLoopLeft
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_38
+	.4byte sub_unk3_DarkHyruleCastle_1FLoopLeft
 	.4byte sub_StateChange_Dojos_ToScarblade7
-	.4byte gUnk_additional_8_DarkHyruleCastle_38
+	.4byte gUnk_additional_8_DarkHyruleCastle_1FLoopLeft
 
-Entities_DarkHyruleCastle_39_0:: @ 080ED744
+Entities_DarkHyruleCastle_1FLoopRight_0:: @ 080ED744
 	object_raw subtype=0x3, x=0x38, y=0xc8, paramA=0x1, paramC=0x80000002
 	object_raw subtype=0x3, x=0x48, y=0xc8, paramA=0x1, paramC=0x80010002
 	object_raw subtype=0x3, x=0x98, y=0xc8, paramA=0x1, paramC=0x80020002
@@ -14725,55 +14725,55 @@ Entities_DarkHyruleCastle_39_0:: @ 080ED744
 	object_raw subtype=0xc, x=0x78, y=0xd8, paramA=0x1, paramC=0x640000
 	entity_list_end
 
-Enemies_DarkHyruleCastle_39:: @ 080ED7B4
+Enemies_DarkHyruleCastle_1FLoopRight:: @ 080ED7B4
 	enemy_raw subtype=0x2f, x=0x68, y=0x68, paramA=0x8
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_39:: @ 080ED7D4
+TileEntities_DarkHyruleCastle_1FLoopRight:: @ 080ED7D4
 	tile_entity type=0x2, paramA=0x65, paramB=0x53, paramC=0x347, paramD=0x1
 	tile_entity type=0x1, paramA=0x28
 	tile_entity_list_end
 
-gUnk_additional_8_DarkHyruleCastle_39:: @ 080ED7EC
-	.incbin "data_080D5360/gUnk_additional_8_DarkHyruleCastle_39.bin"
+gUnk_additional_8_DarkHyruleCastle_1FLoopRight:: @ 080ED7EC
+	.incbin "data_080D5360/gUnk_additional_8_DarkHyruleCastle_1FLoopRight.bin"
 
-Room_DarkHyruleCastle_39:: @ 080ED8CC
-	.4byte Entities_DarkHyruleCastle_39_0
+Room_DarkHyruleCastle_1FLoopRight:: @ 080ED8CC
+	.4byte Entities_DarkHyruleCastle_1FLoopRight_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_39
-	.4byte TileEntities_DarkHyruleCastle_39
+	.4byte Enemies_DarkHyruleCastle_1FLoopRight
+	.4byte TileEntities_DarkHyruleCastle_1FLoopRight
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_39
+	.4byte sub_unk3_DarkHyruleCastle_1FLoopRight
 	.4byte sub_StateChange_Dojos_ToScarblade8
-	.4byte gUnk_additional_8_DarkHyruleCastle_39
+	.4byte gUnk_additional_8_DarkHyruleCastle_1FLoopRight
 
-Entities_DarkHyruleCastle_40_0:: @ 080ED8F0
+Entities_DarkHyruleCastle_1FLoopBottomLeft_0:: @ 080ED8F0
 	entity_list_end
 
-Enemies_DarkHyruleCastle_40:: @ 080ED900
+Enemies_DarkHyruleCastle_1FLoopBottomLeft:: @ 080ED900
 	enemy_raw subtype=0x27, x=0x68, y=0x48, paramB=0xa180000, paramC=0x200050
 	enemy_raw subtype=0x27, x=0xa8, y=0x68, paramB=0xa180000, paramC=0x200050
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_40:: @ 080ED930
+TileEntities_DarkHyruleCastle_1FLoopBottomLeft:: @ 080ED930
 	tile_entity type=0x1, paramA=0x29
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_40:: @ 080ED940
-	.4byte Entities_DarkHyruleCastle_40_0
+Room_DarkHyruleCastle_1FLoopBottomLeft:: @ 080ED940
+	.4byte Entities_DarkHyruleCastle_1FLoopBottomLeft_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_40
-	.4byte TileEntities_DarkHyruleCastle_40
+	.4byte Enemies_DarkHyruleCastle_1FLoopBottomLeft
+	.4byte TileEntities_DarkHyruleCastle_1FLoopBottomLeft
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_40
+	.4byte sub_unk3_DarkHyruleCastle_1FLoopBottomLeft
 	.4byte sub_StateChange_Dojos_ToScarblade9
 
-Entities_DarkHyruleCastle_41_0:: @ 080ED960
+Entities_DarkHyruleCastle_1FLoopBottom_0:: @ 080ED960
 	entity_list_end
 
-Enemies_DarkHyruleCastle_41:: @ 080ED970
+Enemies_DarkHyruleCastle_1FLoopBottom:: @ 080ED970
 	enemy_raw subtype=0x15, x=0x38, y=0x48, paramA=0x1
 	enemy_raw subtype=0x15, x=0xc8, y=0x48, paramA=0x1
 	enemy_raw subtype=0x8, x=0x58, y=0x8, paramB=0xe1a0000
@@ -14782,44 +14782,44 @@ Enemies_DarkHyruleCastle_41:: @ 080ED970
 	enemy_raw subtype=0x8, x=0xb8, y=0x8, paramB=0xe1a0000
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_41:: @ 080ED9E0
+TileEntities_DarkHyruleCastle_1FLoopBottom:: @ 080ED9E0
 	tile_entity type=0x1, paramA=0x2a
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_41:: @ 080ED9F0
-	.4byte Entities_DarkHyruleCastle_41_0
+Room_DarkHyruleCastle_1FLoopBottom:: @ 080ED9F0
+	.4byte Entities_DarkHyruleCastle_1FLoopBottom_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_41
-	.4byte TileEntities_DarkHyruleCastle_41
+	.4byte Enemies_DarkHyruleCastle_1FLoopBottom
+	.4byte TileEntities_DarkHyruleCastle_1FLoopBottom
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_41
-	.4byte sub_StateChange_GoronCave_StairsToCave0
+	.4byte sub_unk3_DarkHyruleCastle_1FLoopBottom
+	.4byte sub_StateChange_GoronCave_Stairs0
 
-Entities_DarkHyruleCastle_42_0:: @ 080EDA10
+Entities_DarkHyruleCastle_1FLoopBottomRight_0:: @ 080EDA10
 	entity_list_end
 
-Enemies_DarkHyruleCastle_42:: @ 080EDA20
+Enemies_DarkHyruleCastle_1FLoopBottomRight:: @ 080EDA20
 	enemy_raw subtype=0x46, x=0x78, y=0x48, paramA=0x1
 	enemy_raw subtype=0x8, x=0xc8, y=0x38, paramB=0xa180000, paramC=0x200010
 	enemy_raw subtype=0x8, x=0xc8, y=0x58, paramB=0xa180000, paramC=0x200010
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_42:: @ 080EDA60
+TileEntities_DarkHyruleCastle_1FLoopBottomRight:: @ 080EDA60
 	tile_entity type=0x1, paramA=0x2b
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_42:: @ 080EDA70
-	.4byte Entities_DarkHyruleCastle_42_0
+Room_DarkHyruleCastle_1FLoopBottomRight:: @ 080EDA70
+	.4byte Entities_DarkHyruleCastle_1FLoopBottomRight_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_42
-	.4byte TileEntities_DarkHyruleCastle_42
+	.4byte Enemies_DarkHyruleCastle_1FLoopBottomRight
+	.4byte TileEntities_DarkHyruleCastle_1FLoopBottomRight
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_42
-	.4byte sub_StateChange_GoronCave_StairsToCave1
+	.4byte sub_unk3_DarkHyruleCastle_1FLoopBottomRight
+	.4byte sub_StateChange_GoronCave_Stairs1
 
-Entities_DarkHyruleCastle_43_0:: @ 080EDA90
+Entities_DarkHyruleCastle_1FBottomLeftTower_0:: @ 080EDA90
 	object_raw subtype=0x5, x=0x78, y=0x68, paramA=0x5d
 	object_raw subtype=0x5, x=0x78, y=0x78, paramA=0x5d
 	object_raw subtype=0x5, x=0x98, y=0x68, paramA=0x5d
@@ -14828,200 +14828,200 @@ Entities_DarkHyruleCastle_43_0:: @ 080EDA90
 	object_raw subtype=0x5, x=0x98, y=0x78, paramA=0x5e
 	entity_list_end
 
-Enemies_DarkHyruleCastle_43:: @ 080EDB00
+Enemies_DarkHyruleCastle_1FBottomLeftTower:: @ 080EDB00
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_43:: @ 080EDB10
+TileEntities_DarkHyruleCastle_1FBottomLeftTower:: @ 080EDB10
 	tile_entity type=0x1, paramA=0x2c
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_43:: @ 080EDB20
-	.4byte Entities_DarkHyruleCastle_43_0
+Room_DarkHyruleCastle_1FBottomLeftTower:: @ 080EDB20
+	.4byte Entities_DarkHyruleCastle_1FBottomLeftTower_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_43
-	.4byte TileEntities_DarkHyruleCastle_43
+	.4byte Enemies_DarkHyruleCastle_1FBottomLeftTower
+	.4byte TileEntities_DarkHyruleCastle_1FBottomLeftTower
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_43
-	.4byte sub_StateChange_GoronCave_StairsToCave2
+	.4byte sub_unk3_DarkHyruleCastle_1FBottomLeftTower
+	.4byte sub_StateChange_GoronCave_Stairs2
 
-Entities_DarkHyruleCastle_44_0:: @ 080EDB40
+Entities_DarkHyruleCastle_1FBottomRightTower_0:: @ 080EDB40
 	entity_list_end
 
-Enemies_DarkHyruleCastle_44:: @ 080EDB50
+Enemies_DarkHyruleCastle_1FBottomRightTower:: @ 080EDB50
 	enemy_raw subtype=0x3b, x=0x68, y=0x88
 	enemy_raw subtype=0x3b, x=0x88, y=0x98
 	enemy_raw subtype=0x3b, x=0xa8, y=0x88
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_44:: @ 080EDB90
+TileEntities_DarkHyruleCastle_1FBottomRightTower:: @ 080EDB90
 	tile_entity type=0x9, paramB=0x8000
 	tile_entity type=0x1, paramA=0x2d
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_44:: @ 080EDBA8
-	.4byte Entities_DarkHyruleCastle_44_0
+Room_DarkHyruleCastle_1FBottomRightTower:: @ 080EDBA8
+	.4byte Entities_DarkHyruleCastle_1FBottomRightTower_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_44
-	.4byte TileEntities_DarkHyruleCastle_44
+	.4byte Enemies_DarkHyruleCastle_1FBottomRightTower
+	.4byte TileEntities_DarkHyruleCastle_1FBottomRightTower
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_44
-	.4byte sub_StateChange_GoronCave_StairsToCave3
+	.4byte sub_unk3_DarkHyruleCastle_1FBottomRightTower
+	.4byte sub_StateChange_GoronCave_Stairs3
 
-Entities_DarkHyruleCastle_45_0:: @ 080EDBC8
+Entities_DarkHyruleCastle_B1BelowThrone_0:: @ 080EDBC8
 	entity_list_end
 
-Enemies_DarkHyruleCastle_45:: @ 080EDBD8
+Enemies_DarkHyruleCastle_B1BelowThrone:: @ 080EDBD8
 	enemy_raw subtype=0x3b, x=0xb8, y=0x98
 	enemy_raw subtype=0x8, x=0x98, y=0x68, paramB=0x14140000, paramC=0x100050
 	enemy_raw subtype=0x8, x=0x88, y=0x78, paramB=0x14140000, paramC=0x100050
 	enemy_raw subtype=0x8, x=0xa8, y=0x78, paramB=0x14140000, paramC=0x100050
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_45:: @ 080EDC28
+TileEntities_DarkHyruleCastle_B1BelowThrone:: @ 080EDC28
 	tile_entity type=0x9, paramB=0x8000
 	tile_entity type=0x1, paramA=0x2e
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_45:: @ 080EDC40
-	.4byte Entities_DarkHyruleCastle_45_0
+Room_DarkHyruleCastle_B1BelowThrone:: @ 080EDC40
+	.4byte Entities_DarkHyruleCastle_B1BelowThrone_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_45
-	.4byte TileEntities_DarkHyruleCastle_45
+	.4byte Enemies_DarkHyruleCastle_B1BelowThrone
+	.4byte TileEntities_DarkHyruleCastle_B1BelowThrone
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_45
-	.4byte sub_StateChange_GoronCave_StairsToCave4
+	.4byte sub_unk3_DarkHyruleCastle_B1BelowThrone
+	.4byte sub_StateChange_GoronCave_Stairs4
 
-Entities_DarkHyruleCastle_46_0:: @ 080EDC60
+Entities_DarkHyruleCastle_B1BelowCompass_0:: @ 080EDC60
 	entity_list_end
 
-Enemies_DarkHyruleCastle_46:: @ 080EDC70
+Enemies_DarkHyruleCastle_B1BelowCompass:: @ 080EDC70
 	enemy_raw subtype=0x3b, x=0x68, y=0x88
 	enemy_raw subtype=0x3b, x=0x98, y=0x98
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_46:: @ 080EDCA0
+TileEntities_DarkHyruleCastle_B1BelowCompass:: @ 080EDCA0
 	tile_entity type=0x9, paramB=0x8000
 	tile_entity type=0x1, paramA=0x2f
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_46:: @ 080EDCB8
-	.4byte Entities_DarkHyruleCastle_46_0
+Room_DarkHyruleCastle_B1BelowCompass:: @ 080EDCB8
+	.4byte Entities_DarkHyruleCastle_B1BelowCompass_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_46
-	.4byte TileEntities_DarkHyruleCastle_46
+	.4byte Enemies_DarkHyruleCastle_B1BelowCompass
+	.4byte TileEntities_DarkHyruleCastle_B1BelowCompass
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_46
-	.4byte sub_StateChange_GoronCave_StairsToCave5
+	.4byte sub_unk3_DarkHyruleCastle_B1BelowCompass
+	.4byte sub_StateChange_GoronCave_Stairs5
 
-Entities_DarkHyruleCastle_47_0:: @ 080EDCD8
+Entities_DarkHyruleCastle_B1BeforeThrone_0:: @ 080EDCD8
 	entity_list_end
 
-Entities_DarkHyruleCastle_47_1:: @ 080EDCE8
+Entities_DarkHyruleCastle_B1BeforeThrone_1:: @ 080EDCE8
 	object_raw subtype=0x4f, x=0x88, y=0xc0, paramA=0x21, paramB=0x2
 	entity_list_end
 
-Enemies_DarkHyruleCastle_47:: @ 080EDD08
+Enemies_DarkHyruleCastle_B1BeforeThrone:: @ 080EDD08
 	enemy_raw subtype=0x1f, x=0x58, y=0x38, paramA=0x2, paramC=0x280028
 	enemy_raw subtype=0x1f, x=0xb8, y=0x38, paramA=0x2, paramC=0x280028
 	enemy_raw subtype=0x1f, x=0x58, y=0x98, paramA=0x2, paramC=0x280028
 	enemy_raw subtype=0x1f, x=0xb8, y=0x98, paramA=0x2, paramC=0x280028
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_47:: @ 080EDD58
+TileEntities_DarkHyruleCastle_B1BeforeThrone:: @ 080EDD58
 	tile_entity type=0x1, paramA=0x30
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_47:: @ 080EDD68
-	.4byte Entities_DarkHyruleCastle_47_0
-	.4byte Entities_DarkHyruleCastle_47_1
-	.4byte Enemies_DarkHyruleCastle_47
-	.4byte TileEntities_DarkHyruleCastle_47
+Room_DarkHyruleCastle_B1BeforeThrone:: @ 080EDD68
+	.4byte Entities_DarkHyruleCastle_B1BeforeThrone_0
+	.4byte Entities_DarkHyruleCastle_B1BeforeThrone_1
+	.4byte Enemies_DarkHyruleCastle_B1BeforeThrone
+	.4byte TileEntities_DarkHyruleCastle_B1BeforeThrone
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_47
-	.4byte sub_StateChange_GoronCave_StairsToCave6
+	.4byte sub_unk3_DarkHyruleCastle_B1BeforeThrone
+	.4byte sub_StateChange_GoronCave_Stairs6
 
-Entities_DarkHyruleCastle_48_0:: @ 080EDD88
+Entities_DarkHyruleCastle_B1ToPrison_0:: @ 080EDD88
 	enemy_raw subtype=0x43, x=0x68, y=0x68, paramA=0x2
 	enemy_raw subtype=0x43, x=0x88, y=0x68, paramA=0x3
 	enemy_raw subtype=0x43, x=0xa8, y=0x68, paramA=0x2
 	entity_list_end
 
-Entities_DarkHyruleCastle_48_1:: @ 080EDDC8
+Entities_DarkHyruleCastle_B1ToPrison_1:: @ 080EDDC8
 	object_raw subtype=0x4f, x=0x58, y=0x10, paramA=0x21
 	object_raw subtype=0x4f, x=0xb8, y=0x10, paramA=0x21
 	object_raw subtype=0x4f, x=0x108, y=0x88, paramA=0x21, paramB=0x5
 	entity_list_end
 
-Enemies_DarkHyruleCastle_48:: @ 080EDE08
+Enemies_DarkHyruleCastle_B1ToPrison:: @ 080EDE08
 	enemy_raw subtype=0x9, x=0xb8, y=0x30, paramA=0x4
 	enemy_raw subtype=0x34, x=0x88, y=0x88
 	enemy_raw subtype=0x34, x=0x98, y=0x88, paramA=0x1
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_48:: @ 080EDE48
+TileEntities_DarkHyruleCastle_B1ToPrison:: @ 080EDE48
 	tile_entity type=0x4, paramA=0x66, paramB=0x2, paramC=0xe8, paramD=0x88
 	tile_entity type=0x1, paramA=0x31
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_48:: @ 080EDE60
-	.4byte Entities_DarkHyruleCastle_48_0
-	.4byte Entities_DarkHyruleCastle_48_1
-	.4byte Enemies_DarkHyruleCastle_48
-	.4byte TileEntities_DarkHyruleCastle_48
+Room_DarkHyruleCastle_B1ToPrison:: @ 080EDE60
+	.4byte Entities_DarkHyruleCastle_B1ToPrison_0
+	.4byte Entities_DarkHyruleCastle_B1ToPrison_1
+	.4byte Enemies_DarkHyruleCastle_B1ToPrison
+	.4byte TileEntities_DarkHyruleCastle_B1ToPrison
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_48
-	.4byte sub_StateChange_GoronCave_StairsToCave7
+	.4byte sub_unk3_DarkHyruleCastle_B1ToPrison
+	.4byte sub_StateChange_GoronCave_Stairs7
 
-Entities_DarkHyruleCastle_49_0:: @ 080EDE80
+Entities_DarkHyruleCastle_B1BombWall_0:: @ 080EDE80
 	object_raw subtype=0x74, x=0x48, y=0x48, collision=2, paramC=0xffff0000
 	manager subtype=0x3, x=0x48, y=0x48, unknown=0x0, paramA=0x3, paramB=0x202
 	entity_list_end
 
-Entities_DarkHyruleCastle_49_1:: @ 080EDEB0
+Entities_DarkHyruleCastle_B1BombWall_1:: @ 080EDEB0
 	object_raw subtype=0x4f, x=0x88, y=0x10, paramA=0x21
 	object_raw subtype=0x4f, x=0x8, y=0x88, paramA=0x21, paramB=0x5
 	object_raw subtype=0x4f, x=0x108, y=0x88, paramA=0x21, paramB=0x5
 	entity_list_end
 
-Enemies_DarkHyruleCastle_49:: @ 080EDEF0
+Enemies_DarkHyruleCastle_B1BombWall:: @ 080EDEF0
 	projectile_raw subtype=0x1d, x=0x78, y=0x88, unknown=0x3
 	projectile_raw subtype=0x1d, x=0xd8, y=0x48, unknown=0x3
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_49:: @ 080EDF20
+TileEntities_DarkHyruleCastle_B1BombWall:: @ 080EDF20
 	tile_entity type=0x4, paramA=0x66, paramB=0x2, paramC=0x28, paramD=0x88
 	tile_entity type=0x4, paramA=0x67, paramB=0x2, paramC=0xe8, paramD=0x88
 	tile_entity type=0x1, paramA=0x32
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_49:: @ 080EDF40
-	.4byte Entities_DarkHyruleCastle_49_0
-	.4byte Entities_DarkHyruleCastle_49_1
-	.4byte Enemies_DarkHyruleCastle_49
-	.4byte TileEntities_DarkHyruleCastle_49
+Room_DarkHyruleCastle_B1BombWall:: @ 080EDF40
+	.4byte Entities_DarkHyruleCastle_B1BombWall_0
+	.4byte Entities_DarkHyruleCastle_B1BombWall_1
+	.4byte Enemies_DarkHyruleCastle_B1BombWall
+	.4byte TileEntities_DarkHyruleCastle_B1BombWall
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_49
-	.4byte sub_StateChange_GoronCave_StairsToCave8
+	.4byte sub_unk3_DarkHyruleCastle_B1BombWall
+	.4byte sub_StateChange_GoronCave_Stairs8
 
-Entities_DarkHyruleCastle_50_0:: @ 080EDF60
+Entities_DarkHyruleCastle_B1Keatons_0:: @ 080EDF60
 	object_raw subtype=0x5, x=0xb8, y=0x38
 	object_raw subtype=0x5, x=0xc8, y=0x38
 	object_raw subtype=0x5, x=0x38, y=0x38
 	object_raw subtype=0x5, x=0x48, y=0x38
 	entity_list_end
 
-Entities_DarkHyruleCastle_50_1:: @ 080EDFB0
+Entities_DarkHyruleCastle_B1Keatons_1:: @ 080EDFB0
 	object_raw subtype=0x4f, x=0x8, y=0x88, paramA=0x21, paramB=0x5
 	entity_list_end
 
-Enemies_DarkHyruleCastle_50:: @ 080EDFD0
+Enemies_DarkHyruleCastle_B1Keatons:: @ 080EDFD0
 	enemy_raw subtype=0x30, x=0x48, y=0x48, paramA=0x1
 	enemy_raw subtype=0x30, x=0x68, y=0x48, paramA=0x1
 	enemy_raw subtype=0x30, x=0x88, y=0x48, paramA=0x1
@@ -15032,22 +15032,22 @@ Enemies_DarkHyruleCastle_50:: @ 080EDFD0
 	enemy_raw subtype=0x30, x=0xa8, y=0x68, paramA=0x1
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_50:: @ 080EE060
+TileEntities_DarkHyruleCastle_B1Keatons:: @ 080EE060
 	tile_entity type=0x4, paramA=0x67, paramB=0x2, paramC=0x28, paramD=0x88
 	tile_entity type=0x1, paramA=0x33
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_50:: @ 080EE078
-	.4byte Entities_DarkHyruleCastle_50_0
-	.4byte Entities_DarkHyruleCastle_50_1
-	.4byte Enemies_DarkHyruleCastle_50
-	.4byte TileEntities_DarkHyruleCastle_50
+Room_DarkHyruleCastle_B1Keatons:: @ 080EE078
+	.4byte Entities_DarkHyruleCastle_B1Keatons_0
+	.4byte Entities_DarkHyruleCastle_B1Keatons_1
+	.4byte Enemies_DarkHyruleCastle_B1Keatons
+	.4byte TileEntities_DarkHyruleCastle_B1Keatons
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_50
-	.4byte sub_StateChange_GoronCave_StairsToCave9
+	.4byte sub_unk3_DarkHyruleCastle_B1Keatons
+	.4byte sub_StateChange_GoronCave_Stairs9
 
-Entities_DarkHyruleCastle_51_0:: @ 080EE098
+Entities_DarkHyruleCastle_B1ToPrisonFirebar_0:: @ 080EE098
 	object_raw subtype=0x98, x=0xa8, y=0x78, unknown=0x3, paramB=0x602
 	object_raw subtype=0x98, x=0xa8, y=0x78, unknown=0x3, paramB=0x20602
 	object_raw subtype=0x98, x=0xa8, y=0x78, unknown=0x3, paramB=0x10602
@@ -15059,24 +15059,24 @@ Entities_DarkHyruleCastle_51_0:: @ 080EE098
 	manager subtype=0x1a, unknown=0x8, paramA=0x36
 	entity_list_end
 
-Enemies_DarkHyruleCastle_51:: @ 080EE138
+Enemies_DarkHyruleCastle_B1ToPrisonFirebar:: @ 080EE138
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_51:: @ 080EE148
+TileEntities_DarkHyruleCastle_B1ToPrisonFirebar:: @ 080EE148
 	tile_entity type=0x1, paramA=0x34
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_51:: @ 080EE158
-	.4byte Entities_DarkHyruleCastle_51_0
+Room_DarkHyruleCastle_B1ToPrisonFirebar:: @ 080EE158
+	.4byte Entities_DarkHyruleCastle_B1ToPrisonFirebar_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_51
-	.4byte TileEntities_DarkHyruleCastle_51
+	.4byte Enemies_DarkHyruleCastle_B1ToPrisonFirebar
+	.4byte TileEntities_DarkHyruleCastle_B1ToPrisonFirebar
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_51
+	.4byte sub_unk3_DarkHyruleCastle_B1ToPrisonFirebar
 	.4byte sub_StateChange_Ruins_Beanstalk0
 
-Entities_DarkHyruleCastle_52_0:: @ 080EE178
+Entities_DarkHyruleCastle_B1Cannons_0:: @ 080EE178
 	manager subtype=0x2b, paramA=0x8, paramC=0x680000
 	manager subtype=0x35, x=0x88, y=0x30, paramB=0x3c1e00, paramC=0x680069
 	object_raw subtype=0x33, x=0x68, y=0x38, paramA=0x5, paramC=0x690000
@@ -15089,42 +15089,42 @@ Entities_DarkHyruleCastle_52_0:: @ 080EE178
 	enemy_raw subtype=0x43, x=0x98, y=0x108, paramA=0x2
 	entity_list_end
 
-Enemies_DarkHyruleCastle_52:: @ 080EE228
+Enemies_DarkHyruleCastle_B1Cannons:: @ 080EE228
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_52:: @ 080EE238
+TileEntities_DarkHyruleCastle_B1Cannons:: @ 080EE238
 	tile_entity type=0x1, paramA=0x35
 	tile_entity_list_end
 
-gUnk_additional_8_DarkHyruleCastle_52:: @ 080EE248
-	.incbin "data_080D5360/gUnk_additional_8_DarkHyruleCastle_52.bin"
+gUnk_additional_8_DarkHyruleCastle_B1Cannons:: @ 080EE248
+	.incbin "data_080D5360/gUnk_additional_8_DarkHyruleCastle_B1Cannons.bin"
 
-Room_DarkHyruleCastle_52:: @ 080EE260
-	.4byte Entities_DarkHyruleCastle_52_0
+Room_DarkHyruleCastle_B1Cannons:: @ 080EE260
+	.4byte Entities_DarkHyruleCastle_B1Cannons_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_52
-	.4byte TileEntities_DarkHyruleCastle_52
+	.4byte Enemies_DarkHyruleCastle_B1Cannons
+	.4byte TileEntities_DarkHyruleCastle_B1Cannons
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_52
+	.4byte sub_unk3_DarkHyruleCastle_B1Cannons
 	.4byte sub_StateChange_Ruins_Beanstalk1
-	.4byte gUnk_additional_8_DarkHyruleCastle_52
+	.4byte gUnk_additional_8_DarkHyruleCastle_B1Cannons
 
-Entities_DarkHyruleCastle_53_0:: @ 080EE284
+Entities_DarkHyruleCastle_B1Left_0:: @ 080EE284
 	object_raw subtype=0x8, x=0x58, y=0xa8, paramA=0xa, paramC=0x6affff
 	entity_list_end
 
-Entities_DarkHyruleCastle_53_1:: @ 080EE2A4
+Entities_DarkHyruleCastle_B1Left_1:: @ 080EE2A4
 	object_raw subtype=0x4f, x=0x58, y=0xc0, paramA=0x21, paramB=0x2
 	object_raw subtype=0x4f, x=0x10, y=0x48, paramA=0x21, paramB=0x3
 	entity_list_end
 
-Enemies_DarkHyruleCastle_53:: @ 080EE2D4
+Enemies_DarkHyruleCastle_B1Left:: @ 080EE2D4
 	enemy_raw subtype=0x9, x=0x30, y=0x48, paramA=0x7
 	enemy_raw subtype=0x15, x=0x58, y=0x48, paramA=0x1
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_53:: @ 080EE304
+TileEntities_DarkHyruleCastle_B1Left:: @ 080EE304
 	tile_entity type=0x1, paramA=0x36
 	tile_entity_list_end
 
@@ -15134,45 +15134,45 @@ gUnk_080EE314:: @ 080EE314
 	object_raw subtype=0x6a, x=0x78, y=0x8, collision=2, paramA=0x5, paramB=0x102
 	entity_list_end
 
-Room_DarkHyruleCastle_53:: @ 080EE354
-	.4byte Entities_DarkHyruleCastle_53_0
-	.4byte Entities_DarkHyruleCastle_53_1
-	.4byte Enemies_DarkHyruleCastle_53
-	.4byte TileEntities_DarkHyruleCastle_53
+Room_DarkHyruleCastle_B1Left:: @ 080EE354
+	.4byte Entities_DarkHyruleCastle_B1Left_0
+	.4byte Entities_DarkHyruleCastle_B1Left_1
+	.4byte Enemies_DarkHyruleCastle_B1Left
+	.4byte TileEntities_DarkHyruleCastle_B1Left
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_53
-	.4byte sub_StateChange_DarkHyruleCastle_53
+	.4byte sub_unk3_DarkHyruleCastle_B1Left
+	.4byte sub_StateChange_DarkHyruleCastle_B1Left
 
-Entities_DarkHyruleCastle_54_0:: @ 080EE374
+Entities_DarkHyruleCastle_B1Right_0:: @ 080EE374
 	entity_list_end
 
-Entities_DarkHyruleCastle_54_1:: @ 080EE384
+Entities_DarkHyruleCastle_B1Right_1:: @ 080EE384
 	object_raw subtype=0x4f, x=0xb8, y=0xc0, paramA=0x21, paramB=0x2
 	entity_list_end
 
-Enemies_DarkHyruleCastle_54:: @ 080EE3A4
+Enemies_DarkHyruleCastle_B1Right:: @ 080EE3A4
 	enemy_raw subtype=0x8, x=0xf8, y=0x28, paramB=0x101e0000, paramC=0x200010
 	enemy_raw subtype=0x8, x=0xf8, y=0x48, paramB=0x101e0000, paramC=0x200010
 	enemy_raw subtype=0x8, x=0xf8, y=0x68, paramB=0x101e0000, paramC=0x200010
 	enemy_raw subtype=0x8, x=0xf8, y=0x88, paramB=0x101e0000, paramC=0x200010
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_54:: @ 080EE3F4
+TileEntities_DarkHyruleCastle_B1Right:: @ 080EE3F4
 	tile_entity type=0x1, paramA=0x37
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_54:: @ 080EE404
-	.4byte Entities_DarkHyruleCastle_54_0
-	.4byte Entities_DarkHyruleCastle_54_1
-	.4byte Enemies_DarkHyruleCastle_54
-	.4byte TileEntities_DarkHyruleCastle_54
+Room_DarkHyruleCastle_B1Right:: @ 080EE404
+	.4byte Entities_DarkHyruleCastle_B1Right_0
+	.4byte Entities_DarkHyruleCastle_B1Right_1
+	.4byte Enemies_DarkHyruleCastle_B1Right
+	.4byte TileEntities_DarkHyruleCastle_B1Right
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_54
+	.4byte sub_unk3_DarkHyruleCastle_B1Right
 	.4byte sub_StateChange_Ruins_Beanstalk2
 
-Entities_DarkHyruleCastle_55_0:: @ 080EE424
+Entities_DarkHyruleCastle_B1Map_0:: @ 080EE424
 	object_raw subtype=0x5, x=0x168, y=0x38, paramA=0x60
 	object_raw subtype=0x5, x=0x168, y=0x48, paramA=0x60
 	object_raw subtype=0x5, x=0x168, y=0x58, paramA=0x5e
@@ -15182,14 +15182,14 @@ Entities_DarkHyruleCastle_55_0:: @ 080EE424
 	object_raw subtype=0xc, x=0x198, y=0x98, paramA=0x4, paramB=0x6b
 	entity_list_end
 
-Entities_DarkHyruleCastle_55_1:: @ 080EE4A4
+Entities_DarkHyruleCastle_B1Map_1:: @ 080EE4A4
 	object_raw subtype=0x4f, x=0x58, y=0x10, paramA=0x21
 	object_raw subtype=0x4f, x=0x108, y=0xc0, paramA=0x21
 	object_raw subtype=0x4f, x=0x228, y=0xc0, paramA=0x21
 	object_raw subtype=0x4f, x=0x2d8, y=0x10, paramA=0x21
 	entity_list_end
 
-Enemies_DarkHyruleCastle_55:: @ 080EE4F4
+Enemies_DarkHyruleCastle_B1Map:: @ 080EE4F4
 	enemy_raw subtype=0x27, x=0x38, y=0x58, paramB=0x8100000, paramC=0x300030
 	enemy_raw subtype=0x27, x=0xa8, y=0x58, paramB=0x8100000, paramC=0x300030
 	enemy_raw subtype=0x27, x=0x88, y=0x108, paramB=0x8180000, paramC=0xe00070
@@ -15204,7 +15204,7 @@ Enemies_DarkHyruleCastle_55:: @ 080EE4F4
 	enemy_raw subtype=0x42, x=0x298, y=0xa8
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_55:: @ 080EE5C4
+TileEntities_DarkHyruleCastle_B1Map:: @ 080EE5C4
 	tile_entity type=0x3, paramA=0x6b, paramB=0x50, paramC=0x198, paramD=0x98
 	tile_entity type=0x1, paramA=0x38
 	tile_entity_list_end
@@ -15215,37 +15215,37 @@ gUnk_080EE5DC:: @ 080EE5DC
 	object_raw subtype=0x6a, x=0x128, y=0x130, collision=2, paramA=0x5, paramB=0x102
 	entity_list_end
 
-Room_DarkHyruleCastle_55:: @ 080EE61C
-	.4byte Entities_DarkHyruleCastle_55_0
-	.4byte Entities_DarkHyruleCastle_55_1
-	.4byte Enemies_DarkHyruleCastle_55
-	.4byte TileEntities_DarkHyruleCastle_55
+Room_DarkHyruleCastle_B1Map:: @ 080EE61C
+	.4byte Entities_DarkHyruleCastle_B1Map_0
+	.4byte Entities_DarkHyruleCastle_B1Map_1
+	.4byte Enemies_DarkHyruleCastle_B1Map
+	.4byte TileEntities_DarkHyruleCastle_B1Map
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_55
-	.4byte sub_StateChange_DarkHyruleCastle_55
+	.4byte sub_unk3_DarkHyruleCastle_B1Map
+	.4byte sub_StateChange_DarkHyruleCastle_B1Map
 
-Entities_DarkHyruleCastle_56_0:: @ 080EE63C
+Entities_DarkHyruleCastle_B2ToPrison_0:: @ 080EE63C
 	entity_list_end
 
-Enemies_DarkHyruleCastle_56:: @ 080EE64C
+Enemies_DarkHyruleCastle_B2ToPrison:: @ 080EE64C
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_56:: @ 080EE65C
+TileEntities_DarkHyruleCastle_B2ToPrison:: @ 080EE65C
 	tile_entity type=0x1, paramA=0x39
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_56:: @ 080EE66C
-	.4byte Entities_DarkHyruleCastle_56_0
+Room_DarkHyruleCastle_B2ToPrison:: @ 080EE66C
+	.4byte Entities_DarkHyruleCastle_B2ToPrison_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_56
-	.4byte TileEntities_DarkHyruleCastle_56
+	.4byte Enemies_DarkHyruleCastle_B2ToPrison
+	.4byte TileEntities_DarkHyruleCastle_B2ToPrison
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_56
+	.4byte sub_unk3_DarkHyruleCastle_B2ToPrison
 	.4byte sub_StateChange_Ruins_Beanstalk3
 
-Entities_DarkHyruleCastle_57_0:: @ 080EE68C
+Entities_DarkHyruleCastle_B2Prison_0:: @ 080EE68C
 	object_raw subtype=0x74, x=0x88, y=0x38, collision=1, paramC=0xffff0000
 	manager subtype=0x3, x=0x88, y=0x38, unknown=0x0, paramA=0x3, paramB=0x103
 	object_raw subtype=0x3, x=0xa8, y=0x28, paramC=0x6d0001
@@ -15262,10 +15262,10 @@ gUnk_080EE71C:: @ 080EE71C
 	npc_raw subtype=0x15, x=0x168, y=0x88, paramB=0x25, script=script_GuardCellRight
 	entity_list_end
 
-Enemies_DarkHyruleCastle_57:: @ 080EE75C
+Enemies_DarkHyruleCastle_B2Prison:: @ 080EE75C
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_57:: @ 080EE76C
+TileEntities_DarkHyruleCastle_B2Prison:: @ 080EE76C
 	tile_entity type=0x1, paramA=0x3a
 	tile_entity_list_end@ unaccounted bytes
 	.byte 255
@@ -15286,35 +15286,35 @@ TileEntities_DarkHyruleCastle_57:: @ 080EE76C
 	.byte 0
 
 
-Room_DarkHyruleCastle_57:: @ 080EE78C
-	.4byte Entities_DarkHyruleCastle_57_0
+Room_DarkHyruleCastle_B2Prison:: @ 080EE78C
+	.4byte Entities_DarkHyruleCastle_B2Prison_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_57
-	.4byte TileEntities_DarkHyruleCastle_57
+	.4byte Enemies_DarkHyruleCastle_B2Prison
+	.4byte TileEntities_DarkHyruleCastle_B2Prison
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_57
-	.4byte sub_StateChange_DarkHyruleCastle_57
+	.4byte sub_unk3_DarkHyruleCastle_B2Prison
+	.4byte sub_StateChange_DarkHyruleCastle_B2Prison
 
-Entities_DarkHyruleCastle_58_0:: @ 080EE7AC
+Entities_DarkHyruleCastle_B2Dropdown_0:: @ 080EE7AC
 	entity_list_end
 
-Enemies_DarkHyruleCastle_58:: @ 080EE7BC
+Enemies_DarkHyruleCastle_B2Dropdown:: @ 080EE7BC
 	enemy_raw subtype=0x1c, x=0x48, y=0x58, paramB=0x810
 	entity_list_end
 
-TileEntities_DarkHyruleCastle_58:: @ 080EE7DC
+TileEntities_DarkHyruleCastle_B2Dropdown:: @ 080EE7DC
 	tile_entity type=0x1, paramA=0x3b
 	tile_entity_list_end
 
-Room_DarkHyruleCastle_58:: @ 080EE7EC
-	.4byte Entities_DarkHyruleCastle_58_0
+Room_DarkHyruleCastle_B2Dropdown:: @ 080EE7EC
+	.4byte Entities_DarkHyruleCastle_B2Dropdown_0
 	.4byte 0x00000000
-	.4byte Enemies_DarkHyruleCastle_58
-	.4byte TileEntities_DarkHyruleCastle_58
+	.4byte Enemies_DarkHyruleCastle_B2Dropdown
+	.4byte TileEntities_DarkHyruleCastle_B2Dropdown
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_DarkHyruleCastle_58
+	.4byte sub_unk3_DarkHyruleCastle_B2Dropdown
 	.4byte sub_StateChange_Ruins_Beanstalk4
 
 Entities_HyruleTown_0_0:: @ 080EE80C
@@ -17334,7 +17334,7 @@ Room_HouseInteriors2_Dampe:: @ 080F307C
 	.4byte sub_unk3_HouseInteriors2_Dampe
 	.4byte sub_StateChange_HouseInteriors2_Dampe
 
-Entities_HouseInteriors2_Stockwell_0:: @ 080F309C
+Entities_HouseInteriors2_StockwellLakeHouse_0:: @ 080F309C
 	manager subtype=0x26, paramA=0x8, paramB=0xff
 	npc_raw subtype=0x35, x=0x68, y=0x48, script=script_ShopwellsDog
 	entity_list_end
@@ -17343,7 +17343,7 @@ gUnk_080F30CC:: @ 080F30CC
 	object_raw subtype=0x6a, x=0x98, y=0x58, paramA=0x6
 	entity_list_end
 
-Entities_HouseInteriors2_Stockwell_1:: @ 080F30EC
+Entities_HouseInteriors2_StockwellLakeHouse_1:: @ 080F30EC
 	object_raw subtype=0x4f, x=0x78, y=0x98, paramA=0x20, paramB=0x2
 	object_raw subtype=0x4d, x=0x4c, y=0x28, collision=1, paramA=0x3
 	object_raw subtype=0x4d, x=0x78, y=0x28, collision=1, paramA=0x1
@@ -17351,25 +17351,25 @@ Entities_HouseInteriors2_Stockwell_1:: @ 080F30EC
 	object_raw subtype=0x38, x=0xc0, y=0x3e, unknown=0x0, paramA=0x45
 	entity_list_end
 
-Enemies_HouseInteriors2_Stockwell:: @ 080F314C
+Enemies_HouseInteriors2_StockwellLakeHouse:: @ 080F314C
 	entity_list_end
 
-TileEntities_HouseInteriors2_Stockwell:: @ 080F315C
+TileEntities_HouseInteriors2_StockwellLakeHouse:: @ 080F315C
 	tile_entity_list_end
 
-gUnk_additional_8_HouseInteriors2_Stockwell:: @ 080F3164
-	.incbin "data_080D5360/gUnk_additional_8_HouseInteriors2_Stockwell.bin"
+gUnk_additional_8_HouseInteriors2_StockwellLakeHouse:: @ 080F3164
+	.incbin "data_080D5360/gUnk_additional_8_HouseInteriors2_StockwellLakeHouse.bin"
 
-Room_HouseInteriors2_Stockwell:: @ 080F3174
-	.4byte Entities_HouseInteriors2_Stockwell_0
-	.4byte Entities_HouseInteriors2_Stockwell_1
-	.4byte Enemies_HouseInteriors2_Stockwell
-	.4byte TileEntities_HouseInteriors2_Stockwell
+Room_HouseInteriors2_StockwellLakeHouse:: @ 080F3174
+	.4byte Entities_HouseInteriors2_StockwellLakeHouse_0
+	.4byte Entities_HouseInteriors2_StockwellLakeHouse_1
+	.4byte Enemies_HouseInteriors2_StockwellLakeHouse
+	.4byte TileEntities_HouseInteriors2_StockwellLakeHouse
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_HouseInteriors2_Stockwell
-	.4byte sub_StateChange_HouseInteriors2_Stockwell
-	.4byte gUnk_additional_8_HouseInteriors2_Stockwell
+	.4byte sub_unk3_HouseInteriors2_StockwellLakeHouse
+	.4byte sub_StateChange_HouseInteriors2_StockwellLakeHouse
+	.4byte gUnk_additional_8_HouseInteriors2_StockwellLakeHouse
 
 Entities_HouseInteriors2_LinksHouseBedroom_0:: @ 080F3198
 	ezlo_hint x=0x4, y=0x6, rx=0x7, ry=0x1, msg=0xb52, flag=0xc9
@@ -17622,7 +17622,7 @@ Room_HouseInteriors4_FarmHouse:: @ 080F39F4
 	.4byte sub_StateChange_Ruins_LadderToTektites0
 	.4byte gUnk_additional_8_HouseInteriors4_FarmHouse
 
-Entities_HouseInteriors4_Mayor_0:: @ 080F3A18
+Entities_HouseInteriors4_MayorLakeCabin_0:: @ 080F3A18
 	manager subtype=0x26, paramA=0xa, paramB=0x28ff
 	object_raw subtype=0x73, x=0xa8, y=0x58, paramB=0xb
 	entity_list_end
@@ -17631,7 +17631,7 @@ gUnk_080F3A48:: @ 080F3A48
 	object_raw subtype=0x8c, x=0x78, y=0x36, collision=1, paramA=0x2, paramC=0x720000
 	entity_list_end
 
-Entities_HouseInteriors4_Mayor_1:: @ 080F3A68
+Entities_HouseInteriors4_MayorLakeCabin_1:: @ 080F3A68
 	object_raw subtype=0x4f, x=0xb8, y=0x30, paramA=0x18
 	object_raw subtype=0x4f, x=0x78, y=0xb8, paramA=0x10, paramB=0x2
 	object_raw subtype=0x5, x=0xb8, y=0x98
@@ -17644,40 +17644,40 @@ Entities_HouseInteriors4_Mayor_1:: @ 080F3A68
 	object_raw subtype=0x5a, x=0x30, y=0x80, collision=1, paramA=0x2, paramB=0x1
 	entity_list_end
 
-Enemies_HouseInteriors4_Mayor:: @ 080F3B18
+Enemies_HouseInteriors4_MayorLakeCabin:: @ 080F3B18
 	entity_list_end
 
-TileEntities_HouseInteriors4_Mayor:: @ 080F3B28
+TileEntities_HouseInteriors4_MayorLakeCabin:: @ 080F3B28
 	tile_entity type=0x5, paramB=0x1d00, paramC=0x202, paramD=0x61d
 	tile_entity type=0x5, paramB=0x1d00, paramC=0x203, paramD=0x61d
 	tile_entity_list_end
 
-gUnk_additional_8_HouseInteriors4_Mayor:: @ 080F3B40
+gUnk_additional_8_HouseInteriors4_MayorLakeCabin:: @ 080F3B40
 	exit_region_raw centerX=0xb0, centerY=0x38, halfWidth=0x10, halfHeight=0x2, exitIndex=0x9, bitfield=0x1
 	exit_region_list_end
 
-gUnk_additional_9_HouseInteriors4_Mayor:: @ 080F3B50
+gUnk_additional_9_HouseInteriors4_MayorLakeCabin:: @ 080F3B50
 	exit_raw transition=0x1, destX=0x78, destY=0x318, destArea=0x11, destRoom=0x4, unknownA=0x1
 
-gUnk_additional_a_HouseInteriors4_Mayor:: @ 080F3B64
-	.incbin "data_080D5360/gUnk_additional_a_HouseInteriors4_Mayor.bin"
+gUnk_additional_a_HouseInteriors4_MayorLakeCabin:: @ 080F3B64
+	.incbin "data_080D5360/gUnk_additional_a_HouseInteriors4_MayorLakeCabin.bin"
 
-gUnk_additional_b_HouseInteriors4_Mayor:: @ 080F3B74
-	.incbin "data_080D5360/gUnk_additional_b_HouseInteriors4_Mayor.bin"
+gUnk_additional_b_HouseInteriors4_MayorLakeCabin:: @ 080F3B74
+	.incbin "data_080D5360/gUnk_additional_b_HouseInteriors4_MayorLakeCabin.bin"
 
-Room_HouseInteriors4_Mayor:: @ 080F3BC4
-	.4byte Entities_HouseInteriors4_Mayor_0
-	.4byte Entities_HouseInteriors4_Mayor_1
-	.4byte Enemies_HouseInteriors4_Mayor
-	.4byte TileEntities_HouseInteriors4_Mayor
+Room_HouseInteriors4_MayorLakeCabin:: @ 080F3BC4
+	.4byte Entities_HouseInteriors4_MayorLakeCabin_0
+	.4byte Entities_HouseInteriors4_MayorLakeCabin_1
+	.4byte Enemies_HouseInteriors4_MayorLakeCabin
+	.4byte TileEntities_HouseInteriors4_MayorLakeCabin
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_HouseInteriors4_Mayor
-	.4byte sub_StateChange_HouseInteriors4_Mayor
-	.4byte gUnk_additional_8_HouseInteriors4_Mayor
-	.4byte gUnk_additional_9_HouseInteriors4_Mayor
-	.4byte gUnk_additional_a_HouseInteriors4_Mayor
-	.4byte gUnk_additional_b_HouseInteriors4_Mayor
+	.4byte sub_unk3_HouseInteriors4_MayorLakeCabin
+	.4byte sub_StateChange_HouseInteriors4_MayorLakeCabin
+	.4byte gUnk_additional_8_HouseInteriors4_MayorLakeCabin
+	.4byte gUnk_additional_9_HouseInteriors4_MayorLakeCabin
+	.4byte gUnk_additional_a_HouseInteriors4_MayorLakeCabin
+	.4byte gUnk_additional_b_HouseInteriors4_MayorLakeCabin
 
 Entities_LakeHylia_Main_0:: @ 080F3BF4
 	manager subtype=0x4
@@ -19526,7 +19526,7 @@ Room_HyruleField_WesternWoodSouth:: @ 080F6FF0
 	.4byte gUnk_additional_8_HyruleField_WesternWoodSouth
 	.4byte gUnk_additional_9_HyruleField_WesternWoodSouth
 
-Entities_HyruleField_LinksHouseExterior_0:: @ 080F7018
+Entities_HyruleField_SouthHyruleField_0:: @ 080F7018
 	object_raw subtype=0x0, x=0x278, y=0x188, paramA=0x56, paramB=0x700
 	object_raw subtype=0x0, x=0x288, y=0x188, paramA=0x56, paramB=0x700
 	object_raw subtype=0x0, x=0x298, y=0x188, paramA=0x56, paramB=0x700
@@ -19548,7 +19548,7 @@ gUnk_080F70D8:: @ 080F70D8
 	object_raw subtype=0xbb, x=0x2c8, y=0x128, unknown=0x4f, paramB=0x6, paramC=script_Windcrest
 	entity_list_end
 
-Entities_HyruleField_LinksHouseExterior_1:: @ 080F70F8
+Entities_HyruleField_SouthHyruleField_1:: @ 080F70F8
 	object_raw subtype=0x19, x=0x290, y=0x193, collision=1, paramA=0x3, paramB=0x2
 .ifdef EU_JP
 	object_raw subtype=0x9c, x=0x58, y=0x210, paramC=0x6a0000
@@ -19560,7 +19560,7 @@ Entities_HyruleField_LinksHouseExterior_1:: @ 080F70F8
 	object_raw subtype=0x2d, x=0x2d0, y=0x148
 	entity_list_end
 
-Enemies_HyruleField_LinksHouseExterior:: @ 080F7158
+Enemies_HyruleField_SouthHyruleField:: @ 080F7158
 	enemy_raw subtype=0x0, x=0x318, y=0x58, paramB=0xa280000, paramC=0x400280
 	enemy_raw subtype=0x0, x=0x378, y=0x88, paramB=0xa280000, paramC=0x400280
 	enemy_raw subtype=0x0, x=0x3a8, y=0x1b8, paramB=0xa0e0000, paramC=0x1800350
@@ -19574,7 +19574,7 @@ Enemies_HyruleField_LinksHouseExterior:: @ 080F7158
 	enemy_raw subtype=0x0, x=0x208, y=0x108, paramB=0x120e0000, paramC=0xa001c0
 	entity_list_end
 
-TileEntities_HyruleField_LinksHouseExterior:: @ 080F7218
+TileEntities_HyruleField_SouthHyruleField:: @ 080F7218
 	tile_entity type=0xc, paramA=0xb
 .ifdef EU_JP
 	tile_entity type=0x4, paramA=0x69, paramB=0x1, paramC=0x118, paramD=0xa8
@@ -19610,41 +19610,41 @@ TileEntities_HyruleField_LinksHouseExterior:: @ 080F7218
 	tile_entity type=0x5, paramB=0x700, paramC=0x15c, paramD=0x607
 	tile_entity_list_end
 
-gUnk_additional_8_HyruleField_LinksHouseExterior:: @ 080F72A0
-	.incbin "data_080D5360/gUnk_additional_8_HyruleField_LinksHouseExterior.bin"
+gUnk_additional_8_HyruleField_SouthHyruleField:: @ 080F72A0
+	.incbin "data_080D5360/gUnk_additional_8_HyruleField_SouthHyruleField.bin"
 
-gUnk_additional_9_HyruleField_LinksHouseExterior:: @ 080F72B0
-	.incbin "data_080D5360/gUnk_additional_9_HyruleField_LinksHouseExterior.bin"
+gUnk_additional_9_HyruleField_SouthHyruleField:: @ 080F72B0
+	.incbin "data_080D5360/gUnk_additional_9_HyruleField_SouthHyruleField.bin"
 
-Room_HyruleField_LinksHouseExterior:: @ 080F72C4
-	.4byte Entities_HyruleField_LinksHouseExterior_0
-	.4byte Entities_HyruleField_LinksHouseExterior_1
-	.4byte Enemies_HyruleField_LinksHouseExterior
-	.4byte TileEntities_HyruleField_LinksHouseExterior
-	.4byte sub_unk1_HyruleField_LinksHouseExterior
+Room_HyruleField_SouthHyruleField:: @ 080F72C4
+	.4byte Entities_HyruleField_SouthHyruleField_0
+	.4byte Entities_HyruleField_SouthHyruleField_1
+	.4byte Enemies_HyruleField_SouthHyruleField
+	.4byte TileEntities_HyruleField_SouthHyruleField
+	.4byte sub_unk1_HyruleField_SouthHyruleField
 	.4byte 0x00000000
-	.4byte sub_unk3_HyruleField_LinksHouseExterior
-	.4byte sub_StateChange_HyruleField_LinksHouseExterior
-	.4byte gUnk_additional_8_HyruleField_LinksHouseExterior
-	.4byte gUnk_additional_9_HyruleField_LinksHouseExterior
+	.4byte sub_unk3_HyruleField_SouthHyruleField
+	.4byte sub_StateChange_HyruleField_SouthHyruleField
+	.4byte gUnk_additional_8_HyruleField_SouthHyruleField
+	.4byte gUnk_additional_9_HyruleField_SouthHyruleField
 
-Entities_HyruleField_FromMinishWoods_0:: @ 080F72EC
+Entities_HyruleField_EasternHillsSouth_0:: @ 080F72EC
 	object_raw subtype=0x32, x=0xb8, y=0xa8
 	object_raw subtype=0x32, x=0x138, y=0x98
 	entity_list_end
 
-Entities_HyruleField_FromMinishWoods_1:: @ 080F731C
+Entities_HyruleField_EasternHillsSouth_1:: @ 080F731C
 	manager subtype=0x3, x=0x48, y=0x80, unknown=0x0, paramB=0x102
 	manager subtype=0x18
 	entity_list_end
 
-Enemies_HyruleField_FromMinishWoods:: @ 080F734C
+Enemies_HyruleField_EasternHillsSouth:: @ 080F734C
 	enemy_raw subtype=0x35, x=0x188, y=0x58, paramB=0xb0d0000, paramC=0x480148
 	enemy_raw subtype=0x35, x=0x128, y=0x28, paramB=0x70f0000, paramC=0x180128
 	manager subtype=0x28, unknown=0x3, paramB=0x2
 	entity_list_end
 
-TileEntities_HyruleField_FromMinishWoods:: @ 080F738C
+TileEntities_HyruleField_EasternHillsSouth:: @ 080F738C
 	tile_entity type=0xc, paramA=0xf
 .ifdef EU_JP
 	tile_entity type=0xa, paramA=0x1, paramB=0x6c, paramC=0x149, paramD=0x1d
@@ -19655,20 +19655,20 @@ TileEntities_HyruleField_FromMinishWoods:: @ 080F738C
 .endif
 	tile_entity_list_end
 
-Room_HyruleField_FromMinishWoods:: @ 080F73AC
-	.4byte Entities_HyruleField_FromMinishWoods_0
-	.4byte Entities_HyruleField_FromMinishWoods_1
-	.4byte Enemies_HyruleField_FromMinishWoods
-	.4byte TileEntities_HyruleField_FromMinishWoods
+Room_HyruleField_EasternHillsSouth:: @ 080F73AC
+	.4byte Entities_HyruleField_EasternHillsSouth_0
+	.4byte Entities_HyruleField_EasternHillsSouth_1
+	.4byte Enemies_HyruleField_EasternHillsSouth
+	.4byte TileEntities_HyruleField_EasternHillsSouth
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_HyruleField_FromMinishWoods
-	.4byte sub_StateChange_HyruleField_FromMinishWoods
+	.4byte sub_unk3_HyruleField_EasternHillsSouth
+	.4byte sub_StateChange_HyruleField_EasternHillsSouth
 
-Entities_HyruleField_FromMinishWoodsNorth_0:: @ 080F73CC
+Entities_HyruleField_EasternHillsCenter_0:: @ 080F73CC
 	entity_list_end
 
-Entities_HyruleField_FromMinishWoodsNorth_1:: @ 080F73DC
+Entities_HyruleField_EasternHillsCenter_1:: @ 080F73DC
 .ifdef EU_JP
 	object_raw subtype=0x2c, x=0x48, y=0x38, paramA=0x7, paramB=0xb000
 .else
@@ -19678,7 +19678,7 @@ Entities_HyruleField_FromMinishWoodsNorth_1:: @ 080F73DC
 	manager subtype=0x6, paramA=0x8
 	entity_list_end
 
-Enemies_HyruleField_FromMinishWoodsNorth:: @ 080F741C
+Enemies_HyruleField_EasternHillsCenter:: @ 080F741C
 	enemy_raw subtype=0x35, x=0x28, y=0xb8, paramB=0x4140000, paramC=0xa00020
 	enemy_raw subtype=0x35, x=0x198, y=0xb8, paramB=0x6100000, paramC=0xa00130
 	enemy_raw subtype=0x35, x=0x178, y=0x58, paramB=0xa160000, paramC=0x2000d0
@@ -19687,7 +19687,7 @@ Enemies_HyruleField_FromMinishWoodsNorth:: @ 080F741C
 	enemy_raw subtype=0x3, x=0x128, y=0x58, paramB=0xa260000, paramC=0x200060
 	entity_list_end
 
-TileEntities_HyruleField_FromMinishWoodsNorth:: @ 080F748C
+TileEntities_HyruleField_EasternHillsCenter:: @ 080F748C
 	tile_entity type=0xc, paramA=0xf
 .ifdef EU_JP
 	tile_entity type=0x4, paramA=0x6e, paramB=0x1, paramC=0xa8, paramD=0x98
@@ -19696,33 +19696,33 @@ TileEntities_HyruleField_FromMinishWoodsNorth:: @ 080F748C
 .endif
 	tile_entity_list_end
 
-gUnk_additional_8_HyruleField_FromMinishWoodsNorth:: @ 080F74A4
+gUnk_additional_8_HyruleField_EasternHillsCenter:: @ 080F74A4
 	exit_region_raw centerX=0x48, centerY=0xc, halfWidth=0x8, halfHeight=0x4, exitIndex=0x9, bitfield=0x11
 	exit_region_list_end
 
-gUnk_additional_9_HyruleField_FromMinishWoodsNorth:: @ 080F74B4
+gUnk_additional_9_HyruleField_EasternHillsCenter:: @ 080F74B4
 	exit_raw transition=0x1, destX=0x78, destY=0x98, destArea=0xd, destRoom=0x13, unknownA=0x1
 
-Room_HyruleField_FromMinishWoodsNorth:: @ 080F74C8
-	.4byte Entities_HyruleField_FromMinishWoodsNorth_0
-	.4byte Entities_HyruleField_FromMinishWoodsNorth_1
-	.4byte Enemies_HyruleField_FromMinishWoodsNorth
-	.4byte TileEntities_HyruleField_FromMinishWoodsNorth
+Room_HyruleField_EasternHillsCenter:: @ 080F74C8
+	.4byte Entities_HyruleField_EasternHillsCenter_0
+	.4byte Entities_HyruleField_EasternHillsCenter_1
+	.4byte Enemies_HyruleField_EasternHillsCenter
+	.4byte TileEntities_HyruleField_EasternHillsCenter
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_HyruleField_FromMinishWoodsNorth
-	.4byte sub_StateChange_HyruleField_FromMinishWoodsNorth
-	.4byte gUnk_additional_8_HyruleField_FromMinishWoodsNorth
-	.4byte gUnk_additional_9_HyruleField_FromMinishWoodsNorth
+	.4byte sub_unk3_HyruleField_EasternHillsCenter
+	.4byte sub_StateChange_HyruleField_EasternHillsCenter
+	.4byte gUnk_additional_8_HyruleField_EasternHillsCenter
+	.4byte gUnk_additional_9_HyruleField_EasternHillsCenter
 
-Entities_HyruleField_Farmers_0:: @ 080F74F0
+Entities_HyruleField_EasternHillsNorth_0:: @ 080F74F0
 	entity_list_end
 
 gUnk_080F7500:: @ 080F7500
 	manager subtype=0x16, paramA=0x8
 	entity_list_end
 
-gUnk_additional_8_HyruleField_Farmers:: @ 080F7520
+gUnk_additional_8_HyruleField_EasternHillsNorth:: @ 080F7520
 	delayed_entity_raw subtype=0x3e, x=0xb8, y=0xe8, layer=1, paramC=script_Farmer, conditions=0xffff
 	delayed_entity_raw subtype=0x3e, x=0x68, y=0x128, layer=1, paramA=0x1, paramC=script_Farmer, paramD=0x1, conditions=0xffff
 	entity_list_end
@@ -19731,7 +19731,7 @@ gUnk_080F7550:: @ 080F7550
 	manager subtype=0x16, paramA=0x9, paramB=0x3
 	entity_list_end
 
-gUnk_additional_9_HyruleField_Farmers:: @ 080F7570
+gUnk_additional_9_HyruleField_EasternHillsNorth:: @ 080F7570
 	delayed_entity_raw subtype=0x29, x=0x148, y=0xf0, layer=1, paramC=script_MutohOutsideTown, conditions=0xffff
 	delayed_entity_raw subtype=0x2a, x=0x128, y=0xd0, layer=1, paramC=script_CarpenterOutsideTown, conditions=0xffff
 	delayed_entity_raw subtype=0x2a, x=0x1a8, y=0x100, layer=1, paramA=0x1, paramC=script_CarpenterOutsideTown, conditions=0xffff
@@ -19739,13 +19739,13 @@ gUnk_additional_9_HyruleField_Farmers:: @ 080F7570
 	delayed_entity_raw subtype=0x2a, x=0x148, y=0x88, layer=1, paramA=0x3, paramC=script_CarpenterOutsideTown, conditions=0xffff
 	entity_list_end
 
-Entities_HyruleField_Farmers_1:: @ 080F75D0
+Entities_HyruleField_EasternHillsNorth_1:: @ 080F75D0
 	manager subtype=0x4
 	manager subtype=0x18
 	object_raw subtype=0x19, x=0x40, y=0x52, collision=1, paramA=0x4, paramB=0x2
 	entity_list_end
 
-Enemies_HyruleField_Farmers:: @ 080F7610
+Enemies_HyruleField_EasternHillsNorth:: @ 080F7610
 	enemy_raw subtype=0x0, x=0x178, y=0xe8, paramB=0x6160000, paramC=0xc000f0
 	enemy_raw subtype=0x0, x=0x118, y=0xf8, paramB=0x6160000, paramC=0xc000f0
 	enemy_raw subtype=0x2e, x=0x138, y=0x158, paramB=0x16060000, paramC=0x1200120
@@ -19757,7 +19757,7 @@ Enemies_HyruleField_Farmers:: @ 080F7610
 gUnk_080F7680:: @ 080F7680
 	.incbin "data_080D5360/gUnk_080F7680.bin"
 
-TileEntities_HyruleField_Farmers:: @ 080F76C0
+TileEntities_HyruleField_EasternHillsNorth:: @ 080F76C0
 	tile_entity type=0xc, paramA=0xf
 .ifdef EU_JP
 	tile_entity type=0xa, paramA=0x1, paramB=0x6f, paramC=0x6d0, paramD=0x1d
@@ -19773,17 +19773,17 @@ TileEntities_HyruleField_Farmers:: @ 080F76C0
 	tile_entity type=0x5, paramB=0x200, paramC=0x617, paramD=0x602
 	tile_entity_list_end
 
-Room_HyruleField_Farmers:: @ 080F76F8
-	.4byte Entities_HyruleField_Farmers_0
-	.4byte Entities_HyruleField_Farmers_1
-	.4byte Enemies_HyruleField_Farmers
-	.4byte TileEntities_HyruleField_Farmers
+Room_HyruleField_EasternHillsNorth:: @ 080F76F8
+	.4byte Entities_HyruleField_EasternHillsNorth_0
+	.4byte Entities_HyruleField_EasternHillsNorth_1
+	.4byte Enemies_HyruleField_EasternHillsNorth
+	.4byte TileEntities_HyruleField_EasternHillsNorth
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_HyruleField_Farmers
-	.4byte sub_StateChange_HyruleField_Farmers
-	.4byte gUnk_additional_8_HyruleField_Farmers
-	.4byte gUnk_additional_9_HyruleField_Farmers
+	.4byte sub_unk3_HyruleField_EasternHillsNorth
+	.4byte sub_StateChange_HyruleField_EasternHillsNorth
+	.4byte gUnk_additional_8_HyruleField_EasternHillsNorth
+	.4byte gUnk_additional_9_HyruleField_EasternHillsNorth
 
 Entities_HyruleField_LonLonRanch_0:: @ 080F7720
 	manager subtype=0x16, paramA=0xb
@@ -20125,7 +20125,7 @@ Entities_HyruleField_OutsideCastle_1West:: @ 080F808C
 	entity_list_end
 .endif
 
-Enemies_HyruleField_OutsideCastleWest:: @ 080F80EC
+Enemies_HyruleField_TrilbyHighlands:: @ 080F80EC
 	enemy_raw subtype=0x0, x=0x168, y=0x78, paramB=0x80c0000, paramC=0x400130
 	enemy_raw subtype=0x30, x=0x178, y=0x208, paramB=0x10120000, paramC=0x1900120
 	enemy_raw subtype=0x0, x=0xd8, y=0x148, paramB=0x4160000, paramC=0x1400080
@@ -20138,7 +20138,7 @@ Enemies_HyruleField_OutsideCastleWest:: @ 080F80EC
 	enemy_raw subtype=0x65, x=0x160, y=0x250, paramA=0x2
 	entity_list_end
 
-TileEntities_HyruleField_OutsideCastleWest:: @ 080F819C
+TileEntities_HyruleField_TrilbyHighlands:: @ 080F819C
 .ifdef EU_JP
 	tile_entity type=0xc, paramA=0x6
 	tile_entity type=0x4, paramA=0x8e, paramB=0x1, paramC=0x88, paramD=0x228
@@ -20153,26 +20153,26 @@ TileEntities_HyruleField_OutsideCastleWest:: @ 080F819C
 	tile_entity_list_end
 .endif
 
-gUnk_additional_8_HyruleField_OutsideCastleWest:: @ 080F81C4
+gUnk_additional_8_HyruleField_TrilbyHighlands:: @ 080F81C4
 	exit_region_raw centerX=0x28, centerY=0x52, halfWidth=0x4, halfHeight=0x2, exitIndex=0x9, bitfield=0x1
 	exit_region_list_end
 
-gUnk_additional_9_HyruleField_OutsideCastleWest:: @ 080F81D4
+gUnk_additional_9_HyruleField_TrilbyHighlands:: @ 080F81D4
 	exit_raw transition=0x1, destX=0x78, destY=0x78, destArea=0x20, destRoom=0x22, unknownA=0x1
 
-Room_HyruleField_OutsideCastleWest:: @ 080F81E8
+Room_HyruleField_TrilbyHighlands:: @ 080F81E8
 	.4byte Entities_HyruleField_OutsideCastle_0West
 	.4byte Entities_HyruleField_OutsideCastle_1West
-	.4byte Enemies_HyruleField_OutsideCastleWest
-	.4byte TileEntities_HyruleField_OutsideCastleWest
+	.4byte Enemies_HyruleField_TrilbyHighlands
+	.4byte TileEntities_HyruleField_TrilbyHighlands
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_HyruleField_OutsideCastleWest
-	.4byte sub_StateChange_HyruleField_OutsideCastleWest
-	.4byte gUnk_additional_8_HyruleField_OutsideCastleWest
-	.4byte gUnk_additional_9_HyruleField_OutsideCastleWest
+	.4byte sub_unk3_HyruleField_TrilbyHighlands
+	.4byte sub_StateChange_HyruleField_TrilbyHighlands
+	.4byte gUnk_additional_8_HyruleField_TrilbyHighlands
+	.4byte gUnk_additional_9_HyruleField_TrilbyHighlands
 
-Entities_HyruleField_TrilbyHighlands_0:: @ 080F8210
+Entities_HyruleField_WesternWoodsNorth_0:: @ 080F8210
 .ifdef EU_JP
 	manager subtype=0x20, x=0x198, y=0x1a8, paramB=0x11a82e00, paramC=0x9211a8
 	object_raw subtype=0x0, x=0xb8, y=0x28, collision=1, paramA=0x57, paramB=0x700, paramC=0x930000
@@ -20205,11 +20205,11 @@ gUnk_080F82E0:: @ 080F82E0
 	object_raw subtype=0x69, unknown=0x4f, paramC=script_Object69Takeover
 	entity_list_end
 
-Entities_HyruleField_TrilbyHighlands_1:: @ 080F8300
+Entities_HyruleField_WesternWoodsNorth_1:: @ 080F8300
 	manager subtype=0x18
 	entity_list_end
 
-Enemies_HyruleField_TrilbyHighlands:: @ 080F8320
+Enemies_HyruleField_WesternWoodsNorth:: @ 080F8320
 	enemy_raw subtype=0x31, x=0x118, y=0x78, paramB=0x20300000, paramC=0x600060
 	enemy_raw subtype=0x31, x=0x118, y=0xb8, paramB=0x20300000, paramC=0x600060
 	enemy_raw subtype=0x31, x=0x198, y=0x168, paramB=0x20300000, paramC=0x600080
@@ -20223,7 +20223,7 @@ Enemies_HyruleField_TrilbyHighlands:: @ 080F8320
 	enemy_raw subtype=0x65, x=0x1a0, y=0x170, paramA=0x1
 	entity_list_end
 
-TileEntities_HyruleField_TrilbyHighlands:: @ 080F83E0
+TileEntities_HyruleField_WesternWoodsNorth:: @ 080F83E0
 .ifdef EU_JP
 	tile_entity type=0xc, paramA=0x7
 	tile_entity type=0x2, paramA=0x9c, paramB=0x643f, paramC=0x3ce
@@ -20236,29 +20236,29 @@ TileEntities_HyruleField_TrilbyHighlands:: @ 080F83E0
 	tile_entity_list_end
 .endif
 
-Room_HyruleField_TrilbyHighlands:: @ 080F8400
-	.4byte Entities_HyruleField_TrilbyHighlands_0
-	.4byte Entities_HyruleField_TrilbyHighlands_1
-	.4byte Enemies_HyruleField_TrilbyHighlands
-	.4byte TileEntities_HyruleField_TrilbyHighlands
+Room_HyruleField_WesternWoodsNorth:: @ 080F8400
+	.4byte Entities_HyruleField_WesternWoodsNorth_0
+	.4byte Entities_HyruleField_WesternWoodsNorth_1
+	.4byte Enemies_HyruleField_WesternWoodsNorth
+	.4byte TileEntities_HyruleField_WesternWoodsNorth
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_HyruleField_TrilbyHighlands
-	.4byte sub_StateChange_HyruleField_TrilbyHighlands
+	.4byte sub_unk3_HyruleField_WesternWoodsNorth
+	.4byte sub_StateChange_HyruleField_WesternWoodsNorth
 
-Entities_HyruleField_PercysHouse_0:: @ 080F8420
+Entities_HyruleField_WesternWoodsCenter_0:: @ 080F8420
 	entity_list_end
 
 gUnk_080F8430:: @ 080F8430
 	npc_raw subtype=0x3a, x=0x68, y=0x58, paramB=0x2, script=script_PercyOutside
 	entity_list_end
 
-Entities_HyruleField_PercysHouse_1:: @ 080F8450
+Entities_HyruleField_WesternWoodsCenter_1:: @ 080F8450
 	object_raw subtype=0x19, x=0x90, y=0x53, collision=1, paramA=0x2, paramB=0x2
 	manager subtype=0x18
 	entity_list_end
 
-Enemies_HyruleField_PercysHouse:: @ 080F8480
+Enemies_HyruleField_WesternWoodsCenter:: @ 080F8480
 .ifdef EU
 	enemy_raw subtype=0x15, x=0x108, y=0x68, paramB=0xc180000, paramC=0x2000f0
 	enemy_raw subtype=0x46, x=0x1a8, y=0x78, paramB=0xc180000, paramC=0x2000f0
@@ -20269,20 +20269,20 @@ Enemies_HyruleField_PercysHouse:: @ 080F8480
 	entity_list_end
 .endif
 
-TileEntities_HyruleField_PercysHouse:: @ 080F84B0
+TileEntities_HyruleField_WesternWoodsCenter:: @ 080F84B0
 	tile_entity type=0xc, paramA=0x7
 	tile_entity type=0x5, paramB=0x1400, paramC=0x147, paramD=0x614
 	tile_entity_list_end
 
-Room_HyruleField_PercysHouse:: @ 080F84C8
-	.4byte Entities_HyruleField_PercysHouse_0
-	.4byte Entities_HyruleField_PercysHouse_1
-	.4byte Enemies_HyruleField_PercysHouse
-	.4byte TileEntities_HyruleField_PercysHouse
+Room_HyruleField_WesternWoodsCenter:: @ 080F84C8
+	.4byte Entities_HyruleField_WesternWoodsCenter_0
+	.4byte Entities_HyruleField_WesternWoodsCenter_1
+	.4byte Enemies_HyruleField_WesternWoodsCenter
+	.4byte TileEntities_HyruleField_WesternWoodsCenter
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_HyruleField_PercysHouse
-	.4byte sub_StateChange_HyruleField_PercysHouse
+	.4byte sub_unk3_HyruleField_WesternWoodsCenter
+	.4byte sub_StateChange_HyruleField_WesternWoodsCenter
 
 Entities_Caves_Boomerang_0:: @ 080F84E8
 	object_raw subtype=0x41, x=0x48, y=0x78, paramA=0x1
@@ -20458,10 +20458,10 @@ Room_Caves_6:: @ 080F88BC
 	.4byte sub_unk3_Caves_6
 	.4byte sub_StateChange_Caves_6
 
-Entities_Caves_KeeseChest_0:: @ 080F88DC
+Entities_Caves_TrilbyKeeseChest_0:: @ 080F88DC
 	entity_list_end
 
-Enemies_Caves_KeeseChest:: @ 080F88EC
+Enemies_Caves_TrilbyKeeseChest:: @ 080F88EC
 	enemy_raw subtype=0x8, x=0x68, y=0x38, paramB=0x6080000, paramC=0x300050
 	enemy_raw subtype=0x8, x=0x78, y=0x48, paramB=0x6080000, paramC=0x300050
 	enemy_raw subtype=0x8, x=0x88, y=0x38, paramB=0x6080000, paramC=0x300050
@@ -20470,65 +20470,65 @@ Enemies_Caves_KeeseChest:: @ 080F88EC
 	enemy_raw subtype=0x8, x=0xb8, y=0x58
 	entity_list_end
 
-TileEntities_Caves_KeeseChest:: @ 080F895C
+TileEntities_Caves_TrilbyKeeseChest:: @ 080F895C
 	tile_entity type=0x2, paramA=0xd, paramB=0x705c, paramC=0x107
 	tile_entity_list_end
 
-Room_Caves_KeeseChest:: @ 080F896C
-	.4byte Entities_Caves_KeeseChest_0
+Room_Caves_TrilbyKeeseChest:: @ 080F896C
+	.4byte Entities_Caves_TrilbyKeeseChest_0
 	.4byte 0x00000000
-	.4byte Enemies_Caves_KeeseChest
-	.4byte TileEntities_Caves_KeeseChest
+	.4byte Enemies_Caves_TrilbyKeeseChest
+	.4byte TileEntities_Caves_TrilbyKeeseChest
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_Caves_KeeseChest
-	.4byte sub_StateChange_Caves_KeeseChest
+	.4byte sub_unk3_Caves_TrilbyKeeseChest
+	.4byte sub_StateChange_Caves_TrilbyKeeseChest
 
-Entities_Caves_FairyFountainTrilbyHighlands_0:: @ 080F898C
+Entities_Caves_TrilbyFairyFountain_0:: @ 080F898C
 	object_raw subtype=0x40, x=0x58, y=0x38, paramA=0x60, paramB=0x1
 	object_raw subtype=0x40, x=0x88, y=0x38, paramA=0x60, paramB=0x1
 	object_raw subtype=0x40, x=0x78, y=0x48, paramA=0x60, paramB=0x1
 	entity_list_end
 
-Enemies_Caves_FairyFountainTrilbyHighlands:: @ 080F89CC
+Enemies_Caves_TrilbyFairyFountain:: @ 080F89CC
 	entity_list_end
 
-TileEntities_Caves_FairyFountainTrilbyHighlands:: @ 080F89DC
+TileEntities_Caves_TrilbyFairyFountain:: @ 080F89DC
 	tile_entity type=0x7, paramB=0x3a00
 	tile_entity_list_end
 
-Room_Caves_FairyFountainTrilbyHighlands:: @ 080F89EC
-	.4byte Entities_Caves_FairyFountainTrilbyHighlands_0
+Room_Caves_TrilbyFairyFountain:: @ 080F89EC
+	.4byte Entities_Caves_TrilbyFairyFountain_0
 	.4byte 0x00000000
-	.4byte Enemies_Caves_FairyFountainTrilbyHighlands
-	.4byte TileEntities_Caves_FairyFountainTrilbyHighlands
+	.4byte Enemies_Caves_TrilbyFairyFountain
+	.4byte TileEntities_Caves_TrilbyFairyFountain
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_Caves_FairyFountainTrilbyHighlands
-	.4byte sub_StateChange_Caves_FairyFountainTrilbyHighlands
+	.4byte sub_unk3_Caves_TrilbyFairyFountain
+	.4byte sub_StateChange_Caves_TrilbyFairyFountain
 
-Entities_Caves_FairyFountainLinksHouse_0:: @ 080F8A0C
+Entities_Caves_SouthHyruleFieldFairyFountain_0:: @ 080F8A0C
 	object_raw subtype=0x40, x=0x58, y=0x38, paramA=0x60, paramB=0x1
 	object_raw subtype=0x40, x=0x88, y=0x38, paramA=0x60, paramB=0x1
 	object_raw subtype=0x40, x=0x78, y=0x48, paramA=0x60, paramB=0x1
 	entity_list_end
 
-Enemies_Caves_FairyFountainLinksHouse:: @ 080F8A4C
+Enemies_Caves_SouthHyruleFieldFairyFountain:: @ 080F8A4C
 	entity_list_end
 
-TileEntities_Caves_FairyFountainLinksHouse:: @ 080F8A5C
+TileEntities_Caves_SouthHyruleFieldFairyFountain:: @ 080F8A5C
 	tile_entity type=0x7, paramB=0x3a00
 	tile_entity_list_end
 
-Room_Caves_FairyFountainLinksHouse:: @ 080F8A6C
-	.4byte Entities_Caves_FairyFountainLinksHouse_0
+Room_Caves_SouthHyruleFieldFairyFountain:: @ 080F8A6C
+	.4byte Entities_Caves_SouthHyruleFieldFairyFountain_0
 	.4byte 0x00000000
-	.4byte Enemies_Caves_FairyFountainLinksHouse
-	.4byte TileEntities_Caves_FairyFountainLinksHouse
+	.4byte Enemies_Caves_SouthHyruleFieldFairyFountain
+	.4byte TileEntities_Caves_SouthHyruleFieldFairyFountain
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_Caves_FairyFountainLinksHouse
-	.4byte sub_StateChange_Caves_FairyFountainLinksHouse
+	.4byte sub_unk3_Caves_SouthHyruleFieldFairyFountain
+	.4byte sub_StateChange_Caves_SouthHyruleFieldFairyFountain
 
 Entities_Caves_A_0:: @ 080F8A8C
 	entity_list_end
@@ -20659,7 +20659,7 @@ Room_Caves_LonLonRanchWallet:: @ 080F8CD4
 	.4byte sub_unk3_Caves_LonLonRanchWallet
 	.4byte sub_StateChange_Caves_LonLonRanchWallet
 
-Entities_Caves_RupeeLinksHouse_0:: @ 080F8CF4
+Entities_Caves_SouthHyruleFieldRupee_0:: @ 080F8CF4
 .ifdef EU_JP
 	object_raw subtype=0x0, x=0x58, y=0x38, collision=1, paramA=0x55, paramB=0x400, paramC=0x150000
 	object_raw subtype=0x0, x=0x68, y=0x38, collision=1, paramA=0x55, paramB=0x400, paramC=0x160000
@@ -20697,23 +20697,23 @@ Entities_Caves_RupeeLinksHouse_0:: @ 080F8CF4
 	entity_list_end
 .endif
 
-Enemies_Caves_RupeeLinksHouse:: @ 080F8E04
+Enemies_Caves_SouthHyruleFieldRupee:: @ 080F8E04
 	entity_list_end
 
-TileEntities_Caves_RupeeLinksHouse:: @ 080F8E14
+TileEntities_Caves_SouthHyruleFieldRupee:: @ 080F8E14
 	tile_entity_list_end
 
-Room_Caves_RupeeLinksHouse:: @ 080F8E1C
-	.4byte Entities_Caves_RupeeLinksHouse_0
+Room_Caves_SouthHyruleFieldRupee:: @ 080F8E1C
+	.4byte Entities_Caves_SouthHyruleFieldRupee_0
 	.4byte 0x00000000
-	.4byte Enemies_Caves_RupeeLinksHouse
-	.4byte TileEntities_Caves_RupeeLinksHouse
+	.4byte Enemies_Caves_SouthHyruleFieldRupee
+	.4byte TileEntities_Caves_SouthHyruleFieldRupee
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_Caves_RupeeLinksHouse
-	.4byte sub_StateChange_Caves_RupeeLinksHouse
+	.4byte sub_unk3_Caves_SouthHyruleFieldRupee
+	.4byte sub_StateChange_Caves_SouthHyruleFieldRupee
 
-Entities_Caves_RupeeTrilbyHighlands_0:: @ 080F8E3C
+Entities_Caves_TrilbyRupee_0:: @ 080F8E3C
 .ifdef EU_JP
 	object_raw subtype=0x0, x=0x58, y=0x38, collision=1, paramA=0x55, paramB=0x400, paramC=0x240000
 	object_raw subtype=0x0, x=0x68, y=0x38, collision=1, paramA=0x55, paramB=0x400, paramC=0x250000
@@ -20751,23 +20751,23 @@ Entities_Caves_RupeeTrilbyHighlands_0:: @ 080F8E3C
 	entity_list_end
 .endif
 
-Enemies_Caves_RupeeTrilbyHighlands:: @ 080F8F4C
+Enemies_Caves_TrilbyRupee:: @ 080F8F4C
 	entity_list_end
 
-TileEntities_Caves_RupeeTrilbyHighlands:: @ 080F8F5C
+TileEntities_Caves_TrilbyRupee:: @ 080F8F5C
 	tile_entity_list_end
 
-Room_Caves_RupeeTrilbyHighlands:: @ 080F8F64
-	.4byte Entities_Caves_RupeeTrilbyHighlands_0
+Room_Caves_TrilbyRupee:: @ 080F8F64
+	.4byte Entities_Caves_TrilbyRupee_0
 	.4byte 0x00000000
-	.4byte Enemies_Caves_RupeeTrilbyHighlands
-	.4byte TileEntities_Caves_RupeeTrilbyHighlands
+	.4byte Enemies_Caves_TrilbyRupee
+	.4byte TileEntities_Caves_TrilbyRupee
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_Caves_RupeeTrilbyHighlands
-	.4byte sub_StateChange_Caves_RupeeTrilbyHighlands
+	.4byte sub_unk3_Caves_TrilbyRupee
+	.4byte sub_StateChange_Caves_TrilbyRupee
 
-Entities_Caves_FairyFountainMoleMitts_0:: @ 080F8F84
+Entities_Caves_TrilbyMittsFairyFountain_0:: @ 080F8F84
 .ifdef EU_JP
 	object_raw subtype=0x41, x=0xb8, y=0x18
 	object_raw subtype=0x40, x=0x58, y=0x38, paramA=0x60, paramB=0x1
@@ -20783,44 +20783,44 @@ Entities_Caves_FairyFountainMoleMitts_0:: @ 080F8F84
 	entity_list_end
 .endif
 
-Enemies_Caves_FairyFountainMoleMitts:: @ 080F8FE4
+Enemies_Caves_TrilbyMittsFairyFountain:: @ 080F8FE4
 	entity_list_end
 
-TileEntities_Caves_FairyFountainMoleMitts:: @ 080F8FF4
+TileEntities_Caves_TrilbyMittsFairyFountain:: @ 080F8FF4
 	tile_entity type=0x7, paramB=0x3a00
 	tile_entity_list_end
 
-Room_Caves_FairyFountainMoleMitts:: @ 080F9004
-	.4byte Entities_Caves_FairyFountainMoleMitts_0
+Room_Caves_TrilbyMittsFairyFountain:: @ 080F9004
+	.4byte Entities_Caves_TrilbyMittsFairyFountain_0
 	.4byte 0x00000000
-	.4byte Enemies_Caves_FairyFountainMoleMitts
-	.4byte TileEntities_Caves_FairyFountainMoleMitts
+	.4byte Enemies_Caves_TrilbyMittsFairyFountain
+	.4byte TileEntities_Caves_TrilbyMittsFairyFountain
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_Caves_FairyFountainMoleMitts
-	.4byte sub_StateChange_Caves_FairyFountainMoleMitts
+	.4byte sub_unk3_Caves_TrilbyMittsFairyFountain
+	.4byte sub_StateChange_Caves_TrilbyMittsFairyFountain
 
-Entities_Caves_KeeseChestSoutheastHyrule_0:: @ 080F9024
+Entities_Caves_HillsKeeseChest_0:: @ 080F9024
 	entity_list_end
 
-Enemies_Caves_KeeseChestSoutheastHyrule:: @ 080F9034
+Enemies_Caves_HillsKeeseChest:: @ 080F9034
 	enemy_raw subtype=0x8, x=0x48, y=0x48, paramB=0x141e0000
 	enemy_raw subtype=0x8, x=0xb8, y=0x38, paramB=0x141e0000
 	entity_list_end
 
-TileEntities_Caves_KeeseChestSoutheastHyrule:: @ 080F9064
+TileEntities_Caves_HillsKeeseChest:: @ 080F9064
 	tile_entity type=0x2, paramA=0x33, paramB=0x143f, paramC=0x87
 	tile_entity_list_end
 
-Room_Caves_KeeseChestSoutheastHyrule:: @ 080F9074
-	.4byte Entities_Caves_KeeseChestSoutheastHyrule_0
+Room_Caves_HillsKeeseChest:: @ 080F9074
+	.4byte Entities_Caves_HillsKeeseChest_0
 	.4byte 0x00000000
-	.4byte Enemies_Caves_KeeseChestSoutheastHyrule
-	.4byte TileEntities_Caves_KeeseChestSoutheastHyrule
+	.4byte Enemies_Caves_HillsKeeseChest
+	.4byte TileEntities_Caves_HillsKeeseChest
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_Caves_KeeseChestSoutheastHyrule
-	.4byte sub_StateChange_Caves_KeeseChestSoutheastHyrule
+	.4byte sub_unk3_Caves_HillsKeeseChest
+	.4byte sub_StateChange_Caves_HillsKeeseChest
 
 Entities_Caves_BottleBusinessScrub_0:: @ 080F9094
 	entity_list_end
@@ -20865,7 +20865,7 @@ Room_Caves_HeartPieceHallway:: @ 080F9154
 	.4byte sub_unk3_Caves_HeartPieceHallway
 	.4byte sub_StateChange_Caves_HeartPieceHallway
 
-Entities_Caves_FairyFountainBoomerang_0:: @ 080F9174
+Entities_Caves_NorthHyruleFieldFairyFountain_0:: @ 080F9174
 .ifdef EU_JP
 	object_raw subtype=0x40, x=0x48, y=0x38, paramA=0x60, paramB=0x1
 	object_raw subtype=0x40, x=0x38, y=0x58, paramA=0x60, paramB=0x1
@@ -20879,22 +20879,22 @@ Entities_Caves_FairyFountainBoomerang_0:: @ 080F9174
 	entity_list_end
 .endif
 
-Enemies_Caves_FairyFountainBoomerang:: @ 080F91C4
+Enemies_Caves_NorthHyruleFieldFairyFountain:: @ 080F91C4
 	entity_list_end
 
-TileEntities_Caves_FairyFountainBoomerang:: @ 080F91D4
+TileEntities_Caves_NorthHyruleFieldFairyFountain:: @ 080F91D4
 	tile_entity type=0x7, paramB=0x3a00
 	tile_entity_list_end
 
-Room_Caves_FairyFountainBoomerang:: @ 080F91E4
-	.4byte Entities_Caves_FairyFountainBoomerang_0
+Room_Caves_NorthHyruleFieldFairyFountain:: @ 080F91E4
+	.4byte Entities_Caves_NorthHyruleFieldFairyFountain_0
 	.4byte 0x00000000
-	.4byte Enemies_Caves_FairyFountainBoomerang
-	.4byte TileEntities_Caves_FairyFountainBoomerang
+	.4byte Enemies_Caves_NorthHyruleFieldFairyFountain
+	.4byte TileEntities_Caves_NorthHyruleFieldFairyFountain
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_Caves_FairyFountainBoomerang
-	.4byte sub_StateChange_Caves_FairyFountainBoomerang
+	.4byte sub_unk3_Caves_NorthHyruleFieldFairyFountain
+	.4byte sub_StateChange_Caves_NorthHyruleFieldFairyFountain
 
 Entities_Caves_KinstoneBusinessScrub_0:: @ 080F9204
 	entity_list_end
@@ -21811,25 +21811,25 @@ Room_TreeInteriors_HeartPiece:: @ 080FA690
 	.4byte sub_unk3_TreeInteriors_HeartPiece
 	.4byte sub_StateChange_TreeInteriors_HeartPiece
 
-Entities_TreeInteriors_StairsToBladeBrother_0:: @ 080FA6B0
+Entities_TreeInteriors_Waveblade_0:: @ 080FA6B0
 	object_raw subtype=0x4f, x=0x78, y=0x98, paramA=0x6, paramB=0x2
 	entity_list_end
 
-Enemies_TreeInteriors_StairsToBladeBrother:: @ 080FA6D0
+Enemies_TreeInteriors_Waveblade:: @ 080FA6D0
 	entity_list_end
 
-TileEntities_TreeInteriors_StairsToBladeBrother:: @ 080FA6E0
+TileEntities_TreeInteriors_Waveblade:: @ 080FA6E0
 	tile_entity_list_end
 
-Room_TreeInteriors_StairsToBladeBrother:: @ 080FA6E8
-	.4byte Entities_TreeInteriors_StairsToBladeBrother_0
+Room_TreeInteriors_Waveblade:: @ 080FA6E8
+	.4byte Entities_TreeInteriors_Waveblade_0
 	.4byte 0x00000000
-	.4byte Enemies_TreeInteriors_StairsToBladeBrother
-	.4byte TileEntities_TreeInteriors_StairsToBladeBrother
+	.4byte Enemies_TreeInteriors_Waveblade
+	.4byte TileEntities_TreeInteriors_Waveblade
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_TreeInteriors_StairsToBladeBrother
-	.4byte sub_StateChange_TreeInteriors_StairsToBladeBrother
+	.4byte sub_unk3_TreeInteriors_Waveblade
+	.4byte sub_StateChange_TreeInteriors_Waveblade
 
 Entities_TreeInteriors_14_0:: @ 080FA708
 	object_raw subtype=0x4f, x=0x78, y=0x98, paramA=0x6, paramB=0x2
@@ -21931,66 +21931,66 @@ Room_TreeInteriors_BoomerangSoutheast:: @ 080FA8A0
 	.4byte sub_unk3_TreeInteriors_BoomerangSoutheast
 	.4byte sub_StateChange_TreeInteriors_BoomerangSoutheast
 
-Entities_TreeInteriors_HeartPieceSouthwestField_0:: @ 080FA8C0
+Entities_TreeInteriors_WesternWoodsHeartPiece_0:: @ 080FA8C0
 	object_raw subtype=0x4f, x=0x78, y=0x98, paramA=0x6, paramB=0x2
 	object_raw subtype=0x0, x=0x78, y=0x44, collision=1, paramA=0x63, paramB=0x400, paramC=0x980000
 	entity_list_end
 
-Enemies_TreeInteriors_HeartPieceSouthwestField:: @ 080FA8F0
+Enemies_TreeInteriors_WesternWoodsHeartPiece:: @ 080FA8F0
 	entity_list_end
 
-TileEntities_TreeInteriors_HeartPieceSouthwestField:: @ 080FA900
+TileEntities_TreeInteriors_WesternWoodsHeartPiece:: @ 080FA900
 	tile_entity_list_end
 
-Room_TreeInteriors_HeartPieceSouthwestField:: @ 080FA908
-	.4byte Entities_TreeInteriors_HeartPieceSouthwestField_0
+Room_TreeInteriors_WesternWoodsHeartPiece:: @ 080FA908
+	.4byte Entities_TreeInteriors_WesternWoodsHeartPiece_0
 	.4byte 0x00000000
-	.4byte Enemies_TreeInteriors_HeartPieceSouthwestField
-	.4byte TileEntities_TreeInteriors_HeartPieceSouthwestField
+	.4byte Enemies_TreeInteriors_WesternWoodsHeartPiece
+	.4byte TileEntities_TreeInteriors_WesternWoodsHeartPiece
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_TreeInteriors_HeartPieceSouthwestField
-	.4byte sub_StateChange_TreeInteriors_HeartPieceSouthwestField
+	.4byte sub_unk3_TreeInteriors_WesternWoodsHeartPiece
+	.4byte sub_StateChange_TreeInteriors_WesternWoodsHeartPiece
 
-Entities_TreeInteriors_StairsToFairyFountain_0:: @ 080FA928
+Entities_TreeInteriors_NorthHyruleFieldFairyFountain_0:: @ 080FA928
 	object_raw subtype=0x4f, x=0x78, y=0x98, paramA=0x6, paramB=0x2
 	entity_list_end
 
-Enemies_TreeInteriors_StairsToFairyFountain:: @ 080FA948
+Enemies_TreeInteriors_NorthHyruleFieldFairyFountain:: @ 080FA948
 	entity_list_end
 
-TileEntities_TreeInteriors_StairsToFairyFountain:: @ 080FA958
+TileEntities_TreeInteriors_NorthHyruleFieldFairyFountain:: @ 080FA958
 	tile_entity_list_end
 
-Room_TreeInteriors_StairsToFairyFountain:: @ 080FA960
-	.4byte Entities_TreeInteriors_StairsToFairyFountain_0
+Room_TreeInteriors_NorthHyruleFieldFairyFountain:: @ 080FA960
+	.4byte Entities_TreeInteriors_NorthHyruleFieldFairyFountain_0
 	.4byte 0x00000000
-	.4byte Enemies_TreeInteriors_StairsToFairyFountain
-	.4byte TileEntities_TreeInteriors_StairsToFairyFountain
+	.4byte Enemies_TreeInteriors_NorthHyruleFieldFairyFountain
+	.4byte TileEntities_TreeInteriors_NorthHyruleFieldFairyFountain
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_TreeInteriors_StairsToFairyFountain
-	.4byte sub_StateChange_TreeInteriors_StairsToFairyFountain
+	.4byte sub_unk3_TreeInteriors_NorthHyruleFieldFairyFountain
+	.4byte sub_StateChange_TreeInteriors_NorthHyruleFieldFairyFountain
 
-Entities_TreeInteriors_StairsToWalletFairy_0:: @ 080FA980
+Entities_TreeInteriors_MinishWoodsGreatFairy_0:: @ 080FA980
 	object_raw subtype=0x4f, x=0x78, y=0x98, paramA=0x6, paramB=0x2
 	entity_list_end
 
-Enemies_TreeInteriors_StairsToWalletFairy:: @ 080FA9A0
+Enemies_TreeInteriors_MinishWoodsGreatFairy:: @ 080FA9A0
 	entity_list_end
 
-TileEntities_TreeInteriors_StairsToWalletFairy:: @ 080FA9B0
+TileEntities_TreeInteriors_MinishWoodsGreatFairy:: @ 080FA9B0
 	tile_entity_list_end
 
-Room_TreeInteriors_StairsToWalletFairy:: @ 080FA9B8
-	.4byte Entities_TreeInteriors_StairsToWalletFairy_0
+Room_TreeInteriors_MinishWoodsGreatFairy:: @ 080FA9B8
+	.4byte Entities_TreeInteriors_MinishWoodsGreatFairy_0
 	.4byte 0x00000000
-	.4byte Enemies_TreeInteriors_StairsToWalletFairy
-	.4byte TileEntities_TreeInteriors_StairsToWalletFairy
+	.4byte Enemies_TreeInteriors_MinishWoodsGreatFairy
+	.4byte TileEntities_TreeInteriors_MinishWoodsGreatFairy
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_TreeInteriors_StairsToWalletFairy
-	.4byte sub_StateChange_TreeInteriors_StairsToWalletFairy
+	.4byte sub_unk3_TreeInteriors_MinishWoodsGreatFairy
+	.4byte sub_StateChange_TreeInteriors_MinishWoodsGreatFairy
 
 Entities_TreeInteriors_1C_0:: @ 080FA9D8
 	object_raw subtype=0x4f, x=0x78, y=0x98, paramA=0x6, paramB=0x2
@@ -22020,28 +22020,28 @@ Room_TreeInteriors_1C:: @ 080FAA70
 	.4byte sub_unk3_TreeInteriors_1C
 	.4byte sub_StateChange_TreeInteriors_1C
 
-Entities_TreeInteriors_StairsToBusinessScrub_0:: @ 080FAA90
+Entities_TreeInteriors_MinishWoodsBusinessScrub_0:: @ 080FAA90
 	object_raw subtype=0x4f, x=0x78, y=0x98, paramA=0x6, paramB=0x2
 	entity_list_end
 
-Entities_TreeInteriors_StairsToBusinessScrub_1:: @ 080FAAB0
+Entities_TreeInteriors_MinishWoodsBusinessScrub_1:: @ 080FAAB0
 	entity_list_end
 
-Enemies_TreeInteriors_StairsToBusinessScrub:: @ 080FAAC0
+Enemies_TreeInteriors_MinishWoodsBusinessScrub:: @ 080FAAC0
 	entity_list_end
 
-TileEntities_TreeInteriors_StairsToBusinessScrub:: @ 080FAAD0
+TileEntities_TreeInteriors_MinishWoodsBusinessScrub:: @ 080FAAD0
 	tile_entity_list_end
 
-Room_TreeInteriors_StairsToBusinessScrub:: @ 080FAAD8
-	.4byte Entities_TreeInteriors_StairsToBusinessScrub_0
-	.4byte Entities_TreeInteriors_StairsToBusinessScrub_1
-	.4byte Enemies_TreeInteriors_StairsToBusinessScrub
-	.4byte TileEntities_TreeInteriors_StairsToBusinessScrub
+Room_TreeInteriors_MinishWoodsBusinessScrub:: @ 080FAAD8
+	.4byte Entities_TreeInteriors_MinishWoodsBusinessScrub_0
+	.4byte Entities_TreeInteriors_MinishWoodsBusinessScrub_1
+	.4byte Enemies_TreeInteriors_MinishWoodsBusinessScrub
+	.4byte TileEntities_TreeInteriors_MinishWoodsBusinessScrub
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_TreeInteriors_StairsToBusinessScrub
-	.4byte sub_StateChange_TreeInteriors_StairsToBusinessScrub
+	.4byte sub_unk3_TreeInteriors_MinishWoodsBusinessScrub
+	.4byte sub_StateChange_TreeInteriors_MinishWoodsBusinessScrub
 
 Entities_TreeInteriors_1E_0:: @ 080FAAF8
 	object_raw subtype=0x4c, x=0x8c, y=0x28, collision=1, paramA=0x2
@@ -22072,26 +22072,26 @@ Room_TreeInteriors_1E:: @ 080FABA0
 	.4byte sub_unk3_TreeInteriors_1E
 	.4byte sub_StateChange_TreeInteriors_1E
 
-Entities_TreeInteriors_1F_0:: @ 080FABC0
+Entities_TreeInteriors_UnusedHeartContainer_0:: @ 080FABC0
 	object_raw subtype=0x4f, x=0x78, y=0x98, paramA=0x6, paramB=0x2
 	object_raw subtype=0x0, x=0x78, y=0x48, collision=1, paramA=0x62, paramB=0x400, paramC=0x990000
 	entity_list_end
 
-Enemies_TreeInteriors_1F:: @ 080FABF0
+Enemies_TreeInteriors_UnusedHeartContainer:: @ 080FABF0
 	entity_list_end
 
-TileEntities_TreeInteriors_1F:: @ 080FAC00
+TileEntities_TreeInteriors_UnusedHeartContainer:: @ 080FAC00
 	tile_entity_list_end
 
-Room_TreeInteriors_1F:: @ 080FAC08
-	.4byte Entities_TreeInteriors_1F_0
+Room_TreeInteriors_UnusedHeartContainer:: @ 080FAC08
+	.4byte Entities_TreeInteriors_UnusedHeartContainer_0
 	.4byte 0x00000000
-	.4byte Enemies_TreeInteriors_1F
-	.4byte TileEntities_TreeInteriors_1F
+	.4byte Enemies_TreeInteriors_UnusedHeartContainer
+	.4byte TileEntities_TreeInteriors_UnusedHeartContainer
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_TreeInteriors_1F
-	.4byte sub_StateChange_TreeInteriors_1F
+	.4byte sub_unk3_TreeInteriors_UnusedHeartContainer
+	.4byte sub_StateChange_TreeInteriors_UnusedHeartContainer
 
 Entities_MtCrenel_MountainTop_0:: @ 080FAC28
 .ifdef EU_JP
@@ -22846,31 +22846,31 @@ Room_CrenelCaves_MushroomKeese:: @ 080FC12C
 	.4byte sub_unk3_CrenelCaves_MushroomKeese
 	.4byte sub_StateChange_CrenelCaves_MushroomKeese
 
-Entities_CrenelCaves_LadderToGreenWater_0:: @ 080FC14C
+Entities_CrenelCaves_LadderToSpringWater_0:: @ 080FC14C
 	entity_list_end
 
-Entities_CrenelCaves_LadderToGreenWater_1:: @ 080FC15C
+Entities_CrenelCaves_LadderToSpringWater_1:: @ 080FC15C
 	object_raw subtype=0x41, x=0x78, y=0x18
 	entity_list_end
 
-Enemies_CrenelCaves_LadderToGreenWater:: @ 080FC17C
+Enemies_CrenelCaves_LadderToSpringWater:: @ 080FC17C
 	enemy_raw subtype=0x1, x=0x88, y=0x58, paramA=0x1
 	enemy_raw subtype=0x1, x=0x68, y=0x48, paramA=0x1
 	enemy_raw subtype=0x1, x=0x98, y=0x48, paramA=0x1
 	entity_list_end
 
-TileEntities_CrenelCaves_LadderToGreenWater:: @ 080FC1BC
+TileEntities_CrenelCaves_LadderToSpringWater:: @ 080FC1BC
 	tile_entity_list_end
 
-Room_CrenelCaves_LadderToGreenWater:: @ 080FC1C4
-	.4byte Entities_CrenelCaves_LadderToGreenWater_0
-	.4byte Entities_CrenelCaves_LadderToGreenWater_1
-	.4byte Enemies_CrenelCaves_LadderToGreenWater
-	.4byte TileEntities_CrenelCaves_LadderToGreenWater
+Room_CrenelCaves_LadderToSpringWater:: @ 080FC1C4
+	.4byte Entities_CrenelCaves_LadderToSpringWater_0
+	.4byte Entities_CrenelCaves_LadderToSpringWater_1
+	.4byte Enemies_CrenelCaves_LadderToSpringWater
+	.4byte TileEntities_CrenelCaves_LadderToSpringWater
 	.4byte 0x00000000
 	.4byte 0x00000000
-	.4byte sub_unk3_CrenelCaves_LadderToGreenWater
-	.4byte sub_StateChange_CrenelCaves_LadderToGreenWater
+	.4byte sub_unk3_CrenelCaves_LadderToSpringWater
+	.4byte sub_StateChange_CrenelCaves_LadderToSpringWater
 
 Entities_CrenelCaves_BombBusinessScrub_0:: @ 080FC1E4
 	entity_list_end
