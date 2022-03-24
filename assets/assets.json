@@ -25511,31 +25511,6 @@
     "type": "animation"
   },
   {
-    "path": "acroBandits/gUnk_080CE5B0.bin",
-    "start": 845232,
-    "size": 8
-  },
-  {
-    "path": "acroBandits/gUnk_080CE5B8.bin",
-    "start": 845240,
-    "size": 8
-  },
-  {
-    "path": "acroBandits/gUnk_080CE5C0.bin",
-    "start": 845248,
-    "size": 8
-  },
-  {
-    "path": "acroBandits/gUnk_080CE5F0.bin",
-    "start": 845296,
-    "size": 10
-  },
-  {
-    "path": "acroBandits/gUnk_080CE5FA.bin",
-    "start": 845306,
-    "size": 20
-  },
-  {
     "path": "animations/gSpriteAnimations_Keaton_0.bin",
     "start": 845848,
     "size": 17,

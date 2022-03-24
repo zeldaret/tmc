@@ -10,15 +10,39 @@
 
 extern Entity* gUnk_020000B0;
 extern void (*const gUnk_080012C8[])(Entity*);
-extern void (*const AcroBandit_Functions[])(Entity*);
-extern void (*const gUnk_080CE584[])(Entity*);
-extern void (*const gUnk_080CE58C[])(Entity*);
-extern void (*const gUnk_080CE5C8[])(Entity*);
-extern u8 gUnk_080CE5B0[8];
-extern u8 gUnk_080CE5B8[8];
-extern s8 gUnk_080CE5C0[8];
-extern u16 gUnk_080CE5F0[5];
-extern u8 gUnk_080CE5FA[20]; // Directions
+
+void AcroBandit_OnTick(Entity* this);
+void AcroBandit_OnCollision(Entity* this);
+void AcroBandit_OnKnockback(Entity* this);
+void GenericDeath(Entity* this);
+void GenericConfused(Entity* this);
+void AcroBandit_OnGrabbed(Entity* this);
+void AcroBandit_Type0(Entity* this);
+void AcroBandit_Type1(Entity* this);
+void AcroBandit_Type0Action0(Entity* this);
+void AcroBandit_Type0Action1(Entity* this);
+void AcroBandit_Type0Action2(Entity* this);
+void AcroBandit_Type0Action3(Entity* this);
+void AcroBandit_Type0Action4(Entity* this);
+void AcroBandit_Type0Action5(Entity* this);
+void AcroBandit_Type0Action6(Entity* this);
+void AcroBandit_Type0Action7(Entity* this);
+void AcroBandit_Type0Action8(Entity* this);
+void AcroBandit_Type1Init(Entity* this);
+void AcroBandit_Type1Action1(Entity* this);
+void AcroBandit_Type1Action2(Entity* this);
+void AcroBandit_Type1Action3(Entity* this);
+void AcroBandit_Type1Action4(Entity* this);
+void AcroBandit_Type1Action5(Entity* this);
+void AcroBandit_Type1Action6(Entity* this);
+void AcroBandit_Type1Action7(Entity* this);
+void AcroBandit_Type1Action8(Entity* this);
+void AcroBandit_Type1Action9(Entity* this);
+
+static void (*const AcroBandit_Functions[])(Entity*) = {
+    AcroBandit_OnTick, AcroBandit_OnCollision, AcroBandit_OnKnockback,
+    GenericDeath,      GenericConfused,        AcroBandit_OnGrabbed,
+};
 
 void AcroBandit(Entity* this) {
     s32 index;
@@ -37,7 +61,11 @@ void AcroBandit(Entity* this) {
 }
 
 void AcroBandit_OnTick(Entity* this) {
-    gUnk_080CE584[this->type](this);
+    static void (*const typeFuncs[])(Entity*) = {
+        AcroBandit_Type0,
+        AcroBandit_Type1,
+    };
+    typeFuncs[this->type](this);
 }
 
 void AcroBandit_OnCollision(Entity* this) {
@@ -109,25 +137,27 @@ void AcroBandit_OnKnockback(Entity* this) {
     GenericKnockback(this);
 }
 
-void AcroBandit_OnGrabbed(void) {
-    /* ... */
+void AcroBandit_OnGrabbed(Entity* this) {
 }
 
-void sub_08031A88(Entity* this) {
-    gUnk_080CE58C[this->action](this);
+void AcroBandit_Type0(Entity* this) {
+    static void (*const actionFuncs[])(Entity*) = {
+        AcroBandit_Type0Action0, AcroBandit_Type0Action1, AcroBandit_Type0Action2,
+        AcroBandit_Type0Action3, AcroBandit_Type0Action4, AcroBandit_Type0Action5,
+        AcroBandit_Type0Action6, AcroBandit_Type0Action7, AcroBandit_Type0Action8,
+    };
+    actionFuncs[this->action](this);
 }
 
-void sub_08031AA0(Entity* this) {
+void AcroBandit_Type0Action0(Entity* this) {
     sub_0804A720(this);
-    this->action = '\x01';
+    this->action = 1;
     this->field_0x74.HWORD = this->x.HALF.HI;
     this->field_0x76.HWORD = this->y.HALF.HI;
     this->field_0x78.HALF.HI = Random();
 }
 
-void sub_08031AC8(Entity* this)
-
-{
+void AcroBandit_Type0Action1(Entity* this) {
     u32 rand;
     s32 x, y;
 
@@ -149,7 +179,8 @@ void sub_08031AC8(Entity* this)
     }
 }
 
-void sub_08031B48(Entity* this) {
+void AcroBandit_Type0Action2(Entity* this) {
+    static const u8 actionDelays[] = { 2, 2, 2, 3, 3, 3, 3, 4 };
     GetNextFrame(this);
     if (this->frame & 1) {
         this->frame = 0;
@@ -157,13 +188,13 @@ void sub_08031B48(Entity* this) {
     } else {
         if (this->frame & ANIM_DONE) {
             this->action = 0x3;
-            this->actionDelay = gUnk_080CE5B0[Random() & 7];
+            this->actionDelay = actionDelays[Random() & 7];
             InitializeAnimation(this, 1);
         }
     }
 }
 
-void sub_08031B98(Entity* this) {
+void AcroBandit_Type0Action3(Entity* this) {
     if (sub_08031E04(this)) {
         this->action = 5;
         if (this->x.HALF.HI > gUnk_020000B0->x.HALF.HI) {
@@ -186,21 +217,22 @@ void sub_08031B98(Entity* this) {
     }
 }
 
-void sub_08031C1C(Entity* this) {
+void AcroBandit_Type0Action4(Entity* this) {
+    static const u8 actionDelays[] = { 60, 60, 90, 120, 120, 120, 120, 150 };
     GetNextFrame(this);
     if (this->frame & ANIM_DONE) {
-        this->action = '\x01';
-        this->actionDelay = gUnk_080CE5B8[Random() & 7];
+        this->action = 1;
+        this->actionDelay = actionDelays[Random() & 7];
         this->spriteSettings.draw = 0;
     }
 }
 
-void sub_08031C58(Entity* this) {
+void AcroBandit_Type0Action5(Entity* this) {
     Entity *a, *b;
 
     GetNextFrame(this);
     if (this->frame & ANIM_DONE) {
-        if (gEntCount < 0x43) {
+        if (gEntCount < MAX_ENTITIES - 4) {
             u32 tmp = Random();
             tmp &= 3;
 
@@ -252,7 +284,7 @@ void sub_08031C58(Entity* this) {
     }
 }
 
-void sub_08031D70(Entity* this) {
+void AcroBandit_Type0Action6(Entity* this) {
     GetNextFrame(this);
     if (--this->actionDelay == 0) {
         this->action = 7;
@@ -262,7 +294,7 @@ void sub_08031D70(Entity* this) {
     }
 }
 
-void sub_08031DA0(Entity* this) {
+void AcroBandit_Type0Action7(Entity* this) {
     if ((this->actionDelay & 0xf) == 0) {
         if (this->actionDelay == 0x50) {
             DeleteEntity(this);
@@ -273,7 +305,7 @@ void sub_08031DA0(Entity* this) {
     }
 }
 
-void sub_08031DC4(Entity* this) {
+void AcroBandit_Type0Action8(Entity* this) {
     if (this->frame & ANIM_DONE) {
         this->action = 1;
         this->actionDelay = 0xb4;
@@ -287,8 +319,9 @@ void sub_08031DC4(Entity* this) {
 }
 
 u32 sub_08031E04(Entity* this) {
+    static const s8 gUnk_080CE5C0[] = { -32, 0, 0, 32, 32, 0, 0, 0 };
     Entity* ent;
-    s8* tmp;
+    const s8* tmp;
 
     ent = sub_08049DF4(1);
     if (ent == NULL)
@@ -308,11 +341,16 @@ void sub_08031E48(Entity* this, Entity* child) {
     child->field_0x7c.WORD = (s32)this;
 }
 
-void sub_08031E90(Entity* this) {
-    gUnk_080CE5C8[this->action](this);
+void AcroBandit_Type1(Entity* this) {
+    static void (*const actionFuncs[])(Entity*) = {
+        AcroBandit_Type1Init,    AcroBandit_Type1Action1, AcroBandit_Type1Action2, AcroBandit_Type1Action3,
+        AcroBandit_Type1Action4, AcroBandit_Type1Action5, AcroBandit_Type1Action6, AcroBandit_Type1Action7,
+        AcroBandit_Type1Action8, AcroBandit_Type1Action9,
+    };
+    actionFuncs[this->action](this);
 }
 
-void sub_08031EA8(Entity* this) {
+void AcroBandit_Type1Init(Entity* this) {
     this->action = 1;
     this->spritePriority.b1 = 1;
     this->zVelocity = Q_16_16(4.0);
@@ -321,7 +359,7 @@ void sub_08031EA8(Entity* this) {
     InitializeAnimation(this, 4);
 }
 
-void sub_08031EE8(Entity* this) {
+void AcroBandit_Type1Action1(Entity* this) {
     int draw;
 
     this->z.WORD -= this->zVelocity;
@@ -346,8 +384,9 @@ void sub_08031EE8(Entity* this) {
     }
 }
 
-void sub_08031F54(Entity* this) {
-    GravityUpdate(this, gUnk_080CE5F0[this->type2]);
+void AcroBandit_Type1Action2(Entity* this) {
+    static const u16 banditGravity[] = { 0x1600, 0x1300, 0x1000, 0xD00, 0xB00 };
+    GravityUpdate(this, banditGravity[this->type2]);
     if (this->type2 * -0xe <= this->z.HALF.HI) {
         this->action = 3;
         this->actionDelay = 20;
@@ -358,7 +397,7 @@ void sub_08031F54(Entity* this) {
     }
 }
 
-void sub_08031FB0(Entity* this) {
+void AcroBandit_Type1Action3(Entity* this) {
     GetNextFrame(this);
     if ((this->frame & ANIM_DONE) && (this->parent || --this->actionDelay == 0)) {
         this->action = 4;
@@ -372,7 +411,7 @@ void sub_08031FB0(Entity* this) {
     }
 }
 
-void sub_08032008(Entity* this) {
+void AcroBandit_Type1Action4(Entity* this) {
     Entity* parent;
 
     if (sub_080322A4(this) == 0) {
@@ -421,20 +460,22 @@ void sub_08032008(Entity* this) {
     }
 }
 
-void sub_08032148(Entity* this) {
+void AcroBandit_Type1Action5(Entity* this) {
     if (GravityUpdate(this, 0x2000))
         return;
 
     sub_08032290(this);
 }
 
-void sub_08032160(Entity* this) {
+void AcroBandit_Type1Action6(Entity* this) {
+    static const u8 fallDirections[] = { 0x8,  0x1c, 0x11, 0x2, 0x15, 0xc,  0x0, 0x15, 0x6, 0x19,
+                                         0x10, 0x4,  0x19, 0xa, 0x1d, 0x14, 0x8, 0x1d, 0xe, 0x1 };
     Entity* tmp;
     u32 dir;
 
     if (this->actionDelay == 0) {
         this->action = 7;
-        dir = gUnk_080CE5FA[this->field_0x74.HALF.LO * 5 + this->type2];
+        dir = fallDirections[this->field_0x74.HALF.LO * 5 + this->type2];
         this->direction = dir;
         if (dir >= 0x10) {
             this->spriteSettings.flipX = 1;
@@ -456,14 +497,14 @@ void sub_08032160(Entity* this) {
     }
 }
 
-void sub_080321E8(Entity* this) {
+void AcroBandit_Type1Action7(Entity* this) {
     ProcessMovement2(this);
 
     if (sub_080044EC(this, 0x2000) == 0)
         this->action = 8;
 }
 
-void sub_08032204(Entity* this) {
+void AcroBandit_Type1Action8(Entity* this) {
     GetNextFrame(this);
     if (this->frame & 1) {
         this->frame = 0;
@@ -476,7 +517,7 @@ void sub_08032204(Entity* this) {
     }
 }
 
-void sub_08032248(Entity* this) {
+void AcroBandit_Type1Action9(Entity* this) {
     if (GravityUpdate(this, Q_8_8(24.0)) == 0) {
         if (this->frame & ANIM_DONE) {
             ((Entity*)this->field_0x7c.WORD)->actionDelay--;
