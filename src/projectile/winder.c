@@ -11,19 +11,19 @@ extern s16 gUnk_080B4488[];
 
 typedef enum {
     /* 0 */ WINDER_TYPE_HEAD,
-    /* 4 */ WINDER_TYPE_4 = 4,
+    /* 4 */ WINDER_TYPE_TAIL = 4,
 } WinderType;
 
 void Winder_Init(WinderEntity* this);
-void sub_080AB950(WinderEntity* this);
+void Winder_Move(WinderEntity* this);
 
 void Winder_SetPositions(WinderEntity*);
-bool32 Winder_CheckNextTileCollision(WinderEntity* this, u32 dir);
+bool32 Winder_CheckForRailings(WinderEntity* this, u32 dir);
 
 void Winder(Entity* thisx) {
     static void (*const Winder_Actions[])(WinderEntity*) = {
         Winder_Init,
-        sub_080AB950,
+        Winder_Move,
     };
     WinderEntity* this = (WinderEntity*)thisx;
 
@@ -44,7 +44,7 @@ void Winder_Init(WinderEntity* this) {
         super->parent = super;
     }
     InitializeAnimation(super, 0);
-    if (super->type < 4) {
+    if (super->type < WINDER_TYPE_TAIL) {
         nextSegment = CreateProjectile(WINDER);
         nextSegment->type = super->type + 1;
         nextSegment->parent = super->parent;
@@ -59,7 +59,7 @@ void Winder_Init(WinderEntity* this) {
     }
 }
 
-void sub_080AB950(WinderEntity* this) {
+void Winder_Move(WinderEntity* this) {
     static const u8 nextDirections[][2] = {
         { DirectionEast, DirectionWest },
         { DirectionNorth, DirectionSouth },
@@ -68,13 +68,13 @@ void sub_080AB950(WinderEntity* this) {
     };
     static const u16 collisionChecks[] = { COL_NORTH_ANY, COL_EAST_ANY, COL_SOUTH_ANY, COL_WEST_ANY };
 
-    if (super->type == 0) {
+    if (super->type == WINDER_TYPE_HEAD) {
         u8 dir;
 
         ProcessMovement0(super);
 
         dir = super->direction >> 3;
-        if ((collisionChecks[dir] & super->collisions) || Winder_CheckNextTileCollision(this, super->direction)) {
+        if ((collisionChecks[dir] & super->collisions) || Winder_CheckForRailings(this, super->direction)) {
             super->direction = nextDirections[dir][Random() & 0x1];
         }
     } else {
@@ -104,14 +104,14 @@ void Winder_SetPositions(WinderEntity* this) {
     //! @bug Undefined behaviour for source and destination to overlap in a memcpy. In this case it is okay because the
     //! copy will always be sequential, incremental and in chunks of <= 4 bytes, so it will copy the contents of
     //! positions[0] and positions[1] to positions[2] and positions[3], then that of positions[2] and positions[3] to
-    //! positions[4] and positions[5], and so on. A safer way to do this would be a manual loop as in sub_080AB950.
+    //! positions[4] and positions[5], and so on. A safer way to do this would be a manual loop as in Winder_Move.
     MemCopy(&this->positions[2], &this->positions[0], sizeof(u16) * (ARRAY_COUNT(this->positions) - 2));
 
     this->positions[2 * (WINDER_NUM_SEGMENTS - 1)] = super->x.HALF.HI;
     this->positions[2 * (WINDER_NUM_SEGMENTS - 1) + 1] = super->y.HALF.HI;
 }
 
-bool32 Winder_CheckNextTileCollision(WinderEntity* this, u32 dir) {
+bool32 Winder_CheckForRailings(WinderEntity* this, u32 dir) {
     u32 tile;
     u32 val;
     LayerStruct* layer = GetLayerByIndex(super->collisionLayer);
