@@ -9,51 +9,61 @@ typedef struct {
     u8 direction;
 } PACKED Struct_0812A074;
 
-extern void (*const SpiderWeb_Functions[])(Entity*);
-extern void (*const SpiderWeb_Actions[])(Entity*);
-extern const u8 gUnk_0812A03C[];
-extern const Hitbox* const gUnk_0812A04C[];
-extern void (*const SpiderWeb_SubActions[])(Entity*);
-extern const s8 gUnk_0812A064[];
-extern const s8 gUnk_0812A06C[];
-extern const Struct_0812A074 gUnk_0812A074[];
-extern const u16 gUnk_0812A084[];
-
+void SpiderWeb_OnTick(Entity*);
 void sub_080AA6C0(Entity*);
 void sub_080AAAA8(Entity*);
 void sub_080AAA68(Entity*);
 void sub_080AA9E0(Entity*);
+void sub_080AA78C(Entity*);
+void SpiderWeb_Init(Entity*);
+void SpiderWeb_Action1(Entity*);
+void SpiderWeb_Action2(Entity*);
+void SpiderWeb_Action3(Entity*);
+void SpiderWeb_SubAction0(Entity*);
+void SpiderWeb_SubAction1(Entity*);
 
 void SpiderWeb(Entity* this) {
+    static void (*const SpiderWeb_Functions[])(Entity*) = {
+        SpiderWeb_OnTick, sub_080AA6C0, DeleteEntity, DeleteEntity, DeleteEntity, sub_080AA78C,
+    };
     SpiderWeb_Functions[GetNextFunction(this)](this);
 }
 
 void SpiderWeb_OnTick(Entity* this) {
+    static void (*const SpiderWeb_Actions[])(Entity*) = {
+        SpiderWeb_Init,
+        SpiderWeb_Action1,
+        SpiderWeb_Action2,
+        SpiderWeb_Action3,
+    };
     SpiderWeb_Actions[this->action](this);
 }
 
 void sub_080AA6C0(Entity* this) {
+    static const s8 typeSpritOffsets[] = {
+        -8, -4, 6, 1, 4, -11, -3, 3, -7, -3, 6, 4, -4, -11, 3, 3,
+    };
     Entity* object;
 
     if (this->bitfield == 0x87) {
         this->action = 3;
-        this->actionDelay = 0x5a;
+        this->actionDelay = 90;
         COLLISION_OFF(this);
         InitAnimationForceUpdate(this, this->type + 0x10);
         object = CreateObject(OBJECT_2A, 3, 0);
         if (object != NULL) {
             object->type2 = 0x5a;
             object->spritePriority.b0 = 3;
-            object->spriteOffsetX = gUnk_0812A03C[this->type * 4];
-            object->spriteOffsetY = gUnk_0812A03C[this->type * 4 + 1];
+            object->spriteOffsetX = typeSpritOffsets[this->type * 4];
+            object->spriteOffsetY = typeSpritOffsets[this->type * 4 + 1];
             object->parent = this;
         }
         object = CreateObject(OBJECT_2A, 3, 0);
         if (object != NULL) {
             object->type2 = 0x5a;
             object->spritePriority.b0 = 3;
-            object->spriteOffsetX = gUnk_0812A03C[this->type * 4 + 2];
-            object->spriteOffsetY = gUnk_0812A03C[this->type * 4 + 3];
+            object->spriteOffsetX = typeSpritOffsets[this->type * 4 + 2];
+            object->spriteOffsetY = typeSpritOffsets[this->type * 4 + 3];
             object->parent = this;
         }
     } else {
@@ -82,7 +92,7 @@ void sub_080AA78C(Entity* this) {
     if (sub_0806F520(this)) {
         UpdateAnimationSingleFrame(this);
         if ((this->frame & 0x10) != 0) {
-            this->frame &= 0xef;
+            this->frame &= ~0x10;
             EnqueueSFX(SFX_100);
         }
         if ((this->frame & ANIM_DONE) != 0) {
@@ -98,13 +108,19 @@ void sub_080AA78C(Entity* this) {
 }
 
 void SpiderWeb_Init(Entity* this) {
+    static const Hitbox* const typeHitboxes[] = {
+        &gUnk_080FD41C,
+        &gUnk_080FD424,
+        &gUnk_080FD42C,
+        &gUnk_080FD434,
+    };
     if (CheckFlags(this->field_0x86.HWORD) != 0) {
         DeleteThisEntity();
     }
     this->action = 1;
     this->field_0x1c = 1;
     this->field_0x16 = 1;
-    this->hitbox = (Hitbox*)gUnk_0812A04C[this->type];
+    this->hitbox = (Hitbox*)typeHitboxes[this->type];
     this->cutsceneBeh.HALF.LO = 0;
     InitAnimationForceUpdate(this, this->type);
     sub_080AAA68(this);
@@ -118,11 +134,18 @@ void SpiderWeb_Action1(Entity* this) {
 }
 
 void SpiderWeb_Action2(Entity* this) {
+    static void (*const SpiderWeb_SubActions[])(Entity*) = {
+        SpiderWeb_SubAction0,
+        SpiderWeb_SubAction1,
+    };
     sub_0806FBB4(this);
     SpiderWeb_SubActions[this->subAction - 5](this);
 }
 
 void SpiderWeb_SubAction0(Entity* this) {
+    static const s8 gUnk_0812A064[] = { 0, 17, -15, 4, 0, -11, 15, 4 };
+    static const s8 gUnk_0812A06C[] = { 0, 2, -2, 0, 0, -2, 2, 0 };
+
     u32 tmp;
     u16 x;
     u16 y;
@@ -169,6 +192,8 @@ void SpiderWeb_Action3(Entity* this) {
 }
 
 void sub_080AA9E0(Entity* this) {
+    static const Struct_0812A074 gUnk_0812A074[] = { { 4, 0 },  { 5, 16 }, { 3, 8 },  { 5, 24 },
+                                                     { 3, 16 }, { 5, 0 },  { 3, 24 }, { 5, 8 } };
     s32 diff;
     const Struct_0812A074* ptr;
 
@@ -200,7 +225,8 @@ void sub_080AA9E0(Entity* this) {
 }
 
 void sub_080AAA68(Entity* this) {
-    SetTile(gUnk_0812A084[this->type], TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
+    static const u16 typeTiles[] = { 16419, 16421, 16422, 16420 };
+    SetTile(typeTiles[this->type], TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
 }
 
 void sub_080AAAA8(Entity* this) {
@@ -208,32 +234,3 @@ void sub_080AAAA8(Entity* this) {
     sub_0807BA8C(TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
     DeleteThisEntity();
 }
-
-void (*const SpiderWeb_Functions[])(Entity*) = {
-    SpiderWeb_OnTick, sub_080AA6C0, DeleteEntity, DeleteEntity, DeleteEntity, sub_080AA78C,
-};
-void (*const SpiderWeb_Actions[])(Entity*) = {
-    SpiderWeb_Init,
-    SpiderWeb_Action1,
-    SpiderWeb_Action2,
-    SpiderWeb_Action3,
-};
-const u8 gUnk_0812A03C[] = {
-    248, 252, 6, 1, 4, 245, 253, 3, 249, 253, 6, 4, 252, 245, 3, 3,
-};
-
-const Hitbox* const gUnk_0812A04C[] = {
-    &gUnk_080FD41C,
-    &gUnk_080FD424,
-    &gUnk_080FD42C,
-    &gUnk_080FD434,
-};
-void (*const SpiderWeb_SubActions[])(Entity*) = {
-    SpiderWeb_SubAction0,
-    SpiderWeb_SubAction1,
-};
-const s8 gUnk_0812A064[] = { 0, 17, -15, 4, 0, -11, 15, 4 };
-const s8 gUnk_0812A06C[] = { 0, 2, -2, 0, 0, -2, 2, 0 };
-const Struct_0812A074 gUnk_0812A074[] = { { 4, 0 },  { 5, 16 }, { 3, 8 },  { 5, 24 },
-                                          { 3, 16 }, { 5, 0 },  { 3, 24 }, { 5, 8 } };
-const u16 gUnk_0812A084[] = { 16419, 16421, 16422, 16420 };
