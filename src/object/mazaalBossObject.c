@@ -80,7 +80,7 @@ void MazaalBossObject_Action0(MazaalBossObjectEntity* this) {
         gRoomControls.camera_target = super;
         sub_080809D4();
     } else {
-        super->action = 1;
+        super->action = MAZAAL_BOSS_OBJECT_ACTION_1;
         super->actionDelay = 30;
         super->frameIndex = gRoomTransition.field_0x38;
         super->spritePriority.b0 = 7;
