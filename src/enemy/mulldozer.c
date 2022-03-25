@@ -7,6 +7,7 @@
 
 #define NENT_DEPRECATED
 #include "global.h"
+#include "collision.h"
 #include "enemy.h"
 #include "functions.h"
 
@@ -63,11 +64,11 @@ void sub_08032CAC(MulldozerEntity* this) {
             case 2:
             case 3:
                 super->action = 6;
-                super->actionDelay = super->type != 0 ? 0x5a : 200;
+                super->actionDelay = (super->type != 0) ? 0x5a : 200;
                 super->field_0xf = 2;
                 this->unk_80 = 3;
                 super->direction = super->knockbackDirection;
-                super->direction = (super->direction + ((Random() & 0x40) != 0 ? 4 : 0x1c));
+                super->direction += ((Random() & 0x40) != 0) ? 4 : 0x1c;
                 super->direction &= 0x1f;
                 super->speed = 0;
                 break;
@@ -102,7 +103,7 @@ void Mulldozer_Action1(MulldozerEntity* this) {
     if (--super->actionDelay == 0) {
         sub_080330C0(this);
     } else {
-        if (sub_08033364(this) != 0) {
+        if (sub_08033364(this)) {
             sub_08033100(this);
         }
     }
@@ -200,7 +201,7 @@ void sub_08032F48(MulldozerEntity* this) {
 }
 
 void sub_08032F64(MulldozerEntity* this) {
-    if (super->collisions != 0) {
+    if (super->collisions != COL_NONE) {
         sub_0800417E(super, super->collisions);
         super->animationState = super->direction >> 2;
         sub_08032F24(this);

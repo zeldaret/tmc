@@ -1,4 +1,5 @@
 #include "entity.h"
+#include "collision.h"
 #include "enemy.h"
 #include "player.h"
 #include "coord.h"
@@ -96,7 +97,7 @@ void V3ElectricProjectile_Action2(Entity* this) {
         this->z.HALF.HI += 3;
     }
     ProcessMovement3(this);
-    if (this->collisions != 0) {
+    if (this->collisions != COL_NONE) {
         DeleteThisEntity();
     }
     GetNextFrame(this);

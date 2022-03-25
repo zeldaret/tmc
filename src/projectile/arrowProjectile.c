@@ -1,4 +1,5 @@
 #include "entity.h"
+#include "collision.h"
 #include "enemy.h"
 #include "functions.h"
 #include "object.h"
@@ -66,7 +67,7 @@ void ArrowProjectile_Action1(Entity* this) {
 }
 
 void ArrowProjectile_Action2(Entity* this) {
-    if (this->collisions != 0) {
+    if (this->collisions != COL_NONE) {
         this->action = 3;
         COLLISION_OFF(this);
         this->actionDelay = 0x20;

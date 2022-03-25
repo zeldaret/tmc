@@ -1,4 +1,5 @@
 #include "entity.h"
+#include "collision.h"
 #include "enemy.h"
 #include "functions.h"
 
@@ -62,7 +63,7 @@ void V3TennisBallProjectile_Action1(Entity* this) {
 
 void V3TennisBallProjectile_Action2(Entity* this) {
     ProcessMovement3(this);
-    if (this->collisions != 0) {
+    if (this->collisions != COL_NONE) {
         DeleteThisEntity();
     }
     GetNextFrame(this);
@@ -78,28 +79,28 @@ bool32 sub_080ACB40(Entity* this) {
     Entity* tmp = ((Entity**)(r1_grandparent->myHeap))[7]->child;
 
     if (tmp != this && child == tmp->child) {
-        return 0;
+        return FALSE;
     }
 
     tmp = ((Entity**)(r1_grandparent->myHeap))[8]->child;
 
     if (tmp != this && child == tmp->child) {
-        return 0;
+        return FALSE;
     }
 
     tmp = ((Entity**)(r1_grandparent->myHeap))[9]->child;
 
     if (tmp != this && child == tmp->child) {
-        return 0;
+        return FALSE;
     }
 
     tmp = ((Entity**)(r1_grandparent->myHeap))[10]->child;
 
     if (tmp != this && child == tmp->child) {
-        return 0;
+        return FALSE;
     }
 
-    return 1;
+    return TRUE;
 }
 
 void sub_080ACB90(Entity* this) {

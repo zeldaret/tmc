@@ -1,4 +1,5 @@
 #include "entity.h"
+#include "collision.h"
 #include "enemy.h"
 #include "functions.h"
 
@@ -25,15 +26,15 @@ void sub_080A81C4(Entity* this) {
 
 void BoneProjectile_Init(Entity* this) {
     this->action = 1;
-    this->actionDelay = 0x3c;
-    this->z.HALF.HI = 0xfffe;
+    this->actionDelay = 60;
+    this->z.HALF.HI = -2;
     InitializeAnimation(this, 0);
 }
 
 void BoneProjectile_Action1(Entity* this) {
     GetNextFrame(this);
     ProcessMovement3(this);
-    if (this->collisions == 0) {
+    if (this->collisions == COL_NONE) {
         if (IsProjectileOffScreen(this)) {
             DeleteEntity(this);
         } else {

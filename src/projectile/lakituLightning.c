@@ -1,4 +1,5 @@
 #include "entity.h"
+#include "collision.h"
 #include "enemy.h"
 #include "functions.h"
 
@@ -32,7 +33,7 @@ void LakituLightning_Init(Entity* this) {
 void LakituLightning_Action1(Entity* this) {
     GetNextFrame(this);
     ProcessMovement3(this);
-    if ((this->collisions != 0) || (--this->actionDelay == 0)) {
+    if ((this->collisions != COL_NONE) || (--this->actionDelay == 0)) {
         CreateFx(this, FX_BLUE_EFC, 0);
         DeleteThisEntity();
     }

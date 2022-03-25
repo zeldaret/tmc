@@ -6,6 +6,7 @@
  */
 
 #include "enemy.h"
+#include "collision.h"
 #include "functions.h"
 
 void sub_08022EAC(Entity*);
@@ -103,7 +104,7 @@ void sub_08022D40(Entity* this) {
         sub_08022F14(this);
         ProcessMovement0(this);
 
-        if (this->collisions) {
+        if (this->collisions != COL_NONE) {
             sub_0800417E(this, this->collisions);
             this->animationState = ((this->direction + 2) & 0x1c) >> 2;
             this->frameIndex = this->animationState;

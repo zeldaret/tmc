@@ -6,6 +6,7 @@
  */
 
 #include "global.h"
+#include "collision.h"
 #include "asm.h"
 #include "sound.h"
 #include "entity.h"
@@ -3018,7 +3019,7 @@ static void sub_080739EC(Entity* this) {
     if ((gPlayerState.jump_status & 0xC0) != 0) {
         gPlayerState.field_0xd = this->direction;
         if (gPlayerState.jump_status & 0x80)
-            this->collisions = 0;
+            this->collisions = COL_NONE;
         v = GRAVITY_RATE;
     } else {
         if ((u16)sub_0806F854(this, 0, -12)) {
@@ -3414,7 +3415,7 @@ void SurfaceAction_7(Entity* this) {
 
 void SurfaceAction_MinishDoorFront(Entity* this) {
     if ((this->y.HALF.HI & 0xF) <= 0xD) {
-        this->collisions = 0x6600;
+        this->collisions = COL_EAST_FULL | COL_WEST_FULL;
         hide(this);
     } else {
         EnablePlayerDraw(this);
@@ -3423,7 +3424,7 @@ void SurfaceAction_MinishDoorFront(Entity* this) {
 
 void SurfaceAction_MinishDoorBack(Entity* this) {
     if ((this->y.HALF.HI & 0xF) > 1) {
-        this->collisions = 0x6600;
+        this->collisions = COL_EAST_FULL | COL_WEST_FULL;
         hide(this);
     } else {
         EnablePlayerDraw(this);
@@ -3432,7 +3433,7 @@ void SurfaceAction_MinishDoorBack(Entity* this) {
 
 void SurfaceAction_A(Entity* this) {
     if ((this->x.HALF.HI & 0xF) < 12) {
-        this->collisions = 0x66;
+        this->collisions = COL_NORTH_FULL | COL_SOUTH_FULL;
         hide(this);
     } else {
         EnablePlayerDraw(this);
@@ -3441,7 +3442,7 @@ void SurfaceAction_A(Entity* this) {
 
 void SurfaceAction_B(Entity* this) {
     if ((this->x.HALF.HI & 0xF) > 4) {
-        this->collisions = 0x66;
+        this->collisions = COL_NORTH_FULL | COL_SOUTH_FULL;
         hide(this);
     } else {
         EnablePlayerDraw(this);
