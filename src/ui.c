@@ -124,7 +124,7 @@ void DrawUIElements(void) {
     }
 }
 
-NONMATCH("asm/non_matching/ui/sub_0801C25C.inc", void sub_0801C25C(void)) {
+void sub_0801C25C(void) {
     u32 uVar1;
     s32 index;
     u8 tmp;
@@ -133,8 +133,8 @@ NONMATCH("asm/non_matching/ui/sub_0801C25C.inc", void sub_0801C25C(void)) {
     for (index = 0; index < MAX_UI_ELEMENTS; index++) {
         element = &gUnk_0200AF00.elements[index];
         if (((element->used) == 1) && ((element->unk_0_1) == 1)) {
-            // TODO wrong bitfield access here
-            if (element->unk_0_2 == 1) {
+            u8 temp = element->unk_0_2;
+            if (temp == 1) {
                 element->unk_0_2 = 2;
                 DmaSet(3, element->firstTile, element->unk_1a * 0x20 + 0x6010000, element->numTiles << 3 | 0x84000000);
             }
@@ -151,7 +151,6 @@ NONMATCH("asm/non_matching/ui/sub_0801C25C.inc", void sub_0801C25C(void)) {
         sub_0801C2F0(0x126, tmp);
     }
 }
-END_NONMATCH
 
 ASM_FUNC("asm/non_matching/ui/sub_0801C2F0.inc", void sub_0801C2F0(u32 a, u32 b))
 
@@ -354,7 +353,7 @@ u32 sub_0801CC80(UIElement* element) {
 
 ASM_FUNC("asm/non_matching/ui/ItemUIElement.inc", void ItemUIElement())
 
-NONMATCH("asm/non_matching/ui/TextUIElement.inc", void TextUIElement(UIElement* element)) {
+void TextUIElement(UIElement* element) {
     UIElement* buttonUIElement;
     u32 tmp;
     extern struct_0200AF00* ptr;
@@ -362,25 +361,27 @@ NONMATCH("asm/non_matching/ui/TextUIElement.inc", void TextUIElement(UIElement* 
     UIElement* ptr2;
 
     if (element->type2 == 9) {
-        if (gUnk_0200AF00.unk_2f == 0) {
+        tmp = gUnk_0200AF00.unk_2f;
+        if (tmp == 0) {
             switch (gArea.field_0x18) {
                 case 2:
-                    tmp1 = 0xb;
+                    tmp = 0xb;
                     break;
                 case 3:
-                    tmp1 = 0xa;
+                    tmp = 0xa;
                     break;
                 default:
-                    tmp1 = gUnk_0200AF00.unk_2c;
+                    tmp = gUnk_0200AF00.unk_2c;
                     break;
             }
-            gUnk_0200AF00.unk_32 = tmp1;
         }
+        gUnk_0200AF00.unk_32 = tmp;
     }
     tmp = gUnk_0200AF00.unk_30[element->buttonElementId];
     element->unk_0_1 = 0;
     if (tmp != 0) {
-        sub_0801CAFC(element, tmp + gUnk_080C9044[((SaveHeader*)0x2000000)->language]);
+        tmp += gUnk_080C9044[((SaveHeader*)0x2000000)->language];
+        sub_0801CAFC(element, tmp);
         buttonUIElement = FindUIElement(element->buttonElementId);
         if (buttonUIElement != NULL) {
             element->x = buttonUIElement->x;
@@ -389,7 +390,6 @@ NONMATCH("asm/non_matching/ui/TextUIElement.inc", void TextUIElement(UIElement* 
         }
     }
 }
-END_NONMATCH
 
 UIElement* FindUIElement(u32 type) {
     UIElement* element;
