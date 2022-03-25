@@ -215,7 +215,7 @@ extern u32 sub_08079B24(void);
 extern void sub_08079BD8(Entity*);
 extern u32 sub_08079D48();
 extern void sub_08079D84(void);
-extern u32 sub_08079F8C(void);
+extern bool32 sub_08079F8C(void);
 extern u32 sub_08079FC4(u32);
 extern void sub_0807A050(void);
 extern void sub_0807A5B8(u32);

@@ -40,7 +40,7 @@ void sub_0809B3C4(Entity* this) {
     }
 
     UpdateSpriteForCollisionLayer(this);
-    InitAnimationForceUpdate(this, this->type + 0x39);
+    InitAnimationForceUpdate(this, this->type + ITEM_QST_BOOK1);
 
     switch (this->type2) {
         case 0:
@@ -88,8 +88,8 @@ void sub_0809B4A8(Entity* this) {
 
         this->action = 2;
         this->actionDelay = 30;
-        this->speed = 64;
-        this->direction = 16;
+        this->speed = 0x40;
+        this->direction = 0x10;
 
         gPlayerState.pushedObject = TREE_THORNS;
         gPlayerState.queued_action = PLAYER_PUSH;
@@ -100,7 +100,7 @@ void sub_0809B4A8(Entity* this) {
         gPlayerEntity.direction = gPlayerEntity.animationState << 2;
         EnqueueSFX(SFX_10F);
     } else {
-        this->actionDelay = 0x16;
+        this->actionDelay = 22;
     }
 }
 
@@ -108,12 +108,12 @@ void sub_0809B524(Entity* this) {
     if (--this->actionDelay == 0) {
         if (--this->field_0xf == 0) {
             this->action = 3;
-            this->y.HALF.HI += 32;
-            this->z.HALF.HI -= 32;
+            this->y.HALF.HI += 0x20;
+            this->z.HALF.HI -= 0x20;
         } else {
             this->action = 1;
             this->actionDelay = 22;
-            this->field_0x80.HALF.LO = 24;
+            this->field_0x80.HALF.LO = 0x18;
         }
     }
 
@@ -142,7 +142,7 @@ void sub_0809B5B4(Entity* this) {
     if (gPlayerState.flags & PL_MINISH) {
         sub_0800445C(this);
     } else if (IsCollidingPlayer(this)) {
-        CreateItemEntity(this->type + 0x39, 0, 0);
+        CreateItemEntity(this->type + ITEM_QST_BOOK1, 0, 0);
         DeleteThisEntity();
     }
 }

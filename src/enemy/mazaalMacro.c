@@ -144,7 +144,7 @@ void sub_08034E68(Entity* this) {
             sub_08035120(this);
         }
         if (gRoomTransition.field_0x39 == 0) {
-            if (sub_08079F8C() != 0) {
+            if (sub_08079F8C()) {
                 this->action = 3;
                 scriptExecutionContext = StartCutscene(this, (u16*)script_MazaalMacroDefeated);
                 *(ScriptExecutionContext**)&this->cutsceneBeh = scriptExecutionContext;
