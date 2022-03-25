@@ -174,7 +174,7 @@ void Eyegore_Action2(EyegoreEntity* this) {
     } else {
         if (sub_08049FDC(super, 1)) {
             super->action = 3;
-            super->timer = 0x3c;
+            super->timer = 60;
             super->direction = (CalculateDirectionTo(super->x.HALF.HI + super->hitbox->offset_x,
                                                      super->y.HALF.HI + super->hitbox->offset_y,
                                                      gUnk_020000B0->x.HALF.HI, gUnk_020000B0->y.HALF.HI) +
@@ -469,7 +469,7 @@ void sub_08031250(EyegoreEntity* this) {
 void sub_08031320(EyegoreEntity* this) {
     super->action = 2;
     super->flags &= ~ENT_COLLIDE;
-    super->timer = 0x1e;
+    super->timer = 30;
     super->hitbox = (Hitbox*)&gUnk_080FD308;
     InitializeAnimation(super, 10);
 }

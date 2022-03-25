@@ -32,7 +32,7 @@ void sub_0803C6DC(BowMoblinEntity*);
 void sub_0803C714(BowMoblinEntity*);
 void sub_0803C634(BowMoblinEntity*);
 u32 sub_0803C6F8(BowMoblinEntity*);
-u32 sub_0803C568(BowMoblinEntity*);
+bool32 sub_0803C568(BowMoblinEntity*);
 void sub_0803C664(BowMoblinEntity*);
 
 void (*const BowMoblin_Functions[])(Entity*);
@@ -82,9 +82,9 @@ void sub_0803C1E0(BowMoblinEntity* this) {
     this->unk_0x7a = 0;
     this->unk_0x82 = 1;
 
-    if (super->timer) {
+    if (super->timer != 0) {
         super->animationState = super->type2 << 1;
-        super->timer = 0x1e;
+        super->timer = 30;
         super->speed = 0x80;
         super->direction = super->type2 << 3;
         sub_0803C690(this);
@@ -111,7 +111,7 @@ void sub_0803C234(BowMoblinEntity* this) {
             sub_0803C4B0(this);
         }
 
-    } else if (sub_0803C6F8(this)) {
+    } else if (sub_0803C6F8(this) != 0) {
         sub_0800417E(super, super->collisions);
         super->animationState = ((super->direction + 4) & 0x18) >> 2;
         this->unk_0x83++;
@@ -124,7 +124,6 @@ void sub_0803C234(BowMoblinEntity* this) {
 }
 
 void sub_0803C2DC(BowMoblinEntity* this) {
-    u32 res;
     u32 timer = --super->timer;
     if (timer == 0) {
         super->action = 3;
@@ -132,11 +131,11 @@ void sub_0803C2DC(BowMoblinEntity* this) {
         this->unk_0x80 = timer;
         super->animationState = 0x10;
         sub_0803C4B0(this);
-    } else if (res = sub_0803C568(this), res) {
+    } else if (sub_0803C568(this)) {
         this->unk_0x7b |= 0x1;
     }
 
-    if (super->subtimer > 0xb) {
+    if (super->subtimer > 11) {
         if (this->unk_0x7b != 0) {
             sub_0803C5F0(this);
         }
@@ -166,7 +165,7 @@ void sub_0803C344(BowMoblinEntity* this) {
                 super->action = 2;
                 super->speed = 0;
                 tmp = Random() & 0x7;
-                super->timer = (tmp << 1) + tmp + 0x40;
+                super->timer = 3 * tmp + 64;
                 break;
             }
             case 4: {
@@ -180,7 +179,7 @@ void sub_0803C344(BowMoblinEntity* this) {
                 this->unk_0x82 = 1;
                 super->speed = 0x80;
                 tmp = (Random() & 0x7);
-                super->timer = (tmp << 1) + tmp + 0x22;
+                super->timer = 3 * tmp + 34;
                 break;
             }
         }
@@ -213,6 +212,7 @@ void sub_0803C400(BowMoblinEntity* this) {
         }
     } else {
         Entity* projectile;
+
         switch (++super->timer) {
             case 1:
                 super->direction = super->animationState << 2;
@@ -252,13 +252,13 @@ void sub_0803C4B0(BowMoblinEntity* this) {
                 dir += gUnk_080CFFAC[Random() & 0xf];
             } else {
                 dir += gUnk_080CFFAC[Random() & 0x7];
-                super->timer += 0x10;
+                super->timer += 16;
                 this->unk_0x83--;
             }
             dir = (super->direction = (dir + 4) & 0x18) >> 2;
         }
     } else {
-        super->timer = 0xc;
+        super->timer = 12;
         super->speed = super->subtimer;
         dir = super->direction >> 2;
     }
@@ -268,13 +268,13 @@ void sub_0803C4B0(BowMoblinEntity* this) {
     }
 }
 
-u32 sub_0803C568(BowMoblinEntity* this) {
+bool32 sub_0803C568(BowMoblinEntity* this) {
     if (this->unk_0x81 == 0) {
         Entity* ent = sub_08049DF4(1);
         if (ent != NULL) {
             if (this->unk_0x82 == 2) {
                 if (sub_0806FC80(super, ent, 0x30)) {
-                    return 1;
+                    return TRUE;
                 }
             }
 
@@ -282,13 +282,13 @@ u32 sub_0803C568(BowMoblinEntity* this) {
                 u32 direction = (GetFacingDirection(super, ent) + 4) & 0x18;
                 direction = direction >> 2;
                 if (direction == super->animationState) {
-                    return 1;
+                    return TRUE;
                 }
             }
         }
     }
 
-    return 0;
+    return FALSE;
 }
 
 void sub_0803C5C4(BowMoblinEntity* this) {
@@ -319,13 +319,13 @@ void sub_0803C634(BowMoblinEntity* this) {
     super->direction = super->animationState << 2;
     this->unk_0x83 = 0;
     sub_0803C664(this);
-    super->timer <<= 1;
+    super->timer *= 2;
     this->unk_0x82 = 4;
 }
 
 void sub_0803C664(BowMoblinEntity* this) {
     super->action = 3;
-    super->timer = 0x20;
+    super->timer = 32;
     super->subtimer = 0;
     this->unk_0x80 = 0;
     this->unk_0x7b = 0;
@@ -402,7 +402,7 @@ void (*const gUnk_080CFF90[])(BowMoblinEntity*) = {
 };
 
 const s8 gUnk_080CFFA4[8] = {
-    0x18, 0x20, 0x30, 0x40, 0x60, 0x6c, 0x78, 0x91,
+    24, 32, 48, 64, 96, 108, 120, 145,
 };
 
 const s8 gUnk_080CFFAC[16] = {

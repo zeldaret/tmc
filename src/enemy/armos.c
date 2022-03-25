@@ -199,7 +199,7 @@ void sub_08030338(ArmosEntity* this) {
                 return;
             }
             super->action = 6;
-            super->timer = 0x1a;
+            super->timer = 26;
             super->speed = 0x300;
             super->direction = 0x10;
             return;

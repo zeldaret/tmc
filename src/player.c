@@ -649,7 +649,7 @@ static void PlayerBounceInit(Entity* this) {
     this->timer = gPlayerState.field_0x38;
     this->spriteIndex = 1;
 
-    if ((gPlayerState.flags & PL_MINISH) == 0) {
+    if (!(gPlayerState.flags & PL_MINISH)) {
         this->zVelocity = BOUNCE_SPEED_Z;
         gPlayerState.animation = 0x114;
         InitScreenShake(16, 0);
@@ -702,7 +702,7 @@ static void PlayerBounceUpdate(Entity* this) {
     this->timer = 8;
     this->subAction++;
 
-    if ((gPlayerState.flags & PL_MINISH) == 0)
+    if (!(gPlayerState.flags & PL_MINISH))
         gPlayerState.animation = DEFAULT_ANIM;
 }
 
@@ -956,16 +956,16 @@ static void PlayerDrownInit(Entity* this) {
     this->spritePriority.b1 = 0;
 
     if (gPlayerState.flags & PL_MINISH) {
-        this->timer = 0x3c;
+        this->timer = 60;
         gPlayerState.animation = 0xc19;
         SoundReq(SFX_WATER_SPLASH);
     } else {
-        if ((gPlayerState.flags & PL_FLAGS10000) == 0)
+        if (!(gPlayerState.flags & PL_FLAGS10000))
             sub_08004168(this);
 
         CreateFx(this, FX_WATER_SPLASH, 0);
 
-        if ((gPlayerState.flags & PL_NO_CAP) == 0)
+        if (!(gPlayerState.flags & PL_NO_CAP))
             gPlayerState.animation = 0x72c;
         else
             gPlayerState.animation = 0x44c;
@@ -980,7 +980,7 @@ static void sub_080712F0(Entity* this) {
 
     temp = FALSE;
 
-    if ((gPlayerState.flags & PL_MINISH) != 0) {
+    if (gPlayerState.flags & PL_MINISH) {
         if (--this->timer == 0)
             temp = TRUE;
     } else if ((this->frame & ANIM_DONE) != 0) {
@@ -990,15 +990,14 @@ static void sub_080712F0(Entity* this) {
             temp = TRUE;
     }
 
-    if (temp == FALSE)
-        return;
-
-    this->knockbackDuration = 0;
-    this->iframes = 32;
-    this->spritePriority.b1 = 1;
-    this->spriteSettings.draw = FALSE;
-    gPlayerState.flags &= ~PL_DROWNING;
-    RespawnPlayer();
+    if (temp) {
+        this->knockbackDuration = 0;
+        this->iframes = 32;
+        this->spritePriority.b1 = 1;
+        this->spriteSettings.draw = FALSE;
+        gPlayerState.flags &= ~PL_DROWNING;
+        RespawnPlayer();
+    }
 }
 
 static void PlayerUsePortal(Entity* this) {
@@ -1014,7 +1013,7 @@ static void PlayerUsePortal(Entity* this) {
     if ((this->subAction == 7) || (this->subAction < 3))
         return;
 
-    if ((gPlayerState.flags & PL_USE_PORTAL) == 0)
+    if (!(gPlayerState.flags & PL_USE_PORTAL))
         return;
 
     if ((gInput.newKeys & (B_BUTTON | R_BUTTON)) == 0)
@@ -1538,7 +1537,7 @@ static void sub_08071CAC(Entity* this) {
         gPlayerState.animation = temp;
 
         this->subAction = 2;
-        this->timer = 0xf0;
+        this->timer = 240;
         SoundReq(SFX_PLY_VO7);
     }
 }
@@ -1761,16 +1760,17 @@ static void sub_08072064(Entity* this) {
 
 static void sub_08072098(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (this->timer != 0)
-        if (this->timer-- != 0)
+    if (this->timer != 0) {
+        if (this->timer-- != 0) {
             return;
-        else
-            ;
-    else if ((this->frame & ANIM_DONE) == 0)
+        }
+    } else if ((this->frame & ANIM_DONE) == 0) {
         return;
+    }
 
-    if (this->health != 0)
+    if (this->health != 0) {
         COLLISION_ON(this);
+    }
     SetPlayerActionNormal();
 }
 
@@ -1910,7 +1910,7 @@ static void sub_08072354(Entity* this) {
     this->spritePriority.b1 = 0;
     this->knockbackDuration = 0;
     this->subAction = 2;
-    this->timer = 0x3c;
+    this->timer = 60;
     gPlayerState.animation = 0x2c1;
     gPlayerState.flags &= ~PL_BURNING;
     UpdateSpriteForCollisionLayer(this);
@@ -2067,7 +2067,7 @@ static void PlayerRollInit(Entity* this) {
 
 static void PlayerRollUpdate(Entity* this) {
     if (((gPlayerState.flags & (PL_ROLLING | PL_MOLDWORM_CAPTURED)) != PL_ROLLING) ||
-        ((gPlayerState.flags & PL_MOLDWORM_RELEASED) == 0 && (this->iframes != 0) && (this->contactFlags & 0x80))) {
+        (!(gPlayerState.flags & PL_MOLDWORM_RELEASED) && (this->iframes != 0) && (this->contactFlags & 0x80))) {
         gPlayerState.flags &= ~PL_ROLLING;
         if (CheckQueuedAction())
             return;
@@ -2077,11 +2077,11 @@ static void PlayerRollUpdate(Entity* this) {
     }
 
     this->direction = Direction8FromAnimationState(AnimationStateIdle(this->animationState));
-    if (((gPlayerState.flags & PL_MINISH) == 0) && (this->timer-- == 0)) {
+    if (!(gPlayerState.flags & PL_MINISH) && (this->timer-- == 0)) {
         CreateFx(&gPlayerEntity, FX_DASH, 0x40);
         this->timer = 4;
     }
-    if ((gPlayerState.flags & PL_FLAGS2) == 0) {
+    if (!(gPlayerState.flags & PL_FLAGS2)) {
         UpdateFloorType();
     }
     if (CheckQueuedAction()) {
@@ -2127,7 +2127,7 @@ static void PlayerRollUpdate(Entity* this) {
         CheckPlayerVelocity();
         UpdatePlayerMovement();
     }
-    if (((this->frame & 0x10) == 0) && ((gPlayerState.flags & PL_MINISH) == 0)) {
+    if (((this->frame & 0x10) == 0) && !(gPlayerState.flags & PL_MINISH)) {
         // dont take damage
         this->hurtType = 0;
     }
@@ -2152,12 +2152,12 @@ static void PlayerWaitForScroll(Entity* this) {
 
     if (gPlayerState.swim_state != 0)
         this->speed = 0;
-    if ((gPlayerState.flags & PL_HIDDEN) == 0)
+    if (!(gPlayerState.flags & PL_HIDDEN))
         gPlayerEntity.spriteSettings.draw = 3;
-    if ((gPlayerState.flags & PL_MINISH) == 0)
+    if (!(gPlayerState.flags & PL_MINISH))
         gPlayerEntity.spritePriority.b1 = 1;
 
-    if ((gRoomControls.scroll_flags & 4) == 0) {
+    if (!(gRoomControls.scroll_flags & 4)) {
         if (gPlayerState.flags & PL_HIDDEN)
             COLLISION_ON(this);
         ResetPlayerAnimationAndAction();
@@ -2205,7 +2205,7 @@ static void PlayerInHoleUpdate(Entity* this) {
     if (this->frame & ANIM_DONE) {
         if (this->timer == 1) {
             this->subAction = 3;
-            this->timer = 0x28;
+            this->timer = 40;
             this->spritePriority.b1 = 1;
             gPlayerState.animation = 0x624;
             return;
@@ -2244,7 +2244,7 @@ static void sub_08072ACC(Entity* this) {
 static void sub_08072B5C(Entity* this) {
     u32 temp;
 
-    sub_080042BA(this, ((0x28 - this->timer) >> 4) + 1);
+    sub_080042BA(this, ((40 - this->timer) >> 4) + 1);
     sub_0806F948(this);
     if (this->timer != 0) {
         this->timer--;

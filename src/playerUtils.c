@@ -2201,7 +2201,7 @@ void sub_0807B1A8(PlayerEntity* this) {
 
 void sub_0807B1DC(PlayerEntity* this) {
     this->unk_6e++;
-    super->timer = 0x1e;
+    super->timer = 30;
 }
 
 void sub_0807B1EC(PlayerEntity* this) {
@@ -2220,7 +2220,7 @@ void sub_0807B21C(PlayerEntity* this) {
         GravityUpdate(super, Q_8_8(8.0));
     }
     if (super->zVelocity < -Q_16_16(0.5)) {
-        super->timer = 0x78;
+        super->timer = 120;
         super->subtimer = 0;
         this->unk_6e++;
         this->unk_68 = super->z.WORD;
@@ -2236,7 +2236,7 @@ void sub_0807B264(PlayerEntity* this) {
     tmp <<= 0x10;
     super->z.WORD = this->unk_68 + tmp;
     if (--super->timer == 0) {
-        super->timer = 0x50;
+        super->timer = 80;
         super->zVelocity = Q_16_16(0.5);
         this->unk_6e++;
 #ifndef EU

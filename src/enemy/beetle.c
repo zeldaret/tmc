@@ -34,7 +34,7 @@ void Beetle_OnCollision(Entity* this) {
                 Beetle_OnTick(this);
             } else {
                 this->action = 5;
-                this->timer = 0xb4;
+                this->timer = 180;
                 this->subtimer = 0;
                 COLLISION_OFF(this);
                 this->spritePriority.b0 = 3;
@@ -166,7 +166,7 @@ void sub_08021A64(Entity* this) {
     if (!sub_08021D00(this)) {
         if (--this->timer == 0) {
             this->action = 2;
-            this->timer = (Random() & 0x1f) + 0x1e;
+            this->timer = (Random() & 0x1F) + 30;
             InitializeAnimation(this, 0);
         }
 
@@ -190,14 +190,14 @@ void sub_08021A64(Entity* this) {
 void sub_08021AD8(Entity* this) {
     GetNextFrame(this);
     if (this->frame & 1) {
-        if (this->timer) {
+        if (this->timer != 0) {
             u32 tmp;
 
             this->timer = 0;
             tmp = sub_08049F84(this, 1);
             if (tmp == 0xff) {
                 this->action = 2;
-                this->timer = '\b';
+                this->timer = 8;
                 InitializeAnimation(this, 0);
                 return;
             }
@@ -223,7 +223,8 @@ void sub_08021B64(Entity* this) {
         this->z.WORD = 0;
         InitializeAnimation(this, 2);
     } else {
-        int iVar4 = 1;
+        s32 iVar4 = 1;
+
         if (gPlayerState.framestate != PL_STATE_JUMP && gPlayerState.framestate != PL_STATE_CAPE) {
             if (sub_0807953C())
                 iVar4 = this->type * 3 + 8;
