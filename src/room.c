@@ -68,7 +68,7 @@ NONMATCH("asm/non_matching/LoadRoomEntity.inc", Entity* LoadRoomEntity(EntityDat
             if (kind == 9)
                 return v5;
             sub_0804AF0C(v5, dat);
-            if (!v5->next)
+            if (v5->next == NULL)
                 return v5;
             if ((dat->kind & 0x10) == 0) {
                 if ((dat->kind & 0x20) != 0) {

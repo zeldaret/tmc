@@ -114,7 +114,7 @@ void sub_080450A8(Entity* this) {
     }
 
     ent = CreateFx(this, FX_DEATH, 0);
-    if (ent)
+    if (ent != NULL)
         CopyPosition(this, ent);
 
     DeleteEntity(this);

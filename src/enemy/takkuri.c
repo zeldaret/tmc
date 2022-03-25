@@ -132,7 +132,7 @@ void sub_0803BD08(TakkuriEntity* this) {
     sub_0803BEE8(this);
     GetNextFrame(super);
     ent = sub_08049DF4(1);
-    if (ent) {
+    if (ent != NULL) {
         if (EntityInRectRadius(super, gUnk_020000B0, 0x88, 0x50)) {
             if (gUnk_020000B0->y.HALF.HI > super->y.HALF.HI + 8) {
                 super->action = 2;
@@ -306,7 +306,7 @@ void sub_0803C0AC(Entity* this) {
     u32 index, rupeeType, rupees;
     Entity* ent;
     ent = sub_08049DF4(1);
-    if (!ent)
+    if (ent == NULL)
         return;
 
     rupees = gSave.stats.rupees;

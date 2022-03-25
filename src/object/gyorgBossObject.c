@@ -10,7 +10,6 @@
 
 extern const ScreenTransitionData gUnk_0813ABD0;
 
-extern u32 sub_08079F8C(void);
 struct GyorgChildSpawns {
     s16 offsetX;
     s16 offsetY;

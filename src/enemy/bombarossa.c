@@ -44,7 +44,7 @@ void Bombarossa_OnCollision(BombarossaEntity* this) {
     switch (super->bitfield & 0x7f) {
         default:
             ent = CreateObject(OBJECT_20, 0, 0);
-            if (ent) {
+            if (ent != NULL) {
                 CopyPosition(super, ent);
             }
             DeleteThisEntity();

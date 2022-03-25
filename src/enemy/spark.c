@@ -31,7 +31,7 @@ void Spark_OnCollision(Entity* this) {
             this->spriteSettings.draw = 0;
             this->action = 2;
             ent = CreateFx(this, FX_DEATH, 0);
-            if (ent) {
+            if (ent != NULL) {
                 this->child = ent;
                 this->actionDelay = 14;
                 CopyPosition(this, ent);
@@ -122,7 +122,7 @@ void sub_0802B35C(Entity* this) {
 void sub_0802B4A8(Entity* this) {
     if (--this->actionDelay == 0) {
         Entity* ent = CreateObjectWithParent(this, GROUND_ITEM, 0x60, 0);
-        if (ent) {
+        if (ent != NULL) {
             ent->y.HALF.HI -= 4;
         }
         DeleteEntity(this);

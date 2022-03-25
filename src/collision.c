@@ -61,7 +61,7 @@ void CollisionMain(void) {
         prio = gPriorityHandler.ent_priority;
 
     // if any priority is set, dont do collision
-    if (prio)
+    if (prio != 0)
         return;
 
     doCollision = &ram_CollideAll;

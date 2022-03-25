@@ -117,7 +117,7 @@ void sub_08064EE8(Entity* this) {
         }
 
         fxEnt = CreateFx(this, confettiFx, 0);
-        if (fxEnt && bVar1 == 2) {
+        if ((fxEnt != NULL) && (bVar1 == 2)) {
             fxEnt->spriteSettings.flipX = 1;
         }
     }

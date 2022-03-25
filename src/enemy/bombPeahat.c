@@ -92,7 +92,6 @@ void sub_0802A8FC(Entity* this) {
 }
 
 void nullsub_143(Entity* this) {
-    /* ... */
 }
 
 void sub_0802A91C(Entity* this) {
@@ -167,7 +166,7 @@ void sub_0802AA40(Entity* this) {
         this->actionDelay--;
     } else {
         Entity* ent = this->child;
-        if (ent) {
+        if (ent != NULL) {
             if (ent->next == NULL) {
                 this->child = NULL;
             } else {
@@ -212,7 +211,7 @@ void sub_0802AAC0(Entity* this) {
             }
         }
 #else
-        } else if (ent->actionDelay == 0 && ent->field_0xf < 0x51) {
+        } else if ((ent->actionDelay == 0) && (ent->field_0xf <= 0x50)) {
             this->field_0x80.HALF.HI = 0;
         }
 #endif
@@ -304,7 +303,7 @@ void sub_0802AC40(Entity* this) {
     GetNextFrame(this);
     LinearMoveUpdate(this);
     if (this->field_0x7a.HALF.LO) {
-        if (sub_0802B234(this) == 0) {
+        if (!sub_0802B234(this)) {
             this->field_0x7a.HALF.LO = 0;
             this->spritePriority.b1 = 0;
 #ifndef EU
@@ -349,7 +348,7 @@ void sub_0802ACDC(Entity* this, u32 param_2) {
 
 void sub_0802AD1C(Entity* this, u32 param_2) {
     Entity* ent = sub_08049DF4(1);
-    if (ent) {
+    if (ent != NULL) {
         u32 y = ent->y.HALF.HI - 0x18;
         u32 x = ent->x.HALF.HI;
         sub_08004596(this, sub_080045B4(this, x, y));
@@ -416,7 +415,7 @@ void sub_0802AE24(Entity* this) {
 #ifdef EU
 void sub_0802AE68(Entity* this) {
     Entity* ent = this->parent;
-    if (ent == 0) {
+    if (ent == NULL) {
         this->action = 3;
         this->spriteSettings.draw = 1;
         this->field_0x80.HALF.LO = 1;
@@ -441,7 +440,7 @@ void sub_0802AE68(Entity* this) {
 #else
 void sub_0802AE68(Entity* this) {
     Entity* ent = sub_0802B250(this);
-    if (ent == 0) {
+    if (ent == NULL) {
         this->action = 3;
         this->field_0x80.HALF.LO = 1;
         sub_0802B264(this);
@@ -559,7 +558,7 @@ void sub_0802B048(Entity* this) {
     }
 
     ent = this->parent;
-    if (ent && this->action == 1) {
+    if ((ent != NULL) && this->action == 1) {
         this->spriteRendering.b3 = ent->spriteRendering.b3;
         this->spritePriority.b0 = ent->spritePriority.b0;
         this->spriteOrientation.flipY = ent->spriteOrientation.flipY;
@@ -588,7 +587,7 @@ void sub_0802B048(Entity* this) {
                     COLLISION_ON(this);
                     this->field_0x7a.HALF.HI = 0;
                     FreeCarryEntity(this);
-                    if (this->parent->next) {
+                    if (this->parent->next != NULL) {
                         this->parent->field_0x80.HALF.HI = 0;
                     }
                     ent = CreateObjectWithParent(this, OBJECT_20, 0, 0);
@@ -622,7 +621,7 @@ void sub_0802B1BC(Entity* this) {
     }
 
     ent = this->parent;
-    if (ent == 0) {
+    if (ent == NULL) {
         this->action = 2;
         this->spriteSettings.draw = 1;
     }
@@ -651,7 +650,7 @@ void sub_0802B1BC(Entity* this) {
     }
 
     ent = sub_0802B250(this);
-    if (ent == 0) {
+    if (ent == NULL) {
         this->action = 2;
         sub_0802B264(this);
     } else {
@@ -668,7 +667,7 @@ void sub_0802B1BC(Entity* this) {
 void sub_0802B204(Entity* this) {
     if (sub_080044EC(this, 0x2800) == 1) {
         Entity* ent = CreateEnemy(BOBOMB, 1);
-        if (ent) {
+        if (ent != NULL) {
             CopyPosition(this, ent);
             ent->parent = this->parent;
         }
@@ -686,7 +685,7 @@ bool32 sub_0802B234(Entity* this) {
 #ifndef EU
 Entity* sub_0802B250(Entity* this) {
     Entity* parent = this->parent;
-    if (parent && parent->next == NULL) {
+    if ((parent != NULL) && (parent->next == NULL)) {
         parent = NULL;
     }
     return parent;

@@ -42,7 +42,7 @@ NONMATCH("asm/non_matching/moldworm/Moldworm.inc", void Moldworm(Entity* this)) 
         this->field_0x7c.BYTES.byte1 = this->field_0x7c.BYTES.byte0;
         EnemyFunctionHandler(this, Moldworm_Functions);
     } else {
-        if (this->parent->next) {
+        if (this->parent->next != NULL) {
             if (this->type != 8) {
                 sub_080235BC(this);
             } else {
@@ -191,7 +191,7 @@ void sub_08023AB0(Entity*);
 void sub_08023398(Entity* this) {
     this->field_0x7c.BYTES.byte0++;
 
-    if (this->field_0x7c.BYTES.byte3 && sub_08049FDC(this, 1) == 0) {
+    if (this->field_0x7c.BYTES.byte3 && !sub_08049FDC(this, 1)) {
         this->field_0x78.HWORD = 1;
     }
 
@@ -258,7 +258,7 @@ void sub_080234D8(Entity* this) {
 }
 
 void sub_0802351C(Entity* this) {
-    if (this->actionDelay != 0 && (this->type2 == 1 || gPlayerEntity.frameIndex == 0xff)) {
+    if ((this->actionDelay != 0) && ((this->type2 == 1) || (gPlayerEntity.frameIndex == 0xff))) {
         this->actionDelay = 0;
         this->child->action = 3;
         this->child->field_0xf = this->field_0x80.HALF.LO;
@@ -377,8 +377,8 @@ void sub_0802376C(Entity* this) {
 void sub_080237D8(Entity* this) {
     Entity* parent = this->parent;
 
-    if (parent->animIndex == 0x17 && this->actionDelay != 0 && this->x.HALF.HI == parent->x.HALF.HI &&
-        this->y.HALF.HI == parent->y.HALF.HI) {
+    if ((parent->animIndex == 0x17) && (this->actionDelay != 0) && (this->x.HALF.HI == parent->x.HALF.HI) &&
+        (this->y.HALF.HI == parent->y.HALF.HI)) {
         this->action = 1;
         COLLISION_OFF(this);
         this->spriteSettings.draw = 0;
@@ -501,7 +501,7 @@ void sub_08023AB0(Entity* this) {
     if (this->field_0x7a.HALF.HI == 8) {
         if (this->field_0x7c.BYTES.byte2) {
             this->field_0x7c.BYTES.byte2--;
-        } else if (!sub_08023B38(this) || 0x1d >= this->field_0x78.HWORD) {
+        } else if (!sub_08023B38(this) || (this->field_0x78.HWORD <= 0x1D)) {
             this->hitType = 0x85;
             this->field_0x7a.HALF.HI = 0;
             this->field_0x7c.BYTES.byte2 = 30;

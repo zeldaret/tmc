@@ -283,7 +283,7 @@ u32 sub_0808288C(Entity* this, u32 form, u32 arg2, u32 arg3) {
             break;
         default:
             entity = CreateObjectWithParent(this, GROUND_ITEM, form, arg2);
-            if (entity) {
+            if (entity != NULL) {
                 if (arg3 == 2) {
                     entity->actionDelay = 5;
                     entity->field_0x86.HWORD = this->field_0x86.HWORD;

@@ -230,7 +230,7 @@ void sub_0803C400(BowMoblinEntity* this) {
         }
 
         sub_0803C6DC(this);
-        if (super->child) {
+        if (super->child != NULL) {
             sub_0803C714(this);
         }
     }
@@ -271,7 +271,7 @@ void sub_0803C4B0(BowMoblinEntity* this) {
 u32 sub_0803C568(BowMoblinEntity* this) {
     if (this->unk_0x81 == 0) {
         Entity* ent = sub_08049DF4(1);
-        if (ent) {
+        if (ent != NULL) {
             if (this->unk_0x82 == 2) {
                 if (sub_0806FC80(super, ent, 0x30)) {
                     return 1;

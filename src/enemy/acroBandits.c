@@ -75,7 +75,7 @@ void AcroBandit_OnCollision(Entity* this) {
         if (this->type == 1) {
             if (this->action < 7 && this->knockbackDuration != 0) {
                 brother = this->child;
-                if (brother) {
+                if (brother != NULL) {
                     brother->parent = this->parent;
                     do {
                         brother->action = 5;
@@ -84,10 +84,10 @@ void AcroBandit_OnCollision(Entity* this) {
                             brother->iframes = -12;
                     } while (brother = brother->child, brother != NULL);
                 }
-                if (this->parent) {
+                if (this->parent != NULL) {
                     this->parent->child = this->child;
                 } else {
-                    if (this->child)
+                    if (this->child != NULL)
                         this->parent = this;
                 }
 
@@ -181,6 +181,7 @@ void AcroBandit_Type0Action1(Entity* this) {
 
 void AcroBandit_Type0Action2(Entity* this) {
     static const u8 actionDelays[] = { 2, 2, 2, 3, 3, 3, 3, 4 };
+
     GetNextFrame(this);
     if (this->frame & 1) {
         this->frame = 0;
@@ -318,14 +319,14 @@ void AcroBandit_Type0Action8(Entity* this) {
     }
 }
 
-u32 sub_08031E04(Entity* this) {
+bool32 sub_08031E04(Entity* this) {
     static const s8 gUnk_080CE5C0[] = { -32, 0, 0, 32, 32, 0, 0, 0 };
     Entity* ent;
     const s8* tmp;
 
     ent = sub_08049DF4(1);
     if (ent == NULL)
-        return 0;
+        return FALSE;
 
     tmp = &gUnk_080CE5C0[this->frame & 6];
     return EntityWithinDistance(this, ent->x.HALF.HI + tmp[0], ent->y.HALF.HI + tmp[1], 0x50);
@@ -386,6 +387,7 @@ void AcroBandit_Type1Action1(Entity* this) {
 
 void AcroBandit_Type1Action2(Entity* this) {
     static const u16 banditGravity[] = { 0x1600, 0x1300, 0x1000, 0xD00, 0xB00 };
+
     GravityUpdate(this, banditGravity[this->type2]);
     if (this->type2 * -0xe <= this->z.HALF.HI) {
         this->action = 3;
@@ -399,11 +401,11 @@ void AcroBandit_Type1Action2(Entity* this) {
 
 void AcroBandit_Type1Action3(Entity* this) {
     GetNextFrame(this);
-    if ((this->frame & ANIM_DONE) && (this->parent || --this->actionDelay == 0)) {
+    if ((this->frame & ANIM_DONE) && ((this->parent != NULL) || (--this->actionDelay == 0))) {
         this->action = 4;
         this->direction = sub_08049F84(this, 1);
         *(u8*)&this->field_0x76 = 0;
-        if (this->child) {
+        if (this->child != NULL) {
             InitializeAnimation(this, 9);
         } else {
             InitializeAnimation(this, 8);
@@ -414,9 +416,9 @@ void AcroBandit_Type1Action3(Entity* this) {
 void AcroBandit_Type1Action4(Entity* this) {
     Entity* parent;
 
-    if (sub_080322A4(this) == 0) {
+    if (!sub_080322A4(this)) {
         parent = this->parent;
-        if (parent == 0) {
+        if (parent == NULL) {
             if (sub_08049FDC(this, 1)) {
                 if ((++this->field_0x78.HALF.HI & 7) == 0) {
                     sub_08004596(this, GetFacingDirection(this, gUnk_020000B0));
@@ -538,30 +540,29 @@ void sub_08032290(Entity* this) {
     InitializeAnimation(this, 11);
 }
 
-u32 sub_080322A4(Entity* this) {
+bool32 sub_080322A4(Entity* this) {
     if (this->child != NULL && (this->child->z.HALF.HI + 8) >= this->z.HALF.HI) {
         if (this->z.HALF.HI) {
             this->action = 5;
             this->z.HALF.HI = this->child->z.HALF.HI + 8;
             InitializeAnimation(this, 11);
-            return 1;
+            return TRUE;
         } else {
             sub_08032290(this);
-            return 1;
+            return TRUE;
         }
     }
-    return 0;
+    return FALSE;
 }
 
 void sub_080322E8(Entity* this) {
-    u8 tmp;
     if (this->field_0x78.HALF.LO) {
         if (--this->field_0x78.HALF.LO == 0) {
             u32 flipX = this->spriteSettings.flipX;
             this->spriteSettings.flipX = flipX ^ 1;
         }
     } else {
-        tmp = this->direction;
+        u8 tmp = this->direction;
         if (tmp & 0xF) {
             tmp >>= 4;
             tmp ^= 1;

@@ -195,7 +195,7 @@ void sub_0808F3DC(Entity* this) {
 
         if (this->type == 5 && (this->frame & 1)) {
             Entity* entity = CreateObjectWithParent(this->child, 0x49, 8, 0);
-            if (entity) {
+            if (entity != NULL) {
                 entity->parent = this->parent;
                 entity->child = this->parent->parent;
             }
@@ -262,19 +262,19 @@ void sub_0808F554(Entity* this) {
 
 void sub_0808F5EC(Entity* this) {
     Entity* entity = CreateObjectWithParent(this->child, 0x49, 5, 0);
-    if (entity) {
+    if (entity != NULL) {
         entity->parent = this;
         entity->child = this->child;
     }
 
     entity = CreateObjectWithParent(this->child, 0x49, 6, 0);
-    if (entity) {
+    if (entity != NULL) {
         entity->parent = this;
         entity->child = this->child;
     }
 
     entity = CreateObjectWithParent(this->child, 0x49, 7, 0);
-    if (entity) {
+    if (entity != NULL) {
         entity->parent = this;
         entity->child = this->child;
     }

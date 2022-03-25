@@ -22,7 +22,7 @@ void sub_0809CC74(Entity* this) {
         /* Create steam clouds */
         for (i = 0; i < 3; i++) {
             ent = CreateObject(BAKER_OVEN, 1, i);
-            if (ent) {
+            if (ent != NULL) {
                 ent->parent = this;
                 PositionRelative(this, ent, 16 * Q_16_16((i + 1) / 2) - Q_16_16(8.0), Q_16_16(-14.0));
             }

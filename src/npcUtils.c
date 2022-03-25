@@ -138,7 +138,7 @@ u32 sub_0806EE20(Entity* ent) {
     u32 v3;
 
     if (!ent->interactType) {
-        if (ent->child)
+        if (ent->child != NULL)
             return gUnk_08114EFC[ent->field_0x16](ent);
     } else {
         ent->knockbackSpeed = 8;

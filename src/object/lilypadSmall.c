@@ -4,7 +4,7 @@
 extern u16 gUnk_08123318[];
 
 static void sub_08097B24(Entity* this);
-static u32 sub_08097ADC(Entity* this);
+static bool32 sub_08097ADC(Entity* this);
 
 void LilypadSmall(Entity* this) {
     u32 rand;
@@ -29,19 +29,19 @@ void LilypadSmall(Entity* this) {
     }
 }
 
-static u32 sub_08097ADC(Entity* this) {
-    if ((gPlayerState.flags & PL_MINISH) == 0) {
-        return 0;
+static bool32 sub_08097ADC(Entity* this) {
+    if (!(gPlayerState.flags & PL_MINISH)) {
+        return FALSE;
     } else if (EntityInRectRadius(this, &gPlayerEntity, 8, 8) == 0) {
-        return 0;
-    } else if (sub_08079F8C() == 0) {
-        return 0;
+        return FALSE;
+    } else if (!sub_08079F8C()) {
+        return FALSE;
     } else {
         gPlayerState.field_0x14 = 1;
         if (gPlayerEntity.z.HALF.HI != 0) {
-            return 0;
+            return FALSE;
         } else {
-            return 1;
+            return TRUE;
         }
     }
 }
@@ -52,7 +52,7 @@ static void sub_08097B24(Entity* this) {
     u16* temp3;
 
     if (--this->actionDelay == 0) {
-        this->actionDelay = 0x5a;
+        this->actionDelay = 90;
         this->frameIndex = (this->frameIndex + 1) & 3;
     }
     temp3 = gUnk_08123318;

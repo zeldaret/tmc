@@ -132,7 +132,7 @@ void sub_08023CE0(Entity* this) {
             if (this->frame) {
                 if (this->frame & ANIM_DONE) {
                     Entity* ent = CreateEnemy(SLUGGULA, 1);
-                    if (ent) {
+                    if (ent != NULL) {
                         sub_0804A4E4(this, ent);
                         DeleteThisEntity();
                     }
@@ -163,7 +163,7 @@ void sub_08023E54(Entity* this) {
     if (this->field_0xf++ > 27) {
         this->field_0xf = 0;
         ent = CreateEnemy(SLUGGULA, 2);
-        if (ent) {
+        if (ent != NULL) {
             const s8* ptr = &gUnk_080CBDF7[this->animationState * 2];
             PositionRelative(this, ent, Q_16_16(ptr[0]), Q_16_16(ptr[1]));
         }

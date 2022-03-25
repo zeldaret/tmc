@@ -60,7 +60,7 @@ void Beetle_OnDeath(Entity* this) {
         GenericDeath(this);
     } else {
         Entity* ent = this->parent;
-        if (ent) {
+        if (ent != NULL) {
             ent->field_0xf--;
             this->parent = NULL;
         }

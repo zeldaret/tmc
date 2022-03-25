@@ -64,7 +64,7 @@ void ScissorsBeetle_OnGrabbed(ScissorsBeetleEntity* this) {
 
 void ScissorsBeetle_Init(ScissorsBeetleEntity* this) {
     Entity* ent = CreateProjectile(MANDIBLES_PROJECTILE);
-    if (!ent)
+    if (ent == NULL)
         return;
 
     sub_0804A720(super);
