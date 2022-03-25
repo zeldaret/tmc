@@ -6,6 +6,7 @@
  */
 
 #include "asm.h"
+#include "collision.h"
 #include "sound.h"
 #include "enemy.h"
 #include "object.h"
@@ -160,7 +161,7 @@ void sub_0802C91C(Entity* this) {
     GetNextFrame(this);
     ProcessMovement0(this);
     if (this->field_0x82.HALF.LO) {
-        if (this->collisions) {
+        if (this->collisions != COL_NONE) {
             sub_0800417E(this, this->collisions);
             InitializeAnimation(this, (this->direction >> 4) | 2);
         }
@@ -173,7 +174,7 @@ void sub_0802C91C(Entity* this) {
             sub_0802CC18(this);
         }
     } else {
-        if (this->collisions) {
+        if (this->collisions != COL_NONE) {
             sub_0800417E(this, this->collisions);
             InitializeAnimation(this, this->direction >> 4);
         }

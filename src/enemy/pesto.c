@@ -6,6 +6,7 @@
  */
 
 #include "enemy.h"
+#include "collision.h"
 #include "object.h"
 #include "game.h"
 #include "functions.h"
@@ -525,7 +526,7 @@ void sub_080244E8(Entity* this) {
 void sub_08024940(Entity* this) {
     u32 random = Random() & 0x70;
 
-    if (this->collisions != 0) {
+    if (this->collisions != COL_NONE) {
         sub_0800417E(this, this->collisions);
         sub_080249F4(this);
     }

@@ -1,5 +1,6 @@
 #define NENT_DEPRECATED
 #include "entity.h"
+#include "collision.h"
 #include "room.h"
 #include "asm.h"
 #include "sound.h"
@@ -49,7 +50,12 @@ void PlayerClone_Init(PlayerCloneEntity* this) {
     SoundReq(SFX_112);
 }
 
-const u16 PlayerCloneCollisions[] = { 0x2206, 0x6044, 0x4460, 0x622 };
+const u16 PlayerCloneCollisions[] = {
+    COL_NORTH_FULL | COL_WEST_SOUTH | COL_EAST_SOUTH,
+    COL_NORTH_EAST | COL_SOUTH_EAST | COL_EAST_FULL,
+    COL_SOUTH_FULL | COL_WEST_NORTH | COL_EAST_NORTH,
+    COL_NORTH_WEST | COL_SOUTH_WEST | COL_WEST_FULL,
+};
 
 void PlayerClone_Action1(PlayerCloneEntity* this) {
     static const Hitbox PlayerCloneHitbox = { 0, -3, { 5, 3, 3, 5 }, 6, 6 };
@@ -104,7 +110,8 @@ void PlayerClone_Action2(PlayerCloneEntity* this) {
             super->y.HALF.HI = gPlayerEntity.y.HALF.HI + this->unk7a;
             sub_08084CAC(this);
             sub_080085B0(super);
-            if ((super->collisions & 0x6666) != 0x6666) {
+            if ((super->collisions & (COL_NORTH_FULL | COL_SOUTH_FULL | COL_EAST_FULL | COL_WEST_FULL)) !=
+                (COL_NORTH_FULL | COL_SOUTH_FULL | COL_EAST_FULL | COL_WEST_FULL)) {
                 for (index = 0; index <= 3; index++) {
                     if (PlayerCloneCollisions[index] == (PlayerCloneCollisions[index] & super->collisions)) {
                         break;

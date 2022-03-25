@@ -5,6 +5,7 @@
  * @brief Flying pot enemy
  */
 #define NENT_DEPRECATED
+#include "collision.h"
 #include "functions.h"
 #include "enemy.h"
 #include "player.h"
@@ -234,7 +235,7 @@ void FlyingPot_Action4(FlyingPotEntity* this) {
 void FlyingPot_Action5(FlyingPotEntity* this) {
     ProcessMovement2(super);
 
-    if (super->collisions != 0) {
+    if (super->collisions != COL_NONE) {
         sub_08037408(this);
     }
 }

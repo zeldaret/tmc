@@ -7,6 +7,7 @@
 
 #define NENT_DEPRECATED
 #include "global.h"
+#include "collision.h"
 #include "object.h"
 #include "functions.h"
 #include "hitbox.h"
@@ -204,7 +205,7 @@ bool32 sub_0809953C(SmallIceBlockEntity* this) {
 
     uVar3 = sub_0800442E(super);
     if (uVar3 != 0) {
-        return 0;
+        return FALSE;
     }
     ProcessMovement2(super);
     sub_0800445C(super);
@@ -216,17 +217,17 @@ bool32 sub_0809953C(SmallIceBlockEntity* this) {
     }
     switch (super->direction >> 3) {
         case 0:
-            if ((super->collisions & 0xe) == 0) {
-                return 0;
+            if ((super->collisions & COL_NORTH_ANY) == COL_NONE) {
+                return FALSE;
             }
             if ((u32)(super->y.HALF.HI & 0xf) - 7 < 3) {
                 super->y.HALF.HI = (super->y.HALF.HI & 0xfff0) + 8;
-                return 1;
+                return TRUE;
             }
             sub_0809969C(this);
             break;
         case 1:
-            if ((super->collisions & 0xe000) == 0) {
+            if ((super->collisions & COL_EAST_ANY) == COL_NONE) {
                 return FALSE;
             }
             if ((u32)(super->x.HALF.HI & 0xf) - 7 < 3) {
@@ -236,7 +237,7 @@ bool32 sub_0809953C(SmallIceBlockEntity* this) {
             sub_0809969C(this);
             break;
         case 2:
-            if ((super->collisions & 0xe0) == 0) {
+            if ((super->collisions & COL_SOUTH_ANY) == COL_NONE) {
                 return FALSE;
             }
             if ((u32)(super->y.HALF.HI & 0xf) - 7 < 3) {
@@ -246,7 +247,7 @@ bool32 sub_0809953C(SmallIceBlockEntity* this) {
             sub_0809969C(this);
             break;
         default:
-            if ((super->collisions & 0xe00) != 0) {
+            if ((super->collisions & COL_WEST_ANY) != COL_NONE) {
                 if ((u32)(super->x.HALF.HI & 0xf) - 7 < 3) {
                     super->x.HALF.HI = (super->x.HALF.HI & 0xfff0) + 8;
                     return TRUE;

@@ -7,6 +7,7 @@
 
 #define NENT_DEPRECATED
 #include "global.h"
+#include "collision.h"
 #include "enemy.h"
 #include "functions.h"
 
@@ -366,7 +367,7 @@ void sub_0803992C(StalfosEntity* this) {
     super->direction = super->animationState << 3;
     this->unk_78 = (u16)gUnk_080CF900[Random() & 0xf];
     CalculateEntityTileCollisions(super, super->direction, 0);
-    if ((gUnk_080CF910[super->animationState] & super->collisions) != 0) {
+    if ((gUnk_080CF910[super->animationState] & super->collisions) != COL_NONE) {
         InitAnimationForceUpdate(super, super->animationState);
     } else {
         InitAnimationForceUpdate(super, super->animationState + 4);

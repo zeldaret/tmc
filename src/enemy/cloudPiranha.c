@@ -7,6 +7,7 @@
 
 #define NENT_DEPRECATED
 #include "global.h"
+#include "collision.h"
 #include "enemy.h"
 #include "functions.h"
 #include "coord.h"
@@ -259,7 +260,7 @@ void sub_080387F0(CloudPiranhaEntity* this) {
         if ((iVar4 == 0xf) || (iVar4 == 0x2a)) {
             super->direction = (super->direction + 0x10) & 0x1f;
         } else {
-            if (super->collisions != 0) {
+            if (super->collisions != COL_NONE) {
                 sub_0800417E(super, super->collisions);
             }
         }

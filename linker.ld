@@ -787,7 +787,7 @@ SECTIONS {
         src/object/objectA2.o(.text);
         src/object/cloud.o(.text);
         src/object/minishLight.o(.text);
-        asm/object/fireballChain.o(.text);
+        src/object/fireballChain.o(.text);
         src/object/objectA6.o(.text);
         src/object/objectA7.o(.text);
         src/object/objectA8.o(.text);

@@ -5,6 +5,7 @@
  * @brief Wisp enemy
  */
 
+#include "collision.h"
 #include "enemy.h"
 #include "save.h"
 #include "object.h"
@@ -102,7 +103,7 @@ void sub_08033674(Entity* this) {
 void sub_080336A8(Entity* this) {
     if (--this->actionDelay == 0) {
         sub_08033744(this);
-    } else if (this->collisions != 0) {
+    } else if (this->collisions != COL_NONE) {
         sub_0800417E(this, this->collisions);
     }
     ProcessMovement0(this);

@@ -1,4 +1,5 @@
 #include "entity.h"
+#include "collision.h"
 #include "enemy.h"
 #include "functions.h"
 
@@ -39,7 +40,7 @@ void TorchTrapProjectile_Action1(Entity* this) {
 void TorchTrapProjectile_Action2(Entity* this) {
     GetNextFrame(this);
     ProcessMovement3(this);
-    if (this->collisions != 0) {
+    if (this->collisions != COL_NONE) {
         DeleteThisEntity();
     }
     if (IsProjectileOffScreen(this)) {

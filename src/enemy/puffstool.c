@@ -6,6 +6,7 @@
  */
 
 #include "enemy.h"
+#include "collision.h"
 #include "object.h"
 #include "functions.h"
 
@@ -156,7 +157,7 @@ void sub_08025230(Entity* this) {
         this->direction = sub_08025C60(this);
     }
 
-    if (this->collisions != 0) {
+    if (this->collisions != COL_NONE) {
         if (--this->field_0xf == 0) {
             sub_0800417E(this, this->collisions);
         }

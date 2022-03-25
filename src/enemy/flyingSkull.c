@@ -1,4 +1,5 @@
 #define NENT_DEPRECATED
+#include "collision.h"
 #include "entity.h"
 #include "enemy.h"
 #include "functions.h"
@@ -159,7 +160,7 @@ void sub_08039ECC(FlyingSkullEntity* this) {
 void sub_08039EE4(FlyingSkullEntity* this) {
     super->subAction = 1;
     COLLISION_OFF(super);
-    super->collisions = 0;
+    super->collisions = COL_NONE;
     super->hitbox = (Hitbox*)&gUnk_080FD340;
     gPlayerEntity.animationState;
     this->unk_0x76 = gPlayerEntity.animationState;
@@ -175,7 +176,7 @@ void sub_08039F4C(FlyingSkullEntity* this) {
 
 void sub_08039F78(FlyingSkullEntity* this) {
     super->spritePriority.b1 = 1;
-    if (super->z.HALF.HI == 0 || super->collisions) {
+    if (super->z.HALF.HI == 0 || (super->collisions != COL_NONE)) {
         sub_0803A0E0(this);
     }
 }
@@ -222,7 +223,7 @@ void sub_0803A09C(FlyingSkullEntity* this) {
     GetNextFrame(super);
     ProcessMovement2(super);
 
-    if (super->collisions) {
+    if (super->collisions != COL_NONE) {
         sub_0803A0E0(this);
     }
 }
