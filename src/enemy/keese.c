@@ -5,165 +5,178 @@
  * @brief Keese enemy
  */
 
+#define NENT_DEPRECATED
 #include "enemy.h"
 #include "physics.h"
 #include "player.h"
 
-extern void GenericKnockback2(Entity*);
-extern void Keese_StartFly(Entity*);
-extern void sub_08021F24(Entity*);
+typedef struct {
+    /* 0x00 */ Entity base;
+    /* 0x68 */ u8 filler[0x10];
+    /* 0x78 */ u16 flyTimer;
+    /* 0x7a */ u16 sleepTimer;
+} KeeseEntity;
 
-extern void (*const Keese_Functions[])(Entity*);
-extern void (*const gKeeseActions[])(Entity*);
-extern void (*const gUnk_080CB6C4[])(Entity*);
+typedef enum {
+    /* 0 */ KeeseAnimation_Fly,
+    /* 1 */ KeeseAnimation_Rest
+} KeeseAnimations;
 
-extern const s8 gKeeseSpriteOffsets[];
-extern const u16 gKeeseFlyDurations[];
-extern const u8 gKeeseRestDurations[];
+typedef enum {
+    /* 0 */ KEESE_ACTION_INITIALIZE,
+    /* 1 */ KEESE_ACTION_FLY,
+    /* 2 */ KEESE_ACTION_REST,
+    /* 3 */ KEESE_ACTION_SLEEP
+} KeeseActions;
 
-enum {
-    KeeseAnimation_Fly,
-    KeeseAnimation_Rest,
+void Keese_OnTick(Entity*);
+void Keese_OnCollision(Entity*);
+void Keese_OnGrabbed(Entity*);
+
+void Keese_Initialize(KeeseEntity*);
+void Keese_Fly(KeeseEntity*);
+void Keese_Rest(KeeseEntity*);
+void Keese_Sleep(KeeseEntity*);
+
+void Keese_StartFly(KeeseEntity*);
+void sub_08021F24(KeeseEntity*);
+
+void sub_08021DCC(KeeseEntity*);
+void sub_08021DD4(KeeseEntity*);
+void sub_08021DDC(KeeseEntity*);
+
+void (*const Keese_Functions[])(Entity*) = {
+    Keese_OnTick, Keese_OnCollision, GenericKnockback2, GenericDeath, GenericConfused, Keese_OnGrabbed,
 };
 
-void Keese(Entity* this) {
-    Keese_Functions[GetNextFunction(this)](this);
+void Keese(Entity* thisx) {
+
+    Keese_Functions[GetNextFunction(thisx)](thisx);
 }
 
-void Keese_OnTick(Entity* this) {
-    gKeeseActions[this->action](this);
+void Keese_OnTick(Entity* thisx) {
+    static void (*const gKeeseActions[])(KeeseEntity*) = {
+        Keese_Initialize,
+        Keese_Fly,
+        Keese_Rest,
+        Keese_Sleep,
+    };
+    KeeseEntity* this = (KeeseEntity*)thisx;
+
+    gKeeseActions[super->action](this);
 }
 
-void Keese_OnCollision(Entity* this) {
-    EnemyFunctionHandlerAfterCollision(this, Keese_Functions);
+void Keese_OnCollision(Entity* thisx) {
+    EnemyFunctionHandlerAfterCollision(thisx, Keese_Functions);
 }
 
-void Keese_OnGrabbed(Entity* this) {
-    if (sub_0806F520(this)) {
-        gUnk_080CB6C4[this->subAction](this);
+void Keese_OnGrabbed(Entity* thisx) {
+    static void (*const gUnk_080CB6C4[])(KeeseEntity*) = {
+        sub_08021DCC,
+        sub_08021DD4,
+        sub_08021DDC,
+    };
+    KeeseEntity* this = (KeeseEntity*)thisx;
+
+    if (sub_0806F520(super)) {
+        gUnk_080CB6C4[super->subAction](this);
     }
 }
 
-void sub_08021DCC(Entity* this) {
-    this->subAction = 2;
+void sub_08021DCC(KeeseEntity* this) {
+    super->subAction = 2;
 }
 
-void sub_08021DD4(Entity* this) {
-    sub_0806F4E8(this);
+void sub_08021DD4(KeeseEntity* this) {
+    sub_0806F4E8(super);
 }
 
-void sub_08021DDC(Entity* this) {
-    if (sub_0806F3E4(this)) {
-        GenericDeath(this);
+void sub_08021DDC(KeeseEntity* this) {
+    if (sub_0806F3E4(super)) {
+        GenericDeath(super);
     }
 }
 
-void Keese_Initialize(Entity* this) {
-    sub_0804A720(this);
-    if (this->type != 0) {
-        this->spritePriority.b1 = 1;
-        this->z.HALF.HI = -0x10;
+void Keese_Initialize(KeeseEntity* this) {
+    sub_0804A720(super);
+    if (super->type != 0) {
+        super->spritePriority.b1 = 1;
+        super->z.HALF.HI = -0x10;
     }
-    this->direction = Random() & 0x1f;
-    this->gustJarFlags = 1;
-    this->spritePriority.b0 = 3;
-    this->collisionLayer = 3;
-    UpdateSpriteForCollisionLayer(this);
+    super->direction = Random() & 0x1F;
+    super->gustJarFlags = 1;
+    super->spritePriority.b0 = 3;
+    super->collisionLayer = 3;
+    UpdateSpriteForCollisionLayer(super);
     Keese_StartFly(this);
 }
 
-void Keese_Fly(Entity* this) {
-    if (this->field_0x78.HWORD != 0) {
-        this->field_0x78.HWORD--;
+void Keese_Fly(KeeseEntity* this) {
+    static const s8 gKeeseSpriteOffsets[] = {
+        1, -2, -5, -2, 1, 0,
+    };
+
+    if (this->flyTimer != 0) {
+        this->flyTimer--;
     }
-    if (this->field_0x7a.HWORD != 0) {
-        this->field_0x7a.HWORD--;
+    if (this->sleepTimer != 0) {
+        this->sleepTimer--;
     }
-    GetNextFrame(this);
-    if (this->frame & ANIM_DONE) {
+    GetNextFrame(super);
+    if (super->frame & ANIM_DONE) {
         sub_08021F24(this);
     } else {
-        ProcessMovement1(this);
+        ProcessMovement1(super);
     }
-    this->spriteOffsetY = gKeeseSpriteOffsets[this->frame];
+    super->spriteOffsetY = gKeeseSpriteOffsets[super->frame];
 }
 
-void Keese_Rest(Entity* this) {
-    if (--this->timer == 0) {
+void Keese_Rest(KeeseEntity* this) {
+    if (--super->timer == 0) {
         Keese_StartFly(this);
     }
 }
 
-void Keese_Sleep(Entity* this) {
-    if (this->timer != 0) {
-        this->timer--;
+void Keese_Sleep(KeeseEntity* this) {
+    if (super->timer != 0) {
+        super->timer--;
     } else {
-        if (EntityWithinDistance(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x70))
+        if (EntityWithinDistance(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x70))
             Keese_StartFly(this);
     }
 }
 
-void Keese_StartFly(Entity* this) {
-    this->action = 1;
-    this->field_0x78.HWORD = gKeeseFlyDurations[Random() & 0xf];
-    this->field_0x7a.HWORD = 60;
-    InitializeAnimation(this, KeeseAnimation_Fly);
+void Keese_StartFly(KeeseEntity* this) {
+    static const u16 gKeeseFlyDurations[] = {
+        180, 180, 300, 300, 300, 300, 300, 300, 480, 480, 480, 480, 480, 480, 720, 720,
+    };
+
+    super->action = KEESE_ACTION_FLY;
+    this->flyTimer = gKeeseFlyDurations[Random() & 0xf];
+    this->sleepTimer = 60;
+    InitializeAnimation(super, KeeseAnimation_Fly);
 }
 
-void sub_08021F24(Entity* this) {
-    if (this->field_0x78.HWORD == 0) {
-        this->action = 2;
-        this->timer = gKeeseRestDurations[Random() & 0xf];
-        InitializeAnimation(this, KeeseAnimation_Rest);
-    } else if (!this->field_0x7a.HWORD &&
-               !(EntityWithinDistance(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x70))) {
-        this->action = 3;
-        this->timer = 30;
-        InitializeAnimation(this, KeeseAnimation_Rest);
+void sub_08021F24(KeeseEntity* this) {
+    static const u8 gKeeseRestDurations[] = {
+        30, 30, 45, 45, 45, 45, 45, 45, 60, 60, 60, 60, 60, 60, 75, 75,
+    };
+
+    if (this->flyTimer == 0) {
+        super->action = KEESE_ACTION_REST;
+        super->timer = gKeeseRestDurations[Random() & 0xF];
+        InitializeAnimation(super, KeeseAnimation_Rest);
+    } else if ((this->sleepTimer == 0) &&
+               !(EntityWithinDistance(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x70))) {
+        super->action = KEESE_ACTION_SLEEP;
+        super->timer = 30;
+        InitializeAnimation(super, KeeseAnimation_Rest);
     } else {
-        if (sub_08049FA0(this) != 0) {
-            this->direction = Random() & 0x1f;
+        if (sub_08049FA0(super)) {
+            super->direction = Random() & 0x1f;
         } else {
-            this->direction = sub_08049EE4(this);
+            super->direction = sub_08049EE4(super);
         }
-        InitializeAnimation(this, KeeseAnimation_Fly);
+        InitializeAnimation(super, KeeseAnimation_Fly);
     }
 }
-
-// clang-format off
-void (*const Keese_Functions[])(Entity*) = {
-    Keese_OnTick,
-    Keese_OnCollision,
-    GenericKnockback2,
-    GenericDeath,
-    GenericConfused,
-    Keese_OnGrabbed,
-};
-
-void (*const gKeeseActions[])(Entity*) = {
-    Keese_Initialize,
-    Keese_Fly,
-    Keese_Rest,
-    Keese_Sleep,
-};
-
-void (*const gUnk_080CB6C4[])(Entity*) = {
-    sub_08021DCC,
-    sub_08021DD4,
-    sub_08021DDC,
-};
-
-const s8 gKeeseSpriteOffsets[] = {
-    1, -2, -5, -2, 1, 0,
-};
-
-const u16 gKeeseFlyDurations[] = {
-    180, 180, 300, 300, 300, 300, 300, 300,
-    480, 480, 480, 480, 480, 480, 720, 720,
-};
-
-const u8 gKeeseRestDurations[] = {
-    30, 30, 45, 45, 45, 45, 45, 45,
-    60, 60, 60, 60, 60, 60, 75, 75,
-};
-// clang-format on
