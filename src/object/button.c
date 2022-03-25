@@ -242,7 +242,7 @@ u32 sub_08081F7C(Entity* this, u32 r7) {
     if (this->actionDelay == 0)
         return 1;
     if (--this->actionDelay > 6) {
-        if (this->child)
+        if (this->child != NULL)
             this->child->spriteOffsetY = -4;
     } else {
         if (this->actionDelay == 6) {

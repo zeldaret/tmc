@@ -113,7 +113,7 @@ void sub_08022D40(Entity* this) {
 }
 
 void sub_08022D90(Entity* this) {
-    if (this->parent->next) {
+    if (this->parent->next != NULL) {
         Entity* parent;
 
         gUnk_080CBBBC[this->action](this);

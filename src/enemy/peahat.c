@@ -54,7 +54,7 @@ void Peahat_OnCollision(Entity* this) {
     if (this->field_0x82.HALF.LO) {
         if (this->bitfield == 0x94) {
             Entity* ent = CreateEnemy(PEAHAT, PeahatForm_Propeller);
-            if (ent) {
+            if (ent != NULL) {
                 CopyPosition(this, ent);
                 ent->z.HALF.HI -= 8;
             }

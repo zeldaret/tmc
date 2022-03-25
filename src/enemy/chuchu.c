@@ -552,7 +552,7 @@ void sub_0801F884(Entity* this) {
         this->field_0xf--;
     } else {
         Entity* ent = Create0x68FX(this, FX_LIGHTNING_STRIKE);
-        if (ent) {
+        if (ent != NULL) {
             ent->type2 = 64;
             this->action = 4;
             this->hitType = 165;

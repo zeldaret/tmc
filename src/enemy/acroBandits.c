@@ -84,10 +84,10 @@ void AcroBandit_OnCollision(Entity* this) {
                             brother->iframes = -12;
                     } while (brother = brother->child, brother != NULL);
                 }
-                if (this->parent) {
+                if (this->parent != NULL) {
                     this->parent->child = this->child;
                 } else {
-                    if (this->child)
+                    if (this->child != NULL)
                         this->parent = this;
                 }
 
@@ -403,7 +403,7 @@ void AcroBandit_Type1Action3(Entity* this) {
         this->action = 4;
         this->direction = sub_08049F84(this, 1);
         *(u8*)&this->field_0x76 = 0;
-        if (this->child) {
+        if (this->child != NULL) {
             InitializeAnimation(this, 9);
         } else {
             InitializeAnimation(this, 8);

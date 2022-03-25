@@ -349,7 +349,7 @@ void ExecuteScriptForEntity(Entity* entity, void (*postScriptCallback)(Entity*, 
         } else {
             HandlePostScriptActions(entity, *piVar1);
         }
-        if (!entity->next) {
+        if (entity->next == NULL) {
             DeleteThisEntity();
         }
     }

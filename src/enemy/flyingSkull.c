@@ -141,7 +141,7 @@ void sub_08039DD8(FlyingSkullEntity* this) {
                     super->actionDelay = 0x1e;
                 } else {
                     ent = CreateEnemy(STALFOS, super->type - 2);
-                    if (ent) {
+                    if (ent != NULL) {
                         ent->type2 = 1;
                         CopyPosition(super, ent);
                         SetTile(this->unk_0x74, COORD_TO_TILE(super), super->collisionLayer);

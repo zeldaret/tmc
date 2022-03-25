@@ -290,7 +290,7 @@ void sub_0802CBC4(Entity* this) {
     FreeCarryEntity(this);
 
     ent = CreateObjectWithParent(this, OBJECT_20, 0, 0);
-    if (ent) {
+    if (ent != NULL) {
         ent->collisionLayer = this->collisionLayer;
     }
 }

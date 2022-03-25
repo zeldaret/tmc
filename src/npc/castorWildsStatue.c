@@ -127,7 +127,7 @@ void sub_080675D4(Entity* this) {
 
     for (i = 0; i < 9; i++, gUnk++) {
         Entity* ent = CreateFx(this, FX_DEATH, 0);
-        if (ent) {
+        if (ent != NULL) {
             ent->x.HALF.HI += gUnk->x;
             ent->y.HALF.HI += gUnk->y;
             ent->z.HALF.HI = subAction;
@@ -140,7 +140,7 @@ void sub_080675D4(Entity* this) {
     gUnk = gUnk_08110E8A;
     for (i = 0; i < 4; i++, gUnk++) {
         Entity* ent = CreateFx(this, FX_ROCK, 0);
-        if (ent) {
+        if (ent != NULL) {
             ent->x.HALF.HI = gUnk->x + ent->x.HALF.HI;
             ent->y.HALF.HI = gUnk->y + ent->y.HALF.HI;
             ent->z.HALF.HI = subAction;

@@ -62,8 +62,9 @@ void ManagerB_WaitForFlag(ManagerB* this) {
 
 void ManagerB_WaitForDone(ManagerB* this) {
     // check if all helpers are done
-    if (this->manager.unk_0e)
+    if (this->manager.unk_0e) {
         return;
+    }
     // set the completion flag for the fight
     SetFlag(this->unk_3e);
     // restore music (if it was set, which apparently is only possible if there's a flag the fight waited for)
@@ -87,25 +88,28 @@ void ManagerB_LoadFight(Manager* this) {
     EntityData* prop;
     Entity* ent;
     u32 counter;
+
     this->action = 2;
     this->unk_0e = 0;
     counter = 0;
     // Create a helper to keep track of the created entities.
     monitor = CreateHelper(this);
-    if (!monitor)
+    if (monitor == NULL) {
         DeleteThisEntity();
+    }
+
     prop = (EntityData*)GetCurrentRoomProperty(this->unk_0b);
-    if (prop) {
-        while (*((u8*)prop) != 0xFF) {
+    if (prop != NULL) {
+        while (prop->kind != 0xFF) {
             ent = LoadRoomEntity(prop++);
-            if (ent && (ent->kind == ENEMY)) {
+            if ((ent != NULL) && (ent->kind == ENEMY)) {
                 ent->field_0x6c.HALF.HI |= 0x40;
                 ManagerBHelper_Monitor(monitor, ent, counter++);
             }
             if (counter >= 7) {
                 counter = 0;
                 monitor = CreateHelper(this);
-                if (!monitor)
+                if (monitor == NULL)
                     return;
             }
         }
@@ -139,27 +143,31 @@ void ManagerBHelper_Monitor(ManagerBHelper* this, Entity* ent, u32 index) {
 // case volumeMasterTarget is 1: The manager is a helper
 
 void ManagerBHelper_Main(Manager* this) {
-    u8 i, anyRemaining;
+    u8 i;
+    bool32 anyRemaining;
     Entity* current;
+
     if (this->action == 0) {
         this->action = 1;
         SetDefaultPriority((Entity*)this, PRIO_NO_BLOCK);
     }
     // go through and check all monitored enemies.
-    anyRemaining = 0;
+    anyRemaining = FALSE;
     for (i = 0; i < 8; i++) {
-        if ((current = ((ManagerBHelper*)this)->enemies[i])) {
-            if (!current->next) {
+        current = ((ManagerBHelper*)this)->enemies[i];
+        if (current != NULL) {
+            if (current->next == NULL) {
                 ((ManagerBHelper*)this)->enemies[i] = 0;
             } else {
-                anyRemaining = 1;
+                anyRemaining = TRUE;
             }
         }
     }
     if (!anyRemaining) {
         // inform the parent that we're done
-        if (((ManagerB*)this->parent)->manager.unk_0e) {
-            ((ManagerB*)this->parent)->manager.unk_0e--;
+        ManagerB* parent = (ManagerB*)this->parent;
+        if (parent->manager.unk_0e != 0) {
+            parent->manager.unk_0e--;
         }
         DeleteThisEntity();
     }
@@ -174,8 +182,9 @@ void ReplaceMonitoredEntity(Entity* old, Entity* new) {
     u32 i;
     for (current = (ManagerBHelper*)end->next; (Manager*)current != end;
          current = (ManagerBHelper*)current->manager.next) {
-        if (current->manager.type != 0x9 || current->manager.subtype != 0xB)
+        if (current->manager.type != 0x9 || current->manager.subtype != 0xB) {
             continue;
+        }
         for (i = 0; i < 8; i++) {
             if (old == current->enemies[i]) {
                 current->enemies[i] = new;

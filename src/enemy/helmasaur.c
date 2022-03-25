@@ -98,7 +98,7 @@ void sub_0802BCA8(Entity* this) {
         this->field_0x3a = this->field_0x3a & 0xfb;
         this->field_0x1c = 0x12;
         ent = CreateEnemy(HELMASAUR, 1);
-        if (ent) {
+        if (ent != NULL) {
             ent->animationState = this->animationState;
             CopyPosition(this, ent);
         }
@@ -356,7 +356,7 @@ void sub_0802C18C(Entity* this) {
     this->field_0x78.HALF.LO--;
     if ((this->field_0x78.HALF.LO & 7) == 0) {
         Entity* ent = CreateObject(SPECIAL_FX, 0x11, 0x40);
-        if (ent) {
+        if (ent != NULL) {
             PositionRelative(this, ent, 0, Q_16_16(1.0));
         }
     }

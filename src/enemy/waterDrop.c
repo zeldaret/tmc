@@ -34,7 +34,7 @@ void sub_0802A250(Entity* this) {
     UpdateSpriteForCollisionLayer(this);
 
     ent = CreateObject(OBJECT_66, 0, 0);
-    if (ent) {
+    if (ent != NULL) {
         ent->parent = this;
     }
 }

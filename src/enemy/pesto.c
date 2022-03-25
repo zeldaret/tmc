@@ -171,7 +171,7 @@ void sub_080240B8(Entity* this) {
 
         this->field_0x82.HALF.HI = 0;
         ent = CreateProjectileWithParent(this, DIRT_BALL_PROJECTILE, this->field_0x82.HALF.HI);
-        if (ent) {
+        if (ent != NULL) {
             this->child = ent;
             ent->parent = this;
             ent->y.HALF.HI += 0x10;
@@ -414,7 +414,7 @@ void sub_080244E8(Entity* this) {
                             this->field_0x78.HWORD -= 0xe;
 
                             ent = CreateProjectileWithParent(this, DIRT_BALL_PROJECTILE, this->field_0x82.HALF.HI);
-                            if (ent) {
+                            if (ent != NULL) {
                                 ent->parent = this;
                                 ent->z.HALF.HI += 0xe;
                                 ent->child = this->child;
@@ -437,7 +437,7 @@ void sub_080244E8(Entity* this) {
                             this->field_0x78.HWORD -= 0xe;
 
                             ent = CreateProjectileWithParent(this, DIRT_BALL_PROJECTILE, this->field_0x82.HALF.HI);
-                            if (ent) {
+                            if (ent != NULL) {
                                 ent->parent = this;
                                 ent->z.HALF.HI += 0xe;
                                 this->child = ent;
@@ -662,7 +662,7 @@ bool32 sub_08024B38(Entity* this) {
     }
 
     ent = FindEntityByID(PLAYER_ITEM, PLAYER_ITEM_BOMB, 2);
-    if (ent) {
+    if (ent != NULL) {
         do {
             if (ent->action != 2 && ent->z.HALF.HI == 0 && sub_08049F1C(this, ent, 0xa0)) {
                 iVar4 = 1;
@@ -679,7 +679,7 @@ bool32 sub_08024B38(Entity* this) {
     }
 
     ent = FindEntityByID(OBJECT, POT, 6);
-    if (ent) {
+    if (ent != NULL) {
         do {
             if (ent->action == 1 && sub_08049F1C(this, ent, 0xa0)) {
                 iVar4 = 1;

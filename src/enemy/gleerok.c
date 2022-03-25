@@ -283,7 +283,7 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D3B8.inc", void sub_0802D3B8(GleerokE
             do {
                 ent = CreateEnemy(GLEEROK, 1);
                 super->child = ent;
-                if (ent) {
+                if (ent != NULL) {
                     ent->type2 = uvar1 + 1;
                     super->child->collisionLayer = super->collisionLayer;
                     super->child->x.HALF.HI = super->x.HALF.HI;
@@ -301,7 +301,7 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D3B8.inc", void sub_0802D3B8(GleerokE
 
             ent = CreateEnemy(GLEEROK, 2);
             super->child = ent;
-            if (ent) {
+            if (ent != NULL) {
                 super->child->collisionLayer = super->collisionLayer;
                 super->child->x.HALF.HI = super->x.HALF.HI;
                 super->child->y.HALF.HI = super->y.HALF.HI + ((uvar1 + 1) * 12);
@@ -760,7 +760,7 @@ void sub_0802DCE0(GleerokEntity* this) {
             if (this->unk_84->ent2->field_0xf == 0) {
                 super->child = CreateProjectileWithParent(super, GLEEROK_PROJECTILE, 0);
 
-                if (super->child) {
+                if (super->child != NULL) {
                     super->child->direction = this->unk_84->filler[0x15];
                     super->child->type2 = this->unk_84->ent2->frame & 0xf;
                     super->child->parent = this->unk_84->ent2;
@@ -827,7 +827,7 @@ void sub_0802DDD8(GleerokEntity* this) {
 
                 if (this->unk_84->ent2->field_0xf == 1) {
                     super->child = CreateProjectileWithParent(super, GLEEROK_PROJECTILE, r2);
-                    if (super->child) {
+                    if (super->child != NULL) {
                         super->child->direction = this->unk_84->filler[0x15];
                         super->child->type2 = this->unk_84->ent2->frame & 0xf;
                         super->child->parent = this->unk_84->ent2;
@@ -1094,7 +1094,7 @@ void sub_0802E300(GleerokEntity* this) {
         InitializeAnimation(super, 0x4d);
         ent = CreateEnemy(GLEEROK, 5);
         super->child = ent;
-        if (super->child) {
+        if (super->child != NULL) {
             super->child->parent = super;
             heap->ent = super->child;
             ((GleerokEntity*)super->child)->unk_84 = heap;

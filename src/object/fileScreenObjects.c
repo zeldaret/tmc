@@ -252,7 +252,7 @@ void sub_0808EABC(Entity* this) {
 
 void sub_0808EB74(Entity* this) {
     Entity* entity = sub_0808EC80(gMapDataBottomSpecial.unk6);
-    if (entity) {
+    if (entity != NULL) {
         this->x.WORD = entity->x.WORD;
         this->y.WORD = entity->y.WORD;
         this->spriteRendering.b3 = entity->spriteRendering.b3;
@@ -305,7 +305,7 @@ void sub_0808EBB8(Entity* this) {
             // Fall through
         default:
             entity = sub_0808EC80(var0);
-            if (entity) {
+            if (entity != NULL) {
                 SortEntityBelow(entity, this);
                 this->spriteRendering.b3 = entity->spriteRendering.b3;
                 x = entity->x.HALF.HI;

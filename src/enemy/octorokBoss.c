@@ -495,7 +495,7 @@ void OctorokBoss_Action1(OctorokBossEntity* this) {
                 sub_08036914(super, angle, radius);
                 this->angle.HALF.HI = -((OctorokBossEntity*)super->parent)->angle.HALF.HI;
             }
-            if (IS_FROZEN((OctorokBossEntity*)super->parent) == 0) {
+            if (!IS_FROZEN((OctorokBossEntity*)super->parent)) {
                 super->spriteSettings.draw |= 1;
             }
             break;
