@@ -644,7 +644,8 @@ void OctorokBoss_Action1_ChargeAttack(OctorokBossEntity* this) {
         if ((super->direction != 0) && (super->direction != 0x10)) {
             knockbackCondition = ((super->collisions & (COL_EAST_ANY | COL_WEST_ANY)) != COL_NONE);
         }
-        if (((super->direction != 0x18) && (super->direction != 8)) && (super->collisions & (COL_NORTH_ANY | COL_SOUTH_ANY))) {
+        if (((super->direction != 0x18) && (super->direction != 8)) &&
+            (super->collisions & (COL_NORTH_ANY | COL_SOUTH_ANY))) {
             knockbackCondition = TRUE;
         }
         if (knockbackCondition) {

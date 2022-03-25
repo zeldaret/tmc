@@ -5,8 +5,6 @@
 #include "global.h"
 #include "entity.h"
 
-
-
 /** Collisions. */
 typedef enum {
     COL_NONE = 0x0,

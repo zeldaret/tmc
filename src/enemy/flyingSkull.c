@@ -223,7 +223,7 @@ void sub_0803A09C(FlyingSkullEntity* this) {
     GetNextFrame(super);
     ProcessMovement2(super);
 
-    if (super->collisions !=  COL_NONE) {
+    if (super->collisions != COL_NONE) {
         sub_0803A0E0(this);
     }
 }

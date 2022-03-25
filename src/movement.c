@@ -1589,7 +1589,7 @@ bool32 IsTileCollision(const u8* layer, s32 x, s32 y, u32 collisionType) {
                     FilledAll,
                     FilledAll,
                     /**/
-                    FilledNone
+                    FilledNone,
                 };
                 if (tileType > 0x6f) {
                     return TRUE;
