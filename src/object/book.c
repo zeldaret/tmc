@@ -15,11 +15,9 @@ void Book(Entity* this) {
 }
 
 void sub_0809B3C4(Entity* this) {
-    u32 obtained;
-
-    obtained = GetInventoryValue(this->type + ITEM_QST_BOOK1);
+    u32 obtained = GetInventoryValue(this->type + ITEM_QST_BOOK1);
     if (this->type2 != 3) {
-        if (obtained) {
+        if (obtained != 0) {
             DeleteThisEntity();
         }
     } else {
@@ -55,22 +53,23 @@ void sub_0809B3C4(Entity* this) {
         case 1: {
             u32 scroll;
             u32 height;
+
             this->action = 3;
             scroll = (u16)gRoomControls.scroll_y - 0x10;
             height = (u16)this->y.HALF.HI - scroll;
             this->z.HALF.HI -= height;
-            return;
+            break;
         }
         case 2:
             this->action = 4;
-            return;
+            break;
         case 3:
             this->action = 5;
             this->subAction = 0;
             this->spritePriority.b0 = 3;
             break;
         default:
-            return;
+            break;
     }
 }
 
@@ -92,7 +91,7 @@ void sub_0809B4A8(Entity* this) {
         this->speed = 64;
         this->direction = 16;
 
-        gPlayerState.pushedObject = 0x9e;
+        gPlayerState.pushedObject = TREE_THORNS;
         gPlayerState.queued_action = PLAYER_PUSH;
         gPlayerState.flags |= PL_BUSY;
 
@@ -134,7 +133,7 @@ void sub_0809B56C(Entity* this) {
     SetFlag(this->field_0x86.HWORD);
 
     fx = CreateFx(this, FX_DEATH, 0);
-    if (fx) {
+    if (fx != NULL) {
         SortEntityAbove(this, fx);
     }
 }
@@ -152,9 +151,8 @@ void sub_0809B5EC(Entity* this) {
     if (this->spriteSettings.draw == 1) {
         switch (this->subAction) {
             case 0: {
-                Entity* parent;
-                parent = FindEntityByID(NPC, STURGEON, 7);
-                if (!parent) {
+                Entity* parent = FindEntityByID(NPC, STURGEON, 7);
+                if (parent == NULL) {
                     return;
                 }
                 if (parent->x.HALF.HI < this->x.HALF.HI) {
@@ -170,7 +168,7 @@ void sub_0809B5EC(Entity* this) {
                 break;
             }
             case 1: {
-                if (!this->parent || !this->parent->next) {
+                if ((this->parent == NULL) || (this->parent->next == NULL)) {
                     DeleteThisEntity();
                     return;
                 }
@@ -206,9 +204,8 @@ void sub_0809B5EC(Entity* this) {
 }
 
 u32 sub_0809B688(Entity* this) {
-    u32 ret;
+    u32 ret = EntityInRectRadius(this, &gPlayerEntity, 6, 12);
 
-    ret = EntityInRectRadius(this, &gPlayerEntity, 6, 12);
     if (ret == 1 && gPlayerState.field_0xd != 16) {
         ret = 0;
     }
@@ -217,8 +214,7 @@ u32 sub_0809B688(Entity* this) {
 }
 
 void sub_0809B6B0(Entity* parent, Entity* this) {
-    s32 offset;
-    offset = (s32)gUnk_08123D94[parent->animationState >> 1] << 16;
+    s32 offset = (s32)gUnk_08123D94[parent->animationState >> 1] << 16;
 
     PositionRelative(parent, this, 0, offset);
 

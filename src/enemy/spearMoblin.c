@@ -380,7 +380,7 @@ bool32 sub_080288A4(Entity* this) {
 
 void sub_080288C0(Entity* this) {
     Entity* ent = this->child;
-    if (ent && (ent->bitfield & 0x80)) {
+    if ((ent != NULL) && (ent->bitfield & 0x80)) {
         this->knockbackDirection = ent->knockbackDirection;
         this->iframes = -ent->iframes;
         this->knockbackSpeed = ent->knockbackSpeed;
