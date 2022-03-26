@@ -22,7 +22,7 @@ typedef struct {
 
 typedef struct {
     substruct_160 unk_0;
-    u8 unk_9[54];
+    u8 unk_9[50];
     substruct_160 unk_40;
 } struct_02035160;
 extern struct_02035160 gUnk_02035160;
@@ -78,6 +78,7 @@ extern const u8 gUnk_080C9044[];
 extern void (*const EzloNagUIElement_Actions[])(UIElement*);
 extern u16 gUnk_080C9058[];
 extern Frame gUnk_080C9094[];
+extern u8 RupeeKeyDigits[];
 
 void sub_0801C2F0(u32, u32);
 void DrawHearts(void);
@@ -85,7 +86,7 @@ void DrawChargeBar(void);
 void DrawRupees(void);
 void DrawKeys(void);
 void CreateUIElement(u32, u32);
-void sub_0801C5E0(u32, u32, u32, u32);
+u32 DrawDigits(u32, u32, u32, u32);
 void sub_0801CAFC(UIElement*, u32);
 void sub_0801CB20(UIElement*, UIElementDefinition*);
 UIElement* FindUIElement(u32);
@@ -223,11 +224,129 @@ void RecoverUI(u32 bottomPt, u32 topPt) {
     gUnk_0200AF00.unk_a = 0;
 }
 
-ASM_FUNC("asm/non_matching/ui/DrawRupees.inc", void DrawRupees(void))
+void DrawRupees(void) {
+    u32 cVar1;
+    u32 temp;
+    u32 temp2;
+    substruct_160* ptr;
+    substruct_160* ptr2;
+    const u16* ptr3;
+    struct_02035160* ptr4;
+
+    if ((gUnk_0200AF00.unk_1 & 0x40) != 0) {
+        if (gUnk_0200AF00.unk_a != 0) {
+            gUnk_0200AF00.unk_a = 0;
+            ptr4 = &gUnk_02035160;
+            ptr = &ptr4->unk_0;
+            ptr->unk_0 = 0;
+            ptr->unk_2 = 0;
+            ptr->unk_4 = 0;
+            ptr->unk_6 = 0;
+            ptr->unk_8 = 0;
+            ptr2 = &ptr4->unk_40;
+            ptr2->unk_0 = 0;
+            ptr2->unk_2 = 0;
+            ptr2->unk_4 = 0;
+            ptr2->unk_6 = 0;
+            ptr2->unk_8 = 0;
+            gScreen.bg0.updated = 1;
+        }
+    } else {
+        if (gUnk_0200AF00.unk_a == 0) {
+            gUnk_0200AF00.unk_a = 2;
+            ptr4 = &gUnk_02035160;
+            ptr2 = &ptr4->unk_40;
+            ptr3 = gWalletSizes;
+            ptr4->unk_0.unk_0 = temp2 = *(ptr3 + (u32)gSave.stats.walletType * 2 + 1);
+            ptr4->unk_0.unk_2 = temp2 + 1;
+            ptr2->unk_0 = temp2 + 2;
+            ptr2->unk_2 = temp2 + 3;
+            temp2 = 0xf070;
+            ptr4->unk_0.unk_4 = temp2;
+            ptr2->unk_4 = temp2 + 1;
+            ptr4->unk_0.unk_6 = temp2 + 2;
+            ptr2->unk_6 = temp2 + 3;
+            ptr4->unk_0.unk_8 = temp2 + 4;
+            ptr2->unk_8 = temp2 + 5;
+            gScreen.bg0.updated = 1;
+            cVar1 = 1;
+        } else {
+            cVar1 = 0;
+        }
+
+        if (gUnk_0200AF00.rupees != gSave.stats.rupees) {
+            if (gUnk_0200AF00.rupees < gSave.stats.rupees) {
+                gUnk_0200AF00.rupees++;
+            } else {
+                gUnk_0200AF00.rupees--;
+            }
+            cVar1 = 2;
+        }
+        switch (cVar1) {
+            case 2:
+                temp = gUnk_0200AF00.unk_c;
+                temp &= 3;
+                if ((temp) == 0) {
+                    SoundReq(SFX_RUPEE_GET);
+                }
+            case 1:
+                DrawDigits(0x70, gUnk_0200AF00.rupees,
+                           gWalletSizes[(u32)gSave.stats.walletType * 2] <= gUnk_0200AF00.rupees, 3);
+                cVar1 = gUnk_0200AF00.unk_c + 1;
+            default:
+                gUnk_0200AF00.unk_c = cVar1;
+                break;
+        }
+    }
+}
 
 // Draw icon with text for rupees or keys
-ASM_FUNC("asm/non_matching/ui/sub_0801C5E0.inc",
-         void sub_0801C5E0(u32 iconVramIndex, u32 count, bool32 isTextYellow, u32 d))
+u32 DrawDigits(u32 iconVramIndex, u32 count, u32 isTextYellow, u32 digits) {
+    int iVar2;
+    int iVar3;
+    u8* puVar4;
+    u32 digit;
+    vu32* ptr;
+    vu32* ptr2;
+    register u32 r1 asm("r1");
+
+    puVar4 = RupeeKeyDigits;
+    if (isTextYellow == 0) {
+        puVar4 -= 0x280;
+    }
+    iVar3 = (iconVramIndex & 0x3ff) * 0x20;
+    iVar2 = iVar3 + 0x600c000;
+    switch (digits) {
+        case 3:
+            digit = Div(count, 100);
+            count = r1;
+            ptr = &REG_DMA3SAD;
+            ptr[0] = (int)puVar4 + (int)(digit)*0x40;
+            // DMA3DAD
+            ptr[1] = iVar2;
+            // DMA3CNT
+            ptr[2] = 0x84000010;
+            ptr[2];
+            iVar2 = iVar3 + 0x600c040;
+        case 2:
+            digit = Div(count, 10);
+            count = r1;
+            ptr = &REG_DMA3SAD;
+            ptr[0] = (int)puVar4 + (int)(digit)*0x40;
+            // DMA3DAD
+            ptr[1] = iVar2;
+            // DMA3CNT
+            ptr[2] = 0x84000010;
+            ptr[2];
+            iVar2 += 0x40;
+    }
+
+    ptr2 = &REG_DMA3SAD;
+    ptr2[0] = (int)puVar4 + count * 0x40;
+    ptr2[1] = iVar2;
+    ptr2[2] = 0x84000010;
+    return ptr2[2];
+}
 
 void sub_0801C66C(void) {
     struct_02034CF0* ptr;
@@ -279,7 +398,56 @@ void sub_0801C824(void) {
 
 ASM_FUNC("asm/non_matching/ui/DrawChargeBar.inc", void DrawChargeBar())
 
-ASM_FUNC("asm/non_matching/ui/DrawKeys.inc", void DrawKeys(void))
+void DrawKeys(void) {
+    s32 iVar1;
+    substruct_0E2* ptr1;
+    substruct_0E2* ptr2;
+#if NON_MATCHING
+    u32 temp;
+#else
+    register u32 temp asm("r3");
+#endif
+    u32 temp2;
+
+    if (!(((gUnk_0200AF00.unk_1 & 0x80) == 0) && (AreaHasKeys()))) {
+        if (gUnk_0200AF00.unk_10 != 0) {
+            gUnk_0200AF00.unk_10 = 0;
+            ptr1 = &gUnk_020350E2.unk_0[0];
+            ptr1->unk_0 = 0;
+            ptr1->unk_2 = 0;
+            ptr1->unk_4 = 0;
+            ptr1->unk_6 = 0;
+            gUnk_020350E2.unk_0[1].unk_0 = 0;
+            gUnk_020350E2.unk_0[1].unk_2 = 0;
+            gUnk_020350E2.unk_0[1].unk_4 = 0;
+            gUnk_020350E2.unk_0[1].unk_6 = 0;
+            gScreen.bg0.updated = 1;
+        }
+    } else {
+        if (gUnk_0200AF00.unk_10 == 0) {
+            ptr1 = &gUnk_020350E2.unk_0[0];
+            ptr2 = &gUnk_020350E2.unk_0[1];
+            temp = 0xf01c;
+            ptr1->unk_0 = temp;
+            ptr1->unk_2 = temp + 1;
+            ptr2->unk_0 = temp + 2;
+            ptr2->unk_2 = temp + 3;
+            temp += 90;
+            ptr1->unk_4 = temp;
+            ptr2->unk_4 = temp + 1;
+            temp2 = temp + 2;
+            ptr1->unk_6 = temp2;
+            temp2 = temp + 3;
+            ptr2->unk_6 = temp2;
+            gScreen.bg0.updated = 1;
+        }
+        if ((gUnk_0200AF00.unk_12 != gSave.unk45C[gArea.dungeon_idx]) || (gUnk_0200AF00.unk_10 == 0)) {
+            gUnk_0200AF00.unk_10 = 2;
+            gUnk_0200AF00.unk_12 = gSave.unk45C[gArea.dungeon_idx];
+            DrawDigits(0x76, gUnk_0200AF00.unk_12, 0, 2);
+        }
+    }
+}
 
 ASM_FUNC("asm/non_matching/ui/CreateUIElement.inc", void CreateUIElement(u32 type, u32 type2))
 

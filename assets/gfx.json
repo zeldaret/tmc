@@ -13367,13 +13367,13 @@
     "type": "unknown"
   },
   {
-    "path": "gfx/gGfx_89_5.4bpp",
+    "path": "gfx/RupeeKeyDigitsYellow.4bpp",
     "start": 6047904,
     "size": 640,
     "type": "gfx"
   },
   {
-    "path": "assets/gUnk_085C4B20.bin",
+    "path": "assets/RupeeKeyDigits.bin",
     "start": 6048544,
     "size": 640,
     "type": "unknown"

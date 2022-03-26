@@ -436,7 +436,7 @@ gGfxGroup_89::
 	gfx_raw src=offset_gGfx_89_2, unknown=0x7, dest=0x6008000, size=0xe00
 	gfx_raw src=offset_gGfx_89_3, unknown=0x7, dest=0x6010000, size=0x2000
 	gfx_raw src=offset_gGfx_89_4, unknown=0x7, dest=0x6013000, size=0x640
-	gfx_raw src=offset_gGfx_89_5, unknown=0x7, dest=0x6013c00, size=0x280
+	gfx_raw src=offset_RupeeKeyDigitsYellow, unknown=0x7, dest=0x6013c00, size=0x280
 	gfx_raw src=offset_gGfx_89_6, unknown=0x7, dest=0x6014000, size=0x8c0, terminator=1
 
 gGfxGroup_90::
