@@ -250,7 +250,7 @@ void sub_0803A364(Entity* this) {
             this->type2 = 0;
             uVar1 = 6;
             this->subAction = uVar1;
-            this->timer = 0x1e;
+            this->timer = 30;
             break;
         case 6:
             this->timer--;
@@ -275,7 +275,7 @@ void sub_0803A364(Entity* this) {
             }
             uVar1 = 9;
             this->subAction = uVar1;
-            this->timer = 0x1e;
+            this->timer = 30;
             break;
         case 9:
             this->timer--;
@@ -300,7 +300,7 @@ void sub_0803A364(Entity* this) {
             if (this->type2 != 0) {
                 uVar1 = 0xc;
                 this->subAction = uVar1;
-                this->timer = 0x1e;
+                this->timer = 30;
             } else {
                 this->type2 = 1;
                 this->subAction = 6;
@@ -508,7 +508,7 @@ void sub_0803A8B8(Entity* this) {
     u32 index;
 
     this->action = 0x10;
-    this->timer = 0x1e;
+    this->timer = 30;
     this->direction = 0;
     this->speed = 0x80;
 
@@ -621,7 +621,7 @@ void sub_0803AB10(Entity* this) {
     sub_0803B55C(this);
     if ((this->child->frame & ANIM_DONE) != 0) {
         this->action = 0x15;
-        this->timer = 0xf;
+        this->timer = 15;
     }
 }
 
@@ -684,12 +684,12 @@ void sub_0803AC60(Entity* this) {
         if (sub_0803B4E4(this) != 0) {
             this->action = 0x19;
             this->subAction = 0;
-            this->timer = 0x1e;
+            this->timer = 30;
         } else {
             LinearMoveUpdate(this);
         }
     } else {
-        this->timer = this->timer - 1;
+        this->timer--;
     }
     sub_0803B824(this);
 }
@@ -712,7 +712,7 @@ void sub_0803ACC0(Entity* this) {
             uVar2 = this->z.HALF.HI += 4;
             if (-1 < (uVar2 * 0x10000)) {
                 this->z.HALF.HI = 0;
-                this->timer = 0xc;
+                this->timer = 12;
                 this->subAction = 3;
                 InitScreenShake(8, 0);
                 SoundReq(SFX_158);
@@ -735,8 +735,8 @@ void sub_0803ACC0(Entity* this) {
             if (-1 < (uVar2 * 0x10000)) {
                 this->z.HALF.HI = 0;
                 this->action = 0x1a;
-                this->timer = 0x3c;
-                InitScreenShake(0x1e, 0);
+                this->timer = 60;
+                InitScreenShake(30, 0);
                 SoundReq(SFX_158);
                 sub_0803B804(this);
                 return;
@@ -770,7 +770,7 @@ void sub_0803ADF4(Entity* this) {
     GetNextFrame(this);
     if ((this->frame & ANIM_DONE) != 0) {
         this->action = 0x1c;
-        this->timer = 0x1e;
+        this->timer = 30;
         this->spriteSettings.draw = 0;
     }
 }
@@ -829,7 +829,7 @@ void sub_0803AF7C(Entity* this) {
     sub_0803B55C(this);
     if ((this->child->frame & ANIM_DONE) != 0) {
         this->action = 0x21;
-        this->timer = 0xf;
+        this->timer = 15;
     }
 }
 
@@ -857,7 +857,7 @@ void sub_0803AFE0(Entity* this) {
         this->z.HALF.HI += 4;
     } else {
         this->action = 0x24;
-        this->timer = 0xf0;
+        this->timer = 240;
         *(u8*)&this->cutsceneBeh = 3;
         this->z.HALF.HI = 0;
         InitScreenShake(0xa0, 0);
@@ -869,7 +869,7 @@ void sub_0803B01C(Entity* this) {
     if (--this->timer == 0) {
         this->action = 0x25;
     } else {
-        if ((0x46 < this->timer) && ((this->timer & 0xf) == 0)) {
+        if ((this->timer > 70) && ((this->timer & 0xF) == 0)) {
             sub_0803B724(this);
         }
     }
@@ -978,7 +978,7 @@ void sub_0803B1B8(Entity* this) {
         temp->field_0x80.HALF.LO |= (this->type == 0) ? 4 : 8;
         if ((temp->field_0x80.HALF.LO & 0xc) == 0xc) {
             temp->action = 0xb;
-            temp->timer = 0x78;
+            temp->timer = 120;
             temp->zVelocity = 0;
             (*(Entity**)&temp->field_0x74)->field_0x7c.HALF_U.HI = 0x708;
             (*(Entity**)&temp->field_0x78)->field_0x7c.HALF_U.HI = 0x708;
@@ -1021,7 +1021,7 @@ void sub_0803B338(Entity* this) {
         this->z.HALF.HI--;
     } else {
         this->action = 0x2f;
-        this->timer = 0xf;
+        this->timer = 15;
     }
 }
 
@@ -1172,7 +1172,7 @@ void sub_0803B63C(Entity* this) {
     x = gPlayerEntity.x.HALF.HI;
     x += gUnk_080CFD19[this->type];
     y = gPlayerEntity.y.HALF.HI - 0xc;
-    if (this->timer++ >= 0xb5) {
+    if (this->timer++ > 180) {
         this->direction = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, x, y);
     } else {
         sub_08004596(this, CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, x, y));
@@ -1257,7 +1257,7 @@ u32 sub_0803B870(Entity* this) {
     entity = this->child;
     if ((entity->contactFlags & 0x80) != 0 && (gPlayerState.flags & PL_CAPTURED)) {
         this->action = 0x18;
-        this->timer = 0x44;
+        this->timer = 68;
         this->spriteSettings.draw = 0;
         gPlayerEntity.flags &= ~ENT_COLLIDE;
         gPlayerEntity.iframes = -0x10;

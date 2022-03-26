@@ -145,7 +145,7 @@ void Lakitu_Hide(Entity* this) {
     sub_0803CA84(this, 0);
 
     if (sub_0803CA4C(this)) {
-        this->action = 2;
+        this->action = END_HIDE;
         this->spriteSettings.draw = 1;
     }
 }
@@ -155,7 +155,7 @@ void Lakitu_EndHide(Entity* this) {
 
     if (this->frame & ANIM_DONE) {
         this->action = IDLE;
-        this->timer = 0x3c;
+        this->timer = 60;
 
         this->hitType = 0x42;
 
@@ -182,7 +182,7 @@ void Lakitu_BeginHide(Entity* this) {
     UpdateAnimationSingleFrame(this);
 
     if (this->frame & ANIM_DONE) {
-        this->action = 1;
+        this->action = HIDDEN;
         this->spriteSettings.draw = 0;
 
         InitAnimationForceUpdate(this, this->animationState);
@@ -202,11 +202,11 @@ void Lakitu_Lightning(Entity* this) {
     this->hitType = 0x42;
 
     if ((Random() & 1) && !this->field_0x78.HALF.HI) {
-        this->timer = 0xf;
+        this->timer = 15;
 
         this->field_0x78.HALF.HI = TRUE;
     } else {
-        this->timer = 0x1e;
+        this->timer = 30;
 
         this->field_0x78.HALF.HI = FALSE;
 
@@ -225,7 +225,7 @@ void Lakitu_LightningDelay(Entity* this) {
         sub_0803CB34(this);
     } else {
         this->action = IDLE;
-        this->timer = 0xb4;
+        this->timer = 180;
 
         InitAnimationForceUpdate(this, this->animationState + 4);
     }
@@ -245,11 +245,11 @@ void Lakitu_Cloudless(Entity* this) {
 bool32 sub_0803CA4C(Entity* this) {
     if (EntityWithinDistance(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x28) == 0) {
         if (EntityInRectRadius(this, &gPlayerEntity, 0x70, 0x50)) {
-            return 1;
+            return TRUE;
         }
     }
 
-    return 0;
+    return FALSE;
 }
 
 void sub_0803CA84(Entity* this, u32 unkParameter) {
@@ -268,7 +268,7 @@ void sub_0803CA84(Entity* this, u32 unkParameter) {
 }
 
 void sub_0803CAD0(Entity* this) {
-    if (EntityWithinDistance(this, this->field_0x74.HWORD, this->field_0x76.HWORD, 1) == 0) {
+    if (!EntityWithinDistance(this, this->field_0x74.HWORD, this->field_0x76.HWORD, 1)) {
         this->direction =
             CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, this->field_0x74.HWORD, this->field_0x76.HWORD);
 
@@ -277,21 +277,21 @@ void sub_0803CAD0(Entity* this) {
 }
 
 bool32 sub_0803CB04(Entity* this) {
-    bool32 returnValue;
+    bool32 ret;
     u8 delay;
 
     delay = --this->timer;
     if (delay != 0) {
-        returnValue = 0;
+        ret = FALSE;
     } else {
         sub_0803CB34(this);
         this->field_0x78.HALF.HI = delay;
 
         InitAnimationForceUpdate(this->child, this->animationState + 4);
-        returnValue = 1;
+        ret = TRUE;
     }
 
-    return returnValue;
+    return ret;
 }
 
 void sub_0803CB34(Entity* this) {

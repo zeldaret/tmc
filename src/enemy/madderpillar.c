@@ -265,11 +265,11 @@ void sub_08029CF0(Entity* this) {
 
 void sub_08029D08(Entity* this) {
     this->action = 3;
-    this->timer = 0x47;
+    this->timer = 71;
 }
 
 void sub_08029D14(Entity* this) {
-    if (this->timer) {
+    if (this->timer != 0) {
         if (--this->timer == 0) {
             InitializeAnimation(this, this->animationState + 0xc);
             ChangeObjPalette(this, 0x7f);
@@ -279,7 +279,7 @@ void sub_08029D14(Entity* this) {
         GetNextFrame(this);
         if (this->frame & ANIM_DONE) {
             this->action = 4;
-            this->timer = 0x78;
+            this->timer = 120;
             this->hitType = 0x6c;
             this->hitbox = (Hitbox*)&gUnk_080FD298;
             EnqueueSFX(SFX_6B);

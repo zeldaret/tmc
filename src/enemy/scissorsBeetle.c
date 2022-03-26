@@ -93,7 +93,7 @@ void sub_080389E8(ScissorsBeetleEntity* this) {
     } else if (super->timer) {
         super->timer--;
     } else if (super->collisions != COL_NONE) {
-        super->timer = 0xc;
+        super->timer = 12;
         if ((child->animationState & 1) == 0) {
             child->animationState += Random() & 0x20 ? 1 : 7;
             child->animationState &= 7;
@@ -145,7 +145,7 @@ void sub_08038B08(ScissorsBeetleEntity* this) {
     if (super->frame & ANIM_DONE) {
         super->action = 4;
         this->unk_82 = 3;
-        super->timer = 0x32;
+        super->timer = 50;
         super->subtimer = 2;
         super->direction = ((super->animationState << 2) + 0x10) & 0x1f;
         super->speed = 0x80;

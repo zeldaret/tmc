@@ -196,7 +196,7 @@ void Peahat_ChargeTarget(Entity* this) {
         if (--this->timer == 0) {
             sub_080205F8(this);
         }
-        if (60 < this->timer) {
+        if (this->timer > 60) {
             if (this->timer & 1)
                 this->speed += 4;
 
@@ -255,33 +255,31 @@ void Peahat_Stunned(Entity* this) {
 }
 
 void Peahat_RepairPropeller(Entity* this) {
-    if (this->subtimer)
-        if (--this->subtimer == 0)
-            Create0x68FX(this, FX_STARS);
+    if ((this->subtimer != 0) && (--this->subtimer == 0)) {
+        Create0x68FX(this, FX_STARS);
+    }
 
-    if (!sub_0800442E(this) && --this->timer)
-        return;
-
-    this->action = 9;
-    this->zVelocity = Q_16_16(1.5);
-    this->direction = Random() & 0x1f;
-    sub_0804AA1C(this);
-    this->animationState = PeahatAnimation_RepairPropeller;
-    InitializeAnimation(this, this->animationState);
+    if (sub_0800442E(this) || (--this->timer == 0)) {
+        this->action = 9;
+        this->zVelocity = Q_16_16(1.5);
+        this->direction = Random() & 0x1f;
+        sub_0804AA1C(this);
+        this->animationState = PeahatAnimation_RepairPropeller;
+        InitializeAnimation(this, this->animationState);
+    }
 }
 
 void Peahat_Recover(Entity* this) {
-    if (this->subtimer)
-        if (--this->subtimer == 0)
-            Create0x68FX(this, FX_STARS);
+    if ((this->subtimer != 0) && (--this->subtimer == 0)) {
+        Create0x68FX(this, FX_STARS);
+    }
 
-    if (!sub_0800442E(this) && --this->timer)
-        return;
-
-    this->action = 8;
-    this->timer = 240;
-    this->direction = Random() & 0x1f;
-    sub_0804AA1C(this);
+    if (sub_0800442E(this) || (--this->timer == 0)) {
+        this->action = 8;
+        this->timer = 240;
+        this->direction = Random() & 0x1f;
+        sub_0804AA1C(this);
+    }
 }
 
 void Peahat_Hop(Entity* this) {

@@ -143,7 +143,7 @@ void sub_08033F3C(Entity* this) {
         if (gRoomTransition.field_0x39 == 0) {
             this->action = 0xd;
             this->subAction = 0;
-            this->timer = 0xfc;
+            this->timer = 252;
             COLLISION_OFF(this);
         } else {
             pEVar2 = CreateEnemy(MAZAAL_BRACELET, 0);
@@ -170,7 +170,7 @@ void sub_08033FFC(Entity* this) {
             break;
         case 1:
             this->subAction = 2;
-            this->timer = 0x1e;
+            this->timer = 30;
             entity = *(Entity**)&(*(Entity**)&this->field_0x74)->field_0x74;
             entity->subAction = 1;
             entity = *(Entity**)&(*(Entity**)&this->field_0x78)->field_0x74;
@@ -206,7 +206,7 @@ void sub_08033FFC(Entity* this) {
         case 7:
             temp = ++this->timer >> 1;
             gScreen.controls.alphaBlend = (temp) | (0x10 - (temp)) * 0x100;
-            if (0x1f < (this->timer & 0xff)) {
+            if (this->timer > 31) {
                 this->subAction = 8;
                 entity = *(Entity**)&this->field_0x74;
                 entity->subAction = 3;
@@ -354,7 +354,7 @@ void sub_0803438C(Entity* this) {
         this->health = 0;
     } else {
         this->timer--;
-        if (this->timer > 0xc0) {
+        if (this->timer > 192) {
             this->spriteOffsetX = gUnk_080CED06[this->timer & 3];
         } else {
             if ((this->timer & 0x1f) == 0) {
@@ -747,7 +747,7 @@ void sub_08034AC4(Entity* this) {
 
 void sub_08034AEC(Entity* this) {
     this->action = 1;
-    this->timer = 0x1e;
+    this->timer = 30;
     InitializeAnimation(this, this->type + 1);
     SoundReq(SFX_151);
 }
@@ -761,7 +761,7 @@ void sub_08034B0C(Entity* this) {
             return;
         }
         this->action = 2;
-        this->timer = 0x50;
+        this->timer = 80;
     }
 }
 

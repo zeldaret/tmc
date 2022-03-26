@@ -63,7 +63,7 @@ void Sluggula_OnGrabbed(Entity* this) {
 void sub_08023C5C(Entity* this) {
     sub_0804A720(this);
     this->action = 1;
-    this->timer = (Random() & 0x30) + 0xb4;
+    this->timer = (Random() & 0x30) + 180;
     this->direction = DirectionRound(Random());
     this->animationState = this->direction >> 3;
     InitializeAnimation(this, this->animationState);
@@ -77,7 +77,7 @@ void sub_08023C8C(Entity* this) {
         if (this->frame != 1) {
             this->timer = 8;
         } else {
-            this->timer = (Random() & 0x30) + 0xb4;
+            this->timer = (Random() & 0x30) + 180;
             sub_08023E9C(this);
             this->animationState = this->direction >> 3;
             InitializeAnimation(this, this->animationState);

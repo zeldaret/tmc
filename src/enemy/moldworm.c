@@ -137,7 +137,7 @@ void sub_080231BC(Entity* this) {
         ent->child = NULL;
         sub_0804A720(this);
         this->action = 6;
-        this->timer = 0x1e;
+        this->timer = 30;
         this->parent = this;
         this->field_0x78.HWORD = 0x1e;
         this->palette.b.b0 = 5;
@@ -172,7 +172,7 @@ void sub_08023330(Entity* this) {
     GetNextFrame(this);
     if (this->frame & ANIM_DONE) {
         this->action = 4;
-        this->timer = 0x19;
+        this->timer = 25;
         COLLISION_ON(this);
         this->field_0x78.HWORD = 600;
         this->direction = Random() & 0x1c;

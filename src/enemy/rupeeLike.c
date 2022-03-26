@@ -64,7 +64,7 @@ void RupeeLike_OnCollision(Entity* this) {
                 InitializeAnimation(this->child, 4);
             }
             this->action = 4;
-            this->timer = 0x3c;
+            this->timer = 60;
             this->subtimer = 0;
             this->field_0x82.HALF.HI = 0x41;
             this->flags2 &= 0xfc;
@@ -274,7 +274,7 @@ void sub_08029770(Entity* this) {
 void sub_080297F0(Entity* this) {
     u32 temp;
     this->action = 1;
-    this->timer = 0x78;
+    this->timer = 120;
     COLLISION_ON(this);
     this->spriteSettings.draw = TRUE;
     this->hitType = 0x8e;
