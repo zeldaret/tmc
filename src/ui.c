@@ -402,12 +402,7 @@ void DrawKeys(void) {
     s32 iVar1;
     substruct_0E2* ptr1;
     substruct_0E2* ptr2;
-#if NON_MATCHING
     u32 temp;
-#else
-    register u32 temp asm("r3");
-#endif
-    u32 temp2;
 
     if (!(((gUnk_0200AF00.unk_1 & 0x80) == 0) && (AreaHasKeys()))) {
         if (gUnk_0200AF00.unk_10 != 0) {
@@ -432,13 +427,11 @@ void DrawKeys(void) {
             ptr1->unk_2 = temp + 1;
             ptr2->unk_0 = temp + 2;
             ptr2->unk_2 = temp + 3;
-            temp += 90;
+            temp = 0xf076;
             ptr1->unk_4 = temp;
             ptr2->unk_4 = temp + 1;
-            temp2 = temp + 2;
-            ptr1->unk_6 = temp2;
-            temp2 = temp + 3;
-            ptr2->unk_6 = temp2;
+            ptr1->unk_6 = temp + 2;
+            ptr2->unk_6 = temp + 3;
             gScreen.bg0.updated = 1;
         }
         if ((gUnk_0200AF00.unk_12 != gSave.unk45C[gArea.dungeon_idx]) || (gUnk_0200AF00.unk_10 == 0)) {
