@@ -60,6 +60,8 @@ typedef struct {
 
 extern struct_020350E2 gUnk_020350E2;
 
+extern u32 gUnk_085C4620[];
+
 typedef struct {
     u16 unk_0; // -> gOamCmd._4
     u16 unk_2; // -> gOamCmd._6
@@ -80,7 +82,7 @@ extern u16 gUnk_080C9058[];
 extern Frame gUnk_080C9094[];
 extern u8 RupeeKeyDigits[];
 
-void sub_0801C2F0(u32, u32);
+u32 sub_0801C2F0(u32, u32);
 void DrawHearts(void);
 void DrawChargeBar(void);
 void DrawRupees(void);
@@ -153,7 +155,30 @@ void sub_0801C25C(void) {
     }
 }
 
-ASM_FUNC("asm/non_matching/ui/sub_0801C2F0.inc", void sub_0801C2F0(u32 a, u32 b))
+u32 sub_0801C2F0(u32 param_1, u32 param_2) {
+    u32 uVar1;
+    register u32 rem asm("r1");
+    vu32* ptr;
+    param_1 = param_1 * 0x20 + 0x6010000;
+
+    uVar1 = Div(param_2, 10);
+    if (uVar1 > 9) {
+        uVar1 = 9;
+    }
+    ptr = &REG_DMA3SAD;
+    ptr[0] = (u32)(gUnk_085C4620 + uVar1 * 8);
+    // DMA3DAD
+    ptr[1] = param_1;
+    // DMA3CNT
+    ptr[2] = 0x84000008;
+    ptr[2];
+    ptr[0] = (u32)(gUnk_085C4620 + (rem + 10) * 8);
+    // DMA3DAD
+    ptr[1] = param_1 + 0x20;
+    // DMA3CNT
+    ptr[2] = 0x84000008;
+    return ptr[2];
+}
 
 void DrawUI(void) {
     gUnk_0200AF00.unk_0 &= ~gUnk_0200AF00.unk_1;
