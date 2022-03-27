@@ -240,7 +240,7 @@ void sub_08093248(ObjectBlockingStairsEntity* this) {
     tilePos = this->tilePos - 0x40;
     collisionLayer = super->collisionLayer;
     for (index = 0, iVar4 = 0; index < 9; index++) {
-        sub_0807BA8C(tilePos + iVar4 + index - 1, collisionLayer);
+        RestorePrevTileEntity(tilePos + iVar4 + index - 1, collisionLayer);
         switch (index) {
             case 2:
                 iVar4 = 0x3d;
