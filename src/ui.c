@@ -61,6 +61,7 @@ typedef struct {
 extern struct_020350E2 gUnk_020350E2;
 
 extern u32 gUnk_085C4620[];
+extern Frame* gSpriteAnimations_322[];
 
 typedef struct {
     u16 unk_0; // -> gOamCmd._4
@@ -537,7 +538,74 @@ u32 sub_0801CC80(UIElement* element) {
     return itemId;
 }
 
-ASM_FUNC("asm/non_matching/ui/ItemUIElement.inc", void ItemUIElement())
+void ItemUIElement(UIElement* element) {
+    u32 itemMaxNumber;
+    u32 itemId;
+    u8* puVar3;
+    UIElement* element2;
+    u32 uVar5;
+    u32 playerItemCount;
+    u8* psVar8;
+    u32 uiElementType;
+
+    element->unk_0_1 = 0;
+    itemId = sub_0801CC80(element);
+    if (itemId == 0) {
+        return;
+    }
+
+    if (element->unk_8 != itemId) {
+        element->unk_8 = itemId;
+        sub_0801CAB8(element, gSpriteAnimations_322[itemId]);
+    }
+
+    if (element->type ^ 3) {
+        uiElementType = 1;
+    } else {
+        uiElementType = 0;
+    }
+
+    psVar8 = &gUnk_0200AF00.unk_13;
+    if (uiElementType != 0) {
+        psVar8 = &gUnk_0200AF00.unk_14;
+    }
+
+    switch ((s32)element->unk_8) {
+        case 7:
+        case 8:
+            playerItemCount = gSave.stats.bombCount;
+            if (*psVar8 != playerItemCount) {
+                *psVar8 = playerItemCount + 0x80;
+            }
+            itemMaxNumber = gBombBagSizes[gSave.stats.bombBagType];
+            break;
+        case 9:
+        case 10:
+            playerItemCount = gSave.stats.arrowCount;
+            if (*psVar8 != playerItemCount) {
+                *psVar8 = playerItemCount + 0x80;
+            }
+            itemMaxNumber = gQuiverSizes[gSave.stats.quiverType];
+            break;
+        default:
+            itemMaxNumber = 1;
+            playerItemCount = 0;
+            break;
+    }
+
+    uVar5 = 3;
+    if (itemMaxNumber <= playerItemCount) {
+        uVar5 = 4;
+    }
+    element->unk_18 = uVar5;
+    element2 = FindUIElement(uiElementType);
+    if (element2 != 0) {
+        element->x = element2->x;
+        element->y = element2->y;
+        element->unk_0_1 = 1;
+        sub_0801CAD0(element);
+    }
+}
 
 void TextUIElement(UIElement* element) {
     UIElement* buttonUIElement;
