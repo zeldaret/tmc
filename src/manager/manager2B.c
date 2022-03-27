@@ -86,7 +86,7 @@ void sub_0805D11C(Manager2B* this) {
         entity_iterator = &this->field_0x20[counter];
         entity = *entity_iterator;
         *entity_iterator = NULL;
-        sub_0807BA8C(COORD_TO_TILE(entity), entity->collisionLayer);
+        RestorePrevTileEntity(COORD_TO_TILE(entity), entity->collisionLayer);
         DeleteEntity(entity);
     }
 }

@@ -3692,7 +3692,7 @@ void sub_0804D810(void) {
     while (*puVar2 != 0) {
         uVar1 = *puVar2;
         puVar2++;
-        sub_0807BA8C(uVar1, 1);
+        RestorePrevTileEntity(uVar1, 1);
     }
 }
 
@@ -6000,34 +6000,34 @@ void sub_0804F8E0(void) {
 }
 
 void sub_0804F928(void) {
-    sub_0807BA8C(0x41d, 1);
-    sub_0807BA8C(0x621, 1);
+    RestorePrevTileEntity(0x41d, 1);
+    RestorePrevTileEntity(0x621, 1);
 }
 
 void sub_0804F944(void) {
-    sub_0807BA8C(0x41e, 1);
-    sub_0807BA8C(0x620, 1);
+    RestorePrevTileEntity(0x41e, 1);
+    RestorePrevTileEntity(0x620, 1);
 }
 
 void sub_0804F960(void) {
-    sub_0807BA8C(0x41f, 1);
-    sub_0807BA8C(0x4e5, 1);
-    sub_0807BA8C(0x61f, 1);
-    sub_0807BA8C(0x559, 1);
+    RestorePrevTileEntity(0x41f, 1);
+    RestorePrevTileEntity(0x4e5, 1);
+    RestorePrevTileEntity(0x61f, 1);
+    RestorePrevTileEntity(0x559, 1);
 }
 
 void sub_0804F994(void) {
-    sub_0807BA8C(0x420, 1);
-    sub_0807BA8C(0x525, 1);
-    sub_0807BA8C(0x61e, 1);
-    sub_0807BA8C(0x519, 1);
+    RestorePrevTileEntity(0x420, 1);
+    RestorePrevTileEntity(0x525, 1);
+    RestorePrevTileEntity(0x61e, 1);
+    RestorePrevTileEntity(0x519, 1);
 }
 
 void sub_0804F9C8(void) {
-    sub_0807BA8C(0x421, 1);
-    sub_0807BA8C(0x565, 1);
-    sub_0807BA8C(0x61d, 1);
-    sub_0807BA8C(0x4d9, 1);
+    RestorePrevTileEntity(0x421, 1);
+    RestorePrevTileEntity(0x565, 1);
+    RestorePrevTileEntity(0x61d, 1);
+    RestorePrevTileEntity(0x4d9, 1);
 }
 
 u32 sub_unk3_HyruleField_OutsideCastleWest(void) {

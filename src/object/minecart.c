@@ -96,7 +96,7 @@ void sub_080918A4(Entity* this) {
             this->hurtType = 0x18;
             this->damage = 8;
             sub_0801766C(this);
-            sub_0807BA8C(COORD_TO_TILE(this), this->collisionLayer);
+            RestorePrevTileEntity(COORD_TO_TILE(this), this->collisionLayer);
             SoundReq(SFX_137);
         }
     } else {
@@ -141,7 +141,7 @@ void sub_080919AC(Entity* this) {
                 this->field_0xf = 0x3c;
             }
 
-            uVar3 = sub_080B1A8C(this, gUnk_081223C8[this->animationState * 2],
+            uVar3 = GetRelativeCollisionTile(this, gUnk_081223C8[this->animationState * 2],
                                  gUnk_081223C8[this->animationState * 2 + 1]);
             iVar2 = sub_08007DD6(uVar3, gUnk_081223D8[this->animationState]);
             if (iVar2 == 0) {

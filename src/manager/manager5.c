@@ -74,7 +74,7 @@ void sub_08057BA4(Manager5* this) {
     } else {
         if (!this->manager.unk_0f)
             return;
-        sub_0807BA8C(this->unk_38 | (this->unk_3a << 6), this->unk_3c);
+        RestorePrevTileEntity(this->unk_38 | (this->unk_3a << 6), this->unk_3c);
         sub_08057CA4(this, this->unk_2c, this->unk_2e);
         this->manager.unk_0f--;
         SoundReq(SFX_HEART_GET);

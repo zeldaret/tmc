@@ -616,19 +616,19 @@ sub_080A169C: @ 0x080A169C
 	push {lr}
 	ldr r0, _080A16C8 @ =0x00000D36
 	movs r1, #1
-	bl sub_0807BA8C
+	bl RestorePrevTileEntity
 	ldr r0, _080A16CC @ =0x00000D37
 	movs r1, #1
-	bl sub_0807BA8C
+	bl RestorePrevTileEntity
 	ldr r0, _080A16D0 @ =0x00000D38
 	movs r1, #1
-	bl sub_0807BA8C
+	bl RestorePrevTileEntity
 	ldr r0, _080A16D4 @ =0x00000D75
 	movs r1, #1
-	bl sub_0807BA8C
+	bl RestorePrevTileEntity
 	ldr r0, _080A16D8 @ =0x00000E75
 	movs r1, #1
-	bl sub_0807BA8C
+	bl RestorePrevTileEntity
 	pop {pc}
 	.align 2, 0
 _080A16C8: .4byte 0x00000D36

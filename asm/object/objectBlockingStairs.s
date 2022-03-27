@@ -478,7 +478,7 @@ _0809325C:
 	adds r0, r0, r4
 	subs r0, #1
 	adds r1, r6, #0
-	bl sub_0807BA8C
+	bl RestorePrevTileEntity
 	cmp r4, #2
 	beq _08093272
 	cmp r4, #5

@@ -178,7 +178,7 @@ void CrenelBeanSprout_Action1(CrenelBeanSproutEntity* this) {
         }
         PositionRelative(&gPlayerEntity, super, 0, 0x10000);
         if (GetTileUnderEntity(super) == 0x19) {
-            sub_0807BA8C(0xdc, super->collisionLayer);
+            RestorePrevTileEntity(0xdc, super->collisionLayer);
             sub_08096A78(this);
         }
         if ((gPlayerState.field_0x92 & 0xc0) == 0) {
@@ -193,7 +193,7 @@ void CrenelBeanSprout_Action1(CrenelBeanSproutEntity* this) {
         super->zVelocity = 0x20000;
         super->spritePriority.b1 = 1;
         super->spriteSettings.shadow = 1;
-        sub_0807BA8C(0xdc, super->collisionLayer);
+        RestorePrevTileEntity(0xdc, super->collisionLayer);
         SoundReq(SFX_PLY_VO5);
     }
 }

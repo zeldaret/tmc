@@ -302,6 +302,10 @@ sub_08008790: @ 0x08008790
 	ldrh r3, [r0, #0x32]
 	b sub_08008796
 
+// r0: Entity*
+// r1: Entity*
+// r2: x
+// r3: y
 	non_word_aligned_thumb_func_start sub_08008796
 sub_08008796: @ 0x08008796
 	push {r4, r5, r6, r7, lr}
@@ -421,7 +425,7 @@ _08008870:
 _08008876:
 	adds r0, r1, #0
 	adds r1, r2, #0
-	bl sub_0807BA8C
+	bl RestorePrevTileEntity
 _0800887E:
 	ldrb r1, [r5, #2]
 	ldrb r2, [r5, #3]
@@ -454,14 +458,20 @@ _080088E0: .4byte gRoomControls
 _080088E4: .4byte 0x00004000
 _080088E8: .4byte 0x0000FFFF
 _080088EC:
-	.byte 0x00, 0xFD, 0x03, 0xFD
-	.byte 0x03, 0x00, 0x03, 0x03, 0x00, 0x03, 0xFD, 0x03, 0xFD, 0x00, 0xFD, 0xFD
+	.byte 0, -3, 3, -3
+	.byte 3, 0, 3, 3
+	.byte 0, 3, -3, 3
+	.byte -3, 0, -3, -3
 _080088FC:
-	.byte 0x00, 0xF6, 0x0A, 0xF6
-	.byte 0x0A, 0x00, 0x0A, 0x0A, 0x00, 0x0A, 0xF6, 0x0A, 0xF6, 0x00, 0xF6, 0xF6
+	.byte 0, -10, 10, -10
+	.byte 10, 0, 10, 10
+	.byte 0, 10, -10, 10
+	.byte -10, 0, -10, -10
 _0800890C:
-	.byte 0x00, 0x06, 0xFA, 0x00
-	.byte 0x00, 0xFA, 0x06, 0x00, 0x13, 0x12, 0x12, 0x10, 0x10, 0x11, 0x11, 0x13
+	.byte 0, 6, -6, 0
+	.byte 0, -6, 6, 0
+	.byte 19, 18, 18, 16
+	.byte 16, 17, 17, 19
 _0800891C:
 	push {r0}
 	bl ResetPlayerVelocity
@@ -714,7 +724,7 @@ sub_08008AC6: @ 0x08008AC6
 	ldr r3, _08008B4C @ =gUnk_02000020
 	ands r2, r3
 	bne _08008AEC
-	bl sub_08008AEE
+	bl GetNonCollidedSide
 	beq _08008AEC
 	movs r3, #0xe2
 	movs r2, #0x3d
@@ -723,8 +733,10 @@ sub_08008AC6: @ 0x08008AC6
 _08008AEC:
 	pop {r0, pc}
 
-	non_word_aligned_thumb_func_start sub_08008AEE
-sub_08008AEE: @ 0x08008AEE
+// Args: r0 = Entity*
+// Gets first side that has no collisions (N, then S, W, E)
+	non_word_aligned_thumb_func_start GetNonCollidedSide
+GetNonCollidedSide: @ 0x08008AEE
 	ldrh r2, [r0, #0x2a]
 	movs r3, #0xe
 	movs r1, #4
@@ -738,12 +750,13 @@ _08008AF4:
 _08008B00:
 	bx lr
 
-	non_word_aligned_thumb_func_start sub_08008B02
-sub_08008B02: @ 0x08008B02
+	non_word_aligned_thumb_func_start CheckNEastTile
+CheckNEastTile: @ 0x08008B02
 	push {r0, r1, lr}
 	movs r1, #0
 	movs r2, #0
-	bl sub_080B1A8C
+	bl GetRelativeCollisionTile
+	// check if north east collision?
 	ldr r1, _08008B50 @ =0x00004000
 	tst r0, r1
 	bne _08008B1E
@@ -757,16 +770,17 @@ _08008B1E:
 _08008B20:
 	pop {r0, r1, pc}
 
-	non_word_aligned_thumb_func_start sub_08008B22
-sub_08008B22: @ 0x08008B22
+// this is used somehow for player jumps
+	non_word_aligned_thumb_func_start PlayerCheckNEastTile
+PlayerCheckNEastTile: @ 0x08008B22
 	push {lr}
 	ldr r0, _08008B58 @ =gPlayerEntity
-	bl sub_08008B02
+	bl CheckNEastTile
 	adds r0, r2, #0
 	pop {pc}
 
-	non_word_aligned_thumb_func_start sub_08008B2E
-sub_08008B2E: @ 0x08008B2E
+// this is unused
+_play_snd:
 	push {r0, lr}
 	adds r0, r2, #0
 	bl EnqueueSFX

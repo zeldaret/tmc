@@ -159,7 +159,7 @@ void sub_0809A9D4(MacroBookEntity* this) {
     tilePos = this->tilePos - 0x82;
     for (index = 0; index < 5; index++, tilePos += 0x40) {
         for (index2 = 0; index2 < 4; index2++) {
-            sub_0807BA8C(tilePos + index2, 1);
+            RestorePrevTileEntity(tilePos + index2, 1);
         }
     }
 }

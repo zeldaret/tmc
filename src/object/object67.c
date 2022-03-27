@@ -329,7 +329,7 @@ void sub_08094708(Object67Entity* this, u32 param_2, u32 param_3) {
     int index;
 
     for (index = this->unk74 * 2 + 8; index != 0; index--) {
-        sub_0807BA8C(TILE(param_2, param_3), 2);
+        RestorePrevTileEntity(TILE(param_2, param_3), 2);
         param_2 = param_2 + this->unk78;
         param_3 = param_3 + this->unk7c;
     }

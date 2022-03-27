@@ -175,7 +175,7 @@ void sub_0809B274(DoubleBookshelfEntity* this) {
                 return;
             }
             this->unk_84 = 1;
-            sub_0807BA8C(this->unk_80 + 2, 1);
+            RestorePrevTileEntity(this->unk_80 + 2, 1);
             sub_0809B38C((DoubleBookshelfEntity*)super->child);
             return;
     }
@@ -208,7 +208,7 @@ void sub_0809B38C(DoubleBookshelfEntity* this) {
     s32 index;
     u32 uVar1 = this->unk_80 - 0x82;
     for (index = 4; index >= 0;) {
-        sub_0807BA8C(uVar1, 1);
+        RestorePrevTileEntity(uVar1, 1);
         index--;
         uVar1++;
     }

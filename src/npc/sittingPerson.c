@@ -109,8 +109,8 @@ void sub_0806387C(Entity* this) {
             if (r5 > 0x81) {
                 r4 = 2;
                 SetLocalFlag(SUB_0806387C_FLAG2);
-                sub_0807BA8C(0xa17, 1);
-                sub_0807BA8C(0xa57, 1);
+                RestorePrevTileEntity(0xa17, 1);
+                RestorePrevTileEntity(0xa57, 1);
             }
         }
     }

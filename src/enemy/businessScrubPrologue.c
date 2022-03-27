@@ -308,11 +308,11 @@ void sub_08046078(BusinessScrubPrologueEntity* this) {
     }
 
     EnqueueSFX(SFX_16E);
-    sub_0807BA8C(0x7a2, 1);
-    sub_0807BA8C(0x7a3, 1);
-    sub_0807BA8C(0x7a5, 1);
-    sub_0807BA8C(0x7a6, 1);
-    sub_0807BA8C(0x7a7, 1);
+    RestorePrevTileEntity(0x7a2, 1);
+    RestorePrevTileEntity(0x7a3, 1);
+    RestorePrevTileEntity(0x7a5, 1);
+    RestorePrevTileEntity(0x7a6, 1);
+    RestorePrevTileEntity(0x7a7, 1);
 
     ent = CreateFx(super, FX_BIG_EXPLOSION2, 0x40);
     if (ent) {

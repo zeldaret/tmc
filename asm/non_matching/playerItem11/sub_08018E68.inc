@@ -97,7 +97,7 @@ _08018F0C:
 	adds r0, r4, #0
 	adds r1, r6, #0
 	adds r2, r5, #0
-	bl sub_080B1A8C
+	bl GetRelativeCollisionTile
 	cmp r0, #0x74
 	beq _08018F62
 	ldr r1, _08018F68 @ =gUnk_08003E44

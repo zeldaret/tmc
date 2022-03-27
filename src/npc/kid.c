@@ -262,12 +262,12 @@ void sub_08062788(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_080627E8(Entity* this, ScriptExecutionContext* context) {
-    sub_0807BA8C(0x60b, 1);
-    sub_0807BA8C(0x60c, 1);
-    sub_0807BA8C(0x60d, 1);
-    sub_0807BA8C(0x64b, 1);
-    sub_0807BA8C(0x64c, 1);
-    sub_0807BA8C(0x64d, 1);
+    RestorePrevTileEntity(0x60b, 1);
+    RestorePrevTileEntity(0x60c, 1);
+    RestorePrevTileEntity(0x60d, 1);
+    RestorePrevTileEntity(0x64b, 1);
+    RestorePrevTileEntity(0x64c, 1);
+    RestorePrevTileEntity(0x64d, 1);
 }
 
 NONMATCH("asm/non_matching/kid/Kid_Head.inc", void Kid_Head(Entity* this)) {

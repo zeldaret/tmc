@@ -205,7 +205,7 @@ void sub_080AAA68(Entity* this) {
 
 void sub_080AAAA8(Entity* this) {
     SetFlag(this->field_0x86.HWORD);
-    sub_0807BA8C(TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
+    RestorePrevTileEntity(TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
     DeleteThisEntity();
 }
 

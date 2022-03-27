@@ -336,7 +336,7 @@ bool32 sub_0809A6F8(u32 param_1, u32 param_2, u32 param_3, u32 param_4) {
             if ((param_4 & 1) != 0) {
                 sub_0807B9B8(gUnk_081238A0[param_3], (param_1 >> 4 & 0x3f) | (param_2 >> 4 & 0x3f) << 6, 1);
             } else {
-                sub_0807BA8C((param_1 >> 4 & 0x3f) | (param_2 >> 4 & 0x3f) << 6, 1);
+                RestorePrevTileEntity((param_1 >> 4 & 0x3f) | (param_2 >> 4 & 0x3f) << 6, 1);
             }
         }
         return TRUE;

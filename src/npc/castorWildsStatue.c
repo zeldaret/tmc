@@ -110,10 +110,10 @@ void sub_08067534(Entity* this) {
 void sub_0806757C(Entity* this) {
     if (this->subAction != 0) {
         if (this->subAction >= 3) {
-            sub_0807BA8C(0xe81, 1);
-            sub_0807BA8C(0xe82, 1);
-            sub_0807BA8C(0xe83, 1);
-            sub_0807BA8C(0xec3, 1);
+            RestorePrevTileEntity(0xe81, 1);
+            RestorePrevTileEntity(0xe82, 1);
+            RestorePrevTileEntity(0xe83, 1);
+            RestorePrevTileEntity(0xec3, 1);
         } else {
             LoadFixedGFX(this, gUnk_08110E68[this->subAction]);
         }

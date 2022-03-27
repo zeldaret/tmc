@@ -45,8 +45,8 @@ sub_08000148: @ 0x08000148
 	strb r0, [r2, r1]
 	bx lr
 
-	non_word_aligned_thumb_func_start sub_08000152
-sub_08000152: @ 0x08000152
+	non_word_aligned_thumb_func_start CloneTile
+CloneTile: @ 0x08000152
 	lsls r2, r2, #2
 	add r3, pc, #0x68
 	ldr r3, [r3, r2]
@@ -265,9 +265,9 @@ GetTileType: @ 0x080002B0
 @ r0: Entity*
 @ r1: u32
 @ r2: u32
-	thumb_func_start sub_080B1A8C
-sub_080B1A8C: @ 0x080002B4
-	ldr r3, _08000320 @ =ram_sub_080B1A8C
+	thumb_func_start GetRelativeCollisionTile
+GetRelativeCollisionTile: @ 0x080002B4
+	ldr r3, _08000320 @ =ram_GetRelativeCollisionTile
 	bx r3
 
 @ call 0x080B1AA8
@@ -412,7 +412,7 @@ _08000310: .4byte ram_GetTileTypeByPos
 _08000314: .4byte ram_sub_080B1A48
 _08000318: .4byte ram_sub_080B1A58
 _0800031C: .4byte ram_GetTileType
-_08000320: .4byte ram_sub_080B1A8C
+_08000320: .4byte ram_GetRelativeCollisionTile
 _08000324: .4byte ram_GetTileUnderEntity
 _08000328: .4byte ram_sub_080B1AB4
 _0800032C: .4byte ram_sub_080B1AC8

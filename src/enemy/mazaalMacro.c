@@ -117,7 +117,7 @@ void sub_08034D4C(Entity* this) {
 void sub_08034DC8(Entity* this) {
     if (gRoomTransition.field_0x39 == 0) {
         CreateFx(this, FX_GIANT_EXPLOSION4, 0);
-        sub_0807BA8C(COORD_TO_TILE(this), this->collisionLayer);
+        RestorePrevTileEntity(COORD_TO_TILE(this), this->collisionLayer);
         DeleteThisEntity();
     }
 }
@@ -221,7 +221,7 @@ void sub_08034FA0(Entity* this) {
             break;
         default:
             if (this->health == 0) {
-                sub_0807BA8C(COORD_TO_TILE(this), this->collisionLayer);
+                RestorePrevTileEntity(COORD_TO_TILE(this), this->collisionLayer);
             }
             break;
     }

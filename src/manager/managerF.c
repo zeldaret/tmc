@@ -226,7 +226,7 @@ void sub_08059124(ManagerF* this) {
         default:
             if (!--this->manager.unk_0e) {
                 CreateDustAt(this->unk_38, this->unk_3a, this->manager.unk_0b);
-                sub_0807BA8C(((this->unk_38 >> 4) & 0x3f) | ((this->unk_3a >> 4) & 0x3f) << 6, this->manager.unk_0b);
+                RestorePrevTileEntity(((this->unk_38 >> 4) & 0x3f) | ((this->unk_3a >> 4) & 0x3f) << 6, this->manager.unk_0b);
                 SoundReq(SFX_TASK_COMPLETE);
                 DeleteThisEntity();
             }

@@ -169,9 +169,9 @@ void sub_0808C148(Entity* this, u32 a2) {
         SetTile(16532, pos + 63, this->collisionLayer);
         SetTile(16533, pos + 64, this->collisionLayer);
     } else {
-        sub_0807BA8C(pos - 1, this->collisionLayer);
-        sub_0807BA8C(pos, this->collisionLayer);
-        sub_0807BA8C(pos + 63, this->collisionLayer);
-        sub_0807BA8C(pos + 64, this->collisionLayer);
+        RestorePrevTileEntity(pos - 1, this->collisionLayer);
+        RestorePrevTileEntity(pos, this->collisionLayer);
+        RestorePrevTileEntity(pos + 63, this->collisionLayer);
+        RestorePrevTileEntity(pos + 64, this->collisionLayer);
     }
 }

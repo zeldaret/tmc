@@ -260,37 +260,37 @@ void sub_08099C18(BigIceBlockEntity* this) {
     u32 tmp = this->unk_6e;
     switch (this->unk_6c) {
         default:
-            sub_0807BA8C(tmp - 0x41, super->collisionLayer);
-            sub_0807BA8C(tmp - 0x40, super->collisionLayer);
-            sub_0807BA8C(tmp - 1, super->collisionLayer);
-            sub_0807BA8C(tmp, super->collisionLayer);
+            RestorePrevTileEntity(tmp - 0x41, super->collisionLayer);
+            RestorePrevTileEntity(tmp - 0x40, super->collisionLayer);
+            RestorePrevTileEntity(tmp - 1, super->collisionLayer);
+            RestorePrevTileEntity(tmp, super->collisionLayer);
             break;
         case 1:
-            sub_0807BA8C(tmp - 0x41, super->collisionLayer);
-            sub_0807BA8C(tmp - 0x40, super->collisionLayer);
-            sub_0807BA8C(tmp - 0x3f, super->collisionLayer);
-            sub_0807BA8C(tmp - 1, super->collisionLayer);
-            sub_0807BA8C(tmp, super->collisionLayer);
-            sub_0807BA8C(tmp + 1, super->collisionLayer);
+            RestorePrevTileEntity(tmp - 0x41, super->collisionLayer);
+            RestorePrevTileEntity(tmp - 0x40, super->collisionLayer);
+            RestorePrevTileEntity(tmp - 0x3f, super->collisionLayer);
+            RestorePrevTileEntity(tmp - 1, super->collisionLayer);
+            RestorePrevTileEntity(tmp, super->collisionLayer);
+            RestorePrevTileEntity(tmp + 1, super->collisionLayer);
             break;
         case 2:
-            sub_0807BA8C(tmp - 0x41, super->collisionLayer);
-            sub_0807BA8C(tmp - 0x40, super->collisionLayer);
-            sub_0807BA8C(tmp - 1, super->collisionLayer);
-            sub_0807BA8C(tmp, super->collisionLayer);
-            sub_0807BA8C(tmp + 0x3f, super->collisionLayer);
-            sub_0807BA8C(tmp + 0x40, super->collisionLayer);
+            RestorePrevTileEntity(tmp - 0x41, super->collisionLayer);
+            RestorePrevTileEntity(tmp - 0x40, super->collisionLayer);
+            RestorePrevTileEntity(tmp - 1, super->collisionLayer);
+            RestorePrevTileEntity(tmp, super->collisionLayer);
+            RestorePrevTileEntity(tmp + 0x3f, super->collisionLayer);
+            RestorePrevTileEntity(tmp + 0x40, super->collisionLayer);
             break;
         case 3:
-            sub_0807BA8C(tmp - 0x41, super->collisionLayer);
-            sub_0807BA8C(tmp - 0x40, super->collisionLayer);
-            sub_0807BA8C(tmp - 0x3f, super->collisionLayer);
-            sub_0807BA8C(tmp - 1, super->collisionLayer);
-            sub_0807BA8C(tmp, super->collisionLayer);
-            sub_0807BA8C(tmp + 1, super->collisionLayer);
-            sub_0807BA8C(tmp + 0x3f, super->collisionLayer);
-            sub_0807BA8C(tmp + 0x40, super->collisionLayer);
-            sub_0807BA8C(tmp + 0x41, super->collisionLayer);
+            RestorePrevTileEntity(tmp - 0x41, super->collisionLayer);
+            RestorePrevTileEntity(tmp - 0x40, super->collisionLayer);
+            RestorePrevTileEntity(tmp - 0x3f, super->collisionLayer);
+            RestorePrevTileEntity(tmp - 1, super->collisionLayer);
+            RestorePrevTileEntity(tmp, super->collisionLayer);
+            RestorePrevTileEntity(tmp + 1, super->collisionLayer);
+            RestorePrevTileEntity(tmp + 0x3f, super->collisionLayer);
+            RestorePrevTileEntity(tmp + 0x40, super->collisionLayer);
+            RestorePrevTileEntity(tmp + 0x41, super->collisionLayer);
             break;
     }
 }

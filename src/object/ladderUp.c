@@ -61,7 +61,7 @@ void LadderUp(Entity* this) {
                 if (gPlayerEntity.y.HALF.HI < this->y.HALF.HI) {
                     if (gPlayerState.floor_type != 0x1e && (GetTileTypeByEntity(this) == 0x4017)) {
                         SetTile(0x4023, COORD_TO_TILE(this), this->collisionLayer);
-                        sub_0807BA8C(COORD_TO_TILE_OFFSET(this, 0, 0x10), this->collisionLayer);
+                        RestorePrevTileEntity(COORD_TO_TILE_OFFSET(this, 0, 0x10), this->collisionLayer);
                     }
                 } else {
                     if (GetTileTypeByEntity(this) != 0x4017) {

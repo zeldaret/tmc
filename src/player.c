@@ -729,7 +729,7 @@ static void PlayerBounceUpdate(Entity* this) {
 
     COLLISION_ON(this);
 
-    if ((gPlayerState.field_0x14 == 0) && sub_08008B22()) {
+    if ((gPlayerState.field_0x14 == 0) && PlayerCheckNEastTile()) {
         gPlayerState.field_0x11 = 7;
         ResolvePlayerAnimation();
         SetPlayerActionNormal();
@@ -2267,7 +2267,7 @@ static void sub_08072ACC(Entity* this) {
         this->spritePriority.b1 = 1;
         gPlayerState.jump_status = 0x41;
         sub_0807921C();
-        sub_0807BA8C(COORD_TO_TILE(this), this->collisionLayer);
+        RestorePrevTileEntity(COORD_TO_TILE(this), this->collisionLayer);
     } else {
         this->animationState = Direction8ToAnimationState(gPlayerState.field_0xd);
         this->field_0xf++;
@@ -2320,7 +2320,7 @@ static void sub_08072C48(Entity* this) {
 
     sub_08008790(this, 7);
     if (gPlayerState.field_0x14) {
-        if (sub_08008B22()) {
+        if (PlayerCheckNEastTile()) {
             gPlayerState.field_0x11 = 7;
             if (!(gPlayerState.flags & PL_MINISH)) {
                 SetPlayerActionNormal();
@@ -2442,7 +2442,7 @@ void sub_08072D54(Entity* this) {
         }
         sub_08008790(this, 7);
         if (gPlayerState.field_0x14 != 0) {
-            if (sub_08008B22()) {
+            if (PlayerCheckNEastTile()) {
                 gPlayerState.field_0x11 = 7;
                 if (!(gPlayerState.flags & PL_MINISH)) {
                     SetPlayerActionNormal();
@@ -3738,7 +3738,7 @@ void SurfaceAction_20(Entity* this) {
         if (e != NULL) {
             e->actionDelay = 1;
             UpdateSpriteForCollisionLayer(e);
-            sub_08000152(57, gPlayerState.field_0x22[0], this->collisionLayer);
+            CloneTile(57, gPlayerState.field_0x22[0], this->collisionLayer);
         }
     }
     SurfaceAction_Water(this);
