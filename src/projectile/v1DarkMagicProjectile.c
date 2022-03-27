@@ -87,7 +87,7 @@ void sub_080AACE0(Entity* this) {
 }
 
 void sub_080AAD70(Entity* this) {
-    if (sub_0806F520() == 0) {
+    if (!sub_0806F520(this)) {
         this->health = 0;
     }
     V1DarkMagicProjectile_SubActions[this->subAction](this);

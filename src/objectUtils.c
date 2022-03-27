@@ -264,7 +264,7 @@ void CreateSparkle(Entity* entity) {
     }
 }
 
-NONMATCH("asm/non_matching/objectUtils/sub_080A2BE4.inc", void sub_080A2BE4(Entity* this, u32 param_2)) {
+NONMATCH("asm/non_matching/objectUtils/sub_080A2BE4.inc", void sub_080A2BE4(Entity* this, bool32 param_2)) {
     s16 oldValue;
     s32 diff;
     u16 newValue;

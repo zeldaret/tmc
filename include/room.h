@@ -83,6 +83,16 @@ typedef struct {
 static_assert(sizeof(RoomVars) == 0xCC);
 extern RoomVars gRoomVars;
 
+typedef struct {
+    u8 area;
+    u8 room;
+    u16 unk_02;
+    u32 unk_04;
+} RoomMemory;
+
+extern RoomMemory* gUnk_020354B0;
+extern RoomMemory gRoomMemory[];
+
 // Packets used to store which entities to load in a room
 typedef struct {
     u8 kind;
@@ -96,10 +106,10 @@ typedef struct {
 } EntityData;
 
 typedef struct {
-    u16 field_0x0;
+    u16 tilePos;
     u16 field_0x2;
-    u8 field_0x4;
-    u8 field_0x5;
+    u8 room;
+    u8 animationState;
     u8 field_0x6;
     u8 field_0x7;
 } struct_030010EC;

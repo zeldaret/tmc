@@ -5,6 +5,7 @@
  * @brief Golden Tektite enemy
  */
 
+#include "collision.h"
 #include "enemy.h"
 #include "functions.h"
 
@@ -114,7 +115,7 @@ void sub_08038048(Entity* this) {
         this->actionDelay = 0x14;
         InitializeAnimation(this, 3);
         return;
-    } else if (this->collisions != 0) {
+    } else if (this->collisions != COL_NONE) {
         sub_0800417E(this, this->collisions);
     } else if ((GetTileUnderEntity(this) & 0xf0) == 0x50) {
         this->direction = (this->direction + 0x10) & 0x1f;

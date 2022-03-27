@@ -7,6 +7,7 @@
 
 #define NENT_DEPRECATED
 #include "global.h"
+#include "collision.h"
 #include "enemy.h"
 #include "enemy/wizzrobe.h"
 #include "functions.h"
@@ -262,7 +263,7 @@ void sub_0802F9C8(WizzrobeEntity* this) {
         } else {
             if (super->type2 != 0) {
                 ProcessMovement0(super);
-                if (super->collisions != 0) {
+                if (super->collisions != COL_NONE) {
                     super->flags &= 0x7f;
                     this->timer1 = 0x28;
                 }

@@ -33,12 +33,11 @@ void sub_080860D8(FloatingPlatformEntity* this) {
 }
 
 void sub_0808611C(FloatingPlatformEntity* this) {
-    int iVar2;
+    bool32 iVar2 = sub_08086168(this);
 
-    iVar2 = sub_08086168(this);
     if (super->actionDelay != 0 && super->parent->actionDelay == 0) {
 
-        if (iVar2 != 0) {
+        if (iVar2) {
             super->parent->actionDelay++;
         }
 
@@ -46,7 +45,7 @@ void sub_0808611C(FloatingPlatformEntity* this) {
     } else if (super->actionDelay == 0) {
         sub_080A2BE4(super, iVar2);
     } else {
-        sub_080A2BE4(super, 0);
+        sub_080A2BE4(super, FALSE);
     }
 
     if (--this->unk70 == 0) {

@@ -19,9 +19,6 @@ extern const s8 gUnk_080CA5D4[];
 void sub_080205F8(Entity*);
 void sub_08020604(Entity*);
 
-extern u32 sub_08049F1C(Entity*, Entity*, u32);
-extern void sub_0804AA1C(Entity*);
-
 extern Entity* gUnk_020000B0;
 
 enum {
@@ -57,7 +54,7 @@ void Peahat_OnCollision(Entity* this) {
     if (this->field_0x82.HALF.LO) {
         if (this->bitfield == 0x94) {
             Entity* ent = CreateEnemy(PEAHAT, PeahatForm_Propeller);
-            if (ent) {
+            if (ent != NULL) {
                 CopyPosition(this, ent);
                 ent->z.HALF.HI -= 8;
             }

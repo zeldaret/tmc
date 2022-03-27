@@ -17,7 +17,7 @@ typedef struct {
     u16 textIndex;
     u16 unk2; // HI?
     u32 field_0xc;
-    u32 field_0x10;
+    u32 rupees;
     u32 field_0x14;
     u32 field_0x18;
     u32 field_0x1c;
@@ -25,14 +25,17 @@ typedef struct {
 extern Message gMessage;
 
 typedef struct {
-    u8 flags;
+    u8 unk00 : 1;
+    u8 unk01 : 4;
+    u8 unk05 : 2;
+    u8 unk06 : 1;
     u8 code;      // first byte read
     u16 param;    // second byte read
     u16 extended; // ascii adjusted for jp chars
     u16 _6;
     u16 textIndex;
     void* _c;
-    u8 buf[32];
+    const u8* buf[8];
 } Token;
 
 typedef struct {

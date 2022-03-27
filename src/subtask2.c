@@ -11,8 +11,6 @@
 #include "main.h"
 #include "message.h"
 
-extern void CreateDialogBox(u32, u32);
-
 extern u8 gUnk_08128D38[];
 extern u8 gUnk_08128D43[];
 

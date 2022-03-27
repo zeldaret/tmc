@@ -6,6 +6,7 @@
  */
 #define NENT_DEPRECATED
 #include "enemy/octorokBoss.h"
+#include "collision.h"
 #include "functions.h"
 #include "game.h"
 #include "object.h"
@@ -494,7 +495,7 @@ void OctorokBoss_Action1(OctorokBossEntity* this) {
                 sub_08036914(super, angle, radius);
                 this->angle.HALF.HI = -((OctorokBossEntity*)super->parent)->angle.HALF.HI;
             }
-            if (IS_FROZEN((OctorokBossEntity*)super->parent) == 0) {
+            if (!IS_FROZEN((OctorokBossEntity*)super->parent)) {
                 super->spriteSettings.draw |= 1;
             }
             break;
@@ -639,14 +640,15 @@ void OctorokBoss_Action1_ChargeAttack(OctorokBossEntity* this) {
 
     if (this->timer == 0) {
         ProcessMovement0(super);
-        knockbackCondition = 0;
+        knockbackCondition = FALSE;
         if ((super->direction != 0) && (super->direction != 0x10)) {
-            knockbackCondition = ((u32)super->collisions & 0xee00) != 0;
+            knockbackCondition = ((super->collisions & (COL_EAST_ANY | COL_WEST_ANY)) != COL_NONE);
         }
-        if (((super->direction != 0x18) && (super->direction != 8)) && ((super->collisions & 0xee) != 0)) {
-            knockbackCondition = 1;
+        if (((super->direction != 0x18) && (super->direction != 8)) &&
+            (super->collisions & (COL_NORTH_ANY | COL_SOUTH_ANY))) {
+            knockbackCondition = TRUE;
         }
-        if (knockbackCondition != 0) {
+        if (knockbackCondition) {
             super->knockbackDuration = 0x20;
             super->knockbackSpeed = 0x200;
             super->knockbackDirection = super->direction ^ 0x10;
@@ -911,7 +913,7 @@ void OctorokBoss_Burning(OctorokBossEntity* this) {
 void OctorokBoss_Burning_SubAction0(OctorokBossEntity* this) {
     super->subAction = 1;
     super->speed = 0x200;
-    super->collisions = 0;
+    super->collisions = COL_NONE;
     super->direction = (u8)(-this->angle.HALF.HI ^ 0x80U) >> 3;
     this->timer = 0x78;
     this->angularSpeed.HWORD = 0x180;
@@ -922,13 +924,13 @@ void OctorokBoss_Burning_SubAction0(OctorokBossEntity* this) {
 
 void OctorokBoss_Burning_SubAction1(OctorokBossEntity* this) {
     ProcessMovement0(super);
-    if (super->collisions != 0) {
+    if (super->collisions != COL_NONE) {
         super->subAction = 2;
         this->heap->targetAngle = this->angle.HALF.HI;
-        if ((super->collisions & 0xee00) != 0) {
+        if ((super->collisions & (COL_EAST_ANY | COL_WEST_ANY)) != COL_NONE) {
             this->heap->targetAngle = -this->heap->targetAngle;
         }
-        if ((super->collisions & 0xee) != 0) {
+        if ((super->collisions & (COL_NORTH_ANY | COL_SOUTH_ANY)) != COL_NONE) {
             this->heap->targetAngle = -this->heap->targetAngle ^ 0x80;
         }
         super->knockbackDuration = 0x18;
@@ -951,10 +953,10 @@ void OctorokBoss_Burning_SubAction2(OctorokBossEntity* this) {
     if ((u32)(this->heap->targetAngle - this->angle.HALF.HI + 7) < 0xf) {
         super->subAction = 1;
         super->direction = ((u8) - this->angle.HALF.HI ^ 0x80) >> 3;
-        super->collisions = 0;
+        super->collisions = COL_NONE;
         ProcessMovement0(super);
     } else {
-        if ((u8)(this->heap->targetAngle - this->angle.HALF.HI) >= 0x81) {
+        if ((u8)(this->heap->targetAngle - this->angle.HALF.HI) > 0x80) {
             this->angle.HWORD -= this->angularSpeed.HWORD;
         } else {
             this->angle.HWORD += this->angularSpeed.HWORD;
@@ -1161,7 +1163,7 @@ void OctorokBoss_StartRegularAttack(OctorokBossEntity* this) {
             super->subAction = ACTION1_SUBACTION2;
             super->speed = 0x200;
             this->timer = 0x3c;
-            super->collisions = 0;
+            super->collisions = COL_NONE;
             this->heap->unk_0 = 4;
             SoundReq(SFX_159);
             return;

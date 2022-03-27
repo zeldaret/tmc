@@ -339,7 +339,7 @@ void DeleteEntityAny(Entity* ent) {
 }
 
 void DeleteEntity(Entity* ent) {
-    if (ent->next) {
+    if (ent->next != NULL) {
         UnloadGFXSlots(ent);
         UnloadOBJPalette(ent);
         UnloadOBJPalette2(ent);
@@ -418,7 +418,7 @@ Manager* GetEmptyManager(void) {
 
 void DeleteManager(void* ent) {
     Manager* manager = (Manager*)ent;
-    if (!manager->next)
+    if (manager->next == NULL)
         return;
 
     ReleaseTransitionManager(manager);

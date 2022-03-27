@@ -12,7 +12,6 @@ extern void (*const Rope_Functions[6])(Entity*);
 extern void (*const gUnk_080CE460[4])(Entity*);
 extern void (*const gUnk_080CE470[3])(Entity*);
 extern Entity* gUnk_020000B0;
-extern u32 sub_0804A044(Entity*, Entity*, u32);
 
 void sub_08031600(Entity*);
 u32 sub_0803163C(Entity*);
@@ -39,7 +38,7 @@ void Rope_OnCollision(Entity* this) {
 }
 
 void Rope_OnGrabbed(Entity* this) {
-    if (sub_0806F520()) {
+    if (sub_0806F520(this)) {
         gUnk_080CE470[this->subAction](this);
     }
 }

@@ -1,4 +1,5 @@
 #include "entity.h"
+#include "collision.h"
 #include "enemy.h"
 #include "player.h"
 #include "functions.h"
@@ -20,7 +21,7 @@ void V3HandProjectile_OnTick(Entity* this) {
         this->z.HALF.HI += 2;
     }
     ProcessMovement3(this);
-    if (this->collisions != 0) {
+    if (this->collisions != COL_NONE) {
         DeleteThisEntity();
     }
     GetNextFrame(this);

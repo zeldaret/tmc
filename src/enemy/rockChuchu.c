@@ -8,8 +8,6 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern void sub_0804A4E4(Entity*, Entity*);
-
 extern void (*const RockChuchu_Functions[])(Entity*);
 extern void (*const gUnk_080CB960[])(Entity*);
 
@@ -47,7 +45,7 @@ void RockChuchu_OnCollision(Entity* this) {
             case 0x1c:
                 CreateFx(this, FX_ROCK, 0);
                 ent = CreateEnemy(CHUCHU, 1);
-                if (ent) {
+                if (ent != NULL) {
                     ent->type2 = 1;
 #ifndef EU
                     ent->iframes = -8;
@@ -102,7 +100,7 @@ void sub_080223E4(Entity* this) {
     Entity* ent;
 
     ent = this->child;
-    if (ent) {
+    if (ent != NULL) {
         ent->bitfield = 0x94;
         ent->iframes = 0x10;
 #ifndef EU

@@ -34,7 +34,7 @@ void LakituCloud_OnKnockback(Entity* this) {
 }
 
 void LakituCloud_OnGrabbed(Entity* this) {
-    if (sub_0806F520(this) == 0) {
+    if (!sub_0806F520(this)) {
         if (this->subAction == 2) {
             sub_0803CE3C(this);
         }

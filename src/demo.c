@@ -216,7 +216,7 @@ void sub_080A3198(u32 param_1, u32 param_2) {
         MemClear(gUnk_08127C98 - 0x1e, 0x180);
 
         if (r4 != 0) {
-            sub_0805F46C(r4, &gUnk_08127C98);
+            sub_0805F46C(r4, (Font*)&gUnk_08127C98); // TODO
         }
 
         gScreen.bg0.updated = 1;

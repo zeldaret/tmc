@@ -66,7 +66,7 @@ void sub_080650CC(Entity* this) {
             MessageNoOverlap(confirmMsgId, this);
 
             //! @bug itemPrice (r8) is not initialized if gRoomVars.shopItemType == 0
-            gMessage.field_0x10 = (u16)itemPrice;
+            gMessage.rupees = (u16)itemPrice;
         } else if ((this->frame & 0x40)) {
             InitializeAnimation(this, gUnk_0810FDB8[Random() & 0xf]);
         } else {

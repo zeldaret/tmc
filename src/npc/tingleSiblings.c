@@ -117,7 +117,7 @@ void sub_08064EE8(Entity* this) {
         }
 
         fxEnt = CreateFx(this, confettiFx, 0);
-        if (fxEnt && bVar1 == 2) {
+        if ((fxEnt != NULL) && (bVar1 == 2)) {
             fxEnt->spriteSettings.flipX = 1;
         }
     }
@@ -171,7 +171,7 @@ void sub_08064F28(Entity* this, ScriptExecutionContext* context) {
     }
     MessageNoOverlap(TingleSiblings_MessageIndices[this->type][uVar5], this);
     if (iVar4 > 0) {
-        gMessage.field_0x10 = (u16)iVar4;
+        gMessage.rupees = (u16)iVar4;
     }
 
     if (CheckRoomFlag(roomFlag) == 0) {

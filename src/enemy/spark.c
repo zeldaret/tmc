@@ -5,6 +5,7 @@
  * @brief Spark enemy
  */
 
+#include "collision.h"
 #include "enemy.h"
 #include "object.h"
 #include "functions.h"
@@ -30,7 +31,7 @@ void Spark_OnCollision(Entity* this) {
             this->spriteSettings.draw = 0;
             this->action = 2;
             ent = CreateFx(this, FX_DEATH, 0);
-            if (ent) {
+            if (ent != NULL) {
                 this->child = ent;
                 this->actionDelay = 14;
                 CopyPosition(this, ent);
@@ -40,7 +41,6 @@ void Spark_OnCollision(Entity* this) {
 }
 
 void Spark_OnGrabbed(Entity* this) {
-    /* ... */
 }
 
 void sub_0802B33C(Entity* this) {
@@ -57,7 +57,7 @@ void sub_0802B35C(Entity* this) {
     GetNextFrame(this);
     ProcessMovement0(this);
     is_head = this->type == 0;
-    if (this->collisions == 0) {
+    if (this->collisions == COL_NONE) {
         if (--this->field_0xf == 0) {
             this->field_0xf = 0x78;
 
@@ -68,49 +68,49 @@ void sub_0802B35C(Entity* this) {
         this->field_0xf = 0x78;
         switch (DirectionRound(this->direction)) {
             case DirectionNorth:
-                if (this->collisions & 0xe) {
+                if ((this->collisions & COL_NORTH_ANY) != COL_NONE) {
                     this->direction = is_head ? DirectionWest : DirectionEast;
                 } else {
-                    if ((this->collisions & 0xe000) == 0x4000 && is_head) {
+                    if (((this->collisions & COL_EAST_ANY) == COL_EAST_NORTH) && is_head) {
                         this->direction = DirectionEast;
                     }
-                    if ((this->collisions & 0xe00) == 0x400 && !is_head) {
+                    if (((this->collisions & COL_WEST_ANY) == COL_WEST_NORTH) && !is_head) {
                         this->direction = DirectionWest;
                     }
                 }
                 break;
             case DirectionSouth:
-                if (this->collisions & 0xe0) {
+                if ((this->collisions & COL_SOUTH_ANY) != COL_NONE) {
                     this->direction = is_head ? DirectionEast : DirectionWest;
                 } else {
-                    if ((this->collisions & 0xe000) == 0x2000 && !is_head) {
+                    if (((this->collisions & COL_EAST_ANY) == COL_EAST_SOUTH) && !is_head) {
                         this->direction = DirectionEast;
                     }
-                    if ((this->collisions & 0xe00) == 0x200 && is_head) {
+                    if (((this->collisions & COL_WEST_ANY) == COL_WEST_SOUTH) && is_head) {
                         this->direction = DirectionWest;
                     }
                 }
                 break;
             case DirectionWest:
-                if (this->collisions & 0xe00) {
+                if ((this->collisions & COL_WEST_ANY) != COL_NONE) {
                     this->direction = is_head ? DirectionSouth : DirectionNorth;
                 } else {
-                    if ((this->collisions & 0xe) == 4 && is_head) {
+                    if (((this->collisions & COL_NORTH_ANY) == COL_NORTH_EAST) && is_head) {
                         this->direction = DirectionNorth;
                     }
-                    if ((this->collisions & 0xe0) == 0x40 && !is_head) {
+                    if (((this->collisions & COL_SOUTH_ANY) == COL_SOUTH_EAST) && !is_head) {
                         this->direction = DirectionSouth;
                     }
                 }
                 break;
             case DirectionEast:
-                if (this->collisions & 0xe000) {
+                if ((this->collisions & COL_EAST_ANY) != COL_NONE) {
                     this->direction = is_head ? DirectionNorth : DirectionSouth;
                 } else {
-                    if ((this->collisions & 0xe) == 2 && !is_head) {
+                    if (((this->collisions & COL_NORTH_ANY) == COL_NORTH_WEST) && !is_head) {
                         this->direction = DirectionNorth;
                     }
-                    if ((this->collisions & 0xe0) == 0x20 && is_head) {
+                    if (((this->collisions & COL_SOUTH_ANY) == COL_SOUTH_WEST) && is_head) {
                         this->direction = DirectionSouth;
                     }
                 }
@@ -122,7 +122,7 @@ void sub_0802B35C(Entity* this) {
 void sub_0802B4A8(Entity* this) {
     if (--this->actionDelay == 0) {
         Entity* ent = CreateObjectWithParent(this, GROUND_ITEM, 0x60, 0);
-        if (ent) {
+        if (ent != NULL) {
             ent->y.HALF.HI -= 4;
         }
         DeleteEntity(this);

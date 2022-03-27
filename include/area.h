@@ -2,6 +2,7 @@
 #define AREA_H
 
 #include "global.h"
+#include "transitions.h"
 
 #define MAX_ROOMS 64
 
@@ -14,7 +15,7 @@ typedef struct {
     void* map;
     void* metatiles;
     void* bg_anim;
-    void* exits;
+    const Transition* exits;
     void** properties;
 } RoomResInfo;
 static_assert(sizeof(RoomResInfo) == 0x20);
@@ -93,9 +94,9 @@ typedef enum {
     AREA_EMPTY,
     AREA_HYRULE_DIG_CAVES,
     AREA_MELARIS_MINE,
-    AREA_MINISH_PATHS_1,
+    AREA_MINISH_PATHS,
     AREA_CRENEL_MINISH_PATHS,
-    AREA_DIG_CAVES_1,
+    AREA_DIG_CAVES,
     AREA_CRENEL_DIG_CAVE,
     AREA_FESTIVAL_TOWN,
     AREA_VEIL_FALLS_DIG_CAVE,
@@ -220,6 +221,15 @@ typedef enum {
     AREA_DARK_HYRULE_CASTLE_BRIDGE,
     AREA_NULL_8E,
     AREA_8F,
+    AREA_90,
+    AREA_91,
+    AREA_92,
+    AREA_93,
+    AREA_94,
+    AREA_95,
+    AREA_96,
+    AREA_97,
+    AREA_98,
 } AreaID;
 
 #endif

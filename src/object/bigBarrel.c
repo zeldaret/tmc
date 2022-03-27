@@ -105,7 +105,7 @@ void sub_08088BE0(BigBarrelEntity* this) {
     if (CheckLocalFlag(0x15) == 0) {
         sub_08088C78(this, 2, 0, 0xffffff88);
         ent = sub_08088C78(this, 4, 0x15, 0);
-        if (ent) {
+        if (ent != NULL) {
             ent->x.HALF.HI = gRoomControls.origin_x + 0x48;
             ent->y.HALF.HI = gRoomControls.origin_y + 200;
         }
@@ -114,7 +114,7 @@ void sub_08088BE0(BigBarrelEntity* this) {
     if (CheckLocalFlag(0x16) == 0) {
         sub_08088C78(this, 2, 1, 0x78);
         ent = sub_08088C78(this, 4, 0x16, 0);
-        if (ent) {
+        if (ent != NULL) {
             ent->x.HALF.HI = gRoomControls.origin_x + 0x188;
             ent->y.HALF.HI = gRoomControls.origin_y + 200;
         }
@@ -249,7 +249,7 @@ void sub_08088E74(BigBarrelEntity* this) {
     } else {
         if ((gRoomTransition.frameCount & 7U) == 0) {
             ent = CreateObjectWithParent(super, OBJECT_2A, 0, 0x1e);
-            if (ent) {
+            if (ent != NULL) {
                 ent->updatePriority = 3;
                 ent->spriteRendering.b3 = 0;
                 ent->spritePriority.b0 = 0;

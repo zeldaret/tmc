@@ -129,7 +129,7 @@ void Octorok_ShootNut(Entity* this) {
     GetNextFrame(this);
     if (this->frame & 1) {
         Entity* ent = CreateProjectileWithParent(this, ROCK_PROJECTILE, 0);
-        if (ent) {
+        if (ent != NULL) {
             const s8* off;
             ent->direction = this->direction;
             off = &gOctorokNutOffset[this->direction / 4];

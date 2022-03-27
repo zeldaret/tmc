@@ -48,7 +48,7 @@ void BusinessScrubPrologue_OnCollision(BusinessScrubPrologueEntity* this) {
             super->flags &= ~ENT_COLLIDE;
             sub_08046030(this, 4);
             ent = CreateFx(super, FX_BUSH, 0);
-            if (ent) {
+            if (ent != NULL) {
                 ent->z.HALF.HI -= 8;
             }
 
@@ -123,7 +123,7 @@ void sub_08045CE0(BusinessScrubPrologueEntity* this) {
             sub_0804604C(this);
             if (super->frame & 1) {
                 ent = CreateProjectileWithParent(super, DEKU_SEED_PROJECTILE, 0);
-                if (ent) {
+                if (ent != NULL) {
                     ent->parent = super;
                     ent->direction = super->direction;
                     super->frame &= 0xfe;
@@ -186,7 +186,7 @@ void sub_08045E14(BusinessScrubPrologueEntity* this) {
                 super->subAction = 0;
                 sub_08046030(this, 0);
                 ent = Create0x68FX(super, FX_STARS);
-                if (ent) {
+                if (ent != NULL) {
                     ent->spritePriority.b0 = 3;
                     ent->z.HALF.HI -= 0xc;
                     SetDefaultPriority(ent, PRIO_MESSAGE);
@@ -299,7 +299,7 @@ void sub_08046078(BusinessScrubPrologueEntity* this) {
     for (index = 0; index <= 4; index++) {
         ent = CreateFx(super, FX_DEATH, 0x40);
 
-        if (ent) {
+        if (ent != NULL) {
             ent->x.HALF.HI = gRoomControls.origin_x + *ptr;
             ptr++;
             ent->y.HALF.HI = gRoomControls.origin_y + *ptr;
@@ -315,12 +315,12 @@ void sub_08046078(BusinessScrubPrologueEntity* this) {
     RestorePrevTileEntity(0x7a7, 1);
 
     ent = CreateFx(super, FX_BIG_EXPLOSION2, 0x40);
-    if (ent) {
+    if (ent != NULL) {
         CopyPosition(super, ent);
         EnqueueSFX(SFX_184);
     }
 
-    if (super->child) {
+    if (super->child != NULL) {
         super->child->action = 0xff;
     }
 

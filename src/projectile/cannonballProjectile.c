@@ -1,4 +1,5 @@
 #include "entity.h"
+#include "collision.h"
 #include "enemy.h"
 #include "functions.h"
 
@@ -49,7 +50,7 @@ void CannonballProjectile_Action1(Entity* this) {
 void CannonballProjectile_Action2(Entity* this) {
     GetNextFrame(this);
     ProcessMovement3(this);
-    if ((sub_080AB634(this) == 0) && (this->collisions != 0)) {
+    if ((sub_080AB634(this) == 0) && (this->collisions != COL_NONE)) {
         CreateFx(this, FX_DEATH, 0);
         DeleteThisEntity();
     }

@@ -312,7 +312,7 @@ void sub_080210E4(Entity* this) {
 
         this->frame &= ~1;
         ent = CreateProjectileWithParent(this, DARK_NUT_SWORD_SLASH, 2);
-        if (ent) {
+        if (ent != NULL) {
             ent->parent = this;
             this->child = ent;
         }
@@ -558,7 +558,7 @@ void sub_08021540(Entity* this) {
 }
 
 void sub_08021588(Entity* this) {
-    if (this->child) {
+    if (this->child != NULL) {
         this->child->parent = NULL;
         this->child = NULL;
     }
@@ -571,7 +571,7 @@ void sub_0802159C(Entity* this) {
         this->frame = 0;
         this->hitType = 0x51;
         ent = CreateProjectileWithParent(this, DARK_NUT_SWORD_SLASH, 3);
-        if (ent) {
+        if (ent != NULL) {
             ent->parent = this;
             this->child = ent;
         }
@@ -592,7 +592,7 @@ void sub_08021600(Entity* this) {
         this->frame = 0;
         this->hitType = 0x51;
         ent = CreateProjectileWithParent(this, DARK_NUT_SWORD_SLASH, 4);
-        if (ent) {
+        if (ent != NULL) {
             ent->parent = this;
             this->child = ent;
         }
@@ -609,8 +609,6 @@ void sub_08021644(Entity* this) {
         EnqueueSFX(SFX_PLY_LAND);
     }
 }
-
-extern u32 sub_08049F1C(Entity*, Entity*, u32);
 
 u32 sub_08021664(Entity* this, Entity* ent) {
     switch (this->animationState) {

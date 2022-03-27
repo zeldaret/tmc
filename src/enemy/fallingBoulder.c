@@ -97,7 +97,7 @@ NONMATCH("asm/non_matching/fallingBoulder/sub_0802C334.inc", void sub_0802C334(E
                         s32 i;
                         for (i = 1; i > -1; i--) {
                             Entity* ent = CreateFx(this, FX_ROCK2, 0);
-                            if (ent) {
+                            if (ent != NULL) {
                                 ent->x.HALF.HI += 12;
                                 ent->x.HALF.HI -= diff;
                             }

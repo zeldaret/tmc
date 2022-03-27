@@ -1,4 +1,5 @@
 #include "entity.h"
+#include "collision.h"
 #include "functions.h"
 #include "npc.h"
 #include "item.h"
@@ -143,17 +144,17 @@ void sub_08069D54(Entity* this) {
 
             if (this->x.HALF.HI < this->field_0x6e.HWORD) {
                 this->x.HALF.HI = this->field_0x6e.HWORD + 1;
-                collisions = 0xe00;
+                collisions = COL_WEST_ANY;
             } else if (this->x.HALF.HI > this->field_0x6c.HWORD) {
                 this->x.HALF.HI = this->field_0x6c.HWORD - 1;
-                collisions = 0xe000;
+                collisions = COL_EAST_ANY;
             }
             if (this->y.HALF.HI < this->field_0x70.HALF_U.LO) {
                 this->y.HALF.HI = this->field_0x70.HALF_U.LO + 1;
-                collisions = 0xe;
+                collisions = COL_NORTH_ANY;
             } else if (this->y.HALF.HI > this->field_0x70.HALF_U.HI) {
                 this->y.HALF.HI = this->field_0x70.HALF_U.HI - 1;
-                collisions = 0xe0;
+                collisions = COL_SOUTH_ANY;
             }
             sub_0800417E(this, collisions);
             sub_08069F6C(this);

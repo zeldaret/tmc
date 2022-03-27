@@ -8,13 +8,9 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern s32 sub_080012DC(Entity*);
-bool32 PlayerInRange(Entity*, u32, u32);
-
 void sub_08023E10(Entity*);
 void sub_08023E54(Entity*);
 void sub_08023E9C(Entity*);
-void sub_0804A4E4(Entity*, Entity*);
 
 extern void (*const gUnk_080012C8[])(Entity*);
 
@@ -136,7 +132,7 @@ void sub_08023CE0(Entity* this) {
             if (this->frame) {
                 if (this->frame & ANIM_DONE) {
                     Entity* ent = CreateEnemy(SLUGGULA, 1);
-                    if (ent) {
+                    if (ent != NULL) {
                         sub_0804A4E4(this, ent);
                         DeleteThisEntity();
                     }
@@ -167,7 +163,7 @@ void sub_08023E54(Entity* this) {
     if (this->field_0xf++ > 27) {
         this->field_0xf = 0;
         ent = CreateEnemy(SLUGGULA, 2);
-        if (ent) {
+        if (ent != NULL) {
             const s8* ptr = &gUnk_080CBDF7[this->animationState * 2];
             PositionRelative(this, ent, Q_16_16(ptr[0]), Q_16_16(ptr[1]));
         }
@@ -178,7 +174,7 @@ extern Entity* gUnk_020000B0;
 
 void sub_08023E9C(Entity* this) {
     u32 uVar3 = Random();
-    if (sub_08049FA0(this) == 0 && (uVar3 & 1)) {
+    if (!sub_08049FA0(this) && (uVar3 & 1)) {
         this->direction = DirectionRoundUp(sub_08049EE4(this));
     } else if (sub_08049FDC(this, 1) && (uVar3 & 6)) {
         u32 uVar3 = GetFacingDirection(this, gUnk_020000B0) - this->direction;

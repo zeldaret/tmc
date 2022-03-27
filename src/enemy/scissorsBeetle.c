@@ -1,4 +1,5 @@
 #define NENT_DEPRECATED
+#include "collision.h"
 #include "entity.h"
 #include "enemy.h"
 #include "functions.h"
@@ -63,7 +64,7 @@ void ScissorsBeetle_OnGrabbed(ScissorsBeetleEntity* this) {
 
 void ScissorsBeetle_Init(ScissorsBeetleEntity* this) {
     Entity* ent = CreateProjectile(MANDIBLES_PROJECTILE);
-    if (!ent)
+    if (ent == NULL)
         return;
 
     sub_0804A720(super);
@@ -92,7 +93,7 @@ void sub_080389E8(ScissorsBeetleEntity* this) {
         sub_08038C2C((ScissorsBeetleEntity*)child);
     } else if (super->actionDelay) {
         super->actionDelay--;
-    } else if (super->collisions) {
+    } else if (super->collisions != COL_NONE) {
         super->actionDelay = 0xc;
         if ((child->animationState & 1) == 0) {
             child->animationState += Random() & 0x20 ? 1 : 7;

@@ -502,27 +502,27 @@ gAreaRoomMap_MelarisMine_0:: @ 08103C88
 gAreaRoomMaps_MelarisMine:: @ 08103CA0
 	.4byte gAreaRoomMap_MelarisMine_0
 
-gAreaRoomMap_MinishPaths1_0:: @ 08103CA4
-	map_bottom offset_gAreaRoomMap_MinishPaths1_0_0, 0x5DC, 1, 1
+gAreaRoomMap_MinishPaths_0:: @ 08103CA4
+	map_bottom offset_gAreaRoomMap_MinishPaths_0_0, 0x5DC, 1, 1
 
-gAreaRoomMap_MinishPaths1_1:: @ 08103CB0
-	map_bottom offset_gAreaRoomMap_MinishPaths1_1_0, 0x5DC, 1, 1
+gAreaRoomMap_MinishPaths_1:: @ 08103CB0
+	map_bottom offset_gAreaRoomMap_MinishPaths_1_0, 0x5DC, 1, 1
 
-gAreaRoomMap_MinishPaths1_2:: @ 08103CBC
-	map_bottom offset_gAreaRoomMap_MinishPaths1_2_0, 0x5DC, 1, 1
+gAreaRoomMap_MinishPaths_2:: @ 08103CBC
+	map_bottom offset_gAreaRoomMap_MinishPaths_2_0, 0x5DC, 1, 1
 
-gAreaRoomMap_MinishPaths1_3:: @ 08103CC8
-	map_bottom offset_gAreaRoomMap_MinishPaths1_3_0, 0x5DC, 1, 1
+gAreaRoomMap_MinishPaths_3:: @ 08103CC8
+	map_bottom offset_gAreaRoomMap_MinishPaths_3_0, 0x5DC, 1, 1
 
-gAreaRoomMap_MinishPaths1_4:: @ 08103CD4
-	map_bottom offset_gAreaRoomMap_MinishPaths1_4_0, 0x5DC, 1, 1
+gAreaRoomMap_MinishPaths_4:: @ 08103CD4
+	map_bottom offset_gAreaRoomMap_MinishPaths_4_0, 0x5DC, 1, 1
 
-gAreaRoomMaps_MinishPaths1:: @ 08103CE0
-	.4byte gAreaRoomMap_MinishPaths1_0
-	.4byte gAreaRoomMap_MinishPaths1_1
-	.4byte gAreaRoomMap_MinishPaths1_2
-	.4byte gAreaRoomMap_MinishPaths1_3
-	.4byte gAreaRoomMap_MinishPaths1_4
+gAreaRoomMaps_MinishPaths:: @ 08103CE0
+	.4byte gAreaRoomMap_MinishPaths_0
+	.4byte gAreaRoomMap_MinishPaths_1
+	.4byte gAreaRoomMap_MinishPaths_2
+	.4byte gAreaRoomMap_MinishPaths_3
+	.4byte gAreaRoomMap_MinishPaths_4
 
 gAreaRoomMap_CrenelMinishPaths_0:: @ 08103CF4
 	map_bottom offset_gAreaRoomMap_CrenelMinishPaths_0_0, 0x5DC, 1, 1
@@ -2364,262 +2364,262 @@ gAreaRoomMaps_RoyalCrypt:: @ 081062CC
 	.4byte 0x0
 	.4byte 0x0
 
-gAreaRoomMap_PalaceOfWinds_0:: @ 0810630C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_0_0, 0xA8C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_0_1, 0xA8C, 1, 1
+gAreaRoomMap_PalaceOfWinds_GyorgTornado:: @ 0810630C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_GyorgTornado_0, 0xA8C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_GyorgTornado_1, 0xA8C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_1:: @ 08106324
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_1_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_1_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_BossKey:: @ 08106324
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_BossKey_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_BossKey_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_2:: @ 0810633C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_2_0, 0x1A4, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_2_1, 0x1A4, 1, 1
+gAreaRoomMap_PalaceOfWinds_BeforeBallAndChainSoldiers:: @ 0810633C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_BeforeBallAndChainSoldiers_0, 0x1A4, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_BeforeBallAndChainSoldiers_1, 0x1A4, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_3:: @ 08106354
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_3_0, 0x384, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_3_1, 0x384, 1, 1
+gAreaRoomMap_PalaceOfWinds_GyorgBossDoor:: @ 08106354
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_GyorgBossDoor_0, 0x384, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_GyorgBossDoor_1, 0x384, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_4:: @ 0810636C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_4_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_4_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_EastChestFromGyorgBossDoor:: @ 0810636C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_EastChestFromGyorgBossDoor_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_EastChestFromGyorgBossDoor_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_5:: @ 08106384
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_5_0, 0x384, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_5_1, 0x384, 1, 1
+gAreaRoomMap_PalaceOfWinds_MoblinAndWizzrobeFight:: @ 08106384
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_MoblinAndWizzrobeFight_0, 0x384, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_MoblinAndWizzrobeFight_1, 0x384, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_6:: @ 0810639C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_6_0, 0x384, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_6_1, 0x384, 1, 1
+gAreaRoomMap_PalaceOfWinds_FourButtonStalfos:: @ 0810639C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_FourButtonStalfos_0, 0x384, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_FourButtonStalfos_1, 0x384, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_7:: @ 081063B4
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_7_0, 0x384, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_7_1, 0x384, 1, 1
+gAreaRoomMap_PalaceOfWinds_FanAndKeyToBossKey:: @ 081063B4
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_FanAndKeyToBossKey_0, 0x384, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_FanAndKeyToBossKey_1, 0x384, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_8:: @ 081063CC
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_8_0, 0x258, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_8_1, 0x258, 1, 1
+gAreaRoomMap_PalaceOfWinds_BallAndChainSoldiers:: @ 081063CC
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_BallAndChainSoldiers_0, 0x258, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_BallAndChainSoldiers_1, 0x258, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_9:: @ 081063E4
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_9_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_9_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_BombarossaPath:: @ 081063E4
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_BombarossaPath_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_BombarossaPath_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_10:: @ 081063FC
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_10_0, 0x186, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_10_1, 0x186, 1, 1
+gAreaRoomMap_PalaceOfWinds_HoleToDarknut:: @ 081063FC
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_HoleToDarknut_0, 0x186, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_HoleToDarknut_1, 0x186, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_11:: @ 08106414
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_11_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_11_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_ToBombarossaPath:: @ 08106414
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_ToBombarossaPath_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_ToBombarossaPath_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_12:: @ 0810642C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_12_0, 0x1E0, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_12_1, 0x1E0, 1, 1
+gAreaRoomMap_PalaceOfWinds_DarknutMiniboss:: @ 0810642C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_DarknutMiniboss_0, 0x1E0, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_DarknutMiniboss_1, 0x1E0, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_13:: @ 08106444
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_13_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_13_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_BombWallInside:: @ 08106444
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_BombWallInside_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_BombWallInside_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_14:: @ 0810645C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_14_0, 0x258, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_14_1, 0x258, 1, 1
+gAreaRoomMap_PalaceOfWinds_BombWallOutside:: @ 0810645C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_BombWallOutside_0, 0x258, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_BombWallOutside_1, 0x258, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_15:: @ 08106474
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_15_0, 0x708, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_15_1, 0x708, 1, 1
+gAreaRoomMap_PalaceOfWinds_CloudJumps:: @ 08106474
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_CloudJumps_0, 0x708, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_CloudJumps_1, 0x708, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_16:: @ 0810648C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_16_0, 0xA8C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_16_1, 0xA8C, 1, 1
+gAreaRoomMap_PalaceOfWinds_BlockMazeToBossDoor:: @ 0810648C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_BlockMazeToBossDoor_0, 0xA8C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_BlockMazeToBossDoor_1, 0xA8C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_17:: @ 081064A4
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_17_0, 0x384, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_17_1, 0x384, 1, 1
+gAreaRoomMap_PalaceOfWinds_CrackedFloorLakitu:: @ 081064A4
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_CrackedFloorLakitu_0, 0x384, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_CrackedFloorLakitu_1, 0x384, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_18:: @ 081064BC
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_18_0, 0x258, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_18_1, 0x258, 1, 1
+gAreaRoomMap_PalaceOfWinds_HeartPieceBridge:: @ 081064BC
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_HeartPieceBridge_0, 0x258, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_HeartPieceBridge_1, 0x258, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_19:: @ 081064D4
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_19_0, 0x4B0, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_19_1, 0x4B0, 1, 1
+gAreaRoomMap_PalaceOfWinds_FanBridge:: @ 081064D4
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_FanBridge_0, 0x4B0, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_FanBridge_1, 0x4B0, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_20:: @ 081064EC
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_20_0, 0x258, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_20_1, 0x258, 1, 1
+gAreaRoomMap_PalaceOfWinds_ToFanBridge:: @ 081064EC
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_ToFanBridge_0, 0x258, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_ToFanBridge_1, 0x258, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_21:: @ 08106504
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_21_0, 0x708, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_21_1, 0x708, 1, 1
+gAreaRoomMap_PalaceOfWinds_RedWarpHall:: @ 08106504
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_RedWarpHall_0, 0x708, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_RedWarpHall_1, 0x708, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_22:: @ 0810651C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_22_0, 0x4B0, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_22_1, 0x4B0, 1, 1
+gAreaRoomMap_PalaceOfWinds_PlatformCloneRide:: @ 0810651C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_PlatformCloneRide_0, 0x4B0, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_PlatformCloneRide_1, 0x4B0, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_23:: @ 08106534
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_23_0, 0x258, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_23_1, 0x258, 1, 1
+gAreaRoomMap_PalaceOfWinds_PitCornerAfterKey:: @ 08106534
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_PitCornerAfterKey_0, 0x258, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_PitCornerAfterKey_1, 0x258, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_24:: @ 0810654C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_24_0, 0x4B0, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_24_1, 0x4B0, 1, 1
+gAreaRoomMap_PalaceOfWinds_CrowRide:: @ 0810654C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_CrowRide_0, 0x4B0, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_CrowRide_1, 0x4B0, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_25:: @ 08106564
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_25_0, 0x4B0, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_25_1, 0x4B0, 1, 1
+gAreaRoomMap_PalaceOfWinds_GratePlatformRide:: @ 08106564
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_GratePlatformRide_0, 0x4B0, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_GratePlatformRide_1, 0x4B0, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_26:: @ 0810657C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_26_0, 0x4B0, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_26_1, 0x4B0, 1, 1
+gAreaRoomMap_PalaceOfWinds_PotPush:: @ 0810657C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_PotPush_0, 0x4B0, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_PotPush_1, 0x4B0, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_27:: @ 08106594
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_27_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_27_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_FloormasterLever:: @ 08106594
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_FloormasterLever_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_FloormasterLever_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_28:: @ 081065AC
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_28_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_28_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_Map:: @ 081065AC
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_Map_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_Map_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_29:: @ 081065C4
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_29_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_29_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_CornerToMap:: @ 081065C4
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_CornerToMap_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_CornerToMap_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_30:: @ 081065DC
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_30_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_30_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_StairsAfterFloormaster:: @ 081065DC
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_StairsAfterFloormaster_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_StairsAfterFloormaster_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_31:: @ 081065F4
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_31_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_31_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_HoleToKinstoneWizzrobe:: @ 081065F4
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_HoleToKinstoneWizzrobe_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_HoleToKinstoneWizzrobe_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_32:: @ 0810660C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_32_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_32_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_KeyArrowButton:: @ 0810660C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_KeyArrowButton_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_KeyArrowButton_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_33:: @ 08106624
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_33_0, 0xA8C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_33_1, 0xA8C, 1, 1
+gAreaRoomMap_PalaceOfWinds_GratesTo3F:: @ 08106624
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_GratesTo3F_0, 0xA8C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_GratesTo3F_1, 0xA8C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_34:: @ 0810663C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_34_0, 0x708, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_34_1, 0x708, 1, 1
+gAreaRoomMap_PalaceOfWinds_SpinyFight:: @ 0810663C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_SpinyFight_0, 0x708, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_SpinyFight_1, 0x708, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_35:: @ 08106654
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_35_0, 0x258, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_35_1, 0x258, 1, 1
+gAreaRoomMap_PalaceOfWinds_PeahatSwitch:: @ 08106654
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_PeahatSwitch_0, 0x258, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_PeahatSwitch_1, 0x258, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_36:: @ 0810666C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_36_0, 0x4B0, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_36_1, 0x4B0, 1, 1
+gAreaRoomMap_PalaceOfWinds_WhirlwindBombarossa:: @ 0810666C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_WhirlwindBombarossa_0, 0x4B0, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_WhirlwindBombarossa_1, 0x4B0, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_37:: @ 08106684
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_37_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_37_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_DoorToStalfosFirebar:: @ 08106684
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_DoorToStalfosFirebar_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_DoorToStalfosFirebar_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_38:: @ 0810669C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_38_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_38_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_StalfosFireborHole:: @ 0810669C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_StalfosFireborHole_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_StalfosFireborHole_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_39:: @ 081066B4
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_39_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_39_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_ShortcutDoorButtons:: @ 081066B4
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_ShortcutDoorButtons_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_ShortcutDoorButtons_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_40:: @ 081066CC
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_40_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_40_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_ToPeahatSwitch:: @ 081066CC
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_ToPeahatSwitch_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_ToPeahatSwitch_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_41:: @ 081066E4
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_41_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_41_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_KinstoneWizzrobeFight:: @ 081066E4
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_KinstoneWizzrobeFight_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_KinstoneWizzrobeFight_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_42:: @ 081066FC
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_42_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_42_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_GibdoStairs:: @ 081066FC
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_GibdoStairs_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_GibdoStairs_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_43:: @ 08106714
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_43_0, 0x258, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_43_1, 0x258, 1, 1
+gAreaRoomMap_PalaceOfWinds_SpikeBarSmallKey:: @ 08106714
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_SpikeBarSmallKey_0, 0x258, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_SpikeBarSmallKey_1, 0x258, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_44:: @ 0810672C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_44_0, 0x708, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_44_1, 0x708, 1, 1
+gAreaRoomMap_PalaceOfWinds_RocCape:: @ 0810672C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_RocCape_0, 0x708, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_RocCape_1, 0x708, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_45:: @ 08106744
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_45_0, 0x708, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_45_1, 0x708, 1, 1
+gAreaRoomMap_PalaceOfWinds_FireBarGrates:: @ 08106744
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_FireBarGrates_0, 0x708, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_FireBarGrates_1, 0x708, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_46:: @ 0810675C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_46_0, 0x550, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_46_1, 0x550, 1, 1
+gAreaRoomMap_PalaceOfWinds_PlatformRideBombarossas:: @ 0810675C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_PlatformRideBombarossas_0, 0x550, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_PlatformRideBombarossas_1, 0x550, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_47:: @ 08106774
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_47_0, 0x12C, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_47_1, 0x12C, 1, 1
+gAreaRoomMap_PalaceOfWinds_BridgeAfterDarknut:: @ 08106774
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_BridgeAfterDarknut_0, 0x12C, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_BridgeAfterDarknut_1, 0x12C, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_48:: @ 0810678C
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_48_0, 0x500, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_48_1, 0x500, 1, 1
+gAreaRoomMap_PalaceOfWinds_BridgeSwitchesCloneBlock:: @ 0810678C
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_BridgeSwitchesCloneBlock_0, 0x500, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_BridgeSwitchesCloneBlock_1, 0x500, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_49:: @ 081067A4
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_49_0, 0x3DE, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_49_1, 0x3DE, 1, 1
+gAreaRoomMap_PalaceOfWinds_EntranceRoom:: @ 081067A4
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_EntranceRoom_0, 0x3DE, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_EntranceRoom_1, 0x3DE, 1, 1
 
-gAreaRoomMap_PalaceOfWinds_50:: @ 081067BC
-	map_bottom offset_gAreaRoomMap_PalaceOfWinds_50_0, 0x708, 1
-	map_top offset_gAreaRoomMap_PalaceOfWinds_50_1, 0x708, 1, 1
+gAreaRoomMap_PalaceOfWinds_DarkCompassHall:: @ 081067BC
+	map_bottom offset_gAreaRoomMap_PalaceOfWinds_DarkCompassHall_0, 0x708, 1
+	map_top offset_gAreaRoomMap_PalaceOfWinds_DarkCompassHall_1, 0x708, 1, 1
 
 gAreaRoomMaps_PalaceOfWinds:: @ 081067D4
-	.4byte gAreaRoomMap_PalaceOfWinds_0
-	.4byte gAreaRoomMap_PalaceOfWinds_1
-	.4byte gAreaRoomMap_PalaceOfWinds_2
-	.4byte gAreaRoomMap_PalaceOfWinds_3
-	.4byte gAreaRoomMap_PalaceOfWinds_4
-	.4byte gAreaRoomMap_PalaceOfWinds_5
-	.4byte gAreaRoomMap_PalaceOfWinds_6
-	.4byte gAreaRoomMap_PalaceOfWinds_7
-	.4byte gAreaRoomMap_PalaceOfWinds_8
-	.4byte gAreaRoomMap_PalaceOfWinds_9
-	.4byte gAreaRoomMap_PalaceOfWinds_10
-	.4byte gAreaRoomMap_PalaceOfWinds_11
-	.4byte gAreaRoomMap_PalaceOfWinds_12
-	.4byte gAreaRoomMap_PalaceOfWinds_13
-	.4byte gAreaRoomMap_PalaceOfWinds_14
-	.4byte gAreaRoomMap_PalaceOfWinds_15
-	.4byte gAreaRoomMap_PalaceOfWinds_16
-	.4byte gAreaRoomMap_PalaceOfWinds_17
-	.4byte gAreaRoomMap_PalaceOfWinds_18
-	.4byte gAreaRoomMap_PalaceOfWinds_19
-	.4byte gAreaRoomMap_PalaceOfWinds_20
-	.4byte gAreaRoomMap_PalaceOfWinds_21
-	.4byte gAreaRoomMap_PalaceOfWinds_22
-	.4byte gAreaRoomMap_PalaceOfWinds_23
-	.4byte gAreaRoomMap_PalaceOfWinds_24
-	.4byte gAreaRoomMap_PalaceOfWinds_25
-	.4byte gAreaRoomMap_PalaceOfWinds_26
-	.4byte gAreaRoomMap_PalaceOfWinds_27
-	.4byte gAreaRoomMap_PalaceOfWinds_28
-	.4byte gAreaRoomMap_PalaceOfWinds_29
-	.4byte gAreaRoomMap_PalaceOfWinds_30
-	.4byte gAreaRoomMap_PalaceOfWinds_31
-	.4byte gAreaRoomMap_PalaceOfWinds_32
-	.4byte gAreaRoomMap_PalaceOfWinds_33
-	.4byte gAreaRoomMap_PalaceOfWinds_34
-	.4byte gAreaRoomMap_PalaceOfWinds_35
-	.4byte gAreaRoomMap_PalaceOfWinds_36
-	.4byte gAreaRoomMap_PalaceOfWinds_37
-	.4byte gAreaRoomMap_PalaceOfWinds_38
-	.4byte gAreaRoomMap_PalaceOfWinds_39
-	.4byte gAreaRoomMap_PalaceOfWinds_40
-	.4byte gAreaRoomMap_PalaceOfWinds_41
-	.4byte gAreaRoomMap_PalaceOfWinds_42
-	.4byte gAreaRoomMap_PalaceOfWinds_43
-	.4byte gAreaRoomMap_PalaceOfWinds_44
-	.4byte gAreaRoomMap_PalaceOfWinds_45
-	.4byte gAreaRoomMap_PalaceOfWinds_46
-	.4byte gAreaRoomMap_PalaceOfWinds_47
-	.4byte gAreaRoomMap_PalaceOfWinds_48
-	.4byte gAreaRoomMap_PalaceOfWinds_49
-	.4byte gAreaRoomMap_PalaceOfWinds_50
+	.4byte gAreaRoomMap_PalaceOfWinds_GyorgTornado
+	.4byte gAreaRoomMap_PalaceOfWinds_BossKey
+	.4byte gAreaRoomMap_PalaceOfWinds_BeforeBallAndChainSoldiers
+	.4byte gAreaRoomMap_PalaceOfWinds_GyorgBossDoor
+	.4byte gAreaRoomMap_PalaceOfWinds_EastChestFromGyorgBossDoor
+	.4byte gAreaRoomMap_PalaceOfWinds_MoblinAndWizzrobeFight
+	.4byte gAreaRoomMap_PalaceOfWinds_FourButtonStalfos
+	.4byte gAreaRoomMap_PalaceOfWinds_FanAndKeyToBossKey
+	.4byte gAreaRoomMap_PalaceOfWinds_BallAndChainSoldiers
+	.4byte gAreaRoomMap_PalaceOfWinds_BombarossaPath
+	.4byte gAreaRoomMap_PalaceOfWinds_HoleToDarknut
+	.4byte gAreaRoomMap_PalaceOfWinds_ToBombarossaPath
+	.4byte gAreaRoomMap_PalaceOfWinds_DarknutMiniboss
+	.4byte gAreaRoomMap_PalaceOfWinds_BombWallInside
+	.4byte gAreaRoomMap_PalaceOfWinds_BombWallOutside
+	.4byte gAreaRoomMap_PalaceOfWinds_CloudJumps
+	.4byte gAreaRoomMap_PalaceOfWinds_BlockMazeToBossDoor
+	.4byte gAreaRoomMap_PalaceOfWinds_CrackedFloorLakitu
+	.4byte gAreaRoomMap_PalaceOfWinds_HeartPieceBridge
+	.4byte gAreaRoomMap_PalaceOfWinds_FanBridge
+	.4byte gAreaRoomMap_PalaceOfWinds_ToFanBridge
+	.4byte gAreaRoomMap_PalaceOfWinds_RedWarpHall
+	.4byte gAreaRoomMap_PalaceOfWinds_PlatformCloneRide
+	.4byte gAreaRoomMap_PalaceOfWinds_PitCornerAfterKey
+	.4byte gAreaRoomMap_PalaceOfWinds_CrowRide
+	.4byte gAreaRoomMap_PalaceOfWinds_GratePlatformRide
+	.4byte gAreaRoomMap_PalaceOfWinds_PotPush
+	.4byte gAreaRoomMap_PalaceOfWinds_FloormasterLever
+	.4byte gAreaRoomMap_PalaceOfWinds_Map
+	.4byte gAreaRoomMap_PalaceOfWinds_CornerToMap
+	.4byte gAreaRoomMap_PalaceOfWinds_StairsAfterFloormaster
+	.4byte gAreaRoomMap_PalaceOfWinds_HoleToKinstoneWizzrobe
+	.4byte gAreaRoomMap_PalaceOfWinds_KeyArrowButton
+	.4byte gAreaRoomMap_PalaceOfWinds_GratesTo3F
+	.4byte gAreaRoomMap_PalaceOfWinds_SpinyFight
+	.4byte gAreaRoomMap_PalaceOfWinds_PeahatSwitch
+	.4byte gAreaRoomMap_PalaceOfWinds_WhirlwindBombarossa
+	.4byte gAreaRoomMap_PalaceOfWinds_DoorToStalfosFirebar
+	.4byte gAreaRoomMap_PalaceOfWinds_StalfosFireborHole
+	.4byte gAreaRoomMap_PalaceOfWinds_ShortcutDoorButtons
+	.4byte gAreaRoomMap_PalaceOfWinds_ToPeahatSwitch
+	.4byte gAreaRoomMap_PalaceOfWinds_KinstoneWizzrobeFight
+	.4byte gAreaRoomMap_PalaceOfWinds_GibdoStairs
+	.4byte gAreaRoomMap_PalaceOfWinds_SpikeBarSmallKey
+	.4byte gAreaRoomMap_PalaceOfWinds_RocCape
+	.4byte gAreaRoomMap_PalaceOfWinds_FireBarGrates
+	.4byte gAreaRoomMap_PalaceOfWinds_PlatformRideBombarossas
+	.4byte gAreaRoomMap_PalaceOfWinds_BridgeAfterDarknut
+	.4byte gAreaRoomMap_PalaceOfWinds_BridgeSwitchesCloneBlock
+	.4byte gAreaRoomMap_PalaceOfWinds_EntranceRoom
+	.4byte gAreaRoomMap_PalaceOfWinds_DarkCompassHall
 
 gAreaRoomMap_PalaceOfWindsBoss_0:: @ 081068A0
 	map_top offset_gAreaRoomMap_PalaceOfWindsBoss_0_0, 0x1F80, 1, 1
@@ -2701,307 +2701,307 @@ gAreaRoomMap_SanctuaryEntrance_0:: @ 08106A00
 gAreaRoomMaps_SanctuaryEntrance:: @ 08106A18
 	.4byte gAreaRoomMap_SanctuaryEntrance_0
 
-gAreaRoomMap_DarkHyruleCastle_0:: @ 08106A1C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_0_0, 0xE58, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_0_1, 0xE58, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FEntrance:: @ 08106A1C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FEntrance_0, 0xE58, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FEntrance_1, 0xE58, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_1:: @ 08106A34
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_1_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_3FTopLeftTower:: @ 08106A34
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_3FTopLeftTower_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_3FTopLeftTower_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_2:: @ 08106A4C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_2_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_3FTopRightTower:: @ 08106A4C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_3FTopRightTower_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_3FTopRightTower_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_3:: @ 08106A64
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_3_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_3_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_3FBottomLeftTower:: @ 08106A64
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_3FBottomLeftTower_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_3FBottomLeftTower_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_4:: @ 08106A7C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_4_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_4_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_3FBottomRightTower:: @ 08106A7C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_3FBottomRightTower_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_3FBottomRightTower_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_5:: @ 08106A94
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_5_0, 0x444, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_5_1, 0x444, 1, 1
+gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati:: @ 08106A94
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati_0, 0x444, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati_1, 0x444, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_6:: @ 08106AAC
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_6_0, 0x2A0, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_6_1, 0x2A0, 1, 1
+gAreaRoomMap_DarkHyruleCastle_3FTripleDarknut:: @ 08106AAC
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_3FTripleDarknut_0, 0x2A0, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_3FTripleDarknut_1, 0x2A0, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_7:: @ 08106AC4
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_7_0, 0x374, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_7_1, 0x374, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FTopLeftTower:: @ 08106AC4
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FTopLeftTower_0, 0x374, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FTopLeftTower_1, 0x374, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_8:: @ 08106ADC
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_8_0, 0x374, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_8_1, 0x374, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FTopLeftCorner:: @ 08106ADC
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FTopLeftCorner_0, 0x374, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FTopLeftCorner_1, 0x374, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_9:: @ 08106AF4
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_9_0, 0x1FE, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_9_1, 0x1FE, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FBossKey:: @ 08106AF4
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FBossKey_0, 0x1FE, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FBossKey_1, 0x1FE, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_10:: @ 08106B0C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_10_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_10_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FBlueWarp:: @ 08106B0C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FBlueWarp_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FBlueWarp_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_11:: @ 08106B24
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_11_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_11_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerGhini:: @ 08106B24
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerGhini_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerGhini_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_12:: @ 08106B3C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_12_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_12_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerTorches:: @ 08106B3C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerTorches_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerTorches_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_13:: @ 08106B54
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_13_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_13_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FTopRightTower:: @ 08106B54
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FTopRightTower_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FTopRightTower_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_14:: @ 08106B6C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_14_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_14_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FTopLeftDarknut:: @ 08106B6C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FTopLeftDarknut_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FTopLeftDarknut_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_15:: @ 08106B84
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_15_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_15_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FSparks:: @ 08106B84
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FSparks_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FSparks_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_16:: @ 08106B9C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_16_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_16_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FTopRightDarknuts:: @ 08106B9C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FTopRightDarknuts_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FTopRightDarknuts_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_17:: @ 08106BB4
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_17_0, 0x2A8, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_17_1, 0x2A8, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FLeft:: @ 08106BB4
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FLeft_0, 0x2A8, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FLeft_1, 0x2A8, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_18:: @ 08106BCC
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_18_0, 0x2A8, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_18_1, 0x2A8, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FRight:: @ 08106BCC
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FRight_0, 0x2A8, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FRight_1, 0x2A8, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_19:: @ 08106BE4
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_19_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_19_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FBottomLeftDarknuts:: @ 08106BE4
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FBottomLeftDarknuts_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FBottomLeftDarknuts_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_20:: @ 08106BFC
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_20_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_20_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FBossDoor:: @ 08106BFC
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FBossDoor_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FBossDoor_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_21:: @ 08106C14
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_21_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_21_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FBottomRightDarknut:: @ 08106C14
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FBottomRightDarknut_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FBottomRightDarknut_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_22:: @ 08106C2C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_22_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_22_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCornerPuzzle:: @ 08106C2C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCornerPuzzle_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCornerPuzzle_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_23:: @ 08106C44
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_23_0, 0x374, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_23_1, 0x374, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FEntrance:: @ 08106C44
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FEntrance_0, 0x374, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FEntrance_1, 0x374, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_24:: @ 08106C5C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_24_0, 0x374, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_24_1, 0x374, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCorner:: @ 08106C5C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCorner_0, 0x374, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCorner_1, 0x374, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_25:: @ 08106C74
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_25_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_25_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FBottomLeftTower:: @ 08106C74
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FBottomLeftTower_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FBottomLeftTower_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_26:: @ 08106C8C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_26_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_26_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FBottomLeftGhini:: @ 08106C8C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FBottomLeftGhini_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FBottomLeftGhini_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_27:: @ 08106CA4
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_27_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_27_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_3FTopRightTower7:: @ 08106CA4
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_3FTopRightTower7_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_3FTopRightTower7_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_28:: @ 08106CBC
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_28_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_28_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_B1Entrance:: @ 08106CBC
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_B1Entrance_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_B1Entrance_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_29:: @ 08106CD4
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_29_0, 0x374, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_29_1, 0x374, 1, 1
+gAreaRoomMap_DarkHyruleCastle_2FBottomRightTower:: @ 08106CD4
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_2FBottomRightTower_0, 0x374, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_2FBottomRightTower_1, 0x374, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_30:: @ 08106CEC
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_30_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_30_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FTopLeftTower:: @ 08106CEC
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FTopLeftTower_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FTopLeftTower_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_31:: @ 08106D04
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_31_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_31_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FThroneRoom:: @ 08106D04
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FThroneRoom_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FThroneRoom_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_32:: @ 08106D1C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_32_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_32_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FCompass:: @ 08106D1C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FCompass_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FCompass_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_33:: @ 08106D34
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_33_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_33_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FTopRightTower:: @ 08106D34
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FTopRightTower_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FTopRightTower_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_34:: @ 08106D4C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_34_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_34_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FBeforeThrone:: @ 08106D4C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FBeforeThrone_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FBeforeThrone_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_35:: @ 08106D64
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_35_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_35_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FLoopTopLeft:: @ 08106D64
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FLoopTopLeft_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FLoopTopLeft_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_36:: @ 08106D7C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_36_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_36_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FLoopTop:: @ 08106D7C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FLoopTop_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FLoopTop_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_37:: @ 08106D94
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_37_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_37_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FLoopTopRight:: @ 08106D94
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FLoopTopRight_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FLoopTopRight_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_38:: @ 08106DAC
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_38_0, 0x2A8, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_38_1, 0x2A8, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FLoopLeft:: @ 08106DAC
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FLoopLeft_0, 0x2A8, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FLoopLeft_1, 0x2A8, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_39:: @ 08106DC4
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_39_0, 0x2A8, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_39_1, 0x2A8, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FLoopRight:: @ 08106DC4
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FLoopRight_0, 0x2A8, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FLoopRight_1, 0x2A8, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_40:: @ 08106DDC
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_40_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_40_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FLoopBottomLeft:: @ 08106DDC
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FLoopBottomLeft_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FLoopBottomLeft_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_41:: @ 08106DF4
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_41_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_41_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FLoopBottom:: @ 08106DF4
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FLoopBottom_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FLoopBottom_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_42:: @ 08106E0C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_42_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_42_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FLoopBottomRight:: @ 08106E0C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FLoopBottomRight_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FLoopBottomRight_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_43:: @ 08106E24
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_43_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_43_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FBottomLeftTower:: @ 08106E24
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FBottomLeftTower_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FBottomLeftTower_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_44:: @ 08106E3C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_44_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_44_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_1FBottomRightTower:: @ 08106E3C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_1FBottomRightTower_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_1FBottomRightTower_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_45:: @ 08106E54
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_45_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_45_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_B1BelowThrone:: @ 08106E54
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_B1BelowThrone_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_B1BelowThrone_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_46:: @ 08106E6C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_46_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_46_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_B1BelowCompass:: @ 08106E6C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_B1BelowCompass_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_B1BelowCompass_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_47:: @ 08106E84
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_47_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_47_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_B1BeforeThrone:: @ 08106E84
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_B1BeforeThrone_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_B1BeforeThrone_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_48:: @ 08106E9C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_48_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_48_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_B1ToPrison:: @ 08106E9C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_B1ToPrison_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_B1ToPrison_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_49:: @ 08106EB4
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_49_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_49_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_B1BombWall:: @ 08106EB4
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_B1BombWall_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_B1BombWall_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_50:: @ 08106ECC
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_50_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_50_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_B1Keatons:: @ 08106ECC
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_B1Keatons_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_B1Keatons_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_51:: @ 08106EE4
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_51_0, 0x2A8, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_51_1, 0x2A8, 1, 1
+gAreaRoomMap_DarkHyruleCastle_B1ToPrisonFirebar:: @ 08106EE4
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_B1ToPrisonFirebar_0, 0x2A8, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_B1ToPrisonFirebar_1, 0x2A8, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_52:: @ 08106EFC
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_52_0, 0x2A8, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_52_1, 0x2A8, 1, 1
+gAreaRoomMap_DarkHyruleCastle_B1Cannons:: @ 08106EFC
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_B1Cannons_0, 0x2A8, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_B1Cannons_1, 0x2A8, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_53:: @ 08106F14
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_53_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_53_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_B1Left:: @ 08106F14
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_B1Left_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_B1Left_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_54:: @ 08106F2C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_54_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_54_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_B1Right:: @ 08106F2C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_B1Right_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_B1Right_1, 0x1BA, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_55:: @ 08106F44
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_55_0, 0xA5C, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_55_1, 0xA5C, 1, 1
+gAreaRoomMap_DarkHyruleCastle_B1Map:: @ 08106F44
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_B1Map_0, 0xA5C, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_B1Map_1, 0xA5C, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_56:: @ 08106F5C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_56_0, 0x1FE, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_56_1, 0x1FE, 1, 1
+gAreaRoomMap_DarkHyruleCastle_B2ToPrison:: @ 08106F5C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_B2ToPrison_0, 0x1FE, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_B2ToPrison_1, 0x1FE, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_57:: @ 08106F74
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_57_0, 0x3FC, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_57_1, 0x3FC, 1, 1
+gAreaRoomMap_DarkHyruleCastle_B2Prison:: @ 08106F74
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_B2Prison_0, 0x3FC, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_B2Prison_1, 0x3FC, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_58:: @ 08106F8C
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_58_0, 0x264, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_58_1, 0x264, 1, 1
+gAreaRoomMap_DarkHyruleCastle_B2Dropdown:: @ 08106F8C
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_B2Dropdown_0, 0x264, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_B2Dropdown_1, 0x264, 1, 1
 
-gAreaRoomMap_DarkHyruleCastle_59:: @ 08106FA4
-	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_59_0, 0x1BA, 1
-	map_top offset_gAreaRoomMap_DarkHyruleCastle_59_1, 0x1BA, 1, 1
+gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati9:: @ 08106FA4
+	map_bottom offset_gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati9_0, 0x1BA, 1
+	map_top offset_gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati9_1, 0x1BA, 1, 1
 
 gAreaRoomMaps_DarkHyruleCastle:: @ 08106FBC
-	.4byte gAreaRoomMap_DarkHyruleCastle_0
-	.4byte gAreaRoomMap_DarkHyruleCastle_1
-	.4byte gAreaRoomMap_DarkHyruleCastle_2
-	.4byte gAreaRoomMap_DarkHyruleCastle_3
-	.4byte gAreaRoomMap_DarkHyruleCastle_4
-	.4byte gAreaRoomMap_DarkHyruleCastle_5
-	.4byte gAreaRoomMap_DarkHyruleCastle_6
-	.4byte gAreaRoomMap_DarkHyruleCastle_7
-	.4byte gAreaRoomMap_DarkHyruleCastle_8
-	.4byte gAreaRoomMap_DarkHyruleCastle_9
-	.4byte gAreaRoomMap_DarkHyruleCastle_10
-	.4byte gAreaRoomMap_DarkHyruleCastle_11
-	.4byte gAreaRoomMap_DarkHyruleCastle_12
-	.4byte gAreaRoomMap_DarkHyruleCastle_13
-	.4byte gAreaRoomMap_DarkHyruleCastle_14
-	.4byte gAreaRoomMap_DarkHyruleCastle_15
-	.4byte gAreaRoomMap_DarkHyruleCastle_16
-	.4byte gAreaRoomMap_DarkHyruleCastle_17
-	.4byte gAreaRoomMap_DarkHyruleCastle_18
-	.4byte gAreaRoomMap_DarkHyruleCastle_19
-	.4byte gAreaRoomMap_DarkHyruleCastle_20
-	.4byte gAreaRoomMap_DarkHyruleCastle_21
-	.4byte gAreaRoomMap_DarkHyruleCastle_22
-	.4byte gAreaRoomMap_DarkHyruleCastle_23
-	.4byte gAreaRoomMap_DarkHyruleCastle_24
-	.4byte gAreaRoomMap_DarkHyruleCastle_25
-	.4byte gAreaRoomMap_DarkHyruleCastle_26
-	.4byte gAreaRoomMap_DarkHyruleCastle_27
-	.4byte gAreaRoomMap_DarkHyruleCastle_28
-	.4byte gAreaRoomMap_DarkHyruleCastle_29
-	.4byte gAreaRoomMap_DarkHyruleCastle_30
-	.4byte gAreaRoomMap_DarkHyruleCastle_31
-	.4byte gAreaRoomMap_DarkHyruleCastle_32
-	.4byte gAreaRoomMap_DarkHyruleCastle_33
-	.4byte gAreaRoomMap_DarkHyruleCastle_34
-	.4byte gAreaRoomMap_DarkHyruleCastle_35
-	.4byte gAreaRoomMap_DarkHyruleCastle_36
-	.4byte gAreaRoomMap_DarkHyruleCastle_37
-	.4byte gAreaRoomMap_DarkHyruleCastle_38
-	.4byte gAreaRoomMap_DarkHyruleCastle_39
-	.4byte gAreaRoomMap_DarkHyruleCastle_40
-	.4byte gAreaRoomMap_DarkHyruleCastle_41
-	.4byte gAreaRoomMap_DarkHyruleCastle_42
-	.4byte gAreaRoomMap_DarkHyruleCastle_43
-	.4byte gAreaRoomMap_DarkHyruleCastle_44
-	.4byte gAreaRoomMap_DarkHyruleCastle_45
-	.4byte gAreaRoomMap_DarkHyruleCastle_46
-	.4byte gAreaRoomMap_DarkHyruleCastle_47
-	.4byte gAreaRoomMap_DarkHyruleCastle_48
-	.4byte gAreaRoomMap_DarkHyruleCastle_49
-	.4byte gAreaRoomMap_DarkHyruleCastle_50
-	.4byte gAreaRoomMap_DarkHyruleCastle_51
-	.4byte gAreaRoomMap_DarkHyruleCastle_52
-	.4byte gAreaRoomMap_DarkHyruleCastle_53
-	.4byte gAreaRoomMap_DarkHyruleCastle_54
-	.4byte gAreaRoomMap_DarkHyruleCastle_55
-	.4byte gAreaRoomMap_DarkHyruleCastle_56
-	.4byte gAreaRoomMap_DarkHyruleCastle_57
-	.4byte gAreaRoomMap_DarkHyruleCastle_58
-	.4byte gAreaRoomMap_DarkHyruleCastle_59
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FEntrance
+	.4byte gAreaRoomMap_DarkHyruleCastle_3FTopLeftTower
+	.4byte gAreaRoomMap_DarkHyruleCastle_3FTopRightTower
+	.4byte gAreaRoomMap_DarkHyruleCastle_3FBottomLeftTower
+	.4byte gAreaRoomMap_DarkHyruleCastle_3FBottomRightTower
+	.4byte gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati
+	.4byte gAreaRoomMap_DarkHyruleCastle_3FTripleDarknut
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FTopLeftTower
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FTopLeftCorner
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FBossKey
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FBlueWarp
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerGhini
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FTopRightCornerTorches
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FTopRightTower
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FTopLeftDarknut
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FSparks
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FTopRightDarknuts
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FLeft
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FRight
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FBottomLeftDarknuts
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FBossDoor
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FBottomRightDarknut
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCornerPuzzle
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FEntrance
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FBottomLeftCorner
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FBottomLeftTower
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FBottomLeftGhini
+	.4byte gAreaRoomMap_DarkHyruleCastle_3FTopRightTower7
+	.4byte gAreaRoomMap_DarkHyruleCastle_B1Entrance
+	.4byte gAreaRoomMap_DarkHyruleCastle_2FBottomRightTower
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FTopLeftTower
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FThroneRoom
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FCompass
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FTopRightTower
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FBeforeThrone
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FLoopTopLeft
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FLoopTop
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FLoopTopRight
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FLoopLeft
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FLoopRight
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FLoopBottomLeft
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FLoopBottom
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FLoopBottomRight
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FBottomLeftTower
+	.4byte gAreaRoomMap_DarkHyruleCastle_1FBottomRightTower
+	.4byte gAreaRoomMap_DarkHyruleCastle_B1BelowThrone
+	.4byte gAreaRoomMap_DarkHyruleCastle_B1BelowCompass
+	.4byte gAreaRoomMap_DarkHyruleCastle_B1BeforeThrone
+	.4byte gAreaRoomMap_DarkHyruleCastle_B1ToPrison
+	.4byte gAreaRoomMap_DarkHyruleCastle_B1BombWall
+	.4byte gAreaRoomMap_DarkHyruleCastle_B1Keatons
+	.4byte gAreaRoomMap_DarkHyruleCastle_B1ToPrisonFirebar
+	.4byte gAreaRoomMap_DarkHyruleCastle_B1Cannons
+	.4byte gAreaRoomMap_DarkHyruleCastle_B1Left
+	.4byte gAreaRoomMap_DarkHyruleCastle_B1Right
+	.4byte gAreaRoomMap_DarkHyruleCastle_B1Map
+	.4byte gAreaRoomMap_DarkHyruleCastle_B2ToPrison
+	.4byte gAreaRoomMap_DarkHyruleCastle_B2Prison
+	.4byte gAreaRoomMap_DarkHyruleCastle_B2Dropdown
+	.4byte gAreaRoomMap_DarkHyruleCastle_3FKeatonHallToVaati9
 
 gAreaRoomMap_DarkHyruleCastleOutside_0:: @ 081070AC
 	map_bottom offset_gAreaRoomMap_DarkHyruleCastleOutside_0_0, 0x2EE, 1
@@ -3472,7 +3472,7 @@ gAreaRoomMaps:: @ 08107988
 	.4byte gAreaRoomMaps_Empty                   @ 0xE
 	.4byte gAreaRoomMaps_HyruleDigCaves          @ 0xF
 	.4byte gAreaRoomMaps_MelarisMine             @ 0x10
-	.4byte gAreaRoomMaps_MinishPaths1            @ 0x11
+	.4byte gAreaRoomMaps_MinishPaths            @ 0x11
 	.4byte gAreaRoomMaps_CrenelMinishPaths       @ 0x12
 	.4byte gAreaRoomMaps_DigCaves1               @ 0x13
 	.4byte gAreaRoomMaps_CrenelDigCave           @ 0x14

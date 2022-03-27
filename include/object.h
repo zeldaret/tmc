@@ -20,7 +20,7 @@ extern void sub_080787B4(Entity*);
 extern void sub_0808C650(Entity*, u32);
 extern u32 sub_0808C67C(void);
 extern void sub_0808C688(void);
-extern void sub_080A2BE4(Entity*, u32);
+extern void sub_080A2BE4(Entity*, bool32);
 
 void CreateDust(Entity* parent);
 void CreateDustAt(s32, s32, u32);
@@ -215,7 +215,7 @@ typedef enum {
     OBJECT_B6,
     WELL,
     WIND_TRIBE_TELEPORTER,
-    OBJECT_B9,
+    CUCCO_MINIGAME,
     GYORG_BOSS_OBJECT,
     WINDCREST,
     LIT_AREA,

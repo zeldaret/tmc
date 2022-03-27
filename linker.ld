@@ -381,7 +381,7 @@ SECTIONS {
         src/enemy/mazaalMacro.o(.text);
         src/enemy/mazaalHand.o(.text);
         src/enemy/octorokBoss.o(.text);
-        asm/enemy/flyingPot.o(.text);
+        src/enemy/flyingPot.o(.text);
         src/enemy/gibdo.o(.text);
         src/enemy/octorokGolden.o(.text);
         src/enemy/tektiteGolden.o(.text);
@@ -428,7 +428,7 @@ SECTIONS {
         src/enemy/enemy66.o(.text);
         /* END enemies */
         src/code_08049CD4.o(.text); /* enemyUtils.c */
-        asm/code_08049D30.o(.text);
+        src/code_08049DF4.o(.text);
         src/enemyUtils.o(.text);
         src/createEnemy.o(.text);
         src/enterPortalSubtask.o(.text);
@@ -501,7 +501,6 @@ SECTIONS {
         src/manager/manager39.o(.text);
         src/entity.o(.text);
         src/code_0805EC04.o(.text); /* objaffine? */
-        asm/text.o(.text);
         src/text.o(.text);
         src/debug.o(.text);
         src/playerItem/playerItem14.o(.text);
@@ -711,7 +710,6 @@ SECTIONS {
         src/object/object53.o(.text);
         src/object/pullableLever.o(.text);
         src/object/minecart.o(.text);
-        asm/object/minecart.o(.text);
         src/object/thoughtBubble.o(.text);
         src/object/hiddenLadderDown.o(.text);
         src/object/gentariCurtains.o(.text);
@@ -721,7 +719,7 @@ SECTIONS {
         src/object/mask.o(.text);
         src/object/houseDoorInterior.o(.text);
         src/object/whirlwind.o(.text);
-        asm/object/objectBlockingStairs.o(.text);
+        src/object/objectBlockingStairs.o(.text);
         src/object/swordsmanNewsletter.o(.text);
         src/object/object61.o(.text);
         src/object/giantTwig.o(.text);
@@ -751,7 +749,7 @@ SECTIONS {
         src/object/macroShoes.o(.text);
         src/object/objectOnSpinyBeetle.o(.text);
         src/object/object7E.o(.text);
-        asm/object/picoBloom.o(.text);
+        src/object/picoBloom.o(.text);
         src/object/board.o(.text);
         src/object/object81.o(.text);
         src/object/bigVortex.o(.text);
@@ -761,7 +759,7 @@ SECTIONS {
         src/object/object86.o(.text);
         src/object/octorokBossObject.o(.text);
         src/object/macroBook.o(.text);
-        asm/object/mazaalBossObject.o(.text);
+        src/object/mazaalBossObject.o(.text);
         src/object/cabinFurniture.o(.text);
         src/object/doubleBookshelf.o(.text);
         src/object/book.o(.text);
@@ -774,11 +772,10 @@ SECTIONS {
         src/object/lamp.o(.text);
         src/object/windTribeFlag.o(.text);
         src/object/bird.o(.text);
-        asm/object/bird.o(.text);
-        asm/object/object96.o(.text);
+        src/object/object96.o(.text);
         src/object/keyStealingTakkuri.o(.text);
-        asm/object/object98.o(.text);
-        asm/object/object99.o(.text);
+        src/object/object98.o(.text);
+        src/object/object99.o(.text);
         src/object/macroAcorn.o(.text);
         src/object/object9B.o(.text);
         src/object/treeHidingPortal.o(.text);
@@ -790,27 +787,27 @@ SECTIONS {
         src/object/objectA2.o(.text);
         src/object/cloud.o(.text);
         src/object/minishLight.o(.text);
-        asm/object/fireballChain.o(.text);
-        asm/object/objectA6.o(.text);
+        src/object/fireballChain.o(.text);
+        src/object/objectA6.o(.text);
         src/object/objectA7.o(.text);
         src/object/objectA8.o(.text);
-        asm/object/objectA9.o(.text);
+        src/object/objectA9.o(.text);
         src/object/waterfallOpening.o(.text);
-        asm/object/objectAB.o(.text);
+        src/object/objectAB.o(.text);
         src/object/fourElements.o(.text);
-        asm/object/objectAD.o(.text);
+        src/object/objectAD.o(.text);
         src/object/floatingBlock.o(.text);
         src/object/objectAF.o(.text);
         src/object/metalDoor.o(.text);
         src/object/jailBars.o(.text);
         src/object/objectB2.o(.text);
         src/object/objectB3.o(.text);
-        asm/object/objectB4.o(.text);
+        src/object/objectB4.o(.text);
         src/object/objectB5.o(.text);
         src/object/objectB6.o(.text);
         src/object/well.o(.text);
         src/object/windTribeTeleporter.o(.text);
-        asm/object/objectB9.o(.text);
+        src/object/cuccoMinigame.o(.text);
         src/object/gyorgBossObject.o(.text);
         src/object/windcrest.o(.text);
         src/object/litArea.o(.text);
@@ -827,7 +824,7 @@ SECTIONS {
         src/demo.o(.text);
 #endif
         src/sound.o(.text);
-        asm/staffroll.o(.text);
+        src/staffroll.o(.text);
         src/menu/kinstone_menu.o(.text);
         src/menu/figurine_menu.o(.text);
         src/menu/pause_menu.o(.text);
@@ -998,7 +995,7 @@ SECTIONS {
         data/const/enemy/rope.o(.rodata);
         data/animations/enemy/rope.o(.rodata);
         data/const/enemy/smallPesto.o(.rodata);
-        data/const/enemy/acroBandits.o(.rodata);
+        src/enemy/acroBandits.o(.rodata);
         data/animations/enemy/acroBandits.o(.rodata);
         data/const/enemy/keaton.o(.rodata);
         data/animations/enemy/keaton.o(.rodata);
@@ -1020,7 +1017,7 @@ SECTIONS {
         data/animations/enemy/mazaalHand.o(.rodata);
         src/enemy/octorokBoss.o(.rodata);
         data/animations/enemy/octorokBoss.o(.rodata);
-        data/const/enemy/flyingPot.o(.rodata);
+        src/enemy/flyingPot.o(.rodata);
         src/enemy/gibdo.o(.rodata);
         data/animations/enemy/gibdo.o(.rodata);
         src/enemy/octorokGolden.o(.rodata);
@@ -1332,6 +1329,7 @@ SECTIONS {
         src/flags.o(.rodata);
         src/save.o(.rodata);
         src/script.o(.rodata);
+        src/scroll.o(.rodata);
         data/data_0811E750.o(.rodata);
         data/const/object/itemOnGround.o(.rodata);
         src/object/deathFx.o(.rodata);
@@ -1446,7 +1444,7 @@ SECTIONS {
         src/object/object53.o(.rodata);
         src/object/pullableLever.o(.rodata);
         data/animations/object/pullableLever.o(.rodata);
-        data/const/object/minecart.o(.rodata);
+        src/object/minecart.o(.rodata);
         data/animations/object/minecart.o(.rodata);
         data/const/object/thoughtBubble.o(.rodata);
         data/animations/object/thoughtBubble.o(.rodata);
@@ -1461,7 +1459,7 @@ SECTIONS {
         src/object/houseDoorInterior.o(.rodata);
         src/object/whirlwind.o(.rodata);
         data/animations/object/whirlwind.o(.rodata);
-        data/const/object/objectBlockingStairs.o(.rodata);
+        src/object/objectBlockingStairs.o(.rodata);
         data/const/object/swordsmanNewsletter.o(.rodata);
         src/object/object61.o(.rodata);
         src/object/giantTwig.o(.rodata);
@@ -1494,7 +1492,7 @@ SECTIONS {
         data/animations/object/pushableLever.o(.rodata);
         src/object/macroShoes.o(.rodata);
         src/object/objectOnSpinyBeetle.o(.rodata);
-        data/const/object/picoBloom.o(.rodata);
+        src/object/picoBloom.o(.rodata);
         data/animations/object/picoBloom.o(.rodata);
         src/object/board.o(.rodata);
         src/object/object81.o(.rodata);
@@ -1511,7 +1509,7 @@ SECTIONS {
         src/object/octorokBossObject.o(.rodata);
         src/object/macroBook.o(.rodata);
         data/animations/object/macroBook.o(.rodata);
-        data/const/object/mazaalBossObject.o(.rodata);
+        src/object/mazaalBossObject.o(.rodata);
         src/object/cabinFurniture.o(.rodata);
         src/object/doubleBookshelf.o(.rodata);
         src/object/book.o(.rodata);
@@ -1524,11 +1522,11 @@ SECTIONS {
         data/animations/object/bakerOven.o(.rodata);
         src/object/lamp.o(.rodata);
         data/animations/object/lamp.o(.rodata);
-        data/const/object/bird.o(.rodata);
+        src/object/bird.o(.rodata);
         data/animations/object/bird.o(.rodata);
-        data/const/object/object96.o(.rodata);
+        src/object/object96.o(.rodata);
         src/object/keyStealingTakkuri.o(.rodata);
-        data/const/object/object98.o(.rodata);
+        src/object/object98.o(.rodata);
         data/animations/object/object98.o(.rodata);
         src/object/macroAcorn.o(.rodata);
         src/object/object9B.o(.rodata);
@@ -1544,15 +1542,15 @@ SECTIONS {
         data/animations/object/objectA2.o(.rodata);
         data/const/object/cloud.o(.rodata);
         data/const/object/minishLight.o(.rodata);
-        data/const/object/objectA6.o(.rodata);
+        src/object/objectA6.o(.rodata);
         data/animations/object/objectA6.o(.rodata);
         src/object/objectA8.o(.rodata);
-        data/const/object/objectA9.o(.rodata);
+        src/object/objectA9.o(.rodata);
         src/object/waterfallOpening.o(.rodata);
-        data/const/object/objectAB.o(.rodata);
+        src/object/objectAB.o(.rodata);
         data/animations/object/objectAB.o(.rodata);
         src/object/fourElements.o(.rodata);
-        data/const/object/objectAD.o(.rodata);
+        src/object/objectAD.o(.rodata);
         data/const/object/objectAF.o(.rodata);
         data/animations/object/objectAF.o(.rodata);
         data/const/object/metalDoor.o(.rodata);
@@ -1561,11 +1559,11 @@ SECTIONS {
         data/animations/object/objectB2.o(.rodata);
         src/object/objectB3.o(.rodata);
         data/animations/object/objectB3.o(.rodata);
-        data/const/object/objectB4.o(.rodata);
+        src/object/objectB4.o(.rodata);
         data/animations/object/objectB4.o(.rodata);
         data/const/object/well.o(.rodata);
         src/object/windTribeTeleporter.o(.rodata);
-        data/const/object/objectB9.o(.rodata);
+        src/object/cuccoMinigame.o(.rodata);
         src/object/gyorgBossObject.o(.rodata);
         data/const/object/windcrest.o(.rodata);
         src/object/objectBD.o(.rodata);
@@ -1580,6 +1578,7 @@ SECTIONS {
 #ifdef DEMO_USA
         data/const/demo.o(.rodata);
 #endif
+        src/staffroll.o(.rodata);
         data/data_08127280.o(.rodata);
         src/menu/kinstone_menu.o(.rodata);
         src/menu/figurine_menu.o(.rodata);
@@ -1656,7 +1655,7 @@ SECTIONS {
         data/gfx/fixed_type_gfx.o(.rodata);
         data/const/movement.o(.rodata);
         src/movement.o(.rodata);
-        data/map/exit_lists.o(.rodata);
+        src/data/transitions.o(.rodata);
         data/gfx_0813AA54.o(.rodata);
         data/gfx/sprite_gfx.o(.rodata);
         data/gfx/frame_obj_lists.o(.rodata);

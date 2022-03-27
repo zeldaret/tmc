@@ -295,7 +295,7 @@ void sub_080391B4(CuccoAggrEntity* this) {
     if (this->unk_7a) {
         if ((this->unk_7b++ & 0x1f) == 0) {
             Entity* ent = CreateEnemy(CUCCO_AGGR, 2);
-            if (ent) {
+            if (ent != NULL) {
                 u32 rand = (Random() & 0x17);
                 const PosOffset* ptr = &gCuccoAggrSpawnPoints[rand];
                 ent->x.HALF.HI = gRoomControls.scroll_x + ptr->x;
@@ -321,7 +321,7 @@ void sub_08039218(CuccoAggrEntity* this) {
 void CuccoAggr_CreateFx(CuccoAggrEntity* this) {
     Entity* ent = CreateFx(super, gCuccoAggrFx[super->type], 0);
 
-    if (ent) {
+    if (ent != NULL) {
         ent->x.HALF.HI += gCuccoAggrFxHorizontalOffsets[super->spriteSettings.flipX];
     }
 }

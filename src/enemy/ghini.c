@@ -113,7 +113,7 @@ void Ghini_OnConfused(GhiniEntity* this) {
 }
 
 void Ghini_OnGrabbed(GhiniEntity* this) {
-    if (sub_0806F520()) {
+    if (sub_0806F520(super)) {
         Ghini_SubActions[super->subAction](this);
     } else {
         sub_0803F51C(this);

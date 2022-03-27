@@ -62,7 +62,7 @@ void sub_080ABBF4(Entity* this) {
 }
 
 void sub_080ABC54(Entity* this) {
-    if (sub_0806F520() == 0) {
+    if (!sub_0806F520(this)) {
         CreateFx(this, FX_DEATH, 0);
         DeleteThisEntity();
     }

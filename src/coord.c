@@ -1,6 +1,8 @@
+#define NENT_DEPRECATED
 #include "asm.h"
 #include "area.h"
 #include "player.h"
+#include "new_player.h"
 #include "coord.h"
 #include "common.h"
 #include "sound.h"
@@ -38,7 +40,7 @@ void sub_0806F38C(void) {
 u32 sub_0806F39C(Entity* ent) {
     s32 dist;
 
-    if (gPlayerEntity.animationState & 2) {
+    if (gNewPlayerEntity.base.animationState & 2) {
         dist = ent->x.HALF.HI - gPlayerEntity.x.HALF.HI;
     } else {
         dist = ent->y.HALF.HI - gPlayerEntity.y.HALF.HI;
@@ -55,7 +57,7 @@ u32 sub_0806F39C(Entity* ent) {
 }
 
 bool32 sub_0806F3E4(Entity* ent) {
-    Entity tmp_ent;
+    GenericEntity tmp_ent;
     s8* p;
 
     if ((gPlayerState.field_0x1c & 0x7F) != 1)
@@ -74,15 +76,15 @@ bool32 sub_0806F3E4(Entity* ent) {
     if (ent->knockbackSpeed > 0x500)
         ent->knockbackSpeed = 0x500;
     p = &gUnk_08126EE4[gPlayerEntity.animationState & 0xE];
-    tmp_ent.x.HALF.HI = p[0] + gPlayerEntity.x.HALF.HI;
-    tmp_ent.y.HALF.HI = p[1] + gPlayerEntity.y.HALF.HI;
-    LinearMoveDirection(ent, ent->knockbackSpeed, GetFacingDirection(ent, &tmp_ent));
-    if (sub_0800419C(&tmp_ent, ent, 4, 4)) {
+    tmp_ent.base.x.HALF.HI = p[0] + gPlayerEntity.x.HALF.HI;
+    tmp_ent.base.y.HALF.HI = p[1] + gPlayerEntity.y.HALF.HI;
+    LinearMoveDirection(ent, ent->knockbackSpeed, GetFacingDirection(ent, &tmp_ent.base));
+    if (sub_0800419C(&tmp_ent.base, ent, 4, 4)) {
         u32 state = ent->field_0x1c & 0xF;
         if (state == 2) {
             Entity* item;
             ent->subAction = 3;
-            (Entity*)gPlayerEntity.field_0x70.WORD = ent;
+            gNewPlayerEntity.unk_70 = ent;
             gPlayerState.field_0x1c = 7;
             item = CreatePlayerItem(0x11, 0, 0, 0);
             if (item != NULL) {
@@ -116,7 +118,7 @@ void sub_0806F4E8(Entity* ent) {
     }
 }
 
-u32 sub_0806F520(Entity* ent) {
+bool32 sub_0806F520(Entity* ent) {
     if (ent->bitfield == 0x93)
         return 1;
     ent->field_0x3a &= ~4;
@@ -336,38 +338,38 @@ void SortEntityBelow(Entity* above_ent, Entity* below_ent) {
     below_ent->spritePriority.b0 = gSpriteSortBelowTable[above_ent->spritePriority.b0];
 }
 
-void sub_0806FB00(Entity* ent, u32 param_1, u32 param_2, u32 param_3) {
+void sub_0806FB00(GenericEntity* ent, u32 param_1, u32 param_2, u32 param_3) {
     if (param_3 == 0) {
         param_3 = 1;
     }
 
     ent->field_0x7c.BYTES.byte2 = 0;
     ent->field_0x7c.BYTES.byte3 = param_3;
-    ent->field_0x80.HWORD = ent->x.HALF.HI;
-    ent->field_0x82.HWORD = ent->y.HALF.HI;
+    ent->field_0x80.HWORD = ent->base.x.HALF.HI;
+    ent->field_0x82.HWORD = ent->base.y.HALF.HI;
     ent->cutsceneBeh.HWORD = param_1;
     ent->field_0x86.HWORD = param_2;
 }
 
-bool32 sub_0806FB38(Entity* ent) {
+bool32 sub_0806FB38(GenericEntity* ent) {
     s32 val;
     u32 rv;
     if (ent->field_0x7c.BYTES.byte2 < ent->field_0x7c.BYTES.byte3) {
         ent->field_0x7c.BYTES.byte2++;
-        ent->x.HALF.HI =
+        ent->base.x.HALF.HI =
             ((((((s16)ent->cutsceneBeh.HWORD - (s16)ent->field_0x80.HWORD) * ent->field_0x7c.BYTES.byte2) << 8) /
               ent->field_0x7c.BYTES.byte3) >>
              8) +
             ent->field_0x80.HWORD;
-        ent->y.HALF.HI =
+        ent->base.y.HALF.HI =
             (((((((s16)ent->field_0x86.HWORD - (s16)ent->field_0x82.HWORD) * ent->field_0x7c.BYTES.byte2) << 8) /
                ent->field_0x7c.BYTES.byte3) >>
               8)) +
             ent->field_0x82.HWORD;
         rv = 0;
     } else {
-        ent->x.HALF.HI = ent->cutsceneBeh.HWORD;
-        ent->y.HALF.HI = ent->field_0x86.HWORD;
+        ent->base.x.HALF.HI = ent->cutsceneBeh.HWORD;
+        ent->base.y.HALF.HI = ent->field_0x86.HWORD;
         rv = 1;
     }
     return rv;

@@ -42,9 +42,6 @@ void sub_08037ACC(GibdoEntity*);
 void Gibdo_CreateObjects(GibdoEntity*);
 void sub_08037A14(GibdoEntity*);
 
-extern void sub_0804A4E4(Entity*, Entity*);
-u32 sub_0804A044(Entity*, Entity*, u32);
-
 void (*const Gibdo_Functions[6])(Entity*);
 void (*const gUnk_080CF2AC[9])(GibdoEntity*);
 extern Entity* gUnk_020000B0;

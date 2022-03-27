@@ -1,4 +1,5 @@
 #include "entity.h"
+#include "collision.h"
 #include "enemy.h"
 #include "functions.h"
 #include "projectile.h"
@@ -114,10 +115,10 @@ void OctorokBossProjectile_Action1(Entity* this) {
             this->field_0x78.HWORD--;
             LinearMoveAngle(this, this->speed, this->direction);
             CalculateEntityTileCollisions(this, this->direction >> 3, 0);
-            if ((this->collisions & 0xee00) != 0) {
+            if ((this->collisions & (COL_WEST_ANY | COL_EAST_ANY)) != COL_NONE) {
                 this->direction = -this->direction;
             }
-            if ((this->collisions & 0xee) != 0) {
+            if ((this->collisions & (COL_NORTH_ANY | COL_SOUTH_ANY)) != COL_NONE) {
                 this->direction = -this->direction ^ 0x80;
             }
             if (this->direction == this->field_0xf) {
@@ -151,7 +152,7 @@ void OctorokBossProjectile_Action1(Entity* this) {
             GetNextFrame(this);
             if (GravityUpdate(this, 0x1800) != 0) {
                 CalculateEntityTileCollisions(this, this->direction >> 3, 0);
-                if (this->collisions == 0) {
+                if (this->collisions == COL_NONE) {
                     LinearMoveAngle(this, (s32)this->speed, (u32)this->direction);
                 } else {
                     OctorokBossProjectile_Action2(this);

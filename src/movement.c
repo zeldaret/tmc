@@ -1,4 +1,5 @@
 #include "global.h"
+#include "collision.h"
 #include "entity.h"
 #include "room.h"
 #include "area.h"
@@ -6,38 +7,9 @@
 #include "asm.h"
 #include "item.h"
 #include "coord.h"
+#include "transitions.h"
 #include "functions.h"
 
-/** Collisions. */
-typedef enum {
-    COL_NONE = 0x0,
-    COL_NORTH_WEST = 0x2,
-    COL_NORTH_EAST = 0x4,
-    COL_NORTH_FULL = 0x6,
-    COL_NORTH_ANY = 0xe,
-    COL_SOUTH_WEST = 0x20,
-    COL_SOUTH_EAST = 0x40,
-    COL_SOUTH_FULL = 0x60,
-    COL_SOUTH_ANY = 0xe0,
-    COL_WEST_SOUTH = 0x200,
-    COL_WEST_NORTH = 0x400,
-    COL_WEST_FULL = 0x600,
-    COL_WEST_ANY = 0xe00,
-    COL_EAST_SOUTH = 0x2000,
-    COL_EAST_NORTH = 0x4000,
-    COL_EAST_FULL = 0x6000,
-    COL_EAST_ANY = 0xe000,
-} Collisions;
-
-extern u8 gExitList_RoyalValley_ForestMaze[];
-extern u8 gUnk_08135190[];
-extern u8 gUnk_08134FBC[];
-extern u8 gUnk_08135048[];
-extern u8 gUnk_0813A76C[];
-
-bool32 IsTileCollision(const u8*, s32, s32, u32);
-void CalculateEntityTileCollisions(Entity*, u32, u32);
-bool32 ProcessMovementInternal(Entity*, s32, s32, u32);
 bool32 sub_080AF0C8(Entity*);
 
 /** The type of the movement/collision? that is done. */
@@ -117,7 +89,8 @@ bool32 TileCollisionFunction2(s32 x, s32 y) {
         0b1111111111111110,
         0b1111111111111111,
         */
-        32768, 49152, 57344, 61440, 63488, 64512, 65024, 65280, 65408, 65472, 65504, 65520, 65528, 65532, 65534, 65535,
+        0x8000, 0xC000, 0xE000, 0xF000, 0xF800, 0xFC00, 0xFE00, 0xFF00,
+        0xFF80, 0xFFC0, 0xFFE0, 0xFFF0, 0xFFF8, 0xFFFC, 0xFFFE, 0xFFFF,
     };
 
     return gUnk_08133918[y & 0xf] >> (x & 0xf) & 1;
@@ -127,24 +100,24 @@ bool32 TileCollisionFunction2(s32 x, s32 y) {
 bool32 TileCollisionFunction3(s32 x, s32 y) {
     static const u16 gUnk_08133938[] = {
         /*
-        0b1,
-        0b11,
-        0b111,
-        0b1111,
-        0b11111,
-        0b111111,
-        0b1111111,
-        0b11111111,
-        0b111111111,
-        0b1111111111,
-        0b11111111111,
-        0b111111111111,
-        0b1111111111111,
-        0b11111111111111,
-        0b111111111111111,
+        0b0000000000000001,
+        0b0000000000000011,
+        0b0000000000000111,
+        0b0000000000001111,
+        0b0000000000011111,
+        0b0000000000111111,
+        0b0000000001111111,
+        0b0000000011111111,
+        0b0000000111111111,
+        0b0000001111111111,
+        0b0000011111111111,
+        0b0000111111111111,
+        0b0001111111111111,
+        0b0011111111111111,
+        0b0111111111111111,
         0b1111111111111111,
         */
-        1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, 2047, 4095, 8191, 16383, 32767, 65535,
+        0x1, 0x3, 0x7, 0xF, 0x1F, 0x3F, 0x7F, 0xFF, 0x1FF, 0x3FF, 0x7FF, 0xFFF, 0x1FFF, 0x3FFF, 0x7FFF, 0xFFFF,
     };
     return gUnk_08133938[y & 0xf] >> (x & 0xf) & 1;
 }
@@ -170,7 +143,8 @@ bool32 TileCollisionFunction4(s32 x, s32 y) {
         0b1100000000000000,
         0b1000000000000000,
         */
-        65535, 65534, 65532, 65528, 65520, 65504, 65472, 65408, 65280, 65024, 64512, 63488, 61440, 57344, 49152, 32768,
+        0xFFFF, 0xFFFE, 0xFFFC, 0xFFF8, 0xFFF0, 0xFFE0, 0xFFC0, 0xFF80,
+        0xFF00, 0xFE00, 0xFC00, 0xF800, 0xF000, 0xE000, 0xC000, 0x8000,
     };
     return gUnk_08133958[y & 0xf] >> (x & 0xf) & 1;
 }
@@ -180,23 +154,23 @@ bool32 TileCollisionFunction5(s32 x, s32 y) {
     static const u16 gUnk_08133978[] = {
         /*
         0b1111111111111111,
-        0b111111111111111,
-        0b11111111111111,
-        0b1111111111111,
-        0b111111111111,
-        0b11111111111,
-        0b1111111111,
-        0b111111111,
-        0b11111111,
-        0b1111111,
-        0b111111,
-        0b11111,
-        0b1111,
-        0b111,
-        0b11,
-        0b1,
+        0b0111111111111111,
+        0b0011111111111111,
+        0b0001111111111111,
+        0b0000111111111111,
+        0b0000011111111111,
+        0b0000001111111111,
+        0b0000000111111111,
+        0b0000000011111111,
+        0b0000000001111111,
+        0b0000000000111111,
+        0b0000000000011111,
+        0b0000000000001111,
+        0b0000000000000111,
+        0b0000000000000011,
+        0b0000000000000001,
         */
-        65535, 32767, 16383, 8191, 4095, 2047, 1023, 511, 255, 127, 63, 31, 15, 7, 3, 1,
+        0xFFFF, 0x7FFF, 0x3FFF, 0x1FFF, 0xFFF, 0x7FF, 0x3FF, 0x1FF, 0xFF, 0x7F, 0x3F, 0x1F, 0xF, 0x7, 0x3, 0x1,
     };
     return gUnk_08133978[y & 0xf] >> (x & 0xf) & 1;
 }
@@ -215,14 +189,14 @@ bool32 TileCollisionFunction6(s32 x, s32 y) {
         0b1111111111111111,
         0b1111111111111111,
         0b1111111111111111,
-        0b0,
-        0b0,
-        0b0,
-        0b0,
-        0b0,
-        0b0,
+        0b0000000000000000,
+        0b0000000000000000,
+        0b0000000000000000,
+        0b0000000000000000,
+        0b0000000000000000,
+        0b0000000000000000,
         */
-        65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535, 0, 0, 0, 0, 0, 0,
+        0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
     };
 
     return gUnk_08133998[y & 0xf] >> (x & 0xf) & 1;
@@ -232,12 +206,12 @@ bool32 TileCollisionFunction6(s32 x, s32 y) {
 bool32 TileCollisionFunction7(s32 x, s32 y) {
     static const u16 gUnk_081339B8[] = {
         /*
-        0b0,
-        0b0,
-        0b0,
-        0b0,
-        0b0,
-        0b0,
+        0b0000000000000000,
+        0b0000000000000000,
+        0b0000000000000000,
+        0b0000000000000000,
+        0b0000000000000000,
+        0b0000000000000000,
         0b1111111111111111,
         0b1111111111111111,
         0b1111111111111111,
@@ -249,7 +223,7 @@ bool32 TileCollisionFunction7(s32 x, s32 y) {
         0b1111111111111111,
         0b1111111111111111,
         */
-        0, 0, 0, 0, 0, 0, 65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535, 65535,
+        0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF,
     };
     return gUnk_081339B8[y & 0xf] >> (x & 0xf) & 1;
 }
@@ -275,7 +249,8 @@ bool32 TileCollisionFunction8(s32 x, s32 y) {
         0b1111111111000000,
         0b1111111111000000,
         */
-        65472, 65472, 65472, 65472, 65472, 65472, 65472, 65472, 65472, 65472, 65472, 65472, 65472, 65472, 65472, 65472,
+        0xFFC0, 0xFFC0, 0xFFC0, 0xFFC0, 0xFFC0, 0xFFC0, 0xFFC0, 0xFFC0,
+        0xFFC0, 0xFFC0, 0xFFC0, 0xFFC0, 0xFFC0, 0xFFC0, 0xFFC0, 0xFFC0,
     };
     return gUnk_081339D8[y & 0xf] >> (x & 0xf) & 1;
 }
@@ -284,24 +259,24 @@ bool32 TileCollisionFunction8(s32 x, s32 y) {
 bool32 TileCollisionFunction9(s32 x, s32 y) {
     static const u16 gUnk_081339F8[] = {
         /*
-        0b1111111111,
-        0b1111111111,
-        0b1111111111,
-        0b1111111111,
-        0b1111111111,
-        0b1111111111,
-        0b1111111111,
-        0b1111111111,
-        0b1111111111,
-        0b1111111111,
-        0b1111111111,
-        0b1111111111,
-        0b1111111111,
-        0b1111111111,
-        0b1111111111,
-        0b1111111111,
+        0b[000001111111111,
+        0b0000001111111111,
+        0b0000001111111111,
+        0b0000001111111111,
+        0b0000001111111111,
+        0b0000001111111111,
+        0b0000001111111111,
+        0b0000001111111111,
+        0b0000001111111111,
+        0b0000001111111111,
+        0b0000001111111111,
+        0b0000001111111111,
+        0b0000001111111111,
+        0b0000001111111111,
+        0b0000001111111111,
+        0b0000001111111111,
         */
-        1023, 1023, 1023, 1023, 1023, 1023, 1023, 1023, 1023, 1023, 1023, 1023, 1023, 1023, 1023, 1023,
+        0x3FF, 0x3FF, 0x3FF, 0x3FF, 0x3FF, 0x3FF, 0x3FF, 0x3FF, 0x3FF, 0x3FF, 0x3FF, 0x3FF, 0x3FF, 0x3FF, 0x3FF, 0x3FF,
     };
     return gUnk_081339F8[y & 0xf] >> (x & 0xf) & 1;
 }
@@ -2269,28 +2244,27 @@ void ProcessMovementInternal2(Entity* this, u32 direction, u32 speed) {
 void sub_080AF250(s32 param_1) {
     gArea.pCurrentRoomInfo = GetCurrentRoomInfo();
     if (param_1 != 0) {
-        (gArea.pCurrentRoomInfo)->exits = gUnk_08135190;
+        gArea.pCurrentRoomInfo->exits = gUnk_08135190;
     } else {
-        (gArea.pCurrentRoomInfo)->exits = gExitList_RoyalValley_ForestMaze;
+        gArea.pCurrentRoomInfo->exits = gExitList_RoyalValley_ForestMaze;
     }
 }
 
 void sub_080AF284(void) {
     if (CheckPlayerInRegion(0x78, gRoomControls.height - 0x50, 0x78, 0x50)) {
         gArea.pCurrentRoomInfo = GetCurrentRoomInfo();
-        (gArea.pCurrentRoomInfo)->exits = gUnk_08135048;
+        gArea.pCurrentRoomInfo->exits = gUnk_08135048;
     } else {
-        if (GetInventoryValue(ITEM_FOURSWORD) == 0) {
-            return;
+        if (GetInventoryValue(ITEM_FOURSWORD) != 0) {
+            gArea.pCurrentRoomInfo = GetCurrentRoomInfo();
+            gArea.pCurrentRoomInfo->exits = gUnk_08134FBC;
         }
-        gArea.pCurrentRoomInfo = GetCurrentRoomInfo();
-        (gArea.pCurrentRoomInfo)->exits = gUnk_08134FBC;
     }
 }
 
 void sub_080AF2E4(void) {
     if (GetInventoryValue(ITEM_FOURSWORD)) {
         gArea.pCurrentRoomInfo = GetCurrentRoomInfo();
-        (gArea.pCurrentRoomInfo)->exits = gUnk_0813A76C;
+        gArea.pCurrentRoomInfo->exits = gUnk_0813A76C;
     }
 }

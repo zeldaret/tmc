@@ -6,6 +6,7 @@
  */
 
 #include "enemy.h"
+#include "collision.h"
 #include "object.h"
 #include "functions.h"
 
@@ -156,7 +157,7 @@ void sub_08025230(Entity* this) {
         this->direction = sub_08025C60(this);
     }
 
-    if (this->collisions != 0) {
+    if (this->collisions != COL_NONE) {
         if (--this->field_0xf == 0) {
             sub_0800417E(this, this->collisions);
         }
@@ -528,12 +529,12 @@ void sub_08025AE8(Entity* this) {
     Entity* ent;
 
     ent = CreateFx(this, FX_BROWN_SMOKE, 0);
-    if (ent) {
+    if (ent != NULL) {
         ent->y.WORD--;
     }
 
     ent = CreateFx(this, FX_BROWN_SMOKE_LARGE, 0);
-    if (ent) {
+    if (ent != NULL) {
         ent->y.WORD++;
     }
 }
@@ -552,7 +553,7 @@ void sub_08025B18(Entity* this) {
         sub_08025AB8((((x + offset[0]) >> 4) & 0x3fU) | ((((y + offset[1]) >> 4) & 0x3fU) << 6), layer);
 
         ent = CreateObject(OBJECT_21, 2, 0);
-        if (ent) {
+        if (ent != NULL) {
             PositionRelative(this, ent, Q_16_16(offset[0]), Q_16_16(offset[1]));
             ent->x.HALF.HI &= -0x10;
             ent->x.HALF.HI += 8;
@@ -566,7 +567,7 @@ void sub_08025B18(Entity* this) {
 void sub_08025BD4(Entity* this) {
     if (this->field_0x82.HALF.LO && (this->frame & 1) == 0) {
         Entity* ent = CreateObject(OBJECT_21, 0, 0);
-        if (ent) {
+        if (ent != NULL) {
             PositionRelative(this, ent, Q_16_16(gUnk_080CC0BA[this->animationState * 2 + 0]),
                              Q_16_16(gUnk_080CC0BA[this->animationState * 2 + 1]));
             ent->z.HALF.HI = -10;

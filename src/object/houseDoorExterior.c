@@ -53,7 +53,7 @@ void sub_080866D8(Entity* this) {
         if ((*((u32*)(&this->field_0x68)) & mask) == 0 && sub_080867CC(prop->unk5) &&
             CheckRegionOnScreen(prop->unk0, prop->unk2, 32, 32)) {
             entity = CreateObject(HOUSE_DOOR_EXT, prop->unk7, prop->unk6);
-            if (entity) {
+            if (entity != NULL) {
                 entity->field_0x6c.HALF.LO = i;
                 entity->x.HALF.HI = gRoomControls.origin_x + prop->unk0 + 16;
                 entity->y.HALF.HI = gRoomControls.origin_y + prop->unk2 + 32;
@@ -157,7 +157,7 @@ static void sub_080868EC(Entity* entity, unk_80868EC* arg1) {
 void sub_0808692C(Entity* this) {
     this->flags &= ~ENT_SCRIPTED;
     this->type2 = 2;
-    this->action = this->frameIndex == 0 ? 1 : 2;
+    this->action = (this->frameIndex == 0) ? 1 : 2;
     this->subAction = 0;
     this->actionDelay = 8;
 }

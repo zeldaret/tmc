@@ -222,14 +222,18 @@ extern struct {
 static_assert(sizeof(gUnk_02034490) == 0x18);
 
 typedef struct {
-    u8 unk0;
+    u8 unk00 : 1;
+    u8 unk01 : 3;
+    u8 unk04 : 4;
     u8 unk1;
-    u8 unk2;
-    u8 unk3;
+    u8 charColor;
+    u8 bgColor;
     u16 unk4;
     u16 unk6;
     void* unk8;
 } WStruct;
+
+static_assert(sizeof(WStruct) == 12);
 
 typedef struct {
     u8 unk0;
@@ -295,5 +299,23 @@ typedef struct {
 } SpritePtr;
 
 extern SpritePtr gSpritePtrs[];
+
+typedef struct {
+    u16* dest;
+    void* gfx_dest;
+    void* buffer_loc;
+    u32 _c;
+    u16 gfx_src;
+    u8 width;
+    u8 right_align : 1;
+    u8 sm_border : 1;
+    u8 unused : 1;
+    u8 draw_border : 1;
+    u8 border_type : 4;
+    u8 fill_type;
+    u8 _15;
+    u8 _16;
+    u8 stylized;
+} Font;
 
 #endif

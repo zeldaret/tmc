@@ -12,7 +12,7 @@ void Manager4_Main(Manager* this) {
     gUnk_08107C70[this->action](this);
 }
 
-extern void sub_080805F8(void);
+extern void UpdateIsDiggingCave(void);
 
 extern DiggingCaveEntrance* sub_08057AA8(DiggingCaveEntrance*, int);
 
@@ -21,8 +21,8 @@ void sub_0805786C(Manager* this) {
     u8 room;
     u8 area;
     u16 uVar = 0x81 << 7;
-    sub_080805F8();
-    if (gUnk_03004030.unk_08 != 0) {
+    UpdateIsDiggingCave();
+    if (gUnk_03004030.isDiggingCave != 0) {
         if (gUnk_03004030.unk_00 == 0) {
             gUnk_03004030.unk_0a = 0xFF;
             room = gRoomControls.room;
@@ -66,7 +66,7 @@ void sub_08057A18(Manager*, DiggingCaveEntrance*);
 u32 sub_0805795C(Manager* this, DiggingCaveEntrance* entr) {
     u16 offsetX, offsetY, offsetX2, offsetY2;
     u32 tmp, tmp2;
-    if (gUnk_03004030.unk_08) {
+    if (gUnk_03004030.isDiggingCave) {
         offsetX = gPlayerEntity.x.HALF.HI - gRoomControls.origin_x;
         offsetY = gPlayerEntity.y.HALF.HI - gRoomControls.origin_y;
         offsetX2 = (entr->unk_00 & 0x3F) * 16 + 8;
@@ -105,10 +105,10 @@ void sub_08057A18(Manager* this, DiggingCaveEntrance* entr) {
     gUnk_03004030.unk_06 = gPlayerEntity.y.HALF.HI - gRoomControls.origin_y - ((entr->unk_00 & 0xFC0) >> 2);
 
 #ifndef EU
-    tmp = gUnk_03004030.unk_08;
+    tmp = gUnk_03004030.isDiggingCave;
     if (!tmp) {
         if ((entr->target_room | 0x80) != gUnk_03004030.unk_0b) {
-            gUnk_02034480.unk_00 = gUnk_03004030.unk_08;
+            gUnk_02034480.unk_00 = gUnk_03004030.isDiggingCave;
         }
         gUnk_03004030.unk_0b = entr->target_room | 0x80;
     }

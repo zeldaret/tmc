@@ -270,15 +270,18 @@ void sub_080627E8(Entity* this, ScriptExecutionContext* context) {
     RestorePrevTileEntity(0x64d, 1);
 }
 
-NONMATCH("asm/non_matching/kid/Kid_Head.inc", void Kid_Head(Entity* this)) {
-    s32 iVar1;
+void Kid_Head(Entity* this) {
+    u32 uVar1;
     u32 uVar2;
     u32 uVar3;
     u32 uVar4;
+    u32 uVar5;
+    u8* ptr;
 
-    iVar1 = (u32)this->type * 4;
-    uVar3 = ((u8)this->frame & 0x1f) + (u32)gUnk_0810C0A0[iVar1];
-    uVar4 = (this->frameIndex & 0x1f) + (u32)gUnk_0810C0A0[iVar1 + 1];
+    uVar1 = this->type * 4;
+    ptr = &gUnk_0810C0A0[uVar1];
+    uVar3 = ((u8)this->frame & 0x1f) + ptr[0];
+    uVar4 = (this->frameIndex & 0x1f) + ptr[1];
     switch (this->type) {
         case 0:
         case 1:
@@ -290,19 +293,20 @@ NONMATCH("asm/non_matching/kid/Kid_Head.inc", void Kid_Head(Entity* this)) {
             if (uVar2 != 0) {
                 uVar2 = uVar2 + 0x50;
             }
+            uVar2--;
             SetExtraSpriteFrame(this, 0, uVar3);
             SetExtraSpriteFrame(this, 1, uVar4);
-            SetExtraSpriteFrame(this, 2, uVar2 - 1);
+            SetExtraSpriteFrame(this, 2, uVar2);
             SetSpriteSubEntryOffsetData1(this, 1, 0);
             SetSpriteSubEntryOffsetData2(this, 1, 2);
             sub_0807000C(this);
             break;
         case 6:
-            uVar2 = this->frameSpriteSettings & 0xf;
+            uVar5 = this->frameSpriteSettings & 0xf;
             if ((this->frameSpriteSettings & 0xf) != 0) {
-                uVar2 = uVar2 + 0x93;
+                uVar5 = uVar5 + 0x93;
             }
-            SetExtraSpriteFrame(this, 0, uVar2 - 1);
+            SetExtraSpriteFrame(this, 0, uVar5 - 1);
             SetExtraSpriteFrame(this, 1, uVar3);
             SetExtraSpriteFrame(this, 2, uVar4);
             SetSpriteSubEntryOffsetData1(this, 2, 1);
@@ -320,10 +324,9 @@ NONMATCH("asm/non_matching/kid/Kid_Head.inc", void Kid_Head(Entity* this)) {
             break;
     }
 }
-END_NONMATCH
 
-NONMATCH("asm/non_matching/kid/sub_08062948.inc", void sub_08062948(Entity* this, ScriptExecutionContext* context)) {
-    u8 bVar1;
+void sub_08062948(Entity* this, ScriptExecutionContext* context) {
+    s32 bVar1;
     u16 uVar2;
     u32 uVar3;
     s32 iVar4;
@@ -332,64 +335,60 @@ NONMATCH("asm/non_matching/kid/sub_08062948.inc", void sub_08062948(Entity* this
         context->unk_18 += 1;
         context->unk_12 = (Random() & 0x3f) + 0x20;
         uVar3 = Random() & 0x18;
-        bVar1 = this->direction;
-        if (bVar1 != 8) {
-            if (bVar1 >= 9) {
-                if (bVar1 == 0x10) {
-                    if (uVar3 == 0) {
-                        uVar3 = 0x18;
-                    }
-                } else {
-                    if ((bVar1 == 0x18) && (uVar3 == 8)) {
-                        uVar3 = 0;
-                    }
-                }
-            } else {
-                if ((bVar1 == 0) && (uVar3 == 0x10)) {
+        switch (this->direction) {
+            case 0:
+                if (uVar3 == 0x10) {
                     uVar3 = 8;
                 }
-            }
-        } else {
-            if (uVar3 == 0x18) {
-                uVar3 = 0x10;
-            }
+                break;
+            case 0x8:
+                if (uVar3 == 0x18) {
+                    uVar3 = 0x10;
+                }
+                break;
+            case 0x10:
+                if (uVar3 == 0) {
+                    uVar3 = 0x18;
+                }
+                break;
+            case 0x18:
+                if ((uVar3 == 8)) {
+                    uVar3 = 0;
+                }
         }
+
         this->direction = (u8)uVar3;
-        uVar3 = sub_0806F5B0(uVar3);
-        this->animationState = (u8)uVar3;
+        this->animationState = sub_0806F5B0(uVar3);
         this->speed = 0x80;
     }
     uVar3 = (this->animationState >> 1) + 4;
     if (uVar3 != this->animIndex) {
         InitializeAnimation(this, uVar3);
-        this->field_0x80.HALF.LO = (u16)this->animIndex;
+        this->field_0x80.HWORD = (u16)this->animIndex;
     }
     ProcessMovement0(this);
-    iVar4 = this->x.HALF.HI - this->field_0x6c.HALF.LO;
+    iVar4 = this->x.HALF.HI - (s16)this->field_0x6c.HWORD;
     if (0x10 < iVar4) {
-        this->x.HALF.HI = this->field_0x6c.HALF.LO + 0x10;
+        this->x.HALF.HI = this->field_0x6c.HWORD + 0x10;
         context->unk_12 = 1;
     }
     if (iVar4 < -0x10) {
-        this->x.HALF.HI = this->field_0x6c.HALF.LO + -0x10;
+        this->x.HALF.HI = this->field_0x6c.HWORD - 0x10;
         context->unk_12 = 1;
     }
-    iVar4 = this->y.HALF.HI - this->field_0x6e.HALF.LO;
+    iVar4 = this->y.HALF.HI - (s16)this->field_0x6e.HWORD;
     if (0x10 < iVar4) {
-        this->y.HALF.HI = this->field_0x6e.HALF.LO + 0x10;
+        this->y.HALF.HI = this->field_0x6e.HWORD + 0x10;
         context->unk_12 = 1;
     }
     if (iVar4 < -0x10) {
-        this->y.HALF.HI = this->field_0x6e.HALF.LO + -0x10;
+        this->y.HALF.HI = this->field_0x6e.HWORD - 0x10;
         context->unk_12 = 1;
     }
-    uVar2 = context->unk_12 - 1;
-    context->unk_12 = uVar2;
-    if (uVar2 != 0) {
+    if (--context->unk_12 != 0) {
         gActiveScriptInfo.commandSize = 0;
     }
 }
-END_NONMATCH
 
 void sub_08062A48(Entity* this, ScriptExecutionContext* context) {
     this->field_0x6a.HALF.LO = sub_0801E99C(this);

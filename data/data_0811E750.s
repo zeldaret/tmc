@@ -4,30 +4,10 @@
 	.section .rodata
 	.align 2
 
-gUnk_0811E768:: @ 0811E768
-	.4byte sub_0807FC64
-	.4byte sub_0807FC7C
-	.4byte sub_0807FDB0
-	.4byte 00000000
-	.4byte sub_0807FEF0
-	.4byte sub_0807FF54
 
-gUnk_0811E780:: @ 0811E780
-	.4byte sub_0807FDC8
-	.4byte sub_0807FDE4
-	.4byte sub_0807FDF8
 
-gUnk_0811E78C:: @ 0811E78C
-	.4byte sub_0807FF08
-	.4byte sub_0807FF1C
 
-gUnk_0811E794:: @ 0811E794
-	.4byte sub_0807FF6C
-	.4byte sub_0807FFE4
-	.4byte sub_08080040
-	.4byte sub_08080108
-	.4byte sub_08080198
-	.4byte sub_080801BC
+
 
 gUnk_0811E7AC:: @ 0811E7AC
 	.4byte sub_08080794

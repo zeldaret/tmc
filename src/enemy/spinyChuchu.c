@@ -9,11 +9,6 @@
 #include "functions.h"
 #include "hitbox.h"
 
-extern void sub_08001318(Entity*);
-extern u32 PlayerInRange(Entity*, u32, u32);
-extern void sub_0804A4E4(Entity*, Entity*);
-extern void sub_0804AA1C(Entity*);
-
 u32 sub_080228CC(Entity*);
 u32 sub_080228F0(Entity*);
 

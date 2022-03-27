@@ -77,7 +77,7 @@ void sub_08069654(Entity* this) {
 
 void sub_08069660(Entity* this) {
     MessageNoOverlap(0x2c1c, this);
-    gMessage.field_0x10 = (u16)GoronMerchant_GetSalePrice(this);
+    gMessage.rupees = (u16)GoronMerchant_GetSalePrice(this);
 }
 
 void sub_08069684(void) {

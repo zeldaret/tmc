@@ -144,6 +144,7 @@ void sub_080844E0(SpecialFxObject* this) {
     static const u8 gUnk_0811FAC8[] = { 0x03, 0x37, 0x38, 0x39 };
     static const u8 gUnk_0811FACC[] = { 0x17, 0x3e, 0x3f, 0x40 };
     const struct_0811F960* ptr;
+
     super->action = 1;
     super->flags &= ~0x80;
     super->spriteSettings.draw = 1;
@@ -219,7 +220,7 @@ void sub_08084680(SpecialFxObject* this) {
 }
 
 void sub_08084694(SpecialFxObject* this) {
-    if (!super->parent || !super->parent->next) {
+    if ((super->parent == NULL) || (super->parent->next == NULL)) {
         DeleteThisEntity();
     }
     GetNextFrame(super);
@@ -253,12 +254,15 @@ void sub_080846B0(SpecialFxObject* this) {
 
 void sub_0808471C(SpecialFxObject* this) {
     static const s8 gUnk_0811FB08[] = { -8, -8, 8, -8, -8, 8, 8, 8 };
+
     GetNextFrame(super);
     if (super->frame & ANIM_DONE) {
         u32 i;
+
         for (i = 0; i < 4; i++) {
             Entity* fx = CreateFx(super, 0x24, 0);
-            if (fx) {
+
+            if (fx != NULL) {
                 const s8* ptr = &gUnk_0811FB08[2 * i];
                 fx->x.HALF.HI += ptr[0];
                 fx->y.HALF.HI += ptr[1];
@@ -280,7 +284,7 @@ void sub_08084784(SpecialFxObject* this) {
 
 void sub_08084798(SpecialFxObject* this) {
     GetNextFrame(super);
-    if ((super->frame & ANIM_DONE) || !super->child->next) {
+    if ((super->frame & ANIM_DONE) || (super->child->next == NULL)) {
         DeleteThisEntity();
     }
 }

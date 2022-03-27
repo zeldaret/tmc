@@ -91,7 +91,7 @@ void DekuSeedProjectile_Action2(Entity* this) {
             COLLISION_ON(this);
         }
     } else {
-        sub_0800417E(this, (u32)this->collisions);
+        sub_0800417E(this, this->collisions);
         sub_08016AD2(this);
         InitializeAnimation(this, 0x19);
         sub_080A86A0(this);
