@@ -7,12 +7,13 @@
 
 	thumb_func_start sub_0800857C
 sub_0800857C: @ 0x0800857C
-	push {r4, r5, r6, r7, lr}
+	push {r4 - r7, lr}
 	mov r4, r8
-	mov r5, sb
-	mov r6, sl
-	mov r7, fp
-	push {r4, r5, r6, r7}
+	mov r5, r9
+	mov r6, r10
+	mov r7, r11
+	push {r4 - r7}
+
 	ldrb r1, [r0, #0xb]
 	lsrs r1, r1, #8
 	bhs _0800859C
@@ -26,28 +27,29 @@ _0800859C:
 	ldrh r1, [r0, #0x24]
 	ldrb r2, [r0, #0x15]
 	bl sub_080027EA
-	pop {r4, r5, r6, r7}
+
+	pop {r4 - r7}
 	mov r8, r4
-	mov sb, r5
-	mov sl, r6
-	mov fp, r7
-	pop {r4, r5, r6, r7, pc}
+	mov r9, r5
+	mov r10, r6
+	mov r11, r7
+	pop {r4 - r7, pc}
 
 	thumb_func_start sub_080085B0
 sub_080085B0: @ 0x080085B0
-	push {r3, r4, r5, r6, r7, lr}
+	push {r3 - r7, lr}
 	mov r4, r8
-	mov r5, sb
-	mov r6, sl
-	mov r7, fp
-	push {r4, r5, r6, r7}
+	mov r5, r9
+	mov r6, r10
+	mov r7, r11
+	push {r4 - r7}
 	bl sub_080085CC
-	pop {r4, r5, r6, r7}
+	pop {r4 - r7}
 	mov r8, r4
-	mov sb, r5
-	mov sl, r6
-	mov fp, r7
-	pop {r3, r4, r5, r6, r7, pc}
+	mov r9, r5
+	mov r10, r6
+	mov r11, r7
+	pop {r3 - r7, pc}
 
 	thumb_func_start sub_080085CC
 sub_080085CC: @ 0x080085CC
@@ -92,7 +94,7 @@ _080085E6:
 	bne _0800861A
 	ldr r1, _080088B0 @ =gUnk_080082DC
 _0800861A:
-	mov fp, r1
+	mov r11, r1
 	movs r7, #0
 	mov r8, r0
 	movs r2, #0x2e
@@ -118,7 +120,7 @@ _0800861A:
 	adds r0, r0, r2
 	ldrb r4, [r5, #3]
 	movs r6, #2
-	mov sl, r1
+	mov r10, r1
 _08008650:
 	lsls r7, r7, #1
 	lsls r7, r7, #1
@@ -126,14 +128,14 @@ _08008650:
 	bl sub_080086D8
 	orrs r7, r2
 	lsls r7, r7, #1
-	mov r1, sl
+	mov r1, r10
 	subs r1, r1, r4
 	bl sub_080086D8
 	orrs r7, r2
 	lsls r7, r7, #1
 	subs r6, #1
 	beq _08008678
-	mov r1, sl
+	mov r1, r10
 	ldrb r3, [r5, #2]
 	subs r0, r0, r3
 	subs r0, r0, r3
@@ -144,7 +146,7 @@ _08008678:
 	adds r1, r1, r2
 	ldrb r4, [r5, #4]
 	movs r6, #2
-	mov sb, r0
+	mov r9, r0
 _08008684:
 	lsls r7, r7, #1
 	lsls r7, r7, #1
@@ -152,14 +154,14 @@ _08008684:
 	bl sub_080086D8
 	orrs r7, r2
 	lsls r7, r7, #1
-	mov r0, sb
+	mov r0, r9
 	subs r0, r0, r4
 	bl sub_080086D8
 	orrs r7, r2
 	lsls r7, r7, #1
 	subs r6, #1
 	beq _080086AC
-	mov r0, sb
+	mov r0, r9
 	ldrb r3, [r5, #5]
 	subs r1, r1, r3
 	subs r1, r1, r3
@@ -174,19 +176,19 @@ _080086AC:
 sub_080086B4: @ 0x080086B4
 	push {r3, r4, r5, r6, r7, lr}
 	mov r4, r8
-	mov r5, sb
-	mov r6, sl
-	mov r7, fp
+	mov r5, r9
+	mov r6, r10
+	mov r7, r11
 	push {r4, r5, r6, r7}
-	mov fp, r2
+	mov r11, r2
 	ldr r2, _080088BC @ =gPlayerEntity
 	mov r8, r2
 	bl sub_080086D8
 	pop {r4, r5, r6, r7}
 	mov r8, r4
-	mov sb, r5
-	mov sl, r6
-	mov fp, r7
+	mov r9, r5
+	mov r10, r6
+	mov r11, r7
 	adds r0, r2, #0
 	pop {r3, r4, r5, r6, r7, pc}
 
@@ -243,7 +245,7 @@ _0800872E:
 	beq _08008754
 	push {r4}
 	subs r2, #0x10
-	mov r3, fp
+	mov r3, r11
 	ldrb r2, [r2, r3]
 	lsls r2, r2, #2
 	ldr r3, _080088CC @ =gUnk_0800823C
@@ -303,9 +305,11 @@ sub_08008790: @ 0x08008790
 	b sub_08008796
 
 // r0: Entity*
-// r1: Entity*
+// r1: tile filter?
 // r2: x
 // r3: y
+
+// Somehow involved in trampling tiles, digging with claws, picking up tiles..
 	non_word_aligned_thumb_func_start sub_08008796
 sub_08008796: @ 0x08008796
 	push {r4, r5, r6, r7, lr}
@@ -481,18 +485,17 @@ _08008924:
 
 	non_word_aligned_thumb_func_start sub_08008926
 sub_08008926: @ 0x08008926
-	push {r4, r5, r6, lr}
+	push {r4 - r6, lr}
 	bl sub_08008942
-	pop {r4, r5, r6, pc}
+	pop {r4 - r6, pc}
 
-	non_word_aligned_thumb_func_start sub_0800892E
-sub_0800892E: @ 0x0800892E
-	push {r4, r5, r6, lr}
-	bl sub_08008936
-	pop {r4, r5, r6, pc}
+	non_word_aligned_thumb_func_start UpdateIcePlayerVelocity
+UpdateIcePlayerVelocity: @ 0x0800892E
+	push {r4 - r6, lr}
+	bl _UpdateIcePlayerVelocity
+	pop {r4 - r6, pc}
 
-	non_word_aligned_thumb_func_start sub_08008936
-sub_08008936: @ 0x08008936
+_UpdateIcePlayerVelocity:
 	push {lr}
 	ldrb r2, [r0, #0x14]
 	lsrs r2, r2, #1
@@ -699,7 +702,7 @@ sub_08008AA0: @ 0x08008AA0
 	cmp r2, #0xff
 	beq _08008AC4
 	lsls r2, r2, #4
-	ldr r3, _08008B44 @ =gSineTable
+	ldr r3, =gSineTable
 	ldrsh r4, [r3, r2]
 	adds r3, #0x80
 	ldrsh r5, [r3, r2]
@@ -714,14 +717,14 @@ _08008AC4:
 	non_word_aligned_thumb_func_start sub_08008AC6
 sub_08008AC6: @ 0x08008AC6
 	push {r0, lr}
-	ldr r1, _08008B48 @ =gPlayerState
+	ldr r1, =gPlayerState
 	movs r3, #0x26
 	ldrb r2, [r1, r3]
 	movs r3, #0xf
 	ands r2, r3
 	bne _08008AEC
 	ldr r2, [r1, #0x30]
-	ldr r3, _08008B4C @ =gUnk_02000020
+	ldr r3, =gUnk_02000020
 	ands r2, r3
 	bne _08008AEC
 	bl GetNonCollidedSide
@@ -757,10 +760,10 @@ CheckNEastTile: @ 0x08008B02
 	movs r2, #0
 	bl GetRelativeCollisionTile
 	// check if north east collision?
-	ldr r1, _08008B50 @ =0x00004000
+	ldr r1, =0x4000
 	tst r0, r1
 	bne _08008B1E
-	ldr r1, _08008B54 @ =gUnk_08007CAC
+	ldr r1, =gUnk_08007CAC
 	bl sub_08007DE0
 	movs r2, #1
 	cmp r3, #1
@@ -774,7 +777,7 @@ _08008B20:
 	non_word_aligned_thumb_func_start PlayerCheckNEastTile
 PlayerCheckNEastTile: @ 0x08008B22
 	push {lr}
-	ldr r0, _08008B58 @ =gPlayerEntity
+	ldr r0, =gPlayerEntity
 	bl CheckNEastTile
 	adds r0, r2, #0
 	pop {pc}
@@ -786,15 +789,7 @@ _play_snd:
 	bl EnqueueSFX
 	pop {r0, pc}
 	.align 2, 0
-_08008B38: .4byte 0x00000180
-_08008B3C: .4byte 0xFFFFFE80
+
+_08008B38: .4byte 0x180
+_08008B3C: .4byte -0x180
 _08008B40: .4byte gPlayerState
-_08008B44: .4byte gSineTable
-_08008B48: .4byte gPlayerState
-_08008B4C: .4byte gUnk_02000020
-_08008B50: .4byte 0x00004000
-_08008B54: .4byte gUnk_08007CAC
-_08008B58: .4byte gPlayerEntity
-
-
-

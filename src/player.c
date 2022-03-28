@@ -278,7 +278,7 @@ extern void sub_08079744(Entity*);
 extern void sub_0807AE20(Entity*);
 extern u32 sub_0807A894(Entity*);
 extern u32 sub_080797C4(void);
-extern void sub_0800892E(Entity*);
+extern void UpdateIcePlayerVelocity(Entity*);
 extern void sub_08078F24(void);
 extern void sub_0807B068(Entity*);
 extern u32 sub_0807A2F8(u32);
@@ -2140,7 +2140,7 @@ static void PlayerRollUpdate(Entity* this) {
 
     if (gPlayerState.floor_type == SURFACE_ICE) {
         // roll in place when on ice
-        sub_0800892E(this);
+        UpdateIcePlayerVelocity(this);
     } else {
         switch (this->frame & 0xf) {
             case 0:

@@ -1009,6 +1009,9 @@ _080027E6:
 	movs r0, #4
 	bx lr
 
+	// r0 = Entity*
+	// r1 = speed
+	// r2 = direction
 	non_word_aligned_thumb_func_start sub_080027EA
 sub_080027EA: @ 0x080027EA
 	push {r4, r5, r6, r7, lr}
