@@ -199,7 +199,7 @@ void sub_0808ADF0(PullableMushroomEntity* this) {
             SoundReq(SFX_12E);
         } else {
             GetNextFrame(super);
-            if (((super->frame & ANIM_DONE) != 0) && (--super->actionDelay == 0xff)) {
+            if (((super->frame & ANIM_DONE) != 0) && (super->actionDelay-- == 0)) {
                 InitializeAnimation(super, super->animationState + 0xd);
             }
         }
@@ -226,7 +226,7 @@ void sub_0808AEB0(PullableMushroomEntity* this) {
             GetNextFrame(super);
             if (uVar1 < 0x40) {
                 sub_080044AE(&gPlayerEntity, 0x40, super->direction);
-                if (--this->unk_7c == 0xffffffff) {
+                if (this->unk_7c-- == 0) {
                     this->unk_7c = 4;
                     SoundReq(SFX_12F);
                 }

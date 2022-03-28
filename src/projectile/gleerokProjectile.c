@@ -91,7 +91,7 @@ void GleerokProjectile_Action1(Entity* this) {
     } else {
         GetNextFrame(this);
         LinearMoveUpdate(this);
-        if ((this->type != 2) && (--this->field_0xf == 0xff)) {
+        if ((this->type != 2) && (this->field_0xf-- == 0)) {
             this->field_0xf = 0x1e;
             sub_08004596(this, GetFacingDirection(this, &gPlayerEntity));
         }
@@ -111,7 +111,7 @@ void GleerokProjectile_Action1(Entity* this) {
 void GleerokProjectile_Action2(Entity* this) {
     GetNextFrame(this);
     if (this->type == 2) {
-        if (--this->actionDelay == 0xff) {
+        if (this->actionDelay-- == 0) {
             COLLISION_OFF(this);
             this->action = 3;
             InitializeAnimation(this, 0x55);

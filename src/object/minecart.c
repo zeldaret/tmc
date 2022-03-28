@@ -152,7 +152,7 @@ void sub_080919AC(MinecartEntity* this) {
                 SoundReq(SFX_138);
             }
 
-            if (--super->field_0xf == 0xff) {
+            if (super->field_0xf-- == 0) {
                 SoundReq(SFX_PLY_VO7);
                 super->field_0xf = 0x3c;
             }

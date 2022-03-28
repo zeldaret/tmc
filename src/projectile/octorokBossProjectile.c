@@ -175,7 +175,7 @@ void OctorokBossProjectile_Action1(Entity* this) {
             break;
         case 2:
             GetNextFrame(this);
-            if (--this->actionDelay != 0xff) {
+            if (this->actionDelay-- != 0) {
                 LinearMoveAngle(this, this->speed, this->direction);
                 return;
             }

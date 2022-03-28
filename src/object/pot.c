@@ -170,7 +170,7 @@ void sub_08082614(Entity* this) {
     u32 tileType;
 
     sub_0800445C(this);
-    if (--this->actionDelay != 0xFF) {
+    if (this->actionDelay-- != 0) {
         LinearMoveUpdate(this);
         sub_08016A6C(this);
         return;
