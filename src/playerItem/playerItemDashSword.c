@@ -11,7 +11,7 @@ void sub_0801B938(Entity*);
 
 extern void sub_08017744(Entity*);
 
-void PlayerItemC(Entity* this) {
+void PlayerItemDashSword(Entity* this) {
     static void (*const PlayerItemC_Actions[])(Entity*) = {
         sub_0801B8B0,
         sub_0801B8FC,

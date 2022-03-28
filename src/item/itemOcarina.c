@@ -8,14 +8,14 @@ extern void ResetPlayerVelocity(void);
 
 extern void CreateBird(void);
 
-void ItemOcarina(ItemBehavior* this, u32 arg1) {
-    gOcarinaStates[this->stateID](this, arg1);
+void ItemOcarina(ItemBehavior* this, u32 idx) {
+    gOcarinaStates[this->stateID](this, idx);
     gPlayerEntity.field_0x7a.HWORD += 1;
 }
 
-void OcarinaUse(ItemBehavior* this, u32 arg1) {
+void OcarinaUse(ItemBehavior* this, u32 idx) {
     if (gPlayerState.queued_action == PLAYER_ROLL) {
-        DeletePlayerItem(this, arg1);
+        DeletePlayerItem(this, idx);
     } else {
         this->field_0x5[4] |= 0xf;
         gPlayerEntity.animationState = 0x04;
@@ -25,16 +25,16 @@ void OcarinaUse(ItemBehavior* this, u32 arg1) {
         gPlayerState.flags |= PL_USE_OCARINA;
         gPlayerState.field_0x27[0] = -1;
         gPauseMenuOptions.disabled = 1;
-        gPlayerState.field_0xa = (8 >> arg1) | gPlayerState.field_0xa;
-        gPlayerState.keepFacing = (8 >> arg1) | gPlayerState.keepFacing;
+        gPlayerState.field_0xa = (8 >> idx) | gPlayerState.field_0xa;
+        gPlayerState.keepFacing = (8 >> idx) | gPlayerState.keepFacing;
         ResetPlayerVelocity();
-        sub_08077D38(this, arg1);
+        sub_08077D38(this, idx);
         SoundReq(SFX_216);
         SetPlayerEventPriority();
     }
 }
 
-NONMATCH("asm/non_matching/ocarina/OcarinaUpdate.inc", void OcarinaUpdate(ItemBehavior* this, u32 arg1)) {
+NONMATCH("asm/non_matching/ocarina/OcarinaUpdate.inc", void OcarinaUpdate(ItemBehavior* this, u32 idx)) {
     // TODO regalloc
     UpdateItemAnim(this);
     if ((this->field_0x5[9] & 0x80) != 0) {
@@ -44,7 +44,7 @@ NONMATCH("asm/non_matching/ocarina/OcarinaUpdate.inc", void OcarinaUpdate(ItemBe
         gPauseMenuOptions.disabled = 0;
         CreateBird();
         ResetPlayerEventPriority();
-        DeletePlayerItem(this, arg1);
+        DeletePlayerItem(this, idx);
     }
 }
 END_NONMATCH

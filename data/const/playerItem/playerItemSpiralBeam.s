@@ -9,4 +9,4 @@ gUnk_08109AC8:: @ 08109AC8
 	.4byte sub_0805FC74
 
 gUnk_08109AD0:: @ 08109AD0
-	.incbin "playerItem14/gUnk_08109AD0.bin"
+	.incbin "playerItemSpiralBeam/gUnk_08109AD0.bin"

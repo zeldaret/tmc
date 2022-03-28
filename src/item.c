@@ -11,6 +11,6 @@ void (*const gItemFunctions[])(ItemBehavior*, u32) = {
     ItemJarEmpty,     ItemJarEmpty, ItemJarEmpty, ItemJarEmpty,
 };
 
-void sub_080752E8(ItemBehavior* behavior, u32 arg1) {
-    gItemFunctions[behavior->behaviorID](behavior, arg1);
+void sub_080752E8(ItemBehavior* behavior, u32 idx) {
+    gItemFunctions[behavior->behaviorID](behavior, idx);
 }

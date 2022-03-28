@@ -7,7 +7,7 @@
 void sub_0801B804(Entity*);
 Entity* sub_0801B864(Entity*);
 void sub_0801B584(Entity*);
-void PlayerItem3_Init(Entity*);
+void PlayerItemBoomerang_Init(Entity*);
 void sub_0801B680(Entity*);
 void sub_0801B7A8(Entity*);
 
@@ -16,9 +16,9 @@ extern bool32 sub_080040E2(Entity*, u8*);
 extern Hitbox gUnk_081271CC;
 extern u8 gUnk_08003E44;
 
-void PlayerItem3(Entity* this) {
-    static void (*const PlayerItem3_Actions[])(Entity*) = {
-        PlayerItem3_Init,
+void PlayerItemBoomerang(Entity* this) {
+    static void (*const PlayerItemBoomerang_Actions[])(Entity*) = {
+        PlayerItemBoomerang_Init,
         sub_0801B584,
         sub_0801B680,
         sub_0801B7A8,
@@ -27,7 +27,7 @@ void PlayerItem3(Entity* this) {
     // Unused
     static const u16 gUnk_080B780C[] = { 0x75, 0x1, 0x76, 0x1, 0x3ac, 0x1, 0x4050, 0x1, 0x377, 0x1, 0x378, 0x1, 0x0 };
 
-    PlayerItem3_Actions[this->action](this);
+    PlayerItemBoomerang_Actions[this->action](this);
     if (this->animIndex != 0xb) {
         if (this->animationState == 6) {
             this->field_0x86.HWORD += 0x2000;
@@ -43,7 +43,7 @@ void PlayerItem3(Entity* this) {
     }
 }
 
-void PlayerItem3_Init(Entity* this) {
+void PlayerItemBoomerang_Init(Entity* this) {
     u32 uVar1;
 
     gPlayerState.item = this;

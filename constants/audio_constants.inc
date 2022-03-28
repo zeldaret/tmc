@@ -258,7 +258,7 @@
     .equiv SFX_101, 0x101
     .equiv SFX_102, 0x102
     .equiv SFX_103, 0x103
-    .equiv SFX_104, 0x104
+    .equiv SFX_PLACE_OBJ, 0x104
     .equiv SFX_105, 0x105
     .equiv SFX_106, 0x106
     .equiv SFX_107, 0x107

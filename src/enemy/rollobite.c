@@ -188,7 +188,7 @@ void Rollobite_RolledUp(Entity* this) {
         RegisterCarryEntity(this);
     } else {
         if (unk == 1)
-            EnqueueSFX(SFX_104);
+            EnqueueSFX(SFX_PLACE_OBJ);
 
         if ((this->direction & 0x80) == 0)
             ProcessMovement2(this);

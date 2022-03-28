@@ -127,7 +127,7 @@ void PushableLever_CalculateSpriteOffsets(PushableLeverEntity* this) {
     super->spriteOffsetX = offsets[0];
     super->spriteOffsetY = offsets[1];
     if ((this->timer & 3) == 0) {
-        EnqueueSFX(SFX_104);
+        EnqueueSFX(SFX_PLACE_OBJ);
     }
 }
 

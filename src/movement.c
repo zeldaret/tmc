@@ -16,7 +16,7 @@ bool32 sub_080AF0C8(Entity*);
 typedef enum {
     CollisionType0,  // Normal/common? Used by most enemies and NPCs.
     CollisionType1,  // chaser, enemy50, fallingBoulder, ghini, keese, pesto, sensorBladeTrap, vaatiRebornEnemy,
-                     // playerItem10, playerItem13
+                     // PlayerItemGust, PlayerItemHeldObject
     CollisionType2,  // acroBandits, beetle, chuchu, fireballGuy, flyingSkull, helmasaur, keaton, lakitu,
                      // miniFireballGuy, peahat, rollobite, spikedBeetle, spinyChuchu, stalfos, itemOnGround,
                      // smallIceBlock, flyingPot, object1F
@@ -30,7 +30,7 @@ typedef enum {
     CollisionType7,  // not used?
     CollisionType8,  // not used?
     CollisionType9,  // not used?
-    CollisionType10, // playerItem13, rollobite
+    CollisionType10, // PlayerItemHeldObject, rollobite
     CollisionType11, // not used?
     CollisionType12, // chaser, sensorBladeTrap
 } CollisionType;

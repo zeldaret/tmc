@@ -8,7 +8,7 @@ extern void (*const gUnk_08127270[])(Entity*);
 extern Hitbox gUnk_08127278;
 void sub_080A310C(Entity*);
 
-void PlayerItem15(Entity* this) {
+void PlayerItemFireRodProjectile(Entity* this) {
     gUnk_08127270[this->action](this);
 }
 

@@ -10,7 +10,7 @@ extern u8 gUnk_08003E44;
 
 void sub_0805FC74(Entity*);
 
-void PlayerItem14(Entity* this) {
+void PlayerItemSpiralBeam(Entity* this) {
     gUnk_08109AC8[this->action](this);
 }
 

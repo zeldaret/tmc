@@ -205,7 +205,7 @@ void sub_0802805C(Entity* this) {
         }
 
         if ((this->actionDelay & 3) == 0) {
-            EnqueueSFX(SFX_104);
+            EnqueueSFX(SFX_PLACE_OBJ);
         }
     }
 }

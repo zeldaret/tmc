@@ -452,7 +452,7 @@ void sub_0802A098(Entity* this) {
     if (sub_08029F48(this)) {
         sub_08029E0C(this);
         sub_08029EEC(this);
-        EnqueueSFX(SFX_104);
+        EnqueueSFX(SFX_PLACE_OBJ);
     }
 
     sub_08029FB4(this, this->x.HALF.HI - uVar1, this->y.HALF.HI - uVar2);

@@ -13,7 +13,7 @@ void sub_08076A88(ItemBehavior*, u32);
 extern u16 gUnk_0800275C[];
 extern u8 gUnk_0811BE38[];
 
-void ItemPegasusBoots(ItemBehavior* this, u32 arg1) {
+void ItemPegasusBoots(ItemBehavior* this, u32 idx) {
     static void (*const ItemPegasusBoots_StateFunctions[])(ItemBehavior * beh, u32) = {
         sub_080768F8,
         sub_08076964,
@@ -26,7 +26,7 @@ void ItemPegasusBoots(ItemBehavior* this, u32 arg1) {
     if (gPlayerEntity.field_0x7a.HWORD != 0) {
         gPlayerState.dash_state = 0;
         gPlayerState.field_0xe = 0;
-        DeletePlayerItem(this, arg1);
+        DeletePlayerItem(this, idx);
     } else {
         bVar1 = this->field_0x5[2] - 1;
         this->field_0x5[2] = bVar1;
@@ -54,11 +54,11 @@ void ItemPegasusBoots(ItemBehavior* this, u32 arg1) {
                 }
             }
         }
-        ItemPegasusBoots_StateFunctions[this->stateID](this, arg1);
+        ItemPegasusBoots_StateFunctions[this->stateID](this, idx);
     }
 }
 
-void sub_080768F8(ItemBehavior* this, u32 arg1) {
+void sub_080768F8(ItemBehavior* this, u32 idx) {
     u32 bVar1;
     u32 bVar2;
 
@@ -73,16 +73,16 @@ void sub_080768F8(ItemBehavior* this, u32 arg1) {
         } else {
             gPlayerState.animation = 0xc14;
         }
-        sub_08077D38(this, arg1);
-        sub_08076964(this, arg1);
+        sub_08077D38(this, idx);
+        sub_08076964(this, idx);
     } else {
         gPlayerState.dash_state = 0;
         gPlayerState.field_0xe = 0;
-        DeletePlayerItem(this, arg1);
+        DeletePlayerItem(this, idx);
     }
 }
 
-void sub_08076964(ItemBehavior* this, u32 arg1) {
+void sub_08076964(ItemBehavior* this, u32 idx) {
     Entity* bombEntity;
     u32 uVar3;
     if (sub_08077EFC(this) && gPlayerEntity.z.WORD == 0 && gPlayerState.dash_state) {
@@ -95,11 +95,11 @@ void sub_08076964(ItemBehavior* this, u32 arg1) {
         if ((++gPlayerState.dash_state) == 0x1e) {
             if ((gPlayerState.flags & PL_FLAGS2) != 0) {
                 gPlayerState.dash_state = 0;
-                DeletePlayerItem(this, arg1);
+                DeletePlayerItem(this, idx);
                 return;
             }
             gPlayerState.dash_state = 0x40;
-            gPlayerState.field_0xa &= ~(8 >> arg1);
+            gPlayerState.field_0xa &= ~(8 >> idx);
             this->stateID++;
             if (HasSwordEquipped() && (gPlayerState.flags & PL_MINISH) == 0 &&
                 (gPlayerState.skills & SKILL_DASH_ATTACK) != 0) {
@@ -127,10 +127,10 @@ void sub_08076964(ItemBehavior* this, u32 arg1) {
         }
     }
     gPlayerState.dash_state = 0;
-    DeletePlayerItem(this, arg1);
+    DeletePlayerItem(this, idx);
 }
 
-void sub_08076A88(ItemBehavior* this, u32 arg1) {
+void sub_08076A88(ItemBehavior* this, u32 idx) {
     u32 uVar1;
     u32 uVar2;
     u8* ptr;
@@ -170,5 +170,5 @@ void sub_08076A88(ItemBehavior* this, u32 arg1) {
         }
     }
     gPlayerState.dash_state = 0;
-    DeletePlayerItem(this, arg1);
+    DeletePlayerItem(this, idx);
 }

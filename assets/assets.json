@@ -3567,27 +3567,27 @@
     "size": 176
   },
   {
-    "path": "playerItem11/gUnk_080B3DE0.bin",
+    "path": "playerItemGustBig/gUnk_080B3DE0.bin",
     "start": 736736,
     "size": 8
   },
   {
-    "path": "playerItem11/gUnk_080B3DF4.bin",
+    "path": "playerItemGustBig/gUnk_080B3DF4.bin",
     "start": 736756,
     "size": 36
   },
   {
-    "path": "playerItem11/gUnk_080B3E18.bin",
+    "path": "playerItemGustBig/gUnk_080B3E18.bin",
     "start": 736792,
     "size": 8
   },
   {
-    "path": "playerItem11/gUnk_080B3E20.bin",
+    "path": "playerItemGustBig/gUnk_080B3E20.bin",
     "start": 736800,
     "size": 8
   },
   {
-    "path": "playerItem11/gUnk_080B3E28.bin",
+    "path": "playerItemGustBig/gUnk_080B3E28.bin",
     "start": 736808,
     "size": 8
   },
@@ -34056,7 +34056,7 @@
     "size": 16
   },
   {
-    "path": "playerItem14/gUnk_08109AD0.bin",
+    "path": "playerItemSpiralBeam/gUnk_08109AD0.bin",
     "start": 1088208,
     "size": 8
   },
@@ -45260,7 +45260,7 @@
     "size": 8
   },
   {
-    "path": "playerItem15/gUnk_08127278.bin",
+    "path": "playerItemFireRodProjectile/gUnk_08127278.bin",
     "start": 1208952,
     "size": 8
   },
@@ -46407,27 +46407,27 @@
     }
   },
   {
-    "path": "playerItem13/gUnk_081320B8.bin",
+    "path": "playerItemHeldObject/gUnk_081320B8.bin",
     "start": 1253560,
     "size": 12
   },
   {
-    "path": "playerItem13/gUnk_081320C4.bin",
+    "path": "playerItemHeldObject/gUnk_081320C4.bin",
     "start": 1253572,
     "size": 8
   },
   {
-    "path": "playerItem13/gUnk_081320CC.bin",
+    "path": "playerItemHeldObject/gUnk_081320CC.bin",
     "start": 1253580,
     "size": 8
   },
   {
-    "path": "playerItem13/gUnk_081320D4.bin",
+    "path": "playerItemHeldObject/gUnk_081320D4.bin",
     "start": 1253588,
     "size": 16
   },
   {
-    "path": "playerItem13/gUnk_081320E4.bin",
+    "path": "playerItemHeldObject/gUnk_081320E4.bin",
     "start": 1253604,
     "size": 12
   },
