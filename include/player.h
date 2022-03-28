@@ -316,7 +316,7 @@ extern Entity* gPlayerClones[];
 extern PlayerState gPlayerState;
 extern Entity gPlayerEntity;
 
-u32 CheckPlayerInactive(void);
+bool32 CheckInitPauseMenu(void);
 void SetPlayerControl(PlayerControlMode mode);
 void ResetPlayer(void);
 void ResetPlayerVelocity(void);
@@ -331,19 +331,60 @@ void RegisterPlayerHitbox(void);
 void UpdateFloorType(void);
 void CreateEzloHint(u32, u32);
 
+// game.c
 /** @see Item */
 u32 IsItemEquipped(u32);
 /** @see Item */
 u32 GetInventoryValue(u32);
 s32 ModHealth(s32 delta);
 void ModRupees(s32 delta);
-void DeleteClones(void);
 
-void sub_08077728();
-extern void sub_08077B20();
+// playerUtils.c
+void DeleteClones(void);
+void sub_08077728(u32);
+void sub_08077B20(void);
+void sub_08079E58(s32 speed, u32 direction);
+void RespawnPlayer(void);
+u32 GetSurfaceCalcType(Entity*, u32, u32);
+void UpdatePlayerMovement(void);
+void EnablePlayerDraw(Entity*);
+void sub_080797EC(void);
+void sub_08079258(void);
+u32 sub_08079B24(void);
+void sub_08079708(Entity*);
+void sub_08079744(Entity*);
+void sub_0807AE20(Entity*);
+u32 sub_0807A894(Entity*);
+u32 sub_080797C4(void);
+void sub_08078F24(void);
+void sub_0807B068(Entity*);
+u32 sub_0807A2F8(u32);
+void sub_08077698(/* PlayerEntity* */);
+bool32 sub_0807A2B8(void);
+u32 sub_08079550(void);
+u32 sub_080782C0(void);
+bool32 sub_080793E4(u32);
+bool32 sub_08079C30(Entity*);
+void sub_08077AEC(void);
+bool32 CheckQueuedAction(void);
+void UpdatePlayerSkills(void);
+u32 sub_0807AC54(Entity*);
+void sub_080792D8(void);
+u32 sub_08078F74(Entity*);
+void sub_0807879C(Entity*);
+void sub_0807921C();
+
+// player.s
 extern u32 PlayerCheckNEastTile();
 extern u32* sub_08008790(Entity*, u32);
-extern void sub_08079E58(s32 speed, u32 direction);
+extern void UpdateIcePlayerVelocity(Entity*);
+extern void sub_08008AC6(Entity*);
+extern void sub_08008926(Entity*);
+extern void sub_08008AC6(Entity*);
+extern void sub_08008AA0(Entity*);
+
+// zelda.c
+void SetZeldaFollowTarget(Entity*);
 
 #define COPY_FLAG_FROM_TO(base, src, dest) (base) = ((base) & ~(dest)) | (((dest) * ((base) & (src))) / src)
 

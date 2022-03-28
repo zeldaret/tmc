@@ -44,7 +44,7 @@
 #define PULL_SPEED Q_8_8(0.5)
 #define PUSH_SPEED Q_8_8(0.5)
 
-#define PIT_DAMAGE 0x2
+#define FALL_DAMAGE 2
 
 #define DEFAULT_ANIM 0x100
 
@@ -66,7 +66,7 @@ static EntityAction sub_0807204C;
 static EntityAction sub_080720DC;
 static EntityAction PlayerPull;
 static EntityAction PlayerLava;
-EntityAction PlayerWarp;
+EntityAction PlayerWarp; // why is this defined in playerUtils.c? We may never know : (
 static EntityAction sub_08072454;
 static EntityAction PlayerDrown;
 static EntityAction PlayerUsePortal;
@@ -114,8 +114,8 @@ static EntityAction PortalStandUpdate;
 static EntityAction PortalActivateInit;
 static EntityAction PortalActivateUpdate;
 static EntityAction PortalShrinkInit;
-/*static*/ EntityAction PortalShrinkUpdate;
-/*static*/ EntityAction PortalEnterUpdate;
+static EntityAction PortalShrinkUpdate;
+static EntityAction PortalEnterUpdate;
 static EntityAction PortalUnknownUpdate;
 
 // PLAYER_TALKEZLO
@@ -188,8 +188,8 @@ static EntityAction sub_08072C48;
 // PLAYER_08072C9C
 static EntityAction sub_08072CC0;
 static EntityAction sub_08072CFC;
-/*static*/ EntityAction sub_08072D54;
-/*static*/ EntityAction sub_08072F14;
+static EntityAction sub_08072D54;
+static EntityAction sub_08072F14;
 
 // PLAYER_CLIMB
 static EntityAction sub_08072F94;
@@ -205,8 +205,8 @@ static EntityAction sub_080733BC;
 static EntityAction sub_08073468;
 static EntityAction sub_080734D4;
 static EntityAction sub_08073504;
-/*static*/ EntityAction sub_08073584;
-/*static*/ EntityAction sub_0807379C;
+static EntityAction sub_08073584;
+static EntityAction sub_0807379C;
 static EntityAction sub_080737BC;
 static EntityAction sub_0807380C;
 static EntityAction sub_08073884;
@@ -227,7 +227,7 @@ static EntityAction sub_08073F4C;
 static EntityAction sub_08073FD0;
 static EntityAction sub_08074018;
 static EntityAction sub_08074060;
-/*static*/ EntityAction sub_080740D8;
+static EntityAction sub_080740D8;
 
 // PLAYER_08074C44
 static EntityAction sub_08074C68;
@@ -248,6 +248,8 @@ static EntityAction sub_0807513C;
 static EntityAction sub_0807518C;
 static EntityAction sub_080751B4;
 
+// static helper functions
+static void DoJump(Entity*);
 static void sub_080717F8(Entity*);
 static void reset_priority(void);
 static void break_out(Entity* this);
@@ -258,60 +260,15 @@ static void hide(Entity*);
 static void conveyer_push(Entity*);
 static void sub_08074D34(Entity*, ScriptExecutionContext*);
 static void sub_08070BEC(Entity*, u32);
+static void sub_08074808(Entity* this);
 
 // exports
 void SurfaceAction_Water(Entity*);
 void SurfaceAction_Ladder(Entity*);
 void SurfaceAction_AutoLadder(Entity*);
 
-extern void sub_080A4D88(void);
-extern void RespawnPlayer(void);
-extern void sub_080797EC(void);
-extern void UpdatePlayerMovement(void);
-extern void sub_08079258(void);
-extern void EnablePlayerDraw(Entity*);
-extern u32 sub_08079B24(void);
-extern void sub_08079708(Entity*);
-extern u32 sub_0806F854(Entity*, s32, s32);
+extern void InitPauseMenu(void);
 extern u32 UpdatePlayerCollision(void);
-extern void sub_08079744(Entity*);
-extern void sub_0807AE20(Entity*);
-extern u32 sub_0807A894(Entity*);
-extern u32 sub_080797C4(void);
-extern void UpdateIcePlayerVelocity(Entity*);
-extern void sub_08078F24(void);
-extern void sub_0807B068(Entity*);
-extern u32 sub_0807A2F8(u32);
-extern u32 sub_0806F730(Entity*);
-extern u32 sub_08007DD6(u32, const u16*);
-extern u32 GetSurfaceCalcType(Entity*, u32, u32);
-extern void sub_08074808(Entity* this);
-extern void DoJump(Entity*);
-extern void SetZeldaFollowTarget(Entity*);
-u32 ItemIsSword(u32 item);
-extern u32 sub_0807A2B8(void);
-extern u32 sub_08079550(void);
-extern u32 sub_080782C0(void);
-extern u32 sub_080793E4(u32);
-extern void sub_08008AC6(Entity*);
-extern u32 sub_08079C30(Entity*);
-extern void sub_08077AEC(void);
-extern u32 RunQueuedAction(void);
-extern void UpdatePlayerSkills(void);
-
-void sub_08077698(Entity*);
-u32 sub_080782C0(void);
-u32 UpdatePlayerCollision(void);
-void sub_080797EC(void);
-u32 sub_0807AC54(Entity*);
-void sub_080792D8(void);
-u32 sub_08078F74(Entity*);
-void DoJump(Entity*);
-void sub_08008926(Entity*);
-void UpdatePlayerMovement(void);
-void CreateWaterTrace(Entity*);
-void sub_08008AC6(Entity*);
-void sub_08008AA0(Entity*);
 
 extern ScreenTransitionData gUnk_0813AB58;
 extern ScreenTransitionData gUnk_0813AD88[];
@@ -322,12 +279,12 @@ extern u16 script_BedAtSimons;
 
 extern ScriptExecutionContext gPlayerScriptExecutionContext;
 
-u32 CheckPlayerInactive(void) {
+bool32 CheckInitPauseMenu(void) {
     u32 framestate;
     if (((gInput.newKeys & START_BUTTON) == 0 || gFadeControl.active || gUnk_02034490.unk0 ||
          (gMessage.doTextBox & 0x7F) || gSave.stats.health == 0 || !gSave.fillerD0[34] ||
          gPlayerState.controlMode != 0 || gPriorityHandler.priority_timer != 0)) {
-        return 0;
+        return FALSE;
     }
 
     framestate = gPlayerState.framestate == 0 ? gPlayerState.framestate_last : gPlayerState.framestate;
@@ -337,10 +294,10 @@ u32 CheckPlayerInactive(void) {
         case PL_STATE_ITEMGET:
         case PL_STATE_DROWN:
         case PL_STATE_STAIRS:
-            return 0;
+            return FALSE;
     }
-    sub_080A4D88();
-    return 1;
+    InitPauseMenu();
+    return TRUE;
 }
 
 void DoPlayerAction(Entity* this) {
@@ -382,6 +339,8 @@ void DoPlayerAction(Entity* this) {
 }
 
 static void PlayerInit(Entity* this) {
+    u32 equip_status;
+
     gPlayerState.field_0x0[0] = 0xff;
     gPlayerState.startPosX = gPlayerEntity.x.HALF.HI;
     gPlayerState.startPosY = gPlayerEntity.y.HALF.HI;
@@ -404,13 +363,14 @@ static void PlayerInit(Entity* this) {
         ResolveCollisionLayer(this);
     }
 
-    if (IsItemEquipped(ITEM_LANTERN_ON) != 2) {
-        sub_08077728();
+    equip_status = IsItemEquipped(ITEM_LANTERN_ON);
+    if (equip_status != 2) {
+        sub_08077728(equip_status);
     }
     DeleteClones();
     UpdatePlayerSkills();
 
-    if (RunQueuedAction() == 0) {
+    if (CheckQueuedAction() == 0) {
         sub_0807921C();
         UpdateFloorType();
         if (gPlayerState.swim_state != 0) {
@@ -457,7 +417,7 @@ static void PlayerNormal(Entity* this) {
     }
     sub_080085B0(this);
     this->hurtType = 0;
-    if (RunQueuedAction()) {
+    if (CheckQueuedAction()) {
         return;
     }
     if (!gPlayerState.swim_state && (gPlayerState.jump_status & 0xC0) == 0) {
@@ -478,7 +438,7 @@ static void PlayerNormal(Entity* this) {
         UpdateFloorType();
     }
 
-    if (RunQueuedAction()) {
+    if (CheckQueuedAction()) {
         return;
     }
 
@@ -489,7 +449,7 @@ static void PlayerNormal(Entity* this) {
             }
             if ((gPlayerState.flags & (PL_USE_OCARINA | PL_FLAGS2)) == 0) {
                 UpdateFloorType();
-                RunQueuedAction();
+                CheckQueuedAction();
             }
             return;
         }
@@ -527,7 +487,7 @@ static void PlayerNormal(Entity* this) {
     }
     sub_08077698(this);
 
-    if (RunQueuedAction())
+    if (CheckQueuedAction())
         return;
 
     sub_080792D8();
@@ -536,7 +496,7 @@ static void PlayerNormal(Entity* this) {
     }
     DoJump(this);
 
-    if (RunQueuedAction())
+    if (CheckQueuedAction())
         return;
 
     if (gPlayerState.jump_status) {
@@ -665,7 +625,7 @@ static void PlayerFallUpdate(Entity* this) {
             RespawnPlayer();
             gPlayerState.field_0xa = 0;
             this->iframes = 32;
-            ModHealth(-PIT_DAMAGE);
+            ModHealth(-FALL_DAMAGE);
         }
     }
 }
@@ -709,12 +669,12 @@ static void PlayerBounceUpdate(Entity* this) {
     UpdatePlayerMovement();
     UpdateFloorType();
 
-    if (RunQueuedAction() || GravityUpdate(this, GRAVITY_RATE))
+    if (CheckQueuedAction() || GravityUpdate(this, GRAVITY_RATE))
         return;
 
     gPlayerState.jump_status = 0;
 
-    if (RunQueuedAction())
+    if (CheckQueuedAction())
         return;
 
     if (sub_08079D48() || gPlayerState.swim_state != 0) {
@@ -758,7 +718,7 @@ static void sub_08070E9C(Entity* this) {
         sub_08070f24,
     };
 
-    if (RunQueuedAction() != 0) {
+    if (CheckQueuedAction() != 0) {
         MessageClose();
     } else {
         gPlayerState.field_0x27[0] = 4;
@@ -843,17 +803,20 @@ static void PlayerItemGetInit(Entity* this) {
 
 static void PlayerItemGetUpdate(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (this->frame != /* entire animation is a static frame */ 0)
+    if (this->frame != 0) /* entire animation is a static frame, wait for advance */
         this->subAction = 2;
 }
 
 static void sub_08071038(Entity* this) {
     UpdateAnimationSingleFrame(this);
 
-    if (RunQueuedAction() || (gMessage.doTextBox & 0x7f))
+    // player is still reading message
+    if (CheckQueuedAction() || (gMessage.doTextBox & 0x7f))
         return;
 
     if (this->frame & ANIM_DONE) {
+        // remove the item
+        // is this actually deleted?
         this->child = NULL;
         this->knockbackDuration = 0;
         this->iframes = 248;
@@ -908,7 +871,7 @@ static void PlayerJumpInit(Entity* this) {
 }
 
 static void sub_08071130(Entity* this) {
-    if (RunQueuedAction())
+    if (CheckQueuedAction())
         return;
 
     if (gPlayerState.sword_state == 0) {
@@ -936,7 +899,7 @@ static void sub_08071130(Entity* this) {
 
     UpdateFloorType();
 
-    if (RunQueuedAction())
+    if (CheckQueuedAction())
         return;
 
     if ((sub_08079D48() == 0) || (gPlayerState.swim_state != 0)) {
@@ -1176,7 +1139,7 @@ static void PortalShrinkInit(Entity* this) {
     SoundReq(SFX_PLY_SHRINKING);
 }
 
-void PortalShrinkUpdate(Entity* this) {
+static void PortalShrinkUpdate(Entity* this) {
     static const u8 gUnk_0811BABC[] = {
         1, 1, 1, 1, 2, 4, 8, 16,
     };
@@ -1251,7 +1214,7 @@ void PortalShrinkUpdate(Entity* this) {
     UpdateAnimationSingleFrame(this);
 }
 
-/*static*/ void PortalEnterUpdate(Entity* this) {
+static void PortalEnterUpdate(Entity* this) {
     if (this->actionDelay == 0) {
         if (GravityUpdate(this, GRAVITY_RATE))
             return;
@@ -1311,7 +1274,7 @@ static void PlayerTalkEzlo(Entity* this) {
         sub_08071A4C,
     };
 
-    if (RunQueuedAction()) {
+    if (CheckQueuedAction()) {
         MessageClose();
         reset_priority();
     } else {
@@ -1814,7 +1777,7 @@ static void sub_080720DC(Entity* this) {
         sub_08072168,
     };
 
-    if (RunQueuedAction() == 0)
+    if (CheckQueuedAction() == 0)
         gUnk_0811BB60[this->subAction](this);
 }
 
@@ -2103,7 +2066,7 @@ static void PlayerRollUpdate(Entity* this) {
     if (((gPlayerState.flags & (PL_ROLLING | PL_MOLDWORM_CAPTURED)) != PL_ROLLING) ||
         ((gPlayerState.flags & PL_MOLDWORM_RELEASED) == 0 && (this->iframes != 0) && (this->bitfield & 0x80))) {
         gPlayerState.flags &= ~PL_ROLLING;
-        if (RunQueuedAction())
+        if (CheckQueuedAction())
             return;
 
         PlayerWaitForScroll(this);
@@ -2118,7 +2081,7 @@ static void PlayerRollUpdate(Entity* this) {
     if ((gPlayerState.flags & PL_FLAGS2) == 0) {
         UpdateFloorType();
     }
-    if (RunQueuedAction()) {
+    if (CheckQueuedAction()) {
         gPlayerState.flags &= ~PL_ROLLING;
         return;
     }
@@ -2383,7 +2346,7 @@ static const u16* const sTileTable[] = {
     sTiles + 9,
 };
 
-void sub_08072D54(Entity* this) {
+static void sub_08072D54(Entity* this) {
     u32 uVar2;
 
     UpdateAnimationSingleFrame(this);
@@ -2463,7 +2426,7 @@ void sub_08072D54(Entity* this) {
     }
 }
 
-/*static*/ void sub_08072F14(Entity* this) {
+static void sub_08072F14(Entity* this) {
     if (this->actionDelay-- != 0) {
         sub_0807921C();
     } else {
@@ -2477,7 +2440,7 @@ static void PlayerClimb(Entity* this) {
         sub_08073094,
     };
 
-    if (!RunQueuedAction()) {
+    if (!CheckQueuedAction()) {
         gPlayerState.framestate = PL_STATE_CLIMB;
         gPlayerState.floor_type = GetSurfaceCalcType(this, 0, 0);
         sPlayerClimbStates[this->subAction](this);
@@ -2562,7 +2525,7 @@ static void sub_08073094(Entity* this) {
             UpdateFloorType();
         }
 
-        if (RunQueuedAction() == 0) {
+        if (CheckQueuedAction() == 0) {
             switch (gPlayerState.floor_type) {
                 case SURFACE_AUTO_LADDER:
                 case SURFACE_2C:
@@ -2571,7 +2534,7 @@ static void sub_08073094(Entity* this) {
                     UpdateAnimationSingleFrame(this);
                     if (this->frame & 0x40) {
                         UpdateFloorType();
-                        if (!RunQueuedAction()) {
+                        if (!CheckQueuedAction()) {
                             this->subAction--;
                         }
                     }
@@ -2588,7 +2551,7 @@ static void sub_08073094(Entity* this) {
                     UpdateAnimationSingleFrame(this);
                     if (this->frame & 0x40) {
                         UpdateFloorType();
-                        if (!RunQueuedAction()) {
+                        if (!CheckQueuedAction()) {
                             this->subAction--;
                         }
                     }
@@ -2694,7 +2657,7 @@ static void sub_0807332C(Entity* this) {
         SetPlayerActionNormal();
     } else {
         gMain.substate = GAMEMAIN_CHANGEAREA;
-        *(&gMain.pauseInterval + 1) = 1;
+        gMain.pad = 1;
         SetFade(5, 8);
     }
 }
@@ -2728,7 +2691,7 @@ static void PlayerParachute(Entity* this) {
         sub_08073468, sub_080734D4, sub_08073504, sub_08073584, sub_0807379C, sub_080737BC, sub_0807380C, sub_08073884,
     };
 
-    if (!RunQueuedAction()) {
+    if (!CheckQueuedAction()) {
         UpdateFloorType();
         this->spriteOrientation.flipY = 1;
         this->spriteRendering.b3 = 1;
@@ -2780,21 +2743,7 @@ static void sub_08073504(Entity* this) {
     UpdateAnimationSingleFrame(this);
 }
 
-static const u16 gUnk_0811BC28[] = {
-    0x0708,
-    0x071C,
-    0x0718,
-    0x0714,
-};
-
-static const u16 gUnk_0811BC30[] = {
-    0x0708,
-    0x0728,
-    0x0724,
-    0x0720,
-};
-
-void sub_08073584(Entity* this) {
+static void sub_08073584(Entity* this) {
     u32 state, dir, idx;
 
     if ((gPlayerState.field_0x92 & 0x80) || this->iframes > 0 || gPlayerState.field_0x3c[0] ||
@@ -2852,6 +2801,13 @@ void sub_08073584(Entity* this) {
     idx = 0;
     state = gPlayerState.field_0xd >> 2;
     if (!this->field_0x86.HALF.HI || ((gPlayerState.field_0xd & 0x80) == 0 && this->animationState != state)) {
+        static const u16 sAnims1[] = {
+            0x0708,
+            0x071C,
+            0x0718,
+            0x0714,
+        };
+
         if ((gPlayerState.field_0xd & 0x80) == 0) {
             if (this->animationState != state) {
                 if (this->animationState == (state ^ 4)) {
@@ -2867,21 +2823,28 @@ void sub_08073584(Entity* this) {
             }
         }
 
-        if (gUnk_0811BC28[idx] == gPlayerState.animation) {
+        if (sAnims1[idx] == gPlayerState.animation) {
             if (gArea.locationIndex == 16)
                 sub_080042BA(this, 2);
             else
                 UpdateAnimationSingleFrame(this);
         } else {
-            gPlayerState.animation = gUnk_0811BC28[idx];
+            gPlayerState.animation = sAnims1[idx];
         }
         this->field_0x86.HALF.LO = idx;
     } else {
+        static const u16 sAnims2[] = {
+            0x0708,
+            0x0728,
+            0x0724,
+            0x0720,
+        };
+
         this->field_0x86.HALF.HI--;
-        if (gUnk_0811BC30[this->field_0x86.HALF.LO] == gPlayerState.animation)
+        if (sAnims2[this->field_0x86.HALF.LO] == gPlayerState.animation)
             UpdateAnimationSingleFrame(this);
         else
-            gPlayerState.animation = gUnk_0811BC30[this->field_0x86.HALF.LO];
+            gPlayerState.animation = sAnims2[this->field_0x86.HALF.LO];
     }
 
     if (--this->field_0x7c.WORD == -1) {
@@ -2893,7 +2856,7 @@ void sub_08073584(Entity* this) {
     }
 }
 
-/*static*/ void sub_0807379C(Entity* this) {
+static void sub_0807379C(Entity* this) {
     if (this->z.HALF.HI > -32) {
         this->z.HALF.HI--;
     } else {
@@ -2970,7 +2933,7 @@ void sub_08073884(Entity* this) {
     UpdateAnimationSingleFrame(this);
 }
 
-void DoJump(Entity* this) {
+static void DoJump(Entity* this) {
     static EntityAction* const sStates[] = {
         sub_08073924, sub_08073968, sub_080739EC, sub_08073A94, sub_08073B8C, sub_08073C30,
     };
@@ -2978,7 +2941,7 @@ void DoJump(Entity* this) {
     sStates[gPlayerState.jump_status & 7](this);
 }
 
-void sub_08073924(Entity* this) {
+static void sub_08073924(Entity* this) {
     if ((gPlayerState.flags & PL_ROLLING) == 0 && (this->z.HALF.HI & 0x8000) && !gPlayerState.field_0xa) {
         gPlayerState.jump_status = 0x40;
         gPlayerState.field_0xd = 0xff;
@@ -3173,7 +3136,7 @@ static void sub_08073D20(Entity* this) {
         sub_08079708(this);
         return;
     }
-    if (!RunQueuedAction()) {
+    if (!CheckQueuedAction()) {
         DoJump(this);
         UpdateFloorType();
         if (gPlayerState.jump_status)
@@ -3182,7 +3145,7 @@ static void sub_08073D20(Entity* this) {
             gPlayerState.swim_state = 0;
             this->field_0x3c &= ~4;
         }
-        if (!RunQueuedAction() && this->subAction != 2) {
+        if (!CheckQueuedAction() && this->subAction != 2) {
             if ((gPlayerState.flags & PL_HIDDEN) == 0) {
                 sub_080085B0(this);
                 sub_080792D8();
@@ -3193,7 +3156,7 @@ static void sub_08073D20(Entity* this) {
                     return;
                 }
                 if (sub_080782C0()) {
-                    RunQueuedAction();
+                    CheckQueuedAction();
                     return;
                 }
                 COLLISION_ON(this);
@@ -3631,7 +3594,7 @@ void SurfaceAction_Water(Entity* this) {
     }
 }
 
-void sub_08074808(Entity* this) {
+static void sub_08074808(Entity* this) {
     sub_08077AEC();
     if (GetInventoryValue(ITEM_FLIPPERS) == 1) {
         if (!gPlayerState.swim_state) {
@@ -3830,7 +3793,7 @@ static void sub_08074C44(Entity* this) {
         sub_080750F4,
     };
 
-    if (!RunQueuedAction())
+    if (!CheckQueuedAction())
         gUnk_0811BC88[this->subAction](this);
 }
 

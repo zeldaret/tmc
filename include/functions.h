@@ -78,7 +78,6 @@ extern void UnloadGFXSlots(Entity*);
 extern void UnloadOBJPalette(Entity*);
 extern void UpdateDisplayControls(void);
 extern void UpdateItemAnim(ItemBehavior*);
-extern void UpdatePlayerMovement(void);
 
 // Unidentified
 extern void sub_08000148(u32, u32, u32);
@@ -207,11 +206,8 @@ extern void sub_08078E84(Entity*, Entity*);
 extern void sub_08078FB0(Entity*);
 extern void sub_08079184();
 extern void sub_0807919C();
-extern void sub_0807921C();
 extern void sub_080792BC(s32, u32, u32);
 extern u32 sub_0807953C(void);
-extern void sub_08079708(Entity*);
-extern u32 sub_08079B24(void);
 extern void sub_08079BD8(Entity*);
 extern u32 sub_08079D48();
 extern void sub_08079D84(void);
@@ -219,7 +215,6 @@ extern bool32 sub_08079F8C(void);
 extern u32 sub_08079FC4(u32);
 extern void sub_0807A050(void);
 extern void sub_0807A5B8(u32);
-extern u32 sub_0807A894(Entity*);
 extern void sub_0807A8D8(Entity*);
 extern void sub_0807AA80(Entity*);
 extern void sub_0807AABC(Entity*);

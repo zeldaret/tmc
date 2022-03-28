@@ -20,13 +20,9 @@ extern s8 gUnk_08126EE4[];
 extern const u16 gUnk_080046A4[];
 extern const u16 gUnk_080047F6[];
 
-u32 sub_0806F58C(Entity*, Entity*);
-u32 sub_0806FCA0(Entity*, Entity*);
-extern u32 sub_08007DD6(u32, const u16*);
-u32 PointInsideRadius(s32 x, s32 y, s32 radius);
-extern void sub_0806FEE8(struct_gUnk_020000C0_1*, u32, u32, u32);
-void sub_0806FEFC(struct_gUnk_020000C0_1*, Entity*);
-bool32 sub_0807007C(struct_gUnk_020000C0*, u32);
+static void sub_0806FEE8(struct_gUnk_020000C0_1*, u32, u32, u32);
+static void sub_0806FEFC(struct_gUnk_020000C0_1*, Entity*);
+static bool32 sub_0807007C(struct_gUnk_020000C0*, u32);
 
 void sub_0806F364(void) {
     gArea.filler[2] ^= 0x80;
@@ -566,7 +562,7 @@ void sub_0806FEBC(Entity* ent, u32 param_2, Entity* param_3) {
     ptr->unk_00.unk1 = 1;
 }
 
-void sub_0806FEE8(struct_gUnk_020000C0_1* this, u32 param_2, u32 param_3, u32 param_4) {
+static void sub_0806FEE8(struct_gUnk_020000C0_1* this, u32 param_2, u32 param_3, u32 param_4) {
     this->unk_08.BYTES.byte0 = param_4;
     this->unk_02 = param_2;
     this->unk_04.BYTES.byte1 = param_3;
@@ -574,7 +570,7 @@ void sub_0806FEE8(struct_gUnk_020000C0_1* this, u32 param_2, u32 param_3, u32 pa
     this->unk_00.unk0 = 1;
 }
 
-void sub_0806FEFC(struct_gUnk_020000C0_1* this, Entity* ent) {
+static void sub_0806FEFC(struct_gUnk_020000C0_1* this, Entity* ent) {
     this->unk_08.HALF.HI = ent->spriteVramOffset + this->unk_08.BYTES.byte0;
     this->unk_00.unk2 = 1;
 }
@@ -650,7 +646,7 @@ void sub_0807000C(Entity* this) {
     }
 }
 
-bool32 sub_0807007C(struct_gUnk_020000C0* this, u32 param_2) {
+static bool32 sub_0807007C(struct_gUnk_020000C0* this, u32 param_2) {
     u8* ptr2;
     u8* ptr3;
     u32* spritePtr;

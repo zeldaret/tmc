@@ -33,5 +33,6 @@ extern u32 sub_080086B4(u32, u32, u8*);
 extern u32 ResolveCollisionLayer(struct Entity_*);
 extern void sub_0800417E(struct Entity_*, u32);
 extern u32 sub_0800442E(struct Entity_*);
+extern u32 sub_08007DD6(u32, const u16*);
 
 #endif // ASM_H

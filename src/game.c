@@ -98,10 +98,9 @@ extern void DeleteSleepingEntities(void);
 extern u32 UpdateLightLevel(void);
 extern void sub_080185F8(void);
 extern void UpdateDoorTransition(void);
-extern bool32 IsEnterPortal(void);
+extern bool32 CheckInitPortal(void);
 extern void UpdateCarriedObject(void);
 extern void DrawUI(void);
-extern u32 CheckPlayerInactive(void);
 extern void CollisionMain(void);
 extern void sub_0805BB74(u32);
 extern void CreateZeldaFollower(void);
@@ -402,7 +401,7 @@ static void GameMain_ChangeRoom(void) {
 }
 
 static void GameMain_Update(void) {
-    if (CheckPlayerInactive() || IsEnterPortal()) {
+    if (CheckInitPauseMenu() || CheckInitPortal()) {
         return;
     }
     sub_0805340C();
@@ -450,7 +449,7 @@ static void GameMain_Update(void) {
 }
 
 static void GameMain_BarrelUpdate(void) {
-    if (CheckPlayerInactive())
+    if (CheckInitPauseMenu())
         return;
 
     UpdateEntities();
