@@ -217,7 +217,7 @@ void sub_0808F498(Entity* this) {
             DeleteThisEntity();
         }
 
-        if (--this->actionDelay == 0xFF) {
+        if (this->actionDelay-- == 0) {
             DeleteThisEntity();
         }
 

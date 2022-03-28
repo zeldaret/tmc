@@ -68,7 +68,7 @@ void PlayerItemGustJar_Action2(Entity* this) {
                 this->type = 2;
             } else {
                 sub_080ADCDC(this, 1);
-                if (--this->actionDelay == 0xff) {
+                if (this->actionDelay-- == 0) {
                     sub_080ADCA0(this, 0);
                     this->type = 0;
                 }

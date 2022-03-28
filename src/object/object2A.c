@@ -52,7 +52,7 @@ void sub_08089BA0(Entity* this) {
                 return;
         case 1:
         case 2:
-            if (--this->actionDelay != 0xff)
+            if (this->actionDelay-- != 0)
                 return;
             if (this->type == 2) {
                 sub_0807B7D8(((u16*)this->child)[3], COORD_TO_TILE(this), this->collisionLayer);

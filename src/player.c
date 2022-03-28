@@ -723,7 +723,7 @@ static void PlayerBounceUpdate(Entity* this) {
         return;
     }
 
-    if (--this->actionDelay != 0xFF) {
+    if (this->actionDelay-- != 0) {
         this->zVelocity = Q_16_16(1.0);
         return;
     }
@@ -969,7 +969,7 @@ static void sub_08071208(Entity* this) {
         }
     }
 
-    if (--this->actionDelay == 0xff) {
+    if (this->actionDelay-- == 0) {
         gPlayerState.jump_status = 0;
         ResetPlayerAnimationAndAction();
     }
@@ -1114,7 +1114,7 @@ static void PortalStandUpdate(Entity* this) {
         if (this->direction != gPlayerState.field_0xd) {
             this->actionDelay = 8;
         }
-        if (--this->actionDelay == 0xff) {
+        if (this->actionDelay-- == 0) {
             this->direction = gPlayerState.field_0xd;
             this->animationState = Direction8ToAnimationState(this->direction);
             this->zVelocity = Q_16_16(2.0);
@@ -1796,7 +1796,7 @@ static void sub_08072064(Entity* this) {
 static void sub_08072098(Entity* this) {
     UpdateAnimationSingleFrame(this);
     if (this->actionDelay != 0)
-        if (--this->actionDelay != 0xFF)
+        if (this->actionDelay-- != 0)
             return;
         else
             ;
@@ -1850,7 +1850,7 @@ static void sub_08072168(Entity* this) {
     }
     gPlayerState.field_0xd = this->direction;
     UpdatePlayerCollision();
-    if (--this->actionDelay == 0xff) {
+    if (this->actionDelay-- == 0) {
         this->knockbackDuration = 0;
         COLLISION_ON(this);
         UpdateSpriteForCollisionLayer(this);
@@ -1954,7 +1954,7 @@ static void sub_08072354(Entity* this) {
 
 static void sub_080723D0(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (--this->actionDelay == 0xff) {
+    if (this->actionDelay-- == 0) {
         this->spritePriority.b1 = 1;
         this->iframes = 20;
         ModHealth(-2);
@@ -1963,7 +1963,7 @@ static void sub_080723D0(Entity* this) {
 }
 
 static void sub_0807240C(Entity* this) {
-    if (--this->knockbackDuration == 0xff) {
+    if (this->knockbackDuration-- == 0) {
         this->spriteSettings.draw = 3;
         this->iframes = 20;
         gPlayerState.flags &= ~PL_BURNING;
@@ -1989,7 +1989,7 @@ static void sub_0807246C(Entity* this) {
 }
 
 static void sub_08072490(Entity* this) {
-    if (--this->actionDelay != 0xff) {
+    if (this->actionDelay-- != 0) {
         UpdateAnimationSingleFrame(this);
         UpdatePlayerMovement();
     } else {
@@ -2111,7 +2111,7 @@ static void PlayerRollUpdate(Entity* this) {
     }
 
     this->direction = Direction8FromAnimationState(AnimationStateIdle(this->animationState));
-    if (((gPlayerState.flags & PL_MINISH) == 0) && (--this->actionDelay == 0xff)) {
+    if (((gPlayerState.flags & PL_MINISH) == 0) && (this->actionDelay-- == 0)) {
         CreateFx(&gPlayerEntity, FX_DASH, 0x40);
         this->actionDelay = 4;
     }
@@ -2355,7 +2355,7 @@ static void sub_08072CC0(Entity* this) {
 
 static void sub_08072CFC(Entity* this) {
     sub_080042BA(this, 2);
-    if (--this->field_0xf != 0xff) {
+    if (this->field_0xf-- != 0) {
         LinearMoveUpdate(this);
         return;
     }
@@ -2464,7 +2464,7 @@ void sub_08072D54(Entity* this) {
 }
 
 /*static*/ void sub_08072F14(Entity* this) {
-    if (--this->actionDelay != 0xff) {
+    if (this->actionDelay-- != 0) {
         sub_0807921C();
     } else {
         UpdateAnimationSingleFrame(this);
@@ -3121,7 +3121,7 @@ void sub_08073B8C(Entity* this) {
 }
 
 void sub_08073C30(Entity* this) {
-    if (!gPlayerState.field_0x3[1] || --this->actionDelay == 0xFF) {
+    if (!gPlayerState.field_0x3[1] || this->actionDelay-- == 0) {
         sub_08073B60(this);
     } else {
         COLLISION_ON(this);

@@ -95,7 +95,7 @@ void Object79_Action2(Object79Entity* this) {
         this->objDir.WORD += this->unk74;
         this->objDir.HALF.HI = DirectionNormalize(this->objDir.HALF.HI);
         this->unk74 += 0x140;
-        if (--super->field_0xf == 0xff) {
+        if (super->field_0xf-- == 0) {
             super->field_0xf = 30;
             super->actionDelay ^= 1;
         }

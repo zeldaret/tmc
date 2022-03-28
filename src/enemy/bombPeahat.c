@@ -242,7 +242,7 @@ void sub_0802AB40(Entity* this) {
             this->field_0xf = 0x4;
             this->field_0x80.HALF.LO ^= 1;
         }
-    } else if ((--this->field_0xf & 0xff) == 0) {
+    } else if (--this->field_0xf == 0) {
         sub_0802ACDC(this, 4);
     }
 }
