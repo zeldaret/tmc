@@ -526,21 +526,24 @@ bool32 sub_080291DC(Entity* this) {
     return FALSE;
 }
 
-NONMATCH("asm/non_matching/businessScrub/sub_0802922C.inc", void sub_0802922C(Entity* this)) {
-    const struct SalesOffering* offer = (const struct SalesOffering*)this->field_0x7c.WORD;
-
+void sub_0802922C(Entity* this) {
+    const struct SalesOffering* offer;
     this->action = 6;
     this->field_0x80.HALF.HI = 0;
+    offer = (const struct SalesOffering*)this->field_0x7c.WORD;
 
     switch (offer->offeredItem) {
         case ITEM_BOTTLE1:
             SetGlobalFlag(AKINDO_BOTTLE_SELL);
+        // It only matters here that ITEM_BOMBS10 is here and some item that is higher
+        // Not sure about the original code
+        case ITEM_ARROWS10:
+        case ITEM_BOMBS10:
+        default:
+            sub_080290E0(this, 3);
             break;
     }
-
-    sub_080290E0(this, 3);
 }
-END_NONMATCH
 
 void sub_0802925C(Entity* this) {
     sub_08078784(this, sub_0801E99C(this));
