@@ -4453,11 +4453,11 @@ gGfx_88_3::
 	.incbin "gfx/gGfx_88_3.4bpp"
 gUnk_085C4620::
 	.incbin "assets/gUnk_085C4620.bin"
-gGfx_89_5::
-	.incbin "gfx/gGfx_89_5.4bpp"
+RupeeKeyDigitsYellow::
+	.incbin "gfx/RupeeKeyDigitsYellow.4bpp"
 @ gfx_unknown_18
-gUnk_085C4B20::
-	.incbin "assets/gUnk_085C4B20.bin"
+RupeeKeyDigits::
+	.incbin "assets/RupeeKeyDigits.bin"
 gUnk_data0_085C4DA0::
     .incbin "assets/gUnk_data0_085C4DA0.bin"
 gUnk_data1_085C4E60::
