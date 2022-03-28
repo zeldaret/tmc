@@ -232,9 +232,8 @@ void EraseAllEntities(void) {
 
 extern Entity gUnk_030015A0[0x48];
 
-NONMATCH("asm/non_matching/GetEmptyEntity.inc", Entity* GetEmptyEntity()) {
+Entity* GetEmptyEntity() {
     u8 flags_ip;
-    Entity* ptr;
     Entity* end;
     Entity* rv;
     Entity* currentEnt;
@@ -244,24 +243,24 @@ NONMATCH("asm/non_matching/GetEmptyEntity.inc", Entity* GetEmptyEntity()) {
     LinkedList* endListPtr;
 
     if (gEntCount <= 0x46) {
-        ptr = gUnk_030015A0;
-        end = ptr + ARRAY_COUNT(gUnk_030015A0);
+        currentEnt = gUnk_030015A0;
+        end = currentEnt + ARRAY_COUNT(gUnk_030015A0);
 
         do {
-            if (ptr->prev == 0) {
-                return ptr;
+            if (currentEnt->prev == 0) {
+                return currentEnt;
             }
-        } while (++ptr < end);
+        } while (++currentEnt < end);
     }
 
-    ptr = &gPlayerEntity;
+    currentEnt = &gPlayerEntity;
 
     do {
-        if ((s32)ptr->prev < 0 && (ptr->flags & 0xc) && ptr != gUpdateContext.current_entity) {
-            ClearDeletedEntity(ptr);
-            return ptr;
+        if ((s32)currentEnt->prev < 0 && (currentEnt->flags & 0xc) && currentEnt != gUpdateContext.current_entity) {
+            ClearDeletedEntity(currentEnt);
+            return currentEnt;
         }
-    } while (++ptr < (Entity*)&gCarriedEntity);
+    } while (++currentEnt < (Entity*)&gCarriedEntity);
 
     flags_ip = 0;
     rv = NULL;
@@ -290,7 +289,6 @@ NONMATCH("asm/non_matching/GetEmptyEntity.inc", Entity* GetEmptyEntity()) {
 
     return rv;
 }
-END_NONMATCH
 
 extern Entity gItemGetEntities[7];
 
