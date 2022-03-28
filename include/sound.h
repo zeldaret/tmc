@@ -292,7 +292,7 @@ typedef enum {
     SFX_101,
     SFX_102,
     SFX_103,
-    SFX_104,
+    SFX_PLACE_OBJ,
     SFX_105,
     SFX_106,
     SFX_107,

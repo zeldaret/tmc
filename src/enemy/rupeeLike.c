@@ -71,7 +71,7 @@ void RupeeLike_OnCollision(Entity* this) {
             this->field_0x82.HALF.HI = 0x41;
             this->flags2 &= 0xfc;
             this->field_0x80.HALF.LO = gPlayerEntity.spritePriority.b1;
-            EnqueueSFX(SFX_104);
+            EnqueueSFX(SFX_PLACE_OBJ);
         } else {
             if (this->confusedTime != 0) {
                 Create0x68FX(this, FX_STARS);

@@ -6,7 +6,7 @@
 
 static const Hitbox gUnk_0811B9D0;
 
-void PlayerItem12_Init(Entity* this);
+void PlayerItemPacciCaneProjectile_Init(Entity* this);
 void sub_080701F8(Entity* this);
 void sub_0807037C(Entity* this);
 void sub_08070398(Entity* this);
@@ -16,11 +16,11 @@ void sub_08070458(Entity* this);
 extern void sub_08017744(Entity*);
 extern u8* sub_08008782(Entity*, u32, u32, u32);
 
-void PlayerItem12(Entity* this) {
-    static void (*const PlayerItem12_Actions[])(Entity*) = {
-        PlayerItem12_Init, sub_080701F8, sub_0807037C, sub_08070398, sub_080703BC,
+void PlayerItemPacciCaneProjectile(Entity* this) {
+    static void (*const PlayerItemPacciCaneProjectile_Actions[])(Entity*) = {
+        PlayerItemPacciCaneProjectile_Init, sub_080701F8, sub_0807037C, sub_08070398, sub_080703BC,
     };
-    PlayerItem12_Actions[this->action](this);
+    PlayerItemPacciCaneProjectile_Actions[this->action](this);
 }
 
 extern u8 gUnk_08003E44;
@@ -34,7 +34,7 @@ typedef struct {
     u8 filler[3];
 } gUnk_0811B9A8_struct;
 
-void PlayerItem12_Init(Entity* this) {
+void PlayerItemPacciCaneProjectile_Init(Entity* this) {
     static const s8 gUnk_0811B9A0[] = {
         0, -18, 14, 0, 0, 14, -14, 0,
     };

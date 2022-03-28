@@ -18,15 +18,15 @@ extern bool32 sub_0807B5B0(Entity*);
 
 extern const s16 gUnk_0811BE16[];
 
-void ItemMoleMitts(ItemBehavior* this, u32 arg1) {
-    gUnk_0811BE04[this->stateID](this, arg1);
+void ItemMoleMitts(ItemBehavior* this, u32 idx) {
+    gUnk_0811BE04[this->stateID](this, idx);
 }
 
-void sub_08077130(ItemBehavior* this, u32 arg1) {
+void sub_08077130(ItemBehavior* this, u32 idx) {
     s32 iVar1;
 
     if (gPlayerState.jump_status == 0) {
-        sub_08077D38(this, arg1);
+        sub_08077D38(this, idx);
         gPlayerState.field_0x3c[1] = 1;
         this->field_0x5[4] |= 0x80;
         iVar1 = sub_080774A0();
@@ -47,17 +47,17 @@ void sub_08077130(ItemBehavior* this, u32 arg1) {
             this->stateID = 1;
         }
     } else {
-        DeletePlayerItem(this, arg1);
+        DeletePlayerItem(this, idx);
         gPlayerState.field_0x3c[1] = 0;
     }
 }
 
-void sub_080771C8(ItemBehavior* this, u32 arg1) {
+void sub_080771C8(ItemBehavior* this, u32 idx) {
     Entity* object;
 
     UpdateItemAnim(this);
     if ((this->field_0x5[9] & 0x80) != 0) {
-        DeletePlayerItem(this, arg1);
+        DeletePlayerItem(this, idx);
         gPlayerState.field_0x3c[1] = 0;
     } else {
         if (((this->field_0x5[9] & 0x20) != 0) && (this->field_0x5[3] == 0xff)) {
@@ -89,7 +89,7 @@ void sub_080771C8(ItemBehavior* this, u32 arg1) {
     }
 }
 
-void sub_080772A8(ItemBehavior* this, u32 param_2) {
+void sub_080772A8(ItemBehavior* this, u32 idx) {
     Entity* effect;
 
     if (((this->field_0x5[9] & 8) != 0) && sub_08077F10(this)) {
@@ -119,7 +119,7 @@ void sub_080772A8(ItemBehavior* this, u32 param_2) {
                 return;
             }
         }
-        DeletePlayerItem(this, param_2);
+        DeletePlayerItem(this, idx);
         gPlayerState.field_0x3c[1] = 0;
     } else {
         if ((this->field_0x5[9] & 0x60) != 0) {
@@ -148,7 +148,7 @@ void sub_080772A8(ItemBehavior* this, u32 param_2) {
     }
 }
 
-void sub_08077448(ItemBehavior* this, u32 arg1) {
+void sub_08077448(ItemBehavior* this, u32 idx) {
     gPlayerEntity.direction = gPlayerEntity.animationState << 2 ^ 0x10;
     gPlayerEntity.speed = 0x100;
     if (((this->field_0x5[9] & 1) != 0) && (this->field_0x5[0] != 0)) {
@@ -157,7 +157,7 @@ void sub_08077448(ItemBehavior* this, u32 arg1) {
     UpdateItemAnim(this);
     if ((this->field_0x5[9] & 0x80) != 0) {
         gPlayerState.field_0x3c[1] = 0;
-        DeletePlayerItem(this, arg1);
+        DeletePlayerItem(this, idx);
     }
 }
 

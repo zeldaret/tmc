@@ -11,18 +11,18 @@ void sub_080754B8(ItemBehavior*, u32);
 void sub_08075898(ItemBehavior*, u32);
 void sub_08075580(ItemBehavior*, u32);
 
-void sub_08075694(ItemBehavior* this, u32 arg1);
+void sub_08075694(ItemBehavior* this, u32 idx);
 
-void ItemSword(ItemBehavior* this, u32 arg1) {
+void ItemSword(ItemBehavior* this, u32 idx) {
     gPlayerState.framestate = PL_STATE_SWORD;
-    gUnk_0811BD44[this->stateID](this, arg1);
+    gUnk_0811BD44[this->stateID](this, idx);
 }
 
-void sub_08075338(ItemBehavior* this, u32 arg1) {
+void sub_08075338(ItemBehavior* this, u32 idx) {
     u32 temp, temp2;
     if (gPlayerState.flags & PL_MINISH) {
         this->field_0x5[4] |= 0x80;
-        sub_08077D38(this, arg1);
+        sub_08077D38(this, idx);
         gPlayerState.animation = 0xc00;
         SoundReq(SFX_PLY_VO1);
         return;
@@ -34,19 +34,19 @@ void sub_08075338(ItemBehavior* this, u32 arg1) {
                 (gPlayerState.skills & SKILL_DOWN_THRUST) && gPlayerEntity.z.WORD) {
                 gPlayerState.jump_status |= 0x20;
                 gPlayerState.field_0xab = 7;
-                gPlayerState.field_0x3[1] |= (8 >> arg1) | ((8 >> arg1) << 4);
+                gPlayerState.field_0x3[1] |= (8 >> idx) | ((8 >> idx) << 4);
                 sub_08077B98(this);
                 this->stateID = 6;
-                sub_08075898(this, arg1);
+                sub_08075898(this, idx);
                 return;
             }
         }
 #ifndef EU
-        sub_080759B8(this, arg1);
+        sub_080759B8(this, idx);
         return;
     } else if (gPlayerEntity.z.WORD) {
 #endif
-        sub_080759B8(this, arg1);
+        sub_080759B8(this, idx);
         return;
     }
 
@@ -60,9 +60,9 @@ void sub_08075338(ItemBehavior* this, u32 arg1) {
         }
         // Do the roll attack.
 
-        sub_08077D38(this, arg1);
+        sub_08077D38(this, idx);
         sub_08077B98(this);
-        temp = (8 >> arg1);
+        temp = (8 >> idx);
         gPlayerState.field_0x3[1] |= temp | (temp << 4);
         gPlayerState.field_0xa |= temp;
         gPlayerState.keepFacing |= temp;
@@ -89,15 +89,15 @@ void sub_08075338(ItemBehavior* this, u32 arg1) {
         }
     }
 
-    sub_08077D38(this, arg1);
+    sub_08077D38(this, idx);
     sub_08077B98(this);
 }
 
-void sub_080754B8(ItemBehavior* this, u32 arg1) {
+void sub_080754B8(ItemBehavior* this, u32 idx) {
     u32 iVar1;
 
     if ((gPlayerState.sword_state & 0x80) != 0) {
-        sub_08075694(this, arg1);
+        sub_08075694(this, idx);
     } else if (gPlayerState.field_0x3[1] != 0) {
         UpdateItemAnim(this);
         if (this->field_0x5[9] != 0) {
@@ -118,19 +118,19 @@ void sub_080754B8(ItemBehavior* this, u32 arg1) {
 
         if ((this->field_0x5[9] & 0x80) != 0) {
             if (((gPlayerState.flags & 0x80) != 0) || ((gPlayerState.skills & SKILL_SPIN_ATTACK) == 0)) {
-                sub_080759B8(this, arg1);
+                sub_080759B8(this, idx);
             } else {
-                sub_08075580(this, arg1);
+                sub_08075580(this, idx);
             }
         }
     } else {
-        sub_080759B8(this, arg1);
+        sub_080759B8(this, idx);
     }
 }
 
-void sub_08075580(ItemBehavior* this, u32 arg1) {
+void sub_08075580(ItemBehavior* this, u32 idx) {
     if ((sub_08077EFC(this) != 0) && (gPlayerState.jump_status == 0)) {
-        gPlayerState.field_0xa = gPlayerState.field_0xa & ~(8 >> arg1);
+        gPlayerState.field_0xa = gPlayerState.field_0xa & ~(8 >> idx);
         gPlayerState.sword_state = 1;
         gPlayerState.item->hurtType = 0xd;
         this->field_0xf = 0;
@@ -144,10 +144,10 @@ void sub_08075580(ItemBehavior* this, u32 arg1) {
         CreateObject(OBJECT_43, 0, 0);
         return;
     }
-    sub_080759B8(this, arg1);
+    sub_080759B8(this, idx);
 }
 
-void sub_080755F0(ItemBehavior* this, u32 arg1) {
+void sub_080755F0(ItemBehavior* this, u32 idx) {
     if (sub_08077EFC(this) != 0) {
         if (sub_08077EC8(this) == 0) {
             if ((gPlayerState.sword_state | gPlayerState.field_0x3[1]) != 0) {
@@ -157,25 +157,25 @@ void sub_080755F0(ItemBehavior* this, u32 arg1) {
                     gPlayerState.sword_state = gPlayerState.sword_state | 0x20;
                 }
             } else {
-                sub_080759B8(this, arg1);
+                sub_080759B8(this, idx);
             }
         }
     } else {
-        sub_080759B8(this, arg1);
+        sub_080759B8(this, idx);
     }
 }
 
-void sub_0807564C(ItemBehavior* this, u32 arg1) {
+void sub_0807564C(ItemBehavior* this, u32 idx) {
     if ((gPlayerState.sword_state | gPlayerState.field_0x3[1]) == 0) {
-        sub_080759B8(this, arg1);
+        sub_080759B8(this, idx);
     } else {
         if ((sub_08077EC8(this) == 0) && ((sub_08077EFC(this) == 0 || ((gPlayerState.sword_state & 0x80) != 0)))) {
-            sub_08075694(this, arg1);
+            sub_08075694(this, idx);
         }
     }
 }
 
-void sub_08075694(ItemBehavior* this, u32 arg1) {
+void sub_08075694(ItemBehavior* this, u32 idx) {
     this->field_0x5[2] = 1;
     if (gPlayerState.flags & PL_SWORD_THRUST) {
         gPlayerState.flags &= ~PL_SWORD_THRUST;
@@ -185,7 +185,7 @@ void sub_08075694(ItemBehavior* this, u32 arg1) {
         gPlayerState.field_0xab = 1;
         sub_08077DF4(this, 0x124);
     }
-    gPlayerState.field_0xa = (8 >> arg1) | gPlayerState.field_0xa;
+    gPlayerState.field_0xa = (8 >> idx) | gPlayerState.field_0xa;
     this->stateID = 4;
     this->field_0xf = 6;
     gPlayerEntity.hurtType = 0x1e;
@@ -198,11 +198,11 @@ void sub_08075694(ItemBehavior* this, u32 arg1) {
     SoundReq(SFX_PLY_VO2);
 }
 
-void sub_08075738(ItemBehavior* this, u32 arg1) {
+void sub_08075738(ItemBehavior* this, u32 idx) {
     u32 bVar6;
 
     if (gPlayerState.field_0x3[1] == 0) {
-        sub_080759B8(this, arg1);
+        sub_080759B8(this, idx);
     } else {
         UpdateItemAnim(this);
         if (sub_08077F10(this)) {
@@ -222,7 +222,7 @@ void sub_08075738(ItemBehavior* this, u32 arg1) {
                 }
 
                 if ((bVar6 <= ++this->field_0x5[3]) || (--this->field_0x5[2] == 0)) {
-                    sub_080759B8(this, arg1);
+                    sub_080759B8(this, idx);
                 }
             }
         } else {
@@ -241,26 +241,26 @@ void sub_08075738(ItemBehavior* this, u32 arg1) {
                 this->field_0x5[6] = gPlayerEntity.animationState << 2;
                 this->field_0x5[2] = 1;
                 this->field_0x5[3] = 1;
-                gPlayerState.field_0xa = gPlayerState.field_0xa & ~(8 >> arg1);
+                gPlayerState.field_0xa = gPlayerState.field_0xa & ~(8 >> idx);
                 sub_08077DF4(this, 0x128);
             }
 
             if ((this->field_0x5[9] & 0x80) != 0) {
-                sub_080759B8(this, arg1);
+                sub_080759B8(this, idx);
             }
         }
     }
 }
 
-void sub_08075898(ItemBehavior* this, u32 arg1) {
+void sub_08075898(ItemBehavior* this, u32 idx) {
     if (gPlayerState.field_0x3[1] == 0) {
-        sub_080759B8(this, arg1);
+        sub_080759B8(this, idx);
     }
 }
 
-void sub_080758B0(ItemBehavior* this, u32 arg1) {
+void sub_080758B0(ItemBehavior* this, u32 idx) {
     if (gPlayerState.field_0x3[1] == 0) {
-        sub_080759B8(this, arg1);
+        sub_080759B8(this, idx);
     } else {
         UpdateItemAnim(this);
         if ((this->field_0x5[9] & 0x80) != 0) {
@@ -275,15 +275,15 @@ void sub_080758B0(ItemBehavior* this, u32 arg1) {
     }
 }
 
-void sub_08075900(ItemBehavior* this, u32 arg1) {
+void sub_08075900(ItemBehavior* this, u32 idx) {
     if (gPlayerState.floor_type == SURFACE_SWAMP) {
         gPlayerState.flags &= ~PL_ROLLING;
-        sub_080759B8(this, arg1);
+        sub_080759B8(this, idx);
     } else {
         UpdateItemAnim(this);
         if ((gPlayerState.sword_state & 0x80) != 0) {
             gPlayerState.sword_state = 0xa0;
-            sub_0807564C(this, arg1);
+            sub_0807564C(this, idx);
 
         } else {
             if (this->field_0x5[2] != 0) {
@@ -299,19 +299,19 @@ void sub_08075900(ItemBehavior* this, u32 arg1) {
             } else {
                 if ((this->field_0x5[9] & 0x80) != 0) {
                     gPlayerState.flags &= ~PL_ROLLING;
-                    sub_080759B8(this, arg1);
+                    sub_080759B8(this, idx);
                 }
             }
         }
     }
 }
 
-void sub_080759B8(ItemBehavior* this, u32 arg1) {
+void sub_080759B8(ItemBehavior* this, u32 idx) {
     if ((gPlayerState.flags & PL_MINISH) == 0) {
         gPlayerEntity.hurtType = 0;
     }
     gPlayerState.flags &= ~PL_SWORD_THRUST;
     gPlayerState.sword_state = 0;
     gPlayerState.item = NULL;
-    DeletePlayerItem(this, arg1);
+    DeletePlayerItem(this, idx);
 }

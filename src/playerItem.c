@@ -6,23 +6,23 @@ typedef void(PlayerItemFunc)(Entity*);
 
 PlayerItemFunc PlayerItemSword;
 PlayerItemFunc PlayerItemBomb;
-PlayerItemFunc PlayerItem3;
+PlayerItemFunc PlayerItemBoomerang;
 PlayerItemFunc PlayerItemBow;
 PlayerItemFunc PlayerItemShield;
 PlayerItemFunc PlayerItemLantern;
 PlayerItemFunc PlayerItemNulled;
 PlayerItemFunc PlayerItemGustJar;
 PlayerItemFunc PlayerItemPacciCane;
-PlayerItemFunc PlayerItemC;
+PlayerItemFunc PlayerItemDashSword;
 PlayerItemFunc PlayerItemCellOverwriteSet;
 PlayerItemFunc PlayerItemBottle;
 PlayerItemFunc PlayerItemSwordBeam;
-PlayerItemFunc PlayerItem10;
-PlayerItemFunc PlayerItem11;
-PlayerItemFunc PlayerItem12;
-PlayerItemFunc PlayerItem13;
-PlayerItemFunc PlayerItem14;
-PlayerItemFunc PlayerItem15;
+PlayerItemFunc PlayerItemGust;
+PlayerItemFunc PlayerItemGustBig;
+PlayerItemFunc PlayerItemPacciCaneProjectile;
+PlayerItemFunc PlayerItemHeldObject;
+PlayerItemFunc PlayerItemSpiralBeam;
+PlayerItemFunc PlayerItemFireRodProjectile;
 PlayerItemFunc PlayerItemNulled2;
 
 typedef struct {
@@ -41,7 +41,7 @@ PlayerItemFunc* const gPlayerItemFunctions[] = {
     DeleteEntity,
     PlayerItemSword,
     PlayerItemBomb,
-    PlayerItem3,
+    PlayerItemBoomerang,
     PlayerItemBow,
     PlayerItemShield,
     PlayerItemLantern,
@@ -50,16 +50,16 @@ PlayerItemFunc* const gPlayerItemFunctions[] = {
     PlayerItemPacciCane,
     DeleteEntity,
     DeleteEntity,
-    PlayerItemC,
+    PlayerItemDashSword,
     PlayerItemCellOverwriteSet,
     PlayerItemBottle,
     PlayerItemSwordBeam,
-    PlayerItem10,
-    PlayerItem11,
-    PlayerItem12,
-    PlayerItem13,
-    PlayerItem14,
-    PlayerItem15,
+    PlayerItemGust,
+    PlayerItemGustBig,
+    PlayerItemPacciCaneProjectile,
+    PlayerItemHeldObject,
+    PlayerItemSpiralBeam,
+    PlayerItemFireRodProjectile,
     PlayerItemSwordBeam,
     PlayerItemNulled2,
     PlayerItemCellOverwriteSet,

@@ -5,15 +5,15 @@
 
 void (*const ItemGustJar_StateFunctions[])(ItemBehavior* beh, u32);
 
-void ItemGustJar(ItemBehavior* this, u32 arg1) {
+void ItemGustJar(ItemBehavior* this, u32 idx) {
     gPlayerState.framestate = PL_STATE_GUSTJAR;
-    ItemGustJar_StateFunctions[this->stateID](this, arg1);
+    ItemGustJar_StateFunctions[this->stateID](this, idx);
 }
 
-void sub_08076DF4(ItemBehavior* this, u32 arg1) {
+void sub_08076DF4(ItemBehavior* this, u32 idx) {
     if (sub_0807A894(&gPlayerEntity) != 0x29 && gPlayerState.floor_type != SURFACE_DOOR &&
         gPlayerState.floor_type != SURFACE_DOOR_13 && gPlayerState.jump_status == 0) {
-        sub_08077D38(this, arg1);
+        sub_08077D38(this, idx);
         this->field_0x5[2] = 0;
         this->field_0x5[5] = gPlayerEntity.animationState;
         this->field_0x5[4] |= 0x80;
@@ -23,20 +23,20 @@ void sub_08076DF4(ItemBehavior* this, u32 arg1) {
         gPlayerState.field_0x1c = 1;
         sub_08077BB8(this);
     } else {
-        DeletePlayerItem(this, arg1);
+        DeletePlayerItem(this, idx);
     }
 }
 
-void sub_08076E60(ItemBehavior* this, u32 arg1) {
+void sub_08076E60(ItemBehavior* this, u32 idx) {
     Entity* playerItem;
 
     if ((gPlayerState.field_0x1c & 0xf) == 0) {
-        DeletePlayerItem(this, arg1);
+        DeletePlayerItem(this, idx);
     }
     if ((this->field_0x5[9] & 0x80) != 0) {
         this->stateID = 2;
         sub_08077DF4(this, 0x504);
-        gPlayerState.field_0xa = gPlayerState.field_0xa & ~(8 >> arg1);
+        gPlayerState.field_0xa = gPlayerState.field_0xa & ~(8 >> idx);
         playerItem = CreatePlayerItem(0x10, 0, 0, 0);
         if (playerItem != NULL) {
             playerItem->parent = &gPlayerEntity;
@@ -46,9 +46,9 @@ void sub_08076E60(ItemBehavior* this, u32 arg1) {
     }
 }
 
-void sub_08076EC8(ItemBehavior* this, u32 arg1) {
+void sub_08076EC8(ItemBehavior* this, u32 idx) {
     if ((gPlayerState.field_0x1c & 0xf) == 0) {
-        DeletePlayerItem(this, arg1);
+        DeletePlayerItem(this, idx);
         return;
     }
 
@@ -81,10 +81,10 @@ void sub_08076EC8(ItemBehavior* this, u32 arg1) {
     }
 
     this->stateID++;
-    gPlayerState.field_0xa |= 8 >> arg1;
+    gPlayerState.field_0xa |= 8 >> idx;
 }
 
-void sub_08076F64(ItemBehavior* this, u32 arg1) {
+void sub_08076F64(ItemBehavior* this, u32 idx) {
     Entity* item;
     Entity* player;
     switch (gPlayerState.field_0x1c & 0xf) {
@@ -97,7 +97,7 @@ void sub_08076F64(ItemBehavior* this, u32 arg1) {
                     player = &gPlayerEntity;
                     *(u32*)&player->field_0x74 = 0;
                     gPlayerState.field_0x1c = 1;
-                    gPlayerState.field_0xa &= ~(8 >> arg1);
+                    gPlayerState.field_0xa &= ~(8 >> idx);
                     this->stateID = 2;
                     sub_08077DF4(this, 0x504);
                     item = CreatePlayerItem(0x10, 0, 0, 0);
@@ -169,7 +169,7 @@ void sub_08076F64(ItemBehavior* this, u32 arg1) {
         case0:
             gPlayerState.field_0x1c = 0;
             gPlayerEntity.field_0x70.WORD = 0;
-            DeletePlayerItem(this, arg1);
+            DeletePlayerItem(this, idx);
             break;
     }
 }

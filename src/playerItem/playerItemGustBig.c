@@ -19,7 +19,7 @@ extern u32 sub_08007DD6(u32, const u16*);
 extern const u16 gUnk_080B3DF4[];
 extern const u8 gUnk_08003E44[];
 
-void PlayerItem11(Entity* this) {
+void PlayerItemGustBig(Entity* this) {
     if (this->health) {
         this->iframes = 0;
         gUnk_080B3DD0[this->action](this);

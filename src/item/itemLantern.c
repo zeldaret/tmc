@@ -13,11 +13,11 @@ extern bool32 sub_08077F10(ItemBehavior*);
 
 extern void sub_0807AB44(Entity*, s32, s32);
 
-void ItemLantern(ItemBehavior* this, u32 arg1) {
-    gUnk_0811BD68[this->stateID](this, arg1);
+void ItemLantern(ItemBehavior* this, u32 idx) {
+    gUnk_0811BD68[this->stateID](this, idx);
 }
 
-void sub_08075A0C(ItemBehavior* this, u32 arg1) {
+void sub_08075A0C(ItemBehavior* this, u32 idx) {
     Entity* object;
     u32 itemSlot;
     s8* tmp;
@@ -27,10 +27,10 @@ void sub_08075A0C(ItemBehavior* this, u32 arg1) {
         ForceEquipItem(ITEM_LANTERN_OFF, itemSlot);
         gPlayerState.flags &= ~PL_USE_LANTERN;
         ForceEquipItem(ITEM_LANTERN_OFF, itemSlot);
-        DeletePlayerItem(this, arg1);
+        DeletePlayerItem(this, idx);
     } else {
         this->field_0x5[4] |= 0x80;
-        sub_08077D38(this, arg1);
+        sub_08077D38(this, idx);
         sub_08077BD4(this);
         sub_0806F948(&gPlayerEntity);
         this->behaviorID = 0x10;
@@ -45,7 +45,7 @@ void sub_08075A0C(ItemBehavior* this, u32 arg1) {
     }
 }
 
-void sub_08075ADC(ItemBehavior* this, u32 arg1) {
+void sub_08075ADC(ItemBehavior* this, u32 idx) {
     u32 bVar1;
 
     if (
@@ -57,7 +57,7 @@ void sub_08075ADC(ItemBehavior* this, u32 arg1) {
         this->field_0xf = 0;
         this->stateID += 1;
         gPlayerState.flags |= PL_USE_LANTERN;
-        bVar1 = 8 >> arg1;
+        bVar1 = 8 >> idx;
         gPlayerState.field_0x3[1] = gPlayerState.field_0x3[1] & ~((bVar1 << 4) | bVar1);
         bVar1 = ~bVar1;
         gPlayerState.field_0xa = bVar1 & gPlayerState.field_0xa;
@@ -68,7 +68,7 @@ void sub_08075ADC(ItemBehavior* this, u32 arg1) {
     }
 }
 
-void sub_08075B54(ItemBehavior* this, u32 arg1) {
+void sub_08075B54(ItemBehavior* this, u32 idx) {
     u32 bVar1;
     u32 itemSlot;
     Entity* object;
@@ -79,7 +79,7 @@ void sub_08075B54(ItemBehavior* this, u32 arg1) {
         if (!(((sub_08077F10(this) == 0) && (itemSlot < 2)) || (gPlayerState.jump_status != 0))) {
             ForceEquipItem(ITEM_LANTERN_OFF, itemSlot);
             gPlayerState.flags &= ~PL_USE_LANTERN;
-            DeletePlayerItem(this, arg1);
+            DeletePlayerItem(this, idx);
             SoundReq(SFX_ITEM_LANTERN_OFF);
         } else {
             if (((gPlayerState.queued_action != PLAYER_ROLL) && (gPlayerEntity.frameIndex < 0x37)) &&
@@ -99,7 +99,7 @@ void sub_08075B54(ItemBehavior* this, u32 arg1) {
                         object->y.HALF.HI = tmp[1] + object->y.HALF.HI;
                     }
                     sub_08077DF4(this, 0x60c);
-                    bVar1 = (8 >> (arg1));
+                    bVar1 = (8 >> (idx));
                     gPlayerState.field_0xa |= bVar1;
                     gPlayerState.keepFacing |= bVar1;
                 }
@@ -108,7 +108,7 @@ void sub_08075B54(ItemBehavior* this, u32 arg1) {
     }
 }
 
-void sub_08075C9C(ItemBehavior* this, u32 arg1) {
+void sub_08075C9C(ItemBehavior* this, u32 idx) {
     s8* tmp;
 
     UpdateItemAnim(this);
@@ -119,8 +119,8 @@ void sub_08075C9C(ItemBehavior* this, u32 arg1) {
     if ((this->field_0x5[9] & 0x80) != 0) {
         this->field_0xf = 0;
         this->stateID -= 1;
-        gPlayerState.field_0xa = (~(8 >> arg1)) & gPlayerState.field_0xa;
-        gPlayerState.keepFacing = (~(8 >> arg1)) & gPlayerState.keepFacing;
+        gPlayerState.field_0xa = (~(8 >> idx)) & gPlayerState.field_0xa;
+        gPlayerState.keepFacing = (~(8 >> idx)) & gPlayerState.keepFacing;
     } else {
         gPlayerEntity.field_0x7a.HWORD += 1;
     }

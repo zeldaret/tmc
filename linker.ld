@@ -308,13 +308,13 @@ SECTIONS {
         /* C source compiled without interworking */
         asm/kinstone.o(.text);
         src/kinstone.o(.text);
-        src/playerItem/playerItem11.o(.text);
+        src/playerItem/playerItemGustBig.o(.text);
         src/playerItem/playerItemBow.o(.text);
         src/playerItem/playerItemSwordBeam.o(.text);
         asm/beanstalkSubtask.o(.text);
         src/playerItem/playerItemBomb.o(.text);
-        src/playerItem/playerItem3.o(.text);
-        src/playerItem/playerItemC.o(.text);
+        src/playerItem/playerItemBoomerang.o(.text);
+        src/playerItem/playerItemDashSword.o(.text);
         src/playerItem/playerItemBottle.o(.text);
         src/playerItem/playerItemCellOverwriteSet.o(.text);
         src/ui.o(.text);
@@ -503,7 +503,7 @@ SECTIONS {
         src/code_0805EC04.o(.text); /* objaffine? */
         src/text.o(.text);
         src/debug.o(.text);
-        src/playerItem/playerItem14.o(.text);
+        src/playerItem/playerItemSpiralBeam.o(.text);
         /* npcs */
         src/npc/gentari.o(.text);
         src/npc/festari.o(.text);
@@ -595,7 +595,7 @@ SECTIONS {
         /* END npcs */
         src/npcUtils.o(.text);
         src/coord.o(.text); /* physics? */
-        src/playerItem/playerItem12.o(.text);
+        src/playerItem/playerItemPacciCaneProjectile.o(.text);
         src/playerItem/playerItemPacciCane.o(.text);
         src/player.o(.text);
         src/item.o(.text);
@@ -819,7 +819,7 @@ SECTIONS {
         /* END objects */
         src/objectUtils.o(.text);
         src/playerItem/playerItemShield.o(.text);
-        src/playerItem/playerItem15.o(.text);
+        src/playerItem/playerItemFireRodProjectile.o(.text);
 #ifdef DEMO_USA
         src/demo.o(.text);
 #endif
@@ -869,8 +869,8 @@ SECTIONS {
         src/projectile/gyorgTail.o(.text);
         src/projectile/gyorgMaleEnergyProjectile.o(.text);
         src/projectile/v3TennisBallProjectile.o(.text);
-        src/playerItem/playerItem10.o(.text);
-        src/playerItem/playerItem13.o(.text);
+        src/playerItem/playerItemGust.o(.text);
+        src/playerItem/playerItemHeldObject.o(.text);
         src/title.o(.text);
         src/affine.o(.text);
         src/playerItem/playerItemGustJar.o(.text);
@@ -894,14 +894,14 @@ SECTIONS {
         src/npc.o(.rodata);
         src/collision.o(.rodata);
         data/data_080B3740.o(.rodata);
-        data/const/playerItem/playerItem11.o(.rodata);
+        data/const/playerItem/playerItemGustBig.o(.rodata);
         data/const/playerItem/playerItemBow.o(.rodata);
         data/data_080B3E70.o(.rodata);
         data/const/playerItem/playerItemSwordBeam.o(.rodata);
         data/data_080B4410.o(.rodata);
         data/const/playerItem/playerItemBomb.o(.rodata);
-        src/playerItem/playerItem3.o(.rodata);
-        src/playerItem/playerItemC.o(.rodata);
+        src/playerItem/playerItemBoomerang.o(.rodata);
+        src/playerItem/playerItemDashSword.o(.rodata);
         src/playerItem/playerItemBottle.o(.rodata);
         data/data_080B7910.o(.rodata);
         data/const/playerItem/playerItemCellOverwriteSet.o(.rodata);
@@ -1114,7 +1114,7 @@ SECTIONS {
         data/const/manager/manager4.o(.rodata);
         src/manager/manager5.o(.rodata);
         src/manager/manager7.o(.rodata);
-    . = ALIGN(4);
+        . = ALIGN(4);
         src/manager/manager9.o(.rodata);
         src/manager/managerA.o(.rodata);
         src/manager/managerB.o(.rodata);
@@ -1151,7 +1151,7 @@ SECTIONS {
         data/const/manager/manager38.o(.rodata);
         data/const/manager/manager39.o(.rodata);
         data/data_08108E6C.o(.rodata);
-        data/const/playerItem/playerItem14.o(.rodata);
+        data/const/playerItem/playerItemSpiralBeam.o(.rodata);
         data/animations/npc/gentari.o(.rodata);
         data/const/npc/festari.o(.rodata);
         data/animations/npc/festari.o(.rodata);
@@ -1307,7 +1307,7 @@ SECTIONS {
         src/coord.o(.rodata);
         src/playerHitbox.o(.rodata);
         data/gfx/sprite_frames.o(.rodata);
-        src/playerItem/playerItem12.o(.rodata);
+        src/playerItem/playerItemPacciCaneProjectile.o(.rodata);
         src/playerItem/playerItemPacciCane.o(.rodata);
         src/player.o(.rodata);
         src/item.o(.rodata);
@@ -1574,7 +1574,7 @@ SECTIONS {
         src/playerItemDefinitions.o(.rodata);
         data/data_08125104.o(.rodata);
         data/const/playerItem/playerItemShield.o(.rodata);
-        data/const/playerItem/playerItem15.o(.rodata);
+        data/const/playerItem/playerItemFireRodProjectile.o(.rodata);
 #ifdef DEMO_USA
         data/const/demo.o(.rodata);
 #endif
@@ -1644,10 +1644,9 @@ SECTIONS {
         src/projectile/gyorgMaleEnergyProjectile.o(.rodata);
         data/animations/projectile/gyorgMaleEnergyProjectile.o(.rodata);
         src/projectile/v3TennisBallProjectile.o(.rodata);
-        data/const/playerItem/playerItem10.o(.rodata);
-        src/playerItem/playerItem10.o(.rodata);
+        src/playerItem/playerItemGust.o(.rodata);
         src/flagDebug.o(.rodata);
-        data/const/playerItem/playerItem13.o(.rodata);
+        data/const/playerItem/playerItemHeldObject.o(.rodata);
         src/title.o(.rodata);
         src/projectile.o(.rodata);
         src/playerItem/playerItemGustJar.o(.rodata);

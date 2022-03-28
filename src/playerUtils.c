@@ -78,7 +78,7 @@ void sub_0807BFD0(void);
 
 void sub_08077698(PlayerEntity* this) {
     ItemBehavior* puVar2;
-    u32 uVar3;
+    u32 idx;
 
     gPlayerState.field_0x3[0] &= 0xfe;
     gPlayerState.field_0x3[1] &= 0xf;
@@ -90,15 +90,15 @@ void sub_08077698(PlayerEntity* this) {
         sub_08077880(gSave.stats.itemButtons[1], 2, 0);
         sub_080778CC();
     }
-    uVar3 = 0;
+    idx = 0;
     puVar2 = gUnk_03000B80;
     do {
         if (puVar2->field_0x5[4] != 0) {
-            sub_080752E8(puVar2, uVar3);
+            sub_080752E8(puVar2, idx);
         }
         puVar2++;
-        uVar3++;
-    } while (uVar3 < 4);
+        idx++;
+    } while (idx < 4);
 }
 
 void sub_08077728(u32 param_1) {
@@ -432,12 +432,12 @@ Entity* sub_08077CF8(u32 subtype, u32 form, u32 parameter, u32 unk) {
     return &ent->base;
 }
 
-void sub_08077D38(ItemBehavior* beh, u32 arg2) {
+void sub_08077D38(ItemBehavior* beh, u32 idx) {
     u32 r6;
     struct_0811BE48* ptr;
 
-    gPlayerState.field_0xa |= 8 >> arg2;
-    gPlayerState.keepFacing |= 8 >> arg2;
+    gPlayerState.field_0xa |= 8 >> idx;
+    gPlayerState.keepFacing |= 8 >> idx;
     beh->field_0x5[5] = gPlayerEntity.animationState;
     if (beh->stateID == 0) {
         beh->stateID++;
@@ -465,7 +465,7 @@ void sub_08077D38(ItemBehavior* beh, u32 arg2) {
 
     beh->field_0xf = ptr->unk6[0];
     if (ptr->unk6[1]) {
-        gPlayerState.field_0x3[1] |= (8 >> arg2) | ((8 >> arg2) << 4);
+        gPlayerState.field_0x3[1] |= (8 >> idx) | ((8 >> idx) << 4);
     }
 }
 
@@ -478,13 +478,13 @@ typedef struct {
     u8 unk[16];
 } Unk_struct_in_08077EC8;
 
-void sub_08077DF4(ItemBehavior* beh, u32 arg1) {
-    beh->field_0x10 = arg1;
-    if ((arg1 & 0xff) > 0xb8) {
-        arg1 += beh->field_0x5[5] >> 1;
+void sub_08077DF4(ItemBehavior* beh, u32 animation) {
+    beh->field_0x10 = animation;
+    if ((animation & 0xff) > 0xb8) {
+        animation += beh->field_0x5[5] >> 1;
     }
-    gPlayerEntity.spriteIndex = (short)(arg1 >> 8);
-    InitAnimationForceUpdate(&gPlayerEntity, (u8)arg1);
+    gPlayerEntity.spriteIndex = (short)(animation >> 8);
+    InitAnimationForceUpdate(&gPlayerEntity, (u8)animation);
     sub_08077E54(beh);
 }
 
@@ -505,10 +505,10 @@ void sub_08077E54(ItemBehavior* beh) {
     beh->field_0x5[9] = gPlayerEntity.frame;
 }
 
-void DeletePlayerItem(ItemBehavior* arg0, u32 bits) {
+void DeletePlayerItem(ItemBehavior* arg0, u32 idx) {
     u32 not ;
 
-    if (bits == 0) {
+    if (idx == 0) {
         if (gPlayerState.item != NULL) {
             ((Unk_bitfield*)gPlayerState.item)[0x11].b0 = 6;
             gPlayerState.item = NULL;
@@ -517,8 +517,8 @@ void DeletePlayerItem(ItemBehavior* arg0, u32 bits) {
         }
     }
 
-    not = (8 >> bits);
-    gPlayerState.field_0x3[1] &= ~((u8)((8 >> bits) << 4) | not );
+    not = (8 >> idx);
+    gPlayerState.field_0x3[1] &= ~((u8)((8 >> idx) << 4) | not );
     not = ~not ;
     gPlayerState.field_0xa &= not ;
     gPlayerState.keepFacing &= not ;

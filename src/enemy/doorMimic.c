@@ -90,7 +90,7 @@ void sub_080220F0(Entity* this) {
                 fx->y.HALF.HI += off->v;
             }
         }
-        EnqueueSFX(SFX_104);
+        EnqueueSFX(SFX_PLACE_OBJ);
     } else if (this->frame & 1) {
         this->damage = 4;
     }

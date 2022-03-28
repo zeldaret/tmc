@@ -20,25 +20,25 @@ typedef struct {
     u8 unk_68[4];
     u16 unk_6c;
     u16 unk_6e;
-} PlayerItem13Entity;
+} PlayerItemHeldObjectEntity;
 extern bool32 ProcessMovement10(Entity*);
 
 extern const s8 gUnk_081320C4[];
 
-bool32 sub_080AD32C(PlayerItem13Entity*);
-void sub_080AD27C(PlayerItem13Entity*);
+bool32 sub_080AD32C(PlayerItemHeldObjectEntity*);
+void sub_080AD27C(PlayerItemHeldObjectEntity*);
 u32 sub_0806F8DC(Entity*);
 
 extern const u16 gUnk_081320CC[];
 extern const u32 gUnk_081320D4[];
 
-void PlayerItem13(Entity* this) {
+void PlayerItemHeldObject(Entity* this) {
     gUnk_081320A8[this->subAction](this);
 }
 
 ASM_FUNC("asm/non_matching/playerItem13/sub_080ACF2C.inc", void sub_080ACF2C(Entity* this))
 
-void sub_080ACFCC(PlayerItem13Entity* this) {
+void sub_080ACFCC(PlayerItemHeldObjectEntity* this) {
     Entity* child = super->child;
     if ((this->unk_6c == child->kind) || (this->unk_6e == child->id)) {
         if (child->action != 2) {
@@ -59,12 +59,12 @@ void sub_080ACFCC(PlayerItem13Entity* this) {
     }
 }
 
-void sub_080AD040(PlayerItem13Entity* this) {
-    PlayerItem13Entity* child;
+void sub_080AD040(PlayerItemHeldObjectEntity* this) {
+    PlayerItemHeldObjectEntity* child;
     u32 tile;
     u32 tmp;
 
-    child = (PlayerItem13Entity*)super->child;
+    child = (PlayerItemHeldObjectEntity*)super->child;
     if ((child->base).action != 2) {
         DeleteThisEntity();
     }
@@ -134,7 +134,7 @@ void sub_080AD040(PlayerItem13Entity* this) {
             } else {
                 if (super->actionDelay != 0 || sub_080AD32C(child)) {
                     if (super->actionDelay == 1) {
-                        SoundReq(SFX_104);
+                        SoundReq(SFX_PLACE_OBJ);
                     }
                     UpdateSpriteForCollisionLayer(super);
                     child->base.subAction = 3;
@@ -143,7 +143,7 @@ void sub_080AD040(PlayerItem13Entity* this) {
                     child->base.spritePriority.b0 = super->spritePriority.b0;
                     DeleteThisEntity();
                 } else {
-                    SoundReq(SFX_104);
+                    SoundReq(SFX_PLACE_OBJ);
                     super->actionDelay++;
                     super->zVelocity = 0x10000;
                     super->speed /= 2;
@@ -181,9 +181,9 @@ void sub_080AD274(Entity* this) {
     DeleteThisEntity();
 }
 
-void sub_080AD27C(PlayerItem13Entity* this) {
+void sub_080AD27C(PlayerItemHeldObjectEntity* this) {
     u32 tmp;
-    PlayerItem13Entity* child = (PlayerItem13Entity*)super->child;
+    PlayerItemHeldObjectEntity* child = (PlayerItemHeldObjectEntity*)super->child;
     gNewPlayerEntity.unk_74 = NULL;
     if ((this->unk_6c == (u16)(child->base).kind) && (this->unk_6e == (u16)(child->base).id)) {
         if (child != this) {
@@ -209,7 +209,7 @@ void sub_080AD27C(PlayerItem13Entity* this) {
     }
 }
 
-bool32 sub_080AD32C(PlayerItem13Entity* this) {
+bool32 sub_080AD32C(PlayerItemHeldObjectEntity* this) {
     bool32 result = FALSE;
     if (((super->field_0x16 & 0xf0) == 0x10) ||
         ((super->kind == OBJECT && ((super->id == 5 || (super->id == 0x7d)))))) {
