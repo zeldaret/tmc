@@ -14,7 +14,6 @@ extern u8 gUnk_03003DE0;
 extern u8 gUnk_03000C30;
 
 extern u8 gUpdateVisibleTiles;
-extern Entity gCarriedEntity;
 extern Entity* gPlayerClones[3];
 extern u16 gUnk_080B2CD8[];
 

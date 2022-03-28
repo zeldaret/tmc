@@ -34,6 +34,17 @@ Entity* sub_0806D00C(Entity* this);
 
 void sub_0806D4C0(Entity*, u32);
 
+extern const u8 gUnk_08114100[];
+
+typedef struct {
+    s8 type;
+    s8 x;
+    s8 y;
+    u8 direction;
+} struct_08114104;
+
+extern const struct_08114104 gUnk_08114104[];
+
 void BigGoron(Entity* this) {
     gUnk_081140D4[this->type](this);
 }
@@ -85,7 +96,27 @@ Entity* sub_0806D00C(Entity* this) {
     return entity;
 }
 
-ASM_FUNC("asm/non_matching/bigGoron/sub_0806D02C.inc", void sub_0806D02C(Entity* this))
+void sub_0806D02C(Entity* this) {
+    s32 tmp1;
+    s32 tmp2;
+    sub_0806D164(this);
+
+    gScreen.lcd.displayControl |= 0x4000;
+    gScreen.controls.windowInsideControl = 0x3f3f;
+    gScreen.controls.windowOutsideControl = 0x3d;
+
+    tmp1 = -(s16)gScreen.bg1.xOffset;
+    tmp2 = tmp1 + 0x100;
+    tmp1 = min(max(0, tmp1), 0xf0);
+    tmp2 = min(max(0, tmp2), 0xf0);
+    gScreen.controls.window1HorizontalDimensions = (tmp1 << 8) | tmp2;
+
+    tmp1 = -(s16)gScreen.bg1.yOffset;
+    tmp2 = tmp1 + 0x100;
+    tmp1 = min(max(0, tmp1), 0xa0);
+    tmp2 = min(max(0, tmp2), 0xa0);
+    gScreen.controls.window1VerticalDimensions = (tmp1 << 8) | tmp2;
+}
 
 void sub_0806D0B0(Entity* this) {
     gMapTop.bgControlPtr = 0;
@@ -310,7 +341,39 @@ void sub_0806D514(Entity* this) {
     sub_0806D520(this, 3);
 }
 
-ASM_FUNC("asm/non_matching/bigGoron/sub_0806D520.inc", void sub_0806D520(Entity* this, u32 param))
+void sub_0806D520(Entity* this, u32 param_2) {
+    if (this->action == 0) {
+        this->action = 1;
+        this->field_0xf = gUnk_08114100[param_2] + 6;
+        this->frameIndex = this->field_0xf;
+        this->actionDelay = 8;
+    }
+    this->x.HALF.HI = this->parent->x.HALF.HI;
+    this->y.HALF.HI = this->parent->y.HALF.HI;
+    this->spriteOffsetX = this->parent->spriteOffsetX;
+    this->spriteOffsetY = this->parent->spriteOffsetY;
+    this->spriteOrientation.flipY = this->parent->spriteOrientation.flipY;
+    if (this->subAction != 0 ||
+        CheckPlayerProximity(this->x.HALF.HI + param_2 * -0x10 + 0xc, this->y.HALF.HI, 0x18, 0x40)) {
+        if (this->frameIndex >= this->field_0xf + 2) {
+            return;
+        }
+        if (--this->actionDelay != 0) {
+            return;
+        }
+        this->actionDelay = 8;
+        this->frameIndex++;
+    } else {
+        if (this->frameIndex <= this->field_0xf) {
+            return;
+        }
+        if (--this->actionDelay != 0) {
+            return;
+        }
+        this->actionDelay = 8;
+        this->frameIndex--;
+    }
+}
 
 void sub_0806D5D4(void) {
     u32 itemSlot;
@@ -357,7 +420,19 @@ void sub_0806D66C(Entity* this) {
     this->spriteOrientation.flipY = 2;
 }
 
-ASM_FUNC("asm/non_matching/bigGoron/sub_0806D67C.inc", void sub_0806D67C(Entity* this))
+void sub_0806D67C(Entity* this) {
+    const struct_08114104* ptr = gUnk_08114104;
+    while (ptr->type != -1) {
+        Entity* effect = CreateFx(this, ptr->type, 0x40);
+        if (effect != NULL) {
+            effect->x.HALF.HI = ptr->x + effect->x.HALF.HI;
+            effect->y.HALF.HI = ptr->y + effect->y.HALF.HI;
+            effect->direction = ptr->direction;
+            effect->speed = 0x100;
+        }
+        ptr++;
+    }
+}
 
 void sub_0806D6D0(void) {
     Entity* entity = FindEntity(NPC, BIG_GORON, 7, 2, 0);

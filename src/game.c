@@ -246,6 +246,8 @@ extern void (*const gUnk_080FD138[])(void);
 
 extern const u16 gUnk_080FD964[];
 
+extern void sub_0801B170(void);
+
 void GameTask(void) {
     static GameState* const sStates[] = {
         GameTask_Transition,
@@ -1865,7 +1867,32 @@ void sub_0805373C(void) {
     gUnk_080FCD40[gMenu.overlayType]();
 }
 
-ASM_FUNC("asm/non_matching/game/sub_08053758.inc", void sub_08053758())
+void sub_08053758(void) {
+    gMenu.overlayType = 1;
+    gMenu.transitionTimer = 0x78;
+    gMenu.field_0xa = 0x1e;
+    *((u8*)&gMenu + 0x10) = 0; // TODO
+    gUI.field_0x6 = 1;
+    gMapBottom.bgControlPtr = NULL;
+    gMapTop.bgControlPtr = NULL;
+    gRoomControls.camera_target = NULL;
+    gRoomControls.scroll_y = 0;
+    gRoomControls.scroll_x = 0;
+    sub_0801B170();
+    DispReset(0);
+    gScreen.lcd.displayControl = 0x2640;
+    gScreen.controls.layerFXControl = 0x2244;
+    gScreen.controls.alphaBlend = 0x1000;
+    gScreen.controls.windowInsideControl = 0x1f;
+    gScreen.controls.windowOutsideControl = 0x3f;
+    gScreen.controls.window0HorizontalDimensions = 0xf0;
+    gScreen.controls.window0VerticalDimensions = 0x60;
+    gScreen.bg1.control = 0x1c4e;
+    gScreen.bg2.control = 0x1dc1;
+    SoundReq(BGM_STORY);
+    ResetSystemPriority();
+    SetFade(5, 0x100);
+}
 
 ASM_FUNC("asm/non_matching/game/sub_08053800.inc", void sub_08053800())
 

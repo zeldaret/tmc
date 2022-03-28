@@ -821,9 +821,25 @@ s32 sub_08078904(Entity* entity) {
     return -1;
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/RegisterCarryEntity.inc", void RegisterCarryEntity(Entity* a))
+void RegisterCarryEntity(Entity* this) {
+    if (gCarriedEntity.count < 0x20) {
+        gCarriedEntity.unk_c[gCarriedEntity.count] = this;
+        gCarriedEntity.count++;
+    }
+}
 
-ASM_FUNC("asm/non_matching/playerUtils/FreeCarryEntity.inc", void FreeCarryEntity(Entity* a))
+void FreeCarryEntity(Entity* this) {
+    u32 index;
+    for (index = 0; index < gCarriedEntity.count; index++) {
+        if (gCarriedEntity.unk_c[index] == this) {
+            gCarriedEntity.count--;
+            break;
+        }
+    }
+    for (; index < gCarriedEntity.count; index++) {
+        gCarriedEntity.unk_c[index] = gCarriedEntity.unk_c[index + 1];
+    }
+}
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_080789A8.inc", u32 sub_080789A8())
 

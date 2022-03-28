@@ -1,3 +1,6 @@
+#ifndef NEW_PLAYER_H
+#define NEW_PLAYER_H
+
 #include "entity.h"
 
 // TODO Use new player entity struct everywhere once it is fully discovered.
@@ -19,3 +22,5 @@ typedef struct {
 } PlayerEntity;
 
 #define gNewPlayerEntity (*(PlayerEntity*)&gPlayerEntity)
+
+#endif
