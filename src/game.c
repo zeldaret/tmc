@@ -1284,8 +1284,8 @@ static void InitRoomTransition(void) {
 bool32 CanDispEzloMessage(void) {
     s32 tmp = PL_STATE_WALK;
 
-    if (!(gInput.heldKeys & SELECT_BUTTON) || gPlayerState.controlMode != CONTROL_ENABLED || gPauseMenuOptions.disabled ||
-        gUnk_0200AF00.unk_1)
+    if (!(gInput.heldKeys & SELECT_BUTTON) || gPlayerState.controlMode != CONTROL_ENABLED ||
+        gPauseMenuOptions.disabled || gUnk_0200AF00.unk_1)
         return 0;
 
     if ((gPlayerState.flags & (PL_NO_CAP | 0x110)) || (gPlayerState.framestate_last > tmp) || gPlayerState.item ||

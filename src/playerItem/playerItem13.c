@@ -42,7 +42,7 @@ void sub_080ACFCC(PlayerItem13Entity* this) {
     Entity* child = super->child;
     if ((this->unk_6c == child->kind) || (this->unk_6e == child->id)) {
         if (child->action != 2) {
-            sub_08079184();
+            PlayerDropHeldObject();
             DeleteThisEntity();
         } else {
             if ((gPlayerState.heldObject == 0) || ((gNewPlayerEntity.unk_79 & 0x7f) != 0)) {
@@ -54,7 +54,7 @@ void sub_080ACFCC(PlayerItem13Entity* this) {
             }
         }
     } else {
-        sub_08079184();
+        PlayerDropHeldObject();
         DeleteThisEntity();
     }
 }
@@ -204,7 +204,7 @@ void sub_080AD27C(PlayerItem13Entity* this) {
         super->flags |= 0x80;
         sub_0801766C(super);
     } else {
-        sub_08079184();
+        PlayerDropHeldObject();
         DeleteThisEntity();
     }
 }

@@ -374,7 +374,7 @@ void sub_080792D8(void);
 u32 sub_08078F74(Entity*);
 void sub_0807879C(Entity*);
 void PlayerSetNormalAndCollide(void);
-bool32 PlayerTryDropItem(ItemBehavior* arg0, u32 unk);
+bool32 PlayerTryDropObject(ItemBehavior* arg0, u32 unk);
 
 // player.s
 extern u32 PlayerCheckNEastTile();

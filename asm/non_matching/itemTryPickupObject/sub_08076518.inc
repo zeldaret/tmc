@@ -4,7 +4,7 @@
 	push {r7}
 	adds r4, r0, #0
 	mov r8, r1
-	bl PlayerTryDropItem
+	bl PlayerTryDropObject
 	cmp r0, #0
 	beq _080765D4
 	ldr r5, _0807655C @ =gPlayerState

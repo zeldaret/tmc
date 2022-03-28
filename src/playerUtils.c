@@ -569,7 +569,7 @@ void PlayerCancelHoldItem(ItemBehavior* beh, u32 arg1) {
  * Check if player state believes the held item is valid?
  * If it's not delete the item?
  */
-bool32 PlayerTryDropItem(ItemBehavior* arg0, u32 unk) {
+bool32 PlayerTryDropObject(ItemBehavior* arg0, u32 unk) {
     u32 temp;
     if (gPlayerState.heldObject == 0) {
         PlayerCancelHoldItem(arg0, unk);
