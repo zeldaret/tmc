@@ -2,6 +2,8 @@
 #include "item.h"
 #include "functions.h"
 #include "sound.h"
+#include "effects.h"
+#include "object.h"
 
 extern void (*const gUnk_0811BE04[])(ItemBehavior*, u32);
 
@@ -11,6 +13,10 @@ extern u8 gUnk_0811BE14[];
 extern s32 sub_0800875A(Entity*, u32, ItemBehavior*);
 
 extern void UpdatePlayerMovement(void);
+
+extern bool32 sub_0807B5B0(Entity*);
+
+extern const s16 gUnk_0811BE16[];
 
 void ItemMoleMitts(ItemBehavior* this, u32 arg1) {
     gUnk_0811BE04[this->stateID](this, arg1);
@@ -83,7 +89,64 @@ void sub_080771C8(ItemBehavior* this, u32 arg1) {
     }
 }
 
-ASM_FUNC("asm/non_matching/itemMoleMitts/sub_080772A8.inc", void sub_080772A8(ItemBehavior* this, u32 arg1))
+void sub_080772A8(ItemBehavior* this, u32 param_2) {
+    Entity* effect;
+
+    if (((this->field_0x5[9] & 8) != 0) && sub_08077F10(this)) {
+        this->field_0x5[2] = 1;
+    }
+    if (GetInventoryValue(ITEM_DIG_BUTTERFLY) == 1) {
+        if ((this->field_0x5[9] & 7) != 3) {
+            sub_08077E3C(this, 2);
+            gPlayerEntity.speed = gUnk_0811BE16[this->field_0x5[9] & 7] << 1;
+        } else {
+            UpdateItemAnim(this);
+            gPlayerEntity.speed = gUnk_0811BE16[this->field_0x5[9] & 7];
+        }
+    } else {
+        UpdateItemAnim(this);
+        gPlayerEntity.speed = gUnk_0811BE16[this->field_0x5[9] & 7];
+    }
+    gPlayerEntity.direction = gPlayerEntity.animationState << 2;
+    if (gPlayerEntity.speed != 0) {
+        UpdatePlayerMovement();
+    }
+    if ((this->field_0x5[9] & 0x10) != 0) {
+        if (this->field_0x5[2] != 0) {
+            gPlayerEntity.frameDuration = 1;
+            if (sub_080774A0()) {
+                this->field_0x5[2] = 0;
+                return;
+            }
+        }
+        DeletePlayerItem(this, param_2);
+        gPlayerState.field_0x3c[1] = 0;
+    } else {
+        if ((this->field_0x5[9] & 0x60) != 0) {
+            gPlayerEntity.frameDuration = 1;
+            if (sub_0807B5B0(&gPlayerEntity)) {
+                SoundReq(SFX_108);
+                CreateObjectWithParent(&gPlayerEntity, OBJECT_1E, this->field_0x5[9], 0);
+            } else {
+                sub_08077DF4(this, 0x51c);
+                effect = CreateFx(&gPlayerEntity, FX_STARS_STRIKE, 0);
+                if (effect != NULL) {
+                    effect->animationState = this->field_0x5[5];
+                    effect->spritePriority.b0 = gPlayerEntity.spritePriority.b0 - 1;
+                }
+                effect = CreateFx(&gPlayerEntity, FX_STARS_STRIKE, 0);
+                if (effect != NULL) {
+                    effect->animationState = this->field_0x5[5];
+                    effect->spritePriority.b0 = gPlayerEntity.spritePriority.b0 - 1;
+                    effect->field_0xf = 1;
+                }
+                this->stateID = 3;
+                this->field_0x5[0] = 1;
+                SoundReq(SFX_ITEM_GLOVES_KNOCKBACK);
+            }
+        }
+    }
+}
 
 void sub_08077448(ItemBehavior* this, u32 arg1) {
     gPlayerEntity.direction = gPlayerEntity.animationState << 2 ^ 0x10;

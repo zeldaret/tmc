@@ -231,7 +231,6 @@ void EraseAllEntities(void) {
 }
 
 extern Entity gUnk_030015A0[0x48];
-extern Entity gCarriedEntity;
 
 NONMATCH("asm/non_matching/GetEmptyEntity.inc", Entity* GetEmptyEntity()) {
     u8 flags_ip;
@@ -262,7 +261,7 @@ NONMATCH("asm/non_matching/GetEmptyEntity.inc", Entity* GetEmptyEntity()) {
             ClearDeletedEntity(ptr);
             return ptr;
         }
-    } while (++ptr < &gCarriedEntity);
+    } while (++ptr < (Entity*)&gCarriedEntity);
 
     flags_ip = 0;
     rv = NULL;
