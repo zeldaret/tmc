@@ -3,8 +3,6 @@
 
 extern void (*const gUnk_0811BDB4[])(ItemBehavior*, u32);
 
-u32 sub_08077F64(ItemBehavior* arg0, u32 unk);
-
 void ItemTryPickupObject(ItemBehavior* this, u32 arg1) {
     gUnk_0811BDB4[this->stateID](this, arg1);
 }
@@ -24,7 +22,7 @@ void sub_08076488(ItemBehavior* this, u32 arg1) {
     s32 iVar2;
 
     if (this->field_0x5[2] == 0) {
-        if (sub_08077F64(this, arg1) != 0) {
+        if (PlayerTryDropItem(this, arg1) != 0) {
             if (((*(u8*)((this->field_0x18) + 0x16) & 0xf0) == 0x10) && ((gRoomTransition.frameCount & 1U) != 0)) {
                 return;
             }
@@ -48,9 +46,9 @@ void sub_08076488(ItemBehavior* this, u32 arg1) {
 ASM_FUNC("asm/non_matching/itemTryPickupObject/sub_08076518.inc", void sub_08076518(ItemBehavior* this, u32 arg1))
 
 void sub_080765E0(ItemBehavior* this, u32 arg1) {
-    if (sub_08077F64(this, arg1) != 0) {
+    if (PlayerTryDropItem(this, arg1) != 0) {
         if ((this->field_0x5[9] & 0x80) != 0) {
-            sub_08077F50(this, arg1);
+            PlayerCancelHoldItem(this, arg1);
         } else {
             UpdateItemAnim(this);
         }

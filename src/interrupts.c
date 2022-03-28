@@ -201,7 +201,7 @@ void PlayerUpdate(Entity* this) {
 
     if (EntityIsDeleted(this) == 0) {
         if (gPlayerState.flags & PL_MOLDWORM_CAPTURED) {
-            sub_08077B20();
+            PutAwayItems();
             if (gPlayerState.flags & PL_MOLDWORM_RELEASED) {
                 gPlayerState.queued_action = PLAYER_ROLL;
                 gPlayerState.flags &= ~PL_MOLDWORM_CAPTURED;
@@ -236,7 +236,7 @@ void HandlePlayerLife(Entity* this) {
 
     gPlayerState.flags &= ~(0x2000000 | PL_FALLING);
     if (gPlayerState.flags & PL_BURNING)
-        ResetPlayer();
+        ResetPlayerItem();
     if ((gPlayerState.flags & PL_CLONING) && gPlayerState.chargeState.action == 0)
         DeleteClones();
     if (sub_08079B24() == 0)
@@ -311,7 +311,7 @@ void HandlePlayerLife(Entity* this) {
 
 void sub_080171F0(void) {
     if (gPlayerState.mobility != 0)
-        ResetPlayer();
+        ResetPlayerItem();
     if (gPlayerState.field_0x14 != 0)
         gPlayerState.field_0x14--;
     if (gPlayerEntity.field_0x7a.HWORD != 0)

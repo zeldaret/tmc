@@ -80,7 +80,7 @@ void Manager7_Main(Manager7* this) {
     tmp2 = &gUnk_081080A4[tmp << 4];
     tmp3 = this->manager.unk_0e;
     if (tmp3 == 0) {
-        gUnk_02034490.unk0 = 1;
+        gPauseMenuOptions.disabled = 1;
         LoadResourceAsync(&gGlobalGfxAndPalettes[tmp2[0]], tmp2[1], 0x1000);
         LoadPaletteGroup(gUnk_081081E4[tmp]);
         this->manager.unk_0e++;
@@ -97,7 +97,7 @@ void Manager7_Main(Manager7* this) {
                 LoadResourceAsync(&gGlobalGfxAndPalettes[tmp2[(this->manager.unk_0e << 1)]],
                                   tmp2[(this->manager.unk_0e << 1) + 1], 0x1000);
                 this->manager.unk_0e++;
-                gUnk_02034490.unk0 = 0;
+                gPauseMenuOptions.disabled = 0;
             case 8:
                 break;
         }
@@ -130,7 +130,7 @@ void Manager7_Main(Manager7* this) {
     tmp2 = &gUnk_081080A4[tmp << 4];
     switch (this->manager.unk_0e) {
         case 0:
-            gUnk_02034490.unk0 = 1;
+            gPauseMenuOptions.disabled = 1;
             LoadResourceAsync(&gGlobalGfxAndPalettes[tmp2[0]], tmp2[1], 0x1000);
             LoadPaletteGroup(gUnk_081081E4[tmp]);
             this->manager.unk_0e++;
@@ -147,7 +147,7 @@ void Manager7_Main(Manager7* this) {
             this->manager.unk_0e++;
             break;
         case 8:
-            gUnk_02034490.unk0 = 0;
+            gPauseMenuOptions.disabled = 0;
             this->manager.unk_0e++;
             break;
     }

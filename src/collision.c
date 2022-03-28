@@ -550,7 +550,7 @@ s32 sub_08017F40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
                 org->spriteOrientation.flipY = tgt->spriteOrientation.flipY;
                 org->iframes = -1;
                 tgt->iframes = -8;
-                ResetPlayer();
+                ResetPlayerItem();
                 return 1;
             }
         } else {
@@ -638,7 +638,7 @@ s32 sub_08018168(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
                 gPlayerEntity.spriteOrientation.flipY = tgt->spriteOrientation.flipY;
                 gPlayerEntity.iframes = 0xff;
                 tgt->iframes = -8;
-                sub_08077B20();
+                PutAwayItems();
                 return 1;
             }
         } else {

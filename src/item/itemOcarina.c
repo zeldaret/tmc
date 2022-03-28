@@ -24,7 +24,7 @@ void OcarinaUse(ItemBehavior* this, u32 arg1) {
         gPlayerEntity.field_0x7a.HWORD = 2;
         gPlayerState.flags |= PL_USE_OCARINA;
         gPlayerState.field_0x27[0] = -1;
-        gUnk_02034490.unk0 = 1;
+        gPauseMenuOptions.disabled = 1;
         gPlayerState.field_0xa = (8 >> arg1) | gPlayerState.field_0xa;
         gPlayerState.keepFacing = (8 >> arg1) | gPlayerState.keepFacing;
         ResetPlayerVelocity();
@@ -41,7 +41,7 @@ NONMATCH("asm/non_matching/ocarina/OcarinaUpdate.inc", void OcarinaUpdate(ItemBe
         gPlayerEntity.flags |= ENT_COLLIDE;
         gPlayerState.flags &= ~PL_USE_OCARINA;
         gPlayerState.field_0x27[0] = 0;
-        gUnk_02034490.unk0 = 0;
+        gPauseMenuOptions.disabled = 0;
         CreateBird();
         ResetPlayerEventPriority();
         DeletePlayerItem(this, arg1);

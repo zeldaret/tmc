@@ -443,21 +443,21 @@ void sub_0807DEDC(Entity* entity, ScriptExecutionContext* context, u32 x, u32 y)
 
 void sub_0807DF28(void) {
     sub_0807DF38();
-    sub_08079184();
-    sub_08077B20();
+    PlayerDropHeldObject();
+    PutAwayItems();
 }
 
 void sub_0807DF38(void) {
     gUnk_0200AF00.unk_1 = 0xff;
-    gUnk_02034490.unk0 = 0xff;
+    gPauseMenuOptions.disabled = 0xff;
 }
 
 void sub_0807DF50(void) {
-    gUnk_02034490.unk0 = 0;
+    gPauseMenuOptions.disabled = 0;
     gUnk_0200AF00.unk_1 = 0;
     RecoverUI(0);
     ResetPlayerAnimationAndAction();
-    sub_08079184();
+    PlayerDropHeldObject();
 }
 
 void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
@@ -849,7 +849,7 @@ void ScriptCommand_BuyItem(Entity* entity, ScriptExecutionContext* context) {
     context->condition = (price <= gSave.stats.rupees);
     if (context->condition) {
         ModRupees(-price);
-        sub_080A7C18(item, tmp2, 0);
+        InitItemGetSequence(item, tmp2, 0);
         gRoomVars.shopItemType = 0;
         gRoomVars.shopItemType2 = 0;
     }
@@ -1157,7 +1157,7 @@ void ScriptCommand_0807E9F0(Entity* entity, ScriptExecutionContext* context) {
     switch (gFuseInfo._0) {
         case 2:
             gPlayerState.controlMode = CONTROL_DISABLED;
-            gUnk_02034490.unk0 = tmp;
+            gPauseMenuOptions.disabled = tmp;
             context->condition = tmp;
             break;
         case 1:
@@ -1167,7 +1167,7 @@ void ScriptCommand_0807E9F0(Entity* entity, ScriptExecutionContext* context) {
             goto lbl;
     }
     if (tmp) {
-        sub_0807919C();
+        PlayerResetStateFromFusion();
         gPlayerState.controlMode = CONTROL_1;
     } else {
     lbl:
@@ -1489,11 +1489,11 @@ void ScriptCommand_GivePlayerItem(Entity* entity, ScriptExecutionContext* contex
     if (context->scriptInstructionPointer[1] == 0x3F) {
         tmp = context->intVariable;
     }
-    sub_080A7C18(context->scriptInstructionPointer[1], tmp, 0);
+    InitItemGetSequence(context->scriptInstructionPointer[1], tmp, 0);
 }
 
 void ScriptCommand_GiveKinstone(Entity* entity, ScriptExecutionContext* context) {
-    sub_080A7C18(0x5C, context->scriptInstructionPointer[1], 0);
+    InitItemGetSequence(0x5C, context->scriptInstructionPointer[1], 0);
 }
 
 void ScriptCommand_GetInventoryValue(Entity* entity, ScriptExecutionContext* context) {
@@ -1506,7 +1506,7 @@ void ScriptCommand_SetInventoryValue(Entity* entity, ScriptExecutionContext* con
 }
 
 void ScriptCommand_0807F088(Entity* entity, ScriptExecutionContext* context) {
-    sub_080A7C18(context->scriptInstructionPointer[1], 0, 3);
+    InitItemGetSequence(context->scriptInstructionPointer[1], 0, 3);
 }
 
 void ScriptCommand_CameraTargetEntity(Entity* entity, ScriptExecutionContext* context) {
@@ -1906,13 +1906,13 @@ void sub_0807F800(Entity* entity, ScriptExecutionContext* context) {
 
     price = GetItemPrice(item);
     ModRupees(-price);
-    sub_080A7C18(item, 0, 0);
+    InitItemGetSequence(item, 0, 0);
     gRoomVars.shopItemType = 0;
     gActiveScriptInfo.flags |= 1;
 }
 
 void sub_0807F83C(Entity* entity, ScriptExecutionContext* context) {
-    sub_08079184();
+    PlayerDropHeldObject();
 }
 
 void sub_0807F844(Entity* entity, ScriptExecutionContext* context) {

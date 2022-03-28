@@ -81,7 +81,7 @@ void Whirlwind_Action1(Entity* this) {
             gPlayerState.field_0x39 = 0xff;
             this->spritePriority.b0 = gPlayerEntity.spritePriority.b0 - 1;
             this->action++;
-            sub_08077B20();
+            PutAwayItems();
             SoundReq(SFX_153);
             SoundReq(SFX_PLY_VO5);
         }

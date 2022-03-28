@@ -192,7 +192,7 @@ void sub_0807FF6C(RoomControls* controls) {
     gScreen.controls.windowOutsideControl = (gScreen.controls.windowOutsideControl & 0xff00) | 7;
     gScreen.controls.window1HorizontalDimensions = 0xf0;
     gScreen.controls.window1VerticalDimensions = 0xf0;
-    ResetPlayer();
+    ResetPlayerItem();
     ResetPlayerAnimationAndAction();
     if (gUnk_03004030.isDiggingCave) {
         gPlayerEntity.animationState = 4;

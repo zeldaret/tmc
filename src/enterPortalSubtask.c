@@ -37,7 +37,7 @@ void sub_080A71F4(ScreenTransitionData*);
 bool32 sub_0804ACA8(void);
 
 bool32 CheckInitPortal(void) {
-    if (gArea.playShrinkSeq) {
+    if (gArea.portal_in_use) {
         gMain.substate = GAMEMAIN_MINISHPORTAL;
         gArea.filler[8] = 0;
         gArea.filler[9] = 0;
@@ -45,8 +45,8 @@ bool32 CheckInitPortal(void) {
         SetInitializationPriority();
         return 1;
     } else {
-        gArea.filler[18] = gArea.playShrinkSeq;
-        *(vu8*)&gArea.playShrinkSeq = gArea.playShrinkSeq;
+        gArea.filler[18] = gArea.portal_in_use;
+        *(vu8*)&gArea.portal_in_use = gArea.portal_in_use;
         return 0;
     }
 }
@@ -59,7 +59,7 @@ void sub_0804AAD4(void) {
     MemClear(&gUnk_02018EB0, 0x28);
     gUnk_02018EB0.unk_14 = NULL;
     EraseAllEntities();
-    CreateObject(OBJECT_3D, gArea.curPortalType, 0);
+    CreateObject(OBJECT_3D, gArea.portal_type, 0);
     gArea.filler[8]++;
 }
 
@@ -98,7 +98,7 @@ void sub_0804AB70(void) {
     controls->scroll_x = 0;
     gScreen.bg1.yOffset = 0;
     controls->scroll_y = 0;
-    portalId = gArea.curPortalType;
+    portalId = gArea.portal_type;
     if ((portalId == 2) && (gUI.unk_1c.area != 2)) {
         portalId = 3;
     }
@@ -151,7 +151,7 @@ bool32 sub_0804ACA8(void) {
 
 void sub_0804ACC8(void) {
     if (gFadeControl.active == 0) {
-        SetGlobalFlag(gArea.curPortalType + ENTRANCE_0);
+        SetGlobalFlag(gArea.portal_type + ENTRANCE_0);
         sub_0804AD6C((RoomControls*)&gUI.unk_1c);
         sub_080A71F4(0);
     }
@@ -166,11 +166,11 @@ void RespawnAsMinish(void) {
 }
 
 bool32 sub_0804AD18(void) {
-    switch (gArea.curPortalType) {
+    switch (gArea.portal_type) {
         case 0:
         case 1:
         case 2:
-            if (!CheckGlobalFlag(ENTRANCE_0 + gArea.curPortalType)) {
+            if (!CheckGlobalFlag(ENTRANCE_0 + gArea.portal_type)) {
                 return FALSE;
             }
             // else: return TRUE implicitely, because it's stored in r0. But does not match if returning explicitely.
@@ -191,10 +191,10 @@ void sub_0804AD6C(RoomControls* controls) {
     gRoomTransition.type = 0;
     area = &gArea;
     gRoomTransition.player_status.start_pos_x =
-        (area->curPortalX + gUnk_080D4140[area->curPortalExitDirection * 2]) - controls->origin_x;
+        (area->portal_x + gUnk_080D4140[area->portal_exit_dir * 2]) - controls->origin_x;
     gRoomTransition.player_status.start_pos_y =
-        (area->curPortalY + gUnk_080D4140[area->curPortalExitDirection * 2 + 1]) - controls->origin_y;
-    gRoomTransition.player_status.start_anim = area->curPortalExitDirection << 1;
+        (area->portal_y + gUnk_080D4140[area->portal_exit_dir * 2 + 1]) - controls->origin_y;
+    gRoomTransition.player_status.start_anim = area->portal_exit_dir << 1;
     gRoomTransition.player_status.spawn_type = 1;
     gRoomTransition.player_status.area_next = controls->area;
     gRoomTransition.player_status.room_next = controls->room;

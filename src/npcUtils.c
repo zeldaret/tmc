@@ -101,7 +101,7 @@ u32 sub_0806ED78(Entity* ent) {
     u32 result = sub_0800445C(ent);
     if (result) {
         if (gPlayerState.dash_state & 0x40) {
-            sub_08077B20();
+            PutAwayItems();
         }
     }
     return result;
@@ -323,7 +323,7 @@ u32 UpdateFuseInteraction(Entity* ent) {
             gPlayerState.controlMode = CONTROL_DISABLED;
             ret = 1;
         case 1:
-            sub_0807919C();
+            PlayerResetStateFromFusion();
             gPlayerState.controlMode = CONTROL_1;
             break;
     }

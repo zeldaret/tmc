@@ -329,7 +329,7 @@ void sub_0806D600(Entity* this, ScriptExecutionContext* context) {
 
 void sub_0806D620(void) {
     SetInventoryValue(ITEM_SHIELD, 0);
-    sub_080A7C18(ITEM_MIRROR_SHIELD, 0, 0);
+    InitItemGetSequence(ITEM_MIRROR_SHIELD, 0, 0);
 }
 
 void sub_0806D638(Entity* this) {

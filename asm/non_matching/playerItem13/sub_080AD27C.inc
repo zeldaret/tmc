@@ -81,7 +81,7 @@ _080AD2C2:
 _080AD318: .4byte gUnk_081320CC
 _080AD31C: .4byte gUnk_081320D4
 _080AD320:
-	bl sub_08079184
+	bl PlayerDropHeldObject
 	bl DeleteThisEntity
 _080AD328:
 	pop {r4, r5, pc}

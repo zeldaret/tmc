@@ -134,7 +134,7 @@ void GoronMerchant_TryToBuyKinstone(Entity* this, ScriptExecutionContext* contex
     if (salePrice <= gSave.stats.rupees) {
         if (sub_0801E7D0(gRoomVars.shopItemType2) < 99) {
             ModRupees(-salePrice);
-            sub_080A7C18(0x5c, gRoomVars.shopItemType2, 0);
+            InitItemGetSequence(0x5c, gRoomVars.shopItemType2, 0);
             gRoomVars.shopItemType = 0;
             gRoomVars.shopItemType2 = 0;
             context->condition = 1;

@@ -124,9 +124,9 @@ void sub_0806B540(Entity* this) {
             if ((gMessage.doTextBox & 0x7f) == 0) {
                 context->unk_18 = 3;
                 if (gSave.stats.hasAllFigurines != 0) {
-                    sub_080A7C18(0x58, 0, 0);
+                    InitItemGetSequence(0x58, 0, 0);
                 } else {
-                    sub_080A7C18(0x3f, 100, 0);
+                    InitItemGetSequence(0x3f, 100, 0);
                 }
                 SetRoomFlag(0xf);
             }

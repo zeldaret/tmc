@@ -48,7 +48,7 @@ void sub_08066358(Entity* this) {
             }
             this->speed = 0x80;
             this->cutsceneBeh.HWORD = 1;
-            gUnk_02034490.unk0 = 1;
+            gPauseMenuOptions.disabled = 1;
             sub_080788E0(this);
         }
     } else {
@@ -95,7 +95,7 @@ void sub_0806643C(Entity* this) {
 
 void sub_08066474(void) {
     if (gPlayerEntity.action != PLAYER_080720DC) {
-        gUnk_02034490.unk0 = 0;
+        gPauseMenuOptions.disabled = 0;
     }
 }
 

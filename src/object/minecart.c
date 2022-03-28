@@ -81,7 +81,7 @@ void sub_080917DC(MinecartEntity* this) {
                 gPlayerEntity.zVelocity = Q_16_16(2.0);
                 gPlayerEntity.speed = 0x100;
                 gPlayerEntity.flags &= ~PL_MINISH;
-                ResetPlayer();
+                ResetPlayerItem();
                 DeleteClones();
                 SoundReq(SFX_PLY_JUMP);
             }

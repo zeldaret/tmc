@@ -21,7 +21,7 @@
 	str r1, [r2, #0x30]
 	adds r2, #0x27
 	strb r4, [r2]
-	ldr r1, _08076C7C @ =gUnk_02034490
+	ldr r1, _08076C7C @ =gPauseMenuOptions
 	strb r4, [r1]
 	bl CreateBird
 	bl ResetPlayerEventPriority
@@ -34,5 +34,5 @@ _08076C6E:
 _08076C70: .4byte gPlayerEntity
 _08076C74: .4byte gPlayerState
 _08076C78: .4byte 0xEFFFFFFF
-_08076C7C: .4byte gUnk_02034490
+_08076C7C: .4byte gPauseMenuOptions
 	.syntax divided

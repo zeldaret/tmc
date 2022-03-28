@@ -203,7 +203,7 @@ void sub_080A13E8(ObjectB9Entity* this) {
     }
 
     if (!bVar2) {
-        sub_080A7C18(ptr[0], ptr[1], 0);
+        InitItemGetSequence(ptr[0], ptr[1], 0);
     } else {
         this->unk6e = 2;
     }

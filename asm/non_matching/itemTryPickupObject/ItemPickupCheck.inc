@@ -120,7 +120,7 @@ _080762B4: .4byte 0x00000948
 _080762B8:
 	adds r0, r4, #0
 	adds r1, r6, #0
-	bl sub_08077F50
+	bl PlayerCancelHoldItem
 _080762C0:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

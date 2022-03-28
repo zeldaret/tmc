@@ -14,7 +14,7 @@
 	bl SetFade
 	movs r0, #2
 	bl sub_080A4E84
-	ldr r1, _080A5BEC @ =gUnk_02034490
+	ldr r1, _080A5BEC @ =gPauseMenuOptions
 	movs r0, #0x10
 	strb r0, [r1, #0x16]
 _080A5BE2:
@@ -22,5 +22,5 @@ _080A5BE2:
 	.align 2, 0
 _080A5BE4: .4byte gFadeControl
 _080A5BE8: .4byte gMain
-_080A5BEC: .4byte gUnk_02034490
+_080A5BEC: .4byte gPauseMenuOptions
 	.syntax divided

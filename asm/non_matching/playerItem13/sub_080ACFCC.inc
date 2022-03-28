@@ -17,7 +17,7 @@ _080ACFE8:
 	ldrb r0, [r1, #0xc]
 	cmp r0, #2
 	beq _080ACFF8
-	bl sub_08079184
+	bl PlayerDropHeldObject
 	bl DeleteThisEntity
 	b _080AD03C
 _080ACFF8:
@@ -51,7 +51,7 @@ _080AD00E:
 _080AD02C: .4byte gPlayerState
 _080AD030: .4byte gPlayerEntity
 _080AD034:
-	bl sub_08079184
+	bl PlayerDropHeldObject
 	bl DeleteThisEntity
 _080AD03C:
 	pop {r4, pc}

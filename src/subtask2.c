@@ -263,7 +263,7 @@ void sub_080A6DF8(void) {
         ResetPlayerAnimationAndAction();
         sub_080042D0(&gPlayerEntity, (u32)gPlayerEntity.animIndex, gPlayerEntity.spriteIndex);
         Subtask_Exit();
-        gUnk_02034490.unk0 = 0;
+        gPauseMenuOptions.disabled = 0;
         SoundReq(SFX_MENU_CANCEL);
     }
 }

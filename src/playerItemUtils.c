@@ -8,10 +8,11 @@
 #include "object.h"
 #include "player.h"
 
-Entity* GiveItemWithCutscene(u32, u32, u32);
+static Entity* GiveItemWithCutscene(u32, u32, u32);
+static void InitTileMessage(u32, u32);
+
 Entity* sub_080A276C(Entity*, u32, u32);
-void sub_08078AF0(Entity*, u32, u32);
-void sub_080A7D44(u32, u32);
+void SetPlayerItemGetState(Entity*, u32, u32);
 
 void CreateItemEntity(u32 type, u32 type2, u32 delay) {
     Entity* e = GiveItemWithCutscene(type, type2, delay);
@@ -20,15 +21,15 @@ void CreateItemEntity(u32 type, u32 type2, u32 delay) {
     }
 }
 
-void sub_080A7C18(u32 type, u32 type2, u32 delay) {
+void InitItemGetSequence(u32 type, u32 type2, u32 delay) {
     Entity* e = GiveItemWithCutscene(type, type2, delay);
     if (e != NULL) {
         e->parent = &gPlayerEntity;
-        sub_08078AF0(e, e->type, 0);
+        SetPlayerItemGetState(e, e->type, 0);
     }
 }
 
-Entity* GiveItemWithCutscene(u32 type, u32 type2, u32 delay) {
+static Entity* GiveItemWithCutscene(u32 type, u32 type2, u32 delay) {
     Entity* e;
     if (type == 63 && gSave.stats.hasAllFigurines) {
         type = 87;
@@ -75,18 +76,19 @@ void sub_080A7C8C(u32 pos, u32 layer) {
 
 u32 sub_080A7CFC(u32 a1) {
     u32 msg = 0x600;
-    u32 isTileEntity6 = 0;
+    bool32 hint = FALSE;
+
     TileEntity* t = GetCurrentRoomProperty(3);
     if (t != 0) {
         do {
             if (t->_4 == a1) {
                 switch (t->type) {
                     case SIGN:
-                        isTileEntity6 = 0;
+                        hint = FALSE;
                         msg = *(u16*)&t->_6;
                         break;
-                    case TILE_ENTITY_6:
-                        isTileEntity6 = 1;
+                    case TILE_EZLO_HINT:
+                        hint = TRUE;
                         msg = *(u16*)&t->_6;
                         break;
                 }
@@ -95,13 +97,14 @@ u32 sub_080A7CFC(u32 a1) {
             t++;
         } while (t->_4 != 0);
     }
-    sub_080A7D44(msg, isTileEntity6);
+    InitTileMessage(msg, hint);
 }
 
-void sub_080A7D44(u32 msg, u32 isTileEntity6) {
-    if (isTileEntity6)
+static void InitTileMessage(u32 msg, u32 hint) {
+    if (hint) {
         CreateEzloHint(msg, 0);
-    else
+    } else {
         // Read sign text
         MessageFromTarget(msg);
+    }
 }

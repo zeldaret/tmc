@@ -191,7 +191,7 @@ void sub_0802805C(Entity* this) {
     if (this->field_0xf >= 0x19 || gSave.stats.health == 0) {
         sub_0802810C(this);
     } else {
-        ResetPlayer();
+        ResetPlayerItem();
         gPlayerState.mobility |= 0x80;
         PositionRelative(this, &gPlayerEntity, 0, Q_16_16(1.0));
 
@@ -268,7 +268,7 @@ void sub_08028224(u32 item) {
 #ifdef EU
     CreateItemEntity(item, 0, 1);
 #else
-    sub_080A7C18(item, 0, 1);
+    InitItemGetSequence(item, 0, 1);
 #endif
     MessageFromTarget(0x579);
 }

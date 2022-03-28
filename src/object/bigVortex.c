@@ -73,7 +73,7 @@ void sub_08098DC4(Entity* this) {
         if (this->type2 == 1) {
             SetGlobalFlag(TATSUMAKI);
         }
-        sub_08077B20();
+        PutAwayItems();
     }
     UpdateAnimationSingleFrame(this);
 }

@@ -157,7 +157,7 @@ void sub_08058FB0(ManagerF* this) {
         case 2:
             if (this->manager.unk_0e == 90) {
                 SetPlayerControl(2);
-                sub_08077B20();
+                PutAwayItems();
             }
             if (this->manager.unk_0e == 60) {
                 gPlayerEntity.animationState = this->manager.unk_0f;

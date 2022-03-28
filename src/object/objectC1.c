@@ -48,7 +48,7 @@ void ObjectC1_Init(ObjectC1Entity* this) {
 
 void ObjectC1_Action1(ObjectC1Entity* this) {
     ResetPlayerEventPriority();
-    gUnk_02034490.unk0 = 0;
+    gPauseMenuOptions.disabled = 0;
     DeleteThisEntity();
 }
 

@@ -26,7 +26,7 @@ typedef struct {
 } Manager3;
 
 extern s8 gUnk_08107C6C[];
-extern u32 sub_08057810(void);
+extern u32 PortalReadyForMinish(void);
 extern u32 sub_080B1AC8(u16, u16, u8);
 
 void Manager3_Main(Manager3* this) {
@@ -38,19 +38,19 @@ void Manager3_Main(Manager3* this) {
         return;
     }
     if (CheckPlayerProximity(this->unk_20, this->unk_24, 0x40, 0x40)) {
-        gArea.curPortalX = this->unk_20 + 0x20;
-        gArea.curPortalY = this->unk_24 + 0x20 + gUnk_08107C6C[this->manager.unk_0a];
-        gArea.curPortalExitDirection = this->unk_34;
-        gArea.curPortalType = this->manager.unk_0a;
+        gArea.portal_x = this->unk_20 + 0x20;
+        gArea.portal_y = this->unk_24 + 0x20 + gUnk_08107C6C[this->manager.unk_0a];
+        gArea.portal_exit_dir = this->unk_34;
+        gArea.portal_type = this->manager.unk_0a;
         if (!CheckGlobalFlag(EZERO_1ST)) {
-            gArea.field_0x18 = 1;
-            gArea.curPortalType = 5;
+            gArea.portal_mode = 1;
+            gArea.portal_type = 5;
         } else {
             if ((gPlayerState.flags & PL_USE_PORTAL) && gPlayerState.jump_status == 0) {
-                gArea.field_0x18 = 2;
+                gArea.portal_mode = 2;
             } else {
-                if (sub_08057810()) {
-                    gArea.field_0x18 = 3;
+                if (PortalReadyForMinish()) {
+                    gArea.portal_mode = 3;
                 }
             }
             if (sub_080B1AC8(this->unk_38, this->unk_3a, this->manager.unk_0e) == 0x3d) {
@@ -92,8 +92,8 @@ void CreateMagicSparkles(u32 baseX, u32 baseY, u32 layer) {
     UpdateSpriteForCollisionLayer(spark);
 }
 
-u32 sub_08057810(void) {
-    if ((gPlayerState.flags & PL_MINISH) && !gPlayerState.field_0xaa && (gArea.curPortalType != 0x6) &&
+u32 PortalReadyForMinish(void) {
+    if ((gPlayerState.flags & PL_MINISH) && !gPlayerState.field_0xaa && (gArea.portal_type != 0x6) &&
         (gPlayerState.heldObject == 0)) {
         switch (gPlayerState.framestate) {
             case PL_STATE_IDLE:

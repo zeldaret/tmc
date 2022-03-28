@@ -372,7 +372,7 @@ static void GameMain_ChangeRoom(void) {
     sub_080300C4();
     gMain.substate = GAMEMAIN_UPDATE;
     SetPlayerControl(0);
-    gUnk_02034490.unk0 = 0;
+    gPauseMenuOptions.disabled = 0;
 #if defined(USA) || defined(DEMO_USA)
     if (gArea.inventoryGfxIdx != 0xff) {
         sub_0801855C();
@@ -1282,7 +1282,7 @@ static void InitRoomTransition(void) {
 bool32 CanDispEzloMessage(void) {
     s32 tmp = PL_STATE_WALK;
 
-    if (!(gInput.heldKeys & SELECT_BUTTON) || gPlayerState.controlMode != CONTROL_ENABLED || gUnk_02034490.unk0 ||
+    if (!(gInput.heldKeys & SELECT_BUTTON) || gPlayerState.controlMode != CONTROL_ENABLED || gPauseMenuOptions.disabled ||
         gUnk_0200AF00.unk_1)
         return 0;
 
@@ -1337,11 +1337,11 @@ static void CreateManagerF(void) {
 #endif
 
 static void sub_08052C3C(void) {
-    if (gArea.field_0x18 == 0)
-        gArea.unk1A = gArea.field_0x18;
+    if (gArea.portal_mode == 0)
+        gArea.unk1A = gArea.portal_mode;
     if (gArea.unk1A) {
         gArea.unk1A--;
-        gArea.field_0x18 = 0;
+        gArea.portal_mode = 0;
     }
 }
 

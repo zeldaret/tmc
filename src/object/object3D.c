@@ -35,8 +35,8 @@ void Object3D(Object3DEntity* this) {
 
 void Object3D_Init(Object3DEntity* this) {
     super->action = 1;
-    super->x.HALF.HI = gArea.curPortalX - gRoomControls.scroll_x;
-    super->y.HALF.HI = gArea.curPortalY - gRoomControls.scroll_y;
+    super->x.HALF.HI = gArea.portal_x - gRoomControls.scroll_x;
+    super->y.HALF.HI = gArea.portal_y - gRoomControls.scroll_y;
     this->unk_68 = 0x80;
     super->updatePriority = 6;
     sub_0801E1B8(0x1f17, 0);

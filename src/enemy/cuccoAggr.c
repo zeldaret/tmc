@@ -116,7 +116,7 @@ void sub_08038DD8(CuccoAggrEntity* this) {
 void sub_08038E18(CuccoAggrEntity* this) {
     if (super->field_0xf) {
         if (--super->field_0xf == 0) {
-            sub_08079184();
+            PlayerDropHeldObject();
             sub_08039218(this);
             COLLISION_ON(super);
             super->spritePriority.b1 = 1;

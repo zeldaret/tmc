@@ -224,16 +224,16 @@ void Bird_Type8(Entity* this) {
                         this->actionDelay = 8;
                         this->speed = 0x300;
                         this->field_0x68.HWORD = 0xe000;
-                        sub_08079184();
+                        PlayerDropHeldObject();
                         sub_08078B48();
                         ResetPlayerAnimationAndAction();
-                        sub_08077B20();
+                        PutAwayItems();
                         gPlayerState.swim_state = 0;
                         gPlayerState.jump_status = 0;
                         gPlayerEntity.flags &= 0x7f;
                         gPlayerEntity.spriteSettings.draw = 0;
                         gPriorityHandler.sys_priority = 6;
-                        gUnk_02034490.unk0 = 1;
+                        gPauseMenuOptions.disabled = 1;
                     }
                 }
             }
@@ -322,7 +322,7 @@ void Bird_Type9(Entity* this) {
             gPlayerEntity.spriteSettings.draw = 1;
             ResetPlayerAnimationAndAction();
             ResetPlayerEventPriority();
-            gUnk_02034490.unk0 = 0;
+            gPauseMenuOptions.disabled = 0;
             if (!CheckGlobalFlag(WARP_1ST)) {
                 pEVar1 = CreateObject(OBJECT_69, 0, 0);
                 if (pEVar1 != NULL) {
@@ -394,7 +394,7 @@ void sub_0809D738(void) {
         if (pEVar2 != NULL) {
             pEVar1->child = pEVar2;
         }
-        gUnk_02034490.unk0 = 1;
+        gPauseMenuOptions.disabled = 1;
     } else {
         ResetPlayerAnimationAndAction();
     }

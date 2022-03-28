@@ -59,5 +59,5 @@ void PlayerItemPacciCane_Action1(Entity* this) {
 
 // TODO This name sounds like this does not belong in this file
 void ClearMenuSavestate(void) {
-    MemClear(&gUnk_02034490, sizeof(gUnk_02034490));
+    MemClear(&gPauseMenuOptions, sizeof(gPauseMenuOptions));
 }

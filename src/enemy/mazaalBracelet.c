@@ -1244,7 +1244,7 @@ void sub_0803B804(Entity* this) {
 }
 
 void sub_0803B824(Entity* this) {
-    ResetPlayer();
+    ResetPlayerItem();
     gPlayerState.mobility = gPlayerState.mobility | 0x80;
     sub_0806FA90(this, &gPlayerEntity, gUnk_080CFD1D[this->type], 1);
     gPlayerEntity.spriteOffsetY = -6;
