@@ -159,7 +159,7 @@ void sub_080919AC(MinecartEntity* this) {
             }
 
             uVar3 = GetRelativeCollisionTile(super, gUnk_081223C8[super->animationState * 2],
-                                 gUnk_081223C8[super->animationState * 2 + 1]);
+                                             gUnk_081223C8[super->animationState * 2 + 1]);
             iVar2 = sub_08007DD6(uVar3, gUnk_081223D8[super->animationState]);
             if (iVar2 == 0) {
                 super->direction = DirectionTurnAround(super->direction);
