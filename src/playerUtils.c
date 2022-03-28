@@ -19,12 +19,10 @@ extern void sub_080752E8(ItemBehavior* behavior, u32 arg1); // item.c
 extern void sub_0800857C(Entity*);
 extern void SetDefaultPriorityForKind(Entity*);
 extern void DoPlayerAction(Entity*);
-extern Entity* sub_0805E744();
 extern void sub_0809D738(Entity*);
 extern s32 Mod(s32, s32);
 extern void sub_08003FDE(Entity*, u32, u32, u32);
 extern u32 sub_080B1B84(u32, u32);
-extern u32 sub_08007DD6(u32, const u16*);
 
 typedef struct {
     u8 unk0[4];
@@ -45,18 +43,15 @@ ItemBehavior* sub_0807794C(u32);
 u32 sub_080789A8(void);
 ItemBehavior* sub_080779EC(u32);
 void DeletePlayerItem(ItemBehavior*, u32);
-void sub_08077AEC(void);
 bool32 sub_08079E90(u32);
 void sub_08079258(void);
 void sub_08078D60(void);
 void* sub_08077C54(ItemBehavior*);
 u32 sub_08079FD4(Entity*, u32);
 void LoadRoomGfx(void);
-bool32 sub_080793E4(u32);
 u32 sub_0807A094(u32);
 u32 GetSurfaceCalcType(Entity*, u32, u32);
 void sub_0807AAF8(Entity*, u32);
-bool32 sub_08079C30(Entity*);
 
 extern struct_0811BE48 gUnk_0811BE48[];
 extern void (*const gUnk_0811C27C[])(Entity*);
@@ -385,7 +380,7 @@ Entity* CreatePlayerItemWithParent(ItemBehavior* beh, u32 subtype) {
 void* sub_08077C54(ItemBehavior* unk) {
     GenericEntity* item;
 
-    item = (GenericEntity*)sub_0805E744();
+    item = (GenericEntity*)CreateItemGetEntity();
     if (item != NULL) {
         item->base.id = gUnk_0811BE48[unk->behaviorID].unk0[3];
         item->base.kind = PLAYER_ITEM;
@@ -426,7 +421,7 @@ Entity* CreatePlayerItem(u32 subtype, u32 form, u32 parameter, u32 unk) {
 Entity* sub_08077CF8(u32 subtype, u32 form, u32 parameter, u32 unk) {
     GenericEntity* ent;
 
-    ent = (GenericEntity*)sub_0805E744();
+    ent = (GenericEntity*)CreateItemGetEntity();
     if (ent != NULL) {
         ent->base.flags = ENT_COLLIDE;
         ent->base.kind = PLAYER_ITEM;
@@ -702,7 +697,7 @@ void ForceSetPlayerState(u32 framestate) {
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_08078180.inc", void sub_08078180())
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_080782C0.inc", void sub_080782C0())
+ASM_FUNC("asm/non_matching/playerUtils/sub_080782C0.inc", u32 sub_080782C0())
 
 void sub_080784C8(void) {
     MemClear(&gUnk_03003DF0, 0x188);
@@ -966,7 +961,7 @@ void sub_08078EE4(void) {
     gPlayerEntity.y.HALF.HI = gPlayerState.startPosY;
 }
 
-bool32 RunQueuedAction(void) {
+bool32 CheckQueuedAction(void) {
     if (gPlayerState.queued_action == 0) {
         return FALSE;
     } else {
@@ -1131,7 +1126,7 @@ u32 sub_0807953C(void) {
     return gPlayerState.field_0x92 & tmp;
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_08079550.inc", void sub_08079550())
+ASM_FUNC("asm/non_matching/playerUtils/sub_08079550.inc", u32 sub_08079550(void))
 
 void sub_08079708(Entity* this) {
     gPlayerState.framestate = 0x12;
@@ -1167,7 +1162,7 @@ void sub_08079744(Entity* this) {
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_08079778.inc", void sub_08079778())
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_080797C4.inc", void sub_080797C4())
+ASM_FUNC("asm/non_matching/playerUtils/sub_080797C4.inc", u32 sub_080797C4(void))
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_080797EC.inc", void sub_080797EC())
 
@@ -1339,7 +1334,7 @@ bool32 sub_0807A2B8(void) {
     }
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807A2F8.inc", void sub_0807A2F8())
+ASM_FUNC("asm/non_matching/playerUtils/sub_0807A2F8.inc", u32 sub_0807A2F8(u32 a1))
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_0807A500.inc", void sub_0807A500())
 
@@ -1401,13 +1396,13 @@ ASM_FUNC("asm/non_matching/playerUtils/sub_0807AAF8.inc", void sub_0807AAF8(Enti
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_0807AB44.inc", void sub_0807AB44())
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807AC54.inc", void sub_0807AC54())
+ASM_FUNC("asm/non_matching/playerUtils/sub_0807AC54.inc", u32 sub_0807AC54(Entity* a))
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_0807ACCC.inc", void sub_0807ACCC(Entity* a))
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_0807ADB8.inc", void sub_0807ADB8())
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807AE20.inc", void sub_0807AE20())
+ASM_FUNC("asm/non_matching/playerUtils/sub_0807AE20.inc", void sub_0807AE20(Entity* e))
 
 void UpdatePlayerSkills(void) {
     gPlayerState.skills = SKILL_NONE;
@@ -1472,7 +1467,7 @@ u32 sub_0807B014(void) {
     }
 }
 
-void sub_0807B068(void) {
+void sub_0807B068(Entity* entity) {
     if ((gPlayerState.dash_state | gPlayerState.field_0x3[1]) == 0) {
         if (gPlayerState.swim_state != 0) {
             if ((gPlayerState.swim_state & 0x80) != 0) {

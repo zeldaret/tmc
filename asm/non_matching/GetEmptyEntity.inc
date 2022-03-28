@@ -48,7 +48,7 @@ _0805E6CC: .4byte gPlayerEntity
 _0805E6D0: .4byte gUpdateContext
 _0805E6D4:
 	adds r4, #0x88
-	ldr r0, _0805E738 @ =gCarryEntities
+	ldr r0, _0805E738 @ =gCarriedEntity
 	cmp r4, r0
 	blo _0805E6A8
 	movs r0, #0
@@ -101,7 +101,7 @@ _0805E730:
 	mov r8, r3
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_0805E738: .4byte gCarryEntities
+_0805E738: .4byte gCarriedEntity
 _0805E73C: .4byte gEntityLists
 _0805E740: .4byte gUpdateContext
 	.syntax divided

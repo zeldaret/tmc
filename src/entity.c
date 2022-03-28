@@ -231,7 +231,7 @@ void EraseAllEntities(void) {
 }
 
 extern Entity gUnk_030015A0[0x48];
-extern Entity gCarryEntities;
+extern Entity gCarriedEntity;
 
 NONMATCH("asm/non_matching/GetEmptyEntity.inc", Entity* GetEmptyEntity()) {
     u8 flags_ip;
@@ -262,7 +262,7 @@ NONMATCH("asm/non_matching/GetEmptyEntity.inc", Entity* GetEmptyEntity()) {
             ClearDeletedEntity(ptr);
             return ptr;
         }
-    } while (++ptr < &gCarryEntities);
+    } while (++ptr < &gCarriedEntity);
 
     flags_ip = 0;
     rv = NULL;
@@ -293,16 +293,16 @@ NONMATCH("asm/non_matching/GetEmptyEntity.inc", Entity* GetEmptyEntity()) {
 }
 END_NONMATCH
 
-extern Entity gUnk_030011E8[7];
+extern Entity gItemGetEntities[7];
 
-Entity* sub_0805E744(void) {
-    Entity* ent = gUnk_030011E8;
+Entity* CreateItemGetEntity(void) {
+    Entity* ent = gItemGetEntities;
 
     do {
         if (ent->prev == NULL) {
             return ent;
         }
-    } while (++ent < &gUnk_030011E8[7]);
+    } while (++ent < &gItemGetEntities[7]);
 
     return NULL;
 }

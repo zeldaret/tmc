@@ -580,7 +580,7 @@ void sub_080A4D34(void) {
     gScreen.bg3.updated = 1;
 }
 
-void sub_080A4D88(void) {
+void InitPauseMenu(void) {
     MemClear(gUnk_020344A0, sizeof(gUnk_020344A0));
     MenuFadeIn(1, 0);
     SetBgmVolume(0x80);

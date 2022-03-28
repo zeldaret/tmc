@@ -36,7 +36,7 @@ void sub_0804AD6C(RoomControls*);
 void sub_080A71F4(ScreenTransitionData*);
 bool32 sub_0804ACA8(void);
 
-bool32 IsEnterPortal(void) {
+bool32 CheckInitPortal(void) {
     if (gArea.playShrinkSeq) {
         gMain.substate = GAMEMAIN_MINISHPORTAL;
         gArea.filler[8] = 0;

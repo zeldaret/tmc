@@ -18,11 +18,16 @@ void sub_0806FA90(Entity*, Entity*, s32, s32);
 void SortEntityAbove(Entity* below_ent, Entity* above_ent);
 void SortEntityBelow(Entity* above_ent, Entity* below_ent);
 
+u32 sub_0806FCA0(Entity*, Entity*);
+u32 sub_0806F58C(Entity*, Entity*);
+u32 PointInsideRadius(s32 x, s32 y, s32 radius);
 u32 sub_0806F5A4(u32 idx);
 bool32 sub_0806F3E4(Entity*);
 void LinearMoveUpdate(Entity*);
 bool32 sub_0806FD54(Entity*);
 u32 sub_0806FCAC(Entity*, Entity*);
+u32 sub_0806F854(Entity*, s32, s32);
+u32 sub_0806F730(Entity*);
 
 extern const s16 gSineTable[64];
 extern const s16 gCosineTable[256];

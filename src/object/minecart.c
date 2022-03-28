@@ -9,7 +9,6 @@ typedef struct {
     struct_030010EC* minecartData;
 } MinecartEntity;
 
-extern u32 sub_08007DD6(u32, u32);
 extern void sub_08017744(Entity*);
 
 u32 sub_08091DDC(MinecartEntity*);
@@ -22,7 +21,7 @@ void sub_08091C98(MinecartEntity*);
 void sub_08091CC8(MinecartEntity*);
 void sub_08091D90(MinecartEntity*);
 
-extern const u32 gUnk_081223D8[];
+extern const u16* const gUnk_081223D8[];
 
 void Minecart(Entity* this) {
     static void (*const actionFuncs[])(MinecartEntity*) = {

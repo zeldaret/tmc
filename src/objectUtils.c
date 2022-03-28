@@ -10,16 +10,13 @@ extern const Hitbox* const gObjectHitboxes[];
 
 u32 LoadObjectSprite(Entity* this, s32 type, const ObjectDefinition* definition);
 extern const ObjectDefinition gObjectDefinitions[];
-extern Entity* sub_0805E744(void);
 
-Entity* CreateWaterTrace(Entity*);
-
-Entity* CreateSpeechBubble(Entity*, u32, s32, s32);
+static Entity* CreateSpeechBubble(Entity*, u32, s32, s32);
 
 Entity* sub_080A276C(Entity* parent, u32 type, u32 type2) {
-    Entity* e = sub_0805E744();
+    Entity* e = CreateItemGetEntity();
     if (e != NULL) {
-        e->id = 0xC1;
+        e->id = OBJECT_C1;
         e->kind = OBJECT;
         e->type = type;
         e->type2 = type2;
@@ -340,7 +337,7 @@ Entity* CreateSpeechBubbleSleep(Entity* parent, s32 offsetX, s32 offsetY) {
     return CreateSpeechBubble(parent, 2, offsetX, offsetY);
 }
 
-Entity* CreateSpeechBubble(Entity* parent, u32 type2, s32 xOffset, s32 yOffset) {
+static Entity* CreateSpeechBubble(Entity* parent, u32 type2, s32 xOffset, s32 yOffset) {
     Entity* obj = CreateObject(THOUGHT_BUBBLE, 0, type2);
     if (obj != NULL) {
         CopyPosition(parent, obj);

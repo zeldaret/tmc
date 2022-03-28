@@ -14,7 +14,6 @@
 #include "entity.h"
 #include "player.h"
 
-extern void sub_0807879C(Entity*);
 extern void sub_080787C0(Entity*);
 extern void sub_080787B4(Entity*);
 extern void sub_0808C650(Entity*, u32);
@@ -25,6 +24,7 @@ extern void sub_080A2BE4(Entity*, bool32);
 void CreateDust(Entity* parent);
 void CreateDustAt(s32, s32, u32);
 void CreateDustSmall(Entity* parent);
+Entity* CreateWaterTrace(Entity*);
 Entity* CreateSpeechBubbleQuestionMark(Entity*, s32, s32);
 Entity* CreateSpeechBubbleExclamationMark(Entity*, s32, s32);
 Entity* CreateSpeechBubbleSleep(Entity*, s32, s32);

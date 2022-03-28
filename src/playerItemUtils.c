@@ -11,7 +11,6 @@
 Entity* GiveItemWithCutscene(u32, u32, u32);
 Entity* sub_080A276C(Entity*, u32, u32);
 void sub_08078AF0(Entity*, u32, u32);
-Entity* sub_0805E744(void);
 void sub_080A7D44(u32, u32);
 
 void CreateItemEntity(u32 type, u32 type2, u32 delay) {
@@ -35,7 +34,7 @@ Entity* GiveItemWithCutscene(u32 type, u32 type2, u32 delay) {
         type = 87;
         type2 = 0;
     }
-    e = sub_0805E744();
+    e = CreateItemGetEntity();
     if (e != NULL) {
         e->type = type;
         e->type2 = type2;

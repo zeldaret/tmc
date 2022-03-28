@@ -26,9 +26,6 @@ void sub_080921BC(GentariCurtainEntity* this);
 void sub_080921F0(GentariCurtainEntity* this);
 void sub_08092214(GentariCurtainEntity* this);
 
-extern Entity gUnk_030011E8[7];
-extern Entity gCarryEntities;
-
 void GentariCurtain(Entity* this) {
     static void (*const actionFuncs[])(GentariCurtainEntity*) = {
         sub_08092050,
@@ -93,7 +90,7 @@ void sub_080921BC(GentariCurtainEntity* this) {
     GenericEntity* pEVar1;
     GenericEntity* end;
 
-    pEVar1 = (GenericEntity*)gUnk_030011E8;
+    pEVar1 = (GenericEntity*)gItemGetEntities;
     end = pEVar1 + 0x4f;
 
     do {
