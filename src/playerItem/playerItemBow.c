@@ -5,6 +5,9 @@
 #include "functions.h"
 #include "effects.h"
 #include "object.h"
+#include "playeritem.h"
+#include "sound.h"
+#include "save.h"
 
 extern void (*const gUnk_080B3E30[])(Entity*);
 
@@ -33,6 +36,14 @@ typedef struct {
 extern const struct_080B3E40 gUnk_080B3E40[];
 
 void sub_0801917C(PlayerItemBowEntity*);
+
+extern u8 gUnk_08003E44;
+
+extern Entity* sub_08008782(Entity*, u32, s32, s32);
+extern void sub_08017744(Entity*);
+extern void ModArrows(s32);
+
+void sub_08019468(PlayerItemBowEntity*);
 
 void PlayerItemBow(Entity* this) {
     gUnk_080B3E30[(this->action)](this);
@@ -98,7 +109,117 @@ void sub_08018FE4(PlayerItemBowEntity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/playerItemBow/sub_0801917C.inc", void sub_0801917C(PlayerItemBowEntity* this))
+void sub_0801917C(PlayerItemBowEntity* this) {
+    u8 arrowCount;
+    bool32 tmp2;
+    s32 tmp3;
+    Entity* entity;
+
+    if (super->type != 0) {
+        if (--this->unk_74 == 0) {
+            sub_08019468(this);
+            DeleteThisEntity();
+        }
+        GetNextFrame(super);
+        if (this->unk_74 < 0x18) {
+            super->spriteSettings.draw ^= 1;
+        }
+        LinearMoveUpdate(super);
+        if (sub_08008782(super, (super->hurtType == 0x0e) ? 1 : 4, this->unk_6c, this->unk_70) != NULL) {
+            if (super->hurtType != 0x0e) {
+                DeleteThisEntity();
+            }
+            tmp2 = TRUE;
+        } else {
+            tmp2 = FALSE;
+        }
+        if (super->hurtType == 0x0e) {
+            super->actionDelay++;
+            if ((super->actionDelay & 7) == 0) {
+                CreateFx(super, FX_SPARKLE2, 0);
+            }
+        }
+        if (super->type2 == 0) {
+            sub_0800451C(super);
+        }
+        if ((sub_080B1BA4(COORD_TO_TILE(super), gPlayerEntity.collisionLayer, 0x80) == 0) && (!tmp2) &&
+            sub_080040D8(super, &gUnk_08003E44, super->x.HALF.HI, super->y.HALF.HI) != 0) {
+            super->actionDelay = 0x1e;
+            super->action++;
+            if (super->hurtType == 0x0e) {
+                sub_08019468(this);
+                InitializeAnimation(super, super->animIndex + 0xf);
+            } else {
+                InitializeAnimation(super, super->animIndex + 2);
+            }
+            sub_08017744(super);
+            super->flags &= 0x7f;
+            super->speed = 0;
+            tmp3 = super->x.WORD;
+            if (tmp3 < 0) {
+                tmp3 = 0;
+            }
+            super->x.WORD = tmp3;
+            tmp3 = super->y.WORD;
+            if (tmp3 < 0) {
+                tmp3 = 0;
+            }
+            super->y.WORD = tmp3;
+            SoundReq(SFX_18A);
+        }
+        if ((super->bitfield != 0) && (!tmp2)) {
+            if (super->hurtType == 0x0e) {
+                sub_08019468(this);
+            }
+            sub_08017744(super);
+            if ((super->bitfield & 0x3f) == 0x42) {
+                super->spriteSettings.draw = 1;
+                super->action = 3;
+                super->direction ^= 0x10;
+                super->speed = 0x100;
+                super->zVelocity = 0x8000;
+                super->flags &= 0x7f;
+                InitializeAnimation(super, 6);
+            } else {
+                super->action++;
+                super->actionDelay = 1;
+                super->spriteSettings.draw = 0;
+            }
+        }
+
+    } else {
+        if ((PlayerItemBowEntity*)gPlayerState.item != this || (gPlayerState.field_0x1f[2] == 0)) {
+            if ((PlayerItemBowEntity*)gPlayerState.item == this) {
+                gPlayerState.item = 0;
+            }
+            gPlayerState.field_0x1f[2] = 0;
+            DeleteThisEntity();
+        }
+        if ((this->unk_68 == 0xa) && (gPlayerState.field_0x1f[2] != 0)) {
+            if (gPlayerState.field_0x1f[2] < 0x78) {
+                gPlayerState.field_0x1f[2]++;
+            } else {
+                super->hurtType = 0x0e;
+            }
+        }
+        arrowCount = gSave.stats.arrowCount;
+        if (super->frameIndex - this->unk_78 != gPlayerEntity.frameIndex) {
+            super->frameIndex = gPlayerEntity.frameIndex + this->unk_78;
+            if (arrowCount == 0) {
+                super->frameIndex += 0x2a;
+            }
+            sub_080042D0(super, super->frameIndex, super->spriteIndex);
+        }
+        if ((gPlayerEntity.frame & 1) != 0 && arrowCount != 0) {
+            entity = CreatePlayerItem(PLAYER_ITEM_BOW, 1, super->hurtType, 9);
+            if (entity != NULL) {
+                gPlayerState.field_0x3[1] |= 0x80;
+                ModArrows(-1);
+            }
+        }
+        sub_08078E84(super, &gPlayerEntity);
+    }
+}
 
 void sub_08019410(Entity* this) {
     if (this->actionDelay < 0xf) {
@@ -119,8 +240,8 @@ void sub_08019444(Entity* this) {
     }
 }
 
-void sub_08019468(Entity* this) {
-    if (this->hurtType == 0x0e) {
-        CreateFx(this, FX_REFLECT5, 0);
+void sub_08019468(PlayerItemBowEntity* this) {
+    if (super->hurtType == 0x0e) {
+        CreateFx(super, FX_REFLECT5, 0);
     }
 }
