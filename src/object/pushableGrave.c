@@ -181,8 +181,8 @@ bool32 sub_0809785C(PushableGraveEntity* this) {
             super->field_0xf = 0x3c;
             super->direction = 0;
             super->speed = 0x40;
-            sub_0807BA8C(this->unk_68, super->collisionLayer);
-            sub_0807BA8C(this->unk_68 - 1, super->collisionLayer);
+            RestorePrevTileEntity(this->unk_68, super->collisionLayer);
+            RestorePrevTileEntity(this->unk_68 - 1, super->collisionLayer);
             return TRUE;
         }
     }

@@ -324,7 +324,7 @@ void sub_0806A0A4(Entity* this) {
         if (CheckLocalFlag(MACHI_02_DOG) == 0) {
             dialog = 3;
             SetLocalFlag(MACHI_02_DOG);
-            sub_0807BA8C(TILE(this->x.HALF.HI, this->y.HALF.HI - 8), (u32)this->collisionLayer);
+            RestorePrevTileEntity(TILE(this->x.HALF.HI, this->y.HALF.HI - 8), (u32)this->collisionLayer);
         }
     } else {
         dialog = 2;

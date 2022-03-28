@@ -199,7 +199,7 @@ void sub_08089538(PushableStatueEntity* this) {
     EnqueueSFX(SFX_10F);
     SetTile(this->unk_80, this->unk_84, super->collisionLayer);
     if ((super->collisionLayer == 2) && (GetTileType(this->unk_84, 1) == 0x400b)) {
-        sub_08000152(0x310, this->unk_84, 1);
+        CloneTile(0x310, this->unk_84, 1);
     }
     tileType = GetTileType(this->unk_84 + gUnk_080B4488[super->direction >> 3], super->collisionLayer);
     if ((tileType == 0x79) || (tileType == 0x77)) {

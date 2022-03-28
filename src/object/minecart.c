@@ -111,7 +111,7 @@ void sub_080918A4(MinecartEntity* this) {
             super->hurtType = 0x18;
             super->damage = 8;
             sub_0801766C(super);
-            sub_0807BA8C(COORD_TO_TILE(super), super->collisionLayer);
+            RestorePrevTileEntity(COORD_TO_TILE(super), super->collisionLayer);
             SoundReq(SFX_137);
         }
     } else {
@@ -158,8 +158,8 @@ void sub_080919AC(MinecartEntity* this) {
                 super->field_0xf = 0x3c;
             }
 
-            uVar3 = sub_080B1A8C(super, gUnk_081223C8[super->animationState * 2],
-                                 gUnk_081223C8[super->animationState * 2 + 1]);
+            uVar3 = GetRelativeCollisionTile(super, gUnk_081223C8[super->animationState * 2],
+                                             gUnk_081223C8[super->animationState * 2 + 1]);
             iVar2 = sub_08007DD6(uVar3, gUnk_081223D8[super->animationState]);
             if (iVar2 == 0) {
                 super->direction = DirectionTurnAround(super->direction);

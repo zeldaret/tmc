@@ -198,7 +198,7 @@ void sub_0806DCA0(void) {
     while (*tiles != 0) {
         u32 tile = *tiles;
         tiles = tiles + 1;
-        sub_0807BA8C(tile, 1);
+        RestorePrevTileEntity(tile, 1);
     }
 }
 

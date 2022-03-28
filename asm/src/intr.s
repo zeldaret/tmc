@@ -120,8 +120,8 @@ _080B1A64:
 	ldrh r0, [r1, r0]
 	bx lr
 
-	arm_func_start arm_sub_080B1A8C
-arm_sub_080B1A8C: @ 0x080B1A8C
+	arm_func_start arm_GetRelativeCollisionTile
+arm_GetRelativeCollisionTile: @ 0x080B1A8C
 	ldrh r3, [r0, #0x2e]
 	add r3, r3, r1
 	ldrh r1, [r0, #0x32]

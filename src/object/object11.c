@@ -77,7 +77,7 @@ void Object11_Init(Object11Entity* this) {
 
 void Object11_Action1(Object11Entity* this) {
     if (((gPlayerState.field_0x1c & 0xf) != 1) || ((super->bitfield & 0x7f) != 0x13)) {
-        sub_0807BA8C(COORD_TO_TILE(super), super->collisionLayer);
+        RestorePrevTileEntity(COORD_TO_TILE(super), super->collisionLayer);
         DeleteThisEntity();
     }
 }

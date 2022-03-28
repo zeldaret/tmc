@@ -181,6 +181,6 @@ void sub_08066FB8(void) {
     while (*puVar2 != 0) {
         uVar1 = *puVar2;
         puVar2++;
-        sub_0807BA8C(uVar1, 1);
+        RestorePrevTileEntity(uVar1, 1);
     }
 }

@@ -117,7 +117,7 @@ void sub_0805BDB4(Manager23* this) {
             if (--this->field_0x22 == 0) {
                 CreateDustAt(*(s16*)&this->field_0x38, *(s16*)&this->field_0x3a, this->manager.unk_0b);
                 ClearFlag(this->field_0x3e);
-                sub_0807BA8C(this->field_0x20, this->manager.unk_0b);
+                RestorePrevTileEntity(this->field_0x20, this->manager.unk_0b);
                 ChangeLightLevel(-this->manager.unk_0e);
                 this->manager.action = 1;
             } else {

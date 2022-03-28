@@ -189,7 +189,7 @@ void sub_080994B8(SmallIceBlockEntity* this) {
     EnqueueSFX(SFX_ICE_BLOCK_SLIDE);
     SetTile(this->unk_6c, this->unk_70, super->collisionLayer);
     if ((super->collisionLayer == 2) && (GetTileType(this->unk_70, 1) == 0x405a)) {
-        sub_08000152(0x310, this->unk_70, 1);
+        CloneTile(0x310, this->unk_70, 1);
     }
     tileType = GetTileType(this->unk_70 + gUnk_080B4488[super->direction >> 3], super->collisionLayer);
     if (tileType == 0x79 || tileType == 0x77) {

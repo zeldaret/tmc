@@ -350,9 +350,9 @@ void sub_080A1648(void) {
 }
 
 void sub_080A169C(void) {
-    sub_0807BA8C(0xd36, 1);
-    sub_0807BA8C(0xd37, 1);
-    sub_0807BA8C(0xd38, 1);
-    sub_0807BA8C(0xd75, 1);
-    sub_0807BA8C(0xe75, 1);
+    RestorePrevTileEntity(0xd36, 1);
+    RestorePrevTileEntity(0xd37, 1);
+    RestorePrevTileEntity(0xd38, 1);
+    RestorePrevTileEntity(0xd75, 1);
+    RestorePrevTileEntity(0xe75, 1);
 }

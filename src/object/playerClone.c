@@ -72,7 +72,7 @@ void PlayerClone_Action1(PlayerCloneEntity* this) {
         if ((this->unk78 != 0) && (this->unk7a != 0)) {
             ((PlayerCloneEntity*)gPlayerClones[super->type])->unk70 = 1;
         }
-        sub_08000152(0x315, this->tilePos, super->collisionLayer);
+        CloneTile(0x315, this->tilePos, super->collisionLayer);
         super->child = sub_08077CF8(1, super->type + 1, 0, ((GenericEntity*)gPlayerState.item)->field_0x68.HALF.LO);
         if (super->child != NULL) {
             super->child->parent = super;
@@ -81,7 +81,7 @@ void PlayerClone_Action1(PlayerCloneEntity* this) {
         sub_0806FDA0(super);
         PlayerClone_Action2(this);
     } else if (gPlayerState.chargeState.action != 4) {
-        sub_08000152(0x315, this->tilePos, super->collisionLayer);
+        CloneTile(0x315, this->tilePos, super->collisionLayer);
         gPlayerClones[super->type] = NULL;
         DeleteThisEntity();
     } else {

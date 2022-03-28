@@ -122,7 +122,7 @@ void sub_080AA544(Entity* this) {
             sub_0807B7D8(gUnk_08129FE4[this->type2], param - tmp[this->type2], this->collisionLayer);
         }
     } else {
-        sub_0807BA8C(TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
+        RestorePrevTileEntity(TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
         SetFlag((u16)this->speed);
     }
 }

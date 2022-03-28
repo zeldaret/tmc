@@ -50,7 +50,7 @@ _080AD088:
 	movs r2, #0
 	ldrsb r2, [r0, r2]
 	adds r0, r4, #0
-	bl sub_080B1A8C
+	bl GetRelativeCollisionTile
 	cmp r0, #0x74
 	bne _080AD0B4
 	adds r0, r4, #0

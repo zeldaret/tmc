@@ -1191,7 +1191,7 @@ bool32 sub_08079D48(void) {
     if (!sub_08079C30(&gPlayerEntity)) {
         return TRUE;
     } else {
-        if (!sub_08008B22()) {
+        if (!PlayerCheckNEastTile()) {
             if (!sub_08007DD6((u16)GetTileUnderEntity(&gPlayerEntity), gUnk_0811C268)) {
                 return TRUE;
             }
@@ -1329,7 +1329,7 @@ void EnablePlayerDraw(Entity* this) {
 }
 
 bool32 sub_0807A2B8(void) {
-    if (sub_08008B22()) {
+    if (PlayerCheckNEastTile()) {
         return TRUE;
     } else {
         if (((gPlayerState.jump_status & 200) == 0) && (gPlayerEntity.collisionLayer != 1)) {
@@ -1640,7 +1640,7 @@ void SetTileType(u32 tileType, u32 position, u32 layer) {
     } else if (tileType >= 0x4000) { // The tile type actually directly is a tileIndex
         SetTile(tileType, position, layer);
     } else {
-        sub_0807BA8C(position, layer);
+        RestorePrevTileEntity(position, layer);
     }
 }
 
@@ -1670,7 +1670,7 @@ ASM_FUNC("asm/non_matching/playerUtils/sub_0807B778.inc", void sub_0807B778(u32 
 
 void sub_0807B7D8(u32 param_1, u32 param_2, u32 param_3) {
     if (param_1 == 53) {
-        sub_08000152(53, param_2, param_3);
+        CloneTile(53, param_2, param_3);
         sub_0807B778(param_2, param_3);
         sub_0807B778(param_2 + 1, param_3);
         sub_0807B778(param_2 - 1, param_3);
@@ -1747,7 +1747,7 @@ void sub_0807B9B8(u32 tileIndex, u32 position, u32 layer) {
     }
 }
 
-void sub_0807BA8C(u32 position, u32 layer) {
+void RestorePrevTileEntity(u32 position, u32 layer) {
     u32 tileIndex;
     u32 tileType;
     LayerStruct* data;
@@ -2012,6 +2012,9 @@ void sub_0807C810(void) {
     gUpdateVisibleTiles = 0;
 }
 
+/**
+ * This function is used to create a copy of the map data for temporary cutscene changes.
+ */
 void CloneMapData(void) {
     gRoomTransition.field_0x2c[0] = 1;
     MemCopy(&gMapBottom.mapData, &gMapBottom.mapDataClone, 0x2000);

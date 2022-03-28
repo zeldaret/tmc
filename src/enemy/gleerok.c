@@ -141,7 +141,7 @@ void sub_0802D170(GleerokEntity* this) {
             gPlayerEntity.x.HALF.HI = gRoomControls.origin_x + 0x98;
             gPlayerEntity.y.HALF.HI = gRoomControls.origin_y + 0xd8;
             gPlayerEntity.animationState = 0;
-            sub_0807BA8C(COORD_TO_TILE(&gPlayerEntity), 2);
+            RestorePrevTileEntity(COORD_TO_TILE(&gPlayerEntity), 2);
             gRoomControls.camera_target = super;
             SetFade(6, 8);
         }

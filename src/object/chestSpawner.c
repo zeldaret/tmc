@@ -279,7 +279,7 @@ void ChestSpawner_Type0Action3(ChestSpawnerEntity* this) {
                     this->unk_72--;
                 } else {
                     super->action = 1;
-                    sub_0807BA8C(this->tilePosition, super->collisionLayer);
+                    RestorePrevTileEntity(this->tilePosition, super->collisionLayer);
                     CreateDust(super);
                 }
             }

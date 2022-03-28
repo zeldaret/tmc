@@ -353,12 +353,12 @@ void sub_08090480(u32 param_1, u32 param_2) {
 
 void sub_08090498(PushableFurnitureEntity* this) {
     u32 tmp = this->unk_70 - 0x80;
-    sub_0807BA8C(tmp, 1);
+    RestorePrevTileEntity(tmp, 1);
     if (((this->unk_83 & 1) != 0) && (GetTileType(tmp, 2) == 0x306)) {
         sub_08000148(0x62, tmp, 1);
     }
     tmp = this->unk_72 - 0x80;
-    sub_0807BA8C(tmp, 1);
+    RestorePrevTileEntity(tmp, 1);
     if (((this->unk_83 & 2) != 0) && (GetTileType(tmp, 2) == 0x308)) {
         sub_08000148(99, tmp, 1);
     }

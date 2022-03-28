@@ -76,7 +76,7 @@ void Manager30_Main(Manager30* this) {
             for (i = 0; i < this->height; i++) {
                 tmp = this->own_tile + (i << 6);
                 for (j = 0; j < this->width; j++) {
-                    sub_0807BA8C(tmp + j, this->manager.unk_0b);
+                    RestorePrevTileEntity(tmp + j, this->manager.unk_0b);
                 }
             }
             break;

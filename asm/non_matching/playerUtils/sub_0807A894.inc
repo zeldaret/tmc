@@ -35,7 +35,7 @@ _0807A8C8:
 _0807A8CA:
 	movs r1, #0
 _0807A8CC:
-	bl sub_080B1A8C
+	bl GetRelativeCollisionTile
 	pop {pc}
 	.align 2, 0
 	.syntax divided
