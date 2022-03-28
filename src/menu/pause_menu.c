@@ -31,21 +31,21 @@ void Subtask_PauseMenu(void) {
         PauseMenu_Variant3, PauseMenu_Variant4, PauseMenu_Variant5,
     };
 
-    if (gUnk_02034490.unk11 == 6) {
+    if (gPauseMenuOptions.unk11 == 6) {
         SetBgmVolume(0x100);
         Subtask_Exit();
     } else {
         FlushSprites();
-        pauseMenu_Variants[gUnk_02034490.unk11]();
+        pauseMenu_Variants[gPauseMenuOptions.unk11]();
         sub_080A5128();
         UpdateUIElements();
         DrawUIElements();
-        if (gUnk_02034490.unk11 != 4) {
-            gUnk_08128A38[gUnk_02034490.unk1].func();
+        if (gPauseMenuOptions.unk11 != 4) {
+            gUnk_08128A38[gPauseMenuOptions.unk1].func();
         }
         CopyOAM();
         {
-            u32 t = gUnk_02034490.unk16;
+            u32 t = gPauseMenuOptions.unk16;
             u32 t2 = (t != 0) ? 0xe46 : 0;
             gScreen.controls.layerFXControl = t2;
             gScreen.controls.alphaBlend = (t << 8) | (0x10 - t);
@@ -81,18 +81,18 @@ void PauseMenu_Variant0(void) {
     } while (r1 <= 0xd);
     ptr = sub_080A6A80((u16)gRoomTransition.player_status.overworld_map_x,
                        (u16)gRoomTransition.player_status.overworld_map_y);
-    gUnk_02034490.unk2[4] = ptr->_4;
-    gUnk_02034490.unk2[5] = sub_0801DB94();
+    gPauseMenuOptions.unk2[4] = ptr->_4;
+    gPauseMenuOptions.unk2[5] = sub_0801DB94();
     if (IsItemEquipped(ITEM_LANTERN_ON) != 2) {
         r1 = 0x10;
     } else {
         r1 = 0xf;
     }
-    gUnk_02034490.unk15 = r1;
-    r0 = gUnk_08128A38[gUnk_02034490.unk1].unk1;
+    gPauseMenuOptions.unk15 = r1;
+    r0 = gUnk_08128A38[gPauseMenuOptions.unk1].unk1;
     r0 = sub_080A50A0(r0);
-    gUnk_02034490.unk1 = r0;
-    gUnk_02034490.unk14 = r0;
+    gPauseMenuOptions.unk1 = r0;
+    gPauseMenuOptions.unk14 = r0;
     sub_080A4DB8(r0);
     SetFade(4, 0x20);
     sub_080A4E90(1);
@@ -141,16 +141,16 @@ void PauseMenu_Variant2(void) {
                         bVar5 = gMenu.field_0xc[iVar4];
                     }
                 default:
-                    gUnk_02034490.unk14 = bVar5;
+                    gPauseMenuOptions.unk14 = bVar5;
                     SoundReq(SFX_TEXTBOX_OPEN);
                     gMenu.field_0xc = NULL;
                     break;
             }
         }
     }
-    bVar5 = sub_080A50A0(gUnk_02034490.unk14);
-    if (gUnk_02034490.unk1 != bVar5) {
-        gUnk_02034490.unk14 = bVar5;
+    bVar5 = sub_080A50A0(gPauseMenuOptions.unk14);
+    if (gPauseMenuOptions.unk1 != bVar5) {
+        gPauseMenuOptions.unk14 = bVar5;
         sub_080A51D4();
         if (bVar5 == 0xe) {
             sub_080A4E90(6);
@@ -178,19 +178,19 @@ s32 sub_080A50A0(s32 param_1) {
 void PauseMenu_Variant3(void) {
     s32 iVar1;
 
-    iVar1 = gUnk_02034490.unk16 + 2;
+    iVar1 = gPauseMenuOptions.unk16 + 2;
     if (0x10 < iVar1) {
         gScreen.lcd.displayControl &= 0xf8ff;
         sub_080A4E90(4);
         iVar1 = 0x10;
     }
-    gUnk_02034490.unk16 = iVar1;
+    gPauseMenuOptions.unk16 = iVar1;
 }
 
 void PauseMenu_Variant4(void) {
     u32 t;
-    gUnk_02034490.unk16 = 0x10;
-    gUnk_02034490.unk1 = t = gUnk_02034490.unk14;
+    gPauseMenuOptions.unk16 = 0x10;
+    gPauseMenuOptions.unk1 = t = gPauseMenuOptions.unk14;
     sub_080A4DB8(t);
     sub_080A4E90(5);
 }
@@ -198,12 +198,12 @@ void PauseMenu_Variant4(void) {
 void PauseMenu_Variant5(void) {
     s32 iVar1;
 
-    iVar1 = gUnk_02034490.unk16 - 2;
+    iVar1 = gPauseMenuOptions.unk16 - 2;
     if (iVar1 < 0) {
         sub_080A4E90(2);
         iVar1 = 0;
     }
-    gUnk_02034490.unk16 = iVar1;
+    gPauseMenuOptions.unk16 = iVar1;
 }
 
 void sub_080A5128(void) {
@@ -213,7 +213,7 @@ void sub_080A5128(void) {
         int y;
     } p[3];
 
-    switch (gUnk_02034490.unk1) {
+    switch (gPauseMenuOptions.unk1) {
         case 7:
         case 8:
             p[0].x = 0x60;
@@ -229,8 +229,8 @@ void sub_080A5128(void) {
             return;
         default:
             p[0].x = 0x40;
-            p[0].y = 0x10 - (gUnk_02034490.unk16 << 1);
-            t = (gUnk_02034490.unk16 / 3);
+            p[0].y = 0x10 - (gPauseMenuOptions.unk16 << 1);
+            t = (gPauseMenuOptions.unk16 / 3);
             p[1].x = 0x10 - t;
             p[1].y = 0x48;
             p[2].x = 0xe0 + t;
@@ -257,9 +257,9 @@ void sub_080A5128(void) {
 }
 
 void sub_080A51D4(void) {
-    u32 i = gUnk_02034490.unk1;
+    u32 i = gPauseMenuOptions.unk1;
     if (i < 0xe) {
-        gUnk_02034490.unk2[i] = gMenu.field_0x3;
+        gPauseMenuOptions.unk2[i] = gMenu.field_0x3;
     }
 }
 
@@ -267,7 +267,7 @@ u32 sub_080A51F4(void) {
     u32 retval = 1;
     if (gFadeControl.active != 0)
         retval = 0;
-    if (gUnk_02034490.unk11 != 2)
+    if (gPauseMenuOptions.unk11 != 2)
         retval = 0;
     return retval;
 }
@@ -331,7 +331,7 @@ void PauseMenu_ItemMenu_Init(void) {
             switch (item) {
                 case ITEM_LANTERN_OFF:
                 case ITEM_LANTERN_ON:
-                    item = gUnk_02034490.unk15;
+                    item = gPauseMenuOptions.unk15;
                     break;
                 default:
                     break;

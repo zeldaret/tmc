@@ -104,7 +104,7 @@ _0807614A:
 	bne _08076162
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_08077F50
+	bl PlayerCancelHoldItem
 	b _080761A0
 _08076162:
 	ldr r1, _08076194 @ =gPlayerEntity

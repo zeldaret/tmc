@@ -95,7 +95,7 @@ void FourElements_Action2(FourElementsEntity* this) {
         super->actionDelay = 0x2d;
         gScreen.controls.layerFXControl = 0x640;
         gScreen.controls.alphaBlend = 0;
-        sub_080A7C18(super->type, 0, 1);
+        InitItemGetSequence(super->type, 0, 1);
         sub_0808C650(super, 1);
         SetFade(6, 2);
         SoundReq(SFX_F8);

@@ -390,7 +390,7 @@ void sub_0803F6EC(GhiniEntity* this) {
 }
 
 void sub_0803F738(GhiniEntity* this) {
-    ResetPlayer();
+    ResetPlayerItem();
     gPlayerState.mobility |= 0x80;
     gPlayerState.field_0xa |= 0x80;
     sub_0806FA90(&gPlayerEntity, super, 0, 1);

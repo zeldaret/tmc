@@ -306,9 +306,9 @@ void sub_0805A76C(Manager15* this) {
                     gPlayerEntity.animationState = 4;
                     RequestPriorityDuration((Entity*)this, 600);
                     SetPlayerControl(0xFF);
-                    gUnk_02034490.unk0 = 1;
+                    gPauseMenuOptions.disabled = 1;
                     gRoomControls.camera_target = NULL;
-                    sub_08077B20();
+                    PutAwayItems();
                 }
         }
     }

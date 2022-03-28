@@ -205,7 +205,7 @@ typedef enum {
     BIG_CHEST,
     BOMBABLE_WALL,
     SIGN,
-    TILE_ENTITY_6,
+    TILE_EZLO_HINT,
     MUSIC_SETTER,
     TILE_ENTITY_8,
     DARKNESS,

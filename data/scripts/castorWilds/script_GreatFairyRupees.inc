@@ -8,7 +8,7 @@ script_0800B6CC:
 script_0800B6D4:
 	CheckPlayerInRegion 0x0078, 0x00b8, 0x1060
 	JumpIfNot script_0800B6D4
-	Call sub_08079184
+	Call PlayerDropHeldObject
 	SetPlayerIdle
 	Call WaitForPlayerNormal
 	StartPlayerScript script_PlayerAtGreatFairy

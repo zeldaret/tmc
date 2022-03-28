@@ -86,7 +86,7 @@ void sub_0808B590(Entity* this) {
             return;
         this->action = 5;
         this->field_0xf = 0x60;
-        sub_08077B20();
+        PutAwayItems();
         gPlayerEntity.x.HALF.HI = this->x.HALF.HI;
         gPlayerEntity.y.HALF.HI = this->y.HALF.HI;
         gPlayerEntity.animationState = 4;

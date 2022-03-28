@@ -226,7 +226,7 @@ void VaatiProjectileFunction0Action9(Entity* this) {
 }
 
 void sub_0803E444(Entity* this) {
-    ResetPlayer();
+    ResetPlayerItem();
     gPlayerState.mobility = gPlayerState.mobility | 0x80;
     gPlayerState.field_0xa = gPlayerState.field_0xa | 0x80;
     sub_0806FA90(this, this->field_0x4c, 0, -2);

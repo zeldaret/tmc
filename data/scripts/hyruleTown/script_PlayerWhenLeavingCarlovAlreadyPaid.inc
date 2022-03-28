@@ -7,5 +7,5 @@ SCRIPT_START script_PlayerWhenLeavingCarlovAlreadyPaid
 	DoPostScriptAction 0x0000
 	Wait 0x0010
 	SetSyncFlag 0x00000002
-	Call sub_0807921C
+	Call PlayerSetNormalAndCollide
 SCRIPT_END

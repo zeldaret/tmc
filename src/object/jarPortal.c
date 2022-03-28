@@ -4,7 +4,7 @@
 
 extern void (*gUnk_08121488[])(Entity*);
 
-extern u32 sub_08057810(void);
+extern u32 PortalReadyForMinish(void);
 
 u32 sub_0808C128(Entity*);
 void sub_0808C13C(Entity*);
@@ -99,19 +99,19 @@ void sub_0808BFD8(Entity* this) {
 void sub_0808C01C(Entity* this, u32 r1) {
     if (CheckPlayerProximity(this->x.HALF.HI - 0x18, this->y.HALF.HI - 0x18, 0x30, 0x30)) {
         u32 type;
-        gArea.curPortalX = this->x.HALF.HI;
-        gArea.curPortalY = this->y.HALF.HI;
-        gArea.curPortalExitDirection = 2;
+        gArea.portal_x = this->x.HALF.HI;
+        gArea.portal_y = this->y.HALF.HI;
+        gArea.portal_exit_dir = 2;
         type = 4;
         if (r1 != 0)
             type = 2;
-        gArea.curPortalType = type;
+        gArea.portal_type = type;
         if (r1 == 1) {
             if ((gPlayerState.flags & PL_USE_PORTAL) && (gPlayerState.jump_status == 0)) {
-                gArea.field_0x18 = 2;
+                gArea.portal_mode = 2;
             } else {
-                if (sub_08057810() != 0) {
-                    gArea.field_0x18 = 3;
+                if (PortalReadyForMinish() != 0) {
+                    gArea.portal_mode = 3;
                 }
             }
             CreateMagicSparkles(this->x.HALF.HI, this->y.HALF.HI, this->collisionLayer);

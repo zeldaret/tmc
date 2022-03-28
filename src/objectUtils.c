@@ -25,7 +25,7 @@ Entity* sub_080A276C(Entity* parent, u32 type, u32 type2) {
         PrependEntityToList(e, 6);
         CopyPosition(&gPlayerEntity, e);
         gPriorityHandler.sys_priority = 6;
-        gUnk_02034490.unk0 = 1;
+        gPauseMenuOptions.disabled = 1;
         e->field_0x68.HALF.HI = gPlayerEntity.flags;
         e->field_0x68.HALF.LO = gPlayerEntity.spriteSettings.draw;
         e->field_0x6a.HALF.LO = gPlayerEntity.iframes;

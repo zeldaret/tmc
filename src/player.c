@@ -119,10 +119,10 @@ static EntityAction PortalEnterUpdate;
 static EntityAction PortalUnknownUpdate;
 
 // PLAYER_TALKEZLO
-static EntityAction PlayerTalkEzloInit;
-static EntityAction sub_0807193C;
-static EntityAction sub_08071990;
-static EntityAction sub_08071A4C;
+static EntityAction PlayerTalkEzlo_Init;
+static EntityAction PlayerTalkEzlo_CreateMessage;
+static EntityAction PlayerTalkEzlo_MessageIdle;
+static EntityAction PlayerTalkEzlo_Leave;
 
 // PLAYER_PUSH
 static EntityAction PlayerPushInit;
@@ -281,7 +281,7 @@ extern ScriptExecutionContext gPlayerScriptExecutionContext;
 
 bool32 CheckInitPauseMenu(void) {
     u32 framestate;
-    if (((gInput.newKeys & START_BUTTON) == 0 || gFadeControl.active || gUnk_02034490.unk0 ||
+    if (((gInput.newKeys & START_BUTTON) == 0 || gFadeControl.active || gPauseMenuOptions.disabled ||
          (gMessage.doTextBox & 0x7F) || gSave.stats.health == 0 || !gSave.fillerD0[34] ||
          gPlayerState.controlMode != 0 || gPriorityHandler.priority_timer != 0)) {
         return FALSE;
@@ -371,7 +371,7 @@ static void PlayerInit(Entity* this) {
     UpdatePlayerSkills();
 
     if (CheckQueuedAction() == 0) {
-        sub_0807921C();
+        PlayerSetNormalAndCollide();
         UpdateFloorType();
         if (gPlayerState.swim_state != 0) {
             Entity* ent;
@@ -400,7 +400,7 @@ static void PlayerNormal(Entity* this) {
         else
             gPlayerState.animation = 604;
         sub_0806F948(&gPlayerEntity);
-        ResetPlayer();
+        ResetPlayerItem();
         sub_08077698(this);
         return;
     }
@@ -445,7 +445,7 @@ static void PlayerNormal(Entity* this) {
     if (gPlayerState.jump_status == 0 && (gPlayerState.flags & PL_BURNING) == 0) {
         if (this->knockbackDuration == 0 && sub_080782C0()) {
             if (gRoomVars.shopItemType == 0) {
-                ResetPlayer();
+                ResetPlayerItem();
             }
             if ((gPlayerState.flags & (PL_USE_OCARINA | PL_FLAGS2)) == 0) {
                 UpdateFloorType();
@@ -606,7 +606,7 @@ static void PlayerFallInit(Entity* this) {
     this->subAction++;
     COLLISION_OFF(this);
     this->spritePriority.b1 = 0;
-    ResetPlayer();
+    ResetPlayerItem();
     DeleteClones();
     SoundReq(SFX_PLY_VO7);
     SoundReq(SFX_FALL_HOLE);
@@ -659,7 +659,7 @@ static void PlayerBounceInit(Entity* this) {
 
     gPlayerState.jump_status = 0x80;
     SoundReq(SFX_14C);
-    ResetPlayer();
+    ResetPlayerItem();
     ResetPlayerVelocity();
 }
 
@@ -797,7 +797,7 @@ static void PlayerItemGetInit(Entity* this) {
     }
 
     this->subAction = 1;
-    ResetPlayer();
+    ResetPlayerItem();
     ResetPlayerVelocity();
 }
 
@@ -848,7 +848,7 @@ static void PlayerJumpInit(Entity* this) {
 
     if ((gPlayerState.heldObject | gPlayerState.sword_state) == 0) {
         if ((gPlayerState.flags & PL_MINISH) == 0) {
-            ResetPlayer();
+            ResetPlayerItem();
             if (gPlayerState.flags & PL_NO_CAP) {
                 gPlayerState.animation = 0x420;
             } else {
@@ -969,7 +969,7 @@ static void PlayerDrownInit(Entity* this) {
         else
             gPlayerState.animation = 0x44c;
     }
-    ResetPlayer();
+    ResetPlayerItem();
 }
 
 static void sub_080712F0(Entity* this) {
@@ -1019,7 +1019,7 @@ static void PlayerUsePortal(Entity* this) {
     if ((gInput.newKeys & (B_BUTTON | R_BUTTON)) == 0)
         return;
 
-    if (AreaIsDungeon() || gArea.curPortalType == 3) {
+    if (AreaIsDungeon() || gArea.portal_type == 3) {
         this->subAction = 7;
         this->actionDelay = 30;
         SetFade(7, 16);
@@ -1036,11 +1036,11 @@ static void PortalJumpOnUpdate(Entity* this) {
     COLLISION_OFF(this);
     this->knockbackDuration = 0;
 
-    x = gArea.curPortalX;
-    y = gArea.curPortalY;
+    x = gArea.portal_x;
+    y = gArea.portal_y;
 
     if ((this->x.HALF.HI != x) || (this->y.HALF.HI != y)) {
-        this->direction = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, gArea.curPortalX, gArea.curPortalY);
+        this->direction = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, gArea.portal_x, gArea.portal_y);
         this->speed = JUMP_SPEED_FWD;
         UpdatePlayerMovement();
     }
@@ -1053,20 +1053,20 @@ static void PortalJumpOnUpdate(Entity* this) {
         this->subAction = 1;
         this->animationState = IdleSouth;
         this->spriteSettings.flipX = FALSE;
-        if (gArea.curPortalType == 4) {
+        if (gArea.portal_type == 4) {
             gPlayerState.animation = 0x52c;
         }
     }
 
     this->actionDelay = 8;
 
-    if (gArea.curPortalType != 3) {
+    if (gArea.portal_type != 3) {
         this->spritePriority.b0 = 3;
     }
 }
 
 static void PortalStandUpdate(Entity* this) {
-    switch (gArea.curPortalType) {
+    switch (gArea.portal_type) {
         case 4:
         case 5:
             sub_0806F948(&gPlayerEntity);
@@ -1094,7 +1094,7 @@ static void PortalStandUpdate(Entity* this) {
         this->actionDelay = 8;
     }
 
-    if (gArea.curPortalType == 4) {
+    if (gArea.portal_type == 4) {
         if (this->frame == 0) {
             UpdateAnimationSingleFrame(this);
             return;
@@ -1107,12 +1107,12 @@ static void PortalStandUpdate(Entity* this) {
 
 static void PortalActivateInit(Entity* this) {
     gRoomControls.camera_target = NULL;
-    gUnk_02034490.unk0 = 1;
+    gPauseMenuOptions.disabled = 1;
     this->subAction = 3;
-    this->field_0xf = 0x1e;
+    this->field_0xf = 30;
     gPlayerState.animation = 0x738;
     CreateObjectWithParent(this, EZLO_CAP, 1, 0);
-    sub_08077B20();
+    PutAwayItems();
     SetPlayerEventPriority();
 }
 
@@ -1221,15 +1221,15 @@ static void PortalEnterUpdate(Entity* this) {
 
         this->spriteSettings.draw = FALSE;
 
-        if (gArea.curPortalType == 3) {
+        if (gArea.portal_type == 3) {
             if (--this->field_0xf == 0)
                 sub_080717F8(this);
             return;
         }
-        if (gArea.curPortalType == 6)
+        if (gArea.portal_type == 6)
             DoExitTransition(&gUnk_0813AB58);
         else
-            gArea.playShrinkSeq = 1;
+            gArea.portal_in_use = TRUE;
 
         return;
     }
@@ -1254,11 +1254,11 @@ static void sub_080717F8(Entity* this) {
         0, -22, 22, 0, 0, 22, -22, 0,
     };
 
-    this->animationState = gArea.curPortalExitDirection << 1;
-    this->x.HALF.HI = gArea.curPortalX + sOffsets[gArea.curPortalExitDirection * 2];
-    this->y.HALF.HI = gArea.curPortalY + sOffsets[gArea.curPortalExitDirection * 2 + 1];
+    this->animationState = gArea.portal_exit_dir << 1;
+    this->x.HALF.HI = gArea.portal_x + sOffsets[gArea.portal_exit_dir * 2];
+    this->y.HALF.HI = gArea.portal_y + sOffsets[gArea.portal_exit_dir * 2 + 1];
     gArea.unk1A = 0xb4;
-    gUnk_02034490.unk0 = 0;
+    gPauseMenuOptions.disabled = 0;
     this->action = PLAYER_MINISH;
     this->subAction = 0;
     gPlayerState.flags = (gPlayerState.flags & ~PL_USE_PORTAL) | PL_MINISH;
@@ -1268,10 +1268,10 @@ static void sub_080717F8(Entity* this) {
 
 static void PlayerTalkEzlo(Entity* this) {
     static EntityAction* const sPlayerTalkEzloStates[] = {
-        PlayerTalkEzloInit,
-        sub_0807193C,
-        sub_08071990,
-        sub_08071A4C,
+        PlayerTalkEzlo_Init,
+        PlayerTalkEzlo_CreateMessage,
+        PlayerTalkEzlo_MessageIdle,
+        PlayerTalkEzlo_Leave,
     };
 
     if (CheckQueuedAction()) {
@@ -1284,8 +1284,8 @@ static void PlayerTalkEzlo(Entity* this) {
     }
 }
 
-static void PlayerTalkEzloInit(Entity* this) {
-    ResetPlayer();
+static void PlayerTalkEzlo_Init(Entity* this) {
+    ResetPlayerItem();
     gUnk_03000B80[3].field_0xf = 0;
     this->iframes = 0;
     gPriorityHandler.sys_priority = PRIO_PLAYER_EVENT;
@@ -1301,38 +1301,40 @@ static void PlayerTalkEzloInit(Entity* this) {
     if (gPlayerState.jump_status == 0) {
         this->subAction++;
 
-        if (this->animationState == IdleEast)
+        if (this->animationState == IdleEast) {
             gPlayerState.animation = 0x3ca;
-        else
+        } else {
             gPlayerState.animation = 0x3c6;
+        }
 
         this->spriteSettings.flipX = 0;
         return;
     }
 
-    if (!GravityUpdate(this, GRAVITY_RATE))
+    if (!GravityUpdate(this, GRAVITY_RATE)) {
         gPlayerState.jump_status = 0;
+    }
 }
 
-static void sub_0807193C(Entity* this) {
+static void PlayerTalkEzlo_CreateMessage(Entity* this) {
     Entity* child;
 
     UpdateAnimationSingleFrame(this);
     if (this->frame & ANIM_DONE) {
         this->subAction++;
-        child = CreateObjectWithParent(this, EZLO_CAP, 0, 0);
-        this->child = child;
-        if (child != NULL) {
-            if (this->animationState == IdleEast)
+        this->child = CreateObjectWithParent(this, EZLO_CAP, 0, 0);
+        if (this->child != NULL) {
+            if (this->animationState == IdleEast) {
                 gPlayerState.animation = 0x3cc;
-            else
+            } else {
                 gPlayerState.animation = 0x3c7;
+            }
             DisplayEzloMessage();
         }
     }
 }
 
-static void sub_08071990(Entity* this) {
+static void PlayerTalkEzlo_MessageIdle(Entity* this) {
     u32 temp;
 
     if ((gMessage.doTextBox & 0x7f) == 0) {
@@ -1344,7 +1346,7 @@ static void sub_08071990(Entity* this) {
                 gPlayerState.animation = 0x3c9;
         } else {
             reset_priority();
-            sub_08079258();
+            PlayerMinishSetNormalAndCollide();
         }
         return;
     }
@@ -1371,11 +1373,11 @@ static void sub_08071990(Entity* this) {
     UpdateAnimationSingleFrame(this);
 }
 
-static void sub_08071A4C(Entity* this) {
+static void PlayerTalkEzlo_Leave(Entity* this) {
     UpdateAnimationSingleFrame(this);
     if (this->frame & ANIM_DONE) {
         reset_priority();
-        sub_0807921C();
+        PlayerSetNormalAndCollide();
     }
 }
 
@@ -1520,7 +1522,7 @@ static void PlayerMinishDieInit(Entity* this) {
     gPlayerState.jump_status = 0;
     gPlayerState.pushedObject = 0;
     sub_0800451C(this);
-    ResetPlayer();
+    ResetPlayerItem();
     SoundReq(SFX_PLY_DIE);
 }
 
@@ -1654,7 +1656,7 @@ static void PlayerEmptyBottle(Entity* this) {
 static void PlayerEmptyBottleInit(Entity* this) {
     Entity* ent;
 
-    ResetPlayer();
+    ResetPlayerItem();
     ent = CreatePlayerItemWithParent((ItemBehavior*)this, 0xe);
     if (ent != NULL) {
         ent->field_0x68.HALF.LO = gPlayerState.field_0x38;
@@ -1678,7 +1680,7 @@ static void PlayerEmptyBottleUpdate(Entity* this) {
     UpdateAnimationSingleFrame(this);
     if (this->frame & ANIM_DONE) {
         gPlayerState.item = NULL;
-        sub_0807921C();
+        PlayerSetNormalAndCollide();
     }
 }
 
@@ -1696,7 +1698,7 @@ static void PlayerFrozenInit(Entity* this) {
     this->actionDelay = 120;
     this->subAction++;
     gPlayerState.animation = 0x294;
-    sub_08077B20();
+    PutAwayItems();
     SoundReq(SFX_195);
 }
 
@@ -1753,7 +1755,7 @@ static void sub_08072064(Entity* this) {
     COLLISION_OFF(this);
     this->actionDelay = gPlayerState.field_0x3a;
     gPlayerState.animation = gPlayerState.field_0x38 | (gPlayerState.field_0x39 << 8);
-    ResetPlayer();
+    ResetPlayerItem();
 }
 
 static void sub_08072098(Entity* this) {
@@ -1796,7 +1798,7 @@ static void sub_08072100(Entity* this) {
     } else {
         gPlayerState.animation = 0x104;
     }
-    ResetPlayer();
+    ResetPlayerItem();
     sub_08072168(this);
 }
 
@@ -1892,7 +1894,7 @@ static void PlayerLavaInit(Entity* this) {
         this->knockbackDuration = 10;
     }
     gPlayerState.flags |= (PL_BURNING | PL_BUSY);
-    ResetPlayer();
+    ResetPlayerItem();
     SoundReq(SFX_124);
     SoundReq(SFX_PLY_VO6);
 }
@@ -2040,7 +2042,7 @@ static void PlayerRollInit(Entity* this) {
     }
     this->subAction = 1;
     this->actionDelay = 0;
-    ResetPlayer();
+    ResetPlayerItem();
     temp = gPlayerState.flags;
     if (gPlayerState.flags & PL_MINISH) {
         this->spritePriority.b1 = 0;
@@ -2121,7 +2123,7 @@ static void PlayerRollUpdate(Entity* this) {
                 this->speed = 0;
                 break;
         }
-        sub_08078F24();
+        CheckPlayerVelocity();
         UpdatePlayerMovement();
     }
     if (((this->frame & 0x10) == 0) && ((gPlayerState.flags & PL_MINISH) == 0)) {
@@ -2192,7 +2194,7 @@ static void PlayerInHoleInit(Entity* this) {
             }
         }
         SetTile(0x4070, COORD_TO_TILE(this), this->collisionLayer);
-        ResetPlayer();
+        ResetPlayerItem();
         PlayerInHoleUpdate(this);
         SoundReq(SFX_81);
     }
@@ -2230,7 +2232,7 @@ static void sub_08072ACC(Entity* this) {
         this->spritePriority.b0 = 4;
         this->spritePriority.b1 = 1;
         gPlayerState.jump_status = 0x41;
-        sub_0807921C();
+        PlayerSetNormalAndCollide();
         RestorePrevTileEntity(COORD_TO_TILE(this), this->collisionLayer);
     } else {
         this->animationState = Direction8ToAnimationState(gPlayerState.field_0xd);
@@ -2259,7 +2261,7 @@ static void sub_08072B5C(Entity* this) {
         this->z.WORD--;
         gPlayerState.jump_status = 0x41;
         sub_0806F854(this, 0, -12);
-        sub_0807921C();
+        PlayerSetNormalAndCollide();
         return;
     }
 
@@ -2291,7 +2293,7 @@ static void sub_08072C48(Entity* this) {
             }
         }
     } else {
-        sub_0807921C();
+        PlayerSetNormalAndCollide();
     }
 }
 
@@ -2332,7 +2334,7 @@ static void sub_08072CFC(Entity* this) {
     gPlayerState.animation = 0x810;
     this->actionDelay = 5;
     this->field_0xf = 0;
-    ResetPlayer();
+    ResetPlayerItem();
 }
 
 static const u16 sTiles[] = {
@@ -2428,7 +2430,7 @@ static void sub_08072D54(Entity* this) {
 
 static void sub_08072F14(Entity* this) {
     if (this->actionDelay-- != 0) {
-        sub_0807921C();
+        PlayerSetNormalAndCollide();
     } else {
         UpdateAnimationSingleFrame(this);
     }
@@ -2461,7 +2463,7 @@ static void sub_08072F94(Entity* this) {
 
     switch (gPlayerState.floor_type) {
         default:
-            sub_0807921C();
+            PlayerSetNormalAndCollide();
             break;
         case SURFACE_LADDER:
         case SURFACE_AUTO_LADDER:
@@ -2544,7 +2546,7 @@ static void sub_08073094(Entity* this) {
                     ResetPlayerAnimationAndAction();
                     break;
                 default:
-                    sub_0807921C();
+                    PlayerSetNormalAndCollide();
                     break;
                 case SURFACE_LADDER:
                 case SURFACE_CLIMB_WALL:
@@ -2610,7 +2612,7 @@ static void sub_080731D8(Entity* this) {
     }
     gRoomControls.camera_target = NULL;
     DeleteClones();
-    ResetPlayer();
+    ResetPlayerItem();
 }
 
 static void sub_080732D0(Entity* this) {
@@ -2682,7 +2684,7 @@ static void sub_080733BC(Entity* this) {
     LinearMoveUpdate(this);
     if (this->field_0x7c.HALF_U.HI == this->y.HALF.HI) {
         gRoomControls.camera_target = this;
-        sub_0807921C();
+        PlayerSetNormalAndCollide();
     }
 }
 
@@ -2711,7 +2713,7 @@ static void sub_08073468(Entity* this) {
         gPlayerState.flags |= PL_PARACHUTE;
         CreateObjectWithParent(this, OBJECT_61, 0, 0);
     }
-    ResetPlayer();
+    ResetPlayerItem();
     if (this->zVelocity > 0 || gPlayerState.field_0x38 == 1)
         COLLISION_OFF(this);
 }
@@ -2749,7 +2751,7 @@ static void sub_08073584(Entity* this) {
     if ((gPlayerState.field_0x92 & 0x80) || this->iframes > 0 || gPlayerState.field_0x3c[0] ||
         (gPlayerState.flags & PL_PARACHUTE) == 0) {
         gPlayerState.jump_status |= 0x40;
-        sub_0807921C();
+        PlayerSetNormalAndCollide();
         DoJump(this);
         gPlayerState.animation = 1840;
         return;
@@ -2849,7 +2851,7 @@ static void sub_08073584(Entity* this) {
 
     if (--this->field_0x7c.WORD == -1) {
         gPlayerState.jump_status |= 0x40;
-        sub_0807921C();
+        PlayerSetNormalAndCollide();
     } else {
         u32 di = (this->field_0x7c.WORD / 20);
         this->z.HALF.HI = -8 - di;
@@ -2879,7 +2881,7 @@ static void sub_080737BC(Entity* this) {
     tmp &= pos;
     if (tmp == 8 && !sub_080B1B0C(this)) {
         gPlayerState.jump_status |= 0x40;
-        sub_0807921C();
+        PlayerSetNormalAndCollide();
     }
 }
 
@@ -2946,7 +2948,7 @@ static void sub_08073924(Entity* this) {
         gPlayerState.jump_status = 0x40;
         gPlayerState.field_0xd = 0xff;
         this->direction = 0xff;
-        sub_08077B20();
+        PutAwayItems();
         sub_08073968(this);
     }
 }
@@ -2955,7 +2957,7 @@ static void sub_08073968(Entity* this) {
     if ((gPlayerState.jump_status & 0xC0) == 0) {
         this->direction = gPlayerState.field_0xd;
     }
-    sub_08078F24();
+    CheckPlayerVelocity();
     if ((gPlayerState.heldObject | gPlayerState.keepFacing) == 0) {
         if (gPlayerState.flags & PL_NO_CAP) {
             gPlayerState.animation = 1052;
@@ -3208,14 +3210,14 @@ static void sub_08073F04(Entity* this) {
     this->zVelocity = Q_16_16(2.5);
     this->speed = 0x100;
     gPlayerState.flags &= ~PL_MINISH;
-    ResetPlayer();
+    ResetPlayerItem();
 }
 
 static void sub_08073F4C(Entity* this) {
-    u32 x = gArea.curPortalX;
-    u32 y = gArea.curPortalY;
+    u32 x = gArea.portal_x;
+    u32 y = gArea.portal_y;
     if (this->x.HALF.HI != x || this->y.HALF.HI != y) {
-        this->direction = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, gArea.curPortalX, gArea.curPortalY);
+        this->direction = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, gArea.portal_x, gArea.portal_y);
         this->speed = 0x100;
         LinearMoveUpdate(this);
     } else {
@@ -3311,7 +3313,7 @@ void sub_080740D8(Entity* this) {
     else
         this->field_0xf = 1;
     if (!GravityUpdate(this, GRAVITY_RATE))
-        sub_0807921C();
+        PlayerSetNormalAndCollide();
 }
 
 u32 sub_080741C4(void) {
@@ -3329,7 +3331,7 @@ void SurfaceAction_DoNothing(Entity* this) {
 void SurfaceAction_Pit(Entity* this) {
     if (!sub_080741C4() && sub_08079C30(this)) {
         if (this->action != PLAYER_FALL) {
-            ResetPlayer();
+            ResetPlayerItem();
             gPlayerState.queued_action = PLAYER_FALL;
         }
     }
@@ -3418,7 +3420,7 @@ static void hide(Entity* this) {
     this->spriteSettings.draw = 0;
     COLLISION_OFF(this);
     this->knockbackDuration = 0;
-    ResetPlayer();
+    ResetPlayerItem();
 }
 
 void SurfaceAction_14(Entity* this) {
@@ -3478,7 +3480,7 @@ void SurfaceAction_CloneTile(Entity* this) {
             gPlayerState.flags |= PL_CLONING;
             this->x.WORD = (this->x.WORD & ~0xFFFFF) | 0x80000;
             this->y.WORD = (this->y.WORD & ~0xFFFFF) | 0x80000;
-            sub_08077AEC();
+            ResetLantern();
         }
     }
 }
@@ -3552,7 +3554,7 @@ void SurfaceAction_Swamp(Entity* this) {
                     return;
                 }
             } else {
-                sub_08077B20();
+                PutAwayItems();
             }
 
             if (gPlayerState.field_0x37 == 1) {
@@ -3595,7 +3597,7 @@ void SurfaceAction_Water(Entity* this) {
 }
 
 static void sub_08074808(Entity* this) {
-    sub_08077AEC();
+    ResetLantern();
     if (GetInventoryValue(ITEM_FLIPPERS) == 1) {
         if (!gPlayerState.swim_state) {
             if ((gPlayerState.flags & PL_FLAGS10000) != 0)
@@ -3607,7 +3609,7 @@ static void sub_08074808(Entity* this) {
             if ((gPlayerState.flags & PL_MINISH) == 0)
                 CreateFx(this, FX_WATER_SPLASH, 0);
             SoundReq(SFX_1A5);
-            ResetPlayer();
+            ResetPlayerItem();
         }
         if ((gPlayerState.swim_state & 0xF) != 1) {
             sub_08079744(this);
@@ -3664,7 +3666,7 @@ void SurfaceAction_Ladder(Entity* this) {
         this->spriteOrientation.flipY = 1;
         this->animationState = IdleNorth;
         this->collisionLayer = 3;
-        ResetPlayer();
+        ResetPlayerItem();
     }
 }
 
@@ -3692,7 +3694,7 @@ void SurfaceAction_AutoLadder(Entity* this) {
             gPlayerState.animation = 726;
             this->direction = DirectionNorth;
         }
-        ResetPlayer();
+        ResetPlayerItem();
     }
 }
 
@@ -3775,7 +3777,7 @@ void SurfaceAction_ConveyerEast(Entity* this) {
 }
 
 static void conveyer_push(Entity* this) {
-    ResetPlayer();
+    ResetPlayerItem();
     this->spritePriority.b1 = 0;
     this->speed = WALK_SPEED;
     gPlayerState.flags |= PL_FLAGS2000000;

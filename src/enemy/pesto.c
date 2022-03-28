@@ -806,7 +806,7 @@ void sub_08024E4C(Entity* this) {
             sub_08024A14(this, 0, 8);
         } else {
             Entity* player = &gPlayerEntity;
-            ResetPlayer();
+            ResetPlayerItem();
             gPlayerState.flags |= PL_DISABLE_ITEMS;
             gPlayerState.field_0xa |= 0x80;
             gPlayerState.queued_action = PLAYER_0807204C;

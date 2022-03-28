@@ -135,7 +135,7 @@ void sub_08068910(Entity* this) {
 }
 
 void sub_08068964(Entity* this) {
-    sub_080A7C18(ITEM_QST_BROKEN_SWORD, 0, 3);
+    InitItemGetSequence(ITEM_QST_BROKEN_SWORD, 0, 3);
     SetInventoryValue(ITEM_QST_BROKEN_SWORD, 2);
 }
 

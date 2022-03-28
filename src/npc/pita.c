@@ -59,7 +59,7 @@ bool32 sub_08062EDC(Entity* this, ScriptExecutionContext* context) {
     } else {
         tmp = GetRandomByWeight(gUnk_0810C435);
         tmp2 = gUnk_0810C43D[tmp];
-        sub_080A7C18(0x5c, tmp2, 1);
+        InitItemGetSequence(0x5c, tmp2, 1);
         MessageNoOverlap(0x3c05, this);
         context->condition = TRUE;
         return TRUE;

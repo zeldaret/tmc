@@ -223,7 +223,7 @@ void sub_08065370(Entity* this, ScriptExecutionContext* context) {
         itemPrice = GetItemPrice(shopItemType);
         if (itemPrice <= gSave.stats.rupees) {
             ModRupees(-itemPrice);
-            sub_080A7C18(shopItemType, gRoomVars.shopItemType2, 2);
+            InitItemGetSequence(shopItemType, gRoomVars.shopItemType2, 2);
             gRoomVars.shopItemType = 0;
             gRoomVars.shopItemType2 = 0;
             context->condition = 1;

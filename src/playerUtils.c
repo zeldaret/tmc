@@ -18,7 +18,6 @@
 extern void sub_080752E8(ItemBehavior* behavior, u32 arg1); // item.c
 extern void sub_0800857C(Entity*);
 extern void SetDefaultPriorityForKind(Entity*);
-extern void DoPlayerAction(Entity*);
 extern void sub_0809D738(Entity*);
 extern s32 Mod(s32, s32);
 extern void sub_08003FDE(Entity*, u32, u32, u32);
@@ -44,7 +43,7 @@ u32 sub_080789A8(void);
 ItemBehavior* sub_080779EC(u32);
 void DeletePlayerItem(ItemBehavior*, u32);
 bool32 sub_08079E90(u32);
-void sub_08079258(void);
+void PlayerMinishSetNormalAndCollide(void);
 void sub_08078D60(void);
 void* sub_08077C54(ItemBehavior*);
 u32 sub_08079FD4(Entity*, u32);
@@ -130,8 +129,8 @@ NONMATCH("asm/non_matching/playerUtils/sub_080777A0.inc", bool32 sub_080777A0(vo
             gPlayerState.chargeState.action = 1;
             DeleteClones();
         } else {
-            if (gArea.field_0x18 != 2) {
-                if (gArea.field_0x18 == 3) {
+            if (gArea.portal_mode != 2) {
+                if (gArea.portal_mode == 3) {
                     if ((gArea.unk1A == 0) && ((gPlayerState.flags & PL_MINISH) != 0)) {
                         gPlayerEntity.subAction += 1;
                         gPlayerEntity.flags &= ~ENT_COLLIDE;
@@ -280,7 +279,7 @@ ItemBehavior* sub_08077AC8(void) {
     return gUnk_03000B80 + 3;
 }
 
-void sub_08077AEC(void) {
+void ResetLantern(void) {
     u32 slot;
 
     DeletePlayerItem(gUnk_03000B80 + 3, 3);
@@ -291,12 +290,12 @@ void sub_08077AEC(void) {
     }
 }
 
-void sub_08077B20(void) {
-    ResetPlayer();
-    sub_08077AEC();
+void PutAwayItems(void) {
+    ResetPlayerItem();
+    ResetLantern();
 }
 
-void ResetPlayer() {
+void ResetPlayerItem() {
     u32 index = 0;
     ItemBehavior* ptr = gUnk_03000B80;
     do {
@@ -325,10 +324,9 @@ void ResetPlayer() {
     switch (gPlayerState.framestate) {
         case 2:
         case 3:
-        case 4: {
+        case 4:
             gPlayerState.framestate = PL_STATE_IDLE;
             break;
-        }
     }
 }
 
@@ -562,18 +560,22 @@ bool32 sub_08077F24(ItemBehavior* beh, u32 arg1) {
     return (val & arg1) ? 1 : 0;
 }
 
-void sub_08077F50(ItemBehavior* beh, u32 arg1) {
-    sub_08079184();
+void PlayerCancelHoldItem(ItemBehavior* beh, u32 arg1) {
+    PlayerDropHeldObject();
     DeletePlayerItem(beh, arg1);
 }
 
-u32 sub_08077F64(ItemBehavior* arg0, u32 unk) {
+/**
+ * Check if player state believes the held item is valid?
+ * If it's not delete the item?
+ */
+bool32 PlayerTryDropObject(ItemBehavior* arg0, u32 unk) {
     u32 temp;
     if (gPlayerState.heldObject == 0) {
-        sub_08077F50(arg0, unk);
-        temp = 0;
+        PlayerCancelHoldItem(arg0, unk);
+        temp = FALSE;
     } else {
-        temp = 1;
+        temp = TRUE;
     }
     return temp;
 }
@@ -866,7 +868,7 @@ void sub_08078AC0(u32 param_1, u32 param_2, u32 param_3) {
 }
 
 /** Set up player states for getting the item? */
-void sub_08078AF0(Entity* item, u8 param_2, u8 param_3) {
+void SetPlayerItemGetState(Entity* item, u8 param_2, u8 param_3) {
     gPlayerState.field_0x38 = param_2;
     gPlayerState.field_0x39 = param_3;
     gPlayerState.field_0x3a = 0;
@@ -972,7 +974,7 @@ void sub_08078E84(Entity* param_1, Entity* param_2) {
     }
 }
 
-void sub_08078EE4(void) {
+void ResetPlayerPosition(void) {
     gPlayerEntity.x.HALF.HI = gPlayerState.startPosX;
     gPlayerEntity.y.HALF.HI = gPlayerState.startPosY;
 }
@@ -989,7 +991,8 @@ bool32 CheckQueuedAction(void) {
     }
 }
 
-void sub_08078F24(void) {
+// this doesnt seem to have any real function where its used
+void CheckPlayerVelocity(void) {
     u32 angle = gPlayerState.field_0xd;
     if ((angle & 0x80) != 0) {
         ResetPlayerVelocity();
@@ -1005,7 +1008,7 @@ void ResetPlayerVelocity(void) {
 }
 
 bool32 sub_08078F74(Entity* this) {
-    if ((gArea.field_0x18 == 3) && (gPlayerState.field_0x35 != 0xff)) {
+    if ((gArea.portal_mode == 3) && (gPlayerState.field_0x35 != 0xff)) {
         gPlayerState.jump_status = 0x81;
         this->action = 0x15;
         this->subAction = 0;
@@ -1057,17 +1060,17 @@ void sub_080790E4(Entity* this) {
     }
 }
 
-void sub_08079184(void) {
+void PlayerDropHeldObject(void) {
     gPlayerState.heldObject = 0;
     gPlayerState.field_0x0[1] = 0;
     gNewPlayerEntity.unk_74 = NULL;
 }
 
-void sub_0807919C(void) {
+void PlayerResetStateFromFusion(void) {
     if ((gPlayerState.flags & PL_MINISH) == 0) {
         SetPlayerActionNormal();
     } else {
-        sub_08079258();
+        PlayerMinishSetNormalAndCollide();
     }
 }
 
@@ -1083,13 +1086,13 @@ void ResetPlayerAnimationAndAction(void) {
     }
     if ((gPlayerState.flags & PL_MINISH) == 0) {
         gPlayerEntity.spritePriority.b1 = 1;
-        sub_0807921C();
+        PlayerSetNormalAndCollide();
     } else {
-        sub_08079258();
+        PlayerMinishSetNormalAndCollide();
     }
 }
 
-void sub_0807921C(void) {
+void PlayerSetNormalAndCollide(void) {
     gPlayerEntity.flags |= ENT_COLLIDE;
     gPlayerEntity.spriteSettings.draw = 3;
     gPlayerState.flags &= ~(PL_BUSY | PL_DROWNING | PL_DISABLE_ITEMS | PL_FROZEN | PL_ROLLING | PL_IN_HOLE |
@@ -1099,7 +1102,7 @@ void sub_0807921C(void) {
     SetDefaultPriorityForKind(&gPlayerEntity);
 }
 
-void sub_08079258(void) {
+void PlayerMinishSetNormalAndCollide(void) {
     if ((gPlayerState.flags & PL_HIDDEN) == 0) {
         gPlayerEntity.flags |= ENT_COLLIDE;
         gPlayerEntity.spriteSettings.draw = 3;
@@ -1218,7 +1221,7 @@ void sub_08079D84(void) {
         gPlayerState.field_0x3a = 0x3c;
         gPlayerState.queued_action = PLAYER_0807204C;
         gPlayerEntity.iframes = 0x7c;
-        sub_08077B20();
+        PutAwayItems();
         SoundReq(SFX_193);
     }
 }
@@ -1462,7 +1465,7 @@ void UpdatePlayerSkills(void) {
 
 void sub_0807AFE8(void) {
     Entity* effect;
-    sub_08077B20();
+    PutAwayItems();
     effect = CreateFx(&gPlayerEntity, FX_BIG_EXPLOSION2, 0);
     if (effect != NULL) {
         effect->y.HALF.HI++;

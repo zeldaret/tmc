@@ -84,7 +84,7 @@ _08025D28:
 	strb r3, [r1]
 	adds r2, #0x45
 	strb r3, [r2]
-	ldr r0, _08025D80 @ =gUnk_02034490
+	ldr r0, _08025D80 @ =gPauseMenuOptions
 	strb r3, [r0]
 	movs r0, #0x94
 	lsls r0, r0, #1
@@ -93,7 +93,7 @@ _08025D28:
 	bl GenericDeath
 	b _08025D9C
 	.align 2, 0
-_08025D80: .4byte gUnk_02034490
+_08025D80: .4byte gPauseMenuOptions
 _08025D84:
 	lsls r0, r1, #0x18
 	lsrs r0, r0, #0x18
@@ -746,7 +746,7 @@ _08026268:
 	thumb_func_start sub_0802626C
 sub_0802626C: @ 0x0802626C
 	push {lr}
-	ldr r2, _0802629C @ =gUnk_02034490
+	ldr r2, _0802629C @ =gPauseMenuOptions
 	movs r1, #1
 	strb r1, [r2]
 	ldr r2, _080262A0 @ =gUnk_080CC20C
@@ -768,7 +768,7 @@ sub_0802626C: @ 0x0802626C
 _08026298:
 	pop {pc}
 	.align 2, 0
-_0802629C: .4byte gUnk_02034490
+_0802629C: .4byte gPauseMenuOptions
 _080262A0: .4byte gUnk_080CC20C
 _080262A4: .4byte gPlayerEntity
 
@@ -1146,14 +1146,14 @@ sub_0802653C: @ 0x0802653C
 	ldr r0, [r4, #0x54]
 	movs r1, #0
 	bl InitAnimationForceUpdate
-	ldr r0, _0802657C @ =gUnk_02034490
+	ldr r0, _0802657C @ =gPauseMenuOptions
 	strb r5, [r0]
 _08026572:
 	add sp, #4
 	pop {r4, r5, pc}
 	.align 2, 0
 _08026578: .4byte gRoomControls
-_0802657C: .4byte gUnk_02034490
+_0802657C: .4byte gPauseMenuOptions
 
 	thumb_func_start sub_08026580
 sub_08026580: @ 0x08026580
@@ -3355,7 +3355,7 @@ _08027428:
 	ldr r0, _0802744C @ =gRoomControls
 	ldr r2, [r6, #0x54]
 	str r2, [r0, #0x30]
-	ldr r1, _08027450 @ =gUnk_02034490
+	ldr r1, _08027450 @ =gPauseMenuOptions
 	movs r0, #1
 	strb r0, [r1]
 	movs r0, #9
@@ -3369,7 +3369,7 @@ _08027444:
 	b _08027484
 	.align 2, 0
 _0802744C: .4byte gRoomControls
-_08027450: .4byte gUnk_02034490
+_08027450: .4byte gPauseMenuOptions
 _08027454:
 	ldr r5, [r6, #0x48]
 	adds r0, r6, #0

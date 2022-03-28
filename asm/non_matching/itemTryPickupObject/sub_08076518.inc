@@ -4,7 +4,7 @@
 	push {r7}
 	adds r4, r0, #0
 	mov r8, r1
-	bl sub_08077F64
+	bl PlayerTryDropObject
 	cmp r0, #0
 	beq _080765D4
 	ldr r5, _0807655C @ =gPlayerState
@@ -28,7 +28,7 @@
 	beq _08076564
 	adds r0, r4, #0
 	mov r1, r8
-	bl sub_08077F50
+	bl PlayerCancelHoldItem
 	b _080765D4
 	.align 2, 0
 _0807655C: .4byte gPlayerState

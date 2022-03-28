@@ -99,7 +99,7 @@ void ItemForSale_Action1(ItemForSaleEntity* this) {
                 super->interactType = 0;
                 super->subAction = 1;
                 sub_08078B48();
-                ResetPlayer();
+                ResetPlayerItem();
                 gPlayerState.heldObject = 4;
                 gNewPlayerEntity.unk_74 = super;
                 gUnk_0200AF00.unk_2f = 2;

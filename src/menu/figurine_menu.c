@@ -601,7 +601,7 @@ void sub_080A4DB8(u32 param_1) {
     MemClear(gUnk_0200AF00.elements, sizeof(gUnk_0200AF00.elements));
     MemClear(&gFigurineMenu, sizeof(gFigurineMenu));
     gFigurineMenu.unk2e = 0xffff;
-    gMenu.field_0x3 = gUnk_02034490.unk2[param_1];
+    gMenu.field_0x3 = gPauseMenuOptions.unk2[param_1];
     ptr = &gUnk_08128AD8[gUnk_08128A38[param_1].unk0];
     gScreen.lcd.displayControl = ptr->unk2 | 0x1940;
     gScreen.bg0.xOffset = 0;
@@ -627,10 +627,10 @@ void sub_080A4DB8(u32 param_1) {
 }
 
 void sub_080A4E84(u8 param_1) {
-    gUnk_02034490.unk14 = param_1;
+    gPauseMenuOptions.unk14 = param_1;
 }
 
 void sub_080A4E90(u8 param_1) {
-    gUnk_02034490.unk11 = param_1;
-    gUnk_02034490.unk12 = 0;
+    gPauseMenuOptions.unk11 = param_1;
+    gPauseMenuOptions.unk12 = 0;
 }

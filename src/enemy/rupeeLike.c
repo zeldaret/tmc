@@ -169,7 +169,7 @@ void sub_0802953C(Entity* this) {
     if (((this->field_0xf > 0x2d) || (gSave.stats.rupees == 0)) && (this->actionDelay == 0)) {
         sub_080296D8(this);
     } else {
-        ResetPlayer();
+        ResetPlayerItem();
         gPlayerState.mobility |= 0x80;
         PositionRelative(this, &gPlayerEntity, 0, Q_16_16(1.0));
         pbVar3 = GetSpriteSubEntryOffsetDataPointer((u16)this->spriteIndex, this->frameIndex);

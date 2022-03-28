@@ -5,7 +5,7 @@ SCRIPT_START script_GreatFairyBombs
 script_0800B734:
 	Call sub_0808747C
 	JumpIfNot script_0800B734
-	Call sub_08079184
+	Call PlayerDropHeldObject
 	SetPlayerIdle
 	Wait 0x000a
 	Call WaitForPlayerNormal

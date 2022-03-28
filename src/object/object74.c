@@ -51,7 +51,7 @@ void sub_08097B84(Object74Entity* this) {
 void sub_08097BDC(Object74Entity* this) {
     if (CheckFlags(this->unk_86)) {
         SetPlayerControl(CONTROL_1);
-        gUnk_02034490.unk0 = 1;
+        gPauseMenuOptions.disabled = 1;
         RequestPriorityDuration(super, 0x1e);
         if (sub_08097CB0(this) == FALSE) {
             sub_08097CB4(this);
@@ -76,7 +76,7 @@ void sub_08097C20(Object74Entity* this) {
         gScreen.controls.alphaBlend = (((0x10 - tmp) * 0x100)) | tmp;
         if (gScreen.controls.alphaBlend == 0x10) {
             SetPlayerControl(CONTROL_ENABLED);
-            gUnk_02034490.unk0 = 0;
+            gPauseMenuOptions.disabled = 0;
             gScreen.controls.layerFXControl = 0;
             sub_08097CFC(this);
             super->action = 4;

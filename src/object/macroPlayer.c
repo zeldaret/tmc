@@ -200,7 +200,7 @@ void MacroPlayer_Type0_Action6(MacroPlayerEntity* this) {
     u32 uVar2;
 
     if (--super->actionDelay == 0) {
-        uVar2 = gArea.curPortalExitDirection;
+        uVar2 = gArea.portal_exit_dir;
         super->action += 1;
         super->action += uVar2;
         super->animationState = gUnk_081216B4[uVar2 * 2];

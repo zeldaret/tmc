@@ -13,5 +13,5 @@ SCRIPT_START script_PlayerAtDarknutFight
 	LoadRoomEntityList gUnk_080DA260
 	Wait 0x001e
 	SetSyncFlag 0x00000001
-	Call sub_0807921C
+	Call PlayerSetNormalAndCollide
 SCRIPT_END

@@ -323,7 +323,7 @@ void sub_08085E74(LilypadLargeEntity* this) {
     if (gPlayerState.item != NULL) {
         DeleteEntity(gPlayerState.item);
     }
-    ResetPlayer();
+    ResetPlayerItem();
 }
 
 void sub_08085EFC(LilypadLargeEntity* this) {

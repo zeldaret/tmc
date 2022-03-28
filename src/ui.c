@@ -617,7 +617,7 @@ void TextUIElement(UIElement* element) {
     if (element->type2 == 9) {
         tmp = gUnk_0200AF00.unk_2f;
         if (tmp == 0) {
-            switch (gArea.field_0x18) {
+            switch (gArea.portal_mode) {
                 case 2:
                     tmp = 0xb;
                     break;

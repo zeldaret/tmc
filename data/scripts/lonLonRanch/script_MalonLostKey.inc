@@ -40,7 +40,7 @@ script_0800B4F0:
 	Wait 0x001e
 	SetSyncFlag 0x00000010
 	SetGlobalFlag 0x001d
-	Call sub_0807921C
+	Call PlayerSetNormalAndCollide
 	EnablePlayerControl
 	Call sub_0807FBCC
 	DoPostScriptAction 0x0006

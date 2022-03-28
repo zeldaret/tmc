@@ -9,7 +9,7 @@
 	adds r0, r4, #0
 	adds r0, #0x42
 	strb r1, [r0]
-	bl sub_08078EE4
+	bl ResetPlayerPosition
 	ldr r2, _0807949C @ =gPlayerState
 	ldr r1, [r2, #0x30]
 	movs r0, #0x80

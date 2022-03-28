@@ -125,7 +125,7 @@ void Gleerok_OnDeath(GleerokEntity* this) {
 
 void sub_0802D158(GleerokEntity* this) {
     super->action = 1;
-    gUnk_02034490.unk0 = 1;
+    gPauseMenuOptions.disabled = 1;
     SetFade(7, 8);
 }
 
@@ -373,7 +373,7 @@ void sub_0802D650(GleerokEntity* this) {
 
 void sub_0802D674(GleerokEntity* this) {
     u32 val;
-    gUnk_02034490.unk0 = 1;
+    gPauseMenuOptions.disabled = 1;
 
     if (gPlayerEntity.z.WORD != 0)
         return;
@@ -464,7 +464,7 @@ void sub_0802D7B4(GleerokEntity* this) {
 #ifndef EU
             gPlayerState.controlMode = CONTROL_1;
 #endif
-            gUnk_02034490.unk0 = 0;
+            gPauseMenuOptions.disabled = 0;
             SoundReq(BGM_BOSS_THEME);
             return;
         } else {

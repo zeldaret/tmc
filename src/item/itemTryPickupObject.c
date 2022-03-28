@@ -58,7 +58,7 @@ void ItemPickupCheck(ItemBehavior* this, u32 param_2) {
         }
 
     } else {
-        sub_08077F50(this, param_2);
+        PlayerCancelHoldItem(this, param_2);
     }
 }
 
@@ -75,7 +75,7 @@ void sub_08076488(ItemBehavior* this, u32 arg1) {
     s32 iVar2;
 
     if (this->field_0x5[2] == 0) {
-        if (sub_08077F64(this, arg1) != 0) {
+        if (PlayerTryDropObject(this, arg1) != 0) {
             if ((((this->field_0x18->field_0x16) & 0xf0) == 0x10) && ((gRoomTransition.frameCount & 1U) != 0)) {
                 return;
             }
@@ -99,9 +99,9 @@ void sub_08076488(ItemBehavior* this, u32 arg1) {
 ASM_FUNC("asm/non_matching/itemTryPickupObject/sub_08076518.inc", void sub_08076518(ItemBehavior* this, u32 arg1))
 
 void sub_080765E0(ItemBehavior* this, u32 arg1) {
-    if (sub_08077F64(this, arg1) != 0) {
+    if (PlayerTryDropObject(this, arg1) != 0) {
         if ((this->field_0x5[9] & 0x80) != 0) {
-            sub_08077F50(this, arg1);
+            PlayerCancelHoldItem(this, arg1);
         } else {
             UpdateItemAnim(this);
         }

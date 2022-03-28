@@ -9,7 +9,7 @@
 	strb r1, [r4, #5]
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl sub_08077F64
+	bl PlayerTryDropObject
 	cmp r0, #0
 	bne _080762F6
 	b _08076486
@@ -79,7 +79,7 @@ _0807636C:
 _08076376:
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl sub_08077F50
+	bl PlayerCancelHoldItem
 	b _08076486
 _08076380:
 	adds r0, r3, #0
@@ -213,7 +213,7 @@ _08076476:
 _0807647E:
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl sub_08077F50
+	bl PlayerCancelHoldItem
 _08076486:
 	pop {r4, r5, r6, r7, pc}
 	.syntax divided

@@ -285,7 +285,7 @@ void sub_0802CBC4(Entity* this) {
     COLLISION_OFF(this);
     this->health = 0;
     if (this->field_0x82.HALF.HI) {
-        sub_08079184();
+        PlayerDropHeldObject();
     }
     FreeCarryEntity(this);
 

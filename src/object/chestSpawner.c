@@ -99,7 +99,7 @@ void ChestSpawner_Type2Action1(ChestSpawnerEntity* this) {
     if (CheckFlags(this->unk_86)) {
         gScreen.controls.layerFXControl = 0xf40;
         gScreen.controls.alphaBlend = 0x1000;
-        gUnk_02034490.unk0 = 1;
+        gPauseMenuOptions.disabled = 1;
         super->action = 2;
         super->subAction = 0;
         super->field_0xf = 0x1e;
@@ -138,7 +138,7 @@ void ChestSpawner_Type2Action2(ChestSpawnerEntity* this) {
                 tmp = ++super->field_0xf;
                 gScreen.controls.alphaBlend = (((0x10 - tmp) * 0x100) & 0xff00) | tmp;
                 if (gScreen.controls.alphaBlend == 0x10) {
-                    gUnk_02034490.unk0 = 0;
+                    gPauseMenuOptions.disabled = 0;
                     gScreen.controls.layerFXControl = 0;
                     sub_08083E20(this);
                     SoundReq(SFX_SECRET_BIG);

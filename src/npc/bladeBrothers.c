@@ -191,7 +191,7 @@ void sub_08068C28(Entity* this) {
 }
 
 void sub_08068C6C(Entity* this) {
-    sub_080A7C18(gUnk_0811162B[this->actionDelay] & 0xffffff7f, 0, 0);
+    InitItemGetSequence(gUnk_0811162B[this->actionDelay] & 0xffffff7f, 0, 0);
 }
 
 void sub_08068C8C(Entity* this, ScriptExecutionContext* context) {

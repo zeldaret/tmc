@@ -12,5 +12,5 @@ SCRIPT_START script_Object69Intro
 	SetGlobalFlag 0x001c
 	Call sub_0807DF50
 	EnablePlayerControl
-	Call sub_0807921C
+	Call PlayerSetNormalAndCollide
 SCRIPT_END

@@ -88,7 +88,7 @@ void PlayerItemBottle_Action1(Entity* this) {
 #if defined(EU) || defined(JP) || defined(DEMO_JP)
             CreateItemEntity(this->type2, iVar1, 5);
 #else
-            sub_080A7C18(this->type2, iVar1, 5);
+            InitItemGetSequence(this->type2, iVar1, 5);
 #endif
             SoundReq(SFX_109);
         }
