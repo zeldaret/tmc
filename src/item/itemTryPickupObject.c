@@ -59,7 +59,7 @@ void sub_080765E0(ItemBehavior* this, u32 arg1) {
 
 void sub_0807660C(ItemBehavior* this, u32 arg1) {
     UpdateItemAnim(this);
-    if ((--this->field_0x5[2] == 0xff) || (gPlayerState.field_0x0[1] == 0)) {
+    if ((this->field_0x5[2]-- == 0) || (gPlayerState.field_0x0[1] == 0)) {
         gPlayerState.field_0x0[1] = 0;
         DeletePlayerItem(this, arg1);
     }

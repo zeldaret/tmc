@@ -408,7 +408,7 @@ void sub_08046EF4(GyorgMaleEntity* this) {
         super->direction ^= 0x80;
     }
     super->speed = gUnk_080D1B74[(super->actionDelay >> 3) & 0xF];
-    if ((--super->field_0xf & 0xFF) == 0) {
+    if (--super->field_0xf == 0) {
         Entity* tmp;
         super->field_0xf = (Random() & 0x38) + 0x78;
         tmp = CreateProjectile(GYORG_MALE_ENERGY_PROJECTILE);
