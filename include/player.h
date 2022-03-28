@@ -303,7 +303,7 @@ typedef struct {
     /*0xf*/ u8 field_0xf;
     /*0x10*/ u16 field_0x10;
     /*0x12*/ u8 field_0x12[6];
-    /*0x18*/ u32 field_0x18;
+    /*0x18*/ Entity* field_0x18;
 } ItemBehavior;
 
 extern void (*const gPlayerItemFunctions[])(Entity*);

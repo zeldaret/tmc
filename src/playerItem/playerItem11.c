@@ -14,6 +14,11 @@ extern Hitbox gUnk_080B3E18;
 extern u8 gUnk_080B3DE0[];
 extern Hitbox* gUnk_080B3DE8[];
 
+extern u32 sub_08007DD6(u32, const u16*);
+
+extern const u16 gUnk_080B3DF4[];
+extern const u8 gUnk_08003E44[];
+
 void PlayerItem11(Entity* this) {
     if (this->health) {
         this->iframes = 0;
@@ -93,7 +98,66 @@ void sub_08018DE8(Entity* this) {
     sub_08078CD0(&gPlayerEntity);
 }
 
-ASM_FUNC("asm/non_matching/playerItem11/sub_08018E68.inc", void sub_08018E68(Entity* this))
+void sub_08018E68(Entity* this) {
+    s32 y;
+    s32 x;
+    if (this->child == NULL) {
+        GetNextFrame(this);
+        sub_08008790(this, 5);
+    } else {
+        if ((this->child->field_0x3a & 4) == 0) {
+            DeleteThisEntity();
+        }
+        if ((this->bitfield & 0x80) != 0) {
+            sub_08018F6C(this);
+            return;
+        }
+    }
+    if (this->actionDelay-- != 0) {
+        LinearMoveUpdate(this);
+
+        switch (this->direction) {
+            case DirectionNorth:
+                x = 0;
+                y = -4;
+                break;
+            case DirectionSouth:
+                x = 0;
+                y = 4;
+                break;
+            case DirectionWest:
+                x = -4;
+                y = 0;
+                break;
+            case DirectionEast:
+                x = 4;
+                y = 0;
+                break;
+        }
+        if (this->child != NULL) {
+            this->child->direction = this->direction;
+            CopyPosition(this, this->child);
+        }
+        if (this->type2 == 0) {
+            sub_0800451C(this);
+        }
+        if (sub_08007DD6(sub_080B1A0C(this, x, y), gUnk_080B3DF4) != 0) {
+            return;
+        }
+        if (GetRelativeCollisionTile(this, x, y) == 0x74) {
+            return;
+        }
+        if (sub_080040D8(this, (u8*)gUnk_08003E44, this->x.HALF.HI + x, this->y.HALF.HI + y) == 0) {
+            return;
+        }
+    }
+
+    if (this->child == NULL) {
+        InitializeAnimation(this, this->type + 0xd);
+    }
+    this->action++;
+    sub_08018F6C(this);
+}
 
 void sub_08018F6C(Entity* this) {
     if (this->child != NULL) {

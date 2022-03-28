@@ -491,7 +491,18 @@ void ResetSystemPriority(void);
  */
 extern LinkedList gEntityLists[9];
 extern Entity gItemGetEntities[7];
-extern Entity gCarriedEntity;
+
+typedef struct {
+    u8 unk_0;
+    u8 unk_1;
+    u8 count;
+    u8 unk_3;
+    u16 unk_4;
+    u8 unk_6[2];
+    Entity* unk_8;
+    Entity* unk_c[0x20];
+} CarriedEntity;
+extern CarriedEntity gCarriedEntity;
 
 /**
  * Current number of entities.
