@@ -261,7 +261,7 @@ void CreateSparkle(Entity* entity) {
     }
 }
 
-NONMATCH("asm/non_matching/objectUtils/sub_080A2BE4.inc", void sub_080A2BE4(Entity* this, bool32 param_2)) {
+NONMATCH("asm/non_matching/objectUtils/sub_080A2BE4.inc", void SyncPlayerToPlatform(Entity* this, bool32 param_2)) {
     s16 oldValue;
     s32 diff;
     u16 newValue;
@@ -307,7 +307,7 @@ NONMATCH("asm/non_matching/objectUtils/sub_080A2BE4.inc", void sub_080A2BE4(Enti
 }
 END_NONMATCH
 
-void sub_080A2CC0(Entity* this, u16** param_2, u16* param_3) {
+void UpdateRailMovement(Entity* this, u16** param_2, u16* param_3) {
     u16* ptr = *param_2;
     if (ptr != NULL) {
         if (*ptr == 0xfe) {

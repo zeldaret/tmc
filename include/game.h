@@ -261,7 +261,7 @@ void sub_08052EA0(void);
 void sub_08053250(void);
 void sub_080533CC(void);
 
-void sub_08053494(void);
+void StartDarkNutTimer(void);
 void sub_080534AC(void);
 void InitBiggoronTimer(void);
 

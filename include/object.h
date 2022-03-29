@@ -19,7 +19,7 @@ extern void sub_080787B4(Entity*);
 extern void sub_0808C650(Entity*, u32);
 extern u32 sub_0808C67C(void);
 extern void sub_0808C688(void);
-extern void sub_080A2BE4(Entity*, bool32);
+extern void SyncPlayerToPlatform(Entity*, bool32);
 
 void CreateDust(Entity* parent);
 void CreateDustAt(s32, s32, u32);

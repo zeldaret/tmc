@@ -58,7 +58,7 @@ void sub_08098BE0(BoardEntity* this) {
 }
 
 void sub_08098BE8(BoardEntity* this) {
-    if ((gPlayerState.flags & PL_MINISH) && sub_08098C30(this, &gPlayerEntity) && sub_08079F8C() &&
+    if ((gPlayerState.flags & PL_MINISH) && sub_08098C30(this, &gPlayerEntity) && PlayerCanBeMoved() &&
         gPlayerEntity.z.HALF.HI == 0) {
         gPlayerState.field_0x14 = 1;
         sub_0807AAF8(&gPlayerEntity, this->tile);

@@ -667,7 +667,7 @@ void sub_StateChange_HyruleCastle_3(void) {
 
 u32 sub_unk3_HyruleCastle_4(void) {
     if (!CheckLocalFlag(CASTLE_04_MEZAME)) {
-        gRoomTransition.player_status.spawn_type = PL_SPAWN_SPECIAL;
+        gRoomTransition.player_status.spawn_type = PL_SPAWN_SLEEPING;
         ClearGlobalFlag(ZELDA_CHASE);
     }
     return 1;
@@ -5472,7 +5472,7 @@ void sub_StateChange_HouseInteriors3_Bakery(void) {
 
 u32 sub_unk3_HouseInteriors3_Simon(void) {
     if (CheckGlobalFlag(MAROYA_WAKEUP)) {
-        gRoomTransition.player_status.spawn_type = PL_SPAWN_SPECIAL;
+        gRoomTransition.player_status.spawn_type = PL_SPAWN_SLEEPING;
     }
     return 1;
 }

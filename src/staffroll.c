@@ -97,8 +97,7 @@ void StaffrollTask_State1(void) {
 }
 
 void StaffrollTask_State1MenuType0(void) {
-    gMenu.transitionTimer -= 1;
-    if (gMenu.transitionTimer == 0) {
+    if (--gMenu.transitionTimer == 0) {
         sub_080A3954();
     }
 }

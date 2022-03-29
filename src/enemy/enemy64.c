@@ -309,7 +309,7 @@ void Enemy64_Action4(Enemy64Entity* this) {
 
 void Enemy64_Action4_SubAction0(Enemy64Entity* this) {
     SoundReq(SFX_BOSS_DIE);
-    if (sub_08079F8C() && gPlayerEntity.z.HALF.HI == 0) {
+    if (PlayerCanBeMoved() && gPlayerEntity.z.HALF.HI == 0) {
         SetPlayerControl(CONTROL_2);
         super->subAction = 2;
         super->timer = 0x1e;
@@ -320,7 +320,7 @@ void Enemy64_Action4_SubAction0(Enemy64Entity* this) {
 }
 
 void Enemy64_Action4_SubAction1(Enemy64Entity* this) {
-    if (sub_08079F8C() && gPlayerEntity.z.HALF.HI == 0) {
+    if (PlayerCanBeMoved() && gPlayerEntity.z.HALF.HI == 0) {
         SetPlayerControl(CONTROL_2);
         super->subAction = 2;
         super->timer = 1;
@@ -438,7 +438,7 @@ void sub_08049998(Enemy64Entity* this, u32 param_2) {
     tmpX = super->x.HALF.HI;
     tmpY = super->y.HALF.HI;
     LinearMoveAngle(super, super->speed, super->direction);
-    if (((this->unk_7c & 1) != 0) && sub_08079F8C()) {
+    if (((this->unk_7c & 1) != 0) && PlayerCanBeMoved()) {
         gPlayerEntity.x.HALF.HI = (super->x.HALF.HI - tmpX) + gPlayerEntity.x.HALF.HI;
         gPlayerEntity.y.HALF.HI = (super->y.HALF.HI - tmpY) + gPlayerEntity.y.HALF.HI;
     }
@@ -447,7 +447,7 @@ void sub_08049998(Enemy64Entity* this, u32 param_2) {
 void sub_080499F0(Enemy64Entity* this) {
     u32 tmp;
 
-    if ((((super->action != 0) && (gPlayerEntity.z.HALF.HI == 0)) && (sub_08079F8C())) && ((this->unk_7c & 1) == 0)) {
+    if ((((super->action != 0) && (gPlayerEntity.z.HALF.HI == 0)) && (PlayerCanBeMoved())) && ((this->unk_7c & 1) == 0)) {
         if (EntityWithinDistance(&gPlayerEntity, super->x.HALF.HI, super->y.HALF.HI, 0x24) &&
             ((this->unk_7c & 2) == 0)) {
             tmp = sub_080045DA((s32)gPlayerEntity.x.HALF.HI - super->x.HALF.HI,
@@ -491,7 +491,7 @@ void sub_08049B20(Enemy64Entity* this) {
     tmpX = super->x.HALF.HI;
     tmpY = super->y.HALF.HI;
     LinearMoveAngle(super, super->speed, super->direction);
-    if (((this->unk_7c & 1) != 0) && sub_08079F8C()) {
+    if (((this->unk_7c & 1) != 0) && PlayerCanBeMoved()) {
         gPlayerEntity.x.HALF.HI = (super->x.HALF.HI - tmpX) + gPlayerEntity.x.HALF.HI;
         gPlayerEntity.y.HALF.HI = (super->y.HALF.HI - tmpY) + gPlayerEntity.y.HALF.HI;
     }

@@ -1035,7 +1035,7 @@ void sub_08047DF0(GyorgMaleEntity* this, u32 unk1) {
     oldY = super->y.HALF.HI;
     LinearMoveAngle(super, super->speed, super->direction);
     if (this->unk_7c & 1) {
-        if (sub_08079F8C()) {
+        if (PlayerCanBeMoved()) {
             gPlayerEntity.x.HALF.HI += super->x.HALF.HI - oldX;
             gPlayerEntity.y.HALF.HI += super->y.HALF.HI - oldY;
         }
@@ -1053,7 +1053,7 @@ void sub_08047E58(GyorgMaleEntity* this) {
     oldY = super->y.HALF.HI;
     LinearMoveAngle(super, super->speed, super->direction);
     if (this->unk_7c & 1) {
-        if (sub_08079F8C()) {
+        if (PlayerCanBeMoved()) {
             gPlayerEntity.x.HALF.HI += super->x.HALF.HI - oldX;
             gPlayerEntity.y.HALF.HI += super->y.HALF.HI - oldY;
         }
@@ -1126,7 +1126,7 @@ void sub_08048004(GyorgMaleEntity* this) {
         COLLISION_OFF(super);
         if (gPlayerEntity.z.HALF.HI != 0)
             return;
-        if (!sub_08079F8C())
+        if (!PlayerCanBeMoved())
             return;
         if (this->unk_7c & 1) {
             u32 b = super->spriteRendering.b3;

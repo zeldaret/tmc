@@ -27,7 +27,7 @@ void Manager22_Main(Manager22* this) {
     s32 sVar1;
     u32 uVar3;
 
-    if (gArea.unk_0b == 0) {
+    if (gArea.lightType == 0) {
         sub_0801E104();
         gScreen.lcd.displayControl &= ~(DISPCNT_BG3_ON | DISPCNT_WIN0_ON);
         DeleteThisEntity();
@@ -46,7 +46,7 @@ void Manager22_Main(Manager22* this) {
         sub_0805BA78();
         sub_0805BAD4();
     }
-    if (gArea.unk_0b == 2) {
+    if (gArea.lightType == 2) {
         gScreen.lcd.displayControl &= ~DISPCNT_WIN0_ON;
     } else {
         if (CheckRectOnScreen(gPlayerEntity.x.HALF.HI - gRoomControls.origin_x,
@@ -56,7 +56,7 @@ void Manager22_Main(Manager22* this) {
             gScreen.lcd.displayControl &= ~DISPCNT_WIN0_ON;
         }
         uVar3 = this->manager.unk_0e;
-        if (((gPlayerState.flags & PL_USE_LANTERN)) && (gArea.unk_0b)) {
+        if (((gPlayerState.flags & PL_USE_LANTERN)) && (gArea.lightType)) {
             if (uVar3 < 0x48) {
                 uVar3 += 4;
                 sub_0801E154(uVar3);
@@ -127,13 +127,13 @@ extern u16 gUnk_08108CA8[];
 void sub_0805BAD4() {
     static const u16 gUnk_08108CA8[] = { 0x10,  0x10f, 0x20e, 0x30d, 0x40c, 0x50b, 0x60a, 0x709,  0x808,
                                          0x907, 0xa06, 0xb05, 0xc04, 0xd03, 0xe02, 0xf01, 0x1000, 0x00 };
-    if (gArea.unk_0b) {
+    if (gArea.lightType != 0) {
         gScreen.controls.alphaBlend = gUnk_08108CA8[(gArea.lightLevel << 0x10) >> 0x14];
     }
 }
 
 void sub_0805BB00(s32 lightLevel, s32 param_2) {
-    if (gArea.unk_0b == 0) {
+    if (gArea.lightType == 0) {
         Manager* pManager = GetEmptyManager();
         if (pManager != 0) {
             pManager->type = 9;
@@ -146,9 +146,9 @@ void sub_0805BB00(s32 lightLevel, s32 param_2) {
     gScreen.controls.layerFXControl = 0x3e48;
     gRoomVars.lightLevel = lightLevel;
     if (param_2) {
-        gArea.unk_0b = 1;
+        gArea.lightType = 1;
     } else {
-        gArea.unk_0b = 2;
+        gArea.lightType = 2;
     }
 }
 
@@ -173,7 +173,7 @@ s32 UpdateLightLevel() {
     s32 iVar1;
 
     iVar1 = 0;
-    if (gArea.unk_0b && gRoomVars.lightLevel < (s16)gArea.lightLevel) {
+    if (gArea.lightType && gRoomVars.lightLevel < (s16)gArea.lightLevel) {
         gScreen.lcd.displayControl |= DISPCNT_BG3_ON;
         iVar1 = sub_0805BA78();
         if (iVar1) {
@@ -187,7 +187,7 @@ s32 sub_0805BC04(void) {
     s32 iVar1;
 
     iVar1 = 0;
-    if (gArea.unk_0b && gRoomVars.lightLevel > (short)gArea.lightLevel) {
+    if (gArea.lightType && gRoomVars.lightLevel > (short)gArea.lightLevel) {
         gScreen.lcd.displayControl |= DISPCNT_BG3_ON;
         iVar1 = sub_0805BA78();
         if (iVar1) {
@@ -198,8 +198,8 @@ s32 sub_0805BC04(void) {
 }
 
 void sub_0805BC4C() {
-    if (gArea.unk_0b != 0) {
-        gArea.unk_0b = 0;
+    if (gArea.lightType != 0) {
+        gArea.lightType = 0;
         gScreen.lcd.displayControl &= ~(DISPCNT_BG3_ON | DISPCNT_WIN0_ON);
     }
 }

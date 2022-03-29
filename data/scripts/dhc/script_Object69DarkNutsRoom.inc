@@ -14,7 +14,7 @@ script_0800E550:
 	PlaySound SFX_105
 	Wait 0x001e
 	EzloMessage 0x1622
-	Call sub_08053494
+	Call StartDarkNutTimer
 	SetLocalFlag 0x007e
 script_0800E582:
 	EnablePlayerControl

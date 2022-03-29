@@ -861,7 +861,7 @@ void CreateEzloHint(u32 hintId, u32 hintHeight) {
 }
 
 void sub_08078AC0(u32 param_1, u32 param_2, u32 param_3) {
-    gPlayerState.queued_action = PLAYER_080720DC;
+    gPlayerState.queued_action = PLAYER_ROOM_EXIT;
     gPlayerState.field_0x38 = param_1;
     gPlayerState.field_0x39 = param_2 != 0;
     gPlayerState.field_0x3a = param_3 != 0;
@@ -1272,11 +1272,11 @@ bool32 sub_08079F48(u32 param_1, u32 param_2) {
     return TRUE;
 }
 
-bool32 sub_08079F8C(void) {
+bool32 PlayerCanBeMoved(void) {
     if ((gPlayerState.flags &
          (PL_BUSY | PL_DROWNING | PL_CAPTURED | PL_USE_PORTAL | PL_HIDDEN | PL_FROZEN | PL_FALLING | PL_DISABLE_ITEMS |
           PL_PIT_IS_EXIT | PL_IN_MINECART | PL_MOLDWORM_CAPTURED | PL_IN_HOLE | PL_FLAGS2000000 | PL_CLIMBING)) != 0 ||
-        gPlayerState.field_0x3c[0] != 0 || gPlayerEntity.action == 3 || gPlayerEntity.action == 0xb) {
+        gPlayerState.field_0x3c[0] != 0 || gPlayerEntity.action == PLAYER_FALL || gPlayerEntity.action == PLAYER_08071DB8) {
         return FALSE;
     } else {
         return TRUE;
@@ -1309,7 +1309,7 @@ void DeleteClones(void) {
     gPlayerClones[2] = NULL;
     gPlayerState.flags &= ~PL_CLONING;
     if (((gPlayerEntity.action != 0x17) || (gPlayerState.chargeState.action != 4)) &&
-        ((u8)(gPlayerState.chargeState.action - 4) < 2)) {
+        (gPlayerState.chargeState.action == 4 || gPlayerState.chargeState.action == 5)) {
         gPlayerState.chargeState.action = 1;
     }
 }
@@ -2010,7 +2010,7 @@ ASM_FUNC("asm/non_matching/playerUtils/sub_0807C5F4.inc", void sub_0807C5F4())
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_0807C69C.inc", void sub_0807C69C())
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807C740.inc", void sub_0807C740())
+ASM_FUNC("asm/non_matching/playerUtils/sub_0807C740.inc", void InitializeCamera())
 
 void sub_0807C810(void) {
     struct_03004030* ptr;

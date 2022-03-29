@@ -33,7 +33,7 @@ _080549BC:
 	ldrb r0, [r6, #2]
 	ldrb r1, [r6, #3]
 	bl sub_08052FF4
-	bl sub_0807C740
+	bl InitializeCamera
 	ldr r1, _08054A00 @ =gUpdateVisibleTiles
 	movs r0, #1
 	strb r0, [r1]
