@@ -25,7 +25,7 @@ void sub_08093D88(Entity* this) {
     this->action = 1;
     this->z.HALF.HI -= 8;
     this->zVelocity = 0x2a000;
-    this->actionDelay = 32;
+    this->timer = 32;
     switch (this->type) {
         case 0:
             if (CreateRandomItemDrop(this, 4) == 0) {
@@ -36,7 +36,7 @@ void sub_08093D88(Entity* this) {
         case 1:
             objEnt = CreateObject(0, OBJECT_BLOCKING_STAIRS, 0);
             if (objEnt != NULL) {
-                objEnt->actionDelay = 5;
+                objEnt->timer = 5;
                 sub_08093E10(this, objEnt);
             }
             break;
@@ -44,11 +44,11 @@ void sub_08093D88(Entity* this) {
 }
 
 void sub_08093DE0(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 2;
     }
 
-    if ((this->actionDelay & 1) != 0) {
+    if ((this->timer & 1) != 0) {
         this->child->y.HALF.HI++;
     }
 }

@@ -34,10 +34,10 @@ void sub_0805FE48(Entity* this) {
         uVar4 = this->field_0x80.HWORD;
         if (uVar4 < 8) {
             if ((this->field_0x82.HWORD & 1) != 0) {
-                uVar4 = (uVar4 & 0xfc) + (this->field_0xf >> 1);
+                uVar4 = (uVar4 & 0xfc) + (this->subtimer >> 1);
             } else {
                 uVar4 = (uVar4 & 0xfc) + (this->animationState >> 1);
-                this->field_0xf = this->animationState;
+                this->subtimer = this->animationState;
             }
         }
         if (uVar4 != this->animIndex) {

@@ -27,7 +27,7 @@ void Rope_OnTick(Entity* this) {
 
 void Rope_OnCollision(Entity* this) {
     if (this->action == 3) {
-        this->field_0xf = 0x1e;
+        this->subtimer = 0x1e;
         this->field_0x78.HALF.LO = 0x3c;
         sub_08031600(this);
     }
@@ -45,7 +45,7 @@ void Rope_OnGrabbed(Entity* this) {
 
 void sub_0803140C(Entity* this) {
     this->subAction = 1;
-    this->field_0x1d = 0x3c;
+    this->gustJarTolerance = 0x3c;
 }
 
 void sub_08031418(Entity* this) {
@@ -62,7 +62,7 @@ void sub_08031434(Entity* this) {
 
     sub_0804A720(this);
     this->animationState = 0xff;
-    this->field_0x1c = 1;
+    this->gustJarFlags = 1;
     this->field_0x7a.HWORD = this->speed;
     if (!(this->type)) {
         sub_08031600(this);
@@ -77,8 +77,8 @@ void sub_08031434(Entity* this) {
 
 void sub_08031480(Entity* this) {
     if (this->subAction == 0) {
-        if (this->actionDelay != 0) {
-            this->actionDelay--;
+        if (this->timer != 0) {
+            this->timer--;
         } else {
             sub_08031600(this);
             this->action = 1;
@@ -91,7 +91,7 @@ void sub_08031480(Entity* this) {
     } else {
         if (GravityUpdate(this, 0x1800) == 0) {
             this->action = 2;
-            this->field_0xf = 0xf;
+            this->subtimer = 0xf;
             this->spriteSettings.draw = 1;
             UpdateSpriteForCollisionLayer(this);
             EnqueueSFX(SFX_WATER_SPLASH);
@@ -102,8 +102,8 @@ void sub_080314FC(Entity* this) {
     u32 u;
 
     GetNextFrame(this);
-    if (this->field_0xf) {
-        this->field_0xf--;
+    if (this->subtimer) {
+        this->subtimer--;
     } else {
         if (this->field_0x78.HALF.LO) {
             this->field_0x78.HALF.LO--;
@@ -114,7 +114,7 @@ void sub_080314FC(Entity* this) {
                     u = sub_0804A044(this, gUnk_020000B0, 0xc);
                     if (u != 0xff) {
                         this->action = 3;
-                        this->actionDelay = 0x1e;
+                        this->timer = 0x1e;
                         this->field_0x7a.HWORD = this->speed = 0x1a0;
                         this->direction = u;
                         this->animationState = this->direction >> 3;
@@ -133,7 +133,7 @@ void sub_080314FC(Entity* this) {
                 }
             }
         }
-        if (!(--this->actionDelay)) {
+        if (!(--this->timer)) {
             sub_08031600(this);
         }
         sub_0803163C(this);
@@ -141,8 +141,8 @@ void sub_080314FC(Entity* this) {
 }
 
 void sub_080315BC(Entity* this) {
-    if (this->actionDelay) {
-        this->actionDelay--;
+    if (this->timer) {
+        this->timer--;
         UpdateAnimationVariableFrames(this, 2);
     } else {
         if (sub_08049FA0(this)) {
@@ -159,7 +159,7 @@ void sub_080315BC(Entity* this) {
 void sub_08031600(Entity* this) {
     u32 r;
     this->action = 2;
-    this->actionDelay = (Random() & 0x30) + 0x3c;
+    this->timer = (Random() & 0x30) + 0x3c;
     this->speed = 0x80;
     this->field_0x7a.HWORD = 0x80;
     r = Random() & 0x18;

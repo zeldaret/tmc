@@ -55,17 +55,17 @@ void sub_08044FC8(Entity* this) {
 
 void sub_08044FF8(Entity* this) {
     this->action = 2;
-    this->actionDelay = (Random() & 31) + 30;
+    this->timer = (Random() & 31) + 30;
     this->cutsceneBeh.HALF.LO = this->health;
 }
 
 void sub_08045018(Entity* this) {
     GetNextFrame(this);
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 3;
-        this->actionDelay = 1;
+        this->timer = 1;
         if (0 < this->speed) {
-            this->actionDelay = FixedDiv(4096, this->speed) >> 8;
+            this->timer = FixedDiv(4096, this->speed) >> 8;
         }
         if (sub_08049FA0(this) == 0 && (Random() & 3)) {
             this->direction = (sub_08049EE4(this) + 0xfc + (Random() & 8)) & 24;
@@ -78,7 +78,7 @@ void sub_08045018(Entity* this) {
 void sub_08045088(Entity* this) {
     ProcessMovement0(this);
     GetNextFrame(this);
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 1;
     }
 }

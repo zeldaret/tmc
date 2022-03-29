@@ -113,7 +113,7 @@ void GyorgFemale_Action1(GyorgFemaleEntity* this) {
     sub_080465C8();
     if (((GyorgHeap*)super->myHeap)->boss->unk_6c & 0x38) {
         super->action = 2;
-        super->actionDelay = 0;
+        super->timer = 0;
         this->eyeTimer = 0;
         this->eyesHitFrame = 0;
         this->eyesHit = 0;
@@ -124,7 +124,7 @@ void GyorgFemale_Action1(GyorgFemaleEntity* this) {
     if (((GyorgHeap*)super->myHeap)->boss->unk_6c & 0x40) {
         super->action = 3;
         this->childrenSpawnTimer = 0x3c;
-        super->actionDelay = 0;
+        super->timer = 0;
         this->eyeTimer = 0;
         this->eyesHitFrame = 0;
         this->eyesHit = 0;
@@ -394,15 +394,15 @@ void GyorgFemale_ChooseEyePattern(GyorgFemaleEntity* this) {
 void GyorgFemale_ProcessEyeHit(GyorgFemaleEntity* this) {
     if (this->eyesHitFrame != 0) {
         this->eyesHit |= this->eyesHitFrame;
-        if (super->actionDelay == 0 && this->eyesVulnerable != 0xFF) {
+        if (super->timer == 0 && this->eyesVulnerable != 0xFF) {
 #ifndef EU
-            super->actionDelay = 4;
+            super->timer = 4;
 #else
-            super->actionDelay = 3;
+            super->timer = 3;
 #endif
         }
         if (sub_08000E62(this->eyesHit) > 2) {
-            super->actionDelay = 0;
+            super->timer = 0;
             this->eyesHit = 0;
             this->eyesVulnerable = 0xFF;
             SoundReq(SFX_BOSS_HIT);
@@ -424,7 +424,7 @@ void GyorgFemale_ProcessEyeHit(GyorgFemaleEntity* this) {
             sub_080467DC(this);
         }
     }
-    if (super->actionDelay != 0 && this->eyesVulnerable != 0xFF && --super->actionDelay == 0) {
+    if (super->timer != 0 && this->eyesVulnerable != 0xFF && --super->timer == 0) {
         Entity* tmp;
         this->unk_80 |= this->eyesHit;
         this->eyesHit = 0;

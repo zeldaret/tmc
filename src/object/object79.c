@@ -42,8 +42,8 @@ void Object79_Init(Object79Entity* this) {
     super->speed = 0;
     this->unk6c = 0;
     this->unk7a = 0x1200;
-    super->actionDelay = 0;
-    super->field_0xf = 30;
+    super->timer = 0;
+    super->subtimer = 30;
     this->objDir.HALF.HI = Object79_Directions[super->type];
     this->unk74 = 0x2000;
     SetDefaultPriority(super, 6);
@@ -64,7 +64,7 @@ void Object79_Action1(Object79Entity* this) {
     if (super->type == 0) {
         UpdateAnimationSingleFrame(super);
         if (super->type2 != 0) {
-            gPlayerEntity.field_0xf = 0;
+            gPlayerEntity.subtimer = 0;
             super->action++;
             InitAnimationForceUpdate(super, 1);
             SoundReq(SFX_178);
@@ -95,9 +95,9 @@ void Object79_Action2(Object79Entity* this) {
         this->objDir.WORD += this->unk74;
         this->objDir.HALF.HI = DirectionNormalize(this->objDir.HALF.HI);
         this->unk74 += 0x140;
-        if (super->field_0xf-- == 0) {
-            super->field_0xf = 30;
-            super->actionDelay ^= 1;
+        if (super->subtimer-- == 0) {
+            super->subtimer = 30;
+            super->timer ^= 1;
         }
         sub_08098130(this);
     }

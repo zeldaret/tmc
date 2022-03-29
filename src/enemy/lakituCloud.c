@@ -45,7 +45,7 @@ void LakituCloud_OnGrabbed(Entity* this) {
 
 void sub_0803CD2C(Entity* this) {
     this->subAction = 1;
-    this->field_0x1d = 0x3c;
+    this->gustJarTolerance = 0x3c;
 }
 
 void sub_0803CD38(Entity* this) {
@@ -104,9 +104,9 @@ void sub_0803CDD8(Entity* this) {
     one = 1;
     this->spriteSettings.draw = draw ^ one;
 
-    this->actionDelay--;
+    this->timer--;
 
-    if (this->actionDelay == 0) {
+    if (this->timer == 0) {
         this->action = 1;
 
         COLLISION_ON(this);
@@ -134,11 +134,11 @@ void sub_0803CE3C(Entity* this) {
     CreateFx(this, FX_DEATH, 0);
 
     this->action = 2;
-    this->actionDelay = 60;
+    this->timer = 60;
 
     COLLISION_OFF(this);
 
-    this->field_0x3a &= 0xfb;
+    this->gustJarState &= 0xfb;
 
     this->x.HALF.HI = this->field_0x78.HWORD;
     this->y.HALF.HI = this->field_0x7a.HWORD;

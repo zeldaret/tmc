@@ -48,7 +48,7 @@ void BigIceBlock_Init(BigIceBlockEntity* this) {
     super->action = 1;
     super->flags |= 0x80;
     super->updatePriority = 3;
-    super->field_0x3c = 7;
+    super->collisionFlags = 7;
     super->hurtType = 0x48;
     super->hitType = 1;
     super->flags2 = 0x80;
@@ -64,7 +64,7 @@ void BigIceBlock_Init(BigIceBlockEntity* this) {
 void BigIceBlock_Action1(BigIceBlockEntity* this) {
     if (sub_0809963C(this)) {
         super->action = 2;
-        super->actionDelay = 0;
+        super->timer = 0;
         EnqueueSFX(SFX_ICE_BLOCK_MELT);
         BigIceBlock_Action2(this);
     }
@@ -73,20 +73,20 @@ void BigIceBlock_Action1(BigIceBlockEntity* this) {
 void BigIceBlock_Action2(BigIceBlockEntity* this) {
     u32 tmp;
     if (!sub_0809963C(this)) {
-        if (super->actionDelay >= 2) {
-            super->actionDelay -= 2;
+        if (super->timer >= 2) {
+            super->timer -= 2;
         } else {
-            super->actionDelay = 0;
+            super->timer = 0;
         }
-        if (super->actionDelay == 0) {
+        if (super->timer == 0) {
             super->action = 1;
             sub_0805EC60(super);
             return;
         }
     } else {
-        super->actionDelay += 1;
+        super->timer += 1;
     }
-    tmp = gUnk_081237B0[super->actionDelay >> 5];
+    tmp = gUnk_081237B0[super->timer >> 5];
     SetAffineInfo(super, 0x100, tmp, 0);
     if (super->type != 1) {
         if (super->type != 2) {
@@ -96,7 +96,7 @@ void BigIceBlock_Action2(BigIceBlockEntity* this) {
         }
     }
     super->action = 3;
-    super->actionDelay = 0x3c;
+    super->timer = 0x3c;
     super->flags &= 0x7f;
 }
 
@@ -107,13 +107,13 @@ void sub_08099880(BigIceBlockEntity* this) {
     u32 uVar4;
     s32 x;
 
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         DeleteThisEntity();
     } else {
-        if (super->actionDelay == 0x30) {
+        if (super->timer == 0x30) {
             sub_08099C18(this);
         }
-        uVar4 = (0x3c - super->actionDelay) * 0x20 + 0x100;
+        uVar4 = (0x3c - super->timer) * 0x20 + 0x100;
         SetAffineInfo(super, 0x100, uVar4, 0);
         sub_0806FCF4(super, uVar4, 2, 0);
         obj = CreateObject(SPECIAL_FX, 0x11, 0x40);

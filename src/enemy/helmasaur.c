@@ -47,7 +47,7 @@ void Helmasaur_OnTick(Entity* this) {
 
 void Helmasaur_OnCollision(Entity* this) {
     if (this->hitType != 0x19) {
-        switch (this->bitfield & 0x7f) {
+        switch (this->contactFlags & 0x7f) {
             case 0:
             case 2:
             case 3:
@@ -78,7 +78,7 @@ void Helmasaur_OnGrabbed(Entity* this) {
 void sub_0802BC74(Entity* this) {
     sub_0802C1C0(this);
     this->subAction = 1;
-    this->field_0x1d = 60;
+    this->gustJarTolerance = 60;
     this->animationState = AnimationStateFlip90(gPlayerEntity.animationState >> 1);
     InitializeAnimation(this, this->animationState);
 }
@@ -92,11 +92,11 @@ void sub_0802BCA8(Entity* this) {
         Entity* ent;
 
         this->action = 7;
-        this->actionDelay = 90;
+        this->timer = 90;
         this->zVelocity = Q_16_16(1.5);
         this->hitType = 0x19;
-        this->field_0x3a = this->field_0x3a & 0xfb;
-        this->field_0x1c = 0x12;
+        this->gustJarState = this->gustJarState & 0xfb;
+        this->gustJarFlags = 0x12;
         ent = CreateEnemy(HELMASAUR, 1);
         if (ent != NULL) {
             ent->animationState = this->animationState;
@@ -108,7 +108,7 @@ void sub_0802BCA8(Entity* this) {
 
 void sub_0802BCFC(Entity* this) {
     this->subAction = 1;
-    this->field_0x1d = 60;
+    this->gustJarTolerance = 60;
 }
 
 void sub_0802BD08(Entity* this) {
@@ -127,7 +127,7 @@ void nullsub_145(Entity* this) {
 void sub_0802BD28(Entity* this) {
     if (this->flags & ENT_COLLIDE) {
         COLLISION_ON(this);
-        this->field_0x3a &= ~0x4;
+        this->gustJarState &= ~0x4;
     } else {
         this->health = 0;
     }
@@ -137,7 +137,7 @@ void sub_0802BD54(Entity* this) {
     sub_0804A720(this);
     this->action = 1;
     this->field_0x78.HALF.LO = Random();
-    this->field_0x1d = 60;
+    this->gustJarTolerance = 60;
     this->field_0x78.HALF.HI = 0xff;
     this->direction = DirectionRound(Random());
     this->animationState = this->direction >> 3;
@@ -145,8 +145,8 @@ void sub_0802BD54(Entity* this) {
 }
 
 void sub_0802BD8C(Entity* this) {
-    if (this->actionDelay) {
-        this->actionDelay--;
+    if (this->timer) {
+        this->timer--;
     } else {
         u32 direction;
 
@@ -168,20 +168,20 @@ void sub_0802BD8C(Entity* this) {
 void sub_0802BDE0(Entity* this) {
     if (sub_0802C06C(this)) {
         this->action = 3;
-        this->actionDelay = 60;
+        this->timer = 60;
         this->field_0x78.HALF.HI = 0xff;
     } else {
         this->action = 1;
-        this->actionDelay = (Random() & 0xf) + 0xf;
+        this->timer = (Random() & 0xf) + 0xf;
         this->field_0x78.HALF.HI = this->direction;
     }
 }
 
 void sub_0802BE18(Entity* this) {
     UpdateAnimationVariableFrames(this, 2);
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 4;
-        this->actionDelay = 0x1e;
+        this->timer = 0x1e;
         this->speed = 0x300;
     } else {
         sub_0802C18C(this);
@@ -212,7 +212,7 @@ void sub_0802BE80(Entity* this) {
         sub_0802C18C(this);
     } else {
         sub_0802C1C0(this);
-        this->actionDelay += 30;
+        this->timer += 30;
     }
 }
 
@@ -226,15 +226,15 @@ void sub_0802BEBC(Entity* this) {
 }
 
 void sub_0802BEEC(Entity* this) {
-    if (this->actionDelay) {
-        if ((--this->actionDelay & 0x1f) == 0) {
+    if (this->timer) {
+        if ((--this->timer & 0x1f) == 0) {
             this->animationState ^= 2;
             this->direction = this->animationState << 3;
             InitializeAnimation(this, this->animationState + 4);
         }
     } else if (!GravityUpdate(this, Q_16_16(0.109375))) {
         this->action = 8;
-        this->actionDelay = 30;
+        this->timer = 30;
         this->speed = 0x120;
     }
 }
@@ -242,10 +242,10 @@ void sub_0802BEEC(Entity* this) {
 void sub_0802BF3C(Entity* this) {
     ProcessMovement0(this);
     GetNextFrame(this);
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         u32 sprite;
 
-        this->actionDelay = 30;
+        this->timer = 30;
         this->direction = sub_0802C020(this);
         sprite = this->direction >> 3;
         if (sprite != this->animationState) {
@@ -258,7 +258,7 @@ void sub_0802BF3C(Entity* this) {
 void sub_0802BF78(Entity* this) {
     this->action = 1;
     this->flags2 = 4;
-    this->field_0x1c = 1;
+    this->gustJarFlags = 1;
     this->direction = this->animationState << 3;
     InitializeAnimation(this, this->animationState + 8);
 }
@@ -268,7 +268,7 @@ void sub_0802BF98(Entity* this) {
         gUnk_080CD450[this->subAction](this);
     } else {
         this->action = 2;
-        this->actionDelay = 30;
+        this->timer = 30;
         COLLISION_OFF(this);
     }
 }
@@ -289,7 +289,7 @@ void sub_0802BFE0(Entity* this) {
 
 void sub_0802BFF4(Entity* this) {
     this->spriteSettings.draw ^= 1;
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         DeleteEntity(this);
     }
 }
@@ -332,7 +332,7 @@ bool32 sub_0802C06C(Entity* this) {
 bool32 sub_0806FC24(u32, u32);
 
 bool32 sub_0802C0E8(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         return TRUE;
     } else {
         const s8* ptr = &gUnk_080CD45C[this->direction >> 2];
@@ -364,7 +364,7 @@ void sub_0802C18C(Entity* this) {
 
 void sub_0802C1C0(Entity* this) {
     this->action = 1;
-    this->actionDelay = 30;
+    this->timer = 30;
 }
 
 void sub_0802C1CC(Entity* this) {

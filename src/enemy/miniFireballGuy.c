@@ -41,7 +41,7 @@ void sub_08045618(Entity* this) {
     this->action = 1;
     this->spriteSettings.draw = 1;
     this->speed = 0x80;
-    this->field_0x3c = this->field_0x3c | 0x10;
+    this->collisionFlags = this->collisionFlags | 0x10;
     sub_0804A720(this);
     InitializeAnimation(this, 1);
     sub_08045678(this);
@@ -58,10 +58,10 @@ void sub_08045654(Entity* this) {
 void sub_08045678(Entity* this) {
 
     this->zVelocity = Q_16_16(1.75);
-    if (this->actionDelay != 0) {
-        this->actionDelay--;
+    if (this->timer != 0) {
+        this->timer--;
     } else {
-        this->actionDelay = Random() & 3;
+        this->timer = Random() & 3;
         if ((sub_08049FA0(this) == 0) && (Random() & 3)) {
             this->direction = DirectionRound(sub_08049EE4(this) - 4 + (Random() & 8));
         } else {

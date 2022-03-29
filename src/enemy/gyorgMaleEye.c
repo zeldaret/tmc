@@ -82,13 +82,13 @@ void GyorgMaleEye_Action1(GyorgMaleEyeEntity* this) {
     if ((super->frame & ANIM_DONE) != 0) {
         super->action = 2;
         super->flags |= 0x80;
-        super->actionDelay = 0x2d;
+        super->timer = 0x2d;
     }
 }
 
 void GyorgMaleEye_Action2(GyorgMaleEyeEntity* this) {
     sub_08048F50(this);
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->action = 3;
         super->flags &= 0x7f;
         InitializeAnimation(super, super->animIndex + 4);

@@ -40,13 +40,13 @@ void Fairy(FairyEntity* this) {
         Fairy_Init, Fairy_Action1, Fairy_Action2, Fairy_Action3, Fairy_Action4,
     };
 
-    if (((super->bitfield & 0x80) != 0)) {
-        switch (super->bitfield & 0x7f) {
+    if (((super->contactFlags & 0x80) != 0)) {
+        switch (super->contactFlags & 0x7f) {
             case 0x14:
                 super->action = 3;
                 super->flags &= ~ENT_COLLIDE;
                 super->spriteSettings.draw = 1;
-                super->child = super->field_0x4c;
+                super->child = super->contactedEntity;
                 break;
             case 0x1f:
                 DeleteThisEntity();
@@ -84,7 +84,7 @@ void sub_0808D76C(FairyEntity* this) {
 
 void Fairy_SubAction0(FairyEntity* this) {
     super->subAction = 1;
-    super->field_0x1d = 1;
+    super->gustJarTolerance = 1;
     super->spriteSettings.draw = 1;
 }
 
@@ -100,13 +100,13 @@ void Fairy_SubAction2(FairyEntity* this) {
 
 void Fairy_Init(FairyEntity* this) {
     super->collisionLayer = 3;
-    super->field_0x3c = 0x17;
+    super->collisionFlags = 0x17;
     super->hurtType = 0x49;
     super->hitType = 7;
     super->flags2 = 0x17;
     super->health = 0xff;
     super->hitbox = (Hitbox*)&gUnk_080FD1A8;
-    super->field_0x1c = 1;
+    super->gustJarFlags = 1;
     this->unk_74 = super->x.HALF.HI;
     this->unk_76 = super->y.HALF.HI;
     SetDefaultPriority(super, 6);
@@ -132,13 +132,13 @@ void Fairy_Init(FairyEntity* this) {
 void Fairy_Action1(FairyEntity* this) {
     super->z.WORD -= 0xe000;
     if (super->frame != 0) {
-        if (super->actionDelay != 0) {
+        if (super->timer != 0) {
             this->unk_78 *= 0x1e;
         } else {
             this->unk_78 = 600;
         }
         super->action = 2;
-        super->field_0xf = 1;
+        super->subtimer = 1;
         super->speed = 0x80;
     }
 }
@@ -150,10 +150,10 @@ void Fairy_Action2(FairyEntity* this) {
         0,
         0,
     };
-    if (--super->field_0xf == 0) {
+    if (--super->subtimer == 0) {
         u32 rand = Random();
         super->flags |= ENT_COLLIDE;
-        super->field_0xf = 0x20;
+        super->subtimer = 0x20;
         super->speed = (u16)gUnk_081217A4[rand >> 8 & 1];
         if (sub_0808DAA0(this)) {
             super->direction = rand & 0x1f;
@@ -192,27 +192,27 @@ void Fairy_Action4(FairyEntity* this) {
     s32 tmp;
 
     child = super->child;
-    tmp = gSineTable[super->actionDelay] * 0xa00;
+    tmp = gSineTable[super->timer] * 0xa00;
     if (tmp < 0) {
         tmp += 0xffff;
     }
     super->x.HALF.HI = (tmp >> 0x10) + child->x.HALF.HI;
-    tmp = gSineTable[super->actionDelay + 0x40] * 0x500;
+    tmp = gSineTable[super->timer + 0x40] * 0x500;
     if (tmp < 0) {
         tmp += 0xffff;
     }
     super->y.HALF.HI = child->y.HALF.HI - (tmp >> 0x10);
-    super->actionDelay += 8;
+    super->timer += 8;
     super->z.HALF.HI = child->z.HALF.HI;
     super->spriteOrientation.flipY = child->spriteOrientation.flipY;
     super->spriteRendering.b3 = child->spriteRendering.b3;
-    if ((u8)(super->actionDelay - 0x41) < 0x7f) {
+    if ((u8)(super->timer - 0x41) < 0x7f) {
         super->spritePriority.b0 = 3;
     } else {
         super->spritePriority.b0 = 5;
     }
-    if (--super->field_0xf == 0) {
-        super->field_0xf = 6;
+    if (--super->subtimer == 0) {
+        super->subtimer = 6;
         if (((--super->spriteOffsetY) * 0x1000000) >> 0x18 < -0x16) {
             sub_08081404(super, 1);
         }
@@ -239,8 +239,8 @@ void sub_0808DAD0(FairyEntity* this) {
         DeleteThisEntity();
     }
     super->action = 4;
-    super->actionDelay = 0x80;
-    super->field_0xf = 6;
+    super->timer = 0x80;
+    super->subtimer = 6;
     super->flags &= ~ENT_COLLIDE;
     super->spriteSettings.draw = 1;
     super->spritePriority.b1 = 2;

@@ -147,12 +147,12 @@ void sub_08060AE0(Entity* this) {
         this->action = 1;
         COLLISION_ON(this);
         this->animationState &= 3;
-        this->field_0x3c = 7;
+        this->collisionFlags = 7;
         this->hurtType = 0x48;
         this->hitType = 0x49;
         this->flags2 = 3;
         this->hitbox = (Hitbox*)&gHitbox_0;
-        this->field_0x17 &= 0xfe;
+        this->followerFlag &= 0xfe;
         this->field_0x6c.HALF.LO = 0xff;
         sub_08060E70(this, this->animationState);
         otherNpc = CreateNPC(NPC_UNK_5, 2, 0);
@@ -168,7 +168,7 @@ void sub_08060B5C(Entity* this) {
         if ((sub_08060F80(this) == 0) &&
             (((GetFacingDirection(this, &gPlayerEntity) + (this->animationState * -4) + 4) & 0x1f)) < 9) {
             this->action = 2;
-            this->field_0xf = 0;
+            this->subtimer = 0;
             return;
         }
         sub_08060EDC(this);
@@ -492,24 +492,24 @@ u32 sub_080611D4(Entity* this) {
             continue;
         }
 
-        ++this->field_0xf;
+        ++this->subtimer;
 
-        if (this->field_0xf < 8) {
+        if (this->subtimer < 8) {
             return 0xff;
         }
 
         return ptr2[1];
     } while (ptr2 += 2, *ptr2 != 0);
 
-    this->field_0xf = 0;
+    this->subtimer = 0;
 
     return 0xff;
 }
 
 u32 sub_08061230(Entity* this) {
     if ((((UnkHeap*)this->myHeap)->unk_0 & 1) == 0) {
-        if ((this->bitfield & 0x80) != 0) {
-            switch (this->bitfield & 0x7f) {
+        if ((this->contactFlags & 0x80) != 0) {
+            switch (this->contactFlags & 0x7f) {
                 case 0:
                 case 1:
                 case 2:
@@ -534,7 +534,7 @@ u32 sub_08061230(Entity* this) {
         ((UnkHeap*)this->myHeap)->unk_0 &= 0xfe;
         InitAnimationForceUpdate(this, this->field_0x6c.HALF.LO + (this->animationState >> 1));
     }
-    this->bitfield = this->bitfield & 0x7f;
+    this->contactFlags = this->contactFlags & 0x7f;
     if (this->iframes != 0) {
         this->iframes += 1;
     }
@@ -555,19 +555,19 @@ void sub_08061358(Entity* this) {
                 return;
             }
             this->subAction = 1;
-            this->actionDelay = 0xf;
+            this->timer = 0xf;
             sub_08060E70(this, 0);
             break;
         case 1:
-            this->actionDelay -= 1;
-            if (this->actionDelay != 0) {
+            this->timer -= 1;
+            if (this->timer != 0) {
                 return;
             }
             uVar2 = Random();
             bVar4 = uVar2;
             if ((uVar2 & 1) == 0) {
                 this->subAction = 3;
-                this->actionDelay = (bVar4 & 0x18) + 0x1e;
+                this->timer = (bVar4 & 0x18) + 0x1e;
                 sub_08060E70(this, 4);
                 return;
             }
@@ -582,7 +582,7 @@ void sub_08061358(Entity* this) {
             this->animationState = ((this->frame & 0x18) >> 2);
             if ((Random() & 1)) {
                 this->subAction = 3;
-                this->actionDelay = (bVar4 & 0x18) + 0x1e;
+                this->timer = (bVar4 & 0x18) + 0x1e;
                 sub_08060E70(this, 4);
                 return;
             }
@@ -597,7 +597,7 @@ void sub_08061358(Entity* this) {
                 InitAnimationForceUpdate(this, gUnk_0810AC5D[this->animationState * 2 + (bVar4 >> 4 & 3)]);
                 return;
             }
-            if (--this->actionDelay != 0) {
+            if (--this->timer != 0) {
                 return;
             }
             this->subAction = 0;
@@ -875,8 +875,8 @@ void sub_08061ACC(Entity* this) {
     this->flags = this->flags | ENT_PERSIST;
     this->action = 1;
     this->subAction = 0xff;
-    this->actionDelay = 0;
-    this->field_0x17 = this->field_0x17 & 0xfe;
+    this->timer = 0;
+    this->followerFlag = this->followerFlag & 0xfe;
     sub_08078778(this);
     sub_08061AFC(this);
 }
@@ -886,7 +886,7 @@ void sub_08061AFC(Entity* this) {
     if (this->subAction != 0) {
         this->subAction = tmp;
         *((u16**)&this->field_0x68) = gUnk_0810B660[0];
-        this->actionDelay = 0;
+        this->timer = 0;
     }
 }
 
@@ -900,9 +900,9 @@ void sub_08061B18(Entity* this) {
             this->interactType = 0;
             sub_08061AFC(this);
             puVar2 = *(u16**)&this->field_0x68;
-            puVar2 += (this->actionDelay++);
+            puVar2 += (this->timer++);
             if (puVar2[1] == 0) {
-                this->actionDelay = 0;
+                this->timer = 0;
             }
             MessageNoOverlap(puVar2[0], this);
             break;

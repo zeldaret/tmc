@@ -9,7 +9,7 @@
 #include "flags.h"
 #include "effects.h"
 #include "room.h"
-#include "coord.h"
+#include "physics.h"
 
 #include "entity.h"
 #include "player.h"

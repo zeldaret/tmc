@@ -99,7 +99,7 @@ void sub_0809EE24(FanEntity* this) {
 
 void sub_0809EE34(FanEntity* this) {
     super->action = 1;
-    this->unk74 = super->actionDelay << 2;
+    this->unk74 = super->timer << 2;
 }
 
 void sub_0809EE44(FanEntity* this) {
@@ -138,7 +138,7 @@ void sub_0809EE44(FanEntity* this) {
                         break;
                         break;
                     case 0x4:
-                        if (super->field_0xf != 0)
+                        if (super->subtimer != 0)
                             bVar3 = 1;
                         break;
                     case 0x11:
@@ -215,18 +215,18 @@ void sub_0809EFB0(FanEntity* this) {
 }
 
 void sub_0809F08C(FanEntity* this) {
-    if (super->field_0xf != 0) {
-        super->field_0xf--;
+    if (super->subtimer != 0) {
+        super->subtimer--;
     }
 
     GetNextFrame(super);
     if (super->frame & 0x20) {
         super->frame &= ~0x20;
-        super->field_0xf = 20;
+        super->subtimer = 20;
         sub_0809F0E4(this);
     } else {
-        if ((super->frame & 0x10) && super->field_0xf == 0) {
-            super->field_0xf = 20;
+        if ((super->frame & 0x10) && super->subtimer == 0) {
+            super->subtimer = 20;
             super->frame ^= 0x10;
             sub_0809F0E4(this);
         }

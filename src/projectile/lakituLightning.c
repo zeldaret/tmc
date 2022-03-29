@@ -17,7 +17,7 @@ void LakituLightning_OnTick(Entity* this) {
 }
 
 void sub_080A9DD8(Entity* this) {
-    if ((this->health == 0) || (this->bitfield == 0x80)) {
+    if ((this->health == 0) || (this->contactFlags == 0x80)) {
         DeleteThisEntity();
     }
     LakituLightning_OnTick(this);
@@ -25,7 +25,7 @@ void sub_080A9DD8(Entity* this) {
 
 void LakituLightning_Init(Entity* this) {
     this->action = 1;
-    this->actionDelay = 0xb4;
+    this->timer = 0xb4;
     this->health = 1;
     InitializeAnimation(this, 0);
 }
@@ -33,7 +33,7 @@ void LakituLightning_Init(Entity* this) {
 void LakituLightning_Action1(Entity* this) {
     GetNextFrame(this);
     ProcessMovement3(this);
-    if ((this->collisions != COL_NONE) || (--this->actionDelay == 0)) {
+    if ((this->collisions != COL_NONE) || (--this->timer == 0)) {
         CreateFx(this, FX_BLUE_EFC, 0);
         DeleteThisEntity();
     }

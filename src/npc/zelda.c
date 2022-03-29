@@ -57,7 +57,7 @@ void sub_08066D4C(Entity* this, ScriptExecutionContext* context) {
         this->parent->spriteSettings.draw = 1;
         this->parent->animationState = this->animationState;
         this->spriteSettings.draw = 0;
-        this->field_0x17 &= 0xFE;
+        this->followerFlag &= 0xFE;
         sub_08068694(this, this->parent);
         context->condition = 1;
     } else {

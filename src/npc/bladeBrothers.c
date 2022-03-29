@@ -74,10 +74,10 @@ void sub_08068A4C(Entity* this) {
     if (uVar1 < 0) {
         uVar1 = 2;
     } else {
-        if (this->field_0xf == 0) {
-            this->field_0xf = 0x10;
+        if (this->subtimer == 0) {
+            this->subtimer = 0x10;
         } else {
-            this->field_0xf--;
+            this->subtimer--;
             uVar1 = (u32)this->animIndex;
         }
     }
@@ -143,10 +143,10 @@ void sub_08068B84(Entity* this) {
     u8 p;
 
     if (gUnk_08111618) {}
-    if (p = this->actionDelay, gUnk_08111618[p]) {
-        ForceEquipItem(gUnk_08111618[this->actionDelay], 0);
+    if (p = this->timer, gUnk_08111618[p]) {
+        ForceEquipItem(gUnk_08111618[this->timer], 0);
     }
-    InitPlayerMacro(gUnk_081115EC[this->actionDelay]);
+    InitPlayerMacro(gUnk_081115EC[this->timer]);
 }
 
 void sub_08068BB4(Entity* this) {
@@ -174,16 +174,16 @@ static void sub_08068BEC(Entity* this, u32 unused) {
 }
 
 void sub_08068C28(Entity* this) {
-    this->actionDelay = gUnk_08111623[this->type];
+    this->timer = gUnk_08111623[this->type];
     if (this->type == 1) {
         if (GetInventoryValue(ITEM_SKILL_SPIN_ATTACK)) {
             if (!GetInventoryValue(ITEM_SKILL_ROCK_BREAKER)) {
-                this->actionDelay = 1;
+                this->timer = 1;
             } else {
                 if (!GetInventoryValue(ITEM_SKILL_DASH_ATTACK)) {
-                    this->actionDelay = 2;
+                    this->timer = 2;
                 } else {
-                    this->actionDelay = 3;
+                    this->timer = 3;
                 }
             }
         }
@@ -191,12 +191,12 @@ void sub_08068C28(Entity* this) {
 }
 
 void sub_08068C6C(Entity* this) {
-    InitItemGetSequence(gUnk_0811162B[this->actionDelay] & 0xffffff7f, 0, 0);
+    InitItemGetSequence(gUnk_0811162B[this->timer] & 0xffffff7f, 0, 0);
 }
 
 void sub_08068C8C(Entity* this, ScriptExecutionContext* context) {
     u8* arr = gUnk_0811162B + 0xd;
-    context->condition = *(u32*)(arr + this->actionDelay * 4);
+    context->condition = *(u32*)(arr + this->timer * 4);
 }
 
 void sub_08068CA0(Entity* this, ScriptExecutionContext* context) {
@@ -223,7 +223,7 @@ void sub_08068CA0(Entity* this, ScriptExecutionContext* context) {
             return;
         }
     } else {
-        uVar2 = GetInventoryValue(gUnk_0811162B[this->actionDelay] & -0x81);
+        uVar2 = GetInventoryValue(gUnk_0811162B[this->timer] & -0x81);
         if (uVar2 != 0) {
             uVar2 = 1;
         }
@@ -236,7 +236,7 @@ void sub_08068CFC(Entity* this, ScriptExecutionContext* context) {
     u8 itemID;
 
     context->condition = 0;
-    bVar1 = this->actionDelay;
+    bVar1 = this->timer;
     if (bVar1 > 10)
         return;
 
@@ -299,48 +299,48 @@ void sub_08068CFC(Entity* this, ScriptExecutionContext* context) {
 
 // Introduction dialoague
 void sub_08068DB8(Entity* this) {
-    MessageNoOverlap(gUnk_08111664[this->actionDelay], this);
+    MessageNoOverlap(gUnk_08111664[this->timer], this);
 }
 
 // Ask to teach dialoague
 void sub_08068DD0(Entity* this) {
-    MessageNoOverlap(gUnk_0811167A[this->actionDelay], this);
+    MessageNoOverlap(gUnk_0811167A[this->timer], this);
 }
 
 // Technique Dialogue
 void sub_08068DE8(Entity* this) {
-    MessageNoOverlap(gUnk_08111690[this->actionDelay], this);
+    MessageNoOverlap(gUnk_08111690[this->timer], this);
 }
 
 // Posession dialogue
 void sub_08068E00(Entity* this) {
-    MessageNoOverlap(gUnk_081116A6[this->actionDelay], this);
+    MessageNoOverlap(gUnk_081116A6[this->timer], this);
 }
 
 void sub_08068E18(Entity* this) {
-    MessageNoOverlap(gUnk_081116BC[this->actionDelay], this);
+    MessageNoOverlap(gUnk_081116BC[this->timer], this);
 }
 
 void sub_08068E30(Entity* this) {
-    MessageNoOverlap(gUnk_081116D2[this->actionDelay], this);
+    MessageNoOverlap(gUnk_081116D2[this->timer], this);
 }
 
 void sub_08068E48(Entity* this) {
-    MessageNoOverlap(gUnk_081116E8[this->actionDelay], this);
+    MessageNoOverlap(gUnk_081116E8[this->timer], this);
 }
 
 void sub_08068E60(Entity* this) {
-    MessageNoOverlap(gUnk_081116FE[this->actionDelay], this);
+    MessageNoOverlap(gUnk_081116FE[this->timer], this);
 }
 
 void sub_08068E78(Entity* this) {
-    MessageNoOverlap(gUnk_08111714[this->actionDelay], this);
+    MessageNoOverlap(gUnk_08111714[this->timer], this);
 }
 
 void sub_08068E90(Entity* this) {
     // Learn a skill.
     PlayerState* s = &gPlayerState;
-    *(u16*)&s->skills = (1 << (gUnk_08111740[this->actionDelay] - 1)) | *(u16*)&s->skills;
+    *(u16*)&s->skills = (1 << (gUnk_08111740[this->timer] - 1)) | *(u16*)&s->skills;
 }
 
 void sub_08068EB4(void) {
@@ -348,8 +348,8 @@ void sub_08068EB4(void) {
 }
 
 void sub_08068EC4(Entity* this, ScriptExecutionContext* context) {
-    if (gUnk_08111740[this->actionDelay] == gPlayerState.field_0xab) {
-        context->wait = gUnk_0811172A[this->actionDelay];
+    if (gUnk_08111740[this->timer] == gPlayerState.field_0xab) {
+        context->wait = gUnk_0811172A[this->timer];
         context->condition = 1;
     } else {
         context->condition = 0;
@@ -357,23 +357,23 @@ void sub_08068EC4(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_08068F00(Entity* this) {
-    if (this->actionDelay == 1) {
+    if (this->timer == 1) {
         LoadRoomEntityList(&gUnk_080F3494);
     }
 }
 
 void sub_08068F14(Entity* this) {
-    if (this->actionDelay == 5) {
+    if (this->timer == 5) {
         ModHealth(160);
     }
-    if (this->actionDelay == 6) {
+    if (this->timer == 6) {
         ModHealth(-160);
         ModHealth(2);
     }
 }
 
 void sub_08068F3C(Entity* this) {
-    if (this->actionDelay == 6) {
+    if (this->timer == 6) {
         ModHealth(160);
     }
 }

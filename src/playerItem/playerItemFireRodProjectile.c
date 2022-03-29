@@ -2,7 +2,7 @@
 #include "asm.h"
 #include "entity.h"
 #include "sound.h"
-#include "coord.h"
+#include "physics.h"
 #include "functions.h"
 #include "effects.h"
 
@@ -29,7 +29,7 @@ void sub_080A3084(FireRodProjectileEntity* this) {
     super->action = 0x01;
     CopyPosition(super->parent, super);
     if (super->type == 0) {
-        super->field_0x3c = gPlayerEntity.field_0x3c + 1;
+        super->collisionFlags = gPlayerEntity.collisionFlags + 1;
         super->hitbox = &gUnk_08127278;
         super->speed = 0x400;
         if (super->collisionLayer == 0x02) {
@@ -41,7 +41,7 @@ void sub_080A3084(FireRodProjectileEntity* this) {
         LinearMoveUpdate(super);
         SoundReq(SFX_ITEM_SWORD_BEAM);
     } else {
-        super->actionDelay = 6;
+        super->timer = 6;
     }
     InitializeAnimation(super, 0x18);
     sub_080A310C(this);
@@ -49,7 +49,7 @@ void sub_080A3084(FireRodProjectileEntity* this) {
 
 void sub_080A310C(FireRodProjectileEntity* this) {
     if (super->type != 0) {
-        if (super->actionDelay-- == 0) {
+        if (super->timer-- == 0) {
             DeleteThisEntity();
         }
     } else {
@@ -57,7 +57,7 @@ void sub_080A310C(FireRodProjectileEntity* this) {
         if (this->unk6c-- != 0) {
             GetNextFrame(super);
             LinearMoveUpdate(super);
-            super->actionDelay++;
+            super->timer++;
             if (super->type2 == 0) {
                 sub_0800451C(super);
             }
@@ -66,7 +66,7 @@ void sub_080A310C(FireRodProjectileEntity* this) {
                 CreateFx(super, FX_SWORD_MAGIC, 0);
                 DeleteThisEntity();
             }
-            if (super->bitfield != 0) {
+            if (super->contactFlags != 0) {
                 CreateFx(super, FX_SWORD_MAGIC, 0);
                 DeleteThisEntity();
             }

@@ -184,7 +184,7 @@ void Enemy4D_Action5(Enemy4DEntity* this) {
     if ((tmp * 0x1000000) < 1) {
         this->unk_7e = 0;
         super->action = 6;
-        super->actionDelay = 0x0f;
+        super->timer = 0x0f;
         InitAnimationForceUpdate(super, super->animationState + 0x20);
     }
 }
@@ -197,9 +197,9 @@ void Enemy4D_Action6(Enemy4DEntity* this) {
         128,
         188,
     };
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->action = 7;
-        super->actionDelay = 1;
+        super->timer = 1;
         this->unk_7c = gUnk_080D08C4[super->animationState];
         this->unk_7f = 0xf6;
         EnqueueSFX(SFX_15B);
@@ -210,22 +210,22 @@ void Enemy4D_Action7(Enemy4DEntity* this) {
     if ((super->frame & ANIM_DONE) == 0) {
         UpdateAnimationSingleFrame(super);
     } else {
-        if (--super->actionDelay == 0) {
-            super->actionDelay = 2;
+        if (--super->timer == 0) {
+            super->timer = 2;
             this->unk_7f++;
         }
         if (this->unk_7f != 0) {
             this->unk_7e += 5;
         } else {
             super->action = 8;
-            super->actionDelay = 0x1e;
+            super->timer = 0x1e;
             InitScreenShake(8, 0);
         }
     }
 }
 
 void Enemy4D_Action8(Enemy4DEntity* this) {
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->action = 9;
     }
 }
@@ -235,7 +235,7 @@ void Enemy4D_Action9(Enemy4DEntity* this) {
     tmp = this->unk_7e = this->unk_7e - 2;
     if (tmp < 0xb) {
         super->action = 0xa;
-        super->actionDelay = 0x3c;
+        super->timer = 0x3c;
         super->direction = super->animationState << 3;
         this->unk_7c = 0;
         this->unk_7f = 0xfe;
@@ -246,8 +246,8 @@ void Enemy4D_Action9(Enemy4DEntity* this) {
 }
 
 void Enemy4D_Action10(Enemy4DEntity* this) {
-    if (super->actionDelay != 0) {
-        if (--super->actionDelay == 0) {
+    if (super->timer != 0) {
+        if (--super->timer == 0) {
             super->child->flags |= ENT_COLLIDE;
             sub_0803E94C(super, 0);
         }

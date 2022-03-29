@@ -77,7 +77,7 @@ void sub_0809BF74(FrozenWaterElementEntity* this) {
     s32 tmp2;
 
     if (--this->unk_74 == 0) {
-        (super->child)->field_0xf = 1;
+        (super->child)->subtimer = 1;
         sub_0809C23C(this);
         CheckFlags(0x9b);
         DeleteThisEntity();

@@ -1,6 +1,6 @@
 #include "entity.h"
 #include "enemy.h"
-#include "coord.h"
+#include "physics.h"
 #include "functions.h"
 #include "game.h"
 #include "hitbox.h"
@@ -40,10 +40,10 @@ void MandiblesProjectile_OnTick(Entity* this) {
 void sub_080A9EBC(Entity* this) {
     Entity* parent;
 
-    if ((this->bitfield & 0x80) != 0) {
+    if ((this->contactFlags & 0x80) != 0) {
         switch (this->action) {
             case 4:
-                this->field_0xf = 0;
+                this->subtimer = 0;
                 ModHealth(-2);
                 ProcessMovement3(this);
                 UpdateAnimationSingleFrame(this);
@@ -53,7 +53,7 @@ void sub_080A9EBC(Entity* this) {
                     this->field_0x82.HALF.LO = 2;
                     this->animationState = 0xff;
                     sub_080AA270(this);
-                    this->field_0xf = 0x20;
+                    this->subtimer = 0x20;
                 }
                 break;
             default:
@@ -84,7 +84,7 @@ void MandiblesProjectile_Action1(Entity* this) {
     if (this->field_0x80.HWORD != 0) {
         this->field_0x80.HWORD -= 1;
     } else {
-        if (--this->field_0xf == 0) {
+        if (--this->subtimer == 0) {
             sub_080AA270(this);
         } else {
             if (sub_080AA2E0(this) != 0) {
@@ -127,14 +127,14 @@ void MandiblesProjectile_Action3(Entity* this) {
         }
     }
     if (entity->confusedTime == 0) {
-        if (this->field_0xf != 0) {
-            this->field_0xf -= 1;
+        if (this->subtimer != 0) {
+            this->subtimer -= 1;
         } else {
             UpdateAnimationSingleFrame(this);
             if ((this->frame & ANIM_DONE) != 0) {
                 this->action = 4;
                 this->field_0x82.HALF.LO = 3;
-                this->field_0xf = 0x40;
+                this->subtimer = 0x40;
                 uVar1 = entity->animationState;
                 this->direction = uVar1 << 2;
                 this->animationState = uVar1 << 0x1a >> 0x1a;
@@ -163,8 +163,8 @@ void MandiblesProjectile_Action4(Entity* this) {
         if (entity->next == NULL) {
             this->child = NULL;
         }
-        if (this->field_0xf != 0) {
-            this->field_0xf -= 1;
+        if (this->subtimer != 0) {
+            this->subtimer -= 1;
         } else {
             if (sub_080AA374(this) != 0) {
                 if (entity->health == 0) {
@@ -174,7 +174,7 @@ void MandiblesProjectile_Action4(Entity* this) {
                 this->action = 1;
                 this->animationState = 0xff;
                 this->field_0x82.HALF.LO = 0;
-                this->actionDelay = 0;
+                this->timer = 0;
                 this->field_0x80.HWORD = 0x20;
                 this->spriteOrientation.flipY = 2;
                 this->parent = this->child;
@@ -185,8 +185,8 @@ void MandiblesProjectile_Action4(Entity* this) {
                 entity->direction = entity->animationState << 2;
                 entity->speed = 0;
                 entity->field_0x82.HALF.LO = 1;
-                entity->actionDelay = 0;
-                entity->field_0xf = 0x78;
+                entity->timer = 0;
+                entity->subtimer = 0x78;
                 entity->field_0x80.HWORD = 0x20;
                 sub_080AA3E0(entity, 1);
             }
@@ -235,7 +235,7 @@ void sub_080AA270(Entity* this) {
     u32 animationState;
     Entity* parent;
     parent = this->parent;
-    this->field_0xf = gUnk_08129CA4[Random() & 7];
+    this->subtimer = gUnk_08129CA4[Random() & 7];
     animationState = parent->animationState;
     if (this->animationState == 0xff) {
         this->animationState = animationState;
@@ -278,9 +278,9 @@ void sub_080AA320(Entity* this) {
     parent = this->parent;
     this->action = 2;
     this->field_0x82.HALF.LO = 1;
-    this->field_0xf = 0;
+    this->subtimer = 0;
     parent->action = 2;
-    parent->field_0xf = 0x30;
+    parent->subtimer = 0x30;
     parent->field_0x80.HWORD = 0x50;
     parent->speed = 0;
     parent->direction = sub_08049F84(parent, 0);

@@ -58,7 +58,7 @@ void VaatiProjectile_OnTick(Entity* this) {
 void VaatiProjectile_OnCollision(Entity* this) {
     Entity* entity;
 
-    if (this->bitfield == 0x80) {
+    if (this->contactFlags == 0x80) {
 #ifndef EU
         if (this->health != 0) {
 #endif
@@ -87,7 +87,7 @@ void VaatiProjectile_OnCollision(Entity* this) {
 
 void VaatiProjectile_OnDeath(Entity* this) {
     if (this->parent != NULL) {
-        this->parent->field_0xf--;
+        this->parent->subtimer--;
         this->parent = NULL;
     }
     GenericDeath(this);
@@ -130,7 +130,7 @@ void VaatiProjectileFunction0Action1(Entity* this) {
     sub_0803E480(this);
     if (PlayerInRange(this, 0, 8) != 0) {
         this->action = 2;
-        this->actionDelay = 10;
+        this->timer = 10;
         InitializeAnimation(this->child, 2);
     } else {
         if (gUnk_020000B0 != NULL) {
@@ -142,8 +142,8 @@ void VaatiProjectileFunction0Action1(Entity* this) {
 }
 
 void VaatiProjectileFunction0Action2(Entity* this) {
-    if (this->actionDelay != 0) {
-        this->actionDelay--;
+    if (this->timer != 0) {
+        this->timer--;
     } else {
         if (++this->z.HALF.HI == 0) {
             this->action = 3;
@@ -156,7 +156,7 @@ void VaatiProjectileFunction0Action3(Entity* this) {
     if (this->child->frame & ANIM_DONE) {
         if (--this->z.HALF.HI <= -0x18) {
             this->action = 4;
-            this->actionDelay = (Random() & 0xf) + 0xf;
+            this->timer = (Random() & 0xf) + 0xf;
             InitializeAnimation(this->child, 1);
         }
         GetNextFrame(this);
@@ -164,7 +164,7 @@ void VaatiProjectileFunction0Action3(Entity* this) {
 }
 
 void VaatiProjectileFunction0Action4(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 1;
         this->direction = GetFacingDirection(this, &gPlayerEntity);
     }
@@ -173,19 +173,19 @@ void VaatiProjectileFunction0Action4(Entity* this) {
 
 void VaatiProjectileFunction0Action5(Entity* this) {
     sub_0803E444(this);
-    if (this->actionDelay != 0) {
-        this->actionDelay--;
+    if (this->timer != 0) {
+        this->timer--;
     } else {
         if (-0x18 < --this->z.HALF.HI) {
             return;
         }
         this->action = 6;
-        this->actionDelay = 0x14;
+        this->timer = 0x14;
     }
 }
 
 void VaatiProjectileFunction0Action6(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 7;
         this->direction = 0x10;
         this->speed = 0x300;
@@ -216,7 +216,7 @@ void VaatiProjectileFunction0Action9(Entity* this) {
     this->y.HALF.HI = gPlayerEntity.y.HALF.HI;
     if (this->z.HALF.HI < -8) {
         if (this->animIndex != 2) {
-            this->actionDelay = 0;
+            this->timer = 0;
             InitializeAnimation(this->child, 2);
         }
         VaatiProjectileFunction0Action2(this);
@@ -229,7 +229,7 @@ void sub_0803E444(Entity* this) {
     ResetPlayerItem();
     gPlayerState.mobility = gPlayerState.mobility | 0x80;
     gPlayerState.field_0xa = gPlayerState.field_0xa | 0x80;
-    sub_0806FA90(this, this->field_0x4c, 0, -2);
+    sub_0806FA90(this, this->contactedEntity, 0, -2);
     gPlayerEntity.spriteOffsetY += 0xe;
 }
 

@@ -38,7 +38,7 @@ void sub_0806C798(Entity* this) {
     if (iVar1 != 0) {
         this->action = 1;
         this->spriteSettings.draw = 1;
-        this->animationState = this->actionDelay;
+        this->animationState = this->timer;
         sub_0807DD50(this);
         sub_0806C7D4(this);
     }

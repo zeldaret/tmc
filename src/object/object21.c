@@ -33,8 +33,8 @@ void Object21(Object21Entity* this) {
     };
     gUnk_08120A68[super->action](this);
     GetNextFrame(super);
-    if (super->actionDelay != 0) {
-        super->actionDelay--;
+    if (super->timer != 0) {
+        super->timer--;
     } else {
         if (super->animIndex == 0xa) {
             InitializeAnimation(super, 0xd);
@@ -79,14 +79,14 @@ void sub_08087A10(Object21Entity* this) {
         case 3:
             super->flags |= ENT_COLLIDE;
             super->health = 1;
-            super->field_0x3c = 7;
+            super->collisionFlags = 7;
             super->hitType = 0xaa;
             super->flags2 = 0x0e;
             super->hitbox = (Hitbox*)&gUnk_08120A8C;
-            super->field_0x1c = 0;
+            super->gustJarFlags = 0;
         case 2:
             rand = Random();
-            super->actionDelay = gUnk_08120A7A[rand & 3];
+            super->timer = gUnk_08120A7A[rand & 3];
             tmp = (rand >> 8) & 3;
             if ((rand & 0x10) != 0) {
                 tmp = -tmp;
@@ -104,12 +104,12 @@ void sub_08087A10(Object21Entity* this) {
 
 void sub_08087AFC(Object21Entity* this) {
     Object21Entity* entity;
-    if ((super->bitfield & 0x80) == 0) {
+    if ((super->contactFlags & 0x80) == 0) {
         return;
     }
-    switch (super->bitfield & 0x7f) {
+    switch (super->contactFlags & 0x7f) {
         case 0x16:
-            super->direction = GetFacingDirection(super->field_0x4c, super);
+            super->direction = GetFacingDirection(super->contactedEntity, super);
             super->speed = 0x100;
             break;
         case 0x13:
@@ -118,7 +118,7 @@ void sub_08087AFC(Object21Entity* this) {
             break;
         case 0x1b:
         case 0x1c:
-            entity = (Object21Entity*)super->field_0x4c;
+            entity = (Object21Entity*)super->contactedEntity;
             super->direction = CalculateDirectionTo(entity->unk_84, entity->unk_80, super->x.WORD, super->y.WORD);
             super->speed = 0x100;
             break;
@@ -131,7 +131,7 @@ void sub_08087B58(Object21Entity* this) {
         sub_08087B9C,
         sub_08087B9C,
     };
-    if ((super->bitfield & 0x80) != 0) {
+    if ((super->contactFlags & 0x80) != 0) {
         gUnk_08120A80[super->subAction](this);
     } else {
         super->action = 1;
@@ -143,7 +143,7 @@ const Hitbox gUnk_08120A8C = { 0, 0, { 6, 3, 3, 6 }, 3, 3 };
 void sub_08087B88(Object21Entity* this) {
     super->knockbackSpeed = 0x100;
     super->subAction = 1;
-    super->field_0x1d = 1;
+    super->gustJarTolerance = 1;
 }
 
 void sub_08087B9C(Object21Entity* this) {

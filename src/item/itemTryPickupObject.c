@@ -23,7 +23,7 @@ void ItemPickupCheck(ItemBehavior* this, u32 idx) {
 
         switch (sub_080789A8()) {
             case 2:
-                if (((gCarriedEntity.unk_8)->field_0x16 & 0xf) == 0) {
+                if (((gCarriedEntity.unk_8)->carryFlags & 0xf) == 0) {
                     sub_08076088(this, gCarriedEntity.unk_8, idx);
                     return;
                 }
@@ -75,7 +75,7 @@ void sub_08076488(ItemBehavior* this, u32 idx) {
 
     if (this->field_0x5[2] == 0) {
         if (PlayerTryDropObject(this, idx) != 0) {
-            if ((((this->field_0x18->field_0x16) & 0xf0) == 0x10) && ((gRoomTransition.frameCount & 1U) != 0)) {
+            if ((((this->field_0x18->carryFlags) & 0xf0) == 0x10) && ((gRoomTransition.frameCount & 1U) != 0)) {
                 return;
             }
             UpdateItemAnim(this);

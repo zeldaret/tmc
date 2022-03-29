@@ -24,7 +24,7 @@ void Object81(Entity* this) {
 
 void Object81_Init(Object81Entity* this) {
     super->action = 1;
-    super->actionDelay = 0;
+    super->timer = 0;
     this->tilePos = COORD_TO_TILE(super);
     if (gPlayerState.flags & PL_MINISH) {
         super->collisionLayer = 2;

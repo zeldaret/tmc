@@ -594,7 +594,7 @@ SECTIONS {
         src/npc/npc58.o(.text);
         /* END npcs */
         src/npcUtils.o(.text);
-        src/coord.o(.text); /* physics? */
+        src/physics.o(.text);
         src/playerItem/playerItemPacciCaneProjectile.o(.text);
         src/playerItem/playerItemPacciCane.o(.text);
         src/player.o(.text);
@@ -1304,7 +1304,7 @@ SECTIONS {
         data/const/npc/npc58.o(.rodata);
         src/npcDefinitions.o(.rodata);
         data/data_081146D0.o(.rodata);
-        src/coord.o(.rodata);
+        src/physics.o(.rodata);
         src/playerHitbox.o(.rodata);
         data/gfx/sprite_frames.o(.rodata);
         src/playerItem/playerItemPacciCaneProjectile.o(.rodata);

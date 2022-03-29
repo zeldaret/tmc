@@ -31,18 +31,18 @@ void Crow(Entity* this) {
 
 void Crow_OnTick(CrowEntity* this) {
     gUnk_080CE990[super->action](this);
-    if (super->field_0xf) {
-        if (--super->field_0xf == 0) {
+    if (super->subtimer) {
+        if (--super->subtimer == 0) {
             COLLISION_ON(super);
         }
     }
 }
 
 void Crow_OnCollision(CrowEntity* this) {
-    if (super->bitfield & 0x80) {
-        if ((super->bitfield & 0x3f) == 0) {
+    if (super->contactFlags & 0x80) {
+        if ((super->contactFlags & 0x3f) == 0) {
             COLLISION_OFF(super);
-            super->field_0xf = 0x10;
+            super->subtimer = 0x10;
             if (DirectionIsHorizontal(DirectionRoundUp(super->direction)) == 0) {
                 if (DirectionIsVertical(super->direction)) {
                     super->direction += 2;
@@ -74,14 +74,14 @@ void Crow_OnGrabbed(CrowEntity* this) {
     super->action = 2;
     super->subAction = 0;
     this->unk_84 = 2;
-    super->actionDelay = 8;
+    super->timer = 8;
     super->speed = 0x1c0;
     sub_08032AF4(this);
 }
 
 void sub_08032900(CrowEntity* this) {
     super->subAction = 1;
-    super->field_0x1d = 0x3c;
+    super->gustJarTolerance = 0x3c;
 }
 
 void sub_0803290C(CrowEntity* this) {
@@ -98,12 +98,12 @@ void sub_08032928(CrowEntity* this) {
     sub_0804A720(super);
 
     super->action = 1;
-    super->field_0xf = 0;
+    super->subtimer = 0;
     super->direction = sub_08049F84(super, 1);
     this->unk_80 = 0;
     this->unk_81 = 0;
-    super->field_0x1c = 1;
-    super->field_0x3c |= 0x10;
+    super->gustJarFlags = 1;
+    super->collisionFlags |= 0x10;
     super->collisionLayer = 3;
     super->spriteOrientation.flipY = 1;
     this->unk_78 = super->x.HALF.HI;
@@ -125,7 +125,7 @@ void sub_0803298C(CrowEntity* this) {
 
     super->action = 2;
     this->unk_84 = 0;
-    super->actionDelay = 0x10;
+    super->timer = 0x10;
     this->unk_81 = 2;
     sub_08032AF4(this);
 }
@@ -156,7 +156,7 @@ void sub_08032A48(CrowEntity* this) {
     super->action = 1;
     super->spriteSettings.draw = 1;
     COLLISION_OFF(super);
-    super->actionDelay = 8;
+    super->timer = 8;
     super->direction = sub_08049F84(super, 1);
     this->unk_80 = 0;
     super->spritePriority.b1 = 3;
@@ -168,7 +168,7 @@ void sub_08032A48(CrowEntity* this) {
 
 void sub_08032AB0(CrowEntity* this) {
     u32 dir;
-    if (--super->actionDelay)
+    if (--super->timer)
         return;
 
     this->unk_80 = super->direction;
@@ -177,7 +177,7 @@ void sub_08032AB0(CrowEntity* this) {
         super->direction = dir;
     }
 
-    super->actionDelay = 8;
+    super->timer = 8;
     if (DirectionIsVertical(this->unk_80) != DirectionIsVertical(super->direction)) {
         sub_08032AF4(this);
     }
@@ -200,22 +200,22 @@ void sub_08032B38(CrowEntity* this) {
     u32 temp;
     switch (this->unk_84) {
         case 0:
-            if (super->actionDelay & 1) {
+            if (super->timer & 1) {
                 super->z.HALF.HI--;
             }
 
-            if (--super->actionDelay == 0) {
+            if (--super->timer == 0) {
                 this->unk_84 = 1;
-                super->actionDelay = 0x18;
+                super->timer = 0x18;
                 COLLISION_ON(super);
                 this->unk_81 = 2;
                 sub_08032AF4(this);
             }
             break;
         case 1:
-            if (--super->actionDelay == 0) {
+            if (--super->timer == 0) {
                 this->unk_84 = 2;
-                super->actionDelay = 8;
+                super->timer = 8;
                 super->speed = 0x1c0;
                 this->unk_81 = 4;
                 sub_08032AF4(this);
@@ -225,15 +225,15 @@ void sub_08032B38(CrowEntity* this) {
             if (--this->unk_82 == 0) {
                 super->action = 3;
                 this->unk_84 = 0;
-                super->actionDelay = 0;
+                super->timer = 0;
                 super->speed = 0x180;
                 if ((super->direction + 0x18) & 0x10) {
                     super->direction = (0x10 - super->direction) & 0x1f;
                 }
 
                 sub_08032AF4(this);
-            } else if (--super->actionDelay == 0) {
-                super->actionDelay = 8;
+            } else if (--super->timer == 0) {
+                super->timer = 8;
                 this->unk_80 = super->direction;
                 sub_08004596(super, sub_08049F84(super, 1));
 

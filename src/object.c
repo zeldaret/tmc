@@ -207,7 +207,7 @@ void ObjectUpdate(Entity* this) {
         this->iframes++;
     if (!EntityIsDeleted(this)) {
         gObjectFunctions[this->id](this);
-        this->bitfield &= ~0x80;
+        this->contactFlags &= ~0x80;
     }
     DrawEntity(this);
 }

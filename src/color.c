@@ -6,7 +6,7 @@
 #include "global.h"
 #include "fileselect.h"
 #include "main.h"
-#include "coord.h"
+#include "physics.h"
 
 extern Palette gUnk_02001A3C;
 

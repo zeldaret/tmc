@@ -40,7 +40,7 @@ void ScissorsBeetle_OnCollision(ScissorsBeetleEntity* this) {
     }
 
     EnemyFunctionHandlerAfterCollision(super, ScissorsBeetle_Functions);
-    if ((super->bitfield & 0x80) && super->action != 4) {
+    if ((super->contactFlags & 0x80) && super->action != 4) {
         u32 knockbackDir;
         child = super->child;
         child->iframes = super->iframes;
@@ -88,13 +88,13 @@ void sub_080389E8(ScissorsBeetleEntity* this) {
         if (--this->unk_80 == 0) {
             super->speed = 0x80;
         }
-    } else if (--super->field_0xf == 0) {
+    } else if (--super->subtimer == 0) {
         sub_08038BA8(this);
         sub_08038C2C((ScissorsBeetleEntity*)child);
-    } else if (super->actionDelay) {
-        super->actionDelay--;
+    } else if (super->timer) {
+        super->timer--;
     } else if (super->collisions != COL_NONE) {
-        super->actionDelay = 0xc;
+        super->timer = 0xc;
         if ((child->animationState & 1) == 0) {
             child->animationState += Random() & 0x20 ? 1 : 7;
             child->animationState &= 7;
@@ -113,18 +113,18 @@ void sub_08038A70(ScissorsBeetleEntity* this) {
         super->action = 3;
         this->unk_82 = 4;
         super->speed = 0x80;
-        super->field_0xf = 0x20;
+        super->subtimer = 0x20;
         child->action = 3;
         ((ScissorsBeetleEntity*)child)->unk_82 = 2;
         child->animationState = 0xff;
         sub_08038C84(this, 0);
         sub_08038C2C((ScissorsBeetleEntity*)child);
-        child->field_0xf = 0x20;
+        child->subtimer = 0x20;
         child->parent = NULL;
         child->child = super;
-    } else if (--super->field_0xf == 0) {
+    } else if (--super->subtimer == 0) {
         u32 dir;
-        super->field_0xf = 0x10;
+        super->subtimer = 0x10;
         super->direction = sub_08049F84(super, 0);
         dir = (super->direction + 4) & 0x1c;
         child->animationState = dir >> 2;
@@ -137,8 +137,8 @@ void sub_08038A70(ScissorsBeetleEntity* this) {
 }
 
 void sub_08038B08(ScissorsBeetleEntity* this) {
-    if (super->field_0xf) {
-        super->field_0xf--;
+    if (super->subtimer) {
+        super->subtimer--;
         return;
     }
 
@@ -146,8 +146,8 @@ void sub_08038B08(ScissorsBeetleEntity* this) {
     if (super->frame & ANIM_DONE) {
         super->action = 4;
         this->unk_82 = 3;
-        super->actionDelay = 0x32;
-        super->field_0xf = 2;
+        super->timer = 0x32;
+        super->subtimer = 2;
         super->direction = ((super->animationState << 2) + 0x10) & 0x1f;
         super->speed = 0x80;
         sub_08038C84(this, 0);
@@ -158,8 +158,8 @@ void sub_08038B08(ScissorsBeetleEntity* this) {
 void sub_08038B64(ScissorsBeetleEntity* this) {
     ProcessMovement0(super);
     UpdateAnimationSingleFrame(super);
-    if (--super->field_0xf == 0) {
-        super->field_0xf = 2;
+    if (--super->subtimer == 0) {
+        super->subtimer = 2;
         super->direction = DirectionNormalize(super->direction + 0x1f);
     }
 }
@@ -174,7 +174,7 @@ void sub_08038BA8(ScissorsBeetleEntity* this) {
     Entity* child;
     u32 r3;
     u32 animationState;
-    super->field_0xf = gUnk_080CF62C[Random() & 7];
+    super->subtimer = gUnk_080CF62C[Random() & 7];
     this->unk_82 = 1;
     ((ScissorsBeetleEntity*)super->child)->unk_82 = 0;
 
@@ -207,7 +207,7 @@ void sub_08038BA8(ScissorsBeetleEntity* this) {
 
 void sub_08038C2C(ScissorsBeetleEntity* this) {
     u32 parentAnimState;
-    super->field_0xf = gUnk_080CF634[Random() & 7];
+    super->subtimer = gUnk_080CF634[Random() & 7];
     parentAnimState = super->parent->animationState;
     if (super->animationState == 0xff) {
         super->animationState = parentAnimState;

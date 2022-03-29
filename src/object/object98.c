@@ -30,14 +30,14 @@ void sub_0809E360(Object98Entity* this) {
     Entity* projEnt;
     u32 index;
 
-    if (8 < super->actionDelay) {
-        super->actionDelay = 8;
+    if (8 < super->timer) {
+        super->timer = 8;
     }
 
-    if (0x48 - super->actionDelay > gEntCount) {
-        for (index = 0; index < super->actionDelay; index++) {
+    if (0x48 - super->timer > gEntCount) {
+        for (index = 0; index < super->timer; index++) {
             projEnt = CreateProjectile(GURUGURU_BAR_PROJECTILE);
-            projEnt->actionDelay = 14 + 12 * index;
+            projEnt->timer = 14 + 12 * index;
             projEnt->parent = super;
         }
 

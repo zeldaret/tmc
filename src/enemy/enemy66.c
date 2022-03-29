@@ -4,8 +4,8 @@ void (*const gUnk_080D2ABC[])(Entity*);
 extern void sub_08029270(Entity* this);
 
 void Enemy66(Entity* this) {
-    if (gUnk_080D2ABC[this->field_0xf]) {
-        gUnk_080D2ABC[this->field_0xf](this);
+    if (gUnk_080D2ABC[this->subtimer]) {
+        gUnk_080D2ABC[this->subtimer](this);
     } else {
         DeleteThisEntity();
     }

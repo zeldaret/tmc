@@ -36,7 +36,7 @@ void sub_0808434C(ObjectDEntity* this) {
     super->action = 1;
     super->flags |= 0x80;
     super->spriteSettings.draw = 1;
-    super->field_0x3c = 7;
+    super->collisionFlags = 7;
     super->hitType = 1;
     super->hurtType = 0x47;
     super->flags2 = 2;
@@ -52,7 +52,7 @@ void sub_0808434C(ObjectDEntity* this) {
 }
 
 void sub_080843F8(ObjectDEntity* this) {
-    if (super->bitfield == 0x9c) {
+    if (super->contactFlags == 0x9c) {
         super->action = 2;
         super->flags &= 0x7f;
         CreateFx(super, FX_ICE, 0);

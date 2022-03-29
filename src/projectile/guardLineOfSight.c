@@ -1,6 +1,6 @@
 #include "entity.h"
 #include "asm.h"
-#include "coord.h"
+#include "physics.h"
 #include "functions.h"
 #include "projectile.h"
 #include "hitbox.h"
@@ -17,26 +17,26 @@ void GuardLineOfSight(Entity* this) {
     if (this->type == 0) {
         if (this->action == 0) {
             this->action = 1;
-            this->actionDelay = Random();
+            this->timer = Random();
             this->spriteSettings.draw = 0;
         }
-        if (this->bitfield == 0x80) {
+        if (this->contactFlags == 0x80) {
             if (this->parent != NULL) {
                 this->parent->type = 0xff;
             }
             DeleteThisEntity();
         }
         CopyPosition(this->parent, this);
-        if (this->field_0xf != 0) {
-            this->field_0xf -= 1;
+        if (this->subtimer != 0) {
+            this->subtimer -= 1;
         } else {
             if (sub_080644C8(this) != 0) {
-                if (((this->actionDelay++) & 3) == 0) {
+                if (((this->timer++) & 3) == 0) {
                     entity = CreateProjectile(GUARD_LINE_OF_SIGHT);
                     if (entity != NULL) {
                         entity->type = 1;
                         tmp = this->parent->knockbackDirection;
-                        entity->direction = (gUnk_081299C8[(this->actionDelay >> 2 & 7)] + (tmp << 3)) & 0x1f;
+                        entity->direction = (gUnk_081299C8[(this->timer >> 2 & 7)] + (tmp << 3)) & 0x1f;
                         entity->parent = this->parent;
                         CopyPosition(this, entity);
                     }
@@ -46,19 +46,19 @@ void GuardLineOfSight(Entity* this) {
     } else {
         if (this->action == 0) {
             this->action = 1;
-            this->actionDelay = 0x12;
+            this->timer = 0x12;
             this->spriteSettings.draw = 0;
             this->speed = 0x800;
             this->hitbox = (Hitbox*)&gUnk_080FD1E4;
             InitializeAnimation(this, 0);
         }
-        if (this->bitfield == 0x80) {
+        if (this->contactFlags == 0x80) {
             if (this->parent != NULL) {
                 this->parent->type = 0xff;
             }
             DeleteThisEntity();
         }
-        if (--this->actionDelay == 0) {
+        if (--this->timer == 0) {
             DeleteThisEntity();
         }
         LinearMoveUpdate(this);

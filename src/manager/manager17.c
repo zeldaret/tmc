@@ -35,7 +35,7 @@ void sub_0805AD80(Manager17* manager) {
     if (CheckFlags(manager->field_0x3e) != 0) {
         Entity* object = CreateObject(GROUND_ITEM, manager->manager.unk_0a, manager->manager.unk_0b);
         if (object != NULL) {
-            object->actionDelay = manager->field_0x35;
+            object->timer = manager->field_0x35;
             object->collisionLayer = manager->field_0x36;
             object->x.HALF.HI = manager->field_0x38 + gRoomControls.origin_x;
             object->y.HALF.HI = manager->field_0x3a + gRoomControls.origin_y;

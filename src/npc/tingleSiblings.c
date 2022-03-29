@@ -26,7 +26,7 @@ void sub_08064D78(Entity* this) {
 
 void sub_08064D90(Entity* this) {
     InitAnimationForceUpdate(this, 2);
-    this->field_0xf = 1;
+    this->subtimer = 1;
 }
 
 void sub_08064DA0(Entity* this) {

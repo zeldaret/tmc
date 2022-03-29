@@ -89,7 +89,7 @@ void Object30_Action2(Object30Entity* this) {
             }
             // fallthrough
         case 1:
-            tmp = gUnk_08121194[(super->field_0xf++ >> 3) & 7];
+            tmp = gUnk_08121194[(super->subtimer++ >> 3) & 7];
             super->z.HALF.HI = tmp << 0x18 >> 0x18;
             if (!IsCollidingPlayer(super)) {
                 return;
@@ -102,12 +102,12 @@ void Object30_Action2(Object30Entity* this) {
 
 void sub_0808A968(Object30Entity* this) {
     super->action = 2;
-    super->actionDelay = 0x1e;
+    super->timer = 0x1e;
     super->spriteSettings.draw = 1;
     super->zVelocity = 0x28000;
     super->spritePriority.b1 = 3;
     super->spriteSettings.shadow = 0;
-    super->field_0x3c |= 0x10;
+    super->collisionFlags |= 0x10;
     super->hitbox = (Hitbox*)&gUnk_08121C58;
     SetDefaultPriority(super, 2);
     this->unk_70 = 0x2800;

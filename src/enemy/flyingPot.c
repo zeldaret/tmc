@@ -95,7 +95,7 @@ void FlyingPot_OnTick(FlyingPotEntity* this) {
 void FlyingPot_OnCollision(FlyingPotEntity* this) {
     sub_08037418(this);
 
-    if (super->bitfield == 0x9D) {
+    if (super->contactFlags == 0x9D) {
         super->action = FLYING_POT_ACTION_6;
         COLLISION_OFF(super);
         super->zVelocity = 0x2A000;
@@ -122,8 +122,8 @@ void FlyingPot_SubAction0(FlyingPotEntity* this) {
     sub_08037418(this);
 
     super->subAction = FLYING_POT_SUBACTION_1;
-    super->actionDelay = 0;
-    super->field_0x1d = 0x30;
+    super->timer = 0;
+    super->gustJarTolerance = 0x30;
 }
 
 void FlyingPot_SubAction1(FlyingPotEntity* this) {
@@ -141,9 +141,9 @@ void FlyingPot_SubAction1(FlyingPotEntity* this) {
 }
 
 void FlyingPot_SubAction2(FlyingPotEntity* this) {
-    if (super->actionDelay == 0) {
+    if (super->timer == 0) {
         sub_08037418(this);
-        super->actionDelay = 1;
+        super->timer = 1;
         COLLISION_OFF(super);
         super->spriteOffsetX = 0;
 
@@ -174,7 +174,7 @@ void FlyingPot_Init(FlyingPotEntity* this) {
     u32 tile;
 
     super->action = FLYING_POT_ACTION_1;
-    super->field_0x1c = 2;
+    super->gustJarFlags = 2;
     super->y.HALF.HI += 3;
 
     tile = TILE(super->x.HALF.HI, super->y.HALF.HI);
@@ -193,7 +193,7 @@ void FlyingPot_Action1(FlyingPotEntity* this) {
 
     if (PlayerInRange(super, 1, 0x40)) {
         super->action = FLYING_POT_ACTION_2;
-        super->actionDelay = 30;
+        super->timer = 30;
     }
 }
 
@@ -202,9 +202,9 @@ void FlyingPot_Action2(FlyingPotEntity* this) {
 
     sub_08037418(this);
 
-    super->spriteOffsetX += offsets[super->actionDelay & 3];
+    super->spriteOffsetX += offsets[super->timer & 3];
 
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->action = FLYING_POT_ACTION_3;
         super->spritePriority.b1 = 1;
         super->spriteOffsetX = 0;
@@ -221,13 +221,13 @@ void FlyingPot_Action3(FlyingPotEntity* this) {
 
     if (super->z.HALF.HI <= -6) {
         super->action = FLYING_POT_ACTION_4;
-        super->actionDelay = 10;
+        super->timer = 10;
         super->direction = GetFacingDirection(super, &gPlayerEntity);
     }
 }
 
 void FlyingPot_Action4(FlyingPotEntity* this) {
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->action = FLYING_POT_ACTION_5;
     }
 }

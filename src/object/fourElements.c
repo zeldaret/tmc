@@ -92,7 +92,7 @@ void FourElements_Action2(FourElementsEntity* this) {
         DeleteEntity(super->child);
         super->spriteSettings.draw = 0;
         super->action = 3;
-        super->actionDelay = 0x2d;
+        super->timer = 0x2d;
         gScreen.controls.layerFXControl = 0x640;
         gScreen.controls.alphaBlend = 0;
         InitItemGetSequence(super->type, 0, 1);
@@ -106,9 +106,9 @@ void FourElements_Action2(FourElementsEntity* this) {
 }
 
 void FourElements_Action3(FourElementsEntity* this) {
-    if (super->actionDelay != 0) {
+    if (super->timer != 0) {
         sub_080A0424(this);
-        if (--super->actionDelay == 0) {
+        if (--super->timer == 0) {
             SetDefaultPriority(&gPlayerEntity, 0);
         }
     } else {
@@ -159,7 +159,7 @@ void sub_080A0444(FourElementsEntity* this) {
     static const u8 gUnk_081248B4[] = {
         249, 248, 247, 246, 245, 246, 247, 248,
     };
-    super->z.HALF.HI = gUnk_081248B4[(super->field_0xf++ >> 3) & 7] << 0x18 >> 0x18;
+    super->z.HALF.HI = gUnk_081248B4[(super->subtimer++ >> 3) & 7] << 0x18 >> 0x18;
 }
 
 void sub_080A0464(FourElementsEntity* this, ScriptExecutionContext* context) {

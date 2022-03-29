@@ -83,16 +83,16 @@ void sub_08040B9C(Enemy50Entity* this) {
         sub_0803F6EC(this);
     }
     if (super->hitType == 0x25) {
-        if (super->bitfield == 0x80) {
+        if (super->contactFlags == 0x80) {
             super->action = 8;
             InitializeAnimation(super, 3);
             goto _08040C9C;
         }
-    } else if (super->bitfield == 0x80) {
+    } else if (super->contactFlags == 0x80) {
         this->unk_7c = 0x78;
         sub_08041128(this);
     }
-    if (super->bitfield == 0x9d) {
+    if (super->contactFlags == 0x9d) {
         super->zVelocity = 0x18000;
     }
     if (super->confusedTime != 0) {
@@ -111,7 +111,7 @@ void sub_08040B9C(Enemy50Entity* this) {
             super->flags |= 0x80;
             super->health = 0xff;
             super->action = 0xa;
-            super->actionDelay = 0x3c;
+            super->timer = 0x3c;
         }
         this->unk_7a = super->health;
     }
@@ -164,7 +164,7 @@ void sub_08040D90(Enemy50Entity* this) {
 
 void Enemy50_SubAction0(Enemy50Entity* this) {
     super->subAction = 1;
-    super->field_0x1d = 0x3c;
+    super->gustJarTolerance = 0x3c;
     InitializeAnimation(super, (gPlayerEntity.animationState >> 2) + 5);
 }
 
@@ -195,13 +195,13 @@ void Enemy50_Init(Enemy50Entity* this) {
     rand = Random();
     super->direction = rand & 0x1e;
     super->animationState = 0xff;
-    super->field_0x1c = 1;
+    super->gustJarFlags = 1;
     this->unk_7a = super->health;
     this->unk_7b = rand >> 4;
     this->unk_7c = 0;
     if (super->type == 0) {
         super->action = 1;
-        super->child = (Entity*)GetCurrentRoomProperty(super->actionDelay);
+        super->child = (Entity*)GetCurrentRoomProperty(super->timer);
     } else {
         sub_080411CC(this);
     }
@@ -210,12 +210,12 @@ void Enemy50_Init(Enemy50Entity* this) {
 void Enemy50_Action1(Enemy50Entity* this) {
     if (sub_080411E8(this)) {
         super->action = 2;
-        super->actionDelay = 0x0f;
+        super->timer = 0x0f;
     }
 }
 
 void Enemy50_Action2(Enemy50Entity* this) {
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         sub_080411CC(this);
         sub_0804122C(this);
     }
@@ -234,7 +234,7 @@ void Enemy50_Action4(Enemy50Entity* this) {
     if (sub_08041170(this) == 0) {
         sub_0803F58C(this);
         GetNextFrame(super);
-        if (--super->actionDelay == 0) {
+        if (--super->timer == 0) {
             sub_08041128(this);
         }
     }
@@ -250,7 +250,7 @@ void Enemy50_Action5(Enemy50Entity* this) {
         if (--this->unk_78 == 0) {
             super->action = 6;
             rand = Random();
-            super->actionDelay = rand & 0xe0;
+            super->timer = rand & 0xe0;
             super->speed = 0x100;
             this->unk_7e = ((rand >> 8) & 0x78) + 0x3c;
         }
@@ -267,8 +267,8 @@ void Enemy50_Action6(Enemy50Entity* this) {
         sub_08041128(this);
     } else {
         if (!((sub_08049DF4(1) == 0) || (--this->unk_7e == 0))) {
-            tmp = super->actionDelay + 1;
-            super->actionDelay = tmp;
+            tmp = super->timer + 1;
+            super->timer = tmp;
             if ((tmp & gUnk_080D0E14[tmp * 0x1000000 >> 0x1e]) == 0) {
                 sub_08004596(super, GetFacingDirection(super, gUnk_020000B0));
             }
@@ -276,14 +276,14 @@ void Enemy50_Action6(Enemy50Entity* this) {
             ProcessMovement1(super);
         } else {
             super->action = 7;
-            super->actionDelay = 0x1e;
+            super->timer = 0x1e;
         }
     }
 }
 
 void Enemy50_Action7(Enemy50Entity* this) {
     GetNextFrame(super);
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         this->unk_7c = (Random() & 0xf8) + 0xb4;
         sub_08041128(this);
     }
@@ -327,7 +327,7 @@ void Enemy50_Action9(Enemy50Entity* this) {
 
 void Enemy50_Action10(Enemy50Entity* this) {
     GetNextFrame(super);
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         sub_08041128(this);
     }
 }
@@ -427,7 +427,7 @@ void sub_0804122C(Enemy50Entity* this) {
 
 #ifndef EU
 bool32 sub_08041300(Enemy50Entity* this) {
-    if ((super->hitType == 0x25) && (super->bitfield == 0x80)) {
+    if ((super->hitType == 0x25) && (super->contactFlags == 0x80)) {
         return TRUE;
     } else {
         return super->action == 8 || super->action == 9;

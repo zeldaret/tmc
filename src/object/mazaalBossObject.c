@@ -81,7 +81,7 @@ void MazaalBossObject_Action0(MazaalBossObjectEntity* this) {
         sub_080809D4();
     } else {
         super->action = MAZAAL_BOSS_OBJECT_ACTION_1;
-        super->actionDelay = 30;
+        super->timer = 30;
         super->frameIndex = gRoomTransition.field_0x38;
         super->spritePriority.b0 = 7;
         super->spriteOffsetY = 0x20;
@@ -95,27 +95,27 @@ void MazaalBossObject_Action1(MazaalBossObjectEntity* this) {
 }
 
 void MazaalBossObject_Action2(MazaalBossObjectEntity* this) {
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->action = MAZAAL_BOSS_OBJECT_ACTION_3;
-        super->actionDelay = 120;
+        super->timer = 120;
         gRoomControls.camera_target = super->child;
     }
 }
 
 void MazaalBossObject_Action3(MazaalBossObjectEntity* this) {
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->action = MAZAAL_BOSS_OBJECT_ACTION_4;
-        super->actionDelay = 90;
+        super->timer = 90;
         super->child->subAction = 1;
     }
 }
 
 void MazaalBossObject_Action4(MazaalBossObjectEntity* this) {
     if (super->child->subAction > 2) {
-        if (--super->actionDelay == 0) {
+        if (--super->timer == 0) {
             super->action = MAZAAL_BOSS_OBJECT_ACTION_5;
-            super->actionDelay = 8;
-            super->field_0xf = 0;
+            super->timer = 8;
+            super->subtimer = 0;
             super->spriteRendering.alphaBlend = BLDALPHA_BLEND(1, 0);
 
             gScreen.controls.layerFXControl =
@@ -128,25 +128,25 @@ void MazaalBossObject_Action4(MazaalBossObjectEntity* this) {
 void MazaalBossObject_Action5(MazaalBossObjectEntity* this) {
     u32 tmp;
 
-    if (--super->actionDelay == 0) {
-        super->actionDelay = 8;
+    if (--super->timer == 0) {
+        super->timer = 8;
 
-        tmp = ++super->field_0xf;
+        tmp = ++super->subtimer;
         tmp &= 0xFF;
         gScreen.controls.alphaBlend = BLDALPHA_BLEND((0x10 - tmp) & 0xFF, tmp);
 
-        if (super->field_0xf > 15) {
+        if (super->subtimer > 15) {
             super->spriteRendering.alphaBlend = BLDALPHA_BLEND(4, 0);
             gScreen.controls.layerFXControl = 0;
             super->action = MAZAAL_BOSS_OBJECT_ACTION_6;
-            super->actionDelay = 15;
+            super->timer = 15;
             super->spriteSettings.draw = 0;
         }
     }
 }
 
 void MazaalBossObject_Action6(MazaalBossObjectEntity* this) {
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->child->subAction = 6;
         gRoomTransition.field_0x38 = 0xF1;
 
@@ -155,18 +155,18 @@ void MazaalBossObject_Action6(MazaalBossObjectEntity* this) {
 }
 
 void MazaalBossObject_Action7(MazaalBossObjectEntity* this) {
-    if (super->child->actionDelay == 1) {
+    if (super->child->timer == 1) {
         super->action = MAZAAL_BOSS_OBJECT_ACTION_8;
         super->subAction = 0;
-        super->actionDelay = 180;
+        super->timer = 180;
     }
 }
 
 void MazaalBossObject_Action8(MazaalBossObjectEntity* this) {
     switch (super->subAction) {
         default:
-            if (--super->actionDelay == 0) {
-                super->actionDelay = 90;
+            if (--super->timer == 0) {
+                super->timer = 90;
                 super->subAction = 1;
                 SoundReq(SFX_SECRET_BIG);
                 SetFlag(0x31);
@@ -174,14 +174,14 @@ void MazaalBossObject_Action8(MazaalBossObjectEntity* this) {
             }
             break;
         case 1:
-            if (--super->actionDelay == 0) {
-                super->actionDelay = 120;
+            if (--super->timer == 0) {
+                super->timer = 120;
                 super->subAction = 2;
                 sub_0809AD68(this);
             }
             break;
         case 2:
-            if (--super->actionDelay == 0) {
+            if (--super->timer == 0) {
                 gRoomControls.camera_target = &gNewPlayerEntity.base;
                 gPlayerState.controlMode = CONTROL_1;
                 DeleteThisEntity();

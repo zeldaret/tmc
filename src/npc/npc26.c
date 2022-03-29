@@ -29,10 +29,10 @@ static void sub_080669DC(Entity* this) {
     if (sVar1 < 0) {
         sVar1 = 2;
     } else {
-        if (this->field_0xf == 0) {
-            this->field_0xf = 0x10;
+        if (this->subtimer == 0) {
+            this->subtimer = 0x10;
         } else {
-            this->field_0xf = this->field_0xf - 1;
+            this->subtimer = this->subtimer - 1;
             sVar1 = this->animIndex;
         }
     }

@@ -49,13 +49,13 @@ void sub_08062130(Entity* this) {
         this->action = 2;
         InitAnimationForceUpdate(this, GetAnimationState(this));
     }
-    if (this->field_0xf++ >= 0x79) {
-        this->field_0xf = 0;
-        this->actionDelay = (this->actionDelay + 1) & 7;
+    if (this->subtimer++ >= 0x79) {
+        this->subtimer = 0;
+        this->timer = (this->timer + 1) & 7;
         if (this->type == 6) {
-            this->actionDelay = this->actionDelay + 0x10;
+            this->timer = this->timer + 0x10;
         }
-        InitAnimationForceUpdate(this, this->actionDelay);
+        InitAnimationForceUpdate(this, this->timer);
     } else {
         UpdateAnimationSingleFrame(this);
     }
@@ -75,8 +75,8 @@ void sub_080621AC(Entity* this) {
         case 0:
             if (LoadExtraSpriteData(this, gUnk_0810BDC4[this->type]) != 0) {
                 this->action = 1;
-                this->animationState = this->actionDelay;
-                this->actionDelay = 0;
+                this->animationState = this->timer;
+                this->timer = 0;
                 this->field_0x68.HALF.LO = 0;
                 this->field_0x68.HALF.HI = 0;
                 this->field_0x6a.HALF.HI = 0xff;
@@ -213,12 +213,12 @@ void sub_08062698(Entity* this) {
 }
 
 void sub_080626AC(Entity* this) {
-    this->actionDelay = (Random() & 0x1f) + 0x40;
+    this->timer = (Random() & 0x1f) + 0x40;
 }
 
 void sub_080626C0(Entity* this, ScriptExecutionContext* context) {
     context->condition = 0;
-    if ((this->actionDelay != 0) && (--this->actionDelay == 0)) {
+    if ((this->timer != 0) && (--this->timer == 0)) {
         context->condition = 1;
     }
 }

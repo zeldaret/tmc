@@ -40,7 +40,7 @@ void Moldorm_OnCollision(Entity* this) {
         this->field_0x7a.HALF.HI = 30;
 
     this->field_0x7a.HALF.LO = this->health;
-    this->actionDelay = 1;
+    this->timer = 1;
     this->direction = this->knockbackDirection;
 
     this->animationState = ((this->direction + 2) & 0x1c) >> 2;
@@ -80,8 +80,8 @@ void sub_08022C58(Entity* this) {
 
     sub_0804A720(this);
     this->action = 1;
-    this->actionDelay = 1;
-    this->field_0xf = 1;
+    this->timer = 1;
+    this->subtimer = 1;
     COLLISION_ON(this);
     this->parent = this;
     this->child = tail0;
@@ -157,7 +157,7 @@ void sub_08022F14(Entity* this) {
     if (sub_08049FA0(this) == 0) {
         u32 bVar6 = (sub_08049EE4(this) - this->direction) & 0x1f;
         if (8 < ((bVar6 + 4) & 0x1f)) {
-            this->field_0xf = 8;
+            this->subtimer = 8;
             if (bVar6 < 0x10) {
                 this->field_0x78.HALF.LO = 1;
             } else {
@@ -166,11 +166,11 @@ void sub_08022F14(Entity* this) {
         }
     }
 
-    if (--this->actionDelay == 0) {
-        this->actionDelay = 4;
+    if (--this->timer == 0) {
+        this->timer = 4;
 
-        if (--this->field_0xf == 0) {
-            this->field_0xf = 8;
+        if (--this->subtimer == 0) {
+            this->subtimer = 8;
             this->field_0x78.HALF.LO = gUnk_080CBBC4[Random() & 1];
         }
 

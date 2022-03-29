@@ -18,7 +18,7 @@ void JarPortal(Entity* this) {
 void sub_0808BE9C(Entity* this) {
     COLLISION_ON(this);
     this->hitType = 1;
-    this->field_0x3c = 0x47;
+    this->collisionFlags = 0x47;
     this->hurtType = 0x44;
     this->flags2 = 0x80;
     this->field_0x68.HALF.LO = 0;
@@ -75,7 +75,7 @@ void sub_0808BF58(Entity* this) {
             UpdateAnimationSingleFrame(this);
             if (!this->z.HALF.HI) {
                 ++this->action;
-                this->field_0xf = 0;
+                this->subtimer = 0;
                 InitAnimationForceUpdate(this, 1);
                 sub_0808C148(this, 1);
             }
@@ -115,8 +115,8 @@ void sub_0808C01C(Entity* this, u32 r1) {
                 }
             }
             CreateMagicSparkles(this->x.HALF.HI, this->y.HALF.HI, this->collisionLayer);
-            if (this->field_0xf == 0) {
-                this->field_0xf = 1;
+            if (this->subtimer == 0) {
+                this->subtimer = 1;
                 SoundReq(SFX_NEAR_PORTAL);
             }
         }
@@ -151,7 +151,7 @@ void sub_0808C0AC(Entity* this) {
 }
 
 u32 sub_0808C128(Entity* this) {
-    return this->bitfield == 157;
+    return this->contactFlags == 157;
 }
 
 void sub_0808C13C(Entity* this) {

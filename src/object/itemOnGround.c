@@ -35,14 +35,14 @@ typedef struct {
 extern const Unk_0811E84C gUnk_0811E84C[];
 
 void ItemOnGround(Entity* this) {
-    if (this->bitfield & 0x80) {
-        switch (this->bitfield & 0x7F) {
+    if (this->contactFlags & 0x80) {
+        switch (this->contactFlags & 0x7F) {
             case 20:
                 this->action = 3;
                 COLLISION_OFF(this);
                 this->spriteSettings.draw = 1;
-                this->field_0x3c |= 0x10;
-                this->child = this->field_0x4c;
+                this->collisionFlags |= 0x10;
+                this->child = this->contactedEntity;
                 break;
             case 0:
             case 1:
@@ -83,7 +83,7 @@ void sub_08080F20(Entity* this) {
         this->spritePriority.b1 = 3;
         this->spriteSettings.shadow = 0;
         this->hitType = 7;
-        this->field_0x3c = 0x47;
+        this->collisionFlags = 0x47;
         this->hurtType = 0x44;
         this->health = 0xFF;
         this->hitbox = (Hitbox*)&gUnk_080FD1A8;
@@ -105,19 +105,19 @@ void sub_08080F20(Entity* this) {
                 break;
         }
 
-        this->field_0x68.HALF.HI = this->actionDelay;
+        this->field_0x68.HALF.HI = this->timer;
         this->field_0x6a.HALF.LO = 0;
         this->field_0x6c.HWORD = 0;
         this->field_0x68.HALF.LO = 0;
-        this->actionDelay = 0;
+        this->timer = 0;
         SetDefaultPriority(this, PRIO_NO_BLOCK);
-        this->field_0x1c = sub_0808147C(this->type);
+        this->gustJarFlags = sub_0808147C(this->type);
         gUnk_0811E7E8[this->field_0x68.HALF.HI](this);
     } else {
         Entity* entity = CreateObject(FAIRY, 0x60, 0);
         if (entity != NULL) {
-            entity->actionDelay = 0;
-            if (this->actionDelay == 1) {
+            entity->timer = 0;
+            if (this->timer == 1) {
                 entity->type2 = 2;
             }
             CopyPosition(this, entity);
@@ -286,7 +286,7 @@ void sub_08081328(Entity* this) {
 }
 
 void sub_0808136C(Entity* this) {
-    if (--this->actionDelay) {
+    if (--this->timer) {
         Entity* other = this->child;
         this->x.WORD = other->x.WORD;
         this->y.WORD = other->y.WORD;
@@ -304,7 +304,7 @@ void sub_080813BC(Entity* this) {
 
 void sub_080813D4(Entity* this) {
     this->subAction = 1;
-    this->field_0x1d = 1;
+    this->gustJarTolerance = 1;
     this->spriteSettings.draw = 1;
 }
 
@@ -417,7 +417,7 @@ void sub_08081598(Entity* this) {
 
     COLLISION_OFF(this);
     this->action = 4;
-    this->actionDelay = 14;
+    this->timer = 14;
     this->zVelocity = Q_16_16(2.0);
     this->spriteSettings.draw = 1;
     this->spritePriority.b1 = 2;

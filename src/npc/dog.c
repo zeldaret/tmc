@@ -51,14 +51,14 @@ void sub_08069B44(Entity* this) {
             uVar2 = uVar5;
         }
 
-        uVar4 = this->actionDelay == 0 ? 0x20 : this->actionDelay;
+        uVar4 = this->timer == 0 ? 0x20 : this->timer;
 
         this->field_0x6e.HWORD = sVar3 - uVar4;
         this->field_0x6c.HWORD = sVar3 + uVar4;
         this->field_0x70.HALF.LO = uVar2 - 8;
         this->field_0x70.HALF.HI = uVar2 + 8;
         this->speed = 0x100;
-        this->actionDelay = 0x1e;
+        this->timer = 0x1e;
         this->animationState = 2;
         this->field_0x6a.HALF.LO = 0xff;
         this->field_0x74.HALF.LO = sub_0801E99C(this);
@@ -90,12 +90,12 @@ void sub_08069C40(Entity* this) {
             this->animationState = GetAnimationState(this);
             sub_08069D00(this);
         }
-        this->actionDelay = 0x1e;
+        this->timer = 0x1e;
     } else {
-        this->actionDelay -= 1;
-        if (this->actionDelay == 0) {
+        this->timer -= 1;
+        if (this->timer == 0) {
             this->action = 2;
-            this->actionDelay = (Random() & 0x1f) + 0x1e;
+            this->timer = (Random() & 0x1f) + 0x1e;
             this->direction = gUnk_08111DA8[Random() & 7];
             sub_08069F6C(this);
         }
@@ -136,8 +136,8 @@ void sub_08069D00(Entity* this) {
 void sub_08069D54(Entity* this) {
     u16 collisions;
     if (sub_08069F90(this) == 0) {
-        this->actionDelay -= 1;
-        if (this->actionDelay != 0) {
+        this->timer -= 1;
+        if (this->timer != 0) {
             UpdateAnimationSingleFrame(this);
             ProcessMovement0(this);
             collisions = this->collisions;
@@ -166,7 +166,7 @@ void sub_08069D54(Entity* this) {
     } else {
         this->action = 3;
     }
-    this->actionDelay = (Random() & 0x1f) + 0x1e;
+    this->timer = (Random() & 0x1f) + 0x1e;
 }
 
 void sub_08069DF8(Entity* this) {
@@ -174,8 +174,8 @@ void sub_08069DF8(Entity* this) {
     if (sub_08069F90(this) != 0) {
         this->action = 1;
     } else {
-        this->actionDelay -= 1;
-        if (this->actionDelay != 0) {
+        this->timer -= 1;
+        if (this->timer != 0) {
             sub_08069D00(this);
             return;
         }
@@ -185,7 +185,7 @@ void sub_08069DF8(Entity* this) {
             this->action = 3;
         }
     }
-    this->actionDelay = (Random() & 0x1f) + 0x1e;
+    this->timer = (Random() & 0x1f) + 0x1e;
 }
 
 void sub_08069E44(Entity* this) {

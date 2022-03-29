@@ -105,7 +105,7 @@ void sub_08092344(LavaPlatformEntity* this) {
         LavaPlatform_Type1Init,    LavaPlatform_Type1Action1, LavaPlatform_Type1Action2, LavaPlatform_Type1Action3,
         LavaPlatform_Type1Action4, LavaPlatform_Type1Action5, LavaPlatform_Type1Action6, LavaPlatform_Type1Action7,
     };
-    super->field_0xf = 0;
+    super->subtimer = 0;
     LavaPlatform_Type1Actions[super->action](this);
     sub_080926E4(this);
 }
@@ -114,7 +114,7 @@ void LavaPlatform_Type1Init(LavaPlatformEntity* this) {
     super->animationState = super->type2;
     super->spritePriority.b0 = 7;
     super->hurtType = 0x48;
-    super->field_0x3c = 7;
+    super->collisionFlags = 7;
     super->flags2 = 0x81;
     super->hitbox = (Hitbox*)&gUnk_080FD280;
     sub_0809264C(this);
@@ -134,13 +134,13 @@ void LavaPlatform_Type1Action1(LavaPlatformEntity* this) {
 }
 
 void LavaPlatform_Type1Action2(LavaPlatformEntity* this) {
-    if (super->bitfield == 0x9d) {
+    if (super->contactFlags == 0x9d) {
         sub_08092620(this);
     } else {
         if (LavaPlatform_IsPlayerOnPlatform(this)) {
             super->action = 3;
             super->flags &= ~ENT_COLLIDE;
-            super->actionDelay = 0x14;
+            super->timer = 0x14;
             gPlayerState.field_0x3f = 0xfd;
         }
     }
@@ -151,7 +151,7 @@ void LavaPlatform_Type1Action3(LavaPlatformEntity* this) {
     if (LavaPlatform_IsPlayerOnPlatform(this)) {
         gPlayerState.field_0x3f = 0xfd;
     }
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->action = 4;
         this->timer = this->wobbleTime;
         super->spriteOffsetY = 0;
@@ -226,7 +226,7 @@ void LavaPlatform_Type1Action6(LavaPlatformEntity* this) {
 }
 
 void LavaPlatform_Type1Action7(LavaPlatformEntity* this) {
-    if (super->bitfield == 0x9d) {
+    if (super->contactFlags == 0x9d) {
         sub_08092620(this);
     }
 }
@@ -285,7 +285,7 @@ bool32 LavaPlatform_IsPlayerOnPlatform(LavaPlatformEntity* this) {
         sub_08079F8C()) {
         gPlayerState.field_0x14 = 1;
         if (gPlayerEntity.z.HALF.HI == 0) {
-            super->field_0xf = 1;
+            super->subtimer = 1;
             return TRUE;
         }
     }
@@ -294,7 +294,7 @@ bool32 LavaPlatform_IsPlayerOnPlatform(LavaPlatformEntity* this) {
 }
 
 void sub_080926E4(LavaPlatformEntity* this) {
-    sub_080A2BE4(super, super->field_0xf);
+    sub_080A2BE4(super, super->subtimer);
     if (super->action == 1) {
         (super->parent)->x.HALF.HI = super->x.HALF.HI;
         (super->parent)->y.HALF.HI = super->y.HALF.HI;

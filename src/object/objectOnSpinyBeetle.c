@@ -55,14 +55,14 @@ void ObjectOnSpinyBeetle_Init(ObjectOnSpinyBeetleEntity* this) {
     super->flags |= ENT_COLLIDE;
     super->spritePriority.b0 = 6;
     super->spriteRendering.b3 = 2;
-    super->field_0xf = 0;
+    super->subtimer = 0;
     super->hitType = 0x6e;
     super->flags2 = 0x86;
-    super->field_0x16 = 0;
+    super->carryFlags = 0;
     if (super->type != 0) {
-        super->field_0x1c = 2;
+        super->gustJarFlags = 2;
     } else {
-        super->field_0x1c = 1;
+        super->gustJarFlags = 1;
     }
     SortEntityBelow(super, super->parent);
     sub_08098918(this);
@@ -75,8 +75,8 @@ void ObjectOnSpinyBeetle_Action1(ObjectOnSpinyBeetleEntity* this) {
             sub_080989C0(this);
             return;
         }
-        if ((super->bitfield & 0x80) != 0) {
-            switch (super->bitfield & 0x3f) {
+        if ((super->contactFlags & 0x80) != 0) {
+            switch (super->contactFlags & 0x3f) {
                 case 0x13:
                     super->action = 3;
                     super->subAction = 0;
@@ -139,7 +139,7 @@ void ObjectOnSpinyBeetle_Action2(ObjectOnSpinyBeetleEntity* this) {
 
 void ObjectOnSpinyBeetle_Action2Subaction0(ObjectOnSpinyBeetleEntity* this) {
     super->flags |= ENT_COLLIDE;
-    super->field_0x3c = 7;
+    super->collisionFlags = 7;
     super->hitType = 1;
     super->flags2 = gPlayerEntity.flags2;
     super->spriteOffsetY = 0;
@@ -202,12 +202,12 @@ void ObjectOnSpinyBeetle_Action3(ObjectOnSpinyBeetleEntity* this) {
 
 void ObjectOnSpinyBeetle_Action3Subaction0(ObjectOnSpinyBeetleEntity* this) {
     super->subAction = 1;
-    super->field_0x1d = 0x30;
-    super->actionDelay = 0;
+    super->gustJarTolerance = 0x30;
+    super->timer = 0;
 }
 
 void ObjectOnSpinyBeetle_Action3Subaction1(ObjectOnSpinyBeetleEntity* this) {
-    if ((gPlayerState.field_0x1c & 0xf) != 1 || (super->bitfield & 0x7f) != 0x13) {
+    if ((gPlayerState.field_0x1c & 0xf) != 1 || (super->contactFlags & 0x7f) != 0x13) {
         super->spriteOffsetX = 0;
         super->action = 1;
     } else {
@@ -216,13 +216,13 @@ void ObjectOnSpinyBeetle_Action3Subaction1(ObjectOnSpinyBeetleEntity* this) {
 }
 
 void ObjectOnSpinyBeetle_Action3Subaction2(ObjectOnSpinyBeetleEntity* this) {
-    if (super->actionDelay == 0) {
-        super->actionDelay = 1;
+    if (super->timer == 0) {
+        super->timer = 1;
         super->spriteOffsetX = 0;
         super->spriteOffsetY = -2;
         (super->parent)->child = NULL;
     }
-    if ((gPlayerState.field_0x1c & 0xf) != 1 || (super->bitfield & 0x7f) != 0x13) {
+    if ((gPlayerState.field_0x1c & 0xf) != 1 || (super->contactFlags & 0x7f) != 0x13) {
         sub_080989C0(this);
     } else {
         if ((sub_0806F3E4(super) != 0) && (super->type == 0)) {
@@ -269,16 +269,16 @@ void sub_08098918(ObjectOnSpinyBeetleEntity* this) {
         CopyPosition(parent, super);
         tmp = parent->flags & 0x80;
         if ((parent->flags & ENT_COLLIDE) != 0) {
-            if (super->field_0xf == 0) {
-                super->field_0xf += 1;
+            if (super->subtimer == 0) {
+                super->subtimer += 1;
                 super->spritePriority.b0 = 3;
                 SortEntityBelow(super, super->parent);
             }
             super->z.HALF.HI = gUnk_08123558[parent->frame & 0xf] - 8;
             super->spriteOffsetY = 0;
         } else {
-            if (super->field_0xf != 0) {
-                super->field_0xf = tmp;
+            if (super->subtimer != 0) {
+                super->subtimer = tmp;
                 super->spritePriority.b0 = 6;
                 SortEntityBelow(super, super->parent);
             }

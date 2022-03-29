@@ -17,10 +17,10 @@ void sub_080869DC(Entity* ent) {
     ent->action = 1;
     ent->spriteSettings.draw = 0;
     ent->hitbox = (Hitbox*)&gUnk_080FD1A8;
-    ent->field_0x3c |= 16;
+    ent->collisionFlags |= 16;
     itemEntity = CreateObject(GROUND_ITEM, ent->type, 0);
     if (itemEntity != NULL) {
-        itemEntity->actionDelay = 10;
+        itemEntity->timer = 10;
         itemEntity->parent = ent;
         ent->child = itemEntity;
         CopyPosition(ent, itemEntity);

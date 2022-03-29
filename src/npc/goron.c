@@ -25,10 +25,10 @@ void sub_08069310(Entity* this) {
 }
 
 void sub_08069328(Entity* this) {
-    if (((u32)(++this->field_0xf << 24) >> 24) > 16) {
+    if (((u32)(++this->subtimer << 24) >> 24) > 16) {
         int action;
 
-        this->field_0xf = 0;
+        this->subtimer = 0;
         action = GetAnimationStateInRectRadius(this, 40, 40);
         if (action >= 0) {
             this->animationState = action;
@@ -41,7 +41,7 @@ void sub_08069328(Entity* this) {
         this->action = 2;
         RequestPriority(this);
         InitAnimationForceUpdate(this, 8);
-        MessageFromTarget(this->actionDelay + (0x90 << 5));
+        MessageFromTarget(this->timer + (0x90 << 5));
     }
 }
 

@@ -31,7 +31,7 @@ void Wisp_OnCollision(Entity* this) {
     u32 bits;
     Entity* ent;
 
-    bits = this->bitfield;
+    bits = this->contactFlags;
     if ((bits & 0x80) == 0) {
         return;
     }
@@ -61,7 +61,7 @@ void Wisp_OnCollision(Entity* this) {
             ent = CreateFx(this, FX_DEATH, 0);
             if (ent != NULL) {
                 this->child = ent;
-                this->actionDelay = 0xe;
+                this->timer = 0xe;
                 CopyPosition(this, ent);
             }
             DeleteThisEntity();
@@ -91,9 +91,9 @@ void sub_08033660(Entity* this) {
 
 void sub_08033674(Entity* this) {
     sub_0804A720(this);
-    this->actionDelay = 0;
+    this->timer = 0;
     this->action = 1;
-    this->field_0x1c = 1;
+    this->gustJarFlags = 1;
     this->field_0x80.HWORD = this->x.HALF.HI;
     this->field_0x82.HWORD = this->y.HALF.HI;
     sub_08033744(this);
@@ -101,7 +101,7 @@ void sub_08033674(Entity* this) {
 }
 
 void sub_080336A8(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         sub_08033744(this);
     } else if (this->collisions != COL_NONE) {
         sub_0800417E(this, this->collisions);
@@ -135,7 +135,7 @@ static void sub_08033744(Entity* this) {
     u32 rand = (u32)Random() % 256;
 
     // 8 potential options
-    this->actionDelay = gUnk_080CEBA4[(rand & 0x70) >> 4];
+    this->timer = gUnk_080CEBA4[(rand & 0x70) >> 4];
 
     // 4 potential options
     temp = ((rand & 0xc) * 2);

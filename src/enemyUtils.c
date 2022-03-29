@@ -55,8 +55,8 @@ bool32 EnemyInit(GenericEntity* this) {
             if (uVar4 != 0) {
                 Entity* object = CreateObject(OBJECT_A9, uVar4 - 1, 0);
                 if (object != NULL) {
-                    object->actionDelay = super->flags;
-                    object->field_0xf = super->spriteSettings.draw;
+                    object->timer = super->flags;
+                    object->subtimer = super->spriteSettings.draw;
                     object->spritePriority.b0 = 3;
                     object->parent = super;
                     CopyPosition(super, object);
@@ -125,12 +125,12 @@ void CreateDeathFx(GenericEntity* parent, u32 parentId, u32 fixedItem) {
         DeleteThisEntity();
         return;
     } else {
-        int tmp = parent->base.field_0x3a & 2;
+        int tmp = parent->base.gustJarState & 2;
         if (tmp == 0) {
             sub_08049CF4(&(parent->base));
             gSave.unk50 += 1;
-            parent->base.field_0x3a |= 2;
-            parent->base.actionDelay = 0xff;
+            parent->base.gustJarState |= 2;
+            parent->base.timer = 0xff;
             SetDefaultPriority(&(parent->base), 3);
             deathFx2 = (DeathFxObject*)CreateObject(DEATH_FX, parent->base.id, 0);
             if (deathFx2 != NULL) {
@@ -146,8 +146,8 @@ void CreateDeathFx(GenericEntity* parent, u32 parentId, u32 fixedItem) {
                 DeleteEntity(&(parent->base));
                 return;
             }
-            if ((parent->base.bitfield & 0x7f) == 0x13) {
-                bVar3 = parent->base.field_0x1c & 0xf;
+            if ((parent->base.contactFlags & 0x7f) == 0x13) {
+                bVar3 = parent->base.gustJarFlags & 0xf;
                 if (bVar3 != 1) {
                     if ((bVar3 == 2) && (deathFx2 != NULL)) {
                         deathFx2->unk6c |= 2;
@@ -163,14 +163,14 @@ void CreateDeathFx(GenericEntity* parent, u32 parentId, u32 fixedItem) {
             }
         }
 
-        if (parent->base.actionDelay == 0) {
+        if (parent->base.timer == 0) {
             DeleteThisEntity();
         } else {
-            if (--parent->base.actionDelay == 0) {
+            if (--parent->base.timer == 0) {
                 parent->base.spriteSettings.draw = 0;
                 SetDefaultPriority(&(parent->base), 0);
             } else {
-                if (parent->base.actionDelay < 9) {
+                if (parent->base.timer < 9) {
                     if (parent->base.spriteSettings.draw) {
                         parent->base.spriteSettings.draw = 0;
                     } else {

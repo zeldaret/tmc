@@ -59,9 +59,9 @@ void ObjectBlockingStairs_Init(ObjectBlockingStairsEntity* this) {
         default:
             super->action = 1;
             super->speed = 0x80;
-            super->field_0x16 = 1;
-            super->actionDelay = 0;
-            super->field_0xf = 0;
+            super->carryFlags = 1;
+            super->timer = 0;
+            super->subtimer = 0;
             this->unk7a = 0x20;
             this->unk7b = 0x80;
             if (super->type == 0) {
@@ -114,7 +114,7 @@ void ObjectBlockingStairs_Action1(ObjectBlockingStairsEntity* this) {
             super->action = 3;
             super->direction = Direction8FromAnimationState(gPlayerEntity.animationState);
             super->speed = 0x80;
-            super->actionDelay = 0x40;
+            super->timer = 0x40;
             RequestPriorityDuration(super, 0x50);
             EnqueueSFX(SFX_10F);
             sub_08093248(this);
@@ -151,24 +151,24 @@ void ObjectBlockingStairs_Action1(ObjectBlockingStairsEntity* this) {
 }
 
 void ObjectBlockingStairs_Action2(ObjectBlockingStairsEntity* this) {
-    if (super->actionDelay) {
+    if (super->timer) {
         sub_08093280(this);
     } else {
         if (gPlayerState.heldObject == 0x12) {
-            if ((gPlayerEntity.frame & 2) != 0 && ++super->field_0xf > 8) {
+            if ((gPlayerEntity.frame & 2) != 0 && ++super->subtimer > 8) {
                 gPlayerState.queued_action = 16;
                 gPlayerState.field_0x38 = 0x40;
                 gPlayerState.flags |= PL_BUSY;
                 gPlayerEntity.x.HALF.LO = 0;
                 gPlayerEntity.y.HALF.LO = 0;
                 super->direction = (gPlayerEntity.animationState ^ 4) << 2;
-                super->actionDelay = 0x40;
+                super->timer = 0x40;
                 EnqueueSFX(SFX_10F);
                 sub_08093248(this);
             }
         } else if (super->subAction == 6) {
             super->action = 1;
-            super->field_0xf = 0;
+            super->subtimer = 0;
         }
     }
 }
@@ -176,7 +176,7 @@ void ObjectBlockingStairs_Action2(ObjectBlockingStairsEntity* this) {
 void ObjectBlockingStairs_Action3(ObjectBlockingStairsEntity* this) {
     sub_0800445C(super);
     LinearMoveUpdate(super);
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         sub_08093334(this);
     }
     sub_08093364(this);
@@ -255,7 +255,7 @@ void sub_08093248(ObjectBlockingStairsEntity* this) {
 void sub_08093280(ObjectBlockingStairsEntity* this) {
     sub_0800445C(super);
     LinearMoveUpdate(super);
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         sub_08093334(this);
     }
     sub_08093364(this);
@@ -328,7 +328,7 @@ void sub_08093364(ObjectBlockingStairsEntity* this) {
     s32 sVar1;
     Entity* dashEffectEnt;
 
-    if ((super->actionDelay & 3) == 0) {
+    if ((super->timer & 3) == 0) {
         dashEffectEnt = CreateObject(SPECIAL_FX, FX_DASH, 0);
         if (dashEffectEnt != NULL) {
             dashEffectEnt->parent = super;
@@ -340,7 +340,7 @@ void sub_08093364(ObjectBlockingStairsEntity* this) {
             }
 
             sVar1 = dashEffectEnt->y.HALF.HI;
-            if (super->actionDelay & 8) {
+            if (super->timer & 8) {
                 dashEffectEnt->y.HALF.HI = sVar1 + 8;
             } else {
                 dashEffectEnt->y.HALF.HI = sVar1 - 8;

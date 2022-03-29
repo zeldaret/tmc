@@ -179,7 +179,7 @@ void sub_08059064(ManagerF* this) {
     tmp = CreateObject(GROUND_ITEM, ITEM_SMALL_KEY, 0);
     if (!tmp)
         return;
-    tmp->actionDelay = 2;
+    tmp->timer = 2;
     tmp->x.HALF.HI = this->unk_38 + gRoomControls.origin_x;
     tmp->y.HALF.HI = this->unk_3a + gRoomControls.origin_y;
 }

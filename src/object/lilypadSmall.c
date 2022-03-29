@@ -12,9 +12,9 @@ void LilypadSmall(Entity* this) {
 
     if (this->action == 0) {
         this->action = 1;
-        this->actionDelay = 0x5a;
+        this->timer = 0x5a;
         rand = Random();
-        this->field_0xf = rand;
+        this->subtimer = rand;
         this->frameIndex = (rand >> 0x10) & 3;
         this->spriteSettings.draw = TRUE;
         this->spritePriority.b0 = 7;
@@ -51,12 +51,12 @@ static void sub_08097B24(Entity* this) {
     u32 temp2;
     u16* temp3;
 
-    if (--this->actionDelay == 0) {
-        this->actionDelay = 90;
+    if (--this->timer == 0) {
+        this->timer = 90;
         this->frameIndex = (this->frameIndex + 1) & 3;
     }
     temp3 = gUnk_08123318;
-    temp2 = ++this->field_0xf;
+    temp2 = ++this->subtimer;
 
     temp = temp3[(temp2 >> 5) & 7];
     SetAffineInfo(this, temp, temp, 0);

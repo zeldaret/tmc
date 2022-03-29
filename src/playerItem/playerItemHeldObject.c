@@ -68,7 +68,7 @@ void sub_080AD040(PlayerItemHeldObjectEntity* this) {
     if ((child->base).action != 2) {
         DeleteThisEntity();
     }
-    if ((super->bitfield & 0x80) != 0) {
+    if ((super->contactFlags & 0x80) != 0) {
         super->z.WORD = 0;
     }
     if (super->speed != 0) {
@@ -125,15 +125,15 @@ void sub_080AD040(PlayerItemHeldObjectEntity* this) {
             if (super->child == super) {
                 if (super->type2 != 0xff) {
                     if (super->type2 == 0x0f) {
-                        CreateFx(super, super->actionDelay, 0x80);
+                        CreateFx(super, super->timer, 0x80);
                     } else {
-                        CreateObjectWithParent(super, super->type2, super->actionDelay, 0);
+                        CreateObjectWithParent(super, super->type2, super->timer, 0);
                     }
                 }
                 DeleteThisEntity();
             } else {
-                if (super->actionDelay != 0 || sub_080AD32C(child)) {
-                    if (super->actionDelay == 1) {
+                if (super->timer != 0 || sub_080AD32C(child)) {
+                    if (super->timer == 1) {
                         SoundReq(SFX_PLACE_OBJ);
                     }
                     UpdateSpriteForCollisionLayer(super);
@@ -144,7 +144,7 @@ void sub_080AD040(PlayerItemHeldObjectEntity* this) {
                     DeleteThisEntity();
                 } else {
                     SoundReq(SFX_PLACE_OBJ);
-                    super->actionDelay++;
+                    super->timer++;
                     super->zVelocity = 0x10000;
                     super->speed /= 2;
                     return;
@@ -192,7 +192,7 @@ void sub_080AD27C(PlayerItemHeldObjectEntity* this) {
             super->spritePriority.b1 = 3;
         }
         super->hitbox = (child->base).hitbox;
-        tmp = super->field_0x16 >> 4;
+        tmp = super->carryFlags >> 4;
         super->speed = gUnk_081320CC[tmp];
         super->zVelocity = gUnk_081320D4[tmp];
         (child->base).z.HALF.HI += 8;
@@ -200,7 +200,7 @@ void sub_080AD27C(PlayerItemHeldObjectEntity* this) {
         super->collisionLayer = (child->base).collisionLayer;
         super->y.HALF.HI = gPlayerEntity.y.HALF.HI;
         super->x.HALF.HI = gPlayerEntity.x.HALF.HI;
-        super->field_0x3c = gPlayerEntity.field_0x3c;
+        super->collisionFlags = gPlayerEntity.collisionFlags;
         super->flags |= 0x80;
         sub_0801766C(super);
     } else {
@@ -211,7 +211,7 @@ void sub_080AD27C(PlayerItemHeldObjectEntity* this) {
 
 bool32 sub_080AD32C(PlayerItemHeldObjectEntity* this) {
     bool32 result = FALSE;
-    if (((super->field_0x16 & 0xf0) == 0x10) ||
+    if (((super->carryFlags & 0xf0) == 0x10) ||
         ((super->kind == OBJECT && ((super->id == 5 || (super->id == 0x7d)))))) {
         result = TRUE;
     }

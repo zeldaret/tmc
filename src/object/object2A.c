@@ -16,16 +16,16 @@ void Object2A_Init(Entity* this) {
     this->action = 1;
     this->spriteSettings.draw = TRUE;
     if (this->type2 != 0) {
-        this->actionDelay = this->type2;
+        this->timer = this->type2;
     }
     InitializeAnimation(this, 0);
     switch (this->type) {
         case 1:
             this->y.HALF.HI -= 8;
-            this->actionDelay = 0x28;
+            this->timer = 0x28;
             break;
         case 2:
-            this->actionDelay = 0xf;
+            this->timer = 0xf;
             sub_08004168(this);
             break;
         case 3:
@@ -52,7 +52,7 @@ void sub_08089BA0(Entity* this) {
                 return;
         case 1:
         case 2:
-            if (this->actionDelay-- != 0)
+            if (this->timer-- != 0)
                 return;
             if (this->type == 2) {
                 sub_0807B7D8(((u16*)this->child)[3], COORD_TO_TILE(this), this->collisionLayer);
@@ -67,7 +67,7 @@ void sub_08089BA0(Entity* this) {
             if (this->parent->next == NULL) {
                 DeleteThisEntity();
             }
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 DeleteThisEntity();
             }
 

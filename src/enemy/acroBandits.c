@@ -50,7 +50,7 @@ void AcroBandit(Entity* this) {
     index = sub_080012DC(this);
 
     if (index) {
-        if ((this->field_0x3a & 1) == 0)
+        if ((this->gustJarState & 1) == 0)
             sub_08032338(this);
 
         gUnk_080012C8[index](this);
@@ -71,7 +71,7 @@ void AcroBandit_OnTick(Entity* this) {
 void AcroBandit_OnCollision(Entity* this) {
     Entity* brother;
 
-    if (this->bitfield != 0x80 && this->bitfield != 0x81) {
+    if (this->contactFlags != 0x80 && this->contactFlags != 0x81) {
         if (this->type == 1) {
             if (this->action < 7 && this->knockbackDuration != 0) {
                 brother = this->child;
@@ -161,8 +161,8 @@ void AcroBandit_Type0Action1(Entity* this) {
     u32 rand;
     s32 x, y;
 
-    if (this->actionDelay) {
-        this->actionDelay--;
+    if (this->timer) {
+        this->timer--;
     } else {
         if (sub_08049FDC(this, 1)) {
             rand = Random();
@@ -180,7 +180,7 @@ void AcroBandit_Type0Action1(Entity* this) {
 }
 
 void AcroBandit_Type0Action2(Entity* this) {
-    static const u8 actionDelays[] = { 2, 2, 2, 3, 3, 3, 3, 4 };
+    static const u8 timers[] = { 2, 2, 2, 3, 3, 3, 3, 4 };
 
     GetNextFrame(this);
     if (this->frame & 1) {
@@ -189,7 +189,7 @@ void AcroBandit_Type0Action2(Entity* this) {
     } else {
         if (this->frame & ANIM_DONE) {
             this->action = 0x3;
-            this->actionDelay = actionDelays[Random() & 7];
+            this->timer = timers[Random() & 7];
             InitializeAnimation(this, 1);
         }
     }
@@ -205,12 +205,12 @@ void AcroBandit_Type0Action3(Entity* this) {
         }
         InitializeAnimation(this, 3);
     } else {
-        if ((this->frame & 1) && this->actionDelay) {
+        if ((this->frame & 1) && this->timer) {
             this->frame &= 0xfe;
-            this->actionDelay--;
+            this->timer--;
         }
         GetNextFrame(this);
-        if (this->actionDelay == 0) {
+        if (this->timer == 0) {
             this->action = 4;
             COLLISION_OFF(this);
             InitializeAnimation(this, 2);
@@ -219,11 +219,11 @@ void AcroBandit_Type0Action3(Entity* this) {
 }
 
 void AcroBandit_Type0Action4(Entity* this) {
-    static const u8 actionDelays[] = { 60, 60, 90, 120, 120, 120, 120, 150 };
+    static const u8 timers[] = { 60, 60, 90, 120, 120, 120, 120, 150 };
     GetNextFrame(this);
     if (this->frame & ANIM_DONE) {
         this->action = 1;
-        this->actionDelay = actionDelays[Random() & 7];
+        this->timer = timers[Random() & 7];
         this->spriteSettings.draw = 0;
     }
 }
@@ -273,7 +273,7 @@ void AcroBandit_Type0Action5(Entity* this) {
             sub_08031E48(this, a);
 
             this->action = 6;
-            this->actionDelay = 20;
+            this->timer = 20;
             this->spritePriority.b0 = 7;
             InitializeAnimation(this, 7);
         }
@@ -287,21 +287,21 @@ void AcroBandit_Type0Action5(Entity* this) {
 
 void AcroBandit_Type0Action6(Entity* this) {
     GetNextFrame(this);
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 7;
         COLLISION_OFF(this);
-        this->actionDelay = 5;
+        this->timer = 5;
         this->spriteSettings.draw = 0;
     }
 }
 
 void AcroBandit_Type0Action7(Entity* this) {
-    if ((this->actionDelay & 0xf) == 0) {
-        if (this->actionDelay == 0x50) {
+    if ((this->timer & 0xf) == 0) {
+        if (this->timer == 0x50) {
             DeleteEntity(this);
         } else {
             this->action = 1;
-            this->actionDelay = 0xb4;
+            this->timer = 0xb4;
         }
     }
 }
@@ -309,7 +309,7 @@ void AcroBandit_Type0Action7(Entity* this) {
 void AcroBandit_Type0Action8(Entity* this) {
     if (this->frame & ANIM_DONE) {
         this->action = 1;
-        this->actionDelay = 0xb4;
+        this->timer = 0xb4;
         this->spriteSettings.draw = 0;
     } else {
         GetNextFrame(this);
@@ -391,7 +391,7 @@ void AcroBandit_Type1Action2(Entity* this) {
     GravityUpdate(this, banditGravity[this->type2]);
     if (this->type2 * -0xe <= this->z.HALF.HI) {
         this->action = 3;
-        this->actionDelay = 20;
+        this->timer = 20;
         this->z.HALF.HI = this->type2 * -0xe;
         if (this->parent != NULL)
             this->spritePriority.b1 = 0;
@@ -401,7 +401,7 @@ void AcroBandit_Type1Action2(Entity* this) {
 
 void AcroBandit_Type1Action3(Entity* this) {
     GetNextFrame(this);
-    if ((this->frame & ANIM_DONE) && ((this->parent != NULL) || (--this->actionDelay == 0))) {
+    if ((this->frame & ANIM_DONE) && ((this->parent != NULL) || (--this->timer == 0))) {
         this->action = 4;
         this->direction = sub_08049F84(this, 1);
         *(u8*)&this->field_0x76 = 0;
@@ -475,7 +475,7 @@ void AcroBandit_Type1Action6(Entity* this) {
     Entity* tmp;
     u32 dir;
 
-    if (this->actionDelay == 0) {
+    if (this->timer == 0) {
         this->action = 7;
         dir = fallDirections[this->field_0x74.HALF.LO * 5 + this->type2];
         this->direction = dir;
@@ -493,9 +493,9 @@ void AcroBandit_Type1Action6(Entity* this) {
     if (this->child == NULL) {
         for (tmp = this->parent; tmp != NULL; tmp = tmp->parent) {
             if (tmp->health != 0)
-                tmp->actionDelay = 0;
+                tmp->timer = 0;
         }
-        this->actionDelay = 0;
+        this->timer = 0;
     }
 }
 
@@ -522,7 +522,7 @@ void AcroBandit_Type1Action8(Entity* this) {
 void AcroBandit_Type1Action9(Entity* this) {
     if (GravityUpdate(this, Q_8_8(24.0)) == 0) {
         if (this->frame & ANIM_DONE) {
-            ((Entity*)this->field_0x7c.WORD)->actionDelay--;
+            ((Entity*)this->field_0x7c.WORD)->timer--;
 
             DeleteEntity(this);
         } else {
@@ -536,7 +536,7 @@ void AcroBandit_Type1Action9(Entity* this) {
 
 void sub_08032290(Entity* this) {
     this->action = 6;
-    this->actionDelay = 12;
+    this->timer = 12;
     InitializeAnimation(this, 11);
 }
 
@@ -574,6 +574,6 @@ void sub_080322E8(Entity* this) {
 }
 
 void sub_08032338(Entity* this) {
-    if ((((Entity*)this->field_0x7c.WORD)->actionDelay += 15) != 80)
+    if ((((Entity*)this->field_0x7c.WORD)->timer += 15) != 80)
         this->field_0x6c.HALF.LO = 0;
 }

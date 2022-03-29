@@ -37,25 +37,25 @@ void sub_0806355C(Entity* this) {
 
 void sub_08063584(Entity* this) {
     if (GetAnimationStateInRectRadius(this, 0x20, 0x20) >= 0) {
-        if (this->field_0xf == 0) {
+        if (this->subtimer == 0) {
             if ((Random() & 0x3f) == 0) {
-                this->field_0xf = 1;
+                this->subtimer = 1;
                 InitAnimationForceUpdate(this, 0);
             }
         }
     }
 
-    if (this->field_0xf != 0) {
+    if (this->subtimer != 0) {
         UpdateAnimationSingleFrame(this);
         if ((this->frame & ANIM_DONE) != 0) {
-            this->field_0xf = 0;
+            this->subtimer = 0;
         }
     }
 
     if (this->interactType != 0) {
         this->action = 2;
         InitAnimationForceUpdate(this, GetAnimationState(this) + 4);
-        MessageFromTarget(this->actionDelay + 0xa01);
+        MessageFromTarget(this->timer + 0xa01);
     }
     sub_0806ED78(this);
 }
@@ -64,7 +64,7 @@ void sub_08063608(Entity* this) {
     u8 tmp = gMessage.doTextBox & 0x7f;
     if (tmp == 0) {
         this->action = 1;
-        this->field_0xf = tmp;
+        this->subtimer = tmp;
         InitAnimationForceUpdate(this, 4);
     }
 }

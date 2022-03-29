@@ -39,12 +39,12 @@ void LikeLike_OnCollision(Entity* this) {
     } else {
         if (this->action == 7) {
             sub_0802810C(this);
-        } else if (this->bitfield & 0x80) {
-            u8 tmp = this->bitfield & ~0x80;
+        } else if (this->contactFlags & 0x80) {
+            u8 tmp = this->contactFlags & ~0x80;
             if (!tmp) {
                 this->action = 7;
-                this->actionDelay = 0x5f;
-                this->field_0xf = tmp;
+                this->timer = 0x5f;
+                this->subtimer = tmp;
                 this->flags2 &= 0xfc;
                 this->field_0x82.HALF.HI = gPlayerEntity.spritePriority.b1;
             }
@@ -52,7 +52,7 @@ void LikeLike_OnCollision(Entity* this) {
     }
 
     if (this->health == 0) {
-        this->actionDelay = 0x20;
+        this->timer = 0x20;
     }
 
     if (this->confusedTime) {
@@ -63,7 +63,7 @@ void LikeLike_OnCollision(Entity* this) {
 }
 
 void LikeLike_OnDeath(Entity* this) {
-    if (this->actionDelay == 2 && this->field_0x80.HALF.LO != 0xff) {
+    if (this->timer == 2 && this->field_0x80.HALF.LO != 0xff) {
         SetDefaultPriority(this, PRIO_NO_BLOCK);
         sub_08028224(this->field_0x80.HALF.LO);
     }
@@ -82,18 +82,18 @@ void sub_08027E70(Entity* this) {
             this->action = 3;
             this->spriteSettings.draw = 0;
             COLLISION_OFF(this);
-            this->actionDelay = 0;
+            this->timer = 0;
             break;
         case 1:
             this->action = 1;
             this->spriteSettings.draw = 1;
-            this->actionDelay = 8;
+            this->timer = 8;
             InitializeAnimation(this, 1);
             break;
         case 2:
             this->action = 1;
             this->spriteSettings.draw = 0;
-            this->actionDelay = 0;
+            this->timer = 0;
             this->hitType = 1;
             InitializeAnimation(this, 0);
             break;
@@ -117,10 +117,10 @@ void sub_08027EFC(Entity* this) {
             this->direction = this->field_0x82.HALF.LO;
         }
 
-        if (--this->actionDelay == 0) {
+        if (--this->timer == 0) {
             this->direction = sub_08049F84(this, 1);
             this->field_0x82.HALF.LO = this->direction;
-            this->actionDelay = 8;
+            this->timer = 8;
         }
         ProcessMovement0(this);
         GetNextFrame(this);
@@ -145,9 +145,9 @@ void sub_08027F84(Entity* this) {
 }
 
 void sub_08027FB4(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 1;
-        this->actionDelay = 1;
+        this->timer = 1;
         this->flags2 |= 1;
     }
     GetNextFrame(this);
@@ -159,7 +159,7 @@ void sub_08027FE0(Entity* this) {
         this->action = 1;
         COLLISION_ON(this);
         this->direction = sub_08049F84(this, 1);
-        this->actionDelay = 8;
+        this->timer = 8;
         this->spritePriority.b1 = 1;
         InitializeAnimation(this, 1);
     }
@@ -171,7 +171,7 @@ void sub_0802802C(Entity* this) {
         this->action = 3;
         this->spriteSettings.draw = 0;
         this->direction = 0;
-        this->actionDelay = 0;
+        this->timer = 0;
         CreateDust(this);
     }
 }
@@ -183,12 +183,12 @@ void sub_0802805C(Entity* this) {
 
     if (sub_0807953C()) {
         u32 tmp2 = Random();
-        u32 tmp3 = this->field_0xf + 1;
+        u32 tmp3 = this->subtimer + 1;
         tmp3 += (tmp2 & 1);
-        this->field_0xf = tmp3;
+        this->subtimer = tmp3;
     }
 
-    if (this->field_0xf >= 0x19 || gSave.stats.health == 0) {
+    if (this->subtimer >= 0x19 || gSave.stats.health == 0) {
         sub_0802810C(this);
     } else {
         ResetPlayerItem();
@@ -200,11 +200,11 @@ void sub_0802805C(Entity* this) {
         gPlayerEntity.spriteOffsetY = tmp[1];
         gPlayerEntity.spritePriority.b1 = 0;
 
-        if (--this->actionDelay == 0) {
+        if (--this->timer == 0) {
             sub_080281A0(this);
         }
 
-        if ((this->actionDelay & 3) == 0) {
+        if ((this->timer & 3) == 0) {
             EnqueueSFX(SFX_PLACE_OBJ);
         }
     }
@@ -222,8 +222,8 @@ NONMATCH("asm/non_matching/likeLike/sub_0802810C.inc", void sub_0802810C(Entity*
     gPlayerEntity.z.HALF.HI = gPlayerEntity.spriteOffsetY;
     gPlayerEntity.spriteOffsetY = 0;
     this->action = 4;
-    this->actionDelay = 0x50;
-    this->field_0xf = 0;
+    this->timer = 0x50;
+    this->subtimer = 0;
     this->flags2 |= 2;
     if (this->iframes == 0) {
         this->iframes = -18;
@@ -232,7 +232,7 @@ NONMATCH("asm/non_matching/likeLike/sub_0802810C.inc", void sub_0802810C(Entity*
 END_NONMATCH
 
 void sub_080281A0(Entity* this) {
-    this->field_0xf = 0x19;
+    this->subtimer = 0x19;
     if (sub_080281E0(ITEM_MIRROR_SHIELD)) {
         this->field_0x80.HALF.LO = ITEM_MIRROR_SHIELD;
         MessageFromTarget(0x578);

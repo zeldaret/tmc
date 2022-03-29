@@ -27,8 +27,8 @@ void V1EyeLaser_Init(Entity* this) {
         InitializeAnimation(this, 0);
     } else {
         this->action = 2;
-        this->field_0xf = 4;
-        InitializeAnimation(this, this->actionDelay);
+        this->subtimer = 4;
+        InitializeAnimation(this, this->timer);
     }
 }
 
@@ -46,7 +46,7 @@ void V1EyeLaser_Action2(Entity* this) {
     this->x.WORD += (this->parent->x.WORD - *(u32*)&this->field_0x74);
     *(u32*)&this->field_0x74 = this->parent->x.WORD;
     sub_080AB888(this);
-    if (this->parent->field_0xf == 0) {
+    if (this->parent->subtimer == 0) {
         DeleteThisEntity();
     }
 }
@@ -97,7 +97,7 @@ void sub_080AB844(Entity* this, s32 param_1, s32 param_2) {
     entity = CreateProjectile(V1_EYE_LASER);
     if (entity != NULL) {
         entity->type = 1;
-        entity->actionDelay = param_1;
+        entity->timer = param_1;
         entity->parent = this->parent;
         PositionRelative(this, entity, 0, Q_16_16(param_2));
         if (param_1 != 1) {
@@ -111,14 +111,14 @@ void sub_080AB844(Entity* this, s32 param_1, s32 param_2) {
 void sub_080AB888(Entity* this) {
     s32 index;
 
-    this->field_0xf -= 1;
+    this->subtimer -= 1;
     index = 0;
 
-    switch (this->actionDelay) {
+    switch (this->timer) {
         case 3:
             index = 1;
         case 4:
-            this->hitbox = (Hitbox*)gUnk_0812A5F4[this->field_0xf * 2 + index];
+            this->hitbox = (Hitbox*)gUnk_0812A5F4[this->subtimer * 2 + index];
             break;
         case 0:
         case 1:
@@ -127,8 +127,8 @@ void sub_080AB888(Entity* this) {
             break;
     }
 
-    if (this->field_0xf == 0) {
-        this->field_0xf = 4;
+    if (this->subtimer == 0) {
+        this->subtimer = 4;
     }
 }
 

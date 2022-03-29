@@ -66,7 +66,7 @@ void sub_08064570(Entity* this) {
                 return;
             }
             this->action += 1;
-            this->actionDelay = 0;
+            this->timer = 0;
             tmp2 = sub_0805ACC0(this);
             if (tmp2 == 0) {
                 this->field_0x6c.HWORD = this->x.HALF.HI;

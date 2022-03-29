@@ -42,7 +42,7 @@ void Leever_OnTick(Entity* this) {
 }
 
 void Leever_OnCollision(Entity* this) {
-    if (this->bitfield == 0x80) {
+    if (this->contactFlags == 0x80) {
         if (this->action == 3) {
             this->field_0x74.HWORD = 1;
         }
@@ -65,11 +65,11 @@ void Leever_OnDeath(Entity* this) {
 void Leever_Initialize(Entity* this) {
     sub_0804A720(this);
     this->action = 1;
-    this->actionDelay = Random();
+    this->timer = Random();
 }
 
 void Leever_Idle(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         if (Leever_PlayerInRange(this, Random() & 0x1f)) {
             this->action = 2;
             this->spriteSettings.draw = TRUE;
@@ -77,7 +77,7 @@ void Leever_Idle(Entity* this) {
             InitializeAnimation(this, LeeverAnimation_DigUp);
             UpdateSpriteForCollisionLayer(this);
         } else {
-            this->actionDelay = DirectionRound(Random()) + 8;
+            this->timer = DirectionRound(Random()) + 8;
         }
     }
 }
@@ -115,7 +115,7 @@ void Leever_DigDown(Entity* this) {
     GetNextFrame(this);
     if (this->frame & ANIM_DONE) {
         this->action = 1;
-        this->actionDelay = 0xf0;
+        this->timer = 0xf0;
         this->spriteSettings.draw = FALSE;
     }
 }
@@ -170,12 +170,12 @@ void Leever_Move(Entity* this) {
 
     this->speed = (this->frame & 0xf) * 0x20;
     if (this->type == LeeverForm_Red) {
-        if ((this->field_0xf++ & 0xf) == 0) {
+        if ((this->subtimer++ & 0xf) == 0) {
             sub_08004596(this, sub_0800132C(this, gUnk_020000B0));
         }
     } else {
         this->speed += 0x40;
-        if ((this->field_0xf++ & 0x7) == 0) {
+        if ((this->subtimer++ & 0x7) == 0) {
             sub_08004596(this, sub_0800132C(this, gUnk_020000B0));
         }
     }

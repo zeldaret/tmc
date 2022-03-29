@@ -33,10 +33,10 @@ void CuccoChick_Init(Entity* this) {
 void sub_0806E764(Entity* this) {
     if (this->subAction == 0) {
         this->subAction += 1;
-        this->actionDelay = (Random() & 0x1f) + 0x1e;
+        this->timer = (Random() & 0x1f) + 0x1e;
         this->frameIndex = 0;
     }
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 2;
         this->subAction = 0;
         if ((Random() & 1) != 0) {
@@ -52,12 +52,12 @@ void CuccoChick_Fly(Entity* this) {
         if ((Random() & 1) != 0) {
             this->spriteSettings.flipX ^= 1;
         }
-        this->actionDelay = (Random() & 3) + 1;
+        this->timer = (Random() & 3) + 1;
         this->zVelocity = 0x10000;
         this->frameIndex = 1;
     }
     if (GravityUpdate(this, 0x3000) == 0) {
-        if (--this->actionDelay == 0) {
+        if (--this->timer == 0) {
             this->action = 1;
             this->subAction = 0;
         } else {

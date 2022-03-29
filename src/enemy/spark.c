@@ -24,8 +24,8 @@ void Spark_OnTick(Entity* this) {
 void Spark_OnCollision(Entity* this) {
     Entity* ent;
 
-    if (this->bitfield & 0x80) {
-        if ((this->bitfield & 0x7f) == 0x14) {
+    if (this->contactFlags & 0x80) {
+        if ((this->contactFlags & 0x7f) == 0x14) {
             COLLISION_OFF(this);
             this->iframes = 0;
             this->spriteSettings.draw = 0;
@@ -33,7 +33,7 @@ void Spark_OnCollision(Entity* this) {
             ent = CreateFx(this, FX_DEATH, 0);
             if (ent != NULL) {
                 this->child = ent;
-                this->actionDelay = 14;
+                this->timer = 14;
                 CopyPosition(this, ent);
             }
         }
@@ -47,7 +47,7 @@ void sub_0802B33C(Entity* this) {
     sub_0804A720(this);
     this->action = 1;
     this->direction = this->type2;
-    this->field_0xf = 0x78;
+    this->subtimer = 0x78;
     InitializeAnimation(this, 0);
 }
 
@@ -58,14 +58,14 @@ void sub_0802B35C(Entity* this) {
     ProcessMovement0(this);
     is_head = this->type == 0;
     if (this->collisions == COL_NONE) {
-        if (--this->field_0xf == 0) {
-            this->field_0xf = 0x78;
+        if (--this->subtimer == 0) {
+            this->subtimer = 0x78;
 
             this->direction += is_head ? 0x08 : 0x18;
             this->direction = DirectionRound(this->direction);
         }
     } else {
-        this->field_0xf = 0x78;
+        this->subtimer = 0x78;
         switch (DirectionRound(this->direction)) {
             case DirectionNorth:
                 if ((this->collisions & COL_NORTH_ANY) != COL_NONE) {
@@ -120,7 +120,7 @@ void sub_0802B35C(Entity* this) {
 }
 
 void sub_0802B4A8(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         Entity* ent = CreateObjectWithParent(this, GROUND_ITEM, 0x60, 0);
         if (ent != NULL) {
             ent->y.HALF.HI -= 4;

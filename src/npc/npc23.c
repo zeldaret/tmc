@@ -27,7 +27,7 @@ void sub_080662F8(Entity* this) {
     this->field_0x7c.HALF.HI = this->x.HALF.HI;
     this->field_0x80.HWORD = this->y.HALF.HI;
     this->field_0x86.HWORD = 0;
-    this->field_0x82.HWORD = this->actionDelay;
+    this->field_0x82.HWORD = this->timer;
     this->parent = &gPlayerEntity;
     this->cutsceneBeh.HWORD = 0;
     sub_08066490(this, this->parent);

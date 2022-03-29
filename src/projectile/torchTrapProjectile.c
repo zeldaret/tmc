@@ -20,14 +20,14 @@ void sub_080AAB1C(Entity* this) {
 
 void TorchTrapProjectile_Init(Entity* this) {
     this->action = 1;
-    this->actionDelay = 0x1e;
+    this->timer = 0x1e;
     InitializeAnimation(this, 0);
 }
 
 void TorchTrapProjectile_Action1(Entity* this) {
     GetNextFrame(this);
-    if (this->actionDelay != 0) {
-        this->actionDelay -= 1;
+    if (this->timer != 0) {
+        this->timer -= 1;
     } else {
         if (ProcessMovement3(this) == 0) {
             LinearMoveUpdate(this);

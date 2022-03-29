@@ -23,7 +23,7 @@ void sub_08065570(Entity* this) {
         InitializeAnimation(this, 0);
         sub_08078778(this);
         this->action = 1;
-        this->field_0xf = 1;
+        this->subtimer = 1;
         this->animationState = 2;
     }
 }
@@ -32,9 +32,9 @@ void sub_0806559C(Entity* this) {
     s32 offset;
     s32 result;
 
-    this->actionDelay++;
-    if (this->actionDelay >= 9) {
-        this->actionDelay = 0;
+    this->timer++;
+    if (this->timer >= 9) {
+        this->timer = 0;
         result = GetAnimationStateInRectRadius(this, 0x20, 0x20);
         if (result < 0) {
             offset = this->animationState + 4;

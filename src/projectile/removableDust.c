@@ -1,6 +1,6 @@
 #include "entity.h"
 #include "enemy.h"
-#include "coord.h"
+#include "physics.h"
 #include "functions.h"
 #include "object.h"
 
@@ -27,7 +27,7 @@ void RemovableDust_OnTick(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
         this->frameIndex = this->type;
-        this->field_0x1c = 1;
+        this->gustJarFlags = 1;
         this->speed = this->field_0x86.HWORD;
         if (this->type == 0) {
             sub_080AA494(this);
@@ -38,7 +38,7 @@ void RemovableDust_OnTick(Entity* this) {
 }
 
 void sub_080AA450(Entity* this) {
-    if (this->bitfield == 0x96) {
+    if (this->contactFlags == 0x96) {
         sub_080AA464(this);
     }
 }

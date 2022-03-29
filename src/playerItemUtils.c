@@ -39,7 +39,7 @@ static Entity* GiveItemWithCutscene(u32 type, u32 type2, u32 delay) {
     if (e != NULL) {
         e->type = type;
         e->type2 = type2;
-        e->actionDelay = delay;
+        e->timer = delay;
         e->id = OBJECT_B;
         e->kind = OBJECT;
         AppendEntityToList(e, 6);

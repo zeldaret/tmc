@@ -34,8 +34,8 @@ void WallMaster2_OnTick(Entity* this) {
 }
 
 void WallMaster2_OnCollision(Entity* this) {
-    u8 bVar1 = this->bitfield & 0x7f;
-    switch (this->bitfield & 0x7f) {
+    u8 bVar1 = this->contactFlags & 0x7f;
+    switch (this->contactFlags & 0x7f) {
         case 0 ... 1:
         case 0x1e:
             this->action = 3;
@@ -59,8 +59,8 @@ void sub_0802CCE0(Entity* this) {
 
     sub_0804A720(this);
     this->action = 1;
-    this->actionDelay = 60;
-    this->field_0xf = Random();
+    this->timer = 60;
+    this->subtimer = Random();
     this->spriteSettings.shadow = 2;
     this->animationState = 0xff;
     this->z.HALF.HI = -2;
@@ -87,7 +87,7 @@ void sub_0802CD54(Entity* this) {
 
             this->action = 2;
             tmp = Random() >> 0x10;
-            this->actionDelay = tmp;
+            this->timer = tmp;
             this->speed = 0xc0;
             this->field_0x78.HWORD = gUnk_080CD728[Random() & 3];
             this->field_0x7a.HALF.HI = (tmp >> 8) & 0x60;
@@ -95,8 +95,8 @@ void sub_0802CD54(Entity* this) {
         }
     }
 
-    if (--this->actionDelay == 0) {
-        this->actionDelay = 60;
+    if (--this->timer == 0) {
+        this->timer = 60;
         sub_0802CF64(this);
     }
     LinearMoveUpdate(this);
@@ -104,14 +104,14 @@ void sub_0802CD54(Entity* this) {
 
 void sub_0802CDE8(Entity* this) {
     if (--this->field_0x78.HWORD && sub_08049FDC(this, 1)) {
-        if ((this->actionDelay++ & 3) == 0) {
+        if ((this->timer++ & 3) == 0) {
             sub_08004596(this, GetFacingDirection(this, gUnk_020000B0));
             sub_0802CF8C(this);
         }
         LinearMoveUpdate(this);
     } else {
         this->action = 1;
-        this->actionDelay = 60;
+        this->timer = 60;
         this->speed = 0x60;
         this->field_0x7c.HALF.LO = (Random() & 0x38) + 0x96;
     }
@@ -134,7 +134,7 @@ void sub_0802CE68(Entity* this) {
     frames = this->frame & ANIM_DONE;
     if (frames) {
         this->action = 4;
-        this->actionDelay = 30;
+        this->timer = 30;
     } else if (this->frame & 1) {
         this->frame = frames;
         gPlayerEntity.spriteSettings.draw = 0;
@@ -143,7 +143,7 @@ void sub_0802CE68(Entity* this) {
 
 void sub_0802CEF4(Entity* this) {
     sub_0802CFD8(this);
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         SetInitializationPriority();
         DoExitTransition(gUnk_0813AB1C[gArea.dungeon_idx]);
     } else {

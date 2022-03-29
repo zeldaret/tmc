@@ -10,7 +10,7 @@ void Librari(Entity* this) {
         case 0:
             this->action = 1;
             this->spriteSettings.draw = TRUE;
-            this->animationState = this->actionDelay;
+            this->animationState = this->timer;
             this->field_0x68.HALF.LO = sub_0801E99C(this);
             sub_08078784(this, this->field_0x68.HALF.LO);
             SetDefaultPriority(this, PRIO_MESSAGE);

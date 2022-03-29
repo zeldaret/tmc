@@ -47,12 +47,12 @@ void Peahat(Entity* this) {
 void Peahat_OnTick(Entity* this) {
     gPeahatActions[this->action](this);
     if (this->field_0x80.HALF.HI)
-        this->z.HALF.HI = gPeahatFlightHeights[(this->field_0xf++ & 0x30) >> 4];
+        this->z.HALF.HI = gPeahatFlightHeights[(this->subtimer++ & 0x30) >> 4];
 }
 
 void Peahat_OnCollision(Entity* this) {
     if (this->field_0x82.HALF.LO) {
-        if (this->bitfield == 0x94) {
+        if (this->contactFlags == 0x94) {
             Entity* ent = CreateEnemy(PEAHAT, PeahatForm_Propeller);
             if (ent != NULL) {
                 CopyPosition(this, ent);
@@ -65,17 +65,17 @@ void Peahat_OnCollision(Entity* this) {
             this->iframes = -30;
             this->field_0x80.HALF.HI = 0;
             InitializeAnimation(this, this->animationState);
-        } else if (this->bitfield == 0x9b) {
+        } else if (this->contactFlags == 0x9b) {
             this->animationState = PeahatAnimation_BrokenPropeller;
             this->action = 5;
             this->speed = 0x80;
             this->iframes = -30;
             this->field_0x80.HALF.HI = 0;
             InitializeAnimation(this, this->animationState);
-        } else if (this->bitfield == 0x80) {
+        } else if (this->contactFlags == 0x80) {
             if (this->animationState == PeahatAnimation_Flying) {
                 this->action = 1;
-                this->actionDelay = 30;
+                this->timer = 30;
                 this->speed = 0x80;
                 this->direction = -1;
                 this->field_0x82.HALF.HI = 0x78;
@@ -99,7 +99,7 @@ void Peahat_OnGrabbed(Entity* this) {
 
 void sub_080200B4(Entity* this) {
     this->subAction = 1;
-    this->field_0x1d = 60;
+    this->gustJarTolerance = 60;
     if (this->animationState == PeahatAnimation_Flying) {
         this->animationState = PeahatAnimation_BrokenPropeller;
         this->action = 5;
@@ -127,7 +127,7 @@ void nullsub_5(Entity* this) {
 void sub_08020104(Entity* this) {
     if (this->flags & ENT_COLLIDE) {
         COLLISION_ON(this);
-        this->field_0x3a &= 0xfb;
+        this->gustJarState &= 0xfb;
     } else {
         this->health = 0;
     }
@@ -136,10 +136,10 @@ void sub_08020104(Entity* this) {
 void Peahat_Initialize(Entity* this) {
     sub_0804A720(this);
     this->action = 1;
-    this->actionDelay = 16;
-    this->field_0xf = Random();
+    this->timer = 16;
+    this->subtimer = Random();
     this->direction = Random() & 0x1f;
-    this->field_0x1c = 18;
+    this->gustJarFlags = 18;
     this->field_0x80.HALF.LO = (Random() & 1) ? 2 : -2;
     this->field_0x80.HALF.HI = 1;
     this->field_0x82.HALF.LO = 1;
@@ -152,16 +152,16 @@ void Peahat_Fly(Entity* this) {
         this->field_0x82.HALF.HI--;
 
     if (sub_08049FDC(this, 1)) {
-        if (this->field_0x82.HALF.HI == 0 && (this->field_0xf & 0xf) == 0 && sub_08049F1C(this, gUnk_020000B0, 0x30)) {
+        if (this->field_0x82.HALF.HI == 0 && (this->subtimer & 0xf) == 0 && sub_08049F1C(this, gUnk_020000B0, 0x30)) {
             this->action = 2;
             this->subAction = Random() & 3;
-            this->actionDelay = 60;
+            this->timer = 60;
             this->speed = 160;
         }
     }
 
-    if (--this->actionDelay == 0) {
-        this->actionDelay = 16;
+    if (--this->timer == 0) {
+        this->timer = 16;
         sub_08020604(this);
         if ((Random() & 3) == 0) {
             this->field_0x80.HALF.LO = (Random() & 1) ? 2 : -2;
@@ -174,12 +174,12 @@ void Peahat_Fly(Entity* this) {
 
 void Peahat_ChargeStart(Entity* this) {
     if (sub_08049FDC(this, 1)) {
-        if (--this->actionDelay) {
-            UpdateAnimationVariableFrames(this, 4 - ((this->actionDelay >> 4) & 0x3));
+        if (--this->timer) {
+            UpdateAnimationVariableFrames(this, 4 - ((this->timer >> 4) & 0x3));
             return;
         } else {
             this->action = 3;
-            this->actionDelay = 120;
+            this->timer = 120;
             this->speed = 192;
             this->direction = (GetFacingDirection(this, gUnk_020000B0) + gUnk_080CA5D4[Random() & 1]) & 0x1f;
         }
@@ -192,11 +192,11 @@ void Peahat_ChargeStart(Entity* this) {
 
 void Peahat_ChargeTarget(Entity* this) {
     if (sub_08049FDC(this, 1)) {
-        if (--this->actionDelay == 0) {
+        if (--this->timer == 0) {
             sub_080205F8(this);
         }
-        if (60 < this->actionDelay) {
-            if (this->actionDelay & 1)
+        if (60 < this->timer) {
+            if (this->timer & 1)
                 this->speed += 4;
 
             if ((gRoomTransition.frameCount & 3) == 0)
@@ -210,14 +210,14 @@ void Peahat_ChargeTarget(Entity* this) {
 }
 
 void Peahat_ChargeEnd(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 1;
-        this->actionDelay = 1;
+        this->timer = 1;
         this->speed = 128;
         this->field_0x82.HALF.HI = 120;
         GetNextFrame(this);
     } else {
-        if (this->actionDelay & 1)
+        if (this->timer & 1)
             this->speed -= 8;
 
         ProcessMovement2(this);
@@ -230,8 +230,8 @@ void Peahat_Stunned(Entity* this) {
         default:
             if (sub_080044EC(this, 0x1800) == 0) {
                 this->action = 6;
-                this->actionDelay = 240;
-                this->field_0xf = 10;
+                this->timer = 240;
+                this->subtimer = 10;
                 this->hitType = 0x71;
             }
 
@@ -245,8 +245,8 @@ void Peahat_Stunned(Entity* this) {
             GravityUpdate(this, 0x1c00);
             if (this->z.HALF.HI == 0) {
                 this->action = 7;
-                this->actionDelay = 150;
-                this->field_0xf = 10;
+                this->timer = 150;
+                this->subtimer = 10;
                 this->hitType = 0x71;
             }
             break;
@@ -254,11 +254,11 @@ void Peahat_Stunned(Entity* this) {
 }
 
 void Peahat_RepairPropeller(Entity* this) {
-    if (this->field_0xf)
-        if (--this->field_0xf == 0)
+    if (this->subtimer)
+        if (--this->subtimer == 0)
             Create0x68FX(this, FX_STARS);
 
-    if (!sub_0800442E(this) && --this->actionDelay)
+    if (!sub_0800442E(this) && --this->timer)
         return;
 
     this->action = 9;
@@ -270,29 +270,29 @@ void Peahat_RepairPropeller(Entity* this) {
 }
 
 void Peahat_Recover(Entity* this) {
-    if (this->field_0xf)
-        if (--this->field_0xf == 0)
+    if (this->subtimer)
+        if (--this->subtimer == 0)
             Create0x68FX(this, FX_STARS);
 
-    if (!sub_0800442E(this) && --this->actionDelay)
+    if (!sub_0800442E(this) && --this->timer)
         return;
 
     this->action = 8;
-    this->actionDelay = 240;
+    this->timer = 240;
     this->direction = Random() & 0x1f;
     sub_0804AA1C(this);
 }
 
 void Peahat_Hop(Entity* this) {
     GetNextFrame(this);
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         if (this->frame & ANIM_DONE) {
             this->action = 9;
             this->zVelocity = Q_16_16(1.5);
             this->animationState = PeahatAnimation_NewPropeller;
             InitializeAnimation(this, this->animationState);
         } else {
-            this->actionDelay = 1;
+            this->timer = 1;
         }
     }
 
@@ -327,8 +327,8 @@ void Peahat_Takeoff(Entity* this) {
 
 void PeahatPropeller_Initialize(Entity* this) {
     this->action = 1;
-    this->actionDelay = 240;
-    this->field_0xf = 40;
+    this->timer = 240;
+    this->subtimer = 40;
     this->spriteSettings.draw = 1;
     this->spriteRendering.b3 = 1;
     this->spriteOrientation.flipY = 1;
@@ -340,16 +340,16 @@ void PeahatPropeller_Initialize(Entity* this) {
 
 void PeahatPropeller_Fly(Entity* this) {
     GetNextFrame(this);
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         DeleteEntity(this);
     } else {
-        if (this->actionDelay < 60)
+        if (this->timer < 60)
             this->spriteSettings.draw ^= 1;
 
         this->z.WORD -= 0xc000;
         LinearMoveUpdate(this);
-        if (--this->field_0xf == 0) {
-            this->field_0xf = 40;
+        if (--this->subtimer == 0) {
+            this->subtimer = 40;
             this->direction = (Random() & 0x10) + 8;
         }
     }
@@ -357,7 +357,7 @@ void PeahatPropeller_Fly(Entity* this) {
 
 void sub_080205F8(Entity* this) {
     this->action = 4;
-    this->actionDelay = 60;
+    this->timer = 60;
 }
 
 void sub_08020604(Entity* this) {

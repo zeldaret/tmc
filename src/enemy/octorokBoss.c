@@ -457,10 +457,10 @@ void OctorokBoss_Action1(OctorokBossEntity* this) {
             SortEntityBelow(super->parent, super);
             if (((this->heap->field_0x2 != 0) || (super->parent->action == INTRO)) ||
                 (1 < (u8)(super->parent->subAction - 3))) {
-                if ((s8)super->field_0xf < 0) {
-                    super->field_0xf = -this->heap->unk_0;
+                if ((s8)super->subtimer < 0) {
+                    super->subtimer = -this->heap->unk_0;
                 } else {
-                    super->field_0xf = this->heap->unk_0;
+                    super->subtimer = this->heap->unk_0;
                 }
                 sub_08036998(this);
             }
@@ -507,7 +507,7 @@ void OctorokBoss_Action1(OctorokBossEntity* this) {
             UpdateAnimationSingleFrame(super);
             if (IS_FROZEN((OctorokBossEntity*)super->parent)) {
                 sub_08036AF0(this, GET_TAIL_RADIUS(this), 0x10);
-                if ((super->bitfield & 0x7f) == 7) {
+                if ((super->contactFlags & 0x7f) == 7) {
                     COLLISION_OFF(super);
                     object = CreateObjectWithParent(super, OCTOROK_BOSS_OBJECT, 0, 0);
                     super->child = object;
@@ -522,7 +522,7 @@ void OctorokBoss_Action1(OctorokBossEntity* this) {
                 sub_08036998(this);
                 sub_080369D0(this, GET_TAIL_RADIUS(this), 4);
             }
-            super->bitfield = 0;
+            super->contactFlags = 0;
             SetAffineInfo(super, this->unk_76, this->unk_74, -this->angle.HWORD ^ 0x8000);
             break;
 
@@ -995,17 +995,17 @@ NONMATCH("asm/non_matching/octorokBoss/sub_08036998.inc", void sub_08036998(Octo
 
     // TODO regalloc in this awful structure here
     tmp2 = &this->timer;
-    tmp = super->field_0xf + (u8)*tmp2;
+    tmp = super->subtimer + (u8)*tmp2;
     *tmp2 = tmp;
-    if ((s8)super->field_0xf < 0) {
+    if ((s8)super->subtimer < 0) {
         a = tmp;
-        b = -super->actionDelay;
+        b = -super->timer;
         if (a << 0x18 < b << 0x18) {
-            super->field_0xf = -super->field_0xf;
+            super->subtimer = -super->subtimer;
         }
     } else {
-        if (((s8)*tmp2) > ((s32)super->actionDelay)) {
-            super->field_0xf = -super->field_0xf;
+        if (((s8)*tmp2) > ((s32)super->timer)) {
+            super->subtimer = -super->subtimer;
         }
     }
 }
@@ -1211,13 +1211,13 @@ void OctorokBoss_ChangePalette(OctorokBossEntity* this, u32 paletteIndex) {
 
 void sub_08036F60(OctorokBossEntity* this) {
     if ((super->subAction != 4) && (IS_FROZEN(this) == FALSE)) {
-        this->unk_76 += (s8)super->actionDelay;
-        this->unk_74 += (s8)super->actionDelay;
+        this->unk_76 += (s8)super->timer;
+        this->unk_74 += (s8)super->timer;
         if (this->unk_76 < 0x9c) {
-            super->actionDelay = 1;
+            super->timer = 1;
         } else {
             if (this->unk_76 > 0xa4) {
-                super->actionDelay = 0xff;
+                super->timer = 0xff;
             }
         }
     }

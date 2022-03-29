@@ -84,7 +84,7 @@ void sub_08038D78(CuccoAggrEntity* this) {
     sub_0804A720(super);
     if (super->type != 2) {
         super->type2 = 0;
-        super->field_0x16 = 0x30;
+        super->carryFlags = 0x30;
         sub_08039120(this);
     } else {
         sub_08039140(this);
@@ -92,7 +92,7 @@ void sub_08038D78(CuccoAggrEntity* this) {
 }
 
 void sub_08038DA0(CuccoAggrEntity* this) {
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         sub_0803901C(this);
     }
 
@@ -105,8 +105,8 @@ void sub_08038DC0(CuccoAggrEntity* this) {
 
 void sub_08038DD8(CuccoAggrEntity* this) {
     super->subAction = 1;
-    super->actionDelay = 0x10;
-    super->field_0xf = gUnk_080CF7BC[super->type];
+    super->timer = 0x10;
+    super->subtimer = gUnk_080CF7BC[super->type];
     COLLISION_OFF(super);
     super->spritePriority.b1 = 0;
     InitializeAnimation(super, 4);
@@ -114,8 +114,8 @@ void sub_08038DD8(CuccoAggrEntity* this) {
 }
 
 void sub_08038E18(CuccoAggrEntity* this) {
-    if (super->field_0xf) {
-        if (--super->field_0xf == 0) {
+    if (super->subtimer) {
+        if (--super->subtimer == 0) {
             PlayerDropHeldObject();
             sub_08039218(this);
             COLLISION_ON(super);
@@ -127,8 +127,8 @@ void sub_08038E18(CuccoAggrEntity* this) {
         }
     }
 
-    if (--super->actionDelay == 0) {
-        super->actionDelay = 0x10;
+    if (--super->timer == 0) {
+        super->timer = 0x10;
         super->spriteSettings.flipX ^= (Random() & 1);
         CuccoAggr_CreateFx(this);
     }
@@ -152,7 +152,7 @@ void sub_08038EE0(CuccoAggrEntity* this) {
     GetNextFrame(super);
     sub_08039298(this);
     if (GravityUpdate(super, 0x1C00) == 0) {
-        if (--super->actionDelay == 0) {
+        if (--super->timer == 0) {
             sub_0803901C(this);
         } else {
             super->zVelocity = 0x8000;
@@ -184,7 +184,7 @@ void sub_08038F44(CuccoAggrEntity* this) {
 }
 
 void sub_08038FA0(CuccoAggrEntity* this) {
-    if ((super->actionDelay++ & 0x1f) == 0) {
+    if ((super->timer++ & 0x1f) == 0) {
         CuccoAggr_CreateFx(this);
     }
 
@@ -228,12 +228,12 @@ void sub_0803901C(CuccoAggrEntity* this) {
     switch (r5) {
         default:
             super->action = 1;
-            super->actionDelay = gUnk_080CF7BE[(r3 >> 0x10) & 3];
+            super->timer = gUnk_080CF7BE[(r3 >> 0x10) & 3];
             InitializeAnimation(super, 0);
             break;
         case 1:
             super->action = 3;
-            super->actionDelay = ((r3 >> 8) & 3) + 2;
+            super->timer = ((r3 >> 8) & 3) + 2;
             super->zVelocity = 0x8000;
             sub_080390C0(this);
             InitializeAnimation(super, 1);
@@ -274,7 +274,7 @@ void sub_08039120(CuccoAggrEntity* this) {
 
 void sub_08039140(CuccoAggrEntity* this) {
     super->action = 6;
-    super->actionDelay = Random();
+    super->timer = Random();
     super->direction = GetFacingDirection(super, &gPlayerEntity);
     super->z.HALF.HI = 0xfffc;
     this->unk_78 = 0xb4;

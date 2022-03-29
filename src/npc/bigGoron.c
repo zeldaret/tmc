@@ -75,11 +75,11 @@ void sub_0806CF30(Entity* this) {
             }
             break;
         case 2:
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 u32 uVar2 = Random();
                 SoundReq(gUnk_081140CC[uVar2 % 4]);
-                this->actionDelay = ((u8)uVar2 & 7) * 16;
-                this->actionDelay += 128;
+                this->timer = ((u8)uVar2 & 7) * 16;
+                this->timer += 128;
             }
             break;
         case 3:
@@ -167,20 +167,20 @@ void sub_0806D1D0(Entity* this) {
         this->spritePriority.b0 = 7;
         this->spriteSettings.draw = 3;
         this->frameIndex = 0;
-        this->actionDelay = 0x1e;
+        this->timer = 0x1e;
         SetDefaultPriority(this, PRIO_MESSAGE);
     }
 
     switch (this->subAction) {
         case 0:
         default:
-            if (--this->actionDelay == 0) {
-                this->actionDelay = (Random() & 0x7f) + 0x30;
-                this->field_0xf = 8;
+            if (--this->timer == 0) {
+                this->timer = (Random() & 0x7f) + 0x30;
+                this->subtimer = 8;
                 this->frameIndex = 1;
             }
-            if (this->field_0xf != 0) {
-                if (--this->field_0xf == 0) {
+            if (this->subtimer != 0) {
+                if (--this->subtimer == 0) {
                     this->frameIndex = 0;
                 }
             }
@@ -208,7 +208,7 @@ void sub_0806D274(Entity* this) {
         this->spriteRendering.b3 = 3;
         this->spritePriority.b0 = 7;
         this->frameIndex = 2;
-        this->actionDelay = 8;
+        this->timer = 8;
         SetDefaultPriority(this, PRIO_MESSAGE);
         npc = CreateNPC(BIG_GORON, 3, 0);
         if (npc != NULL) {
@@ -223,14 +223,14 @@ void sub_0806D274(Entity* this) {
                 this->frameIndex = 2;
                 break;
             }
-            if (--this->actionDelay == 0) {
-                this->actionDelay = 8;
+            if (--this->timer == 0) {
+                this->timer = 8;
                 this->frameIndex ^= 1;
             }
             break;
         case 2:
-            if (--this->actionDelay == 0) {
-                this->actionDelay = 8;
+            if (--this->timer == 0) {
+                this->timer = 8;
                 this->frameIndex ^= 1;
             }
             break;
@@ -344,9 +344,9 @@ void sub_0806D514(Entity* this) {
 void sub_0806D520(Entity* this, u32 param_2) {
     if (this->action == 0) {
         this->action = 1;
-        this->field_0xf = gUnk_08114100[param_2] + 6;
-        this->frameIndex = this->field_0xf;
-        this->actionDelay = 8;
+        this->subtimer = gUnk_08114100[param_2] + 6;
+        this->frameIndex = this->subtimer;
+        this->timer = 8;
     }
     this->x.HALF.HI = this->parent->x.HALF.HI;
     this->y.HALF.HI = this->parent->y.HALF.HI;
@@ -355,22 +355,22 @@ void sub_0806D520(Entity* this, u32 param_2) {
     this->spriteOrientation.flipY = this->parent->spriteOrientation.flipY;
     if (this->subAction != 0 ||
         CheckPlayerProximity(this->x.HALF.HI + param_2 * -0x10 + 0xc, this->y.HALF.HI, 0x18, 0x40)) {
-        if (this->frameIndex >= this->field_0xf + 2) {
+        if (this->frameIndex >= this->subtimer + 2) {
             return;
         }
-        if (--this->actionDelay != 0) {
+        if (--this->timer != 0) {
             return;
         }
-        this->actionDelay = 8;
+        this->timer = 8;
         this->frameIndex++;
     } else {
-        if (this->frameIndex <= this->field_0xf) {
+        if (this->frameIndex <= this->subtimer) {
             return;
         }
-        if (--this->actionDelay != 0) {
+        if (--this->timer != 0) {
             return;
         }
-        this->actionDelay = 8;
+        this->timer = 8;
         this->frameIndex--;
     }
 }

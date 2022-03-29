@@ -1,6 +1,6 @@
 #include "entity.h"
 #include "sound.h"
-#include "coord.h"
+#include "physics.h"
 
 extern void (*const MazaalEnergyBeam_Actions[])(Entity*);
 
@@ -10,7 +10,7 @@ void MazaalEnergyBeam(Entity* this) {
 
 void MazaalEnergyBeam_Init(Entity* this) {
     this->action = 1;
-    this->actionDelay = 10;
+    this->timer = 10;
     this->z.HALF.HI -= 2;
     this->y.HALF.HI += 2;
     InitializeAnimation(this, 0);
@@ -20,7 +20,7 @@ void MazaalEnergyBeam_Init(Entity* this) {
 void MazaalEnergyBeam_Action1(Entity* this) {
     const s16* tmp;
 
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 2;
         COLLISION_OFF(this);
         this->spritePriority.b0 = 7;

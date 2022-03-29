@@ -41,7 +41,7 @@ void SmallPesto_OnGrabbed(Entity* this) {
         this->subAction = 0;
         COLLISION_ON(this);
         this->speed = 0x40;
-        this->field_0xf = 1;
+        this->subtimer = 1;
     } else {
         gUnk_080CE554[this->subAction](this);
     }
@@ -49,7 +49,7 @@ void SmallPesto_OnGrabbed(Entity* this) {
 
 void sub_080316DC(Entity* this) {
     this->subAction = 1;
-    this->field_0x1d = 0x3c;
+    this->gustJarTolerance = 0x3c;
 }
 
 void sub_080316E8(Entity* this) {
@@ -69,9 +69,9 @@ void sub_08031704(Entity* this) {
 
 void sub_08031714(Entity* this) {
     sub_080317B4(this);
-    if (--this->field_0xf == 0) {
-        this->field_0xf = (Random() & 0xf) + 0x10;
-        if (sub_08049FA0(this) == 0 && (this->field_0xf & 1) != 0) {
+    if (--this->subtimer == 0) {
+        this->subtimer = (Random() & 0xf) + 0x10;
+        if (sub_08049FA0(this) == 0 && (this->subtimer & 1) != 0) {
             this->direction = sub_08049EE4(this);
         } else {
             this->direction += 0x18;
@@ -111,13 +111,13 @@ void sub_080317F8(Entity* this) {
     this->action = 1;
     this->z.HALF.HI = 0x0000FFF4;
     this->collisionLayer = 1;
-    this->field_0x3c |= 0x10;
-    this->field_0x1c = 1;
+    this->collisionFlags |= 0x10;
+    this->gustJarFlags = 1;
     this->direction = newDirection;
     this->hitbox = &gUnk_080CE560;
     sub_080317E0(this);
-    this->actionDelay = 0;
-    this->field_0xf = 0x20;
+    this->timer = 0;
+    this->subtimer = 0x20;
 }
 
 void sub_08031840(Entity* this) {

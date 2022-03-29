@@ -64,7 +64,7 @@ NONMATCH("asm/non_matching/LoadRoomEntity.inc", Entity* LoadRoomEntity(EntityDat
         RegisterRoomEntity(v4, dat);
         if ((dat->flags & 0xF0) != 16) {
             v5->type2 = dat->type2;
-            v5->actionDelay = (dat->type2 & 0xFF00) >> 8;
+            v5->timer = (dat->type2 & 0xFF00) >> 8;
             if (kind == 9)
                 return v5;
             sub_0804AF0C(v5, dat);

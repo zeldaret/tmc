@@ -22,7 +22,7 @@ void Sturgeon(Entity* this) {
         if (this->action == 0) {
             if (LoadExtraSpriteData(this, &gUnk_0810FA38) != 0) {
                 this->action = 1;
-                this->actionDelay = 0;
+                this->timer = 0;
                 sub_0807DD50(this);
             }
         } else {
@@ -62,14 +62,14 @@ ASM_FUNC("asm/non_matching/sturgeon/sub_08064B88.inc", void sub_08064B88(Entity*
 void sub_08064C2C(Entity* this) {
     if ((gMessage.doTextBox & 0x7f) == 0) {
         this->action = 1;
-        InitializeAnimation(this, (u32)this->field_0xf);
+        InitializeAnimation(this, (u32)this->subtimer);
     }
 }
 
 void sub_08064C50(Entity* this) {
     if (UpdateFuseInteraction(this) != 0) {
         this->action = 1;
-        InitializeAnimation(this, this->field_0xf);
+        InitializeAnimation(this, this->subtimer);
     }
 }
 
@@ -81,7 +81,7 @@ void Sturgeon_Head(Entity* this) {
 }
 
 void sub_08064C9C(Entity* this) {
-    if ((this->actionDelay != 0) && ((gRoomTransition.frameCount & 3U) == 0)) {
+    if ((this->timer != 0) && ((gRoomTransition.frameCount & 3U) == 0)) {
         CreateDust(this);
     }
 }
@@ -105,11 +105,11 @@ void sub_08064CD8(Entity* this) {
 }
 
 void sub_08064D08(Entity* this) {
-    this->actionDelay = 1;
+    this->timer = 1;
 }
 
 void sub_08064D10(Entity* this) {
-    this->actionDelay = 0;
+    this->timer = 0;
 }
 
 void Sturgeon_Fusion(Entity* this) {

@@ -74,7 +74,7 @@ void MinecartDoor_Init(MinecartDoorEntity* this) {
 void MinecartDoor_Action1(MinecartDoorEntity* this) {
     if (sub_08096CEC(this)) {
         super->action = 2;
-        super->actionDelay = 7;
+        super->timer = 7;
         super->direction = super->type << 3;
         SetTile(this->unk_74, this->unk_76, super->collisionLayer);
         EnqueueSFX(SFX_10B);
@@ -83,7 +83,7 @@ void MinecartDoor_Action1(MinecartDoorEntity* this) {
 
 void MinecartDoor_Action2(MinecartDoorEntity* this) {
     LinearMoveUpdate(super);
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         sub_08096E04(this);
         super->spriteSettings.draw = 0;
         super->x.HALF.HI = this->unk_70;
@@ -107,7 +107,7 @@ void MinecartDoor_Action3(MinecartDoorEntity* this) {
             }
             bVar3 = FALSE;
         } else {
-            bVar3 = --super->actionDelay * 0x1000000;
+            bVar3 = --super->timer * 0x1000000;
         }
     } else {
         bVar3 = sub_08096D84(this);
@@ -120,7 +120,7 @@ void MinecartDoor_Action3(MinecartDoorEntity* this) {
 
 void MinecartDoor_Action4(MinecartDoorEntity* this) {
     LinearMoveUpdate(super);
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->action = 1;
         super->x.HALF.HI = this->unk_70;
         super->y.HALF.HI = this->unk_72;
@@ -189,5 +189,5 @@ bool32 sub_08096D84(MinecartDoorEntity* this) {
 
 void sub_08096E04(MinecartDoorEntity* this) {
     super->action = 3;
-    super->actionDelay = 8;
+    super->timer = 8;
 }

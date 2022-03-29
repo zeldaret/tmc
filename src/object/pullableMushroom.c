@@ -49,7 +49,7 @@ void PullableMushroom(PullableMushroomEntity* this) {
         PullableMushroom_Action3,
     };
     PullableMushroom_Actions[super->action](this);
-    super->bitfield = 0;
+    super->contactFlags = 0;
 }
 
 void PullableMushroom_Init(PullableMushroomEntity* this) {
@@ -61,13 +61,13 @@ void PullableMushroom_Init(PullableMushroomEntity* this) {
         case 0:
             super->spritePriority.b0 = 4;
             super->hitbox = (Hitbox*)&gUnk_080FD224;
-            super->field_0x16 = 1;
+            super->carryFlags = 1;
             SetTile(0x4022, COORD_TO_TILE(super), super->collisionLayer);
             super->health = 1;
-            super->field_0x3c = 7;
+            super->collisionFlags = 7;
             super->hitType = 0x6e;
             super->flags2 = 0x0e;
-            super->field_0x1c = 1;
+            super->gustJarFlags = 1;
             super->flags |= 0x80;
             super->spriteOffsetY = 4;
             break;
@@ -77,10 +77,10 @@ void PullableMushroom_Init(PullableMushroomEntity* this) {
                 super->hitbox = (Hitbox*)&gUnk_080FD224;
                 super->flags |= 0x80;
                 super->health = 1;
-                super->field_0x3c = 7;
+                super->collisionFlags = 7;
                 super->hitType = 0x6e;
                 super->flags2 = 4;
-                super->field_0x1c = 1;
+                super->gustJarFlags = 1;
                 super->action = 3;
             }
             InitializeAnimation(super, super->animationState + 9);
@@ -135,7 +135,7 @@ void sub_0808ACEC(PullableMushroomEntity* this) {
         InitializeAnimation(super, 0);
     }
 
-    switch (super->bitfield & 0x7f) {
+    switch (super->contactFlags & 0x7f) {
         case 0x4:
         case 0x5:
         case 0x6:
@@ -153,15 +153,15 @@ void sub_0808ACEC(PullableMushroomEntity* this) {
             COLLISION_OFF(super);
             super->animationState = sub_0806F5A4(super->knockbackDirection);
             super->subAction = 2;
-            super->actionDelay = 2;
+            super->timer = 2;
             break;
         case 0x13:
             super->action = 3;
             super->subAction = 0;
             break;
         default:
-            super->field_0xf = 0;
-            super->actionDelay = 0;
+            super->subtimer = 0;
+            super->timer = 0;
             RegisterCarryEntity(super);
             break;
     }
@@ -170,7 +170,7 @@ void sub_0808ACEC(PullableMushroomEntity* this) {
 void sub_0808ADA0(PullableMushroomEntity* this) {
     if ((sub_0808B1F0(this, super->child) < 8) || (super->child == NULL)) {
         super->subAction += 1;
-        super->actionDelay = 2;
+        super->timer = 2;
         super->flags |= ENT_COLLIDE;
         super->animationState ^= 2;
         super->spritePriority.b0 = 4;
@@ -199,7 +199,7 @@ void sub_0808ADF0(PullableMushroomEntity* this) {
             SoundReq(SFX_12E);
         } else {
             GetNextFrame(super);
-            if (((super->frame & ANIM_DONE) != 0) && (super->actionDelay-- == 0)) {
+            if (((super->frame & ANIM_DONE) != 0) && (super->timer-- == 0)) {
                 InitializeAnimation(super, super->animationState + 0xd);
             }
         }
@@ -220,7 +220,7 @@ void PullableMushroom_Action2(PullableMushroomEntity* this) {
 void sub_0808AEB0(PullableMushroomEntity* this) {
     static const u16 gUnk_081211E4[] = { 1024, 256, 2048, 512 };
     u32 uVar1;
-    if (super->actionDelay != 0) {
+    if (super->timer != 0) {
         uVar1 = sub_0808B1F0(this, super->child);
         if ((gPlayerState.field_0x90 & gUnk_081211E4[super->animationState]) != 0) {
             GetNextFrame(super);
@@ -231,10 +231,10 @@ void sub_0808AEB0(PullableMushroomEntity* this) {
                     SoundReq(SFX_12F);
                 }
             }
-            super->field_0xf = 1;
+            super->subtimer = 1;
 
         } else {
-            if (((super->field_0xf != 0) && (gPlayerEntity.action == 1)) && (gPlayerState.swim_state == 0)) {
+            if (((super->subtimer != 0) && (gPlayerEntity.action == 1)) && (gPlayerState.swim_state == 0)) {
                 gPlayerState.queued_action = 0x1b;
                 gPlayerState.field_0x38 = uVar1;
                 gPlayerState.field_0x39 = super->direction ^ 0x10;
@@ -243,7 +243,7 @@ void sub_0808AEB0(PullableMushroomEntity* this) {
             }
         }
     } else {
-        super->actionDelay = 1;
+        super->timer = 1;
         this->unk_7c = 1;
         super->animationState = AnimationStateFlip90(gPlayerEntity.animationState >> 1);
         super->direction = (super->animationState << 3);
@@ -275,7 +275,7 @@ void PullableMushroom_Action3(PullableMushroomEntity* this) {
     };
 
     funcs[super->subAction](this);
-    if ((((gPlayerState.field_0x1c & 0xf) != 1) || ((super->bitfield & 0x7f) != 0x13)) && (super->type == 1)) {
+    if ((((gPlayerState.field_0x1c & 0xf) != 1) || ((super->contactFlags & 0x7f) != 0x13)) && (super->type == 1)) {
         (super->parent)->action = 1;
         (super->parent)->subAction = 1;
         super->direction = DirectionTurnAround(super->parent->direction);

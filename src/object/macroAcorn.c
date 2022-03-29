@@ -1,5 +1,5 @@
 #include "entity.h"
-#include "coord.h"
+#include "physics.h"
 #include "object.h"
 
 void sub_0809E518(Entity*);

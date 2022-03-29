@@ -24,7 +24,7 @@ typedef struct _struct_gUnk_08123FB0 {
     s16 speed;
     s16 y;
     u16 flag;
-    u8 actionDelay;
+    u8 timer;
     u8 unk1f;
 } struct_gUnk_08123FB0;
 
@@ -77,7 +77,7 @@ void Object96_Init(Entity* this, const struct_gUnk_08123FB0* param_2) {
     this->speed = param_2->speed;
     this->y.HALF.HI -= param_2->y;
     this->z.WORD = 0;
-    this->actionDelay = param_2->actionDelay;
+    this->timer = param_2->timer;
     if ((this->direction & 0x80)) {
         dir = this->direction;
         if (dir == 0x81) {
@@ -114,8 +114,8 @@ void Object96_Action2(Entity* this, const struct_gUnk_08123FB0* param_2) {
 
     LinearMoveUpdate(this);
     if (sub_080044EC(this, param_2->unk14) < 2) {
-        if (this->actionDelay) {
-            this->actionDelay--;
+        if (this->timer) {
+            this->timer--;
             this->zVelocity = param_2->unk14 << 3;
         } else {
             this->action++;

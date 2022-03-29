@@ -66,7 +66,7 @@ void PlayerClone_Action1(PlayerCloneEntity* this) {
         super->action = 2;
         super->updatePriority = 6;
         super->hitbox = (Hitbox*)&PlayerCloneHitbox;
-        super->field_0xf = (super->type + 1) * 15;
+        super->subtimer = (super->type + 1) * 15;
         this->unk78 = super->x.HALF.HI - gPlayerEntity.x.HALF.HI;
         this->unk7a = super->y.HALF.HI - gPlayerEntity.y.HALF.HI;
         if ((this->unk78 != 0) && (this->unk7a != 0)) {
@@ -92,11 +92,11 @@ void PlayerClone_Action1(PlayerCloneEntity* this) {
 void PlayerClone_Action2(PlayerCloneEntity* this) {
     u32 index;
 
-    if (super->field_0xf == 1) {
+    if (super->subtimer == 1) {
         SoundReq(SFX_PLY_VO2);
-        super->field_0xf--;
-    } else if (super->field_0xf != 0) {
-        super->field_0xf--;
+        super->subtimer--;
+    } else if (super->subtimer != 0) {
+        super->subtimer--;
     }
 
     if (gPlayerState.chargeState.action == 5 && gPlayerClones[super->type] != NULL && gPlayerState.framestate != 19 &&
@@ -119,17 +119,17 @@ void PlayerClone_Action2(PlayerCloneEntity* this) {
                 }
 
                 if (index == 4) {
-                    super->actionDelay = 0;
+                    super->timer = 0;
                     super->spriteSettings.draw = 1;
                     return;
                 } else {
-                    if (super->actionDelay != 0) {
-                        if (--super->actionDelay != 0) {
+                    if (super->timer != 0) {
+                        if (--super->timer != 0) {
                             super->spriteSettings.draw ^= 1;
                             return;
                         }
                     } else {
-                        super->actionDelay = 30;
+                        super->timer = 30;
                         return;
                     }
                 }
@@ -160,7 +160,7 @@ void sub_08084B1C(PlayerCloneEntity* this) {
     super->collisionLayer = gPlayerEntity.collisionLayer;
     super->flags2 = gPlayerEntity.flags2;
     super->hitType = gPlayerEntity.hitType;
-    super->field_0x3c = gPlayerEntity.field_0x3c;
+    super->collisionFlags = gPlayerEntity.collisionFlags;
     super->hurtType = gPlayerEntity.hurtType;
     CopyPosition(super, super->child);
     if (gPlayerState.field_0x3[1] != 0) {

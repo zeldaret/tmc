@@ -33,17 +33,17 @@ void Tektite_OnCollision(Entity* this) {
         Create0x68FX(this, FX_STARS);
     }
     EnemyFunctionHandlerAfterCollision(this, Tektite_Functions);
-    if ((this->bitfield & 0x80) != 0) {
-        switch (this->bitfield & 0x3f) {
+    if ((this->contactFlags & 0x80) != 0) {
+        switch (this->contactFlags & 0x3f) {
             case 0x14:
                 this->action = 1;
                 this->subAction = 0;
                 if (this->type != 0) {
-                    this->actionDelay = 0xc0;
+                    this->timer = 0xc0;
                 } else {
-                    this->actionDelay = gUnk_080CDEF8[Random() & 3];
+                    this->timer = gUnk_080CDEF8[Random() & 3];
                 }
-                this->field_0xf = 0;
+                this->subtimer = 0;
                 *(u8*)&this->field_0x7c = 0;
                 if (this->z.HALF.HI != 0) {
                     this->zVelocity >>= 2;
@@ -77,9 +77,9 @@ void sub_0802F210(Entity* this) {
     sub_0804A720(this);
     this->action = 1;
     this->subAction = 0;
-    this->actionDelay = gUnk_080CDEF8[Random() & 3];
-    this->actionDelay = (Random() & 0x1f) + this->actionDelay;
-    this->field_0xf = 0;
+    this->timer = gUnk_080CDEF8[Random() & 3];
+    this->timer = (Random() & 0x1f) + this->timer;
+    this->subtimer = 0;
     *(u8*)&this->field_0x7c = 0;
 
     this->field_0x80.HWORD = this->type == 0 ? 0x1800 : 0x2800;
@@ -90,24 +90,24 @@ void sub_0802F210(Entity* this) {
 }
 
 void sub_0802F284(Entity* this) {
-    if (this->actionDelay > 0x60) {
+    if (this->timer > 0x60) {
         UpdateAnimationVariableFrames(this, 2);
     } else {
         GetNextFrame(this);
     }
-    if (this->actionDelay != 0) {
-        this->actionDelay--;
-    } else if (this->field_0xf != 0) {
+    if (this->timer != 0) {
+        this->timer--;
+    } else if (this->subtimer != 0) {
         if (this->frame & ANIM_DONE) {
             this->action = 2;
-            this->actionDelay = 0x10;
-            this->field_0xf = this->type;
+            this->timer = 0x10;
+            this->subtimer = this->type;
             this->zVelocity = this->field_0x82.HWORD << 4;
             sub_0802F45C(this);
             InitializeAnimation(this, 2);
         }
     } else if (this->frame & ANIM_DONE) {
-        this->field_0xf = 0x40;
+        this->subtimer = 0x40;
         InitializeAnimation(this, 1);
     }
 }
@@ -129,11 +129,11 @@ void sub_0802F300(Entity* this) {
         }
 
         if (rand == 0) {
-            this->actionDelay = 0xc0;
+            this->timer = 0xc0;
         } else {
-            this->actionDelay = gUnk_080CDEF8[rand & 3] + rand;
+            this->timer = gUnk_080CDEF8[rand & 3] + rand;
         }
-        this->field_0xf = 0;
+        this->subtimer = 0;
         InitializeAnimation(this, 3);
         return;
     } else if (this->collisions != COL_NONE) {
@@ -142,10 +142,10 @@ void sub_0802F300(Entity* this) {
         this->direction = (this->direction + 0x10) & 0x1f;
     }
 
-    if (--this->actionDelay == 0) {
-        this->actionDelay = 0x10;
-        if (this->field_0xf != 0) {
-            this->field_0xf--;
+    if (--this->timer == 0) {
+        this->timer = 0x10;
+        if (this->subtimer != 0) {
+            this->subtimer--;
             sub_0802F45C(this);
         }
     }
@@ -171,8 +171,8 @@ void sub_0802F3F4(Entity* this) {
     if (this->frame & ANIM_DONE) {
         if ((*(u8*)&this->field_0x7c.HALF.LO < 2) && ((this->type % 2) != 0)) {
             this->action = 2;
-            this->actionDelay = 0x10;
-            this->field_0xf = this->type;
+            this->timer = 0x10;
+            this->subtimer = this->type;
             this->zVelocity = this->field_0x82.HWORD << 4;
             (*(u8*)&this->field_0x7c.HALF.LO)++;
             sub_0802F45C(this);

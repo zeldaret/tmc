@@ -61,10 +61,10 @@ void HouseDoorInterior_Init(HouseDoorInteriorEntity* this) {
     }
     super->action = 1;
     super->spriteSettings.draw = 1;
-    this->unk7d = super->actionDelay;
+    this->unk7d = super->timer;
     super->spritePriority.b0 = 7;
     super->hitbox = (Hitbox*)&HouseDoorInteriorHitbox;
-    super->actionDelay = 8;
+    super->timer = 8;
     ptr = HouseDoorInteriorFrameIndices + super->type;
     if (ptr->frameIndex == 0xff) {
         super->frameIndex = super->type2;
@@ -87,13 +87,13 @@ void HouseDoorInterior_Action1(HouseDoorInteriorEntity* this) {
         ptr = gUnk_081227CC + super->type2;
         if (GetAnimationStateInRectRadius(super, ptr->x, ptr->y) >= 0 &&
             ptr->animationState == gPlayerEntity.animationState && gPlayerState.field_0x90 & ptr->unk2) {
-            --super->actionDelay;
+            --super->timer;
         }
     } else {
-        super->actionDelay = 8;
+        super->timer = 8;
     }
 
-    if (super->actionDelay == 0) {
+    if (super->timer == 0) {
         super->action = 2;
         sub_08078AC0(8, 0, 0);
         SoundReq(SFX_111);

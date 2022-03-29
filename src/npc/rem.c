@@ -57,7 +57,7 @@ void sub_0806a370(Entity* this) {
 
 void sub_0806A3D8(Entity* this) {
     this->action = 1;
-    this->actionDelay = 0xb4;
+    this->timer = 0xb4;
     SetDefaultPriority(this, PRIO_MESSAGE);
     sub_0806A8C8(this);
     *(ScriptExecutionContext**)&this->cutsceneBeh = StartCutscene(this, &script_Rem);
@@ -67,7 +67,7 @@ void sub_0806A3D8(Entity* this) {
 void sub_0806A410(Entity* this) {
     switch (this->subAction) {
         case 0:
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->subAction++;
                 InitializeAnimation(this, 8);
             }
@@ -83,7 +83,7 @@ void sub_0806A410(Entity* this) {
 void sub_0806A458(Entity* this) {
     switch (this->subAction) {
         case 0:
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->subAction += 1;
             }
             break;
@@ -98,7 +98,7 @@ void sub_0806A458(Entity* this) {
             if (((this->frame & ANIM_DONE) != 0)) {
                 this->action = 1;
                 this->subAction = 0;
-                this->actionDelay = 0x3c;
+                this->timer = 0x3c;
                 InitializeAnimation(this, 2);
             }
             break;
@@ -126,7 +126,7 @@ void sub_0806A4CC(Entity* this) {
                     }
                     break;
                 default:
-                    this->actionDelay = 0xb4;
+                    this->timer = 0xb4;
                     break;
             }
     }
@@ -166,11 +166,11 @@ void sub_0806A5E8(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
         InitializeAnimation(this, 0x10);
-        this->actionDelay = (Random() & 0x3f) + 0x3c;
+        this->timer = (Random() & 0x3f) + 0x3c;
     }
-    this->actionDelay -= 1;
-    if (this->actionDelay == 0) {
-        this->actionDelay = (Random() & 0x3f) + 0x78;
+    this->timer -= 1;
+    if (this->timer == 0) {
+        this->timer = (Random() & 0x3f) + 0x78;
         SoundReq(SFX_REM_SLEEP);
     }
     GetNextFrame(this);
@@ -211,12 +211,12 @@ void sub_0806A674(Entity* this) {
                 if (this->parent->animIndex == 9) {
                     this->spritePriority.b0 = 3;
 
-                    if (this->actionDelay == 0) {
+                    if (this->timer == 0) {
                         rand = Random();
-                        this->actionDelay = rand & 7;
+                        this->timer = rand & 7;
                         this->field_0x68.HALF.LO = auStack16[rand >> 8 & 7];
                     } else if ((gRoomTransition.frameCount & 3U) == 0) {
-                        this->actionDelay--;
+                        this->timer--;
                         if ((s8)this->spriteOffsetX < 1) {
                             this->field_0x68.HALF.LO = 1;
                         }
@@ -227,12 +227,12 @@ void sub_0806A674(Entity* this) {
                         this->spriteOffsetX += this->field_0x68.HALF.LO;
                     }
 
-                    if (this->field_0xf == 0) {
+                    if (this->subtimer == 0) {
                         rand = Random();
-                        this->field_0xf = rand & 7;
+                        this->subtimer = rand & 7;
                         this->field_0x68.HALF.HI = auStack16[rand >> 8 & 7];
                     } else if (((u32)gRoomTransition.frameCount >> 4 & 3) == 0) {
-                        this->field_0xf--;
+                        this->subtimer--;
                         if (-1 < this->spriteOffsetY) {
                             this->field_0x68.HALF.HI = -1;
                         }
@@ -360,7 +360,7 @@ void sub_0806A9B0(Entity* this, ScriptExecutionContext* context) {
     static const u8 gUnk_081122A0[] = { 60, 100, 200, 60, 100, 200, 80, 80 };
     this->action = 2;
     this->subAction = 0;
-    this->actionDelay = gUnk_081122A0[Random() & 7];
+    this->timer = gUnk_081122A0[Random() & 7];
     this->field_0x80.HWORD = 9;
     InitializeAnimation(this, 9);
     SetLocalFlag(NPC37_REM_SLEEP);

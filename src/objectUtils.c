@@ -1,6 +1,6 @@
 #include "global.h"
 #include "entity.h"
-#include "coord.h"
+#include "physics.h"
 #include "room.h"
 #include "object.h"
 #include "functions.h"
@@ -156,7 +156,7 @@ Entity* CreateGroundItem(Entity* parent, u32 form, u32 subtype) {
 
     ent = CreateObjectWithParent(parent, GROUND_ITEM, form, subtype);
     if (ent != NULL) {
-        ent->actionDelay = 5;
+        ent->timer = 5;
     }
     return ent;
 }
@@ -166,7 +166,7 @@ Entity* CreateGroundItemWithFlags(Entity* parent, u32 form, u32 subtype, u32 fla
 
     ent = CreateObjectWithParent(parent, GROUND_ITEM, form, subtype);
     if (ent != NULL) {
-        ent->actionDelay = 5;
+        ent->timer = 5;
         ent->field_0x86.HWORD = flags;
     }
     return ent;

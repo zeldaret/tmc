@@ -1,6 +1,6 @@
 #include "entity.h"
 #include "enemy.h"
-#include "coord.h"
+#include "physics.h"
 
 typedef struct {
     s8 offsetX;
@@ -32,11 +32,11 @@ void MoblinSpear_OnTick(Entity* this) {
 void sub_080A832C(Entity* this) {
     u8 tmp;
 
-    if (this->bitfield == 0x80) {
+    if (this->contactFlags == 0x80) {
         this->iframes = 0x10;
         this->knockbackDuration = 0xc;
         this->knockbackSpeed = 0x180;
-        this->parent->bitfield = this->bitfield;
+        this->parent->contactFlags = this->contactFlags;
     }
     tmp = this->iframes;
     if ((tmp & 0x80) != 0) {

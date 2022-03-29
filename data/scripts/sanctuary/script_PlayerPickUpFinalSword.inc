@@ -6,7 +6,7 @@ SCRIPT_START script_PlayerPickUpFinalSword
 	Call sub_08096028
 	Wait 0x0078
 	SetSyncFlag 0x00020000
-	Call WaitForPlayerFrameHiBit
+	Call WaitForPlayerAnim
 	Wait 0x0078
 	WaitForSyncFlagAndClear 0x00040000
 	Call SetPlayerActionNormal

@@ -348,7 +348,7 @@ static void PlayerInit(Entity* this) {
     this->spritePriority.b0 = 0xc;
     this->spritePriority.b1 = 1;
     this->spriteSettings.shadow = 1;
-    this->field_0x16 = 0x20;
+    this->carryFlags = 0x20;
     this->flags2 = 8;
     this->hitType = 0x79;
     this->hitbox = (Hitbox*)&gPlayerHitbox;
@@ -480,7 +480,7 @@ static void PlayerNormal(Entity* this) {
         }
     }
 
-    this->field_0x3c = 0;
+    this->collisionFlags = 0;
     this->spritePriority.b0 = 4;
     if (sub_0807AC54(this)) {
         return;
@@ -645,7 +645,7 @@ static void PlayerBounceInit(Entity* this) {
     this->speed = BOUNCE_SPEED_FWD;
     this->knockbackDuration = 0;
     this->subAction++;
-    this->actionDelay = gPlayerState.field_0x38;
+    this->timer = gPlayerState.field_0x38;
     this->spriteIndex = 1;
 
     if ((gPlayerState.flags & PL_MINISH) == 0) {
@@ -683,7 +683,7 @@ static void PlayerBounceUpdate(Entity* this) {
         return;
     }
 
-    if (this->actionDelay-- != 0) {
+    if (this->timer-- != 0) {
         this->zVelocity = Q_16_16(1.0);
         return;
     }
@@ -698,7 +698,7 @@ static void PlayerBounceUpdate(Entity* this) {
     }
 
     this->spriteIndex = 1;
-    this->actionDelay = 8;
+    this->timer = 8;
     this->subAction++;
 
     if ((gPlayerState.flags & PL_MINISH) == 0)
@@ -706,7 +706,7 @@ static void PlayerBounceUpdate(Entity* this) {
 }
 
 static void sub_08070E7C(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         gPlayerState.jump_status = 0;
         ResetPlayerAnimationAndAction();
     }
@@ -908,7 +908,7 @@ static void sub_08071130(Entity* this) {
         return;
     }
 
-    this->actionDelay = 6;
+    this->timer = 6;
 
     if (((gPlayerState.heldObject | gPlayerState.keepFacing) == 0) && ((gPlayerState.flags & PL_MINISH) == 0)) {
         if (gPlayerState.flags & PL_NO_CAP) {
@@ -932,7 +932,7 @@ static void sub_08071208(Entity* this) {
         }
     }
 
-    if (this->actionDelay-- == 0) {
+    if (this->timer-- == 0) {
         gPlayerState.jump_status = 0;
         ResetPlayerAnimationAndAction();
     }
@@ -955,7 +955,7 @@ static void PlayerDrownInit(Entity* this) {
     this->spritePriority.b1 = 0;
 
     if (gPlayerState.flags & PL_MINISH) {
-        this->actionDelay = 0x3c;
+        this->timer = 0x3c;
         gPlayerState.animation = 0xc19;
         SoundReq(SFX_WATER_SPLASH);
     } else {
@@ -980,7 +980,7 @@ static void sub_080712F0(Entity* this) {
     temp = FALSE;
 
     if ((gPlayerState.flags & PL_MINISH) != 0) {
-        if (--this->actionDelay == 0)
+        if (--this->timer == 0)
             temp = TRUE;
     } else if ((this->frame & ANIM_DONE) != 0) {
         if (this->animIndex != 0xce)
@@ -1021,7 +1021,7 @@ static void PlayerUsePortal(Entity* this) {
 
     if (AreaIsDungeon() || gArea.portal_type == 3) {
         this->subAction = 7;
-        this->actionDelay = 30;
+        this->timer = 30;
         SetFade(7, 16);
         SoundReq(SFX_F8);
     } else {
@@ -1058,7 +1058,7 @@ static void PortalJumpOnUpdate(Entity* this) {
         }
     }
 
-    this->actionDelay = 8;
+    this->timer = 8;
 
     if (gArea.portal_type != 3) {
         this->spritePriority.b0 = 3;
@@ -1075,23 +1075,23 @@ static void PortalStandUpdate(Entity* this) {
 
     if ((gPlayerState.field_0xd & 0x84) == 0) {
         if (this->direction != gPlayerState.field_0xd) {
-            this->actionDelay = 8;
+            this->timer = 8;
         }
-        if (this->actionDelay-- == 0) {
+        if (this->timer-- == 0) {
             this->direction = gPlayerState.field_0xd;
             this->animationState = Direction8ToAnimationState(this->direction);
             this->zVelocity = Q_16_16(2.0);
             this->speed = JUMP_SPEED_FWD;
             this->action = PLAYER_MINISH;
             this->subAction = 7;
-            this->field_0xf = 0;
+            this->subtimer = 0;
             gPlayerState.animation = (gPlayerState.flags & PL_NO_CAP) ? 0x41C : 0x80C;
             gPlayerState.flags &= ~PL_USE_PORTAL;
             return;
         }
         this->direction = gPlayerState.field_0xd;
     } else {
-        this->actionDelay = 8;
+        this->timer = 8;
     }
 
     if (gArea.portal_type == 4) {
@@ -1109,7 +1109,7 @@ static void PortalActivateInit(Entity* this) {
     gRoomControls.camera_target = NULL;
     gPauseMenuOptions.disabled = 1;
     this->subAction = 3;
-    this->field_0xf = 30;
+    this->subtimer = 30;
     gPlayerState.animation = 0x738;
     CreateObjectWithParent(this, EZLO_CAP, 1, 0);
     PutAwayItems();
@@ -1117,7 +1117,7 @@ static void PortalActivateInit(Entity* this) {
 }
 
 static void PortalActivateUpdate(Entity* this) {
-    if (this->field_0xf)
+    if (this->subtimer)
         return;
 
     UpdateAnimationSingleFrame(this);
@@ -1129,7 +1129,7 @@ static void PortalActivateUpdate(Entity* this) {
 static void PortalShrinkInit(Entity* this) {
     this->subAction = 5;
     this->spritePriority.b1 = 0;
-    this->field_0xf = 0;
+    this->subtimer = 0;
     this->spriteRendering.b0 = 3;
     *(u32*)&this->field_0x80.HWORD = 0x100;
     *(u32*)&this->cutsceneBeh = 0x100;
@@ -1200,8 +1200,8 @@ static void PortalShrinkUpdate(Entity* this) {
                 *(u32*)&this->field_0x80 += uVar7;
             }
             if (*(u32*)&this->cutsceneBeh >= 0x340) {
-                this->actionDelay = 8;
-                this->field_0xf = 0x1e;
+                this->timer = 8;
+                this->subtimer = 0x1e;
                 this->subAction = 6;
             } else {
                 *(u32*)&this->cutsceneBeh += uVar5 * 2;
@@ -1215,14 +1215,14 @@ static void PortalShrinkUpdate(Entity* this) {
 }
 
 static void PortalEnterUpdate(Entity* this) {
-    if (this->actionDelay == 0) {
+    if (this->timer == 0) {
         if (GravityUpdate(this, GRAVITY_RATE))
             return;
 
         this->spriteSettings.draw = FALSE;
 
         if (gArea.portal_type == 3) {
-            if (--this->field_0xf == 0)
+            if (--this->subtimer == 0)
                 sub_080717F8(this);
             return;
         }
@@ -1233,15 +1233,15 @@ static void PortalEnterUpdate(Entity* this) {
 
         return;
     }
-    this->actionDelay--;
+    this->timer--;
 }
 
 static void PortalUnknownUpdate(Entity* this) {
     if (gFadeControl.active)
         return;
 
-    if (this->actionDelay != 0) {
-        this->actionDelay--;
+    if (this->timer != 0) {
+        this->timer--;
         return;
     }
 
@@ -1359,7 +1359,7 @@ static void PlayerTalkEzlo_MessageIdle(Entity* this) {
     else
         temp = 0;
 
-    if (this->child->actionDelay != 0) {
+    if (this->child->timer != 0) {
         if ((u8)(temp + 200) != this->animIndex) {
             gPlayerState.animation = temp + 0x3c8;
             return;
@@ -1403,8 +1403,8 @@ static void PlayerPushInit(Entity* this) {
     if (this->type == 1) {
         // scripted push?
         this->speed = 0;
-        this->actionDelay = 0;
-        this->field_0xf = 1;
+        this->timer = 0;
+        this->subtimer = 1;
     } else {
         this->speed = (gPlayerState.flags & PL_MINISH) ? PUSH_SPEED / 2 : PUSH_SPEED;
     }
@@ -1438,11 +1438,11 @@ static void PlayerPushUpdate(Entity* this) {
     gPlayerState.speed_modifier = 0;
     UpdateAnimationSingleFrame(this);
     if (this->type == 1) {
-        if (--this->field_0xf == 0) {
-            if (sPushFrames[this->actionDelay].frame != 0xff) {
-                this->field_0xf = sPushFrames[this->actionDelay].frame;
-                this->speed = sPushFrames[this->actionDelay].speed;
-                this->actionDelay++;
+        if (--this->subtimer == 0) {
+            if (sPushFrames[this->timer].frame != 0xff) {
+                this->subtimer = sPushFrames[this->timer].frame;
+                this->speed = sPushFrames[this->timer].speed;
+                this->timer++;
             } else {
                 this->subAction++;
                 return;
@@ -1464,7 +1464,7 @@ static void sub_08071B60(Entity* this) {
     this->knockbackDuration = 0;
     PlayerWaitForScroll(this);
     // Final push?
-    this->field_0xf = 6;
+    this->subtimer = 6;
     if ((gPlayerState.flags & PL_MINISH) == 0) {
         gPlayerState.animation = 0x104;
         this->spriteIndex = 3;
@@ -1537,7 +1537,7 @@ static void sub_08071CAC(Entity* this) {
         gPlayerState.animation = temp;
 
         this->subAction = 2;
-        this->actionDelay = 0xf0;
+        this->timer = 0xf0;
         SoundReq(SFX_PLY_VO7);
     }
 }
@@ -1596,7 +1596,7 @@ static void sub_08071DB8(Entity* this) {
 }
 
 static void sub_08071DD0(Entity* this) {
-    this->actionDelay = gPlayerState.field_0x38;
+    this->timer = gPlayerState.field_0x38;
     if (gPlayerState.field_0x39 != 0) {
         gPlayerState.field_0x39 = 0;
         this->subAction = 2;
@@ -1626,11 +1626,11 @@ static void sub_08071E04(Entity* this) {
 
     sub_080792D8();
     if (sub_0807953C())
-        this->actionDelay -= 2;
+        this->timer -= 2;
     else
-        this->actionDelay -= 1;
+        this->timer -= 1;
 
-    if ((s8)this->actionDelay < 1)
+    if ((s8)this->timer < 1)
         SetPlayerActionNormal();
 }
 
@@ -1639,7 +1639,7 @@ static void sub_08071E74(Entity* this) {
 
     GravityUpdate(this, GRAVITY_RATE);
     UpdatePlayerMovement();
-    temp = this->actionDelay--;
+    temp = this->timer--;
     if (temp == 0)
         SetPlayerActionNormal();
 }
@@ -1695,7 +1695,7 @@ static void PlayerFrozen(Entity* this) {
 
 static void PlayerFrozenInit(Entity* this) {
     COLLISION_OFF(this);
-    this->actionDelay = 120;
+    this->timer = 120;
     this->subAction++;
     gPlayerState.animation = 0x294;
     PutAwayItems();
@@ -1718,12 +1718,12 @@ static void PlayerFrozenUpdate(Entity* this) {
     } else {
         if (gPlayerState.flags & PL_FROZEN) {
             if (sub_0807953C() != 0) {
-                this->actionDelay -= 3;
+                this->timer -= 3;
                 this->spriteOffsetX = 2;
             } else {
                 this->spriteOffsetX = 0;
             }
-            if ((s8)this->actionDelay > 0) {
+            if ((s8)this->timer > 0) {
                 return;
             }
         }
@@ -1753,15 +1753,15 @@ static void sub_0807204C(Entity* this) {
 static void sub_08072064(Entity* this) {
     this->subAction = 1;
     COLLISION_OFF(this);
-    this->actionDelay = gPlayerState.field_0x3a;
+    this->timer = gPlayerState.field_0x3a;
     gPlayerState.animation = gPlayerState.field_0x38 | (gPlayerState.field_0x39 << 8);
     ResetPlayerItem();
 }
 
 static void sub_08072098(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (this->actionDelay != 0)
-        if (this->actionDelay-- != 0)
+    if (this->timer != 0)
+        if (this->timer-- != 0)
             return;
         else
             ;
@@ -1787,7 +1787,7 @@ static void sub_08072100(Entity* this) {
     this->spriteSettings.draw = 3;
     this->speed = 0x140;
     this->hitbox = (Hitbox*)&gPlayerHitbox;
-    this->actionDelay = gPlayerState.field_0x38;
+    this->timer = gPlayerState.field_0x38;
     this->subAction = 1;
     COLLISION_OFF(this);
     if (gPlayerState.field_0x39)
@@ -1815,7 +1815,7 @@ static void sub_08072168(Entity* this) {
     }
     gPlayerState.field_0xd = this->direction;
     UpdatePlayerCollision();
-    if (this->actionDelay-- == 0) {
+    if (this->timer-- == 0) {
         this->knockbackDuration = 0;
         COLLISION_ON(this);
         UpdateSpriteForCollisionLayer(this);
@@ -1837,7 +1837,7 @@ static void PlayerPull(Entity* this) {
 static void sub_08072214(Entity* this) {
     this->subAction = 1;
     this->speed = PULL_SPEED;
-    this->actionDelay = gPlayerState.field_0x38;
+    this->timer = gPlayerState.field_0x38;
     this->direction = Direction8FromAnimationState(AnimationStateFlip180(this->animationState));
     if ((gPlayerState.flags & PL_NO_CAP) == 0) {
         gPlayerState.animation = 0x34c;
@@ -1852,7 +1852,7 @@ static void sub_08072260(Entity* this) {
     gPlayerState.speed_modifier = 0;
     UpdatePlayerMovement();
     UpdateAnimationSingleFrame(this);
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         gPlayerState.flags &= ~PL_BUSY;
         if ((gPlayerState.flags & PL_NO_CAP) == 0) {
             gPlayerState.animation = 0x34c;
@@ -1909,7 +1909,7 @@ static void sub_08072354(Entity* this) {
     this->spritePriority.b1 = 0;
     this->knockbackDuration = 0;
     this->subAction = 2;
-    this->actionDelay = 0x3c;
+    this->timer = 0x3c;
     gPlayerState.animation = 0x2c1;
     gPlayerState.flags &= ~PL_BURNING;
     UpdateSpriteForCollisionLayer(this);
@@ -1919,7 +1919,7 @@ static void sub_08072354(Entity* this) {
 
 static void sub_080723D0(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (this->actionDelay-- == 0) {
+    if (this->timer-- == 0) {
         this->spritePriority.b1 = 1;
         this->iframes = 20;
         ModHealth(-2);
@@ -1948,13 +1948,13 @@ static void sub_08072454(Entity* this) {
 
 static void sub_0807246C(Entity* this) {
     this->subAction = 1;
-    this->actionDelay = gPlayerState.field_0x38;
+    this->timer = gPlayerState.field_0x38;
     gPlayerState.animation = 0x3c0;
     SoundReq(SFX_PLY_VO7);
 }
 
 static void sub_08072490(Entity* this) {
-    if (this->actionDelay-- != 0) {
+    if (this->timer-- != 0) {
         UpdateAnimationSingleFrame(this);
         UpdatePlayerMovement();
     } else {
@@ -2041,7 +2041,7 @@ static void PlayerRollInit(Entity* this) {
         this->direction = Direction8FromAnimationState(this->animationState);
     }
     this->subAction = 1;
-    this->actionDelay = 0;
+    this->timer = 0;
     ResetPlayerItem();
     temp = gPlayerState.flags;
     if (gPlayerState.flags & PL_MINISH) {
@@ -2066,7 +2066,7 @@ static void PlayerRollInit(Entity* this) {
 
 static void PlayerRollUpdate(Entity* this) {
     if (((gPlayerState.flags & (PL_ROLLING | PL_MOLDWORM_CAPTURED)) != PL_ROLLING) ||
-        ((gPlayerState.flags & PL_MOLDWORM_RELEASED) == 0 && (this->iframes != 0) && (this->bitfield & 0x80))) {
+        ((gPlayerState.flags & PL_MOLDWORM_RELEASED) == 0 && (this->iframes != 0) && (this->contactFlags & 0x80))) {
         gPlayerState.flags &= ~PL_ROLLING;
         if (CheckQueuedAction())
             return;
@@ -2076,9 +2076,9 @@ static void PlayerRollUpdate(Entity* this) {
     }
 
     this->direction = Direction8FromAnimationState(AnimationStateIdle(this->animationState));
-    if (((gPlayerState.flags & PL_MINISH) == 0) && (this->actionDelay-- == 0)) {
+    if (((gPlayerState.flags & PL_MINISH) == 0) && (this->timer-- == 0)) {
         CreateFx(&gPlayerEntity, FX_DASH, 0x40);
-        this->actionDelay = 4;
+        this->timer = 4;
     }
     if ((gPlayerState.flags & PL_FLAGS2) == 0) {
         UpdateFloorType();
@@ -2183,14 +2183,14 @@ static void PlayerInHoleInit(Entity* this) {
         COLLISION_OFF(this);
         this->spritePriority.b0 = 7;
         this->spritePriority.b1 = 0;
-        this->actionDelay = 0;
+        this->timer = 0;
         gPlayerState.flags |= PL_IN_HOLE;
         if (gPlayerState.flags & PL_NO_CAP) {
             gPlayerState.animation = 0x950;
         } else {
             gPlayerState.animation = 0x61c;
             if (GetTileIndex(COORD_TO_TILE(this), this->collisionLayer) == 0x4020) {
-                this->actionDelay = 1;
+                this->timer = 1;
             }
         }
         SetTile(0x4070, COORD_TO_TILE(this), this->collisionLayer);
@@ -2202,9 +2202,9 @@ static void PlayerInHoleInit(Entity* this) {
 
 static void PlayerInHoleUpdate(Entity* this) {
     if (this->frame & ANIM_DONE) {
-        if (this->actionDelay == 1) {
+        if (this->timer == 1) {
             this->subAction = 3;
-            this->actionDelay = 0x28;
+            this->timer = 0x28;
             this->spritePriority.b1 = 1;
             gPlayerState.animation = 0x624;
             return;
@@ -2223,8 +2223,8 @@ static void PlayerInHoleUpdate(Entity* this) {
 
 static void sub_08072ACC(Entity* this) {
     if (gPlayerState.field_0xd == 0xff) {
-        this->field_0xf = 0;
-    } else if (this->field_0xf > 7) {
+        this->subtimer = 0;
+    } else if (this->subtimer > 7) {
         COLLISION_ON(this);
         this->direction = gPlayerState.field_0xd;
         this->zVelocity = JUMP_SPEED_HOLE_Z;
@@ -2236,17 +2236,17 @@ static void sub_08072ACC(Entity* this) {
         RestorePrevTileEntity(COORD_TO_TILE(this), this->collisionLayer);
     } else {
         this->animationState = Direction8ToAnimationState(gPlayerState.field_0xd);
-        this->field_0xf++;
+        this->subtimer++;
     }
 }
 
 static void sub_08072B5C(Entity* this) {
     u32 temp;
 
-    sub_080042BA(this, ((0x28 - this->actionDelay) >> 4) + 1);
+    sub_080042BA(this, ((0x28 - this->timer) >> 4) + 1);
     sub_0806F948(this);
-    if (this->actionDelay != 0) {
-        this->actionDelay--;
+    if (this->timer != 0) {
+        this->timer--;
         return;
     }
 
@@ -2311,7 +2311,7 @@ static void sub_08072C9C(Entity* this) {
 static void sub_08072CC0(Entity* this) {
     this->subAction = 1;
     COLLISION_OFF(this);
-    this->field_0xf = (gPlayerState.field_0x3a >> 2) + 1;
+    this->subtimer = (gPlayerState.field_0x3a >> 2) + 1;
     this->direction = gPlayerState.field_0x39;
     this->speed = 0x400;
     gPlayerState.animation = 0x524;
@@ -2320,7 +2320,7 @@ static void sub_08072CC0(Entity* this) {
 
 static void sub_08072CFC(Entity* this) {
     sub_080042BA(this, 2);
-    if (this->field_0xf-- != 0) {
+    if (this->subtimer-- != 0) {
         LinearMoveUpdate(this);
         return;
     }
@@ -2332,8 +2332,8 @@ static void sub_08072CFC(Entity* this) {
     this->zVelocity = gPlayerState.field_0x38 << 0xc;
     this->speed = 0x200;
     gPlayerState.animation = 0x810;
-    this->actionDelay = 5;
-    this->field_0xf = 0;
+    this->timer = 5;
+    this->subtimer = 0;
     ResetPlayerItem();
 }
 
@@ -2353,50 +2353,50 @@ static void sub_08072D54(Entity* this) {
 
     UpdateAnimationSingleFrame(this);
     sub_0806F854(this, 0, -12);
-    if (this->actionDelay != 0) {
+    if (this->timer != 0) {
         LinearMoveUpdate(this);
-        this->actionDelay--;
+        this->timer--;
     } else {
         uVar2 = GetTileType(sub_0806F730(this), this->collisionLayer);
-        switch (this->field_0xf) {
+        switch (this->subtimer) {
             case 0:
                 if (sub_08007DD6(uVar2, sTileTable[gPlayerEntity.animationState >> 1])) {
-                    this->actionDelay = 1;
-                    this->field_0xf = 1;
+                    this->timer = 1;
+                    this->subtimer = 1;
                 }
                 break;
             case 1:
                 if (sub_08007DD6(uVar2, sTileTable[gPlayerEntity.animationState >> 1])) {
-                    this->actionDelay = 1;
+                    this->timer = 1;
                 } else {
-                    this->field_0xf = 2;
+                    this->subtimer = 2;
                 }
                 break;
             case 2:
                 this->animationState ^= 4;
                 if (sub_08007DD6(uVar2, sTileTable[gPlayerEntity.animationState >> 1]) != 0) {
-                    this->actionDelay = 1;
-                    this->field_0xf = 3;
+                    this->timer = 1;
+                    this->subtimer = 3;
                 }
                 this->animationState ^= 4;
                 break;
             case 3:
                 this->animationState ^= 4;
                 if (sub_08007DD6(uVar2, sTileTable[gPlayerEntity.animationState >> 1])) {
-                    this->actionDelay = 1;
+                    this->timer = 1;
                 } else {
-                    this->field_0xf = 4;
+                    this->subtimer = 4;
                 }
                 this->animationState ^= 4;
                 break;
         }
 
-        if (this->actionDelay != 0) {
+        if (this->timer != 0) {
             LinearMoveUpdate(this);
         } else {
             UpdatePlayerMovement();
         }
-        this->actionDelay = 0;
+        this->timer = 0;
     }
 
     if (!GravityUpdate(this, GRAVITY_RATE)) {
@@ -2420,7 +2420,7 @@ static void sub_08072D54(Entity* this) {
             } else {
                 gPlayerState.animation = 0x820;
             }
-            this->actionDelay = 6;
+            this->timer = 6;
             this->subAction = 3;
             this->knockbackDuration = 0;
             SoundReq(SFX_PLY_LAND);
@@ -2429,7 +2429,7 @@ static void sub_08072D54(Entity* this) {
 }
 
 static void sub_08072F14(Entity* this) {
-    if (this->actionDelay-- != 0) {
+    if (this->timer-- != 0) {
         PlayerSetNormalAndCollide();
     } else {
         UpdateAnimationSingleFrame(this);
@@ -2738,7 +2738,7 @@ static void sub_08073504(Entity* this) {
             COLLISION_OFF(this);
             this->subAction = 6;
             this->speed = 16;
-            this->actionDelay = 30;
+            this->timer = 30;
             SoundReq(SFX_NEAR_PORTAL);
         }
     }
@@ -2902,9 +2902,9 @@ static void sub_0807380C(Entity* this) {
     if (this->z.HALF.HI < -16) {
         GravityUpdate(this, GRAVITY_RATE / 16);
     } else {
-        if (--this->actionDelay == 0) {
+        if (--this->timer == 0) {
             this->subAction = 7;
-            this->actionDelay = 60;
+            this->timer = 60;
             this->zVelocity = Q_16_16(2.0);
         }
     }
@@ -2925,7 +2925,7 @@ void sub_08073884(Entity* this) {
         this->direction = 4 * tmp;
     }
     gPlayerState.animation = sAnims[this->animationState >> 1];
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         if (gPlayerState.field_0x39 != 0xff)
             DoExitTransition(&gUnk_0813AD88[gPlayerState.field_0x39]);
         else
@@ -2999,7 +2999,7 @@ static void sub_080739EC(Entity* this) {
     if ((gPlayerState.jump_status & 0xC0) == 0) {
         if ((gPlayerState.jump_status & 0x20) && this->zVelocity == 0) {
             this->zVelocity = Q_16_16(2.5);
-            this->actionDelay = 10;
+            this->timer = 10;
             this->direction = 0xff;
             gPlayerState.jump_status += 2;
             gPlayerState.animation = 372;
@@ -3067,8 +3067,8 @@ void sub_08073B8C(Entity* this) {
     if ((this->frame & 1) == 0)
         UpdateAnimationSingleFrame(this);
     COLLISION_OFF(this);
-    if (this->actionDelay != 0) {
-        --this->actionDelay;
+    if (this->timer != 0) {
+        --this->timer;
         return;
     }
     GravityUpdate(this, GRAVITY_RATE * 2);
@@ -3079,14 +3079,14 @@ void sub_08073B8C(Entity* this) {
             return;
         }
         gPlayerState.jump_status++;
-        this->actionDelay = 15;
+        this->timer = 15;
         InitScreenShake(0x10, 0);
         SoundReq(SFX_14C);
     }
 }
 
 void sub_08073C30(Entity* this) {
-    if (!gPlayerState.field_0x3[1] || this->actionDelay-- == 0) {
+    if (!gPlayerState.field_0x3[1] || this->timer-- == 0) {
         sub_08073B60(this);
     } else {
         COLLISION_ON(this);
@@ -3111,8 +3111,8 @@ static void sub_08073C80(Entity* this) {
     this->spriteSettings.shadow = 0;
     this->spriteRendering.b0 = 0;
     this->hitbox = (Hitbox*)&sMinishHitbox;
-    this->actionDelay = 0;
-    this->field_0xf = 2;
+    this->timer = 0;
+    this->subtimer = 2;
     this->knockbackDuration = 0;
     this->subAction = 1;
     LoadSwapGFX(this, 1, 2);
@@ -3145,7 +3145,7 @@ static void sub_08073D20(Entity* this) {
             gPlayerState.framestate = PL_STATE_CAPE;
         if (gPlayerState.floor_type != SURFACE_SHALLOW_WATER && gPlayerState.floor_type != SURFACE_WATER) {
             gPlayerState.swim_state = 0;
-            this->field_0x3c &= ~4;
+            this->collisionFlags &= ~4;
         }
         if (!CheckQueuedAction() && this->subAction != 2) {
             if ((gPlayerState.flags & PL_HIDDEN) == 0) {
@@ -3222,7 +3222,7 @@ static void sub_08073F4C(Entity* this) {
         LinearMoveUpdate(this);
     } else {
         COLLISION_OFF(this);
-        this->actionDelay = 30;
+        this->timer = 30;
         this->subAction++;
         this->spriteSettings.flipX = 0;
         *(u32*)&this->field_0x80.HWORD = 1152;
@@ -3234,8 +3234,8 @@ static void sub_08073F4C(Entity* this) {
 }
 
 static void sub_08073FD0(Entity* this) {
-    if (this->actionDelay != 0) {
-        if (--this->actionDelay != 0) {
+    if (this->timer != 0) {
+        if (--this->timer != 0) {
             return;
         }
         if (this->spriteSettings.draw == 0) {
@@ -3269,7 +3269,7 @@ static void sub_08074060(Entity* this) {
         this->speed = 0x100;
         this->spritePriority.b1 = 1;
         this->spriteSettings.shadow = 1;
-        this->field_0xf = 0;
+        this->subtimer = 0;
         this->subAction++;
         this->zVelocity = Q_16_16(2.0);
         gPlayerState.animation = 2060;
@@ -3285,7 +3285,7 @@ void sub_080740D8(Entity* this) {
     u32 dir;
 
     UpdateAnimationSingleFrame(this);
-    if (!this->field_0xf)
+    if (!this->subtimer)
         dir = this->direction;
     else
         dir = DirectionTurnAround(this->direction);
@@ -3311,7 +3311,7 @@ void sub_080740D8(Entity* this) {
     if (sub_080086B4(x, y, gUnk_080082DC))
         LinearMoveUpdate(this);
     else
-        this->field_0xf = 1;
+        this->subtimer = 1;
     if (!GravityUpdate(this, GRAVITY_RATE))
         PlayerSetNormalAndCollide();
 }
@@ -3369,7 +3369,7 @@ void SurfaceAction_6(Entity* this) {
         gPlayerState.swim_state = 0;
     }
     this->spritePriority.b0 = 4;
-    this->field_0x3c &= ~4;
+    this->collisionFlags &= ~4;
 }
 
 void SurfaceAction_7(Entity* this) {
@@ -3514,7 +3514,7 @@ void SurfaceAction_ShallowWater(Entity* this) {
         } else {
             if (gPlayerState.swim_state) {
                 COLLISION_ON(this);
-                this->field_0x3c &= ~4;
+                this->collisionFlags &= ~4;
                 this->spritePriority.b0 = 4;
                 gPlayerState.swim_state = 0;
             }
@@ -3527,7 +3527,7 @@ void SurfaceAction_ShallowWater(Entity* this) {
 void SurfaceAction_SlopeGndWater(Entity* this) {
     if (gPlayerState.swim_state) {
         COLLISION_ON(this);
-        this->field_0x3c &= ~4;
+        this->collisionFlags &= ~4;
         this->spritePriority.b0 = 4;
         gPlayerState.swim_state = 0;
     }
@@ -3588,7 +3588,7 @@ void SurfaceAction_Water(Entity* this) {
         } else {
             gPlayerState.swim_state = 0;
             this->spritePriority.b0 = 4;
-            this->field_0x3c &= ~4;
+            this->collisionFlags &= ~4;
         }
         if ((gPlayerState.swim_state & 0xF) || sub_08079C30(this)) {
             sub_08074808(this);
@@ -3686,7 +3686,7 @@ void SurfaceAction_AutoLadder(Entity* this) {
         this->animationState = IdleNorth;
         this->collisionLayer = 3;
         gPlayerState.swim_state = 0;
-        this->field_0x3c &= ~4;
+        this->collisionFlags &= ~4;
         if ((this->y.HALF.HI & 0xF) <= 7) {
             gPlayerState.animation = 723;
             this->direction = DirectionSouth;
@@ -3702,7 +3702,7 @@ void SurfaceAction_20(Entity* this) {
     if (gPlayerState.swim_state & 0x80) {
         Entity* e = CreateObjectWithParent(&gPlayerEntity, GROUND_ITEM, ITEM_RUPEE1, 0);
         if (e != NULL) {
-            e->actionDelay = 1;
+            e->timer = 1;
             UpdateSpriteForCollisionLayer(e);
             CloneTile(57, gPlayerState.field_0x22[0], this->collisionLayer);
         }
@@ -3947,7 +3947,7 @@ void sub_08074F8C(Entity* this) {
     }
     if (this->frame & ANIM_DONE) {
         this->field_0x68.HALF.LO++;
-        this->actionDelay = 8;
+        this->timer = 8;
         this->animationState = IdleSouth;
         if (!gPlayerState.field_0x39) {
             gPlayerState.animation = 1024;
@@ -3959,15 +3959,15 @@ void sub_08074F8C(Entity* this) {
 
 void sub_08074FEC(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->field_0x68.HALF.LO++;
-        this->actionDelay = 4;
+        this->timer = 4;
         this->animationState = gPlayerState.field_0x3a;
     }
 }
 
 void sub_0807501C(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->animationState = gPlayerState.field_0x3a;
         if (!gPlayerState.field_0x39) {
             gPlayerState.animation = 1052;
@@ -3978,7 +3978,7 @@ void sub_0807501C(Entity* this) {
         this->direction = Direction8FromAnimationState(this->animationState);
         this->speed = 200;
         this->zVelocity = 0x20000;
-        this->actionDelay = 8;
+        this->timer = 8;
         this->field_0x68.HALF.LO++;
         SoundReq(SFX_PLY_JUMP);
     }
@@ -3995,7 +3995,7 @@ void sub_0807508C(Entity* this) {
             gPlayerState.flags &= ~PL_NO_CAP;
             gPlayerState.animation = DEFAULT_ANIM;
         }
-        if (--this->actionDelay == 0) {
+        if (--this->timer == 0) {
             this->animationState = IdleSouth;
             this->subAction = 1;
             this->field_0x68.HALF.LO = 0;
@@ -4016,7 +4016,7 @@ void sub_080750F4(Entity* this) {
 
 void sub_08075110(Entity* this) {
     this->field_0x68.HALF.LO++;
-    this->field_0xf = this->animationState;
+    this->subtimer = this->animationState;
     this->animationState = 0;
     gPlayerState.animation = 1844;
     gPlayerState.flags &= ~PL_NO_CAP;
@@ -4035,12 +4035,12 @@ void sub_0807513C(Entity* this) {
     }
     if (this->frame & ANIM_DONE) {
         this->field_0x68.HALF.LO++;
-        this->actionDelay = 60;
+        this->timer = 60;
     }
 }
 
 void sub_0807518C(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->field_0x68.HALF.LO++;
         gPlayerState.animation = 969;
     }

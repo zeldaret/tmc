@@ -1040,12 +1040,12 @@ void sub_080790E4(Entity* this) {
     }
     if (gPlayerState.pushedObject == 0) {
         if (sub_080793E4(1)) {
-            if (this->field_0xf <= 5) {
-                this->field_0xf++;
+            if (this->subtimer <= 5) {
+                this->subtimer++;
                 return;
             }
         } else {
-            this->field_0xf = 0;
+            this->subtimer = 0;
             return;
         }
     } else {
@@ -1077,7 +1077,7 @@ void PlayerResetStateFromFusion(void) {
 void SetPlayerActionNormal(void) {
     gPlayerEntity.action = PLAYER_NORMAL;
     gPlayerEntity.subAction = 0;
-    gPlayerEntity.field_0xf = 0;
+    gPlayerEntity.subtimer = 0;
 }
 
 void ResetPlayerAnimationAndAction(void) {
@@ -1109,7 +1109,7 @@ void PlayerMinishSetNormalAndCollide(void) {
     }
     gPlayerEntity.action = PLAYER_MINISH;
     gPlayerEntity.subAction = 1;
-    gPlayerEntity.field_0x3c &= 0xfb;
+    gPlayerEntity.collisionFlags &= 0xfb;
     gPlayerState.animation = 0xc18;
     gPlayerState.flags &=
         ~(PL_BUSY | PL_DROWNING | PL_DISABLE_ITEMS | PL_IN_HOLE | PL_MOLDWORM_RELEASED | PL_PARACHUTE);
@@ -1558,11 +1558,11 @@ void sub_0807B1A8(PlayerEntity* this) {
 
 void sub_0807B1DC(PlayerEntity* this) {
     this->unk_6e++;
-    super->actionDelay = 0x1e;
+    super->timer = 0x1e;
 }
 
 void sub_0807B1EC(PlayerEntity* this) {
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         this->unk_6e++;
         super->zVelocity = 0x10000;
         gPlayerState.animation = 0x2c2;
@@ -1577,8 +1577,8 @@ void sub_0807B21C(PlayerEntity* this) {
         GravityUpdate(super, 0x800);
     }
     if (super->zVelocity < -0x8000) {
-        super->actionDelay = 0x78;
-        super->field_0xf = 0;
+        super->timer = 0x78;
+        super->subtimer = 0;
         this->unk_6e++;
         this->unk_68 = super->z.WORD;
     }
@@ -1587,13 +1587,13 @@ void sub_0807B21C(PlayerEntity* this) {
 void sub_0807B264(PlayerEntity* this) {
     s32 tmp;
     UpdateAnimationSingleFrame(super);
-    super->field_0xf += 2;
-    tmp = gSineTable[super->field_0xf];
+    super->subtimer += 2;
+    tmp = gSineTable[super->subtimer];
     tmp >>= 7;
     tmp <<= 0x10;
     super->z.WORD = this->unk_68 + tmp;
-    if (--super->actionDelay == 0) {
-        super->actionDelay = 0x50;
+    if (--super->timer == 0) {
+        super->timer = 0x50;
         super->zVelocity = 0x8000;
         this->unk_6e++;
 #ifndef EU
@@ -1605,7 +1605,7 @@ void sub_0807B264(PlayerEntity* this) {
 void sub_0807B2B8(PlayerEntity* this) {
     GravityUpdate(super, -0x2000);
     UpdateAnimationSingleFrame(super);
-    if (super->actionDelay != 0 && --super->actionDelay == 0) {
+    if (super->timer != 0 && --super->timer == 0) {
         DoExitTransition(&gUnk_0813AD88[this->unk_6d]);
     }
 }

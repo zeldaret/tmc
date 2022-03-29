@@ -2,7 +2,7 @@
 #include "collision.h"
 #include "enemy.h"
 #include "player.h"
-#include "coord.h"
+#include "physics.h"
 #include "functions.h"
 
 extern void (*const V3ElectricProjectile_Functions[])(Entity*);
@@ -30,8 +30,8 @@ void sub_080ABFEC(Entity* this) {
     switch (this->type) {
         case 0: {
             this->action = 1;
-            this->actionDelay = 0;
-            this->field_0xf = 0x7;
+            this->timer = 0;
+            this->subtimer = 0x7;
             this->cutsceneBeh.HALF.HI = 0x18;
             this->damage = 0x88;
             CopyPositionAndSpriteOffset(this->parent, this);
@@ -50,8 +50,8 @@ void sub_080ABFEC(Entity* this) {
         }
         default: {
             this->action = 2;
-            this->actionDelay = 0;
-            this->field_0xf = 0xff;
+            this->timer = 0;
+            this->subtimer = 0xff;
             this->speed = projectileSpeeds[this->type2];
             this->damage = 0x88;
             sound = SFX_193;
@@ -82,7 +82,7 @@ void V3ElectricProjectile_Action1(Entity* this) {
             SoundReq(SFX_193);
         } else {
             this->action = 3;
-            this->actionDelay = 0x10;
+            this->timer = 0x10;
         }
         this->z.HALF.HI -= 0x28;
     }
@@ -104,25 +104,25 @@ void V3ElectricProjectile_Action2(Entity* this) {
     if (IsProjectileOffScreen(this)) {
         DeleteThisEntity();
     }
-    if (this->actionDelay < 0x1e) {
-        if (((++this->actionDelay) & this->field_0xf) == 0) {
+    if (this->timer < 0x1e) {
+        if (((++this->timer) & this->subtimer) == 0) {
             sub_08004596(this, GetFacingDirection(this, &gPlayerEntity));
         }
     }
 }
 
 void sub_080AC168(Entity* this) {
-    u8 actionDelay;
+    u8 timer;
     GetNextFrame(this);
     this->z.WORD += 0xffff8000;
-    actionDelay = --this->actionDelay;
-    if (actionDelay == 0) {
+    timer = --this->timer;
+    if (timer == 0) {
         u32 rand;
         u32 dir;
         this->action = 4;
-        this->actionDelay = 4;
+        this->timer = 4;
         rand = Random() & 0x7;
-        this->field_0xf = gUnk_0812A982[rand];
+        this->subtimer = gUnk_0812A982[rand];
         dir = GetFacingDirection(this, &gPlayerEntity);
         if (this->parent->cutsceneBeh.HALF.LO == 3) {
             dir -= projectileDirections[rand];
@@ -143,10 +143,10 @@ void sub_080AC200(Entity* this) {
     Entity* proj;
     GetNextFrame(this);
 
-    if (--this->actionDelay)
+    if (--this->timer)
         return;
 
-    this->actionDelay = 0x10;
+    this->timer = 0x10;
     proj = CreateProjectile(V3_ELECTRIC_PROJECTILE);
 
     if (proj) {
@@ -157,7 +157,7 @@ void sub_080AC200(Entity* this) {
         CopyPosition(this, proj);
     }
 
-    if (--this->field_0xf == 0) {
+    if (--this->subtimer == 0) {
         DeleteThisEntity();
     }
 

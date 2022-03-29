@@ -30,8 +30,8 @@ void sub_0809FF28(Entity* this) {
     if (this->frame & 0x80) {
         this->action = 2;
         pEVar1 = this->parent;
-        pEVar1->flags = this->actionDelay;
-        pEVar1->spriteSettings.draw = this->field_0xf;
+        pEVar1->flags = this->timer;
+        pEVar1->spriteSettings.draw = this->subtimer;
         ((GenericEntity*)pEVar1)->field_0x6c.HALF.HI &= 0xef;
     }
 }

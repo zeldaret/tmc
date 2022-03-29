@@ -12,7 +12,7 @@ void LadderUp(Entity* this) {
 
     switch (this->action) {
         case 0:
-            if (this->actionDelay) {
+            if (this->timer) {
                 uVar4 = 1;
             } else {
 #ifndef EU
@@ -43,13 +43,13 @@ void LadderUp(Entity* this) {
                 SoundReq(SFX_10B);
                 this->action = 2;
 #ifndef EU
-                this->actionDelay = 0x3c;
+                this->timer = 0x3c;
 #endif
             }
             break;
         case 2:
 #ifndef EU
-            if (--this->actionDelay) {
+            if (--this->timer) {
                 return;
             }
             this->action = 3;

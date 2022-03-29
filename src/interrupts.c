@@ -230,7 +230,7 @@ void HandlePlayerLife(Entity* this) {
     gUnk_0200AF00.unk_2d = 0;
     gUnk_0200AF00.unk_2e = 0;
 
-    if ((gPlayerEntity.bitfield & 0x80) && (gPlayerEntity.iframes > 0))
+    if ((gPlayerEntity.contactFlags & 0x80) && (gPlayerEntity.iframes > 0))
         SoundReq(SFX_86);
 
     gPlayerState.flags &= ~(0x2000000 | PL_FALLING);
@@ -316,7 +316,7 @@ void sub_080171F0(void) {
     if (gPlayerEntity.field_0x7a.HWORD != 0)
         gPlayerEntity.field_0x7a.HWORD--;
 
-    gPlayerEntity.bitfield &= ~0x80;
+    gPlayerEntity.contactFlags &= ~0x80;
     if (gPlayerEntity.action != PLAYER_DROWN)
         COPY_FLAG_FROM_TO(gPlayerState.flags, 0x2, 0x10000);
 

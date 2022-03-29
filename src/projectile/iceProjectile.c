@@ -36,10 +36,10 @@ void IceProjectile_Action1(Entity* this) {
         } else {
             if (this->spriteSettings.draw == 1) {
                 CopyPosition(parent, this);
-                if (this->actionDelay != 0) {
+                if (this->timer != 0) {
                     direction = parent->direction & 0x18;
                     this->direction = direction;
-                    this->actionDelay = 0;
+                    this->timer = 0;
                     InitializeAnimation(this, direction >> 3);
                 }
             }

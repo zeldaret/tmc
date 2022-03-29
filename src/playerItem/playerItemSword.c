@@ -89,7 +89,7 @@ void sub_080A78B8(PlayerItemSwordEntity* this, Entity* param_2) {
         }
         super->spriteSettings.flipX = flipX;
     }
-    if ((super->bitfield & 0x80) != 0) {
+    if ((super->contactFlags & 0x80) != 0) {
         if ((param_2->iframes == 0) || ((u8)param_2->iframes == 0x81)) {
             param_2->iframes = super->iframes;
             param_2->knockbackDirection = super->knockbackDirection;
@@ -101,7 +101,7 @@ void sub_080A78B8(PlayerItemSwordEntity* this, Entity* param_2) {
         if ((gPlayerState.flags & 0x8000000) != 0) {
             gPlayerState.sword_state |= 0x80;
         } else if (gPlayerState.sword_state != 0) {
-            switch (super->bitfield & 0x7f) {
+            switch (super->contactFlags & 0x7f) {
                 case 0x44:
                     break;
                 case 0x43:

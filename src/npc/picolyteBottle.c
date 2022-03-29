@@ -70,13 +70,13 @@ void PicolyteBottle_Init(PicolyteBottleEntity* this) {
 
 void PicolyteBottle_Action1(PicolyteBottleEntity* this) {
     sub_0807DD94(super, 0);
-    if (super->actionDelay != 0xff) {
+    if (super->timer != 0xff) {
         if (super->damage != 0) {
-            this->ent3->actionDelay++;
+            this->ent3->timer++;
         }
-        this->ent1->actionDelay++;
-        this->ent2->actionDelay++;
-        super->actionDelay = 0xff;
+        this->ent1->timer++;
+        this->ent2->timer++;
+        super->timer = 0xff;
         SetRoomFlag(0);
     }
 }
@@ -86,12 +86,12 @@ void PicolyteBottle_Action2(PicolyteBottleEntity* this) {
 
     if (super->interactType != 0) {
         super->interactType = 0;
-        super->parent->actionDelay = super->type2;
-        super->parent->type2 = super->field_0xf;
+        super->parent->timer = super->type2;
+        super->parent->type2 = super->subtimer;
     } else {
-        if (super->actionDelay != 0) {
-            super->actionDelay = 0;
-            obj = CreateObject(OBJECT_35, 2, super->field_0xf);
+        if (super->timer != 0) {
+            super->timer = 0;
+            obj = CreateObject(OBJECT_35, 2, super->subtimer);
             if (obj != NULL) {
                 obj->parent = super;
                 super->child = obj;
@@ -116,33 +116,33 @@ void sub_0806E014(PicolyteBottleEntity* this) {
 
     uVar1 = (Random() & 0x70) >> 4;
     super->type2 = 0xff;
-    super->actionDelay = 0xff;
+    super->timer = 0xff;
     if (CheckLocalFlag(0x93) == 0) {
         super->damage = 0;
         iVar2 = uVar1 * 2;
         ptr = &gUnk_081142CC[iVar2];
-        this->ent1->field_0xf = ptr[0];
+        this->ent1->subtimer = ptr[0];
         PositionRelative(super, this->ent1, 0x480000, 0x480000);
-        this->ent2->field_0xf = ptr[1];
+        this->ent2->subtimer = ptr[1];
         PositionRelative(super, this->ent2, 0x680000, 0x480000);
-        this->ent3->field_0xf = 0xff;
+        this->ent3->subtimer = 0xff;
         CopyPosition(super, this->ent3);
     } else {
         super->damage = 1;
         iVar2 = uVar1 * 4;
         ptr = &gUnk_081142DC[iVar2];
-        this->ent1->field_0xf = ptr[0];
+        this->ent1->subtimer = ptr[0];
         PositionRelative(super, this->ent1, 0x380000, 0x480000);
-        this->ent2->field_0xf = ptr[1];
+        this->ent2->subtimer = ptr[1];
         PositionRelative(super, this->ent2, 0x580000, 0x480000);
-        this->ent3->field_0xf = ptr[2];
+        this->ent3->subtimer = ptr[2];
         PositionRelative(super, this->ent3, 0x780000, 0x480000);
     }
 }
 
 void sub_0806E0DC(PicolyteBottleEntity* this) {
-    super->actionDelay = 0;
-    if (super->field_0xf != 0xff) {
+    super->timer = 0;
+    if (super->subtimer != 0xff) {
         super->action = 2;
         this->unk76 = TILE(super->x.HALF.HI, super->y.HALF.HI);
         if (super->child != NULL) {

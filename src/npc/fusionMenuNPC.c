@@ -3,15 +3,15 @@
 #include "npc.h"
 
 void FusionMenuNPC(Entity* this) {
-    if (gNPCFunctions[this->field_0xf][2] != NULL) {
-        gNPCFunctions[this->field_0xf][2](this);
+    if (gNPCFunctions[this->subtimer][2] != NULL) {
+        gNPCFunctions[this->subtimer][2](this);
     } else {
         DeleteThisEntity();
     }
 }
 
 void FusionMenuNPC_Head(Entity* this) {
-    if (gNPCFunctions[this->field_0xf][1] != NULL) {
-        gNPCFunctions[this->field_0xf][1](this);
+    if (gNPCFunctions[this->subtimer][1] != NULL) {
+        gNPCFunctions[this->subtimer][1](this);
     }
 }

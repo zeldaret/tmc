@@ -35,8 +35,8 @@ void VaatiBall(Entity* this) {
         this->health = -1;
     }
 
-    if (this->bitfield & 0x80) {
-        if ((this->bitfield & 0x3f) == 0 && this->action == 6) {
+    if (this->contactFlags & 0x80) {
+        if ((this->contactFlags & 0x3f) == 0 && this->action == 6) {
             ModHealth(-2);
         }
 
@@ -65,7 +65,7 @@ void sub_0804468C(Entity* this) {
     switch (this->type) {
         case 0:
             this->action = 1;
-            this->actionDelay = 1;
+            this->timer = 1;
             this->direction = (this->field_0x78.HALF.HI * 8) & 0x1f;
             this->field_0x78.HALF.LO = 0;
             this->field_0x82.HALF.HI = 0;
@@ -90,17 +90,17 @@ void sub_0804474C(Entity* this) {
         case 3:
             this->action = 3;
             this->field_0x74.HALF.LO = 0;
-            this->actionDelay = 0;
+            this->timer = 0;
             break;
         case 5:
             this->action = 5;
             this->field_0x74.HALF.LO = 0;
-            this->field_0xf = 1;
+            this->subtimer = 1;
             break;
         case 6:
             this->action = 6;
             this->field_0x74.HALF.LO = 0;
-            this->field_0xf = 32;
+            this->subtimer = 32;
             break;
         case 2:
             this->action = 2;
@@ -112,8 +112,8 @@ void sub_0804474C(Entity* this) {
     if (this->action != 1) {
         UpdateAnimationSingleFrame(this);
     } else {
-        if (--this->actionDelay == 0) {
-            this->actionDelay = 2;
+        if (--this->timer == 0) {
+            this->timer = 2;
             this->direction++;
             this->direction &= 0x1f;
         }
@@ -174,7 +174,7 @@ void sub_08044868(Entity* this) {
                             this->field_0x74.HALF.LO++;
                             this->x.HALF.HI = vaati->x.HALF.HI;
                             this->y.HALF.HI = vaati->y.HALF.HI - 0x10;
-                            vaati->actionDelay++;
+                            vaati->timer++;
                         } else {
                             this->direction = sub_080045B4(this, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10);
                         }
@@ -200,11 +200,11 @@ void sub_08044868(Entity* this) {
                     }
                 }
             }
-            this->actionDelay = 32;
+            this->timer = 32;
             break;
         case 2:
-            if (this->actionDelay)
-                if (--this->actionDelay < 0x11)
+            if (this->timer)
+                if (--this->timer < 0x11)
                     LinearMoveUpdate(this);
             break;
         case 3: {
@@ -235,7 +235,7 @@ void sub_080449F8(Entity* this) {
     switch (vaati->field_0x74.HALF.LO) {
         case 0:
             LinearMoveUpdate(this);
-            if (--this->actionDelay)
+            if (--this->timer)
                 break;
 
             if (this->field_0x78.HALF.LO == 0) {
@@ -243,17 +243,17 @@ void sub_080449F8(Entity* this) {
                 this->speed = 640;
             }
 
-            this->actionDelay = 4;
+            this->timer = 4;
             this->direction++;
             this->direction &= 0x1f;
             if (vaati->field_0x80.HALF.LO == 0)
                 vaati->field_0x74.HALF.LO = 1;
             break;
         case 1:
-            switch (this->actionDelay) {
+            switch (this->timer) {
                 case 2:
                     if (vaati->field_0x80.HALF.LO == 0) {
-                        this->field_0xf = 0;
+                        this->subtimer = 0;
                         sub_08044E74(this, 0);
                     }
                     break;
@@ -261,16 +261,16 @@ void sub_080449F8(Entity* this) {
                     this->direction = (this->direction + 0x10) & 0x1f;
                     LinearMoveUpdate(this);
                     this->direction = (this->direction + 0x10) & 0x1f;
-                    this->actionDelay = 2;
+                    this->timer = 2;
                     break;
                 case 3:
                     LinearMoveUpdate(this);
-                    this->actionDelay = 2;
+                    this->timer = 2;
                     break;
                 case 4:
                     LinearMoveUpdate(this);
                     LinearMoveUpdate(this);
-                    this->actionDelay = 2;
+                    this->timer = 2;
                     break;
             }
             break;
@@ -291,8 +291,8 @@ void sub_080449F8(Entity* this) {
             }
             break;
         case 3:
-            if (this->field_0xf) {
-                this->field_0xf = 0;
+            if (this->subtimer) {
+                this->subtimer = 0;
             }
             break;
     }
@@ -304,7 +304,7 @@ void sub_08044B04(Entity* this) {
     UpdateAnimationSingleFrame(this);
     if (vaati->action == 1) {
         sub_08044E74(this, 0);
-        this->actionDelay = 32;
+        this->timer = 32;
         return;
     }
 
@@ -313,22 +313,22 @@ void sub_08044B04(Entity* this) {
             LinearMoveUpdate(this);
             switch (this->field_0x74.HALF.LO) {
                 case 0:
-                    if (--this->actionDelay == 0) {
-                        this->actionDelay = this->field_0x78.HALF.LO ? 4 : 2;
+                    if (--this->timer == 0) {
+                        this->timer = this->field_0x78.HALF.LO ? 4 : 2;
                         this->direction++;
                         this->direction &= 0x1f;
                     }
-                    if (--this->field_0xf == 0) {
-                        if (this->actionDelay != 2) {
-                            this->field_0xf = 1;
+                    if (--this->subtimer == 0) {
+                        if (this->timer != 2) {
+                            this->subtimer = 1;
                         } else {
                             if (++this->field_0x78.HALF.LO > 2) {
                                 this->field_0x74.HALF.LO++;
                                 this->field_0x78.HALF.LO = 1;
-                                this->actionDelay = 4;
-                                this->field_0xf = 0;
+                                this->timer = 4;
+                                this->subtimer = 0;
                             } else {
-                                this->field_0xf = 32;
+                                this->subtimer = 32;
                             }
 
                             this->speed = this->field_0x78.HALF.LO ? 640 : 1280;
@@ -336,22 +336,22 @@ void sub_08044B04(Entity* this) {
                     }
                     break;
                 case 1:
-                    if (--this->actionDelay == 0) {
-                        this->actionDelay = 6;
+                    if (--this->timer == 0) {
+                        this->timer = 6;
                         this->direction = (this->direction + 1) & 0x1f;
-                        if (++this->field_0xf == 0x30) {
+                        if (++this->subtimer == 0x30) {
                             u32 direction = sub_080045B4(this, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10);
                             this->speed = 0;
                             this->direction = (direction + 16) & 0x1f;
-                            this->actionDelay = 16;
-                            this->field_0xf = 16;
+                            this->timer = 16;
+                            this->subtimer = 16;
                             this->field_0x74.HALF.LO++;
                         }
                     }
                     break;
                 case 2:
-                    if (this->field_0xf == 0) {
-                        switch (--this->actionDelay) {
+                    if (this->subtimer == 0) {
+                        switch (--this->timer) {
                             case 12:
                                 this->speed = 1280;
                                 break;
@@ -359,32 +359,32 @@ void sub_08044B04(Entity* this) {
                                 this->field_0x74.HALF.LO++;
                                 this->direction = sub_080045B4(this, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10);
                                 this->speed = 0;
-                                this->actionDelay = 4;
-                                this->field_0xf = 16;
+                                this->timer = 4;
+                                this->subtimer = 16;
                                 break;
                             case 4:
                                 this->speed = 640;
                                 break;
                         }
                     } else {
-                        if (--this->field_0xf == 0)
+                        if (--this->subtimer == 0)
                             this->speed = 640;
                     }
                     break;
                 case 3:
-                    if (this->field_0xf) {
-                        if (--this->field_0xf == 0)
+                    if (this->subtimer) {
+                        if (--this->subtimer == 0)
                             this->speed = 640;
                     } else {
-                        if (this->actionDelay) {
-                            if (--this->actionDelay == 0) {
+                        if (this->timer) {
+                            if (--this->timer == 0) {
                                 this->speed = 1280;
                                 SoundReq(SFX_14F);
                             }
                         }
                         if (this->field_0x78.HALF.HI == 3)
                             if (EntityWithinDistance(this, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10, 0xc))
-                                vaati->actionDelay++;
+                                vaati->timer++;
                         this->direction = sub_080045B4(this, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10);
                         return;
                     }
@@ -395,17 +395,17 @@ void sub_08044B04(Entity* this) {
             switch (this->field_0x74.HALF.LO) {
                 case 3:
                     this->field_0x74.HALF.LO = 1;
-                    this->actionDelay = 80;
+                    this->timer = 80;
                     COLLISION_OFF(this);
                     PositionRelative(vaati, this, 0, Q_16_16(-16.0));
-                    if (this->field_0xf)
+                    if (this->subtimer)
                         this->spriteSettings.draw = 0;
                     break;
                 case 1:
-                    if (--this->actionDelay == 0) {
+                    if (--this->timer == 0) {
                         this->field_0x74.HALF.LO = 0;
-                        this->actionDelay = 32;
-                        this->field_0xf = 4;
+                        this->timer = 32;
+                        this->subtimer = 4;
                     }
                     break;
             }
@@ -416,17 +416,17 @@ void sub_08044B04(Entity* this) {
         case 3:
             switch (this->field_0x74.HALF.LO) {
                 case 0:
-                    if (this->field_0xf) {
-                        if (--this->field_0xf == 0) {
+                    if (this->subtimer) {
+                        if (--this->subtimer == 0) {
                             sub_08044DEC(this);
                             this->field_0x74.HALF.LO = 1;
-                            this->actionDelay = 16;
+                            this->timer = 16;
                         }
                     }
                     break;
                 case 1:
                     LinearMoveUpdate(this);
-                    if (--this->actionDelay == 0)
+                    if (--this->timer == 0)
                         this->field_0x74.HALF.LO++;
                     break;
                 case 2: {
@@ -439,7 +439,7 @@ void sub_08044B04(Entity* this) {
                     } else {
                         COLLISION_OFF(this);
                     }
-                    vaati->actionDelay++;
+                    vaati->timer++;
                     break;
                 }
             }
@@ -488,11 +488,11 @@ void sub_08044E74(Entity* this, u32 state) {
             break;
         case 0:
             if (this->field_0x78.HALF.LO) {
-                switch (this->actionDelay) {
+                switch (this->timer) {
                     case 3 ... 4:
                         do {
                             LinearMoveUpdate(this);
-                        } while (this->actionDelay-- != 3);
+                        } while (this->timer-- != 3);
                         break;
                     case 1:
                         this->direction = (this->direction + 0x10) & 0x1f;
@@ -501,13 +501,13 @@ void sub_08044E74(Entity* this, u32 state) {
                         break;
                 }
             } else {
-                if (this->actionDelay == 2) {
+                if (this->timer == 2) {
                     LinearMoveUpdate(this);
                 }
             }
             break;
     }
-    this->actionDelay = 1;
+    this->timer = 1;
     this->field_0x78.HALF.LO = 0;
     this->speed = Q_8_8(5);
 }

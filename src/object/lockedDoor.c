@@ -141,9 +141,9 @@ void sub_08083338(Entity* this) {
 }
 
 void sub_080834B4(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 2;
-        this->actionDelay = 7;
+        this->timer = 7;
         SetTile(this->field_0x74.HWORD, this->field_0x76.HWORD, this->collisionLayer);
         EnqueueSFX(SFX_10B);
     }
@@ -151,7 +151,7 @@ void sub_080834B4(Entity* this) {
 
 void sub_080834EC(Entity* this) {
     LinearMoveUpdate(this);
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         if (this->type & 0x80) {
             sub_08083638(this);
         } else {
@@ -169,7 +169,7 @@ void sub_08083518(Entity* this) {
 
 void sub_08083540(Entity* this) {
     LinearMoveUpdate(this);
-    if (!--this->actionDelay) {
+    if (!--this->timer) {
         if (this->type & 0x10) {
             this->type &= ~0x10;
             sub_080836A0(this);
@@ -214,7 +214,7 @@ void sub_080835F8(Entity* this) {
     if (this->interactType == 0 && !CheckFlags(this->field_0x86.HWORD))
         return;
     this->action = 1;
-    this->actionDelay = 0x14;
+    this->timer = 0x14;
     sub_08083658(this);
     SetFlag(this->field_0x86.HWORD);
     sub_080526F8(-1);
@@ -230,7 +230,7 @@ void sub_08083638(Entity* this) {
 void sub_08083658(Entity* this) {
     const struct_0811F680* tmp;
     this->action = 1;
-    this->actionDelay = 0x14;
+    this->timer = 0x14;
     this->direction = this->field_0x7c.BYTES.byte2 << 3;
     tmp = &gUnk_0811F680[this->field_0x7c.BYTES.byte2];
     this->x.HALF.HI += tmp->x;
@@ -250,7 +250,7 @@ void sub_080836A0(Entity* this) {
 void sub_080836DC(Entity* this, u32 unk_0, u32 unk_1) {
     const struct_0811F680* tmp;
     SetTile(0x4022, unk_1, this->collisionLayer);
-    this->actionDelay = 7;
+    this->timer = 7;
     this->spriteSettings.draw = 1;
     this->direction = (unk_0 << 3) ^ 0x10;
     tmp = &gUnk_0811F688[unk_0];

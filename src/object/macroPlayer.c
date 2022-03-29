@@ -1,6 +1,6 @@
 #define NENT_DEPRECATED
 #include "entity.h"
-#include "coord.h"
+#include "physics.h"
 #include "functions.h"
 #include "object.h"
 #include "area.h"
@@ -181,7 +181,7 @@ void MacroPlayer_Type0_Action4(MacroPlayerEntity* this) {
         }
     } else {
         super->action++;
-        super->actionDelay = 60;
+        super->timer = 60;
         this->unk68.HWORD = 0xc04;
         DeleteEntity(super->child);
         sub_0805EC60(super);
@@ -189,9 +189,9 @@ void MacroPlayer_Type0_Action4(MacroPlayerEntity* this) {
 }
 
 void MacroPlayer_Type0_Action5(MacroPlayerEntity* this) {
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->action++;
-        super->actionDelay = 0x10;
+        super->timer = 0x10;
     }
 }
 
@@ -199,7 +199,7 @@ void MacroPlayer_Type0_Action6(MacroPlayerEntity* this) {
     static const u8 gUnk_081216B4[] = { 0, 0x1a, 0x2, 0x5, 0x4, 0x11, 0x6, 0x1a };
     u32 uVar2;
 
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         uVar2 = gArea.portal_exit_dir;
         super->action += 1;
         super->action += uVar2;

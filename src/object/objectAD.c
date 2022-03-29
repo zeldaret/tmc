@@ -19,7 +19,7 @@ void ObjectAD(Entity* this) {
 void sub_080A04A4(Entity* this) {
     this->action = 1;
     this->frameIndex = 4;
-    this->actionDelay = 0;
+    this->timer = 0;
     this->spriteRendering.b3 = 3;
     this->spritePriority.b0 = 7;
     this->z.WORD = 0;

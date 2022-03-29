@@ -34,7 +34,7 @@ void Whirlwind_Init(Entity* this) {
     this->hitbox = (Hitbox*)&gUnk_080FD320;
     this->flags |= ENT_COLLIDE;
     this->hitType = 1;
-    this->field_0x3c = 0x47;
+    this->collisionFlags = 0x47;
     this->hurtType = 0x44;
     this->flags2 = 0x80;
     this->spriteOrientation.flipY = 1;

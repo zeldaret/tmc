@@ -30,8 +30,8 @@ void GhostBrothers(Entity* this) {
 
         if (this->type < 3) {
             s8* ptr = gUnk_0811015C;
-            u32 field_0xf = this->field_0xf++;
-            this->z.HALF_U.HI = *(ptr + (((field_0xf << 0x18) >> 0x1b) & 0x7));
+            u32 subtimer = this->subtimer++;
+            this->z.HALF_U.HI = *(ptr + (((subtimer << 0x18) >> 0x1b) & 0x7));
         }
     }
 }
@@ -67,14 +67,14 @@ void sub_08065C0C(Entity* this) {
             this->action = 1;
             break;
         case 3:
-            if (--this->actionDelay != 0) {
+            if (--this->timer != 0) {
                 return;
             }
 
             puVar3 = *(u16**)&this->field_0x6c.HWORD;
             if (*puVar3 != 0xffff) {
                 gScreen.controls.alphaBlend = *puVar3;
-                this->actionDelay = (u8) * (++puVar3);
+                this->timer = (u8) * (++puVar3);
                 *(u16**)&this->field_0x6c = ++puVar3;
                 return;
             }
@@ -88,7 +88,7 @@ void sub_08065C0C(Entity* this) {
 
 void sub_08065CCC(Entity* this) {
     this->action = 3;
-    this->actionDelay = 0x1e;
+    this->timer = 0x1e;
     this->spriteRendering.alphaBlend = 1;
     *(u32**)&this->field_0x6c = (u32*)gUnk_0811022E;
     gScreen.controls.layerFXControl = 0x3f40;
@@ -102,8 +102,8 @@ void sub_08065D00(Entity* this) {
 
 void sub_08065D18(Entity* this) {
     this->action = 1;
-    this->actionDelay = 0x1e;
-    this->field_0xf = 0;
+    this->timer = 0x1e;
+    this->subtimer = 0;
     this->spriteSettings.draw = 1;
     this->spriteRendering.alphaBlend = 1;
     *(u32**)&this->field_0x6c = &gUnk_08110188;
@@ -115,14 +115,14 @@ void sub_08065D18(Entity* this) {
 
 void sub_08065D74(Entity* this) {
     u16* ptr;
-    if (--this->actionDelay) {
+    if (--this->timer) {
         return;
     }
 
     ptr = *(u16**)&this->field_0x6c;
     if (*ptr != 0xffff) {
         gScreen.controls.alphaBlend = *ptr;
-        this->actionDelay = *(ptr + 1);
+        this->timer = *(ptr + 1);
         *(u32*)&this->field_0x6c = (u32)(ptr + 2);
     } else {
         this->action++;
@@ -135,15 +135,15 @@ void sub_08065DB8(Entity* this) {
         case 0: {
             if ((gMessage.doTextBox & 0x7f) == 0) {
                 this->subAction++;
-                this->actionDelay = 0x3c;
+                this->timer = 0x3c;
                 InitAnimationForceUpdate(this, 4);
             }
             break;
         }
         case 1: {
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->subAction++;
-                this->actionDelay = 0xb4;
+                this->timer = 0xb4;
                 gUnk_02018EB0[1]++;
                 InitAnimationForceUpdate(this, 2);
             }
@@ -152,7 +152,7 @@ void sub_08065DB8(Entity* this) {
         case 2:
             break;
         case 3: {
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 MessageFromTarget(0);
                 this->subAction++;
             }
@@ -161,17 +161,17 @@ void sub_08065DB8(Entity* this) {
         case 4: {
             if ((gMessage.doTextBox & 0x7f) == 0) {
                 this->subAction++;
-                this->actionDelay = 0x1e;
+                this->timer = 0x1e;
                 *(u8**)&this->field_0x6c = gUnk_0811022E;
             }
             break;
         }
         default: {
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 u16* puVar3 = *(u16**)&this->field_0x6c.HWORD;
                 if (*puVar3 != 0xffff) {
                     gScreen.controls.alphaBlend = *puVar3;
-                    this->actionDelay = (u8) * (puVar3 + 1);
+                    this->timer = (u8) * (puVar3 + 1);
                     *(u16**)&this->field_0x6c = (puVar3 + 2);
                 } else {
                     gUnk_02018EB0[0]++;
@@ -191,11 +191,11 @@ void sub_08065EBC(Entity* this) {
 }
 
 void sub_08065EDC(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         u16* puVar3 = *(u16**)&this->field_0x6c.HWORD;
         if (*puVar3 != 0xffff) {
             gScreen.controls.alphaBlend = *puVar3;
-            this->actionDelay = (u8) * (++puVar3);
+            this->timer = (u8) * (++puVar3);
             *(u16**)&this->field_0x6c = (++puVar3);
         } else {
             this->action++;

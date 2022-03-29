@@ -46,7 +46,7 @@ void Chuchu(Entity* this) {
             /* ... */
             break;
         case 2:
-            this->field_0x3a &= 0xfe;
+            this->gustJarState &= 0xfe;
             if (index != this->field_0x80.HALF.HI) {
                 switch (this->type) {
                     case 0:
@@ -97,7 +97,7 @@ void Chuchu_OnCollision(Entity* this) {
     u8 health;
 
     if (this->type == 2) {
-        if (this->bitfield == 0x8e || this->bitfield == 0x95) {
+        if (this->contactFlags == 0x8e || this->contactFlags == 0x95) {
             COLLISION_OFF(this);
             this->health = 0;
         }
@@ -105,7 +105,7 @@ void Chuchu_OnCollision(Entity* this) {
 
     health = this->health;
     if (health) {
-        if (this->bitfield == 0x94) {
+        if (this->contactFlags == 0x94) {
             sub_0801FB68(this);
             Create0x68FX(this, FX_STARS);
             InitializeAnimation(this, 6);
@@ -175,8 +175,8 @@ void sub_0801F0C8(Entity* this) {
     GetNextFrame(this);
     if (this->frame & ANIM_DONE) {
         this->action = 3;
-        this->actionDelay = (Random() & 3) + 0xc;
-        this->field_0xf = Random();
+        this->timer = (Random() & 3) + 0xc;
+        this->subtimer = Random();
         this->direction = sub_08049F84(this, 1);
         COLLISION_ON(this);
         this->spritePriority.b0 = 4;
@@ -189,17 +189,17 @@ void sub_0801F12C(Entity* this) {
     if (sub_0801FBD0(this)) {
         sub_0801F328(this);
     } else {
-        if ((this->field_0xf++ & 7) == 0) {
+        if ((this->subtimer++ & 7) == 0) {
             this->direction = sub_08049F84(this, 1);
         }
         ProcessMovement0(this);
         GetNextFrame(this);
-        if (--this->actionDelay == 0) {
+        if (--this->timer == 0) {
             if (PlayerInRange(this, 1, 0x38)) {
                 this->action = 4;
                 Chuchu_JumpAtPlayer(this);
             } else if (PlayerInRange(this, 1, 0x48)) {
-                this->actionDelay = (Random() & 3) + 0xc;
+                this->timer = (Random() & 3) + 0xc;
             } else {
                 sub_0801F328(this);
             }
@@ -231,7 +231,7 @@ void sub_0801F1B0(Entity* this) {
 }
 
 void sub_0801F228(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 3;
         this->direction = sub_08049F84(this, 1);
     }
@@ -245,7 +245,7 @@ void sub_0801F250(Entity* this) {
 }
 
 void sub_0801F270(Entity* this) {
-    if ((this->field_0xf++ & 7) == 0) {
+    if ((this->subtimer++ & 7) == 0) {
         this->direction = sub_08049F84(this, 1);
     }
 
@@ -254,14 +254,14 @@ void sub_0801F270(Entity* this) {
     if (sub_0801FBD0(this))
         return;
 
-    if (--this->actionDelay)
+    if (--this->timer)
         return;
 
     if (this->field_0x80.HALF.HI == 0) {
         this->action = 2;
         InitializeAnimation(this, 4);
     } else {
-        this->actionDelay = 8;
+        this->timer = 8;
     }
 }
 
@@ -291,7 +291,7 @@ void sub_0801F328(Entity* this) {
 
 void sub_0801F340(Entity* this) {
     this->action = 5;
-    this->actionDelay = 60;
+    this->timer = 60;
     this->speed = 0x20;
     this->hitType = 92;
     InitializeAnimation(this, 2);
@@ -299,8 +299,8 @@ void sub_0801F340(Entity* this) {
 
 void sub_0801F360(Entity* this) {
     this->action = 7;
-    this->actionDelay = (Random() & 0x38) + 0xb4;
-    this->field_0xf = Random();
+    this->timer = (Random() & 0x38) + 0xb4;
+    this->subtimer = Random();
     this->direction = sub_08049F84(this, 1);
     this->spritePriority.b1 = 2;
     this->spritePriority.b0 = 6;
@@ -333,14 +333,14 @@ void sub_0801F3AC(Entity* this) {
 void sub_0801F428(Entity* this) {
     sub_0804A720(this);
     this->action = 1;
-    this->actionDelay = Random();
+    this->timer = Random();
     this->field_0x80.HALF.LO = this->health;
     this->field_0x82.HALF.LO = 0;
     if (this->type2 == 0)
         return;
 
     this->action = 3;
-    this->field_0xf = 30;
+    this->subtimer = 30;
 
 #ifdef EU
     this->direction = sub_08049F84(this, 1);
@@ -364,7 +364,7 @@ void sub_0801F494(Entity* this) {
     GetNextFrame(this);
     if (this->frame & ANIM_DONE) {
         this->action = 3;
-        this->field_0xf = 30;
+        this->subtimer = 30;
         this->direction = sub_08049F84(this, 1);
         COLLISION_ON(this);
         this->spritePriority.b0 = 4;
@@ -375,7 +375,7 @@ void sub_0801F494(Entity* this) {
 
 void sub_0801F4EC(Entity* this) {
     GetNextFrame(this);
-    if (--this->field_0xf == 0)
+    if (--this->subtimer == 0)
         this->action = 4;
 }
 
@@ -384,7 +384,7 @@ void sub_0801F508(Entity* this) {
         this->field_0x82.HALF.HI = 0;
         sub_0801F730(this);
     } else {
-        u8 tmp = ++this->actionDelay & 7;
+        u8 tmp = ++this->timer & 7;
         if (tmp == 0 && PlayerInRange(this, 1, 0x38)) {
             if (Random() & 1) {
                 this->action = 5;
@@ -424,7 +424,7 @@ void sub_0801F584(Entity* this) {
             sub_0801F730(this);
         } else {
             this->action = 6;
-            this->field_0xf = 60;
+            this->subtimer = 60;
             this->speed = 0x20;
             this->hitType = 92;
             InitializeAnimation(this, 2);
@@ -433,7 +433,7 @@ void sub_0801F584(Entity* this) {
 }
 
 void sub_0801F61C(Entity* this) {
-    if (--this->field_0xf == 0)
+    if (--this->subtimer == 0)
         this->action = 4;
     GetNextFrame(this);
 }
@@ -442,7 +442,7 @@ void sub_0801F638(Entity* this) {
     GetNextFrame(this);
     if (this->frame & ANIM_DONE) {
         this->action = 8;
-        this->field_0xf = 30;
+        this->subtimer = 30;
         this->direction = sub_08049F84(this, 1);
         this->spritePriority.b1 = 2;
         this->spritePriority.b0 = 6;
@@ -519,7 +519,7 @@ void sub_0801F764(Entity* this) {
 void sub_0801F7D8(Entity* this) {
     sub_0804A720(this);
     this->action = 1;
-    this->actionDelay = Random();
+    this->timer = Random();
     this->field_0x80.HALF.LO = this->health;
     this->field_0x82.HALF.LO = 0;
 }
@@ -548,8 +548,8 @@ void sub_0801F840(Entity* this) {
 
 void sub_0801F884(Entity* this) {
     GetNextFrame(this);
-    if (this->field_0xf) {
-        this->field_0xf--;
+    if (this->subtimer) {
+        this->subtimer--;
     } else {
         Entity* ent = Create0x68FX(this, FX_LIGHTNING_STRIKE);
         if (ent != NULL) {
@@ -567,7 +567,7 @@ void sub_0801F8C0(Entity* this) {
     } else if (sub_08049FDC(this, 1) == 0) {
         sub_0801F730(this);
     } else {
-        u8 tmp = ++this->actionDelay & 7;
+        u8 tmp = ++this->timer & 7;
         if (tmp == 0 && sub_08049F1C(this, gUnk_020000B0, 0x38)) {
             this->action = 5;
             Chuchu_JumpAtPlayer(this);
@@ -599,7 +599,7 @@ void sub_0801F940(Entity* this) {
             sub_0801FAE0(this);
         } else {
             this->action = 6;
-            this->field_0xf = 60;
+            this->subtimer = 60;
             this->speed = 0x20;
             InitializeAnimation(this, 2);
         }
@@ -607,7 +607,7 @@ void sub_0801F940(Entity* this) {
 }
 
 void sub_0801F9C4(Entity* this) {
-    if (--this->field_0xf == 0)
+    if (--this->subtimer == 0)
         this->action = 4;
     GetNextFrame(this);
 }
@@ -616,7 +616,7 @@ void sub_0801F9E0(Entity* this) {
     GetNextFrame(this);
     if (this->frame & ANIM_DONE) {
         this->action = 8;
-        this->field_0xf = 30;
+        this->subtimer = 30;
         this->direction = sub_08049F84(this, 1);
         this->spritePriority.b1 = 2;
         this->spritePriority.b0 = 6;
@@ -671,7 +671,7 @@ void sub_0801FAF8(Entity* this) {
 
 void sub_0801FB14(Entity* this) {
     this->action = 3;
-    this->field_0xf = 30;
+    this->subtimer = 30;
     this->direction = sub_08049F84(this, 1);
     InitializeAnimation(this, 2);
 }

@@ -53,10 +53,10 @@ void sub_08091198(Entity* this) {
         case 0xff:
             break;
         case 0xf:
-            CreateFx(this, this->actionDelay, 0x80);
+            CreateFx(this, this->timer, 0x80);
             break;
         default:
-            CreateObjectWithParent(this, this->type2, this->actionDelay, 0);
+            CreateObjectWithParent(this, this->type2, this->timer, 0);
             break;
     }
 

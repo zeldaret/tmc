@@ -46,11 +46,11 @@ void SpearMoblin_OnCollision(Entity* this) {
         Create0x68FX(this, FX_STARS);
 
     EnemyFunctionHandlerAfterCollision(this, SpearMoblin_Functions);
-    if (this->bitfield & 0x80) {
+    if (this->contactFlags & 0x80) {
         if (this->action != 4) {
             sub_08028754(this);
         } else {
-            if ((this->bitfield & 0x3f) == 0) {
+            if ((this->contactFlags & 0x3f) == 0) {
                 this->field_0x7a.HALF.LO++;
                 this->field_0x80.HALF.HI = 0x16;
                 sub_08028784(this);
@@ -85,9 +85,9 @@ void sub_08028314(Entity* this) {
     this->field_0x7a.HALF.LO = 0;
     this->field_0x82.HALF.LO = 1;
 
-    if (this->actionDelay) {
+    if (this->timer) {
         this->animationState = this->type2 << 1;
-        this->actionDelay = 0x1e;
+        this->timer = 0x1e;
         this->speed = 0x80;
         this->direction = this->animationState << 2;
         sub_080287E0(this);
@@ -108,7 +108,7 @@ void sub_08028378(Entity* this) {
         this->field_0x80.HALF.HI--;
     }
 
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         if (++this->field_0x80.HALF.LO >= 0x10) {
             sub_08028728(this);
         } else {
@@ -126,19 +126,19 @@ void sub_08028378(Entity* this) {
         }
     }
 
-    if (this->field_0xf >= 0xc) {
+    if (this->subtimer >= 0xc) {
         if (this->field_0x7a.HALF.HI != 0) {
             sub_08028754(this);
         }
     } else {
-        this->field_0xf++;
+        this->subtimer++;
     }
 
     sub_08028858(this);
 }
 
 void sub_08028420(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 3;
         this->field_0x82.HALF.LO = 0;
         this->field_0x80.HALF.LO = 0;
@@ -150,19 +150,19 @@ void sub_08028420(Entity* this) {
         }
     }
 
-    if (this->field_0xf >= 0xc) {
+    if (this->subtimer >= 0xc) {
         if (this->field_0x7a.HALF.HI != 0) {
             sub_08028754(this);
         }
     } else {
-        this->field_0xf++;
+        this->subtimer++;
     }
 
     sub_08028858(this);
 }
 
 void sub_08028488(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         switch (this->field_0x82.HALF.LO) {
             case 3:
                 this->action = 4;
@@ -173,7 +173,7 @@ void sub_08028488(Entity* this) {
             case 2:
                 this->action = 2;
                 this->speed = 0;
-                this->actionDelay = (Random() & 7) * 3 + 0x40;
+                this->timer = (Random() & 7) * 3 + 0x40;
                 break;
             case 4:
                 this->direction = (this->direction + 0x10) & 0x18;
@@ -183,11 +183,11 @@ void sub_08028488(Entity* this) {
                 this->action = 1;
                 this->field_0x82.HALF.LO = 1;
                 this->speed = 0x80;
-                this->actionDelay = (Random() & 7) * 3 + 0x22;
+                this->timer = (Random() & 7) * 3 + 0x22;
                 break;
         }
 
-        this->field_0xf = 0;
+        this->subtimer = 0;
         this->animationState = DirectionRoundUp(this->direction) >> 2;
         sub_080287E0(this);
     }
@@ -200,7 +200,7 @@ void sub_08028528(Entity* this) {
     const Hitbox* box;
 
     if (ent == NULL) {
-        this->field_0xf = 0;
+        this->subtimer = 0;
         sub_08028728(this);
     } else {
         sub_080288C0(this);
@@ -215,16 +215,16 @@ void sub_08028528(Entity* this) {
             this->field_0x80.HALF.HI = 0x16;
             sub_08028784(this);
         } else {
-            if (++this->actionDelay == 0x20) {
+            if (++this->timer == 0x20) {
                 u32 direction;
-                this->actionDelay = 0;
+                this->timer = 0;
                 direction = GetFacingDirection(this, ent);
                 if (sub_08028828(this->direction, direction)) {
                     this->direction = direction;
                 }
             }
 
-            if ((this->actionDelay & 7) == 0) {
+            if ((this->timer & 7) == 0) {
                 EnqueueSFX(SFX_F0);
                 CreateFx(this, FX_DEATH, 0x40);
             }
@@ -243,9 +243,9 @@ void sub_08028528(Entity* this) {
 }
 
 NONMATCH("asm/non_matching/spearMoblin/sub_08028604.inc", void sub_08028604(Entity* this)) {
-    this->field_0xf = 0;
+    this->subtimer = 0;
     if (this->field_0x82.HALF.LO == 1) {
-        this->actionDelay = gUnk_080CC7BC[Random() & 3];
+        this->timer = gUnk_080CC7BC[Random() & 3];
         this->speed = 0x80;
         if (sub_08049FA0(this) != 0) {
             this->direction = gUnk_080CC7D0[Random() & 7] + 0x18 + (this->direction & 0x18);
@@ -256,13 +256,13 @@ NONMATCH("asm/non_matching/spearMoblin/sub_08028604.inc", void sub_08028604(Enti
                 uVar1 = gUnk_080CC7C0[Random() & 0xf];
             } else {
                 uVar1 = gUnk_080CC7C0[Random() & 7];
-                this->actionDelay = this->actionDelay + 0x10;
+                this->timer = this->timer + 0x10;
                 this->field_0x82.HALF.HI--;
             }
             this->direction = iVar3 + uVar1 + (4U & 0x18);
         }
     } else {
-        this->actionDelay = 0xc;
+        this->timer = 0xc;
         this->speed = 0;
     }
 
@@ -310,14 +310,14 @@ void sub_08028784(Entity* this) {
     this->direction = this->animationState << 2;
     this->field_0x82.HALF.HI = 0;
     sub_080287B4(this);
-    this->actionDelay <<= 1;
+    this->timer <<= 1;
     this->field_0x82.HALF.LO = 4;
 }
 
 void sub_080287B4(Entity* this) {
     this->action = 3;
-    this->actionDelay = 0x20;
-    this->field_0xf = 0;
+    this->timer = 0x20;
+    this->subtimer = 0;
     this->field_0x80.HALF.LO = 0;
     this->field_0x7a.HALF.HI = 0;
     this->speed = 0;
@@ -380,7 +380,7 @@ bool32 sub_080288A4(Entity* this) {
 
 void sub_080288C0(Entity* this) {
     Entity* ent = this->child;
-    if ((ent != NULL) && (ent->bitfield & 0x80)) {
+    if ((ent != NULL) && (ent->contactFlags & 0x80)) {
         this->knockbackDirection = ent->knockbackDirection;
         this->iframes = -ent->iframes;
         this->knockbackSpeed = ent->knockbackSpeed;

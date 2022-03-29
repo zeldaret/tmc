@@ -138,7 +138,7 @@ void MazaalBracelet_OnCollision(Entity* this) {
 
     if (this->type < 2) {
         if (this->action != 0x2b) {
-            if ((0 < this->iframes) && ((this->bitfield == 0x95 || (this->bitfield == 0x8e)))) {
+            if ((0 < this->iframes) && ((this->contactFlags == 0x95 || (this->contactFlags == 0x8e)))) {
                 this->action = 0x28;
                 COLLISION_OFF(this);
                 ent = this->parent;
@@ -219,7 +219,7 @@ void sub_0803A364(Entity* this) {
     s8* ptr;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->field_0xf >> 4) + 3);
+    index = ((this->parent->subtimer >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     switch (this->subAction & 0x7f) {
         case 0:
@@ -250,11 +250,11 @@ void sub_0803A364(Entity* this) {
             this->type2 = 0;
             uVar1 = 6;
             this->subAction = uVar1;
-            this->actionDelay = 0x1e;
+            this->timer = 0x1e;
             break;
         case 6:
-            this->actionDelay--;
-            if (this->actionDelay == 0) {
+            this->timer--;
+            if (this->timer == 0) {
                 this->subAction = 7;
                 InitializeAnimation(this, 5);
             }
@@ -275,11 +275,11 @@ void sub_0803A364(Entity* this) {
             }
             uVar1 = 9;
             this->subAction = uVar1;
-            this->actionDelay = 0x1e;
+            this->timer = 0x1e;
             break;
         case 9:
-            this->actionDelay--;
-            if (this->actionDelay == 0) {
+            this->timer--;
+            if (this->timer == 0) {
                 this->subAction = 10;
                 InitAnimationForceUpdate(this->child, 6);
             }
@@ -300,16 +300,16 @@ void sub_0803A364(Entity* this) {
             if (this->type2 != 0) {
                 uVar1 = 0xc;
                 this->subAction = uVar1;
-                this->actionDelay = 0x1e;
+                this->timer = 0x1e;
             } else {
                 this->type2 = 1;
                 this->subAction = 6;
-                this->actionDelay = 10;
+                this->timer = 10;
             }
             break;
         default:
-            this->actionDelay--;
-            if (this->actionDelay == 0) {
+            this->timer--;
+            if (this->timer == 0) {
                 COLLISION_ON(this);
                 sub_0803B4D4(this);
             }
@@ -324,7 +324,7 @@ void sub_0803A548(Entity* this) {
     sub_0803B5C0(this);
     UpdateAnimationSingleFrame(this);
     ptr = gUnk_080CED6C;
-    index = ((this->parent->field_0xf >> 4) + 3);
+    index = ((this->parent->subtimer >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     if (sub_0803B4E4(this) == 0) {
         LinearMoveUpdate(this);
@@ -336,7 +336,7 @@ void sub_0803A58C(Entity* this) {
     s8* ptr;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->field_0xf >> 4) + 3);
+    index = ((this->parent->subtimer >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     if (sub_0803B4E4(this) != 0) {
         sub_0803B59C(this);
@@ -352,7 +352,7 @@ void sub_0803A5D0(Entity* this) {
     this->action = 5;
     COLLISION_OFF(this);
     ptr = gUnk_080CED6C;
-    index = ((this->parent->field_0xf >> 4) + 3);
+    index = ((this->parent->subtimer >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     InitializeAnimation(this, 5);
 }
@@ -362,7 +362,7 @@ void sub_0803A60C(Entity* this) {
     s8* ptr;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->field_0xf >> 4) + 3);
+    index = ((this->parent->subtimer >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     GetNextFrame(this);
     if ((this->frame & ANIM_DONE) != 0) {
@@ -385,7 +385,7 @@ void sub_0803A660(Entity* this) {
             this->z.HALF.HI = this->z.HALF.HI - 2;
         } else {
             this->action = 7;
-            this->actionDelay = 0;
+            this->timer = 0;
             uVar2 = GetFacingDirection(this, &gPlayerEntity);
             this->direction = (u8)uVar2;
             this->speed = 0x280;
@@ -397,7 +397,7 @@ void sub_0803A660(Entity* this) {
             SoundReq(SFX_157);
         }
         ptr = gUnk_080CED6C;
-        index = ((this->parent->field_0xf >> 4) + 3);
+        index = ((this->parent->subtimer >> 4) + 3);
         this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     }
 }
@@ -407,7 +407,7 @@ void sub_0803A6E8(Entity* this) {
 
     if (sub_0803B610(this)) {
         this->action = 8;
-        this->actionDelay = 10;
+        this->timer = 10;
     } else {
         sub_0803B63C(this);
         LinearMoveUpdate(this);
@@ -419,7 +419,7 @@ void sub_0803A6E8(Entity* this) {
 }
 
 void sub_0803A720(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 9;
         sub_0803B8E8(this, 0x16);
     }
@@ -433,7 +433,7 @@ void sub_0803A740(Entity* this) {
     if (-1 < height * 0x10000) {
         this->z.HALF.HI = 0;
         this->action = 10;
-        this->actionDelay = 10;
+        this->timer = 10;
         this->parent->field_0x7c.BYTES.byte1 |= 0x40;
         sub_0803B8E8(this, 0x13);
         InitScreenShake(10, 0);
@@ -442,7 +442,7 @@ void sub_0803A740(Entity* this) {
 }
 
 void sub_0803A780(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         if (--this->field_0x7c.BYTES.byte0) {
             this->action = 6;
         } else {
@@ -464,7 +464,7 @@ void sub_0803A7CC(Entity* this) {
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->field_0xf >> 4) + 3);
+    index = ((this->parent->subtimer >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     if (sub_0803B4E4(this)) {
         this->action = 0xd;
@@ -479,7 +479,7 @@ void sub_0803A814(Entity* this) {
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->field_0xf >> 4) + 3);
+    index = ((this->parent->subtimer >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     sub_0803B55C(this);
     if ((this->child->frame & ANIM_DONE) != 0) {
@@ -494,7 +494,7 @@ void sub_0803A86C(Entity* this) {
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->field_0xf >> 4) + 3);
+    index = ((this->parent->subtimer >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     GetNextFrame(this);
     if ((this->frame & ANIM_DONE) != 0) {
@@ -508,12 +508,12 @@ void sub_0803A8B8(Entity* this) {
     u32 index;
 
     this->action = 0x10;
-    this->actionDelay = 0x1e;
+    this->timer = 0x1e;
     this->direction = 0;
     this->speed = 0x80;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->field_0xf >> 4) + 3);
+    index = ((this->parent->subtimer >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     InitializeAnimation(this, 6);
     InitAnimationForceUpdate(this->child, 1);
@@ -525,13 +525,13 @@ void sub_0803A90C(Entity* this) {
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->field_0xf >> 4) + 3);
+    index = ((this->parent->subtimer >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     GetNextFrame(this);
     sub_0803B55C(this);
     LinearMoveUpdate(this);
-    this->actionDelay--;
-    if (this->actionDelay == 0) {
+    this->timer--;
+    if (this->timer == 0) {
         this->action = 0x11;
         this->direction = this->type * 0x10 + 8;
         this->speed = 0x200;
@@ -545,17 +545,17 @@ void sub_0803A978(Entity* this) {
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->field_0xf >> 4) + 3);
+    index = ((this->parent->subtimer >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     GetNextFrame(this);
     sub_0803B55C(this);
-    if ((++this->actionDelay & 3) == 0) {
+    if ((++this->timer & 3) == 0) {
         sub_08004596(this, 0x10);
     }
     LinearMoveUpdate(this);
     if (this->direction == 0x10) {
         this->action = 0x12;
-        this->actionDelay = 3;
+        this->timer = 3;
         COLLISION_OFF(this);
         *(u8*)(*(int*)&this->field_0x74 + 0x10) &= 0x7f;
         InitializeAnimation(this, 8);
@@ -569,11 +569,11 @@ void sub_0803AA00(Entity* this) {
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->field_0xf >> 4) + 3);
+    index = ((this->parent->subtimer >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     if (sub_0803B870(this) == 0) {
         direction = (this->type ^ 1) * 0x10 + 8;
-        if ((++this->actionDelay & 3) == 0) {
+        if ((++this->timer & 3) == 0) {
             sub_08004596(this, direction);
         }
         LinearMoveUpdate(this);
@@ -592,7 +592,7 @@ void sub_0803AA98(Entity* this) {
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->field_0xf >> 4) + 3);
+    index = ((this->parent->subtimer >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     if (sub_0803B870(this) == 0) {
         LinearMoveUpdate(this);
@@ -615,13 +615,13 @@ void sub_0803AB10(Entity* this) {
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->field_0xf >> 4) + 3);
+    index = ((this->parent->subtimer >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     LinearMoveUpdate(this);
     sub_0803B55C(this);
     if ((this->child->frame & ANIM_DONE) != 0) {
         this->action = 0x15;
-        this->actionDelay = 0xf;
+        this->timer = 0xf;
     }
 }
 
@@ -630,9 +630,9 @@ void sub_0803AB5C(Entity* this) {
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->field_0xf >> 4) + 3);
+    index = ((this->parent->subtimer >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 0x16;
         this->spriteSettings.draw = 1;
         InitializeAnimation(this, 0xb);
@@ -645,7 +645,7 @@ void sub_0803ABB4(Entity* this) {
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->field_0xf >> 4) + 3);
+    index = ((this->parent->subtimer >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     GetNextFrame(this);
     sub_0803B55C(this);
@@ -663,7 +663,7 @@ void sub_0803AC1C(Entity* this) {
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->field_0xf >> 4) + 3);
+    index = ((this->parent->subtimer >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     if (sub_0803B4E4(this)) {
         sub_0803B59C(this);
@@ -677,19 +677,19 @@ void sub_0803AC60(Entity* this) {
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->field_0xf >> 4) + 3);
+    index = ((this->parent->subtimer >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     GetNextFrame(this);
-    if (!this->actionDelay) {
+    if (!this->timer) {
         if (sub_0803B4E4(this) != 0) {
             this->action = 0x19;
             this->subAction = 0;
-            this->actionDelay = 0x1e;
+            this->timer = 0x1e;
         } else {
             LinearMoveUpdate(this);
         }
     } else {
-        this->actionDelay = this->actionDelay - 1;
+        this->timer = this->timer - 1;
     }
     sub_0803B824(this);
 }
@@ -699,7 +699,7 @@ void sub_0803ACC0(Entity* this) {
 
     switch (this->subAction) {
         default:
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->subAction = 1;
             }
             break;
@@ -712,7 +712,7 @@ void sub_0803ACC0(Entity* this) {
             uVar2 = this->z.HALF.HI += 4;
             if (-1 < (uVar2 * 0x10000)) {
                 this->z.HALF.HI = 0;
-                this->actionDelay = 0xc;
+                this->timer = 0xc;
                 this->subAction = 3;
                 InitScreenShake(8, 0);
                 SoundReq(SFX_158);
@@ -720,7 +720,7 @@ void sub_0803ACC0(Entity* this) {
             }
             break;
         case 3:
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->subAction = 4;
             }
             break;
@@ -735,7 +735,7 @@ void sub_0803ACC0(Entity* this) {
             if (-1 < (uVar2 * 0x10000)) {
                 this->z.HALF.HI = 0;
                 this->action = 0x1a;
-                this->actionDelay = 0x3c;
+                this->timer = 0x3c;
                 InitScreenShake(0x1e, 0);
                 SoundReq(SFX_158);
                 sub_0803B804(this);
@@ -747,7 +747,7 @@ void sub_0803ACC0(Entity* this) {
 }
 
 void sub_0803ADAC(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 0x16;
         this->spriteSettings.draw = 1;
         (*(Entity**)&this->field_0x74)->flags |= ENT_COLLIDE;
@@ -764,13 +764,13 @@ void sub_0803ADF4(Entity* this) {
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->field_0xf >> 4) + 3);
+    index = ((this->parent->subtimer >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     UpdateAnimationSingleFrame(this);
     GetNextFrame(this);
     if ((this->frame & ANIM_DONE) != 0) {
         this->action = 0x1c;
-        this->actionDelay = 0x1e;
+        this->timer = 0x1e;
         this->spriteSettings.draw = 0;
     }
 }
@@ -780,10 +780,10 @@ void sub_0803AE48(Entity* this) {
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->field_0xf >> 4) + 3);
+    index = ((this->parent->subtimer >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     UpdateAnimationSingleFrame(this);
-    if (((this->actionDelay == 0) || (--this->actionDelay == 0)) && ((this->parent->field_0x7c.BYTES.byte1 & 3) != 0)) {
+    if (((this->timer == 0) || (--this->timer == 0)) && ((this->parent->field_0x7c.BYTES.byte1 & 3) != 0)) {
         this->action = 0x1d;
         this->spriteSettings.draw = 1;
         InitializeAnimation(this, 4);
@@ -799,7 +799,7 @@ void sub_0803AEC4(Entity* this) {
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->field_0xf >> 4) + 3);
+    index = ((this->parent->subtimer >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     UpdateAnimationSingleFrame(this);
     GetNextFrame(this);
@@ -813,7 +813,7 @@ void sub_0803AF18(Entity* this) {
     this->action = 0x1f;
     COLLISION_OFF(this);
     InitializeAnimation(this, 5);
-    this->z.HALF.HI = gUnk_080CED6C[(this->parent->field_0xf >> 4) & 7] + 4;
+    this->z.HALF.HI = gUnk_080CED6C[(this->parent->subtimer >> 4) & 7] + 4;
 }
 
 void sub_0803AF50(Entity* this) {
@@ -829,25 +829,25 @@ void sub_0803AF7C(Entity* this) {
     sub_0803B55C(this);
     if ((this->child->frame & ANIM_DONE) != 0) {
         this->action = 0x21;
-        this->actionDelay = 0xf;
+        this->timer = 0xf;
     }
 }
 
 void sub_0803AF9C(Entity* this) {
-    if (this->actionDelay != 0) {
-        this->actionDelay--;
+    if (this->timer != 0) {
+        this->timer--;
     } else {
         if (-0x20 < this->z.HALF.HI) {
             this->z.HALF.HI -= 2;
         } else {
             this->action = 0x22;
-            this->actionDelay = 10;
+            this->timer = 10;
         }
     }
 }
 
 void sub_0803AFC8(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 0x23;
     }
 }
@@ -857,7 +857,7 @@ void sub_0803AFE0(Entity* this) {
         this->z.HALF.HI += 4;
     } else {
         this->action = 0x24;
-        this->actionDelay = 0xf0;
+        this->timer = 0xf0;
         *(u8*)&this->cutsceneBeh = 3;
         this->z.HALF.HI = 0;
         InitScreenShake(0xa0, 0);
@@ -866,10 +866,10 @@ void sub_0803AFE0(Entity* this) {
 }
 
 void sub_0803B01C(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 0x25;
     } else {
-        if ((0x46 < this->actionDelay) && ((this->actionDelay & 0xf) == 0)) {
+        if ((0x46 < this->timer) && ((this->timer & 0xf) == 0)) {
             sub_0803B724(this);
         }
     }
@@ -889,7 +889,7 @@ void sub_0803B074(Entity* this) {
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->field_0xf >> 4) + 3);
+    index = ((this->parent->subtimer >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     sub_0803B55C(this);
     if ((this->child->frame & ANIM_DONE) != 0) {
@@ -968,7 +968,7 @@ void sub_0803B1B8(Entity* this) {
         }
         temp = CreateObject(GROUND_ITEM, 0x5e, 0);
         if (temp != (Entity*)0x0) {
-            temp->actionDelay = 0;
+            temp->timer = 0;
             temp->direction = 0x90;
             PositionRelative(this, temp, Q_16_16(this->hitbox->offset_x), Q_16_16(this->hitbox->offset_y));
         }
@@ -978,7 +978,7 @@ void sub_0803B1B8(Entity* this) {
         temp->field_0x80.HALF.LO |= (this->type == 0) ? 4 : 8;
         if ((temp->field_0x80.HALF.LO & 0xc) == 0xc) {
             temp->action = 0xb;
-            temp->actionDelay = 0x78;
+            temp->timer = 0x78;
             temp->zVelocity = 0;
             (*(Entity**)&temp->field_0x74)->field_0x7c.HALF_U.HI = 0x708;
             (*(Entity**)&temp->field_0x78)->field_0x7c.HALF_U.HI = 0x708;
@@ -1021,7 +1021,7 @@ void sub_0803B338(Entity* this) {
         this->z.HALF.HI--;
     } else {
         this->action = 0x2f;
-        this->actionDelay = 0xf;
+        this->timer = 0xf;
     }
 }
 
@@ -1030,9 +1030,9 @@ void sub_0803B35C(Entity* this) {
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->field_0xf >> 4) + 3);
+    index = ((this->parent->subtimer >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 0x30;
     }
 }
@@ -1042,7 +1042,7 @@ void sub_0803B398(Entity* this) {
     u32 index;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->field_0xf >> 4) + 3);
+    index = ((this->parent->subtimer >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     if (sub_0803B4E4(this) != 0) {
         this->action = 0x31;
@@ -1061,7 +1061,7 @@ void sub_0803B3F4(Entity* this) {
     Entity* temp;
 
     ptr = gUnk_080CED6C;
-    index = ((this->parent->field_0xf >> 4) + 3);
+    index = ((this->parent->subtimer >> 4) + 3);
     this->z.HALF.HI = ptr[(index + (u32)this->type * 2) & 7] + 4;
     GetNextFrame(this);
     if ((this->frame & ANIM_DONE) != 0) {
@@ -1172,7 +1172,7 @@ void sub_0803B63C(Entity* this) {
     x = gPlayerEntity.x.HALF.HI;
     x += gUnk_080CFD19[this->type];
     y = gPlayerEntity.y.HALF.HI - 0xc;
-    if (this->actionDelay++ >= 0xb5) {
+    if (this->timer++ >= 0xb5) {
         this->direction = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, x, y);
     } else {
         sub_08004596(this, CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, x, y));
@@ -1208,7 +1208,7 @@ void sub_0803B724(Entity* param_1) {
     u32 random_value;
     u8 temp;
 
-    if (((param_1->field_0xf < 3) && (param_1->cutsceneBeh.HALF.LO != 0)) &&
+    if (((param_1->subtimer < 3) && (param_1->cutsceneBeh.HALF.LO != 0)) &&
         (pEVar1 = CreateEnemy(BEETLE, 1), pEVar1 != (Entity*)0x0)) {
         pEVar1->type2 = 1;
         random_value = Random();
@@ -1217,7 +1217,7 @@ void sub_0803B724(Entity* param_1) {
         pEVar1->y.HALF.HI = ((random_value >> 0x10) & 7) * 10 + 0x5c + gRoomControls.origin_y;
         pEVar1->parent = param_1;
         ResolveCollisionLayer(pEVar1);
-        param_1->field_0xf++;
+        param_1->subtimer++;
         param_1->cutsceneBeh.HALF.LO--;
     }
 }
@@ -1255,9 +1255,9 @@ u32 sub_0803B870(Entity* this) {
     Entity* entity;
 
     entity = this->child;
-    if ((entity->bitfield & 0x80) != 0 && (gPlayerState.flags & PL_CAPTURED)) {
+    if ((entity->contactFlags & 0x80) != 0 && (gPlayerState.flags & PL_CAPTURED)) {
         this->action = 0x18;
-        this->actionDelay = 0x44;
+        this->timer = 0x44;
         this->spriteSettings.draw = 0;
         gPlayerEntity.flags &= ~ENT_COLLIDE;
         gPlayerEntity.iframes = -0x10;
@@ -1305,24 +1305,24 @@ void sub_0803B978(Entity* this) {
             return;
         case 1:
             this->subAction = 2;
-            this->actionDelay = 2;
-            this->field_0xf = 0x1e;
+            this->timer = 2;
+            this->subtimer = 0x1e;
             this->field_0x74.HALF.LO = 0;
             SoundReq(SFX_1A9);
         case 2:
-            sub_0803BA8C(this, this->field_0xf);
+            sub_0803BA8C(this, this->subtimer);
             if ((this->field_0x74.HALF.HI | this->field_0x74.HALF.LO) == 0) {
                 SoundReq(SFX_1A9);
             }
             if (this->field_0x74.HALF.LO != 0) {
                 return;
             }
-            if (--this->actionDelay != 0) {
+            if (--this->timer != 0) {
                 return;
             }
-            this->actionDelay = 2;
-            this->field_0xf -= 4;
-            if (this->field_0xf != 10) {
+            this->timer = 2;
+            this->subtimer -= 4;
+            if (this->subtimer != 10) {
                 return;
             }
             this->parent->parent->subAction = 3;

@@ -32,7 +32,7 @@ void MineralWaterSource_Init(Entity* this) {
 
     COLLISION_ON(this);
 
-    this->field_0x3c = 7;
+    this->collisionFlags = 7;
     this->hitType = 145;
     this->flags2 = 2;
 
@@ -40,5 +40,5 @@ void MineralWaterSource_Init(Entity* this) {
 }
 
 void sub_080973DC(Entity* this) {
-    this->bitfield = 0;
+    this->contactFlags = 0;
 }

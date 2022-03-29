@@ -41,7 +41,7 @@ void Object3E_Type0(Object3EEntity* this) {
     switch (super->action) {
         case 0:
             super->action = 1;
-            super->actionDelay = 0x40 - (Random() & 0x1f);
+            super->timer = 0x40 - (Random() & 0x1f);
             super->frameIndex = 0;
             super->animationState = 0;
             super->spriteRendering.b3 = 3;
@@ -49,21 +49,21 @@ void Object3E_Type0(Object3EEntity* this) {
             super->collisionLayer = 1;
             break;
         case 1:
-            if (--super->actionDelay == 0) {
-                super->actionDelay = 8;
-                super->field_0xf = 4;
+            if (--super->timer == 0) {
+                super->timer = 8;
+                super->subtimer = 4;
                 super->action = 2;
                 super->animationState = Random() & 3;
             }
             break;
         case 2:
-            if (--super->actionDelay == 0) {
-                if (--super->field_0xf == 0) {
+            if (--super->timer == 0) {
+                if (--super->subtimer == 0) {
                     super->frameIndex = 0;
                     super->action = 1;
-                    super->actionDelay = 0x40 - (Random() & 0x1f);
+                    super->timer = 0x40 - (Random() & 0x1f);
                 } else {
-                    super->actionDelay = 8;
+                    super->timer = 8;
                     tmp2 = super->animationState;
                     if (super->frameIndex != tmp2) {
                         tmp = tmp2;
@@ -85,8 +85,8 @@ void Object3E_Type1(Object3EEntity* this) {
     switch (super->action) {
         case 0:
             super->action = 1;
-            super->actionDelay = 8;
-            super->field_0xf = 0;
+            super->timer = 8;
+            super->subtimer = 0;
             super->frameIndex = 0;
             super->spritePriority.b0 = 7;
             SetTile(0x4069, COORD_TO_TILE(super) - 0x40, 1);
@@ -104,14 +104,14 @@ void Object3E_Type1(Object3EEntity* this) {
         case 1:
             break;
     }
-    if (--super->actionDelay == 0) {
-        super->actionDelay = 8;
+    if (--super->timer == 0) {
+        super->timer = 8;
         if (super->type == 9) {
-            super->actionDelay = 2;
+            super->timer = 2;
         }
-        ChangeObjPalette(super, gUnk_08121704[super->field_0xf++]);
-        if (gUnk_08121704[super->field_0xf] == 0) {
-            super->field_0xf = 0;
+        ChangeObjPalette(super, gUnk_08121704[super->subtimer++]);
+        if (gUnk_08121704[super->subtimer] == 0) {
+            super->subtimer = 0;
         }
     }
 }
@@ -170,16 +170,16 @@ void Object3E_Type6(Object3EEntity* this) {
     static const u16 gUnk_08121720[] = { 0x149, 0x14a, 0x14b, 0x14a, 0, 0 };
     if (super->action == 0) {
         super->action = 1;
-        super->actionDelay = 8;
+        super->timer = 8;
         super->spritePriority.b0 = 7;
         gScreen.controls.layerFXControl = 0x640;
         gScreen.controls.alphaBlend = 0x1003;
     }
-    if (--super->actionDelay == 0) {
-        super->actionDelay = 2;
-        sub_0801D28C(super, gUnk_08121720[super->field_0xf++]);
-        if (gUnk_08121720[super->field_0xf] == 0) {
-            super->field_0xf = 0;
+    if (--super->timer == 0) {
+        super->timer = 2;
+        sub_0801D28C(super, gUnk_08121720[super->subtimer++]);
+        if (gUnk_08121720[super->subtimer] == 0) {
+            super->subtimer = 0;
         }
     }
 }
@@ -212,13 +212,13 @@ void Object3E_Type8_Init(Object3EEntity* this) {
     super->action = 2;
     if ((super->type2 == 0) && (CheckLocalFlag(0x7c) == 0)) {
         super->action = 1;
-        super->actionDelay = 0;
+        super->timer = 0;
         super->spriteRendering.alphaBlend = 1;
         gScreen.controls.layerFXControl = 0x640;
         gScreen.controls.alphaBlend = 0x1000;
         SoundReq(SFX_179);
     } else {
-        super->actionDelay = 8;
+        super->timer = 8;
         tilePosition = COORD_TO_TILE(super);
         if (super->type2 != 0) {
             tilePosition -= 0x40;
@@ -229,11 +229,11 @@ void Object3E_Type8_Init(Object3EEntity* this) {
 
 void Object3E_Type8_Action1(Object3EEntity* this) {
     if ((gRoomTransition.frameCount & 3U) == 0) {
-        gScreen.controls.alphaBlend = ((0x10 - super->actionDelay) * 0x100) | super->actionDelay;
-        super->actionDelay++;
+        gScreen.controls.alphaBlend = ((0x10 - super->timer) * 0x100) | super->timer;
+        super->timer++;
         if (gScreen.controls.alphaBlend == 0x10) {
             super->action = 2;
-            super->actionDelay = 8;
+            super->timer = 8;
             super->spriteRendering.alphaBlend = 0;
             gScreen.controls.layerFXControl = 0;
             SetTile(0x4069, COORD_TO_TILE(super), super->collisionLayer);
@@ -245,11 +245,11 @@ void Object3E_Type8_Action2(Object3EEntity* this) {
     static const u16 gUnk_08121738[] = {
         0x14c, 0x14d, 0x14e, 0x14f, 0x150, 0x151, 0x150, 0x14f, 0x14e, 0x14d, 0x14c, 0,
     };
-    if (--super->actionDelay == 0) {
-        super->actionDelay = 8;
-        ChangeObjPalette(super, gUnk_08121738[super->field_0xf++]);
-        if (gUnk_08121738[super->field_0xf] == 0) {
-            super->field_0xf = 0;
+    if (--super->timer == 0) {
+        super->timer = 8;
+        ChangeObjPalette(super, gUnk_08121738[super->subtimer++]);
+        if (gUnk_08121738[super->subtimer] == 0) {
+            super->subtimer = 0;
         }
     }
 }

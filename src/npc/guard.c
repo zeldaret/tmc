@@ -61,7 +61,7 @@ void sub_08063D44(Entity* this) {
         case 0 ... 3:
             ent = CreateProjectile(GUARD_LINE_OF_SIGHT);
             ent->parent = this;
-            ent->field_0xf = 0x3c;
+            ent->subtimer = 0x3c;
             break;
         case 4 ... 5:
             sub_08078778(this);
@@ -75,7 +75,7 @@ void sub_08063D44(Entity* this) {
 void sub_08063DC8(Entity* this) {
     if (this->type == 0xff) {
         this->action = 2;
-        this->actionDelay = 0x1e;
+        this->timer = 0x1e;
         this->animationState = sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity));
         InitAnimationForceUpdate(this, this->animationState + 4);
     } else {
@@ -96,7 +96,7 @@ void sub_08063DC8(Entity* this) {
 }
 
 void sub_08063E54(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         SetRoomFlag(0xf);
     }
 }
@@ -117,12 +117,12 @@ void sub_08063E90(Entity* this) {
         return;
 
     this->action++;
-    if (this->actionDelay) {
+    if (this->timer) {
         this->field_0x70.BYTES.byte0 = 8;
     } else {
         this->field_0x70.BYTES.byte0 = 0;
     }
-    this->actionDelay = 0;
+    this->timer = 0;
 
     unk = sub_0805ACC0(this);
     if (unk == 0) {

@@ -70,9 +70,9 @@ void sub_08097C20(Object74Entity* this) {
     SetPriorityTimer(0x1e);
     sub_0800445C(super);
     CreateMagicSparkles(super->x.HALF.HI, super->y.HALF.HI, super->collisionLayer);
-    if (--super->actionDelay == 0) {
-        super->actionDelay = 8;
-        tmp = ++super->field_0xf;
+    if (--super->timer == 0) {
+        super->timer = 8;
+        tmp = ++super->subtimer;
         gScreen.controls.alphaBlend = (((0x10 - tmp) * 0x100)) | tmp;
         if (gScreen.controls.alphaBlend == 0x10) {
             SetPlayerControl(CONTROL_ENABLED);
@@ -95,8 +95,8 @@ void sub_08097CB4(Object74Entity* this) {
     super->action = 3;
     super->spriteSettings.draw = 1;
     super->spriteRendering.alphaBlend = 1;
-    super->actionDelay = 0x1e;
-    super->field_0xf = 0;
+    super->timer = 0x1e;
+    super->subtimer = 0;
     gScreen.controls.layerFXControl = 0xf40;
     gScreen.controls.alphaBlend = 0x1000;
     SoundReq(SFX_14A);

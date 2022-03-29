@@ -29,7 +29,7 @@ void EyeSwitch(Entity* this) {
 void sub_080886A4(EyeSwitchEntity* this) {
     super->animationState = super->type & 3;
     super->spritePriority.b0 = 6;
-    super->field_0x3c = 7;
+    super->collisionFlags = 7;
     super->hurtType = 0x48;
     super->hitType = 1;
     super->flags2 = 2;
@@ -45,8 +45,8 @@ void sub_080886A4(EyeSwitchEntity* this) {
 }
 
 void sub_08088718(EyeSwitchEntity* this) {
-    if ((super->bitfield == 0x95 || super->bitfield == 0x8e) &&
-        (DirectionRoundUp(super->field_0x4c->direction) >> 3 == (super->animationState & 3))) {
+    if ((super->contactFlags == 0x95 || super->contactFlags == 0x8e) &&
+        (DirectionRoundUp(super->contactedEntity->direction) >> 3 == (super->animationState & 3))) {
         super->action = 2;
         COLLISION_OFF(super);
         EnqueueSFX(SFX_111);
@@ -58,15 +58,15 @@ void sub_08088760(EyeSwitchEntity* this) {
     GetNextFrame(super);
     if ((super->frame & ANIM_DONE) != 0) {
         super->action = 3;
-        this->unk70 = super->actionDelay << 1;
+        this->unk70 = super->timer << 1;
         InitializeAnimation(super, super->animationState + 4);
     }
 }
 
 void sub_08088790(EyeSwitchEntity* this) {
-    if (super->actionDelay != 0) {
+    if (super->timer != 0) {
         if ((this->eyeSwitchFlags2 != this->eyeSwitchFlags) && (CheckFlags(this->eyeSwitchFlags))) {
-            super->actionDelay = 0;
+            super->timer = 0;
         } else {
             if (--this->unk70 == 0) {
                 super->action = 4;

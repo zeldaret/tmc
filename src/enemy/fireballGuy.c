@@ -41,11 +41,11 @@ void FireballGuy_OnGrabbed(void) {
 
 void sub_080453E8(Entity* this) {
     this->action = 1;
-    this->actionDelay = 0;
+    this->timer = 0;
     this->spriteSettings.draw = 1;
     this->speed = 0x80;
     this->cutsceneBeh.HALF.LO = this->health;
-    this->field_0x3c |= 0x10;
+    this->collisionFlags |= 0x10;
     sub_0804A720(this);
     InitializeAnimation(this, 0);
     sub_08045524(this);
@@ -105,14 +105,14 @@ void sub_08045524(Entity* this) {
     this->zVelocity = Q_16_16(1.75);
     tmp = sub_0804A024(this, 1, 8);
     if (tmp != 0xff && (Random() & 3) == 0) {
-        this->actionDelay = Random() & 3;
+        this->timer = Random() & 3;
         this->direction = DirectionRound(tmp);
     } else {
-        if (this->actionDelay) {
-            this->actionDelay--;
+        if (this->timer) {
+            this->timer--;
             return;
         }
-        this->actionDelay = Random() & 3;
+        this->timer = Random() & 3;
         if (sub_08049FA0(this) == 0 && (Random() & 3)) {
             tmp1 = sub_08049EE4(this);
             tmp2 = Random() & 8;

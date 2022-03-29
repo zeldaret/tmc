@@ -5,7 +5,7 @@
 #include "global.h"
 #include "entity.h"
 #include "manager.h"
-#include "coord.h"
+#include "physics.h"
 #include "player.h"
 #include "room.h"
 #include "structures.h"

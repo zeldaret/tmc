@@ -36,7 +36,7 @@ void FallingBoulder_OnGrabbed(Entity* this) {
 void sub_0802C258(Entity* this) {
     sub_0804A720(this);
     this->zVelocity = Q_16_16(2.0);
-    this->actionDelay = 2;
+    this->timer = 2;
     this->field_0x7a.HWORD = Random() & 0x70;
     switch (this->type) {
         case 1:
@@ -169,8 +169,8 @@ void sub_0802C4B0(Entity* this) {
 
     rand = Random() & 7;
     if (rand & 4) {
-        if (this->actionDelay != 0) {
-            this->actionDelay = 0;
+        if (this->timer != 0) {
+            this->timer = 0;
             InitializeAnimation(this, 0);
         }
         if (rand & 3) {
@@ -179,8 +179,8 @@ void sub_0802C4B0(Entity* this) {
             this->direction = gUnk_080CD580[offset | 0];
         }
     } else {
-        if (this->actionDelay != 1) {
-            this->actionDelay = 1;
+        if (this->timer != 1) {
+            this->timer = 1;
             InitializeAnimation(this, 1);
         }
         if (rand & 3) {

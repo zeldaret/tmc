@@ -45,7 +45,7 @@ typedef struct {
 typedef struct {
     s8 x;
     s8 y;
-    u8 actionDelay;
+    u8 timer;
     u8 unk3;
     u8 unk4;
     u8 filler[3];
@@ -118,8 +118,8 @@ void sub_08094148(Object67Entity* this) {
                     ptr = gUnk_081229F0 + super->type2;
                     super->x.HALF.HI = ptr->x + super->x.HALF.HI;
                     super->y.HALF.HI = ptr->y + super->y.HALF.HI;
-                    super->actionDelay = ptr->actionDelay;
-                    super->field_0xf = ptr->unk3;
+                    super->timer = ptr->timer;
+                    super->subtimer = ptr->unk3;
                     this->unk7c = 0xce;
                     this->unk74 = 0;
                     if ((ptr->unk4 & 0x40) != 0) {
@@ -144,7 +144,7 @@ void sub_08094148(Object67Entity* this) {
                         super->hitbox->height = gUnk_080FD2E8.height;
                         COLLISION_ON(super);
                         super->collisionLayer = 2;
-                        super->field_0x3c = 7;
+                        super->collisionFlags = 7;
                         super->hurtType = 0x48;
                         super->hitType = 0x7a;
                         super->flags2 = 1;
@@ -220,8 +220,8 @@ void sub_08094424(Object67Entity* this) {
         super->action = 3;
         this->unk7c = 0x78;
     } else {
-        sub_0806FCF4(super, this->unk80.HALF.HI, 0x20, super->actionDelay);
-        sub_0806FCF4(super, this->unk84.HALF.HI, 0x20, super->field_0xf);
+        sub_0806FCF4(super, this->unk80.HALF.HI, 0x20, super->timer);
+        sub_0806FCF4(super, this->unk84.HALF.HI, 0x20, super->subtimer);
         SetAffineInfo(super, this->unk80.HALF_U.HI, this->unk84.HALF_U.HI, 0);
     }
 
@@ -271,8 +271,8 @@ void sub_08094570(Object67Entity* this) {
             this->unk84.HALF.HI = this->unk84.HALF.HI + 1;
             uVar3 = this->unk84.HALF_U.HI;
         }
-        sub_0806FCF4(super, this->unk80.HALF.HI, 0x20, super->actionDelay);
-        sub_0806FCF4(super, this->unk84.HALF.HI, 0x20, super->field_0xf);
+        sub_0806FCF4(super, this->unk80.HALF.HI, 0x20, super->timer);
+        sub_0806FCF4(super, this->unk84.HALF.HI, 0x20, super->subtimer);
         SetAffineInfo(super, this->unk80.HALF_U.HI, this->unk84.HALF_U.HI, 0);
     }
 

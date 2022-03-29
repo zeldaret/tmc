@@ -28,11 +28,11 @@ void Minecart(Entity* this) {
         sub_080916EC, sub_080917DC, sub_080918A4, sub_080919AC, sub_08091C0C, sub_08091C98, sub_08091CC8, sub_08091D90,
     };
     actionFuncs[this->action]((MinecartEntity*)this);
-    this->bitfield = 0;
+    this->contactFlags = 0;
 }
 
 void sub_080916EC(MinecartEntity* this) {
-    struct_030010EC* unk = &gRoomTransition.minecart_data[super->actionDelay];
+    struct_030010EC* unk = &gRoomTransition.minecart_data[super->timer];
 
     this->minecartData = unk;
     if ((gRoomControls.room != unk->room) || (gPlayerState.flags & PL_IN_MINECART) != 0) {
@@ -46,7 +46,7 @@ void sub_080916EC(MinecartEntity* this) {
     super->hitbox = (Hitbox*)&gUnk_080FD310;
     COLLISION_ON(super);
     super->hitType = 1;
-    super->field_0x3c = 0x47;
+    super->collisionFlags = 0x47;
     super->hurtType = 0x44;
     super->flags2 = 0x80;
     super->direction = DirectionFromAnimationState(super->animationState);
@@ -57,7 +57,7 @@ void sub_080916EC(MinecartEntity* this) {
 }
 
 void sub_080917DC(MinecartEntity* this) {
-    if ((super->bitfield & 0x7f) == 0x1d) {
+    if ((super->contactFlags & 0x7f) == 0x1d) {
         super->zVelocity = Q_16_16(2.625);
         super->action = 7;
         InitAnimationForceUpdate(super, super->type2 + 4 + super->animationState);
@@ -66,15 +66,15 @@ void sub_080917DC(MinecartEntity* this) {
         if (sub_0800445C(super) != 0) {
             if (!((gPlayerState.flags & (PL_MINISH | PL_ROLLING)) || gPlayerState.field_0x1c ||
                   gPlayerState.heldObject || gPlayerState.jump_status)) {
-                super->actionDelay++;
+                super->timer++;
             } else {
-                super->actionDelay = 0;
+                super->timer = 0;
             }
         } else {
-            super->actionDelay = 0;
+            super->timer = 0;
         }
         if (super->type2 == 0) {
-            if (super->actionDelay > 8) {
+            if (super->timer > 8) {
                 super->action++;
                 gPlayerState.jump_status = 0x81;
                 gPlayerState.flags |= PL_ENTER_MINECART;
@@ -86,7 +86,7 @@ void sub_080917DC(MinecartEntity* this) {
                 SoundReq(SFX_PLY_JUMP);
             }
         } else {
-            super->actionDelay = 0;
+            super->timer = 0;
         }
     }
 }
@@ -102,10 +102,10 @@ void sub_080918A4(MinecartEntity* this) {
             gPlayerEntity.animationState = super->animationState << 1;
             gPlayerState.flags = (gPlayerState.flags ^ PL_ENTER_MINECART) | PL_IN_MINECART;
             super->action++;
-            super->field_0xf = 1;
+            super->subtimer = 1;
             super->flags |= ENT_PERSIST;
             super->hitType = 0x97;
-            super->field_0x3c = (gPlayerEntity.field_0x3c + 1) | 0x20;
+            super->collisionFlags = (gPlayerEntity.collisionFlags + 1) | 0x20;
             super->flags2 = gPlayerEntity.flags2;
             super->hurtType = 0x18;
             super->damage = 8;
@@ -152,9 +152,9 @@ void sub_080919AC(MinecartEntity* this) {
                 SoundReq(SFX_138);
             }
 
-            if (super->field_0xf-- == 0) {
+            if (super->subtimer-- == 0) {
                 SoundReq(SFX_PLY_VO7);
-                super->field_0xf = 0x3c;
+                super->subtimer = 0x3c;
             }
 
             uVar3 = GetRelativeCollisionTile(super, gUnk_081223C8[super->animationState * 2],
@@ -168,7 +168,7 @@ void sub_080919AC(MinecartEntity* this) {
                     case 0x64:
                         super->flags &= ~ENT_PERSIST;
                         super->hitType = 1;
-                        super->field_0x3c = 0x47;
+                        super->collisionFlags = 0x47;
                         super->hurtType = 0x44;
                         super->flags2 = 0x80;
                         super->action = 6;

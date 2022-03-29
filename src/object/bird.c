@@ -45,8 +45,8 @@ void Bird_Type0_Init(Entity* this) {
 
     this->action++;
     this->spriteSettings.draw = TRUE;
-    this->actionDelay = 0x31;
-    this->field_0xf = 1;
+    this->timer = 0x31;
+    this->subtimer = 1;
     this->zVelocity = Q_16_16(-1.5);
     this->z.WORD = Q_16_16(-56.75);
     this->field_0x68.HWORD = Q_16_16(-0.03125);
@@ -68,9 +68,9 @@ void Bird_Type0_Init(Entity* this) {
 void Bird_Type0_Action1(Entity* this) {
     LinearMoveUpdate(this);
     GravityUpdate(this, *(s16*)&this->field_0x68.HWORD);
-    if (this->actionDelay != 0) {
-        if (--this->actionDelay == 0) {
-            this->field_0xf = 0;
+    if (this->timer != 0) {
+        if (--this->timer == 0) {
+            this->subtimer = 0;
         }
     } else if (CheckOnScreen(this) == 0) {
         DeleteThisEntity();
@@ -105,7 +105,7 @@ void Bird_Type1_Action1_Subaction0(Entity* this) {
     u32 temp;
 
     if (this->parent != NULL) {
-        temp = this->parent->field_0xf;
+        temp = this->parent->subtimer;
         if (temp != 0) {
             PositionRelative(this->parent, this, 0, Q_16_16(8.0));
         } else {
@@ -183,9 +183,9 @@ void Bird_Type8(Entity* this) {
 
     switch (this->action) {
         case 0:
-            if (this->actionDelay != 0) {
+            if (this->timer != 0) {
                 this->frameIndex = 0xff;
-                this->actionDelay--;
+                this->timer--;
                 return;
             }
             this->action = 1;
@@ -221,7 +221,7 @@ void Bird_Type8(Entity* this) {
                     if (pEVar5 != NULL) {
                         this->child = pEVar5;
                         this->action = 2;
-                        this->actionDelay = 8;
+                        this->timer = 8;
                         this->speed = 0x300;
                         this->field_0x68.HWORD = 0xe000;
                         PlayerDropHeldObject();
@@ -249,17 +249,17 @@ void Bird_Type8(Entity* this) {
     pEVar5 = this->child;
     if (pEVar5 != NULL) {
         if (gPlayerEntity.x.HALF.HI < this->x.HALF.HI - 8) {
-            this->actionDelay = 0;
+            this->timer = 0;
         }
 
-        if (this->actionDelay == 0) {
+        if (this->timer == 0) {
             PositionRelative(this, pEVar5, 0xfff80000, 0);
             pEVar5->z.HALF.HI += 0x18;
             pEVar5->spritePriority.b0 = this->spritePriority.b0;
             pEVar5->spriteRendering.b3 = this->spriteRendering.b3;
             pEVar5->spriteOrientation.flipY = this->spriteOrientation.flipY;
         } else {
-            this->actionDelay--;
+            this->timer--;
             CopyPosition(&gPlayerEntity, pEVar5);
         }
     }
@@ -375,7 +375,7 @@ void CreateBird(void) {
         if (!FindEntity(OBJECT, BIRD, 6, 8, 0)) {
             birdEnt = CreateObject(BIRD, 8, 0);
             if (birdEnt != NULL) {
-                birdEnt->actionDelay = 0;
+                birdEnt->timer = 0;
             }
         }
     }

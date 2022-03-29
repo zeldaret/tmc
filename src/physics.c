@@ -3,7 +3,7 @@
 #include "area.h"
 #include "player.h"
 #include "new_player.h"
-#include "coord.h"
+#include "physics.h"
 #include "common.h"
 #include "sound.h"
 #include "room.h"
@@ -76,7 +76,7 @@ bool32 sub_0806F3E4(Entity* ent) {
     tmp_ent.base.y.HALF.HI = p[1] + gPlayerEntity.y.HALF.HI;
     LinearMoveDirection(ent, ent->knockbackSpeed, GetFacingDirection(ent, &tmp_ent.base));
     if (sub_0800419C(&tmp_ent.base, ent, 4, 4)) {
-        u32 state = ent->field_0x1c & 0xF;
+        u32 state = ent->gustJarFlags & 0xF;
         if (state == 2) {
             Entity* item;
             ent->subAction = 3;
@@ -98,7 +98,7 @@ bool32 sub_0806F3E4(Entity* ent) {
 }
 
 void sub_0806F4E8(Entity* ent) {
-    switch (ent->field_0x1d & 3) {
+    switch (ent->gustJarTolerance & 3) {
         case 2:
             ent->spriteOffsetX = -2;
             break;
@@ -115,9 +115,9 @@ void sub_0806F4E8(Entity* ent) {
 }
 
 bool32 sub_0806F520(Entity* ent) {
-    if (ent->bitfield == 0x93)
+    if (ent->contactFlags == 0x93)
         return 1;
-    ent->field_0x3a &= ~4;
+    ent->gustJarState &= ~4;
     ent->spriteOffsetY = 0;
     return 0;
 }

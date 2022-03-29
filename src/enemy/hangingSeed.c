@@ -21,7 +21,7 @@ void HangingSeed_OnTick(Entity* this) {
 }
 
 void HangingSeed_OnCollision(Entity* this) {
-    if (this->bitfield & 0x80) {
+    if (this->contactFlags & 0x80) {
         CreateFx(this, FX_BUSH, 0x80);
         DeleteThisEntity();
     }

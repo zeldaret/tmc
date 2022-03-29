@@ -1,6 +1,6 @@
 #include "entity.h"
 #include "player.h"
-#include "coord.h"
+#include "physics.h"
 
 extern void sub_0803C0AC(Entity*);
 
@@ -14,7 +14,7 @@ void KeatonDagger(Entity* this) {
     }
     parent = this->parent;
     if (((parent == NULL) || (parent->health == 0)) || (parent->next == NULL)) {
-        if (((this->bitfield & 0x80) != 0) && (this->field_0x4c == &gPlayerEntity)) {
+        if (((this->contactFlags & 0x80) != 0) && (this->contactedEntity == &gPlayerEntity)) {
             sub_0803C0AC(this);
         }
         DeleteEntity(this);

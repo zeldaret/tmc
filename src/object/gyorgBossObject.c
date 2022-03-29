@@ -120,7 +120,7 @@ void GyorgBossObject_FemalePhase1(GyorgBossObjectEntity* this) {
     if (((GyorgHeap*)super->myHeap)->female->base.health == 0) {
         // start male phase 1
         super->action = 3;
-        super->actionDelay = 0x23;
+        super->timer = 0x23;
         this->unk_6c = 1;
         this->unk_78 = 0x400;
         this->unk_7b = 1;
@@ -156,7 +156,7 @@ void GyorgBossObject_FemalePhase2(GyorgBossObjectEntity* this) {
         // start male phase 2
         ((GyorgHeap*)super->myHeap)->male1->base.health = 12;
         super->action = 5;
-        super->actionDelay = 0x23;
+        super->timer = 0x23;
         this->unk_6c = 2;
         this->unk_78 = 0x400;
         this->unk_7b = 1;
@@ -191,7 +191,7 @@ void GyorgBossObject_FemalePhase3(GyorgBossObjectEntity* this) {
         // start male phase 3
         ((GyorgHeap*)super->myHeap)->male2->base.health = 12;
         super->action = 7;
-        super->actionDelay = 0x23;
+        super->timer = 0x23;
         this->unk_6c = 0x104;
         this->unk_78 = 0x400;
         SoundReq(SFX_BOSS_DIE);
@@ -227,8 +227,8 @@ void GyorgBossObject_FemalePhase4(GyorgBossObjectEntity* this) {
         gRoomTransition.field_0x39 = 0;
         if (sub_08079F8C() && gPlayerEntity.z.HALF.HI == 0) {
             super->action = 9;
-            super->actionDelay = 0;
-            super->field_0xf = 0xF0;
+            super->timer = 0;
+            super->subtimer = 0xF0;
             this->timer = 0x1a4;
             super->direction = 0;
             super->speed = 0x60;
@@ -246,12 +246,12 @@ void GyorgBossObject_FightEnd(GyorgBossObjectEntity* this) {
     if (this->timer == 0) {
         LinearMoveUpdate(super);
         sub_080A1E54(this);
-        if (--super->field_0xf == 0) {
+        if (--super->subtimer == 0) {
             SetFlag(0x7B);
             sub_0808091C(&gUnk_0813ABD0, 8);
             return;
         }
-        if (super->field_0xf == 0x3C) {
+        if (super->subtimer == 0x3C) {
             SetFade(7, 4);
         }
         return;
@@ -350,7 +350,7 @@ void sub_080A1DCC(GyorgBossObjectEntity* this) {
 
 void sub_080A1E54(GyorgBossObjectEntity* this) {
     Entity* fx;
-    if ((++super->actionDelay & 0x1F) == 0) {
+    if ((++super->timer & 0x1F) == 0) {
         fx = CreateFx(super, FX_GIANT_EXPLOSION4, 0);
         if (fx) {
             u32 r = Random();
@@ -444,9 +444,9 @@ void GyorgBossObject_SpawnChildren(u32 unk0, bool32 fromBlue, u32 animationState
 }
 
 void sub_080A1FF0(GyorgBossObjectEntity* this) {
-    if (super->actionDelay != 0) {
-        super->actionDelay--;
-        if (super->actionDelay <= 0x20 && (super->actionDelay & 0xF) == 0) {
+    if (super->timer != 0) {
+        super->timer--;
+        if (super->timer <= 0x20 && (super->timer & 0xF) == 0) {
             Entity* fx;
             fx = CreateFx(super, FX_GIANT_EXPLOSION4, 0);
             if (fx) {
@@ -462,10 +462,10 @@ void sub_080A1FF0(GyorgBossObjectEntity* this) {
     if (this->unk_7b) {
         if (EntityWithinDistance(&gPlayerEntity, gRoomControls.origin_x + 0x200, gRoomControls.origin_y + 0x210,
                                  0x100)) {
-            if (super->actionDelay == 0) {
-                super->actionDelay = 0x78;
+            if (super->timer == 0) {
+                super->timer = 0x78;
             } else {
-                if (super->actionDelay == 0x23) {
+                if (super->timer == 0x23) {
                     InitScreenShake(0x1e, 0);
                 }
             }

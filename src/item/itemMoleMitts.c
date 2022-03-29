@@ -72,8 +72,8 @@ void sub_080771C8(ItemBehavior* this, u32 idx) {
                 if (this->field_0x5[3] != 0xff) {
                     object = CreateObjectWithParent(&gPlayerEntity, 0x1f, 0, this->field_0x2[1]);
                     if (object != NULL) {
-                        object->actionDelay = this->field_0x5[2];
-                        object->field_0xf = this->field_0x5[3];
+                        object->timer = this->field_0x5[2];
+                        object->subtimer = this->field_0x5[3];
                         object->animationState = gPlayerEntity.animationState & 6;
                         gPlayerEntity.frame = 0;
                         gPlayerEntity.frameDuration = gUnk_0811BE14[this->field_0x5[3]];
@@ -138,7 +138,7 @@ void sub_080772A8(ItemBehavior* this, u32 idx) {
                 if (effect != NULL) {
                     effect->animationState = this->field_0x5[5];
                     effect->spritePriority.b0 = gPlayerEntity.spritePriority.b0 - 1;
-                    effect->field_0xf = 1;
+                    effect->subtimer = 1;
                 }
                 this->stateID = 3;
                 this->field_0x5[0] = 1;

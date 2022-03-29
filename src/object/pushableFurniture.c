@@ -68,7 +68,7 @@ void PushableFurniture_Action1(PushableFurnitureEntity* this) {
             sub_0808FB68(this);
         }
     } else {
-        if (super->actionDelay != 0 && --super->actionDelay == 0) {
+        if (super->timer != 0 && --super->timer == 0) {
             EnqueueSFX(SFX_BUTTON_PRESS);
         }
     }
@@ -79,11 +79,11 @@ void PushableFurniture_Action1(PushableFurnitureEntity* this) {
                 case 0:
                     if (sub_0808FECC(this)) {
                         super->subAction = 1;
-                        super->actionDelay = 0xc;
+                        super->timer = 0xc;
                     }
                     break;
                 case 1:
-                    if (--super->actionDelay == 0) {
+                    if (--super->timer == 0) {
                         super->frameIndex = 1;
                         super->subAction = 2;
                         EnqueueSFX(SFX_80);
@@ -146,7 +146,7 @@ bool32 sub_0808FC5C(PushableFurnitureEntity* this) {
     u8* puVar5;
 
     LinearMoveUpdate(super);
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         if ((super->type == 2) || (super->type == 4)) {
             super->spriteOffsetY = 0xfe;
         } else {
@@ -155,7 +155,7 @@ bool32 sub_0808FC5C(PushableFurnitureEntity* this) {
         if (sub_080B1B0C(super)) {
             return 0;
         }
-        if (super->field_0xf == 0) {
+        if (super->subtimer == 0) {
             sub_0808FF50(this);
             return TRUE;
         }
@@ -187,12 +187,12 @@ bool32 sub_0808FC5C(PushableFurnitureEntity* this) {
             }
         }
         if (this->unk_80 == 0) {
-            super->actionDelay = 4;
+            super->timer = 4;
         } else {
-            super->actionDelay = 0x18;
+            super->timer = 0x18;
         }
         if ((gPlayerState.flags & 0x80) == 0) {
-            super->actionDelay += 0x10;
+            super->timer += 0x10;
         }
         sub_0808FF50(this);
         return TRUE;
@@ -215,19 +215,19 @@ void sub_0808FD44(PushableFurnitureEntity* this, u32 param_2) {
         }
         if ((gPlayerState.flags & 0x80) != 0) {
             super->speed = 0x40;
-            super->actionDelay = 0x20;
+            super->timer = 0x20;
         } else {
             super->speed = 0x80;
-            super->actionDelay = 0x10;
+            super->timer = 0x10;
         }
     } else {
         tmp = this->unk_7c;
         if ((gPlayerState.flags & 0x80) != 0) {
             super->speed = 0x40;
-            super->actionDelay = 0x40;
+            super->timer = 0x40;
         } else {
             super->speed = 0x80;
-            super->actionDelay = 0x20;
+            super->timer = 0x20;
         }
     }
     EnqueueSFX(SFX_10F);

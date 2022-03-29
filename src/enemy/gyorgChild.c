@@ -80,7 +80,7 @@ void GyorgChild_Action0(GyorgChildEntity* this) {
         0x50, 0x1,  0x40, 0x1,  0x30, 0x1,  0x20, 0x1,  0x10, 0x1,  0,
         0,    0x10, -0x1, 0x20, -0x1, 0x30, -0x1, 0x40, -0x1, 0x50, -0x1,
     };
-    super->field_0x1c = 1;
+    super->gustJarFlags = 1;
     super->spriteOrientation.flipY = 3;
     super->spriteRendering.b3 = 3;
     super->spritePriority.b0 = 7;
@@ -95,20 +95,20 @@ void GyorgChild_Action0(GyorgChildEntity* this) {
         super->direction -= 5;
         super->direction &= 0x1F;
         r *= 2;
-        super->actionDelay = gUnk_080D1EA0[r];
+        super->timer = gUnk_080D1EA0[r];
         this->unk_7b = gUnk_080D1EA0[r + 1];
         super->speed = 0x200;
     } else {
         super->action = 2;
-        super->actionDelay = 1;
+        super->timer = 1;
         super->spriteSettings.draw = 0;
     }
 }
 
 void GyorgChild_Action1(GyorgChildEntity* this) {
     LinearMoveUpdate(super);
-    if (super->actionDelay != 0) {
-        if ((--super->actionDelay & 0xF) == 0) {
+    if (super->timer != 0) {
+        if ((--super->timer & 0xF) == 0) {
             super->direction += this->unk_7b;
             super->direction &= 0x1F;
         }
@@ -136,12 +136,12 @@ void GyorgChild_Action1(GyorgChildEntity* this) {
             break;
     }
     super->action = 2;
-    super->actionDelay = 90;
+    super->timer = 90;
     super->spriteSettings.draw = 0;
 }
 
 void GyorgChild_Action2(GyorgChildEntity* this) {
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->action = 3;
         super->flags |= ENT_COLLIDE;
         Random();

@@ -42,16 +42,16 @@ void Rollobite_OnCollision(Entity* this) {
         InitializeAnimation(this, this->animationState + 8);
     }
 
-    if (this->bitfield != 0x80) {
+    if (this->contactFlags != 0x80) {
         if (this->action == 4 || this->action == 5) {
             this->action = 4;
-            this->actionDelay = 180;
+            this->timer = 180;
             this->direction = 0xff;
             InitializeAnimation(this, this->animationState + 0x10);
         }
     }
 
-    if (this->bitfield == 0x93)
+    if (this->contactFlags == 0x93)
         Rollobite_OnTick(this);
 }
 
@@ -80,7 +80,7 @@ void Rollobite_OnGrabbed(Entity* this) {
 
 void sub_0802077C(Entity* this) {
     this->subAction = 1;
-    this->field_0x1d = 60;
+    this->gustJarTolerance = 60;
 }
 
 void sub_08020788(Entity* this) {
@@ -103,7 +103,7 @@ void sub_080207A8(Entity* this) {
     this->action = 4;
     COLLISION_ON(this);
     this->spritePriority.b0 = 4;
-    this->field_0x3a &= 0xfb;
+    this->gustJarState &= 0xfb;
     this->direction ^= 0x10;
     this->zVelocity = Q_16_16(1.5);
     this->speed = 0x80;
@@ -112,8 +112,8 @@ void sub_080207A8(Entity* this) {
 
 void Rollobite_Initialize(Entity* this) {
     sub_0804A720(this);
-    this->field_0x16 = 0x30;
-    this->field_0x1c = 18;
+    this->carryFlags = 0x30;
+    this->gustJarFlags = 18;
     this->cutsceneBeh.HALF.LO = 0;
     this->direction = DirectionRound(Random());
     sub_08020A30(this);
@@ -124,14 +124,14 @@ void Rollobite_Walk(Entity* this) {
     if (this->frame & 0x1) {
         this->frame &= ~0x1;
         if (!ProcessMovement0(this))
-            this->actionDelay = 1;
+            this->timer = 1;
     }
 
     if (this->frame & 0x10) {
         this->frame &= ~0x10;
-        if (--this->actionDelay == 0) {
+        if (--this->timer == 0) {
             this->action = 3;
-            this->actionDelay = 60;
+            this->timer = 60;
         }
     }
 }
@@ -168,7 +168,7 @@ void sub_08020904(Entity* this) {
 }
 
 void Rollobite_Turn(Entity* this) {
-    if (--this->actionDelay == 0)
+    if (--this->timer == 0)
         sub_08020A30(this);
 }
 
@@ -181,7 +181,7 @@ void Rollobite_RolledUp(Entity* this) {
     unk = sub_080044EC(this, 0x2800);
 
     if (unk == 0) {
-        if (--this->actionDelay == 0) {
+        if (--this->timer == 0) {
             this->action = 5;
             InitializeAnimation(this, this->animationState + 12);
         }
@@ -226,10 +226,10 @@ void Rollobite_Holed(Entity* this) {
 
 void sub_08020A30(Entity* this) {
     if (this->cutsceneBeh.HALF.LO < 2) {
-        this->actionDelay = gUnk_080CA6CC[Random() & 7];
-        if (this->actionDelay == 0) {
+        this->timer = gUnk_080CA6CC[Random() & 7];
+        if (this->timer == 0) {
             this->action = 3;
-            this->actionDelay = 60;
+            this->timer = 60;
             this->cutsceneBeh.HALF.LO++;
             return;
         }

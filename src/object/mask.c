@@ -38,8 +38,8 @@ void sub_080929A4(Entity* this) {
 
     this->field_0x78.HWORD = ((Random() & 7) << 10) | 0x2000;
 
-    this->field_0xf = this->actionDelay >> 1;
-    this->actionDelay = 0;
+    this->subtimer = this->timer >> 1;
+    this->timer = 0;
 
     this->frameIndex = this->type2 & 0x3f;
 
@@ -67,8 +67,8 @@ void sub_08092A94(Entity* this) {
         return;
     }
 
-    if (this->x.HALF.HI - gPlayerEntity.x.HALF.HI >= this->field_0xf ||
-        this->x.HALF.HI - gPlayerEntity.x.HALF.HI <= -this->field_0xf) {
+    if (this->x.HALF.HI - gPlayerEntity.x.HALF.HI >= this->subtimer ||
+        this->x.HALF.HI - gPlayerEntity.x.HALF.HI <= -this->subtimer) {
         return;
     }
 
@@ -87,10 +87,10 @@ void sub_08092A94(Entity* this) {
 
 // Probably falling down
 void sub_08092B0C(Entity* this) {
-    if (this->actionDelay == 1) {
+    if (this->timer == 1) {
         this->action = 3;
 
-        this->actionDelay = 0;
+        this->timer = 0;
         switch (this->type2 & 0xC0) {
             case 0x80:
                 EnqueueSFX(SFX_SECRET);
@@ -106,7 +106,7 @@ void sub_08092B0C(Entity* this) {
         sub_080044EC(this, this->field_0x78.HWORD);
 
         if (this->z.HALF.HI == 0) {
-            this->actionDelay++;
+            this->timer++;
         }
     }
 }

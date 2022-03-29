@@ -45,9 +45,9 @@ void sub_080AA6C0(Entity* this) {
     };
     Entity* object;
 
-    if (this->bitfield == 0x87) {
+    if (this->contactFlags == 0x87) {
         this->action = 3;
-        this->actionDelay = 90;
+        this->timer = 90;
         COLLISION_OFF(this);
         InitAnimationForceUpdate(this, this->type + 0x10);
         object = CreateObject(OBJECT_2A, 3, 0);
@@ -78,7 +78,7 @@ void sub_080AA78C(Entity* this) {
     if (this->subAction == 0) {
         animationState = (gPlayerEntity.animationState >> 1);
         if (animationState != this->type) {
-            this->field_0x3a &= 0xfb;
+            this->gustJarState &= 0xfb;
             if (AnimationStateFlip90(animationState) != this->type) {
                 return;
             }
@@ -118,8 +118,8 @@ void SpiderWeb_Init(Entity* this) {
         DeleteThisEntity();
     }
     this->action = 1;
-    this->field_0x1c = 1;
-    this->field_0x16 = 1;
+    this->gustJarFlags = 1;
+    this->carryFlags = 1;
     this->hitbox = (Hitbox*)typeHitboxes[this->type];
     this->cutsceneBeh.HALF.LO = 0;
     InitAnimationForceUpdate(this, this->type);
@@ -164,7 +164,7 @@ void SpiderWeb_SubAction0(Entity* this) {
             }
         }
         this->cutsceneBeh.HALF.LO = 1;
-        this->field_0xf = 2;
+        this->subtimer = 2;
         InitAnimationForceUpdate(this, this->type + 4);
     }
     if ((entity->animationState >> 1 == this->type) && (gPlayerState.framestate == PL_STATE_PULL) &&
@@ -186,7 +186,7 @@ void SpiderWeb_SubAction1(Entity* this) {
 
 void SpiderWeb_Action3(Entity* this) {
     GetNextFrame(this);
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         sub_080AAAA8(this);
     }
 }

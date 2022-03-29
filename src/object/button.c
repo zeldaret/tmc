@@ -44,7 +44,7 @@ void sub_08081FF8(Entity*);
 void sub_08081BAC(Entity* this) {
     if (sub_08081CB0(this)) {
         this->subAction = 0;
-        this->actionDelay = 0xA;
+        this->timer = 0xA;
         RequestPriorityDuration(this, 0xA);
         sub_08081FF8(this);
         if (this->type == 1) {
@@ -64,11 +64,11 @@ void sub_08081BE0(Entity* this) {
         return;
     if (!sub_08081D28(this)) {
         this->action = 4;
-        this->field_0xf = 1;
+        this->subtimer = 1;
         if ((gPlayerState.heldObject == 2) || (!(gPlayerState.field_0x35 & 0x80))) {
-            this->actionDelay = 0x18;
+            this->timer = 0x18;
         } else {
-            this->actionDelay = 0x8;
+            this->timer = 0x8;
         }
     } else {
         sub_08081E6C(this);
@@ -76,15 +76,15 @@ void sub_08081BE0(Entity* this) {
 }
 
 void sub_08081C30(Entity* this) {
-    if (this->actionDelay != 0) {
-        this->actionDelay--;
-        if (this->field_0xf != 0) {
-            this->field_0xf = 0;
+    if (this->timer != 0) {
+        this->timer--;
+        if (this->subtimer != 0) {
+            this->subtimer = 0;
             SetTile(0x4035, this->field_0x74.HWORD, this->collisionLayer);
         }
         if (sub_08081CB0(this)) {
             this->action = 3;
-            this->actionDelay = 0;
+            this->timer = 0;
         }
     } else {
         this->action = 2;
@@ -239,13 +239,13 @@ void sub_08081F24(Entity* this) {
 
 u32 sub_08081F7C(Entity* this, u32 r7) {
     u16 tmp;
-    if (this->actionDelay == 0)
+    if (this->timer == 0)
         return 1;
-    if (--this->actionDelay > 6) {
+    if (--this->timer > 6) {
         if (this->child != NULL)
             this->child->spriteOffsetY = -4;
     } else {
-        if (this->actionDelay == 6) {
+        if (this->timer == 6) {
             SetFlag(this->field_0x86.HWORD);
             SetTileType(r7, this->field_0x74.HWORD, this->collisionLayer);
             sub_08081F24(this);

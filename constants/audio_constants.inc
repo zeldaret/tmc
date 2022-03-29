@@ -263,7 +263,7 @@
     .equiv SFX_106, 0x106
     .equiv SFX_107, 0x107
     .equiv SFX_108, 0x108
-    .equiv SFX_109, 0x109
+    .equiv SFX_ITEM_GET, 0x109
     .equiv SFX_10A, 0x10a
     .equiv SFX_10B, 0x10b
     .equiv SFX_BUTTON_PRESS, 0x10c

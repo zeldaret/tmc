@@ -74,7 +74,7 @@ void BombPeahat_OnGrabbed(Entity* this) {
 
 void sub_0802A8E0(Entity* this) {
     this->subAction = 1;
-    this->field_0x1d = 60;
+    this->gustJarTolerance = 60;
 }
 
 void sub_0802A8EC(Entity* this) {
@@ -101,11 +101,11 @@ void sub_0802A91C(Entity* this) {
 void sub_0802A924(Entity* this) {
     this->action = 1;
     this->subAction = 0;
-    this->actionDelay = 0;
-    this->field_0xf = 0;
+    this->timer = 0;
+    this->subtimer = 0;
     this->hitbox = (Hitbox*)&gUnk_080CD16C;
 #ifdef EU
-    this->field_0x3c |= 0x10;
+    this->collisionFlags |= 0x10;
 #endif
     this->z.HALF.HI = -0x30;
     this->field_0x80.HALF.LO = Random() & 1;
@@ -125,14 +125,14 @@ void sub_0802A924(Entity* this) {
 }
 
 void sub_0802A9A8(Entity* this) {
-    if (this->field_0xf) {
-        this->field_0xf--;
+    if (this->subtimer) {
+        this->subtimer--;
     } else {
-        if (this->actionDelay) {
-            if (--this->actionDelay == 0) {
+        if (this->timer) {
+            if (--this->timer == 0) {
                 this->action = 2;
                 this->subAction = 0;
-                this->actionDelay = 0x40;
+                this->timer = 0x40;
                 sub_0802ACDC(this, 8);
             }
         } else {
@@ -149,7 +149,7 @@ void sub_0802A9A8(Entity* this) {
                 this->direction = 0x18;
             }
             this->y.HALF.HI = gRoomControls.scroll_y + 0x40;
-            this->actionDelay = 0x80;
+            this->timer = 0x80;
             sub_0802ADDC(this);
         }
         sub_0802AC40(this);
@@ -158,12 +158,12 @@ void sub_0802A9A8(Entity* this) {
 
 void sub_0802AA40(Entity* this) {
     sub_0802AC40(this);
-    if (--this->field_0xf == 0) {
+    if (--this->subtimer == 0) {
         sub_0802ACDC(this, 8);
         this->field_0x7a.HALF.HI++;
     }
-    if (this->actionDelay) {
-        this->actionDelay--;
+    if (this->timer) {
+        this->timer--;
     } else {
         Entity* ent = this->child;
         if (ent != NULL) {
@@ -180,7 +180,7 @@ void sub_0802AA40(Entity* this) {
                     this->speed = 0x180;
                     this->field_0x7a.HALF.HI = 0;
                     ent->field_0x80.HALF.LO = 1;
-                    ent->actionDelay = 0x96;
+                    ent->timer = 0x96;
                 }
             }
         }
@@ -189,7 +189,7 @@ void sub_0802AA40(Entity* this) {
 
 void sub_0802AAC0(Entity* this) {
     sub_0802AC40(this);
-    if (--this->field_0xf == 0) {
+    if (--this->subtimer == 0) {
         sub_0802AD1C(this, 4);
     }
 
@@ -201,24 +201,24 @@ void sub_0802AAC0(Entity* this) {
             this->field_0x80.HALF.HI = 0;
             this->child = NULL;
 #ifdef EU
-        } else if (ent->actionDelay == 0) {
+        } else if (ent->timer == 0) {
             if (sub_080B1B44(COORD_TO_TILE(this), 1) == 0) {
-                if (EntityInRectRadius(this, &gPlayerEntity, 0x10, 0x10) && ent->field_0xf <= 0x50) {
+                if (EntityInRectRadius(this, &gPlayerEntity, 0x10, 0x10) && ent->subtimer <= 0x50) {
                     this->field_0x80.HALF.HI = 0;
                 }
-            } else if (ent->field_0xf <= 0x13) {
+            } else if (ent->subtimer <= 0x13) {
                 this->field_0x80.HALF.HI = 0;
             }
         }
 #else
-        } else if ((ent->actionDelay == 0) && (ent->field_0xf <= 0x50)) {
+        } else if ((ent->timer == 0) && (ent->subtimer <= 0x50)) {
             this->field_0x80.HALF.HI = 0;
         }
 #endif
     } else {
         this->action = 4;
-        this->actionDelay = 0xc0;
-        this->field_0xf = 4;
+        this->timer = 0xc0;
+        this->subtimer = 4;
         this->field_0x80.HALF.LO ^= 1;
 #ifndef EU
         this->field_0x78.HALF.LO = 0;
@@ -232,17 +232,17 @@ void sub_0802AAC0(Entity* this) {
 #ifdef EU
 void sub_0802AB40(Entity* this) {
     sub_0802AC40(this);
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         if (this->field_0x7a.HALF.LO <= 4) {
             this->action = 5;
             this->speed = 0;
             InitializeAnimation(this, this->type + 1);
         } else {
-            this->actionDelay = 0xc0;
-            this->field_0xf = 0x4;
+            this->timer = 0xc0;
+            this->subtimer = 0x4;
             this->field_0x80.HALF.LO ^= 1;
         }
-    } else if (--this->field_0xf == 0) {
+    } else if (--this->subtimer == 0) {
         sub_0802ACDC(this, 4);
     }
 }
@@ -291,7 +291,7 @@ void sub_0802AC08(Entity* this) {
     if (this->frame & ANIM_DONE) {
         this->action = 2;
         this->subAction = 0;
-        this->actionDelay = 0x40;
+        this->timer = 0x40;
         this->speed = 0xc0;
         sub_0802ACDC(this, 8);
         sub_0802ADDC(this);
@@ -343,7 +343,7 @@ void sub_0802ACDC(Entity* this, u32 param_2) {
         x = sub_080045B4(this, gRoomControls.scroll_x + 0xd0, gRoomControls.scroll_y + 0x60);
     }
     sub_08004596(this, x);
-    this->field_0xf = param_2;
+    this->subtimer = param_2;
 }
 
 void sub_0802AD1C(Entity* this, u32 param_2) {
@@ -352,7 +352,7 @@ void sub_0802AD1C(Entity* this, u32 param_2) {
         u32 y = ent->y.HALF.HI - 0x18;
         u32 x = ent->x.HALF.HI;
         sub_08004596(this, sub_080045B4(this, x, y));
-        this->field_0xf = param_2;
+        this->subtimer = param_2;
     } else {
         sub_0802ACDC(this, param_2);
     }
@@ -375,8 +375,8 @@ void sub_0802AD54(Entity* this) {
     if (this->field_0x80.HALF.HI) {
         if (this->child == NULL || this->child->next == NULL) {
             this->action = 4;
-            this->actionDelay = 0xc0;
-            this->field_0xf = 4;
+            this->timer = 0xc0;
+            this->subtimer = 4;
             this->field_0x80.HALF.LO ^= 1;
         }
     }
@@ -401,12 +401,12 @@ void sub_0802ADDC(Entity* this) {
 
 void sub_0802AE24(Entity* this) {
     this->action = 1;
-    this->actionDelay = 0xf0;
+    this->timer = 0xf0;
     this->zVelocity = Q_16_16(0.5);
     this->hitbox = (Hitbox*)&gUnk_080CD174;
-    this->field_0x3c = 3;
-    this->field_0x16 = 0;
-    this->field_0x1c = 2;
+    this->collisionFlags = 3;
+    this->carryFlags = 0;
+    this->gustJarFlags = 2;
     this->field_0x80.HALF.HI = 0;
     this->field_0x7a.HALF.HI = 1;
     InitializeAnimation(this, 3);
@@ -473,8 +473,8 @@ void sub_0802AED4(Entity* this) {
         }
     }
     if (this->type2 != 0 && this->field_0x80.HALF.HI) {
-        this->actionDelay = 0;
-        this->field_0xf = 1;
+        this->timer = 0;
+        this->subtimer = 1;
     }
 }
 
@@ -497,8 +497,8 @@ void sub_0802AF58(Entity* this) {
 void sub_0802AF74(Entity* this) {
     this->action = 3;
     this->subAction = 0;
-    if (this->actionDelay > 60) {
-        this->actionDelay = 60;
+    if (this->timer > 60) {
+        this->timer = 60;
     }
     GetNextFrame(this);
 }
@@ -509,7 +509,7 @@ void sub_0802AF94(Entity* this) {
 
 void sub_0802AF9C(Entity* this) {
     GetNextFrame(this);
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         if (this->parent->field_0x7a.HALF.LO) {
             this->parent->field_0x7a.HALF.LO--;
         }
@@ -518,9 +518,9 @@ void sub_0802AF9C(Entity* this) {
 }
 
 NONMATCH("asm/non_matching/bombPeahat/sub_0802AFC8.inc", void sub_0802AFC8(Entity* this)) {
-    u32 field_0xf = this->field_0xf;
+    u32 subtimer = this->subtimer;
     u32 flag = 8;
-    if (field_0xf < 0x29) {
+    if (subtimer < 0x29) {
         u32 tmp, tmp2;
         flag = 4;
         if (this->field_0x82.HWORD & 0x8000) {
@@ -536,7 +536,7 @@ NONMATCH("asm/non_matching/bombPeahat/sub_0802AFC8.inc", void sub_0802AFC8(Entit
         tmp = 0x130 - (this->field_0x82.HWORD & 0xf0);
         SetAffineInfo(this, tmp, tmp, 0);
     }
-    if (this->field_0xf & flag) {
+    if (this->subtimer & flag) {
         this->palette.b.b0 = this->palette.b.b4;
     } else {
         this->palette.b.b0 = 0;
@@ -566,23 +566,23 @@ void sub_0802B048(Entity* this) {
 
     action = this->action;
     if (action != 4 && this->field_0x80.HALF.LO) {
-        if (this->actionDelay) {
-            if (--this->actionDelay == 0) {
-                this->field_0xf = 0x50;
+        if (this->timer) {
+            if (--this->timer == 0) {
+                this->subtimer = 0x50;
                 this->field_0x82.HWORD = 0;
                 this->spriteRendering.b0 = 3;
                 SetAffineInfo(this, 0x100, 0x100, 0);
             }
         } else {
-            if (this->field_0xf) {
-                if (--this->field_0xf == 0) {
+            if (this->subtimer) {
+                if (--this->subtimer == 0) {
                     if (action == 2 && this->subAction == 1) {
                         gPlayerState.heldObject = 0;
                     }
                     sub_0805EC60(this);
                     this->action = 4;
                     this->hitbox = (Hitbox*)&gUnk_080CD17C;
-                    this->actionDelay = 0xf;
+                    this->timer = 0xf;
                     this->spriteSettings.draw = 0;
                     COLLISION_ON(this);
                     this->field_0x7a.HALF.HI = 0;
@@ -606,8 +606,8 @@ void sub_0802B048(Entity* this) {
 
 void sub_0802B1A0(Entity* this) {
     this->action = 1;
-    this->actionDelay = 0;
-    this->field_0xf = 0x4f;
+    this->timer = 0;
+    this->subtimer = 0x4f;
     this->field_0x80.HALF.HI = 1;
     InitializeAnimation(this, 0);
 }
@@ -616,8 +616,8 @@ void sub_0802B1A0(Entity* this) {
 void sub_0802B1BC(Entity* this) {
     Entity* ent;
 
-    if (this->actionDelay) {
-        this->actionDelay--;
+    if (this->timer) {
+        this->timer--;
     }
 
     ent = this->parent;
@@ -645,8 +645,8 @@ void sub_0802B1BC(Entity* this) {
 void sub_0802B1BC(Entity* this) {
     Entity* ent;
 
-    if (this->actionDelay) {
-        this->actionDelay--;
+    if (this->timer) {
+        this->timer--;
     }
 
     ent = sub_0802B250(this);

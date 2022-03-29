@@ -31,10 +31,10 @@ void sub_0809CC74(Entity* this) {
     } else {
         if (this->type2 & 1) {
             this->spriteSettings.draw = 1;
-            this->actionDelay = 20;
+            this->timer = 20;
         } else {
             this->action = 2;
-            this->actionDelay = (this->type2 & 2) ? 20 : 18;
+            this->timer = (this->type2 & 2) ? 20 : 18;
         }
         InitializeAnimation(this, 0);
     }
@@ -57,9 +57,9 @@ void sub_0809CD0C(Entity* this) {
         }
 
         /* Damage minish link if he touches a steam cloud */
-        if (this->field_0xf == 0 && gPlayerEntity.iframes == 0 && this->frameIndex &&
+        if (this->subtimer == 0 && gPlayerEntity.iframes == 0 && this->frameIndex &&
             sub_0806FC80(this, &gPlayerEntity, 4)) {
-            this->field_0xf++;
+            this->subtimer++;
             ModHealth(-2);
             SoundReqClipped(&gPlayerEntity, SFX_PLY_VO6);
             gPlayerEntity.iframes = 16;
@@ -72,10 +72,10 @@ void sub_0809CD0C(Entity* this) {
 
 void sub_0809CDB4(Entity* this) {
     /* Reset cloud position and start animation. */
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 1;
-        this->actionDelay = 30;
-        this->field_0xf = 0;
+        this->timer = 30;
+        this->subtimer = 0;
         this->spriteSettings.draw = 1;
         this->y.HALF.HI = this->parent->y.HALF.HI - 0xe;
         InitializeAnimation(this, 0);

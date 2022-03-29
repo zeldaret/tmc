@@ -45,15 +45,15 @@ void sub_0809E86C(Entity* this) {
     }
     if (sub_0809E9A0() == 0x54) {
         this->action = 2;
-        this->actionDelay = 0xf;
+        this->timer = 0xf;
         SetPlayerControl(1);
     }
 }
 
 void sub_0809E8BC(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 3;
-        this->actionDelay = 0x3c;
+        this->timer = 0x3c;
         this->spriteSettings.draw = 0;
         sub_0809E96C(this);
         sub_0809E918(this);
@@ -61,7 +61,7 @@ void sub_0809E8BC(Entity* this) {
 }
 
 void sub_0809E8EC(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         SetFlag(this->field_0x86.HWORD);
         SetPlayerControl(0);
         SoundReq(SFX_SECRET_BIG);

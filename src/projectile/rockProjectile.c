@@ -16,7 +16,7 @@ void RockProjectile_OnTick(Entity* this) {
 }
 
 void sub_080A8064(Entity* this) {
-    if (this->bitfield == 0x80) {
+    if (this->contactFlags == 0x80) {
         DeleteEntity(this);
     } else {
         this->direction = this->knockbackDirection;
@@ -26,7 +26,7 @@ void sub_080A8064(Entity* this) {
 
 void RockProjectile_Init(Entity* this) {
     this->action = 1;
-    this->actionDelay = 0x30;
+    this->timer = 0x30;
     this->zVelocity = Q_16_16(0.625);
     InitializeAnimation(this, 0);
 }
@@ -38,7 +38,7 @@ void RockProjectile_Action1(Entity* this) {
             DeleteEntity(this);
         } else {
             sub_08016AD2(this);
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->action = 3;
             }
         }

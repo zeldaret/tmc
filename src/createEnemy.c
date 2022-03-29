@@ -3,9 +3,9 @@
 /** Unsets bitfield 0x80 before calling GetNextFunction, so that the enemyFunction 1 is not called. */
 void EnemyFunctionHandlerAfterCollision(Entity* entity, void (*fntable[])()) {
     u32 idx;
-    entity->bitfield &= ~0x80;
+    entity->contactFlags &= ~0x80;
     idx = GetNextFunction(entity);
-    entity->bitfield |= 0x80;
+    entity->contactFlags |= 0x80;
     fntable[idx](entity);
 }
 

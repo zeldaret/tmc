@@ -15,14 +15,14 @@ void LitArea(Entity* this) {
         this->spriteRendering.b0 = 3;
         this->frameIndex = 3;
         this->flags |= ENT_PERSIST;
-        this->field_0xf = gRoomControls.room;
-        this->actionDelay = 2;
+        this->subtimer = gRoomControls.room;
+        this->timer = 2;
         this->field_0x68.HWORD = 0xfffe;
         this->field_0x6a.HWORD = 0x80;
         SetAffineInfo(this, 0x80, 0x80, 0);
     } else {
-        if (--this->actionDelay == 0) {
-            this->actionDelay = 2;
+        if (--this->timer == 0) {
+            this->timer = 2;
             this->field_0x6a.HWORD += this->field_0x68.HWORD;
             if (this->field_0x6a.HWORD < 0x78) {
                 this->field_0x68.HWORD = 1;
@@ -37,7 +37,7 @@ void LitArea(Entity* this) {
     gScreen.controls.windowOutsideControl = (gScreen.controls.windowOutsideControl & 0xff) | WINOUT_WINOBJ_BG0 |
                                             WINOUT_WINOBJ_BG1 | WINOUT_WINOBJ_BG2 | WINOUT_WINOBJ_OBJ |
                                             WINOUT_WINOBJ_CLR;
-    if ((gRoomControls.room != this->field_0xf) && (gRoomControls.reload_flags == 0)) {
+    if ((gRoomControls.room != this->subtimer) && (gRoomControls.reload_flags == 0)) {
         DeleteThisEntity();
     }
 }

@@ -69,10 +69,10 @@ void sub_08067E88(Entity* this) {
     if (tmp < 0) {
         tmp = 2;
     } else {
-        if (this->field_0xf == 0) {
-            this->field_0xf = 0x10;
+        if (this->subtimer == 0) {
+            this->subtimer = 0x10;
         } else {
-            this->field_0xf = this->field_0xf - 1;
+            this->subtimer = this->subtimer - 1;
             tmp = this->animIndex;
         }
     }
@@ -82,7 +82,7 @@ void sub_08067E88(Entity* this) {
     if (this->interactType != 0) {
         this->interactType = 0;
         this->action = 2;
-        MessageFromTarget(this->actionDelay + 0x1200);
+        MessageFromTarget(this->timer + 0x1200);
     }
 }
 
@@ -191,10 +191,10 @@ void sub_0806811C(Entity* this) {
     int iVar4;
     const u8* ptr;
 
-    if (this->actionDelay) {
-        this->actionDelay--;
+    if (this->timer) {
+        this->timer--;
     } else {
-        this->actionDelay = 2;
+        this->timer = 2;
         iVar4 = GetFacingDirectionInRectRadius(this, 0x20, 0x20);
         if (iVar4 < 0) {
             type = this->type;

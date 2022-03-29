@@ -26,14 +26,14 @@ void PicoBloom_Init(Entity* this) {
         nextAction = 2;
     }
     this->action = nextAction;
-    this->actionDelay = (Random() & 0x7f) + 0x7f;
+    this->timer = (Random() & 0x7f) + 0x7f;
     this->collisionLayer = 1;
     UpdateSpriteForCollisionLayer(this);
     InitializeAnimation(this, typeAnimationStates[this->type] + this->type2);
 }
 
 void PicoBloom_Action1(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action++;
     }
 }

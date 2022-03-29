@@ -92,33 +92,33 @@ void VaatiWrathEyeAction3(Entity* this) {
         this->z.HALF.HI = this->parent->z.HALF.HI;
         if ((this->x.HALF.HI == x) && (this->y.HALF.HI == y)) {
             this->action = 4;
-            this->actionDelay = 0x3c;
+            this->timer = 0x3c;
         }
     }
 }
 
 void VaatiWrathEyeAction4(Entity* this) {
     sub_080485FC(this);
-    if (this->actionDelay != 0) {
-        if (--this->actionDelay == 0) {
+    if (this->timer != 0) {
+        if (--this->timer == 0) {
             InitializeAnimation(this, 3);
         }
     } else {
         GetNextFrame(this);
         if ((this->frame & ANIM_DONE) != 0) {
             this->action = 5;
-            this->actionDelay = 0;
+            this->timer = 0;
         }
     }
 }
 
 void VaatiWrathEyeAction5(Entity* this) {
-    if (this->actionDelay != 0) {
+    if (this->timer != 0) {
         this->action = 6;
         if (this->parent->health >= 0x15) {
-            this->actionDelay = 120;
+            this->timer = 120;
         } else {
-            this->actionDelay = 0x3c;
+            this->timer = 0x3c;
         }
         this->child = NULL;
         InitializeAnimation(this, 5);
@@ -132,15 +132,15 @@ void VaatiWrathEyeAction6(Entity* this) {
 
     sub_080485FC(this);
     GetNextFrame(this);
-    if (this->actionDelay != 0) {
-        if (--this->actionDelay == 0) {
+    if (this->timer != 0) {
+        if (--this->timer == 0) {
             InitializeAnimation(this, 6);
         }
     } else {
         if (this->frame & ANIM_DONE) {
             this->action = 7;
-            this->actionDelay = 120;
-            this->field_0xf = 0;
+            this->timer = 120;
+            this->subtimer = 0;
         } else {
             if (this->frame & 1) {
                 this->frame &= 0xfe;
@@ -158,28 +158,28 @@ void VaatiWrathEyeAction6(Entity* this) {
 void VaatiWrathEyeAction7(Entity* this) {
     sub_080485FC(this);
     GetNextFrame(this);
-    if (this->field_0xf != 0) {
+    if (this->subtimer != 0) {
         this->action = 8;
-        this->actionDelay = 0x3c;
+        this->timer = 0x3c;
         COLLISION_OFF(this);
         this->spriteSettings.draw = 0;
         CreateFx(this, FX_REFLECT2, 0x40);
         this->parent->field_0x7a.HALF.HI |= 0x10 << this->type;
     } else {
-        if (--this->actionDelay != 0) {
+        if (--this->timer != 0) {
             return;
         }
         this->action = 5;
-        this->actionDelay = 0;
+        this->timer = 0;
         this->parent->field_0x7a.HALF.HI |= 1 << this->type;
     }
 }
 
 void VaatiWrathEyeAction8(Entity* this) {
     if (this->parent->action == 0xb) {
-        this->actionDelay = 0x3c;
+        this->timer = 0x3c;
     } else {
-        if (--this->actionDelay == 0) {
+        if (--this->timer == 0) {
             this->action = 9;
             COLLISION_ON(this);
             this->spriteSettings.draw = 1;
@@ -195,7 +195,7 @@ void VaatiWrathEyeAction9(Entity* this) {
     GetNextFrame(this);
     if ((this->frame & ANIM_DONE) != 0) {
         this->action = 4;
-        this->actionDelay = 1;
+        this->timer = 1;
         this->parent->field_0x7a.HALF.HI = (this->parent->field_0x7a.HALF.HI & 0xf) | (1 << this->type);
     }
 }

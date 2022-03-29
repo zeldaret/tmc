@@ -22,8 +22,8 @@ void Steam(Entity* _this) {
         super->action = 1;
         super->spriteSettings.draw = 1;
         super->spriteRendering.alphaBlend = 1;
-        super->actionDelay = 1;
-        super->field_0xf = Random() & 0xf;
+        super->timer = 1;
+        super->subtimer = Random() & 0xf;
         this->unk_0x68 = action;
         super->collisionLayer = 2;
         ResolveCollisionLayer(super);
@@ -49,13 +49,13 @@ void Steam(Entity* _this) {
         }
     }
 
-    if (--super->actionDelay == 0) {
-        super->actionDelay = 8;
-        super->field_0xf = (super->field_0xf + 1) & 0xf;
+    if (--super->timer == 0) {
+        super->timer = 8;
+        super->subtimer = (super->subtimer + 1) & 0xf;
     }
 
-    super->spriteOffsetX = gUnk_08123484[super->field_0xf];
-    super->spriteOffsetY = gUnk_08123484[super->field_0xf] + *ptr;
+    super->spriteOffsetX = gUnk_08123484[super->subtimer];
+    super->spriteOffsetY = gUnk_08123484[super->subtimer] + *ptr;
 }
 
 const u8 gUnk_08123484[] = {

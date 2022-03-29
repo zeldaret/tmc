@@ -23,7 +23,7 @@ void Bombarossa(Entity* this) {
 void Bombarossa_OnTick(BombarossaEntity* this) {
     if (super->action == 0) {
         super->action = 1;
-        super->actionDelay = Random() & 0xf;
+        super->timer = Random() & 0xf;
         InitializeAnimation(super, 0);
         if (super->type != 0) {
             super->child = GetCurrentRoomProperty(super->type);
@@ -31,7 +31,7 @@ void Bombarossa_OnTick(BombarossaEntity* this) {
         }
     }
 
-    super->z.HALF.HI = gUnk_080CEB50[(((++super->actionDelay) >> 4) & 0x7) + (super->type2 << 3)];
+    super->z.HALF.HI = gUnk_080CEB50[(((++super->timer) >> 4) & 0x7) + (super->type2 << 3)];
     GetNextFrame(super);
 
     if (super->type != 0) {
@@ -41,7 +41,7 @@ void Bombarossa_OnTick(BombarossaEntity* this) {
 
 void Bombarossa_OnCollision(BombarossaEntity* this) {
     Entity* ent;
-    switch (super->bitfield & 0x7f) {
+    switch (super->contactFlags & 0x7f) {
         default:
             ent = CreateObject(OBJECT_20, 0, 0);
             if (ent != NULL) {

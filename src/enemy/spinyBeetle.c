@@ -44,15 +44,15 @@ void SpinyBeetle_OnCollision(SpinyBeetleEntity* this) {
     }
 
     EnemyFunctionHandlerAfterCollision(super, SpinyBeetle_Functions);
-    if (super->bitfield & 0x80) {
+    if (super->contactFlags & 0x80) {
         if (super->iframes > 0 && super->child) {
             sub_08033E1C(this);
         }
 
-        if ((super->bitfield & 0x3f) == 0x14 && super->action != 5) {
+        if ((super->contactFlags & 0x3f) == 0x14 && super->action != 5) {
             super->action = 3;
-            super->actionDelay = 0x5a;
-            super->field_0xf = 0x10;
+            super->timer = 0x5a;
+            super->subtimer = 0x10;
             super->spritePriority.b1 = 1;
             super->direction = DirectionRoundUp(sub_08049F84(super, 1));
             sub_08033D78(this);
@@ -77,8 +77,8 @@ void SpinyBeetle_OnConfused(SpinyBeetleEntity* this) {
 void SpinyBeetle_Init(SpinyBeetleEntity* this) {
     Entity* obj;
     super->action = 1;
-    super->actionDelay = 0;
-    super->field_0xf = 0;
+    super->timer = 0;
+    super->subtimer = 0;
     this->unk_7c = (super->x.WORD & 0xfff00000) | 0x80000;
     this->unk_80 = (super->y.WORD & 0xfff00000) | 0x80000;
     super->x.WORD = this->unk_7c;
@@ -175,8 +175,8 @@ void sub_08033A7C(SpinyBeetleEntity* this) {
         return;
 
     super->action = 3;
-    super->actionDelay = 0x78;
-    super->field_0xf = 0x20;
+    super->timer = 0x78;
+    super->subtimer = 0x20;
     super->spritePriority.b1 = 1;
     InitializeAnimation(super, 3);
 }
@@ -190,14 +190,14 @@ void sub_08033ACC(SpinyBeetleEntity* this) {
     GetNextFrame(super);
     GetNextFrame(super);
 
-    if (super->field_0xf) {
-        super->field_0xf--;
+    if (super->subtimer) {
+        super->subtimer--;
         return;
     }
 
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->action = 4;
-        super->actionDelay = 0x78;
+        super->timer = 0x78;
         super->x.WORD = (super->x.WORD & 0xfff00000) | 0x80000;
         super->y.WORD = (super->y.WORD & 0xfff00000) | 0xC0000;
         this->unk_7c = super->x.WORD;
@@ -216,7 +216,7 @@ void sub_08033B44(SpinyBeetleEntity* this) {
     }
 
     GetNextFrame(super);
-    if (--super->actionDelay)
+    if (--super->timer)
         return;
 
     super->action = 1;
@@ -267,10 +267,10 @@ void sub_08033C94(SpinyBeetleEntity* this) {
                 super->spriteSettings.draw = 1;
             }
         case 1:
-            if (--super->actionDelay)
+            if (--super->timer)
                 return;
             this->unk_79 = 2;
-            super->actionDelay = 0x78;
+            super->timer = 0x78;
             super->spriteOffsetY = 0;
             super->direction = sub_08049F84(super, 1) + 0x14;
 
@@ -286,15 +286,15 @@ void sub_08033C94(SpinyBeetleEntity* this) {
             super->direction &= 0x18;
             break;
         case 2:
-            if (super->field_0xf != 0) {
-                super->field_0xf--;
+            if (super->subtimer != 0) {
+                super->subtimer--;
             } else {
                 sub_08033D78(this);
             }
 
-            if (--super->actionDelay)
+            if (--super->timer)
                 return;
-            super->actionDelay = (Random() & 0x1f) + 0x20;
+            super->timer = (Random() & 0x1f) + 0x20;
             super->direction = sub_08049F84(super, 1) + 0x14;
             switch (Random() & 3) {
                 case 1:
@@ -361,8 +361,8 @@ void sub_08033E1C(SpinyBeetleEntity* this) {
     super->y.WORD = (super->y.WORD & 0xfff00000) | 0xC0000;
     super->hitType = 0x19;
     super->spritePriority.b1 = 1;
-    super->actionDelay = 0x30;
-    super->field_0xf = 0;
+    super->timer = 0x30;
+    super->subtimer = 0;
     super->speed = 0x100;
     super->child = NULL;
     InitializeAnimation(super, 3);

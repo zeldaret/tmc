@@ -29,7 +29,7 @@ void EnemyItem(EnemyItemEntity* this) {
     }
     if (super->action == 0) {
         super->action++;
-        super->type = super->actionDelay;
+        super->type = super->timer;
         super->child = NULL;
         list = &gEntityLists[4];
         for (entity = list->first; entity != (Entity*)list; entity = entity->next) {
@@ -65,7 +65,7 @@ void sub_080A2508(EnemyItemEntity* this) {
 
     entity = (EnemyItemEntity*)CreateObjectWithParent(super, GROUND_ITEM, super->type, 0);
     if (entity != NULL) {
-        (entity->base).actionDelay = 5;
+        (entity->base).timer = 5;
         entity->unk_86 = this->unk_86;
     }
     sub_080A2500(this);
@@ -76,7 +76,7 @@ void sub_080A2534(EnemyItemEntity* this) {
 
     entity = (EnemyItemEntity*)CreateObjectWithParent(super, GROUND_ITEM, super->type, 0);
     if (entity != NULL) {
-        (entity->base).actionDelay = 4;
+        (entity->base).timer = 4;
         entity->unk_86 = this->unk_86;
     }
     sub_080A2500(this);

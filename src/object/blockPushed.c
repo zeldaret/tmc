@@ -38,7 +38,7 @@ void sub_08082EB4(BlockPushedEntity* this) {
         super->spriteSettings.draw = 1;
     }
     super->action = 1;
-    super->actionDelay = 0x20;
+    super->timer = 0x20;
     super->speed = 0x80;
     super->spritePriority.b0 = 6;
     pos = COORD_TO_TILE(super);
@@ -93,7 +93,7 @@ void sub_08082EB4(BlockPushedEntity* this) {
 void sub_08083094(BlockPushedEntity* this) {
     LinearMoveUpdate(super);
     sub_0800445C(super);
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         sub_080830B8(this);
     }
 }
