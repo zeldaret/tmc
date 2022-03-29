@@ -8,11 +8,11 @@ SCRIPT_START script_PlayerAtTakeover
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	CallWithArg SetPlayerAnimation2, 0x000003c5
-	Call WaitForPlayerFrameHiBit
+	Call WaitForPlayerAnim
 	MessageFromTargetPos 0x1318, 0x000c
 	WaitUntilTextboxCloses
 	CallWithArg SetPlayerAnimation2, 0x000003c9
-	Call WaitForPlayerFrameHiBit
+	Call WaitForPlayerAnim
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	SetSyncFlag 0x00000100

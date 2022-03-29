@@ -63,7 +63,7 @@ script_080138D0:
 	Call UpdatePlayerSkills
 	Call NPC4E_SaveEquippedItems
 	Call NPC4E_RestoreEquippedItems
-	Call WaitForPlayerFrameHiBit
+	Call WaitForPlayerAnim
 	Wait 0x003c
 	SetFadeTime 0x0004
 	SetFade7
@@ -74,7 +74,7 @@ script_080138D0:
 	SetFadeTime 0x0002
 	SetFade6
 	WaitForFadeFinish
-	PlaySound SFX_109
+	PlaySound SFX_ITEM_GET
 	MessageFromTargetPos 0x0505, 0x000c
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00040000

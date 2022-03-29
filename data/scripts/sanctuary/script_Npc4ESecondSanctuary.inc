@@ -58,7 +58,7 @@ script_0801373C:
 	SetInventoryValue 0x0004, 0x0001
 	Call NPC4E_SaveEquippedItems
 	Call NPC4E_RestoreEquippedItems
-	Call WaitForPlayerFrameHiBit
+	Call WaitForPlayerAnim
 	Wait 0x003c
 	SetFadeTime 0x0004
 	SetFade7
@@ -69,7 +69,7 @@ script_0801373C:
 	SetFadeTime 0x0002
 	SetFade6
 	WaitForFadeFinish
-	PlaySound SFX_109
+	PlaySound SFX_ITEM_GET
 	MessageFromTargetPos 0x0504, 0x000c
 	WaitUntilTextboxCloses
 	SetSyncFlag 0x00040000

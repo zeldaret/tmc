@@ -104,12 +104,12 @@ typedef struct {
     /*0x14*/ u8 filler14[6];
     /*0x1a*/ u8 unk1a;
     /*0x1b*/ u8 filler1b[1];
-    /*0x1c*/ u8 unk1c;
+    /*0x1c*/ u8 figure_idx;
     /*0x1d*/ u8 unk1d;
     /*0x1e*/ u8 unk1e;
     /*0x1f*/ s8 unk1f;
     /*0x20*/ u8 unk20;
-    /*0x21*/ u8 unk21;
+    /*0x21*/ bool8 duplicate;
     /*0x22*/ u8 filler22[0xc];
     /*0x2e*/ u16 unk2e;
 } FigurineMenu;

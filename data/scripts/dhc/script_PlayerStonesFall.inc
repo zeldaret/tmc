@@ -4,7 +4,7 @@ SCRIPT_START script_PlayerStonesFall
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	CallWithArg SetPlayerAnimation2, 0x000003c5
-	Call WaitForPlayerFrameHiBit
+	Call WaitForPlayerAnim
 	SetSyncFlag 0x00000004
 	Call SetPlayerActionNormal
 SCRIPT_END

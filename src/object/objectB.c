@@ -69,14 +69,14 @@ void ObjectB_Action1(ObjectBEntity* this) {
                 case 0x43:
                     break;
                 default:
-                    SoundReq(SFX_109);
+                    SoundReq(SFX_ITEM_GET);
                     break;
             }
             break;
         case 2:
             GiveItem(super->type, super->type2);
             this->unk_68 = gUnk_080FD964[super->type].unk_6;
-            SoundReq(SFX_109);
+            SoundReq(SFX_ITEM_GET);
             break;
         case 5:
             tmp = GetInventoryValue((u32)super->type);

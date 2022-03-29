@@ -90,7 +90,7 @@ void PlayerItemBottle_Action1(Entity* this) {
 #else
             InitItemGetSequence(this->type2, iVar1, 5);
 #endif
-            SoundReq(SFX_109);
+            SoundReq(SFX_ITEM_GET);
         }
         DeleteThisEntity();
     }

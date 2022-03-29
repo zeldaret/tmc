@@ -163,7 +163,7 @@ void sub_0808E988(Entity* this) {
 }
 
 void sub_0808E9F4(Entity* this) {
-    if (sub_0808E950() && gSave.unk6) {
+    if (sub_0808E950() && gSave.saw_staffroll) {
         this->spriteSettings.draw = 2;
     } else {
         this->spriteSettings.draw = 0;
@@ -294,7 +294,7 @@ void sub_0808EBB8(Entity* this) {
         case 0:
             break;
         case 1:
-            y = ((SaveHeader*)0x2000000)->language * 16 + 24;
+            y = gSaveHeader->language * 16 + 24;
             x = 112;
             break;
         case 2:

@@ -297,7 +297,7 @@ typedef enum {
     SFX_106,
     SFX_107,
     SFX_108,
-    SFX_109,
+    SFX_ITEM_GET,
     SFX_10A,
     SFX_10B,
     SFX_BUTTON_PRESS,

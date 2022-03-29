@@ -3,16 +3,16 @@ SCRIPT_START script_PlayerGetGreenCap
 	BeginBlock
 	Call sub_08094BE0
 	CallWithArg SetPlayerAnimation2, 0x0000045b
-	PlaySound SFX_109
+	PlaySound SFX_ITEM_GET
 	EndBlock
-	Call WaitForPlayerFrameHiBit
+	Call WaitForPlayerAnim
 	Wait 0x005a
 	SetSyncFlag 0x00000008
 	BeginBlock
 	CallWithArg ResetPlayerFlag, 0x00000008
 	CallWithArg SetPlayerAnimation2, 0x000008e4
 	EndBlock
-	Call WaitForPlayerFrameHiBit
+	Call WaitForPlayerAnim
 	SetAnimationState 0x0004
 	DoPostScriptAction 0x0000
 	Wait 0x003c

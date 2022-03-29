@@ -1654,7 +1654,7 @@ void WaitForAnimDone(Entity* entity, ScriptExecutionContext* context) {
     }
 }
 
-void WaitForPlayerFrameHiBit(Entity* entity, ScriptExecutionContext* context) {
+void WaitForPlayerAnim(Entity* entity, ScriptExecutionContext* context) {
     if ((gPlayerEntity.frame & ANIM_DONE) != 0) {
         gActiveScriptInfo.flags |= 1;
     } else {

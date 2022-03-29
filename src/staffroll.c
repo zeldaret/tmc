@@ -56,12 +56,12 @@ extern void (*const gUnk_08127D10[])(void);
 void sub_080A3954(void);
 
 void StaffrollTask(void) {
-    gRoomTransition.frameCount += 1;
+    gRoomTransition.frameCount++;
     gUnk_08127D00[gMain.state]();
 }
 
 void StaffrollTask_State0(void) {
-    gSave.unk6 = 1;
+    gSave.saw_staffroll = TRUE;
     SetGlobalFlag(GAMECLEAR);
     gMain.state = 1;
     gStaffrollMenu.base.menuType = 0;

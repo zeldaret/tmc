@@ -82,7 +82,7 @@ void FigurineDevice_Init(FigurineDeviceEntity* this) {
     super->action = super->type + 1;
     switch (super->type) {
         case 0:
-            if (CheckLocalFlag(0x5e)) {
+            if (CheckLocalFlag(SHOP07_TANA)) {
                 this->unk_7a = 1;
                 sub_080787B4(super);
             } else {
@@ -134,7 +134,7 @@ void FigurineDevice_Action1(FigurineDeviceEntity* this) {
             if (super->interactType != 0) {
                 super->interactType = 0;
                 ResetPlayerAnimationAndAction();
-                if (CheckLocalFlag(0x5e)) {
+                if (CheckLocalFlag(SHOP07_TANA)) {
                     this->unk_7a = 2;
                     SetRoomFlag(2);
                     MenuFadeIn(7, 0xff);
@@ -160,7 +160,7 @@ void FigurineDevice_Action2(FigurineDeviceEntity* this) {
     switch (this->unk_7a) {
         case 0:
             if (CheckRoomFlag(0)) {
-                if (CheckLocalFlag(0x5e)) {
+                if (CheckLocalFlag(SHOP07_TANA)) {
                     this->unk_7a = 1;
                 } else {
                     this->unk_7a = 2;
@@ -168,7 +168,7 @@ void FigurineDevice_Action2(FigurineDeviceEntity* this) {
             }
             break;
         case 2:
-            SetLocalFlag(0x5e);
+            SetLocalFlag(SHOP07_TANA);
         case 1:
             this->unk_7a = 0;
             sub_08088328((FigurineDeviceEntity*)super->child);
@@ -330,23 +330,19 @@ void sub_08088034(FigurineDeviceEntity* this) {
 
 void sub_0808804C(FigurineDeviceEntity* this) {
     u8 result = 0;
-    if (gSave.unk6 != 0) {
+    if (gSave.saw_staffroll) {
         result = 9;
     } else if (CheckGlobalFlag(LV5_CLEAR)) {
         result = 7;
-    } else if (CheckLocalFlagByBank(0x800, 0x77)) {
+    } else if (CheckLocalFlagByBank(FLAG_BANK_9, LV5_31_CAP_0)) {
         result = 6;
-    } else if (CheckLocalFlagByBank(0x300, 0x32)) {
+    } else if (CheckLocalFlagByBank(FLAG_BANK_3, OUBO_KAKERA)) {
         result = 5;
     } else if (CheckGlobalFlag(LV4_CLEAR)) {
         result = 4;
     } else if (CheckGlobalFlag(LV3_CLEAR)) {
         result = 3;
-#if defined(JP) || defined(DEMO_JP) || defined(EU)
-    } else if (CheckLocalFlagByBank(0x100, 0x9b)) {
-#else
-    } else if (CheckLocalFlagByBank(0x100, 0x9c)) {
-#endif
+    } else if (CheckLocalFlagByBank(FLAG_BANK_1, SOUGEN_08_TORITSUKI)) {
         result = 2;
     } else if (CheckGlobalFlag(LV2_CLEAR)) {
         result = 1;
@@ -374,8 +370,8 @@ void sub_080880D8(FigurineDeviceEntity* this) {
             }
             gSave.field_0x9[0] = this->unk_80;
         }
-        if (CheckLocalFlag(0x5f) && (this->unk_80 != gSave.stats.filler[0])) {
-            ClearLocalFlag(0x5f);
+        if (CheckLocalFlag(SHOP07_COMPLETE) && (this->unk_80 != gSave.stats.filler[0])) {
+            ClearLocalFlag(SHOP07_COMPLETE);
         }
     }
 }
@@ -387,7 +383,7 @@ void sub_0808826C(FigurineDeviceEntity* this) {
     s32 tmp = 0x64;
     tmp *= ((this->unk_80 - gSave.stats.filler[0]));
     tmp = tmp / this->unk_80;
-    if (tmp == 0 && !CheckLocalFlag(0x5f)) {
+    if (tmp == 0 && !CheckLocalFlag(SHOP07_COMPLETE)) {
         tmp = 1;
     }
     this->unk_83 = tmp;
@@ -463,7 +459,7 @@ void sub_08088478(void) {
                 messageIndex = 0x4329;
                 break;
             case 0x82:
-                if (gSave.unk6 != 0) {
+                if (gSave.saw_staffroll) {
                     messageIndex = 0x4327;
                 } else {
                     messageIndex = 0x4328;
@@ -521,7 +517,7 @@ void sub_08088574(void) {
 #else
     if (CheckRoomFlag(9)) {
 #endif
-        if (CheckLocalFlag(0x5f)) {
+        if (CheckLocalFlag(SHOP07_COMPLETE)) {
             index = 0x4313;
         } else {
             index = 0x430c;

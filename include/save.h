@@ -38,7 +38,7 @@ typedef struct {
     /*0x002*/ u8 msg_speed;   /**< Message speed. */
     /*0x003*/ u8 brightness;  /**< Brightness. */
     /*0x004*/ u8 filler4[0x2];
-    /*0x006*/ u8 unk6;
+    /*0x006*/ u8 saw_staffroll;
     /*0x007*/ u8 unk7;
     /*0x008*/ u8 global_progress; /**< @see UpdateGlobalProgress */
     /*0x009*/ u8 field_0x9[0x34];

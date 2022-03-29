@@ -94,7 +94,7 @@ void Subtask_FigurineMenu(void) {
 }
 
 void FigurineMenu_080A4608(void) {
-    s32 iVar2;
+    s32 iVar2, r1, r2;
 
     SetBgmVolume(0x80);
     sub_080A4DA8(3);
@@ -110,20 +110,13 @@ void FigurineMenu_080A4608(void) {
     for (iVar2 = 0; iVar2 < 0x10; iVar2++) {
         gFigurineMenu.unk10.a[iVar2] = 0xee;
     }
-    {
-        int r0, r1, r2;
 
-        r1 = gUI.field_0x3;
-        r0 = gSave.unk6;
-        r2 = 0x88;
-        if (r0 == 0) {
-            r2 = 0x82;
-        }
-        if (r2 < r1) {
-            r1 = 1;
-        }
-        gFigurineMenu.unk1c = r1;
+    r1 = gUI.field_0x3;
+    r2 = !gSave.saw_staffroll ? 0x82 : 0x88;
+    if (r2 < r1) {
+        r1 = 1;
     }
+    gFigurineMenu.figure_idx = r1;
     SetFade(4, 8);
 }
 
@@ -141,7 +134,7 @@ void FigurineMenu0_Type0(void) {
 
 void FigurineMenu0_Type1(void) {
     if (gFadeControl.active == 0) {
-        CreateObject(OBJECT_A2, gUnk_080FC3E4[gFigurineMenu.unk1c].unk7, 0);
+        CreateObject(OBJECT_A2, gUnk_080FC3E4[gFigurineMenu.figure_idx].unk7, 0);
         SetMenuType(2);
     }
 }
@@ -154,7 +147,7 @@ void FigurineMenu0_Type2(void) {
         gFigurineMenu.unk20 += 1;
         switch (gFigurineMenu.unk20) {
             case 0x40:
-                gFigurineMenu.unk21 = WriteBit(&gUnk_02002B0E, gFigurineMenu.unk1c);
+                gFigurineMenu.duplicate = WriteBit(&gUnk_02002B0E, gFigurineMenu.figure_idx);
                 gMenu.column_idx = 1;
             default:
                 bVar1 = gFigurineMenu.unk20 >> 2;
@@ -171,8 +164,8 @@ void FigurineMenu0_Type2(void) {
                 SetMenuType(3);
                 sub_080A70AC((KeyButtonLayout*)&gUnk_0812813C);
                 gMenu.column_idx = 0x15;
-                if (gFigurineMenu.unk21 == 0) {
-                    sound = SFX_109;
+                if (!gFigurineMenu.duplicate) {
+                    sound = SFX_ITEM_GET;
                 } else {
                     sound = SFX_MENU_ERROR;
                 }
@@ -225,43 +218,43 @@ void FigurineMenu1_Type1(void) {
         return;
 
     r5 = gFigurineMenu.unk1f;
-    r4 = gFigurineMenu.unk1c;
+    r4 = gFigurineMenu.figure_idx;
     switch (gInput.unk4) {
-        case 2:
-        case 8:
+        case B_BUTTON:
+        case START_BUTTON:
             SetMenuType(3);
             break;
-        case 0x200:
+        case L_BUTTON:
             r4 -= 5;
             break;
-        case 0x100:
+        case R_BUTTON:
             r4 += 5;
             break;
-        case 0x40:
+        case DPAD_UP:
             r4--;
             break;
-        case 0x80:
+        case DPAD_DOWN:
             r4++;
             break;
-        case 0x10:
+        case DPAD_RIGHT:
             r5 += 8;
             break;
-        case 0x20:
+        case DPAD_LEFT:
             r5 -= 8;
             break;
-        case 1:
+        case A_BUTTON:
             break;
     }
-    r1 = (gSave.unk6 == 0) ? 0x82 : 0x88;
+    r1 = !gSave.saw_staffroll ? 0x82 : 0x88;
     if (r4 <= 0) {
         r4 = 1;
     }
     if (r1 < r4) {
         r4 = r1;
     }
-    r0 = gFigurineMenu.unk1c;
+    r0 = gFigurineMenu.figure_idx;
     if (r0 != r4) {
-        gFigurineMenu.unk1c = r4;
+        gFigurineMenu.figure_idx = r4;
         SoundReq(SFX_TEXTBOX_CHOICE);
         SetMenuType(2);
         r5 = 0;
@@ -290,7 +283,7 @@ u32 sub_080A4948(s32 param_1) {
     u32 uVar2;
 
     uVar2 = 0;
-    iVar1 = gSave.unk6 == 0 ? 0x82 : 0x88;
+    iVar1 = !gSave.saw_staffroll ? 0x82 : 0x88;
     if ((0 < param_1) || (iVar1 >= param_1)) {
         if (ReadBit((u32*)&gSave.stats.filler4[4], param_1)) {
             uVar2 = 1;
@@ -322,11 +315,11 @@ void FigurineMenu_080A4978(void) {
     gOamCmd.x = 0x9c;
     gOamCmd.y = 0x48;
     DrawDirect(sub_080A4978_draw_constant, 0);
-    r2 = (gSave.unk6 == 0) ? 0x82 : 0x88;
+    r2 = !gSave.saw_staffroll ? 0x82 : 0x88;
     if ((gMenu.column_idx & 2) != 0) {
-        if (r2 >= (gFigurineMenu.unk1c)) {
+        if (r2 >= (gFigurineMenu.figure_idx)) {
             gOamCmd.x = 0xe8;
-            r0 = (0x5000 / r2) * (gFigurineMenu.unk1c - 1);
+            r0 = (0x5000 / r2) * (gFigurineMenu.figure_idx - 1);
             if (r0 < 0) {
                 r0 += 0xff;
             }
@@ -364,7 +357,7 @@ void FigurineMenu_080A4978(void) {
     if (gSaveHeader->language) {
         if (gMenu.column_idx & 0x4) {
             gOamCmd.y = 0x10;
-            r4 = gFigurineMenu.unk1c;
+            r4 = gFigurineMenu.figure_idx;
             for (r6 = 2; r6 >= 0; r6--) {
                 gOamCmd.x = 0x5d + (r6 * 7);
                 gOamCmd._8 = ((r4 % 10) << 1) | 0x9e0;
@@ -374,16 +367,16 @@ void FigurineMenu_080A4978(void) {
         }
     }
     if (gMenu.column_idx & 1) {
-        if (sub_080A4948(gFigurineMenu.unk1c)) {
+        if (sub_080A4948(gFigurineMenu.figure_idx)) {
             gOamCmd.x = 0x2c;
             gOamCmd.y = 0x48;
             gOamCmd._8 = 0xd4 << 7;
-            DrawDirect(sub_080A4978_draw_constant - 4, gFigurineMenu.unk1c - 1);
-            if (gFigurineMenu.unk1d != gFigurineMenu.unk1c) {
+            DrawDirect(sub_080A4978_draw_constant - 4, gFigurineMenu.figure_idx - 1);
+            if (gFigurineMenu.unk1d != gFigurineMenu.figure_idx) {
                 const Figurine* fig;
                 u8* gfx;
-                gFigurineMenu.unk1d = gFigurineMenu.unk1c;
-                fig = &gFigurines[gFigurineMenu.unk1c];
+                gFigurineMenu.unk1d = gFigurineMenu.figure_idx;
+                fig = &gFigurines[gFigurineMenu.figure_idx];
                 LoadPalettes(fig->pal, 0x16, 9);
                 gfx = fig->gfx;
                 if (fig->size < 0) {
@@ -399,7 +392,7 @@ void FigurineMenu_080A4978(void) {
 void sub_080A4B44(void) {
     u32 uVar1;
 
-    uVar1 = gFigurineMenu.unk1c;
+    uVar1 = gFigurineMenu.figure_idx;
     if ((gMenu.column_idx & 0x10) != 0) {
         gFigurineMenu.unk1e = sub_080A4CBC(uVar1);
     }
@@ -472,7 +465,7 @@ void sub_080A4BA0(u32 arg1, u32 arg2) {
         s0.unk14 = arg2;
     }
 
-    tmp = (gSave.unk6 == 0) ? 0x82 : 0x88;
+    tmp = !gSave.saw_staffroll ? 0x82 : 0x88;
 
     if (r5 <= 0 || tmp < r5) {
         r5 = -1;
