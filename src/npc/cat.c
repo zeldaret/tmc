@@ -58,7 +58,7 @@ void sub_080677EC(Entity* this) {
     this->spriteSettings.draw = 1;
     this->direction = 8;
     this->speed = 0x80;
-    this->field_0x3c = 7;
+    this->collisionFlags = 7;
     this->hurtType = 0x48;
     this->hitType = -0x58;
     this->flags2 = 1;
@@ -78,8 +78,8 @@ void sub_080677EC(Entity* this) {
         uVar2 >>= 0x10;
     }
     this->field_0x6c.HWORD = uVar2;
-    this->field_0x6e.HWORD = this->actionDelay + uVar2;
-    this->actionDelay = 0;
+    this->field_0x6e.HWORD = this->timer + uVar2;
+    this->timer = 0;
     this->field_0x74.HALF.HI = 0;
     this->field_0x74.HALF.LO = (Random() & 0x7f) + 0x1e;
     this->field_0x68.HALF.HI = 0xff;
@@ -169,7 +169,7 @@ void sub_08067A0C(Entity* this) {
     if (this->frame & ANIM_DONE) {
         if (sub_08067D20(this) != 0) {
             sub_08067B80(this, 5);
-            this->actionDelay = this->actionDelay + 0x14;
+            this->timer = this->timer + 0x14;
         } else {
             sub_08067C24(this);
         }
@@ -226,7 +226,7 @@ void sub_08067B70(Entity* this) {
 
 void sub_08067B80(Entity* this, u32 param) {
     this->action = 5;
-    this->actionDelay = 0x14;
+    this->timer = 0x14;
     this->field_0x74.HALF.LO = (Random() & 0x7f) + 0x1e;
     InitAnimationForceUpdate(this, param);
     sub_08067DDC(this);
@@ -342,15 +342,15 @@ u32 sub_08067D74(Entity* this) {
     int iVar2;
 
     if (this->type != 5) {
-        if (this->actionDelay != 0) {
-            this->actionDelay -= 1;
+        if (this->timer != 0) {
+            this->timer -= 1;
         }
         entity = sub_08049DF4(2);
         if (entity != NULL) {
             iVar2 = this->spriteSettings.flipX ? 0x8 : 0x18;
             if ((((u32)(entity->x.HALF.HI - (this->x.HALF.HI - iVar2)) < 0x1f) &&
                  ((u32)(entity->y.HALF.HI - this->y.HALF.HI) < 0x17)) &&
-                (this->actionDelay == 0)) {
+                (this->timer == 0)) {
                 return 1;
             }
         }
@@ -365,7 +365,7 @@ void sub_08067DCC(Entity* this, u32 param) {
 
 void sub_08067DDC(Entity* this) {
     COLLISION_OFF(this);
-    this->bitfield = 0;
+    this->contactFlags = 0;
     this->iframes = 0;
     this->hitbox = &gUnk_08110EF0;
 }

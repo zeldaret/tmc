@@ -15,7 +15,7 @@ void Mama(Entity* this) {
             if (sub_0806C454(this) != 0) {
                 this->action = 1;
                 this->spriteSettings.draw = 1;
-                this->animationState = this->actionDelay;
+                this->animationState = this->timer;
                 this->field_0x68.HALF.HI = 0;
                 sub_0807DD50(this);
             }

@@ -39,7 +39,7 @@ void Object43_Init(Object43Entity* this) {
     super->spriteOrientation.flipY = gPlayerEntity.spriteOrientation.flipY;
     super->animationState = gPlayerEntity.animationState >> 1;
     super->direction = (((super->animationState + 1) & 3) << 3);
-    super->field_0xf = 6;
+    super->subtimer = 6;
     super->speed = 0x140;
     super->spriteVramOffset = 0x3c;
     super->palette.b.b0 = 4;
@@ -48,13 +48,13 @@ void Object43_Init(Object43Entity* this) {
     super->updatePriority = 6;
     InitializeAnimation(super, 7);
     if (super->type2 != 0) {
-        super->actionDelay = 0x28;
+        super->timer = 0x28;
     } else {
         super->spriteSettings.draw = 1;
         if ((gPlayerState.skills & SKILL_FAST_SPIN) != 0) {
-            super->actionDelay = 0x28;
+            super->timer = 0x28;
         } else {
-            super->actionDelay = 0x50;
+            super->timer = 0x50;
         }
 
         Object43_Action1(this);
@@ -99,13 +99,13 @@ void Object43_Action1(Object43Entity* this) {
     if (tmp1 != 0) {
 
         GetNextFrame(super);
-        if (super->actionDelay != 0) {
-            super->actionDelay--;
+        if (super->timer != 0) {
+            super->timer--;
             tmp2 = 3;
             if ((super->type2 == 0) && ((gPlayerState.skills & SKILL_FAST_SPIN) == 0)) {
                 tmp2 = 7;
             }
-            if ((super->actionDelay & tmp2) == 0) {
+            if ((super->timer & tmp2) == 0) {
                 this->unk_6c++;
             }
         } else {
@@ -148,8 +148,8 @@ void Object43_Action1(Object43Entity* this) {
                 break;
         }
 
-        if (--super->field_0xf == 0) {
-            super->field_0xf = 6;
+        if (--super->subtimer == 0) {
+            super->subtimer = 6;
             super->direction ^= 0x10;
         }
         LinearMoveUpdate(super);

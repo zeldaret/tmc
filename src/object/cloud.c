@@ -29,7 +29,7 @@ void sub_0809F4DC(Entity* this) {
 
 void sub_0809F514(Entity* this) {
     this->action = 1;
-    this->actionDelay = 120;
+    this->timer = 120;
     this->spriteSettings.draw = 0;
     this->field_0x68.HALF.LO = 12;
     gRoomControls.camera_target = this;
@@ -39,9 +39,9 @@ void sub_0809F514(Entity* this) {
 
 void sub_0809F548(Entity* this) {
 
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 2;
-        this->actionDelay = 90;
+        this->timer = 90;
         SoundReq(SFX_11D);
         sub_0809F814((((this->x.HALF.HI - gRoomControls.origin_x) >> 4) & 63) |
                      (((this->y.HALF.HI - gRoomControls.origin_y) >> 4) & 63) << 6);
@@ -54,7 +54,7 @@ void sub_0809F548(Entity* this) {
 }
 
 void sub_0809F5B0(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         SoundReq(SFX_SECRET_BIG);
         SetGlobalFlag(KUMOTATSUMAKI);
         LoadRoomEntityList((EntityData*)&gUnk_080DD750);
@@ -71,10 +71,10 @@ void sub_0809F5DC(Entity* this) {
 void sub_0809F5F0(Entity* this) {
     u32 iVar1;
 
-    iVar1 = CheckRoomFlag(this->actionDelay);
+    iVar1 = CheckRoomFlag(this->timer);
     if (iVar1 != 0) {
         this->action = 2;
-        this->actionDelay = 120;
+        this->timer = 120;
         SetPlayerControl(3);
         sub_08078B48();
         gRoomControls.camera_target = this;
@@ -84,12 +84,12 @@ void sub_0809F5F0(Entity* this) {
 void sub_0809F61C(Entity* this) {
 
     if ((gRoomControls.scroll_flags & 4) == 0) {
-        if (this->actionDelay == 30) {
+        if (this->timer == 30) {
             SetLocalFlag(this->type2);
         }
-        if (--this->actionDelay == 0) {
+        if (--this->timer == 0) {
             this->action = 3;
-            this->actionDelay = 120;
+            this->timer = 120;
             SoundReq(SFX_11D);
             sub_0809F814((((this->x.HALF.HI - gRoomControls.origin_x) >> 4) & 63) |
                          (((this->y.HALF.HI - gRoomControls.origin_y) >> 4) & 63) << 6);
@@ -104,8 +104,8 @@ void sub_0809F61C(Entity* this) {
 
 void sub_0809F69C(Entity* this) {
 
-    if (--this->actionDelay == 0) {
-        this->actionDelay = 30;
+    if (--this->timer == 0) {
+        this->timer = 30;
         this->action = 4;
         gRoomControls.camera_target = &gPlayerEntity;
         SoundReq(SFX_SECRET_BIG);
@@ -114,7 +114,7 @@ void sub_0809F69C(Entity* this) {
 
 void sub_0809F6CC(Entity* this) {
 
-    if (((gRoomControls.scroll_flags & 4) == 0) && (--this->actionDelay == 0)) {
+    if (((gRoomControls.scroll_flags & 4) == 0) && (--this->timer == 0)) {
         gPlayerState.controlMode = CONTROL_1;
         DeleteThisEntity();
     }
@@ -126,7 +126,7 @@ void sub_0809F700(Entity* this) {
 
     if (this->action == 0) {
         this->action = 1;
-        this->actionDelay = (Random() & 30) + 8;
+        this->timer = (Random() & 30) + 8;
         this->flags = this->flags | 12;
     }
     if ((gRoomTransition.frameCount & 3) == 0) {
@@ -135,7 +135,7 @@ void sub_0809F700(Entity* this) {
         this->spriteOffsetY = gUnk_081247C0[uVar2 >> 4 & 7];
     }
     LinearMoveUpdate(this);
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         DeleteThisEntity();
     }
 }

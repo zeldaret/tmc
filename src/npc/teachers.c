@@ -15,7 +15,7 @@ void Teachers(Entity* this) {
             if (LoadExtraSpriteData(this, &gUnk_08113910[this->type * 4])) {
                 this->action = 1;
                 this->spriteSettings.draw = TRUE;
-                this->animationState = this->actionDelay;
+                this->animationState = this->timer;
                 this->field_0x68.HALF.HI = 0;
                 SetDefaultPriority(this, PRIO_MESSAGE);
                 sub_0807DD50(this);

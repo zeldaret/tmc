@@ -79,16 +79,16 @@ void Gleerok_OnDeath(GleerokEntity* this) {
         case 2:
             if (super->type2 == 0) {
                 super->type2 = 1;
-                super->actionDelay = 0;
-                super->field_0xf = 0x3c;
+                super->timer = 0;
+                super->subtimer = 0x3c;
                 this->unk_74 = 0x10;
                 this->unk_75 = 0;
                 gScreen.controls.alphaBlend = this->unk_74;
                 gScreen.controls.layerFXControl = 0x1442;
                 SoundReq(SFX_EVAPORATE);
             } else {
-                ++super->actionDelay;
-                if ((super->actionDelay & 0xf) == 0) {
+                ++super->timer;
+                if ((super->timer & 0xf) == 0) {
                     this->unk_75++;
                     this->unk_74--;
                     gScreen.controls.alphaBlend = this->unk_74 | (this->unk_75 << 8);
@@ -98,8 +98,8 @@ void Gleerok_OnDeath(GleerokEntity* this) {
                     }
                 }
 
-                if (super->field_0xf) {
-                    if (--super->field_0xf == 0) {
+                if (super->subtimer) {
+                    if (--super->subtimer == 0) {
                         SoundReq(SFX_APPARATE);
                     }
                 }
@@ -148,7 +148,7 @@ void sub_0802D170(GleerokEntity* this) {
     } else {
         super->action = 3;
         this->unk_80 = 0;
-        ((Entity*)this->unk_84)->parent->actionDelay = 0x18;
+        ((Entity*)this->unk_84)->parent->timer = 0x18;
         this->unk_84->filler[0x19] = 0;
     }
 }
@@ -158,10 +158,10 @@ void sub_0802D218(GleerokEntity* this) {
         return;
 
     super->action = 4;
-    super->actionDelay = 0;
-    super->field_0xf = 0;
+    super->timer = 0;
+    super->subtimer = 0;
     this->unk_7c.HALF_U.LO = 0xb4;
-    ((Entity*)(this->unk_84))->parent->actionDelay = 0xc;
+    ((Entity*)(this->unk_84))->parent->timer = 0xc;
     CreateObjectWithParent(super, 0x67, 0x2, this->unk_7c.HALF_U.LO);
 }
 
@@ -178,12 +178,12 @@ void sub_0802D258(GleerokEntity* this) {
         }
     }
 
-    if (super->actionDelay == 0) {
-        super->actionDelay = gUnk_080CD774[super->field_0xf];
-        super->direction = gUnk_080CD774[super->field_0xf + 1];
-        super->field_0xf = (super->field_0xf & 0x3f) + 2;
+    if (super->timer == 0) {
+        super->timer = gUnk_080CD774[super->subtimer];
+        super->direction = gUnk_080CD774[super->subtimer + 1];
+        super->subtimer = (super->subtimer & 0x3f) + 2;
     } else {
-        super->actionDelay--;
+        super->timer--;
     }
 
     if (super->direction <= 1) {
@@ -325,12 +325,12 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D3B8.inc", void sub_0802D3B8(GleerokE
             ptr = gUnk_080CD7C4;
             ptr += super->type2 * 4;
             super->spritePriority.b0 = *(ptr + 1);
-            super->field_0xf = 0;
+            super->subtimer = 0;
             InitializeAnimation(super, 0x24);
             break;
         case 2:
             super->spritePriority.b0 = 0;
-            super->field_0xf = 0;
+            super->subtimer = 0;
             InitAnimationForceUpdate(super, 0);
             break;
         case 3:
@@ -434,7 +434,7 @@ void sub_0802D714(GleerokEntity* this) {
         ((GleerokEntity*)(super->child))->unk_84 = heap;
     }
 
-    heap->ent2->actionDelay = 0x18;
+    heap->ent2->timer = 0x18;
 }
 
 void sub_0802D77C(GleerokEntity* this) {
@@ -446,20 +446,20 @@ void sub_0802D77C(GleerokEntity* this) {
     if (super->type2 != 2)
         return;
 
-    super->field_0xf = 0;
-    super->actionDelay = 0;
+    super->subtimer = 0;
+    super->timer = 0;
     super->subAction = 4;
-    this->unk_84->ent2->actionDelay = 0xc;
+    this->unk_84->ent2->timer = 0xc;
 }
 
 void sub_0802D7B4(GleerokEntity* this) {
-    if (super->actionDelay == 0) {
-        if (gUnk_080CD7F8[super->field_0xf] == 0xff) {
-            super->field_0xf = 0;
-            super->actionDelay = 0;
+    if (super->timer == 0) {
+        if (gUnk_080CD7F8[super->subtimer] == 0xff) {
+            super->subtimer = 0;
+            super->timer = 0;
             super->action = 1;
             super->subAction = 0;
-            this->unk_84->ent2->actionDelay = 0x18;
+            this->unk_84->ent2->timer = 0x18;
             gRoomControls.camera_target = &gPlayerEntity;
 #ifndef EU
             gPlayerState.controlMode = CONTROL_1;
@@ -468,13 +468,13 @@ void sub_0802D7B4(GleerokEntity* this) {
             SoundReq(BGM_BOSS_THEME);
             return;
         } else {
-            super->actionDelay = gUnk_080CD7F8[super->field_0xf];
-            super->direction = gUnk_080CD7F8[super->field_0xf + 1];
-            super->field_0xf += 2;
+            super->timer = gUnk_080CD7F8[super->subtimer];
+            super->direction = gUnk_080CD7F8[super->subtimer + 1];
+            super->subtimer += 2;
             SoundReq(SFX_BOSS_HIT);
         }
     } else {
-        super->actionDelay--;
+        super->timer--;
     }
 
     if (super->direction <= 1) {
@@ -505,11 +505,11 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D86C.inc", void sub_0802D86C(GleerokE
 
             super->iframes = super->parent->iframes;
             if (super->iframes == 0) {
-                if (super->field_0xf == 0) {
+                if (super->subtimer == 0) {
                     UnloadOBJPalette(super);
                     LoadObjPalette(super, 0xc9);
                 } else {
-                    super->field_0xf--;
+                    super->subtimer--;
                     UnloadOBJPalette(super);
                     LoadObjPalette(super, 0xca);
                 }
@@ -534,11 +534,11 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D86C.inc", void sub_0802D86C(GleerokE
                 return;
 
             ((GleerokEntity*)(super->parent))->unk_7b = 1;
-            super->actionDelay = 0;
+            super->timer = 0;
 
             do {
-                CreateObjectWithParent(super, OBJECT_67, 0, super->actionDelay);
-            } while (++super->actionDelay < 8);
+                CreateObjectWithParent(super, OBJECT_67, 0, super->timer);
+            } while (++super->timer < 8);
 
             SoundReq(SFX_150);
             DeleteThisEntity();
@@ -577,7 +577,7 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D86C.inc", void sub_0802D86C(GleerokE
             super->child = enemy;
             if (enemy) {
                 enemy->parent = super->parent;
-                super->actionDelay = this->unk_84->filler[1];
+                super->timer = this->unk_84->filler[1];
                 this->unk_84->ent = super->child;
                 ((GleerokEntity*)super->child)->unk_84 = this->unk_84;
             }
@@ -599,8 +599,8 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D86C.inc", void sub_0802D86C(GleerokE
                 }
             }
 
-            if ((super->bitfield & 0x80) && this->unk_74 == 0) {
-                if ((super->bitfield & 0x7f) == 0x1d) {
+            if ((super->contactFlags & 0x80) && this->unk_74 == 0) {
+                if ((super->contactFlags & 0x7f) == 0x1d) {
                     super->zVelocity = 0x30000;
                     super->parent->subAction = 4;
                     super->parent->type2 = 0;
@@ -608,8 +608,8 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D86C.inc", void sub_0802D86C(GleerokE
                     SoundReq(SFX_BUTTON_PRESS);
                 }
             } else {
-                if (super->actionDelay != this->unk_84->filler[1]) {
-                    if (((super->actionDelay - this->unk_84->filler[1]) & 0x1f) > 0x10) {
+                if (super->timer != this->unk_84->filler[1]) {
+                    if (((super->timer - this->unk_84->filler[1]) & 0x1f) > 0x10) {
                         if (++super->frameIndex >= 0x31) {
                             super->frameIndex = 0x28;
                         }
@@ -619,7 +619,7 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D86C.inc", void sub_0802D86C(GleerokE
                         }
                     }
 
-                    super->actionDelay = this->unk_84->filler[1];
+                    super->timer = this->unk_84->filler[1];
                 }
             }
 
@@ -652,7 +652,7 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D86C.inc", void sub_0802D86C(GleerokE
 END_NONMATCH
 
 void sub_0802DB84(GleerokEntity* this) {
-    u32 actionDelay;
+    u32 timer;
     super->direction = GetFacingDirection(super, &gPlayerEntity);
     if (this->unk_84->filler[0x1] == super->direction) {
         super->subAction = 1;
@@ -661,11 +661,11 @@ void sub_0802DB84(GleerokEntity* this) {
     }
 
     if (((this->unk_84->filler[0x1] - super->direction) & 0x1f) > 0x10) {
-        actionDelay = 0;
-        super->actionDelay &= 0xfe;
+        timer = 0;
+        super->timer &= 0xfe;
     } else {
-        actionDelay = 1;
-        super->actionDelay = actionDelay;
+        timer = 1;
+        super->timer = timer;
     }
 
     switch (this->unk_79) {
@@ -680,7 +680,7 @@ void sub_0802DB84(GleerokEntity* this) {
             break;
     }
 
-    sub_0802EA48(this->unk_84, 5, super->speed, actionDelay);
+    sub_0802EA48(this->unk_84, 5, super->speed, timer);
     sub_0802E768(this->unk_84);
     sub_0802E518(this);
     sub_0802EBC4(this);
@@ -693,32 +693,32 @@ void sub_0802DC1C(GleerokEntity* this) {
     if (diff > 0x10) {
         if (diff <= 0x1d) {
             super->subAction = 0;
-            this->unk_84->ent2->actionDelay = 0;
+            this->unk_84->ent2->timer = 0;
             return;
         }
     } else if (diff >= 3) {
         super->subAction = 0;
-        this->unk_84->ent2->actionDelay = 0;
+        this->unk_84->ent2->timer = 0;
         return;
     }
     if (this->unk_78) {
         this->unk_78--;
     } else {
-        u8 actionDelay = super->actionDelay;
+        u8 timer = super->timer;
         diff = 0;
-        if (actionDelay == 1) {
+        if (timer == 1) {
             diff = 1;
         }
 
         sub_0802EA48(this->unk_84, 5, 0x20, diff);
         if (sub_0802EA18(*(u16*)&this->unk_84->filler[0], *(u16*)&this->unk_84->filler[0x14], 4)) {
-            if (super->actionDelay == 1) {
+            if (super->timer == 1) {
                 *(u16*)&this->unk_84->filler[0x14] = (((this->unk_84->filler[0x1] - 4) & 0x1f) << 8) | 0xff;
             } else {
                 *(u16*)&this->unk_84->filler[0x14] = (((this->unk_84->filler[0x1] + 4) & 0x1f) << 8);
             }
 
-            super->actionDelay ^= 1;
+            super->timer ^= 1;
             this->unk_78 = 0xc;
         }
     }
@@ -730,12 +730,12 @@ void sub_0802DC1C(GleerokEntity* this) {
 }
 
 void sub_0802DCE0(GleerokEntity* this) {
-    if (this->unk_84->ent2->actionDelay != 0xc) {
+    if (this->unk_84->ent2->timer != 0xc) {
         super->direction = GetFacingDirection(super, &gPlayerEntity);
         if (this->unk_84->filler[0x15] == super->direction) {
-            this->unk_84->ent2->actionDelay = 0xc;
+            this->unk_84->ent2->timer = 0xc;
             this->unk_82 = 4;
-            super->field_0xf = 0;
+            super->subtimer = 0;
         } else {
             s32 svar1, diff;
             diff = ((this->unk_84->filler[0x15] - super->direction) & 0x1f);
@@ -748,16 +748,16 @@ void sub_0802DCE0(GleerokEntity* this) {
             sub_0802E768(this->unk_84);
         }
     } else {
-        if (super->field_0xf < 6) {
+        if (super->subtimer < 6) {
             if (this->unk_82 == 0) {
                 this->unk_82 = 4;
-                this->unk_84->entities[super->field_0xf]->field_0xf = 4;
-                super->field_0xf++;
+                this->unk_84->entities[super->subtimer]->subtimer = 4;
+                super->subtimer++;
             } else {
                 this->unk_82--;
             }
         } else {
-            if (this->unk_84->ent2->field_0xf == 0) {
+            if (this->unk_84->ent2->subtimer == 0) {
                 super->child = CreateProjectileWithParent(super, GLEEROK_PROJECTILE, 0);
 
                 if (super->child != NULL) {
@@ -767,7 +767,7 @@ void sub_0802DCE0(GleerokEntity* this) {
                     super->child->child = this->unk_84->entities[0];
                 }
 
-                this->unk_84->ent2->actionDelay = 0;
+                this->unk_84->ent2->timer = 0;
                 if (this->unk_74 == 0) {
                     this->unk_74 = 1;
                 } else {
@@ -801,7 +801,7 @@ void sub_0802DDD8(GleerokEntity* this) {
                 break;
 
             super->type2 = 1;
-            super->field_0xf = 0;
+            super->subtimer = 0;
 
             if ((Random() & 1) == 0) {
                 super->direction = 0;
@@ -825,7 +825,7 @@ void sub_0802DDD8(GleerokEntity* this) {
                     r4 = 0;
                 }
 
-                if (this->unk_84->ent2->field_0xf == 1) {
+                if (this->unk_84->ent2->subtimer == 1) {
                     super->child = CreateProjectileWithParent(super, GLEEROK_PROJECTILE, r2);
                     if (super->child != NULL) {
                         super->child->direction = this->unk_84->filler[0x15];
@@ -837,10 +837,10 @@ void sub_0802DDD8(GleerokEntity* this) {
 
                 if (this->unk_74 == 0) {
                     this->unk_74 = r4;
-                    this->unk_84->entities[super->field_0xf]->field_0xf = r8;
+                    this->unk_84->entities[super->subtimer]->subtimer = r8;
 
-                    if (++super->field_0xf > 5) {
-                        super->field_0xf = 0;
+                    if (++super->subtimer > 5) {
+                        super->subtimer = 0;
                     }
                 } else {
                     this->unk_74--;
@@ -864,16 +864,16 @@ void sub_0802DDD8(GleerokEntity* this) {
                     super->direction ^= 1;
                     if (super->direction == 1) {
                         this->unk_7a = (this->unk_7a - (uvar1 * 2)) & 0x1f;
-                        super->actionDelay = 1;
+                        super->timer = 1;
                     } else {
                         this->unk_7a = (this->unk_7a + (uvar1 * 2)) & 0x1f;
-                        super->actionDelay &= 0xfe;
+                        super->timer &= 0xfe;
                     }
 
-                    this->unk_84->ent2->actionDelay = 0xc;
+                    this->unk_84->ent2->timer = 0xc;
                 } else {
                     super->subAction = 0;
-                    this->unk_84->ent2->actionDelay = 0;
+                    this->unk_84->ent2->timer = 0;
                     sub_0802EB9C(this);
                 }
             }
@@ -903,7 +903,7 @@ void sub_0802DFC0(GleerokEntity* this) {
             if (this->unk_7b) {
                 COLLISION_ON(super);
                 super->type2 = 1;
-                this->unk_84->ent2->actionDelay = 0x18;
+                this->unk_84->ent2->timer = 0x18;
                 SoundReq(SFX_BOSS_HIT);
             }
         }
@@ -932,7 +932,7 @@ void sub_0802E034(GleerokEntity* this) {
             if (super->type2 == 2) {
                 this->unk_7c.HALF.LO = 0x168;
                 this->unk_80 = 1;
-                heap->ent2->actionDelay = 0;
+                heap->ent2->timer = 0;
             }
 
             super->type2++;
@@ -982,7 +982,7 @@ void sub_0802E0B8(GleerokEntity* this) {
         super->type2 = 4;
         InitializeAnimation(super, 0x4e);
     } else {
-        if (super->bitfield & 0x80) {
+        if (super->contactFlags & 0x80) {
             if (super->iframes > 0) {
                 SoundReq(SFX_BOSS_HIT);
             }
@@ -1100,7 +1100,7 @@ void sub_0802E300(GleerokEntity* this) {
             ((GleerokEntity*)super->child)->unk_84 = heap;
         }
 
-        heap->ent2->actionDelay = 0x18;
+        heap->ent2->timer = 0x18;
     } else {
         if ((gRoomTransition.frameCount & 0xf) == 0) {
             CreateProjectileWithParent(super, GLEEROK_PROJECTILE, 0x3);
@@ -1202,7 +1202,7 @@ NONMATCH("asm/non_matching/gleerok/sub_0802E518.inc", void sub_0802E518(GleerokE
         heap->entities[index]->y.WORD -= result << 8;
     }
 
-    if (heap->ent2->actionDelay == 0x18) {
+    if (heap->ent2->timer == 0x18) {
         r7 = (heap->filler[0x15] >> 3) << 2;
         if (heap->filler[0x2d] > 0xc) {
             r7 += 3;
@@ -1217,7 +1217,7 @@ NONMATCH("asm/non_matching/gleerok/sub_0802E518.inc", void sub_0802E518(GleerokE
         if (this->unk_80 == 0) {
             sub_0802E7CC(heap, 5, 0, 0);
             r7 = (heap->ent2->animationState / 2 + heap->ent2->animationState) / 4;
-            r7 += heap->ent2->actionDelay;
+            r7 += heap->ent2->timer;
         } else {
             if (super->iframes == 0) {
                 if ((super->animIndex != (heap->filler[0x15] >> 3) + 0x2f) || (super->frame & ANIM_DONE) != 0) {

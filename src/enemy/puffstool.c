@@ -53,16 +53,16 @@ void Puffstool_OnTick(Entity* this) {
 void Puffstool_OnCollide(Entity* this) {
     u8 tmp;
 
-    switch (this->bitfield & 0x7f) {
+    switch (this->contactFlags & 0x7f) {
         case 0 ... 3:
             /* ... */
             break;
         case 0x1b:
             sub_0804AA1C(this);
 
-            tmp = gUnk_080CBFE8[(*(Entity**)&this->field_0x4c)->type];
+            tmp = gUnk_080CBFE8[(*(Entity**)&this->contactedEntity)->type];
             if (tmp < this->field_0x82.HALF.LO) {
-                this->field_0x82.HALF.LO -= gUnk_080CBFE8[(*(Entity**)&this->field_0x4c)->type];
+                this->field_0x82.HALF.LO -= gUnk_080CBFE8[(*(Entity**)&this->contactedEntity)->type];
             } else {
                 this->cutsceneBeh.HWORD = 0x294;
                 this->hitType = 0x83;
@@ -70,14 +70,14 @@ void Puffstool_OnCollide(Entity* this) {
                 ChangeObjPalette(this, 0x7c);
             }
             this->action = 7;
-            this->actionDelay = 0x3c;
+            this->timer = 0x3c;
             if (0 < this->zVelocity) {
                 this->zVelocity = 0;
             }
             this->iframes = -0xc;
             this->knockbackDuration = 0;
             if (this->field_0x80.HALF.LO == 0) {
-                this->animationState = (*(Entity**)&this->field_0x4c)->direction >> 3;
+                this->animationState = (*(Entity**)&this->contactedEntity)->direction >> 3;
                 InitializeAnimation(this, this->animationState + 4);
                 this->frameDuration = 6;
                 this->field_0x80.HALF.LO = 1;
@@ -99,7 +99,7 @@ void Puffstool_OnCollide(Entity* this) {
 }
 
 void Puffstool_OnDeath(Entity* this) {
-    if ((this->field_0x3a & 2) && this->actionDelay == 1 && this->field_0x82.HALF.LO) {
+    if ((this->gustJarState & 2) && this->timer == 1 && this->field_0x82.HALF.LO) {
         sub_08025B18(this);
     }
     GenericDeath(this);
@@ -116,8 +116,8 @@ void Puffstool_OnGrabbed(Entity* this) {
 
 void sub_08025180(Entity* this) {
     this->subAction = 1;
-    this->actionDelay = Random();
-    this->animationState = (((*(Entity**)&this->field_0x4c)->direction ^ 0x10) >> 3);
+    this->timer = Random();
+    this->animationState = (((*(Entity**)&this->contactedEntity)->direction ^ 0x10) >> 3);
     InitializeAnimation(this, this->animationState + 4);
     sub_0804AA1C(this);
 }
@@ -125,7 +125,7 @@ void sub_08025180(Entity* this) {
 void sub_080251AC(Entity* this) {
     if (this->field_0x82.HALF.LO >= 4) {
         this->field_0x82.HALF.LO -= 3;
-        if ((--this->actionDelay & 3) == 0) {
+        if ((--this->timer & 3) == 0) {
             sub_08025BD4(this);
         }
     } else {
@@ -152,23 +152,23 @@ void sub_08025230(Entity* this) {
 
     sub_08025C44(this);
     GetNextFrame(this);
-    if (--this->actionDelay == 0) {
-        this->actionDelay = (Random() & 3) + 4;
+    if (--this->timer == 0) {
+        this->timer = (Random() & 3) + 4;
         this->direction = sub_08025C60(this);
     }
 
     if (this->collisions != COL_NONE) {
-        if (--this->field_0xf == 0) {
+        if (--this->subtimer == 0) {
             sub_0800417E(this, this->collisions);
         }
     } else {
-        this->field_0xf = 30;
+        this->subtimer = 30;
     }
 
     if (this->field_0x78.HWORD == 0) {
         if (sub_0802571C(this)) {
             this->action = 2;
-            this->actionDelay = 240;
+            this->timer = 240;
             this->field_0x86.HWORD = COORD_TO_TILE(this);
         }
     } else {
@@ -187,26 +187,26 @@ void sub_080252E0(Entity* this) {
 
     tile = COORD_TO_TILE(this);
     if (tile == this->field_0x86.HWORD) {
-        if (--this->actionDelay == 0) {
+        if (--this->timer == 0) {
             sub_080256B4(this);
         }
     } else {
         this->field_0x86.HWORD = tile;
-        this->actionDelay = 240;
+        this->timer = 240;
     }
 
     if (this->x.HALF.HI == (u16)this->field_0x7c.HALF.LO && this->y.HALF.HI == (u16)this->field_0x7c.HALF.HI) {
         this->action = 3;
-        this->actionDelay = 0x1e;
-        this->field_0xf = 0;
+        this->timer = 0x1e;
+        this->subtimer = 0;
         this->zVelocity = Q_16_16(1.5);
         InitializeAnimation(this, 1);
     }
 }
 
 void sub_0802538C(Entity* this) {
-    if (this->actionDelay) {
-        this->actionDelay--;
+    if (this->timer) {
+        this->timer--;
     } else {
         if (this->frame == 0) {
             GetNextFrame(this);
@@ -223,12 +223,12 @@ void sub_0802538C(Entity* this) {
 void sub_080253D4(Entity* this) {
     GetNextFrame(this);
     if (!GravityUpdate(this, 0x2000)) {
-        if (this->field_0xf == 0) {
+        if (this->subtimer == 0) {
             this->action = 5;
             InitializeAnimation(this, 3);
         } else {
             this->action = 6;
-            this->actionDelay = 0x1e;
+            this->timer = 0x1e;
             InitializeAnimation(this, 3);
             sub_08025A54(this);
             sub_08025AE8(this);
@@ -240,7 +240,7 @@ void sub_0802541C(Entity* this) {
     GetNextFrame(this);
     if (this->frame & ANIM_DONE) {
         this->action = 3;
-        this->field_0xf = 1;
+        this->subtimer = 1;
         this->zVelocity = Q_16_16(2);
         InitializeAnimation(this, 1);
     }
@@ -250,7 +250,7 @@ void sub_0802544C(Entity* this) {
     if (this->frame == 0) {
         GetNextFrame(this);
     } else {
-        if (--this->actionDelay == 0) {
+        if (--this->timer == 0) {
             sub_080256B4(this);
             InitializeAnimation(this, 0);
         }
@@ -260,11 +260,11 @@ void sub_0802544C(Entity* this) {
 void sub_0802547C(Entity* this) {
     GravityUpdate(this, Q_16_16(0.125));
     GetNextFrame(this);
-    if ((this->actionDelay & 7) == 0) {
+    if ((this->timer & 7) == 0) {
         sub_08025BD4(this);
     }
 
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         sub_08025C2C(this);
     }
 }
@@ -290,13 +290,13 @@ void sub_080254B4(Entity* this) {
 
 void sub_08025514(Entity* this) {
     GetNextFrame(this);
-    if (sub_0802594C(this, this->actionDelay++)) {
+    if (sub_0802594C(this, this->timer++)) {
         this->action = 2;
-        this->actionDelay = 240;
+        this->timer = 240;
         this->field_0x80.HALF.HI = 120;
-    } else if (3 < this->actionDelay) {
+    } else if (3 < this->timer) {
         this->action = 10;
-        this->actionDelay = 0x20;
+        this->timer = 0x20;
     }
 }
 
@@ -305,13 +305,13 @@ void sub_08025554(Entity* this) {
     if (ent == NULL) {
         sub_080256B4(this);
     } else {
-        if ((this->actionDelay & 3) == 0) {
+        if ((this->timer & 3) == 0) {
             this->direction = GetFacingDirection(ent, this);
         }
         sub_08025C44(this);
         GetNextFrame(this);
-        if (this->actionDelay != 0) {
-            this->actionDelay--;
+        if (this->timer != 0) {
+            this->timer--;
         } else {
             if (!sub_080258C4(this)) {
                 sub_080256B4(this);
@@ -329,10 +329,10 @@ void sub_080255AC(Entity* this) {
             this->field_0x80.HALF.HI--;
         }
 
-        if (--this->actionDelay == 0) {
+        if (--this->timer == 0) {
             s32 tmp;
 
-            this->actionDelay = (Random() & 3) + 4;
+            this->timer = (Random() & 3) + 4;
 
             tmp = Random() & 0xf;
             if (tmp < 8) {
@@ -378,8 +378,8 @@ void sub_0802563C(Entity* this) {
 
 void sub_080256B4(Entity* this) {
     this->action = 1;
-    this->actionDelay = (Random() & 3) + 4;
-    this->field_0xf = 0x1e;
+    this->timer = (Random() & 3) + 4;
+    this->subtimer = 0x1e;
     this->direction = (this->direction + 7 + ((s32)Random() % 7) * 4) & 0x1c;
     this->field_0x78.HWORD = gUnk_080CC000[Random() & 0xf];
     this->field_0x7a.HALF.LO = ((s32)Random() % 0x18) << 1;
@@ -454,11 +454,11 @@ bool32 sub_080258C4(Entity* this) {
         iVar4 = iVar4 + iVar1;
         if (this->cutsceneBeh.HWORD == 0 && this->field_0x80.HALF.HI == 0 && 0x400 >= iVar4) {
             this->action = 9;
-            this->actionDelay = 0;
+            this->timer = 0;
             return TRUE;
         } else if (0x900 >= iVar4) {
             this->action = 11;
-            this->actionDelay = 1;
+            this->timer = 1;
             this->field_0x78.HWORD = gUnk_080CC050[Random() & 0xf];
             return TRUE;
         } else {

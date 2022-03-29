@@ -28,14 +28,14 @@ void Beetle_OnTick(Entity* this) {
 }
 
 void Beetle_OnCollision(Entity* this) {
-    switch (this->bitfield) {
+    switch (this->contactFlags) {
         case 0x80:
             if (gPlayerState.framestate == PL_STATE_CLIMB) {
                 Beetle_OnTick(this);
             } else {
                 this->action = 5;
-                this->actionDelay = 0xb4;
-                this->field_0xf = 0;
+                this->timer = 0xb4;
+                this->subtimer = 0;
                 COLLISION_OFF(this);
                 this->spritePriority.b0 = 3;
                 CopyPositionAndSpriteOffset(&gPlayerEntity, this);
@@ -61,7 +61,7 @@ void Beetle_OnDeath(Entity* this) {
     } else {
         Entity* ent = this->parent;
         if (ent != NULL) {
-            ent->field_0xf--;
+            ent->subtimer--;
             this->parent = NULL;
         }
         CreateDeathFx(this, 0xf0, 0);
@@ -93,7 +93,7 @@ void sub_08021888(Entity* this) {
 void Beetle_Initialize(Entity* this) {
     sub_0804A720(this);
     this->action = 1;
-    this->field_0x1c = 1;
+    this->gustJarFlags = 1;
     InitializeAnimation(this, 3);
 }
 
@@ -119,8 +119,8 @@ void sub_080218CC(Entity* this) {
 
     if (this->frame & ANIM_DONE) {
         this->action = 2;
-        this->actionDelay = (Random() & 0x38) + 8;
-        this->field_0xf = 1;
+        this->timer = (Random() & 0x38) + 8;
+        this->subtimer = 1;
         COLLISION_ON(this);
         this->speed = 0x180;
         InitializeAnimation(this, 0);
@@ -140,8 +140,8 @@ void sub_08021984(Entity* this) {
 
     if (GravityUpdate(this, 0x1800) == 0) {
         this->action = 2;
-        this->actionDelay = 16;
-        this->field_0xf = 1;
+        this->timer = 16;
+        this->subtimer = 1;
         this->spriteSettings.draw = 1;
         this->speed = 0x180;
         ((u8*)&this->field_0x86)[0] = 60;
@@ -153,9 +153,9 @@ void sub_08021984(Entity* this) {
 void sub_08021A10(Entity* this) {
     GetNextFrame(this);
     if (EntityInRectRadius(this, &gPlayerEntity, 120, 80) && sub_08021D00(this) == 0) {
-        if (--this->actionDelay == 0) {
+        if (--this->timer == 0) {
             this->action = 3;
-            this->actionDelay = (Random() & 0x3f) + 30;
+            this->timer = (Random() & 0x3f) + 30;
             sub_08021D44(this, this->direction);
             InitializeAnimation(this, 2);
         }
@@ -164,16 +164,16 @@ void sub_08021A10(Entity* this) {
 
 void sub_08021A64(Entity* this) {
     if (!sub_08021D00(this)) {
-        if (--this->actionDelay == 0) {
+        if (--this->timer == 0) {
             this->action = 2;
-            this->actionDelay = (Random() & 0x1f) + 0x1e;
+            this->timer = (Random() & 0x1f) + 0x1e;
             InitializeAnimation(this, 0);
         }
 
-        if (--this->field_0xf == 0) {
+        if (--this->subtimer == 0) {
             u32 tmp;
 
-            this->field_0xf = 8;
+            this->subtimer = 8;
             tmp = sub_08049F84(this, 1);
             if (tmp == 0xff) {
                 this->action = 7;
@@ -190,14 +190,14 @@ void sub_08021A64(Entity* this) {
 void sub_08021AD8(Entity* this) {
     GetNextFrame(this);
     if (this->frame & 1) {
-        if (this->actionDelay) {
+        if (this->timer) {
             u32 tmp;
 
-            this->actionDelay = 0;
+            this->timer = 0;
             tmp = sub_08049F84(this, 1);
             if (tmp == 0xff) {
                 this->action = 2;
-                this->actionDelay = '\b';
+                this->timer = '\b';
                 InitializeAnimation(this, 0);
                 return;
             }
@@ -211,7 +211,7 @@ void sub_08021AD8(Entity* this) {
 
     if (this->frame & ANIM_DONE) {
         this->action = 2;
-        this->actionDelay = 20;
+        this->timer = 20;
         ((u8*)&this->field_0x86)[0] = 60;
         InitializeAnimation(this, 0);
     }
@@ -228,11 +228,11 @@ void sub_08021B64(Entity* this) {
             if (sub_0807953C())
                 iVar4 = this->type * 3 + 8;
 
-            iVar4 = this->actionDelay - iVar4;
+            iVar4 = this->timer - iVar4;
             if (iVar4 < 0)
                 iVar4 = 0;
 
-            this->actionDelay = (u8)iVar4;
+            this->timer = (u8)iVar4;
         }
 
         if (gPlayerState.flags & (PL_DISABLE_ITEMS | PL_CAPTURED))
@@ -253,7 +253,7 @@ void sub_08021B64(Entity* this) {
             gPlayerState.speed_modifier -= 0x50;
             gPlayerState.field_0xaa++;
             CopyPositionAndSpriteOffset(&gPlayerEntity, this);
-            this->x.HALF.HI += gUnk_080CB5E4[(this->field_0xf++ & 0xe) >> 1];
+            this->x.HALF.HI += gUnk_080CB5E4[(this->subtimer++ & 0xe) >> 1];
             this->z.HALF.HI--;
             GetNextFrame(this);
         }
@@ -270,8 +270,8 @@ void sub_08021C58(Entity* this) {
 
     if (this->frame & ANIM_DONE) {
         this->action = 2;
-        this->actionDelay = 60;
-        this->field_0xf = 1;
+        this->timer = 60;
+        this->subtimer = 1;
         COLLISION_ON(this);
         this->spritePriority.b0 = 4;
         ((u8*)&this->field_0x86)[0] = 60;
@@ -300,7 +300,7 @@ u32 sub_08021D00(Entity* this) {
         ret = 0;
     } else {
         this->action = 4;
-        this->actionDelay = 1;
+        this->timer = 1;
         this->zVelocity = Q_16_16(1.5);
         InitializeAnimation(this, 4);
         ret = 1;

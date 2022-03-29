@@ -38,7 +38,7 @@ void sub_08022960(Entity* this) {
 }
 
 void sub_08022970(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         sub_08022AA4(this);
     }
 }
@@ -47,8 +47,8 @@ void sub_08022988(Entity* this) {
     if (this->z.HALF.HI == 0 && sub_08022B20(this)) {
         sub_08022B0C(this);
     } else {
-        if (this->field_0xf) {
-            if (--this->field_0xf)
+        if (this->subtimer) {
+            if (--this->subtimer)
                 return;
 
             this->frameIndex = 1;
@@ -58,10 +58,10 @@ void sub_08022988(Entity* this) {
 
         ProcessMovement0(this);
         if (GravityUpdate(this, 0x2000) == 0) {
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 sub_08022A88(this);
             } else {
-                this->field_0xf = 4;
+                this->subtimer = 4;
                 this->frameIndex = 0;
             }
         }
@@ -70,10 +70,10 @@ void sub_08022988(Entity* this) {
 
 void sub_080229F8(Entity* this) {
     if (GravityUpdate(this, 0x2800) == 0) {
-        if (--this->actionDelay == 0) {
+        if (--this->timer == 0) {
             this->action = 4;
-            this->actionDelay = 6;
-            this->field_0xf = 8;
+            this->timer = 6;
+            this->subtimer = 8;
             this->frameIndex = 0;
             this->speed = 0xc0;
             sub_08022B44(this);
@@ -85,8 +85,8 @@ void sub_080229F8(Entity* this) {
 }
 
 void sub_08022A40(Entity* this) {
-    if (this->field_0xf) {
-        if (--this->field_0xf)
+    if (this->subtimer) {
+        if (--this->subtimer)
             return;
 
         this->frameIndex = 1;
@@ -94,7 +94,7 @@ void sub_08022A40(Entity* this) {
 
     ProcessMovement0(this);
     if (GravityUpdate(this, 0x2000) == 0) {
-        if (--this->actionDelay == 0) {
+        if (--this->timer == 0) {
             sub_08022A88(this);
         } else {
             sub_08022B44(this);
@@ -104,7 +104,7 @@ void sub_08022A40(Entity* this) {
 
 void sub_08022A88(Entity* this) {
     this->action = 1;
-    this->actionDelay = (Random() & 0xf) + 8;
+    this->timer = (Random() & 0xf) + 8;
     this->frameIndex = 0;
 }
 
@@ -112,8 +112,8 @@ void sub_08022AA4(Entity* this) {
     u32 rand = Random();
 
     this->action = 2;
-    this->actionDelay = (rand & 3) + 1;
-    this->field_0xf = 1;
+    this->timer = (rand & 3) + 1;
+    this->subtimer = 1;
     this->speed = 0x80;
 
     if (!sub_08049FA0(this) && (rand >> 8) & 3) {
@@ -128,8 +128,8 @@ void sub_08022AA4(Entity* this) {
 
 void sub_08022B0C(Entity* this) {
     this->action = 3;
-    this->actionDelay = 3;
-    this->field_0xf = 8;
+    this->timer = 3;
+    this->subtimer = 8;
     sub_08022B44(this);
 }
 

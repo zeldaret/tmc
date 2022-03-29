@@ -14,13 +14,13 @@ void Farmers(Entity* this) {
             return;
         }
         this->action++;
-        this->spriteSettings.flipX = this->actionDelay;
+        this->spriteSettings.flipX = this->timer;
         if (this->spriteSettings.flipX == 0) {
             this->animationState = 6;
         } else {
             this->animationState = 2;
         }
-        this->actionDelay = this->animationState;
+        this->timer = this->animationState;
         sub_0806BC58(this);
         sub_0807DD64(this);
     }
@@ -49,7 +49,7 @@ void sub_0806BC94(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_0806BCB8(Entity* this) {
-    this->animationState = this->actionDelay;
+    this->animationState = this->timer;
 }
 
 void sub_0806BCC0(Entity* this) {

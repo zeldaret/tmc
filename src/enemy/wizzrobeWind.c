@@ -36,7 +36,7 @@ void WizzrobeWind_OnCollision(WizzrobeEntity* this) {
         Create0x68FX(super, FX_STARS);
     }
     EnemyFunctionHandlerAfterCollision(super, WizzrobeWind_Functions);
-    if (super->bitfield == 0x87) {
+    if (super->contactFlags == 0x87) {
         Entity* obj = CreateObject(OBJECT_2A, 3, 0);
         if (obj != NULL) {
             obj->spritePriority.b0 = 3;
@@ -57,7 +57,7 @@ void WizzrobeWind_Init(WizzrobeEntity* this) {
         super->speed = 0xc0;
         super->flags |= 0x80;
         this->targetIndex = 0;
-        super->child = (Entity*)GetCurrentRoomProperty(super->actionDelay);
+        super->child = (Entity*)GetCurrentRoomProperty(super->timer);
         sub_0802FA48(this);
         sub_0802FA88(this);
     } else {
@@ -65,8 +65,8 @@ void WizzrobeWind_Init(WizzrobeEntity* this) {
         super->action = 1;
         this->timer2 = 0xff;
         this->timer1 = 0x28;
-        super->actionDelay = 0x28;
-        super->field_0xf = 0x60;
+        super->timer = 0x28;
+        super->subtimer = 0x60;
         sub_0802F888(this);
     }
     projectile = CreateProjectileWithParent(super, WIND_PROJECTILE, 0);
@@ -83,25 +83,25 @@ void WizzrobeWind_Action1(WizzrobeEntity* this) {
     Entity* parent;
     switch (this->timer2) {
         case 0xff:
-            if (--super->field_0xf == 0) {
+            if (--super->subtimer == 0) {
                 this->timer2 = 0;
             }
             break;
         case 0:
-            if (--super->actionDelay == 0) {
+            if (--super->timer == 0) {
                 this->timer2++;
-                super->actionDelay = 0x10;
+                super->timer = 0x10;
                 super->flags |= 0x80;
             }
             break;
         case 1:
-            if (--super->actionDelay == 0) {
+            if (--super->timer == 0) {
                 super->action = 2;
                 this->timer2 = 0;
-                super->actionDelay = 0x28;
+                super->timer = 0x28;
                 tmp = super->direction >> 3;
                 parent = super->parent;
-                parent->actionDelay = 1;
+                parent->timer = 1;
                 parent->spriteSettings.draw = 1;
                 InitializeAnimation(super, tmp | 4);
             }
@@ -113,11 +113,11 @@ void WizzrobeWind_Action1(WizzrobeEntity* this) {
 void WizzrobeWind_Action2(WizzrobeEntity* this) {
     switch (this->timer2) {
         case 0:
-            switch (--super->actionDelay) {
+            switch (--super->timer) {
                 case 0:
                     this->timer2++;
-                    super->actionDelay = 0x38;
-                    super->field_0xf = 0;
+                    super->timer = 0x38;
+                    super->subtimer = 0;
                     super->parent->spriteSettings.draw = 0;
                     break;
                 case 8:
@@ -131,11 +131,11 @@ void WizzrobeWind_Action2(WizzrobeEntity* this) {
             }
             break;
         case 1:
-            if (--super->actionDelay == 0) {
+            if (--super->timer == 0) {
                 this->timer2++;
                 this->timer1 = 0x28;
-                super->actionDelay = 0x28;
-                super->field_0xf = 0;
+                super->timer = 0x28;
+                super->subtimer = 0;
                 super->flags &= 0x7f;
                 EnqueueSFX(SFX_156);
                 SetTile(this->tileIndex, this->tilePosition, super->collisionLayer);
@@ -143,18 +143,18 @@ void WizzrobeWind_Action2(WizzrobeEntity* this) {
             }
             break;
         case 2:
-            if (--super->actionDelay == 0) {
+            if (--super->timer == 0) {
                 this->timer2++;
-                super->actionDelay = (Random() & 0x3f) + 0x20;
+                super->timer = (Random() & 0x3f) + 0x20;
                 super->spriteSettings.draw = 0;
             }
             break;
         case 3:
-            if (--super->actionDelay == 0) {
+            if (--super->timer == 0) {
                 super->action = 1;
                 this->timer2 = 0;
                 this->timer1 = 0x28;
-                super->actionDelay = 0x28;
+                super->timer = 0x28;
                 EnqueueSFX(SFX_156);
                 sub_0802F8E4(this);
                 InitializeAnimation(super, super->direction >> 3);
@@ -174,25 +174,25 @@ void WizzrobeWind_Action3(WizzrobeEntity* this) {
         switch (this->timer2) {
             case 0:
                 this->timer2 = 1;
-                super->actionDelay = 0x40;
+                super->timer = 0x40;
                 break;
             case 1:
-                if (--super->actionDelay != 0) {
+                if (--super->timer != 0) {
                     return;
                 }
                 this->timer2++;
-                super->actionDelay = 0x28;
-                parent->actionDelay = 1;
+                super->timer = 0x28;
+                parent->timer = 1;
                 parent->spriteSettings.draw = 1;
                 InitializeAnimation(super, super->animationState >> 1 | 4);
                 break;
             case 2:
-                if (--super->actionDelay == 0) {
+                if (--super->timer == 0) {
                     this->timer2++;
-                    super->actionDelay = (Random() & 0x1f) + 0x30;
+                    super->timer = (Random() & 0x1f) + 0x30;
                     parent->spriteSettings.draw = 0;
                     InitializeAnimation(super, super->animationState >> 1);
-                } else if (super->actionDelay == 8) {
+                } else if (super->timer == 8) {
                     parent = CreateProjectileWithParent(super, WIND_PROJECTILE, 1);
                     if (parent != NULL) {
                         parent->direction = super->direction & 0x18;
@@ -250,7 +250,7 @@ void sub_0802F8E4(WizzrobeEntity* this) {
 }
 
 void sub_0802F9C8(WizzrobeEntity* this) {
-    if (super->field_0xf == 0) {
+    if (super->subtimer == 0) {
         if (this->timer1 != 0) {
             if ((--this->timer1 & 1) != 0) {
                 super->spriteSettings.draw = 0;

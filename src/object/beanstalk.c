@@ -76,8 +76,8 @@ void Beanstalk_Init(BeanstalkEntity* this) {
             return;
         }
 #endif
-        if (super->type2 == 0 && super->actionDelay != 0) {
-            if (CheckLocalFlag(super->actionDelay) == 0) {
+        if (super->type2 == 0 && super->timer != 0) {
+            if (CheckLocalFlag(super->timer) == 0) {
                 return;
             }
             super->spriteOrientation.flipY = 2;
@@ -104,22 +104,22 @@ void Beanstalk_Init(BeanstalkEntity* this) {
         case 5:
         case 6:
             super->spriteVramOffset = 0x1c0;
-            super->actionDelay = 0;
+            super->timer = 0;
             break;
         case 7:
             switch (super->type2) {
                 case 0:
                     this->unk_6c = 0x10;
-                    super->actionDelay = 0;
+                    super->timer = 0;
                     do {
                         obj = CreateObject(BEANSTALK, 7, 1);
                         super->child = obj;
                         if (obj != NULL) {
                             obj->x.HALF.HI = super->x.HALF.HI;
                             (super->child)->y.HALF.HI = super->y.HALF.HI - (s16)this->unk_6c;
-                            super->field_0xf = 4;
-                            while (--super->field_0xf != 0) {
-                                ptr = &gUnk_08120DFC[super->actionDelay];
+                            super->subtimer = 4;
+                            while (--super->subtimer != 0) {
+                                ptr = &gUnk_08120DFC[super->timer];
                                 obj = CreateObject(BEANSTALK, 7, ptr->type - 2);
                                 super->child = obj;
                                 if (obj != NULL) {
@@ -127,15 +127,15 @@ void Beanstalk_Init(BeanstalkEntity* this) {
                                     (super->child)->y.HALF.HI = (super->y.HALF.HI - (s16)this->unk_6c) - ptr->y;
                                     super->child->spriteSettings.flipX = ptr->flipX;
                                 }
-                                super->actionDelay++;
+                                super->timer++;
                             }
-                            if (super->actionDelay > 5) {
-                                super->actionDelay = 0;
+                            if (super->timer > 5) {
+                                super->timer = 0;
                             }
                         }
                         this->unk_6c += 0x38;
                     } while (((s16)(super->y.HALF_U.HI - this->unk_6c)) >= gRoomControls.origin_y);
-                    super->actionDelay = 1;
+                    super->timer = 1;
                     break;
                 case 2:
                 case 3:
@@ -170,19 +170,19 @@ void Beanstalk_Action1Type0(BeanstalkEntity* this) {
 void Beanstalk_Action1Type0SubAction0(BeanstalkEntity* this) {
     UpdateAnimationSingleFrame(super);
     if ((super->frame & ANIM_DONE) != 0) {
-        if (super->actionDelay < 2) {
-            super->actionDelay++;
+        if (super->timer < 2) {
+            super->timer++;
         } else {
             InitAnimationForceUpdate(super, 1);
-            super->actionDelay = 0x10;
+            super->timer = 0x10;
             super->subAction++;
         }
     }
 }
 
 void Beanstalk_Action1Type0SubAction1(BeanstalkEntity* this) {
-    if (super->actionDelay-- == 0) {
-        super->actionDelay = 0x10;
+    if (super->timer-- == 0) {
+        super->timer = 0x10;
         SoundReq(SFX_198);
     }
     UpdateAnimationSingleFrame(super);
@@ -205,8 +205,8 @@ void Beanstalk_Action1Type0SubAction1(BeanstalkEntity* this) {
 }
 
 void Beanstalk_Action1Type0SubAction2(BeanstalkEntity* this) {
-    if (super->actionDelay-- == 0) {
-        super->actionDelay = 0x10;
+    if (super->timer-- == 0) {
+        super->timer = 0x10;
         SoundReq(SFX_198);
     }
 }
@@ -217,15 +217,15 @@ void Beanstalk_Action1Type2(BeanstalkEntity* this) {
 
     GetNextFrame(super);
     if ((super->frame & 1) != 0) {
-        ptr = &gUnk_08120DFC[super->actionDelay];
+        ptr = &gUnk_08120DFC[super->timer];
         super->child = CreateObject(BEANSTALK, ptr->type, 0);
         if (super->child != NULL) {
             super->child->x.HALF.HI = super->x.HALF.HI + ptr->x;
             super->child->y.HALF.HI = super->y.HALF.HI - ptr->y;
             super->child->spriteSettings.flipX = ptr->flipX;
         }
-        if (++super->actionDelay > 5) {
-            super->actionDelay = 0;
+        if (++super->timer > 5) {
+            super->timer = 0;
         }
     }
     if ((super->frame & ANIM_DONE) != 0) {
@@ -253,7 +253,7 @@ void Beanstalk_Action1Type1(BeanstalkEntity* this) {
 void Beanstalk_Action1Type7(BeanstalkEntity* this) {
     switch (super->type2) {
         case 0:
-            if (super->actionDelay == 0) {
+            if (super->timer == 0) {
                 return;
             }
             this->unk_6c = gRoomControls.origin_y;
@@ -269,7 +269,7 @@ void Beanstalk_Action1Type7(BeanstalkEntity* this) {
                     break;
                 }
             }
-            super->actionDelay = 0;
+            super->timer = 0;
             return;
             break;
         case 1:
@@ -279,15 +279,15 @@ void Beanstalk_Action1Type7(BeanstalkEntity* this) {
         case 4:
             if (gPlayerState.floor_type == 0x1e) {
                 if (EntityInRectRadius(super, &gPlayerEntity, 0, 8)) {
-                    if ((super->animIndex == (super->type2 - 1) * 3 + 1) && (super->actionDelay == 0)) {
-                        super->actionDelay = 1;
+                    if ((super->animIndex == (super->type2 - 1) * 3 + 1) && (super->timer == 0)) {
+                        super->timer = 1;
                         InitializeAnimation(super, super->animIndex + 1);
                     }
                 } else {
-                    super->actionDelay = 0;
+                    super->timer = 0;
                 }
             } else {
-                super->actionDelay = 0;
+                super->timer = 0;
             }
             GetNextFrame(super);
             if ((super->frame & ANIM_DONE) != 0) {
@@ -319,7 +319,7 @@ void Beanstalk_Action1Type8SubAction0(BeanstalkEntity* this) {
         obj->spriteVramOffset = super->spriteVramOffset;
         obj->palette.b.b0 = super->palette.b.b0;
         obj->animIndex = 2;
-        obj->actionDelay = 0x80;
+        obj->timer = 0x80;
         obj->type = 1;
         obj->spriteRendering.b3 = 2;
         obj->spritePriority.b0 = 6;

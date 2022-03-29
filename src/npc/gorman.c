@@ -46,13 +46,13 @@ void sub_080697EC(Entity* this) {
 
     tmp = GetAnimationStateInRectRadius(this, 0x20, 0x20);
     if (tmp >= 0) {
-        if (this->field_0xf == 0) {
-            this->field_0xf = 0x10;
+        if (this->subtimer == 0) {
+            this->subtimer = 0x10;
             if (this->animIndex != tmp) {
                 InitializeAnimation(this, tmp);
             }
         } else {
-            this->field_0xf -= 1;
+            this->subtimer -= 1;
         }
     }
     if (this->interactType != 0) {

@@ -30,11 +30,11 @@ void TektiteGolden_OnCollision(Entity* this) {
         Create0x68FX(this, FX_STARS);
     }
     EnemyFunctionHandlerAfterCollision(this, &TektiteGolden_Functions);
-    if (this->bitfield == 0x94) {
+    if (this->contactFlags == 0x94) {
         this->action = 1;
         this->subAction = 0;
-        this->actionDelay = 0x14;
-        this->field_0xf = 0;
+        this->timer = 0x14;
+        this->subtimer = 0;
         this->field_0x80.HALF.LO = 0;
         if (this->z.HALF.HI != 0) {
             this->zVelocity >>= 2;
@@ -49,7 +49,7 @@ void TektiteGolden_OnCollision(Entity* this) {
 void TektiteGolden_OnDeath(Entity* this) {
     u32 uVar1;
 
-    if ((this->field_0x3a & 2) == 0) {
+    if ((this->gustJarState & 2) == 0) {
         SetGlobalFlag(this->type2);
     }
     if (this->type != 0) {
@@ -75,27 +75,27 @@ void sub_08037FA0(Entity* this) {
     sub_0804A720(this);
     this->action = 1;
     this->subAction = 0;
-    this->actionDelay = (Random() & 0x1f) + 0x20;
-    this->field_0xf = 0;
+    this->timer = (Random() & 0x1f) + 0x20;
+    this->subtimer = 0;
     this->field_0x80.HALF.LO = 0;
     InitializeAnimation(this, 0);
 }
 
 void sub_08037Fe0(Entity* this) {
     UpdateAnimationVariableFrames(this, 2);
-    if (this->actionDelay != 0) {
-        this->actionDelay--;
-    } else if (this->field_0xf != 0) {
+    if (this->timer != 0) {
+        this->timer--;
+    } else if (this->subtimer != 0) {
         if (this->frame & ANIM_DONE) {
             this->action = 2;
-            this->actionDelay = 6;
-            this->field_0xf = 0;
+            this->timer = 6;
+            this->subtimer = 0;
             this->zVelocity = Q_16_16(3.5);
             sub_08038168(this);
             InitializeAnimation(this, 2);
         }
     } else if (this->frame & ANIM_DONE) {
-        this->field_0xf = 0x40;
+        this->subtimer = 0x40;
         InitializeAnimation(this, 1);
     }
 }
@@ -112,7 +112,7 @@ void sub_08038048(Entity* this) {
     if (sub_080044EC(this, 0x3000) == 1) {
         this->action = 3;
         this->subAction = 0;
-        this->actionDelay = 0x14;
+        this->timer = 0x14;
         InitializeAnimation(this, 3);
         return;
     } else if (this->collisions != COL_NONE) {
@@ -121,8 +121,8 @@ void sub_08038048(Entity* this) {
         this->direction = (this->direction + 0x10) & 0x1f;
     }
 
-    if (--this->actionDelay == 0) {
-        this->actionDelay = rand + 0x10;
+    if (--this->timer == 0) {
+        this->timer = rand + 0x10;
         sub_08038168(this);
     }
 
@@ -145,14 +145,14 @@ void sub_08038110(Entity* this) {
     if (this->frame & ANIM_DONE) {
         if (this->field_0x80.HALF.LO < 5) {
             this->action = 2;
-            this->actionDelay = 8;
+            this->timer = 8;
             this->zVelocity = Q_16_16(3.5);
             sub_08038168(this);
             InitializeAnimation(this, 2);
         } else {
             this->action = 1;
             this->field_0x80.HALF.LO = 0;
-            this->actionDelay = 0xc0;
+            this->timer = 0xc0;
             InitializeAnimation(this, 0);
         }
     }

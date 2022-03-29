@@ -36,7 +36,7 @@ void Townsperson(Entity* this) {
 void sub_08061BC8(Entity* this) {
     if (LoadExtraSpriteData(this, gUnk_0810B6EC[this->type])) {
         this->animationState = 2;
-        this->field_0xf = this->type + 1;
+        this->subtimer = this->type + 1;
         this->action++;
         sub_08061CB4(this, 2);
     }
@@ -49,10 +49,10 @@ void sub_08061C00(Entity* this) {
     if (uVar1 < 0) {
         uVar1 = this->animationState + 4;
     } else {
-        if (this->field_0xf == 0) {
-            this->field_0xf = 0x10;
+        if (this->subtimer == 0) {
+            this->subtimer = 0x10;
         } else {
-            this->field_0xf--;
+            this->subtimer--;
             uVar1 = this->animIndex & 3;
         }
     }
@@ -89,7 +89,7 @@ void sub_08061CEC(Entity* this) {
     if (LoadExtraSpriteData(this, gUnk_0810B6EC[this->type])) {
         this->action = 1;
         this->spriteSettings.draw = TRUE;
-        this->animationState = this->actionDelay;
+        this->animationState = this->timer;
         this->field_0x68.HALF.HI = 0xff;
         uVar2 = sub_0805ACC0(this);
         if (uVar2 == 0) {

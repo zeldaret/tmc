@@ -25,9 +25,9 @@ void V1DarkMagicProjectile_OnTick(Entity* this) {
 }
 
 void sub_080AAC44(Entity* this) {
-    if ((this->bitfield & 0x80) != 0) {
+    if ((this->contactFlags & 0x80) != 0) {
         if (this->type2 == 0) {
-            if ((this->bitfield & 0x3f) == 0) {
+            if ((this->contactFlags & 0x3f) == 0) {
                 this->action = 2;
                 COLLISION_OFF(this);
                 if (this->type == 0) {
@@ -117,8 +117,8 @@ void V1DarkMagicProjectile_Init(Entity* this) {
         SortEntityAbove(this->parent, this);
     }
     if (this->type == 0) {
-        this->actionDelay = 0;
-        this->field_0xf = 4;
+        this->timer = 0;
+        this->subtimer = 4;
         this->field_0x80.HALF.LO = 0;
         this->field_0x80.HALF.HI = 0;
         this->health = 0x10;
@@ -149,8 +149,8 @@ void V1DarkMagicProjectile_Action1(Entity* this) {
 
     switch (this->type) {
         case 0:
-            if (--this->field_0xf == 0) {
-                this->field_0xf = 4;
+            if (--this->subtimer == 0) {
+                this->subtimer = 4;
                 uVar2 = GetFacingDirection(this, &gPlayerEntity);
                 sub_08004596(this, uVar2);
             }
@@ -199,8 +199,8 @@ void sub_080AAF74(Entity* this) {
     if (sub_0807953C() != 0) {
         this->field_0x80.HALF.LO += (Random() & 1) + 1;
     }
-    if (++this->actionDelay == 0x3c) {
-        this->actionDelay = 0x1e;
+    if (++this->timer == 0x3c) {
+        this->timer = 0x1e;
         gPlayerEntity.iframes = 8;
         ModHealth(-4);
         SoundReqClipped(&gPlayerEntity, SFX_PLY_VO6);

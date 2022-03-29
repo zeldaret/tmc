@@ -40,7 +40,7 @@ void RopeGolden_OnCollision(Entity* this) {
 }
 
 void RopeGolden_OnDeath(Entity* this) {
-    if ((this->field_0x3a & 2) == 0) {
+    if ((this->gustJarState & 2) == 0) {
         SetGlobalFlag(this->type2);
     }
     CreateDeathFx(this, 0xff, 0x58);
@@ -56,8 +56,8 @@ void sub_08038258(Entity* this) {
 }
 
 void sub_0803827C(Entity* this) {
-    if (this->field_0xf != 0) {
-        this->field_0xf--;
+    if (this->subtimer != 0) {
+        this->subtimer--;
     } else {
         if ((sub_0804A044(this, &gPlayerEntity, 0x8) != 0xff) ||
             (EntityWithinDistance(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x24) != 0)) {
@@ -69,14 +69,14 @@ void sub_0803827C(Entity* this) {
     if (ProcessMovement0(this) == 0) {
         sub_080383AC(this);
     } else {
-        if (!(--this->actionDelay)) {
+        if (!(--this->timer)) {
             sub_080383AC(this);
         }
     }
 }
 
 void sub_080382EC(Entity* this) {
-    if (!(--this->actionDelay)) {
+    if (!(--this->timer)) {
         this->action = 3;
     }
 }
@@ -86,7 +86,7 @@ ASM_FUNC("asm/non_matching/ropeGolden/sub_08038304.inc", void sub_08038304(Entit
 void sub_080383AC(Entity* this) {
     u32 v;
     this->action = 1;
-    this->actionDelay = 0x8;
+    this->timer = 0x8;
     this->speed = 0x100;
     this->direction = DirectionRoundUp(GetFacingDirection(this, &gPlayerEntity));
     v = this->direction >> 3;
@@ -99,7 +99,7 @@ void sub_080383AC(Entity* this) {
 void sub_080383E4(Entity* this) {
     u32 v;
     this->action = 2;
-    this->actionDelay = 0x8;
+    this->timer = 0x8;
     this->speed = 0x280;
     v = DirectionRoundUp(GetFacingDirection(this, &gPlayerEntity));
     this->direction = v;

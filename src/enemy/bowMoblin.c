@@ -59,11 +59,11 @@ void BowMoblin_OnCollision(BowMoblinEntity* this) {
         Create0x68FX(super, FX_STARS);
     }
     EnemyFunctionHandlerAfterCollision(super, (EntityActionArray)BowMoblin_Functions);
-    if ((super->bitfield & 0x80) != 0) {
+    if ((super->contactFlags & 0x80) != 0) {
         sub_0803C5F0(this);
         pEVar1 = super->child;
         if (pEVar1 != NULL) {
-            pEVar1->field_0xf++;
+            pEVar1->subtimer++;
         }
     }
 }
@@ -82,9 +82,9 @@ void sub_0803C1E0(BowMoblinEntity* this) {
     this->unk_0x7a = 0;
     this->unk_0x82 = 1;
 
-    if (super->actionDelay) {
+    if (super->timer) {
         super->animationState = super->type2 << 1;
-        super->actionDelay = 0x1e;
+        super->timer = 0x1e;
         super->speed = 0x80;
         super->direction = super->type2 << 3;
         sub_0803C690(this);
@@ -100,7 +100,7 @@ void sub_0803C234(BowMoblinEntity* this) {
         this->unk_0x81--;
     }
     mask = 0xff;
-    if (((--super->actionDelay) & mask) == 0) {
+    if (((--super->timer) & mask) == 0) {
         u8 tmp = ++this->unk_0x80;
 
         if ((tmp) > 0xf) {
@@ -125,30 +125,30 @@ void sub_0803C234(BowMoblinEntity* this) {
 
 void sub_0803C2DC(BowMoblinEntity* this) {
     u32 res;
-    u32 actionDelay = --super->actionDelay;
-    if (actionDelay == 0) {
+    u32 timer = --super->timer;
+    if (timer == 0) {
         super->action = 3;
-        this->unk_0x82 = actionDelay;
-        this->unk_0x80 = actionDelay;
+        this->unk_0x82 = timer;
+        this->unk_0x80 = timer;
         super->animationState = 0x10;
         sub_0803C4B0(this);
     } else if (res = sub_0803C568(this), res) {
         this->unk_0x7b |= 0x1;
     }
 
-    if (super->field_0xf > 0xb) {
+    if (super->subtimer > 0xb) {
         if (this->unk_0x7b != 0) {
             sub_0803C5F0(this);
         }
     } else {
-        super->field_0xf++;
+        super->subtimer++;
     }
 
     sub_0803C6DC(this);
 }
 
 void sub_0803C344(BowMoblinEntity* this) {
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         switch (this->unk_0x82) {
             case 3: {
                 super->action = 4;
@@ -166,7 +166,7 @@ void sub_0803C344(BowMoblinEntity* this) {
                 super->action = 2;
                 super->speed = 0;
                 tmp = Random() & 0x7;
-                super->actionDelay = (tmp << 1) + tmp + 0x40;
+                super->timer = (tmp << 1) + tmp + 0x40;
                 break;
             }
             case 4: {
@@ -180,12 +180,12 @@ void sub_0803C344(BowMoblinEntity* this) {
                 this->unk_0x82 = 1;
                 super->speed = 0x80;
                 tmp = (Random() & 0x7);
-                super->actionDelay = (tmp << 1) + tmp + 0x22;
+                super->timer = (tmp << 1) + tmp + 0x22;
                 break;
             }
         }
 
-        super->field_0xf = 0;
+        super->subtimer = 0;
         super->animationState = ((super->direction + 4) & 0x18) >> 2;
         sub_0803C690(this);
     }
@@ -193,16 +193,16 @@ void sub_0803C344(BowMoblinEntity* this) {
 }
 
 void sub_0803C400(BowMoblinEntity* this) {
-    if (super->field_0xf) {
+    if (super->subtimer) {
         u8 mask;
-        super->field_0xf--;
+        super->subtimer--;
         mask = 0xff;
-        if ((super->field_0xf & mask) == 0) {
+        if ((super->subtimer & mask) == 0) {
             if (this->unk_0x82 == 3) {
                 this->unk_0x7a++;
                 if ((this->unk_0x7a & mask) <= 2) {
                     if (Random() & 0xc0) {
-                        super->actionDelay = 0;
+                        super->timer = 0;
                         sub_0803C690(this);
                         sub_0803C6DC(this);
                         return;
@@ -213,7 +213,7 @@ void sub_0803C400(BowMoblinEntity* this) {
         }
     } else {
         Entity* projectile;
-        switch (++super->actionDelay) {
+        switch (++super->timer) {
             case 1:
                 super->direction = super->animationState << 2;
                 projectile = CreateProjectileWithParent(super, ARROW_PROJECTILE, super->animationState >> 1);
@@ -224,8 +224,8 @@ void sub_0803C400(BowMoblinEntity* this) {
                 }
                 break;
             case 24:
-                super->actionDelay = 0;
-                super->field_0xf = 0x20;
+                super->timer = 0;
+                super->subtimer = 0x20;
                 break;
         }
 
@@ -238,9 +238,9 @@ void sub_0803C400(BowMoblinEntity* this) {
 
 void sub_0803C4B0(BowMoblinEntity* this) {
     u32 dir;
-    super->field_0xf = 0;
+    super->subtimer = 0;
     if (this->unk_0x82 == 1) {
-        super->actionDelay = gUnk_080CFFA4[Random() & 7];
+        super->timer = gUnk_080CFFA4[Random() & 7];
         super->speed = 0x80;
         if (sub_08049FA0(super)) {
             dir = Random();
@@ -252,14 +252,14 @@ void sub_0803C4B0(BowMoblinEntity* this) {
                 dir += gUnk_080CFFAC[Random() & 0xf];
             } else {
                 dir += gUnk_080CFFAC[Random() & 0x7];
-                super->actionDelay += 0x10;
+                super->timer += 0x10;
                 this->unk_0x83--;
             }
             dir = (super->direction = (dir + 4) & 0x18) >> 2;
         }
     } else {
-        super->actionDelay = 0xc;
-        super->speed = super->field_0xf;
+        super->timer = 0xc;
+        super->speed = super->subtimer;
         dir = super->direction >> 2;
     }
     if (dir != super->animationState) {
@@ -319,14 +319,14 @@ void sub_0803C634(BowMoblinEntity* this) {
     super->direction = super->animationState << 2;
     this->unk_0x83 = 0;
     sub_0803C664(this);
-    super->actionDelay <<= 1;
+    super->timer <<= 1;
     this->unk_0x82 = 4;
 }
 
 void sub_0803C664(BowMoblinEntity* this) {
     super->action = 3;
-    super->actionDelay = 0x20;
-    super->field_0xf = 0;
+    super->timer = 0x20;
+    super->subtimer = 0;
     this->unk_0x80 = 0;
     this->unk_0x7b = 0;
     super->speed = 0;

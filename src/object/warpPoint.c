@@ -34,7 +34,7 @@ void WarpPoint(Entity* this) {
 void sub_0808B474(Entity* this) {
     u32 tmp;
     this->action = 1;
-    this->field_0xf = 0;
+    this->subtimer = 0;
     tmp = gUnk_08121380[this->type];
     this->palette.b.b0 = tmp;
     this->spritePriority.b0 = 6;
@@ -51,12 +51,12 @@ void sub_0808B474(Entity* this) {
     if (!sub_0808B7C8(this))
         return;
     this->action = 4;
-    this->field_0xf = 0x60;
+    this->subtimer = 0x60;
     gPlayerEntity.x.HALF.HI = this->x.HALF.HI;
     gPlayerEntity.y.HALF.HI = this->y.HALF.HI;
     gPlayerEntity.animationState = 4;
     EnqueueSFX(SFX_112);
-    RequestPriorityDuration(this, this->field_0xf + 0x10);
+    RequestPriorityDuration(this, this->subtimer + 0x10);
 }
 
 void sub_0808B530(Entity* this) {
@@ -66,66 +66,66 @@ void sub_0808B530(Entity* this) {
             sub_0807CAC8(this->type);
         }
         this->action = 2;
-        this->field_0xf = 60;
+        this->subtimer = 60;
         EnqueueSFX(SFX_112);
     }
 }
 
 void sub_0808B564(Entity* this) {
-    if (!--this->field_0xf) {
+    if (!--this->subtimer) {
         this->action = 3;
     } else {
-        this->spriteSettings.draw = this->field_0xf & 2 ? 0 : 1;
+        this->spriteSettings.draw = this->subtimer & 2 ? 0 : 1;
     }
 }
 
 void sub_0808B590(Entity* this) {
     GetNextFrame(this);
     if (sub_0808B7C8(this)) {
-        if (this->actionDelay)
+        if (this->timer)
             return;
         this->action = 5;
-        this->field_0xf = 0x60;
+        this->subtimer = 0x60;
         PutAwayItems();
         gPlayerEntity.x.HALF.HI = this->x.HALF.HI;
         gPlayerEntity.y.HALF.HI = this->y.HALF.HI;
         gPlayerEntity.animationState = 4;
         gPlayerEntity.flags &= ~ENT_COLLIDE;
-        RequestPriorityDuration(this, this->field_0xf + 0x10);
+        RequestPriorityDuration(this, this->subtimer + 0x10);
         SoundReq(SFX_113);
     } else {
-        this->actionDelay = 0;
+        this->timer = 0;
     }
 }
 
 void sub_0808B5E8(Entity* this) {
     u32 tmp;
-    if (!--this->field_0xf) {
+    if (!--this->subtimer) {
         this->action = 3;
-        this->actionDelay = 1;
+        this->timer = 1;
         gPlayerEntity.animationState = 4;
         gPlayerEntity.direction = DirectionSouth;
         return;
     }
     tmp = 0;
-    switch (this->field_0xf & 0x60) {
+    switch (this->subtimer & 0x60) {
         case 0x40:
-            if (this->field_0xf == 0x58) {
+            if (this->subtimer == 0x58) {
                 SoundReq(SFX_114);
             }
-            if (!(this->field_0xf & 1)) {
+            if (!(this->subtimer & 1)) {
                 tmp = 1;
             }
             break;
         case 0x20:
-            if (!(this->field_0xf & 3)) {
+            if (!(this->subtimer & 3)) {
                 tmp = 1;
             }
             break;
         case 0:
-            if (!(this->field_0xf & 7)) {
+            if (!(this->subtimer & 7)) {
                 if (gPlayerEntity.animationState == 4) {
-                    if (this->field_0xf > 0x18) {
+                    if (this->subtimer > 0x18) {
                         tmp = 1;
                     }
                 } else {
@@ -142,7 +142,7 @@ void sub_0808B5E8(Entity* this) {
 
 void sub_0808B684(Entity* this) {
     u32 tmp;
-    if (!--this->field_0xf) {
+    if (!--this->subtimer) {
         gRoomTransition.transitioningOut = 1;
         gRoomTransition.type = TRANSITION_DEFAULT;
         gRoomTransition.player_status.area_next = this->field_0x7c.BYTES.byte0;
@@ -158,20 +158,20 @@ void sub_0808B684(Entity* this) {
         return;
     }
     tmp = 0;
-    switch (this->field_0xf & 0x60) {
+    switch (this->subtimer & 0x60) {
         case 0x40:
-            if (!(this->field_0xf & 7)) {
+            if (!(this->subtimer & 7)) {
                 tmp = 1;
             }
             break;
         case 0x20:
-            if (!(this->field_0xf & 3)) {
+            if (!(this->subtimer & 3)) {
                 tmp = 1;
             }
             break;
         case 0:
-            if (this->field_0xf > 0x10) {
-                if (!(this->field_0xf & 1)) {
+            if (this->subtimer > 0x10) {
+                if (!(this->subtimer & 1)) {
                     tmp = 1;
                 }
             } else {
@@ -206,7 +206,7 @@ void sub_0808B73C(Entity* this) {
 u32 sub_0808B7C8(Entity* this) {
     if (!(gPlayerState.flags & PL_MINISH) && gPlayerState.framestate != PL_STATE_DIE && gPlayerEntity.health != 0 &&
         sub_08079F8C() && EntityInRectRadius(this, &gPlayerEntity, 5, 5) && gPlayerEntity.z.HALF.HI == 0) {
-        if (this->actionDelay == 0 && gPlayerEntity.action == PLAYER_08072C9C) {
+        if (this->timer == 0 && gPlayerEntity.action == PLAYER_08072C9C) {
             ResetPlayerAnimationAndAction();
         }
         return 1;
@@ -217,7 +217,7 @@ u32 sub_0808B7C8(Entity* this) {
 void sub_0808B830(Entity* this) {
     Entity* tmp;
     this->action = 3;
-    this->actionDelay = 0;
+    this->timer = 0;
     this->spriteSettings.draw = 1;
     tmp = CreateObject(WARP_POINT, 0, 0);
     if (tmp) {

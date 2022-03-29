@@ -59,30 +59,30 @@ void sub_08088A68(BigBarrelEntity* this) {
     } else {
         if (gRoomVars.animFlags & 1) {
             gRoomVars.animFlags &= ~1;
-            super->actionDelay = 1;
+            super->timer = 1;
             this->unk68 = gUnk_08120C1C;
             SoundReq(SFX_BARREL_ENTER);
         }
         if (gRoomVars.animFlags & 2) {
             gRoomVars.animFlags &= ~2;
-            super->actionDelay = 1;
+            super->timer = 1;
             this->unk68 = gUnk_08120C25;
             SoundReq(SFX_BARREL_RELEASE);
         }
         if (gRoomVars.animFlags & 4) {
             gRoomVars.animFlags &= ~4;
-            super->actionDelay = 1;
+            super->timer = 1;
             this->unk68 = gUnk_08120C2E;
             SoundReq(SFX_BARREL_ENTER);
         }
-        if (super->actionDelay) {
-            if (super->actionDelay-- == 1) {
+        if (super->timer) {
+            if (super->timer-- == 1) {
                 pcVar3 = this->unk68;
                 uVar3 = pcVar3[0];
                 *(u8*)&super->spriteOffsetY = uVar3;
                 pcVar3++;
                 if (*pcVar3 != 0xff) {
-                    super->actionDelay = 8;
+                    super->timer = 8;
                     this->unk68 = pcVar3;
                 } else {
                     super->spriteOffsetY = 0;
@@ -154,8 +154,8 @@ void sub_08088C9C(BigBarrelEntity* this) {
             } else {
                 localFlag = 22;
             }
-            super->field_0xf = localFlag;
-            if (CheckLocalFlag(super->field_0xf) == 0) {
+            super->subtimer = localFlag;
+            if (CheckLocalFlag(super->subtimer) == 0) {
                 return;
             }
 
@@ -163,7 +163,7 @@ void sub_08088C9C(BigBarrelEntity* this) {
             super->action = 4;
             break;
         case 1:
-            if (CheckLocalFlag(super->field_0xf) == 0) {
+            if (CheckLocalFlag(super->subtimer) == 0) {
                 return;
             }
             super->action = 2;
@@ -175,12 +175,12 @@ void sub_08088C9C(BigBarrelEntity* this) {
             gRoomVars.animFlags &= ~0x20;
             super->action = 3;
             super->subAction = 4;
-            super->actionDelay = 1;
+            super->timer = 1;
         case 3:
-            if (--super->actionDelay) {
+            if (--super->timer) {
                 return;
             }
-            super->actionDelay = 8;
+            super->timer = 8;
             x = super->x.HALF.HI;
             if (super->type2) {
                 super->x.HALF.HI = x - 2;
@@ -209,7 +209,7 @@ void sub_08088DB4(BigBarrelEntity* this) {
         case 1:
             if (CheckLocalFlag(super->type2)) {
                 super->action++;
-                super->actionDelay = 10;
+                super->timer = 10;
             }
             break;
         case 2:
@@ -218,15 +218,15 @@ void sub_08088DB4(BigBarrelEntity* this) {
             if ((gRoomVars.animFlags & 8) == 0) {
                 return;
             }
-            if (--super->actionDelay) {
+            if (--super->timer) {
                 return;
             }
-            super->actionDelay = 0x1e;
+            super->timer = 0x1e;
             super->frameIndex++;
             super->action++;
             break;
         default:
-            if (--super->actionDelay == 0) {
+            if (--super->timer == 0) {
                 gRoomVars.animFlags &= ~0x8;
                 DeleteEntity(super);
             }
@@ -277,7 +277,7 @@ void sub_08088F20(BigBarrelEntity* this) {
                 return;
             }
             super->action = 2;
-            super->actionDelay = 30;
+            super->timer = 30;
             RequestPriorityDuration(super, 0x10e);
             pEVar3 = CreateObject(OBJECT_2A, 1, 0);
             if (pEVar3 != NULL) {
@@ -290,7 +290,7 @@ void sub_08088F20(BigBarrelEntity* this) {
             SetTileType(0x76, COORD_TO_TILE(super), 2);
             break;
         case 2:
-            if (--super->actionDelay) {
+            if (--super->timer) {
                 return;
             }
             sub_08089094(this);
@@ -301,10 +301,10 @@ void sub_08088F20(BigBarrelEntity* this) {
                 return;
             }
             super->action = 4;
-            super->actionDelay = 0x78;
+            super->timer = 0x78;
             break;
         default:
-            if (--super->actionDelay == 0x5a) {
+            if (--super->timer == 0x5a) {
                 if (CheckLocalFlags(0x15, 2)) {
                     gRoomVars.animFlags |= 2;
                 } else {
@@ -312,7 +312,7 @@ void sub_08088F20(BigBarrelEntity* this) {
                 }
                 gRoomVars.animFlags |= 0x20;
             }
-            if (super->actionDelay == 0) {
+            if (super->timer == 0) {
                 gRoomVars.animFlags &= ~0x10;
                 if (CheckLocalFlags(0x15, 2)) {
                     RequestPriorityDuration(super, 0x3c);

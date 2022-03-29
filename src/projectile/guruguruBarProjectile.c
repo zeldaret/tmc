@@ -22,7 +22,7 @@ void sub_080AABB0(Entity* this) {
     CopyPosition(parent, this);
 
     tmp = &gSineTable[parent->animationState];
-    factor = this->actionDelay << 8;
+    factor = this->timer << 8;
     this->x.WORD += tmp[0] * factor;
     this->y.WORD -= tmp[0x40] * factor;
 }

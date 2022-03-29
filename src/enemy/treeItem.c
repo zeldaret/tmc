@@ -56,7 +56,7 @@ void TreeItem(Entity* this) {
         case FAIRY_INDEX:
             itemEntity = CreateObject(FAIRY, 0x60, 0);
             if (itemEntity) {
-                itemEntity->actionDelay = 0;
+                itemEntity->timer = 0;
                 CopyPosition(this, itemEntity);
             }
             break;

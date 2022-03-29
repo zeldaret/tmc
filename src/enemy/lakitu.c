@@ -58,7 +58,7 @@ void Lakitu_OnTick(Entity* this) {
 }
 
 void Lakitu_OnCollision(Entity* this) {
-    if ((this->bitfield & 0x7f) == 0x1d) {
+    if ((this->contactFlags & 0x7f) == 0x1d) {
         this->zVelocity = Q_16_16(2.0);
 
         sub_0803CBAC(this);
@@ -102,7 +102,7 @@ void Lakitu_OnGrabbed(Entity* this) {
 
 void sub_0803C844(Entity* this) {
     this->subAction = 1;
-    this->field_0x1d = 0x3c;
+    this->gustJarTolerance = 0x3c;
 }
 
 void sub_0803C850(Entity* this) {
@@ -154,7 +154,7 @@ void Lakitu_EndHide(Entity* this) {
 
     if (this->frame & ANIM_DONE) {
         this->action = IDLE;
-        this->actionDelay = 0x3c;
+        this->timer = 0x3c;
 
         this->hitType = 0x42;
 
@@ -201,11 +201,11 @@ void Lakitu_Lightning(Entity* this) {
     this->hitType = 0x42;
 
     if ((Random() & 1) && !this->field_0x78.HALF.HI) {
-        this->actionDelay = 0xf;
+        this->timer = 0xf;
 
         this->field_0x78.HALF.HI = TRUE;
     } else {
-        this->actionDelay = 0x1e;
+        this->timer = 0x1e;
 
         this->field_0x78.HALF.HI = FALSE;
 
@@ -214,9 +214,9 @@ void Lakitu_Lightning(Entity* this) {
 }
 
 void Lakitu_LightningDelay(Entity* this) {
-    this->actionDelay--;
+    this->timer--;
 
-    if (this->actionDelay != 0) {
+    if (this->timer != 0) {
         return;
     }
 
@@ -224,7 +224,7 @@ void Lakitu_LightningDelay(Entity* this) {
         sub_0803CB34(this);
     } else {
         this->action = IDLE;
-        this->actionDelay = 0xb4;
+        this->timer = 0xb4;
 
         InitAnimationForceUpdate(this, this->animationState + 4);
     }
@@ -279,7 +279,7 @@ bool32 sub_0803CB04(Entity* this) {
     bool32 returnValue;
     u8 delay;
 
-    delay = --this->actionDelay;
+    delay = --this->timer;
     if (delay != 0) {
         returnValue = 0;
     } else {

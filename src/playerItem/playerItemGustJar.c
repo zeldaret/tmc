@@ -28,7 +28,7 @@ void PlayerItemGustJar(Entity* this) {
 
 void PlayerItemGustJar_Init(Entity* this) {
     this->action = 1;
-    this->field_0xf = 0xf;
+    this->subtimer = 0xf;
     this->hitbox = &gUnk_08132B28;
     this->hitbox->unk2[2] = 3;
     this->hitbox->unk2[1] = 3;
@@ -64,11 +64,11 @@ void PlayerItemGustJar_Action2(Entity* this) {
         if (this->type != 0) {
             if (this->type == 1) {
                 sub_080ADCA0(this, 4);
-                this->actionDelay = 24;
+                this->timer = 24;
                 this->type = 2;
             } else {
                 sub_080ADCDC(this, 1);
-                if (this->actionDelay-- == 0) {
+                if (this->timer-- == 0) {
                     sub_080ADCA0(this, 0);
                     this->type = 0;
                 }
@@ -103,13 +103,13 @@ void PlayerItemGustJar_Action2(Entity* this) {
                 windSound = SFX_EE;
                 in_r2 = 1;
             }
-            this->field_0xf = this->field_0xf - in_r2;
+            this->subtimer = this->subtimer - in_r2;
         }
-        if ((s8)this->field_0xf < 0) {
+        if ((s8)this->subtimer < 0) {
             if (windSound) {
                 SoundReq(windSound);
             }
-            this->field_0xf = 15;
+            this->subtimer = 15;
         }
         this->frameIndex = gPlayerEntity.frameIndex - (gPlayerEntity.frame & 0x7f);
     }

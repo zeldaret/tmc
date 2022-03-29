@@ -14,10 +14,10 @@ void sub_0808A40C(Entity* this) {
 
     if (this->action == 0) {
         this->action = 1;
-        this->actionDelay = 0x28;
+        this->timer = 0x28;
     }
-    if (--this->actionDelay == 0) {
-        this->actionDelay = 0x40 - (Random() & 0x1f);
+    if (--this->timer == 0) {
+        this->timer = 0x40 - (Random() & 0x1f);
         ent = CreateObject(SMOKE, 1, 0);
         if (ent != NULL) {
             CopyPosition(this, ent);

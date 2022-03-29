@@ -23,7 +23,7 @@ void SittingPerson(Entity* this) {
 void SittingPersion_Init(Entity* this) {
     if (LoadExtraSpriteData(this, &gUnk_0810CB78[this->type * 3])) {
         this->action = 1;
-        this->spriteSettings.flipX = this->actionDelay;
+        this->spriteSettings.flipX = this->timer;
 
         if (this->spriteSettings.flipX == 0) {
             this->animationState = 6;
@@ -31,7 +31,7 @@ void SittingPersion_Init(Entity* this) {
             this->animationState = 2;
         }
 
-        this->actionDelay = this->animationState;
+        this->timer = this->animationState;
         this->field_0x68.HALF.HI = 0;
         sub_0807DD50(this);
         sub_080637B8(this);
@@ -75,7 +75,7 @@ void sub_08063850(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_08063874(Entity* this) {
-    this->animationState = this->actionDelay;
+    this->animationState = this->timer;
 }
 
 #if defined(EU) || defined(DEMO_JP) || defined(JP)

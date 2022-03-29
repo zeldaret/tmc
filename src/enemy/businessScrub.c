@@ -55,10 +55,10 @@ void BusinessScrub_OnTick(Entity* this) {
 void BusinessScrub_OnCollision(Entity* this) {
     Entity* pEVar1;
 
-    if (this->hitType == 1 && (this->bitfield & 0x7f) == 0x42) {
+    if (this->hitType == 1 && (this->contactFlags & 0x7f) == 0x42) {
         this->action = 3;
         this->subAction = 0;
-        this->actionDelay = 0x28;
+        this->timer = 0x28;
         COLLISION_OFF(this);
         sub_080290E0(this, 4);
         pEVar1 = CreateFx(this, FX_BUSH, 0);
@@ -74,7 +74,7 @@ void BusinessScrub_OnGrabbed(Entity* this) {
 }
 
 void sub_08028994(Entity* this) {
-    this->field_0xf = 0;
+    this->subtimer = 0;
     this->field_0x78.HWORD = this->x.HALF.HI;
     this->field_0x7a.HWORD = this->y.HALF.HI;
     this->animationState = 0;
@@ -82,12 +82,12 @@ void sub_08028994(Entity* this) {
     sub_08028E9C(this);
     if ((*(u8*)this->field_0x7c.WORD & 1) || CheckFlags(this->field_0x86.HWORD)) {
         this->action = 4;
-        this->actionDelay = 0x78;
+        this->timer = 0x78;
         this->spritePriority.b1 = 1;
         sub_0802925C(this);
         sub_080290E0(this, 0);
     } else {
-        this->actionDelay = 0;
+        this->timer = 0;
         this->field_0x76.HWORD = COORD_TO_TILE(this);
         this->field_0x74.HWORD = GetTileIndex(this->field_0x76.HWORD, this->collisionLayer);
         this->hurtType = 0x41;
@@ -96,12 +96,12 @@ void sub_08028994(Entity* this) {
 }
 
 void sub_08028A48(Entity* this) {
-    if (this->actionDelay) {
-        this->actionDelay--;
+    if (this->timer) {
+        this->timer--;
     } else if (sub_08028F98(this, 0)) {
         sub_08029078(this);
         this->subAction = 0;
-        this->field_0xf = 1;
+        this->subtimer = 1;
     }
 }
 
@@ -114,25 +114,25 @@ void sub_08028A74(Entity* this) {
             unk = 1;
             if (this->frame & ANIM_DONE) {
                 this->subAction = 1;
-                this->actionDelay = 0x3c;
-                this->field_0xf = 0x10;
+                this->timer = 0x3c;
+                this->subtimer = 0x10;
                 sub_08028FDC(this);
                 sub_080290E0(this, 1);
             }
             break;
         case 1:
             unk = 1;
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->subAction = 2;
-                this->actionDelay = 0x20;
-                this->field_0xf = 0;
+                this->timer = 0x20;
+                this->subtimer = 0;
                 sub_08028FDC(this);
                 sub_080290E0(this, 2);
-            } else if (--this->field_0xf == 0) {
+            } else if (--this->subtimer == 0) {
                 if (sub_08028FDC(this)) {
                     sub_080290E0(this, 1);
                 }
-                this->field_0xf = 0x10;
+                this->subtimer = 0x10;
             }
             break;
         case 2:
@@ -152,23 +152,23 @@ void sub_08028A74(Entity* this) {
             unk = 2;
             if (this->frame & ANIM_DONE) {
                 this->subAction = 4;
-                this->actionDelay = 0x50;
+                this->timer = 0x50;
                 sub_080290E0(this, 1);
             }
             break;
         case 4:
             unk = 2;
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 if (sub_08028F98(this, 0)) {
                     this->subAction = 1;
-                    this->actionDelay = 0x3c;
-                    this->field_0xf = 0x10;
+                    this->timer = 0x3c;
+                    this->subtimer = 0x10;
                     sub_08028FDC(this);
                 } else {
                     sub_08028FFC(this);
                     this->subAction = 0;
-                    this->actionDelay = 0x50;
-                    this->field_0xf = 0;
+                    this->timer = 0x50;
+                    this->subtimer = 0;
                 }
                 return;
             }
@@ -178,8 +178,8 @@ void sub_08028A74(Entity* this) {
     if (!sub_08028F98(this, unk)) {
         sub_08028FFC(this);
         this->subAction = 0;
-        this->actionDelay = 0x50;
-        this->field_0xf = 0;
+        this->timer = 0x50;
+        this->subtimer = 0;
     }
 }
 
@@ -188,7 +188,7 @@ void sub_08028BC4(Entity* this) {
 
     switch (this->subAction) {
         case 0:
-            if (this->actionDelay == 0) {
+            if (this->timer == 0) {
                 if (this->frame & ANIM_DONE) {
                     this->subAction = 1;
                     sub_08028FDC(this);
@@ -196,15 +196,15 @@ void sub_08028BC4(Entity* this) {
                     this->spritePriority.b1 = 1;
                 }
             } else {
-                this->actionDelay--;
+                this->timer--;
             }
             break;
         case 1:
             if (this->frame & ANIM_DONE) {
                 this->action = 4;
                 this->subAction = 0;
-                this->actionDelay = 0x1e;
-                this->field_0xf = 5;
+                this->timer = 0x1e;
+                this->subtimer = 5;
                 sub_080290E0(this, 0);
                 iVar1 = Create0x68FX(this, FX_STARS);
                 if (iVar1 != NULL) {
@@ -226,10 +226,10 @@ extern void sub_0804AA1C(Entity*);
 void sub_08028F0C(Entity*);
 
 void sub_08028C84(Entity* this) {
-    if (--this->actionDelay == 0) {
-        this->actionDelay = 0x30;
-        if (this->field_0xf) {
-            if (--this->field_0xf == 0) {
+    if (--this->timer == 0) {
+        this->timer = 0x30;
+        if (this->subtimer) {
+            if (--this->subtimer == 0) {
                 sub_0804AA1C(this);
             }
         } else if (sub_08028FDC(this) || this->field_0x80.HALF.LO) {
@@ -264,7 +264,7 @@ void sub_08028CE8(Entity* this) {
                         CreateItemEntity(offer->offeredItem, subtype, 0);
 
                         this->action = 6;
-                        this->actionDelay = 4;
+                        this->timer = 4;
                         this->field_0x80.HALF.HI = 0;
                         sub_080290E0(this, 3);
 #if defined(USA) || defined(DEMO_USA)
@@ -273,12 +273,12 @@ void sub_08028CE8(Entity* this) {
                         return;
                     case 1:
                         CreateItemEntity(offer->offeredItem, offer->field_0x9, 0);
-                        this->actionDelay = 4;
+                        this->timer = 4;
                         sub_0802922C(this);
                         return;
                     case 2:
                         CreateItemEntity(offer->offeredItem, offer->field_0x9, 0);
-                        this->actionDelay = 8;
+                        this->timer = 8;
                         sub_0802922C(this);
                         return;
                 }
@@ -292,7 +292,7 @@ void sub_08028CE8(Entity* this) {
 
     sub_0800445C(this);
     this->action = 4;
-    this->actionDelay = 0x30;
+    this->timer = 0x30;
     sub_080290E0(this, 0);
 }
 
@@ -306,7 +306,7 @@ void sub_08028DE8(Entity* this) {
         MessageFromTarget(0x2902);
         this->action = 4;
         this->field_0x80.HALF.HI = 0;
-        this->actionDelay = 1;
+        this->timer = 1;
         sub_08028EDC(this);
         SetPlayerControl(0);
         sub_0800445C(this);
@@ -320,7 +320,7 @@ void sub_08028E40(Entity* this) {
 
         this->action = 4;
         this->subAction = gMessage.doTextBox & 0x7f;
-        this->actionDelay = 1;
+        this->timer = 1;
         if (CheckLocalFlag(offer->field_0xa) == 0) {
             SetLocalFlag(offer->field_0xa);
         }
@@ -333,7 +333,7 @@ void sub_08028E40(Entity* this) {
 void sub_08028E84(Entity* this) {
     if (UpdateFuseInteraction(this)) {
         this->action = 4;
-        this->actionDelay = 1;
+        this->timer = 1;
     }
 }
 
@@ -370,8 +370,8 @@ void sub_08028F0C(Entity* this) {
         this->direction = (GetAnimationState(this) << 3);
         sub_080290E0(this, 3);
         this->field_0x80.HALF.LO = 1;
-        this->actionDelay = 0x20;
-        this->field_0xf = 0;
+        this->timer = 0x20;
+        this->subtimer = 0;
         if (sub_08029198(offer)) {
             dialog = offer->field_0x6;
         } else {
@@ -451,13 +451,13 @@ void sub_080290E0(Entity* this, u32 param_2) {
 }
 
 void sub_080290FC(Entity* this) {
-    if (this->actionDelay != 0) {
-        if (--this->actionDelay < 0x10 && (this->actionDelay & 1) == 0) {
+    if (this->timer != 0) {
+        if (--this->timer < 0x10 && (this->timer & 1) == 0) {
             s32 sVar3 = (this->direction & 0x10) ? -1 : 1;
             if ((this->direction & 8)) {
-                this->x.HALF.HI += (this->actionDelay & 8) ? -sVar3 : sVar3;
+                this->x.HALF.HI += (this->timer & 8) ? -sVar3 : sVar3;
             } else {
-                this->y.HALF.HI += (this->actionDelay & 8) ? sVar3 : -sVar3;
+                this->y.HALF.HI += (this->timer & 8) ? sVar3 : -sVar3;
             }
         }
     }

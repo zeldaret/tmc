@@ -52,14 +52,14 @@ void sub_08069018(Entity* ent) {
 
     if (ent->subAction == 0) {
         ent->subAction++;
-        ent->field_0xf = (Random() & 0x3F) + 0x3C;
+        ent->subtimer = (Random() & 0x3F) + 0x3C;
         InitAnimationForceUpdate(ent, ent->animationState);
     }
 
     UpdateAnimationSingleFrame(ent);
-    var0 = --ent->field_0xf;
+    var0 = --ent->subtimer;
     if (var0 == 0) {
-        if (ent->actionDelay == 0) {
+        if (ent->timer == 0) {
             ent->action = 2;
         } else {
             ent->action = 3;
@@ -83,7 +83,7 @@ void sub_08069068(Entity* ent) {
         ent->animationState = anim;
         ent->direction = anim <<= 3;
 
-        ent->field_0xf = (Random() & 0x3F) + 0x3C;
+        ent->subtimer = (Random() & 0x3F) + 0x3C;
         InitAnimationForceUpdate(ent, ent->animationState + 4);
     }
 
@@ -96,11 +96,11 @@ void sub_08069068(Entity* ent) {
         x -= *x2;
         if (x > 16) {
             ent->x.HALF.HI = *x2 + 16;
-            ent->field_0xf = 1;
+            ent->subtimer = 1;
         }
         if (x < -16) {
             ent->x.HALF.HI = *x2 - 16;
-            ent->field_0xf = 1;
+            ent->subtimer = 1;
         }
     }
     {
@@ -109,15 +109,15 @@ void sub_08069068(Entity* ent) {
         y -= *y2;
         if (y > 16) {
             ent->y.HALF.HI = *y2 + 16;
-            ent->field_0xf = 1;
+            ent->subtimer = 1;
         }
         if (y < -16) {
             ent->y.HALF.HI = *y2 - 16;
-            ent->field_0xf = 1;
+            ent->subtimer = 1;
         }
     }
 
-    var0 = --ent->field_0xf;
+    var0 = --ent->subtimer;
     if (var0 == 0) {
         ent->action = 3;
         ent->subAction = var0;
@@ -135,7 +135,7 @@ void sub_08069124(Entity* ent) {
 void sub_08069148(Entity* ent) {
     u32 var0 = Random() & 3;
     var0 += 3;
-    ent->field_0xf = var0;
+    ent->subtimer = var0;
     ent->subAction = 1;
     InitAnimationForceUpdate(ent, ent->animationState + 8);
 }
@@ -152,7 +152,7 @@ void sub_08069188(Entity* ent) {
         return;
     ent->frame = 0;
 
-    if (((s8)--ent->field_0xf) != 0)
+    if (((s8)--ent->subtimer) != 0)
         return;
     ent->subAction = 3;
     InitAnimationForceUpdate(ent, ent->animationState + 16);

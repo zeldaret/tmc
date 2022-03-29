@@ -7,7 +7,7 @@ void Anju(Entity* this) {
         case 0:
             this->action = 1;
             this->spriteSettings.draw = 1;
-            this->animationState = this->actionDelay;
+            this->animationState = this->timer;
             sub_0807DD50(this);
             return;
         case 1:

@@ -45,8 +45,8 @@ void sub_0809B3C4(Entity* this) {
     switch (this->type2) {
         case 0:
             this->action = 1;
-            this->actionDelay = 22;
-            this->field_0xf = 2;
+            this->timer = 22;
+            this->subtimer = 2;
             this->field_0x80.HALF.LO = 0;
             this->spritePriority.b0 = 3;
             break;
@@ -82,12 +82,12 @@ void sub_0809B4A8(Entity* this) {
     }
 
     if (sub_0809B688(this)) {
-        if (--this->actionDelay) {
+        if (--this->timer) {
             return;
         }
 
         this->action = 2;
-        this->actionDelay = 30;
+        this->timer = 30;
         this->speed = 0x40;
         this->direction = 0x10;
 
@@ -100,19 +100,19 @@ void sub_0809B4A8(Entity* this) {
         gPlayerEntity.direction = gPlayerEntity.animationState << 2;
         EnqueueSFX(SFX_10F);
     } else {
-        this->actionDelay = 22;
+        this->timer = 22;
     }
 }
 
 void sub_0809B524(Entity* this) {
-    if (--this->actionDelay == 0) {
-        if (--this->field_0xf == 0) {
+    if (--this->timer == 0) {
+        if (--this->subtimer == 0) {
             this->action = 3;
             this->y.HALF.HI += 0x20;
             this->z.HALF.HI -= 0x20;
         } else {
             this->action = 1;
-            this->actionDelay = 22;
+            this->timer = 22;
             this->field_0x80.HALF.LO = 0x18;
         }
     }

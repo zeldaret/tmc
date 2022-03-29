@@ -58,7 +58,7 @@ void sub_08094774(Object68Entity* this) {
             }
             if (super->type2 == 0) {
                 CopyPosition(super->child, super);
-                super->actionDelay = 0;
+                super->timer = 0;
                 super->spritePriority.b0 = 0;
                 super->spriteRendering.b3 = 0;
                 sub_08094980(this, 0x403b, 0x403c);
@@ -70,7 +70,7 @@ void sub_08094774(Object68Entity* this) {
             child = CreateGroundItem(&gPlayerEntity, ITEM_FAIRY, 0);
             super->child = child;
             if (child != NULL) {
-                child->actionDelay = 1;
+                child->timer = 1;
             }
             break;
         case 3 ... 8:
@@ -88,9 +88,9 @@ void sub_080948D0(Object68Entity* this) {
 }
 
 void sub_080948E8(Object68Entity* this) {
-    if (super->actionDelay < 0x3c) {
+    if (super->timer < 0x3c) {
         super->z.WORD -= 0x4000;
-        if ((super->actionDelay & 3) == 0) {
+        if ((super->timer & 3) == 0) {
             super->child = CreateFx(super, FX_DASH, 0x40);
             if (super->child != NULL) {
                 super->child->spriteRendering.b3 = super->spriteRendering.b3;
@@ -102,7 +102,7 @@ void sub_080948E8(Object68Entity* this) {
                 }
             }
         }
-        super->actionDelay++;
+        super->timer++;
     } else {
         DeleteThisEntity();
     }

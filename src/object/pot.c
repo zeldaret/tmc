@@ -21,7 +21,7 @@ extern void sub_08016A6C(Entity*);
 
 void Pot(Entity* this) {
     gUnk_0811F090[this->action](this);
-    this->bitfield = 0;
+    this->contactFlags = 0;
 }
 
 void sub_0808222C(Entity* this) {
@@ -33,13 +33,13 @@ void sub_0808222C(Entity* this) {
     this->hitbox = (Hitbox*)&gHitbox_18;
     this->speed = 0x80;
     this->y.HALF.HI += 3;
-    this->field_0x16 = 0;
+    this->carryFlags = 0;
     COLLISION_ON(this);
     this->health = 1;
-    this->field_0x3c = 7;
+    this->collisionFlags = 7;
     this->hitType = 0x6E;
     this->flags2 = 0x84;
-    this->field_0x1c = 0x12;
+    this->gustJarFlags = 0x12;
     if (this->collisionLayer == 0) {
         ResolveCollisionLayer(this);
     }
@@ -55,7 +55,7 @@ void sub_0808222C(Entity* this) {
 
 void sub_08082310(Entity* this) {
     u32 tileType;
-    u32 var0 = this->bitfield & 0x7F;
+    u32 var0 = this->contactFlags & 0x7F;
     switch (var0) {
         case 0x13:
             this->action = 3;
@@ -80,11 +80,11 @@ void sub_08082310(Entity* this) {
                     case 0x4002:
                     case 0x4001:
                         this->direction = (tileType - 0x4001) * 8;
-                        this->actionDelay = 32;
+                        this->timer = 32;
                         this->action = 4;
                         if (gPlayerState.flags & PL_MINISH) {
                             this->speed >>= 1;
-                            this->actionDelay = 64;
+                            this->timer = 64;
                         }
                         SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
                         EnqueueSFX(SFX_10F);
@@ -117,7 +117,7 @@ void sub_080824F8(Entity* this) {
 void sub_08082510(Entity* this) {
     COLLISION_ON(this);
     this->hitbox = (Hitbox*)&gUnk_080FD340;
-    this->field_0x3c = 7;
+    this->collisionFlags = 7;
     this->hitType = 1;
     this->flags2 = gPlayerEntity.flags2;
     this->spriteOffsetY = 0;
@@ -170,7 +170,7 @@ void sub_08082614(Entity* this) {
     u32 tileType;
 
     sub_0800445C(this);
-    if (this->actionDelay-- != 0) {
+    if (this->timer-- != 0) {
         LinearMoveUpdate(this);
         sub_08016A6C(this);
         return;
@@ -205,12 +205,12 @@ void sub_080826E4(Entity* this) {
 
 void sub_080826FC(Entity* this) {
     this->subAction = 1;
-    this->field_0x1d = 48;
-    this->actionDelay = 0;
+    this->gustJarTolerance = 48;
+    this->timer = 0;
 }
 
 void sub_0808270C(Entity* this) {
-    if ((gPlayerState.field_0x1c & 0xF) != 0x1 || (this->bitfield & 0x7F) != 0x13) {
+    if ((gPlayerState.field_0x1c & 0xF) != 0x1 || (this->contactFlags & 0x7F) != 0x13) {
         this->spriteOffsetX = 0;
         this->action = 1;
         SetTile(0x4000, COORD_TO_TILE(this), this->collisionLayer);
@@ -220,14 +220,14 @@ void sub_0808270C(Entity* this) {
 }
 
 void sub_08082778(Entity* this) {
-    if (this->actionDelay == 0) {
-        this->actionDelay = 1;
+    if (this->timer == 0) {
+        this->timer = 1;
         this->spriteOffsetX = 0;
         this->spriteOffsetY = -2;
         SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
     }
 
-    if ((gPlayerState.field_0x1c & 0xF) != 0x1 || (this->bitfield & 0x7F) != 0x13) {
+    if ((gPlayerState.field_0x1c & 0xF) != 0x1 || (this->contactFlags & 0x7F) != 0x13) {
         sub_08082850(this, NULL);
     } else {
         sub_0806F3E4(this);
@@ -285,10 +285,10 @@ u32 sub_0808288C(Entity* this, u32 form, u32 arg2, u32 arg3) {
             entity = CreateObjectWithParent(this, GROUND_ITEM, form, arg2);
             if (entity != NULL) {
                 if (arg3 == 2) {
-                    entity->actionDelay = 5;
+                    entity->timer = 5;
                     entity->field_0x86.HWORD = this->field_0x86.HWORD;
                 } else {
-                    entity->actionDelay = 0;
+                    entity->timer = 0;
                 }
             }
             break;

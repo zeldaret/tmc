@@ -35,14 +35,14 @@ void sub_0805C874(Entity* this) {
         this->action = 1;
     }
 
-    this->actionDelay = 1;
-    this->field_0xf = 0;
+    this->timer = 1;
+    this->subtimer = 0;
 }
 
 void sub_0805C894(Entity* this) {
     if (sub_0805C920(this)) {
         this->action = 2;
-        this->actionDelay = 1;
+        this->timer = 1;
         SoundReq(SFX_EM_ARMOS_ON);
     }
 }
@@ -51,14 +51,14 @@ void sub_0805C8B4(Entity* this) {
     u8 bVar1;
     int iVar2;
 
-    if (--this->actionDelay == 0) {
-        this->actionDelay = 0x14;
+    if (--this->timer == 0) {
+        this->timer = 0x14;
 
-        if (5 < ++this->field_0xf) {
-            this->field_0xf = 0;
+        if (5 < ++this->subtimer) {
+            this->subtimer = 0;
         }
-        LoadPaletteGroup(gUnk_08108D20[this->field_0xf]);
-        if (this->field_0xf == 0) {
+        LoadPaletteGroup(gUnk_08108D20[this->subtimer]);
+        if (this->subtimer == 0) {
             SoundReq(SFX_EM_ARMOS_ON);
         }
     }
@@ -68,7 +68,7 @@ void sub_0805C8B4(Entity* this) {
 }
 
 void sub_0805C908(Entity* this) {
-    if (this->field_0xf == 0) {
+    if (this->subtimer == 0) {
         this->action = 1;
     } else {
         sub_0805C8B4(this);

@@ -55,7 +55,7 @@ void PlayerItemPacciCaneProjectile_Init(Entity* this) {
     *(u32*)&this->field_0x78 = 0x1e0;
     this->x.HALF.HI = gPlayerEntity.x.HALF.HI + gUnk_0811B9A0[this->animationState];
     this->y.HALF.HI = gPlayerEntity.y.HALF.HI + gUnk_0811B9A0[this->animationState + 1];
-    this->field_0x3c = 7;
+    this->collisionFlags = 7;
     this->flags2 = 0x8a;
     this->hitbox = (Hitbox*)&gUnk_0811B9D0;
     if (this->collisionLayer == 2) {
@@ -90,7 +90,7 @@ void sub_080701F8(Entity* this) {
     if (iVar3) {
         pEVar4 = CreateObject(OBJECT_53, iVar3[5], iVar3[2]);
         if (pEVar4) {
-            pEVar4->actionDelay = iVar3[3];
+            pEVar4->timer = iVar3[3];
             pEVar4->x.HALF.HI = this->x.HALF.HI + cVar1;
             pEVar4->y.HALF.HI = this->y.HALF.HI + cVar2;
         }
@@ -124,7 +124,7 @@ void sub_080701F8(Entity* this) {
                 sub_08070458(this);
             }
         }
-        if (this->bitfield != 0) {
+        if (this->contactFlags != 0) {
             sub_08070458(this);
         }
     }
@@ -161,10 +161,10 @@ void sub_080703BC(Entity* this) {
             if (--(*(int*)&this->field_0x78) == -1) {
                 sub_08070458(this);
             } else {
-                if (this->bitfield == 0) {
+                if (this->contactFlags == 0) {
                     return;
                 }
-                if (((this->bitfield & 0x7f) == 0) && (this->action != 0x1a)) {
+                if (((this->contactFlags & 0x7f) == 0) && (this->action != 0x1a)) {
                     return;
                 }
                 sub_08070458(this);

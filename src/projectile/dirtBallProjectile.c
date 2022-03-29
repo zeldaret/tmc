@@ -29,7 +29,7 @@ void sub_080A881C(Entity* this) {
     this->knockbackSpeed = 0;
     if (this->type == 0) {
         this->parent->child = NULL;
-        if (this->bitfield == 0x80) {
+        if (this->contactFlags == 0x80) {
             gPlayerState.hurtBlinkSpeed = 0xf0;
             ModHealth(-2);
         }
@@ -48,14 +48,14 @@ void DirtBallProjectile_Init(Entity* this) {
     this->spriteSettings.shadow = 1;
     this->zVelocity = Q_16_16(0.5);
     this->hitbox = (Hitbox*)&gUnk_08129764;
-    this->field_0x3c |= 0x10;
+    this->collisionFlags |= 0x10;
     switch (this->type) {
         case 0:
             InitializeAnimation(this, 0);
             break;
         case 1:
-            this->actionDelay = 0;
-            this->field_0xf = 0;
+            this->timer = 0;
+            this->subtimer = 0;
             break;
         case 2:
             InitializeAnimation(this, 5);
@@ -83,11 +83,11 @@ void DirtBallProjectile_Action1(Entity* this) {
             this->z.HALF.HI += Q_8_8(1.0 / 16.0 - 1.0 / 128.0);
             FreeCarryEntity(this->child);
             CopyPosition(this, this->child);
-            if ((0xf < (u8)(this->actionDelay++ + 1)) && (entity = this->child, entity->actionDelay == 0)) {
-                if ((this->actionDelay & 2) != 0) {
-                    entity->field_0xf += 1;
+            if ((0xf < (u8)(this->timer++ + 1)) && (entity = this->child, entity->timer == 0)) {
+                if ((this->timer & 2) != 0) {
+                    entity->subtimer += 1;
                 }
-                if ((this->child->field_0xf < 0x20) && ((this->child->field_0xf & 3) == 3)) {
+                if ((this->child->subtimer < 0x20) && ((this->child->subtimer & 3) == 3)) {
                     parent->field_0x82.HALF.HI = 0xc0;
                     this->action = 2;
                 }

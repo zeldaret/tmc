@@ -66,11 +66,11 @@ void sub_08085504(LilypadLargeEntity* this) {
             }
         }
     }
-    if (super->actionDelay != 0) {
+    if (super->timer != 0) {
         if (sub_080040A2(super) == 0) {
             DeleteThisEntity();
         }
-        super->actionDelay = 0;
+        super->timer = 0;
     } else {
         if (EntityHasDuplicateID(super) != 0) {
             DeleteThisEntity();
@@ -81,7 +81,7 @@ void sub_08085504(LilypadLargeEntity* this) {
     super->spritePriority.b0 = 6;
     super->hitbox = &gUnk_08120640;
     super->flags |= ENT_COLLIDE;
-    super->field_0x3c = 7;
+    super->collisionFlags = 7;
     super->hitType = 1;
     super->flags2 = 4;
     this->unk_78.WORD = 0x1000000;
@@ -172,13 +172,13 @@ void sub_08085B40(LilypadLargeEntity* this) {
             ResetCollisionLayer(&gPlayerEntity);
             sub_08085F1C(this);
             super->action = 1;
-            super->field_0xf = 4;
-            while (super->field_0xf != 0) {
+            super->subtimer = 4;
+            while (super->subtimer != 0) {
                 sub_080A2AF4(super, 8, 10);
-                super->field_0xf--;
+                super->subtimer--;
             }
-            super->field_0xf = 1;
-            super->actionDelay |= 0x80;
+            super->subtimer = 1;
+            super->timer |= 0x80;
             this->unk_70 = 0;
             this->unk_6c = 0;
             if (GetTileUnderEntity(super) == 0xd) {
@@ -338,7 +338,7 @@ void sub_08085F1C(LilypadLargeEntity* this) {
 }
 
 void sub_08085F48(LilypadLargeEntity* this) {
-    u32 tmp = super->actionDelay & 0x80;
+    u32 tmp = super->timer & 0x80;
     if (tmp != 0) {
         if (gPlayerState.floor_type == SURFACE_ICE) {
             ResetPlayerVelocity();
@@ -348,35 +348,35 @@ void sub_08085F48(LilypadLargeEntity* this) {
         if (this->unk_78.WORD_U < 0x1280000) {
             this->unk_78.WORD_U += 0x80000;
         } else {
-            super->actionDelay = 0;
+            super->timer = 0;
         }
     } else {
         if ((gPlayerState.flags & PL_FLAGS2) != 0) {
-            if (super->actionDelay != 0) {
+            if (super->timer != 0) {
                 if (this->unk_78.WORD_U < 0x1200000) {
                     this->unk_78.WORD_U += 0x8000;
                 } else {
-                    super->actionDelay = tmp;
+                    super->timer = tmp;
                 }
             } else {
                 if (this->unk_78.WORD_U > 0x1100000) {
                     this->unk_78.WORD_U -= 0x8000;
                 } else {
-                    super->actionDelay = 1;
+                    super->timer = 1;
                 }
             }
         } else {
-            if (super->actionDelay != 0) {
+            if (super->timer != 0) {
                 if (this->unk_78.WORD_U < 0x1100000) {
                     this->unk_78.WORD_U += 0x4000;
                 } else {
-                    super->actionDelay = 0;
+                    super->timer = 0;
                 }
             } else {
                 if (this->unk_78.WORD_U > 0x1060000) {
                     this->unk_78.WORD_U -= 0x4000;
                 } else {
-                    super->actionDelay = 1;
+                    super->timer = 1;
                 }
             }
         }

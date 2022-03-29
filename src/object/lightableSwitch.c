@@ -24,7 +24,7 @@ void sub_0809EA34(Entity* this) {
     this->action = 1;
     COLLISION_ON(this);
     this->frameIndex = 0;
-    this->field_0x3c = 7;
+    this->collisionFlags = 7;
     this->hurtType = 0x48;
     this->hitType = 0x28;
     this->flags2 = 10;
@@ -36,7 +36,7 @@ void sub_0809EA34(Entity* this) {
 
 void sub_0809EA80(Entity* this) {
 
-    if ((this->bitfield & 0x80) != 0) {
+    if ((this->contactFlags & 0x80) != 0) {
         if (CheckFlags(this->field_0x86.HWORD) != 0) {
             ClearFlag(this->field_0x86.HWORD);
         } else {
@@ -96,7 +96,7 @@ void sub_0809EB80(Entity* this) {
     this->action = 1;
     COLLISION_ON(this);
     this->frameIndex = 3;
-    this->field_0x3c = 7;
+    this->collisionFlags = 7;
     this->hurtType = 0x48;
     this->hitType = 0x28;
     this->flags2 = 10;
@@ -110,9 +110,9 @@ void sub_0809EB80(Entity* this) {
 }
 
 void sub_0809EBD8(Entity* this) {
-    if ((this->bitfield & 0x80) != 0) {
+    if ((this->contactFlags & 0x80) != 0) {
         this->action = 2;
-        this->actionDelay = 0x10;
+        this->timer = 0x10;
         this->frameIndex = 2;
         SetFlag(this->field_0x86.HWORD);
         EnqueueSFX(SFX_110);
@@ -125,7 +125,7 @@ void sub_0809EC08(Entity* this) {
         this->action = 3;
 
     } else {
-        if (--this->actionDelay == 0) {
+        if (--this->timer == 0) {
             this->action = 1;
             this->frameIndex = 3;
             ClearFlag(this->field_0x86.HWORD);

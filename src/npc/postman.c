@@ -31,7 +31,7 @@ void Postman(Entity* this) {
 void sub_08060428(Entity* this) {
     void* data;
 
-    this->actionDelay = 0x5a;
+    this->timer = 0x5a;
     this->speed = 0x180;
     if (this->type2 != 0) {
         data = GetCurrentRoomProperty(this->type2);

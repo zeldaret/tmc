@@ -61,8 +61,8 @@ void KeyStealingTakkuri_Type0_Init(KeyStealingTakkuriEntity* this) {
     Entity* entity;
     super->action++;
     super->collisionLayer = 1;
-    super->actionDelay = 0x1e;
-    super->field_0xf = 0;
+    super->timer = 0x1e;
+    super->subtimer = 0;
     super->spriteRendering.b3 = 1;
     super->speed = 0;
     super->direction = 0x18;
@@ -78,7 +78,7 @@ void KeyStealingTakkuri_Type0_Init(KeyStealingTakkuriEntity* this) {
 }
 
 void KeyStealingTakkuri_Type0_Action1(KeyStealingTakkuriEntity* this) {
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->action++;
         super->y.WORD += 0x100000;
         super->z.WORD -= 0x100000;
@@ -92,8 +92,8 @@ void KeyStealingTakkuri_Type0_Action2(KeyStealingTakkuriEntity* this) {
     sub_0809E1F0(this);
     if ((s32)sub_080041DC(super, child->x.HALF.HI, child->y.HALF.HI) * 0x10 < super->speed) {
         super->action++;
-        super->actionDelay = 0x10;
-        super->field_0xf = 1;
+        super->timer = 0x10;
+        super->subtimer = 1;
         InitAnimationForceUpdate(super, 2);
     }
     UpdateAnimationSingleFrame(super);
@@ -101,8 +101,8 @@ void KeyStealingTakkuri_Type0_Action2(KeyStealingTakkuriEntity* this) {
 
 void KeyStealingTakkuri_Type0_Action3(KeyStealingTakkuriEntity* this) {
     sub_0809E1C8(this, sub_080045B4(super, gRoomControls.origin_x + 0x78, gRoomControls.origin_y + 0xa8));
-    if (super->actionDelay != 0) {
-        super->actionDelay--;
+    if (super->timer != 0) {
+        super->timer--;
         super->speed -= 0x80;
     }
     sub_0809E1F0(this);
@@ -141,7 +141,7 @@ void KeyStealingTakkuri_Type1_Action1(KeyStealingTakkuriEntity* this) {
         if (parent->next == NULL) {
             DeleteThisEntity();
         }
-        if (parent->field_0xf != 0) {
+        if (parent->subtimer != 0) {
             PositionRelative(parent, super, 0, 0x80000);
         }
         super->spriteSettings.draw = parent->spriteSettings.draw;
@@ -160,15 +160,15 @@ void KeyStealingTakkuri_Type5_Init(KeyStealingTakkuriEntity* this) {
     super->direction = 0x18;
     super->speed = 0x100;
     super->zVelocity = 0x20000;
-    super->actionDelay = 1;
+    super->timer = 1;
     SoundReq(SFX_RUPEE_BOUNCE);
 }
 
 void KeyStealingTakkuri_Type5_Action1(KeyStealingTakkuriEntity* this) {
     LinearMoveUpdate(super);
     if (sub_080044EC(super, 0x2000) < 2) {
-        if (super->actionDelay != 0) {
-            super->actionDelay--;
+        if (super->timer != 0) {
+            super->timer--;
             super->zVelocity = 0x10000;
         } else {
             super->action++;
@@ -189,8 +189,8 @@ void KeyStealingTakkuri_Type2_Init(KeyStealingTakkuriEntity* this) {
 
     super->action++;
     super->collisionLayer = 2;
-    super->actionDelay = 0x1e;
-    super->field_0xf = 1;
+    super->timer = 0x1e;
+    super->subtimer = 1;
     super->spriteRendering.b3 = 1;
     super->speed = 0;
     super->direction = 0x18;
@@ -213,7 +213,7 @@ void KeyStealingTakkuri_Type2_Init(KeyStealingTakkuriEntity* this) {
 }
 
 void KeyStealingTakkuri_Type2_Action1(KeyStealingTakkuriEntity* this) {
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->action++;
         SoundReq(SFX_146);
     }
@@ -236,7 +236,7 @@ void KeyStealingTakkuri_Type2_Action3(KeyStealingTakkuriEntity* this) {
     this->unk_6e += 8;
     if (--this->unk_6c == 0) {
         super->action++;
-        super->actionDelay = 0x1e;
+        super->timer = 0x1e;
         super->spriteSettings.flipX = 0;
     } else {
         sub_0809E238(this);
@@ -246,7 +246,7 @@ void KeyStealingTakkuri_Type2_Action3(KeyStealingTakkuriEntity* this) {
 }
 
 void KeyStealingTakkuri_Type2_Action4(KeyStealingTakkuriEntity* this) {
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->action++;
         SoundReq(SFX_15B);
     }
@@ -276,8 +276,8 @@ void KeyStealingTakkuri_Type3_Init(KeyStealingTakkuriEntity* this) {
 
     super->action++;
     super->collisionLayer = 2;
-    super->actionDelay = 0xa;
-    super->field_0xf = 0;
+    super->timer = 0xa;
+    super->subtimer = 0;
     super->spriteRendering.b3 = 1;
     super->speed = 0;
     super->direction = gUnk_0812412D[super->type2];
@@ -306,7 +306,7 @@ void KeyStealingTakkuri_Type3_Action1(KeyStealingTakkuriEntity* this) {
     switch (sub_0809E2C4(this, super->type2)) {
         case 1:
             super->action += 2;
-            super->actionDelay = 0xff;
+            super->timer = 0xff;
             InitAnimationForceUpdate(super, super->animIndex + 2);
             SoundReq(SFX_123);
             child = super->child;
@@ -320,17 +320,17 @@ void KeyStealingTakkuri_Type3_Action1(KeyStealingTakkuriEntity* this) {
             }
             break;
         case 2:
-            if (super->actionDelay == 0) {
+            if (super->timer == 0) {
                 super->action++;
                 InitAnimationForceUpdate(super, super->animIndex + 2);
                 SoundReq(SFX_123);
                 SoundReq(SFX_1F3);
             } else {
-                super->actionDelay--;
+                super->timer--;
             }
             break;
         default:
-            super->actionDelay = 0xa;
+            super->timer = 0xa;
             break;
     }
     UpdateAnimationSingleFrame(super);
@@ -342,7 +342,7 @@ void KeyStealingTakkuri_Type3_Action2(KeyStealingTakkuriEntity* this) {
     child = super->child;
     if ((child != NULL) && ((((child->x.HALF.HI - super->x.HALF.HI) ^ super->direction << 0xb) & 0x8000) != 0)) {
         super->action++;
-        super->field_0xf = 1;
+        super->subtimer = 1;
         SoundReq(SFX_102);
     }
     KeyStealingTakkuri_Type3_Action3(this);
@@ -357,7 +357,7 @@ void KeyStealingTakkuri_Type3_Action3(KeyStealingTakkuriEntity* this) {
         if (child != NULL) {
             child->parent = NULL;
         }
-        tmp = super->actionDelay & 0x80;
+        tmp = super->timer & 0x80;
         if (tmp != 0) {
             DeleteThisEntity();
         } else {
@@ -394,7 +394,7 @@ void sub_0809E0A0(KeyStealingTakkuriEntity* this) {
     if (obj != NULL) {
         obj->parent = super;
         super->child = obj;
-        super->field_0xf = 0;
+        super->subtimer = 0;
         CopyPosition(&gPlayerEntity, obj);
         obj->z.HALF.HI = 0xfff8;
     }
@@ -446,7 +446,7 @@ void sub_0809E0D4(KeyStealingTakkuriEntity* this, ScriptExecutionContext* contex
         if ((varX3 < 1) && (varY3 < 1)) {
             super->x.HALF.HI = varX;
             super->y.HALF.HI = varY;
-            super->field_0xf = 1;
+            super->subtimer = 1;
             SoundReq(SFX_102);
         } else {
             gActiveScriptInfo.commandSize = 0;

@@ -133,15 +133,15 @@ void sub_0803E6E0(BallChainSoldierEntity* this) {
     if ((s8)this->unk_7e <= 0) {
         this->unk_7e = 0;
         super->action = 6;
-        super->actionDelay = 0x1e;
+        super->timer = 0x1e;
         InitAnimationForceUpdate(super, super->animationState + 0x20);
     }
 }
 
 void sub_0803E71C(BallChainSoldierEntity* this) {
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->action = 7;
-        super->actionDelay = 1;
+        super->timer = 1;
         this->unk_7c = gUnk_080D0724[super->animationState];
         this->unk_7b = 0;
         this->unk_7f = 0xf6;
@@ -153,8 +153,8 @@ void sub_0803E75C(BallChainSoldierEntity* this) {
     if ((super->frame & ANIM_DONE) == 0) {
         UpdateAnimationSingleFrame(super);
     } else {
-        if (--super->actionDelay == 0) {
-            super->actionDelay = 2;
+        if (--super->timer == 0) {
+            super->timer = 2;
             this->unk_7f++;
         }
 
@@ -162,14 +162,14 @@ void sub_0803E75C(BallChainSoldierEntity* this) {
             this->unk_7e += 5;
         } else {
             super->action = 8;
-            super->actionDelay = 0x1e;
+            super->timer = 0x1e;
             InitScreenShake(8, 0);
         }
     }
 }
 
 void sub_0803E7B4(BallChainSoldierEntity* this) {
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->action = 9;
     }
 }
@@ -178,7 +178,7 @@ void sub_0803E7CC(BallChainSoldierEntity* this) {
     this->unk_7e -= 2;
     if (this->unk_7e <= 0xa) {
         super->action = 0xa;
-        super->actionDelay = 0x5a;
+        super->timer = 0x5a;
         super->direction = DirectionFromAnimationState(super->animationState);
         this->unk_7c = 0;
         this->unk_7f = 0xfe;
@@ -189,8 +189,8 @@ void sub_0803E7CC(BallChainSoldierEntity* this) {
 }
 
 void sub_0803E818(BallChainSoldierEntity* this) {
-    if (super->actionDelay) {
-        if (--super->actionDelay == 0) {
+    if (super->timer) {
+        if (--super->timer == 0) {
             COLLISION_ON(super->child);
             sub_0803E94C(this, 0);
         }

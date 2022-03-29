@@ -81,7 +81,7 @@ void DoubleBookshelf_Action1(DoubleBookshelfEntity* this) {
 
 void DoubleBookshelf_Action2(DoubleBookshelfEntity* this) {
     LinearMoveUpdate(super);
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->action = 1;
         this->unk_80 = COORD_TO_TILE(super);
         SetPlayerControl(CONTROL_ENABLED);

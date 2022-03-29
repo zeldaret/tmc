@@ -73,17 +73,17 @@ void Object61_Action1Type0(Object61Entity* this) {
             this->unk_72 -= 4;
             break;
         case 2:
-            if (super->field_0xf == 0) {
+            if (super->subtimer == 0) {
                 if (this->unk_72 > 0x80) {
                     this->unk_72 -= 0x20;
                 } else {
-                    super->field_0xf += 1;
+                    super->subtimer += 1;
                     SoundReq(SFX_124);
                 }
                 if (this->unk_6e < 0x120) {
                     this->unk_6e += 0x40;
                 }
-            } else if (super->field_0xf != 0xff) {
+            } else if (super->subtimer != 0xff) {
                 if (this->unk_72 < 0x100) {
                     this->unk_72 += 0x20;
                 } else {
@@ -95,7 +95,7 @@ void Object61_Action1Type0(Object61Entity* this) {
                     this->unk_6e = 0x100;
                 }
                 if (this->unk_6e == 0x100) {
-                    super->field_0xf = 0xff;
+                    super->subtimer = 0xff;
                 }
             } else {
                 sub_080936C8(this);
@@ -146,12 +146,12 @@ void sub_080936C8(Object61Entity* this) {
     s32 tmp = gNewPlayerEntity.unk_7c;
     this->unk_76 = 0x138 - (gNewPlayerEntity.unk_7c >> 2);
     this->unk_74 = 8 - (tmp / 0x3c);
-    if (super->actionDelay == 0) {
+    if (super->timer == 0) {
         if (this->unk_76 < this->unk_6e) {
             this->unk_6e -= 8;
             this->unk_72 += 8;
         } else {
-            super->actionDelay++;
+            super->timer++;
             this->unk_6e = this->unk_76;
             this->unk_72 = this->unk_76 + 0x30;
         }
@@ -160,7 +160,7 @@ void sub_080936C8(Object61Entity* this) {
             this->unk_6e += 8;
             this->unk_72 -= 8;
         } else {
-            super->actionDelay = 0;
+            super->timer = 0;
             this->unk_6e = this->unk_76 + 0x30;
             this->unk_72 = this->unk_76;
         }

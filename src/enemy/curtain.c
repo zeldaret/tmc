@@ -17,12 +17,12 @@ void Curtain_OnCollision(Entity* this) {
         this->action = 2;
         this->flags &= ~ENT_COLLIDE;
         this->spritePriority.b0 = 7;
-        this->actionDelay = 3;
+        this->timer = 3;
     } else {
-        this->actionDelay = 2;
+        this->timer = 2;
     }
 
-    InitializeAnimation(this, this->actionDelay);
+    InitializeAnimation(this, this->timer);
 }
 
 void Curtain_OnGrabbed() {
@@ -33,24 +33,24 @@ void sub_08048224(Entity* this) {
 
     if (CheckLocalFlag(0x72) == 0) {
         this->action = 1;
-        this->actionDelay = 0;
+        this->timer = 0;
     } else {
         this->action = 3;
         this->flags &= ~ENT_COLLIDE;
-        this->actionDelay = 1;
+        this->timer = 1;
     }
 
-    InitializeAnimation(this, this->actionDelay);
+    InitializeAnimation(this, this->timer);
 }
 
 void sub_08048268(Entity* this) {
-    if (this->actionDelay == 0) {
+    if (this->timer == 0) {
         return;
     }
 
     GetNextFrame(this);
     if (this->frame & ANIM_DONE) {
-        this->actionDelay = 0;
+        this->timer = 0;
         InitializeAnimation(this, 0);
     }
 }

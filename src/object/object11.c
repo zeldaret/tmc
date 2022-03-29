@@ -60,12 +60,12 @@ void Object11_Init(Object11Entity* this) {
     super->action = 2;
     super->flags |= ENT_COLLIDE;
     super->spriteRendering.b3 = 2;
-    super->field_0x1d = gUnk_08120588[super->type].unk_1;
-    super->field_0x1c = gUnk_08120588[super->type].unk_2;
+    super->gustJarTolerance = gUnk_08120588[super->type].unk_1;
+    super->gustJarFlags = gUnk_08120588[super->type].unk_2;
     super->speed = 0x80;
     super->collisionLayer = gPlayerEntity.collisionLayer;
     super->health = 1;
-    super->field_0x3c = 7;
+    super->collisionFlags = 7;
     super->hitType = 0x6e;
     super->flags2 = 4;
     super->hitbox = (Hitbox*)&gUnk_081205B4;
@@ -76,7 +76,7 @@ void Object11_Init(Object11Entity* this) {
 }
 
 void Object11_Action1(Object11Entity* this) {
-    if (((gPlayerState.field_0x1c & 0xf) != 1) || ((super->bitfield & 0x7f) != 0x13)) {
+    if (((gPlayerState.field_0x1c & 0xf) != 1) || ((super->contactFlags & 0x7f) != 0x13)) {
         RestorePrevTileEntity(COORD_TO_TILE(super), super->collisionLayer);
         DeleteThisEntity();
     }
@@ -100,7 +100,7 @@ void Object11_Action2SubAction0(Object11Entity* this) {
 void Object11_Action2SubAction1(Object11Entity* this) {
     Object11_Action1(this);
     sub_0806F4E8(super);
-    if ((super->field_0x1d != 0) && (--super->field_0x1d == 0)) {
+    if ((super->gustJarTolerance != 0) && (--super->gustJarTolerance == 0)) {
         super->subAction = 2;
     }
 }
@@ -111,10 +111,10 @@ void Object11_Action2SubAction2(Object11Entity* this) {
         super->spriteOffsetX = 0;
         sub_0807B9B8(this->unk_70, COORD_TO_TILE(super), super->collisionLayer);
     }
-    if (((gPlayerState.field_0x1c & 0xf) != 1) || ((super->bitfield & 0x7f) != 0x13)) {
+    if (((gPlayerState.field_0x1c & 0xf) != 1) || ((super->contactFlags & 0x7f) != 0x13)) {
         Object11_Action2SubAction5(this);
     }
-    if (sub_0806F3E4(super) && ((super->field_0x1c & 0xf) == 1)) {
+    if (sub_0806F3E4(super) && ((super->gustJarFlags & 0xf) == 1)) {
         DeleteThisEntity();
     }
 }
@@ -130,12 +130,12 @@ void Object11_Action2SubAction5(Object11Entity* this) {
         case 0xff:
             break;
         case 0xf:
-            CreateFx(super, super->actionDelay, 0x80);
+            CreateFx(super, super->timer, 0x80);
             break;
         case 0:
             break;
         default:
-            CreateObjectWithParent(super, super->type2, super->actionDelay, 0);
+            CreateObjectWithParent(super, super->type2, super->timer, 0);
             break;
     }
     DeleteThisEntity();

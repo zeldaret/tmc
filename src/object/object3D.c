@@ -71,8 +71,8 @@ void Object3D_Action1(Object3DEntity* this) {
         super->spriteOrientation.flipY = 0;
         super->spriteRendering.b3 = 0;
         super->spritePriority.b0 = 0;
-        super->actionDelay = 0x1e;
-        super->field_0xf = 0xff;
+        super->timer = 0x1e;
+        super->subtimer = 0xff;
         super->spriteRendering.b0 = 3;
         SetAffineInfo(super, 0x100, 0x100, 0);
         gArea.field_0x10 = 1;
@@ -97,7 +97,7 @@ void sub_0808D030(void) {
 }
 
 void Object3D_Action2(Object3DEntity* this) {
-    u32 tmp = super->actionDelay--;
+    u32 tmp = super->timer--;
     if (tmp != 0) {
         if (this->unk_68 != 0) {
             this->unk_68 -= 2;
@@ -105,10 +105,10 @@ void Object3D_Action2(Object3DEntity* this) {
             this->unk_68 = 0;
         }
         sub_0801E1EC(super->x.HALF.HI, super->y.HALF.HI, this->unk_68);
-        if (0x80 < super->field_0xf) {
-            super->field_0xf -= 8;
+        if (0x80 < super->subtimer) {
+            super->subtimer -= 8;
         }
-        SetAffineInfo(super, super->field_0xf, super->field_0xf, 0);
+        SetAffineInfo(super, super->subtimer, super->subtimer, 0);
     } else {
         gArea.filler3[0]++;
         gArea.field_0x10 = 0;

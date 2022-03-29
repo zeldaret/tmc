@@ -33,8 +33,8 @@ void PressurePlate(PressurePlateEntity* this) {
         sub_080888F4,
     };
 
-    if (super->field_0xf) {
-        if (--super->field_0xf == 0) {
+    if (super->subtimer) {
+        if (--super->subtimer == 0) {
             this->dir = super->animationState;
             InitializeAnimation(super, super->animationState);
         }
@@ -57,7 +57,7 @@ void sub_0808886C(PressurePlateEntity* this) {
     weight = sub_08088938(this) + get_standing_count(this);
     if (super->type + 2 <= weight) {
         super->action = 2;
-        super->field_0xf = 0;
+        super->subtimer = 0;
         super->animationState = 4;
         super->z.HALF.HI = 0;
         InitializeAnimation(super, 4);
@@ -66,7 +66,7 @@ void sub_0808886C(PressurePlateEntity* this) {
     } else {
         if (weight > super->animationState) {
             if (super->type + 1 == weight) {
-                super->field_0xf = 4;
+                super->subtimer = 4;
                 InitializeAnimation(super, weight + 1);
             } else {
                 InitializeAnimation(super, weight);

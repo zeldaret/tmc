@@ -32,18 +32,18 @@ void sub_08068730(Entity* this) {
 
     animIndex = GetAnimationStateInRectRadius(this, 0x20, 0x20);
     if (-1 < animIndex) {
-        if (this->field_0xf == 0) {
-            this->field_0xf = 0x10;
+        if (this->subtimer == 0) {
+            this->subtimer = 0x10;
             if (this->animIndex != animIndex) {
                 InitializeAnimation(this, animIndex);
             }
         } else {
-            this->field_0xf--;
+            this->subtimer--;
         }
     }
     if (this->interactType != 0) {
         this->interactType = 0;
-        MessageFromTarget(this->actionDelay + 0x1200);
+        MessageFromTarget(this->timer + 0x1200);
     }
 }
 
@@ -118,10 +118,10 @@ void Melari_Head(Entity* this) {
 void sub_08068910(Entity* this) {
     s32 iVar1;
 
-    if (this->actionDelay != 0) {
-        this->actionDelay--;
+    if (this->timer != 0) {
+        this->timer--;
     } else {
-        this->actionDelay = 0x10;
+        this->timer = 0x10;
         if ((this->frame & 0x20) != 0) {
             iVar1 = GetFacingDirectionInRectRadius(this, 0x30, 0x30);
             if (iVar1 < 0) {

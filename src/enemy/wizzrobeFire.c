@@ -40,8 +40,8 @@ void WizzrobeFire_Init(WizzrobeEntity* this) {
     super->action = 1;
     this->timer2 = 0xff;
     this->timer1 = 0x28;
-    super->actionDelay = 0x28;
-    super->field_0xf = 0x60;
+    super->timer = 0x28;
+    super->subtimer = 0x60;
     sub_0802F888(this);
     projectile = CreateProjectileWithParent(super, FIRE_PROJECTILE, 0);
     if (projectile != NULL) {
@@ -58,25 +58,25 @@ void WizzrobeFire_Action1(WizzrobeEntity* this) {
 
     switch (this->timer2) {
         case 0xff:
-            if (--super->field_0xf == 0) {
+            if (--super->subtimer == 0) {
                 this->timer2 = 0;
             }
             break;
         case 0:
-            if (--super->actionDelay == 0) {
+            if (--super->timer == 0) {
                 this->timer2 += 1;
-                super->actionDelay = 0x0e;
+                super->timer = 0x0e;
                 super->flags |= 0x80;
             }
             break;
         case 1:
-            if (--super->actionDelay == 0) {
+            if (--super->timer == 0) {
                 super->action = 2;
                 this->timer2 = 0;
-                super->actionDelay = 0x20;
+                super->timer = 0x20;
                 tmp = super->direction >> 3;
                 child = super->child;
-                child->actionDelay = 1;
+                child->timer = 1;
                 child->spriteSettings.draw = 1;
                 InitializeAnimation(super, tmp | 4);
             }
@@ -90,11 +90,11 @@ void WizzrobeFire_Action1(WizzrobeEntity* this) {
 void WizzrobeFire_Action2(WizzrobeEntity* this) {
     switch (this->timer2) {
         case 0:
-            switch (--super->actionDelay) {
+            switch (--super->timer) {
                 case 0:
                     this->timer2 += 1;
-                    super->actionDelay = 0x38;
-                    super->field_0xf = 0;
+                    super->timer = 0x38;
+                    super->subtimer = 0;
                     super->child->spriteSettings.draw = 0;
                     break;
                 case 6:
@@ -108,11 +108,11 @@ void WizzrobeFire_Action2(WizzrobeEntity* this) {
             }
             break;
         case 1:
-            if (--super->actionDelay == 0) {
+            if (--super->timer == 0) {
                 this->timer2++;
                 this->timer1 = 0x28;
-                super->actionDelay = 0x28;
-                super->field_0xf = 0;
+                super->timer = 0x28;
+                super->subtimer = 0;
                 super->flags &= 0x7f;
                 SetTile(this->tileIndex, this->tilePosition, super->collisionLayer);
                 EnqueueSFX(SFX_156);
@@ -121,18 +121,18 @@ void WizzrobeFire_Action2(WizzrobeEntity* this) {
             break;
 
         case 2:
-            if (--super->actionDelay == 0) {
+            if (--super->timer == 0) {
                 this->timer2++;
-                super->actionDelay = (Random() & 0x3f) + 0x1c;
+                super->timer = (Random() & 0x3f) + 0x1c;
                 super->spriteSettings.draw = 0;
             }
             break;
         case 3:
-            if (--super->actionDelay == 0) {
+            if (--super->timer == 0) {
                 super->action = 1;
                 this->timer2 = 0;
                 this->timer1 = 0x28;
-                super->actionDelay = 0x28;
+                super->timer = 0x28;
                 EnqueueSFX(SFX_156);
                 sub_0802F8E4(this);
                 InitializeAnimation(super, super->direction >> 3);

@@ -2558,9 +2558,9 @@ u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
             itemEntity = CreateObject(GROUND_ITEM, itemID, adjustedParam);
             if (itemEntity != NULL) {
                 if (arg0 == &gPlayerEntity) {
-                    itemEntity->actionDelay = 1;
+                    itemEntity->timer = 1;
                 } else {
-                    itemEntity->actionDelay = 0;
+                    itemEntity->timer = 0;
                 }
                 if (arg0->kind == OBJECT) {
                     if (arg0->id == 99) {

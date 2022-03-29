@@ -59,13 +59,13 @@ void sub_08032CAC(MulldozerEntity* this) {
         Create0x68FX(super, 0x1c);
     }
     EnemyFunctionHandlerAfterCollision(super, Mulldozer_Functions);
-    if ((super->bitfield & 0x80) != 0) {
-        switch (super->bitfield & 0x3f) {
+    if ((super->contactFlags & 0x80) != 0) {
+        switch (super->contactFlags & 0x3f) {
             case 2:
             case 3:
                 super->action = 6;
-                super->actionDelay = (super->type != 0) ? 0x5a : 200;
-                super->field_0xf = 2;
+                super->timer = (super->type != 0) ? 0x5a : 200;
+                super->subtimer = 2;
                 this->unk_80 = 3;
                 super->direction = super->knockbackDirection;
                 super->direction += ((Random() & 0x40) != 0) ? 4 : 0x1c;
@@ -74,7 +74,7 @@ void sub_08032CAC(MulldozerEntity* this) {
                 break;
             default:
                 super->action = 5;
-                super->field_0xf = 4;
+                super->subtimer = 4;
                 sub_08033174(this);
                 break;
         }
@@ -82,8 +82,8 @@ void sub_08032CAC(MulldozerEntity* this) {
 }
 
 void sub_08032D3C(MulldozerEntity* this) {
-    if (--super->field_0xf == 0) {
-        super->field_0xf = 2;
+    if (--super->subtimer == 0) {
+        super->subtimer = 2;
         super->animationState = (super->animationState + 1) & 7;
         sub_08032F24(this);
         sub_080331E8(this);
@@ -100,7 +100,7 @@ void Mulldozer_Init(MulldozerEntity* this) {
 }
 
 void Mulldozer_Action1(MulldozerEntity* this) {
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         sub_080330C0(this);
     } else {
         if (sub_08033364(this)) {
@@ -111,16 +111,16 @@ void Mulldozer_Action1(MulldozerEntity* this) {
 }
 
 void Mulldozer_Action2(MulldozerEntity* this) {
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         sub_08033058(this);
     }
     sub_08032F48(this);
 }
 
 void Mulldozer_Action3(MulldozerEntity* this) {
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->action = 4;
-        super->field_0xf = 8;
+        super->subtimer = 8;
         super->speed = 0x1e0;
         sub_080331B4(this);
         if ((this->unk_82 & 0x80) != 0) {
@@ -140,9 +140,9 @@ void Mulldozer_Action3(MulldozerEntity* this) {
 }
 
 void Mulldozer_Action4(MulldozerEntity* this) {
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->action = 5;
-        super->field_0xf = 4;
+        super->subtimer = 4;
         sub_08033174(this);
     } else {
         sub_08033000(this);
@@ -152,11 +152,11 @@ void Mulldozer_Action4(MulldozerEntity* this) {
 }
 
 void Mulldozer_Action5(MulldozerEntity* this) {
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         sub_08033320(this);
         sub_080330C0(this);
-    } else if ((super->type == 0) && (--super->field_0xf == 0)) {
-        super->field_0xf = 4;
+    } else if ((super->type == 0) && (--super->subtimer == 0)) {
+        super->subtimer = 4;
         sub_080332A8(this);
     }
     sub_080331E8(this);
@@ -166,15 +166,15 @@ void Mulldozer_Action5(MulldozerEntity* this) {
 void Mulldozer_Action6(MulldozerEntity* this) {
     ProcessMovement0(super);
     sub_08032F48(this);
-    if (--super->field_0xf == 0) {
-        super->field_0xf = 2;
+    if (--super->subtimer == 0) {
+        super->subtimer = 2;
         super->animationState = (super->animationState + 1) & 7;
         sub_08032F24(this);
         sub_080331E8(this);
     }
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->action = 5;
-        super->field_0xf = 4;
+        super->subtimer = 4;
         sub_08033174(this);
     }
 }
@@ -212,16 +212,16 @@ void sub_08032F64(MulldozerEntity* this) {
 
 void sub_08032F90(MulldozerEntity* this) {
     if (super->type == 0) {
-        if (super->actionDelay == 0x10) {
+        if (super->timer == 0x10) {
             this->unk_80 = 2;
         }
-        if (--super->field_0xf == 0) {
-            super->field_0xf = 8;
+        if (--super->subtimer == 0) {
+            super->subtimer = 8;
             sub_08033280(this);
         }
     } else {
-        if (--super->field_0xf == 0) {
-            super->field_0xf = 4;
+        if (--super->subtimer == 0) {
+            super->subtimer = 4;
             if ((this->unk_82 & 0x80) != 0) {
                 super->direction = (super->direction + 0x1c) & 0x1c;
             } else {
@@ -234,8 +234,8 @@ void sub_08032F90(MulldozerEntity* this) {
 }
 
 void sub_08033000(MulldozerEntity* this) {
-    if (--super->field_0xf == 0) {
-        super->field_0xf = 0x10;
+    if (--super->subtimer == 0) {
+        super->subtimer = 0x10;
         if ((this->unk_82 & 0x80) != 0) {
             super->direction = (super->direction + 0x18) & 0x1c;
             this->unk_82 &= 0x7f;
@@ -255,7 +255,7 @@ void sub_08033058(MulldozerEntity* this) {
 
     super->action = 1;
     this->unk_80 = 1;
-    super->actionDelay = gUnk_080CEA50[Random() & 3];
+    super->timer = gUnk_080CEA50[Random() & 3];
     if ((sub_08049FA0(super) == 0) && ((Random() & 3) != 0)) {
         uVar2 = sub_08049EE4(super);
         uVar3 = Random();
@@ -271,9 +271,9 @@ void sub_080330C0(MulldozerEntity* this) {
     super->action = 2;
     this->unk_80 = 0;
     if (super->type == 0) {
-        super->actionDelay = (Random() & 0x38) + 0x18;
+        super->timer = (Random() & 0x38) + 0x18;
     } else {
-        super->actionDelay = 6;
+        super->timer = 6;
     }
     super->speed = 0x60;
     super->direction = (super->direction + 4) & 0x18;
@@ -285,15 +285,15 @@ void sub_08033100(MulldozerEntity* this) {
     super->action = 3;
     if (super->type == 0) {
         this->unk_80 = 1;
-        super->actionDelay = 0x30;
-        super->field_0xf = 8;
+        super->timer = 0x30;
+        super->subtimer = 8;
         super->speed = 0;
         super->direction = (sub_08049F84(super, 1) + 2) & 0x1c;
     } else {
         this->unk_80 = 2;
         sub_080331B4(this);
-        super->actionDelay += 0x10;
-        super->field_0xf = 4;
+        super->timer += 0x10;
+        super->subtimer = 4;
         super->speed = 0x160;
     }
     this->unk_83 = 0;
@@ -308,9 +308,9 @@ void sub_08033174(MulldozerEntity* this) {
     this->unk_82 = 0;
     this->unk_83 = 0;
     if (super->type == 0) {
-        super->actionDelay = (Random() & 0x18) + 0x18;
+        super->timer = (Random() & 0x18) + 0x18;
     } else {
-        super->actionDelay = 0xc;
+        super->timer = 0xc;
     }
     super->speed = 0xa0;
     sub_08032F24(this);
@@ -318,18 +318,18 @@ void sub_08033174(MulldozerEntity* this) {
 
 void sub_080331B4(MulldozerEntity* this) {
     u32 rand = Random() & 0xf0;
-    u8 actionDelay = 0x1e;
+    u8 timer = 0x1e;
     if ((rand & 0x80) != 0) {
-        actionDelay = 0x3c;
+        timer = 0x3c;
     } else {
         if ((rand & 0x40) != 0) {
-            actionDelay = 0x2d;
+            timer = 0x2d;
         }
         if ((rand & 0x20) != 0) {
-            actionDelay = 0x4b;
+            timer = 0x4b;
         }
     }
-    super->actionDelay = actionDelay;
+    super->timer = timer;
 }
 
 void sub_080331E8(MulldozerEntity* this) {

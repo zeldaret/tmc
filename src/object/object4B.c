@@ -34,13 +34,13 @@ void Object4B(Object4BEntity* this) {
 
 void Object4B_Init(Object4BEntity* this) {
     super->action = 1;
-    super->actionDelay = 0x3c;
+    super->timer = 0x3c;
     InitializeAnimation(super, 0);
 }
 
 void Object4B_Action1(Object4BEntity* this) {
-    if (--super->actionDelay == 0) {
-        super->actionDelay = 0x78;
+    if (--super->timer == 0) {
+        super->timer = 0x78;
         super->action++;
         super->spriteSettings.draw = 1;
     }
@@ -57,13 +57,13 @@ void Object4B_Action2(Object4BEntity* this) {
 
 void Object4B_Action3(Object4BEntity* this) {
     GetNextFrame(super);
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->action++;
         super->direction = 0;
         super->speed = 0x100;
         super->zVelocity = 0x20000;
         super->spriteOrientation.flipY = 0;
-        super->actionDelay = 0;
+        super->timer = 0;
         InitializeAnimation(super, 3);
         SoundReq(SFX_12B);
     }
@@ -82,7 +82,7 @@ void Object4B_Action4(Object4BEntity* this) {
         super->y.HALF.HI = gRoomControls.origin_y + 0x230;
         if ((super->frame & ANIM_DONE) != 0) {
             super->action++;
-            super->actionDelay = 0x78;
+            super->timer = 0x78;
             InitializeAnimation(super, 2);
         }
     } else if ((super->frame & ANIM_DONE) != 0) {
@@ -94,7 +94,7 @@ void Object4B_Action4(Object4BEntity* this) {
 
 void Object4B_Action5(Object4BEntity* this) {
     GetNextFrame(super);
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->action++;
         InitializeAnimation(super, 5);
     }
@@ -104,14 +104,14 @@ void Object4B_Action6(Object4BEntity* this) {
     GetNextFrame(super);
     if ((super->frame & ANIM_DONE) != 0) {
         super->action++;
-        super->actionDelay = 0x3c;
+        super->timer = 0x3c;
         InitializeAnimation(super, 1);
     }
 }
 
 void Object4B_Action7(Object4BEntity* this) {
     GetNextFrame(super);
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         gMenu.overlayType++;
         DeleteThisEntity();
     }

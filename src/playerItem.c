@@ -73,7 +73,7 @@ void ItemUpdate(Entity* this) {
 
     if (!EntityIsDeleted(this)) {
         gPlayerItemFunctions[this->id](this);
-        this->bitfield &= ~0x80;
+        this->contactFlags &= ~0x80;
         if (this->iframes != 0) {
             if (this->iframes > 0)
                 this->iframes--;

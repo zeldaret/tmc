@@ -31,8 +31,8 @@ void sub_0802B530(Entity* this) {
 }
 
 void sub_0802B540(Entity* this) {
-    if (this->actionDelay) {
-        this->actionDelay--;
+    if (this->timer) {
+        this->timer--;
     } else {
         u32 direction = sub_0804A024(this, 1, 0xc);
         if (direction != 0xff) {
@@ -45,7 +45,7 @@ void sub_0802B540(Entity* this) {
 
 void sub_0802B56C(Entity* this) {
     GetNextFrame(this);
-    if (this->bitfield & 0x80) {
+    if (this->contactFlags & 0x80) {
         this->speed = 0x40;
     }
 
@@ -66,7 +66,7 @@ void sub_0802B5C8(Entity* this) {
     GetNextFrame(this);
     if (this->frame & ANIM_DONE) {
         this->action = 1;
-        this->actionDelay = 30;
+        this->timer = 30;
         InitializeAnimation(this, 0);
     }
 }

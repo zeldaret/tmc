@@ -57,17 +57,17 @@ void Gibdo_OnTick(GibdoEntity* this) {
 
 void Gibdo_OnCollision(GibdoEntity* this) {
     u8 x;
-    if (super->bitfield == 0x87) {
+    if (super->contactFlags == 0x87) {
         if (super->action == 0x6) {
             sub_08037ACC(this);
         }
         super->action = 0x8;
-        super->actionDelay = 0x3c;
+        super->timer = 0x3c;
         COLLISION_OFF(super);
         Gibdo_CreateObjects(this);
     } else {
         if (super->action != 0x6) {
-            if (super->hitType == 0x27 && super->bitfield == 0x80) {
+            if (super->hitType == 0x27 && super->contactFlags == 0x80) {
                 sub_08037A14(this);
             } else {
                 if ((u8)(super->action - 1) < 2) {
@@ -77,7 +77,7 @@ void Gibdo_OnCollision(GibdoEntity* this) {
                     super->animationState = x >> 3;
                     InitAnimationForceUpdate(super, super->animationState);
                     if (sub_08037810(this) != 0) {
-                        super->actionDelay = 4;
+                        super->timer = 4;
                     }
                 }
             }
@@ -118,7 +118,7 @@ void sub_080375A4(GibdoEntity* this) {
             } else {
                 UpdateAnimationSingleFrame(super);
                 if (ProcessMovement0(super) == 0) {
-                    if (!(--super->field_0xf)) {
+                    if (!(--super->subtimer)) {
                         sub_080379BC(this);
                     }
                 }
@@ -129,9 +129,9 @@ void sub_080375A4(GibdoEntity* this) {
 
 void sub_080375F8(GibdoEntity* this) {
     if (sub_080378B0(this) == 0) {
-        if (!(--super->actionDelay)) {
+        if (!(--super->timer)) {
             super->action = 4;
-            super->actionDelay = 0x18;
+            super->timer = 0x18;
             InitAnimationForceUpdate(super, super->animationState + 4);
         }
     }
@@ -146,11 +146,11 @@ void sub_08037624(GibdoEntity* this) {
                 UpdateAnimationSingleFrame(super);
                 UpdateAnimationSingleFrame(super);
                 if (ProcessMovement0(super) == 0) {
-                    if (!(--super->field_0xf)) {
+                    if (!(--super->subtimer)) {
                         sub_080379BC(this);
                     }
                 } else {
-                    if (!(--super->actionDelay)) {
+                    if (!(--super->timer)) {
                         sub_0803797C(this);
                     }
                 }
@@ -201,7 +201,7 @@ void sub_0803773C(GibdoEntity* this) {
 // Turn into Stalfos
 void sub_0803775C(GibdoEntity* this) {
     Entity* x;
-    if (!(--super->actionDelay)) {
+    if (!(--super->timer)) {
         x = CreateEnemy(STALFOS, 0);
         if (x != 0) {
             sub_0804A4E4(super, x);
@@ -222,7 +222,7 @@ void sub_080377B0(GibdoEntity* this) {
     u32 r1;
     u32 r2;
     super->action = 2;
-    super->field_0xf = 8;
+    super->subtimer = 8;
     r1 = Random();
     this->field_0x74 = (r1 & 0x38) + 0x78;
     super->speed = 0x40;
@@ -245,8 +245,8 @@ u32 sub_08037810(GibdoEntity* this) {
                 x = GetFacingDirection(super, gUnk_020000B0);
                 if (((x - super->direction + 6) & 0x1f) <= 0xc) {
                     super->action = 3;
-                    super->actionDelay = 0x18;
-                    super->field_0xf = 0x8;
+                    super->timer = 0x18;
+                    super->subtimer = 0x8;
                     super->speed = 0xc0;
                     super->direction = DirectionRoundUp(GetFacingDirection(super, gUnk_020000B0));
                     super->animationState = super->direction >> 3;
@@ -300,8 +300,8 @@ u32 sub_08037914(GibdoEntity* this) {
 
 void sub_0803797C(GibdoEntity* this) {
     u32 m;
-    super->actionDelay = 0x18;
-    super->field_0xf = 8;
+    super->timer = 0x18;
+    super->subtimer = 8;
     m = super->direction =
         (CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, this->field_0x78, this->field_0x7a) + 4) & 0x18;
     ;
@@ -314,8 +314,8 @@ void sub_0803797C(GibdoEntity* this) {
 
 void sub_080379BC(GibdoEntity* this) {
     u32 r;
-    super->actionDelay = 0x18;
-    super->field_0xf = 0x8;
+    super->timer = 0x18;
+    super->subtimer = 0x8;
     r = Random();
     super->animationState = ((super->animationState + (r & 2)) - 1) & 3;
     super->direction = DirectionFromAnimationState(super->animationState);
@@ -324,7 +324,7 @@ void sub_080379BC(GibdoEntity* this) {
 
 u32 sub_080379EC(GibdoEntity* this) {
     if (sub_0807953C() != 0) {
-        if (!(--super->actionDelay)) {
+        if (!(--super->timer)) {
             sub_08037A58(this);
             return 1;
         }
@@ -334,12 +334,12 @@ u32 sub_080379EC(GibdoEntity* this) {
 
 void sub_08037A14(GibdoEntity* this) {
     super->action = 6;
-    super->actionDelay = 0x18;
-    super->spritePriority.b0 = (super->spritePriority.b0 & (super->actionDelay - 0x20));
+    super->timer = 0x18;
+    super->spritePriority.b0 = (super->spritePriority.b0 & (super->timer - 0x20));
     super->spritePriority.b0 |= 3;
     super->flags2 &= 0xfe;
     this->field_0x7c = 5;
-    CopyPosition(super, super->field_0x4c);
+    CopyPosition(super, super->contactedEntity);
     InitAnimationForceUpdate(super, super->animationState + 0xc);
 }
 
@@ -386,7 +386,7 @@ void Gibdo_CreateObjects(GibdoEntity* this) {
     Entity* E;
     E = CreateObject(OBJECT_2A, 3, 0);
     if (E != 0) {
-        E->type2 = super->actionDelay;
+        E->type2 = super->timer;
         E->spritePriority.b0 = 3;
         E->spriteOffsetX = 0;
         E->spriteOffsetY = 0xfc;
@@ -395,7 +395,7 @@ void Gibdo_CreateObjects(GibdoEntity* this) {
     this->field_0x80 = E;
     E = CreateObject(OBJECT_2A, 3, 0);
     if (E != 0) {
-        E->type2 = super->actionDelay;
+        E->type2 = super->timer;
         E->spritePriority.b0 = 3;
         E->spriteOffsetX = 0xfd;
         E->spriteOffsetY = 0xf8;
@@ -404,7 +404,7 @@ void Gibdo_CreateObjects(GibdoEntity* this) {
     this->field_0x84 = E;
     E = CreateObject(OBJECT_2A, 3, 0);
     if (E != 0) {
-        E->type2 = super->actionDelay;
+        E->type2 = super->timer;
         E->spritePriority.b0 = 3;
         E->spriteOffsetX = 0x5;
         E->spriteOffsetY = 0xf5;
@@ -416,19 +416,19 @@ void Gibdo_CreateObjects(GibdoEntity* this) {
 void Gibdo_MoveObjectsToStalfos(GibdoEntity* this, Entity* that) {
     Entity* ent = this->field_0x80;
     if (ent != NULL) {
-        ent->actionDelay = 0xf;
+        ent->timer = 0xf;
         ent->parent = that;
     }
 
     ent = this->field_0x84;
     if (ent != NULL) {
-        ent->actionDelay = 0xf;
+        ent->timer = 0xf;
         ent->parent = that;
     }
 
     ent = super->child;
     if (ent != NULL) {
-        ent->actionDelay = 0xf;
+        ent->timer = 0xf;
         ent->parent = that;
     }
 }

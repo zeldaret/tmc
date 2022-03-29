@@ -50,7 +50,7 @@ void PushableStatue_Init(PushableStatueEntity* this) {
         super->speed = 0x80;
         super->updatePriority = 3;
         super->hitbox = (Hitbox*)&gUnk_080FD1F4;
-        super->field_0x16 = 1;
+        super->carryFlags = 1;
         this->unk_86 = 0;
         sub_08089454(this);
         sub_080894C8(this);
@@ -153,7 +153,7 @@ void PushableStatue_Action3(PushableStatueEntity* this) {
 }
 
 void PushableStatue_Action4(PushableStatueEntity* this) {
-    if (--super->actionDelay != 0) {
+    if (--super->timer != 0) {
         super->spriteSettings.draw ^= 1;
     } else {
         super->spriteSettings.draw = 1;
@@ -226,7 +226,7 @@ bool32 sub_080895C0(PushableStatueEntity* this) {
         super->y.HALF.HI += gUnk_08120CBC[(super->direction >> 2) + 1];
         sub_08089454(this);
         super->action = 4;
-        super->actionDelay = 0x3c;
+        super->timer = 0x3c;
     }
     sub_0800445C(super);
     return FALSE;

@@ -172,7 +172,7 @@ void sub_0808F3DC(Entity* this) {
     if (this->action == 0) {
         this->spriteSettings.draw = 1;
         this->action = 1;
-        this->actionDelay = 120;
+        this->timer = 120;
         InitializeAnimation(this, this->type + 1);
         // TODO: This block of code might supposed to be a switch statement.
         if (this->type != 8) {
@@ -217,7 +217,7 @@ void sub_0808F498(Entity* this) {
             DeleteThisEntity();
         }
 
-        if (this->actionDelay-- == 0) {
+        if (this->timer-- == 0) {
             DeleteThisEntity();
         }
 
@@ -226,7 +226,7 @@ void sub_0808F498(Entity* this) {
         }
     } else {
         this->action = 1;
-        this->actionDelay = 64;
+        this->timer = 64;
         var0 = this->type2 != 0 ? 44 : 43;
         this->x.HALF.HI -= this->parent->hitbox->width;
         this->x.HALF.HI += (s32)Random() % (this->parent->hitbox->width * 2);

@@ -41,8 +41,8 @@ void Takkuri_OnTick(TakkuriEntity* this) {
 }
 
 void Takkuri_OnCollision(TakkuriEntity* this) {
-    if (super->bitfield & 0x80) {
-        if ((super->bitfield & 0x7f) == 0) {
+    if (super->contactFlags & 0x80) {
+        if ((super->contactFlags & 0x7f) == 0) {
             u32 direction;
             sub_0803C0AC(super);
             COLLISION_OFF(super);
@@ -78,7 +78,7 @@ void Takkuri_OnGrabbed(TakkuriEntity* this) {
         super->action = 2;
         super->subAction = 0;
         this->unk_0x84 = 2;
-        super->actionDelay = 8;
+        super->timer = 8;
         super->speed = 0x1c0;
         sub_0803BF2C(this);
     }
@@ -86,7 +86,7 @@ void Takkuri_OnGrabbed(TakkuriEntity* this) {
 
 void sub_0803BC7C(TakkuriEntity* this) {
     super->subAction = 1;
-    super->field_0x1d = 0x3c;
+    super->gustJarTolerance = 0x3c;
 }
 
 void sub_0803BC88(TakkuriEntity* this) {
@@ -103,12 +103,12 @@ void sub_0803BCA4(TakkuriEntity* this) {
     sub_0804A720(super);
 
     super->action = 1;
-    super->field_0xf = 0;
+    super->subtimer = 0;
     super->direction = sub_08049F84(super, 1);
     this->unk_0x80 = 0;
     this->unk_0x81 = 0;
-    super->field_0x1c = 1;
-    super->field_0x3c |= 0x10;
+    super->gustJarFlags = 1;
+    super->collisionFlags |= 0x10;
     super->collisionLayer = 3;
     super->spriteOrientation.flipY = 1;
     this->x_0x78 = super->x.HALF.HI;
@@ -120,9 +120,9 @@ void sub_0803BCA4(TakkuriEntity* this) {
 void sub_0803BD08(TakkuriEntity* this) {
     Entity* ent;
 
-    if (super->field_0xf) {
+    if (super->subtimer) {
         if (CheckOnScreen(super) == 0) {
-            super->field_0xf = 0;
+            super->subtimer = 0;
             super->spriteSettings.draw = 1;
         } else {
             return;
@@ -137,7 +137,7 @@ void sub_0803BD08(TakkuriEntity* this) {
             if (gUnk_020000B0->y.HALF.HI > super->y.HALF.HI + 8) {
                 super->action = 2;
                 this->unk_0x84 = 0;
-                super->actionDelay = 0x10;
+                super->timer = 0x10;
                 this->unk_0x81 = 2;
                 sub_0803BF2C(this);
             }
@@ -155,7 +155,7 @@ void sub_0803BD90(TakkuriEntity* this) {
         super->spriteSettings.draw = 4;
         COLLISION_OFF(super);
         super->spritePriority.b1 = 1;
-        super->actionDelay = 8;
+        super->timer = 8;
     } else {
         sub_0803BF48(this);
         GetNextFrame(super);
@@ -163,7 +163,7 @@ void sub_0803BD90(TakkuriEntity* this) {
 }
 
 void sub_0803BDD8(TakkuriEntity* this) {
-    if (--super->actionDelay) {
+    if (--super->timer) {
         return;
     }
 
@@ -183,7 +183,7 @@ void sub_0803BDD8(TakkuriEntity* this) {
         COLLISION_ON(super);
         super->action = 2;
         this->unk_0x84 = 1;
-        super->actionDelay = 0x18;
+        super->timer = 0x18;
         this->unk_0x82 = 0x12c;
         super->speed = 0x12c + 0x94;
         this->unk_0x81 = 4;
@@ -199,8 +199,8 @@ void sub_0803BE7C(TakkuriEntity* this) {
     super->action = 1;
     super->spriteSettings.draw = 1;
     COLLISION_OFF(super);
-    super->actionDelay = 0x8;
-    super->field_0xf = 1;
+    super->timer = 0x8;
+    super->subtimer = 1;
     super->direction = sub_08049F84(super, 1);
     this->unk_0x80 = 0;
     super->spritePriority.b1 = 3;
@@ -211,7 +211,7 @@ void sub_0803BE7C(TakkuriEntity* this) {
 }
 
 void sub_0803BEE8(TakkuriEntity* this) {
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         u32 direction;
         this->unk_0x80 = super->direction;
         direction = sub_08049F84(super, 1);
@@ -219,7 +219,7 @@ void sub_0803BEE8(TakkuriEntity* this) {
             super->direction = direction;
         }
 
-        super->actionDelay = 8;
+        super->timer = 8;
         if (DirectionIsVertical(this->unk_0x80) != DirectionIsVertical(super->direction)) {
             sub_0803BF2C(this);
         }
@@ -241,21 +241,21 @@ void sub_0803BF70(TakkuriEntity* this) {
     u32 tmp1, tmp2, tmp3;
     switch (this->unk_0x84) {
         case 0:
-            if (super->actionDelay & 0x1) {
+            if (super->timer & 0x1) {
                 super->z.HALF.HI--;
             }
-            if (--super->actionDelay == 0) {
+            if (--super->timer == 0) {
                 this->unk_0x84 = 1;
-                super->actionDelay = 0x18;
+                super->timer = 0x18;
                 COLLISION_ON(super);
                 this->unk_0x81 = 2;
                 sub_0803BF2C(this);
             }
             break;
         case 1:
-            if (--super->actionDelay == 0) {
+            if (--super->timer == 0) {
                 this->unk_0x84 = 2;
-                super->actionDelay = 8;
+                super->timer = 8;
                 super->speed = 0x1c0;
                 this->unk_0x81 = 4;
                 sub_0803BF2C(this);
@@ -265,7 +265,7 @@ void sub_0803BF70(TakkuriEntity* this) {
             if (--this->unk_0x82 == 0) {
                 super->action = 3;
                 this->unk_0x84 = 0;
-                super->actionDelay = 0;
+                super->timer = 0;
                 super->speed = 0x180;
                 if ((super->direction + 0x18) & 0x10) {
                     super->direction = (0x10 - super->direction) & 0x1f;
@@ -273,8 +273,8 @@ void sub_0803BF70(TakkuriEntity* this) {
 
                 sub_0803BF2C(this);
             } else {
-                if (--super->actionDelay == 0) {
-                    super->actionDelay = 8;
+                if (--super->timer == 0) {
+                    super->timer = 8;
                     this->unk_0x80 = super->direction;
                     sub_08004596(super, sub_08049F84(super, 1));
                     if ((super->direction + 0x18) & 0x10) {

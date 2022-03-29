@@ -60,7 +60,7 @@ static void sub_080570F8(void) {
 }
 
 void sub_08057118(Entity* this) {
-    this->actionDelay = 0;
+    this->timer = 0;
     ZV(this)[0] = 0;
     ZV(this)[1] = 0;
     ZV(this)[2] = 0;
@@ -104,45 +104,45 @@ NONMATCH("asm/non_matching/manager1/sub_08057174.inc", void sub_08057174(Entity*
                     case 1:
                         if (ZV(this)[1] == 2) {
                             this->action = 3;
-                            this->actionDelay = 9;
+                            this->timer = 9;
                         }
                         break;
                     case 5:
                         if (ZV(this)[1] == 6) {
                             this->action = 3;
-                            this->actionDelay = 9;
+                            this->timer = 9;
                         }
                         break;
                     case 2:
                         if (ZV(this)[1] == 0) {
                             this->action = 2;
-                            this->actionDelay = 0;
+                            this->timer = 0;
                             ZV(this)[0] = 0;
                         }
                         break;
                     case 6:
                         if (ZV(this)[1] == 0) {
                             this->action = 2;
-                            this->actionDelay = 0;
+                            this->timer = 0;
                         }
                         break;
                     case 4:
                         if (ZV(this)[1] == 0) {
                             this->action = 2;
-                            this->actionDelay = 0;
+                            this->timer = 0;
                             this->z.WORD = 0;
                         }
                         break;
                     case 3:
                         if (ZV(this)[1] == 4) {
                             this->action = 3;
-                            this->actionDelay = 9;
+                            this->timer = 9;
                         }
                         break;
                 }
 
                 if (this->action != 1) {
-                    this->field_0xf = 8;
+                    this->subtimer = 8;
                     ZV(this)[1] = prop->unk0;
                     ZV(this)[2] = 1;
                     return;
@@ -154,11 +154,11 @@ NONMATCH("asm/non_matching/manager1/sub_08057174.inc", void sub_08057174(Entity*
 END_NONMATCH
 
 void sub_0805728C(Entity* this) {
-    if (--this->field_0xf == 0) {
-        this->field_0xf = 8;
-        gScreen.controls.alphaBlend = gUnk_08107C1C[this->actionDelay++];
+    if (--this->subtimer == 0) {
+        this->subtimer = 8;
+        gScreen.controls.alphaBlend = gUnk_08107C1C[this->timer++];
 
-        if (this->actionDelay == 10) {
+        if (this->timer == 10) {
             this->action = 1;
             ZV(this)[2] = 0;
         }
@@ -166,11 +166,11 @@ void sub_0805728C(Entity* this) {
 }
 
 void sub_080572D4(Entity* this) {
-    if (--this->field_0xf == 0) {
-        this->field_0xf = 8;
-        gScreen.controls.alphaBlend = gUnk_08107C1C[this->actionDelay--];
+    if (--this->subtimer == 0) {
+        this->subtimer = 8;
+        gScreen.controls.alphaBlend = gUnk_08107C1C[this->timer--];
 
-        if (this->actionDelay == 0xff) {
+        if (this->timer == 0xff) {
             this->action = 1;
             ZV(this)[2] = 0;
             ZV(this)[1] = 0;

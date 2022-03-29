@@ -15,7 +15,7 @@ typedef struct {
     u16 x;
     u16 y;
     u16 field_0x4;
-    u16 actionDelay;
+    u16 timer;
 } MinishEntranceSpawnData;
 
 bool32 sub_0805B8CC(u32);
@@ -38,8 +38,8 @@ void Manager21_Main(Manager21* this) {
             if (((this->field_0x20 & (1 << count)) == 0) && (sub_0805B8CC(spawnData->field_0x4) != 0)) {
                 Entity* object = CreateObject(MINISH_SIZED_ENTRANCE, 1, 0);
                 if (object != NULL) {
-                    object->actionDelay = spawnData->actionDelay;
-                    object->field_0xf = count;
+                    object->timer = spawnData->timer;
+                    object->subtimer = count;
                     object->x.HALF.HI = gRoomControls.origin_x + spawnData->x;
                     object->y.HALF.HI = gRoomControls.origin_y + spawnData->y;
                     object->parent = (Entity*)this;

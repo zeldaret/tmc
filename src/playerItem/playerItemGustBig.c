@@ -39,13 +39,13 @@ void sub_08018CBC(Entity* this) {
     this->direction = (u8)(uVar2 << 2);
     this->speed = 0x400;
     this->hitType = 0x96;
-    this->field_0x3c = (gPlayerEntity.field_0x3c + 1) | 0x80;
+    this->collisionFlags = (gPlayerEntity.collisionFlags + 1) | 0x80;
     this->flags2 = gPlayerEntity.flags2;
     pEVar3 = this->child;
     if (pEVar3 != NULL) {
         this->action = 1;
         COLLISION_OFF(this);
-        this->actionDelay = 0x56;
+        this->timer = 0x56;
         this->hurtType = 0x1c;
         this->damage = 6;
         this->hitbox = &gUnk_080B3E18;
@@ -61,7 +61,7 @@ void sub_08018CBC(Entity* this) {
         this->palette.raw = 0x33;
         this->spriteVramOffset = 0;
         this->type = gPlayerState.gustJarSpeed - 1;
-        this->actionDelay = gUnk_080B3DE0[this->type * 2];
+        this->timer = gUnk_080B3DE0[this->type * 2];
         this->damage = gUnk_080B3DE0[this->type * 2 + 1];
         this->hurtType = 0x1b;
         this->hitbox = gUnk_080B3DE8[this->type];
@@ -77,7 +77,7 @@ void sub_08018CBC(Entity* this) {
 void sub_08018DE8(Entity* this) {
     u8 bVar1;
 
-    bVar1 = this->child->field_0x3a & 4;
+    bVar1 = this->child->gustJarState & 4;
     if (bVar1 == 0) {
         gPlayerState.field_0x1c = bVar1;
         DeleteThisEntity();
@@ -105,15 +105,15 @@ void sub_08018E68(Entity* this) {
         GetNextFrame(this);
         sub_08008790(this, 5);
     } else {
-        if ((this->child->field_0x3a & 4) == 0) {
+        if ((this->child->gustJarState & 4) == 0) {
             DeleteThisEntity();
         }
-        if ((this->bitfield & 0x80) != 0) {
+        if ((this->contactFlags & 0x80) != 0) {
             sub_08018F6C(this);
             return;
         }
     }
-    if (this->actionDelay-- != 0) {
+    if (this->timer-- != 0) {
         LinearMoveUpdate(this);
 
         switch (this->direction) {

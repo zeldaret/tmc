@@ -143,7 +143,7 @@ void sub_08033F3C(Entity* this) {
         if (gRoomTransition.field_0x39 == 0) {
             this->action = 0xd;
             this->subAction = 0;
-            this->actionDelay = 0xfc;
+            this->timer = 0xfc;
             COLLISION_OFF(this);
         } else {
             pEVar2 = CreateEnemy(MAZAAL_BRACELET, 0);
@@ -170,7 +170,7 @@ void sub_08033FFC(Entity* this) {
             break;
         case 1:
             this->subAction = 2;
-            this->actionDelay = 0x1e;
+            this->timer = 0x1e;
             entity = *(Entity**)&(*(Entity**)&this->field_0x74)->field_0x74;
             entity->subAction = 1;
             entity = *(Entity**)&(*(Entity**)&this->field_0x78)->field_0x74;
@@ -178,7 +178,7 @@ void sub_08033FFC(Entity* this) {
             UnloadOBJPalette(this);
             break;
         case 3:
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->subAction = 4;
             }
             break;
@@ -191,7 +191,7 @@ void sub_08033FFC(Entity* this) {
             break;
         case 6:
             this->subAction = 7;
-            this->actionDelay = 0;
+            this->timer = 0;
             entity = *(Entity**)&this->field_0x74;
             entity->subAction = 1;
             entity = *(Entity**)&entity->field_0x74;
@@ -204,9 +204,9 @@ void sub_08033FFC(Entity* this) {
             gScreen.controls.alphaBlend = 0x1000;
             break;
         case 7:
-            temp = ++this->actionDelay >> 1;
+            temp = ++this->timer >> 1;
             gScreen.controls.alphaBlend = (temp) | (0x10 - (temp)) * 0x100;
-            if (0x1f < (this->actionDelay & 0xff)) {
+            if (0x1f < (this->timer & 0xff)) {
                 this->subAction = 8;
                 entity = *(Entity**)&this->field_0x74;
                 entity->subAction = 3;
@@ -259,7 +259,7 @@ void sub_080341B8(Entity* this) {
 }
 
 void sub_080341D0(Entity* this) {
-    if (((this->field_0x80.HALF.LO & 3) != 3) && (--this->actionDelay == 0)) {
+    if (((this->field_0x80.HALF.LO & 3) != 3) && (--this->timer == 0)) {
         sub_0803443C(this);
     }
 }
@@ -313,11 +313,11 @@ void sub_080342B4(Entity* this) {
 }
 
 void sub_080342C8(Entity* this) {
-    if (this->actionDelay != 0) {
-        if (--this->actionDelay == 0) {
+    if (this->timer != 0) {
+        if (--this->timer == 0) {
             SoundReq(SFX_115);
         }
-        this->spriteOffsetX = gUnk_080CECEC[this->actionDelay >> 1 & 7];
+        this->spriteOffsetX = gUnk_080CECEC[this->timer >> 1 & 7];
     } else {
         this->spriteOffsetX = 0;
         if (GravityUpdate(this, 0x2000) == 0) {
@@ -350,17 +350,17 @@ void sub_0803438C(Entity* this) {
     Entity* pEVar3;
     const s8* pVar;
 
-    if (this->actionDelay == 0) {
+    if (this->timer == 0) {
         this->health = 0;
     } else {
-        this->actionDelay--;
-        if (this->actionDelay > 0xc0) {
-            this->spriteOffsetX = gUnk_080CED06[this->actionDelay & 3];
+        this->timer--;
+        if (this->timer > 0xc0) {
+            this->spriteOffsetX = gUnk_080CED06[this->timer & 3];
         } else {
-            if ((this->actionDelay & 0x1f) == 0) {
+            if ((this->timer & 0x1f) == 0) {
                 pEVar3 = CreateFx(this, gUnk_080CED02[Random() & 3], 0);
                 if (pEVar3 != NULL) {
-                    pVar = &gUnk_080CECF4[this->actionDelay >> 4];
+                    pVar = &gUnk_080CECF4[this->timer >> 4];
                     pEVar3->x.HALF.HI = *pVar + pEVar3->x.HALF.HI;
                     pVar++;
                     pEVar3->y.HALF.HI = *pVar + pEVar3->y.HALF.HI;
@@ -378,7 +378,7 @@ void sub_08034420(Entity* this) {
 
 void sub_0803442C(Entity* this, u32 unk) {
     this->action = 4;
-    this->actionDelay = unk;
+    this->timer = unk;
     this->field_0x7c.BYTES.byte1 = 3;
 }
 
@@ -678,7 +678,7 @@ u32 sub_080348A4(Entity* this, Entity* hand_, u32 unk) {
 
 void sub_0803499C(Entity* this) {
     if (((this->field_0x80.HALF.LO & 0xc) != 0xc) && (this->field_0x80.HALF.HI != 0)) {
-        this->z.HALF.HI = gUnk_080CED6C[(++this->field_0xf >> 4) & 7];
+        this->z.HALF.HI = gUnk_080CED6C[(++this->subtimer >> 4) & 7];
     }
 }
 
@@ -747,21 +747,21 @@ void sub_08034AC4(Entity* this) {
 
 void sub_08034AEC(Entity* this) {
     this->action = 1;
-    this->actionDelay = 0x1e;
+    this->timer = 0x1e;
     InitializeAnimation(this, this->type + 1);
     SoundReq(SFX_151);
 }
 
 void sub_08034B0C(Entity* this) {
-    if (this->actionDelay != 0) {
-        this->actionDelay--;
+    if (this->timer != 0) {
+        this->timer--;
     } else {
         GetNextFrame(this);
         if ((this->frame & ANIM_DONE) == 0) {
             return;
         }
         this->action = 2;
-        this->actionDelay = 0x50;
+        this->timer = 0x50;
     }
 }
 
@@ -769,7 +769,7 @@ void sub_08034B38(Entity* this) {
     Entity* target;
     const s8* ptr;
 
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 3;
         InitializeAnimation(this, this->type + 3);
     } else {
@@ -777,9 +777,9 @@ void sub_08034B38(Entity* this) {
         if (target != NULL) {
             target->type = this->type - 2;
             if (target->type == 0) {
-                target->direction = 0xa8 - this->actionDelay;
+                target->direction = 0xa8 - this->timer;
             } else {
-                target->direction = this->actionDelay + 0x58;
+                target->direction = this->timer + 0x58;
             }
             ptr = &gUnk_080CED84[target->type * 2];
             PositionRelative(this, target, Q_16_16(*(ptr++)), Q_16_16(*ptr));

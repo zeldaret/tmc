@@ -394,8 +394,8 @@ void sub_0808ED98(Entity* this) {
 
     this->y.HALF.HI = y;
     this->field_0x6a.HWORD = y;
-    this->field_0xf++;
-    this->spriteOffsetY = gUnk_08121D10[(this->field_0xf / 4) & 0x7];
+    this->subtimer++;
+    this->spriteOffsetY = gUnk_08121D10[(this->subtimer / 4) & 0x7];
     sub_0808EF6C(this);
 }
 
@@ -424,9 +424,9 @@ void nullsub_522(Entity* this) {
 }
 
 void sub_0808EE98(Entity* this) {
-    this->actionDelay = gUI.lastState;
-    this->frameIndex = gUnk_08121D48[this->actionDelay];
-    if (this->actionDelay != 2) {
+    this->timer = gUI.lastState;
+    this->frameIndex = gUnk_08121D48[this->timer];
+    if (this->timer != 2) {
         this->field_0x68.HWORD = 96;
     } else {
         this->field_0x68.HWORD = -96;

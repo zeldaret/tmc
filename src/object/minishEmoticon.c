@@ -70,20 +70,20 @@ void sub_08082098(Entity* this) {
                         animIndex = origAnimIndex + 4;
                         if (this->animIndex != animIndex) {
                             this->z.WORD = 0;
-                            this->actionDelay = 6;
-                        } else if (this->actionDelay-- == 0) {
+                            this->timer = 6;
+                        } else if (this->timer-- == 0) {
                             switch (this->spriteOffsetY) {
                                 case 0:
                                     this->spriteOffsetY = -2;
-                                    this->actionDelay = 6;
+                                    this->timer = 6;
                                     break;
                                 case -2:
                                     this->spriteOffsetY = -1;
-                                    this->actionDelay = 6;
+                                    this->timer = 6;
                                     break;
                                 case -1:
                                     this->spriteOffsetY = 0;
-                                    this->actionDelay = 3;
+                                    this->timer = 3;
                                     break;
                             }
                         }

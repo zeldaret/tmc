@@ -29,7 +29,7 @@ void sub_0809F920(ObjectA6Entity* this) {
 
     super->action = 1;
     COLLISION_ON(super);
-    super->field_0x3c = 7;
+    super->collisionFlags = 7;
     super->hurtType = 0x48;
     super->hitType = 1;
     super->flags2 = 2;
@@ -39,7 +39,7 @@ void sub_0809F920(ObjectA6Entity* this) {
 void sub_0809F964(ObjectA6Entity* this) {
     Entity* fxEnt;
 
-    if (super->bitfield == 0xa1) {
+    if (super->contactFlags == 0xa1) {
         fxEnt = CreateFx(super, FX_MAGIC_STORM, 0);
         if (fxEnt != NULL) {
             fxEnt->spritePriority.b0 = 3;

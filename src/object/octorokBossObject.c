@@ -11,7 +11,7 @@ bool32 sub_0809A6F8(u32, u32, u32, u32);
 bool32 sub_0809A758(u32, u32);
 
 typedef struct HelperStruct {
-    u8 field_0x0; // [0,1,2,4]  is later stored in this->field_0xf
+    u8 field_0x0; // [0,1,2,4]  is later stored in this->subtimer
     u8 tailCount;
     u8 field_0x2; // [0,1]
     u8 field_0x3; // relates to this->field_0x7a.HALF.HI
@@ -48,8 +48,8 @@ void OctorokBossObject_Init(Entity* this) {
     switch (this->type) {
         case 0:
             this->field_0x78.HALF.HI = 0x96;
-            this->actionDelay = 0;
-            this->field_0xf = 0x1e;
+            this->timer = 0;
+            this->subtimer = 0x1e;
         case 1:
             InitializeAnimation(this, 0);
             EnqueueSFX(SFX_124);
@@ -115,14 +115,14 @@ void OctorokBossObject_Init(Entity* this) {
             InitializeAnimation(this, 7);
             break;
         case 7:
-            this->actionDelay = 0;
+            this->timer = 0;
             InitializeAnimation(this, 8);
             CopyPosition(this->parent, this);
             break;
         case 8:
             this->type2 = this->parent->field_0x7c.BYTES.byte0;
-            this->actionDelay = 4;
-            this->field_0xf = 0;
+            this->timer = 4;
+            this->subtimer = 0;
             this->field_0x82.HWORD = (this->x.HALF.HI - (gRoomControls.origin_x)) & 0x1f0;
             this->field_0x80.HWORD = (this->y.HALF.HI - ((u32)gRoomControls.origin_y)) & 0x1f0;
             *(int*)&this->cutsceneBeh =
@@ -153,8 +153,8 @@ NONMATCH("asm/non_matching/octorokBossObject/OctorokBossObject_Action1.inc",
         case 0:
             if (this->field_0x78.HALF.HI != 0) {
                 this->field_0x78.HALF.HI--;
-                if (this->field_0xf-- == 0) {
-                    this->field_0xf = 5;
+                if (this->subtimer-- == 0) {
+                    this->subtimer = 5;
                     this->child = CreateObjectWithParent(this, OCTOROK_BOSS_OBJECT, 1, this->type2);
                     if (this->child != NULL) {
                         this->child->parent = this->parent;
@@ -166,18 +166,18 @@ NONMATCH("asm/non_matching/octorokBossObject/OctorokBossObject_Action1.inc",
                 return;
             }
         case 1:
-            this->direction = sub_080045DA(GET_HELPER(this)->tailObjects[this->actionDelay]->x.WORD - this->x.WORD,
-                                           GET_HELPER(this)->tailObjects[this->actionDelay]->y.WORD - this->y.WORD);
+            this->direction = sub_080045DA(GET_HELPER(this)->tailObjects[this->timer]->x.WORD - this->x.WORD,
+                                           GET_HELPER(this)->tailObjects[this->timer]->y.WORD - this->y.WORD);
             LinearMoveAngle(this, this->speed, this->direction);
-            if (EntityInRectRadius(this, GET_HELPER(this)->tailObjects[this->actionDelay], 2, 2) == 0) {
+            if (EntityInRectRadius(this, GET_HELPER(this)->tailObjects[this->timer], 2, 2) == 0) {
                 return;
             }
             if (this->type == 0) {
-                GET_HELPER(this)->tailObjects[this->actionDelay]->spriteSettings.draw &= -2;
+                GET_HELPER(this)->tailObjects[this->timer]->spriteSettings.draw &= -2;
             }
-            if ((u32)this->actionDelay == GET_HELPER(this)->tailCount - 1) {
+            if ((u32)this->timer == GET_HELPER(this)->tailCount - 1) {
                 this->action = 2;
-                this->actionDelay = 0xf0;
+                this->timer = 0xf0;
                 this->direction = gUnk_0812384C[(this->type2 & 0xf) * 2] + ((u8)Random() & 0xf);
                 this->speed = gUnk_0812384C[(this->type2 & 0xf) * 2 + 1] + ((u16)Random() & 0x1ff);
                 if (this->type != 0) {
@@ -187,7 +187,7 @@ NONMATCH("asm/non_matching/octorokBossObject/OctorokBossObject_Action1.inc",
                 this->parent->subAction = 0;
                 return;
             }
-            this->actionDelay += 1;
+            this->timer += 1;
             return;
         case 2:
             if (this->parent->type2 == 3) {
@@ -250,25 +250,25 @@ NONMATCH("asm/non_matching/octorokBossObject/OctorokBossObject_Action1.inc",
                                 (u32)gUnk_0812388C[(u32)this->type2 * 2]);
             return;
         case 7:
-            if (this->actionDelay == 0) {
+            if (this->timer == 0) {
                 CopyPosition(this->parent, this);
                 return;
             }
             DeleteThisEntity();
             break;
         case 8:
-            if (this->actionDelay-- != 0) {
+            if (this->timer-- != 0) {
                 return;
             }
-            this->actionDelay = 4;
-            this->field_0xf++;
-            t2 = t1 = (*(int*)&this->cutsceneBeh) - this->field_0xf * 0x1f;
+            this->timer = 4;
+            this->subtimer++;
+            t2 = t1 = (*(int*)&this->cutsceneBeh) - this->subtimer * 0x1f;
             this->field_0x7c.HALF_U.HI = this->field_0x82.HWORD;
             this->field_0x7a.HWORD = this->field_0x82.HWORD;
-            this->field_0x7c.HALF_U.LO = this->field_0x80.HWORD - this->field_0xf * 0x10;
+            this->field_0x7c.HALF_U.LO = this->field_0x80.HWORD - this->subtimer * 0x10;
             this->field_0x78.HWORD = this->field_0x7c.HALF.LO;
             tmp_c = sub_0809A6F8(this->field_0x7a.HWORD, this->field_0x78.HWORD, t1, this->type2);
-            for (loop_var = this->field_0xf; loop_var != 0; loop_var--) {
+            for (loop_var = this->subtimer; loop_var != 0; loop_var--) {
                 this->field_0x7a.HWORD -= 0x10;
                 this->field_0x78.HWORD += 0x10;
                 t1 += 0x1e;
@@ -278,13 +278,13 @@ NONMATCH("asm/non_matching/octorokBossObject/OctorokBossObject_Action1.inc",
                 t2 += 0x20;
                 tmp_c += sub_0809A6F8(this->field_0x7c.HALF_U.HI, this->field_0x7c.HALF_U.LO, t2, this->type2);
             }
-            t2 = t1 = (*(int*)&this->cutsceneBeh) + this->field_0xf * 0x1f;
+            t2 = t1 = (*(int*)&this->cutsceneBeh) + this->subtimer * 0x1f;
             this->field_0x7c.HALF.HI = this->field_0x82.HWORD;
             this->field_0x7a.HWORD = this->field_0x82.HWORD;
-            this->field_0x7c.HALF.LO = this->field_0xf * 0x10 + this->field_0x80.HWORD;
+            this->field_0x7c.HALF.LO = this->subtimer * 0x10 + this->field_0x80.HWORD;
             this->field_0x78.HWORD = this->field_0x7c.HALF.LO;
             tmp_c += sub_0809A6F8(this->field_0x7a.HWORD, this->field_0x78.HWORD, t1, this->type2);
-            for (loop_var = this->field_0xf - 1; loop_var != 0; loop_var--) {
+            for (loop_var = this->subtimer - 1; loop_var != 0; loop_var--) {
                 this->field_0x7a.HWORD -= 0x10;
                 this->field_0x78.HWORD -= 0x10;
                 t1 -= 0x20;
@@ -314,7 +314,7 @@ void OctorokBossObject_Action2(Entity* this) {
     s32 radius;
 
     GetNextFrame(this);
-    if (this->actionDelay-- != 0) {
+    if (this->timer-- != 0) {
         tmp = (0x10000 / this->parent->field_0x74.HWORD);
         radius = (this->speed * tmp) >> 8;
         this->field_0x7a.HALF.HI = -this->parent->field_0x7a.HALF.HI + this->direction;

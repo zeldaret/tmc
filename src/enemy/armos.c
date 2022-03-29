@@ -96,7 +96,7 @@ void sub_080301BC(ArmosEntity* this) {
 }
 
 void sub_080301D4(ArmosEntity* this) {
-    if ((super->action == 1) && (super->field_0x4c == &gPlayerEntity)) {
+    if ((super->action == 1) && (super->contactedEntity == &gPlayerEntity)) {
         super->iframes = -0x1e;
     }
     if ((super->health != 0) && (super->health != this->unk_81)) {
@@ -126,7 +126,7 @@ void nullsub_17(ArmosEntity* this) {
 void sub_0803026C(ArmosEntity* this) {
     u16* ptr;
     sub_0804A720(super);
-    this->unk_80 = super->actionDelay;
+    this->unk_80 = super->timer;
     ptr = &gRoomTransition.armos_data.data[this->unk_80 * 2];
     if (ptr[0] != 0) {
         super->x.HALF.HI = ptr[0];
@@ -170,8 +170,8 @@ void sub_08030338(ArmosEntity* this) {
         if (super->subAction == 0) {
             super->subAction = 1;
         }
-        uVar3 = super->actionDelay + 1;
-        super->actionDelay = (u8)uVar3;
+        uVar3 = super->timer + 1;
+        super->timer = (u8)uVar3;
         if ((uVar3 & 1) == 0) {
             return;
         }
@@ -200,7 +200,7 @@ void sub_08030338(ArmosEntity* this) {
                 return;
             }
             super->action = 6;
-            super->actionDelay = 0x1a;
+            super->timer = 0x1a;
             super->speed = 0x300;
             super->direction = 0x10;
             return;
@@ -219,15 +219,15 @@ void sub_08030430(ArmosEntity* this) {
     if (this->unk_7a != 0) {
         this->unk_7a--;
     }
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         sub_080306C4(this);
     }
 }
 
 void sub_08030474(ArmosEntity* this) {
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->action = 3;
-        super->actionDelay = 1;
+        super->timer = 1;
         this->unk_7a = 0x3c;
         sub_080309E8(this);
     } else {
@@ -259,7 +259,7 @@ END_NONMATCH
 void sub_080304F4(ArmosEntity* this) {
     LinearMoveUpdate(super);
     sub_080309A8(this);
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->action = 7;
         sub_080309C8(this, 5);
         sub_080307EC(this);
@@ -302,7 +302,7 @@ ASM_FUNC("asm/non_matching/armos/sub_080305BC.inc", bool32 sub_080305BC(ArmosEnt
 
 bool32 sub_08030650(ArmosEntity* this) {
     if (super->type == 0) {
-        if (super->bitfield == 0x80) {
+        if (super->contactFlags == 0x80) {
             return 1;
         }
     } else if (this->unk_80 != 2) {

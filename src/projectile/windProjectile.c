@@ -34,10 +34,10 @@ void WindProjectile_Action1(Entity* this) {
             if (this->spriteSettings.draw == 1) {
                 CopyPosition(parent, this);
                 direction = (parent->direction + 4) & 0x18;
-                if (this->actionDelay != 0) {
+                if (this->timer != 0) {
                     this->direction = direction;
                     this->animationState = direction >> 2;
-                    this->actionDelay = 0;
+                    this->timer = 0;
                     InitializeAnimation(this, direction >> 3);
                 } else {
                     if (direction >> 2 != this->animationState) {

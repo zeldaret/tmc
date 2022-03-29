@@ -139,7 +139,7 @@ void VaatiEyesMacroFunction0Type1Action0(Entity* this) {
         entity->parent = this;
         this->action = 1;
         rand = Random();
-        this->actionDelay = (rand & 3) + 1;
+        this->timer = (rand & 3) + 1;
         this->field_0x78.HALF.LO = Random() >> 8;
         this->direction = gUnk_080CDE6C[rand >> 0x10 & 3];
         InitializeAnimation(this, 1);
@@ -234,7 +234,7 @@ void sub_0802EFB8(Entity* this) {
     if (iVar4 != 0) {
         this->direction = 0xff;
     } else {
-        this->actionDelay = (rand & 3) + 1;
+        this->timer = (rand & 3) + 1;
         this->direction = (uVar1 & 0x18);
         this->speed = gUnk_080CDE98[rand >> 0x18 & 3];
     }
@@ -253,10 +253,10 @@ void sub_0802F04C(Entity* this) {
     switch (this->direction >> 3) {
         case 0:
             if (((oldY & 0xf) > 8) && ((this->y.HALF.HI & 0xf) < 9)) {
-                this->actionDelay--;
+                this->timer--;
                 oldY = (this->y.HALF.HI & 0xfff0) + 8;
             }
-            if (this->actionDelay == 0) {
+            if (this->timer == 0) {
                 this->x.HALF.HI = oldX;
                 this->y.HALF.HI = oldY;
             } else {
@@ -265,10 +265,10 @@ void sub_0802F04C(Entity* this) {
             break;
         case 1:
             if (((oldX & 0xf) < 8) && ((this->x.HALF.HI & 0xf) >= 8)) {
-                this->actionDelay--;
+                this->timer--;
                 oldX = (this->x.HALF.HI & 0xfff0) + 8;
             }
-            if (this->actionDelay == 0) {
+            if (this->timer == 0) {
                 this->x.HALF.HI = oldX;
                 this->y.HALF.HI = oldY;
             } else {
@@ -277,10 +277,10 @@ void sub_0802F04C(Entity* this) {
             break;
         case 2:
             if (((oldY & 0xf) < 8) && ((this->y.HALF.HI & 0xf) >= 8)) {
-                this->actionDelay--;
+                this->timer--;
                 oldY = (this->y.HALF.HI & 0xfff0) + 8;
             }
-            if (this->actionDelay == 0) {
+            if (this->timer == 0) {
                 this->x.HALF.HI = oldX;
                 this->y.HALF.HI = oldY;
             } else {
@@ -289,10 +289,10 @@ void sub_0802F04C(Entity* this) {
             break;
         default:
             if (((oldX & 0xf) >= 9) && ((this->x.HALF.HI & 0xf) < 9)) {
-                this->actionDelay--;
+                this->timer--;
                 oldX = (this->x.HALF.HI & 0xfff0) + 8;
             }
-            if (this->actionDelay == 0) {
+            if (this->timer == 0) {
                 this->x.HALF.HI = oldX;
                 this->y.HALF.HI = oldY;
             } else {

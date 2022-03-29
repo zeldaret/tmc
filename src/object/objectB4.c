@@ -33,23 +33,23 @@ void ObjectB4_Type0(Entity* this) {
             this->action = 1;
             this->spriteSettings.draw = 2;
             this->frameIndex = 9;
-            this->actionDelay = 8;
-            this->field_0xf = 0;
+            this->timer = 8;
+            this->subtimer = 0;
             this->spriteRendering.b3 = 1;
             this->spritePriority.b0 = 4;
             this->spriteOrientation.flipY = 1;
             sub_0806FB00(this, 0xbf, 0x48, 0x1e);
             break;
         case 1:
-            if ((this->field_0xf < 7) && (--this->actionDelay == 0)) {
-                this->actionDelay = 1;
-                pEVar3 = CreateObject(OBJECT_B4, 1, this->field_0xf);
+            if ((this->subtimer < 7) && (--this->timer == 0)) {
+                this->timer = 1;
+                pEVar3 = CreateObject(OBJECT_B4, 1, this->subtimer);
                 if (pEVar3 != NULL) {
                     CopyPosition(this, pEVar3);
                     pEVar3->y.HALF.HI = 0x68;
                     SortEntityBelow(this, pEVar3);
                 }
-                this->field_0xf++;
+                this->subtimer++;
             }
 
             if (sub_0806FB38(this) || (1 < gMenu.menuType)) {
@@ -57,14 +57,14 @@ void ObjectB4_Type0(Entity* this) {
                 this->y.HALF.HI = 0x48;
                 this->frameIndex = 10;
                 this->action = 2;
-                while (this->field_0xf < 7) {
-                    pEVar3 = CreateObject(OBJECT_B4, 1, this->field_0xf);
+                while (this->subtimer < 7) {
+                    pEVar3 = CreateObject(OBJECT_B4, 1, this->subtimer);
                     if (pEVar3 != NULL) {
                         CopyPosition(this, pEVar3);
                         pEVar3->y.HALF.HI = 0x68;
                         SortEntityBelow(this, pEVar3);
                     }
-                    this->field_0xf++;
+                    this->subtimer++;
                 }
 
                 pEVar3 = CreateObject(OBJECT_B4, 2, 0);
@@ -112,16 +112,16 @@ void ObjectB4_Type2(Entity* this) {
         this->spritePriority.b0 = 0;
         this->spriteOrientation.flipY = 1;
         this->frameIndex = 11;
-        this->actionDelay = (Random() & 0x3f) + 0x40;
-        this->field_0xf = 0;
+        this->timer = (Random() & 0x3f) + 0x40;
+        this->subtimer = 0;
     }
 
-    if (--this->actionDelay == 0) {
-        this->actionDelay = 4;
-        this->frameIndex = gUnk_08124B30[this->field_0xf++] + 2;
-        if (gUnk_08124B30[this->field_0xf] == 0xff) {
-            this->actionDelay = (Random() & 0x3f) + 0x40;
-            this->field_0xf = 0;
+    if (--this->timer == 0) {
+        this->timer = 4;
+        this->frameIndex = gUnk_08124B30[this->subtimer++] + 2;
+        if (gUnk_08124B30[this->subtimer] == 0xff) {
+            this->timer = (Random() & 0x3f) + 0x40;
+            this->subtimer = 0;
         }
     }
 }

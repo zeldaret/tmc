@@ -68,12 +68,12 @@ void EzloCap_Type0Init(EzloCapEntity* this) {
     }
     LoadSwapGFX(super, 1, 3);
     if (super->type == 0) {
-        super->field_0xf = 7;
+        super->subtimer = 7;
         InitAnimationForceUpdate(super, 7);
         SoundReq(SFX_F3);
     } else {
-        super->actionDelay = 0;
-        super->field_0xf = 0xa;
+        super->timer = 0;
+        super->subtimer = 0xa;
         super->y.HALF.HI -= 0xe;
         InitAnimationForceUpdate(super, 0x14);
     }
@@ -89,30 +89,30 @@ void EzloCap_Type0Action1(EzloCapEntity* this) {
     }
     if ((gMessage.doTextBox & 0x7f) != 5) {
         if (((gMessage.unk == 0xa) || (gMessage.unk == 0)) || ((gMessage.unk & 0xf) > 9)) {
-            if (super->animIndex != (super->field_0xf | 3)) {
-                InitAnimationForceUpdate(super, super->field_0xf | 3);
+            if (super->animIndex != (super->subtimer | 3)) {
+                InitAnimationForceUpdate(super, super->subtimer | 3);
                 return;
             }
         } else {
             if ((gMessage.unk & 0x80) != 0) {
                 if ((super->frame & 0x90) != 0) {
-                    super->field_0xf = gUnk_0811F16C[(s32)Random() % 9];
-                    InitAnimationForceUpdate(super, super->field_0xf);
+                    super->subtimer = gUnk_0811F16C[(s32)Random() % 9];
+                    InitAnimationForceUpdate(super, super->subtimer);
                     return;
                 }
             } else {
                 if (super->animIndex != gUnk_0811F16C[gMessage.unk]) {
-                    super->field_0xf = gUnk_0811F16C[gMessage.unk];
-                    InitAnimationForceUpdate(super, super->field_0xf);
+                    super->subtimer = gUnk_0811F16C[gMessage.unk];
+                    InitAnimationForceUpdate(super, super->subtimer);
                     return;
                 }
             }
         }
     }
     if (super->animIndex > 7) {
-        super->actionDelay = 1;
+        super->timer = 1;
     } else {
-        super->actionDelay = 0;
+        super->timer = 0;
     }
     UpdateAnimationSingleFrame(super);
 }
@@ -127,10 +127,10 @@ void EzloCap_Type1Action1(EzloCapEntity* this) {
     }
     UpdateAnimationSingleFrame(super);
     if (super->subAction == 0) {
-        if (super->field_0xf-- == 0) {
-            super->actionDelay++;
-            super->field_0xf = 0xa;
-            tmp = super->actionDelay - 1;
+        if (super->subtimer-- == 0) {
+            super->timer++;
+            super->subtimer = 0xa;
+            tmp = super->timer - 1;
             obj = CreateObjectWithParent(super, OBJECT_79, tmp, 0);
             super->child = obj;
             if (obj != NULL) {
@@ -140,23 +140,23 @@ void EzloCap_Type1Action1(EzloCapEntity* this) {
                     obj->parent = super->parent;
                 }
             }
-            if (super->actionDelay == 6) {
+            if (super->timer == 6) {
                 super->subAction = 3;
-                super->actionDelay = 0x3c;
+                super->timer = 0x3c;
                 super->parent->type2 = 1;
                 InitAnimationForceUpdate(super, 0x1c);
             } else {
-                InitAnimationForceUpdate(super, gUnk_0811F178[super->actionDelay - 1]);
-                if (super->actionDelay > 2) {
+                InitAnimationForceUpdate(super, gUnk_0811F178[super->timer - 1]);
+                if (super->timer > 2) {
                     super->spriteSettings.flipX = 1;
                 }
             }
         }
     } else if ((super->frame & ANIM_DONE) != 0) {
-        super->actionDelay = Random() & 3;
-        if (super->actionDelay != 0) {
+        super->timer = Random() & 3;
+        if (super->timer != 0) {
             super->spriteSettings.flipX = Random() & 1;
-            InitAnimationForceUpdate(super, super->actionDelay + 0x1b);
+            InitAnimationForceUpdate(super, super->timer + 0x1b);
         }
     }
 }

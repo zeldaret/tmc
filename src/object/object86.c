@@ -42,8 +42,8 @@ void sub_08099E58(Entity* this) {
     GetNextFrame(this);
     if (this->frame & ANIM_DONE) {
         this->frame &= ~0x80;
-        this->actionDelay++;
-        if (this->actionDelay == 3) {
+        this->timer++;
+        if (this->timer == 3) {
             this->action = 3;
             this->frameIndex = 4;
         }

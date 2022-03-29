@@ -42,7 +42,7 @@ void sub_08098D6C(Entity* this) {
 
     if (CheckFlags(this->field_0x86.HWORD)) {
         this->action = 2;
-        this->actionDelay = 0x2d;
+        this->timer = 0x2d;
         ent = CreateFx(this, FX_BIG_EXPLOSION2, 0);
         if (ent != NULL) {
             ent->y.HALF.HI += 8;
@@ -51,7 +51,7 @@ void sub_08098D6C(Entity* this) {
 }
 
 void sub_08098D9C(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 3;
         this->spriteSettings.draw = TRUE;
         sub_08098E88(this);

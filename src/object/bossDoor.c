@@ -105,7 +105,7 @@ void BossDoor_Action2(BossDoorEntity* this) {
 
 void BossDoor_Action3(BossDoorEntity* this) {
     LinearMoveUpdate(super);
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         if (super->type < 4) {
             sub_08078AC0(0x40, 0, 1);
             gPlayerEntity.direction = super->type << 3;
@@ -120,7 +120,7 @@ void BossDoor_Action4(BossDoorEntity* this) {
 
     if (sub_08083734(super, this->unk_76)) {
         super->action = 5;
-        super->actionDelay = 0xc;
+        super->timer = 0xc;
         super->spriteSettings.draw = 1;
         super->direction = *(u8*)&this->unk_76 << 3 ^ 0x10;
         ptr = &gUnk_081214F4[this->unk_76 * 2];
@@ -136,7 +136,7 @@ void BossDoor_Action5(BossDoorEntity* this) {
     const s8* ptr;
 
     LinearMoveUpdate(super);
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->action = 6;
         super->z.HALF.HI = 0;
         super->x.HALF.HI = this->unk_70;
@@ -166,7 +166,7 @@ void sub_0808C4BC(BossDoorEntity* this) {
     static const s8 gUnk_0812150C[] = { 0, -2, 2, 0, 0, 2, -2, 0 };
     const s8* ptr;
     super->action = 3;
-    super->actionDelay = 0xc;
+    super->timer = 0xc;
     super->direction = this->unk_76 * 8;
     ptr = &gUnk_0812150C[this->unk_76 * 2];
     super->x.HALF.HI += ptr[0];

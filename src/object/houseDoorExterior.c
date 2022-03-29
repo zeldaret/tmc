@@ -43,7 +43,7 @@ void sub_080866D8(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
         *((u32*)(&this->field_0x68)) = 0;
-        this->field_0x6c.HALF.LO = this->actionDelay;
+        this->field_0x6c.HALF.LO = this->timer;
         SetDefaultPriority(this, PRIO_PLAYER_EVENT);
     }
 
@@ -94,7 +94,7 @@ void sub_0808681C(Entity* this) {
     switch (this->action) {
         case 0:
             this->action = 1;
-            this->actionDelay = 8;
+            this->timer = 8;
             this->spriteSettings.draw = 1;
             this->frameIndex = 0;
             this->hitbox = &gUnk_081206AC;
@@ -127,7 +127,7 @@ void sub_080868B0(Entity* this) {
         this->action = 1;
         this->spriteSettings.draw = 1;
         this->hitbox = &gUnk_081206AC;
-        this->actionDelay = 8;
+        this->timer = 8;
     }
     ExecuteScript(this, *(ScriptExecutionContext**)&this->cutsceneBeh);
     sub_080868EC(this, *(void**)&this->cutsceneBeh);
@@ -159,25 +159,25 @@ void sub_0808692C(Entity* this) {
     this->type2 = 2;
     this->action = (this->frameIndex == 0) ? 1 : 2;
     this->subAction = 0;
-    this->actionDelay = 8;
+    this->timer = 8;
 }
 
 static u8 sub_08086954(Entity* this) {
     if (sub_0800445C(this)) {
         if (GetAnimationStateInRectRadius(this, 6, 20) >= 0 && gPlayerEntity.animationState == 0 &&
             (u16)gPlayerState.field_0x90 == 0x400 && gPlayerState.jump_status == 0) {
-            this->actionDelay--;
+            this->timer--;
         }
     } else {
-        this->actionDelay = 8;
+        this->timer = 8;
     }
-    return this->actionDelay;
+    return this->timer;
 }
 
 void sub_080869A4(Entity* this, ScriptExecutionContext* context) {
     context->condition = 0;
     if (!sub_08086954(this)) {
-        this->actionDelay = 8;
+        this->timer = 8;
         context->condition = 1;
     }
 }

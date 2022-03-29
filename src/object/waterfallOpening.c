@@ -18,8 +18,8 @@ void sub_080A00B0(WaterfallOpeningEntity*);
 void WaterfallOpening(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
-        this->actionDelay = 8;
-        this->field_0xf = 0;
+        this->timer = 8;
+        this->subtimer = 0;
         this->spriteRendering.b3 = 3;
         this->spritePriority.b0 = 7;
         this->frameIndex = WaterfallOpening_FrameIndices[this->type];
@@ -32,8 +32,8 @@ void WaterfallOpening(Entity* this) {
                 case 0:
                     if (--((WaterfallOpeningEntity*)this)->unk68 == 0) {
                         ((WaterfallOpeningEntity*)this)->unk68 = 0x20;
-                        this->actionDelay = 1;
-                        this->field_0xf = 0;
+                        this->timer = 1;
+                        this->subtimer = 0;
                         this->subAction = 1;
                         this->type = 1;
                         UnloadGFXSlots(this);
@@ -46,7 +46,7 @@ void WaterfallOpening(Entity* this) {
                 case 1:
                     if (--((WaterfallOpeningEntity*)this)->unk68 == 0) {
                         ((WaterfallOpeningEntity*)this)->unk68 = 0x2d;
-                        this->actionDelay = 1;
+                        this->timer = 1;
                         this->subAction = 2;
                         this->type = 2;
                         UnloadGFXSlots(this);
@@ -80,9 +80,9 @@ void WaterfallOpening(Entity* this) {
 }
 
 void sub_080A00B0(WaterfallOpeningEntity* this) {
-    if (--super->actionDelay == 0) {
-        super->actionDelay = 8;
-        super->frameIndex = super->field_0xf + WaterfallOpening_FrameIndices[super->type];
-        super->field_0xf = (super->field_0xf + 1) & 3;
+    if (--super->timer == 0) {
+        super->timer = 8;
+        super->frameIndex = super->subtimer + WaterfallOpening_FrameIndices[super->type];
+        super->subtimer = (super->subtimer + 1) & 3;
     }
 }

@@ -65,7 +65,7 @@ void Sluggula_OnGrabbed(Entity* this) {
 void sub_08023C5C(Entity* this) {
     sub_0804A720(this);
     this->action = 1;
-    this->actionDelay = (Random() & 0x30) + 0xb4;
+    this->timer = (Random() & 0x30) + 0xb4;
     this->direction = DirectionRound(Random());
     this->animationState = this->direction >> 3;
     InitializeAnimation(this, this->animationState);
@@ -75,11 +75,11 @@ void sub_08023C8C(Entity* this) {
     ProcessMovement0(this);
     GetNextFrame(this);
     sub_08023E54(this);
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         if (this->frame != 1) {
-            this->actionDelay = 8;
+            this->timer = 8;
         } else {
-            this->actionDelay = (Random() & 0x30) + 0xb4;
+            this->timer = (Random() & 0x30) + 0xb4;
             sub_08023E9C(this);
             this->animationState = this->direction >> 3;
             InitializeAnimation(this, this->animationState);
@@ -93,8 +93,8 @@ void sub_08023CE0(Entity* this) {
             sub_0804A720(this);
             if (this->type2 == 1) {
                 this->action = 2;
-                if (this->actionDelay == 0) {
-                    this->actionDelay = 1;
+                if (this->timer == 0) {
+                    this->timer = 1;
                 }
                 this->spriteSettings.draw = 3;
             } else {
@@ -108,15 +108,15 @@ void sub_08023CE0(Entity* this) {
         case 1:
             if (PlayerInRange(this, 1, 0x20)) {
                 this->action = 2;
-                if (this->actionDelay == 0) {
-                    this->actionDelay = 8;
+                if (this->timer == 0) {
+                    this->timer = 8;
                 }
                 this->spriteSettings.draw = 3;
             }
             break;
         case 2:
-            if (this->actionDelay != 0) {
-                if (--this->actionDelay == 0) {
+            if (this->timer != 0) {
+                if (--this->timer == 0) {
                     EnqueueSFX(SFX_12D);
                     InitializeAnimation(this, 4);
                 }
@@ -160,8 +160,8 @@ void sub_08023E10(Entity* this) {
 void sub_08023E54(Entity* this) {
     Entity* ent;
 
-    if (this->field_0xf++ > 27) {
-        this->field_0xf = 0;
+    if (this->subtimer++ > 27) {
+        this->subtimer = 0;
         ent = CreateEnemy(SLUGGULA, 2);
         if (ent != NULL) {
             const s8* ptr = &gUnk_080CBDF7[this->animationState * 2];

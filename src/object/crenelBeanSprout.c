@@ -67,7 +67,7 @@ void CrenelBeanSprout_Init(CrenelBeanSproutEntity* this) {
                         return;
                     }
                     super->type2 = 0;
-                    super->field_0xf = 2;
+                    super->subtimer = 2;
                     sub_080969A4(this);
                     DeleteThisEntity();
                 }
@@ -94,7 +94,7 @@ void CrenelBeanSprout_Init(CrenelBeanSproutEntity* this) {
             if (obj != NULL) {
                 PositionRelative(super, obj, -0x1c0000, -0x280000);
             }
-            super->field_0x16 = 0x10;
+            super->carryFlags = 0x10;
             super->spriteRendering.b0 = 3;
             InitializeAnimation(super, 0xc);
             CrenelBeanSprout_Action1(this);
@@ -114,7 +114,7 @@ void CrenelBeanSprout_Init(CrenelBeanSproutEntity* this) {
                 return;
             } else {
                 super->type2 = 0;
-                super->field_0xf = 3;
+                super->subtimer = 3;
                 sub_080969A4(this);
                 DeleteThisEntity();
                 return;
@@ -241,13 +241,13 @@ void CrenelBeanSprout_Action4(CrenelBeanSproutEntity* this) {
         gPlayerState.keepFacing |= 0x80;
         gPlayerState.field_0xa |= 0x80;
         gPlayerState.field_0x7 |= 0x80;
-        if (--super->actionDelay == 0) {
+        if (--super->timer == 0) {
             super->action = 6;
             super->subAction = 0;
             CreateDust(super);
         }
     } else {
-        super->actionDelay = 0xc0;
+        super->timer = 0xc0;
     }
 }
 
@@ -279,8 +279,8 @@ void CrenelBeanSprout_Action6SubAction0(CrenelBeanSproutEntity* this) {
         3,
     };
     SetLocalFlag(super->type2);
-    super->actionDelay = 0x0f;
-    super->field_0xf = gUnk_081231AC[super->type >> 1];
+    super->timer = 0x0f;
+    super->subtimer = gUnk_081231AC[super->type >> 1];
     super->type2 = 0;
     super->spriteSettings.draw = 0;
     super->subAction++;
@@ -294,22 +294,22 @@ void CrenelBeanSprout_Action6SubAction0(CrenelBeanSproutEntity* this) {
 
 void CrenelBeanSprout_Action6SubAction1(CrenelBeanSproutEntity* this) {
     static const u16 gUnk_081231AE[] = { 0x1cc, 0x1cb, 0x1c9 };
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->y.HALF.HI += -0x10;
         sub_0807B7D8(gUnk_081231AE[super->type2], COORD_TO_TILE(super), super->collisionLayer);
         super->type2++;
-        if (super->type2 == super->field_0xf) {
+        if (super->type2 == super->subtimer) {
             gPlayerState.keepFacing &= 0x7f;
             super->subAction++;
-            super->actionDelay = 0x3c;
+            super->timer = 0x3c;
         } else {
-            super->actionDelay = 0x0f;
+            super->timer = 0x0f;
         }
     }
 }
 
 void CrenelBeanSprout_Action6SubAction2(CrenelBeanSproutEntity* this) {
-    if ((super->actionDelay != 0) && (--super->actionDelay == 0)) {
+    if ((super->timer != 0) && (--super->timer == 0)) {
         SoundReq(SFX_SECRET);
     }
 }
@@ -321,7 +321,7 @@ void sub_080969A4(CrenelBeanSproutEntity* this) {
     } else {
         sub_0807B7D8(0x1cd, COORD_TO_TILE(super), super->collisionLayer);
     }
-    while (super->type2 != super->field_0xf) {
+    while (super->type2 != super->subtimer) {
         super->y.HALF.HI -= 0x10;
         sub_0807B7D8(gUnk_081231B4[super->type2], COORD_TO_TILE(super), super->collisionLayer);
         super->type2++;

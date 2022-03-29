@@ -38,7 +38,7 @@ void sub_0805C6D0(Manager26* this) {
         Entity* obj;
         obj = CreateObject(PUSHABLE_FURNITURE, tmp->unk_01, tmp->unk_02);
         if (obj) {
-            obj->actionDelay = tmp->unk_03;
+            obj->timer = tmp->unk_03;
             obj->x.HALF.HI = gRoomControls.origin_x + tmp->unk_04;
             obj->y.HALF.HI = gRoomControls.origin_y + tmp->unk_06;
             obj->parent = (Entity*)this;

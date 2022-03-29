@@ -26,7 +26,7 @@ void sub_08019498(Entity* this) {
     CopyPosition(&gPlayerEntity, this);
     this->action += 0x01;
     this->spriteSettings.draw = 1;
-    this->field_0x3c = gPlayerEntity.field_0x3c + 1;
+    this->collisionFlags = gPlayerEntity.collisionFlags + 1;
     this->hitbox = &gUnk_080B4408;
     this->speed = 0x380;
     *(u32*)&this->field_0x74 = 2;
@@ -67,7 +67,7 @@ void sub_08019580(Entity* this) {
     if (--*(int*)&this->field_0x6c != -1) {
         GetNextFrame(this);
         LinearMoveUpdate(this);
-        this->actionDelay += 0x01;
+        this->timer += 0x01;
         if (this->type2 == 0) {
             sub_0800451C(this);
         }
@@ -76,7 +76,7 @@ void sub_08019580(Entity* this) {
             CreateFx(this, FX_SWORD_MAGIC, 0);
             DeleteThisEntity();
         }
-        if (this->bitfield != 0) {
+        if (this->contactFlags != 0) {
             CreateFx(this, FX_SWORD_MAGIC, 0);
             DeleteThisEntity();
         }

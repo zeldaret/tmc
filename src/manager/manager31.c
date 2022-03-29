@@ -63,8 +63,8 @@ void Manager31_Main(Manager31* this) {
                 Entity* object =
                     CreateObject(SHOP_ITEM, 0x5c, ((s32)Random() % spawnData->maxType) + spawnData->minType);
                 if (object != NULL) {
-                    object->actionDelay = 1;
-                    object->field_0xf = count;
+                    object->timer = 1;
+                    object->subtimer = count;
                     object->x.HALF.HI = spawnData->x + gRoomControls.origin_x;
                     object->y.HALF.HI = spawnData->y + gRoomControls.origin_y;
                     object->field_0x80.HWORD = spawnData->x;

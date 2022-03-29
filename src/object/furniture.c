@@ -259,23 +259,23 @@ static void FurnitureUpdate(FurnitureEntity* this) {
             }
             break;
         case 0x8:
-            if (++super->actionDelay == 16) {
-                super->actionDelay = 0;
-                super->field_0xf = (super->field_0xf + 1) & 3;
+            if (++super->timer == 16) {
+                super->timer = 0;
+                super->subtimer = (super->subtimer + 1) & 3;
                 sub_08090E4C(this);
             }
             break;
         case 0x10:
             if (super->type != FORGE_HELPER) {
-                if (++super->actionDelay == 20) {
+                if (++super->timer == 20) {
                     super->frameIndex = (super->frameIndex + 1) & 3;
-                    super->actionDelay = 0;
+                    super->timer = 0;
                 }
             } else {
-                if (++super->actionDelay == 14) {
-                    super->actionDelay = 0;
-                    super->field_0xf = (super->field_0xf + 1) % 3;
-                    super->frameIndex = super->field_0xf + 1;
+                if (++super->timer == 14) {
+                    super->timer = 0;
+                    super->subtimer = (super->subtimer + 1) % 3;
+                    super->frameIndex = super->subtimer + 1;
                 }
             }
             break;
@@ -444,7 +444,7 @@ static void sub_08090DC4(FurnitureEntity* this) {
 static void sub_08090E4C(FurnitureEntity* this) {
     static const u32 sPalettes[] = { 0x5f, 0x60, 0x61, 0x62 };
 
-    ChangeObjPalette(super, sPalettes[super->field_0xf]);
+    ChangeObjPalette(super, sPalettes[super->subtimer]);
 }
 
 void sub_08090E64(FurnitureEntity* this) {

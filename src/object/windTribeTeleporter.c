@@ -75,19 +75,19 @@ void WindTribeTeleporter_Action1(WindTribeTeleporterEntity* this) {
 void WindTribeTeleporter_Action2(WindTribeTeleporterEntity* this) {
     switch (super->subAction) {
         case 0:
-            super->actionDelay = 0x1e;
+            super->timer = 0x1e;
             super->subAction++;
             break;
         case 1:
-            if (--super->actionDelay == 0) {
+            if (--super->timer == 0) {
                 super->subAction++;
-                super->actionDelay = 0x1e;
+                super->timer = 0x1e;
             }
             break;
         case 2:
-            if (--super->actionDelay == 0) {
+            if (--super->timer == 0) {
                 super->subAction++;
-                super->actionDelay = 0x1e;
+                super->timer = 0x1e;
                 SoundReq(SFX_113);
             } else {
                 if ((gRoomTransition.frameCount & 7) == 0) {
@@ -96,9 +96,9 @@ void WindTribeTeleporter_Action2(WindTribeTeleporterEntity* this) {
             }
             break;
         case 3:
-            if (--super->actionDelay == 0) {
+            if (--super->timer == 0) {
                 super->subAction++;
-                super->actionDelay = 0x1e;
+                super->timer = 0x1e;
             } else {
                 if ((gRoomTransition.frameCount & 3) == 0) {
                     gPlayerEntity.animationState = (gPlayerEntity.animationState + 2) & 6;
@@ -106,7 +106,7 @@ void WindTribeTeleporter_Action2(WindTribeTeleporterEntity* this) {
             }
             break;
         default:
-            if (--super->actionDelay == 0) {
+            if (--super->timer == 0) {
 #if defined(DEMO_JP) || defined(JP) || defined(EU)
 #ifdef DEMO_JP
                 SetLocalFlag(0xfc);
@@ -131,23 +131,23 @@ void WindTribeTeleporter_Action3(WindTribeTeleporterEntity* this) {
     switch (super->subAction) {
         case 0:
             super->subAction = 1;
-            super->actionDelay = 0x1e;
+            super->timer = 0x1e;
             SoundReq(SFX_114);
             break;
         case 1:
-            if (--super->actionDelay != 0) {
+            if (--super->timer != 0) {
                 if ((gRoomTransition.frameCount & 1) == 0) {
                     gPlayerEntity.animationState = (gPlayerEntity.animationState + 2) & 6;
                 }
             } else {
                 super->subAction++;
-                super->actionDelay = 0x1e;
+                super->timer = 0x1e;
             }
             break;
         case 2:
-            if (--super->actionDelay == 0) {
+            if (--super->timer == 0) {
                 super->subAction++;
-                super->actionDelay = 0x1e;
+                super->timer = 0x1e;
             } else {
                 if ((gRoomTransition.frameCount & 3) == 0) {
                     gPlayerEntity.animationState = (gPlayerEntity.animationState + 2) & 6;
@@ -155,7 +155,7 @@ void WindTribeTeleporter_Action3(WindTribeTeleporterEntity* this) {
             }
             break;
         case 3:
-            if (--super->actionDelay == 0) {
+            if (--super->timer == 0) {
                 super->subAction++;
             } else {
                 if ((gRoomTransition.frameCount & 7) == 0) {

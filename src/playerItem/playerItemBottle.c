@@ -40,13 +40,13 @@ void PlayerItemBottle_Init(Entity* this) {
                 return;
             }
             COLLISION_ON(this);
-            this->field_0x3c = (gPlayerEntity.field_0x3c + 1) | 0x20;
+            this->collisionFlags = (gPlayerEntity.collisionFlags + 1) | 0x20;
             this->flags2 = gPlayerEntity.flags2;
             this->hurtType = 0x1f;
             this->type = 1;
             this->type2 = ITEM_BOTTLE_EMPTY;
-            this->actionDelay = 0x52;
-            this->field_0xf = 0x1b;
+            this->timer = 0x52;
+            this->subtimer = 0x1b;
             sub_0801766C(this);
             SoundReq(SFX_1DC);
             break;
@@ -61,15 +61,15 @@ void PlayerItemBottle_Init(Entity* this) {
         case ITEM_BOTTLE_PICOLYTE_GREEN:
         case ITEM_BOTTLE_PICOLYTE_BLUE:
         case ITEM_BOTTLE_PICOLYTE_WHITE:
-            this->actionDelay = 0xd5;
-            this->field_0xf = 0x3c;
+            this->timer = 0xd5;
+            this->subtimer = 0x3c;
             break;
         case BOTTLE_CHARM_NAYRU:
         case BOTTLE_CHARM_FARORE:
         case BOTTLE_CHARM_DIN:
         default:
-            this->actionDelay = 0x37;
-            this->field_0xf = 0;
+            this->timer = 0x37;
+            this->subtimer = 0;
     }
     this->action = 1;
     this->frameIndex = 0xff;
@@ -212,7 +212,7 @@ void sub_0801BDE8(Entity* this, Entity* ent2) {
     u32 flipX;
     u32 animationState;
 
-    uVar1 = (ent2->frameIndex - this->actionDelay) + this->field_0xf;
+    uVar1 = (ent2->frameIndex - this->timer) + this->subtimer;
     if (uVar1 != this->frameIndex) {
         this->frameIndex = uVar1;
         sub_080042D0(this, this->frameIndex, (u16)this->spriteIndex);
@@ -240,9 +240,9 @@ void PlayerItemBottle_UseEmptyBottle(Entity* this) {
     const u8* ptr;
     const s8* ptr2;
 
-    switch (this->bitfield & 0x7f) {
+    switch (this->contactFlags & 0x7f) {
         default:
-            this->bitfield = 0;
+            this->contactFlags = 0;
             break;
         case 0x49:
             this->type2 = ITEM_BOTTLE_FAIRY;

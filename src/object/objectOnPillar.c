@@ -80,7 +80,7 @@ void ObjectOnPillar_Init(ObjectOnPillarEntity* this) {
         super->spriteSettings.shadow = 1;
         super->spriteOffsetY = 4;
         super->hitbox = (Hitbox*)&gUnk_080FD1F4;
-        super->field_0x16 = 1;
+        super->carryFlags = 1;
         this->unk_72 = 0;
         super->collisionLayer = this->unk_7d >> 4;
         UpdateSpriteForCollisionLayer(super);

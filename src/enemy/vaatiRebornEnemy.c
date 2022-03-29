@@ -100,7 +100,7 @@ void VaatiRebornEnemyType0Action0(Entity* this) {
         ClearRoomFlag(0);
         this->action = 3;
         this->field_0x74.HALF.LO = -1;
-        this->actionDelay = 0;
+        this->timer = 0;
         this->field_0x76.HALF.LO = 0;
         this->spriteSettings.draw = 1;
         this->direction = 0xff;
@@ -126,7 +126,7 @@ void VaatiRebornEnemyType0Action0(Entity* this) {
         for (i = 0; i < 4; i++) {
             entity = CreateEnemy(VAATI_REBORN_ENEMY, 3);
             entity->parent = this;
-            entity->actionDelay = i;
+            entity->timer = i;
         }
         for (i = 0; i < 2; i++) {
             entity = CreateEnemy(VAATI_BALL, 1);
@@ -140,15 +140,15 @@ void VaatiRebornEnemyType0Action0(Entity* this) {
 }
 
 void VaatiRebornEnemyType0Action1(Entity* this) {
-    if (this->actionDelay != 0) {
-        if (--this->actionDelay == 0) {
+    if (this->timer != 0) {
+        if (--this->timer == 0) {
             if ((this->field_0x74.HALF.LO & 0x70) == 0) {
-                if (this->child->actionDelay == 0) {
+                if (this->child->timer == 0) {
                     sub_0803DD78(this);
                     if (this->field_0x74.HALF.HI != 0) {
                         this->action = 2;
                         this->field_0x74.HALF.LO = 0;
-                        this->actionDelay = 0x10;
+                        this->timer = 0x10;
                         this->direction = 0xff;
                     } else {
                         if ((this->field_0x86.HALF.LO != 0) || (this->field_0x80.HALF.LO != 0)) {
@@ -158,13 +158,13 @@ void VaatiRebornEnemyType0Action1(Entity* this) {
                         }
                     }
                 } else {
-                    this->actionDelay = 2;
+                    this->timer = 2;
                 }
             } else {
                 this->action = 3;
                 this->field_0x74.HALF.HI = this->field_0x74.HALF.LO & 0x80;
                 this->field_0x74.HALF.LO = 0;
-                this->actionDelay = 0xc0;
+                this->timer = 0xc0;
                 this->direction = 0xff;
                 this->spriteSettings.draw = 1;
                 InitAnimationForceUpdate(this, 0);
@@ -175,7 +175,7 @@ void VaatiRebornEnemyType0Action1(Entity* this) {
             switch (sub_0803DEE0(this)) {
                 case 0:
                     this->action = 4;
-                    this->actionDelay = 0xa0;
+                    this->timer = 0xa0;
                     this->direction = 0xff;
                     this->cutsceneBeh.HALF.LO = 0xff;
                     InitAnimationForceUpdate(this, 1);
@@ -183,18 +183,18 @@ void VaatiRebornEnemyType0Action1(Entity* this) {
                 case 1:
                     this->action = 6;
                     this->field_0x74.HALF.LO = 0;
-                    this->actionDelay = 0;
+                    this->timer = 0;
                     this->direction = 0xff;
                     break;
                 case 3:
                     this->action = 5;
                     this->field_0x74.HALF.LO = 0;
-                    this->field_0xf = 0x20;
+                    this->subtimer = 0x20;
                     this->direction = 0xff;
                     break;
                 case 2:
                     this->field_0x74.HALF.LO = 0;
-                    this->actionDelay = 0x20;
+                    this->timer = 0x20;
                     if ((this->field_0x86.HALF.LO != 0) || (this->field_0x80.HALF.LO != 0)) {
                         this->direction = ((Random() & 0x80) >> 3) | 8;
                     } else {
@@ -203,7 +203,7 @@ void VaatiRebornEnemyType0Action1(Entity* this) {
                     break;
             }
         }
-        if (this->child->actionDelay == 0) {
+        if (this->child->timer == 0) {
             this->cutsceneBeh.HALF.HI++;
             if ((this->cutsceneBeh.HALF.HI & 3) == 0) {
                 switch (this->cutsceneBeh.HALF.HI & 0x30) {
@@ -227,9 +227,9 @@ void VaatiRebornEnemyType0Action2(Entity* this) {
 
     switch (this->field_0x74.HALF.LO) {
         case 0:
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->field_0x74.HALF.LO++;
-                this->actionDelay = 0x20;
+                this->timer = 0x20;
                 InitAnimationForceUpdate(this, 3);
                 SoundReq(SFX_19B);
             }
@@ -238,11 +238,11 @@ void VaatiRebornEnemyType0Action2(Entity* this) {
             if ((this->frame & ANIM_DONE) != 0) {
                 this->field_0x74.HALF.LO = 2;
                 this->spriteSettings.draw = 0;
-                this->actionDelay = 0x10;
+                this->timer = 0x10;
             }
             break;
         case 2:
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->field_0x74.HALF.LO++;
                 if (sub_0803E028(this) == 0) {
                     s32 tmp;
@@ -254,7 +254,7 @@ void VaatiRebornEnemyType0Action2(Entity* this) {
                     this->y.HALF.HI = gRoomControls.origin_y + ptr->HALF.y + 0x10;
                 }
                 this->spriteSettings.draw = 1;
-                this->actionDelay = 0x20;
+                this->timer = 0x20;
                 InitAnimationForceUpdate(this, 4);
                 SoundReq(SFX_F5);
             }
@@ -268,10 +268,10 @@ void VaatiRebornEnemyType0Action2(Entity* this) {
                 }
                 if (--this->field_0x76.HALF.HI == 0) {
                     this->action = 1;
-                    this->actionDelay = 1;
+                    this->timer = 1;
                 } else {
                     this->field_0x74.HALF.LO = 0;
-                    this->actionDelay = 0x10;
+                    this->timer = 0x10;
                 }
                 InitAnimationForceUpdate(this, 0);
             }
@@ -286,30 +286,30 @@ void VaatiRebornEnemyType0Action3(Entity* this) {
     switch (this->field_0x74.HALF.LO) {
         case 0xfe:
             this->field_0x74.HALF.LO = 0;
-            this->actionDelay = 1;
+            this->timer = 1;
             break;
         case 0xff:
             if (this->z.HALF.HI != -4) {
                 this->z.WORD -= Q_16_16(0.125);
             }
-            if (this->actionDelay == 2) {
+            if (this->timer == 2) {
                 this->field_0x74.HALF.LO = 0xfe;
             }
             break;
         case 0:
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->field_0x74.HALF.LO++;
                 if ((this->field_0x74.HALF.HI & 0x80) != 0) {
                     temp = 0x14;
                 } else {
                     temp = 0x20;
                 }
-                this->actionDelay = temp;
+                this->timer = temp;
                 this->field_0x80.HALF.LO = ((this->field_0x86.HALF.LO + 1) >> 1) * 2 + 2;
             }
             break;
         case 1:
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->field_0x74.HALF.LO++;
                 if ((this->field_0x74.HALF.HI & 0x80) == 0) {
                     SoundReq(SFX_1B0);
@@ -326,7 +326,7 @@ void VaatiRebornEnemyType0Action3(Entity* this) {
         case 3:
             this->action = 1;
             this->field_0x74.HALF.LO = 0;
-            this->actionDelay = 1;
+            this->timer = 1;
             break;
     }
     UpdateAnimationSingleFrame(this);
@@ -336,10 +336,10 @@ void VaatiRebornEnemyType0Action4(Entity* this) {
     u32 index;
     Entity* entity;
 
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 1;
         this->cutsceneBeh.HALF.LO = 0xff;
-        this->actionDelay = 1;
+        this->timer = 1;
         this->direction = (this->direction + 0x10) & 0x1f;
         InitAnimationForceUpdate(this, 0);
     } else {
@@ -348,15 +348,15 @@ void VaatiRebornEnemyType0Action4(Entity* this) {
             if (this->cutsceneBeh.HALF.LO == 0xff) {
                 index = Direction8RoundUp(GetFacingDirection(this, &gPlayerEntity));
                 this->cutsceneBeh.HALF.LO = gUnk_080D04C0[index >> 2];
-                this->field_0xf = 0;
+                this->subtimer = 0;
             }
-            if ((this->field_0xf < 0x10) &&
+            if ((this->subtimer < 0x10) &&
                 (entity = CreateProjectileWithParent(this, V1_FIRE_PROJECTILE, this->cutsceneBeh.HALF.LO),
                  entity != NULL)) {
-                entity->field_0xf = this->field_0xf;
+                entity->subtimer = this->subtimer;
                 entity->parent = this;
                 entity->z.HALF.HI = this->z.HALF.HI;
-                this->field_0xf = this->field_0xf + 1;
+                this->subtimer = this->subtimer + 1;
             }
         }
     }
@@ -368,7 +368,7 @@ void VaatiRebornEnemyType0Action5(Entity* this) {
 
     if (this->field_0x80.HALF.LO == 0) {
         this->action = 1;
-        this->actionDelay = 1;
+        this->timer = 1;
         this->direction = 0xff;
         InitAnimationForceUpdate(this, 0);
         return;
@@ -376,7 +376,7 @@ void VaatiRebornEnemyType0Action5(Entity* this) {
 
     switch (this->field_0x74.HALF.LO) {
         case 0:
-            if (--this->field_0xf == 0) {
+            if (--this->subtimer == 0) {
                 this->field_0x74.HALF.LO++;
                 InitAnimationForceUpdate(this, 1);
             }
@@ -384,30 +384,30 @@ void VaatiRebornEnemyType0Action5(Entity* this) {
         case 1:
             if ((this->frame & 0x10) != 0) {
                 this->field_0x74.HALF.LO = 2;
-                this->field_0xf = (Random() & 0x3f) + 0x40;
+                this->subtimer = (Random() & 0x3f) + 0x40;
                 SoundReq(SFX_SUMMON);
             }
             break;
         case 2:
-            if (--this->field_0xf == 0) {
+            if (--this->subtimer == 0) {
                 if (!((this->field_0x86.HALF.LO < 2) || (3 < this->field_0x86.HALF.HI)) && (Random() & 0x10) != 0) {
                     this->field_0x86.HALF.HI++;
-                    this->field_0xf = (Random() & 0x3f) + 0x40;
+                    this->subtimer = (Random() & 0x3f) + 0x40;
                     uVar3 = GetFacingDirection(this, &gPlayerEntity);
                     this->direction = (uVar3 & 0x10) | 8;
                 } else {
                     this->field_0x74.HALF.LO++;
                     this->field_0x86.HALF.HI = 0;
-                    this->field_0xf = 0x30;
+                    this->subtimer = 0x30;
                     InitAnimationForceUpdate(this, 0);
                 }
             }
             break;
         case 3:
-            if (--this->field_0xf == 0) {
+            if (--this->subtimer == 0) {
                 this->action = 1;
                 this->field_0x74.HALF.LO = 0;
-                this->actionDelay = 1;
+                this->timer = 1;
                 this->direction = 0xff;
             }
             break;
@@ -424,19 +424,19 @@ void VaatiRebornEnemyType0Action6(Entity* this) {
 
     if (this->field_0x80.HALF.LO == 0) {
         this->action = 1;
-        this->actionDelay = 1;
+        this->timer = 1;
         return;
     }
 
     switch (this->field_0x74.HALF.LO) {
         case 0:
-            if (this->actionDelay != 0) {
+            if (this->timer != 0) {
                 this->field_0x74.HALF.LO = 1;
-                this->actionDelay = 0x70;
+                this->timer = 0x70;
             }
             break;
         case 1:
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->field_0x74.HALF.LO++;
                 SoundReq(SFX_150);
                 target = CreateProjectileWithParent(this, V1_DARK_MAGIC_PROJECTILE, 0);
@@ -444,24 +444,24 @@ void VaatiRebornEnemyType0Action6(Entity* this) {
                     PositionRelative(this, target, 0, Q_16_16(-16.0));
                     target->parent = this;
                 }
-            } else if (this->actionDelay == 0x40) {
+            } else if (this->timer == 0x40) {
                 SoundReq(SFX_196);
             }
             break;
         case 2:
-            if (this->field_0xf != 0) {
-                this->field_0xf = 0;
+            if (this->subtimer != 0) {
+                this->subtimer = 0;
             }
             break;
         case 3:
-            if (this->field_0xf == 0) {
-                this->field_0xf = 1;
+            if (this->subtimer == 0) {
+                this->subtimer = 1;
                 SoundReq(SFX_14F);
             }
-            if (this->actionDelay) {
+            if (this->timer) {
                 this->action = 1;
                 this->field_0x74.HALF.LO = 0;
-                this->actionDelay = 1;
+                this->timer = 1;
             }
             break;
     }
@@ -472,11 +472,11 @@ void VaatiRebornEnemyType0Action7(Entity* this) {
     Entity* fx;
     u32 tmp;
 
-    if (this->actionDelay != 0) {
-        if (--this->actionDelay == 0) {
+    if (this->timer != 0) {
+        if (--this->timer == 0) {
             SetRoomFlag(1);
         } else {
-            if ((this->actionDelay & 7) == 0) {
+            if ((this->timer & 7) == 0) {
                 fx = CreateFx(this, FX_DEATH, 0);
                 if (fx != NULL) {
                     tmp = Random() & 0x3f3f;
@@ -497,7 +497,7 @@ void VaatiRebornEnemyType1Action0(Entity* this) {
     this->action = 1;
     this->field_0x74.HALF.LO = 0;
     this->field_0x74.HALF.HI = 1;
-    this->actionDelay = 0;
+    this->timer = 0;
     this->spriteOffsetY = -1;
     PositionRelative(this->parent, this, 0, Q_16_16(1.0));
     enemy = CreateEnemy(VAATI_REBORN_ENEMY, 2);
@@ -522,9 +522,9 @@ void VaatiRebornEnemyType1Action1(Entity* this) {
             this->hitType = 0x2f;
             InitAnimationForceUpdate(this, this->field_0x74.HALF.LO);
         } else {
-            if (((this->bitfield & 0x80) != 0) && (0 < this->iframes)) {
+            if (((this->contactFlags & 0x80) != 0) && (0 < this->iframes)) {
                 parent->iframes = this->iframes;
-                parent->bitfield = this->bitfield;
+                parent->contactFlags = this->contactFlags;
             }
             if ((this->frame & 0x40) != 0) {
                 InitAnimationForceUpdate(this, 2);
@@ -633,7 +633,7 @@ void sub_0803DC0C(Entity* this) {
     const xy* tmp;
 
     parent = this->parent;
-    tmp = &gUnk_080D04C8[this->actionDelay];
+    tmp = &gUnk_080D04C8[this->timer];
     this->spriteSettings.draw = parent->spriteSettings.draw;
     this->spriteOffsetX = parent->spriteOffsetX;
     PositionRelative(parent, this, Q_16_16(tmp->x), Q_16_16(tmp->y + 1));
@@ -648,32 +648,32 @@ void VaatiRebornEnemyType1PreAction(Entity* this) {
     }
     parent = this->parent;
     this->field_0x76.HALF.HI = 0;
-    if ((this->bitfield & 0x80) != 0) {
+    if ((this->contactFlags & 0x80) != 0) {
         if (gUnk_080D04D0[parent->field_0x86.HALF.LO] > this->health) {
             if (2 < ++parent->field_0x86.HALF.LO) {
                 COLLISION_OFF(this);
                 parent->action = 7;
                 parent->flags &= ~ENT_COLLIDE;
-                parent->actionDelay = 0x80;
+                parent->timer = 0x80;
                 parent->spriteOffsetX = 0;
                 parent->direction = -1;
-                this->actionDelay = 0;
+                this->timer = 0;
                 SoundReq(SONG_STOP_BGM);
                 gArea.bgm = gArea.queued_bgm;
                 return;
             }
-            this->actionDelay = 1;
+            this->timer = 1;
             this->field_0x76.HALF.HI = 0xff;
         }
         if (0 < this->iframes) {
             SoundReq(SFX_BOSS_HIT);
             InitScreenShake(0xc, 1);
-            if (this->actionDelay == 0)
-                this->actionDelay = 0x48;
+            if (this->timer == 0)
+                this->timer = 0x48;
         }
     }
-    if (this->actionDelay != 0) {
-        if (--this->actionDelay == 0) {
+    if (this->timer != 0) {
+        if (--this->timer == 0) {
             this->hitType = 0x2f;
             this->field_0x74.HALF.LO = 1;
             if (this->field_0x76.HALF.HI == 0) {
@@ -683,7 +683,7 @@ void VaatiRebornEnemyType1PreAction(Entity* this) {
                 this->health = 0xff;
             }
             parent->action = 1;
-            parent->actionDelay = 1;
+            parent->timer = 1;
             InitAnimationForceUpdate(this, 0);
         }
     }

@@ -34,7 +34,7 @@ void sub_08087824(Entity* this) {
     }
     this->action = 1;
     this->flags |= 0x80;
-    this->field_0x3c = 0x13;
+    this->collisionFlags = 0x13;
     this->health = 0xff;
     this->hitType = 0xa9;
     this->hurtType = 0x16;

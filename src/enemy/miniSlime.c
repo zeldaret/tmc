@@ -55,7 +55,7 @@ void sub_080452A4(Entity* this) {
     InitializeAnimation(this, 6);
     if (this->type2) {
         this->action = 2;
-        this->actionDelay = 1;
+        this->timer = 1;
     } else {
         sub_080452E4(this);
     }
@@ -63,17 +63,17 @@ void sub_080452A4(Entity* this) {
 
 void sub_080452E4(Entity* this) {
     this->action = 2;
-    this->actionDelay = (Random() & 0x1f) + 1;
+    this->timer = (Random() & 0x1f) + 1;
 }
 
 void sub_080452FC(Entity* this) {
     u32 cVar2, bVar3;
     GetNextFrame(this);
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 3;
-        this->actionDelay = 1;
+        this->timer = 1;
         if (0 < this->speed)
-            this->actionDelay = FixedDiv(0x1000, this->speed) >> 0x8;
+            this->timer = FixedDiv(0x1000, this->speed) >> 0x8;
 
         if (sub_08049FA0(this) == 0 && (Random() & 3)) {
             cVar2 = sub_08049EE4(this);
@@ -90,6 +90,6 @@ void sub_080452FC(Entity* this) {
 void sub_08045374(Entity* this) {
     ProcessMovement0(this);
     GetNextFrame(this);
-    if (--this->actionDelay == 0)
+    if (--this->timer == 0)
         this->action = 1;
 }

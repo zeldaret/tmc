@@ -68,8 +68,8 @@ NONMATCH("asm/non_matching/objectBD/sub_080A22C4.inc", void sub_080A22C4(Entity*
     switch (this->action) {
         case 0:
             sub_080A2340(this);
-            this->actionDelay = 8;
-            this->field_0xf = 0;
+            this->timer = 8;
+            this->subtimer = 0;
             this->subAction = this->frameIndex;
             this->speed = (Random() & 3) * 0x10 + 0x1e;
             break;
@@ -81,11 +81,11 @@ NONMATCH("asm/non_matching/objectBD/sub_080A22C4.inc", void sub_080A22C4(Entity*
             this->action = 2;
             break;
         default:
-            if (--this->actionDelay != 0) {
+            if (--this->timer != 0) {
                 return;
             }
-            this->actionDelay = 8;
-            this->field_0xf = tmp2 = (this->field_0xf + 1) & 3;
+            this->timer = 8;
+            this->subtimer = tmp2 = (this->subtimer + 1) & 3;
             tmp3 = this->subAction;
             tmp1 = tmp3 + tmp2;
             this->frameIndex = tmp1;

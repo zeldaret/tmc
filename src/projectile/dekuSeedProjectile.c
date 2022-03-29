@@ -17,14 +17,14 @@ void DekuSeedProjectile_OnTick(Entity* this) {
 }
 
 void sub_080A8470(Entity* this) {
-    if (this->bitfield == 0x80) {
+    if (this->contactFlags == 0x80) {
         if (this->hitType == 0x68) {
             EnqueueSFX(SFX_86);
         }
         DeleteEntity(this);
     } else {
         this->direction = DirectionRoundUp(this->knockbackDirection);
-        if ((u8)(this->bitfield + 0x7e) < 2) {
+        if ((u8)(this->contactFlags + 0x7e) < 2) {
             sub_080A8680(this);
         } else {
             InitializeAnimation(this, 0x19);
@@ -35,8 +35,8 @@ void sub_080A8470(Entity* this) {
 
 void DekuSeedProjectile_Init(Entity* this) {
     this->action = 1;
-    this->actionDelay = 0x30;
-    this->field_0xf = 0;
+    this->timer = 0x30;
+    this->subtimer = 0;
     this->z.HALF.HI -= 4;
     if (CheckGlobalFlag(TABIDACHI) == 0) {
         this->hitType = 0x68;
@@ -54,7 +54,7 @@ void DekuSeedProjectile_Action1(Entity* this) {
             DeleteThisEntity();
         }
         sub_08016AD2(this);
-        if (--this->actionDelay == 0) {
+        if (--this->timer == 0) {
             this->action = 4;
         }
     } else {
@@ -63,17 +63,17 @@ void DekuSeedProjectile_Action1(Entity* this) {
         InitializeAnimation(this, 0x19);
         sub_080A86A0(this);
     }
-    if (this->field_0xf != 0) {
+    if (this->subtimer != 0) {
         parent = this->parent;
         if ((parent->next != NULL) && (IsColliding(this, parent) != 0)) {
             this->iframes = 0x10;
             this->knockbackDirection = -this->direction;
-            this->bitfield = 0x80;
+            this->contactFlags = 0x80;
             this->knockbackDuration = 0xc;
             this->knockbackSpeed = 0;
             parent->iframes = 0x10;
             parent->knockbackDirection = this->direction;
-            parent->bitfield = 0xc2;
+            parent->contactFlags = 0xc2;
             parent->knockbackDuration = 0xc;
             parent->knockbackSpeed = 0;
         }
@@ -86,7 +86,7 @@ void DekuSeedProjectile_Action2(Entity* this) {
         if (IsProjectileOffScreen(this)) {
             DeleteThisEntity();
         }
-        if (--this->actionDelay == 0) {
+        if (--this->timer == 0) {
             this->action = 1;
             COLLISION_ON(this);
         }
@@ -126,8 +126,8 @@ void DekuSeedProjectile_Action4(Entity* this) {
 void sub_080A8680(Entity* this) {
     this->action = 2;
     COLLISION_OFF(this);
-    this->actionDelay = 3;
-    this->field_0xf = 1;
+    this->timer = 3;
+    this->subtimer = 1;
     EnqueueSFX(SFX_ITEM_SHIELD_BOUNCE);
 }
 

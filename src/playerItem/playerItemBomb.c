@@ -25,25 +25,25 @@ void PlayerItemBomb(PlayerItemBombEntity* this) {
     GetNextFrame(super);
     uVar2 = uVar1 = super->action;
     if (uVar1 != 0x03) {
-        if (super->actionDelay != 0) {
+        if (super->timer != 0) {
             if (*(u8*)&this->unk_68 == 7) {
-                super->actionDelay -= 1;
+                super->timer -= 1;
             }
-            if (super->actionDelay == 0) {
-                super->field_0xf = 0x50;
+            if (super->timer == 0) {
+                super->subtimer = 0x50;
                 this->unk_68 = 0;
                 super->spriteRendering.b0 = 3;
                 SetAffineInfo(super, 0x100, 0x100, 0);
             }
         } else {
-            if (super->field_0xf != 0) {
-                if (super->field_0xf-- == 0x01) {
+            if (super->subtimer != 0) {
+                if (super->subtimer-- == 0x01) {
                     if ((uVar1 == 0x02) && (super->subAction == 1)) {
                         gPlayerState.heldObject = 0;
                     }
                     super->action = 0x03;
                     super->spritePriority.b1 = 2;
-                    super->actionDelay = 0x0f;
+                    super->timer = 0x0f;
                     super->spriteSettings.draw = 0;
                     sub_0805EC60(super);
                     FreeCarryEntity(super);
@@ -63,15 +63,15 @@ void sub_0801B250(PlayerItemBombEntity* this) {
     super->spritePriority.b1 = 3;
     super->flags &= 0x7f;
     if (super->type == 0xff) {
-        super->actionDelay = 0x3c;
+        super->timer = 0x3c;
     } else if (super->type == 0xfe) {
-        super->actionDelay = 0x0f;
+        super->timer = 0x0f;
         super->type = 0xff;
     } else {
-        super->actionDelay = 0x96;
+        super->timer = 0x96;
     }
     super->hitbox = (Hitbox*)&gUnk_080B77F4;
-    super->field_0x16 = 0;
+    super->carryFlags = 0;
     if (*(u8*)&this->unk_68 == 7) {
         InitializeAnimation(super, 5);
     } else {
@@ -97,8 +97,8 @@ void sub_0801B2CC(PlayerItemBombEntity* this) {
             break;
     }
     if ((unaff_r5 & gPlayerState.field_0x92) != 0) {
-        super->actionDelay = 0;
-        super->field_0xf = 1;
+        super->timer = 0;
+        super->subtimer = 1;
     }
 }
 
@@ -122,8 +122,8 @@ void sub_0801B354(Entity* this) {
 void sub_0801B368(Entity* this) {
     this->action -= 1;
     this->subAction = 0;
-    if (0x3c < this->actionDelay) {
-        this->actionDelay = 0x3c;
+    if (0x3c < this->timer) {
+        this->timer = 0x3c;
     }
 }
 
@@ -132,14 +132,14 @@ void sub_0801B384(Entity* this) {
 }
 
 void sub_0801B38C(Entity* this) {
-    if (this->actionDelay-- == 0) {
+    if (this->timer-- == 0) {
         DeleteThisEntity();
     }
 }
 
 void sub_0801B3A4(PlayerItemBombEntity* this) {
     u32 tmp;
-    if (super->field_0xf >= 0x29) {
+    if (super->subtimer >= 0x29) {
         tmp = 8;
     } else {
         tmp = 4;
@@ -153,7 +153,7 @@ void sub_0801B3A4(PlayerItemBombEntity* this) {
         }
         SetAffineInfo(super, 0x130 - (this->unk_68 & 0xf0), 0x130 - (this->unk_68 & 0xf0), 0);
     }
-    if ((super->field_0xf & tmp) == 0) {
+    if ((super->subtimer & tmp) == 0) {
         super->palette.b.b0 = 0;
     } else {
         super->palette.b.b0 = super->palette.b.b4;

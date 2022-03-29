@@ -18,7 +18,7 @@ void TreeThorns(Entity* this) {
             this->frameIndex = 1;
             layer = &this->collisionLayer;
             *layer = 1;
-            this->field_0x3c = 7;
+            this->collisionFlags = 7;
             this->hurtType = 0x48;
             this->hitType = 0x7a;
             this->flags2 = 1;

@@ -61,7 +61,7 @@ void Octorok_OnGrabbed(Entity* this) {
 
 void sub_0801EB68(Entity* this) {
     this->subAction = 1;
-    this->field_0x1d = 60;
+    this->gustJarTolerance = 60;
 }
 
 void sub_0801EB74(Entity* this) {
@@ -84,7 +84,7 @@ void nullsub_3(Entity* this) {
 void sub_0801EB9C(Entity* this) {
     if (this->flags & ENT_COLLIDE) {
         COLLISION_ON(this);
-        this->field_0x3a &= 0xfb;
+        this->gustJarState &= 0xfb;
     } else {
         this->health = 0;
     }
@@ -98,15 +98,15 @@ void Octorok_Initialize(Entity* this) {
     } else {
         this->animationState = Random() & 3;
     }
-    this->field_0x1c = 18;
+    this->gustJarFlags = 18;
     Octorok_Pause(this);
     InitializeAnimation(this, this->animationState);
 }
 
 void Octorok_Idle(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 2;
-        this->actionDelay = gOctorokWalkDuration[Random() & 3];
+        this->timer = gOctorokWalkDuration[Random() & 3];
         Octorok_Turn(this);
     }
     GetNextFrame(this);
@@ -115,7 +115,7 @@ void Octorok_Idle(Entity* this) {
 void Octorok_Move(Entity* this) {
     ProcessMovement0(this);
     GetNextFrame(this);
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         if (Octorok_FacesPlayer(this) && gOctorokSpitChanceModifier[this->type] <= (Random() & 3)) {
             this->action = 3;
             InitializeAnimation(this, this->animationState + 4);
@@ -147,7 +147,7 @@ void Octorok_ShootNut(Entity* this) {
 
 void Octorok_Pause(Entity* this) {
     this->action = 1;
-    this->actionDelay = (Random() & 0x38) + 24;
+    this->timer = (Random() & 0x38) + 24;
 }
 
 void Octorok_Turn(Entity* this) {

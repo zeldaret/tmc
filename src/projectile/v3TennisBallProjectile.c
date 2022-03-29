@@ -18,7 +18,7 @@ void V3TennisBallProjectile_OnTick(Entity* this) {
 }
 
 void sub_080ACA68(Entity* this) {
-    switch (this->bitfield & 0x7f) {
+    switch (this->contactFlags & 0x7f) {
         case 0x1a:
         case 0xa:
         case 0xb:
@@ -27,7 +27,7 @@ void sub_080ACA68(Entity* this) {
             this->action = 2;
             this->flags &= ~ENT_COLLIDE;
             this->speed += 0x80 * 2;
-            this->child = this->field_0x4c;
+            this->child = this->contactedEntity;
             if (sub_080ACB40(this)) {
                 this->direction = 0;
             } else {
@@ -106,7 +106,7 @@ bool32 sub_080ACB40(Entity* this) {
 void sub_080ACB90(Entity* this) {
     Entity* parent = this->parent;
     if ((this->x.HALF.HI == parent->x.HALF.HI) && (this->y.HALF.HI <= parent->y.HALF.HI)) {
-        parent->field_0xf = 1;
+        parent->subtimer = 1;
         CreateFx(this, FX_REFLECT2, 0x40);
         EnqueueSFX(SFX_ITEM_GLOVES_KNOCKBACK);
         DeleteThisEntity();

@@ -19,11 +19,11 @@ void V1FireProjectile_OnTick(Entity* this) {
 }
 
 void sub_080AB2DC(Entity* this) {
-    if ((this->bitfield & 0x80) != 0) {
+    if ((this->contactFlags & 0x80) != 0) {
         this->action = 3;
         COLLISION_OFF(this);
         InitializeAnimation(this, 0x53);
-        if ((this->bitfield & 0x7f) == 0) {
+        if ((this->contactFlags & 0x7f) == 0) {
             ModHealth(-4);
         }
     }
@@ -73,11 +73,11 @@ void V1FireProjectile_Action1(Entity* this) {
     LinearMoveUpdate(this);
     if (GravityUpdate(this, 0) == 0) {
         this->action = 2;
-        this->actionDelay = 0xf;
+        this->timer = 0xf;
         InitializeAnimation(this, 0x54);
         sub_080AB4A4(this);
     } else {
-        if (++this->actionDelay > 0xe0) {
+        if (++this->timer > 0xe0) {
             DeleteThisEntity();
         }
     }
@@ -117,7 +117,7 @@ void sub_080AB4A4(Entity* this) {
 }
 
 s8* sub_080AB4F8(Entity* this) {
-    return (s8*)&gUnk_0812A4EC[this->type << 5 | this->field_0xf << 1];
+    return (s8*)&gUnk_0812A4EC[this->type << 5 | this->subtimer << 1];
 }
 
 void (*const V1FireProjectile_Functions[])(Entity*) = {

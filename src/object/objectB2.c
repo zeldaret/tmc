@@ -10,7 +10,7 @@ void ObjectB2(Entity* this) {
 
     if (this->action == 0) {
         this->action = 1;
-        this->actionDelay = 0x10;
+        this->timer = 0x10;
         this->direction = this->type << 3;
         if (this->collisionLayer == 2) {
             layer = gUnk_0200D654;
@@ -28,7 +28,7 @@ void ObjectB2(Entity* this) {
     if (this->speed < 0x41) {
         this->spriteSettings.draw ^= 1;
 
-        if (--this->actionDelay == 0) {
+        if (--this->timer == 0) {
             DeleteThisEntity();
         }
     }

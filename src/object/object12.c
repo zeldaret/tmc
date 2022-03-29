@@ -41,7 +41,7 @@ void Object12_Init(Object12Entity* this) {
         sub_080850FC(this);
     } else {
         super->action = 2;
-        super->actionDelay = 0xf0;
+        super->timer = 0xf0;
         super->speed = 0x80;
         super->direction = 0x18;
     }
@@ -53,9 +53,9 @@ void Object12_Action1(Object12Entity* this) {
 
 NONMATCH("asm/non_matching/object12/Object12_Action2.inc", void Object12_Action2(Object12Entity* this)) {
     u32 tmp;
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->action = 3;
-        super->actionDelay = 0x1e;
+        super->timer = 0x1e;
         super->spriteOffsetY = 4;
         gScreen.lcd.displayControl |= 0x2000;
         gScreen.controls.windowInsideControl = 0x1f;
@@ -69,15 +69,15 @@ NONMATCH("asm/non_matching/object12/Object12_Action2.inc", void Object12_Action2
 END_NONMATCH
 
 void Object12_Action3(Object12Entity* this) {
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->action = 4;
-        super->actionDelay = 0x60;
+        super->timer = 0x60;
     }
 }
 
 void Object12_Action4(Object12Entity* this) {
     LinearMoveUpdate(super);
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         gScreen.lcd.displayControl &= 0xdfff;
         DeleteEntity(super);
     }

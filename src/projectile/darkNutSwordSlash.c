@@ -24,10 +24,10 @@ void DarkNutSwordSlash(Entity* this) {
     if ((this->parent == NULL) || (this->parent->health == 0)) {
         DeleteThisEntity();
     }
-    if (((this->bitfield & 0x80) != 0) && (this->field_0x4c == &gPlayerEntity)) {
+    if (((this->contactFlags & 0x80) != 0) && (this->contactedEntity == &gPlayerEntity)) {
         this->iframes = -0x2d;
     }
-    this->bitfield = 0;
+    this->contactFlags = 0;
     CopyPositionAndSpriteOffset(this->parent, this);
     DarkNutSwordSlash_OnTick(this);
     if (this->type == 3) {

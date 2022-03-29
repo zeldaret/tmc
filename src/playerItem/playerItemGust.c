@@ -29,7 +29,7 @@ static void sub_080ACECC(GustEntity*);
 typedef struct {
     u16 bits;
     u8 type2;
-    u8 actionDelay;
+    u8 timer;
     u8 _4;
     u8 type;
     u16 tileID;
@@ -66,7 +66,7 @@ static void PlayerItemGust_Init(GustEntity* this) {
     super->direction = super->animationState << 2;
     super->speed = 0x200;
     super->flags |= ENT_COLLIDE | ENT_PERSIST;
-    super->field_0x3c = 2;
+    super->collisionFlags = 2;
     super->hitbox = (Hitbox*)sHitboxes[super->type];
     this->timer = 16;
     sub_080ACDB0(this);
@@ -97,7 +97,7 @@ static void sub_080ACC78(GustEntity* this) {
         if (o != NULL) {
             child = CreateObject(OBJECT_11, o->type, o->type2);
             if (child != NULL) {
-                child->actionDelay = o->actionDelay;
+                child->timer = o->timer;
                 child->x.HALF.HI = child_offsets[this->offset_iter] + super->x.HALF.HI;
                 child->y.HALF.HI = child_offsets[this->offset_iter + 1] + super->y.HALF.HI;
             }

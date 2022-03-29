@@ -35,8 +35,8 @@ void MacroBook(Entity* this) {
 
 void MacroBook_Init(MacroBookEntity* this) {
     super->action = 1;
-    super->actionDelay = 0x80;
-    super->field_0xf = 0;
+    super->timer = 0x80;
+    super->subtimer = 0;
     super->spriteRendering.b0 = 3;
     this->unk80 = 0x80;
     this->playerWithinRect = 0;
@@ -46,24 +46,24 @@ void MacroBook_Init(MacroBookEntity* this) {
     super->spriteRendering.b3 = 3;
     SetAffineInfo(super, this->unk80, this->unk80, 0);
     UpdateSpriteForCollisionLayer(super);
-    InitAnimationForceUpdate(super, super->field_0xf);
+    InitAnimationForceUpdate(super, super->subtimer);
     sub_0809A958(this);
 }
 
 void MacroBook_Action1(MacroBookEntity* this) {
     UpdateAnimationSingleFrame(super);
     sub_0809AA00(this);
-    if (super->actionDelay) {
-        super->actionDelay--;
+    if (super->timer) {
+        super->timer--;
     } else {
         if ((super->frame & ANIM_DONE) != 0) {
-            if (super->field_0xf == 3) {
+            if (super->subtimer == 3) {
                 super->action = 2;
-                super->actionDelay = 90;
-                super->field_0xf = 0;
+                super->timer = 90;
+                super->subtimer = 0;
                 InitAnimationForceUpdate(super, 2);
             } else {
-                InitAnimationForceUpdate(super, super->field_0xf);
+                InitAnimationForceUpdate(super, super->subtimer);
             }
         }
     }
@@ -72,22 +72,22 @@ void MacroBook_Action1(MacroBookEntity* this) {
 void MacroBook_Action2(MacroBookEntity* this) {
     UpdateAnimationSingleFrame(super);
     sub_0809AA00(this);
-    if (super->field_0xf < 2) {
+    if (super->subtimer < 2) {
         super->action = 1;
-        super->actionDelay = 0;
-    } else if (super->actionDelay) {
-        super->actionDelay--;
+        super->timer = 0;
+    } else if (super->timer) {
+        super->timer--;
         if (gPlayerClones[0] != 0) {
             return;
         }
         super->action = 1;
-        super->actionDelay = 0;
+        super->timer = 0;
     } else {
         if ((super->frame & ANIM_DONE) == 0) {
             return;
         }
         super->action = 3;
-        super->actionDelay = 0;
+        super->timer = 0;
         InitAnimationForceUpdate(super, 3);
         RequestPriorityDuration(super, 0x78);
     }
@@ -105,7 +105,7 @@ void MacroBook_Action3(MacroBookEntity* this) {
             sub_0809A9D4(this);
             break;
         case 0x20:
-            super->actionDelay++;
+            super->timer++;
             super->frame &= 0xdf;
             SetPlayerControl(0xff);
             SetGlobalFlag(0x2a);
@@ -114,7 +114,7 @@ void MacroBook_Action3(MacroBookEntity* this) {
             break;
     }
 
-    if (super->actionDelay) {
+    if (super->timer) {
         this->unk80 += 8;
         super->x.WORD += 0x400;
         SetAffineInfo(super, this->unk80, this->unk80, 0);
@@ -167,7 +167,7 @@ void sub_0809A9D4(MacroBookEntity* this) {
 void sub_0809AA00(MacroBookEntity* this) {
     Entity* ent;
 
-    super->field_0xf = 0;
+    super->subtimer = 0;
     if (super->child == NULL) {
         for (ent = FindEntityByID(NPC, TOWN_MINISH, 7); ent != NULL; ent = FindNextDuplicateID(ent, NPC)) {
             if (ent->type == 0 && ent->type2 == 8) {
@@ -202,7 +202,7 @@ void sub_0809AA9C(MacroBookEntity* this, Entity* ent, u32 arg3) {
     }
 
     if (ent->x.HALF.HI <= gRoomControls.origin_x + 0x15a) {
-        super->field_0xf++;
+        super->subtimer++;
         ent->spriteOffsetY++;
     }
 }

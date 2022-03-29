@@ -39,7 +39,7 @@ void Object42(Object42Entity* this) {
 void sub_0808DDB4(Object42Entity* this) {
     super->action = 1;
     if (super->type != 0) {
-        super->actionDelay = 0x78;
+        super->timer = 0x78;
         this->unk_6c = 0xf0;
         InitializeAnimation(super, 0);
         sub_0808DDE8(this);
@@ -55,9 +55,9 @@ void sub_0808DDE8(Object42Entity* this) {
     Entity* player;
     this->unk_6c--;
     if (sub_0807953C()) {
-        super->field_0xf++;
+        super->subtimer++;
     }
-    if (((0x1e < super->field_0xf) || ((gPlayerState.flags & 0x1810) != 0)) || (this->unk_6c == 0)) {
+    if (((0x1e < super->subtimer) || ((gPlayerState.flags & 0x1810) != 0)) || (this->unk_6c == 0)) {
         gPlayerState.flags &= 0xfffffbff;
         DeleteThisEntity();
     }

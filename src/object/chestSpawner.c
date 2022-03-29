@@ -102,7 +102,7 @@ void ChestSpawner_Type2Action1(ChestSpawnerEntity* this) {
         gPauseMenuOptions.disabled = 1;
         super->action = 2;
         super->subAction = 0;
-        super->field_0xf = 0x1e;
+        super->subtimer = 0x1e;
         super->spriteSettings.draw = 1;
         super->spriteRendering.alphaBlend = 1;
         RequestPriorityDuration(super, 0x1e);
@@ -125,17 +125,17 @@ void ChestSpawner_Type2Action2(ChestSpawnerEntity* this) {
         case 1:
             if ((super->type == 5) || (gPlayerEntity.action == 1)) {
                 super->subAction = 2;
-                super->actionDelay = 8;
-                super->field_0xf = 0;
+                super->timer = 8;
+                super->subtimer = 0;
                 SoundReq(SFX_14A);
             }
             break;
         default:
             sub_0800445C(super);
             CreateMagicSparkles(super->x.HALF.HI, super->y.HALF.HI, 2);
-            if (--super->actionDelay == 0) {
-                super->actionDelay = 8;
-                tmp = ++super->field_0xf;
+            if (--super->timer == 0) {
+                super->timer = 8;
+                tmp = ++super->subtimer;
                 gScreen.controls.alphaBlend = (((0x10 - tmp) * 0x100) & 0xff00) | tmp;
                 if (gScreen.controls.alphaBlend == 0x10) {
                     gPauseMenuOptions.disabled = 0;
@@ -152,7 +152,7 @@ void ChestSpawner_Type2Action3(ChestSpawnerEntity* this) {
     sub_0800445C(super);
     if (super->interactType != 0) {
         super->action = 4;
-        super->field_0xf = 0x1e;
+        super->subtimer = 0x1e;
         sub_080788E0(super);
         RequestPriorityDuration(super, 0x3c);
         SoundReq(SFX_CHEST_OPEN);
@@ -163,11 +163,11 @@ void ChestSpawner_Type2Action4(ChestSpawnerEntity* this) {
     sub_0800445C(super);
     GetNextFrame(super);
     if ((super->frame & ANIM_DONE) != 0) {
-        if (--super->field_0xf == 0) {
-            if (super->actionDelay == 0x18) {
+        if (--super->subtimer == 0) {
+            if (super->timer == 0x18) {
                 super->action = 6;
-                super->actionDelay = 8;
-                super->field_0xf = 0x10;
+                super->timer = 8;
+                super->subtimer = 0x10;
             } else {
                 super->action = 5;
                 sub_08084074(super->type2);
@@ -195,7 +195,7 @@ void sub_080840A8(s32 param_1, s32 param_2) {
     static const s8 gUnk_0811F850[] = { -6, 0, 0, 6 };
     Entity* obj = CreateObject(GROUND_ITEM, gUnk_0811F838[Random() & 7], 0);
     if (obj != NULL) {
-        obj->actionDelay = 6;
+        obj->timer = 6;
         obj->direction = ((Random() & 7) + 0xc) | 0x80;
         obj->speed = (Random() & 0xf) * 2 + 0x20;
         obj->zVelocity = gUnk_0811F840[Random() & 3];
@@ -211,9 +211,9 @@ void sub_080840A8(s32 param_1, s32 param_2) {
 }
 
 void ChestSpawner_Type2Action6(ChestSpawnerEntity* this) {
-    if (--super->actionDelay == 0) {
-        super->actionDelay = 8;
-        if (--super->field_0xf != 0) {
+    if (--super->timer == 0) {
+        super->timer = 8;
+        if (--super->subtimer != 0) {
             sub_080840A8(super->x.HALF.HI, super->y.HALF.HI);
         } else {
             super->action = 5;
@@ -263,7 +263,7 @@ void ChestSpawner_Type0Action2(ChestSpawnerEntity* this) {
             break;
     }
     super->action = 3;
-    this->unk_72 = super->actionDelay * 0x3c;
+    this->unk_72 = super->timer * 0x3c;
     if ((super->type & 1) == 0) {
         DeleteThisEntity();
     }

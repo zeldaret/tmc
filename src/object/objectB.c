@@ -58,7 +58,7 @@ void ObjectB_Action1(ObjectBEntity* this) {
         return;
     }
     super->action = 2;
-    switch (super->actionDelay) {
+    switch (super->timer) {
         case 0:
         case 1:
             this->unk_68 = GiveItem(super->type, super->type2);
@@ -98,7 +98,7 @@ void ObjectB_Action2(ObjectBEntity* this) {
     u32 messageIndex;
     if ((super->parent)->frame == 0x42) {
         super->action = 3;
-        switch (super->actionDelay) {
+        switch (super->timer) {
             case 1:
             case 3:
             case 4:
@@ -135,7 +135,7 @@ void ObjectB_Action3(ObjectBEntity* this) {
     if ((super->parent)->action == 8) {
         return;
     }
-    switch (super->actionDelay) {
+    switch (super->timer) {
         case 0:
         case 1:
         case 2:

@@ -44,13 +44,13 @@ static void sub_0808E6E4(Entity* this) {
 }
 
 static void sub_0808E714(Entity* this) {
-    int var0 = 0x400 - this->field_0xf * 8;
+    int var0 = 0x400 - this->subtimer * 8;
     if (var0 > 0x100) {
-        this->field_0xf++;
+        this->subtimer++;
         SetAffineInfo(this, var0, var0, 0);
     } else {
         this->action = 3;
-        this->field_0x3c |= 0x10;
+        this->collisionFlags |= 0x10;
         sub_0805EC60(this);
         SoundReq(SFX_HEART_CONTAINER_SPAWN);
     }

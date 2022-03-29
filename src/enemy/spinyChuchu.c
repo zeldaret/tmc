@@ -31,11 +31,11 @@ void SpinyChuchu_OnTick(Entity* this) {
 void SpinyChuchu_OnCollision(Entity* this) {
     if (this->health) {
         if (this->hitType == 0x65) {
-            switch (this->bitfield & 0x7f) {
+            switch (this->contactFlags & 0x7f) {
                 case 2:
                 case 3:
                     this->action = 2;
-                    this->field_0xf = 0x3c;
+                    this->subtimer = 0x3c;
                     this->hitType = 0x5c;
                     this->hitbox = (Hitbox*)&gHitbox_23;
                     InitializeAnimation(this, 0);
@@ -54,7 +54,7 @@ void SpinyChuchu_OnCollision(Entity* this) {
                     this->hitType = 0x5c;
                     InitializeAnimation(this, 1);
             }
-        } else if (this->bitfield == 0x94) {
+        } else if (this->contactFlags == 0x94) {
             Create0x68FX(this, FX_STARS);
             this->action = 5;
             InitializeAnimation(this, 1);
@@ -101,12 +101,12 @@ void sub_080225EC(Entity* this) {
     sub_0804A720(this);
     this->field_0x80.HALF.LO = this->health;
     this->field_0x80.HALF.HI = 0x5a;
-    if (this->actionDelay == 0) {
+    if (this->timer == 0) {
         this->action = 2;
         InitializeAnimation(this, 0);
     } else {
         this->action = 1;
-        this->field_0xf = 0x3c;
+        this->subtimer = 0x3c;
         this->spriteSettings.draw = 3;
         this->spriteRendering.b3 = 1;
         this->spriteOrientation.flipY = 1;
@@ -118,7 +118,7 @@ void sub_080225EC(Entity* this) {
 void sub_08022654(Entity* this) {
     switch (this->subAction) {
         case 0:
-            if (--this->field_0xf)
+            if (--this->subtimer)
                 return;
             this->subAction = 1;
             SoundReq(SFX_12D);
@@ -136,7 +136,7 @@ void sub_08022654(Entity* this) {
             /* fallthrough */
         case 2:
             GetNextFrame(this);
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->action = 3;
                 this->hitType = 0x65;
                 InitializeAnimation(this, 2);
@@ -164,7 +164,7 @@ void sub_080226EC(Entity* this) {
             return;
         }
 
-        if ((this->actionDelay++ & 7) == 0) {
+        if ((this->timer++ & 7) == 0) {
             this->direction = sub_08049F84(this, 1);
         }
 
@@ -198,7 +198,7 @@ void sub_080227AC(Entity* this) {
 
     if (this->frame & ANIM_DONE) {
         this->action = 2;
-        this->field_0xf = gUnk_080CBA60[Random() & 3];
+        this->subtimer = gUnk_080CBA60[Random() & 3];
         InitializeAnimation(this, 0);
     }
 }
@@ -238,11 +238,11 @@ void sub_0802289C(Entity* this) {
 }
 
 u32 sub_080228CC(Entity* this) {
-    if (this->field_0xf == 0) {
+    if (this->subtimer == 0) {
         if (PlayerInRange(this, 1, 0x28))
             return 1;
     } else {
-        this->field_0xf--;
+        this->subtimer--;
     }
     return 0;
 }

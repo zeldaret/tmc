@@ -42,10 +42,10 @@ void Keaton_OnCollision(Entity* this) {
 
     if (this->action != 3 && this->action != 4) {
         this->action = 3;
-        this->actionDelay = 0xC;
+        this->timer = 0xC;
         this->direction = DirectionTurnAround(DirectionRoundUp(this->knockbackDirection));
         InitAnimationForceUpdate(this, this->direction >> 3);
-    } else if (this->bitfield == 0xCC) {
+    } else if (this->contactFlags == 0xCC) {
         if (this->confusedTime == 0) {
             sub_0803275C(this);
         }
@@ -70,12 +70,12 @@ void sub_08032468(Entity* this) {
 void sub_0803248C(Entity* this) {
     if (sub_080325E8(this) == 0) {
         if (sub_0803271C(this) == 0) {
-            this->actionDelay--;
-            if (this->actionDelay == 0) {
+            this->timer--;
+            if (this->timer == 0) {
                 sub_08032650(this);
             }
             if (ProcessMovement0(this) == 0) {
-                this->actionDelay = 1;
+                this->timer = 1;
             }
             UpdateAnimationSingleFrame(this);
         }
@@ -93,10 +93,10 @@ void sub_080324CC(Entity* this) {
 }
 
 void sub_080324FC(Entity* this) {
-    if (this->actionDelay != 0) {
-        this->actionDelay--;
-        if (this->actionDelay == 0) {
-            this->field_0xf = 0x1E;
+    if (this->timer != 0) {
+        this->timer--;
+        if (this->timer == 0) {
+            this->subtimer = 0x1E;
             this->animationState = this->direction / 8;
             InitAnimationForceUpdate(this, this->animationState + 4);
         } else {
@@ -105,8 +105,8 @@ void sub_080324FC(Entity* this) {
     }
     UpdateAnimationSingleFrame(this);
     UpdateAnimationSingleFrame(this);
-    this->field_0xf--;
-    if (this->field_0xf == 0) {
+    this->subtimer--;
+    if (this->subtimer == 0) {
         this->action = 4;
         this->speed = 0x1E0;
         this->field_0x76.HWORD = 0x46;
@@ -114,14 +114,14 @@ void sub_080324FC(Entity* this) {
         *(((u8*)&this->field_0x7a) + 1) = 0;
         sub_080327C8(this);
     } else {
-        if ((this->field_0xf & 0x3) == 0) {
+        if ((this->subtimer & 0x3) == 0) {
             sub_08032794(this);
         }
     }
 }
 
 void sub_08032574(Entity* this) {
-    if (this->child && (this->child->bitfield & 0x80)) {
+    if (this->child && (this->child->contactFlags & 0x80)) {
         sub_0803275C(this);
         return;
     }
@@ -138,8 +138,8 @@ void sub_08032574(Entity* this) {
 }
 
 void sub_080325C4(Entity* this) {
-    this->actionDelay--;
-    if ((this->actionDelay == 0) && (sub_080325E8(this) == 0)) {
+    this->timer--;
+    if ((this->timer == 0) && (sub_080325E8(this) == 0)) {
         sub_08032784(this);
     }
 }
@@ -149,7 +149,7 @@ u32 sub_080325E8(Entity* this) {
         (EntityInRectRadius(this, gUnk_020000B0, 0x68, 0x40) != 0)) {
         if (((GetFacingDirection(this, gUnk_020000B0) - (DirectionRound(this->frame)) + 2) & 0x1F) < 5) {
             this->action = 3;
-            this->actionDelay = 0xC;
+            this->timer = 0xC;
             this->direction = DirectionRound(this->frame);
             return 1;
         }
@@ -161,7 +161,7 @@ void sub_08032650(Entity* this) {
     u32 uVar3;
 
     uVar3 = Random();
-    this->actionDelay = gUnk_080CE7E0[uVar3 & 0xf];
+    this->timer = gUnk_080CE7E0[uVar3 & 0xf];
     if (!((sub_08049FA0(this) == 0) && ((uVar3 >> 8 & 1) == 0))) {
         this->direction = DirectionRound(uVar3 >> 0x10);
     } else {
@@ -210,7 +210,7 @@ void sub_08032740(Entity* this) {
 
 void sub_0803275C(Entity* this) {
     this->action = 5;
-    this->actionDelay = 0x2D;
+    this->timer = 0x2D;
     this->speed = 0x80;
     InitAnimationForceUpdate(this, this->animationState);
     sub_0803269C(this, this->direction);

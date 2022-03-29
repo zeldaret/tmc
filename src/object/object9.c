@@ -71,7 +71,7 @@ void sub_080838DC(Entity* this) {
     this->spriteOrientation.flipY = 1;
     this->spriteRendering.b3 = 0;
     this->spritePriority.b0 = 0;
-    this->actionDelay = 4;
+    this->timer = 4;
     this->child = NULL;
     this->action = 0;
 }
@@ -93,8 +93,8 @@ void Object9_Init(Entity* this) {
 }
 
 void Object9_Action1(Entity* this) {
-    if (this->actionDelay) {
-        this->actionDelay--;
+    if (this->timer) {
+        this->timer--;
     } else {
         if ((*(Entity**)(gUnk_03003DF0.unk_4 + 8) != NULL) && ((u8)(gUnk_03003DF0.unk_4[3] - 1) < 100)) {
             this->child = *(Entity**)(gUnk_03003DF0.unk_4 + 8);

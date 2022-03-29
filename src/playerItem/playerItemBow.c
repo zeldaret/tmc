@@ -65,7 +65,7 @@ void sub_08018FE4(PlayerItemBowEntity* this) {
             super->speed = 0x300;
         }
         super->direction = super->animationState << 2;
-        super->field_0x3c = gPlayerEntity.field_0x3c + 1;
+        super->collisionFlags = gPlayerEntity.collisionFlags + 1;
         super->flags2 = gPlayerEntity.flags2;
         if (super->collisionLayer == 2) {
             super->type2 = 1;
@@ -134,8 +134,8 @@ void sub_0801917C(PlayerItemBowEntity* this) {
             tmp2 = FALSE;
         }
         if (super->hurtType == 0x0e) {
-            super->actionDelay++;
-            if ((super->actionDelay & 7) == 0) {
+            super->timer++;
+            if ((super->timer & 7) == 0) {
                 CreateFx(super, FX_SPARKLE2, 0);
             }
         }
@@ -144,7 +144,7 @@ void sub_0801917C(PlayerItemBowEntity* this) {
         }
         if ((sub_080B1BA4(COORD_TO_TILE(super), gPlayerEntity.collisionLayer, 0x80) == 0) && (!tmp2) &&
             sub_080040D8(super, &gUnk_08003E44, super->x.HALF.HI, super->y.HALF.HI) != 0) {
-            super->actionDelay = 0x1e;
+            super->timer = 0x1e;
             super->action++;
             if (super->hurtType == 0x0e) {
                 sub_08019468(this);
@@ -167,12 +167,12 @@ void sub_0801917C(PlayerItemBowEntity* this) {
             super->y.WORD = tmp3;
             SoundReq(SFX_18A);
         }
-        if ((super->bitfield != 0) && (!tmp2)) {
+        if ((super->contactFlags != 0) && (!tmp2)) {
             if (super->hurtType == 0x0e) {
                 sub_08019468(this);
             }
             sub_08017744(super);
-            if ((super->bitfield & 0x3f) == 0x42) {
+            if ((super->contactFlags & 0x3f) == 0x42) {
                 super->spriteSettings.draw = 1;
                 super->action = 3;
                 super->direction ^= 0x10;
@@ -182,7 +182,7 @@ void sub_0801917C(PlayerItemBowEntity* this) {
                 InitializeAnimation(super, 6);
             } else {
                 super->action++;
-                super->actionDelay = 1;
+                super->timer = 1;
                 super->spriteSettings.draw = 0;
             }
         }
@@ -222,12 +222,12 @@ void sub_0801917C(PlayerItemBowEntity* this) {
 }
 
 void sub_08019410(Entity* this) {
-    if (this->actionDelay < 0xf) {
+    if (this->timer < 0xf) {
         InitializeAnimation(this, this->animIndex);
     } else {
         GetNextFrame(this);
     }
-    if (this->actionDelay-- == 0) {
+    if (this->timer-- == 0) {
         DeleteThisEntity();
     }
 }

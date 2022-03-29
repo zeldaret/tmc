@@ -71,13 +71,13 @@ void GyorgFemaleEye_OnCollision(GyorgFemaleEyeEntity* this) {
 #endif
             parent->eyesHitFrame |= (1 << super->type);
 #ifndef EU
-            switch (super->bitfield & 0x7F) {
+            switch (super->contactFlags & 0x7F) {
                 case 4 ... 6:
                 case 8 ... 13:
                 case 16 ... 18:
                 case 24 ... 26:
 #endif
-                    (*(((GyorgHeap**)&parent->base.myHeap)))->unk_18[super->type] = super->field_0x4c;
+                    (*(((GyorgHeap**)&parent->base.myHeap)))->unk_18[super->type] = super->contactedEntity;
                     (*(((GyorgHeap**)&parent->base.myHeap)))->reflectFxPos.HALF.x =
                         (gPlayerEntity.x.HALF.HI + super->x.HALF.HI) / 2;
                     (*(((GyorgHeap**)&parent->base.myHeap)))->reflectFxPos.HALF.y =

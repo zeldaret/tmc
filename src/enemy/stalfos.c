@@ -75,8 +75,8 @@ void Stalfos_OnTick(StalfosEntity* this) {
 
 NONMATCH("asm/non_matching/stalfos/sub_0803933C.inc", void sub_0803933C(StalfosEntity* this)) {
     if (super->hitType == 0x44) {
-        if ((super->bitfield & 0x7f) < 7) {
-            if ((super->bitfield & 0x7f) > 3) {
+        if ((super->contactFlags & 0x7f) < 7) {
+            if ((super->contactFlags & 0x7f) > 3) {
                 if (super->iframes < 1) {
                     super->action = 4;
                     super->direction = super->knockbackDirection;
@@ -87,7 +87,7 @@ NONMATCH("asm/non_matching/stalfos/sub_0803933C.inc", void sub_0803933C(StalfosE
             }
         }
     }
-    if (super->bitfield == 0x9d) {
+    if (super->contactFlags == 0x9d) {
         if (super->child == NULL) {
             if (super->action < 9) {
                 Entity* projectile = CreateProjectileWithParent(super, STALFOS_PROJECTILE, 1);
@@ -100,7 +100,7 @@ NONMATCH("asm/non_matching/stalfos/sub_0803933C.inc", void sub_0803933C(StalfosE
                 this->unk_78 += 0x5a;
             }
         } else {
-            super->child->bitfield = 0x9d;
+            super->child->contactFlags = 0x9d;
             EnqueueSFX(SFX_186);
             super->child = NULL;
             sub_08039A48(this);
@@ -131,7 +131,7 @@ void sub_08039438(StalfosEntity* this) {
 
 void Stalfos_SubAction0(StalfosEntity* this) {
     super->subAction = 1;
-    super->field_0x1d = 0x5a;
+    super->gustJarTolerance = 0x5a;
 }
 
 void Stalfos_SubAction1(StalfosEntity* this) {
@@ -150,7 +150,7 @@ void Stalfos_SubAction2(StalfosEntity* this) {
         COLLISION_ON(projectile);
     }
     super->child = NULL;
-    super->field_0x3a &= 0xfb;
+    super->gustJarState &= 0xfb;
     super->flags2 &= 0xfb;
     sub_08039A48(this);
     this->unk_78 += 0x5a;
@@ -176,13 +176,13 @@ void Stalfos_Init(StalfosEntity* this) {
 void Stalfos_Action1(StalfosEntity* this) {
     if (GravityUpdate(super, 0x1800) == 0 && sub_08039758(this) == 0 && --this->unk_78 == 0) {
         super->action = 2;
-        super->actionDelay = 0xa;
+        super->timer = 0xa;
         sub_08039858(this);
     }
 }
 
 void Stalfos_Action2(StalfosEntity* this) {
-    if (sub_08039758(this) == 0 && --super->actionDelay == 0) {
+    if (sub_08039758(this) == 0 && --super->timer == 0) {
         sub_0803992C(this);
     }
 }
@@ -215,20 +215,20 @@ void Stalfos_Action5(StalfosEntity* this) {
     GravityUpdate(super, 0x1800);
     if (super->zVelocity < 0) {
         super->action = 6;
-        super->actionDelay = 0x0f;
+        super->timer = 0x0f;
     }
 }
 
 void Stalfos_Action6(StalfosEntity* this) {
     u16 tmp;
 
-    if (super->actionDelay != 0) {
-        super->actionDelay--;
+    if (super->timer != 0) {
+        super->timer--;
     } else {
         tmp = super->z.HALF.HI += 4;
         if (-1 < (tmp * 0x10000)) {
             super->action = 7;
-            super->actionDelay = 0xa;
+            super->timer = 0xa;
             super->z.HALF.HI = 0;
             this->unk_7a = 0x78;
             this->unk_7c = 0x3c;
@@ -239,17 +239,17 @@ void Stalfos_Action6(StalfosEntity* this) {
 }
 
 void Stalfos_Action7(StalfosEntity* this) {
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         sub_0803998C(this);
     }
 }
 
 void Stalfos_Action8(StalfosEntity* this) {
     UpdateAnimationSingleFrame(super);
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         sub_08039A00(this, 0x3c);
         sub_0803998C(this);
-    } else if ((super->actionDelay & 0x1f) == 0) {
+    } else if ((super->timer & 0x1f) == 0) {
         sub_08039A20(this);
     }
 }
@@ -303,7 +303,7 @@ bool32 sub_08039758(StalfosEntity* this) {
         } else {
             if (EntityWithinDistance(super, gUnk_020000B0->x.HALF.HI, gUnk_020000B0->y.HALF.HI, 0x48)) {
                 super->action = 8;
-                super->actionDelay = 0x3c;
+                super->timer = 0x3c;
                 super->direction = GetFacingDirection(super, gUnk_020000B0);
                 InitAnimationForceUpdate(super, super->animationState + 0xc);
                 return TRUE;

@@ -5,7 +5,7 @@
 
 typedef struct OctorokBossEntity OctorokBossEntity;
 typedef struct {
-    /*0x00*/ u8 unk_0; // [0,1,2,4]  is later stored in super->field_0xf
+    /*0x00*/ u8 unk_0; // [0,1,2,4]  is later stored in super->subtimer
     /*0x01*/ u8 tailCount;
     /*0x02*/ u8 field_0x2;               // [0,1]
     /*0x03*/ u8 targetAngle;             // relates to this->field_0x7a.HALF.HI

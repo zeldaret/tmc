@@ -29,7 +29,7 @@ void sub_080A86F0(Entity* this) {
         if ((this->parent->field_0x82.HALF.HI & 0x3f) == 3) {
             if (gPlayerState.hurtBlinkSpeed != 0) {
                 if (sub_080B1B44(TILE(this->x.HALF.HI, this->y.HALF.HI), gPlayerEntity.collisionLayer) == 0) {
-                    if (this->bitfield == 0x80) {
+                    if (this->contactFlags == 0x80) {
                         *pbVar2 = *pbVar2 & 0x7f;
                         DeleteThisEntity();
                     }
@@ -43,7 +43,7 @@ void sub_080A86F0(Entity* this) {
 
 void Projectile5_Init(Entity* this) {
     this->action = 1;
-    this->field_0x3c |= 0x10;
+    this->collisionFlags |= 0x10;
     this->hitbox = (Hitbox*)&gUnk_08129734;
 }
 

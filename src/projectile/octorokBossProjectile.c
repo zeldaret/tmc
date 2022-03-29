@@ -35,8 +35,8 @@ void OctorokBossProjectile_Init(Entity* this) {
         case 0:
             LinearMoveAngle(this, 0x4800, this->direction);
             this->speed = 0x200;
-            this->actionDelay = 0;
-            this->field_0xf = this->direction;
+            this->timer = 0;
+            this->subtimer = this->direction;
             this->field_0x78.HWORD = 300;
             InitAnimationForceUpdate(this, 0);
             break;
@@ -58,7 +58,7 @@ void OctorokBossProjectile_Init(Entity* this) {
                 this->direction = this->direction - (Random() & 7);
             }
             this->speed = 0x200;
-            this->actionDelay = 0x30;
+            this->timer = 0x30;
             LinearMoveAngle(this, 0x5000, this->direction);
             InitializeAnimation(this, 5);
             break;
@@ -85,14 +85,14 @@ void OctorokBossProjectile_Action1(Entity* this) {
             if (this->parent->action == 2) {
                 DeleteThisEntity();
             }
-            if ((this->type2 == 0) && ((this->bitfield & 0x80) != 0)) {
-                if ((this->bitfield & 0x7f) == 0) {
+            if ((this->type2 == 0) && ((this->contactFlags & 0x80) != 0)) {
+                if ((this->contactFlags & 0x7f) == 0) {
                     OctorokBossProjectile_Action2(this);
                 }
                 this->direction = this->knockbackDirection << 3;
                 this->speed = 0x400;
                 this->type2 = 1;
-                this->actionDelay = 0;
+                this->timer = 0;
                 COLLISION_OFF(this);
             }
             if (sub_0806FC80(this, this->parent, 0x40) != 0) {
@@ -121,18 +121,18 @@ void OctorokBossProjectile_Action1(Entity* this) {
             if ((this->collisions & (COL_NORTH_ANY | COL_SOUTH_ANY)) != COL_NONE) {
                 this->direction = -this->direction ^ 0x80;
             }
-            if (this->direction == this->field_0xf) {
+            if (this->direction == this->subtimer) {
                 return;
             }
             SoundReq(SFX_164);
             if (this->field_0x78.HWORD == 0) {
-                this->actionDelay = 4;
+                this->timer = 4;
             } else {
-                this->actionDelay++;
+                this->timer++;
             }
 
-            this->field_0xf = this->direction;
-            if (this->actionDelay < 2) {
+            this->subtimer = this->direction;
+            if (this->timer < 2) {
                 return;
             }
             for (index = 0; index < 3; ++index) {
@@ -168,19 +168,19 @@ void OctorokBossProjectile_Action1(Entity* this) {
             if (--*(u32*)&this->field_0x78 == -1) {
                 OctorokBossProjectile_Action2(this);
             }
-            if ((this->bitfield & 0x80) == 0) {
+            if ((this->contactFlags & 0x80) == 0) {
                 return;
             }
             OctorokBossProjectile_Action2(this);
             break;
         case 2:
             GetNextFrame(this);
-            if (this->actionDelay-- != 0) {
+            if (this->timer-- != 0) {
                 LinearMoveAngle(this, this->speed, this->direction);
                 return;
             }
             if (this->child != NULL) {
-                this->child->actionDelay = 1;
+                this->child->timer = 1;
             }
             DeleteThisEntity();
             break;

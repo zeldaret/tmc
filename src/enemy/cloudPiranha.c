@@ -61,9 +61,9 @@ void CloudPiranha_OnCollision(CloudPiranhaEntity* this) {
         Create0x68FX(super, FX_STARS);
     }
     EnemyFunctionHandlerAfterCollision(super, gUnk_080CF4F0);
-    if ((super->bitfield & 0x80) != 0) {
+    if ((super->contactFlags & 0x80) != 0) {
         if (super->hitType == 0x5a) {
-            switch (super->bitfield & 0x3f) {
+            switch (super->contactFlags & 0x3f) {
                 case 0x14:
                     super->action = 5;
                     break;
@@ -73,7 +73,7 @@ void CloudPiranha_OnCollision(CloudPiranhaEntity* this) {
                     break;
             }
 #ifndef EU
-        } else if ((super->bitfield & 0x3f) == 0x1d) {
+        } else if ((super->contactFlags & 0x3f) == 0x1d) {
             sub_08038754(this);
 #endif
         }
@@ -89,8 +89,8 @@ void CloudPiranha_Init(CloudPiranhaEntity* this) {
     super->direction = (Random() & 0x1c);
     super->animationState = super->direction >> 2;
     super->flags |= ENT_COLLIDE;
-    super->actionDelay = 0;
-    super->field_0xf = 0x20;
+    super->timer = 0;
+    super->subtimer = 0x20;
     this->unk_82 = 0;
     this->unk_80 = Random() & 1;
     this->unk_81 = 0;
@@ -101,9 +101,9 @@ void CloudPiranha_Init(CloudPiranhaEntity* this) {
 void CloudPiranha_Action1(CloudPiranhaEntity* this) {
     u32 tmp;
     sub_080387F0(this);
-    if (--super->field_0xf == 0) {
-        super->actionDelay = 0;
-        super->field_0xf = 0x20;
+    if (--super->subtimer == 0) {
+        super->timer = 0;
+        super->subtimer = 0x20;
         if (sub_08049FA0(super)) {
             u32 tmp = super->animationState;
             if (this->unk_80 != 0) {
@@ -118,9 +118,9 @@ void CloudPiranha_Action1(CloudPiranhaEntity* this) {
             super->animationState = super->direction >> 2;
         }
         InitializeAnimation(super, (u32)super->animationState);
-    } else if ((super->actionDelay == 0) && sub_0803872C(this, 0x80)) {
+    } else if ((super->timer == 0) && sub_0803872C(this, 0x80)) {
         super->action = 2;
-        super->field_0xf = 0x10;
+        super->subtimer = 0x10;
         super->speed = 0x40;
         super->animationState = sub_0806FCAC(super, super->child);
         super->direction = super->animationState << 2;
@@ -133,14 +133,14 @@ NONMATCH("asm/non_matching/cloudPiranha/sub_080385CC.inc", void sub_080385CC(Clo
     sub_080387F0(this);
     if (sub_0803872C(this, 0x60)) {
         super->action = 3;
-        super->field_0xf = 0xc;
+        super->subtimer = 0xc;
         super->speed = 0x80;
         super->animationState = sub_0806FCAC(super, super->child);
         super->direction = super->animationState << 2;
         InitializeAnimation(super, super->animationState);
     } else {
-        if (--super->field_0xf == 0) {
-            super->field_0xf = 0x10;
+        if (--super->subtimer == 0) {
+            super->subtimer = 0x10;
             if (super->child != NULL) {
                 super->animationState = sub_0806FCAC(super, super->child);
             } else {
@@ -164,8 +164,8 @@ void CloudPiranha_Action3(CloudPiranhaEntity* this) {
     if (sub_0803872C(this, 0x14)) {
         sub_08038754(this);
     } else {
-        if (--super->field_0xf == 0) {
-            super->field_0xf = 0xa;
+        if (--super->subtimer == 0) {
+            super->subtimer = 0xa;
             if (this->unk_81 == 0) {
                 tmp = super->speed += 0x40;
                 if (0x2000000 < (tmp * 0x10000)) {
@@ -186,8 +186,8 @@ void CloudPiranha_Action4(CloudPiranhaEntity* this) {
     if (sub_080044EC(super, 0x1800) == 1) {
         super->action = 1;
         super->hitType = 0x72;
-        super->actionDelay = 1;
-        super->field_0xf = 0x80;
+        super->timer = 1;
+        super->subtimer = 0x80;
         super->speed = 0x80;
         super->spritePriority.b1 = 2;
         EnqueueSFX(SFX_124);

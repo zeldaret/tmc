@@ -25,10 +25,10 @@ void Cucco_Init(Entity* this) {
 void sub_0806E4EC(Entity* this) {
     if (this->subAction == 0) {
         this->subAction += 1;
-        this->actionDelay = (Random() & 0x1f) + 0x3c;
+        this->timer = (Random() & 0x1f) + 0x3c;
         InitAnimationForceUpdate(this, 0);
     }
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         if ((Random() & 1) != 0) {
             this->action = 3;
         } else {
@@ -50,13 +50,13 @@ void Cucco_Fly(Entity* this) {
             this->spriteSettings.flipX ^= 1;
         }
 
-        this->actionDelay = (Random() & 1) + 1;
+        this->timer = (Random() & 1) + 1;
         this->zVelocity = 0x18000;
         InitAnimationForceUpdate(this, 1);
     }
 
     if (GravityUpdate(this, 0x2800) == 0) {
-        if (--this->actionDelay == 0) {
+        if (--this->timer == 0) {
             this->action = 1;
             this->subAction = 0;
         } else {

@@ -64,7 +64,7 @@ void Keese_Initialize(Entity* this) {
         this->z.HALF.HI = -0x10;
     }
     this->direction = Random() & 0x1f;
-    this->field_0x1c = 1;
+    this->gustJarFlags = 1;
     this->spritePriority.b0 = 3;
     this->collisionLayer = 3;
     UpdateSpriteForCollisionLayer(this);
@@ -88,14 +88,14 @@ void Keese_Fly(Entity* this) {
 }
 
 void Keese_Rest(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         Keese_StartFly(this);
     }
 }
 
 void Keese_Sleep(Entity* this) {
-    if (this->actionDelay != 0) {
-        this->actionDelay--;
+    if (this->timer != 0) {
+        this->timer--;
     } else {
         if (EntityWithinDistance(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x70))
             Keese_StartFly(this);
@@ -112,12 +112,12 @@ void Keese_StartFly(Entity* this) {
 void sub_08021F24(Entity* this) {
     if (this->field_0x78.HWORD == 0) {
         this->action = 2;
-        this->actionDelay = gKeeseRestDurations[Random() & 0xf];
+        this->timer = gKeeseRestDurations[Random() & 0xf];
         InitializeAnimation(this, KeeseAnimation_Rest);
     } else if (!this->field_0x7a.HWORD &&
                !(EntityWithinDistance(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x70))) {
         this->action = 3;
-        this->actionDelay = 30;
+        this->timer = 30;
         InitializeAnimation(this, KeeseAnimation_Rest);
     } else {
         if (sub_08049FA0(this) != 0) {

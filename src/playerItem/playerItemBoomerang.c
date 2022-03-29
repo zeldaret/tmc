@@ -37,8 +37,8 @@ void PlayerItemBoomerang(Entity* this) {
         SetAffineInfo(this, 0x100, 0x100, this->field_0x86.HWORD);
     }
 
-    this->field_0xf--;
-    if ((this->field_0xf & 0xf) == 0) {
+    this->subtimer--;
+    if ((this->subtimer & 0xf) == 0) {
         EnqueueSFX(SFX_FB);
     }
 }
@@ -67,7 +67,7 @@ void PlayerItemBoomerang_Init(Entity* this) {
         this->speed = 0x200;
         uVar1 = 30;
     }
-    this->actionDelay = uVar1;
+    this->timer = uVar1;
     if (((s8)gPlayerState.field_0xd) >= 0) {
         this->direction = gPlayerState.field_0xd;
     } else {
@@ -113,7 +113,7 @@ void sub_0801B584(Entity* this) {
         this->action = 2;
         this->spriteVramOffset = 0xd5;
         COLLISION_ON(this);
-        this->field_0x3c |= 1;
+        this->collisionFlags |= 1;
         this->flags2 = gPlayerEntity.flags2;
         this->spriteIndex = 0xa6;
         this->spriteSettings.flipX = 0;
@@ -159,25 +159,25 @@ void sub_0801B680(Entity* this) {
     }
 
     if (uVar6 == 0) {
-        if (--this->actionDelay < 0xc) {
+        if (--this->timer < 0xc) {
             this->speed = this->speed + -0x10;
         }
-        if (this->actionDelay == 0) {
+        if (this->timer == 0) {
             uVar6 = 1;
         }
-        if (this->bitfield & 0x80) {
+        if (this->contactFlags & 0x80) {
             uVar6 = 1;
         }
         if (uVar6 == 0) {
             return;
         }
         if (this->field_0x68.HALF.LO == 12) {
-            this->actionDelay = 30;
+            this->timer = 30;
         } else {
-            this->actionDelay = 12;
+            this->timer = 12;
         }
     } else {
-        this->actionDelay = 1;
+        this->timer = 1;
     }
 
     if (uVar6) {
@@ -188,8 +188,8 @@ void sub_0801B680(Entity* this) {
 
 void sub_0801B7A8(Entity* this) {
     sub_0801B804(this);
-    if (this->actionDelay != 0) {
-        this->actionDelay -= 1;
+    if (this->timer != 0) {
+        this->timer -= 1;
     } else {
         sub_0801B864(this);
         if (this->speed < 0x280) {

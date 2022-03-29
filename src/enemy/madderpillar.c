@@ -43,7 +43,7 @@ void Madderpillar_OnTick(Entity* this) {
 
 void Madderpillar_OnCollision(Entity* this) {
     if (this->action == 1) {
-        switch (this->bitfield & 0x7f) {
+        switch (this->contactFlags & 0x7f) {
             case 0:
             case 1:
             case 2:
@@ -55,7 +55,7 @@ void Madderpillar_OnCollision(Entity* this) {
                 break;
             default:
                 this->action = 2;
-                this->actionDelay = 0;
+                this->timer = 0;
                 this->hitType = 0x6b;
                 this->field_0x76.HALF.HI = 0;
                 ChangeObjPalette(this, 0x7f);
@@ -69,8 +69,8 @@ void Madderpillar_OnCollision(Entity* this) {
 }
 
 void Madderpillar_OnDeath(Entity* this) {
-    if (this->field_0xf) {
-        this->field_0xf--;
+    if (this->subtimer) {
+        this->subtimer--;
     } else {
         GenericDeath(this);
     }
@@ -164,13 +164,13 @@ void sub_08029AE0(Entity* this) {
 void sub_08029B2C(Entity* this) {
     if (sub_0802A14C(this)) {
         if (this->field_0x86.HALF.LO) {
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 CreateFx(this, FX_GIANT_EXPLOSION3, 0);
                 DeleteEntity(this);
             }
         } else {
             COLLISION_OFF(this);
-            this->actionDelay = -(this->type * 15 - 90);
+            this->timer = -(this->type * 15 - 90);
             this->field_0x86.HALF.LO = 1;
         }
     } else {
@@ -210,13 +210,13 @@ void sub_08029BC4(Entity* this) {
 
 void sub_08029C08(Entity* this) {
     this->action = 3;
-    this->actionDelay = gUnk_080CCDA0[this->type];
+    this->timer = gUnk_080CCDA0[this->type];
     this->hitType = 0x6b;
     this->child->action = 2;
 }
 
 void sub_08029C2C(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 4;
         ChangeObjPalette(this, 0x7f);
         EnqueueSFX(SFX_MENU_CANCEL);
@@ -265,12 +265,12 @@ void sub_08029CF0(Entity* this) {
 
 void sub_08029D08(Entity* this) {
     this->action = 3;
-    this->actionDelay = 0x47;
+    this->timer = 0x47;
 }
 
 void sub_08029D14(Entity* this) {
-    if (this->actionDelay) {
-        if (--this->actionDelay == 0) {
+    if (this->timer) {
+        if (--this->timer == 0) {
             InitializeAnimation(this, this->animationState + 0xc);
             ChangeObjPalette(this, 0x7f);
             EnqueueSFX(SFX_MENU_CANCEL);
@@ -279,7 +279,7 @@ void sub_08029D14(Entity* this) {
         GetNextFrame(this);
         if (this->frame & ANIM_DONE) {
             this->action = 4;
-            this->actionDelay = 0x78;
+            this->timer = 0x78;
             this->hitType = 0x6c;
             this->hitbox = (Hitbox*)&gUnk_080FD298;
             EnqueueSFX(SFX_6B);
@@ -289,7 +289,7 @@ void sub_08029D14(Entity* this) {
 
 void sub_08029D78(Entity* this) {
     sub_0802A0F8(this);
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 5;
         this->hitType = 0x6a;
         this->hitbox = (Hitbox*)&gUnk_080FD2A0;
@@ -460,7 +460,7 @@ void sub_0802A098(Entity* this) {
 
 void sub_0802A0F8(Entity* this) {
     if (this->health != 0) {
-        if ((this->bitfield & 0x80) && this->iframes != 0) {
+        if ((this->contactFlags & 0x80) && this->iframes != 0) {
             Entity* ent = this;
             u32 i;
             for (i = 0; i < 6; i++) {
@@ -471,7 +471,7 @@ void sub_0802A0F8(Entity* this) {
     } else {
         this->parent->flags &= ~ENT_COLLIDE;
         this->parent->health = 0;
-        this->parent->field_0xf = 0x69;
+        this->parent->subtimer = 0x69;
     }
 }
 
@@ -491,8 +491,8 @@ void sub_0802A16C(Entity* this) {
 }
 
 void sub_0802A18C(Entity* this) {
-    if (this->bitfield & 0x80) {
-        switch (this->bitfield & 0x7f) {
+    if (this->contactFlags & 0x80) {
+        switch (this->contactFlags & 0x7f) {
             case 0:
             case 1:
             case 2:

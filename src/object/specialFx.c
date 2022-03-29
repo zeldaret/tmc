@@ -228,20 +228,20 @@ void sub_08084694(SpecialFxObject* this) {
 
 void sub_080846B0(SpecialFxObject* this) {
     s32 tmp;
-    if (super->actionDelay != 0) {
+    if (super->timer != 0) {
         if (super->speed != 0) {
             super->speed -= 0x10;
         }
         LinearMoveUpdate(super);
         sub_080845DC(this);
     } else {
-        super->actionDelay = 1;
+        super->timer = 1;
         if ((super->animationState | 2) == 2) {
             super->direction = 0x1e;
         } else {
             super->direction = 2;
         }
-        if (super->field_0xf != 0) {
+        if (super->subtimer != 0) {
             super->spriteVramOffset++;
             tmp = (super->direction > 0x17 ? -1 : 1);
             super->direction += tmp;

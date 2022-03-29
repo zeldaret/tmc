@@ -354,8 +354,8 @@ void DeleteEntity(Entity* ent) {
         }
         COLLISION_OFF(ent);
         ent->spriteSettings.draw = 0;
-        ent->field_0x3c = 0;
-        ent->bitfield = 0;
+        ent->collisionFlags = 0;
+        ent->contactFlags = 0;
         ent->knockbackDuration = 0;
         ent->health = 0;
         UnlinkEntity(ent);

@@ -230,7 +230,7 @@ UNUSED ScriptExecutionContext* StartCutscene2(Entity* entity, u16* script) {
     context = CreateScriptExecutionContext();
     if (context) {
         entity->flags |= ENT_SCRIPTED;
-        *(ScriptExecutionContext**)&entity->field_0x3c = context;
+        *(ScriptExecutionContext**)&entity->collisionFlags = context;
         context->scriptInstructionPointer = script;
     }
     return context;
@@ -321,7 +321,7 @@ void sub_0807DD50(Entity* entity) {
 }
 
 void sub_0807DD64(Entity* entity) {
-    entity->field_0xf = entity->animationState;
+    entity->subtimer = entity->animationState;
     entity->animIndex = 0xff;
     entity->field_0x80.HWORD = 0;
     entity->field_0x82.HWORD = 0;
@@ -374,9 +374,9 @@ void HandleEntity0x82Actions(Entity* entity) {
                 break;
             case 1 << 3:
                 if (gRoomTransition.frameCount % 4 == 0) {
-                    temp = (entity->field_0xf + 2) & 7;
+                    temp = (entity->subtimer + 2) & 7;
                     entity->animationState = temp;
-                    entity->field_0xf = temp;
+                    entity->subtimer = temp;
                 }
                 break;
             case 1 << 4:
@@ -403,14 +403,14 @@ void sub_0807DE80(Entity* entity) {
         if (entity->field_0x82.HWORD & 1) {
             u32 t1, t2;
             t1 = local2 & 0xfc;
-            t2 = entity->field_0xf >> 1;
+            t2 = entity->subtimer >> 1;
             local2 = t1 + t2;
         } else {
             u32 t1, t2;
             t1 = local2 & 0xfc;
             t2 = entity->animationState >> 1;
             local2 = t1 + t2;
-            entity->field_0xf = entity->animationState;
+            entity->subtimer = entity->animationState;
         }
     }
     if (local2 != entity->animIndex) {
@@ -1664,7 +1664,7 @@ void WaitForPlayerAnim(Entity* entity, ScriptExecutionContext* context) {
 
 void DeleteHitbox(Entity* entity, ScriptExecutionContext* context) {
     entity->hitbox = NULL;
-    entity->field_0x17 &= ~1;
+    entity->followerFlag &= ~1;
 }
 
 void SetPriorityMessage(Entity* entity, ScriptExecutionContext* context) {
@@ -2095,7 +2095,7 @@ void sub_0807FB64(Entity* entity, ScriptExecutionContext* context) {
 
 void sub_0807FB74(Entity* entity, ScriptExecutionContext* context) {
     gPlayerState.swim_state = 0;
-    gPlayerEntity.field_0x3c &= ~4;
+    gPlayerEntity.collisionFlags &= ~4;
 }
 
 void sub_0807FB94(Entity* entity, ScriptExecutionContext* context) {

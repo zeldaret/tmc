@@ -13,8 +13,8 @@ void ThoughtBubble(Entity* this) {
 void ThoughtBubble_Init(Entity* this) {
     this->action = 1;
     this->spriteSettings.draw = 1;
-    if (this->actionDelay == 0) {
-        this->actionDelay = 0x2d;
+    if (this->timer == 0) {
+        this->timer = 0x2d;
     }
     this->spriteOrientation.flipY = 1;
     InitializeAnimation(this, this->type2);
@@ -28,7 +28,7 @@ void ThoughtBubble_Update(Entity* this) {
         this->z.HALF.HI = this->parent->z.HALF.HI;
     }
     if (this->type2 != 2) {
-        if (--this->actionDelay == 0) {
+        if (--this->timer == 0) {
             DeleteThisEntity();
         }
     }

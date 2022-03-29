@@ -65,7 +65,7 @@ void GreatFairy_CallBehavior(Entity* this) {
 // Init
 void GreatFairy_Init(Entity* this) {
     GreatFairy_InitializeAnimation(this);
-    this->actionDelay = 0;
+    this->timer = 0;
     this->cutsceneBeh.HWORD = 290;
 }
 
@@ -92,9 +92,9 @@ void GreatFairy_DormantUpdate(Entity* this) {
         case 289:
             ripple = GreatFairy_CreateForm(this, RIPPLE, 0);
             if (ripple) {
-                PositionRelative(this, ripple, Q_16_16(GreatFairy_RippleOffsets[this->actionDelay]),
-                                 Q_16_16(GreatFairy_RippleOffsets[this->actionDelay + 1]));
-                this->actionDelay += 2;
+                PositionRelative(this, ripple, Q_16_16(GreatFairy_RippleOffsets[this->timer]),
+                                 Q_16_16(GreatFairy_RippleOffsets[this->timer + 1]));
+                this->timer += 2;
                 break;
             }
     }
@@ -122,7 +122,7 @@ void GreatFairy_SpawningUpdate(Entity* this) {
             SetFade(6, 4);
             SoundReq(SFX_145);
             this->action = 4;
-            this->actionDelay = 60;
+            this->timer = 60;
             this->spriteSettings.draw = 1;
         }
     }
@@ -132,15 +132,15 @@ void GreatFairy_MiniUpdate(Entity* this) {
     Entity* target;
 
     GetNextFrame(this);
-    if (this->actionDelay != 0) {
-        --this->actionDelay;
+    if (this->timer != 0) {
+        --this->timer;
     } else {
         target = GreatFairy_CreateForm(this, WINGS, 0);
         if (target != NULL) {
             PositionRelative(this, target, 0, Q_16_16(-20.0));
             this->action = 5;
-            this->actionDelay = 120;
-            this->field_0xf = 0;
+            this->timer = 120;
+            this->subtimer = 0;
         }
     }
 }
@@ -149,13 +149,13 @@ void GreatFairy_MiniUpdate(Entity* this) {
 void GreatFairy_FinalUpdate(Entity* this) {
     Entity* target;
 
-    if (this->actionDelay != 0) {
-        --this->actionDelay;
+    if (this->timer != 0) {
+        --this->timer;
     } else {
-        if ((this->field_0xf == 0) && (target = GreatFairy_CreateForm(this, FORM9, 0), target != NULL)) {
+        if ((this->subtimer == 0) && (target = GreatFairy_CreateForm(this, FORM9, 0), target != NULL)) {
             PositionRelative(this, target, 0, Q_16_16(-76.0));
             target->parent = this;
-            this->field_0xf = 1;
+            this->subtimer = 1;
         }
     }
     GetNextFrame(this);
@@ -220,7 +220,7 @@ void GreatFairy_MiniInit(Entity* this) {
         aff->parent = this;
         GreatFairy_InitializeAnimation(this);
         this->spriteSettings.draw = 1;
-        this->field_0xf = 0;
+        this->subtimer = 0;
     }
 }
 
@@ -234,10 +234,10 @@ void GreatFairy_MiniRisingUpdate(Entity* this) {
         this->action = 2;
         SoundReq(SFX_HEART_CONTAINER_SPAWN);
     } else {
-        if (((this->z.HALF.HI == -10) && (this->field_0xf == 0)) &&
+        if (((this->z.HALF.HI == -10) && (this->subtimer == 0)) &&
             (target = GreatFairy_CreateForm(this, DROPLET, 0), target != NULL)) {
             PositionRelative(this, target, 0, Q_16_16(4.0));
-            this->field_0xf = 1;
+            this->subtimer = 1;
         }
     }
 }
@@ -270,7 +270,7 @@ void GreatFairy_MiniAffineInit2(Entity* this) {
 
     if (this->z.HALF.HI == -20) {
         this->action = 2;
-        this->actionDelay = 90;
+        this->timer = 90;
         this->speed = 4096;
         this->spriteRendering.b0 = 3;
         SetAffineInfo(this, 256, 256, 0);
@@ -279,7 +279,7 @@ void GreatFairy_MiniAffineInit2(Entity* this) {
 
 // Mini great fairy stretch
 void GreatFairy_MiniAffineUpdate(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         gRoomVars.animFlags |= 1;
         this->action = 3;
         sub_0805EC60(this);
@@ -335,7 +335,7 @@ void GreatFairy_BigRippleCallBehavior(Entity* this) {
 
 void GreatFairy_BigRippleInit(Entity* this) {
     GreatFairy_InitializeAnimation(this);
-    this->actionDelay = 120;
+    this->timer = 120;
     this->spriteSettings.draw = 1;
     this->spritePriority.b0 = 5;
     SoundReq(SFX_TELEPORTER);
@@ -345,8 +345,8 @@ void GreatFairy_BigRippleUpdate(Entity* this) {
     Entity* target;
 
     GetNextFrame(this);
-    if (this->actionDelay != 0) {
-        --this->actionDelay;
+    if (this->timer != 0) {
+        --this->timer;
     } else {
         target = GreatFairy_CreateForm(this, MINI, 0);
         if (target != NULL) {
@@ -400,15 +400,15 @@ void nullsub_516(Entity* this) {
 }
 
 void sub_080871A8(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 3;
-        this->actionDelay = 60;
+        this->timer = 60;
         gRoomVars.animFlags |= 4;
     }
 }
 
 void sub_080871D0(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         gRoomVars.animFlags |= 8;
         DeleteEntity(this);
     }
@@ -428,20 +428,20 @@ void sub_080871F8(Entity* this) {
 void sub_08087240(Entity* this) {
     if (gRoomVars.animFlags & 4) {
         this->action = 3;
-        this->actionDelay = 20;
+        this->timer = 20;
         this->direction = 16;
     }
 }
 
 void sub_08087264(Entity* this) {
-    if (this->actionDelay != 0) {
-        this->actionDelay--;
+    if (this->timer != 0) {
+        this->timer--;
         LinearMoveUpdate(this);
     }
 }
 
 void sub_0808727C(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         DeleteEntity(this);
     }
 }
@@ -471,9 +471,9 @@ void sub_080872F8(Entity* this) {
                                                (s16)this->field_0x6a.HWORD);
         this->direction = (this->direction + gUnk_081207AC[Random() & 3]) & 0x1f;
     }
-    temp = gSineTable[this->actionDelay + 64];
+    temp = gSineTable[this->timer + 64];
     this->z.HALF.HI = (temp >> 6) - 8;
-    this->actionDelay++;
+    this->timer++;
 }
 
 void GreatFairy_InitializeAnimation(Entity* this) {
@@ -500,13 +500,13 @@ Entity* GreatFairy_CreateForm(Entity* this, u32 curForm, u32 parameter) {
 void sub_080873D0(Entity* this) {
     Entity* ent;
 
-    if (this->actionDelay != 0) {
-        this->actionDelay--;
+    if (this->timer != 0) {
+        this->timer--;
     } else {
         ent = GreatFairy_CreateForm(this, 8, 0);
         if (ent != NULL) {
             CopyPosition(this, ent);
-            this->actionDelay = 48;
+            this->timer = 48;
         }
     }
 }

@@ -17,7 +17,7 @@ typedef struct {
     /*0x68*/ u8 unk_68[8];
     /*0x70*/ u16 pullLength;
     /*0x72*/ u16 leverPart; // lever part number? [0,1,2]
-    /*0x74*/ u8 actionDelay;
+    /*0x74*/ u8 timer;
     /*0x75*/ u8 unk_75;
     /*0x76*/ u16 necessaryPullLength;
     /*0x78*/ u8 unk_78[6];
@@ -49,7 +49,7 @@ void PullableLever(PullableLeverEntity* this) {
         case HANDLE:
             PullableLever_HandleActions[super->action](this);
             sub_0800445C(super);
-            gUnk_02021F00[this->actionDelay] = this->pullLength;
+            gUnk_02021F00[this->timer] = this->pullLength;
             break;
         case MIDDLE:
             PullableLever_MiddleActions[super->action](this);
@@ -79,14 +79,14 @@ void PullableLever_HandleInit(PullableLeverEntity* this) {
         } else {
             super->hitbox = (Hitbox*)&gUnk_080FD270;
         }
-        super->field_0x16 = 1;
+        super->carryFlags = 1;
         super->x.HALF.HI += PullableLever_InitialOffsets[super->type2 * 2];
         this->initialX = super->x.HALF.HI;
         super->y.HALF.HI += PullableLever_InitialOffsets[super->type2 * 2 + 1];
         this->initialY = super->y.HALF.HI;
         CopyPosition(super, &entity1->base);
         this->necessaryPullLength = this->unk_7e;
-        this->actionDelay = super->actionDelay;
+        this->timer = super->timer;
         InitializeAnimation(super, super->type2);
     }
 }
@@ -120,7 +120,7 @@ void PullableLever_HandleSubAction0(PullableLeverEntity* this) {
             }
         }
         this->unk_75 = 1;
-        super->field_0xf = 2;
+        super->subtimer = 2;
     }
     if (player->animationState >> 1 == super->type2) {
         if (gPlayerState.framestate == PL_STATE_PULL) {
@@ -228,8 +228,8 @@ void sub_0809153C(PullableLeverEntity* this) {
         EnqueueSFX(SFX_BUTTON_PRESS);
         SetFlag(this->pulledFlag);
     } else {
-        if (--super->field_0xf == 0) {
-            super->field_0xf = 0x10;
+        if (--super->subtimer == 0) {
+            super->subtimer = 0x10;
             EnqueueSFX(SFX_10F);
         }
     }

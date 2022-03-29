@@ -60,14 +60,14 @@ void RupeeLike_OnCollision(Entity* this) {
         if (this->action == 4) {
             sub_080296D8(this);
         }
-        if (*(u8*)(*(u32*)&this->field_0x4c + 8) == 1) {
+        if (*(u8*)(*(u32*)&this->contactedEntity + 8) == 1) {
             if (this->action == 2) {
                 InitializeAnimation(this, 0);
                 InitializeAnimation(this->child, 4);
             }
             this->action = 4;
-            this->actionDelay = 0x3c;
-            this->field_0xf = 0;
+            this->timer = 0x3c;
+            this->subtimer = 0;
             this->field_0x82.HALF.HI = 0x41;
             this->flags2 &= 0xfc;
             this->field_0x80.HALF.LO = gPlayerEntity.spritePriority.b1;
@@ -124,7 +124,7 @@ void sub_08029474(Entity* this) {
     sub_080296C8(this);
     if (this->frame & ANIM_DONE) {
         this->action = 3;
-        this->actionDelay = 8;
+        this->timer = 8;
         bVar1 = GetFacingDirection(this, &gPlayerEntity);
         this->direction = bVar1;
         this->animationState = (bVar1 << 0x18) >> 0x1c;
@@ -140,8 +140,8 @@ void sub_08029474(Entity* this) {
 
 void sub_080294D4(Entity* this) {
     if (sub_08049FDC(this, 1) != 0) {
-        if (--this->actionDelay == 0) {
-            this->actionDelay = 8;
+        if (--this->timer == 0) {
+            this->timer = 8;
             sub_08004596(this, GetFacingDirection(this, &gPlayerEntity));
             sub_0802969C(this);
         }
@@ -161,12 +161,12 @@ void sub_0802953C(Entity* this) {
     sub_080296C8(this);
     sub_080296C8(this);
     if (sub_0807953C() != 0) {
-        this->field_0xf++;
+        this->subtimer++;
     }
-    if (this->actionDelay != 0) {
-        this->actionDelay--;
+    if (this->timer != 0) {
+        this->timer--;
     }
-    if (((this->field_0xf > 0x2d) || (gSave.stats.rupees == 0)) && (this->actionDelay == 0)) {
+    if (((this->subtimer > 0x2d) || (gSave.stats.rupees == 0)) && (this->timer == 0)) {
         sub_080296D8(this);
     } else {
         ResetPlayerItem();
@@ -187,9 +187,9 @@ void sub_0802953C(Entity* this) {
 }
 
 void sub_08029610(Entity* this) {
-    if (--this->field_0xf == 0) {
+    if (--this->subtimer == 0) {
         this->action = 3;
-        this->actionDelay = 1;
+        this->timer = 1;
     }
     sub_080296C8(this);
 }
@@ -248,7 +248,7 @@ void sub_080296D8(Entity* this) {
     gPlayerEntity.spriteOffsetY = 0;
     gPlayerEntity.speed = 0x140;
     this->action = 5;
-    this->field_0xf = 0x3c;
+    this->subtimer = 0x3c;
     this->flags2 |= 3;
     if ((s8)this->iframes == 0) {
         this->iframes = 0xf4;
@@ -276,7 +276,7 @@ void sub_08029770(Entity* this) {
 void sub_080297F0(Entity* this) {
     u32 temp;
     this->action = 1;
-    this->actionDelay = 0x78;
+    this->timer = 0x78;
     COLLISION_ON(this);
     this->spriteSettings.draw = TRUE;
     this->hitType = 0x8e;

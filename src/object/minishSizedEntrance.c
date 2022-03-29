@@ -24,13 +24,13 @@ void sub_08090EC0(Entity* this) {
 void sub_08090F00(Entity* this) {
     if (this->type == 1) {
         Entity* parent = this->parent;
-        u32 mask = 1 << this->field_0xf;
+        u32 mask = 1 << this->subtimer;
         if (!(parent->zVelocity & mask)) {
             DeleteThisEntity();
         }
     }
     if ((gPlayerState.flags & PL_MINISH) && EntityInRectRadius(this, &gPlayerEntity, 4, 4) &&
         (gPlayerEntity.z.HALF.HI == 0) && (((u16)gPlayerState.field_0x90) & gUnk_0812225C[this->type2])) {
-        DoExitTransition(GetCurrentRoomProperty(this->actionDelay));
+        DoExitTransition(GetCurrentRoomProperty(this->timer));
     }
 }

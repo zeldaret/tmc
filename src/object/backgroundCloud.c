@@ -21,7 +21,7 @@ void sub_0808F658(Entity* this) {
     this->field_0x7a.HWORD = gRoomControls.origin_x + gRoomControls.width + 0x60;
     this->animationState = 0;
     this->x.HALF.HI += (Random() & 0xf) << 4;
-    this->actionDelay = 0;
+    this->timer = 0;
     this->subAction = 0;
 }
 
@@ -35,7 +35,7 @@ void sub_0808F6E0(Entity* this) {
 void sub_0808F70C(Entity* this) {
     if (this->subAction == 0) {
         this->subAction = 1;
-        this->actionDelay = ((Random() & 7) << 3) + 31;
+        this->timer = ((Random() & 7) << 3) + 31;
 
         if ((this->direction & 0x10)) {
             this->x.HALF.HI = this->field_0x7a.HWORD;
@@ -48,7 +48,7 @@ void sub_0808F70C(Entity* this) {
     }
 
     if (this->subAction == 1) {
-        if (--this->actionDelay == 0) {
+        if (--this->timer == 0) {
             this->action = 1;
             this->subAction = 0;
         }

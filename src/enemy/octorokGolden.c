@@ -35,7 +35,7 @@ void OctorokGolden_OnCollision(Entity* this) {
 }
 
 void OctorokGolden_OnDeath(Entity* this) {
-    if ((this->field_0x3a & 0x2) == 0) {
+    if ((this->gustJarState & 0x2) == 0) {
         SetGlobalFlag(this->type2);
     }
 
@@ -54,8 +54,8 @@ void sub_08037CE4(Entity* this) {
 }
 
 void sub_08037D0C(Entity* this) {
-    if (this->field_0xf) {
-        this->field_0xf--;
+    if (this->subtimer) {
+        this->subtimer--;
     } else if (sub_08037E90(this)) {
         return;
     }
@@ -63,7 +63,7 @@ void sub_08037D0C(Entity* this) {
     UpdateAnimationVariableFrames(this, 2);
     if (ProcessMovement0(this) == 0) {
         sub_08037E14(this);
-    } else if (--this->actionDelay == 0) {
+    } else if (--this->timer == 0) {
         sub_08037E14(this);
     }
 }
@@ -88,9 +88,9 @@ void sub_08037D54(Entity* this) {
             }
         }
     } else if (this->frame & ANIM_DONE) {
-        if (--this->actionDelay == 0) {
+        if (--this->timer == 0) {
             this->action = 1;
-            this->field_0xf = 0x3c;
+            this->subtimer = 0x3c;
             this->animationState |= 0xff;
             sub_08037E14(this);
         } else {
@@ -107,7 +107,7 @@ void sub_08037E14(Entity* this) {
     u8* layer;
     const s8* ptr;
     s32 x, y;
-    this->actionDelay = 0x8;
+    this->timer = 0x8;
     dir = (GetFacingDirection(this, &gPlayerEntity) + 4) & 0x18;
     layer = (u8*)GetLayerByIndex(this->collisionLayer)->collisionData;
     ptr = gUnk_080CF498 + (dir >> 2);
@@ -130,7 +130,7 @@ bool32 sub_08037E90(Entity* this) {
     u32 dir = sub_0804A044(this, &gPlayerEntity, 8);
     if (dir != 0xff) {
         this->action = 2;
-        this->actionDelay = 3;
+        this->timer = 3;
         this->direction = dir;
         this->animationState = dir >> 3;
         InitializeAnimation(this, this->animationState + 4);

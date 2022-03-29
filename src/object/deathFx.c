@@ -43,11 +43,11 @@ void DeathFx_Action0(DeathFxObject* this) {
         super->collisionLayer = 2;
         UpdateSpriteForCollisionLayer(&this->base);
         super->spriteRendering.b0 = 3;
-        if (super->actionDelay == 0) {
+        if (super->timer == 0) {
             tmp = 0x80;
         } else {
-            tmp = super->actionDelay;
-            super->actionDelay = 0;
+            tmp = super->timer;
+            super->timer = 0;
         }
         SetAffineInfo(super, tmp, tmp, 0);
         LoadSwapGFX(super, 4, 0);
@@ -67,7 +67,7 @@ void DeathFx_Action0(DeathFxObject* this) {
                 uVar4 &= 3;
                 parent = super->parent;
                 if (parent != NULL) {
-                    parent->actionDelay = gUnk_0811EC20[uVar4];
+                    parent->timer = gUnk_0811EC20[uVar4];
                 }
                 InitializeAnimation(&this->base, uVar4);
             }

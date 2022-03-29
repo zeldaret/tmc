@@ -18,8 +18,8 @@ void ForestMinish(Entity* this) {
             if (LoadExtraSpriteData(this, &gUnk_0810A348)) {
                 this->action = 1;
                 this->spriteSettings.draw = TRUE;
-                this->field_0x68.HALF.HI = this->animationState = this->actionDelay << 1;
-                this->actionDelay = 0;
+                this->field_0x68.HALF.HI = this->animationState = this->timer << 1;
+                this->timer = 0;
                 SetDefaultPriority(this, PRIO_MESSAGE);
                 StartCutscene(this, (u16*)gUnk_08109D18[this->type2]);
                 sub_0807DD50(this);
@@ -73,10 +73,10 @@ void sub_080600F0(Entity* this) {
     uVar2 = this->field_0x80.HWORD;
     if (this->field_0x80.HWORD < 8) {
         if ((this->field_0x82.HWORD & 1) != 0) {
-            uVar2 = (uVar2 & 0xfc) + (this->field_0xf >> 1);
+            uVar2 = (uVar2 & 0xfc) + (this->subtimer >> 1);
         } else {
             uVar2 = (uVar2 & 0xfc) + (this->animationState >> 1);
-            this->field_0xf = this->animationState;
+            this->subtimer = this->animationState;
         }
     }
     if (uVar2 != this->animIndex) {
@@ -91,7 +91,7 @@ void sub_080600F0(Entity* this) {
 }
 
 void sub_0806014C(Entity* this) {
-    this->actionDelay = 0;
+    this->timer = 0;
     sub_08060158(this);
 }
 
@@ -100,10 +100,10 @@ void sub_08060158(Entity* this) {
     u8* idx3;
     u8 tmp1, tmp2;
 
-    if (this->actionDelay) {
-        this->actionDelay--;
+    if (this->timer) {
+        this->timer--;
     } else {
-        this->actionDelay = 2;
+        this->timer = 2;
         index = GetFacingDirectionInRectRadius(this, 0x20, 0x20);
         if (index < 0) {
             int state = this->field_0x68.HALF.HI;

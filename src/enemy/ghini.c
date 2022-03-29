@@ -62,11 +62,11 @@ void Ghini_OnCollision(GhiniEntity* this) {
         sub_0803F630(this);
         sub_0803F6EC(this);
     }
-    if ((super->hitType == 0x25) && (super->bitfield == 0x80)) {
+    if ((super->hitType == 0x25) && (super->contactFlags == 0x80)) {
         super->action = 8;
         InitializeAnimation(super, 3);
     } else {
-        if (super->bitfield == 0x9d) {
+        if (super->contactFlags == 0x9d) {
             super->zVelocity = 0x18000;
         }
         if (super->confusedTime != 0) {
@@ -123,7 +123,7 @@ void Ghini_OnGrabbed(GhiniEntity* this) {
 
 void Ghini_SubAction0(GhiniEntity* this) {
     super->subAction = 1;
-    super->field_0x1d = 0x3c;
+    super->gustJarTolerance = 0x3c;
     InitializeAnimation(super, (gPlayerEntity.animationState >> 2) + 5);
 }
 
@@ -150,7 +150,7 @@ void Ghini_Init(GhiniEntity* this) {
     rand = Random();
     super->direction = rand & 0x1e;
     super->animationState = 0xff;
-    super->field_0x1c = 1;
+    super->gustJarFlags = 1;
     this->unk_7a = super->health;
     this->unk_7b = (rand >> 4);
     this->unk_7c = 0;
@@ -165,7 +165,7 @@ void Ghini_Init(GhiniEntity* this) {
 void Ghini_Action1(GhiniEntity* this) {
     if (sub_0803F5A8(this)) {
         super->action = 2;
-        super->actionDelay = (Random() & 0x60) + 10;
+        super->timer = (Random() & 0x60) + 10;
     }
 }
 
@@ -173,9 +173,9 @@ void Ghini_Action2(GhiniEntity* this) {
     if (sub_0803F5A8(this) == 0) {
         sub_0803F50C(this);
     } else {
-        if (--super->actionDelay == 0) {
+        if (--super->timer == 0) {
             super->action = 3;
-            super->actionDelay = 0x1e;
+            super->timer = 0x1e;
             if (sub_08049DF4(1) != NULL) {
                 super->direction = GetFacingDirection(super, gUnk_020000B0);
             } else {
@@ -189,7 +189,7 @@ void Ghini_Action2(GhiniEntity* this) {
 
 void Ghini_Action3(GhiniEntity* this) {
     GetNextFrame(super);
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         sub_0803F51C(this);
     }
 }
@@ -198,7 +198,7 @@ void Ghini_Action4(GhiniEntity* this) {
     if (sub_0803F5D4(this) == FALSE) {
         sub_0803F58C(this);
         GetNextFrame(super);
-        if (--super->actionDelay == 0) {
+        if (--super->timer == 0) {
             sub_0803F51C(this);
         }
     }
@@ -225,8 +225,8 @@ void Ghini_Action6(GhiniEntity* this) {
         sub_0803F51C(this);
     } else {
         if (sub_08049DF4(1) != NULL) {
-            tmp = super->actionDelay + 1;
-            super->actionDelay = tmp;
+            tmp = super->timer + 1;
+            super->timer = tmp;
             if ((tmp & gUnk_080D0970[tmp * 0x1000000 >> 0x1e]) == 0) {
                 sub_08004596(super, GetFacingDirection(super, gUnk_020000B0));
             }
@@ -235,14 +235,14 @@ void Ghini_Action6(GhiniEntity* this) {
             GetNextFrame(super);
         } else {
             super->action = 7;
-            super->actionDelay = 0x1e;
+            super->timer = 0x1e;
         }
     }
 }
 
 void Ghini_Action7(GhiniEntity* this) {
     GetNextFrame(super);
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         sub_0803F51C(this);
     }
 }
@@ -295,7 +295,7 @@ void sub_0803F51C(GhiniEntity* this) {
 
 void sub_0803F528(GhiniEntity* this) {
     u32 rand = Random();
-    super->actionDelay = (rand & 8) + 8;
+    super->timer = (rand & 8) + 8;
     if (sub_08049FA0(super)) {
         super->direction = (super->direction + gUnk_080D0978[rand & 7]) & 0x1e;
     } else {

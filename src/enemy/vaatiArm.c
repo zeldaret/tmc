@@ -266,7 +266,7 @@ void sub_08042654(Entity* this) {
             if ((((VaatiArm_HeapStruct*)this->myHeap)->s1[4].unk0c += 2) < 0x1c)
                 break;
             this->subAction = 5;
-            this->actionDelay = 0x5a;
+            this->timer = 0x5a;
             ((VaatiArm_HeapStruct*)this->myHeap)->entities[0]->flags |= ENT_COLLIDE;
             ((VaatiArm_HeapStruct*)this->myHeap)->entities[0]->spritePriority.b0 = 4;
             ((VaatiArm_HeapStruct*)this->myHeap)->entities[1]->flags |= ENT_COLLIDE;
@@ -281,7 +281,7 @@ void sub_08042654(Entity* this) {
             SoundReq(SFX_15E);
             break;
         default:
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 sub_08043BC8(this);
             }
             break;
@@ -335,7 +335,7 @@ void sub_080428AC(Entity* this) {
         pVVar3->unk00.HWORD += pVVar3->unk08;
     } else {
         this->subAction = 2;
-        this->actionDelay = 0x1e;
+        this->timer = 0x1e;
     }
     sub_08043BF0(this);
 }
@@ -344,7 +344,7 @@ void sub_080428FC(Entity* this) {
     u32 uVar2;
     VaatiArm_HeapStruct1* ptr;
 
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->subAction = 3;
         ptr = &((VaatiArm_HeapStruct*)this->myHeap)->s1[0];
         ptr->unk08 *= -3;
@@ -380,7 +380,7 @@ void sub_08042970(Entity* this) {
         pVVar3->unk00.HWORD += pVVar3->unk08;
     } else {
         this->subAction = 5;
-        this->actionDelay = 0x3c;
+        this->timer = 0x3c;
         uVar2 = 0;
         do {
             ((VaatiArm_HeapStruct*)this->myHeap)->entities[uVar2]->hitType = 0x39;
@@ -394,7 +394,7 @@ void sub_080429D4(Entity* this) {
     s16 sVar2;
     VaatiArm_HeapStruct1* pVVar3;
 
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->subAction = 6;
         pVVar3 = &((VaatiArm_HeapStruct*)this->myHeap)->s1[0];
         sVar2 = -this->speed / 6;
@@ -448,14 +448,14 @@ void sub_08042A88(Entity* this) {
         pVVar4->unk04.HWORD = 0;
         pVVar4->unk08 = gUnk_080D12CA[this->type2];
         this->subAction = 2;
-        this->actionDelay = 0x1e;
+        this->timer = 0x1e;
     }
 }
 
 void sub_08042AEC(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->subAction = 3;
-        this->actionDelay = 4;
+        this->timer = 4;
         this->hitType = 0x3d;
         InitAnimationForceUpdate(this, 0xe);
         ((VaatiArm_HeapStruct*)this->myHeap)->entities[1]->hitType = 0x3d;
@@ -500,10 +500,10 @@ void sub_08042B20(Entity* this) {
         }
     } else {
         this->field_0x78.HALF.LO += 2;
-        if (--this->actionDelay == 0) {
+        if (--this->timer == 0) {
             this->action = 5;
             this->subAction = 0;
-            this->actionDelay = 0x1e;
+            this->timer = 0x1e;
             this->hitType = 0x39;
             ((VaatiArm_HeapStruct*)this->myHeap)->entities[1]->hitType = 0x39;
         }
@@ -525,9 +525,9 @@ void sub_08042C34(Entity* this) {
 
     VaatiArm_HeapStruct1* ptr;
 
-    if (--this->actionDelay == 0) {
-        this->actionDelay = 0x3c;
-        this->field_0xf = 3;
+    if (--this->timer == 0) {
+        this->timer = 0x3c;
+        this->subtimer = 3;
         this->subAction = 1;
         random = Random() & 6;
         temp = &gUnk_080D12F8[random];
@@ -575,7 +575,7 @@ void sub_08042C34(Entity* this) {
 void sub_08042D24(Entity* this) {
     Entity* entity;
 
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->subAction = 2;
         this->hitType = 0x3d;
         ((VaatiArm_HeapStruct*)this->myHeap)->entities[1]->hitType = 0x3d;
@@ -612,7 +612,7 @@ void sub_08042D6C(Entity* this) {
         ((VaatiArm_HeapStruct*)this->myHeap)->s1[0].unk08 = gUnk_080D1300[this->type2];
         ((VaatiArm_HeapStruct*)this->myHeap)->s1[0].unk0a = 0xc0;
         this->subAction = 3;
-        this->actionDelay = 0x1e;
+        this->timer = 0x1e;
         this->hitType = 0x39;
         this->field_0x7c.BYTES.byte3 = 0x2d;
         InitAnimationForceUpdate(this, 0);
@@ -635,9 +635,9 @@ void sub_08042E30(Entity* this) {
         this->field_0x7c.BYTES.byte3--;
     }
     pVVar9 = &((VaatiArm_HeapStruct*)this->myHeap)->s1[0];
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->subAction = 4;
-        this->actionDelay = (Random() & 0x38) + 0x28;
+        this->timer = (Random() & 0x38) + 0x28;
         this->speed = 0x200;
         this->direction = pVVar9->unk00.HALF.HI >> 3;
         uVar6 = CalculateDirectionTo(this->x.HALF.HI, this->y.HALF.HI, gRoomControls.origin_x + 0x110,
@@ -668,10 +668,10 @@ void sub_08042EF4(Entity* this) {
 
     UpdateAnimationSingleFrame(this);
     if (sub_08043C98(this) == 0) {
-        if (--this->actionDelay == 0) {
+        if (--this->timer == 0) {
             if (EntityWithinDistance(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x50)) {
                 this->subAction = 6;
-                this->actionDelay = 0x28;
+                this->timer = 0x28;
             } else {
                 this->subAction = 5;
                 InitAnimationForceUpdate(this, 0xf);
@@ -714,12 +714,12 @@ void sub_08042FD8(Entity* this) {
             }
         } else {
             if (this->frame & ANIM_DONE) {
-                if (--this->field_0xf == 0) {
+                if (--this->subtimer == 0) {
                     this->subAction = 8;
-                    this->actionDelay = 0x3c;
+                    this->timer = 0x3c;
                 } else {
                     this->subAction = 3;
-                    this->actionDelay = 0x3c;
+                    this->timer = 0x3c;
                     InitAnimationForceUpdate(this, 0);
                 }
             }
@@ -743,7 +743,7 @@ void sub_08043048(Entity* this) {
             }
         } else {
             ptr[0].unk00.HWORD += ptr[0].unk08 * 8;
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->subAction = 7;
                 for (i = 0; i < 5; i++) {
                     ((VaatiArm_HeapStruct*)this->myHeap)->entities[i]->hitType = 0x39;
@@ -762,12 +762,12 @@ void sub_080430D0(Entity* this) {
         ptr[0].unk00.HWORD += ptr[0].unk08;
         ptr[0].unk04.HWORD -= 0x100;
         if (ptr[0].unk04.HALF.HI < 0x18) {
-            if (--this->field_0xf == 0) {
+            if (--this->subtimer == 0) {
                 this->subAction = 8;
-                this->actionDelay = 0x3c;
+                this->timer = 0x3c;
             } else {
                 this->subAction = 3;
-                this->actionDelay = 0x3c;
+                this->timer = 0x3c;
                 ptr[0].unk0a = -0xc0;
                 InitAnimationForceUpdate(this, 0);
             }
@@ -788,8 +788,8 @@ void sub_08043130(Entity* this) {
             }
         }
     } else {
-        if (this->actionDelay != 0) {
-            this->actionDelay--;
+        if (this->timer != 0) {
+            this->timer--;
             for (i = 1; i < 4; i++) {
                 ptr = &((VaatiArm_HeapStruct*)this->myHeap)->s1[i];
                 if (ptr->unk04.HALF.HI != 0) {
@@ -810,7 +810,7 @@ void sub_08043130(Entity* this) {
             }
             if (this->spriteSettings.draw == 0) {
                 this->subAction = 9;
-                this->actionDelay = 0x3c;
+                this->timer = 0x3c;
                 sub_0804AA1C(this);
             }
         }
@@ -821,7 +821,7 @@ void sub_080431E8(Entity* this) {
     u32 i;
     VaatiArm_HeapStruct1* ptr;
 
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 6;
         this->subAction = 0;
         for (i = 0; i < 4; i++) {
@@ -864,8 +864,8 @@ NONMATCH("asm/non_matching/vaati/sub_0804334C.inc", void sub_0804334C(Entity* th
     u32 i;
     u8* ptr;
 
-    if (this->actionDelay != 0) {
-        if (--this->actionDelay != 0) {
+    if (this->timer != 0) {
+        if (--this->timer != 0) {
             return;
         }
         for (i = 0; i < 5; i++) {
@@ -958,7 +958,7 @@ void sub_08043490(Entity* this) {
         if (entity->z.HALF.HI < 0) {
             entity->flags = entity->flags | ENT_COLLIDE;
             entity->spriteSettings.draw = 1;
-            entity->field_0x3c = entity->field_0x3c & 0xef;
+            entity->collisionFlags = entity->collisionFlags & 0xef;
             entity->hitType = 0x3a;
             entity->hitbox = (Hitbox*)&gUnk_080FD450;
             entity2 = ((VaatiArm_HeapStruct*)this->myHeap)->entities[2];
@@ -1004,9 +1004,9 @@ void sub_08043580(Entity* this) {
     }
     if ((this->spriteSettings.draw & 3) == 0) {
         this->subAction = 5;
-        this->actionDelay = 0x3c;
+        this->timer = 0x3c;
         entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[4];
-        entity->field_0x3c = entity->field_0x3c | 0x10;
+        entity->collisionFlags = entity->collisionFlags | 0x10;
         entity->hitType = 0x39;
         entity->hitbox = (Hitbox*)&gUnk_080FD538;
         sub_0804AA1C(this);
@@ -1018,10 +1018,10 @@ void sub_080435F4(Entity* this) {
     u32 i;
     VaatiArm_HeapStruct1* ptr;
 
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 6;
         this->subAction = 1;
-        this->actionDelay = 1;
+        this->timer = 1;
         for (i = 0; i < 5; i++) {
             ptr = &((VaatiArm_HeapStruct*)this->myHeap)->s1[i];
             ptr->unk00.HWORD = gUnk_080D1338[this->type2];
@@ -1047,7 +1047,7 @@ void sub_08043698(Entity* this) {
     u32 i;
 
     this->subAction = 1;
-    this->actionDelay = 0x3c;
+    this->timer = 0x3c;
     for (i = 0; i < 5; i++) {
         entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[i];
         entity->flags = entity->flags & ~ENT_COLLIDE;
@@ -1055,8 +1055,8 @@ void sub_08043698(Entity* this) {
 }
 
 static inline void deleteThing(Entity* this, const u32 index) {
-    if (--this->actionDelay == 0) {
-        this->actionDelay = 0x14;
+    if (--this->timer == 0) {
+        this->timer = 0x14;
         this->subAction = index + 1;
         if (index == 1) {
             this->spriteSettings.draw = 0;
@@ -1082,7 +1082,7 @@ void sub_08043738(Entity* this) {
 void sub_08043770(Entity* this) {
     Entity* entity;
 
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         entity = ((VaatiArm_HeapStruct*)this->myHeap)->parent;
         if ((gRoomTransition.field_0x39 & 0xc) == 0) {
             entity->subAction = 2;
@@ -1112,30 +1112,30 @@ u32 sub_080437DC(Entity* this) {
     if (heapStruct == NULL)
         return 0;
     this->spritePriority.b0 = 5;
-    this->field_0x3c = this->field_0x3c | 0x10;
+    this->collisionFlags = this->collisionFlags | 0x10;
     this->myHeap = (u32*)heapStruct;
     heapStruct->entities[0] = this;
     entity = CreateEnemy(VAATI_ARM, 1);
     entity->spritePriority.b0 = 5;
-    entity->field_0x3c = entity->field_0x3c | 0x10;
+    entity->collisionFlags = entity->collisionFlags | 0x10;
     entity->myHeap = (u32*)heapStruct;
     heapStruct->entities[1] = entity;
     CopyPosition(this, entity);
     entity = CreateEnemy(VAATI_ARM, 2);
     entity->spritePriority.b0 = 5;
-    entity->field_0x3c = entity->field_0x3c | 0x10;
+    entity->collisionFlags = entity->collisionFlags | 0x10;
     entity->myHeap = (u32*)heapStruct;
     heapStruct->entities[2] = entity;
     CopyPosition(this, entity);
     entity = CreateEnemy(VAATI_ARM, 3);
     entity->spritePriority.b0 = 5;
-    entity->field_0x3c = entity->field_0x3c | 0x10;
+    entity->collisionFlags = entity->collisionFlags | 0x10;
     entity->myHeap = (u32*)heapStruct;
     heapStruct->entities[3] = entity;
     CopyPosition(this, entity);
     entity = CreateEnemy(VAATI_ARM, 4);
     entity->spritePriority.b0 = 5;
-    entity->field_0x3c = entity->field_0x3c | 0x10;
+    entity->collisionFlags = entity->collisionFlags | 0x10;
     entity->myHeap = (u32*)heapStruct;
     heapStruct->entities[4] = entity;
     CopyPosition(this, entity);
@@ -1284,7 +1284,7 @@ void sub_08043C40(Entity* this, VaatiArm_HeapStruct1* heapStruct) {
 u32 sub_08043C98(Entity* this) {
 #if defined EU || defined JP
     Entity* e1 = ((VaatiArm_HeapStruct*)this->myHeap)->entities[3];
-    if ((e1->bitfield == 0x9d)) {
+    if ((e1->contactFlags == 0x9d)) {
         sub_08043D08(this);
         return 1;
     } else {
@@ -1293,7 +1293,7 @@ u32 sub_08043C98(Entity* this) {
 #else
     Entity* e1 = ((VaatiArm_HeapStruct*)this->myHeap)->entities[2];
     Entity* e2 = ((VaatiArm_HeapStruct*)this->myHeap)->entities[3];
-    if ((e1->bitfield == 0x9d) || (e2->bitfield == 0x9d)) {
+    if ((e1->contactFlags == 0x9d) || (e2->contactFlags == 0x9d)) {
         sub_08043D08(this);
         gRoomTransition.field_0x38 |= 2;
         return 1;
@@ -1306,7 +1306,7 @@ u32 sub_08043C98(Entity* this) {
 void sub_08043CD4(Entity* this) {
     u32 i;
     for (i = 0; i < 5; i++) {
-        if (((VaatiArm_HeapStruct*)this->myHeap)->entities[i]->bitfield == 0x9d) {
+        if (((VaatiArm_HeapStruct*)this->myHeap)->entities[i]->contactFlags == 0x9d) {
             this->field_0x7c.BYTES.byte0 = 0x78;
             this->field_0x7c.BYTES.byte1 = i;
             return;
@@ -1406,7 +1406,7 @@ void sub_08043EB8(Entity* this) {
     pEVar4->x.HALF.HI = (this->type2 == 0) ? gRoomTransition.field_0x44 : gRoomTransition.field_0x48;
     pEVar4->y.HALF.HI = (this->type2 == 0) ? gRoomTransition.field_0x46 : gRoomTransition.field_0x4a;
     pEVar4->z.HALF.HI = 0;
-    pEVar4->field_0x3c = pEVar4->field_0x3c & 0xef;
+    pEVar4->collisionFlags = pEVar4->collisionFlags & 0xef;
     pEVar4->hitType = 0x3a;
     pEVar4->hitbox = (Hitbox*)&gUnk_080FD450;
     pEVar4 = CreateObject(OBJECT_AF, 0, 0);

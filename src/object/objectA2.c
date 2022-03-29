@@ -51,20 +51,20 @@ void sub_0809F374(Entity* this) {
             InitializeAnimation(this, 1);
             SoundReq(SFX_186);
         } else {
-            this->actionDelay++;
+            this->timer++;
         }
     } else {
 #endif
         switch (sub_080044EC(this, 0x2000)) {
             default:
-                this->actionDelay++;
+                this->timer++;
                 break;
             case 0:
                 this->action = 2;
                 InitializeAnimation(this, 1);
                 // fall through
             case 1:
-                this->actionDelay = 0;
+                this->timer = 0;
                 sub_0809F448(this);
                 SoundReq(SFX_186);
         }
@@ -96,8 +96,8 @@ void sub_0809F408(Entity* this) {
 void sub_0809F448(Entity* this) {
     s32 tmp;
     int rand = Random();
-    const struct_08124708* tmp2 = &gUnk_08124708[this->field_0xf];
-    this->field_0xf++;
+    const struct_08124708* tmp2 = &gUnk_08124708[this->subtimer];
+    this->subtimer++;
     tmp = 0x280000 - this->x.WORD;
     switch (tmp2->unk_0) {
         case 0:

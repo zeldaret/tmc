@@ -79,7 +79,7 @@ void sub_08034CC4(Entity* this) {
 
     if (sub_08035084(this) != 0) {
         this->action = this->type + 1;
-        this->field_0xf = 0;
+        this->subtimer = 0;
         this->field_0x6c.HALF.HI |= 1;
         this->field_0x78.HWORD = 0x4b0;
         sub_08034F70(this);
@@ -99,7 +99,7 @@ void sub_08034D4C(Entity* this) {
 
     GetNextFrame(this);
     if (--this->field_0x78.HWORD == 0) {
-        if ((this->field_0xf < 8) && (entity = CreateEnemy(VAATI_PROJECTILE, 0), entity != (Entity*)0x0)) {
+        if ((this->subtimer < 8) && (entity = CreateEnemy(VAATI_PROJECTILE, 0), entity != (Entity*)0x0)) {
             entity->direction = (s32)Random() % 5 + 0xc;
             entity->x.HALF.HI = (gRoomControls.width / 2) + gRoomControls.origin_x;
             entity->y.HALF.HI = gRoomControls.origin_y + 8;
@@ -107,7 +107,7 @@ void sub_08034D4C(Entity* this) {
             entity->parent = this;
             UpdateSpriteForCollisionLayer(entity);
             this->field_0x78.HWORD = 600;
-            this->field_0xf = this->field_0xf + 1;
+            this->subtimer = this->subtimer + 1;
         } else {
             this->field_0x78.HWORD = 0x78;
         }
@@ -170,7 +170,7 @@ void sub_08034EE4(Entity* this) {
     u32 randomValue;
     Entity* entity;
 
-    if ((++this->actionDelay & 0xf) == 0) {
+    if ((++this->timer & 0xf) == 0) {
         randomValue = Random();
         entity = CreateFx(this, gUnk_080CEEC8[randomValue & 3], 0);
         if (entity != NULL) {

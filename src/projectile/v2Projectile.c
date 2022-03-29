@@ -31,12 +31,12 @@ void sub_080ABBA8(Entity* this) {
 }
 
 void sub_080ABBF4(Entity* this) {
-    if ((this->bitfield & 0x80) == 0)
+    if ((this->contactFlags & 0x80) == 0)
         return;
 
     switch (this->type) {
         case 2: {
-            switch ((this->bitfield & 0x3f)) {
+            switch ((this->contactFlags & 0x3f)) {
                 case 0: {
                     ModHealth(-4);
                     // fallthrough
@@ -52,7 +52,7 @@ void sub_080ABBF4(Entity* this) {
         }
         case 0:
         case 1: {
-            if ((this->bitfield & 0x3f) == 0) {
+            if ((this->contactFlags & 0x3f) == 0) {
                 ModHealth(-2);
                 DeleteThisEntity();
             }
@@ -88,8 +88,8 @@ void sub_080ABC90(Entity* this) {
 
 void sub_080ABCC4(Entity* this) {
     this->action = 1;
-    this->actionDelay = (Random() & 0x3f) + 0x30;
-    this->field_0xf = 0;
+    this->timer = (Random() & 0x3f) + 0x30;
+    this->subtimer = 0;
     this->direction = Random() & 0x1f;
     this->field_0x74.HWORD = TILE(this->x.HALF.HI, this->y.HALF.HI);
     this->field_0x76.HWORD = GetTileType(this->field_0x74.HWORD, 2);
@@ -99,7 +99,7 @@ void sub_080ABCC4(Entity* this) {
 }
 
 void sub_080ABD44(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 2;
         InitializeAnimation(this, 1);
     }
@@ -159,9 +159,9 @@ void sub_080ABE88(Entity* this) {
 
 void sub_080ABEA8(Entity* this) {
     this->action = 1;
-    this->actionDelay = 0x60;
+    this->timer = 0x60;
     this->spritePriority.b0 = 2;
-    this->field_0x1c = 1;
+    this->gustJarFlags = 1;
     if (this->type2 == 0) {
         this->direction = (Random() & 0xf) << 1;
     } else {

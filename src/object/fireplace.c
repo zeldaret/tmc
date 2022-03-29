@@ -27,7 +27,7 @@ void sub_0809B708(Entity* this) {
 
 void sub_0809B7A0(Entity* this) {
     sub_0809B7C0(this);
-    if (this->actionDelay) {
+    if (this->timer) {
         SetFlag(this->field_0x86.HWORD);
         DeleteThisEntity();
     }
@@ -43,5 +43,5 @@ void sub_0809B7C0(Entity* this) {
 void sub_0809B7DC(Entity* this) {
     sub_0807B7D8(0xc3 << 2, TILE(this->x.HALF.HI, this->y.HALF.HI), 2);
     SetTile(0x4062, TILE(this->x.HALF.HI, this->y.HALF.HI), this->collisionLayer);
-    this->actionDelay = 1;
+    this->timer = 1;
 }

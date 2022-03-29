@@ -23,7 +23,7 @@ typedef struct {
 
 typedef struct {
     u8 before[0x20];
-    u8 unk_20[0x4]; // TODO for Entity this is zVelocity which is not an array. spriteAnimation[super->field_0xf-6] does
+    u8 unk_20[0x4]; // TODO for Entity this is zVelocity which is not an array. spriteAnimation[super->subtimer-6] does
                     // not match.
 } ModifiedParentEntity;
 
@@ -49,7 +49,7 @@ void ItemForSale(ItemForSaleEntity* this) {
     if (CheckOnScreen(super)) {
         sub_08080CB4(super);
     }
-    switch (super->actionDelay) {
+    switch (super->timer) {
         case 1:
         case 2:
             if (super->action == 1) {
@@ -66,13 +66,13 @@ void ItemForSale_Init(ItemForSaleEntity* this) {
     super->action = 1;
     super->spriteSettings.draw = 1;
     super->spritePriority.b1 = 0;
-    super->field_0x16 = 0;
+    super->carryFlags = 0;
 #ifdef EU
     SetDefaultPriority(super, 6);
 #endif
     super->child = super;
     sub_08081A5C(this);
-    switch (super->actionDelay) {
+    switch (super->timer) {
         case 0:
             super->hitbox = (Hitbox*)&gUnk_080FD328;
             break;
@@ -133,7 +133,7 @@ void sub_080819B4(ItemForSaleEntity* this) {
 
     if (gRoomVars.shopItemType == 0) {
         if (super->parent != NULL) {
-            ((ModifiedParentEntity*)super->parent)->unk_20[super->field_0xf] = 0xff;
+            ((ModifiedParentEntity*)super->parent)->unk_20[super->subtimer] = 0xff;
         }
         DeleteThisEntity();
     }
@@ -158,7 +158,7 @@ void sub_080819B4(ItemForSaleEntity* this) {
 
 void sub_08081A5C(ItemForSaleEntity* this) {
     u32 tmp = sub_080787D8(super);
-    if (super->actionDelay == 1) {
+    if (super->timer == 1) {
         gUnk_03003DF0.array[tmp].unk_2 = 0;
     }
 }

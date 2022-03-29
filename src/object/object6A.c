@@ -358,7 +358,7 @@ void sub_08094E30(Object6AEntity* this) {
         }
     } else if (super->action == 0) {
         super->action++;
-        switch (super->actionDelay) {
+        switch (super->timer) {
             case 1:
                 InitializeAnimation(super, 2);
                 break;
@@ -414,7 +414,7 @@ void sub_08094FA8(Object6AEntity* this) {
                 if (!CheckGlobalFlag(BIN_DOGFOOD)) {
                     CreateItemEntity(0x1c, 0, 0);
                     SetGlobalFlag(BIN_DOGFOOD);
-                    super->actionDelay = 60;
+                    super->timer = 60;
                 }
 #else
                 CreateItemEntity(0x1c, 0, 0);
@@ -423,7 +423,7 @@ void sub_08094FA8(Object6AEntity* this) {
             break;
 #ifndef EU
         case 4:
-            if (!--super->actionDelay) {
+            if (!--super->timer) {
                 super->action = 5;
                 SetPlayerControl(1);
             }
@@ -502,7 +502,7 @@ void sub_080951C4(Object6AEntity* this) {
     if (super->action == 0) {
         super->action++;
         super->z.HALF.HI = -16;
-        super->actionDelay = 0;
+        super->timer = 0;
         sub_0807DD64(super);
         InitializeAnimation(super, 3);
     }
@@ -512,8 +512,8 @@ void sub_080951C4(Object6AEntity* this) {
     if (super->z.HALF.HI == 0) {
         super->z.WORD = 0;
         super->parent = NULL;
-        if (super->actionDelay == 0) {
-            super->actionDelay++;
+        if (super->timer == 0) {
+            super->timer++;
             SoundReq(230);
         }
     }
@@ -550,8 +550,8 @@ void sub_08095288(Object6AEntity* this) {
             super->subAction = 0;
             SetAffineInfo(super, 0x100, 0x100, 0xC000);
         } else {
-            SetAffineInfo(super, 0x100, 0x100, super->actionDelay << 8);
-            super->actionDelay += 10;
+            SetAffineInfo(super, 0x100, 0x100, super->timer << 8);
+            super->timer += 10;
             LinearMoveUpdate(super);
         }
     }
@@ -653,8 +653,8 @@ void sub_080954AC(Object6AEntity* this, u32 arg2) {
 void sub_080954DC(Object6AEntity* this) {
     switch (super->action) {
         case 0:
-            if (super->actionDelay != 0) {
-                super->actionDelay--;
+            if (super->timer != 0) {
+                super->timer--;
             } else {
                 super->action++;
                 super->subAction = 0;
@@ -810,7 +810,7 @@ void sub_0809584C(Object6AEntity* this) {
     idx = super->health;
     if ((idx & 0x7F) != 0 && !ReadBit((u32*)gArea.filler5, idx - 1))
         DeleteThisEntity();
-    if (super->actionDelay != 0 && CheckKinstoneFused(super->type2))
+    if (super->timer != 0 && CheckKinstoneFused(super->type2))
         DeleteThisEntity();
     if (super->action == 0) {
         super->action++;
@@ -916,20 +916,20 @@ void sub_08095A8C(Object6AEntity* this) {
             break;
         case 2:
             super->action++;
-            super->actionDelay = 120;
+            super->timer = 120;
         case 3:
             super->spriteSettings.draw ^= 1;
-            if (--super->actionDelay == 0) {
+            if (--super->timer == 0) {
                 super->action = 1;
                 super->spriteSettings.draw = 1;
             }
             break;
         case 4:
             super->action++;
-            super->actionDelay = 120;
+            super->timer = 120;
         case 5:
             super->spriteSettings.draw ^= 1;
-            if (--super->actionDelay == 0) {
+            if (--super->timer == 0) {
                 super->action = 1;
                 super->spriteSettings.draw = 0;
             }
@@ -1006,11 +1006,11 @@ void sub_08095C68(Object6AEntity* this) {
         super->action++;
         sub_080042D0(super, super->frameIndex, (u16)super->spriteIndex);
     }
-    if (super->actionDelay != 0) {
-        if (--super->actionDelay < 8) {
+    if (super->timer != 0) {
+        if (--super->timer < 8) {
             super->spriteSettings.draw ^= 1;
         }
-        if (super->actionDelay != 0) {
+        if (super->timer != 0) {
             return;
         }
     }
@@ -1023,7 +1023,7 @@ void sub_08095CB0(Object6AEntity* this) {
         super->child = e;
         e->parent = super;
         CopyPosition(super, e);
-        e->actionDelay = 16;
+        e->timer = 16;
         e->frameIndex = super->frameIndex;
         e->lastFrameIndex = super->frameIndex;
     }
@@ -1153,12 +1153,12 @@ void sub_08095F38(Object6AEntity* this) {
         ChangeObjPalette(super, pal);
         if ((gPlayerEntity.frame & 1) == 0) {
             local->anim = 0x8BF;
-            super->actionDelay = 52;
-            super->field_0xf = -75;
+            super->timer = 52;
+            super->subtimer = -75;
         } else {
             local->anim = 0x8E3;
-            super->actionDelay = 85;
-            super->field_0xf = -42;
+            super->timer = 85;
+            super->subtimer = -42;
         }
         CopyPosition(&gPlayerEntity, super);
         super->spritePriority.b0 = 3;
@@ -1169,7 +1169,7 @@ void sub_08095F38(Object6AEntity* this) {
     }
     if ((u16)gPlayerEntity.spriteIndex != local->anim >> 8 || gPlayerEntity.animIndex != (u8)local->anim)
         DeleteThisEntity();
-    tmp = gPlayerEntity.frameIndex - super->actionDelay + super->field_0xf;
+    tmp = gPlayerEntity.frameIndex - super->timer + super->subtimer;
     if (tmp != super->frameIndex) {
         super->frameIndex = tmp;
         sub_080042D0(super, super->frameIndex, (u16)super->spriteIndex);

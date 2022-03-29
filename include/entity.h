@@ -124,16 +124,16 @@ typedef struct Entity_ {
     /*0x0b*/ u8 type2;                  /**< For use internally. */
     /*0x0c*/ u8 action;                 /**< Current action. Usually used to index a function table. */
     /*0x0d*/ u8 subAction;              /**< Optional sub-action. */
-    /*0x0e*/ u8 actionDelay;            /**< General purpose timer. */
-    /*0x0f*/ u8 field_0xf;              /**< General purpose timer. */
+    /*0x0e*/ u8 timer;                  /**< General purpose timer. */
+    /*0x0f*/ u8 subtimer;               /**< General purpose timer. */
     /*0x10*/ u8 flags;                  /**< @see EntityFlags */
     /*0x11*/ u8 updatePriority : 4;     /**< Current priority. @see Priority */
     /*    */ u8 updatePriorityPrev : 4; /**< Priority to restore after request is over. @see RequestPriority. */
     /*0x12*/ s16 spriteIndex;
     /*0x14*/ u8 animationState; /**< Animation state. @see AnimationState */
     /*0x15*/ u8 direction;      /**< Facing direction. @see Direction */
-    /*0x16*/ u8 field_0x16;
-    /*0x17*/ u8 field_0x17;
+    /*0x16*/ u8 carryFlags;     /**< Flags for carrying this Entity. */
+    /*0x17*/ u8 followerFlag;   /**< Controls collisions between followers, unused. */
     /*0x18*/ struct {
     /*    */     u32 draw        : 2; /**< Draw type. 0 = disabled, 1 = clip to screen, 3 = draw always */ /* 0x2 */ 
     /*    */     u32 ss2         : 1; /*   4 */
@@ -160,35 +160,35 @@ typedef struct Entity_ {
     /*    */     u32 b1    : 5; /* 0x2-0x10 */
     /*    */     u32 flipY : 2; /* 0x20-0x40 */
     /*    */ } PACKED spriteOrientation;
-    /*0x1c*/ u8 field_0x1c;
-    /*0x1d*/ u8 field_0x1d;
+    /*0x1c*/ u8 gustJarFlags; /**< Controls sfx and other things */
+    /*0x1d*/ u8 gustJarTolerance; /**< Frames needed to pull off ground. */
     /*0x1e*/ u8 frameIndex;
     /*0x1f*/ u8 lastFrameIndex;
     /*0x20*/ s32 zVelocity; /**< Z axis speed, measured in px/frame */
     /*0x24*/ s16 speed;     /**< Magnitude of speed. */
     /*0x26*/ u8 spriteAnimation[3];
     /*0x29*/ SpritePriority spritePriority;
-    /*0x2a*/ u16 collisions;
+    /*0x2a*/ u16 collisions;    /**< Collision flags for each direction. */
     /*0x2c*/ union SplitWord x; /**< X position, fixed point Q16.16. */
     /*0x30*/ union SplitWord y; /**< Y position, fixed point Q16.16. */
     /*0x34*/ union SplitWord z; /**< Z position, fixed point Q16.16. */
     /*0x38*/ u8 collisionLayer; /**< Collision layer. */
     /*0x39*/ s8 interactType;
-    /*0x3a*/ u8 field_0x3a; /**< 4: grabbed by GustJar */
-    /*0x3b*/ u8 flags2;
-    /*0x3c*/ u8 field_0x3c;
+    /*0x3a*/ u8 gustJarState;       /**< 4: grabbed by GustJar */
+    /*0x3b*/ u8 flags2;             /**< Debug visualization related? */
+    /*0x3c*/ u8 collisionFlags;     /**< Controls collision modes. */
     /*0x3d*/ s8 iframes;            /**< Invulnerability frames. */
     /*0x3e*/ u8 knockbackDirection; /**< Direction of knockback. */
     /*0x3f*/ u8 hitType;            /**< Behavior as a collision sender. */
-    /*0x40*/ u8 hurtType;           /**< behavior as a collision receiver. */
-    /*0x41*/ u8 bitfield;
-    /*0x42*/ u8 knockbackDuration; /**< Duration of knockback. */
-    /*0x43*/ u8 confusedTime; /**< Frames that this Entity is confused. */
-    /*0x44*/ u8 damage; /**< Damage this Entity inflicts. */
-    /*0x45*/ u8 health; /**< Health of this Entity. */
-    /*0x46*/ u16 knockbackSpeed; /**< How fast this Entity is knocked back. */
-    /*0x48*/ Hitbox* hitbox; /**< Hitbox associated with this Entity. */
-    /*0x4c*/ struct Entity_* field_0x4c;
+    /*0x40*/ u8 hurtType;           /**< Behavior as a collision receiver. */
+    /*0x41*/ u8 contactFlags;       /**< Information about collision contact. */
+    /*0x42*/ u8 knockbackDuration;  /**< Duration of knockback. */
+    /*0x43*/ u8 confusedTime;       /**< Frames that this Entity is confused. */
+    /*0x44*/ u8 damage;             /**< Damage this Entity inflicts. */
+    /*0x45*/ u8 health;             /**< Health of this Entity. */
+    /*0x46*/ u16 knockbackSpeed;    /**< How fast this Entity is knocked back. */
+    /*0x48*/ Hitbox* hitbox;        /**< Hitbox associated with this Entity. */
+    /*0x4c*/ struct Entity_* contactedEntity;
     /*0x50*/ struct Entity_* parent; /**< Parent Entity. Sometimes points to associated data. */
     /*0x54*/ struct Entity_* child;  /**< Child Entity. Sometimes points to associated data. */
     /*0x58*/ u8 animIndex;

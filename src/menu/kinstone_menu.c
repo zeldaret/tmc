@@ -641,11 +641,11 @@ void KinstoneMenu_080A4528(void) {
     if (entity != NULL) {
         if (entity->kind == NPC) {
             NPCInit(entity);
-            entity->field_0xf = entity->id;
+            entity->subtimer = entity->id;
             entity->id = 0x56;
         } else {
             EnemyInit(entity);
-            entity->field_0xf = entity->id;
+            entity->subtimer = entity->id;
             entity->id = 0x66;
         }
         entity->x.HALF.HI = 0xcc;

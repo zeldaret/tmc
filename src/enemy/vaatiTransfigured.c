@@ -141,8 +141,8 @@ void VaatiTransfiguredType0Action0(Entity* this) {
         this->spritePriority.b0 = 5;
         this->field_0x6c.HALF.HI |= 1;
         this->direction = (Random() & 0x17) + 4;
-        this->actionDelay = 48;
-        this->field_0xf = 12;
+        this->timer = 48;
+        this->subtimer = 12;
         this->field_0x82.HALF.LO = 4;
         this->field_0x80.HALF.LO = 0xff;
         this->field_0x74.HALF.LO = 0;
@@ -165,9 +165,9 @@ void VaatiTransfiguredType0Action0(Entity* this) {
             enemy->parent = this;
             enemy->type2 = i;
             if ((this->field_0x74.HALF.HI >> (i)&1) != 0) {
-                enemy->actionDelay = 1;
+                enemy->timer = 1;
             } else {
-                enemy->actionDelay = 0;
+                enemy->timer = 0;
             }
         }
         InitAnimationForceUpdate(this, 0);
@@ -179,41 +179,41 @@ void VaatiTransfiguredType0Action1(Entity* this) {
 
     switch (this->field_0x80.HALF.LO) {
         case 0xff:
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->field_0x80.HALF.LO = 0;
-                this->actionDelay = 11;
+                this->timer = 11;
             }
             break;
         case 0:
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->field_0x80.HALF.LO += 1;
                 this->speed = 0x180;
-                this->actionDelay = 0x14;
+                this->timer = 0x14;
             }
             break;
         case 1:
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->field_0x80.HALF.LO += 1;
                 this->speed = 0xc0;
-                this->actionDelay = 12;
+                this->timer = 12;
             }
             break;
         case 2:
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->field_0x80.HALF.LO += 1;
                 this->speed = 0;
                 if (this->animationState < 2) {
-                    this->actionDelay = (Random() & 0x7f) + 0x40;
+                    this->timer = (Random() & 0x7f) + 0x40;
                 } else {
-                    this->actionDelay = 8;
+                    this->timer = 8;
                 }
             }
             break;
         case 3:
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->z.HALF.HI = 0;
                 this->field_0x80.HALF.LO = 0;
-                this->actionDelay = gUnk_080D0ABF[(u32)this->animationState * 2];
+                this->timer = gUnk_080D0ABF[(u32)this->animationState * 2];
                 switch (sub_08040934(this)) {
                     case 1:
                         this->action = 4;
@@ -269,20 +269,20 @@ void VaatiTransfiguredType0Action3(Entity* this) {
             if (uVar4 != 1)
                 break;
             this->field_0x80.HALF.LO = 1;
-            this->actionDelay = 0xc0;
+            this->timer = 0xc0;
             COLLISION_ON(this);
             SoundReq(SFX_14C);
             InitScreenShake(0x14, 4);
             break;
         case 1:
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->field_0x80.HALF.LO = 2;
                 this->hitType = 0x35;
                 this->spriteOffsetX = 0;
             }
             if (this->health < gUnk_080D0ABC[this->animationState]) {
                 tmp = 1;
-                this->actionDelay = 1;
+                this->timer = 1;
             } else {
                 tmp = 0;
             }
@@ -293,7 +293,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
                 this->animationState++;
                 if (this->animationState > 2) {
                     this->action = 7;
-                    this->actionDelay = 0xe0;
+                    this->timer = 0xe0;
                     DeleteClones();
                     SoundReq(SFX_BOSS_HIT);
                     return;
@@ -302,26 +302,26 @@ void VaatiTransfiguredType0Action3(Entity* this) {
             break;
         case 2:
             this->child->field_0x74.HALF.LO = 0x10;
-            if (this->actionDelay) {
+            if (this->timer) {
                 this->field_0x80.HALF.LO = 3;
-                this->actionDelay = 0x40;
+                this->timer = 0x40;
             } else {
                 this->field_0x80.HALF.LO = 4;
-                this->actionDelay = 0x50;
+                this->timer = 0x50;
             }
             break;
         case 3:
-            if (this->actionDelay != 0) {
-                if (--this->actionDelay == 0) {
+            if (this->timer != 0) {
+                if (--this->timer == 0) {
                     COLLISION_OFF(this);
                     this->zVelocity = Q_16_16(3.5);
-                    this->field_0xf = 0x10;
+                    this->subtimer = 0x10;
                 }
                 break;
             }
             if (GravityUpdate(this, 0x2800) == 0) {
                 this->field_0x80.HALF.LO = 5;
-                this->actionDelay = 0x10;
+                this->timer = 0x10;
                 COLLISION_ON(this);
                 this->health = 0xff;
                 this->field_0x86.HALF.LO = 0;
@@ -329,11 +329,11 @@ void VaatiTransfiguredType0Action3(Entity* this) {
                 SoundReq(SFX_14C);
                 InitScreenShake(0x1e, 4);
             } else {
-                if (this->field_0xf != 0) {
-                    if (--this->field_0xf == 0) {
+                if (this->subtimer != 0) {
+                    if (--this->subtimer == 0) {
                         SoundReq(SFX_1B0);
                     } else {
-                        if ((this->field_0xf & 7) == 0) {
+                        if ((this->subtimer & 7) == 0) {
                             SoundReq(SFX_149);
                         }
                     }
@@ -341,13 +341,13 @@ void VaatiTransfiguredType0Action3(Entity* this) {
             }
             break;
         case 4:
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->field_0x80.HALF.LO = 5;
-                this->actionDelay = 0x10;
+                this->timer = 0x10;
                 this->field_0x86.HALF.LO = 0;
                 sub_080408EC(this);
             } else {
-                if (((this->actionDelay & 1) != 0) && (pEVar3 = CreateObject(OBJECT_9B, 1, 0xff), pEVar3 != NULL)) {
+                if (((this->timer & 1) != 0) && (pEVar3 = CreateObject(OBJECT_9B, 1, 0xff), pEVar3 != NULL)) {
                     pEVar3->parent = this;
                     CopyPosition(this, pEVar3);
                     pEVar3->x.HALF.HI += (Random() & 0xf) - 7;
@@ -358,7 +358,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
             }
             break;
         case 5:
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->action = 1;
                 this->field_0x80.HALF.LO = 0;
                 this->field_0x80.HALF.HI = 0;
@@ -367,7 +367,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
             }
     }
     if (this->field_0x80.HALF.LO > 2) {
-        this->spriteOffsetX = this->actionDelay & 1;
+        this->spriteOffsetX = this->timer & 1;
     }
     UpdateAnimationSingleFrame(this);
 }
@@ -375,11 +375,11 @@ void VaatiTransfiguredType0Action3(Entity* this) {
 void VaatiTransfiguredType0Action4(Entity* this) {
     switch (this->field_0x80.HALF.LO) {
         case 0:
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->field_0x80.HALF.LO += 1;
                 this->field_0x74.HALF.LO = 0;
-                this->actionDelay = 0x80;
-                this->field_0xf = 0;
+                this->timer = 0x80;
+                this->subtimer = 0;
                 this->zVelocity = Q_16_16(2.25);
                 SoundReq(SFX_12B);
             }
@@ -391,38 +391,38 @@ void VaatiTransfiguredType0Action4(Entity* this) {
             switch (this->cutsceneBeh.HALF.LO) {
                 case 1:
                 case 3:
-                    this->field_0xf = 1;
+                    this->subtimer = 1;
                     break;
                 case 0:
                 case 2:
-                    this->field_0xf = 0;
+                    this->subtimer = 0;
                     break;
                 default:
-                    this->field_0xf = (Random() & 0x20) >> 5;
+                    this->subtimer = (Random() & 0x20) >> 5;
                     break;
             }
             if (1 < this->animationState) {
-                this->field_0xf = 1;
+                this->subtimer = 1;
             }
             SoundReq(SFX_14C);
             InitScreenShake(0x1e, 4);
             break;
         case 2:
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->field_0x80.HALF.LO += 1;
-                this->actionDelay = gUnk_080D0ABF[((u32)this->animationState << 1 | 1)];
+                this->timer = gUnk_080D0ABF[((u32)this->animationState << 1 | 1)];
             } else {
-                if ((this->actionDelay & 7) == 0) {
-                    CreateProjectileWithParent(this, V2_PROJECTILE, this->field_0xf);
+                if ((this->timer & 7) == 0) {
+                    CreateProjectileWithParent(this, V2_PROJECTILE, this->subtimer);
                 }
-                if (((this->field_0xf != 0) && (1 < this->animationState)) && (this->actionDelay < 6)) {
-                    this->actionDelay = 0x80;
-                    this->field_0xf = 0;
+                if (((this->subtimer != 0) && (1 < this->animationState)) && (this->timer < 6)) {
+                    this->timer = 0x80;
+                    this->subtimer = 0;
                 }
             }
             break;
         case 3:
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->action = 1;
                 this->field_0x80.HALF.LO = 0;
                 this->z.HALF.HI = 0;
@@ -443,30 +443,30 @@ void VaatiTransfiguredType0Action5(Entity* this) {
 
     switch (this->field_0x80.HALF.LO) {
         case 0:
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->field_0x80.HALF.LO += 1;
-                this->actionDelay = 0x40;
+                this->timer = 0x40;
                 if (1 < this->animationState) {
-                    this->actionDelay = 0x80;
-                    this->field_0xf = 1;
+                    this->timer = 0x80;
+                    this->subtimer = 1;
                 }
             }
             break;
         case 1:
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->field_0x80.HALF.LO += 1;
-                this->actionDelay = gUnk_080D0ABF[(this->animationState << 1 | 1)];
+                this->timer = gUnk_080D0ABF[(this->animationState << 1 | 1)];
             } else {
-                if (this->field_0xf) {
-                    if ((this->actionDelay & 7) == 0) {
-                        CreateProjectileWithParent(this, V2_PROJECTILE, this->field_0xf);
+                if (this->subtimer) {
+                    if ((this->timer & 7) == 0) {
+                        CreateProjectileWithParent(this, V2_PROJECTILE, this->subtimer);
                     }
-                    if (this->actionDelay < 6) {
-                        this->actionDelay = 0x40;
-                        this->field_0xf = 0;
+                    if (this->timer < 6) {
+                        this->timer = 0x40;
+                        this->subtimer = 0;
                     }
                 } else {
-                    if ((this->actionDelay & 0xf) == 0) {
+                    if ((this->timer & 0xf) == 0) {
                         entity = CreateProjectileWithParent(this, V2_PROJECTILE, 2);
                         if (entity != NULL) {
                             entity->type2 = 0;
@@ -479,7 +479,7 @@ void VaatiTransfiguredType0Action5(Entity* this) {
             }
             break;
         case 2:
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->action = 1;
                 this->field_0x80.HALF.LO = 0;
                 sub_08040670(this);
@@ -496,29 +496,29 @@ void VaatiTransfiguredType0Action6(Entity* this) {
 
     switch (this->field_0x80.HALF.LO) {
         case 0:
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->field_0x80.HALF.LO += 1;
-                this->actionDelay = 0x80;
+                this->timer = 0x80;
                 if (1 < this->animationState) {
-                    this->field_0xf = 1;
+                    this->subtimer = 1;
                 }
             }
             break;
         case 1:
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->field_0x80.HALF.LO += 1;
-                this->actionDelay = gUnk_080D0ABF[(this->animationState << 1) | 1];
+                this->timer = gUnk_080D0ABF[(this->animationState << 1) | 1];
             } else {
-                if (this->field_0xf) {
-                    if ((this->actionDelay & 7) == 0) {
-                        CreateProjectileWithParent(this, V2_PROJECTILE, this->field_0xf);
+                if (this->subtimer) {
+                    if ((this->timer & 7) == 0) {
+                        CreateProjectileWithParent(this, V2_PROJECTILE, this->subtimer);
                     }
-                    if (this->actionDelay < 6) {
-                        this->actionDelay = 0x80;
-                        this->field_0xf = 0;
+                    if (this->timer < 6) {
+                        this->timer = 0x80;
+                        this->subtimer = 0;
                     }
                 } else {
-                    if ((this->actionDelay & 0x1f) == 0) {
+                    if ((this->timer & 0x1f) == 0) {
                         pEVar2 = CreateProjectileWithParent(this, V2_PROJECTILE, 2);
                         if (pEVar2 != NULL) {
                             pEVar2->type2 = 1;
@@ -532,7 +532,7 @@ void VaatiTransfiguredType0Action6(Entity* this) {
             }
             break;
         case 2:
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->action = 1;
                 this->field_0x80.HALF.LO = 0;
                 sub_08040670(this);
@@ -548,16 +548,16 @@ void VaatiTransfiguredType0Action7(Entity* this) {
     u32 uVar4;
 
     sub_08078B48();
-    if (this->actionDelay) {
-        if (--this->actionDelay == 0) {
+    if (this->timer) {
+        if (--this->timer == 0) {
             SetRoomFlag(2);
-            this->field_0xf = 8;
+            this->subtimer = 8;
             UpdateAnimationSingleFrame(this);
             return;
         }
     } else {
-        if (this->field_0xf != 0) {
-            if (--this->field_0xf == 0) {
+        if (this->subtimer != 0) {
+            if (--this->subtimer == 0) {
                 this->health = 0;
                 this->spriteSettings.draw = 0;
             }
@@ -567,8 +567,8 @@ void VaatiTransfiguredType0Action7(Entity* this) {
         UpdateAnimationSingleFrame(this);
         return;
     }
-    this->field_0xf = (this->field_0xf + 1) & 7;
-    if (this->field_0xf == 0) {
+    this->subtimer = (this->subtimer + 1) & 7;
+    if (this->subtimer == 0) {
         pEVar3 = CreateFx(this, FX_AURA_BASE, 0);
         if (pEVar3 != NULL) {
             uVar4 = Random() & 0x3f3f;
@@ -585,10 +585,10 @@ void VaatiTransfiguredType0Action7(Entity* this) {
 
 void VaatiTransfiguredType1Action0(Entity* this) {
     this->action = 1;
-    this->actionDelay = 0;
+    this->timer = 0;
     this->field_0x80.HALF.LO = 0;
     this->spritePriority.b0 = 6;
-    InitAnimationForceUpdate(this, (u32)this->actionDelay);
+    InitAnimationForceUpdate(this, (u32)this->timer);
 }
 
 void VaatiTransfiguredType1Action1(Entity* this) {
@@ -607,13 +607,13 @@ void VaatiTransfiguredType1Action1(Entity* this) {
         sub_080042BA(this, 2);
     }
     if (parent->action >= 5) {
-        if (this->actionDelay == 0) {
-            this->actionDelay = 1;
+        if (this->timer == 0) {
+            this->timer = 1;
             InitAnimationForceUpdate(this, 1);
         }
     } else {
-        if (this->actionDelay != 0) {
-            this->actionDelay = 0;
+        if (this->timer != 0) {
+            this->timer = 0;
             InitAnimationForceUpdate(this, 0);
         }
     }
@@ -633,8 +633,8 @@ void VaatiTransfiguredType2Action0(Entity* this) {
             sub_08040648(this, 2, 1);
             sub_08040648(this, 2, 2);
             this->action = 1;
-            this->actionDelay = 0;
-            this->field_0xf = (Random() & 0x7f) + 0x17;
+            this->timer = 0;
+            this->subtimer = (Random() & 0x7f) + 0x17;
             this->field_0x74.HALF.LO = 0;
             InitAnimationForceUpdate(this, 0);
         }
@@ -666,9 +666,9 @@ void VaatiTransfiguredType2Action1(Entity* this) {
         case 0:
             switch (this->field_0x74.HALF.LO) {
                 case 0:
-                    if (--this->field_0xf == 0) {
-                        this->field_0xf = (Random() & 0x7f) + 0x27;
-                        if ((this->field_0xf & 1) != 0) {
+                    if (--this->subtimer == 0) {
+                        this->subtimer = (Random() & 0x7f) + 0x27;
+                        if ((this->subtimer & 1) != 0) {
                             this->field_0x74.HALF.LO = 1;
                             InitAnimationForceUpdate(this, 8);
                         }
@@ -677,19 +677,19 @@ void VaatiTransfiguredType2Action1(Entity* this) {
                 case 1:
                     if ((this->frame & ANIM_DONE) != 0) {
                         this->field_0x74.HALF.LO = 0;
-                        this->field_0xf = (Random() & 0x7f) + 0x17;
+                        this->subtimer = (Random() & 0x7f) + 0x17;
                         InitAnimationForceUpdate(this, 0);
                     }
                     break;
                 case 0x10:
                     InitAnimationForceUpdate(this, 7);
                     this->field_0x74.HALF.LO = 0x11;
-                    this->field_0xf = 0x50;
+                    this->subtimer = 0x50;
                     break;
                 case 0x11:
-                    if (--this->field_0xf == 0) {
+                    if (--this->subtimer == 0) {
                         this->field_0x74.HALF.LO = 1;
-                        this->field_0xf = 0x30;
+                        this->subtimer = 0x30;
                         InitAnimationForceUpdate(this, 8);
                     }
             }
@@ -728,7 +728,7 @@ void VaatiTransfiguredType3Action1(Entity* this) {
 void VaatiTransfiguredType4Action0(Entity* this) {
     this->action = 1;
     this->field_0x80.HALF.LO = 0;
-    this->actionDelay = 10;
+    this->timer = 10;
     this->spriteSettings.draw = 0;
     this->spritePriority.b0 = 7;
     InitializeAnimation(this, 0);
@@ -749,8 +749,8 @@ void VaatiTransfiguredType4Action1(Entity* this) {
             this->field_0x80.HALF.LO += 1;
             this->spriteSettings.draw = 1;
         }
-        if (--this->actionDelay == 0) {
-            this->actionDelay = 10;
+        if (--this->timer == 0) {
+            this->timer = 10;
             SoundReq(SFX_149);
         }
     }
@@ -761,7 +761,7 @@ void VaatiTransfiguredType4Action1(Entity* this) {
 void VaatiTransfiguredType5Action0(Entity* this) {
     if (this->type2 != 0) {
         this->action = 2;
-        this->actionDelay = 10;
+        this->timer = 10;
         this->spritePriority.b0 = 3;
         InitializeAnimation(this, 2);
     } else {
@@ -796,8 +796,8 @@ void VaatiTransfiguredType5Action1(Entity* this) {
                         sub_08040648(this, this->type, 1);
                     }
                 }
-                if (--this->actionDelay == 0) {
-                    this->actionDelay = 10;
+                if (--this->timer == 0) {
+                    this->timer = 10;
                     SoundReq(SFX_149);
                 }
                 GetNextFrame(this);
@@ -844,7 +844,7 @@ void sub_08040670(Entity* this) {
     this->action = 1;
     this->field_0x80.HALF.LO = 0;
     this->speed = 0x100;
-    this->actionDelay = 12;
+    this->timer = 12;
     if (this->animationState == 0) {
         sub_080406A0(this);
     } else {
@@ -1074,26 +1074,26 @@ void sub_080409B0(Entity* this) {
             Knockback1(this);
         }
     } else {
-        if (((this->bitfield & 0x80) != 0) && (0 < this->iframes)) {
+        if (((this->contactFlags & 0x80) != 0) && (0 < this->iframes)) {
             InitScreenShake(0xc, 1);
             SoundReq(SFX_BOSS_HIT);
         }
-        if ((this->bitfield == 0x8a) && (gPlayerState.chargeState.action == 5)) {
+        if ((this->contactFlags == 0x8a) && (gPlayerState.chargeState.action == 5)) {
             this->health = 0xc0;
         }
     }
 }
 
 void sub_08040AD4(Entity* this) {
-    u32 actionDelay;
+    u32 timer;
 
-    actionDelay = this->actionDelay & 0x3f;
-    if ((actionDelay & 0x1f) == 0) {
+    timer = this->timer & 0x3f;
+    if ((timer & 0x1f) == 0) {
         SoundReq(SFX_1A9);
     }
-    if ((actionDelay & 3) == 0) {
-        actionDelay >>= 2;
-        this->x.HALF.HI += ((actionDelay + 4) & 8) ? -1 : 1;
-        this->y.HALF.HI += ((actionDelay + 2) & 4) ? -1 : 1;
+    if ((timer & 3) == 0) {
+        timer >>= 2;
+        this->x.HALF.HI += ((timer + 4) & 8) ? -1 : 1;
+        this->y.HALF.HI += ((timer + 2) & 4) ? -1 : 1;
     }
 }

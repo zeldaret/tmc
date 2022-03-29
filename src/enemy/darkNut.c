@@ -61,10 +61,10 @@ void DarkNut_OnTick(Entity* this) {
 }
 
 void DarkNut_OnCollision(Entity* this) {
-    switch (this->bitfield & 0x7f) {
+    switch (this->contactFlags & 0x7f) {
         case 0x1c:
             this->action = 11;
-            this->actionDelay = gUnk_080CAB0C[this->type];
+            this->timer = gUnk_080CAB0C[this->type];
             this->hitType = 81;
             sub_08021218(this, 8, DirectionToAnimationState(this->knockbackDirection ^ 0x10));
             sub_08021588(this);
@@ -72,7 +72,7 @@ void DarkNut_OnCollision(Entity* this) {
             break;
         case 0x16:
             this->action = 11;
-            this->actionDelay = gUnk_080CAB10[this->type];
+            this->timer = gUnk_080CAB10[this->type];
             this->hitType = 81;
             sub_08021218(this, 8, DirectionToAnimationState(this->knockbackDirection ^ 0x10));
             sub_08021588(this);
@@ -101,7 +101,7 @@ void DarkNut_OnCollision(Entity* this) {
             if (this->action == 15) {
                 u8 bVar3 = 0xff;
                 if (this->child != NULL) {
-                    bVar3 = this->child->bitfield & 0x7f;
+                    bVar3 = this->child->contactFlags & 0x7f;
                 }
                 if (bVar3 == 2) {
                     sub_080213D0(this, gUnk_080CAB08[this->type]);
@@ -152,7 +152,7 @@ void sub_08020DD4(Entity* this) {
         this->action = 5;
         sub_08021218(this, 5, this->animationState);
     } else {
-        if (--this->actionDelay == 0)
+        if (--this->timer == 0)
             sub_08021540(this);
         ProcessMovement0(this);
         UpdateAnimationSingleFrame(this);
@@ -255,7 +255,7 @@ void sub_08020FAC(Entity* this) {
 
 void sub_08020FE4(Entity* this) {
     UpdateAnimationSingleFrame(this);
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 12;
         sub_08021218(this, 9, this->animationState);
         sub_0804AA1C(this);
@@ -321,7 +321,7 @@ void sub_080210E4(Entity* this) {
     }
 
     sub_08021644(this);
-    if ((this->frame & 0x10) && (!ProcessMovement0(this) || (this->child && (this->child->bitfield & 0x80)))) {
+    if ((this->frame & 0x10) && (!ProcessMovement0(this) || (this->child && (this->child->contactFlags & 0x80)))) {
         sub_080213D0(this, 0);
     } else {
         if (--this->field_0x76.HWORD == 0)
@@ -452,7 +452,7 @@ void sub_08021390(Entity* this) {
 
 void sub_080213B0(Entity* this) {
     this->action = 3;
-    this->actionDelay = 1;
+    this->timer = 1;
     this->speed = 0xc0;
     this->field_0x76.HWORD = 0xf0;
     sub_08021218(this, 3, this->animationState);
@@ -554,7 +554,7 @@ void sub_08021540(Entity* this) {
     if (tmp != 0xff)
         sub_08021218(this, 3, tmp);
 
-    this->actionDelay = 30;
+    this->timer = 30;
 }
 
 void sub_08021588(Entity* this) {

@@ -64,18 +64,18 @@ void GyorgTail_Init(Entity* this) {
 ASM_FUNC("asm/non_matching/gyorgTail/sub_080AC388.inc", void sub_080AC388(Entity* this))
 
 void sub_080AC480(Entity* this) {
-    if (this->actionDelay != 0) {
+    if (this->timer != 0) {
         if (this->parent->health == 0) {
             this->action = 1;
             this->hitType = 0x1d;
         } else {
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->hitType = 0x1c;
                 SoundReq(SFX_116);
             }
         }
     } else {
-        if (--this->field_0xf == 0) {
+        if (--this->subtimer == 0) {
             this->action = 1;
             this->hitType = 0x1d;
         }
@@ -220,8 +220,8 @@ void sub_080AC884(Entity* this) {
     if (this->parent->field_0x70.HALF_U.HI != 0) {
         this->parent->field_0x70.HALF_U.HI = 0;
         this->action = 2;
-        this->actionDelay = 0x3c;
-        this->field_0xf = 0x56;
+        this->timer = 0x3c;
+        this->subtimer = 0x56;
     }
 }
 

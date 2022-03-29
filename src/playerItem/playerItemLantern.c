@@ -12,17 +12,17 @@ extern const s8 gUnk_080FEEB0[];
 
 void PlayerItemLantern(Entity* this) {
     gUnk_080FEEA8[this->action](this);
-    this->bitfield = 0;
+    this->contactFlags = 0;
 }
 
 void sub_08054A60(Entity* this) {
     this->flags |= (ENT_PERSIST | ENT_COLLIDE);
     this->action = 0x01;
-    this->actionDelay = 0x04;
+    this->timer = 0x04;
     this->frameIndex = -1;
     // TODO regalloc and mov 6 too early
     this->updatePriority = 6;
-    this->field_0x3c = 7;
+    this->collisionFlags = 7;
     this->flags2 = -0x80;
     this->animationState = gPlayerEntity.animationState & 0xe;
     if (AllocMutableHitbox(this) == NULL) {
@@ -55,8 +55,8 @@ void sub_08054AC8(Entity* this) {
         this->frameSpriteSettings = gPlayerEntity.frameSpriteSettings;
     }
     if (IsItemEquipped(ITEM_LANTERN_ON) < 2) {
-        if (((this->frameIndex != 0xff) && (gPlayerEntity.spriteSettings.draw != 0)) && (this->actionDelay-- == 0)) {
-            this->actionDelay = 4;
+        if (((this->frameIndex != 0xff) && (gPlayerEntity.spriteSettings.draw != 0)) && (this->timer-- == 0)) {
+            this->timer = 4;
             object = CreateObject(OBJECT_45, 0, 0x10);
             if (object != NULL) {
                 PositionRelative(this, object, 0, 0x20000);

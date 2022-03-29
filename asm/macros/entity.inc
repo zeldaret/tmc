@@ -158,8 +158,8 @@
 	.2byte \unknownD, 0x0
 	.endm
 
-	.macro minish_entrance x=0, y=0, unknown=0, actionDelay=0
-	.2byte \x, \y, \unknown, \actionDelay
+	.macro minish_entrance x=0, y=0, unknown=0, timer=0
+	.2byte \x, \y, \unknown, \timer
 	.endm
 
 	.endif @ GUARD_ASM_MACROS_ENTITY_INC

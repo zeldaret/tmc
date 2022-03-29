@@ -80,7 +80,7 @@ ASM_FUNC("asm/non_matching/frozenOctorok/FrozenOctorok_Action1.inc",
 
 void FrozenOctorok_Action1SubAction0(FrozenOctorokEntity* this) {
     Entity* child;
-    if (super->field_0xf != 0) {
+    if (super->subtimer != 0) {
         if (this->unk_7e == 0) {
             child = super->child;
             if (child->z.HALF.HI > -0x10) {
@@ -108,7 +108,7 @@ void FrozenOctorok_Action1SubAction1(FrozenOctorokEntity* this) {
                 obj->y.HALF.HI -= 0x50;
                 gRoomControls.camera_target = obj;
             }
-            if (super->field_0xf < 3) {
+            if (super->subtimer < 3) {
                 super->subAction = 2;
                 this->unk_79 = 0x1e;
                 SoundReq(SFX_THUD_HEAVY);
@@ -124,7 +124,7 @@ void FrozenOctorok_Action1SubAction2(FrozenOctorokEntity* this) {
     if (this->unk_79-- == 0) {
         super->subAction = 1;
         this->unk_79 = 0x1e;
-        super->field_0xf++;
+        super->subtimer++;
         return;
     }
     switch (this->unk_79 & 3) {
@@ -194,7 +194,7 @@ NONMATCH("asm/non_matching/frozenOctorok/FrozenOctorok_Action1SubAction5.inc",
             super->subAction = 6;
             super->speed = 0xc0;
             super->type2 = 0;
-            super->field_0xf = 0;
+            super->subtimer = 0;
             child = super->child;
             child->spriteSettings.draw = 0;
             this->heap->mouthObject->unk_76 = 0x100;
@@ -257,14 +257,14 @@ void sub_0809CB70(FrozenOctorokEntity* this, s32 angle, s32 radius) {
 }
 
 NONMATCH("asm/non_matching/frozenOctorok/sub_0809CBE4.inc", void sub_0809CBE4(FrozenOctorokEntity* this)) {
-    this->unk_79 += super->field_0xf;
-    if ((s8)super->field_0xf < 0) {
-        if (super->actionDelay < -(this->unk_79 << 0x18 >> 0x18)) {
-            super->field_0xf = -super->field_0xf;
+    this->unk_79 += super->subtimer;
+    if ((s8)super->subtimer < 0) {
+        if (super->timer < -(this->unk_79 << 0x18 >> 0x18)) {
+            super->subtimer = -super->subtimer;
             SoundReq(SFX_19E);
         }
-    } else if ((s8)this->unk_79 > super->actionDelay) {
-        super->field_0xf = -super->field_0xf;
+    } else if ((s8)this->unk_79 > super->timer) {
+        super->subtimer = -super->subtimer;
         SoundReq(SFX_19E);
     }
 }

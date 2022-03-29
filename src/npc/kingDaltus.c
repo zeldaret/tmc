@@ -37,10 +37,10 @@ void sub_08066688(Entity* this) {
     if (tmp < 0) {
         tmp = 2;
     } else {
-        if (this->field_0xf == 0) {
-            this->field_0xf = 0x10;
+        if (this->subtimer == 0) {
+            this->subtimer = 0x10;
         } else {
-            this->field_0xf -= 1;
+            this->subtimer -= 1;
             tmp = this->animIndex;
         }
     }

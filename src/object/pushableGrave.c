@@ -86,23 +86,23 @@ void PushableGrave_Init(PushableGraveEntity* this) {
 
 void PushableGrave_Action1(PushableGraveEntity* this) {
     if (sub_0809785C(this)) {
-        RequestPriorityDuration(super, super->actionDelay);
+        RequestPriorityDuration(super, super->timer);
     }
 }
 
 void PushableGrave_Action2(PushableGraveEntity* this) {
     if (super->subAction == 0) {
-        if (--super->field_0xf == 0) {
+        if (--super->subtimer == 0) {
             super->subAction = 1;
-            super->field_0xf = 0x78;
+            super->subtimer = 0x78;
             gRoomControls.camera_target = super;
             gRoomControls.unk5 = 2;
         }
     } else {
-        if (--super->field_0xf == 0) {
+        if (--super->subtimer == 0) {
             super->action = 3;
-            super->actionDelay = 0x60;
-            super->field_0xf = 0x14;
+            super->timer = 0x60;
+            super->subtimer = 0x14;
             RequestPriorityDuration(super, 0x60);
             SoundReq(SFX_10F);
         }
@@ -110,13 +110,13 @@ void PushableGrave_Action2(PushableGraveEntity* this) {
 }
 
 void PushableGrave_Action3(PushableGraveEntity* this) {
-    if (super->actionDelay != 0) {
-        super->actionDelay--;
+    if (super->timer != 0) {
+        super->timer--;
         LinearMoveUpdate(super);
         sub_0800445C(super);
     } else {
-        if (super->field_0xf != 0) {
-            super->field_0xf--;
+        if (super->subtimer != 0) {
+            super->subtimer--;
         } else {
             EnqueueSFX(SFX_SECRET);
             sub_080977F4(this);
@@ -152,8 +152,8 @@ bool32 sub_0809785C(PushableGraveEntity* this) {
         if (super->type2 != 0) {
             if ((CheckFlags(this->pushedFlag) != 0) || GetTileType(this->unk_68, super->collisionLayer) == 0x403f) {
                 super->action = 3;
-                super->actionDelay = 0x40;
-                super->field_0xf = 0;
+                super->timer = 0x40;
+                super->subtimer = 0;
                 super->direction = 0;
                 super->speed = 0x40;
                 tilePosition = this->unk_68;
@@ -177,8 +177,8 @@ bool32 sub_0809785C(PushableGraveEntity* this) {
         if (CheckFlags(this->pushedFlag) != 0) {
             super->action = 2;
             super->subAction = 0;
-            super->actionDelay = 0xf0;
-            super->field_0xf = 0x3c;
+            super->timer = 0xf0;
+            super->subtimer = 0x3c;
             super->direction = 0;
             super->speed = 0x40;
             RestorePrevTileEntity(this->unk_68, super->collisionLayer);

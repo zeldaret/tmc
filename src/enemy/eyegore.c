@@ -85,14 +85,14 @@ void Eyegore_OnTick(EyegoreEntity* this) {
 void Eyegore_OnCollision(EyegoreEntity* this) {
     u32 tmp;
 
-    if ((super->bitfield == 0x95) || (super->bitfield == 0x8e)) {
-        Entity* entity = super->field_0x4c;
+    if ((super->contactFlags == 0x95) || (super->contactFlags == 0x8e)) {
+        Entity* entity = super->contactedEntity;
         tmp = (((entity->direction + 4) & 0x18) ^ 0x10) >> 3;
         if (tmp == super->animationState) {
             if ((tmp & 1) != 0) {
                 if (0x10 < ((entity->y.HALF.HI + entity->z.HALF.HI) - (super->y.HALF.HI + super->z.HALF.HI)) + 0x14U) {
                 } else {
-                    if (super->bitfield == 0x8e) {
+                    if (super->contactFlags == 0x8e) {
                         super->health = 0;
                     } else {
                         super->health--;
@@ -108,7 +108,7 @@ void Eyegore_OnCollision(EyegoreEntity* this) {
                         EnqueueSFX(SFX_BUTTON_PRESS);
                         sub_08031344(this);
                     } else {
-                        if (super->bitfield == 0x8e) {
+                        if (super->contactFlags == 0x8e) {
                             super->health = 0;
                         } else {
                             super->health--;
@@ -133,7 +133,7 @@ void Eyegore_OnDeath(EyegoreEntity* this) {
         this->unk_7e--;
         GravityUpdate(super, 0x1c00);
     } else {
-        if ((super->field_0x3a & 2) == 0) {
+        if ((super->gustJarState & 2) == 0) {
             CreateFx(super, FX_GIANT_EXPLOSION4, 0);
         }
         GenericDeath(super);
@@ -169,12 +169,12 @@ void Eyegore_Action1(EyegoreEntity* this) {
 }
 
 void Eyegore_Action2(EyegoreEntity* this) {
-    if (super->actionDelay != 0) {
-        super->actionDelay--;
+    if (super->timer != 0) {
+        super->timer--;
     } else {
         if (sub_08049FDC(super, 1)) {
             super->action = 3;
-            super->actionDelay = 0x3c;
+            super->timer = 0x3c;
             super->direction = (CalculateDirectionTo(super->x.HALF.HI + super->hitbox->offset_x,
                                                      super->y.HALF.HI + super->hitbox->offset_y,
                                                      gUnk_020000B0->x.HALF.HI, gUnk_020000B0->y.HALF.HI) +
@@ -192,8 +192,8 @@ void Eyegore_Action3(EyegoreEntity* this) {
         0,
         1,
     };
-    if (super->actionDelay != 0) {
-        super->spriteOffsetX = gUnk_080CE2BC[--super->actionDelay & 3];
+    if (super->timer != 0) {
+        super->spriteOffsetX = gUnk_080CE2BC[--super->timer & 3];
     } else {
         GetNextFrame(super);
         if ((super->frame & ANIM_DONE) != 0) {
@@ -469,7 +469,7 @@ void sub_08031250(EyegoreEntity* this) {
 void sub_08031320(EyegoreEntity* this) {
     super->action = 2;
     super->flags &= ~ENT_COLLIDE;
-    super->actionDelay = 0x1e;
+    super->timer = 0x1e;
     super->hitbox = (Hitbox*)&gUnk_080FD308;
     InitializeAnimation(super, 10);
 }
@@ -478,7 +478,7 @@ void sub_08031344(EyegoreEntity* this) {
     static const s8 gUnk_080CE304[] = {
         0, -6, -14, -14, 0, -28, 14, -14,
     };
-    Entity* entity = sub_08017A90(super->field_0x4c, super);
+    Entity* entity = sub_08017A90(super->contactedEntity, super);
     if (entity != NULL) {
         const s8* ptr = &gUnk_080CE304[entity->animationState * 2];
         entity->spriteOffsetX = ptr[0];

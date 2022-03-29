@@ -17,7 +17,7 @@ void BoneProjectile_OnTick(Entity* this) {
 }
 
 void sub_080A81C4(Entity* this) {
-    if (this->bitfield == 0x80) {
+    if (this->contactFlags == 0x80) {
         DeleteEntity(this);
     } else {
         sub_080A82D8(this);
@@ -26,7 +26,7 @@ void sub_080A81C4(Entity* this) {
 
 void BoneProjectile_Init(Entity* this) {
     this->action = 1;
-    this->actionDelay = 60;
+    this->timer = 60;
     this->z.HALF.HI = -2;
     InitializeAnimation(this, 0);
 }
@@ -39,7 +39,7 @@ void BoneProjectile_Action1(Entity* this) {
             DeleteEntity(this);
         } else {
             sub_08016AD2(this);
-            if (--this->actionDelay == 0) {
+            if (--this->timer == 0) {
                 this->action = 2;
                 this->speed = 0x120;
             }

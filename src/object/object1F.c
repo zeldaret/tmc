@@ -49,13 +49,13 @@ void Object1F_Init(Object1FEntity* this) {
     super->x.HALF.HI = gUnk_08120A20[super->animationState] + super->x.HALF.HI;
     super->y.HALF.HI = gUnk_08120A20[super->animationState + 1] + super->y.HALF.HI;
 
-    super->spriteVramOffset = gUnk_08120A18[super->field_0xf].spriteVramOffset;
-    temp = gUnk_08120A18[super->field_0xf].unk1;
+    super->spriteVramOffset = gUnk_08120A18[super->subtimer].spriteVramOffset;
+    temp = gUnk_08120A18[super->subtimer].unk1;
     super->palette.b.b0 = temp;
-    this->unk6c = gUnk_08120A18[super->field_0xf].unk2;
+    this->unk6c = gUnk_08120A18[super->subtimer].unk2;
     super->collisionLayer = gPlayerEntity.collisionLayer;
     super->speed = 0x100;
-    InitializeAnimation(super, gUnk_08120A18[super->field_0xf].animationState);
+    InitializeAnimation(super, gUnk_08120A18[super->subtimer].animationState);
 }
 
 void Object1F_Action1(Object1FEntity* this) {
@@ -92,9 +92,9 @@ void Object1F_Action2(Object1FEntity* this) {
         default:
             if (super->type2 != 0) {
                 if (super->type2 == 15) {
-                    CreateFx(super, super->actionDelay, 0x80);
+                    CreateFx(super, super->timer, 0x80);
                 } else {
-                    CreateObjectWithParent(super, super->type2, super->actionDelay, 0);
+                    CreateObjectWithParent(super, super->type2, super->timer, 0);
                 }
             }
     }

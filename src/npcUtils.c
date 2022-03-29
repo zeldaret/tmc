@@ -128,10 +128,10 @@ s32 GetFacingDirectionInRectRadius(Entity* ent, u32 x, u32 y) {
 
 void sub_0806EE04(Entity* ent, void* a2, u32 a3) {
     ent->child = a2;
-    ent->field_0x3c = a3;
+    ent->collisionFlags = a3;
     ent->hitType = 0;
     ent->knockbackSpeed = 0;
-    ent->field_0x16 = 0;
+    ent->carryFlags = 0;
 }
 
 u32 sub_0806EE20(Entity* ent) {
@@ -139,7 +139,7 @@ u32 sub_0806EE20(Entity* ent) {
 
     if (!ent->interactType) {
         if (ent->child != NULL)
-            return gUnk_08114EFC[ent->field_0x16](ent);
+            return gUnk_08114EFC[ent->carryFlags](ent);
     } else {
         ent->knockbackSpeed = 8;
         v3 = GetFacingDirection(ent, &gPlayerEntity);
@@ -187,7 +187,7 @@ static void sub_0806EF14(Entity* ent) {
     u16 xy[2];
     sub_0806EF4C(ent, xy);
     ent->direction = sub_080045B4(ent, xy[0], xy[1]);
-    if ((ent->field_0x3c & 1) == 0)
+    if ((ent->collisionFlags & 1) == 0)
         ent->knockbackDirection = sub_0806F5A4(ent->direction);
 }
 
@@ -213,22 +213,22 @@ u32 sub_0806EFAC(Entity* ent, u16* a2) {
 }
 
 u32 sub_0806EFBC(Entity* ent, u16* a2) {
-    ent->field_0x16 = 1;
+    ent->carryFlags = 1;
     ent->knockbackSpeed = 8;
     return 0;
 }
 
 u32 sub_0806EFCC(Entity* ent, u16* a2) {
-    ent->field_0x16 = 2;
+    ent->carryFlags = 2;
     ent->knockbackSpeed = a2[1];
     return 0;
 }
 
 u32 sub_0806EFDC(Entity* ent, u16* a2) {
     if (*a2 >> 8) {
-        ent->field_0x3c &= ~1;
+        ent->collisionFlags &= ~1;
     } else {
-        ent->field_0x3c |= 1;
+        ent->collisionFlags |= 1;
     }
     ent->hitType++;
     return sub_0806EF88(ent);
@@ -247,7 +247,7 @@ u32 sub_0806F02C(Entity* ent, u16* a2) {
 }
 
 u32 sub_0806F048(Entity* ent, u16* a2) {
-    ent->field_0x16 = 3;
+    ent->carryFlags = 3;
     return 0;
 }
 
@@ -258,7 +258,7 @@ u32 sub_0806F050(Entity* ent, u16* a2) {
 }
 
 u32 sub_0806F064(Entity* ent, u16* a2) {
-    ent->field_0x16 = 0;
+    ent->carryFlags = 0;
     ent->hitType++;
     return *a2 >> 8;
 }
@@ -291,13 +291,13 @@ void sub_0806F0A4(void) {
         Entity* nextEnt;
         if ((currentEntity->flags & ENT_DID_INIT) == 0)
             continue;
-        if ((currentEntity->field_0x17 & 1) == 0)
+        if ((currentEntity->followerFlag & 1) == 0)
             continue;
 
         for (nextEnt = currentEntity->next; nextEnt != (Entity*)entityList; nextEnt = nextEnt->next) {
             if ((nextEnt->flags & ENT_DID_INIT) == 0)
                 continue;
-            if ((nextEnt->field_0x17 & 1) == 0)
+            if ((nextEnt->followerFlag & 1) == 0)
                 continue;
             sub_08004484(currentEntity, nextEnt);
         }

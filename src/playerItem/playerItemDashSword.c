@@ -45,7 +45,7 @@ void sub_0801B8FC(Entity* this) {
             DeleteThisEntity();
         } else {
             pbVar1->flags |= ENT_COLLIDE;
-            pbVar1->field_0x3c = 0x21;
+            pbVar1->collisionFlags = 0x21;
             sub_0801B938(pbVar1);
         }
     }

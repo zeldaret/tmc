@@ -190,11 +190,11 @@ bool32 IsColliding(Entity* this, Entity* that) {
             this_len = bb_this->height;
             sumw = this_len + bb_that->height;
             if ((((this->y.HALF.HI - that->y.HALF.HI) + bb_this->offset_y) - bb_that->offset_y) + sumw <= (sumw)*2) {
-                if ((this->field_0x3c & 0x10) != 0)
+                if ((this->collisionFlags & 0x10) != 0)
                     this_d = ((Hitbox3D*)bb_this)->depth;
                 else
                     this_d = 5;
-                if ((that->field_0x3c & 0x10) != 0)
+                if ((that->collisionFlags & 0x10) != 0)
                     depth = this_d + ((Hitbox3D*)bb_that)->depth;
                 else
                     depth = this_d + 5;
@@ -350,7 +350,7 @@ s32 CollisionNoOp(Entity* org, Entity* tgt, u32 direction, ColSettings* settings
 // target: item
 s32 CollisionGroundItem(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     COLLISION_OFF(tgt);
-    tgt->bitfield = org->hurtType | 0x80;
+    tgt->contactFlags = org->hurtType | 0x80;
     if ((tgt->type == 0x5F || tgt->type == 0x60) && sub_08081420(tgt))
         tgt->health = 0;
     return 2;
@@ -368,18 +368,18 @@ s32 sub_08017B1C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 }
 
 s32 sub_08017B58(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
-    if ((tgt->field_0x3a & 4) != 0) {
-        if (tgt->field_0x1d) {
-            s32 x = tgt->field_0x1d = tgt->field_0x1d - gPlayerState.gustJarSpeed;
+    if ((tgt->gustJarState & 4) != 0) {
+        if (tgt->gustJarTolerance) {
+            s32 x = tgt->gustJarTolerance = tgt->gustJarTolerance - gPlayerState.gustJarSpeed;
             if (x << 24 <= 0) {
-                tgt->field_0x1d = 0;
+                tgt->gustJarTolerance = 0;
                 tgt->subAction = 2;
                 tgt->knockbackSpeed = 0;
             }
         }
     } else {
         tgt->subAction = 0;
-        tgt->field_0x3a |= 4u;
+        tgt->gustJarState |= 4u;
     }
     if (tgt->iframes == 0)
         tgt->iframes = -1;
@@ -459,7 +459,7 @@ s32 sub_08017D6C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
         x = org->hurtType;
         y = 0xac2;
     } else {
-        tgt->bitfield = 0xcb;
+        tgt->contactFlags = 0xcb;
         tgt->field_0x78.HALF.HI = org->hurtType;
         x = org->hurtType;
         y = 0xae4;
@@ -469,7 +469,7 @@ s32 sub_08017D6C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 }
 
 int sub_08017DD4(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
-    org->bitfield = 0;
+    org->contactFlags = 0;
     if (tgt->damage & 0x80)
         tgt->damage &= ~0x80;
     else
@@ -480,7 +480,7 @@ int sub_08017DD4(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
         sub_08079D84();
         org->iframes = 90;
     } else {
-        gPlayerEntity.bitfield = tgt->hurtType | 0x80;
+        gPlayerEntity.contactFlags = tgt->hurtType | 0x80;
         gPlayerEntity.iframes = 12;
         gPlayerEntity.knockbackDuration = 16;
         gPlayerEntity.knockbackDirection = DirectionTurnAround(direction);
@@ -725,18 +725,18 @@ s32 sub_08018308(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
     if (settings->_a & 1)
         sub_08017940(org, tgt);
     if (settings->_a & 2)
-        org->bitfield = 0xca;
+        org->contactFlags = 0xca;
     if (settings->_a & 4) {
         Entity* parent = tgt->parent;
         if (parent != NULL) {
-            parent->bitfield = 0xcc;
+            parent->contactFlags = 0xcc;
             parent->iframes = tgt->iframes;
             parent->knockbackDirection = direction;
             parent->knockbackDuration = tgt->knockbackDuration;
             if (parent->confusedTime == 0)
                 parent->confusedTime = tgt->confusedTime;
             parent->knockbackSpeed = tgt->knockbackSpeed;
-            parent->field_0x4c = org;
+            parent->contactedEntity = org;
         }
     }
     if (org->kind == PLAYER_ITEM) {

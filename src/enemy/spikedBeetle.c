@@ -31,7 +31,7 @@ void SpikedBeetle_OnTick(Entity* this) {
 }
 
 void SpikedBeetle_OnCollision(Entity* this) {
-    switch (this->bitfield & 0x7f) {
+    switch (this->contactFlags & 0x7f) {
         case 0:
         case 4:
         case 5:
@@ -42,7 +42,7 @@ void SpikedBeetle_OnCollision(Entity* this) {
         case 0xb:
         case 0xc:
             if (this->action == 4) {
-                this->actionDelay = 1;
+                this->timer = 1;
             }
             break;
         case 2:
@@ -75,7 +75,7 @@ void SpikedBeetle_OnGrabbed(Entity* this) {
 
 void sub_0802B72C(Entity* this) {
     sub_0804A720(this);
-    this->actionDelay = 1;
+    this->timer = 1;
     this->animationState = 0xff;
     sub_0802B7A4(this);
 }
@@ -86,25 +86,25 @@ void sub_0802B744(Entity* this) {
     GetNextFrame(this);
     if (sub_08049FDC(this, 1) && (direction = sub_0804A024(this, 1, 0xc), direction != 0xff)) {
         this->action = 3;
-        this->actionDelay = 0x1e;
+        this->timer = 0x1e;
         this->direction = DirectionRound(direction);
         InitializeAnimation(this, 8);
     } else {
-        if (--this->actionDelay == 0) {
+        if (--this->timer == 0) {
             this->action = 2;
-            this->actionDelay = 0x1e;
+            this->timer = 0x1e;
         } else {
             if (!ProcessMovement0(this)) {
-                this->actionDelay = 1;
+                this->timer = 1;
             }
         }
     }
 }
 
 void sub_0802B7A4(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 1;
-        this->actionDelay = gUnk_080CD314[Random() & 3];
+        this->timer = gUnk_080CD314[Random() & 3];
         this->speed = 0x60;
         sub_0802B960(this);
         if (this->direction != 0xff) {
@@ -119,22 +119,22 @@ void sub_0802B7A4(Entity* this) {
 
 void sub_0802B7FC(Entity* this) {
     GetNextFrame(this);
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 4;
-        this->actionDelay = 0x78;
+        this->timer = 0x78;
         this->speed = 0x1c0;
     }
 }
 
 void sub_0802B820(Entity* this) {
     if (!ProcessMovement2(this)) {
-        this->actionDelay = 1;
+        this->timer = 1;
     }
     GetNextFrame(this);
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         sub_0802B9B4(this);
     } else if (sub_08049FDC(this, 1)) {
-        if ((this->actionDelay & 0xf) == 0) {
+        if ((this->timer & 0xf) == 0) {
             sub_08004596(this, GetFacingDirection(this, gUnk_020000B0));
         }
     } else {
@@ -143,9 +143,9 @@ void sub_0802B820(Entity* this) {
 }
 
 void sub_0802B880(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 2;
-        this->actionDelay = 0x3c;
+        this->timer = 0x3c;
         this->animationState = DirectionToAnimationState(this->direction);
         InitializeAnimation(this, this->animationState);
     }
@@ -156,7 +156,7 @@ void sub_0802B8B0(Entity* this) {
     switch (sub_080044EC(this, 0x1800)) {
         case 0:
             this->action = 7;
-            this->actionDelay = 0x96;
+            this->timer = 0x96;
             /* fallthrough */
         case 1:
             EnqueueSFX(SFX_12B);
@@ -165,9 +165,9 @@ void sub_0802B8B0(Entity* this) {
 }
 
 void sub_0802B8E0(Entity* this) {
-    if (--this->actionDelay) {
-        if (this->actionDelay < 0x3c && (this->actionDelay & 1)) {
-            this->spriteOffsetX += gUnk_080CD318[(this->actionDelay >> 1) & 3];
+    if (--this->timer) {
+        if (this->timer < 0x3c && (this->timer & 1)) {
+            this->spriteOffsetX += gUnk_080CD318[(this->timer >> 1) & 3];
         }
     } else {
         this->action = 8;
@@ -182,7 +182,7 @@ void sub_0802B8E0(Entity* this) {
 void sub_0802B948(Entity* this) {
     if (!GravityUpdate(this, 0x1800)) {
         this->action = 1;
-        this->actionDelay = 1;
+        this->timer = 1;
     }
 }
 
@@ -204,7 +204,7 @@ void sub_0802B960(Entity* this) {
 
 void sub_0802B9B4(Entity* this) {
     this->action = 5;
-    this->actionDelay = 0x3c;
+    this->timer = 0x3c;
     this->animationState = (this->direction >> 3) & 3;
     InitializeAnimation(this, this->animationState + 4);
 }

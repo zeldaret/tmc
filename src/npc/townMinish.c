@@ -40,12 +40,12 @@ void sub_0806ABFC(Entity* this) {
 
     InitializeAnimation(this, 2);
     this->action = 1;
-    this->field_0x6a.HALF.LO = this->actionDelay;
+    this->field_0x6a.HALF.LO = this->timer;
 
     this->animationState = this->field_0x6a.HALF.LO << 1;
     this->field_0x68.HALF.HI = this->animationState * 4;
 
-    this->actionDelay = 0;
+    this->timer = 0;
 }
 
 void sub_0806AC3C(Entity* this) {
@@ -85,10 +85,10 @@ void sub_0806ACC4(Entity* this) {
                 return;
 
             this->action = 1;
-            delay = this->actionDelay;
+            delay = this->timer;
             this->field_0x6a.HALF.LO = delay;
             this->animationState = delay * 2;
-            this->actionDelay = 0;
+            this->timer = 0;
 
             this->field_0x68.HALF.LO = sub_0801E99C(this);
             sub_0807DD50(this);
@@ -175,7 +175,7 @@ void sub_0806AEA8(Entity* this) {
 }
 
 void sub_0806AED8(Entity* this) {
-    this->actionDelay = 0;
+    this->timer = 0;
     sub_0806AEE4(this);
 }
 
@@ -184,10 +184,10 @@ void sub_0806AEE4(Entity* this) {
     u8* idx3;
     u8 tmp1, tmp2;
 
-    if (this->actionDelay) {
-        this->actionDelay--;
+    if (this->timer) {
+        this->timer--;
     } else {
-        this->actionDelay = 2;
+        this->timer = 2;
         index = GetFacingDirectionInRectRadius(this, 0x20, 0x20);
         if (index < 0) {
             int state = this->field_0x6a.HALF.LO;

@@ -82,12 +82,12 @@ void sub_08089944(Entity* this) {
         this->spriteRendering.b3 = 0;
         if ((this->type2 == 1) || (this->child->action == 2)) {
             if (gPlayerEntity.z.HALF.HI < -0x24)
-                this->actionDelay = 1;
+                this->timer = 1;
             else
-                this->actionDelay = 0;
+                this->timer = 0;
             this->y.HALF.HI += (this->type2 - 1) * -0x24;
             iVar1 = EntityInRectRadius(this, &gPlayerEntity, 0xf, 0xf);
-            if ((iVar1 != 0) && (this->actionDelay != 0)) {
+            if ((iVar1 != 0) && (this->timer != 0)) {
                 this->action = 2;
                 this->spriteOrientation.flipY = 2;
                 this->spriteRendering.b3 = 3;
@@ -98,7 +98,7 @@ void sub_08089944(Entity* this) {
                 gPlayerEntity.y.HALF.HI -= 0x24;
                 gPlayerEntity.z.HALF.HI += 0x24;
                 sub_0807AA80(&gPlayerEntity);
-                if (this->field_0xf == 0) {
+                if (this->subtimer == 0) {
                     pEVar2 = CreateFx(&gPlayerEntity, FX_DEATH, 0);
                     if (pEVar2 != NULL) {
                         pEVar2->x.HALF.HI += 8;
@@ -118,7 +118,7 @@ void sub_08089944(Entity* this) {
                 }
             }
             this->y.HALF.HI += (this->type2 - 1) * 0x24;
-            this->field_0xf = this->actionDelay;
+            this->subtimer = this->timer;
         }
     }
 }

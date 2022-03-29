@@ -14,7 +14,7 @@ void sub_0805E0C0(Entity* this) {
     Entity* entity;
 
     this->action = 1;
-    this->actionDelay = 0;
+    this->timer = 0;
     entityData = (EntityData*)GetCurrentRoomProperty(this->type);
     if (entityData == NULL) {
         DeleteThisEntity();
@@ -22,10 +22,10 @@ void sub_0805E0C0(Entity* this) {
     while (*(u8*)entityData != 0xff) {
         entity = LoadRoomEntity(entityData++);
         entity->parent = this;
-        entity->actionDelay = 0xff;
+        entity->timer = 0xff;
     }
 }
 
 void sub_0805E0F4(Entity* this) {
-    this->actionDelay = 0;
+    this->timer = 0;
 }

@@ -17,7 +17,7 @@ void GleerokProjectile(Entity* this) {
 }
 
 void GleerokProjectile_OnTick(Entity* this) {
-    if (((this->type != 3) && ((this->bitfield & 0x80) != 0)) && ((this->bitfield & 0x7f) != 0x1e)) {
+    if (((this->type != 3) && ((this->contactFlags & 0x80) != 0)) && ((this->contactFlags & 0x7f) != 0x1e)) {
         this->action = 3;
         COLLISION_OFF(this);
         InitializeAnimation(this, 0x53);
@@ -58,7 +58,7 @@ void GleerokProjectile_Init(Entity* this) {
                 iVar2 = 0x400;
             }
             this->zVelocity = this->z.WORD / (iVar2 << 8) << 0xd;
-            this->field_0xf = 0x1e;
+            this->subtimer = 0x1e;
             break;
         case 2:
             this->zVelocity = (this->z.WORD / 0x18000) << 0xc;
@@ -91,15 +91,15 @@ void GleerokProjectile_Action1(Entity* this) {
     } else {
         GetNextFrame(this);
         LinearMoveUpdate(this);
-        if ((this->type != 2) && (this->field_0xf-- == 0)) {
-            this->field_0xf = 0x1e;
+        if ((this->type != 2) && (this->subtimer-- == 0)) {
+            this->subtimer = 0x1e;
             sub_08004596(this, GetFacingDirection(this, &gPlayerEntity));
         }
         if (GravityUpdate(this, 0) == 0) {
             this->action = 2;
             sub_080A90D8(this);
             if (this->type == 2) {
-                this->actionDelay = 0xf;
+                this->timer = 0xf;
                 InitializeAnimation(this, 0x54);
             } else {
                 InitializeAnimation(this, 0x52);
@@ -111,7 +111,7 @@ void GleerokProjectile_Action1(Entity* this) {
 void GleerokProjectile_Action2(Entity* this) {
     GetNextFrame(this);
     if (this->type == 2) {
-        if (this->actionDelay-- == 0) {
+        if (this->timer-- == 0) {
             COLLISION_OFF(this);
             this->action = 3;
             InitializeAnimation(this, 0x55);

@@ -68,13 +68,13 @@ void Moldworm_OnTick(Entity* this) {
 void Moldworm_OnCollision(Entity* this) {
     if (this->subAction == 0xff) {
         this->action = 7;
-        this->actionDelay = 1;
+        this->timer = 1;
         this->subAction = 0;
         this->hitType = 0x85;
         this->iframes = -8;
         this->field_0x7c.BYTES.byte3 = 0;
         this->field_0x7a.HALF.HI = 0;
-        if (this->bitfield == 0x80 || this->bitfield == 0x9e) {
+        if (this->contactFlags == 0x80 || this->contactFlags == 0x9e) {
             this->type2 = 0;
             this->field_0x80.HALF.LO = 0x14;
         } else {
@@ -137,7 +137,7 @@ void sub_080231BC(Entity* this) {
         ent->child = NULL;
         sub_0804A720(this);
         this->action = 6;
-        this->actionDelay = 0x1e;
+        this->timer = 0x1e;
         this->parent = this;
         this->field_0x78.HWORD = 0x1e;
         this->palette.b.b0 = 5;
@@ -151,7 +151,7 @@ void nullsub_136(Entity* this) {
 }
 
 void sub_08023288(Entity* this) {
-    if (sub_08049FDC(this, 1) && (this->actionDelay++ & 0xf) == 0) {
+    if (sub_08049FDC(this, 1) && (this->timer++ & 0xf) == 0) {
         u32 idx = Random() & 0x1e;
         u32 i;
 
@@ -172,7 +172,7 @@ void sub_08023330(Entity* this) {
     GetNextFrame(this);
     if (this->frame & ANIM_DONE) {
         this->action = 4;
-        this->actionDelay = 0x19;
+        this->timer = 0x19;
         COLLISION_ON(this);
         this->field_0x78.HWORD = 600;
         this->direction = Random() & 0x1c;
@@ -201,7 +201,7 @@ void sub_08023398(Entity* this) {
             this->field_0x7c.BYTES.byte3 = 0;
             COLLISION_OFF(this);
             this->hitType = 0x85;
-            this->child->actionDelay = 1;
+            this->child->timer = 1;
             sub_08023A68(this);
             CreateFx(this, FX_ROCK, 0);
             return;
@@ -213,9 +213,9 @@ void sub_08023398(Entity* this) {
         sub_08023AB0(this);
     }
 
-    if (--this->actionDelay < 3) {
-        if (this->actionDelay == 0)
-            this->actionDelay = 25;
+    if (--this->timer < 3) {
+        if (this->timer == 0)
+            this->timer = 25;
     } else {
         int prevX = this->x.WORD;
         int prevY = this->y.WORD;
@@ -258,10 +258,10 @@ void sub_080234D8(Entity* this) {
 }
 
 void sub_0802351C(Entity* this) {
-    if ((this->actionDelay != 0) && ((this->type2 == 1) || (gPlayerEntity.frameIndex == 0xff))) {
-        this->actionDelay = 0;
+    if ((this->timer != 0) && ((this->type2 == 1) || (gPlayerEntity.frameIndex == 0xff))) {
+        this->timer = 0;
         this->child->action = 3;
-        this->child->field_0xf = this->field_0x80.HALF.LO;
+        this->child->subtimer = this->field_0x80.HALF.LO;
         InitializeAnimation(this->child, this->child->animationState + 1);
         InitializeAnimation(this, this->animationState);
     }
@@ -301,7 +301,7 @@ void sub_080235D4(Entity* this) {
 void sub_08023604(Entity* this) {
     if (((u8*)&this->field_0x78)[this->parent->field_0x7c.BYTES.byte0 & 0xf] != 0x88) {
         this->action = 2;
-        this->actionDelay = 0;
+        this->timer = 0;
         COLLISION_ON(this);
         this->spriteSettings.draw = 1;
         sub_08023644(this);
@@ -311,12 +311,12 @@ void sub_08023604(Entity* this) {
 void sub_08023644(Entity* this) {
     Entity* parent = this->parent;
 
-    if (parent->animIndex == 0x17 && this->actionDelay != 0 && this->x.HALF.HI == parent->x.HALF.HI &&
+    if (parent->animIndex == 0x17 && this->timer != 0 && this->x.HALF.HI == parent->x.HALF.HI &&
         this->y.HALF.HI == parent->y.HALF.HI) {
         this->action = 1;
         COLLISION_OFF(this);
         this->spriteSettings.draw = 0;
-        this->child->actionDelay = 1;
+        this->child->timer = 1;
         sub_080239F0(this);
     }
 
@@ -331,10 +331,10 @@ void sub_08023644(Entity* this) {
 }
 
 void sub_080236F8(Entity* parent) {
-    if (--parent->field_0xf == 0) {
+    if (--parent->subtimer == 0) {
         parent->action = 2;
         parent->child->action = 3;
-        parent->child->field_0xf = parent->parent->field_0x80.HALF.LO;
+        parent->child->subtimer = parent->parent->field_0x80.HALF.LO;
         InitializeAnimation(parent->child, parent->child->animationState + 1);
         InitializeAnimation(parent, parent->animationState);
     }
@@ -366,7 +366,7 @@ void sub_0802376C(Entity* this) {
 
     if (((u8*)&this->field_0x78)[parent->field_0x7c.BYTES.byte0 & 0xf] != 0x88) {
         this->action = 2;
-        this->actionDelay = 0;
+        this->timer = 0;
         COLLISION_ON(this);
         this->parent->field_0x7c.BYTES.byte3 = 1;
         sub_08023A88(this, 20);
@@ -377,7 +377,7 @@ void sub_0802376C(Entity* this) {
 void sub_080237D8(Entity* this) {
     Entity* parent = this->parent;
 
-    if ((parent->animIndex == 0x17) && (this->actionDelay != 0) && (this->x.HALF.HI == parent->x.HALF.HI) &&
+    if ((parent->animIndex == 0x17) && (this->timer != 0) && (this->x.HALF.HI == parent->x.HALF.HI) &&
         (this->y.HALF.HI == parent->y.HALF.HI)) {
         this->action = 1;
         COLLISION_OFF(this);
@@ -399,7 +399,7 @@ void sub_080237D8(Entity* this) {
 }
 
 void sub_08023894(Entity* this) {
-    if (--this->field_0xf == 0) {
+    if (--this->subtimer == 0) {
         this->action = 2;
         this->parent->field_0x7c.BYTES.byte3 = 1;
         InitializeAnimation(this, this->animationState);
@@ -417,7 +417,7 @@ void sub_08023894(Entity* this) {
 }
 
 void sub_0802390C(Entity* this) {
-    if (this->bitfield & 0x80) {
+    if (this->contactFlags & 0x80) {
         Entity* ent = this->child;
         do {
             ent->iframes = this->iframes;
@@ -425,7 +425,7 @@ void sub_0802390C(Entity* this) {
     } else {
         Entity* ent = this->child;
         do {
-            if (ent->bitfield & 0x80) {
+            if (ent->contactFlags & 0x80) {
                 u8 bVar2 = 0xff - ent->health;
                 if (bVar2 != 0) {
                     u32 tmp;

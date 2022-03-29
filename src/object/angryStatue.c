@@ -29,7 +29,7 @@ void AngryStatue_Init(Entity* this) {
 }
 
 void AngryStatue_Action1(Entity* this) {
-    if (this->parent->field_0xf == 1) {
+    if (this->parent->subtimer == 1) {
         this->action = 2;
         InitializeAnimation(this, this->type + 4);
     }
@@ -62,9 +62,9 @@ void AngryStatue_Action2(Entity* this) {
 }
 
 void AngryStatue_Action3(Entity* this) {
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 4;
-        this->actionDelay = 15;
+        this->timer = 15;
         InitializeAnimation(this, this->type);
     } else {
         this->parent->z.BYTES.byte2 |= 1 << this->type2;
@@ -73,7 +73,7 @@ void AngryStatue_Action3(Entity* this) {
 
 void AngryStatue_Action4(Entity* this) {
     this->spriteSettings.draw ^= 1;
-    if (--this->actionDelay == 0) {
+    if (--this->timer == 0) {
         this->action = 1;
         this->spriteSettings.draw = 1;
     }

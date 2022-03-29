@@ -42,7 +42,7 @@ void FlyingSkull_OnTick(FlyingSkullEntity* this) {
 void FlyingSkull_OnCollision(FlyingSkullEntity* this) {
     sub_0803A100(this);
 
-    if (super->bitfield == 0x9d) {
+    if (super->contactFlags == 0x9d) {
         super->action = 7;
         COLLISION_OFF(super);
         super->zVelocity = Q_16_16(2.625);
@@ -62,8 +62,8 @@ void FlyingSkull_OnGrabbed(FlyingSkullEntity* this) {
 void sub_08039C98(FlyingSkullEntity* this) {
     sub_0803A100(this);
     super->subAction = 1;
-    super->actionDelay = 0;
-    super->field_0x1d = 0x30;
+    super->timer = 0;
+    super->gustJarTolerance = 0x30;
 }
 
 void sub_08039CB0(FlyingSkullEntity* this) {
@@ -81,9 +81,9 @@ void sub_08039CB0(FlyingSkullEntity* this) {
 }
 
 void sub_08039CE0(FlyingSkullEntity* this) {
-    if (super->actionDelay == 0) {
+    if (super->timer == 0) {
         sub_0803A100(this);
-        super->actionDelay = 1;
+        super->timer = 1;
         super->z.HALF.HI = 0xffff;
         super->spriteOffsetX = 0;
         SetTile(this->unk_0x74, COORD_TO_TILE(super), super->collisionLayer);
@@ -112,8 +112,8 @@ void sub_08039D6C(FlyingSkullEntity* this) {
 void sub_08039D74(FlyingSkullEntity* this) {
     u32 tmp;
     super->action = 1;
-    super->field_0x1c = 2;
-    super->field_0x16 = 0;
+    super->gustJarFlags = 2;
+    super->carryFlags = 0;
     super->y.HALF.HI += 3;
 
     tmp = COORD_TO_TILE(super);
@@ -138,7 +138,7 @@ void sub_08039DD8(FlyingSkullEntity* this) {
             if (EntityWithinDistance(super, ent->x.HALF.HI, ent->y.HALF.HI, 0x30)) {
                 if (super->type == 1) {
                     super->action = 3;
-                    super->actionDelay = 0x1e;
+                    super->timer = 0x1e;
                 } else {
                     ent = CreateEnemy(STALFOS, super->type - 2);
                     if (ent != NULL) {
@@ -187,9 +187,9 @@ void sub_08039FA4(FlyingSkullEntity* this) {
 
 void sub_08039FAC(FlyingSkullEntity* this) {
     sub_0803A100(this);
-    super->spriteOffsetX += gUnk_080CFBE4[super->actionDelay & 3];
+    super->spriteOffsetX += gUnk_080CFBE4[super->timer & 3];
 
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->action = 4;
         COLLISION_ON(super);
         super->spritePriority.b1 = 1;
@@ -206,7 +206,7 @@ void sub_0803A048(FlyingSkullEntity* this) {
     super->z.WORD += 0xFFFF0000;
     if (super->z.HALF.HI <= -6) {
         super->action = 5;
-        super->actionDelay = 10;
+        super->timer = 10;
         super->direction = GetFacingDirection(super, &gPlayerEntity);
     }
 }
@@ -214,7 +214,7 @@ void sub_0803A048(FlyingSkullEntity* this) {
 void sub_0803A080(FlyingSkullEntity* this) {
     GetNextFrame(super);
 
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         super->action = 6;
     }
 }

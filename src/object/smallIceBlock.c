@@ -60,7 +60,7 @@ void SmallIceBlock_Init(SmallIceBlockEntity* this) {
     super->action = 1;
     super->flags |= 0x80;
     super->updatePriority = 3;
-    super->field_0x3c = 7;
+    super->collisionFlags = 7;
     super->hurtType = 0x48;
     super->hitType = 1;
     super->flags2 = 0x80;
@@ -79,7 +79,7 @@ void SmallIceBlock_Action1(SmallIceBlockEntity* this) {
 
     if (sub_0809963C(this)) {
         super->action = 3;
-        super->actionDelay = 0;
+        super->timer = 0;
         EnqueueSFX(SFX_ICE_BLOCK_MELT);
         SmallIceBlock_Action3(this);
         if (super->type == 0) {
@@ -92,7 +92,7 @@ void SmallIceBlock_Action1(SmallIceBlockEntity* this) {
                 switch (sub_08099618(tileType)) {
                     case 1:
                         super->action = 2;
-                        super->actionDelay = 0x16;
+                        super->timer = 0x16;
                         super->direction = ((tileType - 0x5b) & 3) << 3;
                         super->speed = 0x20;
                         sub_080994B8(this);
@@ -125,20 +125,20 @@ void SmallIceBlock_Action2(SmallIceBlockEntity* this) {
 
 void SmallIceBlock_Action3(SmallIceBlockEntity* this) {
     if (sub_0809963C(this) == 0) {
-        if (super->actionDelay >= 2) {
-            super->actionDelay -= 2;
+        if (super->timer >= 2) {
+            super->timer -= 2;
         } else {
-            super->actionDelay = 0;
+            super->timer = 0;
         }
-        if (super->actionDelay == 0) {
+        if (super->timer == 0) {
             super->action = 1;
             sub_0805EC60(super);
             return;
         }
     } else {
-        super->actionDelay++;
+        super->timer++;
     }
-    SetAffineInfo(super, 0x100, gUnk_08123748[super->actionDelay >> 5], 0);
+    SetAffineInfo(super, 0x100, gUnk_08123748[super->timer >> 5], 0);
     if (super->type == 1) {
         CreateGroundItemWithFlags(super, ITEM_SMALL_KEY, 0, this->unk_86);
         SoundReq(SFX_SECRET);
@@ -147,7 +147,7 @@ void SmallIceBlock_Action3(SmallIceBlockEntity* this) {
         SoundReq(SFX_SECRET);
     }
     super->action = 4;
-    super->actionDelay = 0x3c;
+    super->timer = 0x3c;
     super->flags &= 0x7f;
 }
 
@@ -157,14 +157,14 @@ void SmallIceBlock_Action4(SmallIceBlockEntity* this) {
     s32 x;
     s32 y;
 
-    if (--super->actionDelay == 0) {
+    if (--super->timer == 0) {
         DeleteThisEntity();
     } else {
-        if (super->actionDelay == 0x30) {
+        if (super->timer == 0x30) {
             SetTile(this->unk_6c, this->unk_70, super->collisionLayer);
         }
-        SetAffineInfo(super, 0x100, (0x3c - super->actionDelay) * 0x20 + 0x100, 0);
-        if ((super->actionDelay & 1) != 0) {
+        SetAffineInfo(super, 0x100, (0x3c - super->timer) * 0x20 + 0x100, 0);
+        if ((super->timer & 1) != 0) {
             obj = CreateObject(SPECIAL_FX, 0x11, 0x40);
             if (obj != NULL) {
                 rand = Random();
@@ -209,9 +209,9 @@ bool32 sub_0809953C(SmallIceBlockEntity* this) {
     }
     ProcessMovement2(super);
     sub_0800445C(super);
-    if (super->actionDelay != 0) {
+    if (super->timer != 0) {
         super->speed += 0x10;
-        if (--super->actionDelay == 0) {
+        if (--super->timer == 0) {
             super->speed = 0x200;
         }
     }
@@ -284,7 +284,7 @@ bool32 sub_0809963C(SmallIceBlockEntity* this) {
             }
         }
     }
-    if (super->bitfield == 0x87) {
+    if (super->contactFlags == 0x87) {
         return TRUE;
     }
     return FALSE;

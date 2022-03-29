@@ -48,11 +48,11 @@ void sub_080632E0(Entity* this) {
 void sub_08063314(Entity* this) {
     u32 offset;
 
-    if (((++this->field_0xf & 0xF) == 0) && (offset = sub_080633C8(this), this->animIndex != offset)) {
+    if (((++this->subtimer & 0xF) == 0) && (offset = sub_080633C8(this), this->animIndex != offset)) {
         InitializeAnimation(this, offset);
     }
     if (this->interactType != 0) {
-        MessageFromTarget(this->actionDelay + 0xA01);
+        MessageFromTarget(this->timer + 0xA01);
         this->action++;
     }
     sub_0806ED78(this);

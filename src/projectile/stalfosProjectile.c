@@ -29,7 +29,7 @@ void StalfosProjectile_OnTick(Entity* this) {
 }
 
 void sub_080A9A34(Entity* this) {
-    if (this->bitfield == 0x9d) {
+    if (this->contactFlags == 0x9d) {
         this->action = 3;
         COLLISION_OFF(this);
         this->zVelocity = Q_16_16(2.625);
@@ -84,7 +84,7 @@ void StalfosProjectile_Init(Entity* this) {
             break;
     }
 
-    this->field_0x1c = 2;
+    this->gustJarFlags = 2;
     if (this->type == 0) {
         InitializeAnimation(this, 5);
     } else {
