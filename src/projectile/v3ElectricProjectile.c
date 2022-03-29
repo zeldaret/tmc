@@ -2,7 +2,7 @@
 #include "collision.h"
 #include "enemy.h"
 #include "player.h"
-#include "coord.h"
+#include "physics.h"
 #include "functions.h"
 
 extern void (*const V3ElectricProjectile_Functions[])(Entity*);

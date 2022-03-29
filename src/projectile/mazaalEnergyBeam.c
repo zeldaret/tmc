@@ -1,6 +1,6 @@
 #include "entity.h"
 #include "sound.h"
-#include "coord.h"
+#include "physics.h"
 
 extern void (*const MazaalEnergyBeam_Actions[])(Entity*);
 

@@ -5,7 +5,7 @@
 #include "screen.h"
 #include "player.h"
 #include "room.h"
-#include "coord.h"
+#include "physics.h"
 #include "functions.h"
 #include "common.h"
 #include "game.h"

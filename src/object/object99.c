@@ -1,5 +1,5 @@
 #include "entity.h"
-#include "coord.h"
+#include "physics.h"
 
 void Object99(Entity* this) {
     Entity* parent;

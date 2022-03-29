@@ -1,6 +1,6 @@
 #include "entity.h"
 #include "enemy.h"
-#include "coord.h"
+#include "physics.h"
 
 typedef struct {
     s8 offsetX;

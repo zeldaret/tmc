@@ -2,7 +2,7 @@
 #include "asm.h"
 #include "entity.h"
 #include "sound.h"
-#include "coord.h"
+#include "physics.h"
 #include "functions.h"
 #include "effects.h"
 

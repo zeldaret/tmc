@@ -1,6 +1,6 @@
 #define NENT_DEPRECATED
 #include "entity.h"
-#include "coord.h"
+#include "physics.h"
 #include "functions.h"
 #include "object.h"
 #include "area.h"

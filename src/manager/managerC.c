@@ -5,7 +5,7 @@
 #include "structures.h"
 #include "room.h"
 #include "screen.h"
-#include "coord.h"
+#include "physics.h"
 #include "functions.h"
 #include "save.h"
 #include "area.h"

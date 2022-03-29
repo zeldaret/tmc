@@ -8,7 +8,7 @@
 #include "entity.h"
 #include "enemy.h"
 #include "message.h"
-#include "coord.h"
+#include "physics.h"
 #include "functions.h"
 
 void sub_08045A00(Entity*);

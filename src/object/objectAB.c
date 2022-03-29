@@ -3,7 +3,7 @@
 #include "flags.h"
 #include "asm.h"
 #include "player.h"
-#include "coord.h"
+#include "physics.h"
 
 extern void sub_0805B390(u32);
 

@@ -1,6 +1,6 @@
 #define NENT_DEPRECATED
 #include "entity.h"
-#include "coord.h"
+#include "physics.h"
 
 void sub_0809E7C0(Entity*);
 void sub_0809E7E0(Entity*);

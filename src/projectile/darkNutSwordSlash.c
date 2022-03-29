@@ -1,6 +1,6 @@
 #include "entity.h"
 #include "player.h"
-#include "coord.h"
+#include "physics.h"
 
 extern const u8 DarkNutSwordSlash_hitTypes[];
 extern void (*const DarkNutSwordSlash_UpdatesForType[])(Entity*);

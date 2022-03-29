@@ -3,7 +3,7 @@
 #include "player.h"
 #include "asm.h"
 #include "room.h"
-#include "coord.h"
+#include "physics.h"
 
 void Object17_Init(Entity*);
 void Object17_Action1(Entity*);

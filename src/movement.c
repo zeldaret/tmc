@@ -6,7 +6,7 @@
 #include "game.h"
 #include "asm.h"
 #include "item.h"
-#include "coord.h"
+#include "physics.h"
 #include "transitions.h"
 #include "functions.h"
 

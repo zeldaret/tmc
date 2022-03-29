@@ -1,6 +1,6 @@
 #include "global.h"
 #include "entity.h"
-#include "coord.h"
+#include "physics.h"
 
 void Object7E(Entity* this) {
 

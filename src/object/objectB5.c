@@ -1,7 +1,7 @@
 #include "entity.h"
 #include "room.h"
 #include "player.h"
-#include "coord.h"
+#include "physics.h"
 
 void ObjectB5(Entity* this) {
     if (this->action == 0) {

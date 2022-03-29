@@ -2,7 +2,7 @@
 #include "enemy.h"
 #include "player.h"
 #include "room.h"
-#include "coord.h"
+#include "physics.h"
 
 extern u32 sub_080B1B44(u32, u32);
 

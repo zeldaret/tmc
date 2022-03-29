@@ -1,6 +1,6 @@
 #include "entity.h"
 #include "player.h"
-#include "coord.h"
+#include "physics.h"
 
 extern void sub_0803C0AC(Entity*);
 

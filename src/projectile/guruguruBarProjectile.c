@@ -1,6 +1,6 @@
 
 #include "entity.h"
-#include "coord.h"
+#include "physics.h"
 
 void sub_080AABB0(Entity*);
 

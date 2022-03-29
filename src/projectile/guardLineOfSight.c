@@ -1,6 +1,6 @@
 #include "entity.h"
 #include "asm.h"
-#include "coord.h"
+#include "physics.h"
 #include "functions.h"
 #include "projectile.h"
 #include "hitbox.h"

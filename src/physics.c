@@ -3,7 +3,7 @@
 #include "area.h"
 #include "player.h"
 #include "new_player.h"
-#include "coord.h"
+#include "physics.h"
 #include "common.h"
 #include "sound.h"
 #include "room.h"

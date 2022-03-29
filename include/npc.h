@@ -9,7 +9,7 @@
 #include "effects.h"
 #include "room.h"
 #include "flags.h"
-#include "coord.h"
+#include "physics.h"
 #include "message.h"
 #include "script.h"
 #include "save.h"

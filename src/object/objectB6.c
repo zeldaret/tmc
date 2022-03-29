@@ -1,6 +1,6 @@
 #define NENT_DEPRECATED
 #include "entity.h"
-#include "coord.h"
+#include "physics.h"
 
 void ObjectB6(Entity* this) {
     if (this->parent->subAction > 3) {

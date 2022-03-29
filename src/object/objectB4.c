@@ -1,7 +1,7 @@
 #define NENT_DEPRECATED
 #include "entity.h"
 #include "menu.h"
-#include "coord.h"
+#include "physics.h"
 #include "object.h"
 
 extern void sub_0806FB00(Entity*, u32, u32, u32);
