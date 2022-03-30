@@ -32,7 +32,20 @@ void sub_0805EC60(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/SetAffineInfo.inc", bool32 SetAffineInfo(Entity* ent, u32 param_2, u32 param_3, u32 param_4))
+bool32 SetAffineInfo(Entity* ent, u32 param_2, u32 param_3, u32 param_4) {
+    u16* temp;
+
+    if (ent->spriteOrientation.b1 == 0 && !sub_0805EC04(ent)) {
+        return 0;
+    } else {
+        gOAMControls.unk[0].unk7 = 1;
+        temp = (u16*)&gOAMControls.unk[ent->spriteOrientation.b1].unk0;
+        temp[0] = param_2;
+        temp[1] = param_3;
+        temp[2] = param_4;
+        return 1;
+    }
+}
 
 void sub_0805ECEC(int param_1, u32 param_2, u32 param_3, u32 param_4) {
     u16* temp;
