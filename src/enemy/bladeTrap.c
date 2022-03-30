@@ -8,7 +8,7 @@
 #include "sound.h"
 #include "entity.h"
 #include "room.h"
-#include "functions.h"
+#include "object.h"
 
 void BladeTrap(Entity* this) {
     if (this->action == 0) {

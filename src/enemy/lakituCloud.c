@@ -9,9 +9,11 @@
 #include "asm.h"
 #include "entity.h"
 #include "player.h"
-#include "functions.h"
 #include "effects.h"
 #include "enemy.h"
+#include "physics.h"
+#include "room.h"
+#include "object.h"
 
 extern void (*const LakituCloud_Functions[6])(Entity*);
 extern void (*const gUnk_080D0430[3])(Entity*);

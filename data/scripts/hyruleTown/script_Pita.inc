@@ -18,7 +18,7 @@ script_080106BE:
 	MessageNoOverlap 0x3c07
 	Jump script_08010726
 script_080106E0:
-	Call sub_08062EB8
+	Call RemoveAllBakedGoods
 	CallWithArg sub_0807F78C, 0x00000000
 	WaitUntilTextboxCloses
 	CheckTextboxResult

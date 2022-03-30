@@ -10,6 +10,7 @@
 #include "object.h"
 #include "game.h"
 #include "functions.h"
+#include "message.h"
 
 extern const struct {
     u8 filler[7];

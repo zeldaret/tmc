@@ -1,6 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "functions.h"
+#include "collision.h"
 
 extern u8 gUnk_02027EB4[];
 extern u8 gUnk_0200D654[];

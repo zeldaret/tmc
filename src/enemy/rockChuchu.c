@@ -6,7 +6,7 @@
  */
 
 #include "enemy.h"
-#include "functions.h"
+#include "player.h"
 
 extern void (*const RockChuchu_Functions[])(Entity*);
 extern void (*const gUnk_080CB960[])(Entity*);

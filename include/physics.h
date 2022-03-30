@@ -18,6 +18,10 @@ void sub_0806FA90(Entity*, Entity*, s32, s32);
 void SortEntityAbove(Entity* below_ent, Entity* above_ent);
 void SortEntityBelow(Entity* above_ent, Entity* below_ent);
 
+void LinearMoveDirection(Entity* ent, u32 a, u32 b);
+void LinearMoveAngle(Entity* ent, u32 a, u32 b);
+
+bool32 EntityWithinDistance(Entity*, s32, s32, s32);
 u32 sub_0806FCA0(Entity*, Entity*);
 u32 sub_0806F58C(Entity*, Entity*);
 u32 PointInsideRadius(s32 x, s32 y, s32 radius);
@@ -28,6 +32,25 @@ bool32 sub_0806FD54(Entity*);
 u32 sub_0806FCAC(Entity*, Entity*);
 u32 sub_0806F854(Entity*, s32, s32);
 u32 sub_0806F730(Entity*);
+bool32 sub_0806F520(Entity*);
+void sub_0806F4E8(Entity*);
+bool32 sub_0806FC80(Entity*, Entity*, s32);
+u32 sub_0806F5B0(u32);
+u32 sub_0806F824(Entity*, Entity*, s32, s32);
+u32 sub_0806F948(Entity*);
+void sub_0806FBB4(Entity*);
+void sub_0806FCF4(Entity*, s32, s32, s32);
+void sub_0806FD3C(Entity*);
+bool32 sub_0806FDA0(Entity*);
+void sub_0806FEBC(Entity*, u32, Entity*);
+extern bool32 ProcessMovement1(Entity*);
+extern bool32 ProcessMovement12(Entity*);
+extern bool32 ProcessMovement2(Entity*);
+extern bool32 ProcessMovement3(Entity*);
+extern bool32 ProcessMovement4(Entity*);
+extern bool32 ProcessMovement5(Entity*);
+extern bool32 ProcessMovement6(Entity*);
+extern bool32 ProcessMovementInternal(Entity*, s32, s32, u32);
 
 extern const s16 gSineTable[64];
 extern const s16 gCosineTable[256];

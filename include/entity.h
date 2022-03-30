@@ -265,6 +265,7 @@ void SetExtraSpriteFrame(Entity*, u32, u32);
 void SetSpriteSubEntryOffsetData1(Entity*, u32, u32);
 void SetSpriteSubEntryOffsetData2(Entity*, u32, u32);
 u8* GetSpriteSubEntryOffsetDataPointer(u32, u32);
+bool32 SetAffineInfo(Entity*, u32, u32, u32);
 
 /**
  * Return the direction pointing from one Entity to another.

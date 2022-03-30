@@ -1,7 +1,9 @@
 #define NENT_DEPRECATED
 #include "entity.h"
 #include "enemy.h"
-#include "functions.h"
+#include "room.h"
+#include "physics.h"
+#include "player.h"
 
 typedef struct {
     Entity base;

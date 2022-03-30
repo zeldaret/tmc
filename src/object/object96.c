@@ -7,6 +7,7 @@
 #include "item.h"
 #include "flags.h"
 #include "effects.h"
+#include "collision.h"
 
 typedef struct _struct_gUnk_08123FB0 {
     void (*const funcEnt)(Entity*);

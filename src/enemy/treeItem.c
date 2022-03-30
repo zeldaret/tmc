@@ -12,7 +12,6 @@
 
 static bool32 ShouldSpawnTreeItem(Entity*);
 
-extern u32 GetRandomByWeight(const u8*);
 extern void sub_08049CF4(Entity*);
 
 const u8 gTreeItemDropTables[][16] = {

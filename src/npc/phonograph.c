@@ -5,6 +5,7 @@
 #include "screen.h"
 #include "common.h"
 #include "flags.h"
+#include "message.h"
 
 #ifdef EU
 void sub_0806EABC(Entity* this);

@@ -136,4 +136,6 @@ void MessageClose(void);
 
 void DispMessageFrame(u16*, s32, s32, u32);
 
+void sub_08057044(u32, struct_020227E8*, u32);
+
 #endif // MESSAGE_H

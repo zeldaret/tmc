@@ -6,7 +6,8 @@
  */
 
 #include "enemy.h"
-#include "functions.h"
+#include "physics.h"
+#include "room.h"
 
 typedef struct {
     s8 h, v;

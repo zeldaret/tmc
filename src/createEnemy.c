@@ -1,7 +1,7 @@
 #include "enemy.h"
 
 /** Unsets bitfield 0x80 before calling GetNextFunction, so that the enemyFunction 1 is not called. */
-void EnemyFunctionHandlerAfterCollision(Entity* entity, void (*fntable[])()) {
+void EnemyFunctionHandlerAfterCollision(Entity* entity, void (*const fntable[])()) {
     u32 idx;
     entity->contactFlags &= ~0x80;
     idx = GetNextFunction(entity);

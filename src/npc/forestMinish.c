@@ -12,6 +12,8 @@ extern Dialog gUnk_08109DC8[];
 extern u16 gUnk_0810A35A[];
 extern u16 gUnk_0810A362[];
 
+static void sub_080600F0(Entity* this);
+
 void ForestMinish(Entity* this) {
     switch (this->action) {
         case 0:
@@ -66,7 +68,7 @@ void ForestMinish_Head(Entity* this) {
     sub_0807000C(this);
 }
 
-void sub_080600F0(Entity* this) {
+static void sub_080600F0(Entity* this) {
     u32 uVar1;
     u32 uVar2;
 

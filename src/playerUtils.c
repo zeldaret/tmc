@@ -15,6 +15,8 @@
 #include "item.h"
 #include "message.h"
 
+static void sub_08077E54(ItemBehavior* beh);
+
 extern void sub_080752E8(ItemBehavior* behavior, u32 arg1); // item.c
 extern void sub_0800857C(Entity*);
 extern void SetDefaultPriorityForKind(Entity*);
@@ -498,7 +500,7 @@ void sub_08077E3C(ItemBehavior* ent, u32 idx) {
     sub_08077E54(ent);
 }
 
-void sub_08077E54(ItemBehavior* beh) {
+static void sub_08077E54(ItemBehavior* beh) {
     beh->field_0x5[7] = gPlayerEntity.animIndex;
     beh->field_0x12[0] = gPlayerEntity.frameIndex;
     beh->field_0x5[8] = gPlayerEntity.frameDuration;
@@ -1276,7 +1278,8 @@ bool32 PlayerCanBeMoved(void) {
     if ((gPlayerState.flags &
          (PL_BUSY | PL_DROWNING | PL_CAPTURED | PL_USE_PORTAL | PL_HIDDEN | PL_FROZEN | PL_FALLING | PL_DISABLE_ITEMS |
           PL_PIT_IS_EXIT | PL_IN_MINECART | PL_MOLDWORM_CAPTURED | PL_IN_HOLE | PL_FLAGS2000000 | PL_CLIMBING)) != 0 ||
-        gPlayerState.field_0x3c[0] != 0 || gPlayerEntity.action == PLAYER_FALL || gPlayerEntity.action == PLAYER_08071DB8) {
+        gPlayerState.field_0x3c[0] != 0 || gPlayerEntity.action == PLAYER_FALL ||
+        gPlayerEntity.action == PLAYER_08071DB8) {
         return FALSE;
     } else {
         return TRUE;

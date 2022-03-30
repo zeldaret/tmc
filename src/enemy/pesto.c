@@ -9,7 +9,6 @@
 #include "collision.h"
 #include "object.h"
 #include "game.h"
-#include "functions.h"
 #include "save.h"
 #include "playeritem.h"
 

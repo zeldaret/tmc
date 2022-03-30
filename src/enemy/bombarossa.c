@@ -3,7 +3,6 @@
 #include "enemy.h"
 #include "room.h"
 #include "object.h"
-#include "functions.h"
 
 typedef struct {
     Entity base;

@@ -11,6 +11,13 @@
 extern Entity* gUnk_020000B0;
 extern void (*const gUnk_080012C8[])(Entity*);
 
+static void sub_08031E48(Entity* this, Entity* child);
+static void sub_08032290(Entity* this);
+static bool32 sub_080322A4(Entity* this);
+static void sub_08032338(Entity* this);
+static void sub_080322E8(Entity* this);
+static bool32 sub_08031E04(Entity* this);
+
 void AcroBandit_OnTick(Entity* this);
 void AcroBandit_OnCollision(Entity* this);
 void AcroBandit_OnKnockback(Entity* this);
@@ -319,7 +326,7 @@ void AcroBandit_Type0Action8(Entity* this) {
     }
 }
 
-bool32 sub_08031E04(Entity* this) {
+static bool32 sub_08031E04(Entity* this) {
     static const s8 gUnk_080CE5C0[] = { -32, 0, 0, 32, 32, 0, 0, 0 };
     Entity* ent;
     const s8* tmp;
@@ -332,7 +339,7 @@ bool32 sub_08031E04(Entity* this) {
     return EntityWithinDistance(this, ent->x.HALF.HI + tmp[0], ent->y.HALF.HI + tmp[1], 0x50);
 }
 
-void sub_08031E48(Entity* this, Entity* child) {
+static void sub_08031E48(Entity* this, Entity* child) {
     CopyPosition(this, child);
     child->field_0x6c.HALF.LO = this->field_0x6c.HALF.LO;
     child->field_0x70.HALF.LO = this->field_0x70.HALF.LO;
@@ -534,13 +541,13 @@ void AcroBandit_Type1Action9(Entity* this) {
     }
 }
 
-void sub_08032290(Entity* this) {
+static void sub_08032290(Entity* this) {
     this->action = 6;
     this->timer = 12;
     InitializeAnimation(this, 11);
 }
 
-bool32 sub_080322A4(Entity* this) {
+static bool32 sub_080322A4(Entity* this) {
     if (this->child != NULL && (this->child->z.HALF.HI + 8) >= this->z.HALF.HI) {
         if (this->z.HALF.HI) {
             this->action = 5;
@@ -555,7 +562,7 @@ bool32 sub_080322A4(Entity* this) {
     return FALSE;
 }
 
-void sub_080322E8(Entity* this) {
+static void sub_080322E8(Entity* this) {
     if (this->field_0x78.HALF.LO) {
         if (--this->field_0x78.HALF.LO == 0) {
             u32 flipX = this->spriteSettings.flipX;
@@ -573,7 +580,7 @@ void sub_080322E8(Entity* this) {
     }
 }
 
-void sub_08032338(Entity* this) {
+static void sub_08032338(Entity* this) {
     if ((((Entity*)this->field_0x7c.WORD)->timer += 15) != 80)
         this->field_0x6c.HALF.LO = 0;
 }

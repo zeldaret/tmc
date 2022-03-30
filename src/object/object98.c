@@ -3,6 +3,7 @@
 #include "projectile.h"
 #include "room.h"
 #include "functions.h"
+#include "object.h"
 
 typedef struct {
     Entity base;

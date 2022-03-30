@@ -1,6 +1,7 @@
 #include "entity.h"
 #include "enemy.h"
 #include "functions.h"
+#include "collision.h"
 
 extern void (*const DekuSeedProjectile_Functions[])(Entity*);
 extern void (*const DekuSeedProjectile_Actions[])(Entity*);

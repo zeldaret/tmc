@@ -6,7 +6,7 @@
  */
 
 #include "enemy.h"
-#include "functions.h"
+#include "physics.h"
 
 extern void sub_080317F8(Entity*);
 

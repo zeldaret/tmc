@@ -447,7 +447,8 @@ void sub_08049998(Enemy64Entity* this, u32 param_2) {
 void sub_080499F0(Enemy64Entity* this) {
     u32 tmp;
 
-    if ((((super->action != 0) && (gPlayerEntity.z.HALF.HI == 0)) && (PlayerCanBeMoved())) && ((this->unk_7c & 1) == 0)) {
+    if ((((super->action != 0) && (gPlayerEntity.z.HALF.HI == 0)) && (PlayerCanBeMoved())) &&
+        ((this->unk_7c & 1) == 0)) {
         if (EntityWithinDistance(&gPlayerEntity, super->x.HALF.HI, super->y.HALF.HI, 0x24) &&
             ((this->unk_7c & 2) == 0)) {
             tmp = sub_080045DA((s32)gPlayerEntity.x.HALF.HI - super->x.HALF.HI,

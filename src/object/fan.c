@@ -6,6 +6,7 @@
 #include "functions.h"
 #include "sound.h"
 #include "object.h"
+#include "collision.h"
 
 typedef struct {
     Entity base;

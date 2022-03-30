@@ -6,7 +6,7 @@
  */
 
 #include "enemy.h"
-#include "functions.h"
+#include "physics.h"
 
 extern void (*const Rope_Functions[6])(Entity*);
 extern void (*const gUnk_080CE460[4])(Entity*);

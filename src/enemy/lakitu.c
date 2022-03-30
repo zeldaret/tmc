@@ -7,7 +7,8 @@
 
 #include "global.h"
 #include "enemy.h"
-#include "functions.h"
+#include "physics.h"
+#include "player.h"
 
 extern void (*const LakituActionFuncs[])(Entity*);
 

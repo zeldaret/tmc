@@ -8,6 +8,7 @@
 #include "enemy.h"
 #include "object.h"
 #include "functions.h"
+#include "collision.h"
 
 extern u32 sub_0804A024(Entity*, u32, u32);
 

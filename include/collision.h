@@ -27,6 +27,8 @@ typedef enum {
 } Collisions;
 
 bool32 IsTileCollision(const u8*, s32, s32, u32);
+bool32 IsColliding(Entity*, Entity*);
+bool32 IsCollidingPlayer(Entity*);
 void CalculateEntityTileCollisions(Entity*, u32, u32);
 bool32 ProcessMovementInternal(Entity*, s32, s32, u32);
 

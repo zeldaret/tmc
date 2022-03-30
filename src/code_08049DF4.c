@@ -6,6 +6,7 @@
 #include "map.h"
 #include "player.h"
 #include "room.h"
+#include "enemy.h"
 
 extern Entity* gUnk_020000B0;
 extern Entity* (*const gUnk_080D3BE8[])(void);

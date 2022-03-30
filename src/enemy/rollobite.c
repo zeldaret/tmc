@@ -6,7 +6,10 @@
  */
 
 #include "enemy.h"
-#include "functions.h"
+#include "physics.h"
+#include "player.h"
+#include "room.h"
+#include "collision.h"
 
 extern void (*const Rollobite_Functions[])(Entity*);
 extern void (*const gRollobiteActions[])(Entity*);

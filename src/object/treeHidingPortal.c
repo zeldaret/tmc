@@ -6,6 +6,7 @@
 #include "room.h"
 #include "functions.h"
 #include "effects.h"
+#include "object.h"
 
 extern const s16 gUnk_080B4468[];
 
@@ -13,6 +14,10 @@ void sub_0809E83C(Entity* this);
 void sub_0809E86C(Entity* this);
 void sub_0809E8BC(Entity* this);
 void sub_0809E8EC(Entity* this);
+
+static void sub_0809E96C(Entity* this);
+static u32 sub_0809E9A0(void);
+static void sub_0809E918(Entity* this);
 
 void TreeHidingPortal(Entity* this) {
     static void (*const actionFuncs[])(Entity*) = {
@@ -69,7 +74,7 @@ void sub_0809E8EC(Entity* this) {
     }
 }
 
-void sub_0809E918(Entity* this) {
+static void sub_0809E918(Entity* this) {
     static const s16 gUnk_08124364[] = {
         0, -4, 8,  -4,  16, -4, 22, -4,  -8, -4,  -16, -4,  -22, -4,  0,  -12, 0,   4,   8,     -12,
         8, 4,  -8, -12, -8, 4,  8,  -16, -8, -16, 12,  -16, -12, -16, 16, -14, -16, -14, -1000, 0,
@@ -88,11 +93,11 @@ void sub_0809E918(Entity* this) {
     }
 }
 
-void sub_0809E96C(Entity* this) {
+static void sub_0809E96C(Entity* this) {
     CreateMinishEntrance(COORD_TO_TILE_OFFSET(this, 0x20, 0x8));
 }
 
-u32 sub_0809E9A0(void) {
+static u32 sub_0809E9A0(void) {
     u32 rv;
     const s16* ptr;
 

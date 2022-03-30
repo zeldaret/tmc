@@ -14,12 +14,16 @@
 #include "entity.h"
 #include "player.h"
 
-extern void sub_080787C0(Entity*);
-extern void sub_080787B4(Entity*);
-extern void sub_0808C650(Entity*, u32);
-extern u32 sub_0808C67C(void);
-extern void sub_0808C688(void);
-extern void SyncPlayerToPlatform(Entity*, bool32);
+void sub_080787C0(Entity*);
+void sub_080787B4(Entity*);
+void sub_0808C650(Entity*, u32);
+u32 sub_0808C67C(void);
+void sub_0808C688(void);
+void SyncPlayerToPlatform(Entity*, bool32);
+void UpdateRailMovement(Entity*, u16**, u16*);
+void sub_080A2AF4(Entity*, s32, s32);
+Entity* CreateLargeWaterTrace(Entity*);
+void CreateSparkle(Entity*);
 
 void CreateDust(Entity* parent);
 void CreateDustAt(s32, s32, u32);

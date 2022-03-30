@@ -8,7 +8,6 @@
 #include "enemy.h"
 #include "collision.h"
 #include "object.h"
-#include "functions.h"
 
 extern u8 gUnk_080B37A0[];
 extern u8 gUnk_080B3E80[];
