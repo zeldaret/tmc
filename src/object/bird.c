@@ -4,6 +4,7 @@
 #include "item.h"
 #include "message.h"
 #include "game.h"
+#include "collision.h"
 
 extern u16 script_EzloTalkOcarina[];
 
@@ -211,10 +212,11 @@ void Bird_Type8(Entity* this) {
                 this->speed = 0x300;
             }
 
-            if ((gPlayerEntity.flags & 0x80) != 0 && (gMessage.doTextBox & 0x7f) == 0 && gPlayerEntity.action != 28 &&
-                gPlayerEntity.action != 6 && gPlayerEntity.action != 9 && gPlayerState.framestate != 24 &&
-                gPlayerState.framestate != 11 && gPlayerState.framestate != 8 && sub_08079F8C() &&
-                (EntityInRectRadius(this, &gPlayerEntity, 0xe, 0xe))) {
+            if ((gPlayerEntity.flags & ENT_COLLIDE) && (gMessage.doTextBox & 0x7f) == 0 &&
+                gPlayerEntity.action != PLAYER_SLEEP && gPlayerEntity.action != PLAYER_BOUNCE &&
+                gPlayerEntity.action != PLAYER_MINISH && gPlayerState.framestate != PL_STATE_CLIMB &&
+                gPlayerState.framestate != PL_STATE_JUMP && gPlayerState.framestate != PL_STATE_PARACHUTE &&
+                PlayerCanBeMoved() && (EntityInRectRadius(this, &gPlayerEntity, 0xe, 0xe))) {
                 s32 z = gPlayerEntity.z.HALF.HI - this->z.HALF.HI - 8;
                 if ((u16)z < 0x20 && gPlayerEntity.health != 0) {
                     pEVar5 = CreateObject(0x95, 10, 0);

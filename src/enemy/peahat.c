@@ -6,7 +6,8 @@
  */
 
 #include "enemy.h"
-#include "functions.h"
+#include "room.h"
+#include "physics.h"
 
 extern void (*const Peahat_Functions[])(Entity*);
 extern void (*const gPeahatPropellerFunctions[])(Entity*);

@@ -61,7 +61,7 @@ _08004458: .4byte sub_080043B0
 sub_0800445C: @ 0x0800445C
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_08079F8C
+	bl PlayerCanBeMoved
 	cmp r0, #0
 	beq _08004482
 	ldr r5, _080044D8 @ =gPlayerEntity

@@ -3,6 +3,7 @@
 #include "message.h"
 #include "item.h"
 #include "npc.h"
+#include "collision.h"
 
 extern void (*const BookActionFuncs[])(Entity*);
 extern s8 const gUnk_08123D94[];

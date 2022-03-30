@@ -274,7 +274,7 @@ s32 sub_0806F078(Entity* ent, s32 a2) {
     return 0;
 }
 
-void sub_0806F0A4(void) {
+void CollideFollowers(void) {
     LinkedList* entityList = gEntityLists + 7;
     Entity* currentEntity;
     u32 val;

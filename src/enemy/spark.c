@@ -8,7 +8,6 @@
 #include "collision.h"
 #include "enemy.h"
 #include "object.h"
-#include "functions.h"
 
 extern void (*const Spark_Functions[])(Entity*);
 extern void (*const gUnk_080CD24C[])(Entity*);

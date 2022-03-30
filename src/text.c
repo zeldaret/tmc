@@ -41,6 +41,9 @@ u32 sub_0805EF8C(Token*);
 u32 sub_0805EFB4(Token*);
 u32 sub_0805F9A0(u32);
 
+static u32 sub_0805F8F8(u32 idx);
+static u32 sub_0805F7A0(u32 param_1);
+
 typedef struct {
     u16 unk0;
     s8 unk2;
@@ -606,7 +609,7 @@ u32 sub_0805F76C(u8* param_1, WStruct* param_2) {
     return uVar1;
 }
 
-u32 sub_0805F7A0(u32 param_1) {
+static u32 sub_0805F7A0(u32 param_1) {
     u32 uVar1;
     u32 uVar2;
     u32 uVar3;
@@ -707,7 +710,7 @@ void sub_0805F8E4(u32 r0, WStruct* r1) {
     r1->unk1 = old;
 }
 
-u32 sub_0805F8F8(u32 idx) {
+static u32 sub_0805F8F8(u32 idx) {
     u8* temp = &gUnk_0810942E[idx].filler0[10][10];
     return gUnk_0810926C[*temp];
 }

@@ -205,7 +205,7 @@ void sub_0808B73C(Entity* this) {
 
 u32 sub_0808B7C8(Entity* this) {
     if (!(gPlayerState.flags & PL_MINISH) && gPlayerState.framestate != PL_STATE_DIE && gPlayerEntity.health != 0 &&
-        sub_08079F8C() && EntityInRectRadius(this, &gPlayerEntity, 5, 5) && gPlayerEntity.z.HALF.HI == 0) {
+        PlayerCanBeMoved() && EntityInRectRadius(this, &gPlayerEntity, 5, 5) && gPlayerEntity.z.HALF.HI == 0) {
         if (this->timer == 0 && gPlayerEntity.action == PLAYER_08072C9C) {
             ResetPlayerAnimationAndAction();
         }

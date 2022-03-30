@@ -4,6 +4,7 @@
 #include "global.h"
 
 extern u32 Random(void);
+extern u32 GetRandomByWeight(const u8*);
 extern void CloneTile(u32, u32, u32);
 extern u32 GetTileTypeByEntity(struct Entity_*);
 extern u32 GetTileTypeByPos(s32 x, s32 y, u32 layer);
@@ -34,5 +35,16 @@ extern u32 ResolveCollisionLayer(struct Entity_*);
 extern void sub_0800417E(struct Entity_*, u32);
 extern u32 sub_0800442E(struct Entity_*);
 extern u32 sub_08007DD6(u32, const u16*);
+extern void SoundReqClipped(struct Entity_*, u32);
+extern u32 sub_0800132C(struct Entity_*, struct Entity_*);
+extern u32 sub_080B1B44(u32, u32);
+extern u32 sub_080B1A48(u32, u32, u32);
+extern u32 sub_080B1B18(s32, s32, u32);
+extern u32 sub_080B1AE0(u16, u8);
+extern u32 GetTileUnderEntity(struct Entity_*);
+extern u32 sub_0800445C(struct Entity_*);
+extern u32 sub_080B1AF0(struct Entity_*, s32, s32);
+extern u32 GetRelativeCollisionTile(struct Entity_*, u32, u32);
+extern bool32 sub_080B1B54(u32);
 
 #endif // ASM_H

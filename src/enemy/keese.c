@@ -6,7 +6,8 @@
  */
 
 #include "enemy.h"
-#include "functions.h"
+#include "physics.h"
+#include "player.h"
 
 extern void GenericKnockback2(Entity*);
 extern void Keese_StartFly(Entity*);

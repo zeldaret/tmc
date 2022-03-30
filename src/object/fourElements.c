@@ -12,6 +12,7 @@
 #include "hitbox.h"
 #include "screen.h"
 #include "message.h"
+#include "collision.h"
 
 typedef struct {
     /*0x00*/ Entity base;

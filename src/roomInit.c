@@ -35,6 +35,8 @@ void sub_080AF250();
 void sub_0804C290();
 void sub_0804C258();
 
+static void sub_0804C128(void);
+
 extern void** gCurrentRoomProperties;
 
 u32 sub_unk3_ArmosInteriors_RuinsEntranceNorth(u32 arg0) {
@@ -667,7 +669,7 @@ void sub_StateChange_HyruleCastle_3(void) {
 
 u32 sub_unk3_HyruleCastle_4(void) {
     if (!CheckLocalFlag(CASTLE_04_MEZAME)) {
-        gRoomTransition.player_status.spawn_type = PL_SPAWN_SPECIAL;
+        gRoomTransition.player_status.spawn_type = PL_SPAWN_SLEEPING;
         ClearGlobalFlag(ZELDA_CHASE);
     }
     return 1;
@@ -1074,7 +1076,7 @@ extern u8 gUnk_080D9338[];
 extern u8 gUnk_080D9340[];
 extern TileEntity gUnk_080D9328[];
 
-void sub_0804C128() {
+static void sub_0804C128(void) {
     sub_080AF250(0);
     if (gRoomVars.field_0x0 != 0) {
         if ((gArea.unk_0c_1) == 0) {
@@ -5472,7 +5474,7 @@ void sub_StateChange_HouseInteriors3_Bakery(void) {
 
 u32 sub_unk3_HouseInteriors3_Simon(void) {
     if (CheckGlobalFlag(MAROYA_WAKEUP)) {
-        gRoomTransition.player_status.spawn_type = PL_SPAWN_SPECIAL;
+        gRoomTransition.player_status.spawn_type = PL_SPAWN_SLEEPING;
     }
     return 1;
 }

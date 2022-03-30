@@ -6,6 +6,7 @@
 #include "functions.h"
 #include "sound.h"
 #include "object.h"
+#include "collision.h"
 
 typedef struct {
     Entity base;
@@ -113,7 +114,7 @@ void sub_0809EE44(FanEntity* this) {
     if (uVar4 != 0) {
         pEVar1 = &gPlayerEntity;
         if (sub_0809EF78(this, pEVar1)) {
-            if (sub_08079F8C()) {
+            if (PlayerCanBeMoved()) {
                 sub_08079E58(super->speed, super->direction);
             }
         }

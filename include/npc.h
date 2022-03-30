@@ -36,7 +36,7 @@ Entity* CreateNPC(u32 subtype, u32 form, u32 parameter);
 u32 UpdateFuseInteraction(Entity*);
 
 void NPCInit(Entity* ent);
-void sub_0806F0A4(void);
+void CollideFollowers(void);
 
 // TODO move?
 void sub_08078784(Entity* ent, u32 arg1);

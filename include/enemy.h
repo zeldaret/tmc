@@ -13,19 +13,34 @@
 #include "projectile.h"
 
 bool32 EnemyInit(Entity* this);
-extern u32 GetNextFunction(Entity*);
-extern void EnemyFunctionHandler(Entity*, EntityActionArray);
-extern void GenericKnockback(Entity*);
-extern Entity* CreateDeathFx(Entity*, u32, u32);
+u32 GetNextFunction(Entity*);
+void EnemyFunctionHandler(Entity*, EntityActionArray);
+void EnemyFunctionHandlerAfterCollision(Entity*, void (*const[])());
+void GenericKnockback(Entity*);
+Entity* CreateDeathFx(Entity*, u32, u32);
+void sub_0804A720(Entity*);
+bool32 sub_08049FDC(Entity*, u32);
 
-extern Entity* Create0x68FX(Entity*, u32);
-extern void SetChildOffset(Entity*, s32, s32, s32);
-extern Entity* CreateProjectileWithParent(Entity*, u8, u8);
+Entity* Create0x68FX(Entity*, u32);
+void SetChildOffset(Entity*, s32, s32, s32);
+Entity* CreateProjectileWithParent(Entity*, u8, u8);
 
-extern void GenericDeath(Entity*);
-extern void sub_08002724(void*, u8*);
-extern void sub_080026C4(u8*, u8*, u8*, u32);
-extern void sub_080026F2(u8*, void*, u8*, u32);
+void GenericDeath(Entity*);
+void sub_08002724(void*, u8*);
+void sub_080026C4(u8*, u8*, u8*, u32);
+void sub_080026F2(u8*, void*, u8*, u32);
+bool32 sub_08049FA0(Entity*);
+u32 sub_08049EE4(Entity*);
+bool32 sub_08049F84(Entity*, s32);
+Entity* sub_08049DF4(u32);
+u32 sub_0804A044(Entity*, Entity*, u32);
+s32 sub_080012DC(Entity*);
+u32 sub_080044EC(Entity*, u32);
+void sub_0804AA1C(Entity*);
+bool32 sub_08049F1C(Entity*, Entity*, s32);
+bool32 PlayerInRange(Entity*, u32, s32);
+void sub_0804A4E4(Entity*, Entity*);
+void GenericKnockback2(Entity*);
 
 typedef enum {
     /*0x00*/ OCTOROK,

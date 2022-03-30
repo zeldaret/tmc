@@ -8,6 +8,7 @@
 #include "itemMetaData.h"
 #include "functions.h"
 #include "hitbox.h"
+#include "collision.h"
 
 void sub_08081150(Entity*);
 u8 sub_0808147C(u32);

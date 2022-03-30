@@ -18,6 +18,8 @@ extern Entity* gPlayerClones[3];
 extern u16 gUnk_080B2CD8[];
 
 void ram_IntrMain(void);
+static void sub_080171F0(void);
+static void HandlePlayerLife(Entity* this);
 
 struct {
     u8 ready;
@@ -223,7 +225,7 @@ void PlayerUpdate(Entity* this) {
 }
 
 // Responsible for some life things like low health beep and initiating the death sequence
-void HandlePlayerLife(Entity* this) {
+static void HandlePlayerLife(Entity* this) {
     u32 temp;
 
     gUnk_0200AF00.unk_2f = 0;
@@ -308,7 +310,7 @@ void HandlePlayerLife(Entity* this) {
     }
 }
 
-void sub_080171F0(void) {
+static void sub_080171F0(void) {
     if (gPlayerState.mobility != 0)
         ResetPlayerItem();
     if (gPlayerState.field_0x14 != 0)

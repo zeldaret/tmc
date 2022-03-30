@@ -1,7 +1,8 @@
 #ifndef PROJECTILE_H
 #define PROJECTILE_H
 
-extern Entity* CreateProjectile(u32);
+Entity* CreateProjectile(u32);
+bool32 IsProjectileOffScreen(Entity*);
 
 void DarkNutSwordSlash(Entity*);
 void RockProjectile(Entity*);

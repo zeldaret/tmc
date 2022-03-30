@@ -6,14 +6,12 @@
  */
 
 #include "global.h"
-#include "asm.h"
-#include "sound.h"
 #include "entity.h"
 #include "enemy.h"
 #include "object.h"
-#include "functions.h"
 #include "save.h"
 #include "hitbox.h"
+#include "room.h"
 
 extern void sub_080293DC(Entity*);
 extern void sub_080296D8(Entity*);

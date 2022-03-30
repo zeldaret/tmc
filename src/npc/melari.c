@@ -1,5 +1,4 @@
 #include "npc.h"
-#include "functions.h"
 #include "item.h"
 
 extern void sub_08068780(Entity*);

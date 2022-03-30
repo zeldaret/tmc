@@ -63,7 +63,7 @@ void nullsub_110(void) {
 
 void sub_080663D4(Entity* this) {
     if (this->x.HALF.HI == this->field_0x7c.HALF_U.HI - 8) {
-        if (gPlayerEntity.action != PLAYER_080720DC) {
+        if (gPlayerEntity.action != PLAYER_ROOM_EXIT) {
             this->action = 4;
             this->direction = 0;
             this->speed = 0;
@@ -94,7 +94,7 @@ void sub_0806643C(Entity* this) {
 }
 
 void sub_08066474(void) {
-    if (gPlayerEntity.action != PLAYER_080720DC) {
+    if (gPlayerEntity.action != PLAYER_ROOM_EXIT) {
         gPauseMenuOptions.disabled = 0;
     }
 }

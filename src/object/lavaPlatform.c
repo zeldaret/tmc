@@ -18,11 +18,11 @@ typedef struct {
     /*0x72*/ u16 wobbleTime;  /**< Time the player can stand on the platform. */
     /*0x74*/ u16 respawnTime; /**< Time until the platform respawns after it has sunk. */
     /*0x76*/ u16 unk_76;
-    /*0x78*/ Entity* unk_78; // Typed same as second argument of sub_080A2CC0
+    /*0x78*/ Entity* unk_78; // Typed same as second argument of UpdateRailMovement
 } LavaPlatformEntity;
 
 typedef struct {
-    /*0x00*/ Entity* unk_78; // Typed same as second argument of sub_080A2CC0
+    /*0x00*/ Entity* unk_78; // Typed same as second argument of UpdateRailMovement
     /*0x04*/ s16 x;
     /*0x06*/ s16 y;
     /*0x08*/ u8 collisionLayer;
@@ -246,7 +246,7 @@ void LavaPlatform_SpawnPlatforms(LavaPlatformEntity* this) {
             platform->respawnTime = entry->respawnTime;
             platform->unk_78 = entry->unk_78;
             UpdateSpriteForCollisionLayer((Entity*)platform);
-            sub_080A2CC0(&platform->base, (u16**)&platform->unk_78, &platform->unk_76);
+            UpdateRailMovement(&platform->base, (u16**)&platform->unk_78, &platform->unk_76);
         }
         entry++;
     }
@@ -282,7 +282,7 @@ void sub_0809264C(LavaPlatformEntity* this) {
 
 bool32 LavaPlatform_IsPlayerOnPlatform(LavaPlatformEntity* this) {
     if ((gPlayerState.flags & PL_MINISH) == 0 && EntityInRectRadius(super, &gPlayerEntity, 0x10, 0x10) &&
-        sub_08079F8C()) {
+        PlayerCanBeMoved()) {
         gPlayerState.field_0x14 = 1;
         if (gPlayerEntity.z.HALF.HI == 0) {
             super->subtimer = 1;
@@ -294,12 +294,12 @@ bool32 LavaPlatform_IsPlayerOnPlatform(LavaPlatformEntity* this) {
 }
 
 void sub_080926E4(LavaPlatformEntity* this) {
-    sub_080A2BE4(super, super->subtimer);
+    SyncPlayerToPlatform(super, super->subtimer);
     if (super->action == 1) {
         (super->parent)->x.HALF.HI = super->x.HALF.HI;
         (super->parent)->y.HALF.HI = super->y.HALF.HI;
     }
     if (--this->unk_76 == 0) {
-        sub_080A2CC0(super, (u16**)&this->unk_78, &this->unk_76);
+        UpdateRailMovement(super, (u16**)&this->unk_78, &this->unk_76);
     }
 }

@@ -3,6 +3,7 @@
 #include "player.h"
 #include "functions.h"
 #include "sound.h"
+#include "asm.h"
 
 extern void sub_08078CD0(Entity*);
 extern void sub_08018FA0(Entity*);

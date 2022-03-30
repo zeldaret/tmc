@@ -6,7 +6,7 @@
  */
 
 #include "enemy.h"
-#include "functions.h"
+#include "physics.h"
 
 void sub_08023E10(Entity*);
 void sub_08023E54(Entity*);

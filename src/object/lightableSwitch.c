@@ -6,10 +6,15 @@
 #include "flags.h"
 #include "functions.h"
 #include "hitbox.h"
+#include "object.h"
 
 extern void (*const gUnk_081243B4[])(Entity*);
 extern void (*const gUnk_081243BC[])(Entity*);
 extern void (*const gUnk_081243C4[])(Entity*);
+
+static void sub_0809EB30(Entity* this);
+static void sub_0809EAD8(Entity* this);
+static void sub_0809EABC(Entity* this);
 
 void LightableSwitch(Entity* this) {
     gUnk_081243B4[this->type](this);
@@ -47,7 +52,7 @@ void sub_0809EA80(Entity* this) {
     sub_0809EABC(this);
 }
 
-void sub_0809EABC(Entity* this) {
+static void sub_0809EABC(Entity* this) {
     bool32 anySet = 0;
 
     if (CheckFlags(this->field_0x86.HWORD)) {
@@ -58,21 +63,21 @@ void sub_0809EABC(Entity* this) {
     }
 }
 
-void sub_0809EAD8(Entity* this) {
+static void sub_0809EAD8(Entity* this) {
     u8 bVar1;
     Entity* pEVar2;
 
     if (this->type2 != 0) {
 
         this->child = GetCurrentRoomProperty(this->type2);
-        sub_080A2CC0(this, (u16**)&this->child, &this->field_0x74.HWORD);
+        UpdateRailMovement(this, (u16**)&this->child, &this->field_0x74.HWORD);
 
     } else {
         SetTile(0x4050, COORD_TO_TILE(this), this->collisionLayer);
     }
 }
 
-void sub_0809EB30(Entity* this) {
+static void sub_0809EB30(Entity* this) {
     u16 uVar1;
     u16* puVar2;
 
@@ -82,7 +87,7 @@ void sub_0809EB30(Entity* this) {
         }
         puVar2 = &this->field_0x74.HWORD;
         if (!--*puVar2) {
-            sub_080A2CC0(this, (u16**)&this->child, puVar2);
+            UpdateRailMovement(this, (u16**)&this->child, puVar2);
         }
     }
 }

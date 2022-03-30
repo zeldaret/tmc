@@ -4,6 +4,7 @@
 #include "functions.h"
 #include "projectile.h"
 #include "hitbox.h"
+#include "collision.h"
 
 extern u32 sub_080644C8(Entity*);
 extern u8 gUnk_02027EB4[];

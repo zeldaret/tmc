@@ -1,6 +1,7 @@
-#include "entity.h"
+#include "collision.h"
+#include "map.h"
 #include "enemy.h"
-#include "functions.h"
+#include "player.h"
 
 void (*const OctorokGolden_Functions[])(Entity*);
 void (*const gUnk_080CF484[])(Entity*);
@@ -10,6 +11,7 @@ const u8 gUnk_080CF498[];
 
 void sub_08037E14(Entity* this);
 bool32 sub_08037E90(Entity* this);
+static void sub_08037D54(Entity* this);
 
 void OctorokGolden(Entity* this) {
     u32 index;
@@ -68,7 +70,7 @@ void sub_08037D0C(Entity* this) {
     }
 }
 
-void sub_08037D54(Entity* this) {
+static void sub_08037D54(Entity* this) {
     UpdateAnimationVariableFrames(this, 2);
 
     if (this->frame & 0x1) {

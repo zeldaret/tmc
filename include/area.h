@@ -28,7 +28,7 @@ typedef struct {
     u16 localFlagOffset;
     u8 filler[4];
     u16 lightLevel;
-    u8 unk_0b;
+    u8 lightType;
     u8 unk_0c_0 : 1;
     u8 unk_0c_1 : 3;
     u8 unk_0c_4 : 4;

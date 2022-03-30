@@ -10,6 +10,7 @@
 #include "object.h"
 #include "functions.h"
 #include "hitbox.h"
+#include "collision.h"
 
 typedef struct {
     /*0x00*/ Entity base;

@@ -9,7 +9,6 @@
 #include "message.h"
 #include "save.h"
 #include "object.h"
-#include "functions.h"
 #include "item.h"
 
 extern bool32 ItemIsShield(u32);

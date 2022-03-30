@@ -561,7 +561,7 @@ void VaatiWrathType0ActionD(Entity* this) {
 void sub_08041BE8(Entity* this) {
     Entity* entity;
 
-    if (sub_08079F8C()) {
+    if (PlayerCanBeMoved()) {
         this->subAction = 1;
         this->timer = 120;
         this->updatePriority = PRIO_NO_BLOCK;

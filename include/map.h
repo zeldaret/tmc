@@ -17,4 +17,6 @@ typedef struct {
 extern LayerStruct gMapTop;
 extern LayerStruct gMapBottom;
 
+LayerStruct* GetLayerByIndex(u32);
+
 #endif // MAP_H

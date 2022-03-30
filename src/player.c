@@ -63,7 +63,7 @@ static EntityAction sub_08071DB8;
 static EntityAction PlayerEmptyBottle;
 static EntityAction PlayerFrozen;
 static EntityAction sub_0807204C;
-static EntityAction sub_080720DC;
+static EntityAction PlayerRoomExit;
 static EntityAction PlayerPull;
 static EntityAction PlayerLava;
 EntityAction PlayerWarp; // why is this defined in playerUtils.c? We may never know : (
@@ -76,7 +76,7 @@ static EntityAction PlayerRoll;
 static EntityAction PlayerWaitForScroll;
 static EntityAction PlayerInHole;
 static EntityAction sub_08072C9C;
-static EntityAction sub_08074C44;
+static EntityAction PlayerSleep;
 static EntityAction PlayerClimb;
 static EntityAction PlayerUseEntrance;
 static EntityAction PlayerParachute;
@@ -152,7 +152,7 @@ static EntityAction PlayerFrozenUpdate;
 static EntityAction sub_08072064;
 static EntityAction sub_08072098;
 
-// PLAYER_080720DC
+// PLAYER_ROOM_EXIT
 static EntityAction sub_08072100;
 static EntityAction sub_08072168;
 
@@ -229,7 +229,7 @@ static EntityAction sub_08074018;
 static EntityAction sub_08074060;
 static EntityAction sub_080740D8;
 
-// PLAYER_08074C44
+// PLAYER_SLEEP
 static EntityAction sub_08074C68;
 static EntityAction sub_08074CF8;
 static EntityAction sub_08074F00;
@@ -317,7 +317,7 @@ void DoPlayerAction(Entity* this) {
         [PLAYER_EMPTYBOTTLE] = PlayerEmptyBottle,
         [PLAYER_FROZEN] = PlayerFrozen,
         [PLAYER_0807204C] = sub_0807204C,
-        [PLAYER_080720DC] = sub_080720DC,
+        [PLAYER_ROOM_EXIT] = PlayerRoomExit,
         [PLAYER_PULL] = PlayerPull,
         [PLAYER_LAVA] = PlayerLava,
         [PLAYER_WARP] = PlayerWarp,
@@ -330,7 +330,7 @@ void DoPlayerAction(Entity* this) {
         [PLAYER_080728AC] = PlayerWaitForScroll,
         [PLAYER_INHOLE] = PlayerInHole,
         [PLAYER_08072C9C] = sub_08072C9C,
-        [PLAYER_08074C44] = sub_08074C44,
+        [PLAYER_SLEEP] = PlayerSleep,
         [PLAYER_CLIMB] = PlayerClimb,
         [PLAYER_USEENTRANCE] = PlayerUseEntrance,
         [PLAYER_PARACHUTE] = PlayerParachute,
@@ -1773,7 +1773,7 @@ static void sub_08072098(Entity* this) {
     SetPlayerActionNormal();
 }
 
-static void sub_080720DC(Entity* this) {
+static void PlayerRoomExit(Entity* this) {
     static EntityAction* const gUnk_0811BB60[] = {
         sub_08072100,
         sub_08072168,
@@ -3787,7 +3787,7 @@ static void conveyer_push(Entity* this) {
     LinearMoveUpdate(this);
 }
 
-static void sub_08074C44(Entity* this) {
+static void PlayerSleep(Entity* this) {
     static EntityAction* const gUnk_0811BC88[] = {
         sub_08074C68,
         sub_08074CF8,
@@ -4068,7 +4068,7 @@ void sub_080751E8(u32 a1, u32 a2, void* script) {
     MemClear(&gPlayerScriptExecutionContext, sizeof(ScriptExecutionContext));
     gPlayerScriptExecutionContext.scriptInstructionPointer = script;
     ((fixme*)&gPlayerEntity)->ctx = &gPlayerScriptExecutionContext;
-    gPlayerState.queued_action = PLAYER_08074C44;
+    gPlayerState.queued_action = PLAYER_SLEEP;
     gPlayerState.field_0x38 = 1;
     gPlayerState.field_0x39 = 0;
     gPlayerState.field_0x3a = a2;

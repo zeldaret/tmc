@@ -123,7 +123,7 @@ extern void sub_080186D4(void);
 extern void sub_0806F364(void);
 extern void sub_08052FF4(u32 area, u32 room);
 extern void CloneMapData(void);
-extern void sub_0807C740(void);
+extern void InitializeCamera(void);
 extern void SetBGDefaults(void);
 extern void LoadItemGfx(void);
 
@@ -137,7 +137,7 @@ static void UpdateWindcrests(void);
 static void UpdateFakeScroll(void);
 static void UpdatePlayerMapCoords(void);
 static void sub_08052C3C(void);
-static void sub_0805340C(void);
+static void UpdateTimerCallbacks(void);
 static void sub_08051D98(void);
 static void sub_08051DCC(void);
 static bool32 CheckGameOver(void);
@@ -155,7 +155,7 @@ static void sub_080534E4(u32* a1);
 static void InitAllRoomResInfo(void);
 static void InitRoomResInfo(RoomResInfo* info, RoomHeader* hdr, u32 area, u32 room);
 static void sub_080532E4(void);
-static void sub_08053460(void);
+static void ResetTimerFlags(void);
 
 typedef struct {
     u8 _0;
@@ -406,7 +406,7 @@ static void GameMain_Update(void) {
     if (CheckInitPauseMenu() || CheckInitPortal()) {
         return;
     }
-    sub_0805340C();
+    UpdateTimerCallbacks();
 
     // leave early if player is now entering a portal
     if (gMain.substate != GAMEMAIN_UPDATE) {
@@ -499,7 +499,7 @@ static void InitializeEntities(void) {
     CallRoomProp6();
     InitializePlayer();
     gUnk_03004030.unk_00 = NULL;
-    sub_0807C740();
+    InitializeCamera();
     gUpdateVisibleTiles = 1;
     LoadRoomBgm();
     SetColor(0, 0);
@@ -648,7 +648,7 @@ void sub_08051F9C(u32 a1, u32 a2, u32 a3, u32 a4) {
     sub_08052FF4(a1, a2);
     gRoomControls.scroll_x = gRoomControls.origin_x + a3;
     gRoomControls.scroll_y = gRoomControls.origin_y + a4;
-    sub_0807C740();
+    InitializeCamera();
     gUpdateVisibleTiles = 1;
     gUsedPalettes = 0;
     gScreen.lcd.displayControl |= tmp;
@@ -950,8 +950,8 @@ static void InitializePlayer(void) {
         [PL_SPAWN_MINISH] = PLAYER_MINISH,
         [PL_SPAWN_DROP] = PLAYER_INIT,
         [PL_SPAWN_WALKING] = PLAYER_ROOMTRANSITION,
-        [PL_SPAWN_STEP_IN] = PLAYER_080720DC,
-        [PL_SPAWN_SPECIAL] = PLAYER_08074C44,
+        [PL_SPAWN_STEP_IN] = PLAYER_ROOM_EXIT,
+        [PL_SPAWN_SLEEPING] = PLAYER_SLEEP,
         [PL_SPAWN_DROP_MINISH] = PLAYER_MINISH,
         [PL_SPAWN_STAIRS_ASCEND] = PLAYER_USEENTRANCE,
         [PL_SPAWN_STAIRS_DESCEND] = PLAYER_USEENTRANCE,
@@ -1503,7 +1503,7 @@ void LoadAuxiliaryRoom(u32 area, u32 room) {
     sub_08052FF4(area, room);
     gRoomControls.camera_target = NULL;
     CloneMapData();
-    sub_0807C740();
+    InitializeCamera();
 }
 
 void sub_08052FF4(u32 area, u32 room) {
@@ -1637,7 +1637,7 @@ static void sub_0805329C(void) {
                 sub_080532E4();
                 break;
             default:
-                sub_08053460();
+                ResetTimerFlags();
                 break;
         }
     }
@@ -1690,7 +1690,7 @@ void sub_080533CC(void) {
     gUsedPalettes |= 8;
 }
 
-static void sub_0805340C(void) {
+static void UpdateTimerCallbacks(void) {
     static void (*const sHandlers[])(u32*) = {
         sub_08053434, DummyHandler, sub_080534E4, DummyHandler, DummyHandler, DummyHandler, DummyHandler, DummyHandler,
     };
@@ -1710,13 +1710,13 @@ static void DummyHandler(u32* a1) {
 static void sub_08053434(u32* a1) {
     if (gArea.locationIndex == 29 && *a1) {
         if (!--*a1) {
-            sub_08053460();
+            ResetTimerFlags();
             MenuFadeIn(5, 6);
         }
     }
 }
 
-static void sub_08053460(void) {
+static void ResetTimerFlags(void) {
     static const u16 sClearFlags[] = { FLAG_BANK_10, LV6_GUFUU1_GISHIKI, FLAG_BANK_10, LV6_GUFUU1_DEMO,
                                        FLAG_BANK_10, LV6_ZELDA_DISCURSE, FLAG_BANK_10, LV6_00_ESCAPE,
                                        FLAG_BANK_10, LV6_GUFUU2_DEAD,    FLAG_BANK_G,  ENDING,
@@ -1730,7 +1730,7 @@ static void sub_08053460(void) {
     ClearFlagArray(sClearFlags);
 }
 
-void sub_08053494(void) {
+void StartDarkNutTimer(void) {
     gSave.timers[0] = 10800;
 }
 
@@ -1762,7 +1762,7 @@ static void ResetTmpFlags(void) {
                                        FLAG_BANK_2, SHOP00_ITEM_01,    FLAG_BANK_2, SHOP01_CAFE_01,
                                        0xFFFF };
 
-    sub_08053460();
+    ResetTimerFlags();
     ClearFlagArray(sClearFlags);
 
     if (!CheckGlobalFlag(WATERBEAN_PUT))
@@ -2084,7 +2084,7 @@ void sub_08053DB4(void) {
     if (gFadeControl.active == 0) {
         u8* ptr = gMenu.field_0xc;
         sub_08052FF4(gMenu.field_0xc[4], gMenu.field_0xc[5]);
-        sub_0807C740();
+        InitializeCamera();
         gUpdateVisibleTiles = 1;
         gRoomControls.scroll_x = (s8)ptr[6] + gRoomControls.scroll_x;
         gRoomControls.scroll_y = (s8)ptr[7] + gRoomControls.scroll_y;
@@ -2143,7 +2143,7 @@ void sub_08053F20(void) {
         DeleteAllEntities();
         ptr = gMenu.field_0xc;
         sub_08052FF4(gMenu.field_0xc[8], gMenu.field_0xc[9]);
-        sub_0807C740();
+        InitializeCamera();
         gUpdateVisibleTiles = 1;
         gRoomControls.scroll_x = (s8)ptr[10] + gRoomControls.scroll_x;
         gRoomControls.scroll_y = (s8)ptr[0xb] + gRoomControls.scroll_y;

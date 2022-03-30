@@ -203,7 +203,7 @@ void UpdateEntities(void) {
     UpdatePlayerInput();
     UpdatePriority();
     ClearHitboxList();
-    sub_0806F0A4();
+    CollideFollowers();
     f = ram_UpdateEntities;
     f(0);
     ClearAllDeletedEntities();

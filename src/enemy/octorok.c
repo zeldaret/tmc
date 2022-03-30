@@ -6,7 +6,7 @@
  */
 
 #include "enemy.h"
-#include "functions.h"
+#include "physics.h"
 
 void Octorok_Pause(Entity*);
 bool32 Octorok_FacesPlayer(Entity*);

@@ -4,6 +4,7 @@
 #include "save.h"
 #include "message.h"
 #include "npc.h"
+#include "enemy.h"
 
 extern void sub_08067C44(Entity*);
 

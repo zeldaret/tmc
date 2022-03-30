@@ -225,6 +225,8 @@ void* GetCurrentRoomProperty(u32);
 void LoadRoomTileEntities();
 void LoadRoomEntityList(EntityData* listPtr);
 
+bool32 LoadFixedGFX(Entity*, u32);
+void UnloadGFXSlots(Entity*);
 void sub_0804B3C4(void*);
 void sub_0804B0B0(u32 arg0, u32 arg1);
 

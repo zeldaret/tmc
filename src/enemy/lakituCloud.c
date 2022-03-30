@@ -9,9 +9,11 @@
 #include "asm.h"
 #include "entity.h"
 #include "player.h"
-#include "functions.h"
 #include "effects.h"
 #include "enemy.h"
+#include "physics.h"
+#include "room.h"
+#include "object.h"
 
 extern void (*const LakituCloud_Functions[6])(Entity*);
 extern void (*const gUnk_080D0430[3])(Entity*);
@@ -118,7 +120,7 @@ void sub_0803CDD8(Entity* this) {
 void sub_0803CE14(Entity* this) {
     u8 direction;
 
-    sub_080A2CC0(this, (u16**)&this->child, &this->field_0x74.HWORD);
+    UpdateRailMovement(this, (u16**)&this->child, &this->field_0x74.HWORD);
 
     direction = this->direction;
     if (direction & 0x80) {

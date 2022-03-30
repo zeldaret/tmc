@@ -5,14 +5,13 @@
 #include "item.h"
 
 extern void (*gUnk_081140D4[])(Entity*);
-
 extern u16 gUnk_081140CC[];
+extern u8 gMapDataTopSpecial[];
 
 void sub_0806D520(Entity*, u32);
-
 void sub_0806D41C(Entity* this);
 
-extern u8 gMapDataTopSpecial[];
+static void sub_0806D02C(Entity* this);
 
 typedef struct {
     u8 filler[0x40];
@@ -96,7 +95,7 @@ Entity* sub_0806D00C(Entity* this) {
     return entity;
 }
 
-void sub_0806D02C(Entity* this) {
+static void sub_0806D02C(Entity* this) {
     s32 tmp1;
     s32 tmp2;
     sub_0806D164(this);

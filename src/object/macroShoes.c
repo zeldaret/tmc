@@ -1,7 +1,6 @@
 #include "entity.h"
 #include "asm.h"
 
-void sub_0800445C(Entity*);
 void MacroShoes_Init(Entity*);
 void MacroShoes_Idle(Entity*);
 

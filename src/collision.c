@@ -207,7 +207,7 @@ bool32 IsColliding(Entity* this, Entity* that) {
 }
 
 bool32 IsCollidingPlayer(Entity* this) {
-    if (sub_08079F8C())
+    if (PlayerCanBeMoved())
         return IsColliding(this, &gPlayerEntity);
     return FALSE;
 }
@@ -528,7 +528,7 @@ s32 sub_08017F3C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 s32 sub_08017F40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     if (tgt->confusedTime == 0) {
         if (org == &gPlayerEntity) {
-            if (sub_08079F8C() &&
+            if (PlayerCanBeMoved() &&
 #ifdef EU
                 (gPlayerState.flags & (PL_MINISH | PL_BUSY)) == 0 &&
 #else
@@ -568,7 +568,7 @@ s32 sub_0801802C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 
     kind = org->kind;
     if (kind == 1) {
-        if (sub_08079F8C()) {
+        if (PlayerCanBeMoved()) {
             if (((((direction ^ 0x10) - 4 * tgt->animationState + 5) & 0x1F)) > 0xA) {
                 x = 0x11aa;
                 return sub_08018308(org, tgt, direction, &gCollisionMtx[x + org->hurtType]);
@@ -622,7 +622,7 @@ s32 sub_080180E8(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 s32 sub_08018168(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     if (tgt->confusedTime == 0) {
         if (org == &gPlayerEntity) {
-            if (sub_08079F8C() &&
+            if (PlayerCanBeMoved() &&
 #ifdef EU
                 (gPlayerState.flags & (PL_MINISH | PL_BUSY)) == 0 &&
 #else
@@ -651,7 +651,7 @@ s32 sub_08018168(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 }
 
 s32 sub_08018228(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
-    if (org == &gPlayerEntity && sub_08079F8C())
+    if (org == &gPlayerEntity && PlayerCanBeMoved())
         sub_08004484(tgt, org);
     return 0;
 }

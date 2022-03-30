@@ -7,7 +7,7 @@
 #include "object.h"
 #include "game.h"
 
-extern void sub_0804B058(EntityData* dat);
+static void sub_0804B058(EntityData* dat);
 extern void sub_0801AC98(void);
 extern u32 sub_08049D1C(u32);
 extern Entity* LoadRoomEntity(EntityData*);
@@ -179,7 +179,7 @@ void LoadRoom(void) {
     sub_0801AC98();
 }
 
-void sub_0804B058(EntityData* dat) {
+static void sub_0804B058(EntityData* dat) {
     Entity* ent;
     u32 uVar2;
 

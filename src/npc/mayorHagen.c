@@ -3,7 +3,6 @@
 #include "player.h"
 #include "flags.h"
 #include "npc.h"
-#include "functions.h"
 #include "item.h"
 
 extern u32 gUnk_08113F44;

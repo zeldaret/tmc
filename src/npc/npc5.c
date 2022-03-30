@@ -2,6 +2,7 @@
 #include "message.h"
 #include "npc.h"
 #include "hitbox.h"
+#include "collision.h"
 
 typedef struct {
     u8 unk_0;  // u8

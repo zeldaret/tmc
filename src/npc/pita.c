@@ -1,4 +1,3 @@
-#include "functions.h"
 #include "npc.h"
 #include "item.h"
 
@@ -7,7 +6,6 @@ extern Hitbox gUnk_0810C428;
 extern u8 gUnk_0810C430[4];
 extern u8 gUnk_0810C435[];
 extern u8 gUnk_0810C43D[];
-extern u32 GetRandomByWeight(const u8*);
 
 void Pita(Entity* this) {
     if (this->action == 0) {
@@ -25,7 +23,7 @@ void Pita(Entity* this) {
 }
 
 /** Reset the players baked goods? */
-void sub_08062EB8(void) {
+void RemoveAllBakedGoods(void) {
     SetInventoryValue(ITEM_BRIOCHE, 0);
     SetInventoryValue(ITEM_CROISSANT, 0);
     SetInventoryValue(ITEM_PIE, 0);

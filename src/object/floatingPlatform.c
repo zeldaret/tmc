@@ -29,7 +29,7 @@ void sub_080860D8(FloatingPlatformEntity* this) {
     super->frameIndex = super->type;
     super->spritePriority.b0 = 7;
     super->child = (Entity*)GetCurrentRoomProperty(super->type2);
-    sub_080A2CC0(super, (u16**)&super->child, &this->unk70);
+    UpdateRailMovement(super, (u16**)&super->child, &this->unk70);
 }
 
 void sub_0808611C(FloatingPlatformEntity* this) {
@@ -41,15 +41,15 @@ void sub_0808611C(FloatingPlatformEntity* this) {
             super->parent->timer++;
         }
 
-        sub_080A2BE4(super, iVar2);
+        SyncPlayerToPlatform(super, iVar2);
     } else if (super->timer == 0) {
-        sub_080A2BE4(super, iVar2);
+        SyncPlayerToPlatform(super, iVar2);
     } else {
-        sub_080A2BE4(super, FALSE);
+        SyncPlayerToPlatform(super, FALSE);
     }
 
     if (--this->unk70 == 0) {
-        sub_080A2CC0(super, (u16**)&super->child, &this->unk70);
+        UpdateRailMovement(super, (u16**)&super->child, &this->unk70);
     }
 }
 
@@ -58,7 +58,7 @@ bool32 sub_08086168(FloatingPlatformEntity* this) {
     const u8* ptr;
 
     ptr = gUnk_08120658 + super->type * 2;
-    if (((EntityInRectRadius(super, &gPlayerEntity, ptr[0], ptr[1])) && sub_08079F8C())) {
+    if (((EntityInRectRadius(super, &gPlayerEntity, ptr[0], ptr[1])) && PlayerCanBeMoved())) {
         gPlayerState.field_0x14 = 1;
         if (gPlayerEntity.z.HALF.HI == 0) {
             return TRUE;

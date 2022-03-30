@@ -165,7 +165,7 @@ Entity* sub_08081D74(Entity* this) {
 
 u32 sub_08081E0C(Entity* this) {
     Entity* tmp = &gPlayerEntity;
-    if (tmp->z.HALF.HI != 0 || !sub_08079F8C()) {
+    if (tmp->z.HALF.HI != 0 || !PlayerCanBeMoved()) {
         return 0;
     } else {
         return EntityInRectRadius(this, tmp, 5, 6);

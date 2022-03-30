@@ -20,7 +20,7 @@ enum PlayerActions {
     PLAYER_EMPTYBOTTLE,
     PLAYER_FROZEN,
     PLAYER_0807204C,
-    PLAYER_080720DC,
+    PLAYER_ROOM_EXIT,
     PLAYER_PULL,
     PLAYER_LAVA,
     PLAYER_WARP,
@@ -33,7 +33,7 @@ enum PlayerActions {
     PLAYER_080728AC,
     PLAYER_INHOLE,
     PLAYER_08072C9C,
-    PLAYER_08074C44,
+    PLAYER_SLEEP,
     PLAYER_CLIMB,
     PLAYER_USEENTRANCE,
     PLAYER_PARACHUTE,
@@ -77,7 +77,7 @@ enum PlayerSpawnType {
     PL_SPAWN_DROP,
     PL_SPAWN_WALKING,
     PL_SPAWN_STEP_IN,
-    PL_SPAWN_SPECIAL,
+    PL_SPAWN_SLEEPING,
     PL_SPAWN_DROP_MINISH,
     PL_SPAWN_STAIRS_ASCEND,
     PL_SPAWN_STAIRS_DESCEND,
@@ -337,8 +337,11 @@ void CreateEzloHint(u32, u32);
 u32 IsItemEquipped(u32);
 /** @see Item */
 u32 GetInventoryValue(u32);
+/** @see Item */
+void SetInventoryValue(u32, u32);
 s32 ModHealth(s32 delta);
 void ModRupees(s32 delta);
+void ModBombs(s32 delta);
 
 // playerUtils.c
 void DeleteClones(void);
@@ -375,6 +378,65 @@ u32 sub_08078F74(Entity*);
 void sub_0807879C(Entity*);
 void PlayerSetNormalAndCollide(void);
 bool32 PlayerTryDropObject(ItemBehavior* arg0, u32 unk);
+void InitItemGetSequence(u32, u32, u32);
+void sub_0807B7D8(u32, u32, u32);
+void sub_08078850(Entity*, u32, u32, void*);
+void sub_08079D84(void);
+u32 sub_0807953C(void);
+void sub_0807BB68(s16*, u32, u32);
+void sub_0807B9B8(u32, u32, u32);
+void sub_0807B7D8(u32, u32, u32);
+void RestorePrevTileEntity(u32, u32);
+void UpdateItemAnim(ItemBehavior*);
+void PlayerCancelHoldItem(ItemBehavior*, u32);
+void RegisterCarryEntity(Entity*);
+void FreeCarryEntity(Entity*);
+void PlayerDropHeldObject();
+void PlayerResetStateFromFusion();
+void DeletePlayerItem(ItemBehavior*, u32);
+void sub_08077D38(ItemBehavior*, u32);
+void sub_08077DF4(ItemBehavior*, u32);
+void sub_08077E3C(ItemBehavior*, u32);
+void sub_080751E8(u32, u32, void*);
+void sub_08077B98(ItemBehavior*);
+void sub_08077BB8(ItemBehavior*);
+Entity* sub_08077C0C(ItemBehavior*, u32);
+Entity* sub_08077C94(ItemBehavior*, u32);
+bool32 PlayerCanBeMoved(void);
+bool32 sub_08077EC8(ItemBehavior*);
+bool32 sub_08077EFC(ItemBehavior*);
+bool32 sub_08077F10(ItemBehavior*);
+bool32 sub_08077F24(ItemBehavior*, u32);
+bool32 sub_08077FEC(u32);
+void sub_08078180(void);
+void sub_080784C8();
+void sub_08078790(Entity*, u32);
+void sub_080787CC(Entity*);
+s32 sub_08078800(Entity*);
+s32 sub_0807887C(Entity*, u32, u32);
+void sub_080788E0(Entity*);
+s32 sub_08078904();
+void sub_08078AC0(u32, u32, u32);
+void sub_08078B48(void);
+void sub_08078E84(Entity*, Entity*);
+void sub_08078FB0(Entity*);
+void sub_080792BC(s32, u32, u32);
+u32 sub_0807953C(void);
+void sub_08079BD8(Entity*);
+u32 sub_08079D48();
+void sub_08079D84(void);
+u32 sub_08079FC4(u32);
+void sub_0807A050(void);
+void sub_0807A5B8(u32);
+void sub_0807A8D8(Entity*);
+void sub_0807AA80(Entity*);
+void sub_0807AABC(Entity*);
+void sub_0807ACCC(Entity*);
+u32 sub_0807B014();
+void sub_0807B0C8(void);
+bool32 sub_0807BD14(Entity*, u32);
+Entity* CreatePlayerItemWithParent(ItemBehavior*, u32);
+bool32 HasSwordEquipped();
 
 // player.s
 extern u32 PlayerCheckNEastTile();

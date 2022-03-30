@@ -218,7 +218,7 @@ void StartPlayerScript(u16* script) {
     gPlayerScriptExecutionContext.scriptInstructionPointer = script;
     player = &gPlayerEntity;
     *(ScriptExecutionContext**)&player->cutsceneBeh = &gPlayerScriptExecutionContext;
-    gPlayerState.queued_action = PLAYER_08074C44;
+    gPlayerState.queued_action = PLAYER_SLEEP;
     gPlayerState.field_0x3a = 0;
     gPlayerState.field_0x39 = 0;
     gPlayerState.field_0x38 = 0;

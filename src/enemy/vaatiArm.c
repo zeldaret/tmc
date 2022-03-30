@@ -29,71 +29,72 @@ typedef struct VaatiArm_HeapStruct {
     VaatiArm_HeapStruct1 s1[5];
 } VaatiArm_HeapStruct;
 
-u32 sub_080437DC(Entity*);
-u32 sub_08043C98(Entity*);
-void VaatiArm_OnTick(Entity*);
-void VaatiArm_OnCollision(Entity*);
-void sub_080425B4(Entity*);
-void sub_08042818(Entity*);
-void sub_08042870(Entity*);
-void sub_08042A3C(Entity*);
-void sub_08042C14(Entity*);
-void sub_0804325C(Entity*);
-void sub_08043420(Entity*);
-void sub_08043680(Entity*);
-void VaatiArm_OnGrabbed(Entity*);
-void sub_08042654(Entity*);
-void sub_0804259C(Entity*);
-void sub_08043A10(Entity*);
-void sub_08043ABC(Entity*);
-void sub_08043BC8(Entity*);
-void sub_08043EB8(Entity*);
-void sub_08044000(Entity*);
-void sub_08044078(Entity*);
-void sub_080440CC(Entity*);
-void sub_08043CD4(Entity*);
-void sub_08042894(Entity*);
-void sub_080428AC(Entity*);
-void sub_080428FC(Entity*);
-void sub_08042944(Entity*);
-void sub_08042970(Entity*);
-void sub_080429D4(Entity*);
-void sub_080429FC(Entity*);
-void sub_08043BF0(Entity*);
-void sub_08042A6C(Entity*);
-void sub_08042A88(Entity*);
-void sub_08042AEC(Entity*);
-void sub_08042B20(Entity*);
-void sub_08043C40(Entity*, VaatiArm_HeapStruct1*);
-void sub_08043A78(Entity*);
-void sub_08042C34(Entity*);
-void sub_08042D24(Entity*);
-void sub_08042D6C(Entity*);
-void sub_08042E30(Entity*);
-void sub_08042EF4(Entity*);
-void sub_08042FD8(Entity*);
-void sub_08043048(Entity*);
-void sub_080430D0(Entity*);
-void sub_08043130(Entity*);
-void sub_080431E8(Entity*);
-void sub_08043B9C(Entity*);
+static u32 sub_080437DC(Entity*);
+static u32 sub_08043C98(Entity*);
+static void VaatiArm_OnTick(Entity*);
+static void VaatiArm_OnCollision(Entity*);
+static void sub_080425B4(Entity*);
+static void sub_08042818(Entity*);
+static void sub_08042870(Entity*);
+static void sub_08042A3C(Entity*);
+static void sub_08042C14(Entity*);
+static void sub_0804325C(Entity*);
+static void sub_08043420(Entity*);
+static void sub_08043680(Entity*);
+static void VaatiArm_OnGrabbed(Entity*);
+static void sub_08042654(Entity*);
+static void sub_0804259C(Entity*);
+static void sub_08043A10(Entity*);
+static void sub_08043ABC(Entity*);
+static void sub_08043BC8(Entity*);
+static void sub_08043EB8(Entity*);
+static void sub_08044000(Entity*);
+static void sub_08044078(Entity*);
+static void sub_080440CC(Entity*);
+static void sub_08043CD4(Entity*);
+static void sub_08042894(Entity*);
+static void sub_080428AC(Entity*);
+static void sub_080428FC(Entity*);
+static void sub_08042944(Entity*);
+static void sub_08042970(Entity*);
+static void sub_080429D4(Entity*);
+static void sub_080429FC(Entity*);
+static void sub_08043BF0(Entity*);
+static void sub_08042A6C(Entity*);
+static void sub_08042A88(Entity*);
+static void sub_08042AEC(Entity*);
+static void sub_08042B20(Entity*);
+static void sub_08043C40(Entity*, VaatiArm_HeapStruct1*);
+static void sub_08043A78(Entity*);
+static void sub_08042C34(Entity*);
+static void sub_08042D24(Entity*);
+static void sub_08042D6C(Entity*);
+static void sub_08042E30(Entity*);
+static void sub_08042EF4(Entity*);
+static void sub_08042FD8(Entity*);
+static void sub_08043048(Entity*);
+static void sub_080430D0(Entity*);
+static void sub_08043130(Entity*);
+static void sub_080431E8(Entity*);
+static void sub_08043B9C(Entity*);
+static void sub_08043DB0(Entity*);
+static void sub_08043B7C(Entity*);
+static void sub_08043D08(Entity*);
+static void sub_080432A8(Entity*);
+static void sub_0804334C(Entity*);
+static void sub_08043440(Entity*);
+static void sub_08043490(Entity*);
+static void sub_08043520(Entity*);
+static void sub_0804355C(Entity*);
+static void sub_08043580(Entity*);
+static void sub_080435F4(Entity*);
+static void sub_08043698(Entity*);
+static void sub_080436C0(Entity*);
+static void sub_08043700(Entity*);
+static void sub_08043738(Entity*);
+static void sub_08043770(Entity*);
+
 void sub_0804AA1C(Entity*);
-void sub_08043DB0(Entity*);
-void sub_08043B7C(Entity*);
-void sub_08043D08(Entity*);
-void sub_080432A8(Entity*);
-void sub_0804334C(Entity*);
-void sub_08043440(Entity*);
-void sub_08043490(Entity*);
-void sub_08043520(Entity*);
-void sub_0804355C(Entity*);
-void sub_08043580(Entity*);
-void sub_080435F4(Entity*);
-void sub_08043698(Entity*);
-void sub_080436C0(Entity*);
-void sub_08043700(Entity*);
-void sub_08043738(Entity*);
-void sub_08043770(Entity*);
 
 void (*const VaatiArm_Functions[])(Entity*) = {
     VaatiArm_OnTick, VaatiArm_OnCollision, GenericKnockback, GenericDeath, GenericConfused, VaatiArm_OnGrabbed,
@@ -175,22 +176,22 @@ void VaatiArm(Entity* this) {
     VaatiArm_Functions[GetNextFunction(this)](this);
 }
 
-void VaatiArm_OnTick(Entity* this) {
+static void VaatiArm_OnTick(Entity* this) {
     gUnk_080D1248[this->type](this);
 }
 
-void VaatiArm_OnCollision(Entity* this) {
+static void VaatiArm_OnCollision(Entity* this) {
     EnemyFunctionHandlerAfterCollision(this, VaatiArm_Functions);
 }
 
-void VaatiArm_OnGrabbed(Entity* this) {
+static void VaatiArm_OnGrabbed(Entity* this) {
 }
 
-void sub_0804259C(Entity* this) {
+static void sub_0804259C(Entity* this) {
     gUnk_080D125C[this->action](this);
 }
 
-void sub_080425B4(Entity* this) {
+static void sub_080425B4(Entity* this) {
     if (sub_080437DC(this)) {
         this->field_0x7c.BYTES.byte0 = 0;
         this->field_0x7c.BYTES.byte1 = 0;
@@ -219,7 +220,7 @@ void sub_080425B4(Entity* this) {
     }
 }
 
-void sub_08042654(Entity* this) {
+static void sub_08042654(Entity* this) {
     u32 uVar8;
     int index;
     VaatiArm_HeapStruct1* ptr;
@@ -289,7 +290,7 @@ void sub_08042654(Entity* this) {
     sub_08043A10(this);
 }
 
-void sub_08042818(Entity* this) {
+static void sub_08042818(Entity* this) {
     VaatiArm_HeapStruct1* ptr;
 
     sub_08043CD4(this);
@@ -307,18 +308,18 @@ void sub_08042818(Entity* this) {
     sub_08043A10(this);
 }
 
-void sub_08042870(Entity* this) {
+static void sub_08042870(Entity* this) {
     sub_08043CD4(this);
     gUnk_080D1290[this->subAction](this);
     sub_08043A10(this);
 }
 
-void sub_08042894(Entity* this) {
+static void sub_08042894(Entity* this) {
     this->subAction = 1;
     ((VaatiArm_HeapStruct*)this->myHeap)->s1[0].unk08 = gUnk_080D12AC[this->type2];
 }
 
-void sub_080428AC(Entity* this) {
+static void sub_080428AC(Entity* this) {
     u8 bVar1;
     VaatiArm_HeapStruct1* pVVar3;
 
@@ -340,7 +341,7 @@ void sub_080428AC(Entity* this) {
     sub_08043BF0(this);
 }
 
-void sub_080428FC(Entity* this) {
+static void sub_080428FC(Entity* this) {
     u32 uVar2;
     VaatiArm_HeapStruct1* ptr;
 
@@ -357,7 +358,7 @@ void sub_080428FC(Entity* this) {
     }
 }
 
-void sub_08042944(Entity* this) {
+static void sub_08042944(Entity* this) {
     VaatiArm_HeapStruct1* pVVar1;
 
     pVVar1 = &((VaatiArm_HeapStruct*)this->myHeap)->s1[0];
@@ -370,7 +371,7 @@ void sub_08042944(Entity* this) {
     sub_08043BF0(this);
 }
 
-void sub_08042970(Entity* this) {
+static void sub_08042970(Entity* this) {
     u32 uVar2;
     VaatiArm_HeapStruct1* pVVar3;
 
@@ -390,7 +391,7 @@ void sub_08042970(Entity* this) {
     sub_08043BF0(this);
 }
 
-void sub_080429D4(Entity* this) {
+static void sub_080429D4(Entity* this) {
     s16 sVar2;
     VaatiArm_HeapStruct1* pVVar3;
 
@@ -402,7 +403,7 @@ void sub_080429D4(Entity* this) {
     }
 }
 
-void sub_080429FC(Entity* this) {
+static void sub_080429FC(Entity* this) {
     VaatiArm_HeapStruct1* pVVar1;
 
     pVVar1 = &((VaatiArm_HeapStruct*)this->myHeap)->s1[0];
@@ -415,7 +416,7 @@ void sub_080429FC(Entity* this) {
     }
 }
 
-void sub_08042A3C(Entity* this) {
+static void sub_08042A3C(Entity* this) {
     Entity* entity;
 
     gUnk_080D12B8[this->subAction](this);
@@ -424,14 +425,14 @@ void sub_08042A3C(Entity* this) {
     entity->z.HALF.HI += this->field_0x78.HALF.LO;
 }
 
-void sub_08042A6C(Entity* this) {
+static void sub_08042A6C(Entity* this) {
     this->subAction = 1;
     this->field_0x78.HALF.LO = 0;
     this->field_0x7c.BYTES.byte2 = 1;
     ((VaatiArm_HeapStruct*)this->myHeap)->s1[0].unk0a = 0x200;
 }
 
-void sub_08042A88(Entity* this) {
+static void sub_08042A88(Entity* this) {
     VaatiArm_HeapStruct1* pVVar4;
 
     pVVar4 = &((VaatiArm_HeapStruct*)this->myHeap)->s1[0];
@@ -452,7 +453,7 @@ void sub_08042A88(Entity* this) {
     }
 }
 
-void sub_08042AEC(Entity* this) {
+static void sub_08042AEC(Entity* this) {
     if (--this->timer == 0) {
         this->subAction = 3;
         this->timer = 4;
@@ -462,7 +463,7 @@ void sub_08042AEC(Entity* this) {
     }
 }
 
-void sub_08042B20(Entity* this) {
+static void sub_08042B20(Entity* this) {
     VaatiArm_HeapStruct1* ptr;
     Entity* object;
     Entity* entity;
@@ -510,12 +511,12 @@ void sub_08042B20(Entity* this) {
     }
 }
 
-void sub_08042C14(Entity* this) {
+static void sub_08042C14(Entity* this) {
     gUnk_080D12D0[this->subAction](this);
     sub_08043A78(this);
 }
 
-void sub_08042C34(Entity* this) {
+static void sub_08042C34(Entity* this) {
     u32 random;
     int y;
     u32 i;
@@ -572,7 +573,7 @@ void sub_08042C34(Entity* this) {
     }
 }
 
-void sub_08042D24(Entity* this) {
+static void sub_08042D24(Entity* this) {
     Entity* entity;
 
     if (--this->timer == 0) {
@@ -588,7 +589,7 @@ void sub_08042D24(Entity* this) {
     }
 }
 
-void sub_08042D6C(Entity* this) {
+static void sub_08042D6C(Entity* this) {
     Entity* object;
     Entity* entity;
     u32 i;
@@ -622,7 +623,7 @@ void sub_08042D6C(Entity* this) {
     }
 }
 
-void sub_08042E30(Entity* this) {
+static void sub_08042E30(Entity* this) {
     short sVar3;
     u32 uVar6;
     VaatiArm_HeapStruct1* pVVar9;
@@ -660,7 +661,7 @@ void sub_08042E30(Entity* this) {
     UpdateAnimationSingleFrame(this);
 }
 
-void sub_08042EF4(Entity* this) {
+static void sub_08042EF4(Entity* this) {
     VaatiArm_HeapStruct1* ptr;
     Entity* entity;
     u32 temp;
@@ -700,7 +701,7 @@ void sub_08042EF4(Entity* this) {
     }
 }
 
-void sub_08042FD8(Entity* this) {
+static void sub_08042FD8(Entity* this) {
     Entity* entity;
 
     UpdateAnimationSingleFrame(this);
@@ -727,7 +728,7 @@ void sub_08042FD8(Entity* this) {
     }
 }
 
-void sub_08043048(Entity* this) {
+static void sub_08043048(Entity* this) {
     VaatiArm_HeapStruct1* ptr;
     u32 i;
 
@@ -754,7 +755,7 @@ void sub_08043048(Entity* this) {
     }
 }
 
-void sub_080430D0(Entity* this) {
+static void sub_080430D0(Entity* this) {
     VaatiArm_HeapStruct1* ptr;
 
     if (sub_08043C98(this) == 0) {
@@ -775,7 +776,7 @@ void sub_080430D0(Entity* this) {
     }
 }
 
-void sub_08043130(Entity* this) {
+static void sub_08043130(Entity* this) {
     VaatiArm_HeapStruct1* ptr;
     Entity* entity;
     u32 i;
@@ -817,7 +818,7 @@ void sub_08043130(Entity* this) {
     }
 }
 
-void sub_080431E8(Entity* this) {
+static void sub_080431E8(Entity* this) {
     u32 i;
     VaatiArm_HeapStruct1* ptr;
 
@@ -838,7 +839,7 @@ void sub_080431E8(Entity* this) {
     }
 }
 
-void sub_0804325C(Entity* this) {
+static void sub_0804325C(Entity* this) {
     Entity* entity;
 
     sub_08043CD4(this);
@@ -855,9 +856,9 @@ void sub_0804325C(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/vaati/sub_080432A8.inc", void sub_080432A8(Entity* this))
+static ASM_FUNC("asm/non_matching/vaati/sub_080432A8.inc", void sub_080432A8(Entity* this))
 
-NONMATCH("asm/non_matching/vaati/sub_0804334C.inc", void sub_0804334C(Entity* this)) {
+    static NONMATCH("asm/non_matching/vaati/sub_0804334C.inc", void sub_0804334C(Entity* this)) {
     int bVar1;
     Entity* entity;
     VaatiArm_HeapStruct1* s;
@@ -904,12 +905,12 @@ NONMATCH("asm/non_matching/vaati/sub_0804334C.inc", void sub_0804334C(Entity* th
 }
 END_NONMATCH
 
-void sub_08043420(Entity* this) {
+static void sub_08043420(Entity* this) {
     gUnk_080D1320[this->subAction](this);
     sub_08043ABC(this);
 }
 
-void sub_08043440(Entity* this) {
+static void sub_08043440(Entity* this) {
     u32 i;
     int iVar4;
     u8* ptr;
@@ -942,7 +943,7 @@ void sub_08043440(Entity* this) {
     }
 }
 
-void sub_08043490(Entity* this) {
+static void sub_08043490(Entity* this) {
     Entity* entity;
     Entity* entity2;
     Entity* entity3;
@@ -970,7 +971,7 @@ void sub_08043490(Entity* this) {
     UpdateAnimationSingleFrame(this);
 }
 
-void sub_08043520(Entity* this) {
+static void sub_08043520(Entity* this) {
     Entity* entity;
 
     entity = ((VaatiArm_HeapStruct*)this->myHeap)->entities[4];
@@ -982,7 +983,7 @@ void sub_08043520(Entity* this) {
     }
 }
 
-void sub_0804355C(Entity* this) {
+static void sub_0804355C(Entity* this) {
     sub_08043DB0(this);
     if (--this->field_0x7a.HWORD == 0) {
         this->subAction = 4;
@@ -990,7 +991,7 @@ void sub_0804355C(Entity* this) {
     UpdateAnimationSingleFrame(this);
 }
 
-void sub_08043580(Entity* this) {
+static void sub_08043580(Entity* this) {
     Entity* entity;
     u32 i;
 
@@ -1013,7 +1014,7 @@ void sub_08043580(Entity* this) {
     }
 }
 
-void sub_080435F4(Entity* this) {
+static void sub_080435F4(Entity* this) {
     Entity* entity;
     u32 i;
     VaatiArm_HeapStruct1* ptr;
@@ -1038,11 +1039,11 @@ void sub_080435F4(Entity* this) {
     }
 }
 
-void sub_08043680(Entity* this) {
+static void sub_08043680(Entity* this) {
     gUnk_080D1348[this->subAction](this);
 }
 
-void sub_08043698(Entity* this) {
+static void sub_08043698(Entity* this) {
     Entity* entity;
     u32 i;
 
@@ -1067,19 +1068,19 @@ static inline void deleteThing(Entity* this, const u32 index) {
     }
 }
 
-void sub_080436C0(Entity* this) {
+static void sub_080436C0(Entity* this) {
     deleteThing(this, 1);
 }
 
-void sub_08043700(Entity* this) {
+static void sub_08043700(Entity* this) {
     deleteThing(this, 2);
 }
 
-void sub_08043738(Entity* this) {
+static void sub_08043738(Entity* this) {
     deleteThing(this, 3);
 }
 
-void sub_08043770(Entity* this) {
+static void sub_08043770(Entity* this) {
     Entity* entity;
 
     if (--this->timer == 0) {
@@ -1101,7 +1102,7 @@ void sub_08043770(Entity* this) {
     }
 }
 
-u32 sub_080437DC(Entity* this) {
+static u32 sub_080437DC(Entity* this) {
     u16 temp;
     VaatiArm_HeapStruct* heapStruct;
     Entity* entity;
@@ -1159,9 +1160,9 @@ u32 sub_080437DC(Entity* this) {
     return 1;
 }
 
-ASM_FUNC("asm/non_matching/vaati/sub_0804393C.inc", void sub_0804393C(Entity* this))
+static ASM_FUNC("asm/non_matching/vaati/sub_0804393C.inc", void sub_0804393C(Entity* this))
 
-void sub_08043A10(Entity* this) {
+    static void sub_08043A10(Entity* this) {
     sub_08043B7C(this);
     sub_0804393C(((VaatiArm_HeapStruct*)this->myHeap)->entities[4]);
     ((VaatiArm_HeapStruct*)this->myHeap)->entities[4]->y.HALF.HI -= 8;
@@ -1177,7 +1178,7 @@ void sub_08043A10(Entity* this) {
     }
 }
 
-void sub_08043A78(Entity* this) {
+static void sub_08043A78(Entity* this) {
     this->field_0x7c.BYTES.byte0 = 0;
     sub_08043B7C(this);
     sub_0804393C(((VaatiArm_HeapStruct*)this->myHeap)->entities[2]);
@@ -1187,7 +1188,7 @@ void sub_08043A78(Entity* this) {
     ((VaatiArm_HeapStruct*)this->myHeap)->entities[0]->spriteOffsetY--;
 }
 
-void sub_08043ABC(Entity* this) {
+static void sub_08043ABC(Entity* this) {
     this->field_0x7c.BYTES.byte0 = 0;
     sub_08043B7C(this);
     sub_0804393C(((VaatiArm_HeapStruct*)this->myHeap)->entities[3]);
@@ -1198,22 +1199,22 @@ void sub_08043ABC(Entity* this) {
     ((VaatiArm_HeapStruct*)this->myHeap)->entities[0]->spriteOffsetY--;
 }
 
-ASM_FUNC("asm/non_matching/vaati/sub_08043B08.inc", void sub_08043B08(Entity* this))
+static ASM_FUNC("asm/non_matching/vaati/sub_08043B08.inc", void sub_08043B08(Entity* this))
 
-void sub_08043B7C(Entity* this) {
+    static void sub_08043B7C(Entity* this) {
     sub_08043B08(((VaatiArm_HeapStruct*)this->myHeap)->entities[1]);
     sub_08043B08(((VaatiArm_HeapStruct*)this->myHeap)->entities[2]);
     sub_08043B08(((VaatiArm_HeapStruct*)this->myHeap)->entities[3]);
 }
 
-void sub_08043B9C(Entity* this) {
+static void sub_08043B9C(Entity* this) {
     u32 index = ((((VaatiArm_HeapStruct*)this->myHeap)->s1[0].unk00.HALF.HI + 4) & 0xff) >> 3;
     if (gUnk_080D13B7[index] != this->frameIndex - 1) {
         InitAnimationForceUpdate(this, gUnk_080D13B7[index]);
     }
 }
 
-void sub_08043BC8(Entity* this) {
+static void sub_08043BC8(Entity* this) {
     VaatiArm_HeapStruct1* pVVar2;
     const Coords* ptr;
 
@@ -1226,7 +1227,7 @@ void sub_08043BC8(Entity* this) {
     pVVar2->unk0e = 0x28;
 }
 
-void sub_08043BF0(Entity* this) {
+static void sub_08043BF0(Entity* this) {
     u8 bVar1;
     u32 uVar2;
     VaatiArm_HeapStruct1* ptr;
@@ -1250,7 +1251,7 @@ void sub_08043BF0(Entity* this) {
     }
 }
 
-void sub_08043C40(Entity* this, VaatiArm_HeapStruct1* heapStruct) {
+static void sub_08043C40(Entity* this, VaatiArm_HeapStruct1* heapStruct) {
     u8* iVar3;
     int offset;
     const u8* puVar6;
@@ -1281,7 +1282,7 @@ void sub_08043C40(Entity* this, VaatiArm_HeapStruct1* heapStruct) {
     }
 }
 
-u32 sub_08043C98(Entity* this) {
+static u32 sub_08043C98(Entity* this) {
 #if defined EU || defined JP
     Entity* e1 = ((VaatiArm_HeapStruct*)this->myHeap)->entities[3];
     if ((e1->contactFlags == 0x9d)) {
@@ -1303,7 +1304,7 @@ u32 sub_08043C98(Entity* this) {
 #endif
 }
 
-void sub_08043CD4(Entity* this) {
+static void sub_08043CD4(Entity* this) {
     u32 i;
     for (i = 0; i < 5; i++) {
         if (((VaatiArm_HeapStruct*)this->myHeap)->entities[i]->contactFlags == 0x9d) {
@@ -1314,7 +1315,7 @@ void sub_08043CD4(Entity* this) {
     }
 }
 
-void sub_08043D08(Entity* this) {
+static void sub_08043D08(Entity* this) {
     Entity* entity;
     Entity* fx;
     u32 i;
@@ -1341,7 +1342,7 @@ void sub_08043D08(Entity* this) {
     EnqueueSFX(SFX_HIT);
 }
 
-void sub_08043DB0(Entity* this) {
+static void sub_08043DB0(Entity* this) {
     s32 cVar1;
     Entity* pEVar2;
     Entity* pEVar3;
@@ -1381,7 +1382,7 @@ void sub_08043DB0(Entity* this) {
     }
 }
 
-void sub_08043EB8(Entity* this) {
+static void sub_08043EB8(Entity* this) {
     u32 i;
     Entity* pEVar4;
     VaatiArm_HeapStruct1* ptr;
@@ -1421,7 +1422,8 @@ void sub_08043EB8(Entity* this) {
         ptr->unk0c = gUnk_080D1419[i];
     }
 }
-NONMATCH("asm/non_matching/vaati/sub_08044000.inc", void sub_08044000(Entity* this)) {
+
+static NONMATCH("asm/non_matching/vaati/sub_08044000.inc", void sub_08044000(Entity* this)) {
     Entity* entity;
     u32 i;
     VaatiArm_HeapStruct1* ptr;
@@ -1442,7 +1444,7 @@ NONMATCH("asm/non_matching/vaati/sub_08044000.inc", void sub_08044000(Entity* th
 }
 END_NONMATCH
 
-void sub_08044078(Entity* this) {
+static void sub_08044078(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
         if (this->type != 3 ||
@@ -1456,7 +1458,7 @@ void sub_08044078(Entity* this) {
     GetNextFrame(this);
 }
 
-void sub_080440CC(Entity* this) {
+static void sub_080440CC(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
         if ((gRoomTransition.field_0x38 & 1) != 0 &&

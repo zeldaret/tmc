@@ -3,6 +3,7 @@
 #include "projectile.h"
 #include "room.h"
 #include "functions.h"
+#include "object.h"
 
 typedef struct {
     Entity base;
@@ -48,7 +49,7 @@ void sub_0809E360(Object98Entity* this) {
         SetDefaultPriority(super, 0);
         if (super->type != 0) {
             super->child = (Entity*)GetCurrentRoomProperty(super->type);
-            sub_080A2CC0(super, (u16**)&super->child, &this->unk74);
+            UpdateRailMovement(super, (u16**)&super->child, &this->unk74);
         }
     }
 }
@@ -62,7 +63,7 @@ void sub_0809E3E4(Object98Entity* this) {
         }
 
         if (--this->unk74 == 0) {
-            sub_080A2CC0(super, (u16**)&super->child, &this->unk74);
+            UpdateRailMovement(super, (u16**)&super->child, &this->unk74);
         }
     }
 }

@@ -7,8 +7,9 @@
 
 #include "global.h"
 #include "entity.h"
-#include "functions.h"
 #include "enemy.h"
+#include "physics.h"
+#include "player.h"
 
 extern void (*const gUnk_080012C8[])(Entity*);
 extern void (*const RopeGolden_Functions[6])(Entity*);

@@ -57,7 +57,7 @@ void BigPushableLever_Idle(BigPushableLeverEntity* this) {
         SetTile(this->tileIndexLower, this->tilePositionLower, super->collisionLayer);
         EnqueueSFX(SFX_132);
         RequestPriorityDuration(super, 0x1e);
-        if (sub_08079F8C()) {
+        if (PlayerCanBeMoved()) {
             gPlayerState.pushedObject = 0x98;
             gPlayerState.queued_action = 5;
             gPlayerState.flags |= PL_BUSY;
