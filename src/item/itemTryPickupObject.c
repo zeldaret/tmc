@@ -7,7 +7,7 @@ extern void (*const gUnk_0811BDB4[])(ItemBehavior*, u32);
 u32 sub_08077F64(ItemBehavior* arg0, u32 idx);
 
 u32 sub_080789A8(void);
-void sub_080762C4(ItemBehavior*, void*, u8, u32);
+void sub_080762C4(ItemBehavior*, Entity*, u8, u32);
 void sub_08076088(ItemBehavior*, void*, u32);
 
 void ItemTryPickupObject(ItemBehavior* this, u32 idx) {
@@ -61,7 +61,7 @@ void ItemPickupCheck(ItemBehavior* this, u32 idx) {
     }
 }
 
-void sub_080762C4(ItemBehavior* this, void* arg1, u8 arg2, u32 arg3) {
+void sub_080762C4(ItemBehavior* this, Entity* arg1, u8 arg2, u32 arg3) {
     this->field_0x18 = arg1;
     gPlayerState.heldObject = arg2;
     sub_08077D38(this, arg3);

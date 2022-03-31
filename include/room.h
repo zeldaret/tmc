@@ -52,6 +52,7 @@ typedef struct {
     /*0x28*/ union SplitWord bg3OffsetX;
     /*0x2C*/ union SplitWord bg3OffsetY;
     /*0x30*/ Entity* camera_target;
+    /*0x34*/ u32 unk_34;
 } RoomControls;
 extern RoomControls gRoomControls;
 
@@ -69,7 +70,7 @@ typedef struct {
     /* 0x0a */ u8 unk2;
     /* 0x0b */ u8 filler2;
     /* 0x0c */ s16 lightLevel;
-    /* 0x0e */ u8 filler3[2];
+    /* 0x0e */ u16 unk_0e;
     /* 0x10 */ u8 unk_10[4];
     /* 0x14 */ u32 flags;
     /* 0x18 */ u32 unk3;

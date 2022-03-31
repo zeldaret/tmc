@@ -81,7 +81,7 @@ typedef struct {
     /*0x0A*/ u16 fadeInTime;
     /*0x0C*/ u8 fillerC[0x10];
     /*0x1c*/ RoomControls unk_1c;
-    /*0x2e*/ u8 unk_2e[0x364];
+    /*0x2e+4*/ u8 unk_2e[0x360];
 } UI;
 static_assert(sizeof(UI) == 0x3b4);
 

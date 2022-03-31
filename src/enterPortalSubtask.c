@@ -9,19 +9,9 @@
 #include "game.h"
 #include "fileselect.h"
 
-typedef struct {
-    u8 filler[18];
-    Entity* unk_14;
-    u8 unk_18;
-    u8 unk_19;
-    u8 unk_1a;
-    u8 unk_1b;
-} struct_02018EB0;
-
 extern void ClearArmosData(void);
 extern void sub_080300C4(void);
 
-extern struct_02018EB0 gUnk_02018EB0;
 extern u16 gUnk_020178E0[];
 extern u8 gUnk_02017700[];
 

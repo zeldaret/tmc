@@ -47,8 +47,6 @@ u32 sub_080A6D74(u32);
 extern const ScreenTransitionData gUnk_08128024[];
 void sub_080A71F4(ScreenTransitionData*);
 
-extern u8 gUnk_02018EB0[];
-
 extern void DeleteAllEntities(void);
 extern void sub_0805E974(void);
 
@@ -314,8 +312,8 @@ void MenuFadeIn(u32 param_1, u32 param_2) {
     gUI.fadeInTime = 0x20;
     gMain.substate = GAMEMAIN_SUBTASK;
     SetFade(5, 0x20);
-    gUnk_02018EB0[0] = 0;
-    gUnk_02018EB0[1] = 0;
+    gUnk_02018EB0.unk_0 = 0;
+    gUnk_02018EB0.unk_1 = 0;
 }
 
 void sub_080A71A4(u32 param_1, u32 param_2, u32 param_3) {

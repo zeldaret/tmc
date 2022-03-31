@@ -78,7 +78,7 @@ void PushableGrave_Init(PushableGraveEntity* this) {
             super->hitbox = (Hitbox*)&gUnk_080FD570;
             SetTile(tileIndex, tilePosition, super->collisionLayer);
             if (super->type2 == 2) {
-                SetMultipleTiles((u16*)gUnk_081232C0, tilePosition, super->collisionLayer);
+                SetMultipleTiles((TileData*)gUnk_081232C0, tilePosition, super->collisionLayer);
             }
         }
     }
@@ -200,6 +200,8 @@ bool32 sub_0809798C(PushableGraveEntity* this) {
 void (*const gUnk_081232AC[])(PushableGraveEntity*) = {
     PushableGrave_Init, PushableGrave_Action1, PushableGrave_Action2, PushableGrave_Action3, PushableGrave_Action4,
 };
+
+// TODO recreate as TileData[]
 const u8 gUnk_081232C0[] = {
     61,  64, 191, 255, 61, 64, 192, 255, 61, 64, 193, 255, 61, 64,  255,
     255, 61, 64,  1,   0,  61, 64,  63,  0,  61, 64,  65,  0,  255, 255,

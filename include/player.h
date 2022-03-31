@@ -269,8 +269,7 @@ typedef struct {
     /*0x3a*/ u8 field_0x3a;
     /*0x3b*/ u8 field_0x3b;
     /*0x3c*/ u8 field_0x3c[2];
-    /*0x3e*/ u8 swordGoldParticle : 1;
-    /*    */ u8 swordBlueParticle : 1;
+    /*0x3e*/ u8 swordDamage : 2;
     /*    */ u8 filler14 : 6;
     /*0x3f*/ u8 field_0x3f;
     /*0x40*/ u8 path_memory[64];

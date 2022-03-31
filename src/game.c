@@ -102,14 +102,14 @@ extern bool32 CheckInitPortal(void);
 extern void UpdateCarriedObject(void);
 extern void DrawUI(void);
 extern void CollisionMain(void);
-extern void sub_0805BB74(u32);
+extern void sub_0805BB74(s32);
 extern void CreateZeldaFollower(void);
 extern void LoadRoomGfx(void);
 extern void RecycleEntities(void);
 extern void sub_0804AF90(void);
 extern void CallRoomProp6(void);
 extern void UpdateScroll(void);
-extern void UpdateBgAnim(void);
+extern void UpdateBgAnimations(void);
 extern void CleanUpGFXSlots(void);
 extern void sub_080ADE24(void);
 extern void InitUI(bool32);
@@ -246,7 +246,7 @@ extern void (*const gUnk_080FD138[])(void);
 
 extern const u16 gUnk_080FD964[];
 
-extern void sub_0801B170(void);
+extern void ClearBgAnimations(void);
 
 void GameTask(void) {
     static GameState* const sStates[] = {
@@ -344,7 +344,7 @@ static void GameMain_ChangeRoom(void) {
     UpdateEntities();
     if (!UpdateLightLevel())
         UpdateScroll();
-    UpdateBgAnim();
+    UpdateBgAnimations();
     UpdateScrollVram();
     DrawUI();
     UpdateManagers();
@@ -421,7 +421,7 @@ static void GameMain_Update(void) {
     UpdateDoorTransition();
     CollisionMain();
     UpdateScroll();
-    UpdateBgAnim();
+    UpdateBgAnimations();
     UpdateScrollVram();
     sub_08052C3C();
     DrawUI();
@@ -508,7 +508,7 @@ static void InitializeEntities(void) {
     CallRoomProp5And7();
     sub_0805329C();
     UpdateScrollVram();
-    sub_0805BB74(0xffffffff);
+    sub_0805BB74(-1);
     UpdatePlayerRoomStatus();
 }
 
@@ -608,7 +608,7 @@ static void AuxCutscene_Main(void) {
     DrawEntities();
     CopyOAM();
     UpdateScroll();
-    UpdateBgAnim();
+    UpdateBgAnimations();
     UpdateManagers();
     UpdateScrollVram();
 }
@@ -1878,7 +1878,7 @@ void sub_08053758(void) {
     gRoomControls.camera_target = NULL;
     gRoomControls.scroll_y = 0;
     gRoomControls.scroll_x = 0;
-    sub_0801B170();
+    ClearBgAnimations();
     DispReset(0);
     gScreen.lcd.displayControl = 0x2640;
     gScreen.controls.layerFXControl = 0x2244;
@@ -2601,7 +2601,7 @@ void sub_080548E8(void) {
     DrawEntities();
     CopyOAM();
     UpdateScroll();
-    UpdateBgAnim();
+    UpdateBgAnimations();
     UpdateScrollVram();
 }
 

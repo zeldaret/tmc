@@ -217,31 +217,31 @@ u32 sub_0806F824(Entity* a, Entity* b, s32 x, s32 y) {
     return CalculateDirectionTo(a->x.HALF.HI, a->y.HALF.HI, b->x.HALF.HI + x, b->y.HALF.HI + y);
 }
 
-u32 sub_0806F854(Entity* ent, s32 x, s32 y) {
+bool32 sub_0806F854(Entity* ent, s32 x, s32 y) {
     if (ent->z.WORD == 0 || (ent->collisionLayer & 2))
-        return 0;
+        return FALSE;
     if (!sub_080B1BA4(TILE(ent->x.HALF.HI + x, ent->y.HALF.HI + y), 2, 8)) {
         ent->spriteRendering.b3 = 1;
         ent->spriteOrientation.flipY = 1;
-        return 0;
+        return FALSE;
     }
     ent->spriteRendering.b3 = 2;
     ent->spriteOrientation.flipY = 2;
-    return 1;
+    return TRUE;
 }
 
-u32 sub_0806F8DC(Entity* ent) {
+bool32 sub_0806F8DC(Entity* ent) {
     if (ent->collisionLayer & 2)
-        return 0;
+        return FALSE;
     if (!GetTileTypeByPos(ent->x.HALF.HI, ent->y.HALF.HI - 4, 2)) {
         GetTileTypeByPos(ent->x.HALF.HI, ent->y.HALF.HI - 4, ent->collisionLayer);
         ent->spriteRendering.b3 = 1;
         ent->spriteOrientation.flipY = 1;
-        return 0;
+        return FALSE;
     }
     ent->spriteRendering.b3 = 2;
     ent->spriteOrientation.flipY = 2;
-    return 1;
+    return TRUE;
 }
 
 u32 sub_0806F948(Entity* ent) {

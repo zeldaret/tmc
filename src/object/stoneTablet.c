@@ -15,6 +15,7 @@ void StoneTablet(Entity* this) {
 }
 
 void sub_080979CC(Entity* this) {
+    // TODO recreate as TileData[]
     static const u16 gUnk_081232EC[] = { 0x4022, 0xfffe, 0x4022, 0xffff, 0x4022, 0x0, 0x4022, 0x1, 0xffff };
     static const u16 gUnk_081232FE[] = { 0x4065, 0xffbf, 0x4022, 0xffc0, 0x4066, 0xffc1, 0x4029,
                                          0xffff, 0x4026, 0x0,    0x402a, 0x1,    0xffff };
@@ -22,10 +23,10 @@ void sub_080979CC(Entity* this) {
     this->spriteSettings.draw = 1;
     if (this->type == 3) {
         this->frameIndex = 0;
-        SetMultipleTiles((u16*)gUnk_081232FE, COORD_TO_TILE(this), this->collisionLayer);
+        SetMultipleTiles((TileData*)gUnk_081232FE, COORD_TO_TILE(this), this->collisionLayer);
     } else {
         this->frameIndex = this->type;
-        SetMultipleTiles((u16*)gUnk_081232EC, COORD_TO_TILE(this), this->collisionLayer);
+        SetMultipleTiles((TileData*)gUnk_081232EC, COORD_TO_TILE(this), this->collisionLayer);
     }
 }
 

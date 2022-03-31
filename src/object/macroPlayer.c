@@ -11,7 +11,6 @@ typedef struct {
     u16 unk6a;
 } MacroPlayerEntity;
 
-extern u8 gUnk_02018EB0[];
 extern int sub_0807A094(int);
 
 void MacroPlayer_Type0(MacroPlayerEntity*);
@@ -112,8 +111,7 @@ void MacroPlayer_Type0_Init(MacroPlayerEntity* this) {
     this->unk6a = 4;
     super->spriteRendering.b0 = 3;
     SetAffineInfo(super, 4, 4, 0);
-    ptr = gUnk_02018EB0;
-    *(Entity**)&ptr[0x14] = super;
+    gUnk_02018EB0.unk_14 = super;
     ChangeObjPalette(super, sub_0807A094(0));
     pEVar1 = CreateObject(PORTAL_FALLING_PLAYER, 1, 0);
     if (pEVar1 != NULL) {
@@ -139,7 +137,7 @@ void MacroPlayer_Type0_Action1(MacroPlayerEntity* this) {
         super->zVelocity = 0x30000;
         super->spriteSettings.shadow = 0;
         super->child->subAction = 1;
-        gUnk_02018EB0[0x18] = 1;
+        gUnk_02018EB0.unk_18 = 1;
     }
 }
 
@@ -153,7 +151,7 @@ void MacroPlayer_Type0_Action2(MacroPlayerEntity* this) {
         super->direction = 10;
         super->speed = 0xc0;
         super->zVelocity = 0x28000;
-        gUnk_02018EB0[0x19] = 1;
+        gUnk_02018EB0.unk_19 = 1;
     }
 }
 
@@ -167,7 +165,7 @@ void MacroPlayer_Type0_Action3(MacroPlayerEntity* this) {
         super->direction = 17;
         super->speed = 0x100;
         super->zVelocity = 0x24000;
-        gUnk_02018EB0[0x1a] = 1;
+        gUnk_02018EB0.unk_1a = 1;
     }
 }
 
@@ -216,7 +214,7 @@ void MacroPlayer_Type0_Action7(MacroPlayerEntity* this) {
         super->direction = DirectionWest;
     }
     if (super->x.HALF.HI < 0x30) {
-        gUnk_02018EB0[0x1b] = 1;
+        gUnk_02018EB0.unk_1b = 1;
     }
 }
 
@@ -227,7 +225,7 @@ void MacroPlayer_Type0_Action8(MacroPlayerEntity* this) {
         super->direction = DirectionEast;
     }
     if (super->x.HALF.HI > 0xd0) {
-        gUnk_02018EB0[0x1b] = 1;
+        gUnk_02018EB0.unk_1b = 1;
     }
 }
 
@@ -235,7 +233,7 @@ void MacroPlayer_Type0_Action9(MacroPlayerEntity* this) {
     UpdateAnimationSingleFrame(super);
     LinearMoveUpdate(super);
     if (super->y.HALF.HI > 0x120) {
-        gUnk_02018EB0[0x1b] = 1;
+        gUnk_02018EB0.unk_1b = 1;
     }
 }
 
@@ -246,6 +244,6 @@ void MacroPlayer_Type0_Action10(MacroPlayerEntity* this) {
         super->direction = DirectionWest;
     }
     if (super->x.HALF.HI < 0x10) {
-        gUnk_02018EB0[0x1b] = 1;
+        gUnk_02018EB0.unk_1b = 1;
     }
 }
