@@ -64,36 +64,36 @@ void sub_08064B88(Entity* this) {
     s32 temp2;
 
     switch (this->interactType) {
-    case 0:
-        temp = sub_0806EE20(this);
-        this->animationState = this->knockbackDirection;
-        if (temp != 0) {
-            InitializeAnimation(this, temp & 0x7f);
-        }
-        GetNextFrame(this);
-        break;
-    case 2:
-        this->action = 3;
-        temp2 = GetAnimationState(this);
-        if (temp2 < 0) {
-            temp2 = this->animationState;
-        }
-        this->subtimer = this->animIndex;
-        InitializeAnimation(this, temp2);
-        this->interactType = 0;
-        sub_0806F118(this);
-        break;
-    case 1:
-    default:
-        this->action = 2;
-        temp2 = GetAnimationState(this);
-        if (temp2 < 0) {
-            temp2 = this->animationState;
-        }
-        this->subtimer = this->animIndex;
-        InitializeAnimation(this, temp2);
-        this->interactType = 0;
-        sub_08064CD8(this);
+        case 0:
+            temp = sub_0806EE20(this);
+            this->animationState = this->knockbackDirection;
+            if (temp != 0) {
+                InitializeAnimation(this, temp & 0x7f);
+            }
+            GetNextFrame(this);
+            break;
+        case 2:
+            this->action = 3;
+            temp2 = GetAnimationState(this);
+            if (temp2 < 0) {
+                temp2 = this->animationState;
+            }
+            this->subtimer = this->animIndex;
+            InitializeAnimation(this, temp2);
+            this->interactType = 0;
+            sub_0806F118(this);
+            break;
+        case 1:
+        default:
+            this->action = 2;
+            temp2 = GetAnimationState(this);
+            if (temp2 < 0) {
+                temp2 = this->animationState;
+            }
+            this->subtimer = this->animIndex;
+            InitializeAnimation(this, temp2);
+            this->interactType = 0;
+            sub_08064CD8(this);
     }
 }
 
