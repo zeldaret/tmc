@@ -101,6 +101,51 @@ void sub_08066474(void) {
 
 ASM_FUNC("asm/non_matching/npc23/sub_08066490.inc", void sub_08066490(Entity* this, Entity* entity))
 
-ASM_FUNC("asm/non_matching/npc23/sub_0806650C.inc", bool32 sub_0806650C(Entity* this))
+// px needs to be used in both r5 and r7
+NONMATCH("asm/non_matching/npc23/sub_0806650C.inc", bool32 sub_0806650C(Entity* this)) {
+    u32 dir = 0;
+    s32 px = gPlayerEntity.x.HALF_U.HI;
+    s32 py = gPlayerEntity.y.HALF_U.HI;
 
-ASM_FUNC("asm/non_matching/npc23/sub_08066570.inc", void sub_08066570(Entity* this))
+    if (py < this->field_0x80.HWORD + 16) {
+        dir = 4;
+    } else {
+        if (px < this->field_0x7c.HALF_U.HI + 2) {
+            dir = 2;
+        }
+        if (px > this->field_0x7c.HALF_U.HI + 6) {
+            dir = 6;
+        }
+        if (dir == 0) {
+            gPlayerEntity.speed = 0;
+        }
+    }
+
+    if (gPlayerEntity.action != PLAYER_ROOM_EXIT) {
+        if (dir == 0) {
+            return 0;
+        }
+        sub_08078AC0(8, 0, 0);
+        gPlayerEntity.animationState = dir;
+        gPlayerEntity.direction = Direction8FromAnimationState(dir);
+    }
+    return 1;
+}
+END_NONMATCH
+
+NONMATCH("asm/non_matching/npc23/sub_08066570.inc", void sub_08066570(Entity* this)) {
+    if (this->frame & ANIM_DONE) {
+        return;
+    }
+
+    if (this->action == 3 && sub_0806FC80(this, &gPlayerEntity, 0x50)) {
+        u32 direction = GetFacingDirection(this, &gPlayerEntity);
+        bool32 cond = (this->direction & 0x18) == (direction & 0x18) && ((this->direction + 5) & 7) < 3 &&
+                      ((direction + 5) & 7) < 3;
+        if (!cond) {
+            this->direction = direction;
+            InitializeAnimation(this, ((u32)(this->direction + 4) & 0x18) >> 3);
+        }
+    }
+}
+END_NONMATCH
