@@ -9,6 +9,8 @@ extern void sub_080604DC(Entity*);
 extern void sub_080606D8(Entity*);
 extern void sub_080606C0(Entity*);
 
+extern const s8 gUnk_0810AA70[];
+
 typedef struct {
     s16 x;
     s16 y;
@@ -192,9 +194,81 @@ void sub_0806075C(Entity* this) {
     this->field_0x68.HALF.HI = 0xff;
 }
 
-ASM_FUNC("asm/non_matching/postman/sub_0806076C.inc", void sub_0806076C(Entity* this, ScriptExecutionContext* context))
+NONMATCH("asm/non_matching/postman/sub_0806076C.inc",
+         void sub_0806076C(Entity* this, ScriptExecutionContext* context)) {
+    s8* p;
+    u32 tmp, size;
+    int i;
 
-ASM_FUNC("asm/non_matching/postman/sub_080608E4.inc", void sub_080608E4(Entity* this, ScriptExecutionContext* context))
+    if (this->z.WORD < 0) {
+        gActiveScriptInfo.commandSize = 0;
+        return;
+    }
+
+    this->field_0x68.HALF.HI++;
+    this->collisionLayer = 1;
+    sub_080606C0(this);
+    p = &gUnk_0810A918[this->field_0x68.HALF.LO][this->field_0x68.HALF.HI];
+    do {
+        switch (p[0] + 5) {
+            case 5:
+                this->field_0x68.HALF.LO = p[(s32)Random() % p[1] + 2];
+                this->field_0x68.HALF.HI = 0;
+                return;
+            case 4:
+                this->field_0x6a.HWORD = 300;
+                break;
+            case 3:
+                this->collisionLayer = 1;
+                break;
+            case 2:
+                this->collisionLayer = 2;
+                break;
+            case 1:
+                context->wait = 30;
+                this->spriteSettings.draw = 0;
+                break;
+            case 0:
+                size = p[1];
+                tmp = Random() % size;
+                for (i = 0; i < size; ++i) {
+                    this->field_0x68.HALF.HI = p[i + 2];
+                    this->x.HALF.HI =
+                        gUnk_0810A66C[gUnk_0810A918[this->field_0x68.HALF.LO][0]].x + gRoomControls.origin_x;
+                    this->y.HALF.HI =
+                        gUnk_0810A66C[gUnk_0810A918[this->field_0x68.HALF.LO][0]].y + gRoomControls.origin_y;
+                    if (!CheckOnScreen(this)) {
+                        break;
+                    }
+                    tmp = (tmp + 1) % size;
+                }
+                this->field_0x68.HALF.LO = 0;
+                return;
+            default:
+                return;
+        }
+        this->field_0x68.HALF.LO++;
+        p++;
+    } while (1);
+}
+END_NONMATCH
+
+NONMATCH("asm/non_matching/postman/sub_080608E4.inc",
+         void sub_080608E4(Entity* this, ScriptExecutionContext* context)) {
+    context->condition = 0;
+    if (this->z.WORD >= 0) {
+        if ((this->collisionLayer != 1 || gPlayerEntity.collisionLayer != 2) &&
+            (this->collisionLayer != 2 || gPlayerEntity.collisionLayer != 1)) {
+            const s8* ptr = &gUnk_0810AA70[context->intVariable * 16 + (this->animationState >> 1) * 4];
+            if (ptr[0] + gPlayerEntity.x.HALF.HI + ptr[2] - this->x.HALF.HI < ptr[2] * 2 &&
+                ptr[1] + gPlayerEntity.y.HALF.HI + ptr[3] - this->y.HALF.HI < ptr[3] * 2) {
+                context->condition = 1;
+                this->field_0x6a.HWORD += 2;
+            }
+        }
+    }
+}
+END_NONMATCH
 
 void Postman_Fusion(Entity* this) {
     if (this->action == 0) {
