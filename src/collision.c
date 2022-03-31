@@ -370,8 +370,8 @@ s32 sub_08017B1C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 s32 sub_08017B58(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
     if ((tgt->gustJarState & 4) != 0) {
         if (tgt->gustJarTolerance) {
-            s32 x = tgt->gustJarTolerance = tgt->gustJarTolerance - gPlayerState.gustJarSpeed;
-            if (x << 24 <= 0) {
+            tgt->gustJarTolerance = tgt->gustJarTolerance - gPlayerState.gustJarSpeed;
+            if ((s8)tgt->gustJarTolerance <= 0) {
                 tgt->gustJarTolerance = 0;
                 tgt->subAction = 2;
                 tgt->knockbackSpeed = 0;
@@ -379,7 +379,7 @@ s32 sub_08017B58(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
         }
     } else {
         tgt->subAction = 0;
-        tgt->gustJarState |= 4u;
+        tgt->gustJarState |= 4;
     }
     if (tgt->iframes == 0)
         tgt->iframes = -1;
@@ -387,12 +387,12 @@ s32 sub_08017B58(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 }
 
 s32 sub_08017BBC(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
-    if ((gPlayerState.flags & (PL_BUSY | PL_MINISH | PL_BURNING | 0x1000)) == 0) {
+    if ((gPlayerState.flags & (PL_BUSY | PL_MINISH | PL_BURNING | PL_IN_MINECART)) == 0) {
         Entity* e = CreateObject(OBJECT_42, 1, 0);
         if (e != NULL) {
             e->child = org;
             gPlayerState.flags |= PL_BURNING;
-            org->animationState = (direction ^ 0x10) >> 2;
+            org->animationState = Direction8ToAnimationState(DirectionTurnAround(direction));
         }
     }
     tgt->damage = 4;
@@ -406,7 +406,8 @@ s32 sub_08017BBC(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 }
 
 s32 sub_08017C40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
-    if ((gPlayerState.flags & (PL_BUSY | PL_MINISH | PL_FROZEN | 0x1000)) == 0 && gPlayerState.queued_action == 0) {
+    if ((gPlayerState.flags & (PL_BUSY | PL_MINISH | PL_FROZEN | PL_IN_MINECART)) == 0 &&
+        gPlayerState.queued_action == 0) {
         if (org->action == 1 || org->action == 24) {
             tgt->damage = 4;
             org->health = sub_08017874(org, tgt);
@@ -423,8 +424,8 @@ s32 sub_08017C40(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 }
 
 s32 sub_08017CBC(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
-    direction = ((direction ^ 0x10) - 0xc) & 0x1f;
-    if (((-direction + tgt->direction) & 0x1f) < 0x19) {
+    direction = DirectionNormalize(DirectionTurnAround(direction) - 0xc);
+    if (DirectionNormalize(-direction + tgt->direction) < 0x19) {
         org->iframes = -12;
         tgt->iframes = -12;
         sub_08017940(org, tgt);
@@ -455,7 +456,8 @@ s32 sub_08017D6C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
     u32 y;
     ColSettings* p;
 
-    if (((-(((direction ^ 0x10) - 5) & 0x1f) + (tgt->animationState << 3)) & 0x1f) >= 0xb) {
+    if (DirectionNormalize(-DirectionNormalize((DirectionTurnAround(direction) - 5)) +
+                           DirectionFromAnimationState(tgt->animationState)) >= 0xb) {
         x = org->hurtType;
         y = 0xac2;
     } else {
@@ -510,7 +512,7 @@ s32 sub_08017EB0(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
         gPlayerEntity.knockbackDuration = 12;
         gPlayerEntity.iframes = 16;
         gPlayerEntity.knockbackSpeed = 384;
-    } else if (org->kind == PLAYER_ITEM && org->id == 5) {
+    } else if (org->kind == PLAYER_ITEM && org->id == PL_ITEM_SHIELD) {
         org->knockbackDuration = 8;
         org->iframes = -6;
         org->knockbackSpeed = 384;
@@ -569,7 +571,8 @@ s32 sub_0801802C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
     kind = org->kind;
     if (kind == 1) {
         if (PlayerCanBeMoved()) {
-            if (((((direction ^ 0x10) - 4 * tgt->animationState + 5) & 0x1F)) > 0xA) {
+            if (((DirectionNormalize(DirectionTurnAround(direction) -
+                                     Direction8FromAnimationState(tgt->animationState) + 5))) > 0xA) {
                 x = 0x11aa;
                 return sub_08018308(org, tgt, direction, &gCollisionMtx[x + org->hurtType]);
             } else {
@@ -578,7 +581,8 @@ s32 sub_0801802C(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
             }
         }
     } else if (kind == 8) {
-        if ((((org->direction ^ 0x10) - 4 * tgt->animationState + 5) & 0x1F) <= 0xA) {
+        if (DirectionNormalize(
+                (DirectionTurnAround(org->direction) - Direction8FromAnimationState(tgt->animationState) + 5)) <= 0xA) {
             org->health = 0;
             sub_080180BC(org, tgt);
             return 1;
@@ -689,16 +693,17 @@ s32 sub_080182A8(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
 }
 
 s32 sub_08018308(Entity* org, Entity* tgt, u32 direction, ColSettings* settings) {
-    u32 temp = 0;
+    u32 confused = 0;
     if (tgt->confusedTime && tgt->kind == ENEMY && org == &gPlayerEntity) {
         sub_08004484(tgt, org);
-        temp = 1;
+        confused = 1;
     }
-    if ((org->kind == PLAYER_ITEM && org->id == 0x5) &&
-        gPlayerEntity.animationState == ((((direction + 4) & 0x18) >> 2) ^ 4)) {
+    if ((org->kind == PLAYER_ITEM && org->id == PL_ITEM_SHIELD) &&
+        gPlayerEntity.animationState ==
+            AnimationStateFlip180(Direction8ToAnimationState(DirectionRoundUp(direction)))) {
         return 0;
     }
-    if (!temp) {
+    if (!confused) {
         u32 tmp2;
         org->knockbackSpeed = 16 * settings->orgKnockbackSpeed;
         org->iframes = settings->orgIframes;
@@ -716,7 +721,7 @@ s32 sub_08018308(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
         if (settings->tgtIframes == 0)
             tgt->iframes = -1;
         tgt->knockbackDuration = settings->tgtKnockbackDuration;
-        tmp2 &= org->damage = settings->orgDamage;
+        tmp2 &= (org->damage = settings->orgDamage);
         if (tmp2 != 0)
             tgt->health = sub_08017874(tgt, org);
         if (settings->tgtConfusedTime > tgt->confusedTime)
@@ -740,23 +745,23 @@ s32 sub_08018308(Entity* org, Entity* tgt, u32 direction, ColSettings* settings)
         }
     }
     if (org->kind == PLAYER_ITEM) {
-        if (org->id == 1) {
+        if (org->id == PL_ITEM_SWORD) {
             if (settings->orgDamage) {
                 sub_080179EC(org, tgt);
             }
-        } else if (org->id == 4) {
+        } else if (org->id == PL_ITEM_BOW) {
             if (org->damage || (settings->_a & 8)) {
                 sub_08017A90(org, tgt);
             }
-        } else if (org->id == 3) {
+        } else if (org->id == PL_ITEM_BOOMERANG) {
             if (settings->tgtConfusedTime) {
                 SoundReqClipped(tgt, SFX_HIT);
             }
-        } else if (org->id == 5) {
+        } else if (org->id == PL_ITEM_SHIELD) {
             gPlayerEntity.iframes = 0x80;
         }
     }
-    if (tgt->kind == PLAYER_ITEM && org->id == 5) {
+    if (tgt->kind == PLAYER_ITEM && org->id == PL_ITEM_SHIELD) {
         gPlayerEntity.iframes = 0x80;
     }
     return 1;
