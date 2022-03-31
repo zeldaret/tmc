@@ -2,7 +2,7 @@
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
-	bl sub_0801B170
+	bl ClearBgAnimations
 	bl sub_0807BFA8
 	ldr r7, _0807C0B8 @ =0x0000FFFF
 	ldr r6, _0807C0BC @ =gMetatileTypesBottom
@@ -54,7 +54,7 @@ _0807C01C:
 	ldr r0, [r0, #0x14]
 	cmp r0, #0
 	beq _0807C04E
-	bl sub_0801B130
+	bl LoadBgAnimations
 _0807C04E:
 	adds r5, r6, #0
 	movs r0, #0x80

@@ -16,7 +16,6 @@ extern u32 gSpriteAnimations_GhostBrothers[];
 extern u32 gUnk_08110188;
 extern s8 gUnk_0811015C[8];
 
-extern u8 gUnk_02018EB0[];
 extern u8 gUnk_0811022E[];
 
 void sub_08065C0C(Entity* this);
@@ -144,7 +143,7 @@ void sub_08065DB8(Entity* this) {
             if (--this->timer == 0) {
                 this->subAction++;
                 this->timer = 0xb4;
-                gUnk_02018EB0[1]++;
+                gUnk_02018EB0.unk_1++;
                 InitAnimationForceUpdate(this, 2);
             }
             break;
@@ -174,7 +173,7 @@ void sub_08065DB8(Entity* this) {
                     this->timer = (u8) * (puVar3 + 1);
                     *(u16**)&this->field_0x6c = (puVar3 + 2);
                 } else {
-                    gUnk_02018EB0[0]++;
+                    gUnk_02018EB0.unk_0++;
                     DeleteThisEntity();
                 }
             }

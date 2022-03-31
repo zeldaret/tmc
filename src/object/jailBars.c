@@ -8,8 +8,8 @@
 static void SetJailBarTiles(Entity*, u32);
 
 extern void (*const gUnk_08124950[])(Entity*);
-extern u16 gUnk_08124960[];
-extern u16 gUnk_0812497A[];
+extern TileData gUnk_08124960[];
+extern TileData gUnk_0812497A[];
 
 void JailBars(Entity* this) {
     gUnk_08124950[this->action](this);
@@ -49,7 +49,7 @@ void nullsub_127(Entity* this) {
 }
 
 static void SetJailBarTiles(Entity* this, u32 arg1) {
-    u16* puVar1;
+    TileData* puVar1;
 
     puVar1 = gUnk_08124960;
     if (arg1 == 1) {

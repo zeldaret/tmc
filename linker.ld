@@ -23,7 +23,7 @@ SECTIONS {
         . = 0x00000090; gUnk_02000090 = .;
         . = 0x000000B0; gUnk_020000B0 = .;
         . = 0x000000C0; gUnk_020000C0 = .;
-        . = 0x00000CC0; gUnk_02000CC0 = .;
+        . = 0x00000CC0; gBgAnimations = .;
         . = 0x00000D00; gTextGfxBuffer = .;
         . = 0x00001A00; gPaletteList = .;
         . = 0x00001A3C; gUnk_02001A3C = .;
@@ -311,7 +311,7 @@ SECTIONS {
         src/playerItem/playerItemGustBig.o(.text);
         src/playerItem/playerItemBow.o(.text);
         src/playerItem/playerItemSwordBeam.o(.text);
-        asm/beanstalkSubtask.o(.text);
+        src/beanstalkSubtask.o(.text);
         src/playerItem/playerItemBomb.o(.text);
         src/playerItem/playerItemBoomerang.o(.text);
         src/playerItem/playerItemDashSword.o(.text);

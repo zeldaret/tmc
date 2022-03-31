@@ -288,6 +288,7 @@ void ChestSpawner_Type0Action3(ChestSpawnerEntity* this) {
 }
 
 void sub_080842D8(ChestSpawnerEntity* this) {
+    // TODO recreate as TileData[]
     static const u8 gUnk_0811F854[] = {
         35, 64, 191, 255, 35, 64, 192, 255, 38, 64, 255, 255, 38, 64, 0, 0, 255, 255,
     };
@@ -310,7 +311,7 @@ void sub_080842D8(ChestSpawnerEntity* this) {
     if ((super->y.HALF.HI & 8) != 0) {
         index += 2;
     }
-    SetMultipleTiles((u16*)gUnk_0811F898[index], COORD_TO_TILE(super), super->collisionLayer);
+    SetMultipleTiles((TileData*)gUnk_0811F898[index], COORD_TO_TILE(super), super->collisionLayer);
 }
 
 const Hitbox gUnk_0811F8A8 = { 0, -3, { 0, 0, 0, 0 }, 6, 6 };

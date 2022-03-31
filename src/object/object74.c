@@ -103,14 +103,15 @@ void sub_08097CB4(Object74Entity* this) {
 }
 
 void sub_08097CFC(Object74Entity* this) {
+    // TODO recreate as TileData[]
     static const u16 gUnk_08123344[] = { 16448, 65471, 16449, 65472, 16450, 65473, 16451, 65535, 16452, 0,
                                          16453, 1,     16454, 63,    16455, 64,    16456, 65,    65535 };
     static const u16 gUnk_0812336A[] = {
         16449, 65471, 16449, 65472, 16452, 65535, 16452, 0, 16455, 63, 16455, 64, 65535
     };
     if ((super->x.HALF.HI & 0xf) == 0) {
-        SetMultipleTiles((u16*)gUnk_0812336A, COORD_TO_TILE(super), super->collisionLayer);
+        SetMultipleTiles((TileData*)gUnk_0812336A, COORD_TO_TILE(super), super->collisionLayer);
     } else {
-        SetMultipleTiles((u16*)gUnk_08123344, COORD_TO_TILE(super), super->collisionLayer);
+        SetMultipleTiles((TileData*)gUnk_08123344, COORD_TO_TILE(super), super->collisionLayer);
     }
 }
