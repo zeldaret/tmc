@@ -128,7 +128,7 @@ void CloudPiranha_Action1(CloudPiranhaEntity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/cloudPiranha/sub_080385CC.inc", void sub_080385CC(CloudPiranhaEntity* this)) {
+void sub_080385CC(CloudPiranhaEntity* this) {
     u32 tmp;
     sub_080387F0(this);
     if (sub_0803872C(this, 0x60)) {
@@ -145,18 +145,13 @@ NONMATCH("asm/non_matching/cloudPiranha/sub_080385CC.inc", void sub_080385CC(Clo
                 super->animationState = sub_0806FCAC(super, super->child);
             } else {
                 tmp = super->animationState;
-                if ((Random() & 0x10) != 0) {
-                    super->animationState = (tmp + 2) & 7;
-                } else {
-                    super->animationState = (tmp + 6) & 7;
-                }
+                super->animationState = (Random() & 0x10) ? ((tmp + 2) & 7) : ((tmp + 6) & 7);
             }
             super->direction = super->animationState << 2;
             InitializeAnimation(super, super->animationState);
         }
     }
 }
-END_NONMATCH
 
 void CloudPiranha_Action3(CloudPiranhaEntity* this) {
     s32 tmp;
