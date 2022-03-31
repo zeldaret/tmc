@@ -987,17 +987,18 @@ void sub_08036914(Entity* this, s32 angle, s32 radius) {
     this->spriteOffsetY = this->parent->spriteOffsetY;
 }
 
-NONMATCH("asm/non_matching/octorokBoss/sub_08036998.inc", void sub_08036998(OctorokBossEntity* this)) {
+void sub_08036998(OctorokBossEntity* this) {
     u32 tmp;
     s8* tmp2;
-    s8 tmp3;
+    s32 tmp3;
     s32 a, b;
 
     // TODO regalloc in this awful structure here
     tmp2 = &this->timer;
-    tmp = super->subtimer + (u8)*tmp2;
+    tmp = super->subtimer + (tmp3 = (u8)*tmp2);
     *tmp2 = tmp;
-    if ((s8)super->subtimer < 0) {
+    tmp3 = super->subtimer;
+    if ((s8)tmp3 < 0) {
         a = tmp;
         b = -super->timer;
         if (a << 0x18 < b << 0x18) {
@@ -1009,7 +1010,6 @@ NONMATCH("asm/non_matching/octorokBoss/sub_08036998.inc", void sub_08036998(Octo
         }
     }
 }
-END_NONMATCH
 
 /** Calculate tail angles regular */
 ASM_FUNC("asm/non_matching/octorokBoss/sub_080369D0.inc",
