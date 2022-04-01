@@ -233,7 +233,7 @@ void sub_0802BEEC(Entity* this) {
             this->direction = this->animationState << 3;
             InitializeAnimation(this, this->animationState + 4);
         }
-    } else if (!GravityUpdate(this, Q_16_16(0.109375))) {
+    } else if (!GravityUpdate(this, Q_8_8(28.0))) {
         this->action = 8;
         this->timer = 30;
         this->speed = 0x120;

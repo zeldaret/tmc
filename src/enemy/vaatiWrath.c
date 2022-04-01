@@ -167,7 +167,7 @@ void VaatiWrathType0Action1(Entity* this) {
             break;
         case 1:
             this->spritePriority.b1 = 1;
-            this->z.WORD += 0x8000;
+            this->z.WORD += Q_16_16(0.5);
             if ((this->z.HALF.HI & 0x3f) == 0) {
                 SoundReq(SFX_1A9);
             }
@@ -473,7 +473,7 @@ void VaatiWrathType0ActionB(Entity* this) {
             UpdateAnimationSingleFrame(this);
             GetNextFrame(((VaatiWrathHeapStruct*)this->myHeap)->type1);
             GetNextFrame(((VaatiWrathHeapStruct*)this->myHeap)->type2);
-            if (GravityUpdate(this, 0x2000) == 0) {
+            if (GravityUpdate(this, Q_8_8(32.0)) == 0) {
                 this->subAction = 1;
                 this->timer = 0xf0;
                 this->health = 8;
@@ -517,7 +517,7 @@ void VaatiWrathType0ActionC(Entity* this) {
     }
     switch (this->subAction) {
         case 0:
-            this->z.WORD -= 0x8000;
+            this->z.WORD -= Q_16_16(0.5);
             if (this->z.HALF.HI < -4) {
                 this->subAction = 1;
                 this->timer = 120;

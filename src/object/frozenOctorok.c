@@ -84,10 +84,10 @@ void FrozenOctorok_Action1SubAction0(FrozenOctorokEntity* this) {
         if (this->unk_7e == 0) {
             child = super->child;
             if (child->z.HALF.HI > -0x10) {
-                child->z.WORD -= 0x4000;
+                child->z.WORD -= Q_16_16(0.25);
             } else {
-                child->z.WORD -= 0x1000;
-                (super->child)->zVelocity = 0x3000;
+                child->z.WORD -= Q_16_16(0.0625);
+                (super->child)->zVelocity = Q_16_16(0.1875);
                 this->unk_7e = 0x200;
             }
         }

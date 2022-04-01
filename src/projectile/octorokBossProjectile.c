@@ -64,7 +64,7 @@ void OctorokBossProjectile_Init(Entity* this) {
             break;
         case 3:
             CopyPosition(&gPlayerEntity, this);
-            this->z.WORD = 0xff600000;
+            this->z.WORD = Q_16_16(-160.0);
             this->x.HALF.HI += 0x60;
             this->y.HALF.HI += 0x40;
             this->x.HALF.HI -= (s32)Random() % 0xc0;
@@ -150,7 +150,7 @@ void OctorokBossProjectile_Action1(Entity* this) {
                 OctorokBossProjectile_Action2(this);
             }
             GetNextFrame(this);
-            if (GravityUpdate(this, 0x1800) != 0) {
+            if (GravityUpdate(this, Q_8_8(24.0)) != 0) {
                 CalculateEntityTileCollisions(this, this->direction >> 3, 0);
                 if (this->collisions == COL_NONE) {
                     LinearMoveAngle(this, (s32)this->speed, (u32)this->direction);
@@ -185,7 +185,7 @@ void OctorokBossProjectile_Action1(Entity* this) {
             DeleteThisEntity();
             break;
         case 3:
-            if (GravityUpdate(this, 0x1800) != 0) {
+            if (GravityUpdate(this, Q_8_8(24.0)) != 0) {
                 return;
             }
             CreateFx(this, FX_ROCK, 0);

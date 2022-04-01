@@ -93,7 +93,7 @@ void sub_08040B9C(Enemy50Entity* this) {
         sub_08041128(this);
     }
     if (super->contactFlags == 0x9d) {
-        super->zVelocity = 0x18000;
+        super->zVelocity = Q_16_16(1.5);
     }
     if (super->confusedTime != 0) {
         super->animationState = super->knockbackDirection >> 4;

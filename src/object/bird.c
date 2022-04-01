@@ -50,7 +50,7 @@ void Bird_Type0_Init(Entity* this) {
     this->subtimer = 1;
     this->zVelocity = Q_16_16(-1.5);
     this->z.WORD = Q_16_16(-56.75);
-    this->field_0x68.HWORD = Q_16_16(-0.03125);
+    this->field_0x68.HWORD = Q_8_8(-8.0);
     this->speed = 0x280;
     this->direction = 8;
     this->collisionLayer = 2;
@@ -225,7 +225,7 @@ void Bird_Type8(Entity* this) {
                         this->action = 2;
                         this->timer = 8;
                         this->speed = 0x300;
-                        this->field_0x68.HWORD = 0xe000;
+                        this->field_0x68.HWORD = Q_8_8(-32.0);
                         PlayerDropHeldObject();
                         sub_08078B48();
                         ResetPlayerAnimationAndAction();
@@ -286,9 +286,9 @@ void Bird_Type9(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
         this->spriteSettings.draw = 1;
-        this->zVelocity = -0x28000;
-        this->z.WORD = 0xffb4c000;
-        this->field_0x68.HWORD = 0xf000;
+        this->zVelocity = Q_16_16(-2.5);
+        this->z.WORD = Q_16_16(-75.25);
+        this->field_0x68.HWORD = Q_8_8(-16.0);
         this->speed = 0x300;
         this->direction = 8;
         this->collisionLayer = 1;

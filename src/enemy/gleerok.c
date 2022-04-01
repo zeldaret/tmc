@@ -530,7 +530,7 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D86C.inc", void sub_0802D86C(GleerokE
                 return;
             }
 
-            if (GravityUpdate(super, 0x1800))
+            if (GravityUpdate(super, Q_8_8(24.0)))
                 return;
 
             ((GleerokEntity*)(super->parent))->unk_7b = 1;
@@ -601,7 +601,7 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D86C.inc", void sub_0802D86C(GleerokE
 
             if ((super->contactFlags & 0x80) && this->unk_74 == 0) {
                 if ((super->contactFlags & 0x7f) == 0x1d) {
-                    super->zVelocity = 0x30000;
+                    super->zVelocity = Q_16_16(3.0);
                     super->parent->subAction = 4;
                     super->parent->type2 = 0;
                     ((GleerokEntity*)super->parent)->unk_7b = 0;
@@ -626,7 +626,7 @@ NONMATCH("asm/non_matching/gleerok/sub_0802D86C.inc", void sub_0802D86C(GleerokE
             if (super->zVelocity <= 0)
                 return;
 
-            GravityUpdate(super, 0x1800);
+            GravityUpdate(super, Q_8_8(24.0));
 
             if (super->zVelocity > 0)
                 return;

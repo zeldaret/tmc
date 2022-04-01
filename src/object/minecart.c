@@ -295,7 +295,7 @@ void sub_08091D90(MinecartEntity* this) {
     if (super->zVelocity < 0) {
         UpdateAnimationSingleFrame(super);
     }
-    if (((super->frame & 0x7f) == 0) && GravityUpdate(super, 0x2000) == 0) {
+    if (((super->frame & 0x7f) == 0) && GravityUpdate(super, Q_8_8(32.0)) == 0) {
         super->type2 ^= 4;
         super->action = 1;
         this->minecartData->field_0x6 = super->type2;

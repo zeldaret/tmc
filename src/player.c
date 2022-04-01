@@ -1163,7 +1163,7 @@ static void PortalShrinkUpdate(Entity* this) {
             uVar5 = gUnk_0811BABC[uVar5 >> 5];
         }
     }
-    iVar3 = 0x10000;
+    iVar3 = Q_16_16(1);
 
     switch (this->frame) {
         case 1:
@@ -2872,7 +2872,7 @@ static void sub_080737BC(Entity* this) {
 
     UpdateAnimationSingleFrame(this);
     LinearMoveUpdate(this);
-    this->z.WORD += 0x4C00;
+    this->z.WORD += Q_16_16(0.296875);
     if (DirectionIsHorizontal(this->direction))
         pos = this->x.HALF.HI;
     else
@@ -3860,7 +3860,7 @@ void sub_08074D34(Entity* this, ScriptExecutionContext* ctx) {
                     gPlayerState.animation = 1052;
                 else
                     gPlayerState.animation = 2060;
-                this->zVelocity = 0x18000;
+                this->zVelocity = Q_16_16(1.5);
                 break;
             case 0x10:
                 CreateSpeechBubbleExclamationMark(this, 8, -24);
@@ -3977,7 +3977,7 @@ void sub_0807501C(Entity* this) {
         this->spritePriority.b1 = 1;
         this->direction = Direction8FromAnimationState(this->animationState);
         this->speed = 200;
-        this->zVelocity = 0x20000;
+        this->zVelocity = Q_16_16(2.0);
         this->timer = 8;
         this->field_0x68.HALF.LO++;
         SoundReq(SFX_PLY_JUMP);

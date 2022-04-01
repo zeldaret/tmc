@@ -252,7 +252,7 @@ void sub_08082824(Entity* this) {
         this->spriteSettings.flipY = 1;
     }
 
-    if (GravityUpdate(this, 0x2000) == 0) {
+    if (GravityUpdate(this, Q_8_8(32.0)) == 0) {
         sub_08082850(this, NULL);
     }
 }

@@ -115,7 +115,7 @@ void Fairy_Init(FairyEntity* this) {
 
     switch (super->type2) {
         case 0:
-            super->zVelocity = 0x1e000;
+            super->zVelocity = Q_16_16(1.875);
             super->z.HALF.HI += 8;
         // fallthrough
         default:
@@ -131,7 +131,7 @@ void Fairy_Init(FairyEntity* this) {
 }
 
 void Fairy_Action1(FairyEntity* this) {
-    super->z.WORD -= 0xe000;
+    super->z.WORD -= Q_16_16(0.875);
     if (super->frame != 0) {
         if (super->timer != 0) {
             this->unk_78 *= 0x1e;

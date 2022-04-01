@@ -89,7 +89,7 @@ void sub_08031480(Entity* this) {
             SoundReq(SFX_12D);
         }
     } else {
-        if (GravityUpdate(this, 0x1800) == 0) {
+        if (GravityUpdate(this, Q_8_8(24.0)) == 0) {
             this->action = 2;
             this->subtimer = 0xf;
             this->spriteSettings.draw = 1;

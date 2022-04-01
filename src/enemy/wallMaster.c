@@ -171,7 +171,7 @@ void sub_0802A734(Entity* this) {
         SetInitializationPriority();
         DoExitTransition(gUnk_0813AB1C[gArea.dungeon_idx]);
     } else {
-        this->z.WORD -= 0x20000;
+        this->z.WORD -= Q_16_16(2);
         gPlayerState.field_0xa |= 0x80;
         gPlayerState.mobility |= 0x80;
     }

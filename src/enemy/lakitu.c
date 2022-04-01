@@ -232,7 +232,7 @@ void Lakitu_LightningDelay(Entity* this) {
 }
 
 void Lakitu_Cloudless(Entity* this) {
-    if (GravityUpdate(this, 0x1800) == 0 && this->animIndex <= 19) {
+    if (GravityUpdate(this, Q_8_8(24.0)) == 0 && this->animIndex <= 19) {
         InitAnimationForceUpdate(this, this->animationState + 20);
 
         this->spritePriority.b1 = 0;

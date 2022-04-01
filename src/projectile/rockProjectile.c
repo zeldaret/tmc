@@ -52,7 +52,7 @@ void RockProjectile_Action1(Entity* this) {
 void RockProjectile_Action2(Entity* this) {
     LinearMoveUpdate(this);
     GetNextFrame(this);
-    if (GravityUpdate(this, 0x1800) == 0) {
+    if (GravityUpdate(this, Q_8_8(24.0)) == 0) {
         DeleteEntity(this);
     }
 }

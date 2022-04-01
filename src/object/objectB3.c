@@ -63,7 +63,7 @@ void sub_080A0AC4(Entity* this) {
 }
 
 void sub_080A0AD0(Entity* this) {
-    GravityUpdate(this, 0x80);
+    GravityUpdate(this, Q_8_8(0.5));
 }
 
 void sub_080A0ADC(Entity* this) {
@@ -79,7 +79,7 @@ void sub_080A0AF0(Entity* this) {
             DeleteThisEntity();
         }
     }
-    GravityUpdate(this, 0x80);
+    GravityUpdate(this, Q_8_8(0.5));
 }
 
 void sub_080A0B28(Entity* this, ScriptExecutionContext* context) {
@@ -102,5 +102,5 @@ void sub_080A0B60(Entity* this) {
 }
 
 void sub_080A0B80(Entity* this) {
-    this->y.WORD -= 0x28000;
+    this->y.WORD -= Q_16_16(2.5);
 }

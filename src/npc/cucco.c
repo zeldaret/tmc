@@ -51,16 +51,16 @@ void Cucco_Fly(Entity* this) {
         }
 
         this->timer = (Random() & 1) + 1;
-        this->zVelocity = 0x18000;
+        this->zVelocity = Q_16_16(1.5);
         InitAnimationForceUpdate(this, 1);
     }
 
-    if (GravityUpdate(this, 0x2800) == 0) {
+    if (GravityUpdate(this, Q_8_8(40.0)) == 0) {
         if (--this->timer == 0) {
             this->action = 1;
             this->subAction = 0;
         } else {
-            this->zVelocity = 0x18000;
+            this->zVelocity = Q_16_16(1.5);
         }
     }
 

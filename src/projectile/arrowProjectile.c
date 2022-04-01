@@ -46,7 +46,7 @@ void ArrowProjectile_Init(Entity* this) {
     COLLISION_OFF(this);
     this->timer = 0x6a;
     this->subtimer = 0;
-    this->zVelocity = 0xa00;
+    this->zVelocity = Q_16_16(10.0 / 256.0);
     sub_080A94C0(this, this->type);
 }
 
@@ -88,7 +88,7 @@ void ArrowProjectile_Action3(Entity* this) {
 }
 
 void ArrowProjectile_Action4(Entity* this) {
-    if (GravityUpdate(this, 0x2800) == 0) {
+    if (GravityUpdate(this, Q_8_8(40.0)) == 0) {
         CreateDust(this);
         DeleteThisEntity();
     } else {
@@ -104,7 +104,7 @@ void sub_080A9488(Entity* this) {
     this->action = 4;
     COLLISION_OFF(this);
     this->timer = 2;
-    this->zVelocity = 0x18000;
+    this->zVelocity = Q_16_16(1.5);
     this->animationState = (this->knockbackDirection & 0x18) >> 3;
     EnqueueSFX(SFX_METAL_CLINK);
     sub_080A94C0(this, this->animationState);

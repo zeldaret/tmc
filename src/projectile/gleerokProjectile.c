@@ -64,7 +64,7 @@ void GleerokProjectile_Init(Entity* this) {
             this->zVelocity = (this->z.WORD / 0x18000) << 0xc;
             break;
         case 3:
-            this->z.WORD = 0xff600000;
+            this->z.WORD = Q_16_16(-160.0);
             uVar1 = (Random() & 3) * 2;
             this->x.HALF.HI = gUnk_08129978[uVar1] + this->x.HALF.HI;
             this->y.HALF.HI = gUnk_08129978[uVar1 + 1] + this->y.HALF.HI;
@@ -83,7 +83,7 @@ void GleerokProjectile_Init(Entity* this) {
 
 void GleerokProjectile_Action1(Entity* this) {
     if (this->type == 3) {
-        if (GravityUpdate(this, 0x1800) == 0) {
+        if (GravityUpdate(this, Q_8_8(24.0)) == 0) {
             sub_08008790(this, 7);
             CreateFx(this, FX_ROCK, 0);
             DeleteThisEntity();

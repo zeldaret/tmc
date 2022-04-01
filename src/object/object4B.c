@@ -61,7 +61,7 @@ void Object4B_Action3(Object4BEntity* this) {
         super->action++;
         super->direction = 0;
         super->speed = 0x100;
-        super->zVelocity = 0x20000;
+        super->zVelocity = Q_16_16(2.0);
         super->spriteOrientation.flipY = 0;
         super->timer = 0;
         InitializeAnimation(super, 3);
@@ -72,7 +72,7 @@ void Object4B_Action3(Object4BEntity* this) {
 void Object4B_Action4(Object4BEntity* this) {
     if ((super->frame & 0x10) != 0) {
         LinearMoveUpdate(super);
-        if (GravityUpdate(super, 0x2000) == 0) {
+        if (GravityUpdate(super, Q_8_8(32.0)) == 0) {
             GetNextFrame(super);
         }
     } else {
@@ -86,7 +86,7 @@ void Object4B_Action4(Object4BEntity* this) {
             InitializeAnimation(super, 2);
         }
     } else if ((super->frame & ANIM_DONE) != 0) {
-        super->zVelocity = 0x20000;
+        super->zVelocity = Q_16_16(2.0);
         InitializeAnimation(super, 3);
         SoundReq(SFX_12B);
     }

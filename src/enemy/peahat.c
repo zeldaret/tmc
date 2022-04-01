@@ -243,7 +243,7 @@ void Peahat_Stunned(Entity* this) {
             GetNextFrame(this);
             break;
         case PeahatAnimation_SlicedPropeller:
-            GravityUpdate(this, 0x1c00);
+            GravityUpdate(this, Q_8_8(28.0));
             if (this->z.HALF.HI == 0) {
                 this->action = 7;
                 this->timer = 150;
@@ -321,7 +321,7 @@ void Peahat_Takeoff(Entity* this) {
     } else if (this->frame & 1) {
         sub_0800442E(this);
     } else {
-        GravityUpdate(this, 0x1c00);
+        GravityUpdate(this, Q_8_8(28.0));
         ProcessMovement0(this);
     }
 }
@@ -347,7 +347,7 @@ void PeahatPropeller_Fly(Entity* this) {
         if (this->timer < 60)
             this->spriteSettings.draw ^= 1;
 
-        this->z.WORD -= 0xc000;
+        this->z.WORD -= Q_16_16(0.75);
         LinearMoveUpdate(this);
         if (--this->subtimer == 0) {
             this->subtimer = 40;

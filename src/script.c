@@ -386,7 +386,7 @@ void HandleEntity0x82Actions(Entity* entity) {
                 }
                 break;
             case 1 << 5:
-                GravityUpdate(entity, 0x2000);
+                GravityUpdate(entity, Q_8_8(32.0));
                 break;
         }
     }

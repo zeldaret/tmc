@@ -39,6 +39,6 @@ void sub_0808E448(Entity* this) {
     }
 
     if (this->type == 0) {
-        this->z.WORD -= 0x8000;
+        this->z.WORD -= Q_16_16(0.5);
     }
 }

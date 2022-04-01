@@ -41,7 +41,7 @@ void Object1F_Init(Object1FEntity* this) {
 
     u32 temp;
     super->action = 1;
-    super->zVelocity = 0x2c000;
+    super->zVelocity = Q_16_16(2.75);
     super->direction = super->animationState << 2 ^ 0x10;
     if (super->animationState == 0) {
         super->spritePriority.b0--;
@@ -66,7 +66,7 @@ void Object1F_Action1(Object1FEntity* this) {
         uVar1 = gPlayerState.field_0x3c[1];
     } else {
         ProcessMovement2(super);
-        uVar1 = GravityUpdate(super, 0x2800);
+        uVar1 = GravityUpdate(super, Q_8_8(40.0));
     }
 
     if (uVar1 == 0) {

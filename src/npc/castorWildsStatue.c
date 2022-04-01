@@ -182,7 +182,7 @@ void sub_080676E0(Entity* this, ScriptExecutionContext* context) {
             break;
         }
         default: {
-            if (GravityUpdate(this, 0x1800) == 0) {
+            if (GravityUpdate(this, Q_8_8(24.0)) == 0) {
                 return;
             }
             break;

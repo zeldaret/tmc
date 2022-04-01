@@ -385,7 +385,7 @@ void AcroBandit_Type1Action1(Entity* this) {
     if (draw == 1)
         GetNextFrame(this);
 
-    if (this->zVelocity < 1) {
+    if (this->zVelocity <= 0) {
         this->action = 2;
         COLLISION_ON(this);
         InitializeAnimation(this, 5);
@@ -393,7 +393,7 @@ void AcroBandit_Type1Action1(Entity* this) {
 }
 
 void AcroBandit_Type1Action2(Entity* this) {
-    static const u16 banditGravity[] = { 0x1600, 0x1300, 0x1000, 0xD00, 0xB00 };
+    static const u16 banditGravity[] = { Q_8_8(22.0), Q_8_8(19.0), Q_8_8(16.0), Q_8_8(13.0), Q_8_8(11.0) };
 
     GravityUpdate(this, banditGravity[this->type2]);
     if (this->type2 * -0xe <= this->z.HALF.HI) {
@@ -470,7 +470,7 @@ void AcroBandit_Type1Action4(Entity* this) {
 }
 
 void AcroBandit_Type1Action5(Entity* this) {
-    if (GravityUpdate(this, 0x2000))
+    if (GravityUpdate(this, Q_8_8(32.0)))
         return;
 
     sub_08032290(this);

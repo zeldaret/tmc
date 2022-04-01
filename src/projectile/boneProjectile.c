@@ -52,11 +52,11 @@ void BoneProjectile_Action1(Entity* this) {
 void BoneProjectile_Action2(Entity* this) {
     GetNextFrame(this);
     ProcessMovement3(this);
-    if (GravityUpdate(this, 0x1800) == 0) {
+    if (GravityUpdate(this, Q_8_8(24.0)) == 0) {
         this->action = 3;
         COLLISION_OFF(this);
         this->speed = 0xe0;
-        this->zVelocity = 0xe000;
+        this->zVelocity = Q_16_16(0.875);
     }
 }
 

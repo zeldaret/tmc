@@ -162,7 +162,7 @@ void sub_08094B0C(Object6AEntity* this) {
 }
 
 void sub_08094B3C(Object6AEntity* this) {
-    super->z.WORD += 0x8000;
+    super->z.WORD += Q_16_16(0.5);
     if (super->z.HALF.HI >= -13)
         super->z.HALF.HI = -13;
     else
@@ -323,7 +323,7 @@ void sub_08094E30(Object6AEntity* this) {
         switch (super->action) {
             case 0:
                 super->action++;
-                super->z.WORD = -0xA00000;
+                super->z.WORD = Q_16_16(-160.0);
                 super->zVelocity = 0;
                 SetDefaultPriority(super, PRIO_PLAYER_EVENT);
                 InitializeAnimation(super, 0);
@@ -1297,7 +1297,7 @@ void sub_0809629C(Object6AEntity* this, u32 type) {
     }
     ExecuteScriptForEntity(super, 0);
     HandleEntity0x82Actions(super);
-    GravityUpdate(super, 0x1000);
+    GravityUpdate(super, Q_8_8(16.0));
     tmp = super->type;
     super->type = type;
     sub_08080CB4(super);

@@ -24,7 +24,7 @@ void sub_08093D88(Entity* this) {
 
     this->action = 1;
     this->z.HALF.HI -= 8;
-    this->zVelocity = 0x2a000;
+    this->zVelocity = Q_16_16(2.625);
     this->timer = 32;
     switch (this->type) {
         case 0:

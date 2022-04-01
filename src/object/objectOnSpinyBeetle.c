@@ -84,7 +84,7 @@ void ObjectOnSpinyBeetle_Action1(ObjectOnSpinyBeetleEntity* this) {
                 case 0xf:
                 case 0x1d:
                     super->action = 4;
-                    super->zVelocity = 0x2a000;
+                    super->zVelocity = Q_16_16(2.625);
                     super->spriteOffsetY = 0;
                     super->spriteSettings.shadow = 1;
                     super->spritePriority.b1 = 3;
@@ -250,7 +250,7 @@ void ObjectOnSpinyBeetle_Action4(ObjectOnSpinyBeetleEntity* this) {
     if (super->zVelocity < 0) {
         super->spriteSettings.flipY = 1;
     }
-    if (GravityUpdate(super, 0x2000) == 0) {
+    if (GravityUpdate(super, Q_8_8(32.0)) == 0) {
         sub_080989C0(this);
     }
 }

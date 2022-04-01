@@ -89,11 +89,11 @@ void sub_08094148(Object67Entity* this) {
                 super->spriteSettings.flipY = 1;
             }
             if (super->type2 < 4) {
-                super->zVelocity = (Random() & 0x1ffff) | 0x28000;
+                super->zVelocity = (Random() & 0x1ffff) | Q_16_16(2.5);
                 super->speed = 0x100;
                 InitializeAnimation(super, 0x56);
             } else {
-                super->zVelocity = 0x28000;
+                super->zVelocity = Q_16_16(2.5);
                 super->speed = 0x100;
                 super->direction = (Random() & 3) | super->direction;
                 InitializeAnimation(super, 0x57);
@@ -166,7 +166,7 @@ void sub_08094398(Object67Entity* this) {
         case 0:
             GetNextFrame(super);
             LinearMoveUpdate(super);
-            if (GravityUpdate(super, 0x4000) == 0) {
+            if (GravityUpdate(super, Q_8_8(64.0)) == 0) {
                 if (super->type2 < 4) {
                     CreateFx(super, FX_LAVA_SPLASH, 0);
                 }

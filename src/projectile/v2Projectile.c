@@ -151,7 +151,7 @@ void sub_080ABE04(Entity* this) {
 }
 
 void sub_080ABE88(Entity* this) {
-    if (GravityUpdate(this, 0x1800) == 0) {
+    if (GravityUpdate(this, Q_8_8(24.0)) == 0) {
         CreateFx(this, FX_ROCK, 0);
         DeleteThisEntity();
     }

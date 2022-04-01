@@ -53,15 +53,15 @@ void CuccoChick_Fly(Entity* this) {
             this->spriteSettings.flipX ^= 1;
         }
         this->timer = (Random() & 3) + 1;
-        this->zVelocity = 0x10000;
+        this->zVelocity = Q_16_16(1.0);
         this->frameIndex = 1;
     }
-    if (GravityUpdate(this, 0x3000) == 0) {
+    if (GravityUpdate(this, Q_8_8(48.0)) == 0) {
         if (--this->timer == 0) {
             this->action = 1;
             this->subAction = 0;
         } else {
-            this->zVelocity = 0x10000;
+            this->zVelocity = Q_16_16(1.0);
         }
     }
     sub_0806E838(this);
@@ -100,7 +100,7 @@ void CuccoChick_Fusion(Entity* this) {
         this->spriteSettings.draw = 1;
         this->frameIndex = 1;
     } else {
-        if (GravityUpdate(this, 0x3000) == 0) {
+        if (GravityUpdate(this, Q_8_8(48.0)) == 0) {
             this->zVelocity = Q_16_16(1.0);
         }
     }

@@ -34,7 +34,7 @@ void LadderUp(Entity* this) {
             SetTile(0x4023, COORD_TO_TILE(this), this->collisionLayer);
             break;
         case 1:
-            if (GravityUpdate(this, 0x1000) == 0) {
+            if (GravityUpdate(this, Q_8_8(16.0)) == 0) {
                 fxEnt = CreateFx(this, FX_GIANT_EXPLOSION, 0x40);
                 if (fxEnt) {
                     fxEnt->y.HALF.HI += 8;

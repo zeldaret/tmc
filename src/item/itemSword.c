@@ -30,8 +30,8 @@ void sub_08075338(ItemBehavior* this, u32 idx) {
 
     if (gPlayerState.jump_status) {
         if ((gPlayerState.jump_status & 7) != 3) {
-            if ((gPlayerState.jump_status & 0x78) == 0 && (u32)gPlayerEntity.zVelocity <= 0x17fff &&
-                (gPlayerState.skills & SKILL_DOWN_THRUST) && gPlayerEntity.z.WORD) {
+            if ((gPlayerState.jump_status & 0x78) == 0 && (u32)gPlayerEntity.zVelocity < Q_16_16(1.5) &&
+                (gPlayerState.skills & SKILL_DOWN_THRUST) && gPlayerEntity.z.WORD != 0) {
                 gPlayerState.jump_status |= 0x20;
                 gPlayerState.field_0xab = 7;
                 gPlayerState.field_0x3[1] |= (8 >> idx) | ((8 >> idx) << 4);

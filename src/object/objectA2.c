@@ -98,7 +98,7 @@ void sub_0809F448(Entity* this) {
     int rand = Random();
     const struct_08124708* tmp2 = &gUnk_08124708[this->subtimer];
     this->subtimer++;
-    tmp = 0x280000 - this->x.WORD;
+    tmp = Q_16_16(40.0) - this->x.WORD;
     switch (tmp2->unk_0) {
         case 0:
             tmp = rand % 0x180000;

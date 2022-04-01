@@ -1014,7 +1014,7 @@ bool32 sub_08078F74(Entity* this) {
         gPlayerState.jump_status = 0x81;
         this->action = 0x15;
         this->subAction = 0;
-        this->zVelocity = 0x20000;
+        this->zVelocity = Q_16_16(2.0);
         return TRUE;
     } else {
         return FALSE;
@@ -1535,7 +1535,7 @@ void sub_0807B144(PlayerEntity* this) {
     super->spriteSettings.draw = 1;
     super->direction = super->animationState << 2;
     super->speed = 0xa0;
-    super->zVelocity = 0x40000;
+    super->zVelocity = Q_16_16(4.0);
     gPlayerState.jump_status = 0x81;
     SetPlayerActionNormal();
 }
@@ -1547,7 +1547,7 @@ void sub_0807B178(PlayerEntity* this) {
     super->spriteSettings.draw = 1;
     super->direction = 0x10;
     super->speed = 0;
-    super->zVelocity = 0x40000;
+    super->zVelocity = Q_16_16(4.0);
     gPlayerState.jump_status = 0x81;
     SetPlayerActionNormal();
 }
@@ -1567,7 +1567,7 @@ void sub_0807B1DC(PlayerEntity* this) {
 void sub_0807B1EC(PlayerEntity* this) {
     if (--super->timer == 0) {
         this->unk_6e++;
-        super->zVelocity = 0x10000;
+        super->zVelocity = Q_16_16(1.0);
         gPlayerState.animation = 0x2c2;
     }
 }
@@ -1575,11 +1575,11 @@ void sub_0807B1EC(PlayerEntity* this) {
 void sub_0807B21C(PlayerEntity* this) {
     UpdateAnimationSingleFrame(super);
     if (super->zVelocity < 0) {
-        GravityUpdate(super, 0x400);
+        GravityUpdate(super, Q_8_8(4.0));
     } else {
-        GravityUpdate(super, 0x800);
+        GravityUpdate(super, Q_8_8(8.0));
     }
-    if (super->zVelocity < -0x8000) {
+    if (super->zVelocity < -Q_16_16(0.5)) {
         super->timer = 0x78;
         super->subtimer = 0;
         this->unk_6e++;
@@ -1597,7 +1597,7 @@ void sub_0807B264(PlayerEntity* this) {
     super->z.WORD = this->unk_68 + tmp;
     if (--super->timer == 0) {
         super->timer = 0x50;
-        super->zVelocity = 0x8000;
+        super->zVelocity = Q_16_16(0.5);
         this->unk_6e++;
 #ifndef EU
         SoundReq(SFX_NEAR_PORTAL);
@@ -1606,7 +1606,7 @@ void sub_0807B264(PlayerEntity* this) {
 }
 
 void sub_0807B2B8(PlayerEntity* this) {
-    GravityUpdate(super, -0x2000);
+    GravityUpdate(super, Q_8_8(-32.0));
     UpdateAnimationSingleFrame(super);
     if (super->timer != 0 && --super->timer == 0) {
         DoExitTransition(&gUnk_0813AD88[this->unk_6d]);

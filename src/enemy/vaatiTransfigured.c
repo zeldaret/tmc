@@ -319,7 +319,7 @@ void VaatiTransfiguredType0Action3(Entity* this) {
                 }
                 break;
             }
-            if (GravityUpdate(this, 0x2800) == 0) {
+            if (GravityUpdate(this, Q_8_8(40.0)) == 0) {
                 this->field_0x80.HALF.LO = 5;
                 this->timer = 0x10;
                 COLLISION_ON(this);
