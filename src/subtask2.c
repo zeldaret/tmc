@@ -13,9 +13,19 @@
 
 extern u8 gUnk_08128D38[];
 extern u8 gUnk_08128D43[];
+extern u16 gUnk_02017830[];
+extern u8 gUnk_080C9C6C[];
+extern u8 gUnk_020350F0[];
 
 void sub_080A5CFC(u32, void*, u32);
 void sub_080A6FB4(u32, u32);
+void sub_080A66D0();
+void sub_080A5D1C();
+void sub_080A70AC(const KeyButtonLayout* layout);
+u32 sub_080A6F40();
+void sub_080A67C4(u32);
+void sub_080A68D4();
+u32 sub_080A69E0();
 
 extern void DrawDungeonMap(u32 floor, struct_02019EE0* data, u32 size);
 extern void LoadDungeonMap(void);
@@ -31,6 +41,8 @@ void sub_080A617C(void);
 void sub_080A7040(u32);
 
 extern u8 gUnk_08128DB8[];
+extern u8 gUnk_08128E80[];
+extern u8 gUnk_08128F58[];
 extern KeyButtonLayout gUnk_08128DBC;
 
 extern void (*const gUnk_08128DCC[])(void);
@@ -49,6 +61,8 @@ void sub_080A71F4(ScreenTransitionData*);
 
 extern void DeleteAllEntities(void);
 extern void sub_0805E974(void);
+extern bool32 sub_080A51F4(void);
+extern u32 sub_0807CB24(u32, u32);
 
 extern void (*const gUnk_0812901C[])(void);
 
@@ -58,6 +72,19 @@ extern void DrawUI(void);
 extern void UpdateCarriedObject(void);
 
 extern void (*const gSubtasks[])(void);
+
+typedef struct {
+    u8 unk0;
+    u8 unk1;
+    u8 unk2;
+    u8 unk3;
+    u8 unk4;
+    s8 unk5;
+    u8 unk6;
+    u8 unk7;
+} struct_gUnk_08128E94;
+
+extern const struct_gUnk_08128E94 gUnk_08128E94[];
 
 ASM_FUNC("asm/non_matching/subtask2/sub_080A5594.inc", void sub_080A5594())
 
@@ -92,17 +119,77 @@ void sub_080A5A54(void) {
     }
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A5A90.inc", void sub_080A5A90())
+void sub_080A5A90(void) {
+    u32 uVar1;
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A5AD8.inc", void sub_080A5AD8())
+    switch (gMenu.transitionTimer) {
+        case 0:
+            if ((gInput.newKeys & (START_BUTTON | B_BUTTON | A_BUTTON)) != 0) {
+                gMenu.transitionTimer = 0xff;
+            }
+            break;
+        case 0xff:
+            if (gPauseMenuOptions.unk1 == 10) {
+                uVar1 = 2;
+            } else {
+                uVar1 = 1;
+            }
+            sub_080A4E84(uVar1);
+            break;
+        default:
+            gMenu.transitionTimer--;
+            break;
+    }
+}
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A5AF4.inc", void sub_080A5AF4())
+void sub_080A5AD8() {
+    extern void (*const gUnk_08128D24[])(void);
+    gUnk_08128D24[gMenu.menuType]();
+}
+
+void sub_080A5AF4(void) {
+    gMenu.field_0x3 = 0;
+    SetPopupState(2, 0);
+#ifndef EU
+    if (gSaveHeader->language == 0) {
+        gScreen.bg1.yOffset = 0xfffc;
+    } else {
+        gScreen.bg1.yOffset = 0;
+    }
+#endif
+    SetMenuType(1);
+}
 
 ASM_FUNC("asm/non_matching/subtask2/sub_080A5B34.inc", void sub_080A5B34())
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A5BB8.inc", void sub_080A5BB8())
+void sub_080A5BB8(void) {
+    Main* m;
+    if (!gFadeControl.active) {
+        sub_08050384();
+        m = &gMain;
+        *(vu8*)&m->sleepStatus; // force a read
+        m->sleepStatus = SLEEP;
+        SetFade(6, 8);
+        sub_080A4E84(2);
+        gPauseMenuOptions.unk16 = 16;
+    }
+}
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A5BF0.inc", void sub_080A5BF0())
+void sub_080A5BF0(void) {
+    extern void (*const gUnk_08128D30[])(void);
+    u32 uVar1;
+    u32 temp;
+
+    gUnk_08128D30[gMenu.menuType]();
+    sub_080A5D1C();
+    temp = gMain.ticks.HWORD;
+    if ((temp & 7) == 0) {
+        uVar1 = *gUnk_02017830;
+        MemCopy(gUnk_02017830 + 1, gUnk_02017830, 0xe);
+        gUnk_02017830[7] = uVar1;
+        gUsedPalettes |= 0x1000;
+    }
+}
 
 void sub_080A5C44(u32 param_1, u32 param_2, u32 param_3) {
     s8* ptr;
@@ -116,7 +203,32 @@ void sub_080A5C44(u32 param_1, u32 param_2, u32 param_3) {
     gScreen.bg1.yOffset += ptr[0];
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A5C9C.inc", void sub_080A5C9C())
+void sub_080A5C9C(void) {
+    s32 newChoice;
+    u8* ptr;
+
+    if (sub_080A51F4()) {
+        ptr = &gUnk_080C9C6C[gArea.dungeon_idx * 4];
+        newChoice = gMenu.field_0x3;
+        switch (gInput.newKeys) {
+            case DPAD_UP:
+                if (newChoice > 0) {
+                    newChoice--;
+                }
+                break;
+            case DPAD_DOWN:
+                if (*ptr - 1 > newChoice) {
+                    newChoice++;
+                }
+                break;
+        }
+        if (gMenu.field_0x3 != newChoice) {
+            gMenu.field_0x3 = newChoice;
+            sub_080A5CFC(newChoice, &gMenu, newChoice);
+            SoundReq(SFX_TEXTBOX_CHOICE);
+        }
+    }
+}
 
 void sub_080A5CFC(u32 menuType, void* param_2, u32 param_3) {
     DrawDungeonFeatures(menuType, param_2, param_3);
@@ -161,7 +273,29 @@ void sub_080A6108(void) {
     SetMenuType(1);
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A612C.inc", void sub_080A612C())
+void sub_080A612C(void) {
+    u32 newChoice;
+    int iVar3;
+
+    if (sub_080A51F4()) {
+        newChoice = gMenu.field_0x3;
+        switch (gInput.newKeys) {
+            case DPAD_LEFT:
+                newChoice--;
+                break;
+            case DPAD_RIGHT:
+                newChoice++;
+                break;
+        }
+        iVar3 = newChoice + 8;
+        newChoice = iVar3 / 8;
+        newChoice = iVar3 - newChoice * 8;
+        if (gMenu.field_0x3 != newChoice) {
+            gMenu.field_0x3 = newChoice;
+            SoundReq(SFX_TEXTBOX_CHOICE);
+        }
+    }
+}
 
 ASM_FUNC("asm/non_matching/subtask2/sub_080A617C.inc", void sub_080A617C())
 
@@ -170,41 +304,166 @@ void sub_080A6270(void) {
     sub_080A6378();
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A6290.inc", void sub_080A6290())
+extern u8 gUnk_08128DD8[];
+extern u8 gUnk_08128DD4[];
+
+void sub_080A6290(void) {
+    sub_080A70AC((KeyButtonLayout*)gUnk_08128DD8);
+    gMenu.field_0xc = gUnk_08128DD4;
+    LoadGfxGroup(0x81);
+    gScreen.bg1.yOffset = -4;
+    gScreen.bg2.yOffset = -4;
+    gSave.windcrests = gSave.windcrests | 0x10780;
+    gGenericMenu.unk10.h[0] = sub_080A6F40();
+    gMenu.menuType = 1;
+}
 
 ASM_FUNC("asm/non_matching/subtask2/sub_080A62E0.inc", void sub_080A62E0())
 
 ASM_FUNC("asm/non_matching/subtask2/sub_080A6378.inc", void sub_080A6378())
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A6438.inc", void sub_080A6438())
+void sub_080A6438(void) {
+    u32 uVar1;
+    u8* pcVar2;
+    u32 uVar3;
+
+    gOamCmd._4 = 0x400;
+    gOamCmd._6 = 0;
+    gOamCmd._8 = 0;
+    uVar1 = gSave.field_0x20 & gGenericMenu.unk10.h[0];
+    for (pcVar2 = gUnk_08128F58, uVar3 = 0; *pcVar2 != 0; uVar3++, pcVar2 += 8) {
+        if ((1 << uVar3 & uVar1) != 0) {
+            gOamCmd.x = pcVar2[1];
+            gOamCmd.y = pcVar2[2];
+#ifdef EU
+            DrawDirect(0x1fa, *pcVar2);
+#else
+            DrawDirect(0x1fb, *pcVar2);
+#endif
+        }
+    }
+}
 
 ASM_FUNC("asm/non_matching/subtask2/sub_080A6498.inc", void sub_080A6498())
 
-ASM_FUNC("asm/non_matching/subtask2/Subtask_MapHint.inc", void Subtask_MapHint())
+void Subtask_MapHint(void) {
+    extern void (*const gUnk_08128E70[])(void);
+    FlushSprites();
+    gUnk_08128E70[gMenu.menuType]();
+    if ((gGenericMenu.unk2c & 0x20) != 0) {
+        sub_080A6438();
+    }
+    sub_080A6498();
+    CopyOAM();
+}
 
 ASM_FUNC("asm/non_matching/subtask2/sub_080A6534.inc", void sub_080A6534())
 
 ASM_FUNC("asm/non_matching/subtask2/sub_080A65AC.inc", void sub_080A65AC())
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A6608.inc", void sub_080A6608())
+void sub_080A6608(void) {
+    extern void (*const gUnk_08128E78[])(void);
+    const struct_gUnk_08128E94* ptr;
+    gUnk_08128E78[gMenu.menuType]();
+    ptr = &gUnk_08128E94[gMenu.field_0x3];
+    gScreen.bg1.yOffset = -ptr->unk5;
+    gScreen.bg2.yOffset = gMenu.field_0xa - (s8)ptr->unk6;
+    sub_080A66D0();
+}
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A6650.inc", void sub_080A6650())
+void sub_080A6650(void) {
+    extern u8 gUnk_08128E84[];
+    u32 temp;
+    sub_080A70AC((KeyButtonLayout*)gUnk_08128E84);
+    temp = gPauseMenuOptions.unk2[4];
+    gMenu.field_0x3 = temp;
+    sub_080A67C4(temp);
+    sub_080A68D4();
+    SetMenuType(1);
+}
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A667C.inc", void sub_080A667C())
+void sub_080A667C(void) {
+    u32 uVar1;
+    u32 uVar2;
+    const struct_gUnk_08128E94* ptr;
+
+    gMenu.field_0xc = gUnk_08128E80;
+    ptr = &gUnk_08128E94[gMenu.field_0x3];
+    uVar2 = gMenu.field_0xa;
+    switch (gInput.heldKeys) {
+        case DPAD_UP:
+            if (uVar2 != 0) {
+                uVar2 -= 2;
+            }
+            break;
+        case DPAD_DOWN:
+            uVar1 = ptr->unk2;
+            if (uVar1 > uVar2) {
+                uVar2 += 2;
+            }
+            if (uVar1 < uVar2) {
+                uVar2 = uVar1;
+            }
+            break;
+    }
+
+    gMenu.field_0xa = uVar2;
+    sub_080A6FB4(gMenu.field_0x3, 0);
+}
 
 ASM_FUNC("asm/non_matching/subtask2/sub_080A66D0.inc", void sub_080A66D0())
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A67C4.inc", void sub_080A67C4())
+ASM_FUNC("asm/non_matching/subtask2/sub_080A67C4.inc", void sub_080A67C4(u32 param_1))
 
 ASM_FUNC("asm/non_matching/subtask2/sub_080A68D4.inc", void sub_080A68D4())
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A698C.inc", void sub_080A698C())
+typedef struct {
+    u8 unk0;
+    u8 unk1;
+    u16 unk2;
+    u16 unk4;
+    u16 unk6;
+} struct_sub_080A698C;
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A69E0.inc", void sub_080A69E0())
+void sub_080A698C(u32 param_1, u32 param_2, u32 param_3, u32 param_4) {
+    int iVar1;
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A6A80.inc", void sub_080A6A80())
+    iVar1 = sub_080A69E0();
+    if (0 < iVar1) {
+        ((struct_sub_080A698C*)&gMapDataBottomSpecial)[gGenericMenu.unk2d].unk0 = param_4 >> 8;
+        ((struct_sub_080A698C*)&gMapDataBottomSpecial)[gGenericMenu.unk2d].unk1 = param_4;
+        ((struct_sub_080A698C*)&gMapDataBottomSpecial)[gGenericMenu.unk2d].unk2 = param_3;
+        ((struct_sub_080A698C*)&gMapDataBottomSpecial)[gGenericMenu.unk2d].unk4 = iVar1;
+        ((struct_sub_080A698C*)&gMapDataBottomSpecial)[gGenericMenu.unk2d].unk6 = iVar1 >> 0x10;
+        gGenericMenu.unk2d++;
+    }
+}
 
-ASM_FUNC("asm/non_matching/subtask2/Subtask_LocalMapHint.inc", void Subtask_LocalMapHint())
+ASM_FUNC("asm/non_matching/subtask2/sub_080A69E0.inc", u32 sub_080A69E0())
+
+struct_08127F94* sub_080A6A80(u32 param_1, u32 param_2) {
+    struct_08127F94* pbVar1;
+    param_1 >>= 4;
+    param_2 >>= 4;
+
+    for (pbVar1 = gUnk_08127F94; pbVar1->_0 != 0xff; pbVar1++) {
+        if (pbVar1->_0 <= param_1 && pbVar1->_2 >= param_1 && pbVar1->_1 <= param_2 && pbVar1->_3 >= param_2) {
+            return pbVar1;
+        }
+    }
+    return NULL;
+}
+
+void Subtask_LocalMapHint() {
+    extern void (*const gUnk_08128F1C[])(void);
+    const struct_gUnk_08128E94* ptr;
+    FlushSprites();
+    gUnk_08128F1C[gMenu.menuType]();
+    ptr = &gUnk_08128E94[gMenu.field_0x3];
+    gScreen.bg1.yOffset = -ptr->unk5;
+    gScreen.bg2.yOffset = gMenu.field_0xa - (s8)ptr->unk6;
+    CopyOAM();
+}
 
 ASM_FUNC("asm/non_matching/subtask2/sub_080A6B04.inc", void sub_080A6B04())
 
@@ -233,12 +492,25 @@ ASM_FUNC("asm/non_matching/subtask2/sub_080A6CD8.inc", void sub_080A6CD8())
 
 ASM_FUNC("asm/non_matching/subtask2/sub_080A6D74.inc", u32 sub_080A6D74(u32 a))
 
-#ifdef EU
-ASM_FUNC("asm/non_matching/subtask2/sub_080A6DD0.inc", u32 sub_080A6DD0(void))
-#else
 void sub_080A6DD0(void) {
     u32 tmp;
     switch (sub_08056338()) {
+#ifdef EU
+        case 0:
+            gMenu.field_0x0 = 2;
+            break;
+        case 1:
+            gMenu.field_0x0 = 3;
+            tmp = 1;
+            break;
+        default:
+            return;
+    }
+
+    if (tmp) {
+        SetMenuType(3);
+    }
+#else
         case 0:
             gMenu.field_0x0 = 2;
             tmp = 3;
@@ -250,8 +522,8 @@ void sub_080A6DD0(void) {
             return;
     }
     SetMenuType(tmp);
-}
 #endif
+}
 
 void sub_080A6DF8(void) {
     if (gMenu.field_0x0 == 2) {
@@ -276,9 +548,31 @@ ASM_FUNC("asm/non_matching/subtask2/sub_080A6E70.inc", void sub_080A6E70())
 
 ASM_FUNC("asm/non_matching/subtask2/sub_080A6EE0.inc", void sub_080A6EE0())
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A6F40.inc", void sub_080A6F40())
+u32 sub_080A6F40(void) {
+    extern u8 gUnk_08128F38[];
+    int iVar1;
+    u8* pcVar2;
+    u32 uVar3;
+    u32 uVar4;
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A6F6C.inc", void sub_080A6F6C())
+    for (uVar3 = 0, pcVar2 = gUnk_08128F38, uVar4 = 0; *pcVar2 != 0; uVar3++, pcVar2 += 2) {
+        uVar4 |= sub_0807CB24(*pcVar2, pcVar2[1]) << uVar3;
+    }
+    return ~uVar4;
+}
+
+void sub_080A6F6C(u32 param_1) {
+    extern Font gUnk_08128FA8;
+    if (gGenericMenu.unk2e.HWORD != param_1) {
+        gGenericMenu.unk2e.HWORD = param_1;
+        MemClear(gUnk_020350F0, 0x100);
+        if ((param_1 & 0xff) != 0) {
+            sub_0805F46C(param_1, &gUnk_08128FA8);
+        }
+        gScreen.bg0.updated = 1;
+    }
+    gScreen.bg0.yOffset = 2;
+}
 
 ASM_FUNC("asm/non_matching/subtask2/sub_080A6FB4.inc", void sub_080A6FB4(u32 a, u32 b))
 
