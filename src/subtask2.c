@@ -509,7 +509,25 @@ void sub_080A6CA8(void) {
 
 ASM_FUNC("asm/non_matching/subtask2/sub_080A6CD8.inc", void sub_080A6CD8())
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A6D74.inc", u32 sub_080A6D74(u32 a))
+u32 sub_080A6D74(u32 param_1) {
+    u32 uVar1;
+    u32 uVar2;
+    u32 uVar3;
+
+    uVar3 = gSave.windcrests >> 0x18;
+    uVar2 = gMenu.field_0x3;
+    if (param_1 == 0) {
+        uVar2 = 0;
+        if ((uVar3 & 1) == 0) {
+            while (++uVar2 < 8 && ((1 << uVar2) & uVar3) == 0) {}
+        }
+    } else if (uVar3 != 0) {
+        do {
+            uVar2 = (uVar2 + param_1 + 8) & 7;
+        } while ((1 << uVar2 & uVar3) == 0);
+    }
+    return uVar2 & 7;
+}
 
 void sub_080A6DD0(void) {
     u32 tmp;
