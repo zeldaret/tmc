@@ -152,7 +152,7 @@ void sub_080A5AF4(void) {
     SetPopupState(2, 0);
 #ifndef EU
     if (gSaveHeader->language == 0) {
-        gScreen.bg1.yOffset = 0xfffc;
+        gScreen.bg1.yOffset = -4;
     } else {
         gScreen.bg1.yOffset = 0;
     }
@@ -639,7 +639,7 @@ void MenuFadeIn(u32 param_1, u32 param_2) {
         gUI.nextToLoad = 1;
     }
     gUI.field_0x6 = 0;
-    gUI.isLoading = 0xffff;
+    gUI.isLoading = -1;
     gUI.fadeInTime = 0x20;
     gMain.substate = GAMEMAIN_SUBTASK;
     SetFade(5, 0x20);
