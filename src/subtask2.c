@@ -467,7 +467,26 @@ void Subtask_LocalMapHint() {
 
 ASM_FUNC("asm/non_matching/subtask2/sub_080A6B04.inc", void sub_080A6B04())
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A6C1C.inc", void sub_080A6C1C())
+void sub_080A6C1C(void) {
+    if (!gFadeControl.active) {
+        switch (gMenu.transitionTimer) {
+            case 0:
+                sub_080A66D0();
+                switch (gInput.newKeys) {
+                    case 1:
+                    case 2:
+                    case 8:
+                        Subtask_Exit();
+                        break;
+                }
+                return;
+            case 1:
+                SoundReq(SFX_103);
+                break;
+        }
+        gMenu.transitionTimer--;
+    }
+}
 
 void Subtask_FastTravel(void) {
     FlushSprites();
