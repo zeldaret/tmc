@@ -16,7 +16,7 @@ extern void sub_080A4DB8(u32);
 
 void sub_080A5128(void);
 void sub_080A51D4(void);
-u32 sub_080A51F4(void);
+bool32 sub_080A51F4(void);
 void sub_080A5F48(u32, u32);
 
 Subtask PauseMenu_Variant0;
@@ -53,14 +53,6 @@ void Subtask_PauseMenu(void) {
     }
 }
 
-typedef struct {
-    u8 _0;
-    u8 _1;
-    u8 _2;
-    u8 _3;
-    u8 _4;
-    u16 _6;
-} struct_08127F94;
 struct_08127F94* sub_080A6A80(u32, u32);
 
 extern u8 gUnk_02034492[];
@@ -110,7 +102,7 @@ void PauseMenu_Variant2(void) {
     int iVar4;
     s32 bVar5;
 
-    if ((sub_080A51F4() != 0) && (gMenu.field_0xc != NULL)) {
+    if (sub_080A51F4() && (gMenu.field_0xc != NULL)) {
         iVar1 = -1;
         switch (gInput.newKeys) {
             case START_BUTTON:
@@ -263,12 +255,12 @@ void sub_080A51D4(void) {
     }
 }
 
-u32 sub_080A51F4(void) {
-    u32 retval = 1;
+bool32 sub_080A51F4(void) {
+    bool32 retval = TRUE;
     if (gFadeControl.active != 0)
-        retval = 0;
+        retval = FALSE;
     if (gPauseMenuOptions.unk11 != 2)
-        retval = 0;
+        retval = FALSE;
     return retval;
 }
 

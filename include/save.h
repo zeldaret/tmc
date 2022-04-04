@@ -41,7 +41,9 @@ typedef struct {
     /*0x006*/ u8 saw_staffroll;
     /*0x007*/ u8 unk7;
     /*0x008*/ u8 global_progress; /**< @see UpdateGlobalProgress */
-    /*0x009*/ u8 field_0x9[0x37];
+    /*0x009*/ u8 field_0x9[0x17];
+    /*0x020*/ u16 field_0x20;
+    /*0x022*/ u8 field_0x22[0x1e];
     /*0x040*/ u32 windcrests; /**< Windcrest flags. */
     /*0x044*/ u8 filler44[0xC];
     /*0x050*/ u32 unk50;

@@ -72,7 +72,7 @@ static const SaveFile gDemoSave = {
     .msg_speed = 1,
     .brightness = 1,
     .global_progress = 1,
-    .field_0x9 = { [23] = 0x1F },
+    .field_0x20 = 0x1F,
     .windcrests = 0x00013780,
     .unk50 = 7,
     .areaVisitFlags = { 0x0114C300 },

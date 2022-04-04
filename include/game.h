@@ -285,4 +285,14 @@ typedef enum {
     GAMEMAIN_SUBTASK,
 } EGameMainState;
 
+typedef struct {
+    u8 _0;
+    u8 _1;
+    u8 _2;
+    u8 _3;
+    u8 _4;
+    u16 _6;
+} struct_08127F94;
+extern struct_08127F94 gUnk_08127F94[];
+
 #endif // GAME_H

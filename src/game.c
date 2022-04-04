@@ -158,16 +158,6 @@ static void sub_080532E4(void);
 static void ResetTimerFlags(void);
 
 typedef struct {
-    u8 _0;
-    u8 _1;
-    u8 _2;
-    u8 _3;
-    u8 _4;
-    u16 _6;
-} struct_08127F94;
-extern struct_08127F94 gUnk_08127F94[];
-
-typedef struct {
     u8 dest_off[8];
     u8 _8;
     u8 right_align;
