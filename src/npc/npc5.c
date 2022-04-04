@@ -286,7 +286,7 @@ void sub_08060DFC(Entity* this) {
 
     LinearMoveUpdate(this);
     sub_08060E94(this);
-    uVar1 = GravityUpdate(this, 0x2000);
+    uVar1 = GravityUpdate(this, Q_8_8(32.0));
     if (uVar1 == 0) {
         this->action = 7;
         this->collisionLayer = 1;

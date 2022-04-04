@@ -77,7 +77,7 @@ void LavaPlatform_Type0Action1(LavaPlatformEntity* this) {
     if (*(u8*)&this->timer != 0) {
         // Use this entity to show the platform flipping animation.
         super->action = 2;
-        super->zVelocity = 0x2c000;
+        super->zVelocity = Q_16_16(2.75);
         super->spriteSettings.draw = 1;
         UpdateSpriteForCollisionLayer(super);
         InitAnimationForceUpdate(super, (super->child)->animationState);
@@ -87,7 +87,7 @@ void LavaPlatform_Type0Action1(LavaPlatformEntity* this) {
 }
 
 void LavaPlatform_Type0Action2(LavaPlatformEntity* this) {
-    if (GravityUpdate(super, 0x2400) == 0) {
+    if (GravityUpdate(super, Q_8_8(36.0)) == 0) {
         // Finished flipping platform.
         super->action = 1;
         super->spriteSettings.draw = 0;
@@ -95,7 +95,7 @@ void LavaPlatform_Type0Action2(LavaPlatformEntity* this) {
         (super->child)->spriteOffsetY = 0;
         InitializeAnimation(super->child, super->child->animationState);
         CreateFx(super, FX_LAVA_SPLASH_HUGE, 0);
-    } else if ((super->zVelocity < 0x18000) && ((super->frame & ANIM_DONE) == 0)) {
+    } else if ((super->zVelocity < Q_16_16(1.5)) && ((super->frame & ANIM_DONE) == 0)) {
         UpdateAnimationSingleFrame(super);
     }
 }

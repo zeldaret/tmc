@@ -89,7 +89,7 @@ void sub_080948D0(Object68Entity* this) {
 
 void sub_080948E8(Object68Entity* this) {
     if (super->timer < 0x3c) {
-        super->z.WORD -= 0x4000;
+        super->z.WORD -= Q_16_16(0.25);
         if ((super->timer & 3) == 0) {
             super->child = CreateFx(super, FX_DASH, 0x40);
             if (super->child != NULL) {

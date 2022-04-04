@@ -215,7 +215,7 @@ void sub_08084630(SpecialFxObject* this) {
 }
 
 void sub_08084680(SpecialFxObject* this) {
-    super->z.WORD += 0x4000;
+    super->z.WORD += Q_16_16(0.25);
     sub_080845DC(this);
 }
 
@@ -273,12 +273,12 @@ void sub_0808471C(SpecialFxObject* this) {
 }
 
 void sub_08084770(SpecialFxObject* this) {
-    super->z.WORD -= 0x4000;
+    super->z.WORD -= Q_16_16(0.25);
     sub_080845DC(this);
 }
 
 void sub_08084784(SpecialFxObject* this) {
-    super->z.WORD += 0x4000;
+    super->z.WORD += Q_16_16(0.25);
     sub_080845DC(this);
 }
 
@@ -290,7 +290,7 @@ void sub_08084798(SpecialFxObject* this) {
 }
 
 void sub_080847BC(SpecialFxObject* this) {
-    super->z.WORD -= 0x2000;
+    super->z.WORD -= Q_16_16(0.125);
     sub_080845DC(this);
 }
 

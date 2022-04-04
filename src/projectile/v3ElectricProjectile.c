@@ -114,7 +114,7 @@ void V3ElectricProjectile_Action2(Entity* this) {
 void sub_080AC168(Entity* this) {
     u8 timer;
     GetNextFrame(this);
-    this->z.WORD += 0xffff8000;
+    this->z.WORD -= Q_16_16(0.5);
     timer = --this->timer;
     if (timer == 0) {
         u32 rand;

@@ -180,7 +180,7 @@ void sub_0802B8E0(Entity* this) {
 }
 
 void sub_0802B948(Entity* this) {
-    if (!GravityUpdate(this, 0x1800)) {
+    if (!GravityUpdate(this, Q_8_8(24.0))) {
         this->action = 1;
         this->timer = 1;
     }

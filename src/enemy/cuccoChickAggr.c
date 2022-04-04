@@ -57,7 +57,7 @@ void sub_08022988(Entity* this) {
         }
 
         ProcessMovement0(this);
-        if (GravityUpdate(this, 0x2000) == 0) {
+        if (GravityUpdate(this, Q_8_8(32.0)) == 0) {
             if (--this->timer == 0) {
                 sub_08022A88(this);
             } else {
@@ -69,7 +69,7 @@ void sub_08022988(Entity* this) {
 }
 
 void sub_080229F8(Entity* this) {
-    if (GravityUpdate(this, 0x2800) == 0) {
+    if (GravityUpdate(this, Q_8_8(40.0)) == 0) {
         if (--this->timer == 0) {
             this->action = 4;
             this->timer = 6;
@@ -93,7 +93,7 @@ void sub_08022A40(Entity* this) {
     }
 
     ProcessMovement0(this);
-    if (GravityUpdate(this, 0x2000) == 0) {
+    if (GravityUpdate(this, Q_8_8(32.0)) == 0) {
         if (--this->timer == 0) {
             sub_08022A88(this);
         } else {

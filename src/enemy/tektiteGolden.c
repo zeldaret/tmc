@@ -63,7 +63,7 @@ void TektiteGolden_OnDeath(Entity* this) {
 void TektiteGolden_OnConfused(Entity* this) {
     GenericConfused(this);
     if (this->z.HALF.HI != 0) {
-        GravityUpdate(this, 0x3000);
+        GravityUpdate(this, Q_8_8(48.0));
     }
 }
 

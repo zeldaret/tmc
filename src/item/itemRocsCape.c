@@ -23,7 +23,7 @@ void ItemRocsCape(ItemBehavior* this, u32 arg1) {
                         gPlayerState.jump_status = 1;
                         gPlayerState.field_0xe = -1;
                         gPlayerState.item = NULL;
-                        gPlayerEntity.zVelocity = 0x20000;
+                        gPlayerEntity.zVelocity = Q_16_16(2.0);
                         sub_08077F84();
                         SoundReq(SFX_PLY_VO4);
                         return;
@@ -43,8 +43,8 @@ void ItemRocsCape(ItemBehavior* this, u32 arg1) {
                 if ((gPlayerState.jump_status != 0) && ((gPlayerState.jump_status & 7) != 3)) {
                     sub_08076758(this, arg1);
                     return;
-                } else if (-1 < gPlayerEntity.z.WORD) {
-                    gPlayerEntity.zVelocity = 0x20000;
+                } else if (gPlayerEntity.z.WORD >= 0) {
+                    gPlayerEntity.zVelocity = Q_16_16(2.0);
                     gPlayerState.jump_status = 1;
                     gPlayerState.item = NULL;
                     this->stateID += 1;
@@ -66,7 +66,7 @@ void sub_08076758(ItemBehavior* this, u32 arg1) {
         ((gPlayerState.jump_status & 7) != 3)) {
         if (sub_08077EFC(this)) {
             if (this->stateID < 2) {
-                if ((gPlayerEntity.zVelocity < 1) && ((gPlayerState.jump_status & 0x10) == 0)) {
+                if ((gPlayerEntity.zVelocity <= 0) && ((gPlayerState.jump_status & 0x10) == 0)) {
                     this->stateID = 2;
                     gPlayerEntity.field_0x7a.HWORD = 2;
                     gPlayerEntity.zVelocity = Q_16_16(2.0);

@@ -17,7 +17,7 @@ typedef struct {
     /*0x68*/ u16 unk_68;
     /*0x6a*/ u16 unk_6a;
     /*0x6c*/ u16* unk_6c;
-    /*0x70*/ u32 unk_70;
+    /*0x70*/ u32 gravity;
 } Object30Entity;
 
 extern u32 sub_0806F798(Entity*);
@@ -73,19 +73,19 @@ void Object30_Action2(Object30Entity* this) {
     u8 tmp;
     switch (super->type) {
         case 0:
-            if (this->unk_70 != 0) {
+            if (this->gravity != 0) {
                 if (super->zVelocity < 0) {
                     if (super->z.HALF.HI > -8) {
-                        this->unk_70 = 0;
+                        this->gravity = 0;
                     } else {
-                        if (super->zVelocity < -0x4000) {
-                            this->unk_70 = -0x400;
+                        if (super->zVelocity < Q_16_16(-0.25)) {
+                            this->gravity = Q_8_8(-4.0);
                         } else {
-                            this->unk_70 = 0x400;
+                            this->gravity = Q_8_8(4.0);
                         }
                     }
                 }
-                GravityUpdate(super, this->unk_70);
+                GravityUpdate(super, this->gravity);
                 return;
             }
             // fallthrough
@@ -105,11 +105,11 @@ void sub_0808A968(Object30Entity* this) {
     super->action = 2;
     super->timer = 0x1e;
     super->spriteSettings.draw = 1;
-    super->zVelocity = 0x28000;
+    super->zVelocity = Q_16_16(2.5);
     super->spritePriority.b1 = 3;
     super->spriteSettings.shadow = 0;
     super->collisionFlags |= 0x10;
     super->hitbox = (Hitbox*)&gUnk_08121C58;
     SetDefaultPriority(super, 2);
-    this->unk_70 = 0x2800;
+    this->gravity = Q_8_8(40.0);
 }

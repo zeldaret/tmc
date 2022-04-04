@@ -174,7 +174,7 @@ void Stalfos_Init(StalfosEntity* this) {
 }
 
 void Stalfos_Action1(StalfosEntity* this) {
-    if (GravityUpdate(super, 0x1800) == 0 && sub_08039758(this) == 0 && --this->unk_78 == 0) {
+    if (GravityUpdate(super, Q_8_8(24.0)) == 0 && sub_08039758(this) == 0 && --this->unk_78 == 0) {
         super->action = 2;
         super->timer = 0xa;
         sub_08039858(this);
@@ -203,7 +203,7 @@ void Stalfos_Action3(StalfosEntity* this) {
 
 void Stalfos_Action4(StalfosEntity* this) {
     ProcessMovement2(super);
-    if (GravityUpdate(super, 0x1800) == 0) {
+    if (GravityUpdate(super, Q_8_8(24.0)) == 0) {
         sub_0803998C(this);
         this->unk_7c = 0x5a;
         EnqueueSFX(SFX_PLY_LAND);
@@ -212,7 +212,7 @@ void Stalfos_Action4(StalfosEntity* this) {
 
 void Stalfos_Action5(StalfosEntity* this) {
     ProcessMovement2(super);
-    GravityUpdate(super, 0x1800);
+    GravityUpdate(super, Q_8_8(24.0));
     if (super->zVelocity < 0) {
         super->action = 6;
         super->timer = 0x0f;
@@ -255,7 +255,7 @@ void Stalfos_Action8(StalfosEntity* this) {
 }
 
 void Stalfos_Action9(StalfosEntity* this) {
-    if (GravityUpdate(super, 0x1800) == 0 && --this->unk_78 == 0) {
+    if (GravityUpdate(super, Q_8_8(24.0)) == 0 && --this->unk_78 == 0) {
         sub_08039A70(this);
     }
 }
@@ -297,7 +297,7 @@ bool32 sub_08039758(StalfosEntity* this) {
                 sub_0803981C(this);
                 super->hitType = 0x46;
                 this->unk_7d = 0x46;
-                super->zVelocity = 0x28000;
+                super->zVelocity = Q_16_16(2.5);
                 return TRUE;
             }
         } else {
@@ -314,7 +314,7 @@ bool32 sub_08039758(StalfosEntity* this) {
 }
 
 void sub_0803981C(StalfosEntity* this) {
-    super->zVelocity = 0x20000;
+    super->zVelocity = Q_16_16(2.0);
     if (super->iframes == 0) {
         super->iframes = -0xc;
     }

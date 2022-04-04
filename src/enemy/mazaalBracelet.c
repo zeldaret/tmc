@@ -928,7 +928,7 @@ void sub_0803B100(Entity* this) {
 
 void sub_0803B144(Entity* this) {
     UpdateAnimationSingleFrame(this->child);
-    if (GravityUpdate(this, 0x2000) == 0) {
+    if (GravityUpdate(this, Q_8_8(32.0)) == 0) {
         this->action = 0x2a;
         InitializeAnimation(this, 0x16);
         sub_0803B8E8(this, 0x14);

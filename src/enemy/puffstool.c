@@ -105,7 +105,7 @@ void Puffstool_OnDeath(Entity* this) {
 }
 
 void Puffstool_OnGrabbed(Entity* this) {
-    GravityUpdate(this, 0x2000);
+    GravityUpdate(this, Q_8_8(32.0));
     if (sub_0806F520(this)) {
         gUnk_080CBFEC[this->subAction](this);
     } else {
@@ -210,7 +210,7 @@ void sub_0802538C(Entity* this) {
         if (this->frame == 0) {
             GetNextFrame(this);
         } else {
-            GravityUpdate(this, Q_16_16(0.125));
+            GravityUpdate(this, Q_8_8(32.0));
             if (this->zVelocity < Q_16_16(0.125)) {
                 this->action = 4;
                 InitializeAnimation(this, 2);
@@ -221,7 +221,7 @@ void sub_0802538C(Entity* this) {
 
 void sub_080253D4(Entity* this) {
     GetNextFrame(this);
-    if (!GravityUpdate(this, 0x2000)) {
+    if (!GravityUpdate(this, Q_8_8(32.0))) {
         if (this->subtimer == 0) {
             this->action = 5;
             InitializeAnimation(this, 3);
@@ -240,7 +240,7 @@ void sub_0802541C(Entity* this) {
     if (this->frame & ANIM_DONE) {
         this->action = 3;
         this->subtimer = 1;
-        this->zVelocity = Q_16_16(2);
+        this->zVelocity = Q_16_16(2.0);
         InitializeAnimation(this, 1);
     }
 }
@@ -257,7 +257,7 @@ void sub_0802544C(Entity* this) {
 }
 
 void sub_0802547C(Entity* this) {
-    GravityUpdate(this, Q_16_16(0.125));
+    GravityUpdate(this, Q_8_8(32.0));
     GetNextFrame(this);
     if ((this->timer & 7) == 0) {
         sub_08025BD4(this);
@@ -269,7 +269,7 @@ void sub_0802547C(Entity* this) {
 }
 
 void sub_080254B4(Entity* this) {
-    GravityUpdate(this, Q_16_16(0.125));
+    GravityUpdate(this, Q_8_8(32.0));
     if (this->frame & ANIM_DONE) {
         if (this->z.HALF.HI == 0) {
             if (this->cutsceneBeh.HWORD == 0) {

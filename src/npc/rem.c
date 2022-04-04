@@ -416,17 +416,17 @@ void sub_0806AA50(Entity* this, ScriptExecutionContext* context) {
                 case 0:
                     gRoomVars.entities[0] = this;
                     PrependEntityToList(this, NPC);
-                    this->zVelocity = 0x18000;
+                    this->zVelocity = Q_16_16(1.5);
                     break;
                 case 1:
                     pEnt = FindNextDuplicateID(gRoomVars.entities[0], NPC);
                     gRoomVars.entities[1] = pEnt;
-                    pEnt->zVelocity = 0x18000;
+                    pEnt->zVelocity = Q_16_16(1.5);
                     break;
                 case 2:
                     pEnt = FindNextDuplicateID(gRoomVars.entities[1], NPC);
                     gRoomVars.entities[2] = pEnt;
-                    pEnt->zVelocity = 0x18000;
+                    pEnt->zVelocity = Q_16_16(1.5);
                     break;
             }
             if (messageIndex == 0x441e) {
@@ -440,7 +440,7 @@ void sub_0806AA50(Entity* this, ScriptExecutionContext* context) {
             if (pEnt->z.HALF.HI < 0) {
                 break;
             }
-            pEnt->zVelocity = 0x18000;
+            pEnt->zVelocity = Q_16_16(1.5);
             context->unk_18 = 2;
             break;
         case 2:

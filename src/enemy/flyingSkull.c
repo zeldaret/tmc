@@ -203,7 +203,7 @@ void sub_08039FAC(FlyingSkullEntity* this) {
 
 void sub_0803A048(FlyingSkullEntity* this) {
     GetNextFrame(super);
-    super->z.WORD += 0xFFFF0000;
+    super->z.WORD -= Q_16_16(1.0);
     if (super->z.HALF.HI <= -6) {
         super->action = 5;
         super->timer = 10;
@@ -233,7 +233,7 @@ void sub_0803A0B8(FlyingSkullEntity* this) {
         super->spriteSettings.flipY = 1;
     }
 
-    if (GravityUpdate(super, 0x2000) == 0) {
+    if (GravityUpdate(super, Q_8_8(32.0)) == 0) {
         sub_0803A0E0(this);
     }
 }

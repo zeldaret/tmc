@@ -138,7 +138,7 @@ void sub_08021984(Entity* this) {
         EnqueueSFX(SFX_12D);
     }
 
-    if (GravityUpdate(this, 0x1800) == 0) {
+    if (GravityUpdate(this, Q_8_8(24.0)) == 0) {
         this->action = 2;
         this->timer = 16;
         this->subtimer = 1;
@@ -205,7 +205,7 @@ void sub_08021AD8(Entity* this) {
             EnqueueSFX(SFX_PLY_JUMP);
         }
         ProcessMovement2(this);
-        if (!GravityUpdate(this, 0x1800))
+        if (!GravityUpdate(this, Q_8_8(24.0)))
             this->frameDuration = 1;
     }
 
@@ -264,7 +264,7 @@ void sub_08021C58(Entity* this) {
     GetNextFrame(this);
     if (this->frame & 1) {
         ProcessMovement2(this);
-        if (GravityUpdate(this, 0x1800) == 0)
+        if (GravityUpdate(this, Q_8_8(24.0)) == 0)
             this->frameDuration = 1;
     }
 

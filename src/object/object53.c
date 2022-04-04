@@ -34,7 +34,7 @@ void sub_08091120(Entity* this) {
     this->spriteIndex = gUnk_08122288[this->type].spriteIndex;
     this->spriteSettings.draw = 1;
     this->spriteRendering.b3 = 2;
-    this->zVelocity = 0x2a000;
+    this->zVelocity = Q_16_16(2.625);
     InitializeAnimation(this, gUnk_08122288[this->type].animationState);
     sub_08004168(this);
 }
@@ -44,7 +44,7 @@ void sub_08091198(Entity* this) {
         this->spriteSettings.flipY = 1;
     }
 
-    if (GravityUpdate(this, 0x2000)) {
+    if (GravityUpdate(this, Q_8_8(32.0))) {
         return;
     }
 

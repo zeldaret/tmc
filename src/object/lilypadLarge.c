@@ -145,7 +145,7 @@ void sub_08085A98(LilypadLargeEntity* this) {
 
 void sub_08085B40(LilypadLargeEntity* this) {
     if (super->z.WORD != 0) {
-        if (GravityUpdate(super, 0x2000) != 0) {
+        if (GravityUpdate(super, Q_8_8(32.0)) != 0) {
             if ((u32)this->unk_78.WORD < 0x1200000) {
                 this->unk_78.WORD += 0x100000;
                 SetAffineInfo(super, this->unk_78.HALF_U.HI, this->unk_78.HALF_U.HI, this->unk_7c.HALF_U.HI);
@@ -168,7 +168,7 @@ void sub_08085B40(LilypadLargeEntity* this) {
     }
 
     if (this->unk_82 == 0) {
-        if (GravityUpdate(&gPlayerEntity, 0x2000) == 0) {
+        if (GravityUpdate(&gPlayerEntity, Q_8_8(32.0)) == 0) {
             ResetCollisionLayer(&gPlayerEntity);
             sub_08085F1C(this);
             super->action = 1;

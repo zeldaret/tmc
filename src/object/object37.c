@@ -43,7 +43,7 @@ void Object37_Action1(Object37Entity* this) {
         if (item != 0) {
             item->direction = gPlayerEntity.animationState << 2;
             item->speed = 0x80;
-            item->zVelocity = 0x20000;
+            item->zVelocity = Q_16_16(2.0);
         }
         gSave.unk24E[0] = 1;
         DeleteThisEntity();

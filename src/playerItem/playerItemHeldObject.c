@@ -86,7 +86,7 @@ void sub_080AD040(PlayerItemHeldObjectEntity* this) {
                 ProcessMovement10(super);
             }
         }
-        if (GravityUpdate(super, 0x2000) == 0) {
+        if (GravityUpdate(super, Q_8_8(32.0)) == 0) {
             (child->base).zVelocity = super->zVelocity;
             (child->base).x = super->x;
             (child->base).y = super->y;
@@ -145,7 +145,7 @@ void sub_080AD040(PlayerItemHeldObjectEntity* this) {
                 } else {
                     SoundReq(SFX_PLACE_OBJ);
                     super->timer++;
-                    super->zVelocity = 0x10000;
+                    super->zVelocity = Q_16_16(1.0);
                     super->speed /= 2;
                     return;
                 }

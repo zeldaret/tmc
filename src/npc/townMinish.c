@@ -168,7 +168,7 @@ void sub_0806AEA8(Entity* this) {
     int old = this->field_0x82.HWORD;
     this->field_0x82.HWORD &= ~0x20;
     if (old & 0x20) {
-        GravityUpdate(this, 0x4000);
+        GravityUpdate(this, Q_8_8(64.0));
     }
     HandleEntity0x82Actions(this);
     this->field_0x82.HWORD = old;
@@ -220,8 +220,8 @@ void sub_0806AF70(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_0806AF78(Entity* this, ScriptExecutionContext* context) {
-    GravityUpdate(this, 0x1800);
-    if (0 <= this->z.WORD && this->zVelocity < 1) {
+    GravityUpdate(this, Q_8_8(24.0));
+    if (0 <= this->z.WORD && this->zVelocity <= 0) {
         this->z.WORD = 0;
         sub_0806AF70(this, context);
     }

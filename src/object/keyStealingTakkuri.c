@@ -80,8 +80,8 @@ void KeyStealingTakkuri_Type0_Init(KeyStealingTakkuriEntity* this) {
 void KeyStealingTakkuri_Type0_Action1(KeyStealingTakkuriEntity* this) {
     if (--super->timer == 0) {
         super->action++;
-        super->y.WORD += 0x100000;
-        super->z.WORD -= 0x100000;
+        super->y.WORD += Q_16_16(16.0);
+        super->z.WORD -= Q_16_16(16.0);
         InitAnimationForceUpdate(super, 3);
     }
 }
@@ -159,7 +159,7 @@ void KeyStealingTakkuri_Type5_Init(KeyStealingTakkuriEntity* this) {
     super->spriteSettings.draw = 1;
     super->direction = 0x18;
     super->speed = 0x100;
-    super->zVelocity = 0x20000;
+    super->zVelocity = Q_16_16(2.0);
     super->timer = 1;
     SoundReq(SFX_RUPEE_BOUNCE);
 }
@@ -169,7 +169,7 @@ void KeyStealingTakkuri_Type5_Action1(KeyStealingTakkuriEntity* this) {
     if (sub_080044EC(super, 0x2000) < 2) {
         if (super->timer != 0) {
             super->timer--;
-            super->zVelocity = 0x10000;
+            super->zVelocity = Q_16_16(1.0);
         } else {
             super->action++;
             super->collisionLayer = gPlayerEntity.collisionLayer;
@@ -194,8 +194,8 @@ void KeyStealingTakkuri_Type2_Init(KeyStealingTakkuriEntity* this) {
     super->spriteRendering.b3 = 1;
     super->speed = 0;
     super->direction = 0x18;
-    super->y.WORD += 0x100000;
-    super->z.WORD -= 0x100000;
+    super->y.WORD += Q_16_16(16.0);
+    super->z.WORD -= Q_16_16(16.0);
     this->unk_68 = super->x.HALF.HI;
     this->unk_6a = super->y.HALF.HI;
     this->unk_6c = 0;

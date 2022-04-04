@@ -151,11 +151,11 @@ void sub_08038EE0(CuccoAggrEntity* this) {
     ProcessMovement0(super);
     GetNextFrame(super);
     sub_08039298(this);
-    if (GravityUpdate(super, 0x1C00) == 0) {
+    if (GravityUpdate(super, Q_8_8(28.0)) == 0) {
         if (--super->timer == 0) {
             sub_0803901C(this);
         } else {
-            super->zVelocity = 0x8000;
+            super->zVelocity = Q_16_16(0.5);
         }
     }
 }
@@ -234,7 +234,7 @@ void sub_0803901C(CuccoAggrEntity* this) {
         case 1:
             super->action = 3;
             super->timer = ((r3 >> 8) & 3) + 2;
-            super->zVelocity = 0x8000;
+            super->zVelocity = Q_16_16(0.5);
             sub_080390C0(this);
             InitializeAnimation(super, 1);
             if (Random() & 1) {

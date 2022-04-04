@@ -107,7 +107,7 @@ void sub_0807FDF8(RoomControls* controls) {
             controls->scroll_y -= 4;
             pEVar2 = controls->camera_target;
             if (pEVar2 == &gPlayerEntity) {
-                pEVar2->y.WORD = gPlayerEntity.y.WORD - 0x6000;
+                pEVar2->y.WORD = gPlayerEntity.y.WORD - Q_16_16(0.375);
             }
             if (controls->filler2[0] == 0x28) {
                 sub_0807FEC8(controls);
@@ -116,7 +116,7 @@ void sub_0807FDF8(RoomControls* controls) {
         case 1:
             controls->scroll_x = controls->scroll_x + 4;
             if (controls->camera_target == &gPlayerEntity) {
-                gPlayerEntity.x.WORD += 0x4000;
+                gPlayerEntity.x.WORD += Q_16_16(0.25);
             }
             if (controls->filler2[0] == 0x3c) {
                 sub_0807FEC8(controls);
@@ -126,7 +126,7 @@ void sub_0807FDF8(RoomControls* controls) {
             controls->scroll_y = controls->scroll_y + 4;
             pEVar2 = controls->camera_target;
             if (pEVar2 == &gPlayerEntity) {
-                pEVar2->y.WORD = gPlayerEntity.y.WORD + 0x6000;
+                pEVar2->y.WORD = gPlayerEntity.y.WORD + Q_16_16(0.375);
             }
             if (controls->filler2[0] == 0x28) {
                 sub_0807FEC8(controls);
@@ -135,7 +135,7 @@ void sub_0807FDF8(RoomControls* controls) {
         case 3:
             controls->scroll_x -= 4;
             if (controls->camera_target == &gPlayerEntity) {
-                gPlayerEntity.x.WORD -= 0x4000;
+                gPlayerEntity.x.WORD -= Q_16_16(0.25);
             }
             if (controls->filler2[0] == 0x3c) {
                 sub_0807FEC8(controls);

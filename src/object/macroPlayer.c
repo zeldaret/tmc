@@ -130,11 +130,11 @@ void sub_0808CC88(MacroPlayerEntity* this) {
 
 void MacroPlayer_Type0_Action1(MacroPlayerEntity* this) {
     sub_0808CC88(this);
-    if (GravityUpdate(super, 0x1000) == 0) {
+    if (GravityUpdate(super, Q_8_8(16.0)) == 0) {
         super->action++;
         super->direction = DirectionSouthWest;
         super->speed = 0x100;
-        super->zVelocity = 0x30000;
+        super->zVelocity = Q_16_16(3.0);
         super->spriteSettings.shadow = 0;
         super->child->subAction = 1;
         gUnk_02018EB0.unk_18 = 1;
@@ -144,13 +144,13 @@ void MacroPlayer_Type0_Action1(MacroPlayerEntity* this) {
 void MacroPlayer_Type0_Action2(MacroPlayerEntity* this) {
     sub_0808CC88(this);
     UpdateAnimationSingleFrame(super);
-    if (GravityUpdate(super, 0x2000)) {
+    if (GravityUpdate(super, Q_8_8(32.0))) {
         LinearMoveUpdate(super);
     } else {
         super->action++;
         super->direction = 10;
         super->speed = 0xc0;
-        super->zVelocity = 0x28000;
+        super->zVelocity = Q_16_16(2.5);
         gUnk_02018EB0.unk_19 = 1;
     }
 }
@@ -158,20 +158,20 @@ void MacroPlayer_Type0_Action2(MacroPlayerEntity* this) {
 void MacroPlayer_Type0_Action3(MacroPlayerEntity* this) {
     sub_0808CC88(this);
     UpdateAnimationSingleFrame(super);
-    if (GravityUpdate(super, 0x2000)) {
+    if (GravityUpdate(super, Q_8_8(32.0))) {
         LinearMoveUpdate(super);
     } else {
         super->action++;
         super->direction = 17;
         super->speed = 0x100;
-        super->zVelocity = 0x24000;
+        super->zVelocity = Q_16_16(2.25);
         gUnk_02018EB0.unk_1a = 1;
     }
 }
 
 void MacroPlayer_Type0_Action4(MacroPlayerEntity* this) {
     sub_0808CC88(this);
-    if (GravityUpdate(super, 0x1800)) {
+    if (GravityUpdate(super, Q_8_8(24.0))) {
         UpdateAnimationSingleFrame(super);
         LinearMoveUpdate(super);
         if (super->x.HALF.HI < 0x80) {

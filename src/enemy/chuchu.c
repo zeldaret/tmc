@@ -131,7 +131,7 @@ void Chuchu_OnGrabbed(Entity* this) {
             sub_0801FB68(this);
             InitializeAnimation(this, 8);
         }
-        GravityUpdate(this, 0x1800);
+        GravityUpdate(this, Q_8_8(24.0));
         GetNextFrame(this);
     }
 }
@@ -143,7 +143,7 @@ void Chuchu_OnKnockback(Entity* this) {
 }
 
 void Chuchu_OnDeath(Entity* this) {
-    GravityUpdate(this, 0x1800);
+    GravityUpdate(this, Q_8_8(24.0));
     GetNextFrame(this);
     if (this->type == 0) {
         GenericDeath(this);
@@ -215,7 +215,7 @@ void sub_0801F1B0(Entity* this) {
             EnqueueSFX(SFX_12B);
         }
         ProcessMovement2(this);
-        if (GravityUpdate(this, 0x4000) == 0)
+        if (GravityUpdate(this, Q_8_8(64.0)) == 0)
             GetNextFrame(this);
     } else {
         GetNextFrame(this);
@@ -275,7 +275,7 @@ void sub_0801F2CC(Entity* this) {
 }
 
 void sub_0801F2F8(Entity* this) {
-    GravityUpdate(this, 0x1800);
+    GravityUpdate(this, Q_8_8(24.0));
     GetNextFrame(this);
     if (this->frame & ANIM_DONE) {
         sub_0801F340(this);
@@ -411,7 +411,7 @@ void sub_0801F584(Entity* this) {
             EnqueueSFX(SFX_12B);
         }
         ProcessMovement2(this);
-        if (GravityUpdate(this, 0x4000) == 0)
+        if (GravityUpdate(this, Q_8_8(64.0)) == 0)
             GetNextFrame(this);
 
     } else {
@@ -473,7 +473,7 @@ void sub_0801F6CC(Entity* this) {
 }
 
 void sub_0801F6F8(Entity* this) {
-    GravityUpdate(this, 0x1800);
+    GravityUpdate(this, Q_8_8(24.0));
     GetNextFrame(this);
     if (this->frame & ANIM_DONE) {
         this->action = 4;
@@ -588,7 +588,7 @@ void sub_0801F940(Entity* this) {
             EnqueueSFX(SFX_12B);
         }
         ProcessMovement2(this);
-        if (GravityUpdate(this, 0x4000) == 0)
+        if (GravityUpdate(this, Q_8_8(64.0)) == 0)
             GetNextFrame(this);
     } else {
         GetNextFrame(this);
@@ -648,7 +648,7 @@ void sub_0801FA78(Entity* this) {
 }
 
 void sub_0801FAAC(Entity* this) {
-    GravityUpdate(this, 0x1800);
+    GravityUpdate(this, Q_8_8(24.0));
     GetNextFrame(this);
     if (this->frame & ANIM_DONE) {
         sub_0801FB14(this);

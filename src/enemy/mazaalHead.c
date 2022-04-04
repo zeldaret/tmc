@@ -183,7 +183,7 @@ void sub_08033FFC(Entity* this) {
             }
             break;
         case 4:
-            this->z.WORD += -0x8000;
+            this->z.WORD -= Q_16_16(0.5);
             if (this->z.HALF.HI == -10) {
                 this->subAction = 5;
                 this->field_0x80.HALF.HI = 1;
@@ -320,7 +320,7 @@ void sub_080342C8(Entity* this) {
         this->spriteOffsetX = gUnk_080CECEC[this->timer >> 1 & 7];
     } else {
         this->spriteOffsetX = 0;
-        if (GravityUpdate(this, 0x2000) == 0) {
+        if (GravityUpdate(this, Q_8_8(32.0)) == 0) {
             this->action = 0xc;
             this->field_0x7c.HALF.HI = 0x708;
             this->field_0x7c.BYTES.byte1 = 0;

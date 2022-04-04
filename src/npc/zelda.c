@@ -134,7 +134,7 @@ void sub_08066E80(Entity* this, ScriptExecutionContext* context) {
             break;
         case 2:
             LinearMoveAngle(this, 0x100, 0x80);
-            GravityUpdate(this, 0x2000);
+            GravityUpdate(this, Q_8_8(32.0));
             if (!(this->frame & 1)) {
                 UpdateAnimationSingleFrame(this);
             }
@@ -145,7 +145,7 @@ void sub_08066E80(Entity* this, ScriptExecutionContext* context) {
         case 3:
             LinearMoveAngle(this, 0x100, 0x80);
             UpdateAnimationSingleFrame(this);
-            if (GravityUpdate(this, 0x2000) == 0) {
+            if (GravityUpdate(this, Q_8_8(32.0)) == 0) {
                 context->unk_18++;
                 InitAnimationForceUpdate(this, 0x1E);
             }

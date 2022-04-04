@@ -67,7 +67,7 @@ void ObjectA8_Init(ObjectA8Entity* this) {
     super->action = 1;
     switch (super->type2) {
         case 0:
-            super->zVelocity = 0x1e000;
+            super->zVelocity = Q_16_16(1.875);
             super->z.HALF.HI += 8;
             break;
         case 2:
@@ -88,7 +88,7 @@ void ObjectA8_Init(ObjectA8Entity* this) {
 }
 
 void ObjectA8_Action1(ObjectA8Entity* this) {
-    super->z.WORD -= 0xe000;
+    super->z.WORD -= Q_16_16(0.875);
     if (super->frame != 0) {
         if (super->timer != 0) {
             super->timer *= 0x1e;

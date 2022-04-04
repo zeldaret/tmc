@@ -220,7 +220,7 @@ void sub_08082C5C(EzloCapEntity* this) {
                 return;
             }
     }
-    GravityUpdate(super, 0x2000);
+    GravityUpdate(super, Q_8_8(32.0));
     UpdateAnimationSingleFrame(super);
 }
 
@@ -273,7 +273,7 @@ void sub_08082D20(EzloCapEntity* this, ScriptExecutionContext* context) {
 
 void EzloCap_ScriptedAction2(EzloCapEntity* this) {
     ExecuteScript(super, this->unk_84);
-    GravityUpdate(super, 0x1800);
+    GravityUpdate(super, Q_8_8(24.0));
     switch (super->subAction) {
         case 0:
             if (super->zVelocity < 0) {

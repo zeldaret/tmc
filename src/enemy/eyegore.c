@@ -131,7 +131,7 @@ void Eyegore_OnCollision(EyegoreEntity* this) {
 void Eyegore_OnDeath(EyegoreEntity* this) {
     if (this->unk_7e != 0) {
         this->unk_7e--;
-        GravityUpdate(super, 0x1c00);
+        GravityUpdate(super, Q_8_8(28.0));
     } else {
         if ((super->gustJarState & 2) == 0) {
             CreateFx(super, FX_GIANT_EXPLOSION4, 0);
@@ -221,7 +221,7 @@ void Eyegore_Action4(EyegoreEntity* this) {
             if (this->unk_7a != 0) {
                 sub_08031250(this);
             }
-            if (GravityUpdate(super, 0x1c00) == 0) {
+            if (GravityUpdate(super, Q_8_8(28.0)) == 0) {
                 sub_08030E70(this);
             }
 
@@ -256,7 +256,7 @@ void Eyegore_Action5(EyegoreEntity* this) {
                 super->animationState = this->unk_7f;
                 InitializeAnimation(super, super->animationState + 4);
             }
-            if (GravityUpdate(super, 0x1c00) == 0) {
+            if (GravityUpdate(super, Q_8_8(28.0)) == 0) {
                 sub_08030E70(this);
             }
             break;
@@ -287,7 +287,7 @@ void Eyegore_Action6(EyegoreEntity* this) {
 
 void sub_08030E3C(EyegoreEntity* this) {
     super->frame = 0;
-    super->zVelocity = 0x11800;
+    super->zVelocity = Q_16_16(1.0 + 3.0 / 32.0);
     EnqueueSFX(SFX_157);
 }
 

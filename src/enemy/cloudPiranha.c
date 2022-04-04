@@ -218,7 +218,7 @@ void sub_08038754(CloudPiranhaEntity* this) {
 #else
     super->speed = 0xc0;
 #endif
-    super->zVelocity = 0x20000;
+    super->zVelocity = Q_16_16(2);
     this->unk_81 = 0;
     super->spritePriority.b1 = 3;
     EnqueueSFX(SFX_12B);

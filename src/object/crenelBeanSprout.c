@@ -190,7 +190,7 @@ void CrenelBeanSprout_Action1(CrenelBeanSproutEntity* this) {
         gPlayerState.heldObject = 0;
         super->action = 5;
         super->speed = 0x100;
-        super->zVelocity = 0x20000;
+        super->zVelocity = Q_16_16(2);
         super->spritePriority.b1 = 1;
         super->spriteSettings.shadow = 1;
         RestorePrevTileEntity(0xdc, super->collisionLayer);
@@ -256,7 +256,7 @@ void CrenelBeanSprout_Action5(CrenelBeanSproutEntity* this) {
         super->direction = CalculateDirectionTo(super->x.HALF.HI, super->y.HALF.HI, this->unk_70, this->unk_72);
         LinearMoveUpdate(super);
     }
-    if (GravityUpdate(super, 0x4000) == 0) {
+    if (GravityUpdate(super, Q_8_8(64.0)) == 0) {
         sub_08096A78(this);
     }
 }

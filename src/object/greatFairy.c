@@ -229,7 +229,7 @@ void GreatFairy_MiniRisingUpdate(Entity* this) {
     Entity* target;
 
     GetNextFrame(this);
-    this->z.WORD -= 0x8000;
+    this->z.WORD -= Q_16_16(0.5);
     if (this->z.HALF.HI == -20) {
         this->action = 2;
         SoundReq(SFX_HEART_CONTAINER_SPAWN);

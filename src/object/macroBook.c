@@ -116,7 +116,7 @@ void MacroBook_Action3(MacroBookEntity* this) {
 
     if (super->timer) {
         this->unk80 += 8;
-        super->x.WORD += 0x400;
+        super->x.WORD += Q_16_16(1.0 / 64.0);
         SetAffineInfo(super, this->unk80, this->unk80, 0);
     } else {
         sub_0809AA9C(this, super->child, 0);

@@ -82,9 +82,9 @@ void sub_0802F210(Entity* this) {
     this->subtimer = 0;
     *(u8*)&this->field_0x7c = 0;
 
-    this->field_0x80.HWORD = this->type == 0 ? 0x1800 : 0x2800;
+    this->field_0x80.HWORD = this->type == 0 ? Q_8_8(24.0) : Q_8_8(40.0);
 
-    this->field_0x82.HWORD = this->type == 0 ? 0x2800 : 0x3000;
+    this->field_0x82.HWORD = this->type == 0 ? (Q_16_16(2.5) >> 4) : (Q_16_16(3.0) >> 4);
 
     InitializeAnimation(this, 0);
 }

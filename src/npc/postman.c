@@ -153,12 +153,12 @@ void sub_08060528(Entity* this) {
             this->field_0x6a.HWORD -= 1;
         }
     }
-    GravityUpdate(this, 0x1800);
+    GravityUpdate(this, Q_8_8(24.0));
     if (((this->field_0x6c.HALF.HI != 0) && (this->zVelocity == 0)) && this->z.WORD == 0) {
         this->field_0x6c.HALF.HI = 0;
         sub_080606C0(this);
     }
-    if ((-1 < this->z.WORD) &&
+    if (this->z.WORD >= 0 &&
         ((gPlayerEntity.collisionLayer == 0 || (this->collisionLayer == gPlayerEntity.collisionLayer)))) {
         sub_0806ED78(this);
     }

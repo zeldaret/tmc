@@ -177,7 +177,7 @@ void sub_0801917C(PlayerItemBowEntity* this) {
                 super->action = 3;
                 super->direction ^= 0x10;
                 super->speed = 0x100;
-                super->zVelocity = 0x8000;
+                super->zVelocity = Q_16_16(0.5);
                 super->flags &= 0x7f;
                 InitializeAnimation(super, 6);
             } else {
@@ -235,7 +235,7 @@ void sub_08019410(Entity* this) {
 void sub_08019444(Entity* this) {
     GetNextFrame(this);
     LinearMoveUpdate(this);
-    if (GravityUpdate(this, 0x2000) == 0) {
+    if (GravityUpdate(this, Q_8_8(32.0)) == 0) {
         DeleteThisEntity();
     }
 }

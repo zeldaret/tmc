@@ -140,7 +140,7 @@ void sub_0807037C(Entity* this) {
 void sub_08070398(Entity* this) {
     GetNextFrame(this);
     LinearMoveUpdate(this);
-    if (GravityUpdate(this, 0x2000) == 0) {
+    if (GravityUpdate(this, Q_8_8(32.0)) == 0) {
         DeleteThisEntity();
     }
 }

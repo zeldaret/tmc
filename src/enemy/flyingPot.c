@@ -98,7 +98,7 @@ void FlyingPot_OnCollision(FlyingPotEntity* this) {
     if (super->contactFlags == 0x9D) {
         super->action = FLYING_POT_ACTION_6;
         COLLISION_OFF(super);
-        super->zVelocity = 0x2A000;
+        super->zVelocity = Q_16_16(2.625);
         super->spritePriority.b1 = 1;
 
         SetTile(this->tileIndex, TILE(super->x.HALF.HI, super->y.HALF.HI), super->collisionLayer);
@@ -217,7 +217,7 @@ void FlyingPot_Action2(FlyingPotEntity* this) {
 }
 
 void FlyingPot_Action3(FlyingPotEntity* this) {
-    super->z.WORD -= 0x10000;
+    super->z.WORD -= Q_16_16(1.0);
 
     if (super->z.HALF.HI <= -6) {
         super->action = FLYING_POT_ACTION_4;
@@ -245,7 +245,7 @@ void FlyingPot_Action6(FlyingPotEntity* this) {
         super->spriteSettings.flipY = 1;
     }
 
-    if (!GravityUpdate(super, 0x2000)) {
+    if (!GravityUpdate(super, Q_8_8(32.0))) {
         sub_08037408(this);
     }
 }

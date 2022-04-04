@@ -108,6 +108,6 @@ void sub_08098130(Object79Entity* this) {
     super->direction = this->objDir.HALF.HI;
     super->speed = this->unk7a;
     LinearMoveUpdate(super);
-    super->y.WORD -= 0x140000;
+    super->y.WORD -= Q_16_16(20.0);
     super->y.WORD += this->unk6c;
 }

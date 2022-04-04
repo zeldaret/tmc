@@ -119,7 +119,7 @@ void StalfosProjectile_Action3(Entity* this) {
     if (this->zVelocity < 0) {
         this->spriteSettings.flipY = 1;
     }
-    if (GravityUpdate(this, 0x2000) == 0) {
+    if (GravityUpdate(this, Q_8_8(32.0)) == 0) {
         sub_080A9BA8(this);
     }
 }

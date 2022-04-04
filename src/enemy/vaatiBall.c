@@ -509,5 +509,5 @@ void sub_08044E74(Entity* this, u32 state) {
     }
     this->timer = 1;
     this->field_0x78.HALF.LO = 0;
-    this->speed = Q_8_8(5);
+    this->speed = Q_8_8(5.0);
 }
