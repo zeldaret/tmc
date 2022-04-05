@@ -99,6 +99,18 @@ typedef struct {
 } gUnk_08128DE8_struct;
 extern gUnk_08128DE8_struct gUnk_08128DE8[];
 
+typedef struct {
+    u8 unk0;
+    u8 unk1;
+    u8 unk2;
+    u8 unk3;
+    u8 unk4;
+    s8 unk5;
+    u16 unk6;
+} struct_gUnk_08128D70;
+
+extern const struct_gUnk_08128D70 gUnk_08128D70[];
+
 ASM_FUNC("asm/non_matching/subtask2/sub_080A5594.inc", void sub_080A5594())
 
 ASM_FUNC("asm/non_matching/subtask2/sub_080A56A0.inc", void sub_080A56A0())
@@ -776,7 +788,20 @@ void sub_080A6F6C(u32 param_1) {
 
 ASM_FUNC("asm/non_matching/subtask2/sub_080A6FB4.inc", void sub_080A6FB4(u32 a, u32 b))
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A7040.inc", void sub_080A7040(u32 a))
+void sub_080A7040(u32 param_1) {
+    extern Font gUnk_08129004;
+    extern u8 gUnk_02022130[];
+    if (gGenericMenu.unk2e.HWORD != param_1) {
+        gGenericMenu.unk2e.HWORD = param_1;
+        MemClear(gUnk_02022130, 0x300);
+        MemCopy(gUnk_02022130 - 0x200, (void*)0x600e000, 0x800);
+        if (GetInventoryValue(gUnk_08128D70[param_1].unk0) != 0) {
+            sub_0805F46C(gUnk_08128D70[param_1].unk6, &gUnk_08129004);
+        }
+        gScreen.bg1.yOffset = 3;
+        gScreen.bg1.updated = 1;
+    }
+}
 
 ASM_FUNC("asm/non_matching/subtask2/sub_080A70AC.inc", void sub_080A70AC(const KeyButtonLayout* layout))
 
@@ -787,12 +812,12 @@ void SetMenuType(u32 menuType) {
 }
 
 void ResetUI(void) {
-    MemClear(&gUI, 0x3b4);
+    MemClear(&gUI, sizeof(gUI));
 }
 
 void MenuFadeIn(u32 param_1, u32 param_2) {
     if (gUI.nextToLoad == 0) {
-        MemClear(&gUI, 0x3b4);
+        MemClear(&gUI, sizeof(gUI));
         gUI.lastState = param_1;
         gUI.field_0x3 = param_2;
         gUI.pauseFadeIn = gMain.substate;
