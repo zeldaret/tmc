@@ -69,7 +69,7 @@ void sub_08019698(void) {
     FlushSprites();
     DrawEntities();
     CopyOAM();
-    SetFade(4, 8);
+    SetFade(FADE_INSTANT, 8);
     gUnk_02018EB0.unk_0++;
 }
 

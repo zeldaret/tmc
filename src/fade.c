@@ -55,11 +55,11 @@ void ResetFadeMask(void) {
 
 static void sub_08050024(void) {
     sub_0801E104();
-    SetFade(5, 256);
+    SetFade(FADE_IN_OUT | FADE_INSTANT, 256);
 }
 
 void SetFadeProgress(u32 arg0) {
-    if ((gFadeControl.type & 1) != 0) {
+    if ((gFadeControl.type & FADE_IN_OUT) != 0) {
         gFadeControl.sustain = arg0;
     } else {
         gFadeControl.progress = arg0;
@@ -72,22 +72,22 @@ void SetFade(u32 type, u32 speed) {
     gFadeControl.active = 1;
     gFadeControl.progress = 0x100;
     gFadeControl.sustain = 0;
-    if (gFadeControl.type & 2) {
+    if (gFadeControl.type & FADE_BLACK_WHITE) {
         gFadeControl.color = 0xf8;
     } else {
         gFadeControl.color = 0;
     }
-    if (type & 8) {
+    if (type & FADE_MOSAIC) {
         gOAMControls.spritesOffset = 1;
         gScreen.bg1.control |= BGCNT_MOSAIC;
         gScreen.bg2.control |= BGCNT_MOSAIC;
         gScreen.bg3.control |= BGCNT_MOSAIC;
     }
-    if (type & 0x10) {
+    if (type & FADE_IRIS) {
         sub_0801E1B8(gFadeControl.win_inside_cnt, gFadeControl.win_outside_cnt);
         sub_0801E1EC(gFadeControl.iris_x, gFadeControl.iris_y, gFadeControl.iris_size);
-        if ((type & 1) == 0) {
-            gFadeControl.type &= ~4;
+        if ((type & FADE_IN_OUT) == 0) {
+            gFadeControl.type &= ~FADE_INSTANT;
             ResetFadeMask();
             gUsedPalettes = 0xffffffff;
         }
@@ -96,13 +96,13 @@ void SetFade(u32 type, u32 speed) {
 
 void SetFadeInverted(u32 speed) {
     gFadeControl.speed = speed;
-    gFadeControl.type ^= 1;
+    gFadeControl.type ^= FADE_IN_OUT;
     gFadeControl.active = 1;
     gFadeControl.progress = 256;
 }
 
 void SetFadeIris(u32 x, u32 y, u32 type, u32 speed) {
-    if ((type & 1) != 0) {
+    if ((type & FADE_IN_OUT) != 0) {
         gFadeControl.iris_size = 0x96;
     } else {
         gFadeControl.iris_size = 0;
@@ -149,7 +149,7 @@ static u32 sub_080501C0(FadeControl* ctl) {
     struct_020354C0* v3;
     u32 i;
 
-    if (ctl->type & 1) {
+    if (ctl->type & FADE_IN_OUT) {
         v1 = 256 - (s16)ctl->progress;
     } else {
         v1 = (s16)ctl->progress;
@@ -183,7 +183,7 @@ static u32 sub_08050230(FadeControl* ctl) {
 
     // fade is finished
     gOAMControls.spritesOffset = 0;
-    if ((type & 1) == 0) {
+    if ((type & FADE_IN_OUT) == 0) {
         // reset registers if fading in
         gScreen.bg0.control &= ~BGCNT_MOSAIC;
         gScreen.bg1.control &= ~BGCNT_MOSAIC;
@@ -194,7 +194,7 @@ static u32 sub_08050230(FadeControl* ctl) {
 }
 
 static u32 sub_080502A4(FadeControl* ctl) {
-    if (ctl->type & 1) {
+    if (ctl->type & FADE_IN_OUT) {
         s32 delta = (u16)gFadeControl.iris_size - gFadeControl.speed;
         gFadeControl.iris_size -= gFadeControl.speed;
         if (delta << 16 <= 0)

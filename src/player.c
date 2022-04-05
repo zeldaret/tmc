@@ -1022,7 +1022,7 @@ static void PlayerUsePortal(Entity* this) {
     if (AreaIsDungeon() || gArea.portal_type == 3) {
         this->subAction = 7;
         this->timer = 30;
-        SetFade(7, 16);
+        SetFade(FADE_IN_OUT | FADE_BLACK_WHITE | FADE_INSTANT, 16);
         SoundReq(SFX_F8);
     } else {
         RespawnAsMinish();
@@ -2660,7 +2660,7 @@ static void sub_0807332C(Entity* this) {
     } else {
         gMain.substate = GAMEMAIN_CHANGEAREA;
         gMain.pad = 1;
-        SetFade(5, 8);
+        SetFade(FADE_IN_OUT | FADE_INSTANT, 8);
     }
 }
 
@@ -3818,7 +3818,7 @@ static void sub_08074C68(Entity* this) {
             gPlayerState.animation = 1850;
         else
             gPlayerState.animation = 1846;
-        SetFade(5, 0x100);
+        SetFade(FADE_IN_OUT | FADE_INSTANT, 0x100);
     }
 }
 

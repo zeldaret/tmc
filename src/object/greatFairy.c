@@ -119,7 +119,7 @@ void GreatFairy_SpawningUpdate(Entity* this) {
         mini = GreatFairy_CreateForm(this, WAKE, 0); //???
         if (mini != NULL) {
             CopyPosition(this, mini);
-            SetFade(6, 4);
+            SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 4);
             SoundReq(SFX_145);
             this->action = 4;
             this->timer = 60;

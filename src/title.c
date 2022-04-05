@@ -127,7 +127,7 @@ static u32 AdvanceIntroSequence(u32 transition) {
     gUI.lastState = transition;
     gMain.state = GAMETASK_MAIN;
     MemClear(&gIntroState, sizeof(gIntroState));
-    SetFade(7, 8);
+    SetFade(FADE_IN_OUT | FADE_BLACK_WHITE | FADE_INSTANT, 8);
 }
 
 void TitleTask(void) {
@@ -171,7 +171,7 @@ static void HandleNintendoCapcomLogos(void) {
         LoadPaletteGroup(paletteGroup);
         gScreen.lcd.displayControl |= DISPCNT_BG2_ON;
         gScreen.bg1.updated = 1;
-        SetFade(6, 8);
+        SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 8);
         advance = ADVANCE_NONE;
 #if defined(DEMO_USA)
         if (gUnk_02000010.listenForKeyPresses == 0) {
@@ -246,7 +246,7 @@ static void HandleTitlescreen(void) {
             }
             InitSoundPlayingInfo();
             SoundReq(BGM_TITLE_SCREEN);
-            SetFade(6, 8);
+            SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 8);
             break;
         case 1:
             if (gFadeControl.active) {
@@ -355,7 +355,7 @@ static void HandleJapaneseTitlescreenAnimationIntro(void) {
                     gScreen.bg1.yOffset = 0;
                     gScreen.bg1.control = BGCNT_SCREENBASE(12) | BGCNT_PRIORITY(1) | BGCNT_CHARBASE(2);
                     gFadeControl.mask = 0x00000040;
-                    SetFade(6, 0x10);
+                    SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 0x10);
                     SoundReq(SFX_F8);
                 }
             }
@@ -403,7 +403,7 @@ static void HandleTitlescreenAnimationIntro(void) {
                 gIntroState.swordBgScaleRatio = 0x100;
                 gIntroState.timer = 40;
                 gIntroState.subState++;
-                SetFade(6, 16);
+                SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 16);
             }
             UpdateSwordBgAffineData();
             break;
@@ -416,7 +416,7 @@ static void HandleTitlescreenAnimationIntro(void) {
 #endif
                 gIntroState.subState++;
                 CreateObject(OBJECT_BD, 0, 0);
-                SetFade(6, 16);
+                SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 16);
                 SoundReq(SFX_F8);
             }
             break;

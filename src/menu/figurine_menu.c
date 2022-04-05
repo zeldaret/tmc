@@ -118,7 +118,7 @@ void FigurineMenu_080A4608(void) {
         r1 = 1;
     }
     gFigurineMenu.figure_idx = r1;
-    SetFade(4, 8);
+    SetFade(FADE_INSTANT, 8);
 }
 
 void FigurineMenu_080A46C0(void) {

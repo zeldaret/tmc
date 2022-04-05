@@ -128,7 +128,7 @@ void KinstoneMenu_Type0(void) {
     sub_0801E738(0);
     sub_080A70AC((void*)gUnk_081280DC);
     SetMenuType(1);
-    SetFade(6, 8);
+    SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 8);
 }
 
 const u8 gUnk_081280EE[] = {

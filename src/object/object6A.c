@@ -1305,11 +1305,11 @@ void sub_0809629C(Object6AEntity* this, u32 type) {
 }
 
 void sub_080962D8(Object6AEntity* this) {
-    SetFade(6, 0x100);
+    SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 0x100);
 }
 
 void sub_080962E8(Object6AEntity* this) {
-    SetFade(7, 0x100);
+    SetFade(FADE_IN_OUT | FADE_BLACK_WHITE | FADE_INSTANT, 0x100);
 }
 
 void sub_080962F8(Object6AEntity* this, ScriptExecutionContext* ctx) {

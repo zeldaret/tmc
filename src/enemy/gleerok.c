@@ -126,7 +126,7 @@ void Gleerok_OnDeath(GleerokEntity* this) {
 void sub_0802D158(GleerokEntity* this) {
     super->action = 1;
     gPauseMenuOptions.disabled = 1;
-    SetFade(7, 8);
+    SetFade(FADE_IN_OUT | FADE_BLACK_WHITE | FADE_INSTANT, 8);
 }
 
 void sub_0802D170(GleerokEntity* this) {
@@ -143,7 +143,7 @@ void sub_0802D170(GleerokEntity* this) {
             gPlayerEntity.animationState = 0;
             RestorePrevTileEntity(COORD_TO_TILE(&gPlayerEntity), 2);
             gRoomControls.camera_target = super;
-            SetFade(6, 8);
+            SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 8);
         }
     } else {
         super->action = 3;

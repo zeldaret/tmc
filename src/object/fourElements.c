@@ -98,7 +98,7 @@ void FourElements_Action2(FourElementsEntity* this) {
         gScreen.controls.alphaBlend = 0;
         InitItemGetSequence(super->type, 0, 1);
         sub_0808C650(super, 1);
-        SetFade(6, 2);
+        SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 2);
         SoundReq(SFX_F8);
         SoundReq(SFX_148);
         SoundReq(BGM_ELEMENT_GET);

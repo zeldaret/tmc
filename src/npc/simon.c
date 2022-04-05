@@ -45,10 +45,10 @@ void sub_0806C280(void) {
 void sub_0806C2A0(Entity* this, ScriptExecutionContext* context) {
     switch (context->intVariable) {
         case 0:
-            SetFade(0xd, 4);
+            SetFade(FADE_IN_OUT | FADE_INSTANT | FADE_MOSAIC, 4);
             break;
         case 1:
-            SetFade(0xc, 4);
+            SetFade(FADE_INSTANT | FADE_MOSAIC, 4);
             break;
     }
 }

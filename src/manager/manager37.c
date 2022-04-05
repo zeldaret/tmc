@@ -89,7 +89,7 @@ void sub_0805DF98(Manager* this) {
             this->unk_0e -= 1;
         } else {
             this->action = 4;
-            SetFade(7, 4);
+            SetFade(FADE_IN_OUT | FADE_BLACK_WHITE | FADE_INSTANT, 4);
             SoundReq(SFX_EVAPORATE);
         }
     }
@@ -120,7 +120,7 @@ void sub_0805E000(Manager* this) {
         this->action = 1;
         SetPlayerControl(3);
         gArea.queued_bgm = 0x80010000;
-        SetFade(6, 4);
+        SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 4);
         SoundReq(SFX_APPARATE);
     }
 }

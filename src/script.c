@@ -77,9 +77,9 @@ void ScriptCommand_SetFade4(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetFade5(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetFade6(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetFade7(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E800(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E80C(Entity* entity, ScriptExecutionContext* context);
-void sub_0807E818(u32);
+void ScriptCommand_SetFadeIris(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_SetFadeIrisInOut(Entity* entity, ScriptExecutionContext* context);
+void SetFadeIrisForCameraTarget(u32);
 void ScriptCommand_0807E858(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetPlayerIdle(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_EnablePlayerControl(Entity* entity, ScriptExecutionContext* context);
@@ -167,7 +167,7 @@ void InitScriptData(void) {
     MemClear(&gActiveScriptInfo, sizeof(gActiveScriptInfo));
     MemClear(&gScriptExecutionContextArray, sizeof(gScriptExecutionContextArray));
     MemClear(&gPlayerScriptExecutionContext, sizeof(gPlayerScriptExecutionContext));
-    gActiveScriptInfo.unk_08 = 8;
+    gActiveScriptInfo.fadeSpeed = 8;
 }
 
 ScriptExecutionContext* CreateScriptExecutionContext(void) {
@@ -526,8 +526,8 @@ void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
         ScriptCommand_SetFade5,
         ScriptCommand_SetFade6,
         ScriptCommand_SetFade7,
-        ScriptCommand_0807E800,
-        ScriptCommand_0807E80C,
+        ScriptCommand_SetFadeIris,
+        ScriptCommand_SetFadeIrisInOut,
         ScriptCommand_0807E858,
         ScriptCommand_SetPlayerIdle,
         ScriptCommand_EnablePlayerControl,
@@ -997,7 +997,7 @@ void ScriptCommand_WaitForFadeFinish(Entity* entity, ScriptExecutionContext* con
 }
 
 void ScriptCommand_SetFadeTime(Entity* entity, ScriptExecutionContext* context) {
-    gActiveScriptInfo.unk_08 = context->scriptInstructionPointer[1];
+    gActiveScriptInfo.fadeSpeed = context->scriptInstructionPointer[1];
 }
 
 void ScriptCommand_SetFadeMask(Entity* entity, ScriptExecutionContext* context) {
@@ -1005,47 +1005,47 @@ void ScriptCommand_SetFadeMask(Entity* entity, ScriptExecutionContext* context) 
 }
 
 void ScriptCommand_FadeInvert(Entity* entity, ScriptExecutionContext* context) {
-    SetFadeInverted(gActiveScriptInfo.unk_08);
+    SetFadeInverted(gActiveScriptInfo.fadeSpeed);
 }
 
 void ScriptCommandNop2(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void ScriptCommand_SetFade4(Entity* entity, ScriptExecutionContext* context) {
-    SetFade(4, gActiveScriptInfo.unk_08);
+    SetFade(FADE_INSTANT, gActiveScriptInfo.fadeSpeed);
 }
 
 void ScriptCommand_SetFade5(Entity* entity, ScriptExecutionContext* context) {
-    SetFade(5, gActiveScriptInfo.unk_08);
+    SetFade(FADE_IN_OUT | FADE_INSTANT, gActiveScriptInfo.fadeSpeed);
 }
 
 void ScriptCommand_SetFade6(Entity* entity, ScriptExecutionContext* context) {
-    SetFade(6, gActiveScriptInfo.unk_08);
+    SetFade(FADE_BLACK_WHITE | FADE_INSTANT, gActiveScriptInfo.fadeSpeed);
 }
 
 void ScriptCommand_SetFade7(Entity* entity, ScriptExecutionContext* context) {
-    SetFade(7, gActiveScriptInfo.unk_08);
+    SetFade(FADE_IN_OUT | FADE_BLACK_WHITE | FADE_INSTANT, gActiveScriptInfo.fadeSpeed);
 }
 
-void ScriptCommand_0807E800(Entity* entity, ScriptExecutionContext* context) {
-    sub_0807E818(0x10);
+void ScriptCommand_SetFadeIris(Entity* entity, ScriptExecutionContext* context) {
+    SetFadeIrisForCameraTarget(FADE_IRIS);
 }
 
-void ScriptCommand_0807E80C(Entity* entity, ScriptExecutionContext* context) {
-    sub_0807E818(0x11);
+void ScriptCommand_SetFadeIrisInOut(Entity* entity, ScriptExecutionContext* context) {
+    SetFadeIrisForCameraTarget(FADE_IN_OUT | FADE_IRIS);
 }
 
-void sub_0807E818(u32 type) {
+void SetFadeIrisForCameraTarget(u32 type) {
     Entity* cameraTarget = gRoomControls.camera_target;
     u32 x, y;
     if (cameraTarget) {
         x = cameraTarget->x.HALF.HI - gRoomControls.scroll_x;
         y = cameraTarget->y.HALF.HI - gRoomControls.scroll_y;
     } else {
-        x = 0x78;
-        y = 0x50;
+        x = DISPLAY_WIDTH / 2;
+        y = DISPLAY_HEIGHT / 2;
     }
-    SetFadeIris(x, y, type, gActiveScriptInfo.unk_08);
+    SetFadeIris(x, y, type, gActiveScriptInfo.fadeSpeed);
 }
 
 void ScriptCommand_0807E858(Entity* entity, ScriptExecutionContext* context) {
@@ -1570,7 +1570,7 @@ void SetCollisionLayer2(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807F190(Entity* entity, ScriptExecutionContext* context) {
-    SetFade(4, 256);
+    SetFade(FADE_INSTANT, 256);
 }
 
 void sub_0807F1A0(Entity* entity, ScriptExecutionContext* context) {

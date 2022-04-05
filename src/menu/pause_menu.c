@@ -86,7 +86,7 @@ void PauseMenu_Variant0(void) {
     gPauseMenuOptions.unk1 = r0;
     gPauseMenuOptions.unk14 = r0;
     sub_080A4DB8(r0);
-    SetFade(4, 0x20);
+    SetFade(FADE_INSTANT, 0x20);
     sub_080A4E90(1);
 }
 
