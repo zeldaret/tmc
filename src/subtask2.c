@@ -26,6 +26,7 @@ u32 sub_080A6F40();
 void sub_080A67C4(u32);
 void sub_080A68D4();
 u32 sub_080A69E0();
+void sub_080A6EE0(u32 param_1);
 
 extern void DrawDungeonMap(u32 floor, struct_02019EE0* data, u32 size);
 extern void LoadDungeonMap(void);
@@ -713,9 +714,39 @@ void sub_080A6E44(void) {
     }
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A6E70.inc", void sub_080A6E70())
+void sub_080A6E70(void) {
+    u32 uVar1;
+    u32 i;
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A6EE0.inc", void sub_080A6EE0())
+    gOamCmd._4 = 0;
+    gOamCmd._6 = 0;
+    gOamCmd._8 = 0x400;
+    gGenericMenu.unk2c++;
+    sub_080A6EE0(gMenu.field_0x3);
+    if ((gGenericMenu.unk2c & 0x10) != 0) {
+        uVar1 = 0x5d;
+    } else {
+        uVar1 = 0x5e;
+    }
+
+#ifdef EU
+    DrawDirect(0x1fa, uVar1);
+#else
+    DrawDirect(0x1fb, uVar1);
+#endif
+    for (i = 0; i < 8; i++) {
+        if ((gSave.windcrests & (1 << (i + 0x18))) != 0) {
+            sub_080A6EE0(i);
+#ifdef EU
+            DrawDirect(0x1fa, 0x5c);
+#else
+            DrawDirect(0x1fb, 0x5c);
+#endif
+        }
+    }
+}
+
+ASM_FUNC("asm/non_matching/subtask2/sub_080A6EE0.inc", void sub_080A6EE0(u32 param_1))
 
 u32 sub_080A6F40(void) {
     extern u8 gUnk_08128F38[];
