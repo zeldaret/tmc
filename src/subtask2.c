@@ -808,7 +808,38 @@ void sub_080A6F6C(u32 param_1) {
     gScreen.bg0.yOffset = 2;
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A6FB4.inc", void sub_080A6FB4(u32 a, u32 b))
+void sub_080A6FB4(u32 param_1, u32 param_2) {
+    extern u16 gUnk_08128FF0[];
+    extern Font gUnk_08128FD8;
+    extern Font gUnk_08128FC0;
+    u32 uVar1;
+    Font* font;
+
+    uVar1 = 0;
+    switch (param_2) {
+        case 0:
+            if ((gSave.windcrests & (1 << param_1)) == 0)
+                break;
+        case 2:
+            uVar1 = gUnk_08127F94[param_1]._6;
+            font = &gUnk_08128FC0;
+            break;
+        case 1:
+            uVar1 = gUnk_08128FF0[param_1];
+            font = &gUnk_08128FD8;
+            break;
+    }
+
+    if (gGenericMenu.unk2e.HWORD != uVar1) {
+        gGenericMenu.unk2e.HWORD = uVar1;
+        MemClear(&gUnk_020350F0, 0x100);
+        if ((uVar1 & 0xff) != 0) {
+            sub_0805F46C(uVar1, font);
+        }
+        gScreen.bg0.updated = 1;
+    }
+    gScreen.bg0.yOffset = 2;
+}
 
 void sub_080A7040(u32 param_1) {
     extern Font gUnk_08129004;
