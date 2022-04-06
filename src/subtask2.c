@@ -803,7 +803,25 @@ void sub_080A7040(u32 param_1) {
     }
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A70AC.inc", void sub_080A70AC(const KeyButtonLayout* layout))
+void sub_080A70AC(const KeyButtonLayout* layout) {
+    MemClear(&gUnk_0200AF00.elements, 0x300);
+    gUnk_0200AF00.unk_13 = 0x7f;
+    gUnk_0200AF00.unk_14 = 0x7f;
+    gUnk_0200AF00.buttonX[0] = layout->aButtonX;
+    gUnk_0200AF00.buttonY[0] = (s8)layout->aButtonY;
+    gUnk_0200AF00.unk_30[0] = layout->aButtonText;
+    gUnk_0200AF00.buttonX[1] = layout->bButtonX;
+    gUnk_0200AF00.buttonY[1] = (s8)layout->bButtonY;
+    gUnk_0200AF00.unk_30[1] = layout->bButtonText;
+    gUnk_0200AF00.buttonX[2] = layout->rButtonX;
+    gUnk_0200AF00.buttonY[2] = (s8)layout->rButtonY;
+    gUnk_0200AF00.unk_32 = layout->rButtonText;
+    layout++;
+    do {
+        CreateUIElement(layout->aButtonX, layout->aButtonY);
+        layout = (KeyButtonLayout*)&layout->aButtonText;
+    } while ((s8)layout->aButtonX != -1);
+}
 
 void SetMenuType(u32 menuType) {
     gMenu.menuType = menuType;
