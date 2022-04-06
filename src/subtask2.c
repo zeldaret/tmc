@@ -504,7 +504,29 @@ void sub_080A6534(void) {
     SetFade(4, 8);
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A65AC.inc", void sub_080A65AC())
+void sub_080A65AC(void) {
+    if (!gFadeControl.active) {
+        gGenericMenu.unk2c++;
+        switch (gMenu.transitionTimer) {
+            case 0x1e:
+                gGenericMenu.unk10.h[0] = gGenericMenu.unk10.h[1];
+                gGenericMenu.unk2c = 0x20;
+                SoundReq(SFX_103);
+            default:
+                gMenu.transitionTimer--;
+                break;
+            case 0:
+                switch (gInput.newKeys) {
+                    case A_BUTTON:
+                    case B_BUTTON:
+                    case START_BUTTON:
+                        Subtask_Exit();
+                        break;
+                }
+                break;
+        }
+    }
+}
 
 void sub_080A6608(void) {
     extern void (*const gUnk_08128E78[])(void);
