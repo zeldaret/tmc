@@ -16,6 +16,7 @@
 #include "subtask.h"
 #include "item.h"
 #include "game.h"
+#include "ui.h"
 
 // copy, erase, start
 #define NUM_FILE_OPERATIONS 3

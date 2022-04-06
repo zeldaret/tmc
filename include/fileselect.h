@@ -53,7 +53,6 @@ extern struct_02019EE0 gMapDataBottomSpecial;
 
 extern void sub_08056FEC(u32, struct_020227E8*);
 extern u32 sub_0805F46C(u32, Font*);
-extern void RecoverUI(u32 bottomPt, u32 topPt);
 extern void ClearTilemaps(void);
 extern void sub_0805194C(u32);
 extern WStruct* sub_0805F2C8(void);

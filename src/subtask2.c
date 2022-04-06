@@ -10,6 +10,7 @@
 #include "functions.h"
 #include "main.h"
 #include "message.h"
+#include "ui.h"
 
 extern u8 gUnk_08128D38[];
 extern u8 gUnk_08128D43[];
@@ -69,7 +70,6 @@ extern void (*const gUnk_0812901C[])(void);
 
 void sub_080A74F4(void);
 
-extern void DrawUI(void);
 extern void UpdateCarriedObject(void);
 
 extern void (*const gSubtasks[])(void);

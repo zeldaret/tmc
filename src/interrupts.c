@@ -9,6 +9,7 @@
 #include "screen.h"
 #include "gba/m4a.h"
 #include "object.h"
+#include "ui.h"
 
 extern u8 gUnk_03003DE0;
 extern u8 gUnk_03000C30;

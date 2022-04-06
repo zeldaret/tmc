@@ -14,12 +14,12 @@
 #include "npc.h"
 #include "enemy.h"
 #include "functions.h"
+#include "ui.h"
 
 extern u32 sub_08000E44(u32);
 extern void sub_080A3B74(void);
 extern s32 sub_080A3B48(void);
 extern void sub_0805ECEC(u32, u32, u32, u32);
-extern void sub_0801C2F0(u32, u32);
 extern void sub_0801E6C8(u32);
 extern void sub_0801E798(u32);
 extern WStruct* sub_0805F2C8(void);

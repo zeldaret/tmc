@@ -11,6 +11,7 @@
 #include "itemMetaData.h"
 #include "structures.h"
 #include "functions.h"
+#include "ui.h"
 
 extern void sub_080A4DB8(u32);
 
