@@ -28,6 +28,7 @@ void sub_080A67C4(u32);
 void sub_080A68D4();
 u32 sub_080A69E0();
 void sub_080A6EE0(u32 param_1);
+struct_08127F94* sub_080A6A80(u32 param_1, u32 param_2);
 
 extern void DrawDungeonMap(u32 floor, struct_02019EE0* data, u32 size);
 extern void LoadDungeonMap(void);
@@ -606,7 +607,40 @@ void sub_080A698C(u32 param_1, u32 param_2, u32 param_3, u32 param_4) {
     }
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A69E0.inc", u32 sub_080A69E0())
+u32 sub_080A69E0(u32 param_1, u32 param_2) {
+    const struct_08127F94* pbVar1;
+    int iVar3;
+
+    if ((param_1 | param_2) == 0)
+        return -1;
+
+    pbVar1 = sub_080A6A80(param_1, param_2);
+    if (pbVar1 == NULL)
+        return -1;
+
+    if (gMenu.field_0x3 != pbVar1->_4)
+        return -1;
+
+    switch (gMenu.field_0x3) {
+        case 4:
+        case 7:
+            if (gMenu.field_0x3 == 4) {
+                iVar3 = 9;
+            } else {
+                iVar3 = 7;
+            }
+            param_2 -= gAreaRoomHeaders[iVar3]->map_y;
+            break;
+            break;
+        case 15:
+            param_1 -= 0x108;
+            break;
+    }
+
+    param_1 = (s32)((param_1 - pbVar1->_0 * 0x10) * 100) / 0x23a;
+    param_2 = (s32)((param_2 - pbVar1->_1 * 0x10) * 100) / 0x23a;
+    return (param_2 << 0x10) | param_1;
+}
 
 struct_08127F94* sub_080A6A80(u32 param_1, u32 param_2) {
     struct_08127F94* pbVar1;
