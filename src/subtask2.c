@@ -674,7 +674,46 @@ void sub_080A6CA8(void) {
     SetFade(4, 8);
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A6CD8.inc", void sub_080A6CD8())
+void sub_080A6CD8(void) {
+    u32 uVar1;
+    u32 uVar2;
+
+    if (gFadeControl.active) {
+        return;
+    }
+
+    gMenu.field_0x0 = 1;
+    uVar2 = 0;
+
+    switch (gInput.newKeys) {
+        case DPAD_LEFT:
+        case DPAD_UP:
+            uVar2 = -1;
+            break;
+        case DPAD_RIGHT:
+        case DPAD_DOWN:
+            uVar2 = 1;
+            break;
+        case A_BUTTON:
+        case START_BUTTON:
+            gMenu.field_0x0 = 2;
+            SetMenuType(2);
+            MessageFromTarget(0x704);
+            break;
+        case B_BUTTON:
+            gMenu.field_0x0 = 3;
+            SetMenuType(3);
+            break;
+    }
+
+    if (uVar2) {
+        uVar1 = sub_080A6D74(uVar2);
+        if (uVar1 != gMenu.field_0x3) {
+            gMenu.field_0x3 = uVar1;
+            SoundReq(SFX_TEXTBOX_CHOICE);
+        }
+    }
+}
 
 u32 sub_080A6D74(u32 param_1) {
     u32 uVar1;
