@@ -11,6 +11,13 @@
 #include "main.h"
 #include "message.h"
 #include "ui.h"
+#include "kinstone.h"
+
+#ifdef EU
+#define DRAW_DIRECT_VAL 0x1fa
+#else
+#define DRAW_DIRECT_VAL 0x1fb
+#endif
 
 extern u8 gUnk_08128D38[];
 extern u8 gUnk_08128D43[];
@@ -29,6 +36,7 @@ void sub_080A68D4();
 u32 sub_080A69E0();
 void sub_080A6EE0(u32 param_1);
 struct_08127F94* sub_080A6A80(u32 param_1, u32 param_2);
+void sub_080A698C(u32 param_1, u32 param_2, u32 param_3, u32 param_4);
 
 extern void DrawDungeonMap(u32 floor, struct_02019EE0* data, u32 size);
 extern void LoadDungeonMap(void);
@@ -45,8 +53,18 @@ void sub_080A7040(u32);
 
 extern u8 gUnk_08128DB8[];
 extern u8 gUnk_08128E80[];
-extern u8 gUnk_08128F58[];
 extern KeyButtonLayout gUnk_08128DBC;
+
+typedef struct {
+    u8 unk0;
+    u8 unk1;
+    u8 unk2;
+    u8 unk3;
+    u16 unk4;
+    u16 unk6;
+} sturct_gUnk_08128F58;
+
+extern sturct_gUnk_08128F58 gUnk_08128F58[];
 
 extern void (*const gUnk_08128DCC[])(void);
 void sub_080A6378(void);
@@ -436,22 +454,18 @@ ASM_FUNC("asm/non_matching/subtask2/sub_080A6378.inc", void sub_080A6378())
 
 void sub_080A6438(void) {
     u32 uVar1;
-    u8* pcVar2;
+    sturct_gUnk_08128F58* pcVar2;
     u32 uVar3;
 
     gOamCmd._4 = 0x400;
     gOamCmd._6 = 0;
     gOamCmd._8 = 0;
     uVar1 = gSave.field_0x20 & gGenericMenu.unk10.h[0];
-    for (pcVar2 = gUnk_08128F58, uVar3 = 0; *pcVar2 != 0; uVar3++, pcVar2 += 8) {
+    for (pcVar2 = gUnk_08128F58, uVar3 = 0; pcVar2->unk0 != 0; uVar3++, pcVar2++) {
         if ((1 << uVar3 & uVar1) != 0) {
-            gOamCmd.x = pcVar2[1];
-            gOamCmd.y = pcVar2[2];
-#ifdef EU
-            DrawDirect(0x1fa, *pcVar2);
-#else
-            DrawDirect(0x1fb, *pcVar2);
-#endif
+            gOamCmd.x = pcVar2->unk1;
+            gOamCmd.y = pcVar2->unk2;
+            DrawDirect(DRAW_DIRECT_VAL, pcVar2->unk0);
         }
     }
 }
@@ -467,11 +481,7 @@ void sub_080A6498(void) {
             gUnk_08128DE8_struct* ptr = &gUnk_08128DE8[i];
             gOamCmd.x = ptr->unk6;
             gOamCmd.y = ptr->unk7;
-#ifdef EU
-            DrawDirect(0x1fa, 0x28 + 3 * i);
-#else
-            DrawDirect(0x1fb, 0x28 + 3 * i);
-#endif
+            DrawDirect(DRAW_DIRECT_VAL, 0x28 + 3 * i);
         }
     }
     gScreen.controls.windowOutsideControl = 0x3d3f;
@@ -583,7 +593,38 @@ ASM_FUNC("asm/non_matching/subtask2/sub_080A66D0.inc", void sub_080A66D0())
 
 ASM_FUNC("asm/non_matching/subtask2/sub_080A67C4.inc", void sub_080A67C4(u32 param_1))
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A68D4.inc", void sub_080A68D4())
+void sub_080A68D4(void) {
+    u32 uVar1;
+    int iVar6;
+    sturct_gUnk_08128F58* pcVar4;
+    u32 i;
+    u32 uVar4;
+    struct_080FE320* ptr;
+
+    if ((gPlayerState.flags & PL_NO_CAP) != 0) {
+        iVar6 = 101;
+    } else {
+        iVar6 = 100;
+    }
+    sub_080A698C(gRoomTransition.player_status.overworld_map_x, gRoomTransition.player_status.overworld_map_y,
+                 DRAW_DIRECT_VAL, iVar6 + 0x100);
+    uVar1 = sub_080A6F40();
+    uVar1 &= gSave.field_0x20;
+
+    for (pcVar4 = gUnk_08128F58, i = 0; pcVar4->unk0 != 0; i++, pcVar4++) {
+        if (((1 << i) & uVar1) != 0) {
+            sub_080A698C(pcVar4->unk4, pcVar4->unk6, DRAW_DIRECT_VAL, pcVar4->unk3);
+        }
+    }
+
+    for (i = 10; i <= 100; i++) {
+        if (CheckKinstoneFused(i) && !sub_0801E810(i)) {
+            uVar4 = gUnk_080C9CBC[i]._5[1];
+            ptr = &gUnk_080FE320[gUnk_080C9CBC[i].evt_type];
+            sub_080A698C(ptr->_c, ptr->_e, DRAW_DIRECT_VAL, uVar4 + 100);
+        }
+    }
+}
 
 typedef struct {
     u8 unk0;
@@ -836,19 +877,11 @@ void sub_080A6E70(void) {
         uVar1 = 0x5e;
     }
 
-#ifdef EU
-    DrawDirect(0x1fa, uVar1);
-#else
-    DrawDirect(0x1fb, uVar1);
-#endif
+    DrawDirect(DRAW_DIRECT_VAL, uVar1);
     for (i = 0; i < 8; i++) {
         if ((gSave.windcrests & (1 << (i + 0x18))) != 0) {
             sub_080A6EE0(i);
-#ifdef EU
-            DrawDirect(0x1fa, 0x5c);
-#else
-            DrawDirect(0x1fb, 0x5c);
-#endif
+            DrawDirect(DRAW_DIRECT_VAL, 0x5c);
         }
     }
 }

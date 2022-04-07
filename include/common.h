@@ -17,6 +17,20 @@ typedef struct {
 } Input;
 extern Input gInput; /**< Input instance. */
 
+typedef struct {
+    u8 evt_type;
+    u8 entity_idx;
+    u8 _2[6];
+    u16 x;
+    u16 y;
+    u16 _c;
+    u16 _e;
+    u8 _10;
+    u8 _11;
+    u16 flag;
+} struct_080FE320;
+extern struct_080FE320 gUnk_080FE320[];
+
 void LoadPalettes(const u8*, s32, s32);
 
 /**
@@ -122,5 +136,6 @@ void sub_0801E1B8(u32, u32);
 void sub_0801E738(u32);
 void sub_0801DFB4(struct Entity_*, u32, u32, u32);
 u32 sub_0801E00C(void);
+bool32 sub_0801E810(u32);
 
 #endif // COMMON_H
