@@ -14,9 +14,9 @@
 #include "kinstone.h"
 
 #ifdef EU
-#define DRAW_DIRECT_VAL 0x1fa
+#define DRAW_DIRECT_SPRITE_INDEX 0x1fa
 #else
-#define DRAW_DIRECT_VAL 0x1fb
+#define DRAW_DIRECT_SPRITE_INDEX 0x1fb
 #endif
 
 extern u8 gUnk_08128D38[];
@@ -37,6 +37,7 @@ u32 sub_080A69E0();
 void sub_080A6EE0(u32 param_1);
 struct_08127F94* sub_080A6A80(u32 param_1, u32 param_2);
 void sub_080A698C(u32 param_1, u32 param_2, u32 param_3, u32 param_4);
+void sub_080A6438();
 
 extern void DrawDungeonMap(u32 floor, struct_02019EE0* data, u32 size);
 extern void LoadDungeonMap(void);
@@ -56,7 +57,7 @@ extern u8 gUnk_08128E80[];
 extern KeyButtonLayout gUnk_08128DBC;
 
 typedef struct {
-    u8 unk0;
+    u8 frameIndex;
     u8 unk1;
     u8 unk2;
     u8 unk3;
@@ -450,7 +451,34 @@ void sub_080A6290(void) {
 
 ASM_FUNC("asm/non_matching/subtask2/sub_080A62E0.inc", void sub_080A62E0())
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A6378.inc", void sub_080A6378())
+void sub_080A6378(void) {
+    u32 frameIndex;
+    gUnk_08128DE8_struct* ptr;
+
+    gGenericMenu.unk2c++;
+    if ((gGenericMenu.unk2c & 0x20) != 0) {
+        sub_080A6438();
+    }
+    gOamCmd._4 = 0x400;
+    gOamCmd._6 = 0;
+    gOamCmd._8 = 0x7000;
+    if ((gGenericMenu.unk2c & 0x20) == 0) {
+        gOamCmd.x = gRoomTransition.player_status.overworld_map_x * 0xa0 / 0xf90 + 0x28;
+        gOamCmd.y = (gRoomTransition.player_status.overworld_map_y << 7) / 0xc60 + 0xc;
+        if ((gPlayerState.flags & 8) != 0) {
+            frameIndex = 0x5a;
+        } else {
+            frameIndex = 0x59;
+        }
+        DrawDirect(DRAW_DIRECT_SPRITE_INDEX, frameIndex);
+    }
+    ptr = &gUnk_08128DE8[gMenu.field_0x3];
+    gOamCmd.x = ptr->unk6;
+    gOamCmd.y = ptr->unk7;
+    frameIndex = gMenu.field_0x3 * 3 + 0x26 + (((gGenericMenu.unk2c >> 4) & 1) == 0);
+    DrawDirect(DRAW_DIRECT_SPRITE_INDEX, frameIndex);
+    sub_080A6498();
+}
 
 void sub_080A6438(void) {
     u32 uVar1;
@@ -461,11 +489,11 @@ void sub_080A6438(void) {
     gOamCmd._6 = 0;
     gOamCmd._8 = 0;
     uVar1 = gSave.field_0x20 & gGenericMenu.unk10.h[0];
-    for (pcVar2 = gUnk_08128F58, uVar3 = 0; pcVar2->unk0 != 0; uVar3++, pcVar2++) {
+    for (pcVar2 = gUnk_08128F58, uVar3 = 0; pcVar2->frameIndex != 0; uVar3++, pcVar2++) {
         if ((1 << uVar3 & uVar1) != 0) {
             gOamCmd.x = pcVar2->unk1;
             gOamCmd.y = pcVar2->unk2;
-            DrawDirect(DRAW_DIRECT_VAL, pcVar2->unk0);
+            DrawDirect(DRAW_DIRECT_SPRITE_INDEX, pcVar2->frameIndex);
         }
     }
 }
@@ -481,7 +509,7 @@ void sub_080A6498(void) {
             gUnk_08128DE8_struct* ptr = &gUnk_08128DE8[i];
             gOamCmd.x = ptr->unk6;
             gOamCmd.y = ptr->unk7;
-            DrawDirect(DRAW_DIRECT_VAL, 0x28 + 3 * i);
+            DrawDirect(DRAW_DIRECT_SPRITE_INDEX, 0x28 + 3 * i);
         }
     }
     gScreen.controls.windowOutsideControl = 0x3d3f;
@@ -607,13 +635,13 @@ void sub_080A68D4(void) {
         iVar6 = 100;
     }
     sub_080A698C(gRoomTransition.player_status.overworld_map_x, gRoomTransition.player_status.overworld_map_y,
-                 DRAW_DIRECT_VAL, iVar6 + 0x100);
+                 DRAW_DIRECT_SPRITE_INDEX, iVar6 + 0x100);
     uVar1 = sub_080A6F40();
     uVar1 &= gSave.field_0x20;
 
-    for (pcVar4 = gUnk_08128F58, i = 0; pcVar4->unk0 != 0; i++, pcVar4++) {
+    for (pcVar4 = gUnk_08128F58, i = 0; pcVar4->frameIndex != 0; i++, pcVar4++) {
         if (((1 << i) & uVar1) != 0) {
-            sub_080A698C(pcVar4->unk4, pcVar4->unk6, DRAW_DIRECT_VAL, pcVar4->unk3);
+            sub_080A698C(pcVar4->unk4, pcVar4->unk6, DRAW_DIRECT_SPRITE_INDEX, pcVar4->unk3);
         }
     }
 
@@ -621,7 +649,7 @@ void sub_080A68D4(void) {
         if (CheckKinstoneFused(i) && !sub_0801E810(i)) {
             uVar4 = gUnk_080C9CBC[i]._5[1];
             ptr = &gUnk_080FE320[gUnk_080C9CBC[i].evt_type];
-            sub_080A698C(ptr->_c, ptr->_e, DRAW_DIRECT_VAL, uVar4 + 100);
+            sub_080A698C(ptr->_c, ptr->_e, DRAW_DIRECT_SPRITE_INDEX, uVar4 + 100);
         }
     }
 }
@@ -863,7 +891,7 @@ void sub_080A6E44(void) {
 }
 
 void sub_080A6E70(void) {
-    u32 uVar1;
+    u32 frameIndex;
     u32 i;
 
     gOamCmd._4 = 0;
@@ -872,16 +900,16 @@ void sub_080A6E70(void) {
     gGenericMenu.unk2c++;
     sub_080A6EE0(gMenu.field_0x3);
     if ((gGenericMenu.unk2c & 0x10) != 0) {
-        uVar1 = 0x5d;
+        frameIndex = 0x5d;
     } else {
-        uVar1 = 0x5e;
+        frameIndex = 0x5e;
     }
 
-    DrawDirect(DRAW_DIRECT_VAL, uVar1);
+    DrawDirect(DRAW_DIRECT_SPRITE_INDEX, frameIndex);
     for (i = 0; i < 8; i++) {
         if ((gSave.windcrests & (1 << (i + 0x18))) != 0) {
             sub_080A6EE0(i);
-            DrawDirect(DRAW_DIRECT_VAL, 0x5c);
+            DrawDirect(DRAW_DIRECT_SPRITE_INDEX, 0x5c);
         }
     }
 }
