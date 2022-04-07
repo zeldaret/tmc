@@ -101,7 +101,7 @@ void sub_0804AB70(void) {
     LoadRoomEntityList((EntityData*)gUnk_080D4110[portalId]);
     ResetSystemPriority();
     gArea.filler3[0]++;
-    SetFade(4, 8);
+    SetFade(FADE_INSTANT, 8);
 }
 
 void sub_0804AC1C(void) {
@@ -127,7 +127,7 @@ void sub_0804AC1C(void) {
     CopyOAM();
     if ((gUnk_02018EB0.unk_1b != 0) || sub_0804ACA8()) {
         gArea.filler3[0]++;
-        SetFade(7, 0x10);
+        SetFade(FADE_IN_OUT | FADE_BLACK_WHITE | FADE_INSTANT, 0x10);
     }
 }
 

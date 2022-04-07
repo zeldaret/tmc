@@ -89,7 +89,7 @@ void StaffrollTask_State0(void) {
     gScreen.bg2.control = 0x1dc3;
     InitSoundPlayingInfo();
     ResetSystemPriority();
-    SetFade(5, 0x100);
+    SetFade(FADE_IN_OUT | FADE_INSTANT, 0x100);
 }
 
 void StaffrollTask_State1(void) {
@@ -116,7 +116,7 @@ void StaffrollTask_State1MenuType1(void) {
             gStaffrollMenu.bgmMusicStarted = 1;
             SoundReq(BGM_CREDITS);
         }
-        SetFade(4, 8);
+        SetFade(FADE_INSTANT, 8);
     }
 }
 
@@ -172,19 +172,19 @@ void StaffrollTask_State1MenuType3(void) {
     gMenu.transitionTimer--;
     if (gMenu.transitionTimer == 0) {
         sub_080A3954();
-        SetFade(5, 8);
+        SetFade(FADE_IN_OUT | FADE_INSTANT, 8);
     }
 }
 
 void StaffrollTask_State1MenuType4(void) {
     gFadeControl.mask = 0xffff7fff;
-    SetFade(5, 4);
+    SetFade(FADE_IN_OUT | FADE_INSTANT, 4);
     SetFadeProgress(gMenu.transitionTimer);
     sub_080A3954();
 }
 
 void StaffrollTask_State1MenuType5(void) {
-    SetFade(4, 4);
+    SetFade(FADE_INSTANT, 4);
     SetFadeProgress(gMenu.transitionTimer);
     sub_080A3954();
 }
@@ -197,13 +197,13 @@ void StaffrollTask_State1MenuType6(void) {
         gScreen.bg2.updated = 1;
         gScreen.controls.alphaBlend = 0x1000;
         gMenu.menuType = 0;
-        SetFade(4, 8);
+        SetFade(FADE_INSTANT, 8);
     }
 }
 
 void StaffrollTask_State1MenuType7(void) {
     if (gFadeControl.active == 0) {
-        SetFade(7, 8);
+        SetFade(FADE_IN_OUT | FADE_BLACK_WHITE | FADE_INSTANT, 8);
         gMain.state = 2;
     }
 }
@@ -255,7 +255,7 @@ void StaffrollTask_State2(void) {
             gScreen.bg1.control = 0x1c01;
             gScreen.bg2.control = 0x1d05;
             gScreen.bg2.updated = 1;
-            SetFade(4, 8);
+            SetFade(FADE_INSTANT, 8);
             break;
         case 1:
             if (gFadeControl.active == 0) {
@@ -317,7 +317,7 @@ void StaffrollTask_State2(void) {
         default:
             gScreen.lcd.displayControl &= 0xfdff;
             sub_08050384();
-            SetFade(7, 8);
+            SetFade(FADE_IN_OUT | FADE_BLACK_WHITE | FADE_INSTANT, 8);
             gMain.state = 3;
             gStaffrollMenu.base.overlayType = 0;
             break;

@@ -76,7 +76,7 @@ void Object3D_Action1(Object3DEntity* this) {
         super->spriteRendering.b0 = 3;
         SetAffineInfo(super, 0x100, 0x100, 0);
         gArea.field_0x10 = 1;
-        SetFade(5, 8);
+        SetFade(FADE_IN_OUT | FADE_INSTANT, 8);
     }
 }
 

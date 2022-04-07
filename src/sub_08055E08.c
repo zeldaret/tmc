@@ -29,7 +29,7 @@ void sub_08055E24(void) {
     sub_0804B0B0(gMenu.field_0xc[2], gMenu.field_0xc[3]);
     LoadRoomEntityList(&gUnk_080FF400);
     sub_08055B70(gMenu.field_0x4, 0, 0, 0);
-    SetFade(4, 0x10);
+    SetFade(FADE_INSTANT, 0x10);
 }
 
 void nullsub_493(void) {

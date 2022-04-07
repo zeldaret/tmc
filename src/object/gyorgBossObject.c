@@ -252,7 +252,7 @@ void GyorgBossObject_FightEnd(GyorgBossObjectEntity* this) {
             return;
         }
         if (super->subtimer == 0x3C) {
-            SetFade(7, 4);
+            SetFade(FADE_IN_OUT | FADE_BLACK_WHITE | FADE_INSTANT, 4);
         }
         return;
     }

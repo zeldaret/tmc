@@ -3,6 +3,14 @@
 
 #include "global.h"
 
+typedef enum {
+    FADE_IN_OUT = 0x1,
+    FADE_BLACK_WHITE = 0x2,
+    FADE_INSTANT = 0x4,
+    FADE_MOSAIC = 0x8,
+    FADE_IRIS = 0x10,
+} FadeFlags;
+
 /**
  * @struct FadeControl
  * @brief Controls screen fading effects.

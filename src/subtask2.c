@@ -281,7 +281,7 @@ void sub_080A5BB8(void) {
         m = &gMain;
         *(vu8*)&m->sleepStatus; // force a read
         m->sleepStatus = SLEEP;
-        SetFade(6, 8);
+        SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 8);
         sub_080A4E84(2);
         gPauseMenuOptions.unk16 = 16;
     }
@@ -705,7 +705,7 @@ void sub_080A6CA8(void) {
     sub_080A6290();
     gMenu.field_0x3 = sub_080A6D74(0);
     SetMenuType(1);
-    SetFade(4, 8);
+    SetFade(FADE_INSTANT, 8);
 }
 
 void sub_080A6CD8(void) {
@@ -805,7 +805,7 @@ void sub_080A6DD0(void) {
 void sub_080A6DF8(void) {
     if (gMenu.field_0x0 == 2) {
         SetMenuType(4);
-        SetFade(5, 8);
+        SetFade(FADE_IN_OUT | FADE_INSTANT, 8);
     } else {
         ResetPlayerAnimationAndAction();
         sub_080042D0(&gPlayerEntity, (u32)gPlayerEntity.animIndex, gPlayerEntity.spriteIndex);
@@ -974,7 +974,7 @@ void MenuFadeIn(u32 param_1, u32 param_2) {
     gUI.isLoading = -1;
     gUI.fadeInTime = 0x20;
     gMain.substate = GAMEMAIN_SUBTASK;
-    SetFade(5, 0x20);
+    SetFade(FADE_IN_OUT | FADE_INSTANT, 0x20);
     gUnk_02018EB0.unk_0 = 0;
     gUnk_02018EB0.unk_1 = 0;
 }
@@ -996,7 +996,7 @@ void sub_080A71C4(u32 param_1, u32 param_2, u32 param_3, u32 param_4) {
 
 void Subtask_Exit(void) {
     gUI.nextToLoad = 3;
-    SetFade(5, 0x20);
+    SetFade(FADE_IN_OUT | FADE_INSTANT, 0x20);
 }
 
 void sub_080A71F4(ScreenTransitionData* exitTransition) {
@@ -1026,11 +1026,11 @@ ASM_FUNC("asm/non_matching/subtask2/Subtask_FadeIn.inc", void Subtask_FadeIn())
 void Subtask_Init(void) {
     if (gFadeControl.active == 0) {
         DeleteAllEntities();
-        MemClear(&gMenu, 0x30);
+        MemClear(&gMenu, sizeof(FigurineMenu));
         MemClear(&gRoomControls, 0x38);
         MemClear(gOAMControls.unk, 0x100);
-        MemClear(&gActiveScriptInfo, 0xc);
-        gActiveScriptInfo.unk_08 = 8;
+        MemClear(&gActiveScriptInfo, sizeof(gActiveScriptInfo));
+        gActiveScriptInfo.fadeSpeed = 8;
         DispReset(1);
         MessageInitialize();
         ResetPalettes();

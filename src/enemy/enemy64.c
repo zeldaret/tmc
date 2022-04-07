@@ -358,7 +358,7 @@ void Enemy64_Action4_SubAction4(Enemy64Entity* this) {
     sub_08049998(this, ((0x100 - super->direction) & 0xff) << 8);
     if (--super->timer == 0) {
         super->subAction = 5;
-        SetFade(5, 0x10);
+        SetFade(FADE_IN_OUT | FADE_INSTANT, 0x10);
     }
 }
 
@@ -382,7 +382,7 @@ void Enemy64_Action4_SubAction5(Enemy64Entity* this) {
         entity->y.HALF.HI = gRoomControls.origin_y + 0x80;
         entity->animationState = 0;
         sub_080809D4();
-        SetFade(4, 4);
+        SetFade(FADE_INSTANT, 4);
     }
 }
 

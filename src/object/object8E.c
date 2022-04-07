@@ -253,7 +253,7 @@ void Object8E_Type3(Object8EEntity* this) {
             if (sub_0809BE78(this)) {
                 if (super->timer != 0) {
                     if (--super->timer == 0) {
-                        SetFade(6, 8);
+                        SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 8);
                         sub_0805AAF0(3);
                         gScreen.lcd.displayControl = (gScreen.lcd.displayControl & 0xbfff) | 0x2800;
                     }

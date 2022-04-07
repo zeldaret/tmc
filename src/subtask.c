@@ -118,12 +118,12 @@ void sub_08054C20(void) {
     sub_0801876C(gMenu.field_0x4, 0);
     gMenu.overlayType++;
     gUpdateVisibleTiles = 1;
-    SetFade(4, 0x10);
+    SetFade(FADE_INSTANT, 0x10);
 }
 
 void sub_08054C58(void) {
     if ((gFadeControl.active == 0) && CheckRoomFlag(0xff)) {
-        SetFade(7, 0x10);
+        SetFade(FADE_IN_OUT | FADE_BLACK_WHITE | FADE_INSTANT, 0x10);
         gMenu.overlayType++;
     }
 }
@@ -131,7 +131,7 @@ void sub_08054C58(void) {
 void sub_08054C88(void) {
     if (gFadeControl.active == 0) {
         sub_08054974(gMenu.field_0x4, 0);
-        SetFade(6, 0x10);
+        SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 0x10);
         SoundReq(SFX_SECRET_BIG);
         gMenu.overlayType++;
         gMenu.transitionTimer = 0x78;
@@ -153,7 +153,7 @@ void sub_08054D04(void) {
     sub_08055B70(gMenu.field_0x4, 0, 0, 0);
     gMenu.overlayType++;
     gUpdateVisibleTiles = 1;
-    SetFade(4, 0x10);
+    SetFade(FADE_INSTANT, 0x10);
 }
 
 void sub_08054D3C(void) {
@@ -183,7 +183,7 @@ void sub_08054DAC(void) {
     sub_08055B70(gMenu.field_0x4, 0, 0, 0);
     gMenu.overlayType++;
     gUpdateVisibleTiles = 1;
-    SetFade(4, 0x10);
+    SetFade(FADE_INSTANT, 0x10);
 }
 
 void nullsub_484(void) {
@@ -200,14 +200,14 @@ void sub_08054E1C(void) {
     sub_08055B70(gMenu.field_0x4, 0, 0, 0);
     gMenu.overlayType++;
     gUpdateVisibleTiles = 1;
-    SetFade(4, 0x10);
+    SetFade(FADE_INSTANT, 0x10);
 }
 
 void sub_08054E5C(void) {
     if ((gFadeControl.active == 0) && CheckRoomFlag(0xff)) {
         gMenu.overlayType++;
         gMenu.transitionTimer = 0xb4;
-        SetFade(6, 0x10);
+        SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 0x10);
         sub_080553E0(gMenu.field_0x4);
         sub_0801876C(gMenu.field_0x4, 1);
     }
@@ -278,7 +278,7 @@ void sub_08054FAC(void) {
     sub_08055B70(gMenu.field_0x4, tmp, 0, 0);
     gMenu.overlayType++;
     gUpdateVisibleTiles = 1;
-    SetFade(4, 0x10);
+    SetFade(FADE_INSTANT, 0x10);
     gMenu.field_0xa = 0;
     if (CheckLocalFlagByBank(0x400, 0x77) && (ptr[2] == 0x2f)) {
         gMenu.field_0xa = 1;
@@ -301,7 +301,7 @@ void sub_08055054(void) {
     sub_08055B70(gMenu.field_0x4, 2, 0, 0);
     gMenu.overlayType++;
     gUpdateVisibleTiles = 1;
-    SetFade(4, 0x10);
+    SetFade(FADE_INSTANT, 0x10);
 }
 
 void sub_0805508C(void) {
@@ -320,7 +320,7 @@ void sub_080550B0(void) {
     sub_08055B70(gMenu.field_0x4, 0, 0, 0);
     gMenu.overlayType++;
     gUpdateVisibleTiles = 1;
-    SetFade(4, 0x10);
+    SetFade(FADE_INSTANT, 0x10);
 }
 
 void nullsub_487(void) {
@@ -338,7 +338,7 @@ void sub_08055114(void) {
     sub_08055B70(gMenu.field_0x4, 0, 0, 0);
     gMenu.overlayType++;
     gUpdateVisibleTiles = 1;
-    SetFade(4, 0x10);
+    SetFade(FADE_INSTANT, 0x10);
 }
 
 void nullsub_488(void) {
@@ -364,7 +364,7 @@ void sub_08055184(void) {
     gMenu.transitionTimer = 0x3c;
     gMenu.field_0xa = 0;
     gUpdateVisibleTiles = 1;
-    SetFade(4, 0x10);
+    SetFade(FADE_INSTANT, 0x10);
 }
 
 void sub_08055224(void) {
@@ -411,12 +411,12 @@ void sub_08055318(void) {
     sub_0801876C(gMenu.field_0x4, 0);
     gMenu.overlayType++;
     gUpdateVisibleTiles = 1;
-    SetFade(4, 0x10);
+    SetFade(FADE_INSTANT, 0x10);
 }
 
 void sub_08055350(void) {
     if ((gFadeControl.active == 0) && CheckRoomFlag(0xff)) {
-        SetFade(7, 0x10);
+        SetFade(FADE_IN_OUT | FADE_BLACK_WHITE | FADE_INSTANT, 0x10);
         gMenu.overlayType++;
     }
 }
@@ -424,7 +424,7 @@ void sub_08055350(void) {
 void sub_08055380(void) {
     if (gFadeControl.active == 0) {
         sub_08054974(gMenu.field_0x4, 0);
-        SetFade(6, 0x10);
+        SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 0x10);
         SoundReq(SFX_SECRET_BIG);
         gMenu.overlayType++;
         gMenu.transitionTimer = 0x78;
@@ -455,12 +455,12 @@ void sub_08055430(void) {
     sub_08055B70(gMenu.field_0x4, 0, 0, 0);
     gMenu.overlayType++;
     gUpdateVisibleTiles = 1;
-    SetFade(4, 0x10);
+    SetFade(FADE_INSTANT, 0x10);
 }
 
 void sub_08055468(void) {
     if ((gFadeControl.active == 0) && CheckRoomFlag(0xff)) {
-        SetFade(7, 0x10);
+        SetFade(FADE_IN_OUT | FADE_BLACK_WHITE | FADE_INSTANT, 0x10);
         gMenu.overlayType++;
     }
 }
@@ -469,7 +469,7 @@ void sub_08055498(void) {
     if (gFadeControl.active == 0) {
         sub_0801876C(gMenu.field_0x4, 1);
         sub_080553E0(gMenu.field_0x4);
-        SetFade(6, 0x10);
+        SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 0x10);
         SoundReq(SFX_SECRET_BIG);
         gMenu.overlayType++;
         gMenu.transitionTimer = 0x78;
@@ -491,7 +491,7 @@ void sub_08055518(void) {
     sub_08055B70(gMenu.field_0x4, 0, 0, 0);
     gMenu.overlayType++;
     gUpdateVisibleTiles = 1;
-    SetFade(4, 0x10);
+    SetFade(FADE_INSTANT, 0x10);
 }
 
 void sub_08055548(void) {
@@ -521,7 +521,7 @@ void sub_080555B8(void) {
     sub_08055B70(gMenu.field_0x4, 0, 0, 0);
     gMenu.overlayType++;
     gUpdateVisibleTiles = 1;
-    SetFade(4, 0x10);
+    SetFade(FADE_INSTANT, 0x10);
 }
 
 void sub_0805560C(void) {
@@ -557,7 +557,7 @@ void sub_080556AC(void) {
     sub_0804B0B0(gMenu.field_0xc[2], gMenu.field_0xc[3]);
     LoadRoomEntityList((EntityData*)gUnk_080FF264);
     sub_08055B70(gMenu.field_0x4, 0, 0, 0);
-    SetFade(4, 0x10);
+    SetFade(FADE_INSTANT, 0x10);
 }
 
 void nullsub_489(void) {
@@ -580,7 +580,7 @@ void sub_08055710(void) {
     sub_08055B70(gMenu.field_0x4, 0, 0, 0);
     gMenu.overlayType++;
     gUpdateVisibleTiles = 1;
-    SetFade(4, 0x10);
+    SetFade(FADE_INSTANT, 0x10);
 }
 
 void sub_0805576C(void) {
@@ -606,7 +606,7 @@ void sub_080557D0(void) {
     sub_0804B0B0((u32)gMenu.field_0xc[2], gMenu.field_0xc[3]);
     LoadRoomEntityList((EntityData*)gUnk_080FF298);
     sub_08055B70(gMenu.field_0x4, 0, 0, 0);
-    SetFade(4, 0x10);
+    SetFade(FADE_INSTANT, 0x10);
 }
 
 void nullsub_490(void) {
@@ -624,7 +624,7 @@ void sub_08055834(void) {
     sub_08055B70(gMenu.field_0x4, 1, 0, 0);
     gMenu.overlayType++;
     gUpdateVisibleTiles = 1;
-    SetFade(4, 0x10);
+    SetFade(FADE_INSTANT, 0x10);
 }
 
 void nullsub_491(void) {
@@ -640,7 +640,7 @@ void sub_080558A4(void) {
     sub_08055B70(gMenu.field_0x4, 0, 0, 0);
     gMenu.overlayType++;
     gUpdateVisibleTiles = 1;
-    SetFade(4, 0x10);
+    SetFade(FADE_INSTANT, 0x10);
 }
 
 void nullsub_492(void) {
@@ -657,7 +657,7 @@ void sub_08055908(void) {
     sub_08055B70(gMenu.field_0x4, 0, 0, 0);
     gMenu.overlayType++;
     gUpdateVisibleTiles = 1;
-    SetFade(4, 0x10);
+    SetFade(FADE_INSTANT, 0x10);
 }
 
 void sub_08055948(void) {
@@ -699,12 +699,12 @@ void sub_080559FC(void) {
     sub_08055B70(gMenu.field_0x4, 0, 0, 0);
     gMenu.overlayType++;
     gUpdateVisibleTiles = 1;
-    SetFade(4, 0x10);
+    SetFade(FADE_INSTANT, 0x10);
 }
 
 void sub_08055A3C(void) {
     if ((gFadeControl.active == 0) && CheckRoomFlag(0xff)) {
-        SetFade(7, 0x10);
+        SetFade(FADE_IN_OUT | FADE_BLACK_WHITE | FADE_INSTANT, 0x10);
         gMenu.overlayType++;
     }
 }
@@ -713,7 +713,7 @@ void sub_08055A6C(void) {
     if (gFadeControl.active == 0) {
         sub_0801876C(gMenu.field_0x4, 1);
         sub_080553E0(gMenu.field_0x4);
-        SetFade(6, 0x10);
+        SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 0x10);
         SoundReq(SFX_SECRET_BIG);
         gMenu.overlayType++;
         gMenu.transitionTimer = 0x78;
@@ -739,7 +739,7 @@ void sub_08055AEC(void) {
     }
     gMenu.overlayType++;
     gUpdateVisibleTiles = 1;
-    SetFade(4, 0x10);
+    SetFade(FADE_INSTANT, 0x10);
 }
 
 void sub_08055B38(void) {
@@ -773,12 +773,12 @@ void sub_08055BCC(void) {
     sub_0801876C(gMenu.field_0x4, 0);
     gMenu.overlayType++;
     gUpdateVisibleTiles = 1;
-    SetFade(4, 0x10);
+    SetFade(FADE_INSTANT, 0x10);
 }
 
 void sub_08055C04(void) {
     if ((gFadeControl.active == 0) && CheckRoomFlag(0xff)) {
-        SetFade(7, 0x10);
+        SetFade(FADE_IN_OUT | FADE_BLACK_WHITE | FADE_INSTANT, 0x10);
         gMenu.overlayType++;
     }
 }
@@ -798,7 +798,7 @@ void sub_08055C34(void) {
                 DeleteEntity(entity);
             }
         }
-        SetFade(6, 0x10);
+        SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 0x10);
         SoundReq(SFX_SECRET_BIG);
         gMenu.overlayType++;
         gMenu.transitionTimer = 0x78;
@@ -821,7 +821,7 @@ void sub_08055CF4(void) {
     sub_08055B70(gMenu.field_0x4, 0, 0, 0);
     gMenu.overlayType++;
     gUpdateVisibleTiles = 1;
-    SetFade(4, 0x10);
+    SetFade(FADE_INSTANT, 0x10);
 }
 
 void sub_08055D2C(void) {
@@ -846,7 +846,7 @@ void sub_08055D80(void) {
 void sub_08055D9C(void) {
     gMenu.overlayType++;
     gUpdateVisibleTiles = 1;
-    SetFade(4, 0x10);
+    SetFade(FADE_INSTANT, 0x10);
 }
 
 void sub_08055DC0(void) {

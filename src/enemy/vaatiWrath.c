@@ -666,7 +666,7 @@ void sub_08041D84(Entity* this) {
                 ChangeObjPalette(this->child, gUnk_080D0E80[(this->subtimer - 0xb8) >> 3]);
             }
             if (this->subtimer == 0xe6) {
-                SetFade(7, 4);
+                SetFade(FADE_IN_OUT | FADE_BLACK_WHITE | FADE_INSTANT, 4);
             }
         } else {
             this->subAction = 4;

@@ -250,7 +250,7 @@ void GameTask(void) {
 #ifdef DEMO_USA
     if (gSave.demo_timer != 0) {
         if (--gSave.demo_timer == 0) {
-            SetFade(7, 2);
+            SetFade(FADE_IN_OUT | FADE_BLACK_WHITE | FADE_INSTANT, 2);
             gMain.state = GAMETASK_EXIT;
         }
     }
@@ -477,7 +477,7 @@ static void GameTask_Exit(void) {
     if (!gFadeControl.active)
         DoSoftReset();
 #else
-    SetFade(7, 8);
+    SetFade(FADE_IN_OUT | FADE_BLACK_WHITE | FADE_INSTANT, 8);
     SetTask(TASK_GAMEOVER);
 #endif
 }
@@ -715,12 +715,12 @@ static void GameOver_FadeIn(void) {
                 switch_state(GAMETASK_MAIN);
 #if defined(DEMO_USA) || defined(DEMO_JP)
                 SoundReq(SONG_VOL_FADE_OUT);
-                SetFade(7, 4);
+                SetFade(FADE_IN_OUT | FADE_BLACK_WHITE | FADE_INSTANT, 4);
 #else
                 SetPopupState(0, 0);
                 gScreen.lcd.displayControl |= DISPCNT_BG1_ON | DISPCNT_BG2_ON;
                 gFadeControl.mask = 0x0000ffff;
-                SetFade(4, 16);
+                SetFade(FADE_INSTANT, 16);
 #endif
             }
         }
@@ -838,9 +838,9 @@ static void GameOver_Update(void) {
                         SetMenuType(2);
                         SoundReq(SFX_TEXTBOX_SELECT);
                         if (temp == 0) {
-                            SetFade(5, 8);
+                            SetFade(FADE_IN_OUT | FADE_INSTANT, 8);
                         } else {
-                            SetFade(7, 8);
+                            SetFade(FADE_IN_OUT | FADE_BLACK_WHITE | FADE_INSTANT, 8);
                         }
                         break;
                 }
@@ -1152,7 +1152,7 @@ static bool32 CheckGameOver(void) {
         InitFade();
         gMain.state = GAMETASK_EXIT;
         gMain.substate = GAMEMAIN_INITROOM;
-        SetFade(5, 8);
+        SetFade(FADE_IN_OUT | FADE_INSTANT, 8);
         SoundReq(SONG_STOP_BGM);
         return TRUE;
     }
@@ -1173,29 +1173,29 @@ static bool32 CheckRoomExit(void) {
 
         switch (gRoomTransition.type) {
             case TRANSITION_CUT:
-                SetFade(13, 8);
+                SetFade(FADE_IN_OUT | FADE_INSTANT | FADE_MOSAIC, 8);
                 break;
             case TRANSITION_CUT_FAST:
-                SetFade(13, 3);
+                SetFade(FADE_IN_OUT | FADE_INSTANT | FADE_MOSAIC, 3);
                 break;
             case TRANSITION_FADE_WHITE_SLOW:
-                SetFade(7, 4);
+                SetFade(FADE_IN_OUT | FADE_BLACK_WHITE | FADE_INSTANT, 4);
                 break;
             case TRANSITION_FADE_BLACK_SLOW:
-                SetFade(5, 4);
+                SetFade(FADE_IN_OUT | FADE_INSTANT, 4);
                 break;
             case TRANSITION_FADE_BLACK:
-                SetFade(5, 16);
+                SetFade(FADE_IN_OUT | FADE_INSTANT, 16);
                 break;
             case TRANSITION_FADE_BLACK_FAST:
-                SetFade(5, 256);
+                SetFade(FADE_IN_OUT | FADE_INSTANT, 256);
                 break;
             case TRANSITION_7:
             case TRANSITION_FADE_WHITE_FAST:
-                SetFade(7, 256);
+                SetFade(FADE_IN_OUT | FADE_BLACK_WHITE | FADE_INSTANT, 256);
                 break;
             default:
-                SetFade(7, 16);
+                SetFade(FADE_IN_OUT | FADE_BLACK_WHITE | FADE_INSTANT, 16);
                 break;
         }
         RoomExitCallback();
@@ -1242,27 +1242,27 @@ void InitParachuteRoom(void) {
 static void InitRoomTransition(void) {
     switch (gRoomTransition.type) {
         case TRANSITION_CUT:
-            SetFade(12, 8);
+            SetFade(FADE_INSTANT | FADE_MOSAIC, 8);
             break;
         case TRANSITION_CUT_FAST:
-            SetFade(12, 3);
+            SetFade(FADE_INSTANT | FADE_MOSAIC, 3);
             break;
         case TRANSITION_FADE_WHITE_SLOW:
-            SetFade(6, 4);
+            SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 4);
             break;
         case TRANSITION_3:
             break;
         case TRANSITION_FADE_BLACK_FAST:
-            SetFade(5, 256);
+            SetFade(FADE_IN_OUT | FADE_INSTANT, 256);
             break;
         case TRANSITION_7:
-            SetFade(7, 256);
+            SetFade(FADE_IN_OUT | FADE_BLACK_WHITE | FADE_INSTANT, 256);
             break;
         case TRANSITION_FADE_BLACK:
-            SetFade(4, 16);
+            SetFade(FADE_INSTANT, 16);
             break;
         case TRANSITION_FADE_WHITE_FAST:
-            SetFade(6, 8);
+            SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 8);
             break;
         default:
             SetFadeInverted(16);
@@ -1782,7 +1782,7 @@ void sub_080535AC(void) {
     gUpdateVisibleTiles = 1;
     gScreen.lcd.displayControl &= 0xfeff;
     LoadRoomEntityList((EntityData*)gUnk_080FCB94);
-    SetFade(6, 8);
+    SetFade(FADE_BLACK_WHITE | FADE_INSTANT, 8);
 }
 
 void sub_080535F4(void) {
@@ -1833,7 +1833,7 @@ void sub_080536A8(void) {
 
 void sub_080536B8(void) {
     sub_080A71C4(5, 3, 4, 4);
-    SetFade(5, 0x100);
+    SetFade(FADE_IN_OUT | FADE_INSTANT, 0x100);
 }
 
 void sub_080536D4(void) {
@@ -1849,7 +1849,7 @@ void sub_0805370C(void) {
     gUpdateVisibleTiles = 1;
     sub_08051FF0();
     LoadRoomEntityList((EntityData*)gUnk_080FCC54);
-    SetFade(4, 0x10);
+    SetFade(FADE_INSTANT, 0x10);
 }
 
 void sub_0805373C(void) {
@@ -1880,7 +1880,7 @@ void sub_08053758(void) {
     gScreen.bg2.control = 0x1dc1;
     SoundReq(BGM_STORY);
     ResetSystemPriority();
-    SetFade(5, 0x100);
+    SetFade(FADE_IN_OUT | FADE_INSTANT, 0x100);
 }
 
 ASM_FUNC("asm/non_matching/game/sub_08053800.inc", void sub_08053800())
@@ -1896,7 +1896,7 @@ void sub_08053974(void) {
         SetBGDefaults();
         sub_08051F78();
         LoadRoomEntityList((EntityData*)&gUnk_080FCBC4);
-        SetFade(5, 0x100);
+        SetFade(FADE_IN_OUT | FADE_INSTANT, 0x100);
         gMenu.overlayType++;
     }
 }
@@ -1929,14 +1929,14 @@ void sub_08053A1C(void) {
         MessageFromTarget(0xf07);
         gMessage.textWindowPosX = 1;
         gMessage.textWindowPosY = 8;
-        SetFade(4, 8);
+        SetFade(FADE_INSTANT, 8);
     }
 }
 
 void sub_08053A5C(void) {
     if (((gMessage.doTextBox & 0x7f) == 0) && --gMenu.transitionTimer == 0) {
         gMenu.overlayType++;
-        SetFade(5, 8);
+        SetFade(FADE_IN_OUT | FADE_INSTANT, 8);
     }
 }
 
@@ -1956,7 +1956,7 @@ void sub_08053ACC(void) {
     gUpdateVisibleTiles = 1;
     sub_08051FF0();
     LoadRoomEntityList((EntityData*)&gUnk_080FCD84);
-    SetFade(5, 0x100);
+    SetFade(FADE_IN_OUT | FADE_INSTANT, 0x100);
 }
 
 void sub_08053B00(void) {
@@ -1967,13 +1967,13 @@ void sub_08053B10(void) {
     if (CheckRoomFlag(1)) {
         gMenu.menuType++;
         DispReset(1);
-        SetFade(4, 0x100);
+        SetFade(FADE_INSTANT, 0x100);
     }
 }
 
 void sub_08053B3C(void) {
     sub_080A71C4(5, 4, 5, 0x100);
-    SetFade(5, 0x100);
+    SetFade(FADE_IN_OUT | FADE_INSTANT, 0x100);
 }
 
 void sub_08053B58(void) {
@@ -1986,7 +1986,7 @@ void sub_08053B74(void) {
     LoadRoomEntityList((EntityData*)&gUnk_080FCDE0);
     ResetSystemPriority();
     ResetEntityPriority();
-    SetFade(5, 0x100);
+    SetFade(FADE_IN_OUT | FADE_INSTANT, 0x100);
 }
 
 void sub_08053BAC(void) {
@@ -1997,13 +1997,13 @@ void sub_08053BBC(void) {
     if (CheckRoomFlag(0)) {
         gMenu.menuType++;
         DispReset(1);
-        SetFade(4, 0x100);
+        SetFade(FADE_INSTANT, 0x100);
     }
 }
 
 void sub_08053BE8(void) {
     sub_080A71C4(5, 2, 5, 0x100);
-    SetFade(5, 0x100);
+    SetFade(FADE_IN_OUT | FADE_INSTANT, 0x100);
 }
 
 void sub_08053C04(void) {
@@ -2017,7 +2017,7 @@ void sub_08053C20(void) {
     sub_08051FF0();
     sub_0805B4D0(4);
     LoadRoomEntityList((EntityData*)&gUnk_080FCEBC);
-    SetFade(4, 0x10);
+    SetFade(FADE_INSTANT, 0x10);
     SoundReq(BGM_FIGHT_THEME2);
 }
 
@@ -2025,7 +2025,7 @@ void nullsub_483(void) {
 }
 
 void sub_08053C60(void) {
-    SetFade(5, 2);
+    SetFade(FADE_IN_OUT | FADE_INSTANT, 2);
     SoundReq(SFX_SUMMON);
     SoundReq(SONG_STOP_BGM);
     SetTask(3);
@@ -2106,7 +2106,7 @@ void sub_08053E74(void) {
     gScreen.lcd.displayControl &= 0xfeff;
     gUpdateVisibleTiles = 1;
     SetMinPriority(1);
-    SetFade(4, 8);
+    SetFade(FADE_INSTANT, 8);
 }
 
 void sub_08053EC4(void) {

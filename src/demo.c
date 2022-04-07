@@ -75,7 +75,7 @@ void sub_080A2E40(void) {
     sub_080A3198(0, 0);
     gMain.state = GAMETASK_INIT;
     SoundReq(BGM_FILE_SELECT);
-    SetFade(4, 8);
+    SetFade(FADE_INSTANT, 8);
 }
 
 void sub_080A2F8C(void) {
@@ -90,7 +90,7 @@ void sub_080A2F8C(void) {
                     *(u8*)(addr + 6) = 1;
                 }
                 gMain.state = GAMETASK_MAIN;
-                SetFade(5, 8);
+                SetFade(FADE_IN_OUT | FADE_INSTANT, 8);
                 break;
             case GAMEMAIN_CHANGEROOM:
                 SetTask(TASK_GAME);

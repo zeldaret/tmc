@@ -25,7 +25,7 @@ typedef struct {
     /*0x4*/ u16 commandIndex;
     /*0x6*/ u8 commandSize;
     /*0x7*/ u8 flags;
-    /*0x8*/ u8 unk_08;
+    /*0x8*/ u8 fadeSpeed;
 } ActiveScriptInfo;
 extern ActiveScriptInfo gActiveScriptInfo;
 
