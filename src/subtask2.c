@@ -108,10 +108,14 @@ typedef struct {
 extern const struct_gUnk_08128E94 gUnk_08128E94[];
 
 typedef struct {
-    u8 unk0;
-    u8 unk1;
-    u8 unk2;
-    u8 unk3;
+    u8 unk00 : 5;
+    u8 unk05 : 5;
+    u8 unk10 : 6;
+} PACKED gUnk_08128DE8_struct_2;
+
+typedef struct {
+    gUnk_08128DE8_struct_2 unk0;
+    gUnk_08128DE8_struct_2 unk2;
     u8 unk4;
     u8 unk5;
     u8 unk6;
@@ -449,7 +453,45 @@ void sub_080A6290(void) {
     gMenu.menuType = 1;
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A62E0.inc", void sub_080A62E0())
+void sub_080A62E0(void) {
+    u32 uVar1;
+    int windcrest;
+    gUnk_08128DE8_struct* ptr;
+
+    if (!sub_080A51F4()) {
+        return;
+    }
+    ptr = &gUnk_08128DE8[gMenu.field_0x3];
+    windcrest = -1;
+
+    switch (gInput.newKeys) {
+        case A_BUTTON:
+            if ((gSave.windcrests & (1 << gMenu.field_0x3)) != 0) {
+                SoundReq(SFX_TEXTBOX_SELECT);
+                sub_080A4E84(6);
+                windcrest = -1;
+            }
+            break;
+        case DPAD_UP:
+            windcrest = ptr->unk0.unk00;
+            break;
+        case DPAD_DOWN:
+            windcrest = ptr->unk0.unk05;
+            break;
+        case DPAD_LEFT:
+            windcrest = ptr->unk2.unk00;
+            break;
+        case DPAD_RIGHT:
+            windcrest = ptr->unk2.unk05;
+            break;
+    }
+
+    if (-1 < windcrest) {
+        gMenu.field_0x3 = windcrest;
+        SoundReq(SFX_TEXTBOX_CHOICE);
+    }
+    sub_080A6FB4(gMenu.field_0x3, 0);
+}
 
 void sub_080A6378(void) {
     u32 frameIndex;
