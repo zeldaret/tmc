@@ -32,6 +32,7 @@
 #include "player.h"
 #include "transitions.h"
 #include "roomid.h"
+#include "ui.h"
 
 // Game task
 
@@ -100,7 +101,6 @@ extern void sub_080185F8(void);
 extern void UpdateDoorTransition(void);
 extern bool32 CheckInitPortal(void);
 extern void UpdateCarriedObject(void);
-extern void DrawUI(void);
 extern void CollisionMain(void);
 extern void sub_0805BB74(s32);
 extern void CreateZeldaFollower(void);
@@ -112,7 +112,6 @@ extern void UpdateScroll(void);
 extern void UpdateBgAnimations(void);
 extern void CleanUpGFXSlots(void);
 extern void sub_080ADE24(void);
-extern void InitUI(bool32);
 extern void sub_0801AE44(u32);
 extern void GenerateAreaHint(void);
 extern void ForceSetPlayerState(u32);

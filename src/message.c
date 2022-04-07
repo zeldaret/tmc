@@ -6,6 +6,7 @@
 #include "functions.h"
 #include "message.h"
 #include "save.h"
+#include "ui.h"
 
 #define MESSAGE_ADVANCE_KEYS (A_BUTTON | B_BUTTON | DPAD_ANY | R_BUTTON)
 #define MESSAGE_PRESS_ANY_ADVANCE_KEYS ((gInput.newKeys & MESSAGE_ADVANCE_KEYS) != 0)
@@ -32,8 +33,6 @@ enum {
 
 extern void WriteBit(u32*, u32);
 extern bool32 sub_0805EF40(Token* tok, const u8*);
-extern void RecoverUI(u32 bottomPt, u32 topPt);
-extern void RefreshUI(void);
 extern void sub_0805F918(u32, u32, void*);
 extern u32 DecToHex(u32, u8*, u32);
 

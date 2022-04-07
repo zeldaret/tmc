@@ -8,6 +8,7 @@
 #include "kinstone.h"
 #include "functions.h"
 #include "item.h"
+#include "ui.h"
 
 void InitScriptForEntity(Entity*, ScriptExecutionContext*, u16*);
 void InitScriptExecutionContext(ScriptExecutionContext* context, u16* script);
@@ -151,8 +152,6 @@ void ScriptCommand_CameraTargetEntity(Entity* entity, ScriptExecutionContext* co
 void ScriptCommand_CameraTargetPlayer(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807F0B4(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807F0C8(Entity* entity, ScriptExecutionContext* context);
-
-extern void RecoverUI(u32);
 
 typedef void (*ScriptCommand)(Entity*, ScriptExecutionContext*);
 
@@ -455,7 +454,7 @@ void sub_0807DF38(void) {
 void sub_0807DF50(void) {
     gPauseMenuOptions.disabled = 0;
     gUnk_0200AF00.unk_1 = 0;
-    RecoverUI(0);
+    RecoverUI(0, 0);
     ResetPlayerAnimationAndAction();
     PlayerDropHeldObject();
 }

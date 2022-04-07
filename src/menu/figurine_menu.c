@@ -11,6 +11,7 @@
 #include "game.h"
 #include "functions.h"
 #include "message.h"
+#include "ui.h"
 
 extern const struct {
     u8 filler[7];

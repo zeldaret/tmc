@@ -10,6 +10,7 @@
 #include "functions.h"
 #include "main.h"
 #include "message.h"
+#include "ui.h"
 
 extern u8 gUnk_08128D38[];
 extern u8 gUnk_08128D43[];
@@ -26,6 +27,8 @@ u32 sub_080A6F40();
 void sub_080A67C4(u32);
 void sub_080A68D4();
 u32 sub_080A69E0();
+void sub_080A6EE0(u32 param_1);
+struct_08127F94* sub_080A6A80(u32 param_1, u32 param_2);
 
 extern void DrawDungeonMap(u32 floor, struct_02019EE0* data, u32 size);
 extern void LoadDungeonMap(void);
@@ -68,7 +71,6 @@ extern void (*const gUnk_0812901C[])(void);
 
 void sub_080A74F4(void);
 
-extern void DrawUI(void);
 extern void UpdateCarriedObject(void);
 
 extern void (*const gSubtasks[])(void);
@@ -85,6 +87,30 @@ typedef struct {
 } struct_gUnk_08128E94;
 
 extern const struct_gUnk_08128E94 gUnk_08128E94[];
+
+typedef struct {
+    u8 unk0;
+    u8 unk1;
+    u8 unk2;
+    u8 unk3;
+    u8 unk4;
+    u8 unk5;
+    u8 unk6;
+    u8 unk7;
+} gUnk_08128DE8_struct;
+extern gUnk_08128DE8_struct gUnk_08128DE8[];
+
+typedef struct {
+    u8 unk0;
+    u8 unk1;
+    u8 unk2;
+    u8 unk3;
+    u8 unk4;
+    s8 unk5;
+    u16 unk6;
+} struct_gUnk_08128D70;
+
+extern const struct_gUnk_08128D70 gUnk_08128D70[];
 
 ASM_FUNC("asm/non_matching/subtask2/sub_080A5594.inc", void sub_080A5594())
 
@@ -103,7 +129,51 @@ void sub_080A59AC(void) {
     SetMenuType(1);
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A59C8.inc", void sub_080A59C8())
+void sub_080A59C8(void) {
+    u32 uVar2;
+    u32 bVar3;
+
+    if (!sub_080A51F4()) {
+        return;
+    }
+    uVar2 = gMenu.field_0x3;
+    bVar3 = FALSE;
+
+    switch (gInput.newKeys) {
+        case DPAD_UP:
+            uVar2 = 0;
+            break;
+        case B_BUTTON:
+            if (gMenu.field_0x3 == 0) {
+                uVar2 = 1;
+            } else {
+                bVar3 = TRUE;
+            }
+            break;
+        case DPAD_DOWN:
+            uVar2 = 1;
+            break;
+        case A_BUTTON:
+            bVar3 = TRUE;
+            break;
+    }
+
+    if (bVar3) {
+        gMenu.transitionTimer = 0xff;
+        if (uVar2 == 0) {
+            CreateDialogBox(8, 0);
+            SetMenuType(2);
+            SoundReq(SFX_TEXTBOX_SELECT);
+        } else {
+            SetMenuType(3);
+            SoundReq(SFX_MENU_CANCEL);
+        }
+    } else if (gMenu.field_0x3 != uVar2) {
+        gMenu.field_0x3 = uVar2;
+        SetPopupState(0, uVar2);
+        SoundReq(SFX_TEXTBOX_CHOICE);
+    }
+}
 
 void sub_080A5A54(void) {
     switch (HandleSave(0)) {
@@ -160,7 +230,49 @@ void sub_080A5AF4(void) {
     SetMenuType(1);
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A5B34.inc", void sub_080A5B34())
+void sub_080A5B34(void) {
+    bool32 bVar1;
+    u32 uVar3;
+
+    if (!sub_080A51F4()) {
+        return;
+    }
+    uVar3 = gMenu.field_0x3;
+    bVar1 = FALSE;
+    switch (gInput.newKeys) {
+        case DPAD_LEFT:
+            uVar3 = 0;
+            break;
+        case B_BUTTON:
+            if (gMenu.field_0x3 != 0) {
+                bVar1 = TRUE;
+            } else {
+                uVar3 = 1;
+            }
+            break;
+        case DPAD_RIGHT:
+            uVar3 = 1;
+            break;
+        case A_BUTTON:
+            bVar1 = TRUE;
+            break;
+    }
+    if (gMenu.field_0x3 != uVar3) {
+        gMenu.field_0x3 = uVar3;
+        SetPopupState(2, uVar3);
+        SoundReq(SFX_TEXTBOX_CHOICE);
+    }
+    if (bVar1) {
+        if (uVar3 == 0) {
+            SetFade(7, 0x20);
+            gMenu.transitionTimer = 0x3c;
+            SetMenuType(2);
+        } else {
+            SoundReq(SFX_MENU_CANCEL);
+            sub_080A4E84(2);
+        }
+    }
+}
 
 void sub_080A5BB8(void) {
     Main* m;
@@ -344,7 +456,26 @@ void sub_080A6438(void) {
     }
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A6498.inc", void sub_080A6498())
+void sub_080A6498(void) {
+    u32 i;
+
+    gOamCmd._4 = 0x800;
+    gOamCmd._6 = 0;
+    gOamCmd._8 = 0;
+    for (i = 0; i <= 0x10; i++) {
+        if ((gSave.windcrests & (1 << i)) == 0) {
+            gUnk_08128DE8_struct* ptr = &gUnk_08128DE8[i];
+            gOamCmd.x = ptr->unk6;
+            gOamCmd.y = ptr->unk7;
+#ifdef EU
+            DrawDirect(0x1fa, 0x28 + 3 * i);
+#else
+            DrawDirect(0x1fb, 0x28 + 3 * i);
+#endif
+        }
+    }
+    gScreen.controls.windowOutsideControl = 0x3d3f;
+}
 
 void Subtask_MapHint(void) {
     extern void (*const gUnk_08128E70[])(void);
@@ -357,9 +488,46 @@ void Subtask_MapHint(void) {
     CopyOAM();
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A6534.inc", void sub_080A6534())
+void sub_080A6534(void) {
+    extern const u16 gUnk_08128F4C[];
+    u32 val;
+    sub_080A4D34();
+    sub_080A4DB8(4);
+    sub_080A6290();
+    gScreen.lcd.displayControl = gScreen.lcd.displayControl & 0xf7ff;
+    SetColor(0, gPaletteBuffer[0x51]);
+    val = gUnk_08128F4C[gUI.field_0x3];
+    gSave.field_0x20 |= val;
+    gGenericMenu.unk10.h[1] = val & gGenericMenu.unk10.h[0];
+    gGenericMenu.unk10.h[0] = 0;
+    gMenu.transitionTimer = 0x3c;
+    SetMenuType(1);
+    SetFade(4, 8);
+}
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A65AC.inc", void sub_080A65AC())
+void sub_080A65AC(void) {
+    if (!gFadeControl.active) {
+        gGenericMenu.unk2c++;
+        switch (gMenu.transitionTimer) {
+            case 0x1e:
+                gGenericMenu.unk10.h[0] = gGenericMenu.unk10.h[1];
+                gGenericMenu.unk2c = 0x20;
+                SoundReq(SFX_103);
+            default:
+                gMenu.transitionTimer--;
+                break;
+            case 0:
+                switch (gInput.newKeys) {
+                    case A_BUTTON:
+                    case B_BUTTON:
+                    case START_BUTTON:
+                        Subtask_Exit();
+                        break;
+                }
+                break;
+        }
+    }
+}
 
 void sub_080A6608(void) {
     extern void (*const gUnk_08128E78[])(void);
@@ -439,7 +607,40 @@ void sub_080A698C(u32 param_1, u32 param_2, u32 param_3, u32 param_4) {
     }
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A69E0.inc", u32 sub_080A69E0())
+u32 sub_080A69E0(u32 param_1, u32 param_2) {
+    const struct_08127F94* pbVar1;
+    int iVar3;
+
+    if ((param_1 | param_2) == 0)
+        return -1;
+
+    pbVar1 = sub_080A6A80(param_1, param_2);
+    if (pbVar1 == NULL)
+        return -1;
+
+    if (gMenu.field_0x3 != pbVar1->_4)
+        return -1;
+
+    switch (gMenu.field_0x3) {
+        case 4:
+        case 7:
+            if (gMenu.field_0x3 == 4) {
+                iVar3 = 9;
+            } else {
+                iVar3 = 7;
+            }
+            param_2 -= gAreaRoomHeaders[iVar3]->map_y;
+            break;
+            break;
+        case 15:
+            param_1 -= 0x108;
+            break;
+    }
+
+    param_1 = (s32)((param_1 - pbVar1->_0 * 0x10) * 100) / 0x23a;
+    param_2 = (s32)((param_2 - pbVar1->_1 * 0x10) * 100) / 0x23a;
+    return (param_2 << 0x10) | param_1;
+}
 
 struct_08127F94* sub_080A6A80(u32 param_1, u32 param_2) {
     struct_08127F94* pbVar1;
@@ -507,7 +708,46 @@ void sub_080A6CA8(void) {
     SetFade(4, 8);
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A6CD8.inc", void sub_080A6CD8())
+void sub_080A6CD8(void) {
+    u32 uVar1;
+    u32 uVar2;
+
+    if (gFadeControl.active) {
+        return;
+    }
+
+    gMenu.field_0x0 = 1;
+    uVar2 = 0;
+
+    switch (gInput.newKeys) {
+        case DPAD_LEFT:
+        case DPAD_UP:
+            uVar2 = -1;
+            break;
+        case DPAD_RIGHT:
+        case DPAD_DOWN:
+            uVar2 = 1;
+            break;
+        case A_BUTTON:
+        case START_BUTTON:
+            gMenu.field_0x0 = 2;
+            SetMenuType(2);
+            MessageFromTarget(0x704);
+            break;
+        case B_BUTTON:
+            gMenu.field_0x0 = 3;
+            SetMenuType(3);
+            break;
+    }
+
+    if (uVar2) {
+        uVar1 = sub_080A6D74(uVar2);
+        if (uVar1 != gMenu.field_0x3) {
+            gMenu.field_0x3 = uVar1;
+            SoundReq(SFX_TEXTBOX_CHOICE);
+        }
+    }
+}
 
 u32 sub_080A6D74(u32 param_1) {
     u32 uVar1;
@@ -581,9 +821,39 @@ void sub_080A6E44(void) {
     }
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A6E70.inc", void sub_080A6E70())
+void sub_080A6E70(void) {
+    u32 uVar1;
+    u32 i;
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A6EE0.inc", void sub_080A6EE0())
+    gOamCmd._4 = 0;
+    gOamCmd._6 = 0;
+    gOamCmd._8 = 0x400;
+    gGenericMenu.unk2c++;
+    sub_080A6EE0(gMenu.field_0x3);
+    if ((gGenericMenu.unk2c & 0x10) != 0) {
+        uVar1 = 0x5d;
+    } else {
+        uVar1 = 0x5e;
+    }
+
+#ifdef EU
+    DrawDirect(0x1fa, uVar1);
+#else
+    DrawDirect(0x1fb, uVar1);
+#endif
+    for (i = 0; i < 8; i++) {
+        if ((gSave.windcrests & (1 << (i + 0x18))) != 0) {
+            sub_080A6EE0(i);
+#ifdef EU
+            DrawDirect(0x1fa, 0x5c);
+#else
+            DrawDirect(0x1fb, 0x5c);
+#endif
+        }
+    }
+}
+
+ASM_FUNC("asm/non_matching/subtask2/sub_080A6EE0.inc", void sub_080A6EE0(u32 param_1))
 
 u32 sub_080A6F40(void) {
     extern u8 gUnk_08128F38[];
@@ -611,11 +881,73 @@ void sub_080A6F6C(u32 param_1) {
     gScreen.bg0.yOffset = 2;
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A6FB4.inc", void sub_080A6FB4(u32 a, u32 b))
+void sub_080A6FB4(u32 param_1, u32 param_2) {
+    extern u16 gUnk_08128FF0[];
+    extern Font gUnk_08128FD8;
+    extern Font gUnk_08128FC0;
+    u32 uVar1;
+    Font* font;
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A7040.inc", void sub_080A7040(u32 a))
+    uVar1 = 0;
+    switch (param_2) {
+        case 0:
+            if ((gSave.windcrests & (1 << param_1)) == 0)
+                break;
+        case 2:
+            uVar1 = gUnk_08127F94[param_1]._6;
+            font = &gUnk_08128FC0;
+            break;
+        case 1:
+            uVar1 = gUnk_08128FF0[param_1];
+            font = &gUnk_08128FD8;
+            break;
+    }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A70AC.inc", void sub_080A70AC(const KeyButtonLayout* layout))
+    if (gGenericMenu.unk2e.HWORD != uVar1) {
+        gGenericMenu.unk2e.HWORD = uVar1;
+        MemClear(&gUnk_020350F0, 0x100);
+        if ((uVar1 & 0xff) != 0) {
+            sub_0805F46C(uVar1, font);
+        }
+        gScreen.bg0.updated = 1;
+    }
+    gScreen.bg0.yOffset = 2;
+}
+
+void sub_080A7040(u32 param_1) {
+    extern Font gUnk_08129004;
+    extern u8 gUnk_02022130[];
+    if (gGenericMenu.unk2e.HWORD != param_1) {
+        gGenericMenu.unk2e.HWORD = param_1;
+        MemClear(gUnk_02022130, 0x300);
+        MemCopy(gUnk_02022130 - 0x200, (void*)0x600e000, 0x800);
+        if (GetInventoryValue(gUnk_08128D70[param_1].unk0) != 0) {
+            sub_0805F46C(gUnk_08128D70[param_1].unk6, &gUnk_08129004);
+        }
+        gScreen.bg1.yOffset = 3;
+        gScreen.bg1.updated = 1;
+    }
+}
+
+void sub_080A70AC(const KeyButtonLayout* layout) {
+    MemClear(&gUnk_0200AF00.elements, 0x300);
+    gUnk_0200AF00.unk_13 = 0x7f;
+    gUnk_0200AF00.unk_14 = 0x7f;
+    gUnk_0200AF00.buttonX[0] = layout->aButtonX;
+    gUnk_0200AF00.buttonY[0] = (s8)layout->aButtonY;
+    gUnk_0200AF00.unk_30[0] = layout->aButtonText;
+    gUnk_0200AF00.buttonX[1] = layout->bButtonX;
+    gUnk_0200AF00.buttonY[1] = (s8)layout->bButtonY;
+    gUnk_0200AF00.unk_30[1] = layout->bButtonText;
+    gUnk_0200AF00.buttonX[2] = layout->rButtonX;
+    gUnk_0200AF00.buttonY[2] = (s8)layout->rButtonY;
+    gUnk_0200AF00.unk_32 = layout->rButtonText;
+    layout++;
+    do {
+        CreateUIElement(layout->aButtonX, layout->aButtonY);
+        layout = (KeyButtonLayout*)&layout->aButtonText;
+    } while ((s8)layout->aButtonX != -1);
+}
 
 void SetMenuType(u32 menuType) {
     gMenu.menuType = menuType;
@@ -624,12 +956,12 @@ void SetMenuType(u32 menuType) {
 }
 
 void ResetUI(void) {
-    MemClear(&gUI, 0x3b4);
+    MemClear(&gUI, sizeof(gUI));
 }
 
 void MenuFadeIn(u32 param_1, u32 param_2) {
     if (gUI.nextToLoad == 0) {
-        MemClear(&gUI, 0x3b4);
+        MemClear(&gUI, sizeof(gUI));
         gUI.lastState = param_1;
         gUI.field_0x3 = param_2;
         gUI.pauseFadeIn = gMain.substate;
