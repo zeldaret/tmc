@@ -125,9 +125,9 @@ typedef struct {
 extern gUnk_08128DE8_struct gUnk_08128DE8[];
 
 typedef struct {
-    u8 unk0;
+    u8 item;
     u8 unk1;
-    u8 unk2;
+    u8 frameIndex;
     u8 unk3;
     u8 unk4;
     s8 unk5;
@@ -464,7 +464,48 @@ void sub_080A612C(void) {
     }
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A617C.inc", void sub_080A617C())
+void sub_080A617C(void) {
+    u32 frameIndex;
+    u32 i;
+    const struct_gUnk_08128D70* ptr;
+
+    gOamCmd._4 = 0;
+    gOamCmd._6 = 0;
+    gOamCmd._8 = 0xc00;
+    gOamCmd.y = 0x2f;
+    gOamCmd.x = gMenu.field_0x3 * 0x1b + 0x1a;
+    if ((gMain.ticks.HWORD & 0x20) != 0) {
+        frameIndex = 8;
+    } else {
+        frameIndex = 9;
+    }
+    DrawDirect(DRAW_DIRECT_SPRITE_INDEX + 1, frameIndex);
+    ptr = &gUnk_08128D70[gMenu.field_0x3];
+    if (GetInventoryValue(ptr->item) != 0) {
+        gOamCmd._8 = 0xc00;
+        gOamCmd.x = 0xcc;
+        gOamCmd.y = 0x88;
+        DrawDirect(DRAW_DIRECT_SPRITE_INDEX + 1, 0xb);
+        gOamCmd.x = 0x30;
+        gOamCmd.y = 0x6c;
+        gOamCmd._8 = ptr->unk1 << 0xc | 0xd80;
+        DrawDirect(DRAW_DIRECT_SPRITE_INDEX + 1, ptr->frameIndex);
+        gOamCmd._8 = ptr->unk1 << 0xc | 0xc00;
+        gOamCmd.x = 0x78;
+        gOamCmd.y = 0x68;
+        DrawDirect(DRAW_DIRECT_SPRITE_INDEX + 1, 0xc);
+    }
+    gOamCmd.y = 0x2f;
+
+    for (i = 0; i < 8; i++) {
+        ptr = &gUnk_08128D70[i];
+        if (GetInventoryValue(ptr->item) != 0) {
+            gOamCmd._8 = ptr->unk1 << 0xc | 0xc00;
+            gOamCmd.x = 0x18 + 0x1b * i;
+            DrawDirect(DRAW_DIRECT_SPRITE_INDEX + 1, 10);
+        }
+    }
+}
 
 void sub_080A6270(void) {
     gUnk_08128DCC[gMenu.menuType]();
@@ -1056,7 +1097,7 @@ void sub_080A7040(u32 param_1) {
         gGenericMenu.unk2e.HWORD = param_1;
         MemClear(gUnk_02022130, 0x300);
         MemCopy(gUnk_02022130 - 0x200, (void*)0x600e000, 0x800);
-        if (GetInventoryValue(gUnk_08128D70[param_1].unk0) != 0) {
+        if (GetInventoryValue(gUnk_08128D70[param_1].item) != 0) {
             sub_0805F46C(gUnk_08128D70[param_1].unk6, &gUnk_08129004);
         }
         gScreen.bg1.yOffset = 3;
