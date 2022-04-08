@@ -85,6 +85,7 @@ extern void DeleteAllEntities(void);
 extern void sub_0805E974(void);
 extern bool32 sub_080A51F4(void);
 extern u32 sub_0807CB24(u32, u32);
+extern void sub_080A42E0(u32, u32);
 
 extern void (*const gUnk_0812901C[])(void);
 
@@ -394,7 +395,38 @@ void sub_080A6024(void) {
     SetMenuType(1);
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A6044.inc", void sub_080A6044())
+void sub_080A6044(void) {
+    extern u8 gUnk_08128D51[];
+    u32 uVar1;
+    u32 uVar2;
+    u32 uVar4;
+    u32 uVar3;
+
+    if (sub_080A51F4() != 0) {
+        gMenu.field_0xc = gUnk_08128D51;
+        gOamCmd._4 = 0;
+        gOamCmd._6 = 0;
+        uVar4 = 0;
+        uVar2 = 0;
+        uVar1 = gSave.unk118[0];
+        while (uVar1 != 0) {
+            gOamCmd.x = (uVar4 & 3) * 0x30 + 0x2b;
+            gOamCmd.y = (uVar4 >> 2) * 0x24 + 0x34;
+            uVar3 = gSave.unk12B[uVar2];
+            gMenu.column_idx = 0;
+            sub_080A42E0(uVar1, uVar3);
+            uVar4++;
+            if (10 < uVar4) {
+                return;
+            }
+            uVar2++;
+            if (0x11 < uVar2) {
+                return;
+            }
+            uVar1 = gSave.unk118[uVar2];
+        }
+    }
+}
 
 void sub_080A60E0(void) {
     gUnk_08128DB0[gMenu.menuType]();
