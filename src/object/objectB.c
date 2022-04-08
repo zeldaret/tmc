@@ -25,7 +25,6 @@ typedef struct {
     u16 unk_6;
 } struct_080FD964;
 extern const struct_080FD964 gUnk_080FD964[];
-extern const u16 gUnk_080FD5B4[];
 
 void ObjectB_Init(ObjectBEntity*);
 void ObjectB_Action1(ObjectBEntity*);

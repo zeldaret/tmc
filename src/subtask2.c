@@ -12,6 +12,8 @@
 #include "message.h"
 #include "ui.h"
 #include "kinstone.h"
+#include "itemMetaData.h"
+#include "item.h"
 
 #ifdef EU
 #define DRAW_DIRECT_SPRITE_INDEX 0x1fa
@@ -24,6 +26,7 @@ extern u8 gUnk_08128D43[];
 extern u16 gUnk_02017830[];
 extern u8 gUnk_080C9C6C[];
 extern u8 gUnk_020350F0[];
+extern u8 gUnk_08128C00[];
 
 void sub_080A5CFC(u32, void*, u32);
 void sub_080A6FB4(u32, u32);
@@ -38,6 +41,7 @@ void sub_080A6EE0(u32 param_1);
 struct_08127F94* sub_080A6A80(u32 param_1, u32 param_2);
 void sub_080A698C(u32 param_1, u32 param_2, u32 param_3, u32 param_4);
 void sub_080A6438();
+void sub_080A5F48(u32, u32);
 
 extern void DrawDungeonMap(u32 floor, struct_02019EE0* data, u32 size);
 extern void LoadDungeonMap(void);
@@ -136,7 +140,73 @@ typedef struct {
 
 extern const struct_gUnk_08128D70 gUnk_08128D70[];
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A5594.inc", void sub_080A5594())
+void sub_080A5594(void) {
+    extern KeyButtonLayout gUnk_08128C04;
+    int iVar1;
+    u32 uVar2;
+    u32 skillCount;
+    u32 item;
+    int iVar5;
+    u32 i;
+    u32 uVar7;
+
+    gMenu.field_0xc = gUnk_08128C00;
+    sub_080A70AC(&gUnk_08128C04);
+    uVar7 = 6;
+
+    for (item = ITEM_QST_SWORD; item <= ITEM_FLIPPERS; item++) {
+        if (GetInventoryValue(item) == 1) {
+            uVar2 = gItemMetaData[item].menuSlot;
+            if (uVar2 == 3 && gGenericMenu.unk10.a[3] != 0) {
+                uVar2 = 99;
+            }
+            if (uVar2 != 99) {
+                if (uVar2 == 1) {
+                    uVar2 = uVar7;
+                    if (uVar2 < 8) {
+                        uVar7 = uVar2 + 1;
+                    }
+                }
+                gGenericMenu.unk10.a[uVar2] = item;
+                sub_080A5F48(item, uVar2 * 8 + 0x380);
+            }
+        }
+    }
+    if (GetInventoryValue(ITEM_QST_TINGLE_TROPHY) == 0) {
+        iVar5 = 0;
+        if (GetInventoryValue(ITEM_KINSTONE_BAG) != 0) {
+            for (i = 0; i < 0x13; i++) {
+                iVar5 += gSave.unk12B[i];
+            }
+
+            if (iVar5 >= 0x50) {
+                iVar5 = 4;
+            } else if (iVar5 >= 0x28) {
+                iVar5 = 3;
+            } else if (iVar5 >= 10) {
+                iVar5 = 2;
+            } else {
+                iVar5 = 1;
+            }
+        }
+        gGenericMenu.unk10.a[0] = iVar5;
+    }
+    gGenericMenu.unk10.a[1] = gSave.stats.heartPieces + 1;
+    skillCount = 0;
+
+    for (i = ITEM_SKILL_SPIN_ATTACK; i <= ITEM_SKILL_PERIL_BEAM; i++) {
+        if (GetInventoryValue(i) != 0) {
+            skillCount++;
+        }
+    }
+    gGenericMenu.unk10.a[2] = skillCount;
+    if (GetInventoryValue(ITEM_QST_CARLOV_MEDAL) == 0 && GetInventoryValue(ITEM_SHELLS) != 0) {
+        gGenericMenu.unk10.a[3] = ITEM_SHELLS;
+    }
+    gGenericMenu.unk14 = 1;
+    gGenericMenu.unk15 = 1;
+    SetMenuType(1);
+}
 
 ASM_FUNC("asm/non_matching/subtask2/sub_080A56A0.inc", void sub_080A56A0())
 
@@ -382,7 +452,7 @@ bool32 sub_080A5F24(void) {
     return result;
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A5F48.inc", void sub_080A5F48())
+ASM_FUNC("asm/non_matching/subtask2/sub_080A5F48.inc", void sub_080A5F48(u32 param_1, u32 param_2))
 
 void sub_080A6008(void) {
     gUnk_08128D58[gMenu.menuType]();

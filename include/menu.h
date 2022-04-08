@@ -65,7 +65,7 @@ typedef struct {
     /*0x18*/ u16 unk18;
     /*0x1a*/ union SplitHWord unk1a;
     /*0x1c*/ u8 unk1c;
-    /*0x1s*/ u8 unk1d;
+    /*0x1d*/ u8 unk1d;
     /*0x1e*/ u8 unk1e;
     /*0x1f*/ s8 unk1f;
     /*0x20*/ u8 unk20;
