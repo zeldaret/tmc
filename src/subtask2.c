@@ -27,6 +27,9 @@ extern u16 gUnk_02017830[];
 extern u8 gUnk_080C9C6C[];
 extern u8 gUnk_020350F0[];
 extern u8 gUnk_08128C00[];
+extern Frame* gSpriteAnimations_322[];
+extern u32 gUnk_085C4620[];
+extern u16* gMoreSpritePtrs[];
 
 void sub_080A5CFC(u32, void*, u32);
 void sub_080A6FB4(u32, u32);
@@ -452,7 +455,49 @@ bool32 sub_080A5F24(void) {
     return result;
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A5F48.inc", void sub_080A5F48(u32 param_1, u32 param_2))
+void sub_080A5F48(u32 param_1, u32 param_2) {
+    extern u32 gSprite_082E68F4[];
+    u32 ammoCount;
+    u32 tensDigit;
+    u8* puVar2;
+    u32 temp1;
+    u16* temp2;
+    u32 temp3;
+    register u32 rem asm("r1");
+
+    switch (param_1) {
+        case 0x1c ... 0x1f:
+            param_1 = (u32)gSave.saved_status.field_0x24[param_1 - 6];
+            break;
+    }
+
+    temp1 = param_2 * 0x20 + 0x6010000;
+    temp3 = gSpriteAnimations_322[param_1]->index;
+    temp2 = &gMoreSpritePtrs[1][temp3 * 2];
+    DmaSet(3, &gMoreSpritePtrs[2][temp2[1] * 0x10], temp1, 0x84000040);
+    ammoCount = -1;
+
+    switch (param_1) {
+        case 7:
+        case 8:
+            ammoCount = gSave.stats.bombCount;
+            break;
+        case 9:
+        case 10:
+            ammoCount = gSave.stats.arrowCount;
+            break;
+    }
+
+    if (-1 < (int)ammoCount) {
+        tensDigit = Div(ammoCount, 10);
+        param_1 = rem;
+        if ((int)tensDigit >= 10) {
+            tensDigit = 9;
+        }
+        DmaSet(3, gUnk_085C4620 + tensDigit * 0x8, temp1, 0x84000008);
+        DmaSet(3, gUnk_085C4620 + (param_1 + 10) * 0x8, temp1 + 0x20, 0x84000008);
+    }
+}
 
 void sub_080A6008(void) {
     gUnk_08128D58[gMenu.menuType]();
