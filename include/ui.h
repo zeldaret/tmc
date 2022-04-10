@@ -5,7 +5,7 @@
 
 extern void DrawUIElements(void);
 extern void CreateUIElement(u32, u32);
-extern u32 sub_0801C2F0(u32, u32);
+extern void sub_0801C2F0(u32, u32);
 extern void sub_0801C25C(void);
 extern void DrawUI(void);
 extern void InitUI(bool32);

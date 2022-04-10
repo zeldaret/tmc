@@ -83,13 +83,13 @@ extern u16 gUnk_080C9058[];
 extern Frame gUnk_080C9094[];
 extern u8 RupeeKeyDigits[];
 
-u32 sub_0801C2F0(u32, u32);
+void sub_0801C2F0(u32, u32);
 void DrawHearts(void);
 void DrawChargeBar(void);
 void DrawRupees(void);
 void DrawKeys(void);
 void CreateUIElement(u32, u32);
-u32 DrawDigits(u32, u32, u32, u32);
+void DrawDigits(u32, u32, u32, u32);
 void sub_0801CAFC(UIElement*, u32);
 void sub_0801CB20(UIElement*, UIElementDefinition*);
 UIElement* FindUIElement(u32);
@@ -156,7 +156,7 @@ void sub_0801C25C(void) {
     }
 }
 
-u32 sub_0801C2F0(u32 param_1, u32 param_2) {
+void sub_0801C2F0(u32 param_1, u32 param_2) {
     u32 uVar1;
     register u32 rem asm("r1");
     vu32* ptr;
@@ -166,19 +166,9 @@ u32 sub_0801C2F0(u32 param_1, u32 param_2) {
     if (uVar1 > 9) {
         uVar1 = 9;
     }
-    ptr = &REG_DMA3SAD;
-    ptr[0] = (u32)(gUnk_085C4620 + uVar1 * 8);
-    // DMA3DAD
-    ptr[1] = param_1;
-    // DMA3CNT
-    ptr[2] = 0x84000008;
-    ptr[2];
-    ptr[0] = (u32)(gUnk_085C4620 + (rem + 10) * 8);
-    // DMA3DAD
-    ptr[1] = param_1 + 0x20;
-    // DMA3CNT
-    ptr[2] = 0x84000008;
-    return ptr[2];
+
+    DmaSet(3, (gUnk_085C4620 + uVar1 * 8), param_1, 0x84000008);
+    DmaSet(3, (gUnk_085C4620 + (rem + 10) * 8), param_1 + 0x20, 0x84000008);
 }
 
 void DrawUI(void) {
@@ -327,7 +317,7 @@ void DrawRupees(void) {
 }
 
 // Draw icon with text for rupees or keys
-u32 DrawDigits(u32 iconVramIndex, u32 count, u32 isTextYellow, u32 digits) {
+void DrawDigits(u32 iconVramIndex, u32 count, u32 isTextYellow, u32 digits) {
     int iVar2;
     int iVar3;
     u8* puVar4;
@@ -346,32 +336,16 @@ u32 DrawDigits(u32 iconVramIndex, u32 count, u32 isTextYellow, u32 digits) {
         case 3:
             digit = Div(count, 100);
             count = r1;
-            ptr = &REG_DMA3SAD;
-            ptr[0] = (int)puVar4 + (int)(digit)*0x40;
-            // DMA3DAD
-            ptr[1] = iVar2;
-            // DMA3CNT
-            ptr[2] = 0x84000010;
-            ptr[2];
+            DmaSet(3, puVar4 + digit * 0x40, iVar2, 0x84000010);
             iVar2 = iVar3 + 0x600c040;
         case 2:
             digit = Div(count, 10);
             count = r1;
-            ptr = &REG_DMA3SAD;
-            ptr[0] = (int)puVar4 + (int)(digit)*0x40;
-            // DMA3DAD
-            ptr[1] = iVar2;
-            // DMA3CNT
-            ptr[2] = 0x84000010;
-            ptr[2];
+            DmaSet(3, puVar4 + digit * 0x40, iVar2, 0x84000010);
             iVar2 += 0x40;
     }
 
-    ptr2 = &REG_DMA3SAD;
-    ptr2[0] = (int)puVar4 + count * 0x40;
-    ptr2[1] = iVar2;
-    ptr2[2] = 0x84000010;
-    return ptr2[2];
+    DmaSet(3, puVar4 + count * 0x40, iVar2, 0x84000010);
 }
 
 void sub_0801C66C(void) {
