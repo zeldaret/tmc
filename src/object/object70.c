@@ -41,7 +41,7 @@ void Object70_Action1(Entity* this) {
 
     if (this->type == 0) {
         if (gPlayerEntity.z.WORD == 0) {
-            if ((((gPlayerState.dash_state & 0x40) == 0) && (gPlayerState.floor_type == 0x11)) &&
+            if ((((gPlayerState.dash_state & 0x40) == 0) && (gPlayerState.floor_type == SURFACE_SWAMP)) &&
                 ((gPlayerEntity.action == 1 || ((gPlayerEntity.action == 0x18 || (gPlayerEntity.action == 4)))))) {
                 goto _080974FA;
             } else {

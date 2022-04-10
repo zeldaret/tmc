@@ -364,7 +364,7 @@ void sub_080A5B34(void) {
     }
     if (bVar1) {
         if (uVar3 == 0) {
-            SetFade(7, 0x20);
+            SetFade(FADE_IN_OUT | FADE_BLACK_WHITE | FADE_INSTANT, 0x20);
             gMenu.transitionTimer = 0x3c;
             SetMenuType(2);
         } else {
@@ -698,7 +698,7 @@ void sub_080A6378(void) {
     if ((gGenericMenu.unk2c & 0x20) == 0) {
         gOamCmd.x = gRoomTransition.player_status.overworld_map_x * 0xa0 / 0xf90 + 0x28;
         gOamCmd.y = (gRoomTransition.player_status.overworld_map_y << 7) / 0xc60 + 0xc;
-        if ((gPlayerState.flags & 8) != 0) {
+        if ((gPlayerState.flags & PL_NO_CAP) != 0) {
             frameIndex = 0x5a;
         } else {
             frameIndex = 0x59;
@@ -773,7 +773,7 @@ void sub_080A6534(void) {
     gGenericMenu.unk10.h[0] = 0;
     gMenu.transitionTimer = 0x3c;
     SetMenuType(1);
-    SetFade(4, 8);
+    SetFade(FADE_INSTANT, 8);
 }
 
 void sub_080A65AC(void) {

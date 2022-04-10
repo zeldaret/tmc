@@ -236,7 +236,7 @@ static void HandlePlayerLife(Entity* this) {
     if ((gPlayerEntity.contactFlags & 0x80) && (gPlayerEntity.iframes > 0))
         SoundReq(SFX_86);
 
-    gPlayerState.flags &= ~(0x2000000 | PL_FALLING);
+    gPlayerState.flags &= ~(PL_FALLING | PL_FLAGS2000000);
     if (gPlayerState.flags & PL_BURNING)
         ResetPlayerItem();
     if ((gPlayerState.flags & PL_CLONING) && gPlayerState.chargeState.action == 0)

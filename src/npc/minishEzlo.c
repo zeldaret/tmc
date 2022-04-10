@@ -1,8 +1,11 @@
 #include "entity.h"
 #include "sound.h"
 #include "script.h"
+#include "npc.h"
 
 extern SpriteLoadData gUnk_0810C48C;
+
+extern void sub_0806FF10(Entity* this, u32 param_2, u32 param_3);
 
 void MinishEzlo(Entity* this) {
     if (this->action == 0) {
@@ -27,7 +30,29 @@ void MinishEzlo(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/minishEzlo/MinishEzlo_Head.inc", void MinishEzlo_Head(Entity* this))
+void MinishEzlo_Head(Entity* this) {
+    u32 uVar1;
+    u32 uVar2;
+    u32 uVar3;
+    if ((this->frameSpriteSettings & 4) != 0) {
+        uVar2 = 1;
+        uVar1 = 0;
+    } else {
+        uVar2 = 0;
+        uVar1 = 1;
+    }
+
+    if ((this->frameSpriteSettings & 8) != 0) {
+        uVar3 = 0x16;
+    } else {
+        uVar3 = 0x11c;
+    }
+    SetExtraSpriteFrame(this, uVar2, (this->frame & 0xffffff7f) - 1);
+    SetExtraSpriteFrame(this, uVar1, this->frameIndex);
+    sub_0806FF10(this, uVar1, uVar3);
+    SetSpriteSubEntryOffsetData1(this, uVar1, uVar2);
+    sub_0807000C(this);
+}
 
 void sub_0806305C(Entity* this) {
     this->spritePriority.b1 = 0;

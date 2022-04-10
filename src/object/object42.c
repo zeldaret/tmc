@@ -57,8 +57,9 @@ void sub_0808DDE8(Object42Entity* this) {
     if (sub_0807953C()) {
         super->subtimer++;
     }
-    if (((0x1e < super->subtimer) || ((gPlayerState.flags & 0x1810) != 0)) || (this->unk_6c == 0)) {
-        gPlayerState.flags &= 0xfffffbff;
+    if (((0x1e < super->subtimer) || ((gPlayerState.flags & (PL_CAPTURED | PL_FROZEN | PL_IN_MINECART)) != 0)) ||
+        (this->unk_6c == 0)) {
+        gPlayerState.flags &= ~PL_BURNING;
         DeleteThisEntity();
     }
     player = &gPlayerEntity;
@@ -68,7 +69,7 @@ void sub_0808DDE8(Object42Entity* this) {
     super->collisionLayer = gPlayerEntity.collisionLayer;
     super->spriteRendering.b3 = gPlayerEntity.spriteRendering.b3;
     super->spriteOrientation.flipY = gPlayerEntity.spriteOrientation.flipY;
-    if ((gPlayerState.flags & 0x400) != 0) {
+    if ((gPlayerState.flags & PL_BURNING) != 0) {
         GetNextFrame(super);
     } else {
         DeleteThisEntity();

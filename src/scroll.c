@@ -54,6 +54,8 @@ void sub_08080B60(u8*);
 
 extern u8 gMapDataTopSpecial[];
 
+extern const void (*const gUnk_0811E7C4[])(int);
+
 void UpdateScroll(void) {
     static void (*const gUnk_0811E768[])(RoomControls*) = {
         sub_0807FC64, sub_0807FC7C, sub_0807FDB0, NULL, sub_0807FEF0, sub_0807FF54,
@@ -363,7 +365,30 @@ ASM_FUNC("asm/non_matching/scroll/sub_08080794.inc", void sub_08080794())
 
 ASM_FUNC("asm/non_matching/scroll/sub_08080808.inc", void sub_08080808())
 
-ASM_FUNC("asm/non_matching/scroll/DoExitTransition.inc", void DoExitTransition(const ScreenTransitionData* data))
+void DoExitTransition(const ScreenTransitionData* data) {
+    PlayerRoomStatus* status;
+    gRoomTransition.transitioningOut = 1;
+    status = &gRoomTransition.player_status;
+    if ((u16)data->playerXPos <= 0x3ff) {
+        status->start_pos_x = data->playerXPos;
+    } else {
+        status->start_pos_x = (gRoomControls.camera_target)->x.HALF.HI | 0x8000;
+    }
+    if ((u16)data->playerYPos <= 0x3ff) {
+        status->start_pos_y = data->playerYPos;
+    } else {
+        status->start_pos_y = (gRoomControls.camera_target)->y.HALF.HI | 0x8000;
+    }
+    status->area_next = data->area;
+    status->room_next = data->room;
+    status->layer = data->playerLayer;
+    status->spawn_type = data->field_0xe;
+    status->start_anim = data->playerState;
+    if (data->transitionSFX != SFX_NONE) {
+        SoundReq(data->transitionSFX);
+    }
+    gUnk_0811E7C4[data->type](data->field_0xa);
+}
 
 void sub_080808D8(void) {
     gRoomTransition.type = TRANSITION_DEFAULT;

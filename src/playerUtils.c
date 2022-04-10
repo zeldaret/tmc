@@ -51,7 +51,7 @@ void* sub_08077C54(ItemBehavior*);
 u32 sub_08079FD4(Entity*, u32);
 void LoadRoomGfx(void);
 u32 sub_0807A094(u32);
-u32 GetSurfaceCalcType(Entity*, u32, u32);
+u32 GetSurfaceCalcType(Entity*, s32, s32);
 void sub_0807AAF8(Entity*, u32);
 
 extern struct_0811BE48 gUnk_0811BE48[];
@@ -77,6 +77,20 @@ extern u16 gMapDataBottomSpecial[];
 bool32 sub_0807BF88(u32, u32, RoomResInfo*);
 
 void sub_0807BFD0(void);
+
+void ForceSetPlayerState(u32 framestate);
+struct_03003DF8* sub_080784E4(void);
+
+extern const u16 gUnk_0811C0F8[];
+
+u32 sub_08079778(void);
+u32 sub_0807A500(void);
+
+extern const u16 gUnk_0811C108[];
+
+extern const u16 gUnk_0811C110[];
+
+extern const u16 gUnk_08007CAC[];
 
 void sub_08077698(PlayerEntity* this) {
     ItemBehavior* puVar2;
@@ -140,7 +154,7 @@ NONMATCH("asm/non_matching/playerUtils/sub_080777A0.inc", bool32 sub_080777A0(vo
                         return TRUE;
                     }
                 } else if ((((gUnk_0200AF00.unk_2c == 0xc) && (gPlayerState.field_0x1c == 0)) &&
-                            (gPlayerState.floor_type != 0x11)) &&
+                            (gPlayerState.floor_type != SURFACE_SWAMP)) &&
                            ((((gPlayerState.field_0x90 & 0xf00) != 0 &&
                               ((gPlayerState.flags & (PL_BURNING | PL_ROLLING)) == 0)) &&
                              ((gPlayerState.jump_status == 0 && (gPlayerState.field_0x3[1] == 0)))))) {
@@ -209,7 +223,7 @@ ItemBehavior* sub_0807794C(u32 param_1) {
           (((gPlayerState.flags & (PL_ROLLING | PL_CLONING)) != 0 && (6 < param_1)))) ||
          ((((gPlayerState.jump_status != 0 || (gPlayerEntity.z.WORD != 0)) && (6 < param_1)) ||
            (((gPlayerState.flags & PL_MINISH) != 0 && (gUnk_0811BE48[param_1].unk6[2] == 0)))))) ||
-        ((gPlayerState.floor_type == 0x11 && ((gPlayerState.field_0x37 != 0 && (1 < param_1 - 0x14)))))) {
+        ((gPlayerState.floor_type == SURFACE_SWAMP && ((gPlayerState.field_0x37 != 0 && (1 < param_1 - 0x14)))))) {
         return NULL;
     } else {
         u32 tmp = gUnk_0811BE48[param_1].unk0[2];
@@ -701,14 +715,103 @@ void ForceSetPlayerState(u32 framestate) {
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_08078180.inc", void sub_08078180())
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_080782C0.inc", u32 sub_080782C0())
+bool32 sub_080782C0(void) {
+    u8 tmp;
+    Entity* entity;
+
+    if (gPlayerState.framestate == 0) {
+        tmp = gPlayerState.framestate_last;
+    } else {
+        tmp = gPlayerState.framestate;
+    }
+    switch (tmp) {
+        case 2:
+        case 3:
+        case 0xc:
+        case 0x12:
+        case 0x15:
+        case 0x16:
+            return FALSE;
+    }
+    if ((gPlayerState.field_0x27[0] | gPlayerState.swim_state) != 0) {
+        return FALSE;
+    }
+    if (gPlayerState.floor_type == SURFACE_PIT) {
+        if (gPlayerState.field_0x14 == 0) {
+            return FALSE;
+        }
+        if (CanDispEzloMessage()) {
+            return TRUE;
+        }
+        return FALSE;
+    }
+    if ((gPlayerState.flags & PL_DRUGGED) != 0) {
+        return FALSE;
+    }
+    if (CanDispEzloMessage()) {
+        return TRUE;
+    }
+    entity = sub_080784E4()->entity;
+    if (entity == NULL) {
+        return FALSE;
+    }
+    if (gPlayerState.heldObject != 0) {
+        if (gPlayerState.heldObject != 4) {
+            return FALSE;
+        }
+        if ((gNewPlayerEntity.unk_74)->child->kind != OBJECT || (gNewPlayerEntity.unk_74)->child->id != SHOP_ITEM) {
+            return FALSE;
+        }
+    }
+    if (((gPlayerState.field_0x92 & 0x1000) != 0) && ((u8)(gUnk_03003DF0.unk_4[3] - 1) < 100)) {
+        sub_0801E738(0);
+        if (gSave.unk12B[0] != 0) {
+            gUnk_03003DF0.unk_2 = gUnk_03003DF0.unk_4[3];
+            *(u8*)(*(int*)(gUnk_03003DF0.unk_4 + 8) + 0x39) = 2;
+            gPlayerState.queued_action = 7;
+        } else {
+            CreateEzloHint(0xb65, 0);
+        }
+        ForceSetPlayerState(0x13);
+        return TRUE;
+    }
+    if ((gPlayerState.field_0x92 & 0x88) == 0) {
+        return FALSE;
+    }
+    switch (gUnk_03003DF0.unk_4[1]) {
+        default:
+        case 0:
+            return TRUE;
+        case 1:
+        case 6:
+        case 9:
+        case 0xa:
+            gPlayerState.queued_action = 7;
+            ForceSetPlayerState(0x13);
+        case 3:
+        case 5:
+        case 7:
+            entity->interactType = 1;
+            gUnk_03003DF0.unk_2 = 0;
+            return TRUE;
+        case 8:
+            if (gRoomVars.shopItemType == 0) {
+                entity->interactType = 1;
+                gRoomVars.shopItemType = entity->type;
+                gRoomVars.shopItemType2 = entity->type2;
+                return TRUE;
+            }
+            return FALSE;
+    }
+    return TRUE;
+}
 
 void sub_080784C8(void) {
     MemClear(&gUnk_03003DF0, 0x188);
     gUnk_03003DF0.unk_4 = (u8*)gUnk_0811C000;
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_080784E4.inc", void sub_080784E4())
+ASM_FUNC("asm/non_matching/playerUtils/sub_080784E4.inc", struct_03003DF8* sub_080784E4(void))
 
 void sub_08078778(Entity* ent) {
     sub_0807887C(ent, 1, 0);
@@ -927,7 +1030,7 @@ void ClearPlayerState(void) {
     gPlayerState.field_0xd = 0;
     gPlayerState.field_0xe = 0;
     gPlayerState.field_0x11 = 0;
-    gPlayerState.floor_type = 0;
+    gPlayerState.floor_type = SURFACE_NORMAL;
     gPlayerState.floor_type_last = 0;
     gPlayerState.field_0x14 = 0;
     gPlayerState.sword_state = 0;
@@ -1129,7 +1232,24 @@ void sub_080792BC(s32 speed, u32 direction, u32 field_0x38) {
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_080792D8.inc", void sub_080792D8())
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_080793E4.inc", bool32 sub_080793E4(u32 a))
+bool32 sub_080793E4(u32 param_1) {
+    u32 tmp;
+    if (gPlayerState.swim_state == 0) {
+        tmp = gUnk_0811C0F8[gPlayerEntity.animationState >> 1];
+    } else {
+        tmp = gUnk_0811C0F8[gPlayerEntity.direction >> 2];
+    }
+    if (sub_08079778() && ((gPlayerState.field_0x90 & tmp) != 0)) {
+        if (param_1 != 0) {
+            if (!sub_080B1BA4(sub_0807A500(), gPlayerEntity.collisionLayer, param_1)) {
+                return FALSE;
+            }
+        }
+        return TRUE;
+    } else {
+        return FALSE;
+    }
+}
 
 ASM_FUNC("asm/non_matching/playerUtils/RespawnPlayer.inc", void RespawnPlayer())
 
@@ -1181,15 +1301,59 @@ void sub_08079744(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_08079778.inc", void sub_08079778())
+bool32 sub_08079778(void) {
+    u32 tmp;
+    if (gPlayerState.swim_state == 0) {
+        tmp = gUnk_0811C108[gPlayerEntity.animationState >> 1];
+    } else {
+        tmp = gUnk_0811C108[gPlayerEntity.direction >> 2];
+    }
+    return tmp == (gPlayerEntity.collisions & tmp);
+}
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_080797C4.inc", u32 sub_080797C4(void))
+u32 sub_080797C4(void) {
+    u32 tmp = gUnk_0811C110[gPlayerEntity.direction >> 3];
+    return tmp == (gPlayerEntity.collisions & tmp);
+}
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_080797EC.inc", void sub_080797EC())
 
 ASM_FUNC("asm/non_matching/playerUtils/ResolvePlayerAnimation.inc", void ResolvePlayerAnimation())
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_08079B24.inc", u32 sub_08079B24())
+bool32 sub_08079B24(void) {
+    if ((gPlayerEntity.action != PLAYER_MINISHDIE) && (gPlayerEntity.health == 0)) {
+        gPlayerState.flags &= ~PL_PARACHUTE;
+        gPlayerEntity.knockbackDuration = gPlayerEntity.health;
+        if (gPlayerState.field_0x7 == 0) {
+            if (gPlayerState.swim_state != 0) {
+                RespawnPlayer();
+            } else {
+                if ((gPlayerState.field_0x14 == 0) && ((gPlayerState.flags & PL_IN_MINECART) == 0)) {
+                    if (gPlayerEntity.z.HALF.HI < 0) {
+                        if (gPlayerEntity.zVelocity > 0) {
+                            gPlayerEntity.zVelocity = 0;
+                        }
+                        if ((gPlayerState.jump_status & 0x41) == 0) {
+                            gPlayerState.jump_status = 0x41;
+                            gPlayerEntity.direction = 0xff;
+                            gPlayerState.field_0xd = 0xff;
+                            return TRUE;
+                        } else {
+                            return TRUE;
+                        }
+                    }
+                    if (((gPlayerState.flags & PL_FLAGS2) == 0) && (sub_08079D48() == 0)) {
+                        gPlayerState.field_0xa |= 0x10;
+                        return TRUE;
+                    }
+                }
+            }
+            gPlayerEntity.flags &= ~ENT_COLLIDE;
+            return FALSE;
+        }
+    }
+    return TRUE;
+}
 
 void sub_08079BD8(Entity* this) {
     this->x = gPlayerEntity.x;
@@ -1337,7 +1501,28 @@ void UpdateFloorType(void) {
     gUnk_0811C120[gPlayerState.floor_type](&gPlayerEntity);
 }
 
-ASM_FUNC("asm/non_matching/playerUtils/GetSurfaceCalcType.inc", u32 GetSurfaceCalcType(Entity* a, u32 b, u32 c))
+u32 GetSurfaceCalcType(Entity* param_1, s32 x, s32 y) {
+    u32 position = TILE(param_1->x.HALF.HI + (u32)x, param_1->y.HALF.HI + y);
+    u32 tileType = GetTileTypeByPos(param_1->x.HALF.HI + x, param_1->y.HALF.HI + y, gPlayerEntity.collisionLayer);
+    if (tileType != gPlayerState.field_0x22[1]) {
+        gPlayerState.field_0x37 = 0;
+    }
+    if ((tileType != gPlayerState.field_0x22[1]) || (position != gPlayerState.field_0x22[0])) {
+        gPlayerState.field_0x22[0] = position;
+        gPlayerState.field_0x22[1] = tileType;
+        gPlayerState.field_0x11 = 0;
+    }
+
+    if (gPlayerState.field_0x11 != 0xff) {
+        gPlayerState.field_0x11++;
+    }
+    if (gPlayerState.field_0x37 != 0xff) {
+        gPlayerState.field_0x37++;
+    }
+    gPlayerState.floor_type_last = gPlayerState.floor_type;
+    tileType = GetRelativeCollisionTile(param_1, x, y);
+    return sub_08007DD6(tileType, (u16*)gUnk_08007CAC);
+}
 
 void EnablePlayerDraw(Entity* this) {
     this->type2 = 0;
@@ -1358,7 +1543,7 @@ bool32 sub_0807A2B8(void) {
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_0807A2F8.inc", u32 sub_0807A2F8(u32 a1))
 
-ASM_FUNC("asm/non_matching/playerUtils/sub_0807A500.inc", void sub_0807A500())
+ASM_FUNC("asm/non_matching/playerUtils/sub_0807A500.inc", u32 sub_0807A500())
 
 ASM_FUNC("asm/non_matching/playerUtils/sub_0807A5B8.inc", void sub_0807A5B8(u32 a))
 

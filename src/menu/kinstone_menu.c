@@ -18,7 +18,7 @@
 
 extern u32 sub_08000E44(u32);
 extern void sub_080A3B74(void);
-extern s32 sub_080A3B48(void);
+extern u32 sub_080A3B48(void);
 extern void sub_0805ECEC(u32, u32, u32, u32);
 extern void sub_0801E6C8(u32);
 extern void sub_0801E798(u32);
@@ -65,7 +65,15 @@ Subtask KinstoneMenu_Type3;
 Subtask KinstoneMenu_Type4;
 Subtask KinstoneMenu_Type5;
 
-ASM_FUNC("asm/non_matching/menu/kinstone_menu/sub_080A3B48.inc", s32 sub_080A3B48(void))
+u32 sub_080A3B48(void) {
+    u32 index;
+    for (index = 0; index <= 0x12; index++) {
+        if (gSave.unk12B[index] == 0) {
+            break;
+        }
+    }
+    return index;
+}
 
 void sub_080A3B74(void) {
     gKinstoneMenu.unk2f = 0;

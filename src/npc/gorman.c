@@ -20,6 +20,12 @@ void sub_08069888(Entity* this);
 
 extern u16 gUnk_08111C50[];
 
+extern const s16 gUnk_08111C5C[];
+extern const u8 gUnk_08111C74[];
+
+extern const s16 gUnk_08111C84[];
+extern const u8 gUnk_08111C8C[];
+
 void Gorman(Entity* this) {
     if ((this->flags & ENT_SCRIPTED) != 0) {
         sub_08069838(this);
@@ -98,9 +104,37 @@ void sub_08069888(Entity* this) {
     MessageNoOverlap(gUnk_08111C50[index], this);
 }
 
-ASM_FUNC("asm/non_matching/gorman/sub_0806991C.inc", void sub_0806991C(Entity* this, ScriptExecutionContext* context))
+void sub_0806991C(Entity* this, ScriptExecutionContext* context) {
+    u32 tmp;
+    const s16* ptr;
+    this->field_0x68.HALF.LO = (Random() & 0x1f) + 0x3c;
+    ptr = &gUnk_08111C5C[*(s8*)&this->field_0x68.HALF.HI * 2];
+    context->x.HALF.HI = gRoomControls.origin_x + ptr[0];
+    context->y.HALF.HI = gRoomControls.origin_y + ptr[1];
+    context->unk_19 = 8;
+    context->postScriptActions |= 2;
+    context->condition = 0;
+    tmp = sub_080045DA(context->x.HALF.HI - this->x.HALF.HI, context->y.HALF.HI - this->y.HALF.HI);
+    this->direction = tmp;
+    this->animationState = (this->animationState & 0x80) | gUnk_08111C74[(tmp << 0x18) >> 0x1c];
+    gActiveScriptInfo.flags |= 1;
+}
 
-ASM_FUNC("asm/non_matching/gorman/sub_080699AC.inc", void sub_080699AC(Entity* this, ScriptExecutionContext* context))
+void sub_080699AC(Entity* this, ScriptExecutionContext* context) {
+    u32 tmp;
+    const s16* ptr;
+    this->field_0x68.HALF.LO = (Random() & 0x1f) + 0x3c;
+    ptr = &gUnk_08111C84[*(s8*)&this->field_0x68.HALF.HI * 2];
+    context->x.HALF.HI = gRoomControls.origin_x + ptr[0];
+    context->y.HALF.HI = gRoomControls.origin_y + ptr[1];
+    context->unk_19 = 8;
+    context->postScriptActions |= 2;
+    context->condition = 0;
+    tmp = sub_080045DA(context->x.HALF.HI - this->x.HALF.HI, context->y.HALF.HI - this->y.HALF.HI);
+    this->direction = tmp;
+    this->animationState = (this->animationState & 0x80) | gUnk_08111C8C[(tmp << 0x18) >> 0x1c];
+    gActiveScriptInfo.flags |= 1;
+}
 
 void sub_08069A3C(Entity* this) {
     this->field_0x68.HALF.HI = gUnk_08111C9C[(Random() & 1) + (s8)this->field_0x68.HALF.HI * 2];

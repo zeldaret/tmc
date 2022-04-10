@@ -423,7 +423,7 @@ void sub_08049944(Enemy64Entity* this) {
     if (EntityWithinDistance(super, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x20)) {
         gPlayerState.field_0x14 = 1;
         if (gPlayerEntity.z.HALF.HI == 0) {
-            gPlayerState.flags |= 2;
+            gPlayerState.flags |= PL_FLAGS2;
             this->unk_7c |= 1;
         }
     }
