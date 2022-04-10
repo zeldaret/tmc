@@ -216,6 +216,8 @@ typedef enum {
     TILE_ENTITY_D,
 } TileEntityType;
 
+extern void** gCurrentRoomProperties;
+
 void SetTileType(u32, u32, u32);
 void InitScreenShake(u32 time, u32 magnitude);
 

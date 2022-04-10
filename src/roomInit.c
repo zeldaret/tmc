@@ -4974,7 +4974,7 @@ extern u32 script_PlayerIntro;
 
 void sub_StateChange_HouseInteriors2_LinksHouseBedroom(void) {
     if (!CheckGlobalFlag(START) && !CheckLocalFlag(0x46)) {
-        sub_080A71C4(5, 1, 4, 4);
+        sub_080A71C4(5, 1, FADE_INSTANT, 4);
         gUpdateVisibleTiles = 0;
         SetFade(FADE_IN_OUT | FADE_INSTANT, 256);
         sub_080751E8(0, 6, &script_PlayerIntro);

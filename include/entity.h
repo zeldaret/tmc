@@ -485,6 +485,8 @@ void SetInitializationPriority(void);
  */
 void ResetSystemPriority(void);
 
+void sub_0805E958(void);
+
 /**
  * LinkedList's which point to allocate Entities.
  * These work together with Entity.prev and Entity.next fields

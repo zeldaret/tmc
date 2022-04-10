@@ -30,6 +30,9 @@ extern u8 gUnk_08128C00[];
 extern Frame* gSpriteAnimations_322[];
 extern u32 gUnk_085C4620[];
 extern u16* gMoreSpritePtrs[];
+extern Screen gUnk_03001020;
+extern u8 gUnk_02024090[];
+extern u8 gUnk_03000420[];
 
 void sub_080A5CFC(u32, void*, u32);
 void sub_080A6FB4(u32, u32);
@@ -1262,7 +1265,7 @@ void MenuFadeIn(u32 param_1, u32 param_2) {
         gUI.nextToLoad = 1;
     }
     gUI.field_0x6 = 0;
-    gUI.isLoading = -1;
+    gUI.fadeType = -1;
     gUI.fadeInTime = 0x20;
     gMain.substate = GAMEMAIN_SUBTASK;
     SetFade(FADE_IN_OUT | FADE_INSTANT, 0x20);
@@ -1272,16 +1275,16 @@ void MenuFadeIn(u32 param_1, u32 param_2) {
 
 void sub_080A71A4(u32 param_1, u32 param_2, u32 param_3) {
     if (gUI.nextToLoad == 0) {
-        gUI.fillerC[2] = param_3;
+        gUI.unk_e = param_3;
     } else {
-        gUI.fillerC[3] = param_3;
+        gUI.unk_f = param_3;
     }
     MenuFadeIn(param_1, param_2);
 }
 
-void sub_080A71C4(u32 param_1, u32 param_2, u32 param_3, u32 param_4) {
+void sub_080A71C4(u32 param_1, u32 param_2, u32 fadeType, u32 param_4) {
     MenuFadeIn(param_1, param_2);
-    gUI.isLoading = param_3;
+    gUI.fadeType = fadeType;
     gUI.fadeInTime = param_4;
 }
 
@@ -1312,7 +1315,24 @@ void GameMain_Subtask(void) {
     gUnk_0812901C[gUI.nextToLoad]();
 }
 
-ASM_FUNC("asm/non_matching/subtask2/Subtask_FadeIn.inc", void Subtask_FadeIn())
+void Subtask_FadeIn(void) {
+    if (!gFadeControl.active) {
+        MemCopy(&gScreen, &gUnk_03001020, sizeof(Screen));
+        MemCopy(gPaletteBuffer, gUnk_02024090, 0x400);
+        MemCopy(&gGFXSlots, &gUI.gfxSlotList, sizeof(GfxSlotList));
+        MemCopy(gPaletteList, gUI.palettes, sizeof(gUI.palettes));
+        MemCopy(&gRoomControls, &gUI.roomControls, sizeof(RoomControls));
+        MemCopy(gUnk_03000420, gUI.unk_2a8, sizeof(gUI.unk_2a8));
+        MemCopy(&gActiveScriptInfo, &gUI.activeScriptInfo, sizeof(ActiveScriptInfo));
+        sub_0805E958();
+        gUI.unk_d = gRoomTransition.field_0x2c[2];
+        gUI.controlMode = gPlayerState.controlMode;
+        gUI.currentRoomProperties = gCurrentRoomProperties;
+        gUI.mapBottomBgControlPtr = gMapBottom.bgControlPtr;
+        gUI.mapTopBgControlPtr = gMapTop.bgControlPtr;
+        gUI.nextToLoad = 1;
+    }
+}
 
 void Subtask_Init(void) {
     if (gFadeControl.active == 0) {
@@ -1332,7 +1352,34 @@ void Subtask_Init(void) {
     }
 }
 
-ASM_FUNC("asm/non_matching/subtask2/Subtask_FadeOut.inc", void Subtask_FadeOut())
+void Subtask_FadeOut(void) {
+    if (!gFadeControl.active) {
+        DeleteAllEntities();
+        sub_0805E974();
+        gCurrentRoomProperties = gUI.currentRoomProperties;
+        gPlayerState.controlMode = gUI.controlMode;
+        gMapBottom.bgControlPtr = gUI.mapBottomBgControlPtr;
+        gMapTop.bgControlPtr = gUI.mapTopBgControlPtr;
+        MemCopy(&gUI.activeScriptInfo, &gActiveScriptInfo, sizeof(ActiveScriptInfo));
+        MemCopy(gUI.unk_2a8, gUnk_03000420, sizeof(gUI.unk_2a8));
+        MemCopy(gUI.palettes, gPaletteList, sizeof(gUI.palettes));
+        MemCopy(&gUI.gfxSlotList, &gGFXSlots, sizeof(gGFXSlots));
+        MemCopy(&gUI.roomControls, &gRoomControls, sizeof(RoomControls));
+        MemCopy(&gUnk_03001020, &gScreen, sizeof(Screen));
+        gArea.localFlagOffset = GetFlagBankOffset(gRoomControls.area);
+        gArea.pCurrentRoomInfo = GetCurrentRoomInfo();
+        RestoreGameTask(gUI.field_0x6);
+        sub_0801D000(gUI.unk_d != 0);
+        sub_080A74F4();
+        if (gUI.fadeType != 0xffff) {
+            SetFade(gUI.fadeType, gUI.fadeInTime);
+        } else {
+            SetFadeInverted(gUI.fadeInTime);
+        }
+        gUI.nextToLoad = 4;
+        gRoomTransition.field_0x2c[3] = 0;
+    }
+}
 
 void Subtask_Die(void) {
     sub_080A74F4();
