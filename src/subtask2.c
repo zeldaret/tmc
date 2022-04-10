@@ -11,12 +11,25 @@
 #include "main.h"
 #include "message.h"
 #include "ui.h"
+#include "kinstone.h"
+#include "itemMetaData.h"
+#include "item.h"
+
+#ifdef EU
+#define DRAW_DIRECT_SPRITE_INDEX 0x1fa
+#else
+#define DRAW_DIRECT_SPRITE_INDEX 0x1fb
+#endif
 
 extern u8 gUnk_08128D38[];
 extern u8 gUnk_08128D43[];
 extern u16 gUnk_02017830[];
 extern u8 gUnk_080C9C6C[];
 extern u8 gUnk_020350F0[];
+extern u8 gUnk_08128C00[];
+extern Frame* gSpriteAnimations_322[];
+extern u32 gUnk_085C4620[];
+extern u16* gMoreSpritePtrs[];
 
 void sub_080A5CFC(u32, void*, u32);
 void sub_080A6FB4(u32, u32);
@@ -29,6 +42,9 @@ void sub_080A68D4();
 u32 sub_080A69E0();
 void sub_080A6EE0(u32 param_1);
 struct_08127F94* sub_080A6A80(u32 param_1, u32 param_2);
+void sub_080A698C(u32 param_1, u32 param_2, u32 param_3, u32 param_4);
+void sub_080A6438();
+void sub_080A5F48(u32, u32);
 
 extern void DrawDungeonMap(u32 floor, struct_02019EE0* data, u32 size);
 extern void LoadDungeonMap(void);
@@ -45,8 +61,18 @@ void sub_080A7040(u32);
 
 extern u8 gUnk_08128DB8[];
 extern u8 gUnk_08128E80[];
-extern u8 gUnk_08128F58[];
 extern KeyButtonLayout gUnk_08128DBC;
+
+typedef struct {
+    u8 frameIndex;
+    u8 unk1;
+    u8 unk2;
+    u8 unk3;
+    u16 unk4;
+    u16 unk6;
+} sturct_gUnk_08128F58;
+
+extern sturct_gUnk_08128F58 gUnk_08128F58[];
 
 extern void (*const gUnk_08128DCC[])(void);
 void sub_080A6378(void);
@@ -66,6 +92,7 @@ extern void DeleteAllEntities(void);
 extern void sub_0805E974(void);
 extern bool32 sub_080A51F4(void);
 extern u32 sub_0807CB24(u32, u32);
+extern void sub_080A42E0(u32, u32);
 
 extern void (*const gUnk_0812901C[])(void);
 
@@ -89,10 +116,14 @@ typedef struct {
 extern const struct_gUnk_08128E94 gUnk_08128E94[];
 
 typedef struct {
-    u8 unk0;
-    u8 unk1;
-    u8 unk2;
-    u8 unk3;
+    u8 unk00 : 5;
+    u8 unk05 : 5;
+    u8 unk10 : 6;
+} PACKED gUnk_08128DE8_struct_2;
+
+typedef struct {
+    gUnk_08128DE8_struct_2 unk0;
+    gUnk_08128DE8_struct_2 unk2;
     u8 unk4;
     u8 unk5;
     u8 unk6;
@@ -101,9 +132,9 @@ typedef struct {
 extern gUnk_08128DE8_struct gUnk_08128DE8[];
 
 typedef struct {
-    u8 unk0;
+    u8 item;
     u8 unk1;
-    u8 unk2;
+    u8 frameIndex;
     u8 unk3;
     u8 unk4;
     s8 unk5;
@@ -112,7 +143,73 @@ typedef struct {
 
 extern const struct_gUnk_08128D70 gUnk_08128D70[];
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A5594.inc", void sub_080A5594())
+void sub_080A5594(void) {
+    extern KeyButtonLayout gUnk_08128C04;
+    int iVar1;
+    u32 uVar2;
+    u32 skillCount;
+    u32 item;
+    int iVar5;
+    u32 i;
+    u32 uVar7;
+
+    gMenu.field_0xc = gUnk_08128C00;
+    sub_080A70AC(&gUnk_08128C04);
+    uVar7 = 6;
+
+    for (item = ITEM_QST_SWORD; item <= ITEM_FLIPPERS; item++) {
+        if (GetInventoryValue(item) == 1) {
+            uVar2 = gItemMetaData[item].menuSlot;
+            if (uVar2 == 3 && gGenericMenu.unk10.a[3] != 0) {
+                uVar2 = 99;
+            }
+            if (uVar2 != 99) {
+                if (uVar2 == 1) {
+                    uVar2 = uVar7;
+                    if (uVar2 < 8) {
+                        uVar7 = uVar2 + 1;
+                    }
+                }
+                gGenericMenu.unk10.a[uVar2] = item;
+                sub_080A5F48(item, uVar2 * 8 + 0x380);
+            }
+        }
+    }
+    if (GetInventoryValue(ITEM_QST_TINGLE_TROPHY) == 0) {
+        iVar5 = 0;
+        if (GetInventoryValue(ITEM_KINSTONE_BAG) != 0) {
+            for (i = 0; i < 0x13; i++) {
+                iVar5 += gSave.unk12B[i];
+            }
+
+            if (iVar5 >= 0x50) {
+                iVar5 = 4;
+            } else if (iVar5 >= 0x28) {
+                iVar5 = 3;
+            } else if (iVar5 >= 10) {
+                iVar5 = 2;
+            } else {
+                iVar5 = 1;
+            }
+        }
+        gGenericMenu.unk10.a[0] = iVar5;
+    }
+    gGenericMenu.unk10.a[1] = gSave.stats.heartPieces + 1;
+    skillCount = 0;
+
+    for (i = ITEM_SKILL_SPIN_ATTACK; i <= ITEM_SKILL_PERIL_BEAM; i++) {
+        if (GetInventoryValue(i) != 0) {
+            skillCount++;
+        }
+    }
+    gGenericMenu.unk10.a[2] = skillCount;
+    if (GetInventoryValue(ITEM_QST_CARLOV_MEDAL) == 0 && GetInventoryValue(ITEM_SHELLS) != 0) {
+        gGenericMenu.unk10.a[3] = ITEM_SHELLS;
+    }
+    gGenericMenu.unk14 = 1;
+    gGenericMenu.unk15 = 1;
+    SetMenuType(1);
+}
 
 ASM_FUNC("asm/non_matching/subtask2/sub_080A56A0.inc", void sub_080A56A0())
 
@@ -358,7 +455,49 @@ bool32 sub_080A5F24(void) {
     return result;
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A5F48.inc", void sub_080A5F48())
+void sub_080A5F48(u32 param_1, u32 param_2) {
+    extern u32 gSprite_082E68F4[];
+    u32 ammoCount;
+    u32 tensDigit;
+    u8* puVar2;
+    u32 temp1;
+    u16* temp2;
+    u32 temp3;
+    register u32 rem asm("r1");
+
+    switch (param_1) {
+        case 0x1c ... 0x1f:
+            param_1 = (u32)gSave.saved_status.field_0x24[param_1 - 6];
+            break;
+    }
+
+    temp1 = param_2 * 0x20 + 0x6010000;
+    temp3 = gSpriteAnimations_322[param_1]->index;
+    temp2 = &gMoreSpritePtrs[1][temp3 * 2];
+    DmaSet(3, &gMoreSpritePtrs[2][temp2[1] * 0x10], temp1, 0x84000040);
+    ammoCount = -1;
+
+    switch (param_1) {
+        case 7:
+        case 8:
+            ammoCount = gSave.stats.bombCount;
+            break;
+        case 9:
+        case 10:
+            ammoCount = gSave.stats.arrowCount;
+            break;
+    }
+
+    if (-1 < (int)ammoCount) {
+        tensDigit = Div(ammoCount, 10);
+        param_1 = rem;
+        if ((int)tensDigit >= 10) {
+            tensDigit = 9;
+        }
+        DmaSet(3, gUnk_085C4620 + tensDigit * 0x8, temp1, 0x84000008);
+        DmaSet(3, gUnk_085C4620 + (param_1 + 10) * 0x8, temp1 + 0x20, 0x84000008);
+    }
+}
 
 void sub_080A6008(void) {
     gUnk_08128D58[gMenu.menuType]();
@@ -371,7 +510,38 @@ void sub_080A6024(void) {
     SetMenuType(1);
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A6044.inc", void sub_080A6044())
+void sub_080A6044(void) {
+    extern u8 gUnk_08128D51[];
+    u32 uVar1;
+    u32 uVar2;
+    u32 uVar4;
+    u32 uVar3;
+
+    if (sub_080A51F4() != 0) {
+        gMenu.field_0xc = gUnk_08128D51;
+        gOamCmd._4 = 0;
+        gOamCmd._6 = 0;
+        uVar4 = 0;
+        uVar2 = 0;
+        uVar1 = gSave.unk118[0];
+        while (uVar1 != 0) {
+            gOamCmd.x = (uVar4 & 3) * 0x30 + 0x2b;
+            gOamCmd.y = (uVar4 >> 2) * 0x24 + 0x34;
+            uVar3 = gSave.unk12B[uVar2];
+            gMenu.column_idx = 0;
+            sub_080A42E0(uVar1, uVar3);
+            uVar4++;
+            if (10 < uVar4) {
+                return;
+            }
+            uVar2++;
+            if (0x11 < uVar2) {
+                return;
+            }
+            uVar1 = gSave.unk118[uVar2];
+        }
+    }
+}
 
 void sub_080A60E0(void) {
     gUnk_08128DB0[gMenu.menuType]();
@@ -409,7 +579,48 @@ void sub_080A612C(void) {
     }
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A617C.inc", void sub_080A617C())
+void sub_080A617C(void) {
+    u32 frameIndex;
+    u32 i;
+    const struct_gUnk_08128D70* ptr;
+
+    gOamCmd._4 = 0;
+    gOamCmd._6 = 0;
+    gOamCmd._8 = 0xc00;
+    gOamCmd.y = 0x2f;
+    gOamCmd.x = gMenu.field_0x3 * 0x1b + 0x1a;
+    if ((gMain.ticks.HWORD & 0x20) != 0) {
+        frameIndex = 8;
+    } else {
+        frameIndex = 9;
+    }
+    DrawDirect(DRAW_DIRECT_SPRITE_INDEX + 1, frameIndex);
+    ptr = &gUnk_08128D70[gMenu.field_0x3];
+    if (GetInventoryValue(ptr->item) != 0) {
+        gOamCmd._8 = 0xc00;
+        gOamCmd.x = 0xcc;
+        gOamCmd.y = 0x88;
+        DrawDirect(DRAW_DIRECT_SPRITE_INDEX + 1, 0xb);
+        gOamCmd.x = 0x30;
+        gOamCmd.y = 0x6c;
+        gOamCmd._8 = ptr->unk1 << 0xc | 0xd80;
+        DrawDirect(DRAW_DIRECT_SPRITE_INDEX + 1, ptr->frameIndex);
+        gOamCmd._8 = ptr->unk1 << 0xc | 0xc00;
+        gOamCmd.x = 0x78;
+        gOamCmd.y = 0x68;
+        DrawDirect(DRAW_DIRECT_SPRITE_INDEX + 1, 0xc);
+    }
+    gOamCmd.y = 0x2f;
+
+    for (i = 0; i < 8; i++) {
+        ptr = &gUnk_08128D70[i];
+        if (GetInventoryValue(ptr->item) != 0) {
+            gOamCmd._8 = ptr->unk1 << 0xc | 0xc00;
+            gOamCmd.x = 0x18 + 0x1b * i;
+            DrawDirect(DRAW_DIRECT_SPRITE_INDEX + 1, 10);
+        }
+    }
+}
 
 void sub_080A6270(void) {
     gUnk_08128DCC[gMenu.menuType]();
@@ -430,28 +641,89 @@ void sub_080A6290(void) {
     gMenu.menuType = 1;
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A62E0.inc", void sub_080A62E0())
+void sub_080A62E0(void) {
+    u32 uVar1;
+    int windcrest;
+    gUnk_08128DE8_struct* ptr;
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A6378.inc", void sub_080A6378())
+    if (!sub_080A51F4()) {
+        return;
+    }
+    ptr = &gUnk_08128DE8[gMenu.field_0x3];
+    windcrest = -1;
+
+    switch (gInput.newKeys) {
+        case A_BUTTON:
+            if ((gSave.windcrests & (1 << gMenu.field_0x3)) != 0) {
+                SoundReq(SFX_TEXTBOX_SELECT);
+                sub_080A4E84(6);
+                windcrest = -1;
+            }
+            break;
+        case DPAD_UP:
+            windcrest = ptr->unk0.unk00;
+            break;
+        case DPAD_DOWN:
+            windcrest = ptr->unk0.unk05;
+            break;
+        case DPAD_LEFT:
+            windcrest = ptr->unk2.unk00;
+            break;
+        case DPAD_RIGHT:
+            windcrest = ptr->unk2.unk05;
+            break;
+    }
+
+    if (-1 < windcrest) {
+        gMenu.field_0x3 = windcrest;
+        SoundReq(SFX_TEXTBOX_CHOICE);
+    }
+    sub_080A6FB4(gMenu.field_0x3, 0);
+}
+
+void sub_080A6378(void) {
+    u32 frameIndex;
+    gUnk_08128DE8_struct* ptr;
+
+    gGenericMenu.unk2c++;
+    if ((gGenericMenu.unk2c & 0x20) != 0) {
+        sub_080A6438();
+    }
+    gOamCmd._4 = 0x400;
+    gOamCmd._6 = 0;
+    gOamCmd._8 = 0x7000;
+    if ((gGenericMenu.unk2c & 0x20) == 0) {
+        gOamCmd.x = gRoomTransition.player_status.overworld_map_x * 0xa0 / 0xf90 + 0x28;
+        gOamCmd.y = (gRoomTransition.player_status.overworld_map_y << 7) / 0xc60 + 0xc;
+        if ((gPlayerState.flags & 8) != 0) {
+            frameIndex = 0x5a;
+        } else {
+            frameIndex = 0x59;
+        }
+        DrawDirect(DRAW_DIRECT_SPRITE_INDEX, frameIndex);
+    }
+    ptr = &gUnk_08128DE8[gMenu.field_0x3];
+    gOamCmd.x = ptr->unk6;
+    gOamCmd.y = ptr->unk7;
+    frameIndex = gMenu.field_0x3 * 3 + 0x26 + (((gGenericMenu.unk2c >> 4) & 1) == 0);
+    DrawDirect(DRAW_DIRECT_SPRITE_INDEX, frameIndex);
+    sub_080A6498();
+}
 
 void sub_080A6438(void) {
     u32 uVar1;
-    u8* pcVar2;
+    sturct_gUnk_08128F58* pcVar2;
     u32 uVar3;
 
     gOamCmd._4 = 0x400;
     gOamCmd._6 = 0;
     gOamCmd._8 = 0;
     uVar1 = gSave.field_0x20 & gGenericMenu.unk10.h[0];
-    for (pcVar2 = gUnk_08128F58, uVar3 = 0; *pcVar2 != 0; uVar3++, pcVar2 += 8) {
+    for (pcVar2 = gUnk_08128F58, uVar3 = 0; pcVar2->frameIndex != 0; uVar3++, pcVar2++) {
         if ((1 << uVar3 & uVar1) != 0) {
-            gOamCmd.x = pcVar2[1];
-            gOamCmd.y = pcVar2[2];
-#ifdef EU
-            DrawDirect(0x1fa, *pcVar2);
-#else
-            DrawDirect(0x1fb, *pcVar2);
-#endif
+            gOamCmd.x = pcVar2->unk1;
+            gOamCmd.y = pcVar2->unk2;
+            DrawDirect(DRAW_DIRECT_SPRITE_INDEX, pcVar2->frameIndex);
         }
     }
 }
@@ -467,11 +739,7 @@ void sub_080A6498(void) {
             gUnk_08128DE8_struct* ptr = &gUnk_08128DE8[i];
             gOamCmd.x = ptr->unk6;
             gOamCmd.y = ptr->unk7;
-#ifdef EU
-            DrawDirect(0x1fa, 0x28 + 3 * i);
-#else
-            DrawDirect(0x1fb, 0x28 + 3 * i);
-#endif
+            DrawDirect(DRAW_DIRECT_SPRITE_INDEX, 0x28 + 3 * i);
         }
     }
     gScreen.controls.windowOutsideControl = 0x3d3f;
@@ -583,7 +851,38 @@ ASM_FUNC("asm/non_matching/subtask2/sub_080A66D0.inc", void sub_080A66D0())
 
 ASM_FUNC("asm/non_matching/subtask2/sub_080A67C4.inc", void sub_080A67C4(u32 param_1))
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A68D4.inc", void sub_080A68D4())
+void sub_080A68D4(void) {
+    u32 uVar1;
+    int iVar6;
+    sturct_gUnk_08128F58* pcVar4;
+    u32 i;
+    u32 uVar4;
+    struct_080FE320* ptr;
+
+    if ((gPlayerState.flags & PL_NO_CAP) != 0) {
+        iVar6 = 101;
+    } else {
+        iVar6 = 100;
+    }
+    sub_080A698C(gRoomTransition.player_status.overworld_map_x, gRoomTransition.player_status.overworld_map_y,
+                 DRAW_DIRECT_SPRITE_INDEX, iVar6 + 0x100);
+    uVar1 = sub_080A6F40();
+    uVar1 &= gSave.field_0x20;
+
+    for (pcVar4 = gUnk_08128F58, i = 0; pcVar4->frameIndex != 0; i++, pcVar4++) {
+        if (((1 << i) & uVar1) != 0) {
+            sub_080A698C(pcVar4->unk4, pcVar4->unk6, DRAW_DIRECT_SPRITE_INDEX, pcVar4->unk3);
+        }
+    }
+
+    for (i = 10; i <= 100; i++) {
+        if (CheckKinstoneFused(i) && !sub_0801E810(i)) {
+            uVar4 = gUnk_080C9CBC[i]._5[1];
+            ptr = &gUnk_080FE320[gUnk_080C9CBC[i].evt_type];
+            sub_080A698C(ptr->_c, ptr->_e, DRAW_DIRECT_SPRITE_INDEX, uVar4 + 100);
+        }
+    }
+}
 
 typedef struct {
     u8 unk0;
@@ -822,7 +1121,7 @@ void sub_080A6E44(void) {
 }
 
 void sub_080A6E70(void) {
-    u32 uVar1;
+    u32 frameIndex;
     u32 i;
 
     gOamCmd._4 = 0;
@@ -831,24 +1130,16 @@ void sub_080A6E70(void) {
     gGenericMenu.unk2c++;
     sub_080A6EE0(gMenu.field_0x3);
     if ((gGenericMenu.unk2c & 0x10) != 0) {
-        uVar1 = 0x5d;
+        frameIndex = 0x5d;
     } else {
-        uVar1 = 0x5e;
+        frameIndex = 0x5e;
     }
 
-#ifdef EU
-    DrawDirect(0x1fa, uVar1);
-#else
-    DrawDirect(0x1fb, uVar1);
-#endif
+    DrawDirect(DRAW_DIRECT_SPRITE_INDEX, frameIndex);
     for (i = 0; i < 8; i++) {
         if ((gSave.windcrests & (1 << (i + 0x18))) != 0) {
             sub_080A6EE0(i);
-#ifdef EU
-            DrawDirect(0x1fa, 0x5c);
-#else
-            DrawDirect(0x1fb, 0x5c);
-#endif
+            DrawDirect(DRAW_DIRECT_SPRITE_INDEX, 0x5c);
         }
     }
 }
@@ -921,7 +1212,7 @@ void sub_080A7040(u32 param_1) {
         gGenericMenu.unk2e.HWORD = param_1;
         MemClear(gUnk_02022130, 0x300);
         MemCopy(gUnk_02022130 - 0x200, (void*)0x600e000, 0x800);
-        if (GetInventoryValue(gUnk_08128D70[param_1].unk0) != 0) {
+        if (GetInventoryValue(gUnk_08128D70[param_1].item) != 0) {
             sub_0805F46C(gUnk_08128D70[param_1].unk6, &gUnk_08129004);
         }
         gScreen.bg1.yOffset = 3;

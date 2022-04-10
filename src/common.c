@@ -61,19 +61,6 @@ typedef struct {
 extern struct_02017AA0 gUnk_02017AA0[];
 extern u8 gUnk_03003DE4;
 
-typedef struct {
-    u8 evt_type;
-    u8 entity_idx;
-    u8 _2[6];
-    u16 x;
-    u16 y;
-    u8 _c[4];
-    u8 _10;
-    u8 _11;
-    u16 flag;
-} struct_080FE320;
-extern struct_080FE320 gUnk_080FE320[];
-
 extern const PaletteGroup* gPaletteGroups[];
 extern const u8 gGlobalGfxAndPalettes[];
 extern u32 gUsedPalettes;
@@ -573,9 +560,9 @@ u32 CheckKinstoneFused(u32 idx) {
     return ReadBit(&gSave.unk241, idx);
 }
 
-u32 sub_0801E810(u32 idx) {
+bool32 sub_0801E810(u32 idx) {
     if (idx > 100 || idx < 1) {
-        return 0;
+        return FALSE;
     }
     return ReadBit(&gSave.unk24E, idx);
 }
