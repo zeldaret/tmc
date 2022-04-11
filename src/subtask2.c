@@ -49,6 +49,7 @@ struct_08127F94* sub_080A6A80(u32 param_1, u32 param_2);
 void sub_080A698C(u32 param_1, u32 param_2, u32 param_3, u32 param_4);
 void sub_080A6438();
 void sub_080A5F48(u32, u32);
+void sub_080A6F6C(u32);
 
 extern void DrawDungeonMap(u32 floor, struct_02019EE0* data, u32 size);
 extern void LoadDungeonMap(void);
@@ -126,6 +127,7 @@ typedef struct {
 } struct_gUnk_08128E94;
 
 extern const struct_gUnk_08128E94 gUnk_08128E94[];
+extern struct_gUnk_08128E94 gUnk_08128C14[];
 
 typedef struct {
     u8 unk00 : 5;
@@ -223,7 +225,108 @@ void sub_080A5594(void) {
     SetMenuType(1);
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A56A0.inc", void sub_080A56A0())
+void sub_080A56A0(void) {
+    int iVar1;
+    u32 uVar2;
+    u32 uVar4;
+    struct_gUnk_08128E94* ptr;
+
+    if (!sub_080A51F4()) {
+        return;
+    }
+    gMenu.field_0xc = gUnk_08128C00;
+    ptr = &gUnk_08128C14[gMenu.field_0x3];
+    uVar2 = 0xff;
+    switch (gInput.unk4) {
+        case 0x40:
+            uVar2 = ptr->unk0;
+            break;
+        case 0x80:
+            uVar2 = ptr->unk1;
+            break;
+        case 0x20:
+            uVar2 = ptr->unk2;
+            break;
+        case 0x10:
+            uVar2 = ptr->unk3;
+            break;
+    }
+
+    if (uVar2 != 0xff) {
+        gMenu.field_0x3 = uVar2;
+        SoundReq(SFX_TEXTBOX_CHOICE);
+    } else if (gInput.newKeys == 1) {
+        uVar2 = gMenu.field_0x3;
+        iVar1 = 0;
+        switch (uVar2) {
+            case 0:
+            case 2:
+                if (gGenericMenu.unk10.a[uVar2] != 0) {
+                    iVar1 = 8;
+                    if (uVar2 == 0) {
+                        iVar1 = 7;
+                    }
+                }
+                break;
+#if !defined(DEMO_USA) && !defined(DEMO_JP)
+            case 4:
+                iVar1 = 9;
+                break;
+            case 5:
+                iVar1 = 10;
+                break;
+#else
+            case 4:
+                SoundReq(SFX_MENU_ERROR);
+                break;
+            case 5:
+                SoundReq(SFX_MENU_ERROR);
+                break;
+#endif
+        }
+        if (iVar1 != 0) {
+            sub_080A4E84(iVar1);
+            SoundReq(SFX_TEXTBOX_SELECT);
+        }
+    }
+    switch (gMenu.field_0x3) {
+        case 0:
+        case 2:
+            if (gGenericMenu.unk10.a[gMenu.field_0x3] != 0) {
+                gUnk_0200AF00.buttonY[0] = 0x10;
+            } else {
+                gUnk_0200AF00.buttonY[0] = 0xfff0;
+            }
+            break;
+        default:
+            gUnk_0200AF00.buttonY[0] = 0xfff0;
+            break;
+    }
+
+    uVar2 = gMenu.field_0x3;
+    uVar4 = gGenericMenu.unk10.a[uVar2];
+    if (uVar4 != 0) {
+        switch (uVar2) {
+            case 0:
+                if (uVar4 != 0x3d) {
+                    uVar4 = 0x67;
+                }
+                break;
+            case 1:
+                uVar4 = 99;
+                break;
+            case 2:
+                uVar4 = 0x70;
+                break;
+            case 4:
+                uVar4 = 0x74;
+                break;
+            case 5:
+                uVar4 = 0x73;
+        }
+    }
+    sub_080A6F6C(uVar4 + 0x400);
+}
 
 ASM_FUNC("asm/non_matching/subtask2/sub_080A57F4.inc", void sub_080A57F4())
 
