@@ -2,7 +2,9 @@
 #define MAIN_H
 
 #include "global.h"
-#include "room.h" // just to get the type of screenTransitionData
+#include "structures.h"
+#include "room.h"
+#include "script.h"
 
 /** File signature */
 #define SIGNATURE 'MCZ3'
@@ -69,19 +71,28 @@ typedef struct {
  * HUD structure.
  */
 typedef struct {
-    /*0x00*/ u8 nextToLoad;
-    /*0x01*/ u8 _1;
-    /*0x02*/ u8 lastState;
-    /*0x03*/ u8 field_0x3;
-    /*0x04*/ u8 state;
-    /*0x05*/ u8 field_0x5;
-    /*0x06*/ u8 field_0x6;
-    /*0x07*/ u8 pauseFadeIn;
-    /*0x08*/ u16 isLoading;
-    /*0x0A*/ u16 fadeInTime;
-    /*0x0C*/ u8 fillerC[0x10];
-    /*0x1c*/ RoomControls unk_1c;
-    /*0x2e+4*/ u8 unk_2e[0x360];
+    /*0x000*/ u8 nextToLoad;
+    /*0x001*/ u8 _1;
+    /*0x002*/ u8 lastState;
+    /*0x003*/ u8 field_0x3;
+    /*0x004*/ u8 state;
+    /*0x005*/ u8 field_0x5;
+    /*0x006*/ u8 field_0x6;
+    /*0x007*/ u8 pauseFadeIn;
+    /*0x008*/ u16 fadeType;
+    /*0x00A*/ u16 fadeInTime;
+    /*0x00C*/ u8 controlMode;
+    /*0x00D*/ u8 unk_d;
+    /*0x00E*/ u8 unk_e;
+    /*0x00F*/ u8 unk_f;
+    /*0x010*/ void** currentRoomProperties;
+    /*0x014*/ u16* mapBottomBgControlPtr;
+    /*0x018*/ u16* mapTopBgControlPtr;
+    /*0x01C*/ RoomControls roomControls;
+    /*0x054*/ GfxSlotList gfxSlotList;
+    /*0x268*/ Palette palettes[0x10];
+    /*0x2A8*/ u8 unk_2a8[0x100];
+    /*0x3A8*/ ActiveScriptInfo activeScriptInfo;
 } UI;
 static_assert(sizeof(UI) == 0x3b4);
 

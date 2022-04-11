@@ -1828,11 +1828,11 @@ void sub_0805368C(void) {
 }
 
 void sub_080536A8(void) {
-    sub_080A71C4(5, 5, 4, 0x10);
+    sub_080A71C4(5, 5, FADE_INSTANT, 0x10);
 }
 
 void sub_080536B8(void) {
-    sub_080A71C4(5, 3, 4, 4);
+    sub_080A71C4(5, 3, FADE_INSTANT, 4);
     SetFade(FADE_IN_OUT | FADE_INSTANT, 0x100);
 }
 
@@ -1972,7 +1972,7 @@ void sub_08053B10(void) {
 }
 
 void sub_08053B3C(void) {
-    sub_080A71C4(5, 4, 5, 0x100);
+    sub_080A71C4(5, 4, FADE_IN_OUT | FADE_INSTANT, 0x100);
     SetFade(FADE_IN_OUT | FADE_INSTANT, 0x100);
 }
 
@@ -2002,7 +2002,7 @@ void sub_08053BBC(void) {
 }
 
 void sub_08053BE8(void) {
-    sub_080A71C4(5, 2, 5, 0x100);
+    sub_080A71C4(5, 2, FADE_IN_OUT | FADE_INSTANT, 0x100);
     SetFade(FADE_IN_OUT | FADE_INSTANT, 0x100);
 }
 

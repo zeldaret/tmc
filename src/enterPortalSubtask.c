@@ -89,7 +89,7 @@ void sub_0804AB70(void) {
     gScreen.bg1.yOffset = 0;
     controls->scroll_y = 0;
     portalId = gArea.portal_type;
-    if ((portalId == 2) && (gUI.unk_1c.area != 2)) {
+    if ((portalId == 2) && (gUI.roomControls.area != 2)) {
         portalId = 3;
     }
     ptr = &gUnk_080D4138[portalId * 2];
@@ -142,7 +142,7 @@ bool32 sub_0804ACA8(void) {
 void sub_0804ACC8(void) {
     if (gFadeControl.active == 0) {
         SetGlobalFlag(gArea.portal_type + ENTRANCE_0);
-        sub_0804AD6C((RoomControls*)&gUI.unk_1c);
+        sub_0804AD6C(&gUI.roomControls);
         sub_080A71F4(0);
     }
 }
