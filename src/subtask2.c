@@ -127,7 +127,19 @@ typedef struct {
 } struct_gUnk_08128E94;
 
 extern const struct_gUnk_08128E94 gUnk_08128E94[];
-extern struct_gUnk_08128E94 gUnk_08128C14[];
+
+typedef struct {
+    u8 unk0;
+    u8 unk1;
+    u8 unk2;
+    u8 unk3;
+    u8 unk4;
+    u8 unk5;
+    u8 unk6;
+    u8 unk7;
+} struct_gUnk_08128C14;
+extern struct_gUnk_08128C14 gUnk_08128C14[];
+extern struct_gUnk_08128C14 gUnk_08128C94[];
 
 typedef struct {
     u8 unk00 : 5;
@@ -229,7 +241,7 @@ void sub_080A56A0(void) {
     int iVar1;
     u32 uVar2;
     u32 uVar4;
-    struct_gUnk_08128E94* ptr;
+    struct_gUnk_08128C14* ptr;
 
     if (!sub_080A51F4()) {
         return;
@@ -328,7 +340,97 @@ void sub_080A56A0(void) {
     sub_080A6F6C(uVar4 + 0x400);
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A57F4.inc", void sub_080A57F4())
+void sub_080A57F4(void) {
+    u32 bVar1;
+    u32 spriteIndex;
+    int frameIndex;
+    u32 uVar5;
+    struct_gUnk_08128C14* pbVar6;
+    u32 index;
+    int shells;
+    struct_gUnk_08128C14* puVar8;
+    struct_gUnk_08128C14* puVar10;
+
+    gOamCmd._4 = 0x400;
+    gOamCmd._6 = 0;
+    if (gSaveHeader->language == 0) {
+        puVar8 = gUnk_08128C14;
+    } else {
+        puVar8 = gUnk_08128C94;
+    }
+    puVar10 = &puVar8[gMenu.field_0x3];
+    gOamCmd._8 = 0x800;
+    gOamCmd.x = puVar10->unk6;
+    gOamCmd.y = puVar10->unk7;
+    frameIndex = puVar10->unk4 + 9;
+    if ((gMain.ticks.HWORD & 0x10) == 0) {
+        frameIndex += 2;
+    } else {
+        frameIndex += 1;
+    }
+    DrawDirect(DRAW_DIRECT_SPRITE_INDEX, frameIndex);
+
+    for (index = 0, pbVar6 = (struct_gUnk_08128C14*)((u8*)puVar8 + 5); index < 0x10; pbVar6++, index++) {
+        uVar5 = gGenericMenu.unk10.a[index];
+        if (uVar5 != 0) {
+            puVar10 = &puVar8[index];
+            gOamCmd.x = pbVar6->unk1;
+            bVar1 = pbVar6->unk2;
+            gOamCmd.y = bVar1;
+            gOamCmd._8 = 0xe800;
+            if (uVar5 < 0x34) {
+                if (index == 2) {
+                    uVar5 = pbVar6->unk0 + 10;
+                    spriteIndex = DRAW_DIRECT_SPRITE_INDEX;
+                } else {
+                    uVar5 = gGenericMenu.unk10.a[index] + 9;
+                    uVar5 += puVar10->unk5;
+                    spriteIndex = DRAW_DIRECT_SPRITE_INDEX;
+                }
+            } else {
+                gOamCmd._8 = index * 8 + 0xeb80;
+                switch (uVar5) {
+                    case 0x3e:
+                        gOamCmd.y = bVar1 + 8;
+                        break;
+                    case 0x3d:
+                        gOamCmd.y = bVar1 + 0xd;
+                        break;
+                }
+
+                uVar5 = gSpriteAnimations_322[uVar5]->index;
+#ifdef EU
+                spriteIndex = 0x141;
+#else
+                spriteIndex = 0x142;
+#endif
+            }
+            DrawDirect(spriteIndex, uVar5);
+        }
+    }
+
+    if (gGenericMenu.unk10.a[2] != 0) {
+        gOamCmd._8 = gGenericMenu.unk10.a[2] + 0x800;
+        puVar10 = puVar8 + 2;
+        gOamCmd.x = puVar10->unk6 + 9;
+        gOamCmd.y = puVar10->unk7 + 7;
+        DrawDirect(0, 1);
+    }
+
+    if (gGenericMenu.unk10.a[3] == 0x3f) {
+        puVar10 = puVar8 + 3;
+        gOamCmd.x = puVar10->unk6 + 8;
+        gOamCmd.y = puVar10->unk7 + 8;
+        shells = gSave.stats.shells;
+
+        for (index = 0; index < 3; index++) {
+            gOamCmd._8 = shells % 10 + 0x800;
+            DrawDirect(0, 1);
+            shells /= 10;
+            gOamCmd.x -= 8;
+        }
+    }
+}
 
 void sub_080A5990(void) {
     extern void (*const gUnk_08128D14[])(void);
