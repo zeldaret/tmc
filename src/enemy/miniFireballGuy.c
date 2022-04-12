@@ -9,16 +9,28 @@
 #include "functions.h"
 
 extern void sub_08045678(Entity*);
+void MiniFireballGuy_OnTick(Entity*);
+void MiniFireballGuy_OnCollision(Entity*);
+void MiniFireballGuy_OnDeath(Entity*);
+void MiniFireballGuy_OnGrabbed(Entity*);
+void sub_08045618(Entity*);
+void sub_08045654(Entity*);
 
-extern void (*const MiniFireballGuy_Functions[])(Entity*);
-extern void (*const gUnk_080D1880[])(Entity*);
+static void (*const MiniFireballGuy_Functions[])(Entity*) = {
+    MiniFireballGuy_OnTick, MiniFireballGuy_OnCollision, GenericKnockback, MiniFireballGuy_OnDeath,
+    GenericConfused,        MiniFireballGuy_OnGrabbed,
+};
 
 void MiniFireballGuy(Entity* this) {
     EnemyFunctionHandler(this, MiniFireballGuy_Functions);
 }
 
 void MiniFireballGuy_OnTick(Entity* this) {
-    gUnk_080D1880[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_08045618,
+        sub_08045654,
+    };
+    actionFuncs[this->action](this);
 }
 
 void MiniFireballGuy_OnCollision(Entity* this) {
@@ -56,7 +68,6 @@ void sub_08045654(Entity* this) {
 }
 
 void sub_08045678(Entity* this) {
-
     this->zVelocity = Q_16_16(1.75);
     if (this->timer != 0) {
         this->timer--;

@@ -11,8 +11,6 @@ typedef struct {
     u8 unk_7b;
 } CuccoAggrEntity;
 
-extern void (*const gUnk_080012C8[])(Entity*);
-
 typedef struct {
     u16 x;
     u16 y;

@@ -15,12 +15,19 @@ typedef struct {
     s8 h, v;
 } PACKED PosOffset;
 
-extern void (*const gUnk_080D1604[])(Entity*);
-extern PosOffset gUnk_080D1620[4];
+void sub_0804468C(Entity*);
+void sub_080447E0(Entity*);
+void sub_08044868(Entity*);
+void sub_0804474C(Entity*);
+void sub_080449F8(Entity*);
+void sub_08044B04(Entity*);
 
 extern void sub_08044E74(Entity*, u32);
 
 void VaatiBall(Entity* this) {
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_0804468C, sub_0804474C, sub_080447E0, sub_08044868, sub_0804474C, sub_080449F8, sub_08044B04,
+    };
     Entity* parent;
 
     parent = this->parent;
@@ -29,7 +36,7 @@ void VaatiBall(Entity* this) {
         this->y.WORD += parent->y.WORD - parent->field_0x7c.WORD;
     }
 
-    gUnk_080D1604[this->action](this);
+    actionFuncs[this->action](this);
 
     if (this->cutsceneBeh.HALF.LO) {
         this->health = -1;
@@ -56,7 +63,8 @@ void VaatiBall(Entity* this) {
 }
 
 void sub_0804468C(Entity* this) {
-    PosOffset* off;
+    const PosOffset* off;
+    static const PosOffset gUnk_080D1620[4] = { { -48, 0 }, { 0, -48 }, { 48, 0 }, { 0, 48 } };
 
     this->collisionLayer = 3;
     this->spriteRendering.b3 = 2;
@@ -447,10 +455,14 @@ void sub_08044B04(Entity* this) {
     }
 }
 
-extern u8 gUnk_080D1628[4][4];
-
 void sub_08044DEC(Entity* this) {
     u32 off;
+    static const u8 gUnk_080D1628[4][4] = {
+        { 16, 24, 0, 8 },
+        { 8, 24, 0, 16 },
+        { 0, 11, 21, 16 },
+        { 16, 24, 0, 8 },
+    };
 
     if (this->parent->field_0x80.HALF.LO > this->field_0x78.HALF.HI) {
         this->spriteSettings.draw = 1;

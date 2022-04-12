@@ -14,18 +14,28 @@ typedef struct {
 
 extern void sub_08045524(Entity*);
 void sub_08045178(Entity*, Entity*, int, int);
+void FireballGuy_OnTick(Entity*);
+void FireballGuy_OnCollision(Entity*);
+void FireballGuy_OnGrabbed(Entity*);
+void sub_080453E8(Entity*);
+void sub_08045430(Entity*);
+void sub_08045454(Entity*);
 
-extern void (*const FireballGuy_Functions[])(Entity*);
-extern void (*const gUnk_080D1800[])(Entity*);
-extern u8 gUnk_080D180C[4]; // Entity count per form
-extern PosOffset gUnk_080D1810[4];
+static void (*const FireballGuy_Functions[])(Entity*) = {
+    FireballGuy_OnTick, FireballGuy_OnCollision, GenericKnockback, GenericDeath, GenericConfused, FireballGuy_OnGrabbed,
+};
 
 void FireballGuy(Entity* this) {
     EnemyFunctionHandler(this, FireballGuy_Functions);
 }
 
 void FireballGuy_OnTick(Entity* this) {
-    gUnk_080D1800[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_080453E8,
+        sub_08045430,
+        sub_08045454,
+    };
+    actionFuncs[this->action](this);
 }
 
 void FireballGuy_OnCollision(Entity* this) {
@@ -36,7 +46,7 @@ void FireballGuy_OnCollision(Entity* this) {
     }
 }
 
-void FireballGuy_OnGrabbed(void) {
+void FireballGuy_OnGrabbed(Entity* this) {
 }
 
 void sub_080453E8(Entity* this) {
@@ -60,14 +70,17 @@ void sub_08045430(Entity* this) {
 
 /* Split FireballGuy into new ones */
 void sub_08045454(Entity* this) {
+    // Entity count per form
+    static const u8 typeEntityCount[4] = { 2, 3, 4, 5 };
+    static const PosOffset gUnk_080D1810[4] = { { 6, 0 }, { -6, 0 }, { 0, 6 }, { 0, -6 } };
     Entity* entities[4];
     Entity* ent;
     s32 count, i;
-    PosOffset* off;
+    const PosOffset* off;
     u32 tmp;
 
     /* Can we create enough new entities? */
-    count = gUnk_080D180C[this->type];
+    count = typeEntityCount[this->type];
     if (MAX_ENTITIES + 1 - count <= gEntCount)
         return;
 

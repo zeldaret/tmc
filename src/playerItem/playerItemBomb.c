@@ -10,18 +10,36 @@ typedef struct {
     u32 unk_68;
 } PlayerItemBombEntity;
 
-extern void (*const gUnk_080B77C8[])(Entity*);
 void sub_0801B418(Entity*);
 void sub_0801B3A4(PlayerItemBombEntity*);
+void sub_0801B250(PlayerItemBombEntity*);
+void sub_0801B2CC(PlayerItemBombEntity*);
+void sub_0801B318(PlayerItemBombEntity*);
+void sub_0801B38C(PlayerItemBombEntity*);
+void sub_0801B330(PlayerItemBombEntity*);
+void sub_0801B340(PlayerItemBombEntity*);
+void sub_0801B354(PlayerItemBombEntity*);
+void sub_0801B368(PlayerItemBombEntity*);
+void sub_0801B384(PlayerItemBombEntity*);
 
-extern void (*const gUnk_080B77D8[])(Entity*);
+static void (*const actionFuncs[])(PlayerItemBombEntity*) = {
+    sub_0801B250,
+    sub_0801B2CC,
+    sub_0801B318,
+    sub_0801B38C,
+};
 
-extern const Hitbox gUnk_080B77F4;
+static void (*const subActionFuncs[])(PlayerItemBombEntity*) = {
+    sub_0801B330, sub_0801B340, sub_0801B354, sub_0801B368, sub_0801B384,
+};
+
+static const Hitbox unusedHitbox = { 0, 0, { 4, 0, 0, 4 }, 22, 22 };
+static const Hitbox gUnk_080B77F4 = { 0, 0, 6, 0, 0, 6, 4, 4 };
 
 void PlayerItemBomb(PlayerItemBombEntity* this) {
     u8 uVar1, uVar2;
 
-    gUnk_080B77C8[super->action](super);
+    actionFuncs[super->action](this);
     GetNextFrame(super);
     uVar2 = uVar1 = super->action;
     if (uVar1 != 0x03) {
@@ -102,37 +120,37 @@ void sub_0801B2CC(PlayerItemBombEntity* this) {
     }
 }
 
-void sub_0801B318(Entity* this) {
-    gUnk_080B77D8[this->subAction](this);
+void sub_0801B318(PlayerItemBombEntity* this) {
+    subActionFuncs[super->subAction](this);
 }
 
-void sub_0801B330(Entity* this) {
-    this->subAction += 1;
-    sub_08079BD8(this);
+void sub_0801B330(PlayerItemBombEntity* this) {
+    super->subAction += 1;
+    sub_08079BD8(super);
 }
 
-void sub_0801B340(Entity* this) {
-    this->spritePriority.b1 = 2;
+void sub_0801B340(PlayerItemBombEntity* this) {
+    super->spritePriority.b1 = 2;
 }
 
-void sub_0801B354(Entity* this) {
-    this->spritePriority.b1 = 3;
+void sub_0801B354(PlayerItemBombEntity* this) {
+    super->spritePriority.b1 = 3;
 }
 
-void sub_0801B368(Entity* this) {
-    this->action -= 1;
-    this->subAction = 0;
-    if (0x3c < this->timer) {
-        this->timer = 0x3c;
+void sub_0801B368(PlayerItemBombEntity* this) {
+    super->action -= 1;
+    super->subAction = 0;
+    if (0x3c < super->timer) {
+        super->timer = 0x3c;
     }
 }
 
-void sub_0801B384(Entity* this) {
+void sub_0801B384(PlayerItemBombEntity* this) {
     DeleteThisEntity();
 }
 
-void sub_0801B38C(Entity* this) {
-    if (this->timer-- == 0) {
+void sub_0801B38C(PlayerItemBombEntity* this) {
+    if (super->timer-- == 0) {
         DeleteThisEntity();
     }
 }

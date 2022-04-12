@@ -11,9 +11,17 @@
 #include "physics.h"
 #include "player.h"
 
-extern void (*const gUnk_080012C8[])(Entity*);
-extern void (*const RopeGolden_Functions[6])(Entity*);
-extern void (*const gUnk_080CF4E0[4])(Entity*);
+void RopeGolden_OnTick(Entity*);
+void RopeGolden_OnCollision(Entity*);
+void RopeGolden_OnDeath(Entity*);
+void sub_08038258(Entity*);
+void sub_0803827C(Entity*);
+void sub_080382EC(Entity*);
+void sub_08038304(Entity*);
+
+static void (*const RopeGolden_Functions[6])(Entity*) = {
+    RopeGolden_OnTick, RopeGolden_OnCollision, GenericKnockback, RopeGolden_OnDeath, GenericConfused, RopeGolden_OnTick,
+};
 
 void sub_080383AC(Entity*);
 void sub_080383E4(Entity*);
@@ -30,7 +38,13 @@ void RopeGolden(Entity* this) {
 }
 
 void RopeGolden_OnTick(Entity* this) {
-    gUnk_080CF4E0[this->action](this);
+    static void (*const actionFuncs[4])(Entity*) = {
+        sub_08038258,
+        sub_0803827C,
+        sub_080382EC,
+        sub_08038304,
+    };
+    actionFuncs[this->action](this);
 }
 
 void RopeGolden_OnCollision(Entity* this) {

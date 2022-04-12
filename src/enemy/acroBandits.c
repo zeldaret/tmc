@@ -9,7 +9,6 @@
 #include "functions.h"
 
 extern Entity* gUnk_020000B0;
-extern void (*const gUnk_080012C8[])(Entity*);
 
 static void sub_08031E48(Entity* this, Entity* child);
 static void sub_08032290(Entity* this);

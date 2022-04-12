@@ -12,8 +12,6 @@ typedef struct {
     u8 unk_0x76;
 } FlyingSkullEntity;
 
-extern void (*const gUnk_080012C8[])(Entity*);
-
 void (*const FlyingSkull_Functions[])(Entity*);
 void (*const gUnk_080CFB9C[])(FlyingSkullEntity*);
 void (*const gUnk_080CFBBC[])(FlyingSkullEntity*);

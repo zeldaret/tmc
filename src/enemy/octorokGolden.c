@@ -5,7 +5,6 @@
 
 void (*const OctorokGolden_Functions[])(Entity*);
 void (*const gUnk_080CF484[])(Entity*);
-extern void (*const gUnk_080012C8[])(Entity*);
 const s8 gUnk_080CF490[];
 const u8 gUnk_080CF498[];
 

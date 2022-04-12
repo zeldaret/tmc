@@ -9,12 +9,19 @@
 #include "functions.h"
 
 extern Entity* gUnk_020000B0;
+void Keaton_OnTick(Entity*);
+void Keaton_OnCollision(Entity*);
+void Keaton_OnGrabbed(Entity*);
+void sub_08032468(Entity*);
+void sub_0803248C(Entity*);
+void sub_080324CC(Entity*);
+void sub_080324FC(Entity*);
+void sub_08032574(Entity*);
+void sub_080325C4(Entity*);
 
-extern void (*const Keaton_Functions[])(Entity*);
-extern void (*const gUnk_080CE7C8[])(Entity*);
-extern u8 gUnk_080CE7E0[];
-extern u16 gUnk_080CE7F0[];
-extern s8 gUnk_080CE810[];
+static void (*const Keaton_Functions[])(Entity*) = {
+    Keaton_OnTick, Keaton_OnCollision, GenericKnockback, GenericDeath, GenericConfused, Keaton_OnGrabbed,
+};
 
 u32 sub_080325E8(Entity* this);
 void sub_08032650(Entity* this);
@@ -34,7 +41,10 @@ void Keaton(Entity* this) {
 }
 
 void Keaton_OnTick(Entity* this) {
-    gUnk_080CE7C8[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_08032468, sub_0803248C, sub_080324CC, sub_080324FC, sub_08032574, sub_080325C4,
+    };
+    actionFuncs[this->action](this);
 }
 
 void Keaton_OnCollision(Entity* this) {
@@ -158,6 +168,7 @@ u32 sub_080325E8(Entity* this) {
 }
 
 void sub_08032650(Entity* this) {
+    static const u8 gUnk_080CE7E0[] = { 60, 60, 90, 90, 90, 90, 120, 120, 120, 120, 120, 120, 120, 120, 150, 150 };
     u32 uVar3;
 
     uVar3 = Random();
@@ -189,6 +200,8 @@ void sub_0803269C(Entity* this, u32 direction) {
 }
 
 void sub_080326FC(Entity* this) {
+    static const u16 gUnk_080CE7F0[] = { 0xd2,  0xd2,  0xf0,  0xf0,  0x10e, 0x10e, 0x10e, 0x10e,
+                                         0x12c, 0x12c, 0x12c, 0x12c, 0x12c, 0x12c, 0x12c, 0x12c };
     this->field_0x74.HWORD = gUnk_080CE7F0[Random() & 0xF];
 }
 
@@ -224,7 +237,8 @@ void sub_08032784(Entity* this) {
 
 void sub_08032794(Entity* this) {
     Entity* target;
-    s8* temp;
+    const s8* temp;
+    static const s8 gUnk_080CE810[] = { 0, 2, -4, 0, 0, -11, 4, 0 };
 
     target = CreateFx(this, FX_DASH, 0x40);
     if (target != NULL) {

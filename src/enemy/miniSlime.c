@@ -9,12 +9,21 @@
 #include "physics.h"
 
 void sub_08045374(Entity*);
+void MiniSlime_OnTick(Entity*);
+void MiniSlime_OnCollision(Entity*);
+void MiniSlime_OnDeath(Entity*);
+void MiniSlime_OnGrabbed(Entity*);
+void sub_080452A4(Entity*);
+void sub_080452E4(Entity*);
+void sub_080452FC(Entity*);
+void sub_08045374(Entity*);
 
 extern void sub_080452E4(Entity*);
 extern void ReplaceMonitoredEntity(Entity*, Entity*);
 
-extern void (*const MiniSlime_Functions[])(Entity*);
-extern void (*const gUnk_080D17D8[])(Entity*);
+static void (*const MiniSlime_Functions[])(Entity*) = {
+    MiniSlime_OnTick, MiniSlime_OnCollision, GenericKnockback, MiniSlime_OnDeath, GenericConfused, MiniSlime_OnGrabbed,
+};
 
 void MiniSlime(Entity* this) {
     EnemyFunctionHandler(this, MiniSlime_Functions);
@@ -22,7 +31,13 @@ void MiniSlime(Entity* this) {
 }
 
 void MiniSlime_OnTick(Entity* this) {
-    gUnk_080D17D8[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_080452A4,
+        sub_080452E4,
+        sub_080452FC,
+        sub_08045374,
+    };
+    actionFuncs[this->action](this);
 }
 
 void MiniSlime_OnCollision(Entity* this) {
@@ -44,7 +59,7 @@ void MiniSlime_OnDeath(Entity* this) {
     GenericDeath(this);
 }
 
-void MiniSlime_OnGrabbed(void) {
+void MiniSlime_OnGrabbed(Entity* this) {
 }
 
 void sub_080452A4(Entity* this) {

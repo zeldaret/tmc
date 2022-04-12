@@ -9,18 +9,35 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern void sub_08038168(Entity*);
+void sub_08038168(Entity*);
+void TektiteGolden_OnTick(Entity*);
+void TektiteGolden_OnCollision(Entity*);
+void TektiteGolden_OnDeath(Entity*);
+void TektiteGolden_OnConfused(Entity*);
+void TektiteGolden_OnTick(Entity*);
+void sub_08037FA0(Entity*);
+void sub_08037Fe0(Entity*);
+void sub_08038048(Entity*);
+void sub_08038110(Entity*);
 
-extern void (*const TektiteGolden_Functions)(Entity*);
-extern void (*const gUnk_080CF4B8[])(Entity*);
+static void (*const TektiteGolden_Functions[])(Entity*) = {
+    TektiteGolden_OnTick,  TektiteGolden_OnCollision, GenericKnockback,
+    TektiteGolden_OnDeath, TektiteGolden_OnConfused,  TektiteGolden_OnTick,
+};
 
 void TektiteGolden(Entity* this) {
-    EnemyFunctionHandler(this, &TektiteGolden_Functions);
+    EnemyFunctionHandler(this, TektiteGolden_Functions);
     SetChildOffset(this, 0, 1, -0x10);
 }
 
 void TektiteGolden_OnTick(Entity* this) {
-    gUnk_080CF4B8[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_08037FA0,
+        sub_08037Fe0,
+        sub_08038048,
+        sub_08038110,
+    };
+    actionFuncs[this->action](this);
 }
 
 void TektiteGolden_OnCollision(Entity* this) {
@@ -29,7 +46,7 @@ void TektiteGolden_OnCollision(Entity* this) {
     if (this->confusedTime != 0) {
         Create0x68FX(this, FX_STARS);
     }
-    EnemyFunctionHandlerAfterCollision(this, &TektiteGolden_Functions);
+    EnemyFunctionHandlerAfterCollision(this, TektiteGolden_Functions);
     if (this->contactFlags == 0x94) {
         this->action = 1;
         this->subAction = 0;
