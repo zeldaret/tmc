@@ -137,5 +137,6 @@ void sub_0801E738(u32);
 void sub_0801DFB4(struct Entity_*, u32, u32, u32);
 u32 sub_0801E00C(void);
 bool32 sub_0801E810(u32);
+u32 sub_0801DB94(void);
 
 #endif // COMMON_H

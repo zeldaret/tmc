@@ -58,7 +58,6 @@ struct_08127F94* sub_080A6A80(u32, u32);
 
 extern u8 gUnk_02034492[];
 void sub_0801E8D4(void);
-u32 sub_0801DB94(void);
 s32 sub_080A50A0(s32);
 
 void PauseMenu_Variant0(void) {

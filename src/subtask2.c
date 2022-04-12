@@ -50,6 +50,7 @@ void sub_080A698C(u32 param_1, u32 param_2, u32 param_3, u32 param_4);
 void sub_080A6438();
 void sub_080A5F48(u32, u32);
 void sub_080A6F6C(u32);
+bool32 sub_080A5F24(void);
 
 extern void DrawDungeonMap(u32 floor, struct_02019EE0* data, u32 size);
 extern void LoadDungeonMap(void);
@@ -662,7 +663,105 @@ void sub_080A5CFC(u32 menuType, void* param_2, u32 param_3) {
     DrawDungeonMap(menuType, &gMapDataBottomSpecial, 0x400);
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A5D1C.inc", void sub_080A5D1C())
+#ifdef EU
+#define SUB_080A5D1C_SPRITE_INDEX 0x143
+#else
+#define SUB_080A5D1C_SPRITE_INDEX 0x144
+#endif
+
+void sub_080A5D1C(void) {
+    extern u8 gUnk_08128D3C[];
+    u32 bVar1;
+    int iVar3;
+    u32 uVar4;
+    u32 uVar6;
+    u32 index;
+    u8* puVar8;
+    u8* pbVar9;
+
+    pbVar9 = &gUnk_080C9C6C[gArea.dungeon_idx * 4];
+    bVar1 = gUnk_08128D3C[*pbVar9];
+    uVar4 = sub_0801DB94();
+    gOamCmd._4 = 0x400;
+    gOamCmd._6 = 0;
+    gOamCmd._8 = 0;
+    gOamCmd.x = 0x34;
+    gOamCmd.y = bVar1 + gMenu.field_0x3 * 0xc;
+    DrawDirect(DRAW_DIRECT_SPRITE_INDEX, (gMain.ticks.HWORD & 0x10) == 0 ? 0x75 : 0x74);
+    gOamCmd.x = 0x20;
+    gOamCmd.y = bVar1 + uVar4 * 0xc;
+    DrawDirect(DRAW_DIRECT_SPRITE_INDEX, (gMain.ticks.HWORD & 0x20) != 0 ? 0x78 : 0x79);
+    gOamCmd.y = 0x7e;
+    gOamCmd._8 = 0x4380;
+    if (HasDungeonSmallKey()) {
+        gOamCmd.x = 0x18;
+        iVar3 = gSpriteAnimations_322[0x50]->index;
+        DrawDirect(SUB_080A5D1C_SPRITE_INDEX, iVar3);
+    }
+    if (HasDungeonCompass()) {
+        gOamCmd.x = 0x2e;
+        iVar3 = gSpriteAnimations_322[0x52]->index;
+        DrawDirect(SUB_080A5D1C_SPRITE_INDEX, iVar3);
+    }
+    if (HasDungeonBigKey()) {
+        gOamCmd.x = 0x45;
+        gOamCmd._8 = 0x380;
+        iVar3 = gSpriteAnimations_322[0x51]->index;
+        DrawDirect(SUB_080A5D1C_SPRITE_INDEX, iVar3);
+        if (sub_080A5F24()) {
+            gOamCmd._8 = 0;
+            gOamCmd.x = 0x46;
+            gOamCmd.y = bVar1 + (pbVar9[1] - pbVar9[2]) * 0xc;
+            if ((gMain.ticks.HWORD & 0x20) != 0) {
+                uVar6 = 0x7a;
+            } else {
+                uVar6 = 0x7b;
+            }
+            DrawDirect(DRAW_DIRECT_SPRITE_INDEX, uVar6);
+        }
+    }
+    gOamCmd._8 = 0;
+    gOamCmd.x = 0x34;
+    gOamCmd.y = bVar1;
+    iVar3 = pbVar9[1] + 0x82;
+
+    for (index = 0; index < *pbVar9; index++) {
+        DrawDirect(DRAW_DIRECT_SPRITE_INDEX, iVar3);
+        iVar3--;
+        gOamCmd.y = gOamCmd.y + 0xc;
+    }
+
+    puVar8 = (u8*)&gMapDataBottomSpecial;
+    while (*puVar8 != 0) {
+        switch (*puVar8) {
+            case 1:
+                iVar3 = 0x7d;
+                if (uVar4 != gMenu.field_0x3) {
+                    iVar3 = 0x7e;
+                }
+                break;
+            case 2:
+                iVar3 = 0x80;
+                break;
+            case 3:
+                iVar3 = 0x81;
+                break;
+            case 4:
+                if (sub_080A5F24()) {
+                    iVar3 = 0x7f;
+                    break;
+                }
+            default:
+                iVar3 = 0xff;
+                break;
+        }
+
+        gOamCmd.x = puVar8[1] + 0x50 - gScreen.bg1.xOffset;
+        gOamCmd.y = puVar8[2] + 0x10 - gScreen.bg1.yOffset;
+        DrawDirect(DRAW_DIRECT_SPRITE_INDEX, iVar3);
+        puVar8 += 3;
+    }
+}
 
 bool32 sub_080A5F24(void) {
     bool32 result = TRUE;
