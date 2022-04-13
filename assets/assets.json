@@ -3627,21 +3627,6 @@
     "size": 1396
   },
   {
-    "path": "playerItemSwordBeam/gUnk_080B43FC.bin",
-    "start": 738300,
-    "size": 4
-  },
-  {
-    "path": "playerItemSwordBeam/gUnk_080B4400.bin",
-    "start": 738304,
-    "size": 8
-  },
-  {
-    "path": "playerItemSwordBeam/gUnk_080B4408.bin",
-    "start": 738312,
-    "size": 8
-  },
-  {
     "path": "data_080B4410/gUnk_080B4410_JP.bin",
     "variants": [
       "JP"

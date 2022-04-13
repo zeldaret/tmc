@@ -895,7 +895,7 @@ SECTIONS {
         data/const/playerItem/playerItemGustBig.o(.rodata);
         data/const/playerItem/playerItemBow.o(.rodata);
         data/data_080B3E70.o(.rodata);
-        data/const/playerItem/playerItemSwordBeam.o(.rodata);
+        src/playerItem/playerItemSwordBeam.o(.rodata);
         data/data_080B4410.o(.rodata);
         src/playerItem/playerItemBomb.o(.rodata);
         src/playerItem/playerItemBoomerang.o(.rodata);
