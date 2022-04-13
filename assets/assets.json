@@ -3567,31 +3567,6 @@
     "size": 176
   },
   {
-    "path": "playerItemGustBig/gUnk_080B3DE0.bin",
-    "start": 736736,
-    "size": 8
-  },
-  {
-    "path": "playerItemGustBig/gUnk_080B3DF4.bin",
-    "start": 736756,
-    "size": 36
-  },
-  {
-    "path": "playerItemGustBig/gUnk_080B3E18.bin",
-    "start": 736792,
-    "size": 8
-  },
-  {
-    "path": "playerItemGustBig/gUnk_080B3E20.bin",
-    "start": 736800,
-    "size": 8
-  },
-  {
-    "path": "playerItemGustBig/gUnk_080B3E28.bin",
-    "start": 736808,
-    "size": 8
-  },
-  {
     "path": "data_080B3E70/gUnk_080B3E80.bin",
     "start": 736896,
     "size": 1396

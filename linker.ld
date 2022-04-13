@@ -892,7 +892,7 @@ SECTIONS {
         src/npc.o(.rodata);
         src/collision.o(.rodata);
         data/data_080B3740.o(.rodata);
-        data/const/playerItem/playerItemGustBig.o(.rodata);
+        src/playerItem/playerItemGustBig.o(.rodata);
         src/playerItem/playerItemBow.o(.rodata);
         data/data_080B3E70.o(.rodata);
         src/playerItem/playerItemSwordBeam.o(.rodata);
