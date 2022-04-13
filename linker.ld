@@ -1167,7 +1167,7 @@ SECTIONS {
         data/animations/npc/npc9.o(.rodata);
         src/npc/stamp.o(.rodata);
         data/animations/npc/stamp.o(.rodata);
-        data/const/npc/marcy.o(.rodata);
+        src/npc/marcy.o(.rodata);
         data/animations/npc/marcy.o(.rodata);
         data/const/npc/wheaton.o(.rodata);
         data/animations/npc/wheaton.o(.rodata);

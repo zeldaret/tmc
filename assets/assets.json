@@ -35803,11 +35803,6 @@
     "type": "animation"
   },
   {
-    "path": "marcy/gUnk_0810C34C.bin",
-    "start": 1098572,
-    "size": 20
-  },
-  {
     "path": "animations/gSpriteAnimations_Wheaton_0.bin",
     "start": 1098696,
     "size": 25,
