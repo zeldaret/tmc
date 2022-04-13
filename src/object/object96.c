@@ -137,7 +137,7 @@ void Object96_Action2(Entity* this, const struct_gUnk_08123FB0* param_2) {
 void Object96_Action3(Entity* this, const struct_gUnk_08123FB0* param_2) {
     u8 type;
 
-    if (gPlayerState.flags & 0x80) {
+    if (gPlayerState.flags & PL_MINISH) {
         sub_0800445C(this);
     } else {
         if (IsCollidingPlayer(this)) {

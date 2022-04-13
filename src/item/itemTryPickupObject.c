@@ -95,7 +95,33 @@ void sub_08076488(ItemBehavior* this, u32 idx) {
     gPlayerState.framestate = PL_STATE_HOLD;
 }
 
-ASM_FUNC("asm/non_matching/itemTryPickupObject/sub_08076518.inc", void sub_08076518(ItemBehavior* this, u32 idx))
+void sub_08076518(ItemBehavior* this, u32 index) {
+    if (PlayerTryDropObject(this, index)) {
+        gPlayerState.framestate = 4;
+        if ((gPlayerState.jump_status & 0x80) == 0 && gPlayerState.field_0x1f[0] == 0) {
+            if (gPlayerEntity.knockbackDuration != 0) {
+                PlayerCancelHoldItem(this, index);
+            } else {
+                if ((gPlayerState.field_0x92 & 0x8018) != 0) {
+                    sub_0806F948(&gPlayerEntity);
+                    gPlayerState.heldObject = 5;
+                    this->field_0x18->subAction = 2;
+                    this->field_0x18->direction = (gPlayerEntity.animationState & 0xe) << 2;
+                    this->field_0x18 = NULL;
+                    this->stateID++;
+                    this->field_0xf = 0x0f;
+                    if ((gPlayerState.flags & PL_NO_CAP) != 0) {
+                        sub_08077DF4(this, 0x930);
+                    } else {
+                        sub_08077DF4(this, 0x344);
+                    }
+                    gPlayerState.field_0xa |= 8 >> index;
+                    gPlayerState.keepFacing |= 8 >> index;
+                }
+            }
+        }
+    }
+}
 
 void sub_080765E0(ItemBehavior* this, u32 idx) {
     if (PlayerTryDropObject(this, idx) != 0) {

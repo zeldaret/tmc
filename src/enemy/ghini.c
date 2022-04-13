@@ -386,7 +386,7 @@ void sub_0803F6EC(GhiniEntity* this) {
         gPlayerEntity.iframes = -0x3c;
         gPlayerState.jump_status = 0x41;
     }
-    gPlayerState.flags &= 0xffffffef;
+    gPlayerState.flags &= ~PL_CAPTURED;
 }
 
 void sub_0803F738(GhiniEntity* this) {

@@ -376,7 +376,7 @@ void sub_08077728(u32);
 void PutAwayItems(void);
 void sub_08079E58(s32 speed, u32 direction);
 void RespawnPlayer(void);
-u32 GetSurfaceCalcType(Entity*, u32, u32);
+u32 GetSurfaceCalcType(Entity*, s32, s32);
 void UpdatePlayerMovement(void);
 void EnablePlayerDraw(Entity*);
 void sub_080797EC(void);

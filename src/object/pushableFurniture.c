@@ -191,7 +191,7 @@ bool32 sub_0808FC5C(PushableFurnitureEntity* this) {
         } else {
             super->timer = 0x18;
         }
-        if ((gPlayerState.flags & 0x80) == 0) {
+        if ((gPlayerState.flags & PL_MINISH) == 0) {
             super->timer += 0x10;
         }
         sub_0808FF50(this);
@@ -213,7 +213,7 @@ void sub_0808FD44(PushableFurnitureEntity* this, u32 param_2) {
         } else {
             tmp = this->unk_70;
         }
-        if ((gPlayerState.flags & 0x80) != 0) {
+        if ((gPlayerState.flags & PL_MINISH) != 0) {
             super->speed = 0x40;
             super->timer = 0x20;
         } else {
@@ -222,7 +222,7 @@ void sub_0808FD44(PushableFurnitureEntity* this, u32 param_2) {
         }
     } else {
         tmp = this->unk_7c;
-        if ((gPlayerState.flags & 0x80) != 0) {
+        if ((gPlayerState.flags & PL_MINISH) != 0) {
             super->speed = 0x40;
             super->timer = 0x40;
         } else {
@@ -271,7 +271,7 @@ void sub_0808FDE8(PushableFurnitureEntity* this) {
 bool32 sub_0808FECC(PushableFurnitureEntity* this) {
     bool32 result = TRUE;
 
-    if (!((gPlayerState.flags & 0x80) == 0 && (gPlayerEntity.action == 6) && (gPlayerEntity.animationState == 0) &&
+    if (!((gPlayerState.flags & PL_MINISH) == 0 && (gPlayerEntity.action == 6) && (gPlayerEntity.animationState == 0) &&
           (gPlayerEntity.y.HALF.HI - super->y.HALF.HI < 0x14) && (super->x.HALF.HI + 0xc > gPlayerEntity.x.HALF.HI) &&
           (super->x.HALF.HI - 12 < gPlayerEntity.x.HALF.HI))) {
         result = FALSE;

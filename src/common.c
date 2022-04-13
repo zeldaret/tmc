@@ -22,7 +22,7 @@ typedef struct {
 
 extern u8 gUnk_03003DE0;
 extern u8 gzHeap[0x1000];
-extern u8 gUnk_0201AEE0[0x2000];
+extern u32 gUnk_0201AEE0[0x800];
 extern u8 gUnk_080CA11C[];
 
 extern void (*gUnk_080C9CAC[])(void);
@@ -66,6 +66,10 @@ extern const u8 gGlobalGfxAndPalettes[];
 extern u32 gUsedPalettes;
 extern u16 gPaletteBuffer[];
 extern const GfxItem* gGfxGroups[];
+
+extern const u32 gUnk_080C9460[];
+
+void sub_0801E82C(void);
 
 u32 DecToHex(u32 value) {
     u32 result;
@@ -382,8 +386,14 @@ u32 sub_0801DF10(DungeonLayout* lyt) {
     return offset;
 }
 
-ASM_FUNC("asm/non_matching/common/sub_0801DF28.inc", void sub_0801DF28(u32 a1, u32 a2, u32 a3));
-
+void sub_0801DF28(u32 x, u32 y, s32 color) {
+    u32* ptr;
+    u32 tmp;
+    ptr = &gUnk_0201AEE0[(((y >> 3) * 0x10 + (x >> 3)) * 8)];
+    ptr = &ptr[(y & 7)];
+    tmp = (color << ((x & 7) * 4));
+    ptr[0] = (ptr[0] & gUnk_080C9460[x & 7]) | tmp;
+}
 u32 sub_0801DF60(u32 a1, u8* p) {
     return (p[a1 >> 2] >> (2 * (~a1 & 3))) & 3;
 }
@@ -531,7 +541,29 @@ ASM_FUNC("asm/non_matching/common/sub_0801E64C.inc", void sub_0801E64C(u32 a1, u
 
 ASM_FUNC("asm/non_matching/common/sub_0801E6C8.inc", void sub_0801E6C8(u32 a1));
 
-ASM_FUNC("asm/non_matching/common/sub_0801E738.inc", void sub_0801E738(u32 a1));
+void sub_0801E738(u32 param_1) {
+    s32 index;
+    s32 tmp;
+
+    sub_0801E82C();
+    if (param_1 - 0x65 < 0x11) {
+        index = sub_0801E8B0(param_1);
+        if (index < 0) {
+            index = 0;
+            while (gSave.unk118[index] != 0) {
+                index++;
+            }
+        }
+        if ((u32)index < 0x12) {
+            gSave.unk118[index] = param_1;
+            tmp = gSave.unk12B[index] + 1;
+            if (tmp > 99) {
+                tmp = 99;
+            }
+            gSave.unk12B[index] = tmp;
+        }
+    }
+}
 
 void sub_0801E798(u32 a1) {
     s32 idx = sub_0801E8B0(a1);

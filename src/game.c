@@ -33,6 +33,7 @@
 #include "transitions.h"
 #include "roomid.h"
 #include "ui.h"
+#include "kinstone.h"
 
 // Game task
 
@@ -234,8 +235,16 @@ extern const EntityData* gUnk_080FCFB8[];
 extern void (*const gUnk_080FD138[])(void);
 
 extern const u16 gUnk_080FD964[];
+extern const u8 gUnk_080FCF04[];
 
 extern void ClearBgAnimations(void);
+
+void sub_08054974(s32, s32);
+void sub_080548E8(void);
+
+extern void sub_0806F38C(void);
+
+extern void sub_08018710(u32);
 
 void GameTask(void) {
     static GameState* const sStates[] = {
@@ -1277,8 +1286,8 @@ bool32 CanDispEzloMessage(void) {
         gPauseMenuOptions.disabled || gUnk_0200AF00.unk_1)
         return 0;
 
-    if ((gPlayerState.flags & (PL_NO_CAP | 0x110)) || (gPlayerState.framestate_last > tmp) || gPlayerState.item ||
-        gPlayerEntity.field_0x7a.HWORD)
+    if ((gPlayerState.flags & (PL_NO_CAP | PL_CAPTURED | PL_DISABLE_ITEMS)) || (gPlayerState.framestate_last > tmp) ||
+        gPlayerState.item || gPlayerEntity.field_0x7a.HWORD)
         return 0;
 
     if ((gPlayerEntity.z.HALF.HI & 0x8000) && !gPlayerState.field_0xa)
@@ -1885,9 +1894,43 @@ void sub_08053758(void) {
 
 ASM_FUNC("asm/non_matching/game/sub_08053800.inc", void sub_08053800())
 
-ASM_FUNC("asm/non_matching/game/sub_08053894.inc", void sub_08053894())
+void sub_08053894(void) {
+    u32 tmp;
+    if (gFadeControl.active == 0) {
+        gMenu.transitionTimer--;
+        if (gMenu.field_0xa != 0) {
+            gMenu.field_0xa--;
+        } else {
+            if (((gRoomTransition.frameCount & 1) == 0) && (gMenu.storyPanelIndex < 0x10)) {
+                tmp = ++gMenu.storyPanelIndex << 0x18;
+                gScreen.controls.alphaBlend = (tmp >> 0x10) | (0x10 - ((tmp) >> 0x19));
+            }
+        }
+        if (gMenu.transitionTimer == 0) {
+            gMenu.overlayType++;
+            SetFade(FADE_IN_OUT | FADE_INSTANT, 8);
+        }
+    }
+}
 
-ASM_FUNC("asm/non_matching/game/sub_08053904.inc", void sub_08053904())
+void sub_08053904(void) {
+    u32 tmp;
+    if (gFadeControl.active == 0) {
+        gMenu.transitionTimer--;
+        if (gMenu.field_0xa != 0) {
+            gMenu.field_0xa--;
+        } else {
+            if (((gRoomTransition.frameCount & 1) == 0) && (gMenu.storyPanelIndex < 0x10)) {
+                tmp = ++gMenu.storyPanelIndex << 0x18;
+                gScreen.controls.alphaBlend = (tmp >> 0x10) | (0x10 - (tmp >> 0x19));
+            }
+        }
+        if (gMenu.transitionTimer == 0) {
+            gMenu.overlayType++;
+            SetFade(FADE_IN_OUT | FADE_INSTANT, 1);
+        }
+    }
+}
 
 void sub_08053974(void) {
     if (gFadeControl.active == 0) {
@@ -2043,7 +2086,21 @@ void sub_08053CAC(void) {
     gUnk_080FCFA4[gMenu.overlayType]();
 }
 
-ASM_FUNC("asm/non_matching/game/sub_08053CC8.inc", void sub_08053CC8())
+void sub_08053CC8(void) {
+    const u8* ptr;
+    ptr = gUnk_080FCF04 + gMenu.field_0x3 * 0x10;
+    gMenu.field_0xc = (void*)&ptr[8];
+    LoadRoomEntityList(*(EntityData**)(&ptr[0]));
+    LoadRoomEntityList(GetRoomProperty(ptr[4], ptr[5], 1));
+    LoadRoomEntityList(GetRoomProperty(ptr[4], ptr[5], 2));
+    gMenu.overlayType = 1;
+    gScreen.lcd.displayControl &= 0xfeff;
+    gUpdateVisibleTiles = 1;
+    SetFade(FADE_INSTANT, 0x10);
+    if (ptr[5] == 0x1d) {
+        gMenu.field_0xa = 1;
+    }
+}
 
 void sub_08053D34(void) {
     if (gMenu.field_0xa != 0) {
@@ -2581,7 +2638,21 @@ void Subtask_WorldEvent(void) {
 #endif
 }
 
-ASM_FUNC("asm/non_matching/game/sub_0805488C.inc", void sub_0805488C())
+void sub_0805488C(void) {
+    const struct_080FE320* ptr = &gUnk_080FE320[gUI.field_0x3];
+    gMenu.field_0x0 = ptr->evt_type;
+    gMenu.field_0x3 = ptr->entity_idx;
+    gMenu.field_0x4 = gUI.field_0x3;
+    gMenu.field_0xc = (u8*)ptr;
+    gMenu.menuType++;
+    gMenu.overlayType = 0;
+    gMenu.transitionTimer = 300;
+    DispReset(0);
+    sub_08054974(gUI.field_0x3, 1);
+    sub_0806F364();
+    ClearRoomFlag(0xff);
+    sub_080548E8();
+}
 
 void sub_080548E8(void) {
     gUnk_080FE2AC[gMenu.field_0x0]();
@@ -2594,12 +2665,47 @@ void sub_080548E8(void) {
     UpdateScrollVram();
 }
 
-ASM_FUNC("asm/non_matching/game/sub_08054920.inc", void sub_08054920())
+void sub_08054920(void) {
+    MessageInitialize();
+    sub_0806F38C();
+    if (gUnk_080C9CBC[gFuseInfo._3]._5[1] != 0) {
+        MenuFadeIn(10, gUI.field_0x3);
+    } else {
+        gUI.nextToLoad = 3;
+        SetFade(FADE_IN_OUT | FADE_BLACK_WHITE | FADE_INSTANT, 0x10);
+    }
+}
 
 void sub_08054968(void) {
     gMenu.menuType = 2;
 }
 
-ASM_FUNC("asm/non_matching/game/sub_08054974.inc", void sub_08054974())
+void sub_08054974(s32 param_1, s32 param_2) {
+    struct_080FE320* ptr = &gUnk_080FE320[param_1];
+    SetCurrentRoomPropertyList(ptr->_2, ptr->_3);
+    gRoomControls.area = ptr->_2;
+    gRoomControls.room = ptr->_3;
+    LoadGfxGroups();
+    gArea.localFlagOffset = GetFlagBankOffset(gRoomControls.area);
+    if (param_2 != 0) {
+        LoadAuxiliaryRoom(ptr->_2, ptr->_3);
+    } else {
+        sub_08052FF4(ptr->_2, ptr->_3);
+        InitializeCamera();
+        gUpdateVisibleTiles = 1;
+    }
+    gScreen.lcd.displayControl &= 0x1fff;
+    gRoomControls.scroll_x = gRoomControls.origin_x + ptr->_4;
+    gRoomControls.scroll_y = gRoomControls.origin_y + ptr->_6;
+    if (ptr->_2 == 2) {
+        TryLoadPrologueHyruleTown();
+    }
+    sub_08018710(gUI.field_0x3);
+}
 
-ASM_FUNC("asm/non_matching/game/sub_08054A14.inc", void sub_08054A14())
+void sub_08054A14(s32 param_1) {
+    struct_080FE320* ptr = &gUnk_080FE320[param_1];
+    if (ptr->_11 < 0xe) {
+        SetLocalFlagByBank(gLocalFlagBanks[ptr->_11], ptr->flag);
+    }
+}

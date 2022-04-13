@@ -98,7 +98,7 @@ void sub_080A78B8(PlayerItemSwordEntity* this, Entity* param_2) {
             super->knockbackDirection = 0;
             super->iframes = 0;
         }
-        if ((gPlayerState.flags & 0x8000000) != 0) {
+        if ((gPlayerState.flags & PL_SWORD_THRUST) != 0) {
             gPlayerState.sword_state |= 0x80;
         } else if (gPlayerState.sword_state != 0) {
             switch (super->contactFlags & 0x7f) {

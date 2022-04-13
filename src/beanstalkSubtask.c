@@ -255,10 +255,8 @@ bool32 sub_0801A458(LayerStruct* layer, u32 position, u32 collisionType) {
     return FALSE;
 }
 
-NONMATCH("asm/non_matching/beanstalkSubtask/sub_0801A4F8.inc", bool32 sub_0801A4F8(void)) {
-    u32 uVar1;
-    u32 uVar3;
-
+bool32 sub_0801A4F8(void) {
+    u32 tmp;
     if ((gPlayerState.flags & PL_MINISH) != 0) {
         if (GetInventoryValue(ITEM_POWER_BRACELETS) != 1) {
             return FALSE;
@@ -269,7 +267,8 @@ NONMATCH("asm/non_matching/beanstalkSubtask/sub_0801A4F8.inc", bool32 sub_0801A4
         if (gPlayerState.field_0xd != gPlayerEntity.direction) {
             return FALSE;
         }
-        if ((gPlayerEntity.collisions & gUnk_080B44A0[(((gPlayerEntity.direction + 4) & 0x18) >> 2)]) == 0) {
+        tmp = (((gPlayerEntity.direction + 4) & 0x18) >> 3);
+        if ((gUnk_080B44A0[tmp] & gPlayerEntity.collisions) == 0) {
             return FALSE;
         }
     } else {
@@ -282,7 +281,6 @@ NONMATCH("asm/non_matching/beanstalkSubtask/sub_0801A4F8.inc", bool32 sub_0801A4
     }
     return TRUE;
 }
-END_NONMATCH
 
 ASM_FUNC("asm/non_matching/beanstalkSubtask/sub_0801A570.inc", void sub_0801A570())
 
@@ -387,7 +385,7 @@ NONMATCH("asm/non_matching/beanstalkSubtask/sub_0801AA58.inc",
             object->collisionLayer = this->collisionLayer;
             gPlayerState.pushedObject = 0xa0;
             gPlayerState.queued_action = 5;
-            gPlayerState.flags |= 1;
+            gPlayerState.flags |= PL_BUSY;
             this->x.HALF.LO = 0;
             this->y.HALF.LO = 0;
             this->direction = param_3;

@@ -188,7 +188,35 @@ END_NONMATCH
 
 ASM_FUNC("asm/non_matching/gyorgTail/sub_080AC6F0.inc", void sub_080AC6F0(Entity* this))
 
-ASM_FUNC("asm/non_matching/gyorgTail/sub_080AC760.inc", void sub_080AC760(Entity* this))
+void sub_080AC760(Entity* param_1) {
+    s32 tmp;
+    Entity* entity1;
+    Entity* entity2;
+
+    entity1 = param_1->child;
+    tmp = (entity1->direction - param_1->direction) & 0xff;
+    if (((tmp + 8) & 0xff) > 0x10) {
+        if (tmp > 0x80) {
+            entity1->direction = param_1->direction - 8;
+        } else {
+            entity1->direction = param_1->direction + 8;
+        }
+    }
+    entity2 = entity1->child;
+    if (entity2->child == NULL) {
+        entity2->direction = param_1->parent->animationState ^ 0x80;
+    } else {
+        tmp = (entity2->direction - entity1->direction) & 0xff;
+        if (((tmp + 8) & 0xff) <= 0x10) {
+            return;
+        }
+        if (tmp > 0x80) {
+            entity2->direction = entity1->direction - 8;
+        } else {
+            entity2->direction = entity1->direction + 8;
+        }
+    }
+}
 
 NONMATCH("asm/non_matching/gyorgTail/sub_080AC7C4.inc", void sub_080AC7C4(Entity* this)) {
     // TODO regalloc
