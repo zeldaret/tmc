@@ -1149,7 +1149,7 @@ SECTIONS {
         data/const/manager/manager38.o(.rodata);
         data/const/manager/manager39.o(.rodata);
         data/data_08108E6C.o(.rodata);
-        data/const/playerItem/playerItemSpiralBeam.o(.rodata);
+        src/playerItem/playerItemSpiralBeam.o(.rodata);
         data/animations/npc/gentari.o(.rodata);
         data/const/npc/festari.o(.rodata);
         data/animations/npc/festari.o(.rodata);
