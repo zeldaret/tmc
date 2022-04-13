@@ -3,10 +3,19 @@
 #include "message.h"
 #include "npc.h"
 
-extern void (*const gUnk_0810C290[])(Entity*);
+void sub_08062AF0(Entity*);
+void sub_08062B14(Entity*);
+void sub_08062B48(Entity*);
+void sub_08062B70(Entity*);
 
 void NPC9(Entity* this) {
-    gUnk_0810C290[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_08062AF0,
+        sub_08062B14,
+        sub_08062B48,
+        sub_08062B70,
+    };
+    actionFuncs[this->action](this);
 }
 
 void sub_08062AF0(Entity* this) {
