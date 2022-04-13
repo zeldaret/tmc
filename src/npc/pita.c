@@ -1,18 +1,27 @@
 #include "npc.h"
 #include "item.h"
 
-extern Hitbox gUnk_0810C428;
-
-extern u8 gUnk_0810C430[4];
-extern u8 gUnk_0810C435[];
-extern u8 gUnk_0810C43D[];
-
 void Pita(Entity* this) {
+    static const Hitbox gUnk_0810C428 = {
+#if EU
+        0,
+        2,
+        { 0, 0, 0, 0 },
+        6,
+        18,
+#else
+        0,
+        2,
+        { 0, 0, 0, 0 },
+        10,
+        18,
+#endif
+    };
     if (this->action == 0) {
         this->action += 1;
         SetDefaultPriority(this, PRIO_MESSAGE);
         SortEntityAbove(this, this);
-        this->hitbox = &gUnk_0810C428;
+        this->hitbox = (Hitbox*)&gUnk_0810C428;
         sub_0807DD64(this);
     }
     sub_0807DD94(this, NULL);
@@ -33,6 +42,9 @@ void RemoveAllBakedGoods(void) {
 bool32 sub_08062EDC(Entity* this, ScriptExecutionContext* context) {
     u32 tmp;
     u32 tmp2;
+    static const u8 chanceForPrize[] = { 0x20, 0x40, 0x60, 0x80, 0xFF };
+    static const u8 gUnk_0810C435[] = { 0x10, 0x10, 0x10, 0x20, 0x20, 0x30, 0x30, 0x30 };
+    static const u8 gUnk_0810C43D[] = { 0x6e, 0x6f, 0x70, 0x71, 0x72, 0x73, 0x74, 0x75 };
 
     //! @bug: tmp is uninitialized, in practice player must have an item here
     if (GetInventoryValue(ITEM_BRIOCHE) != 0) {
@@ -51,13 +63,13 @@ bool32 sub_08062EDC(Entity* this, ScriptExecutionContext* context) {
         SetLocalFlag(SHOP03_PAN_1ST);
         tmp = 4;
     }
-    if ((Random() & 0xff) > gUnk_0810C430[tmp]) {
+    if ((Random() & 0xff) > chanceForPrize[tmp]) {
         context->condition = FALSE;
         return FALSE;
     } else {
         tmp = GetRandomByWeight(gUnk_0810C435);
         tmp2 = gUnk_0810C43D[tmp];
-        InitItemGetSequence(0x5c, tmp2, 1);
+        InitItemGetSequence(ITEM_KINSTONE, tmp2, 1);
         MessageNoOverlap(0x3c05, this);
         context->condition = TRUE;
         return TRUE;

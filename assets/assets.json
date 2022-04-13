@@ -35839,42 +35839,6 @@
     "type": "animation"
   },
   {
-    "path": "pita/gUnk_0810C428_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1096572
-    },
-    "size": 8
-  },
-  {
-    "path": "pita/gUnk_0810C428_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1098792,
-    "size": 8
-  },
-  {
-    "path": "pita/gUnk_0810C430.bin",
-    "start": 1098800,
-    "size": 5
-  },
-  {
-    "path": "pita/gUnk_0810C435.bin",
-    "start": 1098805,
-    "size": 8
-  },
-  {
-    "path": "pita/gUnk_0810C43D.bin",
-    "start": 1098813,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_MinishEzlo_2.bin",
     "start": 1098912,
     "size": 5,
