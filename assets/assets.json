@@ -35827,11 +35827,6 @@
     "type": "animation"
   },
   {
-    "path": "wheaton/gUnk_0810C3C0.bin",
-    "start": 1098688,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_Pita_0.bin",
     "start": 1098821,
     "size": 5,
