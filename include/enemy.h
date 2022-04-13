@@ -251,4 +251,6 @@ void Enemy64();
 void TreeItem(Entity*);
 void Enemy66(Entity*);
 
+extern void (*const gUnk_080012C8[])(Entity*);
+
 #endif

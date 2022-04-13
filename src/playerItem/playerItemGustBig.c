@@ -7,20 +7,22 @@
 
 extern void sub_08078CD0(Entity*);
 extern void sub_08018FA0(Entity*);
+extern void sub_08018CBC(Entity*);
+extern void sub_08018DE8(Entity*);
+extern void sub_08018E68(Entity*);
 extern void sub_08018F6C(Entity*);
-
-extern void (*const gUnk_080B3DD0[])(Entity*);
-
-extern Hitbox gUnk_080B3E18;
-extern u8 gUnk_080B3DE0[];
-extern Hitbox* gUnk_080B3DE8[];
 
 extern u32 sub_08007DD6(u32, const u16*);
 
-extern const u16 gUnk_080B3DF4[];
 extern const u8 gUnk_08003E44[];
 
 void PlayerItemGustBig(Entity* this) {
+    static void (*const gUnk_080B3DD0[])(Entity*) = {
+        sub_08018CBC,
+        sub_08018DE8,
+        sub_08018E68,
+        sub_08018F6C,
+    };
     if (this->health) {
         this->iframes = 0;
         gUnk_080B3DD0[this->action](this);
@@ -28,6 +30,23 @@ void PlayerItemGustBig(Entity* this) {
         DeleteThisEntity();
     }
 }
+
+static const u8 gUnk_080B3DE0[] = { 0x10, 0x2, 0x20, 0x3, 0x40, 0x6, 0, 0 };
+static const Hitbox gUnk_080B3E18;
+static const Hitbox gUnk_080B3E20;
+static const Hitbox gUnk_080B3E28;
+static const Hitbox* const gUnk_080B3DE8[] = {
+    &gUnk_080B3E18,
+    &gUnk_080B3E20,
+    &gUnk_080B3E28,
+};
+static const u16 gUnk_080B3DF4[] = {
+    0x75, 0x1, 0x76, 0x1, 0x3ac, 0x1, 0x4050, 0x1, 0x377, 0x1, 0x378, 0x1, 0x71, 0x1, 0x72, 0x1, 0, 0,
+};
+
+static const Hitbox gUnk_080B3E18 = { 0, 0, { 6, 3, 3, 6 }, 6, 6 };
+static const Hitbox gUnk_080B3E20 = { 0, 0, { 6, 3, 3, 6 }, 8, 8 };
+static const Hitbox gUnk_080B3E28 = { 0, 0, { 6, 3, 3, 6 }, 12, 12 };
 
 void sub_08018CBC(Entity* this) {
     u32 PVar1;
@@ -49,7 +68,7 @@ void sub_08018CBC(Entity* this) {
         this->timer = 0x56;
         this->hurtType = 0x1c;
         this->damage = 6;
-        this->hitbox = &gUnk_080B3E18;
+        this->hitbox = (Hitbox*)&gUnk_080B3E18;
         this->child->spriteOffsetX = 0;
         this->child->spriteSettings.draw = 0;
     } else {
@@ -65,7 +84,7 @@ void sub_08018CBC(Entity* this) {
         this->timer = gUnk_080B3DE0[this->type * 2];
         this->damage = gUnk_080B3DE0[this->type * 2 + 1];
         this->hurtType = 0x1b;
-        this->hitbox = gUnk_080B3DE8[this->type];
+        this->hitbox = (Hitbox*)gUnk_080B3DE8[this->type];
         (u32*)gPlayerEntity.field_0x70.WORD = this;
         sub_08078CD0(&gPlayerEntity);
         (u32*)gPlayerEntity.field_0x70.WORD = pEVar3;

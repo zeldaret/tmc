@@ -22,8 +22,6 @@ bool32 sub_0802B234(Entity*);
 Entity* sub_0802B250(Entity*);
 void sub_0802B264(Entity*);
 
-extern void (*const gUnk_080012C8[])(Entity*);
-
 extern void (*const BombPeahat_Functions[])(Entity*);
 extern void (*const gUnk_080CD108[])(Entity*);
 extern void (*const gUnk_080CD120[])(Entity*);

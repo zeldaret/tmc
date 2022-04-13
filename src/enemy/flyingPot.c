@@ -11,7 +11,6 @@
 #include "player.h"
 #include "room.h"
 
-extern void (*const gUnk_080012C8[])(Entity*);
 extern Hitbox gUnk_080FD34C;
 
 typedef struct {

@@ -4,8 +4,6 @@
 #include "message.h"
 #include "item.h"
 
-extern u16 gUnk_0810C34C[];
-
 void Marcy(Entity* this) {
     if (this->action == 0) {
         this->action += 1;
@@ -16,6 +14,7 @@ void Marcy(Entity* this) {
 }
 
 void sub_08062D18(Entity* this, ScriptExecutionContext* context) {
+    static const u16 msgIndices[] = { 0x4004, 0x400b, 0x4009, 0x400a, 0, 0, 0, 0, 0, 0 };
     u8 tmp = 0;
     if ((GetInventoryValue(ITEM_SKILL_PERIL_BEAM) != 0) && (CheckLocalFlag(0x26) == 0)) {
         tmp = 7;
@@ -50,7 +49,7 @@ void sub_08062D18(Entity* this, ScriptExecutionContext* context) {
         tmp = 3;
     }
 
-    MessageNoOverlap(gUnk_0810C34C[tmp], this);
+    MessageNoOverlap(msgIndices[tmp], this);
     if (tmp == 0) {
         context->condition = TRUE;
     } else {

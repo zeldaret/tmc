@@ -9,8 +9,6 @@
 #include "sound.h"
 #include "save.h"
 
-extern void (*const gUnk_080B3E30[])(Entity*);
-
 typedef struct {
     Entity base;
     u8 unk_68;
@@ -30,12 +28,8 @@ typedef struct {
     s8 unk_5;
     u8 animIndex;
     u8 unk_7;
-    Hitbox* hitbox;
+    const Hitbox* hitbox;
 } struct_080B3E40;
-
-extern const struct_080B3E40 gUnk_080B3E40[];
-
-void sub_0801917C(PlayerItemBowEntity*);
 
 extern u8 gUnk_08003E44;
 
@@ -44,10 +38,33 @@ extern void sub_08017744(Entity*);
 extern void ModArrows(s32);
 
 void sub_08019468(PlayerItemBowEntity*);
+void sub_08018FE4(PlayerItemBowEntity*);
+void sub_0801917C(PlayerItemBowEntity*);
+void sub_08019410(PlayerItemBowEntity*);
+void sub_08019444(PlayerItemBowEntity*);
 
 void PlayerItemBow(Entity* this) {
-    gUnk_080B3E30[(this->action)](this);
+    static void (*const gUnk_080B3E30[])(PlayerItemBowEntity*) = {
+        sub_08018FE4,
+        sub_0801917C,
+        sub_08019410,
+        sub_08019444,
+    };
+    gUnk_080B3E30[this->action]((PlayerItemBowEntity*)this);
 }
+
+static const Hitbox gUnk_080B3E70;
+static const Hitbox gUnk_080B3E78;
+
+static const struct_080B3E40 gUnk_080B3E40[] = {
+    { -3, -12, 0, 0, 0, -5, 2, 0, &gUnk_080B3E78 },
+    { 8, -4, 1, 0, 5, 0, 1, 0, &gUnk_080B3E70 },
+    { 0, 1, 0, 1, 0, 5, 2, 0, &gUnk_080B3E78 },
+    { -8, -4, 0, 0, -5, 0, 1, 0, &gUnk_080B3E70 },
+};
+
+static const Hitbox gUnk_080B3E70 = { 0, 0, { 4, 0, 0, 0 }, 6, 4 };
+static const Hitbox gUnk_080B3E78 = { 0, 0, { 0, 0, 0, 4 }, 4, 6 };
 
 void sub_08018FE4(PlayerItemBowEntity* this) {
     Entity* object;
@@ -81,7 +98,7 @@ void sub_08018FE4(PlayerItemBowEntity* this) {
         super->animIndex = ptr->animIndex;
         this->unk_6c = ptr->unk_4;
         this->unk_70 = ptr->unk_5;
-        super->hitbox = ptr->hitbox;
+        super->hitbox = (Hitbox*)ptr->hitbox;
         sub_0801766C(super);
         if (super->hurtType == 0x0e) {
             super->animIndex += 6;
@@ -221,21 +238,21 @@ void sub_0801917C(PlayerItemBowEntity* this) {
     }
 }
 
-void sub_08019410(Entity* this) {
-    if (this->timer < 0xf) {
-        InitializeAnimation(this, this->animIndex);
+void sub_08019410(PlayerItemBowEntity* this) {
+    if (super->timer < 0xf) {
+        InitializeAnimation(super, super->animIndex);
     } else {
-        GetNextFrame(this);
+        GetNextFrame(super);
     }
-    if (this->timer-- == 0) {
+    if (super->timer-- == 0) {
         DeleteThisEntity();
     }
 }
 
-void sub_08019444(Entity* this) {
-    GetNextFrame(this);
-    LinearMoveUpdate(this);
-    if (GravityUpdate(this, Q_8_8(32.0)) == 0) {
+void sub_08019444(PlayerItemBowEntity* this) {
+    GetNextFrame(super);
+    LinearMoveUpdate(super);
+    if (GravityUpdate(super, Q_8_8(32.0)) == 0) {
         DeleteThisEntity();
     }
 }

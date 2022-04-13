@@ -12,19 +12,31 @@
 #include "functions.h"
 
 static void sub_08033744(Entity* this);
+void Wisp_OnTick(Entity* this);
+void Wisp_OnCollision(Entity* this);
+void Wisp_OnGrabbed(Entity* this);
+void sub_08033674(Entity* this);
+void sub_080336A8(Entity* this);
+void sub_080336DC(Entity* this);
+void sub_08033650(Entity* this);
+void sub_08033658(Entity* this);
+void sub_08033660(Entity* this);
 
-extern void (*const Wisp_Functions[])(Entity*);
-extern void (*const gUnk_080CEB8C[])(Entity*);
-extern void (*const gUnk_080CEB98[])(Entity*);
-
-extern u8 gUnk_080CEBA4[];
+static void (*const Wisp_Functions[])(Entity*) = {
+    Wisp_OnTick, Wisp_OnCollision, GenericKnockback, GenericDeath, GenericConfused, Wisp_OnGrabbed,
+};
 
 void Wisp(Entity* this) {
     EnemyFunctionHandler(this, Wisp_Functions);
 }
 
 void Wisp_OnTick(Entity* this) {
-    gUnk_080CEB8C[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_08033674,
+        sub_080336A8,
+        sub_080336DC,
+    };
+    actionFuncs[this->action](this);
 }
 
 void Wisp_OnCollision(Entity* this) {
@@ -70,8 +82,13 @@ void Wisp_OnCollision(Entity* this) {
 }
 
 void Wisp_OnGrabbed(Entity* this) {
+    static void (*const subActionFuncs[])(Entity*) = {
+        sub_08033650,
+        sub_08033658,
+        sub_08033660,
+    };
     if (sub_0806F520(this)) {
-        gUnk_080CEB98[this->subAction](this);
+        subActionFuncs[this->subAction](this);
     }
 }
 
@@ -133,6 +150,7 @@ void sub_080336DC(Entity* this) {
 static void sub_08033744(Entity* this) {
     u32 temp;
     u32 rand = (u32)Random() % 256;
+    static const u8 gUnk_080CEBA4[] = { 30, 45, 60, 75, 1, 90, 105, 120 };
 
     // 8 potential options
     this->timer = gUnk_080CEBA4[(rand & 0x70) >> 4];

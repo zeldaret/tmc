@@ -4,13 +4,14 @@
 #include "item.h"
 #include "object.h"
 
-extern void (*const gUnk_080FEEA8[])(Entity*);
-
 void sub_08054AC8(Entity*);
-
-extern const s8 gUnk_080FEEB0[];
+void sub_08054A60(Entity*);
 
 void PlayerItemLantern(Entity* this) {
+    static void (*const gUnk_080FEEA8[])(Entity*) = {
+        sub_08054A60,
+        sub_08054AC8,
+    };
     gUnk_080FEEA8[this->action](this);
     this->contactFlags = 0;
 }
@@ -35,9 +36,10 @@ void sub_08054A60(Entity* this) {
 
 void sub_08054AC8(Entity* this) {
     Entity* object;
+    static const s8 offsets[] = { 6, -6, 7, -3, -5, 2, -7, -3 };
     this->animationState = gPlayerEntity.animationState & 0xe;
-    this->hitbox->offset_x = gUnk_080FEEB0[this->animationState];
-    this->hitbox->offset_y = gUnk_080FEEB0[this->animationState + 1];
+    this->hitbox->offset_x = offsets[this->animationState];
+    this->hitbox->offset_y = offsets[this->animationState + 1];
     this->hitbox->width = 4;
     this->hitbox->height = 4;
     if (!((gPlayerEntity.frameIndex < 0x37) && ((u32)gPlayerEntity.spriteIndex == 6))) {
@@ -59,10 +61,10 @@ void sub_08054AC8(Entity* this) {
             this->timer = 4;
             object = CreateObject(OBJECT_45, 0, 0x10);
             if (object != NULL) {
-                PositionRelative(this, object, 0, 0x20000);
+                PositionRelative(this, object, 0, Q_16_16(2.0));
                 object->spritePriority.b0 = this->spritePriority.b0;
-                object->spriteOffsetX = gUnk_080FEEB0[this->animationState];
-                object->spriteOffsetY = gUnk_080FEEB0[this->animationState + 1];
+                object->spriteOffsetX = offsets[this->animationState];
+                object->spriteOffsetY = offsets[this->animationState + 1];
             }
         }
         sub_08078E84(this, &gPlayerEntity);

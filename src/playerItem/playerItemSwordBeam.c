@@ -7,27 +7,30 @@
 #include "common.h"
 #include "asm.h"
 
-extern void (*const gUnk_080B43F4[])(Entity*);
-
-extern Hitbox gUnk_080B4408;
-extern u8 gUnk_080B43FC[];
+void sub_08019498(Entity*);
 void sub_08019580(Entity*);
-
-extern u8 gUnk_08003E44;
 void sub_08019644(Entity*);
 
-extern u8 gUnk_080B4400[];
+extern u8 gUnk_08003E44;
 
 void PlayerItemSwordBeam(Entity* this) {
-    gUnk_080B43F4[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_08019498,
+        sub_08019580,
+    };
+    actionFuncs[this->action](this);
 }
 
+static const u8 gUnk_080B43FC[] = { 30, 29, 30, 29 };
+static const u8 gUnk_080B4400[] = { 0, 4, 1, 2, -1, 0, 0, 0 };
+
 void sub_08019498(Entity* this) {
+    static const Hitbox gUnk_080B4408 = { 0, 0, { 4, 0, 0, 0 }, 6, 6 };
     CopyPosition(&gPlayerEntity, this);
     this->action += 0x01;
     this->spriteSettings.draw = 1;
     this->collisionFlags = gPlayerEntity.collisionFlags + 1;
-    this->hitbox = &gUnk_080B4408;
+    this->hitbox = (Hitbox*)&gUnk_080B4408;
     this->speed = 0x380;
     *(u32*)&this->field_0x74 = 2;
     this->field_0x70.WORD = 0;

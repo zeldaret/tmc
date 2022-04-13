@@ -4,22 +4,26 @@
 #include "effects.h"
 #include "asm.h"
 
-extern void (*const gUnk_08109AC8[])(Entity*);
-extern Hitbox gUnk_08109AD0;
 extern u8 gUnk_08003E44;
 
+void sub_0805FBE8(Entity*);
 void sub_0805FC74(Entity*);
 
 void PlayerItemSpiralBeam(Entity* this) {
-    gUnk_08109AC8[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_0805FBE8,
+        sub_0805FC74,
+    };
+    actionFuncs[this->action](this);
 }
 
 void sub_0805FBE8(Entity* this) {
+    static const Hitbox gUnk_08109AD0 = { 0, 0, { 4, 0, 0, 0 }, 6, 6 };
     CopyPosition(&gPlayerEntity, this);
     this->action++;
     this->spriteSettings.draw = TRUE;
     this->collisionFlags = gPlayerEntity.collisionFlags + 1;
-    this->hitbox = &gUnk_08109AD0;
+    this->hitbox = (Hitbox*)&gUnk_08109AD0;
     this->speed = 0x380;
     this->animationState = this->animationState & 0x7f;
     if (this->collisionLayer == 2) {

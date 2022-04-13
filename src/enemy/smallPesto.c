@@ -8,24 +8,36 @@
 #include "enemy.h"
 #include "physics.h"
 
-extern void sub_080317F8(Entity*);
+void sub_080317F8(Entity*);
+void SmallPesto_OnTick(Entity*);
+void SmallPesto_OnCollision(Entity*);
+void SmallPesto_OnGrabbed(Entity*);
+void sub_08031704(Entity*);
+void sub_08031714(Entity*);
+void sub_08031770(Entity*);
+void sub_080316DC(Entity*);
+void sub_080316E8(Entity*);
+void sub_080316F0(Entity*);
 
-extern void (*SmallPesto_Functions[])(Entity*);
-extern void (*gUnk_080CE548[])(Entity*);
-extern void (*gUnk_080CE554[])(Entity*);
+static void (*const SmallPesto_Functions[])(Entity*) = {
+    SmallPesto_OnTick, SmallPesto_OnCollision, GenericKnockback, GenericDeath, GenericConfused, SmallPesto_OnGrabbed,
+};
 
 void sub_080317B4(Entity*);
 void sub_080317E0(Entity*);
 void sub_08031840(Entity*);
-
-extern Hitbox gUnk_080CE560;
 
 void SmallPesto(Entity* this) {
     SmallPesto_Functions[GetNextFunction(this)](this);
 }
 
 void SmallPesto_OnTick(Entity* this) {
-    gUnk_080CE548[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_08031704,
+        sub_08031714,
+        sub_08031770,
+    };
+    actionFuncs[this->action](this);
 }
 
 void SmallPesto_OnCollision(Entity* this) {
@@ -33,6 +45,11 @@ void SmallPesto_OnCollision(Entity* this) {
 
 void SmallPesto_OnGrabbed(Entity* this) {
     s32 iVar1;
+    static void (*const subActionFuncs[])(Entity*) = {
+        sub_080316DC,
+        sub_080316E8,
+        sub_080316F0,
+    };
 
     GetNextFrame(this);
     iVar1 = sub_0806F520(this);
@@ -43,7 +60,7 @@ void SmallPesto_OnGrabbed(Entity* this) {
         this->speed = 0x40;
         this->subtimer = 1;
     } else {
-        gUnk_080CE554[this->subAction](this);
+        subActionFuncs[this->subAction](this);
     }
 }
 
@@ -107,6 +124,7 @@ void sub_080317E0(Entity* this) {
 }
 
 void sub_080317F8(Entity* this) {
+    static const Hitbox3D gUnk_080CE560 = { 0, -3, { 3, 2, 2, 3 }, 2, 2, 12, { 0, 0, 0 } };
     u8 newDirection = Random() & 0x18;
     this->action = 1;
     this->z.HALF.HI = 0x0000FFF4;
@@ -114,7 +132,7 @@ void sub_080317F8(Entity* this) {
     this->collisionFlags |= 0x10;
     this->gustJarFlags = 1;
     this->direction = newDirection;
-    this->hitbox = &gUnk_080CE560;
+    this->hitbox = (Hitbox*)&gUnk_080CE560;
     sub_080317E0(this);
     this->timer = 0;
     this->subtimer = 0x20;

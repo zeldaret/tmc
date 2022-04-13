@@ -26,7 +26,6 @@ void sub_0801FB68(Entity*);
 u32 sub_0801FBD0(Entity*);
 void Chuchu_JumpAtPlayer(Entity*);
 
-extern void (*const gUnk_080012C8[])(Entity*);
 extern void (*const Chuchu_Functions[])(Entity*);
 extern void (*const gUnk_080CA234[])(Entity*);
 extern void (*const gUnk_080CA25C[])(Entity*);

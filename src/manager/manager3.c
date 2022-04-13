@@ -25,11 +25,11 @@ typedef struct {
     u16 unk_3e;
 } Manager3;
 
-extern s8 gUnk_08107C6C[];
 extern u32 PortalReadyForMinish(void);
 extern u32 sub_080B1AC8(u16, u16, u8);
 
 void Manager3_Main(Manager3* this) {
+    static const s8 gUnk_08107C6C[] = { -3, -3, -3, 0 };
     s8 tmp;
     if (this->manager.action == 0) {
         this->manager.action = 1;

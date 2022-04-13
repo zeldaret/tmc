@@ -8,7 +8,6 @@
 #include "enemy.h"
 #include "functions.h"
 
-extern void (*const gUnk_080012C8[])(Entity*);
 extern void (*const Chaser_Functions[])(Entity*);
 extern void (*const gUnk_080CD298[])(Entity*);
 

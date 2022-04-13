@@ -12,8 +12,6 @@ void sub_08023E10(Entity*);
 void sub_08023E54(Entity*);
 void sub_08023E9C(Entity*);
 
-extern void (*const gUnk_080012C8[])(Entity*);
-
 extern void (*const Sluggula_Functions[])(Entity*);
 extern void (*const gUnk_080CBDD4[])(Entity*);
 extern void (*const gUnk_080CBDEC[])(Entity*);

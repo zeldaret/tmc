@@ -14,12 +14,19 @@ typedef struct {
 } PACKED PosOffset;
 
 void sub_08044FF8(Entity*);
+void Slime_OnTick(Entity*);
+void Slime_OnCollision(Entity*);
+void Slime_OnGrabbed(Entity*);
+void sub_08044FC8(Entity*);
+void sub_08044FF8(Entity*);
+void sub_08045018(Entity*);
+void sub_08045088(Entity*);
+void sub_080450A8(Entity*);
 void sub_08045178(Entity*, Entity*, int, int);
 
-extern void (*const gUnk_080D16BC[])(Entity*);
-extern void (*const Slime_Functions[])(Entity*);
-extern u8 gUnk_080D16D0[4]; // Entity count per form
-extern PosOffset gUnk_080D16D4[4];
+static void (*const Slime_Functions[])(Entity*) = {
+    Slime_OnTick, Slime_OnCollision, GenericKnockback, GenericDeath, GenericConfused, Slime_OnGrabbed,
+};
 
 void Slime(Entity* this) {
     EnemyFunctionHandler(this, Slime_Functions);
@@ -27,7 +34,10 @@ void Slime(Entity* this) {
 }
 
 void Slime_OnTick(Entity* this) {
-    gUnk_080D16BC[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_08044FC8, sub_08044FF8, sub_08045018, sub_08045088, sub_080450A8,
+    };
+    actionFuncs[this->action](this);
 }
 
 void Slime_OnCollision(Entity* this) {
@@ -89,10 +99,12 @@ void sub_080450A8(Entity* this) {
     Entity* entities[4];
     Entity* ent;
     s32 count, i;
-    PosOffset* off;
+    const PosOffset* off;
+    static const u8 typeEntityCount[4] = { 2, 2, 4, 2 };
+    static const PosOffset gUnk_080D16D4[4] = { { 6, 0 }, { -6, 0 }, { 0, 6 }, { 0, -6 } };
 
     /* Can we create enough new entities? */
-    count = gUnk_080D16D0[this->type];
+    count = typeEntityCount[this->type];
     if (MAX_ENTITIES + 1 - count <= gEntCount)
         return;
 

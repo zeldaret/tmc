@@ -10,9 +10,18 @@
 #include "functions.h"
 
 static void sub_0802F45C(Entity* this);
+static void Tektite_OnTick(Entity*);
+static void Tektite_OnCollision(Entity*);
+static void Tektite_OnConfused(Entity*);
+static void Tektite_OnGrabbed(Entity*);
+static void sub_0802F210(Entity*);
+static void sub_0802F284(Entity*);
+static void sub_0802F300(Entity*);
+static void sub_0802F3F4(Entity*);
 
-extern void (*const Tektite_Functions[])(Entity*);
-extern void (*const gUnk_080CDEE8[])(Entity*);
+static void (*const Tektite_Functions[])(Entity*) = {
+    Tektite_OnTick, Tektite_OnCollision, GenericKnockback, GenericDeath, Tektite_OnConfused, Tektite_OnGrabbed,
+};
 
 void Tektite(Entity* this) {
     EnemyFunctionHandler(this, Tektite_Functions);
@@ -20,10 +29,21 @@ void Tektite(Entity* this) {
 }
 
 void Tektite_OnTick(Entity* this) {
-    gUnk_080CDEE8[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_0802F210,
+        sub_0802F284,
+        sub_0802F300,
+        sub_0802F3F4,
+    };
+    actionFuncs[this->action](this);
 }
 
-extern u8 gUnk_080CDEF8[];
+static const u8 gUnk_080CDEF8[] = {
+    0x18,
+    0x28,
+    0x38,
+    0x48,
+};
 
 void Tektite_OnCollision(Entity* this) {
     u32 bVar1;

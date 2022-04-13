@@ -8,9 +8,21 @@
 #include "enemy.h"
 #include "physics.h"
 
-extern void (*const Rope_Functions[6])(Entity*);
-extern void (*const gUnk_080CE460[4])(Entity*);
-extern void (*const gUnk_080CE470[3])(Entity*);
+void Rope_OnTick(Entity*);
+void Rope_OnCollision(Entity*);
+void Rope_OnGrabbed(Entity*);
+void sub_08031434(Entity*);
+void sub_08031480(Entity*);
+void sub_080314FC(Entity*);
+void sub_080315BC(Entity*);
+void sub_0803140C(Entity*);
+void sub_08031418(Entity*);
+void sub_08031420(Entity*);
+
+static void (*const Rope_Functions[6])(Entity*) = {
+    Rope_OnTick, Rope_OnCollision, GenericKnockback, GenericDeath, GenericConfused, Rope_OnGrabbed,
+};
+
 extern Entity* gUnk_020000B0;
 
 void sub_08031600(Entity*);
@@ -22,7 +34,13 @@ void Rope(Entity* this) {
 }
 
 void Rope_OnTick(Entity* this) {
-    gUnk_080CE460[this->action](this);
+    static void (*const actionFuncs[4])(Entity*) = {
+        sub_08031434,
+        sub_08031480,
+        sub_080314FC,
+        sub_080315BC,
+    };
+    actionFuncs[this->action](this);
 }
 
 void Rope_OnCollision(Entity* this) {
@@ -38,8 +56,13 @@ void Rope_OnCollision(Entity* this) {
 }
 
 void Rope_OnGrabbed(Entity* this) {
+    static void (*const subActionFuncs[3])(Entity*) = {
+        sub_0803140C,
+        sub_08031418,
+        sub_08031420,
+    };
     if (sub_0806F520(this)) {
-        gUnk_080CE470[this->subAction](this);
+        subActionFuncs[this->subAction](this);
     }
 }
 

@@ -5,18 +5,28 @@
 #include "effects.h"
 #include "npc.h"
 
-extern void sub_08062CA4(Entity*);
-
-extern void (*gStampBehaviors1[4])(Entity*);
-extern void (*gStampBehaviors2[2])(Entity*);
-
-extern Dialog gUnk_0810C2E4[2];
+void sub_08062CA4(Entity*);
+void sub_08062BD4(Entity*);
+void sub_08062BF8(Entity*);
+void sub_08062C24(Entity*);
+void sub_08062C54(Entity*);
+void sub_08062C7C(Entity*);
 
 void Stamp(Entity* ent) {
+    static void (*const actionFuncs[4])(Entity*) = {
+        sub_08062BD4,
+        sub_08062BF8,
+        sub_08062C24,
+        sub_08062C54,
+    };
+    static void (*const scriptedActionFuncs[2])(Entity*) = {
+        sub_08062C7C,
+        sub_08062CA4,
+    };
     if ((ent->flags & ENT_SCRIPTED) != 0) {
-        gStampBehaviors2[ent->action](ent);
+        scriptedActionFuncs[ent->action](ent);
     } else {
-        gStampBehaviors1[ent->action](ent);
+        actionFuncs[ent->action](ent);
     }
 }
 
@@ -69,8 +79,17 @@ void sub_08062CA4(Entity* ent) {
 }
 
 void sub_08062CBC(Entity* ent) {
-    u32 uVar1 = CheckKinstoneFused(44);
-    ShowNPCDialogue(ent, &gUnk_0810C2E4[(-uVar1 | uVar1) >> 31]);
+    static const Dialog gUnk_0810C2E4[2] = {
+        { 0, 0, 0x3, 1, { 0x4001, 0x4000 } },
+        { 0, 0, 0x3, 1, { 0x4003, 0x4002 } },
+    };
+    u32 uVar1;
+    if (CheckKinstoneFused(44)) {
+        uVar1 = 1;
+    } else {
+        uVar1 = 0;
+    }
+    ShowNPCDialogue(ent, &gUnk_0810C2E4[uVar1]);
 }
 
 void sub_08062CE0(Entity* ent) {
