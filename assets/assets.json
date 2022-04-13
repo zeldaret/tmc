@@ -35785,11 +35785,6 @@
     "type": "animation"
   },
   {
-    "path": "stamp/gUnk_0810C2E4.bin",
-    "start": 1098468,
-    "size": 16
-  },
-  {
     "path": "animations/gSpriteAnimations_Marcy_0.bin",
     "start": 1098592,
     "size": 5,

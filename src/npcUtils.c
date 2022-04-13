@@ -336,7 +336,7 @@ void sub_0806F188(Entity* ent) {
         gSave.unk1C1[idx] = 0xF3;
 }
 
-void ShowNPCDialogue(Entity* ent, Dialog* dia) {
+void ShowNPCDialogue(Entity* ent, const Dialog* dia) {
     u32 uVar1;
     s32 temp;
     u32 uVar2;
