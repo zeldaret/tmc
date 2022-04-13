@@ -3,12 +3,18 @@
 #include "functions.h"
 #include "npc.h"
 
-extern void sub_0805FF2C(Entity*, ScriptExecutionContext*);
-
-extern void (*const gUnk_08109BBC[])(Entity*);
+void sub_0805FF2C(Entity*, ScriptExecutionContext*);
+void sub_0805FE10(Entity* this);
+void sub_0805FE48(Entity* this);
+void sub_0805FF18(Entity* this);
 
 void Festari(Entity* this) {
-    gUnk_08109BBC[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_0805FE10,
+        sub_0805FE48,
+        sub_0805FF18,
+    };
+    actionFuncs[this->action](this);
 }
 
 void sub_0805FE10(Entity* this) {

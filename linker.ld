@@ -1151,7 +1151,7 @@ SECTIONS {
         data/data_08108E6C.o(.rodata);
         src/playerItem/playerItemSpiralBeam.o(.rodata);
         data/animations/npc/gentari.o(.rodata);
-        data/const/npc/festari.o(.rodata);
+        src/npc/festari.o(.rodata);
         data/animations/npc/festari.o(.rodata);
         data/const/npc/forestMinish.o(.rodata);
         data/animations/npc/forestMinish.o(.rodata);
