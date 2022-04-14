@@ -3,14 +3,26 @@
 #include "script.h"
 #include "npc.h"
 
-extern void (*gUnk_0810FF5C[])(Entity* this);
-extern void (*gUnk_0810FF64[])(Entity* this);
+void sub_08065864(Entity* this);
+void sub_08065880(Entity* this);
+void sub_08065888(Entity* this);
+void sub_080658BC(Entity* this);
+void sub_08065900(Entity* this);
 
 void Malon(Entity* this) {
+    static void (*const actionFuncs[])(Entity * this) = {
+        sub_08065864,
+        sub_08065880,
+    };
+    static void (*const scriptedActionFuncs[])(Entity * this) = {
+        sub_08065888,
+        sub_080658BC,
+        sub_08065900,
+    };
     if (this->flags & ENT_SCRIPTED) {
-        gUnk_0810FF64[this->action](this);
+        scriptedActionFuncs[this->action](this);
     } else {
-        gUnk_0810FF5C[this->action](this);
+        actionFuncs[this->action](this);
         if (this->action != 0) {
             sub_0806ED78(this);
         }

@@ -1201,7 +1201,7 @@ SECTIONS {
         data/animations/npc/stockwell.o(.rodata);
         src/npc/talon.o(.rodata);
         data/animations/npc/talon.o(.rodata);
-        data/const/npc/malon.o(.rodata);
+        src/npc/malon.o(.rodata);
         data/animations/npc/malon.o(.rodata);
         data/const/npc/epona.o(.rodata);
         data/animations/npc/epona.o(.rodata);
