@@ -4,11 +4,19 @@
 #include "effects.h"
 #include "npc.h"
 
-extern void sub_08063280(Entity*, u32);
-
-extern void (*gMailboxBehaviors[4])(Entity*);
+void sub_08063280(Entity*);
+void sub_08063210(Entity*);
+void sub_08063220(Entity*);
+void sub_08063254(Entity*);
+void sub_08063278(Entity*);
 
 void Mailbox(Entity* this) {
+    static void (*const gMailboxBehaviors[4])(Entity*) = {
+        sub_08063210,
+        sub_08063220,
+        sub_08063254,
+        sub_08063278,
+    };
     gMailboxBehaviors[this->action](this);
 
     if (this->action != 0) {
@@ -34,30 +42,28 @@ void sub_08063220(Entity* this) {
     if (this->animIndex != bVar1) {
         InitAnimationForceUpdate(this, bVar1);
     } else {
-        sub_08063280(this, bVar1);
+        sub_08063280(this);
     }
 }
 
-void sub_08063254(Entity* this, u32 unused) {
-    sub_08063280(this, unused);
+void sub_08063254(Entity* this) {
+    sub_08063280(this);
     if ((this->frame & ANIM_DONE) != 0) {
         this->action = 3;
         MessageFromTarget(0);
     }
 }
 
-void sub_08063278(Entity* this, u32 unused) {
-    sub_08063280(this, unused);
+void sub_08063278(Entity* this) {
+    sub_08063280(this);
 }
 
-void sub_08063280(Entity* this, u32 unused) {
-    Entity* e; // r4@1
-    u8 var;    // r2@1
+void sub_08063280(Entity* this) {
+    u8 var; // r2@1
 
-    e = this;
-    UpdateAnimationSingleFrame(e);
-    var = e->frame & 0x7F;
-    e->frame ^= var;
+    UpdateAnimationSingleFrame(this);
+    var = this->frame & ~ANIM_DONE;
+    this->frame ^= var;
     if (var == 2)
-        CreateFx(e, FX_MAILBOX_UNUSED, 0);
+        CreateFx(this, FX_MAILBOX_UNUSED, 0);
 }

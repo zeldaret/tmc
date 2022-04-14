@@ -1175,7 +1175,7 @@ SECTIONS {
         data/animations/npc/pita.o(.rodata);
         src/npc/minishEzlo.o(.rodata);
         data/animations/npc/minishEzlo.o(.rodata);
-        data/const/npc/mailbox.o(.rodata);
+        src/npc/mailbox.o(.rodata);
         data/animations/npc/mailbox.o(.rodata);
         data/const/npc/beedle.o(.rodata);
         data/animations/npc/beedle.o(.rodata);
