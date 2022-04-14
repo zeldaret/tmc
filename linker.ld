@@ -1188,7 +1188,7 @@ SECTIONS {
         data/const/npc/guard.o(.rodata);
         src/npc/guardWithSpear.o(.rodata);
         data/animations/npc/guardWithSpear.o(.rodata);
-        data/const/npc/maid.o(.rodata);
+        src/npc/castleMaid.o(.rodata);
         data/animations/npc/maid.o(.rodata);
         data/animations/npc/din.o(.rodata);
         data/animations/npc/nayru.o(.rodata);

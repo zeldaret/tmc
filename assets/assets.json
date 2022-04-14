@@ -36462,21 +36462,6 @@
     "type": "animation"
   },
   {
-    "path": "maid/gUnk_0810F874.bin",
-    "start": 1112180,
-    "size": 24
-  },
-  {
-    "path": "maid/gUnk_0810F88C.bin",
-    "start": 1112204,
-    "size": 8
-  },
-  {
-    "path": "maid/gUnk_0810F894.bin",
-    "start": 1112212,
-    "size": 80
-  },
-  {
     "path": "animations/gSpriteAnimations_Din_0.bin",
     "start": 1112428,
     "size": 5,
