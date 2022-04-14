@@ -33,6 +33,7 @@ extern u16* gMoreSpritePtrs[];
 extern Screen gUnk_03001020;
 extern u8 gUnk_02024090[];
 extern u8 gUnk_03000420[];
+extern u16 gUnk_02017AA0[];
 
 void sub_080A5CFC(u32, void*, u32);
 void sub_080A6FB4(u32, u32);
@@ -42,12 +43,14 @@ void sub_080A70AC(const KeyButtonLayout* layout);
 u32 sub_080A6F40();
 void sub_080A67C4(u32);
 void sub_080A68D4();
-u32 sub_080A69E0();
+s32 sub_080A69E0();
 void sub_080A6EE0(u32 param_1);
 struct_08127F94* sub_080A6A80(u32 param_1, u32 param_2);
 void sub_080A698C(u32 param_1, u32 param_2, u32 param_3, u32 param_4);
 void sub_080A6438();
 void sub_080A5F48(u32, u32);
+void sub_080A6F6C(u32);
+bool32 sub_080A5F24(void);
 
 extern void DrawDungeonMap(u32 floor, struct_02019EE0* data, u32 size);
 extern void LoadDungeonMap(void);
@@ -76,6 +79,14 @@ typedef struct {
 } sturct_gUnk_08128F58;
 
 extern sturct_gUnk_08128F58 gUnk_08128F58[];
+
+typedef struct {
+    u8 unk0;
+    u8 unk1;
+    u16 unk2;
+    u16 unk4;
+    u16 unk6;
+} struct_sub_080A698C;
 
 extern void (*const gUnk_08128DCC[])(void);
 void sub_080A6378(void);
@@ -117,6 +128,19 @@ typedef struct {
 } struct_gUnk_08128E94;
 
 extern const struct_gUnk_08128E94 gUnk_08128E94[];
+
+typedef struct {
+    u8 unk0;
+    u8 unk1;
+    u8 unk2;
+    u8 unk3;
+    u8 unk4;
+    u8 unk5;
+    u8 unk6;
+    u8 unk7;
+} struct_gUnk_08128C14;
+extern struct_gUnk_08128C14 gUnk_08128C14[];
+extern struct_gUnk_08128C14 gUnk_08128C94[];
 
 typedef struct {
     u8 unk00 : 5;
@@ -214,9 +238,200 @@ void sub_080A5594(void) {
     SetMenuType(1);
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A56A0.inc", void sub_080A56A0())
+void sub_080A56A0(void) {
+    int iVar1;
+    u32 uVar2;
+    u32 uVar4;
+    struct_gUnk_08128C14* ptr;
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A57F4.inc", void sub_080A57F4())
+    if (!sub_080A51F4()) {
+        return;
+    }
+    gMenu.field_0xc = gUnk_08128C00;
+    ptr = &gUnk_08128C14[gMenu.field_0x3];
+    uVar2 = 0xff;
+    switch (gInput.unk4) {
+        case DPAD_UP:
+            uVar2 = ptr->unk0;
+            break;
+        case DPAD_DOWN:
+            uVar2 = ptr->unk1;
+            break;
+        case DPAD_LEFT:
+            uVar2 = ptr->unk2;
+            break;
+        case DPAD_RIGHT:
+            uVar2 = ptr->unk3;
+            break;
+    }
+
+    if (uVar2 != 0xff) {
+        gMenu.field_0x3 = uVar2;
+        SoundReq(SFX_TEXTBOX_CHOICE);
+    } else if (gInput.newKeys == A_BUTTON) {
+        uVar2 = gMenu.field_0x3;
+        iVar1 = 0;
+        switch (uVar2) {
+            case 0:
+            case 2:
+                if (gGenericMenu.unk10.a[uVar2] != 0) {
+                    iVar1 = 8;
+                    if (uVar2 == 0) {
+                        iVar1 = 7;
+                    }
+                }
+                break;
+#if !defined(DEMO_USA) && !defined(DEMO_JP)
+            case 4:
+                iVar1 = 9;
+                break;
+            case 5:
+                iVar1 = 10;
+                break;
+#else
+            case 4:
+                SoundReq(SFX_MENU_ERROR);
+                break;
+            case 5:
+                SoundReq(SFX_MENU_ERROR);
+                break;
+#endif
+        }
+        if (iVar1 != 0) {
+            sub_080A4E84(iVar1);
+            SoundReq(SFX_TEXTBOX_SELECT);
+        }
+    }
+    switch (gMenu.field_0x3) {
+        case 0:
+        case 2:
+            if (gGenericMenu.unk10.a[gMenu.field_0x3] != 0) {
+                gUnk_0200AF00.buttonY[0] = 0x10;
+            } else {
+                gUnk_0200AF00.buttonY[0] = 0xfff0;
+            }
+            break;
+        default:
+            gUnk_0200AF00.buttonY[0] = 0xfff0;
+            break;
+    }
+
+    uVar2 = gMenu.field_0x3;
+    uVar4 = gGenericMenu.unk10.a[uVar2];
+    if (uVar4 != 0) {
+        switch (uVar2) {
+            case 0:
+                if (uVar4 != 0x3d) {
+                    uVar4 = 0x67;
+                }
+                break;
+            case 1:
+                uVar4 = 99;
+                break;
+            case 2:
+                uVar4 = 0x70;
+                break;
+            case 4:
+                uVar4 = 0x74;
+                break;
+            case 5:
+                uVar4 = 0x73;
+        }
+    }
+    sub_080A6F6C(uVar4 + 0x400);
+}
+
+void sub_080A57F4(void) {
+    u32 bVar1;
+    u32 spriteIndex;
+    int frameIndex;
+    u32 uVar5;
+    struct_gUnk_08128C14* pbVar6;
+    u32 index;
+    int shells;
+    struct_gUnk_08128C14* puVar8;
+    struct_gUnk_08128C14* puVar10;
+
+    gOamCmd._4 = 0x400;
+    gOamCmd._6 = 0;
+    if (gSaveHeader->language == 0) {
+        puVar8 = gUnk_08128C14;
+    } else {
+        puVar8 = gUnk_08128C94;
+    }
+    puVar10 = &puVar8[gMenu.field_0x3];
+    gOamCmd._8 = 0x800;
+    gOamCmd.x = puVar10->unk6;
+    gOamCmd.y = puVar10->unk7;
+    frameIndex = puVar10->unk4 + 9;
+    if ((gMain.ticks.HWORD & 0x10) == 0) {
+        frameIndex += 2;
+    } else {
+        frameIndex += 1;
+    }
+    DrawDirect(DRAW_DIRECT_SPRITE_INDEX, frameIndex);
+
+    for (index = 0, pbVar6 = (struct_gUnk_08128C14*)((u8*)puVar8 + 5); index < 0x10; pbVar6++, index++) {
+        uVar5 = gGenericMenu.unk10.a[index];
+        if (uVar5 != 0) {
+            puVar10 = &puVar8[index];
+            gOamCmd.x = pbVar6->unk1;
+            bVar1 = pbVar6->unk2;
+            gOamCmd.y = bVar1;
+            gOamCmd._8 = 0xe800;
+            if (uVar5 < 0x34) {
+                if (index == 2) {
+                    uVar5 = pbVar6->unk0 + 10;
+                    spriteIndex = DRAW_DIRECT_SPRITE_INDEX;
+                } else {
+                    uVar5 = gGenericMenu.unk10.a[index] + 9;
+                    uVar5 += puVar10->unk5;
+                    spriteIndex = DRAW_DIRECT_SPRITE_INDEX;
+                }
+            } else {
+                gOamCmd._8 = index * 8 + 0xeb80;
+                switch (uVar5) {
+                    case 0x3e:
+                        gOamCmd.y = bVar1 + 8;
+                        break;
+                    case 0x3d:
+                        gOamCmd.y = bVar1 + 0xd;
+                        break;
+                }
+
+                uVar5 = gSpriteAnimations_322[uVar5]->index;
+#ifdef EU
+                spriteIndex = 0x141;
+#else
+                spriteIndex = 0x142;
+#endif
+            }
+            DrawDirect(spriteIndex, uVar5);
+        }
+    }
+
+    if (gGenericMenu.unk10.a[2] != 0) {
+        gOamCmd._8 = gGenericMenu.unk10.a[2] + 0x800;
+        puVar10 = puVar8 + 2;
+        gOamCmd.x = puVar10->unk6 + 9;
+        gOamCmd.y = puVar10->unk7 + 7;
+        DrawDirect(0, 1);
+    }
+
+    if (gGenericMenu.unk10.a[3] == 0x3f) {
+        puVar10 = puVar8 + 3;
+        gOamCmd.x = puVar10->unk6 + 8;
+        gOamCmd.y = puVar10->unk7 + 8;
+        shells = gSave.stats.shells;
+
+        for (index = 0; index < 3; index++) {
+            gOamCmd._8 = shells % 10 + 0x800;
+            DrawDirect(0, 1);
+            shells /= 10;
+            gOamCmd.x -= 8;
+        }
+    }
+}
 
 void sub_080A5990(void) {
     extern void (*const gUnk_08128D14[])(void);
@@ -448,7 +663,105 @@ void sub_080A5CFC(u32 menuType, void* param_2, u32 param_3) {
     DrawDungeonMap(menuType, &gMapDataBottomSpecial, 0x400);
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A5D1C.inc", void sub_080A5D1C())
+#ifdef EU
+#define SUB_080A5D1C_SPRITE_INDEX 0x143
+#else
+#define SUB_080A5D1C_SPRITE_INDEX 0x144
+#endif
+
+void sub_080A5D1C(void) {
+    extern u8 gUnk_08128D3C[];
+    u32 bVar1;
+    int iVar3;
+    u32 uVar4;
+    u32 uVar6;
+    u32 index;
+    u8* puVar8;
+    u8* pbVar9;
+
+    pbVar9 = &gUnk_080C9C6C[gArea.dungeon_idx * 4];
+    bVar1 = gUnk_08128D3C[*pbVar9];
+    uVar4 = sub_0801DB94();
+    gOamCmd._4 = 0x400;
+    gOamCmd._6 = 0;
+    gOamCmd._8 = 0;
+    gOamCmd.x = 0x34;
+    gOamCmd.y = bVar1 + gMenu.field_0x3 * 0xc;
+    DrawDirect(DRAW_DIRECT_SPRITE_INDEX, (gMain.ticks.HWORD & 0x10) == 0 ? 0x75 : 0x74);
+    gOamCmd.x = 0x20;
+    gOamCmd.y = bVar1 + uVar4 * 0xc;
+    DrawDirect(DRAW_DIRECT_SPRITE_INDEX, (gMain.ticks.HWORD & 0x20) != 0 ? 0x78 : 0x79);
+    gOamCmd.y = 0x7e;
+    gOamCmd._8 = 0x4380;
+    if (HasDungeonSmallKey()) {
+        gOamCmd.x = 0x18;
+        iVar3 = gSpriteAnimations_322[0x50]->index;
+        DrawDirect(SUB_080A5D1C_SPRITE_INDEX, iVar3);
+    }
+    if (HasDungeonCompass()) {
+        gOamCmd.x = 0x2e;
+        iVar3 = gSpriteAnimations_322[0x52]->index;
+        DrawDirect(SUB_080A5D1C_SPRITE_INDEX, iVar3);
+    }
+    if (HasDungeonBigKey()) {
+        gOamCmd.x = 0x45;
+        gOamCmd._8 = 0x380;
+        iVar3 = gSpriteAnimations_322[0x51]->index;
+        DrawDirect(SUB_080A5D1C_SPRITE_INDEX, iVar3);
+        if (sub_080A5F24()) {
+            gOamCmd._8 = 0;
+            gOamCmd.x = 0x46;
+            gOamCmd.y = bVar1 + (pbVar9[1] - pbVar9[2]) * 0xc;
+            if ((gMain.ticks.HWORD & 0x20) != 0) {
+                uVar6 = 0x7a;
+            } else {
+                uVar6 = 0x7b;
+            }
+            DrawDirect(DRAW_DIRECT_SPRITE_INDEX, uVar6);
+        }
+    }
+    gOamCmd._8 = 0;
+    gOamCmd.x = 0x34;
+    gOamCmd.y = bVar1;
+    iVar3 = pbVar9[1] + 0x82;
+
+    for (index = 0; index < *pbVar9; index++) {
+        DrawDirect(DRAW_DIRECT_SPRITE_INDEX, iVar3);
+        iVar3--;
+        gOamCmd.y = gOamCmd.y + 0xc;
+    }
+
+    puVar8 = (u8*)&gMapDataBottomSpecial;
+    while (*puVar8 != 0) {
+        switch (*puVar8) {
+            case 1:
+                iVar3 = 0x7d;
+                if (uVar4 != gMenu.field_0x3) {
+                    iVar3 = 0x7e;
+                }
+                break;
+            case 2:
+                iVar3 = 0x80;
+                break;
+            case 3:
+                iVar3 = 0x81;
+                break;
+            case 4:
+                if (sub_080A5F24()) {
+                    iVar3 = 0x7f;
+                    break;
+                }
+            default:
+                iVar3 = 0xff;
+                break;
+        }
+
+        gOamCmd.x = puVar8[1] + 0x50 - gScreen.bg1.xOffset;
+        gOamCmd.y = puVar8[2] + 0x10 - gScreen.bg1.yOffset;
+        DrawDirect(DRAW_DIRECT_SPRITE_INDEX, iVar3);
+        puVar8 += 3;
+    }
+}
 
 bool32 sub_080A5F24(void) {
     bool32 result = TRUE;
@@ -696,7 +1009,7 @@ void sub_080A6378(void) {
     gOamCmd._6 = 0;
     gOamCmd._8 = 0x7000;
     if ((gGenericMenu.unk2c & 0x20) == 0) {
-        gOamCmd.x = gRoomTransition.player_status.overworld_map_x * 0xa0 / 0xf90 + 0x28;
+        gOamCmd.x = gRoomTransition.player_status.overworld_map_x * DISPLAY_HEIGHT / 0xf90 + 0x28;
         gOamCmd.y = (gRoomTransition.player_status.overworld_map_y << 7) / 0xc60 + 0xc;
         if ((gPlayerState.flags & PL_NO_CAP) != 0) {
             frameIndex = 0x5a;
@@ -850,9 +1163,105 @@ void sub_080A667C(void) {
     sub_080A6FB4(gMenu.field_0x3, 0);
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A66D0.inc", void sub_080A66D0())
+void sub_080A66D0(void) {
+    u32 bVar2;
+    u32 bVar3;
+    u8 bVar4;
+    u32 uVar5;
+    u32 uVar8;
+    struct_sub_080A698C* ptr;
+    const struct_gUnk_08128E94* ptr2;
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A67C4.inc", void sub_080A67C4(u32 param_1))
+    gOamCmd._4 = 0;
+    gOamCmd._6 = 0;
+    gOamCmd.x = 0x78;
+    ptr2 = &gUnk_08128E94[gMenu.field_0x3];
+    gGenericMenu.unk2c++;
+    if (gGenericMenu.unk2b != 1 && ((gGenericMenu.unk2c & 0x10) != 0)) {
+        gOamCmd._8 = 0x800;
+        if (gMenu.field_0xa != 0) {
+            gOamCmd.y = 0xc;
+            DrawDirect(DRAW_DIRECT_SPRITE_INDEX, 0x71);
+        }
+        if (ptr2->unk2 > gMenu.field_0xa) {
+            gOamCmd.y = 0x84;
+            DrawDirect(DRAW_DIRECT_SPRITE_INDEX, 0x72);
+        }
+    }
+    bVar2 = ptr2->unk7;
+    bVar3 = ptr2->unk3;
+    uVar5 = gMenu.field_0xa;
+    gOamCmd._4 = 0;
+    gOamCmd._6 = 0;
+    gOamCmd._8 = 0xc00;
+    bVar4 = gGenericMenu.unk2c & 0x20;
+
+    for (ptr = (struct_sub_080A698C*)&gMapDataBottomSpecial; ptr->unk2 != 0; ptr++) {
+        uVar8 = 0;
+        if (ptr->unk0 == 1) {
+            if (bVar4 != 0) {
+                uVar8 = 1;
+            }
+        } else if (bVar4 == 0) {
+            uVar8 = 1;
+        }
+
+        if (uVar8 != 0) {
+            gOamCmd.x = ptr->unk4 + bVar2;
+            gOamCmd.y = ptr->unk6 + bVar3 - uVar5;
+            DrawDirect(ptr->unk2, ptr->unk1);
+        }
+    }
+}
+
+void sub_080A67C4(u32 param_1) {
+    u16* puVar2;
+    int i;
+    int iVar4;
+    s32 room;
+    const struct_gUnk_08128E94* ptr;
+
+    LoadPaletteGroup(param_1 + 0xba);
+    iVar4 = param_1 + 0x5f;
+    switch (param_1) {
+        case 0x9:
+            if (CheckGlobalFlag(TATEKAKE_HOUSE)) {
+                iVar4 = 0x70;
+            }
+            break;
+        case 0xb:
+            if (CheckKinstoneFused(0xe)) {
+                iVar4 = 0x71;
+            }
+            break;
+        case 0xe:
+            if (gUI.roomControls.area == 8) {
+                room = gUI.roomControls.room;
+                iVar4 = (u8)(room % 3) + 0x72;
+            }
+            break;
+    }
+
+    LoadGfxGroup(iVar4);
+    ptr = &gUnk_08128E94[param_1];
+    puVar2 = &gUnk_02017AA0[gUnk_03003DE4 * 0x500];
+
+    for (i = 0; i <= 7; puVar2++, i++) {
+        *puVar2 = 0x1e0a;
+    }
+
+    for (i = 8; i < (int)(ptr->unk5 + ptr->unk4); puVar2++, i++) {
+        *puVar2 = 0x1e0b;
+    }
+
+    for (; i < 0xa0; puVar2++, i++) {
+        *puVar2 = 0x1e0a;
+    }
+
+    sub_0805622C(&gUnk_02017AA0[gUnk_03003DE4 * 0x500], REG_ADDR_BG3CNT, 0xa2600001);
+    gMenu.field_0xa = ptr->unk2 >> 1;
+    MemClear(&gMapDataBottomSpecial, 0x400);
+}
 
 void sub_080A68D4(void) {
     u32 uVar1;
@@ -887,18 +1296,10 @@ void sub_080A68D4(void) {
     }
 }
 
-typedef struct {
-    u8 unk0;
-    u8 unk1;
-    u16 unk2;
-    u16 unk4;
-    u16 unk6;
-} struct_sub_080A698C;
-
 void sub_080A698C(u32 param_1, u32 param_2, u32 param_3, u32 param_4) {
     int iVar1;
 
-    iVar1 = sub_080A69E0();
+    iVar1 = sub_080A69E0(param_1, param_2);
     if (0 < iVar1) {
         ((struct_sub_080A698C*)&gMapDataBottomSpecial)[gGenericMenu.unk2d].unk0 = param_4 >> 8;
         ((struct_sub_080A698C*)&gMapDataBottomSpecial)[gGenericMenu.unk2d].unk1 = param_4;
@@ -909,7 +1310,7 @@ void sub_080A698C(u32 param_1, u32 param_2, u32 param_3, u32 param_4) {
     }
 }
 
-u32 sub_080A69E0(u32 param_1, u32 param_2) {
+s32 sub_080A69E0(u32 param_1, u32 param_2) {
     const struct_08127F94* pbVar1;
     int iVar3;
 
@@ -968,7 +1369,56 @@ void Subtask_LocalMapHint() {
     CopyOAM();
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A6B04.inc", void sub_080A6B04())
+void sub_080A6B04(void) {
+    u32 bVar1;
+    u32 uVar2;
+    u32 uVar3;
+    u32 uVar4;
+    int uVar6;
+    u32 uVar7;
+    struct_080C9CBC* ptr;
+    struct_080FE320* ptr2;
+    const struct_gUnk_08128E94* ptr3;
+
+    sub_080A4D34();
+    sub_080A4DB8(6);
+    ptr = &gUnk_080C9CBC[gFuseInfo._3];
+    ptr2 = &gUnk_080FE320[ptr->evt_type];
+    bVar1 = ptr->_5[1];
+    uVar3 = ptr2->_c;
+    uVar4 = ptr2->_e;
+    uVar2 = sub_080A6A80(uVar3, uVar4)->_4;
+    gMenu.field_0x3 = uVar2;
+    gGenericMenu.unk2b = 1;
+    sub_080A67C4(uVar2);
+    sub_080A6FB4(uVar2, 2);
+    SetColor(0, 0x475f);
+    SetColor(0x5f, 0x475f);
+    MemFill16(0x5001, &gBG3Buffer, sizeof(gBG3Buffer));
+    if ((gPlayerState.flags & PL_NO_CAP) != 0) {
+        uVar7 = 101;
+    } else {
+        uVar7 = 100;
+    }
+    sub_080A698C(gRoomTransition.player_status.overworld_map_x, gRoomTransition.player_status.overworld_map_y,
+                 DRAW_DIRECT_SPRITE_INDEX, uVar7 + 0x100);
+    sub_080A698C(uVar3, uVar4, DRAW_DIRECT_SPRITE_INDEX, bVar1 + 100);
+    uVar4 = sub_080A69E0(uVar3, uVar4) >> 0x10;
+    ptr3 = &gUnk_08128E94[gMenu.field_0x3];
+    gMenu.field_0xa = 0;
+    if (ptr3->unk2 != 0) {
+        uVar6 = uVar4 - 0x3c;
+        if (uVar6 > 0) {
+            if (ptr3->unk2 < uVar6) {
+                uVar6 = ptr3->unk2;
+            }
+            gMenu.field_0xa = uVar6;
+        }
+    }
+    gMenu.transitionTimer = 0x1e;
+    SetMenuType(1);
+    SetFade(FADE_INSTANT, 8);
+}
 
 void sub_080A6C1C(void) {
     if (!gFadeControl.active) {
@@ -976,9 +1426,9 @@ void sub_080A6C1C(void) {
             case 0:
                 sub_080A66D0();
                 switch (gInput.newKeys) {
-                    case 1:
-                    case 2:
-                    case 8:
+                    case A_BUTTON:
+                    case B_BUTTON:
+                    case START_BUTTON:
                         Subtask_Exit();
                         break;
                 }
@@ -1147,7 +1597,20 @@ void sub_080A6E70(void) {
     }
 }
 
-ASM_FUNC("asm/non_matching/subtask2/sub_080A6EE0.inc", void sub_080A6EE0(u32 param_1))
+void sub_080A6EE0(u32 param_1) {
+    u32 x;
+    u32 y;
+    RoomHeader* roomHeader;
+    const ScreenTransitionData* ptr = &gUnk_08128024[param_1];
+
+    x = (u16)ptr->playerXPos;
+    y = (u16)ptr->playerYPos;
+    roomHeader = &gAreaRoomHeaders[ptr->area][ptr->room];
+    x += roomHeader->map_x;
+    y += roomHeader->map_y;
+    gOamCmd.x = (s32)(x * DISPLAY_HEIGHT) / 0xf90 + 0x28;
+    gOamCmd.y = (s32)(y * DISPLAY_HEIGHT) / 0xf90 + 0xc;
+}
 
 u32 sub_080A6F40(void) {
     extern u8 gUnk_08128F38[];
