@@ -1184,7 +1184,6 @@ SECTIONS {
         data/const/npc/sittingPerson.o(.rodata);
         data/animations/npc/sittingPerson.o(.rodata);
         src/npc/pina.o(.rodata);
-        data/const/npc/pina.o(.rodata);
         data/animations/npc/pina.o(.rodata);
         data/const/npc/guard.o(.rodata);
         src/npc/guardWithSpear.o(.rodata);
