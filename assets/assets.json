@@ -35917,16 +35917,6 @@
     "type": "animation"
   },
   {
-    "path": "minishEzlo/gUnk_0810C48C.bin",
-    "start": 1098892,
-    "size": 12
-  },
-  {
-    "path": "minishEzlo/gUnk_0810C498.bin",
-    "start": 1098904,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_Mailbox_0.bin",
     "start": 1099796,
     "size": 5,
