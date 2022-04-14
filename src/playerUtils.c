@@ -875,7 +875,7 @@ s32 sub_08078828(Entity* ent) {
     return iVar1;
 }
 
-void sub_08078850(Entity* arg0, u32 arg1, u32 arg2, void* arg3) {
+void sub_08078850(Entity* arg0, u32 arg1, u32 arg2, const void* arg3) {
     s32 iVar1;
 
     iVar1 = sub_08078904(arg0);
