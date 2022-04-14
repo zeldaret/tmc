@@ -36818,11 +36818,6 @@
     "type": "animation"
   },
   {
-    "path": "epona/gUnk_08110080.bin",
-    "start": 1114240,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_MilkCart_0.bin",
     "start": 1114400,
     "size": 5,
