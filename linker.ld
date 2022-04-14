@@ -1180,7 +1180,6 @@ SECTIONS {
         src/npc/beedle.o(.rodata);
         data/animations/npc/beedle.o(.rodata);
         src/npc/brocco.o(.rodata);
-        data/const/npc/brocco.o(.rodata);
         data/animations/npc/brocco.o(.rodata);
         data/const/npc/sittingPerson.o(.rodata);
         data/animations/npc/sittingPerson.o(.rodata);

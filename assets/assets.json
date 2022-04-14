@@ -35977,31 +35977,6 @@
     "type": "animation"
   },
   {
-    "path": "beedle/gUnk_0810C88C.bin",
-    "start": 1099916,
-    "size": 8
-  },
-  {
-    "path": "beedle/gUnk_0810C894.bin",
-    "start": 1099924,
-    "size": 8
-  },
-  {
-    "path": "beedle/gUnk_0810C89C.bin",
-    "start": 1099932,
-    "size": 56
-  },
-  {
-    "path": "beedle/gUnk_0810C8D4.bin",
-    "start": 1099988,
-    "size": 12
-  },
-  {
-    "path": "beedle/gUnk_0810C8F0.bin",
-    "start": 1100016,
-    "size": 120
-  },
-  {
     "path": "animations/gSpriteAnimations_Brocco_0.bin",
     "start": 1100540,
     "size": 73,
@@ -36024,11 +35999,6 @@
     "start": 1100623,
     "size": 5,
     "type": "animation"
-  },
-  {
-    "path": "brocco/gUnk_0810CAAC.bin",
-    "start": 1100460,
-    "size": 80
   },
   {
     "path": "animations/gSpriteAnimations_SittingPerson_0.bin",
