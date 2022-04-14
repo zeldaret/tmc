@@ -1173,7 +1173,7 @@ SECTIONS {
         data/animations/npc/wheaton.o(.rodata);
         src/npc/pita.o(.rodata);
         data/animations/npc/pita.o(.rodata);
-        data/const/npc/minishEzlo.o(.rodata);
+        src/npc/minishEzlo.o(.rodata);
         data/animations/npc/minishEzlo.o(.rodata);
         data/const/npc/mailbox.o(.rodata);
         data/animations/npc/mailbox.o(.rodata);
