@@ -8,18 +8,35 @@
 #include "item.h"
 #include "game.h"
 
-extern void (*const gUnk_0810FDC8[])(Entity*);
-extern void (*const gUnk_0810FDA4[])(Entity*);
+#ifndef EU
+static const u8 gUnk_0810FDA0[] = { 0, 8, 10, 16 };
+#endif
+
 extern u16 script_StockwellBuy[];
 extern u16 script_StockwellDogFood[];
-extern u8 gUnk_0810FDB8[];
 
 extern void InitScriptExecutionContext(ScriptExecutionContext* context, u16* script);
-extern u32 gUnk_0810FDA0;
 extern u16 script_Stockwell;
 
+void sub_08065080(Entity*);
+void sub_080650CC(Entity*);
+void sub_080651AC(Entity*);
+void sub_080651D8(Entity*);
+void sub_08065368(Entity*);
+void sub_080651F8(Entity*);
+void sub_0806522C(Entity*);
+void sub_08065250(Entity*);
+void sub_0806528C(Entity*);
+void sub_080652B0(Entity*);
+void sub_080652E4(Entity*);
+void sub_08065314(Entity*);
+void sub_08065338(Entity*);
+
 void Stockwell(Entity* this) {
-    gUnk_0810FDA4[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_08065080, sub_080650CC, sub_080651AC, sub_080651D8, sub_08065368,
+    };
+    actionFuncs[this->action](this);
     ExecuteScript(this, *(ScriptExecutionContext**)&this->cutsceneBeh);
     sub_0806ED78(this);
 }
@@ -40,6 +57,7 @@ void sub_08065080(Entity* this) {
 }
 
 void sub_080650CC(Entity* this) {
+    static const u8 gUnk_0810FDB8[] = { 4, 6, 6, 5, 6, 6, 6, 5, 6, 6, 6, 5, 6, 6, 6, 5 };
     u32 bVar2;
     u32 confirmMsgId;
     u32 itemPrice;
@@ -52,7 +70,7 @@ void sub_080650CC(Entity* this) {
         bVar2 = this->frame & 0x20;
         if ((bVar2 == 0) && (this->interactType != 0)) {
             this->interactType = bVar2;
-            this->action = this->action + 1;
+            this->action++;
             InitializeAnimation(this, 7);
             if (gRoomVars.shopItemType == 0) {
                 confirmMsgId = 0x2c01;
@@ -85,8 +103,11 @@ void sub_080651AC(Entity* this) {
 }
 
 void sub_080651D8(Entity* this) {
+    static void (*const subActionFuncs[])(Entity*) = {
+        sub_080651F8, sub_0806522C, sub_08065250, sub_0806528C, sub_080652B0, sub_080652E4, sub_08065314, sub_08065338,
+    };
     GetNextFrame(this);
-    gUnk_0810FDC8[this->subAction](this);
+    subActionFuncs[this->subAction](this);
 }
 
 void sub_080651F8(Entity* this) {

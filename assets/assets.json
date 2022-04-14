@@ -36686,22 +36686,6 @@
     "type": "animation"
   },
   {
-    "path": "stockwell/gUnk_0810FDA0_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1113504,
-    "size": 4
-  },
-  {
-    "path": "stockwell/gUnk_0810FDB8.bin",
-    "start": 1113528,
-    "size": 16
-  },
-  {
     "path": "animations/gSpriteAnimations_Talon_2.bin",
     "start": 1113824,
     "size": 5,

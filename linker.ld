@@ -1197,7 +1197,7 @@ SECTIONS {
         data/animations/npc/sturgeon.o(.rodata);
         src/npc/tingleSiblings.o(.rodata);
         data/animations/npc/tingleSiblings.o(.rodata);
-        data/const/npc/stockwell.o(.rodata);
+        src/npc/stockwell.o(.rodata);
         data/animations/npc/stockwell.o(.rodata);
         data/const/npc/talon.o(.rodata);
         data/animations/npc/talon.o(.rodata);
