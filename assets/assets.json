@@ -36734,16 +36734,6 @@
     "type": "animation"
   },
   {
-    "path": "talon/gUnk_0810FEB0.bin",
-    "start": 1113776,
-    "size": 12
-  },
-  {
-    "path": "talon/gUnk_0810FED8.bin",
-    "start": 1113816,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_Malon_0.bin",
     "start": 1113968,
     "size": 5,

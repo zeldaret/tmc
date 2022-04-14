@@ -1199,7 +1199,7 @@ SECTIONS {
         data/animations/npc/tingleSiblings.o(.rodata);
         src/npc/stockwell.o(.rodata);
         data/animations/npc/stockwell.o(.rodata);
-        data/const/npc/talon.o(.rodata);
+        src/npc/talon.o(.rodata);
         data/animations/npc/talon.o(.rodata);
         data/const/npc/malon.o(.rodata);
         data/animations/npc/malon.o(.rodata);
