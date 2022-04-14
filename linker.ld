@@ -1205,7 +1205,7 @@ SECTIONS {
         data/animations/npc/malon.o(.rodata);
         src/npc/epona.o(.rodata);
         data/animations/npc/epona.o(.rodata);
-        data/const/npc/milkCart.o(.rodata);
+        src/npc/milkCart.o(.rodata);
         data/animations/npc/milkCart.o(.rodata);
         data/const/npc/ghostBrothers.o(.rodata);
         data/animations/npc/ghostBrothers.o(.rodata);

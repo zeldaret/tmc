@@ -1,9 +1,14 @@
 #include "entity.h"
 #include "npc.h"
 
-extern void (*gMilkCartBehaviors[2])(Entity*);
+void sub_08065B6C(Entity*);
+void sub_08065B9C(Entity*);
 
 void MilkCart(Entity* ent) {
+    static void (*const gMilkCartBehaviors[2])(Entity*) = {
+        sub_08065B6C,
+        sub_08065B9C,
+    };
     gMilkCartBehaviors[ent->action](ent);
     sub_0806ED78(ent);
 }
