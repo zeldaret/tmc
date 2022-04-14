@@ -251,16 +251,16 @@ void sub_080A56A0(void) {
     ptr = &gUnk_08128C14[gMenu.field_0x3];
     uVar2 = 0xff;
     switch (gInput.unk4) {
-        case 0x40:
+        case DPAD_UP:
             uVar2 = ptr->unk0;
             break;
-        case 0x80:
+        case DPAD_DOWN:
             uVar2 = ptr->unk1;
             break;
-        case 0x20:
+        case DPAD_LEFT:
             uVar2 = ptr->unk2;
             break;
-        case 0x10:
+        case DPAD_RIGHT:
             uVar2 = ptr->unk3;
             break;
     }
@@ -268,7 +268,7 @@ void sub_080A56A0(void) {
     if (uVar2 != 0xff) {
         gMenu.field_0x3 = uVar2;
         SoundReq(SFX_TEXTBOX_CHOICE);
-    } else if (gInput.newKeys == 1) {
+    } else if (gInput.newKeys == A_BUTTON) {
         uVar2 = gMenu.field_0x3;
         iVar1 = 0;
         switch (uVar2) {
@@ -1009,7 +1009,7 @@ void sub_080A6378(void) {
     gOamCmd._6 = 0;
     gOamCmd._8 = 0x7000;
     if ((gGenericMenu.unk2c & 0x20) == 0) {
-        gOamCmd.x = gRoomTransition.player_status.overworld_map_x * 0xa0 / 0xf90 + 0x28;
+        gOamCmd.x = gRoomTransition.player_status.overworld_map_x * DISPLAY_HEIGHT / 0xf90 + 0x28;
         gOamCmd.y = (gRoomTransition.player_status.overworld_map_y << 7) / 0xc60 + 0xc;
         if ((gPlayerState.flags & 8) != 0) {
             frameIndex = 0x5a;
@@ -1426,9 +1426,9 @@ void sub_080A6C1C(void) {
             case 0:
                 sub_080A66D0();
                 switch (gInput.newKeys) {
-                    case 1:
-                    case 2:
-                    case 8:
+                    case A_BUTTON:
+                    case B_BUTTON:
+                    case START_BUTTON:
                         Subtask_Exit();
                         break;
                 }
@@ -1608,8 +1608,8 @@ void sub_080A6EE0(u32 param_1) {
     roomHeader = &gAreaRoomHeaders[ptr->area][ptr->room];
     x += roomHeader->map_x;
     y += roomHeader->map_y;
-    gOamCmd.x = (s32)(x * 0xa0) / 0xf90 + 0x28;
-    gOamCmd.y = (s32)(y * 0xa0) / 0xf90 + 0xc;
+    gOamCmd.x = (s32)(x * DISPLAY_HEIGHT) / 0xf90 + 0x28;
+    gOamCmd.y = (s32)(y * DISPLAY_HEIGHT) / 0xf90 + 0xc;
 }
 
 u32 sub_080A6F40(void) {
