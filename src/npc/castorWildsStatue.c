@@ -6,27 +6,35 @@
 #include "effects.h"
 #include "npc.h"
 
-extern Hitbox gUnk_08110E94;
-
-extern void (*gUnk_08110E4C[])(Entity*);
-extern void (*gUnk_08110E5C[])(Entity*);
-
-extern s8 gUnk_08110E64[];
-
-extern u32 gUnk_08110E68[];
+static const Hitbox gUnk_08110E94;
 
 typedef struct {
     s8 x;
     s8 y;
 } PACKED PosOffset;
-extern PosOffset gUnk_08110E78[];
-extern PosOffset gUnk_08110E8A[];
+
+void sub_080673C0(Entity*);
+void sub_080673F4(Entity*);
+void sub_08067410(Entity*);
+void sub_0806752C(Entity*);
+void sub_08067418(Entity*);
+void sub_08067514(Entity*);
 
 void CastorWildsStatue(Entity* this) {
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_080673C0,
+        sub_080673F4,
+        sub_08067410,
+        sub_0806752C,
+    };
+    static void (*const scriptedActionFuncs[])(Entity*) = {
+        sub_08067418,
+        sub_08067514,
+    };
     if ((this->flags & ENT_SCRIPTED) != 0) {
-        gUnk_08110E5C[this->action](this);
+        scriptedActionFuncs[this->action](this);
     } else {
-        gUnk_08110E4C[this->action](this);
+        actionFuncs[this->action](this);
         sub_0806ED78(this);
     }
 }
@@ -39,7 +47,7 @@ void sub_080673C0(Entity* this) {
     }
     this->frameIndex = this->type & 1;
     if ((this->type & 1) == 0) {
-        this->hitbox = &gUnk_08110E94;
+        this->hitbox = (Hitbox*)&gUnk_08110E94;
     }
 }
 
@@ -58,7 +66,7 @@ void sub_08067418(Entity* this) {
     this->action = 1;
     this->field_0x74.HWORD = COORD_TO_TILE(this);
     if (this->type == 0) {
-        this->hitbox = &gUnk_08110E94;
+        this->hitbox = (Hitbox*)&gUnk_08110E94;
         SetTile(0x4022, this->field_0x74.HWORD - 1, this->collisionLayer);
         SetTile(0x4022, this->field_0x74.HWORD, this->collisionLayer);
         SetTile(0x4022, this->field_0x74.HWORD + 0x3f, this->collisionLayer);
@@ -94,6 +102,7 @@ void sub_0806752C(Entity* this) {
 }
 
 void sub_08067534(Entity* this) {
+    static const s8 gUnk_08110E64[] = { -8, 8, 0, 0 };
     Entity* entity;
     s32 i;
     for (i = 0; i < 2; ++i) {
@@ -108,6 +117,7 @@ void sub_08067534(Entity* this) {
 }
 
 void sub_0806757C(Entity* this) {
+    static const u32 gUnk_08110E68[] = { 0xc8, 0xc9, 0xca, 0xc8 };
     if (this->subAction != 0) {
         if (this->subAction >= 3) {
             RestorePrevTileEntity(0xe81, 1);
@@ -121,7 +131,13 @@ void sub_0806757C(Entity* this) {
 }
 
 void sub_080675D4(Entity* this) {
-    PosOffset* gUnk = gUnk_08110E78;
+    static const PosOffset gUnk_08110E78[] = { { 0x0, 0x0 },    { 0x0, -0x10 }, { 0x0, 0x10 },
+                                               { -0x10, 0x0 },  { 0x10, 0x0 },  { -0x10, -0x10 },
+                                               { -0x10, 0x10 }, { 0x10, 0x10 }, { 0x10, -0x10 } };
+    static const PosOffset gUnk_08110E8A[] = {
+        { -0xc, -0xc }, { 0xc, -0xc }, { -0xc, 0xc }, { 0xc, 0xc }, { 0x0, 0x0 }
+    };
+    const PosOffset* gUnk = gUnk_08110E78;
     u32 subAction = (this->subAction << 2) - 0xc;
     s32 i;
 
@@ -154,6 +170,8 @@ void sub_080675D4(Entity* this) {
         this->spriteSettings.draw = 0;
     }
 }
+
+static const Hitbox gUnk_08110E94 = { 0, 3, { 5, 3, 3, 5 }, 12, 20 };
 
 void sub_080676D8(Entity* this) {
     this->subAction += 1;

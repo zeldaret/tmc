@@ -37424,31 +37424,6 @@
     "type": "animation"
   },
   {
-    "path": "castorWildsStatue/gUnk_08110E64.bin",
-    "start": 1117796,
-    "size": 4
-  },
-  {
-    "path": "castorWildsStatue/gUnk_08110E68.bin",
-    "start": 1117800,
-    "size": 16
-  },
-  {
-    "path": "castorWildsStatue/gUnk_08110E78.bin",
-    "start": 1117816,
-    "size": 18
-  },
-  {
-    "path": "castorWildsStatue/gUnk_08110E8A.bin",
-    "start": 1117834,
-    "size": 10
-  },
-  {
-    "path": "castorWildsStatue/gUnk_08110E94.bin",
-    "start": 1117844,
-    "size": 8
-  },
-  {
     "path": "cat/gUnk_08111114.bin",
     "start": 1118484,
     "size": 8

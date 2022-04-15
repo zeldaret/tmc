@@ -1225,7 +1225,7 @@ SECTIONS {
         data/animations/npc/mutoh.o(.rodata);
         src/npc/carpenter.o(.rodata);
         data/animations/npc/carpenter.o(.rodata);
-        data/const/npc/castorWildsStatue.o(.rodata);
+        src/npc/castorWildsStatue.o(.rodata);
         data/animations/npc/castorWildsStatue.o(.rodata);
         data/const/npc/cat.o(.rodata);
         data/animations/npc/cat.o(.rodata);
