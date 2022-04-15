@@ -1214,7 +1214,7 @@ SECTIONS {
         src/npc/npc23.o(.rodata);
         src/npc/kingDaltus.o(.rodata);
         data/animations/npc/kingDaltus.o(.rodata);
-        data/const/npc/ministerPotho.o(.rodata);
+        src/npc/ministerPotho.o(.rodata);
         data/animations/npc/ministerPotho.o(.rodata);
         src/npc/npc26.o(.rodata);
         data/animations/npc/npc26.o(.rodata);

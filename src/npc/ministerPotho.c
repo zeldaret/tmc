@@ -4,16 +4,21 @@
 #include "npc.h"
 #include "item.h"
 
-extern void (*const gUnk_08110644[])(Entity*);
 void sub_08066864(Entity*);
-
-extern u16 gUnk_08110650[];
+void sub_080667E4(Entity*);
+void sub_08066808(Entity*);
+void sub_0806685C(Entity*);
 
 void MinisterPotho(Entity* this) {
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_080667E4,
+        sub_08066808,
+        sub_0806685C,
+    };
     if ((this->flags & ENT_SCRIPTED) != 0) {
         sub_08066864(this);
     } else {
-        gUnk_08110644[this->action](this);
+        actionFuncs[this->action](this);
         sub_0806ED78(this);
     }
 }
@@ -81,6 +86,12 @@ void sub_080668F0(Entity* this) {
 }
 
 void sub_08066904(Entity* this) {
+    static const u16 messageIndices[] = {
+        0x105a,
+        0x1327,
+        0x132a,
+        0x132f,
+    };
     u32 index;
     if (CheckGlobalFlag(2) == 0) {
         index = 0;
@@ -91,7 +102,7 @@ void sub_08066904(Entity* this) {
     } else {
         index = 3;
     }
-    MessageNoOverlap(gUnk_08110650[index], this);
+    MessageNoOverlap(messageIndices[index], this);
 }
 
 void MinisterPotho_Fusion(Entity* this) {

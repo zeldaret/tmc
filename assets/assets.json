@@ -37070,11 +37070,6 @@
     "type": "animation"
   },
   {
-    "path": "ministerPotho/gUnk_08110650.bin",
-    "start": 1115728,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_Npc26_0.bin",
     "start": 1115880,
     "size": 5,
