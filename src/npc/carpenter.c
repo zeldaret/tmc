@@ -4,11 +4,12 @@
 #include "npc.h"
 #include "item.h"
 
-extern SpriteLoadData gUnk_08110CA8[];
-
-extern u16 gUnk_08110CE8[];
-
-extern Dialog gUnk_08110D00;
+static const SpriteLoadData gUnk_08110CA8[] = {
+    { 0x51, 0x3f, 0x4 }, { 0x1451, 0x3f, 0x4 }, { 0x4001, 0x3f, 0x4 }, { 0, 0, 0 },
+    { 0x51, 0x3f, 0x4 }, { 0x1451, 0x3f, 0x4 }, { 0x4001, 0x3f, 0x4 }, { 0, 0, 0 },
+    { 0x51, 0x3f, 0x4 }, { 0x1451, 0x3f, 0x4 }, { 0, 0, 0 },           { 0, 0, 0 },
+    { 0x51, 0x3f, 0x4 }, { 0x1451, 0x3f, 0x4 }, { 0, 0, 0 },           { 0, 0, 0 },
+};
 
 void Carpenter(Entity* this) {
     if (*(u32*)&this->cutsceneBeh == 0) {
@@ -67,6 +68,9 @@ void sub_080672B0(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_080672C8(Entity* this) {
+    static const u16 messageIndices[] = {
+        0x1b0d, 0x1b0e, 0x0, 0x1b18, 0x1b19, 0x0, 0x1b23, 0x1b23, 0x0, 0x1b26, 0x1b26, 0x0,
+    };
     u32 dialog = 0;
     u32 tmp;
     if (GetInventoryValue(ITEM_GUST_JAR) == 0) {
@@ -74,11 +78,12 @@ void sub_080672C8(Entity* this) {
             dialog = 1;
         }
     }
-    MessageNoOverlap(gUnk_08110CE8[(dialog * 2 + this->type * 6) / 2], this);
+    MessageNoOverlap(messageIndices[(dialog * 2 + this->type * 6) / 2], this);
 }
 
 void sub_08067304(Entity* this) {
-    ShowNPCDialogue(this, &gUnk_08110D00);
+    static const Dialog dialog = { 0xb, 3, 4, 1, { 0x3642, 0x3641 } };
+    ShowNPCDialogue(this, &dialog);
 }
 
 void sub_08067314(Entity* this) {

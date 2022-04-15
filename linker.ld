@@ -1223,7 +1223,7 @@ SECTIONS {
         src/npc/zelda.o(.rodata);
         src/npc/mutoh.o(.rodata);
         data/animations/npc/mutoh.o(.rodata);
-        data/const/npc/carpenter.o(.rodata);
+        src/npc/carpenter.o(.rodata);
         data/animations/npc/carpenter.o(.rodata);
         data/const/npc/castorWildsStatue.o(.rodata);
         data/animations/npc/castorWildsStatue.o(.rodata);

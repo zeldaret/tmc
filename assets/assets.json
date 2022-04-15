@@ -37406,21 +37406,6 @@
     "type": "animation"
   },
   {
-    "path": "carpenter/gUnk_08110CA8.bin",
-    "start": 1117352,
-    "size": 64
-  },
-  {
-    "path": "carpenter/gUnk_08110CE8.bin",
-    "start": 1117416,
-    "size": 24
-  },
-  {
-    "path": "carpenter/gUnk_08110D00.bin",
-    "start": 1117440,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_CastorWildsStatue_0.bin",
     "start": 1117852,
     "size": 5,
