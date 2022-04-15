@@ -1211,7 +1211,7 @@ SECTIONS {
         data/animations/npc/ghostBrothers.o(.rodata);
         data/const/npc/smith.o(.rodata);
         data/animations/npc/smith.o(.rodata);
-        data/const/npc/npc23.o(.rodata);
+        src/npc/npc23.o(.rodata);
         data/const/npc/kingDaltus.o(.rodata);
         data/animations/npc/kingDaltus.o(.rodata);
         data/const/npc/ministerPotho.o(.rodata);
