@@ -1209,7 +1209,7 @@ SECTIONS {
         data/animations/npc/milkCart.o(.rodata);
         src/npc/ghostBrothers.o(.rodata);
         data/animations/npc/ghostBrothers.o(.rodata);
-        data/const/npc/smith.o(.rodata);
+        src/npc/smith.o(.rodata);
         data/animations/npc/smith.o(.rodata);
         src/npc/npc23.o(.rodata);
         data/const/npc/kingDaltus.o(.rodata);

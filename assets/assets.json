@@ -36944,31 +36944,6 @@
     "type": "animation"
   },
   {
-    "path": "smith/gUnk_08110354.bin",
-    "start": 1114964,
-    "size": 12
-  },
-  {
-    "path": "smith/gUnk_08110380.bin",
-    "start": 1115008,
-    "size": 16
-  },
-  {
-    "path": "smith/gUnk_08110390.bin",
-    "start": 1115024,
-    "size": 64
-  },
-  {
-    "path": "smith/gUnk_081103D0.bin",
-    "start": 1115088,
-    "size": 16
-  },
-  {
-    "path": "smith/gUnk_081103E0.bin",
-    "start": 1115104,
-    "size": 4
-  },
-  {
     "path": "animations/gSpriteAnimations_KingDaltus_0.bin",
     "start": 1115392,
     "size": 5,
