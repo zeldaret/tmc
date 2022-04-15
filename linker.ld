@@ -1251,7 +1251,7 @@ SECTIONS {
         data/animations/npc/rem.o(.rodata);
         data/const/npc/townMinish.o(.rodata);
         data/animations/npc/townMinish.o(.rodata);
-        data/const/npc/librari.o(.rodata);
+        src/npc/librari.o(.rodata);
         data/animations/npc/librari.o(.rodata);
         data/const/npc/percy.o(.rodata);
         data/animations/npc/percy.o(.rodata);

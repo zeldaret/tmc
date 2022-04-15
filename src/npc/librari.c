@@ -3,8 +3,6 @@
 #include "npc.h"
 #include "item.h"
 
-extern u16 gUnk_08112D48[];
-
 void Librari(Entity* this) {
     switch (this->action) {
         case 0:
@@ -35,6 +33,12 @@ void Librari(Entity* this) {
 }
 
 void sub_0806B260(Entity* this, ScriptExecutionContext* context) {
+    static const u16 messageIndices[] = {
+        0x4a19,
+        0x4a1a,
+        0x4a22,
+        0x4a27,
+    };
     u32 index;
 
     context->condition = 0;
@@ -51,12 +55,13 @@ void sub_0806B260(Entity* this, ScriptExecutionContext* context) {
     } else {
         index = 3;
     }
-    MessageNoOverlap(gUnk_08112D48[index], this);
+    MessageNoOverlap(messageIndices[index], this);
 }
 
-extern u16 gUnk_08112D50[];
-
 void sub_0806B2B4(Entity* this) {
+    static const u16 messageIndices[] = {
+        0xdad, 0xdae, 0xdaf, 0xdb0, 0xdb1,
+    };
     u32 index;
 
     if (CheckLocalFlag(0xb3)) {
@@ -78,7 +83,7 @@ void sub_0806B2B4(Entity* this) {
     } else {
         index = 0;
     }
-    MessageNoOverlap(gUnk_08112D50[index], this);
+    MessageNoOverlap(messageIndices[index], this);
 }
 
 void Librari_Fusion(Entity* this) {

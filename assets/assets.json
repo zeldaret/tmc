@@ -38905,16 +38905,6 @@
     "type": "animation"
   },
   {
-    "path": "librari/gUnk_08112D48.bin",
-    "start": 1125704,
-    "size": 8
-  },
-  {
-    "path": "librari/gUnk_08112D50.bin",
-    "start": 1125712,
-    "size": 10
-  },
-  {
     "path": "animations/gSpriteAnimations_Percy_0.bin",
     "start": 1125980,
     "size": 73,
