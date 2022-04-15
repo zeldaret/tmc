@@ -37921,11 +37921,6 @@
     "type": "animation"
   },
   {
-    "path": "goron/gUnk_08111A94.bin",
-    "start": 1120916,
-    "size": 48
-  },
-  {
     "path": "animations/gSpriteAnimations_GoronMerchant_1.bin",
     "start": 1121214,
     "size": 5,

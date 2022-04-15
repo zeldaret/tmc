@@ -5,15 +5,26 @@
 #include "effects.h"
 #include "npc.h"
 
-extern void (*gUnk_08111A80[])(Entity*);
-extern void (*gUnk_08111A8C[])(Entity*);
-extern Dialog gUnk_08111A94[];
+void sub_08069310(Entity*);
+void sub_08069328(Entity*);
+void sub_08069390(Entity*);
+void sub_080693C4(Entity*);
+void sub_080693D0(Entity*);
 
 void Goron(Entity* this) {
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_08069310,
+        sub_08069328,
+        sub_08069390,
+    };
+    static void (*const scriptedActionFuncs[])(Entity*) = {
+        sub_080693C4,
+        sub_080693D0,
+    };
     if (this->flags & ENT_SCRIPTED) {
-        gUnk_08111A8C[this->action](this);
+        scriptedActionFuncs[this->action](this);
     } else {
-        gUnk_08111A80[this->action](this);
+        actionFuncs[this->action](this);
         sub_0806ED78(this);
     }
 }
@@ -25,7 +36,7 @@ void sub_08069310(Entity* this) {
 }
 
 void sub_08069328(Entity* this) {
-    if (((u32)(++this->subtimer << 24) >> 24) > 16) {
+    if (++this->subtimer > 16) {
         int action;
 
         this->subtimer = 0;
@@ -94,16 +105,16 @@ void sub_08069428(Entity* this, s32 offsetX, bool32 createFx65) {
 }
 
 u32 sub_08069480(Entity* this) {
-    return (sub_0801E99C(this) << 24) >> 24;
+    return (u8)sub_0801E99C(this);
 }
 
 void sub_0806948C(Entity* this, ScriptExecutionContext* context) {
-    context->condition = CheckKinstoneFused((sub_08069480(this) << 24) >> 24);
+    context->condition = CheckKinstoneFused((u8)sub_08069480(this));
     gActiveScriptInfo.flags |= 1;
 }
 
 void sub_080694B0(Entity* this) {
-    u32 kinstone = (sub_08069480(this) << 24) >> 24;
+    u32 kinstone = (u8)sub_08069480(this);
     if (CheckKinstoneFused(kinstone)) {
         sub_08078778(this);
     } else {
@@ -112,6 +123,11 @@ void sub_080694B0(Entity* this) {
 }
 
 void sub_080694D8(Entity* this) {
+    static const Dialog gUnk_08111A94[] = {
+        { 0x2f, 3, 4, 1, { 0x3f13, 0x3f0e } }, { 0x2f, 3, 4, 1, { 0x3f14, 0x3f0f } },
+        { 0x2f, 3, 4, 1, { 0x3f15, 0x3f10 } }, { 0x2f, 3, 4, 1, { 0x3f16, 0x3f11 } },
+        { 0x2f, 3, 4, 1, { 0x3f17, 0x3f12 } }, { 0, 0, 1, 1, { 0, 0x3f18 } },
+    };
     ShowNPCDialogue(this, &gUnk_08111A94[this->type]);
 }
 
