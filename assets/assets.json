@@ -38953,26 +38953,6 @@
     "type": "animation"
   },
   {
-    "path": "percy/gUnk_08112E1C.bin",
-    "start": 1125916,
-    "size": 16
-  },
-  {
-    "path": "percy/gUnk_08112E2C.bin",
-    "start": 1125932,
-    "size": 4
-  },
-  {
-    "path": "percy/gUnk_08112E2C_1.bin",
-    "start": 1125940,
-    "size": 28
-  },
-  {
-    "path": "percy/gUnk_08112E54.bin",
-    "start": 1125972,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_VaatiReborn_0.bin",
     "start": 1126280,
     "size": 60,

@@ -3,13 +3,18 @@
 #include "npc.h"
 #include "functions.h"
 
-extern void sub_0806B41C(Entity*);
-extern void sub_0806B3CC(Entity*);
+static const SpriteLoadData gUnk_08112E1C[] = {
+    { 0x30f6, 0x47, 0x4 },
+    { 0xf6, 0x47, 0x4 },
+    { 0x1cf6, 0x47, 0x4 },
+    { 0, 0, 0 },
+};
+void sub_0806B41C(Entity*);
+void sub_0806B3CC(Entity*);
+void sub_0806B504(Entity*);
+void sub_0806B540(Entity*);
 
 extern u16* gUnk_08001A7C[40];
-extern u16 gUnk_08112E54[4];
-extern Dialog gUnk_08112E2C[5];
-extern SpriteLoadData gUnk_08112E1C;
 
 void Percy_Head(Entity* this) {
     SetExtraSpriteFrame(this, 0, (this->frameSpriteSettings & 0x3f) + 0x13);
@@ -30,7 +35,7 @@ void Percy(Entity* this) {
 
 void sub_0806B3CC(Entity* this) {
     if (this->action == 0) {
-        if (!LoadExtraSpriteData(this, &gUnk_08112E1C)) {
+        if (!LoadExtraSpriteData(this, gUnk_08112E1C)) {
             return;
         }
         this->action = 1;
@@ -51,7 +56,7 @@ void sub_0806B41C(Entity* this) {
 
     switch (this->action) {
         case 0:
-            if (LoadExtraSpriteData(this, &gUnk_08112E1C)) {
+            if (LoadExtraSpriteData(this, gUnk_08112E1C)) {
                 this->action = 1;
                 this->spriteSettings.draw = 1;
                 if (this->type2 == 2) {
@@ -84,10 +89,23 @@ void sub_0806B41C(Entity* this) {
 }
 
 void sub_0806B4F0(Entity* this) {
+    static const Dialog gUnk_08112E2C[5] = {
+        { 0, 0, 5, 0, { .func = sub_0806B504 } },
+        { 0, 0, 1, 1, { 0, 0x2312 } },
+        { 0, 0, 1, 1, { 0, 0x2311 } },
+        { 0, 0, 1, 1, { 0, 0x2519 } },
+        { 0, 0, 5, 0, { .func = sub_0806B540 } },
+    };
     ShowNPCDialogue(this, &gUnk_08112E2C[this->type2]);
 }
 
 void sub_0806B504(Entity* this) {
+    static const u16 messageIndices[4] = {
+        0x230c,
+        0x230d,
+        0x230e,
+        0x2310,
+    };
     int idx;
 
     idx = 1;
@@ -98,7 +116,7 @@ void sub_0806B504(Entity* this) {
         SetLocalFlag(URO_POEMN_TALK);
     }
 
-    MessageNoOverlap(gUnk_08112E54[idx], this);
+    MessageNoOverlap(messageIndices[idx], this);
 }
 
 void sub_0806B540(Entity* this) {
@@ -149,7 +167,7 @@ void sub_0806B60C(Entity* this) {
 
 void Percy_Fusion(Entity* this) {
     if (this->action == 0) {
-        if (LoadExtraSpriteData(this, &gUnk_08112E1C) != 0) {
+        if (LoadExtraSpriteData(this, gUnk_08112E1C) != 0) {
             this->action += 1;
             this->spriteSettings.draw = 1;
             InitializeAnimation(this, 2);

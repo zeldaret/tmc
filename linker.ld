@@ -1253,7 +1253,7 @@ SECTIONS {
         data/animations/npc/townMinish.o(.rodata);
         src/npc/librari.o(.rodata);
         data/animations/npc/librari.o(.rodata);
-        data/const/npc/percy.o(.rodata);
+        src/npc/percy.o(.rodata);
         data/animations/npc/percy.o(.rodata);
         src/npc/vaatiReborn.o(.rodata);
         data/animations/npc/vaatiReborn.o(.rodata);
