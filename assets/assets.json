@@ -37286,16 +37286,6 @@
     "type": "animation"
   },
   {
-    "path": "zelda/gUnk_08110BE0.bin",
-    "start": 1117152,
-    "size": 32
-  },
-  {
-    "path": "zelda/gUnk_08110C00.bin",
-    "start": 1117184,
-    "size": 12
-  },
-  {
     "path": "animations/gSpriteAnimations_Mutoh_0.bin",
     "start": 1117280,
     "size": 21,
@@ -37318,16 +37308,6 @@
     "start": 1117311,
     "size": 5,
     "type": "animation"
-  },
-  {
-    "path": "mutoh/gUnk_08110C0C.bin",
-    "start": 1117196,
-    "size": 4
-  },
-  {
-    "path": "mutoh/gUnk_08110C10.bin",
-    "start": 1117200,
-    "size": 80
   },
   {
     "path": "animations/gSpriteAnimations_Carpenter_0.bin",

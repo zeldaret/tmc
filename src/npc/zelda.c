@@ -9,11 +9,14 @@ void sub_08068680(Entity*, Entity*);
 void sub_08068694(Entity*, Entity*);
 extern Entity* GetEntityByType(u32, u32);
 extern void sub_080686C4(Entity*, Entity*);
-
-extern void (*gUnk_08110BD8[])(Entity* ent);
-extern u16 gUnk_08110BE0[];
+void sub_08066CCC(Entity*);
+void sub_08066CF8(Entity*);
 
 void Zelda(Entity* this) {
+    static void (*const gUnk_08110BD8[])(Entity * ent) = {
+        sub_08066CCC,
+        sub_08066CF8,
+    };
     gUnk_08110BD8[this->action](this);
 }
 
@@ -161,9 +164,13 @@ void sub_08066E80(Entity* this, ScriptExecutionContext* context) {
     gActiveScriptInfo.commandSize = 0;
 }
 
+static const u16 gUnk_08110BE0[] = {
+    0x81c, 0x85c, 0x89c, 0x8dc, 0x91c, 0x95c, 0x99c, 0x9dc, 0x9dd, 0x9de, 0x9df, 0x9e0, 0x9e1, 0x9e2, 0x0, 0x0,
+};
+
 void sub_08066F94(void) {
     u16 uVar1;
-    u16* puVar2;
+    const u16* puVar2;
 
     puVar2 = gUnk_08110BE0;
     while (*puVar2 != 0) {
@@ -175,7 +182,7 @@ void sub_08066F94(void) {
 
 void sub_08066FB8(void) {
     u16 uVar1;
-    u16* puVar2;
+    const u16* puVar2;
 
     puVar2 = gUnk_08110BE0;
     while (*puVar2 != 0) {

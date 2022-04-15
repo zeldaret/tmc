@@ -6,9 +6,11 @@
 #include "npc.h"
 #include "item.h"
 
-extern SpriteLoadData gUnk_08110C00;
-extern u16 gUnk_08110C0C[];
-extern Dialog gUnk_08110C10[];
+static const SpriteLoadData gUnk_08110C00[] = {
+    { 0x51, 0x3e, 0x4 },
+    { 0x1051, 0x3e, 0x4 },
+    { 0, 0, 0 },
+};
 
 void Mutoh(Entity* this) {
     if (*(u32*)&this->cutsceneBeh == 0) {
@@ -17,7 +19,7 @@ void Mutoh(Entity* this) {
 
     switch (this->action) {
         case 0:
-            if (LoadExtraSpriteData(this, &gUnk_08110C00)) {
+            if (LoadExtraSpriteData(this, gUnk_08110C00)) {
                 this->action = 1;
                 this->spriteSettings.draw = TRUE;
                 SetDefaultPriority(this, PRIO_MESSAGE);
@@ -49,6 +51,10 @@ void Mutoh_Head(Entity* this) {
 }
 
 void sub_080670B4(Entity* this) {
+    static const u16 messageIndices[] = {
+        0x1b02,
+        0x1b03,
+    };
     u32 uVar2;
 
     uVar2 = 0;
@@ -57,11 +63,18 @@ void sub_080670B4(Entity* this) {
             uVar2 = 1;
         }
     }
-    MessageNoOverlap(gUnk_08110C0C[uVar2], this);
+    MessageNoOverlap(messageIndices[uVar2], this);
 }
 
 void sub_080670E4(Entity* this) {
-    ShowNPCDialogue(this, &gUnk_08110C10[gSave.global_progress]);
+    static const Dialog dialogs[] = {
+        { 0, 0, 3, 1, { 0x4101, 0x4100 } },   { 0, 0, 3, 1, { 0x4101, 0x4100 } },
+        { 0, 0, 3, 1, { 0x4101, 0x4100 } },   { 0, 0, 3, 1, { 0x4101, 0x4100 } },
+        { 0, 0, 3, 1, { 0x4101, 0x4100 } },   { 0xb, 3, 4, 1, { 0x4104, 0x4102 } },
+        { 0xb, 3, 4, 1, { 0x4104, 0x4103 } }, { 0xb, 3, 4, 1, { 0x4104, 0x4103 } },
+        { 0xb, 3, 4, 1, { 0x4104, 0x4105 } }, { 0xb, 3, 4, 1, { 0x4104, 0x4105 } },
+    };
+    ShowNPCDialogue(this, &dialogs[gSave.global_progress]);
 }
 
 void sub_08067100(Entity* this) {
@@ -71,7 +84,7 @@ void sub_08067100(Entity* this) {
 
 void Mutoh_Fusion(Entity* this) {
     if (this->action == 0) {
-        if (LoadExtraSpriteData(this, &gUnk_08110C00) != 0) {
+        if (LoadExtraSpriteData(this, gUnk_08110C00) != 0) {
             this->action++;
             this->spriteSettings.draw = TRUE;
             InitializeAnimation(this, 2);

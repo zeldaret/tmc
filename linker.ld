@@ -1220,8 +1220,8 @@ SECTIONS {
         data/animations/npc/npc26.o(.rodata);
         src/npc/vaati.o(.rodata);
         data/animations/npc/vaati.o(.rodata);
-        data/const/npc/zelda.o(.rodata);
-        data/const/npc/mutoh.o(.rodata);
+        src/npc/zelda.o(.rodata);
+        src/npc/mutoh.o(.rodata);
         data/animations/npc/mutoh.o(.rodata);
         data/const/npc/carpenter.o(.rodata);
         data/animations/npc/carpenter.o(.rodata);
