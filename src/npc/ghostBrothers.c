@@ -5,30 +5,30 @@
 #include "message.h"
 #include "npc.h"
 
-extern void (*const gUnk_0811017C[])(Entity*);
-
-extern void (*const gUnk_08110274[])(Entity*);
-
-extern Dialog gUnk_08110280[];
-
 extern u32 gSpriteAnimations_GhostBrothers[];
 
-extern u32 gUnk_08110188;
-extern s8 gUnk_0811015C[8];
-
-extern u8 gUnk_0811022E[];
-
 void sub_08065C0C(Entity* this);
-static EntityAction* const gUnk_08110164[];
+void sub_08065BF4(Entity* this);
+void sub_08065EBC(Entity* this);
+void sub_08065D18(Entity* this);
+void sub_08065D74(Entity* this);
+void sub_08065DB8(Entity* this);
+void sub_08065D18(Entity* this);
+void sub_08065EDC(Entity* this);
+void sub_08065F20(Entity* this);
 
 void GhostBrothers(Entity* this) {
+    static const s8 gUnk_0811015C[8] = { -14, -16, -18, -20, -22, -20, -18, -16 };
+    static EntityAction* const actionFuncs[] = {
+        sub_08065BF4, sub_08065BF4, sub_08065BF4, sub_08065BF4, sub_08065EBC, sub_08065EBC,
+    };
     if (this->flags & ENT_SCRIPTED) {
         sub_08065C0C(this);
     } else {
-        gUnk_08110164[this->type](this);
+        actionFuncs[this->type](this);
 
         if (this->type < 3) {
-            s8* ptr = gUnk_0811015C;
+            const s8* ptr = gUnk_0811015C;
             u32 subtimer = this->subtimer++;
             this->z.HALF_U.HI = *(ptr + (((subtimer << 0x18) >> 0x1b) & 0x7));
         }
@@ -36,8 +36,24 @@ void GhostBrothers(Entity* this) {
 }
 
 void sub_08065BF4(Entity* this) {
-    gUnk_0811017C[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_08065D18,
+        sub_08065D74,
+        sub_08065DB8,
+    };
+    actionFuncs[this->action](this);
 }
+
+static const u16 gUnk_08110188[] = { 0x1000, 0x4,  0xf01, 0x4, 0xe02,  0x4,  0xd03, 0x4, 0xc04, 0x8,  0xd03, 0x4,
+                                     0xe02,  0x4,  0xf01, 0x4, 0x1000, 0x14, 0xf01, 0x4, 0xe02, 0x4,  0xd03, 0x4,
+                                     0xc04,  0x4,  0xb05, 0x4, 0xa06,  0x4,  0x907, 0x4, 0x808, 0x8,  0x907, 0x4,
+                                     0xa06,  0x4,  0xb05, 0x4, 0xc04,  0x4,  0xd03, 0x4, 0xe02, 0x4,  0xf01, 0x4,
+                                     0x1000, 0x14, 0xf01, 0x4, 0xe02,  0x4,  0xd03, 0x4, 0xc04, 0x4,  0xb05, 0x4,
+                                     0xa06,  0x4,  0x907, 0x4, 0x808,  0x4,  0x709, 0x4, 0x60a, 0x4,  0x50b, 0x4,
+                                     0x40c,  0x4,  0x30d, 0x4, 0x20e,  0x4,  0x10f, 0x4, 0x10,  0x1e, 0xffff };
+static const u16 gUnk_0811022E[] = { 0x10,  0x2, 0x10f, 0x2, 0x20e, 0x2, 0x30d, 0x2, 0x40c,  0x2, 0x50b, 0x2,
+                                     0x60a, 0x2, 0x709, 0x2, 0x808, 0x2, 0x907, 0x2, 0xa06,  0x2, 0xb05, 0x2,
+                                     0xc04, 0x2, 0xd03, 0x2, 0xe02, 0x2, 0xf01, 0x2, 0x1000, 0x2, 0xffff };
 
 void sub_08065C0C(Entity* this) {
     u16* puVar3;
@@ -89,7 +105,7 @@ void sub_08065CCC(Entity* this) {
     this->action = 3;
     this->timer = 0x1e;
     this->spriteRendering.alphaBlend = 1;
-    *(u32**)&this->field_0x6c = (u32*)gUnk_0811022E;
+    *(const u16**)&this->field_0x6c = gUnk_0811022E;
     gScreen.controls.layerFXControl = 0x3f40;
     gScreen.controls.alphaBlend = 0x10;
 }
@@ -105,7 +121,7 @@ void sub_08065D18(Entity* this) {
     this->subtimer = 0;
     this->spriteSettings.draw = 1;
     this->spriteRendering.alphaBlend = 1;
-    *(u32**)&this->field_0x6c = &gUnk_08110188;
+    *(const u16**)&this->field_0x6c = gUnk_08110188;
     SetDefaultPriority(this, PRIO_MESSAGE);
     InitAnimationForceUpdate(this, 2);
     gScreen.controls.layerFXControl = 0x3f40;
@@ -161,7 +177,7 @@ void sub_08065DB8(Entity* this) {
             if ((gMessage.doTextBox & 0x7f) == 0) {
                 this->subAction++;
                 this->timer = 0x1e;
-                *(u8**)&this->field_0x6c = gUnk_0811022E;
+                *(const u16**)&this->field_0x6c = gUnk_0811022E;
             }
             break;
         }
@@ -185,7 +201,12 @@ void sub_08065DB8(Entity* this) {
 }
 
 void sub_08065EBC(Entity* this) {
-    gUnk_08110274[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_08065D18,
+        sub_08065EDC,
+        sub_08065F20,
+    };
+    actionFuncs[this->action](this);
     sub_0806ED78(this);
 }
 
@@ -217,11 +238,29 @@ void sub_08065F20(Entity* this) {
 }
 
 void sub_08065F64(Entity* this) {
+    static const Dialog dialogs[][8] = {
+        { { 0, 0, 1, 1, { 0, 0x3f31 } },
+          { 0, 0, 1, 1, { 0, 0x3f31 } },
+          { 0, 0, 1, 1, { 0, 0x3f31 } },
+          { 0, 0, 1, 1, { 0, 0x3f31 } },
+          { 0, 0, 1, 1, { 0, 0x3f31 } },
+          { 0, 0, 1, 1, { 0, 0x3f31 } },
+          { 0, 0, 1, 1, { 0, 0x3f31 } },
+          { 0, 0, 1, 1, { 0, 0x3f31 } } },
+        { { 4, 0, 3, 1, { 0x3417, 0x3416 } },
+          { 4, 0, 3, 1, { 0x3417, 0x3416 } },
+          { 4, 0, 3, 1, { 0x3513, 0x3512 } },
+          { 4, 0, 3, 1, { 0x3613, 0x3612 } },
+          { 4, 0, 3, 1, { 0x3713, 0x3712 } },
+          { 4, 0, 3, 1, { 0x3813, 0x3812 } },
+          { 4, 0, 3, 1, { 0x3912, 0x3911 } },
+          { 0, 0, 1, 1, { 0, 0x3A03 } } },
+    };
     s32 tmp = gSave.global_progress - 2;
     if (tmp < 0) {
         tmp = 0;
     }
-    ShowNPCDialogue(this, gUnk_08110280 + this->type * 8 + tmp);
+    ShowNPCDialogue(this, &dialogs[this->type][tmp]);
 }
 
 void GhostBrothers_Fusion(Entity* this) {

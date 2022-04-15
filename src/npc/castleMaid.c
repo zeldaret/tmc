@@ -1,3 +1,4 @@
+#define NENT_DEPRECATED
 #include "entity.h"
 #include "script.h"
 #include "save.h"
@@ -7,18 +8,18 @@
 #include "manager.h"
 #include "functions.h"
 
-extern Dialog gUnk_0810F894[];
+typedef struct {
+    Entity base;
+    void (*dialogFunc)();
+    u16 field_0x6c;
+    u16 field_0x6e;
+} CastleMaidEntity;
 
-void sub_08064570(Entity* this);
-
-extern u16 gUnk_0810F88C[];
-
-extern SpriteLoadData gUnk_0810F874[];
-extern u32 _call_via_r0(u32*);
+void sub_08064570(CastleMaidEntity* this);
 
 void Maid(Entity* this) {
     if ((this->flags & ENT_SCRIPTED) != 0) {
-        sub_08064570(this);
+        sub_08064570((CastleMaidEntity*)this);
     } else {
         DeleteThisEntity();
     }
@@ -46,15 +47,18 @@ void Maid_Head(Entity* this) {
     sub_0807000C(this);
 }
 
-void sub_08064570(Entity* this) {
+void sub_08064570(CastleMaidEntity* this) {
+    static const SpriteLoadData gUnk_0810F874[] = {
+        { 0x46, 0x2f, 0x4 }, { 0x2046, 0x2f, 0x4 }, { 0, 0, 0 }, { 0, 0x2f, 0x4 }, { 0x4000, 0x2f, 0x4 }, { 0, 0, 0 },
+    };
     u32 tmp;
     u32 tmp2;
     u32 tmp3;
-    SpriteLoadData* data;
+    const SpriteLoadData* data;
 
-    switch (this->action) {
+    switch (super->action) {
         case 0:
-            tmp = this->id;
+            tmp = super->id;
             tmp ^= 0x16;
             if (tmp) {
                 tmp3 = 1;
@@ -62,29 +66,29 @@ void sub_08064570(Entity* this) {
                 tmp3 = 0;
             }
             data = &gUnk_0810F874[tmp3 * 3];
-            if (LoadExtraSpriteData(this, data) == 0) {
+            if (LoadExtraSpriteData(super, data) == 0) {
                 return;
             }
-            this->action += 1;
-            this->timer = 0;
-            tmp2 = sub_0805ACC0(this);
+            super->action += 1;
+            super->timer = 0;
+            tmp2 = sub_0805ACC0(super);
             if (tmp2 == 0) {
-                this->field_0x6c.HWORD = this->x.HALF.HI;
-                this->field_0x6e.HWORD = this->y.HALF.HI;
+                this->field_0x6c = super->x.HALF.HI;
+                this->field_0x6e = super->y.HALF.HI;
             } else {
-                this->field_0x6c.HWORD = tmp2 >> 0x10;
-                this->field_0x6e.HWORD = tmp2;
+                this->field_0x6c = tmp2 >> 0x10;
+                this->field_0x6e = tmp2;
             }
-            *(u32*)&this->field_0x68 = 0;
-            sub_0807DD50(this);
+            this->dialogFunc = NULL;
+            sub_0807DD50(super);
         case 1:
-            sub_0807DD94(this, NULL);
-            if (this->interactType != 0) {
-                this->action += 1;
-                this->interactType = 0;
-                InitializeAnimation(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
-                if (*(void**)&this->field_0x68 != NULL) {
-                    _call_via_r0(*(void**)&this->field_0x68);
+            sub_0807DD94(super, NULL);
+            if (super->interactType != 0) {
+                super->action += 1;
+                super->interactType = 0;
+                InitializeAnimation(super, sub_0806F5A4(GetFacingDirection(super, &gPlayerEntity)));
+                if (this->dialogFunc != NULL) {
+                    this->dialogFunc();
                 }
             }
             break;
@@ -92,16 +96,22 @@ void sub_08064570(Entity* this) {
             if ((gMessage.doTextBox & 0x7f) != 0) {
                 return;
             }
-            this->action = 1;
+            super->action = 1;
             break;
     }
 }
 
-void sub_08064644(Entity* this, ScriptExecutionContext* context) {
-    *(u32*)&this->field_0x68 = context->intVariable;
+void CastleMaid_SetDialogFunc(CastleMaidEntity* this, ScriptExecutionContext* context) {
+    this->dialogFunc = (void*)context->intVariable;
 }
 
 void sub_0806464C(Entity* this) {
+    static const u16 messageIndices[] = {
+        0x105f,
+        0x1060,
+        0x1061,
+        0,
+    };
     s32 tmp;
     if (CheckGlobalFlag(TABIDACHI) != 0) {
         tmp = 2;
@@ -111,14 +121,20 @@ void sub_0806464C(Entity* this) {
     } else {
         tmp = 1;
     }
-    MessageNoOverlap(gUnk_0810F88C[tmp], this);
+    MessageNoOverlap(messageIndices[tmp], this);
 }
 
 void sub_08064688(Entity* this) {
+    static const Dialog gUnk_0810F894[] = {
+        { 7, 0, 3, 1, { 0x3426, 0x3425 } }, { 7, 0, 3, 1, { 0x3426, 0x3425 } }, { 7, 0, 3, 1, { 0x3426, 0x3425 } },
+        { 7, 0, 3, 1, { 0x3426, 0x3425 } }, { 7, 0, 3, 1, { 0x3521, 0x3520 } }, { 0, 0, 1, 1, { 0, 0x361f } },
+        { 0, 0, 1, 1, { 0, 0x3720 } },      { 0, 0, 1, 1, { 0, 0x3820 } },      { 0, 0, 1, 1, { 0, 0x3820 } },
+        { 0, 0, 1, 1, { 0, 0x3820 } },
+    };
     ShowNPCDialogue(this, &gUnk_0810F894[gSave.global_progress]);
 }
 
-void sub_080646A4(Entity* this, ScriptExecutionContext* context) {
+void sub_080646A4(CastleMaidEntity* this, ScriptExecutionContext* context) {
     u8 dir;
     s32 x, y;
     s32 diff;
@@ -127,7 +143,7 @@ void sub_080646A4(Entity* this, ScriptExecutionContext* context) {
         context->unk_12 = (Random() & 0x3f) + 0x20;
         dir = Random() & 0x18;
 
-        switch (this->direction) {
+        switch (super->direction) {
             case 0:
                 if (dir == 0x10) {
                     dir = 0x8;
@@ -149,34 +165,34 @@ void sub_080646A4(Entity* this, ScriptExecutionContext* context) {
                 }
                 break;
         }
-        this->direction = dir;
-        this->animationState = sub_0806F5B0(dir);
-        this->speed = 0x80;
+        super->direction = dir;
+        super->animationState = sub_0806F5B0(dir);
+        super->speed = 0x80;
     }
 
     context->postScriptActions |= 0x2;
-    ProcessMovement0(this);
-    x = this->x.HALF.HI;
-    diff = x - (s16)this->field_0x6c.HWORD;
+    ProcessMovement0(super);
+    x = super->x.HALF.HI;
+    diff = x - (s16)this->field_0x6c;
     if (diff > 0x10) {
-        this->x.HALF.HI = this->field_0x6c.HWORD + 0x10;
+        super->x.HALF.HI = this->field_0x6c + 0x10;
         context->unk_12 = 1;
     }
 
     if (diff < -0x10) {
-        this->x.HALF.HI = this->field_0x6c.HWORD - 0x10;
+        super->x.HALF.HI = this->field_0x6c - 0x10;
         context->unk_12 = 1;
     }
 
-    y = this->y.HALF.HI;
-    diff = y - (s16)this->field_0x6e.HWORD;
+    y = super->y.HALF.HI;
+    diff = y - (s16)this->field_0x6e;
     if (diff > 0x10) {
-        this->y.HALF.HI = this->field_0x6e.HWORD + 0x10;
+        super->y.HALF.HI = this->field_0x6e + 0x10;
         context->unk_12 = 1;
     }
 
     if (diff < -0x10) {
-        this->y.HALF.HI = this->field_0x6e.HWORD - 0x10;
+        super->y.HALF.HI = this->field_0x6e - 0x10;
         context->unk_12 = 1;
     }
 

@@ -268,7 +268,7 @@ typedef struct {
     /*0x01*/ u8 unk_1;
     /*0x02*/ u8 unk_2;
     /*0x03*/ u8 unk_3;
-    /*0x04*/ u8* unk_4;
+    /*0x04*/ const u8* unk_4;
     /*0x08*/ Entity* entity;
 } struct_03003DF8;
 

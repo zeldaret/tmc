@@ -7,12 +7,17 @@
 
 void sub_08065A64(Entity* this);
 void sub_08065AA4(Entity*);
-
-extern void (*gUnk_0811006C[])(Entity*);
-extern Dialog gUnk_08110080[];
+void sub_080659B8(Entity*);
+void sub_080659F0(Entity*);
+void sub_08065A00(Entity*);
+void sub_08065A10(Entity*);
+void sub_08065A34(Entity*);
 
 void Epona(Entity* this) {
-    gUnk_0811006C[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_080659B8, sub_080659F0, sub_08065A00, sub_08065A10, sub_08065A34,
+    };
+    actionFuncs[this->action](this);
     sub_08065A64(this);
     sub_0806ED78(this);
 }
@@ -51,7 +56,10 @@ void sub_08065A34(Entity* this) {
 }
 
 void sub_08065A50(Entity* this) {
-    ShowNPCDialogue(this, &gUnk_08110080[this->type]);
+    static const Dialog typeDialogs[] = {
+        { 0, 0, 6, 1, { 0x2017, 0x3f3c } },
+    };
+    ShowNPCDialogue(this, &typeDialogs[this->type]);
 }
 
 void sub_08065A64(Entity* this) {

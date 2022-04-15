@@ -6,7 +6,7 @@ SCRIPT_START script_MaidTown
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x000a
 	SetIntVariable sub_08064688
-	Call sub_08064644
+	Call CastleMaid_SetDialogFunc
 	EndBlock
 script_08010446:
 	Wait 0x003c

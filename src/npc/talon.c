@@ -2,24 +2,40 @@
 #include "functions.h"
 #include "item.h"
 
-extern void (*gUnk_0810FEC4[])(Entity* this);
-extern void (*gUnk_0810FEBC[])(Entity* this);
-extern SpriteLoadData gUnk_0810FEB0;
+static const SpriteLoadData gUnk_0810FEB0[] = {
+    { 0x4b, 0x8b, 0 },
+    { 0x4b, 0x8b, 0 },
+    { 0, 0, 0 },
+};
+
 extern u8 script_TalonGotKey;
-extern u8 gUnk_0810FED8[];
 
 void sub_0806574C(Entity* this);
+void sub_08065570(Entity* this);
+void sub_0806559C(Entity* this);
+void sub_08065608(Entity* this);
+void sub_08065648(Entity* this);
+void sub_080656D4(Entity* this);
+void sub_080656A4(Entity* this);
+void sub_08065680(Entity* this);
 
 void Talon(Entity* this) {
+    static void (*const actionFuncs[])(Entity * this) = {
+        sub_08065570,
+        sub_0806559C,
+    };
+    static void (*const scriptedActionFuncs[])(Entity * this) = {
+        sub_08065608, sub_08065648, sub_080656D4, sub_080656A4, sub_08065680,
+    };
     if (this->flags & ENT_SCRIPTED) {
-        gUnk_0810FEC4[this->action](this);
+        scriptedActionFuncs[this->action](this);
     } else {
-        gUnk_0810FEBC[this->action](this);
+        actionFuncs[this->action](this);
     }
 }
 
 void sub_08065570(Entity* this) {
-    if (LoadExtraSpriteData(this, &gUnk_0810FEB0) != 0) {
+    if (LoadExtraSpriteData(this, gUnk_0810FEB0) != 0) {
         InitializeAnimation(this, 0);
         sub_08078778(this);
         this->action = 1;
@@ -59,7 +75,7 @@ void sub_0806559C(Entity* this) {
 }
 
 void sub_08065608(Entity* this) {
-    if (LoadExtraSpriteData(this, &gUnk_0810FEB0) != 0) {
+    if (LoadExtraSpriteData(this, gUnk_0810FEB0) != 0) {
         this->action = 1;
         this->spriteSettings.draw = 1;
         this->field_0x68.HALF.LO = sub_0801E99C(this);
@@ -129,6 +145,9 @@ void sub_0806574C(Entity* this) {
 }
 
 void sub_08065780(Entity* this, ScriptExecutionContext* context) {
+    static const u8 gUnk_0810FED8[] = {
+        10, 20, 30, 18, 28, 38, 12, 24,
+    };
     u32 rand;
 
     rand = Random();
@@ -145,7 +164,7 @@ void Talon_Head(Entity* this) {
 
 void Talon_Fusion(Entity* this) {
     if (this->action == 0) {
-        if (LoadExtraSpriteData(this, &gUnk_0810FEB0) != 0) {
+        if (LoadExtraSpriteData(this, gUnk_0810FEB0) != 0) {
             this->action++;
             this->spriteSettings.draw = 1;
             InitializeAnimation(this, 6);

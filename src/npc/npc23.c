@@ -5,16 +5,23 @@
 #include "message.h"
 #include "npc.h"
 
-extern void (*const gUnk_081104C8[])(Entity*);
-
 bool32 sub_0806650C(Entity*);
 
 void sub_08066490(Entity*, Entity*);
 
 void sub_08066570(Entity* this);
+void sub_080662F8(Entity* this);
+void sub_08066358(Entity* this);
+void nullsub_110(Entity* this);
+void sub_080663D4(Entity* this);
+void sub_0806643C(Entity* this);
+void sub_08066474(Entity* this);
 
 void NPC23(Entity* this) {
-    gUnk_081104C8[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_080662F8, sub_08066358, nullsub_110, sub_080663D4, sub_0806643C, sub_08066474,
+    };
+    actionFuncs[this->action](this);
     sub_0806ED78(this);
 }
 
@@ -58,7 +65,7 @@ void sub_08066358(Entity* this) {
     sub_08066570(this);
 }
 
-void nullsub_110(void) {
+void nullsub_110(Entity* this) {
 }
 
 void sub_080663D4(Entity* this) {
@@ -93,7 +100,7 @@ void sub_0806643C(Entity* this) {
     GetNextFrame(this);
 }
 
-void sub_08066474(void) {
+void sub_08066474(Entity* this) {
     if (gPlayerEntity.action != PLAYER_ROOM_EXIT) {
         gPauseMenuOptions.disabled = 0;
     }
@@ -101,10 +108,10 @@ void sub_08066474(void) {
 
 ASM_FUNC("asm/non_matching/npc23/sub_08066490.inc", void sub_08066490(Entity* this, Entity* entity))
 
-// px needs to be used in both r5 and r7
-NONMATCH("asm/non_matching/npc23/sub_0806650C.inc", bool32 sub_0806650C(Entity* this)) {
+bool32 sub_0806650C(Entity* this) {
     u32 dir = 0;
     s32 px = gPlayerEntity.x.HALF_U.HI;
+    s32 px2 = px;
     s32 py = gPlayerEntity.y.HALF_U.HI;
 
     if (py < this->field_0x80.HWORD + 16) {
@@ -113,7 +120,7 @@ NONMATCH("asm/non_matching/npc23/sub_0806650C.inc", bool32 sub_0806650C(Entity* 
         if (px < this->field_0x7c.HALF_U.HI + 2) {
             dir = 2;
         }
-        if (px > this->field_0x7c.HALF_U.HI + 6) {
+        if (px2 > this->field_0x7c.HALF_U.HI + 6) {
             dir = 6;
         }
         if (dir == 0) {
@@ -131,21 +138,37 @@ NONMATCH("asm/non_matching/npc23/sub_0806650C.inc", bool32 sub_0806650C(Entity* 
     }
     return 1;
 }
-END_NONMATCH
 
 NONMATCH("asm/non_matching/npc23/sub_08066570.inc", void sub_08066570(Entity* this)) {
-    if (this->frame & ANIM_DONE) {
+    u32 direction;
+    u32 dir1, dir2;
+    bool32 cond;
+    if ((this->frame & ANIM_DONE) == 0) {
         return;
     }
 
-    if (this->action == 3 && sub_0806FC80(this, &gPlayerEntity, 0x50)) {
-        u32 direction = GetFacingDirection(this, &gPlayerEntity);
-        bool32 cond = (this->direction & 0x18) == (direction & 0x18) && ((this->direction + 5) & 7) < 3 &&
-                      ((direction + 5) & 7) < 3;
-        if (!cond) {
-            this->direction = direction;
-            InitializeAnimation(this, ((u32)(this->direction + 4) & 0x18) >> 3);
+    if (this->action == 3 || !sub_0806FC80(this, &gPlayerEntity, 0x50)) {
+        return;
+    }
+
+    direction = GetFacingDirection(this, &gPlayerEntity);
+    cond = TRUE;
+
+    dir2 = (direction & 0x18);
+    dir1 = (this->direction & 0x18);
+    if (dir1 == dir2) {
+        dir1 = (direction + 5) & 7;
+        dir2 = (this->direction + 5) & 7;
+        if (dir2 < 3 && dir1 < 3) {
+            cond = FALSE;
         }
+    }
+    if (cond) {
+        this->direction = direction;
+        direction += 4;
+        direction &= 0x18;
+        direction >>= 3;
+        InitializeAnimation(this, direction);
     }
 }
 END_NONMATCH
