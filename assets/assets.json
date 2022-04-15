@@ -36854,26 +36854,6 @@
     "type": "animation"
   },
   {
-    "path": "ghostBrothers/gUnk_0811015C.bin",
-    "start": 1114460,
-    "size": 8
-  },
-  {
-    "path": "ghostBrothers/gUnk_08110188.bin",
-    "start": 1114504,
-    "size": 166
-  },
-  {
-    "path": "ghostBrothers/gUnk_0811022E.bin",
-    "start": 1114670,
-    "size": 70
-  },
-  {
-    "path": "ghostBrothers/gUnk_08110280.bin",
-    "start": 1114752,
-    "size": 128
-  },
-  {
     "path": "animations/gSpriteAnimations_Smith_0.bin",
     "start": 1115108,
     "size": 5,
