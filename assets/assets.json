@@ -37028,11 +37028,6 @@
     "type": "animation"
   },
   {
-    "path": "kingDaltus/gUnk_081104F8.bin",
-    "start": 1115384,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_MinisterPotho_0.bin",
     "start": 1115736,
     "size": 5,

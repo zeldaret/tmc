@@ -1212,7 +1212,7 @@ SECTIONS {
         src/npc/smith.o(.rodata);
         data/animations/npc/smith.o(.rodata);
         src/npc/npc23.o(.rodata);
-        data/const/npc/kingDaltus.o(.rodata);
+        src/npc/kingDaltus.o(.rodata);
         data/animations/npc/kingDaltus.o(.rodata);
         data/const/npc/ministerPotho.o(.rodata);
         data/animations/npc/ministerPotho.o(.rodata);
