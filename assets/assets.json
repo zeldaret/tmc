@@ -37518,36 +37518,6 @@
     "type": "animation"
   },
   {
-    "path": "cat/gUnk_08110EF0.bin",
-    "start": 1117936,
-    "size": 8
-  },
-  {
-    "path": "cat/gUnk_08110EF8.bin",
-    "start": 1117944,
-    "size": 480
-  },
-  {
-    "path": "cat/gUnk_081110FC.bin",
-    "start": 1118460,
-    "size": 8
-  },
-  {
-    "path": "cat/gUnk_08111104.bin",
-    "start": 1118468,
-    "size": 8
-  },
-  {
-    "path": "cat/gUnk_0811110C.bin",
-    "start": 1118476,
-    "size": 3
-  },
-  {
-    "path": "cat/gUnk_0811110F.bin",
-    "start": 1118479,
-    "size": 5
-  },
-  {
     "path": "animations/gSpriteAnimations_MountainMinish_0.bin",
     "start": 1119104,
     "size": 5,

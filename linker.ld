@@ -1227,7 +1227,7 @@ SECTIONS {
         data/animations/npc/carpenter.o(.rodata);
         src/npc/castorWildsStatue.o(.rodata);
         data/animations/npc/castorWildsStatue.o(.rodata);
-        data/const/npc/cat.o(.rodata);
+        src/npc/cat.o(.rodata);
         data/animations/npc/cat.o(.rodata);
         src/npc/mountainMinish.o(.rodata);
         data/animations/npc/mountainMinish.o(.rodata);
