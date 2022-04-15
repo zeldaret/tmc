@@ -37620,21 +37620,6 @@
     "type": "animation"
   },
   {
-    "path": "melari/gUnk_08111520.bin",
-    "start": 1119520,
-    "size": 16
-  },
-  {
-    "path": "melari/gUnk_08111538.bin",
-    "start": 1119544,
-    "size": 6
-  },
-  {
-    "path": "melari/gUnk_0811153E.bin",
-    "start": 1119550,
-    "size": 6
-  },
-  {
     "path": "animations/gSpriteAnimations_BladeBrothers_1_0.bin",
     "start": 1120113,
     "size": 5,

@@ -1231,7 +1231,7 @@ SECTIONS {
         data/animations/npc/cat.o(.rodata);
         src/npc/mountainMinish.o(.rodata);
         data/animations/npc/mountainMinish.o(.rodata);
-        data/const/npc/melari.o(.rodata);
+        src/npc/melari.o(.rodata);
         data/animations/npc/melari.o(.rodata);
         data/const/npc/bladeBrothers.o(.rodata);
         data/animations/npc/bladeBrothers.o(.rodata);
