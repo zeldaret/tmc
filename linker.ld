@@ -1245,7 +1245,7 @@ SECTIONS {
         data/animations/npc/gorman.o(.rodata);
         data/const/npc/dog.o(.rodata);
         data/animations/npc/dog.o(.rodata);
-        data/const/npc/syrup.o(.rodata);
+        src/npc/syrup.o(.rodata);
         data/animations/npc/syrup.o(.rodata);
         src/npc/rem.o(.rodata);
         data/animations/npc/rem.o(.rodata);

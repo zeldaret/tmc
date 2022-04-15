@@ -2,23 +2,37 @@
 #include "functions.h"
 #include "object.h"
 
-extern void (*gUnk_081121D4[])(Entity*);
+static const SpriteLoadData gUnk_081121B4[] = {
+    { 0xc2, 0x46, 0x4 },
+    { 0x44c2, 0x46, 0x4 },
+    { 0x54c3, 0x46, 0x4 },
+    { 0x70c2, 0x46, 0x4 },
+};
+static const SpriteLoadData gUnk_081121C4[] = {
+    { 0xc2, 0x46, 0x4 },
+    { 0x44c2, 0x46, 0x4 },
+    { 0x54c4, 0x46, 0x4 },
+    { 0x70c2, 0x46, 0x4 },
+};
 
-extern SpriteLoadData gUnk_081121C4;
-extern SpriteLoadData gUnk_081121B4;
-
-extern void sub_0806A26C(Entity*);
+void sub_0806A26C(Entity*);
+void sub_0806A1F8(Entity*);
+void sub_0806A234(Entity*);
 
 void Syrup(Entity* this) {
-    gUnk_081121D4[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_0806A1F8,
+        sub_0806A234,
+    };
+    actionFuncs[this->action](this);
     sub_0806ED78(this);
 }
 
 void sub_0806A1F8(Entity* this) {
     u32 iVar1;
-    SpriteLoadData* paVar2;
+    const SpriteLoadData* paVar2;
 
-    this->type == 0 ? (paVar2 = &gUnk_081121B4) : (paVar2 = &gUnk_081121C4);
+    this->type == 0 ? (paVar2 = gUnk_081121B4) : (paVar2 = gUnk_081121C4);
 
     iVar1 = LoadExtraSpriteData(this, paVar2);
     if (iVar1) {
@@ -39,11 +53,10 @@ void sub_0806A234(Entity* this) {
     }
 }
 
-extern u8 gUnk_081121DC[];
-
 void sub_0806A26C(Entity* this) {
+    static const s8 gUnk_081121DC[] = { -1, -2, -3, 0, 1, 2, 3, 0 };
     u8 unk;
-    u8* ptr;
+    const s8* ptr;
     u32 uVar2, uVar1;
     Entity* pEVar1;
     pEVar1 = CreateObject(SPECIAL_FX, 0x2f, 0);
@@ -51,11 +64,36 @@ void sub_0806A26C(Entity* this) {
         PositionEntityOnTop(this, pEVar1);
         uVar2 = uVar1 = Random();
         ptr = gUnk_081121DC;
-        pEVar1->spriteOffsetX = (u8)ptr[uVar2 & 7];
+        pEVar1->spriteOffsetX = ptr[uVar2 & 7];
         uVar1 /= 256;
         uVar1 &= 7;
-        pEVar1->spriteOffsetY = (u8)ptr[uVar1] - 8;
+        pEVar1->spriteOffsetY = ptr[uVar1] - 8;
     }
 }
 
-ASM_FUNC("asm/non_matching/syrup/Syrup_Head.inc", void Syrup_Head(Entity* this))
+static const u8 gUnk_081121E4[] = { 0x0, 0x5, 0x0, 0x5, 0x1, 0x6, 0x1, 0x6, 0x2, 0x7, 0x2, 0x7, 0x3, 0x8, 0x3, 0x8,
+                                    0x4, 0x9, 0x4, 0x9, 0x3, 0x8, 0x3, 0x8, 0x2, 0x7, 0x2, 0x7, 0x1, 0x6, 0x1, 0x6 };
+
+static const u8 gUnk_08112204[] = { 0, 1, 0, 0 };
+
+void Syrup_Head(Entity* param_1) {
+    u32 bVar1;
+    u8 bVar2;
+    u32 uVar3;
+    u32 tmp1;
+    u32 tmp2;
+
+    bVar1 = (param_1->frameSpriteSettings) & 1;
+    bVar2 = param_1->frame;
+    tmp1 = bVar2 >> 4 & 7;
+    tmp2 = (bVar2 & 7);
+    uVar3 = (u32)(param_1->animationState >> 1);
+    SetExtraSpriteFrame(param_1, 0, gUnk_081121E4[uVar3 + (u32)param_1->frameIndex * 4] + 0x10);
+    sub_0806FF48(param_1, 0, gUnk_08112204[uVar3]);
+    SetExtraSpriteFrame(param_1, 1, tmp1);
+    SetExtraSpriteFrame(param_1, 2, tmp2 + 0x1c);
+    SetExtraSpriteFrame(param_1, 3, bVar1 + 0x1a);
+    SetSpriteSubEntryOffsetData1(param_1, 1, 0);
+    SetSpriteSubEntryOffsetData2(param_1, 1, 3);
+    sub_0807000C(param_1);
+}

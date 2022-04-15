@@ -38387,31 +38387,6 @@
     "type": "animation"
   },
   {
-    "path": "syrup/gUnk_081121B4.bin",
-    "start": 1122740,
-    "size": 16
-  },
-  {
-    "path": "syrup/gUnk_081121C4.bin",
-    "start": 1122756,
-    "size": 16
-  },
-  {
-    "path": "syrup/gUnk_081121DC.bin",
-    "start": 1122780,
-    "size": 8
-  },
-  {
-    "path": "syrup/gUnk_081121E4.bin",
-    "start": 1122788,
-    "size": 32
-  },
-  {
-    "path": "syrup/gUnk_08112204.bin",
-    "start": 1122820,
-    "size": 4
-  },
-  {
     "path": "animations/gSpriteAnimations_Rem_1.bin",
     "start": 1123008,
     "size": 9,
