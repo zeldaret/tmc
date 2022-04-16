@@ -1307,7 +1307,7 @@ SECTIONS {
         src/playerItem/playerItemPacciCane.o(.rodata);
         src/player.o(.rodata);
         src/item.o(.rodata);
-        data/const/item/itemSword.o(.rodata);
+        src/item/itemSword.o(.rodata);
         data/const/item/itemLantern.o(.rodata);
         data/const/item/itemBoomerang.o(.rodata);
         data/const/item/itemBow.o(.rodata);

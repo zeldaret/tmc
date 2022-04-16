@@ -4,18 +4,25 @@
 #include "object.h"
 #include "playeritem.h"
 
-extern void (*const gUnk_0811BD44[])(ItemBehavior*, u32);
-
 void sub_080759B8(ItemBehavior*, u32);
 void sub_080754B8(ItemBehavior*, u32);
 void sub_08075898(ItemBehavior*, u32);
 void sub_08075580(ItemBehavior*, u32);
-
-void sub_08075694(ItemBehavior* this, u32 idx);
+void sub_08075338(ItemBehavior*, u32);
+void sub_080755F0(ItemBehavior*, u32);
+void sub_0807564C(ItemBehavior*, u32);
+void sub_08075738(ItemBehavior*, u32);
+void sub_080758B0(ItemBehavior*, u32);
+void sub_08075900(ItemBehavior*, u32);
+void sub_08075694(ItemBehavior*, u32);
 
 void ItemSword(ItemBehavior* this, u32 idx) {
+    static void (*const stateFuncs[])(ItemBehavior*, u32) = {
+        sub_08075338, sub_080754B8, sub_080755F0, sub_0807564C, sub_08075738,
+        sub_08075580, sub_08075898, sub_080758B0, sub_08075900,
+    };
     gPlayerState.framestate = PL_STATE_SWORD;
-    gUnk_0811BD44[this->stateID](this, idx);
+    stateFuncs[this->stateID](this, idx);
 }
 
 void sub_08075338(ItemBehavior* this, u32 idx) {
