@@ -1265,7 +1265,7 @@ SECTIONS {
         data/animations/npc/carlov.o(.rodata);
         src/npc/dampe.o(.rodata);
         data/animations/npc/dampe.o(.rodata);
-        data/const/npc/drLeft.o(.rodata);
+        src/npc/drLeft.o(.rodata);
         data/animations/npc/drLeft.o(.rodata);
         data/animations/npc/kingGustaf.o(.rodata);
         data/animations/npc/gina.o(.rodata);

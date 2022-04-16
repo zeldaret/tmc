@@ -39175,16 +39175,6 @@
     "type": "animation"
   },
   {
-    "path": "drLeft/gUnk_081133A4.bin",
-    "start": 1127332,
-    "size": 16
-  },
-  {
-    "path": "drLeft/gUnk_081133B4.bin",
-    "start": 1127348,
-    "size": 4
-  },
-  {
     "path": "animations/gSpriteAnimations_KingGustaf_0.bin",
     "start": 1127636,
     "size": 52,

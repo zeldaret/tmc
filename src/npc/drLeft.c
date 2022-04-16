@@ -2,11 +2,7 @@
 #include "functions.h"
 #include "item.h"
 
-extern u32 gUnk_081133B4;
-
 void sub_0806BFD8(Entity* this);
-
-extern u16 gUnk_081133A4[];
 
 void DrLeft(Entity* this) {
     if (this->type == 0) {
@@ -52,6 +48,9 @@ void sub_0806C028(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_0806C038(Entity* this) {
+    static const u16 messageIndices[] = {
+        0x4d07, 0x4d08, 0x4d09, 0x4d0a, 0x4d0a, 0x4d05, 0x4d06, 0x4d0f,
+    };
     s32 index;
 
     index = gSave.global_progress - 5;
@@ -72,9 +71,15 @@ void sub_0806C038(Entity* this) {
             }
         }
     }
-    MessageNoOverlap(gUnk_081133A4[index], this);
+    MessageNoOverlap(messageIndices[index], this);
 }
 
 void sub_0806C09C(Entity* this) {
+    static const u8 gUnk_081133B4[] = {
+        0,
+        6,
+        8,
+        12,
+    };
     sub_08078850(this, 1, 0, &gUnk_081133B4);
 }
