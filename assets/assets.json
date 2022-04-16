@@ -41006,11 +41006,6 @@
     }
   },
   {
-    "path": "itemOnGround/gUnk_0811E84C.bin",
-    "start": 1173580,
-    "size": 944
-  },
-  {
     "path": "animations/gSpriteAnimations_DeathFx_1_0.bin",
     "start": 1174740,
     "size": 121,

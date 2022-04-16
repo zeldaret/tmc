@@ -53,10 +53,12 @@ void sub_08080368();
 void sub_08080B60(u8*);
 bool32 sub_08080794(const Transition* transition, u32 param_2, u32 param_3, u32 param_4);
 bool32 sub_08080808(const Transition* transition, u32 param_2, u32 param_3, u32 param_4);
+void sub_080808D8(int);
+void sub_080808E4(int);
+void sub_08080904(int);
+void sub_08080910(int);
 
 extern u8 gMapDataTopSpecial[];
-
-extern const void (*const gUnk_0811E7C4[])(int);
 
 void UpdateScroll(void) {
     static void (*const gUnk_0811E768[])(RoomControls*) = {
@@ -465,6 +467,12 @@ bool32 sub_08080808(const Transition* param_1, u32 param_2, u32 param_3, u32 par
 }
 
 void DoExitTransition(const ScreenTransitionData* data) {
+    static void (*const gUnk_0811E7C4[])(int) = {
+        sub_080808D8,
+        sub_080808E4,
+        sub_08080904,
+        sub_08080910,
+    };
     PlayerRoomStatus* status;
     gRoomTransition.transitioningOut = 1;
     status = &gRoomTransition.player_status;
@@ -489,11 +497,11 @@ void DoExitTransition(const ScreenTransitionData* data) {
     gUnk_0811E7C4[data->type](data->field_0xa);
 }
 
-void sub_080808D8(void) {
+void sub_080808D8(int param_1) {
     gRoomTransition.type = TRANSITION_DEFAULT;
 }
 
-void sub_080808E4(void) {
+void sub_080808E4(int param_1) {
     if (CheckAreaOverworld(gRoomTransition.player_status.area_next)) {
         gRoomTransition.type = TRANSITION_DEFAULT;
     } else {
@@ -501,11 +509,11 @@ void sub_080808E4(void) {
     }
 }
 
-void sub_08080904(void) {
+void sub_08080904(int param_1) {
     gRoomTransition.type = TRANSITION_CUT;
 }
 
-void sub_08080910(void) {
+void sub_08080910(int param_1) {
     gRoomTransition.type = TRANSITION_CUT;
 }
 

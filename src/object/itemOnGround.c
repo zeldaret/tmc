@@ -19,12 +19,31 @@ void sub_0808153C(Entity*);
 void sub_08081598(Entity*);
 void sub_080813BC(Entity*);
 void sub_080810FC(Entity*);
+void sub_08080F20(Entity*);
+void sub_080811EC(Entity*);
+void sub_0808122C(Entity*);
+void sub_08081328(Entity*);
+void sub_0808136C(Entity*);
+void sub_080810A8(Entity*);
+void sub_080810FC(Entity*);
+void sub_08081150(Entity*);
+void sub_08081134(Entity*);
+void sub_08081188(Entity*);
+void sub_080811AC(Entity*);
+void sub_080811C8(Entity*);
+void sub_080811D8(Entity*);
+void sub_08081248(Entity*);
+void sub_0808126C(Entity*);
+void sub_0808127C(Entity*);
+void nullsub_113(Entity*);
+void sub_080812A0(Entity*);
+void sub_080812A8(Entity*);
+void sub_080812E8(Entity*);
+void nullsub_510(Entity*);
+void sub_080813D4(Entity*);
+void sub_080813E8(Entity*);
+void sub_080813F0(Entity*);
 bool32 CheckShouldPlayItemGetCutscene(Entity*);
-
-extern void (*const gUnk_0811E7D4[])(Entity*);
-extern void (*const gUnk_0811E7E8[])(Entity*);
-extern void (*const gUnk_0811E814[])(Entity*);
-extern void (*const gUnk_0811E840[])(Entity*);
 
 typedef struct {
     u8 unk0[2];
@@ -33,9 +52,10 @@ typedef struct {
     u8 unk5[3];
 } Unk_0811E84C;
 
-extern const Unk_0811E84C gUnk_0811E84C[];
-
 void ItemOnGround(Entity* this) {
+    static void (*const gUnk_0811E7D4[])(Entity*) = {
+        sub_08080F20, sub_080811EC, sub_0808122C, sub_08081328, sub_0808136C,
+    };
     if (this->contactFlags & 0x80) {
         switch (this->contactFlags & 0x7F) {
             case 20:
@@ -75,6 +95,10 @@ void ItemOnGround(Entity* this) {
 }
 
 void sub_08080F20(Entity* this) {
+    static void (*const gUnk_0811E7E8[])(Entity*) = {
+        sub_080810A8, sub_080810FC, sub_08081150, sub_08081134, sub_08081188, sub_080810A8,
+        sub_080810A8, sub_080811AC, sub_080811C8, sub_080811D8, sub_080810A8,
+    };
     if (this->field_0x86.HWORD && CheckFlags(this->field_0x86.HWORD)) {
         DeleteThisEntity();
     }
@@ -215,6 +239,10 @@ void sub_080811EC(Entity* this) {
 }
 
 void sub_0808122C(Entity* this) {
+    static void (*const gUnk_0811E814[])(Entity*) = {
+        sub_08081248, sub_08081248, sub_0808126C, sub_0808127C, nullsub_113,  sub_080812A0,
+        sub_08081248, sub_080812A8, sub_080812E8, nullsub_510,  sub_08081248,
+    };
     gUnk_0811E814[this->field_0x68.HALF.HI](this);
 }
 
@@ -300,7 +328,12 @@ void sub_0808136C(Entity* this) {
 }
 
 void sub_080813BC(Entity* this) {
-    gUnk_0811E840[this->subAction](this);
+    static void (*const subActionFuncs[])(Entity*) = {
+        sub_080813D4,
+        sub_080813E8,
+        sub_080813F0,
+    };
+    subActionFuncs[this->subAction](this);
 }
 
 void sub_080813D4(Entity* this) {
@@ -341,6 +374,24 @@ bool32 sub_08081420(Entity* this) {
 bool32 CheckShouldPlayItemGetCutscene(Entity* this) {
     return ((gItemMetaData[this->type].unk3 & 0x2) || !GetInventoryValue(this->type));
 }
+
+static const Unk_0811E84C gUnk_0811E84C[118] = {
+    [ITEM_SHELLS] = { { 0x0, 0x0 }, SFX_RUPEE_BOUNCE, 0x1, { 0x0, 0x0, 0x0 } },
+    [ITEM_DUNGEON_MAP] = { { 0x0, 0x0 }, SFX_RUPEE_BOUNCE, 0x1, { 0x0, 0x0, 0x0 } },
+    [ITEM_COMPASS] = { { 0x0, 0x0 }, SFX_RUPEE_BOUNCE, 0x1, { 0x0, 0x0, 0x0 } },
+    [ITEM_BIG_KEY] = { { 0x0, 0x0 }, SFX_RUPEE_BOUNCE, 0x1, { 0x0, 0x0, 0x0 } },
+    [ITEM_SMALL_KEY] = { { 0x0, 0x0 }, SFX_RUPEE_BOUNCE, 0x1, { 0x0, 0x0, 0x0 } },
+    [ITEM_RUPEE1] = { { 0x0, 0x0 }, SFX_RUPEE_BOUNCE, 0x1, { 0x0, 0x0, 0x0 } },
+    [ITEM_RUPEE5] = { { 0x0, 0x0 }, SFX_RUPEE_BOUNCE, 0x1, { 0x0, 0x0, 0x0 } },
+    [ITEM_RUPEE20] = { { 0x0, 0x0 }, SFX_RUPEE_BOUNCE, 0x1, { 0x0, 0x0, 0x0 } },
+    [ITEM_RUPEE50] = { { 0x0, 0x0 }, SFX_RUPEE_BOUNCE, 0x1, { 0x0, 0x0, 0x0 } },
+    [ITEM_RUPEE100] = { { 0x0, 0x0 }, SFX_RUPEE_BOUNCE, 0x1, { 0x0, 0x0, 0x0 } },
+    [ITEM_RUPEE200] = { { 0x0, 0x0 }, SFX_RUPEE_BOUNCE, 0x1, { 0x0, 0x0, 0x0 } },
+    [ITEM_KINSTONE] = { { 0x0, 0x0 }, SFX_RUPEE_BOUNCE, 0x1, { 0x0, 0x0, 0x0 } },
+    [ITEM_BOMBS5] = { { 0x0, 0x0 }, SFX_HEART_BOUNCE, 0x1, { 0x0, 0x0, 0x0 } },
+    [ITEM_ARROWS5] = { { 0x0, 0x0 }, SFX_HEART_BOUNCE, 0x1, { 0x0, 0x0, 0x0 } },
+    [ITEM_HEART] = { { 0x0, 0x0 }, SFX_HEART_BOUNCE, 0x1, { 0x0, 0x0, 0x0 } },
+};
 
 u8 sub_0808147C(u32 arg0) {
     const Unk_0811E84C* var0 = &gUnk_0811E84C[arg0];
