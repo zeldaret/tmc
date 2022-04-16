@@ -3,7 +3,9 @@
 
 extern void sub_0806FFBC(Entity*, u32, u32, u32);
 
-extern SpriteLoadData gUnk_081146D0;
+static const SpriteLoadData gUnk_081146D0[] = {
+    { 0, 0x61, 0x4 }, { 0x800, 0x61, 0x4 }, { 0x1000, 0x61, 0x4 }, { 0x1800, 0x61, 0x4 }, { 0, 0, 0 },
+};
 
 void NPC58(Entity* this) {
     s32 sVar1;
@@ -12,7 +14,7 @@ void NPC58(Entity* this) {
     Entity* entity;
 
     if (this->action == 0) {
-        if (LoadExtraSpriteData(this, &gUnk_081146D0) == 0) {
+        if (LoadExtraSpriteData(this, gUnk_081146D0) == 0) {
             return;
         }
         this->action += 1;

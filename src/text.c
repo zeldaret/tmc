@@ -430,7 +430,7 @@ void sub_0805F440(Token* param_1, u8* param_2) {
     }
 }
 
-u32 sub_0805F46C(u32 param_1, Font* param_2) {
+u32 sub_0805F46C(u32 param_1, const Font* param_2) {
     u32 uVar1;
     WStruct* pWVar4;
     u32 uVar5;

@@ -1297,7 +1297,7 @@ SECTIONS {
         src/npc/cucco.o(.rodata);
         src/npc/cuccoChick.o(.rodata);
         src/npc/phonograph.o(.rodata);
-        data/const/npc/npc58.o(.rodata);
+        src/npc/npc58.o(.rodata);
         src/npcDefinitions.o(.rodata);
         data/data_081146D0.o(.rodata);
         src/physics.o(.rodata);
