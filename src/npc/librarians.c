@@ -6,8 +6,6 @@
 #include "sound.h"
 #include "item.h"
 
-extern u16 gUnk_08113078[];
-
 extern void sub_08095BE0(Entity*, u32);
 
 extern const u8 gUnk_08114F30[];
@@ -106,6 +104,11 @@ void sub_0806BB7C(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_0806BBB0(Entity* this) {
+    static const u16 messageIndices[] = {
+        0x490f,
+        0x4910,
+        0x4912,
+    };
     u32 tmp;
 
     if (GetInventoryValue(ITEM_FLIPPERS) == 0) {
@@ -117,5 +120,5 @@ void sub_0806BBB0(Entity* this) {
     } else {
         tmp = 2;
     }
-    MessageNoOverlap(gUnk_08113078[tmp], this);
+    MessageNoOverlap(messageIndices[tmp], this);
 }

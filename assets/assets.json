@@ -39031,11 +39031,6 @@
     "type": "animation"
   },
   {
-    "path": "librarians/gUnk_08113078.bin",
-    "start": 1126520,
-    "size": 6
-  },
-  {
     "path": "animations/gSpriteAnimations_Farmers_0_0.bin",
     "start": 1126760,
     "size": 37,

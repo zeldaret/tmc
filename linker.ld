@@ -1258,7 +1258,7 @@ SECTIONS {
         src/npc/vaatiReborn.o(.rodata);
         data/animations/npc/vaatiReborn.o(.rodata);
         data/animations/npc/moblinLady.o(.rodata);
-        data/const/npc/librarians.o(.rodata);
+        src/npc/librarians.o(.rodata);
         data/animations/npc/librarians.o(.rodata);
         data/const/npc/farmers.o(.rodata);
         data/animations/npc/farmers.o(.rodata);
