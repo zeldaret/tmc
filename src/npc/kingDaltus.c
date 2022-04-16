@@ -4,12 +4,24 @@
 #include "npc.h"
 #include "item.h"
 
-extern u16 gUnk_081104F8[];
-
-extern void (*const gUnk_081104E0[])(Entity*);
-extern void (*const gUnk_081104EC[])(Entity*);
+void sub_08066654(Entity*);
+void sub_08066688(Entity*);
+void sub_080666DC(Entity*);
+void sub_080666E4(Entity*);
+void sub_0806670C(Entity*);
+void sub_08066718(Entity*);
 
 void KingDaltus(Entity* this) {
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_08066654,
+        sub_08066688,
+        sub_080666DC,
+    };
+    static void (*const scriptedActionFuncs[])(Entity*) = {
+        sub_080666E4,
+        sub_0806670C,
+        sub_08066718,
+    };
     if ((this->flags & ENT_SCRIPTED) != 0) {
         if (this->interactType == 2) {
             this->interactType = 0;
@@ -17,9 +29,9 @@ void KingDaltus(Entity* this) {
             InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
             sub_0806F118(this);
         }
-        gUnk_081104EC[this->action](this);
+        scriptedActionFuncs[this->action](this);
     } else {
-        gUnk_081104E0[this->action](this);
+        actionFuncs[this->action](this);
         sub_0806ED78(this);
     }
 }
@@ -79,6 +91,12 @@ void sub_0806672C(Entity* this) {
 }
 
 void sub_0806673C(Entity* this) {
+    static const u16 messageIndices[] = {
+        0x1058,
+        0x1326,
+        0x1329,
+        0x132e,
+    };
     u32 index;
     if (CheckGlobalFlag(2) == 0) {
         index = 0;
@@ -89,7 +107,7 @@ void sub_0806673C(Entity* this) {
     } else {
         index = 3;
     }
-    MessageNoOverlap(gUnk_081104F8[index], this);
+    MessageNoOverlap(messageIndices[index], this);
 }
 
 void KingDaltus_Fusion(Entity* this) {

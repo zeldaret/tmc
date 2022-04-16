@@ -1,16 +1,33 @@
 #include "npc.h"
 #include "functions.h"
 
-extern void (*const gUnk_08110360[])(Entity*);
-extern void (*const gUnk_0811036C[])(Entity*);
+static const SpriteLoadData gUnk_08110354[] = {
+    { 0x4d, 0x38, 0x4 },
+    { 0x4004, 0x38, 0x4 },
+    { 0, 0, 0 },
+};
 
-extern u16 gUnk_08110380[];
-extern SpriteLoadData gUnk_08110354;
-extern Dialog gUnk_08110390[];
-extern u16 gUnk_081103D0[];
-extern u32 gUnk_081103E0;
+void sub_080660EC(Entity*);
+void sub_08066118(Entity*);
+void sub_08066170(Entity*);
+void sub_08066178(Entity*);
+void sub_080661B0(Entity*);
+void sub_080661BC(Entity*);
+void sub_08066200(Entity*);
+void sub_08066218(Entity*);
 
 void Smith(Entity* this) {
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_080660EC,
+        sub_08066118,
+        sub_08066170,
+    };
+    static void (*const scriptedActionFuncs[])(Entity*) = {
+        sub_08066178, sub_080661B0, sub_080661BC, sub_08066200, sub_08066218,
+    };
+    static const u16 gUnk_08110380[] = {
+        0xdc, 0xdd, 0xde, 0xdc, 0xdd, 0xde, 0xdc, 0xdd,
+    };
     u32 index;
 
     if ((this->flags & ENT_SCRIPTED) != 0) {
@@ -22,9 +39,9 @@ void Smith(Entity* this) {
             InitAnimationForceUpdate(this, index);
             sub_0806F118(this);
         }
-        gUnk_0811036C[this->action](this);
+        scriptedActionFuncs[this->action](this);
     } else {
-        gUnk_08110360[this->action](this);
+        actionFuncs[this->action](this);
         sub_0806ED78(this);
     }
     if (this->animIndex == 0xc) {
@@ -54,7 +71,7 @@ void Smith_Head(Entity* this) {
 }
 
 void sub_080660EC(Entity* this) {
-    if (LoadExtraSpriteData(this, &gUnk_08110354) != 0) {
+    if (LoadExtraSpriteData(this, gUnk_08110354) != 0) {
         this->action = 1;
         this->field_0x68.HALF.LO = sub_0801E99C(this);
         InitAnimationForceUpdate(this, 2);
@@ -89,7 +106,7 @@ void sub_08066170(Entity* this) {
 }
 
 void sub_08066178(Entity* this) {
-    if (LoadExtraSpriteData(this, &gUnk_08110354) != 0) {
+    if (LoadExtraSpriteData(this, gUnk_08110354) != 0) {
         this->action = 1;
         this->spriteSettings.draw = 1;
         this->field_0x68.HALF.LO = sub_0801E99C(this);
@@ -126,6 +143,12 @@ void sub_08066218(Entity* this) {
 }
 
 void sub_0806622C(Entity* this) {
+    static const Dialog dialogs[] = {
+        { 0x15, 2, 4, 1, { 0x3201, 0x100e } }, { 0x15, 2, 4, 1, { 0x3201, 0x100e } },
+        { 0x15, 2, 4, 1, { 0x3202, 0x100e } }, { 0x15, 2, 4, 1, { 0x3203, 0x100e } },
+        { 0x15, 2, 4, 1, { 0x3204, 0x100e } }, { 0x15, 2, 4, 1, { 0x3205, 0x100e } },
+        { 0x15, 2, 4, 1, { 0x3206, 0x100e } }, { 0x15, 2, 4, 1, { 0x3206, 0x100e } },
+    };
     u32 index;
 
     if (gSave.global_progress - 2 < 0) {
@@ -133,17 +156,26 @@ void sub_0806622C(Entity* this) {
     } else {
         index = gSave.global_progress - 2;
     }
-    ShowNPCDialogue(this, &gUnk_08110390[index]);
+    ShowNPCDialogue(this, &dialogs[index]);
 }
 
 void nullsub_501(Entity* this) {
 }
 
 void sub_08066258(void) {
-    SoundReq(gUnk_081103D0[Random() & 7]);
+    static const u16 hammerSounds[] = {
+        SFX_HAMMER4, SFX_HAMMER5, SFX_HAMMER6, SFX_HAMMER4, SFX_HAMMER5, SFX_HAMMER6, SFX_HAMMER4, SFX_HAMMER5,
+    };
+    SoundReq(hammerSounds[Random() & 7]);
 }
 
 void sub_08066274(Entity* this) {
+    static const u8 gUnk_081103E0[] = {
+        0,
+        6,
+        8,
+        12,
+    };
     sub_08078850(this, 1, 0, &gUnk_081103E0);
 }
 
@@ -153,7 +185,7 @@ void sub_08066288(Entity* this) {
 
 void Smith_Fusion(Entity* this) {
     if (this->action == 0) {
-        if (LoadExtraSpriteData(this, &gUnk_08110354) != 0) {
+        if (LoadExtraSpriteData(this, gUnk_08110354) != 0) {
             this->action++;
             this->spriteSettings.draw = 1;
             InitAnimationForceUpdate(this, 6);

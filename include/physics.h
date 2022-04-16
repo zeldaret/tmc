@@ -39,6 +39,7 @@ u32 sub_0806F5B0(u32);
 u32 sub_0806F824(Entity*, Entity*, s32, s32);
 u32 sub_0806F948(Entity*);
 void sub_0806FBB4(Entity*);
+void sub_0806FF48(Entity*, u32, u32);
 void sub_0806FCF4(Entity*, s32, s32, s32);
 void sub_0806FD3C(Entity*);
 bool32 sub_0806FDA0(Entity*);

@@ -6,47 +6,106 @@
 #include "npc.h"
 #include "enemy.h"
 
-extern void sub_08067C44(Entity*);
+static const Hitbox gUnk_08110EF0 = { 0, -1, { 5, 3, 3, 5 }, 5, 4 };
 
-extern void (*gCat[9])(Entity*);
-
-extern Dialog gUnk_08110EF8;
-
-extern Hitbox gUnk_08110EF0;
-extern void sub_08067B08(Entity*);
-
-extern u32 sub_08067D20(Entity*);
-extern void sub_08067AAC(Entity*);
-extern void sub_08067B34(Entity*);
-extern void sub_08067B80(Entity*, u32);
-
-extern void sub_08067B70(Entity*);
-
-extern void sub_08067C24(Entity*);
-extern void sub_08067BD4(Entity*);
-extern u32 sub_08067D74(Entity*);
-extern void sub_08067C18(Entity*);
+void sub_08067C44(Entity*);
+void sub_08067B08(Entity*);
+u32 sub_08067D20(Entity*);
+void sub_08067AAC(Entity*);
+void sub_08067B34(Entity*);
+void sub_08067B80(Entity*, u32);
+void sub_08067B70(Entity*);
+void sub_08067C24(Entity*);
+void sub_08067BD4(Entity*);
+u32 sub_08067D74(Entity*);
+void sub_08067C18(Entity*);
+void sub_08067DCC(Entity*, u32);
+void sub_08067DDC(Entity*);
+void sub_080677EC(Entity*);
+void sub_080678AC(Entity*);
+void sub_08067904(Entity*);
+void sub_0806797C(Entity*);
+void sub_0806799C(Entity*);
+void sub_080679C4(Entity*);
+void sub_08067A0C(Entity*);
+void sub_08067A78(Entity*);
+void sub_08067A98(Entity*);
 
 extern Hitbox* gUnk_08111154[8];
-extern void sub_08067DDC(Entity*);
-
-extern u16 gUnk_081110FC[4];
-extern void sub_08067DCC(Entity*, u32);
-
-extern u8 gUnk_0811110C[2];
-extern u32 gUnk_0811110F;
-
-extern u16 gUnk_08111104[];
-
-extern u32 sub_0806FCA0(Entity*, Entity*);
 
 void sub_08067790(Entity* this) {
-    ShowNPCDialogue(this, &gUnk_08110EF8 + this->type * 10 + gSave.global_progress);
+    static const Dialog dialogs[][10] = {
+        { { 0, 0, 6, 1, 0x3407, 0x3408 },
+          { 0, 0, 6, 1, 0x3407, 0x3408 },
+          { 0, 0, 6, 1, 0x3407, 0x3408 },
+          { 0, 0, 6, 1, 0x3407, 0x3408 },
+          { 0, 0, 6, 1, 0x3503, 0x3504 },
+          { 0, 0, 6, 1, 0x3603, 0x3604 },
+          { 0, 0, 6, 1, 0x3703, 0x3704 },
+          { 0, 0, 6, 1, 0x3803, 0x3804 },
+          { 0, 0, 6, 1, 0x3902, 0x3903 },
+          { 0, 0, 6, 1, 0x3902, 0x3903 } },
+        { { 0, 0, 6, 1, 0x3407, 0x3408 },
+          { 0, 0, 6, 1, 0x3407, 0x3408 },
+          { 0, 0, 6, 1, 0x3407, 0x3408 },
+          { 0, 0, 6, 1, 0x3407, 0x3408 },
+          { 0, 0, 6, 1, 0x3503, 0x3504 },
+          { 0, 0, 6, 1, 0x3603, 0x3604 },
+          { 0, 0, 6, 1, 0x3703, 0x3704 },
+          { 0, 0, 6, 1, 0x3803, 0x3804 },
+          { 0, 0, 6, 1, 0x3902, 0x3903 },
+          { 0, 0, 6, 1, 0x3902, 0x3903 } },
+        { { 0, 0, 6, 1, 0x3407, 0x3408 },
+          { 0, 0, 6, 1, 0x3407, 0x3408 },
+          { 0, 0, 6, 1, 0x3407, 0x3408 },
+          { 0, 0, 6, 1, 0x3407, 0x3408 },
+          { 0, 0, 6, 1, 0x3503, 0x3504 },
+          { 0, 0, 6, 1, 0x3603, 0x3604 },
+          { 0, 0, 6, 1, 0x3703, 0x3704 },
+          { 0, 0, 6, 1, 0x3803, 0x3804 },
+          { 0, 0, 6, 1, 0x3902, 0x3903 },
+          { 0, 0, 6, 1, 0x3902, 0x3903 } },
+        { { 0, 0, 6, 1, 0x3407, 0x3408 },
+          { 0, 0, 6, 1, 0x3407, 0x3408 },
+          { 0, 0, 6, 1, 0x3407, 0x3408 },
+          { 0, 0, 6, 1, 0x3407, 0x3408 },
+          { 0, 0, 6, 1, 0x3503, 0x3504 },
+          { 0, 0, 6, 1, 0x3603, 0x3604 },
+          { 0, 0, 6, 1, 0x3703, 0x3704 },
+          { 0, 0, 6, 1, 0x3803, 0x3804 },
+          { 0, 0, 6, 1, 0x3902, 0x3903 },
+          { 0, 0, 6, 1, 0x3902, 0x3903 } },
+        { { 0, 0, 6, 1, 0x4e17, 0x4e18 },
+          { 0, 0, 6, 1, 0x4e17, 0x4e18 },
+          { 0, 0, 6, 1, 0x4e17, 0x4e18 },
+          { 0, 0, 6, 1, 0x4e17, 0x4e18 },
+          { 0, 0, 6, 1, 0x4e17, 0x4e18 },
+          { 0, 0, 6, 1, 0x4e17, 0x4e18 },
+          { 0, 0, 6, 1, 0x4e17, 0x4e18 },
+          { 0, 0, 6, 1, 0x4e17, 0x4e18 },
+          { 0, 0, 6, 1, 0x4e17, 0x4e18 },
+          { 0, 0, 6, 1, 0x4e17, 0x4e18 } },
+        { { 0, 0, 6, 1, 0x3407, 0x3408 },
+          { 0, 0, 6, 1, 0x3407, 0x3408 },
+          { 0, 0, 6, 1, 0x3407, 0x3408 },
+          { 0, 0, 6, 1, 0x3407, 0x3408 },
+          { 0, 0, 6, 1, 0x3503, 0x3504 },
+          { 0, 0, 6, 1, 0x3603, 0x3604 },
+          { 0, 0, 6, 1, 0x3703, 0x3704 },
+          { 0, 0, 6, 1, 0x3803, 0x3804 },
+          { 0, 0, 6, 1, 0x3902, 0x3903 },
+          { 0, 0, 6, 1, 0x3902, 0x3903 } },
+    };
+    ShowNPCDialogue(this, &dialogs[this->type][gSave.global_progress]);
 }
 
 // Main
 void Cat(Entity* ent) {
-    gCat[ent->action](ent);
+    static void (*const actionFuncs[9])(Entity*) = {
+        sub_080677EC, sub_080678AC, sub_08067904, sub_0806797C, sub_0806799C,
+        sub_080679C4, sub_08067A0C, sub_08067A78, sub_08067A98,
+    };
+    actionFuncs[ent->action](ent);
     sub_08067C44(ent);
     if (((ent->flags & ENT_COLLIDE) == 0) && (ent->type != 5)) {
         sub_0806ED78(ent);
@@ -71,7 +130,7 @@ void sub_080677EC(Entity* this) {
     }
 
     this->field_0x68.HALF.LO = sub_0801E99C(this);
-    this->hitbox = &gUnk_08110EF0;
+    this->hitbox = (Hitbox*)&gUnk_08110EF0;
     uVar2 = sub_0805ACC0(this);
     if (uVar2 == 0) {
         uVar2 = this->x.HALF.HI;
@@ -198,6 +257,23 @@ void sub_08067A98(Entity* this) {
     }
 }
 
+static const u16 gUnk_081110FC[4] = {
+    60,
+    150,
+    240,
+    400,
+};
+
+static const u16 gUnk_08111104[] = {
+    180,
+    300,
+    450,
+    600,
+};
+
+static const u8 gUnk_0811110C[] = { 0x3c, 0x96, 0x14 };
+static const u8 gUnk_0811110F[] = { 0, -4, 8, 8, 0 };
+
 void sub_08067AAC(Entity* this) {
     this->action = 2;
     this->field_0x70.HALF.HI = gUnk_081110FC[(Random() & 3)];
@@ -205,7 +281,7 @@ void sub_08067AAC(Entity* this) {
     this->spriteSettings.flipX = this->direction >> 4 ^ 1;
 
     sub_08067DCC(this, 3);
-    sub_08078850(this, 0, gUnk_0811110C[2], &gUnk_0811110F);
+    sub_08078850(this, 0, gUnk_0811110C[2], gUnk_0811110F);
 }
 
 void sub_08067B08(Entity* this) {
@@ -217,7 +293,7 @@ void sub_08067B08(Entity* this) {
 void sub_08067B34(Entity* this) {
     sub_08067DCC(this, 0);
     this->frameDuration = (Random() & 0x30) + 0xb4;
-    sub_08078850(this, 0, gUnk_0811110C[this->spriteSettings.flipX], &gUnk_0811110F);
+    sub_08078850(this, 0, gUnk_0811110C[this->spriteSettings.flipX], gUnk_0811110F);
 }
 
 void sub_08067B70(Entity* this) {
@@ -368,7 +444,7 @@ void sub_08067DDC(Entity* this) {
     COLLISION_OFF(this);
     this->contactFlags = 0;
     this->iframes = 0;
-    this->hitbox = &gUnk_08110EF0;
+    this->hitbox = (Hitbox*)&gUnk_08110EF0;
 }
 
 void Cat_Fusion(Entity* this) {

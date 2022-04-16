@@ -1,17 +1,24 @@
 #include "npc.h"
 #include "item.h"
 
-extern void sub_08068780(Entity*);
+void sub_08068780(Entity*);
+void sub_08068708(Entity*);
+void sub_08068730(Entity*);
 
-extern void (*const gUnk_08111530[])(Entity*);
-
-extern SpriteLoadData gUnk_08111520;
-extern u16 gUnk_0811153E[];
-extern u16 gUnk_08111538[];
+static const SpriteLoadData gUnk_08111520[] = {
+    { 0xb5, 0x1a, 0x4 },
+    { 0x1cb5, 0x1a, 0x4 },
+    { 0x50b4, 0x1c, 0x4 },
+    { 0, 0, 0 },
+};
 
 void Melari(Entity* this) {
+    static void (*const scriptedActionFuncs[])(Entity*) = {
+        sub_08068708,
+        sub_08068730,
+    };
     if ((this->flags & ENT_SCRIPTED) == 0) {
-        gUnk_08111530[this->action](this);
+        scriptedActionFuncs[this->action](this);
         sub_0806ED78(this);
     } else {
         sub_08068780(this);
@@ -19,7 +26,7 @@ void Melari(Entity* this) {
 }
 
 void sub_08068708(Entity* this) {
-    if (LoadExtraSpriteData(this, &gUnk_08111520) != 0) {
+    if (LoadExtraSpriteData(this, gUnk_08111520) != 0) {
         this->action = 1;
         InitializeAnimation(this, 0);
         sub_08078778(this);
@@ -47,11 +54,13 @@ void sub_08068730(Entity* this) {
 }
 
 void sub_08068780(Entity* this) {
+    static const u16 soundOnScreen[] = { SFX_HAMMER1, SFX_HAMMER2, SFX_HAMMER3 };
+    static const u16 soundNotOnScreen[] = { SFX_HAMMER4, SFX_HAMMER5, SFX_HAMMER6 };
     Entity* ent;
 
     switch (this->action) {
         case 0:
-            if (LoadExtraSpriteData(this, &gUnk_08111520) == 0) {
+            if (LoadExtraSpriteData(this, gUnk_08111520) == 0) {
                 return;
             }
             this->action = 1;
@@ -80,9 +89,9 @@ void sub_08068780(Entity* this) {
     if (this->frame & 0x40) {
         this->frame &= 0xbf;
         if (CheckOnScreen(this) == 0) {
-            SoundReq(gUnk_0811153E[(s32)Random() % 3]);
+            SoundReq(soundNotOnScreen[(s32)Random() % 3]);
         } else {
-            EnqueueSFX(gUnk_08111538[(s32)Random() % 3]);
+            EnqueueSFX(soundOnScreen[(s32)Random() % 3]);
         }
         ent = CreateFx(this, FX_STARS2, 0x20);
         if (ent != NULL) {
@@ -140,7 +149,7 @@ void sub_08068964(Entity* this) {
 
 void Melari_Fusion(Entity* this) {
     if (this->action == 0) {
-        if (LoadExtraSpriteData(this, &gUnk_08111520)) {
+        if (LoadExtraSpriteData(this, gUnk_08111520)) {
             this->action++;
             this->spriteSettings.draw = TRUE;
             InitializeAnimation(this, 6);
