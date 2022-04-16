@@ -1292,7 +1292,7 @@ SECTIONS {
         src/npc/picolyteBottle.o(.rodata);
         src/npc/smallTownMinish.o(.rodata);
         data/animations/npc/smallTownMinish.o(.rodata);
-        data/const/npc/hurdyGurdyMan.o(.rodata);
+        src/npc/hurdyGurdyMan.o(.rodata);
         data/animations/npc/hurdyGurdyMan.o(.rodata);
         src/npc/cucco.o(.rodata);
         src/npc/cuccoChick.o(.rodata);

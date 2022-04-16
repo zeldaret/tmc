@@ -3,9 +3,7 @@
 #include "save.h"
 #include "npc.h"
 
-extern Dialog gUnk_081144FC[];
-
-extern SpriteLoadData gUnk_081144F0;
+static const SpriteLoadData gUnk_081144F0[] = { { 0x163, 0x59, 0x4 }, { 0x4163, 0x59, 0x4 }, { 0, 0, 0 } };
 
 extern u16* gUnk_08001A7C[];
 
@@ -15,7 +13,7 @@ void HurdyGurdyMan(Entity* this) {
 
     switch (this->action) {
         case 0:
-            if (LoadExtraSpriteData(this, &gUnk_081144F0) != 0) {
+            if (LoadExtraSpriteData(this, gUnk_081144F0) != 0) {
                 this->action = 1;
                 this->field_0x68.HALF.HI = 0;
                 SetDefaultPriority(this, PRIO_MESSAGE);
@@ -33,7 +31,7 @@ void HurdyGurdyMan(Entity* this) {
                 if (this->field_0x68.HALF.LO == 0x32) {
                     pointerToArray = pointerToArray + 3;
                 }
-                sub_0801DFB4(this, (u32)*pointerToArray, (u32)pointerToArray[1], (u32)pointerToArray[2]);
+                sub_0801DFB4(this, *pointerToArray, pointerToArray[1], (u32)pointerToArray[2]);
                 gPlayerState.controlMode = CONTROL_DISABLED;
             } else {
                 sub_0807DD94(this, NULL);
@@ -50,18 +48,24 @@ void HurdyGurdyMan(Entity* this) {
 }
 
 void HurdyGurdyMan_Head(Entity* this) {
-    SetExtraSpriteFrame(this, 0, (this->frame & 0xffffff7f) + 8);
+    SetExtraSpriteFrame(this, 0, (this->frame & ~ANIM_DONE) + 8);
     SetExtraSpriteFrame(this, 1, this->frameIndex);
     SetSpriteSubEntryOffsetData1(this, 1, 0);
     sub_0807000C(this);
 }
 
 void sub_0806E418(Entity* this) {
+    static const Dialog dialogs[] = {
+        { 0x59, 0x1, 3, 1, { 0x4f52, 0x4f51 } }, { 0x59, 0x1, 3, 1, { 0x4f52, 0x4f51 } },
+        { 0x59, 0x1, 3, 1, { 0x4f54, 0x4f53 } }, { 0x59, 0x1, 3, 1, { 0x4f56, 0x4f55 } },
+        { 0x59, 0x1, 3, 1, { 0x4f58, 0x4f57 } }, { 0x59, 0x1, 3, 1, { 0x4f5a, 0x4f59 } },
+        { 0x59, 0x1, 3, 1, { 0x4f5c, 0x4f5b } }, { 0x59, 0x1, 3, 1, { 0x4f5e, 0x4f5d } }
+    };
     s32 tmp = gSave.global_progress - 2;
     if (tmp < 0) {
         tmp = 0;
     }
-    ShowNPCDialogue(this, &gUnk_081144FC[tmp]);
+    ShowNPCDialogue(this, &dialogs[tmp]);
 }
 
 void sub_0806E440(Entity* this) {
@@ -73,7 +77,7 @@ void HurdyGurdyMan_Fusion(Entity* this) {
     u32 uVar1;
 
     if (this->action == 0) {
-        uVar1 = LoadExtraSpriteData(this, &gUnk_081144F0);
+        uVar1 = LoadExtraSpriteData(this, gUnk_081144F0);
         if (uVar1 != 0) {
             this->action += 1;
             this->spriteSettings.draw = 1;
