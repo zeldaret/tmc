@@ -1309,7 +1309,7 @@ SECTIONS {
         src/item.o(.rodata);
         src/item/itemSword.o(.rodata);
         src/item/itemLantern.o(.rodata);
-        data/const/item/itemBoomerang.o(.rodata);
+        src/item/itemBoomerang.o(.rodata);
         data/const/item/itemBow.o(.rodata);
         data/const/item/itemBomb.o(.rodata);
         data/const/item/itemTryPickupObject.o(.rodata);
