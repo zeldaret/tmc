@@ -4,17 +4,22 @@
 #include "object.h"
 #include "game.h"
 
-extern void (*const gUnk_0811BD68[])(ItemBehavior*, u32);
-
 extern s8 gUnk_08126EEC[];
 extern Entity* sub_08077BD4(ItemBehavior*);
-
-extern bool32 sub_08077F10(ItemBehavior*);
-
 extern void sub_0807AB44(Entity*, s32, s32);
+void sub_08075A0C(ItemBehavior*, u32);
+void sub_08075ADC(ItemBehavior*, u32);
+void sub_08075B54(ItemBehavior*, u32);
+void sub_08075C9C(ItemBehavior*, u32);
 
 void ItemLantern(ItemBehavior* this, u32 idx) {
-    gUnk_0811BD68[this->stateID](this, idx);
+    static void (*const stateFuncs[])(ItemBehavior*, u32) = {
+        sub_08075A0C,
+        sub_08075ADC,
+        sub_08075B54,
+        sub_08075C9C,
+    };
+    stateFuncs[this->stateID](this, idx);
 }
 
 void sub_08075A0C(ItemBehavior* this, u32 idx) {

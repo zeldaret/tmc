@@ -1308,7 +1308,7 @@ SECTIONS {
         src/player.o(.rodata);
         src/item.o(.rodata);
         src/item/itemSword.o(.rodata);
-        data/const/item/itemLantern.o(.rodata);
+        src/item/itemLantern.o(.rodata);
         data/const/item/itemBoomerang.o(.rodata);
         data/const/item/itemBow.o(.rodata);
         data/const/item/itemBomb.o(.rodata);
