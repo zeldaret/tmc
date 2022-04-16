@@ -3,9 +3,11 @@
 #include "save.h"
 #include "npc.h"
 
-extern Dialog gUnk_08113760[];
-
-extern SpriteLoadData gUnk_08113754;
+static const SpriteLoadData gUnk_08113754[] = {
+    { 0x101, 0x4e, 0x4 },
+    { 0x2101, 0x4e, 0x4 },
+    { 0, 0, 0 },
+};
 
 bool32 sub_0806C454(Entity* this);
 
@@ -44,7 +46,7 @@ void Mama(Entity* this) {
 }
 
 bool32 sub_0806C454(Entity* this) {
-    if (LoadExtraSpriteData(this, &gUnk_08113754) == 0) {
+    if (LoadExtraSpriteData(this, gUnk_08113754) == 0) {
         return FALSE;
     } else {
         SetDefaultPriority(this, PRIO_MESSAGE);
@@ -75,7 +77,13 @@ void sub_0806C4A8(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_0806C4DC(Entity* this) {
-    ShowNPCDialogue(this, &gUnk_08113760[gSave.global_progress]);
+    static const Dialog dialogs[] = {
+        { 1, 0, 3, 1, { 0x4f03, 0x4f02 } }, { 1, 0, 3, 1, { 0x4f03, 0x4f02 } }, { 1, 0, 3, 1, { 0x4f03, 0x4f02 } },
+        { 1, 0, 3, 1, { 0x4f03, 0x4f02 } }, { 1, 0, 3, 1, { 0x4f0d, 0x4f0c } }, { 1, 0, 3, 1, { 0x4f1b, 0x4f1a } },
+        { 1, 0, 3, 1, { 0x4f27, 0x4f26 } }, { 1, 0, 3, 1, { 0x4f33, 0x4f32 } }, { 1, 0, 3, 1, { 0x4f3f, 0x4f3e } },
+        { 1, 0, 3, 1, { 0x4f49, 0x4f48 } },
+    };
+    ShowNPCDialogue(this, &dialogs[gSave.global_progress]);
 }
 
 void sub_0806C4F8(Entity* this) {

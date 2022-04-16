@@ -4,12 +4,28 @@
 #include "hitbox.h"
 #include "item.h"
 
-extern void (*gUnk_081140D4[])(Entity*);
-extern u16 gUnk_081140CC[];
+static const u16 goronSounds[] = {
+    SFX_VO_GORON1,
+    SFX_VO_GORON2,
+    SFX_VO_GORON3,
+    SFX_VO_GORON4,
+};
+
 extern u8 gMapDataTopSpecial[];
 
 void sub_0806D520(Entity*, u32);
-void sub_0806D41C(Entity* this);
+void sub_0806D41C(Entity*);
+void sub_0806CF30(Entity*);
+void sub_0806D1D0(Entity*);
+void sub_0806D274(Entity*);
+void sub_0806D348(Entity*);
+void sub_0806D3C0(Entity*);
+void sub_0806D41C(Entity*);
+void sub_0806D4F0(Entity*);
+void sub_0806D4FC(Entity*);
+void sub_0806D508(Entity*);
+void sub_0806D514(Entity*);
+void sub_0806D40C(Entity*);
 
 static void sub_0806D02C(Entity* this);
 
@@ -33,8 +49,6 @@ Entity* sub_0806D00C(Entity* this);
 
 void sub_0806D4C0(Entity*, u32);
 
-extern const u8 gUnk_08114100[];
-
 typedef struct {
     s8 type;
     s8 x;
@@ -42,10 +56,12 @@ typedef struct {
     u8 direction;
 } struct_08114104;
 
-extern const struct_08114104 gUnk_08114104[];
-
 void BigGoron(Entity* this) {
-    gUnk_081140D4[this->type](this);
+    static void (*const typeFunctions[])(Entity*) = {
+        sub_0806CF30, sub_0806D1D0, sub_0806D274, sub_0806D348, sub_0806D3C0, sub_0806D41C,
+        sub_0806D4F0, sub_0806D4FC, sub_0806D508, sub_0806D514, sub_0806D40C,
+    };
+    typeFunctions[this->type](this);
 }
 
 void sub_0806CF30(Entity* this) {
@@ -76,7 +92,7 @@ void sub_0806CF30(Entity* this) {
         case 2:
             if (--this->timer == 0) {
                 u32 uVar2 = Random();
-                SoundReq(gUnk_081140CC[uVar2 % 4]);
+                SoundReq(goronSounds[uVar2 % 4]);
                 this->timer = ((u8)uVar2 & 7) * 16;
                 this->timer += 128;
             }
@@ -341,6 +357,12 @@ void sub_0806D514(Entity* this) {
 }
 
 void sub_0806D520(Entity* this, u32 param_2) {
+    static const u8 gUnk_08114100[] = {
+        10,
+        7,
+        4,
+        1,
+    };
     if (this->action == 0) {
         this->action = 1;
         this->subtimer = gUnk_08114100[param_2] + 6;
@@ -420,6 +442,14 @@ void sub_0806D66C(Entity* this) {
 }
 
 void sub_0806D67C(Entity* this) {
+    static const struct_08114104 gUnk_08114104[] = {
+        { FX_WHITE_PUFF, 0x30, 0x20, 0xa },   { FX_WHITE_PUFF, 0x2c, 0x24, 0xb },
+        { FX_WHITE_PUFF, 0x28, 0x28, 0xc },   { FX_WHITE_PUFF, 0x20, 0x28, 0x10 },
+        { FX_WHITE_PUFF, 0x10, 0x28, 0x10 },  { FX_WHITE_PUFF, 0x0, 0x28, 0x10 },
+        { FX_WHITE_PUFF, -0x10, 0x28, 0x10 }, { FX_WHITE_PUFF, -0x20, 0x28, 0x10 },
+        { FX_WHITE_PUFF, -0x28, 0x28, 0x14 }, { FX_WHITE_PUFF, -0x2C, 0x24, 0x15 },
+        { FX_WHITE_PUFF, -0x30, 0x20, 0x16 }, { -1, 0, 0, 0 },
+    };
     const struct_08114104* ptr = gUnk_08114104;
     while (ptr->type != -1) {
         Entity* effect = CreateFx(this, ptr->type, 0x40);

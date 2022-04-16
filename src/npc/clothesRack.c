@@ -1,9 +1,14 @@
 #include "npc.h"
 
-extern void (*gUnk_0811423C[])(Entity*);
+void sub_0806DD90(Entity*);
+void sub_0806DEC8(Entity*);
 
 void ClothesRack(Entity* this) {
-    gUnk_0811423C[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_0806DD90,
+        sub_0806DEC8,
+    };
+    actionFuncs[this->action](this);
 }
 
 void sub_0806DD90(Entity* this) {

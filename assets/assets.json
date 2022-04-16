@@ -39031,11 +39031,6 @@
     "type": "animation"
   },
   {
-    "path": "librarians/gUnk_08113078.bin",
-    "start": 1126520,
-    "size": 6
-  },
-  {
     "path": "animations/gSpriteAnimations_Farmers_0_0.bin",
     "start": 1126760,
     "size": 37,
@@ -39082,16 +39077,6 @@
     "start": 1126927,
     "size": 5,
     "type": "animation"
-  },
-  {
-    "path": "farmers/gUnk_08113140.bin",
-    "start": 1126720,
-    "size": 24
-  },
-  {
-    "path": "farmers/gUnk_08113158.bin",
-    "start": 1126744,
-    "size": 16
   },
   {
     "path": "animations/gSpriteAnimations_Carlov_0_0.bin",
@@ -39142,16 +39127,6 @@
     "type": "animation"
   },
   {
-    "path": "dampe/gUnk_08113344.bin",
-    "start": 1127236,
-    "size": 6
-  },
-  {
-    "path": "dampe/gUnk_0811334A.bin",
-    "start": 1127242,
-    "size": 6
-  },
-  {
     "path": "animations/gSpriteAnimations_DrLeft_0.bin",
     "start": 1127352,
     "size": 49,
@@ -39198,16 +39173,6 @@
     "start": 1127503,
     "size": 65,
     "type": "animation"
-  },
-  {
-    "path": "drLeft/gUnk_081133A4.bin",
-    "start": 1127332,
-    "size": 16
-  },
-  {
-    "path": "drLeft/gUnk_081133B4.bin",
-    "start": 1127348,
-    "size": 4
   },
   {
     "path": "animations/gSpriteAnimations_KingGustaf_0.bin",
@@ -39378,16 +39343,6 @@
     "type": "animation"
   },
   {
-    "path": "mama/gUnk_08113754.bin",
-    "start": 1128276,
-    "size": 12
-  },
-  {
-    "path": "mama/gUnk_08113760.bin",
-    "start": 1128288,
-    "size": 80
-  },
-  {
     "path": "animations/gSpriteAnimations_Emma_0.bin",
     "start": 1128668,
     "size": 5,
@@ -39416,16 +39371,6 @@
     "start": 1128938,
     "size": 30,
     "type": "animation"
-  },
-  {
-    "path": "teachers/gUnk_08113910.bin",
-    "start": 1128720,
-    "size": 32
-  },
-  {
-    "path": "teachers/gUnk_08113930.bin",
-    "start": 1128752,
-    "size": 128
   },
   {
     "path": "animations/gSpriteAnimations_WindTribespeople_0_0.bin",
@@ -39822,11 +39767,6 @@
     "type": "animation"
   },
   {
-    "path": "gregal/gUnk_08113D84.bin",
-    "start": 1129860,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_MayorHagen_0.bin",
     "start": 1130432,
     "size": 5,
@@ -39891,31 +39831,6 @@
     "start": 1130634,
     "size": 14,
     "type": "animation"
-  },
-  {
-    "path": "mayorHagen/gUnk_08113F44.bin",
-    "start": 1130308,
-    "size": 4
-  },
-  {
-    "path": "mayorHagen/gUnk_08113F48.bin",
-    "start": 1130312,
-    "size": 120
-  },
-  {
-    "path": "bigGoron/gUnk_081140CC.bin",
-    "start": 1130700,
-    "size": 8
-  },
-  {
-    "path": "bigGoron/gUnk_08114100.bin",
-    "start": 1130752,
-    "size": 4
-  },
-  {
-    "path": "bigGoron/gUnk_08114104.bin",
-    "start": 1130756,
-    "size": 48
   },
   {
     "offsets": {
@@ -39995,21 +39910,6 @@
     "type": "animation"
   },
   {
-    "path": "smallTownMinish/gUnk_081142FC.bin",
-    "start": 1131260,
-    "size": 8
-  },
-  {
-    "path": "smallTownMinish/gUnk_08114304.bin",
-    "start": 1131268,
-    "size": 4
-  },
-  {
-    "path": "smallTownMinish/gUnk_08114308.bin",
-    "start": 1131272,
-    "size": 448
-  },
-  {
     "path": "animations/gSpriteAnimations_HurdyGurdyMan_8.bin",
     "start": 1131836,
     "size": 17,
@@ -40044,21 +39944,6 @@
     "start": 1131897,
     "size": 7,
     "type": "animation"
-  },
-  {
-    "path": "hurdyGurdyMan/gUnk_081144F0.bin",
-    "start": 1131760,
-    "size": 12
-  },
-  {
-    "path": "hurdyGurdyMan/gUnk_081144FC.bin",
-    "start": 1131772,
-    "size": 64
-  },
-  {
-    "path": "phonograph/gUnk_081145E4.bin",
-    "start": 1132004,
-    "size": 212
   },
   {
     "path": "npc58/gUnk_081146B8.bin",
