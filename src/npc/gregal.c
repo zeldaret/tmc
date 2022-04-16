@@ -3,12 +3,24 @@
 #include "functions.h"
 #include "npc.h"
 
-extern void (*gUnk_08113D8C[])(Entity*);
+static const u32 gUnk_08113D84[] = {
+    0x100c0200,
+    0x4,
+};
 
-extern u32 gUnk_08113D84[];
+void sub_0806CAF4(Entity*);
+void sub_0806CB80(Entity*);
+void sub_0806CBB4(Entity*);
+void sub_0806CC08(Entity*);
 
 void Gregal(Entity* this) {
-    gUnk_08113D8C[this->type](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_0806CAF4,
+        sub_0806CB80,
+        sub_0806CBB4,
+        sub_0806CC08,
+    };
+    actionFuncs[this->type](this);
 }
 
 void sub_0806CAF4(Entity* this) {

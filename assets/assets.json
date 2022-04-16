@@ -39767,11 +39767,6 @@
     "type": "animation"
   },
   {
-    "path": "gregal/gUnk_08113D84.bin",
-    "start": 1129860,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_MayorHagen_0.bin",
     "start": 1130432,
     "size": 5,

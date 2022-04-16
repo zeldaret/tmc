@@ -1278,7 +1278,7 @@ SECTIONS {
         data/animations/npc/teachers.o(.rodata);
         data/const/npc/windTribespeople.o(.rodata);
         data/animations/npc/windTribespeople.o(.rodata);
-        data/const/npc/gregal.o(.rodata);
+        src/npc/gregal.o(.rodata);
         data/animations/npc/gregal.o(.rodata);
         data/const/npc/mayorHagen.o(.rodata);
         data/animations/npc/mayorHagen.o(.rodata);
