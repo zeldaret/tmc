@@ -14,7 +14,6 @@ void sub_0806EABC(Entity* this, u32 param);
 #endif
 
 extern Font gUnk_081146B8;
-extern s8 gUnk_081145E4[];
 
 void Phonograph(Entity* this) {
     if (this->action == 0) {
@@ -28,6 +27,15 @@ void Phonograph(Entity* this) {
     ExecuteScriptForEntity(this, NULL);
     HandleEntity0x82Actions(this);
 }
+
+static const s16 gUnk_081145E4[] = {
+    0x0,  -0x1, 0x3,  0x1c8, 0x4,  0x171, 0x5,  0x236,  0x6,  -0x1, 0xa,  -0x1, 0xc,  0x23a, 0xd,  -0x1, 0xe,  -0x1,
+    0xf,  -0x1, 0x13, -0x1,  0x14, -0x1,  0x15, -0x1,   0x16, -0x1, 0x17, -0x1, 0x18, -0x1,  0x19, -0x1, 0x1a, -0x1,
+    0x1c, -0x1, 0x1d, -0x1,  0x20, -0x1,  0x2d, -0x1,   0x2e, -0x1, 0x2f, -0x1, 0x33, -0x1,  0x35, -0x1, 0x37, -0x1,
+    0x38, -0x1, 0x3a, -0x1,  0x1,  -0x1,  0x9,  0x320e, 0xb,  -0x1, 0x11, -0x1, 0x1e, -0x1,  0x1f, -0x1, 0x21, -0x1,
+    0x22, -0x1, 0x23, -0x1,  0x24, -0x1,  0x25, -0x1,   0x26, -0x1, 0x27, -0x1, 0x28, -0x1,  0x29, -0x1, 0x2a, -0x1,
+    0x2b, -0x1, 0x2c, -0x1,  0x30, -0x1,  0x31, -0x1,   0x32, -0x1, 0x34, -0x1, 0x36, -0x1,  0x3b, -0x1
+};
 
 #ifdef EU
 void sub_0806E964(Entity* this, ScriptExecutionContext* context) {
@@ -73,13 +81,13 @@ void sub_0806E964(Entity* this, ScriptExecutionContext* context) {
 
     if (gInput.newKeys & A_BUTTON) {
         if ((s16)this->field_0x68.HWORD != (s16)this->field_0x6a.HWORD || (s16)this->field_0x6c.HWORD == 0) {
-            s8* ptr2 = gUnk_081145E4;
+            const s16* ptr2 = gUnk_081145E4;
             s32 field_0x68;
-            SoundReq(*(s16*)(ptr2 + (s16)this->field_0x68.HWORD * 4));
+            SoundReq(*(ptr2 + (s16)this->field_0x68.HWORD * 2));
             this->field_0x6a.HWORD = this->field_0x68.HWORD;
             field_0x68 = (s16)this->field_0x68.HWORD * 4;
-            ptr2 += 2;
-            this->field_0x6c.HWORD = *(s16*)(((ptr2 + field_0x68)));
+            ptr2++;
+            this->field_0x6c.HWORD = *(s16*)((((int)ptr2 + field_0x68)));
         } else {
             SoundReq(SONG_STOP_ALL);
             this->field_0x6a.HWORD = 0;
@@ -155,13 +163,13 @@ void sub_0806E964(Entity* this, ScriptExecutionContext* context) {
 
     if (gInput.newKeys & A_BUTTON) {
         if ((s16)this->field_0x68.HWORD != (s16)this->field_0x6a.HWORD || (s16)this->field_0x6c.HWORD == 0) {
-            s8* ptr2 = gUnk_081145E4;
+            const s16* ptr2 = gUnk_081145E4;
             s32 field_0x68;
-            SoundReq(*(s16*)(ptr2 + (s16)this->field_0x68.HWORD * 4));
+            SoundReq(*(ptr2 + (s16)this->field_0x68.HWORD * 2));
             this->field_0x6a.HWORD = this->field_0x68.HWORD;
             field_0x68 = (s16)this->field_0x68.HWORD * 4;
-            ptr2 += 2;
-            this->field_0x6c.HWORD = *(s16*)(((ptr2 + field_0x68)));
+            ptr2++;
+            this->field_0x6c.HWORD = *(s16*)((((int)ptr2 + field_0x68)));
         } else {
             SoundReq(SONG_STOP_ALL);
             this->field_0x6a.HWORD = 0;
