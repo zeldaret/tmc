@@ -1282,7 +1282,7 @@ SECTIONS {
         data/animations/npc/gregal.o(.rodata);
         src/npc/mayorHagen.o(.rodata);
         data/animations/npc/mayorHagen.o(.rodata);
-        data/const/npc/bigGoron.o(.rodata);
+        src/npc/bigGoron.o(.rodata);
         src/npc/ezlo.o(.rodata);
         src/npc/npc4E.o(.rodata);
         src/npc/npc4F.o(.rodata);

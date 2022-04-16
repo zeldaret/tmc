@@ -39833,21 +39833,6 @@
     "type": "animation"
   },
   {
-    "path": "bigGoron/gUnk_081140CC.bin",
-    "start": 1130700,
-    "size": 8
-  },
-  {
-    "path": "bigGoron/gUnk_08114100.bin",
-    "start": 1130752,
-    "size": 4
-  },
-  {
-    "path": "bigGoron/gUnk_08114104.bin",
-    "start": 1130756,
-    "size": 48
-  },
-  {
     "offsets": {
       "EU": -2232
     }
