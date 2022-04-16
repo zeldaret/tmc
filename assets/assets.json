@@ -40794,21 +40794,6 @@
     "type": "sprite_frame"
   },
   {
-    "path": "itemMoleMitts/gUnk_0811BE14.bin",
-    "start": 1162772,
-    "size": 2
-  },
-  {
-    "path": "itemMoleMitts/gUnk_0811BE16.bin",
-    "start": 1162774,
-    "size": 8
-  },
-  {
-    "path": "itemMoleMitts/gUnk_0811BE1E.bin",
-    "start": 1162782,
-    "size": 10
-  },
-  {
     "path": "data_0811BE38/gUnk_0811BE38.bin",
     "start": 1162808,
     "size": 8

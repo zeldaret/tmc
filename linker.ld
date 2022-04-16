@@ -1318,7 +1318,7 @@ SECTIONS {
         src/item/itemPacciCane.o(.rodata);
         src/item/itemShield.o(.rodata);
         src/item/itemGustJar.o(.rodata);
-        data/const/item/itemMoleMitts.o(.rodata);
+        src/item/itemMoleMitts.o(.rodata);
         data/const/item/itemJarEmpty.o(.rodata);
         data/data_0811BE38.o(.rodata);
         data/map/room_headers.o(.rodata);
