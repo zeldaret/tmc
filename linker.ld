@@ -1260,7 +1260,7 @@ SECTIONS {
         data/animations/npc/moblinLady.o(.rodata);
         src/npc/librarians.o(.rodata);
         data/animations/npc/librarians.o(.rodata);
-        data/const/npc/farmers.o(.rodata);
+        src/npc/farmers.o(.rodata);
         data/animations/npc/farmers.o(.rodata);
         data/animations/npc/carlov.o(.rodata);
         data/const/npc/dampe.o(.rodata);

@@ -3,9 +3,10 @@
 #include "functions.h"
 #include "npc.h"
 
-extern Dialog gUnk_08113158[];
+static const SpriteLoadData gUnk_08113140[] = {
+    { 0xf7, 0x48, 0x4 }, { 0x40f7, 0x48, 0x4 }, { 0, 0, 0 }, { 0xf8, 0x49, 0x4 }, { 0x40f8, 0x49, 0x4 }, { 0, 0, 0 },
+};
 
-extern SpriteLoadData gUnk_08113140[];
 void sub_0806BC58(Entity* this);
 
 void Farmers(Entity* this) {
@@ -63,6 +64,10 @@ void sub_0806BCD4(Entity* this) {
 }
 
 void sub_0806BCE8(Entity* this) {
+    static const Dialog gUnk_08113158[] = {
+        { 0x29, 3, 4, 1, { 0x1a07, 0x1a02 } },
+        { 0x29, 3, 4, 1, { 0x1a11, 0x1a0d } },
+    };
     ShowNPCDialogue(this, &gUnk_08113158[this->type]);
 }
 

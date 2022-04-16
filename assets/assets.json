@@ -39079,16 +39079,6 @@
     "type": "animation"
   },
   {
-    "path": "farmers/gUnk_08113140.bin",
-    "start": 1126720,
-    "size": 24
-  },
-  {
-    "path": "farmers/gUnk_08113158.bin",
-    "start": 1126744,
-    "size": 16
-  },
-  {
     "path": "animations/gSpriteAnimations_Carlov_0_0.bin",
     "start": 1127000,
     "size": 5,
