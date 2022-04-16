@@ -39343,16 +39343,6 @@
     "type": "animation"
   },
   {
-    "path": "mama/gUnk_08113754.bin",
-    "start": 1128276,
-    "size": 12
-  },
-  {
-    "path": "mama/gUnk_08113760.bin",
-    "start": 1128288,
-    "size": 80
-  },
-  {
     "path": "animations/gSpriteAnimations_Emma_0.bin",
     "start": 1128668,
     "size": 5,

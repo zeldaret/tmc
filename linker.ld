@@ -1271,7 +1271,7 @@ SECTIONS {
         data/animations/npc/gina.o(.rodata);
         data/animations/npc/simon.o(.rodata);
         data/animations/npc/anju.o(.rodata);
-        data/const/npc/mama.o(.rodata);
+        src/npc/mama.o(.rodata);
         data/animations/npc/mama.o(.rodata);
         data/animations/npc/emma.o(.rodata);
         data/const/npc/teachers.o(.rodata);
