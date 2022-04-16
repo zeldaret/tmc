@@ -41030,11 +41030,6 @@
     "type": "animation"
   },
   {
-    "path": "button/gUnk_0811EE50.bin",
-    "start": 1175120,
-    "size": 12
-  },
-  {
     "path": "animations/gSpriteAnimations_MinishEmoticon_2.bin",
     "start": 1175140,
     "size": 41,

@@ -1329,7 +1329,7 @@ SECTIONS {
         src/object/deathFx.o(.rodata);
         data/animations/object/deathFx.o(.rodata);
         src/object/itemForSale.o(.rodata);
-        data/const/object/button.o(.rodata);
+        src/object/button.o(.rodata);
         src/object/minishEmoticon.o(.rodata);
         data/animations/object/minishEmoticon.o(.rodata);
         data/const/object/pot.o(.rodata);
