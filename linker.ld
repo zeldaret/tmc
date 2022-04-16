@@ -1325,7 +1325,7 @@ SECTIONS {
         src/save.o(.rodata);
         src/script.o(.rodata);
         src/scroll.o(.rodata);
-        data/data_0811E750.o(.rodata);
+        src/object/itemOnGround.o(.rodata);
         data/const/object/itemOnGround.o(.rodata);
         src/object/deathFx.o(.rodata);
         data/animations/object/deathFx.o(.rodata);
