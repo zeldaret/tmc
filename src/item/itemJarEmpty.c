@@ -2,12 +2,19 @@
 #include "save.h"
 #include "functions.h"
 
-extern void (*const gUnk_0811BE28[])(ItemBehavior*, u32);
-
-extern u8 gUnk_02002AC8[];
+void sub_08077534(ItemBehavior*, u32);
+void sub_08077618(ItemBehavior*, u32);
+void sub_08077640(ItemBehavior*, u32);
+void sub_0807766C(ItemBehavior*, u32);
 
 void ItemJarEmpty(ItemBehavior* this, u32 idx) {
-    gUnk_0811BE28[this->stateID](this, idx);
+    static void (*const stateFuncs[])(ItemBehavior*, u32) = {
+        sub_08077534,
+        sub_08077618,
+        sub_08077640,
+        sub_0807766C,
+    };
+    stateFuncs[this->stateID](this, idx);
 }
 
 void sub_08077534(ItemBehavior* this, u32 idx) {

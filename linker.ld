@@ -30,7 +30,6 @@ SECTIONS {
         . = 0x00001A40; gBG3Buffer = .;
         . = 0x00002A40; gSave = .;
         . = 0x00002AC0; gUnk_02002AC0 = .;
-        . = 0x00002AC8; gUnk_02002AC8 = .;
         . = 0x00002B0E; gUnk_02002B0E = .;
         . = 0x00002B32; gUnk_02002B32 = .;
         . = 0x00002B54; gUnk_02002B54 = .;
@@ -1319,7 +1318,7 @@ SECTIONS {
         src/item/itemShield.o(.rodata);
         src/item/itemGustJar.o(.rodata);
         src/item/itemMoleMitts.o(.rodata);
-        data/const/item/itemJarEmpty.o(.rodata);
+        src/item/itemJarEmpty.o(.rodata);
         data/data_0811BE38.o(.rodata);
         data/map/room_headers.o(.rodata);
         src/flags.o(.rodata);
