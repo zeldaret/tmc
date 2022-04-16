@@ -2,10 +2,18 @@
 #include "functions.h"
 #include "save.h"
 
-extern void (*const gUnk_0811BD80[])(ItemBehavior*, u32);
+void sub_08075DF4(ItemBehavior*, u32);
+void sub_08075E40(ItemBehavior*, u32);
+void sub_08075EC0(ItemBehavior*, u32);
+void sub_08075F38(ItemBehavior*, u32);
+void sub_08075F84(ItemBehavior*, u32);
+void sub_08075D88(ItemBehavior*, u32);
 
 void ItemBow(ItemBehavior* this, u32 idx) {
-    gUnk_0811BD80[this->stateID](this, idx);
+    static void (*const stateFuncs[])(ItemBehavior*, u32) = {
+        sub_08075DF4, sub_08075E40, sub_08075EC0, sub_08075F38, sub_08075F84, sub_08075D88,
+    };
+    stateFuncs[this->stateID](this, idx);
 }
 
 void sub_08075DF4(ItemBehavior* this, u32 idx) {

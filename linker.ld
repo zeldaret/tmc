@@ -1310,7 +1310,7 @@ SECTIONS {
         src/item/itemSword.o(.rodata);
         src/item/itemLantern.o(.rodata);
         src/item/itemBoomerang.o(.rodata);
-        data/const/item/itemBow.o(.rodata);
+        src/item/itemBow.o(.rodata);
         data/const/item/itemBomb.o(.rodata);
         data/const/item/itemTryPickupObject.o(.rodata);
         src/item/itemPegasusBoots.o(.rodata);
