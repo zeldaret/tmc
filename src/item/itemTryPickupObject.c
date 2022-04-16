@@ -2,16 +2,22 @@
 #include "functions.h"
 #include "sound.h"
 
-extern void (*const gUnk_0811BDB4[])(ItemBehavior*, u32);
-
 u32 sub_08077F64(ItemBehavior* arg0, u32 idx);
-
 u32 sub_080789A8(void);
 void sub_080762C4(ItemBehavior*, Entity*, u8, u32);
 void sub_08076088(ItemBehavior*, void*, u32);
+void ItemPickupCheck(ItemBehavior*, u32);
+void sub_080762D8(ItemBehavior*, u32);
+void sub_08076488(ItemBehavior*, u32);
+void sub_08076518(ItemBehavior*, u32);
+void sub_080765E0(ItemBehavior*, u32);
+void sub_0807660C(ItemBehavior*, u32);
 
 void ItemTryPickupObject(ItemBehavior* this, u32 idx) {
-    gUnk_0811BDB4[this->stateID](this, idx);
+    static void (*const stateFuncs[])(ItemBehavior*, u32) = {
+        ItemPickupCheck, sub_080762D8, sub_08076488, sub_08076518, sub_080765E0, sub_0807660C,
+    };
+    stateFuncs[this->stateID](this, idx);
 }
 
 void ItemPickupCheck(ItemBehavior* this, u32 idx) {
