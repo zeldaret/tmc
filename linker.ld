@@ -1350,7 +1350,7 @@ SECTIONS {
         src/object/playerClone.o(.rodata);
         src/object/object11.o(.rodata);
         src/object/object12.o(.rodata);
-        data/const/object/railtrack.o(.rodata);
+        src/object/railtrack.o(.rodata);
         data/animations/object/railtrack.o(.rodata);
         data/const/object/lilypadLarge.o(.rodata);
         src/object/object15.o(.rodata);

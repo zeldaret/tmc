@@ -6,17 +6,24 @@
 #include "flags.h"
 #include "functions.h"
 
-extern void sub_08085394(Entity*);
-extern void sub_0808543C(Entity*);
-extern u32 sub_080854A8(Entity*);
-
-extern void (*const gUnk_081205D0[])(Entity*);
+void sub_08085394(Entity*);
+void sub_0808543C(Entity*);
+void sub_080851AC(Entity*);
+void sub_08085264(Entity*);
+void sub_080852B4(Entity*);
+void sub_08085308(Entity*);
+u32 sub_080854A8(Entity*);
 
 extern s8 gUnk_080B4488[][2];
-extern u16 gUnk_081205E0[];
 
 void Railtrack(Entity* this) {
-    gUnk_081205D0[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_080851AC,
+        sub_08085264,
+        sub_080852B4,
+        sub_08085308,
+    };
+    actionFuncs[this->action](this);
 }
 
 void sub_080851AC(Entity* this) {
@@ -100,6 +107,8 @@ void sub_08085308(Entity* this) {
         }
     }
 }
+
+static const u16 gUnk_081205E0[] = { 0x4018, 0x4019 };
 
 void sub_08085394(Entity* this) {
     u32 uVar1;
