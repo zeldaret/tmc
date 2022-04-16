@@ -11,16 +11,34 @@
 void sub_08082824(Entity*);
 static void sub_08082850(Entity*, Entity*);
 void sub_08082608(Entity*);
-
-extern void (*const gUnk_0811F090[])(Entity*);
-extern void (*const gUnk_0811F0A8[])(Entity*);
-extern void (*const gUnk_0811F0C4[])(Entity*);
+void sub_0808222C(Entity*);
+void sub_08082310(Entity*);
+void sub_080824F8(Entity*);
+void sub_080826E4(Entity*);
+void sub_08082614(Entity*);
+void sub_08082824(Entity*);
+void sub_08082510(Entity*);
+void nullsub_511(Entity*);
+void sub_08082588(Entity*);
+void sub_0808259C(Entity*);
+void sub_080825E8(Entity*);
+void sub_080825F0(Entity*);
+void sub_08082608(Entity*);
+void sub_08082818(Entity*);
+void nullsub_512(Entity*);
+void sub_080827F8(Entity*);
+void sub_08082778(Entity*);
+void sub_0808270C(Entity*);
+void sub_080826FC(Entity*);
 
 extern void RegisterCarryEntity(Entity*);
 extern void sub_08016A6C(Entity*);
 
 void Pot(Entity* this) {
-    gUnk_0811F090[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_0808222C, sub_08082310, sub_080824F8, sub_080826E4, sub_08082614, sub_08082824,
+    };
+    actionFuncs[this->action](this);
     this->contactFlags = 0;
 }
 
@@ -111,7 +129,10 @@ void sub_08082310(Entity* this) {
 }
 
 void sub_080824F8(Entity* this) {
-    gUnk_0811F0A8[this->subAction](this);
+    static void (*const subActionFuncs[])(Entity*) = {
+        sub_08082510, nullsub_511, sub_08082588, sub_0808259C, sub_080825E8, sub_080825F0, sub_08082608,
+    };
+    subActionFuncs[this->subAction](this);
 }
 
 void sub_08082510(Entity* this) {
@@ -200,7 +221,10 @@ void sub_08082614(Entity* this) {
 }
 
 void sub_080826E4(Entity* this) {
-    gUnk_0811F0C4[this->subAction](this);
+    static void (*const subActionFuncs[])(Entity*) = {
+        sub_080826FC, sub_0808270C, sub_08082778, sub_080827F8, nullsub_512, sub_08082818,
+    };
+    subActionFuncs[this->subAction](this);
 }
 
 void sub_080826FC(Entity* this) {

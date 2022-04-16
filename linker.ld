@@ -1332,7 +1332,7 @@ SECTIONS {
         src/object/button.o(.rodata);
         src/object/minishEmoticon.o(.rodata);
         data/animations/object/minishEmoticon.o(.rodata);
-        data/const/object/pot.o(.rodata);
+        src/object/pot.o(.rodata);
         data/animations/object/pot.o(.rodata);
         src/object/ezloCap.o(.rodata);
         data/animations/object/ezloCap.o(.rodata);
