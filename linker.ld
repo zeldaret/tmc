@@ -1274,7 +1274,7 @@ SECTIONS {
         src/npc/mama.o(.rodata);
         data/animations/npc/mama.o(.rodata);
         data/animations/npc/emma.o(.rodata);
-        data/const/npc/teachers.o(.rodata);
+        src/npc/teachers.o(.rodata);
         data/animations/npc/teachers.o(.rodata);
         data/const/npc/windTribespeople.o(.rodata);
         data/animations/npc/windTribespeople.o(.rodata);

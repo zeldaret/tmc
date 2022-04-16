@@ -5,9 +5,10 @@
 #include "script.h"
 #include "npc.h"
 
-extern SpriteLoadData gUnk_08113910[];
-
-extern Dialog gUnk_08113930[];
+static const SpriteLoadData gUnk_08113910[] = {
+    { 0x103, 0x4f, 0x4 }, { 0x2103, 0x4f, 0x4 }, { 0, 0, 0 },           { 0, 0, 0 },
+    { 0, 0x50, 0x4 },     { 0x2002, 0x50, 0x4 }, { 0x4000, 0x50, 0x4 }, { 0, 0, 0 },
+};
 
 void Teachers(Entity* this) {
     switch (this->action) {
@@ -70,13 +71,31 @@ void Teachers_Head(Entity* this) {
 }
 
 void sub_0806C70C(Entity* this) {
+    static const Dialog gUnk_08113930[][8] = {
+        { { 0, 0, 1, 1, { 0, 0x3e01 } },
+          { 0, 0, 1, 1, { 0, 0x3e01 } },
+          { 0, 0, 1, 1, { 0, 0x3e01 } },
+          { 0, 0, 1, 1, { 0, 0x3e01 } },
+          { 0, 0, 1, 1, { 0, 0x3e01 } },
+          { 0, 0, 1, 1, { 0, 0x3e01 } },
+          { 0, 0, 1, 1, { 0, 0x3e09 } },
+          { 0, 0, 1, 1, { 0, 0x3e09 } } },
+        { { 0xa, 0, 3, 1, { 0x3435, 0x3434 } },
+          { 0xa, 0, 3, 1, { 0x3435, 0x3434 } },
+          { 0xa, 0, 3, 1, { 0x3528, 0x3527 } },
+          { 0xa, 0, 3, 1, { 0x3625, 0x3624 } },
+          { 0, 0, 3, 1, { 0x3e03, 0x3e02 } },
+          { 0, 0, 1, 1, { 0, 0x3e06 } },
+          { 0, 0, 1, 1, { 0, 0x3e0a } },
+          { 0, 0, 1, 1, { 0, 0x3e0a } } },
+    };
     int offset;
 
     offset = gSave.global_progress - 2;
     if (offset < 0)
         offset = 0;
 
-    ShowNPCDialogue(this, gUnk_08113930 + this->type * 8 + offset);
+    ShowNPCDialogue(this, &gUnk_08113930[this->type][offset]);
 }
 
 void Teachers_Fusion(Entity* this) {

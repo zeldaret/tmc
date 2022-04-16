@@ -39373,16 +39373,6 @@
     "type": "animation"
   },
   {
-    "path": "teachers/gUnk_08113910.bin",
-    "start": 1128720,
-    "size": 32
-  },
-  {
-    "path": "teachers/gUnk_08113930.bin",
-    "start": 1128752,
-    "size": 128
-  },
-  {
     "path": "animations/gSpriteAnimations_WindTribespeople_0_0.bin",
     "start": 1129279,
     "size": 5,
