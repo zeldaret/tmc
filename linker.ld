@@ -1263,7 +1263,7 @@ SECTIONS {
         src/npc/farmers.o(.rodata);
         data/animations/npc/farmers.o(.rodata);
         data/animations/npc/carlov.o(.rodata);
-        data/const/npc/dampe.o(.rodata);
+        src/npc/dampe.o(.rodata);
         data/animations/npc/dampe.o(.rodata);
         data/const/npc/drLeft.o(.rodata);
         data/animations/npc/drLeft.o(.rodata);

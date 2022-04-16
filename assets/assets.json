@@ -39127,16 +39127,6 @@
     "type": "animation"
   },
   {
-    "path": "dampe/gUnk_08113344.bin",
-    "start": 1127236,
-    "size": 6
-  },
-  {
-    "path": "dampe/gUnk_0811334A.bin",
-    "start": 1127242,
-    "size": 6
-  },
-  {
     "path": "animations/gSpriteAnimations_DrLeft_0.bin",
     "start": 1127352,
     "size": 49,

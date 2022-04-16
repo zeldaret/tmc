@@ -7,9 +7,6 @@
 #include "npc.h"
 #include "item.h"
 
-extern u16 gUnk_08113344[];
-extern u16 gUnk_0811334A[];
-
 void Dampe(Entity* this) {
     switch (this->action) {
         case 0:
@@ -52,6 +49,11 @@ void Dampe_Fusion(Entity* this) {
 }
 
 void sub_0806BE84(Entity* this, ScriptExecutionContext* context) {
+    static const u16 messageIndices[] = {
+        0x2801,
+        0x2808,
+        0x2804,
+    };
     u32 msgIndex;
 
     context->condition = 0;
@@ -65,10 +67,15 @@ void sub_0806BE84(Entity* this, ScriptExecutionContext* context) {
     if (GetInventoryValue(ITEM_QST_GRAVEYARD_KEY) >= 2) {
         msgIndex = 2;
     }
-    MessageNoOverlap(gUnk_08113344[msgIndex], this);
+    MessageNoOverlap(messageIndices[msgIndex], this);
 }
 
 void sub_0806BEC8(Entity* this, ScriptExecutionContext* context) {
+    static const u16 messageIndices[] = {
+        0x2802,
+        0x2803,
+        0x2804,
+    };
     u32 hasGraveyardKey;
     u32 msgIndex;
 
@@ -82,7 +89,7 @@ void sub_0806BEC8(Entity* this, ScriptExecutionContext* context) {
         msgIndex = 2;
     }
 
-    MessageNoOverlap(gUnk_0811334A[msgIndex], this);
+    MessageNoOverlap(messageIndices[msgIndex], this);
 }
 
 void sub_0806BEFC(void) {
