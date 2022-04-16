@@ -2,13 +2,16 @@
 #include "sound.h"
 #include "functions.h"
 
-extern void (*const gOcarinaStates[4])(ItemBehavior*, u32);
-
 extern void ResetPlayerVelocity(void);
-
 extern void CreateBird(void);
+void OcarinaUse(ItemBehavior*, u32);
+void OcarinaUpdate(ItemBehavior*, u32);
 
 void ItemOcarina(ItemBehavior* this, u32 idx) {
+    static void (*const gOcarinaStates[])(ItemBehavior*, u32) = {
+        OcarinaUse,
+        OcarinaUpdate,
+    };
     gOcarinaStates[this->stateID](this, idx);
     gPlayerEntity.field_0x7a.HWORD += 1;
 }
