@@ -1061,7 +1061,7 @@ _0800283E:
 	tst r3, r4
 	bne _08002860
 	push {r0, r1, r2, r3}
-	ldr r4, _0800297C @ =gCosineTable
+	ldr r4, _0800297C @ =gSineTable+128
 	ldrh r0, [r4, r2]
 	cmp r0, #0
 	beq _08002856
@@ -1241,7 +1241,7 @@ _0800296C: .4byte 0x00000100
 _08002970: .4byte gUnk_0800275C
 _08002974: .4byte 0x0000EE00
 _08002978: .4byte gSineTable
-_0800297C: .4byte gCosineTable
+_0800297C: .4byte gSineTable+128
 _08002980: .4byte 0x00000E00
 _08002984: .4byte 0x0000020E
 _08002988: .4byte 0x000004E0
