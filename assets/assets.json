@@ -39910,21 +39910,6 @@
     "type": "animation"
   },
   {
-    "path": "smallTownMinish/gUnk_081142FC.bin",
-    "start": 1131260,
-    "size": 8
-  },
-  {
-    "path": "smallTownMinish/gUnk_08114304.bin",
-    "start": 1131268,
-    "size": 4
-  },
-  {
-    "path": "smallTownMinish/gUnk_08114308.bin",
-    "start": 1131272,
-    "size": 448
-  },
-  {
     "path": "animations/gSpriteAnimations_HurdyGurdyMan_8.bin",
     "start": 1131836,
     "size": 17,
