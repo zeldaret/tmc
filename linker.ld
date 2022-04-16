@@ -1287,7 +1287,7 @@ SECTIONS {
         src/npc/npc4E.o(.rodata);
         src/npc/npc4F.o(.rodata);
         data/animations/npc/npc4F.o(.rodata);
-        data/const/npc/clothesRack.o(.rodata);
+        src/npc/clothesRack.o(.rodata);
         data/animations/npc/clothesRack.o(.rodata);
         src/npc/picolyteBottle.o(.rodata);
         data/const/npc/smallTownMinish.o(.rodata);
