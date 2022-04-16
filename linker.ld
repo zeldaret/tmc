@@ -1311,7 +1311,7 @@ SECTIONS {
         src/item/itemLantern.o(.rodata);
         src/item/itemBoomerang.o(.rodata);
         src/item/itemBow.o(.rodata);
-        data/const/item/itemBomb.o(.rodata);
+        src/item/itemBomb.o(.rodata);
         data/const/item/itemTryPickupObject.o(.rodata);
         src/item/itemPegasusBoots.o(.rodata);
         data/const/item/itemOcarina.o(.rodata);

@@ -40794,11 +40794,6 @@
     "type": "sprite_frame"
   },
   {
-    "path": "itemBomb/gUnk_0811BDAC.bin",
-    "start": 1162668,
-    "size": 8
-  },
-  {
     "path": "itemMoleMitts/gUnk_0811BE14.bin",
     "start": 1162772,
     "size": 2
