@@ -1280,7 +1280,7 @@ SECTIONS {
         data/animations/npc/windTribespeople.o(.rodata);
         src/npc/gregal.o(.rodata);
         data/animations/npc/gregal.o(.rodata);
-        data/const/npc/mayorHagen.o(.rodata);
+        src/npc/mayorHagen.o(.rodata);
         data/animations/npc/mayorHagen.o(.rodata);
         data/const/npc/bigGoron.o(.rodata);
         src/npc/ezlo.o(.rodata);
