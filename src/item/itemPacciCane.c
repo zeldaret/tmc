@@ -3,10 +3,15 @@
 #include "item.h"
 #include "functions.h"
 
-extern void (*const gUnk_0811BDE0[])(ItemBehavior* beh, u32);
+void sub_08076C98(ItemBehavior*, u32);
+void sub_08076CBC(ItemBehavior*, u32);
 
 void ItemPacciCane(ItemBehavior* beh, u32 idx) {
-    gUnk_0811BDE0[beh->stateID](beh, idx);
+    static void (*const stateFuncs[])(ItemBehavior * beh, u32) = {
+        sub_08076C98,
+        sub_08076CBC,
+    };
+    stateFuncs[beh->stateID](beh, idx);
 }
 
 void sub_08076C98(ItemBehavior* beh, u32 idx) {
