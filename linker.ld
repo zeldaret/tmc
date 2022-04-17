@@ -1358,7 +1358,7 @@ SECTIONS {
         src/object/object17.o(.rodata);
         data/const/object/evilSpirit.o(.rodata);
         data/animations/object/evilSpirit.o(.rodata);
-        data/const/object/houseDoorExterior.o(.rodata);
+        src/object/houseDoorExterior.o(.rodata);
         src/object/rupee.o(.rodata);
         src/object/greatFairy.o(.rodata);
         data/animations/npc/greatFairy.o(.rodata);
