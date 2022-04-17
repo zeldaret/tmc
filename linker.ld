@@ -1422,7 +1422,6 @@ SECTIONS {
         data/animations/object/object45.o(.rodata);
         src/object/giantBookLadder.o(.rodata);
         src/object/heartContainer.o(.rodata);
-        data/const/object/heartContainer.o(.rodata);
         data/const/object/fileScreenObjects.o(.rodata);
         data/animations/object/fileScreenObjects.o(.rodata);
         data/const/object/object49.o(.rodata);

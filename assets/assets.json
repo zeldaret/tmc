@@ -42641,11 +42641,6 @@
     "type": "animation"
   },
   {
-    "path": "heartContainer/gUnk_08121C58.bin",
-    "start": 1186904,
-    "size": 12
-  },
-  {
     "path": "animations/gSpriteAnimations_FileScreenObjects_0.bin",
     "start": 1187364,
     "size": 13,
