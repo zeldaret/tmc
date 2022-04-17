@@ -1,9 +1,14 @@
 #include "object.h"
 
-extern void (*gUnk_08123384[])(Entity*);
+void sub_08097D90(Entity*);
+void sub_08097DCC(Entity*);
 
 void Bell(Entity* ent) {
-    gUnk_08123384[ent->action](ent);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_08097D90,
+        sub_08097DCC,
+    };
+    actionFuncs[ent->action](ent);
 }
 
 void sub_08097D90(Entity* ent) {

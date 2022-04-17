@@ -1473,7 +1473,7 @@ SECTIONS {
         src/object/stoneTablet.o(.rodata);
         src/object/lilypadSmall.o(.rodata);
         src/object/object74.o(.rodata);
-        data/const/object/bell.o(.rodata);
+        src/object/bell.o(.rodata);
         data/animations/object/bell.o(.rodata);
         src/object/macroDecorations.o(.rodata);
         src/object/object79.o(.rodata);
