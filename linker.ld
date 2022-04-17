@@ -1446,7 +1446,7 @@ SECTIONS {
         data/animations/object/lavaPlatform.o(.rodata);
         src/object/paper.o(.rodata);
         src/object/object5B.o(.rodata);
-        data/const/object/mask.o(.rodata);
+        src/object/mask.o(.rodata);
         src/object/houseDoorInterior.o(.rodata);
         src/object/whirlwind.o(.rodata);
         data/animations/object/whirlwind.o(.rodata);
