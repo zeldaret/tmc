@@ -42967,11 +42967,6 @@
     "type": "animation"
   },
   {
-    "path": "thoughtBubble/ThoughtBubble_SFX.bin",
-    "start": 1189264,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_GentariCurtains_0.bin",
     "start": 1189404,
     "size": 21,

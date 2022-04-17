@@ -1437,7 +1437,7 @@ SECTIONS {
         data/animations/object/pullableLever.o(.rodata);
         src/object/minecart.o(.rodata);
         data/animations/object/minecart.o(.rodata);
-        data/const/object/thoughtBubble.o(.rodata);
+        src/object/thoughtBubble.o(.rodata);
         data/animations/object/thoughtBubble.o(.rodata);
         data/const/object/hiddenLadderDown.o(.rodata);
         src/object/gentariCurtains.o(.rodata);
