@@ -185,7 +185,7 @@ u32 sub_08081E3C(Entity* this) {
         0x77, 0x78, 0x79, 0x7a, 0, 0,
     };
     const u16* tmp1;
-    int tmp2;
+    s32 tmp2;
     tmp2 = GetTileType(this->field_0x74.HWORD, this->collisionLayer);
     tmp1 = gUnk_0811EE50;
     do {

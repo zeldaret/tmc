@@ -33,7 +33,7 @@ void sub_0805F440(Token*, u8*);
 u32 sub_0805F6A4(Token*, WStruct*);
 u32 GetCharacter(Token* tok);
 u32 GetFontStrWith(Token*, u32);
-int sub_0805F67C(short*, int, int);
+s32 sub_0805F67C(short*, s32, s32);
 void sub_0805F918(u32, u32, void*);
 bool32 sub_0805F5CC(Font*, Token*, WStruct*);
 void sub_0805EEB4(Token*, u32);
@@ -64,7 +64,7 @@ void sub_0805EEB4(Token* token, u32 textIndex) {
     u32 langIndex;
     u32* puVar2;
     u8* puVar5;
-    int iVar3;
+    s32 iVar3;
     u32 uVar4;
     u32 uVar6;
     u32 uVar7;
@@ -76,7 +76,7 @@ void sub_0805EEB4(Token* token, u32 textIndex) {
     }
     puVar2 = gTranslations[langIndex];
     iVar3 = puVar2[(u8)(textIndex >> 8)];
-    puVar2 = (u32*)((int)puVar2 + iVar3);
+    puVar2 = (u32*)((s32)puVar2 + iVar3);
     iVar3 = puVar2[(u8)textIndex];
     uVar6 = *(gTranslations[langIndex]) >> 2;
     uVar7 = *puVar2 >> 2;
@@ -84,7 +84,7 @@ void sub_0805EEB4(Token* token, u32 textIndex) {
     if (((token->textIndex >> 8) >= uVar6) || ((u8)token->textIndex >= uVar7)) {
         uVar4 = 1;
     } else {
-        if (*(char*)((int)puVar2 + iVar3) == 0) {
+        if (*(char*)((s32)puVar2 + iVar3) == 0) {
             uVar4 = 2;
         }
     }
@@ -95,7 +95,7 @@ void sub_0805EEB4(Token* token, u32 textIndex) {
             iVar3 = 0;
             break;
     }
-    puVar2 = (u32*)((int)puVar2 + iVar3);
+    puVar2 = (u32*)((s32)puVar2 + iVar3);
     sub_0805EF40(token, (u8*)puVar2);
 }
 
@@ -134,7 +134,7 @@ u32 GetCharacter(Token* token) {
     u32 code;
     u32 uVar6;
     u8** ppuVar7;
-    int iVar8;
+    s32 iVar8;
 
     do {
         code = sub_0805EF8C(token);
@@ -358,8 +358,8 @@ u32 GetFontStrWith(Token* param_1, u32 param_2) {
     u32 rv;
     u32 r9;
     Token token;
-    int local_28;
-    int local_24;
+    s32 local_28;
+    s32 local_24;
 
     MemCopy(param_1, &token, sizeof(Token));
     local_24 = 0;
@@ -457,9 +457,9 @@ u32 sub_0805F46C(u32 param_1, const Font* param_2) {
         pWVar4->bgColor = font.fill_type;
         if (font.draw_border) {
             sub_0805F918(font.border_type, font.fill_type, font.gfx_dest);
-            font.gfx_dest = (void*)((int)font.gfx_dest + 0xe0);
+            font.gfx_dest = (void*)((s32)font.gfx_dest + 0xe0);
             fontStr = GetFontStrWith(&token, 1);
-            iVar10 = (fontStr >> 0x18) * (u32)font._16 + ((u8)((int)fontStr >> 0x10) << 1);
+            iVar10 = (fontStr >> 0x18) * (u32)font._16 + ((u8)((s32)fontStr >> 0x10) << 1);
             uVar8 = (u16)fontStr;
             temp3 = uVar8;
             if (font.width < (s32)temp3) {
@@ -487,7 +487,7 @@ u32 sub_0805F46C(u32 param_1, const Font* param_2) {
             while (iVar10-- > 0) {
                 puVar9 += 0x20;
                 puVar6 = puVar9;
-                for (uVar5 = uVar8; (int)uVar5-- > 0;) {
+                for (uVar5 = uVar8; (s32)uVar5-- > 0;) {
                     *puVar6++ = param_1;
                 }
             }
@@ -502,7 +502,7 @@ u32 sub_0805F46C(u32 param_1, const Font* param_2) {
 bool32 sub_0805F5CC(Font* param_1, Token* param_2, WStruct* param_3) {
     u16 uVar2;
     u32 uVar3;
-    int iVar4;
+    s32 iVar4;
     u16* puVar5;
     u32 fontStr;
 
@@ -513,7 +513,7 @@ bool32 sub_0805F5CC(Font* param_1, Token* param_2, WStruct* param_3) {
 
     puVar5 = (u16*)sub_0805F6A4(param_2, param_3);
     if (puVar5) {
-        iVar4 = (int)(param_3->unk6 + 7) / 8;
+        iVar4 = (s32)(param_3->unk6 + 7) / 8;
         puVar5 = param_1->dest;
         if (param_1->right_align) {
             puVar5 -= (iVar4 + 1U) >> 1;
@@ -522,7 +522,7 @@ bool32 sub_0805F5CC(Font* param_1, Token* param_2, WStruct* param_3) {
         param_1->dest += 0x40;
         iVar4 *= 0x40;
         MemCopy(param_1->buffer_loc, param_1->gfx_dest, iVar4);
-        param_1->gfx_dest = (void*)((int)param_1->gfx_dest + iVar4);
+        param_1->gfx_dest = (void*)((s32)param_1->gfx_dest + iVar4);
     } else {
         if (param_2->code == 10) {
             param_1->dest += param_1->_16 * 0x20;
@@ -531,7 +531,7 @@ bool32 sub_0805F5CC(Font* param_1, Token* param_2, WStruct* param_3) {
     return param_2->code > 0;
 }
 
-int sub_0805F67C(short* param_1, int param_2, int param_3) {
+s32 sub_0805F67C(short* param_1, s32 param_2, s32 param_3) {
     for (param_3--; param_3 != -1; param_3--) {
         param_1[0] = param_2++;
         param_1[0x20] = param_2++;
@@ -543,7 +543,7 @@ int sub_0805F67C(short* param_1, int param_2, int param_3) {
 u32 sub_0805F6A4(Token* param_1, WStruct* param_2) {
     u32 uVar1;
     u32 uVar3;
-    int iVar4;
+    s32 iVar4;
     u32 r7;
 
     iVar4 = 0;

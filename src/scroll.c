@@ -53,10 +53,10 @@ void sub_08080368();
 void sub_08080B60(u8*);
 bool32 sub_08080794(const Transition* transition, u32 param_2, u32 param_3, u32 param_4);
 bool32 sub_08080808(const Transition* transition, u32 param_2, u32 param_3, u32 param_4);
-void sub_080808D8(int);
-void sub_080808E4(int);
-void sub_08080904(int);
-void sub_08080910(int);
+void sub_080808D8(s32);
+void sub_080808E4(s32);
+void sub_08080904(s32);
+void sub_08080910(s32);
 
 extern u8 gMapDataTopSpecial[];
 
@@ -104,7 +104,7 @@ void sub_0807FDE4(RoomControls* controls) {
 void sub_0807FDF8(RoomControls* controls) {
     u32 bVar1;
     Entity* pEVar2;
-    int iVar3;
+    s32 iVar3;
 
     gUpdateVisibleTiles = 2;
     controls->filler2[0]++;
@@ -218,12 +218,12 @@ void sub_0807FFE4(RoomControls* controls) {
 }
 
 void sub_08080040(RoomControls* controls) {
-    int iVar2;
-    int iVar3;
-    int uVar5;
-    int uVar6;
-    int iVar7;
-    int temp;
+    s32 iVar2;
+    s32 iVar3;
+    s32 uVar5;
+    s32 uVar6;
+    s32 iVar7;
+    s32 temp;
 
     controls->filler2[0] -= 6;
     controls->filler2[1] = (controls->filler2[0] << 1) / 3;
@@ -285,12 +285,12 @@ void sub_08080198(RoomControls* controls) {
 }
 
 void sub_080801BC(RoomControls* controls) {
-    int iVar2;
-    int iVar3;
-    int uVar5;
-    int uVar6;
-    int iVar7;
-    int temp;
+    s32 iVar2;
+    s32 iVar3;
+    s32 uVar5;
+    s32 uVar6;
+    s32 iVar7;
+    s32 temp;
 
     controls->filler2[0] += 6;
     controls->filler2[1] = (controls->filler2[0] << 1) / 3;
@@ -369,7 +369,7 @@ bool32 sub_080806BC(u32 param_1, u32 param_2, u32 param_3, u32 param_4) {
         sub_08080808,
     };
     u32 uVar1;
-    int iVar2;
+    s32 iVar2;
     const Transition* puVar3;
 
     puVar3 = (gArea.pCurrentRoomInfo->exits);
@@ -386,7 +386,7 @@ bool32 sub_080806BC(u32 param_1, u32 param_2, u32 param_3, u32 param_4) {
 
 const Transition* sub_08080734(u32 param_1, u32 param_2) {
     u32 warpType;
-    int iVar2;
+    s32 iVar2;
     u32 uVar4;
     const Transition* puVar3;
 
@@ -467,7 +467,7 @@ bool32 sub_08080808(const Transition* param_1, u32 param_2, u32 param_3, u32 par
 }
 
 void DoExitTransition(const ScreenTransitionData* data) {
-    static void (*const gUnk_0811E7C4[])(int) = {
+    static void (*const gUnk_0811E7C4[])(s32) = {
         sub_080808D8,
         sub_080808E4,
         sub_08080904,
@@ -497,11 +497,11 @@ void DoExitTransition(const ScreenTransitionData* data) {
     gUnk_0811E7C4[data->type](data->field_0xa);
 }
 
-void sub_080808D8(int param_1) {
+void sub_080808D8(s32 param_1) {
     gRoomTransition.type = TRANSITION_DEFAULT;
 }
 
-void sub_080808E4(int param_1) {
+void sub_080808E4(s32 param_1) {
     if (CheckAreaOverworld(gRoomTransition.player_status.area_next)) {
         gRoomTransition.type = TRANSITION_DEFAULT;
     } else {
@@ -509,11 +509,11 @@ void sub_080808E4(int param_1) {
     }
 }
 
-void sub_08080904(int param_1) {
+void sub_08080904(s32 param_1) {
     gRoomTransition.type = TRANSITION_CUT;
 }
 
-void sub_08080910(int param_1) {
+void sub_08080910(s32 param_1) {
     gRoomTransition.type = TRANSITION_CUT;
 }
 
@@ -576,8 +576,8 @@ void sub_08080974(u32 arg0, u32 arg1) {
 }
 
 void sub_080809D4(void) {
-    int x, y;
-    int var1, var0;
+    s32 x, y;
+    s32 var1, var0;
     RoomControls* roomControls = &gRoomControls;
     roomControls->scroll_flags &= ~4;
 

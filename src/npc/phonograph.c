@@ -85,7 +85,7 @@ void sub_0806E964(Entity* this, ScriptExecutionContext* context) {
             this->field_0x6a.HWORD = this->field_0x68.HWORD;
             field_0x68 = (s16)this->field_0x68.HWORD * 4;
             ptr2++;
-            this->field_0x6c.HWORD = *(s16*)((((int)ptr2 + field_0x68)));
+            this->field_0x6c.HWORD = *(s16*)((((s32)ptr2 + field_0x68)));
         } else {
             SoundReq(SONG_STOP_ALL);
             this->field_0x6a.HWORD = 0;
@@ -167,7 +167,7 @@ void sub_0806E964(Entity* this, ScriptExecutionContext* context) {
             this->field_0x6a.HWORD = this->field_0x68.HWORD;
             field_0x68 = (s16)this->field_0x68.HWORD * 4;
             ptr2++;
-            this->field_0x6c.HWORD = *(s16*)((((int)ptr2 + field_0x68)));
+            this->field_0x6c.HWORD = *(s16*)((((s32)ptr2 + field_0x68)));
         } else {
             SoundReq(SONG_STOP_ALL);
             this->field_0x6a.HWORD = 0;
