@@ -1362,7 +1362,7 @@ SECTIONS {
         src/object/rupee.o(.rodata);
         src/object/greatFairy.o(.rodata);
         data/animations/npc/greatFairy.o(.rodata);
-        data/const/object/object1D.o(.rodata);
+        src/object/object1D.o(.rodata);
         src/object/object1E.o(.rodata);
         data/animations/object/object1E.o(.rodata);
         src/object/object1F.o(.rodata);
