@@ -42653,56 +42653,6 @@
     "type": "animation"
   },
   {
-    "path": "furniture/gUnk_08122128.bin",
-    "start": 1188136,
-    "size": 112
-  },
-  {
-    "path": "furniture/gUnk_08122198.bin",
-    "start": 1188248,
-    "size": 16
-  },
-  {
-    "path": "furniture/gUnk_081221A8.bin",
-    "start": 1188264,
-    "size": 16
-  },
-  {
-    "path": "furniture/gUnk_081221B8.bin",
-    "start": 1188280,
-    "size": 16
-  },
-  {
-    "path": "furniture/gUnk_081221C8.bin",
-    "start": 1188296,
-    "size": 16
-  },
-  {
-    "path": "furniture/gUnk_081221D8.bin",
-    "start": 1188312,
-    "size": 16
-  },
-  {
-    "path": "furniture/gUnk_081221E8.bin",
-    "start": 1188328,
-    "size": 16
-  },
-  {
-    "path": "furniture/gUnk_081221F8.bin",
-    "start": 1188344,
-    "size": 16
-  },
-  {
-    "path": "furniture/gUnk_08122208.bin",
-    "start": 1188360,
-    "size": 16
-  },
-  {
-    "path": "furniture/gUnk_08121EF8.bin",
-    "start": 1187576,
-    "size": 560
-  },
-  {
     "path": "animations/gSpriteAnimations_MinishSizedEntrance_0.bin",
     "start": 1188452,
     "size": 4,

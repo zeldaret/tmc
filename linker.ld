@@ -1428,8 +1428,6 @@ SECTIONS {
         src/object/backgroundCloud.o(.rodata);
         src/object/object4B.o(.rodata);
         src/object/pushableFurniture.o(.rodata);
-        data/const/object/furniture.o(.rodata);
-        data/animations/object/furniture.o(.rodata);
         src/object/furniture.o(.rodata);
         data/const/object/minishSizedEntrance.o(.rodata);
         data/animations/object/minishSizedEntrance.o(.rodata);
