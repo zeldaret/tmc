@@ -42545,16 +42545,6 @@
     "type": "animation"
   },
   {
-    "path": "giantLeaf/gUnk_08121750.bin",
-    "start": 1185616,
-    "size": 26
-  },
-  {
-    "path": "giantLeaf/gUnk_0812176A.bin",
-    "start": 1185642,
-    "size": 26
-  },
-  {
     "path": "animations/gSpriteAnimations_Object43_0.bin",
     "start": 1185760,
     "size": 132,

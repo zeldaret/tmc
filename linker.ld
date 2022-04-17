@@ -1411,7 +1411,7 @@ SECTIONS {
         src/object/macroPlayer.o(.rodata);
         src/object/object3D.o(.rodata);
         src/object/object3E.o(.rodata);
-        data/const/object/giantLeaf.o(.rodata);
+        src/object/giantLeaf.o(.rodata);
         src/object/fairy.o(.rodata);
         src/object/object42.o(.rodata);
         src/object/object43.o(.rodata);
