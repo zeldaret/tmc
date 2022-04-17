@@ -1,9 +1,14 @@
 #include "object.h"
 
-extern void (*const gUnk_0812119C[])(Entity*);
+void sub_0808A9DC(Entity*);
+void nullsub_519(Entity*);
 
 void FrozenFlower(Entity* this) {
-    gUnk_0812119C[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_0808A9DC,
+        nullsub_519,
+    };
+    actionFuncs[this->action](this);
 }
 
 void sub_0808A9DC(Entity* this) {

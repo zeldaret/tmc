@@ -1389,7 +1389,7 @@ SECTIONS {
         data/animations/object/pushableRock.o(.rodata);
         src/object/hittableLever.o(.rodata);
         src/object/object30.o(.rodata);
-        data/const/object/object31.o(.rodata);
+        src/object/frozenFlower.o(.rodata);
         src/object/pullableMushroom.o(.rodata);
         data/animations/object/pullableMushroom.o(.rodata);
         src/object/bollard.o(.rodata);
