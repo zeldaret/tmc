@@ -1509,7 +1509,7 @@ SECTIONS {
         src/object/frozenWaterElement.o(.rodata);
         src/object/object90.o(.rodata);
         src/object/frozenOctorok.o(.rodata);
-        data/const/object/bakerOven.o(.rodata);
+        src/object/bakerOven.o(.rodata);
         data/animations/object/bakerOven.o(.rodata);
         src/object/lamp.o(.rodata);
         data/animations/object/lamp.o(.rodata);
