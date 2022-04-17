@@ -1528,7 +1528,7 @@ SECTIONS {
         data/animations/object/fan.o(.rodata);
         src/object/angryStatue.o(.rodata);
         data/animations/object/angryStatue.o(.rodata);
-        data/const/object/palaceArchway.o(.rodata);
+        src/object/palaceArchway.o(.rodata);
         src/object/objectA2.o(.rodata);
         data/animations/object/objectA2.o(.rodata);
         data/const/object/cloud.o(.rodata);

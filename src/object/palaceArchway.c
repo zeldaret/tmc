@@ -1,9 +1,14 @@
 #include "object.h"
 
-extern void (*const gUnk_081246EC[])(Entity*);
+void sub_0809F2A0(Entity*);
+void nullsub_537(Entity*);
 
 void PalaceArchway(Entity* this) {
-    gUnk_081246EC[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_0809F2A0,
+        nullsub_537,
+    };
+    actionFuncs[this->action](this);
 }
 
 void sub_0809F2A0(Entity* this) {
