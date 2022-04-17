@@ -43553,11 +43553,6 @@
     "type": "animation"
   },
   {
-    "path": "lilypadSmall/gUnk_08123318.bin",
-    "start": 1192728,
-    "size": 16
-  },
-  {
     "path": "animations/gSpriteAnimations_Bell_0.bin",
     "start": 1192844,
     "size": 36,

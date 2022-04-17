@@ -1471,7 +1471,7 @@ SECTIONS {
         src/object/object70.o(.rodata);
         src/object/pushableGrave.o(.rodata);
         src/object/stoneTablet.o(.rodata);
-        data/const/object/lilypadSmall.o(.rodata);
+        src/object/lilypadSmall.o(.rodata);
         src/object/object74.o(.rodata);
         data/const/object/bell.o(.rodata);
         data/animations/object/bell.o(.rodata);
