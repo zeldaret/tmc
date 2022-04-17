@@ -1384,7 +1384,7 @@ SECTIONS {
         data/animations/object/object2A.o(.rodata);
         src/object/beanstalk.o(.rodata);
         data/animations/object/beanstalk.o(.rodata);
-        data/const/object/smoke.o(.rodata);
+        src/object/smoke.o(.rodata);
         src/object/pushableRock.o(.rodata);
         data/animations/object/pushableRock.o(.rodata);
         src/object/hittableLever.o(.rodata);

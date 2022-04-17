@@ -42305,11 +42305,6 @@
     "type": "animation"
   },
   {
-    "path": "smoke/gUnk_08121068.bin",
-    "start": 1183848,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_PushableRock_0.bin",
     "start": 1183888,
     "size": 4,

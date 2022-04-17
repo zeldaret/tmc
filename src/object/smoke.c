@@ -1,15 +1,22 @@
 #include "object.h"
 
-extern void (*const gUnk_08121060[])(Entity*);
-extern void (*const gUnk_08121070[])(Entity*);
-
-extern s8 gUnk_08121068[];
+void sub_0808A40C(Entity*);
+void sub_0808A46C(Entity*);
+void sub_0808A484(Entity*);
+void sub_0808A4D0(Entity*);
 
 void Smoke(Entity* this) {
-    gUnk_08121060[this->type](this);
+    static void (*const typeFuncs[])(Entity*) = {
+        sub_0808A40C,
+        sub_0808A46C,
+    };
+    typeFuncs[this->type](this);
 }
 
 void sub_0808A40C(Entity* this) {
+    static const s8 gUnk_08121068[] = {
+        -1, 1, -2, 2, 0, 0, 0, 0,
+    };
     Entity* ent;
 
     if (this->action == 0) {
@@ -27,7 +34,11 @@ void sub_0808A40C(Entity* this) {
 }
 
 void sub_0808A46C(Entity* this) {
-    gUnk_08121070[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_0808A484,
+        sub_0808A4D0,
+    };
+    actionFuncs[this->action](this);
 }
 
 void sub_0808A484(Entity* this) {
