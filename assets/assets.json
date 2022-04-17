@@ -43045,16 +43045,6 @@
     "type": "animation"
   },
   {
-    "path": "swordsmanNewsletter/gUnk_081228A8.bin",
-    "start": 1190056,
-    "size": 8
-  },
-  {
-    "path": "swordsmanNewsletter/gUnk_081228B8.bin",
-    "start": 1190072,
-    "size": 16
-  },
-  {
     "path": "animations/gSpriteAnimations_Object64_0.bin",
     "start": 1190252,
     "size": 16,

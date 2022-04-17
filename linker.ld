@@ -1451,7 +1451,7 @@ SECTIONS {
         src/object/whirlwind.o(.rodata);
         data/animations/object/whirlwind.o(.rodata);
         src/object/objectBlockingStairs.o(.rodata);
-        data/const/object/swordsmanNewsletter.o(.rodata);
+        src/object/swordsmanNewsletter.o(.rodata);
         src/object/object61.o(.rodata);
         src/object/giantTwig.o(.rodata);
         src/object/object63.o(.rodata);
