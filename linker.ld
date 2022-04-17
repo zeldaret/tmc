@@ -1467,7 +1467,7 @@ SECTIONS {
         data/animations/object/crenelBeanSprout.o(.rodata);
         src/object/minecartDoor.o(.rodata);
         src/object/objectOnPillar.o(.rodata);
-        data/const/object/mineralWaterSource.o(.rodata);
+        src/object/mineralWaterSource.o(.rodata);
         src/object/object70.o(.rodata);
         src/object/pushableGrave.o(.rodata);
         src/object/stoneTablet.o(.rodata);

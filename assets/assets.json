@@ -43553,11 +43553,6 @@
     "type": "animation"
   },
   {
-    "path": "mineralWaterSource/MineralWaterSourceParameters.bin",
-    "start": 1192608,
-    "size": 4
-  },
-  {
     "path": "lilypadSmall/gUnk_08123318.bin",
     "start": 1192728,
     "size": 16
