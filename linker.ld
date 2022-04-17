@@ -1352,7 +1352,7 @@ SECTIONS {
         src/object/object12.o(.rodata);
         src/object/railtrack.o(.rodata);
         data/animations/object/railtrack.o(.rodata);
-        data/const/object/lilypadLarge.o(.rodata);
+        src/object/lilypadLarge.o(.rodata);
         src/object/object15.o(.rodata);
         src/object/floatingPlatform.o(.rodata);
         src/object/object17.o(.rodata);
