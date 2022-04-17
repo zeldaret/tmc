@@ -1523,7 +1523,7 @@ SECTIONS {
         src/object/object9B.o(.rodata);
         data/animations/object/object9B.o(.rodata);
         src/object/treeHidingPortal.o(.rodata);
-        data/const/object/lightableSwitch.o(.rodata);
+        src/object/lightableSwitch.o(.rodata);
         src/object/fan.o(.rodata);
         data/animations/object/fan.o(.rodata);
         src/object/angryStatue.o(.rodata);
