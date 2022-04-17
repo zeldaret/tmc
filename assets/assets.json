@@ -43654,11 +43654,6 @@
     "type": "animation"
   },
   {
-    "path": "bigVortex/gUnk_08123690.bin",
-    "start": 1193616,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_BigPushableLever_0.bin",
     "start": 1193724,
     "size": 21,

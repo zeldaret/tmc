@@ -1487,7 +1487,7 @@ SECTIONS {
         data/animations/object/picoBloom.o(.rodata);
         src/object/board.o(.rodata);
         src/object/object81.o(.rodata);
-        data/const/object/bigVortex.o(.rodata);
+        src/object/bigVortex.o(.rodata);
         data/animations/object/bigVortex.o(.rodata);
         src/object/bigPushableLever.o(.rodata);
         data/animations/object/bigPushableLever.o(.rodata);

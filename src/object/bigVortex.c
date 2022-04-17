@@ -4,14 +4,18 @@
 #include "object.h"
 #include "functions.h"
 
-extern void sub_08098E3C(Entity*);
-extern void sub_08098E88(Entity*);
-
-extern void (*const gUnk_0812367C[])(Entity*);
-
-extern u16 gUnk_08123690[];
+void sub_08098E3C(Entity*);
+void sub_08098E88(Entity*);
+void sub_08098D1C(Entity*);
+void sub_08098D6C(Entity*);
+void sub_08098D9C(Entity*);
+void sub_08098DC4(Entity*);
+void sub_08098E34(Entity*);
 
 void BigVortex(Entity* this) {
+    static void (*const gUnk_0812367C[])(Entity*) = {
+        sub_08098D1C, sub_08098D6C, sub_08098D9C, sub_08098DC4, sub_08098E34,
+    };
     if (this->type == 0) {
         gUnk_0812367C[this->action](this);
     } else {
@@ -83,7 +87,13 @@ void sub_08098E34(Entity* this) {
 }
 
 void sub_08098E3C(Entity* this) {
-    u16* temp;
+    static const u16 gUnk_08123690[] = {
+        0x1c0,
+        0x160,
+        0x300,
+        0x200,
+    };
+    const u16* temp;
 
     if (this->action == 0) {
         this->action = 1;
