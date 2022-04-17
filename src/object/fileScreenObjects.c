@@ -12,6 +12,23 @@ static void sub_0808EABC(Entity*);
 static Entity* sub_0808EC80(int);
 static u32 sub_0808EF6C(Entity*);
 static void sub_0808EFF0(Entity*);
+static void sub_0808EA28(Entity*);
+static void sub_0808E7D8(Entity*);
+static void sub_0808E988(Entity*);
+static void sub_0808E9F4(Entity*);
+static void sub_0808EBB8(Entity*);
+static void sub_0808ECBC(Entity*);
+static void sub_0808ED64(Entity*);
+static void sub_0808E9F4(Entity*);
+static void sub_0808ED98(Entity*);
+static void sub_0808EE00(Entity*);
+static void nullsub_522(Entity*);
+static void sub_0808EB74(Entity*);
+static void sub_0808EE98(Entity*);
+static void sub_0808EED8(Entity*);
+static void sub_0808EF24(Entity*);
+static void sub_0808E818(Entity*);
+static void sub_0808E7F0(Entity*);
 
 typedef struct {
     u8 unk0;
@@ -21,7 +38,7 @@ typedef struct {
 
 typedef struct {
     u16 unk0;
-    u16 unk2;
+    s16 unk2;
     u16 unk4;
     u8 unk6_0 : 3;
     u8 unk6_3 : 3;
@@ -29,17 +46,15 @@ typedef struct {
     u8 unk7;
 } struct_08121D54;
 
-extern void (*const gUnk_08121C64[])(Entity*);
-extern void (*const gUnk_08121CCC[])(Entity*);
 extern const int gUnk_08133368[];
-extern const struct_08121CD4 gUnk_08121CD4[][4];
-extern const u8 gUnk_08121D10[];
-extern const u8 gUnk_08121D38[][8];
-extern const u16 gUnk_08121D18[][8];
-extern const u8 gUnk_08121D48[];
-extern const struct_08121D54 gUnk_08121D54[];
 
 void FileScreenObjects(Entity* this) {
+    static void (*const gUnk_08121C64[])(Entity*) = {
+        sub_0808EA28, sub_0808EA28, sub_0808EA28, sub_0808EA28, sub_0808ECBC, sub_0808ECBC, sub_0808ECBC,
+        sub_0808ECBC, sub_0808ED64, sub_0808ED98, sub_0808EE00, sub_0808EE00, sub_0808EE00, sub_0808EE00,
+        sub_0808EE00, sub_0808EB74, sub_0808EBB8, nullsub_522,  sub_0808EE98, sub_0808EED8, sub_0808EED8,
+        sub_0808EF24, sub_0808EF24, sub_0808E7D8, sub_0808E988, sub_0808E9F4,
+    };
     if (this->health == 0) {
         sub_0808EFF0(this);
     }
@@ -50,6 +65,10 @@ void FileScreenObjects(Entity* this) {
 }
 
 void sub_0808E7D8(Entity* this) {
+    static void (*const gUnk_08121CCC[])(Entity*) = {
+        sub_0808E7F0,
+        sub_0808E818,
+    };
     gUnk_08121CCC[this->action](this);
 }
 
@@ -331,6 +350,13 @@ static Entity* sub_0808EC80(int form) {
 }
 
 void sub_0808ECBC(Entity* this) {
+    static const struct_08121CD4 gUnk_08121CD4[][4] = {
+        { { 0x9, 0x18, 0xb0 }, { 0x9, 0x60, 0xb0 }, { 0x9, 0xa8, 0xb0 }, { 0x9, 0x40, 0xb0 } },
+        { { 0x0, 0x18, 0x90 }, { 0x1, 0x60, 0x90 }, { 0x2, 0xa8, 0x90 }, { 0x9, 0x40, 0xb0 } },
+        { { 0x9, 0x18, 0xb0 }, { 0x9, 0x60, 0xb0 }, { 0x9, 0xa8, 0xb0 }, { 0x4, 0x14, 0x90 } },
+        { { 0x9, 0x18, 0xb0 }, { 0x9, 0x60, 0xb0 }, { 0x1, 0x88, 0x90 }, { 0x0, 0x40, 0x90 } },
+        { { 0x0, 0x18, 0x90 }, { 0x9, 0x60, 0xb0 }, { 0x9, 0xa8, 0xb0 }, { 0x9, 0x40, 0xb0 } }
+    };
     int var0;
     int var1;
     int var2;
@@ -379,6 +405,9 @@ void sub_0808ED64(Entity* this) {
 }
 
 void sub_0808ED98(Entity* this) {
+    static const s8 gUnk_08121D10[] = {
+        0, -1, -3, -2, -2, -1, 0, 0,
+    };
     int y;
     if (gUI.lastState != 1) {
         this->field_0x68.HWORD = 27;
@@ -400,6 +429,12 @@ void sub_0808ED98(Entity* this) {
 }
 
 void sub_0808EE00(Entity* this) {
+    static const u16 gUnk_08121D18[][8] = { { 0x2c, 0x54, 0x7c, 0xa4, 0xcc, 0x0, 0x0, 0x0 },
+                                            { 0xfff, 0x2e, 0x62, 0x96, 0xca, 0x0, 0x0, 0x0 } };
+    static const u8 gUnk_08121D38[][8] = {
+        { 12, 13, 14, 16, 17, 0, 0, 0 },
+        { -1, 14, 15, 16, 17, 0, 0, 0 },
+    };
     int var0, var1, var2;
 
     var0 = ((SaveHeader*)0x2000000)->language != 0;
@@ -424,6 +459,7 @@ void nullsub_522(Entity* this) {
 }
 
 void sub_0808EE98(Entity* this) {
+    static const u8 gUnk_08121D48[] = { 0x28, 0x27, 0x28, 0x28, 0x28, 0x2a, 0x29, 0x28, 0xff, 0x0, 0x0, 0x0 };
     this->timer = gUI.lastState;
     this->frameIndex = gUnk_08121D48[this->timer];
     if (this->timer != 2) {
@@ -509,6 +545,21 @@ static u32 sub_0808EF6C(Entity* this) {
 }
 
 static void sub_0808EFF0(Entity* this) {
+    static const struct_08121D54 gUnk_08121D54[] = {
+        { 0x800, -0x40, 0x28, 2, 4, 1, 0x80 }, { 0x800, -0x40, 0x48, 2, 4, 1, 0x81 },
+        { 0x800, -0x40, 0x68, 2, 4, 1, 0x82 }, { 0x800, -0x40, 0x88, 2, 4, 1, 0x83 },
+        { 0x300, 0x40, 0xb0, 1, 1, 1, 0x84 },  { 0x300, 0x70, 0xb0, 1, 1, 1, 0x85 },
+        { 0x300, 0x90, 0xb0, 1, 1, 1, 0x86 },  { 0x300, 0x40, 0xb0, 1, 1, 1, 0x87 },
+        { 0x1000, 0x1c, 0xff, 2, 7, 2, 0x88 }, { 0x200, 0x1b, 0xff, 1, 1, 1, 0x0 },
+        { 0x200, 0x0, 0xb0, 1, 1, 1, 0xff },   { 0x200, 0x0, 0xb0, 1, 2, 1, 0xff },
+        { 0x200, 0x0, 0xb0, 1, 3, 1, 0xff },   { 0x200, 0x0, 0xb0, 1, 4, 1, 0xff },
+        { 0x200, 0x0, 0xb0, 1, 5, 1, 0xff },   { 0x800, 0x0, 0x0, 2, 6, 1, 0x1 },
+        { 0x1000, 0x0, 0x0, 2, 6, 1, 0x1 },    { 0x1000, 0x0, 0xb0, 2, 6, 1, 0x1 },
+        { 0x1000, 0x60, 0x0, 0, 0, 0, 0xff },  { 0x400, 0xa8, 0x50, 1, 1, 1, 0x99 },
+        { 0x400, 0xa8, 0x50, 1, 1, 1, 0x9a },  { 0x400, 0xa8, 0x50, 1, 1, 1, 0x9b },
+        { 0x400, 0xa8, 0x50, 1, 1, 1, 0x9e },  { 0x400, 0x80, 0x48, 1, 1, 1, 0xff },
+        { 0x400, 0xc0, 0x42, 1, 1, 1, 0xff },  { 0x400, 0xc8, 0x32, 1, 1, 1, 0xa5 }
+    };
     const struct_08121D54* var0;
     u8 var1;
 

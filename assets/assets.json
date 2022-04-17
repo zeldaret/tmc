@@ -42653,36 +42653,6 @@
     "type": "animation"
   },
   {
-    "path": "fileScreenObjects/gUnk_08121CD4.bin",
-    "start": 1187028,
-    "size": 60
-  },
-  {
-    "path": "fileScreenObjects/gUnk_08121D10.bin",
-    "start": 1187088,
-    "size": 8
-  },
-  {
-    "path": "fileScreenObjects/gUnk_08121D18.bin",
-    "start": 1187096,
-    "size": 32
-  },
-  {
-    "path": "fileScreenObjects/gUnk_08121D38.bin",
-    "start": 1187128,
-    "size": 16
-  },
-  {
-    "path": "fileScreenObjects/gUnk_08121D48.bin",
-    "start": 1187144,
-    "size": 12
-  },
-  {
-    "path": "fileScreenObjects/gUnk_08121D54.bin",
-    "start": 1187156,
-    "size": 208
-  },
-  {
     "path": "object49/gUnk_08121EA0.bin",
     "start": 1187488,
     "size": 4
