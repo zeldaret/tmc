@@ -1,14 +1,20 @@
 #include "object.h"
 
-extern void (*const gUnk_08121EA4[])(Entity*);
-extern const u8 gUnk_08121EB0[];
-extern const u8 gUnk_08121EB3[];
+void sub_0808F658(Entity*);
+void sub_0808F6E0(Entity*);
+void sub_0808F70C(Entity*);
 
 void BackgroundCloud(Entity* this) {
-    gUnk_08121EA4[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_0808F658,
+        sub_0808F6E0,
+        sub_0808F70C,
+    };
+    actionFuncs[this->action](this);
 }
 
 void sub_0808F658(Entity* this) {
+    static const u8 gUnk_08121EB0[] = { 0x30, 0x28, 0x20 };
     this->action = 1;
     this->spriteSettings.draw = 1;
     this->spriteOrientation.flipY = 3;
@@ -33,6 +39,7 @@ void sub_0808F6E0(Entity* this) {
 }
 
 void sub_0808F70C(Entity* this) {
+    static const u8 gUnk_08121EB3[] = { 0x8, 0x28, 0x48, 0x98, 0 };
     if (this->subAction == 0) {
         this->subAction = 1;
         this->timer = ((Random() & 7) << 3) + 31;

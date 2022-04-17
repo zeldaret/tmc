@@ -42653,16 +42653,6 @@
     "type": "animation"
   },
   {
-    "path": "backgroundCloud/gUnk_08121EB0.bin",
-    "start": 1187504,
-    "size": 3
-  },
-  {
-    "path": "backgroundCloud/gUnk_08121EB3.bin",
-    "start": 1187507,
-    "size": 5
-  },
-  {
     "path": "furniture/gUnk_08122128.bin",
     "start": 1188136,
     "size": 112

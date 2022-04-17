@@ -1425,7 +1425,7 @@ SECTIONS {
         src/object/fileScreenObjects.o(.rodata);
         data/animations/object/fileScreenObjects.o(.rodata);
         src/object/object49.o(.rodata);
-        data/const/object/backgroundCloud.o(.rodata);
+        src/object/backgroundCloud.o(.rodata);
         src/object/object4B.o(.rodata);
         src/object/pushableFurniture.o(.rodata);
         data/const/object/furniture.o(.rodata);
