@@ -4,11 +4,16 @@
 #include "functions.h"
 #include "flags.h"
 
-extern void (*const gUnk_08122604[])(Entity*);
+void sub_08091F14(Entity*);
+void sub_08092000(Entity*);
 
 void HiddenLadderDown(Entity* this) {
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_08091F14,
+        sub_08092000,
+    };
     if (this->action < 2) {
-        gUnk_08122604[this->action](this);
+        actionFuncs[this->action](this);
     }
 }
 
