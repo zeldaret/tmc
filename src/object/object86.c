@@ -2,12 +2,18 @@
 #include "item.h"
 
 void sub_08099ECC(Entity*);
+void sub_08099DD0(Entity*);
+void sub_08099E10(Entity*);
+void sub_08099E58(Entity*);
+void sub_08099E8C(Entity*);
+void nullsub_534(Entity*);
 extern void sub_0805B390(u32);
 
-extern void (*const gUnk_081237F8[])(Entity*);
-
 void Object86(Entity* this) {
-    gUnk_081237F8[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_08099DD0, sub_08099E10, sub_08099E58, sub_08099E8C, nullsub_534,
+    };
+    actionFuncs[this->action](this);
 }
 
 void sub_08099DD0(Entity* this) {

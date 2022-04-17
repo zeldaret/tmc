@@ -1495,7 +1495,7 @@ SECTIONS {
         data/animations/object/smallIceBlock.o(.rodata);
         src/object/bigIceBlock.o(.rodata);
         data/animations/object/bigIceBlock.o(.rodata);
-        data/const/object/object86.o(.rodata);
+        src/object/object86.o(.rodata);
         data/animations/object/object86.o(.rodata);
         src/object/octorokBossObject.o(.rodata);
         src/object/macroBook.o(.rodata);
