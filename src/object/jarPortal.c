@@ -2,17 +2,23 @@
 #include "area.h"
 #include "functions.h"
 
-extern void (*gUnk_08121488[])(Entity*);
-
 extern u32 PortalReadyForMinish(void);
 
 u32 sub_0808C128(Entity*);
 void sub_0808C13C(Entity*);
+void sub_0808BE9C(Entity*);
+void sub_0808BF14(Entity*);
+void sub_0808BF58(Entity*);
+void sub_0808BFD8(Entity*);
+void sub_0808C0AC(Entity*);
 void sub_0808C148(Entity*, u32);
 void sub_0808C01C(Entity*, u32);
 
 void JarPortal(Entity* this) {
-    gUnk_08121488[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_0808BE9C, sub_0808BF14, sub_0808BF58, sub_0808BFD8, sub_0808C0AC,
+    };
+    actionFuncs[this->action](this);
 }
 
 void sub_0808BE9C(Entity* this) {
