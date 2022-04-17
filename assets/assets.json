@@ -42665,11 +42665,6 @@
     "type": "animation"
   },
   {
-    "path": "minishSizedEntrance/gUnk_0812225C.bin",
-    "start": 1188444,
-    "size": 8
-  },
-  {
     "path": "animations/gSpriteAnimations_PullableLever_0.bin",
     "start": 1188548,
     "size": 4,

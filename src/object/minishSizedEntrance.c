@@ -2,11 +2,15 @@
 #include "game.h"
 #include "functions.h"
 
-extern void (*const gUnk_08122254[])(Entity*);
-extern u16 gUnk_0812225C[];
+void sub_08090F00(Entity*);
+void sub_08090EC0(Entity*);
 
 void MinishSizedEntrance(Entity* this) {
-    gUnk_08122254[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_08090EC0,
+        sub_08090F00,
+    };
+    actionFuncs[this->action](this);
 }
 
 void sub_08090EC0(Entity* this) {
@@ -22,6 +26,12 @@ void sub_08090EC0(Entity* this) {
 }
 
 void sub_08090F00(Entity* this) {
+    static const u16 gUnk_0812225C[] = {
+        0x400,
+        0x100,
+        0x800,
+        0x200,
+    };
     if (this->type == 1) {
         Entity* parent = this->parent;
         u32 mask = 1 << this->subtimer;

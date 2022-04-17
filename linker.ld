@@ -1429,7 +1429,7 @@ SECTIONS {
         src/object/object4B.o(.rodata);
         src/object/pushableFurniture.o(.rodata);
         src/object/furniture.o(.rodata);
-        data/const/object/minishSizedEntrance.o(.rodata);
+        src/object/minishSizedEntrance.o(.rodata);
         data/animations/object/minishSizedEntrance.o(.rodata);
         src/object/giantRock2.o(.rodata);
         src/object/object53.o(.rodata);
