@@ -1504,7 +1504,7 @@ SECTIONS {
         src/object/cabinFurniture.o(.rodata);
         src/object/doubleBookshelf.o(.rodata);
         src/object/book.o(.rodata);
-        data/const/object/fireplace.o(.rodata);
+        src/object/fireplace.o(.rodata);
         src/object/object8E.o(.rodata);
         src/object/frozenWaterElement.o(.rodata);
         src/object/object90.o(.rodata);

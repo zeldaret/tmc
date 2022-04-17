@@ -1,14 +1,17 @@
 #include "object.h"
 #include "functions.h"
 
-extern void (*gUnk_08123D98[])(Entity*);
-
 void sub_0809B7A0(Entity* this);
 void sub_0809B7DC(Entity* this);
 void sub_0809B7C0(Entity* this);
+void sub_0809B708(Entity* this);
 
 void Fireplace(Entity* e) {
-    gUnk_08123D98[e->action](e);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_0809B708,
+        sub_0809B7A0,
+    };
+    actionFuncs[e->action](e);
 }
 
 void sub_0809B708(Entity* this) {
