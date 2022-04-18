@@ -13,14 +13,17 @@ typedef struct {
     u8 field_0x3d;
     u16 field_0x3e;
 } Manager1F;
-extern void (*const gUnk_08108C94[])(Manager1F*);
 
 void sub_0805B778(Manager1F*);
-
-extern u16 gUnk_08108C9C[];
+void sub_0805B70C(Manager1F*);
+void sub_0805B744(Manager1F*);
 
 void Manager1F_Main(Manager1F* this) {
-    gUnk_08108C94[this->manager.action](this);
+    static void (*const actionFuncs[])(Manager1F*) = {
+        sub_0805B70C,
+        sub_0805B744,
+    };
+    actionFuncs[this->manager.action](this);
 }
 
 void sub_0805B70C(Manager1F* this) {
@@ -47,5 +50,6 @@ void sub_0805B744(Manager1F* this) {
 }
 
 void sub_0805B778(Manager1F* this) {
+    static const u16 gUnk_08108C9C[] = { 0x358, 0x359, 0x356, 0x35a, 0x35a, 0x357 };
     SetTileType(gUnk_08108C9C[this->manager.unk_0a * 2 + this->manager.unk_0b], this->field_0x38, this->field_0x36);
 }
