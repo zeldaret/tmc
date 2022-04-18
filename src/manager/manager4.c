@@ -6,18 +6,24 @@
 #include "structures.h"
 #include "functions.h"
 
-extern void (*gUnk_08107C70[])(Manager*);
+void Manager4_Main(Manager*);
+void sub_0805786C(Manager*);
+void sub_08057920(Manager*);
 
 void Manager4_Main(Manager* this) {
-    gUnk_08107C70[this->action](this);
+    static void (*const actionFuncs[])(Manager*) = {
+        sub_0805786C,
+        sub_08057920,
+    };
+    actionFuncs[this->action](this);
 }
 
 extern void UpdateIsDiggingCave(void);
 
-extern DiggingCaveEntrance* sub_08057AA8(DiggingCaveEntrance*, int);
+extern const DiggingCaveEntrance* sub_08057AA8(const DiggingCaveEntrance*, int);
 
 void sub_0805786C(Manager* this) {
-    DiggingCaveEntrance* tmp;
+    const DiggingCaveEntrance* tmp;
     u8 room;
     u8 area;
     u16 uVar = 0x81 << 7;
@@ -50,10 +56,10 @@ void sub_0805786C(Manager* this) {
     this->action = 1;
 }
 
-extern u32 sub_0805795C(Manager*, DiggingCaveEntrance*);
+extern u32 sub_0805795C(Manager*, const DiggingCaveEntrance*);
 
 void sub_08057920(Manager* this) {
-    DiggingCaveEntrance* tmp;
+    const DiggingCaveEntrance* tmp;
     u8 room;
     room = gRoomControls.room;
     for (tmp = diggingCaveEntrances[gRoomControls.area];
@@ -61,9 +67,9 @@ void sub_08057920(Manager* this) {
         ;
 }
 
-void sub_08057A18(Manager*, DiggingCaveEntrance*);
+void sub_08057A18(Manager*, const DiggingCaveEntrance*);
 
-u32 sub_0805795C(Manager* this, DiggingCaveEntrance* entr) {
+u32 sub_0805795C(Manager* this, const DiggingCaveEntrance* entr) {
     u16 offsetX, offsetY, offsetX2, offsetY2;
     u32 tmp, tmp2;
     if (gUnk_03004030.isDiggingCave) {
@@ -91,7 +97,7 @@ u32 sub_0805795C(Manager* this, DiggingCaveEntrance* entr) {
 
 extern void sub_08080930(u32);
 
-void sub_08057A18(Manager* this, DiggingCaveEntrance* entr) {
+void sub_08057A18(Manager* this, const DiggingCaveEntrance* entr) {
     u16 tmp;
     SetInitializationPriority();
     gUnk_03004030.unk_0a = gUnk_03004030.unk_09;
@@ -118,10 +124,76 @@ void sub_08057A18(Manager* this, DiggingCaveEntrance* entr) {
     DeleteManager(this);
 }
 
-DiggingCaveEntrance* sub_08057AA8(DiggingCaveEntrance* entr, int room) {
+const DiggingCaveEntrance* sub_08057AA8(const DiggingCaveEntrance* entr, int room) {
     for (; entr->unk_00 != 0xFFFF; entr++) {
         if (entr->source_room == room)
             return entr;
     }
     return 0;
 }
+
+static const DiggingCaveEntrance gUnk_08107C78[] = { { -1, 0, 0, 0, 0 } };
+static const DiggingCaveEntrance gUnk_08107C80[] = { { 0x4e5, 0x0, 0x0, 0xc, 0x0, 0xce5 },
+                                                     { 0x3df, 0x0, 0x0, 0xc, 0x0, 0xbdf },
+                                                     { -0x1, 0x0, 0x0, 0x0, 0x0, 0x0 } };
+static const DiggingCaveEntrance gUnk_08107C98[] = { { 0x2c3, 0x4, 0x4, 0x13, 0x0, 0x2c3 },
+                                                     { 0x163, 0x5, 0x10, 0x19, 0x1, 0x448 },
+                                                     { 0x385, 0x7, 0xa, 0x13, 0x3, 0x385 },
+                                                     { 0x390, 0x7, 0xa, 0x13, 0x3, 0x390 },
+                                                     { -0x1, 0x0, 0x0, 0x0, 0x0, 0x0 } };
+static const DiggingCaveEntrance gUnk_08107CC0[] = { { 0x62d, 0x0, 0x2, 0xf, 0x0, 0xa2d },
+                                                     { -0x1, 0x0, 0x0, 0x0, 0x0, 0x0 } };
+static const DiggingCaveEntrance gUnk_08107CD0[] = { { 0x143, 0x1, 0x6, 0x14, 0x0, 0x643 },
+                                                     { -0x1, 0x0, 0x0, 0x0, 0x0, 0x0 } };
+static const DiggingCaveEntrance gUnk_08107CE0[] = { { 0x95a, 0x0, 0x8, 0x16, 0x0, 0x95a },
+                                                     { 0x9ce, 0x0, 0x8, 0x16, 0x0, 0x9ce },
+                                                     { -0x1, 0x0, 0x0, 0x0, 0x0, 0x0 } };
+static const DiggingCaveEntrance gUnk_08107CF8[] = { { 0x670, 0x0, 0xc, 0x17, 0x0, 0x670 },
+                                                     { -0x1, 0x0, 0x0, 0x0, 0x0, 0x0 } };
+static const DiggingCaveEntrance gUnk_08107D08[] = { { 0x15e, 0x0, 0xe, 0x19, 0x1, 0x46e },
+                                                     { 0x79e, 0x0, 0x12, 0x19, 0x0, 0x248 },
+                                                     { -0x1, 0x0, 0x0, 0x0, 0x0, 0x0 } };
+static const DiggingCaveEntrance gUnk_08107D20[] = { { 0xce5, 0x0, 0x1, 0x0, 0x0, 0x4e5 },
+                                                     { 0xbdf, 0x0, 0x1, 0x0, 0x0, 0x3df },
+                                                     { -0x1, 0x0, 0x0, 0x0, 0x0, 0x0 } };
+static const DiggingCaveEntrance gUnk_08107D38[] = { { 0xa2d, 0x0, 0x3, 0x2, 0x0, 0x62d },
+                                                     { -0x1, 0x0, 0x0, 0x0, 0x0, 0x0 } };
+static const DiggingCaveEntrance gUnk_08107D48[] = { { 0x2c3, 0x0, 0x5, 0x3, 0x4, 0x2c3 },
+                                                     { 0x385, 0x3, 0xb, 0x3, 0x7, 0x385 },
+                                                     { 0x390, 0x3, 0xb, 0x3, 0x7, 0x390 },
+                                                     { -0x1, 0x0, 0x0, 0x0, 0x0, 0x0 } };
+static const DiggingCaveEntrance gUnk_08107D68[] = { { 0x643, 0x0, 0x7, 0x6, 0x1, 0x143 },
+                                                     { -0x1, 0x0, 0x0, 0x0, 0x0, 0x0 } };
+static const DiggingCaveEntrance gUnk_08107D78[] = { { 0x95a, 0x0, 0x9, 0xa, 0x0, 0x95a },
+                                                     { 0x9ce, 0x0, 0x9, 0xa, 0x0, 0x9ce },
+                                                     { -0x1, 0x0, 0x0, 0x0, 0x0, 0x0 } };
+static const DiggingCaveEntrance gUnk_08107D90[] = { { 0x670, 0x0, 0xd, 0x4, 0x0, 0x670 },
+                                                     { -0x1, 0x0, 0x0, 0x0, 0x0, 0x0 } };
+static const DiggingCaveEntrance gUnk_08107DA0[] = { { 0x46e, 0x1, 0xf, 0xb, 0x0, 0x15e },
+                                                     { 0x448, 0x1, 0x11, 0x3, 0x5, 0x163 },
+                                                     { 0x248, 0x0, 0x13, 0xb, 0x0, 0x79e },
+                                                     { -0x1, 0x0, 0x0, 0x0, 0x0, 0x0 } };
+static const DiggingCaveEntrance* const diggingCaveEntrances[] = {
+    gUnk_08107C80, gUnk_08107C78, gUnk_08107CC0, gUnk_08107C98, gUnk_08107CF8, gUnk_08107C78, gUnk_08107CD0,
+    gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107CE0, gUnk_08107D08, gUnk_08107D20, gUnk_08107C78,
+    gUnk_08107C78, gUnk_08107D38, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107D48, gUnk_08107D68,
+    gUnk_08107C78, gUnk_08107D78, gUnk_08107D90, gUnk_08107C78, gUnk_08107DA0, gUnk_08107C78, gUnk_08107C78,
+    gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78,
+    gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78,
+    gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78,
+    gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78,
+    gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78,
+    gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78,
+    gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78,
+    gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78,
+    gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78,
+    gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78,
+    gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78,
+    gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78,
+    gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78,
+    gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78,
+    gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78,
+    gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78,
+    gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78,
+    gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78, gUnk_08107C78,
+};

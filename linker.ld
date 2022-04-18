@@ -1108,7 +1108,7 @@ SECTIONS {
         . = ALIGN(4);
         src/manager/manager1.o(.rodata);
         src/manager/manager3.o(.rodata);
-        data/const/manager/manager4.o(.rodata);
+        src/manager/manager4.o(.rodata);
         src/manager/manager5.o(.rodata);
         src/manager/manager7.o(.rodata);
         . = ALIGN(4);
