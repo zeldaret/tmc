@@ -2,12 +2,18 @@
 #include "entity.h"
 #include "physics.h"
 
-extern void sub_080A0640(Entity*);
-
-extern void (*const gUnk_081248C4[])(Entity*);
+void sub_080A0640(Entity*);
+void sub_080A05A4(Entity*);
+void sub_080A05F4(Entity*);
+void sub_080A0624(Entity*);
 
 void ObjectAF(Entity* this) {
-    gUnk_081248C4[this->action](this);
+    static void (*const actionFuncs[])(Entity*) = {
+        sub_080A05A4,
+        sub_080A05F4,
+        sub_080A0624,
+    };
+    actionFuncs[this->action](this);
 }
 
 void sub_080A05A4(Entity* this) {
