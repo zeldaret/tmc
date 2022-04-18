@@ -1139,7 +1139,7 @@ SECTIONS {
         src/manager/manager28.o(.rodata);
         src/manager/manager2B.o(.rodata);
         src/manager/manager2E.o(.rodata);
-        data/const/manager/manager31.o(.rodata);
+        src/manager/manager31.o(.rodata);
         data/const/manager/manager32.o(.rodata);
         data/const/manager/manager34.o(.rodata);
         data/const/manager/manager35.o(.rodata);
