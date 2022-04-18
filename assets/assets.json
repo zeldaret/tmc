@@ -44108,45 +44108,6 @@
     "type": "animation"
   },
   {
-    "path": "pinwheel/gUnk_08125050_JP.bin",
-    "variants": [
-      "JP"
-    ],
-    "starts": {
-      "JP": 1199380
-    },
-    "size": 12
-  },
-  {
-    "path": "pinwheel/gUnk_08125050_1_DEMO_JP.bin",
-    "variants": [
-      "DEMO_JP"
-    ],
-    "starts": {
-      "DEMO_JP": 1198016
-    },
-    "size": 12
-  },
-  {
-    "path": "pinwheel/gUnk_08125050_2_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1197976
-    },
-    "size": 12
-  },
-  {
-    "path": "pinwheel/gUnk_08125050_3_USA-DEMO_USA.bin",
-    "variants": [
-      "USA",
-      "DEMO_USA"
-    ],
-    "start": 1200208,
-    "size": 12
-  },
-  {
     "offsets": {
       "EU": -2248
     }
