@@ -7,11 +7,12 @@ typedef struct {
     u16 sound;
 } Manager36_unk;
 
-extern Manager36_unk gUnk_08108DA8[];
-
 // Repeatedly plays the same sound with a fixed wait time
 void Manager36_Main(Manager* manager) {
-    Manager36_unk* unk = &gUnk_08108DA8[manager->unk_0a];
+    static const Manager36_unk gUnk_08108DA8[] = {
+        { 0x10, SFX_ELEMENT_INFUSE }, { 0x20, SFX_1C8 }, { 0x20, SFX_1C8 }, { 0x40, SFX_1A9 }, { 0x20, SFX_21F }
+    };
+    const Manager36_unk* unk = &gUnk_08108DA8[manager->unk_0a];
     if (manager->action == 0) {
         manager->action += 1;
         manager->unk_0e = 0;
