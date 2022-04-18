@@ -9,19 +9,24 @@ typedef struct {
     u32 field_0x20;
 } Manager1B;
 
-extern u8 gUnk_08108C28[];
-extern void (*const gUnk_08108C54[])(Manager1B*);
-
 void sub_0805B4B4(Manager1B*);
+void sub_0805B448(Manager1B*);
+void sub_0805B474(Manager1B*);
 
 void sub_0806D0F8(void); // in bigGoron?
 
-extern u8 gUnk_08108C5C[];
-extern u16 gUnk_08108C44[];
+static const u8 gUnk_08108C28[] = { 0x14, 0x0, 0x0,  0x0, 0x15, 0x0, 0x0,  0x0, 0x14, 0x0, 0xd8, 0x0, 0x2f, 0x0,
+                                    0x70, 0x0, 0x4b, 0x0, 0x0,  0x0, 0x4e, 0x0, 0x0,  0x0, 0x4d, 0x1, 0x0,  0x0 };
+static const u16 gUnk_08108C44[] = { 0, 0, -0x28, 0x70, 0, 0, 0, 0 };
 
 void Manager1B_Main(Manager1B* this) {
+    static void (*const gUnk_08108C54[])(Manager1B*) = {
+        sub_0805B448,
+        sub_0805B474,
+    };
+
     s32 iVar3;
-    u8* tmp;
+    const u8* tmp;
 
     if (EntityHasDuplicateID((Entity*)this) != 0) {
         DeleteThisEntity();
@@ -66,6 +71,7 @@ void sub_0805B4B4(Manager1B* this) {
 }
 
 void sub_0805B4D0(u32 param_1) {
+    static const u8 gUnk_08108C5C[] = { 0x14, 0x15, 0x14, 0x2f, 0x4b, 0x4e, 0x4d, 0 };
     s32 iVar1;
     u32 uVar2;
 
