@@ -1980,7 +1980,7 @@ void RestorePrevTileEntity(u32 position, u32 layer) {
     }
 }
 
-void sub_0807BB68(s16* param_1, u32 basePosition, u32 layer) {
+void sub_0807BB68(const s16* param_1, u32 basePosition, u32 layer) {
     while (param_1[0] != -1) {
         SetTileType((u16)param_1[0], basePosition + param_1[1], layer);
         param_1 += 2;

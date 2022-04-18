@@ -1531,7 +1531,7 @@ SECTIONS {
         src/object/palaceArchway.o(.rodata);
         src/object/objectA2.o(.rodata);
         data/animations/object/objectA2.o(.rodata);
-        data/const/object/cloud.o(.rodata);
+        src/object/cloud.o(.rodata);
         data/const/object/minishLight.o(.rodata);
         src/object/objectA6.o(.rodata);
         data/animations/object/objectA6.o(.rodata);

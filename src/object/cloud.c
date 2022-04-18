@@ -4,22 +4,38 @@
 
 void sub_0809F814(u32 r0);
 
-extern void sub_0809F7BC(Entity*);
-extern void sub_0809F7F4(Entity*);
-extern void (*gUnk_08124798[])(Entity*);
-extern void (*gUnk_081247A0[])(Entity*);
-extern void (*gUnk_081247AC[])(Entity*);
+void sub_0809F7BC(Entity*);
+void sub_0809F7F4(Entity*);
+void sub_0809F4DC(Entity*);
+void sub_0809F700(Entity*);
+void sub_0809F514(Entity*);
+void sub_0809F548(Entity*);
+void sub_0809F5B0(Entity*);
+void sub_0809F6CC(Entity*);
+void sub_0809F69C(Entity*);
+void sub_0809F61C(Entity*);
+void sub_0809F5F0(Entity*);
+void sub_0809F5DC(Entity*);
 
 extern void* gUnk_080DD750;
-extern u8 gUnk_081247C0[];
-extern u16 gUnk_081247C8[];
-extern u16 gUnk_081247D0;
 
 void Cloud(Entity* this) {
-    gUnk_08124798[this->type](this);
+    static void (*const typeFuncs[])(Entity*) = {
+        sub_0809F4DC,
+        sub_0809F700,
+    };
+    typeFuncs[this->type](this);
 }
 
 void sub_0809F4DC(Entity* this) {
+    static void (*const gUnk_081247A0[])(Entity*) = {
+        sub_0809F514,
+        sub_0809F548,
+        sub_0809F5B0,
+    };
+    static void (*const gUnk_081247AC[])(Entity*) = {
+        sub_0809F5DC, sub_0809F5F0, sub_0809F61C, sub_0809F69C, sub_0809F6CC,
+    };
     if (this->type2 == 0) {
         gUnk_081247A0[this->action](this);
     } else {
@@ -121,6 +137,9 @@ void sub_0809F6CC(Entity* this) {
 }
 
 void sub_0809F700(Entity* this) {
+    static const s8 gUnk_081247C0[] = {
+        -1, 1, 2, -2, 0, 1, 0, -1,
+    };
     u8 bVar1;
     u32 uVar2;
 
@@ -157,6 +176,7 @@ Entity* sub_0809F770(Entity* this) {
 }
 
 void sub_0809F7BC(Entity* this) {
+    static const u16 gUnk_081247C8[] = { 0x100, 0x180, 0x200, 0x280 };
     Entity* cloud;
     u32 uVar1;
     u32 uVar2;
@@ -179,5 +199,7 @@ void sub_0809F7F4(Entity* this) {
 }
 
 void sub_0809F814(u32 r0) {
-    sub_0807BB68(&gUnk_081247D0, r0, 1);
+    static const s16 gUnk_081247D0[] = { 0x257, -0x41, 0x258, -0x40, 0x259, -0x3f, 0x25a, -0x1, 0x25b, 0x0,
+                                         0x25c, 0x1,   0x25d, 0x3f,  0x25e, 0x40,  0x25f, 0x41, -0x1,  0x0 };
+    sub_0807BB68(gUnk_081247D0, r0, 1);
 }

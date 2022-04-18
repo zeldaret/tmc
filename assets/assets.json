@@ -43960,21 +43960,6 @@
     "type": "animation"
   },
   {
-    "path": "cloud/gUnk_081247C0.bin",
-    "start": 1198016,
-    "size": 8
-  },
-  {
-    "path": "cloud/gUnk_081247C8.bin",
-    "start": 1198024,
-    "size": 8
-  },
-  {
-    "path": "cloud/gUnk_081247D0.bin",
-    "start": 1198032,
-    "size": 40
-  },
-  {
     "path": "animations/gSpriteAnimations_ObjectA6_0.bin",
     "start": 1198088,
     "size": 20,

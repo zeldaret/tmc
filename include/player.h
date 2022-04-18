@@ -410,7 +410,7 @@ void sub_0807B7D8(u32, u32, u32);
 void sub_08078850(Entity*, u32, u32, const void*);
 void sub_08079D84(void);
 u32 sub_0807953C(void);
-void sub_0807BB68(s16*, u32, u32);
+void sub_0807BB68(const s16*, u32, u32);
 void sub_0807B9B8(u32, u32, u32);
 void sub_0807B7D8(u32, u32, u32);
 void RestorePrevTileEntity(u32, u32);
