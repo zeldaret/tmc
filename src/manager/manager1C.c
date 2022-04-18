@@ -3,13 +3,15 @@
 #include "room.h"
 #include "enemy.h"
 
-extern void (*const gUnk_08108C64[])(Manager*);
-
-extern u16 gUnk_08108C6C[];
-extern s8 gUnk_08108C7C[];
+void sub_0805B554(Manager*);
+void sub_0805B55C(Manager*);
 
 void Manager1C_Main(Manager* manager) {
-    gUnk_08108C64[manager->action](manager);
+    static void (*const actionFuncs[])(Manager*) = {
+        sub_0805B554,
+        sub_0805B55C,
+    };
+    actionFuncs[manager->action](manager);
 }
 
 // Initial setup
@@ -20,6 +22,9 @@ void sub_0805B554(Manager* manager) {
 
 // Spawn water drops every 0xf frames
 void sub_0805B55C(Manager* manager) {
+    static const s16 gUnk_08108C6C[] = { -0x64, -0x3c, -0x14, 0x14, 0x3c, 0x64, 0x8c, 0xb4 };
+    static const s8 gUnk_08108C7C[] = { -0x32, -0x19, 0x0, 0x19 };
+
     if (--manager->unk_0e == 0) {
         Entity* waterDrop;
         manager->unk_0e = 0xf;
