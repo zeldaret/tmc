@@ -27,15 +27,47 @@ typedef struct {
     u16 unk_3e; // used
 } Manager15;
 
-extern void (*const gUnk_081085D8[])(Manager*);
+static const u16 gUnk_081085B8[] = { 0x1008, 0x1007, 0x1006, 0x1005, 0x1006, 0x1007, 0x1008, 0x1009,
+                                     0x1008, 0x1007, 0x1006, 0x1005, 0x1006, 0x1007, 0x1008, 0x1009 };
 
-void Manager15_Main(Manager* this) {
-    gUnk_081085D8[this->unk_0a](this);
-}
-
+void sub_0805A298(Manager15*);
+void sub_0805A2E4(Manager15*);
+void sub_0805A3D4(Manager15*);
+void sub_0805A3D4(Manager15*);
+void sub_0805A500(Manager15*);
+void sub_0805A660(Manager15*);
+void sub_0805A664(Manager15*);
+void sub_0805A804(Manager15*);
+void sub_0805A464(Manager15*);
+void sub_0805A370(Manager15*);
+void sub_0805A394(Manager15*);
+void nullsub_496(Manager15*);
 void sub_0805A89C(Manager15*);
 void sub_0805A8EC(Manager15*);
+void sub_0805A4B4(Manager15*);
+void sub_0805A498(Manager15*);
+void sub_0805A480(Manager15*);
+void sub_0805A464(Manager15*);
 void sub_0805AAF0(u32);
+void sub_0805AA58(Manager15*);
+void sub_0805A9CC(Manager15*);
+void sub_0805A5FC(Manager15*);
+void sub_0805A618(Manager15*);
+void sub_0805A628(Manager15*);
+void sub_0805A64C(Manager15*);
+void sub_0805A65C(Manager15*);
+void sub_0805A68C(Manager15*);
+void sub_0805A7E4(Manager15*);
+void sub_0805A76C(Manager15*);
+void sub_0805A758(Manager15*);
+void sub_0805A6E8(Manager15*);
+
+void Manager15_Main(Manager* this) {
+    static void (*const gUnk_081085D8[])(Manager15*) = {
+        sub_0805A298, sub_0805A2E4, sub_0805A3D4, sub_0805A3D4, sub_0805A500, sub_0805A660, sub_0805A664, sub_0805A804,
+    };
+    gUnk_081085D8[this->unk_0a]((Manager15*)this);
+}
 
 void sub_0805A298(Manager15* this) {
     if (this->manager.action == 0) {
@@ -51,9 +83,10 @@ void sub_0805A298(Manager15* this) {
     sub_0805A8EC(this);
 }
 
-extern void (*const gUnk_081085F8[])(Manager15*);
-
 void sub_0805A2E4(Manager15* this) {
+    static void (*const actionFuncs[])(Manager15*) = {
+        NULL, sub_0805A464, sub_0805A370, sub_0805A394, nullsub_496,
+    };
     if (this->manager.action == 0) {
         sub_0805A89C(this);
         this->unk_23 = 1;
@@ -70,7 +103,7 @@ void sub_0805A2E4(Manager15* this) {
             gScreen.lcd.displayControl |= DISPCNT_WIN1_ON | DISPCNT_BG3_ON;
         }
     } else {
-        gUnk_081085F8[this->manager.action](this);
+        actionFuncs[this->manager.action](this);
     }
     if (this->manager.next) {
         sub_0805A8EC(this);
@@ -103,9 +136,10 @@ void sub_0805A394(Manager15* this) {
 void nullsub_496(Manager15* this) {
 }
 
-extern void (*const gUnk_0810860C[])(Manager15*);
-
 void sub_0805A3D4(Manager15* this) {
+    static void (*const gUnk_0810860C[])(Manager15*) = {
+        NULL, sub_0805A464, sub_0805A480, sub_0805A498, sub_0805A4B4,
+    };
     if (this->manager.action == 0) {
         sub_0805A89C(this);
         if (this->manager.unk_0a == 3) {
@@ -170,11 +204,10 @@ void sub_0805A4CC(Manager15* this, u32 unk_0) {
     }
 }
 
-extern void (*const gUnk_08108620[])(Manager15*);
-void sub_0805AA58(Manager15*);
-void sub_0805A9CC(Manager15*);
-
 void sub_0805A500(Manager15* this) {
+    static void (*const actionFuncs[])(Manager15*) = {
+        NULL, sub_0805A5FC, sub_0805A618, sub_0805A628, sub_0805A64C, sub_0805A65C,
+    };
     if (this->manager.action == 0) {
         sub_0805A89C(this);
         this->unk_28 = 0;
@@ -195,7 +228,7 @@ void sub_0805A500(Manager15* this) {
         }
         sub_0805AAF0(this->unk_23);
     } else {
-        gUnk_08108620[this->manager.action](this);
+        actionFuncs[this->manager.action](this);
     }
     sub_0805AA58(this);
     sub_0805A9CC(this);
@@ -245,10 +278,13 @@ void sub_0805A65C(Manager15* this) {
 void sub_0805A660(Manager15* this) {
 }
 
-extern void (*const gUnk_08108638[])(Manager15*);
-void sub_0805A68C(Manager15*);
-
 void sub_0805A664(Manager15* this) {
+    static void (*const gUnk_08108638[])(Manager15*) = {
+        sub_0805A6E8,
+        sub_0805A758,
+        sub_0805A76C,
+        sub_0805A7E4,
+    };
     gUnk_08108638[this->manager.action](this);
     sub_0805A8EC(this);
     sub_0805A68C(this);
@@ -451,7 +487,6 @@ void sub_0805A9CC(Manager15* this) {
 }
 
 extern struct { u8 unk_00[0x20]; } gUnk_085A97A0[];
-extern u16 gUnk_081085B8[];
 
 void sub_0805AA58(Manager15* this) {
     if (--this->manager.unk_0e == 0) {
@@ -473,9 +508,10 @@ void sub_0805AAC8(Manager15* this) {
     Manager15_Main(&this->manager);
 }
 
-extern u16 gUnk_08108648[];
-
 void sub_0805AADC(u32 unk0) {
+    static const u16 gUnk_08108648[] = {
+        0x31, 0x32, 0x33, 0x34, 0x35, 0,
+    };
     LoadGfxGroup(gUnk_08108648[unk0]);
 }
 
