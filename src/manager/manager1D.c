@@ -2,15 +2,19 @@
 #include "room.h"
 #include "screen.h"
 
-extern void (*const gUnk_08108C80[])(Manager*);
-
-extern u16 gUnk_08108C88[];
+void sub_0805B5E0(Manager*);
+void sub_0805B638(Manager*);
 
 void Manager1D_Main(Manager* this) {
-    gUnk_08108C80[this->action](this);
+    static void (*const actionFuncs[])(Manager*) = {
+        sub_0805B5E0,
+        sub_0805B638,
+    };
+    actionFuncs[this->action](this);
 }
 
 void sub_0805B5E0(Manager* this) {
+    static const u16 gUnk_08108C88[] = { 0x1e07, 0x1e07 };
     this->action = 1;
 
     gScreen.lcd.displayControl |= DISPCNT_BG3_ON;
