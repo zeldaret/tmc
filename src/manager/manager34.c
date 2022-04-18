@@ -8,15 +8,22 @@ typedef struct {
     u16 field_0x20;
 } Manager34;
 
-extern void (*const gUnk_08108D8C[])(Manager34*);
 void sub_0805DBF0(Manager34*);
+void sub_0805DBB4(Manager34*);
+void sub_0805DBCC(Manager34*);
+void nullsub_498(Manager34*);
 
 extern ScreenTransitionData gUnk_0813AC48;
 
 void sub_0805DC70(void);
 
 void Manager34_Main(Manager34* this) {
-    gUnk_08108D8C[this->manager.action](this);
+    static void (*const actionFuncs[])(Manager34*) = {
+        sub_0805DBB4,
+        sub_0805DBCC,
+        nullsub_498,
+    };
+    actionFuncs[this->manager.action](this);
     sub_0805DBF0(this);
 }
 
