@@ -1144,7 +1144,7 @@ SECTIONS {
         src/manager/manager34.o(.rodata);
         src/manager/manager35.o(.rodata);
         src/manager/manager36.o(.rodata);
-        data/const/manager/manager37.o(.rodata);
+        src/manager/manager37.o(.rodata);
         data/const/manager/manager38.o(.rodata);
         data/const/manager/manager39.o(.rodata);
         data/data_08108E6C.o(.rodata);

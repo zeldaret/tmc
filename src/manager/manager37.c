@@ -12,20 +12,30 @@
 
 extern ScreenTransitionData gUnk_0813AC34;
 
-extern void (*const gUnk_08108DBC[])(Manager*);
-
-extern void (*const gUnk_08108DC4[])(Manager*);
-
-extern void (*const gUnk_08108DD8[])(Manager*);
-
 void sub_0805E094(void);
+void sub_0805DE50(Manager*);
+void sub_0805DFE8(Manager*);
+void sub_0805DE68(Manager*);
+void sub_0805DEB8(Manager*);
+void sub_0805DF4C(Manager*);
+void sub_0805DF98(Manager*);
+void sub_0805DFCC(Manager*);
+void sub_0805E078(Manager*);
+void sub_0805E000(Manager*);
 
 void Manager37_Main(Manager* this) {
+    static void (*const gUnk_08108DBC[])(Manager*) = {
+        sub_0805DE50,
+        sub_0805DFE8,
+    };
     gUnk_08108DBC[this->unk_0a](this);
 }
 
 void sub_0805DE50(Manager* this) {
-    gUnk_08108DC4[this->action](this);
+    static void (*const actionFuncs[])(Manager*) = {
+        sub_0805DE68, sub_0805DEB8, sub_0805DF4C, sub_0805DF98, sub_0805DFCC,
+    };
+    actionFuncs[this->action](this);
 }
 
 void sub_0805DE68(Manager* this) {
@@ -95,7 +105,7 @@ void sub_0805DF98(Manager* this) {
     }
 }
 
-void sub_0805DFCC(void) {
+void sub_0805DFCC(Manager* this) {
     if (gFadeControl.active == 0) {
         ClearGlobalFlag(ZELDA_CHASE);
         sub_0805E094();
@@ -103,7 +113,11 @@ void sub_0805DFCC(void) {
 }
 
 void sub_0805DFE8(Manager* this) {
-    gUnk_08108DD8[this->action](this);
+    static void (*const actionFuncs[])(Manager*) = {
+        sub_0805E000,
+        sub_0805E078,
+    };
+    actionFuncs[this->action](this);
 }
 
 void sub_0805E000(Manager* this) {
