@@ -15,12 +15,15 @@ typedef struct {
     u16 field_0x3e;
 } Manager17;
 
-extern void (*const gUnk_08108654[])(Manager17*);
-
+void sub_0805AD60(Manager17*);
 void sub_0805AD80(Manager17*);
 
 void Manager17_Main(Manager17* manager) {
-    gUnk_08108654[manager->manager.action](manager);
+    static void (*const actionFuncs[])(Manager17*) = {
+        sub_0805AD60,
+        sub_0805AD80,
+    };
+    actionFuncs[manager->manager.action](manager);
 }
 
 void sub_0805AD60(Manager17* manager) {
