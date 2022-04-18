@@ -92,12 +92,12 @@ static const SaveFile gDemoSave = {
         .itemButtons = { ITEM_SHIELD, ITEM_SMITH_SWORD },
         .rupees = 5,
     },
-    .fillerD0 = {
-        [34] = 5,
-        [37] = 4,
-        [47] = 6,
-        [51] = 0x40,
-        [56] = 0x40,
+    .inventory = {
+        [0] = 5,
+        [3] = 4,
+        [13] = 6,
+        [17] = 0x40,
+        [22] = 0x40,
     },
     .flags = {
         [FLAG_BYTE(FLAG_BANK_G, START)] = FLAG_X(START) | FLAG_X(EZERO_1ST) | FLAG_X(TABIDACHI),

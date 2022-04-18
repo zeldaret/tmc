@@ -272,7 +272,7 @@ typedef struct {
     /*0x3e*/ u8 swordDamage : 2;
     /*    */ u8 filler14 : 6;
     /*0x3f*/ u8 field_0x3f;
-    /*0x40*/ u8 path_memory[64];
+    /*0x40*/ u32 path_memory[16];
     /*0x80*/ u16 speed_modifier;
     /*0x82*/ u8 field_0x82[9];
     /*0x8b*/ u8 controlMode;
