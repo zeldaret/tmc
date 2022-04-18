@@ -44008,16 +44008,6 @@
     "type": "animation"
   },
   {
-    "path": "jailBars/gUnk_08124960.bin",
-    "start": 1198432,
-    "size": 26
-  },
-  {
-    "path": "jailBars/gUnk_0812497A.bin",
-    "start": 1198458,
-    "size": 26
-  },
-  {
     "path": "animations/gSpriteAnimations_ObjectB2_0.bin",
     "start": 1198520,
     "size": 17,

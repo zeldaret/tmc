@@ -41,7 +41,7 @@ extern void SetDirtTile(u32);
  * @param basePosition the position the offsets in tileData are based on
  * @param layer the tile layer
  */
-extern void SetMultipleTiles(TileData* tileData, u32 basePosition, u32 layer);
+extern void SetMultipleTiles(const TileData* tileData, u32 basePosition, u32 layer);
 extern void TryLoadPrologueHyruleTown(void);
 extern void UnloadGFXSlots(Entity*);
 extern void UnloadOBJPalette(Entity*);

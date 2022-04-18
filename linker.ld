@@ -1545,7 +1545,7 @@ SECTIONS {
         src/object/objectAF.o(.rodata);
         data/animations/object/objectAF.o(.rodata);
         src/object/metalDoor.o(.rodata);
-        data/const/object/jailBars.o(.rodata);
+        src/object/jailBars.o(.rodata);
         data/animations/object/jailBars.o(.rodata);
         data/animations/object/objectB2.o(.rodata);
         src/object/objectB3.o(.rodata);
