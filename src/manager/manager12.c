@@ -13,20 +13,19 @@ typedef struct {
 } Manager12;
 
 void sub_08059A58(Manager12*);
-
 void sub_08059A2C(Manager12*);
+u32 CheckRegionsOnScreen(const u16* arr);
 
-u32 CheckRegionsOnScreen(u16* arr);
-extern u16 gUnk_081083DA;
-extern u16 gUnk_081083F2;
-extern u16 gUnk_08108398;
-extern u16 gUnk_081083AE;
-extern u16 gUnk_081083C4;
+static const u16 gUnk_08108398[] = { 0x0, 0x0, 0x0, 0x3f0, 0x200, 0x1, 0x0, 0x280, 0x3f0, 0x140, 0xff };
+static const u16 gUnk_081083AE[] = { 0x2, 0x0, 0x0, 0x180, 0x3c0, 0x3, 0x280, 0x0, 0x170, 0x3c0, 0xff };
+static const u16 gUnk_081083C4[] = { 0x5, 0x130, 0x1b0, 0x190, 0x140, 0x4, 0x0, 0x0, 0x3f0, 0x3c0, 0xff };
+static const u16 gUnk_081083DA[] = { 0x0, 0x0, 0x0, 0x190, 0x1d0, 0x1, 0x0, 0x2a0, 0x190, 0x120, 0xff, 0xff };
+static const u16 gUnk_081083F2[] = { 0x5, 0x0, 0x1b0, 0x190, 0x140, 0x4, 0x0, 0x0, 0x190, 0x3c0, 0xff };
 
 void sub_08059CC0(u32, u32);
 void sub_08059B18(void);
 
-bool32 sub_08059C8C(Manager12*, u32, u8*, u16*);
+bool32 sub_08059C8C(Manager12*, u32, u8*, const u16*);
 
 extern u32 gUnk_086E8460;
 
@@ -37,8 +36,28 @@ typedef struct {
     u32 field_0xc;
 } Unknown;
 
-extern Unknown gUnk_08108468[];
-extern Unknown gUnk_08108408[];
+static const Unknown gUnk_08108408[] = {
+#ifdef EU
+    { 0x139860, 0x6000000, 0x13f860, 0x6008000 }, { 0x13c860, 0x6000000, 0x142860, 0x6008000 },
+    { 0x13a860, 0x6001000, 0x140860, 0x6009000 }, { 0x13d860, 0x6001000, 0x143860, 0x6009000 },
+    { 0x13b860, 0x6002000, 0x141860, 0x600a000 }, { 0x13e860, 0x6002000, 0x144860, 0x600a000 }
+#else
+    { 0x1395e0, 0x6000000, 0x13f5e0, 0x6008000 }, { 0x13c5e0, 0x6000000, 0x1425e0, 0x6008000 },
+    { 0x13a5e0, 0x6001000, 0x1405e0, 0x6009000 }, { 0x13d5e0, 0x6001000, 0x1435e0, 0x6009000 },
+    { 0x13b5e0, 0x6002000, 0x1415e0, 0x600a000 }, { 0x13e5e0, 0x6002000, 0x1445e0, 0x600a000 }
+#endif
+};
+static const Unknown gUnk_08108468[] = {
+#ifdef EU
+    { 0x146060, 0x6000000, 0x14c060, 0x6008000 }, { 0x149060, 0x6000000, 0x14f060, 0x6008000 },
+    { 0x147060, 0x6001000, 0x14d060, 0x6009000 }, { 0x14a060, 0x6001000, 0x150060, 0x6009000 },
+    { 0x148060, 0x6002000, 0x14e060, 0x600a000 }, { 0x14b060, 0x6002000, 0x151060, 0x600a000 },
+#else
+    { 0x145de0, 0x6000000, 0x14bde0, 0x6008000 }, { 0x148de0, 0x6000000, 0x14ede0, 0x6008000 },
+    { 0x146de0, 0x6001000, 0x14cde0, 0x6009000 }, { 0x149de0, 0x6001000, 0x14fde0, 0x6009000 },
+    { 0x147de0, 0x6002000, 0x14dde0, 0x600a000 }, { 0x14ade0, 0x6002000, 0x150de0, 0x600a000 },
+#endif
+};
 extern const u8 gGlobalGfxAndPalettes[];
 
 void Manager12_Main(Manager12* this) {
@@ -65,23 +84,23 @@ void sub_08059A2C(Manager12* this) {
 
 void sub_08059A58(Manager12* this) {
     if (gRoomControls.area != AREA_FESTIVAL_TOWN) {
-        if (sub_08059C8C(this, 0, &this->field_0x20, &gUnk_08108398) != 0) {
+        if (sub_08059C8C(this, 0, &this->field_0x20, gUnk_08108398) != 0) {
             sub_08059CC0(0, (u32)this->field_0x20);
         }
-        if (sub_08059C8C(this, 1, &this->field_0x21, &gUnk_081083AE) != 0) {
+        if (sub_08059C8C(this, 1, &this->field_0x21, gUnk_081083AE) != 0) {
             sub_08059CC0(1, this->field_0x21);
             if (this->field_0x21 == 2) {
                 sub_08059B18();
             }
         }
-        if (sub_08059C8C(this, 2, &this->field_0x22, &gUnk_081083C4) != 0) {
+        if (sub_08059C8C(this, 2, &this->field_0x22, gUnk_081083C4) != 0) {
             sub_08059CC0(2, (u32)this->field_0x22);
         }
     } else {
-        if (sub_08059C8C(this, 0, &this->field_0x20, &gUnk_081083DA) != 0) {
+        if (sub_08059C8C(this, 0, &this->field_0x20, gUnk_081083DA) != 0) {
             sub_08059CC0(0, (u32)this->field_0x20);
         }
-        if (sub_08059C8C(this, 2, &this->field_0x22, &gUnk_081083F2) != 0) {
+        if (sub_08059C8C(this, 2, &this->field_0x22, gUnk_081083F2) != 0) {
             sub_08059CC0(2, (u32)this->field_0x22);
         }
     }
@@ -125,7 +144,7 @@ void sub_08059B18(void) {
     }
 }
 
-bool32 sub_08059C8C(Manager12* this, u32 param_2, u8* param_3, u16* param_4) {
+bool32 sub_08059C8C(Manager12* this, u32 param_2, u8* param_3, const u16* param_4) {
     bool32 bVar2;
 
     *param_3 = CheckRegionsOnScreen(param_4);
@@ -138,7 +157,7 @@ bool32 sub_08059C8C(Manager12* this, u32 param_2, u8* param_3, u16* param_4) {
 }
 
 void sub_08059CC0(u32 param_1, u32 param_2) {
-    Unknown* unknown;
+    const Unknown* unknown;
 
     gRoomVars.unk_10[param_1] = param_2;
     if (gRoomControls.area != AREA_FESTIVAL_TOWN) {
@@ -154,24 +173,24 @@ void TryLoadPrologueHyruleTown(void) {
     u32 tmp;
 
     if (gRoomControls.area != AREA_FESTIVAL_TOWN) {
-        tmp = CheckRegionsOnScreen(&gUnk_08108398);
+        tmp = CheckRegionsOnScreen(gUnk_08108398);
         if (tmp != 0xff) {
             sub_08059CC0(0, tmp);
         }
-        tmp = CheckRegionsOnScreen(&gUnk_081083AE);
+        tmp = CheckRegionsOnScreen(gUnk_081083AE);
         if ((tmp != 0xff) && (sub_08059CC0(1, tmp), tmp == 2)) {
             sub_08059B18();
         }
-        tmp = CheckRegionsOnScreen(&gUnk_081083C4);
+        tmp = CheckRegionsOnScreen(gUnk_081083C4);
         if (tmp != 0xff) {
             sub_08059CC0(2, tmp);
         }
     } else {
-        tmp = CheckRegionsOnScreen(&gUnk_081083DA);
+        tmp = CheckRegionsOnScreen(gUnk_081083DA);
         if (tmp != 0xff) {
             sub_08059CC0(0, tmp);
         }
-        tmp = CheckRegionsOnScreen(&gUnk_081083F2);
+        tmp = CheckRegionsOnScreen(gUnk_081083F2);
         if (tmp != 0xff) {
             sub_08059CC0(2, tmp);
         }
