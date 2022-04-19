@@ -43823,11 +43823,6 @@
     "type": "animation"
   },
   {
-    "path": "windcrest/gUnk_08125010.bin",
-    "start": 1200144,
-    "size": 4
-  },
-  {
     "path": "animations/gSpriteAnimations_Pinwheel_0.bin",
     "start": 1200232,
     "size": 20,

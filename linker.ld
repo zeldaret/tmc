@@ -1556,7 +1556,7 @@ SECTIONS {
         src/object/windTribeTeleporter.o(.rodata);
         src/object/cuccoMinigame.o(.rodata);
         src/object/gyorgBossObject.o(.rodata);
-        data/const/object/windcrest.o(.rodata);
+        src/object/windcrest.o(.rodata);
         src/object/objectBD.o(.rodata);
         src/object/pinwheel.o(.rodata);
         data/animations/object/pinwheel.o(.rodata);
