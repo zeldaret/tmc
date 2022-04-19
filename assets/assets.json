@@ -44377,36 +44377,6 @@
     "size": 24
   },
   {
-    "path": "playerItemSword/gUnk_08129068.bin",
-    "start": 1216616,
-    "size": 4
-  },
-  {
-    "path": "playerItemSword/gUnk_0812906C.bin",
-    "start": 1216620,
-    "size": 6
-  },
-  {
-    "path": "playerItemSword/gUnk_08129072.bin",
-    "start": 1216626,
-    "size": 28
-  },
-  {
-    "path": "playerItemSword/gUnk_0812908E.bin",
-    "start": 1216654,
-    "size": 8
-  },
-  {
-    "path": "playerItemSword/gUnk_08129096.bin",
-    "start": 1216662,
-    "size": 588
-  },
-  {
-    "path": "playerItemSword/gUnk_081292E2.bin",
-    "start": 1217250,
-    "size": 62
-  },
-  {
     "path": "animations/gSpriteAnimations_RockProjectile_0.bin",
     "start": 1218036,
     "size": 16,

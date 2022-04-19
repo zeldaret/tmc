@@ -1579,7 +1579,7 @@ SECTIONS {
         data/data_08128A38.o(.rodata);
         src/menu/pause_menu.o(.rodata);
         data/data_08128BF4.o(.rodata);
-        data/const/playerItem/playerItemSword.o(.rodata);
+        src/playerItem/playerItemSword.o(.rodata);
         data/projectile_functions.o(.rodata);
         src/projectile/darkNutSwordSlash.o(.rodata);
         src/projectile/rockProjectile.o(.rodata);
