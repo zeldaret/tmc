@@ -37599,11 +37599,6 @@
     "type": "animation"
   },
   {
-    "path": "cow/gUnk_08111938.bin",
-    "start": 1120568,
-    "size": 40
-  },
-  {
     "path": "animations/gSpriteAnimations_Goron_0.bin",
     "start": 1120964,
     "size": 5,
