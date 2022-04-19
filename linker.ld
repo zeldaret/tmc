@@ -122,8 +122,10 @@ SECTIONS {
         . = 0x00034CF0; gUnk_02034CF0 = .;
         . = 0x00034D30; gUnk_02034D30 = .;
         . = 0x00034DF0; gUnk_02034DF0 = .;
+        . = 0x0003508E; gUnk_0203508E = .;
         . = 0x000350E2; gUnk_020350E2 = .;
         . = 0x000350F0; gUnk_020350F0 = .;
+        . = 0x0003510E; gUnk_0203510E = .;
         . = 0x00035160; gUnk_02035160 = .;
         . = 0x000354B0; gUnk_020354B0 = .;
         . = 0x000354B4; gManagerCount = .;
@@ -1567,7 +1569,7 @@ SECTIONS {
         data/const/playerItem/playerItemShield.o(.rodata);
         data/const/playerItem/playerItemFireRodProjectile.o(.rodata);
 #ifdef DEMO_USA
-        data/const/demo.o(.rodata);
+        src/demo.o(.rodata);
 #endif
         src/staffroll.o(.rodata);
         data/data_08127280.o(.rodata);

@@ -44377,26 +44377,6 @@
     "size": 24
   },
   {
-    "path": "demoScreen/gUnk_08127C98_DEMO_USA.bin",
-    "variants": [
-      "DEMO_USA"
-    ],
-    "starts": {
-      "DEMO_USA": 1211544
-    },
-    "size": 48
-  },
-  {
-    "path": "demoScreen/gUnk_08127CC8_DEMO_USA.bin",
-    "variants": [
-      "DEMO_USA"
-    ],
-    "starts": {
-      "DEMO_USA": 1211592
-    },
-    "size": 8
-  },
-  {
     "path": "playerItemSword/gUnk_08129068.bin",
     "start": 1216616,
     "size": 4
