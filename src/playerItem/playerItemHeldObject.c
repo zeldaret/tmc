@@ -13,8 +13,6 @@
 #include "new_player.h"
 #include "player.h"
 
-extern void (*const gUnk_081320A8[])(Entity*);
-
 typedef struct {
     Entity base;
     u8 unk_68[4];
@@ -23,20 +21,65 @@ typedef struct {
 } PlayerItemHeldObjectEntity;
 extern bool32 ProcessMovement10(Entity*);
 
-extern const s8 gUnk_081320C4[];
+typedef struct {
+    u8 unk0;
+    u8 unk1;
+    u8 unk2;
+    u8 unk3;
+} struct_gUnk_081320B8;
 
 bool32 sub_080AD32C(PlayerItemHeldObjectEntity*);
 void sub_080AD27C(PlayerItemHeldObjectEntity*);
+void sub_080ACF2C(PlayerItemHeldObjectEntity*);
+void sub_080ACFCC(PlayerItemHeldObjectEntity*);
+void sub_080AD040(PlayerItemHeldObjectEntity*);
+void sub_080AD274(PlayerItemHeldObjectEntity*);
 u32 sub_0806F8DC(Entity*);
 
-extern const u16 gUnk_081320CC[];
-extern const u32 gUnk_081320D4[];
-
 void PlayerItemHeldObject(Entity* this) {
-    gUnk_081320A8[this->subAction](this);
+    static void (*const subActionFuncs[])(PlayerItemHeldObjectEntity*) = {
+        sub_080ACF2C,
+        sub_080ACFCC,
+        sub_080AD040,
+        sub_080AD274,
+    };
+    subActionFuncs[this->subAction]((PlayerItemHeldObjectEntity*)this);
 }
 
-ASM_FUNC("asm/non_matching/playerItem13/sub_080ACF2C.inc", void sub_080ACF2C(Entity* this))
+static const Hitbox3D gUnk_081320E4;
+
+void sub_080ACF2C(PlayerItemHeldObjectEntity* this) {
+    static const struct_gUnk_081320B8 gUnk_081320B8[] = { { 0, 2, 0xe8, 0 }, { 0, 5, 0xe0, 0 }, { 0, 5, 0xf2, 0 } };
+    PlayerItemHeldObjectEntity* child;
+    PlayerItemHeldObjectEntity* child2;
+    const struct_gUnk_081320B8* ptr;
+    u32 temp;
+
+    super->subAction++;
+    super->hitbox = (Hitbox*)&gUnk_081320E4;
+    child = (PlayerItemHeldObjectEntity*)super->child;
+    child2 = child;
+    if (child != NULL) {
+        super->x = (child->base).x;
+        super->y = (child->base).y;
+        super->z = (child->base).z;
+        super->collisionLayer = (child->base).collisionLayer;
+        super->carryFlags = (child->base).carryFlags;
+    } else {
+        child = this;
+        super->child = super;
+        super->action = 2;
+        ptr = gUnk_081320B8;
+        super->palette.b.b0 = temp = ptr[super->subtimer].unk1;
+        super->spriteSettings.draw = 1;
+        super->carryFlags = (int)child2;
+        super->spriteVramOffset = ptr[super->subtimer].unk2;
+        InitializeAnimation(super, ptr[super->subtimer].unk0);
+        sub_08078D60();
+    }
+    this->unk_6c = (child->base).kind;
+    this->unk_6e = (child->base).id;
+}
 
 void sub_080ACFCC(PlayerItemHeldObjectEntity* this) {
     Entity* child = super->child;
@@ -60,6 +103,9 @@ void sub_080ACFCC(PlayerItemHeldObjectEntity* this) {
 }
 
 void sub_080AD040(PlayerItemHeldObjectEntity* this) {
+    static const s8 gUnk_081320C4[] = {
+        0, -6, 6, 0, 0, 6, -6, 0,
+    };
     PlayerItemHeldObjectEntity* child;
     u32 tile;
     u32 tmp;
@@ -177,11 +223,18 @@ void sub_080AD040(PlayerItemHeldObjectEntity* this) {
     }
 }
 
-void sub_080AD274(Entity* this) {
+void sub_080AD274(PlayerItemHeldObjectEntity* this) {
     DeleteThisEntity();
 }
 
 void sub_080AD27C(PlayerItemHeldObjectEntity* this) {
+    static const u16 gUnk_081320CC[] = {
+        0x400,
+        0x200,
+        0x200,
+        0x200,
+    };
+    static const u32 gUnk_081320D4[] = { Q_16_16(0), Q_16_16(0.5), Q_16_16(1.25), Q_16_16(1.25) };
     u32 tmp;
     PlayerItemHeldObjectEntity* child = (PlayerItemHeldObjectEntity*)super->child;
     gNewPlayerEntity.unk_74 = NULL;
@@ -217,3 +270,5 @@ bool32 sub_080AD32C(PlayerItemHeldObjectEntity* this) {
     }
     return result;
 }
+
+static const Hitbox3D gUnk_081320E4 = { 0, 0, { 6, 3, 3, 6 }, 4, 4, 0x10, { 0, 0, 0 } };

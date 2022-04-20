@@ -45162,31 +45162,6 @@
     }
   },
   {
-    "path": "playerItemHeldObject/gUnk_081320B8.bin",
-    "start": 1253560,
-    "size": 12
-  },
-  {
-    "path": "playerItemHeldObject/gUnk_081320C4.bin",
-    "start": 1253572,
-    "size": 8
-  },
-  {
-    "path": "playerItemHeldObject/gUnk_081320CC.bin",
-    "start": 1253580,
-    "size": 8
-  },
-  {
-    "path": "playerItemHeldObject/gUnk_081320D4.bin",
-    "start": 1253588,
-    "size": 16
-  },
-  {
-    "path": "playerItemHeldObject/gUnk_081320E4.bin",
-    "start": 1253604,
-    "size": 12
-  },
-  {
     "offsets": {
       "DEMO_JP": -988
     }

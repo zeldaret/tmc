@@ -403,6 +403,7 @@ u32 sub_0807AC54(Entity*);
 void sub_080792D8(void);
 u32 sub_08078F74(Entity*);
 void sub_0807879C(Entity*);
+void sub_08078D60(void);
 void PlayerSetNormalAndCollide(void);
 bool32 PlayerTryDropObject(ItemBehavior* arg0, u32 unk);
 void InitItemGetSequence(u32, u32, u32);

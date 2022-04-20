@@ -1639,7 +1639,7 @@ SECTIONS {
         src/projectile/v3TennisBallProjectile.o(.rodata);
         src/playerItem/playerItemGust.o(.rodata);
         src/flagDebug.o(.rodata);
-        data/const/playerItem/playerItemHeldObject.o(.rodata);
+        src/playerItem/playerItemHeldObject.o(.rodata);
         src/title.o(.rodata);
         src/projectile.o(.rodata);
         src/playerItem/playerItemGustJar.o(.rodata);
