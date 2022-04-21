@@ -1567,7 +1567,7 @@ SECTIONS {
         src/playerItemDefinitions.o(.rodata);
         data/data_08125104.o(.rodata);
         data/const/playerItem/playerItemShield.o(.rodata);
-        data/const/playerItem/playerItemFireRodProjectile.o(.rodata);
+        src/playerItem/playerItemFireRodProjectile.o(.rodata);
 #ifdef DEMO_USA
         src/demo.o(.rodata);
 #endif

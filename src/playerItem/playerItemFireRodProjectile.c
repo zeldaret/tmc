@@ -15,22 +15,25 @@ typedef struct {
 
 extern u8 gUnk_08003E44;
 
-extern void (*const gUnk_08127270[])(FireRodProjectileEntity*);
-
-extern Hitbox gUnk_08127278;
+void sub_080A3084(FireRodProjectileEntity*);
 void sub_080A310C(FireRodProjectileEntity*);
 
 void PlayerItemFireRodProjectile(Entity* this) {
-    gUnk_08127270[this->action]((FireRodProjectileEntity*)this);
+    static void (*const actionFuncs[])(FireRodProjectileEntity*) = {
+        sub_080A3084,
+        sub_080A310C,
+    };
+    actionFuncs[this->action]((FireRodProjectileEntity*)this);
 }
 
 void sub_080A3084(FireRodProjectileEntity* this) {
+    static const Hitbox gUnk_08127278 = { 0, 0, { 4, 2, 2, 4 }, 6, 6 };
     super->spriteSettings.draw = 1;
     super->action = 0x01;
     CopyPosition(super->parent, super);
     if (super->type == 0) {
         super->collisionFlags = gPlayerEntity.collisionFlags + 1;
-        super->hitbox = &gUnk_08127278;
+        super->hitbox = (Hitbox*)&gUnk_08127278;
         super->speed = 0x400;
         if (super->collisionLayer == 0x02) {
             super->type2 = 0x01;
